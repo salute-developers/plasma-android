@@ -17,4 +17,4 @@ runs:
 
     -   name: Make Gradle executable
         shell: bash
-        run: chmod +x ./native/sdds-android/gradlew
+        run: chmod +x ./gradlew
