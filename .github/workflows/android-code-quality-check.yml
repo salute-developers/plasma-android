@@ -1,74 +1,67 @@
 name: 'Code Quality Check'
 
 on:
-    pull_request:
-        paths:
-            - 'native/sdds-android/**'
-    push:
-        paths:
-            - 'native/sdds-android/**'
+  pull_request:
+    branches:
+      - main
+      - develop
 
 concurrency:
-    # New commit on branch cancels running workflows of the same branch
-    group: ${{ github.workflow }}-${{ github.head_ref }}
-    cancel-in-progress: true
-
-
-defaults:
-    run:
-        working-directory: ./native/sdds-android
+  # New commit on branch cancels running workflows of the same branch
+  group: ${{ github.workflow }}-${{ github.head_ref }}
+  cancel-in-progress: true
 
 jobs:
-    lint:
-        name: Perform static analysis
-        runs-on: ubuntu-latest
-        steps:
-            -   name: Checkout the code
-                uses: actions/checkout@v4
+  lint:
+    name: Perform static analysis
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v4
 
-            -   name: Prepare environment
-                uses: ./.github/actions/prepare-android-env
+      - name: Prepare environment
+        uses: ./.github/actions/prepare-android-env
 
-            -   name: Run lint
-                run: ./gradlew lintDebugAll
+      - name: Run lint
+        run: ./gradlew lintDebugAll
 
-            -   name: Run detekt
-                run: ./gradlew detektAll
+      - name: Run detekt
+        run: ./gradlew detektAll
 
-            -   name: Run spotless
-                run: ./gradlew spotlessCheckAll
+      - name: Run spotless
+        run: ./gradlew spotlessCheckAll
 
-            -   name: Merge reports
-                if: success() || failure()
-                run: ./gradlew mergeReports
+      - name: Merge reports
+        if: success() || failure()
+        run: ./gradlew mergeReports
 
-            -   name: Upload static analysis reports
-                if: success() || failure()
-                uses: actions/upload-artifact@v2
-                with:
-                    name: static_analysis
-                    path: native/sdds-android/build/reports/
+      - name: Upload static analysis reports
+        if: success() || failure()
+        uses: actions/upload-artifact@v2
+        with:
+          name: static_analysis
+          path: build/reports/
 
-    unit-test:
-        name: Perform Unit Testing
-        runs-on: ubuntu-latest
-        steps:
-            -   name: Checkout the code
-                uses: actions/checkout@v4
+  unit-test:
+    name: Perform Unit Testing
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v4
 
-            -   name: Prepare environment
-                uses: ./.github/actions/prepare-android-env
+      - name: Prepare environment
+        uses: ./.github/actions/prepare-android-env
 
-            -   name: Run tests
-                run: ./gradlew test
+      - name: Run tests
+        run: ./gradlew test
 
-            -   name: Merge test reports
-                if: success() || failure()
-                run: ./gradlew copyTestsReports
+      - name: Merge test reports
+        if: success() || failure()
+        run: ./gradlew copyTestsReports
 
-            -   name: Upload test reports
-                if: success() || failure()
-                uses: actions/upload-artifact@v4
-                with:
-                    name: test-reports.zip
-                    path: native/sdds-android/build/reports/test-reports.zip
+      - name: Upload test reports
+        if: success() || failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-reports.zip
+          path: build/reports/test-reports.zip
