@@ -10,7 +10,7 @@ import io.gitlab.arturbosch.detekt.api.Severity
 import org.jetbrains.kotlin.com.intellij.psi.PsiComment
 
 /**
- * Запрещено использовать TODO комментариии без указания jira тикета, в рамках которого он будет исправлен и удален
+ * Запрещено использовать TODO комментариии без указания issue, в рамках которого он будет исправлен и удален
  * @author Малышев Александр on 20.02.2024
  */
 internal class TodoPatternRule(config: Config = Config.empty) : Rule(config) {
@@ -32,17 +32,7 @@ internal class TodoPatternRule(config: Config = Config.empty) : Rule(config) {
             val codeSmell = CodeSmell(
                 issue = issue,
                 entity = Entity.from(comment),
-                message = "Заполните номер тикета, например: // TODO JIRAPROJECT-000 комментарий",
-            )
-            report(codeSmell)
-            return
-        }
-
-        if (!text.matches(todoPatternWithComment)) {
-            val codeSmell = CodeSmell(
-                issue = issue,
-                entity = Entity.from(comment),
-                message = "Заполните комментарий, например: // TODO JIRAPROJECT-000 комментарий",
+                message = MESSAGE,
             )
             report(codeSmell)
             return
@@ -50,9 +40,10 @@ internal class TodoPatternRule(config: Config = Config.empty) : Rule(config) {
     }
 
     private companion object {
-        const val jiraTicketPattern = "[A-Z]{2,}-\\d+"
+        const val issuePattern = "[A-Z]{2,}-\\d+"
         val todoCommentPattern = Regex("//\\s*todo.*", RegexOption.IGNORE_CASE)
-        val todoPattern = Regex("// TODO $jiraTicketPattern.*")
-        val todoPatternWithComment = Regex("// TODO $jiraTicketPattern .*")
+        val todoPattern = Regex("// TODO: $issuePattern.*")
+        const val MESSAGE = "Укажите issue, например: " +
+            "// TODO: https://github.com/salute-developers/plasma/issues/0"
     }
 }

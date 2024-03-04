@@ -1,13 +1,26 @@
-import org.gradle.kotlin.dsl.support.zipTo
 
 plugins {
     id("base")
+    id("io.github.gradle-nexus.publish-plugin")
 }
 
 allprojects {
     repositories {
         google()
         mavenCentral()
+    }
+}
+
+nexusPublishing {
+    repositories {
+        sonatype {
+            username.set(System.getenv("OSS_USERNAME"))
+            password.set(System.getenv("OSS_PASSWORD"))
+            stagingProfileId.set(System.getenv("OSS_STAGING_PROFILE_ID"))
+
+            nexusUrl.set(uri("https://s01.oss.sonatype.org/service/local/"))
+            snapshotRepositoryUrl.set(uri("https://s01.oss.sonatype.org/content/repositories/snapshots/"))
+        }
     }
 }
 
@@ -69,80 +82,4 @@ tasks.register("lintDebugAll") {
         .includedBuilds
         .map { it.task(":lintDebugAll") }
     dependsOn(testTasks, includedTestTasks)
-}
-
-tasks.register("mergeReports") {
-    val includedMergeTasks = gradle
-        .includedBuilds
-        .map { it.task(":mergeReports") }
-    dependsOn(includedMergeTasks)
-
-    doLast {
-        mergeReports("lint-results-debug.txt")
-        mergeReports("detekt.txt")
-    }
-}
-
-tasks.register("copyTestsReports") {
-    val includedCopyTasks = gradle
-        .includedBuilds
-        .map { it.task(":copyTestsReports") }
-    dependsOn(includedCopyTasks)
-    finalizedBy("packageTestReports")
-
-    doLast {
-        subprojects.forEach {
-            val reportDir = file("${it.projectDir.path}/build/reports/tests/")
-            if (reportDir.exists()) {
-                copyTestReportToRoot(it.name, reportDir)
-            }
-        }
-
-        gradle.includedBuilds.forEach {
-            val reportDir = file("${it.projectDir.path}/build/reports/tests/")
-            if (reportDir.exists()) {
-                copyTestReportToRoot(it.name, reportDir)
-            }
-        }
-    }
-}
-
-tasks.register<Zip>("packageTestReports") {
-    archiveFileName.set("test-reports.zip")
-    destinationDirectory.set(layout.buildDirectory.dir("reports"))
-
-    from(layout.buildDirectory.dir("reports/tests"))
-}
-
-fun copyTestReportToRoot(projectName: String, reportDir: File) {
-    copy {
-        val destination = layout.buildDirectory.dir("reports/tests/$projectName/")
-        println("copying $reportDir to ${destination.get()}")
-        from(reportDir)
-        into(destination)
-    }
-}
-
-fun mergeReports(fileName: String) {
-    val subprojectsReports = subprojects.map {
-        file("${it.projectDir.path}/build/reports/$fileName")
-    }.filter { it.exists() }
-
-    val includeBuildReports = gradle.includedBuilds.map {
-        file("${it.projectDir.path}/build/reports/$fileName")
-    }.filter { it.exists() }
-
-    val allReports = files(subprojectsReports, includeBuildReports)
-        .joinToString {
-            val text = it.readText()
-            if (text.isNotBlank()) {
-                "${it.path}\n" + it.readText() + "\n\n"
-            } else ""
-        }
-    val reportsDir = file("${projectDir.path}/build/reports/")
-    file("${reportsDir.path}/$fileName").apply {
-        if (!reportsDir.exists()) reportsDir.mkdirs()
-        if (!exists()) createNewFile()
-        writeText(allReports)
-    }
 }

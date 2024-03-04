@@ -1,0 +1,38 @@
+name: 'Build Debug'
+
+on:
+  pull_request:
+    branches:
+      - develop
+
+concurrency:
+  # New commit on branch cancels running workflows of the same branch
+  group: ${{ github.workflow }}-${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    name: Build debug artifacts
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v4
+
+      - name: Prepare environment
+        uses: ./.github/actions/prepare-android-env
+
+      - name: Extract branch name
+        id: extract_branch
+        shell: bash
+        run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
+
+      - name: Run assembleDebugAll
+        run: ./gradlew assembleDebugAll --info -PbranchName=${{ steps.extract_branch.outputs.branch }}
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: artifacts.zip
+          path: | 
+            **/build/outputs/apk/*/*.apk
+            **/build/outputs/aar/*.aar

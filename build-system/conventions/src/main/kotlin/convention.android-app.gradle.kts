@@ -1,3 +1,5 @@
+import com.android.build.gradle.internal.api.BaseVariantOutputImpl
+import utils.versionInfo
 import utils.withVersionCatalogs
 
 plugins {
@@ -9,19 +11,34 @@ plugins {
 }
 
 android {
+    val vInfo = versionInfo()
     withVersionCatalogs {
         compileSdk = versions.global.compileSdk.get().toInt()
 
         defaultConfig {
+            applicationVariants.all {
+                outputs.all {
+                    val output = this as BaseVariantOutputImpl
+                    output.outputFileName = output.outputFileName
+                        .replace(".apk", "-${vInfo.fullArtifactName}.apk")
+                }
+            }
             minSdk = versions.global.minSdk.get().toInt()
             targetSdk = versions.global.targetSdk.get().toInt()
             testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+            versionCode = vInfo.code
+            versionName = vInfo.name
+            versionNameSuffix = vInfo.nameSuffix
+
         }
 
         kotlinOptions.jvmTarget = versions.global.jvmTarget.get()
     }
 
     buildTypes {
+        debug {
+            applicationIdSuffix = vInfo.idSuffix
+        }
         release {
             isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
@@ -31,6 +48,13 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    lint {
+        xmlReport = false
+        textReport = false
+        sarifReport = false
+        htmlReport = true
     }
 }
 
