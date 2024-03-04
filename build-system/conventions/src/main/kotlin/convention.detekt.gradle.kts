@@ -54,7 +54,8 @@ tasks.withType<Detekt>().configureEach {
         }
 
         html {
-            required.set(false)
+            required.set(true)
+            outputLocation.set(project.file("build/reports/detekt.html"))
         }
 
         md {
@@ -66,8 +67,7 @@ tasks.withType<Detekt>().configureEach {
         }
 
         txt {
-            required.set(true)
-            outputLocation.set(project.file("build/reports/detekt.txt"))
+            required.set(false)
         }
     }
     exclude("**/resources/**", "**/build/**")
