@@ -14,7 +14,10 @@ dependencies {
     implementation(libs.base.gradle.paparazzi)
     implementation(libs.base.gradle.detekt)
     implementation(libs.base.gradle.spotless)
+    implementation(libs.base.gradle.nexusPublish)
 
     implementation(files(libs.javaClass.superclass.protectionDomain.codeSource.location))
+    testImplementation(libs.base.test.unit.jUnit)
+    testImplementation(libs.base.test.unit.mockk)
 }
 

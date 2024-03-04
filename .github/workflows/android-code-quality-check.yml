@@ -31,16 +31,14 @@ jobs:
       - name: Run spotless
         run: ./gradlew spotlessCheckAll
 
-      - name: Merge reports
-        if: success() || failure()
-        run: ./gradlew mergeReports
-
       - name: Upload static analysis reports
         if: success() || failure()
         uses: actions/upload-artifact@v2
         with:
-          name: static_analysis
-          path: build/reports/
+          name: static_analysis.zip
+          path: |
+            **/build/reports/**
+            !**/build/reports/tests/**
 
   unit-test:
     name: Perform Unit Testing
@@ -55,13 +53,10 @@ jobs:
       - name: Run tests
         run: ./gradlew test
 
-      - name: Merge test reports
-        if: success() || failure()
-        run: ./gradlew copyTestsReports
-
       - name: Upload test reports
         if: success() || failure()
         uses: actions/upload-artifact@v4
         with:
           name: test-reports.zip
-          path: build/reports/test-reports.zip
+          path: | 
+            **/build/reports/tests/**

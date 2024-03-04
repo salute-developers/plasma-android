@@ -25,6 +25,8 @@ test-androidX-rules = "1.5.0"
 test-androidX-runner = "1.5.2"
 
 plugin-androidCacheFix = "3.0.1"
+plugin-gradleNexusPublish = "1.3.0"
+plugin-gradlePluginPublish = "1.2.1"
 
 [libraries]
 base-androidX-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "androidX-appcompat" }
@@ -62,6 +64,7 @@ base-gradle-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", ver
 base-gradle-paparazzi = { module = "app.cash.paparazzi:paparazzi-gradle-plugin", version.ref = "test-paparazzi" }
 base-gradle-spotless= { module = "com.diffplug.spotless:spotless-plugin-gradle", version.ref = "staticAnalysis-spotless" }
 base-gradle-cacheFix= { module = "org.gradle.android.cache-fix:org.gradle.android.cache-fix.gradle.plugin", version.ref = "plugin-androidCacheFix" }
+base-gradle-nexusPublish= { module = "io.github.gradle-nexus:publish-plugin", version.ref = "plugin-gradleNexusPublish" }
 
 
 [plugins]
@@ -72,6 +75,8 @@ kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "global-kotlin" }
 paparazzi = { id = "app.cash.paparazzi", version.ref = "test-paparazzi" }
 jgp = { id = "java-gradle-plugin" }
 android-cache-fix = { id = "org.gradle.android.cache-fix", version.ref= "plugin-androidCacheFix" }
+gradleNexus-publish = { id = "io.github.gradle-nexus.publish-plugin", version.ref = "plugin-gradleNexusPublish" }
+gradlePluginPublish = { id = "com.gradle.plugin-publish", version.ref="plugin-gradlePluginPublish"}
 
 convention-detekt = { id = "convention.detekt" }
 convention-android-app = { id = "convention.android-app" }

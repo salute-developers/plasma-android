@@ -5,15 +5,22 @@ import java.io.File
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.the
 
+/**
+ * Находит общий для всех проектов файл detekt-baseline.
+ * Если поиск неудачный, возвращает файл специфичный для проекта
+ */
 fun findDetektBaselineAll(project: Project): File =
     try {
         val bs = project.gradle.includedBuild("build-system")
         File("${bs.projectDir}/.detekt/detekt-baseline-all.xml")
     } catch (e: Throwable) {
-        project.logger.warn("${project.displayName}: fallback to use project-specific 'config/detekt-baseline.xml'")
+        project.logger.warn("${project.displayName}: fallback to use project-specific '.detekt/detekt-baseline.xml'")
         File("${project.projectDir}/.detekt/detekt-baseline.xml")
     }
 
+/**
+ * Предоставляет скоуп для доступа к каталогу версий
+ */
 inline fun Project.withVersionCatalogs(block: LibrariesForLibs.() -> Unit) {
     // если тут не поставить эту проверку,
     // то в момент компиляции конвеншенов будем получать ошибку о том что такой extension не зарегистрирован
@@ -23,3 +30,28 @@ inline fun Project.withVersionCatalogs(block: LibrariesForLibs.() -> Unit) {
         block(libs)
     }
 }
+
+/**
+ * Производит поиск свойства [propertyName] во всех файла gradle.properties,
+ * если не находит - возвращает [default]
+ */
+fun <Def> Project.findPropertyOrDefault(propertyName: String, default: Def) =
+    findProperty(propertyName) ?: default
+
+/**
+ * Возвращает true, если текущий проект - проект с плагином "com.android.app",
+ * иначе false
+ */
+fun Project.isAndroidApp(): Boolean =
+    the<LibrariesForLibs>().let { libs ->
+        plugins.hasPlugin(libs.plugins.android.app.get().pluginId)
+    }
+
+/**
+ * Возвращает true, если текущий проект - проект с плагином "com.android.lib",
+ * иначе false
+ */
+fun Project.isAndroidLib(): Boolean =
+    the<LibrariesForLibs>().let { libs ->
+        plugins.hasPlugin(libs.plugins.android.lib.get().pluginId)
+    }
