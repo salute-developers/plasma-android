@@ -4,6 +4,7 @@ import utils.versionInfo
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     `java-gradle-plugin`
+    `kotlin-dsl`
     alias(libs.plugins.kotlin.jvm)
     alias(libs.plugins.gradlePluginPublish)
     id("convention.detekt")
@@ -29,6 +30,12 @@ gradlePlugin {
             tags.add("designSystem")
             implementationClass = "com.sdds.plugin.themebuilder.ThemeBuilderPlugin"
         }
+    }
+}
+
+publishing {
+    repositories {
+        mavenLocal()
     }
 }
 

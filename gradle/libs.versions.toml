@@ -77,8 +77,4 @@ jgp = { id = "java-gradle-plugin" }
 android-cache-fix = { id = "org.gradle.android.cache-fix", version.ref= "plugin-androidCacheFix" }
 gradleNexus-publish = { id = "io.github.gradle-nexus.publish-plugin", version.ref = "plugin-gradleNexusPublish" }
 gradlePluginPublish = { id = "com.gradle.plugin-publish", version.ref="plugin-gradlePluginPublish"}
-
-convention-detekt = { id = "convention.detekt" }
-convention-android-app = { id = "convention.android-app" }
-convention-android-lib = { id = "convention.android-lib" }
-convention-spotless= { id = "convention.spotless" }
+themebuilder = { id = "io.github.salute-developers.theme-builder-plugin" }
