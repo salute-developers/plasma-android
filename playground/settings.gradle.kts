@@ -15,11 +15,10 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "sdds-core"
-
+rootProject.name = "playground"
 includeBuild("../build-system")
+includeBuild("../sdds-core")
 include(
-    ":plugin_theme_builder",
-    ":uikit",
-    ":uikit-compose"
+    ":sandbox",
+    ":theme-builder",
 )

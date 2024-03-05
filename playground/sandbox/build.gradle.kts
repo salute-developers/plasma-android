@@ -5,16 +5,16 @@ plugins {
 }
 
 android {
-    namespace = "com.sdds.sandbox"
+    namespace = "com.sdds.playground.sandbox"
 
     defaultConfig {
-        applicationId = "com.sdds.sandbox"
+        applicationId = "com.sdds.playground.sandbox"
     }
 }
 
 dependencies {
-    implementation(project(":uikit"))
-    implementation(project(":uikit-compose"))
+    implementation("sdds-core:uikit")
+    implementation("sdds-core:uikit-compose")
 
     implementation(libs.base.androidX.core)
     implementation(libs.base.androidX.appcompat)
