@@ -1,0 +1,139 @@
+{
+    "name" : "theme-name",
+    "version" : "0.0.2",
+    "platforms": ["ios", "android", "web"],
+    "colors" : {
+        "category": ["text", "surfaces", "backgrounds"],
+        "mode" : ["dark", "light"], 
+        "subcategory" : ["on-dark", "on-light", "default", "inverse"],
+        "naming": "subcategory.category.name",
+        "tokens" : [
+            {
+                "displayName": "surfaceAccent",
+                "name": "inverse.surface.accent",
+                "platform": "ios",
+                "tags" : [
+                    "dark",
+                    "surface",
+                    "inverse"
+                ],
+                "value" : {
+                    "type": "angular-gradient",
+                    "locations": [ 0, 0.3, 0.7, 1 ],
+                    "colors" : ["#000", "#fff"],
+                    "startAngle": 0,
+                    "endAngle" : 360
+                },
+                "description": "Цвет текста",
+                "enabled": true
+            }, 
+            {
+                "displayName": "surfaceTransparentAccent",
+                "name": "on-light.surface.transparent-accent",
+                "platform": "ios",
+                "tags" : [
+                    "dark",
+                    "surface",
+                    "on-light"
+                ],
+                "value" : {
+                    "origin": "#FFFFFF1F"
+                },
+                "description": "Прозрачная акцентная поверхность",
+                "enabled": true
+            }, 
+            {
+                "displayName": "textAccent",
+                "name": "on-dark.text.accent",
+                "platform": "web",
+                "tags": [
+                    "dark",
+                    "on-dark",
+                    "text"
+                ],
+                "value" : "linear-gradient(122.62deg, #4817C1 0%, #C505D6 100%)",
+                "description": "Цвет текста",
+                "enabled": true
+            }
+        ]
+    },
+
+    "shadows": {
+        "directions": ["up", "down"],
+        "types": ["hard", "soft"],
+        "sizes": ["l", "m", "s", "xs", "xxs"],
+        "tokens" : [
+            {
+                "displayName": "downHardL",
+                "name": "down.hard.l",
+                "tags": [
+                    "down",
+                    "hard",
+                    "l"
+                ],
+                "value": {
+                    "color": "#000",
+                    "elevation": 16
+                },
+                "description": "тень android",
+                "enabled": true
+            },
+            {
+                "name": "downHardL",
+                "tags": [
+                    "down",
+                    "hard",
+                    "l",
+                    "ios"
+                ],
+                "value": {
+                    "color": "#000",
+                    "offset": { "width": 0, "height": 2 },
+                    "opacity": 0.15,
+                    "radius": 1.5
+                },
+                "description": "Тень ios",
+                "enabled": true
+            },
+            {
+                "name": "downHardL",
+                "tags": [
+                    "down",
+                    "hard",
+                    "l",
+                    "web"
+                ],
+                "value": "0px 6px 12px rgba(0, 0, 0, 0.12)",
+                "description": "Тень web",
+                "enabled": true
+            }
+        ]
+    },
+
+    "typography": {
+        "sizes": ["l", "m", "s", "xs", "xxs"],
+        "type": ["display", "body", "text", "h1", "h2", "h3", "h4", "h5"],
+        "screen": ["sceen-l", "screen-m", "screen-s"],
+        "tokens": [
+           {
+                "displayName": "displayL",
+                "name": "screen-l.display.l",
+                "platform": "android",
+                "tags": [
+                    "screen-l",
+                    "display",
+                    "l"
+                ],
+                "value": {
+                    "font-family": "#000",
+                    "fontSize": 16,
+                    "lineSpacing": 0.02
+                },
+                "description": "шрифт android",
+                "enabled": true
+            }
+        ] 
+    }
+}
+
+                
