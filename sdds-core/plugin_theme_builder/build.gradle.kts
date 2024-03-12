@@ -45,6 +45,7 @@ publishing {
 dependencies {
     implementation(libs.base.kotlin.serialization.json)
     implementation(libs.base.gradle.android)
+    implementation(libs.base.kotlin.poet)
     testImplementation(libs.base.test.unit.jUnit)
     testImplementation(libs.base.test.unit.mockk)
 }

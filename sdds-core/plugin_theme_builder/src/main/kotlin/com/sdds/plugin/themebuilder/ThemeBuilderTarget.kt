@@ -22,5 +22,17 @@ enum class ThemeBuilderTarget(val value: String) {
                 else -> ALL
             }
         }
+
+        /**
+         * Возвращает true если текущий таргет - Compose или все фреймворки
+         */
+        val ThemeBuilderTarget.isComposeOrAll: Boolean
+            get() = this == COMPOSE || this == ALL
+
+        /**
+         * Возвращает true если текущий таргет - ViewSystem или все фреймворки
+         */
+        val ThemeBuilderTarget.isViewSystemOrAll: Boolean
+            get() = this == VIEW_SYSTEM || this == ALL
     }
 }
