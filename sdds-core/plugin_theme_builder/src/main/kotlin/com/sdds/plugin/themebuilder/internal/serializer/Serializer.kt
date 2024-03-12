@@ -13,11 +13,14 @@ import kotlinx.serialization.modules.polymorphic
 import kotlinx.serialization.modules.subclass
 
 /**
- *
+ * Объект сериализации
  * @author Малышев Александр on 07.03.2024
  */
 object Serializer {
 
+    /**
+     * Экземпляр сериализации json
+     */
     val instance: Json = Json {
         ignoreUnknownKeys = true
         serializersModule = SerializersModule {
