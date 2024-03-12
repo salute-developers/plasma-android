@@ -17,10 +17,14 @@ import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
 
 /**
- *
+ * Сериализатор-фильтр токенов для платформы Android
  * @author Малышев Александр on 05.03.2024
  */
-class FilteringListSerializer<E>(private val elementSerializer: KSerializer<E>) : KSerializer<List<E>> {
+internal object ExcludeNonAndroidPlatformTokens : KSerializer<List<Token<TokenValue>>> by FilteringListSerializer(
+    PolymorphicSerializer(Token::class),
+)
+
+private class FilteringListSerializer<E>(private val elementSerializer: KSerializer<E>) : KSerializer<List<E>> {
     private val listSerializer = ListSerializer(elementSerializer)
     override val descriptor: SerialDescriptor = listSerializer.descriptor
 
@@ -45,10 +49,5 @@ class FilteringListSerializer<E>(private val elementSerializer: KSerializer<E>) 
             null
         }
         return TokenPlatform.fromString(platformValue)
-
     }
 }
-
-object ExcludeNonAndroidPlatformTokens : KSerializer<List<Token<TokenValue>>> by FilteringListSerializer(
-    PolymorphicSerializer(Token::class)
-)

@@ -2,43 +2,90 @@ package com.sdds.plugin.themebuilder.internal.token
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import org.gradle.configurationcache.extensions.capitalized
 
 /**
- *
+ * Токен
  * @author Малышев Александр on 05.03.2024
  */
 @Serializable
-abstract class Token<out Value : TokenValue> {
+internal abstract class Token<out Value : TokenValue> {
+    /**
+     * Название для отображения
+     */
     abstract val displayName: String
+
+    /**
+     * Техническое название токена
+     */
     abstract val name: String
+
+    /**
+     * Целевая платформа
+     */
     abstract val platform: TokenPlatform
+
+    /**
+     * Тэги для поиска
+     */
     abstract val tags: Set<String>
+
+    /**
+     * Значение токена
+     */
     abstract val value: Value?
+
+    /**
+     * Флаг доступности токена
+     */
     abstract val enabled: Boolean
+
+    /**
+     * Описание токена
+     */
     abstract val description: String
 
+    /**
+     * Название токена для xml-файлов
+     */
     open val xmlName: String by lazy {
-        name.toSnakeCase()
+        name.replace("[.-]+".toRegex(), "_")
+    }
+
+    /**
+     * Название токена для kt-файлов
+     */
+    open val ktName: String by lazy {
+        name.split(".", "-").joinToString("") { it.capitalized() }
     }
 }
 
-fun String.toSnakeCase(): String {
-    return replace("[.-]+".toRegex(), "_")
-}
+/**
+ * Интерфейс-маркер для значения токена
+ */
+internal interface TokenValue
 
-interface TokenValue
-
+/**
+ * Целевая платформа токена
+ */
 @Serializable
 enum class TokenPlatform {
     @SerialName("android")
     ANDROID,
+
     @SerialName("web")
     WEB,
+
     @SerialName("ios")
-    IOS;
+    IOS,
+
+    ;
 
     companion object {
 
+        /**
+         * Возвращает [TokenPlatform] по значению [value]
+         */
         fun fromString(value: String?): TokenPlatform? =
             when (value) {
                 "android" -> ANDROID

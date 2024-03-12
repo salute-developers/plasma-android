@@ -29,12 +29,14 @@
             ],
             "type": "sweep-gradient",
             "value" : {
-                "locations": [ 0, 0.3, 0.7, 1 ],
+                "locations": [ 0, 0.7, 1 ],
                 "colors" : ["#000", "#fff"],
                 "startAngle": 0,
-                "endAngle" : 360
+                "endAngle" : 360,
+                "centerX": 0.5,
+                "centerY": 0.5
             },
-            "description": "Цвет текста",
+            "description": "Акцентный sweep градиент поверхности",
             "enabled": true
         },
         {
@@ -51,6 +53,46 @@
                 "origin": "#FFFFFF1F"
             },
             "description": "Прозрачная акцентная поверхность",
+            "enabled": true
+        },
+        {
+            "displayName": "surfaceTertiary",
+            "name": "light.on-dark.surface.tertiary",
+            "platform": "android",
+            "tags": [
+                "light",
+                "on-dark",
+                "surface",
+                "tertiary"
+            ],
+            "type": "linear-gradient",
+            "value" : {
+                "locations": [ 0, 0.7, 1 ],
+                "colors" : ["#000", "#fff"],
+                "angle": 90
+            },
+            "description": "Третичный линейный градиент поверхности",
+            "enabled": true
+        },
+        {
+            "displayName": "surfaceSecondary",
+            "name": "light.on-dark.surface.secondary",
+            "platform": "android",
+            "tags": [
+                "light",
+                "on-dark",
+                "text",
+                "gradient"
+            ],
+            "type": "radial-gradient",
+            "value" : {
+                "locations": [ 0, 0.7, 1 ],
+                "colors" : ["#000", "#fff"],
+                "radius": 0.8,
+                "centerX": 0.5,
+                "centerY": 0.5
+            },
+            "description": "Вторичный радиальный градиент поверхности",
             "enabled": true
         },
         {
@@ -160,6 +202,27 @@
                 "textSize": 96,
                 "letterSpacing": 0.02,
                 "lineHeight": 96
+            },
+            "description": "шрифт android",
+            "enabled": true
+        },
+        {
+            "displayName": "displayL",
+            "name": "screen-s.display.l",
+            "platform": "android",
+            "tags": [
+                "screen-s",
+                "display",
+                "l"
+            ],
+            "type": "typography",
+            "value": {
+                "fontFamily": "sans",
+                "fontWeight": 300,
+                "fontStyle": "normal",
+                "textSize": 72,
+                "letterSpacing": 0.02,
+                "lineHeight": 72
             },
             "description": "шрифт android",
             "enabled": true
