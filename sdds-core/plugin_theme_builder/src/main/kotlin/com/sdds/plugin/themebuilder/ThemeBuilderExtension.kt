@@ -14,8 +14,18 @@ interface ThemeBuilderExtension {
     val themeUrl: Property<String>
 
     /**
+     * Название пакета для генерируемых файлов kotlin
+     */
+    val packageName: Property<String>
+
+    /**
      * Целевой фреймворк для которого будет сгенерирована тема.
      * @see ThemeBuilderTarget
      */
-    val target: Property<String>
+    val target: Property<ThemeBuilderTarget>
+
+    /**
+     * Префикс для названий ресурсов токенов
+     */
+    val resourcesPrefix: Property<String>
 }

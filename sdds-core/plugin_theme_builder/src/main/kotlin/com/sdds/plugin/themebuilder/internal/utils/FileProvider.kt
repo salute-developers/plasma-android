@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.utils
 
 import java.io.File
+import java.io.FileWriter
+import java.io.Writer
 
 /**
  * Провайдер имен файлов для токенов
@@ -53,4 +55,9 @@ object FileProvider {
     fun File.typographyXmlFile(
         qualifier: String = "",
     ): File = File("${valuesDir(qualifier).path}/typography.xml")
+
+    /**
+     * Возвращает экземпляр [FileWriter] для текущего файла
+     */
+    fun File.fileWriter(): Writer = FileWriter(this)
 }

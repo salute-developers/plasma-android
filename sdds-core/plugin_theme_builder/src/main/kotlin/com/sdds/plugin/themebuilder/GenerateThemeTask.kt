@@ -2,6 +2,8 @@ package com.sdds.plugin.themebuilder
 
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.GeneratorFactory
+import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
+import com.sdds.plugin.themebuilder.internal.factory.XmlDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.serializer.Serializer
 import com.sdds.plugin.themebuilder.internal.token.ColorToken
 import com.sdds.plugin.themebuilder.internal.token.LinearGradientToken
@@ -10,10 +12,14 @@ import com.sdds.plugin.themebuilder.internal.token.ShadowToken
 import com.sdds.plugin.themebuilder.internal.token.SweepGradientToken
 import com.sdds.plugin.themebuilder.internal.token.Theme
 import com.sdds.plugin.themebuilder.internal.token.TypographyToken
+import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
+import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import kotlinx.serialization.decodeFromString
 import org.gradle.api.DefaultTask
 import org.gradle.api.file.DirectoryProperty
 import org.gradle.api.file.RegularFileProperty
+import org.gradle.api.provider.Property
+import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.InputFile
 import org.gradle.api.tasks.OutputDirectory
 import org.gradle.api.tasks.TaskAction
@@ -31,6 +37,24 @@ abstract class GenerateThemeTask : DefaultTask() {
     abstract val themeFile: RegularFileProperty
 
     /**
+     * Название пакета для файлов kotlin
+     */
+    @get:Input
+    abstract val packageName: Property<String>
+
+    /**
+     * Префикс для названий ресурсов токенов
+     */
+    @get:Input
+    abstract val resourcesPrefix: Property<String>
+
+    /**
+     * Целевой фреймворк
+     */
+    @get:Input
+    abstract val target: Property<ThemeBuilderTarget>
+
+    /**
      * Директория для сохранения kt-файлов токенов
      */
     @get:OutputDirectory
@@ -42,20 +66,23 @@ abstract class GenerateThemeTask : DefaultTask() {
     @get:OutputDirectory
     abstract val outputResDir: DirectoryProperty
 
-    private val dimensAggregator by lazy { DimensAggregator() }
-    private val generatorFactory by lazy {
+    private val dimensAggregator by unsafeLazy { DimensAggregator() }
+    private val generatorFactory by unsafeLazy {
         GeneratorFactory(
             outputDir.get().asFile,
             outputResDir.get().asFile,
-            ThemeBuilderTarget.ALL,
+            target.get(),
             dimensAggregator,
+            XmlDocumentBuilderFactory(resourcesPrefix.get()),
+            KtFileBuilderFactory(packageName.get()),
+            ResourceReferenceProvider(resourcesPrefix.get()),
         )
     }
 
-    private val colorGenerator by lazy { generatorFactory.createColorGenerator() }
-    private val gradientGenerator by lazy { generatorFactory.createGradientGenerator() }
-    private val typographyGenerator by lazy { generatorFactory.createTypographyGenerator() }
-    private val dimensGenerator by lazy { generatorFactory.createDimensGenerator() }
+    private val colorGenerator by unsafeLazy { generatorFactory.createColorGenerator() }
+    private val gradientGenerator by unsafeLazy { generatorFactory.createGradientGenerator() }
+    private val typographyGenerator by unsafeLazy { generatorFactory.createTypographyGenerator() }
+    private val dimensGenerator by unsafeLazy { generatorFactory.createDimensGenerator() }
 
     /**
      * Генерирует файлы с токенами

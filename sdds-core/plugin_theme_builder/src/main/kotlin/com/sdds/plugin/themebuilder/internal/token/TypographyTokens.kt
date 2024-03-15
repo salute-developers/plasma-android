@@ -1,5 +1,6 @@
 package com.sdds.plugin.themebuilder.internal.token
 
+import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.gradle.configurationcache.extensions.capitalized
@@ -37,17 +38,22 @@ internal data class TypographyToken(
     /**
      * @see Token.xmlName
      */
-    override val xmlName: String by lazy {
+    override val xmlName: String by unsafeLazy {
         val nameTokens = name.split(".")
         val nameTokensExcludeScreen = nameTokens.subList(1, nameTokens.size)
         nameTokensExcludeScreen.joinToString("") { it.capitalized() }
     }
 
     /**
+     * @see Token.ktName
+     */
+    override val ktName: String by unsafeLazy { xmlName }
+
+    /**
      * Класс размера экрана
      * @see ScreenClass
      */
-    val screenClass: ScreenClass by lazy {
+    val screenClass: ScreenClass by unsafeLazy {
         when (name.split(".").first()) {
             "screen-s" -> ScreenClass.SMALL
             "screen-m" -> ScreenClass.MEDIUM
