@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <style name="Thmbldr.Typography"/>
+    <!--шрифт android-->
+    <style name="Thmbldr.Typography.DisplayL">
+        <item name="android:textAppearance">@style/Thmbldr.TextAppearance.DisplayL</item>
+    </style>
+</resources>

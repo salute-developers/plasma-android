@@ -31,7 +31,6 @@ kotlinPoet = "1.12.0"
 plugin-androidCacheFix = "3.0.1"
 plugin-gradleNexusPublish = "1.3.0"
 plugin-gradlePluginPublish = "1.2.1"
-material = "1.11.0"
 
 [libraries]
 base-android-material = { module = "com.google.android.material:material", version.ref = "android-material" }
@@ -73,8 +72,6 @@ base-gradle-paparazzi = { module = "app.cash.paparazzi:paparazzi-gradle-plugin",
 base-gradle-spotless= { module = "com.diffplug.spotless:spotless-plugin-gradle", version.ref = "staticAnalysis-spotless" }
 base-gradle-cacheFix= { module = "org.gradle.android.cache-fix:org.gradle.android.cache-fix.gradle.plugin", version.ref = "plugin-androidCacheFix" }
 base-gradle-nexusPublish= { module = "io.github.gradle-nexus:publish-plugin", version.ref = "plugin-gradleNexusPublish" }
-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
-
 
 [plugins]
 android-lib = { id = "com.android.library", version.ref = "global-gradle" }
