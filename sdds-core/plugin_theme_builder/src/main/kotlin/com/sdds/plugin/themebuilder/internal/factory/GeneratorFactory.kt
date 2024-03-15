@@ -1,12 +1,13 @@
 package com.sdds.plugin.themebuilder.internal.factory
 
 import com.sdds.plugin.themebuilder.ThemeBuilderTarget
+import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.OutputLocation
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.generator.ColorGenerator
 import com.sdds.plugin.themebuilder.internal.generator.DimenGenerator
 import com.sdds.plugin.themebuilder.internal.generator.GradientGenerator
 import com.sdds.plugin.themebuilder.internal.generator.TypographyGenerator
-import com.squareup.kotlinpoet.FileSpec
+import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 import java.io.File
 
 /**
@@ -15,6 +16,9 @@ import java.io.File
  * @param outputResDir директория для сохранения xml-файла с токенами
  * @param target целевой фреймворк
  * @param dimensAggregator агрегатор размеров
+ * @param xmlDocumentBuilderFactory фабрика делегата построения xml файлов
+ * @param ktFileBuilderFactory фабрика делегата построения kt файлов
+ * @param resourceReferenceProvider провайдер ссылок на ресурсы
  * @author Малышев Александр on 12.03.2024
  */
 internal class GeneratorFactory(
@@ -22,6 +26,9 @@ internal class GeneratorFactory(
     private val outputResDir: File,
     private val target: ThemeBuilderTarget,
     private val dimensAggregator: DimensAggregator,
+    private val xmlDocumentBuilderFactory: XmlDocumentBuilderFactory,
+    private val ktFileBuilderFactory: KtFileBuilderFactory,
+    private val resourceReferenceProvider: ResourceReferenceProvider,
 ) {
 
     /**
@@ -29,11 +36,11 @@ internal class GeneratorFactory(
      */
     fun createColorGenerator(): ColorGenerator {
         return ColorGenerator(
-            outputDir,
+            OutputLocation.Directory(outputDir),
             outputResDir,
             target,
-            XmlDocumentBuilderFactory,
-            createKtFileBuilder("com.sdds.playground.themebuilder.theme", "ColorTokens"),
+            xmlDocumentBuilderFactory,
+            ktFileBuilderFactory,
         )
     }
 
@@ -42,11 +49,11 @@ internal class GeneratorFactory(
      */
     fun createGradientGenerator(): GradientGenerator {
         return GradientGenerator(
-            outputDir,
+            OutputLocation.Directory(outputDir),
             outputResDir,
             target,
-            XmlDocumentBuilderFactory,
-            createKtFileBuilder("com.sdds.playground.themebuilder.theme", "GradientTokens"),
+            xmlDocumentBuilderFactory,
+            ktFileBuilderFactory,
         )
     }
 
@@ -55,12 +62,13 @@ internal class GeneratorFactory(
      */
     fun createTypographyGenerator(): TypographyGenerator {
         return TypographyGenerator(
-            outputDir,
+            OutputLocation.Directory(outputDir),
             outputResDir,
             target,
             dimensAggregator,
-            XmlDocumentBuilderFactory,
-            createKtFileBuilder("com.sdds.playground.themebuilder.theme", "TypographyTokens"),
+            xmlDocumentBuilderFactory,
+            ktFileBuilderFactory,
+            resourceReferenceProvider,
         )
     }
 
@@ -71,17 +79,7 @@ internal class GeneratorFactory(
         return DimenGenerator(
             outputResDir,
             dimensAggregator,
-            XmlDocumentBuilderFactory,
+            xmlDocumentBuilderFactory,
         )
-    }
-
-    private companion object {
-
-        const val DEFAULT_FILE_INDENT = "    "
-
-        fun createKtFileBuilder(packageName: String, fileName: String): FileSpec.Builder =
-            FileSpec.builder(packageName, fileName).apply {
-                indent(DEFAULT_FILE_INDENT)
-            }
     }
 }

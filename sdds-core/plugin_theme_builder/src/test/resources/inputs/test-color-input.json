@@ -1,0 +1,16 @@
+{
+  "displayName": "surfaceTransparentAccent",
+  "name": "dark.on-light.surface.transparent-accent",
+  "platform": "android",
+  "tags" : [
+    "dark",
+    "surface",
+    "on-light"
+  ],
+  "type": "color",
+  "value" : {
+    "origin": "#FFFFFF1F"
+  },
+  "description": "Прозрачная акцентная поверхность",
+  "enabled": true
+}

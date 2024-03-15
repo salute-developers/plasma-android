@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <!--region Акцентный sweep градиент поверхности-->
+    <color name="thmbldr_dark_inverse_surface_accent_color_0">#000</color>
+    <color name="thmbldr_dark_inverse_surface_accent_color_1">#fff</color>
+    <item format="float" name="thmbldr_dark_inverse_surface_accent_position_0" type="dimen">0.0</item>
+    <item format="float" name="thmbldr_dark_inverse_surface_accent_position_1" type="dimen">0.7</item>
+    <item format="float" name="thmbldr_dark_inverse_surface_accent_position_2" type="dimen">1.0</item>
+    <item format="float" name="thmbldr_dark_inverse_surface_accent_start_angle" type="dimen">0.0</item>
+    <item format="float" name="thmbldr_dark_inverse_surface_accent_end_angle" type="dimen">360.0</item>
+    <item format="float" name="thmbldr_dark_inverse_surface_accent_center_x" type="dimen">0.5</item>
+    <item format="float" name="thmbldr_dark_inverse_surface_accent_center_y" type="dimen">0.5</item>
+    <!--endregion Акцентный sweep градиент поверхности-->
+    <!--region Третичный линейный градиент поверхности-->
+    <color name="thmbldr_light_on_dark_surface_tertiary_color_0">#000</color>
+    <color name="thmbldr_light_on_dark_surface_tertiary_color_1">#fff</color>
+    <item format="float" name="thmbldr_light_on_dark_surface_tertiary_position_0" type="dimen">0.0</item>
+    <item format="float" name="thmbldr_light_on_dark_surface_tertiary_position_1" type="dimen">0.7</item>
+    <item format="float" name="thmbldr_light_on_dark_surface_tertiary_position_2" type="dimen">1.0</item>
+    <item format="float" name="thmbldr_light_on_dark_surface_tertiary_angle" type="dimen">90.0</item>
+    <!--endregion Третичный линейный градиент поверхности-->
+    <!--region Вторичный радиальный градиент поверхности-->
+    <color name="thmbldr_light_on_dark_surface_secondary_color_0">#000</color>
+    <color name="thmbldr_light_on_dark_surface_secondary_color_1">#fff</color>
+    <item format="float" name="thmbldr_light_on_dark_surface_secondary_position_0" type="dimen">0.0</item>
+    <item format="float" name="thmbldr_light_on_dark_surface_secondary_position_1" type="dimen">0.7</item>
+    <item format="float" name="thmbldr_light_on_dark_surface_secondary_position_2" type="dimen">1.0</item>
+    <item format="float" name="thmbldr_light_on_dark_surface_secondary_radius" type="dimen">0.8</item>
+    <item format="float" name="thmbldr_light_on_dark_surface_secondary_center_x" type="dimen">0.5</item>
+    <item format="float" name="thmbldr_light_on_dark_surface_secondary_center_y" type="dimen">0.5</item>
+    <!--endregion Вторичный радиальный градиент поверхности-->
+</resources>

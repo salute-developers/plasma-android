@@ -15,7 +15,10 @@ plugins {
 
 afterEvaluate {
     tasks.withType<KotlinCompile>().configureEach {
-        kotlinOptions.languageVersion = "1.7"
+        kotlinOptions {
+            languageVersion = "1.7"
+            freeCompilerArgs = freeCompilerArgs + "-Xcontext-receivers"
+        }
     }
 }
 

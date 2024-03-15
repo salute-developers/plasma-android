@@ -1,5 +1,6 @@
 package com.sdds.plugin.themebuilder.internal.token
 
+import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.gradle.configurationcache.extensions.capitalized
@@ -53,7 +54,7 @@ internal data class RadialGradientToken(
     /**
      * @see Token.ktName
      */
-    override val ktName: String by lazy {
+    override val ktName: String by unsafeLazy {
         colorKtName(name)
     }
 
@@ -94,7 +95,7 @@ internal data class SweepGradientToken(
     /**
      * @see Token.ktName
      */
-    override val ktName: String by lazy {
+    override val ktName: String by unsafeLazy {
         colorKtName(name)
     }
 
@@ -137,7 +138,7 @@ internal data class LinearGradientToken(
     /**
      * @see Token.ktName
      */
-    override val ktName: String by lazy {
+    override val ktName: String by unsafeLazy {
         colorKtName(name)
     }
 
@@ -174,7 +175,7 @@ internal data class ColorToken(
     /**
      * @see Token.ktName
      */
-    override val ktName: String by lazy {
+    override val ktName: String by unsafeLazy {
         colorKtName(name)
     }
 
