@@ -1,0 +1,63 @@
+[
+  {
+    "displayName": "surfaceAccent",
+    "name": "dark.inverse.surface.accent",
+    "platform": "android",
+    "tags" : [
+      "dark",
+      "surface",
+      "inverse"
+    ],
+    "type": "sweep-gradient",
+    "value" : {
+      "locations": [ 0, 0.7, 1 ],
+      "colors" : ["#000", "#fff"],
+      "startAngle": 0,
+      "endAngle" : 360,
+      "centerX": 0.5,
+      "centerY": 0.5
+    },
+    "description": "Акцентный sweep градиент поверхности",
+    "enabled": true
+  },
+  {
+    "displayName": "surfaceTertiary",
+    "name": "light.on-dark.surface.tertiary",
+    "platform": "android",
+    "tags": [
+      "light",
+      "on-dark",
+      "surface",
+      "tertiary"
+    ],
+    "type": "linear-gradient",
+    "value" : {
+      "locations": [ 0, 0.7, 1 ],
+      "colors" : ["#000", "#fff"],
+      "angle": 90
+    },
+    "description": "Третичный линейный градиент поверхности",
+    "enabled": true
+  },
+  {
+    "displayName": "surfaceSecondary",
+    "name": "light.on-dark.surface.secondary",
+    "platform": "android",
+    "tags": [
+      "light",
+      "on-dark",
+      "text",
+      "gradient"
+    ],
+    "type": "radial-gradient",
+    "value" : {
+      "locations": [ 0, 0.7, 1 ],
+      "colors" : ["#000", "#fff"],
+      "radius": 0.8,
+      "centerX": 0.5,
+      "centerY": 0.5
+    },
+    "description": "Вторичный радиальный градиент поверхности",
+    "enabled": true
+  }
+]

@@ -1,9 +1,12 @@
 package com.sdds.plugin.themebuilder.internal.builder
 
+import com.sdds.plugin.themebuilder.internal.utils.FileProvider.fileWriter
+import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
+import com.sdds.plugin.themebuilder.internal.utils.withPrefixIfNeed
+import org.gradle.configurationcache.extensions.capitalized
 import org.w3c.dom.Document
 import org.w3c.dom.Element
 import java.io.File
-import java.io.FileWriter
 import javax.xml.parsers.DocumentBuilderFactory
 import javax.xml.transform.OutputKeys
 import javax.xml.transform.TransformerFactory
@@ -12,18 +15,21 @@ import javax.xml.transform.stream.StreamResult
 
 /**
  * Делегат для построения XML-документа с ресурсами
+ * @param tokenPrefix префикс названия токена
  * @author malilex on 06.03.2024
  */
-internal open class XmlDocumentBuilder {
+internal open class XmlDocumentBuilder(private val tokenPrefix: String) {
 
     private val document: Document = DocumentBuilderFactory.newInstance()
         .newDocumentBuilder()
         .newDocument()
 
-    private val rootContent: Element by lazy(LazyThreadSafetyMode.NONE) {
+    private val rootContent: Element by unsafeLazy {
         document.createElement("resources")
             .also { document.appendChild(it) }
     }
+
+    private val capitalizedPrefix by unsafeLazy { tokenPrefix.capitalized() }
 
     /**
      * Добавляет элемент в документ
@@ -37,10 +43,11 @@ internal open class XmlDocumentBuilder {
         elementName: ElementName,
         tokenName: String,
         value: String,
-        format: String? = null,
-        type: String? = null,
+        format: ElementFormat? = null,
+        type: ElementType? = null,
+        usePrefix: Boolean = true,
     ) {
-        rootContent.appendElement(elementName, tokenName, value, format, type)
+        rootContent.appendElement(elementName, tokenName, value, format, type, usePrefix)
     }
 
     /**
@@ -50,18 +57,21 @@ internal open class XmlDocumentBuilder {
      * @param value значение токена
      * @param format формат xml элемента
      * @param type тип xml элемента
+     * @param usePrefix если true - добавляет префикс к имени токена
      */
     fun Element.appendElement(
         elementName: ElementName,
         tokenName: String,
         value: String,
-        format: String? = null,
-        type: String? = null,
+        format: ElementFormat? = null,
+        type: ElementType? = null,
+        usePrefix: Boolean = true,
     ) {
+        val nameAttr = tokenName.withPrefixIfNeed(tokenPrefix.takeIf { usePrefix })
         val element = document.createElement(elementName.value).apply {
-            setAttribute("name", tokenName)
-            format?.let { setAttribute("format", it) }
-            type?.let { setAttribute("type", it) }
+            setAttribute("name", nameAttr)
+            format?.let { setAttribute("format", it.value) }
+            type?.let { setAttribute("type", it.value) }
             textContent = value
         }
         appendChild(element)
@@ -90,9 +100,10 @@ internal open class XmlDocumentBuilder {
      * @param styleName название стиля
      * @param content содержание стиля
      */
-    fun appendStyle(styleName: String, content: Element.() -> Unit) {
+    fun appendStyle(styleName: String, content: Element.() -> Unit = {}) {
+        val nameAttr = styleName.withPrefixIfNeed(capitalizedPrefix, ".")
         document.createElement("style").apply {
-            setAttribute("name", styleName)
+            setAttribute("name", nameAttr)
             content(this)
             rootContent.appendChild(this)
         }
@@ -108,7 +119,7 @@ internal open class XmlDocumentBuilder {
             setOutputProperty(OutputKeys.ENCODING, "UTF-8")
             setOutputProperty(OutputKeys.INDENT, "yes")
         }
-        transformer.transform(DOMSource(document), StreamResult(FileWriter(output)))
+        transformer.transform(DOMSource(document), StreamResult(output.fileWriter()))
     }
 
     /**
@@ -119,5 +130,21 @@ internal open class XmlDocumentBuilder {
         COLOR("color"),
         DIMEN("dimen"),
         ITEM("item"),
+    }
+
+    /**
+     * Название элемента документа
+     * @param value строковое название
+     */
+    enum class ElementFormat(val value: String) {
+        FLOAT("float"),
+    }
+
+    /**
+     * Название элемента документа
+     * @param value строковое название
+     */
+    enum class ElementType(val value: String) {
+        DIMEN("dimen"),
     }
 }

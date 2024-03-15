@@ -9,11 +9,13 @@ plugins {
 
 android {
     namespace = "com.sdds.playground.themebuilder"
+    resourcePrefix = "thmbldr"
 }
 
 configure<ThemeBuilderExtension> {
     themeUrl.set("file://${projectDir.path}/new_theme_scheme.json")
-    target.set(ThemeBuilderTarget.COMPOSE.value)
+    target.set(ThemeBuilderTarget.ALL)
+    packageName.set("com.sdds.playground.themebuilder.tokens")
 }
 
 dependencies {

@@ -4,12 +4,13 @@ import com.sdds.plugin.themebuilder.internal.builder.XmlDocumentBuilder
 
 /**
  * Фабрика для [XmlDocumentBuilder]
+ * @property tokenPrefix префикс для названий токенов
  * @author Малышев Александр on 07.03.2024
  */
-internal object XmlDocumentBuilderFactory {
+internal class XmlDocumentBuilderFactory(private val tokenPrefix: String) {
 
     /**
      * Создает [XmlDocumentBuilder]
      */
-    fun create(): XmlDocumentBuilder = XmlDocumentBuilder()
+    fun create(): XmlDocumentBuilder = XmlDocumentBuilder(tokenPrefix)
 }

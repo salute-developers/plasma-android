@@ -1,11 +1,11 @@
 package com.sdds.plugin.themebuilder.internal.generator
 
-import com.sdds.plugin.themebuilder.internal.utils.FileProvider.dimensFile
 import com.sdds.plugin.themebuilder.internal.builder.XmlDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.builder.XmlDocumentBuilder.ElementName
 import com.sdds.plugin.themebuilder.internal.dimens.DimenData
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.XmlDocumentBuilderFactory
+import com.sdds.plugin.themebuilder.internal.utils.FileProvider.dimensFile
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import java.io.File
 

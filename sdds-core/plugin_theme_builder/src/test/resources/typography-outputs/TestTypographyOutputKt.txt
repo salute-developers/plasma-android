@@ -1,0 +1,41 @@
+package com.test
+
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.sp
+
+public object TypographyLargeTokens {
+    /**
+     * шрифт android
+     */
+    public val DisplayL: TextStyle = TextStyle(
+                fontWeight = FontWeight(300),
+                fontSize = 128.0.sp,
+                lineHeight = 128.0.sp,
+                letterSpacing = 0.02.sp,
+            )
+}
+
+public object TypographyMediumTokens {
+    /**
+     * шрифт android
+     */
+    public val DisplayL: TextStyle = TextStyle(
+                fontWeight = FontWeight(300),
+                fontSize = 96.0.sp,
+                lineHeight = 96.0.sp,
+                letterSpacing = 0.02.sp,
+            )
+}
+
+public object TypographySmallTokens {
+    /**
+     * шрифт android
+     */
+    public val DisplayL: TextStyle = TextStyle(
+                fontWeight = FontWeight(300),
+                fontSize = 72.0.sp,
+                lineHeight = 72.0.sp,
+                letterSpacing = 0.02.sp,
+            )
+}
