@@ -17,6 +17,10 @@
         "kind": ["display", "body", "text", "h1", "h2", "h3", "h4", "h5"],
         "screen": ["screen-l", "screen-m", "screen-s"]
     },
+    "shapes": {
+        "sizes": [ "xxs", "xs", "s", "m", "l", "xl", "xxl"],
+        "kind": [ "round" ]
+    },
     "tokens": [
         {
             "displayName": "surfaceAccent",
@@ -123,10 +127,12 @@
             ],
             "type": "shadow",
             "value": {
-                "color": "#000",
-                "elevation": 16
+                "color": "#99000000",
+                "dX": 0.0,
+                "dY": 1.0,
+                "radius": 4
             },
-            "description": "тень android",
+            "description": "Тень downHardL для android",
             "enabled": true
         },
         {
@@ -225,6 +231,51 @@
                 "lineHeight": 72
             },
             "description": "шрифт android",
+            "enabled": true
+        },
+        {
+            "displayName": "roundXs",
+            "name": "round.xs",
+            "platform": "android",
+            "tags": [
+                "round",
+                "xs"
+            ],
+            "type": "round-shape",
+            "value": {
+                "cornerRadius": 6.0
+            },
+            "description": "Форма со скругленными углами размером XS",
+            "enabled": true
+        },
+        {
+            "displayName": "roundS",
+            "name": "round.s",
+            "platform": "android",
+            "tags": [
+                "round",
+                "s"
+            ],
+            "type": "round-shape",
+            "value": {
+                "cornerRadius": 8.0
+            },
+            "description": "Форма со скругленными углами размером S",
+            "enabled": true
+        },
+        {
+            "displayName": "roundXs",
+            "name": "round.l",
+            "platform": "android",
+            "tags": [
+                "round",
+                "l"
+            ],
+            "type": "round-shape",
+            "value": {
+                "cornerRadius": 16.0
+            },
+            "description": "Форма со скругленными углами размером L",
             "enabled": true
         }
     ]
