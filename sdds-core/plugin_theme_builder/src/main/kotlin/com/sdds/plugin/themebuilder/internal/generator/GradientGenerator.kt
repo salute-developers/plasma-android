@@ -1,8 +1,6 @@
 package com.sdds.plugin.themebuilder.internal.generator
 
 import com.sdds.plugin.themebuilder.ThemeBuilderTarget
-import com.sdds.plugin.themebuilder.ThemeBuilderTarget.Companion.isComposeOrAll
-import com.sdds.plugin.themebuilder.ThemeBuilderTarget.Companion.isViewSystemOrAll
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Companion.appendObject
 import com.sdds.plugin.themebuilder.internal.builder.XmlDocumentBuilder
@@ -32,62 +30,55 @@ import java.io.File
 internal class GradientGenerator(
     private val outputLocation: KtFileBuilder.OutputLocation,
     private val outputResDir: File,
-    private val target: ThemeBuilderTarget,
+    target: ThemeBuilderTarget,
     private val xmlBuilderFactory: XmlDocumentBuilderFactory,
     private val ktFileBuilderFactory: KtFileBuilderFactory,
-) : TokenGenerator<Token<GradientTokenValue>> {
+) : TokenGenerator<Token<GradientTokenValue>>(target) {
 
     private val xmlDocumentBuilder by unsafeLazy { xmlBuilderFactory.create() }
     private val ktFileBuilder by unsafeLazy { ktFileBuilderFactory.create("GradientTokens") }
     private val lightBuilder by unsafeLazy { ktFileBuilder.rootObject("LightGradientTokens") }
     private val darkBuilder by unsafeLazy { ktFileBuilder.rootObject("DarkGradientTokens") }
-    private var needGenerateCompose: Boolean = false
-    private var needGenerateViewSystem: Boolean = false
 
     /**
-     * @see TokenGenerator.addToken
+     * @see TokenGenerator.generateViewSystem
      */
-    override fun addToken(token: Token<GradientTokenValue>) {
-        when (target) {
-            ThemeBuilderTarget.VIEW_SYSTEM -> addViewSystemToken(token)
-            ThemeBuilderTarget.COMPOSE -> addComposeToken(token)
-            ThemeBuilderTarget.ALL -> {
-                addViewSystemToken(token)
-                addComposeToken(token)
-            }
-        }
+    override fun generateViewSystem() {
+        super.generateViewSystem()
+        xmlDocumentBuilder.build(outputResDir.gradientsXmlFile())
     }
 
     /**
-     * @see TokenGenerator.generate
+     * @see TokenGenerator.generateCompose
      */
-    override fun generate() {
-        if (needGenerateViewSystem) {
-            xmlDocumentBuilder.build(outputResDir.gradientsXmlFile())
-        }
-
-        if (needGenerateCompose) {
-            ktFileBuilder.build(outputLocation)
-        }
+    override fun generateCompose() {
+        super.generateCompose()
+        ktFileBuilder.build(outputLocation)
     }
 
-    private fun addViewSystemToken(token: Token<GradientTokenValue>) {
+    /**
+     * @see TokenGenerator.addViewSystemToken
+     */
+    override fun addViewSystemToken(token: Token<GradientTokenValue>): Boolean {
         val result = when (token) {
             is LinearGradientToken -> xmlDocumentBuilder.appendLinearGradient(token)
             is RadialGradientToken -> xmlDocumentBuilder.appendRadialGradient(token)
             is SweepGradientToken -> xmlDocumentBuilder.appendSweepGradient(token)
             else -> false
         }
-        if (result && !needGenerateViewSystem && target.isViewSystemOrAll) needGenerateViewSystem = true
+        return result
     }
 
-    private fun addComposeToken(token: Token<GradientTokenValue>) = with(ktFileBuilder) {
+    /**
+     * @see TokenGenerator.addComposeToken
+     */
+    override fun addComposeToken(token: Token<GradientTokenValue>): Boolean = with(ktFileBuilder) {
         val builder = if (token.tags.contains("dark")) {
             darkBuilder
         } else if (token.tags.contains("light")) {
             lightBuilder
         } else {
-            return
+            return false
         }
         val result = when (token) {
             is LinearGradientToken -> builder.appendLinearGradient(token)
@@ -95,7 +86,7 @@ internal class GradientGenerator(
             is SweepGradientToken -> builder.appendSweepGradient(token)
             else -> false
         }
-        if (result && !needGenerateCompose && target.isComposeOrAll) needGenerateCompose = true
+        return result
     }
 
     private fun XmlDocumentBuilder.appendBaseGradient(baseName: String, colors: List<String>, positions: List<Float>) {

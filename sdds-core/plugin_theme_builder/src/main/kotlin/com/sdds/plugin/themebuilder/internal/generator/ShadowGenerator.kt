@@ -1,8 +1,6 @@
 package com.sdds.plugin.themebuilder.internal.generator
 
 import com.sdds.plugin.themebuilder.ThemeBuilderTarget
-import com.sdds.plugin.themebuilder.ThemeBuilderTarget.Companion.isComposeOrAll
-import com.sdds.plugin.themebuilder.ThemeBuilderTarget.Companion.isViewSystemOrAll
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Companion.appendObject
 import com.sdds.plugin.themebuilder.internal.builder.XmlDocumentBuilder.ElementName
@@ -25,48 +23,38 @@ import java.io.File
 internal class ShadowGenerator(
     private val outputLocation: KtFileBuilder.OutputLocation,
     private val outputResDir: File,
-    private val target: ThemeBuilderTarget,
+    target: ThemeBuilderTarget,
     private val xmlBuilderFactory: XmlDocumentBuilderFactory,
     private val ktFileBuilderFactory: KtFileBuilderFactory,
-) : TokenGenerator<ShadowToken> {
+) : TokenGenerator<ShadowToken>(target) {
 
     private val xmlDocumentBuilder by unsafeLazy { xmlBuilderFactory.create() }
     private val ktFileBuilder by unsafeLazy { ktFileBuilderFactory.create("ShadowTokens") }
     private val rootShadows by unsafeLazy { ktFileBuilder.rootObject("ShadowTokens") }
-    private var needGenerateCompose: Boolean = false
-    private var needGenerateViewSystem: Boolean = false
 
     /**
-     * @see TokenGenerator.addToken
+     * @see TokenGenerator.generateViewSystem
      */
-    override fun addToken(token: ShadowToken) {
-        when (target) {
-            ThemeBuilderTarget.VIEW_SYSTEM -> addViewSystemToken(token)
-            ThemeBuilderTarget.COMPOSE -> addComposeToken(token)
-            ThemeBuilderTarget.ALL -> {
-                addViewSystemToken(token)
-                addComposeToken(token)
-            }
-        }
+    override fun generateViewSystem() {
+        super.generateViewSystem()
+        xmlDocumentBuilder.build(outputResDir.shadowsXmlFile())
     }
 
     /**
-     * @see TokenGenerator.generate
+     * @see TokenGenerator.generateCompose
      */
-    override fun generate() {
-        if (needGenerateViewSystem) {
-            xmlDocumentBuilder.build(outputResDir.shadowsXmlFile())
-        }
-
-        if (needGenerateCompose) {
-            ktFileBuilder.addImport(KtFileBuilder.TypeDpExtension)
-            ktFileBuilder.addImport(KtFileBuilder.TypeCornerSize)
-            ktFileBuilder.build(outputLocation)
-        }
+    override fun generateCompose() {
+        super.generateCompose()
+        ktFileBuilder.addImport(KtFileBuilder.TypeDpExtension)
+        ktFileBuilder.addImport(KtFileBuilder.TypeCornerSize)
+        ktFileBuilder.build(outputLocation)
     }
 
-    private fun addViewSystemToken(token: ShadowToken) = with(xmlDocumentBuilder) {
-        val tokenValue = token.value ?: return
+    /**
+     * @see TokenGenerator.addViewSystemToken
+     */
+    override fun addViewSystemToken(token: ShadowToken): Boolean = with(xmlDocumentBuilder) {
+        val tokenValue = token.value ?: return@with false
 
         wrapWithRegion(token.description) {
             appendElement(ElementName.DIMEN, "shadow_${token.xmlName}_dx", "${tokenValue.dX}dp")
@@ -74,11 +62,14 @@ internal class ShadowGenerator(
             appendElement(ElementName.COLOR, "shadow_${token.xmlName}_color", tokenValue.color)
             appendElement(ElementName.DIMEN, "shadow_${token.xmlName}_radius", "${tokenValue.radius}dp")
         }
-        if (!needGenerateViewSystem && target.isViewSystemOrAll) needGenerateViewSystem = true
+        return@with true
     }
 
-    private fun addComposeToken(token: ShadowToken) = with(ktFileBuilder) {
-        val tokenValue = token.value ?: return
+    /**
+     * @see TokenGenerator.addComposeToken
+     */
+    override fun addComposeToken(token: ShadowToken): Boolean = with(ktFileBuilder) {
+        val tokenValue = token.value ?: return@with false
 
         rootShadows.appendObject(token.ktName, token.description) {
             appendProperty("dX", KtFileBuilder.TypeDp, "${tokenValue.dX}.dp", token.description)
@@ -91,6 +82,6 @@ internal class ShadowGenerator(
                 token.description,
             )
         }
-        if (!needGenerateCompose && target.isComposeOrAll) needGenerateCompose = true
+        return@with true
     }
 }
