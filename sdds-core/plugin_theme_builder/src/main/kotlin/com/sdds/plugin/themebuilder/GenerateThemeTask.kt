@@ -8,6 +8,7 @@ import com.sdds.plugin.themebuilder.internal.serializer.Serializer
 import com.sdds.plugin.themebuilder.internal.token.ColorToken
 import com.sdds.plugin.themebuilder.internal.token.LinearGradientToken
 import com.sdds.plugin.themebuilder.internal.token.RadialGradientToken
+import com.sdds.plugin.themebuilder.internal.token.RoundedShapeToken
 import com.sdds.plugin.themebuilder.internal.token.ShadowToken
 import com.sdds.plugin.themebuilder.internal.token.SweepGradientToken
 import com.sdds.plugin.themebuilder.internal.token.Theme
@@ -83,6 +84,8 @@ abstract class GenerateThemeTask : DefaultTask() {
     private val gradientGenerator by unsafeLazy { generatorFactory.createGradientGenerator() }
     private val typographyGenerator by unsafeLazy { generatorFactory.createTypographyGenerator() }
     private val dimensGenerator by unsafeLazy { generatorFactory.createDimensGenerator() }
+    private val shapesGenerator by unsafeLazy { generatorFactory.createShapesGenerator() }
+    private val shadowGenerator by unsafeLazy { generatorFactory.createShadowGenerator() }
 
     /**
      * Генерирует файлы с токенами
@@ -95,7 +98,8 @@ abstract class GenerateThemeTask : DefaultTask() {
                 is SweepGradientToken -> gradientGenerator.addToken(it)
                 is LinearGradientToken -> gradientGenerator.addToken(it)
                 is RadialGradientToken -> gradientGenerator.addToken(it)
-                is ShadowToken -> {}
+                is ShadowToken -> shadowGenerator.addToken(it)
+                is RoundedShapeToken -> shapesGenerator.addToken(it)
                 is TypographyToken -> typographyGenerator.addToken(it)
             }
         }
@@ -103,6 +107,8 @@ abstract class GenerateThemeTask : DefaultTask() {
         colorGenerator.generate()
         gradientGenerator.generate()
         typographyGenerator.generate()
+        shapesGenerator.generate()
+        shadowGenerator.generate()
         dimensGenerator.generate()
     }
 

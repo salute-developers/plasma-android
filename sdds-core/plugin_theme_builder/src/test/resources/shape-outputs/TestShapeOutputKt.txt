@@ -1,0 +1,22 @@
+package com.test
+
+import androidx.compose.foundation.shape.CornerSize
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.ui.unit.dp
+
+public object RoundShapeTokens {
+    /**
+     * Форма со скругленными углами размером XS
+     */
+    public val RoundXs: RoundedCornerShape = RoundedCornerShape(CornerSize(6.0.dp))
+
+    /**
+     * Форма со скругленными углами размером S
+     */
+    public val RoundS: RoundedCornerShape = RoundedCornerShape(CornerSize(8.0.dp))
+
+    /**
+     * Форма со скругленными углами размером L
+     */
+    public val RoundL: RoundedCornerShape = RoundedCornerShape(CornerSize(16.0.dp))
+}

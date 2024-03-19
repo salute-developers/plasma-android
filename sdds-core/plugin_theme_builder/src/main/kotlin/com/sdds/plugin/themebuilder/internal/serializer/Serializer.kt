@@ -3,6 +3,7 @@ package com.sdds.plugin.themebuilder.internal.serializer
 import com.sdds.plugin.themebuilder.internal.token.ColorToken
 import com.sdds.plugin.themebuilder.internal.token.LinearGradientToken
 import com.sdds.plugin.themebuilder.internal.token.RadialGradientToken
+import com.sdds.plugin.themebuilder.internal.token.RoundedShapeToken
 import com.sdds.plugin.themebuilder.internal.token.ShadowToken
 import com.sdds.plugin.themebuilder.internal.token.SweepGradientToken
 import com.sdds.plugin.themebuilder.internal.token.Token
@@ -30,6 +31,7 @@ object Serializer {
                 subclass(RadialGradientToken::class)
                 subclass(SweepGradientToken::class)
                 subclass(ShadowToken::class)
+                subclass(RoundedShapeToken::class)
                 subclass(TypographyToken::class)
             }
         }

@@ -36,11 +36,15 @@ internal data class ShadowToken(
     /**
      * Значение токена тени
      * @property color цвет тени
-     * @property elevation Z-координата тени
+     * @property dX смещение по X координате
+     * @property dY смещение по Y координате
+     * @property radius радиус тени
      */
     @Serializable
     internal data class Value(
         val color: String,
-        val elevation: Float,
+        val dX: Float,
+        val dY: Float,
+        val radius: Float,
     ) : TokenValue
 }
