@@ -122,7 +122,11 @@ internal class KtFileBuilder(
         val TypeTextStyle = ClassName("androidx.compose.ui.text", listOf("TextStyle"))
         val TypeFontWeight = ClassName("androidx.compose.ui.text.font", "FontWeight")
         val TypeSp = ClassName("androidx.compose.ui.unit", "sp")
+        val TypeDp = ClassName("androidx.compose.ui.unit", "Dp")
+        val TypeDpExtension = ClassName("androidx.compose.ui.unit", "dp")
         val TypeListOfColors = List::class.asClassName().parameterizedBy(TypeColor)
+        val TypeRoundRectShape = ClassName("androidx.compose.foundation.shape", listOf("RoundedCornerShape"))
+        val TypeCornerSize = ClassName("androidx.compose.foundation.shape", listOf("CornerSize"))
 
         /**
          * Добавляет kotlin объект с названием [name], описанием [description]
@@ -153,11 +157,18 @@ internal class KtFileBuilder(
         ): String {
             return buildString {
                 append(constructorName)
-                appendReproducibleNewLine("(")
-                initializers.forEach {
-                    append(DEFAULT_FILE_INDENT)
-                    append(it)
-                    appendReproducibleNewLine(",")
+                if (initializers.size > 1) {
+                    appendReproducibleNewLine("(")
+                    initializers.forEach {
+                        append(DEFAULT_FILE_INDENT)
+                        append(it)
+                        appendReproducibleNewLine(",")
+                    }
+                } else {
+                    append("(")
+                    initializers.forEach {
+                        append(it)
+                    }
                 }
                 append(")")
             }

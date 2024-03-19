@@ -6,6 +6,8 @@ import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.generator.ColorGenerator
 import com.sdds.plugin.themebuilder.internal.generator.DimenGenerator
 import com.sdds.plugin.themebuilder.internal.generator.GradientGenerator
+import com.sdds.plugin.themebuilder.internal.generator.ShadowGenerator
+import com.sdds.plugin.themebuilder.internal.generator.ShapeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.TypographyGenerator
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 import java.io.File
@@ -80,6 +82,34 @@ internal class GeneratorFactory(
             outputResDir,
             dimensAggregator,
             xmlDocumentBuilderFactory,
+        )
+    }
+
+    /**
+     * Создает генератор форм [ShapeGenerator]
+     */
+    fun createShapesGenerator(): ShapeGenerator {
+        return ShapeGenerator(
+            OutputLocation.Directory(outputDir),
+            outputResDir,
+            target,
+            xmlDocumentBuilderFactory,
+            ktFileBuilderFactory,
+            dimensAggregator,
+            resourceReferenceProvider,
+        )
+    }
+
+    /**
+     * Создает генератор теней [ShadowGenerator]
+     */
+    fun createShadowGenerator(): ShadowGenerator {
+        return ShadowGenerator(
+            OutputLocation.Directory(outputDir),
+            outputResDir,
+            target,
+            xmlDocumentBuilderFactory,
+            ktFileBuilderFactory,
         )
     }
 }

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <style name="Thmbldr.Shape"/>
+    <style name="Thmbldr.Shape.Round">
+        <item name="cornerFamily">rounded</item>
+    </style>
+    <!--Форма со скругленными углами размером XS-->
+    <style name="Thmbldr.Shape.Xs">
+        <item name="cornerSize">@dimen/thmbldr_round_xs_corner_size</item>
+    </style>
+    <!--Форма со скругленными углами размером S-->
+    <style name="Thmbldr.Shape.S">
+        <item name="cornerSize">@dimen/thmbldr_round_s_corner_size</item>
+    </style>
+    <!--Форма со скругленными углами размером L-->
+    <style name="Thmbldr.Shape.L">
+        <item name="cornerSize">@dimen/thmbldr_round_l_corner_size</item>
+    </style>
+</resources>

@@ -57,6 +57,18 @@ object FileProvider {
     ): File = File("${valuesDir(qualifier).path}/typography.xml")
 
     /**
+     * XML файл для токенов форм
+     */
+    fun File.shapesXmlFile(): File =
+        File("${valuesDir().path}/shapes.xml")
+
+    /**
+     * XML файл для токенов теней
+     */
+    fun File.shadowsXmlFile(): File =
+        File("${valuesDir().path}/shadows.xml")
+
+    /**
      * Возвращает экземпляр [FileWriter] для текущего файла
      */
     fun File.fileWriter(): Writer = FileWriter(this)
