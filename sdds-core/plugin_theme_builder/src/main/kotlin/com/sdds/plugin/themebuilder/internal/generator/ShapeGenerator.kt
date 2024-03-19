@@ -1,8 +1,6 @@
 package com.sdds.plugin.themebuilder.internal.generator
 
 import com.sdds.plugin.themebuilder.ThemeBuilderTarget
-import com.sdds.plugin.themebuilder.ThemeBuilderTarget.Companion.isComposeOrAll
-import com.sdds.plugin.themebuilder.ThemeBuilderTarget.Companion.isViewSystemOrAll
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.builder.XmlDocumentBuilder.ElementName
 import com.sdds.plugin.themebuilder.internal.dimens.DimenData
@@ -32,52 +30,42 @@ import java.io.File
 internal class ShapeGenerator(
     private val outputLocation: KtFileBuilder.OutputLocation,
     private val outputResDir: File,
-    private val target: ThemeBuilderTarget,
+    target: ThemeBuilderTarget,
     private val xmlBuilderFactory: XmlDocumentBuilderFactory,
     private val ktFileBuilderFactory: KtFileBuilderFactory,
     private val dimensAggregator: DimensAggregator,
     private val resourceReferenceProvider: ResourceReferenceProvider,
-) : TokenGenerator<Token<ShapeTokenValue>> {
+) : TokenGenerator<Token<ShapeTokenValue>>(target) {
 
     private val xmlDocumentBuilder by unsafeLazy { xmlBuilderFactory.create() }
     private val ktFileBuilder by unsafeLazy { ktFileBuilderFactory.create("ShapeTokens") }
     private val rootRoundShapes by unsafeLazy { ktFileBuilder.rootObject("RoundShapeTokens") }
-    private var needGenerateCompose: Boolean = false
-    private var needGenerateViewSystem: Boolean = false
     private var needCreateStyle: Boolean = true
 
     /**
-     * @see TokenGenerator.addToken
+     * @see TokenGenerator.generateViewSystem
      */
-    override fun addToken(token: Token<ShapeTokenValue>) {
-        when (target) {
-            ThemeBuilderTarget.VIEW_SYSTEM -> addViewSystemToken(token)
-            ThemeBuilderTarget.COMPOSE -> addComposeToken(token)
-            ThemeBuilderTarget.ALL -> {
-                addViewSystemToken(token)
-                addComposeToken(token)
-            }
-        }
+    override fun generateViewSystem() {
+        super.generateViewSystem()
+        xmlDocumentBuilder.build(outputResDir.shapesXmlFile())
     }
 
     /**
-     * @see TokenGenerator.generate
+     * @see TokenGenerator.generateCompose
      */
-    override fun generate() {
-        if (needGenerateViewSystem) {
-            xmlDocumentBuilder.build(outputResDir.shapesXmlFile())
-        }
-
-        if (needGenerateCompose) {
-            ktFileBuilder.addImport(KtFileBuilder.TypeDpExtension)
-            ktFileBuilder.addImport(KtFileBuilder.TypeCornerSize)
-            ktFileBuilder.build(outputLocation)
-        }
+    override fun generateCompose() {
+        super.generateCompose()
+        ktFileBuilder.addImport(KtFileBuilder.TypeDpExtension)
+        ktFileBuilder.addImport(KtFileBuilder.TypeCornerSize)
+        ktFileBuilder.build(outputLocation)
     }
 
-    private fun addViewSystemToken(token: Token<ShapeTokenValue>) = with(xmlDocumentBuilder) {
-        val roundedShapeToken = token as? RoundedShapeToken ?: return
-        val tokenValue = roundedShapeToken.value ?: return
+    /**
+     * @see TokenGenerator.addViewSystemToken
+     */
+    override fun addViewSystemToken(token: Token<ShapeTokenValue>): Boolean = with(xmlDocumentBuilder) {
+        val roundedShapeToken = token as? RoundedShapeToken ?: return@with false
+        val tokenValue = roundedShapeToken.value ?: return@with false
         val cornerSize = DimenData(
             name = "${roundedShapeToken.name.techToSnakeCase()}_corner_size",
             value = tokenValue.cornerRadius,
@@ -100,12 +88,15 @@ internal class ShapeGenerator(
                 usePrefix = false,
             )
         }
-        if (!needGenerateViewSystem && target.isViewSystemOrAll) needGenerateViewSystem = true
+        return@with true
     }
 
-    private fun addComposeToken(token: Token<ShapeTokenValue>) = with(ktFileBuilder) {
-        val roundedShapeToken = token as? RoundedShapeToken ?: return
-        val tokenValue = roundedShapeToken.value ?: return
+    /**
+     * @see TokenGenerator.addComposeToken
+     */
+    override fun addComposeToken(token: Token<ShapeTokenValue>): Boolean = with(ktFileBuilder) {
+        val roundedShapeToken = token as? RoundedShapeToken ?: return@with false
+        val tokenValue = roundedShapeToken.value ?: return@with false
 
         val value = "${tokenValue.cornerRadius}.dp"
         val initializer = KtFileBuilder.createConstructorCall(
@@ -113,6 +104,6 @@ internal class ShapeGenerator(
             "CornerSize($value)",
         )
         rootRoundShapes.appendProperty(token.ktName, KtFileBuilder.TypeRoundRectShape, initializer, token.description)
-        if (!needGenerateCompose && target.isComposeOrAll) needGenerateCompose = true
+        return@with true
     }
 }

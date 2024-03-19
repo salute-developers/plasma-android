@@ -1,8 +1,6 @@
 package com.sdds.plugin.themebuilder.internal.generator
 
 import com.sdds.plugin.themebuilder.ThemeBuilderTarget
-import com.sdds.plugin.themebuilder.ThemeBuilderTarget.Companion.isComposeOrAll
-import com.sdds.plugin.themebuilder.ThemeBuilderTarget.Companion.isViewSystemOrAll
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.builder.XmlDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.builder.XmlDocumentBuilder.ElementName
@@ -30,12 +28,12 @@ import java.io.File
 internal class TypographyGenerator(
     private val outputLocation: KtFileBuilder.OutputLocation,
     private val outputResDir: File,
-    private val target: ThemeBuilderTarget,
+    target: ThemeBuilderTarget,
     private val dimensAggregator: DimensAggregator,
     private val xmlBuilderFactory: XmlDocumentBuilderFactory,
     private val ktFileBuilderFactory: KtFileBuilderFactory,
     private val resourceReferenceProvider: ResourceReferenceProvider,
-) : TokenGenerator<TypographyToken> {
+) : TokenGenerator<TypographyToken>(target) {
 
     private val textAppearanceXmlBuilders = mutableMapOf<TypographyToken.ScreenClass, XmlDocumentBuilder>()
     private val typographyXmlBuilder by unsafeLazy { xmlBuilderFactory.create() }
@@ -43,44 +41,34 @@ internal class TypographyGenerator(
     private val largeBuilder by unsafeLazy { ktFileBuilder.rootObject("TypographyLargeTokens") }
     private val mediumBuilder by unsafeLazy { ktFileBuilder.rootObject("TypographyMediumTokens") }
     private val smallBuilder by unsafeLazy { ktFileBuilder.rootObject("TypographySmallTokens") }
-    private var needGenerateCompose: Boolean = false
-    private var needGenerateViewSystem: Boolean = false
     private var needDeclareStyle: Boolean = true
 
     /**
-     * @see TokenGenerator.addToken
+     * @see TokenGenerator.generateViewSystem
      */
-    override fun addToken(token: TypographyToken) {
-        when (target) {
-            ThemeBuilderTarget.VIEW_SYSTEM -> addViewSystemToken(token)
-            ThemeBuilderTarget.COMPOSE -> addComposeToken(token)
-            ThemeBuilderTarget.ALL -> {
-                addViewSystemToken(token)
-                addComposeToken(token)
-            }
+    override fun generateViewSystem() {
+        super.generateViewSystem()
+        textAppearanceXmlBuilders.forEach {
+            it.value.build(outputResDir.textAppearancesXmlFile(it.key.qualifier()))
         }
+        typographyXmlBuilder.build(outputResDir.typographyXmlFile())
     }
 
     /**
-     * @see TokenGenerator.generate
+     * @see TokenGenerator.generateCompose
      */
-    override fun generate() {
-        if (needGenerateViewSystem) {
-            textAppearanceXmlBuilders.forEach {
-                it.value.build(outputResDir.textAppearancesXmlFile(it.key.qualifier()))
-            }
-            typographyXmlBuilder.build(outputResDir.typographyXmlFile())
-        }
-
-        if (needGenerateCompose) {
-            ktFileBuilder.addImport(KtFileBuilder.TypeSp)
-            ktFileBuilder.addImport(KtFileBuilder.TypeFontWeight)
-            ktFileBuilder.build(outputLocation)
-        }
+    override fun generateCompose() {
+        super.generateCompose()
+        ktFileBuilder.addImport(KtFileBuilder.TypeSp)
+        ktFileBuilder.addImport(KtFileBuilder.TypeFontWeight)
+        ktFileBuilder.build(outputLocation)
     }
 
-    private fun addViewSystemToken(token: TypographyToken) {
-        val tokenValue = token.value ?: return
+    /**
+     * @see TokenGenerator.addViewSystemToken
+     */
+    override fun addViewSystemToken(token: TypographyToken): Boolean {
+        val tokenValue = token.value ?: return false
         val builder = textAppearanceXmlBuilders[token.screenClass] ?: xmlBuilderFactory.create().also {
             textAppearanceXmlBuilders[token.screenClass] = it
         }
@@ -106,12 +94,14 @@ internal class TypographyGenerator(
         }
         builder.appendComment(token.description)
         builder.appendTypographyToken(token, tokenValue, textAppearanceName)
-
-        if (!needGenerateViewSystem && target.isViewSystemOrAll) needGenerateViewSystem = true
+        return true
     }
 
-    private fun addComposeToken(token: TypographyToken) = with(ktFileBuilder) {
-        val tokenValue = token.value ?: return
+    /**
+     * @see TokenGenerator.addComposeToken
+     */
+    override fun addComposeToken(token: TypographyToken): Boolean = with(ktFileBuilder) {
+        val tokenValue = token.value ?: return@with false
         when (token.screenClass) {
             TypographyToken.ScreenClass.SMALL -> smallBuilder.addTypographyToken(
                 token.ktName,
@@ -127,7 +117,7 @@ internal class TypographyGenerator(
 
             else -> mediumBuilder.addTypographyToken(token.ktName, token.description, tokenValue)
         }
-        if (!needGenerateCompose && target.isComposeOrAll) needGenerateCompose = true
+        return@with true
     }
 
     private fun XmlDocumentBuilder.appendTypographyToken(
