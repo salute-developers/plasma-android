@@ -1,8 +1,6 @@
 package com.sdds.plugin.themebuilder.internal.generator
 
 import com.sdds.plugin.themebuilder.ThemeBuilderTarget
-import com.sdds.plugin.themebuilder.ThemeBuilderTarget.Companion.isComposeOrAll
-import com.sdds.plugin.themebuilder.ThemeBuilderTarget.Companion.isViewSystemOrAll
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.builder.XmlDocumentBuilder.ElementName
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
@@ -24,63 +22,54 @@ import java.io.File
 internal class ColorGenerator(
     private val outputLocation: KtFileBuilder.OutputLocation,
     private val outputResDir: File,
-    private val target: ThemeBuilderTarget,
+    target: ThemeBuilderTarget,
     private val xmlBuilderFactory: XmlDocumentBuilderFactory,
     private val ktFileBuilderFactory: KtFileBuilderFactory,
-) : TokenGenerator<ColorToken> {
+) : TokenGenerator<ColorToken>(target) {
 
     private val xmlDocumentBuilder by unsafeLazy { xmlBuilderFactory.create() }
     private val ktFileBuilder by unsafeLazy { ktFileBuilderFactory.create("ColorTokens") }
     private val lightBuilder by unsafeLazy { ktFileBuilder.rootObject("LightColorTokens") }
     private val darkBuilder by unsafeLazy { ktFileBuilder.rootObject("DarkColorTokens") }
-    private var needGenerateCompose: Boolean = false
-    private var needGenerateViewSystem: Boolean = false
 
     /**
-     * @see TokenGenerator.addToken
+     * @see TokenGenerator.generateViewSystem
      */
-    override fun addToken(token: ColorToken) {
-        when (target) {
-            ThemeBuilderTarget.VIEW_SYSTEM -> addViewSystemToken(token)
-            ThemeBuilderTarget.COMPOSE -> addComposeToken(token)
-            ThemeBuilderTarget.ALL -> {
-                addViewSystemToken(token)
-                addComposeToken(token)
-            }
-        }
+    override fun generateViewSystem() {
+        xmlDocumentBuilder.build(outputResDir.colorsXmlFile())
     }
 
     /**
-     * @see TokenGenerator.generate
+     * @see TokenGenerator.generateCompose
      */
-    override fun generate() {
-        if (needGenerateViewSystem) {
-            xmlDocumentBuilder.build(outputResDir.colorsXmlFile())
-        }
-
-        if (needGenerateCompose) {
-            ktFileBuilder.build(outputLocation)
-        }
+    override fun generateCompose() {
+        ktFileBuilder.build(outputLocation)
     }
 
-    private fun addViewSystemToken(token: ColorToken) {
-        val tokenValue = token.value ?: return
+    /**
+     * @see TokenGenerator.addViewSystemToken
+     */
+    override fun addViewSystemToken(token: ColorToken): Boolean {
+        val tokenValue = token.value ?: return false
         xmlDocumentBuilder.appendComment(token.description)
         xmlDocumentBuilder.appendElement(ElementName.COLOR, token.xmlName, tokenValue.origin)
-        if (!needGenerateViewSystem && target.isViewSystemOrAll) needGenerateViewSystem = true
+        return true
     }
 
-    private fun addComposeToken(token: ColorToken) = with(ktFileBuilder) {
-        val tokenValue = token.value ?: return
+    /**
+     * @see TokenGenerator.addComposeToken
+     */
+    override fun addComposeToken(token: ColorToken): Boolean = with(ktFileBuilder) {
+        val tokenValue = token.value ?: return false
         val root = if (token.tags.contains("dark")) {
             darkBuilder
         } else if (token.tags.contains("light")) {
             lightBuilder
         } else {
-            return
+            return false
         }
         val value = "Color(${tokenValue.origin.replace("#", "0x")})"
         root.appendProperty(token.ktName, KtFileBuilder.TypeColor, value, token.description)
-        if (!needGenerateCompose && target.isComposeOrAll) needGenerateCompose = true
+        return true
     }
 }
