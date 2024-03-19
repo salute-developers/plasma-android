@@ -31,7 +31,9 @@ internal class DimenGenerator(
         dimensAggregator.dimens.forEach {
             xmlDocumentBuilder.appendDimen(it)
         }
-        xmlDocumentBuilder.build(outputResDir.dimensFile())
+        if (dimensAggregator.dimens.isNotEmpty()) {
+            xmlDocumentBuilder.build(outputResDir.dimensFile())
+        }
     }
 
     private fun XmlDocumentBuilder.appendDimen(dimen: DimenData) {
