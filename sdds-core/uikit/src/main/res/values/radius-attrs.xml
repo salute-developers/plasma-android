@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="sdds_cRxxs" format="reference|dimension" />
+    <attr name="sdds_cRxs" format="reference|dimension" />
+    <attr name="sdds_cRs" format="reference|dimension" />
+    <attr name="sdds_cRm" format="reference|dimension" />
+    <attr name="sdds_cRl" format="reference|dimension" />
+    <attr name="sdds_cRxl" format="reference|dimension" />
+    <attr name="sdds_cRxxl" format="reference|dimension" />
+</resources>
