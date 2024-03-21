@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Sdds.TextAppearance"/>
+
+    <style name="Sdds.TextAppearance.Display">
+        <item name="fontFamily">?sdds_fontFamily_display</item>
+    </style>
+
+    <style name="Sdds.TextAppearance.Header">
+        <item name="fontFamily">?sdds_fontFamily_header</item>
+    </style>
+
+    <style name="Sdds.TextAppearance.Body">
+        <item name="fontFamily">?sdds_fontFamily_body</item>
+    </style>
+
+    <style name="Sdds.TextAppearance.Text">
+        <item name="fontFamily">?sdds_fontFamily_text</item>
+    </style>
+</resources>

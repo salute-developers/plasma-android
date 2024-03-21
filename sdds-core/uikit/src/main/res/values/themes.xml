@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Sdds"/>
+
+    <!-- Базовая темная тема -->
+    <style name="Sdds.Theme" parent="Theme.MaterialComponents">
+
+    </style>
+
+    <!-- Базовая светлая тема -->
+    <style name="Sdds.Theme.Light" parent="Theme.MaterialComponents.Light">
+
+    </style>
+
+    <!-- Базовая тема DayNight -->
+    <style name="Sdds.Theme.DayNight" parent="Sdds.Theme.Light">
+
+    </style>
+</resources>
