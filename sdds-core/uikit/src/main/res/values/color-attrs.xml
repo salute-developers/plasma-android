@@ -1,414 +1,414 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Text/default -->
-    <attr name="sdds_textPrimary" format="reference|color"/>
-    <attr name="sdds_textSecondary" format="reference|color"/>
-    <attr name="sdds_textTertiary" format="reference|color"/>
-    <attr name="sdds_textParagraph" format="reference|color"/>
-    <attr name="sdds_textAccent" format="reference|color"/>
-    <attr name="sdds_textAccentGradient" format="reference|color"/>
-    <attr name="sdds_textAccentMinor" format="reference|color"/>
-    <attr name="sdds_textAccentGradientMinor" format="reference|color"/>
-    <attr name="sdds_textPromo" format="reference|color"/>
-    <attr name="sdds_textPromoGradient" format="reference|color"/>
-    <attr name="sdds_textPromoMinor" format="reference|color"/>
-    <attr name="sdds_textPromoGradientMinor" format="reference|color"/>
-    <attr name="sdds_textPositive" format="reference|color"/>
-    <attr name="sdds_textWarning" format="reference|color"/>
-    <attr name="sdds_textNegative" format="reference|color"/>
-    <attr name="sdds_textInfo" format="reference|color"/>
-    <attr name="sdds_textPositiveMinor" format="reference|color"/>
-    <attr name="sdds_textWarningMinor" format="reference|color"/>
-    <attr name="sdds_textNegativeMinor" format="reference|color"/>
-    <attr name="sdds_textInfoMinor" format="reference|color"/>
+    <attr name="sdds_textPrimary" format="reference|color" />
+    <attr name="sdds_textSecondary" format="reference|color" />
+    <attr name="sdds_textTertiary" format="reference|color" />
+    <attr name="sdds_textParagraph" format="reference|color" />
+    <attr name="sdds_textAccent" format="reference|color" />
+    <attr name="sdds_textAccentGradient" format="reference|color" />
+    <attr name="sdds_textAccentMinor" format="reference|color" />
+    <attr name="sdds_textAccentGradientMinor" format="reference|color" />
+    <attr name="sdds_textPromo" format="reference|color" />
+    <attr name="sdds_textPromoGradient" format="reference|color" />
+    <attr name="sdds_textPromoMinor" format="reference|color" />
+    <attr name="sdds_textPromoGradientMinor" format="reference|color" />
+    <attr name="sdds_textPositive" format="reference|color" />
+    <attr name="sdds_textWarning" format="reference|color" />
+    <attr name="sdds_textNegative" format="reference|color" />
+    <attr name="sdds_textInfo" format="reference|color" />
+    <attr name="sdds_textPositiveMinor" format="reference|color" />
+    <attr name="sdds_textWarningMinor" format="reference|color" />
+    <attr name="sdds_textNegativeMinor" format="reference|color" />
+    <attr name="sdds_textInfoMinor" format="reference|color" />
 
     <!-- Text/onDark -->
-    <attr name="sdds_onDarkTextPrimary" format="reference|color"/>
-    <attr name="sdds_onDarkTextSecondary" format="reference|color"/>
-    <attr name="sdds_onDarkTextTertiary" format="reference|color"/>
-    <attr name="sdds_onDarkTextParagraph" format="reference|color"/>
-    <attr name="sdds_onDarkTextAccent" format="reference|color"/>
-    <attr name="sdds_onDarkTextAccentGradient" format="reference|color"/>
-    <attr name="sdds_onDarkTextAccentMinor" format="reference|color"/>
-    <attr name="sdds_onDarkTextAccentGradientMinor" format="reference|color"/>
-    <attr name="sdds_onDarkTextPromo" format="reference|color"/>
-    <attr name="sdds_onDarkTextPromoGradient" format="reference|color"/>
-    <attr name="sdds_onDarkTextPromoMinor" format="reference|color"/>
-    <attr name="sdds_onDarkTextPromoGradientMinor" format="reference|color"/>
-    <attr name="sdds_onDarkTextPositive" format="reference|color"/>
-    <attr name="sdds_onDarkTextWarning" format="reference|color"/>
-    <attr name="sdds_onDarkTextNegative" format="reference|color"/>
-    <attr name="sdds_onDarkTextInfo" format="reference|color"/>
-    <attr name="sdds_onDarkTextPositiveMinor" format="reference|color"/>
-    <attr name="sdds_onDarkTextWarningMinor" format="reference|color"/>
-    <attr name="sdds_onDarkTextNegativeMinor" format="reference|color"/>
-    <attr name="sdds_onDarkTextInfoMinor" format="reference|color"/>
+    <attr name="sdds_onDarkTextPrimary" format="reference|color" />
+    <attr name="sdds_onDarkTextSecondary" format="reference|color" />
+    <attr name="sdds_onDarkTextTertiary" format="reference|color" />
+    <attr name="sdds_onDarkTextParagraph" format="reference|color" />
+    <attr name="sdds_onDarkTextAccent" format="reference|color" />
+    <attr name="sdds_onDarkTextAccentGradient" format="reference|color" />
+    <attr name="sdds_onDarkTextAccentMinor" format="reference|color" />
+    <attr name="sdds_onDarkTextAccentGradientMinor" format="reference|color" />
+    <attr name="sdds_onDarkTextPromo" format="reference|color" />
+    <attr name="sdds_onDarkTextPromoGradient" format="reference|color" />
+    <attr name="sdds_onDarkTextPromoMinor" format="reference|color" />
+    <attr name="sdds_onDarkTextPromoGradientMinor" format="reference|color" />
+    <attr name="sdds_onDarkTextPositive" format="reference|color" />
+    <attr name="sdds_onDarkTextWarning" format="reference|color" />
+    <attr name="sdds_onDarkTextNegative" format="reference|color" />
+    <attr name="sdds_onDarkTextInfo" format="reference|color" />
+    <attr name="sdds_onDarkTextPositiveMinor" format="reference|color" />
+    <attr name="sdds_onDarkTextWarningMinor" format="reference|color" />
+    <attr name="sdds_onDarkTextNegativeMinor" format="reference|color" />
+    <attr name="sdds_onDarkTextInfoMinor" format="reference|color" />
 
     <!-- Text/onLight -->
-    <attr name="sdds_onLightTextPrimary" format="reference|color"/>
-    <attr name="sdds_onLightTextSecondary" format="reference|color"/>
-    <attr name="sdds_onLightTextTertiary" format="reference|color"/>
-    <attr name="sdds_onLightTextParagraph" format="reference|color"/>
-    <attr name="sdds_onLightTextAccent" format="reference|color"/>
-    <attr name="sdds_onLightTextAccentGradient" format="reference|color"/>
-    <attr name="sdds_onLightTextAccentMinor" format="reference|color"/>
-    <attr name="sdds_onLightTextAccentGradientMinor" format="reference|color"/>
-    <attr name="sdds_onLightTextPromo" format="reference|color"/>
-    <attr name="sdds_onLightTextPromoGradient" format="reference|color"/>
-    <attr name="sdds_onLightTextPromoMinor" format="reference|color"/>
-    <attr name="sdds_onLightTextPromoGradientMinor" format="reference|color"/>
-    <attr name="sdds_onLightTextPositive" format="reference|color"/>
-    <attr name="sdds_onLightTextWarning" format="reference|color"/>
-    <attr name="sdds_onLightTextNegative" format="reference|color"/>
-    <attr name="sdds_onLightTextInfo" format="reference|color"/>
-    <attr name="sdds_onLightTextPositiveMinor" format="reference|color"/>
-    <attr name="sdds_onLightTextWarningMinor" format="reference|color"/>
-    <attr name="sdds_onLightTextNegativeMinor" format="reference|color"/>
-    <attr name="sdds_onLightTextInfoMinor" format="reference|color"/>
+    <attr name="sdds_onLightTextPrimary" format="reference|color" />
+    <attr name="sdds_onLightTextSecondary" format="reference|color" />
+    <attr name="sdds_onLightTextTertiary" format="reference|color" />
+    <attr name="sdds_onLightTextParagraph" format="reference|color" />
+    <attr name="sdds_onLightTextAccent" format="reference|color" />
+    <attr name="sdds_onLightTextAccentGradient" format="reference|color" />
+    <attr name="sdds_onLightTextAccentMinor" format="reference|color" />
+    <attr name="sdds_onLightTextAccentGradientMinor" format="reference|color" />
+    <attr name="sdds_onLightTextPromo" format="reference|color" />
+    <attr name="sdds_onLightTextPromoGradient" format="reference|color" />
+    <attr name="sdds_onLightTextPromoMinor" format="reference|color" />
+    <attr name="sdds_onLightTextPromoGradientMinor" format="reference|color" />
+    <attr name="sdds_onLightTextPositive" format="reference|color" />
+    <attr name="sdds_onLightTextWarning" format="reference|color" />
+    <attr name="sdds_onLightTextNegative" format="reference|color" />
+    <attr name="sdds_onLightTextInfo" format="reference|color" />
+    <attr name="sdds_onLightTextPositiveMinor" format="reference|color" />
+    <attr name="sdds_onLightTextWarningMinor" format="reference|color" />
+    <attr name="sdds_onLightTextNegativeMinor" format="reference|color" />
+    <attr name="sdds_onLightTextInfoMinor" format="reference|color" />
 
     <!-- Text/inverse -->
-    <attr name="sdds_inverseTextPrimary" format="reference|color"/>
-    <attr name="sdds_inverseTextSecondary" format="reference|color"/>
-    <attr name="sdds_inverseTextTertiary" format="reference|color"/>
-    <attr name="sdds_inverseTextParagraph" format="reference|color"/>
-    <attr name="sdds_inverseTextAccent" format="reference|color"/>
-    <attr name="sdds_inverseTextAccentGradient" format="reference|color"/>
-    <attr name="sdds_inverseTextAccentMinor" format="reference|color"/>
-    <attr name="sdds_inverseTextAccentGradientMinor" format="reference|color"/>
-    <attr name="sdds_inverseTextPromo" format="reference|color"/>
-    <attr name="sdds_inverseTextPromoGradient" format="reference|color"/>
-    <attr name="sdds_inverseTextPromoMinor" format="reference|color"/>
-    <attr name="sdds_inverseTextPromoGradientMinor" format="reference|color"/>
-    <attr name="sdds_inverseTextPositive" format="reference|color"/>
-    <attr name="sdds_inverseTextWarning" format="reference|color"/>
-    <attr name="sdds_inverseTextNegative" format="reference|color"/>
-    <attr name="sdds_inverseTextInfo" format="reference|color"/>
-    <attr name="sdds_inverseTextPositiveMinor" format="reference|color"/>
-    <attr name="sdds_inverseTextWarningMinor" format="reference|color"/>
-    <attr name="sdds_inverseTextNegativeMinor" format="reference|color"/>
-    <attr name="sdds_inverseTextInfoMinor" format="reference|color"/>
+    <attr name="sdds_inverseTextPrimary" format="reference|color" />
+    <attr name="sdds_inverseTextSecondary" format="reference|color" />
+    <attr name="sdds_inverseTextTertiary" format="reference|color" />
+    <attr name="sdds_inverseTextParagraph" format="reference|color" />
+    <attr name="sdds_inverseTextAccent" format="reference|color" />
+    <attr name="sdds_inverseTextAccentGradient" format="reference|color" />
+    <attr name="sdds_inverseTextAccentMinor" format="reference|color" />
+    <attr name="sdds_inverseTextAccentGradientMinor" format="reference|color" />
+    <attr name="sdds_inverseTextPromo" format="reference|color" />
+    <attr name="sdds_inverseTextPromoGradient" format="reference|color" />
+    <attr name="sdds_inverseTextPromoMinor" format="reference|color" />
+    <attr name="sdds_inverseTextPromoGradientMinor" format="reference|color" />
+    <attr name="sdds_inverseTextPositive" format="reference|color" />
+    <attr name="sdds_inverseTextWarning" format="reference|color" />
+    <attr name="sdds_inverseTextNegative" format="reference|color" />
+    <attr name="sdds_inverseTextInfo" format="reference|color" />
+    <attr name="sdds_inverseTextPositiveMinor" format="reference|color" />
+    <attr name="sdds_inverseTextWarningMinor" format="reference|color" />
+    <attr name="sdds_inverseTextNegativeMinor" format="reference|color" />
+    <attr name="sdds_inverseTextInfoMinor" format="reference|color" />
 
     <!-- Surface/default -->
-    <attr name="sdds_surfaceSolidPrimary" format="reference|color"/>
-    <attr name="sdds_surfaceSolidSecondary" format="reference|color"/>
-    <attr name="sdds_surfaceSolidTertiary" format="reference|color"/>
-    <attr name="sdds_surfaceSolidCard" format="reference|color"/>
-    <attr name="sdds_surfaceSolidDefault" format="reference|color"/>
-    <attr name="sdds_surfaceTransparentPrimary" format="reference|color"/>
-    <attr name="sdds_surfaceTransparentSecondary" format="reference|color"/>
-    <attr name="sdds_surfaceTransparentTertiary" format="reference|color"/>
-    <attr name="sdds_surfaceTransparentDeep" format="reference|color"/>
-    <attr name="sdds_surfaceTransparentCard" format="reference|color"/>
-    <attr name="sdds_surfaceClear" format="reference|color"/>
-    <attr name="sdds_surfaceAccent" format="reference|color"/>
-    <attr name="sdds_surfaceAccentGradient" format="reference|color"/>
-    <attr name="sdds_surfaceAccentMinor" format="reference|color"/>
-    <attr name="sdds_surfaceAccentGradientMinor" format="reference|color"/>
-    <attr name="sdds_surfacePromo" format="reference|color"/>
-    <attr name="sdds_surfacePromoGradient" format="reference|color"/>
-    <attr name="sdds_surfacePromoMinor" format="reference|color"/>
-    <attr name="sdds_surfacePromoGradientMinor" format="reference|color"/>
-    <attr name="sdds_surfaceTransparentAccent" format="reference|color"/>
-    <attr name="sdds_surfaceTransparentAccentGradient" format="reference|color"/>
-    <attr name="sdds_surfaceTransparentPromo" format="reference|color"/>
-    <attr name="sdds_surfaceTransparentPromoGradient" format="reference|color"/>
-    <attr name="sdds_surfacePositive" format="reference|color"/>
-    <attr name="sdds_surfaceWarning" format="reference|color"/>
-    <attr name="sdds_surfaceNegative" format="reference|color"/>
-    <attr name="sdds_surfaceInfo" format="reference|color"/>
-    <attr name="sdds_surfacePositiveMinor" format="reference|color"/>
-    <attr name="sdds_surfaceWarningMinor" format="reference|color"/>
-    <attr name="sdds_surfaceNegativeMinor" format="reference|color"/>
-    <attr name="sdds_surfaceInfoMinor" format="reference|color"/>
-    <attr name="sdds_surfaceTransparentPositive" format="reference|color"/>
-    <attr name="sdds_surfaceTransparentWarning" format="reference|color"/>
-    <attr name="sdds_surfaceTransparentNegative" format="reference|color"/>
-    <attr name="sdds_surfaceTransparentInfo" format="reference|color"/>
+    <attr name="sdds_surfaceSolidPrimary" format="reference|color" />
+    <attr name="sdds_surfaceSolidSecondary" format="reference|color" />
+    <attr name="sdds_surfaceSolidTertiary" format="reference|color" />
+    <attr name="sdds_surfaceSolidCard" format="reference|color" />
+    <attr name="sdds_surfaceSolidDefault" format="reference|color" />
+    <attr name="sdds_surfaceTransparentPrimary" format="reference|color" />
+    <attr name="sdds_surfaceTransparentSecondary" format="reference|color" />
+    <attr name="sdds_surfaceTransparentTertiary" format="reference|color" />
+    <attr name="sdds_surfaceTransparentDeep" format="reference|color" />
+    <attr name="sdds_surfaceTransparentCard" format="reference|color" />
+    <attr name="sdds_surfaceClear" format="reference|color" />
+    <attr name="sdds_surfaceAccent" format="reference|color" />
+    <attr name="sdds_surfaceAccentGradient" format="reference|color" />
+    <attr name="sdds_surfaceAccentMinor" format="reference|color" />
+    <attr name="sdds_surfaceAccentGradientMinor" format="reference|color" />
+    <attr name="sdds_surfacePromo" format="reference|color" />
+    <attr name="sdds_surfacePromoGradient" format="reference|color" />
+    <attr name="sdds_surfacePromoMinor" format="reference|color" />
+    <attr name="sdds_surfacePromoGradientMinor" format="reference|color" />
+    <attr name="sdds_surfaceTransparentAccent" format="reference|color" />
+    <attr name="sdds_surfaceTransparentAccentGradient" format="reference|color" />
+    <attr name="sdds_surfaceTransparentPromo" format="reference|color" />
+    <attr name="sdds_surfaceTransparentPromoGradient" format="reference|color" />
+    <attr name="sdds_surfacePositive" format="reference|color" />
+    <attr name="sdds_surfaceWarning" format="reference|color" />
+    <attr name="sdds_surfaceNegative" format="reference|color" />
+    <attr name="sdds_surfaceInfo" format="reference|color" />
+    <attr name="sdds_surfacePositiveMinor" format="reference|color" />
+    <attr name="sdds_surfaceWarningMinor" format="reference|color" />
+    <attr name="sdds_surfaceNegativeMinor" format="reference|color" />
+    <attr name="sdds_surfaceInfoMinor" format="reference|color" />
+    <attr name="sdds_surfaceTransparentPositive" format="reference|color" />
+    <attr name="sdds_surfaceTransparentWarning" format="reference|color" />
+    <attr name="sdds_surfaceTransparentNegative" format="reference|color" />
+    <attr name="sdds_surfaceTransparentInfo" format="reference|color" />
 
     <!-- Surface/onDark -->
-    <attr name="sdds_onDarkSurfaceSolidPrimary" format="reference|color"/>
-    <attr name="sdds_onDarkSurfaceSolidSecondary" format="reference|color"/>
-    <attr name="sdds_onDarkSurfaceSolidTertiary" format="reference|color"/>
-    <attr name="sdds_onDarkSurfaceSolidCard" format="reference|color"/>
-    <attr name="sdds_onDarkSurfaceSolidDefault" format="reference|color"/>
-    <attr name="sdds_onDarkSurfaceTransparentPrimary" format="reference|color"/>
-    <attr name="sdds_onDarkSurfaceTransparentSecondary" format="reference|color"/>
-    <attr name="sdds_onDarkSurfaceTransparentTertiary" format="reference|color"/>
-    <attr name="sdds_onDarkSurfaceTransparentDeep" format="reference|color"/>
-    <attr name="sdds_onDarkSurfaceTransparentCard" format="reference|color"/>
-    <attr name="sdds_onDarkSurfaceClear" format="reference|color"/>
-    <attr name="sdds_onDarkSurfaceAccent" format="reference|color"/>
-    <attr name="sdds_onDarkSurfaceAccentGradient" format="reference|color"/>
-    <attr name="sdds_onDarkSurfaceAccentMinor" format="reference|color"/>
-    <attr name="sdds_onDarkSurfaceAccentGradientMinor" format="reference|color"/>
-    <attr name="sdds_onDarkSurfacePromo" format="reference|color"/>
-    <attr name="sdds_onDarkSurfacePromoGradient" format="reference|color"/>
-    <attr name="sdds_onDarkSurfacePromoMinor" format="reference|color"/>
-    <attr name="sdds_onDarkSurfacePromoGradientMinor" format="reference|color"/>
-    <attr name="sdds_onDarkSurfaceTransparentAccent" format="reference|color"/>
-    <attr name="sdds_onDarkSurfaceTransparentAccentGradient" format="reference|color"/>
-    <attr name="sdds_onDarkSurfaceTransparentPromo" format="reference|color"/>
-    <attr name="sdds_onDarkSurfaceTransparentPromoGradient" format="reference|color"/>
-    <attr name="sdds_onDarkSurfacePositive" format="reference|color"/>
-    <attr name="sdds_onDarkSurfaceWarning" format="reference|color"/>
-    <attr name="sdds_onDarkSurfaceNegative" format="reference|color"/>
-    <attr name="sdds_onDarkSurfaceInfo" format="reference|color"/>
-    <attr name="sdds_onDarkSurfacePositiveMinor" format="reference|color"/>
-    <attr name="sdds_onDarkSurfaceWarningMinor" format="reference|color"/>
-    <attr name="sdds_onDarkSurfaceNegativeMinor" format="reference|color"/>
-    <attr name="sdds_onDarkSurfaceInfoMinor" format="reference|color"/>
-    <attr name="sdds_onDarkSurfaceTransparentPositive" format="reference|color"/>
-    <attr name="sdds_onDarkSurfaceTransparentWarning" format="reference|color"/>
-    <attr name="sdds_onDarkSurfaceTransparentNegative" format="reference|color"/>
-    <attr name="sdds_onDarkSurfaceTransparentInfo" format="reference|color"/>
+    <attr name="sdds_onDarkSurfaceSolidPrimary" format="reference|color" />
+    <attr name="sdds_onDarkSurfaceSolidSecondary" format="reference|color" />
+    <attr name="sdds_onDarkSurfaceSolidTertiary" format="reference|color" />
+    <attr name="sdds_onDarkSurfaceSolidCard" format="reference|color" />
+    <attr name="sdds_onDarkSurfaceSolidDefault" format="reference|color" />
+    <attr name="sdds_onDarkSurfaceTransparentPrimary" format="reference|color" />
+    <attr name="sdds_onDarkSurfaceTransparentSecondary" format="reference|color" />
+    <attr name="sdds_onDarkSurfaceTransparentTertiary" format="reference|color" />
+    <attr name="sdds_onDarkSurfaceTransparentDeep" format="reference|color" />
+    <attr name="sdds_onDarkSurfaceTransparentCard" format="reference|color" />
+    <attr name="sdds_onDarkSurfaceClear" format="reference|color" />
+    <attr name="sdds_onDarkSurfaceAccent" format="reference|color" />
+    <attr name="sdds_onDarkSurfaceAccentGradient" format="reference|color" />
+    <attr name="sdds_onDarkSurfaceAccentMinor" format="reference|color" />
+    <attr name="sdds_onDarkSurfaceAccentGradientMinor" format="reference|color" />
+    <attr name="sdds_onDarkSurfacePromo" format="reference|color" />
+    <attr name="sdds_onDarkSurfacePromoGradient" format="reference|color" />
+    <attr name="sdds_onDarkSurfacePromoMinor" format="reference|color" />
+    <attr name="sdds_onDarkSurfacePromoGradientMinor" format="reference|color" />
+    <attr name="sdds_onDarkSurfaceTransparentAccent" format="reference|color" />
+    <attr name="sdds_onDarkSurfaceTransparentAccentGradient" format="reference|color" />
+    <attr name="sdds_onDarkSurfaceTransparentPromo" format="reference|color" />
+    <attr name="sdds_onDarkSurfaceTransparentPromoGradient" format="reference|color" />
+    <attr name="sdds_onDarkSurfacePositive" format="reference|color" />
+    <attr name="sdds_onDarkSurfaceWarning" format="reference|color" />
+    <attr name="sdds_onDarkSurfaceNegative" format="reference|color" />
+    <attr name="sdds_onDarkSurfaceInfo" format="reference|color" />
+    <attr name="sdds_onDarkSurfacePositiveMinor" format="reference|color" />
+    <attr name="sdds_onDarkSurfaceWarningMinor" format="reference|color" />
+    <attr name="sdds_onDarkSurfaceNegativeMinor" format="reference|color" />
+    <attr name="sdds_onDarkSurfaceInfoMinor" format="reference|color" />
+    <attr name="sdds_onDarkSurfaceTransparentPositive" format="reference|color" />
+    <attr name="sdds_onDarkSurfaceTransparentWarning" format="reference|color" />
+    <attr name="sdds_onDarkSurfaceTransparentNegative" format="reference|color" />
+    <attr name="sdds_onDarkSurfaceTransparentInfo" format="reference|color" />
 
     <!-- Surface/onLight -->
-    <attr name="sdds_onLightSurfaceSolidPrimary" format="reference|color"/>
-    <attr name="sdds_onLightSurfaceSolidSecondary" format="reference|color"/>
-    <attr name="sdds_onLightSurfaceSolidTertiary" format="reference|color"/>
-    <attr name="sdds_onLightSurfaceSolidCard" format="reference|color"/>
-    <attr name="sdds_onLightSurfaceSolidDefault" format="reference|color"/>
-    <attr name="sdds_onLightSurfaceTransparentPrimary" format="reference|color"/>
-    <attr name="sdds_onLightSurfaceTransparentSecondary" format="reference|color"/>
-    <attr name="sdds_onLightSurfaceTransparentTertiary" format="reference|color"/>
-    <attr name="sdds_onLightSurfaceTransparentDeep" format="reference|color"/>
-    <attr name="sdds_onLightSurfaceTransparentCard" format="reference|color"/>
-    <attr name="sdds_onLightSurfaceClear" format="reference|color"/>
-    <attr name="sdds_onLightSurfaceAccent" format="reference|color"/>
-    <attr name="sdds_onLightSurfaceAccentGradient" format="reference|color"/>
-    <attr name="sdds_onLightSurfaceAccentMinor" format="reference|color"/>
-    <attr name="sdds_onLightSurfaceAccentGradientMinor" format="reference|color"/>
-    <attr name="sdds_onLightSurfacePromo" format="reference|color"/>
-    <attr name="sdds_onLightSurfacePromoGradient" format="reference|color"/>
-    <attr name="sdds_onLightSurfacePromoMinor" format="reference|color"/>
-    <attr name="sdds_onLightSurfacePromoGradientMinor" format="reference|color"/>
-    <attr name="sdds_onLightSurfaceTransparentAccent" format="reference|color"/>
-    <attr name="sdds_onLightSurfaceTransparentAccentGradient" format="reference|color"/>
-    <attr name="sdds_onLightSurfaceTransparentPromo" format="reference|color"/>
-    <attr name="sdds_onLightSurfaceTransparentPromoGradient" format="reference|color"/>
-    <attr name="sdds_onLightSurfacePositive" format="reference|color"/>
-    <attr name="sdds_onLightSurfaceWarning" format="reference|color"/>
-    <attr name="sdds_onLightSurfaceNegative" format="reference|color"/>
-    <attr name="sdds_onLightSurfaceInfo" format="reference|color"/>
-    <attr name="sdds_onLightSurfacePositiveMinor" format="reference|color"/>
-    <attr name="sdds_onLightSurfaceWarningMinor" format="reference|color"/>
-    <attr name="sdds_onLightSurfaceNegativeMinor" format="reference|color"/>
-    <attr name="sdds_onLightSurfaceInfoMinor" format="reference|color"/>
-    <attr name="sdds_onLightSurfaceTransparentPositive" format="reference|color"/>
-    <attr name="sdds_onLightSurfaceTransparentWarning" format="reference|color"/>
-    <attr name="sdds_onLightSurfaceTransparentNegative" format="reference|color"/>
-    <attr name="sdds_onLightSurfaceTransparentInfo" format="reference|color"/>
+    <attr name="sdds_onLightSurfaceSolidPrimary" format="reference|color" />
+    <attr name="sdds_onLightSurfaceSolidSecondary" format="reference|color" />
+    <attr name="sdds_onLightSurfaceSolidTertiary" format="reference|color" />
+    <attr name="sdds_onLightSurfaceSolidCard" format="reference|color" />
+    <attr name="sdds_onLightSurfaceSolidDefault" format="reference|color" />
+    <attr name="sdds_onLightSurfaceTransparentPrimary" format="reference|color" />
+    <attr name="sdds_onLightSurfaceTransparentSecondary" format="reference|color" />
+    <attr name="sdds_onLightSurfaceTransparentTertiary" format="reference|color" />
+    <attr name="sdds_onLightSurfaceTransparentDeep" format="reference|color" />
+    <attr name="sdds_onLightSurfaceTransparentCard" format="reference|color" />
+    <attr name="sdds_onLightSurfaceClear" format="reference|color" />
+    <attr name="sdds_onLightSurfaceAccent" format="reference|color" />
+    <attr name="sdds_onLightSurfaceAccentGradient" format="reference|color" />
+    <attr name="sdds_onLightSurfaceAccentMinor" format="reference|color" />
+    <attr name="sdds_onLightSurfaceAccentGradientMinor" format="reference|color" />
+    <attr name="sdds_onLightSurfacePromo" format="reference|color" />
+    <attr name="sdds_onLightSurfacePromoGradient" format="reference|color" />
+    <attr name="sdds_onLightSurfacePromoMinor" format="reference|color" />
+    <attr name="sdds_onLightSurfacePromoGradientMinor" format="reference|color" />
+    <attr name="sdds_onLightSurfaceTransparentAccent" format="reference|color" />
+    <attr name="sdds_onLightSurfaceTransparentAccentGradient" format="reference|color" />
+    <attr name="sdds_onLightSurfaceTransparentPromo" format="reference|color" />
+    <attr name="sdds_onLightSurfaceTransparentPromoGradient" format="reference|color" />
+    <attr name="sdds_onLightSurfacePositive" format="reference|color" />
+    <attr name="sdds_onLightSurfaceWarning" format="reference|color" />
+    <attr name="sdds_onLightSurfaceNegative" format="reference|color" />
+    <attr name="sdds_onLightSurfaceInfo" format="reference|color" />
+    <attr name="sdds_onLightSurfacePositiveMinor" format="reference|color" />
+    <attr name="sdds_onLightSurfaceWarningMinor" format="reference|color" />
+    <attr name="sdds_onLightSurfaceNegativeMinor" format="reference|color" />
+    <attr name="sdds_onLightSurfaceInfoMinor" format="reference|color" />
+    <attr name="sdds_onLightSurfaceTransparentPositive" format="reference|color" />
+    <attr name="sdds_onLightSurfaceTransparentWarning" format="reference|color" />
+    <attr name="sdds_onLightSurfaceTransparentNegative" format="reference|color" />
+    <attr name="sdds_onLightSurfaceTransparentInfo" format="reference|color" />
 
     <!-- Surface/inverse -->
-    <attr name="sdds_inverseSurfaceSolidPrimary" format="reference|color"/>
-    <attr name="sdds_inverseSurfaceSolidSecondary" format="reference|color"/>
-    <attr name="sdds_inverseSurfaceSolidTertiary" format="reference|color"/>
-    <attr name="sdds_inverseSurfaceSolidCard" format="reference|color"/>
-    <attr name="sdds_inverseSurfaceSolidDefault" format="reference|color"/>
-    <attr name="sdds_inverseSurfaceTransparentPrimary" format="reference|color"/>
-    <attr name="sdds_inverseSurfaceTransparentSecondary" format="reference|color"/>
-    <attr name="sdds_inverseSurfaceTransparentTertiary" format="reference|color"/>
-    <attr name="sdds_inverseSurfaceTransparentDeep" format="reference|color"/>
-    <attr name="sdds_inverseSurfaceTransparentCard" format="reference|color"/>
-    <attr name="sdds_inverseSurfaceClear" format="reference|color"/>
-    <attr name="sdds_inverseSurfaceAccent" format="reference|color"/>
-    <attr name="sdds_inverseSurfaceAccentGradient" format="reference|color"/>
-    <attr name="sdds_inverseSurfaceAccentMinor" format="reference|color"/>
-    <attr name="sdds_inverseSurfaceAccentGradientMinor" format="reference|color"/>
-    <attr name="sdds_inverseSurfacePromo" format="reference|color"/>
-    <attr name="sdds_inverseSurfacePromoGradient" format="reference|color"/>
-    <attr name="sdds_inverseSurfacePromoMinor" format="reference|color"/>
-    <attr name="sdds_inverseSurfacePromoGradientMinor" format="reference|color"/>
-    <attr name="sdds_inverseSurfaceTransparentAccent" format="reference|color"/>
-    <attr name="sdds_inverseSurfaceTransparentAccentGradient" format="reference|color"/>
-    <attr name="sdds_inverseSurfaceTransparentPromo" format="reference|color"/>
-    <attr name="sdds_inverseSurfaceTransparentPromoGradient" format="reference|color"/>
-    <attr name="sdds_inverseSurfacePositive" format="reference|color"/>
-    <attr name="sdds_inverseSurfaceWarning" format="reference|color"/>
-    <attr name="sdds_inverseSurfaceNegative" format="reference|color"/>
-    <attr name="sdds_inverseSurfaceInfo" format="reference|color"/>
-    <attr name="sdds_inverseSurfacePositiveMinor" format="reference|color"/>
-    <attr name="sdds_inverseSurfaceWarningMinor" format="reference|color"/>
-    <attr name="sdds_inverseSurfaceNegativeMinor" format="reference|color"/>
-    <attr name="sdds_inverseSurfaceInfoMinor" format="reference|color"/>
-    <attr name="sdds_inverseSurfaceTransparentPositive" format="reference|color"/>
-    <attr name="sdds_inverseSurfaceTransparentWarning" format="reference|color"/>
-    <attr name="sdds_inverseSurfaceTransparentNegative" format="reference|color"/>
-    <attr name="sdds_inverseSurfaceTransparentInfo" format="reference|color"/>
+    <attr name="sdds_inverseSurfaceSolidPrimary" format="reference|color" />
+    <attr name="sdds_inverseSurfaceSolidSecondary" format="reference|color" />
+    <attr name="sdds_inverseSurfaceSolidTertiary" format="reference|color" />
+    <attr name="sdds_inverseSurfaceSolidCard" format="reference|color" />
+    <attr name="sdds_inverseSurfaceSolidDefault" format="reference|color" />
+    <attr name="sdds_inverseSurfaceTransparentPrimary" format="reference|color" />
+    <attr name="sdds_inverseSurfaceTransparentSecondary" format="reference|color" />
+    <attr name="sdds_inverseSurfaceTransparentTertiary" format="reference|color" />
+    <attr name="sdds_inverseSurfaceTransparentDeep" format="reference|color" />
+    <attr name="sdds_inverseSurfaceTransparentCard" format="reference|color" />
+    <attr name="sdds_inverseSurfaceClear" format="reference|color" />
+    <attr name="sdds_inverseSurfaceAccent" format="reference|color" />
+    <attr name="sdds_inverseSurfaceAccentGradient" format="reference|color" />
+    <attr name="sdds_inverseSurfaceAccentMinor" format="reference|color" />
+    <attr name="sdds_inverseSurfaceAccentGradientMinor" format="reference|color" />
+    <attr name="sdds_inverseSurfacePromo" format="reference|color" />
+    <attr name="sdds_inverseSurfacePromoGradient" format="reference|color" />
+    <attr name="sdds_inverseSurfacePromoMinor" format="reference|color" />
+    <attr name="sdds_inverseSurfacePromoGradientMinor" format="reference|color" />
+    <attr name="sdds_inverseSurfaceTransparentAccent" format="reference|color" />
+    <attr name="sdds_inverseSurfaceTransparentAccentGradient" format="reference|color" />
+    <attr name="sdds_inverseSurfaceTransparentPromo" format="reference|color" />
+    <attr name="sdds_inverseSurfaceTransparentPromoGradient" format="reference|color" />
+    <attr name="sdds_inverseSurfacePositive" format="reference|color" />
+    <attr name="sdds_inverseSurfaceWarning" format="reference|color" />
+    <attr name="sdds_inverseSurfaceNegative" format="reference|color" />
+    <attr name="sdds_inverseSurfaceInfo" format="reference|color" />
+    <attr name="sdds_inverseSurfacePositiveMinor" format="reference|color" />
+    <attr name="sdds_inverseSurfaceWarningMinor" format="reference|color" />
+    <attr name="sdds_inverseSurfaceNegativeMinor" format="reference|color" />
+    <attr name="sdds_inverseSurfaceInfoMinor" format="reference|color" />
+    <attr name="sdds_inverseSurfaceTransparentPositive" format="reference|color" />
+    <attr name="sdds_inverseSurfaceTransparentWarning" format="reference|color" />
+    <attr name="sdds_inverseSurfaceTransparentNegative" format="reference|color" />
+    <attr name="sdds_inverseSurfaceTransparentInfo" format="reference|color" />
 
     <!-- Outline/default -->
-    <attr name="sdds_outlineSolidPrimary" format="reference|color"/>
-    <attr name="sdds_outlineSolidSecondary" format="reference|color"/>
-    <attr name="sdds_outlineSolidTertiary" format="reference|color"/>
-    <attr name="sdds_outlineTransparentDefault" format="reference|color"/>
-    <attr name="sdds_outlineTransparentPrimary" format="reference|color"/>
-    <attr name="sdds_outlineTransparentSecondary" format="reference|color"/>
-    <attr name="sdds_outlineTransparentTertiary" format="reference|color"/>
-    <attr name="sdds_outlineClear" format="reference|color"/>
-    <attr name="sdds_outlineAccent" format="reference|color"/>
-    <attr name="sdds_outlineAccentGradient" format="reference|color"/>
-    <attr name="sdds_outlineAccentMinor" format="reference|color"/>
-    <attr name="sdds_outlineAccentGradientMinor" format="reference|color"/>
-    <attr name="sdds_outlineTransparentAccent" format="reference|color"/>
-    <attr name="sdds_outlineTransparentAccentGradient" format="reference|color"/>
-    <attr name="sdds_outlinePromo" format="reference|color"/>
-    <attr name="sdds_outlinePromoGradient" format="reference|color"/>
-    <attr name="sdds_outlinePromoMinor" format="reference|color"/>
-    <attr name="sdds_outlinePromoGradientMinor" format="reference|color"/>
-    <attr name="sdds_outlinePromoTransparent" format="reference|color"/>
-    <attr name="sdds_outlinePromoGradientTransparent" format="reference|color"/>
-    <attr name="sdds_outlinePositive" format="reference|color"/>
-    <attr name="sdds_outlineWarning" format="reference|color"/>
-    <attr name="sdds_outlineNegative" format="reference|color"/>
-    <attr name="sdds_outlineInfo" format="reference|color"/>
-    <attr name="sdds_outlinePositiveMinor" format="reference|color"/>
-    <attr name="sdds_outlineWarningMinor" format="reference|color"/>
-    <attr name="sdds_outlineNegativeMinor" format="reference|color"/>
-    <attr name="sdds_outlineInfoMinor" format="reference|color"/>
-    <attr name="sdds_outlineTransparentPositive" format="reference|color"/>
-    <attr name="sdds_outlineTransparentWarning" format="reference|color"/>
-    <attr name="sdds_outlineTransparentNegative" format="reference|color"/>
-    <attr name="sdds_outlineTransparentInfo" format="reference|color"/>
+    <attr name="sdds_outlineSolidPrimary" format="reference|color" />
+    <attr name="sdds_outlineSolidSecondary" format="reference|color" />
+    <attr name="sdds_outlineSolidTertiary" format="reference|color" />
+    <attr name="sdds_outlineTransparentDefault" format="reference|color" />
+    <attr name="sdds_outlineTransparentPrimary" format="reference|color" />
+    <attr name="sdds_outlineTransparentSecondary" format="reference|color" />
+    <attr name="sdds_outlineTransparentTertiary" format="reference|color" />
+    <attr name="sdds_outlineClear" format="reference|color" />
+    <attr name="sdds_outlineAccent" format="reference|color" />
+    <attr name="sdds_outlineAccentGradient" format="reference|color" />
+    <attr name="sdds_outlineAccentMinor" format="reference|color" />
+    <attr name="sdds_outlineAccentGradientMinor" format="reference|color" />
+    <attr name="sdds_outlineTransparentAccent" format="reference|color" />
+    <attr name="sdds_outlineTransparentAccentGradient" format="reference|color" />
+    <attr name="sdds_outlinePromo" format="reference|color" />
+    <attr name="sdds_outlinePromoGradient" format="reference|color" />
+    <attr name="sdds_outlinePromoMinor" format="reference|color" />
+    <attr name="sdds_outlinePromoGradientMinor" format="reference|color" />
+    <attr name="sdds_outlinePromoTransparent" format="reference|color" />
+    <attr name="sdds_outlinePromoGradientTransparent" format="reference|color" />
+    <attr name="sdds_outlinePositive" format="reference|color" />
+    <attr name="sdds_outlineWarning" format="reference|color" />
+    <attr name="sdds_outlineNegative" format="reference|color" />
+    <attr name="sdds_outlineInfo" format="reference|color" />
+    <attr name="sdds_outlinePositiveMinor" format="reference|color" />
+    <attr name="sdds_outlineWarningMinor" format="reference|color" />
+    <attr name="sdds_outlineNegativeMinor" format="reference|color" />
+    <attr name="sdds_outlineInfoMinor" format="reference|color" />
+    <attr name="sdds_outlineTransparentPositive" format="reference|color" />
+    <attr name="sdds_outlineTransparentWarning" format="reference|color" />
+    <attr name="sdds_outlineTransparentNegative" format="reference|color" />
+    <attr name="sdds_outlineTransparentInfo" format="reference|color" />
 
     <!-- Outline/onDark -->
-    <attr name="sdds_onDarkSolidPrimary" format="reference|color"/>
-    <attr name="sdds_onDarkSolidSecondary" format="reference|color"/>
-    <attr name="sdds_onDarkSolidTertiary" format="reference|color"/>
-    <attr name="sdds_onDarkTransparentDefault" format="reference|color"/>
-    <attr name="sdds_onDarkTransparentPrimary" format="reference|color"/>
-    <attr name="sdds_onDarkTransparentSecondary" format="reference|color"/>
-    <attr name="sdds_onDarkTransparentTertiary" format="reference|color"/>
-    <attr name="sdds_onDarkClear" format="reference|color"/>
-    <attr name="sdds_onDarkAccent" format="reference|color"/>
-    <attr name="sdds_onDarkAccentGradient" format="reference|color"/>
-    <attr name="sdds_onDarkAccentMinor" format="reference|color"/>
-    <attr name="sdds_onDarkAccentGradientMinor" format="reference|color"/>
-    <attr name="sdds_onDarkTransparentAccent" format="reference|color"/>
-    <attr name="sdds_onDarkTransparentAccentGradient" format="reference|color"/>
-    <attr name="sdds_onDarkPromo" format="reference|color"/>
-    <attr name="sdds_onDarkPromoGradient" format="reference|color"/>
-    <attr name="sdds_onDarkPromoMinor" format="reference|color"/>
-    <attr name="sdds_onDarkPromoGradientMinor" format="reference|color"/>
-    <attr name="sdds_onDarkPromoTransparent" format="reference|color"/>
-    <attr name="sdds_onDarkPromoGradientTransparent" format="reference|color"/>
-    <attr name="sdds_onDarkPositive" format="reference|color"/>
-    <attr name="sdds_onDarkWarning" format="reference|color"/>
-    <attr name="sdds_onDarkNegative" format="reference|color"/>
-    <attr name="sdds_onDarkInfo" format="reference|color"/>
-    <attr name="sdds_onDarkPositiveMinor" format="reference|color"/>
-    <attr name="sdds_onDarkWarningMinor" format="reference|color"/>
-    <attr name="sdds_onDarkNegativeMinor" format="reference|color"/>
-    <attr name="sdds_onDarkInfoMinor" format="reference|color"/>
-    <attr name="sdds_onDarkTransparentPositive" format="reference|color"/>
-    <attr name="sdds_onDarkTransparentWarning" format="reference|color"/>
-    <attr name="sdds_onDarkTransparentNegative" format="reference|color"/>
-    <attr name="sdds_onDarkTransparentInfo" format="reference|color"/>
+    <attr name="sdds_onDarkSolidPrimary" format="reference|color" />
+    <attr name="sdds_onDarkSolidSecondary" format="reference|color" />
+    <attr name="sdds_onDarkSolidTertiary" format="reference|color" />
+    <attr name="sdds_onDarkTransparentDefault" format="reference|color" />
+    <attr name="sdds_onDarkTransparentPrimary" format="reference|color" />
+    <attr name="sdds_onDarkTransparentSecondary" format="reference|color" />
+    <attr name="sdds_onDarkTransparentTertiary" format="reference|color" />
+    <attr name="sdds_onDarkClear" format="reference|color" />
+    <attr name="sdds_onDarkAccent" format="reference|color" />
+    <attr name="sdds_onDarkAccentGradient" format="reference|color" />
+    <attr name="sdds_onDarkAccentMinor" format="reference|color" />
+    <attr name="sdds_onDarkAccentGradientMinor" format="reference|color" />
+    <attr name="sdds_onDarkTransparentAccent" format="reference|color" />
+    <attr name="sdds_onDarkTransparentAccentGradient" format="reference|color" />
+    <attr name="sdds_onDarkPromo" format="reference|color" />
+    <attr name="sdds_onDarkPromoGradient" format="reference|color" />
+    <attr name="sdds_onDarkPromoMinor" format="reference|color" />
+    <attr name="sdds_onDarkPromoGradientMinor" format="reference|color" />
+    <attr name="sdds_onDarkPromoTransparent" format="reference|color" />
+    <attr name="sdds_onDarkPromoGradientTransparent" format="reference|color" />
+    <attr name="sdds_onDarkPositive" format="reference|color" />
+    <attr name="sdds_onDarkWarning" format="reference|color" />
+    <attr name="sdds_onDarkNegative" format="reference|color" />
+    <attr name="sdds_onDarkInfo" format="reference|color" />
+    <attr name="sdds_onDarkPositiveMinor" format="reference|color" />
+    <attr name="sdds_onDarkWarningMinor" format="reference|color" />
+    <attr name="sdds_onDarkNegativeMinor" format="reference|color" />
+    <attr name="sdds_onDarkInfoMinor" format="reference|color" />
+    <attr name="sdds_onDarkTransparentPositive" format="reference|color" />
+    <attr name="sdds_onDarkTransparentWarning" format="reference|color" />
+    <attr name="sdds_onDarkTransparentNegative" format="reference|color" />
+    <attr name="sdds_onDarkTransparentInfo" format="reference|color" />
 
     <!-- Outline/onLight -->
-    <attr name="sdds_onLightSolidPrimary" format="reference|color"/>
-    <attr name="sdds_onLightSolidSecondary" format="reference|color"/>
-    <attr name="sdds_onLightSolidTertiary" format="reference|color"/>
-    <attr name="sdds_onLightTransparentDefault" format="reference|color"/>
-    <attr name="sdds_onLightTransparentPrimary" format="reference|color"/>
-    <attr name="sdds_onLightTransparentSecondary" format="reference|color"/>
-    <attr name="sdds_onLightTransparentTertiary" format="reference|color"/>
-    <attr name="sdds_onLightClear" format="reference|color"/>
-    <attr name="sdds_onLightAccent" format="reference|color"/>
-    <attr name="sdds_onLightAccentGradient" format="reference|color"/>
-    <attr name="sdds_onLightAccentMinor" format="reference|color"/>
-    <attr name="sdds_onLightAccentGradientMinor" format="reference|color"/>
-    <attr name="sdds_onLightTransparentAccent" format="reference|color"/>
-    <attr name="sdds_onLightTransparentAccentGradient" format="reference|color"/>
-    <attr name="sdds_onLightPromo" format="reference|color"/>
-    <attr name="sdds_onLightPromoGradient" format="reference|color"/>
-    <attr name="sdds_onLightPromoMinor" format="reference|color"/>
-    <attr name="sdds_onLightPromoGradientMinor" format="reference|color"/>
-    <attr name="sdds_onLightPromoTransparent" format="reference|color"/>
-    <attr name="sdds_onLightPromoGradientTransparent" format="reference|color"/>
-    <attr name="sdds_onLightPositive" format="reference|color"/>
-    <attr name="sdds_onLightWarning" format="reference|color"/>
-    <attr name="sdds_onLightNegative" format="reference|color"/>
-    <attr name="sdds_onLightInfo" format="reference|color"/>
-    <attr name="sdds_onLightPositiveMinor" format="reference|color"/>
-    <attr name="sdds_onLightWarningMinor" format="reference|color"/>
-    <attr name="sdds_onLightNegativeMinor" format="reference|color"/>
-    <attr name="sdds_onLightInfoMinor" format="reference|color"/>
-    <attr name="sdds_onLightTransparentPositive" format="reference|color"/>
-    <attr name="sdds_onLightTransparentWarning" format="reference|color"/>
-    <attr name="sdds_onLightTransparentNegative" format="reference|color"/>
-    <attr name="sdds_onLightTransparentInfo" format="reference|color"/>
+    <attr name="sdds_onLightSolidPrimary" format="reference|color" />
+    <attr name="sdds_onLightSolidSecondary" format="reference|color" />
+    <attr name="sdds_onLightSolidTertiary" format="reference|color" />
+    <attr name="sdds_onLightTransparentDefault" format="reference|color" />
+    <attr name="sdds_onLightTransparentPrimary" format="reference|color" />
+    <attr name="sdds_onLightTransparentSecondary" format="reference|color" />
+    <attr name="sdds_onLightTransparentTertiary" format="reference|color" />
+    <attr name="sdds_onLightClear" format="reference|color" />
+    <attr name="sdds_onLightAccent" format="reference|color" />
+    <attr name="sdds_onLightAccentGradient" format="reference|color" />
+    <attr name="sdds_onLightAccentMinor" format="reference|color" />
+    <attr name="sdds_onLightAccentGradientMinor" format="reference|color" />
+    <attr name="sdds_onLightTransparentAccent" format="reference|color" />
+    <attr name="sdds_onLightTransparentAccentGradient" format="reference|color" />
+    <attr name="sdds_onLightPromo" format="reference|color" />
+    <attr name="sdds_onLightPromoGradient" format="reference|color" />
+    <attr name="sdds_onLightPromoMinor" format="reference|color" />
+    <attr name="sdds_onLightPromoGradientMinor" format="reference|color" />
+    <attr name="sdds_onLightPromoTransparent" format="reference|color" />
+    <attr name="sdds_onLightPromoGradientTransparent" format="reference|color" />
+    <attr name="sdds_onLightPositive" format="reference|color" />
+    <attr name="sdds_onLightWarning" format="reference|color" />
+    <attr name="sdds_onLightNegative" format="reference|color" />
+    <attr name="sdds_onLightInfo" format="reference|color" />
+    <attr name="sdds_onLightPositiveMinor" format="reference|color" />
+    <attr name="sdds_onLightWarningMinor" format="reference|color" />
+    <attr name="sdds_onLightNegativeMinor" format="reference|color" />
+    <attr name="sdds_onLightInfoMinor" format="reference|color" />
+    <attr name="sdds_onLightTransparentPositive" format="reference|color" />
+    <attr name="sdds_onLightTransparentWarning" format="reference|color" />
+    <attr name="sdds_onLightTransparentNegative" format="reference|color" />
+    <attr name="sdds_onLightTransparentInfo" format="reference|color" />
 
     <!-- Outline/inverse -->
-    <attr name="sdds_inverseSolidPrimary" format="reference|color"/>
-    <attr name="sdds_inverseSolidSecondary" format="reference|color"/>
-    <attr name="sdds_inverseSolidTertiary" format="reference|color"/>
-    <attr name="sdds_inverseTransparentDefault" format="reference|color"/>
-    <attr name="sdds_inverseTransparentPrimary" format="reference|color"/>
-    <attr name="sdds_inverseTransparentSecondary" format="reference|color"/>
-    <attr name="sdds_inverseTransparentTertiary" format="reference|color"/>
-    <attr name="sdds_inverseClear" format="reference|color"/>
-    <attr name="sdds_inverseAccent" format="reference|color"/>
-    <attr name="sdds_inverseAccentGradient" format="reference|color"/>
-    <attr name="sdds_inverseAccentMinor" format="reference|color"/>
-    <attr name="sdds_inverseAccentGradientMinor" format="reference|color"/>
-    <attr name="sdds_inverseTransparentAccent" format="reference|color"/>
-    <attr name="sdds_inverseTransparentAccentGradient" format="reference|color"/>
-    <attr name="sdds_inversePromo" format="reference|color"/>
-    <attr name="sdds_inversePromoGradient" format="reference|color"/>
-    <attr name="sdds_inversePromoMinor" format="reference|color"/>
-    <attr name="sdds_inversePromoGradientMinor" format="reference|color"/>
-    <attr name="sdds_inversePromoTransparent" format="reference|color"/>
-    <attr name="sdds_inversePromoGradientTransparent" format="reference|color"/>
-    <attr name="sdds_inversePositive" format="reference|color"/>
-    <attr name="sdds_inverseWarning" format="reference|color"/>
-    <attr name="sdds_inverseNegative" format="reference|color"/>
-    <attr name="sdds_inverseInfo" format="reference|color"/>
-    <attr name="sdds_inversePositiveMinor" format="reference|color"/>
-    <attr name="sdds_inverseWarningMinor" format="reference|color"/>
-    <attr name="sdds_inverseNegativeMinor" format="reference|color"/>
-    <attr name="sdds_inverseInfoMinor" format="reference|color"/>
-    <attr name="sdds_inverseTransparentPositive" format="reference|color"/>
-    <attr name="sdds_inverseTransparentWarning" format="reference|color"/>
-    <attr name="sdds_inverseTransparentNegative" format="reference|color"/>
-    <attr name="sdds_inverseTransparentInfo" format="reference|color"/>
+    <attr name="sdds_inverseSolidPrimary" format="reference|color" />
+    <attr name="sdds_inverseSolidSecondary" format="reference|color" />
+    <attr name="sdds_inverseSolidTertiary" format="reference|color" />
+    <attr name="sdds_inverseTransparentDefault" format="reference|color" />
+    <attr name="sdds_inverseTransparentPrimary" format="reference|color" />
+    <attr name="sdds_inverseTransparentSecondary" format="reference|color" />
+    <attr name="sdds_inverseTransparentTertiary" format="reference|color" />
+    <attr name="sdds_inverseClear" format="reference|color" />
+    <attr name="sdds_inverseAccent" format="reference|color" />
+    <attr name="sdds_inverseAccentGradient" format="reference|color" />
+    <attr name="sdds_inverseAccentMinor" format="reference|color" />
+    <attr name="sdds_inverseAccentGradientMinor" format="reference|color" />
+    <attr name="sdds_inverseTransparentAccent" format="reference|color" />
+    <attr name="sdds_inverseTransparentAccentGradient" format="reference|color" />
+    <attr name="sdds_inversePromo" format="reference|color" />
+    <attr name="sdds_inversePromoGradient" format="reference|color" />
+    <attr name="sdds_inversePromoMinor" format="reference|color" />
+    <attr name="sdds_inversePromoGradientMinor" format="reference|color" />
+    <attr name="sdds_inversePromoTransparent" format="reference|color" />
+    <attr name="sdds_inversePromoGradientTransparent" format="reference|color" />
+    <attr name="sdds_inversePositive" format="reference|color" />
+    <attr name="sdds_inverseWarning" format="reference|color" />
+    <attr name="sdds_inverseNegative" format="reference|color" />
+    <attr name="sdds_inverseInfo" format="reference|color" />
+    <attr name="sdds_inversePositiveMinor" format="reference|color" />
+    <attr name="sdds_inverseWarningMinor" format="reference|color" />
+    <attr name="sdds_inverseNegativeMinor" format="reference|color" />
+    <attr name="sdds_inverseInfoMinor" format="reference|color" />
+    <attr name="sdds_inverseTransparentPositive" format="reference|color" />
+    <attr name="sdds_inverseTransparentWarning" format="reference|color" />
+    <attr name="sdds_inverseTransparentNegative" format="reference|color" />
+    <attr name="sdds_inverseTransparentInfo" format="reference|color" />
 
     <!-- Background/default -->
-    <attr name="sdds_backgroundPrimary" format="reference|color"/>
-    <attr name="sdds_backgroundSecondary" format="reference|color"/>
-    <attr name="sdds_backgroundTertiary" format="reference|color"/>
+    <attr name="sdds_backgroundPrimary" format="reference|color" />
+    <attr name="sdds_backgroundSecondary" format="reference|color" />
+    <attr name="sdds_backgroundTertiary" format="reference|color" />
 
     <!-- Background/dark -->
-    <attr name="sdds_darkBackgroundPrimary" format="reference|color"/>
-    <attr name="sdds_darkBackgroundSecondary" format="reference|color"/>
-    <attr name="sdds_darkBackgroundTertiary" format="reference|color"/>
+    <attr name="sdds_darkBackgroundPrimary" format="reference|color" />
+    <attr name="sdds_darkBackgroundSecondary" format="reference|color" />
+    <attr name="sdds_darkBackgroundTertiary" format="reference|color" />
 
     <!-- Background/light -->
-    <attr name="sdds_lightBackgroundPrimary" format="reference|color"/>
-    <attr name="sdds_lightBackgroundSecondary" format="reference|color"/>
-    <attr name="sdds_lightBackgroundTertiary" format="reference|color"/>
+    <attr name="sdds_lightBackgroundPrimary" format="reference|color" />
+    <attr name="sdds_lightBackgroundSecondary" format="reference|color" />
+    <attr name="sdds_lightBackgroundTertiary" format="reference|color" />
 
     <!-- Background/inverse -->
-    <attr name="sdds_inverseBackgroundPrimary" format="reference|color"/>
-    <attr name="sdds_inverseBackgroundSecondary" format="reference|color"/>
-    <attr name="sdds_inverseBackgroundTertiary" format="reference|color"/>
+    <attr name="sdds_inverseBackgroundPrimary" format="reference|color" />
+    <attr name="sdds_inverseBackgroundSecondary" format="reference|color" />
+    <attr name="sdds_inverseBackgroundTertiary" format="reference|color" />
 
     <!-- Overlay/default -->
-    <attr name="sdds_overlaySoft" format="reference|color"/>
-    <attr name="sdds_overlayHard" format="reference|color"/>
-    <attr name="sdds_overlayBlur" format="reference|color"/>
+    <attr name="sdds_overlaySoft" format="reference|color" />
+    <attr name="sdds_overlayHard" format="reference|color" />
+    <attr name="sdds_overlayBlur" format="reference|color" />
 
     <!-- Overlay/dark -->
-    <attr name="sdds_darkOverlaySoft" format="reference|color"/>
-    <attr name="sdds_darkOverlayHard" format="reference|color"/>
-    <attr name="sdds_darkOverlayBlur" format="reference|color"/>
+    <attr name="sdds_darkOverlaySoft" format="reference|color" />
+    <attr name="sdds_darkOverlayHard" format="reference|color" />
+    <attr name="sdds_darkOverlayBlur" format="reference|color" />
 
     <!-- Overlay/light -->
-    <attr name="sdds_lightOverlaySoft" format="reference|color"/>
-    <attr name="sdds_lightOverlayHard" format="reference|color"/>
-    <attr name="sdds_lightOverlayBlur" format="reference|color"/>
+    <attr name="sdds_lightOverlaySoft" format="reference|color" />
+    <attr name="sdds_lightOverlayHard" format="reference|color" />
+    <attr name="sdds_lightOverlayBlur" format="reference|color" />
 
     <!-- Overlay/inverse -->
-    <attr name="sdds_inverseOverlaySoft" format="reference|color"/>
-    <attr name="sdds_inverseOverlayHard" format="reference|color"/>
-    <attr name="sdds_inverseOverlayBlur" format="reference|color"/>
+    <attr name="sdds_inverseOverlaySoft" format="reference|color" />
+    <attr name="sdds_inverseOverlayHard" format="reference|color" />
+    <attr name="sdds_inverseOverlayBlur" format="reference|color" />
 </resources>
