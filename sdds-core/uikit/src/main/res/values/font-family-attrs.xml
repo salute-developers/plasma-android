@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <attr name="sdds_fontFamilyDisplay" format="reference|string" />
-    <attr name="sdds_fontFamilyHeader" format="reference|string" />
-    <attr name="sdds_fontFamilyBody" format="reference|string" />
-    <attr name="sdds_fontFamilyText" format="reference|string" />
+    <attr name="sdds_fontFamilyDisplay" format="reference" />
+    <attr name="sdds_fontFamilyHeader" format="reference" />
+    <attr name="sdds_fontFamilyBody" format="reference" />
+    <attr name="sdds_fontFamilyText" format="reference" />
 </resources>

@@ -1,44 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Display -->
-    <attr name="sdds_textAppearanceDisplayLN" format="reference|string" />
-    <attr name="sdds_textAppearanceDisplayLB" format="reference|string" />
-    <attr name="sdds_textAppearanceDisplayMN" format="reference|string" />
-    <attr name="sdds_textAppearanceDisplayMB" format="reference|string" />
-    <attr name="sdds_textAppearanceDisplaySN" format="reference|string" />
-    <attr name="sdds_textAppearanceDisplaySB" format="reference|string" />
+    <attr name="sdds_textAppearanceDisplayLN" format="reference" />
+    <attr name="sdds_textAppearanceDisplayLB" format="reference" />
+    <attr name="sdds_textAppearanceDisplayMN" format="reference" />
+    <attr name="sdds_textAppearanceDisplayMB" format="reference" />
+    <attr name="sdds_textAppearanceDisplaySN" format="reference" />
+    <attr name="sdds_textAppearanceDisplaySB" format="reference" />
 
     <!-- Header -->
-    <attr name="sdds_textAppearanceH1N" format="reference|string" />
-    <attr name="sdds_textAppearanceH1B" format="reference|string" />
-    <attr name="sdds_textAppearanceH2N" format="reference|string" />
-    <attr name="sdds_textAppearanceH2B" format="reference|string" />
-    <attr name="sdds_textAppearanceH3N" format="reference|string" />
-    <attr name="sdds_textAppearanceH3B" format="reference|string" />
-    <attr name="sdds_textAppearanceH4N" format="reference|string" />
-    <attr name="sdds_textAppearanceH4B" format="reference|string" />
-    <attr name="sdds_textAppearanceH5N" format="reference|string" />
-    <attr name="sdds_textAppearanceH5B" format="reference|string" />
+    <attr name="sdds_textAppearanceH1N" format="reference" />
+    <attr name="sdds_textAppearanceH1B" format="reference" />
+    <attr name="sdds_textAppearanceH2N" format="reference" />
+    <attr name="sdds_textAppearanceH2B" format="reference" />
+    <attr name="sdds_textAppearanceH3N" format="reference" />
+    <attr name="sdds_textAppearanceH3B" format="reference" />
+    <attr name="sdds_textAppearanceH4N" format="reference" />
+    <attr name="sdds_textAppearanceH4B" format="reference" />
+    <attr name="sdds_textAppearanceH5N" format="reference" />
+    <attr name="sdds_textAppearanceH5B" format="reference" />
 
     <!-- Body -->
-    <attr name="sdds_textAppearanceBodyLN" format="reference|string" />
-    <attr name="sdds_textAppearanceBodyLB" format="reference|string" />
-    <attr name="sdds_textAppearanceBodyMN" format="reference|string" />
-    <attr name="sdds_textAppearanceBodyMB" format="reference|string" />
-    <attr name="sdds_textAppearanceBodySN" format="reference|string" />
-    <attr name="sdds_textAppearanceBodySB" format="reference|string" />
-    <attr name="sdds_textAppearanceBodyXSN" format="reference|string" />
-    <attr name="sdds_textAppearanceBodyXSB" format="reference|string" />
-    <attr name="sdds_textAppearanceBodyXXSN" format="reference|string" />
-    <attr name="sdds_textAppearanceBodyXXSB" format="reference|string" />
+    <attr name="sdds_textAppearanceBodyLN" format="reference" />
+    <attr name="sdds_textAppearanceBodyLB" format="reference" />
+    <attr name="sdds_textAppearanceBodyMN" format="reference" />
+    <attr name="sdds_textAppearanceBodyMB" format="reference" />
+    <attr name="sdds_textAppearanceBodySN" format="reference" />
+    <attr name="sdds_textAppearanceBodySB" format="reference" />
+    <attr name="sdds_textAppearanceBodyXSN" format="reference" />
+    <attr name="sdds_textAppearanceBodyXSB" format="reference" />
+    <attr name="sdds_textAppearanceBodyXXSN" format="reference" />
+    <attr name="sdds_textAppearanceBodyXXSB" format="reference" />
 
     <!-- Text -->
-    <attr name="sdds_textAppearanceTextLN" format="reference|string" />
-    <attr name="sdds_textAppearanceTextLB" format="reference|string" />
-    <attr name="sdds_textAppearanceTextMN" format="reference|string" />
-    <attr name="sdds_textAppearanceTextMB" format="reference|string" />
-    <attr name="sdds_textAppearanceTextSN" format="reference|string" />
-    <attr name="sdds_textAppearanceTextSB" format="reference|string" />
-    <attr name="sdds_textAppearanceTextXSN" format="reference|string" />
-    <attr name="sdds_textAppearanceTextXSB" format="reference|string" />
+    <attr name="sdds_textAppearanceTextLN" format="reference" />
+    <attr name="sdds_textAppearanceTextLB" format="reference" />
+    <attr name="sdds_textAppearanceTextMN" format="reference" />
+    <attr name="sdds_textAppearanceTextMB" format="reference" />
+    <attr name="sdds_textAppearanceTextSN" format="reference" />
+    <attr name="sdds_textAppearanceTextSB" format="reference" />
+    <attr name="sdds_textAppearanceTextXSN" format="reference" />
+    <attr name="sdds_textAppearanceTextXSB" format="reference" />
 </resources>
