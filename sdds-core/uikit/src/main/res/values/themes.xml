@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Sdds" />
+
+    <!-- Базовая темная тема -->
+    <style name="Sdds.Theme" parent="Theme.MaterialComponents">
+        <!-- Typography -->
+        <item name="sdds_typographyDisplayLN">@style/Sdds.Typography.Display.L.Normal</item>
+        <item name="sdds_typographyDisplayLB">@style/Sdds.Typography.Display.L.Bold</item>
+        <item name="sdds_typographyDisplayMN">@style/Sdds.Typography.Display.M.Normal</item>
+        <item name="sdds_typographyDisplayMB">@style/Sdds.Typography.Display.M.Bold</item>
+        <item name="sdds_typographyDisplaySN">@style/Sdds.Typography.Display.S.Normal</item>
+        <item name="sdds_typographyDisplaySB">@style/Sdds.Typography.Display.S.Bold</item>
+
+        <item name="sdds_typographyH1N">@style/Sdds.Typography.Header.H1.Normal</item>
+        <item name="sdds_typographyH1B">@style/Sdds.Typography.Header.H1.Bold</item>
+        <item name="sdds_typographyH2N">@style/Sdds.Typography.Header.H2.Normal</item>
+        <item name="sdds_typographyH2B">@style/Sdds.Typography.Header.H2.Bold</item>
+        <item name="sdds_typographyH3N">@style/Sdds.Typography.Header.H3.Normal</item>
+        <item name="sdds_typographyH3B">@style/Sdds.Typography.Header.H3.Bold</item>
+        <item name="sdds_typographyH4N">@style/Sdds.Typography.Header.H4.Normal</item>
+        <item name="sdds_typographyH4B">@style/Sdds.Typography.Header.H4.Bold</item>
+        <item name="sdds_typographyH5N">@style/Sdds.Typography.Header.H5.Normal</item>
+        <item name="sdds_typographyH5B">@style/Sdds.Typography.Header.H5.Bold</item>
+
+        <item name="sdds_typographyBodyLN">@style/Sdds.Typography.Body.L.Normal</item>
+        <item name="sdds_typographyBodyLB">@style/Sdds.Typography.Body.L.Bold</item>
+        <item name="sdds_typographyBodyMN">@style/Sdds.Typography.Body.M.Normal</item>
+        <item name="sdds_typographyBodyMB">@style/Sdds.Typography.Body.M.Bold</item>
+        <item name="sdds_typographyBodySN">@style/Sdds.Typography.Body.S.Normal</item>
+        <item name="sdds_typographyBodySB">@style/Sdds.Typography.Body.S.Bold</item>
+        <item name="sdds_typographyBodyXSN">@style/Sdds.Typography.Body.XS.Normal</item>
+        <item name="sdds_typographyBodyXSB">@style/Sdds.Typography.Body.XS.Bold</item>
+        <item name="sdds_typographyBodyXXSN">@style/Sdds.Typography.Body.XXS.Normal</item>
+        <item name="sdds_typographyBodyXXSB">@style/Sdds.Typography.Body.XXS.Bold</item>
+
+        <item name="sdds_typographyTextLN">@style/Sdds.Typography.Text.L.Normal</item>
+        <item name="sdds_typographyTextLB">@style/Sdds.Typography.Text.L.Bold</item>
+        <item name="sdds_typographyTextMN">@style/Sdds.Typography.Text.M.Normal</item>
+        <item name="sdds_typographyTextMB">@style/Sdds.Typography.Text.M.Bold</item>
+        <item name="sdds_typographyTextSN">@style/Sdds.Typography.Text.S.Normal</item>
+        <item name="sdds_typographyTextSB">@style/Sdds.Typography.Text.S.Bold</item>
+        <item name="sdds_typographyTextXSN">@style/Sdds.Typography.Text.XS.Normal</item>
+        <item name="sdds_typographyTextXSB">@style/Sdds.Typography.Text.XS.Bold</item>
+
+        <!-- Shape -->
+        <item name="sdds_shapeRoundXXS">@style/Sdds.Shape.Round.XXS</item>
+        <item name="sdds_shapeRoundXS">@style/Sdds.Shape.Round.XS</item>
+        <item name="sdds_shapeRoundS">@style/Sdds.Shape.Round.S</item>
+        <item name="sdds_shapeRoundM">@style/Sdds.Shape.Round.M</item>
+        <item name="sdds_shapeRoundL">@style/Sdds.Shape.Round.L</item>
+        <item name="sdds_shapeRoundXL">@style/Sdds.Shape.Round.XL</item>
+        <item name="sdds_shapeRoundXXL">@style/Sdds.Shape.Round.XXL</item>
+    </style>
+
+    <!-- Базовая светлая тема -->
+    <style name="Sdds.Theme.Light" parent="Theme.MaterialComponents.Light">
+
+    </style>
+
+    <!-- Базовая тема DayNight -->
+    <style name="Sdds.Theme.DayNight" parent="Sdds.Theme.Light">
+
+    </style>
+</resources>

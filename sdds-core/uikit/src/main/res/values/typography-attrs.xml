@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Display -->
+    <attr name="sdds_typographyDisplayLN" format="reference" />
+    <attr name="sdds_typographyDisplayLB" format="reference" />
+    <attr name="sdds_typographyDisplayMN" format="reference" />
+    <attr name="sdds_typographyDisplayMB" format="reference" />
+    <attr name="sdds_typographyDisplaySN" format="reference" />
+    <attr name="sdds_typographyDisplaySB" format="reference" />
+
+    <!-- Header -->
+    <attr name="sdds_typographyH1N" format="reference" />
+    <attr name="sdds_typographyH1B" format="reference" />
+    <attr name="sdds_typographyH2N" format="reference" />
+    <attr name="sdds_typographyH2B" format="reference" />
+    <attr name="sdds_typographyH3N" format="reference" />
+    <attr name="sdds_typographyH3B" format="reference" />
+    <attr name="sdds_typographyH4N" format="reference" />
+    <attr name="sdds_typographyH4B" format="reference" />
+    <attr name="sdds_typographyH5N" format="reference" />
+    <attr name="sdds_typographyH5B" format="reference" />
+
+    <!-- Body -->
+    <attr name="sdds_typographyBodyLN" format="reference" />
+    <attr name="sdds_typographyBodyLB" format="reference" />
+    <attr name="sdds_typographyBodyMN" format="reference" />
+    <attr name="sdds_typographyBodyMB" format="reference" />
+    <attr name="sdds_typographyBodySN" format="reference" />
+    <attr name="sdds_typographyBodySB" format="reference" />
+    <attr name="sdds_typographyBodyXSN" format="reference" />
+    <attr name="sdds_typographyBodyXSB" format="reference" />
+    <attr name="sdds_typographyBodyXXSN" format="reference" />
+    <attr name="sdds_typographyBodyXXSB" format="reference" />
+
+    <!-- Text -->
+    <attr name="sdds_typographyTextLN" format="reference" />
+    <attr name="sdds_typographyTextLB" format="reference" />
+    <attr name="sdds_typographyTextMN" format="reference" />
+    <attr name="sdds_typographyTextMB" format="reference" />
+    <attr name="sdds_typographyTextSN" format="reference" />
+    <attr name="sdds_typographyTextSB" format="reference" />
+    <attr name="sdds_typographyTextXSN" format="reference" />
+    <attr name="sdds_typographyTextXSB" format="reference" />
+</resources>
