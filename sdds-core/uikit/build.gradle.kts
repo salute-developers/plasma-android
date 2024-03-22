@@ -13,5 +13,6 @@ android {
 
 dependencies {
     implementation(libs.base.androidX.appcompat)
+    implementation(libs.base.android.material)
     androidTestImplementation(libs.base.test.ui.espresso.core)
 }
