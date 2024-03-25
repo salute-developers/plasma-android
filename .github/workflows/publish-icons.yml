@@ -64,21 +64,26 @@ jobs:
           git branch
           git checkout -b release/icons-v${{steps.extract_version.outputs.release_name}} develop
 
+      - name: Create drawables folder
+        working-directory: ./current
+        continue-on-error: true
+        run: mkdir -p ./sdds-core/icons/src/main/res/drawable
+
       - name: Move generated icons to drawable folder
-        run: |
-          cp -r plasma/packages/plasma-icons/android-icons/. current/sdds-core/icons/src/main/res/drawable/
-          ls current/android-icons
+        run: cp -rf plasma/packages/plasma-icons/android-icons/. current/sdds-core/icons/src/main/res/drawable/
 
       - name: Create tag and release pull request
         working-directory: ./current
         shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           TAG=icons-v${{steps.extract_version.outputs.release_name}}
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
+          git config --local user.email "salutedevs@gmail.com"
+          git config --local user.name "Salute Android Team"
           git add ./sdds-core/icons/
           git commit -m "feat(sdds-acore/icons): New icons were added"
           git tag -a $TAG -m "Release $TAG"
           git push --set-upstream origin release/$TAG
           git push origin $TAG
-          gh pr create --base develop --head release/$TAG
+          gh pr create --base main --head release/$TAG --title "Release $TAG" --body "Icons were updated"
