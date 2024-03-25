@@ -1,0 +1,84 @@
+name: Update Icons Pack
+
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [ build-icons ]
+
+jobs:
+  icons:
+    runs-on: ubuntu-latest
+
+    steps:
+      # делаем сheckout в текущем репозитория
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          show-progress: false
+          fetch-depth: 0
+          path: current
+
+      # делаем сheckout репозитория plasma
+      - name: Checkout to Plasma Web
+        uses: actions/checkout@v4
+        with:
+          repository: salute-developers/plasma
+          ref: dev
+          show-progress: false
+          path: plasma
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: 'plasma/.nvmrc'
+
+      - name: Install plasma web project deps
+        working-directory: ./plasma
+        run: npm ci
+
+      - name: Generate android icons
+        working-directory: ./plasma
+        run: |
+          npx lerna bootstrap --scope="@salutejs/plasma-icons" --ignore-scripts
+          npm run generate:android --prefix="packages/plasma-icons"
+
+      - name: Extract current version
+        id: extract_version
+        working-directory: ./current
+        shell: bash
+        run: |
+          PROPS=./sdds-core/icons/gradle.properties
+          MAJOR=`cat $PROPS | grep "versionMajor" | cut -d'=' -f2`
+          MINOR=`cat $PROPS | grep "versionMinor" | cut -d'=' -f2`
+          PATCH=`cat $PROPS | grep "versionPatch" | cut -d'=' -f2`
+          VER=$MAJOR.$MINOR.$PATCH
+          echo $VER
+          echo "release_name=$VER" >> $GITHUB_OUTPUT
+          echo "minor_version=$MINOR" >> $GITHUB_OUTPUT
+
+      - name: Create release branch
+        working-directory: ./current
+        shell: bash
+        run: |
+          git fetch --all
+          git branch
+          git checkout -b release/icons-v${{steps.extract_version.outputs.release_name}} develop
+
+      - name: Move generated icons to drawable folder
+        run: |
+          cp -r plasma/packages/plasma-icons/android-icons/. current/sdds-core/icons/src/main/res/drawable/
+          ls current/android-icons
+
+      - name: Create tag and release pull request
+        working-directory: ./current
+        shell: bash
+        run: |
+          TAG=icons-v${{steps.extract_version.outputs.release_name}}
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add ./sdds-core/icons/
+          git commit -m "feat(sdds-acore/icons): New icons were added"
+          git tag -a $TAG -m "Release $TAG"
+          git push --set-upstream origin release/$TAG
+          git push origin $TAG
+          gh pr create --base develop --head release/$TAG
