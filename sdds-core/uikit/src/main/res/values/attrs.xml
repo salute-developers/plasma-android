@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SddsFocusSelector">
+        <attr name="sdds_fs_enabled" format="boolean" />
+        <attr name="sdds_fs_mode" format="enum">
+            <enum name="gradient" value="0" />
+            <enum name="animated" value="1" />
+        </attr>
+        <attr name="sdds_fs_strokeWidth" format="float|fraction|dimension" />
+        <attr name="sdds_fs_shapeAppearance" format="reference" />
+    </declare-styleable>
+</resources>
