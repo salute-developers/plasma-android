@@ -3,10 +3,10 @@ package com.sdds.uikit.viewstate
 /**
  * Интерфейс владельца [ViewState]
  */
-internal interface ViewStateHolder {
+interface ViewStateHolder {
 
     /**
-     * Состояния
+     * Состояние
      * @see [ViewState]
      */
     var state: ViewState?
