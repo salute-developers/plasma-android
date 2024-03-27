@@ -36,3 +36,11 @@ jobs:
           path: | 
             **/build/outputs/apk/*/*.apk
             **/build/outputs/aar/*.aar
+
+      - name: Upload test theme
+        uses: actions/upload-artifact@v2
+        with:
+          name: generated-test-theme.zip
+          path: |
+            playground/theme-builder/build/generated/theme-builder
+            playground/theme-builder/build/generated/theme-builder-res   
