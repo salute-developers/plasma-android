@@ -100,7 +100,5 @@ jobs:
           git config --local user.name "Salute Android Team"
           git add ./sdds-core/icons/
           git commit -m "feat(sdds-acore/icons): New icons were added from plasma v$PLASMA_VER"
-          git tag -a $TAG -m "Release $TAG"
           git push --set-upstream origin release/$TAG
-          git push origin $TAG
           gh pr create --base main --head release/$TAG --title "Release $TAG" --body "Icons were updated to v$PLASMA_VER"
