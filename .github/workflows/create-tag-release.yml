@@ -1,0 +1,55 @@
+name: 'Create tag and release'
+
+on:
+  workflow_dispatch:
+    inputs:
+      versionName:
+        description: 'Version Name'
+        required: true
+
+concurrency:
+  # New commit on branch cancels running workflows of the same branch
+  group: ${{ github.workflow }}-${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  tag-release:
+    name: Build release artifacts
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Retrieve tag exists flag
+        uses: mukunku/tag-exists-action@v1.0.0
+        id: checkTag
+        with:
+          tag: ${{ github.event.inputs.versionName }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+
+      - name: Verify tag not exists
+        run: |
+          if [ ${{ steps.checkTag.outputs.exists }} == true ]; then exit 1; else exit 0; fi
+
+      - name: Create and push tag
+        run: |
+          git config --global user.email "salutedevs@gmail.com"
+          git config --global user.name "Salute Android Team"
+          
+          git tag -a $TAG -m "Release $TAG"
+          git push origin $TAG
+        env:
+          TAG: ${{ github.event.inputs.versionName }}
+
+      - name: Create Release on GitHub
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        with:
+          tag_name: ${{ github.event.inputs.versionName }}
+          release_name: ${{ github.event.inputs.versionName }}
+          draft: true
+          prerelease: false

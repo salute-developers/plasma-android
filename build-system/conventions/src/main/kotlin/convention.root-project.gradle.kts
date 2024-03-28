@@ -11,19 +11,6 @@ allprojects {
     }
 }
 
-nexusPublishing {
-    repositories {
-        sonatype {
-            username.set(System.getenv("OSS_USERNAME"))
-            password.set(System.getenv("OSS_PASSWORD"))
-            stagingProfileId.set(System.getenv("OSS_STAGING_PROFILE_ID"))
-
-            nexusUrl.set(uri("https://s01.oss.sonatype.org/service/local/"))
-            snapshotRepositoryUrl.set(uri("https://s01.oss.sonatype.org/content/repositories/snapshots/"))
-        }
-    }
-}
-
 tasks.register("detektAll") {
     val detektTasks = subprojects.flatMap {
         it.tasks.matching { task -> task.name == "detekt" }
@@ -62,6 +49,16 @@ tasks.register("assembleDebugAll") {
         it.task(":assembleDebugAll")
     }
     dependsOn(testTasks, includedTestTasks)
+}
+
+tasks.register("assembleReleaseAll") {
+    val releaseTasks = subprojects.flatMap {
+        it.tasks.matching { task -> task.name == "assembleRelease" }
+    }
+    val includedReleaseTasks = gradle.includedBuilds.map {
+        it.task(":assembleReleaseAll")
+    }
+    dependsOn(releaseTasks, includedReleaseTasks)
 }
 
 tasks.register("testDebugAll") {
