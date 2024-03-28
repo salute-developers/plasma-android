@@ -1,0 +1,44 @@
+name: 'Publish icons Release'
+
+on:
+  push:
+    tags:
+      - "sdds-icons-v[0-9]+.[0-9]+.[0-9]+"
+
+concurrency:
+  # New commit on branch cancels running workflows of the same branch
+  group: ${{ github.workflow }}-${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  generate-distribution:
+    name: Generate icons distribution zip
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v4
+
+      - name: Prepare environment
+        uses: ./.github/actions/prepare-android-env
+
+      - name: Extract branch name
+        id: extract_branch
+        shell: bash
+        run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
+
+      - name: Generate distribution zip
+        run: ./gradlew :sdds-core:icons:generateDistributionZip --info -PbranchName=${{ steps.extract_branch.outputs.branch }}
+
+      - name: Upload distribution
+        uses: actions/upload-artifact@v2
+        with:
+          name: distribution
+          path: sdds-core/icons/build/distributions/*.zip
+
+      - name: Maven Publish
+        uses: ./.github/actions/maven-publish
+        with:
+          artifact: distribution
+          bundle: sdds-icons.zip
+          publishingType: 'USER_MANAGED'
+          publicationName: ${{ github.ref_name }}

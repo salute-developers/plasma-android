@@ -30,6 +30,7 @@ tasks.register("mergeReports")
 tasks.register("copyTestsReports")
 tasks.register("detektAll")
 tasks.register("assembleDebugAll")
+tasks.register("assembleReleaseAll")
 tasks.register("lintDebugAll")
 tasks.register("testDebugAll") {
     dependsOn(subprojects.flatMap { project -> project.tasks.matching { it.name == "test" }})

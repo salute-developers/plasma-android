@@ -54,18 +54,6 @@ jobs:
           echo $VER
           echo "tag=sdds-icons-v$VER" >> $GITHUB_OUTPUT
 
-      - name: Retrieve tag exists flag
-        uses: mukunku/tag-exists-action@v1.0.0
-        id: checkTag
-        with:
-          tag: ${{steps.extract_version.outputs.tag}}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-
-      - name: Verify tag not exists
-        run: |
-          if [ ${{ steps.checkTag.outputs.exists }} == true ]; then exit 1; else exit 0; fi
-
       - name: Verify release branch not exists
         working-directory: ./current
         shell: bash
@@ -100,7 +88,5 @@ jobs:
           git config --local user.name "Salute Android Team"
           git add ./sdds-core/icons/
           git commit -m "feat(sdds-acore/icons): New icons were added from plasma v$PLASMA_VER"
-          git tag -a $TAG -m "Release $TAG"
           git push --set-upstream origin release/$TAG
-          git push origin $TAG
           gh pr create --base main --head release/$TAG --title "Release $TAG" --body "Icons were updated to v$PLASMA_VER"
