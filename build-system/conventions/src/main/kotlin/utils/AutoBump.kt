@@ -1,6 +1,10 @@
 package utils
 
+import org.gradle.api.DefaultTask
 import org.gradle.api.Project
+import org.gradle.api.provider.Property
+import org.gradle.api.tasks.Input
+import org.gradle.api.tasks.TaskAction
 
 /**
  * Область автоинкремента версии
@@ -40,4 +44,22 @@ fun Project.bumpVersion(scope: BumpScope = BumpScope.MINOR) {
     updatedProps.writeText(newContent)
 }
 
+/**
+ * Gradle задача для инкремента версии
+ */
+abstract class AutoBumpTask : DefaultTask() {
+
+    @get:Input
+    abstract val scope: Property<String?>
+
+    @TaskAction
+    fun execute() {
+        val scope = when(this.scope.get()) {
+            "major" -> BumpScope.MAJOR
+            "patch" -> BumpScope.PATCH
+            else -> BumpScope.MINOR
+        }
+        project.bumpVersion(scope)
+    }
+}
 
