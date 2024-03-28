@@ -4,7 +4,7 @@ global-jvmTarget = "1.8"
 global-kotlin = "1.7.10"
 global-compileSdk = "33"
 global-targetSdk = "33"
-global-minSdk = "28"
+global-minSdk = "23"
 
 staticAnalysis-detekt = "1.22.0"
 staticAnalysis-ktlint = "0.50.0"
