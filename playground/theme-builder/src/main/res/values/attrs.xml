@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
-
-    <attr name="cornerSize" format="float" tools:ignore="ResourceName" />
-    <attr name="cornerFamily" format="enum|string" tools:ignore="ResourceName" />
-</resources>

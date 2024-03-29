@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <!--шрифт android-->
     <style name="Thmbldr.TextAppearance.DisplayL">
         <item name="fontFamily">sans</item>
         <item name="fontWeight">300</item>
-        <item name="android:fontStyle">normal</item>
+        <item name="android:textStyle">normal</item>
         <item name="android:letterSpacing">0.02</item>
         <item name="android:textSize">@dimen/thmbldr_screen_s_display_l_text_size</item>
-        <item name="android:lineHeight">@dimen/thmbldr_screen_s_display_l_line_height</item>
+        <item name="android:lineHeight" tools:targetApi="p">@dimen/thmbldr_screen_s_display_l_line_height</item>
     </style>
 </resources>

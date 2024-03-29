@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <!--region Тень downHardL для android-->
     <dimen name="thmbldr_shadow_down_hard_l_dx">0.0dp</dimen>
     <dimen name="thmbldr_shadow_down_hard_l_dY">1.0dp</dimen>

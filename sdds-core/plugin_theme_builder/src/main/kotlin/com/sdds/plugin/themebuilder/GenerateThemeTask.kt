@@ -15,7 +15,7 @@ import com.sdds.plugin.themebuilder.internal.token.Theme
 import com.sdds.plugin.themebuilder.internal.token.TypographyToken
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
-import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.json.decodeFromStream
 import org.gradle.api.DefaultTask
 import org.gradle.api.file.DirectoryProperty
 import org.gradle.api.file.RegularFileProperty
@@ -112,10 +112,8 @@ abstract class GenerateThemeTask : DefaultTask() {
         dimensGenerator.generate()
     }
 
-    private fun decodeTheme(): Theme {
-        val readFile = themeFile.get().asFile.readText()
-        val theme = Serializer.instance.decodeFromString<Theme>(readFile)
-        logger.debug("decoded theme $theme")
-        return theme
-    }
+    private fun decodeTheme(): Theme =
+        themeFile.get().asFile.inputStream().use { stream ->
+            Serializer.instance.decodeFromStream<Theme>(stream)
+        }.also { logger.debug("decoded theme $it") }
 }

@@ -19,6 +19,11 @@ buildscript {
     }
 
     dependencies {
+        configurations.all {
+            resolutionStrategy {
+                force(libs.base.kotlin.serialization.json)
+            }
+        }
         classpath(libs.base.gradle.android)
         classpath(libs.base.gradle.kotlin)
         classpath(libs.base.gradle.detekt)

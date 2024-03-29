@@ -39,7 +39,8 @@ internal class KtFileBuilder(
     }
 
     /**
-     * Добавляет kotlin свойство с именем [name], типом [typeName] и инициализатором [initializer]
+     * Добавляет kotlin свойство с именем [name], типом [typeName], инициализатором [initializer]
+     * и описанием (документацией) [description]
      * @return [TypeSpec.Builder]
      */
     fun TypeSpec.Builder.appendProperty(
@@ -50,7 +51,8 @@ internal class KtFileBuilder(
     ) = appendProperty(name, typeName.asTypeName(), initializer, description, this)
 
     /**
-     * Добавляет kotlin свойство с именем [name], типом [typeName] и инициализатором [initializer]
+     * Добавляет kotlin свойство с именем [name], типом [typeName], инициализатором [initializer]
+     * и описанием (документацией) [description]
      * @return [TypeSpec.Builder]
      */
     fun TypeSpec.Builder.appendProperty(
