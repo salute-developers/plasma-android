@@ -26,6 +26,7 @@ internal open class XmlDocumentBuilder(private val tokenPrefix: String) {
 
     private val rootContent: Element by unsafeLazy {
         document.createElement("resources")
+            .apply { setAttribute("xmlns:tools", "http://schemas.android.com/tools") }
             .also { document.appendChild(it) }
     }
 
@@ -38,6 +39,7 @@ internal open class XmlDocumentBuilder(private val tokenPrefix: String) {
      * @param value значение токена
      * @param format формат xml элемента
      * @param type тип xml элемента
+     * @param targetApi целевая версия
      */
     fun appendElement(
         elementName: ElementName,
@@ -45,9 +47,10 @@ internal open class XmlDocumentBuilder(private val tokenPrefix: String) {
         value: String,
         format: ElementFormat? = null,
         type: ElementType? = null,
+        targetApi: TargetApi? = null,
         usePrefix: Boolean = true,
     ) {
-        rootContent.appendElement(elementName, tokenName, value, format, type, usePrefix)
+        rootContent.appendElement(elementName, tokenName, value, format, type, targetApi, usePrefix)
     }
 
     /**
@@ -57,6 +60,7 @@ internal open class XmlDocumentBuilder(private val tokenPrefix: String) {
      * @param value значение токена
      * @param format формат xml элемента
      * @param type тип xml элемента
+     * @param targetApi целевая версия
      * @param usePrefix если true - добавляет префикс к имени токена
      */
     fun Element.appendElement(
@@ -65,6 +69,7 @@ internal open class XmlDocumentBuilder(private val tokenPrefix: String) {
         value: String,
         format: ElementFormat? = null,
         type: ElementType? = null,
+        targetApi: TargetApi? = null,
         usePrefix: Boolean = true,
     ) {
         val nameAttr = tokenName.withPrefixIfNeed(tokenPrefix.takeIf { usePrefix })
@@ -72,6 +77,7 @@ internal open class XmlDocumentBuilder(private val tokenPrefix: String) {
             setAttribute("name", nameAttr)
             format?.let { setAttribute("format", it.value) }
             type?.let { setAttribute("type", it.value) }
+            targetApi?.let { setAttribute("tools:targetApi", targetApi.value) }
             textContent = value
         }
         appendChild(element)
@@ -146,5 +152,17 @@ internal open class XmlDocumentBuilder(private val tokenPrefix: String) {
      */
     enum class ElementType(val value: String) {
         DIMEN("dimen"),
+    }
+
+    /**
+     * Версия api
+     * @param value строковое название
+     */
+    enum class TargetApi(val value: String) {
+
+        /**
+         * Android SDK 28
+         */
+        P("p"),
     }
 }
