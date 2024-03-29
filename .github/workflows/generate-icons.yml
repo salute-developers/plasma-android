@@ -1,6 +1,13 @@
 name: Update Icons Pack
 
 on:
+  workflow_dispatch:
+    inputs:
+      plasma-ref:
+        required: true
+        default: master
+      plasma-version:
+        required: true
   repository_dispatch:
     types: [ build-icons ]
 
@@ -22,7 +29,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: salute-developers/plasma
-          ref: ${{ github.event.client_payload.ref }}
+          ref: ${{ github.event.client_payload.ref || github.event.inputs.plasma-ref }}
           show-progress: false
           path: plasma
 
@@ -83,7 +90,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           TAG=${{steps.extract_version.outputs.tag}}
-          PLASMA_VER=${{ github.event.client_payload.version }}
+          PLASMA_VER=${{ github.event.client_payload.version || github.event.inputs.plasma-version }}
           git config --local user.email "salutedevs@gmail.com"
           git config --local user.name "Salute Android Team"
           git add ./sdds-core/icons/
