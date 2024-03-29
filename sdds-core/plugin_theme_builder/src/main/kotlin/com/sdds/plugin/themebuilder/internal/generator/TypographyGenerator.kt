@@ -4,6 +4,7 @@ import com.sdds.plugin.themebuilder.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.builder.XmlDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.builder.XmlDocumentBuilder.ElementName
+import com.sdds.plugin.themebuilder.internal.builder.XmlDocumentBuilder.TargetApi
 import com.sdds.plugin.themebuilder.internal.dimens.DimenData
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
@@ -142,7 +143,7 @@ internal class TypographyGenerator(
         appendStyle(textAppearanceName) {
             appendElement(ElementName.ITEM, "fontFamily", tokenValue.fontFamily, usePrefix = false)
             appendElement(ElementName.ITEM, "fontWeight", tokenValue.fontWeight.toString(), usePrefix = false)
-            appendElement(ElementName.ITEM, "android:fontStyle", tokenValue.fontStyle, usePrefix = false)
+            appendElement(ElementName.ITEM, "android:textStyle", tokenValue.fontStyle, usePrefix = false)
             appendElement(
                 ElementName.ITEM,
                 "android:letterSpacing",
@@ -159,6 +160,7 @@ internal class TypographyGenerator(
                 ElementName.ITEM,
                 "android:lineHeight",
                 resourceReferenceProvider.dimen(lineHeightDimen),
+                targetApi = TargetApi.P,
                 usePrefix = false,
             )
         }

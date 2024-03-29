@@ -1,10 +1,9 @@
 package com.sdds.plugin.themebuilder.internal.factory
 
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
-import com.sdds.plugin.themebuilder.internal.builder.XmlDocumentBuilder
 
 /**
- * Фабрика для [XmlDocumentBuilder]
+ * Фабрика для [KtFileBuilder]
  * @param packageName название пакета, куда будет сохранен файл
  * @author Малышев Александр on 07.03.2024
  */
@@ -13,7 +12,7 @@ internal class KtFileBuilderFactory(
 ) {
 
     /**
-     * Создает [XmlDocumentBuilder]
+     * Создает [KtFileBuilder]
      */
     fun create(fileName: String): KtFileBuilder = KtFileBuilder(packageName, fileName)
 }

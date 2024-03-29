@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <!--region Акцентный sweep градиент поверхности-->
     <color name="thmbldr_dark_inverse_surface_accent_color_0">#000</color>
     <color name="thmbldr_dark_inverse_surface_accent_color_1">#fff</color>
