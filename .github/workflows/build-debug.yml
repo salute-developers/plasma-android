@@ -11,7 +11,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  lint:
+  build:
     name: Build debug artifacts
     runs-on: ubuntu-latest
     steps:
