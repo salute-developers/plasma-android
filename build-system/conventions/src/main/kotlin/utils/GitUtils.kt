@@ -45,7 +45,7 @@ fun String.isDevBranch(): Boolean =
  * иначе - false
  */
 fun String.isReleaseBranch(): Boolean =
-    this.startsWith("release/")
+    this.contains("release/")
 
 /**
  * Возвращает true, если текущее название ветки содержит "feature/",
