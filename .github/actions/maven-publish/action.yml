@@ -2,11 +2,6 @@ name: 'Publish Maven'
 
 description: 'Publish distribution to Maven Central'
 inputs:
-  artifact:
-    description: 'distribution artifact'
-    required: true
-    default: 'distribution'
-
   bundle:
     description: 'distribution bundle name'
     required: true
@@ -20,14 +15,13 @@ inputs:
     description: 'distribution publication name'
     required: true
 
+  publicationToken:
+    description: 'distribution publication token'
+    required: true
+
 runs:
   using: "composite"
   steps:
-    - name: Download distribution artifact
-      uses: actions/download-artifact@v4
-      with:
-        name: ${{ inputs.artifact }}
-
     - name: Upload distribution to Maven Central
       shell: bash
       run: |
@@ -37,6 +31,6 @@ runs:
         curl --request POST \
           --verbose \
           --fail-with-body \
-          --header 'Authorization: ${{ secrets.PP_AUTH_TOKEN }}' \
+          --header 'Authorization: ${{ inputs.publicationToken }}' \
           --form bundle=@$BUNDLE \
           "https://central.sonatype.com/api/v1/publisher/upload?publishingType=$P_TYPE&name=$P_NAME"

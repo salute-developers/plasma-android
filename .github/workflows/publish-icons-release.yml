@@ -21,13 +21,12 @@ jobs:
       - name: Prepare environment
         uses: ./.github/actions/prepare-android-env
 
-      - name: Extract branch name
-        id: extract_branch
-        shell: bash
-        run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}" >> $GITHUB_OUTPUT
-
       - name: Generate distribution zip
-        run: ./gradlew :sdds-core:icons:generateDistributionZip --info -PbranchName=${{ steps.extract_branch.outputs.branch }}
+        env:
+          OSS_SIGNING_KEY_ID: ${{ secrets.OSS_SIGNING_KEY_ID }}
+          OSS_SIGNING_KEY: ${{ secrets.OSS_SIGNING_KEY }}
+          OSS_SIGNING_PASSWORD: ${{ secrets.OSS_SIGNING_PASSWORD }}
+        run: ./gradlew :sdds-core:icons:generateDistributionZip --info -PbranchName=main
 
       - name: Upload distribution
         uses: actions/upload-artifact@v2
@@ -38,7 +37,7 @@ jobs:
       - name: Maven Publish
         uses: ./.github/actions/maven-publish
         with:
-          artifact: distribution
-          bundle: sdds-icons.zip
+          bundle: sdds-core/icons/build/distributions/sdds-icons.zip
           publishingType: 'USER_MANAGED'
           publicationName: ${{ github.ref_name }}
+          publicationToken: ${{ secrets.PP_AUTH_TOKEN }}
