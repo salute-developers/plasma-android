@@ -26,7 +26,7 @@ class FontFamilyXmlFileTest(
         fun data() = listOf(
             arrayOf(File("res"), "display", File("res/font/display.xml")),
             arrayOf(File("res"), "fontFamilyText", File("res/font/fontFamilyText.xml")),
-            arrayOf(File("res"), "header", File("res/font/header.xml"))
+            arrayOf(File("res"), "header", File("res/font/header.xml")),
         )
     }
 }

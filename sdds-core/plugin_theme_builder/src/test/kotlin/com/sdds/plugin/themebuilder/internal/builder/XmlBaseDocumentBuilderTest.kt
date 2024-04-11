@@ -67,7 +67,7 @@ class XmlBaseDocumentBuilderTest {
                 "attr_name_1" to "attr_value_1",
                 "attr_name_2" to "attr_value_2",
             ),
-            value = "test_value"
+            value = "test_value",
         )
 
         verify {

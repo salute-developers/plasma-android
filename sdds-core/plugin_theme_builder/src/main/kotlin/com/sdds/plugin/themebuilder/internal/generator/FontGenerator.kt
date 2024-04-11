@@ -98,8 +98,8 @@ internal class FontGenerator(
                 fontDir = outputResDir.fontDir(),
             )
             "Font(R.font.${fontFile.nameWithoutExtension}," +
-                    " FontWeight(${it.fontWeight}), " +
-                    "FontStyle.${it.fontStyle.toComposeFontStyle()})"
+                " FontWeight(${it.fontWeight}), " +
+                "FontStyle.${it.fontStyle.toComposeFontStyle()})"
         }
         val initializer = KtFileBuilder.createConstructorCall(
             constructorName = "FontFamily",

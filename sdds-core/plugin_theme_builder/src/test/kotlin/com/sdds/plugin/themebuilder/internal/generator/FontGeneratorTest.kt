@@ -105,7 +105,7 @@ class FontGeneratorTest {
 
         Assert.assertEquals(
             getResourceAsText("font-outputs/TestFontFamilyOutputKt.txt"),
-            outputKt.toString()
+            outputKt.toString(),
         )
     }
 }
