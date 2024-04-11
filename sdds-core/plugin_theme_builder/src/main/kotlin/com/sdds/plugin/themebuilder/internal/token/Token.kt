@@ -1,5 +1,6 @@
 package com.sdds.plugin.themebuilder.internal.token
 
+import com.sdds.plugin.themebuilder.internal.utils.techToSnakeCase
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
@@ -50,7 +51,7 @@ internal abstract class Token<out Value : TokenValue> {
      * Название токена для xml-файлов
      */
     open val xmlName: String by unsafeLazy {
-        name.replace("[.-]+".toRegex(), "_")
+        name.techToSnakeCase()
     }
 
     /**

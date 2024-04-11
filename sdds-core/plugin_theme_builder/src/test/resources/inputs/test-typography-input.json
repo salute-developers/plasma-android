@@ -10,7 +10,7 @@
     ],
     "type": "typography",
     "value": {
-      "fontFamily": "sans",
+      "fontFamilyRef": "sans",
       "fontWeight": 300,
       "fontStyle": "normal",
       "textSize": 128,
@@ -31,7 +31,7 @@
     ],
     "type": "typography",
     "value": {
-      "fontFamily": "sans",
+      "fontFamilyRef": "sans",
       "fontWeight": 300,
       "fontStyle": "normal",
       "textSize": 96,
@@ -52,7 +52,7 @@
     ],
     "type": "typography",
     "value": {
-      "fontFamily": "sans",
+      "fontFamilyRef": "sans",
       "fontWeight": 300,
       "fontStyle": "normal",
       "textSize": 72,

@@ -1,30 +1,20 @@
 package com.sdds.plugin.themebuilder.internal.builder
 
-import com.sdds.plugin.themebuilder.internal.utils.FileProvider.fileWriter
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import com.sdds.plugin.themebuilder.internal.utils.withPrefixIfNeed
 import org.gradle.configurationcache.extensions.capitalized
-import org.w3c.dom.Document
 import org.w3c.dom.Element
-import java.io.File
-import javax.xml.parsers.DocumentBuilderFactory
-import javax.xml.transform.OutputKeys
-import javax.xml.transform.TransformerFactory
-import javax.xml.transform.dom.DOMSource
-import javax.xml.transform.stream.StreamResult
 
 /**
- * Делегат для построения XML-документа с ресурсами
+ * Делегат для построения XML-документа
  * @param tokenPrefix префикс названия токена
  * @author malilex on 06.03.2024
  */
-internal open class XmlDocumentBuilder(private val tokenPrefix: String) {
+internal open class XmlResourcesDocumentBuilder(
+    private val tokenPrefix: String,
+) : XmlBaseDocumentBuilder() {
 
-    private val document: Document = DocumentBuilderFactory.newInstance()
-        .newDocumentBuilder()
-        .newDocument()
-
-    private val rootContent: Element by unsafeLazy {
+    override val rootContent: Element by unsafeLazy {
         document.createElement("resources")
             .apply { setAttribute("xmlns:tools", "http://schemas.android.com/tools") }
             .also { document.appendChild(it) }
@@ -73,32 +63,16 @@ internal open class XmlDocumentBuilder(private val tokenPrefix: String) {
         usePrefix: Boolean = true,
     ) {
         val nameAttr = tokenName.withPrefixIfNeed(tokenPrefix.takeIf { usePrefix })
-        val element = document.createElement(elementName.value).apply {
-            setAttribute("name", nameAttr)
-            format?.let { setAttribute("format", it.value) }
-            type?.let { setAttribute("type", it.value) }
-            targetApi?.let { setAttribute("tools:targetApi", targetApi.value) }
-            textContent = value
+        val attrs = mutableMapOf("name" to nameAttr).apply {
+            format?.let { put("format", it.value) }
+            type?.let { put("type", it.value) }
+            targetApi?.let { put("tools:targetApi", targetApi.value) }
         }
-        appendChild(element)
-    }
-
-    /**
-     * Добавляет комментарий [comment] в документ
-     */
-    fun appendComment(comment: String?) {
-        comment?.let {
-            rootContent.appendChild(document.createComment(it))
-        }
-    }
-
-    /**
-     * Обосабливает контент [content] в регион с названием [regionName]
-     */
-    fun wrapWithRegion(regionName: String, content: () -> Unit) {
-        appendComment("region $regionName")
-        content.invoke()
-        appendComment("endregion $regionName")
+        appendBaseElement(
+            elementName = elementName.value,
+            attrs = attrs,
+            value = value,
+        )
     }
 
     /**
@@ -113,19 +87,6 @@ internal open class XmlDocumentBuilder(private val tokenPrefix: String) {
             content(this)
             rootContent.appendChild(this)
         }
-    }
-
-    /**
-     * Сохраняет содержимое xml файла в [output]
-     */
-    fun build(output: File) {
-        val transformer = TransformerFactory.newInstance().apply {
-            setAttribute("indent-number", 4)
-        }.newTransformer().apply {
-            setOutputProperty(OutputKeys.ENCODING, "UTF-8")
-            setOutputProperty(OutputKeys.INDENT, "yes")
-        }
-        transformer.transform(DOMSource(document), StreamResult(output.fileWriter()))
     }
 
     /**
