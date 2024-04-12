@@ -1,10 +1,10 @@
 package com.sdds.plugin.themebuilder.internal.generator
 
-import com.sdds.plugin.themebuilder.internal.builder.XmlDocumentBuilder
-import com.sdds.plugin.themebuilder.internal.builder.XmlDocumentBuilder.ElementName
+import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
+import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder.ElementName
 import com.sdds.plugin.themebuilder.internal.dimens.DimenData
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
-import com.sdds.plugin.themebuilder.internal.factory.XmlDocumentBuilderFactory
+import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.dimensFile
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import java.io.File
@@ -19,24 +19,24 @@ import java.io.File
 internal class DimenGenerator(
     private val outputResDir: File,
     private val dimensAggregator: DimensAggregator,
-    private val xmlBuilderFactory: XmlDocumentBuilderFactory,
+    private val xmlBuilderFactory: XmlResourcesDocumentBuilderFactory,
 ) : BaseGenerator {
 
-    private val xmlDocumentBuilder: XmlDocumentBuilder by unsafeLazy { xmlBuilderFactory.create() }
+    private val xmlResourcesDocumentBuilder: XmlResourcesDocumentBuilder by unsafeLazy { xmlBuilderFactory.create() }
 
     /**
      * @see BaseGenerator.generate
      */
     override fun generate() {
         dimensAggregator.dimens.forEach {
-            xmlDocumentBuilder.appendDimen(it)
+            xmlResourcesDocumentBuilder.appendDimen(it)
         }
         if (dimensAggregator.dimens.isNotEmpty()) {
-            xmlDocumentBuilder.build(outputResDir.dimensFile())
+            xmlResourcesDocumentBuilder.build(outputResDir.dimensFile())
         }
     }
 
-    private fun XmlDocumentBuilder.appendDimen(dimen: DimenData) {
+    private fun XmlResourcesDocumentBuilder.appendDimen(dimen: DimenData) {
         appendElement(ElementName.DIMEN, dimen.name, "${dimen.value}${dimen.type.suffix}")
     }
 }

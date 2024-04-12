@@ -5,6 +5,7 @@ import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.OutputLocatio
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.generator.ColorGenerator
 import com.sdds.plugin.themebuilder.internal.generator.DimenGenerator
+import com.sdds.plugin.themebuilder.internal.generator.FontGenerator
 import com.sdds.plugin.themebuilder.internal.generator.GradientGenerator
 import com.sdds.plugin.themebuilder.internal.generator.ShadowGenerator
 import com.sdds.plugin.themebuilder.internal.generator.ShapeGenerator
@@ -18,9 +19,12 @@ import java.io.File
  * @param outputResDir директория для сохранения xml-файла с токенами
  * @param target целевой фреймворк
  * @param dimensAggregator агрегатор размеров
- * @param xmlDocumentBuilderFactory фабрика делегата построения xml файлов
+ * @param xmlResourcesDocumentBuilderFactory фабрика делегата построения xml файлов ресурсов
+ * @param xmlFontFamilyDocumentBuilderFactory фабрика делегата построения xml файлов font-family
+ * @param fontDownloaderFactory фабрика загрузчика шрифтов
  * @param ktFileBuilderFactory фабрика делегата построения kt файлов
  * @param resourceReferenceProvider провайдер ссылок на ресурсы
+ * @param namespace пакет проекта
  * @author Малышев Александр on 12.03.2024
  */
 internal class GeneratorFactory(
@@ -28,9 +32,12 @@ internal class GeneratorFactory(
     private val outputResDir: File,
     private val target: ThemeBuilderTarget,
     private val dimensAggregator: DimensAggregator,
-    private val xmlDocumentBuilderFactory: XmlDocumentBuilderFactory,
+    private val xmlResourcesDocumentBuilderFactory: XmlResourcesDocumentBuilderFactory,
+    private val xmlFontFamilyDocumentBuilderFactory: XmlFontFamilyDocumentBuilderFactory,
+    private val fontDownloaderFactory: FontDownloaderFactory,
     private val ktFileBuilderFactory: KtFileBuilderFactory,
     private val resourceReferenceProvider: ResourceReferenceProvider,
+    private val namespace: String,
 ) {
 
     /**
@@ -41,7 +48,7 @@ internal class GeneratorFactory(
             OutputLocation.Directory(outputDir),
             outputResDir,
             target,
-            xmlDocumentBuilderFactory,
+            xmlResourcesDocumentBuilderFactory,
             ktFileBuilderFactory,
         )
     }
@@ -54,8 +61,20 @@ internal class GeneratorFactory(
             OutputLocation.Directory(outputDir),
             outputResDir,
             target,
-            xmlDocumentBuilderFactory,
+            xmlResourcesDocumentBuilderFactory,
             ktFileBuilderFactory,
+        )
+    }
+
+    fun createFontGenerator(): FontGenerator {
+        return FontGenerator(
+            OutputLocation.Directory(outputDir),
+            outputResDir,
+            target,
+            xmlFontFamilyDocumentBuilderFactory,
+            fontDownloaderFactory,
+            ktFileBuilderFactory,
+            namespace,
         )
     }
 
@@ -68,7 +87,7 @@ internal class GeneratorFactory(
             outputResDir,
             target,
             dimensAggregator,
-            xmlDocumentBuilderFactory,
+            xmlResourcesDocumentBuilderFactory,
             ktFileBuilderFactory,
             resourceReferenceProvider,
         )
@@ -81,7 +100,7 @@ internal class GeneratorFactory(
         return DimenGenerator(
             outputResDir,
             dimensAggregator,
-            xmlDocumentBuilderFactory,
+            xmlResourcesDocumentBuilderFactory,
         )
     }
 
@@ -93,7 +112,7 @@ internal class GeneratorFactory(
             OutputLocation.Directory(outputDir),
             outputResDir,
             target,
-            xmlDocumentBuilderFactory,
+            xmlResourcesDocumentBuilderFactory,
             ktFileBuilderFactory,
             dimensAggregator,
             resourceReferenceProvider,
@@ -108,7 +127,7 @@ internal class GeneratorFactory(
             OutputLocation.Directory(outputDir),
             outputResDir,
             target,
-            xmlDocumentBuilderFactory,
+            xmlResourcesDocumentBuilderFactory,
             ktFileBuilderFactory,
         )
     }

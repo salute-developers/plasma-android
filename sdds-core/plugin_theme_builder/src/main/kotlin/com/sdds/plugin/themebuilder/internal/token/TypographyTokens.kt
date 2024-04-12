@@ -73,12 +73,12 @@ internal data class TypographyToken(
      */
     @Serializable
     internal data class Value(
-        val fontFamily: String,
+        val fontFamilyRef: String,
         val fontWeight: Int,
-        val fontStyle: String,
         val textSize: Float,
-        val letterSpacing: Float,
         val lineHeight: Float,
+        val fontStyle: String,
+        val letterSpacing: Float,
     ) : TokenValue
 
     /**

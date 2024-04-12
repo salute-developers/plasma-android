@@ -5,7 +5,6 @@ import com.android.build.gradle.AppPlugin
 import com.android.build.gradle.BaseExtension
 import com.android.build.gradle.LibraryExtension
 import com.android.build.gradle.LibraryPlugin
-import com.android.build.gradle.internal.crash.afterEvaluate
 import com.android.build.gradle.tasks.MergeResources
 import org.gradle.api.GradleException
 import org.gradle.api.Plugin
@@ -25,18 +24,23 @@ import org.gradle.kotlin.dsl.withType
 class ThemeBuilderPlugin : Plugin<Project> {
     override fun apply(project: Project) {
         val themeOutputFile = project.layout.buildDirectory.file("theme-builder/theme.json")
-        val extension = project.extensions.create("theme-builder", ThemeBuilderExtension::class.java)
+        val extension =
+            project.extensions.create("theme-builder", ThemeBuilderExtension::class.java)
         project.plugins.all {
             when (this) {
-                is AppPlugin -> project.extensions.getByType(AppExtension::class).configureSourceSets()
-                is LibraryPlugin -> project.extensions.getByType(LibraryExtension::class).configureSourceSets()
+                is AppPlugin -> project.extensions.getByType(AppExtension::class)
+                    .configureSourceSets()
+
+                is LibraryPlugin -> project.extensions.getByType(LibraryExtension::class)
+                    .configureSourceSets()
             }
         }
 
         project.afterEvaluate {
             extension.resourcesPrefix.convention(project.getDefaultResourcePrefix())
             val fetchThemeTask = registerThemeFetcher(extension, themeOutputFile)
-            val generateThemeTask = registerThemeGenerator(extension, themeOutputFile, fetchThemeTask)
+            val generateThemeTask =
+                registerThemeGenerator(extension, themeOutputFile, fetchThemeTask)
 
             tasks.withType(MergeResources::class).configureEach {
                 dependsOn(generateThemeTask)
@@ -67,6 +71,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
             resourcesPrefix.set(extension.resourcesPrefix)
             outputDir.set(project.layout.projectDirectory.dir(OUTPUT_PATH))
             outputResDir.set(project.layout.projectDirectory.dir(OUTPUT_RESOURCE_PATH))
+            namespace.set(getProjectNameSpace())
             dependsOn(fetchTask)
         }
     }
@@ -77,10 +82,15 @@ class ThemeBuilderPlugin : Plugin<Project> {
     }
 
     private fun Project.getDefaultResourcePrefix(): String {
-        val baseExtension = extensions.findByType<AppExtension>()
-            ?: extensions.findByType<LibraryExtension>()
-        return baseExtension?.resourcePrefix.orEmpty()
+        return getBaseExtension()?.resourcePrefix.orEmpty()
     }
+
+    private fun Project.getProjectNameSpace(): String {
+        return getBaseExtension()?.namespace.orEmpty()
+    }
+
+    private fun Project.getBaseExtension() = extensions.findByType<AppExtension>()
+        ?: extensions.findByType<LibraryExtension>()
 
     private companion object {
         const val OUTPUT_RESOURCE_PATH = "build/generated/theme-builder-res"

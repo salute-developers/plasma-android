@@ -2,7 +2,7 @@ package com.sdds.plugin.themebuilder.internal.generator
 
 import com.sdds.plugin.themebuilder.internal.dimens.DimenData
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
-import com.sdds.plugin.themebuilder.internal.factory.XmlDocumentBuilderFactory
+import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.dimensFile
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.fileWriter
@@ -37,7 +37,7 @@ class DimenGeneratorTest {
         underTest = DimenGenerator(
             outputResDir = mockOutputResDir,
             dimensAggregator = mockDimensAggregator,
-            xmlBuilderFactory = XmlDocumentBuilderFactory("thmbldr"),
+            xmlBuilderFactory = XmlResourcesDocumentBuilderFactory("thmbldr"),
         )
     }
 
