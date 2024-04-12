@@ -62,6 +62,7 @@ class FontGeneratorTest {
             fontDownloaderFactory = mockDownloaderFactory,
             ktFileBuilderFactory = KtFileBuilderFactory("com.test.tokens"),
             namespace = "com.test",
+            resPrefix = "thmbldr",
         )
     }
 
@@ -85,8 +86,8 @@ class FontGeneratorTest {
         val fontFamilyTextXmlFile = mockk<File>(relaxed = true)
         every { fontFamilyDisplayXmlFile.fileWriter() } returns outputFontFamilyDisplayXml.writer()
         every { fontFamilyTextXmlFile.fileWriter() } returns outputFontFamilyTextXml.writer()
-        every { mockOutputResDir.fontFamilyXmlFile("display") } returns fontFamilyDisplayXmlFile
-        every { mockOutputResDir.fontFamilyXmlFile("text") } returns fontFamilyTextXmlFile
+        every { mockOutputResDir.fontFamilyXmlFile("display", "thmbldr") } returns fontFamilyDisplayXmlFile
+        every { mockOutputResDir.fontFamilyXmlFile("text", "thmbldr") } returns fontFamilyTextXmlFile
 
         fontTokens.forEach { token ->
             underTest.addToken(token)

@@ -68,10 +68,13 @@ object FileProvider {
 
     /**
      * XML файл для токена font-family с именем [familyName]
+     * @param familyName название семейства шрифтов
+     * @param prefix префикс для названия ресурса
      */
     fun File.fontFamilyXmlFile(
         familyName: String,
-    ): File = File("${fontDir().path}/$familyName.xml")
+        prefix: String = "",
+    ): File = File("${fontDir().path}/${familyName.withPrefixIfNeed(prefix)}.xml")
 
     /**
      * XML файл для токенов форм

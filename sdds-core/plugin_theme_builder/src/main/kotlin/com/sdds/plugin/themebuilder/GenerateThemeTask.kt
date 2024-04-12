@@ -89,6 +89,7 @@ abstract class GenerateThemeTask : DefaultTask() {
             KtFileBuilderFactory(packageName.get()),
             ResourceReferenceProvider(resourcesPrefix.get()),
             namespace.get(),
+            resourcesPrefix.get(),
         )
     }
 
