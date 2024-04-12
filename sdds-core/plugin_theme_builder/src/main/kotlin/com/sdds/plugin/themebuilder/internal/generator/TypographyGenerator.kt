@@ -2,13 +2,13 @@ package com.sdds.plugin.themebuilder.internal.generator
 
 import com.sdds.plugin.themebuilder.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
-import com.sdds.plugin.themebuilder.internal.builder.XmlDocumentBuilder
-import com.sdds.plugin.themebuilder.internal.builder.XmlDocumentBuilder.ElementName
-import com.sdds.plugin.themebuilder.internal.builder.XmlDocumentBuilder.TargetApi
+import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
+import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder.ElementName
+import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder.TargetApi
 import com.sdds.plugin.themebuilder.internal.dimens.DimenData
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
-import com.sdds.plugin.themebuilder.internal.factory.XmlDocumentBuilderFactory
+import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.token.TypographyToken
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.textAppearancesXmlFile
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.typographyXmlFile
@@ -31,12 +31,13 @@ internal class TypographyGenerator(
     private val outputResDir: File,
     target: ThemeBuilderTarget,
     private val dimensAggregator: DimensAggregator,
-    private val xmlBuilderFactory: XmlDocumentBuilderFactory,
+    private val xmlBuilderFactory: XmlResourcesDocumentBuilderFactory,
     private val ktFileBuilderFactory: KtFileBuilderFactory,
     private val resourceReferenceProvider: ResourceReferenceProvider,
 ) : TokenGenerator<TypographyToken>(target) {
 
-    private val textAppearanceXmlBuilders = mutableMapOf<TypographyToken.ScreenClass, XmlDocumentBuilder>()
+    private val textAppearanceXmlBuilders =
+        mutableMapOf<TypographyToken.ScreenClass, XmlResourcesDocumentBuilder>()
     private val typographyXmlBuilder by unsafeLazy { xmlBuilderFactory.create() }
     private val ktFileBuilder by unsafeLazy { ktFileBuilderFactory.create("TypographyTokens") }
     private val largeBuilder by unsafeLazy { ktFileBuilder.rootObject("TypographyLargeTokens") }
@@ -70,9 +71,10 @@ internal class TypographyGenerator(
      */
     override fun addViewSystemToken(token: TypographyToken): Boolean {
         val tokenValue = token.value ?: return false
-        val builder = textAppearanceXmlBuilders[token.screenClass] ?: xmlBuilderFactory.create().also {
-            textAppearanceXmlBuilders[token.screenClass] = it
-        }
+        val builder =
+            textAppearanceXmlBuilders[token.screenClass] ?: xmlBuilderFactory.create().also {
+                textAppearanceXmlBuilders[token.screenClass] = it
+            }
         val textAppearanceName = "TextAppearance.${token.xmlName}"
 
         if (token.screenClass.isDefault) {
@@ -121,7 +123,7 @@ internal class TypographyGenerator(
         return@with true
     }
 
-    private fun XmlDocumentBuilder.appendTypographyToken(
+    private fun XmlResourcesDocumentBuilder.appendTypographyToken(
         token: TypographyToken,
         tokenValue: TypographyToken.Value,
         textAppearanceName: String,
@@ -141,9 +143,24 @@ internal class TypographyGenerator(
         dimensAggregator.addDimen(lineHeightDimen)
 
         appendStyle(textAppearanceName) {
-            appendElement(ElementName.ITEM, "fontFamily", tokenValue.fontFamily, usePrefix = false)
-            appendElement(ElementName.ITEM, "fontWeight", tokenValue.fontWeight.toString(), usePrefix = false)
-            appendElement(ElementName.ITEM, "android:textStyle", tokenValue.fontStyle, usePrefix = false)
+            appendElement(
+                ElementName.ITEM,
+                "fontFamily",
+                tokenValue.fontFamilyRef.removeSurrounding("{", "}"),
+                usePrefix = false,
+            )
+            appendElement(
+                ElementName.ITEM,
+                "fontWeight",
+                tokenValue.fontWeight.toString(),
+                usePrefix = false,
+            )
+            appendElement(
+                ElementName.ITEM,
+                "android:textStyle",
+                tokenValue.fontStyle,
+                usePrefix = false,
+            )
             appendElement(
                 ElementName.ITEM,
                 "android:letterSpacing",

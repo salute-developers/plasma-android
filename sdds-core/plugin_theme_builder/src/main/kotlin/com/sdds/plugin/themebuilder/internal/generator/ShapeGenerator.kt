@@ -2,11 +2,11 @@ package com.sdds.plugin.themebuilder.internal.generator
 
 import com.sdds.plugin.themebuilder.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
-import com.sdds.plugin.themebuilder.internal.builder.XmlDocumentBuilder.ElementName
+import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder.ElementName
 import com.sdds.plugin.themebuilder.internal.dimens.DimenData
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
-import com.sdds.plugin.themebuilder.internal.factory.XmlDocumentBuilderFactory
+import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.token.RoundedShapeToken
 import com.sdds.plugin.themebuilder.internal.token.ShapeTokenValue
 import com.sdds.plugin.themebuilder.internal.token.Token
@@ -31,7 +31,7 @@ internal class ShapeGenerator(
     private val outputLocation: KtFileBuilder.OutputLocation,
     private val outputResDir: File,
     target: ThemeBuilderTarget,
-    private val xmlBuilderFactory: XmlDocumentBuilderFactory,
+    private val xmlBuilderFactory: XmlResourcesDocumentBuilderFactory,
     private val ktFileBuilderFactory: KtFileBuilderFactory,
     private val dimensAggregator: DimensAggregator,
     private val resourceReferenceProvider: ResourceReferenceProvider,

@@ -1,6 +1,7 @@
 package com.sdds.plugin.themebuilder.internal.serializer
 
 import com.sdds.plugin.themebuilder.internal.token.ColorToken
+import com.sdds.plugin.themebuilder.internal.token.FontToken
 import com.sdds.plugin.themebuilder.internal.token.LinearGradientToken
 import com.sdds.plugin.themebuilder.internal.token.RadialGradientToken
 import com.sdds.plugin.themebuilder.internal.token.RoundedShapeToken
@@ -33,6 +34,7 @@ object Serializer {
                 subclass(ShadowToken::class)
                 subclass(RoundedShapeToken::class)
                 subclass(TypographyToken::class)
+                subclass(FontToken::class)
             }
         }
     }

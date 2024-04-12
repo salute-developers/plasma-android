@@ -1,0 +1,61 @@
+[
+  {
+    "displayName": "fontFamilyDisplay",
+    "name": "font-family.display",
+    "platform": "android",
+    "tags": [
+      "font-family",
+      "display"
+    ],
+    "type": "font-family",
+    "value": {
+      "fontFamily": "SB Sans Display",
+      "variants": [
+        {
+          "link": "https://cdn-app.sberdevices.ru/shared-static/0.0.0/fonts/SBSansDisplay.0.2.0/SBSansDisplay-Regular.otf",
+          "fontWeight": 300,
+          "fontStyle": "normal"
+        },
+        {
+          "link": "https://cdn-app.sberdevices.ru/shared-static/0.0.0/fonts/SBSansDisplay.0.2.0/SBSansDisplay-Bold.otf",
+          "fontWeight": 600,
+          "fontStyle": "normal"
+        }
+      ]
+    },
+    "description": "Font-family: SB Sans Display",
+    "enabled": true
+  },
+  {
+    "displayName": "fontFamilyText",
+    "name": "font-family.text",
+    "platform": "android",
+    "tags": [
+      "font-family",
+      "text"
+    ],
+    "type": "font-family",
+    "value": {
+      "fontFamily": "SB Sans Text",
+      "variants": [
+        {
+          "link": "https://cdn-app.sberdevices.ru/shared-static/0.0.0/fonts/SBSansText.0.2.0/SBSansText-Regular.otf",
+          "fontWeight": 300,
+          "fontStyle": "normal"
+        },
+        {
+          "link": "https://cdn-app.sberdevices.ru/shared-static/0.0.0/fonts/SBSansText.0.2.0/SBSansText-Italic.otf",
+          "fontWeight": 300,
+          "fontStyle": "italic"
+        },
+        {
+          "link": "https://cdn-app.sberdevices.ru/shared-static/0.0.0/fonts/SBSansText.0.2.0/SBSansText-Bold.otf",
+          "fontWeight": 600,
+          "fontStyle": "normal"
+        }
+      ]
+    },
+    "description": "Font-family: SB Sans Text",
+    "enabled": true
+  }
+]

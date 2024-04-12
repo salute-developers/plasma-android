@@ -1,11 +1,14 @@
 package com.sdds.plugin.themebuilder
 
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
+import com.sdds.plugin.themebuilder.internal.factory.FontDownloaderFactory
 import com.sdds.plugin.themebuilder.internal.factory.GeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
-import com.sdds.plugin.themebuilder.internal.factory.XmlDocumentBuilderFactory
+import com.sdds.plugin.themebuilder.internal.factory.XmlFontFamilyDocumentBuilderFactory
+import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.serializer.Serializer
 import com.sdds.plugin.themebuilder.internal.token.ColorToken
+import com.sdds.plugin.themebuilder.internal.token.FontToken
 import com.sdds.plugin.themebuilder.internal.token.LinearGradientToken
 import com.sdds.plugin.themebuilder.internal.token.RadialGradientToken
 import com.sdds.plugin.themebuilder.internal.token.RoundedShapeToken
@@ -44,6 +47,12 @@ abstract class GenerateThemeTask : DefaultTask() {
     abstract val packageName: Property<String>
 
     /**
+     * Пакет модуля
+     */
+    @get:Input
+    abstract val namespace: Property<String>
+
+    /**
      * Префикс для названий ресурсов токенов
      */
     @get:Input
@@ -74,14 +83,18 @@ abstract class GenerateThemeTask : DefaultTask() {
             outputResDir.get().asFile,
             target.get(),
             dimensAggregator,
-            XmlDocumentBuilderFactory(resourcesPrefix.get()),
+            XmlResourcesDocumentBuilderFactory(resourcesPrefix.get()),
+            XmlFontFamilyDocumentBuilderFactory(),
+            FontDownloaderFactory(),
             KtFileBuilderFactory(packageName.get()),
             ResourceReferenceProvider(resourcesPrefix.get()),
+            namespace.get(),
         )
     }
 
     private val colorGenerator by unsafeLazy { generatorFactory.createColorGenerator() }
     private val gradientGenerator by unsafeLazy { generatorFactory.createGradientGenerator() }
+    private val fontGenerator by unsafeLazy { generatorFactory.createFontGenerator() }
     private val typographyGenerator by unsafeLazy { generatorFactory.createTypographyGenerator() }
     private val dimensGenerator by unsafeLazy { generatorFactory.createDimensGenerator() }
     private val shapesGenerator by unsafeLazy { generatorFactory.createShapesGenerator() }
@@ -101,6 +114,7 @@ abstract class GenerateThemeTask : DefaultTask() {
                 is ShadowToken -> shadowGenerator.addToken(it)
                 is RoundedShapeToken -> shapesGenerator.addToken(it)
                 is TypographyToken -> typographyGenerator.addToken(it)
+                is FontToken -> fontGenerator.addToken(it)
             }
         }
 
@@ -110,6 +124,7 @@ abstract class GenerateThemeTask : DefaultTask() {
         shapesGenerator.generate()
         shadowGenerator.generate()
         dimensGenerator.generate()
+        fontGenerator.generate()
     }
 
     private fun decodeTheme(): Theme =

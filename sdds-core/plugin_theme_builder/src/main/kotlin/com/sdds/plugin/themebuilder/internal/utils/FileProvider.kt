@@ -25,6 +25,16 @@ object FileProvider {
     }
 
     /**
+     * Директория font для шрифтов
+     */
+    fun File.fontDir(): File {
+        val fontDirName = "font"
+        val fontDir = File("${this.path}/$fontDirName")
+        if (!fontDir.exists()) fontDir.mkdirs()
+        return fontDir
+    }
+
+    /**
      * XML файл для токенов цвета
      */
     fun File.colorsXmlFile(): File =
@@ -55,6 +65,13 @@ object FileProvider {
     fun File.typographyXmlFile(
         qualifier: String = "",
     ): File = File("${valuesDir(qualifier).path}/typography.xml")
+
+    /**
+     * XML файл для токена font-family с именем [familyName]
+     */
+    fun File.fontFamilyXmlFile(
+        familyName: String,
+    ): File = File("${fontDir().path}/$familyName.xml")
 
     /**
      * XML файл для токенов форм

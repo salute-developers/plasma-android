@@ -14,5 +14,8 @@ internal class KtFileBuilderFactory(
     /**
      * Создает [KtFileBuilder]
      */
-    fun create(fileName: String): KtFileBuilder = KtFileBuilder(packageName, fileName)
+    fun create(fileName: String): KtFileBuilder = KtFileBuilder(
+        packageName = packageName,
+        fileName = fileName,
+    )
 }
