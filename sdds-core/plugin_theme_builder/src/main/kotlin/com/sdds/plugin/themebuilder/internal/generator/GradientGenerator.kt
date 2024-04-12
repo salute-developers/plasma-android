@@ -3,12 +3,12 @@ package com.sdds.plugin.themebuilder.internal.generator
 import com.sdds.plugin.themebuilder.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Companion.appendObject
-import com.sdds.plugin.themebuilder.internal.builder.XmlDocumentBuilder
-import com.sdds.plugin.themebuilder.internal.builder.XmlDocumentBuilder.ElementFormat
-import com.sdds.plugin.themebuilder.internal.builder.XmlDocumentBuilder.ElementName
-import com.sdds.plugin.themebuilder.internal.builder.XmlDocumentBuilder.ElementType
+import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
+import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder.ElementFormat
+import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder.ElementName
+import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder.ElementType
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
-import com.sdds.plugin.themebuilder.internal.factory.XmlDocumentBuilderFactory
+import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.token.GradientTokenValue
 import com.sdds.plugin.themebuilder.internal.token.LinearGradientToken
 import com.sdds.plugin.themebuilder.internal.token.RadialGradientToken
@@ -31,7 +31,7 @@ internal class GradientGenerator(
     private val outputLocation: KtFileBuilder.OutputLocation,
     private val outputResDir: File,
     target: ThemeBuilderTarget,
-    private val xmlBuilderFactory: XmlDocumentBuilderFactory,
+    private val xmlBuilderFactory: XmlResourcesDocumentBuilderFactory,
     private val ktFileBuilderFactory: KtFileBuilderFactory,
 ) : TokenGenerator<Token<GradientTokenValue>>(target) {
 
@@ -89,7 +89,11 @@ internal class GradientGenerator(
         return result
     }
 
-    private fun XmlDocumentBuilder.appendBaseGradient(baseName: String, colors: List<String>, positions: List<Float>) {
+    private fun XmlResourcesDocumentBuilder.appendBaseGradient(
+        baseName: String,
+        colors: List<String>,
+        positions: List<Float>,
+    ) {
         colors.forEachIndexed { index, color ->
             appendElement(ElementName.COLOR, "${baseName}_color_$index", color)
         }
@@ -104,7 +108,7 @@ internal class GradientGenerator(
         }
     }
 
-    private fun XmlDocumentBuilder.appendLinearGradient(token: LinearGradientToken): Boolean {
+    private fun XmlResourcesDocumentBuilder.appendLinearGradient(token: LinearGradientToken): Boolean {
         val tokenValue = token.value ?: return false
         val baseTokenName = token.xmlName
 
@@ -121,7 +125,7 @@ internal class GradientGenerator(
         return true
     }
 
-    private fun XmlDocumentBuilder.appendSweepGradient(token: SweepGradientToken): Boolean {
+    private fun XmlResourcesDocumentBuilder.appendSweepGradient(token: SweepGradientToken): Boolean {
         val tokenValue = token.value ?: return false
         val baseTokenName = token.xmlName
 
@@ -159,7 +163,7 @@ internal class GradientGenerator(
         return true
     }
 
-    private fun XmlDocumentBuilder.appendRadialGradient(token: RadialGradientToken): Boolean {
+    private fun XmlResourcesDocumentBuilder.appendRadialGradient(token: RadialGradientToken): Boolean {
         val tokenValue = token.value ?: return false
         val baseTokenName = token.xmlName
 

@@ -1,0 +1,26 @@
+package com.test.tokens
+
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
+import com.test.R
+
+public object FontTokens {
+    /**
+     * Font-family: SB Sans Display
+     */
+    public val display: FontFamily = FontFamily(
+                Font(R.font.s_b_sans_display_regular, FontWeight(300), FontStyle.Normal),
+                Font(R.font.s_b_sans_display_bold, FontWeight(600), FontStyle.Normal),
+            )
+
+    /**
+     * Font-family: SB Sans Text
+     */
+    public val text: FontFamily = FontFamily(
+                Font(R.font.s_b_sans_text_regular, FontWeight(300), FontStyle.Normal),
+                Font(R.font.s_b_sans_text_italic, FontWeight(300), FontStyle.Italic),
+                Font(R.font.s_b_sans_text_bold, FontWeight(600), FontStyle.Normal),
+            )
+}

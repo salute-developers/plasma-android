@@ -122,12 +122,16 @@ internal class KtFileBuilder(
         private const val DEFAULT_FILE_INDENT = "    "
         val TypeColor = ClassName("androidx.compose.ui.graphics", listOf("Color"))
         val TypeTextStyle = ClassName("androidx.compose.ui.text", listOf("TextStyle"))
+        val TypeFont = ClassName("androidx.compose.ui.text.font", "Font")
         val TypeFontWeight = ClassName("androidx.compose.ui.text.font", "FontWeight")
+        val TypeFontStyle = ClassName("androidx.compose.ui.text.font", "FontStyle")
+        val TypeFontFamily = ClassName("androidx.compose.ui.text.font", "FontFamily")
         val TypeSp = ClassName("androidx.compose.ui.unit", "sp")
         val TypeDp = ClassName("androidx.compose.ui.unit", "Dp")
         val TypeDpExtension = ClassName("androidx.compose.ui.unit", "dp")
         val TypeListOfColors = List::class.asClassName().parameterizedBy(TypeColor)
-        val TypeRoundRectShape = ClassName("androidx.compose.foundation.shape", listOf("RoundedCornerShape"))
+        val TypeRoundRectShape =
+            ClassName("androidx.compose.foundation.shape", listOf("RoundedCornerShape"))
         val TypeCornerSize = ClassName("androidx.compose.foundation.shape", listOf("CornerSize"))
 
         /**
