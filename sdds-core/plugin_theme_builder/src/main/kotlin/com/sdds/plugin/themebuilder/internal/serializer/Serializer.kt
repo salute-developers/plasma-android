@@ -35,6 +35,7 @@ object Serializer {
                 subclass(RoundedShapeToken::class)
                 subclass(TypographyToken::class)
                 subclass(FontToken::class)
+                defaultDeserializer { UnknownTypeSerializer() }
             }
         }
     }

@@ -64,7 +64,7 @@ internal data class TypographyToken(
 
     /**
      * Значение токена типографии
-     * @property fontFamily семейство шрифтов
+     * @property fontFamilyRef семейство шрифтов
      * @property fontWeight вес шрифта
      * @property fontStyle стиль шрифта
      * @property textSize размер текста
