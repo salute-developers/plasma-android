@@ -7,6 +7,7 @@ import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.token.ColorToken
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.colorsXmlFile
+import com.sdds.plugin.themebuilder.internal.utils.colorToArgbHex
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import java.io.File
 
@@ -68,7 +69,7 @@ internal class ColorGenerator(
         } else {
             return false
         }
-        val value = "Color(${tokenValue.origin.replace("#", "0x")})"
+        val value = "Color(${colorToArgbHex(tokenValue.origin)})"
         root.appendProperty(token.ktName, KtFileBuilder.TypeColor, value, token.description)
         return true
     }

@@ -189,12 +189,17 @@ internal class TypographyGenerator(
         description: String,
         tokenValue: TypographyToken.Value,
     ) {
+        val letterSpacing = if (tokenValue.letterSpacing < 0) {
+            "(${tokenValue.letterSpacing}).sp"
+        } else {
+            "${tokenValue.letterSpacing}.sp"
+        }
         val initializer = KtFileBuilder.createConstructorCall(
             "TextStyle",
             "fontWeight = FontWeight(${tokenValue.fontWeight})",
             "fontSize = ${tokenValue.textSize}.sp",
             "lineHeight = ${tokenValue.lineHeight}.sp",
-            "letterSpacing = ${tokenValue.letterSpacing}.sp",
+            "letterSpacing = $letterSpacing",
         )
         appendProperty(name, KtFileBuilder.TypeTextStyle, initializer, description)
     }
