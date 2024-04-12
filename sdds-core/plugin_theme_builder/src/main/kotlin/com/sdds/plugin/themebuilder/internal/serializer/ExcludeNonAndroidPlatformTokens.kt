@@ -38,7 +38,11 @@ private class FilteringListSerializer<E>(private val elementSerializer: KSeriali
             if (currentPlatform == null || currentPlatform != TokenPlatform.ANDROID) {
                 return@mapNotNull null
             }
-            json.decodeFromJsonElement(elementSerializer, it)
+            try {
+                json.decodeFromJsonElement(elementSerializer, it)
+            } catch (e: UnknownTypeException) {
+                null
+            }
         }
     }
 
