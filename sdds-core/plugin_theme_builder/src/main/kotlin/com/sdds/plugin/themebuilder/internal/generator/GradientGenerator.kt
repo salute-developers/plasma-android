@@ -15,6 +15,7 @@ import com.sdds.plugin.themebuilder.internal.token.RadialGradientToken
 import com.sdds.plugin.themebuilder.internal.token.SweepGradientToken
 import com.sdds.plugin.themebuilder.internal.token.Token
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.gradientsXmlFile
+import com.sdds.plugin.themebuilder.internal.utils.colorToArgbHex
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import com.squareup.kotlinpoet.TypeSpec
 import java.io.File
@@ -240,7 +241,7 @@ internal class GradientGenerator(
         colors: List<String>,
         positions: List<Float>,
     ) {
-        val colorParams = colors.joinToString { "Color(${it.replace("#", "0x")})" }
+        val colorParams = colors.joinToString { "Color(${colorToArgbHex(it)})" }
         val positionParams = positions.joinToString { "${it}f" }
         appendProperty(
             "colors",

@@ -6,5 +6,5 @@ public object DarkColorTokens {
     /**
      * Прозрачная акцентная поверхность
      */
-    public val OnLightSurfaceTransparentAccent: Color = Color(0xFFFFFF1F)
+    public val OnLightSurfaceTransparentAccent: Color = Color(0x1FFFFFFF)
 }
