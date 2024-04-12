@@ -1,3 +1,5 @@
+package com.sdds.uikit.compose
+
 /**
  * Класс для теста abi
  */
