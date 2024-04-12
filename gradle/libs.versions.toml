@@ -28,6 +28,7 @@ test-androidX-runner = "1.5.2"
 plugin-androidCacheFix = "3.0.1"
 plugin-gradleNexusPublish = "1.3.0"
 plugin-gradlePluginPublish = "1.2.1"
+plugin-binary-compatibility-validator = "0.15.0-Beta.2"
 
 [libraries]
 base-android-material = { module = "com.google.android.material:material", version.ref = "android-material" }
@@ -80,3 +81,4 @@ android-cache-fix = { id = "org.gradle.android.cache-fix", version.ref= "plugin-
 gradleNexus-publish = { id = "io.github.gradle-nexus.publish-plugin", version.ref = "plugin-gradleNexusPublish" }
 gradlePluginPublish = { id = "com.gradle.plugin-publish", version.ref="plugin-gradlePluginPublish"}
 themebuilder = { id = "io.github.salute-developers.theme-builder-plugin" }
+binary-compatibility-validator = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version.ref="plugin-binary-compatibility-validator" }

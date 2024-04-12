@@ -1,0 +1,37 @@
+public final class com/sdds/uikit/BuildConfig {
+	public static final field BUILD_TYPE Ljava/lang/String;
+	public static final field DEBUG Z
+	public static final field LIBRARY_PACKAGE_NAME Ljava/lang/String;
+	public fun <init> ()V
+}
+
+public final class com/sdds/uikit/UtilsKt {
+	public static final fun colorFromAttr (Landroid/content/Context;I)I
+}
+
+public final class com/sdds/uikit/viewstate/ViewState : java/lang/Enum {
+	public static final field ACCENT Lcom/sdds/uikit/viewstate/ViewState;
+	public static final field Companion Lcom/sdds/uikit/viewstate/ViewState$Companion;
+	public static final field NEGATIVE Lcom/sdds/uikit/viewstate/ViewState;
+	public static final field POSITIVE Lcom/sdds/uikit/viewstate/ViewState;
+	public static final field PRIMARY Lcom/sdds/uikit/viewstate/ViewState;
+	public static final field SECONDARY Lcom/sdds/uikit/viewstate/ViewState;
+	public static final field TERTIARY Lcom/sdds/uikit/viewstate/ViewState;
+	public static final field UNDEFINED Lcom/sdds/uikit/viewstate/ViewState;
+	public static final field WARNING Lcom/sdds/uikit/viewstate/ViewState;
+	public final fun getAttr ()[I
+	public static fun valueOf (Ljava/lang/String;)Lcom/sdds/uikit/viewstate/ViewState;
+	public static fun values ()[Lcom/sdds/uikit/viewstate/ViewState;
+}
+
+public final class com/sdds/uikit/viewstate/ViewState$Companion {
+	public final fun isDefined (Lcom/sdds/uikit/viewstate/ViewState;)Z
+	public final fun obtain (Landroid/content/Context;Landroid/util/AttributeSet;II)Lcom/sdds/uikit/viewstate/ViewState;
+	public static synthetic fun obtain$default (Lcom/sdds/uikit/viewstate/ViewState$Companion;Landroid/content/Context;Landroid/util/AttributeSet;IIILjava/lang/Object;)Lcom/sdds/uikit/viewstate/ViewState;
+}
+
+public abstract interface class com/sdds/uikit/viewstate/ViewStateHolder {
+	public abstract fun getState ()Lcom/sdds/uikit/viewstate/ViewState;
+	public abstract fun setState (Lcom/sdds/uikit/viewstate/ViewState;)V
+}
+
