@@ -1,9 +1,9 @@
-name: 'Publish icons Release'
+name: 'Publish UIKit Compose Release'
 
 on:
   push:
     tags:
-      - "sdds-icons-v[0-9]+.[0-9]+.[0-9]+"
+      - "sdds-uikit-compose-v[0-9]+.[0-9]+.[0-9]+"
 
 concurrency:
   # New commit on branch cancels running workflows of the same branch
@@ -11,8 +11,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  generate-distribution:
-    name: Generate icons distribution zip
+  publish-uikit:
+    name: Generate uikit compose distribution zip
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the code
@@ -26,18 +26,18 @@ jobs:
           OSS_SIGNING_KEY_ID: ${{ secrets.OSS_SIGNING_KEY_ID }}
           OSS_SIGNING_KEY: ${{ secrets.OSS_SIGNING_KEY }}
           OSS_SIGNING_PASSWORD: ${{ secrets.OSS_SIGNING_PASSWORD }}
-        run: ./gradlew :sdds-core:icons:generateDistributionZip --info -PbranchName=main
+        run: ./gradlew :sdds-core:uikit-compose:generateDistributionZip --info -PbranchName=main
 
       - name: Upload distribution
         uses: actions/upload-artifact@v4
         with:
           name: distribution
-          path: sdds-core/icons/build/distributions/*.zip
+          path: sdds-core/uikit-compose/build/distributions/*.zip
 
       - name: Maven Publish
         uses: ./.github/actions/maven-publish
         with:
-          bundle: sdds-core/icons/build/distributions/sdds-icons.zip
+          bundle: sdds-core/uikit-compose/build/distributions/sdds-uikit-compose.zip
           publishingType: 'USER_MANAGED'
           publicationName: ${{ github.ref_name }}
           publicationToken: ${{ secrets.PP_AUTH_TOKEN }}
