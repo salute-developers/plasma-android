@@ -23,6 +23,7 @@ import java.util.Locale
  * @param xmlFontFamilyBuilderFactory фабрика делегата построения xml файлов font-family
  * @param ktFileBuilderFactory фабрика делегата построения kt файлов
  * @param namespace корневой пакет проекта, нужен для формирования импорта R-файла
+ * @param resPrefix префикс для xml файлов с fontFamily
  * @author Малышев Александр on 07.03.2024
  */
 internal class FontGenerator(
@@ -33,6 +34,7 @@ internal class FontGenerator(
     private val fontDownloaderFactory: FontDownloaderFactory,
     private val ktFileBuilderFactory: KtFileBuilderFactory,
     namespace: String,
+    private val resPrefix: String,
 ) : TokenGenerator<FontToken>(target) {
 
     private val rFileImport = ClassName(namespace, "R")
@@ -44,7 +46,7 @@ internal class FontGenerator(
     override fun generateViewSystem() {
         super.generateViewSystem()
         fontFamilyXmlBuilders.forEach {
-            it.value.build(outputResDir.fontFamilyXmlFile(familyName = it.key))
+            it.value.build(outputResDir.fontFamilyXmlFile(familyName = it.key, prefix = resPrefix))
         }
     }
 
