@@ -1,0 +1,38 @@
+name: 'Publish Theme Builder Plugin Release'
+
+on:
+  push:
+    tags:
+      - "sdds-theme-builder-v[0-9]+.[0-9]+.[0-9]+"
+
+concurrency:
+  # New commit on branch cancels running workflows of the same branch
+  group: ${{ github.workflow }}-${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  publish-plugin:
+    name: Publish theme builder plugin release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v4
+
+      - name: Prepare environment
+        uses: ./.github/actions/prepare-android-env
+
+      - name: Publish plugin
+        env:
+          GRADLE_PUBLISH_KEY: ${{ secrets.GRADLE_PUBLISH_KEY }}
+          GRADLE_PUBLISH_SECRET: ${{ secrets.GRADLE_PUBLISH_SECRET }}
+        run: | 
+          ./gradlew \
+          -Dgradle.publish.key=$GRADLE_PUBLISH_KEY \
+          -Dgradle.publish.secret=$GRADLE_PUBLISH_SECRET \
+          :sdds-core:plugin_theme_builder:publishPlugins --info -PbranchName=main
+
+      - name: Upload plugin artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: theme-builder
+          path: sdds-core/plugin_theme_builder/build/libs/*.jar
