@@ -25,6 +25,7 @@ import java.io.File
  * @param ktFileBuilderFactory фабрика делегата построения kt файлов
  * @param resourceReferenceProvider провайдер ссылок на ресурсы
  * @param namespace пакет проекта
+ * @param resPrefix префикс для ресурсов
  * @author Малышев Александр on 12.03.2024
  */
 internal class GeneratorFactory(
@@ -38,6 +39,7 @@ internal class GeneratorFactory(
     private val ktFileBuilderFactory: KtFileBuilderFactory,
     private val resourceReferenceProvider: ResourceReferenceProvider,
     private val namespace: String,
+    private val resPrefix: String,
 ) {
 
     /**
@@ -66,6 +68,9 @@ internal class GeneratorFactory(
         )
     }
 
+    /**
+     * Создает генератор шрифтов [FontGenerator]
+     */
     fun createFontGenerator(): FontGenerator {
         return FontGenerator(
             OutputLocation.Directory(outputDir),
@@ -75,6 +80,7 @@ internal class GeneratorFactory(
             fontDownloaderFactory,
             ktFileBuilderFactory,
             namespace,
+            resPrefix,
         )
     }
 
