@@ -41,6 +41,26 @@ tasks.register("spotlessApplyAll") {
     dependsOn(spotlessApplyTasks, includedTasks)
 }
 
+tasks.register("apiDumpAll") {
+    val tasks = subprojects.flatMap {
+        it.tasks.matching { task -> task.name == "apiDump" }
+    }
+    val includedTasks = gradle.includedBuilds.map {
+        it.task(":apiDumpAll")
+    }
+    dependsOn(tasks, includedTasks)
+}
+
+tasks.register("apiCheckAll") {
+    val tasks = subprojects.flatMap {
+        it.tasks.matching { task -> task.name == "apiCheck" }
+    }
+    val includedTasks = gradle.includedBuilds.map {
+        it.task(":apiCheckAll")
+    }
+    dependsOn(tasks, includedTasks)
+}
+
 tasks.register("assembleDebugAll") {
     val testTasks = subprojects.flatMap {
         it.tasks.matching { task -> task.name == "assembleDebug" }

@@ -3,6 +3,7 @@ plugins {
     id("convention.android-lib")
     id("convention.maven-publish")
     alias(libs.plugins.paparazzi)
+    alias(libs.plugins.binary.compatibility.validator)
 }
 
 group = "sdds-core"

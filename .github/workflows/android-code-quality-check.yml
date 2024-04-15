@@ -31,6 +31,9 @@ jobs:
       - name: Run spotless
         run: ./gradlew spotlessCheckAll
 
+      - name: Run apiCheck
+        run: ./gradlew apiCheckAll
+
       - name: Upload static analysis reports
         if: success() || failure()
         uses: actions/upload-artifact@v2
