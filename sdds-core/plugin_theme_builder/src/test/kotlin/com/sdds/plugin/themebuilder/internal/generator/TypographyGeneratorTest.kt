@@ -7,6 +7,7 @@ import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.serializer.Serializer
 import com.sdds.plugin.themebuilder.internal.token.TypographyToken
+import com.sdds.plugin.themebuilder.internal.token.TypographyTokenValue
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.fileWriter
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.textAppearancesXmlFile
@@ -57,6 +58,32 @@ class TypographyGeneratorTest {
             xmlBuilderFactory = XmlResourcesDocumentBuilderFactory("thmbldr"),
             ktFileBuilderFactory = KtFileBuilderFactory("com.test"),
             resourceReferenceProvider = ResourceReferenceProvider("thmbldr"),
+            typographyTokenValues = mapOf(
+                "screen-l.display.l" to TypographyTokenValue(
+                    fontFamilyRef = "sans",
+                    fontWeight = 300,
+                    fontStyle = "normal",
+                    textSize = 128f,
+                    letterSpacing = 0.02f,
+                    lineHeight = 128f,
+                ),
+                "screen-m.display.l" to TypographyTokenValue(
+                    fontFamilyRef = "sans",
+                    fontWeight = 300,
+                    fontStyle = "normal",
+                    textSize = 96f,
+                    letterSpacing = 0.02f,
+                    lineHeight = 96f,
+                ),
+                "screen-s.display.l" to TypographyTokenValue(
+                    fontFamilyRef = "sans",
+                    fontWeight = 300,
+                    fontStyle = "normal",
+                    textSize = 72f,
+                    letterSpacing = 0.02f,
+                    lineHeight = 72f,
+                ),
+            ),
         )
     }
 
@@ -112,6 +139,9 @@ class TypographyGeneratorTest {
             getResourceAsText("typography-outputs/test-appearances-large-output.xml"),
             outputAppearancesLargeXml.toString(),
         )
-        assertEquals(getResourceAsText("typography-outputs/TestTypographyOutputKt.txt"), outputKt.toString())
+        assertEquals(
+            getResourceAsText("typography-outputs/TestTypographyOutputKt.txt"),
+            outputKt.toString(),
+        )
     }
 }

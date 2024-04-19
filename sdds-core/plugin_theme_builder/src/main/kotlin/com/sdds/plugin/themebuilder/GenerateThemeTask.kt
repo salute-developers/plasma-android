@@ -6,19 +6,21 @@ import com.sdds.plugin.themebuilder.internal.factory.GeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlFontFamilyDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
-import com.sdds.plugin.themebuilder.internal.serializer.Serializer
 import com.sdds.plugin.themebuilder.internal.token.ColorToken
 import com.sdds.plugin.themebuilder.internal.token.FontToken
-import com.sdds.plugin.themebuilder.internal.token.LinearGradientToken
-import com.sdds.plugin.themebuilder.internal.token.RadialGradientToken
-import com.sdds.plugin.themebuilder.internal.token.RoundedShapeToken
+import com.sdds.plugin.themebuilder.internal.token.FontTokenValue
+import com.sdds.plugin.themebuilder.internal.token.GradientToken
+import com.sdds.plugin.themebuilder.internal.token.GradientTokenValue
 import com.sdds.plugin.themebuilder.internal.token.ShadowToken
-import com.sdds.plugin.themebuilder.internal.token.SweepGradientToken
+import com.sdds.plugin.themebuilder.internal.token.ShadowTokenValue
+import com.sdds.plugin.themebuilder.internal.token.ShapeToken
+import com.sdds.plugin.themebuilder.internal.token.ShapeTokenValue
 import com.sdds.plugin.themebuilder.internal.token.Theme
 import com.sdds.plugin.themebuilder.internal.token.TypographyToken
+import com.sdds.plugin.themebuilder.internal.token.TypographyTokenValue
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
+import com.sdds.plugin.themebuilder.internal.utils.decode
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
-import kotlinx.serialization.json.decodeFromStream
 import org.gradle.api.DefaultTask
 import org.gradle.api.file.DirectoryProperty
 import org.gradle.api.file.RegularFileProperty
@@ -38,7 +40,43 @@ abstract class GenerateThemeTask : DefaultTask() {
      * Путь до json-файла с темой
      */
     @get:InputFile
-    abstract val themeFile: RegularFileProperty
+    abstract val baseFile: RegularFileProperty
+
+    /**
+     * Путь до json-файла с цветами
+     */
+    @get:InputFile
+    abstract val colorFile: RegularFileProperty
+
+    /**
+     * Путь до json-файла с типографикой
+     */
+    @get:InputFile
+    abstract val typographyFile: RegularFileProperty
+
+    /**
+     * Путь до json-файла со шрифтами
+     */
+    @get:InputFile
+    abstract val fontFile: RegularFileProperty
+
+    /**
+     * Путь до json-файла с тенями
+     */
+    @get:InputFile
+    abstract val shadowFile: RegularFileProperty
+
+    /**
+     * Путь до json-файла с градиентами
+     */
+    @get:InputFile
+    abstract val gradientFile: RegularFileProperty
+
+    /**
+     * Путь до json-файла с формами
+     */
+    @get:InputFile
+    abstract val shapeFile: RegularFileProperty
 
     /**
      * Название пакета для файлов kotlin
@@ -93,32 +131,39 @@ abstract class GenerateThemeTask : DefaultTask() {
         )
     }
 
-    private val colorGenerator by unsafeLazy { generatorFactory.createColorGenerator() }
-    private val gradientGenerator by unsafeLazy { generatorFactory.createGradientGenerator() }
-    private val fontGenerator by unsafeLazy { generatorFactory.createFontGenerator() }
-    private val typographyGenerator by unsafeLazy { generatorFactory.createTypographyGenerator() }
+    private val colorGenerator by unsafeLazy { generatorFactory.createColorGenerator(colors) }
+    private val gradientGenerator by unsafeLazy { generatorFactory.createGradientGenerator(gradients) }
+    private val fontGenerator by unsafeLazy { generatorFactory.createFontGenerator(fonts) }
+    private val typographyGenerator by unsafeLazy {
+        generatorFactory.createTypographyGenerator(typography)
+    }
     private val dimensGenerator by unsafeLazy { generatorFactory.createDimensGenerator() }
-    private val shapesGenerator by unsafeLazy { generatorFactory.createShapesGenerator() }
-    private val shadowGenerator by unsafeLazy { generatorFactory.createShadowGenerator() }
+    private val shapesGenerator by unsafeLazy { generatorFactory.createShapesGenerator(shapes) }
+    private val shadowGenerator by unsafeLazy { generatorFactory.createShadowGenerator(shadows) }
 
     /**
      * Генерирует файлы с токенами
      */
     @TaskAction
     fun generate() {
-        decodeTheme().tokens.onEach {
+        collectTokens()
+        generateAll()
+    }
+
+    private fun collectTokens() {
+        decodeBase().tokens.onEach {
             when (it) {
                 is ColorToken -> colorGenerator.addToken(it)
-                is SweepGradientToken -> gradientGenerator.addToken(it)
-                is LinearGradientToken -> gradientGenerator.addToken(it)
-                is RadialGradientToken -> gradientGenerator.addToken(it)
+                is GradientToken -> gradientGenerator.addToken(it)
                 is ShadowToken -> shadowGenerator.addToken(it)
-                is RoundedShapeToken -> shapesGenerator.addToken(it)
+                is ShapeToken -> shapesGenerator.addToken(it)
                 is TypographyToken -> typographyGenerator.addToken(it)
                 is FontToken -> fontGenerator.addToken(it)
             }
         }
+    }
 
+    private fun generateAll() {
         colorGenerator.generate()
         gradientGenerator.generate()
         typographyGenerator.generate()
@@ -128,8 +173,35 @@ abstract class GenerateThemeTask : DefaultTask() {
         fontGenerator.generate()
     }
 
-    private fun decodeTheme(): Theme =
-        themeFile.get().asFile.inputStream().use { stream ->
-            Serializer.instance.decodeFromStream<Theme>(stream)
-        }.also { logger.debug("decoded theme $it") }
+    private fun decodeBase(): Theme =
+        baseFile.get().asFile.decode<Theme>().also { logger.debug("decoded base $it") }
+
+    private val colors: Map<String, String> by unsafeLazy {
+        colorFile.get().asFile.decode<Map<String, String>>().also { logger.debug("decoded colors $it") }
+    }
+
+    private val shapes: Map<String, ShapeTokenValue> by unsafeLazy {
+        shapeFile.get().asFile.decode<Map<String, ShapeTokenValue>>()
+            .also { logger.debug("decoded shapes $it") }
+    }
+
+    private val gradients: Map<String, List<GradientTokenValue>> by unsafeLazy {
+        gradientFile.get().asFile.decode<Map<String, List<GradientTokenValue>>>()
+            .also { logger.debug("decoded gradients $it") }
+    }
+
+    private val shadows: Map<String, ShadowTokenValue> by unsafeLazy {
+        shadowFile.get().asFile.decode<Map<String, ShadowTokenValue>>()
+            .also { logger.debug("decoded shadows $it") }
+    }
+
+    private val typography: Map<String, TypographyTokenValue> by unsafeLazy {
+        typographyFile.get().asFile.decode<Map<String, TypographyTokenValue>>()
+            .also { logger.debug("decoded typography $it") }
+    }
+
+    private val fonts: Map<String, FontTokenValue> by unsafeLazy {
+        fontFile.get().asFile.decode<Map<String, FontTokenValue>>()
+            .also { logger.debug("decoded fonts $it") }
+    }
 }

@@ -13,7 +13,7 @@ android {
 }
 
 configure<ThemeBuilderExtension> {
-    themeUrl.set("file://${projectDir.path}/new_theme_scheme.json")
+    themeUrl.set("file://${projectDir.path}/json/plasma_b2c.zip")
     target.set(ThemeBuilderTarget.ALL)
     packageName.set("com.sdds.playground.themebuilder.tokens")
 }

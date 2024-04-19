@@ -50,6 +50,7 @@ class ColorGeneratorTest {
             target = ThemeBuilderTarget.ALL,
             xmlBuilderFactory = XmlResourcesDocumentBuilderFactory("thmbldr"),
             ktFileBuilderFactory = KtFileBuilderFactory("com.test"),
+            colorTokenValues = mapOf("dark.on-light.surface.transparent-accent" to "#FFFFFF1F"),
         )
     }
 

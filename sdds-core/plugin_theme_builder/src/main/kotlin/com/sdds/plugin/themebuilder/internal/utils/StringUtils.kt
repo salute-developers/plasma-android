@@ -45,3 +45,10 @@ internal fun colorToArgbHex(rgba: String): String {
         append(rgba.subSequence(1, RGBA_ALPHA_INDEX_START))
     }
 }
+
+/**
+ * Достает имя файла из ссылки
+ */
+internal fun String.fileNameFromUrl(): String =
+    this.split('/')
+        .last()

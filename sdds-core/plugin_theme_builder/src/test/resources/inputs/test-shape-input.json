@@ -2,45 +2,33 @@
   {
     "displayName": "roundXs",
     "name": "round.xs",
-    "platform": "android",
     "tags": [
       "round",
       "xs"
     ],
     "type": "round-shape",
-    "value": {
-      "cornerRadius": 6.0
-    },
     "description": "Форма со скругленными углами размером XS",
     "enabled": true
   },
   {
     "displayName": "roundS",
     "name": "round.s",
-    "platform": "android",
     "tags": [
       "round",
       "s"
     ],
     "type": "round-shape",
-    "value": {
-      "cornerRadius": 8.0
-    },
     "description": "Форма со скругленными углами размером S",
     "enabled": true
   },
   {
     "displayName": "roundXs",
     "name": "round.l",
-    "platform": "android",
     "tags": [
       "round",
       "l"
     ],
     "type": "round-shape",
-    "value": {
-      "cornerRadius": 16.0
-    },
     "description": "Форма со скругленными углами размером L",
     "enabled": true
   }

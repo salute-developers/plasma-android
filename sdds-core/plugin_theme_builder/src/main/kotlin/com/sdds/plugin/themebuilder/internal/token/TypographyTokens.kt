@@ -28,12 +28,10 @@ internal data class TypographyTokensScheme(
 internal data class TypographyToken(
     override val displayName: String,
     override val name: String,
-    override val platform: TokenPlatform,
     override val tags: Set<String>,
-    override val value: Value?,
     override val enabled: Boolean,
     override val description: String,
-) : Token<TypographyToken.Value>() {
+) : Token() {
 
     /**
      * @see Token.xmlName
@@ -63,25 +61,6 @@ internal data class TypographyToken(
     }
 
     /**
-     * Значение токена типографии
-     * @property fontFamilyRef семейство шрифтов
-     * @property fontWeight вес шрифта
-     * @property fontStyle стиль шрифта
-     * @property textSize размер текста
-     * @property letterSpacing расстояние между буквами
-     * @property lineHeight высота линии
-     */
-    @Serializable
-    internal data class Value(
-        val fontFamilyRef: String,
-        val fontWeight: Int,
-        val textSize: Float,
-        val lineHeight: Float,
-        val fontStyle: String,
-        val letterSpacing: Float,
-    ) : TokenValue
-
-    /**
      * Класс размера экрана
      * @property value строковое значение
      */
@@ -98,3 +77,22 @@ internal data class TypographyToken(
         val isDefault: Boolean get() = this == UNKNOWN || this == MEDIUM
     }
 }
+
+/**
+ * Значение токена типографии
+ * @property fontFamilyRef семейство шрифтов
+ * @property fontWeight вес шрифта
+ * @property fontStyle стиль шрифта
+ * @property textSize размер текста
+ * @property letterSpacing расстояние между буквами
+ * @property lineHeight высота линии
+ */
+@Serializable
+internal data class TypographyTokenValue(
+    val fontFamilyRef: String,
+    val fontWeight: Int,
+    val fontStyle: String,
+    val textSize: Float,
+    val lineHeight: Float,
+    val letterSpacing: Float,
+) : TokenValue

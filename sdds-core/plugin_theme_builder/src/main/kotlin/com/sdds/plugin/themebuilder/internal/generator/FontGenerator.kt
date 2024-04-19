@@ -7,6 +7,7 @@ import com.sdds.plugin.themebuilder.internal.factory.FontDownloaderFactory
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlFontFamilyDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.token.FontToken
+import com.sdds.plugin.themebuilder.internal.token.FontTokenValue
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.fontDir
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.fontFamilyXmlFile
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
@@ -35,6 +36,7 @@ internal class FontGenerator(
     private val ktFileBuilderFactory: KtFileBuilderFactory,
     namespace: String,
     private val resPrefix: String,
+    private val fontTokenValues: Map<String, FontTokenValue>,
 ) : TokenGenerator<FontToken>(target) {
 
     private val rFileImport = ClassName(namespace, "R")
@@ -51,16 +53,16 @@ internal class FontGenerator(
     }
 
     override fun addViewSystemToken(token: FontToken): Boolean {
-        token.value ?: return false
+        val tokenValue = fontTokenValues[token.name] ?: return false
         val builder = fontFamilyXmlBuilders[token.xmlName] ?: xmlFontFamilyBuilderFactory.create()
             .also { fontFamilyXmlBuilders[token.xmlName] = it }
 
         builder.appendComment(token.description)
-        token.value.variants.forEach { fontVariant ->
-            val fontFile = fontDownloader.download(fontVariant.link, outputResDir.fontDir())
+        tokenValue.fonts.forEach { font ->
+            val fontFile = fontDownloader.download(font.link, outputResDir.fontDir())
             builder.appendFontElement(
-                fontStyle = fontVariant.fontStyle,
-                fontWeight = fontVariant.fontWeight.toString(),
+                fontStyle = font.style,
+                fontWeight = font.weight.toString(),
                 font = fontFile.nameWithoutExtension,
             )
         }
@@ -69,11 +71,11 @@ internal class FontGenerator(
 
     override fun addComposeToken(token: FontToken): Boolean =
         with(ktFileBuilder) {
-            token.value ?: return@with false
+            val tokenValue = fontTokenValues[token.name] ?: return@with false
             ktFileRootObjectBuilder.addFontFamilyToken(
                 name = token.ktName,
                 description = token.description,
-                tokenValue = token.value,
+                tokenValue = tokenValue,
             )
             return@with true
         }
@@ -92,16 +94,16 @@ internal class FontGenerator(
     private fun TypeSpec.Builder.addFontFamilyToken(
         name: String,
         description: String,
-        tokenValue: FontToken.Value,
+        tokenValue: FontTokenValue,
     ) {
-        val initializers = tokenValue.variants.map {
+        val initializers = tokenValue.fonts.map {
             val fontFile = fontDownloader.download(
                 url = it.link,
                 fontDir = outputResDir.fontDir(),
             )
             "Font(R.font.${fontFile.nameWithoutExtension}," +
-                " FontWeight(${it.fontWeight}), " +
-                "FontStyle.${it.fontStyle.toComposeFontStyle()})"
+                " FontWeight(${it.weight}), " +
+                "FontStyle.${it.style.toComposeFontStyle()})"
         }
         val initializer = KtFileBuilder.createConstructorCall(
             constructorName = "FontFamily",

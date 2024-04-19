@@ -7,6 +7,7 @@ import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.serializer.Serializer
 import com.sdds.plugin.themebuilder.internal.token.ShadowToken
+import com.sdds.plugin.themebuilder.internal.token.ShadowTokenValue
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.fileWriter
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.shadowsXmlFile
@@ -53,6 +54,7 @@ class ShadowGeneratorTest {
             target = ThemeBuilderTarget.ALL,
             xmlBuilderFactory = XmlResourcesDocumentBuilderFactory("thmbldr"),
             ktFileBuilderFactory = KtFileBuilderFactory("com.test"),
+            shadowTokenValues = mapOf("down.hard.l" to ShadowTokenValue("#99000000", 1.0f)),
         )
     }
 
@@ -78,7 +80,13 @@ class ShadowGeneratorTest {
         underTest.addToken(shadowToken)
         underTest.generate()
 
-        assertEquals(getResourceAsText("shadow-outputs/test-shadow-output.xml"), outputXml.toString())
-        assertEquals(getResourceAsText("shadow-outputs/TestShadowOutputKt.txt"), outputKt.toString())
+        assertEquals(
+            getResourceAsText("shadow-outputs/test-shadow-output.xml"),
+            outputXml.toString(),
+        )
+        assertEquals(
+            getResourceAsText("shadow-outputs/TestShadowOutputKt.txt"),
+            outputKt.toString(),
+        )
     }
 }
