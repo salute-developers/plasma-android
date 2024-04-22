@@ -1,0 +1,10 @@
+{
+  "round.xss": {
+    "kind": "round",
+    "cornerRadius": 1.5
+  },
+  "round.xs": {
+    "kind": "round",
+    "cornerRadius": 2.5
+  }
+}

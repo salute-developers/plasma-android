@@ -9,11 +9,11 @@ import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder.ElementType
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
+import com.sdds.plugin.themebuilder.internal.token.GradientToken
 import com.sdds.plugin.themebuilder.internal.token.GradientTokenValue
-import com.sdds.plugin.themebuilder.internal.token.LinearGradientToken
-import com.sdds.plugin.themebuilder.internal.token.RadialGradientToken
-import com.sdds.plugin.themebuilder.internal.token.SweepGradientToken
-import com.sdds.plugin.themebuilder.internal.token.Token
+import com.sdds.plugin.themebuilder.internal.token.LinearGradientTokenValue
+import com.sdds.plugin.themebuilder.internal.token.RadialGradientTokenValue
+import com.sdds.plugin.themebuilder.internal.token.SweepGradientTokenValue
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.gradientsXmlFile
 import com.sdds.plugin.themebuilder.internal.utils.colorToArgbHex
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
@@ -34,7 +34,8 @@ internal class GradientGenerator(
     target: ThemeBuilderTarget,
     private val xmlBuilderFactory: XmlResourcesDocumentBuilderFactory,
     private val ktFileBuilderFactory: KtFileBuilderFactory,
-) : TokenGenerator<Token<GradientTokenValue>>(target) {
+    private val gradientTokenValues: Map<String, List<GradientTokenValue>>,
+) : TokenGenerator<GradientToken>(target) {
 
     private val xmlDocumentBuilder by unsafeLazy { xmlBuilderFactory.create() }
     private val ktFileBuilder by unsafeLazy { ktFileBuilderFactory.create("GradientTokens") }
@@ -60,11 +61,14 @@ internal class GradientGenerator(
     /**
      * @see TokenGenerator.addViewSystemToken
      */
-    override fun addViewSystemToken(token: Token<GradientTokenValue>): Boolean {
-        val result = when (token) {
-            is LinearGradientToken -> xmlDocumentBuilder.appendLinearGradient(token)
-            is RadialGradientToken -> xmlDocumentBuilder.appendRadialGradient(token)
-            is SweepGradientToken -> xmlDocumentBuilder.appendSweepGradient(token)
+    override fun addViewSystemToken(token: GradientToken): Boolean {
+        val tokenValue = gradientTokenValues[token.name] ?: return false
+        if (tokenValue.size != 1) return false
+        // TODO: https://github.com/salute-developers/plasma-android/issues/28
+        val result = when (val value = tokenValue[0]) {
+            is LinearGradientTokenValue -> xmlDocumentBuilder.appendLinearGradient(token, value)
+            is RadialGradientTokenValue -> xmlDocumentBuilder.appendRadialGradient(token, value)
+            is SweepGradientTokenValue -> xmlDocumentBuilder.appendSweepGradient(token, value)
             else -> false
         }
         return result
@@ -73,7 +77,10 @@ internal class GradientGenerator(
     /**
      * @see TokenGenerator.addComposeToken
      */
-    override fun addComposeToken(token: Token<GradientTokenValue>): Boolean = with(ktFileBuilder) {
+    override fun addComposeToken(token: GradientToken): Boolean = with(ktFileBuilder) {
+        val tokenValue = gradientTokenValues[token.name] ?: return false
+        if (tokenValue.size != 1) return false
+        // TODO: https://github.com/salute-developers/plasma-android/issues/28
         val builder = if (token.tags.contains("dark")) {
             darkBuilder
         } else if (token.tags.contains("light")) {
@@ -81,10 +88,10 @@ internal class GradientGenerator(
         } else {
             return false
         }
-        val result = when (token) {
-            is LinearGradientToken -> builder.appendLinearGradient(token)
-            is RadialGradientToken -> builder.appendRadialGradient(token)
-            is SweepGradientToken -> builder.appendSweepGradient(token)
+        val result = when (val value = tokenValue[0]) {
+            is LinearGradientTokenValue -> builder.appendLinearGradient(token, value)
+            is RadialGradientTokenValue -> builder.appendRadialGradient(token, value)
+            is SweepGradientTokenValue -> builder.appendSweepGradient(token, value)
             else -> false
         }
         return result
@@ -109,8 +116,10 @@ internal class GradientGenerator(
         }
     }
 
-    private fun XmlResourcesDocumentBuilder.appendLinearGradient(token: LinearGradientToken): Boolean {
-        val tokenValue = token.value ?: return false
+    private fun XmlResourcesDocumentBuilder.appendLinearGradient(
+        token: GradientToken,
+        tokenValue: LinearGradientTokenValue,
+    ): Boolean {
         val baseTokenName = token.xmlName
 
         wrapWithRegion(token.description) {
@@ -126,8 +135,10 @@ internal class GradientGenerator(
         return true
     }
 
-    private fun XmlResourcesDocumentBuilder.appendSweepGradient(token: SweepGradientToken): Boolean {
-        val tokenValue = token.value ?: return false
+    private fun XmlResourcesDocumentBuilder.appendSweepGradient(
+        token: GradientToken,
+        tokenValue: SweepGradientTokenValue,
+    ): Boolean {
         val baseTokenName = token.xmlName
 
         wrapWithRegion(token.description) {
@@ -164,8 +175,10 @@ internal class GradientGenerator(
         return true
     }
 
-    private fun XmlResourcesDocumentBuilder.appendRadialGradient(token: RadialGradientToken): Boolean {
-        val tokenValue = token.value ?: return false
+    private fun XmlResourcesDocumentBuilder.appendRadialGradient(
+        token: GradientToken,
+        tokenValue: RadialGradientTokenValue,
+    ): Boolean {
         val baseTokenName = token.xmlName
 
         wrapWithRegion(token.description) {
@@ -196,8 +209,10 @@ internal class GradientGenerator(
     }
 
     context(KtFileBuilder)
-    private fun TypeSpec.Builder.appendLinearGradient(token: LinearGradientToken): Boolean {
-        val tokenValue = token.value ?: return false
+    private fun TypeSpec.Builder.appendLinearGradient(
+        token: GradientToken,
+        tokenValue: LinearGradientTokenValue,
+    ): Boolean {
         val baseTokenName = token.ktName
 
         appendObject(baseTokenName, token.description) {
@@ -208,8 +223,10 @@ internal class GradientGenerator(
     }
 
     context(KtFileBuilder)
-    private fun TypeSpec.Builder.appendSweepGradient(token: SweepGradientToken): Boolean {
-        val tokenValue = token.value ?: return false
+    private fun TypeSpec.Builder.appendSweepGradient(
+        token: GradientToken,
+        tokenValue: SweepGradientTokenValue,
+    ): Boolean {
         val baseTokenName = token.ktName
 
         appendObject(baseTokenName, token.description) {
@@ -223,8 +240,10 @@ internal class GradientGenerator(
     }
 
     context(KtFileBuilder)
-    private fun TypeSpec.Builder.appendRadialGradient(token: RadialGradientToken): Boolean {
-        val tokenValue = token.value ?: return false
+    private fun TypeSpec.Builder.appendRadialGradient(
+        token: GradientToken,
+        tokenValue: RadialGradientTokenValue,
+    ): Boolean {
         val baseTokenName = token.ktName
 
         appendObject(baseTokenName, token.description) {

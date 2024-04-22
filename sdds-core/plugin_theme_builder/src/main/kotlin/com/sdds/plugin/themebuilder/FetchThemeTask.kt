@@ -21,7 +21,7 @@ internal abstract class FetchThemeTask : DefaultTask() {
     abstract val url: Property<String>
 
     /**
-     * Местоположение файла с темой после загрузки
+     * Местоположение архива с темой после загрузки
      */
     @get:OutputFile
     abstract val themeFile: RegularFileProperty
@@ -36,7 +36,7 @@ internal abstract class FetchThemeTask : DefaultTask() {
                 val themeJSON = themeFile.get().asFile
                 themeJSON.writeBytes(themeContent)
             }.onFailure {
-                logger.error("Can't fetch theme json", it)
+                logger.error("Can't fetch theme", it)
                 throw it
             }
     }

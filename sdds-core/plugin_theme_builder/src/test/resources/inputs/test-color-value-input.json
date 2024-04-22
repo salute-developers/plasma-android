@@ -1,0 +1,49 @@
+{
+  "dark.surface.gradient-main": [
+    {
+      "kind": "angular",
+      "locations": [
+        0,
+        1
+      ],
+      "colors": [
+        "#24B23E",
+        "#05C1F5"
+      ],
+      "startAngle": 89.83,
+      "endAngle": 89.83,
+      "centerX": 0.66,
+      "centerY": 0.5
+    },
+    {
+      "kind": "linear",
+      "locations": [
+        0,
+        1
+      ],
+      "colors": [
+        "#24B23E",
+        "#05C1F5"
+      ],
+      "angle": 89.83
+    },
+    {
+      "kind": "radial",
+      "locations": [
+        0,
+        1
+      ],
+      "colors": [
+        "#24B23E",
+        "#05C1F5"
+      ],
+      "centerX": 0.66,
+      "centerY": 0.5,
+      "radius": 1
+    },
+    {
+      "kind": "color",
+      "background": "#FFFFFFF"
+    }
+  ]
+}

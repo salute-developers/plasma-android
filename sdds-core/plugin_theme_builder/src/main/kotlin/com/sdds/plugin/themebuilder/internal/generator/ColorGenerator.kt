@@ -26,6 +26,7 @@ internal class ColorGenerator(
     target: ThemeBuilderTarget,
     private val xmlBuilderFactory: XmlResourcesDocumentBuilderFactory,
     private val ktFileBuilderFactory: KtFileBuilderFactory,
+    private val colorTokenValues: Map<String, String>,
 ) : TokenGenerator<ColorToken>(target) {
 
     private val xmlDocumentBuilder by unsafeLazy { xmlBuilderFactory.create() }
@@ -51,9 +52,9 @@ internal class ColorGenerator(
      * @see TokenGenerator.addViewSystemToken
      */
     override fun addViewSystemToken(token: ColorToken): Boolean {
-        val tokenValue = token.value ?: return false
+        val tokenValue = colorTokenValues[token.name] ?: return false
         xmlDocumentBuilder.appendComment(token.description)
-        xmlDocumentBuilder.appendElement(ElementName.COLOR, token.xmlName, tokenValue.origin)
+        xmlDocumentBuilder.appendElement(ElementName.COLOR, token.xmlName, tokenValue)
         return true
     }
 
@@ -61,7 +62,7 @@ internal class ColorGenerator(
      * @see TokenGenerator.addComposeToken
      */
     override fun addComposeToken(token: ColorToken): Boolean = with(ktFileBuilder) {
-        val tokenValue = token.value ?: return false
+        val tokenValue = colorTokenValues[token.name] ?: return false
         val root = if (token.tags.contains("dark")) {
             darkBuilder
         } else if (token.tags.contains("light")) {
@@ -69,7 +70,7 @@ internal class ColorGenerator(
         } else {
             return false
         }
-        val value = "Color(${colorToArgbHex(tokenValue.origin)})"
+        val value = "Color(${colorToArgbHex(tokenValue)})"
         root.appendProperty(token.ktName, KtFileBuilder.TypeColor, value, token.description)
         return true
     }

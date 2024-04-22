@@ -10,6 +10,7 @@ import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.token.TypographyToken
+import com.sdds.plugin.themebuilder.internal.token.TypographyTokenValue
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.textAppearancesXmlFile
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.typographyXmlFile
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
@@ -34,6 +35,7 @@ internal class TypographyGenerator(
     private val xmlBuilderFactory: XmlResourcesDocumentBuilderFactory,
     private val ktFileBuilderFactory: KtFileBuilderFactory,
     private val resourceReferenceProvider: ResourceReferenceProvider,
+    private val typographyTokenValues: Map<String, TypographyTokenValue>,
 ) : TokenGenerator<TypographyToken>(target) {
 
     private val textAppearanceXmlBuilders =
@@ -70,7 +72,7 @@ internal class TypographyGenerator(
      * @see TokenGenerator.addViewSystemToken
      */
     override fun addViewSystemToken(token: TypographyToken): Boolean {
-        val tokenValue = token.value ?: return false
+        val tokenValue = typographyTokenValues[token.name] ?: return false
         val builder =
             textAppearanceXmlBuilders[token.screenClass] ?: xmlBuilderFactory.create().also {
                 textAppearanceXmlBuilders[token.screenClass] = it
@@ -104,7 +106,7 @@ internal class TypographyGenerator(
      * @see TokenGenerator.addComposeToken
      */
     override fun addComposeToken(token: TypographyToken): Boolean = with(ktFileBuilder) {
-        val tokenValue = token.value ?: return@with false
+        val tokenValue = typographyTokenValues[token.name] ?: return@with false
         when (token.screenClass) {
             TypographyToken.ScreenClass.SMALL -> smallBuilder.addTypographyToken(
                 token.ktName,
@@ -125,7 +127,7 @@ internal class TypographyGenerator(
 
     private fun XmlResourcesDocumentBuilder.appendTypographyToken(
         token: TypographyToken,
-        tokenValue: TypographyToken.Value,
+        tokenValue: TypographyTokenValue,
         textAppearanceName: String,
     ) {
         val textSizeDimen = DimenData(
@@ -144,9 +146,9 @@ internal class TypographyGenerator(
 
         appendStyle(textAppearanceName) {
             appendElement(
-                ElementName.ITEM,
-                "fontFamily",
-                tokenValue.fontFamilyRef.removeSurrounding("{", "}"),
+                elementName = ElementName.ITEM,
+                tokenName = "fontFamily",
+                value = resourceReferenceProvider.font(tokenValue.fontFamilyRef),
                 usePrefix = false,
             )
             appendElement(
@@ -187,7 +189,7 @@ internal class TypographyGenerator(
     private fun TypeSpec.Builder.addTypographyToken(
         name: String,
         description: String,
-        tokenValue: TypographyToken.Value,
+        tokenValue: TypographyTokenValue,
     ) {
         val letterSpacing = if (tokenValue.letterSpacing < 0) {
             "(${tokenValue.letterSpacing}).sp"

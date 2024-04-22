@@ -1,6 +1,5 @@
 package com.sdds.plugin.themebuilder.internal.token
 
-import com.sdds.plugin.themebuilder.internal.serializer.ExcludeNonAndroidPlatformTokens
 import kotlinx.serialization.Serializable
 
 /**
@@ -14,6 +13,6 @@ import kotlinx.serialization.Serializable
 internal data class Theme(
     val name: String,
     val version: String,
-    @Serializable(with = ExcludeNonAndroidPlatformTokens::class)
-    val tokens: List<Token<TokenValue>>,
+    @Serializable
+    val tokens: List<Token>,
 )

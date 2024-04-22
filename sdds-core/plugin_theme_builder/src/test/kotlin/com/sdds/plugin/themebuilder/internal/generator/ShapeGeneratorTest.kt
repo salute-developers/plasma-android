@@ -6,7 +6,8 @@ import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.serializer.Serializer
-import com.sdds.plugin.themebuilder.internal.token.RoundedShapeToken
+import com.sdds.plugin.themebuilder.internal.token.RoundedShapeTokenValue
+import com.sdds.plugin.themebuilder.internal.token.ShapeToken
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.fileWriter
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.shapesXmlFile
@@ -56,6 +57,7 @@ class ShapeGeneratorTest {
             ktFileBuilderFactory = KtFileBuilderFactory("com.test"),
             dimensAggregator = mockDimenAggregator,
             resourceReferenceProvider = ResourceReferenceProvider("thmbldr"),
+            shapeTokenValues = shapeTokenValues,
         )
     }
 
@@ -72,7 +74,7 @@ class ShapeGeneratorTest {
     @Test
     fun `ShapeGenerator добавляет токен и генерирует файлы для compose и view system`() {
         val input = getResourceAsText("inputs/test-shape-input.json")
-        val shapeTokens = Serializer.instance.decodeFromString<List<RoundedShapeToken>>(input)
+        val shapeTokens = Serializer.instance.decodeFromString<List<ShapeToken>>(input)
         val outputXml = ByteArrayOutputStream()
         val shapesXmlFile = mockk<File>(relaxed = true)
         every { shapesXmlFile.fileWriter() } returns outputXml.writer()
@@ -83,5 +85,13 @@ class ShapeGeneratorTest {
 
         assertEquals(getResourceAsText("shape-outputs/test-shape-output.xml"), outputXml.toString())
         assertEquals(getResourceAsText("shape-outputs/TestShapeOutputKt.txt"), outputKt.toString())
+    }
+
+    private companion object {
+        val shapeTokenValues = mapOf(
+            "round.xs" to RoundedShapeTokenValue(cornerRadius = 6.0f),
+            "round.s" to RoundedShapeTokenValue(cornerRadius = 8.0f),
+            "round.l" to RoundedShapeTokenValue(cornerRadius = 16.0f),
+        )
     }
 }

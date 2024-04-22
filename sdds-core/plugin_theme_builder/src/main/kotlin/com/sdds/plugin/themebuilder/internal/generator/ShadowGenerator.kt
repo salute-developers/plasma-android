@@ -7,6 +7,7 @@ import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.token.ShadowToken
+import com.sdds.plugin.themebuilder.internal.token.ShadowTokenValue
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.shadowsXmlFile
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import java.io.File
@@ -26,6 +27,7 @@ internal class ShadowGenerator(
     target: ThemeBuilderTarget,
     private val xmlBuilderFactory: XmlResourcesDocumentBuilderFactory,
     private val ktFileBuilderFactory: KtFileBuilderFactory,
+    private val shadowTokenValues: Map<String, ShadowTokenValue>,
 ) : TokenGenerator<ShadowToken>(target) {
 
     private val xmlDocumentBuilder by unsafeLazy { xmlBuilderFactory.create() }
@@ -54,13 +56,11 @@ internal class ShadowGenerator(
      * @see TokenGenerator.addViewSystemToken
      */
     override fun addViewSystemToken(token: ShadowToken): Boolean = with(xmlDocumentBuilder) {
-        val tokenValue = token.value ?: return@with false
+        val tokenValue = shadowTokenValues[token.name] ?: return@with false
 
         wrapWithRegion(token.description) {
-            appendElement(ElementName.DIMEN, "shadow_${token.xmlName}_dx", "${tokenValue.dX}dp")
-            appendElement(ElementName.DIMEN, "shadow_${token.xmlName}_dY", "${tokenValue.dY}dp")
             appendElement(ElementName.COLOR, "shadow_${token.xmlName}_color", tokenValue.color)
-            appendElement(ElementName.DIMEN, "shadow_${token.xmlName}_radius", "${tokenValue.radius}dp")
+            appendElement(ElementName.DIMEN, "shadow_${token.xmlName}_elevation", "${tokenValue.elevation}dp")
         }
         return@with true
     }
@@ -69,12 +69,10 @@ internal class ShadowGenerator(
      * @see TokenGenerator.addComposeToken
      */
     override fun addComposeToken(token: ShadowToken): Boolean = with(ktFileBuilder) {
-        val tokenValue = token.value ?: return@with false
+        val tokenValue = shadowTokenValues[token.name] ?: return@with false
 
         rootShadows.appendObject(token.ktName, token.description) {
-            appendProperty("dX", KtFileBuilder.TypeDp, "${tokenValue.dX}.dp", token.description)
-            appendProperty("dY", KtFileBuilder.TypeDp, "${tokenValue.dY}.dp", token.description)
-            appendProperty("radius", KtFileBuilder.TypeDp, "${tokenValue.radius}.dp", token.description)
+            appendProperty("elevation", KtFileBuilder.TypeDp, "${tokenValue.elevation}.dp", token.description)
             appendProperty(
                 "color",
                 KtFileBuilder.TypeColor,

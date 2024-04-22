@@ -3,7 +3,7 @@
     <style name="Thmbldr.TextAppearance"/>
     <!--шрифт android-->
     <style name="Thmbldr.TextAppearance.DisplayL">
-        <item name="fontFamily">sans</item>
+        <item name="fontFamily">@font/thmbldr_sans</item>
         <item name="fontWeight">300</item>
         <item name="android:textStyle">normal</item>
         <item name="android:letterSpacing">0.02</item>

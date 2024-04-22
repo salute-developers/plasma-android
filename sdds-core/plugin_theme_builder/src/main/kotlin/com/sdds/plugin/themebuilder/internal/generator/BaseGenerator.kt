@@ -4,7 +4,6 @@ import com.sdds.plugin.themebuilder.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.ThemeBuilderTarget.Companion.isComposeOrAll
 import com.sdds.plugin.themebuilder.ThemeBuilderTarget.Companion.isViewSystemOrAll
 import com.sdds.plugin.themebuilder.internal.token.Token
-import com.sdds.plugin.themebuilder.internal.token.TokenValue
 
 /**
  * Базовый интерфейс генератора
@@ -22,7 +21,7 @@ internal interface BaseGenerator {
  * Интерфейс генератора токенов
  * @author Малышев Александр on 07.03.2024
  */
-internal abstract class TokenGenerator<T : Token<TokenValue>>(
+internal abstract class TokenGenerator<T : Token>(
     private val target: ThemeBuilderTarget,
 ) : BaseGenerator {
 

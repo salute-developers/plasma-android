@@ -37,4 +37,13 @@ internal class ResourceReferenceProvider(private val resourcePrefix: String) {
     fun style(name: String): String {
         return "@style/${name.withPrefixIfNeed(capitalizedPrefix, ".")}"
     }
+
+    /**
+     * Возвращает ссылку на fontFamily с названием [name].
+     * Например, если шрифт называется display, и ресурсам задан префикс "pref",
+     * то функция вернет ссылку @font/pref_display
+     */
+    fun font(name: String): String {
+        return "@font/${name.withPrefixIfNeed(resourcePrefix)}"
+    }
 }
