@@ -54,7 +54,7 @@ class ShadowGeneratorTest {
             target = ThemeBuilderTarget.ALL,
             xmlBuilderFactory = XmlResourcesDocumentBuilderFactory("thmbldr"),
             ktFileBuilderFactory = KtFileBuilderFactory("com.test"),
-            shadowTokenValues = mapOf("down.hard.l" to ShadowTokenValue("#99000000", 1.0f)),
+            shadowTokenValues = shadowTokenValues,
         )
     }
 
@@ -88,5 +88,9 @@ class ShadowGeneratorTest {
             getResourceAsText("shadow-outputs/TestShadowOutputKt.txt"),
             outputKt.toString(),
         )
+    }
+
+    private companion object {
+        val shadowTokenValues = mapOf("down.hard.l" to ShadowTokenValue("#99000000", 1.0f))
     }
 }

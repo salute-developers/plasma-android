@@ -54,34 +54,7 @@ class GradientGeneratorTest {
             target = ThemeBuilderTarget.ALL,
             xmlBuilderFactory = XmlResourcesDocumentBuilderFactory("thmbldr"),
             ktFileBuilderFactory = KtFileBuilderFactory("com.test"),
-            gradientTokenValue = mapOf(
-                "dark.inverse.surface.accent" to listOf(
-                    SweepGradientTokenValue(
-                        colors = listOf("#000", "#fff"),
-                        locations = listOf(0f, 0.7f, 1f),
-                        startAngle = 0f,
-                        endAngle = 360f,
-                        centerX = 0.5f,
-                        centerY = 0.5f,
-                    ),
-                ),
-                "light.on-dark.surface.tertiary" to listOf(
-                    LinearGradientTokenValue(
-                        colors = listOf("#000", "#fff"),
-                        locations = listOf(0f, 0.7f, 1f),
-                        angle = 90f,
-                    ),
-                ),
-                "light.on-dark.surface.secondary" to listOf(
-                    RadialGradientTokenValue(
-                        colors = listOf("#000", "#fff"),
-                        locations = listOf(0f, 0.7f, 1f),
-                        radius = 0.8f,
-                        centerX = 0.5f,
-                        centerY = 0.5f,
-                    ),
-                ),
-            ),
+            gradientTokenValues = gradientTokenValues,
         )
     }
 
@@ -118,6 +91,37 @@ class GradientGeneratorTest {
         assertEquals(
             getResourceAsText("gradient-outputs/TestGradientOutputKt.txt"),
             outputKt.toString(),
+        )
+    }
+
+    private companion object {
+        val gradientTokenValues = mapOf(
+            "dark.inverse.surface.accent" to listOf(
+                SweepGradientTokenValue(
+                    colors = listOf("#000", "#fff"),
+                    locations = listOf(0f, 0.7f, 1f),
+                    startAngle = 0f,
+                    endAngle = 360f,
+                    centerX = 0.5f,
+                    centerY = 0.5f,
+                ),
+            ),
+            "light.on-dark.surface.tertiary" to listOf(
+                LinearGradientTokenValue(
+                    colors = listOf("#000", "#fff"),
+                    locations = listOf(0f, 0.7f, 1f),
+                    angle = 90f,
+                ),
+            ),
+            "light.on-dark.surface.secondary" to listOf(
+                RadialGradientTokenValue(
+                    colors = listOf("#000", "#fff"),
+                    locations = listOf(0f, 0.7f, 1f),
+                    radius = 0.8f,
+                    centerX = 0.5f,
+                    centerY = 0.5f,
+                ),
+            ),
         )
     }
 }

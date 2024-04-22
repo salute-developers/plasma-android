@@ -58,32 +58,7 @@ class TypographyGeneratorTest {
             xmlBuilderFactory = XmlResourcesDocumentBuilderFactory("thmbldr"),
             ktFileBuilderFactory = KtFileBuilderFactory("com.test"),
             resourceReferenceProvider = ResourceReferenceProvider("thmbldr"),
-            typographyTokenValues = mapOf(
-                "screen-l.display.l" to TypographyTokenValue(
-                    fontFamilyRef = "sans",
-                    fontWeight = 300,
-                    fontStyle = "normal",
-                    textSize = 128f,
-                    letterSpacing = 0.02f,
-                    lineHeight = 128f,
-                ),
-                "screen-m.display.l" to TypographyTokenValue(
-                    fontFamilyRef = "sans",
-                    fontWeight = 300,
-                    fontStyle = "normal",
-                    textSize = 96f,
-                    letterSpacing = 0.02f,
-                    lineHeight = 96f,
-                ),
-                "screen-s.display.l" to TypographyTokenValue(
-                    fontFamilyRef = "sans",
-                    fontWeight = 300,
-                    fontStyle = "normal",
-                    textSize = 72f,
-                    letterSpacing = 0.02f,
-                    lineHeight = 72f,
-                ),
-            ),
+            typographyTokenValues = typographyTokenValues,
         )
     }
 
@@ -142,6 +117,35 @@ class TypographyGeneratorTest {
         assertEquals(
             getResourceAsText("typography-outputs/TestTypographyOutputKt.txt"),
             outputKt.toString(),
+        )
+    }
+
+    private companion object {
+        val typographyTokenValues = mapOf(
+            "screen-l.display.l" to TypographyTokenValue(
+                fontFamilyRef = "sans",
+                fontWeight = 300,
+                fontStyle = "normal",
+                textSize = 128f,
+                letterSpacing = 0.02f,
+                lineHeight = 128f,
+            ),
+            "screen-m.display.l" to TypographyTokenValue(
+                fontFamilyRef = "sans",
+                fontWeight = 300,
+                fontStyle = "normal",
+                textSize = 96f,
+                letterSpacing = 0.02f,
+                lineHeight = 96f,
+            ),
+            "screen-s.display.l" to TypographyTokenValue(
+                fontFamilyRef = "sans",
+                fontWeight = 300,
+                fontStyle = "normal",
+                textSize = 72f,
+                letterSpacing = 0.02f,
+                lineHeight = 72f,
+            ),
         )
     }
 }

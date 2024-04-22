@@ -34,7 +34,7 @@ internal class GradientGenerator(
     target: ThemeBuilderTarget,
     private val xmlBuilderFactory: XmlResourcesDocumentBuilderFactory,
     private val ktFileBuilderFactory: KtFileBuilderFactory,
-    private val gradientTokenValue: Map<String, List<GradientTokenValue>>,
+    private val gradientTokenValues: Map<String, List<GradientTokenValue>>,
 ) : TokenGenerator<GradientToken>(target) {
 
     private val xmlDocumentBuilder by unsafeLazy { xmlBuilderFactory.create() }
@@ -62,7 +62,7 @@ internal class GradientGenerator(
      * @see TokenGenerator.addViewSystemToken
      */
     override fun addViewSystemToken(token: GradientToken): Boolean {
-        val tokenValue = gradientTokenValue[token.name] ?: return false
+        val tokenValue = gradientTokenValues[token.name] ?: return false
         if (tokenValue.size != 1) return false
         // TODO: https://github.com/salute-developers/plasma-android/issues/28
         val result = when (val value = tokenValue[0]) {
@@ -78,7 +78,7 @@ internal class GradientGenerator(
      * @see TokenGenerator.addComposeToken
      */
     override fun addComposeToken(token: GradientToken): Boolean = with(ktFileBuilder) {
-        val tokenValue = gradientTokenValue[token.name] ?: return false
+        val tokenValue = gradientTokenValues[token.name] ?: return false
         if (tokenValue.size != 1) return false
         // TODO: https://github.com/salute-developers/plasma-android/issues/28
         val builder = if (token.tags.contains("dark")) {

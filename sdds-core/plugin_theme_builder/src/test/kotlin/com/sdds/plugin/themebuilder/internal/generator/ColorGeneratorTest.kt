@@ -50,7 +50,7 @@ class ColorGeneratorTest {
             target = ThemeBuilderTarget.ALL,
             xmlBuilderFactory = XmlResourcesDocumentBuilderFactory("thmbldr"),
             ktFileBuilderFactory = KtFileBuilderFactory("com.test"),
-            colorTokenValues = mapOf("dark.on-light.surface.transparent-accent" to "#FFFFFF1F"),
+            colorTokenValues = colorTokenValues,
         )
     }
 
@@ -78,5 +78,9 @@ class ColorGeneratorTest {
 
         assertEquals(getResourceAsText("color-outputs/test-color-output.xml"), outputXml.toString())
         assertEquals(getResourceAsText("color-outputs/TestColorOutputKt.txt"), outputKt.toString())
+    }
+
+    private companion object {
+        val colorTokenValues = mapOf("dark.on-light.surface.transparent-accent" to "#FFFFFF1F")
     }
 }

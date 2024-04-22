@@ -57,11 +57,7 @@ class ShapeGeneratorTest {
             ktFileBuilderFactory = KtFileBuilderFactory("com.test"),
             dimensAggregator = mockDimenAggregator,
             resourceReferenceProvider = ResourceReferenceProvider("thmbldr"),
-            shapeTokenValues = mapOf(
-                "round.xs" to RoundedShapeTokenValue(cornerRadius = 6.0f),
-                "round.s" to RoundedShapeTokenValue(cornerRadius = 8.0f),
-                "round.l" to RoundedShapeTokenValue(cornerRadius = 16.0f),
-            ),
+            shapeTokenValues = shapeTokenValues,
         )
     }
 
@@ -89,5 +85,13 @@ class ShapeGeneratorTest {
 
         assertEquals(getResourceAsText("shape-outputs/test-shape-output.xml"), outputXml.toString())
         assertEquals(getResourceAsText("shape-outputs/TestShapeOutputKt.txt"), outputKt.toString())
+    }
+
+    private companion object {
+        val shapeTokenValues = mapOf(
+            "round.xs" to RoundedShapeTokenValue(cornerRadius = 6.0f),
+            "round.s" to RoundedShapeTokenValue(cornerRadius = 8.0f),
+            "round.l" to RoundedShapeTokenValue(cornerRadius = 16.0f),
+        )
     }
 }

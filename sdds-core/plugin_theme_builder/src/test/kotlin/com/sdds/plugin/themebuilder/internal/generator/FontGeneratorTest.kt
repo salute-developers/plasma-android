@@ -64,48 +64,7 @@ class FontGeneratorTest {
             ktFileBuilderFactory = KtFileBuilderFactory("com.test.tokens"),
             namespace = "com.test",
             resPrefix = "thmbldr",
-            fontTokenValues = mapOf(
-                "font-family.display" to FontTokenValue(
-                    name = "SB Sans Display",
-                    fonts = listOf(
-                        FontToken.FontVariant(
-                            link = "https://cdn-app.sberdevices.ru/shared-static/0.0.0/" +
-                                "fonts/SBSansDisplay.0.2.0/SBSansDisplay-Regular.otf",
-                            weight = 300,
-                            style = "normal",
-                        ),
-                        FontToken.FontVariant(
-                            link = "https://cdn-app.sberdevices.ru/shared-static/0.0.0/" +
-                                "fonts/SBSansDisplay.0.2.0/SBSansDisplay-Bold.otf",
-                            weight = 600,
-                            style = "normal",
-                        ),
-                    ),
-                ),
-                "font-family.text" to FontTokenValue(
-                    name = "SB Sans Text",
-                    fonts = listOf(
-                        FontToken.FontVariant(
-                            link = "https://cdn-app.sberdevices.ru/shared-static/0.0.0/" +
-                                "fonts/SBSansText.0.2.0/SBSansText-Regular.otf",
-                            weight = 300,
-                            style = "normal",
-                        ),
-                        FontToken.FontVariant(
-                            link = "https://cdn-app.sberdevices.ru/shared-static/0.0.0/" +
-                                "fonts/SBSansText.0.2.0/SBSansText-Italic.otf",
-                            weight = 300,
-                            style = "italic",
-                        ),
-                        FontToken.FontVariant(
-                            link = "https://cdn-app.sberdevices.ru/shared-static/0.0.0/" +
-                                "fonts/SBSansText.0.2.0/SBSansText-Bold.otf",
-                            weight = 600,
-                            style = "normal",
-                        ),
-                    ),
-                ),
-            ),
+            fontTokenValues = fontTokenValues,
         )
     }
 
@@ -160,6 +119,51 @@ class FontGeneratorTest {
         Assert.assertEquals(
             getResourceAsText("font-outputs/TestFontFamilyOutputKt.txt"),
             outputKt.toString(),
+        )
+    }
+
+    private companion object {
+        val fontTokenValues = mapOf(
+            "font-family.display" to FontTokenValue(
+                name = "SB Sans Display",
+                fonts = listOf(
+                    FontToken.FontVariant(
+                        link = "https://cdn-app.sberdevices.ru/shared-static/0.0.0/" +
+                            "fonts/SBSansDisplay.0.2.0/SBSansDisplay-Regular.otf",
+                        weight = 300,
+                        style = "normal",
+                    ),
+                    FontToken.FontVariant(
+                        link = "https://cdn-app.sberdevices.ru/shared-static/0.0.0/" +
+                            "fonts/SBSansDisplay.0.2.0/SBSansDisplay-Bold.otf",
+                        weight = 600,
+                        style = "normal",
+                    ),
+                ),
+            ),
+            "font-family.text" to FontTokenValue(
+                name = "SB Sans Text",
+                fonts = listOf(
+                    FontToken.FontVariant(
+                        link = "https://cdn-app.sberdevices.ru/shared-static/0.0.0/" +
+                            "fonts/SBSansText.0.2.0/SBSansText-Regular.otf",
+                        weight = 300,
+                        style = "normal",
+                    ),
+                    FontToken.FontVariant(
+                        link = "https://cdn-app.sberdevices.ru/shared-static/0.0.0/" +
+                            "fonts/SBSansText.0.2.0/SBSansText-Italic.otf",
+                        weight = 300,
+                        style = "italic",
+                    ),
+                    FontToken.FontVariant(
+                        link = "https://cdn-app.sberdevices.ru/shared-static/0.0.0/" +
+                            "fonts/SBSansText.0.2.0/SBSansText-Bold.otf",
+                        weight = 600,
+                        style = "normal",
+                    ),
+                ),
+            ),
         )
     }
 }
