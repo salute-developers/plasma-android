@@ -10,6 +10,11 @@ import com.sdds.plugin.themebuilder.internal.generator.GradientGenerator
 import com.sdds.plugin.themebuilder.internal.generator.ShadowGenerator
 import com.sdds.plugin.themebuilder.internal.generator.ShapeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.TypographyGenerator
+import com.sdds.plugin.themebuilder.internal.token.FontTokenValue
+import com.sdds.plugin.themebuilder.internal.token.GradientTokenValue
+import com.sdds.plugin.themebuilder.internal.token.ShadowTokenValue
+import com.sdds.plugin.themebuilder.internal.token.ShapeTokenValue
+import com.sdds.plugin.themebuilder.internal.token.TypographyTokenValue
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 import java.io.File
 
@@ -45,33 +50,35 @@ internal class GeneratorFactory(
     /**
      * Создает генератор цветов [ColorGenerator]
      */
-    fun createColorGenerator(): ColorGenerator {
+    fun createColorGenerator(colors: Map<String, String>): ColorGenerator {
         return ColorGenerator(
             OutputLocation.Directory(outputDir),
             outputResDir,
             target,
             xmlResourcesDocumentBuilderFactory,
             ktFileBuilderFactory,
+            colors,
         )
     }
 
     /**
      * Создает генератор градиентов [GradientGenerator]
      */
-    fun createGradientGenerator(): GradientGenerator {
+    fun createGradientGenerator(gradients: Map<String, List<GradientTokenValue>>): GradientGenerator {
         return GradientGenerator(
             OutputLocation.Directory(outputDir),
             outputResDir,
             target,
             xmlResourcesDocumentBuilderFactory,
             ktFileBuilderFactory,
+            gradients,
         )
     }
 
     /**
      * Создает генератор шрифтов [FontGenerator]
      */
-    fun createFontGenerator(): FontGenerator {
+    fun createFontGenerator(fonts: Map<String, FontTokenValue>): FontGenerator {
         return FontGenerator(
             OutputLocation.Directory(outputDir),
             outputResDir,
@@ -81,13 +88,14 @@ internal class GeneratorFactory(
             ktFileBuilderFactory,
             namespace,
             resPrefix,
+            fonts,
         )
     }
 
     /**
      * Создает генератор типографии [TypographyGenerator]
      */
-    fun createTypographyGenerator(): TypographyGenerator {
+    fun createTypographyGenerator(typography: Map<String, TypographyTokenValue>): TypographyGenerator {
         return TypographyGenerator(
             OutputLocation.Directory(outputDir),
             outputResDir,
@@ -96,6 +104,7 @@ internal class GeneratorFactory(
             xmlResourcesDocumentBuilderFactory,
             ktFileBuilderFactory,
             resourceReferenceProvider,
+            typography,
         )
     }
 
@@ -113,7 +122,7 @@ internal class GeneratorFactory(
     /**
      * Создает генератор форм [ShapeGenerator]
      */
-    fun createShapesGenerator(): ShapeGenerator {
+    fun createShapesGenerator(shapes: Map<String, ShapeTokenValue>): ShapeGenerator {
         return ShapeGenerator(
             OutputLocation.Directory(outputDir),
             outputResDir,
@@ -122,19 +131,21 @@ internal class GeneratorFactory(
             ktFileBuilderFactory,
             dimensAggregator,
             resourceReferenceProvider,
+            shapes,
         )
     }
 
     /**
      * Создает генератор теней [ShadowGenerator]
      */
-    fun createShadowGenerator(): ShadowGenerator {
+    fun createShadowGenerator(shadows: Map<String, ShadowTokenValue>): ShadowGenerator {
         return ShadowGenerator(
             OutputLocation.Directory(outputDir),
             outputResDir,
             target,
             xmlResourcesDocumentBuilderFactory,
             ktFileBuilderFactory,
+            shadows,
         )
     }
 }

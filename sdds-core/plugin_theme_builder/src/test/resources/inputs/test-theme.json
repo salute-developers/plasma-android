@@ -1,0 +1,76 @@
+{
+  "name": "plasma_b2c",
+  "version": "0.1.0",
+  "tokens": [
+    {
+      "type": "color",
+      "name": "dark.text.primary",
+      "tags" : [
+        "dark",
+        "text",
+        "primary"
+      ],
+      "displayName": "textPrimary",
+      "description": "Text&Icons Default/General/textPrimary",
+      "enabled": true
+    },
+    {
+      "type": "gradient",
+      "name": "dark.surface.gradient-main",
+      "tags" : [
+        "dark",
+        "surface",
+        "gradient-main"
+      ],
+      "displayName": "surfaceGradientMain",
+      "description": "Surface Default/General/gradientMain",
+      "enabled": true
+    },
+    {
+      "type": "shadow",
+      "name": "up.hard.xs",
+      "tags" : [
+        "up",
+        "hard",
+        "xs"
+      ],
+      "displayName": "shadowUpHardXs",
+      "description": "Shadow Up Hard Xs",
+      "enabled": true
+    },
+    {
+      "type": "shape",
+      "name": "round.xss",
+      "tags": [
+        "round",
+        "xss"
+      ],
+      "displayName": "roundXss",
+      "description": "cRxxs",
+      "enabled": true
+    },
+    {
+      "type": "typography",
+      "name": "screen-s.text.s.normal",
+      "tags": [
+        "screen-s",
+        "text",
+        "s",
+        "normal"
+      ],
+      "displayName": "textS",
+      "description": "Text/Small Screen/TextS B",
+      "enabled": true
+    },
+    {
+      "type": "font-family",
+      "name": "text",
+      "tags": [
+        "text"
+      ],
+      "displayName": "fontFamilyText",
+      "description": "Font-family: SB Sans Text",
+      "enabled": true
+    }
+  ]
+}

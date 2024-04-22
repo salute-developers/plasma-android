@@ -5,7 +5,10 @@ import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.serializer.Serializer
-import com.sdds.plugin.themebuilder.internal.token.GradientTokenValue
+import com.sdds.plugin.themebuilder.internal.token.GradientToken
+import com.sdds.plugin.themebuilder.internal.token.LinearGradientTokenValue
+import com.sdds.plugin.themebuilder.internal.token.RadialGradientTokenValue
+import com.sdds.plugin.themebuilder.internal.token.SweepGradientTokenValue
 import com.sdds.plugin.themebuilder.internal.token.Token
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.fileWriter
@@ -51,6 +54,7 @@ class GradientGeneratorTest {
             target = ThemeBuilderTarget.ALL,
             xmlBuilderFactory = XmlResourcesDocumentBuilderFactory("thmbldr"),
             ktFileBuilderFactory = KtFileBuilderFactory("com.test"),
+            gradientTokenValues = gradientTokenValues,
         )
     }
 
@@ -67,18 +71,57 @@ class GradientGeneratorTest {
     @Test
     fun `GradientGenerator добавляет токен и генерирует файлы для compose и view system`() {
         val input = getResourceAsText("inputs/test-gradient-input.json")
-        val gradientTokens = Serializer.instance.decodeFromString<List<Token<GradientTokenValue>>>(input)
+        val gradientTokens = Serializer.instance.decodeFromString<List<Token>>(input)
         val outputXml = ByteArrayOutputStream()
         val gradientsXmlFile = mockk<File>(relaxed = true)
         every { gradientsXmlFile.fileWriter() } returns outputXml.writer()
         every { mockOutputResDir.gradientsXmlFile() } returns gradientsXmlFile
 
-        gradientTokens.forEach { token ->
-            underTest.addToken(token)
-        }
+        gradientTokens
+            .filterIsInstance<GradientToken>()
+            .forEach { token ->
+                underTest.addToken(token)
+            }
         underTest.generate()
 
-        assertEquals(getResourceAsText("gradient-outputs/test-gradient-output.xml"), outputXml.toString())
-        assertEquals(getResourceAsText("gradient-outputs/TestGradientOutputKt.txt"), outputKt.toString())
+        assertEquals(
+            getResourceAsText("gradient-outputs/test-gradient-output.xml"),
+            outputXml.toString(),
+        )
+        assertEquals(
+            getResourceAsText("gradient-outputs/TestGradientOutputKt.txt"),
+            outputKt.toString(),
+        )
+    }
+
+    private companion object {
+        val gradientTokenValues = mapOf(
+            "dark.inverse.surface.accent" to listOf(
+                SweepGradientTokenValue(
+                    colors = listOf("#000", "#fff"),
+                    locations = listOf(0f, 0.7f, 1f),
+                    startAngle = 0f,
+                    endAngle = 360f,
+                    centerX = 0.5f,
+                    centerY = 0.5f,
+                ),
+            ),
+            "light.on-dark.surface.tertiary" to listOf(
+                LinearGradientTokenValue(
+                    colors = listOf("#000", "#fff"),
+                    locations = listOf(0f, 0.7f, 1f),
+                    angle = 90f,
+                ),
+            ),
+            "light.on-dark.surface.secondary" to listOf(
+                RadialGradientTokenValue(
+                    colors = listOf("#000", "#fff"),
+                    locations = listOf(0f, 0.7f, 1f),
+                    radius = 0.8f,
+                    centerX = 0.5f,
+                    centerY = 0.5f,
+                ),
+            ),
+        )
     }
 }
