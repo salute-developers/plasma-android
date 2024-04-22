@@ -11,7 +11,7 @@ import org.gradle.configurationcache.extensions.capitalized
  * @author Малышев Александр on 05.03.2024
  */
 @Serializable
-internal abstract class Token<out Value : TokenValue> {
+internal abstract class Token {
     /**
      * Название для отображения
      */
@@ -23,19 +23,9 @@ internal abstract class Token<out Value : TokenValue> {
     abstract val name: String
 
     /**
-     * Целевая платформа
-     */
-    abstract val platform: TokenPlatform
-
-    /**
      * Тэги для поиска
      */
     abstract val tags: Set<String>
-
-    /**
-     * Значение токена
-     */
-    abstract val value: Value?
 
     /**
      * Флаг доступности токена

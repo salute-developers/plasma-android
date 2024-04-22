@@ -10,6 +10,7 @@ import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlFontFamilyDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.serializer.Serializer
 import com.sdds.plugin.themebuilder.internal.token.FontToken
+import com.sdds.plugin.themebuilder.internal.token.FontTokenValue
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.fileWriter
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.fontFamilyXmlFile
@@ -63,6 +64,7 @@ class FontGeneratorTest {
             ktFileBuilderFactory = KtFileBuilderFactory("com.test.tokens"),
             namespace = "com.test",
             resPrefix = "thmbldr",
+            fontTokenValues = fontTokenValues,
         )
     }
 
@@ -86,8 +88,18 @@ class FontGeneratorTest {
         val fontFamilyTextXmlFile = mockk<File>(relaxed = true)
         every { fontFamilyDisplayXmlFile.fileWriter() } returns outputFontFamilyDisplayXml.writer()
         every { fontFamilyTextXmlFile.fileWriter() } returns outputFontFamilyTextXml.writer()
-        every { mockOutputResDir.fontFamilyXmlFile("display", "thmbldr") } returns fontFamilyDisplayXmlFile
-        every { mockOutputResDir.fontFamilyXmlFile("text", "thmbldr") } returns fontFamilyTextXmlFile
+        every {
+            mockOutputResDir.fontFamilyXmlFile(
+                "display",
+                "thmbldr",
+            )
+        } returns fontFamilyDisplayXmlFile
+        every {
+            mockOutputResDir.fontFamilyXmlFile(
+                "text",
+                "thmbldr",
+            )
+        } returns fontFamilyTextXmlFile
 
         fontTokens.forEach { token ->
             underTest.addToken(token)
@@ -107,6 +119,51 @@ class FontGeneratorTest {
         Assert.assertEquals(
             getResourceAsText("font-outputs/TestFontFamilyOutputKt.txt"),
             outputKt.toString(),
+        )
+    }
+
+    private companion object {
+        val fontTokenValues = mapOf(
+            "font-family.display" to FontTokenValue(
+                name = "SB Sans Display",
+                fonts = listOf(
+                    FontToken.FontVariant(
+                        link = "https://cdn-app.sberdevices.ru/shared-static/0.0.0/" +
+                            "fonts/SBSansDisplay.0.2.0/SBSansDisplay-Regular.otf",
+                        weight = 300,
+                        style = "normal",
+                    ),
+                    FontToken.FontVariant(
+                        link = "https://cdn-app.sberdevices.ru/shared-static/0.0.0/" +
+                            "fonts/SBSansDisplay.0.2.0/SBSansDisplay-Bold.otf",
+                        weight = 600,
+                        style = "normal",
+                    ),
+                ),
+            ),
+            "font-family.text" to FontTokenValue(
+                name = "SB Sans Text",
+                fonts = listOf(
+                    FontToken.FontVariant(
+                        link = "https://cdn-app.sberdevices.ru/shared-static/0.0.0/" +
+                            "fonts/SBSansText.0.2.0/SBSansText-Regular.otf",
+                        weight = 300,
+                        style = "normal",
+                    ),
+                    FontToken.FontVariant(
+                        link = "https://cdn-app.sberdevices.ru/shared-static/0.0.0/" +
+                            "fonts/SBSansText.0.2.0/SBSansText-Italic.otf",
+                        weight = 300,
+                        style = "italic",
+                    ),
+                    FontToken.FontVariant(
+                        link = "https://cdn-app.sberdevices.ru/shared-static/0.0.0/" +
+                            "fonts/SBSansText.0.2.0/SBSansText-Bold.otf",
+                        weight = 600,
+                        style = "normal",
+                    ),
+                ),
+            ),
         )
     }
 }

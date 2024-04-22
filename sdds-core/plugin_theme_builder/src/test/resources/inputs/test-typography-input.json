@@ -2,63 +2,36 @@
   {
     "displayName": "displayL",
     "name": "screen-l.display.l",
-    "platform": "android",
     "tags": [
       "screen-l",
       "display",
       "l"
     ],
     "type": "typography",
-    "value": {
-      "fontFamilyRef": "sans",
-      "fontWeight": 300,
-      "fontStyle": "normal",
-      "textSize": 128,
-      "letterSpacing": 0.02,
-      "lineHeight": 128
-    },
     "description": "шрифт android",
     "enabled": true
   },
   {
     "displayName": "displayL",
     "name": "screen-m.display.l",
-    "platform": "android",
     "tags": [
       "screen-m",
       "display",
       "l"
     ],
     "type": "typography",
-    "value": {
-      "fontFamilyRef": "sans",
-      "fontWeight": 300,
-      "fontStyle": "normal",
-      "textSize": 96,
-      "letterSpacing": 0.02,
-      "lineHeight": 96
-    },
     "description": "шрифт android",
     "enabled": true
   },
   {
     "displayName": "displayL",
     "name": "screen-s.display.l",
-    "platform": "android",
     "tags": [
       "screen-s",
       "display",
       "l"
     ],
     "type": "typography",
-    "value": {
-      "fontFamilyRef": "sans",
-      "fontWeight": 300,
-      "fontStyle": "normal",
-      "textSize": 72,
-      "letterSpacing": 0.02,
-      "lineHeight": 72
-    },
     "description": "шрифт android",
     "enabled": true
   }

@@ -1,19 +1,12 @@
 {
   "displayName": "downHardL",
   "name": "down.hard.l",
-  "platform": "android",
   "tags": [
     "down",
     "hard",
     "l"
   ],
   "type": "shadow",
-  "value": {
-    "color": "#99000000",
-    "dX": 0.0,
-    "dY": 1.0,
-    "radius": 4
-  },
   "description": "Тень downHardL для android",
   "enabled": true
 }

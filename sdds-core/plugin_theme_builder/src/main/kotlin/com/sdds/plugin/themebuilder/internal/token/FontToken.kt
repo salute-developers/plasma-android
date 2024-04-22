@@ -13,12 +13,10 @@ import kotlinx.serialization.Serializable
 internal data class FontToken(
     override val displayName: String,
     override val name: String,
-    override val platform: TokenPlatform,
     override val tags: Set<String>,
-    override val value: Value?,
     override val enabled: Boolean,
     override val description: String,
-) : Token<FontToken.Value>() {
+) : Token() {
 
     override val xmlName: String by unsafeLazy {
         name.split('.').last()
@@ -29,27 +27,27 @@ internal data class FontToken(
     }
 
     /**
-     * Значение токена шрифта
-     * @param fontFamily семейство шрифтов
-     * @param variants список шрифтов, принадлежащих семейству [fontFamily]
-     * @see TokenValue
-     */
-    @Serializable
-    internal data class Value(
-        val fontFamily: String,
-        val variants: List<FontVariant>,
-    ) : TokenValue
-
-    /**
      * Параметры шрифта
      * @param link ссылка для скачивания
-     * @param fontWeight вес шрифта
-     * @param fontStyle стиль шрифта (italic, normal)
+     * @param weight вес шрифта
+     * @param style стиль шрифта (italic, normal)
      */
     @Serializable
     internal data class FontVariant(
         val link: String,
-        val fontWeight: Int,
-        val fontStyle: String,
+        val weight: Int,
+        val style: String,
     )
 }
+
+/**
+ * Значение токена шрифта
+ * @param name семейство шрифтов
+ * @param fonts список шрифтов, принадлежащих семейству [name]
+ * @see TokenValue
+ */
+@Serializable
+internal data class FontTokenValue(
+    val name: String,
+    val fonts: List<FontToken.FontVariant>,
+) : TokenValue
