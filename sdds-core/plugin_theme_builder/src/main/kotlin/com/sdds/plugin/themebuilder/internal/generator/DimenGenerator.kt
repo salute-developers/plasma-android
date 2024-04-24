@@ -1,6 +1,7 @@
 package com.sdds.plugin.themebuilder.internal.generator
 
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
+import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder.Companion.DEFAULT_ROOT_ATTRIBUTES
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder.ElementName
 import com.sdds.plugin.themebuilder.internal.dimens.DimenData
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
@@ -22,7 +23,9 @@ internal class DimenGenerator(
     private val xmlBuilderFactory: XmlResourcesDocumentBuilderFactory,
 ) : BaseGenerator {
 
-    private val xmlResourcesDocumentBuilder: XmlResourcesDocumentBuilder by unsafeLazy { xmlBuilderFactory.create() }
+    private val xmlResourcesDocumentBuilder: XmlResourcesDocumentBuilder by unsafeLazy {
+        xmlBuilderFactory.create(DEFAULT_ROOT_ATTRIBUTES)
+    }
 
     /**
      * @see BaseGenerator.generate

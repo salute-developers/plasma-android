@@ -2,6 +2,7 @@ package com.sdds.plugin.themebuilder.internal.generator
 
 import com.sdds.plugin.themebuilder.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
+import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder.Companion.DEFAULT_ROOT_ATTRIBUTES
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder.ElementName
 import com.sdds.plugin.themebuilder.internal.dimens.DimenData
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
@@ -38,7 +39,7 @@ internal class ShapeGenerator(
     private val shapeTokenValues: Map<String, ShapeTokenValue>,
 ) : TokenGenerator<ShapeToken>(target) {
 
-    private val xmlDocumentBuilder by unsafeLazy { xmlBuilderFactory.create() }
+    private val xmlDocumentBuilder by unsafeLazy { xmlBuilderFactory.create(DEFAULT_ROOT_ATTRIBUTES) }
     private val ktFileBuilder by unsafeLazy { ktFileBuilderFactory.create("ShapeTokens") }
     private val rootRoundShapes by unsafeLazy { ktFileBuilder.rootObject("RoundShapeTokens") }
     private var needCreateStyle: Boolean = true
@@ -65,7 +66,8 @@ internal class ShapeGenerator(
      * @see TokenGenerator.addViewSystemToken
      */
     override fun addViewSystemToken(token: ShapeToken): Boolean = with(xmlDocumentBuilder) {
-        val roundedShapeTokenValue = shapeTokenValues[token.name] as? RoundedShapeTokenValue ?: return@with false
+        val roundedShapeTokenValue =
+            shapeTokenValues[token.name] as? RoundedShapeTokenValue ?: return@with false
         val cornerSize = DimenData(
             name = "${token.name.techToSnakeCase()}_corner_size",
             value = roundedShapeTokenValue.cornerRadius,
@@ -95,14 +97,20 @@ internal class ShapeGenerator(
      * @see TokenGenerator.addComposeToken
      */
     override fun addComposeToken(token: ShapeToken): Boolean = with(ktFileBuilder) {
-        val roundedShapeTokenValue = shapeTokenValues[token.name] as? RoundedShapeTokenValue ?: return@with false
+        val roundedShapeTokenValue =
+            shapeTokenValues[token.name] as? RoundedShapeTokenValue ?: return@with false
 
         val value = "${roundedShapeTokenValue.cornerRadius}.dp"
         val initializer = KtFileBuilder.createConstructorCall(
             "RoundedCornerShape",
             "CornerSize($value)",
         )
-        rootRoundShapes.appendProperty(token.ktName, KtFileBuilder.TypeRoundRectShape, initializer, token.description)
+        rootRoundShapes.appendProperty(
+            token.ktName,
+            KtFileBuilder.TypeRoundRectShape,
+            initializer,
+            token.description,
+        )
         return@with true
     }
 }

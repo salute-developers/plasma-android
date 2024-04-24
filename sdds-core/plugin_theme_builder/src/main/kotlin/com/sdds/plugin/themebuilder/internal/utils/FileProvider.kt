@@ -89,6 +89,12 @@ object FileProvider {
         File("${valuesDir().path}/shadows.xml")
 
     /**
+     * XML файл темы
+     */
+    fun File.themeXmlFile(qualifier: String = ""): File =
+        File("${valuesDir(qualifier).path}/theme.xml")
+
+    /**
      * Возвращает экземпляр [FileWriter] для текущего файла
      */
     fun File.fileWriter(): Writer = FileWriter(this)

@@ -28,4 +28,14 @@ interface ThemeBuilderExtension {
      * Префикс для названий ресурсов токенов
      */
     val resourcesPrefix: Property<String>
+
+    /**
+     * Префикс атрибутов родительской темы
+     */
+    val parentThemePrefix: Property<String>
+
+    /**
+     * Название родительской темы, от которой будет унаследована генерируемая тема
+     */
+    val parentThemeName: Property<String>
 }

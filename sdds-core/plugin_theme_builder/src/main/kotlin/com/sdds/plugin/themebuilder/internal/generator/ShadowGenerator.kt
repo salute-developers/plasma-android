@@ -3,6 +3,7 @@ package com.sdds.plugin.themebuilder.internal.generator
 import com.sdds.plugin.themebuilder.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Companion.appendObject
+import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder.Companion.DEFAULT_ROOT_ATTRIBUTES
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder.ElementName
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
@@ -30,7 +31,7 @@ internal class ShadowGenerator(
     private val shadowTokenValues: Map<String, ShadowTokenValue>,
 ) : TokenGenerator<ShadowToken>(target) {
 
-    private val xmlDocumentBuilder by unsafeLazy { xmlBuilderFactory.create() }
+    private val xmlDocumentBuilder by unsafeLazy { xmlBuilderFactory.create(DEFAULT_ROOT_ATTRIBUTES) }
     private val ktFileBuilder by unsafeLazy { ktFileBuilderFactory.create("ShadowTokens") }
     private val rootShadows by unsafeLazy { ktFileBuilder.rootObject("ShadowTokens") }
 
