@@ -12,11 +12,16 @@ import org.w3c.dom.Element
  */
 internal open class XmlResourcesDocumentBuilder(
     private val tokenPrefix: String,
+    private val rootAttributes: Map<String, String>,
 ) : XmlBaseDocumentBuilder() {
 
     override val rootContent: Element by unsafeLazy {
         document.createElement("resources")
-            .apply { setAttribute("xmlns:tools", "http://schemas.android.com/tools") }
+            .apply {
+                rootAttributes.forEach {
+                    setAttribute(it.key, it.value)
+                }
+            }
             .also { document.appendChild(it) }
     }
 
@@ -78,12 +83,18 @@ internal open class XmlResourcesDocumentBuilder(
     /**
      * Добавляет стиль с названием [styleName] в документ
      * @param styleName название стиля
+     * @param styleParent наследуемый стиль
      * @param content содержание стиля
      */
-    fun appendStyle(styleName: String, content: Element.() -> Unit = {}) {
+    fun appendStyle(
+        styleName: String,
+        styleParent: String? = null,
+        content: Element.() -> Unit = {},
+    ) {
         val nameAttr = styleName.withPrefixIfNeed(capitalizedPrefix, ".")
         document.createElement("style").apply {
             setAttribute("name", nameAttr)
+            styleParent?.let { setAttribute("parent", it) }
             content(this)
             rootContent.appendChild(this)
         }
@@ -125,5 +136,9 @@ internal open class XmlResourcesDocumentBuilder(
          * Android SDK 28
          */
         P("p"),
+    }
+
+    internal companion object {
+        val DEFAULT_ROOT_ATTRIBUTES = mapOf("xmlns:tools" to "http://schemas.android.com/tools")
     }
 }

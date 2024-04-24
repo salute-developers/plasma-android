@@ -10,6 +10,9 @@ internal fun Any.getResourceAsText(path: String): String {
     return this::class.java.classLoader.getResource(path)?.readText().orEmpty()
 }
 
+/**
+ * Возвращает содержимое ресурса по пути [path] как [File]
+ */
 internal fun Any.getResourceAsFile(path: String): File {
     val inputFileName = javaClass.classLoader.getResource(path)
         ?.file ?: throw IllegalStateException()

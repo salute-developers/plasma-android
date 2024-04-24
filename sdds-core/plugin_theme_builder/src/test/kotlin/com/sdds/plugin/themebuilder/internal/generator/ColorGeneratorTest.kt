@@ -4,6 +4,7 @@ import com.sdds.plugin.themebuilder.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
+import com.sdds.plugin.themebuilder.internal.generator.theme.ThemeGenerator
 import com.sdds.plugin.themebuilder.internal.serializer.Serializer
 import com.sdds.plugin.themebuilder.internal.token.ColorToken
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider
@@ -17,6 +18,7 @@ import io.mockk.every
 import io.mockk.mockk
 import io.mockk.mockkObject
 import io.mockk.unmockkObject
+import io.mockk.verify
 import kotlinx.serialization.decodeFromString
 import org.junit.After
 import org.junit.Assert.assertEquals
@@ -34,6 +36,7 @@ class ColorGeneratorTest {
     private lateinit var outputKt: ByteArrayOutputStream
     private lateinit var mockOutputResDir: File
     private lateinit var underTest: ColorGenerator
+    private lateinit var mockThemeGenerator: ThemeGenerator
 
     @Before
     fun setUp() {
@@ -44,6 +47,7 @@ class ColorGeneratorTest {
         )
         outputKt = ByteArrayOutputStream()
         mockOutputResDir = mockk(relaxed = true)
+        mockThemeGenerator = mockk(relaxed = true)
         underTest = ColorGenerator(
             outputLocation = KtFileBuilder.OutputLocation.Stream(outputKt),
             outputResDir = mockOutputResDir,
@@ -51,6 +55,7 @@ class ColorGeneratorTest {
             xmlBuilderFactory = XmlResourcesDocumentBuilderFactory("thmbldr"),
             ktFileBuilderFactory = KtFileBuilderFactory("com.test"),
             colorTokenValues = colorTokenValues,
+            themeGenerator = mockThemeGenerator,
         )
     }
 
@@ -75,6 +80,14 @@ class ColorGeneratorTest {
 
         underTest.addToken(colorToken)
         underTest.generate()
+
+        verify {
+            mockThemeGenerator.addXmlColorAttribute(
+                "onLightSurfaceTransparentAccent",
+                "dark_on_light_surface_transparent_accent",
+                ThemeGenerator.ThemeMode.DARK,
+            )
+        }
 
         assertEquals(getResourceAsText("color-outputs/test-color-output.xml"), outputXml.toString())
         assertEquals(getResourceAsText("color-outputs/TestColorOutputKt.txt"), outputKt.toString())

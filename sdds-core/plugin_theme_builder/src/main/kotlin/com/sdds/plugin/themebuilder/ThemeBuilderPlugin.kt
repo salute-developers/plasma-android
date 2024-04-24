@@ -42,6 +42,9 @@ class ThemeBuilderPlugin : Plugin<Project> {
 
         project.afterEvaluate {
             extension.resourcesPrefix.convention(project.getDefaultResourcePrefix())
+            extension.parentThemeName.convention(DEFAULT_PARENT_THEME_NAME)
+            extension.parentThemePrefix.convention(DEFAULT_PARENT_THEME_PREFIX)
+
             val fetchThemeTask = registerThemeFetcher(
                 extension = extension,
                 themeOutput = themeOutputZip,
@@ -135,6 +138,8 @@ class ThemeBuilderPlugin : Plugin<Project> {
             packageName.set(extension.packageName)
             target.set(extension.target)
             resourcesPrefix.set(extension.resourcesPrefix)
+            parentThemePrefix.set(extension.parentThemePrefix)
+            parentThemeName.set(extension.parentThemeName)
             outputDir.set(project.layout.projectDirectory.dir(OUTPUT_PATH))
             outputResDir.set(project.layout.projectDirectory.dir(OUTPUT_RESOURCE_PATH))
             namespace.set(getProjectNameSpace())
@@ -170,5 +175,8 @@ class ThemeBuilderPlugin : Plugin<Project> {
     private companion object {
         const val OUTPUT_RESOURCE_PATH = "build/generated/theme-builder-res"
         const val OUTPUT_PATH = "build/generated/theme-builder"
+
+        const val DEFAULT_PARENT_THEME_NAME = "Sdds.Theme"
+        const val DEFAULT_PARENT_THEME_PREFIX = "sdds"
     }
 }
