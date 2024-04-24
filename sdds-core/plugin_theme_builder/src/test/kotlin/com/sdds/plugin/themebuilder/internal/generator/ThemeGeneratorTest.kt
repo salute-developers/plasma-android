@@ -83,7 +83,7 @@ class ThemeGeneratorTest {
         underTest.addXmlColorAttribute(
             "textPrimary",
             "dark_text_primary",
-            ThemeGenerator.ThemeMode.NIGHT,
+            ThemeGenerator.ThemeMode.DARK,
         )
         underTest.generate()
 

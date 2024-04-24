@@ -68,7 +68,7 @@ internal class ThemeGenerator(
                     ),
                 )
 
-            ThemeMode.NIGHT -> darkThemeAttributes.add(
+            ThemeMode.DARK -> darkThemeAttributes.add(
                 ThemeAttribute(
                     name = colorName.withParentThemePrefix(),
                     value = resourceReferenceProvider.color(colorTokenName),
@@ -90,7 +90,7 @@ internal class ThemeGenerator(
         if (darkThemeAttributes.isNotEmpty()) {
             with(darkThemeXmlFileBuilder) {
                 addStyleWithAttrs(darkThemeAttributes)
-                build(outputResDir.themeXmlFile(ThemeMode.NIGHT.qualifier))
+                build(outputResDir.themeXmlFile(ThemeMode.DARK.qualifier))
             }
         }
     }
@@ -113,7 +113,7 @@ internal class ThemeGenerator(
 
     internal enum class ThemeMode(val qualifier: String) {
         LIGHT(""),
-        NIGHT("night"),
+        DARK("night"),
     }
 
     private companion object {

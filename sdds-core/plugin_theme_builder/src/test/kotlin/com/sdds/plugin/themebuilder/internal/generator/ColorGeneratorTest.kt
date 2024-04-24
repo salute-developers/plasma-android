@@ -85,7 +85,7 @@ class ColorGeneratorTest {
             mockThemeGenerator.addXmlColorAttribute(
                 "onLightSurfaceTransparentAccent",
                 "dark_on_light_surface_transparent_accent",
-                ThemeGenerator.ThemeMode.NIGHT,
+                ThemeGenerator.ThemeMode.DARK,
             )
         }
 

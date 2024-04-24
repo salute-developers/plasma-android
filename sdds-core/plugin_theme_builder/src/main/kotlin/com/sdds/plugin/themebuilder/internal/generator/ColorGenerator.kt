@@ -59,7 +59,7 @@ internal class ColorGenerator(
     override fun addViewSystemToken(token: ColorToken): Boolean {
         val tokenValue = colorTokenValues[token.name] ?: return false
         val themeMode = if (token.tags.contains("dark")) {
-            ThemeGenerator.ThemeMode.NIGHT
+            ThemeGenerator.ThemeMode.DARK
         } else if (token.tags.contains("light")) {
             ThemeGenerator.ThemeMode.LIGHT
         } else {
