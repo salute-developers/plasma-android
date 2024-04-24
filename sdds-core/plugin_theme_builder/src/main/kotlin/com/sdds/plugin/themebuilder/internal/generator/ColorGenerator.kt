@@ -2,9 +2,11 @@ package com.sdds.plugin.themebuilder.internal.generator
 
 import com.sdds.plugin.themebuilder.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
+import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder.Companion.DEFAULT_ROOT_ATTRIBUTES
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder.ElementName
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
+import com.sdds.plugin.themebuilder.internal.generator.theme.ThemeGenerator
 import com.sdds.plugin.themebuilder.internal.token.ColorToken
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.colorsXmlFile
 import com.sdds.plugin.themebuilder.internal.utils.colorToArgbHex
@@ -18,6 +20,8 @@ import java.io.File
  * @param target целевой фреймворк
  * @param xmlBuilderFactory фабрика делегата построения xml файлов
  * @param ktFileBuilderFactory фабрика делегата построения kt файлов
+ * @param colorTokenValues словарь значений токенов цвета
+ * @param themeGenerator генератор атрибутов темы
  * @author Малышев Александр on 07.03.2024
  */
 internal class ColorGenerator(
@@ -27,9 +31,10 @@ internal class ColorGenerator(
     private val xmlBuilderFactory: XmlResourcesDocumentBuilderFactory,
     private val ktFileBuilderFactory: KtFileBuilderFactory,
     private val colorTokenValues: Map<String, String>,
+    private val themeGenerator: ThemeGenerator,
 ) : TokenGenerator<ColorToken>(target) {
 
-    private val xmlDocumentBuilder by unsafeLazy { xmlBuilderFactory.create() }
+    private val xmlDocumentBuilder by unsafeLazy { xmlBuilderFactory.create(DEFAULT_ROOT_ATTRIBUTES) }
     private val ktFileBuilder by unsafeLazy { ktFileBuilderFactory.create("ColorTokens") }
     private val lightBuilder by unsafeLazy { ktFileBuilder.rootObject("LightColorTokens") }
     private val darkBuilder by unsafeLazy { ktFileBuilder.rootObject("DarkColorTokens") }
@@ -53,8 +58,20 @@ internal class ColorGenerator(
      */
     override fun addViewSystemToken(token: ColorToken): Boolean {
         val tokenValue = colorTokenValues[token.name] ?: return false
+        val themeMode = if (token.tags.contains("dark")) {
+            ThemeGenerator.ThemeMode.NIGHT
+        } else if (token.tags.contains("light")) {
+            ThemeGenerator.ThemeMode.LIGHT
+        } else {
+            return false
+        }
         xmlDocumentBuilder.appendComment(token.description)
         xmlDocumentBuilder.appendElement(ElementName.COLOR, token.xmlName, tokenValue)
+        themeGenerator.addXmlColorAttribute(
+            colorName = token.displayName,
+            colorTokenName = token.xmlName,
+            themeMode = themeMode,
+        )
         return true
     }
 

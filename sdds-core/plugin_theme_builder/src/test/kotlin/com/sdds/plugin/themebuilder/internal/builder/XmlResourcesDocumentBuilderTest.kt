@@ -3,6 +3,7 @@ package com.sdds.plugin.themebuilder.internal.builder
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder.ElementFormat
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder.ElementName
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder.ElementType
+import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory.Companion.DEFAULT_ROOT_ATTRIBUTES
 import io.mockk.clearAllMocks
 import io.mockk.every
 import io.mockk.mockk
@@ -24,7 +25,7 @@ class XmlResourcesDocumentBuilderTest {
 
     private lateinit var mockDocument: Document
     private lateinit var mockRoot: Element
-    private lateinit var underTest: XmlResourcesDocumentBuilder
+    private lateinit var xmlResourcesDocumentBuilder: XmlResourcesDocumentBuilder
 
     @Before
     fun setUp() {
@@ -37,7 +38,7 @@ class XmlResourcesDocumentBuilderTest {
             }
         }
         every { mockDocument.createElement("resources") } returns mockRoot
-        underTest = XmlResourcesDocumentBuilder("sdds")
+        xmlResourcesDocumentBuilder = XmlResourcesDocumentBuilder("sdds", DEFAULT_ROOT_ATTRIBUTES)
     }
 
     @After
@@ -52,7 +53,7 @@ class XmlResourcesDocumentBuilderTest {
 
         every { mockDocument.createElement(ElementName.ITEM.value) } returns mockElement
 
-        underTest.appendElement(
+        xmlResourcesDocumentBuilder.appendElement(
             ElementName.ITEM,
             "test_token",
             "10.0",
@@ -77,7 +78,7 @@ class XmlResourcesDocumentBuilderTest {
 
         every { mockDocument.createElement(ElementName.DIMEN.value) } returns mockElement
 
-        underTest.appendElement(
+        xmlResourcesDocumentBuilder.appendElement(
             ElementName.DIMEN,
             "test_dimen",
             "10.0dp",
@@ -103,7 +104,7 @@ class XmlResourcesDocumentBuilderTest {
 
         every { mockDocument.createElement(ElementName.COLOR.value) } returns mockElement
 
-        underTest.appendElement(
+        xmlResourcesDocumentBuilder.appendElement(
             ElementName.COLOR,
             "test_color",
             "#fff",
@@ -129,7 +130,7 @@ class XmlResourcesDocumentBuilderTest {
         val styleContent = mockk<Element.() -> Unit>(relaxed = true)
         every { mockDocument.createElement("style") } returns styleElement
 
-        underTest.appendStyle("TestStyle", styleContent)
+        xmlResourcesDocumentBuilder.appendStyle(styleName = "TestStyle", content = styleContent)
 
         verify {
             mockDocument.appendChild(mockRoot)

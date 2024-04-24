@@ -46,4 +46,13 @@ internal class ResourceReferenceProvider(private val resourcePrefix: String) {
     fun font(name: String): String {
         return "@font/${name.withPrefixIfNeed(resourcePrefix)}"
     }
+
+    /**
+     * Возвращает ссылку на цвет с названием [name].
+     * Например, если цвет называется dark_text_primary, и ресурсам задан префикс "pref",
+     * то функция вернет ссылку @color/pref_dark_text_primary
+     */
+    fun color(name: String): String {
+        return "@color/${name.withPrefixIfNeed(resourcePrefix)}"
+    }
 }

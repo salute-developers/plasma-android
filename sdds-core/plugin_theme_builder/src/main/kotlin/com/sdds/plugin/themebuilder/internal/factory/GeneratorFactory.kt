@@ -10,6 +10,7 @@ import com.sdds.plugin.themebuilder.internal.generator.GradientGenerator
 import com.sdds.plugin.themebuilder.internal.generator.ShadowGenerator
 import com.sdds.plugin.themebuilder.internal.generator.ShapeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.TypographyGenerator
+import com.sdds.plugin.themebuilder.internal.generator.theme.ThemeGenerator
 import com.sdds.plugin.themebuilder.internal.token.FontTokenValue
 import com.sdds.plugin.themebuilder.internal.token.GradientTokenValue
 import com.sdds.plugin.themebuilder.internal.token.ShadowTokenValue
@@ -45,19 +46,41 @@ internal class GeneratorFactory(
     private val resourceReferenceProvider: ResourceReferenceProvider,
     private val namespace: String,
     private val resPrefix: String,
+    private val parentThemeName: String,
+    private val parentThemePrefix: String,
 ) {
 
     /**
-     * Создает генератор цветов [ColorGenerator]
+     * Создает генератор темы [ThemeGenerator]
      */
-    fun createColorGenerator(colors: Map<String, String>): ColorGenerator {
+    fun createThemeGenerator(): ThemeGenerator = ThemeGenerator(
+        xmlBuilderFactory = xmlResourcesDocumentBuilderFactory,
+        resourceReferenceProvider = resourceReferenceProvider,
+        target = target,
+        outputResDir = outputResDir,
+        parentThemeName = parentThemeName,
+        parentThemePrefix = parentThemePrefix,
+    )
+
+    /**
+     * Создает генератор цветов [ColorGenerator]
+     *
+     * @param colors словарь значений токенов цвета
+     * @param themeGenerator генератор темы
+     * @return [ColorGenerator] генератор токенов цвета
+     */
+    fun createColorGenerator(
+        colors: Map<String, String>,
+        themeGenerator: ThemeGenerator,
+    ): ColorGenerator {
         return ColorGenerator(
-            OutputLocation.Directory(outputDir),
-            outputResDir,
-            target,
-            xmlResourcesDocumentBuilderFactory,
-            ktFileBuilderFactory,
-            colors,
+            outputLocation = OutputLocation.Directory(outputDir),
+            outputResDir = outputResDir,
+            target = target,
+            xmlBuilderFactory = xmlResourcesDocumentBuilderFactory,
+            ktFileBuilderFactory = ktFileBuilderFactory,
+            colorTokenValues = colors,
+            themeGenerator = themeGenerator,
         )
     }
 

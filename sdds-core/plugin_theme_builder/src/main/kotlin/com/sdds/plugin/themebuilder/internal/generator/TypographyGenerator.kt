@@ -3,6 +3,7 @@ package com.sdds.plugin.themebuilder.internal.generator
 import com.sdds.plugin.themebuilder.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
+import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder.Companion.DEFAULT_ROOT_ATTRIBUTES
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder.ElementName
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder.TargetApi
 import com.sdds.plugin.themebuilder.internal.dimens.DimenData
@@ -40,7 +41,9 @@ internal class TypographyGenerator(
 
     private val textAppearanceXmlBuilders =
         mutableMapOf<TypographyToken.ScreenClass, XmlResourcesDocumentBuilder>()
-    private val typographyXmlBuilder by unsafeLazy { xmlBuilderFactory.create() }
+    private val typographyXmlBuilder by unsafeLazy {
+        xmlBuilderFactory.create(DEFAULT_ROOT_ATTRIBUTES)
+    }
     private val ktFileBuilder by unsafeLazy { ktFileBuilderFactory.create("TypographyTokens") }
     private val largeBuilder by unsafeLazy { ktFileBuilder.rootObject("TypographyLargeTokens") }
     private val mediumBuilder by unsafeLazy { ktFileBuilder.rootObject("TypographyMediumTokens") }
@@ -74,7 +77,9 @@ internal class TypographyGenerator(
     override fun addViewSystemToken(token: TypographyToken): Boolean {
         val tokenValue = typographyTokenValues[token.name] ?: return false
         val builder =
-            textAppearanceXmlBuilders[token.screenClass] ?: xmlBuilderFactory.create().also {
+            textAppearanceXmlBuilders[token.screenClass] ?: xmlBuilderFactory.create(
+                DEFAULT_ROOT_ATTRIBUTES,
+            ).also {
                 textAppearanceXmlBuilders[token.screenClass] = it
             }
         val textAppearanceName = "TextAppearance.${token.xmlName}"

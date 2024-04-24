@@ -11,6 +11,9 @@ internal class XmlResourcesDocumentBuilderFactory(private val tokenPrefix: Strin
 
     /**
      * Создает [XmlResourcesDocumentBuilder]
+     *
+     * @param rootAttributes атрибуты корневого элемента документа
      */
-    fun create(): XmlResourcesDocumentBuilder = XmlResourcesDocumentBuilder(tokenPrefix)
+    fun create(rootAttributes: Map<String, String> = emptyMap()): XmlResourcesDocumentBuilder =
+        XmlResourcesDocumentBuilder(tokenPrefix, rootAttributes)
 }

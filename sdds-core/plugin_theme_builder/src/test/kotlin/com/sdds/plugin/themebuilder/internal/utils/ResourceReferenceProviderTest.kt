@@ -34,4 +34,14 @@ class ResourceReferenceProviderTest {
     fun `ResourceReferenceProvider возвращает ссылку на style`() {
         assertEquals("@style/Thmbldr.Typography", underTest.style("Typography"))
     }
+
+    @Test
+    fun `ResourceReferenceProvider возвращает ссылку на font`() {
+        assertEquals("@font/thmbldr_display", underTest.font("display"))
+    }
+
+    @Test
+    fun `ResourceReferenceProvider возвращает ссылку на color`() {
+        assertEquals("@color/thmbldr_dark_text_primary", underTest.color("dark_text_primary"))
+    }
 }
