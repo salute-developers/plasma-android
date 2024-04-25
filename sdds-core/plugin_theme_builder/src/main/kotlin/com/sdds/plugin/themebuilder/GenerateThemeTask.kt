@@ -6,6 +6,7 @@ import com.sdds.plugin.themebuilder.internal.factory.GeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlFontFamilyDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
+import com.sdds.plugin.themebuilder.internal.serializer.Serializer
 import com.sdds.plugin.themebuilder.internal.token.ColorToken
 import com.sdds.plugin.themebuilder.internal.token.FontToken
 import com.sdds.plugin.themebuilder.internal.token.FontTokenValue
@@ -193,7 +194,7 @@ abstract class GenerateThemeTask : DefaultTask() {
     }
 
     private fun decodeBase(): Theme =
-        baseFile.get().asFile.decode<Theme>().also { logger.debug("decoded base $it") }
+        baseFile.get().asFile.decode<Theme>(Serializer.meta).also { logger.debug("decoded base $it") }
 
     private val colors: Map<String, String> by unsafeLazy {
         colorFile.get().asFile.decode<Map<String, String>>()

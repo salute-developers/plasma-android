@@ -110,8 +110,8 @@ internal class TypographyGenerator(
     /**
      * @see TokenGenerator.addComposeToken
      */
-    override fun addComposeToken(token: TypographyToken): Boolean = with(ktFileBuilder) {
-        val tokenValue = typographyTokenValues[token.name] ?: return@with false
+    override fun addComposeToken(token: TypographyToken): Boolean {
+        val tokenValue = typographyTokenValues[token.name] ?: return false
         when (token.screenClass) {
             TypographyToken.ScreenClass.SMALL -> smallBuilder.addTypographyToken(
                 token.ktName,
@@ -127,7 +127,7 @@ internal class TypographyGenerator(
 
             else -> mediumBuilder.addTypographyToken(token.ktName, token.description, tokenValue)
         }
-        return@with true
+        return true
     }
 
     private fun XmlResourcesDocumentBuilder.appendTypographyToken(
@@ -190,12 +190,11 @@ internal class TypographyGenerator(
         }
     }
 
-    context (KtFileBuilder)
     private fun TypeSpec.Builder.addTypographyToken(
         name: String,
         description: String,
         tokenValue: TypographyTokenValue,
-    ) {
+    ) = with(ktFileBuilder) {
         val letterSpacing = if (tokenValue.letterSpacing < 0) {
             "(${tokenValue.letterSpacing}).sp"
         } else {

@@ -74,7 +74,7 @@ class ShapeGeneratorTest {
     @Test
     fun `ShapeGenerator добавляет токен и генерирует файлы для compose и view system`() {
         val input = getResourceAsText("inputs/test-shape-input.json")
-        val shapeTokens = Serializer.instance.decodeFromString<List<ShapeToken>>(input)
+        val shapeTokens = Serializer.meta.decodeFromString<List<ShapeToken>>(input)
         val outputXml = ByteArrayOutputStream()
         val shapesXmlFile = mockk<File>(relaxed = true)
         every { shapesXmlFile.fileWriter() } returns outputXml.writer()

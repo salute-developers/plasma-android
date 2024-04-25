@@ -72,7 +72,7 @@ class ColorGeneratorTest {
     @Test
     fun `ColorGenerator добавляет токен и генерирует файлы для compose и view system`() {
         val input = getResourceAsText("inputs/test-color-input.json")
-        val colorToken = Serializer.instance.decodeFromString<ColorToken>(input)
+        val colorToken = Serializer.meta.decodeFromString<ColorToken>(input)
         val outputXml = ByteArrayOutputStream()
         val colorsXmlFile = mockk<File>(relaxed = true)
         every { colorsXmlFile.fileWriter() } returns outputXml.writer()

@@ -81,7 +81,7 @@ class FontGeneratorTest {
     @Test
     fun `FontGenerator добавляет токен и генерирует файлы для compose и view system`() {
         val input = getResourceAsText("inputs/test-font-input.json")
-        val fontTokens = Serializer.instance.decodeFromString<List<FontToken>>(input)
+        val fontTokens = Serializer.meta.decodeFromString<List<FontToken>>(input)
         val outputFontFamilyDisplayXml = ByteArrayOutputStream()
         val outputFontFamilyTextXml = ByteArrayOutputStream()
         val fontFamilyDisplayXmlFile = mockk<File>(relaxed = true)

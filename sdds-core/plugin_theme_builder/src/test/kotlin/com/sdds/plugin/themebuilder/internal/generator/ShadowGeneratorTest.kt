@@ -71,7 +71,7 @@ class ShadowGeneratorTest {
     @Test
     fun `ShadowGenerator добавляет токен и генерирует файлы для compose и view system`() {
         val input = getResourceAsText("inputs/test-shadow-input.json")
-        val shadowToken = Serializer.instance.decodeFromString<ShadowToken>(input)
+        val shadowToken = Serializer.meta.decodeFromString<ShadowToken>(input)
         val outputXml = ByteArrayOutputStream()
         val shadowsXmlFile = mockk<File>(relaxed = true)
         every { shadowsXmlFile.fileWriter() } returns outputXml.writer()

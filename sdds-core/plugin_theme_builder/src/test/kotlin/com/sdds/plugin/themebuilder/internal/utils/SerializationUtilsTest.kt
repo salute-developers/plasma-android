@@ -1,5 +1,6 @@
 package com.sdds.plugin.themebuilder.internal.utils
 
+import com.sdds.plugin.themebuilder.internal.serializer.Serializer
 import com.sdds.plugin.themebuilder.internal.token.BackgroundGradientTokenValue
 import com.sdds.plugin.themebuilder.internal.token.ColorToken
 import com.sdds.plugin.themebuilder.internal.token.FontToken
@@ -25,7 +26,7 @@ class SerializationUtilsTest {
     @Test
     fun `decode должен валидно парсить базовый json с помощью Serializer instance`() {
         val inputFile = getResourceAsFile("inputs/test-theme.json")
-        val theme = inputFile.decode<Theme>()
+        val theme = inputFile.decode<Theme>(Serializer.meta)
 
         val expectedTheme = Theme(
             name = "plasma_b2c",

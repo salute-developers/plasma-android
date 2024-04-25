@@ -1,25 +1,13 @@
 import utils.findPropertyOrDefault
 import utils.versionInfo
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    `java-gradle-plugin`
     `kotlin-dsl`
-    alias(libs.plugins.kotlin.jvm)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.gradlePluginPublish)
     id("convention.detekt")
     id("convention.spotless")
-}
-
-afterEvaluate {
-    tasks.withType<KotlinCompile>().configureEach {
-        kotlinOptions {
-            languageVersion = "1.7"
-            freeCompilerArgs = freeCompilerArgs + "-Xcontext-receivers"
-        }
-    }
 }
 
 group = "io.github.salute-developers"

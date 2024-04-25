@@ -69,16 +69,15 @@ internal class FontGenerator(
         return true
     }
 
-    override fun addComposeToken(token: FontToken): Boolean =
-        with(ktFileBuilder) {
-            val tokenValue = fontTokenValues[token.name] ?: return@with false
-            ktFileRootObjectBuilder.addFontFamilyToken(
-                name = token.ktName,
-                description = token.description,
-                tokenValue = tokenValue,
-            )
-            return@with true
-        }
+    override fun addComposeToken(token: FontToken): Boolean {
+        val tokenValue = fontTokenValues[token.name] ?: return false
+        ktFileRootObjectBuilder.addFontFamilyToken(
+            name = token.ktName,
+            description = token.description,
+            tokenValue = tokenValue,
+        )
+        return true
+    }
 
     override fun generateCompose() {
         super.generateCompose()
@@ -90,7 +89,6 @@ internal class FontGenerator(
         ktFileBuilder.build(outputLocation)
     }
 
-    context (KtFileBuilder)
     private fun TypeSpec.Builder.addFontFamilyToken(
         name: String,
         description: String,
@@ -109,12 +107,14 @@ internal class FontGenerator(
             constructorName = "FontFamily",
             initializers = initializers.toTypedArray(),
         )
-        appendProperty(
-            name = name,
-            typeName = KtFileBuilder.TypeFontFamily,
-            initializer = initializer,
-            description = description,
-        )
+        with(ktFileBuilder) {
+            appendProperty(
+                name = name,
+                typeName = KtFileBuilder.TypeFontFamily,
+                initializer = initializer,
+                description = description,
+            )
+        }
     }
 
     private fun String.toComposeFontStyle(): String =

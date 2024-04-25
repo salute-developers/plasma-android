@@ -2,6 +2,7 @@
 plugins {
     id("convention.android-lib")
     id("convention.maven-publish")
+    id("convention.compose")
     alias(libs.plugins.paparazzi)
     alias(libs.plugins.binary.compatibility.validator)
 }
@@ -14,8 +15,6 @@ android {
 
 dependencies {
 
-    val composeBom = platform(libs.base.androidX.compose.bom)
-    implementation(composeBom)
     implementation(libs.base.androidX.compose.foundation)
 
     // Preview support
@@ -23,7 +22,6 @@ dependencies {
     debugImplementation(libs.base.androidX.compose.uiTooling)
 
     // UI Tests
-    androidTestImplementation(composeBom)
     androidTestImplementation(libs.base.test.ui.compose.jUnit4)
     debugImplementation(libs.base.test.ui.compose.uiTestManifest)
 

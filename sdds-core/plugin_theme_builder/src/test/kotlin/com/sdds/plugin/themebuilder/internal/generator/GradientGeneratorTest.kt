@@ -71,7 +71,7 @@ class GradientGeneratorTest {
     @Test
     fun `GradientGenerator добавляет токен и генерирует файлы для compose и view system`() {
         val input = getResourceAsText("inputs/test-gradient-input.json")
-        val gradientTokens = Serializer.instance.decodeFromString<List<Token>>(input)
+        val gradientTokens = Serializer.meta.decodeFromString<List<Token>>(input)
         val outputXml = ByteArrayOutputStream()
         val gradientsXmlFile = mockk<File>(relaxed = true)
         every { gradientsXmlFile.fileWriter() } returns outputXml.writer()
