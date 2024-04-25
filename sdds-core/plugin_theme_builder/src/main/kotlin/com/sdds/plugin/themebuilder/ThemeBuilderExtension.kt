@@ -9,9 +9,9 @@ import org.gradle.api.provider.Property
 interface ThemeBuilderExtension {
 
     /**
-     * Путь к файлу с темой
+     * Источник для скачивания темы
      */
-    val themeUrl: Property<String>
+    val themeSource: Property<ThemeBuilderSource>
 
     /**
      * Название пакета для генерируемых файлов kotlin

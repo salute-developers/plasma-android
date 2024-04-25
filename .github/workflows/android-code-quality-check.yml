@@ -57,7 +57,7 @@ jobs:
         uses: ./.github/actions/prepare-android-env
 
       - name: Run tests
-        run: ./gradlew test
+        run: ./gradlew testAll
 
       - name: Upload test reports
         if: success() || failure()

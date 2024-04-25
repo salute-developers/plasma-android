@@ -91,6 +91,16 @@ tasks.register("testDebugAll") {
     dependsOn(testTasks, includedTestTasks)
 }
 
+tasks.register("testAll") {
+    val testTasks = subprojects.flatMap {
+        it.tasks.matching { task -> task.name == "test" }
+    }
+    val includedTestTasks = gradle.includedBuilds.map {
+        it.task(":testAll")
+    }
+    dependsOn(testTasks, includedTestTasks)
+}
+
 tasks.register("lintDebugAll") {
     val testTasks = subprojects.flatMap {
         it.tasks.matching { task -> task.name == "lintDebug" }

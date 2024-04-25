@@ -61,8 +61,8 @@ internal class FontGenerator(
         tokenValue.fonts.forEach { font ->
             val fontFile = fontDownloader.download(font.link, outputResDir.fontDir())
             builder.appendFontElement(
-                fontStyle = font.style,
-                fontWeight = font.weight.toString(),
+                fontStyle = font.fontStyle,
+                fontWeight = font.fontWeight.toString(),
                 font = fontFile.nameWithoutExtension,
             )
         }
@@ -102,8 +102,8 @@ internal class FontGenerator(
                 fontDir = outputResDir.fontDir(),
             )
             "Font(R.font.${fontFile.nameWithoutExtension}," +
-                " FontWeight(${it.weight}), " +
-                "FontStyle.${it.style.toComposeFontStyle()})"
+                " FontWeight(${it.fontWeight}), " +
+                "FontStyle.${it.fontStyle.toComposeFontStyle()})"
         }
         val initializer = KtFileBuilder.createConstructorCall(
             constructorName = "FontFamily",

@@ -9,7 +9,7 @@ import kotlinx.serialization.Serializable
  * @see Token
  */
 @Serializable
-@SerialName("font-family")
+@SerialName("fontFamily")
 internal data class FontToken(
     override val displayName: String,
     override val name: String,
@@ -29,14 +29,14 @@ internal data class FontToken(
     /**
      * Параметры шрифта
      * @param link ссылка для скачивания
-     * @param weight вес шрифта
-     * @param style стиль шрифта (italic, normal)
+     * @param fontWeight вес шрифта
+     * @param fontStyle стиль шрифта (italic, normal)
      */
     @Serializable
     internal data class FontVariant(
         val link: String,
-        val weight: Int,
-        val style: String,
+        val fontWeight: Int,
+        val fontStyle: String,
     )
 }
 

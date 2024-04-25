@@ -6,7 +6,7 @@
       "font-family",
       "display"
     ],
-    "type": "font-family",
+    "type": "fontFamily",
     "description": "Font-family: SB Sans Display",
     "enabled": true
   },
@@ -17,7 +17,7 @@
       "font-family",
       "text"
     ],
-    "type": "font-family",
+    "type": "fontFamily",
     "description": "Font-family: SB Sans Text",
     "enabled": true
   }
