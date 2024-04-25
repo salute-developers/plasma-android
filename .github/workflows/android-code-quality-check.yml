@@ -34,8 +34,9 @@ jobs:
       - name: Run spotless
         run: ./gradlew spotlessCheckAll
 
-      - name: Run apiCheck
-        run: ./gradlew apiCheckAll
+# Отключаем до первого релиза
+#      - name: Run apiCheck
+#        run: ./gradlew apiCheckAll
 
       - name: Upload static analysis reports
         if: success() || failure()
