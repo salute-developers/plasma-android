@@ -78,10 +78,11 @@ internal class GradientGenerator(
     /**
      * @see TokenGenerator.addComposeToken
      */
-    override fun addComposeToken(token: GradientToken): Boolean = with(ktFileBuilder) {
-        val tokenValue = gradientTokenValues[token.name] ?: return false
-        if (tokenValue.size != 1) return false
-        // TODO: https://github.com/salute-developers/plasma-android/issues/28
+    override fun addComposeToken(token: GradientToken): Boolean {
+        val tokenValue = gradientTokenValues[token.name]
+            // TODO: https://github.com/salute-developers/plasma-android/issues/28
+            ?.takeIf { it.size == 1 }
+            ?: return false
         val builder = if (token.tags.contains("dark")) {
             darkBuilder
         } else if (token.tags.contains("light")) {
@@ -209,58 +210,60 @@ internal class GradientGenerator(
         return true
     }
 
-    context(KtFileBuilder)
     private fun TypeSpec.Builder.appendLinearGradient(
         token: GradientToken,
         tokenValue: LinearGradientTokenValue,
     ): Boolean {
         val baseTokenName = token.ktName
 
-        appendObject(baseTokenName, token.description) {
-            appendBaseGradient(tokenValue.colors, tokenValue.locations)
-            appendProperty("angle", Float::class, "${tokenValue.angle}f")
+        with(ktFileBuilder) {
+            appendObject(baseTokenName, token.description) {
+                appendBaseGradient(tokenValue.colors, tokenValue.locations)
+                appendProperty("angle", Float::class, "${tokenValue.angle}f")
+            }
         }
         return true
     }
 
-    context(KtFileBuilder)
     private fun TypeSpec.Builder.appendSweepGradient(
         token: GradientToken,
         tokenValue: SweepGradientTokenValue,
     ): Boolean {
         val baseTokenName = token.ktName
 
-        appendObject(baseTokenName, token.description) {
-            appendBaseGradient(tokenValue.colors, tokenValue.locations)
-            appendProperty("startAngle", Float::class, "${tokenValue.startAngle}f")
-            appendProperty("endAngle", Float::class, "${tokenValue.endAngle}f")
-            appendProperty("centerX", Float::class, "${tokenValue.centerX}f")
-            appendProperty("centerY", Float::class, "${tokenValue.centerY}f")
+        with(ktFileBuilder) {
+            appendObject(baseTokenName, token.description) {
+                appendBaseGradient(tokenValue.colors, tokenValue.locations)
+                appendProperty("startAngle", Float::class, "${tokenValue.startAngle}f")
+                appendProperty("endAngle", Float::class, "${tokenValue.endAngle}f")
+                appendProperty("centerX", Float::class, "${tokenValue.centerX}f")
+                appendProperty("centerY", Float::class, "${tokenValue.centerY}f")
+            }
         }
         return true
     }
 
-    context(KtFileBuilder)
     private fun TypeSpec.Builder.appendRadialGradient(
         token: GradientToken,
         tokenValue: RadialGradientTokenValue,
     ): Boolean {
         val baseTokenName = token.ktName
 
-        appendObject(baseTokenName, token.description) {
-            appendBaseGradient(tokenValue.colors, tokenValue.locations)
-            appendProperty("radius", Float::class, "${tokenValue.radius}f")
-            appendProperty("centerX", Float::class, "${tokenValue.centerX}f")
-            appendProperty("centerY", Float::class, "${tokenValue.centerY}f")
+        with(ktFileBuilder) {
+            appendObject(baseTokenName, token.description) {
+                appendBaseGradient(tokenValue.colors, tokenValue.locations)
+                appendProperty("radius", Float::class, "${tokenValue.radius}f")
+                appendProperty("centerX", Float::class, "${tokenValue.centerX}f")
+                appendProperty("centerY", Float::class, "${tokenValue.centerY}f")
+            }
         }
         return true
     }
 
-    context(KtFileBuilder)
     private fun TypeSpec.Builder.appendBaseGradient(
         colors: List<String>,
         positions: List<Float>,
-    ) {
+    ) = with(ktFileBuilder) {
         val colorParams = colors.joinToString { "Color(${colorToArgbHex(it)})" }
         val positionParams = positions.joinToString { "${it}f" }
         appendProperty(

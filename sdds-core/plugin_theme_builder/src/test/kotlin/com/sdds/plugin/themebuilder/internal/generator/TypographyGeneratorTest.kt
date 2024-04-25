@@ -75,7 +75,7 @@ class TypographyGeneratorTest {
     @Test
     fun `TypographyGenerator добавляет токен и генерирует файлы для compose и view system`() {
         val input = getResourceAsText("inputs/test-typography-input.json")
-        val typographyTokens = Serializer.instance.decodeFromString<List<TypographyToken>>(input)
+        val typographyTokens = Serializer.meta.decodeFromString<List<TypographyToken>>(input)
         val outputAppearancesMediumXml = ByteArrayOutputStream()
         val outputAppearancesSmallXml = ByteArrayOutputStream()
         val outputAppearancesLargeXml = ByteArrayOutputStream()

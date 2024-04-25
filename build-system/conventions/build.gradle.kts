@@ -4,6 +4,7 @@ plugins {
 
 dependencies {
     implementation(libs.base.kotlin.stdlib)
+    implementation(libs.base.kotlin.reflect)
 
     implementation(libs.base.gradle.android) {
         exclude(group = "org.jetbrains.kotlin", module = "kotlin-stdlib-jdk7")

@@ -19,9 +19,9 @@ import kotlinx.serialization.modules.subclass
 object Serializer {
 
     /**
-     * Экземпляр сериализации json
+     * Экземпляр сериализатора json файла с мета информацией
      */
-    val instance: Json = Json {
+    val meta: Json = Json {
         ignoreUnknownKeys = true
         serializersModule = SerializersModule {
             polymorphic(Token::class) {
@@ -33,5 +33,13 @@ object Serializer {
                 subclass(FontToken::class)
             }
         }
+    }
+
+    /**
+     * Экземпляр сериализации json файла со значениями токенов
+     */
+    val tokenValues: Json = Json {
+        ignoreUnknownKeys = true
+        classDiscriminator = "kind"
     }
 }
