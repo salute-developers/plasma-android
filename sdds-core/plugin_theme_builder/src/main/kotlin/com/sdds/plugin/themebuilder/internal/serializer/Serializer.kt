@@ -7,7 +7,6 @@ import com.sdds.plugin.themebuilder.internal.token.ShadowToken
 import com.sdds.plugin.themebuilder.internal.token.ShapeToken
 import com.sdds.plugin.themebuilder.internal.token.Token
 import com.sdds.plugin.themebuilder.internal.token.TypographyToken
-import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.modules.SerializersModule
 import kotlinx.serialization.modules.polymorphic
@@ -22,7 +21,6 @@ object Serializer {
     /**
      * Экземпляр сериализации json
      */
-    @OptIn(ExperimentalSerializationApi::class)
     val instance: Json = Json {
         ignoreUnknownKeys = true
         serializersModule = SerializersModule {
@@ -33,7 +31,6 @@ object Serializer {
                 subclass(ShapeToken::class)
                 subclass(TypographyToken::class)
                 subclass(FontToken::class)
-                defaultDeserializer { UnknownTypeSerializer() }
             }
         }
     }

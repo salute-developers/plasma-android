@@ -5,9 +5,7 @@ import com.android.build.gradle.AppPlugin
 import com.android.build.gradle.BaseExtension
 import com.android.build.gradle.LibraryExtension
 import com.android.build.gradle.LibraryPlugin
-import com.android.build.gradle.internal.cxx.io.removeExtensionIfPresent
 import com.android.build.gradle.tasks.MergeResources
-import com.sdds.plugin.themebuilder.internal.utils.fileNameFromUrl
 import org.gradle.api.GradleException
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -27,26 +25,21 @@ import org.gradle.kotlin.dsl.withType
 class ThemeBuilderPlugin : Plugin<Project> {
     override fun apply(project: Project) {
         val themeOutputZip = project.layout.buildDirectory.file("theme-builder/theme.zip")
-
         val extension =
             project.extensions.create("theme-builder", ThemeBuilderExtension::class.java)
-        project.plugins.all {
-            when (this) {
-                is AppPlugin -> project.extensions.getByType(AppExtension::class)
-                    .configureSourceSets()
 
-                is LibraryPlugin -> project.extensions.getByType(LibraryExtension::class)
-                    .configureSourceSets()
-            }
-        }
+        configureSourceSets(project)
 
         project.afterEvaluate {
             extension.resourcesPrefix.convention(project.getDefaultResourcePrefix())
             extension.parentThemeName.convention(DEFAULT_PARENT_THEME_NAME)
             extension.parentThemePrefix.convention(DEFAULT_PARENT_THEME_PREFIX)
 
+            val source = getThemeSource(extension)
+            val themeUrl = getThemeUrl(source)
+
             val fetchThemeTask = registerThemeFetcher(
-                extension = extension,
+                themeUrl = themeUrl,
                 themeOutput = themeOutputZip,
             )
             val unzipTask = registerUnzip(
@@ -54,7 +47,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
                 fetchThemeTask = fetchThemeTask,
             )
 
-            val baseFileProvider = getBaseFile(extension.themeUrl.get())
+            val baseFileProvider = getBaseFile(source)
             val colorFileProvider = getValueFile(TokenValueFile.COLORS)
             val typographyFileProvider = getValueFile(TokenValueFile.TYPOGRAPHY)
             val fontFileProvider = getValueFile(TokenValueFile.FONTS)
@@ -81,12 +74,47 @@ class ThemeBuilderPlugin : Plugin<Project> {
         }
     }
 
-    private fun Project.getBaseFile(url: String): Provider<RegularFile> {
-        val baseNameWithoutExtension = url
-            .fileNameFromUrl()
-            .removeExtensionIfPresent("zip")
+    private fun configureSourceSets(project: Project) {
+        project.plugins.all {
+            when (this) {
+                is AppPlugin -> project.extensions.getByType(AppExtension::class)
+                    .configureSourceSets()
 
-        return layout.buildDirectory.file("theme-builder/$baseNameWithoutExtension.json")
+                is LibraryPlugin -> project.extensions.getByType(LibraryExtension::class)
+                    .configureSourceSets()
+            }
+        }
+    }
+
+    private fun getThemeSource(extension: ThemeBuilderExtension): ThemeBuilderSource {
+        val isSourceConfigured = extension.themeSource.isPresent
+        if (isSourceConfigured.not()) throw GradleException("Property themeSource must be set")
+        return extension.themeSource.get()
+    }
+
+    private fun getThemeUrl(source: ThemeBuilderSource): String {
+        return when (source) {
+            is ThemeBuilderSource.NameAndVersion -> {
+                if (source.name.isEmpty() || source.version.isEmpty()) {
+                    throw GradleException(
+                        "Theme name and version should not be empty: " +
+                            "name=${source.name} version=${source.version}",
+                    )
+                }
+                "$BASE_THEME_URL${source.name}/${source.version}.zip"
+            }
+
+            is ThemeBuilderSource.Url -> {
+                if (source.url.isEmpty()) {
+                    throw GradleException("Theme url should not be empty: url=${source.url}")
+                }
+                source.url
+            }
+        }
+    }
+
+    private fun Project.getBaseFile(themeSource: ThemeBuilderSource): Provider<RegularFile> {
+        return layout.buildDirectory.file("theme-builder/${themeSource.baseFileName}.json")
     }
 
     private fun Project.getValueFile(fileType: TokenValueFile): Provider<RegularFile> {
@@ -105,12 +133,11 @@ class ThemeBuilderPlugin : Plugin<Project> {
     }
 
     private fun Project.registerThemeFetcher(
-        extension: ThemeBuilderExtension,
+        themeUrl: String,
         themeOutput: Provider<RegularFile>,
     ): TaskProvider<FetchThemeTask> {
         return project.tasks.register<FetchThemeTask>("fetchTheme") {
-            if (extension.themeUrl.orNull == null) throw GradleException("Property themeUrl must be set")
-            url.set(extension.themeUrl)
+            url.set(themeUrl)
             themeFile.set(themeOutput)
         }
     }
@@ -164,12 +191,12 @@ class ThemeBuilderPlugin : Plugin<Project> {
         ?: extensions.findByType<LibraryExtension>()
 
     private enum class TokenValueFile(val fileName: String) {
-        COLORS("android_colors.json"),
+        COLORS("android_color.json"),
         TYPOGRAPHY("android_typography.json"),
-        FONTS("android_font-families.json"),
-        SHADOWS("android_shadows.json"),
-        GRADIENTS("android_gradients.json"),
-        SHAPES("android_shapes.json"),
+        FONTS("android_fontFamily.json"),
+        SHADOWS("android_shadow.json"),
+        GRADIENTS("android_gradient.json"),
+        SHAPES("android_shape.json"),
     }
 
     private companion object {
@@ -178,5 +205,8 @@ class ThemeBuilderPlugin : Plugin<Project> {
 
         const val DEFAULT_PARENT_THEME_NAME = "Sdds.Theme"
         const val DEFAULT_PARENT_THEME_PREFIX = "sdds"
+
+        const val BASE_THEME_URL =
+            "https://github.com/salute-developers/theme-converter/raw/main/themes/"
     }
 }

@@ -1,4 +1,5 @@
 import com.sdds.plugin.themebuilder.ThemeBuilderExtension
+import com.sdds.plugin.themebuilder.ThemeBuilderSource.Companion.withUrl
 import com.sdds.plugin.themebuilder.ThemeBuilderTarget
 
 @Suppress("DSL_SCOPE_VIOLATION")
@@ -13,7 +14,9 @@ android {
 }
 
 configure<ThemeBuilderExtension> {
-    themeUrl.set("file://${projectDir.path}/json/plasma_b2c.zip")
+    themeSource.set(
+        withUrl("file://${projectDir.path}/json/plasma_b2c.zip")
+    )
     target.set(ThemeBuilderTarget.ALL)
     packageName.set("com.sdds.playground.themebuilder.tokens")
 }

@@ -1,9 +1,9 @@
 package com.sdds.plugin.themebuilder.internal.builder
 
+import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder.Companion.DEFAULT_ROOT_ATTRIBUTES
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder.ElementFormat
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder.ElementName
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder.ElementType
-import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory.Companion.DEFAULT_ROOT_ATTRIBUTES
 import io.mockk.clearAllMocks
 import io.mockk.every
 import io.mockk.mockk

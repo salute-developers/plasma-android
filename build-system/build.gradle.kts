@@ -34,7 +34,8 @@ tasks.register("apiDumpAll")
 tasks.register("assembleDebugAll")
 tasks.register("assembleReleaseAll")
 tasks.register("lintDebugAll")
-tasks.register("testDebugAll") {
-    dependsOn(subprojects.flatMap { project -> project.tasks.matching { it.name == "test" }})
+tasks.register("testDebugAll")
+tasks.register("testAll") {
+    dependsOn(subprojects.flatMap { project -> project.tasks.matching { it.name == "test" } })
     dependsOn(tasks.named("test"))
 }

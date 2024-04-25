@@ -63,7 +63,7 @@
       "enabled": true
     },
     {
-      "type": "font-family",
+      "type": "fontFamily",
       "name": "text",
       "tags": [
         "text"

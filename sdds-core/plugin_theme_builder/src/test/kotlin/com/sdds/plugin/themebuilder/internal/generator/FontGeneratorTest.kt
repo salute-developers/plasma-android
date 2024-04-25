@@ -130,14 +130,14 @@ class FontGeneratorTest {
                     FontToken.FontVariant(
                         link = "https://cdn-app.sberdevices.ru/shared-static/0.0.0/" +
                             "fonts/SBSansDisplay.0.2.0/SBSansDisplay-Regular.otf",
-                        weight = 300,
-                        style = "normal",
+                        fontWeight = 300,
+                        fontStyle = "normal",
                     ),
                     FontToken.FontVariant(
                         link = "https://cdn-app.sberdevices.ru/shared-static/0.0.0/" +
                             "fonts/SBSansDisplay.0.2.0/SBSansDisplay-Bold.otf",
-                        weight = 600,
-                        style = "normal",
+                        fontWeight = 600,
+                        fontStyle = "normal",
                     ),
                 ),
             ),
@@ -147,20 +147,20 @@ class FontGeneratorTest {
                     FontToken.FontVariant(
                         link = "https://cdn-app.sberdevices.ru/shared-static/0.0.0/" +
                             "fonts/SBSansText.0.2.0/SBSansText-Regular.otf",
-                        weight = 300,
-                        style = "normal",
+                        fontWeight = 300,
+                        fontStyle = "normal",
                     ),
                     FontToken.FontVariant(
                         link = "https://cdn-app.sberdevices.ru/shared-static/0.0.0/" +
                             "fonts/SBSansText.0.2.0/SBSansText-Italic.otf",
-                        weight = 300,
-                        style = "italic",
+                        fontWeight = 300,
+                        fontStyle = "italic",
                     ),
                     FontToken.FontVariant(
                         link = "https://cdn-app.sberdevices.ru/shared-static/0.0.0/" +
                             "fonts/SBSansText.0.2.0/SBSansText-Bold.otf",
-                        weight = 600,
-                        style = "normal",
+                        fontWeight = 600,
+                        fontStyle = "normal",
                     ),
                 ),
             ),
