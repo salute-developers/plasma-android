@@ -15,11 +15,11 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "playground"
+rootProject.name = "theme-builder"
+
 includeBuild("../build-system")
-includeBuild("../sdds-core")
-includeBuild("../theme-builder")
 include(
-    ":sandbox",
-    ":theme-builder",
+    ":theme_builder_core",
+    ":plugin_attribute_builder",
+    ":plugin_theme_builder",
 )

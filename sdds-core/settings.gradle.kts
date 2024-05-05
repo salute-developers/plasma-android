@@ -18,9 +18,9 @@ dependencyResolutionManagement {
 rootProject.name = "sdds-core"
 
 includeBuild("../build-system")
+includeBuild("../theme-builder")
 include(
     ":icons",
-    ":plugin_theme_builder",
     ":uikit",
     ":uikit-compose"
 )

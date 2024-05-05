@@ -90,4 +90,5 @@ android-cache-fix = { id = "org.gradle.android.cache-fix", version.ref= "plugin-
 gradleNexus-publish = { id = "io.github.gradle-nexus.publish-plugin", version.ref = "plugin-gradleNexusPublish" }
 gradlePluginPublish = { id = "com.gradle.plugin-publish", version.ref="plugin-gradlePluginPublish"}
 themebuilder = { id = "io.github.salute-developers.theme-builder-plugin" }
+attributebuilder = { id = "io.github.salute-developers.attribute-builder-plugin" }
 binary-compatibility-validator = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version.ref="plugin-binary-compatibility-validator" }
