@@ -59,7 +59,7 @@ internal class XmlAttributeGenerator(
      * @property name название атрибута
      * @property formats список форматов, которые поддерживает атрибут
      */
-    internal data class XmlAttribute(
+    private data class XmlAttribute(
         val name: String,
         private val formats: List<Format>,
     ) {
