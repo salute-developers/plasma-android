@@ -65,7 +65,7 @@ class AttributeGeneratorTest {
         verify {
             mockXmlGenerator.generate(
                 attributeData = AttributeData(colors = outputAttrs),
-                attrPrefix = "sdds"
+                attrPrefix = "sdds",
             )
         }
     }
@@ -77,21 +77,21 @@ class AttributeGeneratorTest {
                 name = "light.text.primary",
                 tags = setOf("light", "text"),
                 enabled = true,
-                description = "description 1"
+                description = "description 1",
             ),
             ColorToken(
                 displayName = "textPrimary",
                 name = "dark.text.primary",
                 tags = setOf("dark", "text"),
                 enabled = true,
-                description = ""
+                description = "",
             ),
             ColorToken(
                 displayName = "textTertiary",
                 name = "light.text.tertiary",
                 tags = setOf("light", "text"),
                 enabled = true,
-                description = "description 2"
+                description = "description 2",
             ),
         )
         val outputAttrs = listOf("textPrimary", "textTertiary")

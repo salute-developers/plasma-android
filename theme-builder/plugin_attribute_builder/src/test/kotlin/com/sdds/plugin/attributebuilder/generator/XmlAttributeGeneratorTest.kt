@@ -34,7 +34,7 @@ class XmlAttributeGeneratorTest {
             PropertySpec,
             TypeSpec,
             FileProvider,
-            FileHelper
+            FileHelper,
         )
         mockOutputResDir = mockk(relaxed = true)
         xmlDocumentBuilder = XmlDocumentBuilder()
@@ -48,7 +48,7 @@ class XmlAttributeGeneratorTest {
             PropertySpec,
             TypeSpec,
             FileProvider,
-            FileHelper
+            FileHelper,
         )
     }
 
@@ -63,7 +63,7 @@ class XmlAttributeGeneratorTest {
 
         Assert.assertEquals(
             getResourceAsText("attrs-outputs/attributes-output.xml"),
-            outputAttrsXml.toString()
+            outputAttrsXml.toString(),
         )
     }
 
