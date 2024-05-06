@@ -2,11 +2,13 @@ package com.sdds.plugin.attributebuilder.internal.generator
 
 import com.sdds.plugin.attributebuilder.AttributeBuilderTarget
 import com.sdds.plugin.attributebuilder.internal.data.AttributeData
+import com.sdds.plugin.attributebuilder.internal.factory.KtAttributeGeneratorFactory
 import com.sdds.plugin.attributebuilder.internal.factory.XmlAttributeGeneratorFactory
 import com.sdds.plugin.core.token.ColorToken
 import com.sdds.plugin.core.token.Token
 import com.sdds.plugin.core.token.isLight
 import com.sdds.plugin.core.utils.unsafeLazy
+import org.gradle.kotlin.dsl.provideDelegate
 
 /**
  * Генератор атрибутов.
@@ -17,9 +19,11 @@ import com.sdds.plugin.core.utils.unsafeLazy
 internal class AttributeGenerator(
     private val target: AttributeBuilderTarget,
     private val xmlAttributeGeneratorFactory: XmlAttributeGeneratorFactory,
+    private val ktAttributeGeneratorFactory: KtAttributeGeneratorFactory,
 ) {
 
     private val xmlAttributeGenerator by unsafeLazy { xmlAttributeGeneratorFactory.create() }
+    private val ktAttributeGenerator by unsafeLazy { ktAttributeGeneratorFactory.create() }
 
     /**
      * Генерирует атрибуты на основе [tokens]
@@ -35,7 +39,9 @@ internal class AttributeGenerator(
                         attrPrefix = target.attrPrefix,
                     )
 
-                    is AttributeBuilderTarget.Compose -> {}
+                    is AttributeBuilderTarget.Compose -> ktAttributeGenerator.generate(
+                        attributeData = attrData,
+                    )
                 }
             }
     }

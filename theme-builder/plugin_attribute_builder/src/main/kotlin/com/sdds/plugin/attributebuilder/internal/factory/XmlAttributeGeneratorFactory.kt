@@ -1,6 +1,6 @@
 package com.sdds.plugin.attributebuilder.internal.factory
 
-import com.sdds.plugin.attributebuilder.internal.generator.xml.XmlAttributeGenerator
+import com.sdds.plugin.attributebuilder.internal.generator.XmlAttributeGenerator
 import java.io.File
 
 /**

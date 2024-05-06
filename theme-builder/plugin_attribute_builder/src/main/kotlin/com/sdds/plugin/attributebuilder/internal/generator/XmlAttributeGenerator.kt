@@ -1,4 +1,4 @@
-package com.sdds.plugin.attributebuilder.internal.generator.xml
+package com.sdds.plugin.attributebuilder.internal.generator
 
 import com.sdds.plugin.attributebuilder.internal.builder.XmlDocumentBuilder
 import com.sdds.plugin.attributebuilder.internal.data.AttributeData

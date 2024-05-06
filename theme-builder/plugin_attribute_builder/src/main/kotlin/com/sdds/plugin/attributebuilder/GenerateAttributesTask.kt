@@ -1,6 +1,9 @@
 package com.sdds.plugin.attributebuilder
 
 import com.sdds.plugin.attributebuilder.internal.factory.GeneratorFactory
+import com.sdds.plugin.attributebuilder.internal.factory.KtAttributeGeneratorFactory
+import com.sdds.plugin.attributebuilder.internal.factory.XmlAttributeGeneratorFactory
+import com.sdds.plugin.attributebuilder.internal.factory.XmlDocumentBuilderFactory
 import com.sdds.plugin.core.serializer.Serializer
 import com.sdds.plugin.core.serializer.decode
 import com.sdds.plugin.core.token.Theme
@@ -43,11 +46,21 @@ abstract class GenerateAttributesTask : DefaultTask() {
     @get:OutputDirectory
     abstract val outputDir: DirectoryProperty
 
+    private val xmlDocumentBuilderFactory by unsafeLazy { XmlDocumentBuilderFactory() }
+
+    private val xmlAttributeGeneratorFactory by unsafeLazy {
+        XmlAttributeGeneratorFactory(xmlDocumentBuilderFactory, outputResDir.get().asFile)
+    }
+
+    private val ktAttributeGeneratorFactory by unsafeLazy {
+        KtAttributeGeneratorFactory()
+    }
+
     private val generatorFactory by unsafeLazy {
         GeneratorFactory(
             target = target.get(),
-            outputDir = outputDir.get().asFile,
-            outputResDir = outputResDir.get().asFile,
+            xmlAttributeGeneratorFactory = xmlAttributeGeneratorFactory,
+            ktAttributeGeneratorFactory = ktAttributeGeneratorFactory,
         )
     }
 
