@@ -2,7 +2,7 @@ package com.sdds.plugin.attributebuilder.internal.generator
 
 import com.sdds.plugin.attributebuilder.internal.builder.XmlDocumentBuilder
 import com.sdds.plugin.attributebuilder.internal.data.AttributeData
-import com.sdds.plugin.attributebuilder.internal.utils.attrsDir
+import com.sdds.plugin.attributebuilder.internal.utils.FileProvider.attrsFile
 import com.sdds.plugin.core.utils.withPrefixIfNeed
 import java.io.File
 
@@ -24,7 +24,7 @@ internal class XmlAttributeGenerator(
         with(attributeData) {
             appendColors(attrPrefix)
         }
-        xmlDocumentBuilder.build(outputResDir.attrsDir())
+        xmlDocumentBuilder.build(outputResDir.attrsFile())
     }
 
     private fun AttributeData.appendColors(prefix: String) {
