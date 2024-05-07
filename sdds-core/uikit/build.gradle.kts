@@ -11,7 +11,7 @@ plugins {
 }
 
 configure<AttributeBuilderExtension> {
-    themeUrl.set("file://${projectDir.path}/meta/meta.zip")
+    themeUrl.set("file://${parent?.projectDir?.path}/meta/meta.zip")
     target.set(AttributeBuilderTarget.View("sdds"))
 }
 
