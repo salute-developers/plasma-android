@@ -5,7 +5,6 @@ import utils.versionInfo
 plugins {
     `kotlin-dsl`
     alias(libs.plugins.kotlin.serialization)
-    alias(libs.plugins.gradlePluginPublish)
     id("convention.detekt")
     id("convention.spotless")
 }
@@ -25,12 +24,6 @@ gradlePlugin {
             tags.add("designSystem")
             implementationClass = "com.sdds.plugin.attributebuilder.AttributeBuilderPlugin"
         }
-    }
-}
-
-publishing {
-    repositories {
-        mavenLocal()
     }
 }
 
