@@ -73,8 +73,11 @@ class AttributeBuilderPlugin : Plugin<Project> {
     ): TaskProvider<GenerateAttributesTask> {
         return project.tasks.register<GenerateAttributesTask>("generateAttributes") {
             themeFile.set(themeFileProvider)
-            outputDir.set(layout.projectDirectory.dir(OUTPUT_PATH))
-            outputResDir.set(layout.projectDirectory.dir(OUTPUT_RESOURCE_PATH))
+            val projectDirProperty = objects.directoryProperty()
+                .apply { set(layout.projectDirectory) }
+            projectDir.set(projectDirProperty)
+            outputDirPath.set(OUTPUT_PATH)
+            outputResDirPath.set(OUTPUT_RESOURCE_PATH)
             target.set(extension.target.get())
             dependsOn(dependsOnTask)
         }

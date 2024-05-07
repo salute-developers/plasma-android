@@ -8,13 +8,12 @@ import java.io.File
  */
 internal class XmlAttributeGeneratorFactory(
     private val xmlDocumentBuilderFactory: XmlDocumentBuilderFactory,
-    private val outputResDir: File,
 ) {
 
     /**
      * Создает [XmlAttributeGenerator]
      */
-    fun create(): XmlAttributeGenerator =
+    fun create(outputResDir: File): XmlAttributeGenerator =
         XmlAttributeGenerator(
             xmlDocumentBuilder = xmlDocumentBuilderFactory.create(),
             outputResDir = outputResDir,
