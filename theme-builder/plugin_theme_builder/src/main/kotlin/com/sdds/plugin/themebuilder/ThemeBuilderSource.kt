@@ -2,6 +2,7 @@ package com.sdds.plugin.themebuilder
 
 /**
  * Способ получения темы.
+ * Предпочтительно использовать способ [withNameAndVersion].
  */
 sealed class ThemeBuilderSource {
 
@@ -12,10 +13,6 @@ sealed class ThemeBuilderSource {
 
     /**
      * Способ получения темы с помощью ссылки [url].
-     * В этом способе ожидается, что базовый файл темы с мета-ифнормацией имеет такое же название,
-     * как и архив в [url].
-     * Например, если ссылка имеет вид https://github.com/plasma/theme/json/plasma.zip,
-     * то архив по ссылке должен содержать в корне файл с названием plasma.json.
      */
     data class Url(val url: String) : ThemeBuilderSource()
 

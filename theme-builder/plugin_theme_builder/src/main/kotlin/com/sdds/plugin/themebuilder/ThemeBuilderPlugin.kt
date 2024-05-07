@@ -20,7 +20,14 @@ import org.gradle.kotlin.dsl.register
 import org.gradle.kotlin.dsl.withType
 
 /**
- * Плагин для генерации тем и токенов ДС
+ * Плагин для генерации тем и токенов ДС.
+ *
+ * Скачивает архив с темой и генерирует на его основе темы для целевых фреймворков (View и/или Compose)
+ * Архив должен содержать в корне json-файл meta.json с мета информацией о токенах и директорию android.
+ * Директория android должна содержать json-файлы со значениями токенов, содержащихся в meta.json.
+ * Файлы должны иметь названия android_color.json, android_gradient.json, android_fontFamily.json,
+ * android_shadow.json, android_shape.json, android_typography.json.
+ *
  * @author Малышев Александр on 09.02.2024
  */
 class ThemeBuilderPlugin : Plugin<Project> {

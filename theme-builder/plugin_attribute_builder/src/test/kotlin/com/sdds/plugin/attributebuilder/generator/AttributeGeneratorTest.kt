@@ -20,6 +20,9 @@ import org.junit.Before
 import org.junit.Test
 import java.io.File
 
+/**
+ * Unit тесты [AttributeGenerator]
+ */
 class AttributeGeneratorTest {
 
     private lateinit var mockOutputResDir: File

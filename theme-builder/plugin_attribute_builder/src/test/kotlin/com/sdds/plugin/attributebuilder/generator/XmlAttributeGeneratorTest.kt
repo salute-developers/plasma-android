@@ -22,6 +22,9 @@ import org.junit.Test
 import java.io.ByteArrayOutputStream
 import java.io.File
 
+/**
+ * Unit-тесты [XmlAttributeGenerator]
+ */
 class XmlAttributeGeneratorTest {
 
     private lateinit var mockOutputResDir: File

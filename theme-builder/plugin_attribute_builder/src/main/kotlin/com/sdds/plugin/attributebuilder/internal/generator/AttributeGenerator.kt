@@ -14,7 +14,8 @@ import org.gradle.kotlin.dsl.provideDelegate
  * Генератор атрибутов.
  *
  * @property target целевой фреймворк, для которого будут сгенерированы атрибуты
- * @property xmlAttributeGeneratorFactory фабрика генератор xml атрибутов
+ * @property xmlAttributeGeneratorFactory фабрика генератора xml атрибутов
+ * @property ktAttributeGeneratorFactory фабрика генератора kt атрибутов
  */
 internal class AttributeGenerator(
     private val target: AttributeBuilderTarget,
@@ -28,7 +29,7 @@ internal class AttributeGenerator(
     /**
      * Генерирует атрибуты на основе [tokens]
      *
-     * @param tokens список токенов
+     * @param tokens список токенов [Token]
      */
     fun generateFrom(tokens: List<Token>) {
         tokens.extractAttributeData()

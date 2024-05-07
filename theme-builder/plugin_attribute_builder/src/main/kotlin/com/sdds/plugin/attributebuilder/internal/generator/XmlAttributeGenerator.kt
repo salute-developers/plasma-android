@@ -8,6 +8,9 @@ import java.io.File
 
 /**
  * Генератор xml-атрибутов
+ *
+ * @property xmlDocumentBuilder билдер xml документа
+ * @property outputResDir целевая директория с ресурсами
  */
 internal class XmlAttributeGenerator(
     private val xmlDocumentBuilder: XmlDocumentBuilder,
