@@ -26,7 +26,6 @@ internal class ThemeGenerator(
     private val resourceReferenceProvider: ResourceReferenceProvider,
     private val target: ThemeBuilderTarget,
     private val outputResDir: File,
-    private val parentThemePrefix: String,
     private val parentThemeName: String,
 ) : BaseGenerator {
 
@@ -63,21 +62,19 @@ internal class ThemeGenerator(
             ThemeMode.LIGHT ->
                 lightThemeAttributes.add(
                     ThemeAttribute(
-                        name = colorName.withParentThemePrefix(),
+                        name = colorName,
                         value = resourceReferenceProvider.color(colorTokenName),
                     ),
                 )
 
             ThemeMode.DARK -> darkThemeAttributes.add(
                 ThemeAttribute(
-                    name = colorName.withParentThemePrefix(),
+                    name = colorName,
                     value = resourceReferenceProvider.color(colorTokenName),
                 ),
             )
         }
     }
-
-    private fun String.withParentThemePrefix(): String = "${parentThemePrefix}_$this"
 
     private fun generateViewSystem() {
         if (lightThemeAttributes.isNotEmpty()) {
@@ -105,7 +102,6 @@ internal class ThemeGenerator(
                     elementName = XmlResourcesDocumentBuilder.ElementName.ITEM,
                     tokenName = themeAttribute.name,
                     value = themeAttribute.value,
-                    usePrefix = false,
                 )
             }
         }

@@ -98,12 +98,6 @@ abstract class GenerateThemeTask : DefaultTask() {
     abstract val resourcesPrefix: Property<String>
 
     /**
-     * Префикс атрибутов родительской темы
-     */
-    @get:Input
-    abstract val parentThemePrefix: Property<String>
-
-    /**
      * Название родительской темы, от которой будет унаследована генерируемая тема
      */
     @get:Input
@@ -142,7 +136,6 @@ abstract class GenerateThemeTask : DefaultTask() {
             namespace = namespace.get(),
             resPrefix = resourcesPrefix.get(),
             parentThemeName = parentThemeName.get(),
-            parentThemePrefix = parentThemePrefix.get(),
         )
     }
 

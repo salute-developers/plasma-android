@@ -153,7 +153,11 @@ internal class TypographyGenerator(
             appendElement(
                 elementName = ElementName.ITEM,
                 tokenName = "fontFamily",
-                value = resourceReferenceProvider.font(tokenValue.fontFamilyRef),
+                value = resourceReferenceProvider.font(
+                    name = tokenValue.fontFamilyRef
+                        .split('.')
+                        .last(),
+                ),
                 usePrefix = false,
             )
             appendElement(

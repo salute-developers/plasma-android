@@ -9,6 +9,11 @@ import org.gradle.api.provider.Property
 interface ThemeBuilderExtension {
 
     /**
+     * Источник для скачивания дефолтной темы
+     */
+    val defaultThemeSource: Property<ThemeBuilderSource>
+
+    /**
      * Источник для скачивания темы
      */
     val themeSource: Property<ThemeBuilderSource>
@@ -28,11 +33,6 @@ interface ThemeBuilderExtension {
      * Префикс для названий ресурсов токенов
      */
     val resourcesPrefix: Property<String>
-
-    /**
-     * Префикс атрибутов родительской темы
-     */
-    val parentThemePrefix: Property<String>
 
     /**
      * Название родительской темы, от которой будет унаследована генерируемая тема

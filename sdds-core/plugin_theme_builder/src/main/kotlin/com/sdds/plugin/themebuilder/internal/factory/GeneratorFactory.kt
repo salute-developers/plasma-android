@@ -47,7 +47,6 @@ internal class GeneratorFactory(
     private val namespace: String,
     private val resPrefix: String,
     private val parentThemeName: String,
-    private val parentThemePrefix: String,
 ) {
 
     /**
@@ -59,7 +58,6 @@ internal class GeneratorFactory(
         target = target,
         outputResDir = outputResDir,
         parentThemeName = parentThemeName,
-        parentThemePrefix = parentThemePrefix,
     )
 
     /**

@@ -46,7 +46,6 @@ class ThemeGeneratorTest {
             resourceReferenceProvider = resourceReferenceProvider,
             target = ThemeBuilderTarget.ALL,
             outputResDir = mockOutputResDir,
-            parentThemePrefix = "sdds",
             parentThemeName = "Sdds.Theme",
         )
     }

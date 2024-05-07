@@ -98,4 +98,11 @@ object FileProvider {
      * Возвращает экземпляр [FileWriter] для текущего файла
      */
     fun File.fileWriter(): Writer = FileWriter(this)
+
+    /**
+     * Файл с атрибутами
+     */
+    fun File.attrsFile(): File {
+        return File("${valuesDir().path}/attributes.xml")
+    }
 }

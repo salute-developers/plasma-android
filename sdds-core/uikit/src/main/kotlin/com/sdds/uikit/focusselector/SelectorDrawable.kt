@@ -45,7 +45,7 @@ internal class SelectorDrawable : Drawable, OnScrollChangeListener {
      * @param shapeAppearanceModel модель описывающая форму
      */
     constructor(context: Context, strokeWidth: Float, shapeAppearanceModel: ShapeAppearanceModel) : super() {
-        val tertiaryColor = context.colorFromAttr(R.attr.sdds_surfaceTransparentTertiary)
+        val tertiaryColor = context.colorFromAttr(com.google.android.material.R.attr.colorSurface)
         gradientColors = intArrayOf(tertiaryColor, context.colorFromAttr(android.R.attr.colorPrimary), tertiaryColor)
         this.shapeAppearanceModel = shapeAppearanceModel.withTransformedCornerSizes { cornerSize ->
             AdjustedCornerSize(

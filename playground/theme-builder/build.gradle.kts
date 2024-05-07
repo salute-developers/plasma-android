@@ -14,6 +14,9 @@ android {
 }
 
 configure<ThemeBuilderExtension> {
+    defaultThemeSource.set(
+        withUrl("file://${projectDir.path}/json/plasma_b2c.zip")
+    )
     themeSource.set(
         withUrl("file://${projectDir.path}/json/plasma_b2c.zip")
     )

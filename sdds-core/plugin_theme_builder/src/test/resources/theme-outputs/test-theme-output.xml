@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
     <style name="Thmbldr.Theme" parent="Sdds.Theme">
-        <item name="sdds_textPrimary">@color/thmbldr_light_text_primary</item>
+        <item name="thmbldr_textPrimary">@color/thmbldr_light_text_primary</item>
     </style>
 </resources>
