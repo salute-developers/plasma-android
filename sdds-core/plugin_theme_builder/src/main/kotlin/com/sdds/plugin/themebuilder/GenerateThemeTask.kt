@@ -1,5 +1,6 @@
 package com.sdds.plugin.themebuilder
 
+import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.FontDownloaderFactory
 import com.sdds.plugin.themebuilder.internal.factory.GeneratorFactory
@@ -98,12 +99,6 @@ abstract class GenerateThemeTask : DefaultTask() {
     abstract val resourcesPrefix: Property<String>
 
     /**
-     * Префикс атрибутов родительской темы
-     */
-    @get:Input
-    abstract val parentThemePrefix: Property<String>
-
-    /**
      * Название родительской темы, от которой будет унаследована генерируемая тема
      */
     @get:Input
@@ -142,7 +137,6 @@ abstract class GenerateThemeTask : DefaultTask() {
             namespace = namespace.get(),
             resPrefix = resourcesPrefix.get(),
             parentThemeName = parentThemeName.get(),
-            parentThemePrefix = parentThemePrefix.get(),
         )
     }
 

@@ -1,6 +1,6 @@
 package com.sdds.plugin.themebuilder.internal.factory
 
-import com.sdds.plugin.themebuilder.ThemeBuilderTarget
+import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.OutputLocation
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.generator.ColorGenerator
@@ -47,7 +47,6 @@ internal class GeneratorFactory(
     private val namespace: String,
     private val resPrefix: String,
     private val parentThemeName: String,
-    private val parentThemePrefix: String,
 ) {
 
     /**
@@ -59,7 +58,6 @@ internal class GeneratorFactory(
         target = target,
         outputResDir = outputResDir,
         parentThemeName = parentThemeName,
-        parentThemePrefix = parentThemePrefix,
     )
 
     /**

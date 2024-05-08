@@ -1,4 +1,4 @@
-package com.sdds.plugin.themebuilder
+package com.sdds.plugin.themebuilder.internal
 
 import org.gradle.api.provider.Property
 

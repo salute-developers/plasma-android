@@ -52,3 +52,15 @@ internal fun colorKtName(name: String): String {
     return nameTokens.subList(1, nameTokens.size)
         .joinToString("") { it.capitalized() }
 }
+
+/**
+ * Предназначен ли токен для светлой темы
+ */
+internal val ColorToken.isLight: Boolean
+    get() = name.startsWith("light")
+
+/**
+ * Предназначен ли токен для темной темы
+ */
+internal val ColorToken.isDark: Boolean
+    get() = name.startsWith("dark")

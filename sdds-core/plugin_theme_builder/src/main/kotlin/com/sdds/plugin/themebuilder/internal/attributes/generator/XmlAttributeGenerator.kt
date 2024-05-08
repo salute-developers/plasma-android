@@ -1,0 +1,84 @@
+package com.sdds.plugin.themebuilder.internal.attributes.generator
+
+import com.sdds.plugin.themebuilder.internal.attributes.data.AttributeData
+import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
+import com.sdds.plugin.themebuilder.internal.utils.FileProvider.attrsFile
+import com.sdds.plugin.themebuilder.internal.utils.withPrefixIfNeed
+import java.io.File
+
+/**
+ * Генератор xml-атрибутов
+ *
+ * @property xmlDocumentBuilder билдер xml документа
+ * @property outputResDir целевая директория с ресурсами
+ */
+internal class XmlAttributeGenerator(
+    private val xmlDocumentBuilder: XmlResourcesDocumentBuilder,
+    private val outputResDir: File,
+) {
+
+    /**
+     * Генерирует xml-атрибуты
+     *
+     * @param attributeData данные об атрибутах
+     * @param attrPrefix префикс для имен атрибутов
+     */
+    fun generate(attributeData: AttributeData, attrPrefix: String) {
+        with(attributeData) {
+            appendColors(attrPrefix)
+        }
+        xmlDocumentBuilder.build(outputResDir.attrsFile())
+    }
+
+    private fun AttributeData.appendColors(prefix: String) {
+        xmlDocumentBuilder.appendComment("Colors")
+        colors.forEach { attr ->
+            appendAttr(attr.toColorAttribute(prefix))
+        }
+    }
+
+    private fun appendAttr(xmlAttribute: XmlAttribute) {
+        xmlDocumentBuilder.appendBaseElement(
+            elementName = "attr",
+            attrs = mapOf(
+                "name" to xmlAttribute.name,
+                "format" to xmlAttribute.format,
+            ),
+        )
+    }
+
+    private fun String.toColorAttribute(prefix: String): XmlAttribute =
+        XmlAttribute(
+            name = this.withPrefixIfNeed(prefix),
+            formats = listOf(
+                XmlAttribute.Format.REFERENCE,
+                XmlAttribute.Format.COLOR,
+            ),
+        )
+
+    /**
+     * Модель XML-атрибута
+     *
+     * @property name название атрибута
+     * @property formats список форматов, которые поддерживает атрибут
+     */
+    private data class XmlAttribute(
+        val name: String,
+        private val formats: List<Format>,
+    ) {
+
+        /**
+         * Конечный формат атрибута в виде строки
+         */
+        val format = formats.joinToString(separator = "|") { it.format }
+
+        /**
+         * Тип формата атрибута
+         */
+        enum class Format(val format: String) {
+            REFERENCE("reference"),
+            COLOR("color"),
+            DIMENSION("dimension"),
+        }
+    }
+}

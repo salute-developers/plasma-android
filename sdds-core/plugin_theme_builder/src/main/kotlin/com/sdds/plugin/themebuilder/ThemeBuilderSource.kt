@@ -1,38 +1,19 @@
 package com.sdds.plugin.themebuilder
 
-import com.android.build.gradle.internal.cxx.io.removeExtensionIfPresent
-import com.sdds.plugin.themebuilder.internal.utils.fileNameFromUrl
-
 /**
  * Способ получения темы.
  */
-sealed class ThemeBuilderSource {
-
-    /**
-     * Имя базового файла темы с токенами
-     */
-    abstract val baseFileName: String
+internal sealed class ThemeBuilderSource {
 
     /**
      * Предпочтительный способ получения темы с помощью названия [name] и версии [version] темы.
      */
-    data class NameAndVersion(val name: String, val version: String) : ThemeBuilderSource() {
-        override val baseFileName = name
-    }
+    data class NameAndVersion(val name: String, val version: String) : ThemeBuilderSource()
 
     /**
      * Способ получения темы с помощью ссылки [url].
-     * В этом способе ожидается, что базовый файл темы с мета-ифнормацией имеет такое же название,
-     * как и архив в [url].
-     * Например, если ссылка имеет вид https://github.com/plasma/theme/json/plasma.zip,
-     * то архив по ссылке должен содержать в корне файл с названием plasma.json.
      */
-    data class Url(val url: String) : ThemeBuilderSource() {
-        override val baseFileName: String
-            get() = url
-                .fileNameFromUrl()
-                .removeExtensionIfPresent("zip")
-    }
+    data class Url(val url: String) : ThemeBuilderSource()
 
     companion object {
 

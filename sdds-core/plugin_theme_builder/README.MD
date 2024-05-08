@@ -8,7 +8,7 @@
 
 ```groovy
 [plugins]
-themebuilder = { id = "TBD", version.ref = "TBD" }
+themebuilder = { id = "io.github.salute-developers.theme-builder-plugin" }
 ```
 </details>
 
@@ -24,15 +24,10 @@ plugins {
 </details>
 <br>
 
-Далее в `build.gradle` необходимо сконфигурировать плагин через экстеншн `ThemeBuilderExtension`. В нем указать:
-
-- `themeUrl`, по которому находится json схема темы
-- `target` -  `COMPOSE`|`VIEW_SYSTEM`|`ALL`
-- `packageName` - пакет для темы Compose, если указан таргет `ALL` или `COMPOSE`
-- `resourcesPrefix` - префикс для названий ресурсов, если таргет `ALL` или `VIEW_SYSTEM`. Можно не указывать, если он уже указан в android конфигурации (см. пример)
+Далее в `build.gradle` необходимо сконфигурировать плагин:
 
 <details>
-<summary>Пример</summary>
+<summary>Пример конфигурации для view и compose</summary>
 
 ```kotlin
 plugins {
@@ -45,17 +40,26 @@ android {
     resourcePrefix = "thmbldr"
 }
 
-configure<ThemeBuilderExtension> {
-    themeUrl.set("file://${projectDir.path}/new_theme_scheme.json")
-    target.set(ThemeBuilderTarget.ALL)
-    packageName.set("com.example.app.themebuilder.tokens")
+themeBuilder {
+    themeSource(name = "stylesSalute", version = "0.1.0")
+    view(parentThemeName = "Sdds.Theme")
+    compose(ktPackage = "com.example.app.themebuilder.tokens")
 }
 ```
 </details>
+<br>
+Минимальная настройка должна содержать источник темы themeSource и один из целевых фреймворков view | compose.
+
+### Более подробно о настройках:
+
+- `themeSource(name, version)` - источник для скачивания архива с темой. Возможны два варианта: по названию и номеру версии (предпочтительный способ) и по url.
+- `view(parentThemeName)` настройка генерации темы для view фреймворка. Можно указать parentThemeName - название родительской темы, от которой будет унаследована генерируемая тема.
+- `compose(ktPackage)` - настройка генерации темы для Compose. Нужно указать ktPackage - пакет для генерируемых kotlin-файлов
+- `resourcesPrefix(prefix)` - префикс для названий ресурсов. Можно не указывать, если он уже указан в android конфигурации (см. пример выше)
 
 ## Использование
-Запускаем `./gradlew :your_module:build`. 
+Запускаем `./gradlew :your_module:assemble`.
 
-Плагин скачает json-схему темы по ссылке `themeUrl` и сгенерирует темы под таргеты, указанные в `target`. По пути `your_module/build/generated/` должны появиться папки:
- - `your_module/build/generated/theme-builder` - тема для Compose
- - `your_module/build/generated/theme-builder-res` - тема для ViewSystem
+Плагин скачает архив с темой из источника, указанного в `themeSource` и сгенерирует темы под указанные фреймворки. По пути `your_module/build/generated/` должны появиться папки:
+- `your_module/build/generated/theme-builder` - тема для Compose
+- `your_module/build/generated/theme-builder-res` - тема для ViewSystem

@@ -1,6 +1,6 @@
 package com.sdds.plugin.themebuilder.internal.generator
 
-import com.sdds.plugin.themebuilder.ThemeBuilderTarget
+import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder.Companion.DEFAULT_ROOT_ATTRIBUTES
@@ -153,7 +153,11 @@ internal class TypographyGenerator(
             appendElement(
                 elementName = ElementName.ITEM,
                 tokenName = "fontFamily",
-                value = resourceReferenceProvider.font(tokenValue.fontFamilyRef),
+                value = resourceReferenceProvider.font(
+                    name = tokenValue.fontFamilyRef
+                        .split('.')
+                        .last(),
+                ),
                 usePrefix = false,
             )
             appendElement(

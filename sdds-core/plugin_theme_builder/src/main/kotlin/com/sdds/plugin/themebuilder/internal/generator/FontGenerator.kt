@@ -1,6 +1,6 @@
 package com.sdds.plugin.themebuilder.internal.generator
 
-import com.sdds.plugin.themebuilder.ThemeBuilderTarget
+import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.builder.XmlFontFamilyDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.factory.FontDownloaderFactory
