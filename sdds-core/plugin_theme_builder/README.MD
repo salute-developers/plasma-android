@@ -43,7 +43,7 @@ android {
 themeBuilder {
     themeSource(name = "stylesSalute", version = "0.1.0")
     view(parentThemeName = "Sdds.Theme")
-    compose(ktPackage = "com.sdds.playground.themebuilder.tokens")
+    compose(ktPackage = "com.example.app.themebuilder.tokens")
 }
 ```
 </details>
@@ -60,6 +60,6 @@ themeBuilder {
 ## Использование
 Запускаем `./gradlew :your_module:assemble`.
 
-Плагин скачает архив с темой из источника, указанного в `themeSource` и сгенерирует темы под таргеты, указанные в `target`. По пути `your_module/build/generated/` должны появиться папки:
+Плагин скачает архив с темой из источника, указанного в `themeSource` и сгенерирует темы под указанные фреймворки. По пути `your_module/build/generated/` должны появиться папки:
 - `your_module/build/generated/theme-builder` - тема для Compose
 - `your_module/build/generated/theme-builder-res` - тема для ViewSystem
