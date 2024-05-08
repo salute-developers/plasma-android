@@ -1,6 +1,6 @@
 package com.sdds.plugin.themebuilder.internal.factory
 
-import com.sdds.plugin.themebuilder.ThemeBuilderTarget
+import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.OutputLocation
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.generator.ColorGenerator

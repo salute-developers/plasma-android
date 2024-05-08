@@ -6,6 +6,7 @@ import com.android.build.gradle.BaseExtension
 import com.android.build.gradle.LibraryExtension
 import com.android.build.gradle.LibraryPlugin
 import com.android.build.gradle.tasks.MergeResources
+import com.sdds.plugin.themebuilder.ThemeBuilderExtension.Companion.themeBuilderExt
 import org.gradle.api.GradleException
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -24,25 +25,17 @@ import org.gradle.kotlin.dsl.withType
  */
 class ThemeBuilderPlugin : Plugin<Project> {
     override fun apply(project: Project) {
-        val defaultThemeZip = project.layout.buildDirectory.file("$DEFAULT_THEME_PATH/default_theme.zip")
+        val defaultThemeZip =
+            project.layout.buildDirectory.file("$DEFAULT_THEME_PATH/default_theme.zip")
         val themeZip = project.layout.buildDirectory.file("$THEME_PATH/theme.zip")
-        val extension = project.extensions.create(
-            "theme-builder",
-            ThemeBuilderExtension::class.java,
-        )
+        val extension = project.themeBuilderExt()
 
         configureSourceSets(project)
 
         project.afterEvaluate {
-            specifyExtensionDefaults(extension)
             registerAttributeBuilder(extension, defaultThemeZip)
             registerThemeBuilder(extension, themeZip)
         }
-    }
-
-    private fun Project.specifyExtensionDefaults(extension: ThemeBuilderExtension) {
-        extension.resourcesPrefix.convention(project.getDefaultResourcePrefix())
-        extension.parentThemeName.convention(DEFAULT_PARENT_THEME_NAME)
     }
 
     private fun Project.registerThemeBuilder(
@@ -121,7 +114,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
             val projectDirProperty = objects.directoryProperty()
                 .apply { set(layout.projectDirectory) }
             projectDir.set(projectDirProperty)
-            attrPrefix.set(extension.resourcesPrefix)
+            attrPrefix.set(extension.resourcesPrefix ?: project.getDefaultResourcePrefix())
             outputResDirPath.set(OUTPUT_RESOURCE_PATH)
             outputDirPath.set(OUTPUT_PATH)
             dependsOn(dependsOnTask)
@@ -140,17 +133,11 @@ class ThemeBuilderPlugin : Plugin<Project> {
         }
     }
 
-    private fun getThemeSource(extension: ThemeBuilderExtension): ThemeBuilderSource {
-        val isSourceConfigured = extension.themeSource.isPresent
-        if (isSourceConfigured.not()) throw GradleException("Property themeSource must be set")
-        return extension.themeSource.get()
-    }
+    private fun getThemeSource(extension: ThemeBuilderExtension): ThemeBuilderSource =
+        extension.themeSource ?: throw GradleException("themeSource must be set")
 
-    private fun getDefaultThemeSource(extension: ThemeBuilderExtension): ThemeBuilderSource {
-        val isSourceConfigured = extension.defaultThemeSource.isPresent
-        if (isSourceConfigured.not()) throw GradleException("Property defaultThemeSource must be set")
-        return extension.defaultThemeSource.get()
-    }
+    private fun Project.getDefaultThemeSource(extension: ThemeBuilderExtension): ThemeBuilderSource =
+        extension.defaultThemeSource ?: ThemeBuilderSource.withUrl("file://${projectDir.path}/json/plasma_b2c.zip")
 
     private fun getThemeUrl(source: ThemeBuilderSource): String {
         return when (source) {
@@ -176,6 +163,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
     private fun Project.getDefaultMetaFile(): Provider<RegularFile> {
         return layout.buildDirectory.file("$DEFAULT_THEME_PATH/$META_JSON_NAME")
     }
+
     private fun Project.getMetaFile(): Provider<RegularFile> {
         return layout.buildDirectory.file("$THEME_PATH/$META_JSON_NAME")
     }
@@ -228,9 +216,9 @@ class ThemeBuilderPlugin : Plugin<Project> {
             gradientFile.set(gradientFileProvider)
             shapeFile.set(shapeFileProvider)
 
-            packageName.set(extension.packageName)
+            packageName.set(extension.ktPackage)
             target.set(extension.target)
-            resourcesPrefix.set(extension.resourcesPrefix)
+            resourcesPrefix.set(extension.resourcesPrefix ?: project.getDefaultResourcePrefix())
             parentThemeName.set(extension.parentThemeName)
             outputDir.set(project.layout.projectDirectory.dir(OUTPUT_PATH))
             outputResDir.set(project.layout.projectDirectory.dir(OUTPUT_RESOURCE_PATH))
@@ -271,8 +259,6 @@ class ThemeBuilderPlugin : Plugin<Project> {
         const val DEFAULT_THEME_PATH = "theme-builder/default-theme"
         const val THEME_PATH = "theme-builder/theme"
         const val META_JSON_NAME = "meta.json"
-
-        const val DEFAULT_PARENT_THEME_NAME = "Sdds.Theme"
 
         const val BASE_THEME_URL =
             "https://github.com/salute-developers/theme-converter/raw/main/themes/"

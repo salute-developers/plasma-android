@@ -1,6 +1,6 @@
 package com.sdds.plugin.themebuilder.internal.generator
 
-import com.sdds.plugin.themebuilder.ThemeBuilderTarget
+import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.generator.theme.ThemeGenerator
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider

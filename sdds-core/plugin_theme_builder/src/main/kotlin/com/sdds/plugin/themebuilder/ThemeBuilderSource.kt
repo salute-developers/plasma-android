@@ -3,7 +3,7 @@ package com.sdds.plugin.themebuilder
 /**
  * Способ получения темы.
  */
-sealed class ThemeBuilderSource {
+internal sealed class ThemeBuilderSource {
 
     /**
      * Предпочтительный способ получения темы с помощью названия [name] и версии [version] темы.

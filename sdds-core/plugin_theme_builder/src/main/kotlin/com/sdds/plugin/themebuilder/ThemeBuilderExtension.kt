@@ -1,41 +1,93 @@
 package com.sdds.plugin.themebuilder
 
-import org.gradle.api.provider.Property
+import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
+import org.gradle.api.Project
 
 /**
  * Расширение для плагина ThemeBuilder
  * @author Малышев Александр on 04.03.2024
  */
-interface ThemeBuilderExtension {
+open class ThemeBuilderExtension {
+    internal var target: ThemeBuilderTarget? = null
+    internal var ktPackage: String? = null
+    internal var resourcesPrefix: String? = null
+    internal var parentThemeName: String = DEFAULT_PARENT_THEME_NAME
+    internal var themeSource: ThemeBuilderSource? = null
+    internal var defaultThemeSource: ThemeBuilderSource? = null
 
     /**
-     * Источник для скачивания дефолтной темы
+     * Устанавливает источник темы по имени [name] и версии [version]
      */
-    val defaultThemeSource: Property<ThemeBuilderSource>
+    fun themeSource(name: String, version: String) {
+        themeSource = ThemeBuilderSource.withNameAndVersion(name, version)
+    }
 
     /**
-     * Источник для скачивания темы
+     * Устанавливает источник темы по [url]
      */
-    val themeSource: Property<ThemeBuilderSource>
+    fun themeSource(url: String) {
+        themeSource = ThemeBuilderSource.withUrl(url)
+    }
 
     /**
-     * Название пакета для генерируемых файлов kotlin
+     * Устанавливает источник дефолтной для атрибутов по имени [name] и версии [version]
      */
-    val packageName: Property<String>
+    fun defaultThemeSource(name: String, version: String) {
+        defaultThemeSource = ThemeBuilderSource.withNameAndVersion(name, version)
+    }
 
     /**
-     * Целевой фреймворк для которого будет сгенерирована тема.
-     * @see ThemeBuilderTarget
+     * Устанавливает источник дефолтной для атрибутов по [url]
      */
-    val target: Property<ThemeBuilderTarget>
+    fun defaultThemeSource(url: String) {
+        defaultThemeSource = ThemeBuilderSource.withUrl(url)
+    }
 
     /**
-     * Префикс для названий ресурсов токенов
+     * Устанавливает View фреймворк для генерации темы и токенов
+     *
+     * @param parentThemeName опциональное название темы, от которой будет унаследована генерируемая тема.
+     * Если не указано, тема будет унаследована от Sdds.Theme
      */
-    val resourcesPrefix: Property<String>
+    fun view(parentThemeName: String? = null) {
+        parentThemeName?.let { this.parentThemeName = it }
+        updateTarget(ThemeBuilderTarget.VIEW_SYSTEM)
+    }
 
     /**
-     * Название родительской темы, от которой будет унаследована генерируемая тема
+     * Устанавливает compose фреймворк для генерации темы и токенов
+     *
+     * @param ktPackage пакет для генерируемых kotlin-файлов
      */
-    val parentThemeName: Property<String>
+    fun compose(ktPackage: String) {
+        this.ktPackage = ktPackage
+        updateTarget(ThemeBuilderTarget.COMPOSE)
+    }
+
+    /**
+     * Устанавливает префикс для названий ресурсов токенов
+     */
+    fun resourcesPrefix(prefix: String) {
+        this.resourcesPrefix = prefix
+    }
+
+    private fun updateTarget(newTarget: ThemeBuilderTarget) {
+        if (target == ThemeBuilderTarget.ALL || target == newTarget) return
+        target = if (target != null) {
+            ThemeBuilderTarget.ALL
+        } else {
+            newTarget
+        }
+    }
+
+    companion object {
+        private const val DEFAULT_PARENT_THEME_NAME = "Sdds.Theme"
+
+        /**
+         * Создает extension [ThemeBuilderExtension]
+         */
+        fun Project.themeBuilderExt(): ThemeBuilderExtension {
+            return extensions.create("themeBuilder", ThemeBuilderExtension::class.java)
+        }
+    }
 }
