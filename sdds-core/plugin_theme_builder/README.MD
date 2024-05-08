@@ -8,7 +8,7 @@
 
 ```groovy
 [plugins]
-themebuilder = { id = "TBD", version.ref = "TBD" }
+themebuilder = { id = "io.github.salute-developers.theme-builder-plugin" }
 ```
 </details>
 
@@ -24,16 +24,10 @@ plugins {
 </details>
 <br>
 
-Далее в `build.gradle` необходимо сконфигурировать плагин через экстеншн `ThemeBuilderExtension`. В нем указать:
-
-- `themeSource` - источник для скачивания архива с темой. Возможны два варианта: по названию и номеру версии (предпочтительный способ) и по url. Указывается с помощью функций `withNameAndVersion()` и `withUrl()`.
-- `defaultThemeSource` - источник для скачивания дефолтной темы, на основе которой будет сгенерирован набор стандартных атрибутов
-- `target` -  `COMPOSE`|`VIEW_SYSTEM`|`ALL`
-- `packageName` - пакет для темы Compose, если указан таргет `ALL` или `COMPOSE`
-- `resourcesPrefix` - префикс для названий ресурсов, если таргет `ALL` или `VIEW_SYSTEM`. Можно не указывать, если он уже указан в android конфигурации (см. пример)
+Далее в `build.gradle` необходимо сконфигурировать плагин:
 
 <details>
-<summary>Пример</summary>
+<summary>Пример конфигурации для view и compose</summary>
 
 ```kotlin
 plugins {
@@ -46,13 +40,22 @@ android {
     resourcePrefix = "thmbldr"
 }
 
-configure<ThemeBuilderExtension> {
-    themeSource.set(withNameAndVersion(name = "stylesSalute", version = "0.1.0"))
-    target.set(ThemeBuilderTarget.ALL)
-    packageName.set("com.example.app.themebuilder.tokens")
+themeBuilder {
+    themeSource(name = "stylesSalute", version = "0.1.0")
+    view(parentThemeName = "Sdds.Theme")
+    compose(ktPackage = "com.sdds.playground.themebuilder.tokens")
 }
 ```
 </details>
+<br>
+Минимальная настройка должна содержать источник темы themeSource и один из целевых фреймворков view | compose.
+
+### Более подробно о настройках:
+
+- `themeSource(name, version)` - источник для скачивания архива с темой. Возможны два варианта: по названию и номеру версии (предпочтительный способ) и по url.
+- `view(parentThemeName)` настройка генерации темы для view фреймворка. Можно указать parentThemeName - название родительской темы, от которой будет унаследована генерируемая тема.
+- `compose(ktPackage)` - настройка генерации темы для Compose. Нужно указать ktPackage - пакет для генерируемых kotlin-файлов
+- `resourcesPrefix(prefix)` - префикс для названий ресурсов. Можно не указывать, если он уже указан в android конфигурации (см. пример выше)
 
 ## Использование
 Запускаем `./gradlew :your_module:assemble`.
