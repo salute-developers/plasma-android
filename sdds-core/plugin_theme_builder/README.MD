@@ -26,7 +26,8 @@ plugins {
 
 Далее в `build.gradle` необходимо сконфигурировать плагин через экстеншн `ThemeBuilderExtension`. В нем указать:
 
-- `themeUrl`, по которому находится json схема темы
+- `themeSource` - источник для скачивания архива с темой. Возможны два варианта: по названию и номеру версии (предпочтительный способ) и по url. Указывается с помощью функций `withNameAndVersion()` и `withUrl()`.
+- `defaultThemeSource` - источник для скачивания дефолтной темы, на основе которой будет сгенерирован набор стандартных атрибутов
 - `target` -  `COMPOSE`|`VIEW_SYSTEM`|`ALL`
 - `packageName` - пакет для темы Compose, если указан таргет `ALL` или `COMPOSE`
 - `resourcesPrefix` - префикс для названий ресурсов, если таргет `ALL` или `VIEW_SYSTEM`. Можно не указывать, если он уже указан в android конфигурации (см. пример)
@@ -46,7 +47,7 @@ android {
 }
 
 configure<ThemeBuilderExtension> {
-    themeUrl.set("file://${projectDir.path}/new_theme_scheme.json")
+    themeSource.set(withNameAndVersion(name = "stylesSalute", version = "0.1.0"))
     target.set(ThemeBuilderTarget.ALL)
     packageName.set("com.example.app.themebuilder.tokens")
 }
@@ -54,8 +55,8 @@ configure<ThemeBuilderExtension> {
 </details>
 
 ## Использование
-Запускаем `./gradlew :your_module:build`. 
+Запускаем `./gradlew :your_module:assemble`.
 
-Плагин скачает json-схему темы по ссылке `themeUrl` и сгенерирует темы под таргеты, указанные в `target`. По пути `your_module/build/generated/` должны появиться папки:
- - `your_module/build/generated/theme-builder` - тема для Compose
- - `your_module/build/generated/theme-builder-res` - тема для ViewSystem
+Плагин скачает архив с темой из источника, указанного в `themeSource` и сгенерирует темы под таргеты, указанные в `target`. По пути `your_module/build/generated/` должны появиться папки:
+- `your_module/build/generated/theme-builder` - тема для Compose
+- `your_module/build/generated/theme-builder-res` - тема для ViewSystem
