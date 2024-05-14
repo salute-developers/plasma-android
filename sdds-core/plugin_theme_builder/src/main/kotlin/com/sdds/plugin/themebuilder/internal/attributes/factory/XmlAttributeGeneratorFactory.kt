@@ -9,12 +9,13 @@ import java.io.File
  */
 internal class XmlAttributeGeneratorFactory(
     private val xmlDocumentBuilderFactory: XmlResourcesDocumentBuilderFactory,
+    private val outputResDir: File,
 ) {
 
     /**
      * Создает [XmlAttributeGenerator]
      */
-    fun create(outputResDir: File): XmlAttributeGenerator =
+    fun create(): XmlAttributeGenerator =
         XmlAttributeGenerator(
             xmlDocumentBuilder = xmlDocumentBuilderFactory.create(),
             outputResDir = outputResDir,

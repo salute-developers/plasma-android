@@ -115,6 +115,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
                 .apply { set(layout.projectDirectory) }
             projectDir.set(projectDirProperty)
             attrPrefix.set(extension.resourcesPrefix ?: project.getDefaultResourcePrefix())
+            ktPackage.set(extension.ktPackage)
             outputResDirPath.set(OUTPUT_RESOURCE_PATH)
             outputDirPath.set(OUTPUT_PATH)
             dependsOn(dependsOnTask)

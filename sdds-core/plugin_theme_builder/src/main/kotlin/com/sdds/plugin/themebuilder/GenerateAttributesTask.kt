@@ -4,6 +4,8 @@ import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.attributes.data.AttributeData
 import com.sdds.plugin.themebuilder.internal.attributes.factory.KtAttributeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.attributes.factory.XmlAttributeGeneratorFactory
+import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
+import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.serializer.Serializer
 import com.sdds.plugin.themebuilder.internal.token.ColorToken
@@ -62,24 +64,26 @@ abstract class GenerateAttributesTask : DefaultTask() {
     @get:Input
     abstract val attrPrefix: Property<String>
 
-    private val xmlDocumentBuilderFactory by unsafeLazy {
-        XmlResourcesDocumentBuilderFactory(attrPrefix.get())
-    }
-
-    private val xmlAttributeGeneratorFactory by unsafeLazy {
-        XmlAttributeGeneratorFactory(xmlDocumentBuilderFactory)
-    }
-
-    private val ktAttributeGeneratorFactory by unsafeLazy {
-        KtAttributeGeneratorFactory()
-    }
+    /**
+     * Пакет для kotlin-файлов
+     */
+    @get:Input
+    abstract val ktPackage: Property<String>
 
     private val xmlAttributeGenerator by unsafeLazy {
-        xmlAttributeGeneratorFactory.create(projectDir.get().dir(outputResDirPath).get().asFile)
+        XmlAttributeGeneratorFactory(
+            xmlDocumentBuilderFactory = XmlResourcesDocumentBuilderFactory(attrPrefix.get()),
+            outputResDir = projectDir.get().dir(outputResDirPath).get().asFile,
+        ).create()
     }
 
     private val ktAttributeGenerator by unsafeLazy {
-        ktAttributeGeneratorFactory.create()
+        KtAttributeGeneratorFactory(
+            ktFileBuilderFactory = KtFileBuilderFactory(ktPackage.get()),
+            outputLocation = KtFileBuilder.OutputLocation.Directory(
+                dir = projectDir.get().dir(outputDirPath).get().asFile,
+            ),
+        ).create()
     }
 
     /**
@@ -90,25 +94,26 @@ abstract class GenerateAttributesTask : DefaultTask() {
         val tokens = decodeTheme().tokens
         val attributeData = tokens.extractAttributeData()
         when (target.get()) {
-            ThemeBuilderTarget.VIEW_SYSTEM -> xmlAttributeGenerator.generate(
-                attributeData = attributeData,
-                attrPrefix = attrPrefix.get(),
-            )
-
-            ThemeBuilderTarget.COMPOSE -> ktAttributeGenerator.generate(
-                attributeData = attributeData,
-            )
-
-            ThemeBuilderTarget.ALL -> {
-                xmlAttributeGenerator.generate(
-                    attributeData = attributeData,
-                    attrPrefix = attrPrefix.get(),
-                )
-                ktAttributeGenerator.generate(
-                    attributeData = attributeData,
-                )
-            }
+            ThemeBuilderTarget.VIEW_SYSTEM -> generateViewSystem(attributeData)
+            ThemeBuilderTarget.COMPOSE -> generateCompose(attributeData)
+            ThemeBuilderTarget.ALL -> generateAll(attributeData)
         }
+    }
+
+    private fun generateViewSystem(attributeData: AttributeData) {
+        xmlAttributeGenerator.generate(
+            attributeData = attributeData,
+            attrPrefix = attrPrefix.get(),
+        )
+    }
+
+    private fun generateCompose(attributeData: AttributeData) {
+        ktAttributeGenerator.generate(attributeData)
+    }
+
+    private fun generateAll(attributeData: AttributeData) {
+        generateViewSystem(attributeData)
+        generateCompose(attributeData)
     }
 
     private fun decodeTheme(): Theme =

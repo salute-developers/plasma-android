@@ -1,0 +1,52 @@
+package com.sdds.playground.themebuilder.tokens
+
+import androidx.compose.runtime.ProvidableCompositionLocal
+import androidx.compose.runtime.Stable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
+import androidx.compose.runtime.staticCompositionLocalOf
+import androidx.compose.runtime.structuralEqualityPolicy
+import androidx.compose.ui.graphics.Color
+import kotlin.Unit
+
+@Stable
+public abstract class CoreColors() {
+    public abstract var textPrimary: Color
+        internal set
+
+    public abstract var textTertiary: Color
+        internal set
+
+    public abstract fun copy(textPrimary: Color = this.textPrimary, textTertiary: Color =
+            this.textTertiary): CoreColors
+
+    public abstract fun updateColorsFrom(other: CoreColors): Unit
+
+    public override fun toString() =
+            "${this::class.simpleName}(textPrimary=$textPrimary, textTertiary=$textTertiary)"
+}
+
+private class CoreColorsImpl(
+    textPrimary: Color,
+    textTertiary: Color,
+) : CoreColors() {
+    public override var textPrimary: Color by mutableStateOf(textPrimary,
+            structuralEqualityPolicy())
+
+    public override var textTertiary: Color by mutableStateOf(textTertiary,
+            structuralEqualityPolicy())
+
+    public override fun updateColorsFrom(other: CoreColors): Unit {
+        textPrimary = other.textPrimary
+        textTertiary = other.textTertiary
+    }
+
+    public override fun copy(textPrimary: Color, textTertiary: Color): CoreColors =
+            CoreColorsImpl(textPrimary, textTertiary)
+}
+
+public val LocalColors: ProvidableCompositionLocal<CoreColors> = staticCompositionLocalOf {
+        debugColors() }
+
+private fun debugColors(): CoreColors = CoreColorsImpl(Color.Black, Color.Black)

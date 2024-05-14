@@ -6,8 +6,6 @@ import com.sdds.plugin.themebuilder.internal.utils.FileProvider
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.attrsFile
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.fileWriter
 import com.sdds.plugin.themebuilder.internal.utils.getResourceAsText
-import com.squareup.kotlinpoet.PropertySpec
-import com.squareup.kotlinpoet.TypeSpec
 import io.mockk.clearAllMocks
 import io.mockk.every
 import io.mockk.mockk
@@ -31,11 +29,7 @@ class XmlAttributeGeneratorTest {
 
     @Before
     fun before() {
-        mockkObject(
-            PropertySpec,
-            TypeSpec,
-            FileProvider,
-        )
+        mockkObject(FileProvider)
         mockOutputResDir = mockk(relaxed = true)
         xmlDocumentBuilder = XmlResourcesDocumentBuilder(
             "thmbldr",
@@ -47,11 +41,7 @@ class XmlAttributeGeneratorTest {
     @After
     fun after() {
         clearAllMocks()
-        unmockkObject(
-            PropertySpec,
-            TypeSpec,
-            FileProvider,
-        )
+        unmockkObject(FileProvider)
     }
 
     @Test
