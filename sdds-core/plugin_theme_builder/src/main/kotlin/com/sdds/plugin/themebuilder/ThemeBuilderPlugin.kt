@@ -25,23 +25,22 @@ import org.gradle.kotlin.dsl.withType
  */
 class ThemeBuilderPlugin : Plugin<Project> {
     override fun apply(project: Project) {
-        val defaultThemeZip =
-            project.layout.buildDirectory.file("$DEFAULT_THEME_PATH/default_theme.zip")
         val themeZip = project.layout.buildDirectory.file("$THEME_PATH/theme.zip")
         val extension = project.themeBuilderExt()
 
         configureSourceSets(project)
 
         project.afterEvaluate {
-            registerAttributeBuilder(extension, defaultThemeZip)
-            registerThemeBuilder(extension, themeZip)
+            val unzipTask = registerFetchAndUnzip(extension, themeZip)
+            registerAttributeBuilder(extension, unzipTask)
+            registerThemeBuilder(extension, unzipTask)
         }
     }
 
-    private fun Project.registerThemeBuilder(
+    private fun Project.registerFetchAndUnzip(
         extension: ThemeBuilderExtension,
         themeOutputZip: Provider<RegularFile>,
-    ) {
+    ): TaskProvider<Copy> {
         val source = getThemeSource(extension)
         val themeUrl = getThemeUrl(source)
 
@@ -56,6 +55,13 @@ class ThemeBuilderPlugin : Plugin<Project> {
             outputPath = THEME_PATH,
             dependsOnTask = fetchThemeTask,
         )
+        return unzipTask
+    }
+
+    private fun Project.registerThemeBuilder(
+        extension: ThemeBuilderExtension,
+        unzipTask: Any,
+    ) {
         val generateThemeTask =
             registerThemeGenerator(
                 extension = extension,
@@ -76,25 +82,11 @@ class ThemeBuilderPlugin : Plugin<Project> {
 
     private fun Project.registerAttributeBuilder(
         extension: ThemeBuilderExtension,
-        themeZip: Provider<RegularFile>,
+        unzipTask: Any,
     ) {
-        val source = getDefaultThemeSource(extension)
-        val themeUrl = getThemeUrl(source)
-
-        val fetchThemeTask = registerThemeFetcher(
-            taskName = "fetchDefaultTheme",
-            themeUrl = themeUrl,
-            themeOutput = themeZip,
-        )
-        val unzipTask = registerUnzip(
-            taskName = "unpackDefaultThemeFiles",
-            zipFile = themeZip,
-            outputPath = DEFAULT_THEME_PATH,
-            dependsOnTask = fetchThemeTask,
-        )
         val generateAttributesTask = registerAttributeGenerator(
             extension = extension,
-            metaFileProvider = getDefaultMetaFile(),
+            metaFileProvider = getMetaFile(),
             dependsOnTask = unzipTask,
         )
 
@@ -137,9 +129,6 @@ class ThemeBuilderPlugin : Plugin<Project> {
     private fun getThemeSource(extension: ThemeBuilderExtension): ThemeBuilderSource =
         extension.themeSource ?: throw GradleException("themeSource must be set")
 
-    private fun Project.getDefaultThemeSource(extension: ThemeBuilderExtension): ThemeBuilderSource =
-        extension.defaultThemeSource ?: ThemeBuilderSource.withUrl("file://${projectDir.path}/json/plasma_b2c.zip")
-
     private fun getThemeUrl(source: ThemeBuilderSource): String {
         return when (source) {
             is ThemeBuilderSource.NameAndVersion -> {
@@ -159,10 +148,6 @@ class ThemeBuilderPlugin : Plugin<Project> {
                 source.url
             }
         }
-    }
-
-    private fun Project.getDefaultMetaFile(): Provider<RegularFile> {
-        return layout.buildDirectory.file("$DEFAULT_THEME_PATH/$META_JSON_NAME")
     }
 
     private fun Project.getMetaFile(): Provider<RegularFile> {
@@ -257,7 +242,6 @@ class ThemeBuilderPlugin : Plugin<Project> {
         const val OUTPUT_RESOURCE_PATH = "build/generated/theme-builder-res"
         const val OUTPUT_PATH = "build/generated/theme-builder"
 
-        const val DEFAULT_THEME_PATH = "theme-builder/default-theme"
         const val THEME_PATH = "theme-builder/theme"
         const val META_JSON_NAME = "meta.json"
 

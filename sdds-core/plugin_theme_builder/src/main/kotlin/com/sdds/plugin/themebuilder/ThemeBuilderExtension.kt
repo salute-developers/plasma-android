@@ -13,7 +13,6 @@ open class ThemeBuilderExtension {
     internal var resourcesPrefix: String? = null
     internal var parentThemeName: String = DEFAULT_PARENT_THEME_NAME
     internal var themeSource: ThemeBuilderSource? = null
-    internal var defaultThemeSource: ThemeBuilderSource? = null
 
     /**
      * Устанавливает источник темы по имени [name] и версии [version]
@@ -27,20 +26,6 @@ open class ThemeBuilderExtension {
      */
     fun themeSource(url: String) {
         themeSource = ThemeBuilderSource.withUrl(url)
-    }
-
-    /**
-     * Устанавливает источник дефолтной для атрибутов по имени [name] и версии [version]
-     */
-    fun defaultThemeSource(name: String, version: String) {
-        defaultThemeSource = ThemeBuilderSource.withNameAndVersion(name, version)
-    }
-
-    /**
-     * Устанавливает источник дефолтной для атрибутов по [url]
-     */
-    fun defaultThemeSource(url: String) {
-        defaultThemeSource = ThemeBuilderSource.withUrl(url)
     }
 
     /**
