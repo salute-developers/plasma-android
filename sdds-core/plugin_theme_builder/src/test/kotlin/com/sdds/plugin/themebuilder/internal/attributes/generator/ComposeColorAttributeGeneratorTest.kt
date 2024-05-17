@@ -3,6 +3,7 @@ package com.sdds.plugin.themebuilder.internal.attributes.generator
 import com.sdds.plugin.themebuilder.internal.attributes.data.AttributeData
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
+import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeColorAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider
 import com.sdds.plugin.themebuilder.internal.utils.getResourceAsText
 import com.squareup.kotlinpoet.PropertySpec
@@ -20,12 +21,12 @@ import org.junit.Test
 import java.io.ByteArrayOutputStream
 
 /**
- * Unit-тесты [KtAttributeGenerator]
+ * Unit-тесты [ComposeColorAttributeGenerator]
  */
-class KtAttributeGeneratorTest {
+class ComposeColorAttributeGeneratorTest {
 
     private lateinit var outputKt: ByteArrayOutputStream
-    private lateinit var underTest: KtAttributeGenerator
+    private lateinit var underTest: ComposeColorAttributeGenerator
     private lateinit var mockKtFileBuilderFactory: KtFileBuilderFactory
     private lateinit var ktFileBuilder: KtFileBuilder
 
@@ -44,7 +45,7 @@ class KtAttributeGeneratorTest {
         mockKtFileBuilderFactory = mockk<KtFileBuilderFactory> {
             every { create("CoreColors") } returns ktFileBuilder
         }
-        underTest = KtAttributeGenerator(
+        underTest = ComposeColorAttributeGenerator(
             ktFileBuilderFactory = mockKtFileBuilderFactory,
             outputLocation = KtFileBuilder.OutputLocation.Stream(outputKt),
         )

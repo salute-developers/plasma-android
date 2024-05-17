@@ -37,7 +37,7 @@ internal class TypographyGenerator(
     private val ktFileBuilderFactory: KtFileBuilderFactory,
     private val resourceReferenceProvider: ResourceReferenceProvider,
     private val typographyTokenValues: Map<String, TypographyTokenValue>,
-) : TokenGenerator<TypographyToken>(target) {
+) : TokenGenerator<TypographyToken, String>(target) {
 
     private val textAppearanceXmlBuilders =
         mutableMapOf<TypographyToken.ScreenClass, XmlResourcesDocumentBuilder>()
@@ -49,6 +49,8 @@ internal class TypographyGenerator(
     private val mediumBuilder by unsafeLazy { ktFileBuilder.rootObject("TypographyMediumTokens") }
     private val smallBuilder by unsafeLazy { ktFileBuilder.rootObject("TypographySmallTokens") }
     private var needDeclareStyle: Boolean = true
+
+    override fun collectResult() = ""
 
     /**
      * @see TokenGenerator.generateViewSystem

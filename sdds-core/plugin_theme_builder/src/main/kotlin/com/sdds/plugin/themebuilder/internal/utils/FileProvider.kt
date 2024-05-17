@@ -101,8 +101,10 @@ object FileProvider {
 
     /**
      * Файл с атрибутами
+     *
+     * @param type тип атрибутов.
      */
-    fun File.attrsFile(): File {
-        return File("${valuesDir().path}/attributes.xml")
+    fun File.attrsFile(type: String): File {
+        return File("${valuesDir().path}/$type-attributes.xml")
     }
 }

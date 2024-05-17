@@ -2,6 +2,7 @@ package com.sdds.plugin.themebuilder.internal.attributes.generator
 
 import com.sdds.plugin.themebuilder.internal.attributes.data.AttributeData
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
+import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewColorAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.attrsFile
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.fileWriter
@@ -19,13 +20,13 @@ import java.io.ByteArrayOutputStream
 import java.io.File
 
 /**
- * Unit-тесты [XmlAttributeGenerator]
+ * Unit-тесты [ViewColorAttributeGenerator]
  */
-class XmlAttributeGeneratorTest {
+class ViewColorAttributeGeneratorTest {
 
     private lateinit var mockOutputResDir: File
     private lateinit var xmlDocumentBuilder: XmlResourcesDocumentBuilder
-    private lateinit var underTest: XmlAttributeGenerator
+    private lateinit var underTest: ViewColorAttributeGenerator
 
     @Before
     fun before() {
@@ -35,7 +36,7 @@ class XmlAttributeGeneratorTest {
             "thmbldr",
             XmlResourcesDocumentBuilder.DEFAULT_ROOT_ATTRIBUTES,
         )
-        underTest = XmlAttributeGenerator(xmlDocumentBuilder, mockOutputResDir)
+        underTest = ViewColorAttributeGenerator(xmlDocumentBuilder, mockOutputResDir)
     }
 
     @After

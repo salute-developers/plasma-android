@@ -32,7 +32,6 @@ class ThemeBuilderPlugin : Plugin<Project> {
 
         project.afterEvaluate {
             val unzipTask = registerFetchAndUnzip(extension, themeZip)
-            registerAttributeBuilder(extension, unzipTask)
             registerThemeBuilder(extension, unzipTask)
         }
     }
@@ -77,40 +76,6 @@ class ThemeBuilderPlugin : Plugin<Project> {
 
         tasks.withType(MergeResources::class).configureEach {
             dependsOn(generateThemeTask)
-        }
-    }
-
-    private fun Project.registerAttributeBuilder(
-        extension: ThemeBuilderExtension,
-        unzipTask: Any,
-    ) {
-        val generateAttributesTask = registerAttributeGenerator(
-            extension = extension,
-            metaFileProvider = getMetaFile(),
-            dependsOnTask = unzipTask,
-        )
-
-        tasks.withType(MergeResources::class).configureEach {
-            dependsOn(generateAttributesTask)
-        }
-    }
-
-    private fun Project.registerAttributeGenerator(
-        extension: ThemeBuilderExtension,
-        metaFileProvider: Provider<RegularFile>,
-        dependsOnTask: Any,
-    ): TaskProvider<GenerateAttributesTask> {
-        return project.tasks.register<GenerateAttributesTask>("generateAttributes") {
-            themeFile.set(metaFileProvider)
-            target.set(extension.target)
-            val projectDirProperty = objects.directoryProperty()
-                .apply { set(layout.projectDirectory) }
-            projectDir.set(projectDirProperty)
-            attrPrefix.set(extension.resourcesPrefix ?: project.getDefaultResourcePrefix())
-            ktPackage.set(extension.ktPackage)
-            outputResDirPath.set(OUTPUT_RESOURCE_PATH)
-            outputDirPath.set(OUTPUT_PATH)
-            dependsOn(dependsOnTask)
         }
     }
 
@@ -194,7 +159,8 @@ class ThemeBuilderPlugin : Plugin<Project> {
         unzipTask: Any,
     ): TaskProvider<GenerateThemeTask> {
         return project.tasks.register<GenerateThemeTask>("generateTheme") {
-            baseFile.set(baseFileProvider)
+            themeName.set(getThemeSource(extension).themeName)
+            metaFile.set(baseFileProvider)
             colorFile.set(colorFileProvider)
             typographyFile.set(typographyFileProvider)
             fontFile.set(fontFileProvider)
@@ -202,12 +168,15 @@ class ThemeBuilderPlugin : Plugin<Project> {
             gradientFile.set(gradientFileProvider)
             shapeFile.set(shapeFileProvider)
 
-            packageName.set(extension.ktPackage)
+            packageName.set(extension.ktPackage ?: "")
             target.set(extension.target)
             resourcesPrefix.set(extension.resourcesPrefix ?: project.getDefaultResourcePrefix())
             parentThemeName.set(extension.parentThemeName)
-            outputDir.set(project.layout.projectDirectory.dir(OUTPUT_PATH))
-            outputResDir.set(project.layout.projectDirectory.dir(OUTPUT_RESOURCE_PATH))
+            val projectDirProperty = objects.directoryProperty()
+                .apply { set(layout.projectDirectory) }
+            projectDir.set(projectDirProperty)
+            outputDirPath.set(OUTPUT_PATH)
+            outputResDirPath.set(OUTPUT_RESOURCE_PATH)
             namespace.set(getProjectNameSpace())
             dependsOn(unzipTask)
         }

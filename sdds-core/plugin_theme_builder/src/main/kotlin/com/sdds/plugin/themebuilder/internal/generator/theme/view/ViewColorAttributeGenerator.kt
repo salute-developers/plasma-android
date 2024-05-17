@@ -1,36 +1,34 @@
-package com.sdds.plugin.themebuilder.internal.attributes.generator
+package com.sdds.plugin.themebuilder.internal.generator.theme.view
 
-import com.sdds.plugin.themebuilder.internal.attributes.data.AttributeData
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.attrsFile
 import com.sdds.plugin.themebuilder.internal.utils.withPrefixIfNeed
 import java.io.File
 
 /**
- * Генератор xml-атрибутов
+ * Генератор xml-атрибутов цвета
  *
  * @property xmlDocumentBuilder билдер xml документа
  * @property outputResDir целевая директория с ресурсами
+ * @property attrPrefix перфикс атрибута
  */
-internal class XmlAttributeGenerator(
+internal class ViewColorAttributeGenerator(
     private val xmlDocumentBuilder: XmlResourcesDocumentBuilder,
     private val outputResDir: File,
+    private val attrPrefix: String,
 ) {
 
     /**
-     * Генерирует xml-атрибуты
+     * Генерирует xml-атрибуты цвета
      *
-     * @param attributeData данные об атрибутах
-     * @param attrPrefix префикс для имен атрибутов
+     * @param colors список названий атрибутов
      */
-    fun generate(attributeData: AttributeData, attrPrefix: String) {
-        with(attributeData) {
-            appendColors(attrPrefix)
-        }
-        xmlDocumentBuilder.build(outputResDir.attrsFile())
+    fun generate(colors: List<String>) {
+        appendColors(colors, attrPrefix)
+        xmlDocumentBuilder.build(outputResDir.attrsFile("color"))
     }
 
-    private fun AttributeData.appendColors(prefix: String) {
+    private fun appendColors(colors: List<String>, prefix: String) {
         xmlDocumentBuilder.appendComment("Colors")
         colors.forEach { attr ->
             appendAttr(attr.toColorAttribute(prefix))

@@ -2,7 +2,6 @@ package com.sdds.plugin.themebuilder.internal.generator
 
 import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
-import com.sdds.plugin.themebuilder.internal.generator.theme.ThemeGenerator
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.fileWriter
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.themeXmlFile
@@ -23,12 +22,12 @@ import java.io.ByteArrayOutputStream
 import java.io.File
 
 /**
- * Unit тесты [ThemeGenerator]
+ * Unit тесты [DeprecatedThemeGenerator]
  */
-class ThemeGeneratorTest {
+class DeprecatedThemeGeneratorTest {
 
     private lateinit var mockOutputResDir: File
-    private lateinit var underTest: ThemeGenerator
+    private lateinit var underTest: DeprecatedThemeGenerator
     private lateinit var resourceReferenceProvider: ResourceReferenceProvider
 
     @Before
@@ -41,7 +40,7 @@ class ThemeGeneratorTest {
         mockOutputResDir = mockk(relaxed = true)
         resourceReferenceProvider = ResourceReferenceProvider("thmbldr")
 
-        underTest = ThemeGenerator(
+        underTest = DeprecatedThemeGenerator(
             xmlBuilderFactory = XmlResourcesDocumentBuilderFactory("thmbldr"),
             resourceReferenceProvider = resourceReferenceProvider,
             target = ThemeBuilderTarget.ALL,
@@ -77,12 +76,12 @@ class ThemeGeneratorTest {
         underTest.addXmlColorAttribute(
             "textPrimary",
             "light_text_primary",
-            ThemeGenerator.ThemeMode.LIGHT,
+            DeprecatedThemeGenerator.ThemeMode.LIGHT,
         )
         underTest.addXmlColorAttribute(
             "textPrimary",
             "dark_text_primary",
-            ThemeGenerator.ThemeMode.DARK,
+            DeprecatedThemeGenerator.ThemeMode.DARK,
         )
         underTest.generate()
 

@@ -21,7 +21,7 @@ internal class DimenGenerator(
     private val outputResDir: File,
     private val dimensAggregator: DimensAggregator,
     private val xmlBuilderFactory: XmlResourcesDocumentBuilderFactory,
-) : BaseGenerator {
+) : SimpleBaseGenerator {
 
     private val xmlResourcesDocumentBuilder: XmlResourcesDocumentBuilder by unsafeLazy {
         xmlBuilderFactory.create(DEFAULT_ROOT_ATTRIBUTES)

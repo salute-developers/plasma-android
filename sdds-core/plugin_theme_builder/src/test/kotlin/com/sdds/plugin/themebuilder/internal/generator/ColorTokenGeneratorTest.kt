@@ -4,7 +4,6 @@ import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
-import com.sdds.plugin.themebuilder.internal.generator.theme.ThemeGenerator
 import com.sdds.plugin.themebuilder.internal.serializer.Serializer
 import com.sdds.plugin.themebuilder.internal.token.ColorToken
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider
@@ -28,15 +27,15 @@ import java.io.ByteArrayOutputStream
 import java.io.File
 
 /**
- * Unit тесты [ColorGenerator]
+ * Unit тесты [ColorTokenGenerator]
  * @author Малышев Александр on 13.03.2024
  */
-class ColorGeneratorTest {
+class ColorTokenGeneratorTest {
 
     private lateinit var outputKt: ByteArrayOutputStream
     private lateinit var mockOutputResDir: File
-    private lateinit var underTest: ColorGenerator
-    private lateinit var mockThemeGenerator: ThemeGenerator
+    private lateinit var underTest: ColorTokenGenerator
+    private lateinit var mockDeprecatedThemeGenerator: DeprecatedThemeGenerator
 
     @Before
     fun setUp() {
@@ -47,15 +46,15 @@ class ColorGeneratorTest {
         )
         outputKt = ByteArrayOutputStream()
         mockOutputResDir = mockk(relaxed = true)
-        mockThemeGenerator = mockk(relaxed = true)
-        underTest = ColorGenerator(
+        mockDeprecatedThemeGenerator = mockk(relaxed = true)
+        underTest = ColorTokenGenerator(
             outputLocation = KtFileBuilder.OutputLocation.Stream(outputKt),
             outputResDir = mockOutputResDir,
             target = ThemeBuilderTarget.ALL,
             xmlBuilderFactory = XmlResourcesDocumentBuilderFactory("thmbldr"),
             ktFileBuilderFactory = KtFileBuilderFactory("com.test"),
             colorTokenValues = colorTokenValues,
-            themeGenerator = mockThemeGenerator,
+            themeGenerator = mockDeprecatedThemeGenerator,
         )
     }
 
@@ -82,10 +81,10 @@ class ColorGeneratorTest {
         underTest.generate()
 
         verify {
-            mockThemeGenerator.addXmlColorAttribute(
+            mockDeprecatedThemeGenerator.addXmlColorAttribute(
                 "onLightSurfaceTransparentAccent",
                 "dark_on_light_surface_transparent_accent",
-                ThemeGenerator.ThemeMode.DARK,
+                DeprecatedThemeGenerator.ThemeMode.DARK,
             )
         }
 

@@ -10,7 +10,7 @@ android {
 }
 
 themeBuilder {
-    themeSource(url = "file://${projectDir.path}/json/plasma_b2c.zip")
+    themeSource(url = "file://${projectDir.path}/json/plasma.zip")
     view(parentThemeName = "Sdds.Theme")
     compose(ktPackage = "com.sdds.playground.themebuilder.tokens")
 }

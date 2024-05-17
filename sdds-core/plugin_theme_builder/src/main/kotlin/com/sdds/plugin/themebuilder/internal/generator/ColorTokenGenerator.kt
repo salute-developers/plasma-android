@@ -6,35 +6,36 @@ import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder.ElementName
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
-import com.sdds.plugin.themebuilder.internal.generator.theme.ThemeGenerator
+import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenData
 import com.sdds.plugin.themebuilder.internal.token.ColorToken
 import com.sdds.plugin.themebuilder.internal.token.isDark
 import com.sdds.plugin.themebuilder.internal.token.isLight
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.colorsXmlFile
+import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 import com.sdds.plugin.themebuilder.internal.utils.colorToArgbHex
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import java.io.File
 
 /**
  * Генератор токенов цветов
- * @param outputLocation локация для сохранения kt-файла с токенами
- * @param outputResDir директория для сохранения xml-файла с токенами
+ * @property outputLocation локация для сохранения kt-файла с токенами
+ * @property outputResDir директория для сохранения xml-файла с токенами
  * @param target целевой фреймворк
- * @param xmlBuilderFactory фабрика делегата построения xml файлов
- * @param ktFileBuilderFactory фабрика делегата построения kt файлов
- * @param colorTokenValues словарь значений токенов цвета
- * @param themeGenerator генератор атрибутов темы
+ * @property xmlBuilderFactory фабрика делегата построения xml файлов
+ * @property ktFileBuilderFactory фабрика делегата построения kt файлов
+ * @property colorTokenValues словарь значений токенов цвета
+ * @property resourceReferenceProvider провайдер ссылки на ресурс
  * @author Малышев Александр on 07.03.2024
  */
-internal class ColorGenerator(
+internal class ColorTokenGenerator(
     private val outputLocation: KtFileBuilder.OutputLocation,
     private val outputResDir: File,
     target: ThemeBuilderTarget,
     private val xmlBuilderFactory: XmlResourcesDocumentBuilderFactory,
     private val ktFileBuilderFactory: KtFileBuilderFactory,
     private val colorTokenValues: Map<String, String>,
-    private val themeGenerator: ThemeGenerator,
-) : TokenGenerator<ColorToken>(target) {
+    private val resourceReferenceProvider: ResourceReferenceProvider,
+) : TokenGenerator<ColorToken, ColorTokenData>(target) {
 
     private val xmlDocumentBuilder by unsafeLazy { xmlBuilderFactory.create(DEFAULT_ROOT_ATTRIBUTES) }
     private val ktFileBuilder by unsafeLazy { ktFileBuilderFactory.create("ColorTokens") }
@@ -42,6 +43,14 @@ internal class ColorGenerator(
     private val darkBuilder by unsafeLazy { ktFileBuilder.rootObject("DarkColorTokens") }
 
     private val colorPaletteRegex = Regex("\\[\\w+.\\w+.\\d{2,4}](\\[-?0.\\d{1,2}\\])?")
+
+    private val composeTokenDataCollector = mutableMapOf<ColorToken, String>()
+    private val viewTokenDataCollector = mutableMapOf<ColorToken, String>()
+
+    override fun collectResult() = ColorTokenData(
+        composeTokens = composeTokenDataCollector,
+        viewTokens = viewTokenDataCollector,
+    )
 
     /**
      * @see TokenGenerator.generateViewSystem
@@ -64,22 +73,14 @@ internal class ColorGenerator(
     override fun addViewSystemToken(token: ColorToken): Boolean {
         val tokenValue = colorTokenValues[token.name] ?: return false
         if (colorPaletteRegex.matches(tokenValue)) return false // добавить поддержку палитры
-        val themeMode = if (token.isDark) {
-            ThemeGenerator.ThemeMode.DARK
-        } else if (token.isLight) {
-            ThemeGenerator.ThemeMode.LIGHT
-        } else {
-            return false
-        }
         xmlDocumentBuilder.appendComment(token.description)
         xmlDocumentBuilder.appendElement(ElementName.COLOR, token.xmlName, tokenValue)
-        themeGenerator.addXmlColorAttribute(
-            colorName = token.displayName,
-            colorTokenName = token.xmlName,
-            themeMode = themeMode,
-        )
+        viewTokenDataCollector[token] = token.toViewTokenRef()
         return true
     }
+
+    private fun ColorToken.toViewTokenRef(): String = resourceReferenceProvider.color(xmlName)
+    private fun ColorToken.toComposeTokenRef(): String = ktName
 
     /**
      * @see TokenGenerator.addComposeToken
@@ -97,6 +98,7 @@ internal class ColorGenerator(
         }
         val value = "Color(${colorToArgbHex(tokenValue)})"
         root.appendProperty(token.ktName, KtFileBuilder.TypeColor, value, token.description)
+        composeTokenDataCollector[token] = token.toComposeTokenRef()
         return true
     }
 }

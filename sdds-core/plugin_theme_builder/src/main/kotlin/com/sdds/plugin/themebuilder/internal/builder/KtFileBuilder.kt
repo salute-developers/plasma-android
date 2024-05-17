@@ -34,8 +34,6 @@ internal class KtFileBuilder(
     private val rootPropBuilders = mutableListOf<PropertySpec.Builder>()
     private val rootFunBuilders = mutableListOf<FunSpec.Builder>()
 
-    internal val typeCoreColors = ClassName(packageName, listOf("CoreColors"))
-
     /**
      * Создает kotlin class в корне файла.
      *
@@ -204,6 +202,9 @@ internal class KtFileBuilder(
         }
     }
 
+    internal fun getInternalClassType(className: String, classPackage: String = packageName) =
+        ClassName(classPackage, listOf(className)).also(::addImport)
+
     private fun TypeSpec.Builder.addPrimaryConstructor(params: List<FunParameter>? = null) =
         primaryConstructor(
             FunSpec.constructorBuilder().apply {
@@ -307,6 +308,9 @@ internal class KtFileBuilder(
         OVERRIDE,
     }
 
+    /**
+     * Параметр функции или конструктора
+     */
     internal data class FunParameter(
         val name: String,
         val type: ClassName,
@@ -346,7 +350,7 @@ internal class KtFileBuilder(
         val TypeRoundRectShape =
             ClassName("androidx.compose.foundation.shape", listOf("RoundedCornerShape"))
         val TypeCornerSize = ClassName("androidx.compose.foundation.shape", listOf("CornerSize"))
-        val TypeAnnotationStable = ClassName("androidx.compose.runtime", listOf("Stable"))
+        val TypeAnnotationImmutable = ClassName("androidx.compose.runtime", listOf("Immutable"))
         val TypeProvidableCompositionLocal =
             ClassName("androidx.compose.runtime", listOf("ProvidableCompositionLocal"))
 

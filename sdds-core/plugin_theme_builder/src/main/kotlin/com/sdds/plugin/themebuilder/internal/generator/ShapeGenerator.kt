@@ -37,12 +37,14 @@ internal class ShapeGenerator(
     private val dimensAggregator: DimensAggregator,
     private val resourceReferenceProvider: ResourceReferenceProvider,
     private val shapeTokenValues: Map<String, ShapeTokenValue>,
-) : TokenGenerator<ShapeToken>(target) {
+) : TokenGenerator<ShapeToken, String>(target) {
 
     private val xmlDocumentBuilder by unsafeLazy { xmlBuilderFactory.create(DEFAULT_ROOT_ATTRIBUTES) }
     private val ktFileBuilder by unsafeLazy { ktFileBuilderFactory.create("ShapeTokens") }
     private val rootRoundShapes by unsafeLazy { ktFileBuilder.rootObject("RoundShapeTokens") }
     private var needCreateStyle: Boolean = true
+
+    override fun collectResult() = ""
 
     /**
      * @see TokenGenerator.generateViewSystem
