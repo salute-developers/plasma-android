@@ -1,8 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.generator.theme
 
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
+import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewThemeGenerator
-import com.sdds.plugin.themebuilder.internal.token.ColorToken
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.fileWriter
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.themeXmlFile
@@ -83,21 +83,17 @@ class ViewThemeGeneratorTest {
     }
 
     private companion object {
-        val attrs = mapOf(
-            ColorToken(
-                "textPrimary",
-                "dark.text.primary",
-                setOf(),
+        val attrs = listOf(
+            ColorTokenResult.TokenData(
+                attrName = "textPrimary",
+                tokenRefName = "@color/thmbldr_dark_text_primary",
+                false,
+            ),
+            ColorTokenResult.TokenData(
+                attrName = "textPrimary",
+                tokenRefName = "@color/thmbldr_light_text_primary",
                 true,
-                "",
-            ) to "@color/thmbldr_dark_text_primary",
-            ColorToken(
-                "textPrimary",
-                "light.text.primary",
-                setOf(),
-                true,
-                "",
-            ) to "@color/thmbldr_light_text_primary",
+            ),
         )
     }
 }

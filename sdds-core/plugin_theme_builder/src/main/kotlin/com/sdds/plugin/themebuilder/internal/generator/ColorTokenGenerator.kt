@@ -6,7 +6,8 @@ import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder.ElementName
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
-import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenData
+import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult
+import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewThemeAttribute.Companion.attrNameFromTokenName
 import com.sdds.plugin.themebuilder.internal.token.ColorToken
 import com.sdds.plugin.themebuilder.internal.token.isDark
 import com.sdds.plugin.themebuilder.internal.token.isLight
@@ -15,6 +16,7 @@ import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 import com.sdds.plugin.themebuilder.internal.utils.colorToArgbHex
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import java.io.File
+import java.util.Locale
 
 /**
  * Генератор токенов цветов
@@ -35,7 +37,7 @@ internal class ColorTokenGenerator(
     private val ktFileBuilderFactory: KtFileBuilderFactory,
     private val colorTokenValues: Map<String, String>,
     private val resourceReferenceProvider: ResourceReferenceProvider,
-) : TokenGenerator<ColorToken, ColorTokenData>(target) {
+) : TokenGenerator<ColorToken, ColorTokenResult>(target) {
 
     private val xmlDocumentBuilder by unsafeLazy { xmlBuilderFactory.create(DEFAULT_ROOT_ATTRIBUTES) }
     private val ktFileBuilder by unsafeLazy { ktFileBuilderFactory.create("ColorTokens") }
@@ -44,10 +46,12 @@ internal class ColorTokenGenerator(
 
     private val colorPaletteRegex = Regex("\\[\\w+.\\w+.\\d{2,4}](\\[-?0.\\d{1,2}\\])?")
 
-    private val composeTokenDataCollector = mutableListOf<ColorToken>()
-    private val viewTokenDataCollector = mutableMapOf<ColorToken, String>()
+    private val composeTokenDataCollector =
+        mutableListOf<ColorTokenResult.TokenData>()
+    private val viewTokenDataCollector =
+        mutableListOf<ColorTokenResult.TokenData>()
 
-    override fun collectResult() = ColorTokenData(
+    override fun collectResult() = ColorTokenResult(
         composeTokens = composeTokenDataCollector,
         viewTokens = viewTokenDataCollector,
     )
@@ -72,10 +76,17 @@ internal class ColorTokenGenerator(
     @Suppress("ReturnCount")
     override fun addViewSystemToken(token: ColorToken): Boolean {
         val tokenValue = colorTokenValues[token.name] ?: return false
+        if (!token.isLight && !token.isDark) return false
         if (colorPaletteRegex.matches(tokenValue)) return false // добавить поддержку палитры
         xmlDocumentBuilder.appendComment(token.description)
         xmlDocumentBuilder.appendElement(ElementName.COLOR, token.xmlName, tokenValue)
-        viewTokenDataCollector[token] = token.toViewTokenRef()
+        viewTokenDataCollector.add(
+            ColorTokenResult.TokenData(
+                attrName = attrNameFromTokenName(token.name),
+                tokenRefName = token.toViewTokenRef(),
+                isLight = token.isLight,
+            ),
+        )
         return true
     }
 
@@ -95,7 +106,13 @@ internal class ColorTokenGenerator(
         }
         val value = "Color(${colorToArgbHex(tokenValue)})"
         root.appendProperty(token.ktName, KtFileBuilder.TypeColor, value, token.description)
-        composeTokenDataCollector.add(token)
+        composeTokenDataCollector.add(
+            ColorTokenResult.TokenData(
+                attrName = token.ktName.decapitalize(Locale.getDefault()),
+                tokenRefName = token.ktName,
+                isLight = token.isLight,
+            ),
+        )
         return true
     }
 

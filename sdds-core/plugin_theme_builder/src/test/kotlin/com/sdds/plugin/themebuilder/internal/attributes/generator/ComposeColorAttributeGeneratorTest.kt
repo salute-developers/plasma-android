@@ -2,6 +2,7 @@ package com.sdds.plugin.themebuilder.internal.attributes.generator
 
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
+import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeColorAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider
 import com.sdds.plugin.themebuilder.internal.utils.getResourceAsText
@@ -76,6 +77,9 @@ class ComposeColorAttributeGeneratorTest {
     }
 
     private companion object {
-        val inputAttrs = listOf("textPrimary", "textTertiary")
+        val inputAttrs = listOf(
+            ColorTokenResult.TokenData("textPrimary", "TextPrimary", true),
+            ColorTokenResult.TokenData("textTertiary", "TextTertiary", true),
+        )
     }
 }

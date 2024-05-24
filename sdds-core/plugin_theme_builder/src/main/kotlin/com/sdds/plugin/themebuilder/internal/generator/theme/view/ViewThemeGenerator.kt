@@ -2,10 +2,7 @@ package com.sdds.plugin.themebuilder.internal.generator.theme.view
 
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
-import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewThemeAttribute.Companion.attrNameFromTokenName
-import com.sdds.plugin.themebuilder.internal.token.ColorToken
-import com.sdds.plugin.themebuilder.internal.token.isDark
-import com.sdds.plugin.themebuilder.internal.token.isLight
+import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.themeXmlFile
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import java.io.File
@@ -31,12 +28,12 @@ internal class ViewThemeGenerator(
         xmlBuilderFactory.create()
     }
 
-    fun generate(colors: Map<ColorToken, String>) {
+    fun generate(colors: List<ColorTokenResult.TokenData>) {
         if (colors.isEmpty()) return
         with(darkThemeXmlFileBuilder) {
             addStyleWithAttrs(
                 attrs = colors
-                    .filter { it.key.isDark }
+                    .filter { !it.isLight }
                     .toThemeAttrs(),
             )
             build(outputResDir.themeXmlFile(ThemeMode.DARK.qualifier))
@@ -45,18 +42,18 @@ internal class ViewThemeGenerator(
         with(lightThemeXmlFileBuilder) {
             addStyleWithAttrs(
                 attrs = colors
-                    .filter { it.key.isLight }
+                    .filter { it.isLight }
                     .toThemeAttrs(),
             )
             build(outputResDir.themeXmlFile(ThemeMode.LIGHT.qualifier))
         }
     }
 
-    private fun Map<ColorToken, String>.toThemeAttrs(): List<ViewThemeAttribute> =
+    private fun List<ColorTokenResult.TokenData>.toThemeAttrs(): List<ViewThemeAttribute> =
         map { entry ->
             ViewThemeAttribute(
-                name = attrNameFromTokenName(name = entry.key.name),
-                value = entry.value,
+                name = entry.attrName,
+                value = entry.tokenRefName,
             )
         }
 

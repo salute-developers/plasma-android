@@ -1,6 +1,7 @@
 package com.sdds.plugin.themebuilder.internal.attributes.generator
 
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
+import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewColorAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.attrsFile
@@ -63,6 +64,9 @@ class ViewColorAttributeGeneratorTest {
     }
 
     private companion object {
-        val inputAttrs = listOf("textPrimary", "textTertiary")
+        val inputAttrs = listOf(
+            ColorTokenResult.TokenData("textPrimary", "@color/thmbldr_light_text_primary", true),
+            ColorTokenResult.TokenData("textTertiary", "@color/thmbldr_light_text_tertiary", true),
+        )
     }
 }

@@ -8,16 +8,12 @@ import com.sdds.plugin.themebuilder.internal.factory.ComposeThemeGeneratorFactor
 import com.sdds.plugin.themebuilder.internal.factory.ViewColorAttributeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ViewThemeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.generator.SimpleBaseGenerator
-import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenData
+import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeColorAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeThemeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewColorAttributeGenerator
-import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewThemeAttribute.Companion.attrNameFromTokenName
 import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewThemeGenerator
-import com.sdds.plugin.themebuilder.internal.token.ColorToken
-import com.sdds.plugin.themebuilder.internal.token.isDark
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
-import java.util.Locale
 
 /**
  * Генерирует темы и атрибуты, необходимые для темы под нужный таргет [ThemeBuilderTarget]
@@ -43,16 +39,16 @@ internal class ThemeGenerator(
         viewColorAttributeGeneratorFactory.create()
     }
 
-    private var tokenData: ColorTokenData? = null
+    private var tokenData: ColorTokenResult? = null
 
     /**
      * Устанавливает данные о токенах цвета
      *
-     * @param colorTokenData данные о токенах цвета
-     * @see [ColorTokenData]
+     * @param colorTokenResult данные о токенах цвета
+     * @see [ColorTokenResult]
      */
-    fun setColorTokenData(colorTokenData: ColorTokenData) {
-        tokenData = colorTokenData
+    fun setColorTokenData(colorTokenResult: ColorTokenResult) {
+        tokenData = colorTokenResult
     }
 
     override fun generate() {
@@ -61,7 +57,7 @@ internal class ThemeGenerator(
         generateThemes()
     }
 
-    private fun ColorTokenData?.isValid() =
+    private fun ColorTokenResult?.isValid() =
         this != null && composeTokens.isNotEmpty() && viewTokens.isNotEmpty()
 
     private fun generateColorAttributes() {
@@ -72,28 +68,20 @@ internal class ThemeGenerator(
                 // Для генерации атрибутов нужен просто список цветов
                 // без признака светлой или темной темы.
                 // Поскольку список цветов для темной и светлой темы должен совпадать,
-                // в качестве источника берутся токены для темной темы.
-                .darkTokens()
-                .let { composeColorAttributeGenerator.generate(it.getComposeAttrNames()) }
+                // в качестве источника берутся токены для светлой темы.
+                .lightTokens()
+                .let(composeColorAttributeGenerator::generate)
         }
         if (target.isViewSystemOrAll) {
             data
                 .viewTokens
-                .keys
-                .toList()
-                .darkTokens()
-                .let { viewColorAttributeGenerator.generate(it.getViewAttrNames()) }
+                .lightTokens()
+                .let(viewColorAttributeGenerator::generate)
         }
     }
 
-    private fun List<ColorToken>.getComposeAttrNames(): List<String> =
-        map { it.ktName.decapitalize(Locale.getDefault()) }
-
-    private fun List<ColorToken>.getViewAttrNames(): List<String> =
-        map { attrNameFromTokenName(it.name) }
-
-    private fun List<ColorToken>.darkTokens(): List<ColorToken> =
-        filter { it.isDark }
+    private fun List<ColorTokenResult.TokenData>.lightTokens() =
+        filter { it.isLight }
 
     private fun generateThemes() {
         val data = tokenData ?: return

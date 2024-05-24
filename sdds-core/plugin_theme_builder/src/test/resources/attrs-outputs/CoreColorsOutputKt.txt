@@ -29,8 +29,8 @@ public class ThemeColors(
 public val LocalColors: ProvidableCompositionLocal<ThemeColors> = staticCompositionLocalOf {
         lightThemeColors() }
 
-public fun lightThemeColors(): ThemeColors =
-        ThemeColors(LightColorTokens.TextPrimary, LightColorTokens.TextTertiary)
+public fun lightThemeColors(textPrimary: Color = LightColorTokens.TextPrimary, textTertiary: Color =
+        LightColorTokens.TextTertiary): ThemeColors = ThemeColors(textPrimary, textTertiary)
 
-public fun darkThemeColors(): ThemeColors =
-        ThemeColors(DarkColorTokens.TextPrimary, DarkColorTokens.TextTertiary)
+public fun darkThemeColors(textPrimary: Color = DarkColorTokens.TextPrimary, textTertiary: Color =
+        DarkColorTokens.TextTertiary): ThemeColors = ThemeColors(textPrimary, textTertiary)

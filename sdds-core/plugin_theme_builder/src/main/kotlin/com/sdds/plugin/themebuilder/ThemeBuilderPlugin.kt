@@ -168,7 +168,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
             gradientFile.set(gradientFileProvider)
             shapeFile.set(shapeFileProvider)
 
-            packageName.set(extension.ktPackage ?: "")
+            packageName.set(extension.ktPackage ?: DEFAULT_KT_PACKAGE)
             target.set(extension.target)
             resourcesPrefix.set(extension.resourcesPrefix ?: project.getDefaultResourcePrefix())
             parentThemeName.set(extension.parentThemeName)
@@ -208,6 +208,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
     }
 
     private companion object {
+        const val DEFAULT_KT_PACKAGE = "com.themebuilder.tokens"
         const val OUTPUT_RESOURCE_PATH = "build/generated/theme-builder-res"
         const val OUTPUT_PATH = "build/generated/theme-builder"
 

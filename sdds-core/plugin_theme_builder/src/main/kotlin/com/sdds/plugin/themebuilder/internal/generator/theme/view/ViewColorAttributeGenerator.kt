@@ -1,6 +1,7 @@
 package com.sdds.plugin.themebuilder.internal.generator.theme.view
 
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
+import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.attrsFile
 import com.sdds.plugin.themebuilder.internal.utils.withPrefixIfNeed
 import java.io.File
@@ -23,15 +24,15 @@ internal class ViewColorAttributeGenerator(
      *
      * @param colors список названий атрибутов
      */
-    fun generate(colors: List<String>) {
+    fun generate(colors: List<ColorTokenResult.TokenData>) {
         appendColors(colors)
         xmlDocumentBuilder.build(outputResDir.attrsFile("color"))
     }
 
-    private fun appendColors(colors: List<String>) {
+    private fun appendColors(colors: List<ColorTokenResult.TokenData>) {
         xmlDocumentBuilder.appendComment("Colors")
-        colors.forEach { attr ->
-            appendAttr(attr.toColorAttribute(attrPrefix))
+        colors.forEach { color ->
+            appendAttr(color.attrName.toXmlAttribute())
         }
     }
 
@@ -45,9 +46,9 @@ internal class ViewColorAttributeGenerator(
         )
     }
 
-    private fun String.toColorAttribute(prefix: String): XmlAttribute =
+    private fun String.toXmlAttribute(): XmlAttribute =
         XmlAttribute(
-            name = this.withPrefixIfNeed(prefix),
+            name = this.withPrefixIfNeed(attrPrefix),
             formats = listOf(
                 XmlAttribute.Format.REFERENCE,
                 XmlAttribute.Format.COLOR,
