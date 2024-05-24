@@ -10,6 +10,7 @@ internal class ViewThemeGeneratorFactory(
     private val xmlResourcesDocumentBuilderFactory: XmlResourcesDocumentBuilderFactory,
     private val outputResDir: File,
     private val parentThemeName: String,
+    private val themeName: String,
 ) {
 
     /**
@@ -20,5 +21,6 @@ internal class ViewThemeGeneratorFactory(
             xmlBuilderFactory = xmlResourcesDocumentBuilderFactory,
             outputResDir = outputResDir,
             parentThemeName = parentThemeName,
+            themeName = themeName,
         )
 }

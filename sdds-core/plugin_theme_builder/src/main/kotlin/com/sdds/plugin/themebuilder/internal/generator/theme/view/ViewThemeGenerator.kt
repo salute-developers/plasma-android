@@ -21,6 +21,7 @@ internal class ViewThemeGenerator(
     private val xmlBuilderFactory: XmlResourcesDocumentBuilderFactory,
     private val outputResDir: File,
     private val parentThemeName: String,
+    private val themeName: String,
 ) {
     private val lightThemeXmlFileBuilder by unsafeLazy {
         xmlBuilderFactory.create()
@@ -61,7 +62,7 @@ internal class ViewThemeGenerator(
 
     private fun XmlResourcesDocumentBuilder.addStyleWithAttrs(attrs: List<ViewThemeAttribute>) {
         appendStyle(
-            styleName = THEME_NAME,
+            styleName = themeName,
             styleParent = parentThemeName,
         ) {
             attrs.forEach { themeAttribute ->
@@ -77,9 +78,5 @@ internal class ViewThemeGenerator(
     private enum class ThemeMode(val qualifier: String) {
         LIGHT(""),
         DARK("night"),
-    }
-
-    private companion object {
-        const val THEME_NAME = "Theme"
     }
 }

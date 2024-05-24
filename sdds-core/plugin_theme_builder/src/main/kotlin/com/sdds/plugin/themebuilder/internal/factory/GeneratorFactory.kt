@@ -85,6 +85,7 @@ internal class GeneratorFactory(
             xmlResourcesDocumentBuilderFactory,
             outputResDir,
             parentThemeName,
+            themeName,
         )
     }
 
