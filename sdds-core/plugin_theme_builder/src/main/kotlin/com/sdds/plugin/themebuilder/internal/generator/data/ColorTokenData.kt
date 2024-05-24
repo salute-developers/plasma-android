@@ -9,6 +9,6 @@ import com.sdds.plugin.themebuilder.internal.token.ColorToken
  * @property viewTokens данные о токенах для View
  */
 internal data class ColorTokenData(
-    val composeTokens: Map<ColorToken, String>,
+    val composeTokens: List<ColorToken>,
     val viewTokens: Map<ColorToken, String>,
 )

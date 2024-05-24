@@ -44,7 +44,7 @@ internal class ColorTokenGenerator(
 
     private val colorPaletteRegex = Regex("\\[\\w+.\\w+.\\d{2,4}](\\[-?0.\\d{1,2}\\])?")
 
-    private val composeTokenDataCollector = mutableMapOf<ColorToken, String>()
+    private val composeTokenDataCollector = mutableListOf<ColorToken>()
     private val viewTokenDataCollector = mutableMapOf<ColorToken, String>()
 
     override fun collectResult() = ColorTokenData(
@@ -79,9 +79,6 @@ internal class ColorTokenGenerator(
         return true
     }
 
-    private fun ColorToken.toViewTokenRef(): String = resourceReferenceProvider.color(xmlName)
-    private fun ColorToken.toComposeTokenRef(): String = ktName
-
     /**
      * @see TokenGenerator.addComposeToken
      */
@@ -98,7 +95,9 @@ internal class ColorTokenGenerator(
         }
         val value = "Color(${colorToArgbHex(tokenValue)})"
         root.appendProperty(token.ktName, KtFileBuilder.TypeColor, value, token.description)
-        composeTokenDataCollector[token] = token.toComposeTokenRef()
+        composeTokenDataCollector.add(token)
         return true
     }
+
+    private fun ColorToken.toViewTokenRef(): String = resourceReferenceProvider.color(xmlName)
 }

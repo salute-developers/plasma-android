@@ -5,7 +5,7 @@ package com.sdds.plugin.themebuilder.internal.generator.theme.view
  * @param name имя атрибута
  * @param value значение атрибута
  */
-data class ViewThemeAttribute(
+internal data class ViewThemeAttribute(
     val name: String,
     val value: String,
 )

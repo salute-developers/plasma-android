@@ -72,13 +72,15 @@ internal class ThemeGenerator(
                 // Для генерации атрибутов нужен просто список цветов
                 // без признака светлой или темной темы.
                 // Поскольку список цветов для темной и светлой темы должен совпадать,
-                // в качестве источника берутся цвета для темной темы.
+                // в качестве источника берутся токены для темной темы.
                 .darkTokens()
                 .let { composeColorAttributeGenerator.generate(it.extractComposeAttrs()) }
         }
         if (target.isViewSystemOrAll) {
             data
                 .viewTokens
+                .keys
+                .toList()
                 .darkTokens()
                 .let { viewColorAttributeGenerator.generate(it.extractViewAttrs()) }
         }
@@ -90,10 +92,8 @@ internal class ThemeGenerator(
     private fun List<ColorToken>.extractViewAttrs(): List<String> =
         map { it.xmlNameWithoutDarkLightPrefix() }
 
-    private fun Map<ColorToken, String>.darkTokens(): List<ColorToken> =
-        keys
-            .toList()
-            .filter { it.isDark }
+    private fun List<ColorToken>.darkTokens(): List<ColorToken> =
+        filter { it.isDark }
 
     private fun generateThemes() {
         val data = tokenData ?: return
