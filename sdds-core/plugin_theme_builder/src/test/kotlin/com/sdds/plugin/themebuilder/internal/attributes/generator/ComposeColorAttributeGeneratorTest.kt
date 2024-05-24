@@ -1,6 +1,5 @@
 package com.sdds.plugin.themebuilder.internal.attributes.generator
 
-import com.sdds.plugin.themebuilder.internal.attributes.data.AttributeData
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeColorAttributeGenerator
@@ -40,14 +39,15 @@ class ComposeColorAttributeGeneratorTest {
         outputKt = ByteArrayOutputStream()
         ktFileBuilder = KtFileBuilder(
             packageName = "com.sdds.playground.themebuilder.tokens",
-            fileName = "CoreColors",
+            fileName = "ThemeColors",
         )
         mockKtFileBuilderFactory = mockk<KtFileBuilderFactory> {
-            every { create("CoreColors") } returns ktFileBuilder
+            every { create("ThemeColors") } returns ktFileBuilder
         }
         underTest = ComposeColorAttributeGenerator(
             ktFileBuilderFactory = mockKtFileBuilderFactory,
             outputLocation = KtFileBuilder.OutputLocation.Stream(outputKt),
+            themeName = "Theme",
         )
     }
 
@@ -63,10 +63,10 @@ class ComposeColorAttributeGeneratorTest {
 
     @Test
     fun `KtAttributeGenerator должен генерировать kotlin файлы с атрибутами цвета`() {
-        underTest.generate(AttributeData(colors = inputAttrs))
+        underTest.generate(inputAttrs)
 
         verify {
-            mockKtFileBuilderFactory.create("CoreColors")
+            mockKtFileBuilderFactory.create("ThemeColors")
         }
 
         Assert.assertEquals(

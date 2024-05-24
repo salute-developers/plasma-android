@@ -1,6 +1,5 @@
 package com.sdds.plugin.themebuilder.internal.attributes.generator
 
-import com.sdds.plugin.themebuilder.internal.attributes.data.AttributeData
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewColorAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider
@@ -12,6 +11,7 @@ import io.mockk.every
 import io.mockk.mockk
 import io.mockk.mockkObject
 import io.mockk.unmockkObject
+import io.mockk.verify
 import org.junit.After
 import org.junit.Assert
 import org.junit.Before
@@ -36,7 +36,7 @@ class ViewColorAttributeGeneratorTest {
             "thmbldr",
             XmlResourcesDocumentBuilder.DEFAULT_ROOT_ATTRIBUTES,
         )
-        underTest = ViewColorAttributeGenerator(xmlDocumentBuilder, mockOutputResDir)
+        underTest = ViewColorAttributeGenerator(xmlDocumentBuilder, mockOutputResDir, "thmbldr")
     }
 
     @After
@@ -46,13 +46,15 @@ class ViewColorAttributeGeneratorTest {
     }
 
     @Test
-    fun `XmlAttributeGenerator должен генерировать xml-файл с атрибутами`() {
+    fun `ViewColorAttributeGenerator должен генерировать xml-файл с атрибутами`() {
         val outputAttrsXml = ByteArrayOutputStream()
         val attrsXmlFile = mockk<File>(relaxed = true)
         every { attrsXmlFile.fileWriter() } returns outputAttrsXml.writer()
-        every { mockOutputResDir.attrsFile() } returns attrsXmlFile
+        every { mockOutputResDir.attrsFile("color") } returns attrsXmlFile
 
-        underTest.generate(AttributeData(colors = inputAttrs), "thmbldr")
+        underTest.generate(inputAttrs)
+
+        verify { mockOutputResDir.attrsFile("color") }
 
         Assert.assertEquals(
             getResourceAsText("attrs-outputs/attributes-output.xml"),

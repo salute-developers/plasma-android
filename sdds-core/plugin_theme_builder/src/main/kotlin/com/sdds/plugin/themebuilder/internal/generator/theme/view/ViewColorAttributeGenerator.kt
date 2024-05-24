@@ -24,14 +24,14 @@ internal class ViewColorAttributeGenerator(
      * @param colors список названий атрибутов
      */
     fun generate(colors: List<String>) {
-        appendColors(colors, attrPrefix)
+        appendColors(colors)
         xmlDocumentBuilder.build(outputResDir.attrsFile("color"))
     }
 
-    private fun appendColors(colors: List<String>, prefix: String) {
+    private fun appendColors(colors: List<String>) {
         xmlDocumentBuilder.appendComment("Colors")
         colors.forEach { attr ->
-            appendAttr(attr.toColorAttribute(prefix))
+            appendAttr(attr.toColorAttribute(attrPrefix))
         }
     }
 

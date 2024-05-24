@@ -2,10 +2,10 @@ package com.sdds.plugin.themebuilder.internal.generator.theme.view
 
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
+import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewThemeAttribute.Companion.attrNameFromTokenName
 import com.sdds.plugin.themebuilder.internal.token.ColorToken
 import com.sdds.plugin.themebuilder.internal.token.isDark
 import com.sdds.plugin.themebuilder.internal.token.isLight
-import com.sdds.plugin.themebuilder.internal.token.xmlNameWithoutDarkLightPrefix
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.themeXmlFile
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import java.io.File
@@ -30,11 +30,11 @@ internal class ViewThemeGenerator(
         xmlBuilderFactory.create()
     }
 
-    fun generate(colorAttrs: Map<ColorToken, String>) {
-        if (colorAttrs.isEmpty()) return
+    fun generate(colors: Map<ColorToken, String>) {
+        if (colors.isEmpty()) return
         with(darkThemeXmlFileBuilder) {
             addStyleWithAttrs(
-                attrs = colorAttrs
+                attrs = colors
                     .filter { it.key.isDark }
                     .toThemeAttrs(),
             )
@@ -43,7 +43,7 @@ internal class ViewThemeGenerator(
 
         with(lightThemeXmlFileBuilder) {
             addStyleWithAttrs(
-                attrs = colorAttrs
+                attrs = colors
                     .filter { it.key.isLight }
                     .toThemeAttrs(),
             )
@@ -53,7 +53,10 @@ internal class ViewThemeGenerator(
 
     private fun Map<ColorToken, String>.toThemeAttrs(): List<ViewThemeAttribute> =
         map { entry ->
-            ViewThemeAttribute(entry.key.xmlNameWithoutDarkLightPrefix(), entry.value)
+            ViewThemeAttribute(
+                name = attrNameFromTokenName(name = entry.key.name),
+                value = entry.value,
+            )
         }
 
     private fun XmlResourcesDocumentBuilder.addStyleWithAttrs(attrs: List<ViewThemeAttribute>) {

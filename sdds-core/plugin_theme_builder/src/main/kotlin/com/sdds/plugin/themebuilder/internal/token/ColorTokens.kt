@@ -1,6 +1,5 @@
 package com.sdds.plugin.themebuilder.internal.token
 
-import com.sdds.plugin.themebuilder.internal.utils.techToSnakeCase
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
@@ -40,16 +39,6 @@ internal data class ColorToken(
     override val ktName: String by unsafeLazy {
         colorKtName(name)
     }
-}
-
-/**
- * Возвращает название токена цвета без префиксов .dark и .light
- */
-internal fun ColorToken.xmlNameWithoutDarkLightPrefix(): String {
-    return this.name
-        .removePrefix("dark.")
-        .removePrefix("light.")
-        .techToSnakeCase()
 }
 
 internal fun colorKtName(name: String): String {

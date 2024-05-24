@@ -12,10 +12,10 @@ import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenData
 import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeColorAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeThemeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewColorAttributeGenerator
+import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewThemeAttribute.Companion.attrNameFromTokenName
 import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewThemeGenerator
 import com.sdds.plugin.themebuilder.internal.token.ColorToken
 import com.sdds.plugin.themebuilder.internal.token.isDark
-import com.sdds.plugin.themebuilder.internal.token.xmlNameWithoutDarkLightPrefix
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import java.util.Locale
 
@@ -74,7 +74,7 @@ internal class ThemeGenerator(
                 // Поскольку список цветов для темной и светлой темы должен совпадать,
                 // в качестве источника берутся токены для темной темы.
                 .darkTokens()
-                .let { composeColorAttributeGenerator.generate(it.extractComposeAttrs()) }
+                .let { composeColorAttributeGenerator.generate(it.getComposeAttrNames()) }
         }
         if (target.isViewSystemOrAll) {
             data
@@ -82,15 +82,15 @@ internal class ThemeGenerator(
                 .keys
                 .toList()
                 .darkTokens()
-                .let { viewColorAttributeGenerator.generate(it.extractViewAttrs()) }
+                .let { viewColorAttributeGenerator.generate(it.getViewAttrNames()) }
         }
     }
 
-    private fun List<ColorToken>.extractComposeAttrs(): List<String> =
+    private fun List<ColorToken>.getComposeAttrNames(): List<String> =
         map { it.ktName.decapitalize(Locale.getDefault()) }
 
-    private fun List<ColorToken>.extractViewAttrs(): List<String> =
-        map { it.xmlNameWithoutDarkLightPrefix() }
+    private fun List<ColorToken>.getViewAttrNames(): List<String> =
+        map { attrNameFromTokenName(it.name) }
 
     private fun List<ColorToken>.darkTokens(): List<ColorToken> =
         filter { it.isDark }
