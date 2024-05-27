@@ -6,27 +6,45 @@ import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget.Companion.isView
 import com.sdds.plugin.themebuilder.internal.token.Token
 
 /**
- * Базовый интерфейс генератора
+ * Базовый интерфейс генератора.
+ *
+ * @param Result тип результата генерации.
+ * Если возврат результата генерации не предпологается, можно использовать алиас интерфейса [SimpleBaseGenerator]
+ *
  * @author Малышев Александр on 07.03.2024
  */
-internal interface BaseGenerator {
+internal interface BaseGenerator<Result> {
 
     /**
-     * Генерирует выходные данные
+     * Генерирует выходные данные типа [Result]
      */
-    fun generate()
+    fun generate(): Result
 }
 
 /**
+ * Алиас для генераторов, которые не возвращают результат
+ */
+internal typealias SimpleBaseGenerator = BaseGenerator<Unit>
+
+/**
  * Интерфейс генератора токенов
+ *
+ * @param T тип токена
+ * @param Result тип результата генерации
+ *
  * @author Малышев Александр on 07.03.2024
  */
-internal abstract class TokenGenerator<T : Token>(
+internal abstract class TokenGenerator<T : Token, Result>(
     private val target: ThemeBuilderTarget,
-) : BaseGenerator {
+) : BaseGenerator<Result> {
 
     private var needGenerateCompose: Boolean = false
     private var needGenerateViewSystem: Boolean = false
+
+    /**
+     * Возвращает реультат [Result]
+     */
+    protected abstract fun collectResult(): Result
 
     /**
      * Добавляет [token] для генерации данных
@@ -50,7 +68,7 @@ internal abstract class TokenGenerator<T : Token>(
     /**
      * @see BaseGenerator.generate
      */
-    final override fun generate() {
+    final override fun generate(): Result {
         if (needGenerateViewSystem) {
             generateViewSystem()
         }
@@ -58,6 +76,7 @@ internal abstract class TokenGenerator<T : Token>(
         if (needGenerateCompose) {
             generateCompose()
         }
+        return collectResult()
     }
 
     /**

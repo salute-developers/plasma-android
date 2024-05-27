@@ -1,18 +1,18 @@
 package com.sdds.plugin.themebuilder.internal.attributes.generator
 
-import com.sdds.plugin.themebuilder.internal.attributes.data.AttributeData
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
+import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult
+import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewColorAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.attrsFile
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.fileWriter
 import com.sdds.plugin.themebuilder.internal.utils.getResourceAsText
-import com.squareup.kotlinpoet.PropertySpec
-import com.squareup.kotlinpoet.TypeSpec
 import io.mockk.clearAllMocks
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.mockkObject
 import io.mockk.unmockkObject
+import io.mockk.verify
 import org.junit.After
 import org.junit.Assert
 import org.junit.Before
@@ -21,47 +21,41 @@ import java.io.ByteArrayOutputStream
 import java.io.File
 
 /**
- * Unit-тесты [XmlAttributeGenerator]
+ * Unit-тесты [ViewColorAttributeGenerator]
  */
-class XmlAttributeGeneratorTest {
+class ViewColorAttributeGeneratorTest {
 
     private lateinit var mockOutputResDir: File
     private lateinit var xmlDocumentBuilder: XmlResourcesDocumentBuilder
-    private lateinit var underTest: XmlAttributeGenerator
+    private lateinit var underTest: ViewColorAttributeGenerator
 
     @Before
     fun before() {
-        mockkObject(
-            PropertySpec,
-            TypeSpec,
-            FileProvider,
-        )
+        mockkObject(FileProvider)
         mockOutputResDir = mockk(relaxed = true)
         xmlDocumentBuilder = XmlResourcesDocumentBuilder(
             "thmbldr",
             XmlResourcesDocumentBuilder.DEFAULT_ROOT_ATTRIBUTES,
         )
-        underTest = XmlAttributeGenerator(xmlDocumentBuilder, mockOutputResDir)
+        underTest = ViewColorAttributeGenerator(xmlDocumentBuilder, mockOutputResDir, "thmbldr")
     }
 
     @After
     fun after() {
         clearAllMocks()
-        unmockkObject(
-            PropertySpec,
-            TypeSpec,
-            FileProvider,
-        )
+        unmockkObject(FileProvider)
     }
 
     @Test
-    fun `XmlAttributeGenerator должен генерировать xml-файл с атрибутами`() {
+    fun `ViewColorAttributeGenerator должен генерировать xml-файл с атрибутами`() {
         val outputAttrsXml = ByteArrayOutputStream()
         val attrsXmlFile = mockk<File>(relaxed = true)
         every { attrsXmlFile.fileWriter() } returns outputAttrsXml.writer()
-        every { mockOutputResDir.attrsFile() } returns attrsXmlFile
+        every { mockOutputResDir.attrsFile("color") } returns attrsXmlFile
 
-        underTest.generate(AttributeData(colors = inputAttrs), "thmbldr")
+        underTest.generate(inputAttrs)
+
+        verify { mockOutputResDir.attrsFile("color") }
 
         Assert.assertEquals(
             getResourceAsText("attrs-outputs/attributes-output.xml"),
@@ -70,6 +64,9 @@ class XmlAttributeGeneratorTest {
     }
 
     private companion object {
-        val inputAttrs = listOf("textPrimary", "textTertiary")
+        val inputAttrs = listOf(
+            ColorTokenResult.TokenData("textPrimary", "@color/thmbldr_light_text_primary", true),
+            ColorTokenResult.TokenData("textTertiary", "@color/thmbldr_light_text_tertiary", true),
+        )
     }
 }

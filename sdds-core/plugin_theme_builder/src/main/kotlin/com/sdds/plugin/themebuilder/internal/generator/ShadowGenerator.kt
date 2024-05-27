@@ -29,11 +29,13 @@ internal class ShadowGenerator(
     private val xmlBuilderFactory: XmlResourcesDocumentBuilderFactory,
     private val ktFileBuilderFactory: KtFileBuilderFactory,
     private val shadowTokenValues: Map<String, ShadowTokenValue>,
-) : TokenGenerator<ShadowToken>(target) {
+) : TokenGenerator<ShadowToken, String>(target) {
 
     private val xmlDocumentBuilder by unsafeLazy { xmlBuilderFactory.create(DEFAULT_ROOT_ATTRIBUTES) }
     private val ktFileBuilder by unsafeLazy { ktFileBuilderFactory.create("ShadowTokens") }
     private val rootShadows by unsafeLazy { ktFileBuilder.rootObject("ShadowTokens") }
+
+    override fun collectResult() = ""
 
     /**
      * @see TokenGenerator.generateViewSystem

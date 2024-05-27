@@ -37,13 +37,15 @@ internal class FontGenerator(
     namespace: String,
     private val resPrefix: String,
     private val fontTokenValues: Map<String, FontTokenValue>,
-) : TokenGenerator<FontToken>(target) {
+) : TokenGenerator<FontToken, String>(target) {
 
     private val rFileImport = ClassName(namespace, "R")
     private val fontFamilyXmlBuilders = mutableMapOf<String, XmlFontFamilyDocumentBuilder>()
     private val ktFileBuilder by unsafeLazy { ktFileBuilderFactory.create("FontTokens") }
     private val ktFileRootObjectBuilder by unsafeLazy { ktFileBuilder.rootObject("FontTokens") }
     private val fontDownloader by unsafeLazy { fontDownloaderFactory.create() }
+
+    override fun collectResult() = ""
 
     override fun generateViewSystem() {
         super.generateViewSystem()

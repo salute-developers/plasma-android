@@ -36,12 +36,13 @@ internal class GradientGenerator(
     private val xmlBuilderFactory: XmlResourcesDocumentBuilderFactory,
     private val ktFileBuilderFactory: KtFileBuilderFactory,
     private val gradientTokenValues: Map<String, List<GradientTokenValue>>,
-) : TokenGenerator<GradientToken>(target) {
+) : TokenGenerator<GradientToken, String>(target) {
 
     private val xmlDocumentBuilder by unsafeLazy { xmlBuilderFactory.create(DEFAULT_ROOT_ATTRIBUTES) }
     private val ktFileBuilder by unsafeLazy { ktFileBuilderFactory.create("GradientTokens") }
     private val lightBuilder by unsafeLazy { ktFileBuilder.rootObject("LightGradientTokens") }
     private val darkBuilder by unsafeLazy { ktFileBuilder.rootObject("DarkGradientTokens") }
+    override fun collectResult() = ""
 
     /**
      * @see TokenGenerator.generateViewSystem

@@ -3,7 +3,7 @@ package com.sdds.plugin.themebuilder.internal.factory
 import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.OutputLocation
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
-import com.sdds.plugin.themebuilder.internal.generator.ColorGenerator
+import com.sdds.plugin.themebuilder.internal.generator.ColorTokenGenerator
 import com.sdds.plugin.themebuilder.internal.generator.DimenGenerator
 import com.sdds.plugin.themebuilder.internal.generator.FontGenerator
 import com.sdds.plugin.themebuilder.internal.generator.GradientGenerator
@@ -17,12 +17,14 @@ import com.sdds.plugin.themebuilder.internal.token.ShadowTokenValue
 import com.sdds.plugin.themebuilder.internal.token.ShapeTokenValue
 import com.sdds.plugin.themebuilder.internal.token.TypographyTokenValue
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
+import org.gradle.api.file.DirectoryProperty
 import java.io.File
 
 /**
  * Фабрика генераторов
- * @param outputDir директория для сохранения kt-файла с токенами
- * @param outputResDir директория для сохранения xml-файла с токенами
+ * @param outputDirPath путь для сохранения kt-файлов
+ * @param outputResDirPath путь для сохранения xml-файлов
+ * @param projectDir директория проекта
  * @param target целевой фреймворк
  * @param dimensAggregator агрегатор размеров
  * @param xmlResourcesDocumentBuilderFactory фабрика делегата построения xml файлов ресурсов
@@ -32,11 +34,15 @@ import java.io.File
  * @param resourceReferenceProvider провайдер ссылок на ресурсы
  * @param namespace пакет проекта
  * @param resPrefix префикс для ресурсов
+ * @param parentThemeName названий родительской xml-темы
+ * @param themeName название генерируемой темы
+ *
  * @author Малышев Александр on 12.03.2024
  */
 internal class GeneratorFactory(
-    private val outputDir: File,
-    private val outputResDir: File,
+    private val outputDirPath: String,
+    private val outputResDirPath: String,
+    private val projectDir: DirectoryProperty,
     private val target: ThemeBuilderTarget,
     private val dimensAggregator: DimensAggregator,
     private val xmlResourcesDocumentBuilderFactory: XmlResourcesDocumentBuilderFactory,
@@ -47,38 +53,74 @@ internal class GeneratorFactory(
     private val namespace: String,
     private val resPrefix: String,
     private val parentThemeName: String,
+    private val themeName: String,
 ) {
+
+    private val outputDir: File by lazy {
+        projectDir.get().dir(outputDirPath).asFile
+    }
+
+    private val outputResDir: File by lazy {
+        projectDir.get().dir(outputResDirPath).asFile
+    }
+
+    private val composeColorAttributeGeneratorFactory by lazy {
+        ComposeColorAttributeGeneratorFactory(
+            ktFileBuilderFactory = ktFileBuilderFactory,
+            outputLocation = OutputLocation.Directory(outputDir),
+            themeName = themeName,
+        )
+    }
+
+    private val viewColorAttributeGeneratorFactory by lazy {
+        ViewColorAttributeGeneratorFactory(
+            xmlDocumentBuilderFactory = xmlResourcesDocumentBuilderFactory,
+            outputResDir = outputResDir,
+            attrPrefix = resPrefix,
+        )
+    }
+
+    private val viewThemeGeneratorFactory: ViewThemeGeneratorFactory by lazy {
+        ViewThemeGeneratorFactory(
+            xmlResourcesDocumentBuilderFactory,
+            outputResDir,
+            parentThemeName,
+            themeName,
+        )
+    }
+
+    private val composeThemeGeneratorFactory: ComposeThemeGeneratorFactory by lazy {
+        ComposeThemeGeneratorFactory()
+    }
 
     /**
      * Создает генератор темы [ThemeGenerator]
      */
     fun createThemeGenerator(): ThemeGenerator = ThemeGenerator(
-        xmlBuilderFactory = xmlResourcesDocumentBuilderFactory,
-        resourceReferenceProvider = resourceReferenceProvider,
+        viewThemeGeneratorFactory = viewThemeGeneratorFactory,
+        composeThemeGeneratorFactory = composeThemeGeneratorFactory,
+        viewColorAttributeGeneratorFactory = viewColorAttributeGeneratorFactory,
+        composeColorAttributeGeneratorFactory = composeColorAttributeGeneratorFactory,
         target = target,
-        outputResDir = outputResDir,
-        parentThemeName = parentThemeName,
     )
 
     /**
-     * Создает генератор цветов [ColorGenerator]
+     * Создает генератор токенов цвета [ColorTokenGenerator]
      *
      * @param colors словарь значений токенов цвета
-     * @param themeGenerator генератор темы
-     * @return [ColorGenerator] генератор токенов цвета
+     * @return [ColorTokenGenerator] генератор токенов цвета
      */
     fun createColorGenerator(
         colors: Map<String, String>,
-        themeGenerator: ThemeGenerator,
-    ): ColorGenerator {
-        return ColorGenerator(
+    ): ColorTokenGenerator {
+        return ColorTokenGenerator(
             outputLocation = OutputLocation.Directory(outputDir),
             outputResDir = outputResDir,
             target = target,
             xmlBuilderFactory = xmlResourcesDocumentBuilderFactory,
             ktFileBuilderFactory = ktFileBuilderFactory,
             colorTokenValues = colors,
-            themeGenerator = themeGenerator,
+            resourceReferenceProvider = resourceReferenceProvider,
         )
     }
 

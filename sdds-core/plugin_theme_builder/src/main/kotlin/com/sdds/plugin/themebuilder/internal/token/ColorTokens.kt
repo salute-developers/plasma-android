@@ -1,9 +1,12 @@
 package com.sdds.plugin.themebuilder.internal.token
 
+import com.sdds.plugin.themebuilder.internal.utils.techToSnakeCase
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import org.gradle.configurationcache.extensions.capitalized
+import org.gradle.kotlin.dsl.provideDelegate
+import java.util.Locale
 
 /**
  * Контракт токенов цвета
@@ -38,13 +41,6 @@ internal data class ColorToken(
     override val ktName: String by unsafeLazy {
         colorKtName(name)
     }
-
-    /**
-     * Значение токена цвета
-     * @property origin значение цвета
-     */
-    @Serializable
-    internal data class Value(val origin: String) : TokenValue
 }
 
 internal fun colorKtName(name: String): String {
@@ -52,6 +48,18 @@ internal fun colorKtName(name: String): String {
     return nameTokens.subList(1, nameTokens.size)
         .joinToString("") { it.capitalized() }
 }
+
+/**
+ * Название xml атрибута
+ */
+internal fun ColorToken.attrName() =
+    name
+        .removePrefix("dark.")
+        .removePrefix("light.")
+        .techToSnakeCase()
+        .split('_')
+        .joinToString(separator = "") { it.capitalized() }
+        .decapitalize(Locale.getDefault())
 
 /**
  * Предназначен ли токен для светлой темы

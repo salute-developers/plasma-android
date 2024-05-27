@@ -39,10 +39,16 @@ import org.gradle.api.tasks.TaskAction
 abstract class GenerateThemeTask : DefaultTask() {
 
     /**
+     * Название темы
+     */
+    @get:Input
+    abstract val themeName: Property<String>
+
+    /**
      * Путь до json-файла с темой
      */
     @get:InputFile
-    abstract val baseFile: RegularFileProperty
+    abstract val metaFile: RegularFileProperty
 
     /**
      * Путь до json-файла с цветами
@@ -111,22 +117,29 @@ abstract class GenerateThemeTask : DefaultTask() {
     abstract val target: Property<ThemeBuilderTarget>
 
     /**
-     * Директория для сохранения kt-файлов токенов
+     * Директория проекта
      */
     @get:OutputDirectory
-    abstract val outputDir: DirectoryProperty
+    abstract val projectDir: DirectoryProperty
 
     /**
-     * Директория для сохранения xml-файлов токенов
+     * Путь для сохранения kt-файлов токенов
+     */
+    @get:Input
+    abstract val outputDirPath: Property<String>
+
+    /**
+     * Путь для сохранения xml-файлов токенов
      */
     @get:OutputDirectory
-    abstract val outputResDir: DirectoryProperty
+    abstract val outputResDirPath: Property<String>
 
     private val dimensAggregator by unsafeLazy { DimensAggregator() }
     private val generatorFactory by unsafeLazy {
         GeneratorFactory(
-            outputDir = outputDir.get().asFile,
-            outputResDir = outputResDir.get().asFile,
+            outputDirPath = outputDirPath.get(),
+            outputResDirPath = outputResDirPath.get(),
+            projectDir = projectDir,
             target = target.get(),
             dimensAggregator = dimensAggregator,
             xmlResourcesDocumentBuilderFactory = XmlResourcesDocumentBuilderFactory(resourcesPrefix.get()),
@@ -137,12 +150,13 @@ abstract class GenerateThemeTask : DefaultTask() {
             namespace = namespace.get(),
             resPrefix = resourcesPrefix.get(),
             parentThemeName = parentThemeName.get(),
+            themeName = themeName.get(),
         )
     }
 
     private val themeGenerator by unsafeLazy { generatorFactory.createThemeGenerator() }
     private val colorGenerator by unsafeLazy {
-        generatorFactory.createColorGenerator(colors, themeGenerator)
+        generatorFactory.createColorGenerator(colors)
     }
     private val gradientGenerator by unsafeLazy { generatorFactory.createGradientGenerator(gradients) }
     private val fontGenerator by unsafeLazy { generatorFactory.createFontGenerator(fonts) }
@@ -176,7 +190,7 @@ abstract class GenerateThemeTask : DefaultTask() {
     }
 
     private fun generateAll() {
-        colorGenerator.generate()
+        colorGenerator.generate().also(themeGenerator::setColorTokenData)
         gradientGenerator.generate()
         typographyGenerator.generate()
         shapesGenerator.generate()
@@ -188,7 +202,7 @@ abstract class GenerateThemeTask : DefaultTask() {
     }
 
     private fun decodeBase(): Theme =
-        baseFile.get().asFile.decode<Theme>(Serializer.meta).also { logger.debug("decoded base $it") }
+        metaFile.get().asFile.decode<Theme>(Serializer.meta).also { logger.debug("decoded base $it") }
 
     private val colors: Map<String, String> by unsafeLazy {
         colorFile.get().asFile.decode<Map<String, String>>()

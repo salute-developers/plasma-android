@@ -1,12 +1,11 @@
-package com.sdds.plugin.themebuilder.internal.generator
+package com.sdds.plugin.themebuilder.internal.generator.theme
 
-import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
-import com.sdds.plugin.themebuilder.internal.generator.theme.ThemeGenerator
+import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult
+import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewThemeGenerator
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.fileWriter
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.themeXmlFile
-import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 import com.sdds.plugin.themebuilder.internal.utils.getResourceAsText
 import com.squareup.kotlinpoet.PropertySpec
 import com.squareup.kotlinpoet.TypeSpec
@@ -16,20 +15,19 @@ import io.mockk.mockk
 import io.mockk.mockkObject
 import io.mockk.unmockkObject
 import org.junit.After
-import org.junit.Assert.assertEquals
+import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
 import java.io.ByteArrayOutputStream
 import java.io.File
 
 /**
- * Unit тесты [ThemeGenerator]
+ * Unit-тесты [ViewThemeGenerator]
  */
-class ThemeGeneratorTest {
+class ViewThemeGeneratorTest {
 
     private lateinit var mockOutputResDir: File
-    private lateinit var underTest: ThemeGenerator
-    private lateinit var resourceReferenceProvider: ResourceReferenceProvider
+    private lateinit var underTest: ViewThemeGenerator
 
     @Before
     fun before() {
@@ -39,14 +37,12 @@ class ThemeGeneratorTest {
             FileProvider,
         )
         mockOutputResDir = mockk(relaxed = true)
-        resourceReferenceProvider = ResourceReferenceProvider("thmbldr")
 
-        underTest = ThemeGenerator(
+        underTest = ViewThemeGenerator(
             xmlBuilderFactory = XmlResourcesDocumentBuilderFactory("thmbldr"),
-            resourceReferenceProvider = resourceReferenceProvider,
-            target = ThemeBuilderTarget.ALL,
             outputResDir = mockOutputResDir,
             parentThemeName = "Sdds.Theme",
+            themeName = "Theme",
         )
     }
 
@@ -61,7 +57,7 @@ class ThemeGeneratorTest {
     }
 
     @Test
-    fun `ThemeGenerator добавляет атрибуты и генерирует тему`() {
+    fun `ViewThemeGenerator генерирует тему`() {
         val lightOutputXml = ByteArrayOutputStream()
         val darkOutputXml = ByteArrayOutputStream()
 
@@ -74,25 +70,30 @@ class ThemeGeneratorTest {
         every { mockOutputResDir.themeXmlFile() } returns themeLightXmlFile
         every { mockOutputResDir.themeXmlFile("night") } returns themeDarkXmlFile
 
-        underTest.addXmlColorAttribute(
-            "textPrimary",
-            "light_text_primary",
-            ThemeGenerator.ThemeMode.LIGHT,
-        )
-        underTest.addXmlColorAttribute(
-            "textPrimary",
-            "dark_text_primary",
-            ThemeGenerator.ThemeMode.DARK,
-        )
-        underTest.generate()
+        underTest.generate(attrs)
 
-        assertEquals(
+        Assert.assertEquals(
             getResourceAsText("theme-outputs/test-theme-output.xml"),
             lightOutputXml.toString(),
         )
-        assertEquals(
+        Assert.assertEquals(
             getResourceAsText("theme-outputs/test-dark-theme-output.xml"),
             darkOutputXml.toString(),
+        )
+    }
+
+    private companion object {
+        val attrs = listOf(
+            ColorTokenResult.TokenData(
+                attrName = "textPrimary",
+                tokenRefName = "@color/thmbldr_dark_text_primary",
+                false,
+            ),
+            ColorTokenResult.TokenData(
+                attrName = "textPrimary",
+                tokenRefName = "@color/thmbldr_light_text_primary",
+                true,
+            ),
         )
     }
 }

@@ -10,6 +10,7 @@ import com.sdds.plugin.themebuilder.internal.token.ColorToken
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.colorsXmlFile
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.fileWriter
+import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 import com.sdds.plugin.themebuilder.internal.utils.getResourceAsText
 import com.squareup.kotlinpoet.PropertySpec
 import com.squareup.kotlinpoet.TypeSpec
@@ -18,7 +19,6 @@ import io.mockk.every
 import io.mockk.mockk
 import io.mockk.mockkObject
 import io.mockk.unmockkObject
-import io.mockk.verify
 import kotlinx.serialization.decodeFromString
 import org.junit.After
 import org.junit.Assert.assertEquals
@@ -28,14 +28,14 @@ import java.io.ByteArrayOutputStream
 import java.io.File
 
 /**
- * Unit тесты [ColorGenerator]
+ * Unit тесты [ColorTokenGenerator]
  * @author Малышев Александр on 13.03.2024
  */
-class ColorGeneratorTest {
+class ColorTokenGeneratorTest {
 
     private lateinit var outputKt: ByteArrayOutputStream
     private lateinit var mockOutputResDir: File
-    private lateinit var underTest: ColorGenerator
+    private lateinit var underTest: ColorTokenGenerator
     private lateinit var mockThemeGenerator: ThemeGenerator
 
     @Before
@@ -48,14 +48,14 @@ class ColorGeneratorTest {
         outputKt = ByteArrayOutputStream()
         mockOutputResDir = mockk(relaxed = true)
         mockThemeGenerator = mockk(relaxed = true)
-        underTest = ColorGenerator(
+        underTest = ColorTokenGenerator(
             outputLocation = KtFileBuilder.OutputLocation.Stream(outputKt),
             outputResDir = mockOutputResDir,
             target = ThemeBuilderTarget.ALL,
             xmlBuilderFactory = XmlResourcesDocumentBuilderFactory("thmbldr"),
             ktFileBuilderFactory = KtFileBuilderFactory("com.test"),
             colorTokenValues = colorTokenValues,
-            themeGenerator = mockThemeGenerator,
+            resourceReferenceProvider = ResourceReferenceProvider("thmbldr"),
         )
     }
 
@@ -80,14 +80,6 @@ class ColorGeneratorTest {
 
         underTest.addToken(colorToken)
         underTest.generate()
-
-        verify {
-            mockThemeGenerator.addXmlColorAttribute(
-                "onLightSurfaceTransparentAccent",
-                "dark_on_light_surface_transparent_accent",
-                ThemeGenerator.ThemeMode.DARK,
-            )
-        }
 
         assertEquals(getResourceAsText("color-outputs/test-color-output.xml"), outputXml.toString())
         assertEquals(getResourceAsText("color-outputs/TestColorOutputKt.txt"), outputKt.toString())

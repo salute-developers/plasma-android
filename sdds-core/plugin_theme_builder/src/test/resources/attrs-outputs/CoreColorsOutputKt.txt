@@ -1,0 +1,48 @@
+package com.sdds.playground.themebuilder.tokens
+
+import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.ProvidableCompositionLocal
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
+import androidx.compose.runtime.staticCompositionLocalOf
+import androidx.compose.runtime.structuralEqualityPolicy
+import androidx.compose.ui.graphics.Color
+import com.sdds.playground.themebuilder.tokens.ThemeColors
+
+/**
+ * Цвета Theme
+ */
+@Immutable
+public class ThemeColors(
+    textPrimary: Color,
+    textTertiary: Color,
+) {
+    public var textPrimary: Color by mutableStateOf(textPrimary, structuralEqualityPolicy())
+
+    public var textTertiary: Color by mutableStateOf(textTertiary, structuralEqualityPolicy())
+
+    /**
+     * Возвращает копию [ThemeColors]
+     */
+    public fun copy(textPrimary: Color = this.textPrimary, textTertiary: Color = this.textTertiary):
+            ThemeColors = ThemeColors(textPrimary, textTertiary)
+
+    public override fun toString() =
+            "${this::class.simpleName}(textPrimary=$textPrimary, textTertiary=$textTertiary)"
+}
+
+public val LocalColors: ProvidableCompositionLocal<ThemeColors> = staticCompositionLocalOf {
+        lightThemeColors() }
+
+/**
+ * Цвета [ThemeColors] для светлой темы
+ */
+public fun lightThemeColors(textPrimary: Color = LightColorTokens.TextPrimary, textTertiary: Color =
+        LightColorTokens.TextTertiary): ThemeColors = ThemeColors(textPrimary, textTertiary)
+
+/**
+ * Цвета [ThemeColors] для темной темы
+ */
+public fun darkThemeColors(textPrimary: Color = DarkColorTokens.TextPrimary, textTertiary: Color =
+        DarkColorTokens.TextTertiary): ThemeColors = ThemeColors(textPrimary, textTertiary)
