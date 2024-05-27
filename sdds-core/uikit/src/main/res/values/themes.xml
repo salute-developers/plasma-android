@@ -43,15 +43,6 @@
         <item name="sdds_typographyTextSB">@style/Sdds.Typography.Text.S.Bold</item>
         <item name="sdds_typographyTextXSN">@style/Sdds.Typography.Text.XS.Normal</item>
         <item name="sdds_typographyTextXSB">@style/Sdds.Typography.Text.XS.Bold</item>
-
-        <!-- Shape -->
-        <item name="sdds_shapeRoundXXS">@style/Sdds.Shape.Round.XXS</item>
-        <item name="sdds_shapeRoundXS">@style/Sdds.Shape.Round.XS</item>
-        <item name="sdds_shapeRoundS">@style/Sdds.Shape.Round.S</item>
-        <item name="sdds_shapeRoundM">@style/Sdds.Shape.Round.M</item>
-        <item name="sdds_shapeRoundL">@style/Sdds.Shape.Round.L</item>
-        <item name="sdds_shapeRoundXL">@style/Sdds.Shape.Round.XL</item>
-        <item name="sdds_shapeRoundXXL">@style/Sdds.Shape.Round.XXL</item>
     </style>
 
     <!-- Базовая светлая тема -->

@@ -5,15 +5,15 @@
         <item name="cornerFamily">rounded</item>
     </style>
     <!--Форма со скругленными углами размером XS-->
-    <style name="Thmbldr.Shape.Xs">
+    <style name="Thmbldr.Shape.Round.Xs">
         <item name="cornerSize">@dimen/thmbldr_round_xs_corner_size</item>
     </style>
     <!--Форма со скругленными углами размером S-->
-    <style name="Thmbldr.Shape.S">
+    <style name="Thmbldr.Shape.Round.S">
         <item name="cornerSize">@dimen/thmbldr_round_s_corner_size</item>
     </style>
     <!--Форма со скругленными углами размером L-->
-    <style name="Thmbldr.Shape.L">
+    <style name="Thmbldr.Shape.Round.L">
         <item name="cornerSize">@dimen/thmbldr_round_l_corner_size</item>
     </style>
 </resources>

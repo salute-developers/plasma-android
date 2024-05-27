@@ -64,7 +64,8 @@ class ComposeColorAttributeGeneratorTest {
 
     @Test
     fun `KtAttributeGenerator должен генерировать kotlin файлы с атрибутами цвета`() {
-        underTest.generate(inputAttrs)
+        underTest.setColorTokenData(inputAttrs)
+        underTest.generate()
 
         verify {
             mockKtFileBuilderFactory.create("ThemeColors")

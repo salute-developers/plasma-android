@@ -1,8 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.attributes.generator
 
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
-import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult
-import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewColorAttributeGenerator
+import com.sdds.plugin.themebuilder.internal.generator.data.ShapeTokenResult
+import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewShapeAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.attrsFile
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.fileWriter
@@ -21,13 +21,13 @@ import java.io.ByteArrayOutputStream
 import java.io.File
 
 /**
- * Unit-тесты [ViewColorAttributeGenerator]
+ * Unit-тесты [ViewShapeAttributeGenerator]
  */
-class ViewColorAttributeGeneratorTest {
+class ViewShapeAttributeGeneratorTest {
 
     private lateinit var mockOutputResDir: File
     private lateinit var xmlDocumentBuilder: XmlResourcesDocumentBuilder
-    private lateinit var underTest: ViewColorAttributeGenerator
+    private lateinit var underTest: ViewShapeAttributeGenerator
 
     @Before
     fun before() {
@@ -37,7 +37,7 @@ class ViewColorAttributeGeneratorTest {
             "thmbldr",
             XmlResourcesDocumentBuilder.DEFAULT_ROOT_ATTRIBUTES,
         )
-        underTest = ViewColorAttributeGenerator(xmlDocumentBuilder, mockOutputResDir, "thmbldr")
+        underTest = ViewShapeAttributeGenerator(xmlDocumentBuilder, mockOutputResDir, "thmbldr")
     }
 
     @After
@@ -47,27 +47,33 @@ class ViewColorAttributeGeneratorTest {
     }
 
     @Test
-    fun `ViewColorAttributeGenerator должен генерировать xml-файл с атрибутами`() {
+    fun `ViewShapeAttributeGenerator должен генерировать xml-файл с атрибутами`() {
         val outputAttrsXml = ByteArrayOutputStream()
         val attrsXmlFile = mockk<File>(relaxed = true)
         every { attrsXmlFile.fileWriter() } returns outputAttrsXml.writer()
-        every { mockOutputResDir.attrsFile("color") } returns attrsXmlFile
+        every { mockOutputResDir.attrsFile("shape") } returns attrsXmlFile
 
-        underTest.setColorTokenData(inputAttrs)
+        underTest.setShapeTokenData(shapeAttrs)
         underTest.generate()
 
-        verify { mockOutputResDir.attrsFile("color") }
+        verify { mockOutputResDir.attrsFile("shape") }
 
         Assert.assertEquals(
-            getResourceAsText("attrs-outputs/color-attributes-output.xml"),
+            getResourceAsText("attrs-outputs/shape-attributes-output.xml"),
             outputAttrsXml.toString(),
         )
     }
 
     private companion object {
-        val inputAttrs = listOf(
-            ColorTokenResult.TokenData("textPrimary", "@color/thmbldr_light_text_primary", true),
-            ColorTokenResult.TokenData("textTertiary", "@color/thmbldr_light_text_tertiary", true),
+        val shapeAttrs = listOf(
+            ShapeTokenResult.TokenData(
+                attrName = "shapeRoundXs",
+                tokenRefName = "@style/Thmbldr.Shape.Round.Xs",
+            ),
+            ShapeTokenResult.TokenData(
+                attrName = "shapeRoundXxs",
+                tokenRefName = "@style/Thmbldr.Shape.Round.Xxs",
+            ),
         )
     }
 }

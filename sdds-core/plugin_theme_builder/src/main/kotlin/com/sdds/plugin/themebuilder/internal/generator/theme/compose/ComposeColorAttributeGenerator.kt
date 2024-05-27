@@ -3,6 +3,7 @@ package com.sdds.plugin.themebuilder.internal.generator.theme.compose
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Modifier
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
+import com.sdds.plugin.themebuilder.internal.generator.SimpleBaseGenerator
 import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 
@@ -18,7 +19,9 @@ internal class ComposeColorAttributeGenerator(
     private val ktFileBuilderFactory: KtFileBuilderFactory,
     private val outputLocation: KtFileBuilder.OutputLocation,
     private val themeName: String,
-) {
+) : SimpleBaseGenerator {
+
+    private val colors = mutableListOf<ColorTokenResult.TokenData>()
 
     private val colorKtFileBuilder by unsafeLazy {
         ktFileBuilderFactory.create(colorClassName)
@@ -26,13 +29,13 @@ internal class ComposeColorAttributeGenerator(
 
     private val colorClassName = "${themeName}Colors"
 
-    /**
-     * Генерирует compose-атрибуты
-     *
-     * @param colors список названий атрибутов цвета в формате camel-case с маленькой буквы
-     */
-    fun generate(colors: List<ColorTokenResult.TokenData>) {
+    override fun generate() {
         generateColors(colors)
+    }
+
+    fun setColorTokenData(colors: List<ColorTokenResult.TokenData>) {
+        this.colors.clear()
+        this.colors.addAll(colors)
     }
 
     private fun generateColors(colors: List<ColorTokenResult.TokenData>) {

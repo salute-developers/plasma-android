@@ -2,9 +2,12 @@ package com.sdds.plugin.themebuilder.internal.generator.theme.view
 
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
+import com.sdds.plugin.themebuilder.internal.generator.SimpleBaseGenerator
 import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult
+import com.sdds.plugin.themebuilder.internal.generator.data.ShapeTokenResult
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.themeXmlFile
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
+import org.w3c.dom.Element
 import java.io.File
 
 /**
@@ -19,7 +22,11 @@ internal class ViewThemeGenerator(
     private val outputResDir: File,
     private val parentThemeName: String,
     private val themeName: String,
-) {
+) : SimpleBaseGenerator {
+
+    private val colors = mutableListOf<ColorTokenResult.TokenData>()
+    private val shapes = mutableListOf<ShapeTokenResult.TokenData>()
+
     private val lightThemeXmlFileBuilder by unsafeLazy {
         xmlBuilderFactory.create()
     }
@@ -28,28 +35,53 @@ internal class ViewThemeGenerator(
         xmlBuilderFactory.create()
     }
 
-    fun generate(colors: List<ColorTokenResult.TokenData>) {
-        if (colors.isEmpty()) return
+    internal fun setColorTokenData(data: List<ColorTokenResult.TokenData>) {
+        colors.clear()
+        colors.addAll(data)
+    }
+
+    internal fun setShapeTokenData(data: List<ShapeTokenResult.TokenData>) {
+        shapes.clear()
+        shapes.addAll(data)
+    }
+
+    override fun generate() {
         with(darkThemeXmlFileBuilder) {
             addStyleWithAttrs(
-                attrs = colors
-                    .filter { !it.isLight }
-                    .toThemeAttrs(),
+                {
+                    if (colors.isNotEmpty()) appendComment("Dark colors")
+                    appendAttrs(
+                        colors
+                            .filter { !it.isLight }
+                            .colorsToThemeAttrs(),
+                        this,
+                    )
+                },
             )
             build(outputResDir.themeXmlFile(ThemeMode.DARK.qualifier))
         }
 
         with(lightThemeXmlFileBuilder) {
             addStyleWithAttrs(
-                attrs = colors
-                    .filter { it.isLight }
-                    .toThemeAttrs(),
+                {
+                    if (colors.isNotEmpty()) appendComment("Light colors")
+                    appendAttrs(
+                        attrs = colors
+                            .filter { it.isLight }
+                            .colorsToThemeAttrs(),
+                        toElement = this,
+                    )
+                },
+                {
+                    if (shapes.isNotEmpty()) appendComment("Shapes")
+                    appendAttrs(shapes.shapesToThemeAttrs(), this)
+                },
             )
             build(outputResDir.themeXmlFile(ThemeMode.LIGHT.qualifier))
         }
     }
 
-    private fun List<ColorTokenResult.TokenData>.toThemeAttrs(): List<ViewThemeAttribute> =
+    private fun List<ColorTokenResult.TokenData>.colorsToThemeAttrs(): List<ViewThemeAttribute> =
         map { entry ->
             ViewThemeAttribute(
                 name = entry.attrName,
@@ -57,17 +89,34 @@ internal class ViewThemeGenerator(
             )
         }
 
-    private fun XmlResourcesDocumentBuilder.addStyleWithAttrs(attrs: List<ViewThemeAttribute>) {
+    private fun List<ShapeTokenResult.TokenData>.shapesToThemeAttrs(): List<ViewThemeAttribute> =
+        map { entry ->
+            ViewThemeAttribute(
+                name = entry.attrName,
+                value = entry.tokenRefName,
+            )
+        }
+
+    private fun XmlResourcesDocumentBuilder.appendAttrs(
+        attrs: List<ViewThemeAttribute>,
+        toElement: Element,
+    ) {
+        attrs.forEach {
+            toElement.appendElement(
+                elementName = XmlResourcesDocumentBuilder.ElementName.ITEM,
+                tokenName = it.name,
+                value = it.value,
+            )
+        }
+    }
+
+    private fun XmlResourcesDocumentBuilder.addStyleWithAttrs(vararg attrBlocks: Element.() -> Unit) {
         appendStyle(
             styleName = themeName,
             styleParent = parentThemeName,
         ) {
-            attrs.forEach { themeAttribute ->
-                appendElement(
-                    elementName = XmlResourcesDocumentBuilder.ElementName.ITEM,
-                    tokenName = themeAttribute.name,
-                    value = themeAttribute.value,
-                )
+            attrBlocks.forEach { attrBlock ->
+                attrBlock.invoke(this@appendStyle)
             }
         }
     }
