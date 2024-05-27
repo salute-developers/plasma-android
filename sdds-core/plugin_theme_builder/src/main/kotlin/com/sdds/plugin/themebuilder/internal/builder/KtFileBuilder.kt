@@ -51,11 +51,13 @@ internal class KtFileBuilder(
         annotation: ClassName? = null,
         constructorParams: List<FunParameter>? = null,
         superType: TypeName? = null,
+        description: String? = null,
     ) = TypeSpec.classBuilder(name).apply {
         annotation?.let(::addAnnotation)
         modifiers?.toKModifiers()?.let(::addModifiers)
         val constructor = addPrimaryConstructor(constructorParams)
         superType?.let { constructor.superclass(it) }
+        description?.let(::addKdoc)
         rootTypeBuilders.add(this)
     }
 
@@ -105,8 +107,16 @@ internal class KtFileBuilder(
         modifiers: List<Modifier>? = null,
         body: List<String>? = null,
         returnType: TypeName? = null,
+        description: String? = null,
     ) {
-        appendFun(name, params, modifiers, body, returnType)
+        appendFun(
+            name = name,
+            params = params,
+            modifiers = modifiers,
+            body = body,
+            returnType = returnType,
+            description = description,
+        )
             .also(rootFunBuilders::add)
     }
 
@@ -173,7 +183,16 @@ internal class KtFileBuilder(
         modifiers: List<Modifier>? = null,
         body: List<String>? = null,
         returnType: TypeName? = null,
-    ) = appendFun(name, params, modifiers, body, returnType, rootObject = this)
+        description: String? = null,
+    ) = appendFun(
+        name = name,
+        params = params,
+        modifiers = modifiers,
+        body = body,
+        returnType = returnType,
+        description = description,
+        rootObject = this,
+    )
 
     /**
      * Добавляет импорт класса [className]
@@ -246,6 +265,7 @@ internal class KtFileBuilder(
         modifiers: List<Modifier>? = null,
         body: List<String>? = null,
         returnType: TypeName? = null,
+        description: String? = null,
         rootObject: TypeSpec.Builder? = null,
     ): FunSpec.Builder {
         return FunSpec.builder(name).apply {
@@ -255,6 +275,7 @@ internal class KtFileBuilder(
             }
             body?.forEach(::addCode)
             returnType?.let(::returns)
+            description?.let(::addKdoc)
             rootObject?.addFunction(this.build())
         }
     }

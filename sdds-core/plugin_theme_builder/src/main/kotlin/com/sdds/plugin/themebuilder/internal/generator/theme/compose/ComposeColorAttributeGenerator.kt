@@ -58,6 +58,7 @@ internal class ComposeColorAttributeGenerator(
                     )
                 },
                 annotation = KtFileBuilder.TypeAnnotationImmutable,
+                description = "Цвета $themeName",
             )
 
             colors.forEach { color ->
@@ -84,6 +85,7 @@ internal class ComposeColorAttributeGenerator(
                         colors.joinToString(separator = ",·") { it.attrName }
                     })",
                 ),
+                description = "Возвращает копию [$colorClassName]",
             )
 
             rootColorsClass.appendFun(
@@ -118,6 +120,7 @@ internal class ComposeColorAttributeGenerator(
                     ) { it.attrName }
                 })",
             ),
+            description = "Цвета [$colorClassName] для светлой темы",
         )
     }
 
@@ -139,6 +142,7 @@ internal class ComposeColorAttributeGenerator(
                     ) { it.attrName }
                 })",
             ),
+            description = "Цвета [$colorClassName] для темной темы",
         )
     }
 

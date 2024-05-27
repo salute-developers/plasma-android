@@ -10,6 +10,9 @@ import androidx.compose.runtime.structuralEqualityPolicy
 import androidx.compose.ui.graphics.Color
 import com.sdds.playground.themebuilder.tokens.ThemeColors
 
+/**
+ * Цвета Theme
+ */
 @Immutable
 public class ThemeColors(
     textPrimary: Color,
@@ -19,6 +22,9 @@ public class ThemeColors(
 
     public var textTertiary: Color by mutableStateOf(textTertiary, structuralEqualityPolicy())
 
+    /**
+     * Возвращает копию [ThemeColors]
+     */
     public fun copy(textPrimary: Color = this.textPrimary, textTertiary: Color = this.textTertiary):
             ThemeColors = ThemeColors(textPrimary, textTertiary)
 
@@ -29,8 +35,14 @@ public class ThemeColors(
 public val LocalColors: ProvidableCompositionLocal<ThemeColors> = staticCompositionLocalOf {
         lightThemeColors() }
 
+/**
+ * Цвета [ThemeColors] для светлой темы
+ */
 public fun lightThemeColors(textPrimary: Color = LightColorTokens.TextPrimary, textTertiary: Color =
         LightColorTokens.TextTertiary): ThemeColors = ThemeColors(textPrimary, textTertiary)
 
+/**
+ * Цвета [ThemeColors] для темной темы
+ */
 public fun darkThemeColors(textPrimary: Color = DarkColorTokens.TextPrimary, textTertiary: Color =
         DarkColorTokens.TextTertiary): ThemeColors = ThemeColors(textPrimary, textTertiary)
