@@ -71,7 +71,9 @@ class ViewThemeGeneratorTest {
         every { mockOutputResDir.themeXmlFile() } returns themeLightXmlFile
         every { mockOutputResDir.themeXmlFile("night") } returns themeDarkXmlFile
 
-        underTest.generate(colorAttrs, shapeAttrs)
+        underTest.setShapeTokenData(shapeAttrs)
+        underTest.setColorTokenData(colorAttrs)
+        underTest.generate()
 
         Assert.assertEquals(
             getResourceAsText("theme-outputs/test-theme-output.xml"),

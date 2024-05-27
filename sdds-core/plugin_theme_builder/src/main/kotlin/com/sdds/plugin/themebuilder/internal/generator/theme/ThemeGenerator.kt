@@ -46,9 +46,6 @@ internal class ThemeGenerator(
         viewShapeAttributeGeneratorFactory.create()
     }
 
-    private var colorTokenData: ColorTokenResult? = null
-    private var shapeTokenData: ShapeTokenResult? = null
-
     /**
      * Устанавливает данные о токенах цвета
      *
@@ -56,7 +53,13 @@ internal class ThemeGenerator(
      * @see [ColorTokenResult]
      */
     fun setColorTokenData(colorTokenResult: ColorTokenResult) {
-        colorTokenData = colorTokenResult
+        if (target.isComposeOrAll) {
+            composeColorAttributeGenerator.setColorTokenData(colorTokenResult.composeTokens.lightTokens())
+        }
+        if (target.isViewSystemOrAll) {
+            viewColorAttributeGenerator.setColorTokenData(colorTokenResult.viewTokens.lightTokens())
+            viewThemeGenerator.setColorTokenData(colorTokenResult.viewTokens)
+        }
     }
 
     /**
@@ -66,65 +69,24 @@ internal class ThemeGenerator(
      * @see [ShapeTokenResult]
      */
     fun setShapeTokenData(shapeTokenResult: ShapeTokenResult) {
-        shapeTokenData = shapeTokenResult
+        if (target.isViewSystemOrAll) {
+            viewShapeAttributeGenerator.setShapeTokenData(shapeTokenResult.viewTokens)
+            viewThemeGenerator.setShapeTokenData(shapeTokenResult.viewTokens)
+        }
     }
 
     override fun generate() {
-        if (!tokenDataIsValid()) return
-        generateColorAttributes()
-        generateShapeAttributes()
-        generateThemes()
-    }
-
-    private fun tokenDataIsValid(): Boolean {
-        return colorTokenData.isValid() && shapeTokenData.isValid()
-    }
-
-    private fun ColorTokenResult?.isValid() =
-        this != null && composeTokens.isNotEmpty() && viewTokens.isNotEmpty()
-
-    private fun ShapeTokenResult?.isValid() =
-        this != null && composeTokens.isNotEmpty() && viewTokens.isNotEmpty()
-
-    private fun generateColorAttributes() {
-        val data = colorTokenData ?: return
         if (target.isComposeOrAll) {
-            data
-                .composeTokens
-                // Для генерации атрибутов нужен просто список цветов
-                // без признака светлой или темной темы.
-                // Поскольку список цветов для темной и светлой темы должен совпадать,
-                // в качестве источника берутся токены для светлой темы.
-                .lightTokens()
-                .let(composeColorAttributeGenerator::generate)
+            composeColorAttributeGenerator.generate()
+            composeThemeGenerator.generate()
         }
         if (target.isViewSystemOrAll) {
-            data
-                .viewTokens
-                .lightTokens()
-                .let(viewColorAttributeGenerator::generate)
-        }
-    }
-
-    private fun generateShapeAttributes() {
-        val data = shapeTokenData ?: return
-        if (target.isViewSystemOrAll) {
-            data
-                .viewTokens
-                .let(viewShapeAttributeGenerator::generate)
+            viewColorAttributeGenerator.generate()
+            viewShapeAttributeGenerator.generate()
+            viewThemeGenerator.generate()
         }
     }
 
     private fun List<ColorTokenResult.TokenData>.lightTokens() =
         filter { it.isLight }
-
-    private fun generateThemes() {
-        if (target.isComposeOrAll) composeThemeGenerator.generate()
-        if (target.isViewSystemOrAll) {
-            viewThemeGenerator.generate(
-                colors = colorTokenData?.viewTokens.orEmpty(),
-                shapes = shapeTokenData?.viewTokens.orEmpty(),
-            )
-        }
-    }
 }

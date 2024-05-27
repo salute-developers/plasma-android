@@ -1,6 +1,7 @@
 package com.sdds.plugin.themebuilder.internal.generator.theme.view
 
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
+import com.sdds.plugin.themebuilder.internal.generator.SimpleBaseGenerator
 import com.sdds.plugin.themebuilder.internal.generator.data.ShapeTokenResult
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.attrsFile
 import com.sdds.plugin.themebuilder.internal.utils.withPrefixIfNeed
@@ -17,14 +18,16 @@ internal class ViewShapeAttributeGenerator(
     private val xmlDocumentBuilder: XmlResourcesDocumentBuilder,
     private val outputResDir: File,
     private val attrPrefix: String,
-) {
+) : SimpleBaseGenerator {
 
-    /**
-     * Генерирует xml-атрибуты форм
-     *
-     * @param shapes список названий атрибутов
-     */
-    fun generate(shapes: List<ShapeTokenResult.TokenData>) {
+    private val shapes = mutableListOf<ShapeTokenResult.TokenData>()
+
+    fun setShapeTokenData(data: List<ShapeTokenResult.TokenData>) {
+        shapes.clear()
+        shapes.addAll(data)
+    }
+
+    override fun generate() {
         appendShapes(shapes)
         xmlDocumentBuilder.build(outputResDir.attrsFile("shape"))
     }

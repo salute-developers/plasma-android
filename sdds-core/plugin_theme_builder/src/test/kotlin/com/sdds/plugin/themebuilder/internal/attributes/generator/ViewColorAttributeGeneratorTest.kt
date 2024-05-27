@@ -53,7 +53,8 @@ class ViewColorAttributeGeneratorTest {
         every { attrsXmlFile.fileWriter() } returns outputAttrsXml.writer()
         every { mockOutputResDir.attrsFile("color") } returns attrsXmlFile
 
-        underTest.generate(inputAttrs)
+        underTest.setColorTokenData(inputAttrs)
+        underTest.generate()
 
         verify { mockOutputResDir.attrsFile("color") }
 

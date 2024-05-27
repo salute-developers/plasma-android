@@ -53,7 +53,8 @@ class ViewShapeAttributeGeneratorTest {
         every { attrsXmlFile.fileWriter() } returns outputAttrsXml.writer()
         every { mockOutputResDir.attrsFile("shape") } returns attrsXmlFile
 
-        underTest.generate(shapeAttrs)
+        underTest.setShapeTokenData(shapeAttrs)
+        underTest.generate()
 
         verify { mockOutputResDir.attrsFile("shape") }
 

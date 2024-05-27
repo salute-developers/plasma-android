@@ -2,6 +2,7 @@ package com.sdds.plugin.themebuilder.internal.generator.theme.view
 
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
+import com.sdds.plugin.themebuilder.internal.generator.SimpleBaseGenerator
 import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.ShapeTokenResult
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.themeXmlFile
@@ -21,7 +22,11 @@ internal class ViewThemeGenerator(
     private val outputResDir: File,
     private val parentThemeName: String,
     private val themeName: String,
-) {
+) : SimpleBaseGenerator {
+
+    private val colors = mutableListOf<ColorTokenResult.TokenData>()
+    private val shapes = mutableListOf<ShapeTokenResult.TokenData>()
+
     private val lightThemeXmlFileBuilder by unsafeLazy {
         xmlBuilderFactory.create()
     }
@@ -30,10 +35,17 @@ internal class ViewThemeGenerator(
         xmlBuilderFactory.create()
     }
 
-    fun generate(
-        colors: List<ColorTokenResult.TokenData>,
-        shapes: List<ShapeTokenResult.TokenData>,
-    ) {
+    internal fun setColorTokenData(data: List<ColorTokenResult.TokenData>) {
+        colors.clear()
+        colors.addAll(data)
+    }
+
+    internal fun setShapeTokenData(data: List<ShapeTokenResult.TokenData>) {
+        shapes.clear()
+        shapes.addAll(data)
+    }
+
+    override fun generate() {
         with(darkThemeXmlFileBuilder) {
             addStyleWithAttrs(
                 {

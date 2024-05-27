@@ -1,6 +1,7 @@
 package com.sdds.plugin.themebuilder.internal.generator.theme.view
 
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
+import com.sdds.plugin.themebuilder.internal.generator.SimpleBaseGenerator
 import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.attrsFile
 import com.sdds.plugin.themebuilder.internal.utils.withPrefixIfNeed
@@ -17,14 +18,16 @@ internal class ViewColorAttributeGenerator(
     private val xmlDocumentBuilder: XmlResourcesDocumentBuilder,
     private val outputResDir: File,
     private val attrPrefix: String,
-) {
+) : SimpleBaseGenerator {
 
-    /**
-     * Генерирует xml-атрибуты цвета
-     *
-     * @param colors список названий атрибутов
-     */
-    fun generate(colors: List<ColorTokenResult.TokenData>) {
+    private val colors = mutableListOf<ColorTokenResult.TokenData>()
+
+    fun setColorTokenData(data: List<ColorTokenResult.TokenData>) {
+        colors.clear()
+        colors.addAll(data)
+    }
+
+    override fun generate() {
         appendColors(colors)
         xmlDocumentBuilder.build(outputResDir.attrsFile("color"))
     }
