@@ -6,12 +6,15 @@ import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget.Companion.isView
 import com.sdds.plugin.themebuilder.internal.factory.ComposeColorAttributeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ComposeThemeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ViewColorAttributeGeneratorFactory
+import com.sdds.plugin.themebuilder.internal.factory.ViewShapeAttributeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ViewThemeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.generator.SimpleBaseGenerator
 import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult
+import com.sdds.plugin.themebuilder.internal.generator.data.ShapeTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeColorAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeThemeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewColorAttributeGenerator
+import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewShapeAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewThemeGenerator
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 
@@ -23,6 +26,7 @@ internal class ThemeGenerator(
     private val viewThemeGeneratorFactory: ViewThemeGeneratorFactory,
     private val composeColorAttributeGeneratorFactory: ComposeColorAttributeGeneratorFactory,
     private val viewColorAttributeGeneratorFactory: ViewColorAttributeGeneratorFactory,
+    private val viewShapeAttributeGeneratorFactory: ViewShapeAttributeGeneratorFactory,
     private val target: ThemeBuilderTarget,
 ) : SimpleBaseGenerator {
 
@@ -38,8 +42,12 @@ internal class ThemeGenerator(
     private val viewColorAttributeGenerator: ViewColorAttributeGenerator by unsafeLazy {
         viewColorAttributeGeneratorFactory.create()
     }
+    private val viewShapeAttributeGenerator: ViewShapeAttributeGenerator by unsafeLazy {
+        viewShapeAttributeGeneratorFactory.create()
+    }
 
-    private var tokenData: ColorTokenResult? = null
+    private var colorTokenData: ColorTokenResult? = null
+    private var shapeTokenData: ShapeTokenResult? = null
 
     /**
      * Устанавливает данные о токенах цвета
@@ -48,20 +56,38 @@ internal class ThemeGenerator(
      * @see [ColorTokenResult]
      */
     fun setColorTokenData(colorTokenResult: ColorTokenResult) {
-        tokenData = colorTokenResult
+        colorTokenData = colorTokenResult
+    }
+
+    /**
+     * Устанавливает данные о токенах форм
+     *
+     * @param shapeTokenResult данные о токенах форм
+     * @see [ShapeTokenResult]
+     */
+    fun setShapeTokenData(shapeTokenResult: ShapeTokenResult) {
+        shapeTokenData = shapeTokenResult
     }
 
     override fun generate() {
-        if (!tokenData.isValid()) return
+        if (!tokenDataIsValid()) return
         generateColorAttributes()
+        generateShapeAttributes()
         generateThemes()
+    }
+
+    private fun tokenDataIsValid(): Boolean {
+        return colorTokenData.isValid() && shapeTokenData.isValid()
     }
 
     private fun ColorTokenResult?.isValid() =
         this != null && composeTokens.isNotEmpty() && viewTokens.isNotEmpty()
 
+    private fun ShapeTokenResult?.isValid() =
+        this != null && composeTokens.isNotEmpty() && viewTokens.isNotEmpty()
+
     private fun generateColorAttributes() {
-        val data = tokenData ?: return
+        val data = colorTokenData ?: return
         if (target.isComposeOrAll) {
             data
                 .composeTokens
@@ -80,12 +106,25 @@ internal class ThemeGenerator(
         }
     }
 
+    private fun generateShapeAttributes() {
+        val data = shapeTokenData ?: return
+        if (target.isViewSystemOrAll) {
+            data
+                .viewTokens
+                .let(viewShapeAttributeGenerator::generate)
+        }
+    }
+
     private fun List<ColorTokenResult.TokenData>.lightTokens() =
         filter { it.isLight }
 
     private fun generateThemes() {
-        val data = tokenData ?: return
         if (target.isComposeOrAll) composeThemeGenerator.generate()
-        if (target.isViewSystemOrAll) data.viewTokens.let { viewThemeGenerator.generate(it) }
+        if (target.isViewSystemOrAll) {
+            viewThemeGenerator.generate(
+                colors = colorTokenData?.viewTokens.orEmpty(),
+                shapes = shapeTokenData?.viewTokens.orEmpty(),
+            )
+        }
     }
 }

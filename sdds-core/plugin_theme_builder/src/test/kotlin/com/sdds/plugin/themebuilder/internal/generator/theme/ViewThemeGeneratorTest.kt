@@ -2,6 +2,7 @@ package com.sdds.plugin.themebuilder.internal.generator.theme
 
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult
+import com.sdds.plugin.themebuilder.internal.generator.data.ShapeTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewThemeGenerator
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.fileWriter
@@ -70,7 +71,7 @@ class ViewThemeGeneratorTest {
         every { mockOutputResDir.themeXmlFile() } returns themeLightXmlFile
         every { mockOutputResDir.themeXmlFile("night") } returns themeDarkXmlFile
 
-        underTest.generate(attrs)
+        underTest.generate(colorAttrs, shapeAttrs)
 
         Assert.assertEquals(
             getResourceAsText("theme-outputs/test-theme-output.xml"),
@@ -83,7 +84,7 @@ class ViewThemeGeneratorTest {
     }
 
     private companion object {
-        val attrs = listOf(
+        val colorAttrs = listOf(
             ColorTokenResult.TokenData(
                 attrName = "textPrimary",
                 tokenRefName = "@color/thmbldr_dark_text_primary",
@@ -93,6 +94,17 @@ class ViewThemeGeneratorTest {
                 attrName = "textPrimary",
                 tokenRefName = "@color/thmbldr_light_text_primary",
                 true,
+            ),
+        )
+
+        val shapeAttrs = listOf(
+            ShapeTokenResult.TokenData(
+                attrName = "shapeRoundXs",
+                tokenRefName = "@style/Thmbldr.Shape.Round.Xs",
+            ),
+            ShapeTokenResult.TokenData(
+                attrName = "shapeRoundXxs",
+                tokenRefName = "@style/Thmbldr.Shape.Round.Xxs",
             ),
         )
     }

@@ -8,9 +8,11 @@ import com.sdds.plugin.themebuilder.internal.dimens.DimenData
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
+import com.sdds.plugin.themebuilder.internal.generator.data.ShapeTokenResult
 import com.sdds.plugin.themebuilder.internal.token.RoundedShapeTokenValue
 import com.sdds.plugin.themebuilder.internal.token.ShapeToken
 import com.sdds.plugin.themebuilder.internal.token.ShapeTokenValue
+import com.sdds.plugin.themebuilder.internal.token.attrName
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.shapesXmlFile
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 import com.sdds.plugin.themebuilder.internal.utils.techToSnakeCase
@@ -37,14 +39,22 @@ internal class ShapeGenerator(
     private val dimensAggregator: DimensAggregator,
     private val resourceReferenceProvider: ResourceReferenceProvider,
     private val shapeTokenValues: Map<String, ShapeTokenValue>,
-) : TokenGenerator<ShapeToken, String>(target) {
+) : TokenGenerator<ShapeToken, ShapeTokenResult>(target) {
 
     private val xmlDocumentBuilder by unsafeLazy { xmlBuilderFactory.create(DEFAULT_ROOT_ATTRIBUTES) }
     private val ktFileBuilder by unsafeLazy { ktFileBuilderFactory.create("ShapeTokens") }
     private val rootRoundShapes by unsafeLazy { ktFileBuilder.rootObject("RoundShapeTokens") }
     private var needCreateStyle: Boolean = true
 
-    override fun collectResult() = ""
+    private val composeTokenDataCollector =
+        mutableListOf<ShapeTokenResult.TokenData>()
+    private val viewTokenDataCollector =
+        mutableListOf<ShapeTokenResult.TokenData>()
+
+    override fun collectResult() = ShapeTokenResult(
+        composeTokens = composeTokenDataCollector,
+        viewTokens = viewTokenDataCollector,
+    )
 
     /**
      * @see TokenGenerator.generateViewSystem
@@ -84,7 +94,8 @@ internal class ShapeGenerator(
             }
         }
         appendComment(token.description)
-        appendStyle("Shape.${token.xmlName}") {
+        val styleName = "Shape.${token.xmlName}"
+        appendStyle(styleName) {
             appendElement(
                 ElementName.ITEM,
                 "cornerSize",
@@ -92,6 +103,12 @@ internal class ShapeGenerator(
                 usePrefix = false,
             )
         }
+        viewTokenDataCollector.add(
+            ShapeTokenResult.TokenData(
+                attrName = token.attrName(),
+                tokenRefName = resourceReferenceProvider.style(styleName),
+            ),
+        )
         return@with true
     }
 

@@ -1,12 +1,12 @@
 package com.sdds.plugin.themebuilder.internal.generator.data
 
 /**
- * Данные о токенах цвета.
+ * Данные о токенах формы.
  *
  * @property composeTokens данные о токенах для Compose
  * @property viewTokens данные о токенах для View
  */
-internal data class ColorTokenResult(
+internal data class ShapeTokenResult(
     val composeTokens: List<TokenData>,
     val viewTokens: List<TokenData>,
 ) {
@@ -16,11 +16,9 @@ internal data class ColorTokenResult(
      *
      * @property attrName название атрибута токена
      * @property tokenRefName ссылка на сгенерированный токен цвета
-     * @property isLight принадлежность к светлой/темной теме
      */
     internal data class TokenData(
         val attrName: String,
         val tokenRefName: String,
-        val isLight: Boolean,
     )
 }

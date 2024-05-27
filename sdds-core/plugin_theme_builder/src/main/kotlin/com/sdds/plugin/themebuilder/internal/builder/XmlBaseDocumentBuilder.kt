@@ -70,11 +70,18 @@ internal abstract class XmlBaseDocumentBuilder {
     }
 
     /**
+     * Добавляет комментарий [comment] в элемент
+     */
+    fun Element.appendComment(comment: String) {
+        this@appendComment.appendChild(document.createComment(comment))
+    }
+
+    /**
      * Добавляет комментарий [comment] в документ
      */
     fun appendComment(comment: String?) {
         comment?.let {
-            rootContent.appendChild(document.createComment(it))
+            rootContent.appendComment(it)
         }
     }
 

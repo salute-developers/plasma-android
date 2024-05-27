@@ -80,6 +80,14 @@ internal class GeneratorFactory(
         )
     }
 
+    private val viewShapeAttributeGeneratorFactory by lazy {
+        ViewShapeAttributeGeneratorFactory(
+            xmlDocumentBuilderFactory = xmlResourcesDocumentBuilderFactory,
+            outputResDir = outputResDir,
+            attrPrefix = resPrefix,
+        )
+    }
+
     private val viewThemeGeneratorFactory: ViewThemeGeneratorFactory by lazy {
         ViewThemeGeneratorFactory(
             xmlResourcesDocumentBuilderFactory,
@@ -101,6 +109,7 @@ internal class GeneratorFactory(
         composeThemeGeneratorFactory = composeThemeGeneratorFactory,
         viewColorAttributeGeneratorFactory = viewColorAttributeGeneratorFactory,
         composeColorAttributeGeneratorFactory = composeColorAttributeGeneratorFactory,
+        viewShapeAttributeGeneratorFactory = viewShapeAttributeGeneratorFactory,
         target = target,
     )
 
