@@ -25,14 +25,14 @@ internal class ViewShapeAttributeGenerator(
      * @param shapes список названий атрибутов
      */
     fun generate(shapes: List<ShapeTokenResult.TokenData>) {
-        appendColors(shapes)
+        appendShapes(shapes)
         xmlDocumentBuilder.build(outputResDir.attrsFile("shape"))
     }
 
-    private fun appendColors(colors: List<ShapeTokenResult.TokenData>) {
+    private fun appendShapes(shapes: List<ShapeTokenResult.TokenData>) {
         xmlDocumentBuilder.appendComment("Shapes")
-        colors.forEach { color ->
-            appendAttr(color.attrName.toXmlAttribute())
+        shapes.forEach { shape ->
+            appendAttr(shape.attrName.toXmlAttribute())
         }
     }
 
