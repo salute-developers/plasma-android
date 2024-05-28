@@ -31,15 +31,6 @@ internal class ComposeColorAttributeGenerator(
     private val colorClassName = "${themeName}Colors"
 
     override fun generate() {
-        generateColors(colors)
-    }
-
-    fun setColorTokenData(colors: List<ColorTokenResult.TokenData>) {
-        this.colors.clear()
-        this.colors.addAll(colors)
-    }
-
-    private fun generateColors(colors: List<ColorTokenResult.TokenData>) {
         if (colors.isEmpty()) return
 
         addImports()
@@ -49,6 +40,11 @@ internal class ComposeColorAttributeGenerator(
         addDarkColorsFun(colors)
 
         colorKtFileBuilder.build(outputLocation)
+    }
+
+    fun setColorTokenData(colors: List<ColorTokenResult.TokenData>) {
+        this.colors.clear()
+        this.colors.addAll(colors)
     }
 
     private fun addColorsClass(colors: List<ColorTokenResult.TokenData>) {

@@ -35,10 +35,6 @@ internal class ComposeShapeAttributeGenerator(
     }
 
     override fun generate() {
-        generateShapes(shapes)
-    }
-
-    private fun generateShapes(shapes: List<ShapeTokenResult.TokenData>) {
         if (shapes.isEmpty()) return
 
         addImports()
