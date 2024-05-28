@@ -80,6 +80,7 @@ internal class KtFileBuilder(
         typeName: ClassName,
         parameterizedType: ClassName? = null,
         initializer: String? = null,
+        modifiers: List<Modifier>? = null,
     ) {
         val type = if (parameterizedType != null) {
             typeName.parameterizedBy(parameterizedType)
@@ -88,6 +89,7 @@ internal class KtFileBuilder(
         }
         PropertySpec.builder(name, type).apply {
             initializer?.let(::initializer)
+            modifiers?.toKModifiers()?.let(::addModifiers)
             rootPropBuilders.add(this)
         }
     }
@@ -224,12 +226,19 @@ internal class KtFileBuilder(
     internal fun getInternalClassType(className: String, classPackage: String = packageName) =
         ClassName(classPackage, listOf(className)).also(::addImport)
 
-    private fun TypeSpec.Builder.addPrimaryConstructor(params: List<FunParameter>? = null) =
-        primaryConstructor(
+    private fun TypeSpec.Builder.addPrimaryConstructor(params: List<FunParameter>? = null): TypeSpec.Builder {
+        val constructorSpec = primaryConstructor(
             FunSpec.constructorBuilder().apply {
                 params?.let { addParameters(it.toParameterSpecs()) }
             }.build(),
         )
+        val properties = params?.filter { it.asProperty }
+        return if (properties.isNullOrEmpty()) {
+            constructorSpec
+        } else {
+            constructorSpec.addProperties(properties.toPrimaryConstructorProperties())
+        }
+    }
 
     private fun appendProperty(
         name: String,
@@ -300,6 +309,7 @@ internal class KtFileBuilder(
                 Modifier.ABSTRACT -> KModifier.ABSTRACT
                 Modifier.OVERRIDE -> KModifier.OVERRIDE
                 Modifier.PRIVATE -> KModifier.PRIVATE
+                Modifier.DATA -> KModifier.DATA
             }
         }
 
@@ -314,9 +324,17 @@ internal class KtFileBuilder(
     private fun List<FunParameter>.toParameterSpecs(): List<ParameterSpec> =
         map { it.toParameterSpec() }
 
+    private fun List<FunParameter>.toPrimaryConstructorProperties(): List<PropertySpec> =
+        map { it.toPrimaryConstructorProperty() }
+
     private fun FunParameter.toParameterSpec() =
         ParameterSpec.builder(name = name, type = type).apply {
-            defValue?.let { defaultValue(it) }
+            defValue?.let(::defaultValue)
+        }.build()
+
+    private fun FunParameter.toPrimaryConstructorProperty() =
+        PropertySpec.builder(name = name, type = type).apply {
+            initializer(name)
         }.build()
 
     /**
@@ -327,6 +345,7 @@ internal class KtFileBuilder(
         PRIVATE,
         INTERNAL,
         OVERRIDE,
+        DATA,
     }
 
     /**
@@ -336,6 +355,7 @@ internal class KtFileBuilder(
         val name: String,
         val type: ClassName,
         val defValue: String? = null,
+        val asProperty: Boolean = false,
     )
 
     /**
@@ -370,6 +390,8 @@ internal class KtFileBuilder(
         val TypeListOfColors = List::class.asClassName().parameterizedBy(TypeColor)
         val TypeRoundRectShape =
             ClassName("androidx.compose.foundation.shape", listOf("RoundedCornerShape"))
+        val TypeCornerBasedShape =
+            ClassName("androidx.compose.foundation.shape", listOf("CornerBasedShape"))
         val TypeCornerSize = ClassName("androidx.compose.foundation.shape", listOf("CornerSize"))
         val TypeAnnotationImmutable = ClassName("androidx.compose.runtime", listOf("Immutable"))
         val TypeProvidableCompositionLocal =

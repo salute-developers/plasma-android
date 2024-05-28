@@ -17,6 +17,7 @@ import com.sdds.plugin.themebuilder.internal.token.ShadowTokenValue
 import com.sdds.plugin.themebuilder.internal.token.ShapeTokenValue
 import com.sdds.plugin.themebuilder.internal.token.TypographyTokenValue
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
+import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import org.gradle.api.file.DirectoryProperty
 import java.io.File
 
@@ -56,15 +57,15 @@ internal class GeneratorFactory(
     private val themeName: String,
 ) {
 
-    private val outputDir: File by lazy {
+    private val outputDir: File by unsafeLazy {
         projectDir.get().dir(outputDirPath).asFile
     }
 
-    private val outputResDir: File by lazy {
+    private val outputResDir: File by unsafeLazy {
         projectDir.get().dir(outputResDirPath).asFile
     }
 
-    private val composeColorAttributeGeneratorFactory by lazy {
+    private val composeColorAttributeGeneratorFactory by unsafeLazy {
         ComposeColorAttributeGeneratorFactory(
             ktFileBuilderFactory = ktFileBuilderFactory,
             outputLocation = OutputLocation.Directory(outputDir),
@@ -72,7 +73,7 @@ internal class GeneratorFactory(
         )
     }
 
-    private val viewColorAttributeGeneratorFactory by lazy {
+    private val viewColorAttributeGeneratorFactory by unsafeLazy {
         ViewColorAttributeGeneratorFactory(
             xmlDocumentBuilderFactory = xmlResourcesDocumentBuilderFactory,
             outputResDir = outputResDir,
@@ -80,7 +81,7 @@ internal class GeneratorFactory(
         )
     }
 
-    private val viewShapeAttributeGeneratorFactory by lazy {
+    private val viewShapeAttributeGeneratorFactory by unsafeLazy {
         ViewShapeAttributeGeneratorFactory(
             xmlDocumentBuilderFactory = xmlResourcesDocumentBuilderFactory,
             outputResDir = outputResDir,
@@ -88,7 +89,15 @@ internal class GeneratorFactory(
         )
     }
 
-    private val viewThemeGeneratorFactory: ViewThemeGeneratorFactory by lazy {
+    private val composeShapeAttributeGeneratorFactory by unsafeLazy {
+        ComposeShapeAttributeGeneratorFactory(
+            ktFileBuilderFactory = ktFileBuilderFactory,
+            outputLocation = OutputLocation.Directory(outputDir),
+            themeName = themeName,
+        )
+    }
+
+    private val viewThemeGeneratorFactory: ViewThemeGeneratorFactory by unsafeLazy {
         ViewThemeGeneratorFactory(
             xmlResourcesDocumentBuilderFactory,
             outputResDir,
@@ -97,7 +106,7 @@ internal class GeneratorFactory(
         )
     }
 
-    private val composeThemeGeneratorFactory: ComposeThemeGeneratorFactory by lazy {
+    private val composeThemeGeneratorFactory: ComposeThemeGeneratorFactory by unsafeLazy {
         ComposeThemeGeneratorFactory()
     }
 
@@ -110,6 +119,7 @@ internal class GeneratorFactory(
         viewColorAttributeGeneratorFactory = viewColorAttributeGeneratorFactory,
         composeColorAttributeGeneratorFactory = composeColorAttributeGeneratorFactory,
         viewShapeAttributeGeneratorFactory = viewShapeAttributeGeneratorFactory,
+        composeShapeAttributeGeneratorFactory = composeShapeAttributeGeneratorFactory,
         target = target,
     )
 
