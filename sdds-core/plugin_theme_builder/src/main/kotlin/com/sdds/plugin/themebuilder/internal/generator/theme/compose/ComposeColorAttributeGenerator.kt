@@ -2,6 +2,7 @@ package com.sdds.plugin.themebuilder.internal.generator.theme.compose
 
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Modifier
+import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Modifier.INTERNAL
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.generator.SimpleBaseGenerator
 import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult
@@ -151,10 +152,11 @@ internal class ComposeColorAttributeGenerator(
 
     private fun addLocalColorsVal() {
         colorKtFileBuilder.appendRootVal(
-            name = "LocalColors",
+            name = "Local${themeName}Colors",
             typeName = KtFileBuilder.TypeProvidableCompositionLocal,
             parameterizedType = colorKtFileBuilder.getInternalClassType(colorClassName),
             initializer = "staticCompositionLocalOf { light${themeName}Colors() }",
+            modifiers = listOf(INTERNAL),
         )
     }
 

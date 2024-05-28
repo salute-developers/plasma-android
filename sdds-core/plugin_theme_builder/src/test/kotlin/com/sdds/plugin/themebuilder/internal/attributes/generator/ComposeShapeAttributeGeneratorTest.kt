@@ -2,8 +2,8 @@ package com.sdds.plugin.themebuilder.internal.attributes.generator
 
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
-import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult
-import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeColorAttributeGenerator
+import com.sdds.plugin.themebuilder.internal.generator.data.ShapeTokenResult
+import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeShapeAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider
 import com.sdds.plugin.themebuilder.internal.utils.getResourceAsText
 import com.squareup.kotlinpoet.PropertySpec
@@ -21,12 +21,11 @@ import org.junit.Test
 import java.io.ByteArrayOutputStream
 
 /**
- * Unit-тесты [ComposeColorAttributeGenerator]
+ * Unit-тесты [ComposeShapeAttributeGenerator]
  */
-class ComposeColorAttributeGeneratorTest {
-
+class ComposeShapeAttributeGeneratorTest {
     private lateinit var outputKt: ByteArrayOutputStream
-    private lateinit var underTest: ComposeColorAttributeGenerator
+    private lateinit var underTest: ComposeShapeAttributeGenerator
     private lateinit var mockKtFileBuilderFactory: KtFileBuilderFactory
     private lateinit var ktFileBuilder: KtFileBuilder
 
@@ -40,12 +39,12 @@ class ComposeColorAttributeGeneratorTest {
         outputKt = ByteArrayOutputStream()
         ktFileBuilder = KtFileBuilder(
             packageName = "com.sdds.playground.themebuilder.tokens",
-            fileName = "ThemeColors",
+            fileName = "ThemeShapes",
         )
         mockKtFileBuilderFactory = mockk<KtFileBuilderFactory> {
-            every { create("ThemeColors") } returns ktFileBuilder
+            every { create("ThemeShapes") } returns ktFileBuilder
         }
-        underTest = ComposeColorAttributeGenerator(
+        underTest = ComposeShapeAttributeGenerator(
             ktFileBuilderFactory = mockKtFileBuilderFactory,
             outputLocation = KtFileBuilder.OutputLocation.Stream(outputKt),
             themeName = "Theme",
@@ -64,23 +63,23 @@ class ComposeColorAttributeGeneratorTest {
 
     @Test
     fun `KtAttributeGenerator должен генерировать kotlin файлы с атрибутами цвета`() {
-        underTest.setColorTokenData(inputAttrs)
+        underTest.setShapeTokenData(inputAttrs)
         underTest.generate()
 
         verify {
-            mockKtFileBuilderFactory.create("ThemeColors")
+            mockKtFileBuilderFactory.create("ThemeShapes")
         }
 
         Assert.assertEquals(
-            getResourceAsText("attrs-outputs/ColorsOutputKt.txt"),
+            getResourceAsText("attrs-outputs/ShapesOutputKt.txt"),
             outputKt.toString(),
         )
     }
 
     private companion object {
         val inputAttrs = listOf(
-            ColorTokenResult.TokenData("textPrimary", "TextPrimary", true),
-            ColorTokenResult.TokenData("textTertiary", "TextTertiary", true),
+            ShapeTokenResult.TokenData("roundXs", "RoundXs"),
+            ShapeTokenResult.TokenData("roundXxs", "RoundXxs"),
         )
     }
 }

@@ -18,6 +18,7 @@ import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 import com.sdds.plugin.themebuilder.internal.utils.techToSnakeCase
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import java.io.File
+import java.util.Locale
 
 /**
  * Генератор токенов форм
@@ -129,6 +130,12 @@ internal class ShapeGenerator(
             KtFileBuilder.TypeRoundRectShape,
             initializer,
             token.description,
+        )
+        composeTokenDataCollector.add(
+            ShapeTokenResult.TokenData(
+                attrName = token.ktName.decapitalize(Locale.getDefault()),
+                tokenRefName = token.ktName,
+            ),
         )
         return@with true
     }

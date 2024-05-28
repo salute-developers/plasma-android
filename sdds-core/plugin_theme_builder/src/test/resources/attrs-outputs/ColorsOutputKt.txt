@@ -32,7 +32,7 @@ public class ThemeColors(
             "${this::class.simpleName}(textPrimary=$textPrimary, textTertiary=$textTertiary)"
 }
 
-public val LocalColors: ProvidableCompositionLocal<ThemeColors> = staticCompositionLocalOf {
+internal val LocalThemeColors: ProvidableCompositionLocal<ThemeColors> = staticCompositionLocalOf {
         lightThemeColors() }
 
 /**
