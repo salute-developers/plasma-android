@@ -1,0 +1,588 @@
+package com.sdds.uikit
+
+import android.content.Context
+import android.content.res.ColorStateList
+import android.graphics.Canvas
+import android.graphics.Paint
+import android.graphics.PorterDuff
+import android.graphics.drawable.Animatable
+import android.graphics.drawable.Drawable
+import android.text.Spannable
+import android.text.TextPaint
+import android.text.style.CharacterStyle
+import android.text.style.ReplacementSpan
+import android.text.style.TextAppearanceSpan
+import android.text.style.UpdateAppearance
+import android.util.AttributeSet
+import androidx.annotation.ColorInt
+import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
+import androidx.annotation.StyleRes
+import androidx.appcompat.content.res.AppCompatResources
+import androidx.appcompat.widget.AppCompatButton
+import androidx.core.graphics.drawable.DrawableCompat
+import androidx.core.text.buildSpannedString
+import androidx.core.view.ViewCompat
+import androidx.core.widget.TextViewCompat
+import com.sdds.uikit.focusselector.tryApplyFocusSelector
+import com.sdds.uikit.internal.base.ShapeHelper
+import com.sdds.uikit.internal.base.drawable.SpinnerDrawable
+import com.sdds.uikit.internal.base.unsafeLazy
+import com.sdds.uikit.viewstate.ViewState
+import com.sdds.uikit.viewstate.ViewState.Companion.isDefined
+import com.sdds.uikit.viewstate.ViewStateHolder
+import kotlin.math.min
+
+/**
+ * Компонент "Кнопка".
+ * Умеет отображать иконку, индикатор загрузки, а также два текста: основной и дополнительный.
+ * @param context контекст
+ * @param attrs аттрибуты view
+ * @param defStyleAttr аттрибут стиля по умолчанию
+ * @author Малышев Александр on 24.05.2024
+ */
+open class Button @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0,
+) : AppCompatButton(context, attrs, defStyleAttr), ViewStateHolder {
+    @Suppress("LeakingThis")
+    private val _shapeHelper: ShapeHelper = ShapeHelper(this, attrs, defStyleAttr)
+    private val _spinner: Drawable by unsafeLazy {
+        SpinnerDrawable(_spinnerStrokeWidth)
+            .apply {
+                callback = this@Button
+                isInEditMode = this@Button.isInEditMode
+            }
+    }
+    private val _valuePaint: TextPaint = TextPaint()
+    private val _valueStateListSpan: ColorStateListSpan by unsafeLazy { ColorStateListSpan() }
+    private val _labelSpaceSpan: SpaceSpan by unsafeLazy { SpaceSpan() }
+
+    private var _label: CharSequence? = null
+    private var _spinnerSize: Int = 0
+    private var _spinnerStrokeWidth: Float = 0f
+    private var _isLoading: Boolean = false
+    private var _iconLeft: Int = 0
+    private var _iconTop: Int = 0
+    private var _icon: Drawable? = null
+    private var _iconTint: ColorStateList? = null
+    private var _iconPadding: Int = 0
+    private var _iconPosition: IconPosition = IconPosition.TextStart
+    private var _iconSize: Int = 0
+    private var _value: CharSequence? = null
+    private var _spacing: Spacing = Spacing.Packed
+    private var _valuePadding: Int = 0
+    private var _valueTextColor: ColorStateList? = null
+    private var _valueTextAppearanceSpan: TextAppearanceSpan? = null
+    private var _valueTextAppearanceResId: Int = 0
+
+    /**
+     * Режим обработки расстояния между основным ([getText]) и дополнительным [value] текстами
+     */
+    enum class Spacing {
+
+        /**
+         * Отступ между текстами минимальный, но не менее [_valuePadding]
+         */
+        Packed,
+
+        /**
+         * Отступ между текстами максимальный, насколько позволяют параметры родителя
+         */
+        SpaceBetween,
+    }
+
+    /**
+     * Позиция [icon] в кнопке
+     */
+    enum class IconPosition {
+        /**
+         * В начале всего текста (Text + Value)
+         */
+        TextStart,
+
+        /**
+         * В конце всего текста (Text + Value)
+         */
+        TextEnd,
+    }
+
+    /**
+     * Изменяет состояние загрузки.
+     * Если [isLoading] == true, отобразится индикатор загрузки
+     */
+    open var isLoading: Boolean
+        get() = _isLoading
+        set(value) {
+            if (_isLoading != value) {
+                _isLoading = value
+                updateLoadingState()
+            }
+        }
+
+    /**
+     * Иконка кнопки
+     * @see iconPosition
+     * @see iconPadding
+     */
+    open var icon: Drawable?
+        get() = _icon
+        set(value) {
+            if (_icon != value) {
+                _icon = value
+                updateIcon(false)
+                updateIconPosition(measuredWidth)
+            }
+        }
+
+    /**
+     * Отступ между иконок и текстом кнопки
+     * @see icon
+     */
+    open var iconPadding: Int
+        get() = _iconPadding
+        set(value) {
+            if (_iconPadding != value) {
+                _iconPadding = value
+                compoundDrawablePadding = iconPadding
+            }
+        }
+
+    /**
+     * Положение иконки относительно текста
+     * @see IconPosition
+     */
+    open var iconPosition: IconPosition
+        get() = _iconPosition
+        set(value) {
+            if (_iconPosition != value) {
+                _iconPosition = value
+                updateIconPosition(measuredWidth)
+            }
+        }
+
+    /**
+     * Переопределенный размер иконки.
+     * Если [iconSize] == 0, то будет использована внутрення ширина иконки [Drawable.getIntrinsicWidth]
+     */
+    open var iconSize: Int
+        get() = if (_iconSize == 0) icon?.intrinsicWidth ?: 0 else _iconSize
+        set(value) {
+            if (value < 0) throw IllegalArgumentException("iconSize cannot be less than 0")
+            if (_iconSize != value) {
+                _iconSize = value
+                updateIcon(icon != null)
+            }
+        }
+
+    /**
+     * Дополнительный текст кнопки
+     * @see spacing
+     * @see valuePadding
+     */
+    open var value: CharSequence?
+        get() = _value
+        set(value) {
+            if (_value != value) {
+                _value = value
+                resetText()
+            }
+        }
+
+    /**
+     * Отступ между основным ([getText]/[setText]) и дополнительным ([value]) текстами кнопки.
+     * @see spacing
+     * @see value
+     */
+    open var valuePadding: Int
+        get() = _valuePadding
+        set(value) {
+            if (_valuePadding != value) {
+                _valuePadding = value
+                invalidate()
+            }
+        }
+
+    /**
+     * Режим обработки расстояния между основным и дополнительным текстами
+     * @see Spacing
+     */
+    open var spacing: Spacing
+        get() = _spacing
+        set(value) {
+            if (_spacing != value) {
+                _spacing = value
+                requestLayout()
+            }
+        }
+
+    /**
+     * Состояние внешнего вида кнопки
+     * @see ViewState
+     */
+    override var state: ViewState? = ViewState.obtain(context, attrs, defStyleAttr)
+        set(value) {
+            if (field != value) {
+                field = value
+                refreshDrawableState()
+            }
+        }
+
+    init {
+        tryApplyFocusSelector(attrs, defStyleAttr)
+        obtainAttributes(attrs, defStyleAttr)
+    }
+
+    /**
+     * Устанавливает ширину границы кнопки
+     * @param strokeWidth ширина границы кнопки
+     */
+    open fun setStrokeWidth(strokeWidth: Float) {
+        this._shapeHelper.setStrokeWidth(strokeWidth)
+    }
+
+    /**
+     * Устанавливает цвет границы кнопки
+     * @param color цвет границы кнопки
+     */
+    open fun setStrokeColor(@ColorInt color: Int) {
+        setStrokeColorList(ColorStateList.valueOf(color))
+    }
+
+    /**
+     * Устанавливает цвета границы кнопки согласно состоянию [getDrawableState]
+     * @param colorStateList цвета границы кнопки
+     */
+    open fun setStrokeColorList(colorStateList: ColorStateList) {
+        this._shapeHelper.setStrokeColor(colorStateList)
+    }
+
+    /**
+     * Устанавливает цвета индикатору загрузки кнопки согласно состоянию [getDrawableState]
+     * @param tintList цвета границы индикатора загрузки
+     */
+    open fun setSpinnerTintList(tintList: ColorStateList) {
+        _spinner.setTintList(tintList)
+    }
+
+    /**
+     * Устанавливает иконку из ресурсов по идентификатору
+     * @param iconRes идентификатор ресурса иконки
+     */
+    fun setIconResource(@DrawableRes iconRes: Int) {
+        icon = AppCompatResources.getDrawable(context, iconRes)
+    }
+
+    /**
+     * Устанавливает цвета иконке кнопки согласно состоянию [getDrawableState]
+     * @param tintList цвета иконки кнопки
+     */
+    open fun setIconTintList(tintList: ColorStateList) {
+        if (_iconTint != tintList) {
+            _iconTint = tintList
+            updateIcon(false)
+        }
+    }
+
+    /**
+     * Устанавливает цвет иконки кнопки
+     * @param color цвет иконки кнопки
+     */
+    fun setIconTint(@ColorInt color: Int) {
+        setIconTintList(ColorStateList.valueOf(color))
+    }
+
+    /**
+     * Устанавливает дополнительный текст кнопке по идентификатору строки в ресурсах
+     * @param valueRes идентификатор строки в ресурсах
+     */
+    fun setValue(@StringRes valueRes: Int) {
+        value = context.getString(valueRes)
+    }
+
+    /**
+     * Устанавливает стиль дополнительного текста по идентификатору стиля в ресурсах
+     * @param textAppearanceId идентификатор стиля текста в ресурсах
+     */
+    fun setValueTextAppearance(@StyleRes textAppearanceId: Int) {
+        if (_valueTextAppearanceResId != textAppearanceId) {
+            _valueTextAppearanceResId = textAppearanceId
+            if (textAppearanceId != 0) {
+                _valueTextAppearanceSpan = TextAppearanceSpan(context, textAppearanceId)
+                    .also { it.updateDrawState(_valuePaint) }
+            }
+        }
+    }
+
+    /**
+     * Устанавливает цвет дополнительного текста
+     * @param color цвет дополнительного текста
+     */
+    fun setValueTextColor(@ColorInt color: Int) {
+        setValueTextColor(ColorStateList.valueOf(color))
+    }
+
+    /**
+     * Устанавливает цвета дополнительного текста
+     * @param colors цвета дополнительного текста
+     */
+    open fun setValueTextColor(colors: ColorStateList?) {
+        if (_valueTextColor != colors) {
+            _valueTextColor = colors
+            invalidate()
+        }
+    }
+
+    override fun setText(text: CharSequence?, type: BufferType?) {
+        _label = text
+        resetText()
+    }
+
+    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
+        if (spacing == Spacing.SpaceBetween) {
+            val specWidth = MeasureSpec.getSize(widthMeasureSpec)
+            setMeasuredDimension(specWidth, measuredHeight)
+        }
+        val left = (measuredWidth - _spinnerSize) / 2
+        val top = (measuredHeight - _spinnerSize) / 2
+        _spinner.setBounds(left, top, left + _spinnerSize, top + _spinnerSize)
+        updateIconPosition(measuredWidth)
+    }
+
+    override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
+        super.onSizeChanged(w, h, oldw, oldh)
+        updateIconPosition(w)
+    }
+
+    override fun onTextChanged(text: CharSequence?, start: Int, lengthBefore: Int, lengthAfter: Int) {
+        super.onTextChanged(text, start, lengthBefore, lengthAfter)
+        updateIconPosition(measuredWidth)
+    }
+
+    override fun onDraw(canvas: Canvas) {
+        super.onDraw(canvas)
+        if (isLoading) {
+            _spinner.draw(canvas)
+        }
+    }
+
+    override fun verifyDrawable(who: Drawable): Boolean {
+        return super.verifyDrawable(who) || who == _spinner
+    }
+
+    override fun onCreateDrawableState(extraSpace: Int): IntArray {
+        val drawableState = super.onCreateDrawableState(extraSpace + 2)
+        if (state?.isDefined() == true) {
+            mergeDrawableStates(drawableState, state?.attr)
+        }
+        val loadingState = if (isLoading) R.attr.sd_state_loading else -R.attr.sd_state_loading
+        mergeDrawableStates(drawableState, intArrayOf(loadingState))
+        return drawableState
+    }
+
+    override fun drawableStateChanged() {
+        super.drawableStateChanged()
+        _spinner.state = drawableState
+    }
+
+    private fun calculateSpanSize(maxWidth: Int, labelWidth: Int, valueWidth: Int): Int {
+        return if (spacing == Spacing.SpaceBetween) {
+            (maxWidth - paddingStart - paddingEnd - iconPadding - iconSize - labelWidth - valueWidth)
+                .coerceAtLeast(valuePadding)
+        } else {
+            valuePadding
+        }
+    }
+
+    private fun obtainAttributes(attrs: AttributeSet?, defStyleAttr: Int) {
+        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.Button, defStyleAttr, -1)
+
+        _spinnerSize = typedArray.getDimensionPixelSize(
+            R.styleable.Button_sd_spinnerSize,
+            DEFAULT_SPINNER_SIZE.dp,
+        )
+        _spinnerStrokeWidth = typedArray.getDimension(
+            R.styleable.Button_sd_spinnerStrokeWidth,
+            DEFAULT_SPINNER_STROKE_WIDTH.dp,
+        )
+        _spinner.setTintList(typedArray.getColorStateList(R.styleable.Button_sd_spinnerTint))
+
+        _valuePadding = typedArray.getDimensionPixelSize(
+            R.styleable.Button_sd_valuePadding,
+            DEFAULT_VALUE_PADDING.dp,
+        )
+        _valueTextColor = typedArray.getColorStateList(R.styleable.Button_sd_valueTextColor)
+        _value = typedArray.getString(R.styleable.Button_sd_value)
+        _spacing = Spacing
+            .values()
+            .getOrElse(typedArray.getInt(R.styleable.Button_sd_spacing, 0)) { Spacing.Packed }
+        setValueTextAppearance(typedArray.getResourceId(R.styleable.Button_sd_valueTextAppearance, 0))
+
+        iconPadding = typedArray.getDimensionPixelSize(R.styleable.Button_sd_iconPadding, 0)
+        _icon = typedArray.getDrawable(R.styleable.Button_sd_icon)
+        _iconTint = typedArray.getColorStateList(R.styleable.Button_sd_iconTint)
+        _iconPosition = IconPosition
+            .values()
+            .getOrElse(typedArray.getInt(R.styleable.Button_sd_iconPosition, 0)) { IconPosition.TextStart }
+
+        typedArray.recycle()
+        resetText()
+        updateIcon(_icon != null)
+    }
+
+    private fun updateLoadingState() {
+        if (isLoading) {
+            (_spinner as? Animatable)?.start()
+        } else {
+            (_spinner as? Animatable)?.stop()
+        }
+    }
+
+    private fun getButtonText(): CharSequence? {
+        val label = _label ?: return value
+        val value = value ?: return label
+        return buildSpannedString {
+            append(label)
+            append(value)
+            setSpan(_labelSpaceSpan, 0, label.length, Spannable.SPAN_INCLUSIVE_EXCLUSIVE)
+            setSpan(
+                TextAppearanceSpan(context, _valueTextAppearanceResId),
+                label.length,
+                label.length + value.length,
+                Spannable.SPAN_INCLUSIVE_EXCLUSIVE,
+            )
+            setSpan(
+                _valueStateListSpan,
+                label.length,
+                label.length + value.length,
+                Spannable.SPAN_INCLUSIVE_EXCLUSIVE,
+            )
+        }
+    }
+
+    private fun resetText() {
+        super.setText(getButtonText(), null)
+    }
+
+    private fun updateIcon(needsIconReset: Boolean) {
+        _icon = _icon?.let { iconDrawable ->
+            val wrappedIcon = DrawableCompat.wrap(iconDrawable).mutate()
+            DrawableCompat.setTintList(wrappedIcon, _iconTint)
+            DrawableCompat.setTintMode(wrappedIcon, PorterDuff.Mode.SRC_IN)
+            val width = if (_iconSize != 0) _iconSize else wrappedIcon.intrinsicWidth
+            val height = if (_iconSize != 0) _iconSize else wrappedIcon.intrinsicHeight
+            wrappedIcon.setBounds(_iconLeft, _iconTop, _iconLeft + width, _iconTop + height)
+            wrappedIcon
+        }
+
+        if (needsIconReset) {
+            resetIconDrawable()
+            return
+        }
+
+        val existingDrawables = TextViewCompat.getCompoundDrawablesRelative(this)
+        val drawableStart = existingDrawables[0]
+        val drawableEnd = existingDrawables[2]
+        val hasIconChanged = isIconStart() && drawableStart != _icon || isIconEnd() && drawableEnd != _icon
+        if (hasIconChanged) resetIconDrawable()
+    }
+
+    private fun updateIconPosition(buttonWidth: Int) {
+        if (icon == null || layout == null) {
+            return
+        }
+        if (isIconStart() || isIconEnd()) {
+            _iconTop = 0
+            var newIconLeft = ((buttonWidth - getTextWidth() - paddingEnd - iconSize - iconPadding - paddingStart) / 2)
+
+            // Меняем значение левой границы только если isLayoutRTL() или iconGravity = textEnd, но не в обоих случаях
+            if (isLayoutRTL() != (iconPosition == IconPosition.TextEnd)) {
+                newIconLeft = -newIconLeft
+            }
+            if (_iconLeft != newIconLeft) {
+                _iconLeft = newIconLeft
+                updateIcon(false)
+            }
+        }
+    }
+
+    private fun getTextWidth(): Int =
+        if (spacing == Spacing.SpaceBetween) {
+            layout.ellipsizedWidth
+        } else {
+            val labelText = _label?.toString() ?: ""
+            val valueText = value?.toString() ?: ""
+            min(
+                _valuePaint.measureText(valueText).toInt() + paint.measureText(labelText).toInt(),
+                layout.ellipsizedWidth,
+            )
+        }
+
+    private fun resetIconDrawable() = when {
+        isIconStart() -> TextViewCompat.setCompoundDrawablesRelative(this, icon, null, null, null)
+        isIconEnd() -> TextViewCompat.setCompoundDrawablesRelative(this, null, null, icon, null)
+        else -> Unit
+    }
+
+    private fun isIconStart(): Boolean {
+        return iconPosition == IconPosition.TextStart
+    }
+
+    private fun isIconEnd(): Boolean {
+        return iconPosition == IconPosition.TextEnd
+    }
+
+    private fun isLayoutRTL(): Boolean {
+        return ViewCompat.getLayoutDirection(this) == ViewCompat.LAYOUT_DIRECTION_RTL
+    }
+
+    private inner class SpaceSpan : ReplacementSpan() {
+
+        override fun getSize(paint: Paint, text: CharSequence?, start: Int, end: Int, fm: Paint.FontMetricsInt?): Int {
+            val valueWidth = value?.toString()?.let { _valuePaint.measureText(it).toInt() } ?: 0
+            val labelWidth = paint.measureText(text, start, end).toInt()
+            fm?.set(paint.fontMetricsInt)
+            return calculateSpanSize(measuredWidth, labelWidth, valueWidth) + labelWidth
+        }
+
+        override fun draw(
+            canvas: Canvas,
+            text: CharSequence?,
+            start: Int,
+            end: Int,
+            x: Float,
+            top: Int,
+            y: Int,
+            bottom: Int,
+            paint: Paint,
+        ) {
+            if (text == null) return
+            canvas.drawText(text, start, end, x, y.toFloat(), paint)
+        }
+    }
+
+    private inner class ColorStateListSpan : CharacterStyle(), UpdateAppearance {
+
+        override fun updateDrawState(tp: TextPaint?) {
+            if (tp == null) return
+            val colorState = _valueTextColor ?: return
+            tp.color = colorState.getColorForState(drawableState, colorState.defaultColor)
+        }
+    }
+
+    private companion object {
+        const val DEFAULT_SPINNER_SIZE = 24
+        const val DEFAULT_SPINNER_STROKE_WIDTH = 2f
+        const val DEFAULT_VALUE_PADDING = 4
+
+        fun Paint.FontMetricsInt.set(fm: Paint.FontMetricsInt) {
+            this.top = fm.top
+            this.bottom = fm.bottom
+            this.ascent = fm.ascent
+            this.descent = fm.descent
+            this.leading = fm.leading
+        }
+    }
+}

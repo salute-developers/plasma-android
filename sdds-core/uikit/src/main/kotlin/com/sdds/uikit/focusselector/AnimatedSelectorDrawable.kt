@@ -78,7 +78,7 @@ internal class AnimatedSelectorDrawable : Drawable, Animatable, OnScrollChangeLi
         shapeAppearanceModel: ShapeAppearanceModel,
     ) : super() {
         gradientColors = intArrayOf(context.colorFromAttr(android.R.attr.colorPrimary), 0)
-        borderPaint.color = context.colorFromAttr(R.attr.sdds_fs_main_color)
+        borderPaint.color = context.colorFromAttr(R.attr.sd_focusMainColor)
         this.shapeAppearanceModel = shapeAppearanceModel.withTransformedCornerSizes { cornerSize ->
             AdjustedCornerSize(
                 context.resources.getDimension(R.dimen.sdds_spacer_0_5x),

@@ -29,7 +29,7 @@ internal enum class FocusSelectorMode {
     companion object {
 
         internal fun fromAttr(attrs: TypedArray): FocusSelectorMode {
-            val ordinal = attrs.getInt(R.styleable.SddsFocusSelector_sdds_fs_mode, -1)
+            val ordinal = attrs.getInt(R.styleable.SdFocusSelector_sd_fsMode, -1)
             return values().getOrNull(ordinal) ?: ANIMATED
         }
     }
@@ -49,22 +49,21 @@ internal fun View.tryApplyFocusSelector(
 ) {
     val attr = context.obtainStyledAttributes(
         attrs,
-        R.styleable.SddsFocusSelector,
+        R.styleable.SdFocusSelector,
         defStyleAttr,
         defStyleRes,
     )
     try {
         val isFsEnabledByDefault = this !is ViewGroup && isFocusable
         val isFsEnabled =
-            attr.getBoolean(R.styleable.SddsFocusSelector_sdds_fs_enabled, isFsEnabledByDefault)
+            attr.getBoolean(R.styleable.SdFocusSelector_sd_fsEnabled, isFsEnabledByDefault)
         if (!isFsEnabled) return
         val strokeWidth = attr.getDimension(
-            R.styleable.SddsFocusSelector_sdds_fs_strokeWidth,
+            R.styleable.SdFocusSelector_sd_fsStrokeWidth,
             resources.getDimension(R.dimen.sdds_spacer_0_5x),
         )
         val mode = FocusSelectorMode.fromAttr(attr)
-        val appearance =
-            attr.getResourceId(R.styleable.SddsFocusSelector_sdds_fs_shapeAppearance, -1)
+        val appearance = attr.getResourceId(R.styleable.SdFocusSelector_sd_fsShapeAppearance, -1)
         tryApplyFocusSelector(mode, appearance, strokeWidth)
     } finally {
         attr.recycle()
