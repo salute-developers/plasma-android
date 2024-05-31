@@ -10,13 +10,13 @@ import com.sdds.uikit.R
  */
 enum class ViewState(val attr: IntArray) {
     UNDEFINED(intArrayOf()),
-    PRIMARY(intArrayOf(R.attr.state_primary)),
-    SECONDARY(intArrayOf(R.attr.state_secondary)),
-    TERTIARY(intArrayOf(R.attr.state_tertiary)),
-    ACCENT(intArrayOf(R.attr.state_accent)),
-    POSITIVE(intArrayOf(R.attr.state_positive)),
-    WARNING(intArrayOf(R.attr.state_warning)),
-    NEGATIVE(intArrayOf(R.attr.state_negative)),
+    PRIMARY(intArrayOf(R.attr.sd_state_primary)),
+    SECONDARY(intArrayOf(R.attr.sd_state_secondary)),
+    TERTIARY(intArrayOf(R.attr.sd_state_tertiary)),
+    ACCENT(intArrayOf(R.attr.sd_state_accent)),
+    POSITIVE(intArrayOf(R.attr.sd_state_positive)),
+    WARNING(intArrayOf(R.attr.sd_state_warning)),
+    NEGATIVE(intArrayOf(R.attr.sd_state_negative)),
     ;
 
     companion object {
@@ -38,11 +38,11 @@ enum class ViewState(val attr: IntArray) {
         ): ViewState {
             val typedArray = context.obtainStyledAttributes(
                 attrs,
-                R.styleable.SddsView,
+                R.styleable.SdViewStateHolder,
                 defStyleAttr,
                 defStyleRes,
             )
-            val stateOrdinal: Int = typedArray.getInt(R.styleable.SddsView_sdds_state, 0)
+            val stateOrdinal: Int = typedArray.getInt(R.styleable.SdViewStateHolder_sd_viewState, 0)
             typedArray.recycle()
             return ViewState.values().getOrNull(stateOrdinal) ?: PRIMARY
         }

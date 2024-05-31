@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!--
+        Компонент "Кнопка".
+        Умеет отображать иконку, индикатор загрузки, а также два текста: основной и дополнительный.
+      -->
+    <declare-styleable name="Button" tools:ignore="ResourceName">
+        <attr name="android:insetLeft" />
+        <attr name="android:insetTop" />
+        <attr name="android:insetRight" />
+        <attr name="android:insetBottom" />
+
+        <!-- Дополнительный текст кнопки -->
+        <attr name="sd_value" format="string" />
+        <!-- Стиль дополнительного текста  -->
+        <attr name="sd_valueTextAppearance" format="reference" />
+        <!--  Цвет дополнительного текста      -->
+        <attr name="sd_valueTextColor" format="reference|color" />
+        <!-- Отступ между основным и дополнительным текстом -->
+        <attr name="sd_valuePadding" format="dimension" />
+        <!-- Режим обработки расстояния между основным и дополнительным текстами -->
+        <attr name="sd_spacing" format="enum">
+            <!-- Отступ между текстами минимальный, но не менее valuePadding -->
+            <enum name="packed" value="0" />
+            <!-- Отступ между текстами максимальный, насколько позволяют параметры родителя -->
+            <enum name="spaceBetween" value="1" />
+        </attr>
+
+        <!-- Иконка кнопки -->
+        <attr name="sd_icon" format="reference" />
+        <!-- Окрас иконки кнопки -->
+        <attr name="sd_iconTint" format="reference|color" />
+        <!-- Отступ между иконок и текстом кнопки -->
+        <attr name="sd_iconPadding" format="dimension" />
+        <!--
+            Размер иконки кнопки.
+            Если sd_iconSize == 0, то будет использована внутрення ширина иконки (Drawable.getIntrinsicWidth)
+         -->
+        <attr name="sd_iconSize" format="dimension" />
+        <!-- Положение иконки относительно текста -->
+        <attr name="sd_iconPosition" format="enum">
+            <!-- В начале всего текста -->
+            <enum name="textStart" value="0" />
+            <!-- В конце всего текста -->
+            <enum name="textEnd" value="1" />
+        </attr>
+
+        <!-- Размер индикатор загрузки -->
+        <attr name="sd_spinnerSize" format="dimension" />
+        <!-- Толщина линии индикатора загрузки -->
+        <attr name="sd_spinnerStrokeWidth" format="dimension" />
+        <!-- Окрас индикатора загрузки -->
+        <attr name="sd_spinnerTint" format="reference|color" />
+
+        <attr name="sd_shapeAppearance" />
+        <attr name="sd_strokeColor" />
+        <attr name="sd_strokeWidth" />
+    </declare-styleable>
+
+</resources>
