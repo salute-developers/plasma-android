@@ -93,8 +93,6 @@ internal data class BackgroundGradientTokenValue(
 internal data class SweepGradientTokenValue(
     val colors: List<String>,
     val locations: List<Float>,
-    val startAngle: Float,
-    val endAngle: Float,
     val centerX: Float,
     val centerY: Float,
 ) : GradientTokenValue()

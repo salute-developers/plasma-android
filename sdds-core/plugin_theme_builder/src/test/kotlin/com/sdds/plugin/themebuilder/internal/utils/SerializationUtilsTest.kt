@@ -90,8 +90,6 @@ class SerializationUtilsTest {
                 SweepGradientTokenValue(
                     locations = listOf(0f, 1f),
                     colors = listOf("#24B23E", "#05C1F5"),
-                    startAngle = 89.83f,
-                    endAngle = 89.83f,
                     centerX = 0.66f,
                     centerY = 0.5f,
                 ),

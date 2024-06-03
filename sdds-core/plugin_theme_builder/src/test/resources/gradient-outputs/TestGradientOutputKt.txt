@@ -14,10 +14,6 @@ public object DarkGradientTokens {
 
         public val positions: FloatArray = floatArrayOf(0.0f, 0.7f, 1.0f)
 
-        public val startAngle: Float = 0.0f
-
-        public val endAngle: Float = 360.0f
-
         public val centerX: Float = 0.5f
 
         public val centerY: Float = 0.5f

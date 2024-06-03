@@ -5,6 +5,7 @@ import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.FontDownloaderFactory
 import com.sdds.plugin.themebuilder.internal.factory.GeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
+import com.sdds.plugin.themebuilder.internal.factory.KtFileFromResourcesBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlFontFamilyDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.serializer.Serializer
@@ -146,6 +147,7 @@ abstract class GenerateThemeTask : DefaultTask() {
             xmlFontFamilyDocumentBuilderFactory = XmlFontFamilyDocumentBuilderFactory(),
             fontDownloaderFactory = FontDownloaderFactory(),
             ktFileBuilderFactory = KtFileBuilderFactory(packageName.get()),
+            ktFileFromResourcesBuilderFactory = KtFileFromResourcesBuilderFactory(packageName.get()),
             resourceReferenceProvider = ResourceReferenceProvider(resourcesPrefix.get()),
             namespace = namespace.get(),
             resPrefix = resourcesPrefix.get(),
@@ -191,7 +193,7 @@ abstract class GenerateThemeTask : DefaultTask() {
 
     private fun generateAll() {
         colorGenerator.generate().also(themeGenerator::setColorTokenData)
-        gradientGenerator.generate()
+        gradientGenerator.generate().also(themeGenerator::setGradientTokenData)
         typographyGenerator.generate()
         shapesGenerator.generate().also(themeGenerator::setShapeTokenData)
         shadowGenerator.generate()

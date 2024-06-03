@@ -50,6 +50,7 @@ internal class GeneratorFactory(
     private val xmlFontFamilyDocumentBuilderFactory: XmlFontFamilyDocumentBuilderFactory,
     private val fontDownloaderFactory: FontDownloaderFactory,
     private val ktFileBuilderFactory: KtFileBuilderFactory,
+    private val ktFileFromResourcesBuilderFactory: KtFileFromResourcesBuilderFactory,
     private val resourceReferenceProvider: ResourceReferenceProvider,
     private val namespace: String,
     private val resPrefix: String,
@@ -68,6 +69,15 @@ internal class GeneratorFactory(
     private val composeColorAttributeGeneratorFactory by unsafeLazy {
         ComposeColorAttributeGeneratorFactory(
             ktFileBuilderFactory = ktFileBuilderFactory,
+            outputLocation = OutputLocation.Directory(outputDir),
+            themeName = themeName,
+        )
+    }
+
+    private val composeGradientAttributeGeneratorFactory by unsafeLazy {
+        ComposeGradientAttributeGeneratorFactory(
+            ktFileBuilderFactory = ktFileBuilderFactory,
+            ktFileFromResourcesBuilderFactory = ktFileFromResourcesBuilderFactory,
             outputLocation = OutputLocation.Directory(outputDir),
             themeName = themeName,
         )
@@ -120,6 +130,7 @@ internal class GeneratorFactory(
         composeColorAttributeGeneratorFactory = composeColorAttributeGeneratorFactory,
         viewShapeAttributeGeneratorFactory = viewShapeAttributeGeneratorFactory,
         composeShapeAttributeGeneratorFactory = composeShapeAttributeGeneratorFactory,
+        composeGradientAttributeGeneratorFactory = composeGradientAttributeGeneratorFactory,
         target = target,
     )
 

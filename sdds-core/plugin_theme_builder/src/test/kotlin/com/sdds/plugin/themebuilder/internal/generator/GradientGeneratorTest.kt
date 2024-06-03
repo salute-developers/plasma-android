@@ -100,8 +100,6 @@ class GradientGeneratorTest {
                 SweepGradientTokenValue(
                     colors = listOf("#000", "#fff"),
                     locations = listOf(0f, 0.7f, 1f),
-                    startAngle = 0f,
-                    endAngle = 360f,
                     centerX = 0.5f,
                     centerY = 0.5f,
                 ),
