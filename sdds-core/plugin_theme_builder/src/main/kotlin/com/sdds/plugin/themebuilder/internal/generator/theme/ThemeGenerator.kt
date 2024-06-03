@@ -4,6 +4,7 @@ import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget.Companion.isComposeOrAll
 import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget.Companion.isViewSystemOrAll
 import com.sdds.plugin.themebuilder.internal.factory.ComposeColorAttributeGeneratorFactory
+import com.sdds.plugin.themebuilder.internal.factory.ComposeGradientAttributeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ComposeShapeAttributeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ComposeThemeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ViewColorAttributeGeneratorFactory
@@ -11,8 +12,10 @@ import com.sdds.plugin.themebuilder.internal.factory.ViewShapeAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.factory.ViewThemeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.generator.SimpleBaseGenerator
 import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult
+import com.sdds.plugin.themebuilder.internal.generator.data.GradientTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.ShapeTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeColorAttributeGenerator
+import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeGradientAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeShapeAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeThemeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewColorAttributeGenerator
@@ -30,6 +33,7 @@ internal class ThemeGenerator(
     private val viewColorAttributeGeneratorFactory: ViewColorAttributeGeneratorFactory,
     private val viewShapeAttributeGeneratorFactory: ViewShapeAttributeGeneratorFactory,
     private val composeShapeAttributeGeneratorFactory: ComposeShapeAttributeGeneratorFactory,
+    private val composeGradientAttributeGeneratorFactory: ComposeGradientAttributeGeneratorFactory,
     private val target: ThemeBuilderTarget,
 ) : SimpleBaseGenerator {
 
@@ -41,6 +45,9 @@ internal class ThemeGenerator(
     }
     private val composeColorAttributeGenerator: ComposeColorAttributeGenerator by unsafeLazy {
         composeColorAttributeGeneratorFactory.create()
+    }
+    private val composeGradientAttributeGenerator: ComposeGradientAttributeGenerator by unsafeLazy {
+        composeGradientAttributeGeneratorFactory.create()
     }
     private val composeShapeAttributeGenerator: ComposeShapeAttributeGenerator by unsafeLazy {
         composeShapeAttributeGeneratorFactory.create()
@@ -60,11 +67,19 @@ internal class ThemeGenerator(
      */
     fun setColorTokenData(colorTokenResult: ColorTokenResult) {
         if (target.isComposeOrAll) {
-            composeColorAttributeGenerator.setColorTokenData(colorTokenResult.composeTokens.lightTokens())
+            composeColorAttributeGenerator.setColorTokenData(colorTokenResult.composeTokens.lightColorTokens())
         }
         if (target.isViewSystemOrAll) {
-            viewColorAttributeGenerator.setColorTokenData(colorTokenResult.viewTokens.lightTokens())
+            viewColorAttributeGenerator.setColorTokenData(colorTokenResult.viewTokens.lightColorTokens())
             viewThemeGenerator.setColorTokenData(colorTokenResult.viewTokens)
+        }
+    }
+
+    fun setGradientTokenData(gradientTokenResult: GradientTokenResult) {
+        if (target.isComposeOrAll) {
+            composeGradientAttributeGenerator.setGradientTokenData(
+                gradients = gradientTokenResult.composeTokens.lightGradientTokens(),
+            )
         }
     }
 
@@ -87,6 +102,7 @@ internal class ThemeGenerator(
     override fun generate() {
         if (target.isComposeOrAll) {
             composeColorAttributeGenerator.generate()
+            composeGradientAttributeGenerator.generate()
             composeShapeAttributeGenerator.generate()
             composeThemeGenerator.generate()
         }
@@ -97,6 +113,9 @@ internal class ThemeGenerator(
         }
     }
 
-    private fun List<ColorTokenResult.TokenData>.lightTokens() =
+    private fun List<ColorTokenResult.TokenData>.lightColorTokens() =
+        filter { it.isLight }
+
+    private fun List<GradientTokenResult.TokenData>.lightGradientTokens() =
         filter { it.isLight }
 }

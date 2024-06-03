@@ -1,0 +1,266 @@
+package com.sdds.playground.themebuilder.tokens
+import androidx.compose.runtime.Immutable
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.geometry.center
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.LinearGradientShader
+import androidx.compose.ui.graphics.Shader
+import androidx.compose.ui.graphics.ShaderBrush
+import androidx.compose.ui.graphics.TileMode
+import kotlin.math.PI
+import kotlin.math.abs
+import kotlin.math.acos
+import kotlin.math.cos
+import kotlin.math.pow
+import kotlin.math.sin
+import kotlin.math.sqrt
+
+/**
+ * Линейный градиент с возможностью установить углов отрисовки в градусах
+ * @param colors цвета
+ * @param stops точки остановки цвета
+ * @param tileMode определяет поведение на границах градиента
+ * @param angleInDegrees угол в градусах
+ * @param useAsCssAngle меняет режим отрисовки на
+ */
+@Immutable
+internal class ThmbldrLinearGradient constructor(
+    private val colors: List<Color>,
+    private val stops: List<Float>? = null,
+    angleInDegrees: Float = 0f,
+    useAsCssAngle: Boolean = false,
+    private val tileMode: TileMode = TileMode.Clamp,
+) : ShaderBrush() {
+
+    private val normalizedAngle: Float = if (useAsCssAngle) {
+        ((90 - angleInDegrees) % 360 + 360) % 360
+    } else {
+        (angleInDegrees % 360 + 360) % 360
+    }
+    private val angleInRadians: Float = Math.toRadians(normalizedAngle.toDouble()).toFloat()
+
+    override fun createShader(size: Size): Shader {
+        val (from, to) = getGradientCoordinates(size = size)
+        return LinearGradientShader(
+            colors = colors,
+            colorStops = stops,
+            from = from,
+            to = to,
+            tileMode = tileMode,
+        )
+    }
+
+    private fun getGradientCoordinates(size: Size): Pair<Offset, Offset> {
+        val diagonal = sqrt(size.width.pow(2) + size.height.pow(2))
+        val angleBetweenDiagonalAndWidth = acos(size.width / diagonal)
+        val angleBetweenDiagonalAndGradientLine =
+            if ((normalizedAngle.inExclusiveRange(90f, 180f)) || (normalizedAngle.inExclusiveRange(270f, 360f))) {
+                PI.toFloat() - angleInRadians - angleBetweenDiagonalAndWidth
+            } else {
+                angleInRadians - angleBetweenDiagonalAndWidth
+            }
+        val halfGradientLine = abs(cos(angleBetweenDiagonalAndGradientLine) * diagonal) / 2
+
+        val horizontalOffset = halfGradientLine * cos(angleInRadians)
+        val verticalOffset = halfGradientLine * sin(angleInRadians)
+
+        val start = size.center + Offset(-horizontalOffset, verticalOffset)
+        val end = size.center + Offset(horizontalOffset, -verticalOffset)
+
+        return start to end
+    }
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is ThmbldrLinearGradient) return false
+
+        if (colors != other.colors) return false
+        if (stops != other.stops) return false
+        if (normalizedAngle != other.normalizedAngle) return false
+        if (tileMode != other.tileMode) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = colors.hashCode()
+        result = 31 * result + (stops?.hashCode() ?: 0)
+        result = 31 * result + normalizedAngle.hashCode()
+        result = 31 * result + tileMode.hashCode()
+        return result
+    }
+
+    override fun toString(): String {
+        return "LinearGradient(colors=$colors, " +
+            "stops=$stops, " +
+            "angle=$normalizedAngle, " +
+            "tileMode=$tileMode)"
+    }
+
+    private companion object {
+
+        fun Float.inExclusiveRange(from: Float, to: Float): Boolean {
+            return this > from && this < to
+        }
+    }
+}
+package com.sdds.playground.themebuilder.tokens
+import androidx.compose.runtime.Immutable
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.RadialGradientShader
+import androidx.compose.ui.graphics.Shader
+import androidx.compose.ui.graphics.ShaderBrush
+import androidx.compose.ui.graphics.TileMode
+import kotlin.math.max
+
+/**
+ * Радиальный градиент
+ * @param colors цвета
+ * @param stops точки остановки цвета
+ * @param radius радиус градиента
+ * @param centerX смещение центра по X
+ * @param centerY смещение центра по Y
+ * @param tileMode определяет поведение на границах градиента
+ */
+@Immutable
+internal data class ThmbldrRadialGradient(
+    private val colors: List<Color>,
+    private val stops: List<Float>? = null,
+    private val radius: Float = 0f,
+    private val centerX: Float = 0.5f,
+    private val centerY: Float = 0.5f,
+    private val tileMode: TileMode = TileMode.Clamp,
+) : ShaderBrush() {
+
+    override fun createShader(size: Size): Shader {
+        return RadialGradientShader(
+            center = Offset(size.width * centerX, size.height * centerY),
+            radius = max(size.width, size.height) * radius / 2,
+            colors = colors,
+            colorStops = stops,
+            tileMode = tileMode
+        )
+    }
+}
+package com.sdds.playground.themebuilder.tokens
+import androidx.compose.runtime.Immutable
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shader
+import androidx.compose.ui.graphics.ShaderBrush
+import androidx.compose.ui.graphics.SweepGradientShader
+
+/**
+ * Sweep (Angular) градиент
+ * @param colors цвета
+ * @param stops точки остановки цвета
+ * @param centerX смещение центра по X
+ * @param centerY смещение центра по Y
+ */
+@Immutable
+internal data class ThmbldrSweepGradient(
+    private val colors: List<Color>,
+    private val stops: List<Float>? = null,
+    private val centerX: Float = 0.5f,
+    private val centerY: Float = 0.5f,
+) : ShaderBrush() {
+
+    override fun createShader(size: Size): Shader {
+        return SweepGradientShader(
+            center = Offset(size.width * centerX, size.height * centerY),
+            colors = colors,
+            colorStops = stops,
+        )
+    }
+}
+package com.sdds.playground.themebuilder.tokens
+
+import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.ProvidableCompositionLocal
+import androidx.compose.runtime.staticCompositionLocalOf
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ShaderBrush
+import com.sdds.playground.themebuilder.tokens.ThemeGradients
+import kotlin.Float
+import kotlin.FloatArray
+import kotlin.collections.List
+
+/**
+ * Градиенты Theme
+ */
+@Immutable
+public data class ThemeGradients(
+    public val textDefaultAccentGradient: ShaderBrush,
+    public val textDefaultAccentGradient: ShaderBrush,
+    public val textDefaultGradientJoyActive: ShaderBrush,
+    public val textDefaultGradientJoyActive: ShaderBrush,
+    public val textOnDarkPromoMinorGradientActive: ShaderBrush,
+    public val textOnDarkPromoMinorGradientActive: ShaderBrush,
+)
+
+internal val LocalThemeGradients: ProvidableCompositionLocal<ThemeGradients> =
+        staticCompositionLocalOf { lightThemeGradients() }
+
+/**
+ * Градиенты [ThemeGradients] для светлой темы
+ */
+public fun lightThemeGradients(
+    textDefaultAccentGradient: ShaderBrush =
+            linearGradient(LightGradientTokens.TextDefaultAccentGradient.colors, LightGradientTokens.TextDefaultAccentGradient.positions, LightGradientTokens.TextDefaultAccentGradient.angle),
+    textDefaultAccentGradient: ShaderBrush =
+            linearGradient(LightGradientTokens.TextDefaultAccentGradient.colors, LightGradientTokens.TextDefaultAccentGradient.positions, LightGradientTokens.TextDefaultAccentGradient.angle),
+    textDefaultGradientJoyActive: ShaderBrush =
+            radialGradient(LightGradientTokens.TextDefaultGradientJoyActive.colors, LightGradientTokens.TextDefaultGradientJoyActive.positions, LightGradientTokens.TextDefaultGradientJoyActive.radius, LightGradientTokens.TextDefaultGradientJoyActive.centerX, LightGradientTokens.TextDefaultGradientJoyActive.centerY),
+    textDefaultGradientJoyActive: ShaderBrush =
+            radialGradient(LightGradientTokens.TextDefaultGradientJoyActive.colors, LightGradientTokens.TextDefaultGradientJoyActive.positions, LightGradientTokens.TextDefaultGradientJoyActive.radius, LightGradientTokens.TextDefaultGradientJoyActive.centerX, LightGradientTokens.TextDefaultGradientJoyActive.centerY),
+    textOnDarkPromoMinorGradientActive: ShaderBrush =
+            sweepGradient(LightGradientTokens.TextOnDarkPromoMinorGradientActive.colors, LightGradientTokens.TextOnDarkPromoMinorGradientActive.positions, LightGradientTokens.TextOnDarkPromoMinorGradientActive.centerX, LightGradientTokens.TextOnDarkPromoMinorGradientActive.centerY),
+    textOnDarkPromoMinorGradientActive: ShaderBrush =
+            sweepGradient(LightGradientTokens.TextOnDarkPromoMinorGradientActive.colors, LightGradientTokens.TextOnDarkPromoMinorGradientActive.positions, LightGradientTokens.TextOnDarkPromoMinorGradientActive.centerX, LightGradientTokens.TextOnDarkPromoMinorGradientActive.centerY),
+): ThemeGradients =
+        ThemeGradients(textDefaultAccentGradient, textDefaultAccentGradient, textDefaultGradientJoyActive, textDefaultGradientJoyActive, textOnDarkPromoMinorGradientActive, textOnDarkPromoMinorGradientActive)
+
+/**
+ * Градиенты [ThemeGradients] для темной темы
+ */
+public fun darkThemeGradients(
+    textDefaultAccentGradient: ShaderBrush =
+            linearGradient(DarkGradientTokens.TextDefaultAccentGradient.colors, DarkGradientTokens.TextDefaultAccentGradient.positions, DarkGradientTokens.TextDefaultAccentGradient.angle),
+    textDefaultAccentGradient: ShaderBrush =
+            linearGradient(DarkGradientTokens.TextDefaultAccentGradient.colors, DarkGradientTokens.TextDefaultAccentGradient.positions, DarkGradientTokens.TextDefaultAccentGradient.angle),
+    textDefaultGradientJoyActive: ShaderBrush =
+            radialGradient(DarkGradientTokens.TextDefaultGradientJoyActive.colors, DarkGradientTokens.TextDefaultGradientJoyActive.positions, DarkGradientTokens.TextDefaultGradientJoyActive.radius, DarkGradientTokens.TextDefaultGradientJoyActive.centerX, DarkGradientTokens.TextDefaultGradientJoyActive.centerY),
+    textDefaultGradientJoyActive: ShaderBrush =
+            radialGradient(DarkGradientTokens.TextDefaultGradientJoyActive.colors, DarkGradientTokens.TextDefaultGradientJoyActive.positions, DarkGradientTokens.TextDefaultGradientJoyActive.radius, DarkGradientTokens.TextDefaultGradientJoyActive.centerX, DarkGradientTokens.TextDefaultGradientJoyActive.centerY),
+    textOnDarkPromoMinorGradientActive: ShaderBrush =
+            sweepGradient(DarkGradientTokens.TextOnDarkPromoMinorGradientActive.colors, DarkGradientTokens.TextOnDarkPromoMinorGradientActive.positions, DarkGradientTokens.TextOnDarkPromoMinorGradientActive.centerX, DarkGradientTokens.TextOnDarkPromoMinorGradientActive.centerY),
+    textOnDarkPromoMinorGradientActive: ShaderBrush =
+            sweepGradient(DarkGradientTokens.TextOnDarkPromoMinorGradientActive.colors, DarkGradientTokens.TextOnDarkPromoMinorGradientActive.positions, DarkGradientTokens.TextOnDarkPromoMinorGradientActive.centerX, DarkGradientTokens.TextOnDarkPromoMinorGradientActive.centerY),
+): ThemeGradients =
+        ThemeGradients(textDefaultAccentGradient, textDefaultAccentGradient, textDefaultGradientJoyActive, textDefaultGradientJoyActive, textOnDarkPromoMinorGradientActive, textOnDarkPromoMinorGradientActive)
+
+internal fun linearGradient(
+    colors: List<Color>,
+    positions: FloatArray,
+    angle: Float,
+): ShaderBrush = ThmbldrLinearGradient(colors, positions.toList(), angleInDegrees = angle,
+        useAsCssAngle = true)
+
+internal fun radialGradient(
+    colors: List<Color>,
+    positions: FloatArray,
+    radius: Float,
+    centerX: Float,
+    centerY: Float,
+): ShaderBrush = ThmbldrRadialGradient(colors, positions.toList(), radius, centerX, centerY)
+
+internal fun sweepGradient(
+    colors: List<Color>,
+    positions: FloatArray,
+    centerX: Float,
+    centerY: Float,
+): ShaderBrush = ThmbldrSweepGradient(colors, positions.toList(), centerX, centerY)

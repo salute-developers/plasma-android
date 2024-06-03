@@ -6,8 +6,6 @@
     <item format="float" name="thmbldr_dark_inverse_surface_accent_position_0" type="dimen">0.0</item>
     <item format="float" name="thmbldr_dark_inverse_surface_accent_position_1" type="dimen">0.7</item>
     <item format="float" name="thmbldr_dark_inverse_surface_accent_position_2" type="dimen">1.0</item>
-    <item format="float" name="thmbldr_dark_inverse_surface_accent_start_angle" type="dimen">0.0</item>
-    <item format="float" name="thmbldr_dark_inverse_surface_accent_end_angle" type="dimen">360.0</item>
     <item format="float" name="thmbldr_dark_inverse_surface_accent_center_x" type="dimen">0.5</item>
     <item format="float" name="thmbldr_dark_inverse_surface_accent_center_y" type="dimen">0.5</item>
     <!--endregion Акцентный sweep градиент поверхности-->

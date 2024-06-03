@@ -353,7 +353,7 @@ internal class KtFileBuilder(
      */
     internal data class FunParameter(
         val name: String,
-        val type: ClassName,
+        val type: TypeName,
         val defValue: String? = null,
         val asProperty: Boolean = false,
     )
@@ -378,7 +378,10 @@ internal class KtFileBuilder(
     companion object {
         private const val DEFAULT_FILE_INDENT = "    "
 
+        val TypeFloat = Float::class.asClassName()
+        val TypeFloatArray = FloatArray::class.asClassName()
         val TypeColor = ClassName("androidx.compose.ui.graphics", listOf("Color"))
+        val TypeShaderBrush = ClassName("androidx.compose.ui.graphics", listOf("ShaderBrush"))
         val TypeTextStyle = ClassName("androidx.compose.ui.text", listOf("TextStyle"))
         val TypeFont = ClassName("androidx.compose.ui.text.font", "Font")
         val TypeFontWeight = ClassName("androidx.compose.ui.text.font", "FontWeight")

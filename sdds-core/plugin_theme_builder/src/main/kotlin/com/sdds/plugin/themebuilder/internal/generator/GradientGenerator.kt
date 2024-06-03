@@ -10,16 +10,20 @@ import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder.ElementType
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
+import com.sdds.plugin.themebuilder.internal.generator.data.GradientTokenResult
 import com.sdds.plugin.themebuilder.internal.token.GradientToken
 import com.sdds.plugin.themebuilder.internal.token.GradientTokenValue
 import com.sdds.plugin.themebuilder.internal.token.LinearGradientTokenValue
 import com.sdds.plugin.themebuilder.internal.token.RadialGradientTokenValue
 import com.sdds.plugin.themebuilder.internal.token.SweepGradientTokenValue
+import com.sdds.plugin.themebuilder.internal.token.isDark
+import com.sdds.plugin.themebuilder.internal.token.isLight
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.gradientsXmlFile
 import com.sdds.plugin.themebuilder.internal.utils.colorToArgbHex
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import com.squareup.kotlinpoet.TypeSpec
 import java.io.File
+import java.util.Locale
 
 /**
  * @param outputLocation локация для сохранения kt-файла с токенами
@@ -36,13 +40,22 @@ internal class GradientGenerator(
     private val xmlBuilderFactory: XmlResourcesDocumentBuilderFactory,
     private val ktFileBuilderFactory: KtFileBuilderFactory,
     private val gradientTokenValues: Map<String, List<GradientTokenValue>>,
-) : TokenGenerator<GradientToken, String>(target) {
+) : TokenGenerator<GradientToken, GradientTokenResult>(target) {
 
     private val xmlDocumentBuilder by unsafeLazy { xmlBuilderFactory.create(DEFAULT_ROOT_ATTRIBUTES) }
     private val ktFileBuilder by unsafeLazy { ktFileBuilderFactory.create("GradientTokens") }
     private val lightBuilder by unsafeLazy { ktFileBuilder.rootObject("LightGradientTokens") }
     private val darkBuilder by unsafeLazy { ktFileBuilder.rootObject("DarkGradientTokens") }
-    override fun collectResult() = ""
+
+    private val composeTokenDataCollector =
+        mutableListOf<GradientTokenResult.TokenData>()
+    private val viewTokenDataCollector =
+        mutableListOf<GradientTokenResult.TokenData>()
+
+    override fun collectResult() = GradientTokenResult(
+        composeTokens = composeTokenDataCollector,
+        viewTokens = viewTokenDataCollector,
+    )
 
     /**
      * @see TokenGenerator.generateViewSystem
@@ -84,9 +97,9 @@ internal class GradientGenerator(
             // TODO: https://github.com/salute-developers/plasma-android/issues/28
             ?.takeIf { it.size == 1 }
             ?: return false
-        val builder = if (token.tags.contains("dark")) {
+        val builder = if (token.isDark) {
             darkBuilder
-        } else if (token.tags.contains("light")) {
+        } else if (token.isLight) {
             lightBuilder
         } else {
             return false
@@ -148,20 +161,6 @@ internal class GradientGenerator(
             appendBaseGradient(baseTokenName, tokenValue.colors, tokenValue.locations)
             appendElement(
                 elementName = ElementName.ITEM,
-                tokenName = "${baseTokenName}_start_angle",
-                value = tokenValue.startAngle.toString(),
-                ElementFormat.FLOAT,
-                ElementType.DIMEN,
-            )
-            appendElement(
-                elementName = ElementName.ITEM,
-                tokenName = "${baseTokenName}_end_angle",
-                value = tokenValue.endAngle.toString(),
-                ElementFormat.FLOAT,
-                ElementType.DIMEN,
-            )
-            appendElement(
-                elementName = ElementName.ITEM,
                 tokenName = "${baseTokenName}_center_x",
                 value = tokenValue.centerX.toString(),
                 ElementFormat.FLOAT,
@@ -220,9 +219,21 @@ internal class GradientGenerator(
         with(ktFileBuilder) {
             appendObject(baseTokenName, token.description) {
                 appendBaseGradient(tokenValue.colors, tokenValue.locations)
-                appendProperty("angle", Float::class, "${tokenValue.angle}f")
+                appendProperty(ANGLE_KT_PROPERTY_NAME, Float::class, "${tokenValue.angle}f")
             }
         }
+        composeTokenDataCollector.add(
+            GradientTokenResult.TokenData(
+                attrName = token.ktName.decapitalize(Locale.getDefault()),
+                tokenRefs = listOf(
+                    "${token.ktName}.$COLORS_KT_PROPERTY_NAME",
+                    "${token.ktName}.$POSITIONS_KT_PROPERTY_NAME",
+                    "${token.ktName}.$ANGLE_KT_PROPERTY_NAME",
+                ),
+                gradientType = GradientTokenResult.TokenData.GradientType.LINEAR,
+                isLight = token.isLight,
+            ),
+        )
         return true
     }
 
@@ -235,12 +246,23 @@ internal class GradientGenerator(
         with(ktFileBuilder) {
             appendObject(baseTokenName, token.description) {
                 appendBaseGradient(tokenValue.colors, tokenValue.locations)
-                appendProperty("startAngle", Float::class, "${tokenValue.startAngle}f")
-                appendProperty("endAngle", Float::class, "${tokenValue.endAngle}f")
-                appendProperty("centerX", Float::class, "${tokenValue.centerX}f")
-                appendProperty("centerY", Float::class, "${tokenValue.centerY}f")
+                appendProperty(CENTER_X_KT_PROPERTY_NAME, Float::class, "${tokenValue.centerX}f")
+                appendProperty(CENTER_Y_KT_PROPERTY_NAME, Float::class, "${tokenValue.centerY}f")
             }
         }
+        composeTokenDataCollector.add(
+            GradientTokenResult.TokenData(
+                attrName = token.ktName.decapitalize(Locale.getDefault()),
+                tokenRefs = listOf(
+                    "${token.ktName}.$COLORS_KT_PROPERTY_NAME",
+                    "${token.ktName}.$POSITIONS_KT_PROPERTY_NAME",
+                    "${token.ktName}.$CENTER_X_KT_PROPERTY_NAME",
+                    "${token.ktName}.$CENTER_Y_KT_PROPERTY_NAME",
+                ),
+                gradientType = GradientTokenResult.TokenData.GradientType.SWEEP,
+                isLight = token.isLight,
+            ),
+        )
         return true
     }
 
@@ -253,11 +275,25 @@ internal class GradientGenerator(
         with(ktFileBuilder) {
             appendObject(baseTokenName, token.description) {
                 appendBaseGradient(tokenValue.colors, tokenValue.locations)
-                appendProperty("radius", Float::class, "${tokenValue.radius}f")
-                appendProperty("centerX", Float::class, "${tokenValue.centerX}f")
-                appendProperty("centerY", Float::class, "${tokenValue.centerY}f")
+                appendProperty(RADIUS_KT_PROPERTY_NAME, Float::class, "${tokenValue.radius}f")
+                appendProperty(CENTER_X_KT_PROPERTY_NAME, Float::class, "${tokenValue.centerX}f")
+                appendProperty(CENTER_Y_KT_PROPERTY_NAME, Float::class, "${tokenValue.centerY}f")
             }
         }
+        composeTokenDataCollector.add(
+            GradientTokenResult.TokenData(
+                attrName = token.ktName.decapitalize(Locale.getDefault()),
+                tokenRefs = listOf(
+                    "${token.ktName}.$COLORS_KT_PROPERTY_NAME",
+                    "${token.ktName}.$POSITIONS_KT_PROPERTY_NAME",
+                    "${token.ktName}.$RADIUS_KT_PROPERTY_NAME",
+                    "${token.ktName}.$CENTER_X_KT_PROPERTY_NAME",
+                    "${token.ktName}.$CENTER_Y_KT_PROPERTY_NAME",
+                ),
+                gradientType = GradientTokenResult.TokenData.GradientType.RADIAL,
+                isLight = token.isLight,
+            ),
+        )
         return true
     }
 
@@ -268,14 +304,23 @@ internal class GradientGenerator(
         val colorParams = colors.joinToString { "Color(${colorToArgbHex(it)})" }
         val positionParams = positions.joinToString { "${it}f" }
         appendProperty(
-            "colors",
+            COLORS_KT_PROPERTY_NAME,
             KtFileBuilder.TypeListOfColors,
             "listOf($colorParams)",
         )
         appendProperty(
-            "positions",
+            POSITIONS_KT_PROPERTY_NAME,
             FloatArray::class,
             "floatArrayOf($positionParams)",
         )
+    }
+
+    private companion object {
+        const val COLORS_KT_PROPERTY_NAME = "colors"
+        const val POSITIONS_KT_PROPERTY_NAME = "positions"
+        const val ANGLE_KT_PROPERTY_NAME = "angle"
+        const val RADIUS_KT_PROPERTY_NAME = "radius"
+        const val CENTER_X_KT_PROPERTY_NAME = "centerX"
+        const val CENTER_Y_KT_PROPERTY_NAME = "centerY"
     }
 }
