@@ -126,7 +126,7 @@ import kotlin.math.max
  * @param tileMode определяет поведение на границах градиента
  */
 @Immutable
-data class ThmbldrRadialGradient(
+internal data class ThmbldrRadialGradient(
     private val colors: List<Color>,
     private val stops: List<Float>? = null,
     private val radius: Float = 0f,
@@ -162,7 +162,7 @@ import androidx.compose.ui.graphics.SweepGradientShader
  * @param centerY смещение центра по Y
  */
 @Immutable
-data class ThmbldrSweepGradient(
+internal data class ThmbldrSweepGradient(
     private val colors: List<Color>,
     private val stops: List<Float>? = null,
     private val centerX: Float = 0.5f,

@@ -14,7 +14,7 @@ import androidx.compose.ui.graphics.SweepGradientShader
  * @param centerY смещение центра по Y
  */
 @Immutable
-data class ThmbldrSweepGradient(
+internal data class ThmbldrSweepGradient(
     private val colors: List<Color>,
     private val stops: List<Float>? = null,
     private val centerX: Float = 0.5f,
