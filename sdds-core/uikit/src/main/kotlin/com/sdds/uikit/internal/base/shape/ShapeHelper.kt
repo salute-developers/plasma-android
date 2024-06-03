@@ -1,4 +1,4 @@
-package com.sdds.uikit.internal.base
+package com.sdds.uikit.internal.base.shape
 
 import android.content.res.ColorStateList
 import android.graphics.drawable.Drawable

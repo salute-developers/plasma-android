@@ -1,4 +1,4 @@
-package com.sdds.uikit.focusselector
+package com.sdds.uikit.internal.focusselector
 
 import android.animation.ValueAnimator
 import android.content.Context

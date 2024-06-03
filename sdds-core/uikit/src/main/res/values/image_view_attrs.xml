@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!--
+       Компонент для отображения изображений.
+       Поддерживает изменение формы, установку отступов только для контента (без фона),
+       а также отрисовку границы.
+       -->
+    <declare-styleable name="ImageView" tools:ignore="ResourceName">
+        <!-- Внутренние отступы для контента (изображения) -->
+        <attr name="sd_contentPadding" format="dimension" />
+        <!-- Внутренний отступ контента в начале -->
+        <attr name="sd_contentPaddingStart" format="dimension" />
+        <!-- Внутренний отступ контента в конце -->
+        <attr name="sd_contentPaddingEnd" format="dimension" />
+        <!-- Внутренний отступ контента слева -->
+        <attr name="sd_contentPaddingLeft" format="dimension" />
+        <!-- Внутренний отступ контента сверху -->
+        <attr name="sd_contentPaddingTop" format="dimension" />
+        <!-- Внутренний отступ контента справа -->
+        <attr name="sd_contentPaddingRight" format="dimension" />
+        <!-- Внутренний отступ контента снизу -->
+        <attr name="sd_contentPaddingBottom" format="dimension" />
+
+        <attr name="sd_shapeAppearance" />
+        <attr name="sd_strokeWidth" />
+        <attr name="sd_strokeColor" />
+    </declare-styleable>
+</resources>
