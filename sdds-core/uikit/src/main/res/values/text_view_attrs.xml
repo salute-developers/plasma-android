@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!--
+       Компонент для отображения текста.
+       Поддерживает изменение формы фона, отрисовку границы, установку compound drawables
+       -->
+    <declare-styleable name="TextView" tools:ignore="ResourceName">
+        <attr name="sd_shapeAppearance" />
+        <attr name="sd_strokeWidth" />
+        <attr name="sd_strokeColor" />
+    </declare-styleable>
+</resources>

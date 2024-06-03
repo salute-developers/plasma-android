@@ -15,6 +15,7 @@ import android.text.style.TextAppearanceSpan
 import android.text.style.UpdateAppearance
 import android.util.AttributeSet
 import androidx.annotation.ColorInt
+import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.annotation.StyleRes
@@ -24,10 +25,10 @@ import androidx.core.graphics.drawable.DrawableCompat
 import androidx.core.text.buildSpannedString
 import androidx.core.view.ViewCompat
 import androidx.core.widget.TextViewCompat
-import com.sdds.uikit.focusselector.tryApplyFocusSelector
-import com.sdds.uikit.internal.base.ShapeHelper
 import com.sdds.uikit.internal.base.drawable.SpinnerDrawable
+import com.sdds.uikit.internal.base.shape.ShapeHelper
 import com.sdds.uikit.internal.base.unsafeLazy
+import com.sdds.uikit.internal.focusselector.tryApplyFocusSelector
 import com.sdds.uikit.viewstate.ViewState
 import com.sdds.uikit.viewstate.ViewState.Companion.isDefined
 import com.sdds.uikit.viewstate.ViewStateHolder
@@ -235,7 +236,7 @@ open class Button @JvmOverloads constructor(
     }
 
     /**
-     * Устанавливает ширину границы кнопки
+     * Устанавливает толщину линии границы кнопки
      * @param strokeWidth ширина границы кнопки
      */
     open fun setStrokeWidth(strokeWidth: Float) {
@@ -243,11 +244,19 @@ open class Button @JvmOverloads constructor(
     }
 
     /**
-     * Устанавливает цвет границы кнопки
+     * Устанавливает цвет линии границы кнопки
      * @param color цвет границы кнопки
      */
     open fun setStrokeColor(@ColorInt color: Int) {
         setStrokeColorList(ColorStateList.valueOf(color))
+    }
+
+    /**
+     * Устанавливает цвет линии границы кнопки из ресурсов
+     * @param colorRes цвета линии границы
+     */
+    open fun setStrokeColorResources(@ColorRes colorRes: Int) {
+        setStrokeColorList(AppCompatResources.getColorStateList(context, colorRes))
     }
 
     /**

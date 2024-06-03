@@ -1,4 +1,4 @@
-package com.sdds.uikit.focusselector
+package com.sdds.uikit.internal.focusselector
 
 import android.content.res.TypedArray
 import android.util.AttributeSet
