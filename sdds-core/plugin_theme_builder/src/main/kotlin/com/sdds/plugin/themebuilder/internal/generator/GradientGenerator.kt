@@ -11,15 +11,18 @@ import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.generator.data.GradientTokenResult
+import com.sdds.plugin.themebuilder.internal.generator.data.GradientTokenResult.ViewTokenData
 import com.sdds.plugin.themebuilder.internal.token.GradientToken
 import com.sdds.plugin.themebuilder.internal.token.GradientTokenValue
 import com.sdds.plugin.themebuilder.internal.token.LinearGradientTokenValue
 import com.sdds.plugin.themebuilder.internal.token.RadialGradientTokenValue
 import com.sdds.plugin.themebuilder.internal.token.SweepGradientTokenValue
+import com.sdds.plugin.themebuilder.internal.token.colorAttrName
 import com.sdds.plugin.themebuilder.internal.token.isDark
 import com.sdds.plugin.themebuilder.internal.token.isLight
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.gradientsXmlFile
 import com.sdds.plugin.themebuilder.internal.utils.HexFormat
+import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 import com.sdds.plugin.themebuilder.internal.utils.resolveColor
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import com.squareup.kotlinpoet.TypeSpec
@@ -42,6 +45,7 @@ internal class GradientGenerator(
     private val ktFileBuilderFactory: KtFileBuilderFactory,
     private val gradientTokenValues: Map<String, List<GradientTokenValue>>,
     private val palette: Map<String, Map<String, String>>,
+    private val resourceReferenceProvider: ResourceReferenceProvider,
 ) : TokenGenerator<GradientToken, GradientTokenResult>(target) {
 
     private val xmlDocumentBuilder by unsafeLazy { xmlBuilderFactory.create(DEFAULT_ROOT_ATTRIBUTES) }
@@ -50,9 +54,9 @@ internal class GradientGenerator(
     private val darkBuilder by unsafeLazy { ktFileBuilder.rootObject("DarkGradientTokens") }
 
     private val composeTokenDataCollector =
-        mutableListOf<GradientTokenResult.TokenData>()
+        mutableListOf<GradientTokenResult.ComposeTokenData>()
     private val viewTokenDataCollector =
-        mutableListOf<GradientTokenResult.TokenData>()
+        mutableListOf<ViewTokenData>()
 
     override fun collectResult() = GradientTokenResult(
         composeTokens = composeTokenDataCollector,
@@ -116,22 +120,11 @@ internal class GradientGenerator(
     }
 
     private fun XmlResourcesDocumentBuilder.appendBaseGradient(
-        baseName: String,
-        colors: List<String>,
-        positions: List<Float>,
+        colors: List<TokenParameterData>,
+        positions: List<TokenParameterData>,
     ) {
-        colors.forEachIndexed { index, color ->
-            appendElement(ElementName.COLOR, "${baseName}_color_$index", color)
-        }
-        positions.forEachIndexed { index, position ->
-            appendElement(
-                ElementName.ITEM,
-                "${baseName}_position_$index",
-                position.toString(),
-                ElementFormat.FLOAT,
-                ElementType.DIMEN,
-            )
-        }
+        colors.forEach { appendElement(ElementName.COLOR, it.name, it.value) }
+        positions.forEach { appendDimenItem(it.name, it.value) }
     }
 
     private fun XmlResourcesDocumentBuilder.appendLinearGradient(
@@ -140,16 +133,33 @@ internal class GradientGenerator(
     ): Boolean {
         val baseTokenName = token.xmlName
         val resolvedColors = tokenValue.colors.resolveColors(HexFormat.XML_HEX) ?: return false
+
+        val colorParameters = resolvedColors.colorsToTokenParameterData(baseTokenName)
+        val positionParameters = tokenValue.locations.positionsToTokenParameterData(baseTokenName)
+        val angleParameter = "${baseTokenName}_angle"
+
         wrapWithRegion(token.description) {
-            appendBaseGradient(baseTokenName, resolvedColors, tokenValue.locations)
-            appendElement(
-                elementName = ElementName.ITEM,
-                tokenName = "${baseTokenName}_angle",
-                value = tokenValue.angle.toString(),
-                ElementFormat.FLOAT,
-                ElementType.DIMEN,
-            )
+            appendBaseGradient(colorParameters, positionParameters)
+            appendDimenItem(angleParameter, tokenValue.angle.toString())
         }
+
+        val baseAttrName = token.colorAttrName()
+        val colorAttrParams = colorParameters.toColorAttrParams(baseTokenName, baseAttrName)
+        val positionAttrParams =
+            positionParameters.toPositionAttrParams(baseTokenName, baseAttrName)
+        val angleAttrParam = ViewTokenData.GradientParameter(
+            attrName = angleParameter.replace(baseTokenName, baseAttrName),
+            ref = resourceReferenceProvider.dimen(angleParameter),
+        )
+        viewTokenDataCollector.add(
+            ViewTokenData(
+                attrName = baseAttrName,
+                gradientParameters = colorAttrParams +
+                    positionAttrParams +
+                    angleAttrParam,
+                isLight = token.isLight,
+            ),
+        )
         return true
     }
 
@@ -159,23 +169,40 @@ internal class GradientGenerator(
     ): Boolean {
         val baseTokenName = token.xmlName
         val resolvedColors = tokenValue.colors.resolveColors(HexFormat.XML_HEX) ?: return false
+
+        val colorParameters = resolvedColors.colorsToTokenParameterData(baseTokenName)
+        val positionParameters = tokenValue.locations.positionsToTokenParameterData(baseTokenName)
+        val centerXParameter = "${baseTokenName}_center_x"
+        val centerYParameter = "${baseTokenName}_center_y"
+
         wrapWithRegion(token.description) {
-            appendBaseGradient(baseTokenName, resolvedColors, tokenValue.locations)
-            appendElement(
-                elementName = ElementName.ITEM,
-                tokenName = "${baseTokenName}_center_x",
-                value = tokenValue.centerX.toString(),
-                ElementFormat.FLOAT,
-                ElementType.DIMEN,
-            )
-            appendElement(
-                elementName = ElementName.ITEM,
-                tokenName = "${baseTokenName}_center_y",
-                value = tokenValue.centerY.toString(),
-                ElementFormat.FLOAT,
-                ElementType.DIMEN,
-            )
+            appendBaseGradient(colorParameters, positionParameters)
+            appendDimenItem(centerXParameter, tokenValue.centerX.toString())
+            appendDimenItem(centerYParameter, tokenValue.centerY.toString())
         }
+
+        val baseAttrName = token.colorAttrName()
+        val colorAttrParams = colorParameters.toColorAttrParams(baseTokenName, baseAttrName)
+        val positionAttrParams =
+            positionParameters.toPositionAttrParams(baseTokenName, baseAttrName)
+        val centerXAttrParam = ViewTokenData.GradientParameter(
+            attrName = centerXParameter.replace(baseTokenName, baseAttrName),
+            ref = resourceReferenceProvider.dimen(centerXParameter),
+        )
+        val centerYAttrParam = ViewTokenData.GradientParameter(
+            attrName = centerYParameter.replace(baseTokenName, baseAttrName),
+            ref = resourceReferenceProvider.dimen(centerYParameter),
+        )
+        viewTokenDataCollector.add(
+            ViewTokenData(
+                attrName = baseAttrName,
+                gradientParameters = colorAttrParams +
+                    positionAttrParams +
+                    centerXAttrParam +
+                    centerYAttrParam,
+                isLight = token.isLight,
+            ),
+        )
         return true
     }
 
@@ -185,31 +212,117 @@ internal class GradientGenerator(
     ): Boolean {
         val baseTokenName = token.xmlName
         val resolvedColors = tokenValue.colors.resolveColors(HexFormat.XML_HEX) ?: return false
+
+        val colorParameters = resolvedColors.colorsToTokenParameterData(baseTokenName)
+        val positionParameters = tokenValue.locations.positionsToTokenParameterData(baseTokenName)
+        val radiusParameter = "${baseTokenName}_radius"
+        val centerXParameter = "${baseTokenName}_center_x"
+        val centerYParameter = "${baseTokenName}_center_y"
+
         wrapWithRegion(token.description) {
-            appendBaseGradient(baseTokenName, resolvedColors, tokenValue.locations)
-            appendElement(
-                elementName = ElementName.ITEM,
-                tokenName = "${baseTokenName}_radius",
-                value = tokenValue.radius.toString(),
-                ElementFormat.FLOAT,
-                ElementType.DIMEN,
-            )
-            appendElement(
-                elementName = ElementName.ITEM,
-                tokenName = "${baseTokenName}_center_x",
-                value = tokenValue.centerX.toString(),
-                ElementFormat.FLOAT,
-                ElementType.DIMEN,
-            )
-            appendElement(
-                elementName = ElementName.ITEM,
-                tokenName = "${baseTokenName}_center_y",
-                value = tokenValue.centerY.toString(),
-                ElementFormat.FLOAT,
-                ElementType.DIMEN,
+            appendBaseGradient(colorParameters, positionParameters)
+            appendDimenItem(radiusParameter, tokenValue.radius.toString())
+            appendDimenItem(centerXParameter, tokenValue.centerX.toString())
+            appendDimenItem(centerYParameter, tokenValue.centerY.toString())
+        }
+
+        val baseAttrName = token.colorAttrName()
+        val colorAttrParams = colorParameters.toColorAttrParams(baseTokenName, baseAttrName)
+        val positionAttrParams =
+            positionParameters.toPositionAttrParams(baseTokenName, baseAttrName)
+        val radiusAttrParam = ViewTokenData.GradientParameter(
+            attrName = radiusParameter.replace(baseTokenName, baseAttrName),
+            ref = resourceReferenceProvider.dimen(radiusParameter),
+        )
+        val centerXAttrParam = ViewTokenData.GradientParameter(
+            attrName = centerXParameter.replace(baseTokenName, baseAttrName),
+            ref = resourceReferenceProvider.dimen(centerXParameter),
+        )
+        val centerYAttrParam = ViewTokenData.GradientParameter(
+            attrName = centerYParameter.replace(baseTokenName, baseAttrName),
+            ref = resourceReferenceProvider.dimen(centerYParameter),
+        )
+        viewTokenDataCollector.add(
+            ViewTokenData(
+                attrName = baseAttrName,
+                gradientParameters = colorAttrParams +
+                    positionAttrParams +
+                    radiusAttrParam +
+                    centerXAttrParam +
+                    centerYAttrParam,
+                isLight = token.isLight,
+            ),
+        )
+        return true
+    }
+
+    /**
+     * Данные о параметре токена градиента в XML.
+     * Эта модель служит единственным источником правды о названии параметра токена и его значении.
+     * Модель используется при генерации токенов и при формировании выходных данных для генерации атрибутов.
+     *
+     * @property name название параметра. Например "text_default_primary_gradient_color_0"
+     * @property value значение параметра. Например "#EEFF001F"
+     */
+    private data class TokenParameterData(
+        val name: String,
+        val value: String,
+    )
+
+    private fun XmlResourcesDocumentBuilder.appendDimenItem(name: String, value: String) {
+        appendElement(
+            elementName = ElementName.ITEM,
+            tokenName = name,
+            value = value,
+            ElementFormat.FLOAT,
+            ElementType.DIMEN,
+        )
+    }
+
+    private fun List<String>.colorsToTokenParameterData(
+        baseTokenName: String,
+    ): List<TokenParameterData> {
+        return this.mapIndexed { index, color ->
+            TokenParameterData(
+                name = "${baseTokenName}_color_$index",
+                value = color,
             )
         }
-        return true
+    }
+
+    private fun List<Float>.positionsToTokenParameterData(
+        baseTokenName: String,
+    ): List<TokenParameterData> {
+        return this.mapIndexed { index, position ->
+            TokenParameterData(
+                name = "${baseTokenName}_position_$index",
+                value = position.toString(),
+            )
+        }
+    }
+
+    private fun List<TokenParameterData>.toColorAttrParams(
+        baseTokenName: String,
+        baseAttrName: String,
+    ): List<ViewTokenData.GradientParameter> {
+        return map {
+            ViewTokenData.GradientParameter(
+                attrName = it.name.replace(baseTokenName, baseAttrName),
+                ref = resourceReferenceProvider.color(it.name),
+            )
+        }
+    }
+
+    private fun List<TokenParameterData>.toPositionAttrParams(
+        baseTokenName: String,
+        baseAttrName: String,
+    ): List<ViewTokenData.GradientParameter> {
+        return map {
+            ViewTokenData.GradientParameter(
+                attrName = it.name.replace(baseTokenName, baseAttrName),
+                ref = resourceReferenceProvider.dimen(it.name),
+            )
+        }
     }
 
     private fun TypeSpec.Builder.appendLinearGradient(
@@ -225,14 +338,14 @@ internal class GradientGenerator(
             }
         }
         composeTokenDataCollector.add(
-            GradientTokenResult.TokenData(
+            GradientTokenResult.ComposeTokenData(
                 attrName = token.ktName.decapitalize(Locale.getDefault()),
                 tokenRefs = listOf(
                     "${token.ktName}.$COLORS_KT_PROPERTY_NAME",
                     "${token.ktName}.$POSITIONS_KT_PROPERTY_NAME",
                     "${token.ktName}.$ANGLE_KT_PROPERTY_NAME",
                 ),
-                gradientType = GradientTokenResult.TokenData.GradientType.LINEAR,
+                gradientType = GradientTokenResult.ComposeTokenData.GradientType.LINEAR,
                 isLight = token.isLight,
             ),
         )
@@ -253,7 +366,7 @@ internal class GradientGenerator(
             }
         }
         composeTokenDataCollector.add(
-            GradientTokenResult.TokenData(
+            GradientTokenResult.ComposeTokenData(
                 attrName = token.ktName.decapitalize(Locale.getDefault()),
                 tokenRefs = listOf(
                     "${token.ktName}.$COLORS_KT_PROPERTY_NAME",
@@ -261,7 +374,7 @@ internal class GradientGenerator(
                     "${token.ktName}.$CENTER_X_KT_PROPERTY_NAME",
                     "${token.ktName}.$CENTER_Y_KT_PROPERTY_NAME",
                 ),
-                gradientType = GradientTokenResult.TokenData.GradientType.SWEEP,
+                gradientType = GradientTokenResult.ComposeTokenData.GradientType.SWEEP,
                 isLight = token.isLight,
             ),
         )
@@ -283,7 +396,7 @@ internal class GradientGenerator(
             }
         }
         composeTokenDataCollector.add(
-            GradientTokenResult.TokenData(
+            GradientTokenResult.ComposeTokenData(
                 attrName = token.ktName.decapitalize(Locale.getDefault()),
                 tokenRefs = listOf(
                     "${token.ktName}.$COLORS_KT_PROPERTY_NAME",
@@ -292,7 +405,7 @@ internal class GradientGenerator(
                     "${token.ktName}.$CENTER_X_KT_PROPERTY_NAME",
                     "${token.ktName}.$CENTER_Y_KT_PROPERTY_NAME",
                 ),
-                gradientType = GradientTokenResult.TokenData.GradientType.RADIAL,
+                gradientType = GradientTokenResult.ComposeTokenData.GradientType.RADIAL,
                 isLight = token.isLight,
             ),
         )

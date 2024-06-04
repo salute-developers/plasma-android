@@ -8,7 +8,7 @@ import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult
 import com.sdds.plugin.themebuilder.internal.token.ColorToken
-import com.sdds.plugin.themebuilder.internal.token.attrName
+import com.sdds.plugin.themebuilder.internal.token.colorAttrName
 import com.sdds.plugin.themebuilder.internal.token.isDark
 import com.sdds.plugin.themebuilder.internal.token.isLight
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.colorsXmlFile
@@ -86,7 +86,7 @@ internal class ColorTokenGenerator(
         )
         viewTokenDataCollector.add(
             ColorTokenResult.TokenData(
-                attrName = token.attrName(),
+                attrName = token.colorAttrName(),
                 tokenRefName = token.toViewTokenRef(),
                 isLight = token.isLight,
             ),

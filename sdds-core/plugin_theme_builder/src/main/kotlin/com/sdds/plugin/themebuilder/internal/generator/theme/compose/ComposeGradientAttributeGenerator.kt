@@ -27,7 +27,7 @@ internal class ComposeGradientAttributeGenerator(
     private val themeName: String,
 ) : SimpleBaseGenerator {
 
-    private val gradients = mutableListOf<GradientTokenResult.TokenData>()
+    private val gradients = mutableListOf<GradientTokenResult.ComposeTokenData>()
 
     private val gradientKtFileBuilder: KtFileBuilder by unsafeLazy {
         ktFileBuilderFactory.create(gradientClassName)
@@ -39,7 +39,7 @@ internal class ComposeGradientAttributeGenerator(
 
     private val gradientClassName = "${themeName.capitalized()}Gradients"
 
-    fun setGradientTokenData(gradients: List<GradientTokenResult.TokenData>) {
+    fun setGradientTokenData(gradients: List<GradientTokenResult.ComposeTokenData>) {
         this.gradients.clear()
         this.gradients.addAll(gradients)
     }
@@ -158,22 +158,22 @@ internal class ComposeGradientAttributeGenerator(
 
     private fun defaultGradientValue(
         objectName: String,
-        tokenData: GradientTokenResult.TokenData,
+        tokenData: GradientTokenResult.ComposeTokenData,
     ): String {
         return when (tokenData.gradientType) {
-            GradientTokenResult.TokenData.GradientType.LINEAR -> createGradientFabricCall(
+            GradientTokenResult.ComposeTokenData.GradientType.LINEAR -> createGradientFabricCall(
                 funName = "linearGradient",
                 objectName = objectName,
                 tokenData = tokenData,
             )
 
-            GradientTokenResult.TokenData.GradientType.RADIAL -> createGradientFabricCall(
+            GradientTokenResult.ComposeTokenData.GradientType.RADIAL -> createGradientFabricCall(
                 funName = "radialGradient",
                 objectName = objectName,
                 tokenData = tokenData,
             )
 
-            GradientTokenResult.TokenData.GradientType.SWEEP -> createGradientFabricCall(
+            GradientTokenResult.ComposeTokenData.GradientType.SWEEP -> createGradientFabricCall(
                 funName = "sweepGradient",
                 objectName = objectName,
                 tokenData = tokenData,
@@ -184,7 +184,7 @@ internal class ComposeGradientAttributeGenerator(
     private fun createGradientFabricCall(
         funName: String,
         objectName: String,
-        tokenData: GradientTokenResult.TokenData,
+        tokenData: GradientTokenResult.ComposeTokenData,
     ): String {
         return "$funName(${
             tokenData.tokenRefs.joinToString(separator = ",·") { tokenRef ->

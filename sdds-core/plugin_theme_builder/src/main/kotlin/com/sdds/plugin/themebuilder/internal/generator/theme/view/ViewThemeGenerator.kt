@@ -4,6 +4,7 @@ import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.generator.SimpleBaseGenerator
 import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult
+import com.sdds.plugin.themebuilder.internal.generator.data.GradientTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.ShapeTokenResult
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.themeXmlFile
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
@@ -26,6 +27,7 @@ internal class ViewThemeGenerator(
 
     private val colors = mutableListOf<ColorTokenResult.TokenData>()
     private val shapes = mutableListOf<ShapeTokenResult.TokenData>()
+    private val gradients = mutableListOf<GradientTokenResult.ViewTokenData>()
 
     private val lightThemeXmlFileBuilder by unsafeLazy {
         xmlBuilderFactory.create()
@@ -45,16 +47,30 @@ internal class ViewThemeGenerator(
         shapes.addAll(data)
     }
 
+    internal fun setGradientTokenData(data: List<GradientTokenResult.ViewTokenData>) {
+        gradients.clear()
+        gradients.addAll(data)
+    }
+
     override fun generate() {
         with(darkThemeXmlFileBuilder) {
             addStyleWithAttrs(
                 {
                     if (colors.isNotEmpty()) appendComment("Dark colors")
                     appendAttrs(
-                        colors
+                        attrs = colors
                             .filter { !it.isLight }
                             .colorsToThemeAttrs(),
-                        this,
+                        toElement = this,
+                    )
+                },
+                {
+                    if (gradients.isNotEmpty()) appendComment("Dark gradients")
+                    appendAttrs(
+                        attrs = gradients
+                            .filter { !it.isLight }
+                            .gradientsToThemeAttrs(),
+                        toElement = this,
                     )
                 },
             )
@@ -76,10 +92,26 @@ internal class ViewThemeGenerator(
                     if (shapes.isNotEmpty()) appendComment("Shapes")
                     appendAttrs(shapes.shapesToThemeAttrs(), this)
                 },
+                {
+                    if (gradients.isNotEmpty()) appendComment("Light gradients")
+                    appendAttrs(
+                        attrs = gradients
+                            .filter { it.isLight }
+                            .gradientsToThemeAttrs(),
+                        toElement = this,
+                    )
+                },
             )
             build(outputResDir.themeXmlFile(ThemeMode.LIGHT.qualifier))
         }
     }
+
+    private fun List<GradientTokenResult.ViewTokenData>.gradientsToThemeAttrs(): List<ViewThemeAttribute> =
+        flatMap { entry ->
+            entry.gradientParameters.map {
+                ViewThemeAttribute(it.attrName, it.ref)
+            }
+        }
 
     private fun List<ColorTokenResult.TokenData>.colorsToThemeAttrs(): List<ViewThemeAttribute> =
         map { entry ->

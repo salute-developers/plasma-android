@@ -8,6 +8,7 @@ import com.sdds.plugin.themebuilder.internal.factory.ComposeGradientAttributeGen
 import com.sdds.plugin.themebuilder.internal.factory.ComposeShapeAttributeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ComposeThemeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ViewColorAttributeGeneratorFactory
+import com.sdds.plugin.themebuilder.internal.factory.ViewGradientAttributeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ViewShapeAttributeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ViewThemeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.generator.SimpleBaseGenerator
@@ -19,6 +20,7 @@ import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeGrad
 import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeShapeAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeThemeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewColorAttributeGenerator
+import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewGradientAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewShapeAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewThemeGenerator
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
@@ -34,6 +36,7 @@ internal class ThemeGenerator(
     private val viewShapeAttributeGeneratorFactory: ViewShapeAttributeGeneratorFactory,
     private val composeShapeAttributeGeneratorFactory: ComposeShapeAttributeGeneratorFactory,
     private val composeGradientAttributeGeneratorFactory: ComposeGradientAttributeGeneratorFactory,
+    private val viewGradientAttributeGeneratorFactory: ViewGradientAttributeGeneratorFactory,
     private val target: ThemeBuilderTarget,
 ) : SimpleBaseGenerator {
 
@@ -54,6 +57,9 @@ internal class ThemeGenerator(
     }
     private val viewColorAttributeGenerator: ViewColorAttributeGenerator by unsafeLazy {
         viewColorAttributeGeneratorFactory.create()
+    }
+    private val viewGradientAttributeGenerator: ViewGradientAttributeGenerator by unsafeLazy {
+        viewGradientAttributeGeneratorFactory.create()
     }
     private val viewShapeAttributeGenerator: ViewShapeAttributeGenerator by unsafeLazy {
         viewShapeAttributeGeneratorFactory.create()
@@ -78,8 +84,14 @@ internal class ThemeGenerator(
     fun setGradientTokenData(gradientTokenResult: GradientTokenResult) {
         if (target.isComposeOrAll) {
             composeGradientAttributeGenerator.setGradientTokenData(
-                gradients = gradientTokenResult.composeTokens.lightGradientTokens(),
+                gradients = gradientTokenResult.composeTokens.lightComposeGradientTokens(),
             )
+        }
+        if (target.isViewSystemOrAll) {
+            viewGradientAttributeGenerator.setGradientTokenData(
+                gradients = gradientTokenResult.viewTokens.lightViewGradientTokens(),
+            )
+            viewThemeGenerator.setGradientTokenData(gradientTokenResult.viewTokens)
         }
     }
 
@@ -109,6 +121,7 @@ internal class ThemeGenerator(
         if (target.isViewSystemOrAll) {
             viewColorAttributeGenerator.generate()
             viewShapeAttributeGenerator.generate()
+            viewGradientAttributeGenerator.generate()
             viewThemeGenerator.generate()
         }
     }
@@ -116,6 +129,9 @@ internal class ThemeGenerator(
     private fun List<ColorTokenResult.TokenData>.lightColorTokens() =
         filter { it.isLight }
 
-    private fun List<GradientTokenResult.TokenData>.lightGradientTokens() =
+    private fun List<GradientTokenResult.ComposeTokenData>.lightComposeGradientTokens() =
+        filter { it.isLight }
+
+    private fun List<GradientTokenResult.ViewTokenData>.lightViewGradientTokens() =
         filter { it.isLight }
 }
