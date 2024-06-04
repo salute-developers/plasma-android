@@ -7,6 +7,7 @@ import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.generator.SimpleBaseGenerator
 import com.sdds.plugin.themebuilder.internal.generator.data.ShapeTokenResult
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
+import org.gradle.configurationcache.extensions.capitalized
 
 /**
  * Генератор Compose-атрибутов форм.
@@ -27,7 +28,7 @@ internal class ComposeShapeAttributeGenerator(
         ktFileBuilderFactory.create(shapeClassName)
     }
 
-    private val shapeClassName = "${themeName}Shapes"
+    private val shapeClassName = "${themeName.capitalized()}Shapes"
 
     fun setShapeTokenData(shapes: List<ShapeTokenResult.TokenData>) {
         this.shapes.clear()

@@ -12,8 +12,9 @@ import com.sdds.plugin.themebuilder.internal.token.attrName
 import com.sdds.plugin.themebuilder.internal.token.isDark
 import com.sdds.plugin.themebuilder.internal.token.isLight
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.colorsXmlFile
+import com.sdds.plugin.themebuilder.internal.utils.HexFormat
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
-import com.sdds.plugin.themebuilder.internal.utils.colorToArgbHex
+import com.sdds.plugin.themebuilder.internal.utils.resolveColor
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import java.io.File
 import java.util.Locale
@@ -37,14 +38,13 @@ internal class ColorTokenGenerator(
     private val ktFileBuilderFactory: KtFileBuilderFactory,
     private val colorTokenValues: Map<String, String>,
     private val resourceReferenceProvider: ResourceReferenceProvider,
+    private val palette: Map<String, Map<String, String>>,
 ) : TokenGenerator<ColorToken, ColorTokenResult>(target) {
 
     private val xmlDocumentBuilder by unsafeLazy { xmlBuilderFactory.create(DEFAULT_ROOT_ATTRIBUTES) }
     private val ktFileBuilder by unsafeLazy { ktFileBuilderFactory.create("ColorTokens") }
     private val lightBuilder by unsafeLazy { ktFileBuilder.rootObject("LightColorTokens") }
     private val darkBuilder by unsafeLazy { ktFileBuilder.rootObject("DarkColorTokens") }
-
-    private val colorPaletteRegex = Regex("\\[\\w+.\\w+.\\d{2,4}](\\[-?0.\\d{1,2}\\])?")
 
     private val composeTokenDataCollector =
         mutableListOf<ColorTokenResult.TokenData>()
@@ -77,9 +77,13 @@ internal class ColorTokenGenerator(
     override fun addViewSystemToken(token: ColorToken): Boolean {
         val tokenValue = colorTokenValues[token.name] ?: return false
         if (!token.isLight && !token.isDark) return false
-        if (colorPaletteRegex.matches(tokenValue)) return false // добавить поддержку палитры
+        val resolvedColor = resolveColor(tokenValue, palette, HexFormat.XML_HEX) ?: return false
         xmlDocumentBuilder.appendComment(token.description)
-        xmlDocumentBuilder.appendElement(ElementName.COLOR, token.xmlName, tokenValue)
+        xmlDocumentBuilder.appendElement(
+            elementName = ElementName.COLOR,
+            tokenName = token.xmlName,
+            value = resolvedColor,
+        )
         viewTokenDataCollector.add(
             ColorTokenResult.TokenData(
                 attrName = token.attrName(),
@@ -96,7 +100,6 @@ internal class ColorTokenGenerator(
     @Suppress("ReturnCount")
     override fun addComposeToken(token: ColorToken): Boolean = with(ktFileBuilder) {
         val tokenValue = colorTokenValues[token.name] ?: return false
-        if (colorPaletteRegex.matches(tokenValue)) return false // добавить поддержку палитры
         val root = if (token.isDark) {
             darkBuilder
         } else if (token.isLight) {
@@ -104,7 +107,8 @@ internal class ColorTokenGenerator(
         } else {
             return false
         }
-        val value = "Color(${colorToArgbHex(tokenValue)})"
+        val resolvedColor = resolveColor(tokenValue, palette, HexFormat.INT_HEX) ?: return false
+        val value = "Color($resolvedColor)"
         root.appendProperty(token.ktName, KtFileBuilder.TypeColor, value, token.description)
         composeTokenDataCollector.add(
             ColorTokenResult.TokenData(

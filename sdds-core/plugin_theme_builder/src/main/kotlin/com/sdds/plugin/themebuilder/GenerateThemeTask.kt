@@ -46,6 +46,12 @@ abstract class GenerateThemeTask : DefaultTask() {
     abstract val themeName: Property<String>
 
     /**
+     * Путь до json-файла с палитрой
+     */
+    @get:InputFile
+    abstract val paletteFile: RegularFileProperty
+
+    /**
      * Путь до json-файла с темой
      */
     @get:InputFile
@@ -158,9 +164,9 @@ abstract class GenerateThemeTask : DefaultTask() {
 
     private val themeGenerator by unsafeLazy { generatorFactory.createThemeGenerator() }
     private val colorGenerator by unsafeLazy {
-        generatorFactory.createColorGenerator(colors)
+        generatorFactory.createColorGenerator(colors, palette)
     }
-    private val gradientGenerator by unsafeLazy { generatorFactory.createGradientGenerator(gradients) }
+    private val gradientGenerator by unsafeLazy { generatorFactory.createGradientGenerator(gradients, palette) }
     private val fontGenerator by unsafeLazy { generatorFactory.createFontGenerator(fonts) }
     private val typographyGenerator by unsafeLazy {
         generatorFactory.createTypographyGenerator(typography)
@@ -234,5 +240,10 @@ abstract class GenerateThemeTask : DefaultTask() {
     private val fonts: Map<String, FontTokenValue> by unsafeLazy {
         fontFile.get().asFile.decode<Map<String, FontTokenValue>>()
             .also { logger.debug("decoded fonts $it") }
+    }
+
+    private val palette by unsafeLazy {
+        paletteFile.get().asFile.decode<Map<String, Map<String, String>>>()
+            .also { logger.debug("decoded palette $it") }
     }
 }

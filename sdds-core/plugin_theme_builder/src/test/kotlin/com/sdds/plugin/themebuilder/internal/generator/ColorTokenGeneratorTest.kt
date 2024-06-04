@@ -56,6 +56,7 @@ class ColorTokenGeneratorTest {
             ktFileBuilderFactory = KtFileBuilderFactory("com.test"),
             colorTokenValues = colorTokenValues,
             resourceReferenceProvider = ResourceReferenceProvider("thmbldr"),
+            palette = palette,
         )
     }
 
@@ -72,13 +73,13 @@ class ColorTokenGeneratorTest {
     @Test
     fun `ColorGenerator добавляет токен и генерирует файлы для compose и view system`() {
         val input = getResourceAsText("inputs/test-color-input.json")
-        val colorToken = Serializer.meta.decodeFromString<ColorToken>(input)
+        val colors = Serializer.meta.decodeFromString<List<ColorToken>>(input)
         val outputXml = ByteArrayOutputStream()
         val colorsXmlFile = mockk<File>(relaxed = true)
         every { colorsXmlFile.fileWriter() } returns outputXml.writer()
         every { mockOutputResDir.colorsXmlFile() } returns colorsXmlFile
 
-        underTest.addToken(colorToken)
+        colors.forEach(underTest::addToken)
         underTest.generate()
 
         assertEquals(getResourceAsText("color-outputs/test-color-output.xml"), outputXml.toString())
@@ -86,6 +87,12 @@ class ColorTokenGeneratorTest {
     }
 
     private companion object {
-        val colorTokenValues = mapOf("dark.on-light.surface.transparent-accent" to "#FFFFFF1F")
+        val colorTokenValues = mapOf(
+            "dark.on-light.surface.transparent-accent" to "#FFFFFF1F",
+            "dark.surface.transparent-accent" to "[general.green.1000]",
+        )
+        val palette = mapOf(
+            "green" to mapOf("1000" to "#EEEEEE1F"),
+        )
     }
 }

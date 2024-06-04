@@ -55,6 +55,7 @@ class GradientGeneratorTest {
             xmlBuilderFactory = XmlResourcesDocumentBuilderFactory("thmbldr"),
             ktFileBuilderFactory = KtFileBuilderFactory("com.test"),
             gradientTokenValues = gradientTokenValues,
+            mockk(),
         )
     }
 

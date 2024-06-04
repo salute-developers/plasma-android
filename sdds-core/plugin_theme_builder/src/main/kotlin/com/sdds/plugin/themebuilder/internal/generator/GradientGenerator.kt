@@ -19,7 +19,8 @@ import com.sdds.plugin.themebuilder.internal.token.SweepGradientTokenValue
 import com.sdds.plugin.themebuilder.internal.token.isDark
 import com.sdds.plugin.themebuilder.internal.token.isLight
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.gradientsXmlFile
-import com.sdds.plugin.themebuilder.internal.utils.colorToArgbHex
+import com.sdds.plugin.themebuilder.internal.utils.HexFormat
+import com.sdds.plugin.themebuilder.internal.utils.resolveColor
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import com.squareup.kotlinpoet.TypeSpec
 import java.io.File
@@ -40,6 +41,7 @@ internal class GradientGenerator(
     private val xmlBuilderFactory: XmlResourcesDocumentBuilderFactory,
     private val ktFileBuilderFactory: KtFileBuilderFactory,
     private val gradientTokenValues: Map<String, List<GradientTokenValue>>,
+    private val palette: Map<String, Map<String, String>>,
 ) : TokenGenerator<GradientToken, GradientTokenResult>(target) {
 
     private val xmlDocumentBuilder by unsafeLazy { xmlBuilderFactory.create(DEFAULT_ROOT_ATTRIBUTES) }
@@ -137,9 +139,9 @@ internal class GradientGenerator(
         tokenValue: LinearGradientTokenValue,
     ): Boolean {
         val baseTokenName = token.xmlName
-
+        val resolvedColors = tokenValue.colors.resolveColors(HexFormat.XML_HEX) ?: return false
         wrapWithRegion(token.description) {
-            appendBaseGradient(baseTokenName, tokenValue.colors, tokenValue.locations)
+            appendBaseGradient(baseTokenName, resolvedColors, tokenValue.locations)
             appendElement(
                 elementName = ElementName.ITEM,
                 tokenName = "${baseTokenName}_angle",
@@ -156,9 +158,9 @@ internal class GradientGenerator(
         tokenValue: SweepGradientTokenValue,
     ): Boolean {
         val baseTokenName = token.xmlName
-
+        val resolvedColors = tokenValue.colors.resolveColors(HexFormat.XML_HEX) ?: return false
         wrapWithRegion(token.description) {
-            appendBaseGradient(baseTokenName, tokenValue.colors, tokenValue.locations)
+            appendBaseGradient(baseTokenName, resolvedColors, tokenValue.locations)
             appendElement(
                 elementName = ElementName.ITEM,
                 tokenName = "${baseTokenName}_center_x",
@@ -182,9 +184,9 @@ internal class GradientGenerator(
         tokenValue: RadialGradientTokenValue,
     ): Boolean {
         val baseTokenName = token.xmlName
-
+        val resolvedColors = tokenValue.colors.resolveColors(HexFormat.XML_HEX) ?: return false
         wrapWithRegion(token.description) {
-            appendBaseGradient(baseTokenName, tokenValue.colors, tokenValue.locations)
+            appendBaseGradient(baseTokenName, resolvedColors, tokenValue.locations)
             appendElement(
                 elementName = ElementName.ITEM,
                 tokenName = "${baseTokenName}_radius",
@@ -215,10 +217,10 @@ internal class GradientGenerator(
         tokenValue: LinearGradientTokenValue,
     ): Boolean {
         val baseTokenName = token.ktName
-
+        val resolvedColors = tokenValue.colors.resolveColors(HexFormat.INT_HEX) ?: return false
         with(ktFileBuilder) {
             appendObject(baseTokenName, token.description) {
-                appendBaseGradient(tokenValue.colors, tokenValue.locations)
+                appendBaseGradient(resolvedColors, tokenValue.locations)
                 appendProperty(ANGLE_KT_PROPERTY_NAME, Float::class, "${tokenValue.angle}f")
             }
         }
@@ -242,10 +244,10 @@ internal class GradientGenerator(
         tokenValue: SweepGradientTokenValue,
     ): Boolean {
         val baseTokenName = token.ktName
-
+        val resolvedColors = tokenValue.colors.resolveColors(HexFormat.INT_HEX) ?: return false
         with(ktFileBuilder) {
             appendObject(baseTokenName, token.description) {
-                appendBaseGradient(tokenValue.colors, tokenValue.locations)
+                appendBaseGradient(resolvedColors, tokenValue.locations)
                 appendProperty(CENTER_X_KT_PROPERTY_NAME, Float::class, "${tokenValue.centerX}f")
                 appendProperty(CENTER_Y_KT_PROPERTY_NAME, Float::class, "${tokenValue.centerY}f")
             }
@@ -271,10 +273,10 @@ internal class GradientGenerator(
         tokenValue: RadialGradientTokenValue,
     ): Boolean {
         val baseTokenName = token.ktName
-
+        val resolvedColors = tokenValue.colors.resolveColors(HexFormat.INT_HEX) ?: return false
         with(ktFileBuilder) {
             appendObject(baseTokenName, token.description) {
-                appendBaseGradient(tokenValue.colors, tokenValue.locations)
+                appendBaseGradient(resolvedColors, tokenValue.locations)
                 appendProperty(RADIUS_KT_PROPERTY_NAME, Float::class, "${tokenValue.radius}f")
                 appendProperty(CENTER_X_KT_PROPERTY_NAME, Float::class, "${tokenValue.centerX}f")
                 appendProperty(CENTER_Y_KT_PROPERTY_NAME, Float::class, "${tokenValue.centerY}f")
@@ -297,11 +299,14 @@ internal class GradientGenerator(
         return true
     }
 
+    private fun List<String>.resolveColors(hexFormat: HexFormat): List<String>? =
+        map { resolveColor(it, palette, hexFormat) ?: return null }
+
     private fun TypeSpec.Builder.appendBaseGradient(
         colors: List<String>,
         positions: List<Float>,
     ) = with(ktFileBuilder) {
-        val colorParams = colors.joinToString { "Color(${colorToArgbHex(it)})" }
+        val colorParams = colors.joinToString { "Color($it)" }
         val positionParams = positions.joinToString { "${it}f" }
         appendProperty(
             COLORS_KT_PROPERTY_NAME,

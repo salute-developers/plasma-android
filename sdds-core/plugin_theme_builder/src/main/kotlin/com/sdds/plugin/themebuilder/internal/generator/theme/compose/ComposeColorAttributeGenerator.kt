@@ -7,6 +7,7 @@ import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.generator.SimpleBaseGenerator
 import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
+import org.gradle.configurationcache.extensions.capitalized
 
 /**
  * Генератор Compose-атрибутов цвета.
@@ -28,7 +29,7 @@ internal class ComposeColorAttributeGenerator(
         ktFileBuilderFactory.create(colorClassName)
     }
 
-    private val colorClassName = "${themeName}Colors"
+    private val colorClassName = "${themeName.capitalized()}Colors"
 
     override fun generate() {
         if (colors.isEmpty()) return
