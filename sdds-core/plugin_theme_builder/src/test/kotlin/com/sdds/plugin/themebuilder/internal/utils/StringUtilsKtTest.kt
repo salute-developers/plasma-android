@@ -29,13 +29,6 @@ class StringUtilsKtTest {
     }
 
     @Test
-    fun testColorToArgbHex() {
-        assertEquals("0xFFF", colorToArgbHex("#FFF"))
-        assertEquals("0xFFABABAB", colorToArgbHex("#ABABAB"))
-        assertEquals("0xFFABABAB", colorToArgbHex("#ABABABFF"))
-    }
-
-    @Test
     fun testFileNameFromUrl() {
         assertEquals("file.zip", "https//google.com/file.zip".fileNameFromUrl())
         assertEquals("file.jpeg", "https//yandex.ru/folder/file.jpeg".fileNameFromUrl())

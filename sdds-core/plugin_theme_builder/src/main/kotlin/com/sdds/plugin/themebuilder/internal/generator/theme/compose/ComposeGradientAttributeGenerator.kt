@@ -9,6 +9,7 @@ import com.sdds.plugin.themebuilder.internal.factory.KtFileFromResourcesBuilderF
 import com.sdds.plugin.themebuilder.internal.generator.SimpleBaseGenerator
 import com.sdds.plugin.themebuilder.internal.generator.data.GradientTokenResult
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
+import org.gradle.configurationcache.extensions.capitalized
 
 /**
  * Генератор Compose-атрибутов градиента.
@@ -36,7 +37,7 @@ internal class ComposeGradientAttributeGenerator(
         ktFileFromResourcesBuilderFactory.create()
     }
 
-    private val gradientClassName = "${themeName}Gradients"
+    private val gradientClassName = "${themeName.capitalized()}Gradients"
 
     fun setGradientTokenData(gradients: List<GradientTokenResult.TokenData>) {
         this.gradients.clear()

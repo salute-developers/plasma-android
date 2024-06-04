@@ -142,6 +142,7 @@ internal class GeneratorFactory(
      */
     fun createColorGenerator(
         colors: Map<String, String>,
+        palette: Map<String, Map<String, String>>,
     ): ColorTokenGenerator {
         return ColorTokenGenerator(
             outputLocation = OutputLocation.Directory(outputDir),
@@ -151,13 +152,17 @@ internal class GeneratorFactory(
             ktFileBuilderFactory = ktFileBuilderFactory,
             colorTokenValues = colors,
             resourceReferenceProvider = resourceReferenceProvider,
+            palette = palette,
         )
     }
 
     /**
      * Создает генератор градиентов [GradientGenerator]
      */
-    fun createGradientGenerator(gradients: Map<String, List<GradientTokenValue>>): GradientGenerator {
+    fun createGradientGenerator(
+        gradients: Map<String, List<GradientTokenValue>>,
+        palette: Map<String, Map<String, String>>,
+    ): GradientGenerator {
         return GradientGenerator(
             OutputLocation.Directory(outputDir),
             outputResDir,
@@ -165,6 +170,7 @@ internal class GeneratorFactory(
             xmlResourcesDocumentBuilderFactory,
             ktFileBuilderFactory,
             gradients,
+            palette,
         )
     }
 
