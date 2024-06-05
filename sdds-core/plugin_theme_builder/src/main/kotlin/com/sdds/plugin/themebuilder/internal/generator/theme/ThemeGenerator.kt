@@ -11,10 +11,12 @@ import com.sdds.plugin.themebuilder.internal.factory.ViewColorAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.factory.ViewGradientAttributeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ViewShapeAttributeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ViewThemeGeneratorFactory
+import com.sdds.plugin.themebuilder.internal.factory.ViewTypographyAttributeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.generator.SimpleBaseGenerator
 import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.GradientTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.ShapeTokenResult
+import com.sdds.plugin.themebuilder.internal.generator.data.TypographyTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeColorAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeGradientAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeShapeAttributeGenerator
@@ -23,6 +25,7 @@ import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewColorAttri
 import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewGradientAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewShapeAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewThemeGenerator
+import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewTypographyAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 
 /**
@@ -37,6 +40,7 @@ internal class ThemeGenerator(
     private val composeShapeAttributeGeneratorFactory: ComposeShapeAttributeGeneratorFactory,
     private val composeGradientAttributeGeneratorFactory: ComposeGradientAttributeGeneratorFactory,
     private val viewGradientAttributeGeneratorFactory: ViewGradientAttributeGeneratorFactory,
+    private val viewTypographyAttributeGeneratorFactory: ViewTypographyAttributeGeneratorFactory,
     private val target: ThemeBuilderTarget,
 ) : SimpleBaseGenerator {
 
@@ -64,6 +68,9 @@ internal class ThemeGenerator(
     private val viewShapeAttributeGenerator: ViewShapeAttributeGenerator by unsafeLazy {
         viewShapeAttributeGeneratorFactory.create()
     }
+    private val viewTypographyAttributeGenerator: ViewTypographyAttributeGenerator by unsafeLazy {
+        viewTypographyAttributeGeneratorFactory.create()
+    }
 
     /**
      * Устанавливает данные о токенах цвета
@@ -81,6 +88,12 @@ internal class ThemeGenerator(
         }
     }
 
+    /**
+     * Устанавливает данные о токенах градиентов
+     *
+     * @param gradientTokenResult данные о токенах градиентов
+     * @see [GradientTokenResult]
+     */
     fun setGradientTokenData(gradientTokenResult: GradientTokenResult) {
         if (target.isComposeOrAll) {
             composeGradientAttributeGenerator.setGradientTokenData(
@@ -111,6 +124,19 @@ internal class ThemeGenerator(
         }
     }
 
+    /**
+     * Устанавливает данные о токенах типографики
+     *
+     * @param typographyTokenResult данные о токенах типографики
+     * @see [TypographyTokenResult]
+     */
+    fun setTypographyTokenData(typographyTokenResult: TypographyTokenResult) {
+        if (target.isViewSystemOrAll) {
+            viewTypographyAttributeGenerator.setTypographyTokenData(typographyTokenResult.viewTokens)
+            viewThemeGenerator.setTypographyTokenData(typographyTokenResult.viewTokens)
+        }
+    }
+
     override fun generate() {
         if (target.isComposeOrAll) {
             composeColorAttributeGenerator.generate()
@@ -122,6 +148,7 @@ internal class ThemeGenerator(
             viewColorAttributeGenerator.generate()
             viewShapeAttributeGenerator.generate()
             viewGradientAttributeGenerator.generate()
+            viewTypographyAttributeGenerator.generate()
             viewThemeGenerator.generate()
         }
     }

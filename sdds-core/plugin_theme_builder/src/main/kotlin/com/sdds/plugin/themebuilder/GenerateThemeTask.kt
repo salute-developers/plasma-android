@@ -200,7 +200,7 @@ abstract class GenerateThemeTask : DefaultTask() {
     private fun generateAll() {
         colorGenerator.generate().also(themeGenerator::setColorTokenData)
         gradientGenerator.generate().also(themeGenerator::setGradientTokenData)
-        typographyGenerator.generate()
+        typographyGenerator.generate().also(themeGenerator::setTypographyTokenData)
         shapesGenerator.generate().also(themeGenerator::setShapeTokenData)
         shadowGenerator.generate()
         dimensGenerator.generate()

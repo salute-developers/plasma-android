@@ -46,10 +46,8 @@ internal class ColorTokenGenerator(
     private val lightBuilder by unsafeLazy { ktFileBuilder.rootObject("LightColorTokens") }
     private val darkBuilder by unsafeLazy { ktFileBuilder.rootObject("DarkColorTokens") }
 
-    private val composeTokenDataCollector =
-        mutableListOf<ColorTokenResult.TokenData>()
-    private val viewTokenDataCollector =
-        mutableListOf<ColorTokenResult.TokenData>()
+    private val composeTokenDataCollector = mutableListOf<ColorTokenResult.TokenData>()
+    private val viewTokenDataCollector = mutableListOf<ColorTokenResult.TokenData>()
 
     override fun collectResult() = ColorTokenResult(
         composeTokens = composeTokenDataCollector,

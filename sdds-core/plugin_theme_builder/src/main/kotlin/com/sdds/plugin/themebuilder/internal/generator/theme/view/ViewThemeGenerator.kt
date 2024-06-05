@@ -6,6 +6,7 @@ import com.sdds.plugin.themebuilder.internal.generator.SimpleBaseGenerator
 import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.GradientTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.ShapeTokenResult
+import com.sdds.plugin.themebuilder.internal.generator.data.TypographyTokenResult
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.themeXmlFile
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import org.w3c.dom.Element
@@ -28,6 +29,7 @@ internal class ViewThemeGenerator(
     private val colors = mutableListOf<ColorTokenResult.TokenData>()
     private val shapes = mutableListOf<ShapeTokenResult.TokenData>()
     private val gradients = mutableListOf<GradientTokenResult.ViewTokenData>()
+    private val typography = mutableListOf<TypographyTokenResult.TokenData>()
 
     private val lightThemeXmlFileBuilder by unsafeLazy {
         xmlBuilderFactory.create()
@@ -50,6 +52,11 @@ internal class ViewThemeGenerator(
     internal fun setGradientTokenData(data: List<GradientTokenResult.ViewTokenData>) {
         gradients.clear()
         gradients.addAll(data)
+    }
+
+    internal fun setTypographyTokenData(data: List<TypographyTokenResult.TokenData>) {
+        typography.clear()
+        typography.addAll(data)
     }
 
     override fun generate() {
@@ -101,10 +108,25 @@ internal class ViewThemeGenerator(
                         toElement = this,
                     )
                 },
+                {
+                    if (typography.isNotEmpty()) appendComment("Typography")
+                    appendAttrs(
+                        attrs = typography.typographyToThemeAttrs(),
+                        toElement = this,
+                    )
+                },
             )
             build(outputResDir.themeXmlFile(ThemeMode.LIGHT.qualifier))
         }
     }
+
+    private fun List<TypographyTokenResult.TokenData>.typographyToThemeAttrs(): List<ViewThemeAttribute> =
+        map { entry ->
+            ViewThemeAttribute(
+                name = entry.attrName,
+                value = entry.tokenRefName,
+            )
+        }
 
     private fun List<GradientTokenResult.ViewTokenData>.gradientsToThemeAttrs(): List<ViewThemeAttribute> =
         flatMap { entry ->
