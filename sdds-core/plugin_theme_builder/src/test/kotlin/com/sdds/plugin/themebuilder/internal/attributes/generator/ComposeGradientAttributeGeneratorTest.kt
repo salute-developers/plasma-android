@@ -90,27 +90,27 @@ class ComposeGradientAttributeGeneratorTest {
 
     private companion object {
         val inputAttrs = listOf(
-            GradientTokenResult.TokenData(
+            GradientTokenResult.ComposeTokenData(
                 attrName = "textDefaultAccentGradient",
                 tokenRefs = listOf(
                     "TextDefaultAccentGradient.colors",
                     "TextDefaultAccentGradient.positions",
                     "TextDefaultAccentGradient.angle",
                 ),
-                gradientType = GradientTokenResult.TokenData.GradientType.LINEAR,
+                gradientType = GradientTokenResult.ComposeTokenData.GradientType.LINEAR,
                 isLight = true,
             ),
-            GradientTokenResult.TokenData(
+            GradientTokenResult.ComposeTokenData(
                 attrName = "textDefaultAccentGradient",
                 tokenRefs = listOf(
                     "TextDefaultAccentGradient.colors",
                     "TextDefaultAccentGradient.positions",
                     "TextDefaultAccentGradient.angle",
                 ),
-                gradientType = GradientTokenResult.TokenData.GradientType.LINEAR,
+                gradientType = GradientTokenResult.ComposeTokenData.GradientType.LINEAR,
                 isLight = false,
             ),
-            GradientTokenResult.TokenData(
+            GradientTokenResult.ComposeTokenData(
                 attrName = "textDefaultGradientJoyActive",
                 tokenRefs = listOf(
                     "TextDefaultGradientJoyActive.colors",
@@ -119,10 +119,10 @@ class ComposeGradientAttributeGeneratorTest {
                     "TextDefaultGradientJoyActive.centerX",
                     "TextDefaultGradientJoyActive.centerY",
                 ),
-                gradientType = GradientTokenResult.TokenData.GradientType.RADIAL,
+                gradientType = GradientTokenResult.ComposeTokenData.GradientType.RADIAL,
                 isLight = true,
             ),
-            GradientTokenResult.TokenData(
+            GradientTokenResult.ComposeTokenData(
                 attrName = "textDefaultGradientJoyActive",
                 tokenRefs = listOf(
                     "TextDefaultGradientJoyActive.colors",
@@ -131,10 +131,10 @@ class ComposeGradientAttributeGeneratorTest {
                     "TextDefaultGradientJoyActive.centerX",
                     "TextDefaultGradientJoyActive.centerY",
                 ),
-                gradientType = GradientTokenResult.TokenData.GradientType.RADIAL,
+                gradientType = GradientTokenResult.ComposeTokenData.GradientType.RADIAL,
                 isLight = false,
             ),
-            GradientTokenResult.TokenData(
+            GradientTokenResult.ComposeTokenData(
                 attrName = "textOnDarkPromoMinorGradientActive",
                 tokenRefs = listOf(
                     "TextOnDarkPromoMinorGradientActive.colors",
@@ -142,10 +142,10 @@ class ComposeGradientAttributeGeneratorTest {
                     "TextOnDarkPromoMinorGradientActive.centerX",
                     "TextOnDarkPromoMinorGradientActive.centerY",
                 ),
-                gradientType = GradientTokenResult.TokenData.GradientType.SWEEP,
+                gradientType = GradientTokenResult.ComposeTokenData.GradientType.SWEEP,
                 isLight = true,
             ),
-            GradientTokenResult.TokenData(
+            GradientTokenResult.ComposeTokenData(
                 attrName = "textOnDarkPromoMinorGradientActive",
                 tokenRefs = listOf(
                     "TextOnDarkPromoMinorGradientActive.colors",
@@ -153,7 +153,7 @@ class ComposeGradientAttributeGeneratorTest {
                     "TextOnDarkPromoMinorGradientActive.centerX",
                     "TextOnDarkPromoMinorGradientActive.centerY",
                 ),
-                gradientType = GradientTokenResult.TokenData.GradientType.SWEEP,
+                gradientType = GradientTokenResult.ComposeTokenData.GradientType.SWEEP,
                 isLight = false,
             ),
         )

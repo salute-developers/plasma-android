@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!--textAccentGradientHover-->
+    <attr format="reference" name="thmbldr_textAccentGradientHover_position_0"/>
+    <attr format="reference" name="thmbldr_textAccentGradientHover_position_1"/>
+    <attr format="reference" name="thmbldr_textAccentGradientHover_color_0"/>
+    <attr format="reference" name="thmbldr_textAccentGradientHover_color_1"/>
+    <attr format="reference" name="thmbldr_textAccentGradientHover_angle"/>
+    <!--textAccentGradient-->
+    <attr format="reference" name="thmbldr_textAccentGradient_position_0"/>
+    <attr format="reference" name="thmbldr_textAccentGradient_position_1"/>
+    <attr format="reference" name="thmbldr_textAccentGradient_color_0"/>
+    <attr format="reference" name="thmbldr_textAccentGradient_color_1"/>
+    <attr format="reference" name="thmbldr_textAccentGradient_angle"/>
+</resources>

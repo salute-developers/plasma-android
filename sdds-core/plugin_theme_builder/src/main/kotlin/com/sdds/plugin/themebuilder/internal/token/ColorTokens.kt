@@ -52,7 +52,7 @@ internal fun colorKtName(name: String): String {
 /**
  * Название xml атрибута
  */
-internal fun ColorToken.attrName() =
+internal fun Token.colorAttrName() =
     name
         .removePrefix("dark.")
         .removePrefix("light.")
