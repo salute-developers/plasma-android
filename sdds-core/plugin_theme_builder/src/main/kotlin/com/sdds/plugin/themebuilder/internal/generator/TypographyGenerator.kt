@@ -10,6 +10,7 @@ import com.sdds.plugin.themebuilder.internal.dimens.DimenData
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
+import com.sdds.plugin.themebuilder.internal.generator.data.TypographyTokenResult
 import com.sdds.plugin.themebuilder.internal.token.TypographyToken
 import com.sdds.plugin.themebuilder.internal.token.TypographyTokenValue
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.textAppearancesXmlFile
@@ -37,7 +38,7 @@ internal class TypographyGenerator(
     private val ktFileBuilderFactory: KtFileBuilderFactory,
     private val resourceReferenceProvider: ResourceReferenceProvider,
     private val typographyTokenValues: Map<String, TypographyTokenValue>,
-) : TokenGenerator<TypographyToken, String>(target) {
+) : TokenGenerator<TypographyToken, TypographyTokenResult>(target) {
 
     private val textAppearanceXmlBuilders =
         mutableMapOf<TypographyToken.ScreenClass, XmlResourcesDocumentBuilder>()
@@ -50,7 +51,13 @@ internal class TypographyGenerator(
     private val smallBuilder by unsafeLazy { ktFileBuilder.rootObject("TypographySmallTokens") }
     private var needDeclareStyle: Boolean = true
 
-    override fun collectResult() = ""
+    private val composeTokenDataCollector = mutableListOf<TypographyTokenResult.TokenData>()
+    private val viewTokenDataCollector = mutableListOf<TypographyTokenResult.TokenData>()
+
+    override fun collectResult() = TypographyTokenResult(
+        composeTokens = composeTokenDataCollector,
+        viewTokens = viewTokenDataCollector,
+    )
 
     /**
      * @see TokenGenerator.generateViewSystem
@@ -85,6 +92,7 @@ internal class TypographyGenerator(
                 textAppearanceXmlBuilders[token.screenClass] = it
             }
         val textAppearanceName = "TextAppearance.${token.xmlName}"
+        val typographyName = "Typography.${token.xmlName}"
 
         if (token.screenClass.isDefault) {
             if (needDeclareStyle) {
@@ -94,7 +102,7 @@ internal class TypographyGenerator(
             }
             with(typographyXmlBuilder) {
                 appendComment(token.description)
-                appendStyle("Typography.${token.xmlName}") {
+                appendStyle(typographyName) {
                     appendElement(
                         elementName = ElementName.ITEM,
                         tokenName = "android:textAppearance",
@@ -103,6 +111,12 @@ internal class TypographyGenerator(
                     )
                 }
             }
+            viewTokenDataCollector.add(
+                TypographyTokenResult.TokenData(
+                    attrName = "typography${token.xmlName}",
+                    tokenRefName = resourceReferenceProvider.style(typographyName),
+                ),
+            )
         }
         builder.appendComment(token.description)
         builder.appendTypographyToken(token, tokenValue, textAppearanceName)

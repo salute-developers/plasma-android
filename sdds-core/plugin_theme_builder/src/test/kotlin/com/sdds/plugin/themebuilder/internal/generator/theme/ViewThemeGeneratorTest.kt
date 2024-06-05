@@ -4,6 +4,7 @@ import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.GradientTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.ShapeTokenResult
+import com.sdds.plugin.themebuilder.internal.generator.data.TypographyTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewThemeGenerator
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.fileWriter
@@ -75,6 +76,7 @@ class ViewThemeGeneratorTest {
         underTest.setShapeTokenData(shapeAttrs)
         underTest.setColorTokenData(colorAttrs)
         underTest.setGradientTokenData(gradientAttrs)
+        underTest.setTypographyTokenData(typographyAttrs)
         underTest.generate()
 
         Assert.assertEquals(
@@ -164,6 +166,17 @@ class ViewThemeGeneratorTest {
                     ),
                 ),
                 isLight = false,
+            ),
+        )
+
+        val typographyAttrs = listOf(
+            TypographyTokenResult.TokenData(
+                attrName = "typographyDisplayLNormal",
+                tokenRefName = "@style/Thmbldr.Typography.DisplayLNormal",
+            ),
+            TypographyTokenResult.TokenData(
+                attrName = "typographyHeaderH3Bold",
+                tokenRefName = "@style/Thmbldr.Typography.HeaderH3Bold",
             ),
         )
     }

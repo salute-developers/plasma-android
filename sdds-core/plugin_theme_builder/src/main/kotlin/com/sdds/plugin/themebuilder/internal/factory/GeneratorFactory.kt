@@ -107,6 +107,14 @@ internal class GeneratorFactory(
         )
     }
 
+    private val viewTypographyAttributeGeneratorFactory by unsafeLazy {
+        ViewTypographyAttributeGeneratorFactory(
+            xmlDocumentBuilderFactory = xmlResourcesDocumentBuilderFactory,
+            outputResDir = outputResDir,
+            attrPrefix = resPrefix,
+        )
+    }
+
     private val composeShapeAttributeGeneratorFactory by unsafeLazy {
         ComposeShapeAttributeGeneratorFactory(
             ktFileBuilderFactory = ktFileBuilderFactory,
@@ -140,6 +148,7 @@ internal class GeneratorFactory(
         composeShapeAttributeGeneratorFactory = composeShapeAttributeGeneratorFactory,
         viewGradientAttributeGeneratorFactory = viewGradientAttributeGeneratorFactory,
         composeGradientAttributeGeneratorFactory = composeGradientAttributeGeneratorFactory,
+        viewTypographyAttributeGeneratorFactory = viewTypographyAttributeGeneratorFactory,
         target = target,
     )
 
