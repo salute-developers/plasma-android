@@ -7,6 +7,7 @@ import com.sdds.plugin.themebuilder.internal.factory.ComposeColorAttributeGenera
 import com.sdds.plugin.themebuilder.internal.factory.ComposeGradientAttributeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ComposeShapeAttributeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ComposeThemeGeneratorFactory
+import com.sdds.plugin.themebuilder.internal.factory.ComposeTypographyAttributeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ViewColorAttributeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ViewGradientAttributeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ViewShapeAttributeGeneratorFactory
@@ -21,6 +22,7 @@ import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeColo
 import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeGradientAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeShapeAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeThemeGenerator
+import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeTypographyAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewColorAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewGradientAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewShapeAttributeGenerator
@@ -41,6 +43,7 @@ internal class ThemeGenerator(
     private val composeGradientAttributeGeneratorFactory: ComposeGradientAttributeGeneratorFactory,
     private val viewGradientAttributeGeneratorFactory: ViewGradientAttributeGeneratorFactory,
     private val viewTypographyAttributeGeneratorFactory: ViewTypographyAttributeGeneratorFactory,
+    private val composeTypographyAttributeGeneratorFactory: ComposeTypographyAttributeGeneratorFactory,
     private val target: ThemeBuilderTarget,
 ) : SimpleBaseGenerator {
 
@@ -58,6 +61,9 @@ internal class ThemeGenerator(
     }
     private val composeShapeAttributeGenerator: ComposeShapeAttributeGenerator by unsafeLazy {
         composeShapeAttributeGeneratorFactory.create()
+    }
+    private val composeTypographyAttributeGenerator: ComposeTypographyAttributeGenerator by unsafeLazy {
+        composeTypographyAttributeGeneratorFactory.create()
     }
     private val viewColorAttributeGenerator: ViewColorAttributeGenerator by unsafeLazy {
         viewColorAttributeGeneratorFactory.create()
@@ -131,6 +137,11 @@ internal class ThemeGenerator(
      * @see [TypographyTokenResult]
      */
     fun setTypographyTokenData(typographyTokenResult: TypographyTokenResult) {
+        if (target.isComposeOrAll) {
+            composeTypographyAttributeGenerator.setTypographyTokenData(
+                typographyTokenResult.composeTokens,
+            )
+        }
         if (target.isViewSystemOrAll) {
             viewTypographyAttributeGenerator.setTypographyTokenData(typographyTokenResult.viewTokens)
             viewThemeGenerator.setTypographyTokenData(typographyTokenResult.viewTokens)
@@ -142,6 +153,7 @@ internal class ThemeGenerator(
             composeColorAttributeGenerator.generate()
             composeGradientAttributeGenerator.generate()
             composeShapeAttributeGenerator.generate()
+            composeTypographyAttributeGenerator.generate()
             composeThemeGenerator.generate()
         }
         if (target.isViewSystemOrAll) {

@@ -1,6 +1,7 @@
 package com.sdds.plugin.themebuilder.internal.generator.theme.compose
 
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
+import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Constructor
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Modifier
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Modifier.INTERNAL
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
@@ -52,12 +53,14 @@ internal class ComposeColorAttributeGenerator(
         with(colorKtFileBuilder) {
             val rootColorsClass = rootClass(
                 name = colorClassName,
-                constructorParams = colors.map {
-                    KtFileBuilder.FunParameter(
-                        name = it.attrName,
-                        type = KtFileBuilder.TypeColor,
-                    )
-                },
+                primaryConstructor = Constructor.Primary(
+                    parameters = colors.map {
+                        KtFileBuilder.FunParameter(
+                            name = it.attrName,
+                            type = KtFileBuilder.TypeColor,
+                        )
+                    },
+                ),
                 annotation = KtFileBuilder.TypeAnnotationImmutable,
                 description = "Цвета $themeName",
             )

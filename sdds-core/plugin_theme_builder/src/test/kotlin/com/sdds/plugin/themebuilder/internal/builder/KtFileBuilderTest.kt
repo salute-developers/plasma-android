@@ -81,10 +81,9 @@ class KtFileBuilderTest {
         val mockFunSpecBuilder = mockk<FunSpec.Builder>(relaxed = true) {
             every { build() } returns mockFunSpec
         }
-        val mockConstructor = mockk<TypeSpec.Builder>(relaxed = true)
         val mockkClassBuilder = mockk<TypeSpec.Builder>(relaxed = true) {
             every { build() } returns mockRoot
-            every { primaryConstructor(mockFunSpec) } returns mockConstructor
+            every { primaryConstructor(mockFunSpec) } returns this
         }
         val mockParamSpec = mockk<ParameterSpec>(relaxed = true)
         val mockParamSpecBuilder = mockk<ParameterSpec.Builder>(relaxed = true) {
@@ -104,7 +103,9 @@ class KtFileBuilderTest {
             name = "RootA",
             modifiers = listOf(KtFileBuilder.Modifier.INTERNAL),
             annotation = annotationType,
-            constructorParams = listOf(testFunParameter),
+            primaryConstructor = KtFileBuilder.Constructor.Primary(
+                parameters = listOf(testFunParameter),
+            ),
             superType = superType,
         )
         underTest.build(mockk(relaxed = true))
@@ -120,7 +121,7 @@ class KtFileBuilderTest {
             mockkClassBuilder.primaryConstructor(mockFunSpec)
             mockFunSpecBuilder.addParameters(listOf(mockParamSpec))
             mockParamSpecBuilder.defaultValue(testFunParameter.defValue!!)
-            mockConstructor.superclass(superType)
+            mockkClassBuilder.superclass(superType)
             FileSpec.builder(TEST_PACKAGE, TEST_CLASS)
             mockResultFileSpecBuilder.addType(mockRoot)
         }

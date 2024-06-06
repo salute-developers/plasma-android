@@ -67,11 +67,11 @@ class ViewTypographyAttributeGeneratorTest {
 
     private companion object {
         val typographyAttrs = listOf(
-            TypographyTokenResult.TokenData(
+            TypographyTokenResult.ViewTokenData(
                 attrName = "typographyDisplayLNormal",
                 tokenRefName = "@style/Thmbldr.Typography.DisplayLNormal",
             ),
-            TypographyTokenResult.TokenData(
+            TypographyTokenResult.ViewTokenData(
                 attrName = "typographyHeaderH3Bold",
                 tokenRefName = "@style/Thmbldr.Typography.HeaderH3Bold",
             ),

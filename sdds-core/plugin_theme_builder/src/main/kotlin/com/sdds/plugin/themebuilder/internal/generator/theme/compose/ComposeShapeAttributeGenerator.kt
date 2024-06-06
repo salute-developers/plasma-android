@@ -1,6 +1,7 @@
 package com.sdds.plugin.themebuilder.internal.generator.theme.compose
 
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
+import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Constructor
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Modifier.DATA
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Modifier.INTERNAL
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
@@ -49,14 +50,16 @@ internal class ComposeShapeAttributeGenerator(
         with(shapeKtFileBuilder) {
             rootClass(
                 name = shapeClassName,
-                constructorParams = shapes.map {
-                    KtFileBuilder.FunParameter(
-                        name = it.attrName,
-                        type = KtFileBuilder.TypeCornerBasedShape,
-                        defValue = "RoundShapeTokens.${it.tokenRefName}",
-                        asProperty = true,
-                    )
-                },
+                primaryConstructor = Constructor.Primary(
+                    parameters = shapes.map {
+                        KtFileBuilder.FunParameter(
+                            name = it.attrName,
+                            type = KtFileBuilder.TypeCornerBasedShape,
+                            defValue = "RoundShapeTokens.${it.tokenRefName}",
+                            asProperty = true,
+                        )
+                    },
+                ),
                 annotation = KtFileBuilder.TypeAnnotationImmutable,
                 description = "Формы $themeName",
                 modifiers = listOf(DATA),

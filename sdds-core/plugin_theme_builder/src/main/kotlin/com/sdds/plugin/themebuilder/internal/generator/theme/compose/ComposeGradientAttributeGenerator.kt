@@ -1,6 +1,7 @@
 package com.sdds.plugin.themebuilder.internal.generator.theme.compose
 
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
+import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Constructor
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Modifier.DATA
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Modifier.INTERNAL
 import com.sdds.plugin.themebuilder.internal.builder.KtFileFromResourcesBuilder
@@ -110,13 +111,15 @@ internal class ComposeGradientAttributeGenerator(
         with(gradientKtFileBuilder) {
             rootClass(
                 name = gradientClassName,
-                constructorParams = gradients.map {
-                    KtFileBuilder.FunParameter(
-                        name = it.attrName,
-                        type = KtFileBuilder.TypeShaderBrush,
-                        asProperty = true,
-                    )
-                },
+                primaryConstructor = Constructor.Primary(
+                    parameters = gradients.map {
+                        KtFileBuilder.FunParameter(
+                            name = it.attrName,
+                            type = KtFileBuilder.TypeShaderBrush,
+                            asProperty = true,
+                        )
+                    },
+                ),
                 annotation = KtFileBuilder.TypeAnnotationImmutable,
                 description = "Градиенты $themeName",
                 modifiers = listOf(DATA),

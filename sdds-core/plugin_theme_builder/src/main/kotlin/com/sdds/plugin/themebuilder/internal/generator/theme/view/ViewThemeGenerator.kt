@@ -29,7 +29,7 @@ internal class ViewThemeGenerator(
     private val colors = mutableListOf<ColorTokenResult.TokenData>()
     private val shapes = mutableListOf<ShapeTokenResult.TokenData>()
     private val gradients = mutableListOf<GradientTokenResult.ViewTokenData>()
-    private val typography = mutableListOf<TypographyTokenResult.TokenData>()
+    private val typography = mutableListOf<TypographyTokenResult.ViewTokenData>()
 
     private val lightThemeXmlFileBuilder by unsafeLazy {
         xmlBuilderFactory.create()
@@ -54,7 +54,7 @@ internal class ViewThemeGenerator(
         gradients.addAll(data)
     }
 
-    internal fun setTypographyTokenData(data: List<TypographyTokenResult.TokenData>) {
+    internal fun setTypographyTokenData(data: List<TypographyTokenResult.ViewTokenData>) {
         typography.clear()
         typography.addAll(data)
     }
@@ -120,7 +120,7 @@ internal class ViewThemeGenerator(
         }
     }
 
-    private fun List<TypographyTokenResult.TokenData>.typographyToThemeAttrs(): List<ViewThemeAttribute> =
+    private fun List<TypographyTokenResult.ViewTokenData>.typographyToThemeAttrs(): List<ViewThemeAttribute> =
         map { entry ->
             ViewThemeAttribute(
                 name = entry.attrName,
