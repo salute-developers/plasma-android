@@ -46,6 +46,7 @@ class ViewThemeGeneratorTest {
             outputResDir = mockOutputResDir,
             parentThemeName = "Sdds.Theme",
             themeName = "Theme",
+            resPrefix = "thmbldr",
         )
     }
 

@@ -9,6 +9,7 @@ import com.sdds.plugin.themebuilder.internal.generator.data.ShapeTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.TypographyTokenResult
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.themeXmlFile
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
+import org.gradle.configurationcache.extensions.capitalized
 import org.w3c.dom.Element
 import java.io.File
 
@@ -24,6 +25,7 @@ internal class ViewThemeGenerator(
     private val outputResDir: File,
     private val parentThemeName: String,
     private val themeName: String,
+    private val resPrefix: String,
 ) : SimpleBaseGenerator {
 
     private val colors = mutableListOf<ColorTokenResult.TokenData>()
@@ -61,6 +63,7 @@ internal class ViewThemeGenerator(
 
     override fun generate() {
         with(darkThemeXmlFileBuilder) {
+            appendStyle(resPrefix.capitalized())
             addStyleWithAttrs(
                 {
                     if (colors.isNotEmpty()) appendComment("Dark colors")
@@ -85,6 +88,7 @@ internal class ViewThemeGenerator(
         }
 
         with(lightThemeXmlFileBuilder) {
+            appendStyle(resPrefix.capitalized())
             addStyleWithAttrs(
                 {
                     if (colors.isNotEmpty()) appendComment("Light colors")
@@ -110,10 +114,7 @@ internal class ViewThemeGenerator(
                 },
                 {
                     if (typography.isNotEmpty()) appendComment("Typography")
-                    appendAttrs(
-                        attrs = typography.typographyToThemeAttrs(),
-                        toElement = this,
-                    )
+                    appendAttrs(typography.typographyToThemeAttrs(), this)
                 },
             )
             build(outputResDir.themeXmlFile(ThemeMode.LIGHT.qualifier))
@@ -165,12 +166,12 @@ internal class ViewThemeGenerator(
     }
 
     private fun XmlResourcesDocumentBuilder.addStyleWithAttrs(vararg attrBlocks: Element.() -> Unit) {
-        appendStyle(
+        appendStyleWithPrefix(
             styleName = themeName,
             styleParent = parentThemeName,
         ) {
             attrBlocks.forEach { attrBlock ->
-                attrBlock.invoke(this@appendStyle)
+                attrBlock.invoke(this@appendStyleWithPrefix)
             }
         }
     }

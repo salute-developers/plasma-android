@@ -89,14 +89,14 @@ internal class ShapeGenerator(
         dimensAggregator.addDimen(cornerSize)
         if (needCreateStyle) {
             needCreateStyle = false
-            appendStyle("Shape")
-            appendStyle("Shape.Round") {
+            appendStyleWithPrefix("Shape")
+            appendStyleWithPrefix("Shape.Round") {
                 appendElement(ElementName.ITEM, "cornerFamily", "rounded", usePrefix = false)
             }
         }
         appendComment(token.description)
         val styleName = "Shape.${token.xmlName}"
-        appendStyle(styleName) {
+        appendStyleWithPrefix(styleName) {
             appendElement(
                 ElementName.ITEM,
                 "cornerSize",

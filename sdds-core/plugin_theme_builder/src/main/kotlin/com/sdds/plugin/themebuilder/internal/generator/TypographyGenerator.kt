@@ -98,12 +98,12 @@ internal class TypographyGenerator(
         if (token.screenClass.isDefault) {
             if (needDeclareStyle) {
                 needDeclareStyle = false
-                builder.appendStyle("TextAppearance")
-                typographyXmlBuilder.appendStyle("Typography")
+                builder.appendStyleWithPrefix("TextAppearance")
+                typographyXmlBuilder.appendStyleWithPrefix("Typography")
             }
             with(typographyXmlBuilder) {
                 appendComment(token.description)
-                appendStyle(typographyName) {
+                appendStyleWithPrefix(typographyName) {
                     appendElement(
                         elementName = ElementName.ITEM,
                         tokenName = "android:textAppearance",
@@ -205,7 +205,7 @@ internal class TypographyGenerator(
         dimensAggregator.addDimen(textSizeDimen)
         dimensAggregator.addDimen(lineHeightDimen)
 
-        appendStyle(textAppearanceName) {
+        appendStyleWithPrefix(textAppearanceName) {
             appendElement(
                 elementName = ElementName.ITEM,
                 tokenName = "fontFamily",

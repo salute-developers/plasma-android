@@ -130,7 +130,7 @@ class XmlResourcesDocumentBuilderTest {
         val styleContent = mockk<Element.() -> Unit>(relaxed = true)
         every { mockDocument.createElement("style") } returns styleElement
 
-        xmlResourcesDocumentBuilder.appendStyle(styleName = "TestStyle", content = styleContent)
+        xmlResourcesDocumentBuilder.appendStyleWithPrefix(styleName = "TestStyle", content = styleContent)
 
         verify {
             mockDocument.appendChild(mockRoot)
