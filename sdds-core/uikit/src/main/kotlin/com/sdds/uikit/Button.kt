@@ -26,6 +26,7 @@ import androidx.core.text.buildSpannedString
 import androidx.core.view.ViewCompat
 import androidx.core.widget.TextViewCompat
 import com.sdds.uikit.internal.base.drawable.SpinnerDrawable
+import com.sdds.uikit.internal.base.set
 import com.sdds.uikit.internal.base.shape.ShapeHelper
 import com.sdds.uikit.internal.base.unsafeLazy
 import com.sdds.uikit.internal.focusselector.tryApplyFocusSelector
@@ -585,13 +586,5 @@ open class Button @JvmOverloads constructor(
         const val DEFAULT_SPINNER_SIZE = 24
         const val DEFAULT_SPINNER_STROKE_WIDTH = 2f
         const val DEFAULT_VALUE_PADDING = 4
-
-        fun Paint.FontMetricsInt.set(fm: Paint.FontMetricsInt) {
-            this.top = fm.top
-            this.bottom = fm.bottom
-            this.ascent = fm.ascent
-            this.descent = fm.descent
-            this.leading = fm.leading
-        }
     }
 }

@@ -2,7 +2,6 @@ package com.sdds.uikit.internal.base.shape
 
 import android.content.res.ColorStateList
 import android.graphics.drawable.Drawable
-import android.graphics.drawable.InsetDrawable
 import android.util.AttributeSet
 import android.view.View
 import androidx.annotation.StyleRes
@@ -11,6 +10,7 @@ import androidx.core.view.updatePadding
 import com.google.android.material.shape.MaterialShapeDrawable
 import com.google.android.material.shape.ShapeAppearanceModel
 import com.sdds.uikit.R
+import com.sdds.uikit.internal.base.wrapWithInset
 
 /**
  * Делегат для установки [MaterialShapeDrawable] в качестве фона [View]
@@ -117,15 +117,4 @@ internal class ShapeHelper(
     }
 
     private fun canCreateShapeBackground() = !backgroundOverwritten && needShapeBackground
-
-    private companion object {
-
-        fun Drawable.wrapWithInset(
-            left: Int = 0,
-            top: Int = 0,
-            right: Int = 0,
-            bottom: Int = 0,
-        ): InsetDrawable =
-            InsetDrawable(this, left, top, right, bottom)
-    }
 }

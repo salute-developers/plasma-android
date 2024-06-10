@@ -52,5 +52,6 @@
 
     <declare-styleable name="SdInteractiveState">
         <attr name="sd_state_loading" format="boolean" />
+        <attr name="sd_state_indeterminate" format="boolean" />
     </declare-styleable>
 </resources>

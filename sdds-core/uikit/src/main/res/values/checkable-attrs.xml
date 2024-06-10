@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <declare-styleable name="SdCheckable">
+        <!-- Дополнительный текст  -->
+        <attr name="sd_description" format="string" />
+        <!-- Стиль дополнительного текста  -->
+        <attr name="sd_descriptionTextAppearance" format="reference" />
+        <!--  Цвет дополнительного текста      -->
+        <attr name="sd_descriptionTextColor" format="reference|color" />
+        <!-- Отступ между основным и дополнительным текстом -->
+        <attr name="sd_descriptionPadding" format="dimension" />
+
+        <!-- Цвет заливки -->
+        <attr name="sd_buttonBoxColor" format="reference|color" />
+        <!-- Цвет границы -->
+        <attr name="sd_buttonBorderColor" format="reference|color" />
+        <!-- Цвет маркера -->
+        <attr name="sd_buttonMarkColor" format="reference|color" />
+
+        <attr name="android:textAppearance" />
+    </declare-styleable>
+
+    <declare-styleable name="CheckBox" tools:ignore="ResourceName">
+        <!-- Дополнительный текст  -->
+        <attr name="sd_description" />
+        <!-- Стиль дополнительного текста  -->
+        <attr name="sd_descriptionTextAppearance" />
+        <!--  Цвет дополнительного текста -->
+        <attr name="sd_descriptionTextColor" />
+        <!-- Отступ между основным и дополнительным текстом -->
+        <attr name="sd_descriptionPadding" />
+
+        <attr name="sd_toggleState" format="enum">
+            <enum name="off" value="0" />
+            <enum name="on" value="1" />
+            <enum name="indeterminate" value="2" />
+        </attr>
+
+        <!-- Цвет заливки  -->
+        <attr name="sd_buttonBoxColor" />
+        <!-- Цвет границы -->
+        <attr name="sd_buttonBorderColor" />
+        <!-- Цвет маркера -->
+        <attr name="sd_buttonMarkColor" />
+
+    </declare-styleable>
+
+    <declare-styleable name="RadioBox" tools:ignore="ResourceName">
+        <!-- Дополнительный текст  -->
+        <attr name="sd_description" />
+        <!-- Стиль дополнительного текста  -->
+        <attr name="sd_descriptionTextAppearance" />
+        <!--  Цвет дополнительного текста -->
+        <attr name="sd_descriptionTextColor" />
+        <!-- Отступ между основным и дополнительным текстом -->
+        <attr name="sd_descriptionPadding" />
+
+        <!-- Цвет заливки -->
+        <attr name="sd_buttonBoxColor" />
+        <!-- Цвет границы -->
+        <attr name="sd_buttonBorderColor" />
+        <!-- Цвет маркера -->
+        <attr name="sd_buttonMarkColor" />
+    </declare-styleable>
+
+    <declare-styleable name="Switch" tools:ignore="ResourceName">
+        <!-- Цвет неподвижной части переключателя -->
+        <attr name="sd_buttonTrackColor" format="reference|color" />
+        <!-- Цвет подвижной части переключателя -->
+        <attr name="sd_buttonThumbColor" format="reference|color" />
+    </declare-styleable>
+
+    <declare-styleable name="SdCheckBoxDrawable">
+        <attr name="sd_buttonSize" format="dimension|float" />
+        <attr name="sd_boxCornerRadius" format="dimension|float" />
+    </declare-styleable>
+
+    <declare-styleable name="SdRadioBoxDrawable">
+        <attr name="sd_buttonSize" />
+        <attr name="sd_buttonMarkSize" format="dimension|float" />
+    </declare-styleable>
+
+    <declare-styleable name="SdSwitchDrawable">
+        <attr name="sd_switchWidth" format="dimension|float" />
+        <attr name="sd_switchHeight" format="dimension|float" />
+        <attr name="sd_thumbSize" format="dimension|float" />
+        <attr name="sd_trackCornerRadius" format="dimension|float" />
+    </declare-styleable>
+</resources>
