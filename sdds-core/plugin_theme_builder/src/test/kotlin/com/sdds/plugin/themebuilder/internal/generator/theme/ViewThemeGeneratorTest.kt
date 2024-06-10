@@ -46,6 +46,7 @@ class ViewThemeGeneratorTest {
             outputResDir = mockOutputResDir,
             parentThemeName = "Sdds.Theme",
             themeName = "Theme",
+            resPrefix = "thmbldr",
         )
     }
 
@@ -170,11 +171,11 @@ class ViewThemeGeneratorTest {
         )
 
         val typographyAttrs = listOf(
-            TypographyTokenResult.TokenData(
+            TypographyTokenResult.ViewTokenData(
                 attrName = "typographyDisplayLNormal",
                 tokenRefName = "@style/Thmbldr.Typography.DisplayLNormal",
             ),
-            TypographyTokenResult.TokenData(
+            TypographyTokenResult.ViewTokenData(
                 attrName = "typographyHeaderH3Bold",
                 tokenRefName = "@style/Thmbldr.Typography.HeaderH3Bold",
             ),

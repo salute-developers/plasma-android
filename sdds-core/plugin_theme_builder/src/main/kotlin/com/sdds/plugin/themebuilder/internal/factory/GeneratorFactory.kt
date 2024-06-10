@@ -129,6 +129,15 @@ internal class GeneratorFactory(
             outputResDir,
             parentThemeName,
             themeName,
+            resPrefix,
+        )
+    }
+
+    private val composeTypographyAttributeGeneratorFactory by unsafeLazy {
+        ComposeTypographyAttributeGeneratorFactory(
+            ktFileBuilderFactory = ktFileBuilderFactory,
+            outputLocation = OutputLocation.Directory(outputDir),
+            themeName = themeName,
         )
     }
 
@@ -149,6 +158,7 @@ internal class GeneratorFactory(
         viewGradientAttributeGeneratorFactory = viewGradientAttributeGeneratorFactory,
         composeGradientAttributeGeneratorFactory = composeGradientAttributeGeneratorFactory,
         viewTypographyAttributeGeneratorFactory = viewTypographyAttributeGeneratorFactory,
+        composeTypographyAttributeGeneratorFactory = composeTypographyAttributeGeneratorFactory,
         target = target,
     )
 

@@ -13,6 +13,7 @@ public object TypographyLargeTokens {
                 fontSize = 128.0.sp,
                 lineHeight = 128.0.sp,
                 letterSpacing = 0.02.sp,
+                fontFamily = FontTokens.sans,
             )
 }
 
@@ -25,6 +26,7 @@ public object TypographyMediumTokens {
                 fontSize = 96.0.sp,
                 lineHeight = 96.0.sp,
                 letterSpacing = 0.02.sp,
+                fontFamily = FontTokens.sans,
             )
 }
 
@@ -37,5 +39,6 @@ public object TypographySmallTokens {
                 fontSize = 72.0.sp,
                 lineHeight = 72.0.sp,
                 letterSpacing = 0.02.sp,
+                fontFamily = FontTokens.sans,
             )
 }

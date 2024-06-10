@@ -20,6 +20,7 @@ import com.sdds.plugin.themebuilder.internal.utils.techToSnakeCase
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import com.squareup.kotlinpoet.TypeSpec
 import java.io.File
+import java.util.Locale
 
 /**
  * @param outputLocation локация для сохранения kt-файла с токенами
@@ -46,13 +47,13 @@ internal class TypographyGenerator(
         xmlBuilderFactory.create(DEFAULT_ROOT_ATTRIBUTES)
     }
     private val ktFileBuilder by unsafeLazy { ktFileBuilderFactory.create("TypographyTokens") }
-    private val largeBuilder by unsafeLazy { ktFileBuilder.rootObject("TypographyLargeTokens") }
-    private val mediumBuilder by unsafeLazy { ktFileBuilder.rootObject("TypographyMediumTokens") }
-    private val smallBuilder by unsafeLazy { ktFileBuilder.rootObject("TypographySmallTokens") }
+    private val largeBuilder by unsafeLazy { ktFileBuilder.rootObject(TYPOGRAPHY_LARGE_TOKENS_NAME) }
+    private val mediumBuilder by unsafeLazy { ktFileBuilder.rootObject(TYPOGRAPHY_MEDIUM_TOKENS_NAME) }
+    private val smallBuilder by unsafeLazy { ktFileBuilder.rootObject(TYPOGRAPHY_SMALL_TOKENS_NAME) }
     private var needDeclareStyle: Boolean = true
 
-    private val composeTokenDataCollector = mutableListOf<TypographyTokenResult.TokenData>()
-    private val viewTokenDataCollector = mutableListOf<TypographyTokenResult.TokenData>()
+    private val composeTokenDataCollector = mutableListOf<TypographyTokenResult.ComposeTokenData>()
+    private val viewTokenDataCollector = mutableListOf<TypographyTokenResult.ViewTokenData>()
 
     override fun collectResult() = TypographyTokenResult(
         composeTokens = composeTokenDataCollector,
@@ -97,12 +98,12 @@ internal class TypographyGenerator(
         if (token.screenClass.isDefault) {
             if (needDeclareStyle) {
                 needDeclareStyle = false
-                builder.appendStyle("TextAppearance")
-                typographyXmlBuilder.appendStyle("Typography")
+                builder.appendStyleWithPrefix("TextAppearance")
+                typographyXmlBuilder.appendStyleWithPrefix("Typography")
             }
             with(typographyXmlBuilder) {
                 appendComment(token.description)
-                appendStyle(typographyName) {
+                appendStyleWithPrefix(typographyName) {
                     appendElement(
                         elementName = ElementName.ITEM,
                         tokenName = "android:textAppearance",
@@ -112,7 +113,7 @@ internal class TypographyGenerator(
                 }
             }
             viewTokenDataCollector.add(
-                TypographyTokenResult.TokenData(
+                TypographyTokenResult.ViewTokenData(
                     attrName = "typography${token.xmlName}",
                     tokenRefName = resourceReferenceProvider.style(typographyName),
                 ),
@@ -129,21 +130,60 @@ internal class TypographyGenerator(
     override fun addComposeToken(token: TypographyToken): Boolean {
         val tokenValue = typographyTokenValues[token.name] ?: return false
         when (token.screenClass) {
-            TypographyToken.ScreenClass.SMALL -> smallBuilder.addTypographyToken(
-                token.ktName,
-                token.description,
-                tokenValue,
-            )
+            TypographyToken.ScreenClass.SMALL -> {
+                smallBuilder.addTypographyToken(
+                    token.ktName,
+                    token.description,
+                    tokenValue,
+                )
+                addTokenData(
+                    token = token,
+                    tokenContainerName = TYPOGRAPHY_SMALL_TOKENS_NAME,
+                    screen = TypographyTokenResult.ComposeTokenData.Screen.SMALL,
+                )
+            }
 
-            TypographyToken.ScreenClass.LARGE -> largeBuilder.addTypographyToken(
-                token.ktName,
-                token.description,
-                tokenValue,
-            )
+            TypographyToken.ScreenClass.LARGE -> {
+                largeBuilder.addTypographyToken(
+                    token.ktName,
+                    token.description,
+                    tokenValue,
+                )
+                addTokenData(
+                    token = token,
+                    tokenContainerName = TYPOGRAPHY_LARGE_TOKENS_NAME,
+                    screen = TypographyTokenResult.ComposeTokenData.Screen.LARGE,
+                )
+            }
 
-            else -> mediumBuilder.addTypographyToken(token.ktName, token.description, tokenValue)
+            else -> {
+                mediumBuilder.addTypographyToken(
+                    token.ktName,
+                    token.description,
+                    tokenValue,
+                )
+                addTokenData(
+                    token = token,
+                    tokenContainerName = TYPOGRAPHY_MEDIUM_TOKENS_NAME,
+                    screen = TypographyTokenResult.ComposeTokenData.Screen.MEDIUM,
+                )
+            }
         }
         return true
+    }
+
+    private fun addTokenData(
+        token: TypographyToken,
+        tokenContainerName: String,
+        screen: TypographyTokenResult.ComposeTokenData.Screen,
+    ) {
+        composeTokenDataCollector.add(
+            TypographyTokenResult.ComposeTokenData(
+                attrName = token.ktName.decapitalize(Locale.getDefault()),
+                tokenRefName = "$tokenContainerName.${token.ktName}",
+                screen = screen,
+            ),
+        )
     }
 
     private fun XmlResourcesDocumentBuilder.appendTypographyToken(
@@ -165,7 +205,7 @@ internal class TypographyGenerator(
         dimensAggregator.addDimen(textSizeDimen)
         dimensAggregator.addDimen(lineHeightDimen)
 
-        appendStyle(textAppearanceName) {
+        appendStyleWithPrefix(textAppearanceName) {
             appendElement(
                 elementName = ElementName.ITEM,
                 tokenName = "fontFamily",
@@ -226,11 +266,18 @@ internal class TypographyGenerator(
             "fontSize = ${tokenValue.textSize}.sp",
             "lineHeight = ${tokenValue.lineHeight}.sp",
             "letterSpacing = $letterSpacing",
+            "fontFamily = FontTokens.${
+                tokenValue.fontFamilyRef.split('.').last()
+            }",
         )
         appendProperty(name, KtFileBuilder.TypeTextStyle, initializer, description)
     }
 
     private companion object {
+        const val TYPOGRAPHY_SMALL_TOKENS_NAME = "TypographySmallTokens"
+        const val TYPOGRAPHY_MEDIUM_TOKENS_NAME = "TypographyMediumTokens"
+        const val TYPOGRAPHY_LARGE_TOKENS_NAME = "TypographyLargeTokens"
+
         fun TypographyToken.ScreenClass.qualifier(): String {
             return when (this) {
                 TypographyToken.ScreenClass.SMALL -> "small"

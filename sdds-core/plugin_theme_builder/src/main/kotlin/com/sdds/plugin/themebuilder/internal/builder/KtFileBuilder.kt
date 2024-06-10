@@ -40,7 +40,8 @@ internal class KtFileBuilder(
      * @param name имя класса
      * @param modifiers модификаторы класса
      * @param annotation аннотация класса
-     * @param constructorParams параметры конструктора
+     * @param primaryConstructor первичный конструктор
+     * @param secondaryConstructors список вторичных конструкторов
      * @param superType тип, от которого наследуется класс
      *
      * @return [TypeSpec.Builder]
@@ -49,14 +50,16 @@ internal class KtFileBuilder(
         name: String,
         modifiers: List<Modifier>? = null,
         annotation: ClassName? = null,
-        constructorParams: List<FunParameter>? = null,
+        primaryConstructor: Constructor.Primary? = null,
+        secondaryConstructors: List<Constructor.Secondary>? = null,
         superType: TypeName? = null,
         description: String? = null,
     ) = TypeSpec.classBuilder(name).apply {
         annotation?.let(::addAnnotation)
         modifiers?.toKModifiers()?.let(::addModifiers)
-        val constructor = addPrimaryConstructor(constructorParams)
-        superType?.let { constructor.superclass(it) }
+        primaryConstructor?.let { addPrimaryConstructor(it) }
+        secondaryConstructors?.let { addSecondaryConstructors(it) }
+        superType?.let { superclass(it) }
         description?.let(::addKdoc)
         rootTypeBuilders.add(this)
     }
@@ -109,6 +112,7 @@ internal class KtFileBuilder(
         modifiers: List<Modifier>? = null,
         body: List<String>? = null,
         returnType: TypeName? = null,
+        receiver: TypeName? = null,
         description: String? = null,
     ) {
         appendFun(
@@ -117,6 +121,7 @@ internal class KtFileBuilder(
             modifiers = modifiers,
             body = body,
             returnType = returnType,
+            receiver = receiver,
             description = description,
         )
             .also(rootFunBuilders::add)
@@ -226,17 +231,43 @@ internal class KtFileBuilder(
     internal fun getInternalClassType(className: String, classPackage: String = packageName) =
         ClassName(classPackage, listOf(className)).also(::addImport)
 
-    private fun TypeSpec.Builder.addPrimaryConstructor(params: List<FunParameter>? = null): TypeSpec.Builder {
-        val constructorSpec = primaryConstructor(
+    private fun TypeSpec.Builder.addPrimaryConstructor(
+        primaryConstructor: Constructor.Primary,
+    ): TypeSpec.Builder {
+        val spec = primaryConstructor(
             FunSpec.constructorBuilder().apply {
-                params?.let { addParameters(it.toParameterSpecs()) }
+                primaryConstructor.parameters?.let { addParameters(it.toParameterSpecs()) }
+                primaryConstructor.modifiers?.let { addModifiers(it.toKModifiers()) }
             }.build(),
         )
-        val properties = params?.filter { it.asProperty }
+        val properties = primaryConstructor.parameters?.filter { it.asProperty }
         return if (properties.isNullOrEmpty()) {
-            constructorSpec
+            spec
         } else {
-            constructorSpec.addProperties(properties.toPrimaryConstructorProperties())
+            spec.addProperties(properties.toConstructorProperties())
+        }
+    }
+
+    private fun TypeSpec.Builder.addSecondaryConstructors(constructors: List<Constructor.Secondary>) {
+        constructors.forEach { addSecondaryConstructor(it) }
+    }
+
+    private fun TypeSpec.Builder.addSecondaryConstructor(
+        constructor: Constructor.Secondary,
+    ): TypeSpec.Builder {
+        val spec = addFunction(
+            FunSpec.constructorBuilder().apply {
+                constructor.parameters?.let { addParameters(it.toParameterSpecs()) }
+                constructor.modifiers?.let { addModifiers(it.toKModifiers()) }
+                constructor.thisConstructorCallParams?.let { callThisConstructor(it.joinToString()) }
+            }
+                .build(),
+        )
+        val properties = constructor.parameters?.filter { it.asProperty }
+        return if (properties.isNullOrEmpty()) {
+            spec
+        } else {
+            spec.addProperties(properties.toConstructorProperties())
         }
     }
 
@@ -274,6 +305,7 @@ internal class KtFileBuilder(
         modifiers: List<Modifier>? = null,
         body: List<String>? = null,
         returnType: TypeName? = null,
+        receiver: TypeName? = null,
         description: String? = null,
         rootObject: TypeSpec.Builder? = null,
     ): FunSpec.Builder {
@@ -284,6 +316,7 @@ internal class KtFileBuilder(
             }
             body?.forEach(::addCode)
             returnType?.let(::returns)
+            receiver?.let(this::receiver)
             description?.let(::addKdoc)
             rootObject?.addFunction(this.build())
         }
@@ -324,18 +357,34 @@ internal class KtFileBuilder(
     private fun List<FunParameter>.toParameterSpecs(): List<ParameterSpec> =
         map { it.toParameterSpec() }
 
-    private fun List<FunParameter>.toPrimaryConstructorProperties(): List<PropertySpec> =
-        map { it.toPrimaryConstructorProperty() }
+    private fun List<FunParameter>.toConstructorProperties(): List<PropertySpec> =
+        map { it.toConstructorProperty() }
 
     private fun FunParameter.toParameterSpec() =
         ParameterSpec.builder(name = name, type = type).apply {
             defValue?.let(::defaultValue)
         }.build()
 
-    private fun FunParameter.toPrimaryConstructorProperty() =
+    private fun FunParameter.toConstructorProperty() =
         PropertySpec.builder(name = name, type = type).apply {
             initializer(name)
         }.build()
+
+    /**
+     * Конструктор класса
+     */
+    internal sealed class Constructor {
+        data class Primary(
+            val parameters: List<FunParameter>? = null,
+            val modifiers: List<Modifier>? = null,
+        ) : Constructor()
+
+        data class Secondary(
+            val parameters: List<FunParameter>? = null,
+            val modifiers: List<Modifier>? = null,
+            val thisConstructorCallParams: List<String>? = null,
+        ) : Constructor()
+    }
 
     /**
      * Kotlin модифкаторы

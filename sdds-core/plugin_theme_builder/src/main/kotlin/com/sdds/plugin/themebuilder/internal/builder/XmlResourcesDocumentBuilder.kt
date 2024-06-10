@@ -81,12 +81,25 @@ internal open class XmlResourcesDocumentBuilder(
     }
 
     /**
-     * Добавляет стиль с названием [styleName] в документ
+     * Добавляет стиль с названием [styleName] в документ.
+     *
+     * @param styleName название стиля
+     */
+    fun appendStyle(styleName: String) {
+        document.createElement("style").apply {
+            setAttribute("name", styleName)
+            rootContent.appendChild(this@apply)
+        }
+    }
+
+    /**
+     * Добавляет стиль с названием, состоящим из префикса [capitalizedPrefix] и [styleName] в документ.
+     *
      * @param styleName название стиля
      * @param styleParent наследуемый стиль
      * @param content содержание стиля
      */
-    fun appendStyle(
+    fun appendStyleWithPrefix(
         styleName: String,
         styleParent: String? = null,
         content: Element.() -> Unit = {},

@@ -1,0 +1,36 @@
+package com.sdds.playground.themebuilder.tokens
+
+import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.ProvidableCompositionLocal
+import androidx.compose.runtime.staticCompositionLocalOf
+import androidx.compose.ui.text.TextStyle
+import com.sdds.playground.themebuilder.tokens.ThemeTypography
+
+/**
+ * Типографика Theme
+ */
+@Immutable
+public data class ThemeTypography internal constructor(
+    public val displayLNormal: TextStyle,
+)
+
+internal val LocalThemeTypography: ProvidableCompositionLocal<ThemeTypography> =
+        staticCompositionLocalOf { mediumThemeTypography() }
+
+/**
+ * Возвращает [ThemeTypography] для ширины окна до 600dp
+ */
+public fun smallThemeTypography(): ThemeTypography = ThemeTypography(displayLNormal =
+        TypographySmallTokens.DisplayLNormal)
+
+/**
+ * Возвращает [ThemeTypography] для ширины окна от 600dp до 840dp
+ */
+public fun mediumThemeTypography(): ThemeTypography = ThemeTypography(displayLNormal =
+        TypographyMediumTokens.DisplayLNormal)
+
+/**
+ * Возвращает [ThemeTypography] для ширины окна от 840dp
+ */
+public fun largeThemeTypography(): ThemeTypography = ThemeTypography(displayLNormal =
+        TypographyLargeTokens.DisplayLNormal)

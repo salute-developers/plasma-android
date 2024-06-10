@@ -9,6 +9,7 @@ import com.sdds.plugin.themebuilder.internal.generator.data.ShapeTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.TypographyTokenResult
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.themeXmlFile
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
+import org.gradle.configurationcache.extensions.capitalized
 import org.w3c.dom.Element
 import java.io.File
 
@@ -24,12 +25,13 @@ internal class ViewThemeGenerator(
     private val outputResDir: File,
     private val parentThemeName: String,
     private val themeName: String,
+    private val resPrefix: String,
 ) : SimpleBaseGenerator {
 
     private val colors = mutableListOf<ColorTokenResult.TokenData>()
     private val shapes = mutableListOf<ShapeTokenResult.TokenData>()
     private val gradients = mutableListOf<GradientTokenResult.ViewTokenData>()
-    private val typography = mutableListOf<TypographyTokenResult.TokenData>()
+    private val typography = mutableListOf<TypographyTokenResult.ViewTokenData>()
 
     private val lightThemeXmlFileBuilder by unsafeLazy {
         xmlBuilderFactory.create()
@@ -54,13 +56,14 @@ internal class ViewThemeGenerator(
         gradients.addAll(data)
     }
 
-    internal fun setTypographyTokenData(data: List<TypographyTokenResult.TokenData>) {
+    internal fun setTypographyTokenData(data: List<TypographyTokenResult.ViewTokenData>) {
         typography.clear()
         typography.addAll(data)
     }
 
     override fun generate() {
         with(darkThemeXmlFileBuilder) {
+            appendStyle(resPrefix.capitalized())
             addStyleWithAttrs(
                 {
                     if (colors.isNotEmpty()) appendComment("Dark colors")
@@ -85,6 +88,7 @@ internal class ViewThemeGenerator(
         }
 
         with(lightThemeXmlFileBuilder) {
+            appendStyle(resPrefix.capitalized())
             addStyleWithAttrs(
                 {
                     if (colors.isNotEmpty()) appendComment("Light colors")
@@ -110,17 +114,14 @@ internal class ViewThemeGenerator(
                 },
                 {
                     if (typography.isNotEmpty()) appendComment("Typography")
-                    appendAttrs(
-                        attrs = typography.typographyToThemeAttrs(),
-                        toElement = this,
-                    )
+                    appendAttrs(typography.typographyToThemeAttrs(), this)
                 },
             )
             build(outputResDir.themeXmlFile(ThemeMode.LIGHT.qualifier))
         }
     }
 
-    private fun List<TypographyTokenResult.TokenData>.typographyToThemeAttrs(): List<ViewThemeAttribute> =
+    private fun List<TypographyTokenResult.ViewTokenData>.typographyToThemeAttrs(): List<ViewThemeAttribute> =
         map { entry ->
             ViewThemeAttribute(
                 name = entry.attrName,
@@ -165,12 +166,12 @@ internal class ViewThemeGenerator(
     }
 
     private fun XmlResourcesDocumentBuilder.addStyleWithAttrs(vararg attrBlocks: Element.() -> Unit) {
-        appendStyle(
+        appendStyleWithPrefix(
             styleName = themeName,
             styleParent = parentThemeName,
         ) {
             attrBlocks.forEach { attrBlock ->
-                attrBlock.invoke(this@appendStyle)
+                attrBlock.invoke(this@appendStyleWithPrefix)
             }
         }
     }
