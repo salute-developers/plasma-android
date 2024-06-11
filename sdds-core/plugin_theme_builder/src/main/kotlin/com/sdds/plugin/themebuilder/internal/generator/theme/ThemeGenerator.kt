@@ -86,7 +86,9 @@ internal class ThemeGenerator(
      */
     fun setColorTokenData(colorTokenResult: ColorTokenResult) {
         if (target.isComposeOrAll) {
-            composeColorAttributeGenerator.setColorTokenData(colorTokenResult.composeTokens.lightColorTokens())
+            val lightComposeTokens = colorTokenResult.composeTokens.lightColorTokens()
+            composeColorAttributeGenerator.setColorTokenData(lightComposeTokens)
+            composeThemeGenerator.setColorTokenData(lightComposeTokens)
         }
         if (target.isViewSystemOrAll) {
             viewColorAttributeGenerator.setColorTokenData(colorTokenResult.viewTokens.lightColorTokens())
@@ -141,6 +143,7 @@ internal class ThemeGenerator(
             composeTypographyAttributeGenerator.setTypographyTokenData(
                 typographyTokenResult.composeTokens,
             )
+            composeThemeGenerator.setTypographyTokenData(typographyTokenResult.composeTokens)
         }
         if (target.isViewSystemOrAll) {
             viewTypographyAttributeGenerator.setTypographyTokenData(typographyTokenResult.viewTokens)

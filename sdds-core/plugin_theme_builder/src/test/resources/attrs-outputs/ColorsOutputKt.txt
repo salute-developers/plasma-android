@@ -9,6 +9,7 @@ import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.runtime.structuralEqualityPolicy
 import androidx.compose.ui.graphics.Color
 import com.sdds.playground.themebuilder.tokens.ThemeColors
+import kotlin.Unit
 
 /**
  * Цвета Theme
@@ -34,6 +35,11 @@ public class ThemeColors(
 
 internal val LocalThemeColors: ProvidableCompositionLocal<ThemeColors> = staticCompositionLocalOf {
         lightThemeColors() }
+
+internal fun ThemeColors.updateColorsFrom(other: ThemeColors): Unit {
+    textPrimary = other.textPrimary
+    textTertiary = other.textTertiary
+}
 
 /**
  * Цвета [ThemeColors] для светлой темы

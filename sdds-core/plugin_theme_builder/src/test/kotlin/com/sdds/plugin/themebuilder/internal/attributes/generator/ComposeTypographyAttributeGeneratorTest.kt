@@ -1,7 +1,9 @@
 package com.sdds.plugin.themebuilder.internal.attributes.generator
 
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
+import com.sdds.plugin.themebuilder.internal.builder.KtFileFromResourcesBuilder
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
+import com.sdds.plugin.themebuilder.internal.factory.KtFileFromResourcesBuilderFactory
 import com.sdds.plugin.themebuilder.internal.generator.data.TypographyTokenResult.ComposeTokenData
 import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeTypographyAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider
@@ -28,7 +30,9 @@ class ComposeTypographyAttributeGeneratorTest {
     private lateinit var outputKt: ByteArrayOutputStream
     private lateinit var underTest: ComposeTypographyAttributeGenerator
     private lateinit var mockKtFileBuilderFactory: KtFileBuilderFactory
+    private lateinit var mockKtFileFromResourceBuilderFactory: KtFileFromResourcesBuilderFactory
     private lateinit var ktFileBuilder: KtFileBuilder
+    private lateinit var ktFileFromResourcesBuilder: KtFileFromResourcesBuilder
 
     @Before
     fun before() {
@@ -42,11 +46,18 @@ class ComposeTypographyAttributeGeneratorTest {
             packageName = "com.sdds.playground.themebuilder.tokens",
             fileName = "ThemeColors",
         )
+        ktFileFromResourcesBuilder = KtFileFromResourcesBuilder(
+            packageName = "com.sdds.playground.themebuilder.tokens",
+        )
         mockKtFileBuilderFactory = mockk<KtFileBuilderFactory> {
             every { create("ThemeTypography") } returns ktFileBuilder
         }
+        mockKtFileFromResourceBuilderFactory = mockk<KtFileFromResourcesBuilderFactory> {
+            every { create() } returns ktFileFromResourcesBuilder
+        }
         underTest = ComposeTypographyAttributeGenerator(
             ktFileBuilderFactory = mockKtFileBuilderFactory,
+            ktFileFromResourcesBuilderFactory = mockKtFileFromResourceBuilderFactory,
             outputLocation = KtFileBuilder.OutputLocation.Stream(outputKt),
             themeName = "Theme",
         )

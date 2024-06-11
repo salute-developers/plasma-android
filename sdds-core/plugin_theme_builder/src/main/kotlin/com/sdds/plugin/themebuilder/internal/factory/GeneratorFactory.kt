@@ -136,13 +136,18 @@ internal class GeneratorFactory(
     private val composeTypographyAttributeGeneratorFactory by unsafeLazy {
         ComposeTypographyAttributeGeneratorFactory(
             ktFileBuilderFactory = ktFileBuilderFactory,
+            ktFileFromResourcesBuilderFactory = ktFileFromResourcesBuilderFactory,
             outputLocation = OutputLocation.Directory(outputDir),
             themeName = themeName,
         )
     }
 
     private val composeThemeGeneratorFactory: ComposeThemeGeneratorFactory by unsafeLazy {
-        ComposeThemeGeneratorFactory()
+        ComposeThemeGeneratorFactory(
+            ktFileBuilderFactory = ktFileBuilderFactory,
+            outputLocation = OutputLocation.Directory(outputDir),
+            themeName = themeName,
+        )
     }
 
     /**

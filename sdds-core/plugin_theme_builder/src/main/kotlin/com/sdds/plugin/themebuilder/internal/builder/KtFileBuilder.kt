@@ -1,10 +1,12 @@
 package com.sdds.plugin.themebuilder.internal.builder
 
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
+import com.squareup.kotlinpoet.AnnotationSpec
 import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.FileSpec
 import com.squareup.kotlinpoet.FunSpec
 import com.squareup.kotlinpoet.KModifier
+import com.squareup.kotlinpoet.LambdaTypeName
 import com.squareup.kotlinpoet.ParameterSpec
 import com.squareup.kotlinpoet.ParameterizedTypeName.Companion.parameterizedBy
 import com.squareup.kotlinpoet.PropertySpec
@@ -114,6 +116,7 @@ internal class KtFileBuilder(
         returnType: TypeName? = null,
         receiver: TypeName? = null,
         description: String? = null,
+        annotation: ClassName? = null,
     ) {
         appendFun(
             name = name,
@@ -123,6 +126,7 @@ internal class KtFileBuilder(
             returnType = returnType,
             receiver = receiver,
             description = description,
+            annotation = annotation,
         )
             .also(rootFunBuilders::add)
     }
@@ -137,7 +141,13 @@ internal class KtFileBuilder(
         typeName: KClass<*>,
         initializer: String? = null,
         description: String? = null,
-    ) = appendProperty(name, typeName.asTypeName(), initializer, description, this)
+    ) = appendPropertyInternal(
+        name = name,
+        typeName = typeName.asTypeName(),
+        initializer = initializer,
+        description = description,
+        rootObject = this,
+    )
 
     /**
      * Добавляет kotlin свойство.
@@ -160,8 +170,9 @@ internal class KtFileBuilder(
         modifiers: List<Modifier>? = null,
         isMutable: Boolean = false,
         setter: Setter? = null,
+        propGetter: Getter? = null,
         delegate: String? = null,
-    ) = appendProperty(
+    ) = appendPropertyInternal(
         name = name,
         typeName = typeName,
         initializer = initializer,
@@ -170,6 +181,7 @@ internal class KtFileBuilder(
         modifiers = modifiers?.toKModifiers(),
         isMutable = isMutable,
         setter = setter,
+        getter = propGetter,
         delegate = delegate,
     )
 
@@ -271,7 +283,7 @@ internal class KtFileBuilder(
         }
     }
 
-    private fun appendProperty(
+    private fun appendPropertyInternal(
         name: String,
         typeName: TypeName,
         initializer: String? = null,
@@ -280,6 +292,7 @@ internal class KtFileBuilder(
         modifiers: List<KModifier>? = null,
         isMutable: Boolean = false,
         setter: Setter? = null,
+        getter: Getter? = null,
         delegate: String? = null,
     ) {
         if (typeName is ClassName) addImport(typeName)
@@ -292,6 +305,7 @@ internal class KtFileBuilder(
         initializer?.let(spec::initializer)
         description?.let(spec::addKdoc)
         setter?.let { spec.setter(it.toFunSpec()) }
+        getter?.let { spec.getter(it.toFunSpec()) }
         delegate?.let(spec::delegate)
 
         val prop = spec.build()
@@ -308,9 +322,11 @@ internal class KtFileBuilder(
         receiver: TypeName? = null,
         description: String? = null,
         rootObject: TypeSpec.Builder? = null,
+        annotation: ClassName? = null,
     ): FunSpec.Builder {
         return FunSpec.builder(name).apply {
             modifiers?.let { addModifiers(it.toKModifiers()) }
+            annotation?.let(::addAnnotation)
             params?.let { resolvedParams ->
                 addParameters(resolvedParams.toParameterSpecs())
             }
@@ -350,6 +366,21 @@ internal class KtFileBuilder(
         val builder = FunSpec.setterBuilder()
         when (this) {
             is Setter.Empty -> modifiers?.let { builder.addModifiers(it.toKModifiers()) }
+        }
+        return builder.build()
+    }
+
+    private fun Getter.toFunSpec(): FunSpec {
+        val builder = FunSpec.getterBuilder()
+        when (this) {
+            is Getter.Empty -> modifiers?.let { builder.addModifiers(it.toKModifiers()) }
+            is Getter.Annotated -> {
+                modifiers?.let { builder.addModifiers(it.toKModifiers()) }
+                annotations?.let { annotationList ->
+                    annotationList.forEach { builder.addAnnotation(it) }
+                }
+                body?.let { builder.addCode(it) }
+            }
         }
         return builder.build()
     }
@@ -408,6 +439,26 @@ internal class KtFileBuilder(
     )
 
     /**
+     * Kotlin геттер
+     */
+    internal sealed class Getter {
+
+        /**
+         * Пустой геттер с опциональными модификаторами [modifiers]
+         */
+        data class Empty(val modifiers: List<Modifier>? = null) : Getter()
+
+        /**
+         * Геттер
+         */
+        data class Annotated(
+            val annotations: List<ClassName>? = null,
+            val modifiers: List<Modifier>? = null,
+            val body: String? = null,
+        ) : Getter()
+    }
+
+    /**
      * Kotlin сеттер
      */
     internal sealed class Setter {
@@ -425,7 +476,7 @@ internal class KtFileBuilder(
     }
 
     companion object {
-        private const val DEFAULT_FILE_INDENT = "    "
+        internal const val DEFAULT_FILE_INDENT = "    "
 
         val TypeFloat = Float::class.asClassName()
         val TypeFloatArray = FloatArray::class.asClassName()
@@ -446,8 +497,19 @@ internal class KtFileBuilder(
             ClassName("androidx.compose.foundation.shape", listOf("CornerBasedShape"))
         val TypeCornerSize = ClassName("androidx.compose.foundation.shape", listOf("CornerSize"))
         val TypeAnnotationImmutable = ClassName("androidx.compose.runtime", listOf("Immutable"))
+        val TypeAnnotationComposable = ClassName("androidx.compose.runtime", listOf("Composable"))
+        val TypeAnnotationReadOnlyComposable = ClassName("androidx.compose.runtime", listOf("ReadOnlyComposable"))
         val TypeProvidableCompositionLocal =
             ClassName("androidx.compose.runtime", listOf("ProvidableCompositionLocal"))
+
+        fun getLambdaType(annotation: ClassName? = null): TypeName {
+            val lambdaType = LambdaTypeName.get(
+                returnType = Unit::class.asClassName(),
+            )
+            return annotation?.let {
+                lambdaType.copy(annotations = listOf(AnnotationSpec.builder(it).build()))
+            } ?: lambdaType
+        }
 
         /**
          * Добавляет kotlin объект с названием [name], описанием [description]
@@ -488,6 +550,26 @@ internal class KtFileBuilder(
                 } else {
                     append("(")
                     initializers.forEach {
+                        append(it)
+                    }
+                }
+                append(")")
+            }
+        }
+
+        fun createFunCall(funName: String, parameters: List<String>): String {
+            return buildString {
+                append(funName)
+                if (parameters.size > 1) {
+                    appendReproducibleNewLine("(")
+                    parameters.forEach {
+                        append(DEFAULT_FILE_INDENT)
+                        append(it)
+                        appendReproducibleNewLine(",")
+                    }
+                } else {
+                    append("(")
+                    parameters.forEach {
                         append(it)
                     }
                 }

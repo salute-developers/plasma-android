@@ -1,0 +1,64 @@
+package com.sdds.playground.themebuilder.tokens
+
+import androidx.compose.foundation.text.selection.LocalTextSelectionColors
+import androidx.compose.foundation.text.selection.TextSelectionColors
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocal
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.ReadOnlyComposable
+import androidx.compose.runtime.remember
+import com.sdds.playground.themebuilder.tokens.TestColors
+import com.sdds.playground.themebuilder.tokens.TestGradients
+import com.sdds.playground.themebuilder.tokens.TestShapes
+import com.sdds.playground.themebuilder.tokens.TestTypography
+import kotlin.Unit
+
+public object TestTheme {
+    public val colors: TestColors
+        @Composable
+        @ReadOnlyComposable
+        get() = LocalTestColors.current
+
+    public val gradients: TestGradients
+        @Composable
+        @ReadOnlyComposable
+        get() = LocalTestGradients.current
+
+    public val shapes: TestShapes
+        @Composable
+        @ReadOnlyComposable
+        get() = LocalTestShapes.current
+
+    public val typography: TestTypography
+        @Composable
+        @ReadOnlyComposable
+        get() = LocalTestTypography.current
+}
+
+/**
+ * Базовая тема Test
+ */
+@Composable
+public fun TestTheme(
+    colors: TestColors = TestTheme.colors,
+    gradients: TestGradients = TestTheme.gradients,
+    shapes: TestShapes = TestTheme.shapes,
+    typography: TestTypography = dynamicTestTypography(),
+    content: @Composable () -> Unit,
+): Unit {
+    val rememberColors = remember { colors.copy() }.apply { updateColorsFrom(colors) }
+
+    val textSelectionColors = remember { TextSelectionColors(handleColor =
+            rememberColors.textDefaultAccent, backgroundColor =
+            rememberColors.textDefaultAccent.copy(0.3f)) }
+
+    CompositionLocalProvider(
+        LocalTestColors provides rememberColors,
+        LocalTestGradients provides gradients,
+        LocalTestTypography provides typography,
+        LocalTestShapes provides shapes,
+        LocalTextSelectionColors provides textSelectionColors,
+        content = { ProvideTextStyle(value = typography.bodyMNormal.copy(color =
+            rememberColors.textPrimary), content = content,) },
+    )
+}
