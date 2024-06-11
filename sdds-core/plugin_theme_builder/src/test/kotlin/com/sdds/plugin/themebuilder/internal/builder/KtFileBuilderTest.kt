@@ -188,6 +188,7 @@ class KtFileBuilderTest {
                 "var testVar = 2",
             ),
             returnType = testReturnType,
+            annotation = KtFileBuilder.TypeAnnotationComposable,
         )
         underTest.build(mockk(relaxed = true))
 

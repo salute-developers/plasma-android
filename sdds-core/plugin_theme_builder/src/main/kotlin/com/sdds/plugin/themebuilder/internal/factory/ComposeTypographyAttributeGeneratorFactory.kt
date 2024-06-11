@@ -8,6 +8,7 @@ import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeTypo
  */
 internal class ComposeTypographyAttributeGeneratorFactory(
     private val ktFileBuilderFactory: KtFileBuilderFactory,
+    private val ktFileFromResourcesBuilderFactory: KtFileFromResourcesBuilderFactory,
     private val outputLocation: KtFileBuilder.OutputLocation,
     private val themeName: String,
 ) {
@@ -17,6 +18,7 @@ internal class ComposeTypographyAttributeGeneratorFactory(
      */
     fun create() = ComposeTypographyAttributeGenerator(
         ktFileBuilderFactory = ktFileBuilderFactory,
+        ktFileFromResourcesBuilderFactory = ktFileFromResourcesBuilderFactory,
         outputLocation = outputLocation,
         themeName = themeName,
     )

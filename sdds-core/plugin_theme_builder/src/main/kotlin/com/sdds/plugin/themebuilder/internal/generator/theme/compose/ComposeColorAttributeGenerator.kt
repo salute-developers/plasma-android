@@ -31,15 +31,19 @@ internal class ComposeColorAttributeGenerator(
     }
 
     private val colorClassName = "${themeName.capitalized()}Colors"
+    private val colorClassType by unsafeLazy {
+        colorKtFileBuilder.getInternalClassType(colorClassName)
+    }
 
     override fun generate() {
         if (colors.isEmpty()) return
 
         addImports()
-        addColorsClass(colors)
+        addColorsClass()
+        addUpdateColorsFromFun()
         addLocalColorsVal()
-        addLightColorsFun(colors)
-        addDarkColorsFun(colors)
+        addLightColorsFun()
+        addDarkColorsFun()
 
         colorKtFileBuilder.build(outputLocation)
     }
@@ -49,7 +53,7 @@ internal class ComposeColorAttributeGenerator(
         this.colors.addAll(colors)
     }
 
-    private fun addColorsClass(colors: List<ColorTokenResult.TokenData>) {
+    private fun addColorsClass() {
         with(colorKtFileBuilder) {
             val rootColorsClass = rootClass(
                 name = colorClassName,
@@ -106,7 +110,23 @@ internal class ComposeColorAttributeGenerator(
         }
     }
 
-    private fun addLightColorsFun(colors: List<ColorTokenResult.TokenData>) {
+    private fun addUpdateColorsFromFun() {
+        colorKtFileBuilder.appendRootFun(
+            name = "updateColorsFrom",
+            params = listOf(
+                KtFileBuilder.FunParameter(
+                    name = "other",
+                    type = colorClassType,
+
+                ),
+            ),
+            receiver = colorClassType,
+            body = colors.map { "${it.attrName} = other.${it.attrName}\n" },
+            modifiers = listOf(INTERNAL),
+        )
+    }
+
+    private fun addLightColorsFun() {
         colorKtFileBuilder.appendRootFun(
             name = "light${themeName}Colors",
             params = colors.map {
@@ -116,7 +136,7 @@ internal class ComposeColorAttributeGenerator(
                     defValue = "LightColorTokens.${it.tokenRefName}",
                 )
             },
-            returnType = colorKtFileBuilder.getInternalClassType(colorClassName),
+            returnType = colorClassType,
             body = listOf(
                 "return $colorClassName(${
                     colors.joinToString(
@@ -128,7 +148,7 @@ internal class ComposeColorAttributeGenerator(
         )
     }
 
-    private fun addDarkColorsFun(colors: List<ColorTokenResult.TokenData>) {
+    private fun addDarkColorsFun() {
         colorKtFileBuilder.appendRootFun(
             name = "dark${themeName}Colors",
             params = colors.map {
@@ -138,7 +158,7 @@ internal class ComposeColorAttributeGenerator(
                     defValue = "DarkColorTokens.${it.tokenRefName}",
                 )
             },
-            returnType = colorKtFileBuilder.getInternalClassType(colorClassName),
+            returnType = colorClassType,
             body = listOf(
                 "return $colorClassName(${
                     colors.joinToString(
@@ -154,7 +174,7 @@ internal class ComposeColorAttributeGenerator(
         colorKtFileBuilder.appendRootVal(
             name = "Local${themeName}Colors",
             typeName = KtFileBuilder.TypeProvidableCompositionLocal,
-            parameterizedType = colorKtFileBuilder.getInternalClassType(colorClassName),
+            parameterizedType = colorClassType,
             initializer = "staticCompositionLocalOf { light${themeName}Colors() }",
             modifiers = listOf(INTERNAL),
         )
