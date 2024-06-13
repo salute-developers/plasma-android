@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <declare-styleable name="Spinner" tools:ignore="ResourceName">
+        <attr name="android:tint" />
+        <attr name="sd_strokeWidth" />
+        <attr name="android:maxHeight" />
+        <attr name="android:maxWidth" />
+    </declare-styleable>
+
+    <declare-styleable name="ProgressBar" tools:ignore="ResourceName">
+        <!-- Текущий прогресс -->
+        <attr name="sd_progress" format="float" />
+        <!-- Максимальный прогресс -->
+        <attr name="sd_maxProgress" format="float" />
+        <!-- Минимальный прогресс -->
+        <attr name="sd_minProgress" format="float" />
+
+        <attr name="backgroundTint" />
+        <attr name="android:progressTint" />
+
+        <attr name="android:maxHeight" />
+        <attr name="android:maxWidth" />
+
+        <attr name="android:inset"/>
+        <attr name="android:insetLeft"/>
+        <attr name="android:insetTop"/>
+        <attr name="android:insetRight"/>
+        <attr name="android:insetBottom"/>
+    </declare-styleable>
+</resources>

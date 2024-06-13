@@ -9,6 +9,8 @@ import android.graphics.Paint
 import android.graphics.PixelFormat
 import android.graphics.PorterDuff
 import android.graphics.PorterDuffColorFilter
+import android.graphics.Rect
+import android.graphics.RectF
 import android.graphics.SweepGradient
 import android.graphics.drawable.Animatable
 import android.graphics.drawable.Drawable
@@ -25,11 +27,13 @@ internal class SpinnerDrawable(private val strokeWidth: Float) : Drawable(), Ani
     internal var isInEditMode: Boolean = false
 
     private var rotationDegrees: Float = 0f
+    private var strokeCapDegrees: Float = 0f
     private var tint: ColorStateList? = null
     private val paint: Paint by lazy {
         Paint().apply {
             this.strokeWidth = this@SpinnerDrawable.strokeWidth
             style = Paint.Style.STROKE
+            strokeCap = Paint.Cap.ROUND
             isAntiAlias = true
             shader = SweepGradient(
                 0f, 0f,
@@ -41,6 +45,7 @@ internal class SpinnerDrawable(private val strokeWidth: Float) : Drawable(), Ani
             )
         }
     }
+    private val boundsF = RectF()
 
     private val animator by lazy {
         ValueAnimator.ofFloat(0f, 360f).apply {
@@ -63,13 +68,7 @@ internal class SpinnerDrawable(private val strokeWidth: Float) : Drawable(), Ani
             save()
             translate(bounds.exactCenterX(), bounds.exactCenterY())
             rotate(rotationDegrees)
-            val diameter = minOf(bounds.width(), bounds.height()) - strokeWidth
-            drawCircle(
-                0f,
-                0f,
-                diameter / 2f,
-                paint,
-            )
+            drawArc(boundsF, strokeCapDegrees, 360 - 2 * strokeCapDegrees, false, paint)
             restore()
         }
     }
@@ -104,6 +103,13 @@ internal class SpinnerDrawable(private val strokeWidth: Float) : Drawable(), Ani
         val handled = super.setState(stateSet)
         updateTint(stateSet)
         return handled
+    }
+
+    override fun onBoundsChange(bounds: Rect) {
+        super.onBoundsChange(bounds)
+        val radius = (minOf(bounds.width(), bounds.height()) - strokeWidth) / 2
+        boundsF.set(-radius, -radius, radius, radius)
+        strokeCapDegrees = Math.toDegrees(strokeWidth.toDouble() / radius).toFloat()
     }
 
     private fun updateTint(state: IntArray) {
