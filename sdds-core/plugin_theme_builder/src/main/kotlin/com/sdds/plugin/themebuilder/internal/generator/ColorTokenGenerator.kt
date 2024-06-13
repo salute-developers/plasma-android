@@ -46,12 +46,20 @@ internal class ColorTokenGenerator(
     private val lightBuilder by unsafeLazy { ktFileBuilder.rootObject("LightColorTokens") }
     private val darkBuilder by unsafeLazy { ktFileBuilder.rootObject("DarkColorTokens") }
 
-    private val composeTokenDataCollector = mutableListOf<ColorTokenResult.TokenData>()
-    private val viewTokenDataCollector = mutableListOf<ColorTokenResult.TokenData>()
+    private val composeLightTokenDataCollector = mutableMapOf<String, String>()
+    private val composeDarkTokenDataCollector = mutableMapOf<String, String>()
+    private val viewLightTokenDataCollector = mutableMapOf<String, String>()
+    private val viewDarkTokenDataCollector = mutableMapOf<String, String>()
 
     override fun collectResult() = ColorTokenResult(
-        composeTokens = composeTokenDataCollector,
-        viewTokens = viewTokenDataCollector,
+        composeTokens = ColorTokenResult.TokenData(
+            light = composeLightTokenDataCollector,
+            dark = composeDarkTokenDataCollector,
+        ),
+        viewTokens = ColorTokenResult.TokenData(
+            light = viewLightTokenDataCollector,
+            dark = viewDarkTokenDataCollector,
+        ),
     )
 
     /**
@@ -74,7 +82,6 @@ internal class ColorTokenGenerator(
     @Suppress("ReturnCount")
     override fun addViewSystemToken(token: ColorToken): Boolean {
         val tokenValue = colorTokenValues[token.name] ?: return false
-        if (!token.isLight && !token.isDark) return false
         val resolvedColor = resolveColor(tokenValue, palette, HexFormat.XML_HEX) ?: return false
         xmlDocumentBuilder.appendComment(token.description)
         xmlDocumentBuilder.appendElement(
@@ -82,13 +89,7 @@ internal class ColorTokenGenerator(
             tokenName = token.xmlName,
             value = resolvedColor,
         )
-        viewTokenDataCollector.add(
-            ColorTokenResult.TokenData(
-                attrName = token.colorAttrName(),
-                tokenRefName = token.toViewTokenRef(),
-                isLight = token.isLight,
-            ),
-        )
+        token.addViewTokenData(token.colorAttrName(), token.toViewTokenRef())
         return true
     }
 
@@ -100,22 +101,36 @@ internal class ColorTokenGenerator(
         val tokenValue = colorTokenValues[token.name] ?: return false
         val root = if (token.isDark) {
             darkBuilder
-        } else if (token.isLight) {
-            lightBuilder
         } else {
-            return false
+            lightBuilder
         }
         val resolvedColor = resolveColor(tokenValue, palette, HexFormat.INT_HEX) ?: return false
         val value = "Color($resolvedColor)"
         root.appendProperty(token.ktName, KtFileBuilder.TypeColor, value, token.description)
-        composeTokenDataCollector.add(
-            ColorTokenResult.TokenData(
-                attrName = token.ktName.decapitalize(Locale.getDefault()),
-                tokenRefName = token.ktName,
-                isLight = token.isLight,
-            ),
-        )
+        token.addComposeTokenData(token.ktName.decapitalize(Locale.getDefault()), token.ktName)
         return true
+    }
+
+    private fun ColorToken.addViewTokenData(attrName: String, tokenRef: String) {
+        if (this.isLight) {
+            viewLightTokenDataCollector[attrName] = tokenRef
+        } else if (this.isDark) {
+            viewDarkTokenDataCollector[attrName] = tokenRef
+        } else {
+            viewLightTokenDataCollector[attrName] = tokenRef
+            viewDarkTokenDataCollector[attrName] = tokenRef
+        }
+    }
+
+    private fun ColorToken.addComposeTokenData(attrName: String, tokenRef: String) {
+        if (this.isLight) {
+            composeLightTokenDataCollector[attrName] = tokenRef
+        } else if (this.isDark) {
+            composeDarkTokenDataCollector[attrName] = tokenRef
+        } else {
+            composeLightTokenDataCollector[attrName] = tokenRef
+            composeDarkTokenDataCollector[attrName] = tokenRef
+        }
     }
 
     private fun ColorToken.toViewTokenRef(): String = resourceReferenceProvider.color(xmlName)

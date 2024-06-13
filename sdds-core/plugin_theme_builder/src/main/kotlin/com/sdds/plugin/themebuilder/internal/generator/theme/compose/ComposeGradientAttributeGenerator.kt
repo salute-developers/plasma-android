@@ -5,10 +5,12 @@ import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Constructor
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Modifier.DATA
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Modifier.INTERNAL
 import com.sdds.plugin.themebuilder.internal.builder.KtFileFromResourcesBuilder
+import com.sdds.plugin.themebuilder.internal.exceptions.ThemeBuilderException
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.KtFileFromResourcesBuilderFactory
 import com.sdds.plugin.themebuilder.internal.generator.SimpleBaseGenerator
-import com.sdds.plugin.themebuilder.internal.generator.data.GradientTokenResult
+import com.sdds.plugin.themebuilder.internal.generator.data.GradientTokenResult.ComposeTokenData
+import com.sdds.plugin.themebuilder.internal.generator.data.mergedLightAndDark
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import org.gradle.configurationcache.extensions.capitalized
 
@@ -28,7 +30,8 @@ internal class ComposeGradientAttributeGenerator(
     private val themeName: String,
 ) : SimpleBaseGenerator {
 
-    private val gradients = mutableListOf<GradientTokenResult.ComposeTokenData>()
+    private var tokenData: ComposeTokenData? = null
+    private val gradientAttributes = mutableSetOf<String>()
 
     private val gradientKtFileBuilder: KtFileBuilder by unsafeLazy {
         ktFileBuilderFactory.create(gradientClassName)
@@ -40,13 +43,14 @@ internal class ComposeGradientAttributeGenerator(
 
     private val gradientClassName = "${themeName.capitalized()}Gradients"
 
-    fun setGradientTokenData(gradients: List<GradientTokenResult.ComposeTokenData>) {
-        this.gradients.clear()
-        this.gradients.addAll(gradients)
+    fun setGradientTokenData(data: ComposeTokenData) {
+        tokenData = data
+        gradientAttributes.clear()
+        gradientAttributes.addAll(data.mergedLightAndDark())
     }
 
     override fun generate() {
-        if (gradients.isEmpty()) return
+        tokenData ?: return
 
         createGradientsFile()
         createLinearGradientClass()
@@ -112,9 +116,9 @@ internal class ComposeGradientAttributeGenerator(
             rootClass(
                 name = gradientClassName,
                 primaryConstructor = Constructor.Primary(
-                    parameters = gradients.map {
+                    parameters = gradientAttributes.map {
                         KtFileBuilder.FunParameter(
-                            name = it.attrName,
+                            name = it,
                             type = KtFileBuilder.TypeShaderBrush,
                             asProperty = true,
                         )
@@ -140,57 +144,70 @@ internal class ComposeGradientAttributeGenerator(
     private fun addLightGradientsFun() {
         gradientKtFileBuilder.appendRootFun(
             name = "light${themeName}Gradients",
-            params = gradients.map {
+            params = gradientAttributes.map {
                 KtFileBuilder.FunParameter(
-                    name = it.attrName,
+                    name = it,
                     type = KtFileBuilder.TypeShaderBrush,
-                    defValue = defaultGradientValue("LightGradientTokens", it),
+                    defValue = defaultLightGradientValue(it),
                 )
             },
             returnType = gradientKtFileBuilder.getInternalClassType(gradientClassName),
             body = listOf(
-                "return $gradientClassName(${
-                    gradients.joinToString(
-                        separator = ",·",
-                    ) { it.attrName }
-                })",
+                "return $gradientClassName(${gradientAttributes.joinToString(separator = ",·")})",
             ),
             description = "Градиенты [$gradientClassName] для светлой темы",
         )
     }
 
-    private fun defaultGradientValue(
-        objectName: String,
-        tokenData: GradientTokenResult.ComposeTokenData,
-    ): String {
-        return when (tokenData.gradientType) {
-            GradientTokenResult.ComposeTokenData.GradientType.LINEAR -> createGradientFabricCall(
-                funName = "linearGradient",
-                objectName = objectName,
-                tokenData = tokenData,
-            )
+    private fun defaultLightGradientValue(attrName: String): String {
+        val lightParameters = tokenData?.light?.get(attrName)
+        val darkParameters = tokenData?.dark?.get(attrName)
 
-            GradientTokenResult.ComposeTokenData.GradientType.RADIAL -> createGradientFabricCall(
-                funName = "radialGradient",
-                objectName = objectName,
-                tokenData = tokenData,
-            )
+        val parameters: ComposeTokenData.Parameters
+        val objectName: String
 
-            GradientTokenResult.ComposeTokenData.GradientType.SWEEP -> createGradientFabricCall(
-                funName = "sweepGradient",
-                objectName = objectName,
-                tokenData = tokenData,
-            )
+        if (lightParameters != null) {
+            parameters = lightParameters
+            objectName = "LightGradientTokens"
+        } else {
+            parameters = darkParameters
+                ?: throw ThemeBuilderException("Can't find token value for gradient $attrName")
+            objectName = "DarkGradientTokens"
         }
+
+        return createGradientFabricCall(objectName, parameters)
+    }
+
+    private fun defaultDarkGradientValue(attrName: String): String {
+        val lightParameters = tokenData?.light?.get(attrName)
+        val darkParameters = tokenData?.dark?.get(attrName)
+
+        val parameters: ComposeTokenData.Parameters
+        val objectName: String
+
+        if (darkParameters != null) {
+            parameters = darkParameters
+            objectName = "DarkGradientTokens"
+        } else {
+            parameters = lightParameters
+                ?: throw ThemeBuilderException("Can't find token value for gradient $attrName")
+            objectName = "LightGradientTokens"
+        }
+
+        return createGradientFabricCall(objectName, parameters)
     }
 
     private fun createGradientFabricCall(
-        funName: String,
         objectName: String,
-        tokenData: GradientTokenResult.ComposeTokenData,
+        parameters: ComposeTokenData.Parameters,
     ): String {
+        val funName = when (parameters.gradientType) {
+            ComposeTokenData.GradientType.LINEAR -> "linearGradient"
+            ComposeTokenData.GradientType.RADIAL -> "radialGradient"
+            ComposeTokenData.GradientType.SWEEP -> "sweepGradient"
+        }
         return "$funName(${
-            tokenData.tokenRefs.joinToString(separator = ",·") { tokenRef ->
+            parameters.tokenRefs.joinToString(separator = ",·") { tokenRef ->
                 "$objectName.$tokenRef"
             }
         })"
@@ -199,20 +216,16 @@ internal class ComposeGradientAttributeGenerator(
     private fun addDarkGradientsFun() {
         gradientKtFileBuilder.appendRootFun(
             name = "dark${themeName}Gradients",
-            params = gradients.map {
+            params = gradientAttributes.map {
                 KtFileBuilder.FunParameter(
-                    name = it.attrName,
+                    name = it,
                     type = KtFileBuilder.TypeShaderBrush,
-                    defValue = defaultGradientValue("DarkGradientTokens", it),
+                    defValue = defaultDarkGradientValue(it),
                 )
             },
             returnType = gradientKtFileBuilder.getInternalClassType(gradientClassName),
             body = listOf(
-                "return $gradientClassName(${
-                    gradients.joinToString(
-                        separator = ",·",
-                    ) { it.attrName }
-                })",
+                "return $gradientClassName(${gradientAttributes.joinToString(separator = ",·")})",
             ),
             description = "Градиенты [$gradientClassName] для темной темы",
         )

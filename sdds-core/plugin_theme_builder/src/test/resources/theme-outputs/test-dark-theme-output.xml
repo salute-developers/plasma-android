@@ -4,11 +4,5 @@
     <style name="Thmbldr.Theme" parent="Sdds.Theme">
         <!--Dark colors-->
         <item name="thmbldr_textPrimary">@color/thmbldr_dark_text_primary</item>
-        <!--Dark gradients-->
-        <item name="thmbldr_textAccentGradientHover_position_0">@dimen/thmbldr_dark_text_accent_gradient_hover_position_0</item>
-        <item name="thmbldr_textAccentGradientHover_position_1">@dimen/thmbldr_dark_text_accent_gradient_hover_position_1</item>
-        <item name="thmbldr_textAccentGradientHover_color_0">@dimen/thmbldr_dark_text_accent_gradient_hover_color_0</item>
-        <item name="thmbldr_textAccentGradientHover_color_1">@dimen/thmbldr_dark_text_accent_gradient_hover_color_1</item>
-        <item name="thmbldr_textAccentGradientHover_angle">@dimen/thmbldr_dark_text_accent_gradient_hover_angle</item>
     </style>
 </resources>

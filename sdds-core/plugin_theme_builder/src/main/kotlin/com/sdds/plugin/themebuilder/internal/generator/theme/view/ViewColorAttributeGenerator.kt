@@ -3,6 +3,7 @@ package com.sdds.plugin.themebuilder.internal.generator.theme.view
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.generator.SimpleBaseGenerator
 import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult
+import com.sdds.plugin.themebuilder.internal.generator.data.mergedLightAndDark
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.attrsFile
 import com.sdds.plugin.themebuilder.internal.utils.withPrefixIfNeed
 import java.io.File
@@ -20,22 +21,22 @@ internal class ViewColorAttributeGenerator(
     private val attrPrefix: String,
 ) : SimpleBaseGenerator {
 
-    private val colors = mutableListOf<ColorTokenResult.TokenData>()
+    private val colorAttributes = mutableSetOf<String>()
 
-    fun setColorTokenData(data: List<ColorTokenResult.TokenData>) {
-        colors.clear()
-        colors.addAll(data)
+    fun setColorTokenData(data: ColorTokenResult.TokenData) {
+        colorAttributes.clear()
+        colorAttributes.addAll(data.mergedLightAndDark())
     }
 
     override fun generate() {
-        appendColors(colors)
+        appendColors()
         xmlDocumentBuilder.build(outputResDir.attrsFile("color"))
     }
 
-    private fun appendColors(colors: List<ColorTokenResult.TokenData>) {
+    private fun appendColors() {
         xmlDocumentBuilder.appendComment("Colors")
-        colors.forEach { color ->
-            appendAttr(color.attrName.toXmlAttribute())
+        colorAttributes.forEach { color ->
+            appendAttr(color.toXmlAttribute())
         }
     }
 

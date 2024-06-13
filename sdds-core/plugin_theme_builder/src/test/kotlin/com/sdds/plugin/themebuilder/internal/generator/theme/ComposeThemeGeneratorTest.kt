@@ -70,7 +70,7 @@ class ComposeThemeGeneratorTest {
             KtFileBuilder.OutputLocation.Stream(outputKt),
             themeName = "Test",
         )
-        underTest.setColorTokenData(emptyList())
+        underTest.setColorTokenData(ColorTokenResult.TokenData(emptyMap(), emptyMap()))
         underTest.setTypographyTokenData(emptyList())
         underTest.generate()
 
@@ -81,16 +81,14 @@ class ComposeThemeGeneratorTest {
     }
 
     private companion object {
-        val colorAttrsWithDefaultColors = listOf(
-            ColorTokenResult.TokenData(
-                attrName = "textPrimary",
-                tokenRefName = "TextPrimary",
-                true,
+        val colorAttrsWithDefaultColors = ColorTokenResult.TokenData(
+            light = mapOf(
+                "textPrimary" to "TextPrimary",
+                "textDefaultAccent" to "TextDefaultAccent",
             ),
-            ColorTokenResult.TokenData(
-                attrName = "textDefaultAccent",
-                tokenRefName = "TextDefaultAccent",
-                true,
+            dark = mapOf(
+                "textPrimary" to "TextPrimary",
+                "textDefaultAccent" to "TextDefaultAccent",
             ),
         )
 

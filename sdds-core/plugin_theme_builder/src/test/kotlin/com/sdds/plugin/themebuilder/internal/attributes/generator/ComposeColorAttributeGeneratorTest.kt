@@ -64,7 +64,7 @@ class ComposeColorAttributeGeneratorTest {
 
     @Test
     fun `KtAttributeGenerator должен генерировать kotlin файлы с атрибутами цвета`() {
-        underTest.setColorTokenData(inputAttrs)
+        underTest.setColorTokenData(inputData)
         underTest.generate()
 
         verify {
@@ -78,9 +78,15 @@ class ComposeColorAttributeGeneratorTest {
     }
 
     private companion object {
-        val inputAttrs = listOf(
-            ColorTokenResult.TokenData("textPrimary", "TextPrimary", true),
-            ColorTokenResult.TokenData("textTertiary", "TextTertiary", true),
+        val inputData = ColorTokenResult.TokenData(
+            light = mapOf(
+                "textPrimary" to "TextPrimary",
+                "textTertiary" to "TextTertiary",
+            ),
+            dark = mapOf(
+                "textPrimary" to "TextPrimary",
+                "textTertiary" to "TextTertiary",
+            ),
         )
     }
 }
