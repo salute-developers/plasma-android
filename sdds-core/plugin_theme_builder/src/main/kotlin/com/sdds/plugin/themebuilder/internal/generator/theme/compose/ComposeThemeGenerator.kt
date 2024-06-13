@@ -139,6 +139,10 @@ internal class ComposeThemeGenerator(
                         "ProvideTextStyle(value = typography.$textStyle.copy(" +
                         "color = rememberColors.$textStyleColor), content = content,) }",
                 )
+            } else {
+                compositionLocalProviderFunParametersList.add(
+                    "content = content",
+                )
             }
             append(
                 KtFileBuilder.createFunCall(
