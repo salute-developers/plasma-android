@@ -7,40 +7,39 @@ package com.sdds.plugin.themebuilder.internal.generator.data
  * @property viewTokens данные о токенах для View
  */
 internal data class GradientTokenResult(
-    val composeTokens: List<ComposeTokenData>,
-    val viewTokens: List<ViewTokenData>,
+    val composeTokens: ComposeTokenData,
+    val viewTokens: ViewTokenData,
 ) {
 
     /**
      * Выходные данные о токене градиента для Compose
-     *
-     * @property attrName название атрибута градиента
-     * @property tokenRefs список ссылок на сгенерированные токены
-     * @property isLight принадлежность к светлой теме
-     * @property gradientType тип градиента
      */
     internal data class ComposeTokenData(
-        val attrName: String,
-        val tokenRefs: List<String>,
-        val isLight: Boolean,
-        val gradientType: GradientType,
+        val light: Map<String, Parameters>,
+        val dark: Map<String, Parameters>,
     ) {
-        enum class GradientType {
+        /**
+         * Параметры градиента
+         */
+        internal data class Parameters(
+            val tokenRefs: List<String>,
+            val gradientType: GradientType,
+        )
+
+        /**
+         * Тип градиента
+         */
+        internal enum class GradientType {
             LINEAR, RADIAL, SWEEP
         }
     }
 
     /**
      * Входные данные о токене градиента для View
-     *
-     * @property attrName название атрибута градиента
-     * @property gradientParameters список параметров, описывающих градиент
-     * @property isLight принадлежность к светлой теме
      */
     internal data class ViewTokenData(
-        val attrName: String,
-        val gradientParameters: List<GradientParameter>,
-        val isLight: Boolean,
+        val light: Map<String, List<Parameter>>,
+        val dark: Map<String, List<Parameter>>,
     ) {
 
         /**
@@ -49,9 +48,17 @@ internal data class GradientTokenResult(
          * @property attrName название атрибута параметра градиента
          * @property ref ссылка на токен параметра градиента
          */
-        internal data class GradientParameter(
+        internal data class Parameter(
             val attrName: String,
             val ref: String,
         )
     }
+}
+
+internal fun GradientTokenResult.ComposeTokenData.mergedLightAndDark(): Set<String> {
+    return light.keys + dark.keys
+}
+
+internal fun GradientTokenResult.ViewTokenData.mergedLightAndDark(): Set<String> {
+    return light.keys + dark.keys
 }

@@ -53,7 +53,7 @@ class ViewColorAttributeGeneratorTest {
         every { attrsXmlFile.fileWriter() } returns outputAttrsXml.writer()
         every { mockOutputResDir.attrsFile("color") } returns attrsXmlFile
 
-        underTest.setColorTokenData(inputAttrs)
+        underTest.setColorTokenData(inputData)
         underTest.generate()
 
         verify { mockOutputResDir.attrsFile("color") }
@@ -65,9 +65,13 @@ class ViewColorAttributeGeneratorTest {
     }
 
     private companion object {
-        val inputAttrs = listOf(
-            ColorTokenResult.TokenData("textPrimary", "@color/thmbldr_light_text_primary", true),
-            ColorTokenResult.TokenData("textTertiary", "@color/thmbldr_light_text_tertiary", true),
+        val inputData = ColorTokenResult.TokenData(
+            light = mapOf(
+                "textPrimary" to "@color/thmbldr_light_text_primary",
+            ),
+            dark = mapOf(
+                "textTertiary" to "@color/thmbldr_dark_text_tertiary",
+            ),
         )
     }
 }

@@ -9,7 +9,6 @@ import com.sdds.plugin.themebuilder.internal.factory.ComposeShapeAttributeGenera
 import com.sdds.plugin.themebuilder.internal.factory.ComposeThemeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ComposeTypographyAttributeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ViewColorAttributeGeneratorFactory
-import com.sdds.plugin.themebuilder.internal.factory.ViewGradientAttributeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ViewShapeAttributeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ViewThemeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ViewTypographyAttributeGeneratorFactory
@@ -24,7 +23,6 @@ import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeShap
 import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeThemeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeTypographyAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewColorAttributeGenerator
-import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewGradientAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewShapeAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewThemeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewTypographyAttributeGenerator
@@ -41,7 +39,6 @@ internal class ThemeGenerator(
     private val viewShapeAttributeGeneratorFactory: ViewShapeAttributeGeneratorFactory,
     private val composeShapeAttributeGeneratorFactory: ComposeShapeAttributeGeneratorFactory,
     private val composeGradientAttributeGeneratorFactory: ComposeGradientAttributeGeneratorFactory,
-    private val viewGradientAttributeGeneratorFactory: ViewGradientAttributeGeneratorFactory,
     private val viewTypographyAttributeGeneratorFactory: ViewTypographyAttributeGeneratorFactory,
     private val composeTypographyAttributeGeneratorFactory: ComposeTypographyAttributeGeneratorFactory,
     private val target: ThemeBuilderTarget,
@@ -68,9 +65,6 @@ internal class ThemeGenerator(
     private val viewColorAttributeGenerator: ViewColorAttributeGenerator by unsafeLazy {
         viewColorAttributeGeneratorFactory.create()
     }
-    private val viewGradientAttributeGenerator: ViewGradientAttributeGenerator by unsafeLazy {
-        viewGradientAttributeGeneratorFactory.create()
-    }
     private val viewShapeAttributeGenerator: ViewShapeAttributeGenerator by unsafeLazy {
         viewShapeAttributeGeneratorFactory.create()
     }
@@ -86,12 +80,11 @@ internal class ThemeGenerator(
      */
     fun setColorTokenData(colorTokenResult: ColorTokenResult) {
         if (target.isComposeOrAll) {
-            val lightComposeTokens = colorTokenResult.composeTokens.lightColorTokens()
-            composeColorAttributeGenerator.setColorTokenData(lightComposeTokens)
-            composeThemeGenerator.setColorTokenData(lightComposeTokens)
+            composeColorAttributeGenerator.setColorTokenData(colorTokenResult.composeTokens)
+            composeThemeGenerator.setColorTokenData(colorTokenResult.composeTokens)
         }
         if (target.isViewSystemOrAll) {
-            viewColorAttributeGenerator.setColorTokenData(colorTokenResult.viewTokens.lightColorTokens())
+            viewColorAttributeGenerator.setColorTokenData(colorTokenResult.viewTokens)
             viewThemeGenerator.setColorTokenData(colorTokenResult.viewTokens)
         }
     }
@@ -105,14 +98,8 @@ internal class ThemeGenerator(
     fun setGradientTokenData(gradientTokenResult: GradientTokenResult) {
         if (target.isComposeOrAll) {
             composeGradientAttributeGenerator.setGradientTokenData(
-                gradients = gradientTokenResult.composeTokens.lightComposeGradientTokens(),
+                data = gradientTokenResult.composeTokens,
             )
-        }
-        if (target.isViewSystemOrAll) {
-            viewGradientAttributeGenerator.setGradientTokenData(
-                gradients = gradientTokenResult.viewTokens.lightViewGradientTokens(),
-            )
-            viewThemeGenerator.setGradientTokenData(gradientTokenResult.viewTokens)
         }
     }
 
@@ -162,18 +149,8 @@ internal class ThemeGenerator(
         if (target.isViewSystemOrAll) {
             viewColorAttributeGenerator.generate()
             viewShapeAttributeGenerator.generate()
-            viewGradientAttributeGenerator.generate()
             viewTypographyAttributeGenerator.generate()
             viewThemeGenerator.generate()
         }
     }
-
-    private fun List<ColorTokenResult.TokenData>.lightColorTokens() =
-        filter { it.isLight }
-
-    private fun List<GradientTokenResult.ComposeTokenData>.lightComposeGradientTokens() =
-        filter { it.isLight }
-
-    private fun List<GradientTokenResult.ViewTokenData>.lightViewGradientTokens() =
-        filter { it.isLight }
 }

@@ -4,9 +4,11 @@ import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Constructor
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Modifier
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Modifier.INTERNAL
+import com.sdds.plugin.themebuilder.internal.exceptions.ThemeBuilderException
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.generator.SimpleBaseGenerator
 import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult
+import com.sdds.plugin.themebuilder.internal.generator.data.mergedLightAndDark
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import org.gradle.configurationcache.extensions.capitalized
 
@@ -24,7 +26,8 @@ internal class ComposeColorAttributeGenerator(
     private val themeName: String,
 ) : SimpleBaseGenerator {
 
-    private val colors = mutableListOf<ColorTokenResult.TokenData>()
+    private var tokenData: ColorTokenResult.TokenData? = null
+    private val colorAttributes = mutableSetOf<String>()
 
     private val colorKtFileBuilder by unsafeLazy {
         ktFileBuilderFactory.create(colorClassName)
@@ -36,7 +39,7 @@ internal class ComposeColorAttributeGenerator(
     }
 
     override fun generate() {
-        if (colors.isEmpty()) return
+        tokenData ?: return
 
         addImports()
         addColorsClass()
@@ -48,9 +51,10 @@ internal class ComposeColorAttributeGenerator(
         colorKtFileBuilder.build(outputLocation)
     }
 
-    fun setColorTokenData(colors: List<ColorTokenResult.TokenData>) {
-        this.colors.clear()
-        this.colors.addAll(colors)
+    fun setColorTokenData(data: ColorTokenResult.TokenData) {
+        this.tokenData = data
+        colorAttributes.clear()
+        colorAttributes.addAll(data.mergedLightAndDark())
     }
 
     private fun addColorsClass() {
@@ -58,9 +62,9 @@ internal class ComposeColorAttributeGenerator(
             val rootColorsClass = rootClass(
                 name = colorClassName,
                 primaryConstructor = Constructor.Primary(
-                    parameters = colors.map {
+                    parameters = colorAttributes.map {
                         KtFileBuilder.FunParameter(
-                            name = it.attrName,
+                            name = it,
                             type = KtFileBuilder.TypeColor,
                         )
                     },
@@ -69,28 +73,28 @@ internal class ComposeColorAttributeGenerator(
                 description = "Цвета $themeName",
             )
 
-            colors.forEach { color ->
+            colorAttributes.forEach { color ->
                 rootColorsClass.appendProperty(
-                    name = color.attrName,
+                    name = color,
                     typeName = KtFileBuilder.TypeColor,
                     isMutable = true,
-                    delegate = "mutableStateOf(${color.attrName}, structuralEqualityPolicy())",
+                    delegate = "mutableStateOf($color, structuralEqualityPolicy())",
                 )
             }
 
             rootColorsClass.appendFun(
                 name = "copy",
                 returnType = getInternalClassType(colorClassName),
-                params = colors.map {
+                params = colorAttributes.map {
                     KtFileBuilder.FunParameter(
-                        name = it.attrName,
+                        name = it,
                         type = KtFileBuilder.TypeColor,
-                        defValue = "this.${it.attrName}",
+                        defValue = "this.$it",
                     )
                 },
                 body = listOf(
                     "return $colorClassName(${
-                        colors.joinToString(separator = ",·") { it.attrName }
+                        colorAttributes.joinToString(separator = ",·")
                     })",
                 ),
                 description = "Возвращает копию [$colorClassName]",
@@ -101,9 +105,9 @@ internal class ComposeColorAttributeGenerator(
                 modifiers = listOf(Modifier.OVERRIDE),
                 body = listOf(
                     "return \"\${this::class.simpleName}(${
-                        colors.joinToString(
+                        colorAttributes.joinToString(
                             separator = ",·",
-                        ) { "${it.attrName}=$${it.attrName}" }
+                        ) { "$it=$$it" }
                     })\"",
                 ),
             )
@@ -121,7 +125,7 @@ internal class ComposeColorAttributeGenerator(
                 ),
             ),
             receiver = colorClassType,
-            body = colors.map { "${it.attrName} = other.${it.attrName}\n" },
+            body = colorAttributes.map { "$it = other.$it\n" },
             modifiers = listOf(INTERNAL),
         )
     }
@@ -129,20 +133,25 @@ internal class ComposeColorAttributeGenerator(
     private fun addLightColorsFun() {
         colorKtFileBuilder.appendRootFun(
             name = "light${themeName}Colors",
-            params = colors.map {
+            params = colorAttributes.map {
+                val defaultValue = if (tokenData?.light?.get(it) != null) {
+                    "LightColorTokens.${tokenData?.light?.get(it)}"
+                } else {
+                    "DarkColorTokens.${
+                        tokenData?.dark?.get(it) ?: throw ThemeBuilderException(
+                            "Can't find token value for color $it",
+                        )
+                    }"
+                }
                 KtFileBuilder.FunParameter(
-                    name = it.attrName,
+                    name = it,
                     type = KtFileBuilder.TypeColor,
-                    defValue = "LightColorTokens.${it.tokenRefName}",
+                    defValue = defaultValue,
                 )
             },
             returnType = colorClassType,
             body = listOf(
-                "return $colorClassName(${
-                    colors.joinToString(
-                        separator = ",·",
-                    ) { it.attrName }
-                })",
+                "return $colorClassName(${colorAttributes.joinToString(separator = ",·")})",
             ),
             description = "Цвета [$colorClassName] для светлой темы",
         )
@@ -151,20 +160,25 @@ internal class ComposeColorAttributeGenerator(
     private fun addDarkColorsFun() {
         colorKtFileBuilder.appendRootFun(
             name = "dark${themeName}Colors",
-            params = colors.map {
+            params = colorAttributes.map {
+                val defaultValue = if (tokenData?.dark?.get(it) != null) {
+                    "DarkColorTokens.${tokenData?.dark?.get(it)}"
+                } else {
+                    "LightColorTokens.${
+                        tokenData?.light?.get(it) ?: throw ThemeBuilderException(
+                            "Can't find token value for gradient $it",
+                        )
+                    }"
+                }
                 KtFileBuilder.FunParameter(
-                    name = it.attrName,
+                    name = it,
                     type = KtFileBuilder.TypeColor,
-                    defValue = "DarkColorTokens.${it.tokenRefName}",
+                    defValue = defaultValue,
                 )
             },
             returnType = colorClassType,
             body = listOf(
-                "return $colorClassName(${
-                    colors.joinToString(
-                        separator = ",·",
-                    ) { it.attrName }
-                })",
+                "return $colorClassName(${colorAttributes.joinToString(separator = ",·")})",
             ),
             description = "Цвета [$colorClassName] для темной темы",
         )

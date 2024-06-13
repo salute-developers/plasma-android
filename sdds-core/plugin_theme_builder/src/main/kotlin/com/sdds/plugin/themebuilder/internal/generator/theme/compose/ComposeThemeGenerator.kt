@@ -5,6 +5,7 @@ import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.generator.SimpleBaseGenerator
 import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.TypographyTokenResult
+import com.sdds.plugin.themebuilder.internal.generator.data.mergedLightAndDark
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import org.gradle.configurationcache.extensions.capitalized
 
@@ -138,6 +139,10 @@ internal class ComposeThemeGenerator(
                         "ProvideTextStyle(value = typography.$textStyle.copy(" +
                         "color = rememberColors.$textStyleColor), content = content,) }",
                 )
+            } else {
+                compositionLocalProviderFunParametersList.add(
+                    "content = content",
+                )
             }
             append(
                 KtFileBuilder.createFunCall(
@@ -199,28 +204,29 @@ internal class ComposeThemeGenerator(
         }
     }
 
-    fun setColorTokenData(colors: List<ColorTokenResult.TokenData>) {
-        findDefaultSelectionColors(colors)
-        findDefaultTextStyleColor(colors)
+    fun setColorTokenData(colors: ColorTokenResult.TokenData) {
+        val attrSet = colors.mergedLightAndDark()
+        findDefaultSelectionColors(attrSet)
+        findDefaultTextStyleColor(attrSet)
     }
 
     fun setTypographyTokenData(typography: List<TypographyTokenResult.ComposeTokenData>) {
         findDefaultTextStyle(typography)
     }
 
-    private fun findDefaultSelectionColors(colors: List<ColorTokenResult.TokenData>) {
-        val textAccentColor = colors.find {
-            it.attrName == "textDefaultAccent" || it.attrName == "textAccent"
-        }?.attrName
+    private fun findDefaultSelectionColors(attrSet: Set<String>) {
+        val textAccentColor = attrSet.find {
+            it == "textDefaultAccent" || it == "textAccent"
+        }
         textAccentColor?.let {
             textSelectionHandleColor = it
         }
     }
 
-    private fun findDefaultTextStyleColor(colors: List<ColorTokenResult.TokenData>) {
-        val textPrimaryColor = colors.find {
-            it.attrName == "textDefaultPrimary" || it.attrName == "textPrimary"
-        }?.attrName
+    private fun findDefaultTextStyleColor(attrSet: Set<String>) {
+        val textPrimaryColor = attrSet.find {
+            it == "textDefaultPrimary" || it == "textPrimary"
+        }
         textStyleColor = textPrimaryColor ?: return
     }
 

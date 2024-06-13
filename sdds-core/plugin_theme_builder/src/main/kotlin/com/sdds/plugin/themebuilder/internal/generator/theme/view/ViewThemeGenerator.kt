@@ -1,12 +1,13 @@
 package com.sdds.plugin.themebuilder.internal.generator.theme.view
 
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
+import com.sdds.plugin.themebuilder.internal.exceptions.ThemeBuilderException
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.generator.SimpleBaseGenerator
 import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult
-import com.sdds.plugin.themebuilder.internal.generator.data.GradientTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.ShapeTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.TypographyTokenResult
+import com.sdds.plugin.themebuilder.internal.generator.data.mergedLightAndDark
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.themeXmlFile
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import org.gradle.configurationcache.extensions.capitalized
@@ -28,9 +29,9 @@ internal class ViewThemeGenerator(
     private val resPrefix: String,
 ) : SimpleBaseGenerator {
 
-    private val colors = mutableListOf<ColorTokenResult.TokenData>()
+    private var colors: ColorTokenResult.TokenData? = null
+    private val colorAttributes = mutableSetOf<String>()
     private val shapes = mutableListOf<ShapeTokenResult.TokenData>()
-    private val gradients = mutableListOf<GradientTokenResult.ViewTokenData>()
     private val typography = mutableListOf<TypographyTokenResult.ViewTokenData>()
 
     private val lightThemeXmlFileBuilder by unsafeLazy {
@@ -41,19 +42,15 @@ internal class ViewThemeGenerator(
         xmlBuilderFactory.create()
     }
 
-    internal fun setColorTokenData(data: List<ColorTokenResult.TokenData>) {
-        colors.clear()
-        colors.addAll(data)
+    internal fun setColorTokenData(data: ColorTokenResult.TokenData) {
+        colors = data
+        colorAttributes.clear()
+        colorAttributes.addAll(data.mergedLightAndDark())
     }
 
     internal fun setShapeTokenData(data: List<ShapeTokenResult.TokenData>) {
         shapes.clear()
         shapes.addAll(data)
-    }
-
-    internal fun setGradientTokenData(data: List<GradientTokenResult.ViewTokenData>) {
-        gradients.clear()
-        gradients.addAll(data)
     }
 
     internal fun setTypographyTokenData(data: List<TypographyTokenResult.ViewTokenData>) {
@@ -66,20 +63,10 @@ internal class ViewThemeGenerator(
             appendStyle(resPrefix.capitalized())
             addStyleWithAttrs(
                 {
-                    if (colors.isNotEmpty()) appendComment("Dark colors")
+                    if (colorAttributes.isNotEmpty()) appendComment("Dark colors")
                     appendAttrs(
-                        attrs = colors
-                            .filter { !it.isLight }
-                            .colorsToThemeAttrs(),
-                        toElement = this,
-                    )
-                },
-                {
-                    if (gradients.isNotEmpty()) appendComment("Dark gradients")
-                    appendAttrs(
-                        attrs = gradients
-                            .filter { !it.isLight }
-                            .gradientsToThemeAttrs(),
+                        attrs = colorAttributes
+                            .toDarkThemeAttrs(),
                         toElement = this,
                     )
                 },
@@ -91,26 +78,16 @@ internal class ViewThemeGenerator(
             appendStyle(resPrefix.capitalized())
             addStyleWithAttrs(
                 {
-                    if (colors.isNotEmpty()) appendComment("Light colors")
+                    if (colorAttributes.isNotEmpty()) appendComment("Light colors")
                     appendAttrs(
-                        attrs = colors
-                            .filter { it.isLight }
-                            .colorsToThemeAttrs(),
+                        attrs = colorAttributes
+                            .toLightThemeAttrs(),
                         toElement = this,
                     )
                 },
                 {
                     if (shapes.isNotEmpty()) appendComment("Shapes")
                     appendAttrs(shapes.shapesToThemeAttrs(), this)
-                },
-                {
-                    if (gradients.isNotEmpty()) appendComment("Light gradients")
-                    appendAttrs(
-                        attrs = gradients
-                            .filter { it.isLight }
-                            .gradientsToThemeAttrs(),
-                        toElement = this,
-                    )
                 },
                 {
                     if (typography.isNotEmpty()) appendComment("Typography")
@@ -129,18 +106,23 @@ internal class ViewThemeGenerator(
             )
         }
 
-    private fun List<GradientTokenResult.ViewTokenData>.gradientsToThemeAttrs(): List<ViewThemeAttribute> =
-        flatMap { entry ->
-            entry.gradientParameters.map {
-                ViewThemeAttribute(it.attrName, it.ref)
-            }
+    private fun Set<String>.toDarkThemeAttrs(): List<ViewThemeAttribute> =
+        map { color ->
+            ViewThemeAttribute(
+                name = color,
+                value = colors?.dark?.get(color)
+                    ?: colors?.light?.get(color)
+                    ?: throw ThemeBuilderException("Can't find token value for color $color"),
+            )
         }
 
-    private fun List<ColorTokenResult.TokenData>.colorsToThemeAttrs(): List<ViewThemeAttribute> =
-        map { entry ->
+    private fun Set<String>.toLightThemeAttrs(): List<ViewThemeAttribute> =
+        map { color ->
             ViewThemeAttribute(
-                name = entry.attrName,
-                value = entry.tokenRefName,
+                name = color,
+                value = colors?.light?.get(color)
+                    ?: colors?.dark?.get(color)
+                    ?: throw ThemeBuilderException("Can't find token value for color $color"),
             )
         }
 

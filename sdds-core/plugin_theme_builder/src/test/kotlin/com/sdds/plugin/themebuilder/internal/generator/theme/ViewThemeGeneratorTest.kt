@@ -2,7 +2,6 @@ package com.sdds.plugin.themebuilder.internal.generator.theme
 
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult
-import com.sdds.plugin.themebuilder.internal.generator.data.GradientTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.ShapeTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.TypographyTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewThemeGenerator
@@ -76,7 +75,6 @@ class ViewThemeGeneratorTest {
 
         underTest.setShapeTokenData(shapeAttrs)
         underTest.setColorTokenData(colorAttrs)
-        underTest.setGradientTokenData(gradientAttrs)
         underTest.setTypographyTokenData(typographyAttrs)
         underTest.generate()
 
@@ -91,17 +89,9 @@ class ViewThemeGeneratorTest {
     }
 
     private companion object {
-        val colorAttrs = listOf(
-            ColorTokenResult.TokenData(
-                attrName = "textPrimary",
-                tokenRefName = "@color/thmbldr_dark_text_primary",
-                false,
-            ),
-            ColorTokenResult.TokenData(
-                attrName = "textPrimary",
-                tokenRefName = "@color/thmbldr_light_text_primary",
-                true,
-            ),
+        val colorAttrs = ColorTokenResult.TokenData(
+            light = mapOf("textPrimary" to "@color/thmbldr_light_text_primary"),
+            dark = mapOf("textPrimary" to "@color/thmbldr_dark_text_primary"),
         )
 
         val shapeAttrs = listOf(
@@ -112,61 +102,6 @@ class ViewThemeGeneratorTest {
             ShapeTokenResult.TokenData(
                 attrName = "shapeRoundXxs",
                 tokenRefName = "@style/Thmbldr.Shape.Round.Xxs",
-            ),
-        )
-
-        val gradientAttrs = listOf(
-            GradientTokenResult.ViewTokenData(
-                attrName = "textAccentGradientHover",
-                gradientParameters = listOf(
-                    GradientTokenResult.ViewTokenData.GradientParameter(
-                        attrName = "textAccentGradientHover_position_0",
-                        ref = "@dimen/thmbldr_light_text_accent_gradient_hover_position_0",
-                    ),
-                    GradientTokenResult.ViewTokenData.GradientParameter(
-                        attrName = "textAccentGradientHover_position_1",
-                        ref = "@dimen/thmbldr_light_text_accent_gradient_hover_position_1",
-                    ),
-                    GradientTokenResult.ViewTokenData.GradientParameter(
-                        attrName = "textAccentGradientHover_color_0",
-                        ref = "@dimen/thmbldr_light_text_accent_gradient_hover_color_0",
-                    ),
-                    GradientTokenResult.ViewTokenData.GradientParameter(
-                        attrName = "textAccentGradientHover_color_1",
-                        ref = "@dimen/thmbldr_light_text_accent_gradient_hover_color_1",
-                    ),
-                    GradientTokenResult.ViewTokenData.GradientParameter(
-                        attrName = "textAccentGradientHover_angle",
-                        ref = "@dimen/thmbldr_light_text_accent_gradient_hover_angle",
-                    ),
-                ),
-                isLight = true,
-            ),
-            GradientTokenResult.ViewTokenData(
-                attrName = "textAccentGradientHover",
-                gradientParameters = listOf(
-                    GradientTokenResult.ViewTokenData.GradientParameter(
-                        attrName = "textAccentGradientHover_position_0",
-                        ref = "@dimen/thmbldr_dark_text_accent_gradient_hover_position_0",
-                    ),
-                    GradientTokenResult.ViewTokenData.GradientParameter(
-                        attrName = "textAccentGradientHover_position_1",
-                        ref = "@dimen/thmbldr_dark_text_accent_gradient_hover_position_1",
-                    ),
-                    GradientTokenResult.ViewTokenData.GradientParameter(
-                        attrName = "textAccentGradientHover_color_0",
-                        ref = "@dimen/thmbldr_dark_text_accent_gradient_hover_color_0",
-                    ),
-                    GradientTokenResult.ViewTokenData.GradientParameter(
-                        attrName = "textAccentGradientHover_color_1",
-                        ref = "@dimen/thmbldr_dark_text_accent_gradient_hover_color_1",
-                    ),
-                    GradientTokenResult.ViewTokenData.GradientParameter(
-                        attrName = "textAccentGradientHover_angle",
-                        ref = "@dimen/thmbldr_dark_text_accent_gradient_hover_angle",
-                    ),
-                ),
-                isLight = false,
             ),
         )
 
