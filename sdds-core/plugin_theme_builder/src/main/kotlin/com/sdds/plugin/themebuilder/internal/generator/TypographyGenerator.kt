@@ -84,9 +84,9 @@ internal class TypographyGenerator(
         val mergedTokenKeys = viewSmallTokens.keys + viewMediumTokens.keys + viewLargeTokens.keys
 
         mergedTokenKeys.forEach {
-            generateTypographyTokens(tokenName = it, screenClass = ScreenClass.SMALL)
-            generateTypographyTokens(tokenName = it, screenClass = ScreenClass.MEDIUM)
-            generateTypographyTokens(tokenName = it, screenClass = ScreenClass.LARGE)
+            generateViewTypographyTokens(tokenName = it, screenClass = ScreenClass.SMALL)
+            generateViewTypographyTokens(tokenName = it, screenClass = ScreenClass.MEDIUM)
+            generateViewTypographyTokens(tokenName = it, screenClass = ScreenClass.LARGE)
         }
 
         textAppearanceXmlBuilders.forEach {
@@ -158,7 +158,7 @@ internal class TypographyGenerator(
         return true
     }
 
-    private fun generateTypographyTokens(tokenName: String, screenClass: ScreenClass) {
+    private fun generateViewTypographyTokens(tokenName: String, screenClass: ScreenClass) {
         val token = findTypographyTokenByScreenClass(tokenName, screenClass)
             ?: throw ThemeBuilderException("Token $tokenName not found")
         val tokenValue = typographyTokenValues[token.name]
