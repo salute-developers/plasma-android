@@ -20,22 +20,22 @@ internal class ViewTypographyAttributeGenerator(
     private val attrPrefix: String,
 ) : SimpleBaseGenerator {
 
-    private val typography = mutableListOf<TypographyTokenResult.ViewTokenData>()
+    private val typography = mutableSetOf<String>()
 
-    fun setTypographyTokenData(data: List<TypographyTokenResult.ViewTokenData>) {
+    fun setTypographyTokenData(data: TypographyTokenResult.ViewTokenData) {
         typography.clear()
-        typography.addAll(data)
+        typography.addAll(data.attrs.keys)
     }
 
     override fun generate() {
-        appendTypography(typography)
+        appendTypography()
         xmlDocumentBuilder.build(outputResDir.attrsFile("typography"))
     }
 
-    private fun appendTypography(typography: MutableList<TypographyTokenResult.ViewTokenData>) {
+    private fun appendTypography() {
         xmlDocumentBuilder.appendComment("Typography")
         typography.forEach { typographyItem ->
-            appendAttr(typographyItem.attrName.toXmlAttribute())
+            appendAttr(typographyItem.toXmlAttribute())
         }
     }
 

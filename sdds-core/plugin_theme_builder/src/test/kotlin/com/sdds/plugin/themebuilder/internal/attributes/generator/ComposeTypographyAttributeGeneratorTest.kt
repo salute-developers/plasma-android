@@ -89,21 +89,15 @@ class ComposeTypographyAttributeGeneratorTest {
     }
 
     private companion object {
-        val inputAttrs = listOf(
-            ComposeTokenData(
-                "displayLNormal",
-                "TypographySmallTokens.DisplayLNormal",
-                ComposeTokenData.Screen.SMALL,
+        val inputAttrs = ComposeTokenData(
+            small = mapOf(
+                "displayLNormal" to "TypographySmallTokens.DisplayLNormal",
             ),
-            ComposeTokenData(
-                "displayLNormal",
-                "TypographyMediumTokens.DisplayLNormal",
-                ComposeTokenData.Screen.MEDIUM,
+            medium = mapOf(
+                "displayLNormal" to "TypographyMediumTokens.DisplayLNormal",
             ),
-            ComposeTokenData(
-                "displayLNormal",
-                "TypographyLargeTokens.DisplayLNormal",
-                ComposeTokenData.Screen.LARGE,
+            large = mapOf(
+                "displayLNormal" to "TypographyLargeTokens.DisplayLNormal",
             ),
         )
     }

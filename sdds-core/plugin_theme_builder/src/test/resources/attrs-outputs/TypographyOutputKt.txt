@@ -136,7 +136,7 @@ public fun largeThemeTypography(): ThemeTypography = ThemeTypography(displayLNor
 @Composable
 public fun dynamicThemeTypography(): ThemeTypography = when
         (collectWindowSizeInfoAsState().value.widthClass) {
-    WindowSizeClass.Expanded -> smallThemeTypography()
+    WindowSizeClass.Expanded -> largeThemeTypography()
     WindowSizeClass.Medium -> mediumThemeTypography()
     WindowSizeClass.Compact -> smallThemeTypography()
 }

@@ -7,35 +7,33 @@ package com.sdds.plugin.themebuilder.internal.generator.data
  * @property viewTokens данные о токенах для View
  */
 internal data class TypographyTokenResult(
-    val composeTokens: List<ComposeTokenData>,
-    val viewTokens: List<ViewTokenData>,
+    val composeTokens: ComposeTokenData,
+    val viewTokens: ViewTokenData,
 ) {
 
     /**
-     * Данные о добавленном токене для View
+     * Данные о добавленных токенах для Compose
      *
-     * @property attrName название атрибута токена
-     * @property tokenRefName ссылка на сгенерированный токен
+     * @property small атрибуты типографики для маленьких экранов
+     * @property medium атрибуты типографики для средних экранов
+     * @property large атрибуты типографики для больших экранов
      */
-    internal data class ViewTokenData(
-        val attrName: String,
-        val tokenRefName: String,
+    internal data class ComposeTokenData(
+        val small: Map<String, String>,
+        val medium: Map<String, String>,
+        val large: Map<String, String>,
     )
 
     /**
-     * Данные о добавленном токене для Compose
+     * Данные о добавленных токенах для View
      *
-     * @property attrName название атрибута токена
-     * @property tokenRefName ссылка на сгенерированный токен
-     * @property screen тип экрана
+     * @property attrs атрибуты типографики (ключ - название атрибута, значение - ссылка на токен)
      */
-    internal data class ComposeTokenData(
-        val attrName: String,
-        val tokenRefName: String,
-        val screen: Screen,
-    ) {
-        internal enum class Screen {
-            SMALL, MEDIUM, LARGE
-        }
-    }
+    internal data class ViewTokenData(
+        val attrs: Map<String, String>,
+    )
+}
+
+internal fun TypographyTokenResult.ComposeTokenData.mergedScreenClasses(): Set<String> {
+    return small.keys + medium.keys + large.keys
 }

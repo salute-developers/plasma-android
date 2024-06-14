@@ -52,7 +52,7 @@ internal class ComposeColorAttributeGenerator(
     }
 
     fun setColorTokenData(data: ColorTokenResult.TokenData) {
-        this.tokenData = data
+        tokenData = data
         colorAttributes.clear()
         colorAttributes.addAll(data.mergedLightAndDark())
     }

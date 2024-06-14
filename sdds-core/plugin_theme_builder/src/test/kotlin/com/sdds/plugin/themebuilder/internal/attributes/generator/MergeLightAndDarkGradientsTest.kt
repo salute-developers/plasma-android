@@ -1,6 +1,6 @@
 package com.sdds.plugin.themebuilder.internal.attributes.generator
 
-import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult
+import com.sdds.plugin.themebuilder.internal.generator.data.GradientTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.mergedLightAndDark
 import org.junit.Assert
 import org.junit.Test
@@ -8,8 +8,8 @@ import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
 
 @RunWith(Parameterized::class)
-internal class MergeLightAndDarkTest(
-    private val tokenData: ColorTokenResult.TokenData,
+internal class MergeLightAndDarkGradientsTest(
+    private val tokenData: GradientTokenResult.ComposeTokenData,
     private val expectedResultSet: Set<String>,
 ) {
 
@@ -19,48 +19,52 @@ internal class MergeLightAndDarkTest(
     }
 
     companion object {
+        private fun getParams(value: String) = GradientTokenResult.ComposeTokenData.Parameters(
+            listOf(value),
+            GradientTokenResult.ComposeTokenData.GradientType.LINEAR,
+        )
 
         @JvmStatic
         @Parameterized.Parameters
         fun data() = listOf(
             arrayOf(
-                ColorTokenResult.TokenData(
+                GradientTokenResult.ComposeTokenData(
                     light = mapOf(
-                        "key1" to "value1",
-                        "key2" to "value2",
+                        "key1" to getParams("value1"),
+                        "key2" to getParams("value2"),
                     ),
                     dark = mapOf(
-                        "key1" to "value1",
-                        "key2" to "value2",
+                        "key1" to getParams("value1"),
+                        "key2" to getParams("value2"),
                     ),
                 ),
                 setOf("key1", "key2"),
             ),
             arrayOf(
-                ColorTokenResult.TokenData(
+                GradientTokenResult.ComposeTokenData(
                     light = mapOf(
-                        "key1" to "value1",
-                        "key2" to "value2",
+                        "key1" to getParams("value1"),
+                        "key2" to getParams("value2"),
                     ),
                     dark = mapOf(
-                        "key3" to "value3",
-                        "key4" to "value4",
+                        "key3" to getParams("value3"),
+                        "key4" to getParams("value4"),
                     ),
                 ),
                 setOf("key1", "key2", "key3", "key4"),
             ),
             arrayOf(
-                ColorTokenResult.TokenData(
+                GradientTokenResult.ComposeTokenData(
                     light = emptyMap(),
                     dark = mapOf(
-                        "key3" to "value3",
-                        "key4" to "value4",
+                        "key3" to getParams("value3"),
+                        "key4" to getParams("value4"),
                     ),
                 ),
                 setOf("key3", "key4"),
             ),
             arrayOf(
-                ColorTokenResult.TokenData(
+                GradientTokenResult.ComposeTokenData(
                     light = emptyMap(),
                     dark = emptyMap(),
                 ),
