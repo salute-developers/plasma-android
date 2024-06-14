@@ -30,15 +30,15 @@ import java.io.ByteArrayOutputStream
 import java.io.File
 
 /**
- * Unit тесты [TypographyGenerator]
+ * Unit тесты [TypographyTokenGenerator]
  * @author Малышев Александр on 13.03.2024
  */
-class TypographyGeneratorTest {
+class TypographyTokenGeneratorTest {
 
     private lateinit var outputKt: ByteArrayOutputStream
     private lateinit var mockOutputResDir: File
     private lateinit var mockDimensAggregator: DimensAggregator
-    private lateinit var underTest: TypographyGenerator
+    private lateinit var underTest: TypographyTokenGenerator
 
     @Before
     fun setUp() {
@@ -50,7 +50,7 @@ class TypographyGeneratorTest {
         outputKt = ByteArrayOutputStream()
         mockOutputResDir = mockk(relaxed = true)
         mockDimensAggregator = mockk(relaxed = true)
-        underTest = TypographyGenerator(
+        underTest = TypographyTokenGenerator(
             outputLocation = KtFileBuilder.OutputLocation.Stream(outputKt),
             outputResDir = mockOutputResDir,
             target = ThemeBuilderTarget.ALL,
@@ -122,7 +122,7 @@ class TypographyGeneratorTest {
 
     private companion object {
         val typographyTokenValues = mapOf(
-            "screen-l.display.l" to TypographyTokenValue(
+            "screen-l.display.l.normal" to TypographyTokenValue(
                 fontFamilyRef = "sans",
                 fontWeight = 300,
                 fontStyle = "normal",
@@ -130,7 +130,31 @@ class TypographyGeneratorTest {
                 letterSpacing = 0.02f,
                 lineHeight = 128f,
             ),
-            "screen-m.display.l" to TypographyTokenValue(
+            "screen-l.display.l.bold" to TypographyTokenValue(
+                fontFamilyRef = "sans",
+                fontWeight = 300,
+                fontStyle = "normal",
+                textSize = 128f,
+                letterSpacing = 0.02f,
+                lineHeight = 128f,
+            ),
+            "screen-s.text.l.normal" to TypographyTokenValue(
+                fontFamilyRef = "sans",
+                fontWeight = 400,
+                fontStyle = "normal",
+                textSize = 124f,
+                letterSpacing = 0.04f,
+                lineHeight = 124f,
+            ),
+            "screen-m.header.l.normal" to TypographyTokenValue(
+                fontFamilyRef = "sans",
+                fontWeight = 400,
+                fontStyle = "normal",
+                textSize = 124f,
+                letterSpacing = 0.04f,
+                lineHeight = 124f,
+            ),
+            "screen-m.display.l.normal" to TypographyTokenValue(
                 fontFamilyRef = "sans",
                 fontWeight = 300,
                 fontStyle = "normal",
@@ -138,7 +162,7 @@ class TypographyGeneratorTest {
                 letterSpacing = 0.02f,
                 lineHeight = 96f,
             ),
-            "screen-s.display.l" to TypographyTokenValue(
+            "screen-s.display.l.normal" to TypographyTokenValue(
                 fontFamilyRef = "sans",
                 fontWeight = 300,
                 fontStyle = "normal",

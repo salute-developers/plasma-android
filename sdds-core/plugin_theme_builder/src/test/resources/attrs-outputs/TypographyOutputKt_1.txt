@@ -103,6 +103,7 @@ import kotlin.Unit
 @Immutable
 public data class ThemeTypography internal constructor(
     public val displayLNormal: TextStyle,
+    public val displayLBold: TextStyle,
 )
 
 internal val LocalThemeTypography: ProvidableCompositionLocal<ThemeTypography> =
@@ -115,19 +116,19 @@ private val LocalThemeTextStyle: ProvidableCompositionLocal<TextStyle> =
  * Возвращает [ThemeTypography] для ширины окна до 600dp
  */
 public fun smallThemeTypography(): ThemeTypography = ThemeTypography(displayLNormal =
-        TypographySmallTokens.DisplayLNormal)
+        TypographySmallTokens.DisplayLNormal, displayLBold = TypographySmallTokens.DisplayLBold)
 
 /**
  * Возвращает [ThemeTypography] для ширины окна от 600dp до 840dp
  */
 public fun mediumThemeTypography(): ThemeTypography = ThemeTypography(displayLNormal =
-        TypographyMediumTokens.DisplayLNormal)
+        TypographyMediumTokens.DisplayLNormal, displayLBold = TypographyMediumTokens.DisplayLBold)
 
 /**
  * Возвращает [ThemeTypography] для ширины окна от 840dp
  */
 public fun largeThemeTypography(): ThemeTypography = ThemeTypography(displayLNormal =
-        TypographyLargeTokens.DisplayLNormal)
+        TypographyLargeTokens.DisplayLNormal, displayLBold = TypographyLargeTokens.DisplayLBold)
 
 /**
  * Возвращает разные [ThemeTypography] в зависимости от ширины окна. Значение динамически изменяется
@@ -136,7 +137,7 @@ public fun largeThemeTypography(): ThemeTypography = ThemeTypography(displayLNor
 @Composable
 public fun dynamicThemeTypography(): ThemeTypography = when
         (collectWindowSizeInfoAsState().value.widthClass) {
-    WindowSizeClass.Expanded -> smallThemeTypography()
+    WindowSizeClass.Expanded -> largeThemeTypography()
     WindowSizeClass.Medium -> mediumThemeTypography()
     WindowSizeClass.Compact -> smallThemeTypography()
 }

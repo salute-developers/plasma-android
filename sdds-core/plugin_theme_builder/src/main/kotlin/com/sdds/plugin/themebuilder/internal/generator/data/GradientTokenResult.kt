@@ -58,7 +58,3 @@ internal data class GradientTokenResult(
 internal fun GradientTokenResult.ComposeTokenData.mergedLightAndDark(): Set<String> {
     return light.keys + dark.keys
 }
-
-internal fun GradientTokenResult.ViewTokenData.mergedLightAndDark(): Set<String> {
-    return light.keys + dark.keys
-}

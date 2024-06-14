@@ -27,7 +27,7 @@ import java.util.Locale
  * @param resPrefix префикс для xml файлов с fontFamily
  * @author Малышев Александр on 07.03.2024
  */
-internal class FontGenerator(
+internal class FontTokenGenerator(
     private val outputLocation: KtFileBuilder.OutputLocation,
     private val outputResDir: File,
     target: ThemeBuilderTarget,

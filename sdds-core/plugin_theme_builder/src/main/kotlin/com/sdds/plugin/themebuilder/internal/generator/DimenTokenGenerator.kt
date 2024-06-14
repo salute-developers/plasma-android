@@ -17,7 +17,7 @@ import java.io.File
  * @param xmlBuilderFactory фабрика делегата построения xml файлов
  * @author Малышев Александр on 07.03.2024
  */
-internal class DimenGenerator(
+internal class DimenTokenGenerator(
     private val outputResDir: File,
     private val dimensAggregator: DimensAggregator,
     private val xmlBuilderFactory: XmlResourcesDocumentBuilderFactory,

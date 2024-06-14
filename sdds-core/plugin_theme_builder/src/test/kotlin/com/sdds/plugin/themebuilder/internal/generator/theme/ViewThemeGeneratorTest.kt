@@ -105,14 +105,10 @@ class ViewThemeGeneratorTest {
             ),
         )
 
-        val typographyAttrs = listOf(
-            TypographyTokenResult.ViewTokenData(
-                attrName = "typographyDisplayLNormal",
-                tokenRefName = "@style/Thmbldr.Typography.DisplayLNormal",
-            ),
-            TypographyTokenResult.ViewTokenData(
-                attrName = "typographyHeaderH3Bold",
-                tokenRefName = "@style/Thmbldr.Typography.HeaderH3Bold",
+        val typographyAttrs = TypographyTokenResult.ViewTokenData(
+            mapOf(
+                "typographyDisplayLNormal" to "@style/Thmbldr.Typography.DisplayLNormal",
+                "typographyHeaderH3Bold" to "@style/Thmbldr.Typography.HeaderH3Bold",
             ),
         )
     }

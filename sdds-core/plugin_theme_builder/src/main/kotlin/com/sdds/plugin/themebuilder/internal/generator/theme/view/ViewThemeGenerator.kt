@@ -32,7 +32,7 @@ internal class ViewThemeGenerator(
     private var colors: ColorTokenResult.TokenData? = null
     private val colorAttributes = mutableSetOf<String>()
     private val shapes = mutableListOf<ShapeTokenResult.TokenData>()
-    private val typography = mutableListOf<TypographyTokenResult.ViewTokenData>()
+    private var typography: TypographyTokenResult.ViewTokenData? = null
 
     private val lightThemeXmlFileBuilder by unsafeLazy {
         xmlBuilderFactory.create()
@@ -53,9 +53,8 @@ internal class ViewThemeGenerator(
         shapes.addAll(data)
     }
 
-    internal fun setTypographyTokenData(data: List<TypographyTokenResult.ViewTokenData>) {
-        typography.clear()
-        typography.addAll(data)
+    internal fun setTypographyTokenData(data: TypographyTokenResult.ViewTokenData) {
+        typography = data
     }
 
     override fun generate() {
@@ -90,21 +89,24 @@ internal class ViewThemeGenerator(
                     appendAttrs(shapes.shapesToThemeAttrs(), this)
                 },
                 {
-                    if (typography.isNotEmpty()) appendComment("Typography")
-                    appendAttrs(typography.typographyToThemeAttrs(), this)
+                    val data = typography?.attrs
+                    if (!data.isNullOrEmpty()) {
+                        appendComment("Typography")
+                        appendAttrs(typography?.attrs.typographyToThemeAttrs(), this)
+                    }
                 },
             )
             build(outputResDir.themeXmlFile(ThemeMode.LIGHT.qualifier))
         }
     }
 
-    private fun List<TypographyTokenResult.ViewTokenData>.typographyToThemeAttrs(): List<ViewThemeAttribute> =
-        map { entry ->
+    private fun Map<String, String>?.typographyToThemeAttrs(): List<ViewThemeAttribute> =
+        this?.map { entry ->
             ViewThemeAttribute(
-                name = entry.attrName,
-                value = entry.tokenRefName,
+                name = entry.key,
+                value = entry.value,
             )
-        }
+        } ?: emptyList()
 
     private fun Set<String>.toDarkThemeAttrs(): List<ViewThemeAttribute> =
         map { color ->

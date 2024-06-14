@@ -7,6 +7,8 @@ import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.KtFileFromResourcesBuilderFactory
 import com.sdds.plugin.themebuilder.internal.generator.SimpleBaseGenerator
 import com.sdds.plugin.themebuilder.internal.generator.data.TypographyTokenResult
+import com.sdds.plugin.themebuilder.internal.generator.data.mergedScreenClasses
+import com.sdds.plugin.themebuilder.internal.token.TypographyToken.ScreenClass
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import org.gradle.configurationcache.extensions.capitalized
 
@@ -25,7 +27,8 @@ internal class ComposeTypographyAttributeGenerator(
     private val themeName: String,
 ) : SimpleBaseGenerator {
 
-    private val typography = mutableListOf<TypographyTokenResult.ComposeTokenData>()
+    private var tokenData: TypographyTokenResult.ComposeTokenData? = null
+    private val typographyAttributes = mutableSetOf<String>()
     private val typographyKtFileBuilder by unsafeLazy {
         ktFileBuilderFactory.create(typographyClassName)
     }
@@ -37,13 +40,8 @@ internal class ComposeTypographyAttributeGenerator(
         typographyKtFileBuilder.getInternalClassType(typographyClassName)
     }
 
-    fun setTypographyTokenData(typography: List<TypographyTokenResult.ComposeTokenData>) {
-        this.typography.clear()
-        this.typography.addAll(typography)
-    }
-
     override fun generate() {
-        if (typography.isEmpty()) return
+        tokenData ?: return
 
         createWindowSizeFile()
         addImports()
@@ -57,6 +55,12 @@ internal class ComposeTypographyAttributeGenerator(
         addProvideTextStyleComposable()
 
         typographyKtFileBuilder.build(outputLocation)
+    }
+
+    fun setTypographyTokenData(data: TypographyTokenResult.ComposeTokenData) {
+        tokenData = data
+        typographyAttributes.clear()
+        typographyAttributes.addAll(data.mergedScreenClasses())
     }
 
     private fun createWindowSizeFile() {
@@ -99,7 +103,7 @@ internal class ComposeTypographyAttributeGenerator(
             returnType = typographyClassType,
             body = listOf(
                 "return when (collectWindowSizeInfoAsState().value.widthClass) {\n",
-                "${KtFileBuilder.DEFAULT_FILE_INDENT}WindowSizeClass.Expanded -> small$typographyClassName()\n",
+                "${KtFileBuilder.DEFAULT_FILE_INDENT}WindowSizeClass.Expanded -> large$typographyClassName()\n",
                 "${KtFileBuilder.DEFAULT_FILE_INDENT}WindowSizeClass.Medium -> medium$typographyClassName()\n",
                 "${KtFileBuilder.DEFAULT_FILE_INDENT}WindowSizeClass.Compact -> small$typographyClassName()\n",
                 "}",
@@ -114,11 +118,10 @@ internal class ComposeTypographyAttributeGenerator(
             rootClass(
                 name = typographyClassName,
                 primaryConstructor = Constructor.Primary(
-                    parameters = typography
-                        .filter { it.screen == TypographyTokenResult.ComposeTokenData.Screen.MEDIUM }
+                    parameters = typographyAttributes
                         .map {
                             KtFileBuilder.FunParameter(
-                                name = it.attrName,
+                                name = it,
                                 type = KtFileBuilder.TypeTextStyle,
                                 asProperty = true,
                             )
@@ -135,7 +138,7 @@ internal class ComposeTypographyAttributeGenerator(
     private fun addSmallTypographyFun() {
         addScreenSpecificTypographyFun(
             funName = "small$typographyClassName",
-            screen = TypographyTokenResult.ComposeTokenData.Screen.SMALL,
+            screenClass = ScreenClass.SMALL,
             description = "Возвращает [$typographyClassName] для ширины окна до 600dp",
         )
     }
@@ -143,7 +146,7 @@ internal class ComposeTypographyAttributeGenerator(
     private fun addMediumTypographyFun() {
         addScreenSpecificTypographyFun(
             funName = "medium$typographyClassName",
-            screen = TypographyTokenResult.ComposeTokenData.Screen.MEDIUM,
+            screenClass = ScreenClass.MEDIUM,
             description = "Возвращает [$typographyClassName] для ширины окна от 600dp до 840dp",
         )
     }
@@ -151,14 +154,14 @@ internal class ComposeTypographyAttributeGenerator(
     private fun addLargeTypographyFun() {
         addScreenSpecificTypographyFun(
             funName = "large$typographyClassName",
-            screen = TypographyTokenResult.ComposeTokenData.Screen.LARGE,
+            screenClass = ScreenClass.LARGE,
             description = "Возвращает [$typographyClassName] для ширины окна от 840dp",
         )
     }
 
     private fun addScreenSpecificTypographyFun(
         funName: String,
-        screen: TypographyTokenResult.ComposeTokenData.Screen,
+        screenClass: ScreenClass,
         description: String,
     ) {
         with(typographyKtFileBuilder) {
@@ -167,15 +170,31 @@ internal class ComposeTypographyAttributeGenerator(
                 returnType = typographyClassType,
                 body = listOf(
                     "return $typographyClassName(${
-                        typography
-                            .filter { it.screen == screen }
+                        typographyAttributes
                             .joinToString(separator = ",·") {
-                                "${it.attrName} = ${it.tokenRefName}"
+                                "$it = ${findTypographyTokenRef(it, screenClass)}"
                             }
                     })",
                 ),
                 description = description,
             )
+        }
+    }
+
+    private fun findTypographyTokenRef(attributeName: String, screenClass: ScreenClass): String? {
+        val safeTokenData = tokenData ?: return null
+        return when (screenClass) {
+            ScreenClass.SMALL -> safeTokenData.small[attributeName]
+                ?: safeTokenData.medium[attributeName]
+                ?: safeTokenData.large[attributeName]
+
+            ScreenClass.LARGE -> safeTokenData.large[attributeName]
+                ?: safeTokenData.medium[attributeName]
+                ?: safeTokenData.small[attributeName]
+
+            else -> safeTokenData.medium[attributeName]
+                ?: safeTokenData.small[attributeName]
+                ?: safeTokenData.large[attributeName]
         }
     }
 

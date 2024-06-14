@@ -31,14 +31,14 @@ import java.io.ByteArrayOutputStream
 import java.io.File
 
 /**
- * Unit тесты [GradientGenerator]
+ * Unit тесты [GradientTokenGenerator]
  * @author Малышев Александр on 13.03.2024
  */
-class GradientGeneratorTest {
+class GradientTokenGeneratorTest {
 
     private lateinit var outputKt: ByteArrayOutputStream
     private lateinit var mockOutputResDir: File
-    private lateinit var underTest: GradientGenerator
+    private lateinit var underTest: GradientTokenGenerator
 
     @Before
     fun setUp() {
@@ -49,7 +49,7 @@ class GradientGeneratorTest {
         )
         outputKt = ByteArrayOutputStream()
         mockOutputResDir = mockk(relaxed = true)
-        underTest = GradientGenerator(
+        underTest = GradientTokenGenerator(
             outputLocation = KtFileBuilder.OutputLocation.Stream(outputKt),
             outputResDir = mockOutputResDir,
             target = ThemeBuilderTarget.ALL,

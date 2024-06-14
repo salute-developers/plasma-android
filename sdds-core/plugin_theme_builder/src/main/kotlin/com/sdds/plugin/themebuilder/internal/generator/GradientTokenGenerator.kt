@@ -38,7 +38,7 @@ import java.util.Locale
  * @param ktFileBuilderFactory фабрика делегата построения kt файлов
  * @author Малышев Александр on 07.03.2024
  */
-internal class GradientGenerator(
+internal class GradientTokenGenerator(
     private val outputLocation: KtFileBuilder.OutputLocation,
     private val outputResDir: File,
     target: ThemeBuilderTarget,

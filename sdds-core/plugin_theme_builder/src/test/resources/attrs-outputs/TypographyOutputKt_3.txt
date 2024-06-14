@@ -1,0 +1,149 @@
+package com.sdds.playground.themebuilder.tokens
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.State
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.IntSize
+import androidx.compose.ui.unit.dp
+
+/**
+ * Класс размерности окна.
+ * См. [developer.android.com](https://developer.android.com/guide/topics/large-screens/support-different-screen-sizes)
+ */
+enum class WindowSizeClass {
+    Compact,
+    Medium,
+    Expanded,
+}
+
+/**
+ * Возвращает значение в dp - брейкпоинт по ширине для указанного класса размерности.
+ */
+fun WindowSizeClass.widthBreakPoint(): Dp =
+    when (this) {
+        WindowSizeClass.Compact -> 0.dp
+        WindowSizeClass.Medium -> 600.dp
+        WindowSizeClass.Expanded -> 840.dp
+    }
+
+/**
+ * Возвращает значение в dp - брейкпоинт по высоте для указанного класса размерности.
+ */
+fun WindowSizeClass.heightBreakPoint(): Dp =
+    when (this) {
+        WindowSizeClass.Compact -> 0.dp
+        WindowSizeClass.Medium -> 480.dp
+        WindowSizeClass.Expanded -> 900.dp
+    }
+
+/**
+ * Информация о размерности окна
+ * @property widthClass класс размерности ширины окна
+ * @property heightClass класс размерности высоты окна
+ */
+data class WindowSizeInfo(
+    val widthClass: WindowSizeClass = WindowSizeClass.Medium,
+    val heightClass: WindowSizeClass = WindowSizeClass.Medium,
+)
+
+/**
+ * Возвращает информацию о размерности окна как state
+ */
+@Composable
+fun collectWindowSizeInfoAsState(): State<WindowSizeInfo> {
+    val info = remember { mutableStateOf(WindowSizeInfo()) }
+    val context = LocalContext.current
+    val mediumWidthBreakPoint = WindowSizeClass.Medium.widthBreakPoint().px
+    val mediumHeightBreakPoint = WindowSizeClass.Medium.heightBreakPoint().px
+    val expandedWidthBreakPoint = WindowSizeClass.Expanded.widthBreakPoint().px
+    val expandedHeightBreakPoint = WindowSizeClass.Expanded.heightBreakPoint().px
+
+    info.value = remember(context, LocalConfiguration.current) {
+        val displayMetrics = context.resources.displayMetrics
+        val size = IntSize(displayMetrics.widthPixels, displayMetrics.heightPixels)
+        val widthClass = when {
+            size.width < mediumWidthBreakPoint -> WindowSizeClass.Compact
+            size.width in mediumWidthBreakPoint until expandedWidthBreakPoint -> WindowSizeClass.Medium
+            else -> WindowSizeClass.Expanded
+        }
+        val heightClass = when {
+            size.height < mediumHeightBreakPoint -> WindowSizeClass.Compact
+            size.height in mediumHeightBreakPoint until expandedHeightBreakPoint -> WindowSizeClass.Medium
+            else -> WindowSizeClass.Expanded
+        }
+        WindowSizeInfo(widthClass, heightClass)
+    }
+
+    return info
+}
+
+private val Dp.px: Int
+    @Composable
+    get() = with(LocalDensity.current) { this@px.roundToPx() }
+package com.sdds.playground.themebuilder.tokens
+
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.ProvidableCompositionLocal
+import androidx.compose.runtime.compositionLocalOf
+import androidx.compose.runtime.staticCompositionLocalOf
+import androidx.compose.runtime.structuralEqualityPolicy
+import androidx.compose.ui.text.TextStyle
+import com.sdds.playground.themebuilder.tokens.ThemeTypography
+import kotlin.Unit
+
+/**
+ * Типографика Theme
+ */
+@Immutable
+public data class ThemeTypography internal constructor(
+    public val displayLNormal: TextStyle,
+    public val displayLBold: TextStyle,
+)
+
+internal val LocalThemeTypography: ProvidableCompositionLocal<ThemeTypography> =
+        staticCompositionLocalOf { mediumThemeTypography() }
+
+private val LocalThemeTextStyle: ProvidableCompositionLocal<TextStyle> =
+        compositionLocalOf(structuralEqualityPolicy()) { TextStyle.Default }
+
+/**
+ * Возвращает [ThemeTypography] для ширины окна до 600dp
+ */
+public fun smallThemeTypography(): ThemeTypography = ThemeTypography(displayLNormal =
+        TypographyLargeTokens.DisplayLNormal, displayLBold = TypographyLargeTokens.DisplayLBold)
+
+/**
+ * Возвращает [ThemeTypography] для ширины окна от 600dp до 840dp
+ */
+public fun mediumThemeTypography(): ThemeTypography = ThemeTypography(displayLNormal =
+        TypographyLargeTokens.DisplayLNormal, displayLBold = TypographyLargeTokens.DisplayLBold)
+
+/**
+ * Возвращает [ThemeTypography] для ширины окна от 840dp
+ */
+public fun largeThemeTypography(): ThemeTypography = ThemeTypography(displayLNormal =
+        TypographyLargeTokens.DisplayLNormal, displayLBold = TypographyLargeTokens.DisplayLBold)
+
+/**
+ * Возвращает разные [ThemeTypography] в зависимости от ширины окна. Значение динамически изменяется
+ * при изменении ширины окна.
+ */
+@Composable
+public fun dynamicThemeTypography(): ThemeTypography = when
+        (collectWindowSizeInfoAsState().value.widthClass) {
+    WindowSizeClass.Expanded -> largeThemeTypography()
+    WindowSizeClass.Medium -> mediumThemeTypography()
+    WindowSizeClass.Compact -> smallThemeTypography()
+}
+
+@Composable
+internal fun ProvideTextStyle(`value`: TextStyle, content: @Composable () -> Unit): Unit {
+    val mergedStyle = LocalThemeTextStyle.current.merge(value)
+    CompositionLocalProvider(LocalThemeTextStyle provides mergedStyle, content = content)
+}

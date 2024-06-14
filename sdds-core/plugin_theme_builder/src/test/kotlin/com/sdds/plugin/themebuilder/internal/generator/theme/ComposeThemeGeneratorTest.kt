@@ -71,7 +71,13 @@ class ComposeThemeGeneratorTest {
             themeName = "Test",
         )
         underTest.setColorTokenData(ColorTokenResult.TokenData(emptyMap(), emptyMap()))
-        underTest.setTypographyTokenData(emptyList())
+        underTest.setTypographyTokenData(
+            TypographyTokenResult.ComposeTokenData(
+                emptyMap(),
+                emptyMap(),
+                emptyMap(),
+            ),
+        )
         underTest.generate()
 
         Assert.assertEquals(
@@ -92,17 +98,13 @@ class ComposeThemeGeneratorTest {
             ),
         )
 
-        val typographyAttrs = listOf(
-            TypographyTokenResult.ComposeTokenData(
-                attrName = "bodyMNormal",
-                tokenRefName = "BodyMNormal",
-                screen = TypographyTokenResult.ComposeTokenData.Screen.MEDIUM,
+        val typographyAttrs = TypographyTokenResult.ComposeTokenData(
+            small = emptyMap(),
+            medium = mapOf(
+                "headerH3Bold" to "TypographyMediumTokens.HeaderH3Bold",
+                "bodyMNormal" to "TypographyMediumTokens.BodyMNormal",
             ),
-            TypographyTokenResult.ComposeTokenData(
-                attrName = "headerH3Bold",
-                tokenRefName = "HeaderH3Bold",
-                screen = TypographyTokenResult.ComposeTokenData.Screen.MEDIUM,
-            ),
+            large = emptyMap(),
         )
     }
 }

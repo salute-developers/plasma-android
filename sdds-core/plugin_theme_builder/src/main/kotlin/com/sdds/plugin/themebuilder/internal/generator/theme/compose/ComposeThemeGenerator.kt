@@ -6,6 +6,7 @@ import com.sdds.plugin.themebuilder.internal.generator.SimpleBaseGenerator
 import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.TypographyTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.mergedLightAndDark
+import com.sdds.plugin.themebuilder.internal.generator.data.mergedScreenClasses
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import org.gradle.configurationcache.extensions.capitalized
 
@@ -210,8 +211,9 @@ internal class ComposeThemeGenerator(
         findDefaultTextStyleColor(attrSet)
     }
 
-    fun setTypographyTokenData(typography: List<TypographyTokenResult.ComposeTokenData>) {
-        findDefaultTextStyle(typography)
+    fun setTypographyTokenData(typography: TypographyTokenResult.ComposeTokenData) {
+        val attrSet = typography.mergedScreenClasses()
+        findDefaultTextStyle(attrSet)
     }
 
     private fun findDefaultSelectionColors(attrSet: Set<String>) {
@@ -230,10 +232,10 @@ internal class ComposeThemeGenerator(
         textStyleColor = textPrimaryColor ?: return
     }
 
-    private fun findDefaultTextStyle(typography: List<TypographyTokenResult.ComposeTokenData>) {
+    private fun findDefaultTextStyle(typography: Set<String>) {
         val bodyMediumNormal = typography.find {
-            it.attrName == "bodyMNormal"
-        }?.attrName
+            it == "bodyMNormal"
+        }
         textStyle = bodyMediumNormal ?: return
     }
 }
