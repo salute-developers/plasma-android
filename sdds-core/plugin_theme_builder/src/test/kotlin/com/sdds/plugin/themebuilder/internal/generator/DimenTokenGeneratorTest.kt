@@ -20,21 +20,21 @@ import java.io.ByteArrayOutputStream
 import java.io.File
 
 /**
- * Unit тесты [DimenGenerator]
+ * Unit тесты [DimenTokenGenerator]
  * @author Малышев Александр on 13.03.2024
  */
-class DimenGeneratorTest {
+class DimenTokenGeneratorTest {
 
     private lateinit var mockOutputResDir: File
     private lateinit var mockDimensAggregator: DimensAggregator
-    private lateinit var underTest: DimenGenerator
+    private lateinit var underTest: DimenTokenGenerator
 
     @Before
     fun setUp() {
         mockkObject(FileProvider)
         mockOutputResDir = mockk(relaxed = true)
         mockDimensAggregator = mockk(relaxed = true)
-        underTest = DimenGenerator(
+        underTest = DimenTokenGenerator(
             outputResDir = mockOutputResDir,
             dimensAggregator = mockDimensAggregator,
             xmlBuilderFactory = XmlResourcesDocumentBuilderFactory("thmbldr"),

@@ -31,15 +31,15 @@ import java.io.ByteArrayOutputStream
 import java.io.File
 
 /**
- * Unit тесты [FontGenerator]
+ * Unit тесты [FontTokenGenerator]
  */
-class FontGeneratorTest {
+class FontTokenGeneratorTest {
     private lateinit var outputKt: ByteArrayOutputStream
     private lateinit var mockOutputResDir: File
     private lateinit var mockDownloaderFactory: FontDownloaderFactory
     private lateinit var mockFileDownloader: FileDownloader
     private lateinit var fontDownloader: FontDownloader
-    private lateinit var underTest: FontGenerator
+    private lateinit var underTest: FontTokenGenerator
 
     @Before
     fun setUp() {
@@ -55,7 +55,7 @@ class FontGeneratorTest {
         mockDownloaderFactory = mockk<FontDownloaderFactory>(relaxed = true)
         every { mockDownloaderFactory.create() } returns fontDownloader
 
-        underTest = FontGenerator(
+        underTest = FontTokenGenerator(
             outputLocation = KtFileBuilder.OutputLocation.Stream(outputKt),
             outputResDir = mockOutputResDir,
             target = ThemeBuilderTarget.ALL,

@@ -8,23 +8,21 @@ public object TypographyLargeTokens {
     /**
      * шрифт android
      */
-    public val DisplayL: TextStyle = TextStyle(
+    public val DisplayLNormal: TextStyle = TextStyle(
                 fontWeight = FontWeight(300),
                 fontSize = 128.0.sp,
                 lineHeight = 128.0.sp,
                 letterSpacing = 0.02.sp,
                 fontFamily = FontTokens.sans,
             )
-}
 
-public object TypographyMediumTokens {
     /**
      * шрифт android
      */
-    public val DisplayL: TextStyle = TextStyle(
+    public val DisplayLBold: TextStyle = TextStyle(
                 fontWeight = FontWeight(300),
-                fontSize = 96.0.sp,
-                lineHeight = 96.0.sp,
+                fontSize = 128.0.sp,
+                lineHeight = 128.0.sp,
                 letterSpacing = 0.02.sp,
                 fontFamily = FontTokens.sans,
             )
@@ -34,10 +32,45 @@ public object TypographySmallTokens {
     /**
      * шрифт android
      */
-    public val DisplayL: TextStyle = TextStyle(
+    public val TextLNormal: TextStyle = TextStyle(
+                fontWeight = FontWeight(400),
+                fontSize = 124.0.sp,
+                lineHeight = 124.0.sp,
+                letterSpacing = 0.04.sp,
+                fontFamily = FontTokens.sans,
+            )
+
+    /**
+     * шрифт android
+     */
+    public val DisplayLNormal: TextStyle = TextStyle(
                 fontWeight = FontWeight(300),
                 fontSize = 72.0.sp,
                 lineHeight = 72.0.sp,
+                letterSpacing = 0.02.sp,
+                fontFamily = FontTokens.sans,
+            )
+}
+
+public object TypographyMediumTokens {
+    /**
+     * шрифт android
+     */
+    public val HeaderLNormal: TextStyle = TextStyle(
+                fontWeight = FontWeight(400),
+                fontSize = 124.0.sp,
+                lineHeight = 124.0.sp,
+                letterSpacing = 0.04.sp,
+                fontFamily = FontTokens.sans,
+            )
+
+    /**
+     * шрифт android
+     */
+    public val DisplayLNormal: TextStyle = TextStyle(
+                fontWeight = FontWeight(300),
+                fontSize = 96.0.sp,
+                lineHeight = 96.0.sp,
                 letterSpacing = 0.02.sp,
                 fontFamily = FontTokens.sans,
             )

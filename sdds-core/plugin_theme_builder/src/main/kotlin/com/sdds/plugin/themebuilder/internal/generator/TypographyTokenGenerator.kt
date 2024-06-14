@@ -25,6 +25,14 @@ import java.io.File
 import java.util.Locale
 
 /**
+ * Генерирует токены типографики.
+ *
+ * В этом генераторе механизмы генерации и формирования результата для View и Compose имеют существенные различия.
+ * Compose-токены сразу добавляются в соответствующие объекты для small/medium/large экранов,
+ * а результат генерации размещается в 3 соответствующих словаря. View-токены сначала агрегируются в 3 словаря,
+ * затем textAppearance раскладываются по трем файлам, а результат генерации содержит 1 словарь,
+ * т.к. ссылка на токен типографики в xml идентичная для всех типов экранов.
+ *
  * @param outputLocation локация для сохранения kt-файла с токенами
  * @param outputResDir директория для сохранения xml-файла с токенами
  * @param target целевой фреймворк
@@ -32,7 +40,7 @@ import java.util.Locale
  * @param ktFileBuilderFactory фабрика делегата построения kt файлов
  * @author Малышев Александр on 07.03.2024
  */
-internal class TypographyGenerator(
+internal class TypographyTokenGenerator(
     private val outputLocation: KtFileBuilder.OutputLocation,
     private val outputResDir: File,
     target: ThemeBuilderTarget,

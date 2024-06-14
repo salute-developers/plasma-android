@@ -31,7 +31,7 @@ import java.util.Locale
  * @param resourceReferenceProvider провайдер ссылок на ресурсы
  * @author Малышев Александр on 07.03.2024
  */
-internal class ShapeGenerator(
+internal class ShapeTokenGenerator(
     private val outputLocation: KtFileBuilder.OutputLocation,
     private val outputResDir: File,
     target: ThemeBuilderTarget,

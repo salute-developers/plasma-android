@@ -14,7 +14,7 @@ internal class MergeScreenClassesTest(
 ) {
 
     @Test
-    fun `mergedLightAndDark() должна возвращать объединение ключей словарей темной и светлой темы`() {
+    fun `mergedScreenClasses() должна возвращать объединение ключей словарей темной и светлой темы`() {
         Assert.assertEquals(expectedResultSet, tokenData.mergedScreenClasses())
     }
 

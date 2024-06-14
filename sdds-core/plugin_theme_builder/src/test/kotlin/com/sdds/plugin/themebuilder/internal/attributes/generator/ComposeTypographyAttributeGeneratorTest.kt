@@ -41,7 +41,6 @@ class ComposeTypographyAttributeGeneratorTest {
             TypeSpec,
             FileProvider,
         )
-        outputKt = ByteArrayOutputStream()
         ktFileBuilder = KtFileBuilder(
             packageName = "com.sdds.playground.themebuilder.tokens",
             fileName = "ThemeColors",
@@ -55,12 +54,6 @@ class ComposeTypographyAttributeGeneratorTest {
         mockKtFileFromResourceBuilderFactory = mockk<KtFileFromResourcesBuilderFactory> {
             every { create() } returns ktFileFromResourcesBuilder
         }
-        underTest = ComposeTypographyAttributeGenerator(
-            ktFileBuilderFactory = mockKtFileBuilderFactory,
-            ktFileFromResourcesBuilderFactory = mockKtFileFromResourceBuilderFactory,
-            outputLocation = KtFileBuilder.OutputLocation.Stream(outputKt),
-            themeName = "Theme",
-        )
     }
 
     @After
@@ -75,29 +68,108 @@ class ComposeTypographyAttributeGeneratorTest {
 
     @Test
     fun `KtAttributeGenerator должен генерировать kotlin файлы с атрибутами типографики`() {
-        underTest.setTypographyTokenData(inputAttrs)
+        outputKt = ByteArrayOutputStream()
+        underTest = ComposeTypographyAttributeGenerator(
+            ktFileBuilderFactory = mockKtFileBuilderFactory,
+            ktFileFromResourcesBuilderFactory = mockKtFileFromResourceBuilderFactory,
+            outputLocation = KtFileBuilder.OutputLocation.Stream(outputKt),
+            themeName = "Theme",
+        )
+
+        underTest.setTypographyTokenData(input1)
         underTest.generate()
 
         verify {
             mockKtFileBuilderFactory.create("ThemeTypography")
+            mockKtFileFromResourceBuilderFactory.create()
         }
 
         Assert.assertEquals(
-            getResourceAsText("attrs-outputs/TypographyOutputKt.txt"),
+            getResourceAsText("attrs-outputs/TypographyOutputKt_1.txt"),
+            outputKt.toString(),
+        )
+    }
+
+    @Test
+    fun `KtAttributeGenerator генерирует атрибуты типографики с недостающими токенами`() {
+        outputKt = ByteArrayOutputStream()
+        underTest = ComposeTypographyAttributeGenerator(
+            ktFileBuilderFactory = mockKtFileBuilderFactory,
+            ktFileFromResourcesBuilderFactory = mockKtFileFromResourceBuilderFactory,
+            outputLocation = KtFileBuilder.OutputLocation.Stream(outputKt),
+            themeName = "Theme",
+        )
+
+        underTest.setTypographyTokenData(input2)
+        underTest.generate()
+
+        verify {
+            mockKtFileBuilderFactory.create("ThemeTypography")
+            mockKtFileFromResourceBuilderFactory.create()
+        }
+
+        Assert.assertEquals(
+            getResourceAsText("attrs-outputs/TypographyOutputKt_2.txt"),
+            outputKt.toString(),
+        )
+    }
+
+    @Test
+    fun `KtAttributeGenerator генерирует атрибуты типографики только на основе large токенов`() {
+        outputKt = ByteArrayOutputStream()
+        underTest = ComposeTypographyAttributeGenerator(
+            ktFileBuilderFactory = mockKtFileBuilderFactory,
+            ktFileFromResourcesBuilderFactory = mockKtFileFromResourceBuilderFactory,
+            outputLocation = KtFileBuilder.OutputLocation.Stream(outputKt),
+            themeName = "Theme",
+        )
+
+        underTest.setTypographyTokenData(input3)
+        underTest.generate()
+
+        verify {
+            mockKtFileBuilderFactory.create("ThemeTypography")
+            mockKtFileFromResourceBuilderFactory.create()
+        }
+
+        Assert.assertEquals(
+            getResourceAsText("attrs-outputs/TypographyOutputKt_3.txt"),
             outputKt.toString(),
         )
     }
 
     private companion object {
-        val inputAttrs = ComposeTokenData(
+        val input1 = ComposeTokenData(
+            small = mapOf(
+                "displayLNormal" to "TypographySmallTokens.DisplayLNormal",
+                "displayLBold" to "TypographySmallTokens.DisplayLBold",
+            ),
+            medium = mapOf(
+                "displayLNormal" to "TypographyMediumTokens.DisplayLNormal",
+                "displayLBold" to "TypographyMediumTokens.DisplayLBold",
+            ),
+            large = mapOf(
+                "displayLNormal" to "TypographyLargeTokens.DisplayLNormal",
+                "displayLBold" to "TypographyLargeTokens.DisplayLBold",
+            ),
+        )
+        val input2 = ComposeTokenData(
             small = mapOf(
                 "displayLNormal" to "TypographySmallTokens.DisplayLNormal",
             ),
             medium = mapOf(
-                "displayLNormal" to "TypographyMediumTokens.DisplayLNormal",
+                "displayLBold" to "TypographyMediumTokens.DisplayLBold",
             ),
             large = mapOf(
                 "displayLNormal" to "TypographyLargeTokens.DisplayLNormal",
+            ),
+        )
+        val input3 = ComposeTokenData(
+            small = emptyMap(),
+            medium = emptyMap(),
+            large = mapOf(
+                "displayLNormal" to "TypographyLargeTokens.DisplayLNormal",
+                "displayLBold" to "TypographyLargeTokens.DisplayLBold",
             ),
         )
     }
