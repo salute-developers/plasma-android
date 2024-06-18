@@ -8,6 +8,7 @@ import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder.ElementFormat
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder.ElementName
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder.ElementType
+import com.sdds.plugin.themebuilder.internal.exceptions.ThemeBuilderException
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.generator.data.GradientTokenResult
@@ -21,11 +22,14 @@ import com.sdds.plugin.themebuilder.internal.token.SweepGradientTokenValue
 import com.sdds.plugin.themebuilder.internal.token.colorAttrName
 import com.sdds.plugin.themebuilder.internal.token.isDark
 import com.sdds.plugin.themebuilder.internal.token.isLight
+import com.sdds.plugin.themebuilder.internal.utils.ColorResolver.HexFormat
+import com.sdds.plugin.themebuilder.internal.utils.ColorResolver.resolveColor
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.gradientsXmlFile
-import com.sdds.plugin.themebuilder.internal.utils.HexFormat
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
-import com.sdds.plugin.themebuilder.internal.utils.resolveColor
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
+import com.sdds.plugin.themebuilder.internal.validator.LinearGradientTokenValidator
+import com.sdds.plugin.themebuilder.internal.validator.RadialGradientTokenValidator
+import com.sdds.plugin.themebuilder.internal.validator.SweepGradientTokenValidator
 import com.squareup.kotlinpoet.TypeSpec
 import java.io.File
 import java.util.Locale
@@ -90,9 +94,13 @@ internal class GradientTokenGenerator(
      * @see TokenGenerator.addViewSystemToken
      */
     override fun addViewSystemToken(token: GradientToken): Boolean {
-        val tokenValue = gradientTokenValues[token.name] ?: return false
-        if (tokenValue.size != 1) return false
-        // TODO: https://github.com/salute-developers/plasma-android/issues/28
+        val tokenValue = gradientTokenValues[token.name]
+            // TODO: https://github.com/salute-developers/plasma-android/issues/28
+            ?.takeIf { it.size == 1 }
+            ?: throw ThemeBuilderException(
+                "Can't find value for gradient token ${token.name}. " +
+                    "It should be in android_gradient.json.",
+            )
         val result = when (val value = tokenValue[0]) {
             is LinearGradientTokenValue -> xmlDocumentBuilder.appendLinearGradient(token, value)
             is RadialGradientTokenValue -> xmlDocumentBuilder.appendRadialGradient(token, value)
@@ -109,7 +117,10 @@ internal class GradientTokenGenerator(
         val tokenValue = gradientTokenValues[token.name]
             // TODO: https://github.com/salute-developers/plasma-android/issues/28
             ?.takeIf { it.size == 1 }
-            ?: return false
+            ?: throw ThemeBuilderException(
+                "Can't find value for gradient token ${token.name}. " +
+                    "It should be in android_gradient.json.",
+            )
         val builder = if (token.isDark) {
             darkBuilder
         } else if (token.isLight) {
@@ -139,7 +150,8 @@ internal class GradientTokenGenerator(
         tokenValue: LinearGradientTokenValue,
     ): Boolean {
         val baseTokenName = token.xmlName
-        val resolvedColors = tokenValue.colors.resolveColors(HexFormat.XML_HEX) ?: return false
+        LinearGradientTokenValidator.validate(tokenValue, baseTokenName)
+        val resolvedColors = tokenValue.colors.resolveColors(HexFormat.XML_HEX, baseTokenName)
 
         val colorParameters = resolvedColors.colorsToTokenParameterData(baseTokenName)
         val positionParameters = tokenValue.locations.positionsToTokenParameterData(baseTokenName)
@@ -172,7 +184,8 @@ internal class GradientTokenGenerator(
         tokenValue: SweepGradientTokenValue,
     ): Boolean {
         val baseTokenName = token.xmlName
-        val resolvedColors = tokenValue.colors.resolveColors(HexFormat.XML_HEX) ?: return false
+        SweepGradientTokenValidator.validate(tokenValue, baseTokenName)
+        val resolvedColors = tokenValue.colors.resolveColors(HexFormat.XML_HEX, baseTokenName)
 
         val colorParameters = resolvedColors.colorsToTokenParameterData(baseTokenName)
         val positionParameters = tokenValue.locations.positionsToTokenParameterData(baseTokenName)
@@ -212,7 +225,8 @@ internal class GradientTokenGenerator(
         tokenValue: RadialGradientTokenValue,
     ): Boolean {
         val baseTokenName = token.xmlName
-        val resolvedColors = tokenValue.colors.resolveColors(HexFormat.XML_HEX) ?: return false
+        RadialGradientTokenValidator.validate(tokenValue, baseTokenName)
+        val resolvedColors = tokenValue.colors.resolveColors(HexFormat.XML_HEX, baseTokenName)
 
         val colorParameters = resolvedColors.colorsToTokenParameterData(baseTokenName)
         val positionParameters = tokenValue.locations.positionsToTokenParameterData(baseTokenName)
@@ -328,7 +342,8 @@ internal class GradientTokenGenerator(
         tokenValue: LinearGradientTokenValue,
     ): Boolean {
         val baseTokenName = token.ktName
-        val resolvedColors = tokenValue.colors.resolveColors(HexFormat.INT_HEX) ?: return false
+        LinearGradientTokenValidator.validate(tokenValue, baseTokenName)
+        val resolvedColors = tokenValue.colors.resolveColors(HexFormat.INT_HEX, baseTokenName)
         with(ktFileBuilder) {
             appendObject(baseTokenName, token.description) {
                 appendBaseGradient(resolvedColors, tokenValue.locations)
@@ -354,7 +369,8 @@ internal class GradientTokenGenerator(
         tokenValue: SweepGradientTokenValue,
     ): Boolean {
         val baseTokenName = token.ktName
-        val resolvedColors = tokenValue.colors.resolveColors(HexFormat.INT_HEX) ?: return false
+        SweepGradientTokenValidator.validate(tokenValue, baseTokenName)
+        val resolvedColors = tokenValue.colors.resolveColors(HexFormat.INT_HEX, baseTokenName)
         with(ktFileBuilder) {
             appendObject(baseTokenName, token.description) {
                 appendBaseGradient(resolvedColors, tokenValue.locations)
@@ -382,7 +398,8 @@ internal class GradientTokenGenerator(
         tokenValue: RadialGradientTokenValue,
     ): Boolean {
         val baseTokenName = token.ktName
-        val resolvedColors = tokenValue.colors.resolveColors(HexFormat.INT_HEX) ?: return false
+        RadialGradientTokenValidator.validate(tokenValue, baseTokenName)
+        val resolvedColors = tokenValue.colors.resolveColors(HexFormat.INT_HEX, baseTokenName)
         with(ktFileBuilder) {
             appendObject(baseTokenName, token.description) {
                 appendBaseGradient(resolvedColors, tokenValue.locations)
@@ -407,8 +424,15 @@ internal class GradientTokenGenerator(
         return true
     }
 
-    private fun List<String>.resolveColors(hexFormat: HexFormat): List<String>? =
-        map { resolveColor(it, palette, hexFormat) ?: return null }
+    private fun List<String>.resolveColors(hexFormat: HexFormat, tokenName: String): List<String> =
+        map {
+            resolveColor(
+                tokenValue = it,
+                tokenName = tokenName,
+                palette = palette,
+                hexFormat = hexFormat,
+            )
+        }
 
     private fun TypeSpec.Builder.appendBaseGradient(
         colors: List<String>,

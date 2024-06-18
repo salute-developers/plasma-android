@@ -102,7 +102,7 @@ class GradientTokenGeneratorTest {
             "dark.inverse.surface.accent" to listOf(
                 SweepGradientTokenValue(
                     colors = listOf("#000", "#fff"),
-                    locations = listOf(0f, 0.7f, 1f),
+                    locations = listOf(0f, 0.7f),
                     centerX = 0.5f,
                     centerY = 0.5f,
                 ),
@@ -110,14 +110,14 @@ class GradientTokenGeneratorTest {
             "light.on-dark.surface.tertiary" to listOf(
                 LinearGradientTokenValue(
                     colors = listOf("#000", "#fff"),
-                    locations = listOf(0f, 0.7f, 1f),
+                    locations = listOf(0f, 0.7f),
                     angle = 90f,
                 ),
             ),
             "light.on-dark.surface.secondary" to listOf(
                 RadialGradientTokenValue(
                     colors = listOf("#000", "#fff"),
-                    locations = listOf(0f, 0.7f, 1f),
+                    locations = listOf(0f, 0.7f),
                     radius = 0.8f,
                     centerX = 0.5f,
                     centerY = 0.5f,

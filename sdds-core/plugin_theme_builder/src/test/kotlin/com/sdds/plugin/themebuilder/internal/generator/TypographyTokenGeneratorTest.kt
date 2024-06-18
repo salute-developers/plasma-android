@@ -123,7 +123,7 @@ class TypographyTokenGeneratorTest {
     private companion object {
         val typographyTokenValues = mapOf(
             "screen-l.display.l.normal" to TypographyTokenValue(
-                fontFamilyRef = "sans",
+                fontFamilyRef = "fontFamily.sans",
                 fontWeight = 300,
                 fontStyle = "normal",
                 textSize = 128f,
@@ -131,7 +131,7 @@ class TypographyTokenGeneratorTest {
                 lineHeight = 128f,
             ),
             "screen-l.display.l.bold" to TypographyTokenValue(
-                fontFamilyRef = "sans",
+                fontFamilyRef = "fontFamily.sans",
                 fontWeight = 300,
                 fontStyle = "normal",
                 textSize = 128f,
@@ -139,7 +139,7 @@ class TypographyTokenGeneratorTest {
                 lineHeight = 128f,
             ),
             "screen-s.text.l.normal" to TypographyTokenValue(
-                fontFamilyRef = "sans",
+                fontFamilyRef = "fontFamily.sans",
                 fontWeight = 400,
                 fontStyle = "normal",
                 textSize = 124f,
@@ -147,7 +147,7 @@ class TypographyTokenGeneratorTest {
                 lineHeight = 124f,
             ),
             "screen-m.header.l.normal" to TypographyTokenValue(
-                fontFamilyRef = "sans",
+                fontFamilyRef = "fontFamily.sans",
                 fontWeight = 400,
                 fontStyle = "normal",
                 textSize = 124f,
@@ -155,7 +155,7 @@ class TypographyTokenGeneratorTest {
                 lineHeight = 124f,
             ),
             "screen-m.display.l.normal" to TypographyTokenValue(
-                fontFamilyRef = "sans",
+                fontFamilyRef = "fontFamily.sans",
                 fontWeight = 300,
                 fontStyle = "normal",
                 textSize = 96f,
@@ -163,7 +163,7 @@ class TypographyTokenGeneratorTest {
                 lineHeight = 96f,
             ),
             "screen-s.display.l.normal" to TypographyTokenValue(
-                fontFamilyRef = "sans",
+                fontFamilyRef = "fontFamily.sans",
                 fontWeight = 300,
                 fontStyle = "normal",
                 textSize = 72f,

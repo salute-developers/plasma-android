@@ -10,9 +10,9 @@ public object DarkGradientTokens {
      * Акцентный sweep градиент поверхности
      */
     public object InverseSurfaceAccent {
-        public val colors: List<Color> = listOf(Color(0x000), Color(0xfff))
+        public val colors: List<Color> = listOf(Color(0xFF000000), Color(0xFFffffff))
 
-        public val positions: FloatArray = floatArrayOf(0.0f, 0.7f, 1.0f)
+        public val positions: FloatArray = floatArrayOf(0.0f, 0.7f)
 
         public val centerX: Float = 0.5f
 
@@ -25,9 +25,9 @@ public object LightGradientTokens {
      * Третичный линейный градиент поверхности
      */
     public object OnDarkSurfaceTertiary {
-        public val colors: List<Color> = listOf(Color(0x000), Color(0xfff))
+        public val colors: List<Color> = listOf(Color(0xFF000000), Color(0xFFffffff))
 
-        public val positions: FloatArray = floatArrayOf(0.0f, 0.7f, 1.0f)
+        public val positions: FloatArray = floatArrayOf(0.0f, 0.7f)
 
         public val angle: Float = 90.0f
     }
@@ -36,9 +36,9 @@ public object LightGradientTokens {
      * Вторичный радиальный градиент поверхности
      */
     public object OnDarkSurfaceSecondary {
-        public val colors: List<Color> = listOf(Color(0x000), Color(0xfff))
+        public val colors: List<Color> = listOf(Color(0xFF000000), Color(0xFFffffff))
 
-        public val positions: FloatArray = floatArrayOf(0.0f, 0.7f, 1.0f)
+        public val positions: FloatArray = floatArrayOf(0.0f, 0.7f)
 
         public val radius: Float = 0.8f
 

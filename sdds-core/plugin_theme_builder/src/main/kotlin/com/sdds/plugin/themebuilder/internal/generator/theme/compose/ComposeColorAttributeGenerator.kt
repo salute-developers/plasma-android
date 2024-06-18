@@ -186,7 +186,7 @@ internal class ComposeColorAttributeGenerator(
 
     private fun addLocalColorsVal() {
         colorKtFileBuilder.appendRootVal(
-            name = "Local${themeName}Colors",
+            name = "Local$colorClassName",
             typeName = KtFileBuilder.TypeProvidableCompositionLocal,
             parameterizedType = colorClassType,
             initializer = "staticCompositionLocalOf { light${themeName}Colors() }",

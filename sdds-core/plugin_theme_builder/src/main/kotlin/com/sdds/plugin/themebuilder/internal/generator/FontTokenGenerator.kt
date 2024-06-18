@@ -3,6 +3,7 @@ package com.sdds.plugin.themebuilder.internal.generator
 import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.builder.XmlFontFamilyDocumentBuilder
+import com.sdds.plugin.themebuilder.internal.exceptions.ThemeBuilderException
 import com.sdds.plugin.themebuilder.internal.factory.FontDownloaderFactory
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlFontFamilyDocumentBuilderFactory
@@ -11,6 +12,7 @@ import com.sdds.plugin.themebuilder.internal.token.FontTokenValue
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.fontDir
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.fontFamilyXmlFile
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
+import com.sdds.plugin.themebuilder.internal.validator.FontTokenValidator
 import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.TypeSpec
 import java.io.File
@@ -55,7 +57,12 @@ internal class FontTokenGenerator(
     }
 
     override fun addViewSystemToken(token: FontToken): Boolean {
-        val tokenValue = fontTokenValues[token.name] ?: return false
+        val tokenValue = fontTokenValues[token.name]
+            ?: throw ThemeBuilderException(
+                "Can't find value for font token ${token.name}. " +
+                    "It should be in android_fontFamily.json.",
+            )
+        FontTokenValidator.validate(tokenValue, token.name)
         val builder = fontFamilyXmlBuilders[token.xmlName] ?: xmlFontFamilyBuilderFactory.create()
             .also { fontFamilyXmlBuilders[token.xmlName] = it }
 
@@ -72,7 +79,12 @@ internal class FontTokenGenerator(
     }
 
     override fun addComposeToken(token: FontToken): Boolean {
-        val tokenValue = fontTokenValues[token.name] ?: return false
+        val tokenValue = fontTokenValues[token.name]
+            ?: throw ThemeBuilderException(
+                "Can't find value for font token ${token.name}. " +
+                    "It should be in android_fontFamily.json.",
+            )
+        FontTokenValidator.validate(tokenValue, token.name)
         ktFileRootObjectBuilder.addFontFamilyToken(
             name = token.ktName,
             description = token.description,

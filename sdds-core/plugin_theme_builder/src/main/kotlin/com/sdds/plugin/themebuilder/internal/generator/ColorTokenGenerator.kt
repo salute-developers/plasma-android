@@ -4,6 +4,7 @@ import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder.Companion.DEFAULT_ROOT_ATTRIBUTES
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder.ElementName
+import com.sdds.plugin.themebuilder.internal.exceptions.ThemeBuilderException
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult
@@ -11,10 +12,10 @@ import com.sdds.plugin.themebuilder.internal.token.ColorToken
 import com.sdds.plugin.themebuilder.internal.token.colorAttrName
 import com.sdds.plugin.themebuilder.internal.token.isDark
 import com.sdds.plugin.themebuilder.internal.token.isLight
+import com.sdds.plugin.themebuilder.internal.utils.ColorResolver.HexFormat
+import com.sdds.plugin.themebuilder.internal.utils.ColorResolver.resolveColor
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.colorsXmlFile
-import com.sdds.plugin.themebuilder.internal.utils.HexFormat
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
-import com.sdds.plugin.themebuilder.internal.utils.resolveColor
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import java.io.File
 import java.util.Locale
@@ -81,8 +82,17 @@ internal class ColorTokenGenerator(
      */
     @Suppress("ReturnCount")
     override fun addViewSystemToken(token: ColorToken): Boolean {
-        val tokenValue = colorTokenValues[token.name] ?: return false
-        val resolvedColor = resolveColor(tokenValue, palette, HexFormat.XML_HEX) ?: return false
+        val tokenValue = colorTokenValues[token.name]
+            ?: throw ThemeBuilderException(
+                "Can't find value for color token ${token.name}. " +
+                    "It should be in android_color.json.",
+            )
+        val resolvedColor = resolveColor(
+            tokenValue = tokenValue,
+            tokenName = token.name,
+            palette = palette,
+            hexFormat = HexFormat.XML_HEX,
+        )
         xmlDocumentBuilder.appendComment(token.description)
         xmlDocumentBuilder.appendElement(
             elementName = ElementName.COLOR,
@@ -98,13 +108,22 @@ internal class ColorTokenGenerator(
      */
     @Suppress("ReturnCount")
     override fun addComposeToken(token: ColorToken): Boolean = with(ktFileBuilder) {
-        val tokenValue = colorTokenValues[token.name] ?: return false
+        val tokenValue = colorTokenValues[token.name]
+            ?: throw ThemeBuilderException(
+                "Can't find value for color token ${token.name}. " +
+                    "It should be in android_color.json.",
+            )
         val root = if (token.isDark) {
             darkBuilder
         } else {
             lightBuilder
         }
-        val resolvedColor = resolveColor(tokenValue, palette, HexFormat.INT_HEX) ?: return false
+        val resolvedColor = resolveColor(
+            tokenValue = tokenValue,
+            tokenName = token.name,
+            palette = palette,
+            hexFormat = HexFormat.INT_HEX,
+        )
         val value = "Color($resolvedColor)"
         root.appendProperty(token.ktName, KtFileBuilder.TypeColor, value, token.description)
         token.addComposeTokenData(token.ktName.decapitalize(Locale.getDefault()), token.ktName)
