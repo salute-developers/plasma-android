@@ -105,7 +105,10 @@ internal object ColorResolver {
      * содержащую hex в диапазоне 0..255.
      */
     private fun String.toHexAlpha(): String {
-        return (0xFF * this.toFloat()).toInt().toString(16).toUpperCase(Locale.getDefault())
+        return (0xFF * this.toFloat())
+            .toInt()
+            .toString(16)
+            .toUpperCase(Locale.getDefault())
     }
 
     /**

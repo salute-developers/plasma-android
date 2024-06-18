@@ -95,13 +95,16 @@ internal class GradientTokenGenerator(
      */
     override fun addViewSystemToken(token: GradientToken): Boolean {
         val tokenValue = gradientTokenValues[token.name]
-            // TODO: https://github.com/salute-developers/plasma-android/issues/28
-            ?.takeIf { it.size == 1 }
             ?: throw ThemeBuilderException(
                 "Can't find value for gradient token ${token.name}. " +
                     "It should be in android_gradient.json.",
             )
-        val result = when (val value = tokenValue[0]) {
+        // TODO: https://github.com/salute-developers/plasma-android/issues/28
+        val singleGradientValue = tokenValue.takeIf { it.size == 1 }
+            ?: throw ThemeBuilderException(
+                "Gradient ${token.name} is composite. Composite gradients are not supported yet.",
+            )
+        val result = when (val value = singleGradientValue[0]) {
             is LinearGradientTokenValue -> xmlDocumentBuilder.appendLinearGradient(token, value)
             is RadialGradientTokenValue -> xmlDocumentBuilder.appendRadialGradient(token, value)
             is SweepGradientTokenValue -> xmlDocumentBuilder.appendSweepGradient(token, value)
@@ -115,11 +118,14 @@ internal class GradientTokenGenerator(
      */
     override fun addComposeToken(token: GradientToken): Boolean {
         val tokenValue = gradientTokenValues[token.name]
-            // TODO: https://github.com/salute-developers/plasma-android/issues/28
-            ?.takeIf { it.size == 1 }
             ?: throw ThemeBuilderException(
                 "Can't find value for gradient token ${token.name}. " +
                     "It should be in android_gradient.json.",
+            )
+        // TODO: https://github.com/salute-developers/plasma-android/issues/28
+        val singleGradientValue = tokenValue.takeIf { it.size == 1 }
+            ?: throw ThemeBuilderException(
+                "Gradient ${token.name} is composite. Composite gradients are not supported yet.",
             )
         val builder = if (token.isDark) {
             darkBuilder
@@ -128,7 +134,7 @@ internal class GradientTokenGenerator(
         } else {
             return false
         }
-        val result = when (val value = tokenValue[0]) {
+        val result = when (val value = singleGradientValue[0]) {
             is LinearGradientTokenValue -> builder.appendLinearGradient(token, value)
             is RadialGradientTokenValue -> builder.appendRadialGradient(token, value)
             is SweepGradientTokenValue -> builder.appendSweepGradient(token, value)
