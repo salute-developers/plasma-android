@@ -133,7 +133,7 @@ internal class ComposeGradientAttributeGenerator(
 
     private fun addLocalGradientsVal() {
         gradientKtFileBuilder.appendRootVal(
-            name = "Local${themeName}Gradients",
+            name = "Local$gradientClassName",
             typeName = KtFileBuilder.TypeProvidableCompositionLocal,
             parameterizedType = gradientKtFileBuilder.getInternalClassType(gradientClassName),
             initializer = "staticCompositionLocalOf { light${themeName}Gradients() }",

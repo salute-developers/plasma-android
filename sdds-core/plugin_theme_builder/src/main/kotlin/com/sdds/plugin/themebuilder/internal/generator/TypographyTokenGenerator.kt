@@ -20,6 +20,7 @@ import com.sdds.plugin.themebuilder.internal.utils.FileProvider.typographyXmlFil
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 import com.sdds.plugin.themebuilder.internal.utils.techToSnakeCase
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
+import com.sdds.plugin.themebuilder.internal.validator.TypographyTokenValidator
 import com.squareup.kotlinpoet.TypeSpec
 import java.io.File
 import java.util.Locale
@@ -130,7 +131,12 @@ internal class TypographyTokenGenerator(
      * @see TokenGenerator.addComposeToken
      */
     override fun addComposeToken(token: TypographyToken): Boolean {
-        val tokenValue = typographyTokenValues[token.name] ?: return false
+        val tokenValue = typographyTokenValues[token.name]
+            ?: throw ThemeBuilderException(
+                "Can't find value for typography token ${token.name}. " +
+                    "It should be in android_typography.json.",
+            )
+        TypographyTokenValidator.validate(tokenValue, token.name)
         val attrName = token.ktName.decapitalize(Locale.getDefault())
         when (token.screenClass) {
             ScreenClass.SMALL -> {
@@ -171,8 +177,10 @@ internal class TypographyTokenGenerator(
             ?: throw ThemeBuilderException("Token $tokenName not found")
         val tokenValue = typographyTokenValues[token.name]
             ?: throw ThemeBuilderException(
-                "Value for token ${token.name} must be presented in android_typography.json",
+                "Can't find value for typography token ${token.name}. " +
+                    "It should be in android_typography.json.",
             )
+        TypographyTokenValidator.validate(tokenValue, token.name)
         val builder =
             textAppearanceXmlBuilders[screenClass] ?: xmlBuilderFactory.create(
                 DEFAULT_ROOT_ATTRIBUTES,

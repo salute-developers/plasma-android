@@ -6,6 +6,7 @@ import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder.ElementName
 import com.sdds.plugin.themebuilder.internal.dimens.DimenData
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
+import com.sdds.plugin.themebuilder.internal.exceptions.ThemeBuilderException
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.generator.data.ShapeTokenResult
@@ -17,6 +18,7 @@ import com.sdds.plugin.themebuilder.internal.utils.FileProvider.shapesXmlFile
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 import com.sdds.plugin.themebuilder.internal.utils.techToSnakeCase
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
+import com.sdds.plugin.themebuilder.internal.validator.ShapeTokenValidator
 import java.io.File
 import java.util.Locale
 
@@ -79,8 +81,12 @@ internal class ShapeTokenGenerator(
      * @see TokenGenerator.addViewSystemToken
      */
     override fun addViewSystemToken(token: ShapeToken): Boolean = with(xmlDocumentBuilder) {
-        val roundedShapeTokenValue =
-            shapeTokenValues[token.name] as? RoundedShapeTokenValue ?: return@with false
+        val roundedShapeTokenValue = shapeTokenValues[token.name] as? RoundedShapeTokenValue
+            ?: throw ThemeBuilderException(
+                "Can't find value for shape token ${token.name}. " +
+                    "It should be in android_shape.json.",
+            )
+        ShapeTokenValidator.validate(roundedShapeTokenValue, token.name)
         val cornerSize = DimenData(
             name = "${token.name.techToSnakeCase()}_corner_size",
             value = roundedShapeTokenValue.cornerRadius,
@@ -117,8 +123,12 @@ internal class ShapeTokenGenerator(
      * @see TokenGenerator.addComposeToken
      */
     override fun addComposeToken(token: ShapeToken): Boolean = with(ktFileBuilder) {
-        val roundedShapeTokenValue =
-            shapeTokenValues[token.name] as? RoundedShapeTokenValue ?: return@with false
+        val roundedShapeTokenValue = shapeTokenValues[token.name] as? RoundedShapeTokenValue
+            ?: throw ThemeBuilderException(
+                "Can't find value for shape token ${token.name}. " +
+                    "It should be in android_shape.json.",
+            )
+        ShapeTokenValidator.validate(roundedShapeTokenValue, token.name)
 
         val value = "${roundedShapeTokenValue.cornerRadius}.dp"
         val initializer = KtFileBuilder.createConstructorCall(

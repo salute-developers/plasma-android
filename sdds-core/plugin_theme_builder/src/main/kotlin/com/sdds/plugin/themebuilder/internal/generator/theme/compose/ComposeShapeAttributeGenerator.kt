@@ -69,7 +69,7 @@ internal class ComposeShapeAttributeGenerator(
 
     private fun addLocalShapesVal() {
         shapeKtFileBuilder.appendRootVal(
-            name = "Local${themeName}Shapes",
+            name = "Local$shapeClassName",
             typeName = KtFileBuilder.TypeProvidableCompositionLocal,
             parameterizedType = shapeKtFileBuilder.getInternalClassType(shapeClassName),
             initializer = "staticCompositionLocalOf { $shapeClassName() }",
