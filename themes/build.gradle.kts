@@ -65,8 +65,9 @@ internal abstract class GenerateThemeModulesTask @Inject constructor() : Default
                 }
                 appendLine("include(")
                 themes.forEach {
-                    appendLine("    \":${it}_compose\",")
-                    appendLine("    \":${it}_view\",")
+                    val themeNameWithoutCamel = it.removeSnakeAndCamel()
+                    appendLine("    \":${themeNameWithoutCamel}.compose\",")
+                    appendLine("    \":${themeNameWithoutCamel}.view\",")
                 }
                 appendLine(")")
             }
@@ -75,13 +76,11 @@ internal abstract class GenerateThemeModulesTask @Inject constructor() : Default
     }
 
     private fun generateComposeModule(themeName: String) {
-        val buildGradleFile = createThemeModuleAndBuildGradleFile(themeName, isCompose = true)
-        buildGradleFile.writeText(generateBuildGradleText(themeName = themeName, isCompose = true))
+        createThemeModule(themeName, isCompose = true)
     }
 
     private fun generateViewModule(themeName: String) {
-        val buildGradleFile = createThemeModuleAndBuildGradleFile(themeName, isCompose = false)
-        buildGradleFile.writeText(generateBuildGradleText(themeName, isCompose = false))
+        createThemeModule(themeName, isCompose = false)
     }
 
     private fun generateBuildGradleText(themeName: String, isCompose: Boolean): String {
@@ -98,16 +97,18 @@ internal abstract class GenerateThemeModulesTask @Inject constructor() : Default
             appendLine("plugins {")
             appendLine("    id(\"convention.android-lib\")")
             appendLine("    id(\"convention.compose\")")
+            appendLine("    id(\"convention.maven-publish\")")
+            appendLine("    id(\"convention.auto-bump\")")
             appendLine("    id(libs.plugins.themebuilder.get().pluginId)")
             appendLine("}")
             appendLine()
             appendLine("android {")
-            appendLine("    namespace = \"com.sdds.themes.themebuilder.$themeName.tokens\"")
+            appendLine("    namespace = \"com.sdds.themes.themebuilder.${themeName.removeSnakeAndCamel()}.tokens\"")
             appendLine("}")
             appendLine()
             appendLine("themeBuilder {")
             appendLine("    themeSource(name = \"$themeName\", version = \"latest\")")
-            appendLine("    compose(ktPackage = \"com.sdds.themes.$themeName.tokens\")")
+            appendLine("    compose(ktPackage = \"com.sdds.themes.${themeName.removeSnakeAndCamel()}.tokens\")")
             appendLine("    resourcesPrefix(prefix = \"thmbldr\")")
             appendLine("}")
             appendLine()
@@ -126,10 +127,12 @@ internal abstract class GenerateThemeModulesTask @Inject constructor() : Default
             appendLine("plugins {")
             appendLine("    id(\"convention.android-lib\")")
             appendLine("    id(libs.plugins.themebuilder.get().pluginId)")
+            appendLine("    id(\"convention.maven-publish\")")
+            appendLine("    id(\"convention.auto-bump\")")
             appendLine("}")
             appendLine()
             appendLine("android {")
-            appendLine("    namespace = \"com.sdds.themes.themebuilder.$themeName.tokens\"")
+            appendLine("    namespace = \"com.sdds.themes.themebuilder.${themeName.removeSnakeAndCamel()}.tokens\"")
             appendLine("}")
             appendLine()
             appendLine("themeBuilder {")
@@ -146,13 +149,9 @@ internal abstract class GenerateThemeModulesTask @Inject constructor() : Default
         }
     }
 
-    //todo генерить gradle.properties в каждый модуль
-    // nexus.artifactId=sdds-icons
-    //nexus.snapshot=false
-    //nexus.description=SDDS icon pack library
-    //versionMajor=0
-    //versionMinor=2
-    //versionPatch=0
+    private fun String.removeSnakeAndCamel(): String {
+        return this.replace('_', '.').toLowerCase()
+    }
 
     private fun addManifestFile(manifestPath: String) {
         val sourceManifestFile = File("${project.projectDir}/manifest.txt")
@@ -160,17 +159,46 @@ internal abstract class GenerateThemeModulesTask @Inject constructor() : Default
         sourceManifestFile.copyTo(outputFile, overwrite = true)
     }
 
-    private fun createThemeModuleAndBuildGradleFile(themeName: String, isCompose: Boolean): File {
-        val moduleDirPath = getModuleDirPath(themeName, isCompose = isCompose)
+    private fun createThemeModule(themeName: String, isCompose: Boolean) {
+        val moduleDirPath = getModuleDirPath(themeName.removeSnakeAndCamel(), isCompose = isCompose)
         createModuleDir(moduleDirPath)
+        addBuildGradleFile("$moduleDirPath/build.gradle.kts", themeName, isCompose)
         addManifestFile("$moduleDirPath/src/main/AndroidManifest.xml")
-        return File("$moduleDirPath/build.gradle.kts")
-            .also { it.createNewFile() }
+        addGradlePropertiesFile(
+            filePath = "$moduleDirPath/gradle.properties",
+            themeName = themeName.removeSnakeAndCamel(),
+            isCompose = isCompose
+        )
+    }
+
+    private fun addBuildGradleFile(filePath: String, themeName: String, isCompose: Boolean) {
+        File(filePath)
+            .also {
+                it.createNewFile()
+                it.writeText(generateBuildGradleText(themeName, isCompose))
+            }
+    }
+
+    private fun addGradlePropertiesFile(filePath: String, themeName: String, isCompose: Boolean) {
+        val framework = if (isCompose) "compose" else "view"
+        File(filePath).apply {
+            createNewFile()
+            writeText(
+                buildString {
+                    appendLine("nexus.artifactId=$themeName.$framework")
+                    appendLine("nexus.snapshot=false")
+                    appendLine("nexus.description=$themeName theme library for $framework framework")
+                    appendLine("versionMajor=0")
+                    appendLine("versionMinor=1")
+                    appendLine("versionPatch=0")
+                }
+            )
+        }
     }
 
     private fun getModuleDirPath(themeName: String, isCompose: Boolean): String {
         val framework = if (isCompose) "compose" else "view"
-        return "${project.projectDir}/${themeName}_$framework"
+        return "${project.projectDir}/${themeName}.$framework"
     }
 
     private fun createModuleDir(moduleDirPath: String) {
@@ -182,7 +210,6 @@ tasks.register<GenerateThemeModulesTask>("generateThemeModulesTask")
 tasks.named<GenerateThemeModulesTask>("generateThemeModulesTask") {
     themes.set(
         "caldera_online." +
-                "default." +
                 "flamingo." +
                 "plasma_b2c." +
                 "plasma_web." +
