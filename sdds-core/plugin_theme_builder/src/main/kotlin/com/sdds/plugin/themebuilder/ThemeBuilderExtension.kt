@@ -18,7 +18,7 @@ open class ThemeBuilderExtension {
     /**
      * Устанавливает источник темы по имени [name] и версии [version]
      */
-    fun themeSource(name: String, version: String) {
+    fun themeSource(name: String, version: String = "latest") {
         themeSource = ThemeBuilderSource.withNameAndVersion(name, version)
     }
 
