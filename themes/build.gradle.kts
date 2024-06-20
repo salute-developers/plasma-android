@@ -227,3 +227,21 @@ tasks.named<GenerateThemeModulesTask>("generateThemeModulesTask") {
 }
 
 tasks.replace("testAll")
+tasks.replace("testDebugAll")
+tasks.replace("detektAll")
+tasks.replace("spotlessCheckAll")
+tasks.replace("apiCheckAll")
+tasks.replace("assembleDebugAll")
+tasks.replace("assembleReleaseAll")
+tasks.replace("lintDebugAll")
+
+tasks.register("cleanAll") {
+    group = "build"
+    val cleanTasks = subprojects.flatMap {
+        it.tasks.matching { task -> task.name == "clean" }
+    }
+    val includedCleanTasks = gradle
+        .includedBuilds
+        .map { it.task(":clean") }
+    dependsOn(cleanTasks, includedCleanTasks)
+}
