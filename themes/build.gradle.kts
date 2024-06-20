@@ -225,3 +225,5 @@ tasks.named<GenerateThemeModulesTask>("generateThemeModulesTask") {
                 "stylesSalute"
     )
 }
+
+tasks.replace("testAll")
