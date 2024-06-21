@@ -63,6 +63,8 @@ internal class GradientTokenGenerator(
     private val viewLightTokenDataCollector = mutableMapOf<String, List<ViewTokenData.Parameter>>()
     private val viewDarkTokenDataCollector = mutableMapOf<String, List<ViewTokenData.Parameter>>()
 
+    private val notSupportedTokens = mutableSetOf<String>()
+
     override fun collectResult() = GradientTokenResult(
         composeTokens = ComposeTokenData(
             light = composeLightTokenDataCollector,
@@ -101,9 +103,10 @@ internal class GradientTokenGenerator(
             )
         // TODO: https://github.com/salute-developers/plasma-android/issues/28
         val singleGradientValue = tokenValue.takeIf { it.size == 1 }
-            ?: throw ThemeBuilderException(
-                "Gradient ${token.name} is composite. Composite gradients are not supported yet.",
-            )
+            ?: run {
+                notSupportedTokens.add(token.ktName.decapitalize(Locale.getDefault()))
+                return false
+            }
         val result = when (val value = singleGradientValue[0]) {
             is LinearGradientTokenValue -> xmlDocumentBuilder.appendLinearGradient(token, value)
             is RadialGradientTokenValue -> xmlDocumentBuilder.appendRadialGradient(token, value)
@@ -124,9 +127,10 @@ internal class GradientTokenGenerator(
             )
         // TODO: https://github.com/salute-developers/plasma-android/issues/28
         val singleGradientValue = tokenValue.takeIf { it.size == 1 }
-            ?: throw ThemeBuilderException(
-                "Gradient ${token.name} is composite. Composite gradients are not supported yet.",
-            )
+            ?: run {
+                notSupportedTokens.add(token.ktName.decapitalize(Locale.getDefault()))
+                return false
+            }
         val builder = if (token.isDark) {
             darkBuilder
         } else if (token.isLight) {
@@ -462,6 +466,7 @@ internal class GradientTokenGenerator(
         attrName: String,
         params: List<ViewTokenData.Parameter>,
     ) {
+        if (notSupportedTokens.contains(attrName)) return
         if (this.isLight) {
             viewLightTokenDataCollector[attrName] = params
         } else if (this.isDark) {
@@ -476,6 +481,7 @@ internal class GradientTokenGenerator(
         attrName: String,
         params: ComposeTokenData.Parameters,
     ) {
+        if (notSupportedTokens.contains(attrName)) return
         if (this.isLight) {
             composeLightTokenDataCollector[attrName] = params
         } else if (this.isDark) {

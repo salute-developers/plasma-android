@@ -93,6 +93,7 @@ internal class ShapeTokenGenerator(
             type = DimenData.Type.DP,
         )
         dimensAggregator.addDimen(cornerSize)
+        if (!IS_SHAPE_STYLE_ENABLED) return false
         if (needCreateStyle) {
             needCreateStyle = false
             appendStyleWithPrefix("Shape")
@@ -148,5 +149,12 @@ internal class ShapeTokenGenerator(
             ),
         )
         return@with true
+    }
+
+    internal companion object {
+        /**
+         * Временный флаг, выключающий генерацию стилей форм, т.к. они требуют атрибуты из material
+         */
+        var IS_SHAPE_STYLE_ENABLED = false
     }
 }

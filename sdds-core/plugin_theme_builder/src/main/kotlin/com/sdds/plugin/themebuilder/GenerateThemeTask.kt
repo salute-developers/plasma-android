@@ -118,6 +118,12 @@ abstract class GenerateThemeTask : DefaultTask() {
     abstract val parentThemeName: Property<String>
 
     /**
+     * Режим генерации: токены или тема
+     */
+    @get:Input
+    abstract val generatorMode: Property<ThemeBuilderMode>
+
+    /**
      * Целевой фреймворк
      */
     @get:Input
@@ -148,6 +154,7 @@ abstract class GenerateThemeTask : DefaultTask() {
             outputResDirPath = outputResDirPath.get(),
             projectDir = projectDir,
             target = target.get(),
+            generatorMode = generatorMode.get(),
             dimensAggregator = dimensAggregator,
             xmlResourcesDocumentBuilderFactory = XmlResourcesDocumentBuilderFactory(resourcesPrefix.get()),
             xmlFontFamilyDocumentBuilderFactory = XmlFontFamilyDocumentBuilderFactory(),

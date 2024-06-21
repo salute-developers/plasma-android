@@ -199,6 +199,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
             target.set(extension.target)
             resourcesPrefix.set(extension.resourcesPrefix ?: project.getDefaultResourcePrefix())
             parentThemeName.set(extension.parentThemeName)
+            generatorMode.set(extension.mode)
             val projectDirProperty = objects.directoryProperty()
                 .apply { set(layout.projectDirectory) }
             projectDir.set(projectDirProperty)

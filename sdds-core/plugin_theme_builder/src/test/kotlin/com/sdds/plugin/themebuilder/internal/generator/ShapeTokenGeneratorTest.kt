@@ -58,7 +58,9 @@ class ShapeTokenGeneratorTest {
             dimensAggregator = mockDimenAggregator,
             resourceReferenceProvider = ResourceReferenceProvider("thmbldr"),
             shapeTokenValues = shapeTokenValues,
-        )
+        ).apply {
+            ShapeTokenGenerator.IS_SHAPE_STYLE_ENABLED = true
+        }
     }
 
     @After

@@ -1,5 +1,6 @@
 package com.sdds.plugin.themebuilder.internal.generator.theme
 
+import com.sdds.plugin.themebuilder.ThemeBuilderMode
 import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget.Companion.isComposeOrAll
 import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget.Companion.isViewSystemOrAll
@@ -12,6 +13,7 @@ import com.sdds.plugin.themebuilder.internal.factory.ViewColorAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.factory.ViewShapeAttributeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ViewThemeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ViewTypographyAttributeGeneratorFactory
+import com.sdds.plugin.themebuilder.internal.generator.ShapeTokenGenerator.Companion.IS_SHAPE_STYLE_ENABLED
 import com.sdds.plugin.themebuilder.internal.generator.SimpleBaseGenerator
 import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.GradientTokenResult
@@ -42,6 +44,7 @@ internal class ThemeGenerator(
     private val viewTypographyAttributeGeneratorFactory: ViewTypographyAttributeGeneratorFactory,
     private val composeTypographyAttributeGeneratorFactory: ComposeTypographyAttributeGeneratorFactory,
     private val target: ThemeBuilderTarget,
+    private val generatorMode: ThemeBuilderMode,
 ) : SimpleBaseGenerator {
 
     private val composeThemeGenerator: ComposeThemeGenerator by unsafeLazy {
@@ -113,7 +116,7 @@ internal class ThemeGenerator(
         if (target.isComposeOrAll) {
             composeShapeAttributeGenerator.setShapeTokenData(shapeTokenResult.composeTokens)
         }
-        if (target.isViewSystemOrAll) {
+        if (IS_SHAPE_STYLE_ENABLED && target.isViewSystemOrAll) {
             viewShapeAttributeGenerator.setShapeTokenData(shapeTokenResult.viewTokens)
             viewThemeGenerator.setShapeTokenData(shapeTokenResult.viewTokens)
         }
@@ -139,6 +142,10 @@ internal class ThemeGenerator(
     }
 
     override fun generate() {
+        if (generatorMode == ThemeBuilderMode.TOKENS_ONLY) {
+            if (target.isViewSystemOrAll) viewThemeGenerator.generateEmptyTheme()
+            return
+        }
         if (target.isComposeOrAll) {
             composeColorAttributeGenerator.generate()
             composeGradientAttributeGenerator.generate()
@@ -148,7 +155,7 @@ internal class ThemeGenerator(
         }
         if (target.isViewSystemOrAll) {
             viewColorAttributeGenerator.generate()
-            viewShapeAttributeGenerator.generate()
+            if (IS_SHAPE_STYLE_ENABLED) viewShapeAttributeGenerator.generate()
             viewTypographyAttributeGenerator.generate()
             viewThemeGenerator.generate()
         }
