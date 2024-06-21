@@ -155,6 +155,6 @@ internal class ShapeTokenGenerator(
         /**
          * Временный флаг, выключающий генерацию стилей форм, т.к. они требуют атрибуты из material
          */
-        const val IS_SHAPE_STYLE_ENABLED = false
+        var IS_SHAPE_STYLE_ENABLED = false
     }
 }
