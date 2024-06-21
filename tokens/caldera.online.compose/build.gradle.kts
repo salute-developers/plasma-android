@@ -14,7 +14,7 @@ android {
 themeBuilder {
     themeSource(name = "caldera_online", version = "latest")
     compose(ktPackage = "com.sdds.themes.caldera.online.tokens")
-    resourcesPrefix(prefix = "thmbldr")
+    resourcesPrefix(prefix = "sdgen")
 }
 
 dependencies {

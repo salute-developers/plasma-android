@@ -14,7 +14,7 @@ android {
 themeBuilder {
     themeSource(name = "stylesSalute", version = "latest")
     compose(ktPackage = "com.sdds.themes.stylessalute.tokens")
-    resourcesPrefix(prefix = "thmbldr")
+    resourcesPrefix(prefix = "sdgen")
 }
 
 dependencies {

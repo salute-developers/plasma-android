@@ -14,7 +14,7 @@ android {
 themeBuilder {
     themeSource(name = "sdds_serv", version = "latest")
     compose(ktPackage = "com.sdds.themes.sdds.serv.tokens")
-    resourcesPrefix(prefix = "thmbldr")
+    resourcesPrefix(prefix = "sdgen")
 }
 
 dependencies {

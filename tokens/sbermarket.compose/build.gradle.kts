@@ -14,7 +14,7 @@ android {
 themeBuilder {
     themeSource(name = "sbermarket", version = "latest")
     compose(ktPackage = "com.sdds.themes.sbermarket.tokens")
-    resourcesPrefix(prefix = "thmbldr")
+    resourcesPrefix(prefix = "sdgen")
 }
 
 dependencies {

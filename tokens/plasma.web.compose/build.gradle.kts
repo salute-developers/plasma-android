@@ -14,7 +14,7 @@ android {
 themeBuilder {
     themeSource(name = "plasma_web", version = "latest")
     compose(ktPackage = "com.sdds.themes.plasma.web.tokens")
-    resourcesPrefix(prefix = "thmbldr")
+    resourcesPrefix(prefix = "sdgen")
 }
 
 dependencies {

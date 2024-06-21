@@ -13,7 +13,7 @@ android {
 themeBuilder {
     themeSource(name = "sbermarket_wlbusiness", version = "latest")
     view()
-    resourcesPrefix(prefix = "thmbldr")
+    resourcesPrefix(prefix = "sdgen")
 }
 
 dependencies {

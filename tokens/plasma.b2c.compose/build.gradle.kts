@@ -14,7 +14,7 @@ android {
 themeBuilder {
     themeSource(name = "plasma_b2c", version = "latest")
     compose(ktPackage = "com.sdds.themes.plasma.b2c.tokens")
-    resourcesPrefix(prefix = "thmbldr")
+    resourcesPrefix(prefix = "sdgen")
 }
 
 dependencies {

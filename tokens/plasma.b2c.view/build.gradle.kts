@@ -13,7 +13,7 @@ android {
 themeBuilder {
     themeSource(name = "plasma_b2c", version = "latest")
     view()
-    resourcesPrefix(prefix = "thmbldr")
+    resourcesPrefix(prefix = "sdgen")
 }
 
 dependencies {

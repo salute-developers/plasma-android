@@ -14,7 +14,7 @@ android {
 themeBuilder {
     themeSource(name = "sberHealth", version = "latest")
     compose(ktPackage = "com.sdds.themes.sberhealth.tokens")
-    resourcesPrefix(prefix = "thmbldr")
+    resourcesPrefix(prefix = "sdgen")
 }
 
 dependencies {

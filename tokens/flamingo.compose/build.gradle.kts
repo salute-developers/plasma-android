@@ -14,7 +14,7 @@ android {
 themeBuilder {
     themeSource(name = "flamingo", version = "latest")
     compose(ktPackage = "com.sdds.themes.flamingo.tokens")
-    resourcesPrefix(prefix = "thmbldr")
+    resourcesPrefix(prefix = "sdgen")
 }
 
 dependencies {

@@ -14,7 +14,7 @@ android {
 themeBuilder {
     themeSource(name = "sbermarket_wlbusiness", version = "latest")
     compose(ktPackage = "com.sdds.themes.sbermarket.wlbusiness.tokens")
-    resourcesPrefix(prefix = "thmbldr")
+    resourcesPrefix(prefix = "sdgen")
 }
 
 dependencies {

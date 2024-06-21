@@ -13,7 +13,7 @@ android {
 themeBuilder {
     themeSource(name = "sdds_serv", version = "latest")
     view()
-    resourcesPrefix(prefix = "thmbldr")
+    resourcesPrefix(prefix = "sdgen")
 }
 
 dependencies {
