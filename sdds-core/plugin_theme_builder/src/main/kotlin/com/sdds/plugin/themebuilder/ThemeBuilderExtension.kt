@@ -65,6 +65,10 @@ open class ThemeBuilderExtension {
         this.paletteUrl = url
     }
 
+    /**
+     * Устанавливает режим генерации: токены или тема.
+     * @see ThemeBuilderMode
+     */
     fun mode(mode: ThemeBuilderMode) {
         this.mode = mode
     }
