@@ -11,9 +11,10 @@ open class ThemeBuilderExtension {
     internal var target: ThemeBuilderTarget? = null
     internal var ktPackage: String? = null
     internal var resourcesPrefix: String? = null
-    internal var parentThemeName: String = DEFAULT_PARENT_THEME_NAME
+    internal var parentThemeName: String = ""
     internal var themeSource: ThemeBuilderSource? = null
     internal var paletteUrl: String = DEFAULT_PALETTE_URL
+    internal var mode: ThemeBuilderMode = ThemeBuilderMode.TOKENS_ONLY
 
     /**
      * Устанавливает источник темы по имени [name] и версии [version]
@@ -64,6 +65,10 @@ open class ThemeBuilderExtension {
         this.paletteUrl = url
     }
 
+    fun mode(mode: ThemeBuilderMode) {
+        this.mode = mode
+    }
+
     private fun updateTarget(newTarget: ThemeBuilderTarget) {
         if (target == ThemeBuilderTarget.ALL || target == newTarget) return
         target = if (target != null) {
@@ -74,7 +79,6 @@ open class ThemeBuilderExtension {
     }
 
     companion object {
-        private const val DEFAULT_PARENT_THEME_NAME = "Sdds.Theme"
         private const val DEFAULT_PALETTE_URL =
             "https://raw.githubusercontent.com/salute-developers/plasma/dev/packages/plasma-colors/palette/general.json"
 

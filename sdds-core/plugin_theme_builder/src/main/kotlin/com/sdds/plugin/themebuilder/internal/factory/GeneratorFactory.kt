@@ -1,5 +1,6 @@
 package com.sdds.plugin.themebuilder.internal.factory
 
+import com.sdds.plugin.themebuilder.ThemeBuilderMode
 import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.OutputLocation
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
@@ -45,6 +46,7 @@ internal class GeneratorFactory(
     private val outputResDirPath: String,
     private val projectDir: DirectoryProperty,
     private val target: ThemeBuilderTarget,
+    private val generatorMode: ThemeBuilderMode,
     private val dimensAggregator: DimensAggregator,
     private val xmlResourcesDocumentBuilderFactory: XmlResourcesDocumentBuilderFactory,
     private val xmlFontFamilyDocumentBuilderFactory: XmlFontFamilyDocumentBuilderFactory,
@@ -156,6 +158,7 @@ internal class GeneratorFactory(
         viewTypographyAttributeGeneratorFactory = viewTypographyAttributeGeneratorFactory,
         composeTypographyAttributeGeneratorFactory = composeTypographyAttributeGeneratorFactory,
         target = target,
+        generatorMode = generatorMode,
     )
 
     /**

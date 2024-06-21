@@ -57,6 +57,11 @@ internal class ViewThemeGenerator(
         typography = data
     }
 
+    fun generateEmptyTheme() {
+        lightThemeXmlFileBuilder.appendStyle(resPrefix.capitalized())
+        lightThemeXmlFileBuilder.build(outputResDir.themeXmlFile(ThemeMode.LIGHT.qualifier))
+    }
+
     override fun generate() {
         with(darkThemeXmlFileBuilder) {
             appendStyle(resPrefix.capitalized())
@@ -150,9 +155,10 @@ internal class ViewThemeGenerator(
     }
 
     private fun XmlResourcesDocumentBuilder.addStyleWithAttrs(vararg attrBlocks: Element.() -> Unit) {
+        val styleParent = parentThemeName.ifEmpty { null }
         appendStyleWithPrefix(
             styleName = themeName,
-            styleParent = parentThemeName,
+            styleParent = styleParent,
         ) {
             attrBlocks.forEach { attrBlock ->
                 attrBlock.invoke(this@appendStyleWithPrefix)

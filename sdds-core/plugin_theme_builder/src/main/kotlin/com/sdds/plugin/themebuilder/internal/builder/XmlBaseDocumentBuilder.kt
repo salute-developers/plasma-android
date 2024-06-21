@@ -41,6 +41,18 @@ internal abstract class XmlBaseDocumentBuilder {
     ) = rootContent.appendBaseElement(elementName, attrs, value)
 
     /**
+     * Добавляет элемент в документ
+     * @param elementName название элемента xml документа
+     * @param attrs набор атрибутов элемента
+     * @param value значение элемента
+     */
+    fun appendBaseElement(
+        elementName: String,
+        attrs: Map<String, String>,
+        value: Element.() -> Unit,
+    ) = rootContent.appendBaseElement(elementName, attrs, value)
+
+    /**
      * Добавляет элемент в родительский элемент
      * @param elementName название элемента xml документа
      * @param attrs набор атрибутов элемента
@@ -56,6 +68,26 @@ internal abstract class XmlBaseDocumentBuilder {
                 setAttribute(it.key, it.value)
             }
             textContent = value
+        }
+        appendChild(element)
+    }
+
+    /**
+     * Добавляет элемент в родительский элемент
+     * @param elementName название элемента xml документа
+     * @param attrs набор атрибутов элемента
+     * @param value значение элемента
+     */
+    private fun Element.appendBaseElement(
+        elementName: String,
+        attrs: Map<String, String>,
+        value: Element.() -> Unit,
+    ) {
+        val element = document.createElement(elementName).apply {
+            attrs.entries.forEach {
+                setAttribute(it.key, it.value)
+            }
+            value.invoke(this)
         }
         appendChild(element)
     }
