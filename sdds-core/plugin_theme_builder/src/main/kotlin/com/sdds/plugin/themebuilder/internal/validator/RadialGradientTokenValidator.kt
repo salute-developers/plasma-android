@@ -23,6 +23,13 @@ internal object RadialGradientTokenValidator : TokenValidator<RadialGradientToke
                     "Actual number is ${tokenValue.colors.size}",
             )
         }
+        tokenValue.locations.forEach {
+            if (it !in 0f..1f) {
+                throw ThemeBuilderException(
+                    "Gradient $tokenName has location: $it that is outside the range 0..1",
+                )
+            }
+        }
         if (tokenValue.colors.size != tokenValue.locations.size) {
             throw ThemeBuilderException(
                 "Gradient $tokenName has different number of " +

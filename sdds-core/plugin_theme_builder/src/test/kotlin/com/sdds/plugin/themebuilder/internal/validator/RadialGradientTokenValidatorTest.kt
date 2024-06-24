@@ -83,6 +83,20 @@ class RadialGradientTokenValidatorTest {
                 centerX = 0.5f,
             ),
             RadialGradientTokenValue(
+                colors = listOf("#fff", "#aaa"),
+                locations = listOf(0f, 2f),
+                radius = 1f,
+                centerY = 0.5f,
+                centerX = 0.5f,
+            ),
+            RadialGradientTokenValue(
+                colors = listOf("#fff", "#aaa"),
+                locations = listOf(-1f, 1f),
+                radius = 1f,
+                centerY = 0.5f,
+                centerX = 0.5f,
+            ),
+            RadialGradientTokenValue(
                 colors = listOf("#fff", "#aaa", "#ffffffff"),
                 locations = listOf(0f, 1f, 0.5f, 0.3f),
                 radius = 1f,
