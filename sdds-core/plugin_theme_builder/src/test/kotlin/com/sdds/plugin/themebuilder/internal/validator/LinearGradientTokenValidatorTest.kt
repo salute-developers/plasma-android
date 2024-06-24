@@ -66,7 +66,17 @@ class LinearGradientTokenValidatorTest {
             LinearGradientTokenValue(
                 colors = listOf("#fff"),
                 locations = listOf(0f, 1f),
-                angle = -90f,
+                angle = 90f,
+            ),
+            LinearGradientTokenValue(
+                colors = listOf("#fff", "#aaa"),
+                locations = listOf(-0.1f, 1f),
+                angle = 90f,
+            ),
+            LinearGradientTokenValue(
+                colors = listOf("#fff", "#aaa"),
+                locations = listOf(0f, 10f),
+                angle = 90f,
             ),
             LinearGradientTokenValue(
                 colors = listOf("#fff", "#aaa", "#ffffffff"),

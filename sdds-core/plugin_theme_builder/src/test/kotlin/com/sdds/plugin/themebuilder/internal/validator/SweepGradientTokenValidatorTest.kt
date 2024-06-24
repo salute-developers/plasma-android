@@ -76,6 +76,18 @@ class SweepGradientTokenValidatorTest {
                 centerX = 0.5f,
             ),
             SweepGradientTokenValue(
+                colors = listOf("#fff", "#aaa"),
+                locations = listOf(0f, 2f),
+                centerY = 0.5f,
+                centerX = 0.5f,
+            ),
+            SweepGradientTokenValue(
+                colors = listOf("#fff", "#aaa"),
+                locations = listOf(-1f, 1f),
+                centerY = 0.5f,
+                centerX = 0.5f,
+            ),
+            SweepGradientTokenValue(
                 colors = listOf("#fff", "#aaa", "#ffffffff"),
                 locations = listOf(0f, 1f, 0.5f, 0.3f),
                 centerY = 0.5f,
