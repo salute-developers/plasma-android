@@ -110,3 +110,14 @@ tasks.register("lintDebugAll") {
         .map { it.task(":lintDebugAll") }
     dependsOn(testTasks, includedTestTasks)
 }
+
+tasks.register("mavenPublishAll") {
+    val publishTasks = subprojects.flatMap {
+        it.tasks.matching { task -> task.name == "mavenPublish" }
+    }
+    val includedPublishTasks = gradle.includedBuilds.map {
+        it.task(":mavenPublishAll")
+    }
+    dependsOn(publishTasks, includedPublishTasks)
+}
+
