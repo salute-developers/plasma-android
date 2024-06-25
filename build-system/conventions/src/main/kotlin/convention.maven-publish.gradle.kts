@@ -1,7 +1,5 @@
 import com.android.build.gradle.internal.api.BaseVariantOutputImpl
-import org.gradle.api.publish.maven.MavenPublication
-import org.gradle.kotlin.dsl.create
-import org.gradle.kotlin.dsl.get
+import tasks.MavenPublishTask
 import utils.findPropertyOrDefault
 import utils.versionInfo
 
@@ -101,4 +99,12 @@ tasks.register<Zip>("generateDistributionZip") {
     into("")
     exclude("**/maven-metadata*.*") // Sonatype does not want these files in ZIP file
     archiveFileName.set("$nexusArtifactId.zip")
+}
+
+tasks.register<MavenPublishTask>("mavenPublish") {
+    token.set(properties["publicationToken"]?.toString() ?: System.getenv("PP_AUTH_TOKEN"))
+    publicationType.set(properties["publicationType"]?.toString() ?: "USER_MANAGED")
+    publicationName.set("$nexusArtifactId-${versionInfo.fullName}")
+    artifact.set(File("${project.buildDir}/distributions/${nexusArtifactId}.zip"))
+    dependsOn(tasks.first { it.name == "generateDistributionZip" })
 }

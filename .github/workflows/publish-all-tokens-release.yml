@@ -1,0 +1,35 @@
+name: 'Publish all tokens release'
+
+on:
+  push:
+    tags:
+      # Здесь используется не полный regex для даты, т.к. валидность даты - здесь пока не критично
+      - "sdds-tokens-all-[0-9]{2}/[0-9]{2}/[0-9]{4}"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  publish-all-tokens:
+    name: Generate and publish all tokens
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v4
+
+      - name: Prepare environment
+        uses: ./.github/actions/prepare-android-env
+
+      - name: Generate and publish distributions to maven
+        env:
+          OSS_SIGNING_KEY_ID: ${{ secrets.OSS_SIGNING_KEY_ID }}
+          OSS_SIGNING_KEY: ${{ secrets.OSS_SIGNING_KEY }}
+          OSS_SIGNING_PASSWORD: ${{ secrets.OSS_SIGNING_PASSWORD }}
+        run: ./gradlew :tokens:mavenPublishAll --info -PbranchName=main -PpublicationToken=${{ secrets.PP_AUTH_TOKEN }}
+
+      - name: Upload distributions
+        uses: actions/upload-artifact@v4
+        with:
+          name: distribution
+          path: tokens/**/build/distributions/*.zip
