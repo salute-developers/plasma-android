@@ -9,6 +9,9 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.AppCompatTextView
 import com.sdds.uikit.internal.base.shape.ShapeHelper
 import com.sdds.uikit.internal.focusselector.tryApplyFocusSelector
+import com.sdds.uikit.viewstate.ViewState
+import com.sdds.uikit.viewstate.ViewState.Companion.isDefined
+import com.sdds.uikit.viewstate.ViewStateHolder
 
 /**
  * Компонент для отображения текста.
@@ -20,11 +23,23 @@ import com.sdds.uikit.internal.focusselector.tryApplyFocusSelector
 open class TextView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
-    defStyleAttr: Int = 0,
-) : AppCompatTextView(context, attrs, defStyleAttr) {
+    defStyleAttr: Int = android.R.attr.textViewStyle,
+) : AppCompatTextView(context, attrs, defStyleAttr), ViewStateHolder {
 
     @Suppress("LeakingThis")
     private val _shapeHelper: ShapeHelper = ShapeHelper(this, attrs, defStyleAttr)
+
+    /**
+     * Состояние внешнего вида текста
+     * @see ViewState
+     */
+    override var state: ViewState? = ViewState.obtain(context, attrs, defStyleAttr)
+        set(value) {
+            if (field != value) {
+                field = value
+                refreshDrawableState()
+            }
+        }
 
     init {
         tryApplyFocusSelector(attrs, defStyleAttr)
@@ -60,5 +75,13 @@ open class TextView @JvmOverloads constructor(
      */
     open fun setStrokeColorList(colorStateList: ColorStateList) {
         this._shapeHelper.setStrokeColor(colorStateList)
+    }
+
+    override fun onCreateDrawableState(extraSpace: Int): IntArray {
+        val drawableState = super.onCreateDrawableState(extraSpace + 1)
+        if (state?.isDefined() == true) {
+            mergeDrawableStates(drawableState, state?.attr)
+        }
+        return drawableState
     }
 }

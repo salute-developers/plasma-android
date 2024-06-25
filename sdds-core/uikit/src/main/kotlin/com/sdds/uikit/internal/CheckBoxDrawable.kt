@@ -18,8 +18,8 @@ import android.view.animation.LinearInterpolator
 import com.sdds.uikit.CheckBox
 import com.sdds.uikit.R
 import com.sdds.uikit.dp
+import com.sdds.uikit.internal.base.AnimationUtils.lerp
 import com.sdds.uikit.internal.base.configure
-import com.sdds.uikit.internal.base.lerp
 import com.sdds.uikit.internal.base.unsafeLazy
 import kotlin.math.floor
 
