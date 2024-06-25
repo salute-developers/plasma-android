@@ -11,6 +11,9 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.AppCompatImageView
 import com.sdds.uikit.internal.base.shape.ShapeableImageDelegate
 import com.sdds.uikit.internal.focusselector.tryApplyFocusSelector
+import com.sdds.uikit.viewstate.ViewState
+import com.sdds.uikit.viewstate.ViewState.Companion.isDefined
+import com.sdds.uikit.viewstate.ViewStateHolder
 
 /**
  * Компонент для отображения изображений.
@@ -25,7 +28,7 @@ open class ImageView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0,
-) : AppCompatImageView(context, attrs, defStyleAttr) {
+) : AppCompatImageView(context, attrs, defStyleAttr), ViewStateHolder {
 
     private var hasAdjustedPaddingAfterLayoutDirectionResolved = false
 
@@ -106,6 +109,18 @@ open class ImageView @JvmOverloads constructor(
      */
     open val contentPaddingBottom: Int
         get() = _contentPaddingBottom
+
+    /**
+     * Состояние внешнего вида изображения
+     * @see ViewState
+     */
+    override var state: ViewState? = ViewState.obtain(context, attrs, defStyleAttr)
+        set(value) {
+            if (field != value) {
+                field = value
+                refreshDrawableState()
+            }
+        }
 
     /**
      * Устанавливает ширину границы [ImageView].
@@ -282,6 +297,14 @@ open class ImageView @JvmOverloads constructor(
     @Dimension
     override fun getPaddingTop(): Int {
         return super.getPaddingTop() - contentPaddingTop
+    }
+
+    override fun onCreateDrawableState(extraSpace: Int): IntArray {
+        val drawableState = super.onCreateDrawableState(extraSpace + 1)
+        if (state?.isDefined() == true) {
+            mergeDrawableStates(drawableState, state?.attr)
+        }
+        return drawableState
     }
 
     override fun onDraw(canvas: Canvas) {

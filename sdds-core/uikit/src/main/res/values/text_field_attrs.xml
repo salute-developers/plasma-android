@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <declare-styleable name="SdDecoratedFieldBox">
+        <attr name="sd_icon" />
+        <attr name="sd_iconTint"/>
+        <attr name="sd_iconSize" />
+        <attr name="sd_iconPadding" />
+
+        <attr name="sd_action" format="reference" />
+        <attr name="sd_actionTint" format="reference|color"/>
+        <attr name="sd_actionSize" format="dimension" />
+        <attr name="sd_actionPadding" format="dimension" />
+
+        <attr name="sd_boxHeight" format="dimension" />
+        <attr name="sd_boxTint" format="color|reference" />
+        <attr name="sd_boxPadding" format="dimension" />
+        <attr name="sd_boxPaddingStart" format="dimension" />
+        <attr name="sd_boxPaddingTop" format="dimension" />
+        <attr name="sd_boxPaddingEnd" format="dimension" />
+        <attr name="sd_boxPaddingBottom" format="dimension" />
+
+        <attr name="sd_viewState" />
+        <attr name="sd_shapeAppearance" />
+        <attr name="sd_strokeWidth" />
+        <attr name="sd_strokeColor" />
+    </declare-styleable>
+
+    <declare-styleable name="TextField" tools:ignore="ResourceName">
+        <attr name="sd_label" format="string" />
+        <attr name="sd_labelAppearance" format="reference" />
+        <attr name="sd_labelColor" format="reference|color" />
+        <attr name="sd_labelPadding" format="dimension"/>
+        <attr name="sd_labelType" format="enum">
+            <enum name="outer" value="0"/>
+            <enum name="inner" value="1"/>
+        </attr>
+        <attr name="sd_value" />
+        <attr name="sd_valueAppearance" format="reference" />
+        <attr name="sd_valueColor" format="reference|color" />
+        <attr name="sd_placeholder" format="string" />
+        <attr name="sd_placeholderAppearance" format="reference" />
+        <attr name="sd_placeholderColor" format="reference|color" />
+        <attr name="sd_caption" format="string" />
+        <attr name="sd_captionAppearance" format="reference" />
+        <attr name="sd_captionColor" format="reference|color" />
+        <attr name="sd_captionPadding" format="dimension" />
+
+        <attr name="sd_icon" />
+        <attr name="sd_iconTint"/>
+        <attr name="sd_iconSize" />
+        <attr name="sd_iconPadding" />
+
+        <attr name="sd_action" />
+        <attr name="sd_actionTint"/>
+        <attr name="sd_actionSize" />
+        <attr name="sd_actionPadding"/>
+
+        <attr name="sd_boxHeight" />
+        <attr name="sd_boxTint" />
+        <attr name="sd_boxPadding" />
+        <attr name="sd_boxPaddingStart" />
+        <attr name="sd_boxPaddingTop" />
+        <attr name="sd_boxPaddingEnd" />
+        <attr name="sd_boxPaddingBottom" />
+
+        <attr name="sd_viewState" />
+        <attr name="sd_shapeAppearance" />
+        <attr name="sd_strokeWidth" />
+        <attr name="sd_strokeColor" />
+    </declare-styleable>
+</resources>
