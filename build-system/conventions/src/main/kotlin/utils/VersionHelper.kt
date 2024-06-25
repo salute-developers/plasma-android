@@ -40,6 +40,7 @@ fun Project.versionInfo(): VersionInfo {
     val major = properties.getOrDefault("versionMajor", 0).toString().toInt()
     val minor = properties.getOrDefault("versionMinor", 0).toString().toInt()
     val patch = properties.getOrDefault("versionPatch", 0).toString().toInt()
+    val isSnapshot = properties.getOrDefault("nexus.snapshot", false).toString().toBoolean()
     val versionCode = major * 10_000 + minor * 1_000 + patch * 100
     val versionBaseName = "$major.$minor.$patch"
 
@@ -47,24 +48,25 @@ fun Project.versionInfo(): VersionInfo {
     return VersionInfo(
         code = versionCode,
         name = versionBaseName,
-        nameSuffix = versionNameSuffix(branchName),
+        nameSuffix = versionNameSuffix(branchName, isSnapshot),
         idSuffix = appIdSuffix(branchName),
-        artifactSuffix = artifactSuffix(branchName)
+        artifactSuffix = artifactSuffix(branchName, isSnapshot)
     )
 }
 
-private fun Project.versionNameSuffix(branchName: String): String {
+private fun Project.versionNameSuffix(branchName: String, isSnapshot: Boolean): String {
     if (branchName.isMainBranch()) return ""
     return when {
-        isAndroidLib() -> "-SNAPSHOT"
+        isAndroidLib() -> "-SNAPSHOT".takeIf { isSnapshot }.orEmpty()
         else -> "-${getBranchSuffix(branchName)}_${getDatetimeSuffix()}"
     }
 }
 
-private fun Project.artifactSuffix(branchName: String): String {
+private fun Project.artifactSuffix(branchName: String, isSnapshot: Boolean): String {
     if (branchName.isMainBranch()) return ""
+    val snapshotSuffix = "SNAPSHOT_".takeIf { isSnapshot }.orEmpty()
     return when {
-        isAndroidLib() -> "-SNAPSHOT_${getBranchSuffix(branchName)}_${getDatetimeSuffix()}"
+        isAndroidLib() -> "-$snapshotSuffix${getBranchSuffix(branchName)}_${getDatetimeSuffix()}"
         else -> "-${getBranchSuffix(branchName)}_${getDatetimeSuffix()}"
     }
 }

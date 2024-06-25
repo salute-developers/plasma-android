@@ -67,9 +67,9 @@ class VersionHelperKtTest {
         val expected = VersionInfo(
             code = 1000,
             name = "0.1.0",
-            nameSuffix = "-SNAPSHOT",
+            nameSuffix = "",
             idSuffix = "",
-            artifactSuffix = "-SNAPSHOT_DEV_$datetime"
+            artifactSuffix = "-DEV_$datetime"
         )
 
         assertEquals(expected, project.versionInfo())
@@ -88,9 +88,9 @@ class VersionHelperKtTest {
         val expected = VersionInfo(
             code = 1100,
             name = "0.1.1",
-            nameSuffix = "-SNAPSHOT",
+            nameSuffix = "",
             idSuffix = "",
-            artifactSuffix = "-SNAPSHOT_RC_$datetime"
+            artifactSuffix = "-RC_$datetime"
         )
         assertEquals(expected, project.versionInfo())
     }
@@ -108,9 +108,9 @@ class VersionHelperKtTest {
         val expected = VersionInfo(
             code = 1100,
             name = "0.1.1",
-            nameSuffix = "-SNAPSHOT",
+            nameSuffix = "",
             idSuffix = "",
-            artifactSuffix = "-SNAPSHOT_(feature_myfeature)_$datetime"
+            artifactSuffix = "-(feature_myfeature)_$datetime"
         )
         assertEquals(expected, project.versionInfo())
     }
@@ -128,9 +128,9 @@ class VersionHelperKtTest {
         val expected = VersionInfo(
             code = 1200,
             name = "0.1.2",
-            nameSuffix = "-SNAPSHOT",
+            nameSuffix = "",
             idSuffix = "",
-            artifactSuffix = "-SNAPSHOT_HF_$datetime"
+            artifactSuffix = "-HF_$datetime"
         )
         assertEquals(expected, project.versionInfo())
     }
