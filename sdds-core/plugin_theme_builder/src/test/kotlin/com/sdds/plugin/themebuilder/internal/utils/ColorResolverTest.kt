@@ -61,6 +61,18 @@ class ColorResolverTest {
             "#19AAAAAA",
             resolveColor("[general.green.100][0.1]", "tokenName", palette, HexFormat.XML_HEX),
         )
+        assertEquals(
+            "#05AAAAAA",
+            resolveColor("[general.green.100][0.02]", "tokenName", palette, HexFormat.XML_HEX),
+        )
+        assertEquals(
+            "#00AAAAAA",
+            resolveColor("[general.green.100][0.0]", "tokenName", palette, HexFormat.XML_HEX),
+        )
+        assertEquals(
+            "#00AAAAAA",
+            resolveColor("[general.green.100][0]", "tokenName", palette, HexFormat.XML_HEX),
+        )
     }
 
     private companion object {

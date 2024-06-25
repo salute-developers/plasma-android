@@ -108,8 +108,11 @@ internal object ColorResolver {
         return (0xFF * this.toFloat())
             .toInt()
             .toString(16)
+            .appendLeadingZeroIfNeed()
             .toUpperCase(Locale.getDefault())
     }
+
+    private fun String.appendLeadingZeroIfNeed() = if (this.length == 1) "0$this" else this
 
     /**
      * Преобразует строку цвета из формата RGBA или RGB в формат ARGB
