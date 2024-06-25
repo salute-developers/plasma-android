@@ -2,6 +2,7 @@ package com.sdds.plugin.themebuilder.internal.generator
 
 import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
+import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder.Companion.DEFAULT_ROOT_ATTRIBUTES
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder.ElementName
 import com.sdds.plugin.themebuilder.internal.dimens.DimenData
@@ -63,6 +64,7 @@ internal class ShapeTokenGenerator(
      * @see TokenGenerator.generateViewSystem
      */
     override fun generateViewSystem() {
+        if (!IS_SHAPE_STYLE_ENABLED) return
         super.generateViewSystem()
         xmlDocumentBuilder.build(outputResDir.shapesXmlFile())
     }
@@ -93,12 +95,26 @@ internal class ShapeTokenGenerator(
             type = DimenData.Type.DP,
         )
         dimensAggregator.addDimen(cornerSize)
-        if (!IS_SHAPE_STYLE_ENABLED) return false
+        if (IS_SHAPE_STYLE_ENABLED) {
+            addShapeStyle(token, cornerSize)
+        }
+        return@with true
+    }
+
+    private fun XmlResourcesDocumentBuilder.addShapeStyle(
+        token: ShapeToken,
+        cornerSize: DimenData,
+    ) {
         if (needCreateStyle) {
             needCreateStyle = false
             appendStyleWithPrefix("Shape")
             appendStyleWithPrefix("Shape.Round") {
-                appendElement(ElementName.ITEM, "cornerFamily", "rounded", usePrefix = false)
+                appendElement(
+                    elementName = ElementName.ITEM,
+                    tokenName = "cornerFamily",
+                    value = "rounded",
+                    usePrefix = false,
+                )
             }
         }
         appendComment(token.description)
@@ -117,7 +133,6 @@ internal class ShapeTokenGenerator(
                 tokenRefName = resourceReferenceProvider.style(styleName),
             ),
         )
-        return@with true
     }
 
     /**
