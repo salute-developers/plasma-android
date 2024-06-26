@@ -233,9 +233,7 @@ tasks.replace("testDebugAll")
 tasks.replace("detektAll")
 tasks.replace("spotlessCheckAll")
 tasks.replace("apiCheckAll")
-tasks.replace("assembleDebugAll")
 tasks.replace("assembleReleaseAll")
-tasks.replace("lintDebugAll")
 
 tasks.register("cleanAll") {
     group = "build"
