@@ -4,6 +4,7 @@ on:
   pull_request:
     branches:
       - develop
+      - feature/*
 
 concurrency:
   # New commit on branch cancels running workflows of the same branch
@@ -30,9 +31,17 @@ jobs:
         run: ./gradlew assembleDebugAll --info -PbranchName=${{ steps.extract_branch.outputs.branch }}
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: artifacts.zip
           path: | 
             **/build/outputs/apk/*/*.apk
             **/build/outputs/aar/*.aar
+
+      - name: Upload test theme
+        uses: actions/upload-artifact@v2
+        with:
+          name: generated-test-theme.zip
+          path: |
+            playground/theme-builder/build/generated/theme-builder
+            playground/theme-builder/build/generated/theme-builder-res   

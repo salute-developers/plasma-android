@@ -14,31 +14,40 @@ staticAnalysis-spotless = "6.20.0"
 android-material = "1.3.0"
 androidX-core = "1.7.0"
 androidX-appcompat = "1.3.1"
+androidX-compose-compiler = "1.3.1"
 androidX-composeBom = "2022.11.00"
 
 test-espresso = "3.4.0"
 test-jUnit = "4.13.2"
 test-jUnitIntegration = "1.1.5"
 test-mockk = "1.12.2"
-test-paparazzi = "1.2.0"
+test-paparazzi = "1.1.0"
 test-robolectric = "4.9"
 test-androidX-rules = "1.5.0"
 test-androidX-runner = "1.5.2"
 
+kotlinSerialization = "1.4.0"
+kotlinPoet = "1.12.0"
+
 plugin-androidCacheFix = "3.0.1"
 plugin-gradleNexusPublish = "1.3.0"
 plugin-gradlePluginPublish = "1.2.1"
+plugin-binary-compatibility-validator = "0.14.0"
 
 [libraries]
 base-android-material = { module = "com.google.android.material:material", version.ref = "android-material" }
 base-androidX-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "androidX-appcompat" }
 base-androidX-core = { module = "androidx.core:core-ktx", version.ref = "androidX-core" }
 base-androidX-compose-bom = { module = "androidx.compose:compose-bom", version.ref = "androidX-composeBom" }
+base-androidX-compose-runtime = { module = "androidx.compose.runtime:runtime" }
 base-androidX-compose-foundation = { module = "androidx.compose.foundation:foundation" }
 base-androidX-compose-uiTooling = { module = "androidx.compose.ui:ui-tooling" }
 base-androidX-compose-uiTooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
 
 base-kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "global-kotlin" }
+base-kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "global-kotlin" }
+base-kotlin-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinSerialization" }
+base-kotlin-poet = { module = "com.squareup:kotlinpoet", version.ref = "kotlinPoet"}
 
 base-staticAnalysis-ktlint = { module = "com.pinterest:ktlint", version.ref = "staticAnalysis-ktlint" }
 base-staticAnalysis-detekt-api = { module = "io.gitlab.arturbosch.detekt:detekt-api", version.ref = "staticAnalysis-detekt" }
@@ -74,9 +83,11 @@ android-lib = { id = "com.android.library", version.ref = "global-gradle" }
 android-app = { id = "com.android.application", version.ref = "global-gradle" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "global-kotlin" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "global-kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "global-kotlin" }
 paparazzi = { id = "app.cash.paparazzi", version.ref = "test-paparazzi" }
 jgp = { id = "java-gradle-plugin" }
 android-cache-fix = { id = "org.gradle.android.cache-fix", version.ref= "plugin-androidCacheFix" }
 gradleNexus-publish = { id = "io.github.gradle-nexus.publish-plugin", version.ref = "plugin-gradleNexusPublish" }
 gradlePluginPublish = { id = "com.gradle.plugin-publish", version.ref="plugin-gradlePluginPublish"}
 themebuilder = { id = "io.github.salute-developers.theme-builder-plugin" }
+binary-compatibility-validator = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version.ref="plugin-binary-compatibility-validator" }

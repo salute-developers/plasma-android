@@ -1,0 +1,12 @@
+{
+  "displayName": "downHardL",
+  "name": "down.hard.l",
+  "tags": [
+    "down",
+    "hard",
+    "l"
+  ],
+  "type": "shadow",
+  "description": "Тень downHardL для android",
+  "enabled": true
+}

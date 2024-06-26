@@ -1,0 +1,40 @@
+[
+  {
+    "displayName": "surfaceAccent",
+    "name": "dark.inverse.surface.accent",
+    "tags" : [
+      "dark",
+      "surface",
+      "inverse"
+    ],
+    "type": "gradient",
+    "description": "Акцентный sweep градиент поверхности",
+    "enabled": true
+  },
+  {
+    "displayName": "surfaceTertiary",
+    "name": "light.on-dark.surface.tertiary",
+    "tags": [
+      "light",
+      "on-dark",
+      "surface",
+      "tertiary"
+    ],
+    "type": "gradient",
+    "description": "Третичный линейный градиент поверхности",
+    "enabled": true
+  },
+  {
+    "displayName": "surfaceSecondary",
+    "name": "light.on-dark.surface.secondary",
+    "tags": [
+      "light",
+      "on-dark",
+      "text",
+      "gradient"
+    ],
+    "type": "gradient",
+    "description": "Вторичный радиальный градиент поверхности",
+    "enabled": true
+  }
+]

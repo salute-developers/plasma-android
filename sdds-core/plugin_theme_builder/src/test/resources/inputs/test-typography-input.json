@@ -1,0 +1,74 @@
+[
+  {
+    "displayName": "displayL",
+    "name": "screen-l.display.l.normal",
+    "tags": [
+      "screen-l",
+      "display",
+      "l"
+    ],
+    "type": "typography",
+    "description": "шрифт android",
+    "enabled": true
+  },
+  {
+    "displayName": "displayL",
+    "name": "screen-l.display.l.bold",
+    "tags": [
+      "screen-l",
+      "display",
+      "l"
+    ],
+    "type": "typography",
+    "description": "шрифт android",
+    "enabled": true
+  },
+  {
+    "displayName": "textL",
+    "name": "screen-s.text.l.normal",
+    "tags": [
+      "screen-s",
+      "text",
+      "l"
+    ],
+    "type": "typography",
+    "description": "шрифт android",
+    "enabled": true
+  },
+  {
+    "displayName": "headerL",
+    "name": "screen-m.header.l.normal",
+    "tags": [
+      "screen-m",
+      "header",
+      "l"
+    ],
+    "type": "typography",
+    "description": "шрифт android",
+    "enabled": true
+  },
+  {
+    "displayName": "displayL",
+    "name": "screen-m.display.l.normal",
+    "tags": [
+      "screen-m",
+      "display",
+      "l"
+    ],
+    "type": "typography",
+    "description": "шрифт android",
+    "enabled": true
+  },
+  {
+    "displayName": "displayL",
+    "name": "screen-s.display.l.normal",
+    "tags": [
+      "screen-s",
+      "display",
+      "l"
+    ],
+    "type": "typography",
+    "description": "шрифт android",
+    "enabled": true
+  }
+]

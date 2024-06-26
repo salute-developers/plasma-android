@@ -1,0 +1,24 @@
+[
+  {
+    "displayName": "fontFamilyDisplay",
+    "name": "font-family.display",
+    "tags": [
+      "font-family",
+      "display"
+    ],
+    "type": "fontFamily",
+    "description": "Font-family: SB Sans Display",
+    "enabled": true
+  },
+  {
+    "displayName": "fontFamilyText",
+    "name": "font-family.text",
+    "tags": [
+      "font-family",
+      "text"
+    ],
+    "type": "fontFamily",
+    "description": "Font-family: SB Sans Text",
+    "enabled": true
+  }
+]

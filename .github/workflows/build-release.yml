@@ -32,7 +32,7 @@ jobs:
         run: ./gradlew assembleReleaseAll --info -PbranchName=${{ steps.extract_branch.outputs.branch }}
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: artifacts.zip
           path: | 

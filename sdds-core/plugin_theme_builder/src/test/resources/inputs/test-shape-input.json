@@ -1,0 +1,35 @@
+[
+  {
+    "displayName": "roundXs",
+    "name": "round.xs",
+    "tags": [
+      "round",
+      "xs"
+    ],
+    "type": "round-shape",
+    "description": "Форма со скругленными углами размером XS",
+    "enabled": true
+  },
+  {
+    "displayName": "roundS",
+    "name": "round.s",
+    "tags": [
+      "round",
+      "s"
+    ],
+    "type": "round-shape",
+    "description": "Форма со скругленными углами размером S",
+    "enabled": true
+  },
+  {
+    "displayName": "roundXs",
+    "name": "round.l",
+    "tags": [
+      "round",
+      "l"
+    ],
+    "type": "round-shape",
+    "description": "Форма со скругленными углами размером L",
+    "enabled": true
+  }
+]

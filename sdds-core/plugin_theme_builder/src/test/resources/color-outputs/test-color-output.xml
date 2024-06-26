@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!--Прозрачная акцентная поверхность-->
+    <color name="thmbldr_dark_on_light_surface_transparent_accent">#1FFFFFFF</color>
+    <!--Прозрачная акцентная поверхность-->
+    <color name="thmbldr_dark_surface_transparent_accent">#1FEEEEEE</color>
+</resources>

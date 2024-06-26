@@ -1,0 +1,43 @@
+name: 'Publish UIKit Release'
+
+on:
+  push:
+    tags:
+      - "sdds-uikit-v[0-9]+.[0-9]+.[0-9]+"
+
+concurrency:
+  # New commit on branch cancels running workflows of the same branch
+  group: ${{ github.workflow }}-${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  publish-uikit:
+    name: Generate uikit distribution zip
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v4
+
+      - name: Prepare environment
+        uses: ./.github/actions/prepare-android-env
+
+      - name: Generate distribution zip
+        env:
+          OSS_SIGNING_KEY_ID: ${{ secrets.OSS_SIGNING_KEY_ID }}
+          OSS_SIGNING_KEY: ${{ secrets.OSS_SIGNING_KEY }}
+          OSS_SIGNING_PASSWORD: ${{ secrets.OSS_SIGNING_PASSWORD }}
+        run: ./gradlew :sdds-core:uikit:generateDistributionZip --info -PbranchName=main
+
+      - name: Upload distribution
+        uses: actions/upload-artifact@v4
+        with:
+          name: distribution
+          path: sdds-core/uikit/build/distributions/*.zip
+
+      - name: Maven Publish
+        uses: ./.github/actions/maven-publish
+        with:
+          bundle: sdds-core/uikit/build/distributions/sdds-uikit.zip
+          publishingType: 'USER_MANAGED'
+          publicationName: ${{ github.ref_name }}
+          publicationToken: ${{ secrets.PP_AUTH_TOKEN }}

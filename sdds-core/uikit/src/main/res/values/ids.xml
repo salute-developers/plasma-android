@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="sd_textFieldOuterLabel" type="id"/>
+    <item name="sd_textFieldInnerLabel" type="id"/>
+    <item name="sd_textFieldPlaceholder" type="id"/>
+    <item name="sd_textFieldCaption" type="id"/>
+    <item name="sd_textFieldIcon" type="id"/>
+    <item name="sd_textFieldAction" type="id"/>
+    <item name="sd_textFieldEditText" type="id"/>
+    <item name="sd_textFieldDecorationBox" type="id"/>
+</resources>

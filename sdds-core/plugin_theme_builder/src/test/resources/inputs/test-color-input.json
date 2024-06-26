@@ -1,0 +1,26 @@
+[
+  {
+    "displayName": "onLightSurfaceTransparentAccent",
+    "name": "dark.on-light.surface.transparent-accent",
+    "tags" : [
+      "dark",
+      "surface",
+      "on-light"
+    ],
+    "type": "color",
+    "description": "Прозрачная акцентная поверхность",
+    "enabled": true
+  },
+  {
+    "displayName": "surfaceTransparentAccent",
+    "name": "dark.surface.transparent-accent",
+    "tags" : [
+      "dark",
+      "surface",
+      "on-light"
+    ],
+    "type": "color",
+    "description": "Прозрачная акцентная поверхность",
+    "enabled": true
+  }
+]

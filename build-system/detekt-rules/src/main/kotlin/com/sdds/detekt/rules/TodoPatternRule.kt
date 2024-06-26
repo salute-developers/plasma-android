@@ -40,9 +40,8 @@ internal class TodoPatternRule(config: Config = Config.empty) : Rule(config) {
     }
 
     private companion object {
-        const val issuePattern = "[A-Z]{2,}-\\d+"
         val todoCommentPattern = Regex("//\\s*todo.*", RegexOption.IGNORE_CASE)
-        val todoPattern = Regex("// TODO: $issuePattern.*")
+        val todoPattern = Regex("// TODO: https://github.com/salute-developers/plasma-android/issues/\\d+")
         const val MESSAGE = "Укажите issue, например: " +
             "// TODO: https://github.com/salute-developers/plasma/issues/0"
     }

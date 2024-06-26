@@ -1,0 +1,23 @@
+package com.test
+
+import androidx.compose.foundation.shape.CornerSize
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
+
+public object ShadowTokens {
+    /**
+     * Тень downHardL для android
+     */
+    public object DownHardL {
+        /**
+         * Тень downHardL для android
+         */
+        public val elevation: Dp = 1.0.dp
+
+        /**
+         * Тень downHardL для android
+         */
+        public val color: Color = Color(0x99000000)
+    }
+}

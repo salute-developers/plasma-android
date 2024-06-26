@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <attr name="sd_focusAdditionalColor" format="color" />
+    <attr name="sd_focusMainColor" format="color" />
+    <attr name="sd_shapeAppearance" format="reference" />
+    <attr name="sd_strokeColor" format="reference|color" />
+    <attr name="sd_strokeWidth" format="float|fraction|dimension" />
+
+    <declare-styleable name="SdViewStateHolder">
+        <attr name="sd_viewState" format="enum">
+            <enum name="undefined" value="0" />
+            <enum name="primary" value="1" />
+            <enum name="secondary" value="2" />
+            <enum name="tertiary" value="3" />
+            <enum name="accent" value="4" />
+            <enum name="positive" value="5" />
+            <enum name="warning" value="6" />
+            <enum name="negative" value="7" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="SdShape">
+        <attr name="sd_shapeAppearance" />
+        <attr name="android:insetLeft" />
+        <attr name="android:insetTop" />
+        <attr name="android:insetRight" />
+        <attr name="android:insetBottom" />
+        <attr name="android:background" />
+        <attr name="sd_strokeColor" />
+        <attr name="sd_strokeWidth" />
+    </declare-styleable>
+
+    <declare-styleable name="SdFocusSelector">
+        <attr name="sd_fsEnabled" format="boolean" />
+        <attr name="sd_fsMode" format="enum">
+            <enum name="gradient" value="0" />
+            <enum name="animated" value="1" />
+        </attr>
+        <attr name="sd_fsStrokeWidth" format="float|fraction|dimension" />
+        <attr name="sd_fsShapeAppearance" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="SdViewState">
+        <attr name="sd_state_primary" format="boolean" />
+        <attr name="sd_state_secondary" format="boolean" />
+        <attr name="sd_state_tertiary" format="boolean" />
+        <attr name="sd_state_accent" format="boolean" />
+        <attr name="sd_state_positive" format="boolean" />
+        <attr name="sd_state_warning" format="boolean" />
+        <attr name="sd_state_negative" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="SdInteractiveState">
+        <attr name="sd_state_loading" format="boolean" />
+        <attr name="sd_state_indeterminate" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="SdTextAppearance" tools:ignore="ResourceName" >
+        <!-- Text color. -->
+        <attr name="android:textColor" />
+        <!-- Size of the text. Recommended dimension type for text is "sp" for scaled-pixels (example: 15sp). -->
+        <attr name="android:textSize" />
+        <!-- Style (normal, bold, italic, bold|italic) for the text. -->
+        <attr name="android:textStyle" />
+        <!-- Weight for the font used in the TextView. -->
+        <attr name="android:textFontWeight" />
+        <!-- Typeface (normal, sans, serif, monospace) for the text. -->
+        <attr name="android:typeface" />
+        <!-- Font family (named by string or as a font resource reference) for the text. -->
+        <attr name="android:fontFamily" />
+        <attr name="fontFamily" />
+        <!-- Specifies the {@link android.os.LocaleList} for the text.
+             May be a string value, which is a comma-separated language tag list, such as "ja-JP,zh-CN".
+             When not specified or an empty string is given, it will fallback to the default one.
+             {@see android.os.LocaleList#forLanguageTags(String)} -->
+        <attr name="android:textLocale" format="string" />
+        <!-- Color of the text selection highlight. -->
+        <attr name="android:textColorHighlight" />
+        <!-- Color of the hint text. -->
+        <attr name="android:textColorHint" />
+        <!-- Color of the links. -->
+        <attr name="android:textColorLink" />
+        <!-- Present the text in ALL CAPS. This may use a small-caps form when available. -->
+        <attr name="android:textAllCaps" format="boolean" />
+        <!-- Place a blurred shadow of text underneath the text, drawn with the
+             specified color. The text shadow produced does not interact with
+             properties on View that are responsible for real time shadows,
+             {@link android.R.styleable#View_elevation elevation} and
+             {@link android.R.styleable#View_translationZ translationZ}. -->
+        <attr name="android:shadowColor" format="color" />
+        <!-- Horizontal offset of the text shadow. -->
+        <attr name="android:shadowDx" format="float" />
+        <!-- Vertical offset of the text shadow. -->
+        <attr name="android:shadowDy" format="float" />
+        <!-- Blur radius of the text shadow. -->
+        <attr name="android:shadowRadius" format="float" />
+        <!-- Elegant text height, especially for less compacted complex script text. -->
+        <attr name="android:elegantTextHeight" format="boolean" />
+        <!-- Whether to respect the ascent and descent of the fallback fonts that are used in
+        displaying the text. When true, fallback fonts that end up getting used can increase
+        the ascent and descent of the lines that they are used on. -->
+        <attr name="android:fallbackLineSpacing" format="boolean"/>
+        <!-- Text letter-spacing. -->
+        <attr name="android:letterSpacing" format="float" />
+        <!-- Font feature settings. -->
+        <attr name="android:fontFeatureSettings" format="string" />
+        <!-- Font variation settings. -->
+        <attr name="android:fontVariationSettings" format="string"/>
+        <!-- Specifies the strictness of line-breaking rules applied within an element. -->
+        <attr name="android:lineBreakStyle" />
+        <!-- Specifies the phrase-based breaking opportunities. -->
+        <attr name="android:lineBreakWordStyle" />
+        <attr name="android:lineHeight"/>
+    </declare-styleable>
+</resources>

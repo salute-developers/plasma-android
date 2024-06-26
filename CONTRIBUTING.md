@@ -7,14 +7,14 @@
 анализаторов. Поэтому перед коммитом рекомендуется запустить этот процесс локально, чтобы поберечь время и избежать повторного запуска пайплайна.
 Для этого в корне проекта нужно запустить tasks:
 ```sh
-./gradlew test
+./gradlew testAll
 ./gradlew detektAll
 ./gradlew spotlessApplyAll
 ```
 
 Также допускается запуск tasks для конкретного модуля:
 ```sh
-./gradlew :sds-core:uikit:testDebugUnitTest
+./gradlew :sds-core:uikit:test
 ./gradlew :sds-core:uikit:detekt
 ./gradlew :sds-core:uikit:spotlessApply
 ```
