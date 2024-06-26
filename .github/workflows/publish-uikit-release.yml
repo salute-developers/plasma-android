@@ -21,23 +21,16 @@ jobs:
       - name: Prepare environment
         uses: ./.github/actions/prepare-android-env
 
-      - name: Generate distribution zip
+      - name: Generate and publish distributions to maven
         env:
           OSS_SIGNING_KEY_ID: ${{ secrets.OSS_SIGNING_KEY_ID }}
           OSS_SIGNING_KEY: ${{ secrets.OSS_SIGNING_KEY }}
           OSS_SIGNING_PASSWORD: ${{ secrets.OSS_SIGNING_PASSWORD }}
-        run: ./gradlew :sdds-core:uikit:generateDistributionZip --info -PbranchName=main
+          PP_AUTH_TOKEN: ${{ secrets.PP_AUTH_TOKEN }}
+        run: ./gradlew :sdds-core:uikit:mavenPublish --info -PbranchName=main
 
       - name: Upload distribution
         uses: actions/upload-artifact@v4
         with:
           name: distribution
           path: sdds-core/uikit/build/distributions/*.zip
-
-      - name: Maven Publish
-        uses: ./.github/actions/maven-publish
-        with:
-          bundle: sdds-core/uikit/build/distributions/sdds-uikit.zip
-          publishingType: 'USER_MANAGED'
-          publicationName: ${{ github.ref_name }}
-          publicationToken: ${{ secrets.PP_AUTH_TOKEN }}
