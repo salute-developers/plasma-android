@@ -17,7 +17,7 @@ internal sealed class ThemeBuilderSource(val themeName: String) {
 
     companion object {
 
-        private const val DEFAULT_THEME_NAME = "Theme"
+        private const val DEFAULT_THEME_NAME = "plasma_b2c"
 
         /**
          * Позволяет указать источник получения темы с помощью [name] и [version]

@@ -38,7 +38,7 @@ class XmlResourcesDocumentBuilderTest {
             }
         }
         every { mockDocument.createElement("resources") } returns mockRoot
-        xmlResourcesDocumentBuilder = XmlResourcesDocumentBuilder("sdds", DEFAULT_ROOT_ATTRIBUTES)
+        xmlResourcesDocumentBuilder = XmlResourcesDocumentBuilder("sdds", DEFAULT_ROOT_ATTRIBUTES, "TestTheme")
     }
 
     @After
@@ -136,7 +136,7 @@ class XmlResourcesDocumentBuilderTest {
             mockDocument.appendChild(mockRoot)
             mockRoot.setAttribute("xmlns:tools", "http://schemas.android.com/tools")
             mockDocument.createElement("style")
-            styleElement.setAttribute("name", "Sdds.TestStyle")
+            styleElement.setAttribute("name", "TestTheme.TestStyle")
             styleContent.invoke(styleElement)
             mockRoot.appendChild(styleElement)
         }

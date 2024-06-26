@@ -53,10 +53,10 @@ class ShapeTokenGeneratorTest {
             outputLocation = KtFileBuilder.OutputLocation.Stream(outputKt),
             outputResDir = mockOutputResDir,
             target = ThemeBuilderTarget.ALL,
-            xmlBuilderFactory = XmlResourcesDocumentBuilderFactory("thmbldr"),
+            xmlBuilderFactory = XmlResourcesDocumentBuilderFactory("thmbldr", "TestTheme"),
             ktFileBuilderFactory = KtFileBuilderFactory("com.test"),
             dimensAggregator = mockDimenAggregator,
-            resourceReferenceProvider = ResourceReferenceProvider("thmbldr"),
+            resourceReferenceProvider = ResourceReferenceProvider("thmbldr", "TestTheme"),
             shapeTokenValues = shapeTokenValues,
         ).apply {
             ShapeTokenGenerator.IS_SHAPE_STYLE_ENABLED = true

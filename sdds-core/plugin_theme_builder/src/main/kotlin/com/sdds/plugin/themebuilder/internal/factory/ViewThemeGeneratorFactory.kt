@@ -11,7 +11,6 @@ internal class ViewThemeGeneratorFactory(
     private val outputResDir: File,
     private val parentThemeName: String,
     private val themeName: String,
-    private val resPrefix: String,
 ) {
 
     /**
@@ -23,6 +22,5 @@ internal class ViewThemeGeneratorFactory(
             outputResDir = outputResDir,
             parentThemeName = parentThemeName,
             themeName = themeName,
-            resPrefix = resPrefix,
         )
 }

@@ -37,7 +37,7 @@ class DimenTokenGeneratorTest {
         underTest = DimenTokenGenerator(
             outputResDir = mockOutputResDir,
             dimensAggregator = mockDimensAggregator,
-            xmlBuilderFactory = XmlResourcesDocumentBuilderFactory("thmbldr"),
+            xmlBuilderFactory = XmlResourcesDocumentBuilderFactory("thmbldr", "TestTheme"),
         )
     }
 

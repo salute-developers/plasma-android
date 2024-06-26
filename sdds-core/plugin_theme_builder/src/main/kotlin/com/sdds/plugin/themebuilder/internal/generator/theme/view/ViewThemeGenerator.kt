@@ -9,6 +9,7 @@ import com.sdds.plugin.themebuilder.internal.generator.data.ShapeTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.TypographyTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.mergedLightAndDark
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.themeXmlFile
+import com.sdds.plugin.themebuilder.internal.utils.snakeToCamelCase
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import org.gradle.configurationcache.extensions.capitalized
 import org.w3c.dom.Element
@@ -25,8 +26,7 @@ internal class ViewThemeGenerator(
     private val xmlBuilderFactory: XmlResourcesDocumentBuilderFactory,
     private val outputResDir: File,
     private val parentThemeName: String,
-    private val themeName: String,
-    private val resPrefix: String,
+    themeName: String,
 ) : SimpleBaseGenerator {
 
     private var colors: ColorTokenResult.TokenData? = null
@@ -41,6 +41,8 @@ internal class ViewThemeGenerator(
     private val darkThemeXmlFileBuilder by unsafeLazy {
         xmlBuilderFactory.create()
     }
+
+    private val camelCaseThemeName = themeName.snakeToCamelCase()
 
     internal fun setColorTokenData(data: ColorTokenResult.TokenData) {
         colors = data
@@ -58,13 +60,12 @@ internal class ViewThemeGenerator(
     }
 
     fun generateEmptyTheme() {
-        lightThemeXmlFileBuilder.appendStyle(resPrefix.capitalized())
+        lightThemeXmlFileBuilder.appendStyle(camelCaseThemeName)
         lightThemeXmlFileBuilder.build(outputResDir.themeXmlFile(ThemeMode.LIGHT.qualifier))
     }
 
     override fun generate() {
         with(darkThemeXmlFileBuilder) {
-            appendStyle(resPrefix.capitalized())
             addStyleWithAttrs(
                 {
                     if (colorAttributes.isNotEmpty()) appendComment("Dark colors")
@@ -79,7 +80,6 @@ internal class ViewThemeGenerator(
         }
 
         with(lightThemeXmlFileBuilder) {
-            appendStyle(resPrefix.capitalized())
             addStyleWithAttrs(
                 {
                     if (colorAttributes.isNotEmpty()) appendComment("Light colors")
@@ -156,12 +156,12 @@ internal class ViewThemeGenerator(
 
     private fun XmlResourcesDocumentBuilder.addStyleWithAttrs(vararg attrBlocks: Element.() -> Unit) {
         val styleParent = parentThemeName.ifEmpty { null }
-        appendStyleWithPrefix(
-            styleName = themeName,
+        appendRootStyle(
+            styleName = camelCaseThemeName,
             styleParent = styleParent,
         ) {
             attrBlocks.forEach { attrBlock ->
-                attrBlock.invoke(this@appendStyleWithPrefix)
+                attrBlock.invoke(this@appendRootStyle)
             }
         }
     }

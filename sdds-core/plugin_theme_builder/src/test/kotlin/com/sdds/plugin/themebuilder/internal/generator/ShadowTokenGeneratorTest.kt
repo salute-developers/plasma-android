@@ -52,7 +52,7 @@ class ShadowTokenGeneratorTest {
             outputLocation = KtFileBuilder.OutputLocation.Stream(outputKt),
             outputResDir = mockOutputResDir,
             target = ThemeBuilderTarget.ALL,
-            xmlBuilderFactory = XmlResourcesDocumentBuilderFactory("thmbldr"),
+            xmlBuilderFactory = XmlResourcesDocumentBuilderFactory("thmbldr", "TestTheme"),
             ktFileBuilderFactory = KtFileBuilderFactory("com.test"),
             shadowTokenValues = shadowTokenValues,
         )

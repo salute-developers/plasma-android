@@ -1,8 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.builder
 
+import com.sdds.plugin.themebuilder.internal.utils.snakeToCamelCase
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import com.sdds.plugin.themebuilder.internal.utils.withPrefixIfNeed
-import org.gradle.configurationcache.extensions.capitalized
 import org.w3c.dom.Element
 
 /**
@@ -13,6 +13,7 @@ import org.w3c.dom.Element
 internal open class XmlResourcesDocumentBuilder(
     private val tokenPrefix: String,
     private val rootAttributes: Map<String, String>,
+    themeName: String,
 ) : XmlBaseDocumentBuilder() {
 
     override val rootContent: Element by unsafeLazy {
@@ -25,7 +26,7 @@ internal open class XmlResourcesDocumentBuilder(
             .also { document.appendChild(it) }
     }
 
-    private val capitalizedPrefix by unsafeLazy { tokenPrefix.capitalized() }
+    private val camelCaseThemeName = themeName.snakeToCamelCase()
 
     /**
      * Добавляет элемент в документ
@@ -93,7 +94,7 @@ internal open class XmlResourcesDocumentBuilder(
     }
 
     /**
-     * Добавляет стиль с названием, состоящим из префикса [capitalizedPrefix] и [styleName] в документ.
+     * Добавляет стиль с названием, состоящим из префикса [camelCaseThemeName] и [styleName] в документ.
      *
      * @param styleName название стиля
      * @param styleParent наследуемый стиль
@@ -104,9 +105,29 @@ internal open class XmlResourcesDocumentBuilder(
         styleParent: String? = null,
         content: Element.() -> Unit = {},
     ) {
-        val nameAttr = styleName.withPrefixIfNeed(capitalizedPrefix, ".")
+        val nameAttr = styleName.withPrefixIfNeed(camelCaseThemeName, ".")
         document.createElement("style").apply {
             setAttribute("name", nameAttr)
+            styleParent?.let { setAttribute("parent", it) }
+            content(this)
+            rootContent.appendChild(this)
+        }
+    }
+
+    /**
+     * Добавляет стиль с названием [styleName] в документ.
+     *
+     * @param styleName название стиля
+     * @param styleParent наследуемый стиль
+     * @param content содержание стиля
+     */
+    fun appendRootStyle(
+        styleName: String,
+        styleParent: String? = null,
+        content: Element.() -> Unit = {},
+    ) {
+        document.createElement("style").apply {
+            setAttribute("name", styleName)
             styleParent?.let { setAttribute("parent", it) }
             content(this)
             rootContent.appendChild(this)

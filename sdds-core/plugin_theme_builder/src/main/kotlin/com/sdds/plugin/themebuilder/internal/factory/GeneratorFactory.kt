@@ -123,7 +123,6 @@ internal class GeneratorFactory(
             outputResDir,
             parentThemeName,
             themeName,
-            resPrefix,
         )
     }
 

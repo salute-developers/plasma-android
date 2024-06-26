@@ -1,5 +1,6 @@
 package com.sdds.plugin.themebuilder.internal.utils
 
+import org.gradle.configurationcache.extensions.capitalized
 import java.util.Locale
 
 private val camelRegex = "(?<=[a-zA-Z])[A-Z]".toRegex()
@@ -17,6 +18,14 @@ internal fun String.camelToSnakeCase(): String = camelRegex.replace(this) {
  */
 internal fun String.techToSnakeCase(): String {
     return replace("[.-]+".toRegex(), "_")
+}
+
+/**
+ * Переводит строку из snake_case в CamelCase
+ */
+internal fun String.snakeToCamelCase(): String {
+    return split('_')
+        .joinToString(separator = "") { it.capitalized() }
 }
 
 /**

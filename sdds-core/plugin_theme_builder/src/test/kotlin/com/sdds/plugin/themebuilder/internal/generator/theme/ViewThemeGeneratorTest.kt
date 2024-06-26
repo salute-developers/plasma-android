@@ -41,11 +41,10 @@ class ViewThemeGeneratorTest {
         mockOutputResDir = mockk(relaxed = true)
 
         underTest = ViewThemeGenerator(
-            xmlBuilderFactory = XmlResourcesDocumentBuilderFactory("thmbldr"),
+            xmlBuilderFactory = XmlResourcesDocumentBuilderFactory("thmbldr", "TestTheme"),
             outputResDir = mockOutputResDir,
             parentThemeName = "Sdds.Theme",
-            themeName = "Theme",
-            resPrefix = "thmbldr",
+            themeName = "TestTheme",
         )
     }
 
@@ -97,18 +96,18 @@ class ViewThemeGeneratorTest {
         val shapeAttrs = listOf(
             ShapeTokenResult.TokenData(
                 attrName = "shapeRoundXs",
-                tokenRefName = "@style/Thmbldr.Shape.Round.Xs",
+                tokenRefName = "@style/TestTheme.Shape.Round.Xs",
             ),
             ShapeTokenResult.TokenData(
                 attrName = "shapeRoundXxs",
-                tokenRefName = "@style/Thmbldr.Shape.Round.Xxs",
+                tokenRefName = "@style/TestTheme.Shape.Round.Xxs",
             ),
         )
 
         val typographyAttrs = TypographyTokenResult.ViewTokenData(
             mapOf(
-                "typographyDisplayLNormal" to "@style/Thmbldr.Typography.DisplayLNormal",
-                "typographyHeaderH3Bold" to "@style/Thmbldr.Typography.HeaderH3Bold",
+                "typographyDisplayLNormal" to "@style/TestTheme.Typography.DisplayLNormal",
+                "typographyHeaderH3Bold" to "@style/TestTheme.Typography.HeaderH3Bold",
             ),
         )
     }
