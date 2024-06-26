@@ -26,6 +26,7 @@ internal class ViewThemeGenerator(
     private val xmlBuilderFactory: XmlResourcesDocumentBuilderFactory,
     private val outputResDir: File,
     private val parentThemeName: String,
+    resPrefix: String,
     themeName: String,
 ) : SimpleBaseGenerator {
 
@@ -42,6 +43,7 @@ internal class ViewThemeGenerator(
         xmlBuilderFactory.create()
     }
 
+    private val capitalizedResPrefix = resPrefix.capitalized()
     private val camelCaseThemeName = themeName.snakeToCamelCase()
 
     internal fun setColorTokenData(data: ColorTokenResult.TokenData) {
@@ -60,8 +62,11 @@ internal class ViewThemeGenerator(
     }
 
     fun generateEmptyTheme() {
-        lightThemeXmlFileBuilder.appendStyle(camelCaseThemeName)
-        lightThemeXmlFileBuilder.build(outputResDir.themeXmlFile(ThemeMode.LIGHT.qualifier))
+        with(lightThemeXmlFileBuilder) {
+            appendStyle(capitalizedResPrefix)
+            appendStyle("$capitalizedResPrefix.$camelCaseThemeName")
+            build(outputResDir.themeXmlFile(ThemeMode.LIGHT.qualifier))
+        }
     }
 
     override fun generate() {
@@ -156,12 +161,12 @@ internal class ViewThemeGenerator(
 
     private fun XmlResourcesDocumentBuilder.addStyleWithAttrs(vararg attrBlocks: Element.() -> Unit) {
         val styleParent = parentThemeName.ifEmpty { null }
-        appendRootStyle(
+        appendStyleWithResPrefix(
             styleName = camelCaseThemeName,
             styleParent = styleParent,
         ) {
             attrBlocks.forEach { attrBlock ->
-                attrBlock.invoke(this@appendRootStyle)
+                attrBlock.invoke(this@appendStyleWithResPrefix)
             }
         }
     }

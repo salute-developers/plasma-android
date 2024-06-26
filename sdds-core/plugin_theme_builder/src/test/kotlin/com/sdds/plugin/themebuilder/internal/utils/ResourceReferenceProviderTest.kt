@@ -32,7 +32,7 @@ class ResourceReferenceProviderTest {
 
     @Test
     fun `ResourceReferenceProvider возвращает ссылку на style`() {
-        assertEquals("@style/TestTheme.Typography", underTest.style("Typography"))
+        assertEquals("@style/Thmbldr.TestTheme.Typography", underTest.style("Typography"))
     }
 
     @Test

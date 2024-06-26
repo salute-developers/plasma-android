@@ -107,8 +107,8 @@ internal class ShapeTokenGenerator(
     ) {
         if (needCreateStyle) {
             needCreateStyle = false
-            appendStyleWithPrefix("Shape")
-            appendStyleWithPrefix("Shape.Round") {
+            appendStyleWithCompositePrefix("Shape")
+            appendStyleWithCompositePrefix("Shape.Round") {
                 appendElement(
                     elementName = ElementName.ITEM,
                     tokenName = "cornerFamily",
@@ -119,7 +119,7 @@ internal class ShapeTokenGenerator(
         }
         appendComment(token.description)
         val styleName = "Shape.${token.xmlName}"
-        appendStyleWithPrefix(styleName) {
+        appendStyleWithCompositePrefix(styleName) {
             appendElement(
                 ElementName.ITEM,
                 "cornerSize",

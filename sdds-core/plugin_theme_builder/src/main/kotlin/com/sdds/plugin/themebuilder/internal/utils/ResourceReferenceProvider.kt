@@ -1,6 +1,7 @@
 package com.sdds.plugin.themebuilder.internal.utils
 
 import com.sdds.plugin.themebuilder.internal.dimens.DimenData
+import org.gradle.configurationcache.extensions.capitalized
 
 /**
  * Провайдер ссылок на ресурсы. Добавляет нужные префиксы к названию ресурса.
@@ -12,6 +13,7 @@ internal class ResourceReferenceProvider(
     themeName: String,
 ) {
 
+    private val capitalizedPrefix by unsafeLazy { resourcePrefix.capitalized() }
     private val camelCaseThemeName = themeName.snakeToCamelCase()
 
     /**
@@ -37,7 +39,7 @@ internal class ResourceReferenceProvider(
      * то функция вернет ссылку @style/Pref.Typography
      */
     fun style(name: String): String {
-        return "@style/${name.withPrefixIfNeed(camelCaseThemeName, ".")}"
+        return "@style/${name.withPrefixIfNeed("$capitalizedPrefix.$camelCaseThemeName", ".")}"
     }
 
     /**

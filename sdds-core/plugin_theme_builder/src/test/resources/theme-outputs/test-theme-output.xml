@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
-    <style name="TestTheme" parent="Sdds.Theme">
+    <style name="Thmbldr.TestTheme" parent="Sdds.Theme">
         <!--Light colors-->
         <item name="thmbldr_textPrimary">@color/thmbldr_light_text_primary</item>
         <!--Shapes-->
-        <item name="thmbldr_shapeRoundXs">@style/TestTheme.Shape.Round.Xs</item>
-        <item name="thmbldr_shapeRoundXxs">@style/TestTheme.Shape.Round.Xxs</item>
+        <item name="thmbldr_shapeRoundXs">@style/Thmbldr.TestTheme.Shape.Round.Xs</item>
+        <item name="thmbldr_shapeRoundXxs">@style/Thmbldr.TestTheme.Shape.Round.Xxs</item>
         <!--Typography-->
-        <item name="thmbldr_typographyDisplayLNormal">@style/TestTheme.Typography.DisplayLNormal</item>
-        <item name="thmbldr_typographyHeaderH3Bold">@style/TestTheme.Typography.HeaderH3Bold</item>
+        <item name="thmbldr_typographyDisplayLNormal">@style/Thmbldr.TestTheme.Typography.DisplayLNormal</item>
+        <item name="thmbldr_typographyHeaderH3Bold">@style/Thmbldr.TestTheme.Typography.HeaderH3Bold</item>
     </style>
 </resources>

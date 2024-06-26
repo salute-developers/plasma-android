@@ -191,13 +191,13 @@ internal class TypographyTokenGenerator(
         if (screenClass == ScreenClass.MEDIUM) {
             if (needDeclareStyle) {
                 needDeclareStyle = false
-                builder.appendStyleWithPrefix("TextAppearance")
-                typographyXmlBuilder.appendStyleWithPrefix("Typography")
+                builder.appendStyleWithCompositePrefix("TextAppearance")
+                typographyXmlBuilder.appendStyleWithCompositePrefix("Typography")
             }
             val typographyName = "Typography.${token.xmlName}"
             with(typographyXmlBuilder) {
                 appendComment(token.description)
-                appendStyleWithPrefix(typographyName) {
+                appendStyleWithCompositePrefix(typographyName) {
                     appendElement(
                         elementName = ElementName.ITEM,
                         tokenName = "android:textAppearance",
@@ -252,7 +252,7 @@ internal class TypographyTokenGenerator(
         dimensAggregator.addDimen(textSizeDimen)
         dimensAggregator.addDimen(lineHeightDimen)
 
-        appendStyleWithPrefix(textAppearanceName) {
+        appendStyleWithCompositePrefix(textAppearanceName) {
             appendElement(
                 elementName = ElementName.ITEM,
                 tokenName = "fontFamily",

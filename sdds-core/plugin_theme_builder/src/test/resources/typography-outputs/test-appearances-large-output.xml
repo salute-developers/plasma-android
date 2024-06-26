@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!--шрифт android-->
-    <style name="TestTheme.TextAppearance.TextLNormal">
+    <style name="Thmbldr.TestTheme.TextAppearance.TextLNormal">
         <item name="fontFamily">@font/thmbldr_sans</item>
         <item name="fontWeight">400</item>
         <item name="android:textStyle">normal</item>
@@ -10,7 +10,7 @@
         <item name="android:lineHeight" tools:targetApi="p">@dimen/thmbldr_screen_s_text_l_normal_line_height</item>
     </style>
     <!--шрифт android-->
-    <style name="TestTheme.TextAppearance.DisplayLNormal">
+    <style name="Thmbldr.TestTheme.TextAppearance.DisplayLNormal">
         <item name="fontFamily">@font/thmbldr_sans</item>
         <item name="fontWeight">300</item>
         <item name="android:textStyle">normal</item>
@@ -19,7 +19,7 @@
         <item name="android:lineHeight" tools:targetApi="p">@dimen/thmbldr_screen_l_display_l_normal_line_height</item>
     </style>
     <!--шрифт android-->
-    <style name="TestTheme.TextAppearance.HeaderLNormal">
+    <style name="Thmbldr.TestTheme.TextAppearance.HeaderLNormal">
         <item name="fontFamily">@font/thmbldr_sans</item>
         <item name="fontWeight">400</item>
         <item name="android:textStyle">normal</item>
@@ -28,7 +28,7 @@
         <item name="android:lineHeight" tools:targetApi="p">@dimen/thmbldr_screen_m_header_l_normal_line_height</item>
     </style>
     <!--шрифт android-->
-    <style name="TestTheme.TextAppearance.DisplayLBold">
+    <style name="Thmbldr.TestTheme.TextAppearance.DisplayLBold">
         <item name="fontFamily">@font/thmbldr_sans</item>
         <item name="fontWeight">300</item>
         <item name="android:textStyle">normal</item>
