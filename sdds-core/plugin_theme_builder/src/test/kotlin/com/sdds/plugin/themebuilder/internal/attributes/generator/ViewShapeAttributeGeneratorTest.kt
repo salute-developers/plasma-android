@@ -36,6 +36,7 @@ class ViewShapeAttributeGeneratorTest {
         xmlDocumentBuilder = XmlResourcesDocumentBuilder(
             "thmbldr",
             XmlResourcesDocumentBuilder.DEFAULT_ROOT_ATTRIBUTES,
+            "TestTheme",
         )
         underTest = ViewShapeAttributeGenerator(xmlDocumentBuilder, mockOutputResDir, "thmbldr")
     }

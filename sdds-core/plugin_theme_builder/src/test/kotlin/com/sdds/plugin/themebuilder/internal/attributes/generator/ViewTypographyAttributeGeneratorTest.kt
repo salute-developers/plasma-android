@@ -36,6 +36,7 @@ class ViewTypographyAttributeGeneratorTest {
         xmlDocumentBuilder = XmlResourcesDocumentBuilder(
             "thmbldr",
             XmlResourcesDocumentBuilder.DEFAULT_ROOT_ATTRIBUTES,
+            "TestTheme",
         )
         underTest =
             ViewTypographyAttributeGenerator(xmlDocumentBuilder, mockOutputResDir, "thmbldr")

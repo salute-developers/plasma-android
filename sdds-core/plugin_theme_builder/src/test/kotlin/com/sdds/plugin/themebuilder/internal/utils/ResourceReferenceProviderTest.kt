@@ -17,7 +17,7 @@ class ResourceReferenceProviderTest {
 
     @Before
     fun setUp() {
-        underTest = ResourceReferenceProvider("thmbldr")
+        underTest = ResourceReferenceProvider("thmbldr", "TestTheme")
     }
 
     @Test
@@ -32,7 +32,7 @@ class ResourceReferenceProviderTest {
 
     @Test
     fun `ResourceReferenceProvider возвращает ссылку на style`() {
-        assertEquals("@style/Thmbldr.Typography", underTest.style("Typography"))
+        assertEquals("@style/Thmbldr.TestTheme.Typography", underTest.style("Typography"))
     }
 
     @Test

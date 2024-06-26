@@ -8,9 +8,13 @@ import org.gradle.configurationcache.extensions.capitalized
  * @param resourcePrefix префикс ресурсов
  * @author Малышев Александр on 14.03.2024
  */
-internal class ResourceReferenceProvider(private val resourcePrefix: String) {
+internal class ResourceReferenceProvider(
+    private val resourcePrefix: String,
+    themeName: String,
+) {
 
     private val capitalizedPrefix by unsafeLazy { resourcePrefix.capitalized() }
+    private val camelCaseThemeName = themeName.snakeToCamelCase()
 
     /**
      * Возвращает ссылку на размер с названием [name].
@@ -35,7 +39,7 @@ internal class ResourceReferenceProvider(private val resourcePrefix: String) {
      * то функция вернет ссылку @style/Pref.Typography
      */
     fun style(name: String): String {
-        return "@style/${name.withPrefixIfNeed(capitalizedPrefix, ".")}"
+        return "@style/${name.withPrefixIfNeed("$capitalizedPrefix.$camelCaseThemeName", ".")}"
     }
 
     /**

@@ -55,9 +55,9 @@ class TypographyTokenGeneratorTest {
             outputResDir = mockOutputResDir,
             target = ThemeBuilderTarget.ALL,
             dimensAggregator = mockDimensAggregator,
-            xmlBuilderFactory = XmlResourcesDocumentBuilderFactory("thmbldr"),
+            xmlBuilderFactory = XmlResourcesDocumentBuilderFactory("thmbldr", "TestTheme"),
             ktFileBuilderFactory = KtFileBuilderFactory("com.test"),
-            resourceReferenceProvider = ResourceReferenceProvider("thmbldr"),
+            resourceReferenceProvider = ResourceReferenceProvider("thmbldr", "TestTheme"),
             typographyTokenValues = typographyTokenValues,
         )
     }

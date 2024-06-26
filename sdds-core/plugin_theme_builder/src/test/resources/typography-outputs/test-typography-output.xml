@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <style name="Thmbldr.Typography"/>
+    <style name="Thmbldr.TestTheme.Typography"/>
     <!--шрифт android-->
-    <style name="Thmbldr.Typography.TextLNormal">
-        <item name="android:textAppearance">@style/Thmbldr.TextAppearance.TextLNormal</item>
+    <style name="Thmbldr.TestTheme.Typography.TextLNormal">
+        <item name="android:textAppearance">@style/Thmbldr.TestTheme.TextAppearance.TextLNormal</item>
     </style>
     <!--шрифт android-->
-    <style name="Thmbldr.Typography.DisplayLNormal">
-        <item name="android:textAppearance">@style/Thmbldr.TextAppearance.DisplayLNormal</item>
+    <style name="Thmbldr.TestTheme.Typography.DisplayLNormal">
+        <item name="android:textAppearance">@style/Thmbldr.TestTheme.TextAppearance.DisplayLNormal</item>
     </style>
     <!--шрифт android-->
-    <style name="Thmbldr.Typography.HeaderLNormal">
-        <item name="android:textAppearance">@style/Thmbldr.TextAppearance.HeaderLNormal</item>
+    <style name="Thmbldr.TestTheme.Typography.HeaderLNormal">
+        <item name="android:textAppearance">@style/Thmbldr.TestTheme.TextAppearance.HeaderLNormal</item>
     </style>
     <!--шрифт android-->
-    <style name="Thmbldr.Typography.DisplayLBold">
-        <item name="android:textAppearance">@style/Thmbldr.TextAppearance.DisplayLBold</item>
+    <style name="Thmbldr.TestTheme.Typography.DisplayLBold">
+        <item name="android:textAppearance">@style/Thmbldr.TestTheme.TextAppearance.DisplayLBold</item>
     </style>
 </resources>

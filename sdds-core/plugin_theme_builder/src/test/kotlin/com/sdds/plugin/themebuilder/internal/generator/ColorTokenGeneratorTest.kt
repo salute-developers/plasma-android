@@ -52,10 +52,10 @@ class ColorTokenGeneratorTest {
             outputLocation = KtFileBuilder.OutputLocation.Stream(outputKt),
             outputResDir = mockOutputResDir,
             target = ThemeBuilderTarget.ALL,
-            xmlBuilderFactory = XmlResourcesDocumentBuilderFactory("thmbldr"),
+            xmlBuilderFactory = XmlResourcesDocumentBuilderFactory("thmbldr", "TestTheme"),
             ktFileBuilderFactory = KtFileBuilderFactory("com.test"),
             colorTokenValues = colorTokenValues,
-            resourceReferenceProvider = ResourceReferenceProvider("thmbldr"),
+            resourceReferenceProvider = ResourceReferenceProvider("thmbldr", "TestTheme"),
             palette = palette,
         )
     }

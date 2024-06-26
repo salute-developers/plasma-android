@@ -1,5 +1,6 @@
 package com.sdds.plugin.themebuilder.internal.builder
 
+import com.sdds.plugin.themebuilder.internal.utils.snakeToCamelCase
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import com.sdds.plugin.themebuilder.internal.utils.withPrefixIfNeed
 import org.gradle.configurationcache.extensions.capitalized
@@ -13,6 +14,7 @@ import org.w3c.dom.Element
 internal open class XmlResourcesDocumentBuilder(
     private val tokenPrefix: String,
     private val rootAttributes: Map<String, String>,
+    themeName: String,
 ) : XmlBaseDocumentBuilder() {
 
     override val rootContent: Element by unsafeLazy {
@@ -25,7 +27,9 @@ internal open class XmlResourcesDocumentBuilder(
             .also { document.appendChild(it) }
     }
 
-    private val capitalizedPrefix by unsafeLazy { tokenPrefix.capitalized() }
+    private val capitalizedResPrefix = tokenPrefix.capitalized()
+    private val camelCaseThemeName = themeName.snakeToCamelCase()
+    private val compositeResourcePrefix = "$capitalizedResPrefix.$camelCaseThemeName"
 
     /**
      * Добавляет элемент в документ
@@ -93,18 +97,42 @@ internal open class XmlResourcesDocumentBuilder(
     }
 
     /**
-     * Добавляет стиль с названием, состоящим из префикса [capitalizedPrefix] и [styleName] в документ.
+     * Добавляет стиль с названием, состоящим из префикса [capitalizedResPrefix] и [styleName] в документ.
      *
      * @param styleName название стиля
      * @param styleParent наследуемый стиль
      * @param content содержание стиля
      */
-    fun appendStyleWithPrefix(
+    fun appendStyleWithResPrefix(
         styleName: String,
         styleParent: String? = null,
         content: Element.() -> Unit = {},
     ) {
-        val nameAttr = styleName.withPrefixIfNeed(capitalizedPrefix, ".")
+        appendStyleWithPrefix(styleName, styleParent, content, capitalizedResPrefix)
+    }
+
+    /**
+     * Добавляет стиль с названием, состоящим из префикса [compositeResourcePrefix] и [styleName] в документ.
+     *
+     * @param styleName название стиля
+     * @param styleParent наследуемый стиль
+     * @param content содержание стиля
+     */
+    fun appendStyleWithCompositePrefix(
+        styleName: String,
+        styleParent: String? = null,
+        content: Element.() -> Unit = {},
+    ) {
+        appendStyleWithPrefix(styleName, styleParent, content, compositeResourcePrefix)
+    }
+
+    private fun appendStyleWithPrefix(
+        styleName: String,
+        styleParent: String? = null,
+        content: Element.() -> Unit = {},
+        prefix: String,
+    ) {
+        val nameAttr = styleName.withPrefixIfNeed(prefix, ".")
         document.createElement("style").apply {
             setAttribute("name", nameAttr)
             styleParent?.let { setAttribute("parent", it) }

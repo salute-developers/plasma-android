@@ -36,6 +36,7 @@ class ViewColorAttributeGeneratorTest {
         xmlDocumentBuilder = XmlResourcesDocumentBuilder(
             "thmbldr",
             XmlResourcesDocumentBuilder.DEFAULT_ROOT_ATTRIBUTES,
+            "TestTheme",
         )
         underTest = ViewColorAttributeGenerator(xmlDocumentBuilder, mockOutputResDir, "thmbldr")
     }
