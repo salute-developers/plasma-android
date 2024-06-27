@@ -8,6 +8,7 @@ plugins {
     alias(libs.plugins.gradlePluginPublish)
     id("convention.detekt")
     id("convention.spotless")
+    id("convention.auto-bump")
 }
 
 group = "io.github.salute-developers"
