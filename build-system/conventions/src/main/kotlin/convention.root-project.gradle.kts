@@ -118,3 +118,10 @@ tasks.register("mavenPublishAll") {
     dependsOn(publishTasks)
 }
 
+tasks.register("bumpAll") {
+    val publishTasks = subprojects.flatMap {
+        it.tasks.matching { task -> task.name == "bump" }
+    }
+    dependsOn(publishTasks)
+}
+

@@ -2,6 +2,7 @@
 plugins {
     id("convention.android-lib")
     id("convention.maven-publish")
+    id("convention.auto-bump")
     alias(libs.plugins.paparazzi)
     alias(libs.plugins.binary.compatibility.validator)
 }
