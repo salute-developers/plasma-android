@@ -4,14 +4,14 @@
     android:viewportWidth="24"
     android:viewportHeight="24">
     <path
-        android:fillColor="#F5FFFFFF"
+        android:fillColor="#FFFFFFFF"
         android:pathData="M5.75 12.75c0.414 0 0.75 0.336 0.75 0.75V17c0 0.414-0.336 0.75-0.75 0.75S5 17.414 5 17v-3.5c0-0.414 0.336-0.75 0.75-0.75Z"/>
     <path
-        android:fillColor="#F5FFFFFF"
+        android:fillColor="#FFFFFFFF"
         android:fillType="evenOdd"
         android:pathData="M18.931 12.7h-1.463l-0.737-1.826H13.2L12.474 12.7h-1.397L14.201 5h1.562l3.168 7.7Zm-2.706-3.091L14.96 6.452l-1.265 3.157h2.53Z"/>
     <path
-        android:fillColor="#F5FFFFFF"
+        android:fillColor="#FFFFFFFF"
         android:fillType="evenOdd"
         android:pathData="M8 4.75C8 3.231 9.231 2 10.75 2h8.5C20.769 2 22 3.231 22 4.75v8.5c0 1.519-1.231 2.75-2.75 2.75H15.5v3.25c0 1.519-1.231 2.75-2.75 2.75h-8C3.231 22 2 20.769 2 19.25v-8C2 9.731 3.231 8.5 4.75 8.5H8V4.75ZM8 10H4.75c-0.69 0-1.25 0.56-1.25 1.25v8c0 0.69 0.56 1.25 1.25 1.25h8c0.69 0 1.25-0.56 1.25-1.25V16h-1.5v1c0 0.414-0.336 0.75-0.75 0.75S11 17.414 11 17v-1h-0.25c-0.45 0-0.875-0.108-1.25-0.3v2.55C9.5 18.664 9.164 19 8.75 19S8 18.664 8 18.25V10Zm2.75-6.5c-0.69 0-1.25 0.56-1.25 1.25v8.5c0 0.69 0.56 1.25 1.25 1.25h8.5c0.69 0 1.25-0.56 1.25-1.25v-8.5c0-0.69-0.56-1.25-1.25-1.25h-8.5Z"/>
 </vector>
