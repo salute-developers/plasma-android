@@ -4,21 +4,21 @@
     android:viewportWidth="24"
     android:viewportHeight="24">
     <path
-        android:fillColor="#F5FFFFFF"
+        android:fillColor="#FFFFFFFF"
         android:pathData="M5.72 4.25C5.72 3.007 6.727 2 7.97 2s2.25 1.007 2.25 2.25S9.213 6.5 7.97 6.5 5.72 5.493 5.72 4.25Z"/>
     <path
-        android:fillColor="#F5FFFFFF"
+        android:fillColor="#FFFFFFFF"
         android:pathData="M5.72 12c0-1.243 1.007-2.25 2.25-2.25s2.25 1.007 2.25 2.25-1.007 2.25-2.25 2.25S5.72 13.243 5.72 12Z"/>
     <path
-        android:fillColor="#F5FFFFFF"
+        android:fillColor="#FFFFFFFF"
         android:pathData="M7.97 17.5c-1.243 0-2.25 1.007-2.25 2.25S6.727 22 7.97 22s2.25-1.007 2.25-2.25-1.007-2.25-2.25-2.25Z"/>
     <path
-        android:fillColor="#F5FFFFFF"
+        android:fillColor="#FFFFFFFF"
         android:pathData="M13.72 4.25c0-1.243 1.007-2.25 2.25-2.25s2.25 1.007 2.25 2.25-1.007 2.25-2.25 2.25-2.25-1.007-2.25-2.25Z"/>
     <path
-        android:fillColor="#F5FFFFFF"
+        android:fillColor="#FFFFFFFF"
         android:pathData="M15.97 9.75c-1.243 0-2.25 1.007-2.25 2.25s1.007 2.25 2.25 2.25 2.25-1.007 2.25-2.25-1.007-2.25-2.25-2.25Z"/>
     <path
-        android:fillColor="#F5FFFFFF"
+        android:fillColor="#FFFFFFFF"
         android:pathData="M13.72 19.75c0-1.243 1.007-2.25 2.25-2.25s2.25 1.007 2.25 2.25S17.213 22 15.97 22s-2.25-1.007-2.25-2.25Z"/>
 </vector>
