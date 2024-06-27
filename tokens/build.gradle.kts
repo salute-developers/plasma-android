@@ -113,8 +113,6 @@ internal abstract class GenerateThemeModulesTask @Inject constructor() : Default
             appendLine("}")
             appendLine()
             appendLine("dependencies {")
-            appendLine("    val composeBom = platform(libs.base.androidX.compose.bom)")
-            appendLine("    implementation(composeBom)")
             appendLine("    implementation(libs.base.androidX.compose.foundation)")
             appendLine("}")
         }

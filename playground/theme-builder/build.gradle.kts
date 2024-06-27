@@ -23,7 +23,5 @@ dependencies {
     implementation(libs.base.androidX.core)
     implementation(libs.base.androidX.appcompat)
 
-    val composeBom = platform(libs.base.androidX.compose.bom)
-    implementation(composeBom)
     implementation(libs.base.androidX.compose.foundation)
 }

@@ -18,7 +18,6 @@ themeBuilder {
 }
 
 dependencies {
-    val composeBom = platform(libs.base.androidX.compose.bom)
-    implementation(composeBom)
+    
     implementation(libs.base.androidX.compose.foundation)
 }
