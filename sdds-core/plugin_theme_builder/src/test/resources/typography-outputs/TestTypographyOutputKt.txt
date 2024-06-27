@@ -1,7 +1,9 @@
 package com.test
 
+import androidx.compose.ui.text.PlatformTextStyle
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.LineHeightStyle
 import androidx.compose.ui.unit.sp
 
 public object TypographyLargeTokens {
@@ -14,6 +16,9 @@ public object TypographyLargeTokens {
                 lineHeight = 128.0.sp,
                 letterSpacing = 0.02.sp,
                 fontFamily = FontTokens.sans,
+                lineHeightStyle = LineHeightStyle(alignment = LineHeightStyle.Alignment.Center, trim
+                    = LineHeightStyle.Trim.None),
+                platformStyle = PlatformTextStyle(includeFontPadding = false),
             )
 
     /**
@@ -25,6 +30,9 @@ public object TypographyLargeTokens {
                 lineHeight = 128.0.sp,
                 letterSpacing = 0.02.sp,
                 fontFamily = FontTokens.sans,
+                lineHeightStyle = LineHeightStyle(alignment = LineHeightStyle.Alignment.Center, trim
+                    = LineHeightStyle.Trim.None),
+                platformStyle = PlatformTextStyle(includeFontPadding = false),
             )
 }
 
@@ -38,6 +46,9 @@ public object TypographySmallTokens {
                 lineHeight = 124.0.sp,
                 letterSpacing = 0.04.sp,
                 fontFamily = FontTokens.sans,
+                lineHeightStyle = LineHeightStyle(alignment = LineHeightStyle.Alignment.Center, trim
+                    = LineHeightStyle.Trim.None),
+                platformStyle = PlatformTextStyle(includeFontPadding = false),
             )
 
     /**
@@ -49,6 +60,9 @@ public object TypographySmallTokens {
                 lineHeight = 72.0.sp,
                 letterSpacing = 0.02.sp,
                 fontFamily = FontTokens.sans,
+                lineHeightStyle = LineHeightStyle(alignment = LineHeightStyle.Alignment.Center, trim
+                    = LineHeightStyle.Trim.None),
+                platformStyle = PlatformTextStyle(includeFontPadding = false),
             )
 }
 
@@ -62,6 +76,9 @@ public object TypographyMediumTokens {
                 lineHeight = 124.0.sp,
                 letterSpacing = 0.04.sp,
                 fontFamily = FontTokens.sans,
+                lineHeightStyle = LineHeightStyle(alignment = LineHeightStyle.Alignment.Center, trim
+                    = LineHeightStyle.Trim.None),
+                platformStyle = PlatformTextStyle(includeFontPadding = false),
             )
 
     /**
@@ -73,5 +90,8 @@ public object TypographyMediumTokens {
                 lineHeight = 96.0.sp,
                 letterSpacing = 0.02.sp,
                 fontFamily = FontTokens.sans,
+                lineHeightStyle = LineHeightStyle(alignment = LineHeightStyle.Alignment.Center, trim
+                    = LineHeightStyle.Trim.None),
+                platformStyle = PlatformTextStyle(includeFontPadding = false),
             )
 }
