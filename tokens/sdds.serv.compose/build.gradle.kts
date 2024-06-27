@@ -18,6 +18,6 @@ themeBuilder {
 }
 
 dependencies {
-    
+
     implementation(libs.base.androidX.compose.foundation)
 }

@@ -487,6 +487,8 @@ internal class KtFileBuilder(
         val TypeFontWeight = ClassName("androidx.compose.ui.text.font", "FontWeight")
         val TypeFontStyle = ClassName("androidx.compose.ui.text.font", "FontStyle")
         val TypeFontFamily = ClassName("androidx.compose.ui.text.font", "FontFamily")
+        val TypeLineHeightStyle = ClassName("androidx.compose.ui.text.style", "LineHeightStyle")
+        val TypePlatformTextStyle = ClassName("androidx.compose.ui.text", "PlatformTextStyle")
         val TypeSp = ClassName("androidx.compose.ui.unit", "sp")
         val TypeDp = ClassName("androidx.compose.ui.unit", "Dp")
         val TypeDpExtension = ClassName("androidx.compose.ui.unit", "dp")

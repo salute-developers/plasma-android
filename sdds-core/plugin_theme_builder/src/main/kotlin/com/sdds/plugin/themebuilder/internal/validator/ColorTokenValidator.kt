@@ -18,7 +18,7 @@ internal object ColorTokenValidator : TokenValidator<String> {
             !colorPaletteRegex.matches(tokenValue)
         ) {
             throw ThemeBuilderException(
-                "Color token $tokenName has invalid value: $tokenValue. " +
+                "Token $tokenName has invalid color value: $tokenValue. " +
                     "Color value should be rgb/argb hex " +
                     "or color palette reference, for example [general.red.100][0.5]",
             )

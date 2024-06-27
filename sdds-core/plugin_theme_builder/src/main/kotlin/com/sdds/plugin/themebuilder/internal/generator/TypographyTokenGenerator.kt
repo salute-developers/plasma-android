@@ -111,6 +111,8 @@ internal class TypographyTokenGenerator(
         super.generateCompose()
         ktFileBuilder.addImport(KtFileBuilder.TypeSp)
         ktFileBuilder.addImport(KtFileBuilder.TypeFontWeight)
+        ktFileBuilder.addImport(KtFileBuilder.TypeLineHeightStyle)
+        ktFileBuilder.addImport(KtFileBuilder.TypePlatformTextStyle)
         ktFileBuilder.build(outputLocation)
     }
 
@@ -316,6 +318,11 @@ internal class TypographyTokenGenerator(
             "fontFamily = FontTokens.${
                 tokenValue.fontFamilyRef.split('.').last()
             }",
+            "lineHeightStyle = LineHeightStyle(" +
+                "alignment = LineHeightStyle.Alignment.Center, " +
+                "trim = LineHeightStyle.Trim.None" +
+                ")",
+            "platformStyle = PlatformTextStyle(includeFontPadding = false)",
         )
         appendProperty(name, KtFileBuilder.TypeTextStyle, initializer, description)
     }

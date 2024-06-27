@@ -23,7 +23,7 @@ class ColorTokenValidatorTest {
                 ColorTokenValidator.validate(it, TOKEN_NAME)
             }
             Assert.assertEquals(
-                "Color token $TOKEN_NAME has invalid value: $it. " +
+                "Token $TOKEN_NAME has invalid color value: $it. " +
                     "Color value should be rgb/argb hex " +
                     "or color palette reference, for example [general.red.100][0.5]",
                 exception.message,
