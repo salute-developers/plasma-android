@@ -3,10 +3,6 @@ import com.android.build.api.dsl.CommonExtension
 import com.android.build.api.dsl.LibraryExtension
 import utils.withVersionCatalogs
 
-plugins {
-    id("convention.compose-bom")
-}
-
 val extension = app() ?: lib() ?: throwApplyException()
 extension.configureCompose()
 
