@@ -1,3 +1,5 @@
+import com.sdds.plugin.themebuilder.ThemeBuilderMode
+
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     id("convention.android-lib")
@@ -14,6 +16,8 @@ themeBuilder {
     themeSource(url = "file://${projectDir.path}/json/test_theme.zip")
     view(parentThemeName = "Sdds.Theme")
     compose(ktPackage = "com.sdds.playground.themebuilder.tokens")
+    ktPackage(ktPackage = "com.sdds.playground.themebuilder.tokens")
+    mode(ThemeBuilderMode.THEME)
 }
 
 dependencies {

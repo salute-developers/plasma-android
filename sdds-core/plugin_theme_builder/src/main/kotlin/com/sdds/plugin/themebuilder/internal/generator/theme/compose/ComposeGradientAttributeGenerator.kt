@@ -332,7 +332,7 @@ internal class ComposeGradientAttributeGenerator(
     }
 
     private companion object {
-        private const val RAW_KT_FILE_RES_DIR = "raw-kt-files"
+        private const val RAW_KT_FILE_RES_DIR = "raw-kt-files/compose"
         private const val LINEAR_GRADIENT_CLASS_NAME = "ThmbldrLinearGradient"
         private const val RADIAL_GRADIENT_CLASS_NAME = "ThmbldrRadialGradient"
         private const val SWEEP_GRADIENT_CLASS_NAME = "ThmbldrSweepGradient"
