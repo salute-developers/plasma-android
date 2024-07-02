@@ -7,21 +7,21 @@ package com.sdds.plugin.themebuilder.internal.generator.data
  * @property viewTokens данные о токенах для View
  */
 internal data class GradientTokenResult(
-    val composeTokens: ComposeTokenData,
-    val viewTokens: ViewTokenData,
+    val composeTokens: TokenData,
+    val viewTokens: TokenData,
 ) {
 
     /**
-     * Выходные данные о токене градиента для Compose
+     * Выходные данные о токене градиента
      */
-    internal data class ComposeTokenData(
-        val light: Map<String, Parameters>,
-        val dark: Map<String, Parameters>,
+    internal data class TokenData(
+        val light: Map<String, List<Gradient>>,
+        val dark: Map<String, List<Gradient>>,
     ) {
         /**
          * Параметры градиента
          */
-        internal data class Parameters(
+        internal data class Gradient(
             val tokenRefs: List<String>,
             val gradientType: GradientType,
         )
@@ -30,31 +30,11 @@ internal data class GradientTokenResult(
          * Тип градиента
          */
         internal enum class GradientType {
-            LINEAR, RADIAL, SWEEP
+            LINEAR, RADIAL, SWEEP, BACKGROUND
         }
-    }
-
-    /**
-     * Входные данные о токене градиента для View
-     */
-    internal data class ViewTokenData(
-        val light: Map<String, List<Parameter>>,
-        val dark: Map<String, List<Parameter>>,
-    ) {
-
-        /**
-         * Параметр градиента
-         *
-         * @property attrName название атрибута параметра градиента
-         * @property ref ссылка на токен параметра градиента
-         */
-        internal data class Parameter(
-            val attrName: String,
-            val ref: String,
-        )
     }
 }
 
-internal fun GradientTokenResult.ComposeTokenData.mergedLightAndDark(): Set<String> {
+internal fun GradientTokenResult.TokenData.mergedLightAndDark(): Set<String> {
     return light.keys + dark.keys
 }

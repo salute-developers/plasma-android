@@ -44,8 +44,7 @@ open class ThemeBuilderExtension {
     /**
      * Устанавливает compose фреймворк для генерации темы и токенов
      */
-    fun compose(ktPackage: String) {
-        this.ktPackage = ktPackage //todo убрать
+    fun compose() {
         updateTarget(ThemeBuilderTarget.COMPOSE)
     }
 
