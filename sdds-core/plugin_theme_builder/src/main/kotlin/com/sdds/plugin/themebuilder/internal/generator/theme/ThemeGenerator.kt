@@ -112,7 +112,7 @@ internal class ThemeGenerator(
         }
         if (target.isViewSystemOrAll) {
             viewGradientAttributeGenerator.setGradientTokenData(
-                data = gradientTokenResult.viewTokens
+                data = gradientTokenResult.viewTokens,
             )
         }
     }

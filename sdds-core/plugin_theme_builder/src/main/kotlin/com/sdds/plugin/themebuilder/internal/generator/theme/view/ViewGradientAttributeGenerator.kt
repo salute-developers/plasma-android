@@ -65,7 +65,7 @@ internal class ViewGradientAttributeGenerator(
 
     private fun createViewGradientClass() {
         ktFileFromResBuilder.buildFromResource(
-            inputRes = "${RAW_KT_FILE_RES_DIR}/$VIEW_GRADIENT_CLASS_NAME.txt",
+            inputRes = "$RAW_KT_FILE_RES_DIR/$VIEW_GRADIENT_CLASS_NAME.txt",
             outputLocation = outputLocation,
             outputFileName = VIEW_GRADIENT_CLASS_NAME,
         )
@@ -73,7 +73,7 @@ internal class ViewGradientAttributeGenerator(
 
     private fun createViewGradientLayerClass() {
         ktFileFromResBuilder.buildFromResource(
-            inputRes = "${RAW_KT_FILE_RES_DIR}/$VIEW_GRADIENT_LAYER_CLASS_NAME.txt",
+            inputRes = "$RAW_KT_FILE_RES_DIR/$VIEW_GRADIENT_LAYER_CLASS_NAME.txt",
             outputLocation = outputLocation,
             outputFileName = VIEW_GRADIENT_LAYER_CLASS_NAME,
         )
@@ -81,7 +81,7 @@ internal class ViewGradientAttributeGenerator(
 
     private fun createShapeDrawableWithGradientFile() {
         ktFileFromResBuilder.buildFromResource(
-            inputRes = "${RAW_KT_FILE_RES_DIR}/$SHAPE_DRAWABLE_WITH_GRADIENT_NAME.txt",
+            inputRes = "$RAW_KT_FILE_RES_DIR/$SHAPE_DRAWABLE_WITH_GRADIENT_NAME.txt",
             outputLocation = outputLocation,
             outputFileName = SHAPE_DRAWABLE_WITH_GRADIENT_NAME,
         )
@@ -140,9 +140,10 @@ internal class ViewGradientAttributeGenerator(
             name = "light${themeName.capitalized()}Gradients",
             typeName = gradientKtFileBuilder.getInternalClassType(gradientClassName),
             initializer = "$gradientClassName(\n${
-                gradientAttributes.joinToString(separator = ",·") {
+                gradientAttributes.joinToString(separator = ",") {
                     "   $it = ${defaultLightGradientValue(it)}"
-                }}\n)",
+                }
+            }\n)",
         )
     }
 
@@ -151,9 +152,10 @@ internal class ViewGradientAttributeGenerator(
             name = "dark${themeName.capitalized()}Gradients",
             typeName = gradientKtFileBuilder.getInternalClassType(gradientClassName),
             initializer = "$gradientClassName(\n${
-                gradientAttributes.joinToString(separator = ",·") {
+                gradientAttributes.joinToString(separator = ", ") {
                     "   $it = ${defaultDarkGradientValue(it)}"
-                }}\n)",
+                }
+            }\n)",
         )
     }
 
@@ -173,12 +175,9 @@ internal class ViewGradientAttributeGenerator(
             objectName = "DarkGradientTokens"
         }
 
-        return "${VIEW_GRADIENT_CLASS_NAME}(listOf(${
+        return "$VIEW_GRADIENT_CLASS_NAME(listOf(${
             parameters.joinToString(",") {
-                createGradientFabricCall(
-                    objectName,
-                    it
-                )
+                createGradientFabricCall(objectName, it)
             }
         }))"
     }
@@ -199,12 +198,9 @@ internal class ViewGradientAttributeGenerator(
             objectName = "LightGradientTokens"
         }
 
-        return "${VIEW_GRADIENT_CLASS_NAME}(listOf(${
+        return "$VIEW_GRADIENT_CLASS_NAME(listOf(${
             parameters.joinToString(",") {
-                createGradientFabricCall(
-                    objectName,
-                    it
-                )
+                createGradientFabricCall(objectName, it)
             }
         }))"
     }
@@ -351,15 +347,16 @@ internal class ViewGradientAttributeGenerator(
                 KtFileBuilder.FunParameter(
                     name = "context",
                     type = KtFileBuilder.TypeContext,
-                )
+                ),
             ),
             returnType = gradientKtFileBuilder.getInternalClassType(gradientClassName),
             body = listOf(
                 "val isDarkMode = context.resources.configuration.uiMode and\n" +
-                        "            Configuration.UI_MODE_NIGHT_MASK == Configuration.UI_MODE_NIGHT_YES\n",
-                "return if (isDarkMode) dark${themeName}Gradients else light${themeName}Gradients"
+                    "            Configuration.UI_MODE_NIGHT_MASK == Configuration.UI_MODE_NIGHT_YES\n",
+                "return if (isDarkMode) dark${themeName}Gradients else light${themeName}Gradients",
             ),
-            description = "Возвращает объект [ViewGradients], который соответствует текущему режиму dark/light для данного [context].",
+            description = "Возвращает объект [ViewGradients], " +
+                "который соответствует текущему режиму dark/light для данного [context].",
         )
     }
 

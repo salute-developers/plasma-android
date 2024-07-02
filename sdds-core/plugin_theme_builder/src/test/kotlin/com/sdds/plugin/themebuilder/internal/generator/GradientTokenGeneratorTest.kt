@@ -13,7 +13,6 @@ import com.sdds.plugin.themebuilder.internal.token.Token
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.fileWriter
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.gradientsXmlFile
-import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 import com.sdds.plugin.themebuilder.internal.utils.getResourceAsText
 import com.squareup.kotlinpoet.PropertySpec
 import com.squareup.kotlinpoet.TypeSpec
@@ -57,7 +56,6 @@ class GradientTokenGeneratorTest {
             ktFileBuilderFactory = KtFileBuilderFactory("com.test"),
             gradientTokenValues = gradientTokenValues,
             mockk(),
-            resourceReferenceProvider = ResourceReferenceProvider("thmbldr", "TestTheme"),
         )
     }
 

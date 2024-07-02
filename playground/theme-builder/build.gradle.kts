@@ -13,7 +13,7 @@ android {
 }
 
 themeBuilder {
-    themeSource(url = "file://${projectDir.path}/json/test2.zip")
+    themeSource(url = "file://${projectDir.path}/json/test_theme.zip")
     view(parentThemeName = "Sdds.Theme")
     compose()
     ktPackage(ktPackage = "com.sdds.playground.themebuilder.tokens")

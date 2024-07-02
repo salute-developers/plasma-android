@@ -1,4 +1,56 @@
-package com.test
+package com.test.vs
+
+import android.graphics.Color
+import kotlin.Float
+import kotlin.FloatArray
+import kotlin.IntArray
+
+public object DarkGradientTokens {
+    /**
+     * Акцентный sweep градиент поверхности
+     */
+    public object InverseSurfaceAccent {
+        public val colors: IntArray = intArrayOf(Color.parseColor("#FF000000"),
+                Color.parseColor("#FFffffff"))
+
+        public val positions: FloatArray = floatArrayOf(0.0f, 0.7f)
+
+        public val centerX: Float = 0.5f
+
+        public val centerY: Float = 0.5f
+    }
+}
+
+public object LightGradientTokens {
+    /**
+     * Третичный линейный градиент поверхности
+     */
+    public object OnDarkSurfaceTertiary {
+        public val colors: IntArray = intArrayOf(Color.parseColor("#FF000000"),
+                Color.parseColor("#FFffffff"))
+
+        public val positions: FloatArray = floatArrayOf(0.0f, 0.7f)
+
+        public val angle: Float = 90.0f
+    }
+
+    /**
+     * Вторичный радиальный градиент поверхности
+     */
+    public object OnDarkSurfaceSecondary {
+        public val colors: IntArray = intArrayOf(Color.parseColor("#FF000000"),
+                Color.parseColor("#FFffffff"))
+
+        public val positions: FloatArray = floatArrayOf(0.0f, 0.7f)
+
+        public val radius: Float = 0.8f
+
+        public val centerX: Float = 0.5f
+
+        public val centerY: Float = 0.5f
+    }
+}
+package com.test.compose
 
 import androidx.compose.ui.graphics.Color
 import kotlin.Float

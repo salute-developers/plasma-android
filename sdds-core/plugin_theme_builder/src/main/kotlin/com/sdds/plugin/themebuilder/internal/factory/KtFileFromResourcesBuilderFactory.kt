@@ -18,6 +18,6 @@ internal class KtFileFromResourcesBuilderFactory(
 
     internal enum class Package(val packageName: String) {
         VS("vs"),
-        COMPOSE("compose")
+        COMPOSE("compose"),
     }
 }

@@ -258,7 +258,7 @@ internal class ComposeGradientAttributeGenerator(
             ),
             body = listOf(
                 "return $LINEAR_GRADIENT_CLASS_NAME(colors, positions.toList(), " +
-                        "angleInDegrees = angle, useAsCssAngle = true)",
+                    "angleInDegrees = angle, useAsCssAngle = true)",
             ),
         )
     }

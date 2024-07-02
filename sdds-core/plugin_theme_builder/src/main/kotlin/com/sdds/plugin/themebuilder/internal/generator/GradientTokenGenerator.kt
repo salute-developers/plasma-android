@@ -73,7 +73,7 @@ internal class GradientTokenGenerator(
         viewTokens = TokenData(
             light = viewKtLightTokenDataCollector,
             dark = viewKtDarkTokenDataCollector,
-        )
+        ),
     )
 
     /**
@@ -101,7 +101,7 @@ internal class GradientTokenGenerator(
         val tokenValue = gradientTokenValues[token.name]
             ?: throw ThemeBuilderException(
                 "Can't find value for gradient token ${token.name}. " +
-                        "It should be in android_gradient.json.",
+                    "It should be in android_gradient.json.",
             )
         return addXmlViewToken(token, tokenValue) && addKtToken(token, tokenValue, Framework.VIEW)
     }
@@ -113,25 +113,35 @@ internal class GradientTokenGenerator(
         val tokenValues = gradientTokenValues[token.name]
             ?: throw ThemeBuilderException(
                 "Can't find value for gradient token ${token.name}. " +
-                        "It should be in android_gradient.json.",
+                    "It should be in android_gradient.json.",
             )
         return addKtToken(token, tokenValues, Framework.COMPOSE)
     }
 
     private fun addXmlViewToken(token: GradientToken, tokenValues: List<GradientTokenValue>): Boolean {
+        val isSingleLayer = tokenValues.size == 1
         tokenValues.forEachIndexed { index, gradient ->
+            val layerIndex = if (isSingleLayer) null else index
             when (gradient) {
-                is LinearGradientTokenValue -> xmlDocumentBuilder.appendLinearGradient(token, gradient, index)
-                is RadialGradientTokenValue -> xmlDocumentBuilder.appendRadialGradient(token, gradient, index)
-                is SweepGradientTokenValue -> xmlDocumentBuilder.appendSweepGradient(token, gradient, index)
+                is LinearGradientTokenValue -> xmlDocumentBuilder.appendLinearGradient(token, gradient, layerIndex)
+                is RadialGradientTokenValue -> xmlDocumentBuilder.appendRadialGradient(token, gradient, layerIndex)
+                is SweepGradientTokenValue -> xmlDocumentBuilder.appendSweepGradient(token, gradient, layerIndex)
                 is BackgroundGradientTokenValue -> xmlDocumentBuilder.appendSingleColorBackground(
                     token = token,
                     tokenValue = gradient,
-                    layerIndex = index,
+                    layerIndex = layerIndex,
                 )
             }
         }
         return true
+    }
+
+    private fun getXmlGradientLayerSuffix(index: Int?): String {
+        return index?.let { "_layer_$index" }.orEmpty()
+    }
+
+    private fun getXmlGradientLayerDescription(index: Int?): String {
+        return index?.let { ", Слой $index" }.orEmpty()
     }
 
     private fun addKtToken(token: GradientToken, tokenValues: List<GradientTokenValue>, framework: Framework): Boolean {
@@ -152,7 +162,7 @@ internal class GradientTokenGenerator(
     private fun TypeSpec.Builder.appendGradientLayers(
         tokenValues: List<GradientTokenValue>,
         token: GradientToken,
-        framework: Framework
+        framework: Framework,
     ) {
         tokenValues.mapIndexed { index, gradient ->
             appendObject("Layer$index") {
@@ -177,7 +187,7 @@ internal class GradientTokenGenerator(
         token.addKtTokenData(
             token.attrName(),
             tokenData,
-            framework
+            framework,
         )
     }
 
@@ -192,16 +202,16 @@ internal class GradientTokenGenerator(
     private fun XmlResourcesDocumentBuilder.appendLinearGradient(
         token: GradientToken,
         tokenValue: LinearGradientTokenValue,
-        layerIndex: Int,
+        layerIndex: Int?,
     ) {
-        val baseTokenName = token.xmlName + "_layer_$layerIndex"
+        val baseTokenName = token.xmlName + getXmlGradientLayerSuffix(layerIndex)
         LinearGradientTokenValidator.validate(tokenValue, baseTokenName)
         val resolvedColors = tokenValue.colors.resolveColors(HexFormat.XML_HEX, baseTokenName)
 
         val colorParameters = resolvedColors.colorsToTokenParameterData(baseTokenName)
         val positionParameters = tokenValue.locations.positionsToTokenParameterData(baseTokenName)
         val angleParameter = "${baseTokenName}_angle"
-        val description = token.description + ", Слой $layerIndex"
+        val description = token.description + getXmlGradientLayerDescription(layerIndex)
         wrapWithRegion(description) {
             appendBaseGradient(colorParameters, positionParameters)
             appendDimenItem(angleParameter, tokenValue.angle.toString())
@@ -211,9 +221,9 @@ internal class GradientTokenGenerator(
     private fun XmlResourcesDocumentBuilder.appendSweepGradient(
         token: GradientToken,
         tokenValue: SweepGradientTokenValue,
-        layerIndex: Int,
+        layerIndex: Int?,
     ) {
-        val baseTokenName = token.xmlName + "_layer_$layerIndex"
+        val baseTokenName = token.xmlName + getXmlGradientLayerSuffix(layerIndex)
         SweepGradientTokenValidator.validate(tokenValue, baseTokenName)
         val resolvedColors = tokenValue.colors.resolveColors(HexFormat.XML_HEX, baseTokenName)
 
@@ -221,7 +231,7 @@ internal class GradientTokenGenerator(
         val positionParameters = tokenValue.locations.positionsToTokenParameterData(baseTokenName)
         val centerXParameter = "${baseTokenName}_center_x"
         val centerYParameter = "${baseTokenName}_center_y"
-        val description = token.description + ", Слой $layerIndex"
+        val description = token.description + getXmlGradientLayerDescription(layerIndex)
         wrapWithRegion(description) {
             appendBaseGradient(colorParameters, positionParameters)
             appendDimenItem(centerXParameter, tokenValue.centerX.toString())
@@ -232,9 +242,9 @@ internal class GradientTokenGenerator(
     private fun XmlResourcesDocumentBuilder.appendRadialGradient(
         token: GradientToken,
         tokenValue: RadialGradientTokenValue,
-        layerIndex: Int,
+        layerIndex: Int?,
     ) {
-        val baseTokenName = token.xmlName + "_layer_$layerIndex"
+        val baseTokenName = token.xmlName + getXmlGradientLayerSuffix(layerIndex)
         RadialGradientTokenValidator.validate(tokenValue, baseTokenName)
         val resolvedColors = tokenValue.colors.resolveColors(HexFormat.XML_HEX, baseTokenName)
 
@@ -243,7 +253,7 @@ internal class GradientTokenGenerator(
         val radiusParameter = "${baseTokenName}_radius"
         val centerXParameter = "${baseTokenName}_center_x"
         val centerYParameter = "${baseTokenName}_center_y"
-        val description = token.description + ", Слой $layerIndex"
+        val description = token.description + getXmlGradientLayerDescription(layerIndex)
         wrapWithRegion(description) {
             appendBaseGradient(colorParameters, positionParameters)
             appendDimenItem(radiusParameter, tokenValue.radius.toString())
@@ -255,11 +265,11 @@ internal class GradientTokenGenerator(
     private fun XmlResourcesDocumentBuilder.appendSingleColorBackground(
         token: GradientToken,
         tokenValue: BackgroundGradientTokenValue,
-        layerIndex: Int
+        layerIndex: Int?,
     ) {
-        val baseTokenName = token.xmlName + "_layer_$layerIndex"
+        val baseTokenName = token.xmlName + getXmlGradientLayerSuffix(layerIndex)
         val resolvedColor = resolveColor(tokenValue.background, token.name, palette, HexFormat.XML_HEX)
-        val description = token.description + ", Слой $layerIndex"
+        val description = token.description + getXmlGradientLayerDescription(layerIndex)
         wrapWithRegion(description) {
             appendElement(ElementName.COLOR, baseTokenName, resolvedColor)
         }
@@ -319,17 +329,17 @@ internal class GradientTokenGenerator(
         }
     }
 
-    private fun lightDataCollector(framework: Framework): MutableMap<String, MutableList<GradientTokenResult. TokenData. Gradient>> {
+    private fun lightDataCollector(framework: Framework): MutableMap<String, MutableList<TokenData.Gradient>> {
         return when (framework) {
             Framework.COMPOSE -> composeKtLightTokenDataCollector
             Framework.VIEW -> viewKtLightTokenDataCollector
         }
     }
 
-    private fun darkDataCollector(framework: Framework): MutableMap<String, MutableList<GradientTokenResult. TokenData. Gradient>> {
+    private fun darkDataCollector(framework: Framework): MutableMap<String, MutableList<TokenData.Gradient>> {
         return when (framework) {
-            Framework.COMPOSE -> composeKtLightTokenDataCollector
-            Framework.VIEW -> viewKtLightTokenDataCollector
+            Framework.COMPOSE -> composeKtDarkTokenDataCollector
+            Framework.VIEW -> viewKtDarkTokenDataCollector
         }
     }
 
@@ -348,9 +358,9 @@ internal class GradientTokenGenerator(
         }
         return TokenData.Gradient(
             tokenRefs = listOf(
-                "${baseTokenName}.${layerRef}$COLORS_KT_PROPERTY_NAME",
-                "${baseTokenName}.${layerRef}$POSITIONS_KT_PROPERTY_NAME",
-                "${baseTokenName}.${layerRef}$ANGLE_KT_PROPERTY_NAME",
+                "$baseTokenName.$layerRef$COLORS_KT_PROPERTY_NAME",
+                "$baseTokenName.$layerRef$POSITIONS_KT_PROPERTY_NAME",
+                "$baseTokenName.$layerRef$ANGLE_KT_PROPERTY_NAME",
             ),
             gradientType = TokenData.GradientType.LINEAR,
         )
@@ -372,10 +382,10 @@ internal class GradientTokenGenerator(
         }
         return TokenData.Gradient(
             tokenRefs = listOf(
-                "${baseTokenName}.$layerRef$COLORS_KT_PROPERTY_NAME",
-                "${baseTokenName}.$layerRef$POSITIONS_KT_PROPERTY_NAME",
-                "${baseTokenName}.$layerRef$CENTER_X_KT_PROPERTY_NAME",
-                "${baseTokenName}.$layerRef$CENTER_Y_KT_PROPERTY_NAME",
+                "$baseTokenName.$layerRef$COLORS_KT_PROPERTY_NAME",
+                "$baseTokenName.$layerRef$POSITIONS_KT_PROPERTY_NAME",
+                "$baseTokenName.$layerRef$CENTER_X_KT_PROPERTY_NAME",
+                "$baseTokenName.$layerRef$CENTER_Y_KT_PROPERTY_NAME",
             ),
             gradientType = TokenData.GradientType.SWEEP,
         )
@@ -398,11 +408,11 @@ internal class GradientTokenGenerator(
         }
         return TokenData.Gradient(
             tokenRefs = listOf(
-                "${baseTokenName}.${layerRef}$COLORS_KT_PROPERTY_NAME",
-                "${baseTokenName}.${layerRef}$POSITIONS_KT_PROPERTY_NAME",
-                "${baseTokenName}.${layerRef}$RADIUS_KT_PROPERTY_NAME",
-                "${baseTokenName}.${layerRef}$CENTER_X_KT_PROPERTY_NAME",
-                "${baseTokenName}.${layerRef}$CENTER_Y_KT_PROPERTY_NAME",
+                "$baseTokenName.$layerRef$COLORS_KT_PROPERTY_NAME",
+                "$baseTokenName.$layerRef$POSITIONS_KT_PROPERTY_NAME",
+                "$baseTokenName.$layerRef$RADIUS_KT_PROPERTY_NAME",
+                "$baseTokenName.$layerRef$CENTER_X_KT_PROPERTY_NAME",
+                "$baseTokenName.$layerRef$CENTER_Y_KT_PROPERTY_NAME",
             ),
             gradientType = TokenData.GradientType.RADIAL,
         )
@@ -420,12 +430,13 @@ internal class GradientTokenGenerator(
             appendProperty(
                 name = BACKGROUND_PROPERTY_NAME,
                 typeName = framework.colorType,
-                initializer = "${framework.colorInitializer}(${framework.colorValueBraces}$resolvedColor${framework.colorValueBraces})"
+                initializer = "${framework.colorInitializer}(" +
+                    "${framework.colorValueBraces}$resolvedColor${framework.colorValueBraces})",
             )
         }
         return TokenData.Gradient(
             tokenRefs = listOf(
-                "${baseTokenName}.$layerRef$BACKGROUND_PROPERTY_NAME",
+                "$baseTokenName.$layerRef$BACKGROUND_PROPERTY_NAME",
             ),
             gradientType = TokenData.GradientType.BACKGROUND,
         )
@@ -466,7 +477,7 @@ internal class GradientTokenGenerator(
     private fun GradientToken.addKtTokenData(
         attrName: String,
         params: TokenData.Gradient,
-        framework: Framework
+        framework: Framework,
     ) {
         val lightDataCollector = lightDataCollector(framework)
         val darkDataCollector = darkDataCollector(framework)
@@ -509,7 +520,7 @@ internal class GradientTokenGenerator(
             colorListType = KtFileBuilder.TypeListOfColors,
             colorListFabricCall = "listOf",
             colorHexFormat = HexFormat.INT_HEX,
-            colorValueBraces = ""
+            colorValueBraces = "",
         ),
         VIEW(
             colorInitializer = "Color.parseColor",
@@ -517,8 +528,8 @@ internal class GradientTokenGenerator(
             colorListType = KtFileBuilder.TypeIntArray,
             colorListFabricCall = "intArrayOf",
             colorHexFormat = HexFormat.XML_HEX,
-            colorValueBraces = "\""
-        )
+            colorValueBraces = "\"",
+        ),
     }
 
     private companion object {
