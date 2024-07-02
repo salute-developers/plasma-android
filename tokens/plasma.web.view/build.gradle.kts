@@ -13,6 +13,7 @@ android {
 themeBuilder {
     themeSource(name = "plasma_web", version = "latest")
     view()
+    ktPackage(ktPackage = "com.sdds.themes.plasma.web.tokens")
     resourcesPrefix(prefix = "sdgen")
 }
 
