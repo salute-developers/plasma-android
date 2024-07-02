@@ -13,6 +13,7 @@ android {
 themeBuilder {
     themeSource(name = "plasma_b2c", version = "latest")
     view()
+    ktPackage(ktPackage = "com.sdds.themes.plasma.b2c.tokens")
     resourcesPrefix(prefix = "sdgen")
 }
 

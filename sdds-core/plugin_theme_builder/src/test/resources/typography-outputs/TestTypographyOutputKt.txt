@@ -1,4 +1,4 @@
-package com.test
+package com.test.compose
 
 import androidx.compose.ui.text.PlatformTextStyle
 import androidx.compose.ui.text.TextStyle

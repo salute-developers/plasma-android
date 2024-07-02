@@ -43,12 +43,16 @@ open class ThemeBuilderExtension {
 
     /**
      * Устанавливает compose фреймворк для генерации темы и токенов
-     *
-     * @param ktPackage пакет для генерируемых kotlin-файлов
      */
-    fun compose(ktPackage: String) {
-        this.ktPackage = ktPackage
+    fun compose() {
         updateTarget(ThemeBuilderTarget.COMPOSE)
+    }
+
+    /**
+     * Устанавливает пакет для генерируемых kotlin-файлов
+     */
+    fun ktPackage(ktPackage: String) {
+        this.ktPackage = ktPackage
     }
 
     /**

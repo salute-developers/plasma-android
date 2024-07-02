@@ -1,4 +1,4 @@
-package com.sdds.playground.themebuilder.tokens
+package com.sdds.playground.themebuilder.tokens.compose
 import androidx.compose.runtime.Immutable
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
@@ -105,7 +105,7 @@ internal class ThmbldrLinearGradient constructor(
         }
     }
 }
-package com.sdds.playground.themebuilder.tokens
+package com.sdds.playground.themebuilder.tokens.compose
 import androidx.compose.runtime.Immutable
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
@@ -145,7 +145,7 @@ internal data class ThmbldrRadialGradient(
         )
     }
 }
-package com.sdds.playground.themebuilder.tokens
+package com.sdds.playground.themebuilder.tokens.compose
 import androidx.compose.runtime.Immutable
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
@@ -177,14 +177,14 @@ internal data class ThmbldrSweepGradient(
         )
     }
 }
-package com.sdds.playground.themebuilder.tokens
+package com.sdds.playground.themebuilder.tokens.compose
 
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.ProvidableCompositionLocal
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ShaderBrush
-import com.sdds.playground.themebuilder.tokens.ThemeGradients
+import com.sdds.playground.themebuilder.tokens.compose.ThemeGradients
 import kotlin.Float
 import kotlin.FloatArray
 import kotlin.collections.List
@@ -194,8 +194,8 @@ import kotlin.collections.List
  */
 @Immutable
 public data class ThemeGradients(
-    public val textDefaultAccentGradient: ShaderBrush,
-    public val textDefaultGradientJoyActive: ShaderBrush,
+    public val textDefaultAccentGradient: List<ShaderBrush>,
+    public val textDefaultGradientJoyActive: List<ShaderBrush>,
 )
 
 internal val LocalThemeGradients: ProvidableCompositionLocal<ThemeGradients> =
@@ -204,19 +204,19 @@ internal val LocalThemeGradients: ProvidableCompositionLocal<ThemeGradients> =
 /**
  * Градиенты [ThemeGradients] для светлой темы
  */
-public fun lightThemeGradients(textDefaultAccentGradient: ShaderBrush =
-        linearGradient(LightGradientTokens.TextDefaultAccentGradient.colors, LightGradientTokens.TextDefaultAccentGradient.positions, LightGradientTokens.TextDefaultAccentGradient.angle),
-        textDefaultGradientJoyActive: ShaderBrush =
-        sweepGradient(LightGradientTokens.TextDefaultGradientJoyActive.colors, LightGradientTokens.TextDefaultGradientJoyActive.positions, LightGradientTokens.TextDefaultGradientJoyActive.centerX, LightGradientTokens.TextDefaultGradientJoyActive.centerY)):
+public fun lightThemeGradients(textDefaultAccentGradient: List<ShaderBrush> =
+        listOf(linearGradient(LightGradientTokens.TextDefaultAccentGradient.colors, LightGradientTokens.TextDefaultAccentGradient.positions, LightGradientTokens.TextDefaultAccentGradient.angle)),
+        textDefaultGradientJoyActive: List<ShaderBrush> =
+        listOf(sweepGradient(LightGradientTokens.TextDefaultGradientJoyActive.colors, LightGradientTokens.TextDefaultGradientJoyActive.positions, LightGradientTokens.TextDefaultGradientJoyActive.centerX, LightGradientTokens.TextDefaultGradientJoyActive.centerY))):
         ThemeGradients = ThemeGradients(textDefaultAccentGradient, textDefaultGradientJoyActive)
 
 /**
  * Градиенты [ThemeGradients] для темной темы
  */
-public fun darkThemeGradients(textDefaultAccentGradient: ShaderBrush =
-        radialGradient(DarkGradientTokens.TextDefaultAccentGradient.colors, DarkGradientTokens.TextDefaultAccentGradient.positions, DarkGradientTokens.TextDefaultAccentGradient.radius, DarkGradientTokens.TextDefaultAccentGradient.centerX, DarkGradientTokens.TextDefaultAccentGradient.centerY),
-        textDefaultGradientJoyActive: ShaderBrush =
-        sweepGradient(LightGradientTokens.TextDefaultGradientJoyActive.colors, LightGradientTokens.TextDefaultGradientJoyActive.positions, LightGradientTokens.TextDefaultGradientJoyActive.centerX, LightGradientTokens.TextDefaultGradientJoyActive.centerY)):
+public fun darkThemeGradients(textDefaultAccentGradient: List<ShaderBrush> =
+        listOf(radialGradient(DarkGradientTokens.TextDefaultAccentGradient.colors, DarkGradientTokens.TextDefaultAccentGradient.positions, DarkGradientTokens.TextDefaultAccentGradient.radius, DarkGradientTokens.TextDefaultAccentGradient.centerX, DarkGradientTokens.TextDefaultAccentGradient.centerY)),
+        textDefaultGradientJoyActive: List<ShaderBrush> =
+        listOf(sweepGradient(LightGradientTokens.TextDefaultGradientJoyActive.colors, LightGradientTokens.TextDefaultGradientJoyActive.positions, LightGradientTokens.TextDefaultGradientJoyActive.centerX, LightGradientTokens.TextDefaultGradientJoyActive.centerY))):
         ThemeGradients = ThemeGradients(textDefaultAccentGradient, textDefaultGradientJoyActive)
 
 internal fun linearGradient(
@@ -240,3 +240,6 @@ internal fun sweepGradient(
     centerX: Float,
     centerY: Float,
 ): ShaderBrush = ThmbldrSweepGradient(colors, positions.toList(), centerX, centerY)
+
+internal fun singleColor(color: Color): ShaderBrush = ThmbldrLinearGradient(listOf(color, color),
+        listOf(0f, 1f))

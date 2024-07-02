@@ -13,6 +13,7 @@ android {
 themeBuilder {
     themeSource(name = "sberHealth", version = "latest")
     view()
+    ktPackage(ktPackage = "com.sdds.themes.sberhealth.tokens")
     resourcesPrefix(prefix = "sdgen")
 }
 

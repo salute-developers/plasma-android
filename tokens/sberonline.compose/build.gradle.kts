@@ -13,11 +13,11 @@ android {
 
 themeBuilder {
     themeSource(name = "sberonline", version = "latest")
-    compose(ktPackage = "com.sdds.themes.sberonline.tokens")
+    compose()
+    ktPackage(ktPackage = "com.sdds.themes.sberonline.tokens")
     resourcesPrefix(prefix = "sdgen")
 }
 
 dependencies {
-
     implementation(libs.base.androidX.compose.foundation)
 }

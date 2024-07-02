@@ -13,6 +13,7 @@ android {
 themeBuilder {
     themeSource(name = "sbermarket", version = "latest")
     view()
+    ktPackage(ktPackage = "com.sdds.themes.sbermarket.tokens")
     resourcesPrefix(prefix = "sdgen")
 }
 

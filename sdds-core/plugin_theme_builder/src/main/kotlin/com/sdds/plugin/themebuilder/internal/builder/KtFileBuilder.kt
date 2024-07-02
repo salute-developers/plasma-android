@@ -479,9 +479,13 @@ internal class KtFileBuilder(
         internal const val DEFAULT_FILE_INDENT = "    "
 
         val TypeFloat = Float::class.asClassName()
+        val TypeInt = Int::class.asClassName()
         val TypeFloatArray = FloatArray::class.asClassName()
+        val TypeIntArray = IntArray::class.asClassName()
+        val TypeContext = ClassName("android.content", "Context")
         val TypeColor = ClassName("androidx.compose.ui.graphics", listOf("Color"))
         val TypeShaderBrush = ClassName("androidx.compose.ui.graphics", listOf("ShaderBrush"))
+        val TypeListOfShaderBrush = List::class.asClassName().parameterizedBy(TypeShaderBrush)
         val TypeTextStyle = ClassName("androidx.compose.ui.text", listOf("TextStyle"))
         val TypeFont = ClassName("androidx.compose.ui.text.font", "Font")
         val TypeFontWeight = ClassName("androidx.compose.ui.text.font", "FontWeight")

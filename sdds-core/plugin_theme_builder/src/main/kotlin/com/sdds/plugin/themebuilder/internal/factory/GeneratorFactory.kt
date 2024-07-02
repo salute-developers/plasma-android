@@ -85,6 +85,15 @@ internal class GeneratorFactory(
         )
     }
 
+    private val viewGradientAttributeGeneratorFactory by unsafeLazy {
+        ViewGradientAttributeGeneratorFactory(
+            ktFileBuilderFactory = ktFileBuilderFactory,
+            ktFileFromResourcesBuilderFactory = ktFileFromResourcesBuilderFactory,
+            outputLocation = OutputLocation.Directory(outputDir),
+            themeName = themeName,
+        )
+    }
+
     private val viewColorAttributeGeneratorFactory by unsafeLazy {
         ViewColorAttributeGeneratorFactory(
             xmlDocumentBuilderFactory = xmlResourcesDocumentBuilderFactory,
@@ -155,6 +164,7 @@ internal class GeneratorFactory(
         viewShapeAttributeGeneratorFactory = viewShapeAttributeGeneratorFactory,
         composeShapeAttributeGeneratorFactory = composeShapeAttributeGeneratorFactory,
         composeGradientAttributeGeneratorFactory = composeGradientAttributeGeneratorFactory,
+        viewGradientAttributeGeneratorFactory = viewGradientAttributeGeneratorFactory,
         viewTypographyAttributeGeneratorFactory = viewTypographyAttributeGeneratorFactory,
         composeTypographyAttributeGeneratorFactory = composeTypographyAttributeGeneratorFactory,
         target = target,
@@ -198,7 +208,6 @@ internal class GeneratorFactory(
             ktFileBuilderFactory,
             gradients,
             palette,
-            resourceReferenceProvider,
         )
     }
 

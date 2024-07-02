@@ -1,0 +1,22 @@
+import android.graphics.drawable.Drawable
+import android.graphics.drawable.LayerDrawable
+import android.graphics.drawable.shapes.RectShape
+import android.graphics.drawable.shapes.Shape
+
+/**
+ * Описывает композитный градиент (может содержать несколько слоев градиентов)
+ * @property layers слои градиентов [ViewGradientLayer]
+ */
+class ViewGradient(val layers: List<ViewGradientLayer>) {
+
+    /**
+     * Возвращает Drawable, к которому применены все градиенты [layers]
+     */
+    fun drawable(shape: Shape = RectShape()): Drawable =
+        LayerDrawable(
+            layers.map {
+                shapeDrawableWithGradient(it)
+                    .apply { setShape(shape) }
+            }.toTypedArray()
+        )
+}

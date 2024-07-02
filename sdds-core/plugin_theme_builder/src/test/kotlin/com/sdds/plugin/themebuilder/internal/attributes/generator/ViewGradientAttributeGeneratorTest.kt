@@ -5,17 +5,14 @@ import com.sdds.plugin.themebuilder.internal.builder.KtFileFromResourcesBuilder
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.KtFileFromResourcesBuilderFactory
 import com.sdds.plugin.themebuilder.internal.generator.data.GradientTokenResult.TokenData
-import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeGradientAttributeGenerator
+import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewGradientAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider
 import com.sdds.plugin.themebuilder.internal.utils.getResourceAsText
 import com.squareup.kotlinpoet.PropertySpec
 import com.squareup.kotlinpoet.TypeSpec
 import io.mockk.clearAllMocks
-import io.mockk.every
-import io.mockk.mockk
 import io.mockk.mockkObject
 import io.mockk.unmockkObject
-import io.mockk.verify
 import org.junit.After
 import org.junit.Assert
 import org.junit.Before
@@ -23,14 +20,14 @@ import org.junit.Test
 import java.io.ByteArrayOutputStream
 
 /**
- * Unit-тесты [ComposeGradientAttributeGenerator]
+ * Unit-тесты [ViewGradientAttributeGenerator]
  */
-class ComposeGradientAttributeGeneratorTest {
+class ViewGradientAttributeGeneratorTest {
     private lateinit var outputKt: ByteArrayOutputStream
-    private lateinit var underTest: ComposeGradientAttributeGenerator
-    private lateinit var mockKtFileBuilderFactory: KtFileBuilderFactory
+    private lateinit var underTest: ViewGradientAttributeGenerator
+    private lateinit var ktFileBuilderFactory: KtFileBuilderFactory
     private lateinit var ktFileBuilder: KtFileBuilder
-    private lateinit var mockKtFileFromResourcesBuilderFactory: KtFileFromResourcesBuilderFactory
+    private lateinit var ktFileFromResourcesBuilderFactory: KtFileFromResourcesBuilderFactory
     private lateinit var ktFileFromResourcesBuilder: KtFileFromResourcesBuilder
 
     @Before
@@ -48,15 +45,11 @@ class ComposeGradientAttributeGeneratorTest {
         ktFileFromResourcesBuilder = KtFileFromResourcesBuilder(
             packageName = "com.sdds.playground.themebuilder.tokens.compose",
         )
-        mockKtFileBuilderFactory = mockk<KtFileBuilderFactory> {
-            every { create("ThemeGradients") } returns ktFileBuilder
-        }
-        mockKtFileFromResourcesBuilderFactory = mockk<KtFileFromResourcesBuilderFactory> {
-            every { create() } returns ktFileFromResourcesBuilder
-        }
-        underTest = ComposeGradientAttributeGenerator(
-            ktFileBuilderFactory = mockKtFileBuilderFactory,
-            ktFileFromResourcesBuilderFactory = mockKtFileFromResourcesBuilderFactory,
+        ktFileBuilderFactory = KtFileBuilderFactory("com.sdds.playground.themebuilder.tokens")
+        ktFileFromResourcesBuilderFactory = KtFileFromResourcesBuilderFactory("com.sdds.playground.themebuilder.tokens")
+        underTest = ViewGradientAttributeGenerator(
+            ktFileBuilderFactory = ktFileBuilderFactory,
+            ktFileFromResourcesBuilderFactory = ktFileFromResourcesBuilderFactory,
             outputLocation = KtFileBuilder.OutputLocation.Stream(outputKt),
             themeName = "Theme",
         )
@@ -73,17 +66,12 @@ class ComposeGradientAttributeGeneratorTest {
     }
 
     @Test
-    fun `KtAttributeGenerator должен генерировать kotlin файлы с атрибутами цвета`() {
+    fun `ViewGradientAttributeGenerator должен генерировать kotlin файлы с атрибутами градиента`() {
         underTest.setGradientTokenData(inputData)
         underTest.generate()
 
-        verify {
-            mockKtFileBuilderFactory.create("ThemeGradients")
-            mockKtFileFromResourcesBuilderFactory.create()
-        }
-
         Assert.assertEquals(
-            getResourceAsText("attrs-outputs/GradientsOutputKt.txt"),
+            getResourceAsText("attrs-outputs/ViewGradientsOutputKt.txt"),
             outputKt.toString(),
         )
     }
@@ -104,12 +92,26 @@ class ComposeGradientAttributeGeneratorTest {
                 "textDefaultGradientJoyActive" to listOf(
                     TokenData.Gradient(
                         tokenRefs = listOf(
-                            "TextDefaultGradientJoyActive.colors",
-                            "TextDefaultGradientJoyActive.positions",
-                            "TextDefaultGradientJoyActive.centerX",
-                            "TextDefaultGradientJoyActive.centerY",
+                            "TextDefaultGradientJoyActive.Layer1.background",
+                        ),
+                        gradientType = TokenData.GradientType.BACKGROUND,
+                    ),
+                    TokenData.Gradient(
+                        tokenRefs = listOf(
+                            "TextDefaultGradientJoyActive.Layer0.colors",
+                            "TextDefaultGradientJoyActive.Layer0.positions",
+                            "TextDefaultGradientJoyActive.Layer0.centerX",
+                            "TextDefaultGradientJoyActive.Layer0.centerY",
                         ),
                         gradientType = TokenData.GradientType.SWEEP,
+                    ),
+                    TokenData.Gradient(
+                        tokenRefs = listOf(
+                            "TextDefaultAccentGradient.colors",
+                            "TextDefaultAccentGradient.positions",
+                            "TextDefaultAccentGradient.angle",
+                        ),
+                        gradientType = TokenData.GradientType.LINEAR,
                     ),
                 ),
             ),
