@@ -430,7 +430,7 @@ internal class GradientTokenGenerator(
             appendProperty(
                 name = BACKGROUND_PROPERTY_NAME,
                 typeName = framework.colorType,
-                initializer = "${framework.colorInitializer}(" +
+                initializer = "${framework.colorConstructor}(" +
                     "${framework.colorValueBraces}$resolvedColor${framework.colorValueBraces})",
             )
         }
@@ -459,7 +459,7 @@ internal class GradientTokenGenerator(
     ) = with(viewKtFileBuilder) {
         val colorParams =
             colors.joinToString {
-                "${framework.colorInitializer}(${framework.colorValueBraces}$it${framework.colorValueBraces})"
+                "${framework.colorConstructor}(${framework.colorValueBraces}$it${framework.colorValueBraces})"
             }
         val positionParams = positions.joinToString { "${it}f" }
         appendProperty(
@@ -507,7 +507,7 @@ internal class GradientTokenGenerator(
     )
 
     private enum class Framework(
-        val colorInitializer: String,
+        val colorConstructor: String,
         val colorType: TypeName,
         val colorListType: TypeName,
         val colorListFabricCall: String,
@@ -515,7 +515,7 @@ internal class GradientTokenGenerator(
         val colorValueBraces: String,
     ) {
         COMPOSE(
-            colorInitializer = "Color",
+            colorConstructor = "Color",
             colorType = KtFileBuilder.TypeColor,
             colorListType = KtFileBuilder.TypeListOfColors,
             colorListFabricCall = "listOf",
@@ -523,7 +523,7 @@ internal class GradientTokenGenerator(
             colorValueBraces = "",
         ),
         VIEW(
-            colorInitializer = "Color.parseColor",
+            colorConstructor = "Color.parseColor",
             colorType = KtFileBuilder.TypeInt,
             colorListType = KtFileBuilder.TypeIntArray,
             colorListFabricCall = "intArrayOf",
