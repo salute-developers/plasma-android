@@ -129,7 +129,7 @@ internal class ViewGradientAttributeGenerator(
                         )
                     },
                 ),
-                description = "Градиенты $themeName для View фрэймворка",
+                description = "Градиенты $themeName.",
                 modifiers = listOf(DATA),
             )
         }
