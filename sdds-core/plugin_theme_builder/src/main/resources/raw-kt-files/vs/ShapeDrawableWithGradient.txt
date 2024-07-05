@@ -1,0 +1,17 @@
+import android.graphics.Shader
+import android.graphics.drawable.ShapeDrawable
+
+internal fun shapeDrawableWithGradient(gradient: ViewGradientLayer): ShapeDrawable =
+    ShapeDrawable().apply {
+        shaderFactory = object : ShapeDrawable.ShaderFactory() {
+            override fun resize(width: Int, height: Int): Shader? {
+                return if (width != 0 && height != 0) {
+                    gradient.getShader(
+                        width.toFloat(),
+                        height.toFloat()
+                    )
+                }
+                else null
+            }
+        }
+    }

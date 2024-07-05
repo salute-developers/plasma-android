@@ -13,6 +13,7 @@ android {
 themeBuilder {
     themeSource(name = "stylesSalute", version = "latest")
     view()
+    ktPackage(ktPackage = "com.sdds.themes.stylessalute.tokens")
     resourcesPrefix(prefix = "sdgen")
 }
 

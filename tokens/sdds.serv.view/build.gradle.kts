@@ -13,6 +13,7 @@ android {
 themeBuilder {
     themeSource(name = "sdds_serv", version = "latest")
     view()
+    ktPackage(ktPackage = "com.sdds.themes.sdds.serv.tokens")
     resourcesPrefix(prefix = "sdgen")
 }
 

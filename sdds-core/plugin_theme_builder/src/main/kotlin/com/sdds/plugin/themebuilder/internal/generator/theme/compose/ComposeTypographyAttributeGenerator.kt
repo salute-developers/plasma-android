@@ -235,7 +235,7 @@ internal class ComposeTypographyAttributeGenerator(
     }
 
     private companion object {
-        private const val RAW_KT_FILE_RES_DIR = "raw-kt-files"
+        private const val RAW_KT_FILE_RES_DIR = "raw-kt-files/compose"
         private const val WINDOW_SIZE_KT_FILE_NAME = "WindowSize"
     }
 }

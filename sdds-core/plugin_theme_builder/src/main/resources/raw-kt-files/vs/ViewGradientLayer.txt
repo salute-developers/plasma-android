@@ -1,0 +1,142 @@
+import android.graphics.LinearGradient
+import android.graphics.RadialGradient
+import android.graphics.Shader
+import android.graphics.SweepGradient
+import kotlin.math.PI
+import kotlin.math.abs
+import kotlin.math.acos
+import kotlin.math.cos
+import kotlin.math.pow
+import kotlin.math.sin
+import kotlin.math.sqrt
+
+/**
+ * Описывает слой композитного градиента [ViewGradient].
+ */
+sealed class ViewGradientLayer {
+
+    /**
+     * Возвращает [Shader] для указанных [width] и [height]
+     */
+    abstract fun getShader(width: Float, height: Float): Shader
+
+    data class Linear(
+        val colors: IntArray,
+        val positions: FloatArray,
+        val angle: Float,
+    ) : ViewGradientLayer() {
+
+        private val normalizedAngle: Float = (angle % 360 + 360) % 360
+        private val angleInRadians: Float = Math.toRadians(normalizedAngle.toDouble()).toFloat()
+
+        override fun getShader(width: Float, height: Float): Shader {
+            val (from, to) = getGradientCoordinates(Size(width, height))
+            return LinearGradient(
+                from.x,
+                from.y,
+                to.x,
+                to.y,
+                colors,
+                positions,
+                Shader.TileMode.CLAMP
+            )
+        }
+
+        private fun getGradientCoordinates(size: Size): Pair<Offset, Offset> {
+            val diagonal = sqrt(size.width.pow(2) + size.height.pow(2))
+            val angleBetweenDiagonalAndWidth = acos(size.width / diagonal)
+            val angleBetweenDiagonalAndGradientLine =
+                if ((normalizedAngle.inExclusiveRange(
+                        90f,
+                        180f
+                    )) || (normalizedAngle.inExclusiveRange(
+                        270f,
+                        360f
+                    ))
+                ) {
+                    PI.toFloat() - angleInRadians - angleBetweenDiagonalAndWidth
+                } else {
+                    angleInRadians - angleBetweenDiagonalAndWidth
+                }
+            val halfGradientLine = abs(cos(angleBetweenDiagonalAndGradientLine) * diagonal) / 2
+
+            val horizontalOffset = (halfGradientLine * cos(angleInRadians))
+            val verticalOffset = (halfGradientLine * sin(angleInRadians))
+
+            val start = size.center + Offset(-horizontalOffset, verticalOffset)
+            val end = size.center + Offset(horizontalOffset, -verticalOffset)
+
+            return start to end
+        }
+
+        private data class Size(
+            val width: Float,
+            val height: Float,
+        ) {
+            val center = Offset(width / 2f, height / 2f)
+        }
+
+        private data class Offset(
+            val x: Float,
+            val y: Float,
+        ) {
+            operator fun plus(other: Offset): Offset = Offset(x + other.x, y + other.y)
+        }
+
+        private companion object {
+
+            fun Float.inExclusiveRange(from: Float, to: Float): Boolean {
+                return this > from && this < to
+            }
+        }
+    }
+
+    data class Radial(
+        val colors: IntArray,
+        val positions: FloatArray,
+        val radius: Float,
+        val centerX: Float,
+        val centerY: Float,
+    ) : ViewGradientLayer() {
+        override fun getShader(width: Float, height: Float): Shader {
+            return RadialGradient(
+                width * centerX,
+                height * centerY,
+                java.lang.Float.max(width, height) * radius / 2f,
+                colors,
+                positions,
+                Shader.TileMode.CLAMP
+            )
+        }
+    }
+
+    data class Sweep(
+        val colors: IntArray,
+        val positions: FloatArray,
+        val centerX: Float,
+        val centerY: Float,
+    ) : ViewGradientLayer() {
+        override fun getShader(width: Float, height: Float): Shader {
+            return SweepGradient(
+                width * centerX,
+                height * centerY,
+                colors,
+                positions,
+            )
+        }
+    }
+
+    data class SingleColor(val color: Int) : ViewGradientLayer() {
+        override fun getShader(width: Float, height: Float): Shader {
+            return LinearGradient(
+                0f,
+                0f,
+                width,
+                height,
+                intArrayOf(color, color),
+                floatArrayOf(0f, 1f),
+                Shader.TileMode.CLAMP
+            )
+        }
+    }
+}
