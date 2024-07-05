@@ -179,9 +179,13 @@ internal data class ThmbldrSweepGradient(
 }
 package com.sdds.playground.themebuilder.tokens.compose
 
+import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.ProvidableCompositionLocal
 import androidx.compose.runtime.staticCompositionLocalOf
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ShaderBrush
 import com.sdds.playground.themebuilder.tokens.compose.ThemeGradients
@@ -243,3 +247,10 @@ internal fun sweepGradient(
 
 internal fun singleColor(color: Color): ShaderBrush = ThmbldrLinearGradient(listOf(color, color),
         listOf(0f, 1f))
+
+/**
+ * Модификатор, позволяющий применить композитный градиент.
+ */
+@Composable
+public fun Modifier.compositeGradient(brushes: List<Brush>): Modifier = this then
+        Modifier.drawBehind { brushes.forEach(::drawRect) }

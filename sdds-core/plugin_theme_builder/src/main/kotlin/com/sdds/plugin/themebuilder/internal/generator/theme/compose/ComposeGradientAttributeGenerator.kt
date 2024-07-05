@@ -94,6 +94,7 @@ internal class ComposeGradientAttributeGenerator(
         addSweepGradientFun()
         addSingleColorFun()
         addLocalGradientsVal()
+        addGradientModifier()
     }
 
     private fun addImports() {
@@ -104,6 +105,14 @@ internal class ComposeGradientAttributeGenerator(
                     "staticCompositionLocalOf",
                     "Immutable",
                 ),
+            )
+            addImport(
+                packageName = "androidx.compose.ui",
+                names = listOf("Modifier"),
+            )
+            addImport(
+                packageName = "androidx.compose.ui.draw",
+                names = listOf("drawBehind"),
             )
             addImport(
                 packageName = "androidx.compose.ui.graphics",
@@ -349,6 +358,23 @@ internal class ComposeGradientAttributeGenerator(
             body = listOf(
                 "return $LINEAR_GRADIENT_CLASS_NAME(listOf(color, color), listOf(0f, 1f))",
             ),
+        )
+    }
+
+    private fun addGradientModifier() {
+        gradientKtFileBuilder.appendRootFun(
+            name = "compositeGradient",
+            params = listOf(
+                KtFileBuilder.FunParameter(
+                    name = "brushes",
+                    type = KtFileBuilder.TypeListOfBrush,
+                ),
+            ),
+            body = listOf("return this then Modifier.drawBehind { brushes.forEach(::drawRect) }"),
+            returnType = KtFileBuilder.TypeModifier,
+            receiver = KtFileBuilder.TypeModifier,
+            annotation = KtFileBuilder.TypeAnnotationComposable,
+            description = "Модификатор, позволяющий применить композитный градиент.",
         )
     }
 
