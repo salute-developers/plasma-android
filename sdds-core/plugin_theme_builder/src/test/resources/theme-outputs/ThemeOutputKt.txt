@@ -1,4 +1,4 @@
-package com.sdds.playground.themebuilder.tokens
+package com.sdds.playground.themebuilder.tokens.compose
 
 import androidx.compose.foundation.text.selection.LocalTextSelectionColors
 import androidx.compose.foundation.text.selection.TextSelectionColors
@@ -7,10 +7,10 @@ import androidx.compose.runtime.CompositionLocal
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.remember
-import com.sdds.playground.themebuilder.tokens.TestColors
-import com.sdds.playground.themebuilder.tokens.TestGradients
-import com.sdds.playground.themebuilder.tokens.TestShapes
-import com.sdds.playground.themebuilder.tokens.TestTypography
+import com.sdds.playground.themebuilder.tokens.compose.TestColors
+import com.sdds.playground.themebuilder.tokens.compose.TestGradients
+import com.sdds.playground.themebuilder.tokens.compose.TestShapes
+import com.sdds.playground.themebuilder.tokens.compose.TestTypography
 import kotlin.Unit
 
 public object TestTheme {

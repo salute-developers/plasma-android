@@ -13,6 +13,7 @@ android {
 themeBuilder {
     themeSource(name = "sbermarket_selgros", version = "latest")
     view()
+    ktPackage(ktPackage = "com.sdds.themes.sbermarket.selgros.tokens")
     resourcesPrefix(prefix = "sdgen")
 }
 

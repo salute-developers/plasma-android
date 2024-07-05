@@ -45,7 +45,8 @@ android {
 themeBuilder {
     themeSource(name = "stylesSalute", version = "0.1.0")
     view(parentThemeName = "Sdds.Theme")
-    compose(ktPackage = "com.example.app.themebuilder.tokens")
+    compose()
+    ktPackage("com.example.app.themebuilder.tokens")
 }
 ```
 </details>
@@ -86,13 +87,24 @@ view() // Тема не будет иметь parent'a
 </details>
 
 #### `compose` (optional)
-Опциональная настройка генерации темы для Compose. Необходимо указать ktPackage - пакет для генерируемых kotlin-файлов.
+Опциональная настройка генерации темы для Compose.
 
 <details>
 <summary>Пример настройки compose</summary>
 
 ```kotlin
-compose(ktPackage = "com.example.app.themebuilder.tokens")
+compose()
+```
+</details>
+
+#### `ktPackage` (optional)
+Для генерации темы любого фреймворка необходимо указать ktPackage - пакет для генерируемых kotlin-файлов. Итоговый пакет будет состоять из указанного ktPackage + ".compose" или ".vs".
+
+<details>
+<summary>Пример настройки пакета</summary>
+
+```kotlin
+ktPackage("com.example.app.themebuilder.tokens")
 ```
 </details>
 
@@ -138,6 +150,6 @@ paletteUrl(url = "https://example.com/themes/color-palette.json")
  `./gradlew :your_module:assemble`
 
 Плагин скачает архив с темой из источника, указанного в `themeSource` и сгенерирует токены/темы под указанные фреймворки. По пути `your_module/build/generated/` должны появиться папки:
-- `your_module/build/generated/theme-builder` - тема для Compose
-- `your_module/build/generated/theme-builder-res` - тема для ViewSystem, либо файл ресурсов для шрифтов, который необходим, даже если тема для ViewSystem не генерируется.
+- `your_module/build/generated/theme-builder` - Kotlin-файлы темы. Может содержать токены и тему для compose, а также токены градиентов для view.
+- `your_module/build/generated/theme-builder-res` - ресурсы темы. Содержит токены и темы для view, а также ресурсы шрифтов для compose.
 

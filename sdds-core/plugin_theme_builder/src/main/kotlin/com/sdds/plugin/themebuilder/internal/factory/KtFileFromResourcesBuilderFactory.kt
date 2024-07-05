@@ -13,5 +13,11 @@ internal class KtFileFromResourcesBuilderFactory(
     /**
      * Создает [KtFileFromResourcesBuilder]
      */
-    fun create(): KtFileFromResourcesBuilder = KtFileFromResourcesBuilder(packageName)
+    fun create(frameworkPackage: Package = Package.COMPOSE): KtFileFromResourcesBuilder =
+        KtFileFromResourcesBuilder("$packageName.${frameworkPackage.packageName}")
+
+    internal enum class Package(val packageName: String) {
+        VS("vs"),
+        COMPOSE("compose"),
+    }
 }

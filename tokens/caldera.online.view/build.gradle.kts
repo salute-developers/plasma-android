@@ -13,6 +13,7 @@ android {
 themeBuilder {
     themeSource(name = "caldera_online", version = "latest")
     view()
+    ktPackage(ktPackage = "com.sdds.themes.caldera.online.tokens")
     resourcesPrefix(prefix = "sdgen")
 }
 

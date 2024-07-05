@@ -1,4 +1,4 @@
-package com.sdds.plugin.themebuilder.internal.generator.theme.compose
+package com.sdds.plugin.themebuilder.internal.generator.theme.view
 
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Constructor
@@ -13,17 +13,20 @@ import com.sdds.plugin.themebuilder.internal.generator.data.GradientTokenResult.
 import com.sdds.plugin.themebuilder.internal.generator.data.mergedLightAndDark
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import org.gradle.configurationcache.extensions.capitalized
+import java.util.Locale
 
 /**
- * Генератор Compose-атрибутов градиента.
- * Генерирует kt-файл, содержащий в себе все градиенты темы.
+ * Генератор View-атрибутов градиента.
+ * Генерирует kt-файл, содержащий в себе все градиенты темы и вспомогательные функции для работы с градиентами.
+ * Каждый атрибут градиента ViewGradient содержит всю информацию о слоях градиента а также умеет возвращать drawable для
+ * установки градиента в background.
  *
  * @property ktFileBuilderFactory фабрика [KtFileBuilder]
  * @property ktFileFromResourcesBuilderFactory фабрика [KtFileFromResourcesBuilder]
  * @property outputLocation директория для Kotlin-файлов
  * @property themeName название темы
  */
-internal class ComposeGradientAttributeGenerator(
+internal class ViewGradientAttributeGenerator(
     private val ktFileBuilderFactory: KtFileBuilderFactory,
     private val ktFileFromResourcesBuilderFactory: KtFileFromResourcesBuilderFactory,
     private val outputLocation: KtFileBuilder.OutputLocation,
@@ -34,11 +37,11 @@ internal class ComposeGradientAttributeGenerator(
     private val gradientAttributes = mutableSetOf<String>()
 
     private val gradientKtFileBuilder: KtFileBuilder by unsafeLazy {
-        ktFileBuilderFactory.create(gradientClassName)
+        ktFileBuilderFactory.create(fileName = gradientClassName, frameworkPackage = KtFileBuilderFactory.Package.VS)
     }
 
     private val ktFileFromResBuilder: KtFileFromResourcesBuilder by unsafeLazy {
-        ktFileFromResourcesBuilderFactory.create()
+        ktFileFromResourcesBuilderFactory.create(frameworkPackage = KtFileFromResourcesBuilderFactory.Package.VS)
     }
 
     private val gradientClassName = "${themeName.capitalized()}Gradients"
@@ -52,62 +55,63 @@ internal class ComposeGradientAttributeGenerator(
     override fun generate() {
         tokenData ?: return
 
+        createViewGradientClass()
+        createViewGradientLayerClass()
+        createShapeDrawableWithGradientFile()
         createGradientsFile()
-        createLinearGradientClass()
-        createRadialGradientClass()
-        createSweepGradientClass()
 
         gradientKtFileBuilder.build(outputLocation)
     }
 
-    private fun createLinearGradientClass() {
+    private fun createViewGradientClass() {
         ktFileFromResBuilder.buildFromResource(
-            inputRes = "$RAW_KT_FILE_RES_DIR/$LINEAR_GRADIENT_CLASS_NAME.txt",
+            inputRes = "$RAW_KT_FILE_RES_DIR/$VIEW_GRADIENT_CLASS_NAME.txt",
             outputLocation = outputLocation,
-            outputFileName = LINEAR_GRADIENT_CLASS_NAME,
+            outputFileName = VIEW_GRADIENT_CLASS_NAME,
         )
     }
 
-    private fun createRadialGradientClass() {
+    private fun createViewGradientLayerClass() {
         ktFileFromResBuilder.buildFromResource(
-            inputRes = "$RAW_KT_FILE_RES_DIR/$RADIAL_GRADIENT_CLASS_NAME.txt",
+            inputRes = "$RAW_KT_FILE_RES_DIR/$VIEW_GRADIENT_LAYER_CLASS_NAME.txt",
             outputLocation = outputLocation,
-            outputFileName = RADIAL_GRADIENT_CLASS_NAME,
+            outputFileName = VIEW_GRADIENT_LAYER_CLASS_NAME,
         )
     }
 
-    private fun createSweepGradientClass() {
+    private fun createShapeDrawableWithGradientFile() {
         ktFileFromResBuilder.buildFromResource(
-            inputRes = "$RAW_KT_FILE_RES_DIR/$SWEEP_GRADIENT_CLASS_NAME.txt",
+            inputRes = "$RAW_KT_FILE_RES_DIR/$SHAPE_DRAWABLE_WITH_GRADIENT_NAME.txt",
             outputLocation = outputLocation,
-            outputFileName = SWEEP_GRADIENT_CLASS_NAME,
+            outputFileName = SHAPE_DRAWABLE_WITH_GRADIENT_NAME,
         )
     }
 
     private fun createGradientsFile() {
         addImports()
         addGradientsClass()
-        addLightGradientsFun()
-        addDarkGradientsFun()
+        addLightGradientsVal()
+        addDarkGradientsVal()
         addLinearGradientFun()
         addRadialGradientFun()
         addSweepGradientFun()
         addSingleColorFun()
-        addLocalGradientsVal()
+        addGradientsFun()
     }
 
     private fun addImports() {
         with(gradientKtFileBuilder) {
             addImport(
-                packageName = "androidx.compose.runtime",
-                names = listOf(
-                    "staticCompositionLocalOf",
-                    "Immutable",
-                ),
+                packageName = "android.content",
+                names = listOf("Context"),
             )
             addImport(
-                packageName = "androidx.compose.ui.graphics",
-                names = listOf("Color", "ShaderBrush"),
+                packageName = "android.content.res",
+                names = listOf("Configuration"),
+            )
+            addImport(
+                packageName = "android.graphics",
+                names = listOf("Color"),
             )
         }
     }
@@ -120,43 +124,38 @@ internal class ComposeGradientAttributeGenerator(
                     parameters = gradientAttributes.map {
                         KtFileBuilder.FunParameter(
                             name = it,
-                            type = KtFileBuilder.TypeListOfShaderBrush,
+                            type = gradientKtFileBuilder.getInternalClassType("ViewGradient"),
                             asProperty = true,
                         )
                     },
                 ),
-                annotation = KtFileBuilder.TypeAnnotationImmutable,
-                description = "Градиенты $themeName",
+                description = "Градиенты $themeName.",
                 modifiers = listOf(DATA),
             )
         }
     }
 
-    private fun addLocalGradientsVal() {
+    private fun addLightGradientsVal() {
         gradientKtFileBuilder.appendRootVal(
-            name = "Local$gradientClassName",
-            typeName = KtFileBuilder.TypeProvidableCompositionLocal,
-            parameterizedType = gradientKtFileBuilder.getInternalClassType(gradientClassName),
-            initializer = "staticCompositionLocalOf { light${themeName}Gradients() }",
-            modifiers = listOf(INTERNAL),
+            name = "light${themeName.capitalized()}Gradients",
+            typeName = gradientKtFileBuilder.getInternalClassType(gradientClassName),
+            initializer = "$gradientClassName(\n${
+                gradientAttributes.joinToString(separator = ",") {
+                    "   $it = ${defaultLightGradientValue(it)}"
+                }
+            }\n)",
         )
     }
 
-    private fun addLightGradientsFun() {
-        gradientKtFileBuilder.appendRootFun(
-            name = "light${themeName}Gradients",
-            params = gradientAttributes.map {
-                KtFileBuilder.FunParameter(
-                    name = it,
-                    type = KtFileBuilder.TypeListOfShaderBrush,
-                    defValue = defaultLightGradientValue(it),
-                )
-            },
-            returnType = gradientKtFileBuilder.getInternalClassType(gradientClassName),
-            body = listOf(
-                "return $gradientClassName(${gradientAttributes.joinToString(separator = ",·")})",
-            ),
-            description = "Градиенты [$gradientClassName] для светлой темы",
+    private fun addDarkGradientsVal() {
+        gradientKtFileBuilder.appendRootVal(
+            name = "dark${themeName.capitalized()}Gradients",
+            typeName = gradientKtFileBuilder.getInternalClassType(gradientClassName),
+            initializer = "$gradientClassName(\n${
+                gradientAttributes.joinToString(separator = ", ") {
+                    "   $it = ${defaultDarkGradientValue(it)}"
+                }
+            }\n)",
         )
     }
 
@@ -176,7 +175,11 @@ internal class ComposeGradientAttributeGenerator(
             objectName = "DarkGradientTokens"
         }
 
-        return "listOf(${parameters.joinToString(",") { createGradientFabricCall(objectName, it) }})"
+        return "$VIEW_GRADIENT_CLASS_NAME(listOf(${
+            parameters.joinToString(",") {
+                createGradientFabricCall(objectName, it)
+            }
+        }))"
     }
 
     private fun defaultDarkGradientValue(attrName: String): String {
@@ -195,7 +198,11 @@ internal class ComposeGradientAttributeGenerator(
             objectName = "LightGradientTokens"
         }
 
-        return "listOf(${parameters.joinToString(",") { createGradientFabricCall(objectName, it) }})"
+        return "$VIEW_GRADIENT_CLASS_NAME(listOf(${
+            parameters.joinToString(",") {
+                createGradientFabricCall(objectName, it)
+            }
+        }))"
     }
 
     private fun createGradientFabricCall(
@@ -215,33 +222,15 @@ internal class ComposeGradientAttributeGenerator(
         })"
     }
 
-    private fun addDarkGradientsFun() {
-        gradientKtFileBuilder.appendRootFun(
-            name = "dark${themeName}Gradients",
-            params = gradientAttributes.map {
-                KtFileBuilder.FunParameter(
-                    name = it,
-                    type = KtFileBuilder.TypeListOfShaderBrush,
-                    defValue = defaultDarkGradientValue(it),
-                )
-            },
-            returnType = gradientKtFileBuilder.getInternalClassType(gradientClassName),
-            body = listOf(
-                "return $gradientClassName(${gradientAttributes.joinToString(separator = ",·")})",
-            ),
-            description = "Градиенты [$gradientClassName] для темной темы",
-        )
-    }
-
     private fun addLinearGradientFun() {
         gradientKtFileBuilder.appendRootFun(
             name = "linearGradient",
             modifiers = listOf(INTERNAL),
-            returnType = KtFileBuilder.TypeShaderBrush,
+            returnType = gradientKtFileBuilder.getInternalClassType(VIEW_GRADIENT_LAYER_LINEAR_CLASS_NAME),
             params = listOf(
                 KtFileBuilder.FunParameter(
                     name = "colors",
-                    type = KtFileBuilder.TypeListOfColors,
+                    type = KtFileBuilder.TypeIntArray,
                     null,
                     false,
                 ),
@@ -257,8 +246,7 @@ internal class ComposeGradientAttributeGenerator(
                 ),
             ),
             body = listOf(
-                "return $LINEAR_GRADIENT_CLASS_NAME(colors, positions.toList(), " +
-                    "angleInDegrees = angle, useAsCssAngle = true)",
+                "return $VIEW_GRADIENT_LAYER_LINEAR_CLASS_NAME(colors, positions, angle)",
             ),
         )
     }
@@ -267,11 +255,11 @@ internal class ComposeGradientAttributeGenerator(
         gradientKtFileBuilder.appendRootFun(
             name = "radialGradient",
             modifiers = listOf(INTERNAL),
-            returnType = KtFileBuilder.TypeShaderBrush,
+            returnType = gradientKtFileBuilder.getInternalClassType(VIEW_GRADIENT_LAYER_RADIAL_CLASS_NAME),
             params = listOf(
                 KtFileBuilder.FunParameter(
                     name = "colors",
-                    type = KtFileBuilder.TypeListOfColors,
+                    type = KtFileBuilder.TypeIntArray,
                     null,
                     false,
                 ),
@@ -295,7 +283,7 @@ internal class ComposeGradientAttributeGenerator(
                 ),
             ),
             body = listOf(
-                "return $RADIAL_GRADIENT_CLASS_NAME(colors, positions.toList(), radius, centerX, centerY)",
+                "return $VIEW_GRADIENT_LAYER_RADIAL_CLASS_NAME(colors, positions, radius, centerX, centerY)",
             ),
         )
     }
@@ -304,11 +292,11 @@ internal class ComposeGradientAttributeGenerator(
         gradientKtFileBuilder.appendRootFun(
             name = "sweepGradient",
             modifiers = listOf(INTERNAL),
-            returnType = KtFileBuilder.TypeShaderBrush,
+            returnType = gradientKtFileBuilder.getInternalClassType(VIEW_GRADIENT_LAYER_SWEEP_CLASS_NAME),
             params = listOf(
                 KtFileBuilder.FunParameter(
                     name = "colors",
-                    type = KtFileBuilder.TypeListOfColors,
+                    type = KtFileBuilder.TypeIntArray,
                     null,
                     false,
                 ),
@@ -328,7 +316,7 @@ internal class ComposeGradientAttributeGenerator(
                 ),
             ),
             body = listOf(
-                "return $SWEEP_GRADIENT_CLASS_NAME(colors, positions.toList(), centerX, centerY)",
+                "return $VIEW_GRADIENT_LAYER_SWEEP_CLASS_NAME(colors, positions, centerX, centerY)",
             ),
         )
     }
@@ -337,25 +325,50 @@ internal class ComposeGradientAttributeGenerator(
         gradientKtFileBuilder.appendRootFun(
             name = "singleColor",
             modifiers = listOf(INTERNAL),
-            returnType = KtFileBuilder.TypeShaderBrush,
+            returnType = gradientKtFileBuilder.getInternalClassType(VIEW_GRADIENT_LAYER_SINGLE_COLOR_CLASS_NAME),
             params = listOf(
                 KtFileBuilder.FunParameter(
                     name = "color",
-                    type = KtFileBuilder.TypeColor,
+                    type = KtFileBuilder.TypeInt,
                     null,
                     false,
                 ),
             ),
             body = listOf(
-                "return $LINEAR_GRADIENT_CLASS_NAME(listOf(color, color), listOf(0f, 1f))",
+                "return $VIEW_GRADIENT_LAYER_SINGLE_COLOR_CLASS_NAME(color)",
             ),
         )
     }
 
+    private fun addGradientsFun() {
+        gradientKtFileBuilder.appendRootFun(
+            name = "${themeName.decapitalize(Locale.getDefault())}Gradients",
+            params = listOf(
+                KtFileBuilder.FunParameter(
+                    name = "context",
+                    type = KtFileBuilder.TypeContext,
+                ),
+            ),
+            returnType = gradientKtFileBuilder.getInternalClassType(gradientClassName),
+            body = listOf(
+                "val isDarkMode = context.resources.configuration.uiMode and\n" +
+                    "            Configuration.UI_MODE_NIGHT_MASK == Configuration.UI_MODE_NIGHT_YES\n",
+                "return if (isDarkMode) dark${themeName}Gradients else light${themeName}Gradients",
+            ),
+            description = "Возвращает объект [ViewGradients], " +
+                "который соответствует текущему режиму dark/light для данного [context].",
+        )
+    }
+
     private companion object {
-        private const val RAW_KT_FILE_RES_DIR = "raw-kt-files/compose"
-        private const val LINEAR_GRADIENT_CLASS_NAME = "ThmbldrLinearGradient"
-        private const val RADIAL_GRADIENT_CLASS_NAME = "ThmbldrRadialGradient"
-        private const val SWEEP_GRADIENT_CLASS_NAME = "ThmbldrSweepGradient"
+        private const val RAW_KT_FILE_RES_DIR = "raw-kt-files/vs"
+        private const val VIEW_GRADIENT_CLASS_NAME = "ViewGradient"
+        private const val VIEW_GRADIENT_LAYER_CLASS_NAME = "ViewGradientLayer"
+        private const val VIEW_GRADIENT_LAYER_LINEAR_CLASS_NAME = "$VIEW_GRADIENT_LAYER_CLASS_NAME.Linear"
+        private const val VIEW_GRADIENT_LAYER_RADIAL_CLASS_NAME = "$VIEW_GRADIENT_LAYER_CLASS_NAME.Radial"
+        private const val VIEW_GRADIENT_LAYER_SWEEP_CLASS_NAME = "$VIEW_GRADIENT_LAYER_CLASS_NAME.Sweep"
+        private const val VIEW_GRADIENT_LAYER_SINGLE_COLOR_CLASS_NAME = "$VIEW_GRADIENT_LAYER_CLASS_NAME.SingleColor"
+
+        private const val SHAPE_DRAWABLE_WITH_GRADIENT_NAME = "ShapeDrawableWithGradient"
     }
 }
