@@ -17,6 +17,7 @@ android {
 dependencies {
 
     implementation(libs.base.androidX.compose.foundation)
+    implementation(libs.base.androidX.compose.material)
 
     // Preview support
     implementation(libs.base.androidX.compose.uiTooling.preview)
