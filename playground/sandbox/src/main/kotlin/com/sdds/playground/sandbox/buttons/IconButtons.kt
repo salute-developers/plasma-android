@@ -31,7 +31,7 @@ internal fun IconButtonsScreen() {
                 shape = buttonState.shape,
                 enabled = buttonState.enabled,
                 loading = buttonState.loading,
-                settingsProvider = DefaultButtonSettingsProvider
+                settingsProvider = DefaultButtonSettingsProvider,
             )
         },
         propertiesOwner = buttonViewModel,

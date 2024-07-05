@@ -41,6 +41,9 @@ import com.sdds.playground.themebuilder.tokens.compose.DefaultTheme
 import kotlinx.coroutines.launch
 import com.sdds.icons.R.drawable as Icons
 
+/**
+ * Активити демо-приложения
+ */
 class SandboxActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         WindowCompat.setDecorFitsSystemWindows(window, false)
@@ -127,7 +130,7 @@ private fun ColumnScope.NavigationItem(
         style = DefaultTheme.typography.bodyMBold,
         color = DefaultTheme.colors.textDefaultPrimary,
 
-        )
+    )
 }
 
 @Composable
@@ -149,7 +152,7 @@ private fun TopBar(
                 style = Button.Style.Clear,
                 shape = Button.IconButtonShape.Circle,
                 onClick = onNavigationClick,
-                settingsProvider = DefaultButtonSettingsProvider
+                settingsProvider = DefaultButtonSettingsProvider,
             )
         },
         backgroundColor = DefaultTheme.colors.surfaceDefaultSolidPrimary,
@@ -157,6 +160,9 @@ private fun TopBar(
     )
 }
 
+/**
+ * Превью [SandboxContainer]
+ */
 @Preview(showBackground = true)
 @Composable
 fun TopBarPreview() {

@@ -205,6 +205,8 @@ object SandboxRadioBox {
 
     /**
      * Размер компонента
+     *
+     * @property value значение размера
      */
     enum class Size(val value: Dp) {
         M(26.dp),
@@ -217,7 +219,7 @@ private data class Dimensions(
     val verticalSpacing: Dp,
     val horizontalSpacing: Dp,
 
-    )
+)
 
 private fun SandboxRadioBox.Size.getDimensions(): Dimensions =
     when (this) {
@@ -248,6 +250,9 @@ private fun descriptionTextStyleFor(size: SandboxRadioBox.Size): TextStyle =
         SandboxRadioBox.Size.S -> DefaultTheme.typography.bodyXsNormal
     }
 
+/**
+ * Превью [SandboxRadioBox]
+ */
 @Composable
 @Preview(showBackground = true)
 fun SandboxRadioBoxExample() {

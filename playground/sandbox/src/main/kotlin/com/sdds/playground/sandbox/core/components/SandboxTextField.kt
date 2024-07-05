@@ -179,6 +179,8 @@ object SandboxTextField {
 
     /**
      * Размеры текстового поля
+     *
+     * @property value значение размера
      */
     enum class Size(val value: Dp) {
         L(56.dp),

@@ -18,6 +18,9 @@ private val LightColors = lightDefaultColors()
 private val DarkGradients = darkDefaultGradients()
 private val LightGradients = lightDefaultGradients()
 
+/**
+ * Тема демо-приложения
+ */
 @Composable
 fun SandboxTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),

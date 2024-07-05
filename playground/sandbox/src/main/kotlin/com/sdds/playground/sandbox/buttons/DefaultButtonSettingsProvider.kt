@@ -4,6 +4,9 @@ import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.Button
 import com.sdds.playground.themebuilder.tokens.compose.DefaultTheme
 
+/**
+ * Провайдер настроек кнопки для демо-приложения
+ */
 object DefaultButtonSettingsProvider : Button.ButtonSettingsProvider {
     @Composable
     override fun shapeFor(size: Button.Size) =

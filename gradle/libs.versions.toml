@@ -40,6 +40,7 @@ base-android-material = { module = "com.google.android.material:material", versi
 base-androidX-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "androidX-appcompat" }
 base-androidX-core = { module = "androidx.core:core-ktx", version.ref = "androidX-core" }
 base-androidX-compose-runtime = { module = "androidx.compose.runtime:runtime", version.ref = "androidX-compose"}
+base-androidX-compose-animation = { module = "androidx.compose.animation:animation", version.ref = "androidX-compose"}
 base-androidX-compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "androidX-compose" }
 base-androidX-compose-material = { module = "androidx.compose.material:material", version.ref = "android-material" }
 base-androidX-compose-uiTooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "androidX-compose" }

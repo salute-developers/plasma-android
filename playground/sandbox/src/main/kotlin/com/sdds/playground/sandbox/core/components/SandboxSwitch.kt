@@ -27,6 +27,9 @@ fun SandboxSwitch(
     )
 }
 
+/**
+ * Превью [SandboxSwitch]
+ */
 @Composable
 @Preview(showBackground = true)
 fun SandboxSwitchPreview() {

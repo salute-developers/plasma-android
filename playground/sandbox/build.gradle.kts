@@ -1,5 +1,6 @@
 import com.sdds.plugin.themebuilder.ThemeBuilderMode
 
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     id("convention.android-app")
     id("convention.compose")
@@ -30,8 +31,9 @@ dependencies {
     implementation(libs.base.androidX.appcompat)
 
     implementation(libs.base.androidX.compose.foundation)
-    implementation(libs.base.androidX.activity.compose)
     implementation(libs.base.androidX.compose.material)
+    implementation(libs.base.androidX.compose.animation)
+    implementation(libs.base.androidX.activity.compose)
     implementation(libs.base.androidX.lifecycle.compose.viewmodel)
 
     // Preview support

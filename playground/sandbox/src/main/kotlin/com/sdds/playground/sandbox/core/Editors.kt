@@ -24,8 +24,8 @@ import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.BasicButton
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.buttons.DefaultButtonSettingsProvider
-import com.sdds.playground.sandbox.core.components.SandboxText
 import com.sdds.playground.sandbox.core.components.SandboxRadioBox
+import com.sdds.playground.sandbox.core.components.SandboxText
 import com.sdds.playground.sandbox.core.components.SandboxTextField
 import com.sdds.playground.themebuilder.tokens.compose.DefaultTheme
 import kotlin.math.roundToInt
@@ -118,7 +118,7 @@ private fun TextPropertyEditor(
         modifier = Modifier
             .fillMaxWidth()
             .padding(Margins),
-        settingsProvider = DefaultButtonSettingsProvider
+        settingsProvider = DefaultButtonSettingsProvider,
     )
     Spacer(modifier = Modifier.height(16.dp))
     LaunchedEffect(Unit) {

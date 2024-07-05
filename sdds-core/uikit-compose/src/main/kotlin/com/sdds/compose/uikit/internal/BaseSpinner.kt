@@ -67,6 +67,9 @@ internal fun BaseSpinner(
     }
 }
 
+/**
+ * Preview [BaseSpinner]
+ */
 @Composable
 @Preview
 fun BaseSpinnerPreview() {

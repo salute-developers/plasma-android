@@ -372,7 +372,6 @@ private object TextFieldColorsTransitionScope {
         )
     }
 
-    // TODO https://tasks.sberdevices.ru/browse/PLASMA-2822 Оптимизировать
     @Composable
     fun Transition(
         inputState: InputState,

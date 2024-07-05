@@ -321,13 +321,31 @@ object Button {
         Circle,
     }
 
+    /**
+     * Интерфейс провайдера настроек в зависимости от стиля и размера кнопки
+     */
     interface ButtonSettingsProvider {
+        /**
+         * Вернёт форму [CornerBasedShape] кнопки для соответствующего [Size]
+         */
         @Composable
         fun shapeFor(size: Size): CornerBasedShape
+
+        /**
+         * Вернёт цвет [Color] контента кнопки для соответствующего [Style]
+         */
         @Composable
         fun contentColorFor(style: Style): Color
+
+        /**
+         * Вернёт цвет [Color] бэкграунда кнопки для соответствующего [Style]
+         */
         @Composable
         fun backgroundColorFor(style: Style): Color
+
+        /**
+         * Вернёт текстовый стиль [TextStyle] для соответствующего [Size]
+         */
         @Composable
         fun textStyleFor(size: Size): TextStyle
     }

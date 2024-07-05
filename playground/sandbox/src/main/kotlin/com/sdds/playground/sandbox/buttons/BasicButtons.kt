@@ -37,7 +37,7 @@ internal fun BasicButtonScreen() {
                 ButtonIcon.Start -> Button.Icons(start = painterResource(id = icon.iconId))
             },
             onClick = {},
-            settingsProvider = DefaultButtonSettingsProvider
+            settingsProvider = DefaultButtonSettingsProvider,
         )
     }, propertiesOwner = buttonViewModel)
 }

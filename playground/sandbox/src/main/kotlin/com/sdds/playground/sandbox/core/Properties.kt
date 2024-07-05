@@ -25,8 +25,8 @@ import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.IconButton
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.buttons.DefaultButtonSettingsProvider
-import com.sdds.playground.sandbox.core.components.SandboxText
 import com.sdds.playground.sandbox.core.components.SandboxSwitch
+import com.sdds.playground.sandbox.core.components.SandboxText
 import com.sdds.playground.themebuilder.tokens.compose.DefaultTheme
 import com.sdds.icons.R.drawable as Icons
 
@@ -214,7 +214,7 @@ private fun PropertiesHeader(
             size = Button.Size.XS,
             style = Button.Style.Clear,
             onClick = onResetClicked,
-            settingsProvider = DefaultButtonSettingsProvider
+            settingsProvider = DefaultButtonSettingsProvider,
         )
     }
 }
