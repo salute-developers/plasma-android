@@ -50,6 +50,7 @@ internal fun BaseButton(
     contentColor: Color = settingsProvider.contentColorFor(style),
     enabled: Boolean = true,
     loading: Boolean = false,
+    showContentWhenLoading: Boolean = false,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     dimensions: Button.Dimensions = Button.Dimensions(),
     content: @Composable RowScope.() -> Unit,
@@ -82,7 +83,9 @@ internal fun BaseButton(
                 contentAlignment = Alignment.Center,
             ) {
                 Row(
-                    modifier = Modifier.invisible(loading),
+                    modifier = Modifier
+                        .invisible(loading && !showContentWhenLoading)
+                        .alpha(if (loading && showContentWhenLoading) CLEAR_LOADING_ALPHA else ENABLED_BUTTON_ALPHA),
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.Center,
                     content = content,
@@ -183,5 +186,6 @@ private fun Modifier.invisible(flag: Boolean): Modifier {
 
 private val SpinnerStrokeWidth = 2.dp
 private const val ENABLED_BUTTON_ALPHA = 1f
+private const val CLEAR_LOADING_ALPHA = 0.06f
 private const val DISABLED_BUTTON_ALPHA = 0.4f
 private const val VALUE_ALPHA = 0.56f

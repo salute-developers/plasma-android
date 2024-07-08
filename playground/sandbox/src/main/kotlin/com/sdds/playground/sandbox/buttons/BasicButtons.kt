@@ -22,24 +22,27 @@ internal fun BasicButtonScreen() {
     )
     val buttonState by buttonViewModel.buttonState.collectAsState()
 
-    ComponentScaffold(component = {
-        BasicButton(
-            label = buttonState.buttonLabel,
-            value = buttonState.buttonValue,
-            style = buttonState.style,
-            size = buttonState.size,
-            enabled = buttonState.enabled,
-            loading = buttonState.loading,
-            spacing = buttonState.spacing,
-            icons = when (val icon = buttonState.icon) {
-                ButtonIcon.End -> Button.Icons(end = painterResource(id = icon.iconId))
-                ButtonIcon.No -> null
-                ButtonIcon.Start -> Button.Icons(start = painterResource(id = icon.iconId))
-            },
-            onClick = {},
-            settingsProvider = DefaultButtonSettingsProvider,
-        )
-    }, propertiesOwner = buttonViewModel)
+    ComponentScaffold(
+        component = {
+            BasicButton(
+                label = buttonState.buttonLabel,
+                value = buttonState.buttonValue,
+                style = buttonState.style,
+                size = buttonState.size,
+                enabled = buttonState.enabled,
+                loading = buttonState.loading,
+                spacing = buttonState.spacing,
+                icons = when (val icon = buttonState.icon) {
+                    ButtonIcon.End -> Button.Icons(end = painterResource(id = icon.iconId))
+                    ButtonIcon.No -> null
+                    ButtonIcon.Start -> Button.Icons(start = painterResource(id = icon.iconId))
+                },
+                onClick = {},
+                settingsProvider = DefaultButtonSettingsProvider,
+            )
+        },
+        propertiesOwner = buttonViewModel,
+    )
 }
 
 @Preview(showBackground = true)

@@ -7,7 +7,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.sdds.compose.uikit.IconButton
-import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.core.ComponentScaffold
 
@@ -24,7 +23,7 @@ internal fun IconButtonsScreen() {
     ComponentScaffold(
         component = {
             IconButton(
-                icon = painterResource(id = R.drawable.ic_launcher_foreground),
+                icon = painterResource(buttonState.icon.iconId),
                 onClick = { },
                 style = buttonState.style,
                 size = buttonState.size,
