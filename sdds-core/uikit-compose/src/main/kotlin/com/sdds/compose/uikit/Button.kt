@@ -101,7 +101,7 @@ fun BasicButton(
     settingsProvider: Button.ButtonSettingsProvider,
 ) {
     val contentColor = settingsProvider.contentColorFor(style)
-    val dimensions = size.basicButtonDimensions().let { dimensions ->
+    val dimensions = settingsProvider.basicButtonDimensionsFor(size).let { dimensions ->
         var paddings = dimensions.paddings
         paddings = when {
             icons?.start != null -> paddings.copy(start = paddings.start - 2.dp)
@@ -149,50 +149,6 @@ fun BasicButton(
         }
     }
 }
-
-@Composable
-private fun Button.Size.basicButtonDimensions(): Button.Dimensions =
-    when (this) {
-        Button.Size.L -> Button.Dimensions(
-            height = 56.dp,
-            paddings = Button.Dimensions.PaddingValues(horizontal = 24.dp),
-            minWidth = 98.dp,
-            iconSize = 24.dp,
-            spinnerSize = 22.dp,
-            iconMargin = 8.dp,
-            valueMargin = 4.dp,
-        )
-
-        Button.Size.M -> Button.Dimensions(
-            height = 48.dp,
-            paddings = Button.Dimensions.PaddingValues(horizontal = 20.dp),
-            minWidth = 84.dp,
-            iconSize = 24.dp,
-            spinnerSize = 22.dp,
-            iconMargin = 6.dp,
-            valueMargin = 4.dp,
-        )
-
-        Button.Size.S -> Button.Dimensions(
-            height = 40.dp,
-            paddings = Button.Dimensions.PaddingValues(horizontal = 16.dp),
-            minWidth = 71.dp,
-            iconSize = 24.dp,
-            spinnerSize = 22.dp,
-            iconMargin = 4.dp,
-            valueMargin = 4.dp,
-        )
-
-        Button.Size.XS -> Button.Dimensions(
-            height = 32.dp,
-            paddings = Button.Dimensions.PaddingValues(horizontal = 12.dp),
-            minWidth = 57.dp,
-            iconSize = 24.dp,
-            spinnerSize = 16.dp,
-            iconMargin = 4.dp,
-            valueMargin = 2.dp,
-        )
-    }
 
 /**
  * Содержит сущности для конфигурирования кнопки
@@ -316,9 +272,15 @@ object Button {
         fun textStyleFor(size: Size): TextStyle
 
         /**
-         * Вернёт [Dimensions] для соответствующего [Size]
+         * Вернёт [Dimensions] для соответствующего [Size] icon button
          */
         @Composable
         fun iconButtonDimensionsFor(size: Size): Dimensions
+
+        /**
+         * Вернёт [Dimensions] для соответствующего [Size] basic button
+         */
+        @Composable
+        fun basicButtonDimensionsFor(size: Size): Dimensions
     }
 }
