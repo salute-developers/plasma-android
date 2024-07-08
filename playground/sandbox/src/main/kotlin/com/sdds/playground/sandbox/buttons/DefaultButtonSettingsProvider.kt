@@ -1,6 +1,7 @@
 package com.sdds.playground.sandbox.buttons
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.Button
 import com.sdds.playground.themebuilder.tokens.compose.DefaultTheme
 
@@ -48,5 +49,41 @@ object DefaultButtonSettingsProvider : Button.ButtonSettingsProvider {
             Button.Size.M -> DefaultTheme.typography.bodyMBold
             Button.Size.S -> DefaultTheme.typography.bodySBold
             Button.Size.XS -> DefaultTheme.typography.bodyXsBold
+        }
+
+    @Composable
+    override fun iconButtonDimensionsFor(size: Button.Size): Button.Dimensions =
+        when (size) {
+            Button.Size.L -> Button.Dimensions(
+                height = 56.dp,
+                paddings = Button.Dimensions.PaddingValues(horizontal = 16.dp),
+                minWidth = 56.dp,
+                iconSize = 24.dp,
+                spinnerSize = 22.dp,
+            )
+
+            Button.Size.M -> Button.Dimensions(
+                height = 48.dp,
+                paddings = Button.Dimensions.PaddingValues(horizontal = 12.dp),
+                minWidth = 48.dp,
+                iconSize = 24.dp,
+                spinnerSize = 22.dp,
+            )
+
+            Button.Size.S -> Button.Dimensions(
+                height = 40.dp,
+                paddings = Button.Dimensions.PaddingValues(horizontal = 8.dp),
+                minWidth = 40.dp,
+                iconSize = 24.dp,
+                spinnerSize = 22.dp,
+            )
+
+            Button.Size.XS -> Button.Dimensions(
+                height = 32.dp,
+                paddings = Button.Dimensions.PaddingValues(horizontal = 8.dp),
+                minWidth = 32.dp,
+                iconSize = 16.dp,
+                spinnerSize = 16.dp,
+            )
         }
 }

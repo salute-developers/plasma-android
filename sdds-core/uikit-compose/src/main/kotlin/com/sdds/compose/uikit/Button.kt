@@ -43,7 +43,7 @@ fun IconButton(
     loading: Boolean = false,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
-    val dimensions = size.iconButtonDimensions()
+    val dimensions = settingsProvider.iconButtonDimensionsFor(size)
     val innerShape = when (shape) {
         Button.IconButtonShape.Rounded -> settingsProvider.shapeFor(size)
         Button.IconButtonShape.Circle -> CircleShape
@@ -194,42 +194,6 @@ private fun Button.Size.basicButtonDimensions(): Button.Dimensions =
         )
     }
 
-@Composable
-private fun Button.Size.iconButtonDimensions(): Button.Dimensions =
-    when (this) {
-        Button.Size.L -> Button.Dimensions(
-            height = 56.dp,
-            paddings = Button.Dimensions.PaddingValues(horizontal = 16.dp),
-            minWidth = 56.dp,
-            iconSize = 24.dp,
-            spinnerSize = 22.dp,
-        )
-
-        Button.Size.M -> Button.Dimensions(
-            height = 48.dp,
-            paddings = Button.Dimensions.PaddingValues(horizontal = 12.dp),
-            minWidth = 48.dp,
-            iconSize = 24.dp,
-            spinnerSize = 22.dp,
-        )
-
-        Button.Size.S -> Button.Dimensions(
-            height = 40.dp,
-            paddings = Button.Dimensions.PaddingValues(horizontal = 8.dp),
-            minWidth = 40.dp,
-            iconSize = 24.dp,
-            spinnerSize = 22.dp,
-        )
-
-        Button.Size.XS -> Button.Dimensions(
-            height = 32.dp,
-            paddings = Button.Dimensions.PaddingValues(horizontal = 8.dp),
-            minWidth = 32.dp,
-            iconSize = 16.dp,
-            spinnerSize = 16.dp,
-        )
-    }
-
 /**
  * Содержит сущности для конфигурирования кнопки
  */
@@ -239,7 +203,7 @@ object Button {
      * Размеры и отступы, которые используются внутри кнопки.
      * Нужны только для использования внутри библиотеки.
      */
-    internal data class Dimensions(
+    data class Dimensions(
         val height: Dp = 0.dp,
         val paddings: PaddingValues = PaddingValues(),
         val minWidth: Dp = 0.dp,
@@ -350,5 +314,11 @@ object Button {
          */
         @Composable
         fun textStyleFor(size: Size): TextStyle
+
+        /**
+         * Вернёт [Dimensions] для соответствующего [Size]
+         */
+        @Composable
+        fun iconButtonDimensionsFor(size: Size): Dimensions
     }
 }
