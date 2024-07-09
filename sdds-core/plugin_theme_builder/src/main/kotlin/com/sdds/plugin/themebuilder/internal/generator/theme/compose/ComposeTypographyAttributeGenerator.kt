@@ -9,8 +9,8 @@ import com.sdds.plugin.themebuilder.internal.generator.SimpleBaseGenerator
 import com.sdds.plugin.themebuilder.internal.generator.data.TypographyTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.mergedScreenClasses
 import com.sdds.plugin.themebuilder.internal.token.TypographyToken.ScreenClass
+import com.sdds.plugin.themebuilder.internal.utils.snakeToCamelCase
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
-import org.gradle.configurationcache.extensions.capitalized
 
 /**
  * Генератор Compose-атрибутов типографики.
@@ -35,7 +35,9 @@ internal class ComposeTypographyAttributeGenerator(
     private val ktFileFromResBuilder by unsafeLazy {
         ktFileFromResourcesBuilderFactory.create()
     }
-    private val typographyClassName = "${themeName.capitalized()}Typography"
+
+    private val camelThemeName = themeName.snakeToCamelCase()
+    private val typographyClassName = "${camelThemeName}Typography"
     private val typographyClassType by unsafeLazy {
         typographyKtFileBuilder.getInternalClassType(typographyClassName)
     }
@@ -129,7 +131,7 @@ internal class ComposeTypographyAttributeGenerator(
                     modifiers = listOf(Modifier.INTERNAL),
                 ),
                 annotation = KtFileBuilder.TypeAnnotationImmutable,
-                description = "Типографика $themeName",
+                description = "Типографика $camelThemeName",
                 modifiers = listOf(Modifier.DATA),
             )
         }
@@ -200,7 +202,7 @@ internal class ComposeTypographyAttributeGenerator(
 
     private fun addLocalTextStyleVal() {
         typographyKtFileBuilder.appendRootVal(
-            name = "Local${themeName.capitalized()}TextStyle",
+            name = "Local${camelThemeName}TextStyle",
             typeName = KtFileBuilder.TypeProvidableCompositionLocal,
             parameterizedType = KtFileBuilder.TypeTextStyle,
             initializer = "compositionLocalOf(structuralEqualityPolicy()) { TextStyle.Default }",
@@ -226,9 +228,9 @@ internal class ComposeTypographyAttributeGenerator(
             modifiers = listOf(Modifier.INTERNAL),
             annotation = KtFileBuilder.TypeAnnotationComposable,
             body = listOf(
-                "val mergedStyle = Local${themeName.capitalized()}TextStyle.current.merge(value)\n",
+                "val mergedStyle = Local${camelThemeName}TextStyle.current.merge(value)\n",
                 "CompositionLocalProvider(" +
-                    "Local${themeName.capitalized()}TextStyle provides mergedStyle, " +
+                    "Local${camelThemeName}TextStyle provides mergedStyle, " +
                     "content = content)",
             ),
         )

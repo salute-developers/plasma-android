@@ -7,8 +7,8 @@ import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Modifier.INTE
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.generator.SimpleBaseGenerator
 import com.sdds.plugin.themebuilder.internal.generator.data.ShapeTokenResult
+import com.sdds.plugin.themebuilder.internal.utils.snakeToCamelCase
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
-import org.gradle.configurationcache.extensions.capitalized
 
 /**
  * Генератор Compose-атрибутов форм.
@@ -29,7 +29,8 @@ internal class ComposeShapeAttributeGenerator(
         ktFileBuilderFactory.create(shapeClassName)
     }
 
-    private val shapeClassName = "${themeName.capitalized()}Shapes"
+    private val camelThemeName = themeName.snakeToCamelCase()
+    private val shapeClassName = "${camelThemeName}Shapes"
 
     fun setShapeTokenData(shapes: List<ShapeTokenResult.TokenData>) {
         this.shapes.clear()
@@ -61,7 +62,7 @@ internal class ComposeShapeAttributeGenerator(
                     },
                 ),
                 annotation = KtFileBuilder.TypeAnnotationImmutable,
-                description = "Формы $themeName",
+                description = "Формы $camelThemeName",
                 modifiers = listOf(DATA),
             )
         }

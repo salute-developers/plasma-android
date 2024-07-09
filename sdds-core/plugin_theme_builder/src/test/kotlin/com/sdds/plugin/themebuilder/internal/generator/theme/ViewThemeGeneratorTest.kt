@@ -44,7 +44,7 @@ class ViewThemeGeneratorTest {
             xmlBuilderFactory = XmlResourcesDocumentBuilderFactory("thmbldr", "TestTheme"),
             outputResDir = mockOutputResDir,
             parentThemeName = "Sdds.Theme",
-            themeName = "TestTheme",
+            themeName = "test_Theme",
             resPrefix = "thmbldr",
         )
     }
