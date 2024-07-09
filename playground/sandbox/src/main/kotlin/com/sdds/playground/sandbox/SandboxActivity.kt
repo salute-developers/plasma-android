@@ -31,11 +31,10 @@ import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
-import com.sdds.compose.uikit.Button
-import com.sdds.compose.uikit.IconButton
 import com.sdds.playground.sandbox.buttons.BasicButtonScreen
-import com.sdds.playground.sandbox.buttons.DefaultButtonSettingsProvider
 import com.sdds.playground.sandbox.buttons.IconButtonsScreen
+import com.sdds.playground.sandbox.buttons.SandboxButton
+import com.sdds.playground.sandbox.buttons.SandboxIconButton
 import com.sdds.playground.sandbox.core.components.SandboxText
 import com.sdds.playground.themebuilder.tokens.compose.DefaultTheme
 import kotlinx.coroutines.launch
@@ -147,12 +146,11 @@ private fun TopBar(
         },
         elevation = 1.dp,
         navigationIcon = {
-            IconButton(
+            SandboxIconButton(
                 icon = painterResource(id = Icons.ic_menu_24),
-                style = Button.Style.Clear,
-                shape = Button.IconButtonShape.Circle,
+                style = SandboxButton.Style.Clear,
+                shape = SandboxButton.IconButtonShape.Circle,
                 onClick = onNavigationClick,
-                settingsProvider = DefaultButtonSettingsProvider,
             )
         },
         backgroundColor = DefaultTheme.colors.surfaceDefaultSolidPrimary,

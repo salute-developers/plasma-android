@@ -6,13 +6,12 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.sdds.compose.uikit.BasicButton
 import com.sdds.compose.uikit.Button
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.core.ComponentScaffold
 
 /**
- * Экран со [BasicButton]
+ * Экран со [Button]
  */
 @Composable
 internal fun BasicButtonScreen() {
@@ -24,7 +23,7 @@ internal fun BasicButtonScreen() {
 
     ComponentScaffold(
         component = {
-            BasicButton(
+            SandboxBasicButton(
                 label = buttonState.buttonLabel,
                 value = buttonState.buttonValue,
                 style = buttonState.style,
@@ -38,7 +37,6 @@ internal fun BasicButtonScreen() {
                     ButtonIcon.Start -> Button.Icons(start = painterResource(id = icon.iconId))
                 },
                 onClick = {},
-                settingsProvider = DefaultButtonSettingsProvider,
             )
         },
         propertiesOwner = buttonViewModel,

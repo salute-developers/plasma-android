@@ -5,10 +5,10 @@ import com.sdds.icons.R.drawable as Icons
 
 /**
  * Состояние кнопки
- * @property style стиль кнопки [Button.Style]
- * @property size размер кнопки [Button.Size]
+ * @property style стиль кнопки [SandboxButton.Style]
+ * @property size размер кнопки [SandboxButton.Size]
  * @property icon положение и ресурс иконки кнопки [ButtonIcon]
- * @property shape форма кнопки (справедливо только для StarIconButton) [Button.IconButtonShape]
+ * @property shape форма кнопки (справедливо только для StarIconButton) [SandboxButton.IconButtonShape]
  * @property buttonLabel подпись кнопки
  * @property buttonValue значение кнопки
  * @property spacing способ группировки контента в кнопке [Button.Spacing]
@@ -16,10 +16,10 @@ import com.sdds.icons.R.drawable as Icons
  * @property loading индикация загрузки
  */
 internal data class ButtonUiState(
-    val style: Button.Style = Button.Style.Default,
-    val size: Button.Size = Button.Size.L,
+    val style: SandboxButton.Style = SandboxButton.Style.Default,
+    val size: SandboxButton.Size = SandboxButton.Size.L,
     val icon: ButtonIcon = ButtonIcon.Start,
-    val shape: Button.IconButtonShape = Button.IconButtonShape.Rounded,
+    val shape: SandboxButton.IconButtonShape = SandboxButton.IconButtonShape.Rounded,
     val buttonLabel: String = "Label",
     val buttonValue: String? = null,
     val spacing: Button.Spacing = Button.Spacing.Packed,

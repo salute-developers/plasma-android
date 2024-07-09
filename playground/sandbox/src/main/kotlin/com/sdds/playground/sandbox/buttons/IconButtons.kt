@@ -6,7 +6,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.sdds.compose.uikit.IconButton
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.core.ComponentScaffold
 
@@ -22,7 +21,7 @@ internal fun IconButtonsScreen() {
     val buttonState by buttonViewModel.buttonState.collectAsState()
     ComponentScaffold(
         component = {
-            IconButton(
+            SandboxIconButton(
                 icon = painterResource(buttonState.icon.iconId),
                 onClick = { },
                 style = buttonState.style,
@@ -30,7 +29,6 @@ internal fun IconButtonsScreen() {
                 shape = buttonState.shape,
                 enabled = buttonState.enabled,
                 loading = buttonState.loading,
-                settingsProvider = DefaultButtonSettingsProvider,
             )
         },
         propertiesOwner = buttonViewModel,

@@ -21,9 +21,8 @@ import androidx.compose.ui.text.TextRange
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.uikit.BasicButton
 import com.sdds.playground.sandbox.R
-import com.sdds.playground.sandbox.buttons.DefaultButtonSettingsProvider
+import com.sdds.playground.sandbox.buttons.SandboxBasicButton
 import com.sdds.playground.sandbox.core.components.SandboxRadioBox
 import com.sdds.playground.sandbox.core.components.SandboxText
 import com.sdds.playground.sandbox.core.components.SandboxTextField
@@ -108,7 +107,7 @@ private fun TextPropertyEditor(
         placeholderText = stringResource(id = R.string.sandbox_text_editor_placeholder),
     )
     Spacer(modifier = Modifier.height(16.dp))
-    BasicButton(
+    SandboxBasicButton(
         label = stringResource(R.string.sandbox_editor_confirm),
         onClick = {
             focusRequester.freeFocus()
@@ -118,7 +117,6 @@ private fun TextPropertyEditor(
         modifier = Modifier
             .fillMaxWidth()
             .padding(Margins),
-        settingsProvider = DefaultButtonSettingsProvider,
     )
     Spacer(modifier = Modifier.height(16.dp))
     LaunchedEffect(Unit) {

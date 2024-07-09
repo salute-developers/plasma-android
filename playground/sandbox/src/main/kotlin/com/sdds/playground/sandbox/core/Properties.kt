@@ -21,10 +21,9 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.uikit.Button
-import com.sdds.compose.uikit.IconButton
 import com.sdds.playground.sandbox.R
-import com.sdds.playground.sandbox.buttons.DefaultButtonSettingsProvider
+import com.sdds.playground.sandbox.buttons.SandboxButton
+import com.sdds.playground.sandbox.buttons.SandboxIconButton
 import com.sdds.playground.sandbox.core.components.SandboxSwitch
 import com.sdds.playground.sandbox.core.components.SandboxText
 import com.sdds.playground.themebuilder.tokens.compose.DefaultTheme
@@ -209,12 +208,11 @@ private fun PropertiesHeader(
 
         Spacer(modifier = Modifier.width(10.dp))
 
-        IconButton(
+        SandboxIconButton(
             icon = painterResource(id = Icons.ic_reset_outline_24),
-            size = Button.Size.XS,
-            style = Button.Style.Clear,
+            size = SandboxButton.Size.XS,
+            style = SandboxButton.Style.Clear,
             onClick = onResetClicked,
-            settingsProvider = DefaultButtonSettingsProvider,
         )
     }
 }
