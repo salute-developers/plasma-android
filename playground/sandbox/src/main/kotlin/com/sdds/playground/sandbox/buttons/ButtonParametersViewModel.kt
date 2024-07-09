@@ -209,12 +209,12 @@ internal class ButtonParametersViewModel(
 internal enum class ButtonType {
 
     /**
-     * Компонент StarBasicButton
+     * Компонент BasicButton
      */
     Basic,
 
     /**
-     * Компонент StarIconButton
+     * Компонент IconButton
      */
     Icon,
 }
