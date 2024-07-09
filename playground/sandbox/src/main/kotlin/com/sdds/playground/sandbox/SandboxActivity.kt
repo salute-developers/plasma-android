@@ -56,7 +56,7 @@ class SandboxActivity : ComponentActivity() {
 }
 
 private sealed class MenuItem(val title: String, val screen: @Composable () -> Unit) {
-    object BasicButtons : MenuItem("BasicButton", { BasicButtonScreen() })
+    object Buttons : MenuItem("Button", { BasicButtonScreen() })
     object IconButtons : MenuItem("IconButton", { IconButtonsScreen() })
 }
 
@@ -64,7 +64,7 @@ private sealed class MenuItem(val title: String, val screen: @Composable () -> U
 private fun SandboxContainer() {
     val menuItems = remember {
         listOf(
-            MenuItem.BasicButtons,
+            MenuItem.Buttons,
             MenuItem.IconButtons,
         )
     }

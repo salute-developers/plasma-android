@@ -131,7 +131,7 @@ fun Button(
     backgroundColor: Color = Color.Black,
     value: String? = null,
     valueColor: Color = contentColor.copy(alpha = VALUE_ALPHA),
-    labelTextStyle: TextStyle = TextStyle(),
+    labelTextStyle: TextStyle = TextStyle.Default,
     valueTextStyle: TextStyle = labelTextStyle,
     icons: Button.Icons? = null,
     spacing: Button.Spacing = Button.Spacing.Packed,
