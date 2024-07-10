@@ -9,8 +9,8 @@ import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.generator.SimpleBaseGenerator
 import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.mergedLightAndDark
+import com.sdds.plugin.themebuilder.internal.utils.snakeToCamelCase
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
-import org.gradle.configurationcache.extensions.capitalized
 
 /**
  * Генератор Compose-атрибутов цвета.
@@ -33,7 +33,8 @@ internal class ComposeColorAttributeGenerator(
         ktFileBuilderFactory.create(colorClassName)
     }
 
-    private val colorClassName = "${themeName.capitalized()}Colors"
+    private val camelThemeName = themeName.snakeToCamelCase()
+    private val colorClassName = "${camelThemeName}Colors"
     private val colorClassType by unsafeLazy {
         colorKtFileBuilder.getInternalClassType(colorClassName)
     }
@@ -70,7 +71,7 @@ internal class ComposeColorAttributeGenerator(
                     },
                 ),
                 annotation = KtFileBuilder.TypeAnnotationImmutable,
-                description = "Цвета $themeName",
+                description = "Цвета $camelThemeName",
             )
 
             colorAttributes.forEach { color ->
@@ -132,7 +133,7 @@ internal class ComposeColorAttributeGenerator(
 
     private fun addLightColorsFun() {
         colorKtFileBuilder.appendRootFun(
-            name = "light${themeName}Colors",
+            name = "light${camelThemeName}Colors",
             params = colorAttributes.map {
                 val defaultValue = if (tokenData?.light?.get(it) != null) {
                     "LightColorTokens.${tokenData?.light?.get(it)}"
@@ -159,7 +160,7 @@ internal class ComposeColorAttributeGenerator(
 
     private fun addDarkColorsFun() {
         colorKtFileBuilder.appendRootFun(
-            name = "dark${themeName}Colors",
+            name = "dark${camelThemeName}Colors",
             params = colorAttributes.map {
                 val defaultValue = if (tokenData?.dark?.get(it) != null) {
                     "DarkColorTokens.${tokenData?.dark?.get(it)}"
@@ -189,7 +190,7 @@ internal class ComposeColorAttributeGenerator(
             name = "Local$colorClassName",
             typeName = KtFileBuilder.TypeProvidableCompositionLocal,
             parameterizedType = colorClassType,
-            initializer = "staticCompositionLocalOf { light${themeName}Colors() }",
+            initializer = "staticCompositionLocalOf { light${camelThemeName}Colors() }",
             modifiers = listOf(INTERNAL),
         )
     }

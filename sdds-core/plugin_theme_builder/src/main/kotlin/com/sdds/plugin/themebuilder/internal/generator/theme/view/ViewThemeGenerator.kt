@@ -85,6 +85,7 @@ internal class ViewThemeGenerator(
         }
 
         with(lightThemeXmlFileBuilder) {
+            appendStyle(capitalizedResPrefix)
             addStyleWithAttrs(
                 {
                     if (colorAttributes.isNotEmpty()) appendComment("Light colors")
