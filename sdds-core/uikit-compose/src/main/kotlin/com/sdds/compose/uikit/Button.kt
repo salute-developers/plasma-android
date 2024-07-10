@@ -23,6 +23,7 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -277,6 +278,7 @@ object Button {
      * @property iconMargin отступ иконки
      * @property valueMargin отступ доп. текста
      */
+    @Immutable
     data class Dimensions(
         val height: Dp = 48.dp,
         val paddings: PaddingValues = PaddingValues(),
@@ -294,6 +296,7 @@ object Button {
          * @property start начальный отступ
          * @property end конечный отступ
          */
+        @Immutable
         data class PaddingValues(
             val start: Dp = 20.dp,
             val end: Dp = 20.dp,
