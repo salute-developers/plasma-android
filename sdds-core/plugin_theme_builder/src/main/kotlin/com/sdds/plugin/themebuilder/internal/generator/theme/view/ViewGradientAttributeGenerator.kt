@@ -11,8 +11,8 @@ import com.sdds.plugin.themebuilder.internal.factory.KtFileFromResourcesBuilderF
 import com.sdds.plugin.themebuilder.internal.generator.SimpleBaseGenerator
 import com.sdds.plugin.themebuilder.internal.generator.data.GradientTokenResult.TokenData
 import com.sdds.plugin.themebuilder.internal.generator.data.mergedLightAndDark
+import com.sdds.plugin.themebuilder.internal.utils.snakeToCamelCase
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
-import org.gradle.configurationcache.extensions.capitalized
 import java.util.Locale
 
 /**
@@ -44,7 +44,8 @@ internal class ViewGradientAttributeGenerator(
         ktFileFromResourcesBuilderFactory.create(frameworkPackage = KtFileFromResourcesBuilderFactory.Package.VS)
     }
 
-    private val gradientClassName = "${themeName.capitalized()}Gradients"
+    private val camelThemeName = themeName.snakeToCamelCase()
+    private val gradientClassName = "${camelThemeName}Gradients"
 
     fun setGradientTokenData(data: TokenData) {
         tokenData = data
@@ -129,7 +130,7 @@ internal class ViewGradientAttributeGenerator(
                         )
                     },
                 ),
-                description = "Градиенты $themeName.",
+                description = "Градиенты $camelThemeName.",
                 modifiers = listOf(DATA),
             )
         }
@@ -137,7 +138,7 @@ internal class ViewGradientAttributeGenerator(
 
     private fun addLightGradientsVal() {
         gradientKtFileBuilder.appendRootVal(
-            name = "light${themeName.capitalized()}Gradients",
+            name = "light${camelThemeName}Gradients",
             typeName = gradientKtFileBuilder.getInternalClassType(gradientClassName),
             initializer = "$gradientClassName(\n${
                 gradientAttributes.joinToString(separator = ",") {
@@ -149,7 +150,7 @@ internal class ViewGradientAttributeGenerator(
 
     private fun addDarkGradientsVal() {
         gradientKtFileBuilder.appendRootVal(
-            name = "dark${themeName.capitalized()}Gradients",
+            name = "dark${camelThemeName}Gradients",
             typeName = gradientKtFileBuilder.getInternalClassType(gradientClassName),
             initializer = "$gradientClassName(\n${
                 gradientAttributes.joinToString(separator = ", ") {
@@ -342,7 +343,7 @@ internal class ViewGradientAttributeGenerator(
 
     private fun addGradientsFun() {
         gradientKtFileBuilder.appendRootFun(
-            name = "${themeName.decapitalize(Locale.getDefault())}Gradients",
+            name = "${camelThemeName.decapitalize(Locale.getDefault())}Gradients",
             params = listOf(
                 KtFileBuilder.FunParameter(
                     name = "context",
@@ -353,7 +354,7 @@ internal class ViewGradientAttributeGenerator(
             body = listOf(
                 "val isDarkMode = context.resources.configuration.uiMode and\n" +
                     "            Configuration.UI_MODE_NIGHT_MASK == Configuration.UI_MODE_NIGHT_YES\n",
-                "return if (isDarkMode) dark${themeName}Gradients else light${themeName}Gradients",
+                "return if (isDarkMode) dark${camelThemeName}Gradients else light${camelThemeName}Gradients",
             ),
             description = "Возвращает объект [ViewGradients], " +
                 "который соответствует текущему режиму dark/light для данного [context].",

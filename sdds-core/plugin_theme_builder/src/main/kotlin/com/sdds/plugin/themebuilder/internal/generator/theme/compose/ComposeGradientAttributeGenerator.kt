@@ -11,8 +11,8 @@ import com.sdds.plugin.themebuilder.internal.factory.KtFileFromResourcesBuilderF
 import com.sdds.plugin.themebuilder.internal.generator.SimpleBaseGenerator
 import com.sdds.plugin.themebuilder.internal.generator.data.GradientTokenResult.TokenData
 import com.sdds.plugin.themebuilder.internal.generator.data.mergedLightAndDark
+import com.sdds.plugin.themebuilder.internal.utils.snakeToCamelCase
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
-import org.gradle.configurationcache.extensions.capitalized
 
 /**
  * Генератор Compose-атрибутов градиента.
@@ -41,7 +41,8 @@ internal class ComposeGradientAttributeGenerator(
         ktFileFromResourcesBuilderFactory.create()
     }
 
-    private val gradientClassName = "${themeName.capitalized()}Gradients"
+    private val camelThemeName = themeName.snakeToCamelCase()
+    private val gradientClassName = "${camelThemeName}Gradients"
 
     fun setGradientTokenData(data: TokenData) {
         tokenData = data
@@ -135,7 +136,7 @@ internal class ComposeGradientAttributeGenerator(
                     },
                 ),
                 annotation = KtFileBuilder.TypeAnnotationImmutable,
-                description = "Градиенты $themeName",
+                description = "Градиенты $camelThemeName",
                 modifiers = listOf(DATA),
             )
         }
@@ -146,14 +147,14 @@ internal class ComposeGradientAttributeGenerator(
             name = "Local$gradientClassName",
             typeName = KtFileBuilder.TypeProvidableCompositionLocal,
             parameterizedType = gradientKtFileBuilder.getInternalClassType(gradientClassName),
-            initializer = "staticCompositionLocalOf { light${themeName}Gradients() }",
+            initializer = "staticCompositionLocalOf { light${camelThemeName}Gradients() }",
             modifiers = listOf(INTERNAL),
         )
     }
 
     private fun addLightGradientsFun() {
         gradientKtFileBuilder.appendRootFun(
-            name = "light${themeName}Gradients",
+            name = "light${camelThemeName}Gradients",
             params = gradientAttributes.map {
                 KtFileBuilder.FunParameter(
                     name = it,
@@ -226,7 +227,7 @@ internal class ComposeGradientAttributeGenerator(
 
     private fun addDarkGradientsFun() {
         gradientKtFileBuilder.appendRootFun(
-            name = "dark${themeName}Gradients",
+            name = "dark${camelThemeName}Gradients",
             params = gradientAttributes.map {
                 KtFileBuilder.FunParameter(
                     name = it,

@@ -7,8 +7,8 @@ import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.TypographyTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.mergedLightAndDark
 import com.sdds.plugin.themebuilder.internal.generator.data.mergedScreenClasses
+import com.sdds.plugin.themebuilder.internal.utils.snakeToCamelCase
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
-import org.gradle.configurationcache.extensions.capitalized
 
 /**
  * Генератор темы для Compose
@@ -23,8 +23,8 @@ internal class ComposeThemeGenerator(
         ktFileBuilderFactory.create(themeClassName)
     }
 
-    private val capitalizedThemeName = themeName.capitalized()
-    private val themeClassName = "${capitalizedThemeName}Theme"
+    private val camelThemeName = themeName.snakeToCamelCase()
+    private val themeClassName = "${camelThemeName}Theme"
 
     private var textSelectionHandleColor: String? = null
     private var textStyleColor: String? = null
@@ -60,16 +60,16 @@ internal class ComposeThemeGenerator(
     }
 
     private val colorAttributesClassType by unsafeLazy {
-        themeKtFileBuilder.getInternalClassType("${capitalizedThemeName}Colors")
+        themeKtFileBuilder.getInternalClassType("${camelThemeName}Colors")
     }
     private val gradientAttributesClassType by unsafeLazy {
-        themeKtFileBuilder.getInternalClassType("${capitalizedThemeName}Gradients")
+        themeKtFileBuilder.getInternalClassType("${camelThemeName}Gradients")
     }
     private val shapeAttributesClassType by unsafeLazy {
-        themeKtFileBuilder.getInternalClassType("${capitalizedThemeName}Shapes")
+        themeKtFileBuilder.getInternalClassType("${camelThemeName}Shapes")
     }
     private val typographyAttributesClassType by unsafeLazy {
-        themeKtFileBuilder.getInternalClassType("${capitalizedThemeName}Typography")
+        themeKtFileBuilder.getInternalClassType("${camelThemeName}Typography")
     }
 
     private fun addThemeFun() {
@@ -95,7 +95,7 @@ internal class ComposeThemeGenerator(
                     KtFileBuilder.FunParameter(
                         name = "typography",
                         type = typographyAttributesClassType,
-                        defValue = "dynamic${capitalizedThemeName}Typography()",
+                        defValue = "dynamic${camelThemeName}Typography()",
                     ),
                     KtFileBuilder.FunParameter(
                         name = "content",
@@ -106,7 +106,7 @@ internal class ComposeThemeGenerator(
                 ),
                 body = listOf(buildThemeFunBody()),
                 annotation = KtFileBuilder.TypeAnnotationComposable,
-                description = "Базовая тема $capitalizedThemeName",
+                description = "Базовая тема $camelThemeName",
             )
         }
     }
@@ -124,10 +124,10 @@ internal class ComposeThemeGenerator(
                 appendLine()
             }
             val compositionLocalProviderFunParametersList = mutableListOf(
-                "Local${capitalizedThemeName}Colors provides rememberColors",
-                "Local${capitalizedThemeName}Gradients provides gradients",
-                "Local${capitalizedThemeName}Typography provides typography",
-                "Local${capitalizedThemeName}Shapes provides shapes",
+                "Local${camelThemeName}Colors provides rememberColors",
+                "Local${camelThemeName}Gradients provides gradients",
+                "Local${camelThemeName}Typography provides typography",
+                "Local${camelThemeName}Shapes provides shapes",
             )
             textSelectionHandleColor?.let {
                 compositionLocalProviderFunParametersList.add(
