@@ -2,6 +2,7 @@ package com.sdds.compose.uikit
 
 import androidx.compose.foundation.text.BasicText
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextLayoutResult
 import androidx.compose.ui.text.TextStyle
@@ -18,6 +19,7 @@ import androidx.compose.ui.text.style.TextOverflow
  * @param softWrap должен ли текст разрываться при мягких разрывах строк
  * @param maxLines максимальное количество строк
  */
+@NonRestartableComposable
 @Composable
 fun Text(
     text: String,
