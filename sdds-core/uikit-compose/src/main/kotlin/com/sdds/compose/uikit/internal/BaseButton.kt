@@ -37,7 +37,7 @@ import com.sdds.compose.uikit.Button
  */
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun BaseButton(
+internal fun BaseButton(
     modifier: Modifier = Modifier,
     onClick: () -> Unit = {},
     shape: CornerBasedShape,
