@@ -17,11 +17,9 @@ import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Icon
-import androidx.compose.material.LocalContentAlpha
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -74,27 +72,25 @@ fun BaseButton(
         elevation = 0.dp,
         interactionSource = interactionSource,
     ) {
-        CompositionLocalProvider(LocalContentAlpha provides contentColor.alpha) {
-            Box(
-                modifier = Modifier
-                    .wrapContentSize()
-                    .defaultMinSize(dimensions.minWidth, dimensions.height)
-                    .padding(dimensions.paddings.start, 0.dp, dimensions.paddings.end, 0.dp),
-                contentAlignment = Alignment.Center,
-            ) {
-                Row(
-                    modifier = Modifier.alpha(if (loading) spinnerMode.contentAlpha else enabledAlpha),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.Center,
-                    content = content,
+        Box(
+            modifier = Modifier
+                .wrapContentSize()
+                .defaultMinSize(dimensions.minWidth, dimensions.height)
+                .padding(dimensions.paddings.start, 0.dp, dimensions.paddings.end, 0.dp),
+            contentAlignment = Alignment.Center,
+        ) {
+            Row(
+                modifier = Modifier.alpha(if (loading) spinnerMode.contentAlpha else enabledAlpha),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.Center,
+                content = content,
+            )
+            if (loading && enabled) {
+                BaseSpinner(
+                    tint = spinnerColor,
+                    modifier = Modifier.size(dimensions.spinnerSize),
+                    strokeWidth = dimensions.spinnerStrokeWidth,
                 )
-                if (loading && enabled) {
-                    BaseSpinner(
-                        tint = spinnerColor,
-                        modifier = Modifier.size(dimensions.spinnerSize),
-                        strokeWidth = dimensions.spinnerStrokeWidth,
-                    )
-                }
             }
         }
     }
