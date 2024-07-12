@@ -11,7 +11,7 @@ import com.sdds.playground.themebuilder.tokens.compose.DefaultTheme
 /**
  * Провайдер настроек кнопки для демо-приложения
  */
-object SandboxButtonSettingsProvider {
+internal object SandboxButtonSettingsProvider {
 
     /**
      * Вернет форму [CornerBasedShape] для соответствующего [size]

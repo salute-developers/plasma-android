@@ -19,7 +19,7 @@ import com.sdds.playground.sandbox.buttons.SandboxButtonSettingsProvider.textSty
  * Кнопка с иконкой в песочнице на основе [IconButton]
  */
 @Composable
-fun SandboxIconButton(
+internal fun SandboxIconButton(
     icon: Painter,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
