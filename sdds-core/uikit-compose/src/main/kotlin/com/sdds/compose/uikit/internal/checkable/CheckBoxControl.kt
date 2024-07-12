@@ -35,6 +35,7 @@ import kotlin.math.floor
 
 /**
  * Control вида CheckBox для [BaseCheckableLayout]
+ *
  * @param state состояние контрола [ToggleableState]
  * @param focused флаг-индикатор состояния фокуса
  * @param modifier модификатор

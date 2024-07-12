@@ -5,8 +5,11 @@ import androidx.compose.ui.state.ToggleableState
 /**
  * Состояние checkbox
  *
+ * @property state состояние checkbox
  * @property size размер checkbox [SandboxCheckBox.Size]
- * @property enabled включена ли кнопка
+ * @property label текст лэйбла
+ * @property description текст описания
+ * @property enabled включен ли checkbox
  */
 internal data class CheckBoxUiState(
     val state: ToggleableState = ToggleableState.Indeterminate,
