@@ -35,6 +35,7 @@ import com.sdds.playground.sandbox.buttons.BasicButtonScreen
 import com.sdds.playground.sandbox.buttons.IconButtonsScreen
 import com.sdds.playground.sandbox.buttons.SandboxButton
 import com.sdds.playground.sandbox.buttons.SandboxIconButton
+import com.sdds.playground.sandbox.checkbox.CheckBoxScreen
 import com.sdds.playground.sandbox.core.components.SandboxText
 import com.sdds.playground.themebuilder.tokens.compose.DefaultTheme
 import kotlinx.coroutines.launch
@@ -58,6 +59,7 @@ class SandboxActivity : ComponentActivity() {
 private sealed class MenuItem(val title: String, val screen: @Composable () -> Unit) {
     object Buttons : MenuItem("Button", { BasicButtonScreen() })
     object IconButtons : MenuItem("IconButton", { IconButtonsScreen() })
+    object CheckBox : MenuItem("CheckBox", { CheckBoxScreen() })
 }
 
 @Composable
@@ -66,6 +68,7 @@ private fun SandboxContainer() {
         listOf(
             MenuItem.Buttons,
             MenuItem.IconButtons,
+            MenuItem.CheckBox,
         )
     }
     val drawerState = rememberDrawerState(DrawerValue.Closed)
