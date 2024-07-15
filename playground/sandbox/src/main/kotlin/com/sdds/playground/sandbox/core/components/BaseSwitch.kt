@@ -143,7 +143,7 @@ internal object SwitchDefaults {
     @Composable
     fun colors(
         thumbColor: Color = DefaultTheme.colors.surfaceOnDarkSolidDefault,
-        activeTrackColor: Color = DefaultTheme.colors.surfaceDefaultAccent,
+        activeTrackColor: Color = DefaultTheme.colors.surfaceDefaultPositive,
         inactiveTrackColor: Color = DefaultTheme.colors.surfaceDefaultTransparentTertiary,
     ): SwitchColors = DefaultSwitchColors(
         thumbColor = thumbColor,
