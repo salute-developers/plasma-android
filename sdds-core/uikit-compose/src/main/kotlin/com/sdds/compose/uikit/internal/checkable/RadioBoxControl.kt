@@ -44,7 +44,7 @@ internal fun RadioBoxControl(
     val baseRadius = animateDpAsState(
         targetValue = if (checked) targetCheckedRadius else 0.dp,
         animationSpec = tween(durationMillis = animationDuration),
-        label = "baseRadius"
+        label = "baseRadius",
     )
     val radioColor = colors.radioColorFill(checked)
     val borderColor = colors.borderColor(checked, focused)
