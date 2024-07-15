@@ -21,11 +21,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.Text
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.buttons.SandboxButton
 import com.sdds.playground.sandbox.buttons.SandboxIconButton
 import com.sdds.playground.sandbox.core.components.SandboxSwitch
-import com.sdds.playground.sandbox.core.components.SandboxText
 import com.sdds.playground.themebuilder.tokens.compose.DefaultTheme
 import com.sdds.icons.R.drawable as Icons
 
@@ -187,19 +187,17 @@ private fun PropertiesHeader(
             .padding(16.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        SandboxText(
+        Text(
             text = stringResource(R.string.sandbox_properties_header_name),
-            style = DefaultTheme.typography.bodyMBold,
-            color = DefaultTheme.colors.textDefaultSecondary,
+            style = DefaultTheme.typography.bodyMBold.copy(color = DefaultTheme.colors.textDefaultSecondary),
             modifier = Modifier
                 .weight(1f)
                 .padding(start = 4.dp)
                 .wrapContentWidth(Alignment.Start),
         )
-        SandboxText(
+        Text(
             text = stringResource(R.string.sandbox_properties_header_value),
-            style = DefaultTheme.typography.bodyMBold,
-            color = DefaultTheme.colors.textDefaultSecondary,
+            style = DefaultTheme.typography.bodyMBold.copy(color = DefaultTheme.colors.textDefaultSecondary),
             modifier = Modifier
                 .weight(1f)
                 .padding(start = 4.dp)
@@ -232,19 +230,17 @@ private fun ValuePropertyListItem(
             .padding(16.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        SandboxText(
+        Text(
             text = propertyName,
-            style = DefaultTheme.typography.bodyMBold,
-            color = DefaultTheme.colors.textDefaultPrimary,
+            style = DefaultTheme.typography.bodyMBold.copy(color = DefaultTheme.colors.textDefaultPrimary),
             modifier = Modifier
                 .weight(1f)
                 .padding(start = 4.dp)
                 .wrapContentWidth(Alignment.Start),
         )
-        SandboxText(
+        Text(
             text = propertyValue,
-            style = DefaultTheme.typography.bodyMBold,
-            color = DefaultTheme.colors.textDefaultSecondary,
+            style = DefaultTheme.typography.bodyMBold.copy(color = DefaultTheme.colors.textDefaultSecondary),
             modifier = Modifier
                 .weight(1f)
                 .padding(start = 4.dp)
@@ -268,10 +264,9 @@ private fun SwitchPropertyListItem(
             .padding(16.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        SandboxText(
+        Text(
             text = propertyName,
-            style = DefaultTheme.typography.bodyMBold,
-            color = DefaultTheme.colors.textDefaultPrimary,
+            style = DefaultTheme.typography.bodyMBold.copy(color = DefaultTheme.colors.textDefaultPrimary),
             modifier = Modifier
                 .weight(1f)
                 .padding(start = 4.dp)
