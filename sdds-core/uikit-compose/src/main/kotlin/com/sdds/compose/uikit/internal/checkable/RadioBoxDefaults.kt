@@ -1,4 +1,4 @@
-package com.sdds.playground.sandbox.core.components
+package com.sdds.compose.uikit.internal.checkable
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
@@ -7,64 +7,35 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.dp
-import com.sdds.playground.themebuilder.tokens.compose.DefaultTheme
 
 /**
- * Значения по умолчанию используемые в RadioBox.
+ * Создает [RadioBoxColors].
+ *
+ * @param idleColor цвет бордера RadioButton, когда checked = false и focused = false.
+ * @param checkedColor цвет заполняющего круга RadioButton, когда checked = true.
+ * @param focusedColor цвет бордера RadioButton, когда focused = true.
+ * @param baseColor цвет основного круга RadioButton, когда checked = true
  */
-@Immutable
-internal object RadioBoxDefaults {
-
-    /**
-     * Длительность анимации перехода между checked состояниями
-     */
-    const val RadioAnimationDuration = 200
-
-    /**
-     * Ширина линии в состоянии checked = false
-     */
-    val RadioStrokeWidth = 2.dp
-
-    /**
-     * Отступ в состоянии checked = true
-     */
-    val RadioCheckedPadding = 2.dp
-
-    /**
-     * Ширина линии в состоянии checked = true
-     */
-    val CheckedRadioStrokeWidth = 1.dp
-
-    /**
-     * Создает [RadioBoxColors].
-     *
-     * @param idleColor цвет бордера RadioButton, когда checked = false и focused = false.
-     * @param checkedColor цвет заполняющего круга RadioButton, когда checked = true.
-     * @param focusedColor цвет бордера RadioButton, когда focused = true.
-     * @param baseColor цвет основного круга RadioButton, когда checked = true
-     */
-    @Composable
-    fun colors(
-        idleColor: Color = DefaultTheme.colors.textDefaultSecondary,
-        checkedColor: Color = DefaultTheme.colors.surfaceDefaultAccent,
-        focusedColor: Color = DefaultTheme.colors.surfaceDefaultSolidDefault,
-        baseColor: Color = DefaultTheme.colors.textOnDarkPrimary,
-    ): RadioBoxColors {
-        return remember(
-            idleColor,
-            checkedColor,
-            focusedColor,
-            baseColor,
-        ) {
-            DefaultRadioBoxColors(idleColor, checkedColor, focusedColor, baseColor)
-        }
+@Composable
+internal fun radioBoxColors(
+    idleColor: Color,
+    checkedColor: Color,
+    focusedColor: Color,
+    baseColor: Color,
+): RadioBoxColors {
+    return remember(
+        idleColor,
+        checkedColor,
+        focusedColor,
+        baseColor,
+    ) {
+        DefaultRadioBoxColors(idleColor, checkedColor, focusedColor, baseColor)
     }
 }
 
 /**
  * Цвета, которые использует RadioBox в различных состояниях.
- * @see [RadioBoxDefaults.colors]
+ * @see [radioBoxColors]
  */
 @Stable
 internal interface RadioBoxColors {

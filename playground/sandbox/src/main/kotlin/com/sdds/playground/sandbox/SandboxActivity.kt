@@ -31,12 +31,14 @@ import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
+import com.sdds.compose.uikit.Text
 import com.sdds.playground.sandbox.buttons.BasicButtonScreen
 import com.sdds.playground.sandbox.buttons.IconButtonsScreen
 import com.sdds.playground.sandbox.buttons.SandboxButton
 import com.sdds.playground.sandbox.buttons.SandboxIconButton
 import com.sdds.playground.sandbox.checkbox.CheckBoxScreen
-import com.sdds.playground.sandbox.core.components.SandboxText
+import com.sdds.playground.sandbox.radiobox.RadioBoxScreen
+import com.sdds.playground.sandbox.radiobox.group.RadioBoxGroupScreen
 import com.sdds.playground.themebuilder.tokens.compose.DefaultTheme
 import kotlinx.coroutines.launch
 import com.sdds.icons.R.drawable as Icons
@@ -60,6 +62,8 @@ private sealed class MenuItem(val title: String, val screen: @Composable () -> U
     object Buttons : MenuItem("Button", { BasicButtonScreen() })
     object IconButtons : MenuItem("IconButton", { IconButtonsScreen() })
     object CheckBox : MenuItem("CheckBox", { CheckBoxScreen() })
+    object RadioBox : MenuItem("RadioBox", { RadioBoxScreen() })
+    object RadioBoxGroup : MenuItem("RadioBoxGroup", { RadioBoxGroupScreen() })
 }
 
 @Composable
@@ -69,6 +73,8 @@ private fun SandboxContainer() {
             MenuItem.Buttons,
             MenuItem.IconButtons,
             MenuItem.CheckBox,
+            MenuItem.RadioBox,
+            MenuItem.RadioBoxGroup,
         )
     }
     val drawerState = rememberDrawerState(DrawerValue.Closed)
@@ -117,7 +123,7 @@ private fun ColumnScope.NavigationItem(
     menuItem: MenuItem,
     onClick: () -> Unit,
 ) {
-    SandboxText(
+    Text(
         text = menuItem.title,
         modifier = Modifier
             .fillMaxWidth()
@@ -129,9 +135,7 @@ private fun ColumnScope.NavigationItem(
                 onClick = onClick,
             )
             .padding(16.dp),
-        style = DefaultTheme.typography.bodyMBold,
-        color = DefaultTheme.colors.textDefaultPrimary,
-
+        style = DefaultTheme.typography.bodyMBold.copy(color = DefaultTheme.colors.textDefaultPrimary),
     )
 }
 
@@ -142,7 +146,7 @@ private fun TopBar(
 ) {
     TopAppBar(
         title = {
-            SandboxText(
+            Text(
                 text = title,
                 style = DefaultTheme.typography.bodyMBold,
             )
