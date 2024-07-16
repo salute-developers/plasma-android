@@ -39,6 +39,7 @@ import com.sdds.playground.sandbox.buttons.SandboxIconButton
 import com.sdds.playground.sandbox.checkbox.CheckBoxScreen
 import com.sdds.playground.sandbox.radiobox.RadioBoxScreen
 import com.sdds.playground.sandbox.radiobox.group.RadioBoxGroupScreen
+import com.sdds.playground.sandbox.switch.SwitchScreen
 import com.sdds.playground.themebuilder.tokens.compose.DefaultTheme
 import kotlinx.coroutines.launch
 import com.sdds.icons.R.drawable as Icons
@@ -64,6 +65,7 @@ private sealed class MenuItem(val title: String, val screen: @Composable () -> U
     object CheckBox : MenuItem("CheckBox", { CheckBoxScreen() })
     object RadioBox : MenuItem("RadioBox", { RadioBoxScreen() })
     object RadioBoxGroup : MenuItem("RadioBoxGroup", { RadioBoxGroupScreen() })
+    object Switch : MenuItem("Switch", { SwitchScreen() })
 }
 
 @Composable
@@ -75,6 +77,7 @@ private fun SandboxContainer() {
             MenuItem.CheckBox,
             MenuItem.RadioBox,
             MenuItem.RadioBoxGroup,
+            MenuItem.Switch,
         )
     }
     val drawerState = rememberDrawerState(DrawerValue.Closed)
