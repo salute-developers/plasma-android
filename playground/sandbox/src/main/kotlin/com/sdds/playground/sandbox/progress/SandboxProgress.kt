@@ -31,10 +31,11 @@ internal object SandboxProgress {
      */
     enum class Style {
         Default,
+        Secondary,
         Accent,
         GradientAccent,
         Positive,
-        Negative,
         Warning,
+        Negative,
     }
 }

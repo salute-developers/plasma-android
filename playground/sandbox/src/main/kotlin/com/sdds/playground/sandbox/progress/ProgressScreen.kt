@@ -19,13 +19,16 @@ internal fun ProgressScreen() {
     val progressViewModel: ProgressViewModel = viewModel()
     val progressUiState by progressViewModel.progressUiState.collectAsState()
 
-    ComponentScaffold(component = {
-        SandboxProgress(
-            progress = progressUiState.progress,
-            modifier = Modifier.width(240.dp),
-            style = progressUiState.style,
-        )
-    }, propertiesOwner = progressViewModel)
+    ComponentScaffold(
+        component = {
+            SandboxProgress(
+                progress = progressUiState.progress,
+                modifier = Modifier.width(240.dp),
+                style = progressUiState.style,
+            )
+        },
+        propertiesOwner = progressViewModel,
+    )
 }
 
 @Composable
