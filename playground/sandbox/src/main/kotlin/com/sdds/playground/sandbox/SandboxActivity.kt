@@ -37,6 +37,7 @@ import com.sdds.playground.sandbox.buttons.IconButtonsScreen
 import com.sdds.playground.sandbox.buttons.SandboxButton
 import com.sdds.playground.sandbox.buttons.SandboxIconButton
 import com.sdds.playground.sandbox.checkbox.CheckBoxScreen
+import com.sdds.playground.sandbox.progress.ProgressScreen
 import com.sdds.playground.sandbox.radiobox.RadioBoxScreen
 import com.sdds.playground.sandbox.radiobox.group.RadioBoxGroupScreen
 import com.sdds.playground.sandbox.switch.SwitchScreen
@@ -66,6 +67,7 @@ private sealed class MenuItem(val title: String, val screen: @Composable () -> U
     object RadioBox : MenuItem("RadioBox", { RadioBoxScreen() })
     object RadioBoxGroup : MenuItem("RadioBoxGroup", { RadioBoxGroupScreen() })
     object Switch : MenuItem("Switch", { SwitchScreen() })
+    object Progress : MenuItem("Progress", { ProgressScreen() })
 }
 
 @Composable
@@ -78,6 +80,7 @@ private fun SandboxContainer() {
             MenuItem.RadioBox,
             MenuItem.RadioBoxGroup,
             MenuItem.Switch,
+            MenuItem.Progress,
         )
     }
     val drawerState = rememberDrawerState(DrawerValue.Closed)
