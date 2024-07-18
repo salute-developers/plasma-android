@@ -8,6 +8,7 @@ import com.sdds.plugin.themebuilder.internal.download.FontDownloaderWithCache
 import com.sdds.plugin.themebuilder.internal.factory.FontDownloaderFactory
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlFontFamilyDocumentBuilderFactory
+import com.sdds.plugin.themebuilder.internal.fonts.FontsAggregator
 import com.sdds.plugin.themebuilder.internal.serializer.Serializer
 import com.sdds.plugin.themebuilder.internal.token.FontToken
 import com.sdds.plugin.themebuilder.internal.token.FontTokenValue
@@ -65,6 +66,7 @@ class FontTokenGeneratorTest {
             namespace = "com.test",
             resPrefix = "thmbldr",
             fontTokenValues = fontTokenValues,
+            fontsAggregator = FontsAggregator(),
         )
     }
 

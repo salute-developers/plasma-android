@@ -5,6 +5,8 @@ import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
+import com.sdds.plugin.themebuilder.internal.fonts.FontData
+import com.sdds.plugin.themebuilder.internal.fonts.FontsAggregator
 import com.sdds.plugin.themebuilder.internal.serializer.Serializer
 import com.sdds.plugin.themebuilder.internal.token.TypographyToken
 import com.sdds.plugin.themebuilder.internal.token.TypographyTokenValue
@@ -38,6 +40,7 @@ class TypographyTokenGeneratorTest {
     private lateinit var outputKt: ByteArrayOutputStream
     private lateinit var mockOutputResDir: File
     private lateinit var mockDimensAggregator: DimensAggregator
+    private lateinit var mockFontsAggregator: FontsAggregator
     private lateinit var underTest: TypographyTokenGenerator
 
     @Before
@@ -50,6 +53,9 @@ class TypographyTokenGeneratorTest {
         outputKt = ByteArrayOutputStream()
         mockOutputResDir = mockk(relaxed = true)
         mockDimensAggregator = mockk(relaxed = true)
+        mockFontsAggregator = mockk(relaxed = true) {
+            every { fonts } returns fontsAggregatorData
+        }
         underTest = TypographyTokenGenerator(
             outputLocation = KtFileBuilder.OutputLocation.Stream(outputKt),
             outputResDir = mockOutputResDir,
@@ -59,6 +65,7 @@ class TypographyTokenGeneratorTest {
             ktFileBuilderFactory = KtFileBuilderFactory("com.test"),
             resourceReferenceProvider = ResourceReferenceProvider("thmbldr", "TestTheme"),
             typographyTokenValues = typographyTokenValues,
+            fontsAggregator = mockFontsAggregator,
         )
     }
 
@@ -121,6 +128,13 @@ class TypographyTokenGeneratorTest {
     }
 
     private companion object {
+        val fontsAggregatorData = mapOf(
+            "sans" to setOf(
+                FontData("sans", 300, "normal"),
+                FontData("sans", 400, "normal"),
+            ),
+        )
+
         val typographyTokenValues = mapOf(
             "screen-l.display.l.normal" to TypographyTokenValue(
                 fontFamilyRef = "fontFamily.sans",

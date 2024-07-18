@@ -7,10 +7,13 @@ import com.sdds.plugin.themebuilder.internal.exceptions.ThemeBuilderException
 import com.sdds.plugin.themebuilder.internal.factory.FontDownloaderFactory
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlFontFamilyDocumentBuilderFactory
+import com.sdds.plugin.themebuilder.internal.fonts.FontData
+import com.sdds.plugin.themebuilder.internal.fonts.FontsAggregator
 import com.sdds.plugin.themebuilder.internal.token.FontToken
 import com.sdds.plugin.themebuilder.internal.token.FontTokenValue
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.fontDir
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.fontFamilyXmlFile
+import com.sdds.plugin.themebuilder.internal.utils.fontFileNameFromUrl
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import com.sdds.plugin.themebuilder.internal.validator.FontTokenValidator
 import com.squareup.kotlinpoet.ClassName
@@ -22,11 +25,13 @@ import java.util.Locale
  * Генератор токенов шрифтов
  * @param outputLocation локация для сохранения kt-файла с токенами
  * @param outputResDir директория для сохранения xml-файла с токенами
- * @param target целевой фреймворк
  * @param xmlFontFamilyBuilderFactory фабрика делегата построения xml файлов font-family
+ * @param fontDownloaderFactory фабрика загрузчика шрифтов
  * @param ktFileBuilderFactory фабрика делегата построения kt файлов
- * @param namespace корневой пакет проекта, нужен для формирования импорта R-файла
  * @param resPrefix префикс для xml файлов с fontFamily
+ * @param fontTokenValues значения токенов шрифтов
+ * @param fontsAggregator агрегатор шрифтов
+ *
  * @author Малышев Александр on 07.03.2024
  */
 internal class FontTokenGenerator(
@@ -39,6 +44,7 @@ internal class FontTokenGenerator(
     namespace: String,
     private val resPrefix: String,
     private val fontTokenValues: Map<String, FontTokenValue>,
+    private val fontsAggregator: FontsAggregator,
 ) : TokenGenerator<FontToken, String>(target) {
 
     private val rFileImport = ClassName(namespace, "R")
@@ -75,6 +81,7 @@ internal class FontTokenGenerator(
                 font = fontFile.nameWithoutExtension,
             )
         }
+        fontsAggregator.addFont(fontFamily = token.name, fonts = tokenValue.fonts.toFontDataSet())
         return true
     }
 
@@ -136,4 +143,16 @@ internal class FontTokenGenerator(
             "italic" -> "Italic"
             else -> "Normal"
         }
+
+    private fun List<FontToken.FontVariant>.toFontDataSet(): Set<FontData> {
+        return this.map {
+            FontData(
+                fontName = it.link
+                    .fontFileNameFromUrl()
+                    .substringBeforeLast("."),
+                fontWeight = it.fontWeight,
+                fontStyle = it.fontStyle,
+            )
+        }.toSet()
+    }
 }
