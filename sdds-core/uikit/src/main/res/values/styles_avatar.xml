@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Sdds.Components.Avatar">
+        <item name="android:maxWidth">24dp</item>
+        <item name="android:maxHeight">24dp</item>
+        <item name="android:minWidth">24dp</item>
+        <item name="android:minHeight">24dp</item>
+        <item name="android:adjustViewBounds">true</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Body2</item>
+        <item name="sd_shapeAppearance">@style/Sdds.Shape.Round.Circle</item>
+        <item name="sd_textColorStart">#0D8523</item>
+        <item name="sd_textColorEnd">#0DA8AB</item>
+        <item name="sd_statusSize">6dp</item>
+        <item name="sd_statusOffsetX">0dp</item>
+        <item name="sd_statusOffsetY">0dp</item>
+        <item name="sd_statusColor">@color/sd_color_avatar_status</item>
+        <item name="sd_actionScrimColor">#8F080808</item>
+        <item name="sd_actionTint">#fff</item>
+        <item name="sd_actionSize">16dp</item>
+        <item name="android:background">@drawable/sd_bg_avatar</item>
+    </style>
+
+    <style name="Sdds.Components.AvatarGroup">
+        <item name="sd_itemOffset">16dp</item>
+        <item name="sd_itemSpacing">2dp</item>
+        <item name="sd_threshold">3</item>
+        <item name="sd_counterEnabled">true</item>
+        <item name="sd_counterTextAppearance">@style/TextAppearance.AppCompat.Body2</item>
+        <item name="sd_counterBackground">@drawable/sd_bg_avatar</item>
+        <item name="sd_counterTextColorStart">#0D8523</item>
+        <item name="sd_counterTextColorEnd">#0DA8AB</item>
+    </style>
+</resources>

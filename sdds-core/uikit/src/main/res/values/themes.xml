@@ -2,19 +2,24 @@
 <resources>
 
     <style name="Sdds" />
+    <style name="Sdds.Components" />
+    <style name="Sdds.Overlay" />
 
     <!-- Базовая темная тема -->
     <style name="Sdds.Theme" parent="Theme.MaterialComponents">
-
+        <item name="sd_avatarStyle">@style/Sdds.Components.Avatar</item>
+        <item name="sd_avatarGroupStyle">@style/Sdds.Components.AvatarGroup</item>
     </style>
 
     <!-- Базовая светлая тема -->
     <style name="Sdds.Theme.Light" parent="Theme.MaterialComponents.Light">
-
+        <item name="sd_avatarStyle">@style/Sdds.Components.Avatar</item>
+        <item name="sd_avatarGroupStyle">@style/Sdds.Components.AvatarGroup</item>
     </style>
 
     <!-- Базовая тема DayNight -->
     <style name="Sdds.Theme.DayNight" parent="Sdds.Theme.Light">
-
+        <item name="sd_avatarStyle">@style/Sdds.Components.Avatar</item>
+        <item name="sd_avatarGroupStyle">@style/Sdds.Components.AvatarGroup</item>
     </style>
 </resources>
