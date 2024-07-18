@@ -8,6 +8,7 @@ import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.KtFileFromResourcesBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlFontFamilyDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
+import com.sdds.plugin.themebuilder.internal.fonts.FontsAggregator
 import com.sdds.plugin.themebuilder.internal.serializer.Serializer
 import com.sdds.plugin.themebuilder.internal.token.ColorToken
 import com.sdds.plugin.themebuilder.internal.token.FontToken
@@ -148,6 +149,7 @@ abstract class GenerateThemeTask : DefaultTask() {
     abstract val outputResDirPath: Property<String>
 
     private val dimensAggregator by unsafeLazy { DimensAggregator() }
+    private val fontsAggregator by unsafeLazy { FontsAggregator() }
     private val generatorFactory by unsafeLazy {
         GeneratorFactory(
             outputDirPath = outputDirPath.get(),
@@ -156,6 +158,7 @@ abstract class GenerateThemeTask : DefaultTask() {
             target = target.get(),
             generatorMode = generatorMode.get(),
             dimensAggregator = dimensAggregator,
+            fontsAggregator = fontsAggregator,
             xmlResourcesDocumentBuilderFactory = XmlResourcesDocumentBuilderFactory(
                 resourcesPrefix.get(),
                 themeName.get(),

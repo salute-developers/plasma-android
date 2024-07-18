@@ -1,6 +1,7 @@
 package com.sdds.plugin.themebuilder.internal.utils
 
 import com.sdds.plugin.themebuilder.internal.dimens.DimenData
+import com.sdds.plugin.themebuilder.internal.fonts.FontData
 import io.mockk.every
 import io.mockk.mockk
 import org.junit.Assert.assertEquals
@@ -37,7 +38,7 @@ class ResourceReferenceProviderTest {
 
     @Test
     fun `ResourceReferenceProvider возвращает ссылку на font`() {
-        assertEquals("@font/thmbldr_display", underTest.font("display"))
+        assertEquals("@font/display", underTest.font(FontData("display", 200, "normal")))
     }
 
     @Test

@@ -2,8 +2,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!--шрифт android-->
     <style name="Thmbldr.TestTheme.TextAppearance.TextLNormal">
-        <item name="fontFamily">@font/thmbldr_sans</item>
+        <item name="fontFamily">@font/sans</item>
         <item name="fontWeight">400</item>
+        <item name="android:textFontWeight" tools:targetApi="p">400</item>
         <item name="android:textStyle">normal</item>
         <item name="android:letterSpacing">0.04</item>
         <item name="android:textSize">@dimen/thmbldr_screen_s_text_l_normal_text_size</item>
@@ -11,8 +12,9 @@
     </style>
     <!--шрифт android-->
     <style name="Thmbldr.TestTheme.TextAppearance.DisplayLNormal">
-        <item name="fontFamily">@font/thmbldr_sans</item>
+        <item name="fontFamily">@font/sans</item>
         <item name="fontWeight">300</item>
+        <item name="android:textFontWeight" tools:targetApi="p">300</item>
         <item name="android:textStyle">normal</item>
         <item name="android:letterSpacing">0.02</item>
         <item name="android:textSize">@dimen/thmbldr_screen_l_display_l_normal_text_size</item>
@@ -20,8 +22,9 @@
     </style>
     <!--шрифт android-->
     <style name="Thmbldr.TestTheme.TextAppearance.HeaderLNormal">
-        <item name="fontFamily">@font/thmbldr_sans</item>
+        <item name="fontFamily">@font/sans</item>
         <item name="fontWeight">400</item>
+        <item name="android:textFontWeight" tools:targetApi="p">400</item>
         <item name="android:textStyle">normal</item>
         <item name="android:letterSpacing">0.04</item>
         <item name="android:textSize">@dimen/thmbldr_screen_m_header_l_normal_text_size</item>
@@ -29,8 +32,9 @@
     </style>
     <!--шрифт android-->
     <style name="Thmbldr.TestTheme.TextAppearance.DisplayLBold">
-        <item name="fontFamily">@font/thmbldr_sans</item>
+        <item name="fontFamily">@font/sans</item>
         <item name="fontWeight">300</item>
+        <item name="android:textFontWeight" tools:targetApi="p">300</item>
         <item name="android:textStyle">normal</item>
         <item name="android:letterSpacing">0.02</item>
         <item name="android:textSize">@dimen/thmbldr_screen_l_display_l_bold_text_size</item>

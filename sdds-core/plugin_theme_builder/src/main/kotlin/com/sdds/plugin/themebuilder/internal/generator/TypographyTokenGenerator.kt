@@ -11,6 +11,7 @@ import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.exceptions.ThemeBuilderException
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
+import com.sdds.plugin.themebuilder.internal.fonts.FontsAggregator
 import com.sdds.plugin.themebuilder.internal.generator.data.TypographyTokenResult
 import com.sdds.plugin.themebuilder.internal.token.TypographyToken
 import com.sdds.plugin.themebuilder.internal.token.TypographyToken.ScreenClass
@@ -36,9 +37,12 @@ import java.util.Locale
  *
  * @param outputLocation локация для сохранения kt-файла с токенами
  * @param outputResDir директория для сохранения xml-файла с токенами
- * @param target целевой фреймворк
+ * @param dimensAggregator агрегатор размеров
  * @param xmlBuilderFactory фабрика делегата построения xml файлов
  * @param ktFileBuilderFactory фабрика делегата построения kt файлов
+ * @param resourceReferenceProvider провайдер ссылок на ресурсы
+ * @param typographyTokenValues значения токенов типографики
+ * @param fontsAggregator агрегатор шрифтов
  * @author Малышев Александр on 07.03.2024
  */
 internal class TypographyTokenGenerator(
@@ -50,6 +54,7 @@ internal class TypographyTokenGenerator(
     private val ktFileBuilderFactory: KtFileBuilderFactory,
     private val resourceReferenceProvider: ResourceReferenceProvider,
     private val typographyTokenValues: Map<String, TypographyTokenValue>,
+    private val fontsAggregator: FontsAggregator,
 ) : TokenGenerator<TypographyToken, TypographyTokenResult>(target) {
 
     private val textAppearanceXmlBuilders =
@@ -235,6 +240,7 @@ internal class TypographyTokenGenerator(
         }
     }
 
+    @Suppress("LongMethod")
     private fun XmlResourcesDocumentBuilder.appendTypographyToken(
         token: TypographyToken,
         tokenValue: TypographyTokenValue,
@@ -255,20 +261,30 @@ internal class TypographyTokenGenerator(
         dimensAggregator.addDimen(lineHeightDimen)
 
         appendStyleWithCompositePrefix(textAppearanceName) {
+            val fontFamily = tokenValue.fontFamilyRef
+                .split('.')
+                .last()
+            val fontData = fontsAggregator.fonts[fontFamily]
+                ?.find {
+                    it.fontWeight == tokenValue.fontWeight && it.fontStyle == tokenValue.fontStyle
+                } ?: throw ThemeBuilderException("Can't find font for typography token $token")
             appendElement(
                 elementName = ElementName.ITEM,
                 tokenName = "fontFamily",
-                value = resourceReferenceProvider.font(
-                    name = tokenValue.fontFamilyRef
-                        .split('.')
-                        .last(),
-                ),
+                value = resourceReferenceProvider.font(fontData),
                 usePrefix = false,
             )
             appendElement(
                 ElementName.ITEM,
                 "fontWeight",
                 tokenValue.fontWeight.toString(),
+                usePrefix = false,
+            )
+            appendElement(
+                ElementName.ITEM,
+                "android:textFontWeight",
+                tokenValue.fontWeight.toString(),
+                targetApi = TargetApi.P,
                 usePrefix = false,
             )
             appendElement(
