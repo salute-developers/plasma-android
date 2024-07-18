@@ -3,6 +3,7 @@ package com.sdds.uikit.internal.base.shape
 import android.content.res.ColorStateList
 import android.graphics.Canvas
 import android.graphics.Color
+import android.graphics.Matrix
 import android.graphics.Outline
 import android.graphics.Paint
 import android.graphics.Path
@@ -45,6 +46,8 @@ internal class ShapeableImageDelegate(private val imageView: ImageView) {
     private val maskRect: RectF = RectF()
     private val maskPath: Path = Path()
     private val path: Path = Path()
+    private val borderPath: Path = Path()
+    private val borderTransformation: Matrix = Matrix()
 
     @Dimension
     private var strokeWidth = 0f
@@ -116,11 +119,23 @@ internal class ShapeableImageDelegate(private val imageView: ImageView) {
         pathProvider.calculatePath(shapeAppearanceModel, 1f /*interpolation*/, destination, path)
         // Remove path from rect to draw with clear paint.
         maskPath.rewind()
+        borderPath.rewind()
         maskPath.addPath(path)
         // Do not include padding to clip the background too.
         maskRect[0f, 0f, width.toFloat()] = height.toFloat()
         maskPath.addRect(maskRect, Path.Direction.CCW)
+        borderPath.addPath(
+            path,
+            borderTransformation.apply {
+                reset()
+                val scaledWidth = width - strokeWidth
+                val scaledHeight = height - strokeWidth
+                postScale(scaledWidth / width, scaledHeight / height, width / 2f, height / 2f)
+            },
+        )
     }
+
+    internal fun getShapePath(): Path = path
 
     private fun drawStroke(canvas: Canvas) {
         val color = strokeColor ?: return
@@ -129,7 +144,7 @@ internal class ShapeableImageDelegate(private val imageView: ImageView) {
 
         if (strokeWidth > 0 && colorForState != Color.TRANSPARENT) {
             borderPaint.color = colorForState
-            canvas.drawPath(path, borderPaint)
+            canvas.drawPath(borderPath, borderPaint)
         }
     }
 
