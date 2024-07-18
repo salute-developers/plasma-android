@@ -5,12 +5,14 @@ import androidx.compose.foundation.layout.requiredHeight
 import androidx.compose.foundation.progressSemantics
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.LayoutDirection
+import kotlin.math.abs
 
 /**
  * Базовый компонент Progress.
@@ -19,7 +21,9 @@ import androidx.compose.ui.unit.LayoutDirection
  * @param main кисть для прогресса
  * @param background кисть для фона
  * @param backgroundHeight высота бэкграунда
- * @param linearIndicatorHeight высота индикатора
+ * @param backgroundCornerRadius ардиус скругления бэкграунда
+ * @param indicatorHeight высота индикатора
+ * @param indicatorCornerRadius радиус скругления индикатора
  */
 @Composable
 internal fun BaseProgress(
@@ -28,19 +32,34 @@ internal fun BaseProgress(
     main: Brush,
     background: Brush,
     backgroundHeight: Dp,
-    linearIndicatorHeight: Dp,
+    backgroundCornerRadius: Dp,
+    indicatorHeight: Dp,
+    indicatorCornerRadius: Dp,
 ) {
     Canvas(
         modifier
             .progressSemantics(progress)
-            .requiredHeight(linearIndicatorHeight),
+            .requiredHeight(indicatorHeight),
     ) {
-        val strokeWidth = size.height
         // Рисуем фон
-        drawLineIndicator(0f, 1f, background, backgroundHeight.toPx())
+        drawLineIndicator(
+            startFraction = 0f,
+            endFraction = 1f,
+            brush = background,
+            indicatorHeight = backgroundHeight.toPx(),
+            cornerRadius = backgroundCornerRadius.toPx(),
+        )
 
         // Рисуем индикатор
-        drawLineIndicator(0f, progress, main, strokeWidth)
+        if (progress > 0f) {
+            drawLineIndicator(
+                startFraction = 0f,
+                endFraction = progress,
+                brush = main,
+                indicatorHeight = size.height,
+                cornerRadius = indicatorCornerRadius.toPx(),
+            )
+        }
     }
 }
 
@@ -48,21 +67,25 @@ private fun DrawScope.drawLineIndicator(
     startFraction: Float,
     endFraction: Float,
     brush: Brush,
-    strokeWidth: Float,
+    indicatorHeight: Float,
+    cornerRadius: Float,
 ) {
     val width = size.width
     val height = size.height
-    val yOffset = height / 2
+    val yOffset = (height - indicatorHeight) / 2
 
     val isLtr = layoutDirection == LayoutDirection.Ltr
     val barStart = (if (isLtr) startFraction else 1f - endFraction) * width
     val barEnd = (if (isLtr) endFraction else 1f - startFraction) * width
 
-    drawLine(
-        brush,
-        Offset(barStart, yOffset),
-        Offset(barEnd, yOffset),
-        strokeWidth,
-        cap = StrokeCap.Round,
+    val radius = CornerRadius(cornerRadius, cornerRadius)
+    val rectSize = Size(abs(barEnd - barStart), indicatorHeight)
+    val offset = Offset(barStart, yOffset)
+
+    drawRoundRect(
+        brush = brush,
+        topLeft = offset,
+        size = rectSize,
+        cornerRadius = radius,
     )
 }
