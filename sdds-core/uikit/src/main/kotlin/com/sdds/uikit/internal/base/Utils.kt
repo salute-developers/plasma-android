@@ -1,8 +1,13 @@
 package com.sdds.uikit.internal.base
 
+import android.content.Context
+import android.content.res.ColorStateList
 import android.graphics.Paint
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.InsetDrawable
+import android.text.TextPaint
+import android.text.style.TextAppearanceSpan
+import androidx.annotation.StyleRes
 
 /**
  * Удобный вариант [lazy] с [LazyThreadSafetyMode.NONE]
@@ -61,4 +66,21 @@ internal fun Paint.configure(
     if (this.color != color) this.color = color
     if (this.strokeWidth != strokeWidth) this.strokeWidth = strokeWidth
     if (this.strokeCap != strokeCap) this.strokeCap = strokeCap
+}
+
+/**
+ * Возвращает цвет из [ColorStateList] для указанного [drawableState] или 0
+ */
+internal fun ColorStateList?.colorForState(drawableState: IntArray?, defaultColor: Int = 0): Int {
+    return this?.getColorForState(drawableState, defaultColor) ?: defaultColor
+}
+
+/**
+ * Применяет стиль текста к объекту [TextPaint]
+ * @param context контекст
+ * @param styleId идентификатор стиля
+ */
+internal fun TextPaint.applyTextAppearance(context: Context, @StyleRes styleId: Int) {
+    TextAppearanceSpan(context, styleId)
+        .updateDrawState(this)
 }

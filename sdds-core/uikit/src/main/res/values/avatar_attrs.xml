@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <attr name="sd_avatarStyle" format="reference" />
+    <attr name="sd_avatarGroupStyle" format="reference" />
+
+    <declare-styleable name="SdAvatarStatus">
+        <attr name="sd_status_active" format="boolean"/>
+        <attr name="sd_status_inactive" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="Avatar" tools:ignore="ResourceName">
+
+        <attr name="sd_status" format="enum">
+            <enum name="none" value="0" />
+            <enum name="active" value="1" />
+            <enum name="inactive" value="2" />
+        </attr>
+
+        <attr name="sd_statusSize" format="dimension" />
+        <attr name="sd_statusColor" format="color" />
+        <attr name="sd_statusOffsetX" format="dimension" />
+        <attr name="sd_statusOffsetY" format="dimension" />
+
+        <attr name="sd_actionEnabled" format="boolean" />
+        <attr name="sd_action" />
+        <attr name="sd_actionScrimColor" format="color" />
+        <attr name="sd_actionTint" />
+        <attr name="sd_actionSize" />
+
+        <attr name="sd_name" format="string" />
+        <attr name="sd_text" format="string" />
+        <attr name="android:textAppearance" />
+        <attr name="android:textColor"/>
+        <attr name="sd_textColorStart" format="color" />
+        <attr name="sd_textColorEnd" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="AvatarGroup" tools:ignore="ResourceName">
+        <attr name="sd_itemOffset" format="dimension" />
+        <attr name="sd_itemSpacing" format="dimension" />
+        <attr name="sd_threshold" format="integer" />
+
+        <attr name="sd_counterBackground" format="reference|color" />
+        <attr name="sd_counterEnabled" format="boolean" />
+        <attr name="sd_counterTextAppearance" format="reference" />
+        <attr name="sd_counterTextColor" format="color" />
+        <attr name="sd_counterTextColorStart" format="color" />
+        <attr name="sd_counterTextColorEnd" format="color" />
+
+        <attr name="sd_shapeAppearance" />
+        <attr name="sd_strokeColor" />
+        <attr name="sd_strokeWidth" />
+    </declare-styleable>
+</resources>

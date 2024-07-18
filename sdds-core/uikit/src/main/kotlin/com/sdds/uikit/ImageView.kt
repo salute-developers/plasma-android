@@ -3,6 +3,7 @@ package com.sdds.uikit
 import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Canvas
+import android.graphics.Path
 import android.util.AttributeSet
 import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
@@ -39,6 +40,7 @@ open class ImageView @JvmOverloads constructor(
     private var _contentPaddingTop: Int = 0
     private var _contentPaddingRight: Int = 0
     private var _contentPaddingBottom: Int = 0
+    private var boundsPath: Path = Path()
 
     init {
         @Suppress("LeakingThis")
@@ -309,8 +311,11 @@ open class ImageView @JvmOverloads constructor(
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
+        onDrawBeforeClip(canvas)
         _shapeableImageDelegate?.draw(canvas)
     }
+
+    protected open fun onDrawBeforeClip(canvas: Canvas) = Unit
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
@@ -334,6 +339,11 @@ open class ImageView @JvmOverloads constructor(
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)
         _shapeableImageDelegate?.updateShapeMask(w, h)
+        boundsPath.apply {
+            rewind()
+            addRect(0f, 0f, w.toFloat(), h.toFloat(), Path.Direction.CW)
+            close()
+        }
     }
 
     override fun onDetachedFromWindow() {
@@ -345,6 +355,8 @@ open class ImageView @JvmOverloads constructor(
         super.onAttachedToWindow()
         setLayerType(LAYER_TYPE_HARDWARE, null)
     }
+
+    internal fun getShapePath(): Path = _shapeableImageDelegate?.getShapePath() ?: boundsPath
 
     private fun obtainAttributes(attrs: AttributeSet?, defStyleAttr: Int) {
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.ImageView, defStyleAttr, -1)

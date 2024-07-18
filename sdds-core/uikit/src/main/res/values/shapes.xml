@@ -7,6 +7,10 @@
         <item name="cornerFamily">rounded</item>
     </style>
 
+    <style name="Sdds.Shape.Round.Circle">
+        <item name="cornerSize">50%</item>
+    </style>
+
     <style name="Sdds.Shape.Round.XXS">
         <item name="cornerSize">?sdds_cRxxs</item>
     </style>
