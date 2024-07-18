@@ -16,7 +16,9 @@ import com.sdds.compose.uikit.internal.BaseProgress
  * @param main кисть для прогресса
  * @param background кисть для фона
  * @param backgroundHeight высота бэкграунда
- * @param linearIndicatorHeight высота индикатора
+ * @param backgroundCornerRadius ардиус скругления бэкграунда
+ * @param indicatorHeight высота индикатора
+ * @param indicatorCornerRadius радиус скругления индикатора
  */
 @Composable
 @NonRestartableComposable
@@ -26,7 +28,9 @@ fun Progress(
     main: Brush = SolidColor(Color.Green),
     background: Brush = SolidColor(Color.Gray),
     backgroundHeight: Dp = 4.dp,
-    linearIndicatorHeight: Dp = 6.dp,
+    backgroundCornerRadius: Dp = backgroundHeight / 2,
+    indicatorHeight: Dp = 6.dp,
+    indicatorCornerRadius: Dp = indicatorHeight / 2,
 ) {
     BaseProgress(
         progress = progress,
@@ -34,6 +38,8 @@ fun Progress(
         main = main,
         background = background,
         backgroundHeight = backgroundHeight,
-        linearIndicatorHeight = linearIndicatorHeight,
+        backgroundCornerRadius = backgroundCornerRadius,
+        indicatorHeight = indicatorHeight,
+        indicatorCornerRadius = indicatorCornerRadius,
     )
 }
