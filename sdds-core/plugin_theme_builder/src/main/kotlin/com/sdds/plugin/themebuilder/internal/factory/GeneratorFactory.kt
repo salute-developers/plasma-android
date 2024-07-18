@@ -4,6 +4,7 @@ import com.sdds.plugin.themebuilder.ThemeBuilderMode
 import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.OutputLocation
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
+import com.sdds.plugin.themebuilder.internal.fonts.FontsAggregator
 import com.sdds.plugin.themebuilder.internal.generator.ColorTokenGenerator
 import com.sdds.plugin.themebuilder.internal.generator.DimenTokenGenerator
 import com.sdds.plugin.themebuilder.internal.generator.FontTokenGenerator
@@ -28,7 +29,9 @@ import java.io.File
  * @param outputResDirPath путь для сохранения xml-файлов
  * @param projectDir директория проекта
  * @param target целевой фреймворк
+ * @param generatorMode режим работы генератора (тема или только токены)
  * @param dimensAggregator агрегатор размеров
+ * @param fontsAggregator агрегатор шрифтов
  * @param xmlResourcesDocumentBuilderFactory фабрика делегата построения xml файлов ресурсов
  * @param xmlFontFamilyDocumentBuilderFactory фабрика делегата построения xml файлов font-family
  * @param fontDownloaderFactory фабрика загрузчика шрифтов
@@ -48,6 +51,7 @@ internal class GeneratorFactory(
     private val target: ThemeBuilderTarget,
     private val generatorMode: ThemeBuilderMode,
     private val dimensAggregator: DimensAggregator,
+    private val fontsAggregator: FontsAggregator,
     private val xmlResourcesDocumentBuilderFactory: XmlResourcesDocumentBuilderFactory,
     private val xmlFontFamilyDocumentBuilderFactory: XmlFontFamilyDocumentBuilderFactory,
     private val fontDownloaderFactory: FontDownloaderFactory,
@@ -225,6 +229,7 @@ internal class GeneratorFactory(
             namespace,
             resPrefix,
             fonts,
+            fontsAggregator,
         )
     }
 
@@ -241,6 +246,7 @@ internal class GeneratorFactory(
             ktFileBuilderFactory,
             resourceReferenceProvider,
             typography,
+            fontsAggregator,
         )
     }
 

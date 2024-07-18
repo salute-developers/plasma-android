@@ -1,7 +1,6 @@
 package com.sdds.plugin.themebuilder.internal.download
 
-import com.sdds.plugin.themebuilder.internal.utils.camelToSnakeCase
-import com.sdds.plugin.themebuilder.internal.utils.fileNameFromUrl
+import com.sdds.plugin.themebuilder.internal.utils.fontFileNameFromUrl
 import java.io.File
 
 /**
@@ -41,9 +40,4 @@ internal class FontDownloaderWithCache(
         downloadedFonts[url] = fontFile
         return fontFile
     }
-
-    private fun String.fontFileNameFromUrl(): String =
-        fileNameFromUrl()
-            .replace('-', '_')
-            .camelToSnakeCase()
 }

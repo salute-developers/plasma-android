@@ -1,6 +1,7 @@
 package com.sdds.plugin.themebuilder.internal.utils
 
 import com.sdds.plugin.themebuilder.internal.dimens.DimenData
+import com.sdds.plugin.themebuilder.internal.fonts.FontData
 import org.gradle.configurationcache.extensions.capitalized
 
 /**
@@ -43,12 +44,11 @@ internal class ResourceReferenceProvider(
     }
 
     /**
-     * Возвращает ссылку на fontFamily с названием [name].
-     * Например, если шрифт называется display, и ресурсам задан префикс "pref",
-     * то функция вернет ссылку @font/pref_display
+     * Возвращает ссылку на шрифт с названием из [fontData].
+     * Например, если шрифт называется display_bold, то функция вернет ссылку @font/display_bold
      */
-    fun font(name: String): String {
-        return "@font/${name.withPrefixIfNeed(resourcePrefix)}"
+    fun font(fontData: FontData): String {
+        return "@font/${fontData.fontName}"
     }
 
     /**

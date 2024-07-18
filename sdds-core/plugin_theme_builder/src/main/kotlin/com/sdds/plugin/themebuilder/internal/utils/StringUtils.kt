@@ -43,3 +43,11 @@ internal fun String.withPrefixIfNeed(prefix: String? = null, delimiter: String =
 internal fun String.fileNameFromUrl(): String =
     this.split('/')
         .last()
+
+/**
+ * Извлекает имя файла шрифта из ссылки и приводит к snake_case
+ */
+internal fun String.fontFileNameFromUrl(): String =
+    fileNameFromUrl()
+        .replace('-', '_')
+        .camelToSnakeCase()
