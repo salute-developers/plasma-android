@@ -3,7 +3,7 @@ package com.sdds.playground.sandbox.checkbox
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.text.TextStyle
 import com.sdds.compose.uikit.dp
-import com.sdds.playground.themebuilder.tokens.compose.DefaultTheme
+import com.sdds.playground.sandbox.tokens.compose.StylesSaluteTheme
 
 internal object SandboxCheckBoxSettingsProvider {
     @Composable
@@ -25,14 +25,14 @@ internal object SandboxCheckBoxSettingsProvider {
     @Composable
     fun labelTextStyleFor(size: SandboxCheckBox.Size): TextStyle =
         when (size) {
-            SandboxCheckBox.Size.M -> DefaultTheme.typography.bodyMNormal
-            SandboxCheckBox.Size.S -> DefaultTheme.typography.bodySNormal
+            SandboxCheckBox.Size.M -> StylesSaluteTheme.typography.bodyMNormal
+            SandboxCheckBox.Size.S -> StylesSaluteTheme.typography.bodySNormal
         }
 
     @Composable
     fun descriptionTextStyleFor(size: SandboxCheckBox.Size): TextStyle =
         when (size) {
-            SandboxCheckBox.Size.M -> DefaultTheme.typography.bodySNormal
-            SandboxCheckBox.Size.S -> DefaultTheme.typography.bodyXsNormal
+            SandboxCheckBox.Size.M -> StylesSaluteTheme.typography.bodySNormal
+            SandboxCheckBox.Size.S -> StylesSaluteTheme.typography.bodyXsNormal
         }
 }

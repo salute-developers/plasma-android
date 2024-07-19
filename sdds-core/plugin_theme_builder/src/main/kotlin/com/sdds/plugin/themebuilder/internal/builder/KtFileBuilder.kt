@@ -201,6 +201,7 @@ internal class KtFileBuilder(
         params: List<FunParameter>? = null,
         modifiers: List<Modifier>? = null,
         body: List<String>? = null,
+        receiver: TypeName? = null,
         returnType: TypeName? = null,
         description: String? = null,
     ) = appendFun(
@@ -208,6 +209,7 @@ internal class KtFileBuilder(
         params = params,
         modifiers = modifiers,
         body = body,
+        receiver = receiver,
         returnType = returnType,
         description = description,
         rootObject = this,
@@ -359,6 +361,7 @@ internal class KtFileBuilder(
                 Modifier.OVERRIDE -> KModifier.OVERRIDE
                 Modifier.PRIVATE -> KModifier.PRIVATE
                 Modifier.DATA -> KModifier.DATA
+                Modifier.INFIX -> KModifier.INFIX
             }
         }
 
@@ -399,6 +402,7 @@ internal class KtFileBuilder(
     private fun FunParameter.toConstructorProperty() =
         PropertySpec.builder(name = name, type = type).apply {
             initializer(name)
+            this@toConstructorProperty.modifiers?.let { addModifiers(it.toKModifiers()) }
         }.build()
 
     /**
@@ -426,6 +430,7 @@ internal class KtFileBuilder(
         INTERNAL,
         OVERRIDE,
         DATA,
+        INFIX,
     }
 
     /**
@@ -436,6 +441,7 @@ internal class KtFileBuilder(
         val type: TypeName,
         val defValue: String? = null,
         val asProperty: Boolean = false,
+        val modifiers: List<Modifier>? = null,
     )
 
     /**
@@ -478,6 +484,7 @@ internal class KtFileBuilder(
     companion object {
         internal const val DEFAULT_FILE_INDENT = "    "
 
+        val TypeString = String::class.asClassName()
         val TypeFloat = Float::class.asClassName()
         val TypeInt = Int::class.asClassName()
         val TypeFloatArray = FloatArray::class.asClassName()
@@ -500,6 +507,15 @@ internal class KtFileBuilder(
         val TypeDp = ClassName("androidx.compose.ui.unit", "Dp")
         val TypeDpExtension = ClassName("androidx.compose.ui.unit", "dp")
         val TypeListOfColors = List::class.asClassName().parameterizedBy(TypeColor)
+        val TypeMapOfColors = Map::class.asClassName().parameterizedBy(TypeString, TypeColor)
+        val TypeMapOfListOfShaderBrush = Map::class.asClassName().parameterizedBy(TypeString, TypeListOfShaderBrush)
+        val TypeMutableMapOfColors = ClassName(
+            "kotlin.collections",
+            "MutableMap",
+        ).parameterizedBy(TypeString, TypeColor)
+        val TypeMutableMapOfListOfShaderBrush =
+            ClassName("kotlin.collections", "MutableMap")
+                .parameterizedBy(TypeString, TypeListOfShaderBrush)
         val TypeRoundRectShape =
             ClassName("androidx.compose.foundation.shape", listOf("RoundedCornerShape"))
         val TypeCornerBasedShape =
@@ -511,8 +527,9 @@ internal class KtFileBuilder(
         val TypeProvidableCompositionLocal =
             ClassName("androidx.compose.runtime", listOf("ProvidableCompositionLocal"))
 
-        fun getLambdaType(annotation: ClassName? = null): TypeName {
+        fun getLambdaType(annotation: ClassName? = null, receiver: ClassName? = null): TypeName {
             val lambdaType = LambdaTypeName.get(
+                receiver = receiver,
                 returnType = Unit::class.asClassName(),
             )
             return annotation?.let {

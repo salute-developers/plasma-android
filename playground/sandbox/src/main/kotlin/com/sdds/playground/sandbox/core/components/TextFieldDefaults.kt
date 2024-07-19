@@ -13,7 +13,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.sdds.playground.themebuilder.tokens.compose.DefaultTheme
+import com.sdds.playground.sandbox.tokens.compose.StylesSaluteTheme
 
 /**
  * Цвета текстового поля
@@ -240,10 +240,10 @@ internal object TextFieldDefaults {
      */
     @Composable
     fun textFieldShapeFor(size: SandboxTextField.Size) = when (size) {
-        SandboxTextField.Size.XS -> DefaultTheme.shapes.roundXs
-        SandboxTextField.Size.S -> DefaultTheme.shapes.roundS
-        SandboxTextField.Size.M -> DefaultTheme.shapes.roundM
-        SandboxTextField.Size.L -> DefaultTheme.shapes.roundL
+        SandboxTextField.Size.XS -> StylesSaluteTheme.shapes.roundXs
+        SandboxTextField.Size.S -> StylesSaluteTheme.shapes.roundS
+        SandboxTextField.Size.M -> StylesSaluteTheme.shapes.roundM
+        SandboxTextField.Size.L -> StylesSaluteTheme.shapes.roundL
     }.adjustBy(ShapeAdjustment)
 }
 
@@ -252,12 +252,12 @@ private class DefaultTextFieldColors : TextFieldColors {
 
     @Composable
     override fun leadingIconColor(state: InputState): State<Color> {
-        return rememberUpdatedState(DefaultTheme.colors.textDefaultSecondary)
+        return rememberUpdatedState(StylesSaluteTheme.colors.textDefaultSecondary)
     }
 
     @Composable
     override fun trailingIconColor(state: InputState): State<Color> {
-        var color = DefaultTheme.colors.textDefaultSecondary
+        var color = StylesSaluteTheme.colors.textDefaultSecondary
         if (state == InputState.ReadOnly) {
             color = color.copy(alpha = color.alpha * TextFieldDefaults.DisabledAlpha)
         }
@@ -269,12 +269,12 @@ private class DefaultTextFieldColors : TextFieldColors {
         val surfaceAlpha = if (isSystemInDarkTheme()) 0.12f else 0.06f
         val readOnlyAlpha = if (isSystemInDarkTheme()) 0.02f else 0.01f
         val color = when (state) {
-            InputState.Normal -> DefaultTheme.colors.surfaceDefaultTransparentPrimary
-            InputState.Focused -> DefaultTheme.colors.surfaceDefaultTransparentSecondary
-            InputState.Error -> DefaultTheme.colors.surfaceDefaultNegative.copy(alpha = surfaceAlpha)
-            InputState.Warning -> DefaultTheme.colors.surfaceDefaultWarning.copy(alpha = surfaceAlpha)
-            InputState.Success -> DefaultTheme.colors.surfaceDefaultPositive.copy(alpha = surfaceAlpha)
-            InputState.ReadOnly -> DefaultTheme.colors.surfaceDefaultSolidDefault.copy(alpha = readOnlyAlpha)
+            InputState.Normal -> StylesSaluteTheme.colors.surfaceDefaultTransparentPrimary
+            InputState.Focused -> StylesSaluteTheme.colors.surfaceDefaultTransparentSecondary
+            InputState.Error -> StylesSaluteTheme.colors.surfaceDefaultNegative.copy(alpha = surfaceAlpha)
+            InputState.Warning -> StylesSaluteTheme.colors.surfaceDefaultWarning.copy(alpha = surfaceAlpha)
+            InputState.Success -> StylesSaluteTheme.colors.surfaceDefaultPositive.copy(alpha = surfaceAlpha)
+            InputState.ReadOnly -> StylesSaluteTheme.colors.surfaceDefaultSolidDefault.copy(alpha = readOnlyAlpha)
         }
         return rememberUpdatedState(color)
     }
@@ -283,9 +283,9 @@ private class DefaultTextFieldColors : TextFieldColors {
     override fun placeholderColor(state: InputState): State<Color> {
         return rememberUpdatedState(
             if (state == InputState.Focused) {
-                DefaultTheme.colors.textDefaultTertiary
+                StylesSaluteTheme.colors.textDefaultTertiary
             } else {
-                DefaultTheme.colors.textDefaultSecondary
+                StylesSaluteTheme.colors.textDefaultSecondary
             },
         )
     }
@@ -294,7 +294,7 @@ private class DefaultTextFieldColors : TextFieldColors {
     override fun labelColor(state: InputState, type: SandboxTextField.LabelType): State<Color> {
         val color = when (type) {
             SandboxTextField.LabelType.Outer -> textFieldTextColor(state = state)
-            SandboxTextField.LabelType.Inner -> DefaultTheme.colors.textDefaultSecondary
+            SandboxTextField.LabelType.Inner -> StylesSaluteTheme.colors.textDefaultSecondary
         }
         return rememberUpdatedState(color)
     }
@@ -306,7 +306,7 @@ private class DefaultTextFieldColors : TextFieldColors {
 
     @Composable
     override fun cursorColor(state: InputState): State<Color> {
-        return rememberUpdatedState(DefaultTheme.colors.textDefaultAccent)
+        return rememberUpdatedState(StylesSaluteTheme.colors.textDefaultAccent)
     }
 
     @Composable
@@ -315,24 +315,24 @@ private class DefaultTextFieldColors : TextFieldColors {
             InputState.Normal,
             InputState.Focused,
             InputState.ReadOnly,
-            -> DefaultTheme.colors.textDefaultSecondary
+            -> StylesSaluteTheme.colors.textDefaultSecondary
 
-            InputState.Error -> DefaultTheme.colors.textDefaultNegative
-            InputState.Warning -> DefaultTheme.colors.textDefaultWarning
-            InputState.Success -> DefaultTheme.colors.textDefaultPositive
+            InputState.Error -> StylesSaluteTheme.colors.textDefaultNegative
+            InputState.Warning -> StylesSaluteTheme.colors.textDefaultWarning
+            InputState.Success -> StylesSaluteTheme.colors.textDefaultPositive
         }
         return rememberUpdatedState(newValue = color)
     }
 
     @Composable
     private fun textFieldTextColor(state: InputState) = when (state) {
-        InputState.ReadOnly -> DefaultTheme.colors.textDefaultSecondary
+        InputState.ReadOnly -> StylesSaluteTheme.colors.textDefaultSecondary
         InputState.Normal,
         InputState.Focused,
         InputState.Error,
         InputState.Warning,
         InputState.Success,
-        -> DefaultTheme.colors.textDefaultPrimary
+        -> StylesSaluteTheme.colors.textDefaultPrimary
     }
 }
 
@@ -347,17 +347,17 @@ private class DefaultTextFieldStyles : TextFieldStyles {
     override fun innerLabelStyle(size: SandboxTextField.Size, isFocused: Boolean, isEmpty: Boolean): State<TextStyle> {
         val style = if (!isFocused && isEmpty) {
             when (size) {
-                SandboxTextField.Size.XS -> DefaultTheme.typography.bodySNormal
-                SandboxTextField.Size.S -> DefaultTheme.typography.bodySNormal
-                SandboxTextField.Size.M -> DefaultTheme.typography.bodyMNormal
-                SandboxTextField.Size.L -> DefaultTheme.typography.bodyLNormal
+                SandboxTextField.Size.XS -> StylesSaluteTheme.typography.bodySNormal
+                SandboxTextField.Size.S -> StylesSaluteTheme.typography.bodySNormal
+                SandboxTextField.Size.M -> StylesSaluteTheme.typography.bodyMNormal
+                SandboxTextField.Size.L -> StylesSaluteTheme.typography.bodyLNormal
             }
         } else {
             when (size) {
-                SandboxTextField.Size.XS -> DefaultTheme.typography.bodyXxsNormal
-                SandboxTextField.Size.S -> DefaultTheme.typography.bodyXxsNormal
-                SandboxTextField.Size.M -> DefaultTheme.typography.bodyXsNormal
-                SandboxTextField.Size.L -> DefaultTheme.typography.bodyXsNormal
+                SandboxTextField.Size.XS -> StylesSaluteTheme.typography.bodyXxsNormal
+                SandboxTextField.Size.S -> StylesSaluteTheme.typography.bodyXxsNormal
+                SandboxTextField.Size.M -> StylesSaluteTheme.typography.bodyXsNormal
+                SandboxTextField.Size.L -> StylesSaluteTheme.typography.bodyXsNormal
             }
         }
         return rememberUpdatedState(style)
@@ -370,7 +370,7 @@ private class DefaultTextFieldStyles : TextFieldStyles {
 
     @Composable
     override fun captionStyle(size: SandboxTextField.Size): State<TextStyle> {
-        return rememberUpdatedState(DefaultTheme.typography.bodyXsNormal)
+        return rememberUpdatedState(StylesSaluteTheme.typography.bodyXsNormal)
     }
 
     @Composable
@@ -380,9 +380,9 @@ private class DefaultTextFieldStyles : TextFieldStyles {
 
     @Composable
     private fun textFieldTextStyle(size: SandboxTextField.Size) = when (size) {
-        SandboxTextField.Size.XS -> DefaultTheme.typography.bodyXsNormal
-        SandboxTextField.Size.S -> DefaultTheme.typography.bodySNormal
-        SandboxTextField.Size.M -> DefaultTheme.typography.bodyMNormal
-        SandboxTextField.Size.L -> DefaultTheme.typography.bodyLNormal
+        SandboxTextField.Size.XS -> StylesSaluteTheme.typography.bodyXsNormal
+        SandboxTextField.Size.S -> StylesSaluteTheme.typography.bodySNormal
+        SandboxTextField.Size.M -> StylesSaluteTheme.typography.bodyMNormal
+        SandboxTextField.Size.L -> StylesSaluteTheme.typography.bodyLNormal
     }
 }

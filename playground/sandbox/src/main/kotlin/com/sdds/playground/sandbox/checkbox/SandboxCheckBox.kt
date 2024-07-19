@@ -12,7 +12,7 @@ import com.sdds.compose.uikit.CheckBox
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.checkbox.SandboxCheckBoxSettingsProvider.descriptionTextStyleFor
 import com.sdds.playground.sandbox.checkbox.SandboxCheckBoxSettingsProvider.labelTextStyleFor
-import com.sdds.playground.themebuilder.tokens.compose.DefaultTheme
+import com.sdds.playground.sandbox.tokens.compose.StylesSaluteTheme
 
 @Composable
 internal fun SandboxCheckBox(
@@ -32,12 +32,12 @@ internal fun SandboxCheckBox(
         enabled = enabled,
         label = label,
         description = description,
-        labelColor = DefaultTheme.colors.textDefaultPrimary,
-        descriptionColor = DefaultTheme.colors.textDefaultSecondary,
-        idleColor = DefaultTheme.colors.textDefaultSecondary,
-        checkedColor = DefaultTheme.colors.surfaceDefaultPositive,
-        focusedColor = DefaultTheme.colors.surfaceDefaultSolidDefault,
-        baseColor = DefaultTheme.colors.textOnDarkPrimary,
+        labelColor = StylesSaluteTheme.colors.textDefaultPrimary,
+        descriptionColor = StylesSaluteTheme.colors.textDefaultSecondary,
+        idleColor = StylesSaluteTheme.colors.textDefaultSecondary,
+        checkedColor = StylesSaluteTheme.colors.surfaceDefaultPositive,
+        focusedColor = StylesSaluteTheme.colors.surfaceDefaultSolidDefault,
+        baseColor = StylesSaluteTheme.colors.textOnDarkPrimary,
         labelTextStyle = labelTextStyleFor(size),
         descriptionTextStyle = descriptionTextStyleFor(size),
         interactionSource = interactionSource,

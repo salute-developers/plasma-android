@@ -3,7 +3,7 @@ package com.sdds.playground.sandbox.radiobox
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
-import com.sdds.playground.themebuilder.tokens.compose.DefaultTheme
+import com.sdds.playground.sandbox.tokens.compose.StylesSaluteTheme
 
 internal object SandboxRadioBoxSettingsProvider {
     @Composable
@@ -25,14 +25,14 @@ internal object SandboxRadioBoxSettingsProvider {
     @Composable
     fun labelTextStyleFor(size: SandboxRadioBox.Size): TextStyle =
         when (size) {
-            SandboxRadioBox.Size.M -> DefaultTheme.typography.bodyMNormal
-            SandboxRadioBox.Size.S -> DefaultTheme.typography.bodySNormal
+            SandboxRadioBox.Size.M -> StylesSaluteTheme.typography.bodyMNormal
+            SandboxRadioBox.Size.S -> StylesSaluteTheme.typography.bodySNormal
         }
 
     @Composable
     fun descriptionTextStyleFor(size: SandboxRadioBox.Size): TextStyle =
         when (size) {
-            SandboxRadioBox.Size.M -> DefaultTheme.typography.bodySNormal
-            SandboxRadioBox.Size.S -> DefaultTheme.typography.bodyXsNormal
+            SandboxRadioBox.Size.M -> StylesSaluteTheme.typography.bodySNormal
+            SandboxRadioBox.Size.S -> StylesSaluteTheme.typography.bodyXsNormal
         }
 }

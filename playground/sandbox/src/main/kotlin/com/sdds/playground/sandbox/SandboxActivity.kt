@@ -41,7 +41,7 @@ import com.sdds.playground.sandbox.progress.ProgressScreen
 import com.sdds.playground.sandbox.radiobox.RadioBoxScreen
 import com.sdds.playground.sandbox.radiobox.group.RadioBoxGroupScreen
 import com.sdds.playground.sandbox.switch.SwitchScreen
-import com.sdds.playground.themebuilder.tokens.compose.DefaultTheme
+import com.sdds.playground.sandbox.tokens.compose.StylesSaluteTheme
 import kotlinx.coroutines.launch
 import com.sdds.icons.R.drawable as Icons
 
@@ -90,7 +90,7 @@ private fun SandboxContainer() {
     Scaffold(
         scaffoldState = scaffoldState,
         modifier = Modifier.systemBarsPadding(),
-        drawerBackgroundColor = DefaultTheme.colors.surfaceDefaultSolidSecondary,
+        drawerBackgroundColor = StylesSaluteTheme.colors.surfaceDefaultSolidSecondary,
         drawerContent = {
             menuItems.forEachIndexed { index, menuItem ->
                 NavigationItem(menuItem) {
@@ -116,7 +116,7 @@ private fun SandboxContainer() {
         Column(
             modifier = Modifier
                 .padding(it)
-                .background(DefaultTheme.colors.backgroundDefaultPrimary)
+                .background(StylesSaluteTheme.colors.backgroundDefaultPrimary)
                 .fillMaxSize(),
         ) {
             currentItem.screen()
@@ -141,7 +141,7 @@ private fun ColumnScope.NavigationItem(
                 onClick = onClick,
             )
             .padding(16.dp),
-        style = DefaultTheme.typography.bodyMBold.copy(color = DefaultTheme.colors.textDefaultPrimary),
+        style = StylesSaluteTheme.typography.bodyMBold.copy(color = StylesSaluteTheme.colors.textDefaultPrimary),
     )
 }
 
@@ -154,7 +154,7 @@ private fun TopBar(
         title = {
             Text(
                 text = title,
-                style = DefaultTheme.typography.bodyMBold,
+                style = StylesSaluteTheme.typography.bodyMBold,
             )
         },
         elevation = 1.dp,
@@ -166,8 +166,8 @@ private fun TopBar(
                 onClick = onNavigationClick,
             )
         },
-        backgroundColor = DefaultTheme.colors.surfaceDefaultSolidPrimary,
-        contentColor = DefaultTheme.colors.textDefaultPrimary,
+        backgroundColor = StylesSaluteTheme.colors.surfaceDefaultSolidPrimary,
+        contentColor = StylesSaluteTheme.colors.textDefaultPrimary,
     )
 }
 

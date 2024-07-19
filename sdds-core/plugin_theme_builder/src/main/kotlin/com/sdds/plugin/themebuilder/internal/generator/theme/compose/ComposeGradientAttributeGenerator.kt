@@ -2,7 +2,9 @@ package com.sdds.plugin.themebuilder.internal.generator.theme.compose
 
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Constructor
-import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Modifier.DATA
+import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.FunParameter
+import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Getter
+import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Modifier
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Modifier.INTERNAL
 import com.sdds.plugin.themebuilder.internal.builder.KtFileFromResourcesBuilder
 import com.sdds.plugin.themebuilder.internal.exceptions.ThemeBuilderException
@@ -43,6 +45,9 @@ internal class ComposeGradientAttributeGenerator(
 
     private val camelThemeName = themeName.snakeToCamelCase()
     private val gradientClassName = "${camelThemeName}Gradients"
+    private val gradientClassType by unsafeLazy {
+        gradientKtFileBuilder.getInternalClassType(gradientClassName)
+    }
 
     fun setGradientTokenData(data: TokenData) {
         tokenData = data
@@ -90,6 +95,7 @@ internal class ComposeGradientAttributeGenerator(
         addGradientsClass()
         addLightGradientsFun()
         addDarkGradientsFun()
+        addGradientOverrideScopeClass()
         addLinearGradientFun()
         addRadialGradientFun()
         addSweepGradientFun()
@@ -124,20 +130,62 @@ internal class ComposeGradientAttributeGenerator(
 
     private fun addGradientsClass() {
         with(gradientKtFileBuilder) {
-            rootClass(
+            val rootGradientClass = rootClass(
                 name = gradientClassName,
                 primaryConstructor = Constructor.Primary(
-                    parameters = gradientAttributes.map {
-                        KtFileBuilder.FunParameter(
-                            name = it,
-                            type = KtFileBuilder.TypeListOfShaderBrush,
+                    parameters = listOf(
+                        FunParameter(
+                            name = "gradients",
+                            type = KtFileBuilder.TypeMapOfListOfShaderBrush,
                             asProperty = true,
-                        )
-                    },
+                            modifiers = listOf(Modifier.PRIVATE),
+                        ),
+                    ),
                 ),
                 annotation = KtFileBuilder.TypeAnnotationImmutable,
                 description = "Градиенты $camelThemeName",
-                modifiers = listOf(DATA),
+            )
+
+            gradientAttributes.forEach { gradient ->
+                rootGradientClass.appendProperty(
+                    name = gradient,
+                    typeName = KtFileBuilder.TypeListOfShaderBrush,
+                    delegate = "gradients",
+                )
+            }
+
+            rootGradientClass.appendFun(
+                name = "copy",
+                returnType = getInternalClassType(gradientClassName),
+                params = listOf(
+                    FunParameter(
+                        name = "overrideGradients",
+                        type = KtFileBuilder.getLambdaType(
+                            receiver = gradientKtFileBuilder.getInternalClassType("GradientOverrideScope"),
+                        ),
+                        defValue = "{}",
+                    ),
+                ),
+                body = listOf(
+                    "val gradientOverrideScope = GradientOverrideScope()\n",
+                    "overrideGradients.invoke(gradientOverrideScope)\n",
+                    "val overrideMap = gradientOverrideScope.overrideMap\n",
+                    "return $gradientClassName(gradients.mapValues { overrideMap[it.key] ?: it.value })",
+                ),
+                description = "Возвращает копию [$gradientClassName]. " +
+                    "Предоставляет возможность переопределять градиенты.",
+            )
+
+            rootGradientClass.appendFun(
+                name = "toString",
+                modifiers = listOf(Modifier.OVERRIDE),
+                body = listOf(
+                    "return \"\${this::class.simpleName}(${
+                        gradientAttributes.joinToString(
+                            separator = ",·",
+                        ) { "$it=$$it" }
+                    })\"",
+                ),
             )
         }
     }
@@ -155,16 +203,26 @@ internal class ComposeGradientAttributeGenerator(
     private fun addLightGradientsFun() {
         gradientKtFileBuilder.appendRootFun(
             name = "light${camelThemeName}Gradients",
-            params = gradientAttributes.map {
-                KtFileBuilder.FunParameter(
-                    name = it,
-                    type = KtFileBuilder.TypeListOfShaderBrush,
-                    defValue = defaultLightGradientValue(it),
-                )
-            },
-            returnType = gradientKtFileBuilder.getInternalClassType(gradientClassName),
+            params = listOf(
+                FunParameter(
+                    name = "overrideGradients",
+                    type = KtFileBuilder.getLambdaType(
+                        receiver = gradientKtFileBuilder.getInternalClassType("GradientOverrideScope"),
+                    ),
+                    defValue = "{}",
+                ),
+            ),
+            returnType = gradientClassType,
             body = listOf(
-                "return $gradientClassName(${gradientAttributes.joinToString(separator = ",·")})",
+                "val gradientOverrideScope = GradientOverrideScope()\n",
+                "overrideGradients.invoke(gradientOverrideScope)\n",
+                "val overrideMap = gradientOverrideScope.overrideMap\n",
+                "val initialMap = mutableMapOf<String, List<ShaderBrush>>()\n",
+                gradientAttributes.joinToString(separator = "\n") {
+                    val defaultValue = defaultLightGradientValue(it)
+                    "initialMap[\"$it\"] = overrideMap[\"$it\"] ?: $defaultValue"
+                },
+                "\nreturn $gradientClassName(initialMap)",
             ),
             description = "Градиенты [$gradientClassName] для светлой темы",
         )
@@ -228,19 +286,71 @@ internal class ComposeGradientAttributeGenerator(
     private fun addDarkGradientsFun() {
         gradientKtFileBuilder.appendRootFun(
             name = "dark${camelThemeName}Gradients",
-            params = gradientAttributes.map {
-                KtFileBuilder.FunParameter(
-                    name = it,
-                    type = KtFileBuilder.TypeListOfShaderBrush,
-                    defValue = defaultDarkGradientValue(it),
-                )
-            },
-            returnType = gradientKtFileBuilder.getInternalClassType(gradientClassName),
+            params = listOf(
+                FunParameter(
+                    name = "overrideGradients",
+                    type = KtFileBuilder.getLambdaType(
+                        receiver = gradientKtFileBuilder.getInternalClassType("GradientOverrideScope"),
+                    ),
+                    defValue = "{}",
+                ),
+            ),
+            returnType = gradientClassType,
             body = listOf(
-                "return $gradientClassName(${gradientAttributes.joinToString(separator = ",·")})",
+                "val gradientOverrideScope = GradientOverrideScope()\n",
+                "overrideGradients.invoke(gradientOverrideScope)\n",
+                "val overrideMap = gradientOverrideScope.overrideMap\n",
+                "val initialMap = mutableMapOf<String, List<ShaderBrush>>()\n",
+                gradientAttributes.joinToString(separator = "\n") {
+                    val defaultValue = defaultDarkGradientValue(it)
+                    "initialMap[\"$it\"] = overrideMap[\"$it\"] ?: $defaultValue"
+                },
+                "\nreturn $gradientClassName(initialMap)",
             ),
             description = "Градиенты [$gradientClassName] для темной темы",
         )
+    }
+
+    private fun addGradientOverrideScopeClass() {
+        with(gradientKtFileBuilder) {
+            val rootColorsClass = rootClass(
+                name = "GradientOverrideScope",
+                description = "Скоуп переопределения градиентов",
+            )
+
+            rootColorsClass.appendProperty(
+                name = "_overrideMap",
+                typeName = KtFileBuilder.TypeMutableMapOfListOfShaderBrush,
+                initializer = "mutableMapOf<String, List<ShaderBrush>>()",
+                modifiers = listOf(Modifier.PRIVATE),
+            )
+
+            rootColorsClass.appendProperty(
+                name = "overrideMap",
+                typeName = KtFileBuilder.TypeMapOfListOfShaderBrush,
+                modifiers = listOf(Modifier.INTERNAL),
+                propGetter = Getter.Annotated(body = "return _overrideMap.toMap()"),
+            )
+
+            gradientAttributes.forEach { gradient ->
+                rootColorsClass.appendProperty(
+                    name = gradient,
+                    typeName = KtFileBuilder.TypeString,
+                    isMutable = false,
+                    initializer = "\"$gradient\"",
+                )
+            }
+
+            rootColorsClass.appendFun(
+                name = "overrideBy",
+                params = listOf(
+                    FunParameter(name = "gradient", type = KtFileBuilder.TypeListOfShaderBrush),
+                ),
+                modifiers = listOf(Modifier.INFIX),
+                receiver = KtFileBuilder.TypeString,
+                body = listOf("_overrideMap[this] = gradient"),
+            )
+        }
     }
 
     private fun addLinearGradientFun() {
@@ -249,19 +359,19 @@ internal class ComposeGradientAttributeGenerator(
             modifiers = listOf(INTERNAL),
             returnType = KtFileBuilder.TypeShaderBrush,
             params = listOf(
-                KtFileBuilder.FunParameter(
+                FunParameter(
                     name = "colors",
                     type = KtFileBuilder.TypeListOfColors,
                     null,
                     false,
                 ),
-                KtFileBuilder.FunParameter(
+                FunParameter(
                     name = "positions",
                     type = KtFileBuilder.TypeFloatArray,
                     null,
                     false,
                 ),
-                KtFileBuilder.FunParameter(
+                FunParameter(
                     name = "angle",
                     type = KtFileBuilder.TypeFloat,
                 ),
@@ -279,27 +389,27 @@ internal class ComposeGradientAttributeGenerator(
             modifiers = listOf(INTERNAL),
             returnType = KtFileBuilder.TypeShaderBrush,
             params = listOf(
-                KtFileBuilder.FunParameter(
+                FunParameter(
                     name = "colors",
                     type = KtFileBuilder.TypeListOfColors,
                     null,
                     false,
                 ),
-                KtFileBuilder.FunParameter(
+                FunParameter(
                     name = "positions",
                     type = KtFileBuilder.TypeFloatArray,
                     null,
                     false,
                 ),
-                KtFileBuilder.FunParameter(
+                FunParameter(
                     name = "radius",
                     type = KtFileBuilder.TypeFloat,
                 ),
-                KtFileBuilder.FunParameter(
+                FunParameter(
                     name = "centerX",
                     type = KtFileBuilder.TypeFloat,
                 ),
-                KtFileBuilder.FunParameter(
+                FunParameter(
                     name = "centerY",
                     type = KtFileBuilder.TypeFloat,
                 ),
@@ -316,23 +426,23 @@ internal class ComposeGradientAttributeGenerator(
             modifiers = listOf(INTERNAL),
             returnType = KtFileBuilder.TypeShaderBrush,
             params = listOf(
-                KtFileBuilder.FunParameter(
+                FunParameter(
                     name = "colors",
                     type = KtFileBuilder.TypeListOfColors,
                     null,
                     false,
                 ),
-                KtFileBuilder.FunParameter(
+                FunParameter(
                     name = "positions",
                     type = KtFileBuilder.TypeFloatArray,
                     null,
                     false,
                 ),
-                KtFileBuilder.FunParameter(
+                FunParameter(
                     name = "centerX",
                     type = KtFileBuilder.TypeFloat,
                 ),
-                KtFileBuilder.FunParameter(
+                FunParameter(
                     name = "centerY",
                     type = KtFileBuilder.TypeFloat,
                 ),
@@ -349,7 +459,7 @@ internal class ComposeGradientAttributeGenerator(
             modifiers = listOf(INTERNAL),
             returnType = KtFileBuilder.TypeShaderBrush,
             params = listOf(
-                KtFileBuilder.FunParameter(
+                FunParameter(
                     name = "color",
                     type = KtFileBuilder.TypeColor,
                     null,
@@ -366,7 +476,7 @@ internal class ComposeGradientAttributeGenerator(
         gradientKtFileBuilder.appendRootFun(
             name = "compositeGradient",
             params = listOf(
-                KtFileBuilder.FunParameter(
+                FunParameter(
                     name = "brushes",
                     type = KtFileBuilder.TypeListOfBrush,
                 ),
