@@ -5,7 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import com.sdds.compose.uikit.Switch
-import com.sdds.playground.themebuilder.tokens.compose.DefaultTheme
+import com.sdds.playground.sandbox.tokens.compose.StylesSaluteTheme
 
 @Composable
 internal fun SandboxSwitch(
@@ -23,13 +23,13 @@ internal fun SandboxSwitch(
         onActiveChanged = onActiveChanged,
         label = label,
         description = description,
-        labelColor = DefaultTheme.colors.textDefaultPrimary,
-        descriptionColor = DefaultTheme.colors.textDefaultSecondary,
-        labelTextStyle = DefaultTheme.typography.bodyMNormal,
-        descriptionTextStyle = DefaultTheme.typography.bodySNormal,
-        thumbColor = DefaultTheme.colors.surfaceOnDarkSolidDefault,
-        activeTrackColor = DefaultTheme.colors.surfaceDefaultPositive,
-        inactiveTrackColor = DefaultTheme.colors.surfaceDefaultTransparentTertiary,
+        labelColor = StylesSaluteTheme.colors.textDefaultPrimary,
+        descriptionColor = StylesSaluteTheme.colors.textDefaultSecondary,
+        labelTextStyle = StylesSaluteTheme.typography.bodyMNormal,
+        descriptionTextStyle = StylesSaluteTheme.typography.bodySNormal,
+        thumbColor = StylesSaluteTheme.colors.surfaceOnDarkSolidDefault,
+        activeTrackColor = StylesSaluteTheme.colors.surfaceDefaultPositive,
+        inactiveTrackColor = StylesSaluteTheme.colors.surfaceDefaultTransparentTertiary,
         enabled = enabled,
         interactionSource = interactionSource,
     )

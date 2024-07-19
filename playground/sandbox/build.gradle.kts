@@ -16,9 +16,9 @@ android {
 }
 
 themeBuilder {
-    themeSource(url = "file://${projectDir.path}/theme/sandbox_theme.zip")
+    themeSource(name = "stylesSalute")
     compose()
-    ktPackage("com.sdds.playground.themebuilder.tokens")
+    ktPackage("com.sdds.playground.sandbox.tokens")
     mode(ThemeBuilderMode.THEME)
 }
 

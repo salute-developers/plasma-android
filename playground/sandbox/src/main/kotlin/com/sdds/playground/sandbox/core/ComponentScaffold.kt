@@ -31,7 +31,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
-import com.sdds.playground.themebuilder.tokens.compose.DefaultTheme
+import com.sdds.playground.sandbox.tokens.compose.StylesSaluteTheme
 import kotlinx.coroutines.launch
 
 /**
@@ -62,11 +62,11 @@ internal fun ComponentScaffold(
             )
             Spacer(modifier = Modifier.imePadding())
         },
-        sheetShape = DefaultTheme.shapes.roundS.copy(
+        sheetShape = StylesSaluteTheme.shapes.roundS.copy(
             bottomStart = CornerSize(0.dp),
             bottomEnd = CornerSize(0.dp),
         ),
-        sheetBackgroundColor = DefaultTheme.colors.surfaceDefaultSolidCard,
+        sheetBackgroundColor = StylesSaluteTheme.colors.surfaceDefaultSolidCard,
     ) {
         Column(
             modifier = Modifier
@@ -80,9 +80,9 @@ internal fun ComponentScaffold(
                 modifier = Modifier
                     .fillMaxWidth()
                     .requiredHeight(230.dp)
-                    .clip(DefaultTheme.shapes.roundM)
-                    .border(1.dp, DefaultTheme.colors.surfaceDefaultSolidTertiary, DefaultTheme.shapes.roundM)
-                    .background(DefaultTheme.colors.surfaceDefaultSolidCard)
+                    .clip(StylesSaluteTheme.shapes.roundM)
+                    .border(1.dp, StylesSaluteTheme.colors.surfaceDefaultSolidTertiary, StylesSaluteTheme.shapes.roundM)
+                    .background(StylesSaluteTheme.colors.surfaceDefaultSolidCard)
                     .padding(16.dp),
 
                 contentAlignment = Alignment.Center,
