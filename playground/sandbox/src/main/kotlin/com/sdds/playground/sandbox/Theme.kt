@@ -7,16 +7,16 @@ import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
-import com.sdds.playground.themebuilder.tokens.compose.DefaultTheme
-import com.sdds.playground.themebuilder.tokens.compose.darkDefaultColors
-import com.sdds.playground.themebuilder.tokens.compose.darkDefaultGradients
-import com.sdds.playground.themebuilder.tokens.compose.lightDefaultColors
-import com.sdds.playground.themebuilder.tokens.compose.lightDefaultGradients
+import com.sdds.playground.sandbox.tokens.compose.StylesSaluteTheme
+import com.sdds.playground.sandbox.tokens.compose.darkStylesSaluteColors
+import com.sdds.playground.sandbox.tokens.compose.darkStylesSaluteGradients
+import com.sdds.playground.sandbox.tokens.compose.lightStylesSaluteColors
+import com.sdds.playground.sandbox.tokens.compose.lightStylesSaluteGradients
 
-private val DarkColors = darkDefaultColors()
-private val LightColors = lightDefaultColors()
-private val DarkGradients = darkDefaultGradients()
-private val LightGradients = lightDefaultGradients()
+private val DarkColors = darkStylesSaluteColors()
+private val LightColors = lightStylesSaluteColors()
+private val DarkGradients = darkStylesSaluteGradients()
+private val LightGradients = lightStylesSaluteGradients()
 
 /**
  * Тема демо-приложения
@@ -39,7 +39,7 @@ fun SandboxTheme(
         }
     }
 
-    DefaultTheme(
+    StylesSaluteTheme(
         colors = if (darkTheme) DarkColors else LightColors,
         gradients = if (darkTheme) DarkGradients else LightGradients,
         content = content,

@@ -13,7 +13,7 @@ import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.radiobox.SandboxRadioBoxSettingsProvider.descriptionTextStyleFor
 import com.sdds.playground.sandbox.radiobox.SandboxRadioBoxSettingsProvider.getDimensionsFor
 import com.sdds.playground.sandbox.radiobox.SandboxRadioBoxSettingsProvider.labelTextStyleFor
-import com.sdds.playground.themebuilder.tokens.compose.DefaultTheme
+import com.sdds.playground.sandbox.tokens.compose.StylesSaluteTheme
 
 @Composable
 internal fun SandboxRadioBox(
@@ -36,12 +36,12 @@ internal fun SandboxRadioBox(
         enabled = enabled,
         labelTextStyle = labelTextStyleFor(size),
         descriptionTextStyle = descriptionTextStyleFor(size),
-        labelColor = DefaultTheme.colors.textDefaultPrimary,
-        descriptionColor = DefaultTheme.colors.textDefaultSecondary,
-        idleColor = DefaultTheme.colors.textDefaultSecondary,
-        checkedColor = DefaultTheme.colors.surfaceDefaultPositive,
-        focusedColor = DefaultTheme.colors.surfaceDefaultSolidDefault,
-        baseColor = DefaultTheme.colors.textOnDarkPrimary,
+        labelColor = StylesSaluteTheme.colors.textDefaultPrimary,
+        descriptionColor = StylesSaluteTheme.colors.textDefaultSecondary,
+        idleColor = StylesSaluteTheme.colors.textDefaultSecondary,
+        checkedColor = StylesSaluteTheme.colors.surfaceDefaultPositive,
+        focusedColor = StylesSaluteTheme.colors.surfaceDefaultSolidDefault,
+        baseColor = StylesSaluteTheme.colors.textOnDarkPrimary,
         baseSize = dimensions.baseSize,
         verticalSpacing = dimensions.verticalSpacing,
         horizontalSpacing = dimensions.horizontalSpacing,

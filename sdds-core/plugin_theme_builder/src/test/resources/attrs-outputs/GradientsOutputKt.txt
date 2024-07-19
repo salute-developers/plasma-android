@@ -188,19 +188,59 @@ import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ShaderBrush
+import com.sdds.playground.themebuilder.tokens.compose.GradientOverrideScope
 import com.sdds.playground.themebuilder.tokens.compose.ThemeGradients
 import kotlin.Float
 import kotlin.FloatArray
+import kotlin.String
+import kotlin.Unit
 import kotlin.collections.List
+import kotlin.collections.Map
+import kotlin.collections.MutableMap
 
 /**
  * Градиенты Theme
  */
 @Immutable
-public data class ThemeGradients(
-    public val textDefaultAccentGradient: List<ShaderBrush>,
-    public val textDefaultGradientJoyActive: List<ShaderBrush>,
-)
+public class ThemeGradients(
+    private val gradients: Map<String, List<ShaderBrush>>,
+) {
+    public val textDefaultAccentGradient: List<ShaderBrush> by gradients
+
+    public val textDefaultGradientJoyActive: List<ShaderBrush> by gradients
+
+    /**
+     * Возвращает копию [ThemeGradients]. Предоставляет возможность переопределять градиенты.
+     */
+    public fun copy(overrideGradients: GradientOverrideScope.() -> Unit = {}): ThemeGradients {
+        val gradientOverrideScope = GradientOverrideScope()
+        overrideGradients.invoke(gradientOverrideScope)
+        val overrideMap = gradientOverrideScope.overrideMap
+        return ThemeGradients(gradients.mapValues { overrideMap[it.key] ?: it.value })
+    }
+
+    public override fun toString() =
+            "${this::class.simpleName}(textDefaultAccentGradient=$textDefaultAccentGradient, textDefaultGradientJoyActive=$textDefaultGradientJoyActive)"
+}
+
+/**
+ * Скоуп переопределения градиентов
+ */
+public class GradientOverrideScope {
+    private val _overrideMap: MutableMap<String, List<ShaderBrush>> = mutableMapOf<String,
+            List<ShaderBrush>>()
+
+    internal val overrideMap: Map<String, List<ShaderBrush>>
+        get() = _overrideMap.toMap()
+
+    public val textDefaultAccentGradient: String = "textDefaultAccentGradient"
+
+    public val textDefaultGradientJoyActive: String = "textDefaultGradientJoyActive"
+
+    public infix fun String.overrideBy(gradient: List<ShaderBrush>): Unit {
+        _overrideMap[this] = gradient
+    }
+}
 
 internal val LocalThemeGradients: ProvidableCompositionLocal<ThemeGradients> =
         staticCompositionLocalOf { lightThemeGradients() }
@@ -208,20 +248,34 @@ internal val LocalThemeGradients: ProvidableCompositionLocal<ThemeGradients> =
 /**
  * Градиенты [ThemeGradients] для светлой темы
  */
-public fun lightThemeGradients(textDefaultAccentGradient: List<ShaderBrush> =
-        listOf(linearGradient(LightGradientTokens.TextDefaultAccentGradient.colors, LightGradientTokens.TextDefaultAccentGradient.positions, LightGradientTokens.TextDefaultAccentGradient.angle)),
-        textDefaultGradientJoyActive: List<ShaderBrush> =
-        listOf(sweepGradient(LightGradientTokens.TextDefaultGradientJoyActive.colors, LightGradientTokens.TextDefaultGradientJoyActive.positions, LightGradientTokens.TextDefaultGradientJoyActive.centerX, LightGradientTokens.TextDefaultGradientJoyActive.centerY))):
-        ThemeGradients = ThemeGradients(textDefaultAccentGradient, textDefaultGradientJoyActive)
+public fun lightThemeGradients(overrideGradients: GradientOverrideScope.() -> Unit = {}):
+        ThemeGradients {
+    val gradientOverrideScope = GradientOverrideScope()
+    overrideGradients.invoke(gradientOverrideScope)
+    val overrideMap = gradientOverrideScope.overrideMap
+    val initialMap = mutableMapOf<String, List<ShaderBrush>>()
+    initialMap["textDefaultAccentGradient"] = overrideMap["textDefaultAccentGradient"] ?:
+            listOf(linearGradient(LightGradientTokens.TextDefaultAccentGradient.colors, LightGradientTokens.TextDefaultAccentGradient.positions, LightGradientTokens.TextDefaultAccentGradient.angle))
+    initialMap["textDefaultGradientJoyActive"] = overrideMap["textDefaultGradientJoyActive"] ?:
+            listOf(sweepGradient(LightGradientTokens.TextDefaultGradientJoyActive.colors, LightGradientTokens.TextDefaultGradientJoyActive.positions, LightGradientTokens.TextDefaultGradientJoyActive.centerX, LightGradientTokens.TextDefaultGradientJoyActive.centerY))
+    return ThemeGradients(initialMap)
+}
 
 /**
  * Градиенты [ThemeGradients] для темной темы
  */
-public fun darkThemeGradients(textDefaultAccentGradient: List<ShaderBrush> =
-        listOf(radialGradient(DarkGradientTokens.TextDefaultAccentGradient.colors, DarkGradientTokens.TextDefaultAccentGradient.positions, DarkGradientTokens.TextDefaultAccentGradient.radius, DarkGradientTokens.TextDefaultAccentGradient.centerX, DarkGradientTokens.TextDefaultAccentGradient.centerY)),
-        textDefaultGradientJoyActive: List<ShaderBrush> =
-        listOf(sweepGradient(LightGradientTokens.TextDefaultGradientJoyActive.colors, LightGradientTokens.TextDefaultGradientJoyActive.positions, LightGradientTokens.TextDefaultGradientJoyActive.centerX, LightGradientTokens.TextDefaultGradientJoyActive.centerY))):
-        ThemeGradients = ThemeGradients(textDefaultAccentGradient, textDefaultGradientJoyActive)
+public fun darkThemeGradients(overrideGradients: GradientOverrideScope.() -> Unit = {}):
+        ThemeGradients {
+    val gradientOverrideScope = GradientOverrideScope()
+    overrideGradients.invoke(gradientOverrideScope)
+    val overrideMap = gradientOverrideScope.overrideMap
+    val initialMap = mutableMapOf<String, List<ShaderBrush>>()
+    initialMap["textDefaultAccentGradient"] = overrideMap["textDefaultAccentGradient"] ?:
+            listOf(radialGradient(DarkGradientTokens.TextDefaultAccentGradient.colors, DarkGradientTokens.TextDefaultAccentGradient.positions, DarkGradientTokens.TextDefaultAccentGradient.radius, DarkGradientTokens.TextDefaultAccentGradient.centerX, DarkGradientTokens.TextDefaultAccentGradient.centerY))
+    initialMap["textDefaultGradientJoyActive"] = overrideMap["textDefaultGradientJoyActive"] ?:
+            listOf(sweepGradient(LightGradientTokens.TextDefaultGradientJoyActive.colors, LightGradientTokens.TextDefaultGradientJoyActive.positions, LightGradientTokens.TextDefaultGradientJoyActive.centerX, LightGradientTokens.TextDefaultGradientJoyActive.centerY))
+    return ThemeGradients(initialMap)
+}
 
 internal fun linearGradient(
     colors: List<Color>,

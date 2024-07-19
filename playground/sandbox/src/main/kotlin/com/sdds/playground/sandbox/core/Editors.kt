@@ -26,7 +26,7 @@ import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.buttons.SandboxBasicButton
 import com.sdds.playground.sandbox.core.components.SandboxTextField
 import com.sdds.playground.sandbox.radiobox.SandboxRadioBox
-import com.sdds.playground.themebuilder.tokens.compose.DefaultTheme
+import com.sdds.playground.sandbox.tokens.compose.StylesSaluteTheme
 import kotlin.math.roundToInt
 
 /**
@@ -93,7 +93,7 @@ private fun TextPropertyEditor(
 
     Text(
         text = stringResource(id = R.string.sandbox_text_editor_title, propertyName),
-        style = DefaultTheme.typography.headerH3Bold.copy(color = DefaultTheme.colors.textDefaultPrimary),
+        style = StylesSaluteTheme.typography.headerH3Bold.copy(color = StylesSaluteTheme.colors.textDefaultPrimary),
         modifier = Modifier.padding(16.dp),
     )
     SandboxTextField(
@@ -134,7 +134,7 @@ private fun <T> ChoiceEditor(
 ) {
     Text(
         text = stringResource(id = R.string.sandbox_choice_editor_title, propertyName),
-        style = DefaultTheme.typography.headerH3Bold.copy(color = DefaultTheme.colors.textDefaultPrimary),
+        style = StylesSaluteTheme.typography.headerH3Bold.copy(color = StylesSaluteTheme.colors.textDefaultPrimary),
         modifier = Modifier.padding(8.dp),
     )
     choices.forEach {
