@@ -18,7 +18,7 @@ import androidx.compose.ui.unit.dp
  * @param checked флаг-индикатор выбора
  * @param focused флаг-индикатор состояния фокуса
  * @param controlSize размер заполняющего круга контрола
- * @param baseSize размер базового круга контрола
+ * @param innerDiameter размер базового круга контрола
  * @param modifier модификатор
  * @param strokeWidth Ширина линии в состоянии checked = false
  * @param checkedStrokeWidth ширина линии в состоянии checked = true
@@ -31,7 +31,7 @@ internal fun RadioBoxControl(
     checked: Boolean,
     focused: Boolean,
     controlSize: Dp,
-    baseSize: Dp,
+    innerDiameter: Dp,
     modifier: Modifier = Modifier,
     strokeWidth: Dp,
     checkedStrokeWidth: Dp,
@@ -39,7 +39,7 @@ internal fun RadioBoxControl(
     animationDuration: Int,
     colors: RadioBoxColors,
 ) {
-    val targetCheckedRadius = baseSize / 2
+    val targetCheckedRadius = innerDiameter / 2
     val radioRadius = controlSize / 2
     val baseRadius = animateDpAsState(
         targetValue = if (checked) targetCheckedRadius else 0.dp,
@@ -71,7 +71,7 @@ internal fun RadioBoxControl(
             // Рисуем заполняющий круг при checked = true
             drawCircle(
                 radioColor.value,
-                (radioRadius - checkedPadding).toPx() - strokeWidth / 2,
+                (radioRadius - checkedPadding).toPx(),
                 style = Fill,
             )
         }

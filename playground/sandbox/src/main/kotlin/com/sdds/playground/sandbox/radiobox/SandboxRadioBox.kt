@@ -2,7 +2,6 @@ package com.sdds.playground.sandbox.radiobox
 
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -11,7 +10,6 @@ import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.RadioBox
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.radiobox.SandboxRadioBoxSettingsProvider.descriptionTextStyleFor
-import com.sdds.playground.sandbox.radiobox.SandboxRadioBoxSettingsProvider.getDimensionsFor
 import com.sdds.playground.sandbox.radiobox.SandboxRadioBoxSettingsProvider.labelTextStyleFor
 import com.sdds.playground.sandbox.tokens.compose.StylesSaluteTheme
 
@@ -26,7 +24,6 @@ internal fun SandboxRadioBox(
     enabled: Boolean = true,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
-    val dimensions = getDimensionsFor(size)
     RadioBox(
         checked = checked,
         modifier = modifier,
@@ -42,10 +39,12 @@ internal fun SandboxRadioBox(
         checkedColor = StylesSaluteTheme.colors.surfaceDefaultPositive,
         focusedColor = StylesSaluteTheme.colors.surfaceDefaultSolidDefault,
         baseColor = StylesSaluteTheme.colors.textOnDarkPrimary,
-        baseSize = dimensions.baseSize,
-        verticalSpacing = dimensions.verticalSpacing,
-        horizontalSpacing = dimensions.horizontalSpacing,
-        controlSize = size.value,
+        innerDiameter = size.innerDiameter,
+        verticalSpacing = size.verticalSpacing,
+        horizontalSpacing = size.horizontalSpacing,
+        controlSize = size.controlSize,
+        checkedPadding = size.checkedPadding,
+        strokeWidth = size.strokeWidth,
         interactionSource = interactionSource,
     )
 }
@@ -55,19 +54,33 @@ internal fun SandboxRadioBox(
  */
 internal object SandboxRadioBox {
 
-    @Immutable
-    data class Dimensions(
-        val baseSize: Dp,
-        val verticalSpacing: Dp,
-        val horizontalSpacing: Dp,
-    )
-
     /**
      * Размер компонента
      */
-    enum class Size(val value: Dp) {
-        M(26.dp),
-        S(20.dp),
+    enum class Size(
+        val controlSize: Dp,
+        val innerDiameter: Dp,
+        val verticalSpacing: Dp,
+        val horizontalSpacing: Dp,
+        val checkedPadding: Dp,
+        val strokeWidth: Dp,
+    ) {
+        M(
+            controlSize = 24.dp,
+            innerDiameter = 10.dp,
+            verticalSpacing = 2.dp,
+            horizontalSpacing = 10.dp,
+            strokeWidth = 2.dp,
+            checkedPadding = 1.dp,
+        ),
+        S(
+            controlSize = 16.dp,
+            innerDiameter = 8.dp,
+            verticalSpacing = 2.dp,
+            horizontalSpacing = 8.dp,
+            strokeWidth = 1.5f.dp,
+            checkedPadding = 0.dp,
+        ),
     }
 }
 
