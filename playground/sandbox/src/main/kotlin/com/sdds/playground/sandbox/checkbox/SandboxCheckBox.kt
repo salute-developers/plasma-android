@@ -40,6 +40,11 @@ internal fun SandboxCheckBox(
         baseColor = StylesSaluteTheme.colors.textOnDarkPrimary,
         labelTextStyle = labelTextStyleFor(size),
         descriptionTextStyle = descriptionTextStyleFor(size),
+        controlSize = size.controlSize,
+        controlRadius = size.controlRadius,
+        verticalSpacing = size.verticalSpacing,
+        horizontalSpacing = size.horizontalSpacing,
+        innerCheckBoxPadding = size.innerCheckBoxPadding,
         interactionSource = interactionSource,
     )
 }
@@ -52,16 +57,28 @@ internal object SandboxCheckBox {
     /**
      * Размер компонента
      */
-    enum class Size(val value: Dp) {
-        M(26.dp),
-        S(20.dp),
-    }
-
-    data class CheckBoxDimensions(
+    enum class Size(
+        val controlSize: Dp,
         val controlRadius: Dp,
         val verticalSpacing: Dp,
         val horizontalSpacing: Dp,
-    )
+        val innerCheckBoxPadding: Dp,
+    ) {
+        M(
+            controlSize = 24.dp,
+            controlRadius = 6.dp,
+            verticalSpacing = 2.dp,
+            horizontalSpacing = 12.dp,
+            innerCheckBoxPadding = 2.dp,
+        ),
+        S(
+            controlSize = 16.dp,
+            controlRadius = 4.dp,
+            verticalSpacing = 2.dp,
+            horizontalSpacing = 8.dp,
+            innerCheckBoxPadding = 1.dp,
+        ),
+    }
 }
 
 /**

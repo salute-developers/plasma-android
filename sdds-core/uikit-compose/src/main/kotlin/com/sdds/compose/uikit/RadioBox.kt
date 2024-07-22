@@ -39,7 +39,7 @@ import com.sdds.compose.uikit.internal.checkable.radioBoxColors
  * @param baseColor цвет основного круга RadioButton, когда checked = true
  * @param labelTextStyle стиль текста лейбла
  * @param descriptionTextStyle стиль текста описания
- * @param baseSize размер базового круга контрола
+ * @param innerDiameter размер базового круга контрола
  * @param verticalSpacing расстояние между названием и описанием
  * @param horizontalSpacing расстояние между контролом и текстом ([label] или [description])
  * @param strokeWidth ширина линии в состоянии checked = false
@@ -65,14 +65,14 @@ fun RadioBox(
     baseColor: Color = Color.Green,
     labelTextStyle: TextStyle = TextStyle.Default,
     descriptionTextStyle: TextStyle = TextStyle.Default,
-    baseSize: Dp = 10.dp,
+    innerDiameter: Dp = 10.dp,
     verticalSpacing: Dp = 2.dp,
     horizontalSpacing: Dp = 10.dp,
     strokeWidth: Dp = 2.dp,
     checkedStrokeWidth: Dp = 1.dp,
-    checkedPadding: Dp = 2.dp,
+    checkedPadding: Dp = 1.dp,
     animationDuration: Int = 200,
-    controlSize: Dp = 26.dp,
+    controlSize: Dp = 24.dp,
     enabled: Boolean = true,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
@@ -99,7 +99,7 @@ fun RadioBox(
                 checked = checked,
                 focused = focusState.value,
                 controlSize = controlSize,
-                baseSize = baseSize,
+                innerDiameter = innerDiameter,
                 modifier = it,
                 strokeWidth = strokeWidth,
                 checkedStrokeWidth = checkedStrokeWidth,
@@ -226,7 +226,7 @@ fun HorizontalRadioBoxGroup(
  * @param baseColor цвет основного круга RadioButton, когда checked = true
  * @param labelTextStyle стиль текста лейбла
  * @param descriptionTextStyle стиль текста описания
- * @param baseSize размер базового круга контрола
+ * @param innerDiameter размер базового круга контрола
  * @param verticalSpacing расстояние между названием и описанием
  * @param horizontalSpacing расстояние между контролом и текстом ([label] или [description])
  * @param strokeWidth ширина линии в состоянии checked = false
@@ -251,7 +251,7 @@ fun VerticalRadioBoxGroup(
     baseColor: Color = Color.Green,
     labelTextStyle: TextStyle = TextStyle.Default,
     descriptionTextStyle: TextStyle = TextStyle.Default,
-    baseSize: Dp = 10.dp,
+    innerDiameter: Dp = 10.dp,
     controlSize: Dp = 26.dp,
     verticalSpacing: Dp = 2.dp,
     horizontalSpacing: Dp = 10.dp,
@@ -279,7 +279,7 @@ fun VerticalRadioBoxGroup(
                 checkedColor = checkedColor,
                 focusedColor = focusedColor,
                 baseColor = baseColor,
-                baseSize = baseSize,
+                baseSize = innerDiameter,
                 controlSize = controlSize,
                 verticalSpacing = verticalSpacing,
                 horizontalSpacing = horizontalSpacing,
@@ -326,7 +326,7 @@ private inline fun RadioBoxGroupItem(
         baseColor = baseColor,
         labelTextStyle = labelTextStyle,
         descriptionTextStyle = descriptionTextStyle,
-        baseSize = baseSize,
+        innerDiameter = baseSize,
         controlSize = controlSize,
         verticalSpacing = verticalSpacing,
         horizontalSpacing = horizontalSpacing,
