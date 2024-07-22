@@ -10,7 +10,6 @@ import com.sdds.compose.uikit.VerticalRadioBoxGroup
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.radiobox.SandboxRadioBox
 import com.sdds.playground.sandbox.radiobox.SandboxRadioBoxSettingsProvider.descriptionTextStyleFor
-import com.sdds.playground.sandbox.radiobox.SandboxRadioBoxSettingsProvider.getDimensionsFor
 import com.sdds.playground.sandbox.radiobox.SandboxRadioBoxSettingsProvider.labelTextStyleFor
 import com.sdds.playground.sandbox.tokens.compose.StylesSaluteTheme
 
@@ -24,7 +23,6 @@ internal fun SandboxRadioBoxGroup(
     default: Any? = null,
     onSelectionChanged: (Any) -> Unit = {},
 ) {
-    val dimensions = getDimensionsFor(size)
     VerticalRadioBoxGroup(
         items = items,
         modifier = modifier,
@@ -38,10 +36,12 @@ internal fun SandboxRadioBoxGroup(
         checkedColor = StylesSaluteTheme.colors.surfaceDefaultPositive,
         focusedColor = StylesSaluteTheme.colors.surfaceDefaultSolidDefault,
         baseColor = StylesSaluteTheme.colors.textOnDarkPrimary,
-        baseSize = dimensions.baseSize,
-        verticalSpacing = dimensions.verticalSpacing,
-        horizontalSpacing = dimensions.horizontalSpacing,
-        controlSize = size.value,
+        innerDiameter = size.innerDiameter,
+        verticalSpacing = size.verticalSpacing,
+        horizontalSpacing = size.horizontalSpacing,
+        controlSize = size.controlSize,
+        checkedPadding = size.checkedPadding,
+        strokeWidth = size.strokeWidth,
         verticalArrangement = verticalArrangement,
         horizontalAlignment = horizontalAlignment,
     )
