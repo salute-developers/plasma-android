@@ -1,6 +1,7 @@
 package com.sdds.playground.sandbox
 
 import android.app.Activity
+import android.graphics.Color
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
@@ -34,13 +35,18 @@ fun SandboxTheme(
     if (!view.isInEditMode) {
         SideEffect {
             val window = (view.context as Activity).window
-            window.statusBarColor = colorScheme.surfaceDefaultSolidDefault.toArgb()
-            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = !darkTheme
+            window.statusBarColor = Color.TRANSPARENT
+            window.navigationBarColor = Color.TRANSPARENT
+            window.decorView.setBackgroundColor(colorScheme.backgroundDefaultPrimary.toArgb())
+            WindowCompat.getInsetsController(window, view).apply {
+                isAppearanceLightStatusBars = !darkTheme
+                isAppearanceLightNavigationBars = !darkTheme
+            }
         }
     }
 
     StylesSaluteTheme(
-        colors = if (darkTheme) DarkColors else LightColors,
+        colors = colorScheme,
         gradients = if (darkTheme) DarkGradients else LightGradients,
         content = content,
     )

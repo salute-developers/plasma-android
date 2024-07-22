@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.imePadding
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredHeight
 import androidx.compose.foundation.rememberScrollState
@@ -60,7 +61,7 @@ internal fun ComponentScaffold(
                     uiScope.launch { sheetState.hide() }
                 },
             )
-            Spacer(modifier = Modifier.imePadding())
+            Spacer(modifier = Modifier.imePadding().navigationBarsPadding())
         },
         sheetShape = StylesSaluteTheme.shapes.roundS.copy(
             bottomStart = CornerSize(0.dp),

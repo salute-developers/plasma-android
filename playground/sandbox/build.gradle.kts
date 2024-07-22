@@ -35,6 +35,7 @@ dependencies {
     implementation(libs.base.androidX.compose.animation)
     implementation(libs.base.androidX.activity.compose)
     implementation(libs.base.androidX.lifecycle.compose.viewmodel)
+    implementation(libs.base.koil.compose)
 
     // Preview support
     implementation(libs.base.androidX.compose.uiTooling.preview)
