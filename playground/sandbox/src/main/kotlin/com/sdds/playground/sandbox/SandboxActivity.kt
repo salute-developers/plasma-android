@@ -11,7 +11,7 @@ import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.systemBarsPadding
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material.Divider
 import androidx.compose.material.DrawerValue
 import androidx.compose.material.Scaffold
@@ -26,12 +26,14 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
 import com.sdds.compose.uikit.Text
+import com.sdds.playground.sandbox.avatar.AvatarScreen
 import com.sdds.playground.sandbox.buttons.BasicButtonScreen
 import com.sdds.playground.sandbox.buttons.IconButtonsScreen
 import com.sdds.playground.sandbox.buttons.SandboxButton
@@ -61,6 +63,7 @@ class SandboxActivity : ComponentActivity() {
 }
 
 private sealed class MenuItem(val title: String, val screen: @Composable () -> Unit) {
+    object Avatar : MenuItem("Avatar", { AvatarScreen() })
     object Buttons : MenuItem("Button", { BasicButtonScreen() })
     object IconButtons : MenuItem("IconButton", { IconButtonsScreen() })
     object CheckBox : MenuItem("CheckBox", { CheckBoxScreen() })
@@ -74,6 +77,7 @@ private sealed class MenuItem(val title: String, val screen: @Composable () -> U
 private fun SandboxContainer() {
     val menuItems = remember {
         listOf(
+            MenuItem.Avatar,
             MenuItem.Buttons,
             MenuItem.IconButtons,
             MenuItem.CheckBox,
@@ -89,18 +93,22 @@ private fun SandboxContainer() {
     var currentItem by remember { mutableStateOf(menuItems.first()) }
     Scaffold(
         scaffoldState = scaffoldState,
-        modifier = Modifier.systemBarsPadding(),
+        backgroundColor = Color.Transparent,
         drawerBackgroundColor = StylesSaluteTheme.colors.surfaceDefaultSolidSecondary,
         drawerContent = {
-            menuItems.forEachIndexed { index, menuItem ->
-                NavigationItem(menuItem) {
-                    scope.launch {
-                        currentItem = menuItem
-                        drawerState.close()
+            Column(
+                modifier = Modifier.statusBarsPadding(),
+            ) {
+                menuItems.forEachIndexed { index, menuItem ->
+                    NavigationItem(menuItem) {
+                        scope.launch {
+                            currentItem = menuItem
+                            drawerState.close()
+                        }
                     }
-                }
-                if (index < menuItems.size - 1) {
-                    Divider(startIndent = 16.dp)
+                    if (index < menuItems.size - 1) {
+                        Divider(startIndent = 16.dp)
+                    }
                 }
             }
         },
@@ -151,10 +159,12 @@ private fun TopBar(
     onNavigationClick: () -> Unit,
 ) {
     TopAppBar(
+        modifier = Modifier.statusBarsPadding(),
         title = {
             Text(
                 text = title,
-                style = StylesSaluteTheme.typography.bodyMBold,
+                style = StylesSaluteTheme.typography.bodyMBold
+                    .copy(color = StylesSaluteTheme.colors.textDefaultPrimary),
             )
         },
         elevation = 1.dp,
