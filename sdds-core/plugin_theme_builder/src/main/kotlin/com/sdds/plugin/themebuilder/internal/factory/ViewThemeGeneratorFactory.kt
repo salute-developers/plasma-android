@@ -1,5 +1,6 @@
 package com.sdds.plugin.themebuilder.internal.factory
 
+import com.sdds.plugin.themebuilder.ResourcePrefixConfig
 import com.sdds.plugin.themebuilder.ViewThemeParent
 import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewThemeGenerator
 import java.io.File
@@ -12,7 +13,7 @@ internal class ViewThemeGeneratorFactory(
     private val outputResDir: File,
     private val viewThemeParents: List<ViewThemeParent>,
     private val themeName: String,
-    private val resPrefix: String,
+    private val resPrefixConfig: ResourcePrefixConfig,
 ) {
 
     /**
@@ -24,6 +25,6 @@ internal class ViewThemeGeneratorFactory(
             outputResDir = outputResDir,
             viewThemeParents = viewThemeParents,
             themeName = themeName,
-            resPrefix = resPrefix,
+            resPrefixConfig = resPrefixConfig,
         )
 }

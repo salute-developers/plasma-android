@@ -1,5 +1,6 @@
 package com.sdds.plugin.themebuilder.internal.generator.theme
 
+import com.sdds.plugin.themebuilder.ResourcePrefixConfig
 import com.sdds.plugin.themebuilder.ViewThemeParent
 import com.sdds.plugin.themebuilder.ViewThemeType
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
@@ -61,7 +62,10 @@ class ViewThemeGeneratorTest {
             outputResDir = mockOutputResDir,
             viewThemeParents = emptyList(),
             themeName = "test_Theme",
-            resPrefix = "thmbldr",
+            resPrefixConfig = ResourcePrefixConfig(
+                resourcePrefix = "thmbldr",
+                shouldGenerateResPrefixStyle = true,
+            ),
         )
 
         val lightOutputXml = ByteArrayOutputStream()
@@ -104,7 +108,10 @@ class ViewThemeGeneratorTest {
                 ),
             ),
             themeName = "test_Theme",
-            resPrefix = "thmbldr",
+            resPrefixConfig = ResourcePrefixConfig(
+                resourcePrefix = "thmbldr",
+                shouldGenerateResPrefixStyle = true,
+            ),
         )
 
         val lightOutputXml = ByteArrayOutputStream()
@@ -147,7 +154,10 @@ class ViewThemeGeneratorTest {
                 ),
             ),
             themeName = "test_Theme",
-            resPrefix = "thmbldr",
+            resPrefixConfig = ResourcePrefixConfig(
+                resourcePrefix = "thmbldr",
+                shouldGenerateResPrefixStyle = true,
+            ),
         )
 
         val lightOutputXml = ByteArrayOutputStream()
@@ -181,7 +191,10 @@ class ViewThemeGeneratorTest {
                 ),
             ),
             themeName = "test_Theme",
-            resPrefix = "thmbldr",
+            resPrefixConfig = ResourcePrefixConfig(
+                resourcePrefix = "thmbldr",
+                shouldGenerateResPrefixStyle = true,
+            ),
         )
 
         val lightOutputXml = ByteArrayOutputStream()
@@ -225,7 +238,10 @@ class ViewThemeGeneratorTest {
                 ),
             ),
             themeName = "test_Theme",
-            resPrefix = "thmbldr",
+            resPrefixConfig = ResourcePrefixConfig(
+                resourcePrefix = "thmbldr",
+                shouldGenerateResPrefixStyle = true,
+            ),
         )
 
         val lightOutputXml = ByteArrayOutputStream()

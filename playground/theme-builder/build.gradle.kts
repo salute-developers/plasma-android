@@ -16,7 +16,7 @@ themeBuilder {
     themeSource("file://${projectDir.path}/json/test_theme.zip")
     view {
         themeParents {
-            materialComponentsTheme("DayNight")
+            customTheme("Thmbldr.Theme.App.Test")
         }
     }
     compose()

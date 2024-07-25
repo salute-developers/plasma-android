@@ -1,5 +1,6 @@
 package com.sdds.plugin.themebuilder.internal.generator.theme.view
 
+import com.sdds.plugin.themebuilder.ResourcePrefixConfig
 import com.sdds.plugin.themebuilder.ViewThemeParent
 import com.sdds.plugin.themebuilder.ViewThemeType
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
@@ -23,7 +24,7 @@ import java.io.File
  * @property xmlBuilderFactory фабрика [XmlResourcesDocumentBuilder]
  * @property outputResDir директория для xml-ресурсов
  * @property viewThemeParents список тем, от которых необходимо унаследовать генерируемые темы
- * @param resPrefix префикс ресурсов
+ * @property resPrefixConfig префикс ресурсов
  * @param themeName название темы
  *
  * @see ViewThemeType
@@ -33,7 +34,7 @@ internal class ViewThemeGenerator(
     private val xmlBuilderFactory: XmlResourcesDocumentBuilderFactory,
     private val outputResDir: File,
     private val viewThemeParents: List<ViewThemeParent>,
-    resPrefix: String,
+    private val resPrefixConfig: ResourcePrefixConfig,
     themeName: String,
 ) : SimpleBaseGenerator {
 
@@ -53,7 +54,7 @@ internal class ViewThemeGenerator(
         xmlBuilderFactory.create()
     }
 
-    private val capitalizedResPrefix = resPrefix.capitalized()
+    private val capitalizedResPrefix = resPrefixConfig.resourcePrefix.capitalized()
     private val camelCaseThemeName = themeName.snakeToCamelCase()
 
     internal fun setColorTokenData(data: ColorTokenResult.TokenData) {
@@ -108,7 +109,9 @@ internal class ViewThemeGenerator(
     }
 
     private fun collectEmptyBaseStyles() {
-        emptyStylesCollector.add(capitalizedResPrefix)
+        if (resPrefixConfig.shouldGenerateResPrefixStyle) {
+            emptyStylesCollector.add(capitalizedResPrefix)
+        }
         emptyStylesCollector.add("$capitalizedResPrefix.$camelCaseThemeName")
     }
 

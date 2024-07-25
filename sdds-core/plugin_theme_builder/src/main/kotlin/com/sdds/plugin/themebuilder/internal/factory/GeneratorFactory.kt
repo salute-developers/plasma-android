@@ -1,5 +1,6 @@
 package com.sdds.plugin.themebuilder.internal.factory
 
+import com.sdds.plugin.themebuilder.ResourcePrefixConfig
 import com.sdds.plugin.themebuilder.ThemeBuilderMode
 import com.sdds.plugin.themebuilder.ViewThemeParent
 import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
@@ -39,7 +40,7 @@ import java.io.File
  * @param ktFileBuilderFactory фабрика делегата построения kt файлов
  * @param resourceReferenceProvider провайдер ссылок на ресурсы
  * @param namespace пакет проекта
- * @param resPrefix префикс для ресурсов
+ * @param resPrefixConfig конфиг префикса для ресурсов
  * @param viewThemeParents список родительских xml-тем
  * @param themeName название генерируемой темы
  *
@@ -60,7 +61,7 @@ internal class GeneratorFactory(
     private val ktFileFromResourcesBuilderFactory: KtFileFromResourcesBuilderFactory,
     private val resourceReferenceProvider: ResourceReferenceProvider,
     private val namespace: String,
-    private val resPrefix: String,
+    private val resPrefixConfig: ResourcePrefixConfig,
     private val viewThemeParents: List<ViewThemeParent>,
     private val themeName: String,
 ) {
@@ -103,7 +104,7 @@ internal class GeneratorFactory(
         ViewColorAttributeGeneratorFactory(
             xmlDocumentBuilderFactory = xmlResourcesDocumentBuilderFactory,
             outputResDir = outputResDir,
-            attrPrefix = resPrefix,
+            attrPrefix = resPrefixConfig.resourcePrefix,
         )
     }
 
@@ -111,7 +112,7 @@ internal class GeneratorFactory(
         ViewShapeAttributeGeneratorFactory(
             xmlDocumentBuilderFactory = xmlResourcesDocumentBuilderFactory,
             outputResDir = outputResDir,
-            attrPrefix = resPrefix,
+            attrPrefix = resPrefixConfig.resourcePrefix,
         )
     }
 
@@ -119,7 +120,7 @@ internal class GeneratorFactory(
         ViewTypographyAttributeGeneratorFactory(
             xmlDocumentBuilderFactory = xmlResourcesDocumentBuilderFactory,
             outputResDir = outputResDir,
-            attrPrefix = resPrefix,
+            attrPrefix = resPrefixConfig.resourcePrefix,
         )
     }
 
@@ -137,7 +138,7 @@ internal class GeneratorFactory(
             outputResDir,
             viewThemeParents,
             themeName,
-            resPrefix,
+            resPrefixConfig,
         )
     }
 
@@ -228,7 +229,7 @@ internal class GeneratorFactory(
             fontDownloaderFactory,
             ktFileBuilderFactory,
             namespace,
-            resPrefix,
+            resPrefixConfig.resourcePrefix,
             fonts,
             fontsAggregator,
         )
