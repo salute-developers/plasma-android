@@ -198,7 +198,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
             packageName.set(extension.ktPackage ?: DEFAULT_KT_PACKAGE)
             target.set(extension.target)
             resourcesPrefix.set(extension.resourcesPrefix ?: project.getDefaultResourcePrefix())
-            parentThemeName.set(extension.parentThemeName)
+            viewThemeParents.set(extension.viewThemeParents)
             generatorMode.set(extension.mode)
             val projectDirProperty = objects.directoryProperty()
                 .apply { set(layout.projectDirectory) }
@@ -206,6 +206,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
             outputDirPath.set(OUTPUT_PATH)
             outputResDirPath.set(OUTPUT_RESOURCE_PATH)
             namespace.set(getProjectNameSpace())
+
             dependsOn(unzipTask)
         }
     }

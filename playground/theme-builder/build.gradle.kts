@@ -13,10 +13,14 @@ android {
 }
 
 themeBuilder {
-    themeSource(url = "file://${projectDir.path}/json/test_theme.zip")
-    view(parentThemeName = "Sdds.Theme")
+    themeSource("file://${projectDir.path}/json/test_theme.zip")
+    view {
+        themeParents {
+            materialComponentsTheme("DayNight")
+        }
+    }
     compose()
-    ktPackage(ktPackage = "com.sdds.playground.themebuilder.tokens")
+    ktPackage("com.sdds.playground.themebuilder.tokens")
     mode(ThemeBuilderMode.THEME)
 }
 

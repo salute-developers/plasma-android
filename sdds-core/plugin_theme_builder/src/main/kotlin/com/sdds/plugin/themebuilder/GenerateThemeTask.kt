@@ -28,6 +28,7 @@ import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import org.gradle.api.DefaultTask
 import org.gradle.api.file.DirectoryProperty
 import org.gradle.api.file.RegularFileProperty
+import org.gradle.api.provider.ListProperty
 import org.gradle.api.provider.Property
 import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.InputFile
@@ -113,10 +114,10 @@ abstract class GenerateThemeTask : DefaultTask() {
     abstract val resourcesPrefix: Property<String>
 
     /**
-     * Название родительской темы, от которой будет унаследована генерируемая тема
+     * Список родительских тем, от которых будут унаследованы генерируемые темы для view
      */
     @get:Input
-    abstract val parentThemeName: Property<String>
+    abstract val viewThemeParents: ListProperty<ViewThemeParent>
 
     /**
      * Режим генерации: токены или тема
@@ -170,7 +171,7 @@ abstract class GenerateThemeTask : DefaultTask() {
             resourceReferenceProvider = ResourceReferenceProvider(resourcesPrefix.get(), themeName.get()),
             namespace = namespace.get(),
             resPrefix = resourcesPrefix.get(),
-            parentThemeName = parentThemeName.get(),
+            viewThemeParents = viewThemeParents.get(),
             themeName = themeName.get(),
         )
     }

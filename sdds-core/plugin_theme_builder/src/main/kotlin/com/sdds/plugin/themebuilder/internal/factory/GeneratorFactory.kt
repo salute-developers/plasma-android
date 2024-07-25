@@ -1,6 +1,7 @@
 package com.sdds.plugin.themebuilder.internal.factory
 
 import com.sdds.plugin.themebuilder.ThemeBuilderMode
+import com.sdds.plugin.themebuilder.ViewThemeParent
 import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.OutputLocation
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
@@ -39,7 +40,7 @@ import java.io.File
  * @param resourceReferenceProvider провайдер ссылок на ресурсы
  * @param namespace пакет проекта
  * @param resPrefix префикс для ресурсов
- * @param parentThemeName названий родительской xml-темы
+ * @param viewThemeParents список родительских xml-тем
  * @param themeName название генерируемой темы
  *
  * @author Малышев Александр on 12.03.2024
@@ -60,7 +61,7 @@ internal class GeneratorFactory(
     private val resourceReferenceProvider: ResourceReferenceProvider,
     private val namespace: String,
     private val resPrefix: String,
-    private val parentThemeName: String,
+    private val viewThemeParents: List<ViewThemeParent>,
     private val themeName: String,
 ) {
 
@@ -134,7 +135,7 @@ internal class GeneratorFactory(
         ViewThemeGeneratorFactory(
             xmlResourcesDocumentBuilderFactory,
             outputResDir,
-            parentThemeName,
+            viewThemeParents,
             themeName,
             resPrefix,
         )

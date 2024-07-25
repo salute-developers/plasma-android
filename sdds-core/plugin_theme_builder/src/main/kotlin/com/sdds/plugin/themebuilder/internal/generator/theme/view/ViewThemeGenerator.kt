@@ -1,5 +1,7 @@
 package com.sdds.plugin.themebuilder.internal.generator.theme.view
 
+import com.sdds.plugin.themebuilder.ViewThemeParent
+import com.sdds.plugin.themebuilder.ViewThemeType
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.exceptions.ThemeBuilderException
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
@@ -16,16 +18,21 @@ import org.w3c.dom.Element
 import java.io.File
 
 /**
- * Генератор темы для View
+ * Генератор тем для View.
  *
  * @property xmlBuilderFactory фабрика [XmlResourcesDocumentBuilder]
  * @property outputResDir директория для xml-ресурсов
- * @property parentThemeName название темы, от которой будет унаследована генерируемая тема
+ * @property viewThemeParents список тем, от которых необходимо унаследовать генерируемые темы
+ * @param resPrefix префикс ресурсов
+ * @param themeName название темы
+ *
+ * @see ViewThemeType
+ * @see ViewThemeParent
  */
 internal class ViewThemeGenerator(
     private val xmlBuilderFactory: XmlResourcesDocumentBuilderFactory,
     private val outputResDir: File,
-    private val parentThemeName: String,
+    private val viewThemeParents: List<ViewThemeParent>,
     resPrefix: String,
     themeName: String,
 ) : SimpleBaseGenerator {
@@ -35,11 +42,14 @@ internal class ViewThemeGenerator(
     private val shapes = mutableListOf<ShapeTokenResult.TokenData>()
     private var typography: TypographyTokenResult.ViewTokenData? = null
 
-    private val lightThemeXmlFileBuilder by unsafeLazy {
+    private val emptyStylesCollector = mutableSetOf<String>()
+    private val stylesWithAttributesCollector = mutableSetOf<String>()
+
+    private val defaultThemeXmlFileBuilder by unsafeLazy {
         xmlBuilderFactory.create()
     }
 
-    private val darkThemeXmlFileBuilder by unsafeLazy {
+    private val nightThemeXmlFileBuilder by unsafeLazy {
         xmlBuilderFactory.create()
     }
 
@@ -62,52 +72,128 @@ internal class ViewThemeGenerator(
     }
 
     fun generateEmptyTheme() {
-        with(lightThemeXmlFileBuilder) {
-            appendStyle(capitalizedResPrefix)
-            appendStyle("$capitalizedResPrefix.$camelCaseThemeName")
+        with(defaultThemeXmlFileBuilder) {
+            collectEmptyBaseStyles()
+            addEmptyStyles()
             build(outputResDir.themeXmlFile(ThemeMode.LIGHT.qualifier))
         }
     }
 
     override fun generate() {
-        with(darkThemeXmlFileBuilder) {
-            addStyleWithAttrs(
-                {
-                    if (colorAttributes.isNotEmpty()) appendComment("Dark colors")
-                    appendAttrs(
-                        attrs = colorAttributes
-                            .toDarkThemeAttrs(),
-                        toElement = this,
-                    )
-                },
-            )
-            build(outputResDir.themeXmlFile(ThemeMode.DARK.qualifier))
+        emptyStylesCollector.clear()
+        stylesWithAttributesCollector.clear()
+        var shouldGenerateNightTheme = false
+
+        if (viewThemeParents.isEmpty()) {
+            addStyleWithDefaultAttributes(lightColorTokens = true)
+            addStyleWithNightAttributes()
+            shouldGenerateNightTheme = true
+        } else {
+            viewThemeParents.forEach {
+                when (it.themeType) {
+                    ViewThemeType.DARK -> addStyleWithDefaultAttributes(parent = it, lightColorTokens = false)
+                    ViewThemeType.LIGHT -> addStyleWithDefaultAttributes(parent = it, lightColorTokens = true)
+                    ViewThemeType.DARK_LIGHT -> {
+                        addStyleWithDefaultAttributes(parent = it, lightColorTokens = true)
+                        addStyleWithNightAttributes(parent = it)
+                        shouldGenerateNightTheme = true
+                    }
+                }
+            }
         }
 
-        with(lightThemeXmlFileBuilder) {
-            appendStyle(capitalizedResPrefix)
+        collectEmptyBaseStyles()
+        addEmptyStyles()
+        buildFiles(shouldGenerateNightTheme)
+    }
+
+    private fun collectEmptyBaseStyles() {
+        emptyStylesCollector.add(capitalizedResPrefix)
+        emptyStylesCollector.add("$capitalizedResPrefix.$camelCaseThemeName")
+    }
+
+    private fun addEmptyStyles() {
+        (emptyStylesCollector - stylesWithAttributesCollector)
+            .forEach(defaultThemeXmlFileBuilder::appendStyle)
+    }
+
+    private fun buildFiles(shouldGenerateNightTheme: Boolean) {
+        defaultThemeXmlFileBuilder.build(outputResDir.themeXmlFile(ThemeMode.LIGHT.qualifier))
+        if (shouldGenerateNightTheme) {
+            nightThemeXmlFileBuilder.build(outputResDir.themeXmlFile(ThemeMode.DARK.qualifier))
+        }
+    }
+
+    private fun addStyleWithDefaultAttributes(parent: ViewThemeParent? = null, lightColorTokens: Boolean) {
+        with(defaultThemeXmlFileBuilder) {
+            collectEmptyStyles(parent)
             addStyleWithAttrs(
-                {
-                    if (colorAttributes.isNotEmpty()) appendComment("Light colors")
-                    appendAttrs(
-                        attrs = colorAttributes
-                            .toLightThemeAttrs(),
-                        toElement = this,
-                    )
-                },
-                {
-                    if (shapes.isNotEmpty()) appendComment("Shapes")
-                    appendAttrs(shapes.shapesToThemeAttrs(), this)
-                },
-                {
-                    val data = typography?.attrs
-                    if (!data.isNullOrEmpty()) {
-                        appendComment("Typography")
-                        appendAttrs(typography?.attrs.typographyToThemeAttrs(), this)
-                    }
-                },
+                styleName = parent.styleName(),
+                parent = parent?.fullName,
+                colorAttributesBlock(lightColorTokens = lightColorTokens),
+                shapeAttributesBlock(),
+                typographyAttributesBlock(),
             )
-            build(outputResDir.themeXmlFile(ThemeMode.LIGHT.qualifier))
+        }
+    }
+
+    private fun addStyleWithNightAttributes(parent: ViewThemeParent? = null) {
+        with(nightThemeXmlFileBuilder) {
+            addStyleWithAttrs(
+                styleName = parent.styleName(),
+                parent = parent?.fullName,
+                colorAttributesBlock(lightColorTokens = false),
+            )
+        }
+    }
+
+    private fun ViewThemeParent?.styleName() =
+        this?.let { "$camelCaseThemeName.${it.childSuffix}" } ?: camelCaseThemeName
+
+    private fun collectEmptyStyles(viewThemeParent: ViewThemeParent?) {
+        viewThemeParent?.let { themeParent ->
+            val subStyles = themeParent.childSuffix.split('.')
+            val styleBuilder = StringBuilder("$capitalizedResPrefix.$camelCaseThemeName")
+            subStyles
+                .subList(0, subStyles.lastIndex)
+                .forEach { subStyle ->
+                    styleBuilder.append(".$subStyle")
+                    val style = styleBuilder.toString()
+                    emptyStylesCollector.add(style)
+                }
+        }
+    }
+
+    private fun XmlResourcesDocumentBuilder.colorAttributesBlock(
+        lightColorTokens: Boolean,
+    ): Element.() -> Unit =
+        {
+            val commentText: String
+            val attrs: List<ViewThemeAttribute>
+            if (lightColorTokens) {
+                commentText = "Light colors"
+                attrs = colorAttributes.toLightThemeAttrs()
+            } else {
+                commentText = "Dark colors"
+                attrs = colorAttributes.toDarkThemeAttrs()
+            }
+            if (attrs.isNotEmpty()) appendComment(commentText)
+            appendAttrs(
+                attrs = attrs,
+                toElement = this,
+            )
+        }
+
+    private fun XmlResourcesDocumentBuilder.shapeAttributesBlock(): Element.() -> Unit = {
+        if (shapes.isNotEmpty()) appendComment("Shapes")
+        appendAttrs(shapes.shapesToThemeAttrs(), this)
+    }
+
+    private fun XmlResourcesDocumentBuilder.typographyAttributesBlock(): Element.() -> Unit = {
+        val data = typography?.attrs
+        if (!data.isNullOrEmpty()) {
+            appendComment("Typography")
+            appendAttrs(data.typographyToThemeAttrs(), this)
         }
     }
 
@@ -160,11 +246,15 @@ internal class ViewThemeGenerator(
         }
     }
 
-    private fun XmlResourcesDocumentBuilder.addStyleWithAttrs(vararg attrBlocks: Element.() -> Unit) {
-        val styleParent = parentThemeName.ifEmpty { null }
+    private fun XmlResourcesDocumentBuilder.addStyleWithAttrs(
+        styleName: String,
+        parent: String? = null,
+        vararg attrBlocks: Element.() -> Unit,
+    ) {
+        stylesWithAttributesCollector.add("$capitalizedResPrefix.$styleName")
         appendStyleWithResPrefix(
-            styleName = camelCaseThemeName,
-            styleParent = styleParent,
+            styleName = styleName,
+            styleParent = parent,
         ) {
             attrBlocks.forEach { attrBlock ->
                 attrBlock.invoke(this@appendStyleWithResPrefix)

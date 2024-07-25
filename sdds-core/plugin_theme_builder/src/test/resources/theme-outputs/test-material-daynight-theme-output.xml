@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
-    <style name="Thmbldr.TestTheme">
+    <style name="Thmbldr.TestTheme.MaterialComponents.DayNight" parent="Theme.MaterialComponents.DayNight">
         <!--Light colors-->
         <item name="thmbldr_textPrimary">@color/thmbldr_light_text_primary</item>
         <!--Shapes-->
@@ -10,5 +10,7 @@
         <item name="thmbldr_typographyDisplayLNormal">@style/Thmbldr.TestTheme.Typography.DisplayLNormal</item>
         <item name="thmbldr_typographyHeaderH3Bold">@style/Thmbldr.TestTheme.Typography.HeaderH3Bold</item>
     </style>
+    <style name="Thmbldr.TestTheme.MaterialComponents"/>
     <style name="Thmbldr"/>
+    <style name="Thmbldr.TestTheme"/>
 </resources>
