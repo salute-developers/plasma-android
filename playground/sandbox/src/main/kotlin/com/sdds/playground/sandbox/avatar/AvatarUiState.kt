@@ -1,5 +1,8 @@
 package com.sdds.playground.sandbox.avatar
 
+import com.sdds.compose.uikit.Avatar
+import com.sdds.playground.sandbox.avatar.SandboxAvatarSettingsProvider.Threshold
+
 /**
  * Состояние Avatar
  *
@@ -8,13 +11,15 @@ package com.sdds.playground.sandbox.avatar
  * @property exampleMode режим отображения аватара
  * @property placeholder текст-заглушка
  * @property actionEnabled включен ли action у [SandboxAvatar]
+ * @property threshold максимальное кол-во отображаемых [SandboxAvatar]
  */
 internal data class AvatarUiState(
     val size: SandboxAvatar.Size = SandboxAvatar.Size.XXL,
     val status: SandboxAvatar.Status = SandboxAvatar.Status.Active,
     val exampleMode: ExampleMode = ExampleMode.Local,
-    val placeholder: String? = "PP",
+    val placeholder: Avatar.Placeholder? = Avatar.Placeholder.Name("Michael Scott"),
     val actionEnabled: Boolean = false,
+    val threshold: Int = Threshold,
 )
 
 /**
