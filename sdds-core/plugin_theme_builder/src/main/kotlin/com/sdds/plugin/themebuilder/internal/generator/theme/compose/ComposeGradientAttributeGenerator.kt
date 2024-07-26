@@ -93,6 +93,7 @@ internal class ComposeGradientAttributeGenerator(
     private fun createGradientsFile() {
         addImports()
         addGradientsClass()
+        addMutableMapExtension()
         addLightGradientsFun()
         addDarkGradientsFun()
         addGradientOverrideScopeClass()
@@ -200,6 +201,29 @@ internal class ComposeGradientAttributeGenerator(
         )
     }
 
+    private fun addMutableMapExtension() {
+        gradientKtFileBuilder.appendRootFun(
+            name = "add",
+            params = listOf(
+                FunParameter(
+                    name = "attribute",
+                    type = KtFileBuilder.TypeString,
+                ),
+                FunParameter(
+                    name = "defaultTokenValue",
+                    type = KtFileBuilder.TypeListOfShaderBrush,
+                ),
+                FunParameter(
+                    name = "overwriteMap",
+                    type = KtFileBuilder.TypeMapOfListOfShaderBrush,
+                ),
+            ),
+            modifiers = listOf(Modifier.PRIVATE),
+            receiver = KtFileBuilder.TypeMutableMapOfListOfShaderBrush,
+            body = listOf("this[attribute] = overwriteMap[attribute] ?: defaultTokenValue"),
+        )
+    }
+
     private fun addLightGradientsFun() {
         gradientKtFileBuilder.appendRootFun(
             name = "light${camelThemeName}Gradients",
@@ -216,13 +240,13 @@ internal class ComposeGradientAttributeGenerator(
             body = listOf(
                 "val gradientOverrideScope = GradientOverrideScope()\n",
                 "overrideGradients.invoke(gradientOverrideScope)\n",
-                "val overrideMap = gradientOverrideScope.overrideMap\n",
-                "val initialMap = mutableMapOf<String, List<ShaderBrush>>()\n",
+                "val overwrite = gradientOverrideScope.overrideMap\n",
+                "val initial = mutableMapOf<String, List<ShaderBrush>>()\n",
                 gradientAttributes.joinToString(separator = "\n") {
                     val defaultValue = defaultLightGradientValue(it)
-                    "initialMap[\"$it\"] = overrideMap[\"$it\"] ?: $defaultValue"
+                    "initial.add(\"$it\", $defaultValue, overwrite)"
                 },
-                "\nreturn $gradientClassName(initialMap)",
+                "\nreturn $gradientClassName(initial)",
             ),
             description = "Градиенты [$gradientClassName] для светлой темы",
         )
@@ -299,13 +323,13 @@ internal class ComposeGradientAttributeGenerator(
             body = listOf(
                 "val gradientOverrideScope = GradientOverrideScope()\n",
                 "overrideGradients.invoke(gradientOverrideScope)\n",
-                "val overrideMap = gradientOverrideScope.overrideMap\n",
-                "val initialMap = mutableMapOf<String, List<ShaderBrush>>()\n",
+                "val overwrite = gradientOverrideScope.overrideMap\n",
+                "val initial = mutableMapOf<String, List<ShaderBrush>>()\n",
                 gradientAttributes.joinToString(separator = "\n") {
                     val defaultValue = defaultDarkGradientValue(it)
-                    "initialMap[\"$it\"] = overrideMap[\"$it\"] ?: $defaultValue"
+                    "initial.add(\"$it\", $defaultValue, overwrite)"
                 },
-                "\nreturn $gradientClassName(initialMap)",
+                "\nreturn $gradientClassName(initial)",
             ),
             description = "Градиенты [$gradientClassName] для темной темы",
         )
