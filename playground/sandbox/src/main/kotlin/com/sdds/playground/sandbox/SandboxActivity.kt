@@ -33,6 +33,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
 import com.sdds.compose.uikit.Text
+import com.sdds.playground.sandbox.avatar.AvatarGroupScreen
 import com.sdds.playground.sandbox.avatar.AvatarScreen
 import com.sdds.playground.sandbox.buttons.BasicButtonScreen
 import com.sdds.playground.sandbox.buttons.IconButtonsScreen
@@ -64,6 +65,7 @@ class SandboxActivity : ComponentActivity() {
 
 private sealed class MenuItem(val title: String, val screen: @Composable () -> Unit) {
     object Avatar : MenuItem("Avatar", { AvatarScreen() })
+    object AvatarGroup : MenuItem("AvatarGroup", { AvatarGroupScreen() })
     object Buttons : MenuItem("Button", { BasicButtonScreen() })
     object IconButtons : MenuItem("IconButton", { IconButtonsScreen() })
     object CheckBox : MenuItem("CheckBox", { CheckBoxScreen() })
@@ -78,6 +80,7 @@ private fun SandboxContainer() {
     val menuItems = remember {
         listOf(
             MenuItem.Avatar,
+            MenuItem.AvatarGroup,
             MenuItem.Buttons,
             MenuItem.IconButtons,
             MenuItem.CheckBox,

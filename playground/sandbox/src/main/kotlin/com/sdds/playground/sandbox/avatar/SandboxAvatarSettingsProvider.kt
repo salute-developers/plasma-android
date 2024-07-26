@@ -17,6 +17,15 @@ internal object SandboxAvatarSettingsProvider {
         @ReadOnlyComposable
         get() = Color(0x8F080808)
 
+    const val Threshold = 3
+
+    @Composable
+    fun getGroupDimensions(size: SandboxAvatar.Size): SandboxAvatarGroup.Dimensions =
+        SandboxAvatarGroup.Dimensions(
+            itemOffset = size.value * 0.66f,
+            itemSpacing = 2.dp,
+        )
+
     @Composable
     fun getDimensionsFor(size: SandboxAvatar.Size): SandboxAvatar.Dimensions =
         when (size) {

@@ -20,8 +20,10 @@ import com.sdds.icons.R.drawable as Icons
  */
 @Composable
 internal fun AvatarScreen() {
-    val avatarViewModel: SandboxAvatarParameterViewModel =
-        viewModel(SandboxAvatarParameterViewModel::class.java)
+    val avatarViewModel: SandboxAvatarParameterViewModel = viewModel(
+        factory = SandboxAvatarParameterViewModelFactory(),
+        key = "Avatar",
+    )
     val avatarUiState by avatarViewModel.avatarUiState.collectAsState()
 
     ComponentScaffold(
@@ -31,7 +33,7 @@ internal fun AvatarScreen() {
                 status = avatarUiState.status,
                 action = painterResource(id = Icons.ic_sber_24),
                 actionEnabled = avatarUiState.actionEnabled,
-                text = avatarUiState.placeholder,
+                placeholder = avatarUiState.placeholder,
             )
             when (avatarUiState.exampleMode) {
                 ExampleMode.Local -> Image(
@@ -40,18 +42,20 @@ internal fun AvatarScreen() {
                     painter = painterResource(id = R.drawable.il_avatar_test),
                     contentDescription = "Avatar",
                 )
+
                 ExampleMode.Remote -> AsyncImage(
                     modifier = avatarModifier,
                     contentScale = ContentScale.Crop,
                     model = "https://cdn.costumewall.com/wp-content/uploads/2018/09/michael-scott.jpg",
                     contentDescription = "AsyncAvatar",
                 )
+
                 ExampleMode.Placeholder -> SandboxAvatar(
                     size = avatarUiState.size,
                     status = avatarUiState.status,
                     action = if (avatarUiState.actionEnabled) painterResource(id = Icons.ic_sber_24) else null,
                     actionEnabled = avatarUiState.actionEnabled,
-                    text = avatarUiState.placeholder,
+                    placeholder = avatarUiState.placeholder,
                 )
             }
         },
