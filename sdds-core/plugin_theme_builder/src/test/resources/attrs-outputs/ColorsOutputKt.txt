@@ -68,17 +68,25 @@ internal fun ThemeColors.updateColorsFrom(other: ThemeColors): Unit {
     textTertiary = other.textTertiary
 }
 
+private fun MutableMap<String, Color>.add(
+    attribute: String,
+    defaultTokenValue: Color,
+    overwriteMap: Map<String, Color>,
+): Unit {
+    this[attribute] = overwriteMap[attribute] ?: defaultTokenValue
+}
+
 /**
  * Цвета [ThemeColors] для светлой темы
  */
 public fun lightThemeColors(overrideColors: ColorOverrideScope.() -> Unit = {}): ThemeColors {
     val colorOverrideScope = ColorOverrideScope()
     overrideColors.invoke(colorOverrideScope)
-    val overrideMap = colorOverrideScope.overrideMap
-    val initialMap = mutableMapOf<String, Color>()
-    initialMap["textPrimary"] = overrideMap["textPrimary"] ?: LightColorTokens.TextPrimary
-    initialMap["textTertiary"] = overrideMap["textTertiary"] ?: LightColorTokens.TextTertiary
-    return ThemeColors(initialMap)
+    val overwrite = colorOverrideScope.overrideMap
+    val initial = mutableMapOf<String, Color>()
+    initial.add("textPrimary", LightColorTokens.TextPrimary, overwrite)
+    initial.add("textTertiary", LightColorTokens.TextTertiary, overwrite)
+    return ThemeColors(initial)
 }
 
 /**
@@ -87,9 +95,9 @@ public fun lightThemeColors(overrideColors: ColorOverrideScope.() -> Unit = {}):
 public fun darkThemeColors(overrideColors: ColorOverrideScope.() -> Unit = {}): ThemeColors {
     val colorOverrideScope = ColorOverrideScope()
     overrideColors.invoke(colorOverrideScope)
-    val overrideMap = colorOverrideScope.overrideMap
-    val initialMap = mutableMapOf<String, Color>()
-    initialMap["textPrimary"] = overrideMap["textPrimary"] ?: DarkColorTokens.TextPrimary
-    initialMap["textTertiary"] = overrideMap["textTertiary"] ?: DarkColorTokens.TextTertiary
-    return ThemeColors(initialMap)
+    val overwrite = colorOverrideScope.overrideMap
+    val initial = mutableMapOf<String, Color>()
+    initial.add("textPrimary", DarkColorTokens.TextPrimary, overwrite)
+    initial.add("textTertiary", DarkColorTokens.TextTertiary, overwrite)
+    return ThemeColors(initial)
 }

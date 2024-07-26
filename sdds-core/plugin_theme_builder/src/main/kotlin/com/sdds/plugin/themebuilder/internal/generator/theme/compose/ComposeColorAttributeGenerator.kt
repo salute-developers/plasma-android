@@ -48,6 +48,7 @@ internal class ComposeColorAttributeGenerator(
         addColorsClass()
         addUpdateColorsFromFun()
         addLocalColorsVal()
+        addMutableMapExtension()
         addLightColorsFun()
         addDarkColorsFun()
         addColorOverrideScopeClass()
@@ -139,6 +140,29 @@ internal class ComposeColorAttributeGenerator(
         )
     }
 
+    private fun addMutableMapExtension() {
+        colorKtFileBuilder.appendRootFun(
+            name = "add",
+            params = listOf(
+                KtFileBuilder.FunParameter(
+                    name = "attribute",
+                    type = KtFileBuilder.TypeString,
+                ),
+                KtFileBuilder.FunParameter(
+                    name = "defaultTokenValue",
+                    type = KtFileBuilder.TypeColor,
+                ),
+                KtFileBuilder.FunParameter(
+                    name = "overwriteMap",
+                    type = KtFileBuilder.TypeMapOfColors,
+                ),
+            ),
+            modifiers = listOf(PRIVATE),
+            receiver = KtFileBuilder.TypeMutableMapOfColors,
+            body = listOf("this[attribute] = overwriteMap[attribute] ?: defaultTokenValue"),
+        )
+    }
+
     private fun addLightColorsFun() {
         colorKtFileBuilder.appendRootFun(
             name = "light${camelThemeName}Colors",
@@ -155,8 +179,8 @@ internal class ComposeColorAttributeGenerator(
             body = listOf(
                 "val colorOverrideScope = ColorOverrideScope()\n",
                 "overrideColors.invoke(colorOverrideScope)\n",
-                "val overrideMap = colorOverrideScope.overrideMap\n",
-                "val initialMap = mutableMapOf<String, Color>()\n",
+                "val overwrite = colorOverrideScope.overrideMap\n",
+                "val initial = mutableMapOf<String, Color>()\n",
                 colorAttributes.joinToString(separator = "\n") {
                     val defaultValue = if (tokenData?.light?.get(it) != null) {
                         "LightColorTokens.${tokenData?.light?.get(it)}"
@@ -167,9 +191,9 @@ internal class ComposeColorAttributeGenerator(
                             )
                         }"
                     }
-                    "initialMap[\"$it\"] = overrideMap[\"$it\"] ?: $defaultValue"
+                    "initial.add(\"$it\", $defaultValue, overwrite)"
                 },
-                "\nreturn $colorClassName(initialMap)",
+                "\nreturn $colorClassName(initial)",
             ),
             description = "Цвета [$colorClassName] для светлой темы",
         )
@@ -191,8 +215,8 @@ internal class ComposeColorAttributeGenerator(
             body = listOf(
                 "val colorOverrideScope = ColorOverrideScope()\n",
                 "overrideColors.invoke(colorOverrideScope)\n",
-                "val overrideMap = colorOverrideScope.overrideMap\n",
-                "val initialMap = mutableMapOf<String, Color>()\n",
+                "val overwrite = colorOverrideScope.overrideMap\n",
+                "val initial = mutableMapOf<String, Color>()\n",
                 colorAttributes.joinToString(separator = "\n") {
                     val defaultValue = if (tokenData?.dark?.get(it) != null) {
                         "DarkColorTokens.${tokenData?.dark?.get(it)}"
@@ -203,9 +227,9 @@ internal class ComposeColorAttributeGenerator(
                             )
                         }"
                     }
-                    "initialMap[\"$it\"] = overrideMap[\"$it\"] ?: $defaultValue"
+                    "initial.add(\"$it\", $defaultValue, overwrite)"
                 },
-                "\nreturn $colorClassName(initialMap)",
+                "\nreturn $colorClassName(initial)",
             ),
             description = "Цвета [$colorClassName] для темной темы",
         )

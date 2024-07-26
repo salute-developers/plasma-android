@@ -189,7 +189,7 @@ private fun TopBar(
  */
 @Preview(showBackground = true)
 @Composable
-fun TopBarPreview() {
+fun SandboxContainerPreview() {
     SandboxTheme {
         SandboxContainer()
     }
