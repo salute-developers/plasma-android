@@ -23,7 +23,6 @@ themeBuilder {
 }
 
 dependencies {
-    implementation("sdds-core:uikit")
     implementation("sdds-core:uikit-compose")
     implementation("sdds-core:icons")
 
