@@ -40,6 +40,7 @@ import com.sdds.playground.sandbox.buttons.IconButtonsScreen
 import com.sdds.playground.sandbox.buttons.SandboxButton
 import com.sdds.playground.sandbox.buttons.SandboxIconButton
 import com.sdds.playground.sandbox.checkbox.CheckBoxScreen
+import com.sdds.playground.sandbox.checkbox.group.CheckBoxGroupScreen
 import com.sdds.playground.sandbox.progress.ProgressScreen
 import com.sdds.playground.sandbox.radiobox.RadioBoxScreen
 import com.sdds.playground.sandbox.radiobox.group.RadioBoxGroupScreen
@@ -69,6 +70,7 @@ private sealed class MenuItem(val title: String, val screen: @Composable () -> U
     object Buttons : MenuItem("Button", { BasicButtonScreen() })
     object IconButtons : MenuItem("IconButton", { IconButtonsScreen() })
     object CheckBox : MenuItem("CheckBox", { CheckBoxScreen() })
+    object CheckBoxGroup : MenuItem("CheckBoxGroup", { CheckBoxGroupScreen() })
     object RadioBox : MenuItem("RadioBox", { RadioBoxScreen() })
     object RadioBoxGroup : MenuItem("RadioBoxGroup", { RadioBoxGroupScreen() })
     object Switch : MenuItem("Switch", { SwitchScreen() })
@@ -84,6 +86,7 @@ private fun SandboxContainer() {
             MenuItem.Buttons,
             MenuItem.IconButtons,
             MenuItem.CheckBox,
+            MenuItem.CheckBoxGroup,
             MenuItem.RadioBox,
             MenuItem.RadioBoxGroup,
             MenuItem.Switch,

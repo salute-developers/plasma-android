@@ -76,7 +76,7 @@ fun AvatarGroup(
     itemOffset: Dp = AvatarDefaults.DefaultItemOffset,
     itemSpacing: Dp = AvatarDefaults.DefaultItemSpacing,
     threshold: Int = AvatarDefaults.DefaultThreshold,
-    content: @Composable AvatarGroupScope.() -> Unit,
+    content: AvatarGroupScope.() -> Unit,
 ) {
     val policy = remember(itemOffset, itemSpacing) { avatarGroupMeasurePolicy(itemOffset, itemSpacing) }
     val scope = remember(threshold) { AvatarGroupScopeImpl(threshold) }

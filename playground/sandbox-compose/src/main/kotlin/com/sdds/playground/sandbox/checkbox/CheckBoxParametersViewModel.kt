@@ -22,7 +22,7 @@ internal class CheckBoxParametersViewModel : ViewModel(), PropertiesOwner {
     private val _checkboxState = MutableStateFlow(CheckBoxUiState())
 
     /**
-     * Состояние кнопки
+     * Состояние checkbox
      */
     val checkboxState: StateFlow<CheckBoxUiState>
         get() = _checkboxState.asStateFlow()
