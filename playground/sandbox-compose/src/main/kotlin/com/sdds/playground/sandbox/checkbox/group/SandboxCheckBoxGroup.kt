@@ -1,6 +1,7 @@
 package com.sdds.playground.sandbox.checkbox.group
 
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
@@ -10,6 +11,7 @@ import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.checkbox.SandboxCheckBox
 import com.sdds.playground.sandbox.checkbox.SandboxCheckBoxSettingsProvider.descriptionTextStyleFor
 import com.sdds.playground.sandbox.checkbox.SandboxCheckBoxSettingsProvider.labelTextStyleFor
+import com.sdds.playground.sandbox.checkbox.group.SandboxCheckBoxGroupSettingsProvider.endPaddingFor
 import com.sdds.playground.sandbox.checkbox.group.SandboxCheckBoxGroupSettingsProvider.indentFor
 import com.sdds.playground.sandbox.checkbox.group.SandboxCheckBoxGroupSettingsProvider.verticalArrangementFor
 import com.sdds.playground.sandbox.tokens.compose.StylesSaluteTheme
@@ -25,7 +27,8 @@ internal fun SandboxCheckBoxGroup(
 ) {
     CheckBoxGroup(
         items = items,
-        modifier = modifier,
+        modifier = modifier
+            .padding(end = endPaddingFor(size)),
         rootItem = rootItem,
         enabled = enabled,
         startIndent = indentFor(size),

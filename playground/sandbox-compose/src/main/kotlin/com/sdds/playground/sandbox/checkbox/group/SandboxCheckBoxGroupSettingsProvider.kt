@@ -9,6 +9,13 @@ import com.sdds.playground.sandbox.checkbox.SandboxCheckBox
 internal object SandboxCheckBoxGroupSettingsProvider {
 
     @Composable
+    fun endPaddingFor(size: SandboxCheckBox.Size): Dp =
+        when (size) {
+            SandboxCheckBox.Size.M -> 8.dp
+            SandboxCheckBox.Size.S -> 32.dp
+        }
+
+    @Composable
     fun indentFor(size: SandboxCheckBox.Size): Dp =
         when (size) {
             SandboxCheckBox.Size.M -> 36.dp
