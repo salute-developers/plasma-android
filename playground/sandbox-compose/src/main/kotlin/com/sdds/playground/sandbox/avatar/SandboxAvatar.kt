@@ -74,7 +74,7 @@ internal fun SandboxAvatar(
 internal fun SandboxAvatarGroup(
     size: SandboxAvatar.Size = SandboxAvatar.Size.XXL,
     threshold: Int = Threshold,
-    content: @Composable AvatarGroupScope.() -> Unit,
+    content: AvatarGroupScope.() -> Unit,
 ) {
     val dimensions = getGroupDimensions(size = size)
     AvatarGroup(
