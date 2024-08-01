@@ -23,9 +23,10 @@ test-jUnit = "4.13.2"
 test-jUnitIntegration = "1.1.5"
 test-mockk = "1.12.2"
 test-paparazzi = "1.1.0"
-test-robolectric = "4.9"
+test-robolectric = "4.10"
 test-androidX-rules = "1.5.0"
 test-androidX-runner = "1.5.2"
+test-roborazzi = "1.8.0"
 
 kotlinSerialization = "1.4.0"
 kotlinPoet = "1.12.0"
@@ -85,6 +86,9 @@ base-gradle-nexusPublish= { module = "io.github.gradle-nexus:publish-plugin", ve
 
 base-koil-compose = { module = "io.coil-kt:coil-compose", version.ref = "koilVersion-compose"}
 
+test-roborazzi = { module = "io.github.takahirom.roborazzi:roborazzi", version.ref = "test-roborazzi" }
+test-roborazzi-compose = { module = "io.github.takahirom.roborazzi:roborazzi-compose", version.ref = "test-roborazzi" }
+test-roborazzi-rule = { module = "io.github.takahirom.roborazzi:roborazzi-junit-rule", version.ref = "test-roborazzi" }
 
 [plugins]
 android-lib = { id = "com.android.library", version.ref = "global-gradle" }
@@ -99,3 +103,4 @@ gradleNexus-publish = { id = "io.github.gradle-nexus.publish-plugin", version.re
 gradlePluginPublish = { id = "com.gradle.plugin-publish", version.ref="plugin-gradlePluginPublish"}
 themebuilder = { id = "io.github.salute-developers.theme-builder-plugin" }
 binary-compatibility-validator = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version.ref="plugin-binary-compatibility-validator" }
+roborazzi = { id = "io.github.takahirom.roborazzi", version.ref = "test-roborazzi" }

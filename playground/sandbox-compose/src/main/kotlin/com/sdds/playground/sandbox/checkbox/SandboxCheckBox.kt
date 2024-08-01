@@ -86,12 +86,97 @@ internal object SandboxCheckBox {
  */
 @Composable
 @Preview(showBackground = true)
-fun SandboxCheckBoxPreview() {
+internal fun SandboxCheckBoxPreview() {
     SandboxTheme {
         SandboxCheckBox(
             state = ToggleableState.Indeterminate,
             label = "Label",
             description = "Description",
+            onClick = {},
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxCheckBoxPreviewUncheckedSizeMedium() {
+    SandboxTheme {
+        SandboxCheckBox(
+            state = ToggleableState.Off,
+            size = SandboxCheckBox.Size.M,
+            enabled = true,
+            label = "Label",
+            description = "Description",
+            onClick = {},
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxCheckBoxPreviewCheckedSizeSmall() {
+    SandboxTheme(darkTheme = true) {
+        SandboxCheckBox(
+            state = ToggleableState.On,
+            size = SandboxCheckBox.Size.S,
+            enabled = true,
+            label = "Label",
+            description = "Description",
+            onClick = {},
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxCheckBoxPreviewOffSizeSmall() {
+    SandboxTheme {
+        SandboxCheckBox(
+            state = ToggleableState.Indeterminate,
+            size = SandboxCheckBox.Size.S,
+            enabled = false,
+            label = "Label",
+            description = "Description",
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxCheckBoxPreviewOnSizeMediumNoDesc() {
+    SandboxTheme {
+        SandboxCheckBox(
+            state = ToggleableState.On,
+            size = SandboxCheckBox.Size.M,
+            enabled = true,
+            label = "Label",
+            onClick = {},
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxCheckBoxPreviewOnSizeMediumNoLabel() {
+    SandboxTheme {
+        SandboxCheckBox(
+            state = ToggleableState.On,
+            size = SandboxCheckBox.Size.M,
+            enabled = true,
+            description = "Description",
+            onClick = {},
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxCheckBoxPreviewSizeMediumNoLabelAndDesc() {
+    SandboxTheme {
+        SandboxCheckBox(
+            state = ToggleableState.On,
+            size = SandboxCheckBox.Size.M,
+            enabled = true,
             onClick = {},
         )
     }
