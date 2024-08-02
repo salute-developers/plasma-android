@@ -5,6 +5,7 @@ plugins {
     id("convention.android-app")
     id("convention.compose")
     id(libs.plugins.themebuilder.get().pluginId)
+    alias(libs.plugins.roborazzi)
 }
 
 android {
@@ -12,6 +13,16 @@ android {
 
     defaultConfig {
         applicationId = "com.sdds.playground.sandbox"
+    }
+    testOptions {
+        unitTests.isIncludeAndroidResources = true
+        unitTests.all {
+            it.useJUnit {
+                if (project.hasProperty(("screenshot"))) {
+                    includeCategories("io.github.takahirom.roborazzi.testing.category.ScreenshotTests")
+                }
+            }
+        }
     }
 }
 
@@ -46,4 +57,11 @@ dependencies {
 
     // Unit tests
     testImplementation(libs.base.test.unit.jUnit)
+    testImplementation(libs.base.test.ui.compose.jUnit4)
+
+    //Screenshot tests
+    testImplementation(libs.test.roborazzi)
+    testImplementation(libs.test.roborazzi.compose)
+    testImplementation(libs.test.roborazzi.rule)
+    testImplementation(libs.base.test.unit.robolectric)
 }

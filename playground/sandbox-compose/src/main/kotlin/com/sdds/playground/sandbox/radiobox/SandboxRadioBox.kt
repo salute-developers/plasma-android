@@ -89,10 +89,70 @@ internal object SandboxRadioBox {
  */
 @Composable
 @Preview(showBackground = true)
-fun SandboxRadioBoxPreview() {
+internal fun SandboxRadioBoxPreview() {
     SandboxTheme {
         SandboxRadioBox(
             checked = true,
+            label = "Label",
+            description = "Description",
+            onClick = {},
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxRadioBoxPreviewMedium() {
+    SandboxTheme {
+        SandboxRadioBox(
+            size = SandboxRadioBox.Size.M,
+            checked = true,
+            enabled = true,
+            label = "Label",
+            description = "Description",
+            onClick = {},
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxRadioBoxPreviewSmallDark() {
+    SandboxTheme(darkTheme = true) {
+        SandboxRadioBox(
+            size = SandboxRadioBox.Size.S,
+            checked = true,
+            enabled = true,
+            label = "Label",
+            description = "Description",
+            onClick = {},
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxRadioBoxPreviewUnchecked() {
+    SandboxTheme {
+        SandboxRadioBox(
+            size = SandboxRadioBox.Size.M,
+            checked = false,
+            enabled = true,
+            label = "Label",
+            description = "Description",
+            onClick = {},
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxRadioBoxPreviewOff() {
+    SandboxTheme {
+        SandboxRadioBox(
+            size = SandboxRadioBox.Size.M,
+            checked = false,
+            enabled = false,
             label = "Label",
             description = "Description",
             onClick = {},
