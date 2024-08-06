@@ -58,10 +58,11 @@ import com.sdds.compose.uikit.internal.textfield.DotBadge
  * @param enabledAlpha альфа, когда компонент в режиме [enabled] == true
  * @param disabledAlpha альфа, когда компонент в режиме [enabled] == false
  * @param shape форма текстового поля
- * @param textContentPaddings отступы основного текстового контента внутри текстового поля.
- * Вертикальные отступы считаются от границ текстового поля.
- * Горизонтальные отступы считаются от иконок либо границ поля.
- * @param iconHorizontalPadding внешние горизонтальные отступы иконок.
+ * @param startContentPadding отступ в начале текстового поля
+ * @param endContentPadding отступ в конце текстового поля
+ * @param iconMargin отступ от иконки до текста
+ * @param textTopPadding отступ от value до верхней границы текстового поля в режиме [labelType] == [LabelType.Inner]
+ * @param textBottomPadding отступ от value до верхней границы текстового поля в режиме [labelType] == [LabelType.Inner]
  * @param innerLabelToValuePadding отступ между лэйблом и value в режиме [labelType] == [LabelType.Inner]
  * @param outerLabelBottomPadding отступ между лэйблом и текстовым полем в режиме [labelType] == [LabelType.Outer]
  * @param captionTopPadding отступ между текстовым полем и caption
@@ -106,13 +107,11 @@ fun TextField(
     enabledAlpha: Float = 1.0f,
     disabledAlpha: Float = 0.4f,
     shape: CornerBasedShape = RoundedCornerShape(25),
-    textContentPaddings: PaddingValues = PaddingValues(
-        start = 16.dp,
-        top = 25.dp,
-        end = 16.dp,
-        bottom = 9.dp,
-    ),
-    iconHorizontalPadding: Dp = 16.dp,
+    startContentPadding: Dp = 16.dp,
+    endContentPadding: Dp = 16.dp,
+    iconMargin: Dp = 8.dp,
+    textTopPadding: Dp = 25.dp,
+    textBottomPadding: Dp = 9.dp,
     innerLabelToValuePadding: Dp = 2.dp,
     outerLabelBottomPadding: Dp = 12.dp,
     captionTopPadding: Dp = 4.dp,
@@ -151,8 +150,11 @@ fun TextField(
         enabledAlpha = enabledAlpha,
         disabledAlpha = disabledAlpha,
         shape = shape,
-        textContentPaddings = textContentPaddings,
-        iconHorizontalPadding = iconHorizontalPadding,
+        startContentPadding = startContentPadding,
+        endContentPadding = endContentPadding,
+        iconMargin = iconMargin,
+        textTopPadding = textTopPadding,
+        textBottomPadding = textBottomPadding,
         innerLabelToValuePadding = innerLabelToValuePadding,
         outerLabelBottomPadding = outerLabelBottomPadding,
         captionTopPadding = captionTopPadding,
@@ -194,10 +196,11 @@ fun TextField(
  * @param enabledAlpha альфа, когда компонент в режиме [enabled] == true
  * @param disabledAlpha альфа, когда компонент в режиме [enabled] == false
  * @param shape форма текстового поля
- * @param textContentPaddings отступы основного текстового контента внутри текстового поля.
- * Вертикальные отступы считаются от границ текстового поля.
- * Горизонтальные отступы считаются от иконок либо границ поля.
- * @param iconHorizontalPadding внешние горизонтальные отступы иконок.
+ * @param startContentPadding отступ в начале текстового поля
+ * @param endContentPadding отступ в конце текстового поля
+ * @param iconMargin отступ от иконки до текста
+ * @param textTopPadding отступ от value до верхней границы текстового поля в режиме [labelType] == [LabelType.Inner]
+ * @param textBottomPadding отступ от value до верхней границы текстового поля в режиме [labelType] == [LabelType.Inner]
  * @param innerLabelToValuePadding отступ между лэйблом и value в режиме [labelType] == [LabelType.Inner]
  * @param outerLabelBottomPadding отступ между лэйблом и текстовым полем в режиме [labelType] == [LabelType.Outer]
  * @param captionTopPadding отступ между текстовым полем и caption
@@ -212,7 +215,7 @@ fun TextField(
  * может появиться необходимость сохранить отступ слева, когда бэйдж скрывается.
  * @param interactionSource источник взаимодействия с полем
  */
-@Suppress("LongParameterList")
+@Suppress("LongParameterList", "LongMethod")
 @Composable
 fun TextField(
     value: String,
@@ -241,13 +244,11 @@ fun TextField(
     enabledAlpha: Float = 1.0f,
     disabledAlpha: Float = 0.4f,
     shape: CornerBasedShape = RoundedCornerShape(CornerSize(16.dp)).adjustBy(all = 2.dp),
-    textContentPaddings: PaddingValues = PaddingValues(
-        start = 16.dp,
-        top = 25.dp,
-        end = 16.dp,
-        bottom = 9.dp,
-    ),
-    iconHorizontalPadding: Dp = 16.dp,
+    startContentPadding: Dp = 16.dp,
+    endContentPadding: Dp = 16.dp,
+    iconMargin: Dp = 8.dp,
+    textTopPadding: Dp = 25.dp,
+    textBottomPadding: Dp = 9.dp,
     innerLabelToValuePadding: Dp = 2.dp,
     outerLabelBottomPadding: Dp = 12.dp,
     captionTopPadding: Dp = 4.dp,
@@ -308,8 +309,11 @@ fun TextField(
         enabledAlpha = enabledAlpha,
         disabledAlpha = disabledAlpha,
         shape = shape,
-        textContentPaddings = textContentPaddings,
-        iconHorizontalPadding = iconHorizontalPadding,
+        startContentPadding = startContentPadding,
+        endContentPadding = endContentPadding,
+        iconMargin = iconMargin,
+        textTopPadding = textTopPadding,
+        textBottomPadding = textBottomPadding,
         innerLabelToValuePadding = innerLabelToValuePadding,
         outerLabelBottomPadding = outerLabelBottomPadding,
         captionTopPadding = captionTopPadding,

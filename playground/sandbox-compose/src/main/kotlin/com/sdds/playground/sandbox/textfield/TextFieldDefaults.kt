@@ -161,34 +161,45 @@ internal interface SandboxTextFieldStyles {
 @Immutable
 internal object TextFieldDefaults {
 
-    /**
-     * Отступы в текстовом поле
-     * @param size размер текстового поля
-     * @param labelType тип лейбла
-     */
     @Composable
-    fun textContentFieldPadding(
-        size: SandboxTextField.Size = SandboxTextField.Size.L,
-        labelType: LabelType = LabelType.Outer,
-    ): PaddingValues {
-        if (labelType == LabelType.Outer) {
-            return when (size) {
-                SandboxTextField.Size.L -> PaddingValues(8.dp, 0.dp, 8.dp, 0.dp)
-                SandboxTextField.Size.M -> PaddingValues(6.dp, 0.dp, 6.dp, 0.dp)
-                SandboxTextField.Size.S -> PaddingValues(4.dp, 0.dp, 4.dp, 0.dp)
-                SandboxTextField.Size.XS -> PaddingValues(4.dp, 0.dp, 4.dp, 0.dp)
+    fun textTopPadding(size: SandboxTextField.Size, labelType: LabelType): Dp {
+        return if (labelType == LabelType.Outer) {
+            0.dp
+        } else {
+            when (size) {
+                SandboxTextField.Size.L -> 25.dp
+                SandboxTextField.Size.M -> 22.dp
+                SandboxTextField.Size.S -> 18.dp
+                SandboxTextField.Size.XS -> 0.dp
             }
-        }
-        return when (size) {
-            SandboxTextField.Size.L -> PaddingValues(8.dp, 25.dp, 8.dp, 9.dp)
-            SandboxTextField.Size.M -> PaddingValues(6.dp, 22.dp, 6.dp, 6.dp)
-            SandboxTextField.Size.S -> PaddingValues(4.dp, 18.dp, 4.dp, 4.dp)
-            SandboxTextField.Size.XS -> PaddingValues(4.dp, 0.dp, 4.dp, 0.dp)
         }
     }
 
     @Composable
-    fun fieldHorizontalPadding(size: SandboxTextField.Size): Dp =
+    fun textBottomPadding(size: SandboxTextField.Size, labelType: LabelType): Dp {
+        return if (labelType == LabelType.Outer) {
+            0.dp
+        } else {
+            when (size) {
+                SandboxTextField.Size.L -> 9.dp
+                SandboxTextField.Size.M -> 6.dp
+                SandboxTextField.Size.S -> 4.dp
+                SandboxTextField.Size.XS -> 0.dp
+            }
+        }
+    }
+
+    @Composable
+    fun iconMargin(size: SandboxTextField.Size): Dp =
+        when (size) {
+            SandboxTextField.Size.L -> 8.dp
+            SandboxTextField.Size.M -> 6.dp
+            SandboxTextField.Size.S -> 4.dp
+            SandboxTextField.Size.XS -> 4.dp
+        }
+
+    @Composable
+    fun horizontalContentPadding(size: SandboxTextField.Size): Dp =
         when (size) {
             SandboxTextField.Size.L -> 16.dp
             SandboxTextField.Size.M -> 14.dp
@@ -294,6 +305,7 @@ internal object TextFieldDefaults {
         SandboxTextField.Size.XS,
         SandboxTextField.Size.S,
         -> RoundedCornerShape(CornerSize(8.0.dp))
+
         SandboxTextField.Size.M -> RoundedCornerShape(CornerSize(10.0.dp))
         SandboxTextField.Size.L -> RoundedCornerShape(CornerSize(12.0.dp))
     }.adjustBy(shapeAdjustment)

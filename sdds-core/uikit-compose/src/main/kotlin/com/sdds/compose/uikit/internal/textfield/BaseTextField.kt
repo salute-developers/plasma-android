@@ -11,7 +11,6 @@ import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutVertically
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -77,10 +76,11 @@ import com.sdds.compose.uikit.TextField.LabelType
  * @param enabledAlpha альфа, когда компонент в режиме [enabled] == true
  * @param disabledAlpha альфа, когда компонент в режиме [enabled] == false
  * @param shape форма текстового поля
- * @param textContentPaddings отступы основного текстового контента внутри текстового поля.
- * Вертикальные отступы считаются от границ текстового поля.
- * Горизонтальные отступы считаются от иконок либо границ поля.
- * @param iconHorizontalPadding внешние горизонтальные отступы иконок.
+ * @param startContentPadding отступ в начале текстового поля
+ * @param endContentPadding отступ в конце текстового поля
+ * @param iconMargin отступ от иконки до текста
+ * @param textTopPadding отступ от value до верхней границы текстового поля в режиме [labelType] == [LabelType.Inner]
+ * @param textBottomPadding отступ от value до верхней границы текстового поля в режиме [labelType] == [LabelType.Inner]
  * @param innerLabelToValuePadding отступ между лэйблом и value в режиме [labelType] == [LabelType.Inner]
  * @param outerLabelBottomPadding отступ между лэйблом и текстовым полем в режиме [labelType] == [LabelType.Outer]
  * @param captionTopPadding отступ между текстовым полем и caption
@@ -123,13 +123,11 @@ internal fun BaseTextField(
     enabledAlpha: Float = 1.0f,
     disabledAlpha: Float = 0.4f,
     shape: CornerBasedShape,
-    textContentPaddings: PaddingValues = PaddingValues(
-        start = 16.dp,
-        top = 25.dp,
-        end = 16.dp,
-        bottom = 9.dp,
-    ),
-    iconHorizontalPadding: Dp = 16.dp,
+    startContentPadding: Dp = 16.dp,
+    endContentPadding: Dp = 16.dp,
+    iconMargin: Dp,
+    textTopPadding: Dp = 25.dp,
+    textBottomPadding: Dp = 9.dp,
     innerLabelToValuePadding: Dp = 2.dp,
     outerLabelBottomPadding: Dp = 12.dp,
     captionTopPadding: Dp = 4.dp,
@@ -185,7 +183,8 @@ internal fun BaseTextField(
                 .layoutId(FIELD)
                 .clip(shape)
                 .height(fieldHeight)
-                .drawBehind { drawRect(backgroundColor) },
+                .drawBehind { drawRect(backgroundColor) }
+                .padding(start = startContentPadding, end = endContentPadding),
             enabled = enabled,
             readOnly = readOnly,
             textStyle = valuesStyle,
@@ -199,7 +198,8 @@ internal fun BaseTextField(
             CommonDecorationBox(
                 value = value.text,
                 innerTextField = it,
-                contentPadding = textContentPaddings,
+                textTopPadding = textTopPadding,
+                textBottomPadding = textBottomPadding,
                 singleLine = true,
                 visualTransformation = visualTransformation,
                 interactionSource = interactionSource,
@@ -222,12 +222,12 @@ internal fun BaseTextField(
                 leadingIcon = leadingIcon(
                     leadingIcon,
                     iconSize,
-                    iconHorizontalPadding,
+                    iconMargin,
                 ),
                 trailingIcon = trailingIcon(
                     trailingIcon,
                     iconSize,
-                    iconHorizontalPadding,
+                    iconMargin,
                 ),
                 animation = animation,
                 labelToValuePadding = innerLabelToValuePadding,
@@ -303,13 +303,13 @@ private fun OuterLabel(
 private fun trailingIcon(
     trailingIcon: @Composable (() -> Unit)?,
     size: Dp,
-    endPadding: Dp,
+    iconMargin: Dp,
 ): @Composable (() -> Unit)? {
     if (trailingIcon == null) return null
     return {
         Box(
             modifier = Modifier
-                .padding(end = endPadding)
+                .padding(start = iconMargin)
                 .size(size),
         ) {
             trailingIcon.invoke()
@@ -320,13 +320,13 @@ private fun trailingIcon(
 private fun leadingIcon(
     leadingIcon: @Composable (() -> Unit)?,
     size: Dp,
-    startPadding: Dp,
+    iconMargin: Dp,
 ): @Composable (() -> Unit)? {
     if (leadingIcon == null) return null
     return {
         Box(
             modifier = Modifier
-                .padding(start = startPadding)
+                .padding(end = iconMargin)
                 .size(size),
         ) {
             leadingIcon.invoke()

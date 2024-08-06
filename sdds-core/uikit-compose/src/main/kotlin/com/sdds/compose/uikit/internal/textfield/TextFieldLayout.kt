@@ -3,11 +3,7 @@
 package com.sdds.compose.uikit.internal.textfield
 
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.calculateEndPadding
-import androidx.compose.foundation.layout.calculateStartPadding
 import androidx.compose.foundation.layout.defaultMinSize
-import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -22,7 +18,6 @@ import androidx.compose.ui.layout.MeasureResult
 import androidx.compose.ui.layout.MeasureScope
 import androidx.compose.ui.layout.Placeable
 import androidx.compose.ui.layout.layoutId
-import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.offset
@@ -39,7 +34,8 @@ import kotlin.math.roundToInt
  * @param trailing composable конца (например, иконки)
  * @param singleLine режим однострочного значения поля
  * @param animationProgress прогресс анимации лейбла и заглушки
- * @param paddingValues значения отступов
+ * @param textTopPadding отступ от текста сверху
+ * @param textBottomPadding отступ от текста снизу
  */
 @Composable
 internal fun TextFieldLayout(
@@ -51,14 +47,26 @@ internal fun TextFieldLayout(
     trailing: @Composable (() -> Unit)?,
     singleLine: Boolean,
     animationProgress: Float,
-    paddingValues: PaddingValues,
+    textTopPadding: Dp,
+    textBottomPadding: Dp,
     labelToValuePadding: Dp,
     iconSize: Dp,
 ) {
-    val measurePolicy = remember(singleLine, animationProgress, paddingValues, labelToValuePadding) {
-        TextFieldMeasurePolicy(singleLine, animationProgress, paddingValues, labelToValuePadding)
+    val measurePolicy = remember(
+        singleLine,
+        animationProgress,
+        textTopPadding,
+        textBottomPadding,
+        labelToValuePadding,
+    ) {
+        TextFieldMeasurePolicy(
+            singleLine = singleLine,
+            animationProgress = animationProgress,
+            textTopPadding = textTopPadding,
+            textBottomPadding = textBottomPadding,
+            labelToValuePadding = labelToValuePadding,
+        )
     }
-    val layoutDirection = LocalLayoutDirection.current
     Layout(
         modifier = modifier,
         content = {
@@ -68,9 +76,7 @@ internal fun TextFieldLayout(
                         .layoutId(LeadingId)
                         .defaultMinSize(iconSize, iconSize),
                     contentAlignment = Alignment.Center,
-                ) {
-                    leading()
-                }
+                ) { leading() }
             }
             if (trailing != null) {
                 Box(
@@ -78,29 +84,19 @@ internal fun TextFieldLayout(
                         .layoutId(TrailingId)
                         .defaultMinSize(iconSize, iconSize),
                     contentAlignment = Alignment.Center,
-                ) {
-                    trailing()
-                }
+                ) { trailing() }
             }
 
-            val startTextFieldPadding = paddingValues.calculateStartPadding(layoutDirection)
-            val endTextFieldPadding = paddingValues.calculateEndPadding(layoutDirection)
-            val padding = Modifier.padding(
-                start = startTextFieldPadding,
-                end = endTextFieldPadding,
-            )
             if (placeholder != null) {
-                Box(Modifier.layoutId(PlaceholderId).then(padding)) { placeholder() }
+                Box(Modifier.layoutId(PlaceholderId)) { placeholder() }
             }
             if (label != null) {
-                Box(Modifier.layoutId(LabelId).then(padding)) { label() }
+                Box(Modifier.layoutId(LabelId)) { label() }
             }
             Box(
-                modifier = Modifier.layoutId(TextFieldId).then(padding),
+                modifier = Modifier.layoutId(TextFieldId),
                 propagateMinConstraints = true,
-            ) {
-                textField()
-            }
+            ) { textField() }
         },
         measurePolicy = measurePolicy,
     )
@@ -109,7 +105,8 @@ internal fun TextFieldLayout(
 private class TextFieldMeasurePolicy(
     private val singleLine: Boolean,
     private val animationProgress: Float,
-    private val paddingValues: PaddingValues,
+    private val textTopPadding: Dp,
+    private val textBottomPadding: Dp,
     private val labelToValuePadding: Dp,
 ) : MeasurePolicy {
 
@@ -118,8 +115,8 @@ private class TextFieldMeasurePolicy(
         measurables: List<Measurable>,
         constraints: Constraints,
     ): MeasureResult {
-        val topPaddingValue = paddingValues.calculateTopPadding().roundToPx()
-        val bottomPaddingValue = paddingValues.calculateBottomPadding().roundToPx()
+        val topPaddingValue = textTopPadding.roundToPx()
+        val bottomPaddingValue = textBottomPadding.roundToPx()
 
         // padding between label and input text
         val topPadding = labelToValuePadding.roundToPx()
@@ -174,23 +171,24 @@ private class TextFieldMeasurePolicy(
             ?.measure(placeholderConstraints)
 
         val width = calculateWidth(
-            widthOrZero(leadingPlaceable),
-            widthOrZero(trailingPlaceable),
-            textFieldPlaceable.width,
-            widthOrZero(labelPlaceable),
-            widthOrZero(placeholderPlaceable),
-            constraints,
+            leadingWidth = widthOrZero(leadingPlaceable),
+            trailingWidth = widthOrZero(trailingPlaceable),
+            textFieldWidth = textFieldPlaceable.width,
+            labelWidth = widthOrZero(labelPlaceable),
+            placeholderWidth = widthOrZero(placeholderPlaceable),
+            constraints = constraints,
         )
         val height = calculateHeight(
-            textFieldPlaceable.height,
-            labelPlaceable != null,
-            effectiveLabelBaseline,
-            heightOrZero(leadingPlaceable),
-            heightOrZero(trailingPlaceable),
-            heightOrZero(placeholderPlaceable),
-            constraints,
-            density,
-            paddingValues,
+            textFieldHeight = textFieldPlaceable.height,
+            hasLabel = labelPlaceable != null,
+            labelBaseline = effectiveLabelBaseline,
+            leadingHeight = heightOrZero(leadingPlaceable),
+            trailingHeight = heightOrZero(trailingPlaceable),
+            placeholderHeight = heightOrZero(placeholderPlaceable),
+            constraints = constraints,
+            density = density,
+            textTopPadding = textTopPadding,
+            textBottomPadding = textBottomPadding,
         )
 
         return layout(width, height) {
@@ -199,28 +197,28 @@ private class TextFieldMeasurePolicy(
                 val labelEndPosition = (topPaddingValue - lastBaseline - topPadding)
                     .coerceAtLeast(0)
                 placeWithLabel(
-                    width,
-                    height,
-                    textFieldPlaceable,
-                    labelPlaceable,
-                    placeholderPlaceable,
-                    leadingPlaceable,
-                    trailingPlaceable,
-                    labelEndPosition,
-                    effectiveLabelBaseline,
-                    animationProgress,
+                    width = width,
+                    height = height,
+                    textfieldPlaceable = textFieldPlaceable,
+                    labelPlaceable = labelPlaceable,
+                    placeholderPlaceable = placeholderPlaceable,
+                    leadingPlaceable = leadingPlaceable,
+                    trailingPlaceable = trailingPlaceable,
+                    labelEndPosition = labelEndPosition,
+                    textPosition = effectiveLabelBaseline,
+                    animationProgress = animationProgress,
                 )
             } else {
                 placeWithoutLabel(
-                    width,
-                    height,
-                    textFieldPlaceable,
-                    placeholderPlaceable,
-                    leadingPlaceable,
-                    trailingPlaceable,
-                    singleLine,
-                    density,
-                    paddingValues,
+                    width = width,
+                    height = height,
+                    textPlaceable = textFieldPlaceable,
+                    placeholderPlaceable = placeholderPlaceable,
+                    leadingPlaceable = leadingPlaceable,
+                    trailingPlaceable = trailingPlaceable,
+                    singleLine = singleLine,
+                    density = density,
+                    textTopPadding = textTopPadding,
                 )
             }
         }
@@ -319,7 +317,8 @@ private class TextFieldMeasurePolicy(
             placeholderHeight = placeholderHeight,
             constraints = ZeroConstraints,
             density = density,
-            paddingValues = paddingValues,
+            textTopPadding = textTopPadding,
+            textBottomPadding = textBottomPadding,
         )
     }
 }
@@ -350,10 +349,11 @@ private fun calculateHeight(
     placeholderHeight: Int,
     constraints: Constraints,
     density: Float,
-    paddingValues: PaddingValues,
+    textTopPadding: Dp,
+    textBottomPadding: Dp,
 ): Int {
-    val topPaddingValue = paddingValues.calculateTopPadding().value * density
-    val bottomPaddingValue = paddingValues.calculateBottomPadding().value * density
+    val topPaddingValue = textTopPadding.value * density
+    val bottomPaddingValue = textBottomPadding.value * density
 
     val inputFieldHeight = max(textFieldHeight, placeholderHeight)
     val middleSectionHeight = if (hasLabel) {
@@ -407,9 +407,9 @@ private fun Placeable.PlacementScope.placeWithoutLabel(
     trailingPlaceable: Placeable?,
     singleLine: Boolean,
     density: Float,
-    paddingValues: PaddingValues,
+    textTopPadding: Dp,
 ) {
-    val topPadding = (paddingValues.calculateTopPadding().value * density).roundToInt()
+    val topPadding = (textTopPadding.value * density).roundToInt()
 
     leadingPlaceable?.placeRelative(
         0,

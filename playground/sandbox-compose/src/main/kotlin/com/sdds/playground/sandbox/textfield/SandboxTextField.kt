@@ -26,15 +26,17 @@ import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.textfield.SandboxTextField.Size
 import com.sdds.playground.sandbox.textfield.SandboxTextField.State
 import com.sdds.playground.sandbox.textfield.TextFieldDefaults.captionTopPadding
-import com.sdds.playground.sandbox.textfield.TextFieldDefaults.fieldHorizontalPadding
+import com.sdds.playground.sandbox.textfield.TextFieldDefaults.horizontalContentPadding
+import com.sdds.playground.sandbox.textfield.TextFieldDefaults.iconMargin
 import com.sdds.playground.sandbox.textfield.TextFieldDefaults.iconSize
 import com.sdds.playground.sandbox.textfield.TextFieldDefaults.innerLabelToValuePadding
 import com.sdds.playground.sandbox.textfield.TextFieldDefaults.optionalTextPadding
 import com.sdds.playground.sandbox.textfield.TextFieldDefaults.outerLabelBottomPadding
-import com.sdds.playground.sandbox.textfield.TextFieldDefaults.textContentFieldPadding
+import com.sdds.playground.sandbox.textfield.TextFieldDefaults.textBottomPadding
 import com.sdds.playground.sandbox.textfield.TextFieldDefaults.textFieldColors
 import com.sdds.playground.sandbox.textfield.TextFieldDefaults.textFieldShapeFor
 import com.sdds.playground.sandbox.textfield.TextFieldDefaults.textFieldStyles
+import com.sdds.playground.sandbox.textfield.TextFieldDefaults.textTopPadding
 
 /**
  * Поле ввода текста.
@@ -121,14 +123,20 @@ internal fun SandboxTextField(
         placeHolderStyle = styles.placeholderStyle(size, colors, inputState).value,
         backgroundColor = colors.backgroundColor(inputState).value,
         cursorColor = colors.cursorColor(inputState).value,
-        textContentPaddings = textContentFieldPadding(size, labelType),
-        iconHorizontalPadding = fieldHorizontalPadding(size),
+        startContentPadding = horizontalContentPadding(size),
+        endContentPadding = horizontalContentPadding(size),
+        iconMargin = iconMargin(size),
+        textTopPadding = textTopPadding(size, labelType),
+        textBottomPadding = textBottomPadding(size, labelType),
         innerLabelToValuePadding = innerLabelToValuePadding(size),
         outerLabelBottomPadding = outerLabelBottomPadding(size),
         captionTopPadding = captionTopPadding(size),
         optionalTextPadding = optionalTextPadding(size),
         iconSize = iconSize(size),
-        shape = textFieldShapeFor(size, 2.dp),
+        shape = textFieldShapeFor(
+            size = size,
+            shapeAdjustment = 2.dp,
+        ),
         fieldHeight = size.value,
         interactionSource = interactionSource,
     )

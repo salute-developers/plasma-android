@@ -8,7 +8,6 @@ import androidx.compose.animation.core.updateTransition
 import androidx.compose.foundation.interaction.InteractionSource
 import androidx.compose.foundation.interaction.collectIsFocusedAsState
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
@@ -36,7 +35,8 @@ internal fun CommonDecorationBox(
     singleLine: Boolean = false,
     isError: Boolean = false,
     interactionSource: InteractionSource,
-    contentPadding: PaddingValues = PaddingValues(),
+    textTopPadding: Dp,
+    textBottomPadding: Dp,
     labelToValuePadding: Dp,
     animation: TextField.Animation,
     iconSize: Dp,
@@ -79,7 +79,8 @@ internal fun CommonDecorationBox(
             trailing = trailingIcon,
             singleLine = singleLine,
             animationProgress = labelProgress,
-            paddingValues = contentPadding,
+            textTopPadding = textTopPadding,
+            textBottomPadding = textBottomPadding,
             labelToValuePadding = labelToValuePadding,
             iconSize = iconSize,
         )
