@@ -137,7 +137,7 @@ internal fun SandboxTextField(
 /**
  * Параметры текстового поля
  */
-object SandboxTextField {
+internal object SandboxTextField {
 
     /**
      * Состояния текстового поля
