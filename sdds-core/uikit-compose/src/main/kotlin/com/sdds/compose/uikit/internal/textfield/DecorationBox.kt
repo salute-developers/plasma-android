@@ -1,4 +1,4 @@
-package com.sdds.playground.sandbox.core.components
+package com.sdds.compose.uikit.internal.textfield
 
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.animateFloat
@@ -18,9 +18,8 @@ import androidx.compose.ui.semantics.error
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.input.VisualTransformation
-import com.sdds.playground.sandbox.core.components.TextFieldDefaults.AnimationDuration
-import com.sdds.playground.sandbox.core.components.TextFieldDefaults.PlaceholderAnimationDelayOrDuration
-import com.sdds.playground.sandbox.core.components.TextFieldDefaults.PlaceholderAnimationDuration
+import androidx.compose.ui.unit.Dp
+import com.sdds.compose.uikit.TextField
 
 /**
  * Позаимствованная из material и упрощенная реализация декоратора для текстового поля.
@@ -37,7 +36,10 @@ internal fun CommonDecorationBox(
     singleLine: Boolean = false,
     isError: Boolean = false,
     interactionSource: InteractionSource,
-    contentPadding: PaddingValues = TextFieldDefaults.textFieldPadding(),
+    contentPadding: PaddingValues = PaddingValues(),
+    labelToValuePadding: Dp,
+    animation: TextField.Animation,
+    iconSize: Dp,
 ) {
     val transformedText = remember(value, visualTransformation) {
         visualTransformation.filter(AnnotatedString(value))
@@ -55,6 +57,9 @@ internal fun CommonDecorationBox(
     TextFieldTransitionScope.Transition(
         inputState = inputState,
         showLabel = label != null,
+        animationDuration = animation.animationDuration,
+        placeholderAnimationDuration = animation.placeholderAnimationDuration,
+        placeholderAnimationDelayOrDuration = animation.placeholderAnimationDelayOrDuration,
     ) { labelProgress, placeholderAlphaProgress ->
 
         val decoratedPlaceholder = @Composable {
@@ -75,6 +80,8 @@ internal fun CommonDecorationBox(
             singleLine = singleLine,
             animationProgress = labelProgress,
             paddingValues = contentPadding,
+            labelToValuePadding = labelToValuePadding,
+            iconSize = iconSize,
         )
     }
 }
@@ -90,6 +97,9 @@ private object TextFieldTransitionScope {
     fun Transition(
         inputState: InputPhase,
         showLabel: Boolean,
+        animationDuration: Int,
+        placeholderAnimationDuration: Int,
+        placeholderAnimationDelayOrDuration: Int,
         content: @Composable (
             labelProgress: Float,
             placeholderOpacity: Float,
@@ -99,7 +109,7 @@ private object TextFieldTransitionScope {
 
         val labelProgress by transition.animateFloat(
             label = "LabelProgress",
-            transitionSpec = { tween(durationMillis = AnimationDuration) },
+            transitionSpec = { tween(durationMillis = animationDuration) },
         ) {
             when (it) {
                 InputPhase.Focused -> 1f
@@ -113,15 +123,15 @@ private object TextFieldTransitionScope {
             transitionSpec = {
                 if (InputPhase.Focused isTransitioningTo InputPhase.UnfocusedEmpty) {
                     tween(
-                        durationMillis = PlaceholderAnimationDelayOrDuration,
+                        durationMillis = placeholderAnimationDelayOrDuration,
                         easing = LinearEasing,
                     )
                 } else if (InputPhase.UnfocusedEmpty isTransitioningTo InputPhase.Focused ||
                     InputPhase.UnfocusedNotEmpty isTransitioningTo InputPhase.UnfocusedEmpty
                 ) {
                     tween(
-                        durationMillis = PlaceholderAnimationDuration,
-                        delayMillis = PlaceholderAnimationDelayOrDuration,
+                        durationMillis = placeholderAnimationDuration,
+                        delayMillis = placeholderAnimationDelayOrDuration,
                         easing = LinearEasing,
                     )
                 } else {

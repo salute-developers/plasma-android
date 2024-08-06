@@ -1,20 +1,19 @@
 @file:Suppress("TopLevelPropertyNaming")
 
-package com.sdds.playground.sandbox.core.components
+package com.sdds.compose.uikit.internal.textfield
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.calculateEndPadding
 import androidx.compose.foundation.layout.calculateStartPadding
+import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.layout.AlignmentLine
 import androidx.compose.ui.layout.IntrinsicMeasurable
 import androidx.compose.ui.layout.IntrinsicMeasureScope
-import androidx.compose.ui.layout.LastBaseline
 import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.layout.LayoutIdParentData
 import androidx.compose.ui.layout.Measurable
@@ -25,13 +24,8 @@ import androidx.compose.ui.layout.Placeable
 import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.unit.Constraints
-import androidx.compose.ui.unit.coerceAtLeast
-import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.offset
-import com.sdds.playground.sandbox.core.components.TextFieldDefaults.HorizontalIconPadding
-import com.sdds.playground.sandbox.core.components.TextFieldDefaults.IconDefaultSizeModifier
-import com.sdds.playground.sandbox.core.components.TextFieldDefaults.TextFieldPadding
-import com.sdds.playground.sandbox.core.components.TextFieldDefaults.TextFieldTopPadding
 import kotlin.math.max
 import kotlin.math.roundToInt
 
@@ -58,9 +52,11 @@ internal fun TextFieldLayout(
     singleLine: Boolean,
     animationProgress: Float,
     paddingValues: PaddingValues,
+    labelToValuePadding: Dp,
+    iconSize: Dp,
 ) {
-    val measurePolicy = remember(singleLine, animationProgress, paddingValues) {
-        TextFieldMeasurePolicy(singleLine, animationProgress, paddingValues)
+    val measurePolicy = remember(singleLine, animationProgress, paddingValues, labelToValuePadding) {
+        TextFieldMeasurePolicy(singleLine, animationProgress, paddingValues, labelToValuePadding)
     }
     val layoutDirection = LocalLayoutDirection.current
     Layout(
@@ -68,7 +64,9 @@ internal fun TextFieldLayout(
         content = {
             if (leading != null) {
                 Box(
-                    modifier = Modifier.layoutId(LeadingId).then(IconDefaultSizeModifier),
+                    modifier = Modifier
+                        .layoutId(LeadingId)
+                        .defaultMinSize(iconSize, iconSize),
                     contentAlignment = Alignment.Center,
                 ) {
                     leading()
@@ -76,7 +74,9 @@ internal fun TextFieldLayout(
             }
             if (trailing != null) {
                 Box(
-                    modifier = Modifier.layoutId(TrailingId).then(IconDefaultSizeModifier),
+                    modifier = Modifier
+                        .layoutId(TrailingId)
+                        .defaultMinSize(iconSize, iconSize),
                     contentAlignment = Alignment.Center,
                 ) {
                     trailing()
@@ -86,18 +86,8 @@ internal fun TextFieldLayout(
             val startTextFieldPadding = paddingValues.calculateStartPadding(layoutDirection)
             val endTextFieldPadding = paddingValues.calculateEndPadding(layoutDirection)
             val padding = Modifier.padding(
-                start = if (leading != null) {
-                    (startTextFieldPadding - HorizontalIconPadding).coerceAtLeast(
-                        0.dp,
-                    )
-                } else {
-                    startTextFieldPadding
-                },
-                end = if (trailing != null) {
-                    (endTextFieldPadding - HorizontalIconPadding).coerceAtLeast(0.dp)
-                } else {
-                    endTextFieldPadding
-                },
+                start = startTextFieldPadding,
+                end = endTextFieldPadding,
             )
             if (placeholder != null) {
                 Box(Modifier.layoutId(PlaceholderId).then(padding)) { placeholder() }
@@ -120,6 +110,7 @@ private class TextFieldMeasurePolicy(
     private val singleLine: Boolean,
     private val animationProgress: Float,
     private val paddingValues: PaddingValues,
+    private val labelToValuePadding: Dp,
 ) : MeasurePolicy {
 
     @Suppress("LongMethod")
@@ -131,7 +122,7 @@ private class TextFieldMeasurePolicy(
         val bottomPaddingValue = paddingValues.calculateBottomPadding().roundToPx()
 
         // padding between label and input text
-        val topPadding = TextFieldTopPadding.roundToPx()
+        val topPadding = labelToValuePadding.roundToPx()
         var occupiedSpaceHorizontally = 0
 
         // measure leading icon
@@ -157,14 +148,12 @@ private class TextFieldMeasurePolicy(
             )
         val labelPlaceable =
             measurables.find { it.layoutId == LabelId }?.measure(labelConstraints)
-        val lastBaseline = labelPlaceable?.get(LastBaseline)?.let {
-            if (it != AlignmentLine.Unspecified) it else labelPlaceable.height
-        } ?: 0
+        val lastBaseline = labelPlaceable?.height ?: 0
         val effectiveLabelBaseline = max(lastBaseline, topPaddingValue)
 
         // measure input field
         val verticalConstraintOffset = if (labelPlaceable != null) {
-            -bottomPaddingValue - topPaddingValue + topPadding
+            -bottomPaddingValue - effectiveLabelBaseline
         } else {
             -topPaddingValue - bottomPaddingValue
         }
@@ -207,7 +196,7 @@ private class TextFieldMeasurePolicy(
         return layout(width, height) {
             if (labelPlaceable != null) {
                 // label's final position is always relative to the baseline
-                val labelEndPosition = (topPaddingValue - labelPlaceable.height)
+                val labelEndPosition = (topPaddingValue - lastBaseline - topPadding)
                     .coerceAtLeast(0)
                 placeWithLabel(
                     width,
@@ -217,11 +206,9 @@ private class TextFieldMeasurePolicy(
                     placeholderPlaceable,
                     leadingPlaceable,
                     trailingPlaceable,
-                    singleLine,
                     labelEndPosition,
                     effectiveLabelBaseline,
                     animationProgress,
-                    density,
                 )
             } else {
                 placeWithoutLabel(
@@ -365,13 +352,12 @@ private fun calculateHeight(
     density: Float,
     paddingValues: PaddingValues,
 ): Int {
-    val paddingToLabel = TextFieldTopPadding.value * density
     val topPaddingValue = paddingValues.calculateTopPadding().value * density
     val bottomPaddingValue = paddingValues.calculateBottomPadding().value * density
 
     val inputFieldHeight = max(textFieldHeight, placeholderHeight)
     val middleSectionHeight = if (hasLabel) {
-        labelBaseline + paddingToLabel + inputFieldHeight + bottomPaddingValue
+        labelBaseline + inputFieldHeight + bottomPaddingValue
     } else {
         topPaddingValue + inputFieldHeight + bottomPaddingValue
     }
@@ -390,11 +376,9 @@ private fun Placeable.PlacementScope.placeWithLabel(
     placeholderPlaceable: Placeable?,
     leadingPlaceable: Placeable?,
     trailingPlaceable: Placeable?,
-    singleLine: Boolean,
     labelEndPosition: Int,
     textPosition: Int,
     animationProgress: Float,
-    density: Float,
 ) {
     leadingPlaceable?.placeRelative(
         0,
@@ -405,11 +389,7 @@ private fun Placeable.PlacementScope.placeWithLabel(
         Alignment.CenterVertically.align(trailingPlaceable.height, height),
     )
     labelPlaceable?.let {
-        val startPosition = if (singleLine) {
-            Alignment.CenterVertically.align(it.height, height)
-        } else {
-            (TextFieldPadding.value * density).roundToInt()
-        }
+        val startPosition = Alignment.CenterVertically.align(it.height, height)
         val distance = startPosition - labelEndPosition
         val positionY = startPosition - (distance * animationProgress).roundToInt()
         it.placeRelative(widthOrZero(leadingPlaceable), positionY)

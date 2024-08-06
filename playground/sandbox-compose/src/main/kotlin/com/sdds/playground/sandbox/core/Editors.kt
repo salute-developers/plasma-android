@@ -24,8 +24,8 @@ import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.Text
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.buttons.SandboxBasicButton
-import com.sdds.playground.sandbox.core.components.SandboxTextField
 import com.sdds.playground.sandbox.radiobox.SandboxRadioBox
+import com.sdds.playground.sandbox.textfield.SandboxTextField
 import com.sdds.playground.sandbox.tokens.compose.StylesSaluteTheme
 import kotlin.math.roundToInt
 
