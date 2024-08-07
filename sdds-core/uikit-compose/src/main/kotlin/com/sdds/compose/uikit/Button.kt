@@ -157,10 +157,8 @@ fun Button(
 
         ButtonText(
             label = label,
-            labelTextStyle = labelTextStyle,
-            valueTextStyle = valueTextStyle,
-            labelColor = contentColor,
-            valueColor = valueColor,
+            labelTextStyle = labelTextStyle.copy(color = contentColor),
+            valueTextStyle = valueTextStyle.copy(color = valueColor),
             spacing = spacing,
             value = value,
             valueMargin = dimensions.valueMargin,

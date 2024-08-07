@@ -16,7 +16,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.CornerBasedShape
-import androidx.compose.material.Text
 import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
@@ -35,6 +34,7 @@ import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.LocalTint
+import com.sdds.compose.uikit.Text
 
 /**
  * Базовая кнопка
@@ -124,8 +124,6 @@ internal fun RowScope.ButtonText(
     label: String,
     labelTextStyle: TextStyle,
     valueTextStyle: TextStyle,
-    labelColor: Color,
-    valueColor: Color,
     modifier: Modifier = Modifier,
     valueMargin: Dp,
     spacing: Button.Spacing,
@@ -145,7 +143,6 @@ internal fun RowScope.ButtonText(
             Text(
                 text = label,
                 style = labelTextStyle,
-                color = labelColor,
                 softWrap = false,
                 overflow = TextOverflow.Ellipsis,
             )
@@ -155,7 +152,6 @@ internal fun RowScope.ButtonText(
             Text(
                 text = value,
                 style = valueTextStyle,
-                color = valueColor,
                 softWrap = false,
                 overflow = TextOverflow.Ellipsis,
             )
@@ -165,7 +161,6 @@ internal fun RowScope.ButtonText(
             text = label,
             modifier = modifier,
             style = labelTextStyle,
-            color = labelColor,
             softWrap = false,
             overflow = TextOverflow.Ellipsis,
         )
