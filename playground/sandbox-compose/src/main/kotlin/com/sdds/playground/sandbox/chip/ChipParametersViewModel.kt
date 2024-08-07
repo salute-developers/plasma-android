@@ -90,7 +90,7 @@ internal class ChipParametersViewModel : ViewModel(), PropertiesOwner {
 
             Property.StringProperty(
                 name = "label",
-                value = label.orEmpty(),
+                value = label,
                 onApply = { updateLabel(it) },
             ),
 
