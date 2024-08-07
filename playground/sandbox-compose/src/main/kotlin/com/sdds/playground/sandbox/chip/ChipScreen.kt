@@ -3,12 +3,10 @@ package com.sdds.playground.sandbox.chip
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.sdds.compose.uikit.Image
+import com.sdds.compose.uikit.Icon
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.core.ComponentScaffold
 
@@ -43,13 +41,12 @@ private fun getOnClick(isClickable: Boolean): (() -> Unit)? {
     }
 }
 
-private fun startContent(hasContent: Boolean): (@Composable (Color) -> Unit)? {
+private fun startContent(hasContent: Boolean): (@Composable () -> Unit)? {
     return if (hasContent) {
         {
-            Image(
+            Icon(
                 painter = painterResource(id = com.sdds.icons.R.drawable.ic_add_fill_24),
                 contentDescription = "",
-                colorFilter = ColorFilter.tint(color = it),
             )
         }
     } else {
@@ -57,13 +54,12 @@ private fun startContent(hasContent: Boolean): (@Composable (Color) -> Unit)? {
     }
 }
 
-private fun endContent(hasContent: Boolean): (@Composable (Color) -> Unit)? {
+private fun endContent(hasContent: Boolean): (@Composable () -> Unit)? {
     return if (hasContent) {
         {
-            Image(
+            Icon(
                 painter = painterResource(id = com.sdds.icons.R.drawable.ic_close_24),
                 contentDescription = "",
-                colorFilter = ColorFilter.tint(color = it),
             )
         }
     } else {
