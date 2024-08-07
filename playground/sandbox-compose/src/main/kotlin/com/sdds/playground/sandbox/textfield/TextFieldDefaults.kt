@@ -1,25 +1,28 @@
-package com.sdds.playground.sandbox.core.components
+package com.sdds.playground.sandbox.textfield
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.defaultMinSize
+import androidx.compose.foundation.shape.CornerSize
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.State
 import androidx.compose.runtime.rememberUpdatedState
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.TextField.DotBadge
+import com.sdds.compose.uikit.TextField.LabelType
+import com.sdds.compose.uikit.adjustBy
 import com.sdds.playground.sandbox.tokens.compose.StylesSaluteTheme
 
 /**
  * Цвета текстового поля
  */
 @Stable
-internal interface TextFieldColors {
+internal interface SandboxTextFieldColors {
 
     /**
      * Цвет значения текстового поля
@@ -52,7 +55,7 @@ internal interface TextFieldColors {
      * @param type тип лейбла
      */
     @Composable
-    fun labelColor(state: InputState, type: SandboxTextField.LabelType): State<Color>
+    fun labelColor(state: InputState, type: LabelType): State<Color>
 
     /**
      * Цвет иконки в начале текстового поля
@@ -68,7 +71,7 @@ internal interface TextFieldColors {
      * @param state состояние текстового поля
      */
     @Composable
-    fun trailingIconColor(state: InputState): State<Color>
+    fun trailingIconColor(state: InputState, disabledAlpha: Float): State<Color>
 
     /**
      * Цвет подписи текстового поля
@@ -91,14 +94,18 @@ internal interface TextFieldColors {
  * Текстовые стили поля
  */
 @Stable
-internal interface TextFieldStyles {
+internal interface SandboxTextFieldStyles {
 
     /**
      * Текстовый стиль внешнего лейбла
      * @param size размер текстового поля
      */
     @Composable
-    fun outerLabelStyle(size: SandboxTextField.Size): State<TextStyle>
+    fun outerLabelStyle(
+        size: SandboxTextField.Size,
+        colors: SandboxTextFieldColors,
+        inputState: InputState,
+    ): State<TextStyle>
 
     /**
      * Текстовый стиль внутреннего лейбла
@@ -109,8 +116,9 @@ internal interface TextFieldStyles {
     @Composable
     fun innerLabelStyle(
         size: SandboxTextField.Size,
-        isFocused: Boolean,
+        inputState: InputState,
         isEmpty: Boolean,
+        colors: SandboxTextFieldColors,
     ): State<TextStyle>
 
     /**
@@ -118,21 +126,33 @@ internal interface TextFieldStyles {
      * @param size размер текстового поля
      */
     @Composable
-    fun valueStyle(size: SandboxTextField.Size): State<TextStyle>
+    fun valueStyle(
+        size: SandboxTextField.Size,
+        colors: SandboxTextFieldColors,
+        inputState: InputState,
+    ): State<TextStyle>
 
     /**
      * Текстовый стиль подписи поля
      * @param size размер текстового поля
      */
     @Composable
-    fun captionStyle(size: SandboxTextField.Size): State<TextStyle>
+    fun captionStyle(
+        size: SandboxTextField.Size,
+        colors: SandboxTextFieldColors,
+        inputState: InputState,
+    ): State<TextStyle>
 
     /**
      * Текстовый стиль заглушки поля
      * @param size размер текстового поля
      */
     @Composable
-    fun placeholderStyle(size: SandboxTextField.Size): State<TextStyle>
+    fun placeholderStyle(
+        size: SandboxTextField.Size,
+        colors: SandboxTextFieldColors,
+        inputState: InputState,
+    ): State<TextStyle>
 }
 
 /**
@@ -141,73 +161,127 @@ internal interface TextFieldStyles {
 @Immutable
 internal object TextFieldDefaults {
 
-    /**
-     * Длительность анимации
-     */
-    const val AnimationDuration = 150
-
-    /**
-     * Значение прозрачности поля во включенном состоянии
-     */
-    const val EnabledAlpha = 1f
-
-    /**
-     * Значение прозрачности поля в выключенном состоянии
-     */
-    const val DisabledAlpha = 0.4f
-
-    /**
-     * Длительность анимации заглушки
-     */
-    const val PlaceholderAnimationDuration = 83
-
-    /**
-     * Задержка или длительность анимации заглушки
-     */
-    const val PlaceholderAnimationDelayOrDuration = 67
-
-    /**
-     * Корректировка формы
-     */
-    val ShapeAdjustment = 2.dp
-
-    /**
-     * Внутренние отступы
-     */
-    val TextFieldPadding = 16.dp
-
-    /**
-     * Отступ между внутренним лейблом и значением поля
-     */
-    val TextFieldTopPadding = 2.dp
-
-    /**
-     * Отступ между значением и иконкой
-     */
-    val HorizontalIconPadding = 8.dp
-
-    /**
-     * Размер иконки по-умолчанию
-     */
-    val IconDefaultSizeModifier = Modifier.defaultMinSize(24.dp, 24.dp)
-
-    /**
-     * Отступы в текстовом поле
-     * @param size размер текстового поля
-     * @param labelType тип лейбла
-     */
-    fun textFieldPadding(
-        size: SandboxTextField.Size = SandboxTextField.Size.L,
-        labelType: SandboxTextField.LabelType = SandboxTextField.LabelType.Outer,
-    ): PaddingValues {
-        if (labelType == SandboxTextField.LabelType.Outer) {
-            return PaddingValues(TextFieldPadding, 0.dp, TextFieldPadding, 0.dp)
+    @Composable
+    fun textTopPadding(size: SandboxTextField.Size, labelType: LabelType): Dp {
+        return if (labelType == LabelType.Outer) {
+            0.dp
+        } else {
+            when (size) {
+                SandboxTextField.Size.L -> 25.dp
+                SandboxTextField.Size.M -> 22.dp
+                SandboxTextField.Size.S -> 18.dp
+                SandboxTextField.Size.XS -> 0.dp
+            }
         }
-        return when (size) {
-            SandboxTextField.Size.L -> PaddingValues(TextFieldPadding, 25.dp, TextFieldPadding, 9.dp)
-            SandboxTextField.Size.M -> PaddingValues(TextFieldPadding, 22.dp, TextFieldPadding, 6.dp)
-            SandboxTextField.Size.S -> PaddingValues(TextFieldPadding, 17.dp, TextFieldPadding, 5.dp)
-            SandboxTextField.Size.XS -> PaddingValues(TextFieldPadding, 0.dp, TextFieldPadding, 0.dp)
+    }
+
+    @Composable
+    fun textBottomPadding(size: SandboxTextField.Size, labelType: LabelType): Dp {
+        return if (labelType == LabelType.Outer) {
+            0.dp
+        } else {
+            when (size) {
+                SandboxTextField.Size.L -> 9.dp
+                SandboxTextField.Size.M -> 6.dp
+                SandboxTextField.Size.S -> 4.dp
+                SandboxTextField.Size.XS -> 0.dp
+            }
+        }
+    }
+
+    @Composable
+    fun iconMargin(size: SandboxTextField.Size): Dp =
+        when (size) {
+            SandboxTextField.Size.L -> 8.dp
+            SandboxTextField.Size.M -> 6.dp
+            SandboxTextField.Size.S -> 4.dp
+            SandboxTextField.Size.XS -> 4.dp
+        }
+
+    @Composable
+    fun horizontalContentPadding(size: SandboxTextField.Size): Dp =
+        when (size) {
+            SandboxTextField.Size.L -> 16.dp
+            SandboxTextField.Size.M -> 14.dp
+            SandboxTextField.Size.S -> 12.dp
+            SandboxTextField.Size.XS -> 8.dp
+        }
+
+    @Composable
+    fun innerLabelToValuePadding(size: SandboxTextField.Size): Dp =
+        when (size) {
+            SandboxTextField.Size.L,
+            SandboxTextField.Size.M,
+            -> 2.dp
+
+            SandboxTextField.Size.S,
+            SandboxTextField.Size.XS,
+            -> 0.dp
+        }
+
+    @Composable
+    fun outerLabelBottomPadding(size: SandboxTextField.Size): Dp =
+        when (size) {
+            SandboxTextField.Size.L -> 12.dp
+            SandboxTextField.Size.M -> 10.dp
+            SandboxTextField.Size.S -> 8.dp
+            SandboxTextField.Size.XS -> 6.dp
+        }
+
+    @Composable
+    fun captionTopPadding(size: SandboxTextField.Size): Dp =
+        when (size) {
+            SandboxTextField.Size.L,
+            SandboxTextField.Size.M,
+            SandboxTextField.Size.S,
+            SandboxTextField.Size.XS,
+            -> 4.dp
+        }
+
+    @Composable
+    fun optionalTextPadding(size: SandboxTextField.Size): Dp =
+        when (size) {
+            SandboxTextField.Size.L,
+            SandboxTextField.Size.M,
+            SandboxTextField.Size.S,
+            SandboxTextField.Size.XS,
+            -> 4.dp
+        }
+
+    @Composable
+    fun iconSize(size: SandboxTextField.Size): Dp =
+        when (size) {
+            SandboxTextField.Size.L,
+            SandboxTextField.Size.M,
+            SandboxTextField.Size.S,
+            -> 24.dp
+
+            SandboxTextField.Size.XS -> 16.dp
+        }
+
+    @Composable
+    fun dotBadge(labelType: LabelType, position: DotBadge.Position): DotBadge {
+        return when (labelType) {
+            LabelType.Outer -> {
+                val paddings = if (position == DotBadge.Position.Start) {
+                    PaddingValues(end = 6.dp)
+                } else {
+                    PaddingValues(start = 4.dp, top = 4.dp)
+                }
+                DotBadge(
+                    size = 6.dp,
+                    paddingValues = paddings,
+                    color = Color.Red,
+                    position = position,
+                )
+            }
+
+            LabelType.Inner -> DotBadge(
+                size = 8.dp,
+                paddingValues = PaddingValues(),
+                color = Color.Red,
+                position = position,
+            )
         }
     }
 
@@ -215,40 +289,30 @@ internal object TextFieldDefaults {
      *  Цветовые настройки поля
      */
     @Composable
-    fun textFieldColors(): TextFieldColors = DefaultTextFieldColors()
+    fun textFieldColors(): SandboxTextFieldColors = DefaultSandboxTextFieldColors()
 
     /**
      *  Текстовые стили поля
      */
     @Composable
-    fun textFieldStyles(): TextFieldStyles = DefaultTextFieldStyles()
-
-    /**
-     * Размер иконки поля [Dp] в зависимости от размера поля [SandboxTextField.Size]
-     */
-    @Composable
-    fun textFieldIconSize(size: SandboxTextField.Size) = when (size) {
-        SandboxTextField.Size.XS -> 16.dp
-        SandboxTextField.Size.S,
-        SandboxTextField.Size.M,
-        SandboxTextField.Size.L,
-        -> 24.dp
-    }
+    fun textFieldStyles(): SandboxTextFieldStyles = DefaultSandboxTextFieldStyles()
 
     /**
      * Форма в зависимости от размера поля [SandboxTextField.Size]
      */
     @Composable
-    fun textFieldShapeFor(size: SandboxTextField.Size) = when (size) {
-        SandboxTextField.Size.XS -> StylesSaluteTheme.shapes.roundXs
-        SandboxTextField.Size.S -> StylesSaluteTheme.shapes.roundS
-        SandboxTextField.Size.M -> StylesSaluteTheme.shapes.roundM
-        SandboxTextField.Size.L -> StylesSaluteTheme.shapes.roundL
-    }.adjustBy(ShapeAdjustment)
+    fun textFieldShapeFor(size: SandboxTextField.Size, shapeAdjustment: Dp) = when (size) {
+        SandboxTextField.Size.XS,
+        SandboxTextField.Size.S,
+        -> RoundedCornerShape(CornerSize(8.0.dp))
+
+        SandboxTextField.Size.M -> RoundedCornerShape(CornerSize(10.0.dp))
+        SandboxTextField.Size.L -> RoundedCornerShape(CornerSize(12.0.dp))
+    }.adjustBy(shapeAdjustment)
 }
 
 @Immutable
-private class DefaultTextFieldColors : TextFieldColors {
+private class DefaultSandboxTextFieldColors : SandboxTextFieldColors {
 
     @Composable
     override fun leadingIconColor(state: InputState): State<Color> {
@@ -256,10 +320,10 @@ private class DefaultTextFieldColors : TextFieldColors {
     }
 
     @Composable
-    override fun trailingIconColor(state: InputState): State<Color> {
+    override fun trailingIconColor(state: InputState, disabledAlpha: Float): State<Color> {
         var color = StylesSaluteTheme.colors.textDefaultSecondary
         if (state == InputState.ReadOnly) {
-            color = color.copy(alpha = color.alpha * TextFieldDefaults.DisabledAlpha)
+            color = color.copy(alpha = color.alpha * disabledAlpha)
         }
         return rememberUpdatedState(color)
     }
@@ -291,10 +355,10 @@ private class DefaultTextFieldColors : TextFieldColors {
     }
 
     @Composable
-    override fun labelColor(state: InputState, type: SandboxTextField.LabelType): State<Color> {
+    override fun labelColor(state: InputState, type: LabelType): State<Color> {
         val color = when (type) {
-            SandboxTextField.LabelType.Outer -> textFieldTextColor(state = state)
-            SandboxTextField.LabelType.Inner -> StylesSaluteTheme.colors.textDefaultSecondary
+            LabelType.Outer -> textFieldTextColor(state = state)
+            LabelType.Inner -> StylesSaluteTheme.colors.textDefaultSecondary
         }
         return rememberUpdatedState(color)
     }
@@ -337,15 +401,31 @@ private class DefaultTextFieldColors : TextFieldColors {
 }
 
 @Immutable
-private class DefaultTextFieldStyles : TextFieldStyles {
+private class DefaultSandboxTextFieldStyles : SandboxTextFieldStyles {
     @Composable
-    override fun outerLabelStyle(size: SandboxTextField.Size): State<TextStyle> {
-        return rememberUpdatedState(textFieldTextStyle(size))
+    override fun outerLabelStyle(
+        size: SandboxTextField.Size,
+        colors: SandboxTextFieldColors,
+        inputState: InputState,
+    ): State<TextStyle> {
+        return rememberUpdatedState(
+            textFieldTextStyle(size).copy(
+                color = colors.labelColor(
+                    state = inputState,
+                    type = LabelType.Outer,
+                ).value,
+            ),
+        )
     }
 
     @Composable
-    override fun innerLabelStyle(size: SandboxTextField.Size, isFocused: Boolean, isEmpty: Boolean): State<TextStyle> {
-        val style = if (!isFocused && isEmpty) {
+    override fun innerLabelStyle(
+        size: SandboxTextField.Size,
+        inputState: InputState,
+        isEmpty: Boolean,
+        colors: SandboxTextFieldColors,
+    ): State<TextStyle> {
+        val style = if (inputState != InputState.Focused && isEmpty) {
             when (size) {
                 SandboxTextField.Size.XS -> StylesSaluteTheme.typography.bodySNormal
                 SandboxTextField.Size.S -> StylesSaluteTheme.typography.bodySNormal
@@ -360,22 +440,53 @@ private class DefaultTextFieldStyles : TextFieldStyles {
                 SandboxTextField.Size.L -> StylesSaluteTheme.typography.bodyXsNormal
             }
         }
-        return rememberUpdatedState(style)
+        return rememberUpdatedState(
+            style.copy(
+                color = colors.labelColor(
+                    state = inputState,
+                    type = LabelType.Inner,
+                ).value,
+            ),
+        )
     }
 
     @Composable
-    override fun valueStyle(size: SandboxTextField.Size): State<TextStyle> {
-        return rememberUpdatedState(textFieldTextStyle(size))
+    override fun valueStyle(
+        size: SandboxTextField.Size,
+        colors: SandboxTextFieldColors,
+        inputState: InputState,
+    ): State<TextStyle> {
+        return rememberUpdatedState(
+            textFieldTextStyle(size).copy(
+                color = colors.valueColor(inputState).value,
+            ),
+        )
     }
 
     @Composable
-    override fun captionStyle(size: SandboxTextField.Size): State<TextStyle> {
-        return rememberUpdatedState(StylesSaluteTheme.typography.bodyXsNormal)
+    override fun captionStyle(
+        size: SandboxTextField.Size,
+        colors: SandboxTextFieldColors,
+        inputState: InputState,
+    ): State<TextStyle> {
+        return rememberUpdatedState(
+            StylesSaluteTheme.typography.bodyXsNormal.copy(
+                color = colors.captionColor(inputState).value,
+            ),
+        )
     }
 
     @Composable
-    override fun placeholderStyle(size: SandboxTextField.Size): State<TextStyle> {
-        return rememberUpdatedState(textFieldTextStyle(size))
+    override fun placeholderStyle(
+        size: SandboxTextField.Size,
+        colors: SandboxTextFieldColors,
+        inputState: InputState,
+    ): State<TextStyle> {
+        return rememberUpdatedState(
+            textFieldTextStyle(size).copy(
+                color = colors.placeholderColor(inputState).value,
+            ),
+        )
     }
 
     @Composable

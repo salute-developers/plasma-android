@@ -1,4 +1,4 @@
-package com.sdds.playground.sandbox.core.components
+package com.sdds.compose.uikit
 
 import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.foundation.shape.CornerSize

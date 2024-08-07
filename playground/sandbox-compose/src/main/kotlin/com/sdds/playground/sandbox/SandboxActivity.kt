@@ -45,6 +45,7 @@ import com.sdds.playground.sandbox.progress.ProgressScreen
 import com.sdds.playground.sandbox.radiobox.RadioBoxScreen
 import com.sdds.playground.sandbox.radiobox.group.RadioBoxGroupScreen
 import com.sdds.playground.sandbox.switch.SwitchScreen
+import com.sdds.playground.sandbox.textfield.TextFieldScreen
 import com.sdds.playground.sandbox.tokens.compose.StylesSaluteTheme
 import kotlinx.coroutines.launch
 import com.sdds.icons.R.drawable as Icons
@@ -75,24 +76,26 @@ private sealed class MenuItem(val title: String, val screen: @Composable () -> U
     object RadioBoxGroup : MenuItem("RadioBoxGroup", { RadioBoxGroupScreen() })
     object Switch : MenuItem("Switch", { SwitchScreen() })
     object Progress : MenuItem("Progress", { ProgressScreen() })
+    object TextField : MenuItem("TextField", { TextFieldScreen() })
 }
+
+private val menuItems = listOf(
+    MenuItem.Avatar,
+    MenuItem.AvatarGroup,
+    MenuItem.Buttons,
+    MenuItem.IconButtons,
+    MenuItem.CheckBox,
+    MenuItem.CheckBoxGroup,
+    MenuItem.RadioBox,
+    MenuItem.RadioBoxGroup,
+    MenuItem.Switch,
+    MenuItem.Progress,
+    MenuItem.TextField,
+)
 
 @Composable
 private fun SandboxContainer() {
-    val menuItems = remember {
-        listOf(
-            MenuItem.Avatar,
-            MenuItem.AvatarGroup,
-            MenuItem.Buttons,
-            MenuItem.IconButtons,
-            MenuItem.CheckBox,
-            MenuItem.CheckBoxGroup,
-            MenuItem.RadioBox,
-            MenuItem.RadioBoxGroup,
-            MenuItem.Switch,
-            MenuItem.Progress,
-        )
-    }
+    val menuItems = remember { menuItems }
     val drawerState = rememberDrawerState(DrawerValue.Closed)
     val scaffoldState = rememberScaffoldState(drawerState = drawerState)
     val scope = rememberCoroutineScope()
