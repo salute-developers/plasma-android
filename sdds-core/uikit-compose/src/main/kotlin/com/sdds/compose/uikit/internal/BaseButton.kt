@@ -1,5 +1,7 @@
 package com.sdds.compose.uikit.internal
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -12,30 +14,31 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.CornerBasedShape
-import androidx.compose.material.ButtonDefaults
-import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.Icon
-import androidx.compose.material.Surface
 import androidx.compose.material.Text
+import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.Button
+import com.sdds.compose.uikit.Icon
+import com.sdds.compose.uikit.LocalTint
 
 /**
  * Базовая кнопка
  */
-@OptIn(ExperimentalMaterialApi::class)
 @Composable
 internal fun BaseButton(
     modifier: Modifier = Modifier,
@@ -53,29 +56,22 @@ internal fun BaseButton(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     content: @Composable RowScope.() -> Unit,
 ) {
-    val colors = ButtonDefaults.buttonColors(
-        backgroundColor = backgroundColor,
-        contentColor = contentColor,
-        disabledBackgroundColor = backgroundColor,
-        disabledContentColor = contentColor,
-    )
-    Surface(
-        onClick = onClick,
-        modifier = modifier
-            .height(dimensions.height)
-            .alpha(if (enabled) enabledAlpha else disabledAlpha),
-        enabled = enabled,
-        shape = shape,
-        color = colors.backgroundColor(enabled).value,
-        contentColor = contentColor,
-        border = null,
-        elevation = 0.dp,
-        interactionSource = interactionSource,
-    ) {
+    CompositionLocalProvider(LocalTint provides contentColor) {
         Box(
-            modifier = Modifier
-                .wrapContentSize()
+            modifier = modifier
+                .clip(shape)
                 .defaultMinSize(dimensions.minWidth, dimensions.height)
+                .height(dimensions.height)
+                .wrapContentWidth()
+                .alpha(if (enabled) enabledAlpha else disabledAlpha)
+                .clickable(
+                    interactionSource = interactionSource,
+                    indication = rememberRipple(),
+                    enabled = enabled,
+                    role = Role.Button,
+                    onClick = onClick,
+                )
+                .background(backgroundColor)
                 .padding(dimensions.paddings.start, 0.dp, dimensions.paddings.end, 0.dp),
             contentAlignment = Alignment.Center,
         ) {
