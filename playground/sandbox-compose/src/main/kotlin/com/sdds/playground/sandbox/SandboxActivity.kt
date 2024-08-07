@@ -41,6 +41,7 @@ import com.sdds.playground.sandbox.buttons.SandboxButton
 import com.sdds.playground.sandbox.buttons.SandboxIconButton
 import com.sdds.playground.sandbox.checkbox.CheckBoxScreen
 import com.sdds.playground.sandbox.checkbox.group.CheckBoxGroupScreen
+import com.sdds.playground.sandbox.chip.ChipScreen
 import com.sdds.playground.sandbox.progress.ProgressScreen
 import com.sdds.playground.sandbox.radiobox.RadioBoxScreen
 import com.sdds.playground.sandbox.radiobox.group.RadioBoxGroupScreen
@@ -77,6 +78,7 @@ private sealed class MenuItem(val title: String, val screen: @Composable () -> U
     object Switch : MenuItem("Switch", { SwitchScreen() })
     object Progress : MenuItem("Progress", { ProgressScreen() })
     object TextField : MenuItem("TextField", { TextFieldScreen() })
+    object Chip : MenuItem("Chip", { ChipScreen() })
 }
 
 private val menuItems = listOf(
@@ -91,6 +93,7 @@ private val menuItems = listOf(
     MenuItem.Switch,
     MenuItem.Progress,
     MenuItem.TextField,
+    MenuItem.Chip,
 )
 
 @Composable
