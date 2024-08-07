@@ -1,7 +1,5 @@
 package com.sdds.compose.uikit.internal
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -23,8 +21,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.TextStyle
@@ -35,6 +33,7 @@ import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.LocalTint
 import com.sdds.compose.uikit.Text
+import com.sdds.compose.uikit.internal.common.surface
 
 /**
  * Базовая кнопка
@@ -59,19 +58,20 @@ internal fun BaseButton(
     CompositionLocalProvider(LocalTint provides contentColor) {
         Box(
             modifier = modifier
-                .clip(shape)
                 .defaultMinSize(dimensions.minWidth, dimensions.height)
                 .height(dimensions.height)
                 .wrapContentWidth()
-                .alpha(if (enabled) enabledAlpha else disabledAlpha)
-                .clickable(
-                    interactionSource = interactionSource,
+                .surface(
+                    shape = shape,
+                    onClick = onClick,
+                    backgroundColor = SolidColor(backgroundColor),
                     indication = rememberRipple(),
                     enabled = enabled,
+                    enabledAlpha = enabledAlpha,
+                    disabledAlpha = disabledAlpha,
                     role = Role.Button,
-                    onClick = onClick,
+                    interactionSource = interactionSource,
                 )
-                .background(backgroundColor)
                 .padding(dimensions.paddings.start, 0.dp, dimensions.paddings.end, 0.dp),
             contentAlignment = Alignment.Center,
         ) {
