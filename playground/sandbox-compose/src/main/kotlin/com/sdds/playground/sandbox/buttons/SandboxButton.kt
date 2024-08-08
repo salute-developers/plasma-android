@@ -12,6 +12,7 @@ import com.sdds.playground.sandbox.buttons.SandboxButtonSettingsProvider.backgro
 import com.sdds.playground.sandbox.buttons.SandboxButtonSettingsProvider.basicButtonDimensionsFor
 import com.sdds.playground.sandbox.buttons.SandboxButtonSettingsProvider.contentColorFor
 import com.sdds.playground.sandbox.buttons.SandboxButtonSettingsProvider.iconButtonDimensionsFor
+import com.sdds.playground.sandbox.buttons.SandboxButtonSettingsProvider.pressedBackgroundColorFor
 import com.sdds.playground.sandbox.buttons.SandboxButtonSettingsProvider.shapeFor
 import com.sdds.playground.sandbox.buttons.SandboxButtonSettingsProvider.textStyleFor
 
@@ -40,6 +41,7 @@ internal fun SandboxIconButton(
         modifier = modifier,
         shape = innerShape,
         backgroundColor = backgroundColorFor(style),
+        pressedBackgroundColor = pressedBackgroundColorFor(style),
         contentColor = contentColorFor(style),
         spinnerColor = contentColorFor(style),
         enabled = enabled,
@@ -78,6 +80,7 @@ fun SandboxBasicButton(
         spacing = spacing,
         icons = icons,
         backgroundColor = backgroundColorFor(style),
+        pressedBackgroundColor = pressedBackgroundColorFor(style),
         contentColor = contentColorFor(style),
         spinnerColor = contentColorFor(style),
         spinnerMode = if (style == SandboxButton.Style.Clear) {

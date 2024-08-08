@@ -56,6 +56,24 @@ internal object SandboxButtonSettingsProvider {
         }
 
     /**
+     * Вернет цвет фона [Color] в нажатом состоянии для соответствующего [style]
+     */
+    @Composable
+    fun pressedBackgroundColorFor(style: SandboxButton.Style): Color =
+        when (style) {
+            SandboxButton.Style.Default -> StylesSaluteTheme.colors.surfaceDefaultSolidDefaultActive
+            SandboxButton.Style.Secondary -> StylesSaluteTheme.colors.surfaceDefaultTransparentSecondaryActive
+            SandboxButton.Style.Accent -> StylesSaluteTheme.colors.surfaceDefaultAccentActive
+            SandboxButton.Style.Positive -> StylesSaluteTheme.colors.surfaceDefaultPositiveActive
+            SandboxButton.Style.Negative -> StylesSaluteTheme.colors.surfaceDefaultNegativeActive
+            SandboxButton.Style.Warning -> StylesSaluteTheme.colors.surfaceDefaultWarningActive
+            SandboxButton.Style.Clear -> StylesSaluteTheme.colors.surfaceDefaultClearActive
+            SandboxButton.Style.Dark -> StylesSaluteTheme.colors.surfaceOnLightTransparentDeepActive
+            SandboxButton.Style.Black -> StylesSaluteTheme.colors.surfaceOnLightSolidDefaultActive
+            SandboxButton.Style.White -> StylesSaluteTheme.colors.surfaceOnDarkSolidDefaultActive
+        }
+
+    /**
      * Вернет стиль текста [TextStyle] для соответствующего [size]
      */
     @Composable

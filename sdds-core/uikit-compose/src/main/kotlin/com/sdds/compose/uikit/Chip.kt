@@ -1,6 +1,8 @@
 package com.sdds.compose.uikit
 
+import androidx.compose.foundation.Indication
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
@@ -9,10 +11,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.NonRestartableComposable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -50,6 +52,7 @@ fun Chip(
     enabledAlpha: Float = 1f,
     disabledAlpha: Float = 0.4f,
     backgroundColor: Color = Color.Black,
+    pressedBackgroundColor: Color = Color.Gray,
     startContentColor: Color = Color.White,
     endContentColor: Color = Color.White,
     textContentStyle: TextStyle,
@@ -60,6 +63,7 @@ fun Chip(
     startContentMargin: Dp = 12.dp,
     endContentMargin: Dp = 12.dp,
     enabled: Boolean = true,
+    indication: Indication? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     Chip(
@@ -72,6 +76,7 @@ fun Chip(
         enabledAlpha = enabledAlpha,
         disabledAlpha = disabledAlpha,
         backgroundColor = SolidColor(backgroundColor),
+        pressedBackgroundColor = SolidColor(pressedBackgroundColor),
         startContentColor = startContentColor,
         endContentColor = endContentColor,
         textContentStyle = textContentStyle,
@@ -82,6 +87,7 @@ fun Chip(
         startContentMargin = startContentMargin,
         endContentMargin = endContentMargin,
         enabled = enabled,
+        indication = indication,
         interactionSource = interactionSource,
     )
 }
@@ -111,6 +117,7 @@ fun Chip(
     enabledAlpha: Float = 1f,
     disabledAlpha: Float = 0.4f,
     backgroundColor: Brush = SolidColor(Color.Black),
+    pressedBackgroundColor: Brush = SolidColor(Color.Gray),
     startContentColor: Color = Color.White,
     endContentColor: Color = Color.White,
     textContentStyle: TextStyle,
@@ -121,17 +128,19 @@ fun Chip(
     startContentMargin: Dp = 12.dp,
     endContentMargin: Dp = 12.dp,
     enabled: Boolean = true,
+    indication: Indication? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
+    val isPressed by interactionSource.collectIsPressedAsState()
     Row(
         modifier = modifier
             .surface(
                 onClick = onClick,
                 shape = shape,
-                indication = rememberRipple(),
+                indication = indication,
                 enabledAlpha = enabledAlpha,
                 disabledAlpha = disabledAlpha,
-                backgroundColor = backgroundColor,
+                backgroundColor = if (isPressed) pressedBackgroundColor else backgroundColor,
                 enabled = enabled,
                 interactionSource = interactionSource,
             )

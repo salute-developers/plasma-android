@@ -7,9 +7,9 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.semantics.Role
 
 /**
@@ -49,6 +49,6 @@ internal fun Modifier.surface(
 
     return clip(shape)
         .then(clickableModifier)
-        .alpha(if (enabled) enabledAlpha else disabledAlpha)
+        .graphicsLayer(alpha = if (enabled) enabledAlpha else disabledAlpha)
         .background(backgroundColor)
 }

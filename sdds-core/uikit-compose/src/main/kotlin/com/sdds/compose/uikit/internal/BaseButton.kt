@@ -1,6 +1,8 @@
 package com.sdds.compose.uikit.internal
 
+import androidx.compose.foundation.Indication
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
@@ -14,9 +16,9 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.CornerBasedShape
-import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -45,6 +47,7 @@ internal fun BaseButton(
     shape: CornerBasedShape,
     contentColor: Color,
     backgroundColor: Color,
+    pressedBackgroundColor: Color,
     spinnerColor: Color,
     spinnerMode: Button.SpinnerMode,
     dimensions: Button.Dimensions,
@@ -52,9 +55,11 @@ internal fun BaseButton(
     disabledAlpha: Float,
     enabled: Boolean = true,
     loading: Boolean = false,
+    indication: Indication? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     content: @Composable RowScope.() -> Unit,
 ) {
+    val isPressed by interactionSource.collectIsPressedAsState()
     CompositionLocalProvider(LocalTint provides contentColor) {
         Box(
             modifier = modifier
@@ -64,8 +69,8 @@ internal fun BaseButton(
                 .surface(
                     shape = shape,
                     onClick = onClick,
-                    backgroundColor = SolidColor(backgroundColor),
-                    indication = rememberRipple(),
+                    backgroundColor = SolidColor(if (isPressed) pressedBackgroundColor else backgroundColor),
+                    indication = indication,
                     enabled = enabled,
                     enabledAlpha = enabledAlpha,
                     disabledAlpha = disabledAlpha,

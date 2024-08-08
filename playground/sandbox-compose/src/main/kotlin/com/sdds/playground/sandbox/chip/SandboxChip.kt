@@ -14,6 +14,7 @@ import com.sdds.playground.sandbox.chip.SandboxChipSettingsProvider.contentColor
 import com.sdds.playground.sandbox.chip.SandboxChipSettingsProvider.contentMargin
 import com.sdds.playground.sandbox.chip.SandboxChipSettingsProvider.endPadding
 import com.sdds.playground.sandbox.chip.SandboxChipSettingsProvider.iconSize
+import com.sdds.playground.sandbox.chip.SandboxChipSettingsProvider.pressedBackgroundColor
 import com.sdds.playground.sandbox.chip.SandboxChipSettingsProvider.shape
 import com.sdds.playground.sandbox.chip.SandboxChipSettingsProvider.startPadding
 import com.sdds.playground.sandbox.chip.SandboxChipSettingsProvider.style
@@ -36,6 +37,7 @@ internal fun SandboxChip(
         onClick = onClick,
         shape = shape(shape, size),
         backgroundColor = backgroundColor(state),
+        pressedBackgroundColor = pressedBackgroundColor(state),
         startContent = startContent,
         textContent = { Text(text = label) },
         textContentStyle = style(size, state),
