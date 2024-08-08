@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.Chip
@@ -39,7 +40,13 @@ internal fun SandboxChip(
         backgroundColor = backgroundColor(state),
         pressedBackgroundColor = pressedBackgroundColor(state),
         startContent = startContent,
-        textContent = { Text(text = label) },
+        textContent = {
+            Text(
+                text = label,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+            )
+        },
         textContentStyle = style(size, state),
         endContent = endContent,
         startContentColor = contentColor(state),

@@ -6,9 +6,9 @@ import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.requiredSize
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
@@ -134,6 +134,7 @@ fun Chip(
     val isPressed by interactionSource.collectIsPressedAsState()
     Row(
         modifier = modifier
+            .wrapContentWidth()
             .surface(
                 onClick = onClick,
                 shape = shape,
@@ -152,25 +153,36 @@ fun Chip(
             CompositionLocalProvider(
                 LocalTint provides startContentColor,
             ) {
-                Box(modifier = Modifier.size(startContentSize)) {
+                Box(
+                    modifier = Modifier
+                        .padding(end = startContentMargin)
+                        .requiredSize(startContentSize)
+                ) {
                     startContent()
                 }
-                Spacer(modifier = Modifier.size(startContentMargin))
             }
         }
         textContent?.let {
             CompositionLocalProvider(
                 LocalTextStyle provides textContentStyle,
             ) {
-                textContent()
+                Box(
+                    modifier = Modifier
+                        .weight(weight = 1f, fill = false)
+                ) {
+                    textContent()
+                }
             }
         }
         endContent?.let {
             CompositionLocalProvider(
                 LocalTint provides endContentColor,
             ) {
-                Spacer(modifier = Modifier.size(endContentMargin))
-                Box(modifier = Modifier.size(endContentSize)) {
+                Box(
+                    modifier = Modifier
+                        .padding(start = endContentMargin)
+                        .requiredSize(endContentSize)
+                ) {
                     endContent()
                 }
             }
