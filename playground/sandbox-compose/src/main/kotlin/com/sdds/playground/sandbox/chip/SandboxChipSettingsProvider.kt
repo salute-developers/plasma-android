@@ -42,6 +42,15 @@ internal object SandboxChipSettingsProvider {
     }
 
     @Composable
+    fun pressedBackgroundColor(state: SandboxChip.State): Color {
+        return when (state) {
+            SandboxChip.State.Default -> StylesSaluteTheme.colors.surfaceDefaultSolidDefaultActive
+            SandboxChip.State.Secondary -> StylesSaluteTheme.colors.surfaceDefaultTransparentSecondaryActive
+            SandboxChip.State.Accent -> StylesSaluteTheme.colors.surfaceDefaultAccentActive
+        }
+    }
+
+    @Composable
     fun shape(shape: Shape, size: SandboxChip.Size): CornerBasedShape {
         return when (shape) {
             Shape.Default -> {

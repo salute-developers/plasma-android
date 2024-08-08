@@ -1,5 +1,6 @@
 package com.sdds.compose.uikit
 
+import androidx.compose.foundation.Indication
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.requiredSize
 import androidx.compose.foundation.shape.CornerBasedShape
@@ -32,6 +33,7 @@ import com.sdds.compose.uikit.internal.ButtonText
  * @param spinnerColor цвет индикатора загрузки
  * @param spinnerMode режим, определяющий, как выглядит контент во время анимации загрузки
  * @param backgroundColor цвет фона кнопки
+ * @param pressedBackgroundColor цвет фона, когда кнопка нажата
  * @param enabled флаг доступности кнопки
  * @param loading флаг загрузки
  * @param interactionSource источник взаимодействий [MutableInteractionSource]
@@ -47,8 +49,10 @@ fun IconButton(
     spinnerColor: Color = contentColor,
     spinnerMode: Button.SpinnerMode = Button.SpinnerMode.HideContent,
     backgroundColor: Color = Color.Black,
+    pressedBackgroundColor: Color = Color.Black.copy(alpha = 0.2f),
     enabled: Boolean = true,
     loading: Boolean = false,
+    indication: Indication? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     BaseButton(
@@ -58,12 +62,14 @@ fun IconButton(
         dimensions = dimensions,
         contentColor = contentColor,
         backgroundColor = backgroundColor,
+        pressedBackgroundColor = pressedBackgroundColor,
         enabledAlpha = ENABLED_BUTTON_ALPHA,
         disabledAlpha = DISABLED_BUTTON_ALPHA,
         spinnerColor = spinnerColor,
         spinnerMode = spinnerMode,
         enabled = enabled,
         loading = loading,
+        indication = indication,
         interactionSource = interactionSource,
     ) {
         ButtonIcon(
@@ -87,6 +93,7 @@ fun IconButton(
  * @param spinnerColor цвет индикатора загрузки
  * @param spinnerMode режим, определяющий, как выглядит контент во время анимации загрузки
  * @param backgroundColor цвет фона кнопки
+ * @param pressedBackgroundColor цвет фона, когда кнопка нажата
  * @param value доп. текст кнопки
  * @param valueColor цвет доп. текста
  * @param labelTextStyle стиль основного текста
@@ -111,6 +118,7 @@ fun Button(
     spinnerColor: Color = contentColor,
     spinnerMode: Button.SpinnerMode = Button.SpinnerMode.HideContent,
     backgroundColor: Color = Color.Black,
+    pressedBackgroundColor: Color = Color.Black.copy(alpha = 0.2f),
     value: String? = null,
     valueColor: Color = contentColor.copy(alpha = VALUE_ALPHA),
     labelTextStyle: TextStyle = TextStyle.Default,
@@ -121,6 +129,7 @@ fun Button(
     loading: Boolean = false,
     enabledAlpha: Float = ENABLED_BUTTON_ALPHA,
     disabledAlpha: Float = DISABLED_BUTTON_ALPHA,
+    indication: Indication? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     val dimensions = dimensions.let {
@@ -137,6 +146,7 @@ fun Button(
         onClick = onClick,
         contentColor = contentColor,
         backgroundColor = backgroundColor,
+        pressedBackgroundColor = pressedBackgroundColor,
         spinnerColor = spinnerColor,
         spinnerMode = spinnerMode,
         enabledAlpha = enabledAlpha,
@@ -144,8 +154,9 @@ fun Button(
         enabled = enabled,
         shape = shape,
         loading = loading,
-        interactionSource = interactionSource,
         dimensions = dimensions,
+        indication = indication,
+        interactionSource = interactionSource,
     ) {
         if (icons?.start != null) {
             ButtonIcon(
@@ -157,10 +168,8 @@ fun Button(
 
         ButtonText(
             label = label,
-            labelTextStyle = labelTextStyle,
-            valueTextStyle = valueTextStyle,
-            labelColor = contentColor,
-            valueColor = valueColor,
+            labelTextStyle = labelTextStyle.copy(color = contentColor),
+            valueTextStyle = valueTextStyle.copy(color = valueColor),
             spacing = spacing,
             value = value,
             valueMargin = dimensions.valueMargin,
