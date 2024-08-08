@@ -101,22 +101,20 @@ internal fun SandboxRadioBoxPreview() {
 }
 
 @Composable
-@Preview(showBackground = true)
+@Preview
 internal fun SandboxRadioBoxPreviewMedium() {
-    SandboxTheme {
-        SandboxRadioBox(
-            size = SandboxRadioBox.Size.M,
-            checked = true,
-            enabled = true,
-            label = "Label",
-            description = "Description",
-            onClick = {},
-        )
-    }
+    SandboxRadioBox(
+        size = SandboxRadioBox.Size.M,
+        checked = true,
+        enabled = true,
+        label = "Title",
+        description = "Description",
+        onClick = {},
+    )
 }
 
 @Composable
-@Preview(showBackground = true)
+@Preview
 internal fun SandboxRadioBoxPreviewSmallDark() {
     SandboxTheme(darkTheme = true) {
         SandboxRadioBox(
@@ -131,31 +129,27 @@ internal fun SandboxRadioBoxPreviewSmallDark() {
 }
 
 @Composable
-@Preview(showBackground = true)
+@Preview
 internal fun SandboxRadioBoxPreviewUnchecked() {
-    SandboxTheme {
-        SandboxRadioBox(
-            size = SandboxRadioBox.Size.M,
-            checked = false,
-            enabled = true,
-            label = "Label",
-            description = "Description",
-            onClick = {},
-        )
-    }
+    SandboxRadioBox(
+        size = SandboxRadioBox.Size.M,
+        checked = false,
+        enabled = true,
+        label = "Label",
+        description = "Description",
+        onClick = {},
+    )
 }
 
 @Composable
-@Preview(showBackground = true)
+@Preview
 internal fun SandboxRadioBoxPreviewOff() {
-    SandboxTheme {
-        SandboxRadioBox(
-            size = SandboxRadioBox.Size.M,
-            checked = false,
-            enabled = false,
-            label = "Label",
-            description = "Description",
-            onClick = {},
-        )
-    }
+    SandboxRadioBox(
+        size = SandboxRadioBox.Size.M,
+        checked = false,
+        enabled = false,
+        label = "Label",
+        description = "Description",
+        onClick = {},
+    )
 }

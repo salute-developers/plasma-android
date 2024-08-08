@@ -1,10 +1,8 @@
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.github.takahirom.roborazzi.captureRoboImage
-import com.sdds.playground.sandbox.SandboxTheme
-import com.sdds.playground.sandbox.radiobox.SandboxRadioBoxPreviewMedium
-import com.sdds.playground.sandbox.radiobox.SandboxRadioBoxPreviewOff
-import com.sdds.playground.sandbox.radiobox.SandboxRadioBoxPreviewSmallDark
-import com.sdds.playground.sandbox.radiobox.SandboxRadioBoxPreviewUnchecked
+import com.sdds.playground.sandbox.switch.SandboxSwitchPreviewOff
+import com.sdds.playground.sandbox.switch.SandboxSwitchPreviewOn
+import com.sdds.playground.sandbox.switch.SandboxSwitchPreviewOnDisabled
 import org.junit.Test
 import org.junit.experimental.categories.Category
 import org.junit.runner.RunWith
@@ -15,7 +13,7 @@ import org.robolectric.annotation.GraphicsMode
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
 @Config(sdk = [SDK_NUMBER], qualifiers = RobolectricDeviceQualifiers.Pixel6)
 @RunWith(RobolectricTestRunner::class)
-class ComposeRadioBoxScreenshotTest {
+class ComposeSwitchScreenshotTest {
 
     private val config = RoborazziConfig()
 
@@ -29,39 +27,28 @@ class ComposeRadioBoxScreenshotTest {
      */
     @Category(ScreenshotTests::class)
     @Test
-    fun testRadioBoxMedium() {
+    internal fun testSwitchPreviewOn() {
         captureRoboImage {
             config.roborazziOptions
-            SandboxRadioBoxPreviewMedium()
+            SandboxSwitchPreviewOn()
         }
     }
 
     @Category(ScreenshotTests::class)
     @Test
-    fun testRadioBoxSmallDark() {
+    internal fun testSwitchPreviewOff() {
         captureRoboImage {
             config.roborazziOptions
-            SandboxTheme(darkTheme = true) {
-                SandboxRadioBoxPreviewSmallDark()
-            }
+            SandboxSwitchPreviewOff()
         }
     }
 
     @Category(ScreenshotTests::class)
     @Test
-    fun testRadioBoxUnchecked() {
+    internal fun testSwitchPreviewOnDisabled() {
         captureRoboImage {
             config.roborazziOptions
-            SandboxRadioBoxPreviewUnchecked()
-        }
-    }
-
-    @Category(ScreenshotTests::class)
-    @Test
-    fun testRadioBoxOff() {
-        captureRoboImage {
-            config.roborazziOptions
-            SandboxRadioBoxPreviewOff()
+            SandboxSwitchPreviewOnDisabled()
         }
     }
 }

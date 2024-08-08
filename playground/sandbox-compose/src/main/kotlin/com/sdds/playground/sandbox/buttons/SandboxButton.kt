@@ -6,8 +6,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.IconButton
+import com.sdds.icons.R
 import com.sdds.playground.sandbox.buttons.SandboxButtonSettingsProvider.backgroundColorFor
 import com.sdds.playground.sandbox.buttons.SandboxButtonSettingsProvider.basicButtonDimensionsFor
 import com.sdds.playground.sandbox.buttons.SandboxButtonSettingsProvider.contentColorFor
@@ -133,4 +136,125 @@ object SandboxButton {
          */
         Circle,
     }
+}
+
+@Composable
+@Preview
+internal fun SandboxButtonPreviewSizeLDefault() {
+    SandboxBasicButton(
+        icons = Button.Icons(start = painterResource(id = R.drawable.ic_plasma_24)),
+        spacing = Button.Spacing.Packed,
+        size = SandboxButton.Size.L,
+        style = SandboxButton.Style.Default,
+        label = "Label",
+        enabled = true,
+        loading = false,
+        onClick = {},
+    )
+}
+
+@Composable
+@Preview
+internal fun SandboxButtonPreviewSizeXSDefault() {
+    SandboxBasicButton(
+        spacing = Button.Spacing.Packed,
+        size = SandboxButton.Size.XS,
+        style = SandboxButton.Style.Default,
+        label = "Label",
+        value = "Valuel",
+        enabled = true,
+        loading = false,
+        onClick = {},
+    )
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxButtonPreviewSizeMSecondary() {
+    SandboxBasicButton(
+        icons = Button.Icons(start = painterResource(id = R.drawable.ic_plasma_24)),
+        spacing = Button.Spacing.Packed,
+        size = SandboxButton.Size.M,
+        style = SandboxButton.Style.Secondary,
+        label = "Label",
+        enabled = true,
+        loading = false,
+        onClick = {},
+    )
+}
+
+@Composable
+@Preview
+internal fun SandboxButtonPreviewSizeSClear() {
+    SandboxBasicButton(
+        icons = Button.Icons(start = painterResource(id = R.drawable.ic_plasma_24)),
+        spacing = Button.Spacing.Packed,
+        size = SandboxButton.Size.S,
+        style = SandboxButton.Style.Clear,
+        label = "Label",
+        enabled = true,
+        loading = false,
+        onClick = {},
+    )
+}
+
+@Composable
+@Preview
+internal fun SandboxButtonPreviewSizeLPositive() {
+    SandboxBasicButton(
+        icons = Button.Icons(start = painterResource(id = R.drawable.ic_plasma_24)),
+        spacing = Button.Spacing.Packed,
+        size = SandboxButton.Size.L,
+        style = SandboxButton.Style.Positive,
+        label = "Label",
+        enabled = true,
+        loading = false,
+        onClick = {},
+    )
+}
+
+@Composable
+@Preview
+internal fun SandboxButtonPreviewSizeMNegative() {
+    SandboxBasicButton(
+        icons = Button.Icons(start = painterResource(id = R.drawable.ic_plasma_24)),
+        spacing = Button.Spacing.Packed,
+        size = SandboxButton.Size.M,
+        style = SandboxButton.Style.Negative,
+        label = "Label",
+        value = "Value",
+        enabled = true,
+        loading = false,
+        onClick = {},
+    )
+}
+
+@Composable
+@Preview
+internal fun SandboxButtonPreviewSizeSWarning() {
+    SandboxBasicButton(
+        icons = Button.Icons(start = painterResource(id = R.drawable.ic_plasma_24)),
+        spacing = Button.Spacing.Packed,
+        size = SandboxButton.Size.S,
+        style = SandboxButton.Style.Warning,
+        label = "Label",
+        enabled = true,
+        loading = false,
+        onClick = {},
+    )
+}
+
+@Composable
+@Preview
+internal fun SandboxButtonPreviewSizeLWhiteDarkTheme() {
+    SandboxBasicButton(
+        icons = Button.Icons(end = painterResource(id = R.drawable.ic_plasma_24)),
+        spacing = Button.Spacing.Packed,
+        size = SandboxButton.Size.L,
+        style = SandboxButton.Style.White,
+        label = "Label",
+        enabled = true,
+        loading = false,
+        onClick = {},
+    )
 }
