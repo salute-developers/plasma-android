@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredSize
-import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
@@ -22,6 +21,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.internal.common.surface
@@ -31,12 +31,23 @@ import com.sdds.compose.uikit.internal.common.surface
  *
  * @param modifier модификатор
  * @param onClick обработчик нажатий
+ * @param label текст
+ * @param labelStyle стиль текста
  * @param shape форма компонента
+ * @param startContent контент в начале
+ * @param endContent контент в конце
  * @param enabledAlpha альфа в состоянии [enabled] == true
  * @param disabledAlpha альфа в состоянии [enabled] == true
  * @param backgroundColor цвет бэкграунда
- * @param startPadding отступ в начале
- * @param endPadding отступ в конце
+ * @param pressedBackgroundColor цвет бэкграунда в нажатом состоянии
+ * @param startContentColor цвет контента в начале
+ * @param endContentColor цвет контента в конце
+ * @param startContentSize размер контента в начале
+ * @param endContentSize размер контента в конце
+ * @param startContentMargin отступ от [startContent]
+ * @param endContentMargin отступ от [endContent]
+ * @param startPadding отступ компонента в начале
+ * @param endPadding отступ компонента в конце
  * @param enabled включен ли компонент
  * @param interactionSource источник взаимодействий
  */
@@ -45,9 +56,10 @@ import com.sdds.compose.uikit.internal.common.surface
 fun Chip(
     modifier: Modifier = Modifier,
     onClick: (() -> Unit)? = null,
+    label: String = "",
+    labelStyle: TextStyle = TextStyle(),
     shape: CornerBasedShape = RoundedCornerShape(25),
     startContent: (@Composable () -> Unit)? = null,
-    textContent: (@Composable () -> Unit)? = null,
     endContent: (@Composable () -> Unit)? = null,
     enabledAlpha: Float = 1f,
     disabledAlpha: Float = 0.4f,
@@ -55,13 +67,12 @@ fun Chip(
     pressedBackgroundColor: Color = Color.Gray,
     startContentColor: Color = Color.White,
     endContentColor: Color = Color.White,
-    textContentStyle: TextStyle,
-    startPadding: Dp = 12.dp,
-    endPadding: Dp = 12.dp,
     startContentSize: Dp = 24.dp,
     endContentSize: Dp = 24.dp,
     startContentMargin: Dp = 12.dp,
     endContentMargin: Dp = 12.dp,
+    startPadding: Dp = 12.dp,
+    endPadding: Dp = 12.dp,
     enabled: Boolean = true,
     indication: Indication? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
@@ -70,8 +81,9 @@ fun Chip(
         modifier = modifier,
         onClick = onClick,
         shape = shape,
+        label = label,
+        labelStyle = labelStyle,
         startContent = startContent,
-        textContent = textContent,
         endContent = endContent,
         enabledAlpha = enabledAlpha,
         disabledAlpha = disabledAlpha,
@@ -79,7 +91,6 @@ fun Chip(
         pressedBackgroundColor = SolidColor(pressedBackgroundColor),
         startContentColor = startContentColor,
         endContentColor = endContentColor,
-        textContentStyle = textContentStyle,
         startPadding = startPadding,
         endPadding = endPadding,
         startContentSize = startContentSize,
@@ -97,12 +108,23 @@ fun Chip(
  *
  * @param modifier модификатор
  * @param onClick обработчик нажатий
+ * @param label текст
+ * @param labelStyle стиль текста
  * @param shape форма компонента
+ * @param startContent контент в начале
+ * @param endContent контент в конце
  * @param enabledAlpha альфа в состоянии [enabled] == true
  * @param disabledAlpha альфа в состоянии [enabled] == true
  * @param backgroundColor цвет бэкграунда
- * @param startPadding отступ в начале
- * @param endPadding отступ в конце
+ * @param pressedBackgroundColor цвет бэкграунда в нажатом состоянии
+ * @param startContentColor цвет контента в начале
+ * @param endContentColor цвет контента в конце
+ * @param startContentSize размер контента в начале
+ * @param endContentSize размер контента в конце
+ * @param startContentMargin отступ от [startContent]
+ * @param endContentMargin отступ от [endContent]
+ * @param startPadding отступ компонента в начале
+ * @param endPadding отступ компонента в конце
  * @param enabled включен ли компонент
  * @param interactionSource источник взаимодействий
  */
@@ -110,9 +132,10 @@ fun Chip(
 fun Chip(
     modifier: Modifier = Modifier,
     onClick: (() -> Unit)? = null,
+    label: String = "",
+    labelStyle: TextStyle = TextStyle(),
     shape: CornerBasedShape = RoundedCornerShape(25),
     startContent: (@Composable () -> Unit)? = null,
-    textContent: (@Composable () -> Unit)? = null,
     endContent: (@Composable () -> Unit)? = null,
     enabledAlpha: Float = 1f,
     disabledAlpha: Float = 0.4f,
@@ -120,13 +143,12 @@ fun Chip(
     pressedBackgroundColor: Brush = SolidColor(Color.Gray),
     startContentColor: Color = Color.White,
     endContentColor: Color = Color.White,
-    textContentStyle: TextStyle,
-    startPadding: Dp = 12.dp,
-    endPadding: Dp = 12.dp,
     startContentSize: Dp = 24.dp,
     endContentSize: Dp = 24.dp,
     startContentMargin: Dp = 12.dp,
     endContentMargin: Dp = 12.dp,
+    startPadding: Dp = 12.dp,
+    endPadding: Dp = 12.dp,
     enabled: Boolean = true,
     indication: Indication? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
@@ -134,7 +156,6 @@ fun Chip(
     val isPressed by interactionSource.collectIsPressedAsState()
     Row(
         modifier = modifier
-            .wrapContentWidth()
             .surface(
                 onClick = onClick,
                 shape = shape,
@@ -156,23 +177,21 @@ fun Chip(
                 Box(
                     modifier = Modifier
                         .padding(end = startContentMargin)
-                        .requiredSize(startContentSize)
+                        .requiredSize(startContentSize),
                 ) {
                     startContent()
                 }
             }
         }
-        textContent?.let {
-            CompositionLocalProvider(
-                LocalTextStyle provides textContentStyle,
-            ) {
-                Box(
-                    modifier = Modifier
-                        .weight(weight = 1f, fill = false)
-                ) {
-                    textContent()
-                }
-            }
+        if (label.isNotEmpty()) {
+            Text(
+                modifier = Modifier
+                    .weight(weight = 1f, fill = false),
+                text = label,
+                style = labelStyle,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+            )
         }
         endContent?.let {
             CompositionLocalProvider(
@@ -181,7 +200,7 @@ fun Chip(
                 Box(
                     modifier = Modifier
                         .padding(start = endContentMargin)
-                        .requiredSize(endContentSize)
+                        .requiredSize(endContentSize),
                 ) {
                     endContent()
                 }
