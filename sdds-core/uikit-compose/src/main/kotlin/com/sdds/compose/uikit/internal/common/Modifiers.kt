@@ -49,6 +49,6 @@ internal fun Modifier.surface(
 
     return clip(shape)
         .then(clickableModifier)
-        .graphicsLayer(alpha = if (enabled) enabledAlpha else disabledAlpha)
+        .graphicsLayer { alpha = if (enabled) enabledAlpha else disabledAlpha }
         .background(backgroundColor)
 }
