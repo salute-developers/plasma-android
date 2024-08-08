@@ -1,9 +1,13 @@
 package com.sdds.playground.sandbox.progress
 
+import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.Progress
+import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.progress.SandboxProgressSettingsProvider.progressBrushFor
 import com.sdds.playground.sandbox.tokens.compose.StylesSaluteTheme
 
@@ -37,5 +41,29 @@ internal object SandboxProgress {
         Positive,
         Warning,
         Negative,
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxProgressPreviewDefaultTheme() {
+    SandboxTheme {
+        SandboxProgress(
+            progress = 0.5f,
+            Modifier.width(240.dp),
+            style = SandboxProgress.Style.Default,
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxProgressPreviewWarningTheme() {
+    SandboxTheme {
+        SandboxProgress(
+            progress = 0.8f,
+            Modifier.width(240.dp),
+            style = SandboxProgress.Style.Warning,
+        )
     }
 }
