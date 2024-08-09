@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:color="@android:color/transparent" app:sd_state_loading="true" />
+
+    <item android:color="?thmbldr_textDefaultSecondaryActive" android:state_pressed="true" app:sd_state_secondary="true" />
+    <item android:color="?thmbldr_textDefaultSecondaryHover" android:state_hovered="true" app:sd_state_secondary="true" />
+    <item android:color="?thmbldr_textDefaultSecondary" app:sd_state_secondary="true" />
+
+    <item android:color="?thmbldr_textOnDarkSecondaryActive" android:state_pressed="true" app:sd_state_accent="true" />
+    <item android:color="?thmbldr_textOnDarkSecondaryHover" android:state_hovered="true" app:sd_state_accent="true" />
+    <item android:color="?thmbldr_textOnDarkSecondary" app:sd_state_accent="true" />
+
+    <item android:color="?thmbldr_textOnDarkSecondaryActive" android:state_pressed="true" app:sd_state_positive="true" />
+    <item android:color="?thmbldr_textOnDarkSecondaryHover" android:state_hovered="true" app:sd_state_positive="true" />
+    <item android:color="?thmbldr_textOnDarkSecondary" app:sd_state_positive="true" />
+
+    <item android:color="?thmbldr_textOnDarkSecondaryActive" android:state_pressed="true" app:sd_state_warning="true" />
+    <item android:color="?thmbldr_textOnDarkSecondaryHover" android:state_hovered="true" app:sd_state_warning="true" />
+    <item android:color="?thmbldr_textOnDarkSecondary" app:sd_state_warning="true" />
+
+    <item android:color="?thmbldr_textOnDarkSecondaryActive" android:state_pressed="true" app:sd_state_negative="true" />
+    <item android:color="?thmbldr_textOnDarkSecondaryHover" android:state_hovered="true" app:sd_state_negative="true" />
+    <item android:color="?thmbldr_textOnDarkSecondary" app:sd_state_negative="true" />
+
+    <item android:color="?thmbldr_textOnDarkSecondaryActive" android:state_pressed="true" app:sd_state_dark="true" />
+    <item android:color="?thmbldr_textOnDarkSecondaryHover" android:state_hovered="true" app:sd_state_dark="true" />
+    <item android:color="?thmbldr_textOnDarkSecondary" app:sd_state_dark="true" />
+
+    <item android:color="?thmbldr_textOnDarkSecondaryActive" android:state_pressed="true" app:sd_state_black="true" />
+    <item android:color="?thmbldr_textOnDarkSecondaryHover" android:state_hovered="true" app:sd_state_black="true" />
+    <item android:color="?thmbldr_textOnDarkSecondary" app:sd_state_black="true" />
+
+    <item android:color="?thmbldr_textOnLightSecondaryActive" android:state_pressed="true" app:sd_state_white="true" />
+    <item android:color="?thmbldr_textOnLightSecondaryHover" android:state_hovered="true" app:sd_state_white="true" />
+    <item android:color="?thmbldr_textOnLightSecondary" app:sd_state_white="true" />
+
+    <item android:color="?thmbldr_textDefaultSecondaryActive" android:state_pressed="true" app:sd_state_clear="true" />
+    <item android:color="?thmbldr_textDefaultSecondaryHover" android:state_hovered="true" app:sd_state_clear="true" />
+    <item android:color="?thmbldr_textDefaultSecondary" app:sd_state_clear="true" />
+
+    <item android:color="?thmbldr_textInverseSecondaryActive" android:state_pressed="true" />
+    <item android:color="?thmbldr_textInverseSecondaryHover" android:state_hovered="true" />
+    <item android:color="?thmbldr_textInverseSecondary" />
+
+</selector>

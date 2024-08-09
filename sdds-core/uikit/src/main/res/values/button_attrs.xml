@@ -13,8 +13,6 @@
 
         <!-- Дополнительный текст кнопки -->
         <attr name="sd_value" format="string" />
-        <!-- Стиль дополнительного текста  -->
-        <attr name="sd_valueTextAppearance" format="reference" />
         <!--  Цвет дополнительного текста      -->
         <attr name="sd_valueTextColor" format="reference|color" />
         <!-- Отступ между основным и дополнительным текстом -->
@@ -56,6 +54,7 @@
         <attr name="sd_shapeAppearance" />
         <attr name="sd_strokeColor" />
         <attr name="sd_strokeWidth" />
+        <attr name="sd_disabledAlpha"/>
     </declare-styleable>
 
 </resources>

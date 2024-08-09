@@ -18,6 +18,10 @@ androidX-compose-compiler = "1.3.1"
 androidX-compose = "1.3.1"
 androidX-lifecycle-compose = "2.4.1"
 androidX-constraintlayout-compose = "1.0.1"
+androidX-navigation="2.5.3"
+androidX-constraintLayout = "2.1.4"
+androidX-lifecycle = "2.4.1"
+androidX-activityKtx = "1.3.1"
 
 test-espresso = "3.4.0"
 test-jUnit = "4.13.2"
@@ -42,7 +46,13 @@ plugin-binary-compatibility-validator = "0.14.0"
 [libraries]
 base-android-material = { module = "com.google.android.material:material", version.ref = "android-material" }
 base-androidX-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "androidX-appcompat" }
+base-androidX-constraintLayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "androidX-constraintLayout" }
 base-androidX-core = { module = "androidx.core:core-ktx", version.ref = "androidX-core" }
+base-androidX-navigation-fragment = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "androidX-navigation" }
+base-androidX-navigation-ui = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "androidX-navigation" }
+base-androidX-activity-ktx = { module = "androidx.activity:activity-ktx", version.ref = "androidX-activityKtx" }
+base-androidX-lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "androidX-lifecycle" }
+
 base-androidX-compose-runtime = { module = "androidx.compose.runtime:runtime", version.ref = "androidX-compose"}
 base-androidX-compose-animation = { module = "androidx.compose.animation:animation", version.ref = "androidX-compose"}
 base-androidX-compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "androidX-compose" }
