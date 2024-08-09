@@ -8,7 +8,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.Chip
-import com.sdds.compose.uikit.Text
 import com.sdds.playground.sandbox.chip.SandboxChipSettingsProvider.backgroundColor
 import com.sdds.playground.sandbox.chip.SandboxChipSettingsProvider.contentColor
 import com.sdds.playground.sandbox.chip.SandboxChipSettingsProvider.contentMargin
@@ -39,8 +38,8 @@ internal fun SandboxChip(
         backgroundColor = backgroundColor(state),
         pressedBackgroundColor = pressedBackgroundColor(state),
         startContent = startContent,
-        textContent = { Text(text = label) },
-        textContentStyle = style(size, state),
+        label = label,
+        labelStyle = style(size, state),
         endContent = endContent,
         startContentColor = contentColor(state),
         endContentColor = contentColor(state),
