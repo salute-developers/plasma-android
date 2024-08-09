@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Sdds.Components.Button" parent="Widget.AppCompat.Button">
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:gravity">center</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textColor">#F5F5F5F5</item>
+        <item name="android:minWidth">84dp</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:textAppearance">?android:textAppearanceButton</item>
+
+        <item name="textAllCaps">false</item>
+        <item name="android:background">@null</item>
+        <item name="backgroundTint">#080808</item>
+
+        <item name="sd_valueTextColor">#8FF5F5F5</item>
+        <item name="sd_valuePadding">4dp</item>
+
+        <item name="sd_spacing">packed</item>
+
+        <item name="sd_iconTint">?android:textColor</item>
+        <item name="sd_iconPadding">6dp</item>
+        <item name="sd_iconSize">24dp</item>
+        <item name="sd_iconPosition">textStart</item>
+
+        <item name="sd_spinnerSize">22dp</item>
+        <item name="sd_spinnerStrokeWidth">4dp</item>
+        <item name="sd_spinnerTint">?sd_iconTint</item>
+
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceMedium</item>
+        <item name="sd_disabledAlpha">0.4</item>
+
+    </style>
+</resources>

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Sandbox.ComponentOverlays.BasicButtonLDefault">
+        <item name="android:buttonStyle">@style/Theme.Sandbox.Components.BasicButton.L</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.BasicButtonLSecondary">
+        <item name="android:buttonStyle">@style/Theme.Sandbox.Components.BasicButton.L.Secondary</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.BasicButtonLAccent">
+        <item name="android:buttonStyle">@style/Theme.Sandbox.Components.BasicButton.L.Accent</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.BasicButtonLPositive">
+        <item name="android:buttonStyle">@style/Theme.Sandbox.Components.BasicButton.L.Positive</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.BasicButtonLWarning">
+        <item name="android:buttonStyle">@style/Theme.Sandbox.Components.BasicButton.L.Warning</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.BasicButtonLNegative">
+        <item name="android:buttonStyle">@style/Theme.Sandbox.Components.BasicButton.L.Negative</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.BasicButtonLDark">
+        <item name="android:buttonStyle">@style/Theme.Sandbox.Components.BasicButton.L.Dark</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.BasicButtonLBlack">
+        <item name="android:buttonStyle">@style/Theme.Sandbox.Components.BasicButton.L.Black</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.BasicButtonLWhite">
+        <item name="android:buttonStyle">@style/Theme.Sandbox.Components.BasicButton.L.White</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.BasicButtonLClear">
+        <item name="android:buttonStyle">@style/Theme.Sandbox.Components.BasicButton.L.Clear</item>
+    </style>
+    <!--endregion BasicButton L styles   -->
+
+    <!--region BasicButton M styles   -->
+    <style name="Theme.Sandbox.ComponentOverlays.BasicButtonMDefault">
+        <item name="android:buttonStyle">@style/Theme.Sandbox.Components.BasicButton.M</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.BasicButtonMSecondary">
+        <item name="android:buttonStyle">@style/Theme.Sandbox.Components.BasicButton.M.Secondary</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.BasicButtonMAccent">
+        <item name="android:buttonStyle">@style/Theme.Sandbox.Components.BasicButton.M.Accent</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.BasicButtonMPositive">
+        <item name="android:buttonStyle">@style/Theme.Sandbox.Components.BasicButton.M.Positive</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.BasicButtonMWarning">
+        <item name="android:buttonStyle">@style/Theme.Sandbox.Components.BasicButton.M.Warning</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.BasicButtonMNegative">
+        <item name="android:buttonStyle">@style/Theme.Sandbox.Components.BasicButton.M.Negative</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.BasicButtonMDark">
+        <item name="android:buttonStyle">@style/Theme.Sandbox.Components.BasicButton.M.Dark</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.BasicButtonMBlack">
+        <item name="android:buttonStyle">@style/Theme.Sandbox.Components.BasicButton.M.Black</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.BasicButtonMWhite">
+        <item name="android:buttonStyle">@style/Theme.Sandbox.Components.BasicButton.M.White</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.BasicButtonMClear">
+        <item name="android:buttonStyle">@style/Theme.Sandbox.Components.BasicButton.M.Clear</item>
+    </style>
+    <!--endregion BasicButton M styles   -->
+
+    <!--region BasicButton S styles   -->
+    <style name="Theme.Sandbox.ComponentOverlays.BasicButtonSDefault">
+        <item name="android:buttonStyle">@style/Theme.Sandbox.Components.BasicButton.S</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.BasicButtonSSecondary">
+        <item name="android:buttonStyle">@style/Theme.Sandbox.Components.BasicButton.S.Secondary</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.BasicButtonSAccent">
+        <item name="android:buttonStyle">@style/Theme.Sandbox.Components.BasicButton.S.Accent</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.BasicButtonSPositive">
+        <item name="android:buttonStyle">@style/Theme.Sandbox.Components.BasicButton.S.Positive</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.BasicButtonSWarning">
+        <item name="android:buttonStyle">@style/Theme.Sandbox.Components.BasicButton.S.Warning</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.BasicButtonSNegative">
+        <item name="android:buttonStyle">@style/Theme.Sandbox.Components.BasicButton.S.Negative</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.BasicButtonSDark">
+        <item name="android:buttonStyle">@style/Theme.Sandbox.Components.BasicButton.S.Dark</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.BasicButtonSBlack">
+        <item name="android:buttonStyle">@style/Theme.Sandbox.Components.BasicButton.S.Black</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.BasicButtonSWhite">
+        <item name="android:buttonStyle">@style/Theme.Sandbox.Components.BasicButton.S.White</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.BasicButtonSClear">
+        <item name="android:buttonStyle">@style/Theme.Sandbox.Components.BasicButton.S.Clear</item>
+    </style>
+    <!--endregion BasicButton S styles   -->
+
+    <!--region BasicButton XS styles   -->
+    <style name="Theme.Sandbox.ComponentOverlays.BasicButtonXSDefault">
+        <item name="android:buttonStyle">@style/Theme.Sandbox.Components.BasicButton.XS</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.BasicButtonXSSecondary">
+        <item name="android:buttonStyle">@style/Theme.Sandbox.Components.BasicButton.XS.Secondary</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.BasicButtonXSAccent">
+        <item name="android:buttonStyle">@style/Theme.Sandbox.Components.BasicButton.XS.Accent</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.BasicButtonXSPositive">
+        <item name="android:buttonStyle">@style/Theme.Sandbox.Components.BasicButton.XS.Positive</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.BasicButtonXSWarning">
+        <item name="android:buttonStyle">@style/Theme.Sandbox.Components.BasicButton.XS.Warning</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.BasicButtonXSNegative">
+        <item name="android:buttonStyle">@style/Theme.Sandbox.Components.BasicButton.XS.Negative</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.BasicButtonXSDark">
+        <item name="android:buttonStyle">@style/Theme.Sandbox.Components.BasicButton.XS.Dark</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.BasicButtonXSBlack">
+        <item name="android:buttonStyle">@style/Theme.Sandbox.Components.BasicButton.XS.Black</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.BasicButtonXSWhite">
+        <item name="android:buttonStyle">@style/Theme.Sandbox.Components.BasicButton.XS.White</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.BasicButtonXSClear">
+        <item name="android:buttonStyle">@style/Theme.Sandbox.Components.BasicButton.XS.Clear</item>
+    </style>
+    <!--endregion BasicButton XS styles   -->
+</resources>

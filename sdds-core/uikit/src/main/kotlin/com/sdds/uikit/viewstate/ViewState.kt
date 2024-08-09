@@ -17,6 +17,10 @@ enum class ViewState(val attr: IntArray) {
     POSITIVE(intArrayOf(R.attr.sd_state_positive)),
     WARNING(intArrayOf(R.attr.sd_state_warning)),
     NEGATIVE(intArrayOf(R.attr.sd_state_negative)),
+    DARK(intArrayOf(R.attr.sd_state_dark)),
+    BLACK(intArrayOf(R.attr.sd_state_black)),
+    WHITE(intArrayOf(R.attr.sd_state_white)),
+    CLEAR(intArrayOf(R.attr.sd_state_clear)),
     ;
 
     companion object {
