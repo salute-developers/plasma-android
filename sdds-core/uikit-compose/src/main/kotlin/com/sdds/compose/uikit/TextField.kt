@@ -41,9 +41,10 @@ import com.sdds.compose.uikit.internal.textfield.DotBadge
  * @param keyboardOptions для настройки клавиатуры, например [KeyboardType] или [ImeAction]
  * @param keyboardActions когда на ввод подается [ImeAction] вызывается соответствующий callback
  * @param visualTransformation фильтр визуального отображения, например [PasswordVisualTransformation]
- * @param placeholderText заглушка если пустое [value] и тип [SandboxTextField.LabelType.Outer]
+ * @param placeholderText заглушка если пустое [value] и тип [TextField.LabelType.Outer]
  * @param labelType тип отображения лэйбла: [LabelType.Outer] снаружи поля ввода, [LabelType.Inner] внутри поля ввода
  * @param labelText текст лэйбла
+ * @param labelOptionalText опциональный текст
  * @param captionText текст подписи под полем ввода
  * @param leadingIcon иконка, которая будет находиться в начале поля ввода
  * @param trailingIcon иконка, которая будет находиться в конце поля ввода
@@ -179,9 +180,10 @@ fun TextField(
  * @param keyboardOptions для настройки клавиатуры, например [KeyboardType] или [ImeAction]
  * @param keyboardActions когда на ввод подается [ImeAction] вызывается соответствующий callback
  * @param visualTransformation фильтр визуального отображения, например [PasswordVisualTransformation]
- * @param placeholderText заглушка если пустое [value] и тип [SandboxTextField.LabelType.Outer]
+ * @param placeholderText заглушка если пустое [value] и тип [TextField.LabelType.Outer]
  * @param labelType тип отображения лэйбла: [LabelType.Outer] снаружи поля ввода, [LabelType.Inner] внутри поля ввода
  * @param labelText текст лэйбла
+ * @param labelOptionalText опциональный текст
  * @param captionText текст подписи под полем ввода
  * @param leadingIcon иконка, которая будет находиться в начале поля ввода
  * @param trailingIcon иконка, которая будет находиться в конце поля ввода

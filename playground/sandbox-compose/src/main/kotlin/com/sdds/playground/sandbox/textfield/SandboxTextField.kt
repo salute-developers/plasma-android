@@ -87,6 +87,8 @@ internal fun SandboxTextField(
     val styles = textFieldStyles()
     val colors = textFieldColors()
 
+    val label = if (size == Size.XS && labelType == LabelType.Inner) "" else labelText
+
     TextField(
         value = value,
         onValueChange = onValueChange,
@@ -98,7 +100,7 @@ internal fun SandboxTextField(
         visualTransformation = visualTransformation,
         placeholderText = placeholderText,
         labelType = labelType,
-        labelText = labelText,
+        labelText = label,
         labelOptionalText = labelOptionalText,
         captionText = captionText,
         leadingIcon = leadingIcon,
