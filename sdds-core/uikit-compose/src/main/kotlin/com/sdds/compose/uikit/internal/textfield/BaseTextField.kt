@@ -12,7 +12,6 @@ import androidx.compose.animation.slideOutVertically
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -59,8 +58,9 @@ import com.sdds.compose.uikit.TextField.LabelType
  * @param keyboardOptions для настройки клавиатуры, например [KeyboardType] или [ImeAction]
  * @param keyboardActions когда на ввод подается [ImeAction] вызывается соответствующий callback
  * @param visualTransformation фильтр визуального отображения, например [PasswordVisualTransformation]
- * @param placeholderText заглушка если пустое [value] и тип [SandboxTextField.LabelType.Outer]
+ * @param placeholderText заглушка если пустое [value] и тип [TextField.LabelType.Outer]
  * @param labelType тип отображения лэйбла: [LabelType.Outer] снаружи поля ввода, [LabelType.Inner] внутри поля ввода
+ * @param fieldType тип текстового поля (обязательное или опциональное). См. [TextField.FieldType]
  * @param labelText текст лэйбла
  * @param captionText текст подписи под полем ввода
  * @param leadingIcon иконка, которая будет находиться в начале поля ввода
@@ -72,7 +72,6 @@ import com.sdds.compose.uikit.TextField.LabelType
  * @param placeHolderStyle стиль placeholder
  * @param backgroundColor цвет бэкграунда текстового поля
  * @param cursorColor цвет курсора
- * @param labelOptionalAlpha альфа optional текста в лэйбле
  * @param enabledAlpha альфа, когда компонент в режиме [enabled] == true
  * @param disabledAlpha альфа, когда компонент в режиме [enabled] == false
  * @param shape форма текстового поля
@@ -84,7 +83,6 @@ import com.sdds.compose.uikit.TextField.LabelType
  * @param innerLabelToValuePadding отступ между лэйблом и value в режиме [labelType] == [LabelType.Inner]
  * @param outerLabelBottomPadding отступ между лэйблом и текстовым полем в режиме [labelType] == [LabelType.Outer]
  * @param captionTopPadding отступ между текстовым полем и caption
- * @param optionalTextPadding горизонтальный отступ до optional части label
  * @param iconSize размер иконки
  * @param fieldHeight высота текстового поля
  * @param fieldHeight высота текстового поля
@@ -107,8 +105,8 @@ internal fun BaseTextField(
     visualTransformation: VisualTransformation = VisualTransformation.None,
     placeholderText: String? = null,
     labelType: LabelType = LabelType.Outer,
+    fieldType: TextField.FieldType? = null,
     labelText: String = "",
-    labelOptionalText: String = "",
     captionText: String? = null,
     leadingIcon: @Composable (() -> Unit)? = null,
     trailingIcon: @Composable (() -> Unit)? = null,
@@ -119,7 +117,6 @@ internal fun BaseTextField(
     placeHolderStyle: TextStyle,
     backgroundColor: Color = Color.White,
     cursorColor: Color = Color.Blue,
-    labelOptionalAlpha: Float,
     enabledAlpha: Float = 1.0f,
     disabledAlpha: Float = 0.4f,
     shape: CornerBasedShape,
@@ -131,18 +128,16 @@ internal fun BaseTextField(
     innerLabelToValuePadding: Dp = 2.dp,
     outerLabelBottomPadding: Dp = 12.dp,
     captionTopPadding: Dp = 4.dp,
-    optionalTextPadding: Dp = 4.dp,
     iconSize: Dp,
     fieldHeight: Dp,
     animation: TextField.Animation,
-    dotBadge: TextField.DotBadge?,
     keepDotBadgeStartPadding: Dp? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     ConstraintLayout(
         constraintSet = getConstraintSet(
             labelType = labelType,
-            dotBadge = dotBadge,
+            dotBadge = (fieldType as? TextField.FieldType.Required)?.dotBadge,
             labelText = labelText,
             captionText = captionText,
             captionTopPadding = captionTopPadding,
@@ -150,7 +145,10 @@ internal fun BaseTextField(
         ),
         modifier = modifier
             .padding(
-                start = if (dotBadge == null && keepDotBadgeStartPadding != null && labelType == LabelType.Outer) {
+                start = if (fieldType !is TextField.FieldType.Required &&
+                    keepDotBadgeStartPadding != null &&
+                    labelType == LabelType.Outer
+                ) {
                     keepDotBadgeStartPadding
                 } else {
                     0.dp
@@ -167,13 +165,7 @@ internal fun BaseTextField(
                 modifier = Modifier.layoutId(OUTER_LABEL),
                 labelText = labelText,
                 labelTextStyle = outerLabelStyle,
-                labelOptionalText = labelOptionalText,
-                labelOptionalTextStyle = outerLabelStyle.copy(
-                    color = outerLabelStyle.color.copy(
-                        alpha = labelOptionalAlpha,
-                    ),
-                ),
-                optionalPadding = optionalTextPadding,
+                optional = fieldType as? TextField.FieldType.Optional,
             )
         }
         BasicTextField(
@@ -206,14 +198,8 @@ internal fun BaseTextField(
                 label = innerLabel(
                     labelType = labelType,
                     labelText = labelText,
-                    labelOptionalText = labelOptionalText,
                     labelTextStyle = innerLabelStyle,
-                    labelOptionalTextStyle = innerLabelStyle.copy(
-                        color = innerLabelStyle.color.copy(
-                            alpha = labelOptionalAlpha,
-                        ),
-                    ),
-                    labelOptionalTextPadding = optionalTextPadding,
+                    optional = fieldType as? TextField.FieldType.Optional,
                 ),
                 placeholder = placeholder(
                     placeholderText,
@@ -240,13 +226,13 @@ internal fun BaseTextField(
             style = captionStyle,
             animationDuration = animation.animationDuration,
         )
-        if (dotBadge != null && labelText.isNotEmpty()) {
+        if (fieldType is TextField.FieldType.Required) {
             DotBadge(
-                size = dotBadge.size,
+                size = fieldType.dotBadge.size,
                 modifier = Modifier
                     .layoutId(BADGE)
-                    .padding(dotBadge.paddingValues),
-                color = dotBadge.color,
+                    .padding(fieldType.dotBadge.paddingValues),
+                color = fieldType.dotBadge.color,
             )
         }
     }
@@ -259,20 +245,19 @@ private fun getConstraintSet(
     captionText: String?,
     captionTopPadding: Dp,
     outerLabelBottomPadding: Dp,
-): ConstraintSet = when (labelType) {
-    LabelType.Outer -> outerLabelConstraintSet(
+): ConstraintSet = if (labelType == LabelType.Outer && labelText.isNotEmpty()) {
+    outerLabelConstraintSet(
         dotBadge = dotBadge,
         hasLabel = labelText.isNotEmpty(),
         hasCaption = captionText.isNullOrEmpty().not(),
         captionTopPadding,
         outerLabelBottomPadding,
     )
-
-    LabelType.Inner -> innerLabelConstraintSet(
-        dotBadge,
-        captionText.isNullOrEmpty().not(),
-        captionTopPadding,
-        outerLabelBottomPadding,
+} else {
+    innerDotConstraintSet(
+        dotBadge = dotBadge,
+        hasCaption = captionText.isNullOrEmpty().not(),
+        captionTopPadding = captionTopPadding,
     )
 }
 
@@ -280,21 +265,21 @@ private fun getConstraintSet(
 private fun OuterLabel(
     modifier: Modifier,
     labelText: String,
-    labelOptionalText: String,
     labelTextStyle: TextStyle,
-    labelOptionalTextStyle: TextStyle,
-    optionalPadding: Dp,
+    optional: TextField.FieldType.Optional? = null,
 ) {
     Row(modifier = modifier) {
         Text(
             text = labelText,
             style = labelTextStyle,
         )
-        if (labelOptionalText.isNotEmpty()) {
-            Spacer(modifier = Modifier.size(optionalPadding))
+        if (optional != null && optional.optionalText.isNotEmpty()) {
             Text(
-                text = labelOptionalText,
-                style = labelOptionalTextStyle,
+                modifier = Modifier.padding(start = optional.startMargin),
+                text = optional.optionalText,
+                style = labelTextStyle.copy(
+                    color = labelTextStyle.color.copy(alpha = optional.labelOptionalAlpha),
+                ),
             )
         }
     }
@@ -337,10 +322,8 @@ private fun leadingIcon(
 private fun innerLabel(
     labelType: LabelType,
     labelText: String,
-    labelOptionalText: String,
     labelTextStyle: TextStyle,
-    labelOptionalTextStyle: TextStyle,
-    labelOptionalTextPadding: Dp,
+    optional: TextField.FieldType.Optional?,
 ): @Composable (() -> Unit)? {
     if (labelType != LabelType.Inner || labelText.isEmpty()) return null
     return {
@@ -349,11 +332,13 @@ private fun innerLabel(
                 text = labelText,
                 style = labelTextStyle,
             )
-            if (labelOptionalText.isNotEmpty()) {
-                Spacer(modifier = Modifier.size(labelOptionalTextPadding))
+            if (optional != null && optional.optionalText.isNotEmpty()) {
                 Text(
-                    text = labelOptionalText,
-                    style = labelOptionalTextStyle,
+                    modifier = Modifier.padding(start = optional.startMargin),
+                    text = optional.optionalText,
+                    style = labelTextStyle.copy(
+                        color = labelTextStyle.color.copy(alpha = optional.labelOptionalAlpha),
+                    ),
                 )
             }
         }
@@ -479,11 +464,10 @@ private fun outerLabelConstraintSet(
     }
 }
 
-private fun innerLabelConstraintSet(
+private fun innerDotConstraintSet(
     dotBadge: TextField.DotBadge?,
     hasCaption: Boolean,
     captionTopPadding: Dp,
-    outerLabelBottomPadding: Dp,
 ): ConstraintSet {
     return ConstraintSet {
         val caption = if (hasCaption) createRefFor(CAPTION) else null
