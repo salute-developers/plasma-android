@@ -5,7 +5,7 @@ import com.android.build.gradle.AppPlugin
 import com.android.build.gradle.BaseExtension
 import com.android.build.gradle.LibraryExtension
 import com.android.build.gradle.LibraryPlugin
-import com.android.build.gradle.tasks.MergeResources
+import com.android.build.gradle.internal.tasks.factory.dependsOn
 import com.sdds.plugin.themebuilder.ThemeBuilderExtension.Companion.themeBuilderExt
 import org.gradle.api.GradleException
 import org.gradle.api.Plugin
@@ -17,7 +17,6 @@ import org.gradle.api.tasks.TaskProvider
 import org.gradle.kotlin.dsl.findByType
 import org.gradle.kotlin.dsl.getByType
 import org.gradle.kotlin.dsl.register
-import org.gradle.kotlin.dsl.withType
 
 /**
  * Плагин для генерации тем и токенов ДС
@@ -82,9 +81,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
                 unzipTask = unzipTask,
             )
 
-        tasks.withType(MergeResources::class).configureEach {
-            dependsOn(generateThemeTask)
-        }
+        tasks.named("preBuild").dependsOn(generateThemeTask)
     }
 
     private fun configureSourceSets(project: Project) {
