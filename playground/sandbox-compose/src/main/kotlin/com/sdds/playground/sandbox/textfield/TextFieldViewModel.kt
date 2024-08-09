@@ -45,12 +45,6 @@ internal class TextFieldViewModel : ViewModel(), PropertiesOwner {
         )
     }
 
-    private fun updateLabelOptional(text: String) {
-        _textFieldUiState.value = _textFieldUiState.value.copy(
-            labelOptionalText = text,
-        )
-    }
-
     private fun updateCaption(text: String) {
         _textFieldUiState.value = _textFieldUiState.value.copy(
             captionText = text,
@@ -93,12 +87,6 @@ internal class TextFieldViewModel : ViewModel(), PropertiesOwner {
         )
     }
 
-    private fun updateHasDotBadge(hasDotBadge: Boolean) {
-        _textFieldUiState.value = _textFieldUiState.value.copy(
-            hasDotBadge = hasDotBadge,
-        )
-    }
-
     private fun updateStartIcon(hasIcon: Boolean) {
         _textFieldUiState.value = _textFieldUiState.value.copy(
             hasStartIcon = hasIcon,
@@ -117,6 +105,12 @@ internal class TextFieldViewModel : ViewModel(), PropertiesOwner {
         )
     }
 
+    private fun updateFieldType(fieldType: SandboxTextField.FieldType) {
+        _textFieldUiState.value = _textFieldUiState.value.copy(
+            fieldType = fieldType,
+        )
+    }
+
     @Suppress("LongMethod")
     private fun TextFieldUiState.toProps(): List<Property<*>> {
         return listOfNotNull(
@@ -125,10 +119,17 @@ internal class TextFieldViewModel : ViewModel(), PropertiesOwner {
                 value = labelText,
                 onApply = { updateLabel(it) },
             ),
-            Property.StringProperty(
-                name = "label optional",
-                value = labelOptionalText,
-                onApply = { updateLabelOptional(it) },
+            enumProperty(
+                name = "field type",
+                value = fieldType,
+                onApply = { updateFieldType(it) },
+            ),
+            enumProperty(
+                name = "dot badge position",
+                value = dotBadgePosition,
+                onApply = {
+                    updateDotBadgePosition(it)
+                },
             ),
             Property.StringProperty(
                 name = "caption",
@@ -174,18 +175,6 @@ internal class TextFieldViewModel : ViewModel(), PropertiesOwner {
                 name = "read only",
                 value = readOnly,
                 onApply = { updateReadOnlyState(it) },
-            ),
-            Property.BooleanProperty(
-                name = "has dot badge",
-                value = hasDotBadge,
-                onApply = { updateHasDotBadge(it) },
-            ),
-            enumProperty(
-                name = "dot badge position",
-                value = dotBadgePosition,
-                onApply = {
-                    updateDotBadgePosition(it)
-                },
             ),
         )
     }

@@ -26,11 +26,11 @@ import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.textfield.SandboxTextField.Size
 import com.sdds.playground.sandbox.textfield.SandboxTextField.State
 import com.sdds.playground.sandbox.textfield.TextFieldDefaults.captionTopPadding
+import com.sdds.playground.sandbox.textfield.TextFieldDefaults.fieldType
 import com.sdds.playground.sandbox.textfield.TextFieldDefaults.horizontalContentPadding
 import com.sdds.playground.sandbox.textfield.TextFieldDefaults.iconMargin
 import com.sdds.playground.sandbox.textfield.TextFieldDefaults.iconSize
 import com.sdds.playground.sandbox.textfield.TextFieldDefaults.innerLabelToValuePadding
-import com.sdds.playground.sandbox.textfield.TextFieldDefaults.optionalTextPadding
 import com.sdds.playground.sandbox.textfield.TextFieldDefaults.outerLabelBottomPadding
 import com.sdds.playground.sandbox.textfield.TextFieldDefaults.textBottomPadding
 import com.sdds.playground.sandbox.textfield.TextFieldDefaults.textFieldColors
@@ -48,8 +48,10 @@ import com.sdds.playground.sandbox.textfield.TextFieldDefaults.textTopPadding
  * @param keyboardOptions для настройки клавиатуры, например [KeyboardType] или [ImeAction]
  * @param keyboardActions когда на ввод подается [ImeAction] вызывается соответствующий callback
  * @param visualTransformation фильтр визуального отображения, например [PasswordVisualTransformation]
- * @param placeholderText заглушка если пустое [value] и тип [SandboxTextField.LabelType.Outer]
+ * @param placeholderText заглушка если пустое [value] и тип [TextField.LabelType.Outer]
  * @param labelType тип отображения лэйбла: [LabelType.Outer] снаружи поля ввода, [LabelType.Inner] внутри поля ввода
+ * @param fieldType тип текстового поля (обязательное или опциональное)
+ * @param dotBadgePosition позиция индикатора-точки. См. [DotBadge.Position]
  * @param labelText текст лэйбла
  * @param state текущее состояние TextField
  * @param size высота поля ввода, по умолчанию
@@ -70,12 +72,11 @@ internal fun SandboxTextField(
     visualTransformation: VisualTransformation = VisualTransformation.None,
     placeholderText: String? = null,
     labelType: LabelType = LabelType.Outer,
+    fieldType: SandboxTextField.FieldType = SandboxTextField.FieldType.Optional,
+    dotBadgePosition: DotBadge.Position = DotBadge.Position.Start,
     labelText: String = "",
-    labelOptionalText: String = "",
     state: State = State.Default,
     size: Size = Size.L,
-    hasDotBadge: Boolean = false,
-    dotBadgePosition: DotBadge.Position = DotBadge.Position.End,
     captionText: String? = null,
     leadingIcon: @Composable (() -> Unit)? = null,
     trailingIcon: @Composable (() -> Unit)? = null,
@@ -100,12 +101,11 @@ internal fun SandboxTextField(
         visualTransformation = visualTransformation,
         placeholderText = placeholderText,
         labelType = labelType,
+        fieldType = fieldType(fieldType, labelType, dotBadgePosition),
         labelText = label,
-        labelOptionalText = labelOptionalText,
         captionText = captionText,
         leadingIcon = leadingIcon,
         trailingIcon = trailingIcon,
-        dotBadge = getDotBadge(hasDotBadge, dotBadgePosition, labelType),
         outerLabelStyle = styles.outerLabelStyle(size, colors, inputState).value,
         innerLabelStyle = styles.innerLabelStyle(
             size = size,
@@ -126,7 +126,6 @@ internal fun SandboxTextField(
         innerLabelToValuePadding = innerLabelToValuePadding(size),
         outerLabelBottomPadding = outerLabelBottomPadding(size),
         captionTopPadding = captionTopPadding(size),
-        optionalTextPadding = optionalTextPadding(size),
         iconSize = iconSize(size),
         shape = textFieldShapeFor(
             size = size,
@@ -137,26 +136,18 @@ internal fun SandboxTextField(
     )
 }
 
-@Composable
-private fun getDotBadge(
-    hasDotBadge: Boolean,
-    dotBadgePosition: DotBadge.Position,
-    labelType: LabelType,
-): DotBadge? {
-    return if (hasDotBadge) {
-        TextFieldDefaults.dotBadge(
-            labelType,
-            dotBadgePosition,
-        )
-    } else {
-        null
-    }
-}
-
 /**
  * Параметры текстового поля
  */
 internal object SandboxTextField {
+
+    /**
+     * Тип текстового поля
+     */
+    enum class FieldType {
+        Optional,
+        Required,
+    }
 
     /**
      * Состояния текстового поля

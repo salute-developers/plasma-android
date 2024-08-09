@@ -42,9 +42,9 @@ import com.sdds.compose.uikit.internal.textfield.DotBadge
  * @param keyboardActions когда на ввод подается [ImeAction] вызывается соответствующий callback
  * @param visualTransformation фильтр визуального отображения, например [PasswordVisualTransformation]
  * @param placeholderText заглушка если пустое [value] и тип [TextField.LabelType.Outer]
+ * @param fieldType тип текстового поля - обязательное или опциональное (см. [TextField.FieldType])
  * @param labelType тип отображения лэйбла: [LabelType.Outer] снаружи поля ввода, [LabelType.Inner] внутри поля ввода
  * @param labelText текст лэйбла
- * @param labelOptionalText опциональный текст
  * @param captionText текст подписи под полем ввода
  * @param leadingIcon иконка, которая будет находиться в начале поля ввода
  * @param trailingIcon иконка, которая будет находиться в конце поля ввода
@@ -55,7 +55,6 @@ import com.sdds.compose.uikit.internal.textfield.DotBadge
  * @param placeHolderStyle стиль placeholder
  * @param backgroundColor цвет бэкграунда текстового поля
  * @param cursorColor цвет курсора
- * @param labelOptionalAlpha альфа optional текста в лэйбле
  * @param enabledAlpha альфа, когда компонент в режиме [enabled] == true
  * @param disabledAlpha альфа, когда компонент в режиме [enabled] == false
  * @param shape форма текстового поля
@@ -67,12 +66,10 @@ import com.sdds.compose.uikit.internal.textfield.DotBadge
  * @param innerLabelToValuePadding отступ между лэйблом и value в режиме [labelType] == [LabelType.Inner]
  * @param outerLabelBottomPadding отступ между лэйблом и текстовым полем в режиме [labelType] == [LabelType.Outer]
  * @param captionTopPadding отступ между текстовым полем и caption
- * @param optionalTextPadding горизонтальный отступ до optional части label
  * @param iconSize размер иконки
  * @param fieldHeight высота текстового поля
  * @param fieldHeight высота текстового поля
  * @param animation параметры анимации [TextField.Animation]
- * @param dotBadge параметры бэйджа-точки [DotBadge]
  * @param keepDotBadgeStartPadding позволяет выставить отступ слева, для случаев, когда нужно сохранить отступ, эквивалентный ширине [dotBadge].
  * Например, когда TextField используется в списке и состояние [dotBadge] меняется у разных элементов,
  * может появиться необходимость сохранить отступ слева, когда бэйдж скрывается.
@@ -91,15 +88,14 @@ fun TextField(
     keyboardActions: KeyboardActions = KeyboardActions.Default,
     visualTransformation: VisualTransformation = VisualTransformation.None,
     placeholderText: String? = null,
+    fieldType: TextField.FieldType? = null,
     labelType: LabelType = LabelType.Outer,
     labelText: String = "",
-    labelOptionalText: String = "",
     captionText: String? = null,
     leadingIcon: @Composable (() -> Unit)? = null,
     trailingIcon: @Composable (() -> Unit)? = null,
     outerLabelStyle: TextStyle = TextStyle(),
     innerLabelStyle: TextStyle = TextStyle(),
-    labelOptionalAlpha: Float = 0.28f,
     valuesStyle: TextStyle = TextStyle(),
     captionStyle: TextStyle = TextStyle(),
     placeHolderStyle: TextStyle = TextStyle(),
@@ -116,11 +112,9 @@ fun TextField(
     innerLabelToValuePadding: Dp = 2.dp,
     outerLabelBottomPadding: Dp = 12.dp,
     captionTopPadding: Dp = 4.dp,
-    optionalTextPadding: Dp = 4.dp,
     iconSize: Dp = 24.dp,
     fieldHeight: Dp = 56.dp,
     animation: TextField.Animation = TextField.Animation(),
-    dotBadge: TextField.DotBadge? = null,
     keepDotBadgeStartPadding: Dp? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
@@ -133,16 +127,15 @@ fun TextField(
         keyboardOptions = keyboardOptions,
         keyboardActions = keyboardActions,
         visualTransformation = visualTransformation,
+        fieldType = fieldType,
         labelType = labelType,
         placeholderText = placeholderText,
         labelText = labelText,
-        labelOptionalText = labelOptionalText,
         captionText = captionText,
         leadingIcon = leadingIcon,
         trailingIcon = trailingIcon,
         outerLabelStyle = outerLabelStyle,
         innerLabelStyle = innerLabelStyle,
-        labelOptionalAlpha = labelOptionalAlpha,
         valuesStyle = valuesStyle,
         captionStyle = captionStyle,
         placeHolderStyle = placeHolderStyle,
@@ -159,11 +152,9 @@ fun TextField(
         innerLabelToValuePadding = innerLabelToValuePadding,
         outerLabelBottomPadding = outerLabelBottomPadding,
         captionTopPadding = captionTopPadding,
-        optionalTextPadding = optionalTextPadding,
         iconSize = iconSize,
         fieldHeight = fieldHeight,
         animation = animation,
-        dotBadge = dotBadge,
         keepDotBadgeStartPadding = keepDotBadgeStartPadding,
         interactionSource = interactionSource,
     )
@@ -181,9 +172,9 @@ fun TextField(
  * @param keyboardActions когда на ввод подается [ImeAction] вызывается соответствующий callback
  * @param visualTransformation фильтр визуального отображения, например [PasswordVisualTransformation]
  * @param placeholderText заглушка если пустое [value] и тип [TextField.LabelType.Outer]
+ * @param fieldType тип текстового поля - обязательное или опциональное (см. [TextField.FieldType])
  * @param labelType тип отображения лэйбла: [LabelType.Outer] снаружи поля ввода, [LabelType.Inner] внутри поля ввода
  * @param labelText текст лэйбла
- * @param labelOptionalText опциональный текст
  * @param captionText текст подписи под полем ввода
  * @param leadingIcon иконка, которая будет находиться в начале поля ввода
  * @param trailingIcon иконка, которая будет находиться в конце поля ввода
@@ -192,9 +183,9 @@ fun TextField(
  * @param valuesStyle стиль value
  * @param captionStyle стиль caption
  * @param placeHolderStyle стиль placeholder
+ * @param fieldType тип текстового поля - обязательное или опциональное (см. [TextField.FieldType])
  * @param backgroundColor цвет бэкграунда текстового поля
  * @param cursorColor цвет курсора
- * @param labelOptionalAlpha альфа optional текста в лэйбле
  * @param enabledAlpha альфа, когда компонент в режиме [enabled] == true
  * @param disabledAlpha альфа, когда компонент в режиме [enabled] == false
  * @param shape форма текстового поля
@@ -206,12 +197,10 @@ fun TextField(
  * @param innerLabelToValuePadding отступ между лэйблом и value в режиме [labelType] == [LabelType.Inner]
  * @param outerLabelBottomPadding отступ между лэйблом и текстовым полем в режиме [labelType] == [LabelType.Outer]
  * @param captionTopPadding отступ между текстовым полем и caption
- * @param optionalTextPadding горизонтальный отступ до optional части label
  * @param iconSize размер иконки
  * @param fieldHeight высота текстового поля
  * @param fieldHeight высота текстового поля
  * @param animation параметры анимации [TextField.Animation]
- * @param dotBadge параметры бэйджа-точки [DotBadge]
  * @param keepDotBadgeStartPadding позволяет выставить отступ слева, для случаев, когда нужно сохранить отступ, эквивалентный ширине [dotBadge].
  * Например, когда TextField используется в списке и состояние [dotBadge] меняется у разных элементов,
  * может появиться необходимость сохранить отступ слева, когда бэйдж скрывается.
@@ -229,15 +218,14 @@ fun TextField(
     keyboardActions: KeyboardActions = KeyboardActions.Default,
     visualTransformation: VisualTransformation = VisualTransformation.None,
     placeholderText: String? = null,
+    fieldType: TextField.FieldType? = null,
     labelType: LabelType = LabelType.Outer,
     labelText: String = "",
-    labelOptionalText: String = "",
     captionText: String? = null,
     leadingIcon: @Composable (() -> Unit)? = null,
     trailingIcon: @Composable (() -> Unit)? = null,
     outerLabelStyle: TextStyle = TextStyle(),
     innerLabelStyle: TextStyle = TextStyle(),
-    labelOptionalAlpha: Float = 0.28f,
     valuesStyle: TextStyle = TextStyle(),
     captionStyle: TextStyle = TextStyle(),
     placeHolderStyle: TextStyle = TextStyle(),
@@ -254,11 +242,9 @@ fun TextField(
     innerLabelToValuePadding: Dp = 2.dp,
     outerLabelBottomPadding: Dp = 12.dp,
     captionTopPadding: Dp = 4.dp,
-    optionalTextPadding: Dp = 4.dp,
     iconSize: Dp = 24.dp,
     fieldHeight: Dp = 56.dp,
     animation: TextField.Animation = TextField.Animation(),
-    dotBadge: TextField.DotBadge? = null,
     keepDotBadgeStartPadding: Dp? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
@@ -293,16 +279,15 @@ fun TextField(
         keyboardOptions = keyboardOptions,
         keyboardActions = keyboardActions,
         visualTransformation = visualTransformation,
+        fieldType = fieldType,
         labelType = labelType,
         placeholderText = placeholderText,
         labelText = labelText,
-        labelOptionalText = labelOptionalText,
         captionText = captionText,
         leadingIcon = leadingIcon,
         trailingIcon = trailingIcon,
         outerLabelStyle = outerLabelStyle,
         innerLabelStyle = innerLabelStyle,
-        labelOptionalAlpha = labelOptionalAlpha,
         valuesStyle = valuesStyle,
         captionStyle = captionStyle,
         placeHolderStyle = placeHolderStyle,
@@ -319,11 +304,9 @@ fun TextField(
         innerLabelToValuePadding = innerLabelToValuePadding,
         outerLabelBottomPadding = outerLabelBottomPadding,
         captionTopPadding = captionTopPadding,
-        optionalTextPadding = optionalTextPadding,
         iconSize = iconSize,
         fieldHeight = fieldHeight,
         animation = animation,
-        dotBadge = dotBadge,
         keepDotBadgeStartPadding = keepDotBadgeStartPadding,
         interactionSource = interactionSource,
     )
@@ -362,6 +345,36 @@ object TextField {
         val placeholderAnimationDelayOrDuration: Int = 67,
         val placeholderAnimationDuration: Int = 83,
     )
+
+    /**
+     * Тип текстового поля (обязательное или опциональное)
+     */
+    @Immutable
+    sealed class FieldType {
+
+        /**
+         * Опциональный тип поля.
+         * Когда поле имеет данный тип, к label добавляется [optionalText].
+         *
+         * @property optionalText текст, свидетельствующий о том, что поле опционалдьное
+         * @property labelOptionalAlpha альфа, которая будет применена к стилю лэйбла,
+         * чтобы получить стиль optional лэйбла
+         * @property startMargin отступ перед [optionalText]
+         */
+        data class Optional(
+            val optionalText: String = "Optional",
+            val labelOptionalAlpha: Float = 0.28f,
+            val startMargin: Dp = 4.dp,
+        ) : FieldType()
+
+        /**
+         * Обязательный тип поля.
+         * Когда поле имеет данный тип, к label или к полю добавляется бэйдж-точка [DotBadge].
+         *
+         * @property dotBadge модель, описывающая бэйдж-точку
+         */
+        data class Required(val dotBadge: DotBadge = DotBadge()) : FieldType()
+    }
 
     /**
      * Бэйдж-точка
