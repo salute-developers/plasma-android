@@ -105,14 +105,7 @@ internal fun SandboxTextField(
         captionText = captionText,
         leadingIcon = leadingIcon,
         trailingIcon = trailingIcon,
-        dotBadge = if (hasDotBadge) {
-            TextFieldDefaults.dotBadge(
-                labelType,
-                dotBadgePosition,
-            )
-        } else {
-            null
-        },
+        dotBadge = getDotBadge(hasDotBadge, dotBadgePosition, labelType),
         outerLabelStyle = styles.outerLabelStyle(size, colors, inputState).value,
         innerLabelStyle = styles.innerLabelStyle(
             size = size,
@@ -142,6 +135,22 @@ internal fun SandboxTextField(
         fieldHeight = size.value,
         interactionSource = interactionSource,
     )
+}
+
+@Composable
+private fun getDotBadge(
+    hasDotBadge: Boolean,
+    dotBadgePosition: DotBadge.Position,
+    labelType: LabelType,
+): DotBadge? {
+    return if (hasDotBadge) {
+        TextFieldDefaults.dotBadge(
+            labelType,
+            dotBadgePosition,
+        )
+    } else {
+        null
+    }
 }
 
 /**
