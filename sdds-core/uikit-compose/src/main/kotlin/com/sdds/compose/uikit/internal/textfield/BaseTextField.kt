@@ -245,16 +245,16 @@ private fun getConstraintSet(
     captionText: String?,
     captionTopPadding: Dp,
     outerLabelBottomPadding: Dp,
-): ConstraintSet = when (labelType) {
-    LabelType.Outer -> outerLabelConstraintSet(
+): ConstraintSet = if (labelType == LabelType.Outer && labelText.isNotEmpty()) {
+    outerLabelConstraintSet(
         dotBadge = dotBadge,
         hasLabel = labelText.isNotEmpty(),
         hasCaption = captionText.isNullOrEmpty().not(),
         captionTopPadding,
         outerLabelBottomPadding,
     )
-
-    LabelType.Inner -> innerLabelConstraintSet(
+} else {
+    innerDotConstraintSet(
         dotBadge = dotBadge,
         hasCaption = captionText.isNullOrEmpty().not(),
         captionTopPadding = captionTopPadding,
@@ -464,7 +464,7 @@ private fun outerLabelConstraintSet(
     }
 }
 
-private fun innerLabelConstraintSet(
+private fun innerDotConstraintSet(
     dotBadge: TextField.DotBadge?,
     hasCaption: Boolean,
     captionTopPadding: Dp,

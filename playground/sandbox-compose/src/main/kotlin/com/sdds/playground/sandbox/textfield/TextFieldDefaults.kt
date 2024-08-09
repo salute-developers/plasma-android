@@ -163,22 +163,22 @@ internal interface SandboxTextFieldStyles {
 internal object TextFieldDefaults {
 
     @Composable
-    fun fieldType(
-        fieldType: SandboxTextField.FieldType,
+    fun SandboxTextField.FieldType.toFieldType(
         labelType: LabelType,
         position: DotBadge.Position,
+        hasLabel: Boolean,
     ): TextField.FieldType {
-        return when (fieldType) {
+        return when (this) {
             SandboxTextField.FieldType.Optional -> TextField.FieldType.Optional()
             SandboxTextField.FieldType.Required -> TextField.FieldType.Required(
-                dotBadge = dotBadge(labelType, position),
+                dotBadge = dotBadge(labelType, position, hasLabel),
             )
         }
     }
 
-    private fun dotBadge(labelType: LabelType, position: DotBadge.Position): DotBadge {
-        return when (labelType) {
-            LabelType.Outer -> {
+    private fun dotBadge(labelType: LabelType, position: DotBadge.Position, hasLabel: Boolean): DotBadge {
+        return when {
+            labelType == LabelType.Outer && hasLabel -> {
                 val paddings = if (position == DotBadge.Position.Start) {
                     PaddingValues(end = 6.dp)
                 } else {
@@ -192,7 +192,7 @@ internal object TextFieldDefaults {
                 )
             }
 
-            LabelType.Inner -> DotBadge(
+            else -> DotBadge(
                 size = 8.dp,
                 paddingValues = PaddingValues(),
                 color = Color.Red,
