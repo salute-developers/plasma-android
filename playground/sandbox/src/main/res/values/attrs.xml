@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="thmbldr_shapeRoundXXL" format="reference"/>
+    <attr name="thmbldr_shapeRoundXL" format="reference"/>
+    <attr name="thmbldr_shapeRoundL" format="reference"/>
+    <attr name="thmbldr_shapeRoundM" format="reference"/>
+    <attr name="thmbldr_shapeRoundS" format="reference"/>
+    <attr name="thmbldr_shapeRoundXS" format="reference"/>
+    <attr name="thmbldr_shapeRoundXXS" format="reference"/>
+</resources>

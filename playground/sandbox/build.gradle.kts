@@ -11,13 +11,16 @@ android {
     defaultConfig {
         applicationId = "com.sdds.playground.sandbox"
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 themeBuilder {
     themeSource(name = "stylesSalute")
     view {
         themeParents {
-            customTheme("Theme.SddsSandbox")
+            materialComponentsTheme("DayNight")
         }
     }
     resourcesPrefix("thmbldr")
@@ -31,6 +34,12 @@ dependencies {
 
     implementation(libs.base.androidX.core)
     implementation(libs.base.androidX.appcompat)
+    implementation(libs.base.android.material)
+    implementation(libs.base.androidX.constraintLayout)
+    implementation(libs.base.androidX.lifecycle.viewmodel)
+    implementation(libs.base.androidX.navigation.fragment)
+    implementation(libs.base.androidX.navigation.ui)
+    implementation(libs.base.androidX.activity.ktx)
 
     // Unit tests
     testImplementation(libs.base.test.unit.jUnit)

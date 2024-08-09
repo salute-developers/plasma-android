@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="@dimen/sdds_spacer_8x">
+
+    <com.sdds.uikit.TextField
+        android:id="@+id/text_editor_field"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:sd_label="@string/sandbox_editor_title"
+        app:sd_placeholder="@string/sandbox_editor_placeholder"
+        app:sd_labelAppearance="@style/Thmbldr.StylesSalute.TextAppearance.BodyLBold"
+        app:sd_labelColor="?thmbldr_textDefaultPrimary"
+        app:sd_labelType="outer"
+        app:sd_labelPadding="@dimen/sdds_spacer_8x" />
+
+    <com.sdds.uikit.Button
+        android:id="@+id/text_editor_confirm_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/sdds_spacer_8x"
+        android:text="@string/sandbox_editor_confirm_title"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_editor_field" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

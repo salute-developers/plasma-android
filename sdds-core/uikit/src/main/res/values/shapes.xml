@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <attr name="sd_shapeAppearanceCircle" format="reference"/>
+    <attr name="sd_shapeAppearanceMedium" format="reference"/>
+
     <style name="Sdds.Shape" />
 
     <style name="Sdds.Shape.Round">
@@ -9,33 +12,5 @@
 
     <style name="Sdds.Shape.Round.Circle">
         <item name="cornerSize">50%</item>
-    </style>
-
-    <style name="Sdds.Shape.Round.XXS">
-        <item name="cornerSize">?sdds_cRxxs</item>
-    </style>
-
-    <style name="Sdds.Shape.Round.XS">
-        <item name="cornerSize">?sdds_cRxs</item>
-    </style>
-
-    <style name="Sdds.Shape.Round.S">
-        <item name="cornerSize">?sdds_cRs</item>
-    </style>
-
-    <style name="Sdds.Shape.Round.M">
-        <item name="cornerSize">?sdds_cRm</item>
-    </style>
-
-    <style name="Sdds.Shape.Round.L">
-        <item name="cornerSize">?sdds_cRl</item>
-    </style>
-
-    <style name="Sdds.Shape.Round.XL">
-        <item name="cornerSize">?sdds_cRxl</item>
-    </style>
-
-    <style name="Sdds.Shape.Round.XXL">
-        <item name="cornerSize">?sdds_cRxxl</item>
     </style>
 </resources>

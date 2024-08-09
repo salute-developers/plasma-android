@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <style name="Theme.Sandbox.Shapes"/>
+
+    <style name="Theme.Sandbox.Shapes.Round" parent="Sdds.Shape.Round"/>
+
+    <style name="Theme.Sandbox.Shapes.Round.XXL" >
+        <item name="cornerSize">@dimen/thmbldr_round_xxl_corner_size</item>
+    </style>
+    <style name="Theme.Sandbox.Shapes.Round.XL" >
+        <item name="cornerSize">@dimen/thmbldr_round_xl_corner_size</item>
+    </style>
+    <style name="Theme.Sandbox.Shapes.Round.L" >
+        <item name="cornerSize">@dimen/thmbldr_round_l_corner_size</item>
+    </style>
+    <style name="Theme.Sandbox.Shapes.Round.M" >
+        <item name="cornerSize">@dimen/thmbldr_round_m_corner_size</item>
+    </style>
+    <style name="Theme.Sandbox.Shapes.Round.S" >
+        <item name="cornerSize">@dimen/thmbldr_round_s_corner_size</item>
+    </style>
+    <style name="Theme.Sandbox.Shapes.Round.XS" >
+        <item name="cornerSize">@dimen/thmbldr_round_xs_corner_size</item>
+    </style>
+    <style name="Theme.Sandbox.Shapes.Round.XXS" >
+        <item name="cornerSize">@dimen/thmbldr_round_xxs_corner_size</item>
+    </style>
+</resources>

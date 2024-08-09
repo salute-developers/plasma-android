@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Sandbox.Components.TextField" parent="Sdds.Components.TextField"/>
+
+    <style name="Theme.Sandbox.Components.TextField.M">
+        <item name="sd_actionTint">#8F171717</item>
+        <item name="sd_actionPadding">8dp</item>
+        <item name="sd_boxHeight">48dp</item>
+        <item name="sd_boxPaddingStart">14dp</item>
+        <item name="sd_boxPaddingTop">6dp</item>
+        <item name="sd_boxPaddingEnd">14dp</item>
+        <item name="sd_boxPaddingBottom">6dp</item>
+        <item name="sd_boxTint">@color/sd_color_text_field_box</item>
+        <item name="sd_captionColor">#8F171717</item>
+        <item name="sd_captionPadding">4dp</item>
+        <item name="sd_iconPadding">4dp</item>
+        <item name="sd_iconTint">#8F171717</item>
+        <item name="sd_labelColor">#000</item>
+        <item name="sd_labelPadding">2dp</item>
+        <item name="sd_placeholderColor">#8F171717</item>
+        <item name="sd_shapeAppearance">?thmbldr_shapeRoundM</item>
+        <item name="sd_valueAppearance">@style/Thmbldr.StylesSalute.Typography.BodyMBold</item>
+        <item name="sd_labelAppearance">@style/Thmbldr.StylesSalute.Typography.BodyXsNormal</item>
+        <item name="sd_captionAppearance">@style/Thmbldr.StylesSalute.Typography.BodyXsNormal</item>
+        <item name="sd_placeholderAppearance">@style/Thmbldr.StylesSalute.Typography.BodyMBold</item>
+        <item name="sd_valueColor">#F5171717</item>
+    </style>
+</resources>
