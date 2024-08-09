@@ -87,6 +87,8 @@ internal fun SandboxTextField(
     val styles = textFieldStyles()
     val colors = textFieldColors()
 
+    val label = if (size == Size.XS && labelType == LabelType.Inner) "" else labelText
+
     TextField(
         value = value,
         onValueChange = onValueChange,
@@ -98,19 +100,12 @@ internal fun SandboxTextField(
         visualTransformation = visualTransformation,
         placeholderText = placeholderText,
         labelType = labelType,
-        labelText = labelText,
+        labelText = label,
         labelOptionalText = labelOptionalText,
         captionText = captionText,
         leadingIcon = leadingIcon,
         trailingIcon = trailingIcon,
-        dotBadge = if (hasDotBadge) {
-            TextFieldDefaults.dotBadge(
-                labelType,
-                dotBadgePosition,
-            )
-        } else {
-            null
-        },
+        dotBadge = getDotBadge(hasDotBadge, dotBadgePosition, labelType),
         outerLabelStyle = styles.outerLabelStyle(size, colors, inputState).value,
         innerLabelStyle = styles.innerLabelStyle(
             size = size,
@@ -140,6 +135,22 @@ internal fun SandboxTextField(
         fieldHeight = size.value,
         interactionSource = interactionSource,
     )
+}
+
+@Composable
+private fun getDotBadge(
+    hasDotBadge: Boolean,
+    dotBadgePosition: DotBadge.Position,
+    labelType: LabelType,
+): DotBadge? {
+    return if (hasDotBadge) {
+        TextFieldDefaults.dotBadge(
+            labelType,
+            dotBadgePosition,
+        )
+    } else {
+        null
+    }
 }
 
 /**
