@@ -45,6 +45,12 @@ internal class TextFieldViewModel : ViewModel(), PropertiesOwner {
         )
     }
 
+    private fun updateOptionalText(text: String) {
+        _textFieldUiState.value = _textFieldUiState.value.copy(
+            optionalText = text,
+        )
+    }
+
     private fun updateCaption(text: String) {
         _textFieldUiState.value = _textFieldUiState.value.copy(
             captionText = text,
@@ -118,6 +124,11 @@ internal class TextFieldViewModel : ViewModel(), PropertiesOwner {
                 name = "label",
                 value = labelText,
                 onApply = { updateLabel(it) },
+            ),
+            Property.StringProperty(
+                name = "optional text",
+                value = optionalText,
+                onApply = { updateOptionalText(it) },
             ),
             enumProperty(
                 name = "field type",

@@ -53,6 +53,7 @@ import com.sdds.playground.sandbox.textfield.TextFieldDefaults.toFieldType
  * @param fieldType тип текстового поля (обязательное или опциональное)
  * @param dotBadgePosition позиция индикатора-точки. См. [DotBadge.Position]
  * @param labelText текст лэйбла
+ * @param optionalText текст надписи, свидетельствующей о том, что поле опциональное
  * @param state текущее состояние TextField
  * @param size высота поля ввода, по умолчанию
  * @param captionText текст подписи под полем ввода
@@ -75,6 +76,7 @@ internal fun SandboxTextField(
     fieldType: SandboxTextField.FieldType = SandboxTextField.FieldType.Optional,
     dotBadgePosition: DotBadge.Position = DotBadge.Position.Start,
     labelText: String = "",
+    optionalText: String = "Optional",
     state: State = State.Default,
     size: Size = Size.L,
     captionText: String? = null,
@@ -101,7 +103,12 @@ internal fun SandboxTextField(
         visualTransformation = visualTransformation,
         placeholderText = placeholderText,
         labelType = labelType,
-        fieldType = fieldType.toFieldType(labelType, dotBadgePosition, labelText.isNotEmpty()),
+        fieldType = fieldType.toFieldType(
+            labelType = labelType,
+            position = dotBadgePosition,
+            hasLabel = labelText.isNotEmpty(),
+            optionalText = optionalText,
+        ),
         labelText = label,
         captionText = captionText,
         leadingIcon = leadingIcon,

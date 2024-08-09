@@ -11,6 +11,7 @@ internal data class TextFieldUiState(
     val fieldType: SandboxTextField.FieldType = SandboxTextField.FieldType.Required,
     val dotBadgePosition: TextField.DotBadge.Position = TextField.DotBadge.Position.End,
     val labelText: String = "Label",
+    val optionalText: String = "Optional",
     val placeholderText: String = "Placeholder",
     val captionText: String = "Caption",
     val hasDotBadge: Boolean = false,

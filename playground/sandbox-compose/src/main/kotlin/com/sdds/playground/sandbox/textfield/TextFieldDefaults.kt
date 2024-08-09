@@ -167,9 +167,12 @@ internal object TextFieldDefaults {
         labelType: LabelType,
         position: DotBadge.Position,
         hasLabel: Boolean,
+        optionalText: String,
     ): TextField.FieldType {
         return when (this) {
-            SandboxTextField.FieldType.Optional -> TextField.FieldType.Optional()
+            SandboxTextField.FieldType.Optional -> TextField.FieldType.Optional(
+                optionalText = optionalText,
+            )
             SandboxTextField.FieldType.Required -> TextField.FieldType.Required(
                 dotBadge = dotBadge(labelType, position, hasLabel),
             )

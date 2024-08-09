@@ -38,6 +38,7 @@ internal fun TextFieldScreen() {
                 enabled = textFieldUiState.enabled,
                 placeholderText = textFieldUiState.placeholderText,
                 labelText = textFieldUiState.labelText,
+                optionalText = textFieldUiState.optionalText,
                 captionText = textFieldUiState.captionText,
                 labelType = textFieldUiState.labelType,
                 fieldType = textFieldUiState.fieldType,
