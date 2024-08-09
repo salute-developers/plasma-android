@@ -88,7 +88,7 @@ private fun View.tryApplyFocusSelector(
             .build()
     } else {
         ShapeAppearanceModel
-            .builder(context, R.style.Sdds_Shape_Round_L, 0)
+            .builder(context, R.style.Sdds_Shape_Round, 0)
             .build()
     }
     val appearanceModel = if (this is Shapeable && appearanceResId == -1) {

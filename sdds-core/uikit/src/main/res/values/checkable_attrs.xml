@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
 
+    <attr name="sd_switchStyle" format="reference" />
+    <attr name="sd_radioBoxStyle" format="reference" />
+
     <declare-styleable name="SdCheckable">
         <!-- Дополнительный текст  -->
         <attr name="sd_description" format="string" />

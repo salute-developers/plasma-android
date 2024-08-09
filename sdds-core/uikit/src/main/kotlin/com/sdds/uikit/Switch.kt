@@ -18,7 +18,7 @@ import com.sdds.uikit.internal.SwitchDrawable
 open class Switch @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
-    defStyleAttr: Int = 0,
+    defStyleAttr: Int = R.attr.sd_switchStyle,
 ) : CompoundButton(context, attrs, defStyleAttr) {
 
     private var _buttonDrawable: SwitchDrawable? = null

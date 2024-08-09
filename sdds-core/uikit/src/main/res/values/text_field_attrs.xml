@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
 
+    <attr name="sd_textFieldStyle" format="reference" />
+
     <declare-styleable name="SdDecoratedFieldBox">
         <attr name="sd_icon" />
-        <attr name="sd_iconTint"/>
+        <attr name="sd_iconTint" />
         <attr name="sd_iconSize" />
         <attr name="sd_iconPadding" />
 
         <attr name="sd_action" format="reference" />
-        <attr name="sd_actionTint" format="reference|color"/>
+        <attr name="sd_actionTint" format="reference|color" />
         <attr name="sd_actionSize" format="dimension" />
         <attr name="sd_actionPadding" format="dimension" />
 
@@ -30,10 +32,10 @@
         <attr name="sd_label" format="string" />
         <attr name="sd_labelAppearance" format="reference" />
         <attr name="sd_labelColor" format="reference|color" />
-        <attr name="sd_labelPadding" format="dimension"/>
+        <attr name="sd_labelPadding" format="dimension" />
         <attr name="sd_labelType" format="enum">
-            <enum name="outer" value="0"/>
-            <enum name="inner" value="1"/>
+            <enum name="outer" value="0" />
+            <enum name="inner" value="1" />
         </attr>
         <attr name="sd_value" />
         <attr name="sd_valueAppearance" format="reference" />
@@ -47,14 +49,14 @@
         <attr name="sd_captionPadding" format="dimension" />
 
         <attr name="sd_icon" />
-        <attr name="sd_iconTint"/>
+        <attr name="sd_iconTint" />
         <attr name="sd_iconSize" />
         <attr name="sd_iconPadding" />
 
         <attr name="sd_action" />
-        <attr name="sd_actionTint"/>
+        <attr name="sd_actionTint" />
         <attr name="sd_actionSize" />
-        <attr name="sd_actionPadding"/>
+        <attr name="sd_actionPadding" />
 
         <attr name="sd_boxHeight" />
         <attr name="sd_boxTint" />

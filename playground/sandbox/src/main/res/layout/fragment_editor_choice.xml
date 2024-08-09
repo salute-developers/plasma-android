@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="@dimen/sdds_spacer_8x">
+
+    <com.sdds.uikit.TextView
+        style="@style/Thmbldr.StylesSalute.Typography.BodyLBold"
+        android:id="@+id/choice_editor_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="?thmbldr_textDefaultPrimary"
+        tools:text="@string/sandbox_editor_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/choice_recycler_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/sdds_spacer_8x"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/choice_editor_title"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

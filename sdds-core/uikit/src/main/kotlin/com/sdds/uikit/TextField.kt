@@ -32,8 +32,8 @@ import com.sdds.uikit.viewstate.ViewStateHolder
 open class TextField @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
-    defStyleAttr: Int = 0,
-    defStyleRes: Int = 0,
+    defStyleAttr: Int = R.attr.sd_textFieldStyle,
+    defStyleRes: Int = R.style.Sdds_Components_TextField,
 ) : LinearLayout(context, attrs, defStyleAttr, defStyleRes), ViewStateHolder {
 
     /**

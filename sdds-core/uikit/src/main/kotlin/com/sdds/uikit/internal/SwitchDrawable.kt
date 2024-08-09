@@ -181,7 +181,7 @@ internal class SwitchDrawable(
     }
 
     private companion object {
-        const val ANIMATION_DURATION = 200L
+        const val ANIMATION_DURATION = 100L
         val DefaultBlackTint = ColorStateList.valueOf(Color.BLACK)
         val DefaultWhiteTint = ColorStateList.valueOf(Color.WHITE)
         val DefaultSwitchPadding = 2f.dp

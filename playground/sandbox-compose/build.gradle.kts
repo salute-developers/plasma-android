@@ -12,7 +12,7 @@ android {
     namespace = "com.sdds.playground.sandbox"
 
     defaultConfig {
-        applicationId = "com.sdds.playground.sandbox"
+        applicationId = "com.sdds.playground.sandbox.compose"
     }
     testOptions {
         unitTests.isIncludeAndroidResources = true

@@ -24,7 +24,7 @@ import com.sdds.uikit.internal.RadioBoxDrawable
 open class RadioBox @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
-    defStyleAttr: Int = 0,
+    defStyleAttr: Int = android.R.attr.radioButtonStyle,
 ) : AppCompatRadioButton(context, attrs, defStyleAttr) {
 
     @Suppress("LeakingThis")

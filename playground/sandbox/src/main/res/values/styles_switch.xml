@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Sandbox.Components.Switch" parent="Sdds.Components.Switch">
+        <item name="sd_buttonTrackColor">@color/bg_color_switch_track</item>
+    </style>
+</resources>
