@@ -28,17 +28,12 @@ class ComposeCheckBoxScreenshotTest {
      */
     interface ScreenshotTests
 
-    @Before
-    fun setTimeZone() {
-        TimeZone.setDefault(TimeZone.getTimeZone("UTC"))
-    }
-
     /**
      * Запуск скриншот тестов с использованием Preview
      */
     @Category(ScreenshotTests::class)
     @Test
-    fun testComposeCheckBoxUncheckedSizeMedium() {
+    fun testCheckBoxUncheckedSizeMedium() {
         captureRoboImage {
             config.roborazziOptions
             SandboxCheckBoxPreviewUncheckedSizeMedium()
@@ -47,7 +42,7 @@ class ComposeCheckBoxScreenshotTest {
 
     @Category(ScreenshotTests::class)
     @Test
-    fun testComposeCheckBoxCheckedSizeSmallDark() {
+    fun testCheckBoxCheckedSizeSmallDark() {
         captureRoboImage {
             config.roborazziOptions
             SandboxTheme(darkTheme = true) {
@@ -58,7 +53,7 @@ class ComposeCheckBoxScreenshotTest {
 
     @Category(ScreenshotTests::class)
     @Test
-    fun testComposeCheckBoxOffSizeSmall() {
+    fun testCheckBoxOffSizeSmall() {
         captureRoboImage {
             config.roborazziOptions
             SandboxCheckBoxPreviewOffSizeSmall()
@@ -67,7 +62,7 @@ class ComposeCheckBoxScreenshotTest {
 
     @Category(ScreenshotTests::class)
     @Test
-    fun testComposeCheckBoxOnSizeMediumNoDesc() {
+    fun testCheckBoxOnSizeMediumNoDesc() {
         captureRoboImage {
             config.roborazziOptions
             SandboxCheckBoxPreviewOnSizeMediumNoDesc()
@@ -76,7 +71,7 @@ class ComposeCheckBoxScreenshotTest {
 
     @Category(ScreenshotTests::class)
     @Test
-    fun testComposeCheckBoxOnSizeMediumNoLabel() {
+    fun testCheckBoxOnSizeMediumNoLabel() {
         captureRoboImage {
             config.roborazziOptions
             SandboxCheckBoxPreviewOnSizeMediumNoLabel()
@@ -85,7 +80,7 @@ class ComposeCheckBoxScreenshotTest {
 
     @Category(ScreenshotTests::class)
     @Test
-    fun testComposeCheckBoxSizeMediumNoLabelAndDesc() {
+    fun testCheckBoxSizeMediumNoLabelAndDesc() {
         captureRoboImage {
             config.roborazziOptions
             SandboxCheckBoxPreviewSizeMediumNoLabelAndDesc()
