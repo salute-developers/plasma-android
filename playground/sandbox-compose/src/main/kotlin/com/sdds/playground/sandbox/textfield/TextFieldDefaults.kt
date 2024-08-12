@@ -13,6 +13,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.TextField
 import com.sdds.compose.uikit.TextField.DotBadge
 import com.sdds.compose.uikit.TextField.LabelType
 import com.sdds.compose.uikit.adjustBy
@@ -162,6 +163,48 @@ internal interface SandboxTextFieldStyles {
 internal object TextFieldDefaults {
 
     @Composable
+    fun SandboxTextField.FieldType.toFieldType(
+        labelType: LabelType,
+        position: DotBadge.Position,
+        hasLabel: Boolean,
+        optionalText: String,
+    ): TextField.FieldType {
+        return when (this) {
+            SandboxTextField.FieldType.Optional -> TextField.FieldType.Optional(
+                optionalText = optionalText,
+            )
+            SandboxTextField.FieldType.Required -> TextField.FieldType.Required(
+                dotBadge = dotBadge(labelType, position, hasLabel),
+            )
+        }
+    }
+
+    private fun dotBadge(labelType: LabelType, position: DotBadge.Position, hasLabel: Boolean): DotBadge {
+        return when {
+            labelType == LabelType.Outer && hasLabel -> {
+                val paddings = if (position == DotBadge.Position.Start) {
+                    PaddingValues(end = 6.dp)
+                } else {
+                    PaddingValues(start = 4.dp, top = 4.dp)
+                }
+                DotBadge(
+                    size = 6.dp,
+                    paddingValues = paddings,
+                    color = Color.Red,
+                    position = position,
+                )
+            }
+
+            else -> DotBadge(
+                size = 8.dp,
+                paddingValues = PaddingValues(),
+                color = Color.Red,
+                position = position,
+            )
+        }
+    }
+
+    @Composable
     fun textTopPadding(size: SandboxTextField.Size, labelType: LabelType): Dp {
         return if (labelType == LabelType.Outer) {
             0.dp
@@ -258,32 +301,6 @@ internal object TextFieldDefaults {
 
             SandboxTextField.Size.XS -> 16.dp
         }
-
-    @Composable
-    fun dotBadge(labelType: LabelType, position: DotBadge.Position): DotBadge {
-        return when (labelType) {
-            LabelType.Outer -> {
-                val paddings = if (position == DotBadge.Position.Start) {
-                    PaddingValues(end = 6.dp)
-                } else {
-                    PaddingValues(start = 4.dp, top = 4.dp)
-                }
-                DotBadge(
-                    size = 6.dp,
-                    paddingValues = paddings,
-                    color = Color.Red,
-                    position = position,
-                )
-            }
-
-            LabelType.Inner -> DotBadge(
-                size = 8.dp,
-                paddingValues = PaddingValues(),
-                color = Color.Red,
-                position = position,
-            )
-        }
-    }
 
     /**
      *  Цветовые настройки поля
