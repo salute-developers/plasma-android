@@ -7,13 +7,13 @@ import android.view.View
 import androidx.annotation.StyleRes
 import androidx.core.graphics.drawable.DrawableCompat
 import androidx.core.view.updatePadding
-import com.google.android.material.shape.MaterialShapeDrawable
-import com.google.android.material.shape.ShapeAppearanceModel
 import com.sdds.uikit.R
 import com.sdds.uikit.internal.base.wrapWithInset
+import com.sdds.uikit.shape.ShapeDrawable
+import com.sdds.uikit.shape.ShapeModel
 
 /**
- * Делегат для установки [MaterialShapeDrawable] в качестве фона [View]
+ * Делегат для установки [ShapeDrawable] в качестве фона [View]
  * @param view получатель фона
  * @param attrs аттрибуты view
  * @param defStyleAttr аттрибут стиля по умолчанию
@@ -22,12 +22,12 @@ import com.sdds.uikit.internal.base.wrapWithInset
  */
 internal class ShapeHelper(
     private val view: View,
-    private val attrs: AttributeSet? = null,
-    private val defStyleAttr: Int = 0,
-    private val defStyleRes: Int = 0,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0,
+    defStyleRes: Int = 0,
 ) {
 
-    private var shapeModel: ShapeAppearanceModel? = null
+    private var shapeModel: ShapeModel? = null
     private var strokeColor: ColorStateList? = null
     private var strokeWidth: Float = 0f
     private var backgroundOverwritten: Boolean = false
@@ -43,9 +43,7 @@ internal class ShapeHelper(
 
     fun setShape(@StyleRes shapeResId: Int) {
         if (!canCreateShapeBackground()) return
-        val model = ShapeAppearanceModel
-            .builder(view.context, shapeResId, 0)
-            .build()
+        val model = ShapeModel.create(view.context, shapeResId)
         if (this.shapeModel != model) {
             this.shapeModel = model
             setInternalBackground()
@@ -66,7 +64,7 @@ internal class ShapeHelper(
         }
     }
 
-    private fun getShapeAppearanceModel(): ShapeAppearanceModel =
+    private fun getShapeAppearanceModel(): ShapeModel =
         this.shapeModel ?: throw IllegalStateException("background was overwritten")
 
     private fun setInternalBackground() = with(view) {
@@ -84,16 +82,18 @@ internal class ShapeHelper(
     }
 
     private fun createBackground(): Drawable {
-        val backgroundDrawable = MaterialShapeDrawable(getShapeAppearanceModel()).apply {
-            initializeElevationOverlay(view.context)
-            DrawableCompat.setTintList(this, view.backgroundTintList)
-            view.backgroundTintMode?.let { tintMode ->
-                DrawableCompat.setTintMode(this, tintMode)
+        val shapeModel = getShapeAppearanceModel()
+        return (view.background as? ShapeDrawable ?: ShapeDrawable())
+            .apply {
+                setShapeModel(shapeModel)
+                setStrokeTint(strokeColor)
+                setStrokeWidth(strokeWidth)
+                DrawableCompat.setTintList(this, view.backgroundTintList)
+                view.backgroundTintMode?.let { tintMode ->
+                    DrawableCompat.setTintMode(this, tintMode)
+                }
             }
-            setStroke(this@ShapeHelper.strokeWidth, this@ShapeHelper.strokeColor)
-        }
-        backgroundDrawable.elevation = view.elevation
-        return backgroundDrawable.wrapWithInset(insetLeft, insetTop, insetRight, insetBottom)
+            .wrapWithInset(insetLeft, insetTop, insetRight, insetBottom)
     }
 
     private fun obtainAttrs(attributeSet: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) {
@@ -107,12 +107,16 @@ internal class ShapeHelper(
         insetTop = typedArray.getDimensionPixelOffset(R.styleable.SdShape_android_insetTop, 0)
         insetRight = typedArray.getDimensionPixelOffset(R.styleable.SdShape_android_insetRight, 0)
         insetBottom = typedArray.getDimensionPixelOffset(R.styleable.SdShape_android_insetBottom, 0)
-        backgroundOverwritten = typedArray.hasValue(R.styleable.SdShape_android_background)
+        val currentBackground = typedArray.getDrawable(R.styleable.SdShape_android_background)
+        backgroundOverwritten = typedArray.hasValue(R.styleable.SdShape_android_background) &&
+            currentBackground !is ShapeDrawable
         needShapeBackground = typedArray.hasValue(R.styleable.SdShape_sd_shapeAppearance)
         strokeColor = typedArray.getColorStateList(R.styleable.SdShape_sd_strokeColor)
         strokeWidth = typedArray.getDimension(R.styleable.SdShape_sd_strokeWidth, 0f)
         val shapeResId = typedArray.getResourceId(R.styleable.SdShape_sd_shapeAppearance, -1)
-        if (shapeResId != -1) { setShape(shapeResId) }
+        if (shapeResId != -1) {
+            setShape(shapeResId)
+        }
         typedArray.recycle()
     }
 

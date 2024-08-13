@@ -7,10 +7,10 @@
     <style name="Sdds.Shape" />
 
     <style name="Sdds.Shape.Round">
-        <item name="cornerFamily">rounded</item>
+        <item name="sd_cornerFamily">rounded</item>
     </style>
 
     <style name="Sdds.Shape.Round.Circle">
-        <item name="cornerSize">50%</item>
+        <item name="sd_cornerSize">50%</item>
     </style>
 </resources>

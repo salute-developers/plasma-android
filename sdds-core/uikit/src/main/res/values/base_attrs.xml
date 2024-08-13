@@ -35,6 +35,37 @@
         <attr name="sd_strokeWidth" />
     </declare-styleable>
 
+    <declare-styleable name="SdShapeAppearance">
+        <attr name="sd_cornerFamily" format="enum">
+            <enum name="rounded" value="0"/>
+        </attr>
+
+        <attr name="sd_cornerSize" format="dimension|fraction" />
+        <attr name="sd_cornerSizeTopLeft" format="dimension|fraction" />
+        <attr name="sd_cornerSizeTopRight" format="dimension|fraction" />
+        <attr name="sd_cornerSizeBottomRight" format="dimension|fraction" />
+        <attr name="sd_cornerSizeBottomLeft" format="dimension|fraction" />
+    </declare-styleable>
+
+    <declare-styleable name="SdShapeDrawable">
+        <attr name="sd_gradientType" format="enum">
+            <enum name="none" value="0" />
+            <enum name="linear" value="1" />
+            <enum name="radial" value="2" />
+            <enum name="sweep" value="3" />
+            <enum name="solid" value="4" />
+        </attr>
+
+        <attr name="sd_angle" format="float"/>
+
+        <attr name="sd_radius" format="float" />
+        <attr name="sd_centerX" format="float" />
+        <attr name="sd_centerY" format="float" />
+
+        <attr name="sd_colors" format="reference" />
+        <attr name="sd_stops" format="reference" />
+    </declare-styleable>
+
     <declare-styleable name="SdFocusSelector">
         <attr name="sd_fsEnabled" format="boolean" />
         <attr name="sd_fsMode" format="enum">

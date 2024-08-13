@@ -16,6 +16,7 @@ import androidx.appcompat.content.res.AppCompatResources
 import com.sdds.uikit.R
 import com.sdds.uikit.internal.base.applyTextAppearance
 import com.sdds.uikit.internal.base.colorForState
+import com.sdds.uikit.shape.ShapeDrawable
 
 /**
  * [Drawable] рисующий компонент Chip.
