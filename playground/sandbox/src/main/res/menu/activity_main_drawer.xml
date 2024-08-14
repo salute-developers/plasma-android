@@ -7,5 +7,9 @@
         <item
             android:id="@+id/nav_basic_button"
             android:title="@string/menu_basicButton" />
+
+        <item
+            android:id="@+id/nav_icon_button"
+            android:title="@string/menu_iconButton" />
     </group>
 </menu>
