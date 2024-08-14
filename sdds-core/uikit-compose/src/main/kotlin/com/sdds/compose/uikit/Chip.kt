@@ -6,13 +6,13 @@ import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredSize
 import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
-import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -27,7 +27,7 @@ import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.internal.common.surface
 
 /**
- * Компонент Chip
+ * Компонент Chip с поддержкой кликабельности
  *
  * @param modifier модификатор
  * @param onClick обработчик нажатий
@@ -49,83 +49,7 @@ import com.sdds.compose.uikit.internal.common.surface
  * @param startPadding отступ компонента в начале
  * @param endPadding отступ компонента в конце
  * @param enabled включен ли компонент
- * @param interactionSource источник взаимодействий
- */
-@Composable
-@NonRestartableComposable
-fun Chip(
-    modifier: Modifier = Modifier,
-    onClick: (() -> Unit)? = null,
-    label: String = "",
-    labelStyle: TextStyle = TextStyle(),
-    shape: CornerBasedShape = RoundedCornerShape(25),
-    startContent: (@Composable () -> Unit)? = null,
-    endContent: (@Composable () -> Unit)? = null,
-    enabledAlpha: Float = 1f,
-    disabledAlpha: Float = 0.4f,
-    backgroundColor: Color = Color.Black,
-    pressedBackgroundColor: Color = Color.Gray,
-    startContentColor: Color = Color.White,
-    endContentColor: Color = Color.White,
-    startContentSize: Dp = 24.dp,
-    endContentSize: Dp = 24.dp,
-    startContentMargin: Dp = 12.dp,
-    endContentMargin: Dp = 12.dp,
-    startPadding: Dp = 12.dp,
-    endPadding: Dp = 12.dp,
-    enabled: Boolean = true,
-    indication: Indication? = null,
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-) {
-    Chip(
-        modifier = modifier,
-        onClick = onClick,
-        shape = shape,
-        label = label,
-        labelStyle = labelStyle,
-        startContent = startContent,
-        endContent = endContent,
-        enabledAlpha = enabledAlpha,
-        disabledAlpha = disabledAlpha,
-        backgroundColor = SolidColor(backgroundColor),
-        pressedBackgroundColor = SolidColor(pressedBackgroundColor),
-        startContentColor = startContentColor,
-        endContentColor = endContentColor,
-        startPadding = startPadding,
-        endPadding = endPadding,
-        startContentSize = startContentSize,
-        endContentSize = endContentSize,
-        startContentMargin = startContentMargin,
-        endContentMargin = endContentMargin,
-        enabled = enabled,
-        indication = indication,
-        interactionSource = interactionSource,
-    )
-}
-
-/**
- * Компонент Chip с поддержкой градиента
- *
- * @param modifier модификатор
- * @param onClick обработчик нажатий
- * @param label текст
- * @param labelStyle стиль текста
- * @param shape форма компонента
- * @param startContent контент в начале
- * @param endContent контент в конце
- * @param enabledAlpha альфа в состоянии [enabled] == true
- * @param disabledAlpha альфа в состоянии [enabled] == true
- * @param backgroundColor цвет бэкграунда
- * @param pressedBackgroundColor цвет бэкграунда в нажатом состоянии
- * @param startContentColor цвет контента в начале
- * @param endContentColor цвет контента в конце
- * @param startContentSize размер контента в начале
- * @param endContentSize размер контента в конце
- * @param startContentMargin отступ от [startContent]
- * @param endContentMargin отступ от [endContent]
- * @param startPadding отступ компонента в начале
- * @param endPadding отступ компонента в конце
- * @param enabled включен ли компонент
+ * @param indication [Indication]
  * @param interactionSource источник взаимодействий
  */
 @Composable
@@ -170,40 +94,150 @@ fun Chip(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.Center,
     ) {
-        startContent?.let {
-            CompositionLocalProvider(
-                LocalTint provides startContentColor,
+        ChipContent(
+            startContent = startContent,
+            label = label,
+            labelStyle = labelStyle,
+            endContent = endContent,
+            startContentColor = startContentColor,
+            endContentColor = endContentColor,
+            startContentSize = startContentSize,
+            endContentSize = endContentSize,
+            startContentMargin = startContentMargin,
+            endContentMargin = endContentMargin,
+        )
+    }
+}
+
+/**
+ * Компонент Chip с поддержкой selected состояния
+ *
+ * @param modifier модификатор
+ * @param isSelected выбран ли chip
+ * @param onSelectedChange обработчик смены состояния chip
+ * @param shape форма компонента
+ * @param startContent контент вначале
+ * @param label текст
+ * @param labelStyle стиль текста
+ * @param endContent контент вконце
+ * @param enabledAlpha альфа в состоянии [enabled] == true
+ * @param disabledAlpha альфа в состоянии [enabled] == true
+ * @param backgroundColor цвет бэкграунда
+ * @param startContentColor цвет контента вначале
+ * @param endContentColor цвет контента вконце
+ * @param startPadding отступ в начале
+ * @param endPadding отступ в конце
+ * @param startContentSize
+ * @param endContentSize
+ * @param startContentMargin
+ * @param endContentMargin
+ * @param enabled включен ли компонент
+ * @param indication [Indication]
+ * @param interactionSource источник взаимодействий
+ */
+@Composable
+fun Chip(
+    modifier: Modifier = Modifier,
+    isSelected: Boolean = false,
+    onSelectedChange: ((Boolean) -> Unit)? = null,
+    label: String = "",
+    labelStyle: TextStyle = TextStyle(),
+    shape: CornerBasedShape = RoundedCornerShape(25),
+    startContent: (@Composable () -> Unit)? = null,
+    endContent: (@Composable () -> Unit)? = null,
+    enabledAlpha: Float = 1f,
+    disabledAlpha: Float = 0.4f,
+    backgroundColor: Brush = SolidColor(Color.Black),
+    startContentColor: Color = Color.White,
+    endContentColor: Color = Color.White,
+    startPadding: Dp = 12.dp,
+    endPadding: Dp = 12.dp,
+    startContentSize: Dp = 24.dp,
+    endContentSize: Dp = 24.dp,
+    startContentMargin: Dp = 12.dp,
+    endContentMargin: Dp = 12.dp,
+    enabled: Boolean = true,
+    indication: Indication? = null,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+) {
+    Row(
+        modifier = modifier
+            .surface(
+                value = isSelected,
+                onValueChange = onSelectedChange,
+                shape = shape,
+                indication = indication,
+                enabledAlpha = enabledAlpha,
+                disabledAlpha = disabledAlpha,
+                backgroundColor = backgroundColor,
+                enabled = enabled,
+                interactionSource = interactionSource,
+            )
+            .padding(start = startPadding, end = endPadding),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.Center,
+    ) {
+        ChipContent(
+            startContent = startContent,
+            endContent = endContent,
+            startContentColor = startContentColor,
+            endContentColor = endContentColor,
+            label = label,
+            labelStyle = labelStyle,
+            startContentSize = startContentSize,
+            endContentSize = endContentSize,
+            startContentMargin = startContentMargin,
+            endContentMargin = endContentMargin,
+        )
+    }
+}
+
+@Composable
+private fun RowScope.ChipContent(
+    startContent: (@Composable () -> Unit)?,
+    endContent: (@Composable () -> Unit)?,
+    startContentColor: Color,
+    endContentColor: Color,
+    label: String,
+    labelStyle: TextStyle,
+    startContentSize: Dp,
+    endContentSize: Dp,
+    startContentMargin: Dp,
+    endContentMargin: Dp,
+) {
+    startContent?.let {
+        CompositionLocalProvider(
+            LocalTint provides startContentColor,
+        ) {
+            Box(
+                modifier = Modifier
+                    .padding(end = startContentMargin)
+                    .requiredSize(startContentSize),
             ) {
-                Box(
-                    modifier = Modifier
-                        .padding(end = startContentMargin)
-                        .requiredSize(startContentSize),
-                ) {
-                    startContent()
-                }
+                startContent()
             }
         }
-        if (label.isNotEmpty()) {
-            Text(
+    }
+    if (label.isNotEmpty()) {
+        Text(
+            modifier = Modifier
+                .weight(weight = 1f, fill = false),
+            text = label,
+            style = labelStyle,
+            maxLines = 1,
+            overflow = TextOverflow.Ellipsis,
+        )
+    }
+    endContent?.let {
+        CompositionLocalProvider(
+            LocalTint provides endContentColor,
+        ) {
+            Box(
                 modifier = Modifier
-                    .weight(weight = 1f, fill = false),
-                text = label,
-                style = labelStyle,
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis,
-            )
-        }
-        endContent?.let {
-            CompositionLocalProvider(
-                LocalTint provides endContentColor,
+                    .padding(start = endContentMargin)
+                    .requiredSize(endContentSize),
             ) {
-                Box(
-                    modifier = Modifier
-                        .padding(start = endContentMargin)
-                        .requiredSize(endContentSize),
-                ) {
-                    endContent()
-                }
+                endContent()
             }
         }
     }
