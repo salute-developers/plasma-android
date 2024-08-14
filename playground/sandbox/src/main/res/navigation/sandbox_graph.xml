@@ -11,4 +11,10 @@
         android:label="@string/menu_basicButton"
         tools:layout="@layout/fragment_component_scaffold" />
 
+    <fragment
+        android:id="@+id/nav_icon_button"
+        android:name="com.sdds.playground.sandbox.buttons.IconButtonFragment"
+        android:label="@string/menu_basicButton"
+        tools:layout="@layout/fragment_component_scaffold" />
+
 </navigation>

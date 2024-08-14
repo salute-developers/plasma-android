@@ -29,7 +29,7 @@ internal class BasicButtonFragment : ComponentFragment() {
     override val propertiesOwner: PropertiesOwner
         get() = buttonViewModel
 
-    private var currentVariant: ButtonVariant = ButtonVariant.BasicButtonLDefault
+    private var currentVariant: ButtonVariant = BasicButtonVariant.BasicButtonLDefault
     private var button: Button? = null
     private var isFixedSize: Boolean = false
 

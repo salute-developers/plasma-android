@@ -24,7 +24,15 @@ internal class ButtonParametersViewModel(
     private val buttonType: ButtonType,
 ) : ViewModel(), PropertiesOwner {
 
-    private val _buttonSate = MutableStateFlow(ButtonUiState())
+    private val _defaultState
+        get() = ButtonUiState(
+            when (buttonType) {
+                ButtonType.Basic -> BasicButtonVariant.BasicButtonLDefault
+                ButtonType.Icon -> IconButtonVariant.IconButtonLDefault
+            },
+        )
+
+    private val _buttonSate = MutableStateFlow(_defaultState)
 
     /**
      * Состояние кнопки
@@ -53,7 +61,13 @@ internal class ButtonParametersViewModel(
     override fun updateProperty(name: String, value: Any?) {
         val pName = PropertyName.values().find { it.value == name }
         when (pName) {
-            PropertyName.Variant -> updateVariant(ButtonVariant.valueOf(value?.toString() ?: return))
+            PropertyName.Variant -> {
+                val variant = when (buttonType) {
+                    ButtonType.Basic -> BasicButtonVariant.valueOf(value?.toString() ?: return)
+                    ButtonType.Icon -> IconButtonVariant.valueOf(value?.toString() ?: return)
+                }
+                updateVariant(variant)
+            }
             PropertyName.Icon -> updateIcon(
                 when (value?.toString()) {
                     ButtonIcon.Start::class.simpleName -> ButtonIcon.Start
@@ -75,7 +89,7 @@ internal class ButtonParametersViewModel(
      * @see PropertiesOwner.resetToDefault
      */
     override fun resetToDefault() {
-        _buttonSate.value = ButtonUiState()
+        _buttonSate.value = _defaultState
     }
 
     private fun updateVariant(variant: ButtonVariant) {
@@ -130,7 +144,7 @@ internal class ButtonParametersViewModel(
         return listOfNotNull(
             enumProperty(
                 name = PropertyName.Variant.value,
-                value = variant,
+                value = variant as IconButtonVariant,
             ),
 
             Property.BooleanProperty(
@@ -148,7 +162,7 @@ internal class ButtonParametersViewModel(
         return listOfNotNull(
             enumProperty(
                 name = PropertyName.Variant.value,
-                value = variant,
+                value = variant as BasicButtonVariant,
             ),
 
             Property.SingleChoiceProperty(
