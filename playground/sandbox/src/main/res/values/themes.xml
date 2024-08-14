@@ -20,6 +20,7 @@
         <item name="android:toolbarStyle">@style/Theme.Sandbox.Toolbar</item>
         <item name="toolbarStyle">@style/Theme.Sandbox.Toolbar</item>
 
+        <item name="sd_shapeAppearanceCircle">@style/Sdds.Shape.Round.Circle</item>
         <item name="thmbldr_shapeRoundXxl">@style/Thmbldr.StylesSalute.Shape.Round.Xxl</item>
         <item name="thmbldr_shapeRoundXl">@style/Thmbldr.StylesSalute.Shape.Round.Xl</item>
         <item name="thmbldr_shapeRoundL">@style/Thmbldr.StylesSalute.Shape.Round.L</item>
@@ -33,6 +34,7 @@
         <item name="android:radioButtonStyle">@style/Theme.Sandbox.Components.RadioBox.M</item>
         <item name="bottomSheetDialogTheme">@style/Theme.Sandbox.ComponentOverlays.BottomSheetDialog</item>
         <item name="sd_disabledAlpha">0.4</item>
+
     </style>
 
     <style name="Theme.Sandbox.Toolbar" parent="Widget.MaterialComponents.Toolbar.Primary">

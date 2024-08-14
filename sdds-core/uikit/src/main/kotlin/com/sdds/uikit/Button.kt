@@ -478,9 +478,13 @@ open class Button @JvmOverloads constructor(
     }
 
     private fun resetText() {
-        resetSpanSpace()
-        super.setText(getButtonText(), null)
-        requestLayout()
+        if (hasLabel() || hasValue()) {
+            resetSpanSpace()
+            super.setText(getButtonText(), null)
+            requestLayout()
+        } else {
+            super.setText(null, null)
+        }
     }
 
     private fun updateIcon(needsIconReset: Boolean) {
