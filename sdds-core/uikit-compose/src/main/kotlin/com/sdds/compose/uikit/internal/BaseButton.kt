@@ -1,6 +1,8 @@
 package com.sdds.compose.uikit.internal
 
+import androidx.compose.foundation.Indication
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
@@ -12,30 +14,32 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.CornerBasedShape
-import androidx.compose.material.ButtonDefaults
-import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.Icon
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.Button
+import com.sdds.compose.uikit.Icon
+import com.sdds.compose.uikit.LocalTint
+import com.sdds.compose.uikit.Text
+import com.sdds.compose.uikit.internal.common.surface
 
 /**
  * Базовая кнопка
  */
-@OptIn(ExperimentalMaterialApi::class)
 @Composable
 internal fun BaseButton(
     modifier: Modifier = Modifier,
@@ -43,6 +47,7 @@ internal fun BaseButton(
     shape: CornerBasedShape,
     contentColor: Color,
     backgroundColor: Color,
+    pressedBackgroundColor: Color,
     spinnerColor: Color,
     spinnerMode: Button.SpinnerMode,
     dimensions: Button.Dimensions,
@@ -50,32 +55,28 @@ internal fun BaseButton(
     disabledAlpha: Float,
     enabled: Boolean = true,
     loading: Boolean = false,
+    indication: Indication? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     content: @Composable RowScope.() -> Unit,
 ) {
-    val colors = ButtonDefaults.buttonColors(
-        backgroundColor = backgroundColor,
-        contentColor = contentColor,
-        disabledBackgroundColor = backgroundColor,
-        disabledContentColor = contentColor,
-    )
-    Surface(
-        onClick = onClick,
-        modifier = modifier
-            .height(dimensions.height)
-            .alpha(if (enabled) enabledAlpha else disabledAlpha),
-        enabled = enabled,
-        shape = shape,
-        color = colors.backgroundColor(enabled).value,
-        contentColor = contentColor,
-        border = null,
-        elevation = 0.dp,
-        interactionSource = interactionSource,
-    ) {
+    val isPressed by interactionSource.collectIsPressedAsState()
+    CompositionLocalProvider(LocalTint provides contentColor) {
         Box(
-            modifier = Modifier
-                .wrapContentSize()
+            modifier = modifier
                 .defaultMinSize(dimensions.minWidth, dimensions.height)
+                .height(dimensions.height)
+                .wrapContentWidth()
+                .surface(
+                    shape = shape,
+                    onClick = onClick,
+                    backgroundColor = SolidColor(if (isPressed) pressedBackgroundColor else backgroundColor),
+                    indication = indication,
+                    enabled = enabled,
+                    enabledAlpha = enabledAlpha,
+                    disabledAlpha = disabledAlpha,
+                    role = Role.Button,
+                    interactionSource = interactionSource,
+                )
                 .padding(dimensions.paddings.start, 0.dp, dimensions.paddings.end, 0.dp),
             contentAlignment = Alignment.Center,
         ) {
@@ -128,8 +129,6 @@ internal fun RowScope.ButtonText(
     label: String,
     labelTextStyle: TextStyle,
     valueTextStyle: TextStyle,
-    labelColor: Color,
-    valueColor: Color,
     modifier: Modifier = Modifier,
     valueMargin: Dp,
     spacing: Button.Spacing,
@@ -149,7 +148,6 @@ internal fun RowScope.ButtonText(
             Text(
                 text = label,
                 style = labelTextStyle,
-                color = labelColor,
                 softWrap = false,
                 overflow = TextOverflow.Ellipsis,
             )
@@ -159,7 +157,6 @@ internal fun RowScope.ButtonText(
             Text(
                 text = value,
                 style = valueTextStyle,
-                color = valueColor,
                 softWrap = false,
                 overflow = TextOverflow.Ellipsis,
             )
@@ -169,7 +166,6 @@ internal fun RowScope.ButtonText(
             text = label,
             modifier = modifier,
             style = labelTextStyle,
-            color = labelColor,
             softWrap = false,
             overflow = TextOverflow.Ellipsis,
         )

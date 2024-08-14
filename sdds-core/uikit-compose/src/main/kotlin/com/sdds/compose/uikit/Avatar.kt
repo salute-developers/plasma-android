@@ -27,6 +27,7 @@ import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.ExperimentalTextApi
+import androidx.compose.ui.text.TextMeasurer
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.drawText
 import androidx.compose.ui.text.rememberTextMeasurer
@@ -34,6 +35,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.internal.AvatarDefaults
 
 /**
  * Компонент [Avatar] предназначен для отрисовки пользовательских аватаров.
@@ -51,7 +53,7 @@ import androidx.compose.ui.unit.dp
  * @param actionSize размер иконки действия
  * @param actionColor цвет иконки действия
  * @param actionScrimColor цвет фона иконки действия
- * @param text текст-заглушка
+ * @param placeholder текст-заглушка
  * @param textStyle стиль текста-заглушки
  * @param textBrush [Brush] текста-заглушки
  * @param contentDescription описание контента для accessibility
@@ -66,15 +68,15 @@ fun Avatar(
     statusColor: Color = Color.DarkGray,
     statusSize: Dp = 8.dp,
     statusOffset: Offset = Offset.Zero,
-    statusEnabled: Boolean = false,
+    statusEnabled: Boolean = LocalAvatarGroupStatusEnabled.current,
     action: Painter? = null,
-    actionEnabled: Boolean = false,
+    actionEnabled: Boolean = LocalAvatarGroupActionEnabled.current,
     actionSize: Size? = null,
     actionColor: Color = Color.White,
     actionScrimColor: Color = Color.Black,
-    text: String? = null,
+    placeholder: Avatar.Placeholder? = null,
     textStyle: TextStyle = LocalTextStyle.current,
-    textBrush: Brush = Defaults.defaultBrush,
+    textBrush: Brush = AvatarDefaults.defaultBrush,
     contentDescription: String? = null,
     contentScale: ContentScale = ContentScale.None,
     filterQuality: FilterQuality = FilterQuality.Low,
@@ -97,7 +99,7 @@ fun Avatar(
         actionSize = actionSize,
         actionColor = actionColor,
         actionScrimColor = actionScrimColor,
-        text = text,
+        placeholder = placeholder,
         textStyle = textStyle,
         textBrush = textBrush,
         contentDescription = contentDescription,
@@ -121,7 +123,7 @@ fun Avatar(
  * @param actionSize размер иконки действия
  * @param actionColor цвет иконки действия
  * @param actionScrimColor цвет фона иконки действия
- * @param text текст-заглушка
+ * @param placeholder текст-заглушка
  * @param textStyle стиль текста-заглушки
  * @param textBrush [Brush] текста-заглушки
  * @param contentDescription описание контента для accessibility
@@ -135,15 +137,15 @@ fun Avatar(
     statusColor: Color = Color.DarkGray,
     statusSize: Dp = 8.dp,
     statusOffset: Offset = Offset.Zero,
-    statusEnabled: Boolean = false,
+    statusEnabled: Boolean = LocalAvatarGroupStatusEnabled.current,
     action: Painter? = null,
-    actionEnabled: Boolean = false,
+    actionEnabled: Boolean = LocalAvatarGroupActionEnabled.current,
     actionSize: Size? = null,
     actionColor: Color = Color.White,
     actionScrimColor: Color = Color.Black,
-    text: String? = null,
+    placeholder: Avatar.Placeholder? = null,
     textStyle: TextStyle = LocalTextStyle.current,
-    textBrush: Brush = Defaults.defaultBrush,
+    textBrush: Brush = AvatarDefaults.defaultBrush,
     contentDescription: String? = null,
     contentScale: ContentScale = ContentScale.None,
 ) {
@@ -160,7 +162,7 @@ fun Avatar(
         actionSize = actionSize,
         actionColor = actionColor,
         actionScrimColor = actionScrimColor,
-        text = text,
+        placeholder = placeholder,
         textStyle = textStyle,
         textBrush = textBrush,
         contentDescription = contentDescription,
@@ -184,7 +186,7 @@ fun Avatar(
  * @param actionSize размер иконки действия
  * @param actionColor цвет иконки действия
  * @param actionScrimColor цвет фона иконки действия
- * @param text текст-заглушка
+ * @param placeholder текст-заглушка
  * @param textStyle стиль текста-заглушки
  * @param textBrush [Brush] текста-заглушки
  * @param contentDescription описание контента для accessibility
@@ -198,15 +200,15 @@ fun Avatar(
     statusColor: Color = Color.DarkGray,
     statusSize: Dp = 8.dp,
     statusOffset: Offset = Offset.Zero,
-    statusEnabled: Boolean = false,
+    statusEnabled: Boolean = LocalAvatarGroupStatusEnabled.current,
     action: Painter? = null,
-    actionEnabled: Boolean = false,
+    actionEnabled: Boolean = LocalAvatarGroupActionEnabled.current,
     actionSize: Size? = null,
     actionColor: Color = Color.White,
     actionScrimColor: Color = Color.Black,
-    text: String? = null,
+    placeholder: Avatar.Placeholder? = null,
     textStyle: TextStyle = LocalTextStyle.current,
-    textBrush: Brush = Defaults.defaultBrush,
+    textBrush: Brush = AvatarDefaults.defaultBrush,
     contentDescription: String? = null,
     contentScale: ContentScale = ContentScale.None,
 ) {
@@ -222,7 +224,7 @@ fun Avatar(
             actionSize = actionSize,
             actionColor = actionColor,
             actionScrimColor = actionScrimColor,
-            text = text,
+            placeholder = placeholder,
             textStyle = textStyle,
             textBrush = textBrush,
         ),
@@ -266,7 +268,7 @@ fun Avatar(
  * @param actionSize размер иконки действия
  * @param actionColor цвет иконки действия
  * @param actionScrimColor цвет фона иконки действия
- * @param text текст-заглушка
+ * @param placeholder текст-заглушка
  * @param textStyle стиль текста-заглушки
  * @param textBrush [Brush] текста-заглушки
  */
@@ -282,12 +284,12 @@ fun Modifier.avatar(
     actionSize: Size? = null,
     actionColor: Color = Color.White,
     actionScrimColor: Color = Color.Black,
-    text: String? = null,
+    placeholder: Avatar.Placeholder? = null,
     textStyle: TextStyle = TextStyle.Default,
-    textBrush: Brush = Defaults.defaultBrush,
-): Modifier {
-    val statusModifier = if (statusEnabled) {
-        Modifier.drawStatus(
+    textBrush: Brush = AvatarDefaults.defaultBrush,
+): Modifier = composed {
+    val statusModifier = if (statusEnabled && LocalAvatarGroupStatusEnabled.current) {
+        Modifier.status(
             size = statusSize,
             color = statusColor,
             offset = statusOffset,
@@ -296,17 +298,18 @@ fun Modifier.avatar(
         Modifier
     }
 
-    val placeholderModifier = if (text != null) {
-        Modifier.drawPlaceholder(
-            text = text,
+    val placeholderModifier = if (placeholder != null) {
+        Modifier.placeholder(
+            text = placeholder.minimize,
             style = textStyle.merge(TextStyle(brush = textBrush)),
+            textMeasurer = rememberTextMeasurer(),
         )
     } else {
         Modifier
     }
 
-    val actionModifier = if (action != null && actionEnabled) {
-        Modifier.drawAction(
+    val actionModifier = if (action != null && actionEnabled && LocalAvatarGroupActionEnabled.current) {
+        Modifier.action(
             painter = action,
             color = actionColor,
             scrimColor = actionScrimColor,
@@ -316,26 +319,47 @@ fun Modifier.avatar(
         Modifier
     }
 
-    return statusModifier
-        .clip(shape)
-        .background(Defaults.defaultBrush, alpha = Defaults.BackgroundOpacity)
+    statusModifier
+        .clip(LocalAvatarGroupShape.current ?: shape)
+        .background(AvatarDefaults.defaultBrush, alpha = AvatarDefaults.BackgroundOpacity)
         .then(this)
         .then(placeholderModifier)
         .then(actionModifier)
 }
 
-private object Defaults {
-    const val BackgroundOpacity: Float = 0.2f
+/**
+ * Параметры компонента [Avatar]
+ */
+object Avatar {
 
-    val defaultBrush: Brush = Brush.linearGradient(
-        0f to Color(0xFF1A9E32),
-        1f to Color(0xFF04C6C9),
-        start = Offset(0f, Float.POSITIVE_INFINITY),
-        end = Offset(Float.POSITIVE_INFINITY, 0f),
-    )
+    /**
+     * Заглушка для аватара
+     */
+    sealed class Placeholder {
+
+        /**
+         * Текстовая заглушка на основе имени.
+         * В этом случае текст-заглушка - это инициалы имени
+         * @property fullName полное имя
+         */
+        data class Name(val fullName: String) : Placeholder() {
+
+            /**
+             * @param firstName имя
+             * @param lastName фамилия
+             */
+            constructor(firstName: String, lastName: String) : this("$firstName $lastName")
+        }
+
+        /**
+         * Обычная текстовая заглушка
+         * @property value текстовое значение заглушки
+         */
+        data class Text(val value: String) : Placeholder()
+    }
 }
 
-private fun Modifier.drawStatus(
+private fun Modifier.status(
     size: Dp,
     color: Color,
     offset: Offset,
@@ -353,33 +377,31 @@ private fun Modifier.drawStatus(
 }
 
 @OptIn(ExperimentalTextApi::class)
-private fun Modifier.drawPlaceholder(
+private fun Modifier.placeholder(
     text: String,
     style: TextStyle,
-) = composed {
-    val textMeasurer = rememberTextMeasurer()
-    drawBehind {
-        val textLayoutResult = textMeasurer.measure(
-            text = AnnotatedString(text),
-            style = style,
-            overflow = TextOverflow.Clip,
-            softWrap = true,
-            maxLines = 1,
-            constraints = Constraints(maxWidth = size.width.toInt(), maxHeight = size.height.toInt()),
-            layoutDirection = layoutDirection,
-            density = this,
-        )
-        drawText(
-            textLayoutResult = textLayoutResult,
-            topLeft = Offset(
-                x = center.x - textLayoutResult.size.width / 2,
-                y = center.y - textLayoutResult.size.height / 2,
-            ),
-        )
-    }
+    textMeasurer: TextMeasurer,
+) = drawBehind {
+    val textLayoutResult = textMeasurer.measure(
+        text = AnnotatedString(text),
+        style = style,
+        overflow = TextOverflow.Clip,
+        softWrap = true,
+        maxLines = 1,
+        constraints = Constraints(maxWidth = size.width.toInt(), maxHeight = size.height.toInt()),
+        layoutDirection = layoutDirection,
+        density = this,
+    )
+    drawText(
+        textLayoutResult = textLayoutResult,
+        topLeft = Offset(
+            x = center.x - textLayoutResult.size.width / 2,
+            y = center.y - textLayoutResult.size.height / 2,
+        ),
+    )
 }
 
-private fun Modifier.drawAction(
+private fun Modifier.action(
     painter: Painter,
     color: Color,
     scrimColor: Color,
@@ -398,4 +420,16 @@ private fun Modifier.drawAction(
                 )
             }
         }
+    }
+
+private val Avatar.Placeholder.minimize
+    get() = when (this) {
+        is Avatar.Placeholder.Name ->
+            this.fullName
+                .split(' ')
+                .mapNotNull { it.firstOrNull()?.toString() }
+                .take(2)
+                .reduce { acc, s -> acc + s }
+
+        is Avatar.Placeholder.Text -> this.value
     }

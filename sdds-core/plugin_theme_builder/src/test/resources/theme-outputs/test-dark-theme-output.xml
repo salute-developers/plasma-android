@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <resources>
-    <style name="Thmbldr.TestTheme" parent="Sdds.Theme">
+    <style name="Thmbldr.TestTheme">
         <!--Dark colors-->
         <item name="thmbldr_textPrimary">@color/thmbldr_dark_text_primary</item>
     </style>

@@ -28,6 +28,7 @@ import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import org.gradle.api.DefaultTask
 import org.gradle.api.file.DirectoryProperty
 import org.gradle.api.file.RegularFileProperty
+import org.gradle.api.provider.ListProperty
 import org.gradle.api.provider.Property
 import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.InputFile
@@ -110,13 +111,13 @@ abstract class GenerateThemeTask : DefaultTask() {
      * Префикс для названий ресурсов токенов
      */
     @get:Input
-    abstract val resourcesPrefix: Property<String>
+    abstract val resourcesPrefixConfig: Property<ResourcePrefixConfig>
 
     /**
-     * Название родительской темы, от которой будет унаследована генерируемая тема
+     * Список родительских тем, от которых будут унаследованы генерируемые темы для view
      */
     @get:Input
-    abstract val parentThemeName: Property<String>
+    abstract val viewThemeParents: ListProperty<ViewThemeParent>
 
     /**
      * Режим генерации: токены или тема
@@ -160,17 +161,20 @@ abstract class GenerateThemeTask : DefaultTask() {
             dimensAggregator = dimensAggregator,
             fontsAggregator = fontsAggregator,
             xmlResourcesDocumentBuilderFactory = XmlResourcesDocumentBuilderFactory(
-                resourcesPrefix.get(),
+                resourcesPrefixConfig.get().resourcePrefix,
                 themeName.get(),
             ),
             xmlFontFamilyDocumentBuilderFactory = XmlFontFamilyDocumentBuilderFactory(),
             fontDownloaderFactory = FontDownloaderFactory(),
             ktFileBuilderFactory = KtFileBuilderFactory(packageName.get()),
             ktFileFromResourcesBuilderFactory = KtFileFromResourcesBuilderFactory(packageName.get()),
-            resourceReferenceProvider = ResourceReferenceProvider(resourcesPrefix.get(), themeName.get()),
+            resourceReferenceProvider = ResourceReferenceProvider(
+                resourcesPrefixConfig.get().resourcePrefix,
+                themeName.get(),
+            ),
             namespace = namespace.get(),
-            resPrefix = resourcesPrefix.get(),
-            parentThemeName = parentThemeName.get(),
+            resPrefixConfig = resourcesPrefixConfig.get(),
+            viewThemeParents = viewThemeParents.get(),
             themeName = themeName.get(),
         )
     }
@@ -179,7 +183,12 @@ abstract class GenerateThemeTask : DefaultTask() {
     private val colorGenerator by unsafeLazy {
         generatorFactory.createColorGenerator(colors, palette)
     }
-    private val gradientGenerator by unsafeLazy { generatorFactory.createGradientGenerator(gradients, palette) }
+    private val gradientGenerator by unsafeLazy {
+        generatorFactory.createGradientGenerator(
+            gradients,
+            palette,
+        )
+    }
     private val fontGenerator by unsafeLazy { generatorFactory.createFontGenerator(fonts) }
     private val typographyGenerator by unsafeLazy {
         generatorFactory.createTypographyGenerator(typography)
@@ -223,7 +232,8 @@ abstract class GenerateThemeTask : DefaultTask() {
     }
 
     private fun decodeBase(): Theme =
-        metaFile.get().asFile.decode<Theme>(Serializer.meta).also { logger.debug("decoded base $it") }
+        metaFile.get().asFile.decode<Theme>(Serializer.meta)
+            .also { logger.debug("decoded base $it") }
 
     private val colors: Map<String, String> by unsafeLazy {
         colorFile.get().asFile.decode<Map<String, String>>()

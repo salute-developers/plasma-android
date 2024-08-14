@@ -197,8 +197,8 @@ class ThemeBuilderPlugin : Plugin<Project> {
 
             packageName.set(extension.ktPackage ?: DEFAULT_KT_PACKAGE)
             target.set(extension.target)
-            resourcesPrefix.set(extension.resourcesPrefix ?: project.getDefaultResourcePrefix())
-            parentThemeName.set(extension.parentThemeName)
+            resourcesPrefixConfig.set(getResourcePrefixConfig(extension))
+            viewThemeParents.set(extension.viewThemeParents)
             generatorMode.set(extension.mode)
             val projectDirProperty = objects.directoryProperty()
                 .apply { set(layout.projectDirectory) }
@@ -206,8 +206,21 @@ class ThemeBuilderPlugin : Plugin<Project> {
             outputDirPath.set(OUTPUT_PATH)
             outputResDirPath.set(OUTPUT_RESOURCE_PATH)
             namespace.set(getProjectNameSpace())
+
             dependsOn(unzipTask)
         }
+    }
+
+    private fun Project.getResourcePrefixConfig(extension: ThemeBuilderExtension): ResourcePrefixConfig {
+        return extension.resourcesPrefix?.let {
+            ResourcePrefixConfig(
+                resourcePrefix = it,
+                shouldGenerateResPrefixStyle = true,
+            )
+        } ?: ResourcePrefixConfig(
+            resourcePrefix = project.getDefaultResourcePrefix(),
+            shouldGenerateResPrefixStyle = false,
+        )
     }
 
     private fun BaseExtension.configureSourceSets() {

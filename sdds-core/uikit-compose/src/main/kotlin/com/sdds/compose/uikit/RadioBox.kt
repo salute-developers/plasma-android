@@ -211,7 +211,7 @@ fun HorizontalRadioBoxGroup(
 }
 
 /**
- * Горизонтальная группа [RadioBox]
+ * Вертикальная группа [RadioBox]
  * @param items элементы группы
  * @param modifier модификатор
  * @param verticalArrangement способ распределения элементов по вертикали

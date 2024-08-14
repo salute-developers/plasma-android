@@ -73,13 +73,22 @@ themeSource(url = "https://example.com/themes/theme.zip")
 </details>
 
 #### `view` (optional)
-Опциональная настройка генерации темы для view фреймворка. Можно указать `parentThemeName` - название родительской темы, от которой будет унаследована генерируемая тема. Если не указать, то сгенерированная тема для view не будет иметь parent'a. 
+Опциональная настройка генерации тем для view фреймворка. Можно указать список наследуемых тем. 
+Если не указать, то сгенерированная тема для view не будет иметь parent'a и будет представлена в двух директориях res/values и res/values-night.
 
 <details>
 <summary>Примеры настройки view</summary>
 
 ```kotlin
-view(parentThemeName = "Theme.MaterialComponents")
+view { 
+    themeParents {
+        materialComponentsTheme() // Наследуемся от Theme.MaterialComponents и генерируем единственную тему c темными токенами
+        materialComponentsTheme("DayNight") // Наследуемся от Theme.MaterialComponents.DayNight
+        appCompatTheme("Light.NoActionBar") // Наследуемся от Theme.AppCompat.Light.NoActionBar и генерируем единственную тему cо светлыми токенами
+        customTheme("Theme.App", ViewThemeType.DARK_LIGHT) // Наследумся от Theme.App и генерируем тему для двух режимов
+        customTheme("Theme.Custom", ViewThemeType.DARK) // Наследумся от Theme.Custom и генерируем единственную тему c темными токенами
+    }
+}
 ```
 ```kotlin
 view() // Тема не будет иметь parent'a
