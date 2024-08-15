@@ -17,6 +17,8 @@ import com.sdds.compose.uikit.TextField
 import com.sdds.compose.uikit.TextField.DotBadge
 import com.sdds.compose.uikit.TextField.LabelType
 import com.sdds.compose.uikit.adjustBy
+import com.sdds.playground.sandbox.chip.SandboxEmbeddedChip
+import com.sdds.playground.sandbox.textfield.SandboxTextField.InputState
 import com.sdds.playground.sandbox.tokens.compose.StylesSaluteTheme
 
 /**
@@ -100,6 +102,8 @@ internal interface SandboxTextFieldStyles {
     /**
      * Текстовый стиль внешнего лейбла
      * @param size размер текстового поля
+     * @param colors цвета текстового поля
+     * @param inputState состояние текстового поля
      */
     @Composable
     fun outerLabelStyle(
@@ -111,8 +115,9 @@ internal interface SandboxTextFieldStyles {
     /**
      * Текстовый стиль внутреннего лейбла
      * @param size размер текстового поля
-     * @param isFocused true, если поле в фокусе
+     * @param inputState cjстояние текстового поля
      * @param isEmpty true, если поле пустое
+     * @param colors цвета текстового поля
      */
     @Composable
     fun innerLabelStyle(
@@ -125,6 +130,8 @@ internal interface SandboxTextFieldStyles {
     /**
      * Текстовый стиль значения поля
      * @param size размер текстового поля
+     * @param colors цвета текстового поля
+     * @param inputState состояние текстового поля
      */
     @Composable
     fun valueStyle(
@@ -136,6 +143,8 @@ internal interface SandboxTextFieldStyles {
     /**
      * Текстовый стиль подписи поля
      * @param size размер текстового поля
+     * @param colors цвета текстового поля
+     * @param inputState состояние текстового поля
      */
     @Composable
     fun captionStyle(
@@ -147,6 +156,8 @@ internal interface SandboxTextFieldStyles {
     /**
      * Текстовый стиль заглушки поля
      * @param size размер текстового поля
+     * @param colors цвета текстового поля
+     * @param inputState состояние текстового поля
      */
     @Composable
     fun placeholderStyle(
@@ -201,6 +212,24 @@ internal object TextFieldDefaults {
                 color = Color.Red,
                 position = position,
             )
+        }
+    }
+
+    fun chipGroupSize(size: SandboxTextField.Size): SandboxEmbeddedChip.Size {
+        return when (size) {
+            SandboxTextField.Size.L -> SandboxEmbeddedChip.Size.L
+            SandboxTextField.Size.M -> SandboxEmbeddedChip.Size.M
+            SandboxTextField.Size.S -> SandboxEmbeddedChip.Size.S
+            SandboxTextField.Size.XS -> SandboxEmbeddedChip.Size.XS
+        }
+    }
+
+    fun chipContainerCornerRadius(size: SandboxTextField.Size): Dp {
+        return when (size) {
+            SandboxTextField.Size.L -> 8.dp
+            SandboxTextField.Size.M -> 6.dp
+            SandboxTextField.Size.S -> 4.dp
+            SandboxTextField.Size.XS -> 2.dp
         }
     }
 

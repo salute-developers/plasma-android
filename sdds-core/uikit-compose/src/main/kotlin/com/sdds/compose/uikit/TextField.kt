@@ -70,9 +70,12 @@ import com.sdds.compose.uikit.internal.textfield.DotBadge
  * @param fieldHeight высота текстового поля
  * @param fieldHeight высота текстового поля
  * @param animation параметры анимации [TextField.Animation]
- * @param keepDotBadgeStartPadding позволяет выставить отступ слева, для случаев, когда нужно сохранить отступ, эквивалентный ширине [dotBadge].
- * Например, когда TextField используется в списке и состояние [dotBadge] меняется у разных элементов,
- * может появиться необходимость сохранить отступ слева, когда бэйдж скрывается.
+ * @param keepDotBadgeStartPadding позволяет выставить отступ слева, для случаев, когда нужно сохранить отступ, эквивалентный ширине индикатора обязательного поля.
+ * Например, когда TextField используется в списке и состояние [fieldType] меняется у разных элементов,
+ * может появиться необходимость сохранить отступ слева, когда индикатор обзательного поля скрывается.
+ * @param chipsContent контент с chip-элементами
+ * @param chipsSpacing расстояние между chip-элементами
+ * @param chipContainerCornerRadius позволяет скруглять контейнер, в котором находятся чипы и текстовое поля.
  * @param interactionSource источник взаимодействия с полем
  */
 @Suppress("LongParameterList")
@@ -94,6 +97,9 @@ fun TextField(
     captionText: String? = null,
     leadingIcon: @Composable (() -> Unit)? = null,
     trailingIcon: @Composable (() -> Unit)? = null,
+    chipsContent: @Composable (() -> Unit)? = null,
+    chipsSpacing: Dp = 2.dp,
+    chipContainerCornerRadius: Dp? = null,
     outerLabelStyle: TextStyle = TextStyle(),
     innerLabelStyle: TextStyle = TextStyle(),
     valuesStyle: TextStyle = TextStyle(),
@@ -156,6 +162,9 @@ fun TextField(
         fieldHeight = fieldHeight,
         animation = animation,
         keepDotBadgeStartPadding = keepDotBadgeStartPadding,
+        chipsContent = chipsContent,
+        chipsSpacing = chipsSpacing,
+        chipContainerCornerRadius = chipContainerCornerRadius,
         interactionSource = interactionSource,
     )
 }
@@ -201,9 +210,12 @@ fun TextField(
  * @param fieldHeight высота текстового поля
  * @param fieldHeight высота текстового поля
  * @param animation параметры анимации [TextField.Animation]
- * @param keepDotBadgeStartPadding позволяет выставить отступ слева, для случаев, когда нужно сохранить отступ, эквивалентный ширине [dotBadge].
- * Например, когда TextField используется в списке и состояние [dotBadge] меняется у разных элементов,
- * может появиться необходимость сохранить отступ слева, когда бэйдж скрывается.
+ * @param keepDotBadgeStartPadding позволяет выставить отступ слева, для случаев, когда нужно сохранить отступ, эквивалентный ширине индикатора обязательного поля.
+ * Например, когда TextField используется в списке и состояние [fieldType] меняется у разных элементов,
+ * может появиться необходимость сохранить отступ слева, когда индикатор обзательного поля скрывается.
+ * @param chipsContent контент с chip-элементами
+ * @param chipsSpacing расстояние между chip-элементами
+ * @param chipContainerCornerRadius позволяет скруглять контейнер, в котором находятся чипы и текстовое поля.
  * @param interactionSource источник взаимодействия с полем
  */
 @Suppress("LongParameterList", "LongMethod")
@@ -246,6 +258,9 @@ fun TextField(
     fieldHeight: Dp = 56.dp,
     animation: TextField.Animation = TextField.Animation(),
     keepDotBadgeStartPadding: Dp? = null,
+    chipsContent: @Composable (() -> Unit)? = null,
+    chipsSpacing: Dp = 2.dp,
+    chipContainerCornerRadius: Dp? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     // Специфика перевода String -> TextFieldValue, взято из исходников гугла
@@ -308,6 +323,9 @@ fun TextField(
         fieldHeight = fieldHeight,
         animation = animation,
         keepDotBadgeStartPadding = keepDotBadgeStartPadding,
+        chipsContent = chipsContent,
+        chipsSpacing = chipsSpacing,
+        chipContainerCornerRadius = chipContainerCornerRadius,
         interactionSource = interactionSource,
     )
 }
@@ -377,7 +395,7 @@ object TextField {
     }
 
     /**
-     * Бэйдж-точка
+     * Бэйдж-точка (индикатор опционального поля)
      *
      * @property size размер точки
      * @property paddingValues отступы точки

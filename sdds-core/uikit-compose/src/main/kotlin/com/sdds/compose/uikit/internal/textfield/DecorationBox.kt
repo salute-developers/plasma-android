@@ -40,6 +40,9 @@ internal fun CommonDecorationBox(
     labelToValuePadding: Dp,
     animation: TextField.Animation,
     iconSize: Dp,
+    chips: (@Composable () -> Unit)? = null,
+    chipsSpacing: Dp,
+    chipContainerCornerRadius: Dp? = null,
 ) {
     val transformedText = remember(value, visualTransformation) {
         visualTransformation.filter(AnnotatedString(value))
@@ -83,6 +86,9 @@ internal fun CommonDecorationBox(
             textBottomPadding = textBottomPadding,
             labelToValuePadding = labelToValuePadding,
             iconSize = iconSize,
+            chips = chips,
+            chipsSpacing = chipsSpacing,
+            chipContainerCornerRadius = chipContainerCornerRadius,
         )
     }
 }

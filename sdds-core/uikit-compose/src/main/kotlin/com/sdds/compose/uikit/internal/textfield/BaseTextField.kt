@@ -87,10 +87,13 @@ import com.sdds.compose.uikit.TextField.LabelType
  * @param fieldHeight высота текстового поля
  * @param fieldHeight высота текстового поля
  * @param animation параметры анимации [TextField.Animation]
- * @param dotBadge параметры бэйджа-точки [DotBadge]
- * @param keepDotBadgeStartPadding позволяет выставить отступ слева, для случаев, когда нужно сохранить отступ, эквивалентный ширине [dotBadge].
- * Например, когда TextField используется в списке и состояние [dotBadge] меняется у разных элементов,
- * может появиться необходимость сохранить отступ слева, когда бэйдж скрывается.
+ * @param keepDotBadgeStartPadding позволяет выставить отступ слева, для случаев, когда нужно сохранить отступ, эквивалентный ширине индикатора обязательного поля.
+ * Например, когда TextField используется в списке и состояние [fieldType] меняется у разных элементов,
+ * может появиться необходимость сохранить отступ слева, когда индикатор обзательного поля скрывается.
+ * @param chipsContent контент с chip-элементами
+ * @param chipsSpacing расстояние между chip-элементами
+ * @param chipContainerCornerRadius позволяет скруглять контейнер, в котором находятся чипы и текстовое поля.
+ * Имеет смысл выставлять этот параметр равным радиусу скругления чипов.
  * @param interactionSource источник взаимодействия с полем
  */
 @Composable
@@ -110,11 +113,11 @@ internal fun BaseTextField(
     captionText: String? = null,
     leadingIcon: @Composable (() -> Unit)? = null,
     trailingIcon: @Composable (() -> Unit)? = null,
-    outerLabelStyle: TextStyle,
-    innerLabelStyle: TextStyle,
-    valuesStyle: TextStyle,
-    captionStyle: TextStyle,
-    placeHolderStyle: TextStyle,
+    outerLabelStyle: TextStyle = TextStyle(),
+    innerLabelStyle: TextStyle = TextStyle(),
+    valuesStyle: TextStyle = TextStyle(),
+    captionStyle: TextStyle = TextStyle(),
+    placeHolderStyle: TextStyle = TextStyle(),
     backgroundColor: Color = Color.White,
     cursorColor: Color = Color.Blue,
     enabledAlpha: Float = 1.0f,
@@ -122,16 +125,19 @@ internal fun BaseTextField(
     shape: CornerBasedShape,
     startContentPadding: Dp = 16.dp,
     endContentPadding: Dp = 16.dp,
-    iconMargin: Dp,
+    iconMargin: Dp = 2.dp,
     textTopPadding: Dp = 25.dp,
     textBottomPadding: Dp = 9.dp,
     innerLabelToValuePadding: Dp = 2.dp,
     outerLabelBottomPadding: Dp = 12.dp,
     captionTopPadding: Dp = 4.dp,
-    iconSize: Dp,
-    fieldHeight: Dp,
-    animation: TextField.Animation,
+    iconSize: Dp = 24.dp,
+    fieldHeight: Dp = 46.dp,
+    animation: TextField.Animation = TextField.Animation(),
     keepDotBadgeStartPadding: Dp? = null,
+    chipsContent: @Composable (() -> Unit)? = null,
+    chipsSpacing: Dp = 2.dp,
+    chipContainerCornerRadius: Dp? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     ConstraintLayout(
@@ -218,6 +224,9 @@ internal fun BaseTextField(
                 animation = animation,
                 labelToValuePadding = innerLabelToValuePadding,
                 iconSize = iconSize,
+                chips = chipsContent,
+                chipsSpacing = chipsSpacing,
+                chipContainerCornerRadius = chipContainerCornerRadius,
             )
         }
         CaptionText(

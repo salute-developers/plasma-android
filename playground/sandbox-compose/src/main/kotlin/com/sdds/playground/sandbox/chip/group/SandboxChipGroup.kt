@@ -1,5 +1,7 @@
 package com.sdds.playground.sandbox.chip.group
 
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -11,10 +13,12 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.ChipGroup
+import com.sdds.compose.uikit.ChipGroup.OverflowMode
 import com.sdds.compose.uikit.Icon
 import com.sdds.icons.R
 import com.sdds.playground.sandbox.chip.SandboxChip
 import com.sdds.playground.sandbox.chip.SandboxChip.State
+import com.sdds.playground.sandbox.chip.SandboxEmbeddedChip
 
 @Composable
 internal fun SandboxChipGroup(
@@ -29,7 +33,7 @@ internal fun SandboxChipGroup(
         modifier = modifier,
         horizontalSpacing = gap.value,
         verticalSpacing = gap.value,
-        shouldWrap = shouldWrap,
+        overflowMode = if (shouldWrap) OverflowMode.Wrap else OverflowMode.Unlimited,
     ) {
         items.forEach {
             var isSelected by remember { mutableStateOf(false) }
@@ -40,7 +44,7 @@ internal fun SandboxChipGroup(
                 onSelectedChange = { value -> isSelected = value },
                 label = it,
                 size = size,
-                state = if (!isSelected) State.Default else State.Accent,
+                state = if (!isSelected) State.Secondary else State.Accent,
                 endContent = if (isSelected) {
                     {
                         Icon(
@@ -57,14 +61,46 @@ internal fun SandboxChipGroup(
     }
 }
 
-internal object SandboxChipGroup {
-
-    enum class Size(val height: Dp) {
-        L(48.dp),
-        M(40.dp),
-        S(32.dp),
-        XS(24.dp),
+@Composable
+internal fun SandboxEmbeddedChipGroup(
+    items: List<String>,
+    modifier: Modifier = Modifier,
+    onChipClosedPressed: ((String) -> Unit)? = null,
+    size: SandboxEmbeddedChip.Size = SandboxEmbeddedChip.Size.M,
+    gap: SandboxChipGroup.Gap = SandboxChipGroup.Gap.Dense,
+    shouldWrap: Boolean = true,
+    enabled: Boolean = true,
+) {
+    ChipGroup(
+        modifier = modifier,
+        horizontalSpacing = gap.value,
+        verticalSpacing = gap.value,
+        overflowMode = if (shouldWrap) OverflowMode.Wrap else OverflowMode.Unlimited,
+    ) {
+        items.forEach {
+            SandboxEmbeddedChip(
+                modifier = Modifier
+                    .height(size.height),
+                label = it,
+                size = size,
+                state = SandboxEmbeddedChip.State.Secondary,
+                endContent = {
+                    Icon(
+                        modifier = Modifier.clickable(
+                            interactionSource = remember { MutableInteractionSource() },
+                            indication = null,
+                        ) { onChipClosedPressed?.invoke(it) },
+                        painter = painterResource(id = R.drawable.ic_close_24),
+                        contentDescription = "",
+                    )
+                },
+                enabled = enabled,
+            )
+        }
     }
+}
+
+internal object SandboxChipGroup {
 
     enum class Gap(val value: Dp) {
         Dense(2.dp),
