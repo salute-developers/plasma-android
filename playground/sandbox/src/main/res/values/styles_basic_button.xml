@@ -14,12 +14,12 @@
         <item name="android:paddingEnd">24dp</item>
         <item name="android:minWidth">98dp</item>
         <item name="android:minHeight">56dp</item>
-        <item name="android:textAppearance">@style/Thmbldr.StylesSalute.TextAppearance.BodyLBold</item>
+        <item name="android:textAppearance">@style/Serv.SddsServ.TextAppearance.BodyLBold</item>
         <item name="sd_iconPadding">8dp</item>
         <item name="sd_iconSize">24dp</item>
         <item name="sd_spinnerSize">22dp</item>
         <item name="sd_spinnerStrokeWidth">2dp</item>
-        <item name="sd_shapeAppearance">@style/Thmbldr.StylesSalute.Shape.Round.L</item>
+        <item name="sd_shapeAppearance">@style/Serv.SddsServ.Shape.Round.L</item>
         <item name="sd_valuePadding">4dp</item>
     </style>
 
@@ -28,14 +28,14 @@
         <item name="android:paddingEnd">20dp</item>
         <item name="android:minWidth">84dp</item>
         <item name="android:minHeight">48dp</item>
-        <item name="android:textAppearance">@style/Thmbldr.StylesSalute.TextAppearance.BodyMBold</item>
+        <item name="android:textAppearance">@style/Serv.SddsServ.TextAppearance.BodyMBold</item>
 
         <item name="sd_valuePadding">4dp</item>
         <item name="sd_iconPadding">6dp</item>
         <item name="sd_iconSize">24dp</item>
         <item name="sd_spinnerSize">22dp</item>
         <item name="sd_spinnerStrokeWidth">2dp</item>
-        <item name="sd_shapeAppearance">?thmbldr_shapeRoundM</item>
+        <item name="sd_shapeAppearance">?serv_shapeRoundM</item>
     </style>
 
     <style name="Theme.Sandbox.Components.BasicButton.S">
@@ -43,14 +43,14 @@
         <item name="android:paddingEnd">16dp</item>
         <item name="android:minWidth">71dp</item>
         <item name="android:minHeight">40dp</item>
-        <item name="android:textAppearance">@style/Thmbldr.StylesSalute.TextAppearance.BodySBold</item>
+        <item name="android:textAppearance">@style/Serv.SddsServ.TextAppearance.BodySBold</item>
 
         <item name="sd_valuePadding">4dp</item>
         <item name="sd_iconPadding">4dp</item>
         <item name="sd_iconSize">24dp</item>
         <item name="sd_spinnerSize">22dp</item>
         <item name="sd_spinnerStrokeWidth">2dp</item>
-        <item name="sd_shapeAppearance">?thmbldr_shapeRoundS</item>
+        <item name="sd_shapeAppearance">?serv_shapeRoundS</item>
     </style>
 
     <style name="Theme.Sandbox.Components.BasicButton.XS">
@@ -58,27 +58,27 @@
         <item name="android:paddingEnd">12dp</item>
         <item name="android:minWidth">57dp</item>
         <item name="android:minHeight">32dp</item>
-        <item name="android:textAppearance">@style/Thmbldr.StylesSalute.TextAppearance.BodyXsBold</item>
+        <item name="android:textAppearance">@style/Serv.SddsServ.TextAppearance.BodyXsBold</item>
 
         <item name="sd_valuePadding">2dp</item>
         <item name="sd_iconPadding">4dp</item>
         <item name="sd_iconSize">16dp</item>
         <item name="sd_spinnerSize">16dp</item>
         <item name="sd_spinnerStrokeWidth">1dp</item>
-        <item name="sd_shapeAppearance">?thmbldr_shapeRoundXs</item>
+        <item name="sd_shapeAppearance">?serv_shapeRoundXs</item>
     </style>
 
     <style name="Theme.Sandbox.Components.BasicButton.XXS">
         <item name="android:minWidth">53dp</item>
         <item name="android:minHeight">24dp</item>
-        <item name="android:textAppearance">@style/Thmbldr.StylesSalute.TextAppearance.TextXsBold</item>
+        <item name="android:textAppearance">@style/Serv.SddsServ.TextAppearance.TextXsBold</item>
 
         <item name="sd_valuePadding">2dp</item>
         <item name="sd_iconPadding">4dp</item>
         <item name="sd_iconSize">16dp</item>
         <item name="sd_spinnerSize">12dp</item>
         <item name="sd_spinnerStrokeWidth">2dp</item>
-        <item name="sd_shapeAppearance">?thmbldr_shapeRoundXs</item>
+        <item name="sd_shapeAppearance">?serv_shapeRoundXs</item>
     </style>
 
     <!--region BasicButton L styles   -->

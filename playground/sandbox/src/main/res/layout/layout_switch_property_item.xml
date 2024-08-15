@@ -8,7 +8,7 @@
     android:paddingHorizontal="@dimen/sdds_spacer_8x">
 
     <com.sdds.uikit.TextView
-        style="@style/Thmbldr.StylesSalute.Typography.BodyMBold"
+        style="@style/Serv.SddsServ.Typography.BodyMBold"
         android:id="@+id/property_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
