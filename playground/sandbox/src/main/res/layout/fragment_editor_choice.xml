@@ -8,11 +8,11 @@
     android:padding="@dimen/sdds_spacer_8x">
 
     <com.sdds.uikit.TextView
-        style="@style/Thmbldr.StylesSalute.Typography.BodyLBold"
+        style="@style/Serv.SddsServ.Typography.BodyLBold"
         android:id="@+id/choice_editor_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:textColor="?thmbldr_textDefaultPrimary"
+        android:textColor="?serv_textDefaultPrimary"
         tools:text="@string/sandbox_editor_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

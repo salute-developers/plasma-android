@@ -19,11 +19,11 @@
         <item name="sd_labelColor">#000</item>
         <item name="sd_labelPadding">2dp</item>
         <item name="sd_placeholderColor">#8F171717</item>
-        <item name="sd_shapeAppearance">?thmbldr_shapeRoundM</item>
-        <item name="sd_valueAppearance">@style/Thmbldr.StylesSalute.Typography.BodyMBold</item>
-        <item name="sd_labelAppearance">@style/Thmbldr.StylesSalute.Typography.BodyXsNormal</item>
-        <item name="sd_captionAppearance">@style/Thmbldr.StylesSalute.Typography.BodyXsNormal</item>
-        <item name="sd_placeholderAppearance">@style/Thmbldr.StylesSalute.Typography.BodyMBold</item>
+        <item name="sd_shapeAppearance">?serv_shapeRoundM</item>
+        <item name="sd_valueAppearance">@style/Serv.SddsServ.Typography.BodyMBold</item>
+        <item name="sd_labelAppearance">@style/Serv.SddsServ.Typography.BodyXsNormal</item>
+        <item name="sd_captionAppearance">@style/Serv.SddsServ.Typography.BodyXsNormal</item>
+        <item name="sd_placeholderAppearance">@style/Serv.SddsServ.Typography.BodyMBold</item>
         <item name="sd_valueColor">#F5171717</item>
     </style>
 </resources>

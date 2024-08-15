@@ -19,9 +19,9 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="false"
-        app:itemIconTint="?thmbldr_textDefaultPrimary"
-        app:itemTextColor="?thmbldr_textDefaultPrimary"
-        app:itemShapeFillColor="?thmbldr_surfaceDefaultTransparentSecondary"
+        app:itemIconTint="?serv_textDefaultPrimary"
+        app:itemTextColor="?serv_textDefaultPrimary"
+        app:itemShapeFillColor="?serv_surfaceDefaultTransparentSecondary"
         app:menu="@menu/activity_main_drawer" />
 
 </androidx.drawerlayout.widget.DrawerLayout>
