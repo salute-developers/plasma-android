@@ -18,14 +18,14 @@ android {
 }
 
 themeBuilder {
-    themeSource(name = "stylesSalute")
+    themeSource(name = "sdds_serv", version = "latest")
     view {
         themeParents {
             materialComponentsTheme("DayNight")
         }
         setupShapeAppearance(sddsShape())
     }
-    resourcesPrefix("thmbldr")
+    resourcesPrefix("serv")
     ktPackage("com.sdds.playground.sandbox.tokens")
     mode(ThemeBuilderMode.THEME)
 }

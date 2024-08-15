@@ -16,8 +16,8 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:sd_label="@string/sandbox_editor_title"
         app:sd_placeholder="@string/sandbox_editor_placeholder"
-        app:sd_labelAppearance="@style/Thmbldr.StylesSalute.TextAppearance.BodyLBold"
-        app:sd_labelColor="?thmbldr_textDefaultPrimary"
+        app:sd_labelAppearance="@style/Serv.SddsServ.TextAppearance.BodyLBold"
+        app:sd_labelColor="?serv_textDefaultPrimary"
         app:sd_labelType="outer"
         app:sd_labelPadding="@dimen/sdds_spacer_8x" />
 

@@ -2,23 +2,23 @@
 <resources>
 
     <style name="Theme.Sandbox.Components.RadioBox" parent="Sdds.Components.RadioBox">
-        <item name="sd_buttonBorderColor">?thmbldr_textDefaultSecondary</item>
-        <item name="sd_buttonBoxColor">?thmbldr_surfaceDefaultAccent</item>
-        <item name="sd_buttonMarkColor">?thmbldr_textOnDarkPrimary</item>
-        <item name="android:textColor">?thmbldr_textDefaultPrimary</item>
-        <item name="sd_descriptionTextColor">?thmbldr_textDefaultSecondary</item>
+        <item name="sd_buttonBorderColor">?serv_textDefaultSecondary</item>
+        <item name="sd_buttonBoxColor">?serv_surfaceDefaultAccent</item>
+        <item name="sd_buttonMarkColor">?serv_textOnDarkPrimary</item>
+        <item name="android:textColor">?serv_textDefaultPrimary</item>
+        <item name="sd_descriptionTextColor">?serv_textDefaultSecondary</item>
     </style>
 
     <style name="Theme.Sandbox.Components.RadioBox.M">
         <item name="sd_buttonMarkSize">10dp</item>
-        <item name="android:textAppearance">@style/Thmbldr.StylesSalute.TextAppearance.BodySNormal</item>
-        <item name="sd_descriptionTextAppearance">@style/Thmbldr.StylesSalute.TextAppearance.BodySNormal</item>
+        <item name="android:textAppearance">@style/Serv.SddsServ.TextAppearance.BodySNormal</item>
+        <item name="sd_descriptionTextAppearance">@style/Serv.SddsServ.TextAppearance.BodySNormal</item>
     </style>
 
     <style name="Theme.Sandbox.Components.RadioBox.S">
         <item name="sd_buttonMarkSize">8dp</item>
         <item name="android:drawablePadding">8dp</item>
-        <item name="android:textAppearance">@style/Thmbldr.StylesSalute.TextAppearance.BodyXsNormal</item>
-        <item name="sd_descriptionTextAppearance">@style/Thmbldr.StylesSalute.TextAppearance.BodyXsNormal</item>
+        <item name="android:textAppearance">@style/Serv.SddsServ.TextAppearance.BodyXsNormal</item>
+        <item name="sd_descriptionTextAppearance">@style/Serv.SddsServ.TextAppearance.BodyXsNormal</item>
     </style>
 </resources>
