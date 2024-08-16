@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Sandbox.Components.CheckBox" parent="Sdds.Components.CheckBox">
+        <item name="sd_buttonBorderColor">?serv_textDefaultSecondary</item>
+        <item name="sd_buttonBoxColor">?serv_surfaceDefaultAccent</item>
+        <item name="sd_buttonMarkColor">#fff</item>
+        <item name="android:textColor">?serv_textDefaultPrimary</item>
+        <item name="sd_descriptionTextColor">?serv_textDefaultSecondary</item>
+    </style>
+
+    <style name="Theme.Sandbox.Components.CheckBox.M">
+        <item name="sd_buttonSize">24dp</item>
+        <item name="sd_boxCornerRadius">6dp</item>
+        <item name="sd_buttonPadding">2dp</item>
+        <item name="sd_descriptionPadding">2dp</item>
+        <item name="android:textAppearance">@style/Serv.SddsServ.TextAppearance.BodyMNormal</item>
+        <item name="sd_descriptionTextAppearance">@style/Serv.SddsServ.TextAppearance.BodySNormal</item>
+    </style>
+
+    <style name="Theme.Sandbox.Components.CheckBox.S">
+        <item name="sd_buttonSize">16dp</item>
+        <item name="sd_buttonPadding">1dp</item>
+        <item name="sd_boxCornerRadius">4dp</item>
+        <item name="android:drawablePadding">8dp</item>
+        <item name="android:textAppearance">@style/Serv.SddsServ.TextAppearance.BodySNormal</item>
+        <item name="sd_descriptionTextAppearance">@style/Serv.SddsServ.TextAppearance.BodyXsNormal</item>
+    </style>
+</resources>

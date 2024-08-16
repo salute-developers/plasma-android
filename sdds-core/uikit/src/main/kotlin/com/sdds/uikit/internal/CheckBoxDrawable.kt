@@ -75,6 +75,7 @@ internal class CheckBoxDrawable(
     private var _checkDrawFraction: Float = 0f
     private var _checkCenterGravitationShiftFraction: Float = 0f
     private var _size: Int = 0
+    private var _padding: Int = 0
 
     init {
         obtainAttributes(context, attrs, defStyleAttr)
@@ -175,7 +176,7 @@ internal class CheckBoxDrawable(
         if (changed && prevState == _toggleableState) {
             start()
         }
-        return super.onStateChange(state)
+        return super.onStateChange(state) && changed
     }
 
     override fun isStateful(): Boolean = true
@@ -234,11 +235,10 @@ internal class CheckBoxDrawable(
         radius: Float,
         strokeWidth: Float,
     ) {
-        val padding = CheckBoxPadding
         val width = bounds.width()
         val height = bounds.height()
-        val checkedWidth = width - 2 * padding - strokeWidth
-        val checkedHeight = height - 2 * padding - strokeWidth
+        val checkedWidth = width - 2 * _padding - strokeWidth
+        val checkedHeight = height - 2 * _padding - strokeWidth
         val borderWidth = if (focused) width - strokeWidth else checkedWidth
         val borderHeight = if (focused) height - strokeWidth else checkedHeight
 
@@ -247,7 +247,6 @@ internal class CheckBoxDrawable(
         if ((checked && focused) || !checked) {
             val left = (width - borderWidth) / 2
             val top = (width - borderHeight) / 2
-            _paint.style = Paint.Style.STROKE
             drawRoundRect(
                 left,
                 top,
@@ -280,8 +279,7 @@ internal class CheckBoxDrawable(
         crossCenterGravitation: Float,
         strokeWidth: Float,
     ) {
-        val padding = CheckBoxPadding
-        val width = intrinsicWidth - 2 * padding
+        val width = intrinsicWidth - 2 * _padding
         // M0.3,0.5L0.46,0.625,L0.71,0.375
         val checkCrossX = 0.46f
         val checkCrossY = 0.625f
@@ -304,7 +302,7 @@ internal class CheckBoxDrawable(
         _pathMeasure.getSegment(0f, _pathMeasure.length * checkFraction, _pathToDraw, true)
 
         save()
-        translate(padding.toFloat(), padding.toFloat())
+        translate(_padding.toFloat(), _padding.toFloat())
         drawPath(
             _pathToDraw,
             _paint.configure(
@@ -357,6 +355,10 @@ internal class CheckBoxDrawable(
         _cornerRadius = typedArray.getDimension(
             R.styleable.SdCheckBoxDrawable_sd_boxCornerRadius,
             DefaultCornerRadius,
+        )
+        _padding = typedArray.getDimensionPixelSize(
+            R.styleable.SdCheckBoxDrawable_sd_buttonPadding,
+            CheckBoxPadding,
         )
         typedArray.recycle()
     }

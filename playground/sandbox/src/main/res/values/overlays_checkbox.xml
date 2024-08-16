@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Sandbox.ComponentOverlays.CheckBoxM">
+        <item name="android:checkboxStyle">@style/Theme.Sandbox.Components.CheckBox.M</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.CheckBoxS">
+        <item name="android:checkboxStyle">@style/Theme.Sandbox.Components.CheckBox.S</item>
+    </style>
+</resources>
