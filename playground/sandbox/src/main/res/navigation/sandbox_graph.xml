@@ -23,4 +23,10 @@
         android:label="@string/menu_checkbox"
         tools:layout="@layout/fragment_component_scaffold" />
 
+    <fragment
+        android:id="@+id/nav_radiobox"
+        android:name="com.sdds.playground.sandbox.radiobox.RadioBoxFragment"
+        android:label="@string/menu_radiobox"
+        tools:layout="@layout/fragment_component_scaffold" />
+
 </navigation>

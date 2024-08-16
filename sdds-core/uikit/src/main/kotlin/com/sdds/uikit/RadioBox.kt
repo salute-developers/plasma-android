@@ -13,6 +13,7 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.AppCompatRadioButton
 import com.sdds.uikit.internal.CheckableDelegate
 import com.sdds.uikit.internal.RadioBoxDrawable
+import com.sdds.uikit.internal.base.ViewAlphaHelper
 
 /**
  * Компонент RadioBox
@@ -29,6 +30,7 @@ open class RadioBox @JvmOverloads constructor(
 
     @Suppress("LeakingThis")
     private val _checkableDelegate: CheckableDelegate = CheckableDelegate(this, attrs, defStyleAttr)
+    private val _viewAlphaHelper: ViewAlphaHelper = ViewAlphaHelper(context, attrs, defStyleAttr)
     private var _buttonDrawable: RadioBoxDrawable? = null
     private var _offsetY = 0f
 
@@ -113,6 +115,11 @@ open class RadioBox @JvmOverloads constructor(
     }
 
     override fun getButtonDrawable(): Drawable? = _buttonDrawable
+
+    override fun setEnabled(enabled: Boolean) {
+        super.setEnabled(enabled)
+        _viewAlphaHelper.updateAlphaByEnabledState(this)
+    }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)

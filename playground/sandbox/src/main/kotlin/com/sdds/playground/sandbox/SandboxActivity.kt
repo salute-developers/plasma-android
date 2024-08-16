@@ -37,7 +37,7 @@ class SandboxActivity : AppCompatActivity() {
         val navView: NavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         appBarConfiguration = AppBarConfiguration(
-            setOf(R.id.nav_basic_button, R.id.nav_icon_button, R.id.nav_checkbox),
+            setOf(R.id.nav_basic_button, R.id.nav_icon_button, R.id.nav_checkbox, R.id.nav_radiobox),
             drawerLayout,
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
