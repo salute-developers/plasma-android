@@ -33,6 +33,7 @@
         <item name="android:buttonStyle">@style/Theme.Sandbox.Components.BasicButton.M</item>
         <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextField.M</item>
         <item name="sd_switchStyle">@style/Theme.Sandbox.Components.Switch</item>
+        <item name="android:checkboxStyle">@style/Theme.Sandbox.Components.CheckBox.M</item>
         <item name="android:radioButtonStyle">@style/Theme.Sandbox.Components.RadioBox.M</item>
         <item name="bottomSheetDialogTheme">@style/Theme.Sandbox.ComponentOverlays.BottomSheetDialog</item>
     </style>

@@ -13,6 +13,7 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.AppCompatCheckBox
 import com.sdds.uikit.internal.CheckBoxDrawable
 import com.sdds.uikit.internal.CheckableDelegate
+import com.sdds.uikit.internal.base.ViewAlphaHelper
 
 /**
  * Компонент CheckBox
@@ -25,11 +26,12 @@ import com.sdds.uikit.internal.CheckableDelegate
 open class CheckBox @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
-    defStyleAttr: Int = 0,
+    defStyleAttr: Int = android.R.attr.checkboxStyle,
 ) : AppCompatCheckBox(context, attrs, defStyleAttr) {
 
     @Suppress("LeakingThis")
     private val _checkableDelegate: CheckableDelegate = CheckableDelegate(this, attrs, defStyleAttr)
+    private val _viewAlphaHelper: ViewAlphaHelper = ViewAlphaHelper(context, attrs, defStyleAttr)
     private var _buttonDrawable: CheckBoxDrawable? = null
     private var _toggleState: ToggleableState = ToggleableState.OFF
     private var _offsetY = 0f
@@ -178,6 +180,12 @@ open class CheckBox @JvmOverloads constructor(
         _clickListenerSet = l != null
     }
 
+    @Suppress("UNNECESSARY_SAFE_CALL")
+    override fun setEnabled(enabled: Boolean) {
+        super.setEnabled(enabled)
+        _viewAlphaHelper?.updateAlphaByEnabledState(this)
+    }
+
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
 
@@ -210,6 +218,11 @@ open class CheckBox @JvmOverloads constructor(
             restore()
         }
         _checkableDelegate.drawDescription(canvas)
+    }
+
+    override fun drawableStateChanged() {
+        super.drawableStateChanged()
+        _checkableDelegate.updateDescriptionColor()
     }
 
     private fun obtainAttributes(attrs: AttributeSet?, defStyleAttr: Int) {

@@ -6,12 +6,13 @@ import android.graphics.Rect
 import android.text.Layout
 import android.text.StaticLayout
 import android.text.TextPaint
-import android.text.style.TextAppearanceSpan
 import android.util.AttributeSet
 import android.view.View.MeasureSpec
 import android.widget.CompoundButton
 import androidx.annotation.StyleRes
 import com.sdds.uikit.R
+import com.sdds.uikit.internal.base.applyTextAppearance
+import com.sdds.uikit.internal.base.colorForState
 import kotlin.math.max
 
 /**
@@ -38,7 +39,6 @@ internal class CheckableDelegate(
     private var _description: CharSequence? = null
     private var _descriptionPadding: Int = 0
     private var _descriptionTextColor: ColorStateList? = null
-    private var _descriptionTextAppearanceSpan: TextAppearanceSpan? = null
     private var _descriptionTextAppearanceResId: Int = 0
     private var _textAppearanceResId: Int = 0
 
@@ -147,6 +147,13 @@ internal class CheckableDelegate(
         return height
     }
 
+    fun updateDescriptionColor() {
+        val color = _descriptionTextColor.colorForState(compoundButton.drawableState)
+        if (_descriptionPaint.color != color) {
+            _descriptionPaint.color = color
+        }
+    }
+
     private fun obtainAttributes(attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) = with(compoundButton) {
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.SdCheckable, defStyleAttr, defStyleRes)
         _description = typedArray.getString(R.styleable.SdCheckable_sd_description)
@@ -198,17 +205,7 @@ internal class CheckableDelegate(
         } else {
             _textAppearanceResId
         }
-        _descriptionTextAppearanceSpan = TextAppearanceSpan(compoundButton.context, appearance)
-            .also { it.updateDrawState(_descriptionPaint) }
-    }
-
-    private fun updateDescriptionColor() {
-        val textColor = _descriptionTextColor
-        val drawableState = compoundButton.drawableState
-        val color = textColor?.getColorForState(drawableState, textColor.defaultColor) ?: 0
-        if (_descriptionPaint.color != color) {
-            _descriptionPaint.color = color
-        }
+        _descriptionPaint.applyTextAppearance(compoundButton.context, appearance)
     }
 
     private fun updateDescriptionOffset() = with(compoundButton) {
@@ -220,7 +217,7 @@ internal class CheckableDelegate(
             val descriptionFirstLineHeight = descriptionLayout?.getLineBottom(0) ?: 0
             _lastLineBounds.top.toFloat() + (_lastLineBounds.height().toFloat() - descriptionFirstLineHeight) / 2f
         } else {
-            _lastLineBounds.bottom.toFloat() + _descriptionPadding
+            _lastLineBounds.bottom.toFloat()
         }
     }
 }
