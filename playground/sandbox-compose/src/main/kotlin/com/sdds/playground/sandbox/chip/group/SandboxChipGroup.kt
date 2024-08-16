@@ -33,7 +33,7 @@ internal fun SandboxChipGroup(
         modifier = modifier,
         horizontalSpacing = gap.value,
         verticalSpacing = gap.value,
-        overflowMode = if (shouldWrap) OverflowMode.Wrap else OverflowMode.Unlimited,
+        overflowMode = if (shouldWrap) OverflowMode.Wrap else OverflowMode.Scrollable,
     ) {
         items.forEach {
             var isSelected by remember { mutableStateOf(false) }

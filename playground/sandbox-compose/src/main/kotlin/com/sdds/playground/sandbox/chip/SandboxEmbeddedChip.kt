@@ -11,6 +11,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.Chip
 import com.sdds.compose.uikit.Icon
+import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.chip.SandboxEmbeddedChipSettingsProvider.backgroundColor
 import com.sdds.playground.sandbox.chip.SandboxEmbeddedChipSettingsProvider.contentColor
 import com.sdds.playground.sandbox.chip.SandboxEmbeddedChipSettingsProvider.contentMargin
@@ -75,13 +76,15 @@ internal object SandboxEmbeddedChip {
 @Preview(showBackground = true)
 @Composable
 internal fun SandboxEmbeddedChipPreview() {
-    SandboxEmbeddedChip(
-        label = "label",
-        startContent = {
-            Icon(
-                painter = painterResource(id = com.sdds.icons.R.drawable.ic_accessibility_24),
-                contentDescription = "",
-            )
-        },
-    )
+    SandboxTheme {
+        SandboxEmbeddedChip(
+            label = "label",
+            startContent = {
+                Icon(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_accessibility_24),
+                    contentDescription = "",
+                )
+            },
+        )
+    }
 }

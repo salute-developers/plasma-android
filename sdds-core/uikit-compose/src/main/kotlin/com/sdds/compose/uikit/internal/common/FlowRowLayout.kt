@@ -18,7 +18,7 @@ import androidx.compose.ui.unit.constrainWidth
 import com.sdds.compose.uikit.internal.common.FlowRowLayout.Mode
 
 /**
- * Контейнер, располагающий элементы в строку с возможностью переноса
+ * Контейнер, располагающий элементы в строку с возможностью переноса.
  *
  * @param modifier модификатор
  * @param horizontalSpacing горизонтальный отступ между элементами
@@ -35,7 +35,7 @@ internal fun FlowRowLayout(
     content: @Composable FlowRowScope.() -> Unit,
 ) {
     val measurePolicy = remember(horizontalSpacing, verticalSpacing, mode) {
-        ChipGroupMeasurePolicy(horizontalSpacing, verticalSpacing, mode)
+        FlowRowMeasurePolicy(horizontalSpacing, verticalSpacing, mode)
     }
 
     Layout(
@@ -59,7 +59,7 @@ internal object FlowRowLayout {
     }
 }
 
-private class ChipGroupMeasurePolicy(
+private class FlowRowMeasurePolicy(
     private val horizontalSpacing: Dp,
     private val verticalSpacing: Dp,
     private val mode: Mode,
@@ -70,14 +70,15 @@ private class ChipGroupMeasurePolicy(
         constraints: Constraints,
     ): MeasureResult {
         val itemConstraints = constraints.copy(minWidth = 0, minHeight = 0)
-        val maxWidth = constraints.maxWidth
-        val maxHeight = constraints.maxHeight
+
         val horizontalSpacingPx = horizontalSpacing.roundToPx()
         val verticalSpacingPx = verticalSpacing.roundToPx()
 
         val placeables = measurables.map { it.measure(itemConstraints) }
         val rowHeight = placeables.firstOrNull()?.measuredHeight ?: 0
 
+        val maxWidth = constraints.maxWidth
+        val maxHeight = constraints.maxHeight
         val (maxRowWidth, maxRowsHeight) = placeables.getMaxDimensions(
             rowHeight = rowHeight,
             horizontalSpacingPx = horizontalSpacingPx,
