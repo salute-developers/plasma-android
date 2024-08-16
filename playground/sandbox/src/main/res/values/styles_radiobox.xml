@@ -2,7 +2,7 @@
 <resources>
 
     <style name="Theme.Sandbox.Components.RadioBox" parent="Sdds.Components.RadioBox">
-        <item name="sd_buttonBorderColor">?serv_textDefaultSecondary</item>
+        <item name="sd_buttonBorderColor">@color/color_checkable_border</item>
         <item name="sd_buttonBoxColor">?serv_surfaceDefaultAccent</item>
         <item name="sd_buttonMarkColor">?serv_textOnDarkPrimary</item>
         <item name="android:textColor">?serv_textDefaultPrimary</item>
@@ -11,12 +11,17 @@
 
     <style name="Theme.Sandbox.Components.RadioBox.M">
         <item name="sd_buttonMarkSize">10dp</item>
+        <item name="sd_buttonSize">24dp</item>
+        <item name="android:drawablePadding">10dp</item>
+        <item name="sd_buttonPadding">1dp</item>
         <item name="android:textAppearance">@style/Serv.SddsServ.TextAppearance.BodySNormal</item>
         <item name="sd_descriptionTextAppearance">@style/Serv.SddsServ.TextAppearance.BodySNormal</item>
     </style>
 
     <style name="Theme.Sandbox.Components.RadioBox.S">
+        <item name="sd_buttonSize">16dp</item>
         <item name="sd_buttonMarkSize">8dp</item>
+        <item name="sd_buttonPadding">0dp</item>
         <item name="android:drawablePadding">8dp</item>
         <item name="android:textAppearance">@style/Serv.SddsServ.TextAppearance.BodyXsNormal</item>
         <item name="sd_descriptionTextAppearance">@style/Serv.SddsServ.TextAppearance.BodyXsNormal</item>

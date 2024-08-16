@@ -8,6 +8,7 @@
         <item name="colorOnSurface">?serv_textDefaultPrimary</item>
         <item name="colorAccent">?serv_textDefaultAccent</item>
         <item name="colorControlActivated">?serv_textDefaultAccent</item>
+        <item name="colorControlHighlight">@android:color/transparent</item>
 
         <item name="android:colorBackground">?serv_backgroundDefaultPrimary</item>
 

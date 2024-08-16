@@ -2,6 +2,8 @@
 <resources>
 
     <style name="Sdds.Components.RadioBox" parent="Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="android:background">@null</item>
+        <item name="background">@null</item>
         <item name="sd_buttonBorderColor">#8F171717</item>
         <item name="sd_buttonBoxColor">#1A9E32</item>
         <item name="sd_buttonMarkColor">#fff</item>

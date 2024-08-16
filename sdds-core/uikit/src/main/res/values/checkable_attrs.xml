@@ -2,7 +2,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <attr name="sd_switchStyle" format="reference" />
-    <attr name="sd_radioBoxStyle" format="reference" />
 
     <declare-styleable name="SdCheckable">
         <!-- Дополнительный текст  -->
@@ -83,6 +82,7 @@
     <declare-styleable name="SdRadioBoxDrawable">
         <attr name="sd_buttonSize" />
         <attr name="sd_buttonMarkSize" format="dimension|float" />
+        <attr name="sd_buttonPadding" />
     </declare-styleable>
 
     <declare-styleable name="SdSwitchDrawable">

@@ -8,6 +8,8 @@ import android.graphics.Color
 import android.graphics.ColorFilter
 import android.graphics.Paint
 import android.graphics.PixelFormat
+import android.graphics.PorterDuff
+import android.graphics.PorterDuffXfermode
 import android.graphics.drawable.Animatable
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
@@ -52,6 +54,7 @@ internal class RadioBoxDrawable(
     private var _animatedMarkRadius: Float = 0f
     private var _markSize: Int = 0
     private var _size: Int = 0
+    private var _padding: Int = 0
 
     private val _markRadius: Float get() = _markSize / 2f
 
@@ -93,14 +96,14 @@ internal class RadioBoxDrawable(
 
     override fun draw(canvas: Canvas) = with(canvas) {
         save()
-        translate(bounds.left.toFloat(), bounds.top.toFloat())
-        canvas.drawBox(
+        translate(bounds.left.toFloat() + FocusBorderPadding, bounds.top.toFloat() + FocusBorderPadding)
+        drawBox(
             checked = _checked,
             focused = _focused,
             boxColor = _boxTintList.getColorForState(state, _boxTintList.defaultColor),
             borderColor = _borderTintList.getColorForState(state, _borderTintList.defaultColor),
         )
-        canvas.drawMark(
+        drawMark(
             color = _checkMarkTintList.getColorForState(state, _checkMarkTintList.defaultColor),
             radius = _animatedMarkRadius,
         )
@@ -111,6 +114,7 @@ internal class RadioBoxDrawable(
         val focused = state.contains(android.R.attr.state_focused)
         val checked = state.contains(android.R.attr.state_checked)
         var changed = false
+        var needAnimate = false
         if (_focused != focused) {
             _focused = focused
             changed = true
@@ -119,9 +123,10 @@ internal class RadioBoxDrawable(
         if (_checked != checked) {
             _checked = checked
             changed = true
+            needAnimate = true
         }
 
-        if (changed) {
+        if (needAnimate) {
             resetAnimators()
             start()
         }
@@ -133,11 +138,11 @@ internal class RadioBoxDrawable(
     }
 
     override fun getIntrinsicWidth(): Int {
-        return _size
+        return _size + FocusBorderPadding * 2
     }
 
     override fun getIntrinsicHeight(): Int {
-        return _size
+        return _size + FocusBorderPadding * 2
     }
 
     override fun setAlpha(alpha: Int) {
@@ -179,15 +184,16 @@ internal class RadioBoxDrawable(
         boxColor: Int,
         borderColor: Int,
     ) {
+        _paint.xfermode = null
         val width = bounds.width()
         val height = bounds.height()
 
-        val radioRadius = width / 2f
+        val radioRadius = (width / 2f) - FocusBorderPadding - _padding
         val strokeWidth = if (_checked) DefaultCheckedRadioStrokeWidth else DefaultRadioStrokeWidth
 
         if ((checked && focused) || !checked) {
             // Рисуем пограничную окружность
-            val borderRadius = if (_focused) radioRadius else radioRadius - DefaultRadioCheckedPadding
+            val borderRadius = if (_focused) (width / 2f) else radioRadius
             drawCircle(
                 width / 2f,
                 height / 2f,
@@ -205,7 +211,7 @@ internal class RadioBoxDrawable(
             drawCircle(
                 width / 2f,
                 height / 2f,
-                (radioRadius - DefaultRadioCheckedPadding),
+                radioRadius,
                 _paint.configure(style = Paint.Style.FILL, color = boxColor),
             )
         }
@@ -214,6 +220,7 @@ internal class RadioBoxDrawable(
     private fun Canvas.drawMark(color: Int, radius: Float) {
         if (radius > 0f) {
             // Рисуем основной круг при checked = true
+            _paint.xfermode = XfermodeAdd
             drawCircle(
                 bounds.width() / 2f,
                 bounds.height() / 2f,
@@ -241,6 +248,10 @@ internal class RadioBoxDrawable(
             R.styleable.SdRadioBoxDrawable_sd_buttonMarkSize,
             DefaultCheckMarkSize,
         )
+        _padding = typedArray.getDimensionPixelSize(
+            R.styleable.SdRadioBoxDrawable_sd_buttonPadding,
+            DefaultRadioCheckedPadding,
+        )
         typedArray.recycle()
     }
 
@@ -252,6 +263,8 @@ internal class RadioBoxDrawable(
         val DefaultCheckMarkSize = 10.dp
         val DefaultRadioStrokeWidth = 2f.dp
         val DefaultCheckedRadioStrokeWidth = 1f.dp
-        val DefaultRadioCheckedPadding = 2f.dp
+        val DefaultRadioCheckedPadding = 2.dp
+        val FocusBorderPadding = 2.dp
+        val XfermodeAdd = PorterDuffXfermode(PorterDuff.Mode.ADD)
     }
 }
