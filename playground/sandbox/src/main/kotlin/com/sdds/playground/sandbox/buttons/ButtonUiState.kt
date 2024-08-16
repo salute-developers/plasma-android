@@ -44,7 +44,7 @@ internal sealed interface ButtonVariant {
  * Стили вариаций BasicButton
  * @property styleRes ресурс стиля
  */
-internal enum class BasicButtonVariant(@StyleRes override val styleRes: Int): ButtonVariant {
+internal enum class BasicButtonVariant(@StyleRes override val styleRes: Int) : ButtonVariant {
     BasicButtonLDefault(R.style.Theme_Sandbox_ComponentOverlays_BasicButtonLDefault),
     BasicButtonLSecondary(R.style.Theme_Sandbox_ComponentOverlays_BasicButtonLSecondary),
     BasicButtonLAccent(R.style.Theme_Sandbox_ComponentOverlays_BasicButtonLAccent),
@@ -94,7 +94,7 @@ internal enum class BasicButtonVariant(@StyleRes override val styleRes: Int): Bu
  * Стили вариаций IconButton
  * @property styleRes ресурс стиля
  */
-internal enum class IconButtonVariant(@StyleRes override val styleRes: Int): ButtonVariant {
+internal enum class IconButtonVariant(@StyleRes override val styleRes: Int) : ButtonVariant {
     IconButtonLDefault(R.style.Theme_Sandbox_ComponentOverlays_IconButtonLDefault),
     IconButtonLSecondary(R.style.Theme_Sandbox_ComponentOverlays_IconButtonLSecondary),
     IconButtonLAccent(R.style.Theme_Sandbox_ComponentOverlays_IconButtonLAccent),
