@@ -1,5 +1,7 @@
 package com.sdds.plugin.themebuilder.internal.generator
 
+import com.sdds.plugin.themebuilder.ShapeAppearanceConfig.Companion.materialShape
+import com.sdds.plugin.themebuilder.ShapeAppearanceConfig.Companion.sddsShape
 import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
@@ -58,9 +60,8 @@ class ShapeTokenGeneratorTest {
             dimensAggregator = mockDimenAggregator,
             resourceReferenceProvider = ResourceReferenceProvider("thmbldr", "TestTheme"),
             shapeTokenValues = shapeTokenValues,
-        ).apply {
-            ShapeTokenGenerator.IS_SHAPE_STYLE_ENABLED = true
-        }
+            viewShapeAppearanceConfig = listOf(materialShape(), sddsShape()),
+        )
     }
 
     @After

@@ -19,7 +19,7 @@
         <item name="sd_iconSize">24dp</item>
         <item name="sd_spinnerSize">22dp</item>
         <item name="sd_spinnerStrokeWidth">2dp</item>
-        <item name="sd_shapeAppearance">@style/Theme.Sandbox.Shapes.Round.L</item>
+        <item name="sd_shapeAppearance">@style/Thmbldr.StylesSalute.Shape.Round.L</item>
         <item name="sd_valuePadding">4dp</item>
     </style>
 
@@ -65,7 +65,7 @@
         <item name="sd_iconSize">16dp</item>
         <item name="sd_spinnerSize">16dp</item>
         <item name="sd_spinnerStrokeWidth">1dp</item>
-        <item name="sd_shapeAppearance">?thmbldr_shapeRoundXS</item>
+        <item name="sd_shapeAppearance">?thmbldr_shapeRoundXs</item>
     </style>
 
     <style name="Theme.Sandbox.Components.BasicButton.XXS">
@@ -78,7 +78,7 @@
         <item name="sd_iconSize">16dp</item>
         <item name="sd_spinnerSize">12dp</item>
         <item name="sd_spinnerStrokeWidth">2dp</item>
-        <item name="sd_shapeAppearance">?thmbldr_shapeRoundXS</item>
+        <item name="sd_shapeAppearance">?thmbldr_shapeRoundXs</item>
     </style>
 
     <!--region BasicButton L styles   -->

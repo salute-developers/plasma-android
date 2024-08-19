@@ -14,7 +14,6 @@ import com.sdds.plugin.themebuilder.internal.factory.ViewGradientAttributeGenera
 import com.sdds.plugin.themebuilder.internal.factory.ViewShapeAttributeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ViewThemeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ViewTypographyAttributeGeneratorFactory
-import com.sdds.plugin.themebuilder.internal.generator.ShapeTokenGenerator.Companion.IS_SHAPE_STYLE_ENABLED
 import com.sdds.plugin.themebuilder.internal.generator.SimpleBaseGenerator
 import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.GradientTokenResult
@@ -48,6 +47,7 @@ internal class ThemeGenerator(
     private val composeTypographyAttributeGeneratorFactory: ComposeTypographyAttributeGeneratorFactory,
     private val target: ThemeBuilderTarget,
     private val generatorMode: ThemeBuilderMode,
+    private val shouldGenerateViewShapeStyle: Boolean,
 ) : SimpleBaseGenerator {
 
     private val composeThemeGenerator: ComposeThemeGenerator by unsafeLazy {
@@ -127,7 +127,7 @@ internal class ThemeGenerator(
         if (target.isComposeOrAll) {
             composeShapeAttributeGenerator.setShapeTokenData(shapeTokenResult.composeTokens)
         }
-        if (IS_SHAPE_STYLE_ENABLED && target.isViewSystemOrAll) {
+        if (shouldGenerateViewShapeStyle && target.isViewSystemOrAll) {
             viewShapeAttributeGenerator.setShapeTokenData(shapeTokenResult.viewTokens)
             viewThemeGenerator.setShapeTokenData(shapeTokenResult.viewTokens)
         }
@@ -167,7 +167,7 @@ internal class ThemeGenerator(
         if (target.isViewSystemOrAll) {
             viewColorAttributeGenerator.generate()
             viewGradientAttributeGenerator.generate()
-            if (IS_SHAPE_STYLE_ENABLED) viewShapeAttributeGenerator.generate()
+            if (shouldGenerateViewShapeStyle) viewShapeAttributeGenerator.generate()
             viewTypographyAttributeGenerator.generate()
             viewThemeGenerator.generate()
         }

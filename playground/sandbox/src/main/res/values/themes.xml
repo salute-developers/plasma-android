@@ -20,13 +20,13 @@
         <item name="android:toolbarStyle">@style/Theme.Sandbox.Toolbar</item>
         <item name="toolbarStyle">@style/Theme.Sandbox.Toolbar</item>
 
-        <item name="thmbldr_shapeRoundXXL">@style/Theme.Sandbox.Shapes.Round.XXL</item>
-        <item name="thmbldr_shapeRoundXL">@style/Theme.Sandbox.Shapes.Round.XL</item>
-        <item name="thmbldr_shapeRoundL">@style/Theme.Sandbox.Shapes.Round.L</item>
-        <item name="thmbldr_shapeRoundM">@style/Theme.Sandbox.Shapes.Round.M</item>
-        <item name="thmbldr_shapeRoundS">@style/Theme.Sandbox.Shapes.Round.S</item>
-        <item name="thmbldr_shapeRoundXS">@style/Theme.Sandbox.Shapes.Round.XS</item>
-        <item name="thmbldr_shapeRoundXXS">@style/Theme.Sandbox.Shapes.Round.XXS</item>
+        <item name="thmbldr_shapeRoundXxl">@style/Thmbldr.StylesSalute.Shape.Round.Xxl</item>
+        <item name="thmbldr_shapeRoundXl">@style/Thmbldr.StylesSalute.Shape.Round.Xl</item>
+        <item name="thmbldr_shapeRoundL">@style/Thmbldr.StylesSalute.Shape.Round.L</item>
+        <item name="thmbldr_shapeRoundM">@style/Thmbldr.StylesSalute.Shape.Round.M</item>
+        <item name="thmbldr_shapeRoundS">@style/Thmbldr.StylesSalute.Shape.Round.S</item>
+        <item name="thmbldr_shapeRoundXs">@style/Thmbldr.StylesSalute.Shape.Round.Xs</item>
+        <item name="thmbldr_shapeRoundXxs">@style/Thmbldr.StylesSalute.Shape.Round.Xxs</item>
         <item name="android:buttonStyle">@style/Theme.Sandbox.Components.BasicButton.M</item>
         <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextField.M</item>
         <item name="sd_switchStyle">@style/Theme.Sandbox.Components.Switch</item>
@@ -59,7 +59,7 @@
 
     <style name="Theme.Sandbox.ModalBottomSheetDialog" parent="Widget.MaterialComponents.BottomSheet.Modal">
         <item name="backgroundTint">?android:colorBackground</item>
-        <item name="shapeAppearance">@style/Theme.Sandbox.Shapes.Round.M</item>
+        <item name="shapeAppearance">@style/Thmbldr.StylesSalute.Shape.Round.M</item>
     </style>
 
     <style name="Theme.Sandbox.Components" />
