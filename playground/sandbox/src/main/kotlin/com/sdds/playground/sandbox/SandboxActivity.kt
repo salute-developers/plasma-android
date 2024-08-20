@@ -32,14 +32,10 @@ class SandboxActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.appBarMain.toolbar)
         setUpFullscreen(binding.appBarMain.root)
-
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_content_main)
-        appBarConfiguration = AppBarConfiguration(
-            setOf(R.id.nav_basic_button, R.id.nav_icon_button, R.id.nav_checkbox, R.id.nav_radiobox),
-            drawerLayout,
-        )
+        appBarConfiguration = AppBarConfiguration(navigationSet, drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }
@@ -54,5 +50,15 @@ class SandboxActivity : AppCompatActivity() {
             v.updatePadding(top = insets.getInsets(WindowInsetsCompat.Type.statusBars()).top)
             insets
         }
+    }
+
+    private companion object {
+        val navigationSet = setOf(
+            R.id.nav_basic_button,
+            R.id.nav_icon_button,
+            R.id.nav_checkbox,
+            R.id.nav_radiobox,
+            R.id.nav_progressbar,
+        )
     }
 }
