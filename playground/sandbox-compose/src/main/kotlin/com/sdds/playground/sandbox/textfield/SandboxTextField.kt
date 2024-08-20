@@ -233,3 +233,355 @@ fun SandboxTextFieldPreview() {
         )
     }
 }
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxTextFieldPreviewXsError() {
+    SandboxTheme {
+        SandboxTextField(
+            value = TextFieldValue(text = "Value"),
+            captionText = "Сaption",
+            labelText = "",
+            placeholderText = "Placeholder",
+            labelType = LabelType.Outer,
+            size = Size.XS,
+            onValueChange = {},
+            enabled = true,
+            readOnly = false,
+            dotBadgePosition = DotBadge.Position.Start,
+            leadingIcon = {
+                Image(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_lock_fill_16),
+                    contentDescription = "",
+                    colorFilter = ColorFilter.tint(Color.Black),
+                )
+            },
+            trailingIcon = {
+                Image(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_lock_fill_16),
+                    contentDescription = "",
+                    colorFilter = ColorFilter.tint(Color.Black),
+                )
+            },
+            state = State.Error,
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxTextFieldPreviewLSuccess() {
+    SandboxTheme {
+        SandboxTextField(
+            value = TextFieldValue(text = "Value"),
+            captionText = "Сaption",
+            labelText = "Label",
+            optionalText = "Optional",
+            placeholderText = "Placeholder",
+            labelType = LabelType.Outer,
+            size = Size.L,
+            onValueChange = {},
+            enabled = true,
+            readOnly = false,
+            dotBadgePosition = DotBadge.Position.Start,
+            leadingIcon = {
+                Image(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_lock_fill_24),
+                    contentDescription = "",
+                    colorFilter = ColorFilter.tint(Color.Black),
+                )
+            },
+            trailingIcon = {
+                Image(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_lock_fill_24),
+                    contentDescription = "",
+                    colorFilter = ColorFilter.tint(Color.Black),
+                )
+            },
+            state = State.Success,
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxTextFieldPreviewMWarning() {
+    SandboxTheme {
+        SandboxTextField(
+            value = TextFieldValue(text = "Value"),
+            captionText = "Сaption",
+            labelText = "Label",
+            optionalText = "",
+            placeholderText = "Placeholder",
+            labelType = LabelType.Outer,
+            size = Size.M,
+            onValueChange = {},
+            enabled = true,
+            readOnly = false,
+            dotBadgePosition = DotBadge.Position.Start,
+            leadingIcon = {
+                Image(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_lock_fill_24),
+                    contentDescription = "",
+                    colorFilter = ColorFilter.tint(Color.Black),
+                )
+            },
+            trailingIcon = {
+                Image(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_lock_fill_24),
+                    contentDescription = "",
+                    colorFilter = ColorFilter.tint(Color.Black),
+                )
+            },
+            state = State.Warning,
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxTextFieldPreviewInner() {
+    SandboxTheme {
+        SandboxTextField(
+            value = TextFieldValue(text = "Value"),
+            captionText = "Сaption",
+            labelText = "Label",
+            optionalText = "",
+            placeholderText = "Placeholder",
+            labelType = LabelType.Inner,
+            size = Size.L,
+            onValueChange = {},
+            enabled = true,
+            readOnly = false,
+            dotBadgePosition = DotBadge.Position.Start,
+            leadingIcon = {
+                Image(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_lock_fill_24),
+                    contentDescription = "",
+                    colorFilter = ColorFilter.tint(Color.Black),
+                )
+            },
+            trailingIcon = {
+                Image(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_lock_fill_24),
+                    contentDescription = "",
+                    colorFilter = ColorFilter.tint(Color.Black),
+                )
+            },
+            state = State.Default,
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxTextFieldPreviewLInactive() {
+    SandboxTheme {
+        SandboxTextField(
+            value = TextFieldValue(text = "Value"),
+            captionText = "Сaption",
+            labelText = "Label",
+            optionalText = "",
+            placeholderText = "Placeholder",
+            labelType = LabelType.Inner,
+            size = Size.L,
+            onValueChange = {},
+            enabled = false,
+            readOnly = false,
+            dotBadgePosition = DotBadge.Position.Start,
+            leadingIcon = {
+                Image(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_lock_fill_24),
+                    contentDescription = "",
+                    colorFilter = ColorFilter.tint(Color.Black),
+                )
+            },
+            trailingIcon = {
+                Image(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_lock_fill_24),
+                    contentDescription = "",
+                    colorFilter = ColorFilter.tint(Color.Black),
+                )
+            },
+            state = State.Default,
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxTextFieldPreviewSDefault() {
+    SandboxTheme {
+        SandboxTextField(
+            value = TextFieldValue(text = "Value"),
+            captionText = "Сaption",
+            labelText = "Label",
+            optionalText = "",
+            placeholderText = "Placeholder",
+            labelType = LabelType.Outer,
+            fieldType = SandboxTextField.FieldType.Optional,
+            size = Size.S,
+            onValueChange = {},
+            enabled = true,
+            readOnly = false,
+            dotBadgePosition = DotBadge.Position.Start,
+            leadingIcon = {
+                Image(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_lock_fill_24),
+                    contentDescription = "",
+                    colorFilter = ColorFilter.tint(Color.Black),
+                )
+            },
+            trailingIcon = {
+                Image(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_lock_fill_24),
+                    contentDescription = "",
+                    colorFilter = ColorFilter.tint(Color.Black),
+                )
+            },
+            state = State.Default,
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxTextFieldPreviewLReadOnly() {
+    SandboxTheme {
+        SandboxTextField(
+            value = TextFieldValue(text = "Value"),
+            captionText = "Сaption",
+            labelText = "Label",
+            optionalText = "",
+            placeholderText = "Placeholder",
+            labelType = LabelType.Outer,
+            size = Size.L,
+            onValueChange = {},
+            enabled = true,
+            readOnly = true,
+            dotBadgePosition = DotBadge.Position.Start,
+            leadingIcon = {
+                Image(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_lock_fill_24),
+                    contentDescription = "",
+                    colorFilter = ColorFilter.tint(Color.Black),
+                )
+            },
+            trailingIcon = {
+                Image(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_lock_fill_24),
+                    contentDescription = "",
+                    colorFilter = ColorFilter.tint(Color.Black),
+                )
+            },
+            state = State.Default,
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxTextFieldPreviewLPlaceholder() {
+    SandboxTheme {
+        SandboxTextField(
+            value = TextFieldValue(text = ""),
+            captionText = "Сaption",
+            labelText = "Label",
+            optionalText = "",
+            placeholderText = "Placeholder",
+            labelType = LabelType.Outer,
+            size = Size.L,
+            onValueChange = {},
+            enabled = true,
+            readOnly = false,
+            dotBadgePosition = DotBadge.Position.Start,
+            leadingIcon = {
+                Image(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_lock_fill_24),
+                    contentDescription = "",
+                    colorFilter = ColorFilter.tint(Color.Black),
+                )
+            },
+            trailingIcon = {
+                Image(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_lock_fill_24),
+                    contentDescription = "",
+                    colorFilter = ColorFilter.tint(Color.Black),
+                )
+            },
+            state = State.Default,
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxTextFieldPreviewHasDot() {
+    SandboxTheme {
+        SandboxTextField(
+            value = TextFieldValue(text = "Value"),
+            captionText = "Сaption",
+            labelText = "Label",
+            optionalText = "",
+            placeholderText = "Placeholder",
+            labelType = LabelType.Outer,
+            fieldType = SandboxTextField.FieldType.Required,
+            size = Size.L,
+            onValueChange = {},
+            enabled = true,
+            readOnly = false,
+            dotBadgePosition = DotBadge.Position.Start,
+            leadingIcon = {
+                Image(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_lock_fill_24),
+                    contentDescription = "",
+                    colorFilter = ColorFilter.tint(Color.Black),
+                )
+            },
+            trailingIcon = {
+                Image(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_lock_fill_24),
+                    contentDescription = "",
+                    colorFilter = ColorFilter.tint(Color.Black),
+                )
+            },
+            state = State.Default,
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxTextFieldPreviewHasDotInsideEnd() {
+    SandboxTheme {
+        SandboxTextField(
+            value = TextFieldValue(text = "Value"),
+            captionText = "Сaption",
+            labelText = "Label",
+            optionalText = "",
+            placeholderText = "Placeholder",
+            labelType = LabelType.Inner,
+            fieldType = SandboxTextField.FieldType.Required,
+            size = Size.M,
+            onValueChange = {},
+            enabled = true,
+            readOnly = false,
+            dotBadgePosition = DotBadge.Position.End,
+            leadingIcon = {
+                Image(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_lock_fill_24),
+                    contentDescription = "",
+                    colorFilter = ColorFilter.tint(Color.Black),
+                )
+            },
+            trailingIcon = {
+                Image(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_lock_fill_24),
+                    contentDescription = "",
+                    colorFilter = ColorFilter.tint(Color.Black),
+                )
+            },
+            state = State.Default,
+        )
+    }
+}

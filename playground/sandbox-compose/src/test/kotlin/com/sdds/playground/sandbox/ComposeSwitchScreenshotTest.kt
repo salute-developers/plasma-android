@@ -1,3 +1,5 @@
+package com.sdds.playground.sandbox
+
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.github.takahirom.roborazzi.captureRoboImage
 import com.sdds.playground.sandbox.switch.SandboxSwitchPreviewOff
@@ -27,7 +29,7 @@ class ComposeSwitchScreenshotTest {
      */
     @Category(ScreenshotTests::class)
     @Test
-    internal fun testSwitchPreviewOn() {
+    fun testSwitchPreviewOn() {
         captureRoboImage {
             config.roborazziOptions
             SandboxSwitchPreviewOn()
@@ -36,7 +38,7 @@ class ComposeSwitchScreenshotTest {
 
     @Category(ScreenshotTests::class)
     @Test
-    internal fun testSwitchPreviewOff() {
+    fun testSwitchPreviewOff() {
         captureRoboImage {
             config.roborazziOptions
             SandboxSwitchPreviewOff()
@@ -45,7 +47,7 @@ class ComposeSwitchScreenshotTest {
 
     @Category(ScreenshotTests::class)
     @Test
-    internal fun testSwitchPreviewOnDisabled() {
+    fun testSwitchPreviewOnDisabled() {
         captureRoboImage {
             config.roborazziOptions
             SandboxSwitchPreviewOnDisabled()

@@ -22,10 +22,11 @@ import kotlinx.coroutines.flow.stateIn
  */
 internal class ButtonParametersViewModel(
     private val buttonType: ButtonType,
+    private val defaultState: ButtonUiState? = null,
 ) : ViewModel(), PropertiesOwner {
 
     private val _defaultState
-        get() = ButtonUiState(
+        get() = defaultState ?: ButtonUiState(
             when (buttonType) {
                 ButtonType.Basic -> BasicButtonVariant.BasicButtonLDefault
                 ButtonType.Icon -> IconButtonVariant.IconButtonLDefault
@@ -237,11 +238,12 @@ internal enum class ButtonType {
  */
 internal class ButtonParametersViewModelFactory(
     private val type: ButtonType,
+    private val defaultState: ButtonUiState? = null,
 ) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         Log.e("ButtonParametersViewModelFactory", "create: type $type")
-        return ButtonParametersViewModel(buttonType = type) as T
+        return ButtonParametersViewModel(buttonType = type, defaultState = defaultState) as T
     }
 }

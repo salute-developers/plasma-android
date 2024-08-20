@@ -1,6 +1,7 @@
+package com.sdds.playground.sandbox
+
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.github.takahirom.roborazzi.captureRoboImage
-import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.buttons.SandboxButtonPreviewSizeLDefault
 import com.sdds.playground.sandbox.buttons.SandboxButtonPreviewSizeLPositive
 import com.sdds.playground.sandbox.buttons.SandboxButtonPreviewSizeLWhiteDarkTheme
