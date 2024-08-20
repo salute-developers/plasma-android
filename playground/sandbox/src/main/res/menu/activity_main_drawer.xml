@@ -5,6 +5,14 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/nav_avatar"
+            android:title="@string/menu_avatar" />
+
+        <item
+            android:id="@+id/nav_avatargroup"
+            android:title="@string/menu_avatargroup" />
+
+        <item
             android:id="@+id/nav_basic_button"
             android:title="@string/menu_basicButton" />
 

@@ -13,6 +13,7 @@ import com.sdds.uikit.R
  * @property cornerSizeTopRight [CornerSize] размер для верхнего правого угла
  * @property cornerSizeBottomRight [CornerSize] размер для нижнего правого угла
  * @property cornerSizeBottomLeft [CornerSize] размер для нижнего левого угла
+ * @property cornerFamily семейство углов [CornerFamily]
  * @author Малышев Александр on 12.08.2024
  */
 data class ShapeModel(
@@ -20,6 +21,7 @@ data class ShapeModel(
     val cornerSizeTopRight: CornerSize = SimpleRect,
     val cornerSizeBottomRight: CornerSize = SimpleRect,
     val cornerSizeBottomLeft: CornerSize = SimpleRect,
+    val cornerFamily: CornerFamily = CornerFamily.ROUNDED,
 ) {
     private var _currentBounds: RectF = RectF()
     private var _currentShape: Shape = NullShape

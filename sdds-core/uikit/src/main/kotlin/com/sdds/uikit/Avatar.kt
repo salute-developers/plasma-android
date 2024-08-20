@@ -15,7 +15,10 @@ import android.text.TextPaint
 import android.util.AttributeSet
 import android.view.Gravity
 import androidx.annotation.ColorInt
+import androidx.annotation.DrawableRes
 import androidx.annotation.StyleRes
+import androidx.core.content.ContextCompat
+import com.sdds.uikit.internal.base.CancelableFontCallback
 import com.sdds.uikit.internal.base.applyTextAppearance
 import com.sdds.uikit.internal.base.colorForState
 import java.util.Locale
@@ -79,6 +82,7 @@ open class Avatar @JvmOverloads constructor(
     private val _textBounds: Rect = Rect()
     private val _textPaint = TextPaint()
     private var _textColor: ColorStateList? = null
+    private var _fontCallback: CancelableFontCallback? = null
 
     @ColorInt
     private var _textColorStart: Int = 0
@@ -99,6 +103,7 @@ open class Avatar @JvmOverloads constructor(
         set(value) {
             if (_status != value) {
                 _status = value
+                refreshDrawableState()
                 invalidate()
             }
         }
@@ -184,7 +189,8 @@ open class Avatar @JvmOverloads constructor(
     open fun setTextAppearance(@StyleRes styleId: Int) {
         if (_textAppearanceId != styleId) {
             _textAppearanceId = styleId
-            _textPaint.applyTextAppearance(context, styleId)
+            _fontCallback?.cancel()
+            _fontCallback = _textPaint.applyTextAppearance(context, styleId)
         }
     }
 
@@ -257,8 +263,17 @@ open class Avatar @JvmOverloads constructor(
                 val iconHeight = if (_actionSize > 0) _actionSize else (_actionDrawable?.intrinsicHeight ?: 0)
                 setLayerWidth(iconLayerIndex, iconWidth)
                 setLayerHeight(iconLayerIndex, iconHeight)
+                bounds = _bounds
             }
         }
+    }
+
+    /**
+     * Устанавливает иконку действия по идентификатору ресурса [actionRes]
+     * @param actionRes идентификатор ресурса иконки действия
+     */
+    fun setActionResource(@DrawableRes actionRes: Int) {
+        setAction(ContextCompat.getDrawable(context, actionRes))
     }
 
     /**
@@ -340,7 +355,7 @@ open class Avatar @JvmOverloads constructor(
             drawInitials(canvas, _text)
         }
 
-        if (_actionEnabled) {
+        if (actionEnabled) {
             drawAction(canvas)
         }
     }
