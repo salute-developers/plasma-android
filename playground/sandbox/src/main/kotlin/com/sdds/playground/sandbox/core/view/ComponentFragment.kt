@@ -26,6 +26,9 @@ internal abstract class ComponentFragment : Fragment(), PropertiesAdapter.Intera
     private val propertiesAdapter: PropertiesAdapter = PropertiesAdapter()
     private var currentProperty: Property<*>? = null
 
+    protected open val defaultLayoutParams: LayoutParams =
+        LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)
+
     abstract val componentLayout: View
 
     abstract val propertiesOwner: PropertiesOwner
@@ -60,9 +63,7 @@ internal abstract class ComponentFragment : Fragment(), PropertiesAdapter.Intera
             .launchIn(viewLifecycleOwner.lifecycleScope)
     }
 
-    protected fun dispatchComponentStyleChanged(
-        layoutParams: LayoutParams = LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT),
-    ) {
+    protected fun dispatchComponentStyleChanged(layoutParams: LayoutParams = defaultLayoutParams) {
         _binding?.componentContainer?.apply {
             removeAllViews()
             layoutParams.gravity = Gravity.CENTER

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Sdds.Components.ProgressBar">
+        <item name="sd_minProgress">0.0</item>
+        <item name="sd_maxProgress">1.0</item>
+
+        <item name="android:maxHeight">6dp</item>
+        <item name="android:insetTop">1dp</item>
+        <item name="android:insetBottom">1dp</item>
+
+        <item name="backgroundTint">#aaa</item>
+        <item name="android:progressTint">#000</item>
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+</resources>

@@ -29,4 +29,10 @@
         android:label="@string/menu_radiobox"
         tools:layout="@layout/fragment_component_scaffold" />
 
+    <fragment
+        android:id="@+id/nav_progressbar"
+        android:name="com.sdds.playground.sandbox.progress.ProgressBarFragment"
+        android:label="@string/menu_progressbar"
+        tools:layout="@layout/fragment_component_scaffold" />
+
 </navigation>

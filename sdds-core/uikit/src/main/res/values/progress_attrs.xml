@@ -16,8 +16,11 @@
         <!-- Минимальный прогресс -->
         <attr name="sd_minProgress" format="float" />
 
+        <attr name="sd_shapeAppearance"/>
         <attr name="backgroundTint" />
         <attr name="android:progressTint" />
+        <attr name="android:progressDrawable"/>
+        <attr name="android:background"/>
 
         <attr name="android:maxHeight" />
         <attr name="android:maxWidth" />
