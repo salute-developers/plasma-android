@@ -2,11 +2,18 @@ package com.sdds.uikit
 
 import android.content.Context
 import android.content.res.ColorStateList
+import android.graphics.Canvas
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.Icon
 import android.util.AttributeSet
 import android.widget.CompoundButton
+import androidx.annotation.ColorInt
+import androidx.annotation.ColorRes
+import androidx.annotation.StyleRes
+import androidx.appcompat.content.res.AppCompatResources
+import com.sdds.uikit.internal.CheckableDelegate
 import com.sdds.uikit.internal.SwitchDrawable
+import com.sdds.uikit.internal.base.ViewAlphaHelper
 
 /**
  * Компонент Switch (переключатель)
@@ -21,7 +28,11 @@ open class Switch @JvmOverloads constructor(
     defStyleAttr: Int = R.attr.sd_switchStyle,
 ) : CompoundButton(context, attrs, defStyleAttr) {
 
+    @Suppress("LeakingThis")
+    private val _checkableDelegate: CheckableDelegate = CheckableDelegate(this, attrs, defStyleAttr)
+    private val _viewAlphaHelper: ViewAlphaHelper = ViewAlphaHelper(context, attrs, defStyleAttr)
     private var _buttonDrawable: SwitchDrawable? = null
+    private var _offsetY = 0f
 
     init {
         background = null
@@ -30,6 +41,45 @@ open class Switch @JvmOverloads constructor(
         }
 
         obtainAttributes(attrs, defStyleAttr)
+    }
+
+    /**
+     * Текст-описание
+     */
+    open var description: CharSequence?
+        get() = _checkableDelegate.description
+        set(value) { _checkableDelegate.description = value }
+
+    /**
+     * Устанавливает стиль дополнительного текста по идентификатору стиля в ресурсах
+     * @param textAppearanceId идентификатор стиля текста в ресурсах
+     */
+    open fun setDescriptionTextAppearance(@StyleRes textAppearanceId: Int) {
+        _checkableDelegate.setDescriptionTextAppearance(textAppearanceId)
+    }
+
+    /**
+     * Устанавливает цвета дополнительного текста
+     * @param colors [ColorStateList] цвета дополнительного текста
+     */
+    open fun setDescriptionTextColors(colors: ColorStateList?) {
+        _checkableDelegate.setDescriptionTextColors(colors)
+    }
+
+    /**
+     * Устанавливает цвет дополнительного текста
+     * @param color цвет дополнительного текста
+     */
+    fun setDescriptionTextColor(@ColorInt color: Int) {
+        setDescriptionTextColors(ColorStateList.valueOf(color))
+    }
+
+    /**
+     * Устанавливает цвет дополнительного текста по идентификатору
+     * @param colorRes идентификатор цвета в ресурсах
+     */
+    fun setDescriptionTextColorResource(@ColorRes colorRes: Int) {
+        setDescriptionTextColors(AppCompatResources.getColorStateList(context, colorRes))
     }
 
     /**
@@ -56,6 +106,34 @@ open class Switch @JvmOverloads constructor(
     }
 
     override fun getButtonDrawable(): Drawable? = _buttonDrawable
+
+    override fun setEnabled(enabled: Boolean) {
+        super.setEnabled(enabled)
+        _viewAlphaHelper.updateAlphaByEnabledState(this)
+    }
+
+    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
+
+        val newWidth = _checkableDelegate.measureWidth(widthMeasureSpec)
+        val newHeight = _checkableDelegate.measureHeight(heightMeasureSpec)
+        if (newWidth != measuredWidth || newHeight != measuredHeight) {
+            _offsetY = (measuredHeight - newHeight) / 2f
+            setMeasuredDimension(newWidth, newHeight)
+        } else {
+            _offsetY = 0f
+        }
+    }
+
+    override fun onDraw(canvas: Canvas) {
+        with(canvas) {
+            save()
+            translate(0f, _offsetY)
+            super.onDraw(canvas)
+            restore()
+        }
+        _checkableDelegate.drawDescription(canvas)
+    }
 
     private fun obtainAttributes(attrs: AttributeSet?, defStyleAttr: Int) {
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.Switch, defStyleAttr, 0)

@@ -2,5 +2,23 @@
 <resources>
     <style name="Theme.Sandbox.Components.Switch" parent="Sdds.Components.Switch">
         <item name="sd_buttonTrackColor">@color/bg_color_switch_track</item>
+        <item name="android:textColor">?serv_textDefaultPrimary</item>
+        <item name="sd_descriptionTextColor">?serv_textDefaultSecondary</item>
     </style>
+
+    <style name="Theme.Sandbox.Components.Switch.L">
+        <item name="android:textAppearance">@style/Serv.SddsServ.TextAppearance.BodyLNormal</item>
+        <item name="sd_descriptionTextAppearance">@style/Serv.SddsServ.TextAppearance.BodyMNormal</item>
+    </style>
+
+    <style name="Theme.Sandbox.Components.Switch.M">
+        <item name="android:textAppearance">@style/Serv.SddsServ.TextAppearance.BodyMNormal</item>
+        <item name="sd_descriptionTextAppearance">@style/Serv.SddsServ.TextAppearance.BodySNormal</item>
+    </style>
+
+    <style name="Theme.Sandbox.Components.Switch.S">
+        <item name="android:textAppearance">@style/Serv.SddsServ.TextAppearance.BodySNormal</item>
+        <item name="sd_descriptionTextAppearance">@style/Serv.SddsServ.TextAppearance.BodyXsNormal</item>
+    </style>
+
 </resources>
