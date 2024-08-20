@@ -1,5 +1,6 @@
 package com.sdds.plugin.themebuilder
 
+import com.sdds.plugin.themebuilder.ShapeAppearanceConfig.Companion.materialShape
 import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.exceptions.ThemeBuilderException
 import org.gradle.api.Project
@@ -13,6 +14,7 @@ open class ThemeBuilderExtension {
     internal var ktPackage: String? = null
     internal var resourcesPrefix: String? = null
     internal var viewThemeParents: Set<ViewThemeParent> = emptySet()
+    internal var viewShapeAppearanceConfig: Set<ShapeAppearanceConfig> = emptySet()
     internal var themeSource: ThemeBuilderSource? = null
     internal var paletteUrl: String = DEFAULT_PALETTE_URL
     internal var mode: ThemeBuilderMode = ThemeBuilderMode.TOKENS_ONLY
@@ -34,12 +36,12 @@ open class ThemeBuilderExtension {
     /**
      * Устанавливает View фреймворк для генерации темы и токенов
      *
-     * @param parentThemeName опциональное название темы, от которой будет унаследована генерируемая тема.
-     * Если не указано, тема будет унаследована от Sdds.Theme
+     * @param viewConfigBuilder билдер [ViewConfigBuilder]
      */
     fun view(viewConfigBuilder: ViewConfigBuilder.() -> Unit = {}) {
         val builder = ViewConfigBuilder().apply(viewConfigBuilder)
         viewThemeParents = builder.themeParents
+        viewShapeAppearanceConfig = builder.shapeAppearanceConfig
         updateTarget(ThemeBuilderTarget.VIEW_SYSTEM)
     }
 
@@ -109,6 +111,8 @@ class ViewConfigBuilder {
     internal val themeParents: Set<ViewThemeParent>
         get() = _themeParents
 
+    internal val shapeAppearanceConfig = mutableSetOf<ShapeAppearanceConfig>()
+
     /**
      * Указывает родительские темы
      *
@@ -116,8 +120,19 @@ class ViewConfigBuilder {
      */
     fun themeParents(themeParentsBuilder: ViewParentListBuilder.() -> Unit) {
         val builder = ViewParentListBuilder().apply(themeParentsBuilder)
+        if (builder.hasMaterial) shapeAppearanceConfig.add(materialShape())
         _themeParents.clear()
         _themeParents.addAll(builder.themeParents)
+    }
+
+    /**
+     * Добавляет конфиг [ShapeAppearanceConfig].
+     * Добавлять конфиг нужно, когда планируется использование атрибутов cornerSize и cornerFamily не из material.
+     * Для material добавлять конфиг нет необходимости, т.к. он добавится автоматически при указании material в качестве родительской темы.
+     * @see themeParents
+     */
+    fun setupShapeAppearance(shapeAppearanceConfig: ShapeAppearanceConfig) {
+        this.shapeAppearanceConfig.add(shapeAppearanceConfig)
     }
 }
 
@@ -130,6 +145,8 @@ class ViewParentListBuilder {
     internal val themeParents: Set<ViewThemeParent>
         get() = _themeParents
 
+    internal var hasMaterial: Boolean = false
+
     /**
      * Добавляет Material тему в качестве родитльской темы.
      *
@@ -140,12 +157,14 @@ class ViewParentListBuilder {
      * Если суффикс содержит "Light", будет сгенерирована тема со светлыми токенами в директории res/values.
      * Если суффикс не содержит "Light" или "DayNight", будет сгенерирована тема с темными токенами в директории res/values.
      */
-    fun materialComponentsTheme(themeSuffix: String = "") =
+    fun materialComponentsTheme(themeSuffix: String = "") {
         addThemeParent(
             themePrefix = "Theme.MaterialComponents",
             themeSuffix = themeSuffix,
             defaultChildSuffix = "MaterialComponents",
         )
+        hasMaterial = true
+    }
 
     /**
      * Добавляет AppCompat тему в качестве родитльской темы.

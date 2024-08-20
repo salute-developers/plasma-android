@@ -1,3 +1,4 @@
+import com.sdds.plugin.themebuilder.ShapeAppearanceConfig.Companion.sddsShape
 import com.sdds.plugin.themebuilder.ThemeBuilderMode
 
 @Suppress("DSL_SCOPE_VIOLATION")
@@ -18,6 +19,7 @@ themeBuilder {
         themeParents {
             customTheme("Thmbldr.Theme.App.Test")
         }
+        setupShapeAppearance(sddsShape())
     }
     compose()
     ktPackage("com.sdds.playground.themebuilder.tokens")

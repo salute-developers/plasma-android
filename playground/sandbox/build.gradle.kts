@@ -1,3 +1,4 @@
+import com.sdds.plugin.themebuilder.ShapeAppearanceConfig.Companion.sddsShape
 import com.sdds.plugin.themebuilder.ThemeBuilderMode
 
 @Suppress("DSL_SCOPE_VIOLATION")
@@ -22,6 +23,7 @@ themeBuilder {
         themeParents {
             materialComponentsTheme("DayNight")
         }
+        setupShapeAppearance(sddsShape())
     }
     resourcesPrefix("thmbldr")
     ktPackage("com.sdds.playground.sandbox.tokens")
