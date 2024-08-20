@@ -14,6 +14,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
+import com.sdds.playground.sandbox.core.view.ComponentFragment
 import com.sdds.playground.sandbox.databinding.MainActivityBinding
 
 /**
@@ -38,6 +39,12 @@ class SandboxActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(navigationSet, drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        intent.extras?.let { extra ->
+            val destinationId = extra.getInt(DESTINATION_ID_ARG, R.id.nav_basic_button)
+            val bundle = extra.getBundle(ComponentFragment.DESTINATION_MESSAGE_ARG)
+            navController.navigate(destinationId, bundle)
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -52,8 +59,12 @@ class SandboxActivity : AppCompatActivity() {
         }
     }
 
-    private companion object {
-        val navigationSet = setOf(
+    companion object {
+        /**
+         * Идентификатор начального экрана
+         */
+        const val DESTINATION_ID_ARG = "DESTINATION_ID_ARG"
+        private val navigationSet = setOf(
             R.id.nav_basic_button,
             R.id.nav_icon_button,
             R.id.nav_checkbox,

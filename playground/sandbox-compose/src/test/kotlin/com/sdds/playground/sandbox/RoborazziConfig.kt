@@ -1,3 +1,5 @@
+package com.sdds.playground.sandbox
+
 import android.app.Application
 import android.content.pm.ActivityInfo
 import androidx.activity.ComponentActivity

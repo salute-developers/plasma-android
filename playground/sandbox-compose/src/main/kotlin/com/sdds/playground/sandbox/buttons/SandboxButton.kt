@@ -164,7 +164,7 @@ internal fun SandboxButtonPreviewSizeXSDefault() {
         size = SandboxButton.Size.XS,
         style = SandboxButton.Style.Default,
         label = "Label",
-        value = "Valuel",
+        value = "Value",
         enabled = true,
         loading = false,
         onClick = {},
@@ -241,6 +241,22 @@ internal fun SandboxButtonPreviewSizeSWarning() {
         size = SandboxButton.Size.S,
         style = SandboxButton.Style.Warning,
         label = "Label",
+        enabled = true,
+        loading = false,
+        onClick = {},
+    )
+}
+
+@Composable
+@Preview
+internal fun SandboxButtonPreviewSizeXsBlack() {
+    SandboxBasicButton(
+        icons = Button.Icons(end = painterResource(id = R.drawable.ic_plasma_24)),
+        spacing = Button.Spacing.SpaceBetween,
+        size = SandboxButton.Size.XS,
+        style = SandboxButton.Style.Black,
+        label = "Label",
+        value = "Value",
         enabled = true,
         loading = false,
         onClick = {},

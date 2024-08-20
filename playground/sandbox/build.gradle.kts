@@ -5,6 +5,8 @@ import com.sdds.plugin.themebuilder.ThemeBuilderMode
 plugins {
     id("convention.android-app")
     id(libs.plugins.themebuilder.get().pluginId)
+    alias(libs.plugins.roborazzi)
+    id("kotlin-parcelize")
 }
 
 android {
@@ -14,6 +16,9 @@ android {
     }
     buildFeatures {
         viewBinding = true
+    }
+    testOptions {
+        unitTests.isIncludeAndroidResources = true
     }
 }
 
@@ -46,4 +51,10 @@ dependencies {
 
     // Unit tests
     testImplementation(libs.base.test.unit.jUnit)
+
+    //Screenshot tests
+    testImplementation(libs.test.roborazzi)
+    testImplementation(libs.test.roborazzi.compose)
+    testImplementation(libs.test.roborazzi.rule)
+    testImplementation(libs.base.test.unit.robolectric)
 }

@@ -1,3 +1,5 @@
+package com.sdds.playground.sandbox
+
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.github.takahirom.roborazzi.captureRoboImage
 import com.sdds.playground.sandbox.progress.SandboxProgressPreviewDefaultTheme
@@ -26,7 +28,7 @@ class ComposeProgressBarScreenshotTest {
      */
     @Category(ScreenshotTests::class)
     @Test
-    internal fun testProgressBarPreviewDefault() {
+    fun testProgressBarPreviewDefault() {
         captureRoboImage {
             config.roborazziOptions
             SandboxProgressPreviewDefaultTheme()
@@ -35,7 +37,7 @@ class ComposeProgressBarScreenshotTest {
 
     @Category(ScreenshotTests::class)
     @Test
-    internal fun testProgressBarWarning() {
+    fun testProgressBarWarning() {
         captureRoboImage {
             config.roborazziOptions
             SandboxProgressPreviewWarningTheme()
