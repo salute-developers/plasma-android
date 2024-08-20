@@ -8,6 +8,7 @@ import android.graphics.Path
 import android.graphics.Region
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
+import android.view.ContextThemeWrapper
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.ColorInt
@@ -52,6 +53,7 @@ open class AvatarGroup @JvmOverloads constructor(
 
     private var _adapter: Adapter? = null
     private var _avatarPool: Array<Avatar?>? = null
+    private var _avatarStyleOverlay: Int = 0
 
     init {
         obtainAttributes(context, attrs, defStyleAttr)
@@ -85,6 +87,7 @@ open class AvatarGroup @JvmOverloads constructor(
         set(value) {
             if (_threshold != value) {
                 _threshold = value
+                repopulate()
             }
         }
 
@@ -98,14 +101,19 @@ open class AvatarGroup @JvmOverloads constructor(
             return
         }
         val pool = getPool(useCount)
+        val themeOverlay = if (_avatarStyleOverlay != 0) ContextThemeWrapper(context, _avatarStyleOverlay) else context
         for (index in 0 until useCount) {
             val avatarView = pool.getOrNull(index)
-                ?: adapter.onCreateAvatarView(index, this).also { pool[index] = it }
+                ?: adapter.onCreateAvatarView(index, themeOverlay)
+                    .also { pool[index] = it }
             addView(avatarView)
             adapter.onBindAvatar(avatarView, index)
         }
-        updateCounter(itemsCount - _threshold)
-        addView(_counter)
+        val count = itemsCount - _threshold
+        if (count > 0) {
+            updateCounter(count)
+            addView(_counter)
+        }
     }
 
     override fun addView(child: View?, index: Int, params: LayoutParams?) {
@@ -197,6 +205,7 @@ open class AvatarGroup @JvmOverloads constructor(
         _counterTextColorStart = typedArray.getColor(R.styleable.AvatarGroup_sd_counterTextColorStart, 0)
         _counterTextColorEnd = typedArray.getColor(R.styleable.AvatarGroup_sd_counterTextColorEnd, 0)
         _counterTextColor = typedArray.getColorStateList(R.styleable.AvatarGroup_sd_counterTextColor)
+        _avatarStyleOverlay = typedArray.getResourceId(R.styleable.AvatarGroup_sd_avatarStyleOverlay, 0)
         typedArray.recycle()
     }
 
@@ -225,16 +234,9 @@ open class AvatarGroup @JvmOverloads constructor(
     }
 
     private fun updateCounter(count: Int) {
+        val themeOverlay = if (_avatarStyleOverlay != 0) ContextThemeWrapper(context, _avatarStyleOverlay) else context
         val counter = _counter
-            ?: Avatar(context)
-                .apply {
-                    background = _counterBackground
-                    setTextAppearance(_counterTextAppearanceId)
-                    setTextColorStart(_counterTextColorStart)
-                    setTextColorEnd(_counterTextColorEnd)
-                    setTextColor(_counterTextColor)
-                }
-                .also { _counter = it }
+            ?: Avatar(themeOverlay).also { _counter = it }
         counter.setText("+$count")
     }
 
@@ -272,10 +274,10 @@ open class AvatarGroup @JvmOverloads constructor(
          * Создает [Avatar] для текущей позиции [position] в [AvatarGroup].
          * Можно переопределить, чтобы создать свой экземпляр [Avatar].
          * @param position порядковый номер элемента [Avatar] в [AvatarGroup]
-         * @param parent контейнер для [Avatar]
+         * @param context контекст
          */
-        open fun onCreateAvatarView(position: Int, parent: ViewGroup): Avatar {
-            return Avatar(parent.context)
+        internal fun onCreateAvatarView(position: Int, context: Context): Avatar {
+            return Avatar(context)
         }
 
         /**

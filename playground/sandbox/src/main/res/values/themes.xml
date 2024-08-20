@@ -37,6 +37,9 @@
         <item name="android:checkboxStyle">@style/Theme.Sandbox.Components.CheckBox.M</item>
         <item name="android:radioButtonStyle">@style/Theme.Sandbox.Components.RadioBox.M</item>
         <item name="bottomSheetDialogTheme">@style/Theme.Sandbox.ComponentOverlays.BottomSheetDialog</item>
+        <item name="android:progressBarStyle">@style/Theme.Sandbox.Components.ProgressBar.Default</item>
+        <item name="sd_avatarStyle">@style/Theme.Sandbox.Components.Avatar.M</item>
+        <item name="sd_avatarGroupStyle">@style/Theme.Sandbox.Components.AvatarGroup</item>
     </style>
 
     <style name="Theme.Sandbox.Toolbar" parent="Widget.MaterialComponents.Toolbar.Primary">

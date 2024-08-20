@@ -42,6 +42,7 @@ dependencies {
     implementation(libs.base.androidX.navigation.fragment)
     implementation(libs.base.androidX.navigation.ui)
     implementation(libs.base.androidX.activity.ktx)
+    implementation(libs.base.glide)
 
     // Unit tests
     testImplementation(libs.base.test.unit.jUnit)
