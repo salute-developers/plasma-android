@@ -8,6 +8,8 @@ import android.graphics.Color
 import android.graphics.ColorFilter
 import android.graphics.Paint
 import android.graphics.PixelFormat
+import android.graphics.PorterDuff
+import android.graphics.PorterDuffXfermode
 import android.graphics.Rect
 import android.graphics.RectF
 import android.graphics.drawable.Animatable
@@ -90,9 +92,11 @@ internal class SwitchDrawable(
         val thumbColor = _thumbColorList.getColorForState(state, _thumbColorList.defaultColor)
 
         // Рисуем track
+        _paint.xfermode = null
         drawRoundRect(_boundsF, _trackCornerRadius, _trackCornerRadius, _paint.configure(color = trackColor))
 
         // Рисуем thumb
+        _paint.xfermode = XfermodeAdd
         drawCircle(
             lerp(
                 DefaultSwitchPadding + thumbRadius,
@@ -189,5 +193,6 @@ internal class SwitchDrawable(
         val SwitchWidth = 44.dp
         val SwitchHeight = 28.dp
         val TrackCornerRadius = 14f.dp
+        val XfermodeAdd = PorterDuffXfermode(PorterDuff.Mode.ADD)
     }
 }
