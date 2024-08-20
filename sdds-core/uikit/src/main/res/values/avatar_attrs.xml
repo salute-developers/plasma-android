@@ -41,6 +41,7 @@
         <attr name="sd_itemSpacing" format="dimension" />
         <attr name="sd_threshold" format="integer" />
 
+        <attr name="sd_avatarStyleOverlay" format="reference"/>
         <attr name="sd_counterBackground" format="reference|color" />
         <attr name="sd_counterEnabled" format="boolean" />
         <attr name="sd_counterTextAppearance" format="reference" />
