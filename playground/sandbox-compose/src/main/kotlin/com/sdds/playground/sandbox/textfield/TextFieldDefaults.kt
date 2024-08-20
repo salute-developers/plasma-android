@@ -115,7 +115,7 @@ internal interface SandboxTextFieldStyles {
     /**
      * Текстовый стиль внутреннего лейбла
      * @param size размер текстового поля
-     * @param inputState cjстояние текстового поля
+     * @param inputState cостояние текстового поля
      * @param isEmpty true, если поле пустое
      * @param colors цвета текстового поля
      */
