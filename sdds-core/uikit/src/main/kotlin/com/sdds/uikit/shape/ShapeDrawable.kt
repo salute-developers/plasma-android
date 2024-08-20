@@ -146,6 +146,11 @@ open class ShapeDrawable() : Drawable() {
         }
     }
 
+    internal fun resizeShape(width: Float, height: Float) {
+        _shape?.resize(width, height)
+        invalidateSelf()
+    }
+
     override fun draw(canvas: Canvas) {
         canvas.withTranslation(_boundedOffset, _boundedOffset) {
             _shape?.draw(canvas, _shapePaint)
