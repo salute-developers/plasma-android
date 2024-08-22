@@ -82,10 +82,21 @@ internal fun ColorStateList?.colorForState(drawableState: IntArray?, defaultColo
  * Применяет стиль текста к объекту [TextPaint]
  * @param context контекст
  * @param styleId идентификатор стиля
+ * @param applyFont колбэк применения шрифта в объекту [TextPaint]
  * @return [CancelableFontCallback]
  */
-internal fun TextPaint.applyTextAppearance(context: Context, @StyleRes styleId: Int): CancelableFontCallback {
-    val callback = CancelableFontCallback({ typeface = it }, Typeface.DEFAULT)
+internal fun TextPaint.applyTextAppearance(
+    context: Context,
+    @StyleRes styleId: Int,
+    applyFont: CancelableFontCallback.ApplyFont? = null,
+): CancelableFontCallback {
+    val callback = CancelableFontCallback(
+        applyFont = {
+            typeface = it
+            applyFont?.apply(it)
+        },
+        fallbackFont = Typeface.DEFAULT,
+    )
     TextAppearance(context, styleId).updateDrawState(context, this, callback)
     return callback
 }
