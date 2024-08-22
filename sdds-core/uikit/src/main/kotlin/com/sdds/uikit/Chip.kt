@@ -3,7 +3,6 @@ package com.sdds.uikit
 import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Canvas
-import android.graphics.Rect
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.View
@@ -11,6 +10,7 @@ import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
 import androidx.annotation.StyleRes
 import com.sdds.uikit.drawable.ChipDrawable
+import com.sdds.uikit.internal.base.ViewAlphaHelper
 import com.sdds.uikit.viewstate.ViewState
 import com.sdds.uikit.viewstate.ViewState.Companion.isDefined
 import com.sdds.uikit.viewstate.ViewStateHolder
@@ -27,17 +27,19 @@ open class Chip @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.sd_chipStyle,
     defStyleRes: Int = R.style.Sdds_Components_Chip,
-) : View(context, attrs, defStyleAttr), ViewStateHolder {
+) : View(context, attrs, defStyleAttr), ViewStateHolder, ChipDrawable.Delegate {
 
-    private val chipDrawable: ChipDrawable = ChipDrawable(
+    private val _chipDrawable: ChipDrawable = ChipDrawable(
         context = context,
         attrs = attrs,
         defStyleAttr = defStyleAttr,
         defStyleRes = defStyleRes,
     ).apply {
         callback = this@Chip
+        setDelegate(this@Chip)
         setPaddings(paddingStart, paddingTop, paddingEnd, paddingBottom)
     }
+    private val _viewAlphaHelper = ViewAlphaHelper(context, attrs, defStyleAttr)
 
     /**
      * Состояние внешнего вида компонента [Chip]
@@ -55,27 +57,29 @@ open class Chip @JvmOverloads constructor(
      * Текст
      */
     open var text: CharSequence
-        get() = chipDrawable.text
+        get() = _chipDrawable.text
         set(value) {
-            chipDrawable.text = value
+            _chipDrawable.text = value
         }
 
     /**
      * [Drawable] в начале компонента
      */
     open var drawableStart: Drawable?
-        get() = chipDrawable.drawableStart
+        get() = _chipDrawable.drawableStart
         set(value) {
-            chipDrawable.drawableStart = value
+            _chipDrawable.drawableStart = value
+            refreshDrawableState()
         }
 
     /**
      * [Drawable] в конце компонента
      */
     open var drawableEnd: Drawable?
-        get() = chipDrawable.drawableEnd
+        get() = _chipDrawable.drawableEnd
         set(value) {
-            chipDrawable.drawableEnd = value
+            _chipDrawable.drawableEnd = value
+            refreshDrawableState()
         }
 
     /**
@@ -83,7 +87,7 @@ open class Chip @JvmOverloads constructor(
      * @param colors цвета текста
      */
     open fun setTextColor(colors: ColorStateList?) {
-        chipDrawable.setTextColor(colors)
+        _chipDrawable.setTextColor(colors)
     }
 
     /**
@@ -91,7 +95,7 @@ open class Chip @JvmOverloads constructor(
      * @param appearanceId идентификатор стиля текста
      */
     open fun setTextAppearance(@StyleRes appearanceId: Int) {
-        chipDrawable.setTextAppearance(context, appearanceId)
+        _chipDrawable.setTextAppearance(context, appearanceId)
     }
 
     /**
@@ -99,15 +103,15 @@ open class Chip @JvmOverloads constructor(
      * @param drawableRes идентификатор ресурса [Drawable]
      */
     fun setDrawableStartRes(@DrawableRes drawableRes: Int) {
-        chipDrawable.setDrawableStartRes(context, drawableRes)
+        _chipDrawable.setDrawableStartRes(context, drawableRes)
     }
 
     /**
      * Устанавливает [Drawable] в конце по идентификатору ресурса
      * @param drawableRes идентификатор ресурса [Drawable]
      */
-    fun setDrawableEndRes(context: Context, @DrawableRes drawableRes: Int) {
-        chipDrawable.setDrawableEndRes(context, drawableRes)
+    fun setDrawableEndRes(@DrawableRes drawableRes: Int) {
+        _chipDrawable.setDrawableEndRes(context, drawableRes)
     }
 
     /**
@@ -115,7 +119,8 @@ open class Chip @JvmOverloads constructor(
      * @param colors цвета [Drawable] в начале
      */
     open fun setDrawableStartColors(colors: ColorStateList?) {
-        chipDrawable.setDrawableStartTint(colors)
+        _chipDrawable.setDrawableStartTint(colors)
+        refreshDrawableState()
     }
 
     /**
@@ -131,7 +136,8 @@ open class Chip @JvmOverloads constructor(
      * @param colors цвета [Drawable] в конце
      */
     open fun setDrawableEndColors(colors: ColorStateList?) {
-        chipDrawable.setDrawableEndTint(colors)
+        _chipDrawable.setDrawableEndTint(colors)
+        refreshDrawableState()
     }
 
     /**
@@ -142,17 +148,22 @@ open class Chip @JvmOverloads constructor(
         setDrawableEndColors(ColorStateList.valueOf(color))
     }
 
+    override fun setEnabled(enabled: Boolean) {
+        super.setEnabled(enabled)
+        _viewAlphaHelper.updateAlphaByEnabledState(this)
+    }
+
     override fun setPadding(left: Int, top: Int, right: Int, bottom: Int) {
         super.setPadding(left, top, right, bottom)
-        chipDrawable.setPaddings(left, top, right, bottom)
+        _chipDrawable.setPaddings(left, top, right, bottom)
     }
 
     override fun setPaddingRelative(start: Int, top: Int, end: Int, bottom: Int) {
         super.setPaddingRelative(start, top, end, bottom)
         if (layoutDirection == LAYOUT_DIRECTION_RTL) {
-            chipDrawable.setPaddings(end, top, start, bottom)
+            _chipDrawable.setPaddings(end, top, start, bottom)
         } else {
-            chipDrawable.setPaddings(start, top, end, bottom)
+            _chipDrawable.setPaddings(start, top, end, bottom)
         }
     }
 
@@ -165,36 +176,32 @@ open class Chip @JvmOverloads constructor(
         val specHeight = MeasureSpec.getSize(heightMeasureSpec)
 
         val width = when (widthMode) {
-            MeasureSpec.AT_MOST -> minOf(specWidth, maxOf(minimumWidth, chipDrawable.intrinsicWidth))
+            MeasureSpec.AT_MOST -> minOf(specWidth, maxOf(minimumWidth, _chipDrawable.intrinsicWidth))
             MeasureSpec.EXACTLY -> specWidth
-            else -> chipDrawable.intrinsicWidth
+            else -> _chipDrawable.intrinsicWidth
         }
 
         val height = when (heightMode) {
-            MeasureSpec.AT_MOST -> minOf(specHeight, maxOf(minimumHeight, chipDrawable.intrinsicHeight))
+            MeasureSpec.AT_MOST -> minOf(specHeight, maxOf(minimumHeight, _chipDrawable.intrinsicHeight))
             MeasureSpec.EXACTLY -> specHeight
-            else -> chipDrawable.intrinsicHeight
+            else -> _chipDrawable.intrinsicHeight
         }
         setMeasuredDimension(width, height)
-    }
-
-    override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
-        super.onSizeChanged(w, h, oldw, oldh)
-        chipDrawable.bounds = Rect(0, 0, w, h)
+        _chipDrawable.setBounds(0, 0, measuredWidth, measuredHeight)
     }
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-        chipDrawable.draw(canvas)
+        _chipDrawable.draw(canvas)
     }
 
     override fun verifyDrawable(who: Drawable): Boolean {
-        return super.verifyDrawable(who) || who == chipDrawable
+        return super.verifyDrawable(who) || who == _chipDrawable
     }
 
     override fun drawableStateChanged() {
         super.drawableStateChanged()
-        chipDrawable.state = drawableState
+        _chipDrawable.state = drawableState
     }
 
     override fun onCreateDrawableState(extraSpace: Int): IntArray {
@@ -203,5 +210,10 @@ open class Chip @JvmOverloads constructor(
             mergeDrawableStates(drawableState, state?.attr)
         }
         return drawableState
+    }
+
+    override fun onChipDrawableSizeChange() {
+        requestLayout()
+        invalidateOutline()
     }
 }

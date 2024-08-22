@@ -5,9 +5,13 @@ import android.content.res.ColorStateList
 import android.content.res.Resources
 import android.graphics.Color
 import android.graphics.Typeface
+import android.os.Build.VERSION
+import android.os.Build.VERSION_CODES
 import android.text.TextPaint
 import android.util.Log
+import android.util.Xml
 import androidx.annotation.FontRes
+import androidx.annotation.RequiresApi
 import androidx.annotation.StyleRes
 import androidx.annotation.VisibleForTesting
 import androidx.core.content.res.ResourcesCompat
@@ -15,6 +19,7 @@ import androidx.core.content.res.ResourcesCompat.FontCallback
 import androidx.core.provider.FontsContractCompat
 import com.google.android.material.resources.TextAppearanceConfig
 import com.sdds.uikit.R
+import org.xmlpull.v1.XmlPullParser
 
 /**
  * Utility class that contains the data from parsing a TextAppearance style resource.
@@ -37,10 +42,14 @@ internal class TextAppearance(context: Context, @StyleRes id: Int) {
     var letterSpacing = 0f
     var textSize: Float
 
+    @RequiresApi(VERSION_CODES.O)
+    var fontVariationSettings: String? = null
+
     @FontRes
     private val fontFamilyResourceId: Int
     private var fontResolved = false
     private var font: Typeface? = null
+    private var systemFontLoadAttempted = false
 
     /** Parses the given TextAppearance style resource.  */
     init {
@@ -119,9 +128,7 @@ internal class TextAppearance(context: Context, @StyleRes id: Int) {
         context: Context,
         callback: TextAppearanceFontCallback,
     ) {
-        if (shouldLoadFontSynchronously()) {
-            getFont(context)
-        } else {
+        if (!maybeLoadFontSynchronously(context)) {
             // No-op if font already resolved.
             createFallbackFont()
         }
@@ -152,7 +159,8 @@ internal class TextAppearance(context: Context, @StyleRes id: Int) {
                         fontResolved = true
                         callback.onFontRetrievalFailed(reason)
                     }
-                }, /* handler */
+                },
+                /* handler */
                 null,
             )
         } catch (e: Resources.NotFoundException) {
@@ -182,12 +190,12 @@ internal class TextAppearance(context: Context, @StyleRes id: Int) {
         callback: TextAppearanceFontCallback,
     ) {
         // Updates text paint using fallback font while waiting for font to be requested.
-        updateTextPaintMeasureState(textPaint, fallbackFont)
+        updateTextPaintMeasureState(context, textPaint, fallbackFont)
         getFontAsync(
             context,
             object : TextAppearanceFontCallback() {
                 override fun onFontRetrieved(typeface: Typeface, fontResolvedSynchronously: Boolean) {
-                    updateTextPaintMeasureState(textPaint, typeface)
+                    updateTextPaintMeasureState(context, textPaint, typeface)
                     callback.onFontRetrieved(typeface, fontResolvedSynchronously)
                 }
 
@@ -243,16 +251,15 @@ internal class TextAppearance(context: Context, @StyleRes id: Int) {
         callback: TextAppearanceFontCallback,
     ) {
         updateMeasureState(context, textPaint, callback)
-        textPaint.color = textColor?.getColorForState(
+        textPaint.color = textColor.colorForState(
             textPaint.drawableState,
-            textColor.defaultColor,
+            Color.BLACK,
         )
-            ?: Color.BLACK
         textPaint.setShadowLayer(
             shadowRadius,
             shadowDx,
             shadowDy,
-            shadowColor?.getColorForState(textPaint.drawableState, shadowColor.defaultColor) ?: Color.TRANSPARENT,
+            shadowColor.colorForState(textPaint.drawableState, Color.TRANSPARENT),
         )
     }
 
@@ -267,8 +274,8 @@ internal class TextAppearance(context: Context, @StyleRes id: Int) {
         textPaint: TextPaint,
         callback: TextAppearanceFontCallback,
     ) {
-        if (shouldLoadFontSynchronously()) {
-            updateTextPaintMeasureState(textPaint, getFont(context))
+        if (maybeLoadFontSynchronously(context) && fontResolved && font != null) {
+            updateTextPaintMeasureState(context, textPaint, font!!)
         } else {
             getFontAsync(context, textPaint, callback)
         }
@@ -280,21 +287,98 @@ internal class TextAppearance(context: Context, @StyleRes id: Int) {
      * @see android.text.style.TextAppearanceSpan.updateMeasureState
      */
     fun updateTextPaintMeasureState(
+        context: Context,
         textPaint: TextPaint,
         typeface: Typeface,
     ) {
-        textPaint.typeface = typeface
-        val fake = textStyle and typeface.style.inv()
+        var tpfc = typeface
+        val boldTypeface: Typeface? = TypefaceUtils.maybeCopyWithFontWeightAdjustment(context, tpfc)
+        if (boldTypeface != null) {
+            tpfc = boldTypeface
+        }
+        textPaint.typeface = tpfc
+        val fake = textStyle and tpfc.style.inv()
         textPaint.isFakeBoldText = fake and Typeface.BOLD != 0
         textPaint.textSkewX = if (fake and Typeface.ITALIC != 0) -0.25f else 0f
         textPaint.textSize = textSize
+        if (VERSION.SDK_INT >= VERSION_CODES.O) {
+            textPaint.fontVariationSettings = fontVariationSettings
+        }
         if (hasLetterSpacing) {
             textPaint.letterSpacing = letterSpacing
         }
     }
 
-    private fun shouldLoadFontSynchronously(): Boolean {
-        return TextAppearanceConfig.shouldLoadFontSynchronously()
+    @Suppress("ReturnCount")
+    private fun maybeLoadFontSynchronously(context: Context): Boolean {
+        if (TextAppearanceConfig.shouldLoadFontSynchronously()) {
+            getFont(context)
+            return true
+        }
+        if (fontResolved) {
+            return true
+        }
+        if (fontFamilyResourceId == 0) {
+            return false
+        }
+        val cachedFont = ResourcesCompat.getCachedFont(context, fontFamilyResourceId)
+        if (cachedFont != null) {
+            font = cachedFont
+            fontResolved = true
+            return true
+        }
+        val systemFont = getSystemTypeface(context)
+        if (systemFont != null) {
+            font = systemFont
+            fontResolved = true
+            return true
+        }
+        return false
+    }
+
+    private fun getSystemTypeface(context: Context): Typeface? {
+        if (systemFontLoadAttempted) {
+            // Only attempt to load the system font once.
+            return null
+        }
+        systemFontLoadAttempted = true
+        val systemFontFamily = readFontProviderSystemFontFamily(context, fontFamilyResourceId) ?: return null
+        val regularSystemTypeface = Typeface.create(systemFontFamily, Typeface.NORMAL)
+        return if (regularSystemTypeface === Typeface.DEFAULT) {
+            // If Typeface#create returned Typeface.DEFAULT then systemFontFamily is not present on the
+            // device as a system font, so we will have to load the font asynchronously.
+            null
+        } else {
+            Typeface.create(regularSystemTypeface, textStyle)
+        }
+    }
+
+    @Suppress("ResourceType", "PrivateResource", "TooGenericExceptionCaught")
+    private fun readFontProviderSystemFontFamily(
+        context: Context,
+        @FontRes fontFamilyResourceId: Int,
+    ): String? {
+        val resources = context.resources
+        if (fontFamilyResourceId == 0 || resources.getResourceTypeName(fontFamilyResourceId) != "font") {
+            return null
+        }
+        try {
+            val xpp: XmlPullParser = resources.getXml(fontFamilyResourceId)
+            while (xpp.eventType != XmlPullParser.END_DOCUMENT) {
+                if (xpp.eventType == XmlPullParser.START_TAG && xpp.name == "font-family") {
+                    val attrs = Xml.asAttributeSet(xpp)
+                    val a = resources.obtainAttributes(attrs, androidx.core.R.styleable.FontFamily)
+                    val systemFontFamily =
+                        a.getString(androidx.core.R.styleable.FontFamily_fontProviderSystemFontFamily)
+                    a.recycle()
+                    return systemFontFamily
+                }
+                xpp.next()
+            }
+        } catch (t: Throwable) {
+            // Fail silently if we can't find fontProviderSystemFontFamily for any reason.
+        }
+        return null
     }
 
     companion object {

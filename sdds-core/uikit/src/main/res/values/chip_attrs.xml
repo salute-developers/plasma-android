@@ -8,6 +8,7 @@
         <attr name="android:drawableEnd" />
         <attr name="sd_drawableStartTint" format="color" />
         <attr name="sd_drawableEndTint" format="color" />
+        <attr name="sd_drawableSize" format="dimension" />
 
         <attr name="android:text" />
         <attr name="android:textAppearance" />
