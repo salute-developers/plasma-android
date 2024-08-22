@@ -11,6 +11,7 @@ import android.view.View.MeasureSpec
 import android.widget.CompoundButton
 import androidx.annotation.StyleRes
 import com.sdds.uikit.R
+import com.sdds.uikit.internal.base.CancelableFontCallback
 import com.sdds.uikit.internal.base.applyTextAppearance
 import com.sdds.uikit.internal.base.colorForState
 import kotlin.math.max
@@ -41,6 +42,7 @@ internal class CheckableDelegate(
     private var _descriptionTextColor: ColorStateList? = null
     private var _descriptionTextAppearanceResId: Int = 0
     private var _textAppearanceResId: Int = 0
+    private var _fontCallback: CancelableFontCallback? = null
 
     /**
      * Дополнительный текст (описание) для CheckBox и RadioBox
@@ -205,7 +207,10 @@ internal class CheckableDelegate(
         } else {
             _textAppearanceResId
         }
-        _descriptionPaint.applyTextAppearance(compoundButton.context, appearance)
+        _fontCallback?.cancel()
+        _fontCallback = _descriptionPaint.applyTextAppearance(compoundButton.context, appearance) {
+            compoundButton.requestLayout()
+        }
     }
 
     private fun updateDescriptionOffset() = with(compoundButton) {
