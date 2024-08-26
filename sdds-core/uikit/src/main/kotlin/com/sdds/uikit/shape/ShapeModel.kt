@@ -4,8 +4,10 @@ import android.content.Context
 import android.graphics.RectF
 import android.graphics.drawable.shapes.RoundRectShape
 import android.graphics.drawable.shapes.Shape
+import android.util.AttributeSet
 import androidx.annotation.StyleRes
 import com.sdds.uikit.R
+import com.sdds.uikit.shape.ShapeModel.Companion.adjust
 
 /**
  * Модель, описывающая форму для [ShapeDrawable].
@@ -70,6 +72,45 @@ data class ShapeModel(
         val SimpleRect = AbsoluteCornerSize(0f)
 
         private val NullShape = RoundRectShape(null, null, null)
+
+        /**
+         * Возвращает новую [ShapeModel] с измененными на некоторое значение пикселей [adjustmentPx] углами
+         */
+        fun ShapeModel.adjust(adjustmentPx: Float): ShapeModel {
+            if (adjustmentPx <= 0) return this
+            return this.copy(
+                cornerSizeTopLeft = cornerSizeTopLeft.adjust(adjustmentPx),
+                cornerSizeTopRight = cornerSizeTopRight.adjust(adjustmentPx),
+                cornerSizeBottomRight = cornerSizeBottomRight.adjust(adjustmentPx),
+                cornerSizeBottomLeft = cornerSizeBottomLeft.adjust(adjustmentPx),
+                cornerFamily = cornerFamily,
+            )
+        }
+
+        /**
+         * Создает [ShapeModel]
+         * @param context контекст
+         * @param attributeSet набор атрибутов
+         * @param attributeSet атрибут стиля по умолчанию
+         * @param defStyleRes стиль по умолчанию
+         */
+        fun create(
+            context: Context,
+            attributeSet: AttributeSet? = null,
+            defStyleAttr: Int = 0,
+            defStyleRes: Int = 0,
+        ): ShapeModel {
+            val typedArray = context.obtainStyledAttributes(
+                attributeSet,
+                R.styleable.SdShape,
+                defStyleAttr,
+                defStyleRes,
+            )
+            val adjustment = typedArray.getDimension(R.styleable.SdShape_sd_shapeAppearanceAdjustment, 0f)
+            val shapeResId = typedArray.getResourceId(R.styleable.SdShape_sd_shapeAppearance, 0)
+            typedArray.recycle()
+            return create(context, shapeResId).adjust(adjustment)
+        }
 
         /**
          * Создает [ShapeModel] согласно атрибутам стиля с идентификатором [shapeAppearanceResId]

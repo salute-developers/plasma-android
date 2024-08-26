@@ -4,7 +4,6 @@ import android.content.res.ColorStateList
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.View
-import androidx.annotation.StyleRes
 import androidx.core.graphics.drawable.DrawableCompat
 import androidx.core.view.updatePadding
 import com.sdds.uikit.R
@@ -41,11 +40,10 @@ internal class ShapeHelper(
         obtainAttrs(attrs, defStyleAttr, defStyleRes)
     }
 
-    fun setShape(@StyleRes shapeResId: Int) {
+    fun setShape(shapeModel: ShapeModel) {
         if (!canCreateShapeBackground()) return
-        val model = ShapeModel.create(view.context, shapeResId)
-        if (this.shapeModel != model) {
-            this.shapeModel = model
+        if (this.shapeModel != shapeModel) {
+            this.shapeModel = shapeModel
             setInternalBackground()
         }
     }
@@ -113,9 +111,9 @@ internal class ShapeHelper(
         needShapeBackground = typedArray.hasValue(R.styleable.SdShape_sd_shapeAppearance)
         strokeColor = typedArray.getColorStateList(R.styleable.SdShape_sd_strokeColor)
         strokeWidth = typedArray.getDimension(R.styleable.SdShape_sd_strokeWidth, 0f)
-        val shapeResId = typedArray.getResourceId(R.styleable.SdShape_sd_shapeAppearance, -1)
-        if (shapeResId != -1) {
-            setShape(shapeResId)
+        val hasShape = typedArray.hasValue(R.styleable.SdShape_sd_shapeAppearance)
+        if (hasShape) {
+            setShape(ShapeModel.create(view.context, attributeSet, defStyleAttr, defStyleRes))
         }
         typedArray.recycle()
     }

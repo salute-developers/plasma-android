@@ -14,7 +14,6 @@ import android.graphics.RectF
 import android.view.View
 import android.view.ViewOutlineProvider
 import androidx.annotation.Dimension
-import androidx.annotation.StyleRes
 import com.sdds.uikit.ImageView
 import com.sdds.uikit.internal.base.unsafeLazy
 import com.sdds.uikit.shape.ShapeDrawable
@@ -56,19 +55,16 @@ internal class ShapeableImageDelegate(private val imageView: ImageView) {
     private var shadowDrawable: ShapeDrawable? = null
 
     /**
-     * Устанавливает форму по идентификатору стиля в ресурсах [shapeId].
+     * Устанавливает форму [shape].
      * Если [invalidate] == true, то [imageView] будет перерисована.
-     * @param shapeId идентификатор стиля в ресурсах
+     * @param shape [ShapeModel]
      * @param invalidate нужно ли перерисовать [imageView]
      */
-    fun setShape(@StyleRes shapeId: Int, invalidate: Boolean = false) {
-        if (shapeId == 0) return
-        val model = ShapeModel.create(imageView.context, shapeId)
-        shapeModel = model
-
+    fun setShape(shape: ShapeModel, invalidate: Boolean = false) {
+        shapeModel = shape
         imageView.outlineProvider = OutlineProvider()
 
-        shadowDrawable?.setShapeModel(model)
+        shadowDrawable?.setShapeModel(shape)
         updateShapeMask(imageView.width, imageView.height)
         if (invalidate) invalidate()
     }

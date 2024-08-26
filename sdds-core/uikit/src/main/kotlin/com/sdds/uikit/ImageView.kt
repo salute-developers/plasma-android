@@ -12,6 +12,7 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.AppCompatImageView
 import com.sdds.uikit.internal.base.shape.ShapeableImageDelegate
 import com.sdds.uikit.internal.focusselector.tryApplyFocusSelector
+import com.sdds.uikit.shape.ShapeModel
 import com.sdds.uikit.viewstate.ViewState
 import com.sdds.uikit.viewstate.ViewState.Companion.isDefined
 import com.sdds.uikit.viewstate.ViewStateHolder
@@ -390,7 +391,7 @@ open class ImageView @JvmOverloads constructor(
         val shapeResId = typedArray.getResourceId(R.styleable.ImageView_sd_shapeAppearance, 0)
         if (shapeResId != 0) {
             _shapeableImageDelegate = ShapeableImageDelegate(this)
-                .apply { setShape(shapeResId) }
+                .apply { setShape(ShapeModel.create(context, attrs, defStyleAttr)) }
         }
         _shapeableImageDelegate?.apply {
             val strokeWidth = typedArray.getDimension(R.styleable.ImageView_sd_strokeWidth, 0f)
