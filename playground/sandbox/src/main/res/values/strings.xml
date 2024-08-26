@@ -16,6 +16,7 @@
     <string name="menu_radiobox">RadioBox</string>
     <string name="menu_progressbar">ProgressBar</string>
     <string name="menu_switch">Switch</string>
+    <string name="menu_textfield">TextField</string>
     <string name="sandbox_editor_title">Параметр: %1$s</string>
     <string name="sandbox_editor_placeholder">Введите значение…</string>
     <string name="sandbox_editor_confirm_title">Подтвердить</string>

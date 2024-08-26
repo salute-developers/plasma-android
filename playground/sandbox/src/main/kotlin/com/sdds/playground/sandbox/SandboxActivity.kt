@@ -63,6 +63,7 @@ class SandboxActivity : AppCompatActivity() {
             R.id.nav_switch,
             R.id.nav_avatar,
             R.id.nav_avatargroup,
+            R.id.nav_textfield,
         )
     }
 }

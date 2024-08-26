@@ -39,5 +39,9 @@
         <item
             android:id="@+id/nav_switch"
             android:title="@string/menu_switch" />
+
+        <item
+            android:id="@+id/nav_textfield"
+            android:title="@string/menu_textfield" />
     </group>
 </menu>

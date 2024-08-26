@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Sandbox.ComponentOverlays.TextFieldL">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextField.L</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.TextFieldM">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextField.M</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.TextFieldS">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextField.S</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.TextFieldXS">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextField.XS</item>
+    </style>
+</resources>

@@ -14,7 +14,8 @@
         <item name="sd_iconPadding">4dp</item>
         <item name="sd_iconTint">#8F171717</item>
         <item name="sd_labelColor">#000</item>
-        <item name="sd_labelPadding">2dp</item>
+        <item name="sd_innerLabelPadding">2dp</item>
+        <item name="sd_outerLabelPadding">4dp</item>
         <item name="sd_placeholderColor">#8F171717</item>
         <item name="sd_shapeAppearance">?sd_shapeAppearanceMedium</item>
         <item name="sd_valueAppearance">@style/TextAppearance.AppCompat.Body1</item>
