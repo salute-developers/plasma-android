@@ -59,4 +59,10 @@
         android:label="@string/menu_switch"
         tools:layout="@layout/fragment_component_scaffold" />
 
+    <fragment
+        android:id="@+id/nav_textfield"
+        android:name="com.sdds.playground.sandbox.textfield.TextFieldFragment"
+        android:label="@string/menu_textfield"
+        tools:layout="@layout/fragment_component_scaffold" />
+
 </navigation>

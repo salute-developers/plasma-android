@@ -13,13 +13,14 @@ import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
 import androidx.annotation.StyleRes
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.core.view.updatePaddingRelative
+import com.sdds.uikit.internal.base.ViewAlphaHelper
 import com.sdds.uikit.internal.base.shape.ShapeHelper
 import com.sdds.uikit.internal.base.unsafeLazy
 import com.sdds.uikit.internal.textfield.DecoratedFieldBox
 import com.sdds.uikit.viewstate.ViewState
-import com.sdds.uikit.viewstate.ViewStateHolder
 
 /**
  * Компонент TextField - однострочное текстовое поле
@@ -34,7 +35,7 @@ open class TextField @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.sd_textFieldStyle,
     defStyleRes: Int = R.style.Sdds_Components_TextField,
-) : LinearLayout(context, attrs, defStyleAttr, defStyleRes), ViewStateHolder {
+) : LinearLayout(context, attrs, defStyleAttr, defStyleRes) {
 
     /**
      * Тип заголовка
@@ -49,6 +50,31 @@ open class TextField @JvmOverloads constructor(
          * Внутренний заголовок
          */
         Inner,
+    }
+
+    /**
+     * Состояние поля для ввода
+     */
+    enum class FieldState {
+        /**
+         * Нормальное состояние поля
+         */
+        Default,
+
+        /**
+         * Обозначение позитивного сценария
+         */
+        Positive,
+
+        /**
+         * Обозначение предупреждения
+         */
+        Warning,
+
+        /**
+         * Обозначение негативного сценария
+         */
+        Negative,
     }
 
     private val _footerContainer: FrameLayout by unsafeLazy { FrameLayout(context) }
@@ -68,6 +94,7 @@ open class TextField @JvmOverloads constructor(
             ShapeHelper(this, attrs, defStyleAttr)
         }
     }
+    private val viewAlphaHelper = ViewAlphaHelper(context, attrs, defStyleAttr)
 
     private var _boxHeight: Int = ViewGroup.LayoutParams.WRAP_CONTENT
     private var _captionPadding: Int = 0
@@ -77,6 +104,17 @@ open class TextField @JvmOverloads constructor(
     private var _label: String? = null
     private var _caption: String? = null
     private var _inDrawableStateChanged: Boolean = false
+
+    private var _state: ViewState? = null
+        set(value) {
+            if (field != value) {
+                field = value
+                _decorationBox.state = field
+                _captionView.state = field
+                _outerLabelView.state = field
+                refreshDrawableState()
+            }
+        }
 
     init {
         setAddStatesFromChildren(true)
@@ -88,13 +126,19 @@ open class TextField @JvmOverloads constructor(
      * Состояние текстового поля
      * @see ViewState
      */
-    override var state: ViewState? = null
+    var state: FieldState
+        get() = when (_state) {
+            ViewState.POSITIVE -> FieldState.Positive
+            ViewState.WARNING -> FieldState.Warning
+            ViewState.NEGATIVE -> FieldState.Negative
+            else -> FieldState.Default
+        }
         set(value) {
-            if (field != value) {
-                field = value
-                _decorationBox.state = field
-                _captionView.state = field
-                _outerLabelView.state = field
+            _state = when (value) {
+                FieldState.Default -> ViewState.PRIMARY
+                FieldState.Positive -> ViewState.POSITIVE
+                FieldState.Warning -> ViewState.WARNING
+                FieldState.Negative -> ViewState.NEGATIVE
             }
         }
 
@@ -150,6 +194,7 @@ open class TextField @JvmOverloads constructor(
             if (_caption != value) {
                 _caption = value
                 _captionView.text = value
+                _captionView.isGone = value.isNullOrBlank()
             }
         }
 
@@ -160,14 +205,32 @@ open class TextField @JvmOverloads constructor(
         get() = _decorationBox.editText
 
     /**
-     * Устанавливает стиль текста [label]
+     * Режим не редактируемого поля
+     */
+    var isReadOnly: Boolean
+        get() = _decorationBox.editText.isReadOnly
+        set(value) {
+            _decorationBox.editText.isReadOnly = value
+            val newState = if (value) ViewState.SECONDARY else _state
+            _captionView.state = newState
+            _outerLabelView.state = newState
+            refreshDrawableState()
+        }
+
+    /**
+     * Устанавливает стиль текста [label] в состоянии [LabelType.Outer]
      * @param appearanceId идентификатор ресурса стиля текста
      */
-    open fun setLabelAppearance(@StyleRes appearanceId: Int) {
+    open fun setOuterLabelAppearance(@StyleRes appearanceId: Int) {
         _outerLabelView.setTextAppearance(appearanceId)
-        if (labelType == LabelType.Inner) {
-            _decorationBox.setLabelAppearance(appearanceId)
-        }
+    }
+
+    /**
+     * Устанавливает стиль текста [label] в состоянии [LabelType.Inner]
+     * @param appearanceId идентификатор ресурса стиля текста
+     */
+    open fun setInnerLabelAppearance(@StyleRes appearanceId: Int) {
+        _decorationBox.setLabelAppearance(appearanceId)
     }
 
     /**
@@ -177,9 +240,7 @@ open class TextField @JvmOverloads constructor(
     open fun setLabelColor(colors: ColorStateList?) {
         if (colors != null) {
             _outerLabelView.setTextColor(colors)
-            if (labelType == LabelType.Inner) {
-                _decorationBox.setLabelColor(colors)
-            }
+            _decorationBox.setLabelColor(colors)
         }
     }
 
@@ -367,17 +428,24 @@ open class TextField @JvmOverloads constructor(
         super.setGravity(Gravity.CENTER_HORIZONTAL)
     }
 
+    override fun setEnabled(enabled: Boolean) {
+        super.setEnabled(enabled)
+        _decorationBox.isEnabled = enabled
+        viewAlphaHelper.updateAlphaByEnabledState(this)
+    }
+
     override fun getBaseline(): Int {
         return _decorationBox.baseline
     }
 
     override fun drawableStateChanged() {
         super.drawableStateChanged()
-        if (_inDrawableStateChanged) {
+        if (_inDrawableStateChanged || isReadOnly) {
             return
         }
         _inDrawableStateChanged = true
-        _captionView.refreshDrawableState()
+        _captionView.state = if (drawableState.contains(android.R.attr.state_focused)) ViewState.PRIMARY else _state
+        _inDrawableStateChanged = false
     }
 
     private fun updateLabel() {
@@ -387,8 +455,9 @@ open class TextField @JvmOverloads constructor(
             _decorationBox.setLabel(label)
             _outerLabelView.text = null
         }
-        _decorationBox.labelEnabled = labelType == LabelType.Inner
-        _outerLabelView.isVisible = labelType == LabelType.Outer
+        _decorationBox.labelEnabled = labelType == LabelType.Inner && _decorationBox.shouldDisplayInnerLabel(_boxHeight)
+        _outerLabelView.isVisible = labelType == LabelType.Outer && !label.isNullOrBlank()
+        _decorationBox.updateTextOffset()
     }
 
     private fun layoutChildren() {
@@ -420,8 +489,9 @@ open class TextField @JvmOverloads constructor(
         labelType = LabelType.values()
             .getOrNull(typedArray.getInt(R.styleable.TextField_sd_labelType, 0))
             ?: LabelType.Outer
-        _labelPadding = typedArray.getDimensionPixelSize(R.styleable.TextField_sd_labelPadding, 0)
-        setLabelAppearance(typedArray.getResourceId(R.styleable.TextField_sd_labelAppearance, 0))
+        _labelPadding = typedArray.getDimensionPixelSize(R.styleable.TextField_sd_outerLabelPadding, 0)
+        setOuterLabelAppearance(typedArray.getResourceId(R.styleable.TextField_sd_outerLabelAppearance, 0))
+        setInnerLabelAppearance(typedArray.getResourceId(R.styleable.TextField_sd_innerLabelAppearance, 0))
         setLabelColor(typedArray.getColorStateList(R.styleable.TextField_sd_labelColor))
 
         val valueAppearance = typedArray.getResourceId(R.styleable.TextField_sd_valueAppearance, 0)
@@ -444,8 +514,6 @@ open class TextField @JvmOverloads constructor(
         setCaptionColor(typedArray.getColorStateList(R.styleable.TextField_sd_captionColor))
         _captionPadding = typedArray.getDimensionPixelOffset(R.styleable.TextField_sd_captionPadding, 0)
         typedArray.recycle()
-        state = ViewState.obtain(context, attrs, defStyleAttr)
-
-        _decorationBox.setLabelPadding(_labelPadding)
+        _state = ViewState.obtain(context, attrs, defStyleAttr)
     }
 }
