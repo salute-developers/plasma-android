@@ -217,10 +217,7 @@ open class ProgressBar @JvmOverloads constructor(
         _insetBottom = typedArray.getDimensionPixelSize(R.styleable.ProgressBar_android_insetBottom, _inset)
 
         _maxHeight = typedArray.getDimensionPixelSize(R.styleable.ProgressBar_android_maxHeight, 0)
-        val shapeModel = ShapeModel.create(
-            context,
-            typedArray.getResourceId(R.styleable.ProgressBar_sd_shapeAppearance, 0),
-        )
+        val shapeModel = ShapeModel.create(context, attrs, defStyleAttr, defStyleRes)
 
         val background = (typedArray.getDrawable(R.styleable.ProgressBar_android_background) as? ShapeDrawable)
             ?.apply { setShapeModel(shapeModel) }
