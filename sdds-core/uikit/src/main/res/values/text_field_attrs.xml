@@ -3,6 +3,11 @@
 
     <attr name="sd_textFieldStyle" format="reference" />
 
+    <declare-styleable name="SdTextFieldState">
+        <attr name="sd_state_readonly" format="boolean" />
+        <attr name="sd_state_inner_label" format="boolean" />
+    </declare-styleable>
+
     <declare-styleable name="SdDecoratedFieldBox">
         <attr name="sd_icon" />
         <attr name="sd_iconTint" />
@@ -21,6 +26,7 @@
         <attr name="sd_boxPaddingTop" format="dimension" />
         <attr name="sd_boxPaddingEnd" format="dimension" />
         <attr name="sd_boxPaddingBottom" format="dimension" />
+        <attr name="sd_innerLabelPadding" format="dimension" />
 
         <attr name="sd_viewState" />
         <attr name="sd_shapeAppearance" />
@@ -30,9 +36,11 @@
 
     <declare-styleable name="TextField" tools:ignore="ResourceName">
         <attr name="sd_label" format="string" />
-        <attr name="sd_labelAppearance" format="reference" />
+        <attr name="sd_innerLabelAppearance" format="reference" />
+        <attr name="sd_outerLabelAppearance" format="reference" />
         <attr name="sd_labelColor" format="reference|color" />
-        <attr name="sd_labelPadding" format="dimension" />
+        <attr name="sd_innerLabelPadding" />
+        <attr name="sd_outerLabelPadding" format="dimension" />
         <attr name="sd_labelType" format="enum">
             <enum name="outer" value="0" />
             <enum name="inner" value="1" />
@@ -70,5 +78,10 @@
         <attr name="sd_shapeAppearance" />
         <attr name="sd_strokeWidth" />
         <attr name="sd_strokeColor" />
+
+        <attr name="android:inputType"/>
+        <attr name="android:inputMethod"/>
+        <attr name="android:imeActionLabel"/>
+        <attr name="android:imeOptions" />
     </declare-styleable>
 </resources>

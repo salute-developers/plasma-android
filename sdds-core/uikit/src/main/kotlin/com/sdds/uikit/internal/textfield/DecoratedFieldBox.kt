@@ -15,6 +15,7 @@ import android.widget.FrameLayout
 import android.widget.LinearLayout
 import androidx.annotation.StyleRes
 import androidx.core.view.isVisible
+import androidx.core.view.updatePadding
 import androidx.core.view.updatePaddingRelative
 import androidx.core.widget.addTextChangedListener
 import com.google.android.material.internal.DescendantOffsetUtils
@@ -55,6 +56,7 @@ internal class DecoratedFieldBox(
     private val _fieldBounds = Rect()
     private val _animator: ValueAnimator by unsafeLazy {
         ValueAnimator().apply {
+            duration = LABEL_ANIMATION_DURATION
             addUpdateListener { _collapsingTextHelper.expansionFraction = (it.animatedValue as Float) }
         }
     }
@@ -68,7 +70,7 @@ internal class DecoratedFieldBox(
             id = R.id.sd_textFieldAction
         }
     }
-    private val _field = StatefulEditText(context).apply {
+    private val _field = StatefulEditText(context, attrs).apply {
         id = R.id.sd_textFieldEditText
         hint = null
         maxLines = 1
@@ -100,7 +102,7 @@ internal class DecoratedFieldBox(
     private var isExpanded: Boolean = false
     private var restoringSavedState = false
 
-    val editText: EditText
+    val editText: StatefulEditText
         get() = _field
 
     val iconView: ImageView
@@ -113,8 +115,8 @@ internal class DecoratedFieldBox(
         set(value) {
             if (field != value) {
                 field = value
+                refreshDrawableState()
                 requestLayout()
-                updateTextState(false)
             }
         }
 
@@ -126,6 +128,15 @@ internal class DecoratedFieldBox(
                 _actionView.state = field
                 _iconView.state = field
                 _field.state = field
+            }
+        }
+
+    var placeholder: CharSequence?
+        get() = _placeholderView.text
+        set(value) {
+            if (_placeholderView.text != value) {
+                _placeholderView.setText(value)
+                updateTextState(false)
             }
         }
 
@@ -141,13 +152,9 @@ internal class DecoratedFieldBox(
             setCollapsedTextGravity(Gravity.TOP or editText.gravity and Gravity.VERTICAL_GRAVITY_MASK.inv())
         }
         _placeholderView.gravity = editText.gravity
-        addView(_placeholderView)
-        addView(
-            editText,
-            LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT).apply {
-                gravity = Gravity.CENTER_VERTICAL
-            },
-        )
+        val lp = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT)
+        addView(_placeholderView, lp)
+        addView(editText, lp)
         addView(
             _iconView,
             LayoutParams(_iconSize, _iconSize).apply {
@@ -160,6 +167,7 @@ internal class DecoratedFieldBox(
                 gravity = Gravity.CENTER_VERTICAL or Gravity.END
             },
         )
+        updateTextOffset()
     }
 
     fun setIcon(drawable: Drawable?) {
@@ -176,22 +184,6 @@ internal class DecoratedFieldBox(
 
     fun setActionTint(tint: ColorStateList?) {
         actionView.imageTintList = tint
-    }
-
-    var placeholder: CharSequence?
-        get() = _placeholderView.text
-        set(value) {
-            if (_placeholderView.text != value) {
-                _placeholderView.setText(value)
-                updateTextState(false)
-            }
-        }
-
-    fun setLabelPadding(padding: Int) {
-        if (_labelPadding != padding) {
-            _labelPadding = padding
-            updateTextState(false)
-        }
     }
 
     fun setLabel(text: CharSequence?) {
@@ -222,18 +214,28 @@ internal class DecoratedFieldBox(
         _placeholderView.setTextColor(colors)
     }
 
+    override fun setEnabled(enabled: Boolean) {
+        super.setEnabled(enabled)
+        editText.isEnabled = enabled
+    }
+
+    internal fun shouldDisplayInnerLabel(height: Int): Boolean {
+        val labelValueHeight = _collapsingTextHelper.run { expandedTextHeight.toInt() + collapsedTextHeight.toInt() }
+        return (height - labelValueHeight - _labelPadding - paddingTop - paddingBottom) >= 0
+    }
+
+    internal fun updateTextOffset() {
+        val valueOffset = if (labelEnabled) innerLabelCollapsedHeight() + _labelPadding else 0
+        if (_field.paddingTop != valueOffset) {
+            _field.updatePadding(top = valueOffset, bottom = 0)
+        }
+    }
+
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
-        val newPaddingTop = if (labelEnabled) {
-            _collapsingTextHelper.collapsedTextHeight.toInt() + _labelPadding
-        } else {
-            0
-        }
         editText.updatePaddingRelative(
             start = _iconPadding + iconView.measuredWidth,
-            top = newPaddingTop,
             end = _actionPadding + actionView.measuredWidth,
-            bottom = 0,
         )
         _placeholderView.setPaddingRelative(
             editText.compoundPaddingStart,
@@ -283,6 +285,17 @@ internal class DecoratedFieldBox(
         }
     }
 
+    override fun onCreateDrawableState(extraSpace: Int): IntArray {
+        val state = super.onCreateDrawableState(extraSpace + 2)
+        if (labelEnabled) {
+            mergeDrawableStates(state, intArrayOf(R.attr.sd_state_inner_label))
+        }
+        if (editText.isReadOnly) {
+            mergeDrawableStates(state, intArrayOf(R.attr.sd_state_readonly))
+        }
+        return state
+    }
+
     override fun drawableStateChanged() {
         super.drawableStateChanged()
         // Избавляемся от бесконечной рекурсии из-за setAddStatesFromChildren(true)
@@ -329,10 +342,14 @@ internal class DecoratedFieldBox(
         _boxPaddingBottom =
             typedArray.getDimensionPixelOffset(R.styleable.SdDecoratedFieldBox_sd_boxPaddingBottom, boxPadding)
         backgroundTintList = typedArray.getColorStateList(R.styleable.SdDecoratedFieldBox_sd_boxTint)
-
         setPaddingRelative(_boxPaddingStart, _boxPaddingTop, _boxPaddingEnd, _boxPaddingBottom)
+        _labelPadding = typedArray.getDimensionPixelSize(R.styleable.SdDecoratedFieldBox_sd_innerLabelPadding, 0)
         state = ViewState.obtain(context, attrs, defStyleAttr)
         typedArray.recycle()
+    }
+
+    private fun innerLabelCollapsedHeight(): Int {
+        return _collapsingTextHelper.collapsedTextHeight.toInt()
     }
 
     private fun updateTextState(animate: Boolean, force: Boolean = false) {
@@ -368,24 +385,24 @@ internal class DecoratedFieldBox(
     }
 
     private fun calculateCollapsedTextBounds(bounds: Rect): Rect {
-        _collapsedBounds.set(
-            bounds.left + editText.compoundPaddingLeft,
-            bounds.top,
-            bounds.right - editText.compoundPaddingRight,
-            bounds.top + _collapsingTextHelper.collapsedTextHeight.toInt(),
-        )
+        _collapsedBounds.apply {
+            left = bounds.left + editText.compoundPaddingLeft
+            top = paddingTop
+            right = bounds.right - editText.compoundPaddingRight
+            bottom = top + innerLabelCollapsedHeight()
+        }
         return _collapsedBounds
     }
 
     private fun calculateExpandedTextBounds(bounds: Rect): Rect {
-        val labelHeight = _collapsingTextHelper.expandedTextHeight
+        val labelHeight = _collapsingTextHelper.expandedTextHeight.toInt()
         val labelTop: Int = if (editText.maxLines == 1) {
-            (bounds.centerY() - labelHeight / 2).toInt()
+            maxOf(paddingTop, (measuredHeight - labelHeight) / 2)
         } else {
             bounds.top + editText.compoundPaddingTop
         }
         val labelBottom = if (editText.maxLines == 1) {
-            labelTop + labelHeight.toInt()
+            labelTop + labelHeight
         } else {
             bounds.bottom - editText.compoundPaddingBottom
         }
@@ -428,11 +445,13 @@ internal class DecoratedFieldBox(
     }
 
     private companion object {
-        private const val DRAW_DEBUG = false
-        private val DebugPaint: Paint by unsafeLazy {
+        const val DRAW_DEBUG = false
+        const val LABEL_ANIMATION_DURATION = 120L
+        val DebugPaint: Paint by unsafeLazy {
             Paint().apply {
                 isAntiAlias = true
                 color = Color.CYAN
+                strokeWidth = 3f
             }
         }
     }
