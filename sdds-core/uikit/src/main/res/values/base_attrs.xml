@@ -3,6 +3,7 @@
     <attr name="sd_focusAdditionalColor" format="color" />
     <attr name="sd_focusMainColor" format="color" />
     <attr name="sd_shapeAppearance" format="reference" />
+    <attr name="sd_shapeAppearanceAdjustment" format="dimension" />
     <attr name="sd_strokeColor" format="reference|color" />
     <attr name="sd_strokeWidth" format="float|fraction|dimension" />
     <attr name="sd_disabledAlpha" format="float" />
@@ -33,6 +34,7 @@
         <attr name="android:background" />
         <attr name="sd_strokeColor" />
         <attr name="sd_strokeWidth" />
+        <attr name="sd_shapeAppearanceAdjustment"/>
     </declare-styleable>
 
     <declare-styleable name="SdShapeAppearance">
