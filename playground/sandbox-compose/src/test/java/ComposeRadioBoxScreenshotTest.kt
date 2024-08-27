@@ -5,14 +5,12 @@ import com.sdds.playground.sandbox.radiobox.SandboxRadioBoxPreviewMedium
 import com.sdds.playground.sandbox.radiobox.SandboxRadioBoxPreviewOff
 import com.sdds.playground.sandbox.radiobox.SandboxRadioBoxPreviewSmallDark
 import com.sdds.playground.sandbox.radiobox.SandboxRadioBoxPreviewUnchecked
-import org.junit.Before
 import org.junit.Test
 import org.junit.experimental.categories.Category
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
 import org.robolectric.annotation.GraphicsMode
-import java.util.TimeZone
 
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
 @Config(sdk = [SDK_NUMBER], qualifiers = RobolectricDeviceQualifiers.Pixel6)
@@ -26,17 +24,12 @@ class ComposeRadioBoxScreenshotTest {
      */
     interface ScreenshotTests
 
-    @Before
-    fun setTimeZone() {
-        TimeZone.setDefault(TimeZone.getTimeZone("UTC"))
-    }
-
     /**
      * Запуск скриншот тестов с использованием Preview
      */
     @Category(ScreenshotTests::class)
     @Test
-    fun testComposeRadioBoxMedium() {
+    fun testRadioBoxMedium() {
         captureRoboImage {
             config.roborazziOptions
             SandboxRadioBoxPreviewMedium()
@@ -45,7 +38,7 @@ class ComposeRadioBoxScreenshotTest {
 
     @Category(ScreenshotTests::class)
     @Test
-    fun testComposeRadioBoxSmallDark() {
+    fun testRadioBoxSmallDark() {
         captureRoboImage {
             config.roborazziOptions
             SandboxTheme(darkTheme = true) {
@@ -56,7 +49,7 @@ class ComposeRadioBoxScreenshotTest {
 
     @Category(ScreenshotTests::class)
     @Test
-    fun testComposeRadioBoxUnchecked() {
+    fun testRadioBoxUnchecked() {
         captureRoboImage {
             config.roborazziOptions
             SandboxRadioBoxPreviewUnchecked()
@@ -65,7 +58,7 @@ class ComposeRadioBoxScreenshotTest {
 
     @Category(ScreenshotTests::class)
     @Test
-    fun testComposeRadioBoxOff() {
+    fun testRadioBoxOff() {
         captureRoboImage {
             config.roborazziOptions
             SandboxRadioBoxPreviewOff()

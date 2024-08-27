@@ -7,14 +7,12 @@ import com.sdds.playground.sandbox.checkbox.SandboxCheckBoxPreviewOnSizeMediumNo
 import com.sdds.playground.sandbox.checkbox.SandboxCheckBoxPreviewOnSizeMediumNoLabel
 import com.sdds.playground.sandbox.checkbox.SandboxCheckBoxPreviewSizeMediumNoLabelAndDesc
 import com.sdds.playground.sandbox.checkbox.SandboxCheckBoxPreviewUncheckedSizeMedium
-import org.junit.Before
 import org.junit.Test
 import org.junit.experimental.categories.Category
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
 import org.robolectric.annotation.GraphicsMode
-import java.util.TimeZone
 
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
 @Config(sdk = [SDK_NUMBER], qualifiers = RobolectricDeviceQualifiers.Pixel6)
@@ -28,17 +26,12 @@ class ComposeCheckBoxScreenshotTest {
      */
     interface ScreenshotTests
 
-    @Before
-    fun setTimeZone() {
-        TimeZone.setDefault(TimeZone.getTimeZone("UTC"))
-    }
-
     /**
      * Запуск скриншот тестов с использованием Preview
      */
     @Category(ScreenshotTests::class)
     @Test
-    fun testComposeCheckBoxUncheckedSizeMedium() {
+    fun testCheckBoxUncheckedSizeMedium() {
         captureRoboImage {
             config.roborazziOptions
             SandboxCheckBoxPreviewUncheckedSizeMedium()
@@ -47,7 +40,7 @@ class ComposeCheckBoxScreenshotTest {
 
     @Category(ScreenshotTests::class)
     @Test
-    fun testComposeCheckBoxCheckedSizeSmallDark() {
+    fun testCheckBoxCheckedSizeSmallDark() {
         captureRoboImage {
             config.roborazziOptions
             SandboxTheme(darkTheme = true) {
@@ -58,7 +51,7 @@ class ComposeCheckBoxScreenshotTest {
 
     @Category(ScreenshotTests::class)
     @Test
-    fun testComposeCheckBoxOffSizeSmall() {
+    fun testCheckBoxOffSizeSmall() {
         captureRoboImage {
             config.roborazziOptions
             SandboxCheckBoxPreviewOffSizeSmall()
@@ -67,7 +60,7 @@ class ComposeCheckBoxScreenshotTest {
 
     @Category(ScreenshotTests::class)
     @Test
-    fun testComposeCheckBoxOnSizeMediumNoDesc() {
+    fun testCheckBoxOnSizeMediumNoDesc() {
         captureRoboImage {
             config.roborazziOptions
             SandboxCheckBoxPreviewOnSizeMediumNoDesc()
@@ -76,7 +69,7 @@ class ComposeCheckBoxScreenshotTest {
 
     @Category(ScreenshotTests::class)
     @Test
-    fun testComposeCheckBoxOnSizeMediumNoLabel() {
+    fun testCheckBoxOnSizeMediumNoLabel() {
         captureRoboImage {
             config.roborazziOptions
             SandboxCheckBoxPreviewOnSizeMediumNoLabel()
@@ -85,7 +78,7 @@ class ComposeCheckBoxScreenshotTest {
 
     @Category(ScreenshotTests::class)
     @Test
-    fun testComposeCheckBoxSizeMediumNoLabelAndDesc() {
+    fun testCheckBoxSizeMediumNoLabelAndDesc() {
         captureRoboImage {
             config.roborazziOptions
             SandboxCheckBoxPreviewSizeMediumNoLabelAndDesc()

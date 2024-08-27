@@ -120,6 +120,12 @@ abstract class GenerateThemeTask : DefaultTask() {
     abstract val viewThemeParents: ListProperty<ViewThemeParent>
 
     /**
+     * Список конфигов для генерации shape-токенов
+     */
+    @get:Input
+    abstract val viewShapeAppearanceConfig: ListProperty<ShapeAppearanceConfig>
+
+    /**
      * Режим генерации: токены или тема
      */
     @get:Input
@@ -175,6 +181,7 @@ abstract class GenerateThemeTask : DefaultTask() {
             namespace = namespace.get(),
             resPrefixConfig = resourcesPrefixConfig.get(),
             viewThemeParents = viewThemeParents.get(),
+            viewShapeAppearanceConfig = viewShapeAppearanceConfig.get(),
             themeName = themeName.get(),
         )
     }

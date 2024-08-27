@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:color="?thmbldr_surfaceDefaultTransparentSecondaryActive" android:state_pressed="true" app:sd_state_secondary="true" />
+    <item android:color="?thmbldr_surfaceDefaultTransparentSecondaryHover" android:state_hovered="true" app:sd_state_secondary="true" />
+    <item android:color="?thmbldr_surfaceDefaultTransparentSecondary" app:sd_state_secondary="true" />
+
+    <item android:color="?thmbldr_surfaceDefaultAccentActive" android:state_pressed="true" app:sd_state_accent="true" />
+    <item android:color="?thmbldr_surfaceDefaultAccentHover" android:state_hovered="true" app:sd_state_accent="true" />
+    <item android:color="?thmbldr_surfaceDefaultAccent" app:sd_state_accent="true" />
+
+    <item android:color="?thmbldr_surfaceDefaultPositiveActive" android:state_pressed="true" app:sd_state_positive="true" />
+    <item android:color="?thmbldr_surfaceDefaultPositiveHover" android:state_hovered="true" app:sd_state_positive="true" />
+    <item android:color="?thmbldr_surfaceDefaultPositive" app:sd_state_positive="true" />
+
+    <item android:color="?thmbldr_surfaceDefaultWarningActive" android:state_pressed="true" app:sd_state_warning="true" />
+    <item android:color="?thmbldr_surfaceDefaultWarningHover" android:state_hovered="true" app:sd_state_warning="true" />
+    <item android:color="?thmbldr_surfaceDefaultWarning" app:sd_state_warning="true" />
+
+    <item android:color="?thmbldr_surfaceDefaultNegativeActive" android:state_pressed="true" app:sd_state_negative="true" />
+    <item android:color="?thmbldr_surfaceDefaultNegativeHover" android:state_hovered="true" app:sd_state_negative="true" />
+    <item android:color="?thmbldr_surfaceDefaultNegative" app:sd_state_negative="true" />
+
+    <item android:color="?thmbldr_surfaceOnLightTransparentDeepActive" android:state_pressed="true" app:sd_state_dark="true" />
+    <item android:color="?thmbldr_surfaceOnLightTransparentDeepHover" android:state_hovered="true" app:sd_state_dark="true" />
+    <item android:color="?thmbldr_surfaceOnLightTransparentDeep" app:sd_state_dark="true" />
+
+    <item android:color="?thmbldr_surfaceOnLightSolidDefaultActive" android:state_pressed="true" app:sd_state_black="true" />
+    <item android:color="?thmbldr_surfaceOnLightSolidDefaultHover" android:state_hovered="true" app:sd_state_black="true" />
+    <item android:color="?thmbldr_surfaceOnLightSolidDefault" app:sd_state_black="true" />
+
+    <item android:color="?thmbldr_surfaceOnDarkSolidDefaultActive" android:state_pressed="true" app:sd_state_white="true" />
+    <item android:color="?thmbldr_surfaceOnDarkSolidDefaultHover" android:state_hovered="true" app:sd_state_white="true" />
+    <item android:color="?thmbldr_surfaceOnDarkSolidDefault" app:sd_state_white="true" />
+
+    <item android:color="?thmbldr_surfaceDefaultClearActive" android:state_pressed="true" app:sd_state_clear="true" />
+    <item android:color="?thmbldr_surfaceDefaultClearHover" android:state_hovered="true" app:sd_state_clear="true" />
+    <item android:color="?thmbldr_surfaceDefaultClear" app:sd_state_clear="true" />
+
+    <item android:color="?thmbldr_surfaceDefaultSolidDefaultActive" android:state_pressed="true" />
+    <item android:color="?thmbldr_surfaceDefaultSolidDefaultHover" android:state_hovered="true" />
+    <item android:color="?thmbldr_surfaceDefaultSolidDefault" />
+
+
+</selector>

@@ -1,5 +1,6 @@
 package com.sdds.plugin.themebuilder.internal.generator
 
+import com.sdds.plugin.themebuilder.ShapeAppearanceConfig
 import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
@@ -38,6 +39,7 @@ internal class ShapeTokenGenerator(
     private val outputLocation: KtFileBuilder.OutputLocation,
     private val outputResDir: File,
     target: ThemeBuilderTarget,
+    private val viewShapeAppearanceConfig: List<ShapeAppearanceConfig>,
     private val xmlBuilderFactory: XmlResourcesDocumentBuilderFactory,
     private val ktFileBuilderFactory: KtFileBuilderFactory,
     private val dimensAggregator: DimensAggregator,
@@ -48,6 +50,7 @@ internal class ShapeTokenGenerator(
     private val xmlDocumentBuilder by unsafeLazy { xmlBuilderFactory.create(DEFAULT_ROOT_ATTRIBUTES) }
     private val ktFileBuilder by unsafeLazy { ktFileBuilderFactory.create("ShapeTokens") }
     private val rootRoundShapes by unsafeLazy { ktFileBuilder.rootObject("RoundShapeTokens") }
+    private val shouldGenerateShapeStyles: Boolean = viewShapeAppearanceConfig.isNotEmpty()
     private var needCreateStyle: Boolean = true
 
     private val composeTokenDataCollector =
@@ -64,7 +67,7 @@ internal class ShapeTokenGenerator(
      * @see TokenGenerator.generateViewSystem
      */
     override fun generateViewSystem() {
-        if (!IS_SHAPE_STYLE_ENABLED) return
+        if (!shouldGenerateShapeStyles) return
         super.generateViewSystem()
         xmlDocumentBuilder.build(outputResDir.shapesXmlFile())
     }
@@ -95,8 +98,8 @@ internal class ShapeTokenGenerator(
             type = DimenData.Type.DP,
         )
         dimensAggregator.addDimen(cornerSize)
-        if (IS_SHAPE_STYLE_ENABLED) {
-            addShapeStyle(token, cornerSize)
+        if (shouldGenerateShapeStyles) {
+            addShapeStyle(token, cornerSize, viewShapeAppearanceConfig)
         }
         return@with true
     }
@@ -104,28 +107,33 @@ internal class ShapeTokenGenerator(
     private fun XmlResourcesDocumentBuilder.addShapeStyle(
         token: ShapeToken,
         cornerSize: DimenData,
+        viewShapeAppearanceConfig: List<ShapeAppearanceConfig>,
     ) {
         if (needCreateStyle) {
             needCreateStyle = false
             appendStyleWithCompositePrefix("Shape")
             appendStyleWithCompositePrefix("Shape.Round") {
-                appendElement(
-                    elementName = ElementName.ITEM,
-                    tokenName = "cornerFamily",
-                    value = "rounded",
-                    usePrefix = false,
-                )
+                viewShapeAppearanceConfig.forEach {
+                    appendElement(
+                        elementName = ElementName.ITEM,
+                        tokenName = it.cornerFamilyAttr,
+                        value = "rounded",
+                        usePrefix = false,
+                    )
+                }
             }
         }
         appendComment(token.description)
         val styleName = "Shape.${token.xmlName}"
         appendStyleWithCompositePrefix(styleName) {
-            appendElement(
-                ElementName.ITEM,
-                "cornerSize",
-                resourceReferenceProvider.dimen(cornerSize),
-                usePrefix = false,
-            )
+            viewShapeAppearanceConfig.forEach {
+                appendElement(
+                    ElementName.ITEM,
+                    it.cornerSizeAttr,
+                    resourceReferenceProvider.dimen(cornerSize),
+                    usePrefix = false,
+                )
+            }
         }
         viewTokenDataCollector.add(
             ShapeTokenResult.TokenData(
@@ -164,12 +172,5 @@ internal class ShapeTokenGenerator(
             ),
         )
         return@with true
-    }
-
-    internal companion object {
-        /**
-         * Временный флаг, выключающий генерацию стилей форм, т.к. они требуют атрибуты из material
-         */
-        var IS_SHAPE_STYLE_ENABLED = false
     }
 }

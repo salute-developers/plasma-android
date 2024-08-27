@@ -4,6 +4,7 @@ import androidx.compose.foundation.Indication
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.Modifier
@@ -49,6 +50,50 @@ internal fun Modifier.surface(
 
     return clip(shape)
         .then(clickableModifier)
+        .graphicsLayer { alpha = if (enabled) enabledAlpha else disabledAlpha }
+        .background(backgroundColor)
+}
+
+/**
+ * Модификатор, позволяющий применять форму, бэкграунд и быть выбираемым
+ * Полезен при создании таких компонентов, как chip
+ *
+ * @param value состояние отмечен/не отмечен
+ * @param onValueChange обработчик смены состояния
+ * @param shape форма компонента
+ * @param backgroundColor цвет бэкграунда
+ * @param indication индикация нажатия
+ * @param role тип элемента для Accesabillity
+ * @param enabled включен ли компонент
+ * @param enabledAlpha альфа в состоянии [enabled] == true
+ * @param disabledAlpha альфа в состоянии [enabled] == true
+ * @param interactionSource источник взаимодействий
+ */
+internal fun Modifier.surface(
+    value: Boolean,
+    onValueChange: ((Boolean) -> Unit)? = null,
+    shape: CornerBasedShape = RoundedCornerShape(25),
+    backgroundColor: Brush,
+    indication: Indication? = null,
+    role: Role? = null,
+    enabled: Boolean = true,
+    enabledAlpha: Float = 1f,
+    disabledAlpha: Float = 0.4f,
+    interactionSource: MutableInteractionSource,
+): Modifier {
+    val toggleableModifier = onValueChange?.let {
+        Modifier.toggleable(
+            value = value,
+            interactionSource = interactionSource,
+            indication = indication,
+            enabled = enabled,
+            role = role,
+            onValueChange = onValueChange,
+        )
+    } ?: Modifier
+
+    return clip(shape)
+        .then(toggleableModifier)
         .graphicsLayer { alpha = if (enabled) enabledAlpha else disabledAlpha }
         .background(backgroundColor)
 }

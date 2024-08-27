@@ -3,6 +3,7 @@ package com.sdds.uikit
 import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Canvas
+import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.PorterDuff
 import android.graphics.drawable.Animatable
@@ -11,29 +12,27 @@ import android.text.Spannable
 import android.text.TextPaint
 import android.text.style.CharacterStyle
 import android.text.style.ReplacementSpan
-import android.text.style.TextAppearanceSpan
 import android.text.style.UpdateAppearance
 import android.util.AttributeSet
 import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
-import androidx.annotation.StyleRes
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.graphics.drawable.DrawableCompat
 import androidx.core.text.buildSpannedString
 import androidx.core.view.ViewCompat
 import androidx.core.widget.TextViewCompat
+import com.sdds.uikit.internal.base.ViewAlphaHelper
+import com.sdds.uikit.internal.base.configure
 import com.sdds.uikit.internal.base.drawable.SpinnerDrawable
 import com.sdds.uikit.internal.base.set
 import com.sdds.uikit.internal.base.shape.ShapeHelper
-import com.sdds.uikit.internal.base.unsafeLazy
 import com.sdds.uikit.internal.focusselector.tryApplyFocusSelector
 import com.sdds.uikit.viewstate.ViewState
 import com.sdds.uikit.viewstate.ViewState.Companion.isDefined
 import com.sdds.uikit.viewstate.ViewStateHolder
-import kotlin.math.min
 
 /**
  * Компонент "Кнопка".
@@ -46,24 +45,18 @@ import kotlin.math.min
 open class Button @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
-    defStyleAttr: Int = 0,
+    defStyleAttr: Int = android.R.attr.buttonStyle,
 ) : AppCompatButton(context, attrs, defStyleAttr), ViewStateHolder {
+
     @Suppress("LeakingThis")
     private val _shapeHelper: ShapeHelper = ShapeHelper(this, attrs, defStyleAttr)
-    private val _spinner: Drawable by unsafeLazy {
-        SpinnerDrawable(_spinnerStrokeWidth)
-            .apply {
-                callback = this@Button
-                isInEditMode = this@Button.isInEditMode
-            }
-    }
-    private val _valuePaint: TextPaint = TextPaint()
-    private val _valueStateListSpan: ColorStateListSpan by unsafeLazy { ColorStateListSpan() }
-    private val _labelSpaceSpan: SpaceSpan by unsafeLazy { SpaceSpan() }
+    private val _viewAlphaHelper: ViewAlphaHelper = ViewAlphaHelper(context, attrs, defStyleAttr)
+
+    private val _valueStateListSpan: ColorStateListSpan = ColorStateListSpan()
+    private val _spaceSpan: SpaceSpan = SpaceSpan()
 
     private var _label: CharSequence? = null
-    private var _spinnerSize: Int = 0
-    private var _spinnerStrokeWidth: Float = 0f
+
     private var _isLoading: Boolean = false
     private var _iconLeft: Int = 0
     private var _iconTop: Int = 0
@@ -76,8 +69,11 @@ open class Button @JvmOverloads constructor(
     private var _spacing: Spacing = Spacing.Packed
     private var _valuePadding: Int = 0
     private var _valueTextColor: ColorStateList? = null
-    private var _valueTextAppearanceSpan: TextAppearanceSpan? = null
-    private var _valueTextAppearanceResId: Int = 0
+    private var _spanSpaceSize: Int = 0
+    private var _spinner: Drawable? = null
+    private var _spinnerSize: Int = 0
+    private var _spinnerStrokeWidth: Float = 0f
+    private var _spinnerTintList: ColorStateList? = null
 
     /**
      * Режим обработки расстояния между основным ([getText]) и дополнительным [value] текстами
@@ -133,6 +129,7 @@ open class Button @JvmOverloads constructor(
         set(value) {
             if (_icon != value) {
                 _icon = value
+                resetText()
                 updateIcon(false)
                 updateIconPosition(measuredWidth)
             }
@@ -148,6 +145,7 @@ open class Button @JvmOverloads constructor(
             if (_iconPadding != value) {
                 _iconPadding = value
                 compoundDrawablePadding = iconPadding
+                resetSpanSpace()
             }
         }
 
@@ -160,7 +158,8 @@ open class Button @JvmOverloads constructor(
         set(value) {
             if (_iconPosition != value) {
                 _iconPosition = value
-                updateIconPosition(measuredWidth)
+                resetText()
+                updateIcon(false)
             }
         }
 
@@ -174,6 +173,7 @@ open class Button @JvmOverloads constructor(
             if (value < 0) throw IllegalArgumentException("iconSize cannot be less than 0")
             if (_iconSize != value) {
                 _iconSize = value
+                resetText()
                 updateIcon(icon != null)
             }
         }
@@ -202,7 +202,7 @@ open class Button @JvmOverloads constructor(
         set(value) {
             if (_valuePadding != value) {
                 _valuePadding = value
-                invalidate()
+                resetText()
             }
         }
 
@@ -215,7 +215,7 @@ open class Button @JvmOverloads constructor(
         set(value) {
             if (_spacing != value) {
                 _spacing = value
-                requestLayout()
+                resetText()
             }
         }
 
@@ -273,7 +273,7 @@ open class Button @JvmOverloads constructor(
      * @param tintList цвета границы индикатора загрузки
      */
     open fun setSpinnerTintList(tintList: ColorStateList) {
-        _spinner.setTintList(tintList)
+        getSpinnerDrawable().setTintList(tintList)
     }
 
     /**
@@ -312,20 +312,6 @@ open class Button @JvmOverloads constructor(
     }
 
     /**
-     * Устанавливает стиль дополнительного текста по идентификатору стиля в ресурсах
-     * @param textAppearanceId идентификатор стиля текста в ресурсах
-     */
-    fun setValueTextAppearance(@StyleRes textAppearanceId: Int) {
-        if (_valueTextAppearanceResId != textAppearanceId) {
-            _valueTextAppearanceResId = textAppearanceId
-            if (textAppearanceId != 0) {
-                _valueTextAppearanceSpan = TextAppearanceSpan(context, textAppearanceId)
-                    .also { it.updateDrawState(_valuePaint) }
-            }
-        }
-    }
-
-    /**
      * Устанавливает цвет дополнительного текста
      * @param color цвет дополнительного текста
      */
@@ -345,19 +331,25 @@ open class Button @JvmOverloads constructor(
     }
 
     override fun setText(text: CharSequence?, type: BufferType?) {
-        _label = text
-        resetText()
+        if (_label != text) {
+            _label = text
+            resetText()
+        }
+    }
+
+    @Suppress("UNNECESSARY_SAFE_CALL")
+    override fun setEnabled(enabled: Boolean) {
+        super.setEnabled(enabled)
+        _viewAlphaHelper?.updateAlphaByEnabledState(this)
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        _spanSpaceSize = valuePadding
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
-        if (spacing == Spacing.SpaceBetween) {
-            val specWidth = MeasureSpec.getSize(widthMeasureSpec)
-            setMeasuredDimension(specWidth, measuredHeight)
-        }
+        resetSpanSpace()
         val left = (measuredWidth - _spinnerSize) / 2
         val top = (measuredHeight - _spinnerSize) / 2
-        _spinner.setBounds(left, top, left + _spinnerSize, top + _spinnerSize)
+        getSpinnerDrawable().setBounds(left, top, left + _spinnerSize, top + _spinnerSize)
         updateIconPosition(measuredWidth)
     }
 
@@ -374,12 +366,12 @@ open class Button @JvmOverloads constructor(
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         if (isLoading) {
-            _spinner.draw(canvas)
+            getSpinnerDrawable().draw(canvas)
         }
     }
 
     override fun verifyDrawable(who: Drawable): Boolean {
-        return super.verifyDrawable(who) || who == _spinner
+        return super.verifyDrawable(who) || (_spinner != null && who == _spinner)
     }
 
     override fun onCreateDrawableState(extraSpace: Int): IntArray {
@@ -394,16 +386,7 @@ open class Button @JvmOverloads constructor(
 
     override fun drawableStateChanged() {
         super.drawableStateChanged()
-        _spinner.state = drawableState
-    }
-
-    private fun calculateSpanSize(maxWidth: Int, labelWidth: Int, valueWidth: Int): Int {
-        return if (spacing == Spacing.SpaceBetween) {
-            (maxWidth - paddingStart - paddingEnd - iconPadding - iconSize - labelWidth - valueWidth)
-                .coerceAtLeast(valuePadding)
-        } else {
-            valuePadding
-        }
+        getSpinnerDrawable().state = drawableState
     }
 
     private fun obtainAttributes(attrs: AttributeSet?, defStyleAttr: Int) {
@@ -417,18 +400,17 @@ open class Button @JvmOverloads constructor(
             R.styleable.Button_sd_spinnerStrokeWidth,
             DEFAULT_SPINNER_STROKE_WIDTH.dp,
         )
-        _spinner.setTintList(typedArray.getColorStateList(R.styleable.Button_sd_spinnerTint))
+        _spinnerTintList = typedArray.getColorStateList(R.styleable.Button_sd_spinnerTint)
 
         _valuePadding = typedArray.getDimensionPixelSize(
             R.styleable.Button_sd_valuePadding,
-            DEFAULT_VALUE_PADDING.dp,
+            0,
         )
         _valueTextColor = typedArray.getColorStateList(R.styleable.Button_sd_valueTextColor)
         _value = typedArray.getString(R.styleable.Button_sd_value)
         _spacing = Spacing
             .values()
             .getOrElse(typedArray.getInt(R.styleable.Button_sd_spacing, 0)) { Spacing.Packed }
-        setValueTextAppearance(typedArray.getResourceId(R.styleable.Button_sd_valueTextAppearance, 0))
 
         iconPadding = typedArray.getDimensionPixelSize(R.styleable.Button_sd_iconPadding, 0)
         _icon = typedArray.getDrawable(R.styleable.Button_sd_icon)
@@ -444,36 +426,61 @@ open class Button @JvmOverloads constructor(
 
     private fun updateLoadingState() {
         if (isLoading) {
-            (_spinner as? Animatable)?.start()
+            (getSpinnerDrawable() as? Animatable)?.start()
         } else {
-            (_spinner as? Animatable)?.stop()
+            (getSpinnerDrawable() as? Animatable)?.stop()
         }
+        refreshDrawableState()
+    }
+
+    private fun getSpinnerDrawable(): Drawable {
+        return _spinner ?: SpinnerDrawable(_spinnerStrokeWidth)
+            .apply {
+                callback = this@Button
+                isInEditMode = this@Button.isInEditMode
+                setTintList(_spinnerTintList)
+            }.also {
+                _spinner = it
+            }
     }
 
     private fun getButtonText(): CharSequence? {
-        val label = _label ?: return value
-        val value = value ?: return label
+        if (!hasLabel() && !hasValue()) return null
+        val label = _label
+        val value = _value
         return buildSpannedString {
-            append(label)
-            append(value)
-            setSpan(_labelSpaceSpan, 0, label.length, Spannable.SPAN_INCLUSIVE_EXCLUSIVE)
-            setSpan(
-                TextAppearanceSpan(context, _valueTextAppearanceResId),
-                label.length,
-                label.length + value.length,
-                Spannable.SPAN_INCLUSIVE_EXCLUSIVE,
-            )
-            setSpan(
-                _valueStateListSpan,
-                label.length,
-                label.length + value.length,
-                Spannable.SPAN_INCLUSIVE_EXCLUSIVE,
-            )
+            var labelEndIndex = 0
+            var valueEndIndex = 0
+            if (!label.isNullOrBlank()) {
+                append(label)
+                labelEndIndex = label.length
+            }
+
+            if (!value.isNullOrBlank()) {
+                append(value)
+                valueEndIndex = labelEndIndex + value.length
+                setSpan(
+                    _valueStateListSpan,
+                    labelEndIndex,
+                    valueEndIndex,
+                    Spannable.SPAN_INCLUSIVE_EXCLUSIVE,
+                )
+            }
+            val spanPosition = getSpanPosition()
+            val spanEndIndex = when (spanPosition) {
+                SPAN_POSITION_END, SPAN_POSITION_START -> maxOf(labelEndIndex, valueEndIndex)
+                SPAN_POSITION_MIDDLE -> labelEndIndex
+                else -> return@buildSpannedString
+            }
+            val spanStartIndex = if (spanPosition == SPAN_POSITION_START) 0 else spanEndIndex - 1
+            setSpan(_spaceSpan, spanStartIndex, spanEndIndex, Spannable.SPAN_INCLUSIVE_EXCLUSIVE)
         }
     }
 
     private fun resetText() {
+        resetSpanSpace()
         super.setText(getButtonText(), null)
+        requestLayout()
     }
 
     private fun updateIcon(needsIconReset: Boolean) {
@@ -505,7 +512,9 @@ open class Button @JvmOverloads constructor(
         }
         if (isIconStart() || isIconEnd()) {
             _iconTop = 0
-            var newIconLeft = ((buttonWidth - getTextWidth() - paddingEnd - iconSize - iconPadding - paddingStart) / 2)
+            val textWidth = getTextWidth() + _spanSpaceSize
+            var newIconLeft = ((buttonWidth - textWidth - paddingEnd - iconSize - iconPadding - paddingStart) / 2)
+            newIconLeft = newIconLeft.coerceAtLeast(0)
 
             // Меняем значение левой границы только если isLayoutRTL() или iconGravity = textEnd, но не в обоих случаях
             if (isLayoutRTL() != (iconPosition == IconPosition.TextEnd)) {
@@ -518,17 +527,40 @@ open class Button @JvmOverloads constructor(
         }
     }
 
-    private fun getTextWidth(): Int =
-        if (spacing == Spacing.SpaceBetween) {
-            layout.ellipsizedWidth
+    private fun resetSpanSpace() {
+        _spanSpaceSize = calculateSpanSpaceSize()
+    }
+
+    private fun calculateSpanSpaceSize(): Int {
+        val availableSpace = measuredWidth - compoundPaddingStart - compoundPaddingEnd
+        val atLeastSpace = if (hasLabel() && hasValue()) valuePadding else 0
+        return if (spacing == Spacing.SpaceBetween) {
+            (availableSpace - getTextWidth()).coerceAtLeast(atLeastSpace)
         } else {
-            val labelText = _label?.toString() ?: ""
-            val valueText = value?.toString() ?: ""
-            min(
-                _valuePaint.measureText(valueText).toInt() + paint.measureText(labelText).toInt(),
-                layout.ellipsizedWidth,
-            )
+            atLeastSpace
         }
+    }
+
+    private fun getTextWidth(): Int = getLabelWidth() + getValueWidth()
+
+    private fun getLabelWidth(): Int {
+        val labelText = _label?.toString() ?: return 0
+        return paint.getTextWidth(labelText)
+    }
+
+    private fun getValueWidth(): Int {
+        val valueText = value?.toString() ?: return 0
+        return paint.getTextWidth(valueText)
+    }
+
+    private fun getSpanPosition(): Int {
+        return when {
+            hasLabel() && hasValue() -> SPAN_POSITION_MIDDLE // отступ между label и value
+            hasIcon() && isIconStart() -> SPAN_POSITION_START // отступ перед текстом
+            hasIcon() && isIconEnd() -> SPAN_POSITION_END // отступ после текста
+            else -> SPAN_POSITION_NONE
+        }
+    }
 
     private fun resetIconDrawable() = when {
         isIconStart() -> TextViewCompat.setCompoundDrawablesRelative(this, icon, null, null, null)
@@ -544,17 +576,28 @@ open class Button @JvmOverloads constructor(
         return iconPosition == IconPosition.TextEnd
     }
 
+    private fun hasIcon(): Boolean = icon != null
+
+    private fun hasValue(): Boolean = value?.isNotBlank() == true
+
+    private fun hasLabel(): Boolean = _label?.isNotBlank() == true
+
     private fun isLayoutRTL(): Boolean {
         return ViewCompat.getLayoutDirection(this) == ViewCompat.LAYOUT_DIRECTION_RTL
     }
 
     private inner class SpaceSpan : ReplacementSpan() {
 
+        private var textWidth: Int = 0
+
         override fun getSize(paint: Paint, text: CharSequence?, start: Int, end: Int, fm: Paint.FontMetricsInt?): Int {
-            val valueWidth = value?.toString()?.let { _valuePaint.measureText(it).toInt() } ?: 0
-            val labelWidth = paint.measureText(text, start, end).toInt()
+            val safeText = text ?: return 0
+            textWidth = paint.getTextWidth(safeText.toString(), start, end)
             fm?.set(paint.fontMetricsInt)
-            return calculateSpanSize(measuredWidth, labelWidth, valueWidth) + labelWidth
+            if (getSpanPosition() == SPAN_POSITION_NONE) {
+                return textWidth
+            }
+            return textWidth + _spanSpaceSize
         }
 
         override fun draw(
@@ -569,7 +612,37 @@ open class Button @JvmOverloads constructor(
             paint: Paint,
         ) {
             if (text == null) return
-            canvas.drawText(text, start, end, x, y.toFloat(), paint)
+            val spanPosition = getSpanPosition()
+            val textStart = if (spanPosition == SPAN_POSITION_START) x + _spanSpaceSize else x
+            canvas.drawText(text, start, end, textStart, y.toFloat(), paint)
+
+            if (DEBUG_MODE) {
+                canvas.drawRect(
+                    textStart,
+                    top.toFloat(),
+                    textStart + textWidth,
+                    bottom.toFloat(),
+                    DebugPaint.configure(color = Color.MAGENTA),
+                )
+
+                if (spanPosition == SPAN_POSITION_MIDDLE || spanPosition == SPAN_POSITION_END) {
+                    canvas.drawRect(
+                        x + textWidth,
+                        top.toFloat(),
+                        x + textWidth + _spanSpaceSize,
+                        bottom.toFloat(),
+                        DebugPaint.configure(color = Color.WHITE),
+                    )
+                } else if (spanPosition == SPAN_POSITION_START) {
+                    canvas.drawRect(
+                        x,
+                        top.toFloat(),
+                        x + _spanSpaceSize,
+                        bottom.toFloat(),
+                        DebugPaint.configure(color = Color.WHITE),
+                    )
+                }
+            }
         }
     }
 
@@ -583,8 +656,18 @@ open class Button @JvmOverloads constructor(
     }
 
     private companion object {
+        const val SPAN_POSITION_NONE = -1
+        const val SPAN_POSITION_START = 0
+        const val SPAN_POSITION_MIDDLE = 1
+        const val SPAN_POSITION_END = 2
         const val DEFAULT_SPINNER_SIZE = 24
         const val DEFAULT_SPINNER_STROKE_WIDTH = 2f
-        const val DEFAULT_VALUE_PADDING = 4
+        const val DEBUG_MODE = false
+        val DebugPaint = Paint().configure(style = Paint.Style.STROKE, color = Color.MAGENTA, strokeWidth = 3f)
+
+        fun Paint.getTextWidth(text: CharSequence, start: Int = 0, end: Int = text.length): Int {
+            if (text.isEmpty()) return 0
+            return measureText(text.toString(), start, end).toInt()
+        }
     }
 }

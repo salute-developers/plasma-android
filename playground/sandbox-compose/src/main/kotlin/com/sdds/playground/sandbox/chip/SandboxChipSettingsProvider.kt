@@ -3,7 +3,9 @@ package com.sdds.playground.sandbox.chip
 import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -33,21 +35,25 @@ internal object SandboxChipSettingsProvider {
     }
 
     @Composable
-    fun backgroundColor(state: SandboxChip.State): Color {
-        return when (state) {
-            SandboxChip.State.Default -> StylesSaluteTheme.colors.surfaceDefaultSolidDefault
-            SandboxChip.State.Secondary -> StylesSaluteTheme.colors.surfaceDefaultTransparentSecondary
-            SandboxChip.State.Accent -> StylesSaluteTheme.colors.surfaceDefaultAccent
-        }
+    fun backgroundColor(state: SandboxChip.State): Brush {
+        return SolidColor(
+            when (state) {
+                SandboxChip.State.Default -> StylesSaluteTheme.colors.surfaceDefaultSolidDefault
+                SandboxChip.State.Secondary -> StylesSaluteTheme.colors.surfaceDefaultTransparentSecondary
+                SandboxChip.State.Accent -> StylesSaluteTheme.colors.surfaceDefaultAccent
+            },
+        )
     }
 
     @Composable
-    fun pressedBackgroundColor(state: SandboxChip.State): Color {
-        return when (state) {
-            SandboxChip.State.Default -> StylesSaluteTheme.colors.surfaceDefaultSolidDefaultActive
-            SandboxChip.State.Secondary -> StylesSaluteTheme.colors.surfaceDefaultTransparentSecondaryActive
-            SandboxChip.State.Accent -> StylesSaluteTheme.colors.surfaceDefaultAccentActive
-        }
+    fun pressedBackgroundColor(state: SandboxChip.State): Brush {
+        return SolidColor(
+            when (state) {
+                SandboxChip.State.Default -> StylesSaluteTheme.colors.surfaceDefaultSolidDefaultActive
+                SandboxChip.State.Secondary -> StylesSaluteTheme.colors.surfaceDefaultTransparentSecondaryActive
+                SandboxChip.State.Accent -> StylesSaluteTheme.colors.surfaceDefaultAccentActive
+            },
+        )
     }
 
     @Composable

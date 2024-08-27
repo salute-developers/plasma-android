@@ -5,6 +5,7 @@
     <attr name="sd_shapeAppearance" format="reference" />
     <attr name="sd_strokeColor" format="reference|color" />
     <attr name="sd_strokeWidth" format="float|fraction|dimension" />
+    <attr name="sd_disabledAlpha" format="float" />
 
     <declare-styleable name="SdViewStateHolder">
         <attr name="sd_viewState" format="enum">
@@ -16,6 +17,10 @@
             <enum name="positive" value="5" />
             <enum name="warning" value="6" />
             <enum name="negative" value="7" />
+            <enum name="dark" value="8" />
+            <enum name="black" value="9" />
+            <enum name="white" value="10" />
+            <enum name="clear" value="11" />
         </attr>
     </declare-styleable>
 
@@ -28,6 +33,37 @@
         <attr name="android:background" />
         <attr name="sd_strokeColor" />
         <attr name="sd_strokeWidth" />
+    </declare-styleable>
+
+    <declare-styleable name="SdShapeAppearance">
+        <attr name="sd_cornerFamily" format="enum">
+            <enum name="rounded" value="0"/>
+        </attr>
+
+        <attr name="sd_cornerSize" format="dimension|fraction" />
+        <attr name="sd_cornerSizeTopLeft" format="dimension|fraction" />
+        <attr name="sd_cornerSizeTopRight" format="dimension|fraction" />
+        <attr name="sd_cornerSizeBottomRight" format="dimension|fraction" />
+        <attr name="sd_cornerSizeBottomLeft" format="dimension|fraction" />
+    </declare-styleable>
+
+    <declare-styleable name="SdShapeDrawable">
+        <attr name="sd_gradientType" format="enum">
+            <enum name="none" value="0" />
+            <enum name="linear" value="1" />
+            <enum name="radial" value="2" />
+            <enum name="sweep" value="3" />
+            <enum name="solid" value="4" />
+        </attr>
+
+        <attr name="sd_angle" format="float"/>
+
+        <attr name="sd_radius" format="float" />
+        <attr name="sd_centerX" format="float" />
+        <attr name="sd_centerY" format="float" />
+
+        <attr name="sd_colors" format="reference" />
+        <attr name="sd_stops" format="reference" />
     </declare-styleable>
 
     <declare-styleable name="SdFocusSelector">
@@ -48,6 +84,15 @@
         <attr name="sd_state_positive" format="boolean" />
         <attr name="sd_state_warning" format="boolean" />
         <attr name="sd_state_negative" format="boolean" />
+        <attr name="sd_state_dark" format="boolean" />
+        <attr name="sd_state_black" format="boolean" />
+        <attr name="sd_state_white" format="boolean" />
+        <attr name="sd_state_clear" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="SdAlphaHelper">
+        <attr name="sd_disabledAlpha"/>
+        <attr name="android:alpha"/>
     </declare-styleable>
 
     <declare-styleable name="SdInteractiveState">

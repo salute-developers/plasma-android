@@ -1,6 +1,7 @@
 package com.sdds.plugin.themebuilder.internal.factory
 
 import com.sdds.plugin.themebuilder.ResourcePrefixConfig
+import com.sdds.plugin.themebuilder.ShapeAppearanceConfig
 import com.sdds.plugin.themebuilder.ThemeBuilderMode
 import com.sdds.plugin.themebuilder.ViewThemeParent
 import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
@@ -63,6 +64,7 @@ internal class GeneratorFactory(
     private val namespace: String,
     private val resPrefixConfig: ResourcePrefixConfig,
     private val viewThemeParents: List<ViewThemeParent>,
+    private val viewShapeAppearanceConfig: List<ShapeAppearanceConfig>,
     private val themeName: String,
 ) {
 
@@ -175,6 +177,7 @@ internal class GeneratorFactory(
         composeTypographyAttributeGeneratorFactory = composeTypographyAttributeGeneratorFactory,
         target = target,
         generatorMode = generatorMode,
+        shouldGenerateViewShapeStyle = viewShapeAppearanceConfig.isNotEmpty(),
     )
 
     /**
@@ -271,6 +274,7 @@ internal class GeneratorFactory(
             OutputLocation.Directory(outputDir),
             outputResDir,
             target,
+            viewShapeAppearanceConfig,
             xmlResourcesDocumentBuilderFactory,
             ktFileBuilderFactory,
             dimensAggregator,
