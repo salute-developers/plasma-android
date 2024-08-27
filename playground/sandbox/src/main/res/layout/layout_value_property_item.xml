@@ -16,6 +16,7 @@
         android:ellipsize="end"
         android:maxLines="1"
         tools:text="Property name"
+        android:textColor="?serv_textDefaultPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/property_value"
         app:layout_constraintStart_toStartOf="parent"

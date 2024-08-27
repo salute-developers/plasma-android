@@ -8,12 +8,14 @@
     android:clipToPadding="false"
     android:clipChildren="false">
 
-    <androidx.cardview.widget.CardView
+    <com.sdds.uikit.FrameLayout
         android:id="@+id/component_canvas"
         android:layout_width="0dp"
-        android:layout_height="@dimen/sdds_spacer_120x"
-        app:cardCornerRadius="@dimen/sdds_spacer_8x"
-        app:cardElevation="@dimen/sdds_spacer_0_5x"
+        android:layout_height="@dimen/sdds_spacer_115x"
+        app:sd_shapeAppearance="@style/Serv.SddsServ.Shape.Round.L"
+        app:sd_strokeColor="?serv_surfaceDefaultSolidTertiary"
+        app:sd_strokeWidth="1dp"
+        android:clipChildren="true"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -23,14 +25,15 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
-    </androidx.cardview.widget.CardView>
+    </com.sdds.uikit.FrameLayout>
 
-    <androidx.cardview.widget.CardView
+    <com.sdds.uikit.FrameLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/sdds_spacer_8x"
-        app:cardCornerRadius="@dimen/sdds_spacer_8x"
-        app:cardElevation="@dimen/sdds_spacer_0_5x"
+        app:sd_shapeAppearance="@style/Serv.SddsServ.Shape.Round.L"
+        app:sd_strokeColor="?serv_surfaceDefaultSolidTertiary"
+        app:sd_strokeWidth="1dp"
         app:layout_constraintHeight_default="wrap"
         app:layout_constraintVertical_bias="0"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -58,6 +61,6 @@
 
         </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
+    </com.sdds.uikit.FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
