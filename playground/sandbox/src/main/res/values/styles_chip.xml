@@ -53,7 +53,7 @@
         <item name="sd_textPaddingStart">2dp</item>
         <item name="sd_drawableSize">16dp</item>
 
-        <item name="sd_shapeAppearance">?serv_shapeRoundXS</item>
+        <item name="sd_shapeAppearance">?serv_shapeRoundXs</item>
         <item name="android:textAppearance">@style/Serv.SddsServ.TextAppearance.BodyXsNormal</item>
 
     </style>

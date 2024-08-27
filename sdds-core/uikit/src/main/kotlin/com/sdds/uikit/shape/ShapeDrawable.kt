@@ -7,6 +7,7 @@ import android.content.res.TypedArray
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.ColorFilter
+import android.graphics.Outline
 import android.graphics.Paint
 import android.graphics.PixelFormat
 import android.graphics.Rect
@@ -208,6 +209,16 @@ open class ShapeDrawable() : Drawable() {
     }
 
     override fun getOpacity(): Int = PixelFormat.OPAQUE
+
+    override fun getOutline(outline: Outline) {
+        if (_shapeModel.cornerFamily == ShapeModel.CornerFamily.ROUNDED) {
+            val topLeftResolved = _shapeModel.cornerSizeTopLeft.getSize(_drawingBounds)
+            outline.setRoundRect(bounds, topLeftResolved)
+            return
+        } else {
+            super.getOutline(outline)
+        }
+    }
 
     override fun onStateChange(state: IntArray): Boolean {
         val borderColor = _strokeTint.colorForState(state)
