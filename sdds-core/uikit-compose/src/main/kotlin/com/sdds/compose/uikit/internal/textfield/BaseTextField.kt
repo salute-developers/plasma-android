@@ -12,7 +12,6 @@ import androidx.compose.animation.slideOutVertically
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -24,12 +23,20 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.layout.Layout
+import androidx.compose.ui.layout.Measurable
+import androidx.compose.ui.layout.MeasurePolicy
+import androidx.compose.ui.layout.MeasureResult
+import androidx.compose.ui.layout.MeasureScope
+import androidx.compose.ui.layout.Placeable
+import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.ImeAction
@@ -37,15 +44,18 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.constrainHeight
+import androidx.compose.ui.unit.constrainWidth
 import androidx.compose.ui.unit.dp
-import androidx.constraintlayout.compose.ConstraintLayout
-import androidx.constraintlayout.compose.ConstraintSet
-import androidx.constraintlayout.compose.Dimension
-import androidx.constraintlayout.compose.layoutId
+import androidx.compose.ui.unit.offset
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.TextField
 import com.sdds.compose.uikit.TextField.LabelType
+import com.sdds.compose.uikit.internal.heightOrZero
+import com.sdds.compose.uikit.internal.widthOrZero
+import kotlin.math.max
 
 /**
  * Базовый composable текстового поля
@@ -140,15 +150,22 @@ internal fun BaseTextField(
     chipContainerCornerRadius: Dp? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
-    ConstraintLayout(
-        constraintSet = getConstraintSet(
-            labelType = labelType,
-            dotBadge = (fieldType as? TextField.FieldType.Required)?.dotBadge,
-            labelText = labelText,
-            captionText = captionText,
-            captionTopPadding = captionTopPadding,
+    val dotBadge = (fieldType as? TextField.FieldType.Required)?.dotBadge
+    val measurePolicy = remember(
+        outerLabelBottomPadding,
+        captionTopPadding,
+        dotBadge,
+        labelType,
+    ) {
+        TextFieldMeasurePolicy(
             outerLabelBottomPadding = outerLabelBottomPadding,
-        ),
+            captionTopPadding = captionTopPadding,
+            dotBadge = dotBadge,
+            labelType = labelType,
+        )
+    }
+
+    Layout(
         modifier = modifier
             .padding(
                 start = if (fieldType !is TextField.FieldType.Required &&
@@ -160,113 +177,90 @@ internal fun BaseTextField(
                     0.dp
                 },
             )
-            .fillMaxWidth()
             .graphicsLayer {
                 alpha =
                     if (enabled) enabledAlpha else disabledAlpha
             },
-    ) {
-        if (labelType == LabelType.Outer && labelText.isNotEmpty()) {
-            OuterLabel(
-                modifier = Modifier.layoutId(OUTER_LABEL),
-                labelText = labelText,
-                labelTextStyle = outerLabelStyle,
-                optional = fieldType as? TextField.FieldType.Optional,
-            )
-        }
-        BasicTextField(
-            value = value,
-            onValueChange = onValueChange,
-            modifier = Modifier
-                .layoutId(FIELD)
-                .clip(shape)
-                .height(fieldHeight)
-                .drawBehind { drawRect(backgroundColor) }
-                .padding(start = startContentPadding, end = endContentPadding),
-            enabled = enabled,
-            readOnly = readOnly,
-            textStyle = valuesStyle,
-            keyboardOptions = keyboardOptions,
-            keyboardActions = keyboardActions,
-            singleLine = true,
-            visualTransformation = visualTransformation,
-            interactionSource = interactionSource,
-            cursorBrush = SolidColor(cursorColor),
-        ) {
-            CommonDecorationBox(
-                value = value.text,
-                innerTextField = it,
-                textTopPadding = textTopPadding,
-                textBottomPadding = textBottomPadding,
+        content = {
+            if (labelType == LabelType.Outer && labelText.isNotEmpty()) {
+                OuterLabel(
+                    modifier = Modifier.layoutId(OUTER_LABEL),
+                    labelText = labelText,
+                    labelTextStyle = outerLabelStyle,
+                    optional = fieldType as? TextField.FieldType.Optional,
+                )
+            }
+            BasicTextField(
+                value = value,
+                onValueChange = onValueChange,
+                modifier = Modifier
+                    .layoutId(FIELD)
+                    .clip(shape)
+                    .height(fieldHeight)
+                    .drawBehind { drawRect(backgroundColor) }
+                    .padding(start = startContentPadding, end = endContentPadding),
+                enabled = enabled,
+                readOnly = readOnly,
+                textStyle = valuesStyle,
+                keyboardOptions = keyboardOptions,
+                keyboardActions = keyboardActions,
                 singleLine = true,
                 visualTransformation = visualTransformation,
                 interactionSource = interactionSource,
-                label = innerLabel(
-                    labelType = labelType,
-                    labelText = labelText,
-                    labelTextStyle = innerLabelStyle,
-                    optional = fieldType as? TextField.FieldType.Optional,
-                ),
-                placeholder = placeholder(
-                    placeholderText,
-                    placeHolderStyle,
-                ),
-                leadingIcon = leadingIcon(
-                    leadingIcon,
-                    iconSize,
-                    iconMargin,
-                ),
-                trailingIcon = trailingIcon(
-                    trailingIcon,
-                    iconSize,
-                    iconMargin,
-                ),
-                animation = animation,
-                labelToValuePadding = innerLabelToValuePadding,
-                iconSize = iconSize,
-                chips = chipsContent,
-                chipsSpacing = chipsSpacing,
-                chipContainerCornerRadius = chipContainerCornerRadius,
+                cursorBrush = SolidColor(cursorColor),
+            ) {
+                CommonDecorationBox(
+                    value = value.text,
+                    innerTextField = it,
+                    textTopPadding = textTopPadding,
+                    textBottomPadding = textBottomPadding,
+                    visualTransformation = visualTransformation,
+                    interactionSource = interactionSource,
+                    label = innerLabel(
+                        labelType = labelType,
+                        labelText = labelText,
+                        labelTextStyle = innerLabelStyle,
+                        optional = fieldType as? TextField.FieldType.Optional,
+                    ),
+                    placeholder = placeholder(
+                        placeholderText,
+                        placeHolderStyle,
+                    ),
+                    leadingIcon = leadingIcon(
+                        leadingIcon,
+                        iconSize,
+                        iconMargin,
+                    ),
+                    trailingIcon = trailingIcon(
+                        trailingIcon,
+                        iconSize,
+                        iconMargin,
+                    ),
+                    animation = animation,
+                    labelToValuePadding = innerLabelToValuePadding,
+                    iconSize = iconSize,
+                    chips = chipsContent,
+                    chipsSpacing = chipsSpacing,
+                    chipContainerCornerRadius = chipContainerCornerRadius,
+                )
+            }
+            CaptionText(
+                modifier = Modifier.layoutId(CAPTION),
+                captionText = captionText,
+                style = captionStyle,
+                animationDuration = animation.animationDuration,
             )
-        }
-        CaptionText(
-            modifier = Modifier.layoutId(CAPTION),
-            captionText = captionText,
-            style = captionStyle,
-            animationDuration = animation.animationDuration,
-        )
-        if (fieldType is TextField.FieldType.Required) {
-            DotBadge(
-                size = fieldType.dotBadge.size,
-                modifier = Modifier
-                    .layoutId(BADGE)
-                    .padding(fieldType.dotBadge.paddingValues),
-                color = fieldType.dotBadge.color,
-            )
-        }
-    }
-}
-
-private fun getConstraintSet(
-    labelType: LabelType,
-    dotBadge: TextField.DotBadge?,
-    labelText: String,
-    captionText: String?,
-    captionTopPadding: Dp,
-    outerLabelBottomPadding: Dp,
-): ConstraintSet = if (labelType == LabelType.Outer && labelText.isNotEmpty()) {
-    outerLabelConstraintSet(
-        dotBadge = dotBadge,
-        hasLabel = labelText.isNotEmpty(),
-        hasCaption = captionText.isNullOrEmpty().not(),
-        captionTopPadding,
-        outerLabelBottomPadding,
-    )
-} else {
-    innerDotConstraintSet(
-        dotBadge = dotBadge,
-        hasCaption = captionText.isNullOrEmpty().not(),
-        captionTopPadding = captionTopPadding,
+            if (fieldType is TextField.FieldType.Required) {
+                DotBadge(
+                    size = fieldType.dotBadge.size,
+                    modifier = Modifier
+                        .layoutId(BADGE)
+                        .padding(fieldType.dotBadge.paddingValues),
+                    color = fieldType.dotBadge.color,
+                )
+            }
+        },
+        measurePolicy = measurePolicy,
     )
 }
 
@@ -413,105 +407,115 @@ private fun CaptionText(
     }
 }
 
-private fun outerLabelConstraintSet(
-    dotBadge: TextField.DotBadge?,
-    hasLabel: Boolean,
-    hasCaption: Boolean,
-    captionTopPadding: Dp,
-    outerLabelBottomPadding: Dp,
-): ConstraintSet {
-    return ConstraintSet {
-        val outerLabel = if (hasLabel) createRefFor(OUTER_LABEL) else null
-        val caption = if (hasCaption) createRefFor(CAPTION) else null
-        val field = createRefFor(FIELD)
-        val badge = createRefFor(BADGE)
-        val badgeBarrier = createEndBarrier(badge)
+private class TextFieldMeasurePolicy(
+    private val outerLabelBottomPadding: Dp,
+    private val dotBadge: TextField.DotBadge?,
+    private val captionTopPadding: Dp,
+    private val labelType: LabelType,
+) : MeasurePolicy {
+    override fun MeasureScope.measure(
+        measurables: List<Measurable>,
+        constraints: Constraints,
+    ): MeasureResult {
+        val looseConstraints = constraints.copy(minHeight = 0, minWidth = 0)
+        val outerLabelBottomPaddingPx = outerLabelBottomPadding.roundToPx()
+        val captionTopPaddingPx = captionTopPadding.roundToPx()
 
-        dotBadge?.let {
-            when (it.position) {
-                TextField.DotBadge.Position.End -> {
-                    outerLabel?.let {
-                        constrain(badge) {
-                            start.linkTo(outerLabel.end)
-                            top.linkTo(outerLabel.top)
-                        }
-                    }
-                }
+        // measure outer label
+        val outerLabelPlaceable =
+            measurables.find { it.layoutId == OUTER_LABEL }?.measure(looseConstraints)
+        val badgePlaceable = measurables.find { it.layoutId == BADGE }?.measure(looseConstraints)
 
-                TextField.DotBadge.Position.Start -> {
-                    outerLabel?.let {
-                        constrain(badge) {
-                            start.linkTo(parent.start)
-                            bottom.linkTo(outerLabel.bottom)
-                            top.linkTo(outerLabel.top)
-                        }
-                    }
-                }
+        // measure dot badge
+        val dotBadgeStartOffset =
+            if (labelType == LabelType.Outer && dotBadge?.position == TextField.DotBadge.Position.Start) {
+                badgePlaceable.widthOrZero()
+            } else {
+                0
             }
-        }
-        outerLabel?.let {
-            constrain(it) {
-                top.linkTo(parent.top)
-                bottom.linkTo(field.top, margin = outerLabelBottomPadding)
-                start.linkTo(badgeBarrier)
-            }
-        }
-        constrain(field) {
-            width = Dimension.fillToConstraints
-            start.linkTo(badgeBarrier)
-            end.linkTo(parent.end)
-            top.linkTo(outerLabel?.bottom ?: parent.top)
-            bottom.linkTo(caption?.top ?: parent.bottom)
-        }
-        caption?.let {
-            constrain(it) {
-                top.linkTo(field.bottom, margin = captionTopPadding)
-                bottom.linkTo(parent.bottom)
-                start.linkTo(badgeBarrier)
-            }
+
+        // measure caption
+        val captionPlaceable =
+            measurables.find { it.layoutId == CAPTION }?.measure(looseConstraints)
+
+        val outerLabelWithPaddingHeight =
+            outerLabelPlaceable?.let { it.height + outerLabelBottomPaddingPx } ?: 0
+        val captionWithPaddingHeight =
+            captionPlaceable?.let { it.height + captionTopPaddingPx } ?: 0
+
+        // measure field
+        val fieldPlaceable = measurables.find { it.layoutId == FIELD }?.measure(
+            constraints.offset(
+                vertical = -outerLabelWithPaddingHeight,
+                horizontal = -dotBadgeStartOffset,
+            ),
+        )
+
+        val desiredWidth = max(
+            fieldPlaceable.widthOrZero() + dotBadgeStartOffset,
+            outerLabelPlaceable.widthOrZero(),
+        )
+
+        val desiredHeight =
+            fieldPlaceable.heightOrZero() + outerLabelWithPaddingHeight + captionWithPaddingHeight
+        val fieldY = outerLabelPlaceable?.let { it.height + outerLabelBottomPaddingPx } ?: 0
+
+        val width = looseConstraints.constrainWidth(desiredWidth)
+        val height = looseConstraints.constrainHeight(desiredHeight)
+
+        return layout(width, height) {
+            outerLabelPlaceable?.placeRelative(dotBadgeStartOffset, 0)
+            fieldPlaceable?.placeRelative(dotBadgeStartOffset, fieldY)
+            placeDotBadge(
+                badgePlaceable = badgePlaceable,
+                dotBadge = dotBadge,
+                labelType = labelType,
+                outerLabelPlaceable = outerLabelPlaceable,
+                width = width,
+            )
+            captionPlaceable?.placeRelative(
+                x = dotBadgeStartOffset,
+                y = height - captionPlaceable.heightOrZero(),
+            )
         }
     }
 }
 
-private fun innerDotConstraintSet(
+private fun Placeable.PlacementScope.placeDotBadge(
+    badgePlaceable: Placeable?,
     dotBadge: TextField.DotBadge?,
-    hasCaption: Boolean,
-    captionTopPadding: Dp,
-): ConstraintSet {
-    return ConstraintSet {
-        val caption = if (hasCaption) createRefFor(CAPTION) else null
-        val field = createRefFor(FIELD)
-        val badge = createRefFor(BADGE)
+    labelType: LabelType,
+    outerLabelPlaceable: Placeable?,
+    width: Int,
+) {
+    dotBadge?.let {
+        when (it.position) {
+            TextField.DotBadge.Position.Start -> {
+                when (labelType) {
+                    LabelType.Outer -> badgePlaceable?.placeRelative(
+                        0,
+                        Alignment.CenterVertically.align(
+                            size = badgePlaceable.height,
+                            space = outerLabelPlaceable.heightOrZero(),
+                        ),
+                    )
 
-        dotBadge?.let {
-            when (it.position) {
-                TextField.DotBadge.Position.End -> {
-                    constrain(badge) {
-                        end.linkTo(field.end)
-                        top.linkTo(field.top)
-                    }
-                }
-
-                TextField.DotBadge.Position.Start -> {
-                    constrain(badge) {
-                        start.linkTo(field.start)
-                        top.linkTo(field.top)
-                    }
+                    LabelType.Inner -> badgePlaceable?.placeRelative(0, 0)
                 }
             }
-        }
-        constrain(field) {
-            width = Dimension.fillToConstraints
-            start.linkTo(parent.start)
-            end.linkTo(parent.end)
-            top.linkTo(parent.top)
-            bottom.linkTo(caption?.top ?: parent.bottom)
-        }
-        caption?.let {
-            constrain(it) {
-                top.linkTo(field.bottom, margin = captionTopPadding)
-                bottom.linkTo(parent.bottom)
-                start.linkTo(parent.start)
+
+            TextField.DotBadge.Position.End -> {
+                when (labelType) {
+                    LabelType.Outer -> badgePlaceable?.placeRelative(
+                        outerLabelPlaceable.widthOrZero(),
+                        0,
+                    )
+
+                    LabelType.Inner -> badgePlaceable?.placeRelative(
+                        width - badgePlaceable.widthOrZero(),
+                        0,
+                    )
+                }
             }
         }
     }

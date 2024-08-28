@@ -58,7 +58,6 @@ internal fun TextFieldLayout(
     placeholder: @Composable (() -> Unit)?,
     leading: @Composable (() -> Unit)?,
     trailing: @Composable (() -> Unit)?,
-    singleLine: Boolean,
     animationProgress: Float,
     textTopPadding: Dp,
     textBottomPadding: Dp,
@@ -69,14 +68,12 @@ internal fun TextFieldLayout(
     chipContainerCornerRadius: Dp?,
 ) {
     val measurePolicy = remember(
-        singleLine,
         animationProgress,
         textTopPadding,
         textBottomPadding,
         labelToValuePadding,
     ) {
-        TextFieldMeasurePolicy(
-            singleLine = singleLine,
+        TextFieldLayoutMeasurePolicy(
             animationProgress = animationProgress,
             textTopPadding = textTopPadding,
             textBottomPadding = textBottomPadding,
@@ -201,8 +198,7 @@ private fun Modifier.fieldShapeDecoration(
     }
 }
 
-private class TextFieldMeasurePolicy(
-    private val singleLine: Boolean,
+private class TextFieldLayoutMeasurePolicy(
     private val animationProgress: Float,
     private val textTopPadding: Dp,
     private val textBottomPadding: Dp,
@@ -313,7 +309,6 @@ private class TextFieldMeasurePolicy(
                     textPlaceable = textFieldPlaceable,
                     leadingPlaceable = leadingPlaceable,
                     trailingPlaceable = trailingPlaceable,
-                    singleLine = singleLine,
                     density = density,
                     textTopPadding = textTopPadding,
                 )
@@ -499,7 +494,6 @@ private fun Placeable.PlacementScope.placeWithoutLabel(
     textPlaceable: Placeable,
     leadingPlaceable: Placeable?,
     trailingPlaceable: Placeable?,
-    singleLine: Boolean,
     density: Float,
     textTopPadding: Dp,
 ) {
@@ -514,11 +508,7 @@ private fun Placeable.PlacementScope.placeWithoutLabel(
         Alignment.CenterVertically.align(trailingPlaceable.height, height),
     )
 
-    val textVerticalPosition = if (singleLine) {
-        Alignment.CenterVertically.align(textPlaceable.height, height)
-    } else {
-        topPadding
-    }
+    val textVerticalPosition = Alignment.CenterVertically.align(textPlaceable.height, height)
     textPlaceable.placeRelative(
         widthOrZero(leadingPlaceable),
         textVerticalPosition,

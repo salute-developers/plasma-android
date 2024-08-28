@@ -25,6 +25,7 @@ import com.sdds.compose.uikit.TextField
 import com.sdds.compose.uikit.TextField.DotBadge
 import com.sdds.compose.uikit.TextField.LabelType
 import com.sdds.playground.sandbox.SandboxTheme
+import com.sdds.playground.sandbox.chip.SandboxEmbeddedChip
 import com.sdds.playground.sandbox.chip.group.SandboxEmbeddedChipGroup
 import com.sdds.playground.sandbox.textfield.SandboxTextField.InputState
 import com.sdds.playground.sandbox.textfield.SandboxTextField.Size
@@ -250,6 +251,7 @@ internal fun SandboxTextFieldPreview() {
             value = value,
             captionText = "Сaption",
             labelText = "Label",
+            fieldType = SandboxTextField.FieldType.Required,
             labelType = LabelType.Outer,
             placeholderText = "Placeholder",
             onValueChange = { value = it },
@@ -261,7 +263,14 @@ internal fun SandboxTextFieldPreview() {
                 )
             },
             state = State.Default,
-            size = Size.XS,
+            size = Size.M,
+            dotBadgePosition = DotBadge.Position.End,
+            chips = {
+                SandboxEmbeddedChip(
+                    label = "Chip",
+                    size = SandboxEmbeddedChip.Size.M,
+                )
+            },
         )
     }
 }
