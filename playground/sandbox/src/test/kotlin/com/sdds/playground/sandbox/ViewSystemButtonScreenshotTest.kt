@@ -7,8 +7,6 @@ import com.github.takahirom.roborazzi.captureRoboImage
 import com.sdds.playground.sandbox.buttons.BasicButtonVariant
 import com.sdds.playground.sandbox.buttons.ButtonIcon
 import com.sdds.playground.sandbox.buttons.ButtonUiState
-import com.sdds.playground.sandbox.buttons.ButtonVariant
-import com.sdds.playground.sandbox.buttons.IconButtonVariant
 import com.sdds.uikit.Button
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -19,13 +17,10 @@ import org.robolectric.annotation.GraphicsMode
 @RunWith(RobolectricTestRunner::class)
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
 @Config(sdk = [SDK_NUMBER], qualifiers = RobolectricDeviceQualifiers.Pixel6)
-class ViewSystemButtonScreenshotTest {
-
-    private val config = RoborazziConfig()
+class ViewSystemButtonScreenshotTest : RoborazziConfig() {
 
     @Test
     fun testButtonSizeLDefault() {
-        config.roborazziOptions
         launchScreen(
             R.id.nav_basic_button,
             ButtonUiState(
@@ -45,7 +40,6 @@ class ViewSystemButtonScreenshotTest {
 
     @Test
     fun testButtonSizeXSDefault() {
-        config.roborazziOptions
         launchScreen(
             R.id.nav_basic_button,
             ButtonUiState(
@@ -65,7 +59,6 @@ class ViewSystemButtonScreenshotTest {
 
     @Test
     fun testButtonSizeMSecondary() {
-        config.roborazziOptions
         launchScreen(
             R.id.nav_basic_button,
             ButtonUiState(
@@ -85,7 +78,6 @@ class ViewSystemButtonScreenshotTest {
 
     @Test
     fun testButtonSizeSClear() {
-        config.roborazziOptions
         launchScreen(
             R.id.nav_basic_button,
             ButtonUiState(
@@ -105,7 +97,6 @@ class ViewSystemButtonScreenshotTest {
 
     @Test
     fun testButtonSizeLPositive() {
-        config.roborazziOptions
         launchScreen(
             R.id.nav_basic_button,
             ButtonUiState(
@@ -125,7 +116,6 @@ class ViewSystemButtonScreenshotTest {
 
     @Test
     fun testButtonSizeMNegative() {
-        config.roborazziOptions
         launchScreen(
             R.id.nav_basic_button,
             ButtonUiState(
@@ -145,7 +135,6 @@ class ViewSystemButtonScreenshotTest {
 
     @Test
     fun testButtonSizeSWarning() {
-        config.roborazziOptions
         launchScreen(
             R.id.nav_basic_button,
             ButtonUiState(
@@ -165,7 +154,6 @@ class ViewSystemButtonScreenshotTest {
 
     @Test
     fun testButtonSizeXSBlack() {
-        config.roborazziOptions
         launchScreen(
             R.id.nav_basic_button,
             ButtonUiState(
@@ -185,7 +173,6 @@ class ViewSystemButtonScreenshotTest {
 
     @Test
     fun testButtonSizeLWhite() {
-        config.roborazziOptions
         launchScreen(
             R.id.nav_basic_button,
             ButtonUiState(

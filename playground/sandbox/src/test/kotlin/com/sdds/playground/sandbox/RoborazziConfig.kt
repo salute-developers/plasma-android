@@ -2,21 +2,30 @@ package com.sdds.playground.sandbox
 
 import com.github.takahirom.roborazzi.ExperimentalRoborazziApi
 import com.github.takahirom.roborazzi.RoborazziOptions
+import com.github.takahirom.roborazzi.RoborazziRule
+import org.junit.Rule
+import java.io.File
 
-class RoborazziConfig {
+open class RoborazziConfig {
 
-    /**
-     * Объект RoborazziOptions для захвата и сравнения изображений
-     * recordOptions задает параметры для захвата
-     * compareOptions задает погрешность сравнения
-     **/
+    val directoryPath = "screenshots"
+
     @OptIn(ExperimentalRoborazziApi::class)
-    val roborazziOptions = RoborazziOptions(
-        recordOptions = RoborazziOptions.RecordOptions(
-            resizeScale = 0.5,
-        ),
-        compareOptions = RoborazziOptions.CompareOptions(
-            changeThreshold = 0.01f,
+    @get:Rule
+    val roborazziRule = RoborazziRule(
+        options = RoborazziRule.Options(
+            outputDirectoryPath = directoryPath,
+            outputFileProvider = { description, outputDirectory, fileExtension ->
+                File(
+                    outputDirectory,
+                    "${description.methodName}.$fileExtension",
+                )
+            },
+            roborazziOptions = RoborazziOptions(
+                compareOptions = RoborazziOptions.CompareOptions(
+                    changeThreshold = 0.01f,
+                ),
+            ),
         ),
     )
 }

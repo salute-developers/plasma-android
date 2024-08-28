@@ -47,7 +47,7 @@ open class RoborazziConfig {
         composeRule = composeTestRule,
         captureRoot = composeTestRule.onRoot(),
         options = RoborazziRule.Options(
-            captureType = RoborazziRule.CaptureType.LastImage(),
+            captureType = RoborazziRule.CaptureType.LastImage(onlyFail = false),
             outputDirectoryPath = directoryPath,
             outputFileProvider = { description, outputDirectory, fileExtension ->
                 File(
