@@ -3,31 +3,19 @@ package com.sdds.playground.sandbox
 import android.app.Application
 import android.content.pm.ActivityInfo
 import androidx.activity.ComponentActivity
-import androidx.compose.ui.test.junit4.createComposeRule
+import androidx.compose.ui.test.junit4.createAndroidComposeRule
+import androidx.compose.ui.test.onRoot
 import androidx.test.core.app.ApplicationProvider
 import com.github.takahirom.roborazzi.ExperimentalRoborazziApi
 import com.github.takahirom.roborazzi.RoborazziOptions
+import com.github.takahirom.roborazzi.RoborazziRule
 import org.junit.Rule
 import org.junit.rules.TestWatcher
 import org.junit.runner.Description
 import org.robolectric.Shadows.shadowOf
+import java.io.File
 
-class RoborazziConfig {
-
-    /**
-     * Объект RoborazziOptions для захвата и сравнения изображений
-     * recordOptions задает параметры для захвата
-     * compareOptions задает погрешность сравнения
-     **/
-    @OptIn(ExperimentalRoborazziApi::class)
-    val roborazziOptions = RoborazziOptions(
-        recordOptions = RoborazziOptions.RecordOptions(
-            resizeScale = 0.5,
-        ),
-        compareOptions = RoborazziOptions.CompareOptions(
-            changeThreshold = 0.01f,
-        ),
-    )
+open class RoborazziConfig {
 
     /**
      * Правило для регистрации Activity до запуска тестов
@@ -46,5 +34,32 @@ class RoborazziConfig {
     }
 
     @get:Rule(order = 1)
-    val composeRule = createComposeRule()
+    val composeTestRule = createAndroidComposeRule<ComponentActivity>()
+
+    val directoryPath = "screenshots"
+
+    /**
+     * Правило для запуска тестов и сохранения скриншотов в папку screenshots
+     */
+    @OptIn(ExperimentalRoborazziApi::class)
+    @get:Rule(order = 2)
+    val roborazziRule = RoborazziRule(
+        composeRule = composeTestRule,
+        captureRoot = composeTestRule.onRoot(),
+        options = RoborazziRule.Options(
+            captureType = RoborazziRule.CaptureType.LastImage(),
+            outputDirectoryPath = directoryPath,
+            outputFileProvider = { description, outputDirectory, fileExtension ->
+                File(
+                    outputDirectory,
+                    "${description.methodName}.$fileExtension",
+                )
+            },
+            roborazziOptions = RoborazziOptions(
+                compareOptions = RoborazziOptions.CompareOptions(
+                    changeThreshold = 0.01f,
+                ),
+            ),
+        ),
+    )
 }

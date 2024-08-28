@@ -1,7 +1,6 @@
 package com.sdds.playground.sandbox
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
-import com.github.takahirom.roborazzi.captureRoboImage
 import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewHasDot
 import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewHasDotInsideEnd
 import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewInner
@@ -13,7 +12,6 @@ import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewMWarning
 import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewSDefault
 import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewXsError
 import org.junit.Test
-import org.junit.experimental.categories.Category
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
@@ -22,104 +20,77 @@ import org.robolectric.annotation.GraphicsMode
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
 @Config(sdk = [SDK_NUMBER], qualifiers = RobolectricDeviceQualifiers.Pixel6)
 @RunWith(RobolectricTestRunner::class)
-class ComposeTextFieldScreenshotTest {
-
-    private val config = RoborazziConfig()
-
-    /**
-     * Для запуска только скриншот тестов
-     */
-    interface ScreenshotTests
+class ComposeTextFieldScreenshotTest : RoborazziConfig() {
 
     /**
      * Запуск скриншот тестов с использованием Preview
      */
-    @Category(ScreenshotTests::class)
     @Test
     fun testTextFieldPreviewXsError() {
-        captureRoboImage {
-            config.roborazziOptions
+        composeTestRule.setContent {
             SandboxTextFieldPreviewXsError()
         }
     }
 
-    @Category(ScreenshotTests::class)
     @Test
     fun testTextFieldPreviewLSuccess() {
-        captureRoboImage {
-            config.roborazziOptions
+        composeTestRule.setContent {
             SandboxTextFieldPreviewLSuccess()
         }
     }
 
-    @Category(ScreenshotTests::class)
     @Test
     fun testTextFieldPreviewMWarning() {
-        captureRoboImage {
-            config.roborazziOptions
+        composeTestRule.setContent {
             SandboxTextFieldPreviewMWarning()
         }
     }
 
-    @Category(ScreenshotTests::class)
     @Test
     fun testTextFieldPreviewInner() {
-        captureRoboImage {
-            config.roborazziOptions
+        composeTestRule.setContent {
             SandboxTextFieldPreviewInner()
         }
     }
 
-    @Category(ScreenshotTests::class)
     @Test
     fun testTextFieldPreviewLInactive() {
-        captureRoboImage {
-            config.roborazziOptions
+        composeTestRule.setContent {
             SandboxTextFieldPreviewLInactive()
         }
     }
 
-    @Category(ScreenshotTests::class)
     @Test
     fun testTextFieldPreviewSDefault() {
-        captureRoboImage {
-            config.roborazziOptions
+        composeTestRule.setContent {
             SandboxTextFieldPreviewSDefault()
         }
     }
 
-    @Category(ScreenshotTests::class)
     @Test
     fun testTextFieldPreviewLReadOnly() {
-        captureRoboImage {
-            config.roborazziOptions
+        composeTestRule.setContent {
             SandboxTextFieldPreviewLReadOnly()
         }
     }
 
-    @Category(ScreenshotTests::class)
     @Test
     fun testTextFieldPreviewLPlaceholder() {
-        captureRoboImage {
-            config.roborazziOptions
+        composeTestRule.setContent {
             SandboxTextFieldPreviewLPlaceholder()
         }
     }
 
-    @Category(ScreenshotTests::class)
     @Test
     fun testTextFieldPreviewHasDot() {
-        captureRoboImage {
-            config.roborazziOptions
+        composeTestRule.setContent {
             SandboxTextFieldPreviewHasDot()
         }
     }
 
-    @Category(ScreenshotTests::class)
     @Test
     fun testTextFieldPreviewHasDotInsideEnd() {
-        captureRoboImage {
-            config.roborazziOptions
+        composeTestRule.setContent {
             SandboxTextFieldPreviewHasDotInsideEnd()
         }
     }

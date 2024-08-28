@@ -288,17 +288,15 @@ internal fun SandboxTextFieldPreviewXsError() {
             readOnly = false,
             dotBadgePosition = DotBadge.Position.Start,
             leadingIcon = {
-                Image(
-                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_lock_fill_16),
+                Icon(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_shazam_16),
                     contentDescription = "",
-                    colorFilter = ColorFilter.tint(Color.Black),
                 )
             },
             trailingIcon = {
-                Image(
-                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_lock_fill_16),
+                Icon(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_shazam_16),
                     contentDescription = "",
-                    colorFilter = ColorFilter.tint(Color.Black),
                 )
             },
             state = State.Error,
@@ -323,17 +321,15 @@ internal fun SandboxTextFieldPreviewLSuccess() {
             readOnly = false,
             dotBadgePosition = DotBadge.Position.Start,
             leadingIcon = {
-                Image(
-                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_lock_fill_24),
+                Icon(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_scribble_diagonal_24),
                     contentDescription = "",
-                    colorFilter = ColorFilter.tint(Color.Black),
                 )
             },
             trailingIcon = {
-                Image(
-                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_lock_fill_24),
+                Icon(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_shazam_24),
                     contentDescription = "",
-                    colorFilter = ColorFilter.tint(Color.Black),
                 )
             },
             state = State.Success,
@@ -358,17 +354,15 @@ internal fun SandboxTextFieldPreviewMWarning() {
             readOnly = false,
             dotBadgePosition = DotBadge.Position.Start,
             leadingIcon = {
-                Image(
-                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_lock_fill_24),
+                Icon(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_scribble_diagonal_24),
                     contentDescription = "",
-                    colorFilter = ColorFilter.tint(Color.Black),
                 )
             },
             trailingIcon = {
-                Image(
-                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_lock_fill_24),
+                Icon(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_shazam_24),
                     contentDescription = "",
-                    colorFilter = ColorFilter.tint(Color.Black),
                 )
             },
             state = State.Warning,
@@ -393,17 +387,15 @@ internal fun SandboxTextFieldPreviewInner() {
             readOnly = false,
             dotBadgePosition = DotBadge.Position.Start,
             leadingIcon = {
-                Image(
-                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_lock_fill_24),
+                Icon(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_scribble_diagonal_24),
                     contentDescription = "",
-                    colorFilter = ColorFilter.tint(Color.Black),
                 )
             },
             trailingIcon = {
-                Image(
-                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_lock_fill_24),
+                Icon(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_shazam_24),
                     contentDescription = "",
-                    colorFilter = ColorFilter.tint(Color.Black),
                 )
             },
             state = State.Default,
@@ -428,17 +420,15 @@ internal fun SandboxTextFieldPreviewLInactive() {
             readOnly = false,
             dotBadgePosition = DotBadge.Position.Start,
             leadingIcon = {
-                Image(
-                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_lock_fill_24),
+                Icon(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_scribble_diagonal_24),
                     contentDescription = "",
-                    colorFilter = ColorFilter.tint(Color.Black),
                 )
             },
             trailingIcon = {
-                Image(
-                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_lock_fill_24),
+                Icon(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_shazam_24),
                     contentDescription = "",
-                    colorFilter = ColorFilter.tint(Color.Black),
                 )
             },
             state = State.Default,
@@ -464,17 +454,15 @@ internal fun SandboxTextFieldPreviewSDefault() {
             readOnly = false,
             dotBadgePosition = DotBadge.Position.Start,
             leadingIcon = {
-                Image(
-                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_lock_fill_24),
+                Icon(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_scribble_diagonal_24),
                     contentDescription = "",
-                    colorFilter = ColorFilter.tint(Color.Black),
                 )
             },
             trailingIcon = {
-                Image(
-                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_lock_fill_24),
+                Icon(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_shazam_24),
                     contentDescription = "",
-                    colorFilter = ColorFilter.tint(Color.Black),
                 )
             },
             state = State.Default,
@@ -499,17 +487,15 @@ internal fun SandboxTextFieldPreviewLReadOnly() {
             readOnly = true,
             dotBadgePosition = DotBadge.Position.Start,
             leadingIcon = {
-                Image(
-                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_lock_fill_24),
+                Icon(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_scribble_diagonal_24),
                     contentDescription = "",
-                    colorFilter = ColorFilter.tint(Color.Black),
                 )
             },
             trailingIcon = {
-                Image(
-                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_lock_fill_24),
+                Icon(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_shazam_24),
                     contentDescription = "",
-                    colorFilter = ColorFilter.tint(Color.Black),
                 )
             },
             state = State.Default,
@@ -534,17 +520,15 @@ internal fun SandboxTextFieldPreviewLPlaceholder() {
             readOnly = false,
             dotBadgePosition = DotBadge.Position.Start,
             leadingIcon = {
-                Image(
-                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_lock_fill_24),
+                Icon(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_scribble_diagonal_24),
                     contentDescription = "",
-                    colorFilter = ColorFilter.tint(Color.Black),
                 )
             },
             trailingIcon = {
-                Image(
-                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_lock_fill_24),
+                Icon(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_shazam_24),
                     contentDescription = "",
-                    colorFilter = ColorFilter.tint(Color.Black),
                 )
             },
             state = State.Default,
@@ -570,17 +554,15 @@ internal fun SandboxTextFieldPreviewHasDot() {
             readOnly = false,
             dotBadgePosition = DotBadge.Position.Start,
             leadingIcon = {
-                Image(
-                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_lock_fill_24),
+                Icon(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_scribble_diagonal_24),
                     contentDescription = "",
-                    colorFilter = ColorFilter.tint(Color.Black),
                 )
             },
             trailingIcon = {
-                Image(
-                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_lock_fill_24),
+                Icon(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_shazam_24),
                     contentDescription = "",
-                    colorFilter = ColorFilter.tint(Color.Black),
                 )
             },
             state = State.Default,
@@ -606,17 +588,15 @@ internal fun SandboxTextFieldPreviewHasDotInsideEnd() {
             readOnly = false,
             dotBadgePosition = DotBadge.Position.End,
             leadingIcon = {
-                Image(
-                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_lock_fill_24),
+                Icon(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_scribble_diagonal_24),
                     contentDescription = "",
-                    colorFilter = ColorFilter.tint(Color.Black),
                 )
             },
             trailingIcon = {
-                Image(
-                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_lock_fill_24),
+                Icon(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_shazam_24),
                     contentDescription = "",
-                    colorFilter = ColorFilter.tint(Color.Black),
                 )
             },
             state = State.Default,

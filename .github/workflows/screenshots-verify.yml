@@ -1,0 +1,56 @@
+name: 'Verify screenshots'
+
+on:
+  pull_request:
+    branches:
+      - main
+      - develop
+      - feature/*
+      - release/*
+      - hotfix/*
+
+concurrency:
+  # New commit on branch cancels running workflows of the same branch
+  group: ${{ github.workflow }}-${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-java@v3.9.0
+        with:
+          distribution: 'zulu'
+          java-version: 17
+
+      - name: Gradle cache
+        uses: gradle/gradle-build-action@v2
+
+      - name: verify screenshots-compose
+        id: verify-test
+        run: |
+          # If there is a difference between the screenshots, the test will fail.
+          ./gradlew :playground:sandbox-compose:verifyRoborazzi --stacktrace
+
+      - uses: actions/upload-artifact@v3
+        if: ${{ always() }}
+        with:
+          name: screenshot-diff-compose
+          path: playground/sandbox-compose/screenshots
+          retention-days: 30
+
+      - uses: actions/upload-artifact@v3
+        if: ${{ always() }}
+        with:
+          name: screenshot-diff-reports-compose
+          path: playground/sandbox-compose/build/reports
+          retention-days: 30
+
+      - uses: actions/upload-artifact@v3
+        if: ${{ always() }}
+        with:
+          name: screenshot-diff-test-results-compose
+          path: playground/sandbox-compose/build/test-results
+          retention-days: 30
