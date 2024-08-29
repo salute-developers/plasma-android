@@ -21,7 +21,9 @@ data class AdjustmentCornerSize(
 ) : CornerSize, InspectableValue {
 
     override fun toPx(shapeSize: Size, density: Density): Float {
-        return other.toPx(shapeSize, density) + adjustmentPx
+        val otherPx = other.toPx(shapeSize, density)
+        val result = otherPx + adjustmentPx
+        return if (result > 0) result else otherPx
     }
 }
 
@@ -82,8 +84,4 @@ fun CornerBasedShape.adjustBy(allPx: Float): CornerBasedShape = this.adjustBy(al
 fun CornerBasedShape.adjustBy(all: Dp): CornerBasedShape = this.adjustBy(all.floatPx)
 
 private fun CornerSize.adjust(adjustmentPx: Float): CornerSize =
-    if (adjustmentPx > 0) {
-        AdjustmentCornerSize(this, adjustmentPx)
-    } else {
-        this
-    }
+    AdjustmentCornerSize(this, adjustmentPx)

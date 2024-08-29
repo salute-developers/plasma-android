@@ -9,7 +9,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -65,7 +65,7 @@ internal fun TextFieldLayout(
     iconSize: Dp,
     chips: (@Composable () -> Unit)?,
     chipsSpacing: Dp,
-    chipContainerCornerRadius: Dp?,
+    chipContainerShape: CornerBasedShape?,
 ) {
     val measurePolicy = remember(
         animationProgress,
@@ -103,7 +103,7 @@ internal fun TextFieldLayout(
                 placeholder = placeholder,
                 chips = chips,
                 chipsSpacing = chipsSpacing,
-                chipContainerCornerRadius = chipContainerCornerRadius,
+                chipContainerShape = chipContainerShape,
             )
         },
         measurePolicy = measurePolicy,
@@ -156,7 +156,7 @@ private fun CompositeTextFieldContent(
     placeholder: @Composable (() -> Unit)?,
     chips: @Composable (() -> Unit)?,
     chipsSpacing: Dp,
-    chipContainerCornerRadius: Dp?,
+    chipContainerShape: CornerBasedShape?,
 ) {
     Box(
         modifier = modifier,
@@ -166,7 +166,7 @@ private fun CompositeTextFieldContent(
             modifier = Modifier
                 .fieldShapeDecoration(
                     hasChips = chips != null,
-                    cornerRadius = chipContainerCornerRadius,
+                    chipContainerShape = chipContainerShape,
                 )
                 .horizontalScroll(rememberScrollState(0)),
             verticalAlignment = Alignment.CenterVertically,
@@ -187,11 +187,11 @@ private fun CompositeTextFieldContent(
 
 private fun Modifier.fieldShapeDecoration(
     hasChips: Boolean,
-    cornerRadius: Dp?,
+    chipContainerShape: CornerBasedShape?,
 ): Modifier {
-    return if (hasChips && cornerRadius != null) {
+    return if (hasChips && chipContainerShape != null) {
         this
-            .clip(RoundedCornerShape(cornerRadius))
+            .clip(chipContainerShape)
             .wrapContentHeight()
     } else {
         this

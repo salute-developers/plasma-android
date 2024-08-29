@@ -75,7 +75,7 @@ import com.sdds.compose.uikit.internal.textfield.DotBadge
  * может появиться необходимость сохранить отступ слева, когда индикатор обзательного поля скрывается.
  * @param chipsContent контент с chip-элементами
  * @param chipsSpacing расстояние между chip-элементами
- * @param chipContainerCornerRadius позволяет скруглять контейнер, в котором находятся чипы и текстовое поля.
+ * @param chipContainerShape позволяет скруглять контейнер, в котором находятся чипы и текстовое поля.
  * @param interactionSource источник взаимодействия с полем
  */
 @Suppress("LongParameterList")
@@ -99,7 +99,6 @@ fun TextField(
     trailingIcon: @Composable (() -> Unit)? = null,
     chipsContent: @Composable (() -> Unit)? = null,
     chipsSpacing: Dp = 2.dp,
-    chipContainerCornerRadius: Dp? = null,
     outerLabelStyle: TextStyle = TextStyle(),
     innerLabelStyle: TextStyle = TextStyle(),
     valuesStyle: TextStyle = TextStyle(),
@@ -109,6 +108,7 @@ fun TextField(
     cursorColor: Color = Color.Blue,
     enabledAlpha: Float = 1.0f,
     disabledAlpha: Float = 0.4f,
+    chipContainerShape: CornerBasedShape? = null,
     shape: CornerBasedShape = RoundedCornerShape(25),
     startContentPadding: Dp = 16.dp,
     endContentPadding: Dp = 16.dp,
@@ -164,7 +164,7 @@ fun TextField(
         keepDotBadgeStartPadding = keepDotBadgeStartPadding,
         chipsContent = chipsContent,
         chipsSpacing = chipsSpacing,
-        chipContainerCornerRadius = chipContainerCornerRadius,
+        chipContainerShape = chipContainerShape,
         interactionSource = interactionSource,
     )
 }
@@ -215,7 +215,7 @@ fun TextField(
  * может появиться необходимость сохранить отступ слева, когда индикатор обзательного поля скрывается.
  * @param chipsContent контент с chip-элементами
  * @param chipsSpacing расстояние между chip-элементами
- * @param chipContainerCornerRadius позволяет скруглять контейнер, в котором находятся чипы и текстовое поля.
+ * @param chipContainerShape позволяет скруглять контейнер, в котором находятся чипы и текстовое поля.
  * @param interactionSource источник взаимодействия с полем
  */
 @Suppress("LongParameterList", "LongMethod")
@@ -246,6 +246,7 @@ fun TextField(
     enabledAlpha: Float = 1.0f,
     disabledAlpha: Float = 0.4f,
     shape: CornerBasedShape = RoundedCornerShape(CornerSize(16.dp)).adjustBy(all = 2.dp),
+    chipContainerShape: CornerBasedShape? = null,
     startContentPadding: Dp = 16.dp,
     endContentPadding: Dp = 16.dp,
     iconMargin: Dp = 8.dp,
@@ -260,7 +261,6 @@ fun TextField(
     keepDotBadgeStartPadding: Dp? = null,
     chipsContent: @Composable (() -> Unit)? = null,
     chipsSpacing: Dp = 2.dp,
-    chipContainerCornerRadius: Dp? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     // Специфика перевода String -> TextFieldValue, взято из исходников гугла
@@ -325,7 +325,7 @@ fun TextField(
         keepDotBadgeStartPadding = keepDotBadgeStartPadding,
         chipsContent = chipsContent,
         chipsSpacing = chipsSpacing,
-        chipContainerCornerRadius = chipContainerCornerRadius,
+        chipContainerShape = chipContainerShape,
         interactionSource = interactionSource,
     )
 }

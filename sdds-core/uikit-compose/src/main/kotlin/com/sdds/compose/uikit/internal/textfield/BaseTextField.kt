@@ -147,7 +147,7 @@ internal fun BaseTextField(
     keepDotBadgeStartPadding: Dp? = null,
     chipsContent: @Composable (() -> Unit)? = null,
     chipsSpacing: Dp = 2.dp,
-    chipContainerCornerRadius: Dp? = null,
+    chipContainerShape: CornerBasedShape? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     val dotBadge = (fieldType as? TextField.FieldType.Required)?.dotBadge
@@ -241,7 +241,7 @@ internal fun BaseTextField(
                     iconSize = iconSize,
                     chips = chipsContent,
                     chipsSpacing = chipsSpacing,
-                    chipContainerCornerRadius = chipContainerCornerRadius,
+                    chipContainerShape = chipContainerShape,
                 )
             }
             CaptionText(
@@ -455,17 +455,15 @@ private class TextFieldMeasurePolicy(
             fieldPlaceable.widthOrZero() + dotBadgeStartOffset,
             outerLabelPlaceable.widthOrZero(),
         )
-
         val desiredHeight =
             fieldPlaceable.heightOrZero() + outerLabelWithPaddingHeight + captionWithPaddingHeight
-        val fieldY = outerLabelPlaceable?.let { it.height + outerLabelBottomPaddingPx } ?: 0
 
         val width = looseConstraints.constrainWidth(desiredWidth)
         val height = looseConstraints.constrainHeight(desiredHeight)
 
         return layout(width, height) {
             outerLabelPlaceable?.placeRelative(dotBadgeStartOffset, 0)
-            fieldPlaceable?.placeRelative(dotBadgeStartOffset, fieldY)
+            fieldPlaceable?.placeRelative(dotBadgeStartOffset, outerLabelWithPaddingHeight)
             placeDotBadge(
                 badgePlaceable = badgePlaceable,
                 dotBadge = dotBadge,

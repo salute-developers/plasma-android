@@ -1,7 +1,6 @@
 package com.sdds.playground.sandbox.chip
 
 import androidx.compose.foundation.shape.CornerBasedShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
@@ -9,6 +8,7 @@ import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.adjustBy
 import com.sdds.playground.sandbox.tokens.compose.StylesSaluteTheme
 
 internal object SandboxEmbeddedChipSettingsProvider {
@@ -47,10 +47,10 @@ internal object SandboxEmbeddedChipSettingsProvider {
     @Composable
     fun shape(size: SandboxEmbeddedChip.Size): CornerBasedShape {
         return when (size) {
-            SandboxEmbeddedChip.Size.L -> RoundedCornerShape(8.dp)
-            SandboxEmbeddedChip.Size.M -> RoundedCornerShape(6.dp)
-            SandboxEmbeddedChip.Size.S -> RoundedCornerShape(4.dp)
-            SandboxEmbeddedChip.Size.XS -> RoundedCornerShape(2.dp)
+            SandboxEmbeddedChip.Size.L -> StylesSaluteTheme.shapes.roundS
+            SandboxEmbeddedChip.Size.M -> StylesSaluteTheme.shapes.roundXs
+            SandboxEmbeddedChip.Size.S -> StylesSaluteTheme.shapes.roundXxs
+            SandboxEmbeddedChip.Size.XS -> StylesSaluteTheme.shapes.roundXxs.adjustBy(all = (-2).dp)
         }
     }
 

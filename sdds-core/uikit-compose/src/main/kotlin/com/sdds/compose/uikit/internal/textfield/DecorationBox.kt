@@ -8,6 +8,7 @@ import androidx.compose.animation.core.updateTransition
 import androidx.compose.foundation.interaction.InteractionSource
 import androidx.compose.foundation.interaction.collectIsFocusedAsState
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
@@ -41,7 +42,7 @@ internal fun CommonDecorationBox(
     iconSize: Dp,
     chips: (@Composable () -> Unit)? = null,
     chipsSpacing: Dp,
-    chipContainerCornerRadius: Dp? = null,
+    chipContainerShape: CornerBasedShape? = null,
 ) {
     val transformedText = remember(value, visualTransformation) {
         visualTransformation.filter(AnnotatedString(value))
@@ -86,7 +87,7 @@ internal fun CommonDecorationBox(
             iconSize = iconSize,
             chips = chips,
             chipsSpacing = chipsSpacing,
-            chipContainerCornerRadius = chipContainerCornerRadius,
+            chipContainerShape = chipContainerShape,
         )
     }
 }

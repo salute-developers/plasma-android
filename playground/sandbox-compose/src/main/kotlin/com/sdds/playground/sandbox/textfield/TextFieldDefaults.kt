@@ -2,8 +2,7 @@ package com.sdds.playground.sandbox.textfield
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.shape.CornerSize
-import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
@@ -224,12 +223,13 @@ internal object TextFieldDefaults {
         }
     }
 
-    fun chipContainerCornerRadius(size: SandboxTextField.Size): Dp {
+    @Composable
+    fun chipContainerShape(size: SandboxTextField.Size): CornerBasedShape {
         return when (size) {
-            SandboxTextField.Size.L -> 8.dp
-            SandboxTextField.Size.M -> 6.dp
-            SandboxTextField.Size.S -> 4.dp
-            SandboxTextField.Size.XS -> 2.dp
+            SandboxTextField.Size.L -> StylesSaluteTheme.shapes.roundS
+            SandboxTextField.Size.M -> StylesSaluteTheme.shapes.roundXs
+            SandboxTextField.Size.S -> StylesSaluteTheme.shapes.roundXxs
+            SandboxTextField.Size.XS -> StylesSaluteTheme.shapes.roundXxs.adjustBy(all = (-2).dp)
         }
     }
 
@@ -347,14 +347,12 @@ internal object TextFieldDefaults {
      * Форма в зависимости от размера поля [SandboxTextField.Size]
      */
     @Composable
-    fun textFieldShapeFor(size: SandboxTextField.Size, shapeAdjustment: Dp) = when (size) {
-        SandboxTextField.Size.XS,
-        SandboxTextField.Size.S,
-        -> RoundedCornerShape(CornerSize(8.0.dp))
-
-        SandboxTextField.Size.M -> RoundedCornerShape(CornerSize(10.0.dp))
-        SandboxTextField.Size.L -> RoundedCornerShape(CornerSize(12.0.dp))
-    }.adjustBy(shapeAdjustment)
+    fun textFieldShapeFor(size: SandboxTextField.Size) = when (size) {
+        SandboxTextField.Size.XS -> StylesSaluteTheme.shapes.roundS
+        SandboxTextField.Size.S -> StylesSaluteTheme.shapes.roundM.adjustBy(all = (-2).dp)
+        SandboxTextField.Size.M -> StylesSaluteTheme.shapes.roundM
+        SandboxTextField.Size.L -> StylesSaluteTheme.shapes.roundM.adjustBy(all = 2.dp)
+    }
 }
 
 @Immutable

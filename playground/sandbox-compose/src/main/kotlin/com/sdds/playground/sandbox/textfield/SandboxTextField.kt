@@ -31,7 +31,7 @@ import com.sdds.playground.sandbox.textfield.SandboxTextField.InputState
 import com.sdds.playground.sandbox.textfield.SandboxTextField.Size
 import com.sdds.playground.sandbox.textfield.SandboxTextField.State
 import com.sdds.playground.sandbox.textfield.TextFieldDefaults.captionTopPadding
-import com.sdds.playground.sandbox.textfield.TextFieldDefaults.chipContainerCornerRadius
+import com.sdds.playground.sandbox.textfield.TextFieldDefaults.chipContainerShape
 import com.sdds.playground.sandbox.textfield.TextFieldDefaults.chipGroupSize
 import com.sdds.playground.sandbox.textfield.TextFieldDefaults.horizontalContentPadding
 import com.sdds.playground.sandbox.textfield.TextFieldDefaults.iconMargin
@@ -125,7 +125,7 @@ internal fun SandboxTextField(
         trailingIcon = trailingIcon,
         chipsContent = chips,
         chipsSpacing = 2.dp,
-        chipContainerCornerRadius = chipContainerCornerRadius(size),
+        chipContainerShape = chipContainerShape(size),
         outerLabelStyle = styles.outerLabelStyle(size, colors, inputState).value,
         innerLabelStyle = styles.innerLabelStyle(
             size = size,
@@ -147,10 +147,7 @@ internal fun SandboxTextField(
         outerLabelBottomPadding = outerLabelBottomPadding(size),
         captionTopPadding = captionTopPadding(size),
         iconSize = iconSize(size),
-        shape = textFieldShapeFor(
-            size = size,
-            shapeAdjustment = 2.dp,
-        ),
+        shape = textFieldShapeFor(size = size),
         fieldHeight = size.value,
         interactionSource = interactionSource,
     )
@@ -242,7 +239,7 @@ internal fun ChipsContent(
  * Превью [SandboxTextField]
  */
 @Composable
-@Preview(showBackground = true)
+@Preview(showBackground = true, backgroundColor = 0x0)
 internal fun SandboxTextFieldPreview() {
     SandboxTheme {
         var value by remember { mutableStateOf(TextFieldValue("value")) }
@@ -262,8 +259,8 @@ internal fun SandboxTextFieldPreview() {
                     tint = Color.Black,
                 )
             },
-            state = State.Default,
-            size = Size.M,
+            state = State.Warning,
+            size = Size.S,
             dotBadgePosition = DotBadge.Position.End,
             chips = {
                 SandboxEmbeddedChip(
