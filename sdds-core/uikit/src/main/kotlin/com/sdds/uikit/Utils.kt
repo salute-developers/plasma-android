@@ -2,7 +2,11 @@ package com.sdds.uikit
 
 import android.content.Context
 import android.content.res.Resources
+import android.util.AttributeSet
 import com.google.android.material.color.MaterialColors
+import com.sdds.uikit.shader.ShaderFactory
+import com.sdds.uikit.shape.GradientShader
+import com.sdds.uikit.shape.ShapeDrawable
 import kotlin.math.roundToInt
 
 /**
@@ -23,3 +27,62 @@ val Float.dp: Float
  */
 fun Context.colorFromAttr(attr: Int): Int =
     MaterialColors.getColor(this, attr, 0)
+
+internal fun Context.shaderFactory(attrSet: AttributeSet): ShaderFactory? {
+    return shaderFactory(resources, theme, attrSet)
+}
+
+internal fun shaderFactory(
+    resources: Resources,
+    theme: Resources.Theme?,
+    attrSet: AttributeSet,
+): ShaderFactory? {
+    val attrs = R.styleable.SdShader
+    val typedArray = theme?.obtainStyledAttributes(attrSet, attrs, 0, 0)
+        ?: resources.obtainAttributes(attrSet, attrs)
+    val shaderFactory = typedArray.let typedArray@{ array ->
+        val type = ShapeDrawable.GradientType.values().getOrElse(
+            array.getInt(R.styleable.SdShader_sd_gradientType, 0),
+        ) { ShapeDrawable.GradientType.NONE }
+
+        if (type == ShapeDrawable.GradientType.NONE) {
+            return@typedArray null
+        }
+
+        val colors = array.getResourceId(R.styleable.SdShader_sd_colors, 0).let { colorsId ->
+            if (colorsId == 0) return@let intArrayOf()
+            resources.getIntArray(colorsId)
+        }
+        val stops = array.getResourceId(R.styleable.SdShader_sd_stops, 0).let { stopsId ->
+            resources.getStringArray(stopsId)
+                .map { it.toFloatOrNull() ?: 0f }
+                .toFloatArray()
+        }
+        val centerX = array.getFloat(R.styleable.SdShader_sd_centerX, 0f)
+        val centerY = array.getFloat(R.styleable.SdShader_sd_centerY, 0f)
+        val radius = array.getFloat(R.styleable.SdShader_sd_radius, 0f)
+        val angle = array.getFloat(R.styleable.SdShader_sd_angle, 0f)
+        return@typedArray when (type) {
+            ShapeDrawable.GradientType.LINEAR -> GradientShader.Linear(colors, stops, angle)
+            ShapeDrawable.GradientType.RADIAL -> GradientShader.Radial(
+                colors = colors,
+                positions = stops,
+                radius = radius,
+                centerX = centerX,
+                centerY = centerY,
+            )
+
+            ShapeDrawable.GradientType.SWEEP -> GradientShader.Sweep(
+                colors = colors,
+                positions = stops,
+                centerX = centerX,
+                centerY = centerY,
+            )
+
+            ShapeDrawable.GradientType.SOLID -> GradientShader.Solid(colors.firstOrNull() ?: 0)
+            else -> null
+        }
+    }
+    typedArray.recycle()
+    return shaderFactory
+}
