@@ -1,8 +1,7 @@
-package com.sdds.playground.sandbox.textfield
+package com.sdds.playground.sandbox.textarea
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
@@ -12,11 +11,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.uikit.TextField
-import com.sdds.compose.uikit.TextField.DotBadge
+import com.sdds.compose.uikit.ScrollBarConfig
 import com.sdds.compose.uikit.TextField.LabelType
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.playground.sandbox.chip.SandboxEmbeddedChip
+import com.sdds.playground.sandbox.textfield.SandboxTextField
 import com.sdds.playground.sandbox.textfield.SandboxTextField.InputState
 import com.sdds.playground.sandbox.tokens.compose.StylesSaluteTheme
 
@@ -24,7 +23,7 @@ import com.sdds.playground.sandbox.tokens.compose.StylesSaluteTheme
  * Цвета текстового поля
  */
 @Stable
-internal interface SandboxTextFieldColors {
+internal interface SandboxTextAreaColors {
 
     /**
      * Цвет значения текстового поля
@@ -60,20 +59,12 @@ internal interface SandboxTextFieldColors {
     fun labelColor(state: InputState, type: LabelType): State<Color>
 
     /**
-     * Цвет иконки в начале текстового поля
-     *
-     * @param state состояние текстового поля
-     */
-    @Composable
-    fun leadingIconColor(state: InputState): State<Color>
-
-    /**
      * Цвет иконки в конце текстового поля
      *
      * @param state состояние текстового поля
      */
     @Composable
-    fun trailingIconColor(state: InputState, disabledAlpha: Float): State<Color>
+    fun iconColor(state: InputState, disabledAlpha: Float): State<Color>
 
     /**
      * Цвет подписи текстового поля
@@ -96,7 +87,7 @@ internal interface SandboxTextFieldColors {
  * Текстовые стили поля
  */
 @Stable
-internal interface SandboxTextFieldStyles {
+internal interface SandboxTextAreaStyles {
 
     /**
      * Текстовый стиль внешнего лейбла
@@ -106,8 +97,8 @@ internal interface SandboxTextFieldStyles {
      */
     @Composable
     fun outerLabelStyle(
-        size: SandboxTextField.Size,
-        colors: SandboxTextFieldColors,
+        size: SandboxTextArea.Size,
+        colors: SandboxTextAreaColors,
         inputState: InputState,
     ): State<TextStyle>
 
@@ -120,10 +111,10 @@ internal interface SandboxTextFieldStyles {
      */
     @Composable
     fun innerLabelStyle(
-        size: SandboxTextField.Size,
+        size: SandboxTextArea.Size,
         inputState: InputState,
         isEmpty: Boolean,
-        colors: SandboxTextFieldColors,
+        colors: SandboxTextAreaColors,
     ): State<TextStyle>
 
     /**
@@ -134,8 +125,8 @@ internal interface SandboxTextFieldStyles {
      */
     @Composable
     fun valueStyle(
-        size: SandboxTextField.Size,
-        colors: SandboxTextFieldColors,
+        size: SandboxTextArea.Size,
+        colors: SandboxTextAreaColors,
         inputState: InputState,
     ): State<TextStyle>
 
@@ -147,8 +138,21 @@ internal interface SandboxTextFieldStyles {
      */
     @Composable
     fun captionStyle(
-        size: SandboxTextField.Size,
-        colors: SandboxTextFieldColors,
+        size: SandboxTextArea.Size,
+        colors: SandboxTextAreaColors,
+        inputState: InputState,
+    ): State<TextStyle>
+
+    /**
+     * Текстовый стиль счетчика поля
+     * @param size размер текстового поля
+     * @param colors цвета текстового поля
+     * @param inputState состояние текстового поля
+     */
+    @Composable
+    fun counterStyle(
+        size: SandboxTextArea.Size,
+        colors: SandboxTextAreaColors,
         inputState: InputState,
     ): State<TextStyle>
 
@@ -160,8 +164,8 @@ internal interface SandboxTextFieldStyles {
      */
     @Composable
     fun placeholderStyle(
-        size: SandboxTextField.Size,
-        colors: SandboxTextFieldColors,
+        size: SandboxTextArea.Size,
+        colors: SandboxTextAreaColors,
         inputState: InputState,
     ): State<TextStyle>
 }
@@ -170,191 +174,150 @@ internal interface SandboxTextFieldStyles {
  * Значения по-умолчанию текстового поля
  */
 @Immutable
-internal object TextFieldDefaults {
+internal object TextAreaDefaults {
 
     @Composable
-    fun SandboxTextField.FieldType.toFieldType(
-        labelType: LabelType,
-        position: DotBadge.Position,
-        hasLabel: Boolean,
-        optionalText: String,
-    ): TextField.FieldType {
-        return when (this) {
-            SandboxTextField.FieldType.Optional -> TextField.FieldType.Optional(
-                optionalText = optionalText,
-            )
-            SandboxTextField.FieldType.Required -> TextField.FieldType.Required(
-                dotBadge = dotBadge(labelType, position, hasLabel),
-            )
-        }
-    }
+    fun scrollBarConfig(): ScrollBarConfig = ScrollBarConfig(
+        indicatorThickness = 1.dp,
+        indicatorColor = StylesSaluteTheme.colors.surfaceDefaultTransparentTertiary,
+        backgroundColor = StylesSaluteTheme.colors.surfaceDefaultTransparentPrimary,
+        padding = PaddingValues(top = 18.dp, end = 2.dp, bottom = 36.dp),
+    )
 
-    private fun dotBadge(labelType: LabelType, position: DotBadge.Position, hasLabel: Boolean): DotBadge {
-        return when {
-            labelType == LabelType.Outer && hasLabel -> {
-                val paddings = if (position == DotBadge.Position.Start) {
-                    PaddingValues(end = 6.dp)
-                } else {
-                    PaddingValues(start = 4.dp, top = 4.dp)
-                }
-                DotBadge(
-                    size = 6.dp,
-                    paddingValues = paddings,
-                    color = Color.Red,
-                    position = position,
-                )
-            }
-
-            else -> DotBadge(
-                size = 8.dp,
-                paddingValues = PaddingValues(),
-                color = Color.Red,
-                position = position,
-            )
-        }
-    }
-
-    fun chipGroupSize(size: SandboxTextField.Size): SandboxEmbeddedChip.Size {
+    @Composable
+    fun chipGroupSize(size: SandboxTextArea.Size): SandboxEmbeddedChip.Size {
         return when (size) {
-            SandboxTextField.Size.L -> SandboxEmbeddedChip.Size.L
-            SandboxTextField.Size.M -> SandboxEmbeddedChip.Size.M
-            SandboxTextField.Size.S -> SandboxEmbeddedChip.Size.S
-            SandboxTextField.Size.XS -> SandboxEmbeddedChip.Size.XS
+            SandboxTextArea.Size.L -> SandboxEmbeddedChip.Size.L
+            SandboxTextArea.Size.M -> SandboxEmbeddedChip.Size.M
+            SandboxTextArea.Size.S -> SandboxEmbeddedChip.Size.S
+            SandboxTextArea.Size.XS -> SandboxEmbeddedChip.Size.XS
         }
     }
 
     @Composable
-    fun chipContainerShape(size: SandboxTextField.Size): CornerBasedShape {
-        return when (size) {
-            SandboxTextField.Size.L -> StylesSaluteTheme.shapes.roundS
-            SandboxTextField.Size.M -> StylesSaluteTheme.shapes.roundXs
-            SandboxTextField.Size.S -> StylesSaluteTheme.shapes.roundXxs
-            SandboxTextField.Size.XS -> StylesSaluteTheme.shapes.roundXxs.adjustBy(all = (-2).dp)
-        }
-    }
-
-    @Composable
-    fun textTopPadding(size: SandboxTextField.Size, labelType: LabelType): Dp {
+    fun textTopPadding(size: SandboxTextArea.Size, labelType: LabelType): Dp {
         return if (labelType == LabelType.Outer) {
-            0.dp
+            when (size) {
+                SandboxTextArea.Size.L -> 17.dp
+                SandboxTextArea.Size.M -> 14.dp
+                SandboxTextArea.Size.S -> 11.dp
+                SandboxTextArea.Size.XS -> 11.dp
+            }
         } else {
             when (size) {
-                SandboxTextField.Size.L -> 25.dp
-                SandboxTextField.Size.M -> 22.dp
-                SandboxTextField.Size.S -> 18.dp
-                SandboxTextField.Size.XS -> 0.dp
+                SandboxTextArea.Size.L -> 26.dp
+                SandboxTextArea.Size.M -> 24.dp
+                SandboxTextArea.Size.S -> 18.dp
+                SandboxTextArea.Size.XS -> 9.dp
             }
         }
     }
 
     @Composable
-    fun textBottomPadding(size: SandboxTextField.Size, labelType: LabelType): Dp {
-        return if (labelType == LabelType.Outer) {
-            0.dp
-        } else {
-            when (size) {
-                SandboxTextField.Size.L -> 9.dp
-                SandboxTextField.Size.M -> 6.dp
-                SandboxTextField.Size.S -> 4.dp
-                SandboxTextField.Size.XS -> 0.dp
-            }
+    fun textBottomPadding(size: SandboxTextArea.Size): Dp {
+        return when (size) {
+            SandboxTextArea.Size.L -> 12.dp
+            SandboxTextArea.Size.M -> 12.dp
+            SandboxTextArea.Size.S -> 12.dp
+            SandboxTextArea.Size.XS -> 8.dp
         }
     }
 
     @Composable
-    fun iconMargin(size: SandboxTextField.Size): Dp =
+    fun iconHorizontalMargin(size: SandboxTextArea.Size): Dp =
         when (size) {
-            SandboxTextField.Size.L -> 8.dp
-            SandboxTextField.Size.M -> 6.dp
-            SandboxTextField.Size.S -> 4.dp
-            SandboxTextField.Size.XS -> 4.dp
+            SandboxTextArea.Size.L -> 12.dp
+            SandboxTextArea.Size.M -> 10.dp
+            SandboxTextArea.Size.S -> 8.dp
+            SandboxTextArea.Size.XS -> 6.dp
         }
 
     @Composable
-    fun horizontalContentPadding(size: SandboxTextField.Size): Dp =
+    fun horizontalContentPadding(size: SandboxTextArea.Size): Dp =
         when (size) {
-            SandboxTextField.Size.L -> 16.dp
-            SandboxTextField.Size.M -> 14.dp
-            SandboxTextField.Size.S -> 12.dp
-            SandboxTextField.Size.XS -> 8.dp
+            SandboxTextArea.Size.L -> 16.dp
+            SandboxTextArea.Size.M -> 14.dp
+            SandboxTextArea.Size.S -> 12.dp
+            SandboxTextArea.Size.XS -> 8.dp
         }
 
     @Composable
-    fun innerLabelToValuePadding(size: SandboxTextField.Size): Dp =
+    fun innerLabelToValuePadding(size: SandboxTextArea.Size): Dp =
         when (size) {
-            SandboxTextField.Size.L,
-            SandboxTextField.Size.M,
+            SandboxTextArea.Size.L,
+            SandboxTextArea.Size.M,
             -> 2.dp
-
-            SandboxTextField.Size.S,
-            SandboxTextField.Size.XS,
-            -> 0.dp
+            SandboxTextArea.Size.S -> 1.dp
+            SandboxTextArea.Size.XS -> 0.dp
         }
 
     @Composable
-    fun outerLabelBottomPadding(size: SandboxTextField.Size): Dp =
+    fun outerLabelBottomPadding(size: SandboxTextArea.Size): Dp =
         when (size) {
-            SandboxTextField.Size.L -> 12.dp
-            SandboxTextField.Size.M -> 10.dp
-            SandboxTextField.Size.S -> 8.dp
-            SandboxTextField.Size.XS -> 6.dp
+            SandboxTextArea.Size.L -> 12.dp
+            SandboxTextArea.Size.M -> 10.dp
+            SandboxTextArea.Size.S -> 8.dp
+            SandboxTextArea.Size.XS -> 6.dp
         }
 
     @Composable
-    fun captionTopPadding(size: SandboxTextField.Size): Dp =
+    fun iconTopPadding(size: SandboxTextArea.Size): Dp =
         when (size) {
-            SandboxTextField.Size.L,
-            SandboxTextField.Size.M,
-            SandboxTextField.Size.S,
-            SandboxTextField.Size.XS,
-            -> 4.dp
+            SandboxTextArea.Size.L -> 16.dp
+            SandboxTextArea.Size.M -> 12.dp
+            SandboxTextArea.Size.S -> 8.dp
+            SandboxTextArea.Size.XS -> 8.dp
         }
 
     @Composable
-    fun iconSize(size: SandboxTextField.Size): Dp =
+    fun bottomTextBottomPadding(size: SandboxTextArea.Size): Dp =
         when (size) {
-            SandboxTextField.Size.L,
-            SandboxTextField.Size.M,
-            SandboxTextField.Size.S,
+            SandboxTextArea.Size.L -> 12.dp
+            SandboxTextArea.Size.M -> 12.dp
+            SandboxTextArea.Size.S -> 12.dp
+            SandboxTextArea.Size.XS -> 8.dp
+        }
+
+    @Composable
+    fun iconSize(size: SandboxTextArea.Size): Dp =
+        when (size) {
+            SandboxTextArea.Size.L,
+            SandboxTextArea.Size.M,
+            SandboxTextArea.Size.S,
             -> 24.dp
 
-            SandboxTextField.Size.XS -> 16.dp
+            SandboxTextArea.Size.XS -> 16.dp
         }
 
     /**
      *  Цветовые настройки поля
      */
     @Composable
-    fun textFieldColors(): SandboxTextFieldColors = DefaultSandboxTextFieldColors()
+    fun textAreaColors(): SandboxTextAreaColors = DefaultSandboxTextAreaColors()
 
     /**
      *  Текстовые стили поля
      */
     @Composable
-    fun textFieldStyles(): SandboxTextFieldStyles = DefaultSandboxTextFieldStyles()
+    fun textAreaStyles(): SandboxTextAreaStyles = DefaultSandboxTextAreaStyles()
 
     /**
      * Форма в зависимости от размера поля [SandboxTextField.Size]
      */
     @Composable
-    fun textFieldShapeFor(size: SandboxTextField.Size) = when (size) {
-        SandboxTextField.Size.XS -> StylesSaluteTheme.shapes.roundS
-        SandboxTextField.Size.S -> StylesSaluteTheme.shapes.roundM.adjustBy(all = (-2).dp)
-        SandboxTextField.Size.M -> StylesSaluteTheme.shapes.roundM
-        SandboxTextField.Size.L -> StylesSaluteTheme.shapes.roundM.adjustBy(all = 2.dp)
+    fun textAreaShapeFor(size: SandboxTextArea.Size) = when (size) {
+        SandboxTextArea.Size.XS -> StylesSaluteTheme.shapes.roundS
+        SandboxTextArea.Size.S -> StylesSaluteTheme.shapes.roundM.adjustBy(all = (-2).dp)
+        SandboxTextArea.Size.M -> StylesSaluteTheme.shapes.roundM
+        SandboxTextArea.Size.L -> StylesSaluteTheme.shapes.roundL.adjustBy(all = (-2).dp)
     }
 }
 
 @Immutable
-private class DefaultSandboxTextFieldColors : SandboxTextFieldColors {
+private class DefaultSandboxTextAreaColors : SandboxTextAreaColors {
 
     @Composable
-    override fun leadingIconColor(state: InputState): State<Color> {
-        return rememberUpdatedState(StylesSaluteTheme.colors.textDefaultSecondary)
-    }
-
-    @Composable
-    override fun trailingIconColor(state: InputState, disabledAlpha: Float): State<Color> {
+    override fun iconColor(state: InputState, disabledAlpha: Float): State<Color> {
         var color = StylesSaluteTheme.colors.textDefaultSecondary
         if (state == InputState.ReadOnly) {
             color = color.copy(alpha = color.alpha * disabledAlpha)
@@ -435,15 +398,21 @@ private class DefaultSandboxTextFieldColors : SandboxTextFieldColors {
 }
 
 @Immutable
-private class DefaultSandboxTextFieldStyles : SandboxTextFieldStyles {
+private class DefaultSandboxTextAreaStyles : SandboxTextAreaStyles {
     @Composable
     override fun outerLabelStyle(
-        size: SandboxTextField.Size,
-        colors: SandboxTextFieldColors,
+        size: SandboxTextArea.Size,
+        colors: SandboxTextAreaColors,
         inputState: InputState,
     ): State<TextStyle> {
+        val style = when (size) {
+            SandboxTextArea.Size.XS -> StylesSaluteTheme.typography.bodyXsNormal
+            SandboxTextArea.Size.S -> StylesSaluteTheme.typography.bodySNormal
+            SandboxTextArea.Size.M -> StylesSaluteTheme.typography.bodyMNormal
+            SandboxTextArea.Size.L -> StylesSaluteTheme.typography.bodyLNormal
+        }
         return rememberUpdatedState(
-            textFieldTextStyle(size).copy(
+            style.copy(
                 color = colors.labelColor(
                     state = inputState,
                     type = LabelType.Outer,
@@ -454,24 +423,24 @@ private class DefaultSandboxTextFieldStyles : SandboxTextFieldStyles {
 
     @Composable
     override fun innerLabelStyle(
-        size: SandboxTextField.Size,
+        size: SandboxTextArea.Size,
         inputState: InputState,
         isEmpty: Boolean,
-        colors: SandboxTextFieldColors,
+        colors: SandboxTextAreaColors,
     ): State<TextStyle> {
         val style = if (inputState != InputState.Focused && isEmpty) {
             when (size) {
-                SandboxTextField.Size.XS -> StylesSaluteTheme.typography.bodySNormal
-                SandboxTextField.Size.S -> StylesSaluteTheme.typography.bodySNormal
-                SandboxTextField.Size.M -> StylesSaluteTheme.typography.bodyMNormal
-                SandboxTextField.Size.L -> StylesSaluteTheme.typography.bodyLNormal
+                SandboxTextArea.Size.XS -> StylesSaluteTheme.typography.bodyXsNormal
+                SandboxTextArea.Size.S -> StylesSaluteTheme.typography.bodyXsNormal
+                SandboxTextArea.Size.M -> StylesSaluteTheme.typography.bodyMNormal
+                SandboxTextArea.Size.L -> StylesSaluteTheme.typography.bodyLNormal
             }
         } else {
             when (size) {
-                SandboxTextField.Size.XS -> StylesSaluteTheme.typography.bodyXxsNormal
-                SandboxTextField.Size.S -> StylesSaluteTheme.typography.bodyXxsNormal
-                SandboxTextField.Size.M -> StylesSaluteTheme.typography.bodyXsNormal
-                SandboxTextField.Size.L -> StylesSaluteTheme.typography.bodyXsNormal
+                SandboxTextArea.Size.XS -> StylesSaluteTheme.typography.bodyXxsNormal
+                SandboxTextArea.Size.S -> StylesSaluteTheme.typography.bodyXsNormal
+                SandboxTextArea.Size.M -> StylesSaluteTheme.typography.bodyXsNormal
+                SandboxTextArea.Size.L -> StylesSaluteTheme.typography.bodyXsNormal
             }
         }
         return rememberUpdatedState(
@@ -486,8 +455,8 @@ private class DefaultSandboxTextFieldStyles : SandboxTextFieldStyles {
 
     @Composable
     override fun valueStyle(
-        size: SandboxTextField.Size,
-        colors: SandboxTextFieldColors,
+        size: SandboxTextArea.Size,
+        colors: SandboxTextAreaColors,
         inputState: InputState,
     ): State<TextStyle> {
         return rememberUpdatedState(
@@ -499,8 +468,8 @@ private class DefaultSandboxTextFieldStyles : SandboxTextFieldStyles {
 
     @Composable
     override fun captionStyle(
-        size: SandboxTextField.Size,
-        colors: SandboxTextFieldColors,
+        size: SandboxTextArea.Size,
+        colors: SandboxTextAreaColors,
         inputState: InputState,
     ): State<TextStyle> {
         return rememberUpdatedState(
@@ -511,9 +480,22 @@ private class DefaultSandboxTextFieldStyles : SandboxTextFieldStyles {
     }
 
     @Composable
+    override fun counterStyle(
+        size: SandboxTextArea.Size,
+        colors: SandboxTextAreaColors,
+        inputState: InputState,
+    ): State<TextStyle> {
+        return rememberUpdatedState(
+            StylesSaluteTheme.typography.bodyXsNormal.copy(
+                color = StylesSaluteTheme.colors.textDefaultSecondary,
+            ),
+        )
+    }
+
+    @Composable
     override fun placeholderStyle(
-        size: SandboxTextField.Size,
-        colors: SandboxTextFieldColors,
+        size: SandboxTextArea.Size,
+        colors: SandboxTextAreaColors,
         inputState: InputState,
     ): State<TextStyle> {
         return rememberUpdatedState(
@@ -524,10 +506,10 @@ private class DefaultSandboxTextFieldStyles : SandboxTextFieldStyles {
     }
 
     @Composable
-    private fun textFieldTextStyle(size: SandboxTextField.Size) = when (size) {
-        SandboxTextField.Size.XS -> StylesSaluteTheme.typography.bodyXsNormal
-        SandboxTextField.Size.S -> StylesSaluteTheme.typography.bodySNormal
-        SandboxTextField.Size.M -> StylesSaluteTheme.typography.bodyMNormal
-        SandboxTextField.Size.L -> StylesSaluteTheme.typography.bodyLNormal
+    private fun textFieldTextStyle(size: SandboxTextArea.Size) = when (size) {
+        SandboxTextArea.Size.XS -> StylesSaluteTheme.typography.bodyXsNormal
+        SandboxTextArea.Size.S -> StylesSaluteTheme.typography.bodyXsNormal
+        SandboxTextArea.Size.M -> StylesSaluteTheme.typography.bodyMNormal
+        SandboxTextArea.Size.L -> StylesSaluteTheme.typography.bodyLNormal
     }
 }

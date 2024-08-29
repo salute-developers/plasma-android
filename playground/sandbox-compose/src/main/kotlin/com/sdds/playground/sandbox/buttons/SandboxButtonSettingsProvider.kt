@@ -164,7 +164,7 @@ internal object SandboxButtonSettingsProvider {
                 height = 32.dp,
                 paddings = Button.Dimensions.PaddingValues(horizontal = 12.dp),
                 minWidth = 57.dp,
-                iconSize = 24.dp,
+                iconSize = 16.dp,
                 spinnerSize = 16.dp,
                 iconMargin = 4.dp,
                 valueMargin = 2.dp,
