@@ -18,9 +18,16 @@ import com.sdds.compose.uikit.TextField
 import com.sdds.icons.R
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.chip.SandboxEmbeddedChip
+import com.sdds.playground.sandbox.textarea.TextAreaDefaults.bottomTextBottomPadding
 import com.sdds.playground.sandbox.textarea.TextAreaDefaults.horizontalContentPadding
 import com.sdds.playground.sandbox.textarea.TextAreaDefaults.iconHorizontalMargin
+import com.sdds.playground.sandbox.textarea.TextAreaDefaults.iconSize
+import com.sdds.playground.sandbox.textarea.TextAreaDefaults.iconTopPadding
+import com.sdds.playground.sandbox.textarea.TextAreaDefaults.innerLabelToValuePadding
+import com.sdds.playground.sandbox.textarea.TextAreaDefaults.outerLabelBottomPadding
+import com.sdds.playground.sandbox.textarea.TextAreaDefaults.scrollBarConfig
 import com.sdds.playground.sandbox.textarea.TextAreaDefaults.textAreaColors
+import com.sdds.playground.sandbox.textarea.TextAreaDefaults.textAreaShapeFor
 import com.sdds.playground.sandbox.textarea.TextAreaDefaults.textAreaStyles
 import com.sdds.playground.sandbox.textarea.TextAreaDefaults.textBottomPadding
 import com.sdds.playground.sandbox.textarea.TextAreaDefaults.textTopPadding
@@ -94,15 +101,15 @@ internal fun SandboxTextArea(
         endContentPadding = horizontalContentPadding(size),
         textTopPadding = textTopPadding(size, labelType),
         textBottomPadding = textBottomPadding(size),
-        innerLabelToValuePadding = TextAreaDefaults.innerLabelToValuePadding(size),
-        outerLabelBottomPadding = TextAreaDefaults.outerLabelBottomPadding(size),
-        iconTopPadding = TextAreaDefaults.iconTopPadding(size),
+        innerLabelToValuePadding = innerLabelToValuePadding(size),
+        outerLabelBottomPadding = outerLabelBottomPadding(size),
+        iconTopPadding = iconTopPadding(size),
         iconStartPadding = iconHorizontalMargin(size),
-        iconSize = TextAreaDefaults.iconSize(size),
-        shape = TextAreaDefaults.textAreaShapeFor(size, shapeAdjustment = 2.dp),
-        bottomTextBottomPadding = TextAreaDefaults.bottomTextBottomPadding(size),
+        iconSize = iconSize(size),
+        shape = textAreaShapeFor(size),
+        bottomTextBottomPadding = bottomTextBottomPadding(size),
         interactionSource = interactionSource,
-        scrollBarConfig = TextAreaDefaults.scrollBarConfig(),
+        scrollBarConfig = scrollBarConfig(),
     )
 }
 

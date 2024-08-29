@@ -2,8 +2,6 @@ package com.sdds.playground.sandbox.textarea
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.shape.CornerSize
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
@@ -307,12 +305,12 @@ internal object TextAreaDefaults {
      * Форма в зависимости от размера поля [SandboxTextField.Size]
      */
     @Composable
-    fun textAreaShapeFor(size: SandboxTextArea.Size, shapeAdjustment: Dp) = when (size) {
-        SandboxTextArea.Size.XS -> RoundedCornerShape(CornerSize(8.0.dp))
-        SandboxTextArea.Size.S -> RoundedCornerShape(CornerSize(10.0.dp))
-        SandboxTextArea.Size.M -> RoundedCornerShape(CornerSize(12.0.dp))
-        SandboxTextArea.Size.L -> RoundedCornerShape(CornerSize(14.0.dp))
-    }.adjustBy(shapeAdjustment)
+    fun textAreaShapeFor(size: SandboxTextArea.Size) = when (size) {
+        SandboxTextArea.Size.XS -> StylesSaluteTheme.shapes.roundS
+        SandboxTextArea.Size.S -> StylesSaluteTheme.shapes.roundM.adjustBy(all = (-2).dp)
+        SandboxTextArea.Size.M -> StylesSaluteTheme.shapes.roundM
+        SandboxTextArea.Size.L -> StylesSaluteTheme.shapes.roundL.adjustBy(all = (-2).dp)
+    }
 }
 
 @Immutable
