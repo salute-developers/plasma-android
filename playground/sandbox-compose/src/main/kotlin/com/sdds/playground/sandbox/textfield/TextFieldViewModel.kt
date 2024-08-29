@@ -117,6 +117,11 @@ internal class TextFieldViewModel : ViewModel(), PropertiesOwner {
         )
     }
 
+    private fun updateChipsCount(count: Int) {
+        if (count < 0) return
+        _textFieldUiState.value = _textFieldUiState.value.copy(chips = List(count) { "chip $it" })
+    }
+
     @Suppress("LongMethod")
     private fun TextFieldUiState.toProps(): List<Property<*>> {
         return listOfNotNull(
@@ -177,6 +182,11 @@ internal class TextFieldViewModel : ViewModel(), PropertiesOwner {
                 value = hasEndIcon,
                 onApply = { updateEndIcon(it) },
             ),
+            Property.IntProperty(
+                name = "chips count",
+                value = chips.size,
+                onApply = { updateChipsCount(it) },
+            ),
             Property.BooleanProperty(
                 name = "enabled",
                 value = enabled,
@@ -187,6 +197,19 @@ internal class TextFieldViewModel : ViewModel(), PropertiesOwner {
                 value = readOnly,
                 onApply = { updateReadOnlyState(it) },
             ),
+        )
+    }
+
+    fun onBackspacePressed() {
+        if (_textFieldUiState.value.chips.isEmpty()) return
+        _textFieldUiState.value = _textFieldUiState.value.copy(
+            chips = _textFieldUiState.value.chips.dropLast(1),
+        )
+    }
+
+    fun onChipClosePressed(chipToRemove: String) {
+        _textFieldUiState.value = _textFieldUiState.value.copy(
+            chips = _textFieldUiState.value.chips.filterNot { it == chipToRemove },
         )
     }
 }

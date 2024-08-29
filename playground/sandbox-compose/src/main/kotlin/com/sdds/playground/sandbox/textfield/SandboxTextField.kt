@@ -5,10 +5,12 @@ import androidx.compose.foundation.interaction.collectIsFocusedAsState
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
@@ -18,14 +20,19 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.uikit.Image
+import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.TextField
 import com.sdds.compose.uikit.TextField.DotBadge
 import com.sdds.compose.uikit.TextField.LabelType
 import com.sdds.playground.sandbox.SandboxTheme
+import com.sdds.playground.sandbox.chip.SandboxEmbeddedChip
+import com.sdds.playground.sandbox.chip.group.SandboxEmbeddedChipGroup
+import com.sdds.playground.sandbox.textfield.SandboxTextField.InputState
 import com.sdds.playground.sandbox.textfield.SandboxTextField.Size
 import com.sdds.playground.sandbox.textfield.SandboxTextField.State
 import com.sdds.playground.sandbox.textfield.TextFieldDefaults.captionTopPadding
+import com.sdds.playground.sandbox.textfield.TextFieldDefaults.chipContainerShape
+import com.sdds.playground.sandbox.textfield.TextFieldDefaults.chipGroupSize
 import com.sdds.playground.sandbox.textfield.TextFieldDefaults.horizontalContentPadding
 import com.sdds.playground.sandbox.textfield.TextFieldDefaults.iconMargin
 import com.sdds.playground.sandbox.textfield.TextFieldDefaults.iconSize
@@ -59,6 +66,8 @@ import com.sdds.playground.sandbox.textfield.TextFieldDefaults.toFieldType
  * @param captionText текст подписи под полем ввода
  * @param leadingIcon иконка, которая будет находиться в начале поля ввода
  * @param trailingIcon иконка, которая будет находиться в конце поля ввода
+ * @param chips контент с chip-элементами
+ * @param interactionSource источник взаимодействий
  */
 @Suppress("LongParameterList")
 @Composable
@@ -82,6 +91,7 @@ internal fun SandboxTextField(
     captionText: String? = null,
     leadingIcon: @Composable (() -> Unit)? = null,
     trailingIcon: @Composable (() -> Unit)? = null,
+    chips: @Composable (() -> Unit)? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     val isFocused = interactionSource.collectIsFocusedAsState().value
@@ -113,6 +123,9 @@ internal fun SandboxTextField(
         captionText = captionText,
         leadingIcon = leadingIcon,
         trailingIcon = trailingIcon,
+        chipsContent = chips,
+        chipsSpacing = 2.dp,
+        chipContainerShape = chipContainerShape(size),
         outerLabelStyle = styles.outerLabelStyle(size, colors, inputState).value,
         innerLabelStyle = styles.innerLabelStyle(
             size = size,
@@ -134,10 +147,7 @@ internal fun SandboxTextField(
         outerLabelBottomPadding = outerLabelBottomPadding(size),
         captionTopPadding = captionTopPadding(size),
         iconSize = iconSize(size),
-        shape = textFieldShapeFor(
-            size = size,
-            shapeAdjustment = 2.dp,
-        ),
+        shape = textFieldShapeFor(size = size),
         fieldHeight = size.value,
         interactionSource = interactionSource,
     )
@@ -177,18 +187,18 @@ internal object SandboxTextField {
         S(40.dp),
         XS(32.dp),
     }
-}
 
-/**
- * Состояние текстового поля
- */
-internal enum class InputState {
-    Normal,
-    Focused,
-    Error,
-    Warning,
-    Success,
-    ReadOnly,
+    /**
+     * Состояние текстового поля
+     */
+    internal enum class InputState {
+        Normal,
+        Focused,
+        Error,
+        Warning,
+        Success,
+        ReadOnly,
+    }
 }
 
 private fun State.toInputState(
@@ -209,27 +219,55 @@ private fun State.toInputState(
     }
 }
 
+@Composable
+internal fun ChipsContent(
+    chips: List<String>?,
+    size: Size,
+    onChipClosePressed: ((String) -> Unit)?,
+) {
+    if (chips?.isNotEmpty() == true) {
+        SandboxEmbeddedChipGroup(
+            items = chips,
+            shouldWrap = false,
+            size = chipGroupSize(size),
+            onChipClosedPressed = onChipClosePressed,
+        )
+    }
+}
+
 /**
  * Превью [SandboxTextField]
  */
 @Composable
-@Preview(showBackground = true)
-fun SandboxTextFieldPreview() {
+@Preview(showBackground = true, backgroundColor = 0x0)
+internal fun SandboxTextFieldPreview() {
     SandboxTheme {
+        var value by remember { mutableStateOf(TextFieldValue("value")) }
+
         SandboxTextField(
-            value = TextFieldValue(text = "Value"),
+            value = value,
             captionText = "Сaption",
             labelText = "Label",
+            fieldType = SandboxTextField.FieldType.Required,
             labelType = LabelType.Outer,
-            onValueChange = {},
+            placeholderText = "Placeholder",
+            onValueChange = { value = it },
             leadingIcon = {
-                Image(
+                Icon(
                     painter = painterResource(id = com.sdds.icons.R.drawable.ic_add_fill_24),
                     contentDescription = "",
-                    colorFilter = ColorFilter.tint(Color.Black),
+                    tint = Color.Black,
                 )
             },
             state = State.Warning,
+            size = Size.S,
+            dotBadgePosition = DotBadge.Position.End,
+            chips = {
+                SandboxEmbeddedChip(
+                    label = "Chip",
+                    size = SandboxEmbeddedChip.Size.M,
+                )
+            },
         )
     }
 }

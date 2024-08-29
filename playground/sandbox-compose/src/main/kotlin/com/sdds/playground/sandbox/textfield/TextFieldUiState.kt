@@ -17,6 +17,7 @@ internal data class TextFieldUiState(
     val hasDotBadge: Boolean = false,
     val hasStartIcon: Boolean = true,
     val hasEndIcon: Boolean = true,
+    val chips: List<String> = emptyList(),
     val enabled: Boolean = true,
     val readOnly: Boolean = false,
 )
