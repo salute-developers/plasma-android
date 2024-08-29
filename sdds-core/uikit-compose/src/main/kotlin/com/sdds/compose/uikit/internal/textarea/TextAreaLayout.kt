@@ -57,24 +57,12 @@ import kotlin.math.roundToInt
 internal fun TextAreaLayout(
     modifier: Modifier,
     textField: @Composable () -> Unit,
-    label:
-    @Composable()
-    (() -> Unit)?,
-    placeholder:
-    @Composable()
-    (() -> Unit)?,
-    icon:
-    @Composable()
-    (() -> Unit)?,
-    captionText:
-    @Composable()
-    (() -> Unit)?,
-    counterText:
-    @Composable()
-    (() -> Unit)?,
-    chips:
-    @Composable()
-    (() -> Unit)?,
+    label: @Composable (() -> Unit)?,
+    placeholder: @Composable (() -> Unit)?,
+    icon: @Composable (() -> Unit)?,
+    captionText: @Composable (() -> Unit)?,
+    counterText: @Composable (() -> Unit)?,
+    chips: @Composable (() -> Unit)?,
     chipsSpacing: Dp,
     textTopPadding: Dp,
     textBottomPadding: Dp,
