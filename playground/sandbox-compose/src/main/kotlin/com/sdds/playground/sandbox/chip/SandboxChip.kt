@@ -140,3 +140,99 @@ internal object SandboxChip {
         XS(24.dp),
     }
 }
+
+@Composable
+@Preview
+internal fun SandboxChipPreviewSizeMDefault() {
+    SandboxTheme {
+        SandboxChip(
+            size = SandboxChip.Size.L,
+            shape = SandboxChip.Shape.Default,
+            state = SandboxChip.State.Default,
+            label = "Label",
+            onClick = {},
+            startContent = {
+                Icon(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_plasma_24),
+                    contentDescription = null,
+                )
+            },
+            endContent = {
+                Icon(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_close_24),
+                    contentDescription = null,
+                )
+            },
+            enabled = true,
+        )
+    }
+}
+
+@Composable
+@Preview
+internal fun SandboxChipPreviewSizeXsSecondary() {
+    SandboxTheme(darkTheme = true) {
+        SandboxChip(
+            size = SandboxChip.Size.XS,
+            shape = SandboxChip.Shape.Default,
+            state = SandboxChip.State.Secondary,
+            label = "Label",
+            onClick = {},
+            startContent = {
+                Icon(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_plasma_24),
+                    contentDescription = null,
+                )
+            },
+            endContent = {
+                Icon(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_close_24),
+                    contentDescription = null,
+                )
+            },
+            enabled = true,
+        )
+    }
+}
+
+@Composable
+@Preview
+internal fun SandboxChipPreviewSizeMAccent() {
+    SandboxTheme {
+        SandboxChip(
+            size = SandboxChip.Size.M,
+            shape = SandboxChip.Shape.Pilled,
+            state = SandboxChip.State.Accent,
+            label = "Label",
+            onClick = {},
+            enabled = true,
+        )
+    }
+}
+
+@Composable
+@Preview
+internal fun SandboxChipPreviewSizeSDisabled() {
+    SandboxTheme {
+        SandboxChip(
+            size = SandboxChip.Size.S,
+            shape = SandboxChip.Shape.Default,
+            state = SandboxChip.State.Default,
+            label = "Label",
+            onClick = {},
+            startContent = {
+                Icon(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_plasma_24),
+                    contentDescription = null,
+                )
+            },
+            endContent = {
+                Icon(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_close_24),
+                    contentDescription = null,
+                )
+            },
+            enabled = false,
+        )
+    }
+}

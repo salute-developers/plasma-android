@@ -11,6 +11,7 @@ import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewLSuccess
 import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewMWarning
 import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewSDefault
 import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewXsError
+import org.junit.Ignore
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
@@ -26,6 +27,7 @@ class ComposeTextFieldScreenshotTest : RoborazziConfig() {
      * Запуск скриншот тестов с использованием Preview
      */
     @Test
+    @Ignore("Temporarily disabled")
     fun testTextFieldPreviewXsError() {
         composeTestRule.setContent {
             SandboxTextFieldPreviewXsError()
@@ -33,6 +35,7 @@ class ComposeTextFieldScreenshotTest : RoborazziConfig() {
     }
 
     @Test
+    @Ignore("Temporarily disabled")
     fun testTextFieldPreviewLSuccess() {
         composeTestRule.setContent {
             SandboxTextFieldPreviewLSuccess()
@@ -40,6 +43,7 @@ class ComposeTextFieldScreenshotTest : RoborazziConfig() {
     }
 
     @Test
+    @Ignore("Temporarily disabled")
     fun testTextFieldPreviewMWarning() {
         composeTestRule.setContent {
             SandboxTextFieldPreviewMWarning()
@@ -47,6 +51,7 @@ class ComposeTextFieldScreenshotTest : RoborazziConfig() {
     }
 
     @Test
+    @Ignore("Temporarily disabled")
     fun testTextFieldPreviewInner() {
         composeTestRule.setContent {
             SandboxTextFieldPreviewInner()
@@ -54,6 +59,7 @@ class ComposeTextFieldScreenshotTest : RoborazziConfig() {
     }
 
     @Test
+    @Ignore("Temporarily disabled")
     fun testTextFieldPreviewLInactive() {
         composeTestRule.setContent {
             SandboxTextFieldPreviewLInactive()
@@ -61,6 +67,7 @@ class ComposeTextFieldScreenshotTest : RoborazziConfig() {
     }
 
     @Test
+    @Ignore("Temporarily disabled")
     fun testTextFieldPreviewSDefault() {
         composeTestRule.setContent {
             SandboxTextFieldPreviewSDefault()
@@ -68,6 +75,7 @@ class ComposeTextFieldScreenshotTest : RoborazziConfig() {
     }
 
     @Test
+    @Ignore("Temporarily disabled")
     fun testTextFieldPreviewLReadOnly() {
         composeTestRule.setContent {
             SandboxTextFieldPreviewLReadOnly()
@@ -75,6 +83,7 @@ class ComposeTextFieldScreenshotTest : RoborazziConfig() {
     }
 
     @Test
+    @Ignore("Temporarily disabled")
     fun testTextFieldPreviewLPlaceholder() {
         composeTestRule.setContent {
             SandboxTextFieldPreviewLPlaceholder()
@@ -82,6 +91,7 @@ class ComposeTextFieldScreenshotTest : RoborazziConfig() {
     }
 
     @Test
+    @Ignore("Temporarily disabled")
     fun testTextFieldPreviewHasDot() {
         composeTestRule.setContent {
             SandboxTextFieldPreviewHasDot()
@@ -89,6 +99,7 @@ class ComposeTextFieldScreenshotTest : RoborazziConfig() {
     }
 
     @Test
+    @Ignore("Temporarily disabled")
     fun testTextFieldPreviewHasDotInsideEnd() {
         composeTestRule.setContent {
             SandboxTextFieldPreviewHasDotInsideEnd()

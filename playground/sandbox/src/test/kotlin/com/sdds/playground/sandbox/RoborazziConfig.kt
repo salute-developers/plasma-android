@@ -8,8 +8,6 @@ import java.io.File
 
 open class RoborazziConfig {
 
-    val directoryPath = "screenshots"
-
     @OptIn(ExperimentalRoborazziApi::class)
     @get:Rule
     val roborazziRule = RoborazziRule(
@@ -28,4 +26,8 @@ open class RoborazziConfig {
             ),
         ),
     )
+
+    companion object {
+        const val directoryPath = "screenshots"
+    }
 }

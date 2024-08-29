@@ -36,8 +36,6 @@ open class RoborazziConfig {
     @get:Rule(order = 1)
     val composeTestRule = createAndroidComposeRule<ComponentActivity>()
 
-    val directoryPath = "screenshots"
-
     /**
      * Правило для запуска тестов и сохранения скриншотов в папку screenshots
      */
@@ -62,4 +60,8 @@ open class RoborazziConfig {
             ),
         ),
     )
+
+    companion object {
+        const val directoryPath = "screenshots"
+    }
 }
