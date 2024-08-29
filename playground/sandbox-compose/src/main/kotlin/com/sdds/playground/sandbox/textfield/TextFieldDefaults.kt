@@ -2,8 +2,7 @@ package com.sdds.playground.sandbox.textfield
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.shape.CornerSize
-import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
@@ -17,6 +16,8 @@ import com.sdds.compose.uikit.TextField
 import com.sdds.compose.uikit.TextField.DotBadge
 import com.sdds.compose.uikit.TextField.LabelType
 import com.sdds.compose.uikit.adjustBy
+import com.sdds.playground.sandbox.chip.SandboxEmbeddedChip
+import com.sdds.playground.sandbox.textfield.SandboxTextField.InputState
 import com.sdds.playground.sandbox.tokens.compose.StylesSaluteTheme
 
 /**
@@ -100,6 +101,8 @@ internal interface SandboxTextFieldStyles {
     /**
      * Текстовый стиль внешнего лейбла
      * @param size размер текстового поля
+     * @param colors цвета текстового поля
+     * @param inputState состояние текстового поля
      */
     @Composable
     fun outerLabelStyle(
@@ -111,8 +114,9 @@ internal interface SandboxTextFieldStyles {
     /**
      * Текстовый стиль внутреннего лейбла
      * @param size размер текстового поля
-     * @param isFocused true, если поле в фокусе
+     * @param inputState cостояние текстового поля
      * @param isEmpty true, если поле пустое
+     * @param colors цвета текстового поля
      */
     @Composable
     fun innerLabelStyle(
@@ -125,6 +129,8 @@ internal interface SandboxTextFieldStyles {
     /**
      * Текстовый стиль значения поля
      * @param size размер текстового поля
+     * @param colors цвета текстового поля
+     * @param inputState состояние текстового поля
      */
     @Composable
     fun valueStyle(
@@ -136,6 +142,8 @@ internal interface SandboxTextFieldStyles {
     /**
      * Текстовый стиль подписи поля
      * @param size размер текстового поля
+     * @param colors цвета текстового поля
+     * @param inputState состояние текстового поля
      */
     @Composable
     fun captionStyle(
@@ -147,6 +155,8 @@ internal interface SandboxTextFieldStyles {
     /**
      * Текстовый стиль заглушки поля
      * @param size размер текстового поля
+     * @param colors цвета текстового поля
+     * @param inputState состояние текстового поля
      */
     @Composable
     fun placeholderStyle(
@@ -201,6 +211,25 @@ internal object TextFieldDefaults {
                 color = Color.Red,
                 position = position,
             )
+        }
+    }
+
+    fun chipGroupSize(size: SandboxTextField.Size): SandboxEmbeddedChip.Size {
+        return when (size) {
+            SandboxTextField.Size.L -> SandboxEmbeddedChip.Size.L
+            SandboxTextField.Size.M -> SandboxEmbeddedChip.Size.M
+            SandboxTextField.Size.S -> SandboxEmbeddedChip.Size.S
+            SandboxTextField.Size.XS -> SandboxEmbeddedChip.Size.XS
+        }
+    }
+
+    @Composable
+    fun chipContainerShape(size: SandboxTextField.Size): CornerBasedShape {
+        return when (size) {
+            SandboxTextField.Size.L -> StylesSaluteTheme.shapes.roundS
+            SandboxTextField.Size.M -> StylesSaluteTheme.shapes.roundXs
+            SandboxTextField.Size.S -> StylesSaluteTheme.shapes.roundXxs
+            SandboxTextField.Size.XS -> StylesSaluteTheme.shapes.roundXxs.adjustBy(all = (-2).dp)
         }
     }
 
@@ -318,14 +347,12 @@ internal object TextFieldDefaults {
      * Форма в зависимости от размера поля [SandboxTextField.Size]
      */
     @Composable
-    fun textFieldShapeFor(size: SandboxTextField.Size, shapeAdjustment: Dp) = when (size) {
-        SandboxTextField.Size.XS,
-        SandboxTextField.Size.S,
-        -> RoundedCornerShape(CornerSize(8.0.dp))
-
-        SandboxTextField.Size.M -> RoundedCornerShape(CornerSize(10.0.dp))
-        SandboxTextField.Size.L -> RoundedCornerShape(CornerSize(12.0.dp))
-    }.adjustBy(shapeAdjustment)
+    fun textFieldShapeFor(size: SandboxTextField.Size) = when (size) {
+        SandboxTextField.Size.XS -> StylesSaluteTheme.shapes.roundS
+        SandboxTextField.Size.S -> StylesSaluteTheme.shapes.roundM.adjustBy(all = (-2).dp)
+        SandboxTextField.Size.M -> StylesSaluteTheme.shapes.roundM
+        SandboxTextField.Size.L -> StylesSaluteTheme.shapes.roundM.adjustBy(all = 2.dp)
+    }
 }
 
 @Immutable

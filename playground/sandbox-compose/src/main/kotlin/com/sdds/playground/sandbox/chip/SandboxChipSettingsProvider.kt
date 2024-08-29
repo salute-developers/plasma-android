@@ -9,6 +9,7 @@ import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.adjustBy
 import com.sdds.playground.sandbox.chip.SandboxChip.Shape
 import com.sdds.playground.sandbox.tokens.compose.StylesSaluteTheme
 
@@ -61,10 +62,10 @@ internal object SandboxChipSettingsProvider {
         return when (shape) {
             Shape.Default -> {
                 when (size) {
-                    SandboxChip.Size.L -> RoundedCornerShape(12.dp)
-                    SandboxChip.Size.M -> RoundedCornerShape(10.dp)
-                    SandboxChip.Size.S -> RoundedCornerShape(8.dp)
-                    SandboxChip.Size.XS -> RoundedCornerShape(6.dp)
+                    SandboxChip.Size.L -> StylesSaluteTheme.shapes.roundM
+                    SandboxChip.Size.M -> StylesSaluteTheme.shapes.roundM.adjustBy(all = (-2).dp)
+                    SandboxChip.Size.S -> StylesSaluteTheme.shapes.roundS
+                    SandboxChip.Size.XS -> StylesSaluteTheme.shapes.roundXs
                 }
             }
 

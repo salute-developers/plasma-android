@@ -5,9 +5,14 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.Chip
+import com.sdds.compose.uikit.Icon
+import com.sdds.icons.R
+import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.chip.SandboxChipSettingsProvider.backgroundColor
 import com.sdds.playground.sandbox.chip.SandboxChipSettingsProvider.contentColor
 import com.sdds.playground.sandbox.chip.SandboxChipSettingsProvider.contentMargin
@@ -89,6 +94,30 @@ internal fun SandboxChip(
         enabled = enabled,
         interactionSource = interactionSource,
     )
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxChipPreview() {
+    SandboxTheme {
+        SandboxChip(
+            size = SandboxChip.Size.M,
+            label = "label",
+            isSelected = true,
+            startContent = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_accessibility_24),
+                    contentDescription = "",
+                )
+            },
+            endContent = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_close_24),
+                    contentDescription = "",
+                )
+            },
+        )
+    }
 }
 
 internal object SandboxChip {
