@@ -28,25 +28,13 @@ import com.sdds.compose.uikit.TextField
 internal fun TextAreaDecorationBox(
     value: String,
     isError: Boolean = false,
-    label:
-    @Composable()
-    (() -> Unit)?,
-    chips:
-    @Composable()
-    (() -> Unit)? = null,
+    label: @Composable (() -> Unit)?,
+    chips: @Composable (() -> Unit)? = null,
     innerTextField: @Composable () -> Unit,
-    placeholder:
-    @Composable()
-    (() -> Unit)? = null,
-    icon:
-    @Composable()
-    (() -> Unit)? = null,
-    captionText:
-    @Composable()
-    (() -> Unit)? = null,
-    counterText:
-    @Composable()
-    (() -> Unit)? = null,
+    placeholder: @Composable (() -> Unit)? = null,
+    icon: @Composable (() -> Unit)? = null,
+    captionText: @Composable (() -> Unit)? = null,
+    counterText: @Composable (() -> Unit)? = null,
     iconSize: Dp,
     textTopPadding: Dp,
     textBottomPadding: Dp,
