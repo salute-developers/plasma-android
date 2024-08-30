@@ -1,8 +1,10 @@
 package com.sdds.playground.sandbox.buttons
 
+import android.os.Parcelable
 import androidx.annotation.StyleRes
 import com.sdds.playground.sandbox.R
 import com.sdds.uikit.Button
+import kotlinx.parcelize.Parcelize
 import com.sdds.icons.R.drawable as Icons
 
 /**
@@ -16,6 +18,7 @@ import com.sdds.icons.R.drawable as Icons
  * @property loading индикация загрузки
  * @property fixedSize режим фиксированного размера кнопки
  */
+@Parcelize
 internal data class ButtonUiState(
     val variant: ButtonVariant,
     val icon: ButtonIcon = ButtonIcon.No,
@@ -25,13 +28,14 @@ internal data class ButtonUiState(
     val enabled: Boolean = true,
     val loading: Boolean = false,
     val fixedSize: Boolean = false,
-)
+) : Parcelable
 
 /**
  * Стили вариаций кнопки
  * @property styleRes ресурс стиля
  */
-internal sealed interface ButtonVariant {
+@Parcelize
+internal sealed interface ButtonVariant : Parcelable {
 
     /**
      * Ресурс стиля
@@ -44,6 +48,7 @@ internal sealed interface ButtonVariant {
  * Стили вариаций BasicButton
  * @property styleRes ресурс стиля
  */
+@Parcelize
 internal enum class BasicButtonVariant(@StyleRes override val styleRes: Int) : ButtonVariant {
     BasicButtonLDefault(R.style.Theme_Sandbox_ComponentOverlays_BasicButtonLDefault),
     BasicButtonLSecondary(R.style.Theme_Sandbox_ComponentOverlays_BasicButtonLSecondary),
@@ -94,6 +99,7 @@ internal enum class BasicButtonVariant(@StyleRes override val styleRes: Int) : B
  * Стили вариаций IconButton
  * @property styleRes ресурс стиля
  */
+@Parcelize
 internal enum class IconButtonVariant(@StyleRes override val styleRes: Int) : ButtonVariant {
     IconButtonLDefault(R.style.Theme_Sandbox_ComponentOverlays_IconButtonLDefault),
     IconButtonLSecondary(R.style.Theme_Sandbox_ComponentOverlays_IconButtonLSecondary),
@@ -187,7 +193,8 @@ internal enum class IconButtonVariant(@StyleRes override val styleRes: Int) : Bu
 /**
  * Иконка кнопки
  */
-internal sealed class ButtonIcon(val iconId: Int = Icons.ic_plasma_24) {
+@Parcelize
+internal sealed class ButtonIcon(val iconId: Int = Icons.ic_plasma_24) : Parcelable {
 
     /**
      * Иконка вначале кнопки
