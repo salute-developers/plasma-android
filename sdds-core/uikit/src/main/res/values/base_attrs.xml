@@ -3,7 +3,7 @@
     <attr name="sd_focusAdditionalColor" format="color" />
     <attr name="sd_focusMainColor" format="color" />
     <attr name="sd_shapeAppearance" format="reference" />
-    <attr name="sd_textShader" format="reference" />
+    <attr name="sd_shaderAppearance" format="reference" />
     <attr name="sd_shapeAppearanceAdjustment" format="dimension" />
     <attr name="sd_strokeColor" format="reference|color" />
     <attr name="sd_strokeWidth" format="float|fraction|dimension" />
@@ -51,6 +51,10 @@
     </declare-styleable>
 
     <declare-styleable name="SdShader">
+        <attr name="sd_shaderAppearance"/>
+    </declare-styleable>
+
+    <declare-styleable name="SdShaderAppearance">
         <attr name="sd_gradientType" format="enum">
             <enum name="none" value="0" />
             <enum name="linear" value="1" />

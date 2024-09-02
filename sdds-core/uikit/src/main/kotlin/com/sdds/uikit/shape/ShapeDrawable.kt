@@ -16,6 +16,7 @@ import android.graphics.Shader
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.shapes.Shape
 import android.util.AttributeSet
+import android.util.TypedValue
 import androidx.core.graphics.withTranslation
 import com.sdds.uikit.R
 import com.sdds.uikit.internal.base.colorForState
@@ -44,6 +45,8 @@ open class ShapeDrawable() : Drawable(), Shapeable {
     private var _shape: Shape? = null
 
     private var _shaderFactory: ShaderFactory? = null
+    private var sdShaderAppearanceRes: TypedValue? = null
+    private var sdShaderAppearanceResFallback: Int = 0
 
     private val drawStroke: Boolean
         get() = _strokeWidth > 0 && _strokePaint.color != Color.TRANSPARENT
@@ -232,13 +235,48 @@ open class ShapeDrawable() : Drawable(), Shapeable {
         return super.onStateChange(state) || stateChanged
     }
 
-    override fun inflate(r: Resources, parser: XmlPullParser, attrs: AttributeSet, theme: Resources.Theme?) {
+    override fun inflate(
+        r: Resources,
+        parser: XmlPullParser,
+        attrs: AttributeSet,
+        theme: Resources.Theme?
+    ) {
         super.inflate(r, parser, attrs, theme)
-        shaderFactory = shaderFactory(
-            resources = r,
-            theme = theme,
-            attrSet = attrs,
+
+        val themeTypedArray = theme?.obtainStyledAttributes(
+            attrs,
+            R.styleable.SdShader,
+            0,
+            0,
+        ) ?: r.obtainAttributes(
+            attrs,
+            R.styleable.SdShader
         )
+        val typedValue = TypedValue()
+        val getValueResult = themeTypedArray.getValue(R.styleable.SdShader_sd_shaderAppearance, typedValue)
+        sdShaderAppearanceResFallback = themeTypedArray.getResourceId(R.styleable.SdShader_sd_shaderAppearance, 0)
+
+        if (getValueResult) sdShaderAppearanceRes = typedValue
+
+        themeTypedArray.recycle()
+        if (theme != null) applyTheme(theme) // принудительный вызов applyTheme() для preview
+    }
+
+    override fun canApplyTheme(): Boolean = true
+
+    override fun applyTheme(t: Resources.Theme) {
+        super.applyTheme(t)
+
+        var shaderAppearance = sdShaderAppearanceRes
+        if (shaderAppearance != null && shaderAppearance.type == TypedValue.TYPE_ATTRIBUTE) {
+            val outTypedValue = TypedValue()
+            t.resolveAttribute(shaderAppearance.data, outTypedValue, true)
+            shaderAppearance = outTypedValue
+        }
+        val resId = shaderAppearance?.data ?: sdShaderAppearanceResFallback
+        val typedArray = t.obtainStyledAttributes(resId, R.styleable.SdShaderAppearance)
+        shaderFactory = typedArray.shaderFactory()
+        typedArray.recycle()
     }
 
     private fun initPaint() {

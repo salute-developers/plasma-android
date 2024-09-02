@@ -1,8 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<drawable
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:sd_gradientType="linear"
-    app:sd_angle="@integer/serv_surfaceAccentGradient_angle"
-    app:sd_colors="@array/serv_surfaceAccentGradient_colors"
-    app:sd_stops="@array/serv_surfaceAccentGradient_stops"
-    class="com.sdds.uikit.shape.ShapeDrawable"/>
+<drawable xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:sd_shaderAppearance="?attr/gradientAccent"
+    class="com.sdds.uikit.shape.ShapeDrawable" />
