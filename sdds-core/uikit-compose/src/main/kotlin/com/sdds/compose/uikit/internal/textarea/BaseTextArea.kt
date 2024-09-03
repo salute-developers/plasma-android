@@ -5,7 +5,6 @@ package com.sdds.compose.uikit.internal.textarea
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CornerBasedShape
@@ -14,7 +13,6 @@ import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawBehind
@@ -26,7 +24,6 @@ import androidx.compose.ui.layout.Measurable
 import androidx.compose.ui.layout.MeasurePolicy
 import androidx.compose.ui.layout.MeasureResult
 import androidx.compose.ui.layout.MeasureScope
-import androidx.compose.ui.layout.Placeable
 import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.ImeAction
@@ -42,11 +39,18 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.offset
 import com.sdds.compose.uikit.ScrollBarConfig
 import com.sdds.compose.uikit.Text
+import com.sdds.compose.uikit.TextArea
 import com.sdds.compose.uikit.TextField
+import com.sdds.compose.uikit.TextField.DotBadge
 import com.sdds.compose.uikit.TextField.DotBadge.Position
+import com.sdds.compose.uikit.TextField.FieldType
 import com.sdds.compose.uikit.TextField.LabelType
 import com.sdds.compose.uikit.internal.heightOrZero
-import com.sdds.compose.uikit.internal.textfield.DotBadge
+import com.sdds.compose.uikit.internal.textfield.common.DotBadge
+import com.sdds.compose.uikit.internal.textfield.common.OuterLabel
+import com.sdds.compose.uikit.internal.textfield.common.innerLabel
+import com.sdds.compose.uikit.internal.textfield.common.placeDotBadge
+import com.sdds.compose.uikit.internal.textfield.common.textFieldStartPadding
 import com.sdds.compose.uikit.internal.widthOrZero
 import com.sdds.compose.uikit.scrollbar
 import kotlin.math.max
@@ -106,7 +110,7 @@ internal fun BaseTextArea(
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     readOnly: Boolean = false,
-    fieldType: TextField.FieldType? = null,
+    fieldType: FieldType? = null,
     labelType: LabelType = LabelType.Outer,
     placeholderText: String? = null,
     labelText: String = "",
@@ -125,18 +129,8 @@ internal fun BaseTextArea(
     enabledAlpha: Float = 1.0f,
     disabledAlpha: Float = 0.4f,
     shape: CornerBasedShape,
-    startContentPadding: Dp = 16.dp,
-    endContentPadding: Dp = 16.dp,
-    textTopPadding: Dp = 25.dp,
-    textBottomPadding: Dp = 9.dp,
-    innerLabelToValuePadding: Dp = 2.dp,
-    outerLabelBottomPadding: Dp = 12.dp,
-    iconTopPadding: Dp = 16.dp,
+    paddings: TextArea.Paddings = TextArea.Paddings(),
     iconSize: Dp = 24.dp,
-    iconStartPadding: Dp = 2.dp,
-    bottomTextBottomPadding: Dp = 4.dp,
-    chipsSpacing: Dp = 2.dp,
-    keepDotBadgeStartPadding: Dp? = null,
     animation: TextField.Animation = TextField.Animation(),
     scrollBarConfig: ScrollBarConfig = ScrollBarConfig(),
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
@@ -144,27 +138,29 @@ internal fun BaseTextArea(
     visualTransformation: VisualTransformation = VisualTransformation.None,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
-    val dotBadge = (fieldType as? TextField.FieldType.Required)?.dotBadge
+    val dotBadge = (fieldType as? FieldType.Required)?.dotBadge
     val measurePolicy = remember(
-        outerLabelBottomPadding,
+        paddings.outerLabelBottomPadding,
         dotBadge,
         labelType,
     ) {
         TextAreaMeasurePolicy(
-            outerLabelBottomPadding,
-            dotBadge,
-            labelType,
+            outerLabelBottomPadding = paddings.outerLabelBottomPadding,
+            dotBadge = dotBadge,
+            hasLabel = labelText.isNotEmpty(),
+            labelType = labelType,
         )
     }
+    val label = if (chips != null && labelType == LabelType.Inner) "" else labelText
 
     Layout(
         content = {
-            if (labelType == LabelType.Outer && labelText.isNotEmpty()) {
+            if (labelType == LabelType.Outer && label.isNotEmpty()) {
                 OuterLabel(
                     modifier = Modifier.layoutId(OUTER_LABEL),
-                    labelText = labelText,
+                    labelText = label,
                     labelTextStyle = outerLabelStyle,
-                    optional = fieldType as? TextField.FieldType.Optional,
+                    optional = fieldType as? FieldType.Optional,
                 )
             }
 
@@ -188,8 +184,7 @@ internal fun BaseTextArea(
                             durationMillis = if (scrollState.isScrollInProgress) 150 else 500,
                         ),
                         padding = scrollBarConfig.padding,
-                    )
-                    .padding(start = startContentPadding, end = endContentPadding),
+                    ),
                 enabled = enabled,
                 readOnly = readOnly,
                 textStyle = valuesStyle,
@@ -203,19 +198,15 @@ internal fun BaseTextArea(
                     value = value.text,
                     scrollState = scrollState,
                     innerTextField = it,
-                    textTopPadding = textTopPadding,
-                    textBottomPadding = textBottomPadding,
-                    iconTopPadding = iconTopPadding,
-                    iconStartPadding = iconStartPadding,
                     icon = icon,
                     iconSize = iconSize,
                     visualTransformation = visualTransformation,
                     interactionSource = interactionSource,
                     label = innerLabel(
                         labelType = labelType,
-                        labelText = labelText,
+                        labelText = label,
                         labelTextStyle = innerLabelStyle,
-                        optional = fieldType as? TextField.FieldType.Optional,
+                        optional = fieldType as? FieldType.Optional,
                     ),
                     placeholder = placeholder(
                         placeholderText,
@@ -223,14 +214,12 @@ internal fun BaseTextArea(
                     ),
                     captionText = captionText(captionText, captionStyle),
                     counterText = counterText(counterText, counterStyle),
-                    bottomTextBottomPadding = bottomTextBottomPadding,
                     animation = animation,
-                    labelToValuePadding = innerLabelToValuePadding,
                     chips = chips,
-                    chipsSpacing = chipsSpacing,
+                    paddings = paddings,
                 )
             }
-            if (fieldType is TextField.FieldType.Required) {
+            if (fieldType is FieldType.Required) {
                 DotBadge(
                     size = fieldType.dotBadge.size,
                     modifier = Modifier
@@ -242,42 +231,9 @@ internal fun BaseTextArea(
         },
         measurePolicy = measurePolicy,
         modifier = modifier
-            .padding(
-                start = if (fieldType !is TextField.FieldType.Required &&
-                    keepDotBadgeStartPadding != null &&
-                    labelType == LabelType.Outer
-                ) {
-                    keepDotBadgeStartPadding
-                } else {
-                    0.dp
-                },
-            )
+            .textFieldStartPadding(fieldType, labelType, paddings.keepDotBadgeStartPadding)
             .graphicsLayer { alpha = if (enabled) enabledAlpha else disabledAlpha },
     )
-}
-
-@Composable
-private fun OuterLabel(
-    modifier: Modifier,
-    labelText: String,
-    labelTextStyle: TextStyle,
-    optional: TextField.FieldType.Optional? = null,
-) {
-    Row(modifier = modifier) {
-        Text(
-            text = labelText,
-            style = labelTextStyle,
-        )
-        if (optional != null && optional.optionalText.isNotEmpty()) {
-            Text(
-                modifier = Modifier.padding(start = optional.startMargin),
-                text = optional.optionalText,
-                style = labelTextStyle.copy(
-                    color = labelTextStyle.color.copy(alpha = optional.labelOptionalAlpha),
-                ),
-            )
-        }
-    }
 }
 
 private fun captionText(
@@ -312,32 +268,6 @@ private fun counterText(
     }
 }
 
-private fun innerLabel(
-    labelType: LabelType,
-    labelText: String,
-    labelTextStyle: TextStyle,
-    optional: TextField.FieldType.Optional?,
-): @Composable (() -> Unit)? {
-    if (labelType != LabelType.Inner || labelText.isEmpty()) return null
-    return {
-        Row {
-            Text(
-                text = labelText,
-                style = labelTextStyle,
-            )
-            if (optional != null && optional.optionalText.isNotEmpty()) {
-                Text(
-                    modifier = Modifier.padding(start = optional.startMargin),
-                    text = optional.optionalText,
-                    style = labelTextStyle.copy(
-                        color = labelTextStyle.color.copy(alpha = optional.labelOptionalAlpha),
-                    ),
-                )
-            }
-        }
-    }
-}
-
 private fun placeholder(
     placeholder: String?,
     textStyle: TextStyle,
@@ -353,7 +283,8 @@ private fun placeholder(
 
 private class TextAreaMeasurePolicy(
     private val outerLabelBottomPadding: Dp,
-    private val dotBadge: TextField.DotBadge?,
+    private val dotBadge: DotBadge?,
+    private val hasLabel: Boolean,
     private val labelType: LabelType,
 ) : MeasurePolicy {
     override fun MeasureScope.measure(
@@ -370,7 +301,7 @@ private class TextAreaMeasurePolicy(
 
         // measure dot badge
         val dotBadgeStartOffset =
-            if (labelType == LabelType.Outer && dotBadge?.position == Position.Start) {
+            if (hasLabel && labelType == LabelType.Outer && dotBadge?.position == Position.Start) {
                 badgePlaceable.widthOrZero()
             } else {
                 0
@@ -406,49 +337,10 @@ private class TextAreaMeasurePolicy(
                 badgePlaceable = badgePlaceable,
                 dotBadge = dotBadge,
                 labelType = labelType,
+                hasLabel = hasLabel,
                 outerLabelPlaceable = outerLabelPlaceable,
                 width = width,
             )
-        }
-    }
-}
-
-private fun Placeable.PlacementScope.placeDotBadge(
-    badgePlaceable: Placeable?,
-    dotBadge: TextField.DotBadge?,
-    labelType: LabelType,
-    outerLabelPlaceable: Placeable?,
-    width: Int,
-) {
-    dotBadge?.let {
-        when (it.position) {
-            Position.Start -> {
-                when (labelType) {
-                    LabelType.Outer -> badgePlaceable?.placeRelative(
-                        0,
-                        Alignment.CenterVertically.align(
-                            size = badgePlaceable.height,
-                            space = outerLabelPlaceable.heightOrZero(),
-                        ),
-                    )
-
-                    LabelType.Inner -> badgePlaceable?.placeRelative(0, 0)
-                }
-            }
-
-            Position.End -> {
-                when (labelType) {
-                    LabelType.Outer -> badgePlaceable?.placeRelative(
-                        outerLabelPlaceable.widthOrZero(),
-                        0,
-                    )
-
-                    LabelType.Inner -> badgePlaceable?.placeRelative(
-                        width - badgePlaceable.widthOrZero(),
-                        0,
-                    )
-                }
-            }
         }
     }
 }

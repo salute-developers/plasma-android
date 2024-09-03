@@ -7,7 +7,6 @@ import com.sdds.compose.uikit.TextField
 import com.sdds.playground.sandbox.core.PropertiesOwner
 import com.sdds.playground.sandbox.core.Property
 import com.sdds.playground.sandbox.core.enumProperty
-import com.sdds.playground.sandbox.textfield.SandboxTextField
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -107,7 +106,7 @@ internal class TextAreaViewModel : ViewModel(), PropertiesOwner {
         )
     }
 
-    private fun updateFieldType(fieldType: SandboxTextField.FieldType) {
+    private fun updateFieldType(fieldType: SandboxTextArea.FieldType) {
         _textAreaUiState.value = _textAreaUiState.value.copy(
             fieldType = fieldType,
         )

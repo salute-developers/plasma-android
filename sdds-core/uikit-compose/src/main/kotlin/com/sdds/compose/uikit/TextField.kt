@@ -28,7 +28,6 @@ import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.TextField.DotBadge.Position
 import com.sdds.compose.uikit.TextField.LabelType
 import com.sdds.compose.uikit.internal.textfield.BaseTextField
-import com.sdds.compose.uikit.internal.textfield.DotBadge
 
 /**
  * Поле ввода текста
@@ -38,16 +37,14 @@ import com.sdds.compose.uikit.internal.textfield.DotBadge
  * @param modifier Modifier для дополнительного изменения компонента, по умолчанию пустой
  * @param enabled если false - фокусировка, ввод текста и копирование отключены
  * @param readOnly если false - доступно только для чтения, запись отключена
- * @param keyboardOptions для настройки клавиатуры, например [KeyboardType] или [ImeAction]
- * @param keyboardActions когда на ввод подается [ImeAction] вызывается соответствующий callback
- * @param visualTransformation фильтр визуального отображения, например [PasswordVisualTransformation]
- * @param placeholderText заглушка если пустое [value] и тип [TextField.LabelType.Outer]
  * @param fieldType тип текстового поля - обязательное или опциональное (см. [TextField.FieldType])
  * @param labelType тип отображения лэйбла: [LabelType.Outer] снаружи поля ввода, [LabelType.Inner] внутри поля ввода
+ * @param placeholderText заглушка если пустое [value] и тип [TextField.LabelType.Outer]
  * @param labelText текст лэйбла
  * @param captionText текст подписи под полем ввода
  * @param leadingIcon иконка, которая будет находиться в начале поля ввода
  * @param trailingIcon иконка, которая будет находиться в конце поля ввода
+ * @param chipsContent контент с chip-элементами
  * @param outerLabelStyle стиль лэйбла в режиме [labelType] == [LabelType.Outer]
  * @param innerLabelStyle стиль лэйбла в режиме [labelType] == [LabelType.Inner]
  * @param valuesStyle стиль value
@@ -58,24 +55,13 @@ import com.sdds.compose.uikit.internal.textfield.DotBadge
  * @param enabledAlpha альфа, когда компонент в режиме [enabled] == true
  * @param disabledAlpha альфа, когда компонент в режиме [enabled] == false
  * @param shape форма текстового поля
- * @param startContentPadding отступ в начале текстового поля
- * @param endContentPadding отступ в конце текстового поля
- * @param iconMargin отступ от иконки до текста
- * @param textTopPadding отступ от value до верхней границы текстового поля в режиме [labelType] == [LabelType.Inner]
- * @param textBottomPadding отступ от value до верхней границы текстового поля в режиме [labelType] == [LabelType.Inner]
- * @param innerLabelToValuePadding отступ между лэйблом и value в режиме [labelType] == [LabelType.Inner]
- * @param outerLabelBottomPadding отступ между лэйблом и текстовым полем в режиме [labelType] == [LabelType.Outer]
- * @param captionTopPadding отступ между текстовым полем и caption
+ * @param chipContainerShape позволяет скруглять контейнер, в котором находятся чипы и текстовое поля.
  * @param iconSize размер иконки
  * @param fieldHeight высота текстового поля
- * @param fieldHeight высота текстового поля
  * @param animation параметры анимации [TextField.Animation]
- * @param keepDotBadgeStartPadding позволяет выставить отступ слева, для случаев, когда нужно сохранить отступ, эквивалентный ширине индикатора обязательного поля.
- * Например, когда TextField используется в списке и состояние [fieldType] меняется у разных элементов,
- * может появиться необходимость сохранить отступ слева, когда индикатор обзательного поля скрывается.
- * @param chipsContent контент с chip-элементами
- * @param chipsSpacing расстояние между chip-элементами
- * @param chipContainerShape позволяет скруглять контейнер, в котором находятся чипы и текстовое поля.
+ * @param keyboardOptions для настройки клавиатуры, например [KeyboardType] или [ImeAction]
+ * @param keyboardActions когда на ввод подается [ImeAction] вызывается соответствующий callback
+ * @param visualTransformation фильтр визуального отображения, например [PasswordVisualTransformation]
  * @param interactionSource источник взаимодействия с полем
  */
 @Suppress("LongParameterList")
@@ -87,18 +73,14 @@ fun TextField(
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     readOnly: Boolean = false,
-    keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
-    keyboardActions: KeyboardActions = KeyboardActions.Default,
-    visualTransformation: VisualTransformation = VisualTransformation.None,
-    placeholderText: String? = null,
     fieldType: TextField.FieldType? = null,
     labelType: LabelType = LabelType.Outer,
+    placeholderText: String? = null,
     labelText: String = "",
     captionText: String? = null,
     leadingIcon: @Composable (() -> Unit)? = null,
     trailingIcon: @Composable (() -> Unit)? = null,
     chipsContent: @Composable (() -> Unit)? = null,
-    chipsSpacing: Dp = 2.dp,
     outerLabelStyle: TextStyle = TextStyle(),
     innerLabelStyle: TextStyle = TextStyle(),
     valuesStyle: TextStyle = TextStyle(),
@@ -108,20 +90,15 @@ fun TextField(
     cursorColor: Color = Color.Blue,
     enabledAlpha: Float = 1.0f,
     disabledAlpha: Float = 0.4f,
-    chipContainerShape: CornerBasedShape? = null,
     shape: CornerBasedShape = RoundedCornerShape(25),
-    startContentPadding: Dp = 16.dp,
-    endContentPadding: Dp = 16.dp,
-    iconMargin: Dp = 8.dp,
-    textTopPadding: Dp = 25.dp,
-    textBottomPadding: Dp = 9.dp,
-    innerLabelToValuePadding: Dp = 2.dp,
-    outerLabelBottomPadding: Dp = 12.dp,
-    captionTopPadding: Dp = 4.dp,
-    iconSize: Dp = 24.dp,
+    chipContainerShape: CornerBasedShape? = null,
     fieldHeight: Dp = 56.dp,
+    iconSize: Dp = 24.dp,
+    paddings: TextField.Paddings = TextField.Paddings(),
     animation: TextField.Animation = TextField.Animation(),
-    keepDotBadgeStartPadding: Dp? = null,
+    keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
+    keyboardActions: KeyboardActions = KeyboardActions.Default,
+    visualTransformation: VisualTransformation = VisualTransformation.None,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     BaseTextField(
@@ -150,20 +127,11 @@ fun TextField(
         enabledAlpha = enabledAlpha,
         disabledAlpha = disabledAlpha,
         shape = shape,
-        startContentPadding = startContentPadding,
-        endContentPadding = endContentPadding,
-        iconMargin = iconMargin,
-        textTopPadding = textTopPadding,
-        textBottomPadding = textBottomPadding,
-        innerLabelToValuePadding = innerLabelToValuePadding,
-        outerLabelBottomPadding = outerLabelBottomPadding,
-        captionTopPadding = captionTopPadding,
         iconSize = iconSize,
         fieldHeight = fieldHeight,
+        paddings = paddings,
         animation = animation,
-        keepDotBadgeStartPadding = keepDotBadgeStartPadding,
         chipsContent = chipsContent,
-        chipsSpacing = chipsSpacing,
         chipContainerShape = chipContainerShape,
         interactionSource = interactionSource,
     )
@@ -177,45 +145,31 @@ fun TextField(
  * @param modifier Modifier для дополнительного изменения компонента, по умолчанию пустой
  * @param enabled если false - фокусировка, ввод текста и копирование отключены
  * @param readOnly если false - доступно только для чтения, запись отключена
- * @param keyboardOptions для настройки клавиатуры, например [KeyboardType] или [ImeAction]
- * @param keyboardActions когда на ввод подается [ImeAction] вызывается соответствующий callback
- * @param visualTransformation фильтр визуального отображения, например [PasswordVisualTransformation]
- * @param placeholderText заглушка если пустое [value] и тип [TextField.LabelType.Outer]
  * @param fieldType тип текстового поля - обязательное или опциональное (см. [TextField.FieldType])
  * @param labelType тип отображения лэйбла: [LabelType.Outer] снаружи поля ввода, [LabelType.Inner] внутри поля ввода
+ * @param placeholderText заглушка если пустое [value] и тип [TextField.LabelType.Outer]
  * @param labelText текст лэйбла
  * @param captionText текст подписи под полем ввода
  * @param leadingIcon иконка, которая будет находиться в начале поля ввода
  * @param trailingIcon иконка, которая будет находиться в конце поля ввода
+ * @param chipsContent контент с chip-элементами
  * @param outerLabelStyle стиль лэйбла в режиме [labelType] == [LabelType.Outer]
  * @param innerLabelStyle стиль лэйбла в режиме [labelType] == [LabelType.Inner]
  * @param valuesStyle стиль value
  * @param captionStyle стиль caption
  * @param placeHolderStyle стиль placeholder
- * @param fieldType тип текстового поля - обязательное или опциональное (см. [TextField.FieldType])
  * @param backgroundColor цвет бэкграунда текстового поля
  * @param cursorColor цвет курсора
  * @param enabledAlpha альфа, когда компонент в режиме [enabled] == true
  * @param disabledAlpha альфа, когда компонент в режиме [enabled] == false
  * @param shape форма текстового поля
- * @param startContentPadding отступ в начале текстового поля
- * @param endContentPadding отступ в конце текстового поля
- * @param iconMargin отступ от иконки до текста
- * @param textTopPadding отступ от value до верхней границы текстового поля в режиме [labelType] == [LabelType.Inner]
- * @param textBottomPadding отступ от value до верхней границы текстового поля в режиме [labelType] == [LabelType.Inner]
- * @param innerLabelToValuePadding отступ между лэйблом и value в режиме [labelType] == [LabelType.Inner]
- * @param outerLabelBottomPadding отступ между лэйблом и текстовым полем в режиме [labelType] == [LabelType.Outer]
- * @param captionTopPadding отступ между текстовым полем и caption
+ * @param chipContainerShape позволяет скруглять контейнер, в котором находятся чипы и текстовое поля.
  * @param iconSize размер иконки
  * @param fieldHeight высота текстового поля
- * @param fieldHeight высота текстового поля
  * @param animation параметры анимации [TextField.Animation]
- * @param keepDotBadgeStartPadding позволяет выставить отступ слева, для случаев, когда нужно сохранить отступ, эквивалентный ширине индикатора обязательного поля.
- * Например, когда TextField используется в списке и состояние [fieldType] меняется у разных элементов,
- * может появиться необходимость сохранить отступ слева, когда индикатор обзательного поля скрывается.
- * @param chipsContent контент с chip-элементами
- * @param chipsSpacing расстояние между chip-элементами
- * @param chipContainerShape позволяет скруглять контейнер, в котором находятся чипы и текстовое поля.
+ * @param keyboardOptions для настройки клавиатуры, например [KeyboardType] или [ImeAction]
+ * @param keyboardActions когда на ввод подается [ImeAction] вызывается соответствующий callback
+ * @param visualTransformation фильтр визуального отображения, например [PasswordVisualTransformation]
  * @param interactionSource источник взаимодействия с полем
  */
 @Suppress("LongParameterList", "LongMethod")
@@ -226,16 +180,14 @@ fun TextField(
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     readOnly: Boolean = false,
-    keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
-    keyboardActions: KeyboardActions = KeyboardActions.Default,
-    visualTransformation: VisualTransformation = VisualTransformation.None,
-    placeholderText: String? = null,
     fieldType: TextField.FieldType? = null,
     labelType: LabelType = LabelType.Outer,
+    placeholderText: String? = null,
     labelText: String = "",
     captionText: String? = null,
     leadingIcon: @Composable (() -> Unit)? = null,
     trailingIcon: @Composable (() -> Unit)? = null,
+    chipsContent: @Composable (() -> Unit)? = null,
     outerLabelStyle: TextStyle = TextStyle(),
     innerLabelStyle: TextStyle = TextStyle(),
     valuesStyle: TextStyle = TextStyle(),
@@ -247,20 +199,13 @@ fun TextField(
     disabledAlpha: Float = 0.4f,
     shape: CornerBasedShape = RoundedCornerShape(CornerSize(16.dp)).adjustBy(all = 2.dp),
     chipContainerShape: CornerBasedShape? = null,
-    startContentPadding: Dp = 16.dp,
-    endContentPadding: Dp = 16.dp,
-    iconMargin: Dp = 8.dp,
-    textTopPadding: Dp = 25.dp,
-    textBottomPadding: Dp = 9.dp,
-    innerLabelToValuePadding: Dp = 2.dp,
-    outerLabelBottomPadding: Dp = 12.dp,
-    captionTopPadding: Dp = 4.dp,
     iconSize: Dp = 24.dp,
     fieldHeight: Dp = 56.dp,
+    paddings: TextField.Paddings = TextField.Paddings(),
+    keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
+    keyboardActions: KeyboardActions = KeyboardActions.Default,
+    visualTransformation: VisualTransformation = VisualTransformation.None,
     animation: TextField.Animation = TextField.Animation(),
-    keepDotBadgeStartPadding: Dp? = null,
-    chipsContent: @Composable (() -> Unit)? = null,
-    chipsSpacing: Dp = 2.dp,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     // Специфика перевода String -> TextFieldValue, взято из исходников гугла
@@ -311,20 +256,11 @@ fun TextField(
         enabledAlpha = enabledAlpha,
         disabledAlpha = disabledAlpha,
         shape = shape,
-        startContentPadding = startContentPadding,
-        endContentPadding = endContentPadding,
-        iconMargin = iconMargin,
-        textTopPadding = textTopPadding,
-        textBottomPadding = textBottomPadding,
-        innerLabelToValuePadding = innerLabelToValuePadding,
-        outerLabelBottomPadding = outerLabelBottomPadding,
-        captionTopPadding = captionTopPadding,
         iconSize = iconSize,
         fieldHeight = fieldHeight,
+        paddings = paddings,
         animation = animation,
-        keepDotBadgeStartPadding = keepDotBadgeStartPadding,
         chipsContent = chipsContent,
-        chipsSpacing = chipsSpacing,
         chipContainerShape = chipContainerShape,
         interactionSource = interactionSource,
     )
@@ -334,6 +270,36 @@ fun TextField(
  * Параметры текстового поля
  */
 object TextField {
+
+    /**
+     * Отступы text field
+     *
+     * @property startContentPadding отступ в начале текстового поля
+     * @property endContentPadding отступ в конце текстового поля
+     * @property valueTopPadding отступ от value до верхней границы текстового поля в режиме labelType == [LabelType.Inner]
+     * @property valueBottomPadding отступ от value до верхней границы текстового поля в режиме labelType == [LabelType.Inner]
+     * @property innerLabelToValuePadding отступ между лэйблом и value в режиме labelType == [LabelType.Inner]
+     * @property outerLabelBottomPadding отступ между лэйблом и текстовым полем в режиме labelType == [LabelType.Outer]
+     * @property iconHorizontalPadding отступ от иконки до текста
+     * @property captionTopPadding отступ между текстовым полем и caption
+     * @property chipsSpacing расстояние между chip-элементами
+     * @property keepDotBadgeStartPadding позволяет выставить отступ слева, для случаев, когда нужно сохранить отступ, эквивалентный ширине индикатора обязательного поля.
+     * Например, когда TextField используется в списке и состояние fieldType меняется у разных элементов,
+     * может появиться необходимость сохранить отступ слева, когда индикатор обзательного поля скрывается.
+     */
+    @Immutable
+    data class Paddings(
+        val startContentPadding: Dp = 16.dp,
+        val endContentPadding: Dp = 16.dp,
+        val valueTopPadding: Dp = 25.dp,
+        val valueBottomPadding: Dp = 9.dp,
+        val innerLabelToValuePadding: Dp = 2.dp,
+        val outerLabelBottomPadding: Dp = 12.dp,
+        val iconHorizontalPadding: Dp = 8.dp,
+        val captionTopPadding: Dp = 4.dp,
+        val chipsSpacing: Dp = 2.dp,
+        val keepDotBadgeStartPadding: Dp? = null,
+    )
 
     /**
      * Типы отображения лейбла

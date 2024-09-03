@@ -1,15 +1,16 @@
 package com.sdds.playground.sandbox.textfield
 
 import androidx.compose.ui.text.input.TextFieldValue
-import com.sdds.compose.uikit.TextField
+import com.sdds.compose.uikit.TextField.DotBadge
+import com.sdds.compose.uikit.TextField.LabelType
 
 internal data class TextFieldUiState(
     val textFieldValue: TextFieldValue = TextFieldValue("Value"),
     val state: SandboxTextField.State = SandboxTextField.State.Default,
     val size: SandboxTextField.Size = SandboxTextField.Size.L,
-    val labelType: TextField.LabelType = TextField.LabelType.Outer,
+    val labelType: LabelType = LabelType.Outer,
     val fieldType: SandboxTextField.FieldType = SandboxTextField.FieldType.Required,
-    val dotBadgePosition: TextField.DotBadge.Position = TextField.DotBadge.Position.End,
+    val dotBadgePosition: DotBadge.Position = DotBadge.Position.End,
     val labelText: String = "Label",
     val optionalText: String = "Optional",
     val placeholderText: String = "Placeholder",
