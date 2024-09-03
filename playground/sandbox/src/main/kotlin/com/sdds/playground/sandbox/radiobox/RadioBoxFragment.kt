@@ -5,6 +5,7 @@ import android.view.ContextThemeWrapper
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.core.view.ComponentFragment
 import com.sdds.playground.sandbox.core.view.PropertiesOwner
 import com.sdds.uikit.RadioBox
@@ -17,10 +18,13 @@ import kotlinx.coroutines.flow.onEach
  */
 internal class RadioBoxFragment : ComponentFragment() {
 
-    private val radioBoxParametersViewModel by viewModels<RadioBoxParametersViewModel>()
+    private val radioBoxParametersViewModel by viewModels<RadioBoxParametersViewModel> {
+        RadioBoxParametersViewModelFactory(getState(RadioBoxUiState()))
+    }
 
     override val componentLayout: RadioBox
         get() = RadioBox(ContextThemeWrapper(requireContext(), currentVariant.styleRes))
+            .apply { id = R.id.radioBox }
             .also { radioBox = it }
 
     override val propertiesOwner: PropertiesOwner
