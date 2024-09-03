@@ -20,7 +20,8 @@ import kotlinx.coroutines.flow.onEach
 internal class BasicButtonFragment : ComponentFragment() {
 
     private val buttonViewModel by viewModels<ButtonParametersViewModel> {
-        ButtonParametersViewModelFactory(ButtonType.Basic, getDefaultState())
+        val default = ButtonUiState(BasicButtonVariant.BasicButtonLDefault)
+        ButtonParametersViewModelFactory(ButtonType.Basic, getState(default))
     }
 
     override val componentLayout: Button

@@ -1,6 +1,5 @@
 package com.sdds.playground.sandbox.buttons
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
@@ -22,18 +21,10 @@ import kotlinx.coroutines.flow.stateIn
  */
 internal class ButtonParametersViewModel(
     private val buttonType: ButtonType,
-    private val defaultState: ButtonUiState? = null,
+    private val defaultState: ButtonUiState,
 ) : ViewModel(), PropertiesOwner {
 
-    private val _defaultState
-        get() = defaultState ?: ButtonUiState(
-            when (buttonType) {
-                ButtonType.Basic -> BasicButtonVariant.BasicButtonLDefault
-                ButtonType.Icon -> IconButtonVariant.IconButtonLDefault
-            },
-        )
-
-    private val _buttonSate = MutableStateFlow(_defaultState)
+    private val _buttonSate = MutableStateFlow(defaultState)
 
     /**
      * Состояние кнопки
@@ -90,7 +81,7 @@ internal class ButtonParametersViewModel(
      * @see PropertiesOwner.resetToDefault
      */
     override fun resetToDefault() {
-        _buttonSate.value = _defaultState
+        _buttonSate.value = defaultState
     }
 
     private fun updateVariant(variant: ButtonVariant) {
@@ -238,12 +229,11 @@ internal enum class ButtonType {
  */
 internal class ButtonParametersViewModelFactory(
     private val type: ButtonType,
-    private val defaultState: ButtonUiState? = null,
+    private val defaultState: ButtonUiState,
 ) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        Log.e("ButtonParametersViewModelFactory", "create: type $type")
         return ButtonParametersViewModel(buttonType = type, defaultState = defaultState) as T
     }
 }

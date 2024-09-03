@@ -34,12 +34,12 @@ internal abstract class ComponentFragment : Fragment(), PropertiesAdapter.Intera
 
     abstract val propertiesOwner: PropertiesOwner
 
-    protected inline fun <reified T> getDefaultState(): T? {
+    protected inline fun <reified T> getState(default: T): T {
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             arguments?.getParcelable(DESTINATION_MESSAGE_ARG, T::class.java)
         } else {
-            return arguments?.getParcelable(DESTINATION_MESSAGE_ARG)
-        }
+            arguments?.getParcelable(DESTINATION_MESSAGE_ARG)
+        } ?: default
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

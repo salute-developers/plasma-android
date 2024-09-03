@@ -1,6 +1,7 @@
 package com.sdds.playground.sandbox.radiobox
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.sdds.playground.sandbox.core.view.PropertiesOwner
 import com.sdds.playground.sandbox.core.view.Property
@@ -16,9 +17,11 @@ import kotlinx.coroutines.flow.stateIn
 /**
  * ViewModel для экранов с компонентом RadioBox
  */
-internal class RadioBoxParametersViewModel : ViewModel(), PropertiesOwner {
+internal class RadioBoxParametersViewModel(
+    private val defaultState: RadioBoxUiState,
+) : ViewModel(), PropertiesOwner {
 
-    private val _radioBoxState = MutableStateFlow(RadioBoxUiState())
+    private val _radioBoxState = MutableStateFlow(defaultState)
 
     /**
      * Состояние RadioBox
@@ -45,7 +48,7 @@ internal class RadioBoxParametersViewModel : ViewModel(), PropertiesOwner {
     }
 
     override fun resetToDefault() {
-        _radioBoxState.value = RadioBoxUiState()
+        _radioBoxState.value = defaultState
     }
 
     private fun updateState(checked: Boolean) {
@@ -103,5 +106,15 @@ internal class RadioBoxParametersViewModel : ViewModel(), PropertiesOwner {
         Label("label"),
         Description("description"),
         Enabled("enabled"),
+    }
+}
+
+internal class RadioBoxParametersViewModelFactory(
+    private val defaultState: RadioBoxUiState,
+) : ViewModelProvider.Factory {
+
+    @Suppress("UNCHECKED_CAST")
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        return RadioBoxParametersViewModel(defaultState) as T
     }
 }

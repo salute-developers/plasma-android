@@ -1,6 +1,7 @@
 package com.sdds.playground.sandbox.checkbox
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.sdds.playground.sandbox.core.view.PropertiesOwner
 import com.sdds.playground.sandbox.core.view.Property
@@ -17,9 +18,11 @@ import kotlinx.coroutines.flow.stateIn
 /**
  * ViewModel для экранов с компонентом CheckBox
  */
-internal class CheckBoxParametersViewModel : ViewModel(), PropertiesOwner {
+internal class CheckBoxParametersViewModel(
+    private val defaultState: CheckBoxUiState,
+) : ViewModel(), PropertiesOwner {
 
-    private val _checkboxState = MutableStateFlow(CheckBoxUiState())
+    private val _checkboxState = MutableStateFlow(defaultState)
 
     /**
      * Состояние CheckBox
@@ -47,7 +50,7 @@ internal class CheckBoxParametersViewModel : ViewModel(), PropertiesOwner {
     }
 
     override fun resetToDefault() {
-        _checkboxState.value = CheckBoxUiState()
+        _checkboxState.value = defaultState
     }
 
     private fun updateState(state: CheckBox.ToggleableState) {
@@ -105,5 +108,15 @@ internal class CheckBoxParametersViewModel : ViewModel(), PropertiesOwner {
         Label("label"),
         Description("description"),
         Enabled("enabled"),
+    }
+}
+
+internal class CheckBoxParametersViewModelFactory(
+    private val defaultState: CheckBoxUiState = CheckBoxUiState(),
+) : ViewModelProvider.Factory {
+
+    @Suppress("UNCHECKED_CAST")
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        return CheckBoxParametersViewModel(defaultState) as T
     }
 }

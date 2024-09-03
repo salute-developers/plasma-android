@@ -171,6 +171,7 @@ class ViewSystemButtonScreenshotTest : RoborazziConfig() {
             .captureRoboImage()
     }
 
+    @Config(qualifiers = "+night")
     @Test
     fun testButtonSizeLWhite() {
         launchScreen(
