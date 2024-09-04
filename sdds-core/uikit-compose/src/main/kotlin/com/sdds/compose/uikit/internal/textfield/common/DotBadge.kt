@@ -1,4 +1,4 @@
-package com.sdds.compose.uikit.internal.textfield
+package com.sdds.compose.uikit.internal.textfield.common
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.requiredSize

@@ -11,28 +11,21 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.TextArea
 import com.sdds.compose.uikit.TextField
+import com.sdds.compose.uikit.TextField.LabelType
 import com.sdds.icons.R
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.chip.SandboxEmbeddedChip
-import com.sdds.playground.sandbox.textarea.TextAreaDefaults.bottomTextBottomPadding
-import com.sdds.playground.sandbox.textarea.TextAreaDefaults.horizontalContentPadding
-import com.sdds.playground.sandbox.textarea.TextAreaDefaults.iconHorizontalMargin
 import com.sdds.playground.sandbox.textarea.TextAreaDefaults.iconSize
-import com.sdds.playground.sandbox.textarea.TextAreaDefaults.iconTopPadding
-import com.sdds.playground.sandbox.textarea.TextAreaDefaults.innerLabelToValuePadding
-import com.sdds.playground.sandbox.textarea.TextAreaDefaults.outerLabelBottomPadding
 import com.sdds.playground.sandbox.textarea.TextAreaDefaults.scrollBarConfig
 import com.sdds.playground.sandbox.textarea.TextAreaDefaults.textAreaColors
+import com.sdds.playground.sandbox.textarea.TextAreaDefaults.textAreaPaddings
 import com.sdds.playground.sandbox.textarea.TextAreaDefaults.textAreaShapeFor
 import com.sdds.playground.sandbox.textarea.TextAreaDefaults.textAreaStyles
-import com.sdds.playground.sandbox.textarea.TextAreaDefaults.textBottomPadding
-import com.sdds.playground.sandbox.textarea.TextAreaDefaults.textTopPadding
+import com.sdds.playground.sandbox.textarea.TextAreaDefaults.toFieldType
 import com.sdds.playground.sandbox.textfield.SandboxTextField
-import com.sdds.playground.sandbox.textfield.TextFieldDefaults.toFieldType
 
 @Composable
 internal fun SandboxTextArea(
@@ -41,8 +34,8 @@ internal fun SandboxTextArea(
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     readOnly: Boolean = false,
-    labelType: TextField.LabelType = TextField.LabelType.Outer,
-    fieldType: SandboxTextField.FieldType = SandboxTextField.FieldType.Optional,
+    labelType: LabelType = LabelType.Outer,
+    fieldType: SandboxTextArea.FieldType = SandboxTextArea.FieldType.Optional,
     labelText: String = "",
     optionalText: String = "Optional",
     placeholderText: String? = null,
@@ -62,7 +55,7 @@ internal fun SandboxTextArea(
     val colors = textAreaColors()
 
     val label =
-        if (size == SandboxTextArea.Size.XS && labelType == TextField.LabelType.Inner) "" else labelText
+        if (size == SandboxTextArea.Size.XS && labelType == LabelType.Inner) "" else labelText
 
     TextArea(
         value = value,
@@ -77,13 +70,13 @@ internal fun SandboxTextArea(
             position = dotBadgePosition,
             hasLabel = labelText.isNotEmpty(),
             optionalText = optionalText,
+            size = size,
         ),
         labelText = label,
         captionText = captionText,
         counterText = counterText,
         icon = icon,
         chips = chips,
-        chipsSpacing = 2.dp,
         outerLabelStyle = styles.outerLabelStyle(size, colors, inputState).value,
         innerLabelStyle = styles.innerLabelStyle(
             size = size,
@@ -97,17 +90,9 @@ internal fun SandboxTextArea(
         placeHolderStyle = styles.placeholderStyle(size, colors, inputState).value,
         backgroundColor = colors.backgroundColor(inputState).value,
         cursorColor = colors.cursorColor(inputState).value,
-        startContentPadding = horizontalContentPadding(size),
-        endContentPadding = horizontalContentPadding(size),
-        textTopPadding = textTopPadding(size, labelType),
-        textBottomPadding = textBottomPadding(size),
-        innerLabelToValuePadding = innerLabelToValuePadding(size),
-        outerLabelBottomPadding = outerLabelBottomPadding(size),
-        iconTopPadding = iconTopPadding(size),
-        iconStartPadding = iconHorizontalMargin(size),
         iconSize = iconSize(size),
+        paddings = textAreaPaddings(size, labelType, hasChips = chips != null),
         shape = textAreaShapeFor(size),
-        bottomTextBottomPadding = bottomTextBottomPadding(size),
         interactionSource = interactionSource,
         scrollBarConfig = scrollBarConfig(),
     )
@@ -117,6 +102,11 @@ internal fun SandboxTextArea(
  * Параметры текстового поля
  */
 internal object SandboxTextArea {
+
+    enum class FieldType {
+        Optional,
+        Required,
+    }
 
     /**
      * Состояния текстового поля
@@ -176,8 +166,8 @@ internal fun SandboxTextAreaPreview() {
                     contentDescription = "",
                 )
             },
-            labelType = TextField.LabelType.Inner,
-            fieldType = SandboxTextField.FieldType.Optional,
+            labelType = LabelType.Inner,
+            fieldType = SandboxTextArea.FieldType.Optional,
             optionalText = "optional",
             state = SandboxTextArea.State.Default,
             chips = {

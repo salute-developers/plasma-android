@@ -2,14 +2,14 @@ package com.sdds.playground.sandbox.textarea
 
 import androidx.compose.ui.text.input.TextFieldValue
 import com.sdds.compose.uikit.TextField
-import com.sdds.playground.sandbox.textfield.SandboxTextField
+import com.sdds.compose.uikit.TextField.LabelType
 
 internal data class TextAreaUiState(
     val value: TextFieldValue = TextFieldValue("Value"),
     val state: SandboxTextArea.State = SandboxTextArea.State.Default,
     val size: SandboxTextArea.Size = SandboxTextArea.Size.L,
-    val labelType: TextField.LabelType = TextField.LabelType.Outer,
-    val fieldType: SandboxTextField.FieldType = SandboxTextField.FieldType.Required,
+    val labelType: LabelType = LabelType.Outer,
+    val fieldType: SandboxTextArea.FieldType = SandboxTextArea.FieldType.Required,
     val labelText: String = "Label",
     val optionalText: String = "Optional",
     val placeholderText: String = "Placeholder",

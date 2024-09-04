@@ -30,19 +30,13 @@ import com.sdds.playground.sandbox.chip.group.SandboxEmbeddedChipGroup
 import com.sdds.playground.sandbox.textfield.SandboxTextField.InputState
 import com.sdds.playground.sandbox.textfield.SandboxTextField.Size
 import com.sdds.playground.sandbox.textfield.SandboxTextField.State
-import com.sdds.playground.sandbox.textfield.TextFieldDefaults.captionTopPadding
 import com.sdds.playground.sandbox.textfield.TextFieldDefaults.chipContainerShape
 import com.sdds.playground.sandbox.textfield.TextFieldDefaults.chipGroupSize
-import com.sdds.playground.sandbox.textfield.TextFieldDefaults.horizontalContentPadding
-import com.sdds.playground.sandbox.textfield.TextFieldDefaults.iconMargin
 import com.sdds.playground.sandbox.textfield.TextFieldDefaults.iconSize
-import com.sdds.playground.sandbox.textfield.TextFieldDefaults.innerLabelToValuePadding
-import com.sdds.playground.sandbox.textfield.TextFieldDefaults.outerLabelBottomPadding
-import com.sdds.playground.sandbox.textfield.TextFieldDefaults.textBottomPadding
 import com.sdds.playground.sandbox.textfield.TextFieldDefaults.textFieldColors
+import com.sdds.playground.sandbox.textfield.TextFieldDefaults.textFieldPaddings
 import com.sdds.playground.sandbox.textfield.TextFieldDefaults.textFieldShapeFor
 import com.sdds.playground.sandbox.textfield.TextFieldDefaults.textFieldStyles
-import com.sdds.playground.sandbox.textfield.TextFieldDefaults.textTopPadding
 import com.sdds.playground.sandbox.textfield.TextFieldDefaults.toFieldType
 
 /**
@@ -118,13 +112,14 @@ internal fun SandboxTextField(
             position = dotBadgePosition,
             hasLabel = labelText.isNotEmpty(),
             optionalText = optionalText,
+            size = size,
         ),
         labelText = label,
         captionText = captionText,
         leadingIcon = leadingIcon,
         trailingIcon = trailingIcon,
         chipsContent = chips,
-        chipsSpacing = 2.dp,
+        shape = textFieldShapeFor(size = size),
         chipContainerShape = chipContainerShape(size),
         outerLabelStyle = styles.outerLabelStyle(size, colors, inputState).value,
         innerLabelStyle = styles.innerLabelStyle(
@@ -138,16 +133,8 @@ internal fun SandboxTextField(
         placeHolderStyle = styles.placeholderStyle(size, colors, inputState).value,
         backgroundColor = colors.backgroundColor(inputState).value,
         cursorColor = colors.cursorColor(inputState).value,
-        startContentPadding = horizontalContentPadding(size),
-        endContentPadding = horizontalContentPadding(size),
-        iconMargin = iconMargin(size),
-        textTopPadding = textTopPadding(size, labelType),
-        textBottomPadding = textBottomPadding(size, labelType),
-        innerLabelToValuePadding = innerLabelToValuePadding(size),
-        outerLabelBottomPadding = outerLabelBottomPadding(size),
-        captionTopPadding = captionTopPadding(size),
         iconSize = iconSize(size),
-        shape = textFieldShapeFor(size = size),
+        paddings = textFieldPaddings(size, labelType, hasChips = chips != null),
         fieldHeight = size.value,
         interactionSource = interactionSource,
     )

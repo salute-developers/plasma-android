@@ -12,6 +12,8 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.ScrollBarConfig
+import com.sdds.compose.uikit.TextArea
+import com.sdds.compose.uikit.TextField
 import com.sdds.compose.uikit.TextField.LabelType
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.playground.sandbox.chip.SandboxEmbeddedChip
@@ -177,6 +179,62 @@ internal interface SandboxTextAreaStyles {
 internal object TextAreaDefaults {
 
     @Composable
+    fun SandboxTextArea.FieldType.toFieldType(
+        labelType: LabelType,
+        position: TextField.DotBadge.Position,
+        hasLabel: Boolean,
+        optionalText: String,
+        size: SandboxTextArea.Size,
+    ): TextField.FieldType {
+        return when (this) {
+            SandboxTextArea.FieldType.Optional -> TextField.FieldType.Optional(
+                optionalText = optionalText,
+            )
+
+            SandboxTextArea.FieldType.Required -> TextField.FieldType.Required(
+                dotBadge = dotBadge(labelType, position, hasLabel, size),
+            )
+        }
+    }
+
+    private fun dotBadge(
+        labelType: LabelType,
+        position: TextField.DotBadge.Position,
+        hasLabel: Boolean,
+        size: SandboxTextArea.Size,
+    ): TextField.DotBadge {
+        return when {
+            labelType == LabelType.Outer && hasLabel -> {
+                val paddings = if (position == TextField.DotBadge.Position.Start) {
+                    PaddingValues(end = 6.dp)
+                } else {
+                    PaddingValues(
+                        start = 4.dp,
+                        top = if (size == SandboxTextArea.Size.XS) 2.dp else 4.dp,
+                    )
+                }
+                TextField.DotBadge(
+                    size = 6.dp,
+                    paddingValues = paddings,
+                    color = Color.Red,
+                    position = position,
+                )
+            }
+
+            else -> TextField.DotBadge(
+                size = if (size == SandboxTextArea.Size.S || size == SandboxTextArea.Size.XS) {
+                    6.dp
+                } else {
+                    8.dp
+                },
+                paddingValues = PaddingValues(),
+                color = Color.Red,
+                position = position,
+            )
+        }
+    }
+
+    @Composable
     fun scrollBarConfig(): ScrollBarConfig = ScrollBarConfig(
         indicatorThickness = 1.dp,
         indicatorColor = StylesSaluteTheme.colors.surfaceDefaultTransparentTertiary,
@@ -194,8 +252,29 @@ internal object TextAreaDefaults {
         }
     }
 
-    @Composable
-    fun textTopPadding(size: SandboxTextArea.Size, labelType: LabelType): Dp {
+    fun textAreaPaddings(
+        size: SandboxTextArea.Size,
+        labelType: LabelType,
+        hasChips: Boolean,
+    ) = TextArea.Paddings(
+        startContentPadding = startContentPadding(size, hasChips),
+        endContentPadding = endContentPadding(size),
+        valueTopPadding = textTopPadding(size, labelType),
+        valueBottomPadding = textBottomPadding(size),
+        unfocusedInnerLabelTopPadding = unfocusedInnerLabelTopPadding(size),
+        innerLabelToValuePadding = innerLabelToValuePadding(size),
+        outerLabelBottomPadding = outerLabelBottomPadding(size),
+        bottomTextHorizontalPadding = bottomTextHorizontalPadding(size),
+        bottomTextBottomPadding = bottomTextBottomPadding(size),
+        iconTopPadding = iconTopPadding(size),
+        iconStartPadding = iconStartPadding(size),
+        chipsSpacing = 2.dp,
+        bottomChipsPadding = 2.dp,
+        topChipsPadding = 6.dp,
+        keepDotBadgeStartPadding = null,
+    )
+
+    private fun textTopPadding(size: SandboxTextArea.Size, labelType: LabelType): Dp {
         return if (labelType == LabelType.Outer) {
             when (size) {
                 SandboxTextArea.Size.L -> 17.dp
@@ -213,8 +292,7 @@ internal object TextAreaDefaults {
         }
     }
 
-    @Composable
-    fun textBottomPadding(size: SandboxTextArea.Size): Dp {
+    private fun textBottomPadding(size: SandboxTextArea.Size): Dp {
         return when (size) {
             SandboxTextArea.Size.L -> 12.dp
             SandboxTextArea.Size.M -> 12.dp
@@ -223,8 +301,7 @@ internal object TextAreaDefaults {
         }
     }
 
-    @Composable
-    fun iconHorizontalMargin(size: SandboxTextArea.Size): Dp =
+    private fun iconStartPadding(size: SandboxTextArea.Size): Dp =
         when (size) {
             SandboxTextArea.Size.L -> 12.dp
             SandboxTextArea.Size.M -> 10.dp
@@ -232,8 +309,19 @@ internal object TextAreaDefaults {
             SandboxTextArea.Size.XS -> 6.dp
         }
 
-    @Composable
-    fun horizontalContentPadding(size: SandboxTextArea.Size): Dp =
+    private fun startContentPadding(size: SandboxTextArea.Size, hasChips: Boolean): Dp =
+        if (hasChips) {
+            6.dp
+        } else {
+            when (size) {
+                SandboxTextArea.Size.L -> 16.dp
+                SandboxTextArea.Size.M -> 16.dp
+                SandboxTextArea.Size.S -> 14.dp
+                SandboxTextArea.Size.XS -> 10.dp
+            }
+        }
+
+    private fun endContentPadding(size: SandboxTextArea.Size): Dp =
         when (size) {
             SandboxTextArea.Size.L -> 16.dp
             SandboxTextArea.Size.M -> 14.dp
@@ -241,18 +329,33 @@ internal object TextAreaDefaults {
             SandboxTextArea.Size.XS -> 8.dp
         }
 
-    @Composable
-    fun innerLabelToValuePadding(size: SandboxTextArea.Size): Dp =
+    private fun bottomTextHorizontalPadding(size: SandboxTextArea.Size): Dp =
+        when (size) {
+            SandboxTextArea.Size.L -> 18.dp
+            SandboxTextArea.Size.M -> 16.dp
+            SandboxTextArea.Size.S -> 14.dp
+            SandboxTextArea.Size.XS -> 10.dp
+        }
+
+    private fun innerLabelToValuePadding(size: SandboxTextArea.Size): Dp =
         when (size) {
             SandboxTextArea.Size.L,
             SandboxTextArea.Size.M,
             -> 2.dp
-            SandboxTextArea.Size.S -> 1.dp
+
+            SandboxTextArea.Size.S -> 0.dp
             SandboxTextArea.Size.XS -> 0.dp
         }
 
-    @Composable
-    fun outerLabelBottomPadding(size: SandboxTextArea.Size): Dp =
+    private fun unfocusedInnerLabelTopPadding(size: SandboxTextArea.Size): Dp =
+        when (size) {
+            SandboxTextArea.Size.L -> 17.dp
+            SandboxTextArea.Size.M -> 14.dp
+            SandboxTextArea.Size.S -> 11.dp
+            SandboxTextArea.Size.XS -> 11.dp
+        }
+
+    private fun outerLabelBottomPadding(size: SandboxTextArea.Size): Dp =
         when (size) {
             SandboxTextArea.Size.L -> 12.dp
             SandboxTextArea.Size.M -> 10.dp
@@ -260,8 +363,7 @@ internal object TextAreaDefaults {
             SandboxTextArea.Size.XS -> 6.dp
         }
 
-    @Composable
-    fun iconTopPadding(size: SandboxTextArea.Size): Dp =
+    private fun iconTopPadding(size: SandboxTextArea.Size): Dp =
         when (size) {
             SandboxTextArea.Size.L -> 16.dp
             SandboxTextArea.Size.M -> 12.dp
@@ -269,8 +371,7 @@ internal object TextAreaDefaults {
             SandboxTextArea.Size.XS -> 8.dp
         }
 
-    @Composable
-    fun bottomTextBottomPadding(size: SandboxTextArea.Size): Dp =
+    private fun bottomTextBottomPadding(size: SandboxTextArea.Size): Dp =
         when (size) {
             SandboxTextArea.Size.L -> 12.dp
             SandboxTextArea.Size.M -> 12.dp
@@ -278,7 +379,6 @@ internal object TextAreaDefaults {
             SandboxTextArea.Size.XS -> 8.dp
         }
 
-    @Composable
     fun iconSize(size: SandboxTextArea.Size): Dp =
         when (size) {
             SandboxTextArea.Size.L,

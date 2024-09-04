@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -26,8 +27,12 @@ import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.constrainHeight
 import androidx.compose.ui.unit.constrainWidth
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.offset
 import com.sdds.compose.uikit.ChipGroup
+import com.sdds.compose.uikit.TextArea
+import com.sdds.compose.uikit.internal.heightOrZero
+import com.sdds.compose.uikit.internal.widthOrZero
 import kotlin.math.max
 import kotlin.math.roundToInt
 
@@ -54,6 +59,7 @@ import kotlin.math.roundToInt
  * @param scrollState состояние скролла
  */
 @Composable
+@Suppress("LongMethod")
 internal fun TextAreaLayout(
     modifier: Modifier,
     textField: @Composable () -> Unit,
@@ -63,28 +69,27 @@ internal fun TextAreaLayout(
     captionText: @Composable (() -> Unit)?,
     counterText: @Composable (() -> Unit)?,
     chips: @Composable (() -> Unit)?,
-    chipsSpacing: Dp,
-    textTopPadding: Dp,
-    textBottomPadding: Dp,
-    labelToValuePadding: Dp,
-    bottomTextBottomPadding: Dp,
     iconSize: Dp,
-    iconTopPadding: Dp,
-    iconStartPadding: Dp,
+    paddings: TextArea.Paddings,
     animationProgress: Float,
     scrollState: ScrollState,
 ) {
+    val hasChips = chips != null
     val measurePolicy = remember(
         animationProgress,
-        textTopPadding,
-        textBottomPadding,
-        labelToValuePadding,
+        paddings.valueTopPadding,
+        paddings.valueBottomPadding,
+        paddings.innerLabelToValuePadding,
+        paddings.unfocusedInnerLabelTopPadding,
+        hasChips,
     ) {
         TextAreaLayoutMeasurePolicy(
             animationProgress = animationProgress,
-            textTopPadding = textTopPadding,
-            textBottomPadding = textBottomPadding,
-            labelToValuePadding = labelToValuePadding,
+            textTopPadding = paddings.valueTopPadding,
+            textBottomPadding = paddings.valueBottomPadding,
+            labelToValuePadding = paddings.innerLabelToValuePadding,
+            unfocusedInnerLabelTopPadding = paddings.unfocusedInnerLabelTopPadding,
+            hasChips = hasChips,
         )
     }
 
@@ -92,32 +97,39 @@ internal fun TextAreaLayout(
         modifier = modifier,
         content = {
             LabelContent(
-                modifier = Modifier.layoutId(LabelId),
+                modifier = Modifier
+                    .padding(start = paddings.startContentPadding)
+                    .layoutId(LabelId),
                 label = label,
             )
             TrailingContent(
                 modifier = Modifier.layoutId(TrailingId),
                 trailing = icon,
                 iconSize = iconSize,
-                topPadding = iconTopPadding,
-                startPadding = iconStartPadding,
+                topPadding = paddings.iconTopPadding,
+                startPadding = paddings.iconStartPadding,
+                endPadding = paddings.endContentPadding,
             )
             CaptionTextContent(
                 modifier = Modifier.layoutId(CaptionTextId),
                 captionText = captionText,
-                bottomPadding = bottomTextBottomPadding,
+                bottomPadding = paddings.bottomTextBottomPadding,
+                startPadding = paddings.bottomTextHorizontalPadding,
             )
             CounterTextContent(
                 modifier = Modifier.layoutId(CounterTextId),
                 counterText = counterText,
-                bottomPadding = bottomTextBottomPadding,
+                bottomPadding = paddings.bottomTextBottomPadding,
+                endPadding = paddings.bottomTextHorizontalPadding,
             )
             CompositeTextFieldContent(
                 modifier = Modifier.layoutId(TextFieldId),
                 textField = textField,
                 placeholder = placeholder,
                 chips = chips,
-                chipsSpacing = chipsSpacing,
+                chipsSpacing = paddings.chipsSpacing,
+                topChipsPadding = paddings.topChipsPadding,
+                startContentPadding = paddings.startContentPadding,
                 scrollState = scrollState,
             )
         },
@@ -128,17 +140,21 @@ internal fun TextAreaLayout(
 @Composable
 private fun TrailingContent(
     modifier: Modifier,
-    trailing:
-    @Composable()
-    (() -> Unit)?,
+    trailing: @Composable (() -> Unit)?,
     iconSize: Dp,
     topPadding: Dp,
     startPadding: Dp,
+    endPadding: Dp,
 ) {
     if (trailing != null) {
         Box(
             modifier = modifier
-                .padding(top = topPadding, start = startPadding)
+                .padding(
+                    top = topPadding,
+                    start = startPadding,
+                    end = endPadding,
+                )
+                .size(iconSize)
                 .defaultMinSize(iconSize, iconSize),
             contentAlignment = Alignment.Center,
         ) { trailing() }
@@ -150,9 +166,15 @@ private fun CaptionTextContent(
     modifier: Modifier,
     captionText: @Composable (() -> Unit)?,
     bottomPadding: Dp,
+    startPadding: Dp,
 ) {
     if (captionText != null) {
-        Box(modifier.padding(bottom = bottomPadding)) {
+        Box(
+            modifier.padding(
+                bottom = bottomPadding,
+                start = startPadding,
+            ),
+        ) {
             captionText()
         }
     }
@@ -163,9 +185,15 @@ private fun CounterTextContent(
     modifier: Modifier,
     counterText: @Composable (() -> Unit)?,
     bottomPadding: Dp,
+    endPadding: Dp,
 ) {
     if (counterText != null) {
-        Box(modifier.padding(bottom = bottomPadding)) {
+        Box(
+            modifier.padding(
+                bottom = bottomPadding,
+                end = endPadding,
+            ),
+        ) {
             counterText()
         }
     }
@@ -188,10 +216,16 @@ private fun CompositeTextFieldContent(
     placeholder: @Composable (() -> Unit)?,
     chips: @Composable (() -> Unit)?,
     chipsSpacing: Dp,
+    topChipsPadding: Dp,
+    startContentPadding: Dp,
     scrollState: ScrollState,
 ) {
     Column(
         modifier = modifier
+            .padding(
+                top = if (chips != null) topChipsPadding else 0.dp,
+                start = startContentPadding,
+            )
             .verticalScroll(scrollState),
     ) {
         if (chips != null) {
@@ -214,28 +248,33 @@ private fun CompositeTextFieldContent(
 
 private class TextAreaLayoutMeasurePolicy(
     private val animationProgress: Float,
-    private val textTopPadding: Dp,
     private val textBottomPadding: Dp,
     private val labelToValuePadding: Dp,
+    private val unfocusedInnerLabelTopPadding: Dp,
+    textTopPadding: Dp,
+    hasChips: Boolean,
 ) : MeasurePolicy {
+
+    private val textTopPaddingOrZero = if (hasChips) 0.dp else textTopPadding
 
     @Suppress("LongMethod")
     override fun MeasureScope.measure(
         measurables: List<Measurable>,
         constraints: Constraints,
     ): MeasureResult {
-        val topPaddingValue = textTopPadding.roundToPx()
+        val topPaddingValue = textTopPaddingOrZero.roundToPx()
         val bottomPaddingValue = textBottomPadding.roundToPx()
+        val unfocusedInnerLabelTopPaddingPx = unfocusedInnerLabelTopPadding.roundToPx()
 
         // padding between label and input text
-        val labelToValuePadding = labelToValuePadding.roundToPx()
+        val labelToValuePaddingPx = labelToValuePadding.roundToPx()
         val looseConstraints = constraints.copy(minWidth = 0, minHeight = 0)
 
         // measure trailing icon
         var occupiedSpaceHorizontally = 0
         val trailingPlaceable = measurables.find { it.layoutId == TrailingId }
             ?.measure(looseConstraints)
-        occupiedSpaceHorizontally += widthOrZero(trailingPlaceable)
+        occupiedSpaceHorizontally += trailingPlaceable.widthOrZero()
 
         // measure label
         val labelConstraints = looseConstraints
@@ -252,13 +291,13 @@ private class TextAreaLayoutMeasurePolicy(
         val captionTextPlaceable = measurables
             .find { it.layoutId == CaptionTextId }
             ?.measure(looseConstraints)
-        val captionTextHeight = heightOrZero(captionTextPlaceable)
+        val captionTextHeight = captionTextPlaceable.heightOrZero()
 
         // measure counterText
         val counterTextPlaceable = measurables
             .find { it.layoutId == CounterTextId }
             ?.measure(looseConstraints)
-        val counterTextHeight = heightOrZero(counterTextPlaceable)
+        val counterTextHeight = counterTextPlaceable.heightOrZero()
         val maxHelperTextHeight = max(captionTextHeight, counterTextHeight)
 
         // measure input field
@@ -285,40 +324,39 @@ private class TextAreaLayoutMeasurePolicy(
 
         val width = calculateWidth(
             textFieldWidth = textFieldPlaceable.width,
-            trailingWidth = widthOrZero(trailingPlaceable),
-            labelWidth = widthOrZero(labelPlaceable),
-            placeholderWidth = widthOrZero(placeholderPlaceable),
+            trailingWidth = trailingPlaceable.widthOrZero(),
+            labelWidth = labelPlaceable.widthOrZero(),
+            placeholderWidth = placeholderPlaceable.widthOrZero(),
             constraints = constraints,
         )
         val height = calculateHeight(
             textFieldHeight = textFieldPlaceable.height,
-            hasLabel = labelPlaceable != null,
-            labelBaseline = effectiveLabelBaseline,
-            trailingHeight = heightOrZero(trailingPlaceable),
-            placeholderHeight = heightOrZero(placeholderPlaceable),
+            trailingHeight = trailingPlaceable.heightOrZero(),
+            placeholderHeight = placeholderPlaceable.heightOrZero(),
             captionTextHeight = captionTextHeight,
             counterTextHeight = counterTextHeight,
             constraints = constraints,
             density = density,
-            textTopPadding = textTopPadding,
+            textTopPadding = textTopPaddingOrZero,
             textBottomPadding = textBottomPadding,
         )
 
         return layout(constraints.constrainWidth(width), constraints.constrainHeight(height)) {
             if (labelPlaceable != null) {
                 // label's final position is always relative to the baseline
-                val labelEndPosition = (topPaddingValue - lastBaseline - labelToValuePadding)
+                val labelEndPosition = (topPaddingValue - lastBaseline - labelToValuePaddingPx)
                     .coerceAtLeast(0)
                 placeWithLabel(
                     height = height,
                     width = width,
                     trailingPlaceable = trailingPlaceable,
-                    textfieldPlaceable = textFieldPlaceable,
+                    textFieldPlaceable = textFieldPlaceable,
                     captionTextPlaceable = captionTextPlaceable,
                     counterTextPlaceable = counterTextPlaceable,
                     labelPlaceable = labelPlaceable,
                     labelEndPosition = labelEndPosition,
-                    textPosition = effectiveLabelBaseline,
+                    unfocusedInnerLabelPosition = unfocusedInnerLabelTopPaddingPx,
+                    textPosition = topPaddingValue,
                     animationProgress = animationProgress,
                 )
             } else {
@@ -330,7 +368,7 @@ private class TextAreaLayoutMeasurePolicy(
                     captionTextPlaceable = captionTextPlaceable,
                     counterTextPlaceable = counterTextPlaceable,
                     density = density,
-                    textTopPadding = textTopPadding,
+                    textTopPadding = textTopPaddingOrZero,
                 )
             }
         }
@@ -404,9 +442,6 @@ private class TextAreaLayoutMeasurePolicy(
     ): Int {
         val textFieldHeight =
             intrinsicMeasurer(measurables.first { it.layoutId == TextFieldId }, width)
-        val labelHeight = measurables.find { it.layoutId == LabelId }?.let {
-            intrinsicMeasurer(it, width)
-        } ?: 0
         val placeholderHeight = measurables.find { it.layoutId == PlaceholderId }?.let {
             intrinsicMeasurer(it, width)
         } ?: 0
@@ -421,15 +456,13 @@ private class TextAreaLayoutMeasurePolicy(
         } ?: 0
         return calculateHeight(
             textFieldHeight = textFieldHeight,
-            hasLabel = labelHeight > 0,
-            labelBaseline = labelHeight,
             trailingHeight = trailingHeight,
             placeholderHeight = placeholderHeight,
             captionTextHeight = captionTextHeight,
             counterTextHeight = counterTextHeight,
             constraints = ZeroConstraints,
             density = density,
-            textTopPadding = textTopPadding,
+            textTopPadding = textTopPaddingOrZero,
             textBottomPadding = textBottomPadding,
         )
     }
@@ -453,8 +486,6 @@ private fun calculateWidth(
 
 private fun calculateHeight(
     textFieldHeight: Int,
-    hasLabel: Boolean,
-    labelBaseline: Int,
     trailingHeight: Int,
     placeholderHeight: Int,
     captionTextHeight: Int,
@@ -469,11 +500,8 @@ private fun calculateHeight(
 
     val inputFieldHeight = max(textFieldHeight, placeholderHeight)
     val maxHelperTextHeight = max(captionTextHeight, counterTextHeight)
-    val middleSectionHeight = if (hasLabel) {
-        labelBaseline + inputFieldHeight + bottomPaddingValue + maxHelperTextHeight
-    } else {
+    val middleSectionHeight =
         topPaddingValue + inputFieldHeight + bottomPaddingValue + maxHelperTextHeight
-    }
     return maxOf(
         middleSectionHeight.roundToInt(),
         trailingHeight,
@@ -484,7 +512,7 @@ private fun calculateHeight(
 private fun Placeable.PlacementScope.placeWithLabel(
     width: Int,
     height: Int,
-    textfieldPlaceable: Placeable,
+    textFieldPlaceable: Placeable,
     captionTextPlaceable: Placeable?,
     counterTextPlaceable: Placeable?,
     trailingPlaceable: Placeable?,
@@ -492,19 +520,23 @@ private fun Placeable.PlacementScope.placeWithLabel(
     labelEndPosition: Int,
     textPosition: Int,
     animationProgress: Float,
+    unfocusedInnerLabelPosition: Int,
 ) {
     trailingPlaceable?.placeRelative(
         width - trailingPlaceable.width,
         0,
     )
     labelPlaceable?.let {
-        val distance = textPosition - labelEndPosition
-        val positionY = textPosition - (distance * animationProgress).roundToInt()
+        val distance = unfocusedInnerLabelPosition - labelEndPosition
+        val positionY = unfocusedInnerLabelPosition - (distance * animationProgress).roundToInt()
         it.placeRelative(0, positionY)
     }
-    textfieldPlaceable.placeRelative(0, textPosition)
+    textFieldPlaceable.placeRelative(0, textPosition)
     captionTextPlaceable?.placeRelative(0, height - captionTextPlaceable.height)
-    counterTextPlaceable?.placeRelative(width - counterTextPlaceable.width, height - counterTextPlaceable.height)
+    counterTextPlaceable?.placeRelative(
+        width - counterTextPlaceable.width,
+        height - counterTextPlaceable.height,
+    )
 }
 
 private fun Placeable.PlacementScope.placeWithoutLabel(
@@ -524,12 +556,11 @@ private fun Placeable.PlacementScope.placeWithoutLabel(
     val topPadding = (textTopPadding.value * density).roundToInt()
     textPlaceable.placeRelative(0, topPadding)
     captionTextPlaceable?.placeRelative(0, height - captionTextPlaceable.height)
-    counterTextPlaceable?.placeRelative(width - counterTextPlaceable.width, height - counterTextPlaceable.height)
+    counterTextPlaceable?.placeRelative(
+        width - counterTextPlaceable.width,
+        height - counterTextPlaceable.height,
+    )
 }
-
-private fun widthOrZero(placeable: Placeable?) = placeable?.width ?: 0
-
-private fun heightOrZero(placeable: Placeable?) = placeable?.height ?: 0
 
 private val IntrinsicMeasurable.layoutId: Any?
     get() = (parentData as? LayoutIdParentData)?.layoutId

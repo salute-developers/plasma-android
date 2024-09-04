@@ -11,7 +11,6 @@ import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutVertically
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -23,7 +22,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawBehind
@@ -35,7 +33,6 @@ import androidx.compose.ui.layout.Measurable
 import androidx.compose.ui.layout.MeasurePolicy
 import androidx.compose.ui.layout.MeasureResult
 import androidx.compose.ui.layout.MeasureScope
-import androidx.compose.ui.layout.Placeable
 import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.TextStyle
@@ -52,8 +49,14 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.offset
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.TextField
+import com.sdds.compose.uikit.TextField.FieldType
 import com.sdds.compose.uikit.TextField.LabelType
 import com.sdds.compose.uikit.internal.heightOrZero
+import com.sdds.compose.uikit.internal.textfield.common.DotBadge
+import com.sdds.compose.uikit.internal.textfield.common.OuterLabel
+import com.sdds.compose.uikit.internal.textfield.common.innerLabel
+import com.sdds.compose.uikit.internal.textfield.common.placeDotBadge
+import com.sdds.compose.uikit.internal.textfield.common.textFieldStartPadding
 import com.sdds.compose.uikit.internal.widthOrZero
 import kotlin.math.max
 
@@ -85,24 +88,12 @@ import kotlin.math.max
  * @param enabledAlpha альфа, когда компонент в режиме [enabled] == true
  * @param disabledAlpha альфа, когда компонент в режиме [enabled] == false
  * @param shape форма текстового поля
- * @param startContentPadding отступ в начале текстового поля
- * @param endContentPadding отступ в конце текстового поля
- * @param iconMargin отступ от иконки до текста
- * @param textTopPadding отступ от value до верхней границы текстового поля в режиме [labelType] == [LabelType.Inner]
- * @param textBottomPadding отступ от value до верхней границы текстового поля в режиме [labelType] == [LabelType.Inner]
- * @param innerLabelToValuePadding отступ между лэйблом и value в режиме [labelType] == [LabelType.Inner]
- * @param outerLabelBottomPadding отступ между лэйблом и текстовым полем в режиме [labelType] == [LabelType.Outer]
- * @param captionTopPadding отступ между текстовым полем и caption
  * @param iconSize размер иконки
  * @param fieldHeight высота текстового поля
  * @param fieldHeight высота текстового поля
  * @param animation параметры анимации [TextField.Animation]
- * @param keepDotBadgeStartPadding позволяет выставить отступ слева, для случаев, когда нужно сохранить отступ, эквивалентный ширине индикатора обязательного поля.
- * Например, когда TextField используется в списке и состояние [fieldType] меняется у разных элементов,
- * может появиться необходимость сохранить отступ слева, когда индикатор обзательного поля скрывается.
  * @param chipsContent контент с chip-элементами
- * @param chipsSpacing расстояние между chip-элементами
- * @param chipContainerCornerRadius позволяет скруглять контейнер, в котором находятся чипы и текстовое поля.
+ * @param chipContainerShape позволяет скруглять контейнер, в котором находятся чипы и текстовое поля.
  * Имеет смысл выставлять этот параметр равным радиусу скругления чипов.
  * @param interactionSource источник взаимодействия с полем
  */
@@ -118,7 +109,7 @@ internal fun BaseTextField(
     visualTransformation: VisualTransformation = VisualTransformation.None,
     placeholderText: String? = null,
     labelType: LabelType = LabelType.Outer,
-    fieldType: TextField.FieldType? = null,
+    fieldType: FieldType? = null,
     labelText: String = "",
     captionText: String? = null,
     leadingIcon: @Composable (() -> Unit)? = null,
@@ -133,61 +124,44 @@ internal fun BaseTextField(
     enabledAlpha: Float = 1.0f,
     disabledAlpha: Float = 0.4f,
     shape: CornerBasedShape,
-    startContentPadding: Dp = 16.dp,
-    endContentPadding: Dp = 16.dp,
-    iconMargin: Dp = 2.dp,
-    textTopPadding: Dp = 25.dp,
-    textBottomPadding: Dp = 9.dp,
-    innerLabelToValuePadding: Dp = 2.dp,
-    outerLabelBottomPadding: Dp = 12.dp,
-    captionTopPadding: Dp = 4.dp,
     iconSize: Dp = 24.dp,
     fieldHeight: Dp = 46.dp,
+    paddings: TextField.Paddings = TextField.Paddings(),
     animation: TextField.Animation = TextField.Animation(),
-    keepDotBadgeStartPadding: Dp? = null,
     chipsContent: @Composable (() -> Unit)? = null,
-    chipsSpacing: Dp = 2.dp,
     chipContainerShape: CornerBasedShape? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
-    val dotBadge = (fieldType as? TextField.FieldType.Required)?.dotBadge
+    val dotBadge = (fieldType as? FieldType.Required)?.dotBadge
     val measurePolicy = remember(
-        outerLabelBottomPadding,
-        captionTopPadding,
+        paddings.outerLabelBottomPadding,
+        paddings.captionTopPadding,
         dotBadge,
         labelType,
     ) {
         TextFieldMeasurePolicy(
-            outerLabelBottomPadding = outerLabelBottomPadding,
-            captionTopPadding = captionTopPadding,
+            outerLabelBottomPadding = paddings.outerLabelBottomPadding,
+            captionTopPadding = paddings.captionTopPadding,
             dotBadge = dotBadge,
+            hasLabel = labelText.isNotEmpty(),
             labelType = labelType,
         )
     }
+    val label = if (chipsContent != null && labelType == LabelType.Inner) "" else labelText
 
     Layout(
         modifier = modifier
-            .padding(
-                start = if (fieldType !is TextField.FieldType.Required &&
-                    keepDotBadgeStartPadding != null &&
-                    labelType == LabelType.Outer
-                ) {
-                    keepDotBadgeStartPadding
-                } else {
-                    0.dp
-                },
-            )
+            .textFieldStartPadding(fieldType, labelType, paddings.keepDotBadgeStartPadding)
             .graphicsLayer {
-                alpha =
-                    if (enabled) enabledAlpha else disabledAlpha
+                alpha = if (enabled) enabledAlpha else disabledAlpha
             },
         content = {
-            if (labelType == LabelType.Outer && labelText.isNotEmpty()) {
+            if (labelType == LabelType.Outer && label.isNotEmpty()) {
                 OuterLabel(
                     modifier = Modifier.layoutId(OUTER_LABEL),
-                    labelText = labelText,
+                    labelText = label,
                     labelTextStyle = outerLabelStyle,
-                    optional = fieldType as? TextField.FieldType.Optional,
+                    optional = fieldType as? FieldType.Optional,
                 )
             }
             BasicTextField(
@@ -198,7 +172,7 @@ internal fun BaseTextField(
                     .clip(shape)
                     .height(fieldHeight)
                     .drawBehind { drawRect(backgroundColor) }
-                    .padding(start = startContentPadding, end = endContentPadding),
+                    .padding(start = paddings.startContentPadding, end = paddings.endContentPadding),
                 enabled = enabled,
                 readOnly = readOnly,
                 textStyle = valuesStyle,
@@ -212,15 +186,15 @@ internal fun BaseTextField(
                 CommonDecorationBox(
                     value = value.text,
                     innerTextField = it,
-                    textTopPadding = textTopPadding,
-                    textBottomPadding = textBottomPadding,
+                    textTopPadding = paddings.valueTopPadding,
+                    textBottomPadding = paddings.valueBottomPadding,
                     visualTransformation = visualTransformation,
                     interactionSource = interactionSource,
                     label = innerLabel(
                         labelType = labelType,
-                        labelText = labelText,
+                        labelText = label,
                         labelTextStyle = innerLabelStyle,
-                        optional = fieldType as? TextField.FieldType.Optional,
+                        optional = fieldType as? FieldType.Optional,
                     ),
                     placeholder = placeholder(
                         placeholderText,
@@ -229,18 +203,18 @@ internal fun BaseTextField(
                     leadingIcon = leadingIcon(
                         leadingIcon,
                         iconSize,
-                        iconMargin,
+                        paddings.iconHorizontalPadding,
                     ),
                     trailingIcon = trailingIcon(
                         trailingIcon,
                         iconSize,
-                        iconMargin,
+                        paddings.iconHorizontalPadding,
                     ),
                     animation = animation,
-                    labelToValuePadding = innerLabelToValuePadding,
+                    labelToValuePadding = paddings.innerLabelToValuePadding,
                     iconSize = iconSize,
                     chips = chipsContent,
-                    chipsSpacing = chipsSpacing,
+                    chipsSpacing = paddings.chipsSpacing,
                     chipContainerShape = chipContainerShape,
                 )
             }
@@ -250,7 +224,7 @@ internal fun BaseTextField(
                 style = captionStyle,
                 animationDuration = animation.animationDuration,
             )
-            if (fieldType is TextField.FieldType.Required) {
+            if (fieldType is FieldType.Required) {
                 DotBadge(
                     size = fieldType.dotBadge.size,
                     modifier = Modifier
@@ -262,30 +236,6 @@ internal fun BaseTextField(
         },
         measurePolicy = measurePolicy,
     )
-}
-
-@Composable
-private fun OuterLabel(
-    modifier: Modifier,
-    labelText: String,
-    labelTextStyle: TextStyle,
-    optional: TextField.FieldType.Optional? = null,
-) {
-    Row(modifier = modifier) {
-        Text(
-            text = labelText,
-            style = labelTextStyle,
-        )
-        if (optional != null && optional.optionalText.isNotEmpty()) {
-            Text(
-                modifier = Modifier.padding(start = optional.startMargin),
-                text = optional.optionalText,
-                style = labelTextStyle.copy(
-                    color = labelTextStyle.color.copy(alpha = optional.labelOptionalAlpha),
-                ),
-            )
-        }
-    }
 }
 
 private fun trailingIcon(
@@ -318,32 +268,6 @@ private fun leadingIcon(
                 .size(size),
         ) {
             leadingIcon.invoke()
-        }
-    }
-}
-
-private fun innerLabel(
-    labelType: LabelType,
-    labelText: String,
-    labelTextStyle: TextStyle,
-    optional: TextField.FieldType.Optional?,
-): @Composable (() -> Unit)? {
-    if (labelType != LabelType.Inner || labelText.isEmpty()) return null
-    return {
-        Row {
-            Text(
-                text = labelText,
-                style = labelTextStyle,
-            )
-            if (optional != null && optional.optionalText.isNotEmpty()) {
-                Text(
-                    modifier = Modifier.padding(start = optional.startMargin),
-                    text = optional.optionalText,
-                    style = labelTextStyle.copy(
-                        color = labelTextStyle.color.copy(alpha = optional.labelOptionalAlpha),
-                    ),
-                )
-            }
         }
     }
 }
@@ -411,6 +335,7 @@ private class TextFieldMeasurePolicy(
     private val outerLabelBottomPadding: Dp,
     private val dotBadge: TextField.DotBadge?,
     private val captionTopPadding: Dp,
+    private val hasLabel: Boolean,
     private val labelType: LabelType,
 ) : MeasurePolicy {
     override fun MeasureScope.measure(
@@ -428,7 +353,7 @@ private class TextFieldMeasurePolicy(
 
         // measure dot badge
         val dotBadgeStartOffset =
-            if (labelType == LabelType.Outer && dotBadge?.position == TextField.DotBadge.Position.Start) {
+            if (hasLabel && labelType == LabelType.Outer && dotBadge?.position == TextField.DotBadge.Position.Start) {
                 badgePlaceable.widthOrZero()
             } else {
                 0
@@ -468,6 +393,7 @@ private class TextFieldMeasurePolicy(
                 badgePlaceable = badgePlaceable,
                 dotBadge = dotBadge,
                 labelType = labelType,
+                hasLabel = hasLabel,
                 outerLabelPlaceable = outerLabelPlaceable,
                 width = width,
             )
@@ -475,46 +401,6 @@ private class TextFieldMeasurePolicy(
                 x = dotBadgeStartOffset,
                 y = height - captionPlaceable.heightOrZero(),
             )
-        }
-    }
-}
-
-private fun Placeable.PlacementScope.placeDotBadge(
-    badgePlaceable: Placeable?,
-    dotBadge: TextField.DotBadge?,
-    labelType: LabelType,
-    outerLabelPlaceable: Placeable?,
-    width: Int,
-) {
-    dotBadge?.let {
-        when (it.position) {
-            TextField.DotBadge.Position.Start -> {
-                when (labelType) {
-                    LabelType.Outer -> badgePlaceable?.placeRelative(
-                        0,
-                        Alignment.CenterVertically.align(
-                            size = badgePlaceable.height,
-                            space = outerLabelPlaceable.heightOrZero(),
-                        ),
-                    )
-
-                    LabelType.Inner -> badgePlaceable?.placeRelative(0, 0)
-                }
-            }
-
-            TextField.DotBadge.Position.End -> {
-                when (labelType) {
-                    LabelType.Outer -> badgePlaceable?.placeRelative(
-                        outerLabelPlaceable.widthOrZero(),
-                        0,
-                    )
-
-                    LabelType.Inner -> badgePlaceable?.placeRelative(
-                        width - badgePlaceable.widthOrZero(),
-                        0,
-                    )
-                }
-            }
         }
     }
 }

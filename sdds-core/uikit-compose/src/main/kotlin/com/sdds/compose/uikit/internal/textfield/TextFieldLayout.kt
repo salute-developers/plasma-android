@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.defaultMinSize
-import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.runtime.Composable
@@ -40,7 +39,6 @@ import kotlin.math.roundToInt
  * @param placeholder composable заглушки
  * @param leading composable начала поля (например, иконки)
  * @param trailing composable конца (например, иконки)
- * @param singleLine режим однострочного значения поля
  * @param animationProgress прогресс анимации лейбла и заглушки
  * @param textTopPadding отступ от текста сверху
  * @param textBottomPadding отступ от текста снизу
@@ -48,7 +46,7 @@ import kotlin.math.roundToInt
  * @param iconSize размер иконки
  * @param chips контент с chip-элементами
  * @param chipsSpacing расстояние между chip-элементами
- * @param chipContainerCornerRadius радиус скругления контейнера, в котором содержатся чипы и текстовое поле
+ * @param chipContainerShape форма контейнера, в котором содержатся чипы и текстовое поле
  */
 @Composable
 internal fun TextFieldLayout(
@@ -67,17 +65,20 @@ internal fun TextFieldLayout(
     chipsSpacing: Dp,
     chipContainerShape: CornerBasedShape?,
 ) {
+    val hasChips = chips != null
     val measurePolicy = remember(
         animationProgress,
         textTopPadding,
         textBottomPadding,
         labelToValuePadding,
+        hasChips,
     ) {
         TextFieldLayoutMeasurePolicy(
             animationProgress = animationProgress,
             textTopPadding = textTopPadding,
             textBottomPadding = textBottomPadding,
             labelToValuePadding = labelToValuePadding,
+            hasChips = hasChips,
         )
     }
     Layout(
@@ -158,29 +159,24 @@ private fun CompositeTextFieldContent(
     chipsSpacing: Dp,
     chipContainerShape: CornerBasedShape?,
 ) {
-    Box(
-        modifier = modifier,
-        propagateMinConstraints = true,
+    Row(
+        modifier = modifier
+            .fieldShapeDecoration(
+                hasChips = chips != null,
+                chipContainerShape = chipContainerShape,
+            )
+            .horizontalScroll(rememberScrollState(0)),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(chipsSpacing),
     ) {
-        Row(
-            modifier = Modifier
-                .fieldShapeDecoration(
-                    hasChips = chips != null,
-                    chipContainerShape = chipContainerShape,
-                )
-                .horizontalScroll(rememberScrollState(0)),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(chipsSpacing),
-        ) {
-            if (chips != null) {
-                chips()
+        if (chips != null) {
+            chips()
+        }
+        Box {
+            if (placeholder != null) {
+                Box(Modifier.layoutId(PlaceholderId)) { placeholder() }
             }
-            Box {
-                if (placeholder != null) {
-                    Box(Modifier.layoutId(PlaceholderId)) { placeholder() }
-                }
-                textField()
-            }
+            textField()
         }
     }
 }
@@ -192,7 +188,6 @@ private fun Modifier.fieldShapeDecoration(
     return if (hasChips && chipContainerShape != null) {
         this
             .clip(chipContainerShape)
-            .wrapContentHeight()
     } else {
         this
     }
@@ -203,6 +198,7 @@ private class TextFieldLayoutMeasurePolicy(
     private val textTopPadding: Dp,
     private val textBottomPadding: Dp,
     private val labelToValuePadding: Dp,
+    private val hasChips: Boolean,
 ) : MeasurePolicy {
 
     @Suppress("LongMethod")
@@ -247,7 +243,7 @@ private class TextFieldLayoutMeasurePolicy(
         val verticalConstraintOffset = if (labelPlaceable != null) {
             -bottomPaddingValue - effectiveLabelBaseline
         } else {
-            -topPaddingValue - bottomPaddingValue
+            if (!hasChips) (-topPaddingValue - bottomPaddingValue) else 0
         }
         val textFieldConstraints = constraints
             .copy(minHeight = 0)
@@ -309,8 +305,6 @@ private class TextFieldLayoutMeasurePolicy(
                     textPlaceable = textFieldPlaceable,
                     leadingPlaceable = leadingPlaceable,
                     trailingPlaceable = trailingPlaceable,
-                    density = density,
-                    textTopPadding = textTopPadding,
                 )
             }
         }
@@ -494,11 +488,7 @@ private fun Placeable.PlacementScope.placeWithoutLabel(
     textPlaceable: Placeable,
     leadingPlaceable: Placeable?,
     trailingPlaceable: Placeable?,
-    density: Float,
-    textTopPadding: Dp,
 ) {
-    val topPadding = (textTopPadding.value * density).roundToInt()
-
     leadingPlaceable?.placeRelative(
         0,
         Alignment.CenterVertically.align(leadingPlaceable.height, height),

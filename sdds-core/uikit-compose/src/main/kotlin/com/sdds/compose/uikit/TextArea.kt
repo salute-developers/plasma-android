@@ -6,6 +6,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
@@ -51,21 +52,9 @@ import com.sdds.compose.uikit.internal.textarea.BaseTextArea
  * @param enabledAlpha альфа, когда компонент в режиме [enabled] == true
  * @param disabledAlpha альфа, когда компонент в режиме [enabled] == false
  * @param shape форма текстового поля
- * @param chipsSpacing пространство между чипами
- * @param startContentPadding отступ в начале текстового поля
- * @param endContentPadding отступ в конце текстового поля
- * @param iconStartPadding отступ от текста до иконки
- * @param textTopPadding отступ от value до верхней границы текстового поля в режиме [labelType] == [TextField.LabelType.Inner]
- * @param textBottomPadding отступ от value до верхней границы текстового поля в режиме [labelType] == [TextField.LabelType.Inner]
- * @param innerLabelToValuePadding отступ между лэйблом и value в режиме [labelType] == [TextField.LabelType.Inner]
- * @param outerLabelBottomPadding отступ между лэйблом и текстовым полем в режиме [labelType] == [TextField.LabelType.Outer]
- * @param bottomTextBottomPadding отступ между текстовым полем и нижним текстом (caption и counter)
- * @param iconTopPadding отступ иконки сверху
  * @param iconSize размер иконки
+ * @param paddings отступы text area
  * @param animation параметры анимации [TextField.Animation]
- * @param keepDotBadgeStartPadding позволяет выставить отступ слева, для случаев, когда нужно сохранить отступ, эквивалентный ширине индикатора обязательного поля.
- * Например, когда TextField используется в списке и состояние [fieldType] меняется у разных элементов,
- * может появиться необходимость сохранить отступ слева, когда индикатор обзательного поля скрывается.
  * @param scrollBarConfig настройки скроллбара
  * @param keyboardOptions для настройки клавиатуры, например [KeyboardType] или [ImeAction]
  * @param keyboardActions когда на ввод подается [ImeAction] вызывается соответствующий callback
@@ -100,18 +89,8 @@ fun TextArea(
     enabledAlpha: Float = 1.0f,
     disabledAlpha: Float = 0.4f,
     shape: CornerBasedShape = RoundedCornerShape(25),
-    chipsSpacing: Dp = 2.dp,
-    startContentPadding: Dp = 16.dp,
-    endContentPadding: Dp = 16.dp,
-    iconStartPadding: Dp = 8.dp,
-    textTopPadding: Dp = 25.dp,
-    textBottomPadding: Dp = 9.dp,
-    innerLabelToValuePadding: Dp = 2.dp,
-    outerLabelBottomPadding: Dp = 12.dp,
-    bottomTextBottomPadding: Dp = 4.dp,
-    iconTopPadding: Dp = 16.dp,
     iconSize: Dp = 24.dp,
-    keepDotBadgeStartPadding: Dp? = 16.dp,
+    paddings: TextArea.Paddings = TextArea.Paddings(),
     animation: TextField.Animation = TextField.Animation(),
     scrollBarConfig: ScrollBarConfig = ScrollBarConfig(),
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
@@ -146,20 +125,10 @@ fun TextArea(
         enabledAlpha = enabledAlpha,
         disabledAlpha = disabledAlpha,
         shape = shape,
-        startContentPadding = startContentPadding,
-        endContentPadding = endContentPadding,
-        iconStartPadding = iconStartPadding,
-        textTopPadding = textTopPadding,
-        textBottomPadding = textBottomPadding,
-        innerLabelToValuePadding = innerLabelToValuePadding,
-        outerLabelBottomPadding = outerLabelBottomPadding,
-        bottomTextBottomPadding = bottomTextBottomPadding,
         iconSize = iconSize,
+        paddings = paddings,
         animation = animation,
-        keepDotBadgeStartPadding = keepDotBadgeStartPadding,
         chips = chips,
-        chipsSpacing = chipsSpacing,
-        iconTopPadding = iconTopPadding,
         scrollBarConfig = scrollBarConfig,
         interactionSource = interactionSource,
     )
@@ -192,21 +161,9 @@ fun TextArea(
  * @param enabledAlpha альфа, когда компонент в режиме [enabled] == true
  * @param disabledAlpha альфа, когда компонент в режиме [enabled] == false
  * @param shape форма текстового поля
- * @param chipsSpacing пространство между чипами
- * @param startContentPadding отступ в начале текстового поля
- * @param endContentPadding отступ в конце текстового поля
- * @param iconStartPadding отступ от текста до иконки
- * @param textTopPadding отступ от value до верхней границы текстового поля в режиме [labelType] == [TextField.LabelType.Inner]
- * @param textBottomPadding отступ от value до верхней границы текстового поля в режиме [labelType] == [TextField.LabelType.Inner]
- * @param innerLabelToValuePadding отступ между лэйблом и value в режиме [labelType] == [TextField.LabelType.Inner]
- * @param outerLabelBottomPadding отступ между лэйблом и текстовым полем в режиме [labelType] == [TextField.LabelType.Outer]
- * @param bottomTextBottomPadding отступ между текстовым полем и нижним текстом (caption и counter)
- * @param iconTopPadding отступ иконки сверху
  * @param iconSize размер иконки
+ * @param paddings отступы text area
  * @param animation параметры анимации [TextField.Animation]
- * @param keepDotBadgeStartPadding позволяет выставить отступ слева, для случаев, когда нужно сохранить отступ, эквивалентный ширине индикатора обязательного поля.
- * Например, когда TextField используется в списке и состояние [fieldType] меняется у разных элементов,
- * может появиться необходимость сохранить отступ слева, когда индикатор обзательного поля скрывается.
  * @param scrollBarConfig настройки скроллбара
  * @param keyboardOptions для настройки клавиатуры, например [KeyboardType] или [ImeAction]
  * @param keyboardActions когда на ввод подается [ImeAction] вызывается соответствующий callback
@@ -240,19 +197,9 @@ fun TextArea(
     enabledAlpha: Float = 1.0f,
     disabledAlpha: Float = 0.4f,
     shape: CornerBasedShape = RoundedCornerShape(25),
-    chipsSpacing: Dp = 2.dp,
-    startContentPadding: Dp = 16.dp,
-    endContentPadding: Dp = 16.dp,
-    iconStartPadding: Dp = 8.dp,
-    textTopPadding: Dp = 25.dp,
-    textBottomPadding: Dp = 9.dp,
-    innerLabelToValuePadding: Dp = 2.dp,
-    outerLabelBottomPadding: Dp = 12.dp,
-    bottomTextBottomPadding: Dp = 4.dp,
     iconSize: Dp = 24.dp,
+    paddings: TextArea.Paddings = TextArea.Paddings(),
     animation: TextField.Animation = TextField.Animation(),
-    keepDotBadgeStartPadding: Dp? = 16.dp,
-    iconTopPadding: Dp = 16.dp,
     scrollBarConfig: ScrollBarConfig = ScrollBarConfig(),
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
@@ -307,21 +254,57 @@ fun TextArea(
         enabledAlpha = enabledAlpha,
         disabledAlpha = disabledAlpha,
         shape = shape,
-        startContentPadding = startContentPadding,
-        endContentPadding = endContentPadding,
-        iconStartPadding = iconStartPadding,
-        textTopPadding = textTopPadding,
-        textBottomPadding = textBottomPadding,
-        innerLabelToValuePadding = innerLabelToValuePadding,
-        outerLabelBottomPadding = outerLabelBottomPadding,
-        bottomTextBottomPadding = bottomTextBottomPadding,
         iconSize = iconSize,
+        paddings = paddings,
         animation = animation,
-        keepDotBadgeStartPadding = keepDotBadgeStartPadding,
         chips = chips,
-        chipsSpacing = chipsSpacing,
-        iconTopPadding = iconTopPadding,
         scrollBarConfig = scrollBarConfig,
         interactionSource = interactionSource,
+    )
+}
+
+/**
+ * Настройки text area
+ */
+object TextArea {
+
+    /**
+     * Отступы text area
+     *
+     * @property startContentPadding отступ в начале текстового поля
+     * @property endContentPadding отступ в конце текстового поля
+     * @property valueTopPadding отступ от value до верхней границы текстового поля в режиме labelType == [TextField.LabelType.Inner]
+     * @property valueBottomPadding отступ от value до верхней границы текстового поля в режиме labelType == [TextField.LabelType.Inner]
+     * @property unfocusedInnerLabelTopPadding верхний отступ внутреннего лэйбла не в фокусе
+     * @property innerLabelToValuePadding отступ между лэйблом и value в режиме labelType == [TextField.LabelType.Inner]
+     * @property outerLabelBottomPadding отступ между лэйблом и текстовым полем в режиме labelType == [TextField.LabelType.Outer]
+     * @property bottomTextHorizontalPadding начальный и конечный отступы нижнего текста (caption и counter)
+     * @property bottomTextBottomPadding отступ между текстовым полем и нижним текстом (caption и counter)
+     * @property iconTopPadding отступ иконки сверху
+     * @property iconStartPadding отступ от текста до иконки
+     * @property chipsSpacing пространство между чипами
+     * @property bottomChipsPadding нижний отступ контейнера с чипами
+     * @property topChipsPadding верхний отступ контейнера с чипами
+     * @property keepDotBadgeStartPadding позволяет выставить отступ слева, для случаев, когда нужно сохранить отступ, эквивалентный ширине индикатора обязательного поля.
+     * Например, когда TextArea используется в списке и состояние fieldType меняется у разных элементов,
+     * может появиться необходимость сохранить отступ слева, когда индикатор обзательного поля скрывается.
+     */
+    @Immutable
+    data class Paddings(
+        val startContentPadding: Dp = 16.dp,
+        val endContentPadding: Dp = 16.dp,
+        val valueTopPadding: Dp = 25.dp,
+        val valueBottomPadding: Dp = 9.dp,
+        val unfocusedInnerLabelTopPadding: Dp = 17.dp,
+        val innerLabelToValuePadding: Dp = 2.dp,
+        val outerLabelBottomPadding: Dp = 12.dp,
+        val bottomTextHorizontalPadding: Dp = 10.dp,
+        val bottomTextBottomPadding: Dp = 4.dp,
+        val iconTopPadding: Dp = 16.dp,
+        val iconStartPadding: Dp = 8.dp,
+        val chipsSpacing: Dp = 2.dp,
+        val bottomChipsPadding: Dp = chipsSpacing,
+        val topChipsPadding: Dp = 6.dp,
+        val keepDotBadgeStartPadding: Dp? = null,
     )
 }

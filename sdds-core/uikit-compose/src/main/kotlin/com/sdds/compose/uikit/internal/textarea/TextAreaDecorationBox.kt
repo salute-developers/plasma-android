@@ -19,6 +19,7 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.Dp
+import com.sdds.compose.uikit.TextArea
 import com.sdds.compose.uikit.TextField
 
 /**
@@ -36,13 +37,7 @@ internal fun TextAreaDecorationBox(
     captionText: @Composable (() -> Unit)? = null,
     counterText: @Composable (() -> Unit)? = null,
     iconSize: Dp,
-    textTopPadding: Dp,
-    textBottomPadding: Dp,
-    labelToValuePadding: Dp,
-    chipsSpacing: Dp,
-    iconTopPadding: Dp,
-    iconStartPadding: Dp,
-    bottomTextBottomPadding: Dp,
+    paddings: TextArea.Paddings,
     scrollState: ScrollState,
     visualTransformation: VisualTransformation,
     animation: TextField.Animation,
@@ -85,18 +80,12 @@ internal fun TextAreaDecorationBox(
             placeholder = decoratedPlaceholder,
             captionText = captionText,
             counterText = counterText,
-            bottomTextBottomPadding = bottomTextBottomPadding,
             label = label,
             animationProgress = labelProgress,
             icon = icon,
-            iconTopPadding = iconTopPadding,
-            iconStartPadding = iconStartPadding,
             iconSize = iconSize,
-            textTopPadding = textTopPadding,
-            textBottomPadding = textBottomPadding,
-            labelToValuePadding = labelToValuePadding,
             chips = chips,
-            chipsSpacing = chipsSpacing,
+            paddings = paddings,
         )
     }
 }
