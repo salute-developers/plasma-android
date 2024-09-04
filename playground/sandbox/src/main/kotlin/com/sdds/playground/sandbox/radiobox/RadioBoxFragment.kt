@@ -19,7 +19,7 @@ import kotlinx.coroutines.flow.onEach
 internal class RadioBoxFragment : ComponentFragment() {
 
     private val radioBoxParametersViewModel by viewModels<RadioBoxParametersViewModel> {
-        RadioBoxParametersViewModelFactory(getState(RadioBoxUiState()))
+        RadioBoxParametersViewModelFactory(getState { RadioBoxUiState() })
     }
 
     override val componentLayout: RadioBox

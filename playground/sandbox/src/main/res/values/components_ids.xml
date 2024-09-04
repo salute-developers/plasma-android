@@ -3,4 +3,6 @@
     <item type="id" name="basic_button"/>
     <item type="id" name="radioBox"/>
     <item type="id" name="checkBox"/>
+    <item type="id" name="chip"/>
+    <item type="id" name="chip_group"/>
 </resources>
