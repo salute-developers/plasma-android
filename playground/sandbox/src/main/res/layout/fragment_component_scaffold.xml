@@ -16,6 +16,7 @@
         app:sd_strokeColor="?serv_surfaceDefaultSolidTertiary"
         app:sd_strokeWidth="1dp"
         android:clipChildren="true"
+        android:padding="@dimen/sdds_spacer_8x"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">

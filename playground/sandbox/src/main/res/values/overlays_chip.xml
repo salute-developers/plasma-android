@@ -96,4 +96,12 @@
     <style name="Theme.Sandbox.ComponentOverlays.ChipXSPilledAccent">
         <item name="sd_chipStyle">@style/Theme.Sandbox.Components.Chip.XS.Pilled.Accent</item>
     </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.ChipGroupWide">
+        <item name="sd_chipGroupStyle">@style/Theme.Sandbox.Components.ChipGroup.Wide</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.ChipGroupDense">
+        <item name="sd_chipGroupStyle">@style/Theme.Sandbox.Components.ChipGroup.Dense</item>
+    </style>
 </resources>

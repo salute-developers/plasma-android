@@ -29,6 +29,10 @@
             android:title="@string/menu_chip" />
 
         <item
+            android:id="@+id/nav_chip_group"
+            android:title="@string/menu_chip_group" />
+
+        <item
             android:id="@+id/nav_radiobox"
             android:title="@string/menu_radiobox" />
 

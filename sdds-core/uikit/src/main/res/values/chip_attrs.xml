@@ -2,6 +2,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <attr name="sd_chipStyle" format="reference" />
+    <attr name="sd_chipGroupStyle" format="reference" />
 
     <declare-styleable name="Chip" tools:ignore="ResourceName">
         <attr name="android:drawableStart" />
@@ -22,5 +23,23 @@
         <attr name="sd_viewState"/>
         <attr name="sd_strokeColor"/>
         <attr name="sd_strokeWidth"/>
+        <attr name="android:checkable"/>
+        <attr name="android:checked"/>
+    </declare-styleable>
+
+    <declare-styleable name="ChipGroup" tools:ignore="ResourceName">
+        <attr name="sd_gap" format="dimension" />
+        <attr name="sd_lineSpacing" format="dimension" />
+        <attr name="android:gravity"/>
+
+        <attr name="sd_shapeAppearance"/>
+        <attr name="sd_shapeAppearanceAdjustment"/>
+        <attr name="sd_strokeWidth"/>
+        <attr name="sd_strokeColor"/>
+        <attr name="sd_viewState" />
+    </declare-styleable>
+
+    <declare-styleable name="ChipGroup_Layout" tools:ignore="ResourceName">
+        <attr name="android:layout_gravity"/>
     </declare-styleable>
 </resources>

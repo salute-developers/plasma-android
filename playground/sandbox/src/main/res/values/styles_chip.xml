@@ -6,6 +6,7 @@
         <item name="android:textColor">@color/text_color_button</item>
         <item name="sd_drawableStartTint">@color/text_color_button</item>
         <item name="sd_drawableEndTint">@color/text_color_button</item>
+        <item name="sd_viewState">primary</item>
     </style>
 
     <style name="Theme.Sandbox.Components.Chip.L">
@@ -29,6 +30,7 @@
         <item name="sd_drawableSize">24dp</item>
 
         <item name="sd_shapeAppearance">?serv_shapeRoundM</item>
+        <item name="sd_shapeAppearanceAdjustment">-2dp</item>
         <item name="android:textAppearance">@style/Serv.SddsServ.TextAppearance.BodyMNormal</item>
     </style>
 
@@ -40,7 +42,7 @@
         <item name="sd_textPaddingStart">4dp</item>
         <item name="sd_drawableSize">16dp</item>
 
-        <item name="sd_shapeAppearance">?serv_shapeRoundM</item>
+        <item name="sd_shapeAppearance">?serv_shapeRoundS</item>
         <item name="android:textAppearance">@style/Serv.SddsServ.TextAppearance.BodySNormal</item>
 
     </style>
@@ -58,6 +60,43 @@
 
     </style>
 
+    <style name="Theme.Sandbox.Components.Chip.L.Embedded">
+        <item name="android:minHeight">44dp</item>
+        <item name="sd_shapeAppearance">?serv_shapeRoundS</item>
+    </style>
+
+    <style name="Theme.Sandbox.Components.Chip.M.Embedded">
+        <item name="android:minHeight">36dp</item>
+        <item name="sd_shapeAppearance">?serv_shapeRoundXs</item>
+    </style>
+
+    <style name="Theme.Sandbox.Components.Chip.S.Embedded">
+        <item name="android:minHeight">28dp</item>
+        <item name="sd_shapeAppearance">?serv_shapeRoundXxs</item>
+    </style>
+
+    <style name="Theme.Sandbox.Components.Chip.XS.Embedded">
+        <item name="android:minHeight">24dp</item>
+        <item name="sd_shapeAppearance">?serv_shapeRoundXxs</item>
+        <item name="sd_shapeAppearanceAdjustment">-2dp</item>
+    </style>
+
+    <style name="Theme.Sandbox.Components.Chip.L.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+
+    <style name="Theme.Sandbox.Components.Chip.M.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+
+    <style name="Theme.Sandbox.Components.Chip.S.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+
+    <style name="Theme.Sandbox.Components.Chip.XS.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+
     <style name="Theme.Sandbox.Components.Chip.L.Secondary">
         <item name="sd_viewState">secondary</item>
     </style>
@@ -66,15 +105,19 @@
         <item name="sd_viewState">accent</item>
     </style>
 
-    <style name="Theme.Sandbox.Components.Chip.L.Pilled">
-        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
-    </style>
-
     <style name="Theme.Sandbox.Components.Chip.L.Pilled.Secondary">
         <item name="sd_viewState">secondary</item>
     </style>
 
     <style name="Theme.Sandbox.Components.Chip.L.Pilled.Accent">
+        <item name="sd_viewState">accent</item>
+    </style>
+
+    <style name="Theme.Sandbox.Components.Chip.L.Embedded.Secondary">
+        <item name="sd_viewState">secondary</item>
+    </style>
+
+    <style name="Theme.Sandbox.Components.Chip.L.Embedded.Accent">
         <item name="sd_viewState">accent</item>
     </style>
 
@@ -86,15 +129,19 @@
         <item name="sd_viewState">accent</item>
     </style>
 
-    <style name="Theme.Sandbox.Components.Chip.M.Pilled">
-        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
-    </style>
-
     <style name="Theme.Sandbox.Components.Chip.M.Pilled.Secondary">
         <item name="sd_viewState">secondary</item>
     </style>
 
     <style name="Theme.Sandbox.Components.Chip.M.Pilled.Accent">
+        <item name="sd_viewState">accent</item>
+    </style>
+
+    <style name="Theme.Sandbox.Components.Chip.M.Embedded.Secondary">
+        <item name="sd_viewState">secondary</item>
+    </style>
+
+    <style name="Theme.Sandbox.Components.Chip.M.Embedded.Accent">
         <item name="sd_viewState">accent</item>
     </style>
 
@@ -106,15 +153,19 @@
         <item name="sd_viewState">accent</item>
     </style>
 
-    <style name="Theme.Sandbox.Components.Chip.S.Pilled">
-        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
-    </style>
-
     <style name="Theme.Sandbox.Components.Chip.S.Pilled.Secondary">
         <item name="sd_viewState">secondary</item>
     </style>
 
     <style name="Theme.Sandbox.Components.Chip.S.Pilled.Accent">
+        <item name="sd_viewState">accent</item>
+    </style>
+
+    <style name="Theme.Sandbox.Components.Chip.S.Embedded.Secondary">
+        <item name="sd_viewState">secondary</item>
+    </style>
+
+    <style name="Theme.Sandbox.Components.Chip.S.Embedded.Accent">
         <item name="sd_viewState">accent</item>
     </style>
 
@@ -126,15 +177,31 @@
         <item name="sd_viewState">accent</item>
     </style>
 
-    <style name="Theme.Sandbox.Components.Chip.XS.Pilled">
-        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
-    </style>
-
     <style name="Theme.Sandbox.Components.Chip.XS.Pilled.Secondary">
         <item name="sd_viewState">secondary</item>
     </style>
 
     <style name="Theme.Sandbox.Components.Chip.XS.Pilled.Accent">
         <item name="sd_viewState">accent</item>
+    </style>
+
+    <style name="Theme.Sandbox.Components.Chip.XS.Embedded.Secondary">
+        <item name="sd_viewState">secondary</item>
+    </style>
+
+    <style name="Theme.Sandbox.Components.Chip.XS.Embedded.Accent">
+        <item name="sd_viewState">accent</item>
+    </style>
+
+    <style name="Theme.Sandbox.Components.ChipGroup" parent="Sdds.Components.ChipGroup"/>
+
+    <style name="Theme.Sandbox.Components.ChipGroup.Wide">
+        <item name="sd_gap">8dp</item>
+        <item name="sd_lineSpacing">8dp</item>
+    </style>
+
+    <style name="Theme.Sandbox.Components.ChipGroup.Dense" >
+        <item name="sd_gap">2dp</item>
+        <item name="sd_lineSpacing">2dp</item>
     </style>
 </resources>
