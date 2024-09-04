@@ -8,4 +8,12 @@
     <style name="Theme.Sandbox.ComponentOverlays.RadioBoxS">
         <item name="android:radioButtonStyle">@style/Theme.Sandbox.Components.RadioBox.S</item>
     </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.RadioBoxGroupM">
+        <item name="sd_radioBoxGroupStyle">@style/Theme.Sandbox.Components.RadioBoxGroup.M</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.RadioBoxGroupS">
+        <item name="sd_radioBoxGroupStyle">@style/Theme.Sandbox.Components.RadioBoxGroup.S</item>
+    </style>
 </resources>

@@ -26,4 +26,20 @@
         <item name="android:textAppearance">@style/Serv.SddsServ.TextAppearance.BodySNormal</item>
         <item name="sd_descriptionTextAppearance">@style/Serv.SddsServ.TextAppearance.BodyXsNormal</item>
     </style>
+
+    <style name="Theme.Sandbox.Components.CheckBoxGroup" parent="Sdds.Components.CheckBoxGroup">
+        <item name="sd_hasMain">true</item>
+    </style>
+
+    <style name="Theme.Sandbox.Components.CheckBoxGroup.M">
+        <item name="sd_itemOffset">36dp</item>
+        <item name="sd_itemSpacing">12dp</item>
+        <item name="android:theme">@style/Theme.Sandbox.ComponentOverlays.CheckBoxM</item>
+    </style>
+
+    <style name="Theme.Sandbox.Components.CheckBoxGroup.S">
+        <item name="sd_itemOffset">24dp</item>
+        <item name="sd_itemSpacing">10dp</item>
+        <item name="android:theme">@style/Theme.Sandbox.ComponentOverlays.CheckBoxS</item>
+    </style>
 </resources>

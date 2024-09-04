@@ -19,6 +19,7 @@ import kotlinx.coroutines.flow.stateIn
  * ViewModel для экранов с компонентом CheckBox
  */
 internal class CheckBoxParametersViewModel(
+    private val groupMode: Boolean,
     private val defaultState: CheckBoxUiState,
 ) : ViewModel(), PropertiesOwner {
 
@@ -33,7 +34,7 @@ internal class CheckBoxParametersViewModel(
     @OptIn(ExperimentalCoroutinesApi::class)
     override val properties: StateFlow<List<Property<*>>> =
         _checkboxState
-            .mapLatest { state -> state.toProps() }
+            .mapLatest { state -> if (groupMode) state.toGroupProps() else state.toProps() }
             .stateIn(viewModelScope, SharingStarted.Lazily, emptyList())
 
     override fun updateProperty(name: String, value: Any?) {
@@ -102,6 +103,25 @@ internal class CheckBoxParametersViewModel(
         )
     }
 
+    private fun CheckBoxUiState.toGroupProps(): List<Property<*>> {
+        return listOfNotNull(
+            enumProperty(
+                name = CheckBoxPropertyName.Variant.value,
+                value = variant,
+            ),
+
+            Property.StringProperty(
+                name = CheckBoxPropertyName.Label.value,
+                value = label.orEmpty(),
+            ),
+
+            Property.StringProperty(
+                name = CheckBoxPropertyName.Description.value,
+                value = description.orEmpty(),
+            ),
+        )
+    }
+
     private enum class CheckBoxPropertyName(val value: String) {
         Variant("variant"),
         State("state"),
@@ -111,12 +131,17 @@ internal class CheckBoxParametersViewModel(
     }
 }
 
+/**
+ * Фабрика [CheckBoxParametersViewModel]
+ * @param groupMode режим группы
+ */
 internal class CheckBoxParametersViewModelFactory(
+    private val groupMode: Boolean = false,
     private val defaultState: CheckBoxUiState = CheckBoxUiState(),
 ) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return CheckBoxParametersViewModel(defaultState) as T
+        return CheckBoxParametersViewModel(groupMode = groupMode, defaultState = defaultState) as T
     }
 }
