@@ -19,7 +19,7 @@ import kotlinx.coroutines.flow.onEach
 internal class CheckBoxFragment : ComponentFragment() {
 
     private val checkBoxViewModel by viewModels<CheckBoxParametersViewModel> {
-        CheckBoxParametersViewModelFactory(getState { CheckBoxUiState() })
+        CheckBoxParametersViewModelFactory(false, getState { CheckBoxUiState() })
     }
 
     override val componentLayout: CheckBox

@@ -182,10 +182,11 @@ internal class CheckableDelegate(
             ?: 0
         val widthMode = MeasureSpec.getMode(widthSpec)
         val specWidth = MeasureSpec.getSize(widthSpec)
-        val layoutWidth = if (widthMode != MeasureSpec.EXACTLY) {
-            biggestLineWidth
-        } else {
-            specWidth - compoundButton.compoundPaddingStart - compoundButton.compoundPaddingEnd
+        val available = specWidth - compoundButton.compoundPaddingStart - compoundButton.compoundPaddingEnd
+        val layoutWidth = when (widthMode) {
+            MeasureSpec.AT_MOST -> minOf(available, maxOf(biggestLineWidth, compoundButton.minimumWidth))
+            MeasureSpec.EXACTLY -> available
+            else -> biggestLineWidth
         }
         if (this.descriptionLayout?.text == descriptionText && this.descriptionLayout?.width == layoutWidth) {
             return

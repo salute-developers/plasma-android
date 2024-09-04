@@ -10,4 +10,11 @@
         <item name="android:gravity">start|center_vertical</item>
         <item name="android:drawablePadding">12dp</item>
     </style>
+
+    <style name="Sdds.Components.CheckBoxGroup">
+        <item name="android:orientation">vertical</item>
+        <item name="sd_itemOffset">36dp</item>
+        <item name="sd_itemSpacing">10dp</item>
+        <item name="sd_hasMain">true</item>
+    </style>
 </resources>

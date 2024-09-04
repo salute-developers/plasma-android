@@ -13,4 +13,9 @@
         <item name="android:gravity">start|center_vertical</item>
         <item name="android:drawablePadding">10dp</item>
     </style>
+
+    <style name="Sdds.Components.RadioBoxGroup">
+        <item name="android:orientation">vertical</item>
+        <item name="sd_itemSpacing">6dp</item>
+    </style>
 </resources>
