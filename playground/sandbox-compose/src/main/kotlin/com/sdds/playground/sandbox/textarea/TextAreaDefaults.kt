@@ -258,7 +258,7 @@ internal object TextAreaDefaults {
         hasChips: Boolean,
     ) = TextArea.Paddings(
         startContentPadding = startContentPadding(size, hasChips),
-        endContentPadding = endContentPadding(size),
+        endContentPadding = endContentPadding(size, hasChips),
         valueTopPadding = textTopPadding(size, labelType),
         valueBottomPadding = textBottomPadding(size),
         unfocusedInnerLabelTopPadding = unfocusedInnerLabelTopPadding(size),
@@ -321,12 +321,16 @@ internal object TextAreaDefaults {
             }
         }
 
-    private fun endContentPadding(size: SandboxTextArea.Size): Dp =
-        when (size) {
-            SandboxTextArea.Size.L -> 16.dp
-            SandboxTextArea.Size.M -> 14.dp
-            SandboxTextArea.Size.S -> 12.dp
-            SandboxTextArea.Size.XS -> 8.dp
+    private fun endContentPadding(size: SandboxTextArea.Size, hasChips: Boolean): Dp =
+        if (hasChips) {
+            6.dp
+        } else {
+            when (size) {
+                SandboxTextArea.Size.L -> 16.dp
+                SandboxTextArea.Size.M -> 14.dp
+                SandboxTextArea.Size.S -> 12.dp
+                SandboxTextArea.Size.XS -> 8.dp
+            }
         }
 
     private fun bottomTextHorizontalPadding(size: SandboxTextArea.Size): Dp =

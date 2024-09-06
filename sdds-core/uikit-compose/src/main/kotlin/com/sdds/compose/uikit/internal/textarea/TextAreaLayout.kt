@@ -47,14 +47,7 @@ import kotlin.math.roundToInt
  * @param captionText composable подписи
  * @param counterText composable счетчика
  * @param chips контент с chip-элементами
- * @param chipsSpacing расстояние между chip-элементами
- * @param textTopPadding отступ от текста сверху
- * @param textBottomPadding отступ от текста снизу
- * @param labelToValuePadding отступ от лэйбла до значения поля
- * @param bottomTextBottomPadding отступ снизу от caption и counter
  * @param iconSize размер иконки
- * @param iconTopPadding отступ иконки сверху
- * @param iconStartPadding отступ иконки в начале
  * @param animationProgress прогресс анимации лейбла и заглушки
  * @param scrollState состояние скролла
  */
@@ -98,7 +91,10 @@ internal fun TextAreaLayout(
         content = {
             LabelContent(
                 modifier = Modifier
-                    .padding(start = paddings.startContentPadding)
+                    .padding(
+                        start = paddings.startContentPadding,
+                        end = if (icon == null) paddings.endContentPadding else 0.dp,
+                    )
                     .layoutId(LabelId),
                 label = label,
             )
@@ -130,6 +126,7 @@ internal fun TextAreaLayout(
                 chipsSpacing = paddings.chipsSpacing,
                 topChipsPadding = paddings.topChipsPadding,
                 startContentPadding = paddings.startContentPadding,
+                endContentPadding = if (icon == null) paddings.endContentPadding else 0.dp,
                 scrollState = scrollState,
             )
         },
@@ -218,6 +215,7 @@ private fun CompositeTextFieldContent(
     chipsSpacing: Dp,
     topChipsPadding: Dp,
     startContentPadding: Dp,
+    endContentPadding: Dp,
     scrollState: ScrollState,
 ) {
     Column(
@@ -225,6 +223,7 @@ private fun CompositeTextFieldContent(
             .padding(
                 top = if (chips != null) topChipsPadding else 0.dp,
                 start = startContentPadding,
+                end = endContentPadding,
             )
             .verticalScroll(scrollState),
     ) {
@@ -326,6 +325,8 @@ private class TextAreaLayoutMeasurePolicy(
             textFieldWidth = textFieldPlaceable.width,
             trailingWidth = trailingPlaceable.widthOrZero(),
             labelWidth = labelPlaceable.widthOrZero(),
+            captionWidth = captionTextPlaceable.widthOrZero(),
+            counterWidth = counterTextPlaceable.widthOrZero(),
             placeholderWidth = placeholderPlaceable.widthOrZero(),
             constraints = constraints,
         )
@@ -426,12 +427,20 @@ private class TextAreaLayoutMeasurePolicy(
         val trailingWidth = measurables.find { it.layoutId == TrailingId }?.let {
             intrinsicMeasurer(it, height)
         } ?: 0
+        val captionWidth = measurables.find { it.layoutId == CaptionTextId }?.let {
+            intrinsicMeasurer(it, height)
+        } ?: 0
+        val counterWidth = measurables.find { it.layoutId == CounterTextId }?.let {
+            intrinsicMeasurer(it, height)
+        } ?: 0
         return calculateWidth(
             textFieldWidth = textFieldWidth,
             trailingWidth = trailingWidth,
             labelWidth = labelWidth,
             placeholderWidth = placeholderWidth,
             constraints = ZeroConstraints,
+            captionWidth = captionWidth,
+            counterWidth = counterWidth,
         )
     }
 
@@ -474,6 +483,8 @@ private fun calculateWidth(
     labelWidth: Int,
     placeholderWidth: Int,
     constraints: Constraints,
+    captionWidth: Int,
+    counterWidth: Int,
 ): Int {
     val middleSection = maxOf(
         textFieldWidth,
@@ -481,7 +492,8 @@ private fun calculateWidth(
         placeholderWidth,
     )
     val wrappedWidth = middleSection + trailingWidth
-    return max(wrappedWidth, constraints.minWidth)
+    val bottomSection = captionWidth + counterWidth
+    return maxOf(wrappedWidth, bottomSection, constraints.minWidth)
 }
 
 private fun calculateHeight(
