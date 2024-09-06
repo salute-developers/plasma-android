@@ -9,6 +9,11 @@ import com.sdds.playground.sandbox.buttons.SandboxButtonPreviewSizeMSecondary
 import com.sdds.playground.sandbox.buttons.SandboxButtonPreviewSizeSClear
 import com.sdds.playground.sandbox.buttons.SandboxButtonPreviewSizeSWarning
 import com.sdds.playground.sandbox.buttons.SandboxButtonPreviewSizeXSDefault
+import com.sdds.playground.sandbox.buttons.SandboxIconButtonPreviewLDefault
+import com.sdds.playground.sandbox.buttons.SandboxIconButtonPreviewLWhiteDarkTheme
+import com.sdds.playground.sandbox.buttons.SandboxIconButtonPreviewMWarning
+import com.sdds.playground.sandbox.buttons.SandboxIconButtonPreviewSDisabled
+import com.sdds.playground.sandbox.buttons.SandboxIconButtonPreviewXsLoading
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
@@ -77,6 +82,43 @@ class ComposeButtonScreenshotTest : RoborazziConfig() {
         composeTestRule.setContent {
             SandboxTheme(darkTheme = true) {
                 SandboxButtonPreviewSizeLWhiteDarkTheme()
+            }
+        }
+    }
+
+    @Test
+    fun testIconButtonPreviewLDefault() {
+        composeTestRule.setContent {
+            SandboxIconButtonPreviewLDefault()
+        }
+    }
+
+    @Test
+    fun testIconButtonPreviewMWarning() {
+        composeTestRule.setContent {
+            SandboxIconButtonPreviewMWarning()
+        }
+    }
+
+    @Test
+    fun testIconButtonPreviewSDisabled() {
+        composeTestRule.setContent {
+            SandboxIconButtonPreviewSDisabled()
+        }
+    }
+
+    @Test
+    fun testIconButtonPreviewXsLoading() {
+        composeTestRule.setContent {
+            SandboxIconButtonPreviewXsLoading()
+        }
+    }
+
+    @Test
+    fun testIconButtonPreviewLWhiteDarkTheme() {
+        composeTestRule.setContent {
+            SandboxTheme(darkTheme = true) {
+                SandboxIconButtonPreviewLWhiteDarkTheme()
             }
         }
     }
