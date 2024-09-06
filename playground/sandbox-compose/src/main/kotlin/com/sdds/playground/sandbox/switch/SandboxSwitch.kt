@@ -6,6 +6,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.sdds.compose.uikit.Switch
+import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.tokens.compose.StylesSaluteTheme
 
 @Composable
@@ -39,32 +40,38 @@ internal fun SandboxSwitch(
 @Composable
 @Preview
 internal fun SandboxSwitchPreviewOn() {
-    SandboxSwitch(
-        active = true,
-        label = "Label",
-        description = "Description",
-        enabled = true,
-    )
+    SandboxTheme {
+        SandboxSwitch(
+            active = true,
+            label = "Label",
+            description = "Description",
+            enabled = true,
+        )
+    }
 }
 
 @Composable
 @Preview
 internal fun SandboxSwitchPreviewOff() {
-    SandboxSwitch(
-        active = false,
-        label = "Label",
-        description = "Description",
-        enabled = false,
-    )
+    SandboxTheme {
+        SandboxSwitch(
+            active = false,
+            label = "Label",
+            description = "Description",
+            enabled = false,
+        )
+    }
 }
 
 @Composable
 @Preview
 internal fun SandboxSwitchPreviewOnDisabled() {
-    SandboxSwitch(
-        active = true,
-        label = "Label",
-        description = "Description",
-        enabled = false,
-    )
+    SandboxTheme {
+        SandboxSwitch(
+            active = true,
+            label = "Label",
+            description = "Description",
+            enabled = false,
+        )
+    }
 }

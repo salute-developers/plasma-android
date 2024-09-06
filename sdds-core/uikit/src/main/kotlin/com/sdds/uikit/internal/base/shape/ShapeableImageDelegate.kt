@@ -14,12 +14,11 @@ import android.graphics.RectF
 import android.view.View
 import android.view.ViewOutlineProvider
 import androidx.annotation.Dimension
-import androidx.annotation.StyleRes
-import com.google.android.material.shape.MaterialShapeDrawable
-import com.google.android.material.shape.ShapeAppearanceModel
-import com.google.android.material.shape.ShapeAppearancePathProvider
 import com.sdds.uikit.ImageView
 import com.sdds.uikit.internal.base.unsafeLazy
+import com.sdds.uikit.shape.ShapeDrawable
+import com.sdds.uikit.shape.ShapeModel
+import com.sdds.uikit.shape.ShapeModelPathProvider
 
 /**
  * Делегат, добавляющий [ImageView] возможность изменять форму и рисовать границу
@@ -28,7 +27,7 @@ import com.sdds.uikit.internal.base.unsafeLazy
  */
 internal class ShapeableImageDelegate(private val imageView: ImageView) {
 
-    private val pathProvider: ShapeAppearancePathProvider by unsafeLazy { ShapeAppearancePathProvider() }
+    private val pathProvider: ShapeModelPathProvider by unsafeLazy { ShapeModelPathProvider() }
     private val borderPaint: Paint by unsafeLazy {
         Paint().apply {
             style = Paint.Style.STROKE
@@ -52,25 +51,20 @@ internal class ShapeableImageDelegate(private val imageView: ImageView) {
     @Dimension
     private var strokeWidth = 0f
     private var strokeColor: ColorStateList? = null
-    private var shapeAppearanceModel: ShapeAppearanceModel? = null
-    private var shadowDrawable: MaterialShapeDrawable? = null
+    private var shapeModel: ShapeModel? = null
+    private var shadowDrawable: ShapeDrawable? = null
 
     /**
-     * Устанавливает форму по идентификатору стиля в ресурсах [shapeId].
+     * Устанавливает форму [shape].
      * Если [invalidate] == true, то [imageView] будет перерисована.
-     * @param shapeId идентификатор стиля в ресурсах
+     * @param shape [ShapeModel]
      * @param invalidate нужно ли перерисовать [imageView]
      */
-    fun setShape(@StyleRes shapeId: Int, invalidate: Boolean = false) {
-        if (shapeId == 0) return
-        val model = ShapeAppearanceModel
-            .builder(imageView.context, shapeId, 0)
-            .build()
-        shapeAppearanceModel = model
-
+    fun setShape(shape: ShapeModel, invalidate: Boolean = false) {
+        shapeModel = shape
         imageView.outlineProvider = OutlineProvider()
 
-        shadowDrawable?.shapeAppearanceModel = model
+        shadowDrawable?.setShapeModel(shape)
         updateShapeMask(imageView.width, imageView.height)
         if (invalidate) invalidate()
     }
@@ -116,7 +110,7 @@ internal class ShapeableImageDelegate(private val imageView: ImageView) {
     fun updateShapeMask(width: Int, height: Int) = with(imageView) {
         destination[paddingLeft.toFloat(), paddingTop.toFloat(), (width - paddingRight).toFloat()] =
             (height - paddingBottom).toFloat()
-        pathProvider.calculatePath(shapeAppearanceModel, 1f /*interpolation*/, destination, path)
+        pathProvider.providePath(shapeModel, destination, path)
         // Remove path from rect to draw with clear paint.
         maskPath.rewind()
         borderPath.rewind()
@@ -156,11 +150,11 @@ internal class ShapeableImageDelegate(private val imageView: ImageView) {
     private inner class OutlineProvider : ViewOutlineProvider() {
         private val rect = Rect()
         override fun getOutline(view: View, outline: Outline) {
-            if (shapeAppearanceModel == null) {
+            if (shapeModel == null) {
                 return
             }
             val drawable = shadowDrawable
-                ?: MaterialShapeDrawable(shapeAppearanceModel ?: return)
+                ?: ShapeDrawable(shapeModel ?: return)
                     .also { shadowDrawable = it }
 
             destination.round(rect)

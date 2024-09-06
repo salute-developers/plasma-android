@@ -1,6 +1,5 @@
 package com.sdds.playground.sandbox.buttons
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
@@ -22,9 +21,10 @@ import kotlinx.coroutines.flow.stateIn
  */
 internal class ButtonParametersViewModel(
     private val buttonType: ButtonType,
+    private val defaultState: ButtonUiState,
 ) : ViewModel(), PropertiesOwner {
 
-    private val _buttonSate = MutableStateFlow(ButtonUiState())
+    private val _buttonSate = MutableStateFlow(defaultState)
 
     /**
      * Состояние кнопки
@@ -53,7 +53,13 @@ internal class ButtonParametersViewModel(
     override fun updateProperty(name: String, value: Any?) {
         val pName = PropertyName.values().find { it.value == name }
         when (pName) {
-            PropertyName.Variant -> updateVariant(ButtonVariant.valueOf(value?.toString() ?: return))
+            PropertyName.Variant -> {
+                val variant = when (buttonType) {
+                    ButtonType.Basic -> BasicButtonVariant.valueOf(value?.toString() ?: return)
+                    ButtonType.Icon -> IconButtonVariant.valueOf(value?.toString() ?: return)
+                }
+                updateVariant(variant)
+            }
             PropertyName.Icon -> updateIcon(
                 when (value?.toString()) {
                     ButtonIcon.Start::class.simpleName -> ButtonIcon.Start
@@ -75,7 +81,7 @@ internal class ButtonParametersViewModel(
      * @see PropertiesOwner.resetToDefault
      */
     override fun resetToDefault() {
-        _buttonSate.value = ButtonUiState()
+        _buttonSate.value = defaultState
     }
 
     private fun updateVariant(variant: ButtonVariant) {
@@ -130,7 +136,7 @@ internal class ButtonParametersViewModel(
         return listOfNotNull(
             enumProperty(
                 name = PropertyName.Variant.value,
-                value = variant,
+                value = variant as IconButtonVariant,
             ),
 
             Property.BooleanProperty(
@@ -148,7 +154,7 @@ internal class ButtonParametersViewModel(
         return listOfNotNull(
             enumProperty(
                 name = PropertyName.Variant.value,
-                value = variant,
+                value = variant as BasicButtonVariant,
             ),
 
             Property.SingleChoiceProperty(
@@ -223,11 +229,11 @@ internal enum class ButtonType {
  */
 internal class ButtonParametersViewModelFactory(
     private val type: ButtonType,
+    private val defaultState: ButtonUiState,
 ) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        Log.e("ButtonParametersViewModelFactory", "create: type $type")
-        return ButtonParametersViewModel(buttonType = type) as T
+        return ButtonParametersViewModel(buttonType = type, defaultState = defaultState) as T
     }
 }

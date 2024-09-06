@@ -8,7 +8,7 @@
     android:paddingHorizontal="@dimen/sdds_spacer_8x">
 
     <com.sdds.uikit.TextView
-        style="@style/Thmbldr.StylesSalute.Typography.BodyMBold"
+        style="@style/Serv.SddsServ.Typography.BodyMBold"
         android:id="@+id/property_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -16,6 +16,7 @@
         android:ellipsize="end"
         android:maxLines="1"
         tools:text="Property name"
+        android:textColor="?serv_textDefaultPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/property_switch"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,6 +26,8 @@
         android:id="@+id/property_switch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:drawablePadding="0dp"
+        android:clickable="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

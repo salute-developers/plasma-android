@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <integer name="serv_surfaceAccentGradient_angle">45</integer>
+    <string-array name="serv_surfaceAccentGradient_stops">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+
+    <color name="serv_surface_default_accent_gradient_color_0">#1A9E32</color>
+    <color name="serv_surface_default_accent_gradient_color_1">#04C6C9</color>
+
+    <integer-array name="serv_surfaceAccentGradient_colors">
+        <item>@color/serv_surface_default_accent_gradient_color_0</item>
+        <item>@color/serv_surface_default_accent_gradient_color_1</item>
+    </integer-array>
+</resources>

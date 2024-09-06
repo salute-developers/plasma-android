@@ -15,15 +15,15 @@ import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.constrainHeight
 import androidx.compose.ui.unit.constrainWidth
+import com.sdds.compose.uikit.internal.common.FlowRowLayout.Mode
 
 /**
- * Контейнер, располагающий элементы в строку с возможностью переноса / скролла
+ * Контейнер, располагающий элементы в строку с возможностью переноса.
  *
  * @param modifier модификатор
  * @param horizontalSpacing горизонтальный отступ между элементами
  * @param verticalSpacing вертикальный отступ между элементами
- * @param shouldWrap если true, элементы будут заполнять строку и переноситься на новую при недостатке места.
- * Если false, элементы будут расположены в одну строку с возможностью скролла.
+ * @param mode режим заполнения контентом (см. [Mode])
  * @param content контент (элементы группы)
  */
 @Composable
@@ -31,31 +31,38 @@ internal fun FlowRowLayout(
     modifier: Modifier = Modifier,
     horizontalSpacing: Dp,
     verticalSpacing: Dp,
-    shouldWrap: Boolean = true,
+    mode: Mode = Mode.Wrap,
     content: @Composable FlowRowScope.() -> Unit,
 ) {
-    val measurePolicy = remember(horizontalSpacing, verticalSpacing, shouldWrap) {
-        ChipGroupMeasurePolicy(horizontalSpacing, verticalSpacing, shouldWrap)
-    }
-
-    val scrollModifier = if (!shouldWrap) {
-        val scrollableState = rememberScrollState(0)
-        Modifier.horizontalScroll(scrollableState)
-    } else {
-        Modifier
+    val measurePolicy = remember(horizontalSpacing, verticalSpacing, mode) {
+        FlowRowMeasurePolicy(horizontalSpacing, verticalSpacing, mode)
     }
 
     Layout(
+        modifier = modifier.then(
+            if (mode == Mode.Scrollable) {
+                Modifier.horizontalScroll(rememberScrollState(0))
+            } else {
+                Modifier
+            },
+        ),
         content = { FlowRowScopeImpl.content() },
         measurePolicy = measurePolicy,
-        modifier = modifier.then(scrollModifier),
     )
 }
 
-private class ChipGroupMeasurePolicy(
+internal object FlowRowLayout {
+    enum class Mode {
+        Wrap,
+        Scrollable,
+        Unlimited,
+    }
+}
+
+private class FlowRowMeasurePolicy(
     private val horizontalSpacing: Dp,
     private val verticalSpacing: Dp,
-    private val shouldWrap: Boolean,
+    private val mode: Mode,
 ) : MeasurePolicy {
 
     override fun MeasureScope.measure(
@@ -63,14 +70,15 @@ private class ChipGroupMeasurePolicy(
         constraints: Constraints,
     ): MeasureResult {
         val itemConstraints = constraints.copy(minWidth = 0, minHeight = 0)
-        val maxWidth = constraints.maxWidth
-        val maxHeight = constraints.maxHeight
+
         val horizontalSpacingPx = horizontalSpacing.roundToPx()
         val verticalSpacingPx = verticalSpacing.roundToPx()
 
         val placeables = measurables.map { it.measure(itemConstraints) }
-        val rowHeight = placeables.first().measuredHeight
+        val rowHeight = placeables.firstOrNull()?.measuredHeight ?: 0
 
+        val maxWidth = constraints.maxWidth
+        val maxHeight = constraints.maxHeight
         val (maxRowWidth, maxRowsHeight) = placeables.getMaxDimensions(
             rowHeight = rowHeight,
             horizontalSpacingPx = horizontalSpacingPx,
@@ -90,7 +98,7 @@ private class ChipGroupMeasurePolicy(
                 if (currentX + startMargin + placeable.measuredWidth <= maxWidth) {
                     placeable.placeRelative(currentX + startMargin, currentY)
                     currentX += startMargin + placeable.measuredWidth
-                } else if (shouldWrap) {
+                } else if (mode == Mode.Wrap) {
                     currentY += verticalSpacingPx + rowHeight
                     currentX = 0
                     if (placeable.measuredWidth <= maxWidth && currentY + rowHeight <= maxHeight) {
@@ -99,6 +107,7 @@ private class ChipGroupMeasurePolicy(
                     }
                 } else {
                     placeable.placeRelative(currentX + startMargin, currentY)
+                    currentX += startMargin + placeable.measuredWidth
                 }
             }
         }

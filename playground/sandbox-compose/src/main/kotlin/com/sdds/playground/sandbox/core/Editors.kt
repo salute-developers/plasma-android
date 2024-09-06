@@ -99,6 +99,7 @@ private fun TextPropertyEditor(
     SandboxTextField(
         value = textFieldValue,
         modifier = Modifier
+            .fillMaxWidth()
             .padding(Margins)
             .focusRequester(focusRequester),
         keyboardOptions = keyboardOptions,

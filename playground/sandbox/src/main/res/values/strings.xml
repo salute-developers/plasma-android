@@ -7,7 +7,16 @@
     <string name="sandbox_editor_confirm">Подтвердить</string>
     <string name="sandbox_properties_header_name">Параметр</string>
     <string name="sandbox_properties_header_value">Значение</string>
+    <string name="menu_avatar">Avatar</string>
+    <string name="menu_avatargroup">AvatarGroup</string>
     <string name="menu_basicButton">BasicButton</string>
+    <string name="menu_iconButton">IconButton</string>
+    <string name="menu_checkbox">CheckBox</string>
+    <string name="menu_chip">Chip</string>
+    <string name="menu_radiobox">RadioBox</string>
+    <string name="menu_progressbar">ProgressBar</string>
+    <string name="menu_switch">Switch</string>
+    <string name="menu_textfield">TextField</string>
     <string name="sandbox_editor_title">Параметр: %1$s</string>
     <string name="sandbox_editor_placeholder">Введите значение…</string>
     <string name="sandbox_editor_confirm_title">Подтвердить</string>

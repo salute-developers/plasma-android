@@ -50,7 +50,7 @@ internal fun SandboxProgressPreviewDefaultTheme() {
     SandboxTheme {
         SandboxProgress(
             progress = 0.5f,
-            Modifier.width(240.dp),
+            modifier = Modifier.width(240.dp),
             style = SandboxProgress.Style.Default,
         )
     }
@@ -62,7 +62,7 @@ internal fun SandboxProgressPreviewWarningTheme() {
     SandboxTheme {
         SandboxProgress(
             progress = 0.8f,
-            Modifier.width(240.dp),
+            modifier = Modifier.width(240.dp),
             style = SandboxProgress.Style.Warning,
         )
     }

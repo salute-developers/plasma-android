@@ -1,5 +1,6 @@
 package com.sdds.playground.sandbox.core.view
 
+import android.os.Build
 import android.os.Bundle
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -26,9 +27,20 @@ internal abstract class ComponentFragment : Fragment(), PropertiesAdapter.Intera
     private val propertiesAdapter: PropertiesAdapter = PropertiesAdapter()
     private var currentProperty: Property<*>? = null
 
+    protected open val defaultLayoutParams: LayoutParams =
+        LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)
+
     abstract val componentLayout: View
 
     abstract val propertiesOwner: PropertiesOwner
+
+    protected inline fun <reified T> getState(default: T): T {
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            arguments?.getParcelable(DESTINATION_MESSAGE_ARG, T::class.java)
+        } else {
+            arguments?.getParcelable(DESTINATION_MESSAGE_ARG)
+        } ?: default
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         _binding = FragmentComponentScaffoldBinding.inflate(inflater, container, false)
@@ -60,15 +72,14 @@ internal abstract class ComponentFragment : Fragment(), PropertiesAdapter.Intera
             .launchIn(viewLifecycleOwner.lifecycleScope)
     }
 
-    protected fun dispatchComponentStyleChanged(
-        layoutParams: LayoutParams = LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT),
-    ) {
+    protected fun dispatchComponentStyleChanged(layoutParams: LayoutParams = defaultLayoutParams) {
         _binding?.componentContainer?.apply {
             removeAllViews()
             layoutParams.gravity = Gravity.CENTER
             addView(componentLayout, layoutParams)
         }
     }
+
     override fun onDestroyView() {
         super.onDestroyView()
         propertiesAdapter.setInteractionListener(null)
@@ -86,6 +97,7 @@ internal abstract class ComponentFragment : Fragment(), PropertiesAdapter.Intera
                 currentValue = property.value,
                 choices = property.variants,
             ).show(childFragmentManager, "SingleChoicePropertyEditor")
+
             is Property.IntProperty -> EditorFragment.textEditor(
                 propertyName = property.name,
                 currentValue = property.value.toString(),
@@ -96,5 +108,9 @@ internal abstract class ComponentFragment : Fragment(), PropertiesAdapter.Intera
                 currentValue = property.value,
             ).show(childFragmentManager, "StringPropertyEditor")
         }
+    }
+
+    companion object {
+        const val DESTINATION_MESSAGE_ARG = "DestinationMessage"
     }
 }

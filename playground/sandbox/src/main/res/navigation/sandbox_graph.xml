@@ -3,12 +3,66 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/sandbox_graph"
-    app:startDestination="@id/nav_basic_button">
+    app:startDestination="@id/nav_avatar">
+
+    <fragment
+        android:id="@+id/nav_avatar"
+        android:name="com.sdds.playground.sandbox.avatar.AvatarFragment"
+        android:label="@string/menu_avatar"
+        tools:layout="@layout/fragment_component_scaffold" />
+
+    <fragment
+        android:id="@+id/nav_avatargroup"
+        android:name="com.sdds.playground.sandbox.avatar.AvatarGroupFragment"
+        android:label="@string/menu_avatargroup"
+        tools:layout="@layout/fragment_component_scaffold" />
 
     <fragment
         android:id="@+id/nav_basic_button"
         android:name="com.sdds.playground.sandbox.buttons.BasicButtonFragment"
         android:label="@string/menu_basicButton"
+        tools:layout="@layout/fragment_component_scaffold" />
+
+    <fragment
+        android:id="@+id/nav_icon_button"
+        android:name="com.sdds.playground.sandbox.buttons.IconButtonFragment"
+        android:label="@string/menu_basicButton"
+        tools:layout="@layout/fragment_component_scaffold" />
+
+    <fragment
+        android:id="@+id/nav_checkbox"
+        android:name="com.sdds.playground.sandbox.checkbox.CheckBoxFragment"
+        android:label="@string/menu_checkbox"
+        tools:layout="@layout/fragment_component_scaffold" />
+
+    <fragment
+        android:id="@+id/nav_chip"
+        android:name="com.sdds.playground.sandbox.chip.ChipFragment"
+        android:label="@string/menu_chip"
+        tools:layout="@layout/fragment_component_scaffold" />
+
+    <fragment
+        android:id="@+id/nav_radiobox"
+        android:name="com.sdds.playground.sandbox.radiobox.RadioBoxFragment"
+        android:label="@string/menu_radiobox"
+        tools:layout="@layout/fragment_component_scaffold" />
+
+    <fragment
+        android:id="@+id/nav_progressbar"
+        android:name="com.sdds.playground.sandbox.progress.ProgressBarFragment"
+        android:label="@string/menu_progressbar"
+        tools:layout="@layout/fragment_component_scaffold" />
+
+    <fragment
+        android:id="@+id/nav_switch"
+        android:name="com.sdds.playground.sandbox.switcher.SwitchFragment"
+        android:label="@string/menu_switch"
+        tools:layout="@layout/fragment_component_scaffold" />
+
+    <fragment
+        android:id="@+id/nav_textfield"
+        android:name="com.sdds.playground.sandbox.textfield.TextFieldFragment"
+        android:label="@string/menu_textfield"
         tools:layout="@layout/fragment_component_scaffold" />
 
 </navigation>

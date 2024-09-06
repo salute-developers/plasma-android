@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Sdds.Components.CheckBox" parent="Widget.AppCompat.CompoundButton.CheckBox">
+        <item name="android:background">@null</item>
+        <item name="sd_boxCornerRadius">6dp</item>
+        <item name="sd_buttonSize">20dp</item>
+        <item name="sd_descriptionPadding">2dp</item>
+        <item name="sd_descriptionTextColor">#8F080808</item>
+        <item name="android:gravity">start|center_vertical</item>
+        <item name="android:drawablePadding">12dp</item>
+    </style>
+</resources>

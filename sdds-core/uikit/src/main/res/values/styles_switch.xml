@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Sdds.Components.Switch">
+    <style name="Sdds.Components.Switch" parent="android:Widget.CompoundButton">
         <item name="sd_buttonTrackColor">@color/sd_color_switch_track</item>
         <item name="sd_buttonThumbColor">#fff</item>
+        <item name="android:drawablePadding">12dp</item>
     </style>
 </resources>

@@ -1,21 +1,22 @@
 package com.sdds.uikit
 
+import android.animation.ValueAnimator
 import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Canvas
-import android.graphics.ColorFilter
-import android.graphics.Paint
 import android.graphics.PixelFormat
+import android.graphics.Rect
 import android.graphics.drawable.Drawable
+import android.graphics.drawable.DrawableWrapper
 import android.util.AttributeSet
-import android.util.LayoutDirection
 import android.view.View
 import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
 import androidx.appcompat.content.res.AppCompatResources
-import com.sdds.uikit.internal.base.configure
-import com.sdds.uikit.internal.base.unsafeLazy
+import androidx.core.graphics.withTranslation
 import com.sdds.uikit.internal.base.wrapWithInset
+import com.sdds.uikit.shape.ShapeDrawable
+import com.sdds.uikit.shape.ShapeModel
 import kotlin.math.min
 
 /**
@@ -29,18 +30,17 @@ open class ProgressBar @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = android.R.attr.progressBarStyle,
-    defStyleRes: Int = 0,
+    defStyleRes: Int = R.style.Sdds_Components_ProgressBar,
 ) : View(context, attrs, defStyleAttr) {
 
-    private val _progressDrawable: LineDrawable by unsafeLazy {
-        LineDrawable().apply {
-            callback = this@ProgressBar
-            startFraction = 0f
-            endFraction = progress / maxProgress
+    private lateinit var _progressDrawable: LineDrawable
+    private lateinit var _backgroundDrawable: Drawable
+
+    private var _progressAnimator: ValueAnimator = ValueAnimator().apply {
+        addUpdateListener {
+            progress = it.animatedValue as Float
         }
     }
-
-    private var _backgroundDrawable: Drawable
 
     private var _currentProgress: Float = 0f
     private var _maxProgress: Float = MAX_PROGRESS
@@ -92,10 +92,24 @@ open class ProgressBar @JvmOverloads constructor(
         }
 
     init {
-        _backgroundDrawable = LineDrawable().apply {
-            callback = this@ProgressBar
-        }
         obtainAttributes(context, attrs, defStyleAttr, defStyleRes)
+    }
+
+    /**
+     * Устанавливает текущий прогресс с анимацией, если [animate] == true
+     * @param progress текущий прогресс
+     * @param animate включена ли анимация
+     */
+    open fun setProgress(progress: Float, animate: Boolean) {
+        if (!animate) {
+            this.progress = progress
+            return
+        }
+        if (_progressAnimator.isRunning) {
+            _progressAnimator.cancel()
+        }
+        _progressAnimator.setFloatValues(_currentProgress, progress)
+        _progressAnimator.start()
     }
 
     /**
@@ -155,17 +169,21 @@ open class ProgressBar @JvmOverloads constructor(
             measuredHeight
         }
         setMeasuredDimension(newWidth, newHeight)
+    }
+
+    override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
+        super.onSizeChanged(w, h, oldw, oldh)
         _progressDrawable.setBounds(
             paddingStart,
             paddingTop,
-            measuredWidth - paddingEnd,
-            measuredHeight - paddingBottom,
+            w - paddingEnd,
+            h - paddingBottom,
         )
         _backgroundDrawable.setBounds(
             paddingStart,
             paddingTop,
-            measuredWidth - paddingEnd,
-            measuredHeight - paddingBottom,
+            w - paddingEnd,
+            h - paddingBottom,
         )
     }
 
@@ -191,8 +209,6 @@ open class ProgressBar @JvmOverloads constructor(
         _minProgress = typedArray.getFloat(R.styleable.ProgressBar_sd_minProgress, MIN_PROGRESS)
         _currentProgress = typedArray.getFloat(R.styleable.ProgressBar_sd_progress, 0f)
             .coerceIn(_minProgress, _maxProgress)
-        _progressDrawable.setTintList(typedArray.getColorStateList(R.styleable.ProgressBar_android_progressTint))
-        _backgroundDrawable.setTintList(typedArray.getColorStateList(R.styleable.ProgressBar_backgroundTint))
 
         _inset = typedArray.getDimensionPixelSize(R.styleable.ProgressBar_android_inset, 0)
         _insetLeft = typedArray.getDimensionPixelSize(R.styleable.ProgressBar_android_insetLeft, _inset)
@@ -201,97 +217,77 @@ open class ProgressBar @JvmOverloads constructor(
         _insetBottom = typedArray.getDimensionPixelSize(R.styleable.ProgressBar_android_insetBottom, _inset)
 
         _maxHeight = typedArray.getDimensionPixelSize(R.styleable.ProgressBar_android_maxHeight, 0)
+        val shapeModel = ShapeModel.create(context, attrs, defStyleAttr, defStyleRes)
 
-        _backgroundDrawable = _backgroundDrawable.wrapWithInset(
-            _insetLeft,
-            _insetTop,
-            _insetRight,
-            _insetBottom,
-        )
+        val background = (typedArray.getDrawable(R.styleable.ProgressBar_android_background) as? ShapeDrawable)
+            ?.apply { setShapeModel(shapeModel) }
+            ?: ShapeDrawable(shapeModel)
+        _backgroundDrawable = background
+            .wrapLine(this)
+            .wrapWithInset(
+                _insetLeft,
+                _insetTop,
+                _insetRight,
+                _insetBottom,
+            )
+        _backgroundDrawable.setTintList(typedArray.getColorStateList(R.styleable.ProgressBar_backgroundTint))
 
+        val progressDrawable =
+            (typedArray.getDrawable(R.styleable.ProgressBar_android_progressDrawable) as? ShapeDrawable)
+                ?.apply { setShapeModel(shapeModel) }
+                ?: ShapeDrawable(shapeModel)
+        _progressDrawable = progressDrawable.wrapLine(this)
+        _progressDrawable.setTintList(typedArray.getColorStateList(R.styleable.ProgressBar_android_progressTint))
         typedArray.recycle()
         updateProgress()
     }
 
     private fun updateProgress() {
-        _progressDrawable.apply {
-            endFraction = progress / maxProgress
-        }
-        invalidate()
+        _progressDrawable.updateFraction(progress / maxProgress)
+        postInvalidateOnAnimation()
     }
 
-    private class LineDrawable : Drawable() {
+    private class LineDrawable(private val shapeDrawable: ShapeDrawable) : DrawableWrapper(shapeDrawable) {
 
-        var startFraction: Float = 0f
-        var endFraction: Float = 1f
-
-        private var tint: ColorStateList? = null
-
-        private val paint: Paint by unsafeLazy {
-            Paint().apply {
-                isAntiAlias = true
-                strokeCap = Paint.Cap.ROUND
-            }
-        }
+        private var _skipDraw: Boolean = false
+        private var _fraction: Float = MAX_PROGRESS
 
         override fun draw(canvas: Canvas) {
-            val colors = tint ?: return
-            canvas.save()
-            val strokeWidth = bounds.height().toFloat()
-            canvas.translate(bounds.left + strokeWidth / 2f, bounds.exactCenterY())
-            // рисуем фон
-            canvas.drawLineIndicator(
-                startFraction,
-                endFraction,
-                paint.configure(
-                    strokeWidth = strokeWidth,
-                    color = colors.getColorForState(state, colors.defaultColor),
-                ),
-            )
-            canvas.restore()
-        }
-
-        override fun setAlpha(alpha: Int) {
-            paint.alpha = alpha
-        }
-
-        override fun setColorFilter(colorFilter: ColorFilter?) {
-            paint.colorFilter = colorFilter
-        }
-
-        override fun setTintList(tint: ColorStateList?) {
-            super.setTintList(tint)
-            if (this.tint != tint && tint != null) {
-                this.tint = tint
+            if (_skipDraw) return
+            canvas.withTranslation(bounds.left.toFloat(), bounds.top.toFloat()) {
+                super.draw(this)
             }
         }
 
         @Suppress("OVERRIDE_DEPRECATION")
         override fun getOpacity(): Int = PixelFormat.OPAQUE
 
-        private fun Canvas.drawLineIndicator(
-            startFraction: Float,
-            endFraction: Float,
-            paint: Paint,
-        ) {
-            val width = bounds.width() - paint.strokeWidth
+        override fun onBoundsChange(bounds: Rect) {
+            super.onBoundsChange(bounds)
+            invalidateShape()
+        }
 
-            val isLtr = layoutDirection == LayoutDirection.LTR
-            val barStart = (if (isLtr) startFraction else 1f - endFraction) * width
-            val barEnd = (if (isLtr) endFraction else 1f - startFraction) * width
+        fun updateFraction(fraction: Float) {
+            if (_fraction == fraction) return
+            _fraction = fraction
+            invalidateShape()
+        }
 
-            drawLine(
-                barStart,
-                0f,
-                barEnd,
-                0f,
-                paint,
-            )
+        private fun invalidateShape() {
+            val width = bounds.width() * _fraction
+            val height = bounds.height().toFloat()
+            _skipDraw = width == 0f
+            shapeDrawable.resizeShape(width, height)
         }
     }
 
     private companion object {
         const val MAX_PROGRESS = 1f
         const val MIN_PROGRESS = 0f
+
+        fun ShapeDrawable.wrapLine(callback: Drawable.Callback): LineDrawable =
+            LineDrawable(this).apply {
+                this.callback = callback
+            }
     }
 }

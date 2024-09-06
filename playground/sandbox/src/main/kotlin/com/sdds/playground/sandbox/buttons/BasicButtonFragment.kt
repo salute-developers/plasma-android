@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.FrameLayout
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.core.view.ComponentFragment
 import com.sdds.playground.sandbox.core.view.PropertiesOwner
 import com.sdds.uikit.Button
@@ -19,17 +20,19 @@ import kotlinx.coroutines.flow.onEach
 internal class BasicButtonFragment : ComponentFragment() {
 
     private val buttonViewModel by viewModels<ButtonParametersViewModel> {
-        ButtonParametersViewModelFactory(ButtonType.Basic)
+        val default = ButtonUiState(BasicButtonVariant.BasicButtonLDefault)
+        ButtonParametersViewModelFactory(ButtonType.Basic, getState(default))
     }
 
     override val componentLayout: Button
         get() = Button(ContextThemeWrapper(requireContext(), currentVariant.styleRes))
+            .apply { id = R.id.basic_button }
             .also { button = it }
 
     override val propertiesOwner: PropertiesOwner
         get() = buttonViewModel
 
-    private var currentVariant: ButtonVariant = ButtonVariant.BasicButtonLDefault
+    private var currentVariant: ButtonVariant = BasicButtonVariant.BasicButtonLDefault
     private var button: Button? = null
     private var isFixedSize: Boolean = false
 

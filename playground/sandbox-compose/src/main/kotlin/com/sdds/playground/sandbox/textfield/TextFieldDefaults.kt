@@ -2,8 +2,7 @@ package com.sdds.playground.sandbox.textfield
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.shape.CornerSize
-import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
@@ -17,6 +16,8 @@ import com.sdds.compose.uikit.TextField
 import com.sdds.compose.uikit.TextField.DotBadge
 import com.sdds.compose.uikit.TextField.LabelType
 import com.sdds.compose.uikit.adjustBy
+import com.sdds.playground.sandbox.chip.SandboxEmbeddedChip
+import com.sdds.playground.sandbox.textfield.SandboxTextField.InputState
 import com.sdds.playground.sandbox.tokens.compose.StylesSaluteTheme
 
 /**
@@ -100,6 +101,8 @@ internal interface SandboxTextFieldStyles {
     /**
      * Текстовый стиль внешнего лейбла
      * @param size размер текстового поля
+     * @param colors цвета текстового поля
+     * @param inputState состояние текстового поля
      */
     @Composable
     fun outerLabelStyle(
@@ -111,8 +114,9 @@ internal interface SandboxTextFieldStyles {
     /**
      * Текстовый стиль внутреннего лейбла
      * @param size размер текстового поля
-     * @param isFocused true, если поле в фокусе
+     * @param inputState cостояние текстового поля
      * @param isEmpty true, если поле пустое
+     * @param colors цвета текстового поля
      */
     @Composable
     fun innerLabelStyle(
@@ -125,6 +129,8 @@ internal interface SandboxTextFieldStyles {
     /**
      * Текстовый стиль значения поля
      * @param size размер текстового поля
+     * @param colors цвета текстового поля
+     * @param inputState состояние текстового поля
      */
     @Composable
     fun valueStyle(
@@ -136,6 +142,8 @@ internal interface SandboxTextFieldStyles {
     /**
      * Текстовый стиль подписи поля
      * @param size размер текстового поля
+     * @param colors цвета текстового поля
+     * @param inputState состояние текстового поля
      */
     @Composable
     fun captionStyle(
@@ -147,6 +155,8 @@ internal interface SandboxTextFieldStyles {
     /**
      * Текстовый стиль заглушки поля
      * @param size размер текстового поля
+     * @param colors цвета текстового поля
+     * @param inputState состояние текстового поля
      */
     @Composable
     fun placeholderStyle(
@@ -168,24 +178,31 @@ internal object TextFieldDefaults {
         position: DotBadge.Position,
         hasLabel: Boolean,
         optionalText: String,
+        size: SandboxTextField.Size,
     ): TextField.FieldType {
         return when (this) {
             SandboxTextField.FieldType.Optional -> TextField.FieldType.Optional(
                 optionalText = optionalText,
             )
+
             SandboxTextField.FieldType.Required -> TextField.FieldType.Required(
-                dotBadge = dotBadge(labelType, position, hasLabel),
+                dotBadge = dotBadge(labelType, position, hasLabel, size),
             )
         }
     }
 
-    private fun dotBadge(labelType: LabelType, position: DotBadge.Position, hasLabel: Boolean): DotBadge {
+    private fun dotBadge(
+        labelType: LabelType,
+        position: DotBadge.Position,
+        hasLabel: Boolean,
+        size: SandboxTextField.Size,
+    ): DotBadge {
         return when {
             labelType == LabelType.Outer && hasLabel -> {
                 val paddings = if (position == DotBadge.Position.Start) {
                     PaddingValues(end = 6.dp)
                 } else {
-                    PaddingValues(start = 4.dp, top = 4.dp)
+                    PaddingValues(start = 4.dp, top = if (size == SandboxTextField.Size.XS) 2.dp else 4.dp)
                 }
                 DotBadge(
                     size = 6.dp,
@@ -196,7 +213,11 @@ internal object TextFieldDefaults {
             }
 
             else -> DotBadge(
-                size = 8.dp,
+                size = if (size == SandboxTextField.Size.S || size == SandboxTextField.Size.XS) {
+                    6.dp
+                } else {
+                    8.dp
+                },
                 paddingValues = PaddingValues(),
                 color = Color.Red,
                 position = position,
@@ -204,8 +225,45 @@ internal object TextFieldDefaults {
         }
     }
 
+    fun chipGroupSize(size: SandboxTextField.Size): SandboxEmbeddedChip.Size {
+        return when (size) {
+            SandboxTextField.Size.L -> SandboxEmbeddedChip.Size.L
+            SandboxTextField.Size.M -> SandboxEmbeddedChip.Size.M
+            SandboxTextField.Size.S -> SandboxEmbeddedChip.Size.S
+            SandboxTextField.Size.XS -> SandboxEmbeddedChip.Size.XS
+        }
+    }
+
     @Composable
-    fun textTopPadding(size: SandboxTextField.Size, labelType: LabelType): Dp {
+    fun chipContainerShape(size: SandboxTextField.Size): CornerBasedShape {
+        return when (size) {
+            SandboxTextField.Size.L -> StylesSaluteTheme.shapes.roundS
+            SandboxTextField.Size.M -> StylesSaluteTheme.shapes.roundXs
+            SandboxTextField.Size.S -> StylesSaluteTheme.shapes.roundXxs
+            SandboxTextField.Size.XS -> StylesSaluteTheme.shapes.roundXxs.adjustBy(all = (-2).dp)
+        }
+    }
+
+    fun textFieldPaddings(
+        size: SandboxTextField.Size,
+        labelType: LabelType,
+        hasChips: Boolean,
+    ): TextField.Paddings {
+        return TextField.Paddings(
+            startContentPadding = startContentPadding(size, hasChips),
+            endContentPadding = endContentPadding(size),
+            valueTopPadding = textTopPadding(size, labelType),
+            valueBottomPadding = textBottomPadding(size, labelType),
+            innerLabelToValuePadding = innerLabelToValuePadding(size),
+            outerLabelBottomPadding = outerLabelBottomPadding(size),
+            iconHorizontalPadding = iconMargin(size),
+            captionTopPadding = captionTopPadding(size),
+            chipsSpacing = 2.dp,
+            keepDotBadgeStartPadding = null,
+        )
+    }
+
+    private fun textTopPadding(size: SandboxTextField.Size, labelType: LabelType): Dp {
         return if (labelType == LabelType.Outer) {
             0.dp
         } else {
@@ -218,8 +276,7 @@ internal object TextFieldDefaults {
         }
     }
 
-    @Composable
-    fun textBottomPadding(size: SandboxTextField.Size, labelType: LabelType): Dp {
+    private fun textBottomPadding(size: SandboxTextField.Size, labelType: LabelType): Dp {
         return if (labelType == LabelType.Outer) {
             0.dp
         } else {
@@ -232,8 +289,7 @@ internal object TextFieldDefaults {
         }
     }
 
-    @Composable
-    fun iconMargin(size: SandboxTextField.Size): Dp =
+    private fun iconMargin(size: SandboxTextField.Size): Dp =
         when (size) {
             SandboxTextField.Size.L -> 8.dp
             SandboxTextField.Size.M -> 6.dp
@@ -241,8 +297,19 @@ internal object TextFieldDefaults {
             SandboxTextField.Size.XS -> 4.dp
         }
 
-    @Composable
-    fun horizontalContentPadding(size: SandboxTextField.Size): Dp =
+    private fun startContentPadding(size: SandboxTextField.Size, hasChips: Boolean): Dp =
+        if (hasChips) {
+            6.dp
+        } else {
+            when (size) {
+                SandboxTextField.Size.L -> 16.dp
+                SandboxTextField.Size.M -> 14.dp
+                SandboxTextField.Size.S -> 12.dp
+                SandboxTextField.Size.XS -> 8.dp
+            }
+        }
+
+    private fun endContentPadding(size: SandboxTextField.Size): Dp =
         when (size) {
             SandboxTextField.Size.L -> 16.dp
             SandboxTextField.Size.M -> 14.dp
@@ -250,8 +317,7 @@ internal object TextFieldDefaults {
             SandboxTextField.Size.XS -> 8.dp
         }
 
-    @Composable
-    fun innerLabelToValuePadding(size: SandboxTextField.Size): Dp =
+    private fun innerLabelToValuePadding(size: SandboxTextField.Size): Dp =
         when (size) {
             SandboxTextField.Size.L,
             SandboxTextField.Size.M,
@@ -262,8 +328,7 @@ internal object TextFieldDefaults {
             -> 0.dp
         }
 
-    @Composable
-    fun outerLabelBottomPadding(size: SandboxTextField.Size): Dp =
+    private fun outerLabelBottomPadding(size: SandboxTextField.Size): Dp =
         when (size) {
             SandboxTextField.Size.L -> 12.dp
             SandboxTextField.Size.M -> 10.dp
@@ -271,18 +336,7 @@ internal object TextFieldDefaults {
             SandboxTextField.Size.XS -> 6.dp
         }
 
-    @Composable
-    fun captionTopPadding(size: SandboxTextField.Size): Dp =
-        when (size) {
-            SandboxTextField.Size.L,
-            SandboxTextField.Size.M,
-            SandboxTextField.Size.S,
-            SandboxTextField.Size.XS,
-            -> 4.dp
-        }
-
-    @Composable
-    fun optionalTextPadding(size: SandboxTextField.Size): Dp =
+    private fun captionTopPadding(size: SandboxTextField.Size): Dp =
         when (size) {
             SandboxTextField.Size.L,
             SandboxTextField.Size.M,
@@ -318,14 +372,12 @@ internal object TextFieldDefaults {
      * Форма в зависимости от размера поля [SandboxTextField.Size]
      */
     @Composable
-    fun textFieldShapeFor(size: SandboxTextField.Size, shapeAdjustment: Dp) = when (size) {
-        SandboxTextField.Size.XS,
-        SandboxTextField.Size.S,
-        -> RoundedCornerShape(CornerSize(8.0.dp))
-
-        SandboxTextField.Size.M -> RoundedCornerShape(CornerSize(10.0.dp))
-        SandboxTextField.Size.L -> RoundedCornerShape(CornerSize(12.0.dp))
-    }.adjustBy(shapeAdjustment)
+    fun textFieldShapeFor(size: SandboxTextField.Size) = when (size) {
+        SandboxTextField.Size.XS -> StylesSaluteTheme.shapes.roundS
+        SandboxTextField.Size.S -> StylesSaluteTheme.shapes.roundM.adjustBy(all = (-2).dp)
+        SandboxTextField.Size.M -> StylesSaluteTheme.shapes.roundM
+        SandboxTextField.Size.L -> StylesSaluteTheme.shapes.roundM.adjustBy(all = 2.dp)
+    }
 }
 
 @Immutable

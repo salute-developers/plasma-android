@@ -4,8 +4,10 @@ import android.content.Context
 import android.graphics.RectF
 import android.graphics.drawable.shapes.RoundRectShape
 import android.graphics.drawable.shapes.Shape
+import android.util.AttributeSet
 import androidx.annotation.StyleRes
 import com.sdds.uikit.R
+import com.sdds.uikit.shape.ShapeModel.Companion.adjust
 
 /**
  * Модель, описывающая форму для [ShapeDrawable].
@@ -13,6 +15,7 @@ import com.sdds.uikit.R
  * @property cornerSizeTopRight [CornerSize] размер для верхнего правого угла
  * @property cornerSizeBottomRight [CornerSize] размер для нижнего правого угла
  * @property cornerSizeBottomLeft [CornerSize] размер для нижнего левого угла
+ * @property cornerFamily семейство углов [CornerFamily]
  * @author Малышев Александр on 12.08.2024
  */
 data class ShapeModel(
@@ -20,6 +23,7 @@ data class ShapeModel(
     val cornerSizeTopRight: CornerSize = SimpleRect,
     val cornerSizeBottomRight: CornerSize = SimpleRect,
     val cornerSizeBottomLeft: CornerSize = SimpleRect,
+    val cornerFamily: CornerFamily = CornerFamily.ROUNDED,
 ) {
     private var _currentBounds: RectF = RectF()
     private var _currentShape: Shape = NullShape
@@ -68,6 +72,45 @@ data class ShapeModel(
         val SimpleRect = AbsoluteCornerSize(0f)
 
         private val NullShape = RoundRectShape(null, null, null)
+
+        /**
+         * Возвращает новую [ShapeModel] с измененными на некоторое значение пикселей [adjustmentPx] углами
+         */
+        fun ShapeModel.adjust(adjustmentPx: Float): ShapeModel {
+            if (adjustmentPx <= 0) return this
+            return this.copy(
+                cornerSizeTopLeft = cornerSizeTopLeft.adjust(adjustmentPx),
+                cornerSizeTopRight = cornerSizeTopRight.adjust(adjustmentPx),
+                cornerSizeBottomRight = cornerSizeBottomRight.adjust(adjustmentPx),
+                cornerSizeBottomLeft = cornerSizeBottomLeft.adjust(adjustmentPx),
+                cornerFamily = cornerFamily,
+            )
+        }
+
+        /**
+         * Создает [ShapeModel]
+         * @param context контекст
+         * @param attributeSet набор атрибутов
+         * @param attributeSet атрибут стиля по умолчанию
+         * @param defStyleRes стиль по умолчанию
+         */
+        fun create(
+            context: Context,
+            attributeSet: AttributeSet? = null,
+            defStyleAttr: Int = 0,
+            defStyleRes: Int = 0,
+        ): ShapeModel {
+            val typedArray = context.obtainStyledAttributes(
+                attributeSet,
+                R.styleable.SdShape,
+                defStyleAttr,
+                defStyleRes,
+            )
+            val adjustment = typedArray.getDimension(R.styleable.SdShape_sd_shapeAppearanceAdjustment, 0f)
+            val shapeResId = typedArray.getResourceId(R.styleable.SdShape_sd_shapeAppearance, 0)
+            typedArray.recycle()
+            return create(context, shapeResId).adjust(adjustment)
+        }
 
         /**
          * Создает [ShapeModel] согласно атрибутам стиля с идентификатором [shapeAppearanceResId]

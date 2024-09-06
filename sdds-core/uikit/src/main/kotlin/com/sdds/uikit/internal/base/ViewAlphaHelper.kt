@@ -32,6 +32,7 @@ internal class ViewAlphaHelper(
      * Изменяет прозрачность [view] в зависимости от состояния [View.isEnabled]
      */
     fun updateAlphaByEnabledState(view: View) {
+        if (initialAlpha == disabledAlpha) return
         view.alpha = if (view.isEnabled) initialAlpha else disabledAlpha
     }
 

@@ -3,10 +3,10 @@ package com.sdds.uikit.internal.base
 import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Paint
+import android.graphics.Typeface
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.InsetDrawable
 import android.text.TextPaint
-import android.text.style.TextAppearanceSpan
 import androidx.annotation.StyleRes
 
 /**
@@ -82,8 +82,21 @@ internal fun ColorStateList?.colorForState(drawableState: IntArray?, defaultColo
  * Применяет стиль текста к объекту [TextPaint]
  * @param context контекст
  * @param styleId идентификатор стиля
+ * @param applyFont колбэк применения шрифта в объекту [TextPaint]
+ * @return [CancelableFontCallback]
  */
-internal fun TextPaint.applyTextAppearance(context: Context, @StyleRes styleId: Int) {
-    TextAppearanceSpan(context, styleId)
-        .updateDrawState(this)
+internal fun TextPaint.applyTextAppearance(
+    context: Context,
+    @StyleRes styleId: Int,
+    applyFont: CancelableFontCallback.ApplyFont? = null,
+): CancelableFontCallback {
+    val callback = CancelableFontCallback(
+        applyFont = {
+            typeface = it
+            applyFont?.apply(it)
+        },
+        fallbackFont = Typeface.DEFAULT,
+    )
+    TextAppearance(context, styleId).updateDrawState(context, this, callback)
+    return callback
 }

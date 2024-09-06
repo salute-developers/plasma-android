@@ -8,6 +8,7 @@ import androidx.compose.animation.core.updateTransition
 import androidx.compose.foundation.interaction.InteractionSource
 import androidx.compose.foundation.interaction.collectIsFocusedAsState
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
@@ -32,7 +33,6 @@ internal fun CommonDecorationBox(
     placeholder: @Composable (() -> Unit)? = null,
     leadingIcon: @Composable (() -> Unit)? = null,
     trailingIcon: @Composable (() -> Unit)? = null,
-    singleLine: Boolean = false,
     isError: Boolean = false,
     interactionSource: InteractionSource,
     textTopPadding: Dp,
@@ -40,6 +40,9 @@ internal fun CommonDecorationBox(
     labelToValuePadding: Dp,
     animation: TextField.Animation,
     iconSize: Dp,
+    chips: (@Composable () -> Unit)? = null,
+    chipsSpacing: Dp,
+    chipContainerShape: CornerBasedShape? = null,
 ) {
     val transformedText = remember(value, visualTransformation) {
         visualTransformation.filter(AnnotatedString(value))
@@ -77,12 +80,14 @@ internal fun CommonDecorationBox(
             label = label,
             leading = leadingIcon,
             trailing = trailingIcon,
-            singleLine = singleLine,
             animationProgress = labelProgress,
             textTopPadding = textTopPadding,
             textBottomPadding = textBottomPadding,
             labelToValuePadding = labelToValuePadding,
             iconSize = iconSize,
+            chips = chips,
+            chipsSpacing = chipsSpacing,
+            chipContainerShape = chipContainerShape,
         )
     }
 }

@@ -7,6 +7,7 @@ import android.content.res.TypedArray
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.ColorFilter
+import android.graphics.Outline
 import android.graphics.Paint
 import android.graphics.PixelFormat
 import android.graphics.Rect
@@ -19,6 +20,7 @@ import androidx.core.graphics.withTranslation
 import com.sdds.uikit.R
 import com.sdds.uikit.internal.base.colorForState
 import com.sdds.uikit.internal.base.configure
+import com.sdds.uikit.shape.ShapeModel.Companion.adjust
 import org.xmlpull.v1.XmlPullParser
 
 /**
@@ -91,7 +93,9 @@ open class ShapeDrawable() : Drawable() {
         defStyleRes: Int = 0,
     ) : this() {
         val typedArray = context.obtainStyledAttributes(attributeSet, R.styleable.SdShape, defStyleAttr, defStyleRes)
+        val adjustment = typedArray.getDimension(R.styleable.SdShape_sd_shapeAppearanceAdjustment, 0f)
         _shapeModel = ShapeModel.create(context, typedArray.getResourceId(R.styleable.SdShape_sd_shapeAppearance, 0))
+            .adjust(adjustment)
         _strokeTint = typedArray.getColorStateList(R.styleable.SdShape_sd_strokeColor)
         _strokeWidth = typedArray.getDimension(R.styleable.SdShape_sd_strokeWidth, 0f)
         typedArray.recycle()
@@ -144,6 +148,11 @@ open class ShapeDrawable() : Drawable() {
             _strokePaint.color = tint.colorForState(state)
             invalidateSelf()
         }
+    }
+
+    internal fun resizeShape(width: Float, height: Float) {
+        _shape?.resize(width, height)
+        invalidateSelf()
     }
 
     override fun draw(canvas: Canvas) {
@@ -200,6 +209,16 @@ open class ShapeDrawable() : Drawable() {
     }
 
     override fun getOpacity(): Int = PixelFormat.OPAQUE
+
+    override fun getOutline(outline: Outline) {
+        if (_shapeModel.cornerFamily == ShapeModel.CornerFamily.ROUNDED) {
+            val topLeftResolved = _shapeModel.cornerSizeTopLeft.getSize(_drawingBounds)
+            outline.setRoundRect(bounds, topLeftResolved)
+            return
+        } else {
+            super.getOutline(outline)
+        }
+    }
 
     override fun onStateChange(state: IntArray): Boolean {
         val borderColor = _strokeTint.colorForState(state)

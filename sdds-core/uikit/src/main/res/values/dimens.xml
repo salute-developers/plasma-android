@@ -40,9 +40,11 @@
     <dimen name="sdds_spacer_64x">128dp</dimen>
     <dimen name="sdds_spacer_72x">144dp</dimen>
     <dimen name="sdds_spacer_75x">150dp</dimen>
+    <dimen name="sdds_spacer_90x">180dp</dimen>
     <dimen name="sdds_spacer_92x">184dp</dimen>
     <dimen name="sdds_spacer_96x">192dp</dimen>
     <dimen name="sdds_spacer_108x">216dp</dimen>
+    <dimen name="sdds_spacer_115x">230dp</dimen>
     <dimen name="sdds_spacer_120x">240dp</dimen>
     <dimen name="sdds_spacer_125x">250dp</dimen>
     <dimen name="sdds_spacer_160x">320dp</dimen>

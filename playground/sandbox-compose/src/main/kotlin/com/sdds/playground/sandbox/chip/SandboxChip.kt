@@ -5,9 +5,14 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.Chip
+import com.sdds.compose.uikit.Icon
+import com.sdds.icons.R
+import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.chip.SandboxChipSettingsProvider.backgroundColor
 import com.sdds.playground.sandbox.chip.SandboxChipSettingsProvider.contentColor
 import com.sdds.playground.sandbox.chip.SandboxChipSettingsProvider.contentMargin
@@ -91,6 +96,30 @@ internal fun SandboxChip(
     )
 }
 
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxChipPreview() {
+    SandboxTheme {
+        SandboxChip(
+            size = SandboxChip.Size.M,
+            label = "label",
+            isSelected = true,
+            startContent = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_accessibility_24),
+                    contentDescription = "",
+                )
+            },
+            endContent = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_close_24),
+                    contentDescription = "",
+                )
+            },
+        )
+    }
+}
+
 internal object SandboxChip {
 
     enum class State {
@@ -109,5 +138,101 @@ internal object SandboxChip {
         M(40.dp),
         S(32.dp),
         XS(24.dp),
+    }
+}
+
+@Composable
+@Preview
+internal fun SandboxChipPreviewSizeMDefault() {
+    SandboxTheme {
+        SandboxChip(
+            size = SandboxChip.Size.L,
+            shape = SandboxChip.Shape.Default,
+            state = SandboxChip.State.Default,
+            label = "Label",
+            onClick = {},
+            startContent = {
+                Icon(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_plasma_24),
+                    contentDescription = null,
+                )
+            },
+            endContent = {
+                Icon(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_close_24),
+                    contentDescription = null,
+                )
+            },
+            enabled = true,
+        )
+    }
+}
+
+@Composable
+@Preview
+internal fun SandboxChipPreviewSizeXsSecondary() {
+    SandboxTheme(darkTheme = true) {
+        SandboxChip(
+            size = SandboxChip.Size.XS,
+            shape = SandboxChip.Shape.Default,
+            state = SandboxChip.State.Secondary,
+            label = "Label",
+            onClick = {},
+            startContent = {
+                Icon(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_plasma_24),
+                    contentDescription = null,
+                )
+            },
+            endContent = {
+                Icon(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_close_24),
+                    contentDescription = null,
+                )
+            },
+            enabled = true,
+        )
+    }
+}
+
+@Composable
+@Preview
+internal fun SandboxChipPreviewSizeMAccent() {
+    SandboxTheme {
+        SandboxChip(
+            size = SandboxChip.Size.M,
+            shape = SandboxChip.Shape.Pilled,
+            state = SandboxChip.State.Accent,
+            label = "Label",
+            onClick = {},
+            enabled = true,
+        )
+    }
+}
+
+@Composable
+@Preview
+internal fun SandboxChipPreviewSizeSDisabled() {
+    SandboxTheme {
+        SandboxChip(
+            size = SandboxChip.Size.S,
+            shape = SandboxChip.Shape.Default,
+            state = SandboxChip.State.Default,
+            label = "Label",
+            onClick = {},
+            startContent = {
+                Icon(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_plasma_24),
+                    contentDescription = null,
+                )
+            },
+            endContent = {
+                Icon(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_close_24),
+                    contentDescription = null,
+                )
+            },
+            enabled = false,
+        )
     }
 }

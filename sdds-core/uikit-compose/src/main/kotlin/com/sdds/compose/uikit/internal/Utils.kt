@@ -4,6 +4,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawWithContent
 import androidx.compose.ui.graphics.drawscope.ContentDrawScope
 import androidx.compose.ui.graphics.nativeCanvas
+import androidx.compose.ui.layout.Placeable
 
 /**
  * Рассчитывает линейную интерполяцию между значениями [a] в [b]
@@ -33,3 +34,6 @@ internal fun ContentDrawScope.drawWithLayer(block: ContentDrawScope.() -> Unit) 
         restoreToCount(checkPoint)
     }
 }
+
+internal fun Placeable?.widthOrZero(): Int = this?.width ?: 0
+internal fun Placeable?.heightOrZero(): Int = this?.height ?: 0

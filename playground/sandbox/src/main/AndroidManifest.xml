@@ -15,7 +15,6 @@
         <activity
             android:name=".SandboxActivity"
             android:exported="true"
-            android:label="@string/app_name"
             android:windowSoftInputMode="adjustNothing"
             android:theme="@style/Theme.Sandbox.NoActionBar">
             <intent-filter>

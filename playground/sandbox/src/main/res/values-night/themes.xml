@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Sandbox" parent="Serv.SddsServ.MaterialComponents.DayNight">
+        <item name="colorPrimary">?serv_surfaceDefaultSolidPrimary</item>
+        <item name="colorPrimaryVariant">?serv_surfaceDefaultSolidSecondary</item>
+        <item name="colorOnPrimary">?serv_textDefaultPrimary</item>
+        <item name="colorSurface">?serv_surfaceDefaultSolidCard</item>
+        <item name="colorOnSurface">?serv_textDefaultPrimary</item>
+        <item name="colorAccent">?serv_textDefaultAccent</item>
+        <item name="colorControlActivated">?serv_textDefaultAccent</item>
+        <item name="colorControlHighlight">@android:color/transparent</item>
+
+        <item name="android:colorBackground">?serv_backgroundDefaultPrimary</item>
+
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">false</item>
+
+        <item name="toolbarNavigationButtonStyle">@style/Toolbar.Button.Navigation.Tinted</item>
+        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+        <item name="android:toolbarStyle">@style/Theme.Sandbox.Toolbar</item>
+        <item name="toolbarStyle">@style/Theme.Sandbox.Toolbar</item>
+
+        <item name="sd_shapeAppearanceCircle">@style/Sdds.Shape.Round.Circle</item>
+        <item name="serv_shapeRoundXxl">@style/Serv.SddsServ.Shape.Round.Xxl</item>
+        <item name="serv_shapeRoundXl">@style/Serv.SddsServ.Shape.Round.Xl</item>
+        <item name="serv_shapeRoundL">@style/Serv.SddsServ.Shape.Round.L</item>
+        <item name="serv_shapeRoundM">@style/Serv.SddsServ.Shape.Round.M</item>
+        <item name="serv_shapeRoundS">@style/Serv.SddsServ.Shape.Round.S</item>
+        <item name="serv_shapeRoundXs">@style/Serv.SddsServ.Shape.Round.Xs</item>
+        <item name="serv_shapeRoundXxs">@style/Serv.SddsServ.Shape.Round.Xxs</item>
+        <item name="sd_disabledAlpha">0.4</item>
+
+        <item name="android:buttonStyle">@style/Theme.Sandbox.Components.BasicButton.M</item>
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextField.M</item>
+        <item name="sd_switchStyle">@style/Theme.Sandbox.Components.Switch</item>
+        <item name="android:checkboxStyle">@style/Theme.Sandbox.Components.CheckBox.M</item>
+        <item name="android:radioButtonStyle">@style/Theme.Sandbox.Components.RadioBox.M</item>
+        <item name="bottomSheetDialogTheme">@style/Theme.Sandbox.ComponentOverlays.BottomSheetDialog</item>
+        <item name="android:progressBarStyle">@style/Theme.Sandbox.Components.ProgressBar.Default</item>
+        <item name="sd_avatarStyle">@style/Theme.Sandbox.Components.Avatar.M</item>
+        <item name="sd_avatarGroupStyle">@style/Theme.Sandbox.Components.AvatarGroup</item>
+    </style>
+</resources>

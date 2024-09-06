@@ -5,6 +5,8 @@ import com.sdds.plugin.themebuilder.ThemeBuilderMode
 plugins {
     id("convention.android-app")
     id(libs.plugins.themebuilder.get().pluginId)
+    alias(libs.plugins.roborazzi)
+    id("kotlin-parcelize")
 }
 
 android {
@@ -15,17 +17,20 @@ android {
     buildFeatures {
         viewBinding = true
     }
+    testOptions {
+        unitTests.isIncludeAndroidResources = true
+    }
 }
 
 themeBuilder {
-    themeSource(name = "stylesSalute")
+    themeSource(name = "sdds_serv", version = "latest")
     view {
         themeParents {
             materialComponentsTheme("DayNight")
         }
         setupShapeAppearance(sddsShape())
     }
-    resourcesPrefix("thmbldr")
+    resourcesPrefix("serv")
     ktPackage("com.sdds.playground.sandbox.tokens")
     mode(ThemeBuilderMode.THEME)
 }
@@ -42,7 +47,14 @@ dependencies {
     implementation(libs.base.androidX.navigation.fragment)
     implementation(libs.base.androidX.navigation.ui)
     implementation(libs.base.androidX.activity.ktx)
+    implementation(libs.base.glide)
 
     // Unit tests
     testImplementation(libs.base.test.unit.jUnit)
+
+    //Screenshot tests
+    testImplementation(libs.test.roborazzi)
+    testImplementation(libs.test.roborazzi.compose)
+    testImplementation(libs.test.roborazzi.rule)
+    testImplementation(libs.base.test.unit.robolectric)
 }

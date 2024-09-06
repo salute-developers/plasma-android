@@ -412,6 +412,7 @@ open class Button @JvmOverloads constructor(
             .values()
             .getOrElse(typedArray.getInt(R.styleable.Button_sd_spacing, 0)) { Spacing.Packed }
 
+        _iconSize = typedArray.getDimensionPixelSize(R.styleable.Button_sd_iconSize, 0)
         iconPadding = typedArray.getDimensionPixelSize(R.styleable.Button_sd_iconPadding, 0)
         _icon = typedArray.getDrawable(R.styleable.Button_sd_icon)
         _iconTint = typedArray.getColorStateList(R.styleable.Button_sd_iconTint)
@@ -448,39 +449,59 @@ open class Button @JvmOverloads constructor(
         if (!hasLabel() && !hasValue()) return null
         val label = _label
         val value = _value
+        val spanPosition = getSpanPosition()
         return buildSpannedString {
-            var labelEndIndex = 0
-            var valueEndIndex = 0
+            var macrosEndIndex = 0
+
+            if (spanPosition == SPAN_POSITION_START) {
+                append(SPACING_MACROS)
+                macrosEndIndex = length
+            }
+
             if (!label.isNullOrBlank()) {
                 append(label)
-                labelEndIndex = label.length
+            }
+
+            if (spanPosition == SPAN_POSITION_MIDDLE) {
+                append(SPACING_MACROS)
+                macrosEndIndex = length
             }
 
             if (!value.isNullOrBlank()) {
+                val valueStartIndex = length
                 append(value)
-                valueEndIndex = labelEndIndex + value.length
                 setSpan(
                     _valueStateListSpan,
-                    labelEndIndex,
-                    valueEndIndex,
+                    valueStartIndex,
+                    length,
                     Spannable.SPAN_INCLUSIVE_EXCLUSIVE,
                 )
             }
-            val spanPosition = getSpanPosition()
-            val spanEndIndex = when (spanPosition) {
-                SPAN_POSITION_END, SPAN_POSITION_START -> maxOf(labelEndIndex, valueEndIndex)
-                SPAN_POSITION_MIDDLE -> labelEndIndex
-                else -> return@buildSpannedString
+
+            if (spanPosition == SPAN_POSITION_END) {
+                append(SPACING_MACROS)
+                macrosEndIndex = length
             }
-            val spanStartIndex = if (spanPosition == SPAN_POSITION_START) 0 else spanEndIndex - 1
-            setSpan(_spaceSpan, spanStartIndex, spanEndIndex, Spannable.SPAN_INCLUSIVE_EXCLUSIVE)
+
+            if (spanPosition != SPAN_POSITION_NONE) {
+                setSpan(
+                    _spaceSpan,
+                    macrosEndIndex - SPACING_MACROS.length,
+                    macrosEndIndex,
+                    Spannable.SPAN_INCLUSIVE_EXCLUSIVE,
+                )
+            }
         }
     }
 
     private fun resetText() {
-        resetSpanSpace()
-        super.setText(getButtonText(), null)
-        requestLayout()
+        if (hasLabel() || hasValue()) {
+            resetSpanSpace()
+            super.setText(getButtonText(), null)
+            requestLayout()
+        } else {
+            super.setText(null, null)
+        }
     }
 
     private fun updateIcon(needsIconReset: Boolean) {
@@ -528,14 +549,15 @@ open class Button @JvmOverloads constructor(
     }
 
     private fun resetSpanSpace() {
-        _spanSpaceSize = calculateSpanSpaceSize()
+        val spanSpaceSize = calculateSpanSpaceSize()
+        _spanSpaceSize = spanSpaceSize
     }
 
     private fun calculateSpanSpaceSize(): Int {
         val availableSpace = measuredWidth - compoundPaddingStart - compoundPaddingEnd
         val atLeastSpace = if (hasLabel() && hasValue()) valuePadding else 0
         return if (spacing == Spacing.SpaceBetween) {
-            (availableSpace - getTextWidth()).coerceAtLeast(atLeastSpace)
+            (availableSpace - getTextWidth() - valuePadding).coerceAtLeast(atLeastSpace)
         } else {
             atLeastSpace
         }
@@ -588,16 +610,9 @@ open class Button @JvmOverloads constructor(
 
     private inner class SpaceSpan : ReplacementSpan() {
 
-        private var textWidth: Int = 0
-
         override fun getSize(paint: Paint, text: CharSequence?, start: Int, end: Int, fm: Paint.FontMetricsInt?): Int {
-            val safeText = text ?: return 0
-            textWidth = paint.getTextWidth(safeText.toString(), start, end)
             fm?.set(paint.fontMetricsInt)
-            if (getSpanPosition() == SPAN_POSITION_NONE) {
-                return textWidth
-            }
-            return textWidth + _spanSpaceSize
+            return _spanSpaceSize
         }
 
         override fun draw(
@@ -611,37 +626,14 @@ open class Button @JvmOverloads constructor(
             bottom: Int,
             paint: Paint,
         ) {
-            if (text == null) return
-            val spanPosition = getSpanPosition()
-            val textStart = if (spanPosition == SPAN_POSITION_START) x + _spanSpaceSize else x
-            canvas.drawText(text, start, end, textStart, y.toFloat(), paint)
-
             if (DEBUG_MODE) {
                 canvas.drawRect(
-                    textStart,
+                    x,
                     top.toFloat(),
-                    textStart + textWidth,
+                    x + _spanSpaceSize,
                     bottom.toFloat(),
-                    DebugPaint.configure(color = Color.MAGENTA),
+                    DebugPaint.configure(color = Color.WHITE),
                 )
-
-                if (spanPosition == SPAN_POSITION_MIDDLE || spanPosition == SPAN_POSITION_END) {
-                    canvas.drawRect(
-                        x + textWidth,
-                        top.toFloat(),
-                        x + textWidth + _spanSpaceSize,
-                        bottom.toFloat(),
-                        DebugPaint.configure(color = Color.WHITE),
-                    )
-                } else if (spanPosition == SPAN_POSITION_START) {
-                    canvas.drawRect(
-                        x,
-                        top.toFloat(),
-                        x + _spanSpaceSize,
-                        bottom.toFloat(),
-                        DebugPaint.configure(color = Color.WHITE),
-                    )
-                }
             }
         }
     }
@@ -663,6 +655,7 @@ open class Button @JvmOverloads constructor(
         const val DEFAULT_SPINNER_SIZE = 24
         const val DEFAULT_SPINNER_STROKE_WIDTH = 2f
         const val DEBUG_MODE = false
+        const val SPACING_MACROS = "*"
         val DebugPaint = Paint().configure(style = Paint.Style.STROKE, color = Color.MAGENTA, strokeWidth = 3f)
 
         fun Paint.getTextWidth(text: CharSequence, start: Int = 0, end: Int = text.length): Int {
