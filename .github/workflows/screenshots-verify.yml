@@ -51,3 +51,30 @@ jobs:
           name: screenshot-diff-test-results-compose
           path: playground/sandbox-compose/build/test-results
           retention-days: 30
+
+      - name: verify screenshots-view-system
+        id: verify-test-view-system
+        run: |
+          # If there is a difference between the screenshots, the test will fail
+          ./gradlew :playground:sandbox:verifyRoborazzi --stacktrace
+
+      - uses: actions/upload-artifact@v3
+        if: ${{ always() }}
+        with:
+          name: screenshot-diff-compose
+          path: playground/sandbox/screenshots
+          retention-days: 30
+
+      - uses: actions/upload-artifact@v3
+        if: ${{ always() }}
+        with:
+          name: screenshot-diff-reports-compose
+          path: playground/sandbox/build/reports
+          retention-days: 30
+
+      - uses: actions/upload-artifact@v3
+        if: ${{ always() }}
+        with:
+          name: screenshot-diff-test-results-compose
+          path: playground/sandbox/build/test-results
+          retention-days: 30

@@ -27,6 +27,7 @@ internal class IconButtonFragment : ComponentFragment() {
 
     override val componentLayout: Button
         get() = Button(ContextThemeWrapper(requireContext(), currentVariant.styleRes))
+            .apply { id = com.sdds.playground.sandbox.R.id.icon_button }
             .also { button = it }
 
     override val propertiesOwner: PropertiesOwner
