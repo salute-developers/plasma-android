@@ -143,7 +143,7 @@ internal object SandboxChip {
 
 @Composable
 @Preview
-internal fun SandboxChipPreviewSizeMDefault() {
+internal fun SandboxChipPreviewSizeLDefault() {
     SandboxTheme {
         SandboxChip(
             size = SandboxChip.Size.L,
@@ -153,13 +153,13 @@ internal fun SandboxChipPreviewSizeMDefault() {
             onClick = {},
             startContent = {
                 Icon(
-                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_plasma_24),
+                    painter = painterResource(id = R.drawable.ic_plasma_24),
                     contentDescription = null,
                 )
             },
             endContent = {
                 Icon(
-                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_close_24),
+                    painter = painterResource(id = R.drawable.ic_close_24),
                     contentDescription = null,
                 )
             },
@@ -180,13 +180,13 @@ internal fun SandboxChipPreviewSizeXsSecondary() {
             onClick = {},
             startContent = {
                 Icon(
-                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_plasma_24),
+                    painter = painterResource(id = R.drawable.ic_plasma_24),
                     contentDescription = null,
                 )
             },
             endContent = {
                 Icon(
-                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_close_24),
+                    painter = painterResource(id = R.drawable.ic_close_24),
                     contentDescription = null,
                 )
             },
@@ -222,13 +222,13 @@ internal fun SandboxChipPreviewSizeSDisabled() {
             onClick = {},
             startContent = {
                 Icon(
-                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_plasma_24),
+                    painter = painterResource(id = R.drawable.ic_plasma_24),
                     contentDescription = null,
                 )
             },
             endContent = {
                 Icon(
-                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_close_24),
+                    painter = painterResource(id = R.drawable.ic_close_24),
                     contentDescription = null,
                 )
             },

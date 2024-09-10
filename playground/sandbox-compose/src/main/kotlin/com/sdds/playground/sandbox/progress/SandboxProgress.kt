@@ -46,7 +46,7 @@ internal object SandboxProgress {
 
 @Composable
 @Preview(showBackground = true)
-internal fun SandboxProgressPreviewDefaultTheme() {
+internal fun SandboxProgressPreviewDefault() {
     SandboxTheme {
         SandboxProgress(
             progress = 0.5f,
@@ -57,13 +57,49 @@ internal fun SandboxProgressPreviewDefaultTheme() {
 }
 
 @Composable
+@Preview
+internal fun SandboxProgressPreviewNegative() {
+    SandboxTheme {
+        SandboxProgress(
+            progress = 0.5f,
+            modifier = Modifier.width(240.dp),
+            style = SandboxProgress.Style.Negative,
+        )
+    }
+}
+
+@Composable
 @Preview(showBackground = true)
-internal fun SandboxProgressPreviewWarningTheme() {
+internal fun SandboxProgressPreviewWarning() {
     SandboxTheme {
         SandboxProgress(
             progress = 0.8f,
             modifier = Modifier.width(240.dp),
             style = SandboxProgress.Style.Warning,
+        )
+    }
+}
+
+@Composable
+@Preview
+internal fun SandboxProgressPreviewPositive() {
+    SandboxTheme {
+        SandboxProgress(
+            progress = 0.5f,
+            modifier = Modifier.width(240.dp),
+            style = SandboxProgress.Style.Positive,
+        )
+    }
+}
+
+@Composable
+@Preview
+internal fun SandboxProgressPreviewDefaultDark() {
+    SandboxTheme(darkTheme = true) {
+        SandboxProgress(
+            progress = 0.2f,
+            modifier = Modifier.width(240.dp),
+            style = SandboxProgress.Style.Default,
         )
     }
 }

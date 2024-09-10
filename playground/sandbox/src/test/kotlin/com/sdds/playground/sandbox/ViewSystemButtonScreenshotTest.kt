@@ -7,6 +7,7 @@ import com.github.takahirom.roborazzi.captureRoboImage
 import com.sdds.playground.sandbox.buttons.BasicButtonVariant
 import com.sdds.playground.sandbox.buttons.ButtonIcon
 import com.sdds.playground.sandbox.buttons.ButtonUiState
+import com.sdds.playground.sandbox.buttons.IconButtonVariant
 import com.sdds.uikit.Button
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -188,6 +189,77 @@ class ViewSystemButtonScreenshotTest : RoborazziConfig() {
             ),
         )
         onView(withId(R.id.basic_button))
+            .captureRoboImage()
+    }
+
+    @Test
+    fun testIconButtonLDefault() {
+        launchScreen(
+            R.id.nav_icon_button,
+            ButtonUiState(
+                variant = IconButtonVariant.IconButtonLDefault,
+                loading = false,
+                enabled = true,
+            ),
+        )
+        onView(withId(R.id.icon_button))
+            .captureRoboImage()
+    }
+
+    @Test
+    fun testIconButtonMWarning() {
+        launchScreen(
+            R.id.nav_icon_button,
+            ButtonUiState(
+                variant = IconButtonVariant.IconButtonMPilledWarning,
+                loading = false,
+                enabled = true,
+            ),
+        )
+        onView(withId(R.id.icon_button))
+            .captureRoboImage()
+    }
+
+    @Test
+    fun testIconButtonSDisabled() {
+        launchScreen(
+            R.id.nav_icon_button,
+            ButtonUiState(
+                variant = IconButtonVariant.IconButtonSPositive,
+                loading = false,
+                enabled = false,
+            ),
+        )
+        onView(withId(R.id.icon_button))
+            .captureRoboImage()
+    }
+
+    @Test
+    fun testIconButtonXsLoading() {
+        launchScreen(
+            R.id.nav_icon_button,
+            ButtonUiState(
+                variant = IconButtonVariant.IconButtonXSPilledDark,
+                loading = true,
+                enabled = true,
+            ),
+        )
+        onView(withId(R.id.icon_button))
+            .captureRoboImage()
+    }
+
+    @Config(qualifiers = "+night")
+    @Test
+    fun testIconButtonLWhiteDarkTheme() {
+        launchScreen(
+            R.id.nav_icon_button,
+            ButtonUiState(
+                variant = IconButtonVariant.IconButtonLWhite,
+                loading = false,
+                enabled = true,
+            ),
+        )
+        onView(withId(R.id.icon_button))
             .captureRoboImage()
     }
 }
