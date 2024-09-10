@@ -1,6 +1,7 @@
 package com.sdds.playground.sandbox.switcher
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.sdds.playground.sandbox.core.view.PropertiesOwner
 import com.sdds.playground.sandbox.core.view.Property
@@ -16,9 +17,11 @@ import kotlinx.coroutines.flow.stateIn
 /**
  * ViewModel для экранов с компонентом Switch
  */
-internal class SwitchParametersViewModel : ViewModel(), PropertiesOwner {
+internal class SwitchParametersViewModel(
+    private val defaultState: SwitchUiState,
+) : ViewModel(), PropertiesOwner {
 
-    private val _switchState = MutableStateFlow(SwitchUiState())
+    private val _switchState = MutableStateFlow(defaultState)
 
     /**
      * Состояние switch
@@ -45,7 +48,7 @@ internal class SwitchParametersViewModel : ViewModel(), PropertiesOwner {
     }
 
     override fun resetToDefault() {
-        _switchState.value = SwitchUiState()
+        _switchState.value = defaultState
     }
 
     /**
@@ -106,5 +109,18 @@ internal class SwitchParametersViewModel : ViewModel(), PropertiesOwner {
         Label("label"),
         Description("description"),
         Enabled("enabled"),
+    }
+}
+
+/**
+ * Фабрика [SwitchParametersViewModel]
+ * @param defaultState состояние по-умолчанию
+ */
+internal class SwitchParametersViewModelFactory(
+    private val defaultState: SwitchUiState,
+) : ViewModelProvider.Factory {
+    @Suppress("UNCHECKED_CAST")
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        return SwitchParametersViewModel(defaultState) as T
     }
 }
