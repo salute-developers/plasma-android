@@ -137,8 +137,6 @@ internal fun BaseTextField(
     visualTransformation: VisualTransformation = VisualTransformation.None,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
-    val label =
-        if (chipsContent != null && labelPosition == LabelPosition.Inner) null else labelText
     val optionalField = fieldType as? FieldType.Optional
     val requiredField = fieldType as? FieldType.Required
 
@@ -148,7 +146,7 @@ internal fun BaseTextField(
             .applyDotBadgePadding(
                 requiredField = requiredField,
                 labelPosition = labelPosition,
-                labelText = label,
+                labelText = labelText,
                 keepDotBadgeStartPadding = paddings.keepDotBadgeStartPadding,
             )
             .graphicsLayer {
@@ -161,7 +159,7 @@ internal fun BaseTextField(
                 .applyOuterLabelDotBadge(requiredField, labelPosition),
             labelPosition = labelPosition,
             fieldType = fieldType,
-            labelText = label,
+            labelText = labelText,
             labelTextStyle = outerLabelStyle,
             optionalTextStyle = outerOptionalStyle,
             horizontalSpacing = paddings.optionalPadding,
@@ -206,12 +204,13 @@ internal fun BaseTextField(
                 visualTransformation = visualTransformation,
                 interactionSource = interactionSource,
                 innerLabel = innerLabel(
-                    label = label,
+                    label = labelText,
                     labelPosition = labelPosition,
                     isFocused = isFocused,
                     value = value,
                     placeHolderStyle = placeHolderStyle,
                     innerLabelStyle = innerLabelStyle,
+                    hasChips = chipsContent != null,
                 ),
                 innerOptional = innerOptional(
                     labelPosition = labelPosition,
@@ -220,6 +219,7 @@ internal fun BaseTextField(
                     value = value,
                     placeHolderStyle = placeHolderStyle,
                     innerOptionalStyle = innerOptionalStyle,
+                    hasChips = chipsContent != null,
                 ),
                 placeholder = placeholder(placeholderText, placeHolderStyle),
                 leadingIcon = leadingIcon,
@@ -255,8 +255,9 @@ private fun innerOptional(
     value: TextFieldValue,
     placeHolderStyle: TextStyle,
     innerOptionalStyle: TextStyle,
+    hasChips: Boolean,
 ): (@Composable () -> Unit)? {
-    return if (labelPosition == LabelPosition.Inner) {
+    return if (labelPosition == LabelPosition.Inner && !hasChips) {
         textOrNull(
             text = optionalField?.optionalText,
             textStyle = if (!isFocused && value.text.isEmpty()) {
@@ -277,8 +278,9 @@ private fun innerLabel(
     value: TextFieldValue,
     placeHolderStyle: TextStyle,
     innerLabelStyle: TextStyle,
+    hasChips: Boolean,
 ): (@Composable () -> Unit)? {
-    return if (labelPosition == LabelPosition.Inner) {
+    return if (labelPosition == LabelPosition.Inner && !hasChips) {
         textOrNull(
             text = label,
             textStyle = if (!isFocused && value.text.isEmpty()) {
