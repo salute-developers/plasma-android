@@ -1,274 +1,391 @@
-@file:Suppress("LongParameterList", "LongMethod")
-
 package com.sdds.compose.uikit.internal.textfield
 
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.core.EaseOut
 import androidx.compose.animation.core.tween
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.fadeOut
-import androidx.compose.animation.slideInVertically
-import androidx.compose.animation.slideOutVertically
+import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.interaction.collectIsFocusedAsState
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CornerBasedShape
+import androidx.compose.foundation.shape.CornerSize
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.graphicsLayer
-import androidx.compose.ui.layout.Layout
-import androidx.compose.ui.layout.Measurable
-import androidx.compose.ui.layout.MeasurePolicy
-import androidx.compose.ui.layout.MeasureResult
-import androidx.compose.ui.layout.MeasureScope
-import androidx.compose.ui.layout.layoutId
-import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.input.ImeAction
-import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
-import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.Dp
-import androidx.compose.ui.unit.constrainHeight
-import androidx.compose.ui.unit.constrainWidth
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.offset
+import com.sdds.compose.uikit.CoreTextField
+import com.sdds.compose.uikit.CoreTextField.Animation
+import com.sdds.compose.uikit.CoreTextField.DotBadge
+import com.sdds.compose.uikit.CoreTextField.FieldType
+import com.sdds.compose.uikit.CoreTextField.HelperTextPosition
+import com.sdds.compose.uikit.CoreTextField.LabelPosition
+import com.sdds.compose.uikit.ScrollBarConfig
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.TextField
-import com.sdds.compose.uikit.TextField.FieldType
-import com.sdds.compose.uikit.TextField.LabelType
-import com.sdds.compose.uikit.internal.heightOrZero
-import com.sdds.compose.uikit.internal.textfield.common.DotBadge
-import com.sdds.compose.uikit.internal.textfield.common.OuterLabel
-import com.sdds.compose.uikit.internal.textfield.common.innerLabel
-import com.sdds.compose.uikit.internal.textfield.common.placeDotBadge
-import com.sdds.compose.uikit.internal.textfield.common.textFieldStartPadding
-import com.sdds.compose.uikit.internal.widthOrZero
-import kotlin.math.max
+import com.sdds.compose.uikit.internal.common.DotBadgeMode
+import com.sdds.compose.uikit.internal.common.drawDotBadge
+import com.sdds.compose.uikit.scrollbar
 
 /**
- * Базовый composable текстового поля
+ * Поле ввода текста
  *
- * @param value текст в поле ввода
+ * @param value значение в поле ввода
  * @param onValueChange callback для изменения текста при вводе
  * @param modifier Modifier для дополнительного изменения компонента, по умолчанию пустой
+ * @param singleLine однострочный или многострочный режим
  * @param enabled если false - фокусировка, ввод текста и копирование отключены
  * @param readOnly если false - доступно только для чтения, запись отключена
- * @param keyboardOptions для настройки клавиатуры, например [KeyboardType] или [ImeAction]
- * @param keyboardActions когда на ввод подается [ImeAction] вызывается соответствующий callback
- * @param visualTransformation фильтр визуального отображения, например [PasswordVisualTransformation]
- * @param placeholderText заглушка если пустое [value] и тип [TextField.LabelType.Outer]
- * @param labelType тип отображения лэйбла: [LabelType.Outer] снаружи поля ввода, [LabelType.Inner] внутри поля ввода
- * @param fieldType тип текстового поля (обязательное или опциональное). См. [TextField.FieldType]
+ * @param fieldType тип текстового поля - обязательное или опциональное (см. [FieldType])
+ * @param labelPosition тип отображения лэйбла: [LabelPosition.Outer] снаружи поля ввода, [LabelPosition.Inner] внутри поля ввода
+ * @param helperTextPosition тип отображения вспомогательного текста (caption/counter): [HelperTextPosition.Outer] снаружи поля ввода, [HelperTextPosition.Inner] внутри поля ввода
+ * @param placeholderText заглушка если пустое [value] и тип [LabelPosition.Outer]
  * @param labelText текст лэйбла
  * @param captionText текст подписи под полем ввода
+ * @param counterText текст счетчика под полем ввода
  * @param leadingIcon иконка, которая будет находиться в начале поля ввода
  * @param trailingIcon иконка, которая будет находиться в конце поля ввода
- * @param outerLabelStyle стиль лэйбла в режиме [labelType] == [LabelType.Outer]
- * @param innerLabelStyle стиль лэйбла в режиме [labelType] == [LabelType.Inner]
- * @param valuesStyle стиль value
- * @param captionStyle стиль caption
+ * @param chipsContent контент с chip-элементами. Chip должны иметь одинаковую высоту, которая должна быть задана в параметре [chipHeight]
+ * @param valueStyle стиль value
+ * @param innerLabelStyle стиль лэйбла в режиме [labelPosition] == [LabelPosition.Inner]
+ * @param innerOptionalStyle стиль optional в режиме [labelPosition] == [LabelPosition.Inner]
+ * @param innerCaptionStyle стиль надписи в режиме [helperTextPosition] == [HelperTextPosition.Inner]
+ * @param outerLabelStyle стиль лэйбла в режиме [labelPosition] == [LabelPosition.Outer]
+ * @param outerCaptionStyle стиль надписи в режиме [helperTextPosition] == [HelperTextPosition.Outer]
+ * @param outerOptionalStyle стиль optional в режиме [labelPosition] == [LabelPosition.Outer]
+ * @param counterTextStyle стиль счетчика
  * @param placeHolderStyle стиль placeholder
  * @param backgroundColor цвет бэкграунда текстового поля
  * @param cursorColor цвет курсора
  * @param enabledAlpha альфа, когда компонент в режиме [enabled] == true
  * @param disabledAlpha альфа, когда компонент в режиме [enabled] == false
  * @param shape форма текстового поля
+ * @param chipContainerShape позволяет скруглять контейнер, в котором находятся чипы
+ * @param chipHeight высота чипов
  * @param iconSize размер иконки
- * @param fieldHeight высота текстового поля
- * @param fieldHeight высота текстового поля
- * @param animation параметры анимации [TextField.Animation]
- * @param chipsContent контент с chip-элементами
- * @param chipContainerShape позволяет скруглять контейнер, в котором находятся чипы и текстовое поля.
- * Имеет смысл выставлять этот параметр равным радиусу скругления чипов.
+ * @param paddings отступы [TextField]
+ * @param scrollBarConfig настройки scroll bar для режима [singleLine] == true
+ * @param animation параметры анимации [Animation]
+ * @param keyboardOptions для настройки клавиатуры, например [KeyboardType] или [ImeAction]
+ * @param keyboardActions когда на ввод подается [ImeAction] вызывается соответствующий callback
+ * @param visualTransformation фильтр визуального отображения, например [PasswordVisualTransformation]
  * @param interactionSource источник взаимодействия с полем
  */
 @Composable
+@Suppress("LongMethod")
 internal fun BaseTextField(
     value: TextFieldValue,
     onValueChange: (TextFieldValue) -> Unit,
     modifier: Modifier = Modifier,
+    singleLine: Boolean,
     enabled: Boolean = true,
     readOnly: Boolean = false,
-    keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
-    keyboardActions: KeyboardActions = KeyboardActions.Default,
-    visualTransformation: VisualTransformation = VisualTransformation.None,
-    placeholderText: String? = null,
-    labelType: LabelType = LabelType.Outer,
     fieldType: FieldType? = null,
-    labelText: String = "",
+    labelPosition: LabelPosition = LabelPosition.Outer,
+    helperTextPosition: HelperTextPosition = if (singleLine) {
+        HelperTextPosition.Outer
+    } else {
+        HelperTextPosition.Inner
+    },
+    placeholderText: String? = null,
+    labelText: String? = null,
     captionText: String? = null,
+    counterText: String? = null,
     leadingIcon: @Composable (() -> Unit)? = null,
     trailingIcon: @Composable (() -> Unit)? = null,
+    chipsContent: @Composable (() -> Unit)? = null,
+    chipHeight: Dp,
     outerLabelStyle: TextStyle = TextStyle(),
     innerLabelStyle: TextStyle = TextStyle(),
-    valuesStyle: TextStyle = TextStyle(),
-    captionStyle: TextStyle = TextStyle(),
+    innerOptionalStyle: TextStyle = TextStyle(),
+    outerOptionalStyle: TextStyle = TextStyle(),
+    valueStyle: TextStyle = TextStyle(),
+    outerCaptionStyle: TextStyle = TextStyle(),
+    innerCaptionStyle: TextStyle = TextStyle(),
+    counterTextStyle: TextStyle = TextStyle(),
     placeHolderStyle: TextStyle = TextStyle(),
     backgroundColor: Color = Color.White,
     cursorColor: Color = Color.Blue,
     enabledAlpha: Float = 1.0f,
     disabledAlpha: Float = 0.4f,
-    shape: CornerBasedShape,
-    iconSize: Dp = 24.dp,
-    fieldHeight: Dp = 46.dp,
-    paddings: TextField.Paddings = TextField.Paddings(),
-    animation: TextField.Animation = TextField.Animation(),
-    chipsContent: @Composable (() -> Unit)? = null,
+    shape: CornerBasedShape = RoundedCornerShape(CornerSize(8.dp)),
     chipContainerShape: CornerBasedShape? = null,
+    paddings: CoreTextField.Paddings = CoreTextField.Paddings(),
+    iconSize: Dp = 24.dp,
+    scrollBarConfig: ScrollBarConfig = ScrollBarConfig(),
+    animation: Animation = Animation(),
+    keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
+    keyboardActions: KeyboardActions = KeyboardActions.Default,
+    visualTransformation: VisualTransformation = VisualTransformation.None,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
-    val dotBadge = (fieldType as? FieldType.Required)?.dotBadge
-    val measurePolicy = remember(
-        paddings.outerLabelBottomPadding,
-        paddings.captionTopPadding,
-        dotBadge,
-        labelType,
-    ) {
-        TextFieldMeasurePolicy(
-            outerLabelBottomPadding = paddings.outerLabelBottomPadding,
-            captionTopPadding = paddings.captionTopPadding,
-            dotBadge = dotBadge,
-            hasLabel = labelText.isNotEmpty(),
-            labelType = labelType,
-        )
-    }
-    val label = if (chipsContent != null && labelType == LabelType.Inner) "" else labelText
+    val label =
+        if (chipsContent != null && labelPosition == LabelPosition.Inner) null else labelText
+    val optionalField = fieldType as? FieldType.Optional
+    val requiredField = fieldType as? FieldType.Required
 
-    Layout(
-        modifier = modifier
-            .textFieldStartPadding(fieldType, labelType, paddings.keepDotBadgeStartPadding)
+    Column(
+        modifier = Modifier
+            .applyDotBadgePadding(
+                requiredField = requiredField,
+                labelPosition = labelPosition,
+                labelText = label,
+                keepDotBadgeStartPadding = paddings.keepDotBadgeStartPadding,
+            )
             .graphicsLayer {
                 alpha = if (enabled) enabledAlpha else disabledAlpha
             },
-        content = {
-            if (labelType == LabelType.Outer && label.isNotEmpty()) {
-                OuterLabel(
-                    modifier = Modifier.layoutId(OUTER_LABEL),
-                    labelText = label,
-                    labelTextStyle = outerLabelStyle,
-                    optional = fieldType as? FieldType.Optional,
-                )
-            }
-            BasicTextField(
-                value = value,
-                onValueChange = onValueChange,
-                modifier = Modifier
-                    .layoutId(FIELD)
-                    .clip(shape)
-                    .height(fieldHeight)
-                    .drawBehind { drawRect(backgroundColor) }
-                    .padding(start = paddings.startContentPadding, end = paddings.endContentPadding),
-                enabled = enabled,
-                readOnly = readOnly,
-                textStyle = valuesStyle,
-                keyboardOptions = keyboardOptions,
-                keyboardActions = keyboardActions,
-                singleLine = true,
+    ) {
+        OuterTopContent(
+            modifier = Modifier
+                .padding(bottom = paddings.labelPadding)
+                .applyOuterLabelDotBadge(requiredField, labelPosition),
+            labelPosition = labelPosition,
+            fieldType = fieldType,
+            labelText = label,
+            labelTextStyle = outerLabelStyle,
+            optionalTextStyle = outerOptionalStyle,
+            horizontalSpacing = paddings.optionalPadding,
+        )
+
+        val scrollState = rememberScrollState()
+        BasicTextField(
+            value = value,
+            onValueChange = onValueChange,
+            modifier = modifier
+                .applyFieldDotBadge(requiredField, labelPosition)
+                .clip(shape)
+                .drawBehind { drawRect(backgroundColor) }
+                .scrollbar(
+                    state = scrollState,
+                    direction = Orientation.Vertical,
+                    indicatorThickness = scrollBarConfig.indicatorThickness,
+                    indicatorColor = scrollBarConfig.indicatorColor,
+                    alpha = scrollBarConfig.alpha
+                        ?: if (scrollState.isScrollInProgress) 0.8f else 0f,
+                    alphaAnimationSpec = scrollBarConfig.alphaAnimationSpec ?: tween(
+                        delayMillis = if (scrollState.isScrollInProgress) 0 else 1500,
+                        durationMillis = if (scrollState.isScrollInProgress) 150 else 500,
+                    ),
+                    padding = scrollBarConfig.padding,
+                ),
+            enabled = enabled,
+            readOnly = readOnly,
+            textStyle = valueStyle,
+            keyboardOptions = keyboardOptions,
+            keyboardActions = keyboardActions,
+            singleLine = singleLine,
+            visualTransformation = visualTransformation,
+            interactionSource = interactionSource,
+            cursorBrush = SolidColor(cursorColor),
+        ) {
+            val isFocused = interactionSource.collectIsFocusedAsState().value
+            DecorationBox(
+                value = value.text,
+                innerTextField = it,
                 visualTransformation = visualTransformation,
                 interactionSource = interactionSource,
-                cursorBrush = SolidColor(cursorColor),
-            ) {
-                CommonDecorationBox(
-                    value = value.text,
-                    innerTextField = it,
-                    textTopPadding = paddings.valueTopPadding,
-                    textBottomPadding = paddings.valueBottomPadding,
-                    visualTransformation = visualTransformation,
-                    interactionSource = interactionSource,
-                    label = innerLabel(
-                        labelType = labelType,
-                        labelText = label,
-                        labelTextStyle = innerLabelStyle,
-                        optional = fieldType as? FieldType.Optional,
-                    ),
-                    placeholder = placeholder(
-                        placeholderText,
-                        placeHolderStyle,
-                    ),
-                    leadingIcon = leadingIcon(
-                        leadingIcon,
-                        iconSize,
-                        paddings.iconHorizontalPadding,
-                    ),
-                    trailingIcon = trailingIcon(
-                        trailingIcon,
-                        iconSize,
-                        paddings.iconHorizontalPadding,
-                    ),
-                    animation = animation,
-                    labelToValuePadding = paddings.innerLabelToValuePadding,
-                    iconSize = iconSize,
-                    chips = chipsContent,
-                    chipsSpacing = paddings.chipsSpacing,
-                    chipContainerShape = chipContainerShape,
-                )
-            }
-            CaptionText(
-                modifier = Modifier.layoutId(CAPTION),
-                captionText = captionText,
-                style = captionStyle,
-                animationDuration = animation.animationDuration,
+                innerLabel = innerLabel(
+                    label = label,
+                    labelPosition = labelPosition,
+                    isFocused = isFocused,
+                    value = value,
+                    placeHolderStyle = placeHolderStyle,
+                    innerLabelStyle = innerLabelStyle,
+                ),
+                innerOptional = innerOptional(
+                    labelPosition = labelPosition,
+                    optionalField = optionalField,
+                    isFocused = isFocused,
+                    value = value,
+                    placeHolderStyle = placeHolderStyle,
+                    innerOptionalStyle = innerOptionalStyle,
+                ),
+                placeholder = placeholder(placeholderText, placeHolderStyle),
+                leadingIcon = leadingIcon,
+                trailingIcon = trailingIcon,
+                innerCaption = innerCaption(helperTextPosition, captionText, innerCaptionStyle),
+                innerCounter = innerCounter(helperTextPosition, counterText, counterTextStyle),
+                animation = animation,
+                chips = chipsContent,
+                chipHeight = chipHeight,
+                chipContainerShape = chipContainerShape,
+                iconSize = iconSize,
+                paddings = paddings,
+                verticalScrollState = if (!singleLine) scrollState else null,
+                singleLine = singleLine,
+                valueTextStyle = valueStyle,
+                innerLabelTextStyle = innerLabelStyle,
             )
-            if (fieldType is FieldType.Required) {
-                DotBadge(
-                    size = fieldType.dotBadge.size,
-                    modifier = Modifier
-                        .layoutId(BADGE)
-                        .padding(fieldType.dotBadge.paddingValues),
-                    color = fieldType.dotBadge.color,
-                )
-            }
-        },
-        measurePolicy = measurePolicy,
-    )
-}
-
-private fun trailingIcon(
-    trailingIcon: @Composable (() -> Unit)?,
-    size: Dp,
-    iconMargin: Dp,
-): @Composable (() -> Unit)? {
-    if (trailingIcon == null) return null
-    return {
-        Box(
-            modifier = Modifier
-                .padding(start = iconMargin)
-                .size(size),
-        ) {
-            trailingIcon.invoke()
         }
+        OuterBottomContent(
+            modifier = Modifier
+                .padding(top = paddings.helperTextPadding),
+            helperTextPosition = helperTextPosition,
+            captionText = captionText,
+            style = outerCaptionStyle,
+        )
     }
 }
 
-private fun leadingIcon(
-    leadingIcon: @Composable (() -> Unit)?,
-    size: Dp,
-    iconMargin: Dp,
-): @Composable (() -> Unit)? {
-    if (leadingIcon == null) return null
-    return {
-        Box(
-            modifier = Modifier
-                .padding(end = iconMargin)
-                .size(size),
-        ) {
-            leadingIcon.invoke()
-        }
+private fun innerOptional(
+    labelPosition: LabelPosition,
+    optionalField: FieldType.Optional?,
+    isFocused: Boolean,
+    value: TextFieldValue,
+    placeHolderStyle: TextStyle,
+    innerOptionalStyle: TextStyle,
+): (@Composable () -> Unit)? {
+    return if (labelPosition == LabelPosition.Inner) {
+        textOrNull(
+            text = optionalField?.optionalText,
+            textStyle = if (!isFocused && value.text.isEmpty()) {
+                placeHolderStyle.copy(color = innerOptionalStyle.color)
+            } else {
+                innerOptionalStyle
+            },
+        )
+    } else {
+        null
+    }
+}
+
+private fun innerLabel(
+    label: String?,
+    labelPosition: LabelPosition,
+    isFocused: Boolean,
+    value: TextFieldValue,
+    placeHolderStyle: TextStyle,
+    innerLabelStyle: TextStyle,
+): (@Composable () -> Unit)? {
+    return if (labelPosition == LabelPosition.Inner) {
+        textOrNull(
+            text = label,
+            textStyle = if (!isFocused && value.text.isEmpty()) {
+                placeHolderStyle
+            } else {
+                innerLabelStyle
+            },
+        )
+    } else {
+        null
+    }
+}
+
+private fun innerCaption(
+    helperTextPosition: HelperTextPosition,
+    captionText: String?,
+    innerCaptionStyle: TextStyle,
+): (@Composable () -> Unit)? {
+    return if (helperTextPosition == HelperTextPosition.Inner) {
+        textOrNull(
+            text = captionText,
+            textStyle = innerCaptionStyle,
+        )
+    } else {
+        null
+    }
+}
+
+private fun innerCounter(
+    helperTextPosition: HelperTextPosition,
+    counterText: String?,
+    innerCaptionStyle: TextStyle,
+): (@Composable () -> Unit)? {
+    return if (helperTextPosition == HelperTextPosition.Inner) {
+        textOrNull(
+            text = counterText,
+            textStyle = innerCaptionStyle,
+        )
+    } else {
+        null
+    }
+}
+
+private fun Modifier.applyDotBadgePadding(
+    requiredField: FieldType.Required?,
+    labelPosition: LabelPosition,
+    labelText: String?,
+    keepDotBadgeStartPadding: Dp?,
+): Modifier {
+    val isLabelOuter = labelPosition == LabelPosition.Outer
+    val isDotStart = requiredField?.dotBadge?.position == DotBadge.Position.Start
+    val shouldApply = isLabelOuter && isDotStart && !labelText.isNullOrEmpty() ||
+        keepDotBadgeStartPadding != null
+    return if (shouldApply) {
+        val startPadding = requiredField?.let { it.dotBadge.size + it.dotBadge.horizontalPadding }
+            ?: keepDotBadgeStartPadding
+            ?: 0.dp
+        this.padding(start = startPadding)
+    } else {
+        this
+    }
+}
+
+private fun Modifier.applyFieldDotBadge(
+    requiredFieldType: FieldType.Required?,
+    labelPosition: LabelPosition,
+): Modifier {
+    if (requiredFieldType == null || labelPosition != LabelPosition.Inner) return this
+    val dotBadge = requiredFieldType.dotBadge
+    val alignment = fieldDotBadgeAlignment(dotBadge.position)
+
+    return this.drawDotBadge(
+        alignment = alignment,
+        color = dotBadge.color,
+        horizontalPadding = dotBadge.horizontalPadding,
+        verticalPadding = dotBadge.verticalPadding,
+        badgeSize = dotBadge.size,
+        horizontalMode = DotBadgeMode.Inner,
+        verticalMode = DotBadgeMode.Inner,
+    )
+}
+
+private fun Modifier.applyOuterLabelDotBadge(
+    requiredFieldType: FieldType.Required?,
+    labelPosition: LabelPosition,
+): Modifier {
+    if (requiredFieldType == null || labelPosition != LabelPosition.Outer) return this
+    val dotBadge = requiredFieldType.dotBadge
+    val alignment = outerLabelDotBadgeAlignment(dotBadge.position)
+
+    return this.drawDotBadge(
+        alignment = alignment,
+        color = dotBadge.color,
+        horizontalPadding = dotBadge.horizontalPadding,
+        verticalPadding = dotBadge.verticalPadding,
+        badgeSize = dotBadge.size,
+        horizontalMode = DotBadgeMode.Outer,
+        verticalMode = DotBadgeMode.Inner,
+    )
+}
+
+private fun outerLabelDotBadgeAlignment(badgePosition: DotBadge.Position): Alignment {
+    return when (badgePosition) {
+        DotBadge.Position.Start -> Alignment.CenterStart
+        DotBadge.Position.End -> Alignment.TopEnd
+    }
+}
+
+private fun fieldDotBadgeAlignment(badgePosition: DotBadge.Position): Alignment {
+    return when (badgePosition) {
+        DotBadge.Position.Start -> Alignment.TopStart
+        DotBadge.Position.End -> Alignment.TopEnd
     }
 }
 
@@ -285,127 +402,79 @@ private fun placeholder(
     }
 }
 
-@Composable
-private fun CaptionText(
-    modifier: Modifier,
-    captionText: String?,
-    style: TextStyle,
-    animationDuration: Int,
-) {
-    val isVisible by remember(captionText) { mutableStateOf(captionText != null) }
-    val density = LocalDensity.current
-    AnimatedVisibility(
-        modifier = modifier,
-        visible = isVisible,
-        enter = slideInVertically(
-            initialOffsetY = { with(density) { -6.dp.roundToPx() } },
-            animationSpec = tween(
-                durationMillis = animationDuration,
-                easing = EaseOut,
-            ),
-        ) + fadeIn(
-            initialAlpha = 0f,
-            animationSpec = tween(
-                durationMillis = animationDuration,
-                easing = EaseOut,
-            ),
-        ),
-        exit = slideOutVertically(
-            targetOffsetY = { with(density) { -6.dp.roundToPx() } },
-            animationSpec = tween(
-                durationMillis = animationDuration,
-                easing = EaseOut,
-            ),
-        ) + fadeOut(
-            targetAlpha = 0f,
-            animationSpec = tween(
-                durationMillis = animationDuration,
-                easing = EaseOut,
-            ),
-        ),
-    ) {
-        Text(
-            text = captionText.orEmpty(),
-            style = style,
-        )
+private fun textOrNull(
+    text: String?,
+    textStyle: TextStyle?,
+): @Composable (() -> Unit)? {
+    return if (!text.isNullOrEmpty() && textStyle != null) {
+        {
+            Text(
+                text = text,
+                style = textStyle,
+            )
+        }
+    } else {
+        null
     }
 }
 
-private class TextFieldMeasurePolicy(
-    private val outerLabelBottomPadding: Dp,
-    private val dotBadge: TextField.DotBadge?,
-    private val captionTopPadding: Dp,
-    private val hasLabel: Boolean,
-    private val labelType: LabelType,
-) : MeasurePolicy {
-    override fun MeasureScope.measure(
-        measurables: List<Measurable>,
-        constraints: Constraints,
-    ): MeasureResult {
-        val looseConstraints = constraints.copy(minHeight = 0, minWidth = 0)
-        val outerLabelBottomPaddingPx = outerLabelBottomPadding.roundToPx()
-        val captionTopPaddingPx = captionTopPadding.roundToPx()
+@Composable
+private fun OuterTopContent(
+    modifier: Modifier,
+    labelPosition: LabelPosition,
+    fieldType: FieldType?,
+    labelText: String?,
+    labelTextStyle: TextStyle,
+    optionalTextStyle: TextStyle,
+    horizontalSpacing: Dp,
+) {
+    val hasContent =
+        !labelText.isNullOrEmpty() || fieldType is FieldType.Optional && fieldType.optionalText.isNotEmpty()
+    val shouldShowTopContent = labelPosition == LabelPosition.Outer && hasContent
+    if (!shouldShowTopContent) return
 
-        // measure outer label
-        val outerLabelPlaceable =
-            measurables.find { it.layoutId == OUTER_LABEL }?.measure(looseConstraints)
-        val badgePlaceable = measurables.find { it.layoutId == BADGE }?.measure(looseConstraints)
-
-        // measure dot badge
-        val dotBadgeStartOffset =
-            if (hasLabel && labelType == LabelType.Outer && dotBadge?.position == TextField.DotBadge.Position.Start) {
-                badgePlaceable.widthOrZero()
-            } else {
-                0
-            }
-
-        // measure caption
-        val captionPlaceable =
-            measurables.find { it.layoutId == CAPTION }?.measure(looseConstraints)
-
-        val outerLabelWithPaddingHeight =
-            outerLabelPlaceable?.let { it.height + outerLabelBottomPaddingPx } ?: 0
-        val captionWithPaddingHeight =
-            captionPlaceable?.let { it.height + captionTopPaddingPx } ?: 0
-
-        // measure field
-        val fieldPlaceable = measurables.find { it.layoutId == FIELD }?.measure(
-            constraints.offset(
-                vertical = -outerLabelWithPaddingHeight,
-                horizontal = -dotBadgeStartOffset,
-            ),
+    Row(
+        modifier = modifier,
+        horizontalArrangement = Arrangement.spacedBy(horizontalSpacing),
+    ) {
+        TextOrEmpty(
+            text = labelText,
+            textStyle = labelTextStyle,
         )
-
-        val desiredWidth = max(
-            fieldPlaceable.widthOrZero() + dotBadgeStartOffset,
-            outerLabelPlaceable.widthOrZero(),
-        )
-        val desiredHeight =
-            fieldPlaceable.heightOrZero() + outerLabelWithPaddingHeight + captionWithPaddingHeight
-
-        val width = looseConstraints.constrainWidth(desiredWidth)
-        val height = looseConstraints.constrainHeight(desiredHeight)
-
-        return layout(width, height) {
-            outerLabelPlaceable?.placeRelative(dotBadgeStartOffset, 0)
-            fieldPlaceable?.placeRelative(dotBadgeStartOffset, outerLabelWithPaddingHeight)
-            placeDotBadge(
-                badgePlaceable = badgePlaceable,
-                dotBadge = dotBadge,
-                labelType = labelType,
-                hasLabel = hasLabel,
-                outerLabelPlaceable = outerLabelPlaceable,
-                width = width,
-            )
-            captionPlaceable?.placeRelative(
-                x = dotBadgeStartOffset,
-                y = height - captionPlaceable.heightOrZero(),
+        if (fieldType is FieldType.Optional) {
+            TextOrEmpty(
+                text = fieldType.optionalText,
+                textStyle = optionalTextStyle,
             )
         }
     }
 }
 
-private const val FIELD = "field"
-private const val BADGE = "badge"
-private const val CAPTION = "caption"
-private const val OUTER_LABEL = "outerLabel"
+@Composable
+private fun OuterBottomContent(
+    modifier: Modifier,
+    captionText: String?,
+    style: TextStyle,
+    helperTextPosition: HelperTextPosition,
+) {
+    if (helperTextPosition != HelperTextPosition.Outer) return
+    TextOrEmpty(
+        modifier = modifier,
+        text = captionText,
+        textStyle = style,
+    )
+}
+
+@Composable
+private fun TextOrEmpty(
+    modifier: Modifier = Modifier,
+    text: String?,
+    textStyle: TextStyle,
+) {
+    if (text.isNullOrEmpty()) return
+    Text(
+        modifier = modifier,
+        text = text,
+        style = textStyle,
+    )
+}

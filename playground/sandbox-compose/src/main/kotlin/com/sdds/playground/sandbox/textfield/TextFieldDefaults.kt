@@ -12,9 +12,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.uikit.TextField
-import com.sdds.compose.uikit.TextField.DotBadge
-import com.sdds.compose.uikit.TextField.LabelType
+import com.sdds.compose.uikit.CoreTextField
+import com.sdds.compose.uikit.CoreTextField.HelperTextPosition
+import com.sdds.compose.uikit.CoreTextField.LabelPosition
+import com.sdds.compose.uikit.ScrollBarConfig
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.playground.sandbox.chip.SandboxEmbeddedChip
 import com.sdds.playground.sandbox.textfield.SandboxTextField.InputState
@@ -57,7 +58,7 @@ internal interface SandboxTextFieldColors {
      * @param type тип лейбла
      */
     @Composable
-    fun labelColor(state: InputState, type: LabelType): State<Color>
+    fun labelColor(state: InputState, type: LabelPosition): State<Color>
 
     /**
      * Цвет иконки в начале текстового поля
@@ -82,6 +83,9 @@ internal interface SandboxTextFieldColors {
      */
     @Composable
     fun captionColor(state: InputState): State<Color>
+
+    @Composable
+    fun optionalColor(): State<Color>
 
     /**
      * Цвет курсора текстового поля
@@ -111,6 +115,13 @@ internal interface SandboxTextFieldStyles {
         inputState: InputState,
     ): State<TextStyle>
 
+    @Composable
+    fun outerOptionalStyle(
+        size: SandboxTextField.Size,
+        colors: SandboxTextFieldColors,
+        inputState: InputState,
+    ): State<TextStyle>
+
     /**
      * Текстовый стиль внутреннего лейбла
      * @param size размер текстового поля
@@ -120,6 +131,14 @@ internal interface SandboxTextFieldStyles {
      */
     @Composable
     fun innerLabelStyle(
+        size: SandboxTextField.Size,
+        inputState: InputState,
+        isEmpty: Boolean,
+        colors: SandboxTextFieldColors,
+    ): State<TextStyle>
+
+    @Composable
+    fun innerOptionalStyle(
         size: SandboxTextField.Size,
         inputState: InputState,
         isEmpty: Boolean,
@@ -152,6 +171,11 @@ internal interface SandboxTextFieldStyles {
         inputState: InputState,
     ): State<TextStyle>
 
+    @Composable
+    fun counterStyle(
+        size: SandboxTextField.Size,
+    ): State<TextStyle>
+
     /**
      * Текстовый стиль заглушки поля
      * @param size размер текстового поля
@@ -173,59 +197,72 @@ internal interface SandboxTextFieldStyles {
 internal object TextFieldDefaults {
 
     @Composable
+    fun scrollBarConfig(): ScrollBarConfig = ScrollBarConfig(
+        indicatorThickness = 1.dp,
+        indicatorColor = StylesSaluteTheme.colors.surfaceDefaultTransparentTertiary,
+        backgroundColor = StylesSaluteTheme.colors.surfaceDefaultTransparentPrimary,
+        padding = PaddingValues(top = 18.dp, end = 2.dp, bottom = 36.dp),
+    )
+
+    @Composable
     fun SandboxTextField.FieldType.toFieldType(
-        labelType: LabelType,
-        position: DotBadge.Position,
+        labelPosition: LabelPosition,
+        position: CoreTextField.DotBadge.Position,
         hasLabel: Boolean,
         optionalText: String,
         size: SandboxTextField.Size,
-    ): TextField.FieldType {
+    ): CoreTextField.FieldType {
         return when (this) {
-            SandboxTextField.FieldType.Optional -> TextField.FieldType.Optional(
+            SandboxTextField.FieldType.Optional -> CoreTextField.FieldType.Optional(
                 optionalText = optionalText,
             )
 
-            SandboxTextField.FieldType.Required -> TextField.FieldType.Required(
-                dotBadge = dotBadge(labelType, position, hasLabel, size),
+            SandboxTextField.FieldType.Required -> CoreTextField.FieldType.Required(
+                dotBadge = dotBadge(labelPosition, position, hasLabel, size),
             )
         }
     }
 
     private fun dotBadge(
-        labelType: LabelType,
-        position: DotBadge.Position,
+        labelPosition: LabelPosition,
+        position: CoreTextField.DotBadge.Position,
         hasLabel: Boolean,
         size: SandboxTextField.Size,
-    ): DotBadge {
+    ): CoreTextField.DotBadge {
         return when {
-            labelType == LabelType.Outer && hasLabel -> {
-                val paddings = if (position == DotBadge.Position.Start) {
-                    PaddingValues(end = 6.dp)
+            labelPosition == LabelPosition.Outer && hasLabel -> {
+                val horizontalPadding: Dp
+                val verticalPadding: Dp
+                if (position == CoreTextField.DotBadge.Position.Start) {
+                    horizontalPadding = 6.dp
+                    verticalPadding = 0.dp
                 } else {
-                    PaddingValues(start = 4.dp, top = if (size == SandboxTextField.Size.XS) 2.dp else 4.dp)
+                    horizontalPadding = 4.dp
+                    verticalPadding = if (size == SandboxTextField.Size.XS) 2.dp else 4.dp
                 }
-                DotBadge(
+
+                CoreTextField.DotBadge(
                     size = 6.dp,
-                    paddingValues = paddings,
                     color = Color.Red,
                     position = position,
+                    horizontalPadding = horizontalPadding,
+                    verticalPadding = verticalPadding,
                 )
             }
 
-            else -> DotBadge(
+            else -> CoreTextField.DotBadge(
                 size = if (size == SandboxTextField.Size.S || size == SandboxTextField.Size.XS) {
                     6.dp
                 } else {
                     8.dp
                 },
-                paddingValues = PaddingValues(),
                 color = Color.Red,
                 position = position,
             )
         }
     }
 
-    fun chipGroupSize(size: SandboxTextField.Size): SandboxEmbeddedChip.Size {
+    fun chipSize(size: SandboxTextField.Size): SandboxEmbeddedChip.Size {
         return when (size) {
             SandboxTextField.Size.L -> SandboxEmbeddedChip.Size.L
             SandboxTextField.Size.M -> SandboxEmbeddedChip.Size.M
@@ -244,52 +281,102 @@ internal object TextFieldDefaults {
         }
     }
 
-    fun textFieldPaddings(
+    fun chipHeight(size: SandboxTextField.Size): Dp {
+        return when (size) {
+            SandboxTextField.Size.L -> SandboxEmbeddedChip.Size.L.height
+            SandboxTextField.Size.M -> SandboxEmbeddedChip.Size.M.height
+            SandboxTextField.Size.S -> SandboxEmbeddedChip.Size.S.height
+            SandboxTextField.Size.XS -> SandboxEmbeddedChip.Size.XS.height
+        }
+    }
+
+    fun coreTextFieldPaddings(
         size: SandboxTextField.Size,
-        labelType: LabelType,
-        hasChips: Boolean,
-    ): TextField.Paddings {
-        return TextField.Paddings(
-            startContentPadding = startContentPadding(size, hasChips),
-            endContentPadding = endContentPadding(size),
-            valueTopPadding = textTopPadding(size, labelType),
-            valueBottomPadding = textBottomPadding(size, labelType),
-            innerLabelToValuePadding = innerLabelToValuePadding(size),
-            outerLabelBottomPadding = outerLabelBottomPadding(size),
-            iconHorizontalPadding = iconMargin(size),
-            captionTopPadding = captionTopPadding(size),
+        labelPosition: LabelPosition,
+        helperTextPosition: HelperTextPosition,
+        singleLine: Boolean,
+    ): CoreTextField.Paddings {
+        return CoreTextField.Paddings(
+            boxPaddingStart = startContentPadding(size),
+            boxPaddingEnd = endContentPadding(size),
+            boxPaddingTop = textTopPadding(size, labelPosition),
+            boxPaddingBottom = textBottomPadding(size, labelPosition, singleLine),
+            labelPadding = if (labelPosition == LabelPosition.Outer) {
+                outerLabelBottomPadding(size)
+            } else {
+                innerLabelToValuePadding(size)
+            },
+            helperTextPadding = if (helperTextPosition == HelperTextPosition.Outer) {
+                helperTextTopOuterPadding(size)
+            } else {
+                helperTextInnerTopPadding(size)
+            },
+            optionalPadding = 4.dp,
+            startContentEndPadding = startIconMargin(size),
+            endContentStartPadding = endIconMargin(size),
+            chipsPadding = 6.dp,
             chipsSpacing = 2.dp,
             keepDotBadgeStartPadding = null,
         )
     }
 
-    private fun textTopPadding(size: SandboxTextField.Size, labelType: LabelType): Dp {
-        return if (labelType == LabelType.Outer) {
-            0.dp
-        } else {
-            when (size) {
-                SandboxTextField.Size.L -> 25.dp
-                SandboxTextField.Size.M -> 22.dp
-                SandboxTextField.Size.S -> 18.dp
-                SandboxTextField.Size.XS -> 0.dp
-            }
-        }
-    }
-
-    private fun textBottomPadding(size: SandboxTextField.Size, labelType: LabelType): Dp {
-        return if (labelType == LabelType.Outer) {
-            0.dp
-        } else {
+    private fun textTopPadding(size: SandboxTextField.Size, labelPosition: LabelPosition): Dp {
+        return if (labelPosition == LabelPosition.Inner) {
             when (size) {
                 SandboxTextField.Size.L -> 9.dp
                 SandboxTextField.Size.M -> 6.dp
                 SandboxTextField.Size.S -> 4.dp
-                SandboxTextField.Size.XS -> 0.dp
+                SandboxTextField.Size.XS -> 8.dp
+            }
+        } else {
+            when (size) {
+                SandboxTextField.Size.L -> 16.dp
+                SandboxTextField.Size.M -> 12.dp
+                SandboxTextField.Size.S -> 8.dp
+                SandboxTextField.Size.XS -> 8.dp
             }
         }
     }
 
-    private fun iconMargin(size: SandboxTextField.Size): Dp =
+    private fun textBottomPadding(
+        size: SandboxTextField.Size,
+        labelPosition: LabelPosition,
+        singleLine: Boolean,
+    ): Dp {
+        return if (singleLine) {
+            singleLineTextTopPadding(size, labelPosition)
+        } else {
+            when (size) {
+                SandboxTextField.Size.L -> 12.dp
+                SandboxTextField.Size.M -> 12.dp
+                SandboxTextField.Size.S -> 12.dp
+                SandboxTextField.Size.XS -> 8.dp
+            }
+        }
+    }
+
+    private fun singleLineTextTopPadding(
+        size: SandboxTextField.Size,
+        labelPosition: LabelPosition,
+    ): Dp {
+        return if (labelPosition == LabelPosition.Inner) {
+            when (size) {
+                SandboxTextField.Size.L -> 9.dp
+                SandboxTextField.Size.M -> 6.dp
+                SandboxTextField.Size.S -> 4.dp
+                SandboxTextField.Size.XS -> 8.dp
+            }
+        } else {
+            when (size) {
+                SandboxTextField.Size.L -> 16.dp
+                SandboxTextField.Size.M -> 12.dp
+                SandboxTextField.Size.S -> 8.dp
+                SandboxTextField.Size.XS -> 8.dp
+            }
+        }
+    }
+
+    private fun startIconMargin(size: SandboxTextField.Size): Dp =
         when (size) {
             SandboxTextField.Size.L -> 8.dp
             SandboxTextField.Size.M -> 6.dp
@@ -297,16 +384,20 @@ internal object TextFieldDefaults {
             SandboxTextField.Size.XS -> 4.dp
         }
 
-    private fun startContentPadding(size: SandboxTextField.Size, hasChips: Boolean): Dp =
-        if (hasChips) {
-            6.dp
-        } else {
-            when (size) {
-                SandboxTextField.Size.L -> 16.dp
-                SandboxTextField.Size.M -> 14.dp
-                SandboxTextField.Size.S -> 12.dp
-                SandboxTextField.Size.XS -> 8.dp
-            }
+    private fun endIconMargin(size: SandboxTextField.Size): Dp =
+        when (size) {
+            SandboxTextField.Size.L -> 10.dp
+            SandboxTextField.Size.M -> 8.dp
+            SandboxTextField.Size.S -> 6.dp
+            SandboxTextField.Size.XS -> 4.dp
+        }
+
+    private fun startContentPadding(size: SandboxTextField.Size): Dp =
+        when (size) {
+            SandboxTextField.Size.L -> 16.dp
+            SandboxTextField.Size.M -> 14.dp
+            SandboxTextField.Size.S -> 12.dp
+            SandboxTextField.Size.XS -> 8.dp
         }
 
     private fun endContentPadding(size: SandboxTextField.Size): Dp =
@@ -336,13 +427,23 @@ internal object TextFieldDefaults {
             SandboxTextField.Size.XS -> 6.dp
         }
 
-    private fun captionTopPadding(size: SandboxTextField.Size): Dp =
+    private fun helperTextTopOuterPadding(size: SandboxTextField.Size): Dp =
         when (size) {
             SandboxTextField.Size.L,
             SandboxTextField.Size.M,
             SandboxTextField.Size.S,
             SandboxTextField.Size.XS,
             -> 4.dp
+        }
+
+    private fun helperTextInnerTopPadding(size: SandboxTextField.Size): Dp =
+        when (size) {
+            SandboxTextField.Size.L,
+            SandboxTextField.Size.M,
+            SandboxTextField.Size.S,
+            -> 12.dp
+
+            SandboxTextField.Size.XS -> 8.dp
         }
 
     @Composable
@@ -424,10 +525,10 @@ private class DefaultSandboxTextFieldColors : SandboxTextFieldColors {
     }
 
     @Composable
-    override fun labelColor(state: InputState, type: LabelType): State<Color> {
+    override fun labelColor(state: InputState, type: LabelPosition): State<Color> {
         val color = when (type) {
-            LabelType.Outer -> textFieldTextColor(state = state)
-            LabelType.Inner -> StylesSaluteTheme.colors.textDefaultSecondary
+            LabelPosition.Outer -> textFieldTextColor(state = state)
+            LabelPosition.Inner -> StylesSaluteTheme.colors.textDefaultSecondary
         }
         return rememberUpdatedState(color)
     }
@@ -458,6 +559,11 @@ private class DefaultSandboxTextFieldColors : SandboxTextFieldColors {
     }
 
     @Composable
+    override fun optionalColor(): State<Color> {
+        return rememberUpdatedState(StylesSaluteTheme.colors.textDefaultTertiary)
+    }
+
+    @Composable
     private fun textFieldTextColor(state: InputState) = when (state) {
         InputState.ReadOnly -> StylesSaluteTheme.colors.textDefaultSecondary
         InputState.Normal,
@@ -481,8 +587,21 @@ private class DefaultSandboxTextFieldStyles : SandboxTextFieldStyles {
             textFieldTextStyle(size).copy(
                 color = colors.labelColor(
                     state = inputState,
-                    type = LabelType.Outer,
+                    type = LabelPosition.Outer,
                 ).value,
+            ),
+        )
+    }
+
+    @Composable
+    override fun outerOptionalStyle(
+        size: SandboxTextField.Size,
+        colors: SandboxTextFieldColors,
+        inputState: InputState,
+    ): State<TextStyle> {
+        return rememberUpdatedState(
+            textFieldTextStyle(size).copy(
+                color = colors.optionalColor().value,
             ),
         )
     }
@@ -494,27 +613,40 @@ private class DefaultSandboxTextFieldStyles : SandboxTextFieldStyles {
         isEmpty: Boolean,
         colors: SandboxTextFieldColors,
     ): State<TextStyle> {
-        val style = if (inputState != InputState.Focused && isEmpty) {
-            when (size) {
-                SandboxTextField.Size.XS -> StylesSaluteTheme.typography.bodySNormal
-                SandboxTextField.Size.S -> StylesSaluteTheme.typography.bodySNormal
-                SandboxTextField.Size.M -> StylesSaluteTheme.typography.bodyMNormal
-                SandboxTextField.Size.L -> StylesSaluteTheme.typography.bodyLNormal
-            }
-        } else {
+        val style =
             when (size) {
                 SandboxTextField.Size.XS -> StylesSaluteTheme.typography.bodyXxsNormal
                 SandboxTextField.Size.S -> StylesSaluteTheme.typography.bodyXxsNormal
                 SandboxTextField.Size.M -> StylesSaluteTheme.typography.bodyXsNormal
                 SandboxTextField.Size.L -> StylesSaluteTheme.typography.bodyXsNormal
             }
-        }
         return rememberUpdatedState(
             style.copy(
                 color = colors.labelColor(
                     state = inputState,
-                    type = LabelType.Inner,
+                    type = LabelPosition.Inner,
                 ).value,
+            ),
+        )
+    }
+
+    @Composable
+    override fun innerOptionalStyle(
+        size: SandboxTextField.Size,
+        inputState: InputState,
+        isEmpty: Boolean,
+        colors: SandboxTextFieldColors,
+    ): State<TextStyle> {
+        val style =
+            when (size) {
+                SandboxTextField.Size.XS -> StylesSaluteTheme.typography.bodyXxsNormal
+                SandboxTextField.Size.S -> StylesSaluteTheme.typography.bodyXxsNormal
+                SandboxTextField.Size.M -> StylesSaluteTheme.typography.bodyXsNormal
+                SandboxTextField.Size.L -> StylesSaluteTheme.typography.bodyXsNormal
+            }
+        return rememberUpdatedState(
+            style.copy(
+                color = colors.optionalColor().value,
             ),
         )
     }
@@ -541,6 +673,15 @@ private class DefaultSandboxTextFieldStyles : SandboxTextFieldStyles {
         return rememberUpdatedState(
             StylesSaluteTheme.typography.bodyXsNormal.copy(
                 color = colors.captionColor(inputState).value,
+            ),
+        )
+    }
+
+    @Composable
+    override fun counterStyle(size: SandboxTextField.Size): State<TextStyle> {
+        return rememberUpdatedState(
+            StylesSaluteTheme.typography.bodyXsNormal.copy(
+                color = StylesSaluteTheme.colors.textDefaultSecondary,
             ),
         )
     }
