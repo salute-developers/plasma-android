@@ -1,9 +1,7 @@
 package com.sdds.compose.uikit
 
 import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.shape.CornerBasedShape
-import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
@@ -25,12 +23,10 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.uikit.TextField.DotBadge.Position
-import com.sdds.compose.uikit.TextField.LabelType
-import com.sdds.compose.uikit.internal.textfield.BaseTextField
+import com.sdds.compose.uikit.internal.textarea.BaseTextArea
 
 /**
- * Поле ввода текста
+ * Многострочное поле ввода текста
  *
  * @param value значение в поле ввода
  * @param onValueChange callback для изменения текста при вводе
@@ -38,27 +34,28 @@ import com.sdds.compose.uikit.internal.textfield.BaseTextField
  * @param enabled если false - фокусировка, ввод текста и копирование отключены
  * @param readOnly если false - доступно только для чтения, запись отключена
  * @param fieldType тип текстового поля - обязательное или опциональное (см. [TextField.FieldType])
- * @param labelType тип отображения лэйбла: [LabelType.Outer] снаружи поля ввода, [LabelType.Inner] внутри поля ввода
+ * @param labelType тип отображения лэйбла: [TextField.LabelType.Outer] снаружи поля ввода, [TextField.LabelType.Inner] внутри поля ввода
  * @param placeholderText заглушка если пустое [value] и тип [TextField.LabelType.Outer]
  * @param labelText текст лэйбла
  * @param captionText текст подписи под полем ввода
- * @param leadingIcon иконка, которая будет находиться в начале поля ввода
- * @param trailingIcon иконка, которая будет находиться в конце поля ввода
- * @param chipsContent контент с chip-элементами
- * @param outerLabelStyle стиль лэйбла в режиме [labelType] == [LabelType.Outer]
- * @param innerLabelStyle стиль лэйбла в режиме [labelType] == [LabelType.Inner]
+ * @param counterText текст счетчика
+ * @param icon иконка, которая будет находиться в конце поля ввода
+ * @param chips контент с chip-элементами
+ * @param outerLabelStyle стиль лэйбла в режиме [labelType] == [TextField.LabelType.Outer]
+ * @param innerLabelStyle стиль лэйбла в режиме [labelType] == [TextField.LabelType.Inner]
  * @param valuesStyle стиль value
  * @param captionStyle стиль caption
  * @param placeHolderStyle стиль placeholder
+ * @param counterStyle стиль counter
  * @param backgroundColor цвет бэкграунда текстового поля
  * @param cursorColor цвет курсора
  * @param enabledAlpha альфа, когда компонент в режиме [enabled] == true
  * @param disabledAlpha альфа, когда компонент в режиме [enabled] == false
  * @param shape форма текстового поля
- * @param chipContainerShape позволяет скруглять контейнер, в котором находятся чипы и текстовое поля.
  * @param iconSize размер иконки
- * @param fieldHeight высота текстового поля
+ * @param paddings отступы text area
  * @param animation параметры анимации [TextField.Animation]
+ * @param scrollBarConfig настройки скроллбара
  * @param keyboardOptions для настройки клавиатуры, например [KeyboardType] или [ImeAction]
  * @param keyboardActions когда на ввод подается [ImeAction] вызывается соответствующий callback
  * @param visualTransformation фильтр визуального отображения, например [PasswordVisualTransformation]
@@ -67,41 +64,41 @@ import com.sdds.compose.uikit.internal.textfield.BaseTextField
 @Suppress("LongParameterList")
 @Composable
 @NonRestartableComposable
-fun TextField(
+fun TextArea(
     value: TextFieldValue,
     onValueChange: (TextFieldValue) -> Unit,
-    modifier: Modifier = Modifier,
+    modifier: Modifier,
     enabled: Boolean = true,
     readOnly: Boolean = false,
     fieldType: TextField.FieldType? = null,
-    labelType: LabelType = LabelType.Outer,
+    labelType: TextField.LabelType = TextField.LabelType.Outer,
     placeholderText: String? = null,
     labelText: String = "",
     captionText: String? = null,
-    leadingIcon: @Composable (() -> Unit)? = null,
-    trailingIcon: @Composable (() -> Unit)? = null,
-    chipsContent: @Composable (() -> Unit)? = null,
+    counterText: String? = null,
+    icon: @Composable (() -> Unit)? = null,
+    chips: @Composable (() -> Unit)? = null,
     outerLabelStyle: TextStyle = TextStyle(),
     innerLabelStyle: TextStyle = TextStyle(),
     valuesStyle: TextStyle = TextStyle(),
     captionStyle: TextStyle = TextStyle(),
     placeHolderStyle: TextStyle = TextStyle(),
+    counterStyle: TextStyle = TextStyle(),
     backgroundColor: Color = Color.White,
     cursorColor: Color = Color.Blue,
     enabledAlpha: Float = 1.0f,
     disabledAlpha: Float = 0.4f,
     shape: CornerBasedShape = RoundedCornerShape(25),
-    chipContainerShape: CornerBasedShape? = null,
-    fieldHeight: Dp = 56.dp,
     iconSize: Dp = 24.dp,
-    paddings: TextField.Paddings = TextField.Paddings(),
+    paddings: TextArea.Paddings = TextArea.Paddings(),
     animation: TextField.Animation = TextField.Animation(),
+    scrollBarConfig: ScrollBarConfig = ScrollBarConfig(),
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
     visualTransformation: VisualTransformation = VisualTransformation.None,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
-    BaseTextField(
+    BaseTextArea(
         value = value,
         onValueChange = onValueChange,
         modifier = modifier,
@@ -115,8 +112,9 @@ fun TextField(
         placeholderText = placeholderText,
         labelText = labelText,
         captionText = captionText,
-        leadingIcon = leadingIcon,
-        trailingIcon = trailingIcon,
+        counterText = counterText,
+        counterStyle = counterStyle,
+        icon = icon,
         outerLabelStyle = outerLabelStyle,
         innerLabelStyle = innerLabelStyle,
         valuesStyle = valuesStyle,
@@ -128,17 +126,16 @@ fun TextField(
         disabledAlpha = disabledAlpha,
         shape = shape,
         iconSize = iconSize,
-        fieldHeight = fieldHeight,
         paddings = paddings,
         animation = animation,
-        chipsContent = chipsContent,
-        chipContainerShape = chipContainerShape,
+        chips = chips,
+        scrollBarConfig = scrollBarConfig,
         interactionSource = interactionSource,
     )
 }
 
 /**
- * Поле ввода текста
+ * Многострочное поле ввода текста
  *
  * @param value значение в поле ввода
  * @param onValueChange callback для изменения текста при вводе
@@ -146,66 +143,67 @@ fun TextField(
  * @param enabled если false - фокусировка, ввод текста и копирование отключены
  * @param readOnly если false - доступно только для чтения, запись отключена
  * @param fieldType тип текстового поля - обязательное или опциональное (см. [TextField.FieldType])
- * @param labelType тип отображения лэйбла: [LabelType.Outer] снаружи поля ввода, [LabelType.Inner] внутри поля ввода
+ * @param labelType тип отображения лэйбла: [TextField.LabelType.Outer] снаружи поля ввода, [TextField.LabelType.Inner] внутри поля ввода
  * @param placeholderText заглушка если пустое [value] и тип [TextField.LabelType.Outer]
  * @param labelText текст лэйбла
  * @param captionText текст подписи под полем ввода
- * @param leadingIcon иконка, которая будет находиться в начале поля ввода
- * @param trailingIcon иконка, которая будет находиться в конце поля ввода
- * @param chipsContent контент с chip-элементами
- * @param outerLabelStyle стиль лэйбла в режиме [labelType] == [LabelType.Outer]
- * @param innerLabelStyle стиль лэйбла в режиме [labelType] == [LabelType.Inner]
+ * @param counterText текст счетчика
+ * @param icon иконка, которая будет находиться в конце поля ввода
+ * @param chips контент с chip-элементами
+ * @param outerLabelStyle стиль лэйбла в режиме [labelType] == [TextField.LabelType.Outer]
+ * @param innerLabelStyle стиль лэйбла в режиме [labelType] == [TextField.LabelType.Inner]
  * @param valuesStyle стиль value
  * @param captionStyle стиль caption
  * @param placeHolderStyle стиль placeholder
+ * @param counterStyle стиль counter
  * @param backgroundColor цвет бэкграунда текстового поля
  * @param cursorColor цвет курсора
  * @param enabledAlpha альфа, когда компонент в режиме [enabled] == true
  * @param disabledAlpha альфа, когда компонент в режиме [enabled] == false
  * @param shape форма текстового поля
- * @param chipContainerShape позволяет скруглять контейнер, в котором находятся чипы и текстовое поля.
  * @param iconSize размер иконки
- * @param fieldHeight высота текстового поля
+ * @param paddings отступы text area
  * @param animation параметры анимации [TextField.Animation]
+ * @param scrollBarConfig настройки скроллбара
  * @param keyboardOptions для настройки клавиатуры, например [KeyboardType] или [ImeAction]
  * @param keyboardActions когда на ввод подается [ImeAction] вызывается соответствующий callback
  * @param visualTransformation фильтр визуального отображения, например [PasswordVisualTransformation]
  * @param interactionSource источник взаимодействия с полем
  */
-@Suppress("LongParameterList", "LongMethod")
 @Composable
-fun TextField(
+@Suppress("LongMethod")
+fun TextArea(
     value: String,
     onValueChange: (String) -> Unit,
-    modifier: Modifier = Modifier,
+    modifier: Modifier,
     enabled: Boolean = true,
     readOnly: Boolean = false,
     fieldType: TextField.FieldType? = null,
-    labelType: LabelType = LabelType.Outer,
+    labelType: TextField.LabelType = TextField.LabelType.Outer,
     placeholderText: String? = null,
     labelText: String = "",
     captionText: String? = null,
-    leadingIcon: @Composable (() -> Unit)? = null,
-    trailingIcon: @Composable (() -> Unit)? = null,
-    chipsContent: @Composable (() -> Unit)? = null,
+    counterText: String? = null,
+    icon: @Composable (() -> Unit)? = null,
+    chips: @Composable (() -> Unit)? = null,
     outerLabelStyle: TextStyle = TextStyle(),
     innerLabelStyle: TextStyle = TextStyle(),
     valuesStyle: TextStyle = TextStyle(),
     captionStyle: TextStyle = TextStyle(),
     placeHolderStyle: TextStyle = TextStyle(),
+    counterStyle: TextStyle = TextStyle(),
     backgroundColor: Color = Color.White,
     cursorColor: Color = Color.Blue,
     enabledAlpha: Float = 1.0f,
     disabledAlpha: Float = 0.4f,
-    shape: CornerBasedShape = RoundedCornerShape(CornerSize(16.dp)).adjustBy(all = 2.dp),
-    chipContainerShape: CornerBasedShape? = null,
+    shape: CornerBasedShape = RoundedCornerShape(25),
     iconSize: Dp = 24.dp,
-    fieldHeight: Dp = 56.dp,
-    paddings: TextField.Paddings = TextField.Paddings(),
+    paddings: TextArea.Paddings = TextArea.Paddings(),
+    animation: TextField.Animation = TextField.Animation(),
+    scrollBarConfig: ScrollBarConfig = ScrollBarConfig(),
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
     visualTransformation: VisualTransformation = VisualTransformation.None,
-    animation: TextField.Animation = TextField.Animation(),
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     // Специфика перевода String -> TextFieldValue, взято из исходников гугла
@@ -220,10 +218,9 @@ fun TextField(
         }
     }
     var lastTextValue by remember(value) { mutableStateOf(value) }
-
-    TextField(
+    TextArea(
         value = textFieldValue,
-        onValueChange = { newTextFieldValueState ->
+        onValueChange = { newTextFieldValueState: TextFieldValue ->
             textFieldValueState = newTextFieldValueState
 
             val stringChangedSinceLastInvocation = lastTextValue != newTextFieldValueState.text
@@ -244,8 +241,9 @@ fun TextField(
         placeholderText = placeholderText,
         labelText = labelText,
         captionText = captionText,
-        leadingIcon = leadingIcon,
-        trailingIcon = trailingIcon,
+        counterText = counterText,
+        counterStyle = counterStyle,
+        icon = icon,
         outerLabelStyle = outerLabelStyle,
         innerLabelStyle = innerLabelStyle,
         valuesStyle = valuesStyle,
@@ -257,34 +255,38 @@ fun TextField(
         disabledAlpha = disabledAlpha,
         shape = shape,
         iconSize = iconSize,
-        fieldHeight = fieldHeight,
         paddings = paddings,
         animation = animation,
-        chipsContent = chipsContent,
-        chipContainerShape = chipContainerShape,
+        chips = chips,
+        scrollBarConfig = scrollBarConfig,
         interactionSource = interactionSource,
     )
 }
 
 /**
- * Параметры текстового поля
+ * Настройки text area
  */
-object TextField {
+object TextArea {
 
     /**
-     * Отступы text field
+     * Отступы text area
      *
      * @property startContentPadding отступ в начале текстового поля
      * @property endContentPadding отступ в конце текстового поля
-     * @property valueTopPadding отступ от value до верхней границы текстового поля в режиме labelType == [LabelType.Inner]
-     * @property valueBottomPadding отступ от value до верхней границы текстового поля в режиме labelType == [LabelType.Inner]
-     * @property innerLabelToValuePadding отступ между лэйблом и value в режиме labelType == [LabelType.Inner]
-     * @property outerLabelBottomPadding отступ между лэйблом и текстовым полем в режиме labelType == [LabelType.Outer]
-     * @property iconHorizontalPadding отступ от иконки до текста
-     * @property captionTopPadding отступ между текстовым полем и caption
-     * @property chipsSpacing расстояние между chip-элементами
+     * @property valueTopPadding отступ от value до верхней границы текстового поля в режиме labelType == [TextField.LabelType.Inner]
+     * @property valueBottomPadding отступ от value до верхней границы текстового поля в режиме labelType == [TextField.LabelType.Inner]
+     * @property unfocusedInnerLabelTopPadding верхний отступ внутреннего лэйбла не в фокусе
+     * @property innerLabelToValuePadding отступ между лэйблом и value в режиме labelType == [TextField.LabelType.Inner]
+     * @property outerLabelBottomPadding отступ между лэйблом и текстовым полем в режиме labelType == [TextField.LabelType.Outer]
+     * @property bottomTextHorizontalPadding начальный и конечный отступы нижнего текста (caption и counter)
+     * @property bottomTextBottomPadding отступ между текстовым полем и нижним текстом (caption и counter)
+     * @property iconTopPadding отступ иконки сверху
+     * @property iconStartPadding отступ от текста до иконки
+     * @property chipsSpacing пространство между чипами
+     * @property bottomChipsPadding нижний отступ контейнера с чипами
+     * @property topChipsPadding верхний отступ контейнера с чипами
      * @property keepDotBadgeStartPadding позволяет выставить отступ слева, для случаев, когда нужно сохранить отступ, эквивалентный ширине индикатора обязательного поля.
-     * Например, когда TextField используется в списке и состояние fieldType меняется у разных элементов,
+     * Например, когда TextArea используется в списке и состояние fieldType меняется у разных элементов,
      * может появиться необходимость сохранить отступ слева, когда индикатор обзательного поля скрывается.
      */
     @Immutable
@@ -293,102 +295,16 @@ object TextField {
         val endContentPadding: Dp = 16.dp,
         val valueTopPadding: Dp = 25.dp,
         val valueBottomPadding: Dp = 9.dp,
+        val unfocusedInnerLabelTopPadding: Dp = 17.dp,
         val innerLabelToValuePadding: Dp = 2.dp,
         val outerLabelBottomPadding: Dp = 12.dp,
-        val iconHorizontalPadding: Dp = 8.dp,
-        val captionTopPadding: Dp = 4.dp,
+        val bottomTextHorizontalPadding: Dp = 10.dp,
+        val bottomTextBottomPadding: Dp = 4.dp,
+        val iconTopPadding: Dp = 16.dp,
+        val iconStartPadding: Dp = 8.dp,
         val chipsSpacing: Dp = 2.dp,
+        val bottomChipsPadding: Dp = chipsSpacing,
+        val topChipsPadding: Dp = 6.dp,
         val keepDotBadgeStartPadding: Dp? = null,
     )
-
-    /**
-     * Типы отображения лейбла
-     */
-    enum class LabelType {
-        /**
-         * Лэйбл снаружи текстового поля
-         */
-        Outer,
-
-        /**
-         * Лэйбл внутри текстового поля
-         */
-        Inner,
-    }
-
-    /**
-     * Параметры анимации текстового поля
-     *
-     * @property animationDuration длительность основной анимации
-     * @property placeholderAnimationDelayOrDuration длительность анимации или задержка анимации плэйсхолдера в зависимости от состояния
-     * @property placeholderAnimationDuration длительность анимации плэйсхолдера
-     */
-    @Immutable
-    data class Animation(
-        val animationDuration: Int = 150,
-        val placeholderAnimationDelayOrDuration: Int = 67,
-        val placeholderAnimationDuration: Int = 83,
-    )
-
-    /**
-     * Тип текстового поля (обязательное или опциональное)
-     */
-    @Immutable
-    sealed class FieldType {
-
-        /**
-         * Опциональный тип поля.
-         * Когда поле имеет данный тип, к label добавляется [optionalText].
-         *
-         * @property optionalText текст, свидетельствующий о том, что поле опционалдьное
-         * @property labelOptionalAlpha альфа, которая будет применена к стилю лэйбла,
-         * чтобы получить стиль optional лэйбла
-         * @property startMargin отступ перед [optionalText]
-         */
-        data class Optional(
-            val optionalText: String = "Optional",
-            val labelOptionalAlpha: Float = 0.28f,
-            val startMargin: Dp = 4.dp,
-        ) : FieldType()
-
-        /**
-         * Обязательный тип поля.
-         * Когда поле имеет данный тип, к label или к полю добавляется бэйдж-точка [DotBadge].
-         *
-         * @property dotBadge модель, описывающая бэйдж-точку
-         */
-        data class Required(val dotBadge: DotBadge = DotBadge()) : FieldType()
-    }
-
-    /**
-     * Бэйдж-точка (индикатор опционального поля)
-     *
-     * @property size размер точки
-     * @property paddingValues отступы точки
-     * @property color цвет точки
-     * @property position расположение точки [Position]
-     */
-    @Immutable
-    data class DotBadge(
-        val size: Dp = 6.dp,
-        val paddingValues: PaddingValues = PaddingValues(0.dp),
-        val color: Color = Color.Red,
-        val position: Position = Position.End,
-    ) {
-
-        /**
-         * Расположение точки
-         */
-        enum class Position {
-            /**
-             * Расположение в начале
-             */
-            Start,
-
-            /**
-             * Расположение в конце
-             */
-            End,
-        }
-    }
 }
