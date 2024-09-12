@@ -5,6 +5,7 @@ import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.spring
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.core.updateTransition
+import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.interaction.InteractionSource
 import androidx.compose.foundation.interaction.collectIsFocusedAsState
 import androidx.compose.foundation.layout.Box
@@ -17,32 +18,38 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.semantics.error
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.Dp
-import com.sdds.compose.uikit.TextField
+import com.sdds.compose.uikit.CoreTextField
 
 /**
- * Позаимствованная из material и упрощенная реализация декоратора для текстового поля.
+ * Реализация декоратора для многострочного текстового поля.
  */
 @Composable
-internal fun CommonDecorationBox(
+internal fun DecorationBox(
     value: String,
+    singleLine: Boolean,
+    isError: Boolean = false,
+    innerLabel: @Composable (() -> Unit)?,
+    innerOptional: @Composable (() -> Unit)?,
+    chips: @Composable (() -> Unit)? = null,
     innerTextField: @Composable () -> Unit,
-    visualTransformation: VisualTransformation,
-    label: @Composable (() -> Unit)?,
     placeholder: @Composable (() -> Unit)? = null,
     leadingIcon: @Composable (() -> Unit)? = null,
     trailingIcon: @Composable (() -> Unit)? = null,
-    isError: Boolean = false,
-    interactionSource: InteractionSource,
-    textTopPadding: Dp,
-    textBottomPadding: Dp,
-    labelToValuePadding: Dp,
-    animation: TextField.Animation,
-    iconSize: Dp,
-    chips: (@Composable () -> Unit)? = null,
-    chipsSpacing: Dp,
+    innerCaption: @Composable (() -> Unit)? = null,
+    innerCounter: @Composable (() -> Unit)? = null,
+    valueTextStyle: TextStyle,
+    innerLabelTextStyle: TextStyle,
+    paddings: CoreTextField.Paddings,
     chipContainerShape: CornerBasedShape? = null,
+    iconSize: Dp,
+    chipHeight: Dp,
+    verticalScrollState: ScrollState?,
+    visualTransformation: VisualTransformation,
+    animation: CoreTextField.Animation,
+    interactionSource: InteractionSource,
 ) {
     val transformedText = remember(value, visualTransformation) {
         visualTransformation.filter(AnnotatedString(value))
@@ -55,19 +62,21 @@ internal fun CommonDecorationBox(
         else -> InputPhase.UnfocusedNotEmpty
     }
 
-    val decorationBoxModifier = Modifier.semantics { if (isError) error("") }
+    val decorationBoxModifier = Modifier
+        .semantics { if (isError) error("") }
 
     TextFieldTransitionScope.Transition(
         inputState = inputState,
-        showLabel = label != null,
+        showLabel = innerLabel != null,
         animationDuration = animation.animationDuration,
         placeholderAnimationDuration = animation.placeholderAnimationDuration,
         placeholderAnimationDelayOrDuration = animation.placeholderAnimationDelayOrDuration,
     ) { labelProgress, placeholderAlphaProgress ->
 
         val decoratedPlaceholder = @Composable {
-            if (placeholder != null && transformedText.isEmpty()) {
-                Box(modifier = Modifier.alpha(placeholderAlphaProgress)) {
+            val placeholderAlpha = if (transformedText.isEmpty()) placeholderAlphaProgress else 0f
+            if (placeholder != null) {
+                Box(modifier = Modifier.alpha(placeholderAlpha)) {
                     placeholder.invoke()
                 }
             }
@@ -76,18 +85,23 @@ internal fun CommonDecorationBox(
         TextFieldLayout(
             modifier = decorationBoxModifier,
             textField = innerTextField,
+            verticalScrollState = verticalScrollState,
             placeholder = decoratedPlaceholder,
-            label = label,
-            leading = leadingIcon,
-            trailing = trailingIcon,
+            captionText = innerCaption,
+            counterText = innerCounter,
+            innerLabel = innerLabel,
+            innerOptional = innerOptional,
             animationProgress = labelProgress,
-            textTopPadding = textTopPadding,
-            textBottomPadding = textBottomPadding,
-            labelToValuePadding = labelToValuePadding,
-            iconSize = iconSize,
+            startIcon = leadingIcon,
+            endIcon = trailingIcon,
             chips = chips,
-            chipsSpacing = chipsSpacing,
+            chipHeight = chipHeight,
             chipContainerShape = chipContainerShape,
+            iconSize = iconSize,
+            paddings = paddings,
+            singleLine = singleLine,
+            valueTextStyle = valueTextStyle,
+            innerLabelTextStyle = innerLabelTextStyle,
         )
     }
 }

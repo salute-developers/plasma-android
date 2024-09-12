@@ -1,5 +1,6 @@
 package com.sdds.playground.sandbox.textfield
 
+import androidx.compose.foundation.clickable
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -19,6 +20,7 @@ import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.buttons.SandboxBasicButton
 import com.sdds.playground.sandbox.buttons.SandboxButton
+import com.sdds.playground.sandbox.chip.SandboxEmbeddedChip
 import com.sdds.playground.sandbox.core.ComponentScaffold
 import com.sdds.playground.sandbox.progress.SandboxProgress
 import com.sdds.playground.sandbox.tokens.compose.StylesSaluteTheme
@@ -53,7 +55,8 @@ internal fun TextFieldScreen() {
                 labelText = textFieldUiState.labelText,
                 optionalText = textFieldUiState.optionalText,
                 captionText = textFieldUiState.captionText,
-                labelType = textFieldUiState.labelType,
+                counterText = textFieldUiState.counterText,
+                labelPosition = textFieldUiState.labelPosition,
                 fieldType = textFieldUiState.fieldType,
                 dotBadgePosition = textFieldUiState.dotBadgePosition,
                 size = textFieldUiState.size,
@@ -61,6 +64,7 @@ internal fun TextFieldScreen() {
                 leadingIcon = textFieldUiState.hasStartIcon.getExampleIcon(Icon.Start),
                 trailingIcon = textFieldUiState.hasEndIcon.getExampleIcon(Icon.End),
                 readOnly = textFieldUiState.readOnly,
+                singleLine = textFieldUiState.singleLine,
                 chips = textFieldUiState.chips.toChipContent(
                     size = textFieldUiState.size,
                     onChipClosePressed = {
@@ -95,6 +99,29 @@ private fun List<String>.toChipContent(
                 onChipClosePressed = onChipClosePressed,
             )
         }
+    }
+}
+
+@Composable
+private fun ChipsContent(
+    chips: List<String>?,
+    size: SandboxTextField.Size,
+    onChipClosePressed: ((String) -> Unit)?,
+) {
+    chips?.forEach { chip ->
+        SandboxEmbeddedChip(
+            label = chip,
+            size = TextFieldDefaults.chipSize(size),
+            state = SandboxEmbeddedChip.State.Secondary,
+            endContent = {
+                Icon(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_close_24),
+                    contentDescription = "",
+                    tint = StylesSaluteTheme.colors.textDefaultSecondary,
+                    modifier = Modifier.clickable(onClick = { onChipClosePressed?.invoke(chip) }),
+                )
+            },
+        )
     }
 }
 

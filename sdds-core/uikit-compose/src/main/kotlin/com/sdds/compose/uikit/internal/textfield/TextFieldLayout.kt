@@ -2,151 +2,220 @@
 
 package com.sdds.compose.uikit.internal.textfield
 
+import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.defaultMinSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CornerBasedShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.layout.IntrinsicMeasurable
-import androidx.compose.ui.layout.IntrinsicMeasureScope
 import androidx.compose.ui.layout.Layout
-import androidx.compose.ui.layout.LayoutIdParentData
 import androidx.compose.ui.layout.Measurable
 import androidx.compose.ui.layout.MeasurePolicy
 import androidx.compose.ui.layout.MeasureResult
 import androidx.compose.ui.layout.MeasureScope
 import androidx.compose.ui.layout.Placeable
 import androidx.compose.ui.layout.layoutId
+import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.ExperimentalTextApi
+import androidx.compose.ui.text.TextLayoutResult
+import androidx.compose.ui.text.TextMeasurer
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.constrainHeight
+import androidx.compose.ui.unit.constrainWidth
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.offset
+import com.sdds.compose.uikit.ChipGroup
+import com.sdds.compose.uikit.CoreTextField
+import com.sdds.compose.uikit.internal.heightOrZero
+import com.sdds.compose.uikit.internal.widthOrZero
 import kotlin.math.max
 import kotlin.math.roundToInt
 
 /**
- * Layout декоратора текстового поля
- *
- * @param modifier модификатор
- * @param textField текстовое поле
- * @param label лейбл
- * @param placeholder composable заглушки
- * @param leading composable начала поля (например, иконки)
- * @param trailing composable конца (например, иконки)
- * @param animationProgress прогресс анимации лейбла и заглушки
- * @param textTopPadding отступ от текста сверху
- * @param textBottomPadding отступ от текста снизу
- * @param labelToValuePadding отступ от лэйбла до значения поля
- * @param iconSize размер иконки
- * @param chips контент с chip-элементами
- * @param chipsSpacing расстояние между chip-элементами
- * @param chipContainerShape форма контейнера, в котором содержатся чипы и текстовое поле
+ * Layout декоратора многострочного текстового поляs
  */
+@OptIn(ExperimentalTextApi::class)
 @Composable
+@Suppress("LongMethod")
 internal fun TextFieldLayout(
     modifier: Modifier,
+    singleLine: Boolean,
     textField: @Composable () -> Unit,
-    label: @Composable (() -> Unit)?,
+    innerLabel: @Composable (() -> Unit)?,
+    innerOptional: @Composable (() -> Unit)?,
     placeholder: @Composable (() -> Unit)?,
-    leading: @Composable (() -> Unit)?,
-    trailing: @Composable (() -> Unit)?,
-    animationProgress: Float,
-    textTopPadding: Dp,
-    textBottomPadding: Dp,
-    labelToValuePadding: Dp,
-    iconSize: Dp,
-    chips: (@Composable () -> Unit)?,
-    chipsSpacing: Dp,
+    startIcon: @Composable (() -> Unit)?,
+    endIcon: @Composable (() -> Unit)?,
+    captionText: @Composable (() -> Unit)?,
+    counterText: @Composable (() -> Unit)?,
+    chips: @Composable (() -> Unit)?,
+    chipHeight: Dp,
     chipContainerShape: CornerBasedShape?,
+    iconSize: Dp,
+    valueTextStyle: TextStyle,
+    innerLabelTextStyle: TextStyle,
+    paddings: CoreTextField.Paddings,
+    animationProgress: Float,
+    verticalScrollState: ScrollState?,
 ) {
     val hasChips = chips != null
+    val textMeasurer = rememberTextMeasurer()
     val measurePolicy = remember(
         animationProgress,
-        textTopPadding,
-        textBottomPadding,
-        labelToValuePadding,
+        valueTextStyle,
+        innerLabelTextStyle,
+        chipHeight,
         hasChips,
     ) {
-        TextFieldLayoutMeasurePolicy(
+        CoreTextFieldLayoutMeasurePolicy(
+            textMeasurer = textMeasurer,
+            valueTextStyle = valueTextStyle,
+            innerLabelTextStyle = innerLabelTextStyle,
             animationProgress = animationProgress,
-            textTopPadding = textTopPadding,
-            textBottomPadding = textBottomPadding,
-            labelToValuePadding = labelToValuePadding,
+            chipHeight = chipHeight,
             hasChips = hasChips,
         )
     }
     Layout(
-        modifier = modifier,
+        modifier = modifier
+            .padding(
+                start = if (hasChips) paddings.chipsPadding else paddings.boxPaddingStart,
+                end = paddings.boxPaddingEnd,
+                top = if (hasChips) paddings.chipsPadding else paddings.boxPaddingTop,
+                bottom = if (hasChips) paddings.chipsPadding else paddings.boxPaddingBottom,
+            ),
         content = {
-            LeadingContent(
-                modifier = Modifier.layoutId(LeadingId),
-                leading = leading,
-                iconSize = iconSize,
-            )
-            TrailingContent(
-                modifier = Modifier.layoutId(TrailingId),
-                trailing = trailing,
-                iconSize = iconSize,
-            )
             LabelContent(
-                modifier = Modifier.layoutId(LabelId),
-                label = label,
+                modifier = Modifier
+                    .layoutId(LabelId),
+                innerLabel = innerLabel,
+                innerOptional = innerOptional,
+                horizontalPadding = paddings.optionalPadding,
+            )
+            IconContent(
+                modifier = Modifier
+                    .layoutId(LeadingId)
+                    .padding(end = paddings.startContentEndPadding)
+                    .size(iconSize)
+                    .defaultMinSize(iconSize, iconSize),
+                icon = startIcon,
+            )
+            IconContent(
+                modifier = Modifier
+                    .layoutId(TrailingId)
+                    .padding(start = paddings.endContentStartPadding)
+                    .size(iconSize)
+                    .defaultMinSize(iconSize, iconSize),
+                icon = endIcon,
+            )
+            CaptionTextContent(
+                modifier = Modifier
+                    .layoutId(CaptionTextId)
+                    .padding(
+                        top = paddings.helperTextPadding,
+                        start = adjustStartPaddingWhenHasChips(
+                            hasChips = hasChips,
+                            startPadding = paddings.boxPaddingStart,
+                            chipsPadding = paddings.chipsPadding,
+                        ),
+                    ),
+                captionText = captionText,
+            )
+            CounterTextContent(
+                modifier = Modifier
+                    .layoutId(CounterTextId)
+                    .padding(top = paddings.helperTextPadding),
+                counterText = counterText,
             )
             CompositeTextFieldContent(
                 modifier = Modifier.layoutId(TextFieldId),
                 textField = textField,
                 placeholder = placeholder,
                 chips = chips,
-                chipsSpacing = chipsSpacing,
                 chipContainerShape = chipContainerShape,
+                paddings = paddings,
+                scrollState = verticalScrollState,
+                singleLine = singleLine,
             )
         },
         measurePolicy = measurePolicy,
     )
 }
 
+private fun adjustStartPaddingWhenHasChips(
+    hasChips: Boolean,
+    startPadding: Dp,
+    chipsPadding: Dp,
+): Dp {
+    return if (hasChips) startPadding - chipsPadding else 0.dp
+}
+
 @Composable
-private fun LeadingContent(
+private fun IconContent(
     modifier: Modifier,
-    leading: @Composable (() -> Unit)?,
-    iconSize: Dp,
+    icon: @Composable (() -> Unit)?,
 ) {
-    if (leading != null) {
+    if (icon != null) {
         Box(
-            modifier = modifier.defaultMinSize(iconSize, iconSize),
+            modifier = modifier,
             contentAlignment = Alignment.Center,
-        ) { leading() }
+        ) { icon() }
     }
 }
 
 @Composable
-private fun TrailingContent(
+private fun CaptionTextContent(
     modifier: Modifier,
-    trailing: @Composable (() -> Unit)?,
-    iconSize: Dp,
+    captionText: @Composable (() -> Unit)?,
 ) {
-    if (trailing != null) {
-        Box(
-            modifier = modifier
-                .defaultMinSize(iconSize, iconSize),
-            contentAlignment = Alignment.Center,
-        ) { trailing() }
+    if (captionText != null) {
+        Box(modifier = modifier) {
+            captionText()
+        }
+    }
+}
+
+@Composable
+private fun CounterTextContent(
+    modifier: Modifier,
+    counterText: @Composable (() -> Unit)?,
+) {
+    if (counterText != null) {
+        Box(modifier) {
+            counterText()
+        }
     }
 }
 
 @Composable
 private fun LabelContent(
     modifier: Modifier,
-    label: @Composable (() -> Unit)?,
+    innerLabel: @Composable (() -> Unit)?,
+    innerOptional: @Composable (() -> Unit)?,
+    horizontalPadding: Dp,
 ) {
-    if (label != null) {
-        Box(modifier.layoutId(LabelId)) { label() }
+    if (innerLabel == null && innerOptional == null) return
+    Row(modifier.layoutId(LabelId)) {
+        innerLabel?.invoke()
+        innerOptional?.let {
+            Spacer(modifier = Modifier.size(horizontalPadding))
+            it.invoke()
+        }
     }
 }
 
@@ -156,22 +225,12 @@ private fun CompositeTextFieldContent(
     textField: @Composable () -> Unit,
     placeholder: @Composable (() -> Unit)?,
     chips: @Composable (() -> Unit)?,
-    chipsSpacing: Dp,
+    paddings: CoreTextField.Paddings,
+    scrollState: ScrollState?,
+    singleLine: Boolean,
     chipContainerShape: CornerBasedShape?,
 ) {
-    Row(
-        modifier = modifier
-            .fieldShapeDecoration(
-                hasChips = chips != null,
-                chipContainerShape = chipContainerShape,
-            )
-            .horizontalScroll(rememberScrollState(0)),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(chipsSpacing),
-    ) {
-        if (chips != null) {
-            chips()
-        }
+    val textContent: @Composable () -> Unit = {
         Box {
             if (placeholder != null) {
                 Box(Modifier.layoutId(PlaceholderId)) { placeholder() }
@@ -179,6 +238,102 @@ private fun CompositeTextFieldContent(
             textField()
         }
     }
+    if (!singleLine) {
+        TextAreaContent(
+            modifier = modifier,
+            textContent = textContent,
+            chips = chips,
+            paddings = paddings,
+            scrollState = scrollState,
+            chipContainerShape = chipContainerShape,
+        )
+    } else {
+        TextFieldContent(
+            modifier = modifier,
+            textContent = textContent,
+            chips = chips,
+            paddings = paddings,
+            chipContainerShape = chipContainerShape,
+        )
+    }
+}
+
+@Composable
+private fun TextAreaContent(
+    modifier: Modifier,
+    textContent: @Composable (() -> Unit),
+    chips: @Composable (() -> Unit)?,
+    paddings: CoreTextField.Paddings,
+    scrollState: ScrollState?,
+    chipContainerShape: CornerBasedShape?,
+) {
+    Column(
+        modifier = modifier
+            .fieldShapeDecoration(
+                hasChips = chips != null,
+                chipContainerShape = chipContainerShape,
+            )
+            .then(
+                scrollState?.let { Modifier.verticalScroll(it) } ?: Modifier,
+            ),
+        verticalArrangement = Arrangement.spacedBy(paddings.boxPaddingTop),
+        content = {
+            if (chips != null) {
+                ChipGroup(
+                    horizontalSpacing = paddings.chipsSpacing,
+                    verticalSpacing = paddings.chipsSpacing,
+                    overflowMode = ChipGroup.OverflowMode.Wrap,
+                ) {
+                    chips.invoke()
+                }
+            }
+            Box(
+                modifier = Modifier.padding(
+                    start = adjustStartPaddingWhenHasChips(
+                        hasChips = chips != null,
+                        startPadding = paddings.boxPaddingStart,
+                        chipsPadding = paddings.chipsPadding,
+                    ),
+                ),
+            ) {
+                textContent()
+            }
+        },
+    )
+}
+
+@Composable
+private fun TextFieldContent(
+    modifier: Modifier,
+    textContent: @Composable (() -> Unit),
+    chips: @Composable (() -> Unit)?,
+    paddings: CoreTextField.Paddings,
+    chipContainerShape: CornerBasedShape?,
+) {
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(paddings.chipsSpacing),
+        modifier = modifier
+            .fieldShapeDecoration(
+                hasChips = chips != null,
+                chipContainerShape = chipContainerShape,
+            )
+            .horizontalScroll(rememberScrollState()),
+        content = {
+            if (chips != null) {
+                ChipGroup(
+                    modifier = Modifier
+                        .padding(end = paddings.boxPaddingStart + paddings.chipsSpacing),
+                    horizontalSpacing = paddings.chipsSpacing,
+                    verticalSpacing = paddings.chipsSpacing,
+                    overflowMode = ChipGroup.OverflowMode.Unlimited,
+                ) {
+                    chips.invoke()
+                }
+            }
+            textContent()
+        },
+    )
 }
 
 private fun Modifier.fieldShapeDecoration(
@@ -186,64 +341,66 @@ private fun Modifier.fieldShapeDecoration(
     chipContainerShape: CornerBasedShape?,
 ): Modifier {
     return if (hasChips && chipContainerShape != null) {
-        this
-            .clip(chipContainerShape)
+        this.clip(chipContainerShape)
     } else {
         this
     }
 }
 
-private class TextFieldLayoutMeasurePolicy(
+private class CoreTextFieldLayoutMeasurePolicy
+@OptIn(ExperimentalTextApi::class)
+constructor(
+    private val valueTextStyle: TextStyle,
+    private val innerLabelTextStyle: TextStyle,
+    private val textMeasurer: TextMeasurer,
     private val animationProgress: Float,
-    private val textTopPadding: Dp,
-    private val textBottomPadding: Dp,
-    private val labelToValuePadding: Dp,
+    private val chipHeight: Dp,
     private val hasChips: Boolean,
 ) : MeasurePolicy {
 
+    @OptIn(ExperimentalTextApi::class)
     @Suppress("LongMethod")
     override fun MeasureScope.measure(
         measurables: List<Measurable>,
         constraints: Constraints,
     ): MeasureResult {
-        val topPaddingValue = textTopPadding.roundToPx()
-        val bottomPaddingValue = textBottomPadding.roundToPx()
-
-        // padding between label and input text
-        val topPadding = labelToValuePadding.roundToPx()
-        var occupiedSpaceHorizontally = 0
-
-        // measure leading icon
         val looseConstraints = constraints.copy(minWidth = 0, minHeight = 0)
-        val leadingPlaceable =
-            measurables.find { it.layoutId == LeadingId }?.measure(looseConstraints)
-        occupiedSpaceHorizontally += widthOrZero(
-            leadingPlaceable,
-        )
+
+        var occupiedSpaceHorizontally = 0
+        // measure leading icon
+        val leadingPlaceable = measurables.find { it.layoutId == LeadingId }
+            ?.measure(looseConstraints)
+        occupiedSpaceHorizontally += leadingPlaceable.widthOrZero()
 
         // measure trailing icon
         val trailingPlaceable = measurables.find { it.layoutId == TrailingId }
-            ?.measure(looseConstraints.offset(horizontal = -occupiedSpaceHorizontally))
-        occupiedSpaceHorizontally += widthOrZero(
-            trailingPlaceable,
-        )
+            ?.measure(looseConstraints)
+        occupiedSpaceHorizontally += trailingPlaceable.widthOrZero()
 
         // measure label
-        val labelConstraints = looseConstraints
-            .offset(
-                vertical = -bottomPaddingValue,
-                horizontal = -occupiedSpaceHorizontally,
-            )
+        val labelConstraints = looseConstraints.offset(horizontal = -occupiedSpaceHorizontally)
         val labelPlaceable =
             measurables.find { it.layoutId == LabelId }?.measure(labelConstraints)
-        val lastBaseline = labelPlaceable?.height ?: 0
-        val effectiveLabelBaseline = max(lastBaseline, topPaddingValue)
+
+        // measure captionText
+        val captionTextPlaceable = measurables
+            .find { it.layoutId == CaptionTextId }
+            ?.measure(looseConstraints)
+
+        // measure counterText
+        val counterTextPlaceable = measurables
+            .find { it.layoutId == CounterTextId }
+            ?.measure(looseConstraints.offset(horizontal = -captionTextPlaceable.widthOrZero()))
+        val counterTextHeight = counterTextPlaceable.heightOrZero()
 
         // measure input field
+        val labelHeight = labelPlaceable.heightOrZero()
+        val captionTextHeight = captionTextPlaceable.heightOrZero()
+        val maxHelperTextHeight = max(captionTextHeight, counterTextHeight)
         val verticalConstraintOffset = if (labelPlaceable != null) {
-            -bottomPaddingValue - effectiveLabelBaseline
+            -labelHeight - maxHelperTextHeight
         } else {
-            if (!hasChips) (-topPaddingValue - bottomPaddingValue) else 0
+            -maxHelperTextHeight
         }
         val textFieldConstraints = constraints
             .copy(minHeight = 0)
@@ -261,152 +418,94 @@ private class TextFieldLayoutMeasurePolicy(
             .find { it.layoutId == PlaceholderId }
             ?.measure(placeholderConstraints)
 
+        val firstValueLineHeight = getLineHeight(textMeasurer, valueTextStyle)
+        val smallLabelTextHeight = getLabelLineHeight(
+            hasLabel = labelPlaceable != null,
+            textMeasurer = textMeasurer,
+            textStyle = innerLabelTextStyle,
+        )
+        val chipsHeightOrZero = if (hasChips) chipHeight.roundToPx() else 0
+        // расчет высоты первой строки контента (icons/innerLabel + 1 строка value/chips)
+        val firstLineHeight = maxOf(
+            firstValueLineHeight + smallLabelTextHeight,
+            leadingPlaceable.heightOrZero(),
+            trailingPlaceable.heightOrZero(),
+            chipsHeightOrZero,
+        )
+
         val width = calculateWidth(
-            leadingWidth = widthOrZero(leadingPlaceable),
-            trailingWidth = widthOrZero(trailingPlaceable),
             textFieldWidth = textFieldPlaceable.width,
-            labelWidth = widthOrZero(labelPlaceable),
-            placeholderWidth = widthOrZero(placeholderPlaceable),
+            leadingWidth = leadingPlaceable.widthOrZero(),
+            trailingWidth = trailingPlaceable.widthOrZero(),
+            labelWidth = labelPlaceable.widthOrZero(),
+            captionWidth = captionTextPlaceable.widthOrZero(),
+            counterWidth = counterTextPlaceable.widthOrZero(),
+            placeholderWidth = placeholderPlaceable.widthOrZero(),
             constraints = constraints,
         )
         val height = calculateHeight(
             textFieldHeight = textFieldPlaceable.height,
-            hasLabel = labelPlaceable != null,
-            labelBaseline = effectiveLabelBaseline,
-            leadingHeight = heightOrZero(leadingPlaceable),
-            trailingHeight = heightOrZero(trailingPlaceable),
-            placeholderHeight = heightOrZero(placeholderPlaceable),
+            labelHeight = labelPlaceable?.let { smallLabelTextHeight } ?: 0,
+            leadingHeight = leadingPlaceable.heightOrZero(),
+            trailingHeight = trailingPlaceable.heightOrZero(),
+            placeholderHeight = placeholderPlaceable.heightOrZero(),
+            captionTextHeight = captionTextHeight,
+            counterTextHeight = counterTextHeight,
             constraints = constraints,
-            density = density,
-            textTopPadding = textTopPadding,
-            textBottomPadding = textBottomPadding,
         )
 
-        return layout(width, height) {
+        return layout(constraints.constrainWidth(width), constraints.constrainHeight(height)) {
             if (labelPlaceable != null) {
-                // label's final position is always relative to the baseline
-                val labelEndPosition = (topPaddingValue - lastBaseline - topPadding)
-                    .coerceAtLeast(0)
                 placeWithLabel(
-                    width = width,
                     height = height,
-                    textfieldPlaceable = textFieldPlaceable,
-                    labelPlaceable = labelPlaceable,
+                    width = width,
                     leadingPlaceable = leadingPlaceable,
                     trailingPlaceable = trailingPlaceable,
-                    labelEndPosition = labelEndPosition,
-                    textPosition = effectiveLabelBaseline,
+                    textFieldPlaceable = textFieldPlaceable,
+                    captionTextPlaceable = captionTextPlaceable,
+                    counterTextPlaceable = counterTextPlaceable,
+                    labelPlaceable = labelPlaceable,
                     animationProgress = animationProgress,
+                    firstLineHeight = firstLineHeight,
                 )
             } else {
                 placeWithoutLabel(
-                    width = width,
                     height = height,
+                    width = width,
                     textPlaceable = textFieldPlaceable,
                     leadingPlaceable = leadingPlaceable,
                     trailingPlaceable = trailingPlaceable,
+                    captionTextPlaceable = captionTextPlaceable,
+                    counterTextPlaceable = counterTextPlaceable,
+                    firstValueLineHeight = firstValueLineHeight,
+                    firstLineHeight = firstLineHeight,
+                    hasChips = hasChips,
                 )
             }
         }
     }
+}
 
-    override fun IntrinsicMeasureScope.maxIntrinsicHeight(
-        measurables: List<IntrinsicMeasurable>,
-        width: Int,
-    ): Int {
-        return intrinsicHeight(measurables, width) { intrinsicMeasurable, w ->
-            intrinsicMeasurable.maxIntrinsicHeight(w)
-        }
-    }
+@OptIn(ExperimentalTextApi::class)
+private fun getLineHeight(textMeasurer: TextMeasurer, textStyle: TextStyle): Int {
+    val valueLayoutResult = textMeasurer.measureStyle(textStyle)
+    val valueLineBottom = valueLayoutResult.getLineBottom(0)
+    val valueLineTop = valueLayoutResult.getLineTop(0)
+    return (valueLineBottom - valueLineTop).roundToInt()
+}
 
-    override fun IntrinsicMeasureScope.minIntrinsicHeight(
-        measurables: List<IntrinsicMeasurable>,
-        width: Int,
-    ): Int {
-        return intrinsicHeight(measurables, width) { intrinsicMeasurable, w ->
-            intrinsicMeasurable.minIntrinsicHeight(w)
-        }
-    }
+@OptIn(ExperimentalTextApi::class)
+private fun TextMeasurer.measureStyle(textStyle: TextStyle): TextLayoutResult {
+    return measure(AnnotatedString(DUMMY_TEXT), textStyle)
+}
 
-    override fun IntrinsicMeasureScope.maxIntrinsicWidth(
-        measurables: List<IntrinsicMeasurable>,
-        height: Int,
-    ): Int {
-        return intrinsicWidth(measurables, height) { intrinsicMeasurable, h ->
-            intrinsicMeasurable.maxIntrinsicWidth(h)
-        }
-    }
-
-    override fun IntrinsicMeasureScope.minIntrinsicWidth(
-        measurables: List<IntrinsicMeasurable>,
-        height: Int,
-    ): Int {
-        return intrinsicWidth(measurables, height) { intrinsicMeasurable, h ->
-            intrinsicMeasurable.minIntrinsicWidth(h)
-        }
-    }
-
-    private fun intrinsicWidth(
-        measurables: List<IntrinsicMeasurable>,
-        height: Int,
-        intrinsicMeasurer: (IntrinsicMeasurable, Int) -> Int,
-    ): Int {
-        val textFieldWidth =
-            intrinsicMeasurer(measurables.first { it.layoutId == TextFieldId }, height)
-        val labelWidth = measurables.find { it.layoutId == LabelId }?.let {
-            intrinsicMeasurer(it, height)
-        } ?: 0
-        val trailingWidth = measurables.find { it.layoutId == TrailingId }?.let {
-            intrinsicMeasurer(it, height)
-        } ?: 0
-        val leadingWidth = measurables.find { it.layoutId == LeadingId }?.let {
-            intrinsicMeasurer(it, height)
-        } ?: 0
-        val placeholderWidth = measurables.find { it.layoutId == PlaceholderId }?.let {
-            intrinsicMeasurer(it, height)
-        } ?: 0
-        return calculateWidth(
-            leadingWidth = leadingWidth,
-            trailingWidth = trailingWidth,
-            textFieldWidth = textFieldWidth,
-            labelWidth = labelWidth,
-            placeholderWidth = placeholderWidth,
-            constraints = ZeroConstraints,
-        )
-    }
-
-    private fun IntrinsicMeasureScope.intrinsicHeight(
-        measurables: List<IntrinsicMeasurable>,
-        width: Int,
-        intrinsicMeasurer: (IntrinsicMeasurable, Int) -> Int,
-    ): Int {
-        val textFieldHeight =
-            intrinsicMeasurer(measurables.first { it.layoutId == TextFieldId }, width)
-        val labelHeight = measurables.find { it.layoutId == LabelId }?.let {
-            intrinsicMeasurer(it, width)
-        } ?: 0
-        val trailingHeight = measurables.find { it.layoutId == TrailingId }?.let {
-            intrinsicMeasurer(it, width)
-        } ?: 0
-        val leadingHeight = measurables.find { it.layoutId == LeadingId }?.let {
-            intrinsicMeasurer(it, width)
-        } ?: 0
-        val placeholderHeight = measurables.find { it.layoutId == PlaceholderId }?.let {
-            intrinsicMeasurer(it, width)
-        } ?: 0
-        return calculateHeight(
-            textFieldHeight = textFieldHeight,
-            hasLabel = labelHeight > 0,
-            labelBaseline = labelHeight,
-            leadingHeight = leadingHeight,
-            trailingHeight = trailingHeight,
-            placeholderHeight = placeholderHeight,
-            constraints = ZeroConstraints,
-            density = density,
-            textTopPadding = textTopPadding,
-            textBottomPadding = textBottomPadding,
-        )
-    }
+@OptIn(ExperimentalTextApi::class)
+private fun getLabelLineHeight(
+    hasLabel: Boolean,
+    textMeasurer: TextMeasurer,
+    textStyle: TextStyle,
+): Int {
+    return if (hasLabel) { getLineHeight(textMeasurer, textStyle) } else 0
 }
 
 private fun calculateWidth(
@@ -416,6 +515,8 @@ private fun calculateWidth(
     labelWidth: Int,
     placeholderWidth: Int,
     constraints: Constraints,
+    captionWidth: Int,
+    counterWidth: Int,
 ): Int {
     val middleSection = maxOf(
         textFieldWidth,
@@ -423,99 +524,123 @@ private fun calculateWidth(
         placeholderWidth,
     )
     val wrappedWidth = leadingWidth + middleSection + trailingWidth
-    return max(wrappedWidth, constraints.minWidth)
+    val bottomSection = captionWidth + counterWidth
+    return maxOf(wrappedWidth, bottomSection, constraints.minWidth)
 }
 
 private fun calculateHeight(
     textFieldHeight: Int,
-    hasLabel: Boolean,
-    labelBaseline: Int,
+    labelHeight: Int,
     leadingHeight: Int,
     trailingHeight: Int,
     placeholderHeight: Int,
+    captionTextHeight: Int,
+    counterTextHeight: Int,
     constraints: Constraints,
-    density: Float,
-    textTopPadding: Dp,
-    textBottomPadding: Dp,
 ): Int {
-    val topPaddingValue = textTopPadding.value * density
-    val bottomPaddingValue = textBottomPadding.value * density
-
     val inputFieldHeight = max(textFieldHeight, placeholderHeight)
-    val middleSectionHeight = if (hasLabel) {
-        labelBaseline + inputFieldHeight + bottomPaddingValue
-    } else {
-        topPaddingValue + inputFieldHeight + bottomPaddingValue
-    }
-    return maxOf(
-        middleSectionHeight.roundToInt(),
-        max(leadingHeight, trailingHeight),
-        constraints.minHeight,
+    val maxHelperTextHeight = max(captionTextHeight, counterTextHeight)
+    val mainContentHeight = maxOf(
+        inputFieldHeight + labelHeight,
+        leadingHeight,
+        trailingHeight,
     )
+    val contentHeight = mainContentHeight + maxHelperTextHeight
+    return max(constraints.minHeight, contentHeight)
 }
 
 private fun Placeable.PlacementScope.placeWithLabel(
     width: Int,
     height: Int,
-    textfieldPlaceable: Placeable,
-    labelPlaceable: Placeable?,
+    firstLineHeight: Int,
+    textFieldPlaceable: Placeable,
+    captionTextPlaceable: Placeable?,
+    counterTextPlaceable: Placeable?,
     leadingPlaceable: Placeable?,
     trailingPlaceable: Placeable?,
-    labelEndPosition: Int,
-    textPosition: Int,
+    labelPlaceable: Placeable?,
     animationProgress: Float,
 ) {
+    // размещение контента в начале
+    val leadingVerticalPosition =
+        Alignment.CenterVertically.align(leadingPlaceable.heightOrZero(), firstLineHeight)
     leadingPlaceable?.placeRelative(
         0,
-        Alignment.CenterVertically.align(leadingPlaceable.height, height),
+        leadingVerticalPosition,
     )
+    // размещение контента в конце
+    val trailingVerticalPosition =
+        Alignment.CenterVertically.align(trailingPlaceable.heightOrZero(), firstLineHeight)
     trailingPlaceable?.placeRelative(
         width - trailingPlaceable.width,
-        Alignment.CenterVertically.align(trailingPlaceable.height, height),
+        trailingVerticalPosition,
     )
+
+    // размещение лэйбла
     labelPlaceable?.let {
-        val startPosition = Alignment.CenterVertically.align(it.height, height)
-        val distance = startPosition - labelEndPosition
-        val positionY = startPosition - (distance * animationProgress).roundToInt()
-        it.placeRelative(widthOrZero(leadingPlaceable), positionY)
+        val startLabelVerticalPosition =
+            Alignment.CenterVertically.align(labelPlaceable.heightOrZero(), firstLineHeight)
+        val positionY =
+            startLabelVerticalPosition - (startLabelVerticalPosition * animationProgress).roundToInt()
+        it.placeRelative(leadingPlaceable.widthOrZero(), positionY)
     }
-    textfieldPlaceable.placeRelative(widthOrZero(leadingPlaceable), textPosition)
+
+    // размещение текста
+    textFieldPlaceable.placeRelative(leadingPlaceable.widthOrZero(), labelPlaceable.heightOrZero())
+
+    // размещение нижних надписей
+    captionTextPlaceable?.placeRelative(0, height - captionTextPlaceable.height)
+    counterTextPlaceable?.placeRelative(
+        width - counterTextPlaceable.width,
+        height - counterTextPlaceable.height,
+    )
 }
 
 private fun Placeable.PlacementScope.placeWithoutLabel(
-    width: Int,
     height: Int,
+    width: Int,
     textPlaceable: Placeable,
     leadingPlaceable: Placeable?,
     trailingPlaceable: Placeable?,
+    captionTextPlaceable: Placeable?,
+    counterTextPlaceable: Placeable?,
+    firstValueLineHeight: Int,
+    firstLineHeight: Int,
+    hasChips: Boolean,
 ) {
+    // размещение контента в начале
+    val leadingVerticalPosition =
+        Alignment.CenterVertically.align(leadingPlaceable.heightOrZero(), firstLineHeight)
     leadingPlaceable?.placeRelative(
         0,
-        Alignment.CenterVertically.align(leadingPlaceable.height, height),
+        leadingVerticalPosition,
     )
+    // размещение контента в конце
+    val trailingVerticalPosition =
+        Alignment.CenterVertically.align(trailingPlaceable.heightOrZero(), firstLineHeight)
     trailingPlaceable?.placeRelative(
         width - trailingPlaceable.width,
-        Alignment.CenterVertically.align(trailingPlaceable.height, height),
+        trailingVerticalPosition,
     )
 
-    val textVerticalPosition = Alignment.CenterVertically.align(textPlaceable.height, height)
-    textPlaceable.placeRelative(
-        widthOrZero(leadingPlaceable),
-        textVerticalPosition,
+    // размещение текста
+    val textVerticalPosition =
+        if (hasChips) 0 else Alignment.CenterVertically.align(firstValueLineHeight, firstLineHeight)
+    textPlaceable.placeRelative(leadingPlaceable.widthOrZero(), textVerticalPosition)
+
+    // размещение нижних надписей
+    captionTextPlaceable?.placeRelative(0, height - captionTextPlaceable.height)
+    counterTextPlaceable?.placeRelative(
+        width - counterTextPlaceable.width,
+        height - counterTextPlaceable.height,
     )
 }
 
-private fun widthOrZero(placeable: Placeable?) = placeable?.width ?: 0
-
-private fun heightOrZero(placeable: Placeable?) = placeable?.height ?: 0
-
-private val IntrinsicMeasurable.layoutId: Any?
-    get() = (parentData as? LayoutIdParentData)?.layoutId
-
-private val ZeroConstraints = Constraints(0, 0, 0, 0)
-
-internal const val TextFieldId = "TextField"
-internal const val PlaceholderId = "Hint"
-internal const val LabelId = "Label"
-internal const val LeadingId = "Leading"
-internal const val TrailingId = "Trailing"
+private const val TextFieldId = "TextField"
+private const val TrailingId = "TrailingIcon"
+private const val LeadingId = "LeadingIcon"
+private const val CaptionTextId = "CaptionText"
+private const val CounterTextId = "CounterText"
+private const val PlaceholderId = "Hint"
+private const val LabelId = "Label"
+private const val DUMMY_TEXT = "Text"

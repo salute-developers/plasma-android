@@ -3,8 +3,8 @@ package com.sdds.playground.sandbox.textfield
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.sdds.compose.uikit.TextField
-import com.sdds.compose.uikit.TextField.DotBadge
+import com.sdds.compose.uikit.CoreTextField
+import com.sdds.compose.uikit.CoreTextField.DotBadge
 import com.sdds.playground.sandbox.core.PropertiesOwner
 import com.sdds.playground.sandbox.core.Property
 import com.sdds.playground.sandbox.core.enumProperty
@@ -57,9 +57,15 @@ internal class TextFieldViewModel : ViewModel(), PropertiesOwner {
         )
     }
 
+    private fun updateCounter(text: String) {
+        _textFieldUiState.value = _textFieldUiState.value.copy(
+            counterText = text,
+        )
+    }
+
     private fun updatePlaceholder(text: String) {
         _textFieldUiState.value = _textFieldUiState.value.copy(
-            captionText = text,
+            placeholderText = text,
         )
     }
 
@@ -75,9 +81,9 @@ internal class TextFieldViewModel : ViewModel(), PropertiesOwner {
         )
     }
 
-    private fun updateLabelType(labelType: TextField.LabelType) {
+    private fun updateLabelType(labelPosition: CoreTextField.LabelPosition) {
         _textFieldUiState.value = _textFieldUiState.value.copy(
-            labelType = labelType,
+            labelPosition = labelPosition,
         )
     }
 
@@ -122,9 +128,35 @@ internal class TextFieldViewModel : ViewModel(), PropertiesOwner {
         _textFieldUiState.value = _textFieldUiState.value.copy(chips = List(count) { "chip $it" })
     }
 
+    private fun updateSingleLine(singleLine: Boolean) {
+        _textFieldUiState.value = _textFieldUiState.value.copy(singleLine = singleLine)
+    }
+
     @Suppress("LongMethod")
     private fun TextFieldUiState.toProps(): List<Property<*>> {
         return listOfNotNull(
+            Property.BooleanProperty(
+                name = "singleLine",
+                value = singleLine,
+                onApply = { updateSingleLine(it) },
+            ),
+            enumProperty(
+                name = "field type",
+                value = fieldType,
+                onApply = { updateFieldType(it) },
+            ),
+            enumProperty(
+                name = "label type",
+                value = labelPosition,
+                onApply = { updateLabelType(it) },
+            ),
+            enumProperty(
+                name = "dot badge position",
+                value = dotBadgePosition,
+                onApply = {
+                    updateDotBadgePosition(it)
+                },
+            ),
             Property.StringProperty(
                 name = "label",
                 value = labelText,
@@ -135,22 +167,15 @@ internal class TextFieldViewModel : ViewModel(), PropertiesOwner {
                 value = optionalText,
                 onApply = { updateOptionalText(it) },
             ),
-            enumProperty(
-                name = "field type",
-                value = fieldType,
-                onApply = { updateFieldType(it) },
-            ),
-            enumProperty(
-                name = "dot badge position",
-                value = dotBadgePosition,
-                onApply = {
-                    updateDotBadgePosition(it)
-                },
-            ),
             Property.StringProperty(
                 name = "caption",
                 value = captionText,
                 onApply = { updateCaption(it) },
+            ),
+            Property.StringProperty(
+                name = "counter",
+                value = counterText,
+                onApply = { updateCounter(it) },
             ),
             Property.StringProperty(
                 name = "placeholder",
@@ -166,11 +191,6 @@ internal class TextFieldViewModel : ViewModel(), PropertiesOwner {
                 name = "size",
                 value = size,
                 onApply = { updateSize(it) },
-            ),
-            enumProperty(
-                name = "label type",
-                value = labelType,
-                onApply = { updateLabelType(it) },
             ),
             Property.BooleanProperty(
                 name = "start icon",
