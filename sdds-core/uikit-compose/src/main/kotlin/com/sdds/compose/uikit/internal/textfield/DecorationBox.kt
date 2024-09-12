@@ -74,8 +74,9 @@ internal fun DecorationBox(
     ) { labelProgress, placeholderAlphaProgress ->
 
         val decoratedPlaceholder = @Composable {
-            if (placeholder != null && transformedText.isEmpty()) {
-                Box(modifier = Modifier.alpha(placeholderAlphaProgress)) {
+            val placeholderAlpha = if (transformedText.isEmpty()) placeholderAlphaProgress else 0f
+            if (placeholder != null) {
+                Box(modifier = Modifier.alpha(placeholderAlpha)) {
                     placeholder.invoke()
                 }
             }

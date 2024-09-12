@@ -6,8 +6,11 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsFocusedAsState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.foundation.shape.CornerSize
@@ -140,7 +143,8 @@ internal fun BaseTextField(
     val requiredField = fieldType as? FieldType.Required
 
     Column(
-        modifier = Modifier
+        modifier = modifier
+            .width(IntrinsicSize.Max)
             .applyDotBadgePadding(
                 requiredField = requiredField,
                 labelPosition = labelPosition,
@@ -167,7 +171,8 @@ internal fun BaseTextField(
         BasicTextField(
             value = value,
             onValueChange = onValueChange,
-            modifier = modifier
+            modifier = Modifier
+                .fillMaxWidth()
                 .applyFieldDotBadge(requiredField, labelPosition)
                 .clip(shape)
                 .drawBehind { drawRect(backgroundColor) }

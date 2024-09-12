@@ -205,12 +205,8 @@ private fun CounterTextContent(
 @Composable
 private fun LabelContent(
     modifier: Modifier,
-    innerLabel:
-    @Composable()
-    (() -> Unit)?,
-    innerOptional:
-    @Composable()
-    (() -> Unit)?,
+    innerLabel: @Composable (() -> Unit)?,
+    innerOptional: @Composable (() -> Unit)?,
     horizontalPadding: Dp,
 ) {
     if (innerLabel == null && innerOptional == null) return
@@ -227,12 +223,8 @@ private fun LabelContent(
 private fun CompositeTextFieldContent(
     modifier: Modifier,
     textField: @Composable () -> Unit,
-    placeholder:
-    @Composable()
-    (() -> Unit)?,
-    chips:
-    @Composable()
-    (() -> Unit)?,
+    placeholder: @Composable (() -> Unit)?,
+    chips: @Composable (() -> Unit)?,
     paddings: CoreTextField.Paddings,
     scrollState: ScrollState?,
     singleLine: Boolean,

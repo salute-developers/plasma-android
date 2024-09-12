@@ -65,7 +65,7 @@ internal class TextFieldViewModel : ViewModel(), PropertiesOwner {
 
     private fun updatePlaceholder(text: String) {
         _textFieldUiState.value = _textFieldUiState.value.copy(
-            captionText = text,
+            placeholderText = text,
         )
     }
 
