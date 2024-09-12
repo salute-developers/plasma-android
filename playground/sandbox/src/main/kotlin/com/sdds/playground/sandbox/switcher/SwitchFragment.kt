@@ -7,6 +7,7 @@ import android.view.ViewGroup.LayoutParams
 import android.widget.FrameLayout
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.core.view.ComponentFragment
 import com.sdds.playground.sandbox.core.view.PropertiesOwner
 import com.sdds.uikit.Switch
@@ -19,7 +20,9 @@ import kotlinx.coroutines.flow.onEach
  */
 internal class SwitchFragment : ComponentFragment() {
 
-    private val switchParametersViewModel by viewModels<SwitchParametersViewModel>()
+    private val switchParametersViewModel by viewModels<SwitchParametersViewModel> {
+        SwitchParametersViewModelFactory(getState { SwitchUiState() })
+    }
 
     override val componentLayout: Switch
         get() = Switch(ContextThemeWrapper(requireContext(), currentVariant.styleRes))
@@ -27,6 +30,7 @@ internal class SwitchFragment : ComponentFragment() {
             .apply {
                 setOnClickListener { switchParametersViewModel.updateActive(isChecked) }
             }
+            .apply { id = R.id.switcher }
 
     override val defaultLayoutParams: FrameLayout.LayoutParams by lazy {
         FrameLayout.LayoutParams(
