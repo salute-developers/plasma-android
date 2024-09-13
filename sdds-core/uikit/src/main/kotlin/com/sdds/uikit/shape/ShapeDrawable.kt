@@ -20,6 +20,7 @@ import androidx.core.graphics.withTranslation
 import com.sdds.uikit.R
 import com.sdds.uikit.internal.base.colorForState
 import com.sdds.uikit.internal.base.configure
+import com.sdds.uikit.internal.base.shape.Shapeable
 import com.sdds.uikit.shape.ShapeModel.Companion.adjust
 import org.xmlpull.v1.XmlPullParser
 
@@ -27,7 +28,7 @@ import org.xmlpull.v1.XmlPullParser
  * Drawable рисующий форму согласно [ShapeModel].
  * @author Малышев Александр on 29.07.2024
  */
-open class ShapeDrawable() : Drawable() {
+open class ShapeDrawable() : Drawable(), Shapeable {
 
     /**
      * Фабрика [Shader].
@@ -100,6 +101,12 @@ open class ShapeDrawable() : Drawable() {
         _strokeWidth = typedArray.getDimension(R.styleable.SdShape_sd_strokeWidth, 0f)
         typedArray.recycle()
     }
+
+    /**
+     * @see Shapeable.shape
+     */
+    override val shape: ShapeModel
+        get() = _shapeModel
 
     /**
      * Фабрика для [Shader].
