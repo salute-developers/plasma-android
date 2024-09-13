@@ -3,6 +3,8 @@
 
     <attr name="sd_chipStyle" format="reference" />
     <attr name="sd_chipGroupStyle" format="reference" />
+    <attr name="sd_chipStyleOverlay" format="reference"/>
+    <attr name="sd_chipGroupStyleOverlay" format="reference"/>
 
     <declare-styleable name="Chip" tools:ignore="ResourceName">
         <attr name="android:drawableStart" />
@@ -28,8 +30,9 @@
     </declare-styleable>
 
     <declare-styleable name="ChipGroup" tools:ignore="ResourceName">
-        <attr name="sd_gap" format="dimension" />
-        <attr name="sd_lineSpacing" format="dimension" />
+        <attr name="sd_chipStyleOverlay" />
+        <attr name="sd_gap" />
+        <attr name="sd_lineSpacing" />
         <attr name="android:gravity"/>
 
         <attr name="sd_shapeAppearance"/>

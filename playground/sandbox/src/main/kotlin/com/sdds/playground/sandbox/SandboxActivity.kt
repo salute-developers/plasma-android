@@ -78,6 +78,7 @@ class SandboxActivity : AppCompatActivity() {
             R.id.nav_avatar,
             R.id.nav_avatargroup,
             R.id.nav_textfield,
+            R.id.nav_textarea,
         )
     }
 }

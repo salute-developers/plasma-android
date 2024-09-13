@@ -19,43 +19,78 @@
         <attr name="sd_actionSize" format="dimension" />
         <attr name="sd_actionPadding" format="dimension" />
 
-        <attr name="sd_boxHeight" format="dimension" />
+        <attr name="sd_boxMinHeight" format="dimension" />
         <attr name="sd_boxTint" format="color|reference" />
         <attr name="sd_boxPadding" format="dimension" />
         <attr name="sd_boxPaddingStart" format="dimension" />
         <attr name="sd_boxPaddingTop" format="dimension" />
         <attr name="sd_boxPaddingEnd" format="dimension" />
         <attr name="sd_boxPaddingBottom" format="dimension" />
-        <attr name="sd_innerLabelPadding" format="dimension" />
+        <attr name="sd_labelPadding" format="dimension" />
+        <attr name="sd_helperTextPadding" format="dimension" />
+
+        <attr name="sd_chipGroupStyleOverlay" />
+        <attr name="sd_chipsPadding" format="dimension" />
+        <attr name="sd_allowBreakLines" format="boolean" />
 
         <attr name="sd_viewState" />
         <attr name="sd_shapeAppearance" />
         <attr name="sd_strokeWidth" />
         <attr name="sd_strokeColor" />
+        <attr name="android:inputType" />
+        <attr name="android:imeActionId" />
+        <attr name="android:imeActionLabel" />
+        <attr name="android:imeOptions" />
     </declare-styleable>
 
     <declare-styleable name="TextField" tools:ignore="ResourceName">
         <attr name="sd_label" format="string" />
-        <attr name="sd_innerLabelAppearance" format="reference" />
-        <attr name="sd_outerLabelAppearance" format="reference" />
+        <attr name="sd_labelAppearance" format="reference" />
         <attr name="sd_labelColor" format="reference|color" />
-        <attr name="sd_innerLabelPadding" />
-        <attr name="sd_outerLabelPadding" format="dimension" />
-        <attr name="sd_labelType" format="enum">
-            <enum name="outer" value="0" />
-            <enum name="inner" value="1" />
+        <attr name="sd_labelPadding" />
+        <attr name="sd_labelPlacement" format="enum">
+            <enum name="none" value="0" />
+            <enum name="outer" value="1" />
+            <enum name="inner" value="2" />
         </attr>
+
         <attr name="sd_value" />
         <attr name="sd_valueAppearance" format="reference" />
         <attr name="sd_valueColor" format="reference|color" />
         <attr name="sd_placeholder" format="string" />
         <attr name="sd_placeholderAppearance" format="reference" />
         <attr name="sd_placeholderColor" format="reference|color" />
+
         <attr name="sd_caption" format="string" />
+        <attr name="sd_captionEnabled" format="boolean" />
+        <attr name="sd_captionPlacement" format="enum">
+            <enum name="none" value="0" />
+            <enum name="outer" value="1" />
+            <enum name="inner" value="2" />
+        </attr>
         <attr name="sd_captionAppearance" format="reference" />
         <attr name="sd_captionColor" format="reference|color" />
-        <attr name="sd_captionPadding" format="dimension" />
 
+        <attr name="sd_counter" format="string" />
+        <attr name="sd_counterEnabled" />
+        <attr name="sd_counterPlacement" format="enum">
+            <enum name="none" value="0" />
+            <enum name="outer" value="1" />
+            <enum name="inner" value="2" />
+        </attr>
+        <attr name="sd_counterAppearance" format="reference" />
+        <attr name="sd_counterColor" format="reference|color" />
+
+        <attr name="sd_helperTextPadding" />
+
+        <attr name="sd_requirementMode" format="enum">
+            <enum name="optional" value="0" />
+            <enum name="start" value="1" />
+            <enum name="end" value="2" />
+        </attr>
+        <attr name="sd_indicatorSize" format="dimension" />
+        <attr name="sd_indicatorOffsetX" format="dimension" />
+        <attr name="sd_indicatorOffsetY" format="dimension" />
         <attr name="sd_icon" />
         <attr name="sd_iconTint" />
         <attr name="sd_iconSize" />
@@ -66,7 +101,7 @@
         <attr name="sd_actionSize" />
         <attr name="sd_actionPadding" />
 
-        <attr name="sd_boxHeight" />
+        <attr name="sd_boxMinHeight" />
         <attr name="sd_boxTint" />
         <attr name="sd_boxPadding" />
         <attr name="sd_boxPaddingStart" />
@@ -75,13 +110,17 @@
         <attr name="sd_boxPaddingBottom" />
 
         <attr name="sd_viewState" />
+
         <attr name="sd_shapeAppearance" />
         <attr name="sd_strokeWidth" />
         <attr name="sd_strokeColor" />
+        <attr name="sd_chipGroupStyleOverlay" />
+        <attr name="sd_chipsPadding" />
+        <attr name="sd_allowBreakLines" />
 
-        <attr name="android:inputType"/>
-        <attr name="android:inputMethod"/>
-        <attr name="android:imeActionLabel"/>
+        <attr name="android:inputType" />
+        <attr name="android:imeActionId" />
+        <attr name="android:imeActionLabel" />
         <attr name="android:imeOptions" />
     </declare-styleable>
 </resources>

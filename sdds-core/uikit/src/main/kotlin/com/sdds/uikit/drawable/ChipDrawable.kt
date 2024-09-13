@@ -260,8 +260,11 @@ open class ChipDrawable(
             textPaint.color = textColor
             stateChanged = true
         }
-        stateChanged = (_drawableStart?.setState(state) == true) or stateChanged
-        stateChanged = (_drawableEnd?.setState(state) == true) or stateChanged
+        stateChanged = (_drawableStart?.setState(state) == true) || stateChanged
+        stateChanged = (_drawableEnd?.setState(state) == true) || stateChanged
+        if (stateChanged) {
+            invalidateSelf()
+        }
         return super.onStateChange(state) || stateChanged
     }
 
@@ -382,10 +385,12 @@ open class ChipDrawable(
                 contentStartBounds.right + _textPaddingStart,
                 textPositionWithoutDrawable,
             )
+
             _drawableEnd != null -> minOf(
                 contentEndBounds.left - _textPaddingEnd - textBounds.width(),
                 textPositionWithoutDrawable,
             )
+
             else -> textPositionWithoutDrawable
         }
         textBounds.offsetTo(
@@ -422,9 +427,9 @@ open class ChipDrawable(
         DrawableCompat.setLayoutDirection(this, DrawableCompat.getLayoutDirection(this))
         level = level
         setVisible(isVisible, false)
+        DrawableCompat.setTintList(this, tint)
         if (isStateful) {
             state = this@ChipDrawable.state
         }
-        DrawableCompat.setTintList(this, tint)
     }
 }

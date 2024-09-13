@@ -1,13 +1,11 @@
 package com.sdds.uikit
 
 import android.content.Context
-import android.graphics.Rect
 import android.util.AttributeSet
-import android.view.Gravity
+import android.view.ContextThemeWrapper
 import android.view.View
-import android.view.ViewDebug
-import android.view.ViewGroup
 import android.widget.Checkable
+import androidx.annotation.StyleRes
 import androidx.core.view.children
 import com.sdds.uikit.internal.base.shape.ShapeHelper
 import com.sdds.uikit.viewstate.ViewState
@@ -30,21 +28,23 @@ open class ChipGroup @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.sd_chipGroupStyle,
     defStyleRes: Int = R.style.Sdds_Components_ChipGroup,
-) : ViewGroup(context, attrs, defStyleAttr, defStyleRes), ViewStateHolder {
+) : FlowLayout(context, attrs, defStyleAttr, defStyleRes), ViewStateHolder {
 
     private var _protectFromCheckedChange: Boolean = false
     private val _passThroughListener: PassThroughHierarchyChangeListener = PassThroughHierarchyChangeListener()
-    private val _rowManager: RowManager
-    private var _horizontalSpacing: Int
-    private var _verticalSpacing: Int
-    private var _gravity: Int
     private var _childOnCheckedChangeListener: Chip.OnCheckedChangeListener = CheckedStateTracker()
     private var _selectionMode: SelectionMode = SelectionMode.None
     private var _onCheckedChangeListener: OnCheckedChangeListener? = null
     private var _checkedItems = mutableMapOf<Int, ViewState?>()
+    private var _adapter: Adapter? = null
+    private var _chipPool: Array<Chip?>? = null
+
+    @StyleRes
+    private var _chipStyleOverlay: Int = 0
+    private var _themeOverlay: Context
 
     /**
-     * Слушатель изменений состояния [isChecked]
+     * Слушатель изменений состояния [Chip.isChecked]
      */
     fun interface OnCheckedChangeListener {
 
@@ -75,19 +75,6 @@ open class ChipGroup @JvmOverloads constructor(
     }
 
     /**
-     * Выравнивание дочерних элементов относительно строки, в которой они находятся.
-     * @see Gravity
-     */
-    var gravity: Int
-        get() = _gravity
-        set(value) {
-            if (_gravity != value) {
-                _gravity = value
-                requestLayout()
-            }
-        }
-
-    /**
      * Режим выбора дочерних [Chip].
      * @see SelectionMode
      */
@@ -106,16 +93,32 @@ open class ChipGroup @JvmOverloads constructor(
             }
         }
 
+    /**
+     * Адаптер для связывания пользовательских данных и компонентов [Chip]
+     */
+    var adapter: Adapter?
+        get() = _adapter
+        set(value) {
+            if (_adapter != value) {
+                if (value != null) {
+                    _adapter = value
+                    _adapter?.attachChipGroup(this)
+                } else {
+                    _adapter?.detachChipGroup()
+                    _adapter = null
+                }
+                repopulate()
+            }
+        }
+
     init {
-        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.ChipGroup, defStyleAttr, defStyleRes)
-        _horizontalSpacing = typedArray.getDimensionPixelSize(R.styleable.ChipGroup_sd_gap, 0)
-        _verticalSpacing = typedArray.getDimensionPixelSize(R.styleable.ChipGroup_sd_lineSpacing, 0)
-        _gravity = typedArray.getInt(R.styleable.ChipGroup_android_gravity, Gravity.TOP or Gravity.START)
-        _rowManager = RowManager(_horizontalSpacing, _verticalSpacing)
-        typedArray.recycle()
         @Suppress("LeakingThis")
         ShapeHelper(this, attrs, defStyleAttr, defStyleRes)
         super.setOnHierarchyChangeListener(_passThroughListener)
+        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.ChipGroup, defStyleAttr, defStyleRes)
+        _chipStyleOverlay = typedArray.getResourceId(R.styleable.ChipGroup_sd_chipStyleOverlay, 0)
+        _themeOverlay = if (_chipStyleOverlay != 0) ContextThemeWrapper(context, _chipStyleOverlay) else context
+        typedArray.recycle()
     }
 
     /**
@@ -140,245 +143,115 @@ open class ChipGroup @JvmOverloads constructor(
         _passThroughListener.onHierarchyChangeListener = listener
     }
 
-    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
-
-        val widthMode = MeasureSpec.getMode(widthMeasureSpec)
-        val heightMode = MeasureSpec.getMode(heightMeasureSpec)
-
-        val specWidth = MeasureSpec.getSize(widthMeasureSpec)
-        val specHeight = MeasureSpec.getSize(heightMeasureSpec)
-
-        val maxRowWidth = if (widthMode != MeasureSpec.UNSPECIFIED) {
-            specWidth - paddingStart - paddingEnd
-        } else {
-            INFINITE_SIZE
-        }
-
-        var totalWidth = 0
-        var totalHeight = paddingTop + paddingBottom
-
-        _rowManager.reset()
-        _rowManager.offsetBounds(paddingStart, paddingTop)
-
-        for (index in 0 until childCount) {
-            val child = getChildAt(index)
-            measureChild(child, widthMeasureSpec, heightMeasureSpec)
-            // Если строка не может вместить еще одного ребенка
-            if (!_rowManager.canHold(child, maxRowWidth)) {
-                // То обновляем ширину контейнера, если она меньше, чем размер текущей строки
-                totalWidth = maxOf(totalWidth, _rowManager.width)
-                // Увеличиваем высоту контейнера на высоту текущей строки
-                totalHeight += _rowManager.height + _verticalSpacing
-                // И переходим на следующую строку
-                _rowManager.next()
-            }
-            // Увеличивает границы текущей строки на ширину и высоту текущего ребенка
-            _rowManager.updateBounds(child, _gravity, maxRowWidth)
-        }
-
-        // Не забываем про последнюю строку
-        totalWidth = maxOf(totalWidth, _rowManager.width) + paddingStart + paddingEnd
-        totalHeight += _rowManager.height
-
-        // Выбираем конечные размеры согласно требованиям родителя
-        val desiredWidth = when (widthMode) {
-            MeasureSpec.EXACTLY -> specWidth
-            MeasureSpec.AT_MOST -> minOf(totalWidth, specWidth)
-            else -> totalWidth
-        }
-        val desiredHeight = when (heightMode) {
-            MeasureSpec.EXACTLY -> specHeight
-            MeasureSpec.AT_MOST -> minOf(totalHeight, specHeight)
-            else -> totalHeight
-        }
-        setMeasuredDimension(desiredWidth, desiredHeight)
-    }
-
-    override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
-        val availableWidth = measuredWidth - paddingStart - paddingEnd
-
-        _rowManager.reset()
-        _rowManager.offsetBounds(paddingStart, paddingTop)
-
-        for (index in 0 until childCount) {
-            val child = getChildAt(index)
-
-            // Если строка не может вместить еще одного ребенка
-            if (!_rowManager.canHold(child, availableWidth)) {
-                // То размещаем всех текущих детей в строке и обновляем позицию
-                _rowManager.layout(_gravity)
-                _rowManager.next()
-            }
-            _rowManager.hold(child, _gravity, availableWidth)
-        }
-        // Размещаем оставшихся детей из последней строки
-        _rowManager.layout(_gravity)
-        // Сбрасываем менеджер
-        _rowManager.reset()
-    }
-
     override fun getAccessibilityClassName(): CharSequence {
         return ChipGroup::class.java.name
     }
 
-    override fun generateDefaultLayoutParams(): ViewGroup.LayoutParams {
-        return LayoutParams(
-            ViewGroup.LayoutParams.WRAP_CONTENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT,
-        )
+    internal open fun repopulate() {
+        val adapter = this.adapter ?: return
+        children.forEach { if (it is Chip) adapter.onUnbindChip(it) }
+        this.removeAllViews()
+        val itemsCount = adapter.getCount()
+        if (!adapter.isAttached || itemsCount == 0) {
+            _chipPool = null
+            return
+        }
+        val pool = getPool(itemsCount)
+        for (index in 0 until itemsCount) {
+            val chipView = pool.getOrNull(index)
+                ?: adapter.onCreateChipView(index, _themeOverlay)
+                    .also { pool[index] = it }
+            addView(chipView)
+            adapter.onBindChip(chipView, index)
+        }
     }
 
-    override fun checkLayoutParams(p: ViewGroup.LayoutParams?): Boolean {
-        return p is LayoutParams
+    private fun getPool(useCount: Int): Array<Chip?> {
+        var pool = _chipPool ?: Array<Chip?>(useCount) { null }
+
+        if (pool.size - useCount > pool.size / 2) {
+            pool = pool.sliceArray(0 until useCount)
+        } else if (pool.size < useCount) {
+            pool = Array(useCount) { pool.getOrNull(it) }
+        }
+
+        _chipPool = pool
+        return pool
     }
 
-    override fun generateLayoutParams(attrs: AttributeSet?): ViewGroup.LayoutParams {
-        return LayoutParams(context, attrs)
-    }
-
-    override fun generateLayoutParams(p: ViewGroup.LayoutParams?): ViewGroup.LayoutParams {
-        return LayoutParams(p)
+    override fun onDetachedFromWindow() {
+        super.onDetachedFromWindow()
+        _chipPool = null
     }
 
     /**
-     * Параметры расположения дочерних [View] в [ChipGroup]
+     * Адаптер для установки данных в [ChipGroup]
      */
-    class LayoutParams : MarginLayoutParams {
+    abstract class Adapter {
+
+        private var chipGroup: ChipGroup? = null
 
         /**
-         * Выравнивание [View] внутри [ChipGroup]
-         * @see ChipGroup.gravity
+         * Возвращает true, если [Adapter] прикреплен к [ChipGroup]
          */
-        @ViewDebug.ExportedProperty(
-            category = "layout",
-            mapping = [
-                ViewDebug.IntToString(from = -1, to = "NONE"),
-                ViewDebug.IntToString(from = Gravity.NO_GRAVITY, to = "NONE"),
-                ViewDebug.IntToString(from = Gravity.TOP, to = "TOP"),
-                ViewDebug.IntToString(from = Gravity.BOTTOM, to = "BOTTOM"),
-                ViewDebug.IntToString(from = Gravity.LEFT, to = "LEFT"),
-                ViewDebug.IntToString(from = Gravity.RIGHT, to = "RIGHT"),
-                ViewDebug.IntToString(from = Gravity.START, to = "START"),
-                ViewDebug.IntToString(from = Gravity.END, to = "END"),
-                ViewDebug.IntToString(from = Gravity.CENTER_VERTICAL, to = "CENTER_VERTICAL"),
-                ViewDebug.IntToString(from = Gravity.FILL_VERTICAL, to = "FILL_VERTICAL"),
-                ViewDebug.IntToString(from = Gravity.CENTER_HORIZONTAL, to = "CENTER_HORIZONTAL"),
-                ViewDebug.IntToString(from = Gravity.FILL_HORIZONTAL, to = "FILL_HORIZONTAL"),
-                ViewDebug.IntToString(from = Gravity.CENTER, to = "CENTER"),
-                ViewDebug.IntToString(from = Gravity.FILL, to = "FILL"),
-            ],
-        )
-        var gravity: Int = -1
+        val isAttached: Boolean get() = chipGroup != null
 
-        constructor(c: Context, attrs: AttributeSet?) : super(c, attrs) {
-            val typedArray = c.obtainStyledAttributes(attrs, R.styleable.ChipGroup_Layout)
-            this.gravity = typedArray.getInt(R.styleable.ChipGroup_Layout_android_layout_gravity, -1)
-            typedArray.recycle()
-        }
-        constructor(width: Int, height: Int) : super(width, height)
-        constructor(source: MarginLayoutParams?) : super(source)
-        constructor(source: ViewGroup.LayoutParams?) : super(source)
-    }
+        /**
+         * Возвращает кол-во элементов в [ChipGroup]
+         */
+        abstract fun getCount(): Int
 
-    private class RowManager(
-        private val horizontalSpace: Int,
-        private val verticalSpace: Int,
-    ) {
-        private val children: MutableList<View> = mutableListOf()
-        private val bounds: Rect = Rect()
-        private var offsetLeft: Int = 0
-        private var offsetTop: Int = 0
-
-        val width: Int get() = bounds.width()
-        val height: Int get() = bounds.height()
-
-        fun canHold(child: View, maximumWidth: Int): Boolean =
-            width + child.widthWithSpace() <= maximumWidth
-
-        fun offsetBounds(left: Int, top: Int) {
-            offsetLeft = left
-            offsetTop = top
-            bounds.offsetTo(offsetLeft, offsetTop)
+        /**
+         * Создает [Chip] для текущей позиции [position] в [ChipGroup].
+         * Можно переопределить, чтобы создать свой экземпляр [Chip].
+         * @param position порядковый номер элемента [Chip] в [ChipGroup]
+         * @param context контекст
+         */
+        open fun onCreateChipView(position: Int, context: Context): Chip {
+            return Chip(context)
         }
 
-        fun updateBounds(child: View, gravity: Int, maximumWidth: Int) {
-            val widthWithSpacing = child.widthWithSpace()
-            val newWidth = bounds.width() + widthWithSpacing
+        /**
+         * Связывает пользовательские данные с [Chip], имеющий порядковый номер [position].
+         * @param chipView экземпляр компонента [Chip]
+         * @param position порядковый номер элемента [Chip] в [ChipGroup]
+         */
+        abstract fun onBindChip(chipView: Chip, position: Int)
 
-            var childGravity = (child.layoutParams as LayoutParams).gravity
+        /**
+         * Связывает пользовательские данные с [Chip], имеющий порядковый номер [position].
+         * @param chipView экземпляр компонента [Chip]
+         */
+        open fun onUnbindChip(chipView: Chip) = Unit
 
-            if (childGravity < 0) {
-                childGravity = gravity
-            }
+        /**
+         * Колбэк связывания [Adapter] с [ChipGroup]
+         */
+        open fun onAttachChipGroup(chipGroup: ChipGroup) = Unit
 
-            val horizontalGravity = Gravity.getAbsoluteGravity(
-                childGravity and Gravity.RELATIVE_HORIZONTAL_GRAVITY_MASK,
-                child.layoutDirection,
-            )
-            val isFinite = maximumWidth != INFINITE_SIZE
-            when {
-                horizontalGravity == Gravity.RIGHT && isFinite -> {
-                    bounds.right = offsetLeft + maximumWidth
-                    bounds.left = bounds.right - newWidth
-                }
-                horizontalGravity == Gravity.CENTER_HORIZONTAL && isFinite -> {
-                    bounds.left = (maximumWidth - newWidth) / 2
-                    bounds.right = (maximumWidth + newWidth) / 2
-                }
-                else -> {
-                    bounds.left = offsetLeft
-                    bounds.right = bounds.left + newWidth
-                }
-            }
-            bounds.bottom = maxOf(bounds.bottom, bounds.top + child.measuredHeight)
+        /**
+         * Колбэк отвязывания [Adapter] от [ChipGroup]
+         */
+        open fun onDetachChipGroup(chipGroup: ChipGroup) = Unit
+
+        /**
+         * Уведомляет [ChipGroup] об изменении данных
+         */
+        fun notifyChipGroupChanged() {
+            chipGroup?.repopulate()
         }
 
-        fun hold(child: View, gravity: Int, maximumWidth: Int) {
-            updateBounds(child, gravity, maximumWidth)
-            children.add(child)
-        }
-
-        fun layout(gravity: Int) {
-            var childLeft = bounds.left
-            children.forEach { child ->
-                var childGravity = (child.layoutParams as LayoutParams).gravity
-
-                if (childGravity < 0) {
-                    childGravity = gravity
-                }
-
-                val childTop = when (childGravity and Gravity.VERTICAL_GRAVITY_MASK) {
-                    Gravity.BOTTOM -> bounds.bottom - child.measuredHeight
-                    Gravity.CENTER_VERTICAL -> bounds.centerY() - child.measuredHeight / 2
-                    else -> bounds.top
-                }
-
-                child.layout(
-                    childLeft,
-                    childTop,
-                    childLeft + child.measuredWidth,
-                    childTop + child.measuredHeight,
-                )
-                childLeft += child.measuredWidth + horizontalSpace
+        internal fun attachChipGroup(chipGroup: ChipGroup) {
+            if (this.chipGroup != chipGroup) {
+                this.chipGroup = chipGroup
+                onAttachChipGroup(chipGroup)
             }
         }
 
-        fun next() {
-            children.clear()
-            bounds.top = bounds.bottom + verticalSpace
-            bounds.left = offsetLeft
-            bounds.right = offsetLeft
-            bounds.bottom = bounds.top
+        internal fun detachChipGroup() {
+            this.chipGroup?.let(::onDetachChipGroup)
+            this.chipGroup = null
         }
-
-        fun reset() {
-            children.clear()
-            bounds.setEmpty()
-        }
-
-        private fun View.widthWithSpace(): Int =
-            measuredWidth + (if (bounds.width() == 0) 0 else horizontalSpace)
     }
 
     private inner class CheckedStateTracker : Chip.OnCheckedChangeListener {
@@ -430,9 +303,5 @@ open class ChipGroup @JvmOverloads constructor(
             }
             onHierarchyChangeListener?.onChildViewRemoved(parent, child)
         }
-    }
-
-    private companion object {
-        const val INFINITE_SIZE = Int.MAX_VALUE
     }
 }
