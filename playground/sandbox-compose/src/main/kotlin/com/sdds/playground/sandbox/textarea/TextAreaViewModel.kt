@@ -1,10 +1,9 @@
-package com.sdds.playground.sandbox.textfield
+package com.sdds.playground.sandbox.textarea
 
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sdds.compose.uikit.TextField
-import com.sdds.compose.uikit.TextField.DotBadge
 import com.sdds.playground.sandbox.core.PropertiesOwner
 import com.sdds.playground.sandbox.core.Property
 import com.sdds.playground.sandbox.core.enumProperty
@@ -16,114 +15,110 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.mapLatest
 import kotlinx.coroutines.flow.stateIn
 
-internal class TextFieldViewModel : ViewModel(), PropertiesOwner {
+internal class TextAreaViewModel : ViewModel(), PropertiesOwner {
 
-    private val _textFieldUiState = MutableStateFlow(TextFieldUiState())
+    private val _textAreaUiState = MutableStateFlow(TextAreaUiState())
 
-    val textFieldUiState: StateFlow<TextFieldUiState>
-        get() = _textFieldUiState.asStateFlow()
+    val textAreaUiState: StateFlow<TextAreaUiState>
+        get() = _textAreaUiState.asStateFlow()
 
     @OptIn(ExperimentalCoroutinesApi::class)
     override val properties: StateFlow<List<Property<*>>> =
-        _textFieldUiState
+        _textAreaUiState
             .mapLatest { state -> state.toProps() }
             .stateIn(viewModelScope, SharingStarted.Lazily, emptyList())
 
-    override fun resetToDefault() {
-        _textFieldUiState.value = TextFieldUiState()
-    }
-
     fun onValueChange(textFieldValue: TextFieldValue) {
-        _textFieldUiState.value = _textFieldUiState.value.copy(
-            textFieldValue = textFieldValue,
+        _textAreaUiState.value = _textAreaUiState.value.copy(
+            value = textFieldValue,
         )
     }
 
     private fun updateLabel(text: String) {
-        _textFieldUiState.value = _textFieldUiState.value.copy(
+        _textAreaUiState.value = _textAreaUiState.value.copy(
             labelText = text,
         )
     }
 
     private fun updateOptionalText(text: String) {
-        _textFieldUiState.value = _textFieldUiState.value.copy(
+        _textAreaUiState.value = _textAreaUiState.value.copy(
             optionalText = text,
         )
     }
 
     private fun updateCaption(text: String) {
-        _textFieldUiState.value = _textFieldUiState.value.copy(
+        _textAreaUiState.value = _textAreaUiState.value.copy(
             captionText = text,
+        )
+    }
+
+    private fun updateCounter(text: String) {
+        _textAreaUiState.value = _textAreaUiState.value.copy(
+            counterText = text,
         )
     }
 
     private fun updatePlaceholder(text: String) {
-        _textFieldUiState.value = _textFieldUiState.value.copy(
-            captionText = text,
+        _textAreaUiState.value = _textAreaUiState.value.copy(
+            placeholderText = text,
         )
     }
 
-    private fun updateState(state: SandboxTextField.State) {
-        _textFieldUiState.value = _textFieldUiState.value.copy(
+    private fun updateState(state: SandboxTextArea.State) {
+        _textAreaUiState.value = _textAreaUiState.value.copy(
             state = state,
         )
     }
 
-    private fun updateSize(size: SandboxTextField.Size) {
-        _textFieldUiState.value = _textFieldUiState.value.copy(
+    private fun updateSize(size: SandboxTextArea.Size) {
+        _textAreaUiState.value = _textAreaUiState.value.copy(
             size = size,
         )
     }
 
     private fun updateLabelType(labelType: TextField.LabelType) {
-        _textFieldUiState.value = _textFieldUiState.value.copy(
+        _textAreaUiState.value = _textAreaUiState.value.copy(
             labelType = labelType,
         )
     }
 
     private fun updateEnabledState(enabled: Boolean) {
-        _textFieldUiState.value = _textFieldUiState.value.copy(
+        _textAreaUiState.value = _textAreaUiState.value.copy(
             enabled = enabled,
         )
     }
 
     private fun updateReadOnlyState(readonly: Boolean) {
-        _textFieldUiState.value = _textFieldUiState.value.copy(
+        _textAreaUiState.value = _textAreaUiState.value.copy(
             readOnly = readonly,
         )
     }
 
-    private fun updateStartIcon(hasIcon: Boolean) {
-        _textFieldUiState.value = _textFieldUiState.value.copy(
-            hasStartIcon = hasIcon,
-        )
-    }
-
     private fun updateEndIcon(hasIcon: Boolean) {
-        _textFieldUiState.value = _textFieldUiState.value.copy(
-            hasEndIcon = hasIcon,
+        _textAreaUiState.value = _textAreaUiState.value.copy(
+            hasIcon = hasIcon,
         )
     }
 
-    private fun updateDotBadgePosition(dotBadgePosition: DotBadge.Position) {
-        _textFieldUiState.value = _textFieldUiState.value.copy(
+    private fun updateDotBadgePosition(dotBadgePosition: TextField.DotBadge.Position) {
+        _textAreaUiState.value = _textAreaUiState.value.copy(
             dotBadgePosition = dotBadgePosition,
         )
     }
 
-    private fun updateFieldType(fieldType: SandboxTextField.FieldType) {
-        _textFieldUiState.value = _textFieldUiState.value.copy(
+    private fun updateFieldType(fieldType: SandboxTextArea.FieldType) {
+        _textAreaUiState.value = _textAreaUiState.value.copy(
             fieldType = fieldType,
         )
     }
 
     private fun updateChipsCount(count: Int) {
         if (count < 0) return
-        _textFieldUiState.value = _textFieldUiState.value.copy(chips = List(count) { "chip $it" })
+        _textAreaUiState.value = _textAreaUiState.value.copy(chips = List(count) { "chip $it" })
     }
 
     @Suppress("LongMethod")
-    private fun TextFieldUiState.toProps(): List<Property<*>> {
+    private fun TextAreaUiState.toProps(): List<Property<*>> {
         return listOfNotNull(
             Property.StringProperty(
                 name = "label",
@@ -153,6 +148,11 @@ internal class TextFieldViewModel : ViewModel(), PropertiesOwner {
                 onApply = { updateCaption(it) },
             ),
             Property.StringProperty(
+                name = "counter",
+                value = counterText,
+                onApply = { updateCounter(it) },
+            ),
+            Property.StringProperty(
                 name = "placeholder",
                 value = placeholderText,
                 onApply = { updatePlaceholder(it) },
@@ -173,13 +173,8 @@ internal class TextFieldViewModel : ViewModel(), PropertiesOwner {
                 onApply = { updateLabelType(it) },
             ),
             Property.BooleanProperty(
-                name = "start icon",
-                value = hasStartIcon,
-                onApply = { updateStartIcon(it) },
-            ),
-            Property.BooleanProperty(
-                name = "end icon",
-                value = hasEndIcon,
+                name = "icon",
+                value = hasIcon,
                 onApply = { updateEndIcon(it) },
             ),
             Property.IntProperty(
@@ -200,16 +195,13 @@ internal class TextFieldViewModel : ViewModel(), PropertiesOwner {
         )
     }
 
-    fun onBackspacePressed() {
-        if (_textFieldUiState.value.chips.isEmpty()) return
-        _textFieldUiState.value = _textFieldUiState.value.copy(
-            chips = _textFieldUiState.value.chips.dropLast(1),
-        )
+    override fun resetToDefault() {
+        _textAreaUiState.value = TextAreaUiState()
     }
 
     fun onChipClosePressed(chipToRemove: String) {
-        _textFieldUiState.value = _textFieldUiState.value.copy(
-            chips = _textFieldUiState.value.chips.filterNot { it == chipToRemove },
+        _textAreaUiState.value = _textAreaUiState.value.copy(
+            chips = _textAreaUiState.value.chips.filterNot { it == chipToRemove },
         )
     }
 }
