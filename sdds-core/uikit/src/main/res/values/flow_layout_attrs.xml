@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <item name="sd_outerFlow" type="id"/>
+
+    <declare-styleable name="FlowLayout" tools:ignore="ResourceName">
+        <attr name="sd_gap" format="dimension" />
+        <attr name="sd_lineSpacing" format="dimension" />
+        <attr name="android:gravity"/>
+
+        <attr name="sd_shapeAppearance"/>
+        <attr name="sd_shapeAppearanceAdjustment"/>
+        <attr name="sd_strokeWidth"/>
+        <attr name="sd_strokeColor"/>
+        <attr name="sd_viewState" />
+    </declare-styleable>
+
+    <declare-styleable name="FlowLayout_Layout" tools:ignore="ResourceName">
+        <attr name="android:layout_gravity"/>
+        <attr name="sd_layout_occupy" format="boolean" />
+    </declare-styleable>
+</resources>

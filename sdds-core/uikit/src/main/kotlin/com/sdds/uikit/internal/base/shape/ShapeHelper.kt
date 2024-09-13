@@ -30,7 +30,6 @@ internal class ShapeHelper(
     private var strokeColor: ColorStateList? = null
     private var strokeWidth: Float = 0f
     private var backgroundOverwritten: Boolean = false
-    private var needShapeBackground: Boolean = false
     private var insetLeft: Int = 0
     private var insetTop: Int = 0
     private var insetRight: Int = 0
@@ -108,7 +107,6 @@ internal class ShapeHelper(
         val currentBackground = typedArray.getDrawable(R.styleable.SdShape_android_background)
         backgroundOverwritten = typedArray.hasValue(R.styleable.SdShape_android_background) &&
             currentBackground !is ShapeDrawable
-        needShapeBackground = typedArray.hasValue(R.styleable.SdShape_sd_shapeAppearance)
         strokeColor = typedArray.getColorStateList(R.styleable.SdShape_sd_strokeColor)
         strokeWidth = typedArray.getDimension(R.styleable.SdShape_sd_strokeWidth, 0f)
         val hasShape = typedArray.hasValue(R.styleable.SdShape_sd_shapeAppearance)
@@ -118,5 +116,5 @@ internal class ShapeHelper(
         typedArray.recycle()
     }
 
-    private fun canCreateShapeBackground() = !backgroundOverwritten && needShapeBackground
+    private fun canCreateShapeBackground() = !backgroundOverwritten
 }

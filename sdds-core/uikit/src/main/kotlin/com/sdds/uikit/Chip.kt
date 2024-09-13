@@ -13,6 +13,8 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StyleRes
 import com.sdds.uikit.drawable.ChipDrawable
 import com.sdds.uikit.internal.base.ViewAlphaHelper
+import com.sdds.uikit.internal.base.shape.Shapeable
+import com.sdds.uikit.shape.ShapeModel
 import com.sdds.uikit.viewstate.ViewState
 import com.sdds.uikit.viewstate.ViewState.Companion.isDefined
 import com.sdds.uikit.viewstate.ViewStateHolder
@@ -29,7 +31,7 @@ open class Chip @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.sd_chipStyle,
     defStyleRes: Int = R.style.Sdds_Components_Chip,
-) : View(context, attrs, defStyleAttr), ViewStateHolder, ChipDrawable.Delegate, Checkable {
+) : View(context, attrs, defStyleAttr), ViewStateHolder, ChipDrawable.Delegate, Checkable, Shapeable {
 
     /**
      * Слушатель изменений состояния [isChecked]
@@ -66,6 +68,13 @@ open class Chip @JvmOverloads constructor(
     init {
         obtainAttributes(context, attrs, defStyleAttr, defStyleRes)
     }
+
+    /**
+     * @see ShapeModel
+     * @see Shapeable.shape
+     */
+    override val shape: ShapeModel
+        get() = _chipDrawable.shape
 
     /**
      * Состояние внешнего вида компонента [Chip]
@@ -250,7 +259,6 @@ open class Chip @JvmOverloads constructor(
     override fun drawableStateChanged() {
         super.drawableStateChanged()
         _chipDrawable.state = drawableState
-        _chipDrawable.invalidateSelf()
     }
 
     override fun onCreateDrawableState(extraSpace: Int): IntArray {
