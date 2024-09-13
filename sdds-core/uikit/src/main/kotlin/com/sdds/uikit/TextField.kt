@@ -2,24 +2,25 @@ package com.sdds.uikit
 
 import android.content.Context
 import android.content.res.ColorStateList
+import android.content.res.TypedArray
+import android.graphics.Canvas
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.Gravity
-import android.view.ViewGroup
+import android.view.View
+import android.view.ViewGroup.LayoutParams.MATCH_PARENT
+import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.EditText
-import android.widget.FrameLayout
-import android.widget.LinearLayout
 import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
 import androidx.annotation.StyleRes
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
-import androidx.core.view.updatePaddingRelative
 import com.sdds.uikit.internal.base.ViewAlphaHelper
-import com.sdds.uikit.internal.base.shape.ShapeHelper
 import com.sdds.uikit.internal.base.unsafeLazy
 import com.sdds.uikit.internal.textfield.DecoratedFieldBox
+import com.sdds.uikit.internal.textfield.IndicatorDrawable
 import com.sdds.uikit.viewstate.ViewState
 
 /**
@@ -30,17 +31,20 @@ import com.sdds.uikit.viewstate.ViewState
  * @param defStyleAttr аттрибут стиля по умолчанию
  * @author Малышев Александр on 13.06.2024
  */
+@Suppress("LeakingThis")
 open class TextField @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.sd_textFieldStyle,
     defStyleRes: Int = R.style.Sdds_Components_TextField,
-) : LinearLayout(context, attrs, defStyleAttr, defStyleRes) {
+) : FlowLayout(context, attrs, defStyleAttr, defStyleRes) {
 
     /**
      * Тип заголовка
      */
-    enum class LabelType {
+    enum class HelperTextPlacement {
+        None,
+
         /**
          * Внешний заголовок
          */
@@ -50,6 +54,27 @@ open class TextField @JvmOverloads constructor(
          * Внутренний заголовок
          */
         Inner,
+    }
+
+    /**
+     * Режим "обязательности" поля
+     */
+    enum class RequirementMode {
+
+        /**
+         * Поле опционально
+         */
+        Optional,
+
+        /**
+         * Поле обязательно. Индикатор рисуется вначале поля
+         */
+        Start,
+
+        /**
+         * Поле обязательно. Индикатор рисуется вконце поля
+         */
+        End,
     }
 
     /**
@@ -77,7 +102,6 @@ open class TextField @JvmOverloads constructor(
         Negative,
     }
 
-    private val _footerContainer: FrameLayout by unsafeLazy { FrameLayout(context) }
     private val _outerLabelView: TextView by unsafeLazy {
         TextView(context).apply {
             id = R.id.sd_textFieldOuterLabel
@@ -88,22 +112,32 @@ open class TextField @JvmOverloads constructor(
             id = R.id.sd_textFieldCaption
         }
     }
+
+    private val _counterView: TextView by unsafeLazy {
+        TextView(context).apply {
+            id = R.id.sd_textFieldCounter
+        }
+    }
     private val _decorationBox: DecoratedFieldBox by unsafeLazy {
         DecoratedFieldBox(context, attrs, defStyleAttr).apply {
             id = R.id.sd_textFieldDecorationBox
-            ShapeHelper(this, attrs, defStyleAttr)
         }
     }
     private val viewAlphaHelper = ViewAlphaHelper(context, attrs, defStyleAttr)
 
-    private var _boxHeight: Int = ViewGroup.LayoutParams.WRAP_CONTENT
-    private var _captionPadding: Int = 0
+    private var _indicator: IndicatorDrawable? = null
+
+    private var _helperTextPadding: Int = 0
     private var _labelPadding: Int = 0
 
-    private var _labelType: LabelType = LabelType.Outer
+    private var _labelPlacement: HelperTextPlacement = HelperTextPlacement.Outer
+    private var _captionPlacement: HelperTextPlacement = HelperTextPlacement.Outer
+    private var _counterPlacement: HelperTextPlacement = HelperTextPlacement.Outer
     private var _label: String? = null
     private var _caption: String? = null
+    private var _counter: String? = null
     private var _inDrawableStateChanged: Boolean = false
+    private var _requirementMode: RequirementMode = RequirementMode.Optional
 
     private var _state: ViewState? = null
         set(value) {
@@ -117,6 +151,7 @@ open class TextField @JvmOverloads constructor(
         }
 
     init {
+        setWillNotDraw(false)
         setAddStatesFromChildren(true)
         obtainAttributes(context, attrs, defStyleAttr, defStyleRes)
         layoutChildren()
@@ -155,14 +190,38 @@ open class TextField @JvmOverloads constructor(
         }
 
     /**
-     * Тип заголовка текстового поля
+     * Расположение заголовка в текстовом поле
      */
-    open var labelType: LabelType
-        get() = _labelType
+    open var labelPlacement: HelperTextPlacement
+        get() = _labelPlacement
         set(value) {
-            if (_labelType != value) {
-                _labelType = value
+            if (_labelPlacement != value) {
+                _labelPlacement = value
                 updateLabel()
+            }
+        }
+
+    /**
+     * Расположение подписи в текстовом поле
+     */
+    open var captionPlacement: HelperTextPlacement
+        get() = _captionPlacement
+        set(value) {
+            if (_captionPlacement != value) {
+                _captionPlacement = value
+                updateCaption()
+            }
+        }
+
+    /**
+     * Расположение счетчика в текстовом поле
+     */
+    open var counterPlacement: HelperTextPlacement
+        get() = _counterPlacement
+        set(value) {
+            if (_counterPlacement != value) {
+                _counterPlacement = value
+                updateCounter()
             }
         }
 
@@ -180,7 +239,7 @@ open class TextField @JvmOverloads constructor(
      * Значение текстового поля.
      */
     open var value: String?
-        get() = _decorationBox.editText.text.toString()
+        get() = _decorationBox.editText.text?.toString()
         set(value) {
             _decorationBox.editText.setText(value)
         }
@@ -193,8 +252,19 @@ open class TextField @JvmOverloads constructor(
         set(value) {
             if (_caption != value) {
                 _caption = value
-                _captionView.text = value
-                _captionView.isGone = value.isNullOrBlank()
+                updateCaption()
+            }
+        }
+
+    /**
+     * Подпись к текстовому полю
+     */
+    open var counter: String?
+        get() = _counter
+        set(value) {
+            if (_counter != value) {
+                _counter = value
+                updateCounter()
             }
         }
 
@@ -207,10 +277,10 @@ open class TextField @JvmOverloads constructor(
     /**
      * Режим не редактируемого поля
      */
-    var isReadOnly: Boolean
+    open var isReadOnly: Boolean
         get() = _decorationBox.editText.isReadOnly
         set(value) {
-            _decorationBox.editText.isReadOnly = value
+            _decorationBox.setReadOnly(value)
             val newState = if (value) ViewState.SECONDARY else _state
             _captionView.state = newState
             _outerLabelView.state = newState
@@ -218,18 +288,34 @@ open class TextField @JvmOverloads constructor(
         }
 
     /**
-     * Устанавливает стиль текста [label] в состоянии [LabelType.Outer]
-     * @param appearanceId идентификатор ресурса стиля текста
+     * Режим "обязательности" [TextField]
+     * @see [RequirementMode]
      */
-    open fun setOuterLabelAppearance(@StyleRes appearanceId: Int) {
-        _outerLabelView.setTextAppearance(appearanceId)
-    }
+    open var requirementMode: RequirementMode
+        get() = _requirementMode
+        set(value) {
+            if (_requirementMode != value) {
+                _requirementMode = value
+                requestLayout()
+            }
+        }
 
     /**
-     * Устанавливает стиль текста [label] в состоянии [LabelType.Inner]
+     * Адаптер для чипов
+     * @see ChipGroup.Adapter
+     */
+    var chipAdapter: ChipGroup.Adapter?
+        get() = _decorationBox.chipAdapter
+        set(value) {
+            _decorationBox.chipAdapter = value
+        }
+
+    /**
+     * Устанавливает стиль текста [label] в состоянии [HelperTextPlacement.Outer]
      * @param appearanceId идентификатор ресурса стиля текста
      */
-    open fun setInnerLabelAppearance(@StyleRes appearanceId: Int) {
+    open fun setLabelAppearance(@StyleRes appearanceId: Int) {
+        _outerLabelView.setTextAppearance(appearanceId)
         _decorationBox.setLabelAppearance(appearanceId)
     }
 
@@ -281,16 +367,6 @@ open class TextField @JvmOverloads constructor(
     }
 
     /**
-     * Устанавливает стиль текста [placeholder] текстового поля
-     * @param appearanceId идентификатор ресурса стиля текста
-     */
-    open fun setPlaceholderAppearance(@StyleRes appearanceId: Int) {
-        if (appearanceId != 0) {
-            _decorationBox.setPlaceholderAppearance(appearanceId)
-        }
-    }
-
-    /**
      * Устанавливает цвета текста [placeholder] текстового поля
      * @param colors цвета текста
      */
@@ -313,6 +389,7 @@ open class TextField @JvmOverloads constructor(
     open fun setCaptionAppearance(@StyleRes appearanceId: Int) {
         if (appearanceId != 0) {
             _captionView.setTextAppearance(appearanceId)
+            _decorationBox.setCaptionAppearance(appearanceId)
         }
     }
 
@@ -323,6 +400,7 @@ open class TextField @JvmOverloads constructor(
     open fun setCaptionColor(colors: ColorStateList?) {
         if (colors != null) {
             _captionView.setTextColor(colors)
+            _decorationBox.setCaptionColor(colors)
         }
     }
 
@@ -332,6 +410,34 @@ open class TextField @JvmOverloads constructor(
      */
     open fun setCaptionColor(@ColorInt color: Int) {
         setCaptionColor(ColorStateList.valueOf(color))
+    }
+
+    /**
+     * Устанавливает стиль текста [caption] текстового поля
+     * @param appearanceId идентификатор ресурса стиля текста
+     */
+    open fun setCounterAppearance(@StyleRes appearanceId: Int) {
+        if (appearanceId != 0) {
+            _decorationBox.setCounterAppearance(appearanceId)
+        }
+    }
+
+    /**
+     * Устанавливает цвета текста [caption] текстового поля
+     * @param colors цвета текста
+     */
+    open fun setCounterColor(colors: ColorStateList?) {
+        if (colors != null) {
+            _decorationBox.setCounterColor(colors)
+        }
+    }
+
+    /**
+     * Устанавливает цвет текста [caption] текстового поля
+     * @param color цвет текста
+     */
+    open fun setCounterColor(@ColorInt color: Int) {
+        setCounterColor(ColorStateList.valueOf(color))
     }
 
     /**
@@ -414,20 +520,6 @@ open class TextField @JvmOverloads constructor(
         setActionTint(ColorStateList.valueOf(tint))
     }
 
-    /**
-     * Функция всегда устанавливает [LinearLayout.VERTICAL] независимо от параметра [orientation]
-     */
-    override fun setOrientation(orientation: Int) {
-        super.setOrientation(VERTICAL)
-    }
-
-    /**
-     * Функция всегда устанавливает [Gravity.CENTER_HORIZONTAL] независимо от параметра [gravity]
-     */
-    override fun setGravity(gravity: Int) {
-        super.setGravity(Gravity.CENTER_HORIZONTAL)
-    }
-
     override fun setEnabled(enabled: Boolean) {
         super.setEnabled(enabled)
         _decorationBox.isEnabled = enabled
@@ -438,6 +530,13 @@ open class TextField @JvmOverloads constructor(
         return _decorationBox.baseline
     }
 
+    override fun onDraw(canvas: Canvas) {
+        super.onDraw(canvas)
+        if (isRequired()) {
+            _indicator?.draw(canvas)
+        }
+    }
+
     override fun drawableStateChanged() {
         super.drawableStateChanged()
         if (_inDrawableStateChanged || isReadOnly) {
@@ -445,53 +544,174 @@ open class TextField @JvmOverloads constructor(
         }
         _inDrawableStateChanged = true
         _captionView.state = if (drawableState.contains(android.R.attr.state_focused)) ViewState.PRIMARY else _state
+        _indicator?.state = drawableState
+        _indicator?.invalidateSelf()
         _inDrawableStateChanged = false
     }
 
+    override fun onMeasureChild(child: View, widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        val specHeight = MeasureSpec.getSize(heightMeasureSpec)
+        val specMode = MeasureSpec.getMode(heightMeasureSpec)
+        val newHeightSpec =
+            if (child == _decorationBox && !_decorationBox.isSingleLine() && specMode != MeasureSpec.UNSPECIFIED) {
+                val captionHeight = if (!_captionView.isGone) {
+                    super.onMeasureChild(_captionView, widthMeasureSpec, heightMeasureSpec)
+                    _captionView.measuredHeight
+                } else {
+                    0
+                }
+                val counterHeight = if (!_counterView.isGone) {
+                    super.onMeasureChild(_counterView, widthMeasureSpec, heightMeasureSpec)
+                    _counterView.measuredHeight
+                } else {
+                    0
+                }
+
+                val newSpecHeight = specHeight - maxOf(captionHeight, counterHeight)
+                if (newSpecHeight != specHeight) {
+                    MeasureSpec.makeMeasureSpec(newSpecHeight, specMode)
+                } else {
+                    heightMeasureSpec
+                }
+            } else {
+                heightMeasureSpec
+            }
+        super.onMeasureChild(child, widthMeasureSpec, newHeightSpec)
+    }
+
+    @Suppress("ReturnCount")
+    override fun onLayoutChild(child: View, left: Int, top: Int, right: Int, bottom: Int, rowHeight: Int) {
+        super.onLayoutChild(child, left, top, right, bottom, rowHeight)
+        if (labelPlacement == HelperTextPlacement.Inner && child != _decorationBox) return
+        if (labelPlacement == HelperTextPlacement.Outer && child != _outerLabelView) return
+        if (requirementMode == RequirementMode.Optional) return
+
+        val gravity: Int
+        val horizontalAlignment: IndicatorDrawable.AlignmentMode
+        val verticalAlignment: IndicatorDrawable.AlignmentMode
+        when (child) {
+            _decorationBox -> {
+                horizontalAlignment = IndicatorDrawable.AlignmentMode.Inside
+                verticalAlignment = horizontalAlignment
+                gravity = Gravity.TOP or if (requirementMode == RequirementMode.Start) Gravity.START else Gravity.END
+            }
+            _outerLabelView -> {
+                horizontalAlignment = IndicatorDrawable.AlignmentMode.Outside
+                verticalAlignment = IndicatorDrawable.AlignmentMode.Inside
+                gravity = if (requirementMode == RequirementMode.Start) {
+                    Gravity.CENTER_VERTICAL or Gravity.START
+                } else {
+                    Gravity.TOP or Gravity.END
+                }
+            }
+            else -> return
+        }
+        _indicator?.applyMode(horizontalAlignment, verticalAlignment, gravity)
+        _indicator?.setBounds(left, top, right, bottom)
+    }
+
+    override fun verifyDrawable(who: Drawable): Boolean {
+        return super.verifyDrawable(who) || who == _indicator
+    }
+
+    private fun isRequired(): Boolean = requirementMode != RequirementMode.Optional
+
     private fun updateLabel() {
-        if (labelType == LabelType.Outer) {
+        if (labelPlacement == HelperTextPlacement.Outer) {
             _outerLabelView.text = label
         } else {
             _decorationBox.setLabel(label)
             _outerLabelView.text = null
+            _outerLabelView.isVisible = false
         }
-        _decorationBox.labelEnabled = labelType == LabelType.Inner && _decorationBox.shouldDisplayInnerLabel(_boxHeight)
-        _outerLabelView.isVisible = labelType == LabelType.Outer && !label.isNullOrBlank()
+        _decorationBox.labelEnabled =
+            labelPlacement == HelperTextPlacement.Inner && _decorationBox.shouldDisplayInnerLabel()
+        _outerLabelView.isVisible = labelPlacement == HelperTextPlacement.Outer && !label.isNullOrBlank()
         _decorationBox.updateTextOffset()
     }
 
-    private fun layoutChildren() {
-        orientation = VERTICAL
+    private fun updateCaption() {
+        when (captionPlacement) {
+            HelperTextPlacement.None -> {
+                _captionView.text = null
+                _captionView.isVisible = false
+                _decorationBox.setCaption(null)
+            }
 
-        _footerContainer.apply {
-            setPadding(0, _captionPadding, 0, 0)
-            addView(
-                _captionView,
-                FrameLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT).apply {
-                    gravity = Gravity.CENTER_VERTICAL or Gravity.START
-                },
-            )
+            HelperTextPlacement.Outer -> {
+                _captionView.text = _caption
+                _captionView.isVisible = true
+                _decorationBox.setCaption(null)
+            }
+
+            HelperTextPlacement.Inner -> {
+                _captionView.text = null
+                _captionView.isVisible = false
+                _decorationBox.setCaption(_caption)
+            }
         }
-        if (labelType == LabelType.Outer) {
-            _outerLabelView.updatePaddingRelative(bottom = _labelPadding)
-            addView(_outerLabelView, LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT))
+    }
+
+    private fun updateCounter() {
+        when (counterPlacement) {
+            HelperTextPlacement.None -> {
+                _decorationBox.setCounter(null)
+                _counterView.text = null
+                _counterView.isVisible = false
+            }
+
+            HelperTextPlacement.Outer -> {
+                _decorationBox.setCounter(null)
+                _counterView.text = _counter
+                _counterView.isVisible = true
+            }
+
+            HelperTextPlacement.Inner -> {
+                _decorationBox.setCounter(_counter)
+                _counterView.text = null
+                _counterView.isVisible = false
+            }
         }
-        addView(_decorationBox, LayoutParams(LayoutParams.MATCH_PARENT, _boxHeight))
-        addView(_footerContainer, LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT))
+    }
+
+    private fun layoutChildren() {
+        addView(
+            _outerLabelView,
+            LayoutParams(WRAP_CONTENT, WRAP_CONTENT).apply {
+                occupy = true
+                bottomMargin = _labelPadding
+            },
+        )
+        addView(
+            _decorationBox,
+            LayoutParams(MATCH_PARENT, WRAP_CONTENT).apply {
+                gravity = Gravity.START
+                occupy = true
+            },
+        )
+        addView(
+            _counterView,
+            generateDefaultLayoutParams().apply {
+                gravity = Gravity.TOP or Gravity.END
+                topMargin = _helperTextPadding
+            },
+        )
+        addView(
+            _captionView,
+            LayoutParams(MATCH_PARENT, WRAP_CONTENT).apply {
+                gravity = Gravity.TOP or Gravity.START
+                occupy = true
+                topMargin = _helperTextPadding
+            },
+        )
     }
 
     private fun obtainAttributes(context: Context, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) {
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.TextField, defStyleAttr, defStyleRes)
-
-        _boxHeight = typedArray.getDimensionPixelSize(R.styleable.TextField_sd_boxHeight, LayoutParams.WRAP_CONTENT)
-
         label = typedArray.getString(R.styleable.TextField_sd_label)
-        labelType = LabelType.values()
-            .getOrNull(typedArray.getInt(R.styleable.TextField_sd_labelType, 0))
-            ?: LabelType.Outer
-        _labelPadding = typedArray.getDimensionPixelSize(R.styleable.TextField_sd_outerLabelPadding, 0)
-        setOuterLabelAppearance(typedArray.getResourceId(R.styleable.TextField_sd_outerLabelAppearance, 0))
-        setInnerLabelAppearance(typedArray.getResourceId(R.styleable.TextField_sd_innerLabelAppearance, 0))
+        labelPlacement = typedArray.getTextPlacement(R.styleable.TextField_sd_labelPlacement)
+        _labelPadding = typedArray.getDimensionPixelSize(R.styleable.TextField_sd_labelPadding, 0)
+        setLabelAppearance(typedArray.getResourceId(R.styleable.TextField_sd_labelAppearance, 0))
         setLabelColor(typedArray.getColorStateList(R.styleable.TextField_sd_labelColor))
 
         val valueAppearance = typedArray.getResourceId(R.styleable.TextField_sd_valueAppearance, 0)
@@ -501,19 +721,43 @@ open class TextField @JvmOverloads constructor(
         setValueColor(valueColor)
 
         placeholder = typedArray.getString(R.styleable.TextField_sd_placeholder)
-        setPlaceholderAppearance(
-            typedArray.getResourceId(
-                R.styleable.TextField_sd_placeholderAppearance,
-                valueAppearance,
-            ),
-        )
         setPlaceholderColor(typedArray.getColorStateList(R.styleable.TextField_sd_placeholderColor) ?: valueColor)
 
         caption = typedArray.getString(R.styleable.TextField_sd_caption)
         setCaptionAppearance(typedArray.getResourceId(R.styleable.TextField_sd_captionAppearance, 0))
         setCaptionColor(typedArray.getColorStateList(R.styleable.TextField_sd_captionColor))
-        _captionPadding = typedArray.getDimensionPixelOffset(R.styleable.TextField_sd_captionPadding, 0)
+        captionPlacement = typedArray.getTextPlacement(R.styleable.TextField_sd_captionPlacement)
+
+        counter = typedArray.getString(R.styleable.TextField_sd_counter)
+        setCounterAppearance(typedArray.getResourceId(R.styleable.TextField_sd_counterAppearance, 0))
+        setCounterColor(typedArray.getColorStateList(R.styleable.TextField_sd_counterColor))
+        counterPlacement = typedArray.getTextPlacement(R.styleable.TextField_sd_counterPlacement)
+
+        _helperTextPadding = typedArray.getDimensionPixelOffset(R.styleable.TextField_sd_helperTextPadding, 0)
+        _requirementMode = typedArray.getRequirementMode(R.styleable.TextField_sd_requirementMode)
+        _indicator = IndicatorDrawable(
+            size = typedArray.getDimensionPixelSize(R.styleable.TextField_sd_indicatorSize, 0),
+            verticalOffset = typedArray.getDimensionPixelSize(R.styleable.TextField_sd_indicatorOffsetY, 0),
+            horizontalOffset = typedArray.getDimensionPixelSize(R.styleable.TextField_sd_indicatorOffsetX, 0),
+        )
         typedArray.recycle()
         _state = ViewState.obtain(context, attrs, defStyleAttr)
+        updateCounter()
+        updateCaption()
+    }
+
+    private companion object {
+
+        fun TypedArray.getTextPlacement(index: Int): HelperTextPlacement {
+            return HelperTextPlacement.values()
+                .getOrNull(getInt(index, 0))
+                ?: HelperTextPlacement.None
+        }
+
+        fun TypedArray.getRequirementMode(index: Int): RequirementMode {
+            return RequirementMode.values()
+                .getOrNull(getInt(index, 0))
+                ?: RequirementMode.Optional
+        }
     }
 }

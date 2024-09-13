@@ -32,7 +32,7 @@ internal data class ChipUiState(
     val gapMode: GapMode = GapMode.Wide,
     val isWrapped: Boolean = false,
     val quantity: Int = 3,
-    val gravityMode: GravityMode = GravityMode.Center,
+    val gravityMode: GravityMode = GravityMode.Start,
     val checkedState: ViewState = ViewState.ACCENT,
     val selectionMode: ChipGroup.SelectionMode = ChipGroup.SelectionMode.Single,
 ) : Parcelable
@@ -44,7 +44,6 @@ internal data class ChipUiState(
 internal enum class GravityMode(val gravity: Int) : Parcelable {
     Start(Gravity.START or Gravity.CENTER_VERTICAL),
     End(Gravity.END or Gravity.CENTER_VERTICAL),
-    Center(Gravity.CENTER),
 }
 
 /**
