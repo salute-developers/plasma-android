@@ -102,6 +102,11 @@ internal class DecoratedFieldBox(
         gravity = Gravity.TOP or Gravity.START
         isVerticalScrollBarEnabled = false
         isHorizontalScrollBarEnabled = false
+        isFocusable = true
+        isFocusableInTouchMode = true
+        isClickable = true
+        isLongClickable = true
+        setTextIsSelectable(true)
         setPadding(0)
         this.addTextChangedListener(
             afterTextChanged = {
@@ -133,7 +138,6 @@ internal class DecoratedFieldBox(
     private var _chipsPadding: Int = 0
     private var _tempRect: Rect = Rect()
     private var _allowBreakLines: Boolean = true
-    private var _placeholderColors: ColorStateList? = null
     private var _smoothScrollRunnable: Runnable? = null
 
     val editText: StatefulEditText
@@ -166,10 +170,10 @@ internal class DecoratedFieldBox(
         }
 
     var placeholder: CharSequence?
-        get() = editText.hint
+        get() = editText.placeholder
         set(value) {
-            if (editText.hint != value) {
-                editText.hint = value
+            if (editText.placeholder != value) {
+                editText.placeholder = value
                 updateTextState(false)
             }
         }
@@ -261,7 +265,6 @@ internal class DecoratedFieldBox(
     }
 
     fun setPlaceholderColor(colors: ColorStateList?) {
-        _placeholderColors = colors
         editText.setHintTextColor(colors)
     }
 
@@ -460,6 +463,17 @@ internal class DecoratedFieldBox(
             )
             imeOptions =
                 typedArray.getInt(R.styleable.SdDecoratedFieldBox_android_imeOptions, EditorInfo.IME_ACTION_UNSPECIFIED)
+            compoundDrawablePadding = typedArray.getDimensionPixelSize(
+                R.styleable.SdDecoratedFieldBox_sd_prefixSuffixPadding,
+                0,
+            )
+            val prefixText = typedArray.getString(R.styleable.SdDecoratedFieldBox_sd_prefixText)
+            val prefixDrawable = typedArray.getDrawable(R.styleable.SdDecoratedFieldBox_sd_prefixDrawable)
+            prefix = prefixDrawable ?: StatefulEditText.TextDrawable(prefixText)
+
+            val suffixText = typedArray.getString(R.styleable.SdDecoratedFieldBox_sd_suffixText)
+            val suffixDrawable = typedArray.getDrawable(R.styleable.SdDecoratedFieldBox_sd_suffixDrawable)
+            suffix = suffixDrawable ?: StatefulEditText.TextDrawable(suffixText)
         }
         typedArray.recycle()
     }
@@ -549,13 +563,7 @@ internal class DecoratedFieldBox(
     private fun updateTextState(animate: Boolean, force: Boolean = false) {
         val hasText = !editText.text.isNullOrEmpty()
         val isEnabledWithFocus = isEnabled && editText.hasFocus()
-        editText.setHintTextColor(
-            if (!hasText && hasChips() && isEnabledWithFocus) {
-                ColorStateList.valueOf(Color.TRANSPARENT)
-            } else {
-                _placeholderColors
-            },
-        )
+        editText.placeholderEnabled = !hasChips()
         var needInvalidate = true
 
         _collapsingTextHelper.setExpandedTextColor(editText.textColors)
@@ -662,6 +670,7 @@ internal class DecoratedFieldBox(
         private var _minTextRowHeight: Int = 0
         private var _editTextWasInFocus: Boolean = false
         private var groupShapeHelper: ShapeHelper? = null
+        private var _childrenWasEnabled: Boolean = true
 
         init {
             setAddStatesFromChildren(true)
@@ -670,7 +679,9 @@ internal class DecoratedFieldBox(
         fun setReadOnly(readonly: Boolean) {
             editText.isReadOnly = readonly
             children.forEach {
-                if (it != editText) it.isEnabled = !readonly
+                if (it != editText) {
+                    it.isEnabled = _childrenWasEnabled && !readonly
+                }
             }
         }
 
@@ -684,7 +695,8 @@ internal class DecoratedFieldBox(
         override fun setEnabled(enabled: Boolean) {
             super.setEnabled(enabled)
             children.forEach {
-                it.isEnabled = !editText.isReadOnly && enabled
+                _childrenWasEnabled = enabled
+                it.isEnabled = enabled
             }
         }
 

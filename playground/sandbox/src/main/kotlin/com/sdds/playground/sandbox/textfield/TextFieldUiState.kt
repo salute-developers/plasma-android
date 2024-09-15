@@ -34,6 +34,8 @@ internal data class TextFieldUiState(
     val readOnly: Boolean = false,
     val hasChips: Boolean = false,
     val chipData: List<ExampleChipData> = emptyList(),
+    val prefix: String? = "TB",
+    val suffix: String? = "TA",
 )
 
 /**

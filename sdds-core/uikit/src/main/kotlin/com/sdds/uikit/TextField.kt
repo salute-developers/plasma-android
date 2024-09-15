@@ -21,6 +21,7 @@ import com.sdds.uikit.internal.base.ViewAlphaHelper
 import com.sdds.uikit.internal.base.unsafeLazy
 import com.sdds.uikit.internal.textfield.DecoratedFieldBox
 import com.sdds.uikit.internal.textfield.IndicatorDrawable
+import com.sdds.uikit.internal.textfield.StatefulEditText
 import com.sdds.uikit.viewstate.ViewState
 
 /**
@@ -133,9 +134,9 @@ open class TextField @JvmOverloads constructor(
     private var _labelPlacement: HelperTextPlacement = HelperTextPlacement.Outer
     private var _captionPlacement: HelperTextPlacement = HelperTextPlacement.Outer
     private var _counterPlacement: HelperTextPlacement = HelperTextPlacement.Outer
-    private var _label: String? = null
-    private var _caption: String? = null
-    private var _counter: String? = null
+    private var _label: CharSequence? = null
+    private var _caption: CharSequence? = null
+    private var _counter: CharSequence? = null
     private var _inDrawableStateChanged: Boolean = false
     private var _requirementMode: RequirementMode = RequirementMode.Optional
 
@@ -180,7 +181,7 @@ open class TextField @JvmOverloads constructor(
     /**
      * Заголовок текстового поля
      */
-    open var label: String?
+    open var label: CharSequence?
         get() = _label
         set(value) {
             if (_label != value) {
@@ -238,7 +239,7 @@ open class TextField @JvmOverloads constructor(
     /**
      * Значение текстового поля.
      */
-    open var value: String?
+    open var value: CharSequence?
         get() = _decorationBox.editText.text?.toString()
         set(value) {
             _decorationBox.editText.setText(value)
@@ -247,7 +248,7 @@ open class TextField @JvmOverloads constructor(
     /**
      * Подпись к текстовому полю
      */
-    open var caption: String?
+    open var caption: CharSequence?
         get() = _caption
         set(value) {
             if (_caption != value) {
@@ -259,7 +260,7 @@ open class TextField @JvmOverloads constructor(
     /**
      * Подпись к текстовому полю
      */
-    open var counter: String?
+    open var counter: CharSequence?
         get() = _counter
         set(value) {
             if (_counter != value) {
@@ -308,6 +309,46 @@ open class TextField @JvmOverloads constructor(
         get() = _decorationBox.chipAdapter
         set(value) {
             _decorationBox.chipAdapter = value
+        }
+
+    /**
+     * Текст префикса значения текстового поля
+     */
+    var prefixText: CharSequence?
+        get() = (_decorationBox.editText as? StatefulEditText)?.prefixText
+        set(value) {
+            (_decorationBox.editText as? StatefulEditText)?.prefixText = value
+        }
+
+    /**
+     * [Drawable] префикса значения текстового поля.
+     * Если переопределяется значение этого поля, то [prefixText] перестает работать,
+     * т.к. по-умолчанию [prefixDrawable] устанавливается [StatefulEditText.TextDrawable].
+     */
+    var prefixDrawable: Drawable?
+        get() = (_decorationBox.editText as? StatefulEditText)?.prefix
+        set(value) {
+            (_decorationBox.editText as? StatefulEditText)?.prefix = value
+        }
+
+    /**
+     * Текст суффикса значения текстового поля
+     */
+    var suffixText: CharSequence?
+        get() = (_decorationBox.editText as? StatefulEditText)?.suffixText
+        set(value) {
+            (_decorationBox.editText as? StatefulEditText)?.suffixText = value
+        }
+
+    /**
+     * [Drawable] суффикса значения текстового поля.
+     * Если переопределяется значение этого поля, то [suffixText] перестает работать,
+     * т.к. по-умолчанию [suffixDrawable] устанавливается [StatefulEditText.TextDrawable].
+     */
+    var suffixDrawable: Drawable?
+        get() = (_decorationBox.editText as? StatefulEditText)?.suffix
+        set(value) {
+            (_decorationBox.editText as? StatefulEditText)?.suffix = value
         }
 
     /**
