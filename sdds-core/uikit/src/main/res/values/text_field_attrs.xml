@@ -33,6 +33,12 @@
         <attr name="sd_chipsPadding" format="dimension" />
         <attr name="sd_allowBreakLines" format="boolean" />
 
+        <attr name="sd_suffixText" format="string"/>
+        <attr name="sd_suffixDrawable" format="reference"/>
+        <attr name="sd_prefixText" format="string"/>
+        <attr name="sd_prefixDrawable" format="reference"/>
+        <attr name="sd_prefixSuffixPadding" format="dimension"/>
+
         <attr name="sd_viewState" />
         <attr name="sd_shapeAppearance" />
         <attr name="sd_strokeWidth" />
@@ -117,6 +123,12 @@
         <attr name="sd_chipGroupStyleOverlay" />
         <attr name="sd_chipsPadding" />
         <attr name="sd_allowBreakLines" />
+
+        <attr name="sd_suffixText" />
+        <attr name="sd_suffixDrawable" />
+        <attr name="sd_prefixText" />
+        <attr name="sd_prefixDrawable" />
+        <attr name="sd_prefixSuffixPadding" />
 
         <attr name="android:inputType" />
         <attr name="android:imeActionId" />

@@ -23,6 +23,7 @@
         <item name="android:imeOptions">actionDone</item>
         <item name="sd_allowBreakLines">false</item>
         <item name="android:inputType">text</item>
+        <item name="sd_prefixSuffixPadding">6dp</item>
     </style>
 
     <style name="Theme.Sandbox.Components.TextField.L">
