@@ -62,6 +62,8 @@ internal class TextFieldViewModel(
             TextFieldPropertyName.Enabled -> updateEnabledState(value as Boolean)
             TextFieldPropertyName.ReadOnly -> updateReadOnlyState(value as Boolean)
             TextFieldPropertyName.HasChips -> updateHasChips(value as Boolean)
+            TextFieldPropertyName.Prefix -> updatePrefix(value?.toString())
+            TextFieldPropertyName.Suffix -> updateSuffix(value?.toString())
             else -> Unit
         }
     }
@@ -162,6 +164,18 @@ internal class TextFieldViewModel(
         )
     }
 
+    private fun updatePrefix(prefix: String?) {
+        _textFieldUiState.value = _textFieldUiState.value.copy(
+            prefix = prefix,
+        )
+    }
+
+    private fun updateSuffix(suffix: String?) {
+        _textFieldUiState.value = _textFieldUiState.value.copy(
+            suffix = suffix?.takeIf { it.isNotBlank() },
+        )
+    }
+
     @Suppress("LongMethod")
     private fun TextFieldUiState.toProps(): List<Property<*>> {
         return listOfNotNull(
@@ -191,6 +205,14 @@ internal class TextFieldViewModel(
             Property.StringProperty(
                 name = TextFieldPropertyName.Placeholder.value,
                 value = placeholderText,
+            ),
+            Property.StringProperty(
+                name = TextFieldPropertyName.Prefix.value,
+                value = prefix.orEmpty(),
+            ),
+            Property.StringProperty(
+                name = TextFieldPropertyName.Suffix.value,
+                value = suffix.orEmpty(),
             ),
             enumProperty(
                 name = TextFieldPropertyName.State.value,
@@ -236,6 +258,8 @@ internal class TextFieldViewModel(
         Enabled("enabled"),
         ReadOnly("read only"),
         HasChips("has chips"),
+        Prefix("prefix"),
+        Suffix("suffix"),
     }
 }
 

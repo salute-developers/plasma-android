@@ -69,6 +69,8 @@ internal open class TextFieldFragment : ComponentFragment() {
                     placeholder = state.placeholderText
                     caption = state.captionText
                     counter = state.counterText
+                    prefixText = state.prefix
+                    suffixText = state.suffix
                     if (state.icon) {
                         setIcon(Icons.drawable.ic_scribble_diagonal_24)
                     } else {
