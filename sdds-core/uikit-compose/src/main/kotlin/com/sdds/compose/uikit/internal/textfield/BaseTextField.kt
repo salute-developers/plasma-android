@@ -391,7 +391,7 @@ private fun Modifier.applyDotBadgePadding(
     val isLabelOuter = labelPosition == LabelPosition.Outer
     val isDotStart = requiredField?.dotBadge?.position == DotBadge.Position.Start
     val shouldApply = isLabelOuter && isDotStart && !labelText.isNullOrEmpty() ||
-            keepDotBadgeStartPadding != null
+        keepDotBadgeStartPadding != null
     return if (shouldApply) {
         val startPadding = requiredField?.let { it.dotBadge.size + it.dotBadge.horizontalPadding }
             ?: keepDotBadgeStartPadding
