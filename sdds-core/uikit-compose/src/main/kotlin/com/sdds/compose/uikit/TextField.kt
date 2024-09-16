@@ -19,7 +19,6 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.CoreTextField.Animation
 import com.sdds.compose.uikit.CoreTextField.DotBadge.Position
-import com.sdds.compose.uikit.CoreTextField.FieldAppearance
 import com.sdds.compose.uikit.CoreTextField.FieldType
 import com.sdds.compose.uikit.CoreTextField.HelperTextPosition
 import com.sdds.compose.uikit.CoreTextField.LabelPosition
@@ -35,7 +34,6 @@ import com.sdds.compose.uikit.internal.textfield.BaseTextField
  * @param singleLine однострочный или многострочный режим
  * @param enabled если false - фокусировка, ввод текста и копирование отключены
  * @param readOnly если false - доступно только для чтения, запись отключена
- * @param fieldAppearance внешний вид поля (с фоном или без)
  * @param fieldType тип текстового поля - обязательное или опциональное (см. [FieldType])
  * @param labelPosition тип отображения лэйбла: [LabelPosition.Outer] снаружи поля ввода, [LabelPosition.Inner] внутри поля ввода
  * @param helperTextPosition тип отображения вспомогательного текста (caption/counter): [HelperTextPosition.Outer] снаружи поля ввода, [HelperTextPosition.Inner] внутри поля ввода
@@ -50,16 +48,16 @@ import com.sdds.compose.uikit.internal.textfield.BaseTextField
  * @param innerLabelStyle стиль лэйбла в режиме [labelPosition] == [LabelPosition.Inner]
  * @param innerOptionalStyle стиль optional в режиме [labelPosition] == [LabelPosition.Inner]
  * @param innerCaptionStyle стиль надписи в режиме [helperTextPosition] == [HelperTextPosition.Inner]
- * @param innerCounterTextStyle стиль счетчика в режиме [helperTextPosition] == [HelperTextPosition.Inner]
  * @param outerLabelStyle стиль лэйбла в режиме [labelPosition] == [LabelPosition.Outer]
  * @param outerCaptionStyle стиль надписи в режиме [helperTextPosition] == [HelperTextPosition.Outer]
  * @param outerOptionalStyle стиль optional в режиме [labelPosition] == [LabelPosition.Outer]
- * @param outerCounterTextStyle стиль счетчика в режиме [helperTextPosition] == [HelperTextPosition.Outer]
+ * @param counterTextStyle стиль счетчика
  * @param placeHolderStyle стиль placeholder
- * @param startContentColor цвет контента в начале
+ * @param backgroundColor цвет бэкграунда текстового поля
  * @param cursorColor цвет курсора
  * @param enabledAlpha альфа, когда компонент в режиме [enabled] == true
  * @param disabledAlpha альфа, когда компонент в режиме [enabled] == false
+ * @param shape форма текстового поля
  * @param chipContainerShape позволяет скруглять контейнер, в котором находятся чипы
  * @param chipHeight высота чипов
  * @param iconSize размер иконки
@@ -83,8 +81,7 @@ fun TextField(
     readOnly: Boolean = false,
     fieldType: FieldType? = null,
     labelPosition: LabelPosition = LabelPosition.Outer,
-    fieldAppearance: FieldAppearance = FieldAppearance.Solid(),
-    helperTextPosition: HelperTextPosition = if (singleLine || fieldAppearance is FieldAppearance.Clear) {
+    helperTextPosition: HelperTextPosition = if (singleLine) {
         HelperTextPosition.Outer
     } else {
         HelperTextPosition.Inner
@@ -101,20 +98,20 @@ fun TextField(
     innerLabelStyle: TextStyle = TextStyle(),
     innerOptionalStyle: TextStyle = TextStyle(),
     innerCaptionStyle: TextStyle = TextStyle(),
-    innerCounterTextStyle: TextStyle = TextStyle(),
     outerLabelStyle: TextStyle = TextStyle(),
     outerCaptionStyle: TextStyle = TextStyle(),
     outerOptionalStyle: TextStyle = TextStyle(),
-    outerCounterTextStyle: TextStyle = TextStyle(),
+    counterTextStyle: TextStyle = TextStyle(),
+    backgroundColor: Color = Color.White,
     cursorColor: Color = Color.Blue,
-    startContentColor: Color = Color.DarkGray,
     enabledAlpha: Float = 1.0f,
     disabledAlpha: Float = 0.4f,
+    shape: CornerBasedShape = RoundedCornerShape(CornerSize(8.dp)),
     chipContainerShape: CornerBasedShape? = null,
     chipHeight: Dp = 56.dp,
     iconSize: Dp = 24.dp,
     paddings: Paddings = Paddings(),
-    scrollBarConfig: ScrollBarConfig? = null,
+    scrollBarConfig: ScrollBarConfig = ScrollBarConfig(),
     animation: Animation = Animation(),
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
@@ -146,14 +143,13 @@ fun TextField(
         innerCaptionStyle = innerCaptionStyle,
         innerOptionalStyle = innerOptionalStyle,
         outerOptionalStyle = outerOptionalStyle,
-        innerCounterTextStyle = innerCounterTextStyle,
-        outerCounterTextStyle = outerCounterTextStyle,
+        counterTextStyle = counterTextStyle,
         placeHolderStyle = placeHolderStyle,
-        fieldAppearance = fieldAppearance,
+        backgroundColor = backgroundColor,
         cursorColor = cursorColor,
-        startContentColor = startContentColor,
         enabledAlpha = enabledAlpha,
         disabledAlpha = disabledAlpha,
+        shape = shape,
         chipContainerShape = chipContainerShape,
         paddings = paddings,
         iconSize = iconSize,
@@ -204,37 +200,6 @@ object CoreTextField {
         val chipsSpacing: Dp = 2.dp,
         val keepDotBadgeStartPadding: Dp? = null,
     )
-
-    /**
-     * Внешний вид текстового поля
-     */
-    @Immutable
-    sealed class FieldAppearance {
-
-        /**
-         * Текстовое поле с фоном
-         *
-         * @property backgroundColor цвет бэкграунда текстового поля
-         * @property shape форма текстового поля
-         */
-        data class Solid(
-            val backgroundColor: Color = Color.Gray,
-            val shape: CornerBasedShape = RoundedCornerShape(CornerSize(8.dp)),
-        ) : FieldAppearance()
-
-        /**
-         * Текстовое поле без фона с разделителем
-         *
-         * @property dividerColor цвет разделителя
-         * @property dividerThickness толщина разделителя
-         * @property dividerVerticalOffset смещение разделителя по вертикали
-         */
-        data class Clear(
-            val dividerColor: Color = Color.Gray,
-            val dividerThickness: Dp = 1.dp,
-            val dividerVerticalOffset: Dp = 0.dp,
-        ) : FieldAppearance()
-    }
 
     /**
      * Типы отображения лейбла

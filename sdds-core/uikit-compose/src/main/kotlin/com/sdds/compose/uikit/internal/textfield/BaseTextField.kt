@@ -1,7 +1,6 @@
 package com.sdds.compose.uikit.internal.textfield
 
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsFocusedAsState
@@ -14,21 +13,19 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CornerBasedShape
+import androidx.compose.foundation.shape.CornerSize
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawBehind
-import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.SolidColor
-import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.TextFieldValue
@@ -38,11 +35,9 @@ import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.CoreTextField
 import com.sdds.compose.uikit.CoreTextField.Animation
 import com.sdds.compose.uikit.CoreTextField.DotBadge
-import com.sdds.compose.uikit.CoreTextField.FieldAppearance
 import com.sdds.compose.uikit.CoreTextField.FieldType
 import com.sdds.compose.uikit.CoreTextField.HelperTextPosition
 import com.sdds.compose.uikit.CoreTextField.LabelPosition
-import com.sdds.compose.uikit.LocalTint
 import com.sdds.compose.uikit.ScrollBarConfig
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.TextField
@@ -59,7 +54,6 @@ import com.sdds.compose.uikit.scrollbar
  * @param singleLine однострочный или многострочный режим
  * @param enabled если false - фокусировка, ввод текста и копирование отключены
  * @param readOnly если false - доступно только для чтения, запись отключена
- * @param fieldAppearance внешний вид поля (с фоном или без)
  * @param fieldType тип текстового поля - обязательное или опциональное (см. [FieldType])
  * @param labelPosition тип отображения лэйбла: [LabelPosition.Outer] снаружи поля ввода, [LabelPosition.Inner] внутри поля ввода
  * @param helperTextPosition тип отображения вспомогательного текста (caption/counter): [HelperTextPosition.Outer] снаружи поля ввода, [HelperTextPosition.Inner] внутри поля ввода
@@ -74,16 +68,16 @@ import com.sdds.compose.uikit.scrollbar
  * @param innerLabelStyle стиль лэйбла в режиме [labelPosition] == [LabelPosition.Inner]
  * @param innerOptionalStyle стиль optional в режиме [labelPosition] == [LabelPosition.Inner]
  * @param innerCaptionStyle стиль надписи в режиме [helperTextPosition] == [HelperTextPosition.Inner]
- * @param innerCounterTextStyle стиль счетчика в режиме [helperTextPosition] == [HelperTextPosition.Inner]
  * @param outerLabelStyle стиль лэйбла в режиме [labelPosition] == [LabelPosition.Outer]
  * @param outerCaptionStyle стиль надписи в режиме [helperTextPosition] == [HelperTextPosition.Outer]
  * @param outerOptionalStyle стиль optional в режиме [labelPosition] == [LabelPosition.Outer]
- * @param outerCounterTextStyle стиль счетчика в режиме [helperTextPosition] == [HelperTextPosition.Outer]
+ * @param counterTextStyle стиль счетчика
  * @param placeHolderStyle стиль placeholder
- * @param startContentColor цвет контента в начале
+ * @param backgroundColor цвет бэкграунда текстового поля
  * @param cursorColor цвет курсора
  * @param enabledAlpha альфа, когда компонент в режиме [enabled] == true
  * @param disabledAlpha альфа, когда компонент в режиме [enabled] == false
+ * @param shape форма текстового поля
  * @param chipContainerShape позволяет скруглять контейнер, в котором находятся чипы
  * @param chipHeight высота чипов
  * @param iconSize размер иконки
@@ -104,10 +98,9 @@ internal fun BaseTextField(
     singleLine: Boolean,
     enabled: Boolean = true,
     readOnly: Boolean = false,
-    fieldAppearance: FieldAppearance = FieldAppearance.Solid(),
     fieldType: FieldType? = null,
     labelPosition: LabelPosition = LabelPosition.Outer,
-    helperTextPosition: HelperTextPosition = if (singleLine || fieldAppearance is FieldAppearance.Clear) {
+    helperTextPosition: HelperTextPosition = if (singleLine) {
         HelperTextPosition.Outer
     } else {
         HelperTextPosition.Inner
@@ -127,17 +120,17 @@ internal fun BaseTextField(
     valueStyle: TextStyle = TextStyle(),
     outerCaptionStyle: TextStyle = TextStyle(),
     innerCaptionStyle: TextStyle = TextStyle(),
-    innerCounterTextStyle: TextStyle = TextStyle(),
-    outerCounterTextStyle: TextStyle = TextStyle(),
+    counterTextStyle: TextStyle = TextStyle(),
     placeHolderStyle: TextStyle = TextStyle(),
+    backgroundColor: Color = Color.White,
     cursorColor: Color = Color.Blue,
-    startContentColor: Color,
     enabledAlpha: Float = 1.0f,
     disabledAlpha: Float = 0.4f,
+    shape: CornerBasedShape = RoundedCornerShape(CornerSize(8.dp)),
     chipContainerShape: CornerBasedShape? = null,
     paddings: CoreTextField.Paddings = CoreTextField.Paddings(),
     iconSize: Dp = 24.dp,
-    scrollBarConfig: ScrollBarConfig? = null,
+    scrollBarConfig: ScrollBarConfig = ScrollBarConfig(),
     animation: Animation = Animation(),
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
@@ -179,9 +172,21 @@ internal fun BaseTextField(
             modifier = Modifier
                 .fillMaxWidth()
                 .applyFieldDotBadge(requiredField, labelPosition)
-                .clip(if (fieldAppearance is FieldAppearance.Solid) fieldAppearance.shape else RectangleShape)
-                .drawFieldAppearance(fieldAppearance)
-                .applyScrollBar(scrollState, scrollBarConfig),
+                .clip(shape)
+                .drawBehind { drawRect(backgroundColor) }
+                .scrollbar(
+                    state = scrollState,
+                    direction = Orientation.Vertical,
+                    indicatorThickness = scrollBarConfig.indicatorThickness,
+                    indicatorColor = scrollBarConfig.indicatorColor,
+                    alpha = scrollBarConfig.alpha
+                        ?: if (scrollState.isScrollInProgress) 0.8f else 0f,
+                    alphaAnimationSpec = scrollBarConfig.alphaAnimationSpec ?: tween(
+                        delayMillis = if (scrollState.isScrollInProgress) 0 else 1500,
+                        durationMillis = if (scrollState.isScrollInProgress) 150 else 500,
+                    ),
+                    padding = scrollBarConfig.padding,
+                ),
             enabled = enabled,
             readOnly = readOnly,
             textStyle = valueStyle,
@@ -217,10 +222,10 @@ internal fun BaseTextField(
                     hasChips = chipsContent != null,
                 ),
                 placeholder = placeholder(placeholderText, placeHolderStyle),
-                leadingIcon = leadingIcon(leadingIcon, startContentColor),
+                leadingIcon = leadingIcon,
                 trailingIcon = trailingIcon,
                 innerCaption = innerCaption(helperTextPosition, captionText, innerCaptionStyle),
-                innerCounter = innerCounter(helperTextPosition, counterText, innerCounterTextStyle),
+                innerCounter = innerCounter(helperTextPosition, counterText, counterTextStyle),
                 animation = animation,
                 chips = chipsContent,
                 chipHeight = chipHeight,
@@ -229,7 +234,6 @@ internal fun BaseTextField(
                 paddings = paddings,
                 verticalScrollState = if (!singleLine) scrollState else null,
                 singleLine = singleLine,
-                isClearAppearance = fieldAppearance is FieldAppearance.Clear,
                 valueTextStyle = valueStyle,
                 innerLabelTextStyle = innerLabelStyle,
             )
@@ -239,65 +243,8 @@ internal fun BaseTextField(
                 .padding(top = paddings.helperTextPadding),
             helperTextPosition = helperTextPosition,
             captionText = captionText,
-            counterText = counterText,
-            captionStyle = outerCaptionStyle,
-            counterStyle = outerCounterTextStyle,
+            style = outerCaptionStyle,
         )
-    }
-}
-
-private fun Modifier.drawFieldAppearance(fieldAppearance: FieldAppearance): Modifier {
-    return this.drawBehind {
-        when (fieldAppearance) {
-            is FieldAppearance.Clear -> {
-                val verticalOffset = fieldAppearance.dividerVerticalOffset.roundToPx()
-                drawLine(
-                    color = fieldAppearance.dividerColor,
-                    start = Offset(0f, size.height - verticalOffset),
-                    end = Offset(size.width, size.height - verticalOffset),
-                    strokeWidth = fieldAppearance.dividerThickness.toPx(),
-                    cap = StrokeCap.Round,
-                )
-            }
-
-            is FieldAppearance.Solid -> drawRect(fieldAppearance.backgroundColor)
-        }
-    }
-}
-
-private fun Modifier.applyScrollBar(
-    scrollState: ScrollState,
-    scrollBarConfig: ScrollBarConfig?,
-): Modifier {
-    return scrollBarConfig?.let {
-        this.scrollbar(
-            state = scrollState,
-            direction = Orientation.Vertical,
-            indicatorThickness = scrollBarConfig.indicatorThickness,
-            indicatorColor = scrollBarConfig.indicatorColor,
-            alpha = scrollBarConfig.alpha
-                ?: if (scrollState.isScrollInProgress) 0.8f else 0f,
-            alphaAnimationSpec = scrollBarConfig.alphaAnimationSpec ?: tween(
-                delayMillis = if (scrollState.isScrollInProgress) 0 else 1500,
-                durationMillis = if (scrollState.isScrollInProgress) 150 else 500,
-            ),
-            padding = scrollBarConfig.padding,
-        )
-    } ?: this
-}
-
-private fun leadingIcon(
-    leadingIcon: @Composable (() -> Unit)?,
-    startContentColor: Color,
-): @Composable (() -> Unit)? {
-    return if (leadingIcon != null) {
-        {
-            CompositionLocalProvider(LocalTint provides startContentColor) {
-                leadingIcon()
-            }
-        }
-    } else {
-        null
     }
 }
 
@@ -386,7 +333,7 @@ private fun Modifier.applyDotBadgePadding(
     val isLabelOuter = labelPosition == LabelPosition.Outer
     val isDotStart = requiredField?.dotBadge?.position == DotBadge.Position.Start
     val shouldApply = isLabelOuter && isDotStart && !labelText.isNullOrEmpty() ||
-            keepDotBadgeStartPadding != null
+        keepDotBadgeStartPadding != null
     return if (shouldApply) {
         val startPadding = requiredField?.let { it.dotBadge.size + it.dotBadge.horizontalPadding }
             ?: keepDotBadgeStartPadding
@@ -514,26 +461,15 @@ private fun OuterTopContent(
 private fun OuterBottomContent(
     modifier: Modifier,
     captionText: String?,
-    counterText: String?,
-    captionStyle: TextStyle,
-    counterStyle: TextStyle,
+    style: TextStyle,
     helperTextPosition: HelperTextPosition,
 ) {
     if (helperTextPosition != HelperTextPosition.Outer) return
-    Row(
-        modifier = modifier
-            .fillMaxWidth(),
-        horizontalArrangement = Arrangement.SpaceBetween,
-    ) {
-        TextOrEmpty(
-            text = captionText,
-            textStyle = captionStyle,
-        )
-        TextOrEmpty(
-            text = counterText,
-            textStyle = counterStyle,
-        )
-    }
+    TextOrEmpty(
+        modifier = modifier,
+        text = captionText,
+        textStyle = style,
+    )
 }
 
 @Composable

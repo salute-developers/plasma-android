@@ -43,7 +43,6 @@ import com.sdds.compose.uikit.ChipGroup
 import com.sdds.compose.uikit.CoreTextField
 import com.sdds.compose.uikit.internal.heightOrZero
 import com.sdds.compose.uikit.internal.widthOrZero
-import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.roundToInt
 
@@ -56,7 +55,6 @@ import kotlin.math.roundToInt
 internal fun TextFieldLayout(
     modifier: Modifier,
     singleLine: Boolean,
-    isClearAppearance: Boolean,
     textField: @Composable () -> Unit,
     innerLabel: @Composable (() -> Unit)?,
     innerOptional: @Composable (() -> Unit)?,
@@ -96,7 +94,7 @@ internal fun TextFieldLayout(
     Layout(
         modifier = modifier
             .padding(
-                start = if (hasChips && !isClearAppearance) paddings.chipsPadding else paddings.boxPaddingStart,
+                start = if (hasChips) paddings.chipsPadding else paddings.boxPaddingStart,
                 end = paddings.boxPaddingEnd,
                 top = if (hasChips) paddings.chipsPadding else paddings.boxPaddingTop,
                 bottom = if (hasChips) paddings.chipsPadding else paddings.boxPaddingBottom,
@@ -164,7 +162,7 @@ private fun adjustStartPaddingWhenHasChips(
     startPadding: Dp,
     chipsPadding: Dp,
 ): Dp {
-    return if (hasChips) abs(startPadding.value - chipsPadding.value).dp else 0.dp
+    return if (hasChips) startPadding - chipsPadding else 0.dp
 }
 
 @Composable
