@@ -30,6 +30,7 @@ import com.sdds.compose.uikit.CoreTextField
 internal fun DecorationBox(
     value: String,
     singleLine: Boolean,
+    isClearAppearance: Boolean,
     isError: Boolean = false,
     innerLabel: @Composable (() -> Unit)?,
     innerOptional: @Composable (() -> Unit)?,
@@ -100,6 +101,7 @@ internal fun DecorationBox(
             iconSize = iconSize,
             paddings = paddings,
             singleLine = singleLine,
+            isClearAppearance = isClearAppearance,
             valueTextStyle = valueTextStyle,
             innerLabelTextStyle = innerLabelTextStyle,
         )

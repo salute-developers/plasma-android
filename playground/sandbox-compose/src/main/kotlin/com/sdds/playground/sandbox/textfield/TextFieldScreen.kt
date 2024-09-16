@@ -50,6 +50,7 @@ internal fun TextFieldScreen() {
                 onValueChange = {
                     textFieldViewModel.onValueChange(it)
                 },
+                isClear = textFieldUiState.isClear,
                 enabled = textFieldUiState.enabled,
                 placeholderText = textFieldUiState.placeholderText,
                 labelText = textFieldUiState.labelText,
@@ -136,7 +137,6 @@ private fun Boolean.getExampleIcon(icon: Icon): (@Composable () -> Unit)? {
             Icon(
                 painter = painterResource(id = icon.res),
                 contentDescription = "",
-                tint = StylesSaluteTheme.colors.textDefaultSecondary,
             )
         }
     } else {

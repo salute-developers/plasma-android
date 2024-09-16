@@ -132,6 +132,10 @@ internal class TextFieldViewModel : ViewModel(), PropertiesOwner {
         _textFieldUiState.value = _textFieldUiState.value.copy(singleLine = singleLine)
     }
 
+    private fun updateClear(isClear: Boolean) {
+        _textFieldUiState.value = _textFieldUiState.value.copy(isClear = isClear)
+    }
+
     @Suppress("LongMethod")
     private fun TextFieldUiState.toProps(): List<Property<*>> {
         return listOfNotNull(
@@ -139,6 +143,11 @@ internal class TextFieldViewModel : ViewModel(), PropertiesOwner {
                 name = "singleLine",
                 value = singleLine,
                 onApply = { updateSingleLine(it) },
+            ),
+            Property.BooleanProperty(
+                name = "isClear",
+                value = isClear,
+                onApply = { updateClear(it) },
             ),
             enumProperty(
                 name = "field type",

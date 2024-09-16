@@ -33,10 +33,10 @@ import com.sdds.playground.sandbox.textfield.SandboxTextField.State
 import com.sdds.playground.sandbox.textfield.TextFieldDefaults.chipContainerShape
 import com.sdds.playground.sandbox.textfield.TextFieldDefaults.chipHeight
 import com.sdds.playground.sandbox.textfield.TextFieldDefaults.coreTextFieldPaddings
+import com.sdds.playground.sandbox.textfield.TextFieldDefaults.fieldAppearance
 import com.sdds.playground.sandbox.textfield.TextFieldDefaults.iconSize
 import com.sdds.playground.sandbox.textfield.TextFieldDefaults.scrollBarConfig
 import com.sdds.playground.sandbox.textfield.TextFieldDefaults.textFieldColors
-import com.sdds.playground.sandbox.textfield.TextFieldDefaults.textFieldShapeFor
 import com.sdds.playground.sandbox.textfield.TextFieldDefaults.textFieldStyles
 import com.sdds.playground.sandbox.textfield.TextFieldDefaults.toFieldType
 
@@ -71,6 +71,7 @@ internal fun SandboxTextField(
     onValueChange: (TextFieldValue) -> Unit,
     modifier: Modifier = Modifier,
     singleLine: Boolean = true,
+    isClear: Boolean = false,
     enabled: Boolean = true,
     readOnly: Boolean = false,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
@@ -126,7 +127,6 @@ internal fun SandboxTextField(
         trailingIcon = trailingIcon,
         chipsContent = chips,
         chipHeight = chipHeight(size),
-        shape = textFieldShapeFor(size = size),
         chipContainerShape = chipContainerShape(size),
         outerLabelStyle = styles.outerLabelStyle(size, colors, inputState).value,
         innerLabelStyle = styles.innerLabelStyle(
@@ -146,21 +146,25 @@ internal fun SandboxTextField(
             colors = colors,
             inputState = inputState,
         ).value,
-        valueStyle = styles.valueStyle(size, colors, inputState).value,
+        valueStyle = styles.valueStyle(size, colors, inputState, isClear).value,
         innerCaptionStyle = styles.captionStyle(size, colors, inputState).value,
-        counterTextStyle = styles.counterStyle(size).value,
-        placeHolderStyle = styles.placeholderStyle(size, colors, inputState).value,
-        backgroundColor = colors.backgroundColor(inputState).value,
+        outerCaptionStyle = styles.captionStyle(size, colors, inputState).value,
+        innerCounterTextStyle = styles.counterStyle(size).value,
+        outerCounterTextStyle = styles.counterStyle(size).value,
+        placeHolderStyle = styles.placeholderStyle(size, colors, inputState, isClear).value,
+        fieldAppearance = fieldAppearance(isClear, colors, inputState, size),
         cursorColor = colors.cursorColor(inputState).value,
+        startContentColor = colors.startContentColor(inputState, isClear).value,
         paddings = coreTextFieldPaddings(
             size = size,
             labelPosition = labelPosition,
             helperTextPosition = helperTextPosition,
             singleLine = singleLine,
+            isClear = isClear,
         ),
         iconSize = iconSize(size),
         interactionSource = interactionSource,
-        scrollBarConfig = scrollBarConfig(),
+        scrollBarConfig = scrollBarConfig(isClear),
     )
 }
 
