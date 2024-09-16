@@ -5,6 +5,7 @@ import com.sdds.compose.uikit.CoreTextField
 
 internal data class TextFieldUiState(
     val singleLine: Boolean = true,
+    val isClear: Boolean = false,
     val textFieldValue: TextFieldValue = TextFieldValue("Value"),
     val state: SandboxTextField.State = SandboxTextField.State.Default,
     val size: SandboxTextField.Size = SandboxTextField.Size.L,
