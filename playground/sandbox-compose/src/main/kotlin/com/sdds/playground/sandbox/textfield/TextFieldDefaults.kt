@@ -223,6 +223,7 @@ internal object TextFieldDefaults {
         }
     }
 
+    @Composable
     private fun dotBadge(
         labelPosition: LabelPosition,
         position: CoreTextField.DotBadge.Position,
@@ -243,7 +244,7 @@ internal object TextFieldDefaults {
 
                 CoreTextField.DotBadge(
                     size = 6.dp,
-                    color = Color.Red,
+                    color = StylesSaluteTheme.colors.surfaceDefaultNegative,
                     position = position,
                     horizontalPadding = horizontalPadding,
                     verticalPadding = verticalPadding,
@@ -256,7 +257,7 @@ internal object TextFieldDefaults {
                 } else {
                     8.dp
                 },
-                color = Color.Red,
+                color = StylesSaluteTheme.colors.surfaceDefaultNegative,
                 position = position,
             )
         }

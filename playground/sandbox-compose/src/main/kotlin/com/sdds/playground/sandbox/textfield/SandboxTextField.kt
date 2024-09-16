@@ -148,6 +148,7 @@ internal fun SandboxTextField(
         ).value,
         valueStyle = styles.valueStyle(size, colors, inputState).value,
         innerCaptionStyle = styles.captionStyle(size, colors, inputState).value,
+        outerCaptionStyle = styles.captionStyle(size, colors, inputState).value,
         counterTextStyle = styles.counterStyle(size).value,
         placeHolderStyle = styles.placeholderStyle(size, colors, inputState).value,
         backgroundColor = colors.backgroundColor(inputState).value,
