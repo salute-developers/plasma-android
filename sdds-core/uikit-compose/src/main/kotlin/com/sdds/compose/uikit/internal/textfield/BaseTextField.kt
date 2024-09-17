@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -113,6 +114,8 @@ internal fun BaseTextField(
     trailingIcon: @Composable (() -> Unit)? = null,
     chipsContent: @Composable (() -> Unit)? = null,
     chipHeight: Dp,
+    boxMinHeight: Dp,
+    alignmentLineHeight: Dp,
     outerLabelStyle: TextStyle = TextStyle(),
     innerLabelStyle: TextStyle = TextStyle(),
     innerOptionalStyle: TextStyle = TextStyle(),
@@ -170,6 +173,7 @@ internal fun BaseTextField(
             value = value,
             onValueChange = onValueChange,
             modifier = Modifier
+                .defaultMinSize(minHeight = boxMinHeight)
                 .fillMaxWidth()
                 .applyFieldDotBadge(requiredField, labelPosition)
                 .clip(shape)
@@ -229,6 +233,7 @@ internal fun BaseTextField(
                 animation = animation,
                 chips = chipsContent,
                 chipHeight = chipHeight,
+                alignmentLineHeight = alignmentLineHeight,
                 chipContainerShape = chipContainerShape,
                 iconSize = iconSize,
                 paddings = paddings,

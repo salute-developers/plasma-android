@@ -291,6 +291,15 @@ internal object TextFieldDefaults {
         }
     }
 
+    fun boxMinHeight(size: SandboxTextField.Size): Dp {
+        return when (size) {
+            SandboxTextField.Size.L -> 56.dp
+            SandboxTextField.Size.M -> 48.dp
+            SandboxTextField.Size.S -> 40.dp
+            SandboxTextField.Size.XS -> 32.dp
+        }
+    }
+
     fun coreTextFieldPaddings(
         size: SandboxTextField.Size,
         labelPosition: LabelPosition,
@@ -617,7 +626,7 @@ private class DefaultSandboxTextFieldStyles : SandboxTextFieldStyles {
         val style =
             when (size) {
                 SandboxTextField.Size.XS -> StylesSaluteTheme.typography.bodyXxsNormal
-                SandboxTextField.Size.S -> StylesSaluteTheme.typography.bodyXxsNormal
+                SandboxTextField.Size.S -> StylesSaluteTheme.typography.bodyXsNormal
                 SandboxTextField.Size.M -> StylesSaluteTheme.typography.bodyXsNormal
                 SandboxTextField.Size.L -> StylesSaluteTheme.typography.bodyXsNormal
             }
@@ -641,7 +650,7 @@ private class DefaultSandboxTextFieldStyles : SandboxTextFieldStyles {
         val style =
             when (size) {
                 SandboxTextField.Size.XS -> StylesSaluteTheme.typography.bodyXxsNormal
-                SandboxTextField.Size.S -> StylesSaluteTheme.typography.bodyXxsNormal
+                SandboxTextField.Size.S -> StylesSaluteTheme.typography.bodyXsNormal
                 SandboxTextField.Size.M -> StylesSaluteTheme.typography.bodyXsNormal
                 SandboxTextField.Size.L -> StylesSaluteTheme.typography.bodyXsNormal
             }

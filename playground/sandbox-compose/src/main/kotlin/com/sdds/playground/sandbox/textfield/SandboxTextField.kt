@@ -30,6 +30,7 @@ import com.sdds.playground.sandbox.chip.SandboxEmbeddedChip
 import com.sdds.playground.sandbox.textfield.SandboxTextField.InputState
 import com.sdds.playground.sandbox.textfield.SandboxTextField.Size
 import com.sdds.playground.sandbox.textfield.SandboxTextField.State
+import com.sdds.playground.sandbox.textfield.TextFieldDefaults.boxMinHeight
 import com.sdds.playground.sandbox.textfield.TextFieldDefaults.chipContainerShape
 import com.sdds.playground.sandbox.textfield.TextFieldDefaults.chipHeight
 import com.sdds.playground.sandbox.textfield.TextFieldDefaults.coreTextFieldPaddings
@@ -126,6 +127,8 @@ internal fun SandboxTextField(
         trailingIcon = trailingIcon,
         chipsContent = chips,
         chipHeight = chipHeight(size),
+        boxMinHeight = boxMinHeight(size),
+        alignmentLineHeight = boxMinHeight(size),
         shape = textFieldShapeFor(size = size),
         chipContainerShape = chipContainerShape(size),
         outerLabelStyle = styles.outerLabelStyle(size, colors, inputState).value,

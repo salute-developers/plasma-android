@@ -65,6 +65,7 @@ internal fun TextFieldLayout(
     counterText: @Composable (() -> Unit)?,
     chips: @Composable (() -> Unit)?,
     chipHeight: Dp,
+    alignmentLineHeight: Dp,
     chipContainerShape: CornerBasedShape?,
     iconSize: Dp,
     valueTextStyle: TextStyle,
@@ -74,12 +75,14 @@ internal fun TextFieldLayout(
     verticalScrollState: ScrollState?,
 ) {
     val hasChips = chips != null
+    val minTextHeight = alignmentLineHeight - paddings.boxPaddingTop * 2
     val textMeasurer = rememberTextMeasurer()
     val measurePolicy = remember(
         animationProgress,
         valueTextStyle,
         innerLabelTextStyle,
         chipHeight,
+        minTextHeight,
         hasChips,
     ) {
         CoreTextFieldLayoutMeasurePolicy(
@@ -88,6 +91,7 @@ internal fun TextFieldLayout(
             innerLabelTextStyle = innerLabelTextStyle,
             animationProgress = animationProgress,
             chipHeight = chipHeight,
+            minTextHeight = minTextHeight,
             hasChips = hasChips,
         )
     }
@@ -355,6 +359,7 @@ constructor(
     private val textMeasurer: TextMeasurer,
     private val animationProgress: Float,
     private val chipHeight: Dp,
+    private val minTextHeight: Dp,
     private val hasChips: Boolean,
 ) : MeasurePolicy {
 
@@ -431,6 +436,7 @@ constructor(
             leadingPlaceable.heightOrZero(),
             trailingPlaceable.heightOrZero(),
             chipsHeightOrZero,
+            minTextHeight.roundToPx(),
         )
 
         val width = calculateWidth(
@@ -445,9 +451,8 @@ constructor(
         )
         val height = calculateHeight(
             textFieldHeight = textFieldPlaceable.height,
+            firstLineHeight = firstLineHeight,
             labelHeight = labelPlaceable?.let { smallLabelTextHeight } ?: 0,
-            leadingHeight = leadingPlaceable.heightOrZero(),
-            trailingHeight = trailingPlaceable.heightOrZero(),
             placeholderHeight = placeholderPlaceable.heightOrZero(),
             captionTextHeight = captionTextHeight,
             counterTextHeight = counterTextHeight,
@@ -531,8 +536,7 @@ private fun calculateWidth(
 private fun calculateHeight(
     textFieldHeight: Int,
     labelHeight: Int,
-    leadingHeight: Int,
-    trailingHeight: Int,
+    firstLineHeight: Int,
     placeholderHeight: Int,
     captionTextHeight: Int,
     counterTextHeight: Int,
@@ -542,8 +546,7 @@ private fun calculateHeight(
     val maxHelperTextHeight = max(captionTextHeight, counterTextHeight)
     val mainContentHeight = maxOf(
         inputFieldHeight + labelHeight,
-        leadingHeight,
-        trailingHeight,
+        firstLineHeight,
     )
     val contentHeight = mainContentHeight + maxHelperTextHeight
     return max(constraints.minHeight, contentHeight)
