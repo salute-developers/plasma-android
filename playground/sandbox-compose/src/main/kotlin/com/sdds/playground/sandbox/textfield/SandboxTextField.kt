@@ -99,8 +99,6 @@ internal fun SandboxTextField(
     val styles = textFieldStyles()
     val colors = textFieldColors()
 
-    val label = if (size == Size.XS && labelPosition == LabelPosition.Inner) "" else labelText
-
     TextField(
         value = value,
         onValueChange = onValueChange,
@@ -117,12 +115,12 @@ internal fun SandboxTextField(
             labelPosition = labelPosition,
             position = dotBadgePosition,
             hasLabel = labelText.isNotEmpty(),
-            optionalText = optionalText,
+            optionalText = optionalText.dropInnerForSizeXS(size, labelPosition),
             size = size,
         ),
-        labelText = label,
-        captionText = captionText,
+        labelText = labelText.dropInnerForSizeXS(size, labelPosition),
         counterText = counterText,
+        captionText = captionText,
         leadingIcon = leadingIcon,
         trailingIcon = trailingIcon,
         chipsContent = chips,
@@ -166,6 +164,10 @@ internal fun SandboxTextField(
         interactionSource = interactionSource,
         scrollBarConfig = scrollBarConfig(),
     )
+}
+
+private fun String.dropInnerForSizeXS(size: Size, labelPosition: LabelPosition): String {
+    return if (size == Size.XS && labelPosition == LabelPosition.Inner) "" else this
 }
 
 /**

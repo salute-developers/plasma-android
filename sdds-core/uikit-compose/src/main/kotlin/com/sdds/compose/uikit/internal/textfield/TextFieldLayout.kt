@@ -217,7 +217,7 @@ private fun LabelContent(
     Row(modifier.layoutId(LabelId)) {
         innerLabel?.invoke()
         innerOptional?.let {
-            Spacer(modifier = Modifier.size(horizontalPadding))
+            if (innerLabel != null) Spacer(modifier = Modifier.size(horizontalPadding))
             it.invoke()
         }
     }

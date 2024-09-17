@@ -68,7 +68,7 @@ internal fun DecorationBox(
 
     TextFieldTransitionScope.Transition(
         inputState = inputState,
-        showLabel = innerLabel != null,
+        showLabel = innerLabel != null || innerOptional != null,
         animationDuration = animation.animationDuration,
         placeholderAnimationDuration = animation.placeholderAnimationDuration,
         placeholderAnimationDelayOrDuration = animation.placeholderAnimationDelayOrDuration,

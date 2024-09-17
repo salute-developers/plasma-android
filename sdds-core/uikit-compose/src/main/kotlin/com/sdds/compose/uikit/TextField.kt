@@ -247,7 +247,7 @@ object CoreTextField {
          *
          * @property optionalText текст, свидетельствующий о том, что поле опционалдьное
          */
-        data class Optional(val optionalText: String = "Optional") : FieldType()
+        data class Optional(val optionalText: String = "") : FieldType()
 
         /**
          * Обязательный тип поля.
