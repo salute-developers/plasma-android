@@ -136,6 +136,10 @@ internal class TextFieldViewModel : ViewModel(), PropertiesOwner {
         _textFieldUiState.value = _textFieldUiState.value.copy(isClear = isClear)
     }
 
+    private fun updateHasDivider(hasDivider: Boolean) {
+        _textFieldUiState.value = _textFieldUiState.value.copy(hasDivider = hasDivider)
+    }
+
     @Suppress("LongMethod")
     private fun TextFieldUiState.toProps(): List<Property<*>> {
         return listOfNotNull(
@@ -148,6 +152,11 @@ internal class TextFieldViewModel : ViewModel(), PropertiesOwner {
                 name = "isClear",
                 value = isClear,
                 onApply = { updateClear(it) },
+            ),
+            Property.BooleanProperty(
+                name = "hasDivider",
+                value = hasDivider,
+                onApply = { updateHasDivider(it) },
             ),
             enumProperty(
                 name = "field type",
