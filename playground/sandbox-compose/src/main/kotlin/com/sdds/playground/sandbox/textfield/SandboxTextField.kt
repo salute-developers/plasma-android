@@ -73,6 +73,7 @@ internal fun SandboxTextField(
     modifier: Modifier = Modifier,
     singleLine: Boolean = true,
     isClear: Boolean = false,
+    hasDivider: Boolean = true,
     enabled: Boolean = true,
     readOnly: Boolean = false,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
@@ -100,7 +101,7 @@ internal fun SandboxTextField(
     val styles = textFieldStyles()
     val colors = textFieldColors()
 
-    val fieldAppearance = fieldAppearance(isClear, colors, inputState, size)
+    val fieldAppearance = fieldAppearance(isClear, colors, inputState, size, hasDivider)
 
     TextField(
         value = value,

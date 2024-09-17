@@ -238,6 +238,7 @@ internal object TextFieldDefaults {
         colors: SandboxTextFieldColors,
         inputState: InputState,
         size: SandboxTextField.Size,
+        hasDivider: Boolean,
     ): CoreTextField.FieldAppearance {
         return if (!isClear) {
             CoreTextField.FieldAppearance.Solid(
@@ -246,7 +247,11 @@ internal object TextFieldDefaults {
             )
         } else {
             CoreTextField.FieldAppearance.Clear(
-                dividerColor = colors.dividerColor(inputState).value,
+                dividerColor = if (hasDivider) {
+                    colors.dividerColor(inputState).value
+                } else {
+                    Color.Transparent
+                },
                 dividerThickness = 1.dp,
             )
         }
