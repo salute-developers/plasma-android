@@ -259,6 +259,7 @@ internal object TextFieldDefaults {
         hasLabel: Boolean,
         optionalText: String,
         size: SandboxTextField.Size,
+        fieldAppearance: CoreTextField.FieldAppearance,
     ): CoreTextField.FieldType {
         return when (this) {
             SandboxTextField.FieldType.Optional -> CoreTextField.FieldType.Optional(
@@ -266,7 +267,7 @@ internal object TextFieldDefaults {
             )
 
             SandboxTextField.FieldType.Required -> CoreTextField.FieldType.Required(
-                dotBadge = dotBadge(labelPosition, position, hasLabel, size),
+                dotBadge = dotBadge(labelPosition, position, hasLabel, size, fieldAppearance),
             )
         }
     }
@@ -277,6 +278,7 @@ internal object TextFieldDefaults {
         position: CoreTextField.DotBadge.Position,
         hasLabel: Boolean,
         size: SandboxTextField.Size,
+        fieldAppearance: CoreTextField.FieldAppearance,
     ): CoreTextField.DotBadge {
         return when {
             labelPosition == LabelPosition.Outer && hasLabel -> {
@@ -296,6 +298,23 @@ internal object TextFieldDefaults {
                     position = position,
                     horizontalPadding = horizontalPadding,
                     verticalPadding = verticalPadding,
+                )
+            }
+
+            fieldAppearance is CoreTextField.FieldAppearance.Clear -> {
+                CoreTextField.DotBadge(
+                    size = if (size == SandboxTextField.Size.S || size == SandboxTextField.Size.XS) {
+                        6.dp
+                    } else {
+                        8.dp
+                    },
+                    color = StylesSaluteTheme.colors.surfaceDefaultNegative,
+                    position = position,
+                    horizontalPadding = if (size == SandboxTextField.Size.XS) {
+                        4.dp
+                    } else {
+                        6.dp
+                    },
                 )
             }
 

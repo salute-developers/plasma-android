@@ -100,6 +100,8 @@ internal fun SandboxTextField(
     val styles = textFieldStyles()
     val colors = textFieldColors()
 
+    val fieldAppearance = fieldAppearance(isClear, colors, inputState, size)
+
     TextField(
         value = value,
         onValueChange = onValueChange,
@@ -112,12 +114,14 @@ internal fun SandboxTextField(
         visualTransformation = visualTransformation,
         placeholderText = placeholderText,
         labelPosition = labelPosition,
+        fieldAppearance = fieldAppearance,
         fieldType = fieldType.toFieldType(
             labelPosition = labelPosition,
             position = dotBadgePosition,
             hasLabel = labelText.isNotEmpty(),
             optionalText = optionalText.dropInnerForSizeXS(size, labelPosition),
             size = size,
+            fieldAppearance = fieldAppearance,
         ),
         labelText = labelText.dropInnerForSizeXS(size, labelPosition),
         counterText = counterText,
@@ -153,7 +157,6 @@ internal fun SandboxTextField(
         innerCounterTextStyle = styles.counterStyle(size).value,
         outerCounterTextStyle = styles.counterStyle(size).value,
         placeHolderStyle = styles.placeholderStyle(size, colors, inputState, isClear).value,
-        fieldAppearance = fieldAppearance(isClear, colors, inputState, size),
         cursorColor = colors.cursorColor(inputState).value,
         startContentColor = colors.startContentColor(inputState, isClear).value,
         paddings = coreTextFieldPaddings(

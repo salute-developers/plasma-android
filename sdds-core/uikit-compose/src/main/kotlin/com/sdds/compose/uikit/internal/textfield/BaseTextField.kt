@@ -182,7 +182,12 @@ internal fun BaseTextField(
             modifier = Modifier
                 .defaultMinSize(minHeight = boxMinHeight)
                 .fillMaxWidth()
-                .applyFieldDotBadge(requiredField, labelPosition)
+                .applyFieldDotBadge(
+                    requiredField,
+                    labelPosition,
+                    fieldAppearance,
+                    alignmentLineHeight,
+                )
                 .clip(if (fieldAppearance is FieldAppearance.Solid) fieldAppearance.shape else RectangleShape)
                 .drawFieldAppearance(fieldAppearance)
                 .applyScrollBar(scrollState, scrollBarConfig),
@@ -405,20 +410,56 @@ private fun Modifier.applyDotBadgePadding(
 private fun Modifier.applyFieldDotBadge(
     requiredFieldType: FieldType.Required?,
     labelPosition: LabelPosition,
+    fieldAppearance: FieldAppearance,
+    alignmentLineHeight: Dp,
 ): Modifier {
     if (requiredFieldType == null || labelPosition != LabelPosition.Inner) return this
+
     val dotBadge = requiredFieldType.dotBadge
     val alignment = fieldDotBadgeAlignment(dotBadge.position)
+    val horizontalMode = fieldDotBadgeHorizontalMode(fieldAppearance)
+    val verticalAlignmentOffset: Dp = dotVerticalAlignmentOffset(
+        fieldAppearance = fieldAppearance,
+        alignmentLineHeight = alignmentLineHeight,
+        dotBadgeSize = dotBadge.size,
+    )
 
     return this.drawDotBadge(
         alignment = alignment,
         color = dotBadge.color,
         horizontalPadding = dotBadge.horizontalPadding,
-        verticalPadding = dotBadge.verticalPadding,
+        verticalPadding = dotBadge.verticalPadding + verticalAlignmentOffset,
         badgeSize = dotBadge.size,
-        horizontalMode = DotBadgeMode.Inner,
+        horizontalMode = horizontalMode,
         verticalMode = DotBadgeMode.Inner,
     )
+}
+
+private fun fieldDotBadgeAlignment(badgePosition: DotBadge.Position): Alignment {
+    return when (badgePosition) {
+        DotBadge.Position.Start -> Alignment.TopStart
+        DotBadge.Position.End -> Alignment.TopEnd
+    }
+}
+
+private fun fieldDotBadgeHorizontalMode(fieldAppearance: FieldAppearance): DotBadgeMode {
+    return if (fieldAppearance is FieldAppearance.Solid) {
+        DotBadgeMode.Inner
+    } else {
+        DotBadgeMode.Outer
+    }
+}
+
+private fun dotVerticalAlignmentOffset(
+    fieldAppearance: FieldAppearance,
+    alignmentLineHeight: Dp,
+    dotBadgeSize: Dp,
+): Dp {
+    return if (fieldAppearance is FieldAppearance.Clear) {
+        (alignmentLineHeight - dotBadgeSize) / 2
+    } else {
+        0.dp
+    }
 }
 
 private fun Modifier.applyOuterLabelDotBadge(
@@ -443,13 +484,6 @@ private fun Modifier.applyOuterLabelDotBadge(
 private fun outerLabelDotBadgeAlignment(badgePosition: DotBadge.Position): Alignment {
     return when (badgePosition) {
         DotBadge.Position.Start -> Alignment.CenterStart
-        DotBadge.Position.End -> Alignment.TopEnd
-    }
-}
-
-private fun fieldDotBadgeAlignment(badgePosition: DotBadge.Position): Alignment {
-    return when (badgePosition) {
-        DotBadge.Position.Start -> Alignment.TopStart
         DotBadge.Position.End -> Alignment.TopEnd
     }
 }
