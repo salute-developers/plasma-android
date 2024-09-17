@@ -100,4 +100,12 @@
     <style name="Theme.Sandbox.ComponentOverlays.TextAreaXSOuterLabelRequiredEnd">
         <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextArea.XS.OuterLabel.RequiredEnd</item>
     </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.TextAreaXSRequiredStart">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextArea.XS.RequiredStart</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.TextAreaXSRequiredEnd">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextArea.XS.RequiredEnd</item>
+    </style>
 </resources>

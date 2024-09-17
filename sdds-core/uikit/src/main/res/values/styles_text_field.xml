@@ -4,6 +4,7 @@
         <item name="sd_actionTint">#8F171717</item>
         <item name="sd_actionPadding">8dp</item>
         <item name="sd_boxMinHeight">48dp</item>
+        <item name="sd_alignmentLineHeight">48dp</item>
         <item name="sd_boxPadding">14dp</item>
         <item name="sd_boxTint">@color/sd_color_text_field_box</item>
         <item name="sd_captionColor">#8F171717</item>

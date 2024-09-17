@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.res.ColorStateList
 import android.content.res.TypedArray
 import android.graphics.Canvas
+import android.graphics.Rect
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.Gravity
@@ -621,8 +622,8 @@ open class TextField @JvmOverloads constructor(
     }
 
     @Suppress("ReturnCount")
-    override fun onLayoutChild(child: View, left: Int, top: Int, right: Int, bottom: Int, rowHeight: Int) {
-        super.onLayoutChild(child, left, top, right, bottom, rowHeight)
+    override fun onLayoutChild(child: View, left: Int, top: Int, right: Int, bottom: Int, rowBounds: Rect) {
+        super.onLayoutChild(child, left, top, right, bottom, rowBounds)
         if (labelPlacement == HelperTextPlacement.Inner && child != _decorationBox) return
         if (labelPlacement == HelperTextPlacement.Outer && child != _outerLabelView) return
         if (requirementMode == RequirementMode.Optional) return
@@ -658,16 +659,28 @@ open class TextField @JvmOverloads constructor(
     private fun isRequired(): Boolean = requirementMode != RequirementMode.Optional
 
     private fun updateLabel() {
-        if (labelPlacement == HelperTextPlacement.Outer) {
-            _outerLabelView.text = label
-        } else {
-            _decorationBox.setLabel(label)
-            _outerLabelView.text = null
-            _outerLabelView.isVisible = false
+        when (labelPlacement) {
+            HelperTextPlacement.None -> {
+                _outerLabelView.text = null
+                _outerLabelView.isVisible = false
+                _decorationBox.setLabel(null)
+                _decorationBox.labelEnabled = false
+            }
+
+            HelperTextPlacement.Outer -> {
+                _outerLabelView.text = label
+                _outerLabelView.isVisible = !label.isNullOrBlank()
+                _decorationBox.labelEnabled = false
+                _decorationBox.setLabel(null)
+            }
+
+            HelperTextPlacement.Inner -> {
+                _outerLabelView.text = null
+                _outerLabelView.isVisible = false
+                _decorationBox.setLabel(label)
+                _decorationBox.labelEnabled = true
+            }
         }
-        _decorationBox.labelEnabled =
-            labelPlacement == HelperTextPlacement.Inner && _decorationBox.shouldDisplayInnerLabel()
-        _outerLabelView.isVisible = labelPlacement == HelperTextPlacement.Outer && !label.isNullOrBlank()
         _decorationBox.updateTextOffset()
     }
 
@@ -681,7 +694,7 @@ open class TextField @JvmOverloads constructor(
 
             HelperTextPlacement.Outer -> {
                 _captionView.text = _caption
-                _captionView.isVisible = true
+                _captionView.isVisible = !caption.isNullOrBlank()
                 _decorationBox.setCaption(null)
             }
 
@@ -704,7 +717,7 @@ open class TextField @JvmOverloads constructor(
             HelperTextPlacement.Outer -> {
                 _decorationBox.setCounter(null)
                 _counterView.text = _counter
-                _counterView.isVisible = true
+                _counterView.isVisible = !_counter.isNullOrBlank()
             }
 
             HelperTextPlacement.Inner -> {
@@ -783,6 +796,7 @@ open class TextField @JvmOverloads constructor(
         )
         typedArray.recycle()
         _state = ViewState.obtain(context, attrs, defStyleAttr)
+        updateLabel()
         updateCounter()
         updateCaption()
     }

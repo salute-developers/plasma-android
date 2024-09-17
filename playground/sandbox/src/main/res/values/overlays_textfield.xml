@@ -89,6 +89,14 @@
         <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextField.XS</item>
     </style>
 
+    <style name="Theme.Sandbox.ComponentOverlays.TextFieldXSRequiredStart">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextField.XS.RequiredStart</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.TextFieldXSRequiredEnd">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextField.XS.RequiredEnd</item>
+    </style>
+
     <style name="Theme.Sandbox.ComponentOverlays.TextFieldXSOuterLabel">
         <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextField.XS.OuterLabel</item>
     </style>
