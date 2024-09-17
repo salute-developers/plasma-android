@@ -47,7 +47,6 @@ import com.sdds.playground.sandbox.progress.ProgressScreen
 import com.sdds.playground.sandbox.radiobox.RadioBoxScreen
 import com.sdds.playground.sandbox.radiobox.group.RadioBoxGroupScreen
 import com.sdds.playground.sandbox.switch.SwitchScreen
-import com.sdds.playground.sandbox.textarea.TextAreaScreen
 import com.sdds.playground.sandbox.textfield.TextFieldScreen
 import com.sdds.playground.sandbox.tokens.compose.StylesSaluteTheme
 import kotlinx.coroutines.launch
@@ -80,7 +79,6 @@ private sealed class MenuItem(val title: String, val screen: @Composable () -> U
     object Switch : MenuItem("Switch", { SwitchScreen() })
     object Progress : MenuItem("Progress", { ProgressScreen() })
     object TextField : MenuItem("TextField", { TextFieldScreen() })
-    object TextArea : MenuItem("TextArea", { TextAreaScreen() })
     object Chip : MenuItem("Chip", { ChipScreen() })
     object ChipGroup : MenuItem("ChipGroup", { ChipGroupScreen() })
 }
@@ -97,7 +95,6 @@ private val menuItems = listOf(
     MenuItem.Switch,
     MenuItem.Progress,
     MenuItem.TextField,
-    MenuItem.TextArea,
     MenuItem.Chip,
     MenuItem.ChipGroup,
 )

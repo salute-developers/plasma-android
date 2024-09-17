@@ -7,11 +7,20 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.drawWithContent
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.drawscope.translate
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.IntOffset
+import androidx.compose.ui.unit.IntSize
+import androidx.compose.ui.unit.dp
 
 /**
  * Модификатор, позволяющий применять форму, бэкграунд и кликабельность
@@ -96,4 +105,80 @@ internal fun Modifier.surface(
         .then(toggleableModifier)
         .graphicsLayer { alpha = if (enabled) enabledAlpha else disabledAlpha }
         .background(backgroundColor)
+}
+
+/**
+ * Позволяет нарисовать dot badge внутри либо снаружи любого Composable
+ *
+ * @param alignment выравнивание
+ * @param color цвет бэйджа
+ * @param horizontalPadding горизонтальный отступ от границы composable, может быть отрицательным
+ * @param verticalPadding вертикальный отступ от границы composable, может быть отрицательным
+ * @param badgeSize размер бэйджа
+ * @param horizontalMode режим размещения относительно границ composable по горизонтали
+ * @param verticalMode режим размещения относительно границ composable по вертикали
+ */
+internal fun Modifier.drawDotBadge(
+    alignment: Alignment,
+    color: Color = Color.Red,
+    horizontalPadding: Dp = 0.dp,
+    verticalPadding: Dp = 0.dp,
+    badgeSize: Dp = 6.dp,
+    horizontalMode: DotBadgeMode = DotBadgeMode.Inner,
+    verticalMode: DotBadgeMode = DotBadgeMode.Inner,
+): Modifier {
+    return drawWithContent {
+        drawContent()
+
+        val horizontalOffset = horizontalPadding.roundToPx()
+        val verticalOffset = verticalPadding.roundToPx()
+        val badgeSizePx = badgeSize.roundToPx()
+
+        val deltaSpace = IntOffset(
+            x = when (horizontalMode) {
+                DotBadgeMode.Inner -> -horizontalOffset * 2
+                DotBadgeMode.Outer -> horizontalOffset * 2 + badgeSizePx * 2
+            },
+            y = when (verticalMode) {
+                DotBadgeMode.Inner -> -verticalOffset * 2
+                DotBadgeMode.Outer -> verticalOffset * 2 + badgeSizePx * 2
+            },
+        )
+
+        val offset = alignment.align(
+            IntSize(
+                badgeSizePx,
+                badgeSizePx,
+            ),
+            IntSize(
+                (size.width + deltaSpace.x).toInt(),
+                (size.height + deltaSpace.y).toInt(),
+            ),
+            layoutDirection = layoutDirection,
+        )
+        val resultOffset = offset - deltaSpace / 2f
+        translate(resultOffset.x.toFloat(), resultOffset.y.toFloat()) {
+            drawCircle(
+                color = color,
+                radius = badgeSizePx / 2f,
+                center = Offset(badgeSizePx / 2f, badgeSizePx / 2f),
+            )
+        }
+    }
+}
+
+/**
+ * Режим размещения dot badge относительно границ composable
+ */
+internal enum class DotBadgeMode {
+
+    /**
+     * Размещение внутри границ
+     */
+    Inner,
+
+    /**
+     * Размещение снаружи границ
+     */
+    Outer,
 }
