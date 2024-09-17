@@ -24,9 +24,11 @@ import com.sdds.compose.uikit.CoreTextField.HelperTextPosition
 import com.sdds.compose.uikit.CoreTextField.LabelPosition
 import com.sdds.compose.uikit.CoreTextField.Paddings
 import com.sdds.compose.uikit.internal.textfield.BaseTextField
+import com.sdds.compose.uikit.internal.textfield.PrefixSuffixTransformation
 
 /**
- * Поле ввода текста
+ * Поле ввода текста.
+ * Поддержка префикса/суффикса с помощью [prefixSuffixTransformation].
  *
  * @param value значение в поле ввода
  * @param onValueChange callback для изменения текста при вводе
@@ -305,4 +307,22 @@ object CoreTextField {
             End,
         }
     }
+}
+
+/**
+ * Вернет [VisualTransformation], которая добавит префикс [prefix] и/или суффикс [suffix].
+ * Отступ до основного текста будет иметь ширину пробела в текстовом стиле [textStyle].
+ *
+ * @param prefix значение префикса
+ * @param suffix значение суффикса
+ * @param textStyle стиль [prefix] и [suffix]
+ */
+fun prefixSuffixTransformation(
+    prefix: String = "",
+    suffix: String = "",
+    textStyle: TextStyle = TextStyle(),
+): VisualTransformation = if (prefix.isEmpty() && suffix.isEmpty()) {
+    VisualTransformation.None
+} else {
+    PrefixSuffixTransformation(prefix, suffix, textStyle)
 }

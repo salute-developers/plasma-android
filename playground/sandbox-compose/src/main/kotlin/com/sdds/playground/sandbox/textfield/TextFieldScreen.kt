@@ -56,6 +56,8 @@ internal fun TextFieldScreen() {
                 optionalText = textFieldUiState.optionalText,
                 captionText = textFieldUiState.captionText,
                 counterText = textFieldUiState.counterText,
+                prefix = textFieldUiState.prefix,
+                suffix = textFieldUiState.suffix,
                 labelPosition = textFieldUiState.labelPosition,
                 fieldType = textFieldUiState.fieldType,
                 dotBadgePosition = textFieldUiState.dotBadgePosition,
