@@ -145,16 +145,16 @@ internal fun BaseTextField(
 
     Column(
         modifier = modifier
+            .graphicsLayer {
+                alpha = if (enabled) enabledAlpha else disabledAlpha
+            }
             .width(IntrinsicSize.Max)
             .applyDotBadgePadding(
                 requiredField = requiredField,
                 labelPosition = labelPosition,
                 labelText = labelText,
                 keepDotBadgeStartPadding = paddings.keepDotBadgeStartPadding,
-            )
-            .graphicsLayer {
-                alpha = if (enabled) enabledAlpha else disabledAlpha
-            },
+            ),
     ) {
         OuterTopContent(
             modifier = Modifier
