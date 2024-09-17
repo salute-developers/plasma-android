@@ -140,6 +140,14 @@ internal class TextFieldViewModel : ViewModel(), PropertiesOwner {
         _textFieldUiState.value = _textFieldUiState.value.copy(hasDivider = hasDivider)
     }
 
+    private fun updatePrefix(prefix: String) {
+        _textFieldUiState.value = _textFieldUiState.value.copy(prefix = prefix)
+    }
+
+    private fun updateSuffix(suffix: String) {
+        _textFieldUiState.value = _textFieldUiState.value.copy(suffix = suffix)
+    }
+
     @Suppress("LongMethod")
     private fun TextFieldUiState.toProps(): List<Property<*>> {
         return listOfNotNull(
@@ -234,6 +242,16 @@ internal class TextFieldViewModel : ViewModel(), PropertiesOwner {
                 name = "read only",
                 value = readOnly,
                 onApply = { updateReadOnlyState(it) },
+            ),
+            Property.StringProperty(
+                name = "prefix",
+                value = prefix,
+                onApply = { updatePrefix(it) },
+            ),
+            Property.StringProperty(
+                name = "suffix",
+                value = suffix,
+                onApply = { updateSuffix(it) },
             ),
         )
     }

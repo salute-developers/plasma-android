@@ -24,4 +24,6 @@ internal data class TextFieldUiState(
     val chips: List<String> = emptyList(),
     val enabled: Boolean = true,
     val readOnly: Boolean = false,
+    val suffix: String = "",
+    val prefix: String = "",
 )
