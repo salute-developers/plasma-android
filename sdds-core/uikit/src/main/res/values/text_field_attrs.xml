@@ -19,7 +19,9 @@
         <attr name="sd_actionSize" format="dimension" />
         <attr name="sd_actionPadding" format="dimension" />
 
+        <attr name="sd_alignmentLineHeight" format="dimension" />
         <attr name="sd_boxMinHeight" format="dimension" />
+        <attr name="sd_boxMaxHeight" format="dimension" />
         <attr name="sd_boxTint" format="color|reference" />
         <attr name="sd_boxPadding" format="dimension" />
         <attr name="sd_boxPaddingStart" format="dimension" />
@@ -38,6 +40,15 @@
         <attr name="sd_prefixText" format="string"/>
         <attr name="sd_prefixDrawable" format="reference"/>
         <attr name="sd_prefixSuffixPadding" format="dimension"/>
+
+        <attr name="sd_scrollBarEnabled" format="boolean"/>
+        <attr name="sd_scrollBarThickness" format="dimension"/>
+        <attr name="sd_scrollBarPaddingTop" format="dimension"/>
+        <attr name="sd_scrollBarPaddingEnd" format="dimension"/>
+        <attr name="sd_scrollBarPaddingStart" format="dimension"/>
+        <attr name="sd_scrollBarPaddingBottom" format="dimension"/>
+        <attr name="sd_scrollBarTrackColor" format="color"/>
+        <attr name="sd_scrollBarThumbColor" format="color"/>
 
         <attr name="sd_viewState" />
         <attr name="sd_shapeAppearance" />
@@ -108,6 +119,7 @@
         <attr name="sd_actionPadding" />
 
         <attr name="sd_boxMinHeight" />
+        <attr name="sd_boxMaxHeight" />
         <attr name="sd_boxTint" />
         <attr name="sd_boxPadding" />
         <attr name="sd_boxPaddingStart" />
@@ -129,6 +141,15 @@
         <attr name="sd_prefixText" />
         <attr name="sd_prefixDrawable" />
         <attr name="sd_prefixSuffixPadding" />
+
+        <attr name="sd_scrollBarEnabled" />
+        <attr name="sd_scrollBarThickness" />
+        <attr name="sd_scrollBarPaddingTop" />
+        <attr name="sd_scrollBarPaddingEnd" />
+        <attr name="sd_scrollBarPaddingStart" />
+        <attr name="sd_scrollBarPaddingBottom" />
+        <attr name="sd_scrollBarTrackColor" />
+        <attr name="sd_scrollBarThumbColor" />
 
         <attr name="android:inputType" />
         <attr name="android:imeActionId" />

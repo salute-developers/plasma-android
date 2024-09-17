@@ -76,7 +76,7 @@
     </style>
 
     <style name="Theme.Sandbox.Components.Chip.XS.Embedded">
-        <item name="android:minHeight">24dp</item>
+        <item name="android:minHeight">20dp</item>
         <item name="sd_shapeAppearance">?serv_shapeRoundXxs</item>
         <item name="sd_shapeAppearanceAdjustment">-2dp</item>
     </style>

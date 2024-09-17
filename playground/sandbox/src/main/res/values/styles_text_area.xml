@@ -20,18 +20,26 @@
         <item name="sd_captionAppearance">@style/Serv.SddsServ.TextAppearance.BodyXsNormal</item>
         <item name="sd_counterAppearance">@style/Serv.SddsServ.TextAppearance.BodyXsNormal</item>
         <item name="android:minWidth">240dp</item>
+        <item name="sd_boxMinHeight">130dp</item>
         <item name="sd_chipsPadding">6dp</item>
         <item name="android:imeOptions">actionDone</item>
         <item name="sd_allowBreakLines">false</item>
         <item name="sd_prefixSuffixPadding">6dp</item>
+        <item name="sd_scrollBarPaddingTop">18dp</item>
+        <item name="sd_scrollBarPaddingBottom">36dp</item>
+        <item name="sd_scrollBarPaddingEnd">2dp</item>
+        <item name="sd_scrollBarThickness">1dp</item>
+        <item name="sd_scrollBarEnabled">true</item>
+        <item name="sd_scrollBarTrackColor">?serv_surfaceDefaultTransparentPrimary</item>
+        <item name="sd_scrollBarThumbColor">?serv_surfaceDefaultTransparentTertiary</item>
     </style>
 
     <style name="Theme.Sandbox.Components.TextArea.L">
         <item name="sd_actionPadding">10dp</item>
-        <item name="sd_boxMinHeight">56dp</item>
+        <item name="sd_alignmentLineHeight">56dp</item>
         <item name="sd_boxPadding">16dp</item>
         <item name="sd_boxPaddingBottom">12dp</item>
-        <item name="sd_helperTextPadding">4dp</item>
+        <item name="sd_helperTextPadding">12dp</item>
         <item name="sd_iconPadding">6dp</item>
         <item name="sd_requirementMode">optional</item>
 
@@ -85,9 +93,9 @@
 
     <style name="Theme.Sandbox.Components.TextArea.M">
         <item name="sd_actionPadding">8dp</item>
-        <item name="sd_boxMinHeight">48dp</item>
+        <item name="sd_alignmentLineHeight">48dp</item>
         <item name="sd_boxPadding">12dp</item>
-        <item name="sd_helperTextPadding">4dp</item>
+        <item name="sd_helperTextPadding">12dp</item>
         <item name="sd_iconPadding">4dp</item>
         <item name="sd_requirementMode">optional</item>
 
@@ -143,10 +151,10 @@
 
     <style name="Theme.Sandbox.Components.TextArea.S">
         <item name="sd_actionPadding">6dp</item>
-        <item name="sd_boxMinHeight">40dp</item>
+        <item name="sd_alignmentLineHeight">40dp</item>
         <item name="sd_boxPadding">8dp</item>
         <item name="sd_boxPaddingBottom">12dp</item>
-        <item name="sd_helperTextPadding">4dp</item>
+        <item name="sd_helperTextPadding">12dp</item>
         <item name="sd_iconPadding">4dp</item>
         <item name="sd_requirementMode">optional</item>
 
@@ -204,9 +212,9 @@
         <item name="sd_actionSize">16dp</item>
         <item name="sd_iconSize">16dp</item>
         <item name="sd_actionPadding">4dp</item>
-        <item name="sd_boxMinHeight">32dp</item>
+        <item name="sd_alignmentLineHeight">32dp</item>
         <item name="sd_boxPadding">8dp</item>
-        <item name="sd_helperTextPadding">4dp</item>
+        <item name="sd_helperTextPadding">8dp</item>
         <item name="sd_iconPadding">2dp</item>
         <item name="sd_labelPadding">0dp</item>
         <item name="sd_requirementMode">optional</item>
@@ -216,6 +224,20 @@
         <item name="sd_labelAppearance">@style/Serv.SddsServ.TextAppearance.BodyXsNormal</item>
         <item name="sd_placeholderAppearance">@style/Serv.SddsServ.TextAppearance.BodyXsNormal</item>
         <item name="sd_chipGroupStyleOverlay">@style/Theme.Sandbox.ComponentOverlays.ChipGroupDense.TextFieldEmbeddedXS</item>
+    </style>
+
+    <style name="Theme.Sandbox.Components.TextArea.XS.RequiredStart">
+        <item name="sd_requirementMode">start</item>
+        <item name="sd_indicatorSize">6dp</item>
+        <item name="sd_indicatorOffsetY">0dp</item>
+        <item name="sd_indicatorOffsetX">0dp</item>
+    </style>
+
+    <style name="Theme.Sandbox.Components.TextArea.XS.RequiredEnd">
+        <item name="sd_requirementMode">end</item>
+        <item name="sd_indicatorSize">6dp</item>
+        <item name="sd_indicatorOffsetX">0dp</item>
+        <item name="sd_indicatorOffsetY">0dp</item>
     </style>
 
     <style name="Theme.Sandbox.Components.TextArea.XS.OuterLabel">

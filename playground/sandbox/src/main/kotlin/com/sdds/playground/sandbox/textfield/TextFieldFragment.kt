@@ -54,6 +54,7 @@ internal open class TextFieldFragment : ComponentFragment() {
     }
 
     private var textField: TextField? = null
+    private var shouldDeleteChip: Boolean = false
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -104,16 +105,19 @@ internal open class TextFieldFragment : ComponentFragment() {
     private fun TextField.addChipsHandler() {
         editText.doAfterTextChanged {
             val editable = it ?: return@doAfterTextChanged
-            if (editable.isNotBlank() && editable[editable.length - 1].isWhitespace()) {
+            shouldDeleteChip = if (editable.isNotBlank() && editable[editable.length - 1].isWhitespace()) {
                 val currentValue = editable.toString().trim()
                 textFieldViewModel.addChip(currentValue)
+                true
+            } else {
+                editable.isEmpty()
             }
         }
         editText.setOnKeyListener { _, keyCode, _ ->
             when (keyCode) {
                 KeyEvent.KEYCODE_DEL -> {
                     val chipsCount = chipAdapter?.getCount() ?: 0
-                    if (!value.isNullOrEmpty() || chipsCount == 0) return@setOnKeyListener false
+                    if (!value.isNullOrEmpty() || chipsCount == 0 || !shouldDeleteChip) return@setOnKeyListener false
                     val chipToDelete = textFieldViewModel.deleteChip(chipsCount - 1)
                     editText.append(chipToDelete?.text)
                     chipToDelete != null
