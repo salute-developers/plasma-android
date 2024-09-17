@@ -13,7 +13,6 @@
         <item name="sd_captionPlacement">outer</item>
         <item name="sd_counterPlacement">none</item>
         <item name="android:singleLine">true</item>
-        <item name="android:maxLines">1</item>
         <item name="android:clickable">true</item>
         <item name="android:focusable">true</item>
         <item name="sd_iconSize">24dp</item>
@@ -29,6 +28,7 @@
     <style name="Theme.Sandbox.Components.TextField.L">
         <item name="sd_actionPadding">12dp</item>
         <item name="sd_boxMinHeight">56dp</item>
+        <item name="sd_alignmentLineHeight">56dp</item>
         <item name="sd_boxPadding">16dp</item>
         <item name="sd_helperTextPadding">4dp</item>
         <item name="sd_iconPadding">8dp</item>
@@ -87,6 +87,7 @@
     <style name="Theme.Sandbox.Components.TextField.M">
         <item name="sd_actionPadding">10dp</item>
         <item name="sd_boxMinHeight">48dp</item>
+        <item name="sd_alignmentLineHeight">48dp</item>
         <item name="sd_boxPadding">12dp</item>
         <item name="sd_helperTextPadding">4dp</item>
         <item name="sd_iconPadding">6dp</item>
@@ -140,13 +141,14 @@
     <style name="Theme.Sandbox.Components.TextField.M.InnerLabel.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">8dp</item>
-        <item name="sd_indicatorOffsetX">4dp</item>
-        <item name="sd_indicatorOffsetY">4dp</item>
+        <item name="sd_indicatorOffsetX">0dp</item>
+        <item name="sd_indicatorOffsetY">0dp</item>
     </style>
 
     <style name="Theme.Sandbox.Components.TextField.S">
         <item name="sd_actionPadding">8dp</item>
         <item name="sd_boxMinHeight">40dp</item>
+        <item name="sd_alignmentLineHeight">40dp</item>
         <item name="sd_boxPadding">8dp</item>
         <item name="sd_helperTextPadding">4dp</item>
         <item name="sd_iconPadding">4dp</item>
@@ -200,8 +202,8 @@
     <style name="Theme.Sandbox.Components.TextField.S.InnerLabel.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">6dp</item>
-        <item name="sd_indicatorOffsetX">4dp</item>
-        <item name="sd_indicatorOffsetY">4dp</item>
+        <item name="sd_indicatorOffsetX">0dp</item>
+        <item name="sd_indicatorOffsetY">0dp</item>
     </style>
 
     <style name="Theme.Sandbox.Components.TextField.XS">
@@ -209,6 +211,7 @@
         <item name="sd_iconSize">16dp</item>
         <item name="sd_actionPadding">4dp</item>
         <item name="sd_boxMinHeight">32dp</item>
+        <item name="sd_alignmentLineHeight">32dp</item>
         <item name="sd_boxPadding">8dp</item>
         <item name="sd_helperTextPadding">4dp</item>
         <item name="sd_iconPadding">6dp</item>
@@ -223,6 +226,20 @@
         <item name="sd_captionAppearance">@style/Serv.SddsServ.TextAppearance.BodyXsNormal</item>
         <item name="sd_placeholderAppearance">@style/Serv.SddsServ.TextAppearance.BodyXsNormal</item>
         <item name="sd_chipGroupStyleOverlay">@style/Theme.Sandbox.ComponentOverlays.ChipGroupDense.TextFieldEmbeddedXS</item>
+    </style>
+
+    <style name="Theme.Sandbox.Components.TextField.XS.RequiredStart">
+        <item name="sd_requirementMode">start</item>
+        <item name="sd_indicatorSize">6dp</item>
+        <item name="sd_indicatorOffsetY">0dp</item>
+        <item name="sd_indicatorOffsetX">0dp</item>
+    </style>
+
+    <style name="Theme.Sandbox.Components.TextField.XS.RequiredEnd">
+        <item name="sd_requirementMode">end</item>
+        <item name="sd_indicatorSize">6dp</item>
+        <item name="sd_indicatorOffsetX">0dp</item>
+        <item name="sd_indicatorOffsetY">0dp</item>
     </style>
 
     <style name="Theme.Sandbox.Components.TextField.XS.OuterLabel">

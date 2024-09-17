@@ -174,7 +174,7 @@ open class FlowLayout @JvmOverloads constructor(
         measureChildWithMargins(child, childWidthSpec, 0, childHeightSpec, 0)
     }
 
-    protected open fun onLayoutChild(child: View, left: Int, top: Int, right: Int, bottom: Int, rowHeight: Int) {
+    protected open fun onLayoutChild(child: View, left: Int, top: Int, right: Int, bottom: Int, rowBounds: Rect) {
         child.layout(left, top, right, bottom)
     }
 
@@ -346,7 +346,7 @@ open class FlowLayout @JvmOverloads constructor(
                     childTop,
                     childLeft + child.measuredWidth,
                     childTop + child.measuredHeight,
-                    bounds.height(),
+                    bounds,
                 )
             }
         }
