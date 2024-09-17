@@ -50,6 +50,7 @@ internal class StatefulEditText @JvmOverloads constructor(
     private var _suffixDrawable: Drawable? = null
     private var _prefixDrawable: Drawable? = null
     private var _previousFilters: Array<out InputFilter>? = null
+    private var _valueTextAppearance: Int = 0
 
     private val readOnlyFilter = InputFilter { source, _, _, dest, dstart, dend ->
         dest.subSequence(dstart, dend)
@@ -118,14 +119,26 @@ internal class StatefulEditText @JvmOverloads constructor(
     var prefixText: CharSequence?
         get() = prefix?.getText()
         set(value) {
-            prefix?.tryUpdateText(value)
+            if (value.isNullOrBlank()) {
+                prefix = null
+            } else if (prefix == null) {
+                prefix = TextDrawable(value)
+            } else {
+                prefix?.tryUpdateText(value)
+            }
             updatePrefixSuffixDrawable()
         }
 
     var suffixText: CharSequence?
         get() = suffix?.getText()
         set(value) {
-            suffix?.tryUpdateText(value)
+            if (value.isNullOrBlank()) {
+                suffix = null
+            } else if (suffix == null) {
+                suffix = TextDrawable(value)
+            } else {
+                suffix?.tryUpdateText(value)
+            }
             updatePrefixSuffixDrawable()
         }
 
@@ -146,10 +159,32 @@ internal class StatefulEditText @JvmOverloads constructor(
         }
     }
 
+    /**
+     * Возвращает true если [StatefulEditText] есть префикс
+     */
+    fun hasPrefix(): Boolean {
+        return if (prefix is TextDrawable) !prefixText.isNullOrBlank() else prefix != null
+    }
+
+    /**
+     * Возвращает true если [StatefulEditText] есть суффикс
+     */
+    fun hasSuffix(): Boolean {
+        return if (suffix is TextDrawable) !suffixText.isNullOrBlank() else suffix != null
+    }
+
+    /**
+     * Устанавливает цвета [colors] для [placeholder]
+     */
+    fun setPlaceholderColors(colors: ColorStateList?) {
+        setHintTextColor(colors)
+        updatePrefixSuffixDrawable()
+    }
+
     override fun setTextAppearance(resId: Int) {
         super.setTextAppearance(resId)
-        (_prefixDrawable as? TextDrawable)?.setTextAppearance(context, resId)
-        (_suffixDrawable as? TextDrawable)?.setTextAppearance(context, resId)
+        _valueTextAppearance = resId
+        updatePrefixSuffixDrawable()
     }
 
     override fun onDetachedFromWindow() {
@@ -158,7 +193,17 @@ internal class StatefulEditText @JvmOverloads constructor(
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        minWidth = if (singleLine() && !placeholder.isNullOrEmpty()) {
+            compoundPaddingStart + compoundPaddingEnd + paint.measureText(placeholder?.toString().orEmpty()).toInt()
+        } else {
+            compoundPaddingStart + compoundPaddingEnd + paint.measureText(DUMMY_MEASURE_TEXT).toInt()
+        }
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
+        updateSuffixPrefixPosition()
+    }
+
+    override fun onTextChanged(text: CharSequence?, start: Int, lengthBefore: Int, lengthAfter: Int) {
+        super.onTextChanged(text, start, lengthBefore, lengthAfter)
         updateSuffixPrefixPosition()
     }
 
@@ -210,18 +255,20 @@ internal class StatefulEditText @JvmOverloads constructor(
 
     private fun updatePrefixSuffixDrawable() {
         (_prefixDrawable as? TextDrawable)?.apply {
+            setTextAppearance(context, _valueTextAppearance)
             setTintList(hintTextColors)
         }
         (_suffixDrawable as? TextDrawable)?.apply {
+            setTextAppearance(context, _valueTextAppearance)
             setTintList(hintTextColors)
         }
-
         setCompoundDrawablesRelativeWithIntrinsicBounds(
             _prefixDrawable,
             null,
             _suffixDrawable,
             null,
         )
+        updateSuffixPrefixPosition()
     }
 
     private fun updateSuffixPrefixPosition() {
@@ -236,10 +283,10 @@ internal class StatefulEditText @JvmOverloads constructor(
         }
 
         _suffixDrawable?.apply {
-            val suffixLeft = if (text.isNullOrBlank() && currentHintTextColor != Color.TRANSPARENT) {
-                0
-            } else {
-                layout.getLineWidth(lineCount - 1).toInt() - layout.width
+            val suffixLeft = when {
+                text.isNullOrBlank() && placeholderEnabled && !placeholder.isNullOrEmpty() -> 0
+                layout != null -> layout.getLineWidth(lineCount - 1).toInt() - getAvailableLayoutWidth()
+                else -> 0
             }
             val top = ((measuredHeight - intrinsicHeight) / 2)
             setBounds(
@@ -251,11 +298,13 @@ internal class StatefulEditText @JvmOverloads constructor(
         }
     }
 
+    private fun getAvailableLayoutWidth() = measuredWidth - compoundPaddingStart - compoundPaddingEnd
+
     private fun resetHint() {
         if (placeholderEnabled) {
             super.setHint(placeholder)
         } else {
-            super.setHint(" ")
+            super.setHint(null)
         }
         isCursorVisible = true
     }
@@ -300,8 +349,8 @@ internal class StatefulEditText @JvmOverloads constructor(
 
         fun setTextAppearance(context: Context, @StyleRes appearance: Int) {
             _textPaint.applyTextAppearance(context, appearance) {
-                invalidateSelf()
                 _textPaint.color = _textColors.colorForState(state)
+                invalidateSelf()
             }
         }
 
@@ -309,7 +358,6 @@ internal class StatefulEditText @JvmOverloads constructor(
             text?.toString()?.let {
                 canvas.drawText(it, _textBounds.left.toFloat(), _textBounds.top.toFloat(), _textPaint)
             }
-            // canvas.drawRect(bounds, debug)
         }
 
         override fun setAlpha(alpha: Int) {
@@ -325,6 +373,7 @@ internal class StatefulEditText @JvmOverloads constructor(
         override fun setTintList(tint: ColorStateList?) {
             super.setTintList(tint)
             _textColors = tint
+            _textPaint.color = _textColors.colorForState(state)
         }
 
         override fun onStateChange(state: IntArray): Boolean {
@@ -363,6 +412,8 @@ internal class StatefulEditText @JvmOverloads constructor(
     }
 
     private companion object {
+
+        const val DUMMY_MEASURE_TEXT = "M"
 
         fun Drawable.tryUpdateText(text: CharSequence?) {
             (this as? TextDrawable)?.text = text
