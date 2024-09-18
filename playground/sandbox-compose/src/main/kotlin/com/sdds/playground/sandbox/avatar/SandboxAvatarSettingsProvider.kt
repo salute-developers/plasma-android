@@ -5,7 +5,7 @@ import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
-import com.sdds.playground.sandbox.tokens.compose.StylesSaluteTheme
+import com.sdds.playground.sandbox.tokens.compose.SddsServTheme
 
 /**
  * Провайдер настроек для [SandboxAvatar]
@@ -59,17 +59,17 @@ internal object SandboxAvatarSettingsProvider {
     @Composable
     fun textStyleFor(size: SandboxAvatar.Size): TextStyle =
         when (size) {
-            SandboxAvatar.Size.XXL -> StylesSaluteTheme.typography.headerH2Bold
-            SandboxAvatar.Size.L -> StylesSaluteTheme.typography.headerH4Bold
-            SandboxAvatar.Size.M -> StylesSaluteTheme.typography.bodySBold
-            SandboxAvatar.Size.S -> StylesSaluteTheme.typography.bodyXxsBold
+            SandboxAvatar.Size.XXL -> SddsServTheme.typography.headerH2Bold
+            SandboxAvatar.Size.L -> SddsServTheme.typography.headerH4Bold
+            SandboxAvatar.Size.M -> SddsServTheme.typography.bodySBold
+            SandboxAvatar.Size.S -> SddsServTheme.typography.bodyXxsBold
         }
 
     @Composable
     fun colorFor(status: SandboxAvatar.Status): Color =
         when (status) {
             SandboxAvatar.Status.None -> Color.Transparent
-            SandboxAvatar.Status.Active -> StylesSaluteTheme.colors.textDefaultAccent
+            SandboxAvatar.Status.Active -> SddsServTheme.colors.textDefaultAccent
             SandboxAvatar.Status.Inactive -> Color(0xFFDDDDDD)
         }
 }

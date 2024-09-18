@@ -32,7 +32,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
-import com.sdds.playground.sandbox.tokens.compose.StylesSaluteTheme
+import com.sdds.playground.sandbox.tokens.compose.SddsServTheme
 import kotlinx.coroutines.launch
 
 /**
@@ -63,11 +63,11 @@ internal fun ComponentScaffold(
             )
             Spacer(modifier = Modifier.imePadding().navigationBarsPadding())
         },
-        sheetShape = StylesSaluteTheme.shapes.roundS.copy(
+        sheetShape = SddsServTheme.shapes.roundS.copy(
             bottomStart = CornerSize(0.dp),
             bottomEnd = CornerSize(0.dp),
         ),
-        sheetBackgroundColor = StylesSaluteTheme.colors.surfaceDefaultSolidCard,
+        sheetBackgroundColor = SddsServTheme.colors.surfaceDefaultSolidCard,
     ) {
         Column(
             modifier = Modifier
@@ -81,9 +81,9 @@ internal fun ComponentScaffold(
                 modifier = Modifier
                     .fillMaxWidth()
                     .requiredHeight(230.dp)
-                    .clip(StylesSaluteTheme.shapes.roundM)
-                    .border(1.dp, StylesSaluteTheme.colors.surfaceDefaultSolidTertiary, StylesSaluteTheme.shapes.roundM)
-                    .background(StylesSaluteTheme.colors.surfaceDefaultSolidCard)
+                    .clip(SddsServTheme.shapes.roundM)
+                    .border(1.dp, SddsServTheme.colors.surfaceDefaultSolidTertiary, SddsServTheme.shapes.roundM)
+                    .background(SddsServTheme.colors.surfaceDefaultSolidCard)
                     .padding(16.dp),
 
                 contentAlignment = Alignment.Center,
