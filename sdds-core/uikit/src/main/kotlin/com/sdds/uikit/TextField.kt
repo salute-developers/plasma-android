@@ -147,6 +147,7 @@ open class TextField @JvmOverloads constructor(
                 field = value
                 _decorationBox.state = field
                 _captionView.state = field
+                _counterView.state = field
                 _outerLabelView.state = field
                 refreshDrawableState()
             }
@@ -285,6 +286,7 @@ open class TextField @JvmOverloads constructor(
             _decorationBox.setReadOnly(value)
             val newState = if (value) ViewState.SECONDARY else _state
             _captionView.state = newState
+            _counterView.state = newState
             _outerLabelView.state = newState
             refreshDrawableState()
         }
@@ -585,7 +587,9 @@ open class TextField @JvmOverloads constructor(
             return
         }
         _inDrawableStateChanged = true
-        _captionView.state = if (drawableState.contains(android.R.attr.state_focused)) ViewState.PRIMARY else _state
+        val hasFocus = drawableState.contains(android.R.attr.state_focused)
+        _captionView.state = if (hasFocus) ViewState.PRIMARY else _state
+        _counterView.state = if (hasFocus) ViewState.PRIMARY else _state
         _indicator?.state = drawableState
         _indicator?.invalidateSelf()
         _inDrawableStateChanged = false
