@@ -186,6 +186,7 @@ internal class DecoratedFieldBox(
                 _iconView.state = field
                 _field.state = field
                 _captionView.state = field
+                _counterView.state = field
             }
         }
 
@@ -429,7 +430,9 @@ internal class DecoratedFieldBox(
 
         _inDrawableStateChanged = true
         val changed = _collapsingTextHelper.setState(drawableState)
-
+        val hasFocus = drawableState.contains(android.R.attr.state_focused)
+        _captionView.state = if (hasFocus) ViewState.PRIMARY else state
+        _counterView.state = if (hasFocus) ViewState.PRIMARY else state
         updateTextState(isLaidOut && isEnabled)
 
         if (changed) {
