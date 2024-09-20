@@ -138,6 +138,13 @@ internal class TextFieldViewModel : ViewModel(), PropertiesOwner {
 
     private fun updateSuffix(suffix: String) {
         _textFieldUiState.value = _textFieldUiState.value.copy(suffix = suffix)
+
+    private fun updateClear(isClear: Boolean) {
+        _textFieldUiState.value = _textFieldUiState.value.copy(isClear = isClear)
+    }
+
+    private fun updateHasDivider(hasDivider: Boolean) {
+        _textFieldUiState.value = _textFieldUiState.value.copy(hasDivider = hasDivider)
     }
 
     @Suppress("LongMethod")
@@ -147,6 +154,16 @@ internal class TextFieldViewModel : ViewModel(), PropertiesOwner {
                 name = "singleLine",
                 value = singleLine,
                 onApply = { updateSingleLine(it) },
+            ),
+            Property.BooleanProperty(
+                name = "isClear",
+                value = isClear,
+                onApply = { updateClear(it) },
+            ),
+            Property.BooleanProperty(
+                name = "hasDivider",
+                value = hasDivider,
+                onApply = { updateHasDivider(it) },
             ),
             enumProperty(
                 name = "field type",
