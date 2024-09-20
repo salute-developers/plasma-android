@@ -138,6 +138,7 @@ internal class TextFieldViewModel : ViewModel(), PropertiesOwner {
 
     private fun updateSuffix(suffix: String) {
         _textFieldUiState.value = _textFieldUiState.value.copy(suffix = suffix)
+    }
 
     private fun updateClear(isClear: Boolean) {
         _textFieldUiState.value = _textFieldUiState.value.copy(isClear = isClear)

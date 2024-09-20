@@ -118,6 +118,7 @@ internal fun SandboxTextField(
                 size = size,
                 colors = colors,
                 inputState = inputState,
+                isClear = isClear,
             ).value,
         ),
         placeholderText = placeholderText,
