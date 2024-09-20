@@ -127,6 +127,13 @@ internal abstract class XmlBaseDocumentBuilder {
             setOutputProperty(OutputKeys.ENCODING, "UTF-8")
             setOutputProperty(OutputKeys.INDENT, "yes")
         }
-        transformer.transform(DOMSource(document), StreamResult(output.fileWriter()))
+        val commendNode = document.createComment("AUTO-GENERATED. DO NOT MODIFY this file.")
+        val streamResult = StreamResult(output.fileWriter())
+        // Четыре строки кода ниже - это странный способ поставить разрыв строки после комментария
+        transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "no")
+        transformer.transform(DOMSource(), streamResult)
+        transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "yes")
+        transformer.transform(DOMSource(commendNode), streamResult)
+        transformer.transform(DOMSource(document), streamResult)
     }
 }
