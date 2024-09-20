@@ -1,3 +1,4 @@
+import com.sdds.plugin.themebuilder.OutputLocation
 import com.sdds.plugin.themebuilder.ShapeAppearanceConfig.Companion.sddsShape
 import com.sdds.plugin.themebuilder.ThemeBuilderMode
 
@@ -24,6 +25,7 @@ themeBuilder {
     compose()
     ktPackage("com.sdds.playground.themebuilder.tokens")
     mode(ThemeBuilderMode.THEME)
+    outputLocation(OutputLocation.BUILD)
 }
 
 dependencies {

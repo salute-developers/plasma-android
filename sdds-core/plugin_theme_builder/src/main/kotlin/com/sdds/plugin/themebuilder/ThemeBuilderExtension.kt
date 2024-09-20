@@ -18,6 +18,7 @@ open class ThemeBuilderExtension {
     internal var themeSource: ThemeBuilderSource? = null
     internal var paletteUrl: String = DEFAULT_PALETTE_URL
     internal var mode: ThemeBuilderMode = ThemeBuilderMode.TOKENS_ONLY
+    internal var outputLocation = OutputLocation.BUILD
 
     /**
      * Устанавливает источник темы по имени [name] и версии [version]
@@ -79,6 +80,14 @@ open class ThemeBuilderExtension {
      */
     fun mode(mode: ThemeBuilderMode) {
         this.mode = mode
+    }
+
+    /**
+     * Устанавливает расположение генерируемых файлов.
+     * @see OutputLocation
+     */
+    fun outputLocation(location: OutputLocation) {
+        this.outputLocation = location
     }
 
     private fun updateTarget(newTarget: ThemeBuilderTarget) {
@@ -250,4 +259,19 @@ class ViewParentListBuilder {
             ),
         )
     }
+}
+
+/**
+ * Расположение генерируемых файлов
+ */
+enum class OutputLocation {
+    /**
+     * Директорию build/ проекта
+     */
+    BUILD,
+
+    /**
+     * Директория src/ проекта
+     */
+    SRC,
 }
