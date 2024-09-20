@@ -14,9 +14,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.TextFieldValue
-import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -25,6 +23,7 @@ import com.sdds.compose.uikit.CoreTextField.HelperTextPosition
 import com.sdds.compose.uikit.CoreTextField.LabelPosition
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.TextField
+import com.sdds.compose.uikit.prefixSuffixTransformation
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.chip.SandboxEmbeddedChip
 import com.sdds.playground.sandbox.textfield.SandboxTextField.InputState
@@ -50,7 +49,6 @@ import com.sdds.playground.sandbox.textfield.TextFieldDefaults.toFieldType
  * @param readOnly если false - доступно только для чтения, запись отключена
  * @param keyboardOptions для настройки клавиатуры, например [KeyboardType] или [ImeAction]
  * @param keyboardActions когда на ввод подается [ImeAction] вызывается соответствующий callback
- * @param visualTransformation фильтр визуального отображения, например [PasswordVisualTransformation]
  * @param placeholderText заглушка если пустое [value] и тип [TextField.LabelType.Outer]
  * @param labelPosition тип отображения лэйбла: [LabelPosition.Outer] снаружи поля ввода, [LabelPosition.Inner] внутри поля ввода
  * @param fieldType тип текстового поля (обязательное или опциональное)
@@ -78,7 +76,6 @@ internal fun SandboxTextField(
     readOnly: Boolean = false,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
-    visualTransformation: VisualTransformation = VisualTransformation.None,
     placeholderText: String? = null,
     labelPosition: LabelPosition = LabelPosition.Outer,
     fieldType: SandboxTextField.FieldType = SandboxTextField.FieldType.Optional,
@@ -86,6 +83,8 @@ internal fun SandboxTextField(
     dotBadgePosition: DotBadge.Position = DotBadge.Position.Start,
     labelText: String = "",
     optionalText: String = "",
+    prefix: String = "",
+    suffix: String = "",
     state: State = State.Default,
     size: Size = Size.L,
     captionText: String? = null,
@@ -112,7 +111,16 @@ internal fun SandboxTextField(
         singleLine = singleLine,
         keyboardOptions = keyboardOptions,
         keyboardActions = keyboardActions,
-        visualTransformation = visualTransformation,
+        visualTransformation = prefixSuffixTransformation(
+            prefix = prefix,
+            suffix = suffix,
+            textStyle = styles.placeholderStyle(
+                size = size,
+                colors = colors,
+                inputState = inputState,
+                isClear = isClear,
+            ).value,
+        ),
         placeholderText = placeholderText,
         labelPosition = labelPosition,
         fieldAppearance = fieldAppearance,
