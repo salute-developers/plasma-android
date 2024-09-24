@@ -2,7 +2,6 @@ package com.sdds.plugin.themebuilder.internal.generator.theme.view
 
 import com.sdds.plugin.themebuilder.ResourcePrefixConfig
 import com.sdds.plugin.themebuilder.ViewThemeParent
-import com.sdds.plugin.themebuilder.ViewThemeType
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.exceptions.ThemeBuilderException
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
@@ -83,29 +82,22 @@ internal class ViewThemeGenerator(
     override fun generate() {
         emptyStylesCollector.clear()
         stylesWithAttributesCollector.clear()
-        var shouldGenerateNightTheme = false
 
         if (viewThemeParents.isEmpty()) {
-            addStyleWithDefaultAttributes(lightColorTokens = true)
-            addStyleWithNightAttributes()
-            shouldGenerateNightTheme = true
+            addStyleWithDefaultAttributes(mode = ThemeMode.DARK)
+            addStyleWithDefaultAttributes(mode = ThemeMode.LIGHT)
+            addDayNightStyle()
         } else {
             viewThemeParents.forEach {
-                when (it.themeType) {
-                    ViewThemeType.DARK -> addStyleWithDefaultAttributes(parent = it, lightColorTokens = false)
-                    ViewThemeType.LIGHT -> addStyleWithDefaultAttributes(parent = it, lightColorTokens = true)
-                    ViewThemeType.DARK_LIGHT -> {
-                        addStyleWithDefaultAttributes(parent = it, lightColorTokens = true)
-                        addStyleWithNightAttributes(parent = it)
-                        shouldGenerateNightTheme = true
-                    }
-                }
+                addStyleWithDefaultAttributes(parent = it, mode = ThemeMode.DARK)
+                addStyleWithDefaultAttributes(parent = it, mode = ThemeMode.LIGHT)
+                addDayNightStyle(parent = it)
             }
         }
 
         collectEmptyBaseStyles()
         addEmptyStyles()
-        buildFiles(shouldGenerateNightTheme)
+        buildFiles()
     }
 
     private fun collectEmptyBaseStyles() {
@@ -120,38 +112,56 @@ internal class ViewThemeGenerator(
             .forEach(defaultThemeXmlFileBuilder::appendStyle)
     }
 
-    private fun buildFiles(shouldGenerateNightTheme: Boolean) {
-        defaultThemeXmlFileBuilder.build(outputResDir.themeXmlFile(ThemeMode.LIGHT.qualifier))
-        if (shouldGenerateNightTheme) {
-            nightThemeXmlFileBuilder.build(outputResDir.themeXmlFile(ThemeMode.DARK.qualifier))
-        }
+    private fun buildFiles() {
+        defaultThemeXmlFileBuilder.build(outputResDir.themeXmlFile())
+        nightThemeXmlFileBuilder.build(outputResDir.themeXmlFile(ThemeMode.DAYNIGHT.qualifier))
     }
 
-    private fun addStyleWithDefaultAttributes(parent: ViewThemeParent? = null, lightColorTokens: Boolean) {
+    private fun addStyleWithDefaultAttributes(parent: ViewThemeParent? = null, mode: ThemeMode) {
         with(defaultThemeXmlFileBuilder) {
             collectEmptyStyles(parent)
             addStyleWithAttrs(
-                styleName = parent.styleName(),
-                parent = parent?.fullName,
-                colorAttributesBlock(lightColorTokens = lightColorTokens),
+                styleName = themeStyleName(mode, parent),
+                parent = parent?.fullName(mode),
+                colorAttributesBlock(lightColorTokens = mode == ThemeMode.LIGHT),
                 shapeAttributesBlock(),
                 typographyAttributesBlock(),
             )
         }
     }
 
-    private fun addStyleWithNightAttributes(parent: ViewThemeParent? = null) {
+    private fun addDayNightStyle(parent: ViewThemeParent? = null) {
+        with(defaultThemeXmlFileBuilder) {
+            addStyleWithAttrs(
+                styleName = themeStyleName(ThemeMode.DAYNIGHT, parent),
+                parent = themeStyleName(ThemeMode.LIGHT, parent, true),
+            )
+        }
         with(nightThemeXmlFileBuilder) {
             addStyleWithAttrs(
-                styleName = parent.styleName(),
-                parent = parent?.fullName,
-                colorAttributesBlock(lightColorTokens = false),
+                styleName = themeStyleName(ThemeMode.DAYNIGHT, parent),
+                parent = themeStyleName(ThemeMode.DARK, parent, true),
             )
         }
     }
 
-    private fun ViewThemeParent?.styleName() =
-        this?.let { "$camelCaseThemeName.${it.childSuffix}" } ?: camelCaseThemeName
+    private fun themeStyleName(mode: ThemeMode, parent: ViewThemeParent? = null, withPrefix: Boolean = false): String {
+        return buildString {
+            if (withPrefix) {
+                append(capitalizedResPrefix)
+                append(THEME_NAME_DELIMITER)
+            }
+            append(camelCaseThemeName)
+            parent?.let {
+                append(THEME_NAME_DELIMITER)
+                append(it.childSuffix)
+            }
+            if (mode.suffix.isNotBlank()) {
+                append(THEME_NAME_DELIMITER)
+                append(mode.suffix)
+            }
+        }
+    }
 
     private fun collectEmptyStyles(viewThemeParent: ViewThemeParent?) {
         viewThemeParent?.let { themeParent ->
@@ -265,8 +275,26 @@ internal class ViewThemeGenerator(
         }
     }
 
-    private enum class ThemeMode(val qualifier: String) {
-        LIGHT(""),
-        DARK("night"),
+    private enum class ThemeMode(val suffix: String, val qualifier: String) {
+        LIGHT("Light", ""),
+        DARK("", ""),
+        DAYNIGHT("DayNight", "night"),
+    }
+
+    private companion object {
+        const val THEME_NAME_DELIMITER = "."
+
+        fun ViewThemeParent.fullName(mode: ThemeMode): String {
+            if (mode.suffix.isBlank()) return fullName
+            return buildString {
+                append(themePrefix)
+                append(THEME_NAME_DELIMITER)
+                append(mode.suffix)
+                if (themeSuffix.isNotBlank()) {
+                    append(THEME_NAME_DELIMITER)
+                    append(themeSuffix)
+                }
+            }
+        }
     }
 }

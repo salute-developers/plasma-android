@@ -26,7 +26,7 @@ themeBuilder {
     themeSource(name = "sdds_serv", version = "latest")
     view {
         themeParents {
-            materialComponentsTheme("DayNight")
+            materialComponentsTheme()
         }
         setupShapeAppearance(sddsShape())
     }
