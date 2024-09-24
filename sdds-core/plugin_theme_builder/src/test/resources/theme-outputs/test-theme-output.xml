@@ -3,6 +3,16 @@
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <resources>
     <style name="Thmbldr.TestTheme">
+        <!--Dark colors-->
+        <item name="thmbldr_textPrimary">@color/thmbldr_dark_text_primary</item>
+        <!--Shapes-->
+        <item name="thmbldr_shapeRoundXs">@style/Thmbldr.TestTheme.Shape.Round.Xs</item>
+        <item name="thmbldr_shapeRoundXxs">@style/Thmbldr.TestTheme.Shape.Round.Xxs</item>
+        <!--Typography-->
+        <item name="thmbldr_typographyDisplayLNormal">@style/Thmbldr.TestTheme.Typography.DisplayLNormal</item>
+        <item name="thmbldr_typographyHeaderH3Bold">@style/Thmbldr.TestTheme.Typography.HeaderH3Bold</item>
+    </style>
+    <style name="Thmbldr.TestTheme.Light">
         <!--Light colors-->
         <item name="thmbldr_textPrimary">@color/thmbldr_light_text_primary</item>
         <!--Shapes-->
@@ -12,5 +22,6 @@
         <item name="thmbldr_typographyDisplayLNormal">@style/Thmbldr.TestTheme.Typography.DisplayLNormal</item>
         <item name="thmbldr_typographyHeaderH3Bold">@style/Thmbldr.TestTheme.Typography.HeaderH3Bold</item>
     </style>
+    <style name="Thmbldr.TestTheme.DayNight" parent="Thmbldr.TestTheme.Light"/>
     <style name="Thmbldr"/>
 </resources>

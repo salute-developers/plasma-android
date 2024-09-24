@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Thmbldr.TestTheme.MaterialComponents.Dialog" parent="Theme.MaterialComponents.Dialog">
+        <!--Dark colors-->
+        <item name="thmbldr_textPrimary">@color/thmbldr_dark_text_primary</item>
+        <!--Shapes-->
+        <item name="thmbldr_shapeRoundXs">@style/Thmbldr.TestTheme.Shape.Round.Xs</item>
+        <item name="thmbldr_shapeRoundXxs">@style/Thmbldr.TestTheme.Shape.Round.Xxs</item>
+        <!--Typography-->
+        <item name="thmbldr_typographyDisplayLNormal">@style/Thmbldr.TestTheme.Typography.DisplayLNormal</item>
+        <item name="thmbldr_typographyHeaderH3Bold">@style/Thmbldr.TestTheme.Typography.HeaderH3Bold</item>
+    </style>
+    <style name="Thmbldr.TestTheme.MaterialComponents.Dialog.Light" parent="Theme.MaterialComponents.Light.Dialog">
+        <!--Light colors-->
+        <item name="thmbldr_textPrimary">@color/thmbldr_light_text_primary</item>
+        <!--Shapes-->
+        <item name="thmbldr_shapeRoundXs">@style/Thmbldr.TestTheme.Shape.Round.Xs</item>
+        <item name="thmbldr_shapeRoundXxs">@style/Thmbldr.TestTheme.Shape.Round.Xxs</item>
+        <!--Typography-->
+        <item name="thmbldr_typographyDisplayLNormal">@style/Thmbldr.TestTheme.Typography.DisplayLNormal</item>
+        <item name="thmbldr_typographyHeaderH3Bold">@style/Thmbldr.TestTheme.Typography.HeaderH3Bold</item>
+    </style>
+    <style name="Thmbldr.TestTheme.MaterialComponents.Dialog.DayNight" parent="Thmbldr.TestTheme.MaterialComponents.Dialog.Light"/>
+    <style name="Thmbldr.TestTheme.MaterialComponents.NoActionBar" parent="Theme.MaterialComponents.NoActionBar">
+        <!--Dark colors-->
+        <item name="thmbldr_textPrimary">@color/thmbldr_dark_text_primary</item>
+        <!--Shapes-->
+        <item name="thmbldr_shapeRoundXs">@style/Thmbldr.TestTheme.Shape.Round.Xs</item>
+        <item name="thmbldr_shapeRoundXxs">@style/Thmbldr.TestTheme.Shape.Round.Xxs</item>
+        <!--Typography-->
+        <item name="thmbldr_typographyDisplayLNormal">@style/Thmbldr.TestTheme.Typography.DisplayLNormal</item>
+        <item name="thmbldr_typographyHeaderH3Bold">@style/Thmbldr.TestTheme.Typography.HeaderH3Bold</item>
+    </style>
+    <style name="Thmbldr.TestTheme.MaterialComponents.NoActionBar.Light" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!--Light colors-->
+        <item name="thmbldr_textPrimary">@color/thmbldr_light_text_primary</item>
+        <!--Shapes-->
+        <item name="thmbldr_shapeRoundXs">@style/Thmbldr.TestTheme.Shape.Round.Xs</item>
+        <item name="thmbldr_shapeRoundXxs">@style/Thmbldr.TestTheme.Shape.Round.Xxs</item>
+        <!--Typography-->
+        <item name="thmbldr_typographyDisplayLNormal">@style/Thmbldr.TestTheme.Typography.DisplayLNormal</item>
+        <item name="thmbldr_typographyHeaderH3Bold">@style/Thmbldr.TestTheme.Typography.HeaderH3Bold</item>
+    </style>
+    <style name="Thmbldr.TestTheme.MaterialComponents.NoActionBar.DayNight" parent="Thmbldr.TestTheme.MaterialComponents.NoActionBar.Light"/>
+    <style name="Thmbldr.TestTheme.AppCompat.NoActionBar" parent="Theme.AppCompat.NoActionBar">
+        <!--Dark colors-->
+        <item name="thmbldr_textPrimary">@color/thmbldr_dark_text_primary</item>
+        <!--Shapes-->
+        <item name="thmbldr_shapeRoundXs">@style/Thmbldr.TestTheme.Shape.Round.Xs</item>
+        <item name="thmbldr_shapeRoundXxs">@style/Thmbldr.TestTheme.Shape.Round.Xxs</item>
+        <!--Typography-->
+        <item name="thmbldr_typographyDisplayLNormal">@style/Thmbldr.TestTheme.Typography.DisplayLNormal</item>
+        <item name="thmbldr_typographyHeaderH3Bold">@style/Thmbldr.TestTheme.Typography.HeaderH3Bold</item>
+    </style>
+    <style name="Thmbldr.TestTheme.AppCompat.NoActionBar.Light" parent="Theme.AppCompat.Light.NoActionBar">
+        <!--Light colors-->
+        <item name="thmbldr_textPrimary">@color/thmbldr_light_text_primary</item>
+        <!--Shapes-->
+        <item name="thmbldr_shapeRoundXs">@style/Thmbldr.TestTheme.Shape.Round.Xs</item>
+        <item name="thmbldr_shapeRoundXxs">@style/Thmbldr.TestTheme.Shape.Round.Xxs</item>
+        <!--Typography-->
+        <item name="thmbldr_typographyDisplayLNormal">@style/Thmbldr.TestTheme.Typography.DisplayLNormal</item>
+        <item name="thmbldr_typographyHeaderH3Bold">@style/Thmbldr.TestTheme.Typography.HeaderH3Bold</item>
+    </style>
+    <style name="Thmbldr.TestTheme.AppCompat.NoActionBar.DayNight" parent="Thmbldr.TestTheme.AppCompat.NoActionBar.Light"/>
+    <style name="Thmbldr.TestTheme.MaterialComponents"/>
+    <style name="Thmbldr.TestTheme.AppCompat"/>
+    <style name="Thmbldr"/>
+    <style name="Thmbldr.TestTheme"/>
+</resources>
