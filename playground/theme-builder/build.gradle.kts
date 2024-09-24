@@ -18,7 +18,7 @@ themeBuilder {
     themeSource("file://${projectDir.path}/json/test_theme.zip")
     view {
         themeParents {
-            customTheme("Thmbldr.Theme.App.Test")
+            materialComponentsTheme()
         }
         setupShapeAppearance(sddsShape())
     }

@@ -230,7 +230,7 @@ class BreakPointsBuilder {
 data class BreakPoints(
     val medium: Int = DEFAULT_MEDIUM,
     val large: Int = DEFAULT_LARGE,
-): Serializable {
+) : Serializable {
 
     companion object {
         /**
@@ -259,17 +259,15 @@ class ViewParentListBuilder {
     /**
      * Добавляет Material тему в качестве родитльской темы.
      *
-     * @param themeSuffix суффикс темы. Например для темы Theme.MaterialComponents.DayNight
-     * нужно указать суффикс "DayNight".
-     * Если суффикс не указан, родительская тема будет соответствовать Theme.MaterialComponents.
-     * Если суффикс содержит "DayNight", будут сгенерированы темы для дневного и ночного режимов в директориях res/values и res/values-night.
-     * Если суффикс содержит "Light", будет сгенерирована тема со светлыми токенами в директории res/values.
-     * Если суффикс не содержит "Light" или "DayNight", будет сгенерирована тема с темными токенами в директории res/values.
+     * @param themeSuffix суффикс темы. Например для темы Theme.MaterialComponents.NoActionBar
+     * нужно указать суффикс "NoActionBar".
+     * Если суффикс не указан, родительская тема будет соответствовать Theme.MaterialComponents
+     * и Theme.MaterialComponents.Light
      */
     fun materialComponentsTheme(themeSuffix: String = "") {
         addThemeParent(
             themePrefix = "Theme.MaterialComponents",
-            themeSuffix = themeSuffix,
+            themeSuffix = themeSuffix.validatedSuffix(),
             defaultChildSuffix = "MaterialComponents",
         )
         hasMaterial = true
@@ -278,36 +276,27 @@ class ViewParentListBuilder {
     /**
      * Добавляет AppCompat тему в качестве родитльской темы.
      *
-     * @param themeSuffix суффикс темы. Например для темы Theme.AppCompat.DayNight
-     * нужно указать суффикс "DayNight".
-     * Если суффикс не указан, родительская тема будет соответствовать Theme.AppCompat.
-     * Если суффикс содержит "DayNight", будут сгенерированы темы для дневного и ночного режимов в директориях res/values и res/values-night.
-     * Если суффикс содержит "Light", будет сгенерирована тема со светлыми токенами в директории res/values.
-     * Если суффикс не содержит "Light" или "DayNight", будет сгенерирована тема с темными токенами в директории res/values.
+     * @param themeSuffix суффикс темы. Например для темы Theme.AppCompat.NoActionBar
+     * нужно указать суффикс "NoActionBar".
+     * Если суффикс не указан, родительская тема будет соответствовать Theme.AppCompat и Theme.AppCompat.Light.
      */
-    fun appCompatTheme(themeSuffix: String = "") =
+    fun appCompatTheme(themeSuffix: String = "") {
         addThemeParent(
             themePrefix = "Theme.AppCompat",
-            themeSuffix = themeSuffix,
+            themeSuffix = themeSuffix.validatedSuffix(),
             defaultChildSuffix = "AppCompat",
         )
+    }
 
     /**
      * Добавляет любую тему в качестве родитльской темы.
      *
      * @param themeName полное название наследуемой темы. Не должно быть пустым.
-     * @param themeType тип темы, от которого будет зависеть, какие токены (светлые/темные)
      * и в каких файлах ресурсов будут сгенерированы.
      *
-     * @see ViewThemeType
      */
-    fun customTheme(
-        themeName: String,
-        themeType: ViewThemeType = ViewThemeType.DARK_LIGHT,
-    ) = addThemeParent(
-        themeName = themeName,
-        themeType = themeType,
-    )
+    fun customTheme(themeName: String) =
+        addThemeParent(themeName = themeName)
 
     private fun addThemeParent(
         themePrefix: String,
@@ -321,43 +310,31 @@ class ViewParentListBuilder {
             if (themeSuffix.isEmpty()) defaultChildSuffix else "$defaultChildSuffix.$themeSuffix"
         _themeParents.add(
             ViewThemeParent(
-                fullName = getFullThemeName(themePrefix, themeSuffix),
-                themeType = getThemeType(themeSuffix),
+                themePrefix = themePrefix,
+                themeSuffix = themeSuffix,
                 childSuffix = childSuffix,
             ),
         )
     }
 
-    private fun getFullThemeName(themePrefix: String, themeSuffix: String): String {
-        return if (themeSuffix.isEmpty()) {
-            themePrefix
-        } else {
-            "$themePrefix.$themeSuffix"
-        }
-    }
-
-    private fun getThemeType(themeSuffix: String): ViewThemeType {
-        return if (themeSuffix.contains("DayNight")) {
-            ViewThemeType.DARK_LIGHT
-        } else if (themeSuffix.contains("Light")) {
-            ViewThemeType.LIGHT
-        } else {
-            ViewThemeType.DARK
-        }
-    }
-
-    private fun addThemeParent(
-        themeName: String,
-        themeType: ViewThemeType,
-    ) {
+    private fun addThemeParent(themeName: String) {
         if (themeName.isEmpty()) throw ThemeBuilderException("themeName must be defined for parent theme")
         _themeParents.add(
             ViewThemeParent(
-                fullName = themeName,
+                themePrefix = themeName,
                 childSuffix = themeName,
-                themeType = themeType,
             ),
         )
+    }
+
+    private companion object {
+
+        fun String.validatedSuffix(): String {
+            if (this.contains("Light") || this.contains("DayNight")) {
+                throw ThemeBuilderException("Suffix $this is not valid for theme builder")
+            }
+            return this
+        }
     }
 }
 

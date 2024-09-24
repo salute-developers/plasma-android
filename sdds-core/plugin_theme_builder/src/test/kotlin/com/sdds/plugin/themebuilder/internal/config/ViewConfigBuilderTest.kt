@@ -2,7 +2,6 @@ package com.sdds.plugin.themebuilder.internal.config
 
 import com.sdds.plugin.themebuilder.ViewConfigBuilder
 import com.sdds.plugin.themebuilder.ViewThemeParent
-import com.sdds.plugin.themebuilder.ViewThemeType
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
@@ -29,7 +28,7 @@ class ViewConfigBuilderTest {
     fun `ViewConfigBuilder должен вернуть корректный сет`() {
         underTest.themeParents {
             materialComponentsTheme()
-            appCompatTheme("Light")
+            appCompatTheme("NoActionBar")
             customTheme("App.Theme.Custom")
         }
         assertEquals(validData, underTest.themeParents)
@@ -38,19 +37,17 @@ class ViewConfigBuilderTest {
     private companion object {
         val validData = setOf(
             ViewThemeParent(
-                fullName = "Theme.MaterialComponents",
+                themePrefix = "Theme.MaterialComponents",
                 childSuffix = "MaterialComponents",
-                themeType = ViewThemeType.DARK,
             ),
             ViewThemeParent(
-                fullName = "Theme.AppCompat.Light",
-                childSuffix = "AppCompat.Light",
-                themeType = ViewThemeType.LIGHT,
+                themePrefix = "Theme.AppCompat",
+                themeSuffix = "NoActionBar",
+                childSuffix = "AppCompat.NoActionBar",
             ),
             ViewThemeParent(
-                fullName = "App.Theme.Custom",
+                themePrefix = "App.Theme.Custom",
                 childSuffix = "App.Theme.Custom",
-                themeType = ViewThemeType.DARK_LIGHT,
             ),
         )
     }
