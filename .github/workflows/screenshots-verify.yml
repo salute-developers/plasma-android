@@ -16,7 +16,7 @@ concurrency:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
 
     steps:
       - name: Checkout the code
@@ -35,7 +35,7 @@ jobs:
         if: ${{ always() }}
         with:
           name: screenshot-diff-compose
-          path: playground/sandbox-compose/screenshots
+          path: playground/sandbox-compose/build/outputs/roborazzi
           retention-days: 30
 
       - uses: actions/upload-artifact@v3
@@ -61,20 +61,20 @@ jobs:
       - uses: actions/upload-artifact@v3
         if: ${{ always() }}
         with:
-          name: screenshot-diff-compose
-          path: playground/sandbox/screenshots
+          name: screenshot-diff
+          path: playground/sandbox/build/outputs/roborazzi
           retention-days: 30
 
       - uses: actions/upload-artifact@v3
         if: ${{ always() }}
         with:
-          name: screenshot-diff-reports-compose
+          name: screenshot-diff-reports
           path: playground/sandbox/build/reports
           retention-days: 30
 
       - uses: actions/upload-artifact@v3
         if: ${{ always() }}
         with:
-          name: screenshot-diff-test-results-compose
+          name: screenshot-diff-test-results
           path: playground/sandbox/build/test-results
           retention-days: 30
