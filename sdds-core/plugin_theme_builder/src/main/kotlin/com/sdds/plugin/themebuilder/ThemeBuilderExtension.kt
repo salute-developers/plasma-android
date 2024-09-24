@@ -4,6 +4,7 @@ import com.sdds.plugin.themebuilder.ShapeAppearanceConfig.Companion.materialShap
 import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.exceptions.ThemeBuilderException
 import org.gradle.api.Project
+import java.io.Serializable
 
 /**
  * Расширение для плагина ThemeBuilder
@@ -19,6 +20,8 @@ open class ThemeBuilderExtension {
     internal var paletteUrl: String = DEFAULT_PALETTE_URL
     internal var mode: ThemeBuilderMode = ThemeBuilderMode.TOKENS_ONLY
     internal var outputLocation = OutputLocation.BUILD
+    internal var dimensionsConfig = DimensionsConfig()
+    internal var autoGenerate: Boolean = true
 
     /**
      * Устанавливает источник темы по имени [name] и версии [version]
@@ -43,6 +46,7 @@ open class ThemeBuilderExtension {
         val builder = ViewConfigBuilder().apply(viewConfigBuilder)
         viewThemeParents = builder.themeParents
         viewShapeAppearanceConfig = builder.shapeAppearanceConfig
+        dimensionsConfig = builder.dimensionsConfig
         updateTarget(ThemeBuilderTarget.VIEW_SYSTEM)
     }
 
@@ -90,6 +94,22 @@ open class ThemeBuilderExtension {
         this.outputLocation = location
     }
 
+    /**
+     * Если [auto] == true, то генерация темы будет запущена автоматически на этапе preBuild
+     */
+    fun autoGenerate(auto: Boolean) {
+        this.autoGenerate = auto
+    }
+
+    /**
+     * Устанавливает конфигурацию размеров
+     * @see DimensionsConfig
+     */
+    fun dimensions(dimensionsConfigBuilder: DimensionsConfigBuilder.() -> Unit) {
+        val builder = DimensionsConfigBuilder().apply(dimensionsConfigBuilder)
+        this.dimensionsConfig = DimensionsConfig(builder.multiplier, builder.breakPoints)
+    }
+
     private fun updateTarget(newTarget: ThemeBuilderTarget) {
         if (target == ThemeBuilderTarget.ALL || target == newTarget) return
         target = if (target != null) {
@@ -122,6 +142,8 @@ class ViewConfigBuilder {
 
     internal val shapeAppearanceConfig = mutableSetOf<ShapeAppearanceConfig>()
 
+    internal var dimensionsConfig: DimensionsConfig = DimensionsConfig()
+
     /**
      * Указывает родительские темы
      *
@@ -142,6 +164,84 @@ class ViewConfigBuilder {
      */
     fun setupShapeAppearance(shapeAppearanceConfig: ShapeAppearanceConfig) {
         this.shapeAppearanceConfig.add(shapeAppearanceConfig)
+    }
+}
+
+/**
+ * Билдер конфигурации размеров
+ */
+class DimensionsConfigBuilder {
+    internal var multiplier: Float = 1f
+    internal var breakPoints: BreakPoints = BreakPoints()
+
+    /**
+     * Задает множитель [value] для всех генерируемых размеров
+     */
+    fun multiplier(value: Float) {
+        this.multiplier = value.coerceAtLeast(0f)
+    }
+
+    /**
+     * Задает брейкпоинты типографики
+     */
+    fun breakPoints(breakPointsBuilder: BreakPointsBuilder.() -> Unit) {
+        val builder = BreakPointsBuilder().apply(breakPointsBuilder)
+        this.breakPoints = BreakPoints(builder.medium, builder.large)
+    }
+}
+
+/**
+ * Конфигурация размеров
+ * @property multiplier множитель для всех размеров
+ * @property breakPoints брейкпоинты типографики
+ */
+data class DimensionsConfig(
+    val multiplier: Float = 1f,
+    val breakPoints: BreakPoints = BreakPoints(),
+) : Serializable
+
+/**
+ * Билдер брейкпоинтов типографики
+ */
+class BreakPointsBuilder {
+    internal var medium: Int = BreakPoints.DEFAULT_MEDIUM
+    internal var large: Int = BreakPoints.DEFAULT_LARGE
+
+    /**
+     * Брейкпоинт типографики класса Medium
+     */
+    fun medium(point: Int) {
+        this.medium = point
+    }
+
+    /**
+     * Брейкпоинт типографики класса Large
+     */
+    fun large(point: Int) {
+        this.large = point
+    }
+}
+
+/**
+ * Брейкпоинты типографики
+ * @property medium нижняя граница ScreenClass.MEDIUM
+ * @property large нижняя граница ScreenClass.LARGE
+ */
+data class BreakPoints(
+    val medium: Int = DEFAULT_MEDIUM,
+    val large: Int = DEFAULT_LARGE,
+): Serializable {
+
+    companion object {
+        /**
+         * Значение по умолчанию для брейкпоинта типографики класса Medium
+         */
+        const val DEFAULT_MEDIUM = 560
+
+        /**
+         * Значение по умолчанию для брейкпоинта типографики класса Large
+         */
+        const val DEFAULT_LARGE = 960
     }
 }
 

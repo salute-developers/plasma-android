@@ -1,5 +1,6 @@
 package com.sdds.plugin.themebuilder.internal.generator
 
+import com.sdds.plugin.themebuilder.DimensionsConfig
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder.Companion.DEFAULT_ROOT_ATTRIBUTES
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder.ElementName
@@ -15,12 +16,14 @@ import java.io.File
  * @param outputResDir директория для сохранения xml-файла с токенами
  * @param dimensAggregator агрегатов размеров
  * @param xmlBuilderFactory фабрика делегата построения xml файлов
+ * @param dimensConfig конфигурация размеров
  * @author Малышев Александр on 07.03.2024
  */
 internal class DimenTokenGenerator(
     private val outputResDir: File,
     private val dimensAggregator: DimensAggregator,
     private val xmlBuilderFactory: XmlResourcesDocumentBuilderFactory,
+    private val dimensConfig: DimensionsConfig,
 ) : SimpleBaseGenerator {
 
     private val xmlResourcesDocumentBuilder: XmlResourcesDocumentBuilder by unsafeLazy {
@@ -40,6 +43,7 @@ internal class DimenTokenGenerator(
     }
 
     private fun XmlResourcesDocumentBuilder.appendDimen(dimen: DimenData) {
-        appendElement(ElementName.DIMEN, dimen.name, "${dimen.value}${dimen.type.suffix}")
+        val updatedValue = dimen.value.toFloat() * dimensConfig.multiplier
+        appendElement(ElementName.DIMEN, dimen.name, "${updatedValue}${dimen.type.suffix}")
     }
 }

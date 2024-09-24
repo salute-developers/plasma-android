@@ -1,3 +1,4 @@
+// AUTO-GENERATED. DO NOT MODIFY this file.
 package com.sdds.playground.themebuilder.tokens.compose
 import androidx.compose.runtime.Immutable
 import androidx.compose.ui.geometry.Offset
@@ -105,6 +106,7 @@ internal class ThmbldrLinearGradient constructor(
         }
     }
 }
+// AUTO-GENERATED. DO NOT MODIFY this file.
 package com.sdds.playground.themebuilder.tokens.compose
 import androidx.compose.runtime.Immutable
 import androidx.compose.ui.geometry.Offset
@@ -145,6 +147,7 @@ internal data class ThmbldrRadialGradient(
         )
     }
 }
+// AUTO-GENERATED. DO NOT MODIFY this file.
 package com.sdds.playground.themebuilder.tokens.compose
 import androidx.compose.runtime.Immutable
 import androidx.compose.ui.geometry.Offset
@@ -177,6 +180,7 @@ internal data class ThmbldrSweepGradient(
         )
     }
 }
+// AUTO-GENERATED. DO NOT MODIFY this file.
 package com.sdds.playground.themebuilder.tokens.compose
 
 import androidx.compose.runtime.Composable

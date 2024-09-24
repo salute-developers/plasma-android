@@ -1,5 +1,6 @@
 package com.sdds.plugin.themebuilder.internal.generator
 
+import com.sdds.plugin.themebuilder.DimensionsConfig
 import com.sdds.plugin.themebuilder.ShapeAppearanceConfig
 import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
@@ -45,6 +46,7 @@ internal class ShapeTokenGenerator(
     private val dimensAggregator: DimensAggregator,
     private val resourceReferenceProvider: ResourceReferenceProvider,
     private val shapeTokenValues: Map<String, ShapeTokenValue>,
+    private val dimensionsConfig: DimensionsConfig,
 ) : TokenGenerator<ShapeToken, ShapeTokenResult>(target) {
 
     private val xmlDocumentBuilder by unsafeLazy { xmlBuilderFactory.create(DEFAULT_ROOT_ATTRIBUTES) }
@@ -154,7 +156,7 @@ internal class ShapeTokenGenerator(
             )
         ShapeTokenValidator.validate(roundedShapeTokenValue, token.name)
 
-        val value = "${roundedShapeTokenValue.cornerRadius}.dp"
+        val value = "${roundedShapeTokenValue.cornerRadius * dimensionsConfig.multiplier}.dp"
         val initializer = KtFileBuilder.createConstructorCall(
             "RoundedCornerShape",
             "CornerSize($value)",

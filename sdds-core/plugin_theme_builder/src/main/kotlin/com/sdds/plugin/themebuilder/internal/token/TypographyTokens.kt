@@ -9,14 +9,12 @@ import org.gradle.configurationcache.extensions.capitalized
  * Контракт токенов типографии
  * @property sizes размеры
  * @property types типы
- * @property breakpoints брейкпоинты
  * @author Малышев Александр on 05.03.2024
  */
 @Serializable
 internal data class TypographyTokensScheme(
     val sizes: List<String>,
     val types: List<String>,
-    val breakpoints: List<String>,
 )
 
 /**

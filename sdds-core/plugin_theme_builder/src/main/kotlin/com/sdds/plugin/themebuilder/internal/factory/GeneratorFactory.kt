@@ -1,5 +1,6 @@
 package com.sdds.plugin.themebuilder.internal.factory
 
+import com.sdds.plugin.themebuilder.DimensionsConfig
 import com.sdds.plugin.themebuilder.ResourcePrefixConfig
 import com.sdds.plugin.themebuilder.ShapeAppearanceConfig
 import com.sdds.plugin.themebuilder.ThemeBuilderMode
@@ -66,6 +67,7 @@ internal class GeneratorFactory(
     private val viewThemeParents: List<ViewThemeParent>,
     private val viewShapeAppearanceConfig: List<ShapeAppearanceConfig>,
     private val themeName: String,
+    private val dimensionsConfig: DimensionsConfig,
 ) {
 
     private val outputDir: File by unsafeLazy {
@@ -150,6 +152,7 @@ internal class GeneratorFactory(
             ktFileFromResourcesBuilderFactory = ktFileFromResourcesBuilderFactory,
             outputLocation = OutputLocation.Directory(outputDir),
             themeName = themeName,
+            dimensionsConfig = dimensionsConfig,
         )
     }
 
@@ -241,17 +244,20 @@ internal class GeneratorFactory(
     /**
      * Создает генератор типографии [TypographyTokenGenerator]
      */
-    fun createTypographyGenerator(typography: Map<String, TypographyTokenValue>): TypographyTokenGenerator {
+    fun createTypographyGenerator(
+        typography: Map<String, TypographyTokenValue>,
+    ): TypographyTokenGenerator {
         return TypographyTokenGenerator(
-            OutputLocation.Directory(outputDir),
-            outputResDir,
-            target,
-            dimensAggregator,
-            xmlResourcesDocumentBuilderFactory,
-            ktFileBuilderFactory,
-            resourceReferenceProvider,
-            typography,
-            fontsAggregator,
+            outputLocation = OutputLocation.Directory(outputDir),
+            outputResDir = outputResDir,
+            target = target,
+            dimensAggregator = dimensAggregator,
+            xmlBuilderFactory = xmlResourcesDocumentBuilderFactory,
+            ktFileBuilderFactory = ktFileBuilderFactory,
+            resourceReferenceProvider = resourceReferenceProvider,
+            typographyTokenValues = typography,
+            fontsAggregator = fontsAggregator,
+            dimensionsConfig = dimensionsConfig,
         )
     }
 
@@ -260,9 +266,10 @@ internal class GeneratorFactory(
      */
     fun createDimensGenerator(): DimenTokenGenerator {
         return DimenTokenGenerator(
-            outputResDir,
-            dimensAggregator,
-            xmlResourcesDocumentBuilderFactory,
+            outputResDir = outputResDir,
+            dimensConfig = dimensionsConfig,
+            dimensAggregator = dimensAggregator,
+            xmlBuilderFactory = xmlResourcesDocumentBuilderFactory,
         )
     }
 
@@ -271,15 +278,16 @@ internal class GeneratorFactory(
      */
     fun createShapesGenerator(shapes: Map<String, ShapeTokenValue>): ShapeTokenGenerator {
         return ShapeTokenGenerator(
-            OutputLocation.Directory(outputDir),
-            outputResDir,
-            target,
-            viewShapeAppearanceConfig,
-            xmlResourcesDocumentBuilderFactory,
-            ktFileBuilderFactory,
-            dimensAggregator,
-            resourceReferenceProvider,
-            shapes,
+            outputLocation = OutputLocation.Directory(outputDir),
+            outputResDir = outputResDir,
+            target = target,
+            viewShapeAppearanceConfig = viewShapeAppearanceConfig,
+            xmlBuilderFactory = xmlResourcesDocumentBuilderFactory,
+            ktFileBuilderFactory = ktFileBuilderFactory,
+            dimensAggregator = dimensAggregator,
+            resourceReferenceProvider = resourceReferenceProvider,
+            shapeTokenValues = shapes,
+            dimensionsConfig = dimensionsConfig,
         )
     }
 

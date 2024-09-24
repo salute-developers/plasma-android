@@ -155,6 +155,12 @@ abstract class GenerateThemeTask : DefaultTask() {
     @get:OutputDirectory
     abstract val outputResDirPath: Property<String>
 
+    /**
+     * Префикс для названий ресурсов токенов
+     */
+    @get:Input
+    abstract val dimensionsConfig: Property<DimensionsConfig>
+
     private val dimensAggregator by unsafeLazy { DimensAggregator() }
     private val fontsAggregator by unsafeLazy { FontsAggregator() }
     private val generatorFactory by unsafeLazy {
@@ -183,6 +189,7 @@ abstract class GenerateThemeTask : DefaultTask() {
             viewThemeParents = viewThemeParents.get(),
             viewShapeAppearanceConfig = viewShapeAppearanceConfig.get(),
             themeName = themeName.get(),
+            dimensionsConfig = dimensionsConfig.get(),
         )
     }
 
