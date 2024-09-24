@@ -1,5 +1,6 @@
 package com.sdds.plugin.themebuilder.internal.generator
 
+import com.sdds.plugin.themebuilder.DimensionsConfig
 import com.sdds.plugin.themebuilder.internal.dimens.DimenData
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
@@ -27,6 +28,7 @@ class DimenTokenGeneratorTest {
 
     private lateinit var mockOutputResDir: File
     private lateinit var mockDimensAggregator: DimensAggregator
+    private lateinit var dimensionsConfig: DimensionsConfig
     private lateinit var underTest: DimenTokenGenerator
 
     @Before
@@ -34,9 +36,11 @@ class DimenTokenGeneratorTest {
         mockkObject(FileProvider)
         mockOutputResDir = mockk(relaxed = true)
         mockDimensAggregator = mockk(relaxed = true)
+        dimensionsConfig = mockk(relaxed = true)
         underTest = DimenTokenGenerator(
             outputResDir = mockOutputResDir,
             dimensAggregator = mockDimensAggregator,
+            dimensConfig = dimensionsConfig,
             xmlBuilderFactory = XmlResourcesDocumentBuilderFactory("thmbldr", "TestTheme"),
         )
     }
@@ -52,6 +56,24 @@ class DimenTokenGeneratorTest {
         val dimensFile = mockk<File>(relaxed = true)
         val fileOutput = ByteArrayOutputStream()
         val expected = getResourceAsText("test-dimens-output.xml")
+        every { dimensionsConfig.multiplier } returns 1f
+        every { mockDimensAggregator.dimens } returns setOf(
+            DimenData("test_dimen", 128f, DimenData.Type.DP),
+        )
+        every { dimensFile.fileWriter() } returns fileOutput.writer()
+        every { mockOutputResDir.dimensFile() } returns dimensFile
+
+        underTest.generate()
+
+        assertEquals(expected, fileOutput.toString())
+    }
+
+    @Test
+    fun `DimenAggregator учитывает dimension config`() {
+        val dimensFile = mockk<File>(relaxed = true)
+        val fileOutput = ByteArrayOutputStream()
+        val expected = getResourceAsText("test-dimens-config-output.xml")
+        every { dimensionsConfig.multiplier } returns 2f
         every { mockDimensAggregator.dimens } returns setOf(
             DimenData("test_dimen", 128f, DimenData.Type.DP),
         )

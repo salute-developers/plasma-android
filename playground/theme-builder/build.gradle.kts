@@ -26,6 +26,14 @@ themeBuilder {
     ktPackage("com.sdds.playground.themebuilder.tokens")
     mode(ThemeBuilderMode.THEME)
     outputLocation(OutputLocation.BUILD)
+    autoGenerate(false)
+    dimensions {
+        multiplier(2f)
+        breakPoints {
+            large(960)
+            medium(560)
+        }
+    }
 }
 
 dependencies {

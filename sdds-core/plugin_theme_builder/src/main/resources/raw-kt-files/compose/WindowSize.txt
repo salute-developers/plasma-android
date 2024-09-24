@@ -20,16 +20,6 @@ enum class WindowSizeClass {
 }
 
 /**
- * Возвращает значение в dp - брейкпоинт по ширине для указанного класса размерности.
- */
-fun WindowSizeClass.widthBreakPoint(): Dp =
-    when (this) {
-        WindowSizeClass.Compact -> 0.dp
-        WindowSizeClass.Medium -> 600.dp
-        WindowSizeClass.Expanded -> 840.dp
-    }
-
-/**
  * Возвращает значение в dp - брейкпоинт по высоте для указанного класса размерности.
  */
 fun WindowSizeClass.heightBreakPoint(): Dp =

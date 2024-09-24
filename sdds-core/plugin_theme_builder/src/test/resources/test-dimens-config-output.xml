@@ -2,5 +2,5 @@
 
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <dimen name="thmbldr_test_dimen">128.0dp</dimen>
+    <dimen name="thmbldr_test_dimen">256.0dp</dimen>
 </resources>

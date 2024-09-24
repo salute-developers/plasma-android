@@ -1,3 +1,4 @@
+// AUTO-GENERATED. DO NOT MODIFY this file.
 package com.sdds.playground.themebuilder.tokens.vs
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.LayerDrawable
@@ -21,6 +22,7 @@ class ViewGradient(val layers: List<ViewGradientLayer>) {
             }.toTypedArray()
         )
 }
+// AUTO-GENERATED. DO NOT MODIFY this file.
 package com.sdds.playground.themebuilder.tokens.vs
 import android.graphics.LinearGradient
 import android.graphics.RadialGradient
@@ -164,6 +166,7 @@ sealed class ViewGradientLayer {
         }
     }
 }
+// AUTO-GENERATED. DO NOT MODIFY this file.
 package com.sdds.playground.themebuilder.tokens.vs
 import android.graphics.Shader
 import android.graphics.drawable.ShapeDrawable
@@ -182,6 +185,7 @@ internal fun shapeDrawableWithGradient(gradient: ViewGradientLayer): ShapeDrawab
             }
         }
     }
+// AUTO-GENERATED. DO NOT MODIFY this file.
 package com.sdds.playground.themebuilder.tokens.vs
 
 import android.content.Context

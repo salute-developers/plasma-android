@@ -19,7 +19,7 @@ internal class KtFileFromResourcesBuilder(private val packageName: String) {
         outputLocation: KtFileBuilder.OutputLocation,
         outputFileName: String,
     ) {
-        val packageString = "package $packageName"
+        val headerString = "// $AUTOGEN_COMMENT\npackage $packageName"
         val codeString = getResourceAsString(inputRes)
 
         when (outputLocation) {
@@ -29,12 +29,12 @@ internal class KtFileFromResourcesBuilder(private val packageName: String) {
                     "${packageName.replace('.', '/')}/$outputFileName.kt",
                 )
                     .apply {
-                        writeBytes("$packageString\n".toByteArray() + codeString.toByteArray())
+                        writeBytes("$headerString\n".toByteArray() + codeString.toByteArray())
                     }
             }
 
             is KtFileBuilder.OutputLocation.Stream -> outputLocation.stream.writer().use {
-                it.write("$packageString\n" + codeString)
+                it.write("$headerString\n" + codeString)
             }
         }
     }

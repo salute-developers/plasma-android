@@ -1,5 +1,7 @@
 package com.sdds.plugin.themebuilder.internal.attributes.generator
 
+import com.sdds.plugin.themebuilder.BreakPoints
+import com.sdds.plugin.themebuilder.DimensionsConfig
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.builder.KtFileFromResourcesBuilder
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
@@ -33,6 +35,7 @@ class ComposeTypographyAttributeGeneratorTest {
     private lateinit var mockKtFileFromResourceBuilderFactory: KtFileFromResourcesBuilderFactory
     private lateinit var ktFileBuilder: KtFileBuilder
     private lateinit var ktFileFromResourcesBuilder: KtFileFromResourcesBuilder
+    private lateinit var dimensionsConfig: DimensionsConfig
 
     @Before
     fun before() {
@@ -45,6 +48,7 @@ class ComposeTypographyAttributeGeneratorTest {
             packageName = "com.sdds.playground.themebuilder.tokens",
             fileName = "ThemeColors",
         )
+        dimensionsConfig = DimensionsConfig(1f, BreakPoints(600, 840))
         ktFileFromResourcesBuilder = KtFileFromResourcesBuilder(
             packageName = "com.sdds.playground.themebuilder.tokens",
         )
@@ -74,6 +78,7 @@ class ComposeTypographyAttributeGeneratorTest {
             ktFileFromResourcesBuilderFactory = mockKtFileFromResourceBuilderFactory,
             outputLocation = KtFileBuilder.OutputLocation.Stream(outputKt),
             themeName = "Theme",
+            dimensionsConfig = dimensionsConfig,
         )
 
         underTest.setTypographyTokenData(input1)
@@ -98,6 +103,7 @@ class ComposeTypographyAttributeGeneratorTest {
             ktFileFromResourcesBuilderFactory = mockKtFileFromResourceBuilderFactory,
             outputLocation = KtFileBuilder.OutputLocation.Stream(outputKt),
             themeName = "Theme",
+            dimensionsConfig = dimensionsConfig,
         )
 
         underTest.setTypographyTokenData(input2)
@@ -122,6 +128,7 @@ class ComposeTypographyAttributeGeneratorTest {
             ktFileFromResourcesBuilderFactory = mockKtFileFromResourceBuilderFactory,
             outputLocation = KtFileBuilder.OutputLocation.Stream(outputKt),
             themeName = "Theme",
+            dimensionsConfig = dimensionsConfig,
         )
 
         underTest.setTypographyTokenData(input3)

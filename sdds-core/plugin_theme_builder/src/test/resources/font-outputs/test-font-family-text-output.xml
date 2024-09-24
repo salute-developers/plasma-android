@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <font-family xmlns:app="http://schemas.android.com/apk/res-auto">
     <!--Font-family: SB Sans Text-->
     <font app:font="@font/s_b_sans_text_regular" app:fontStyle="normal" app:fontWeight="300"/>
