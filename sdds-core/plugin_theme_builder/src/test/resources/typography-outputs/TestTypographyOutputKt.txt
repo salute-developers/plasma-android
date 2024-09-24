@@ -1,3 +1,4 @@
+// AUTO-GENERATED. DO NOT MODIFY this file.
 package com.test.compose
 
 import androidx.compose.ui.text.PlatformTextStyle
@@ -12,8 +13,8 @@ public object TypographyLargeTokens {
      */
     public val DisplayLNormal: TextStyle = TextStyle(
                 fontWeight = FontWeight(300),
-                fontSize = 128.0.sp,
-                lineHeight = 128.0.sp,
+                fontSize = 256.0.sp,
+                lineHeight = 256.0.sp,
                 letterSpacing = 0.02.sp,
                 fontFamily = FontTokens.sans,
                 lineHeightStyle = LineHeightStyle(alignment = LineHeightStyle.Alignment.Center, trim
@@ -26,8 +27,8 @@ public object TypographyLargeTokens {
      */
     public val DisplayLBold: TextStyle = TextStyle(
                 fontWeight = FontWeight(300),
-                fontSize = 128.0.sp,
-                lineHeight = 128.0.sp,
+                fontSize = 256.0.sp,
+                lineHeight = 256.0.sp,
                 letterSpacing = 0.02.sp,
                 fontFamily = FontTokens.sans,
                 lineHeightStyle = LineHeightStyle(alignment = LineHeightStyle.Alignment.Center, trim
@@ -42,8 +43,8 @@ public object TypographySmallTokens {
      */
     public val TextLNormal: TextStyle = TextStyle(
                 fontWeight = FontWeight(400),
-                fontSize = 124.0.sp,
-                lineHeight = 124.0.sp,
+                fontSize = 248.0.sp,
+                lineHeight = 248.0.sp,
                 letterSpacing = 0.04.sp,
                 fontFamily = FontTokens.sans,
                 lineHeightStyle = LineHeightStyle(alignment = LineHeightStyle.Alignment.Center, trim
@@ -56,8 +57,8 @@ public object TypographySmallTokens {
      */
     public val DisplayLNormal: TextStyle = TextStyle(
                 fontWeight = FontWeight(300),
-                fontSize = 72.0.sp,
-                lineHeight = 72.0.sp,
+                fontSize = 144.0.sp,
+                lineHeight = 144.0.sp,
                 letterSpacing = 0.02.sp,
                 fontFamily = FontTokens.sans,
                 lineHeightStyle = LineHeightStyle(alignment = LineHeightStyle.Alignment.Center, trim
@@ -72,8 +73,8 @@ public object TypographyMediumTokens {
      */
     public val HeaderLNormal: TextStyle = TextStyle(
                 fontWeight = FontWeight(400),
-                fontSize = 124.0.sp,
-                lineHeight = 124.0.sp,
+                fontSize = 248.0.sp,
+                lineHeight = 248.0.sp,
                 letterSpacing = 0.04.sp,
                 fontFamily = FontTokens.sans,
                 lineHeightStyle = LineHeightStyle(alignment = LineHeightStyle.Alignment.Center, trim
@@ -86,8 +87,8 @@ public object TypographyMediumTokens {
      */
     public val DisplayLNormal: TextStyle = TextStyle(
                 fontWeight = FontWeight(300),
-                fontSize = 96.0.sp,
-                lineHeight = 96.0.sp,
+                fontSize = 192.0.sp,
+                lineHeight = 192.0.sp,
                 letterSpacing = 0.02.sp,
                 fontFamily = FontTokens.sans,
                 lineHeightStyle = LineHeightStyle(alignment = LineHeightStyle.Alignment.Center, trim

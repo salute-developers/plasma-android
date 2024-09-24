@@ -1,3 +1,4 @@
+// AUTO-GENERATED. DO NOT MODIFY this file.
 package com.sdds.playground.themebuilder.tokens
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
@@ -19,16 +20,6 @@ enum class WindowSizeClass {
     Medium,
     Expanded,
 }
-
-/**
- * Возвращает значение в dp - брейкпоинт по ширине для указанного класса размерности.
- */
-fun WindowSizeClass.widthBreakPoint(): Dp =
-    when (this) {
-        WindowSizeClass.Compact -> 0.dp
-        WindowSizeClass.Medium -> 600.dp
-        WindowSizeClass.Expanded -> 840.dp
-    }
 
 /**
  * Возвращает значение в dp - брейкпоинт по высоте для указанного класса размерности.
@@ -84,6 +75,7 @@ fun collectWindowSizeInfoAsState(): State<WindowSizeInfo> {
 private val Dp.px: Int
     @Composable
     get() = with(LocalDensity.current) { this@px.roundToPx() }
+// AUTO-GENERATED. DO NOT MODIFY this file.
 package com.sdds.playground.themebuilder.tokens
 
 import androidx.compose.runtime.Composable
@@ -94,6 +86,8 @@ import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.runtime.structuralEqualityPolicy
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
 import com.sdds.playground.themebuilder.tokens.ThemeTypography
 import kotlin.Unit
 
@@ -113,19 +107,19 @@ private val LocalThemeTextStyle: ProvidableCompositionLocal<TextStyle> =
         compositionLocalOf(structuralEqualityPolicy()) { TextStyle.Default }
 
 /**
- * Возвращает [ThemeTypography] для ширины окна до 600dp
+ * Возвращает [ThemeTypography] для WindowSizeClass.Compact
  */
 public fun smallThemeTypography(): ThemeTypography = ThemeTypography(displayLNormal =
         TypographyLargeTokens.DisplayLNormal, displayLBold = TypographyLargeTokens.DisplayLBold)
 
 /**
- * Возвращает [ThemeTypography] для ширины окна от 600dp до 840dp
+ * Возвращает [ThemeTypography] для WindowSizeClass.Medium
  */
 public fun mediumThemeTypography(): ThemeTypography = ThemeTypography(displayLNormal =
         TypographyLargeTokens.DisplayLNormal, displayLBold = TypographyLargeTokens.DisplayLBold)
 
 /**
- * Возвращает [ThemeTypography] для ширины окна от 840dp
+ * Возвращает [ThemeTypography] для WindowSizeClass.Expanded
  */
 public fun largeThemeTypography(): ThemeTypography = ThemeTypography(displayLNormal =
         TypographyLargeTokens.DisplayLNormal, displayLBold = TypographyLargeTokens.DisplayLBold)
@@ -140,6 +134,15 @@ public fun dynamicThemeTypography(): ThemeTypography = when
     WindowSizeClass.Expanded -> largeThemeTypography()
     WindowSizeClass.Medium -> mediumThemeTypography()
     WindowSizeClass.Compact -> smallThemeTypography()
+}
+
+/**
+ * Возвращает значение в dp - брейкпоинт по ширине для указанного класса размерности.
+ */
+public fun WindowSizeClass.widthBreakPoint(): Dp = when (this) {
+    WindowSizeClass.Expanded -> 840.0.dp
+    WindowSizeClass.Medium -> 600.0.dp
+    WindowSizeClass.Compact -> 0.dp
 }
 
 @Composable

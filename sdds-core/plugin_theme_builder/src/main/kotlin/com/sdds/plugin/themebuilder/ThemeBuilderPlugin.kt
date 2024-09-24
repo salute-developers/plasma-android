@@ -32,7 +32,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
             project.configureSourceSets(extension.outputLocation)
             project.registerClean(extension)
             val unzipTask = registerFetchAndUnzip(extension, themeZip, paletteJson)
-            registerThemeBuilder(extension, unzipTask)
+            registerThemeBuilder(extension, unzipTask, extension.autoGenerate)
         }
     }
 
@@ -74,6 +74,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
     private fun Project.registerThemeBuilder(
         extension: ThemeBuilderExtension,
         unzipTask: Any,
+        dependOnPreBuild: Boolean,
     ) {
         val generateThemeTask =
             registerThemeGenerator(
@@ -88,8 +89,9 @@ class ThemeBuilderPlugin : Plugin<Project> {
                 shapeFileProvider = getValueFile(TokenValueFile.SHAPES),
                 unzipTask = unzipTask,
             )
-
-        tasks.named("preBuild").dependsOn(generateThemeTask)
+        if (dependOnPreBuild) {
+            tasks.named("preBuild").dependsOn(generateThemeTask)
+        }
     }
 
     private fun Project.configureSourceSets(outputLocation: OutputLocation) {
@@ -212,7 +214,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
             outputDirPath.set(extension.outputLocation.getSourcePath())
             outputResDirPath.set(extension.outputLocation.getResourcePath())
             namespace.set(getProjectNameSpace())
-
+            dimensionsConfig.set(extension.dimensionsConfig)
             dependsOn(unzipTask)
         }
     }

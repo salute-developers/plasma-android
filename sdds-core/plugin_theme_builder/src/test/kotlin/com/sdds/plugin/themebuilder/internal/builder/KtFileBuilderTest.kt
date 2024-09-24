@@ -52,7 +52,9 @@ class KtFileBuilderTest {
 
     @Test
     fun `rootObject создает корневой объект и добавляет его в выходной файл`() {
-        val mockResultFileSpec = mockk<FileSpec.Builder>(relaxed = true)
+        val mockResultFileSpec = mockk<FileSpec.Builder>(relaxed = true) {
+            every { addFileComment(any()) } returns this
+        }
         val mockRoot = mockk<TypeSpec>(relaxed = true)
         every { TypeSpec.objectBuilder("RootA") } returns mockk {
             every { build() } returns mockRoot
@@ -74,7 +76,9 @@ class KtFileBuilderTest {
         val annotationType = ClassName("com.example.app", "Annotation")
         val superType = ClassName("com.android", "ReturnType")
 
-        val mockResultFileSpecBuilder = mockk<FileSpec.Builder>(relaxed = true)
+        val mockResultFileSpecBuilder = mockk<FileSpec.Builder>(relaxed = true) {
+            every { addFileComment(any()) } returns this
+        }
         val mockRoot = mockk<TypeSpec>(relaxed = true)
 
         val mockFunSpec = mockk<FunSpec>(relaxed = true)
@@ -131,7 +135,9 @@ class KtFileBuilderTest {
     fun `appendRootVal добавляет немутабельное свойство в корневой объект`() {
         val propertyType = ClassName(TEST_PACKAGE, "PropertyType")
         val parameterizedType = ClassName(TEST_PACKAGE, "ParameterizedType")
-        val mockResultFileSpec = mockk<FileSpec.Builder>(relaxed = true)
+        val mockResultFileSpec = mockk<FileSpec.Builder>(relaxed = true) {
+            every { addFileComment(any()) } returns this
+        }
         val mockPropSpec = mockk<PropertySpec>(relaxed = true)
         val mockPropBuilder = mockk<PropertySpec.Builder>(relaxed = true) {
             every { build() } returns mockPropSpec
@@ -161,7 +167,9 @@ class KtFileBuilderTest {
 
     @Test
     fun `appendRootFun добавляет функцию в корневой объект`() {
-        val mockResultFileSpec = mockk<FileSpec.Builder>(relaxed = true)
+        val mockResultFileSpec = mockk<FileSpec.Builder>(relaxed = true) {
+            every { addFileComment(any()) } returns this
+        }
         val mockFunSpecBuilder = mockk<FunSpec.Builder>(relaxed = true)
         val mockFunSpec = mockk<FunSpec>(relaxed = true)
         val mockParamSpec = mockk<ParameterSpec>(relaxed = true)
@@ -287,7 +295,9 @@ class KtFileBuilderTest {
 
     @Test
     fun `addImport добавляет импорт по ClassName`() {
-        val mockResultFileSpec = mockk<FileSpec.Builder>(relaxed = true)
+        val mockResultFileSpec = mockk<FileSpec.Builder>(relaxed = true) {
+            every { addFileComment(any()) } returns this
+        }
         val className = ClassName("com.package", "Class")
         every { FileSpec.builder(TEST_PACKAGE, TEST_CLASS) } returns mockResultFileSpec
 
@@ -300,7 +310,9 @@ class KtFileBuilderTest {
 
     @Test
     fun `addImport добавляет импорты по names и package`() {
-        val mockResultFileSpec = mockk<FileSpec.Builder>(relaxed = true)
+        val mockResultFileSpec = mockk<FileSpec.Builder>(relaxed = true) {
+            every { addFileComment(any()) } returns this
+        }
         every { FileSpec.builder(TEST_PACKAGE, TEST_CLASS) } returns mockResultFileSpec
 
         underTest.addImport(

@@ -32,7 +32,7 @@ internal class KtFileBuilder(
 
     private val fileSpecBuilder by unsafeLazy {
         FileSpec.builder(packageName, fileName)
-            .addFileComment("AUTO-GENERATED. DO NOT MODIFY this file.")
+            .addFileComment(AUTOGEN_COMMENT)
     }
 
     private val rootTypeBuilders = mutableListOf<TypeSpec.Builder>()
