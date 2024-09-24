@@ -4,6 +4,7 @@ import com.sdds.plugin.themebuilder.ResourcePrefixConfig
 import com.sdds.plugin.themebuilder.ViewThemeParent
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult
+import com.sdds.plugin.themebuilder.internal.generator.data.GradientTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.ShapeTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.TypographyTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewThemeGenerator
@@ -54,7 +55,7 @@ class ViewThemeGeneratorTest {
     }
 
     @Test
-    fun `ViewThemeGenerator генерирует тему без наследников`() {
+    fun `ViewThemeGenerator генерирует тему без парентов`() {
         underTest = ViewThemeGenerator(
             xmlBuilderFactory = XmlResourcesDocumentBuilderFactory("thmbldr", "TestTheme"),
             outputResDir = mockOutputResDir,
@@ -64,6 +65,14 @@ class ViewThemeGeneratorTest {
                 resourcePrefix = "thmbldr",
                 shouldGenerateResPrefixStyle = true,
             ),
+            viewGradientGenerator = mockk(relaxed = true) {
+                every {
+                    addGradient(gradientAttrs.dark["gradientAccent"]!!)
+                } returns "@drawable/Thmbldr.TestTheme.Gradient.DarkGradientAccent"
+                every {
+                    addGradient(gradientAttrs.light["gradientAccent"]!!)
+                } returns "@drawable/Thmbldr.TestTheme.Gradient.LightGradientAccent"
+            },
         )
 
         val lightOutputXml = ByteArrayOutputStream()
@@ -80,6 +89,7 @@ class ViewThemeGeneratorTest {
 
         underTest.setShapeTokenData(shapeAttrs)
         underTest.setColorTokenData(colorAttrs)
+        underTest.setGradientTokenData(gradientAttrs)
         underTest.setTypographyTokenData(typographyAttrs)
         underTest.generate()
 
@@ -109,6 +119,14 @@ class ViewThemeGeneratorTest {
                 resourcePrefix = "thmbldr",
                 shouldGenerateResPrefixStyle = true,
             ),
+            viewGradientGenerator = mockk(relaxed = true) {
+                every {
+                    addGradient(gradientAttrs.dark["gradientAccent"]!!)
+                } returns "@drawable/Thmbldr.TestTheme.Gradient.DarkGradientAccent"
+                every {
+                    addGradient(gradientAttrs.light["gradientAccent"]!!)
+                } returns "@drawable/Thmbldr.TestTheme.Gradient.LightGradientAccent"
+            },
         )
 
         val lightOutputXml = ByteArrayOutputStream()
@@ -125,6 +143,7 @@ class ViewThemeGeneratorTest {
 
         underTest.setShapeTokenData(shapeAttrs)
         underTest.setColorTokenData(colorAttrs)
+        underTest.setGradientTokenData(gradientAttrs)
         underTest.setTypographyTokenData(typographyAttrs)
         underTest.generate()
 
@@ -165,6 +184,14 @@ class ViewThemeGeneratorTest {
                 resourcePrefix = "thmbldr",
                 shouldGenerateResPrefixStyle = true,
             ),
+            viewGradientGenerator = mockk(relaxed = true) {
+                every {
+                    addGradient(gradientAttrs.dark["gradientAccent"]!!)
+                } returns "@drawable/Thmbldr.TestTheme.Gradient.DarkGradientAccent"
+                every {
+                    addGradient(gradientAttrs.light["gradientAccent"]!!)
+                } returns "@drawable/Thmbldr.TestTheme.Gradient.LightGradientAccent"
+            },
         )
 
         val defaultOutputXml = ByteArrayOutputStream()
@@ -178,6 +205,7 @@ class ViewThemeGeneratorTest {
 
         underTest.setShapeTokenData(shapeAttrs)
         underTest.setColorTokenData(colorAttrs)
+        underTest.setGradientTokenData(gradientAttrs)
         underTest.setTypographyTokenData(typographyAttrs)
         underTest.generate()
 
@@ -213,6 +241,37 @@ class ViewThemeGeneratorTest {
             mapOf(
                 "typographyDisplayLNormal" to "@style/Thmbldr.TestTheme.Typography.DisplayLNormal",
                 "typographyHeaderH3Bold" to "@style/Thmbldr.TestTheme.Typography.HeaderH3Bold",
+            ),
+        )
+
+        val gradientAttrs: GradientTokenResult.ViewTokenData = GradientTokenResult.ViewTokenData(
+            light = mapOf(
+                "gradientAccent" to GradientTokenResult.ViewTokenData.Gradient(
+                    nameSnakeCase = "light_gradient_accent",
+                    layers = listOf(
+                        GradientTokenResult.ViewTokenData.Gradient.Layer.Linear(
+                            angle = "@string/light_gradient_accent_angle",
+                            colors = "@array/light_gradient_accent_colors",
+                            stops = "@array/light_gradient_accent_stops",
+                        ),
+                    ),
+                    description = "Accent Gradient",
+                    isTextGradient = false,
+                ),
+            ),
+            dark = mapOf(
+                "gradientAccent" to GradientTokenResult.ViewTokenData.Gradient(
+                    nameSnakeCase = "dark_gradient_accent",
+                    layers = listOf(
+                        GradientTokenResult.ViewTokenData.Gradient.Layer.Linear(
+                            angle = "@string/dark_gradient_accent_angle",
+                            colors = "@array/dark_gradient_accent_colors",
+                            stops = "@array/dark_gradient_accent_stops",
+                        ),
+                    ),
+                    description = "Accent Gradient",
+                    isTextGradient = false,
+                ),
             ),
         )
     }

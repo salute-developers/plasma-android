@@ -1,8 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <attr name="gradientAccent" format="reference"/>
-
     <style name="Theme.Sandbox" parent="Serv.SddsServ.MaterialComponents.DayNight">
-        <item name="gradientAccent">@style/Serv.SddsServ.Gradient.Accent</item>
         <item name="colorPrimary">?serv_surfaceDefaultSolidPrimary</item>
         <item name="colorPrimaryVariant">?serv_surfaceDefaultSolidSecondary</item>
         <item name="colorOnPrimary">?serv_textDefaultPrimary</item>

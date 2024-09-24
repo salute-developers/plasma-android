@@ -95,12 +95,11 @@ internal class GeneratorFactory(
         )
     }
 
-    private val viewGradientAttributeGeneratorFactory by unsafeLazy {
-        ViewGradientAttributeGeneratorFactory(
-            ktFileBuilderFactory = ktFileBuilderFactory,
-            ktFileFromResourcesBuilderFactory = ktFileFromResourcesBuilderFactory,
-            outputLocation = OutputLocation.Directory(outputDir),
-            themeName = themeName,
+    private val viewXmlGradientAttributeGeneratorFactory by unsafeLazy {
+        ViewXmlGradientAttributeGeneratorFactory(
+            xmlDocumentBuilderFactory = xmlResourcesDocumentBuilderFactory,
+            outputResDir = outputResDir,
+            attrPrefix = resPrefixConfig.resourcePrefix,
         )
     }
 
@@ -136,6 +135,14 @@ internal class GeneratorFactory(
         )
     }
 
+    private val viewGradientGeneratorFactory by unsafeLazy {
+        ViewGradientGeneratorFactory(
+            outputResDir = outputResDir,
+            xmlBuilderFactory = xmlResourcesDocumentBuilderFactory,
+            resourceReferenceProvider = resourceReferenceProvider,
+        )
+    }
+
     private val viewThemeGeneratorFactory: ViewThemeGeneratorFactory by unsafeLazy {
         ViewThemeGeneratorFactory(
             xmlResourcesDocumentBuilderFactory,
@@ -143,6 +150,7 @@ internal class GeneratorFactory(
             viewThemeParents,
             themeName,
             resPrefixConfig,
+            viewGradientGeneratorFactory,
         )
     }
 
@@ -175,7 +183,7 @@ internal class GeneratorFactory(
         viewShapeAttributeGeneratorFactory = viewShapeAttributeGeneratorFactory,
         composeShapeAttributeGeneratorFactory = composeShapeAttributeGeneratorFactory,
         composeGradientAttributeGeneratorFactory = composeGradientAttributeGeneratorFactory,
-        viewGradientAttributeGeneratorFactory = viewGradientAttributeGeneratorFactory,
+        viewXmlGradientAttributeGeneratorFactory = viewXmlGradientAttributeGeneratorFactory,
         viewTypographyAttributeGeneratorFactory = viewTypographyAttributeGeneratorFactory,
         composeTypographyAttributeGeneratorFactory = composeTypographyAttributeGeneratorFactory,
         target = target,
@@ -220,6 +228,7 @@ internal class GeneratorFactory(
             ktFileBuilderFactory,
             gradients,
             palette,
+            resourceReferenceProvider,
         )
     }
 

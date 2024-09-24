@@ -3,7 +3,6 @@ package com.sdds.uikit
 import android.content.Context
 import android.content.res.Resources
 import android.content.res.TypedArray
-import android.util.AttributeSet
 import androidx.annotation.StyleRes
 import com.google.android.material.color.MaterialColors
 import com.sdds.uikit.shader.ShaderFactory

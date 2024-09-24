@@ -7,6 +7,7 @@ import com.sdds.plugin.themebuilder.internal.exceptions.ThemeBuilderException
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.generator.SimpleBaseGenerator
 import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult
+import com.sdds.plugin.themebuilder.internal.generator.data.GradientTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.ShapeTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.TypographyTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.mergedLightAndDark
@@ -33,12 +34,15 @@ internal class ViewThemeGenerator(
     private val xmlBuilderFactory: XmlResourcesDocumentBuilderFactory,
     private val outputResDir: File,
     private val viewThemeParents: List<ViewThemeParent>,
+    private val viewGradientGenerator: ViewGradientGenerator,
     private val resPrefixConfig: ResourcePrefixConfig,
     themeName: String,
 ) : SimpleBaseGenerator {
 
-    private var colors: ColorTokenResult.TokenData? = null
+    private var colorData: ColorTokenResult.TokenData? = null
+    private var gradientData: GradientTokenResult.ViewTokenData? = null
     private val colorAttributes = mutableSetOf<String>()
+    private val gradientAttributes = mutableSetOf<String>()
     private val shapes = mutableListOf<ShapeTokenResult.TokenData>()
     private var typography: TypographyTokenResult.ViewTokenData? = null
 
@@ -57,9 +61,15 @@ internal class ViewThemeGenerator(
     private val camelCaseThemeName = themeName.snakeToCamelCase()
 
     internal fun setColorTokenData(data: ColorTokenResult.TokenData) {
-        colors = data
+        colorData = data
         colorAttributes.clear()
         colorAttributes.addAll(data.mergedLightAndDark())
+    }
+
+    internal fun setGradientTokenData(data: GradientTokenResult.ViewTokenData) {
+        gradientData = data
+        gradientAttributes.clear()
+        gradientAttributes.addAll(data.mergedLightAndDark())
     }
 
     internal fun setShapeTokenData(data: List<ShapeTokenResult.TokenData>) {
@@ -95,6 +105,7 @@ internal class ViewThemeGenerator(
             }
         }
 
+        viewGradientGenerator.generate()
         collectEmptyBaseStyles()
         addEmptyStyles()
         buildFiles()
@@ -126,6 +137,7 @@ internal class ViewThemeGenerator(
                 styleName = themeStyleName(mode, parent),
                 parent = parent?.fullName(mode),
                 colorAttributesBlock(lightColorTokens = mode == ThemeMode.LIGHT),
+                gradientAttributesBlock(lightGradientTokens = mode == ThemeMode.LIGHT),
                 shapeAttributesBlock(),
                 typographyAttributesBlock(),
             )
@@ -183,10 +195,30 @@ internal class ViewThemeGenerator(
             val attrs: List<ViewThemeAttribute>
             if (lightColorTokens) {
                 commentText = "Light colors"
-                attrs = colorAttributes.toLightThemeAttrs()
+                attrs = colorAttributes.toLightColorThemeAttrs()
             } else {
                 commentText = "Dark colors"
-                attrs = colorAttributes.toDarkThemeAttrs()
+                attrs = colorAttributes.toDarkColorThemeAttrs()
+            }
+            if (attrs.isNotEmpty()) appendComment(commentText)
+            appendAttrs(
+                attrs = attrs,
+                toElement = this,
+            )
+        }
+
+    private fun XmlResourcesDocumentBuilder.gradientAttributesBlock(
+        lightGradientTokens: Boolean,
+    ): Element.() -> Unit =
+        {
+            val commentText: String
+            val attrs: List<ViewThemeAttribute>
+            if (lightGradientTokens) {
+                commentText = "Light gradients"
+                attrs = gradientAttributes.toLightGradientThemeAttrs()
+            } else {
+                commentText = "Dark gradients"
+                attrs = gradientAttributes.toDarkGradientThemeAttrs()
             }
             if (attrs.isNotEmpty()) appendComment(commentText)
             appendAttrs(
@@ -216,24 +248,42 @@ internal class ViewThemeGenerator(
             )
         } ?: emptyList()
 
-    private fun Set<String>.toDarkThemeAttrs(): List<ViewThemeAttribute> =
+    private fun Set<String>.toDarkColorThemeAttrs(): List<ViewThemeAttribute> =
         map { color ->
             ViewThemeAttribute(
                 name = color,
-                value = colors?.dark?.get(color)
-                    ?: colors?.light?.get(color)
+                value = colorData?.dark?.get(color)
+                    ?: colorData?.light?.get(color)
                     ?: throw ThemeBuilderException("Can't find token value for color $color"),
             )
         }
 
-    private fun Set<String>.toLightThemeAttrs(): List<ViewThemeAttribute> =
+    private fun Set<String>.toLightColorThemeAttrs(): List<ViewThemeAttribute> =
         map { color ->
             ViewThemeAttribute(
                 name = color,
-                value = colors?.light?.get(color)
-                    ?: colors?.dark?.get(color)
+                value = colorData?.light?.get(color)
+                    ?: colorData?.dark?.get(color)
                     ?: throw ThemeBuilderException("Can't find token value for color $color"),
             )
+        }
+
+    private fun Set<String>.toLightGradientThemeAttrs(): List<ViewThemeAttribute> =
+        map { gradient ->
+            val gradientValue = gradientData?.light?.get(gradient)
+                ?: gradientData?.dark?.get(gradient)
+                ?: throw ThemeBuilderException("Can't find token value for gradient $gradient")
+            val resReference = viewGradientGenerator.addGradient(gradientValue)
+            ViewThemeAttribute(name = gradient, value = resReference)
+        }
+
+    private fun Set<String>.toDarkGradientThemeAttrs(): List<ViewThemeAttribute> =
+        map { gradient ->
+            val gradientValue = gradientData?.dark?.get(gradient)
+                ?: gradientData?.light?.get(gradient)
+                ?: throw ThemeBuilderException("Can't find token value for gradient $gradient")
+            val resReference = viewGradientGenerator.addGradient(gradientValue)
+            ViewThemeAttribute(name = gradient, value = resReference)
         }
 
     private fun List<ShapeTokenResult.TokenData>.shapesToThemeAttrs(): List<ViewThemeAttribute> =

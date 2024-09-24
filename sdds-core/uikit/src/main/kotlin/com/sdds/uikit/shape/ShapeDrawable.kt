@@ -239,7 +239,7 @@ open class ShapeDrawable() : Drawable(), Shapeable {
         r: Resources,
         parser: XmlPullParser,
         attrs: AttributeSet,
-        theme: Resources.Theme?
+        theme: Resources.Theme?,
     ) {
         super.inflate(r, parser, attrs, theme)
 
@@ -250,7 +250,7 @@ open class ShapeDrawable() : Drawable(), Shapeable {
             0,
         ) ?: r.obtainAttributes(
             attrs,
-            R.styleable.SdShader
+            R.styleable.SdShader,
         )
         val typedValue = TypedValue()
         val getValueResult = themeTypedArray.getValue(R.styleable.SdShader_sd_shaderAppearance, typedValue)

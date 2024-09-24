@@ -5,25 +5,43 @@
     <!--region Акцентный sweep градиент поверхности-->
     <color name="thmbldr_dark_inverse_surface_accent_color_0">#FF000000</color>
     <color name="thmbldr_dark_inverse_surface_accent_color_1">#FFffffff</color>
-    <item format="float" name="thmbldr_dark_inverse_surface_accent_position_0" type="dimen">0.0</item>
-    <item format="float" name="thmbldr_dark_inverse_surface_accent_position_1" type="dimen">0.7</item>
-    <item format="float" name="thmbldr_dark_inverse_surface_accent_center_x" type="dimen">0.5</item>
-    <item format="float" name="thmbldr_dark_inverse_surface_accent_center_y" type="dimen">0.5</item>
+    <integer-array name="thmbldr_dark_inverse_surface_accent_colors">
+        <item>@color/thmbldr_dark_inverse_surface_accent_color_0</item>
+        <item>@color/thmbldr_dark_inverse_surface_accent_color_1</item>
+    </integer-array>
+    <string name="thmbldr_dark_inverse_surface_accent_center_x">0.5</string>
+    <string name="thmbldr_dark_inverse_surface_accent_center_y">0.5</string>
+    <string-array name="thmbldr_dark_inverse_surface_accent_positions">
+        <item>0.0</item>
+        <item>0.7</item>
+    </string-array>
     <!--endregion Акцентный sweep градиент поверхности-->
     <!--region Третичный линейный градиент поверхности-->
     <color name="thmbldr_light_on_dark_surface_tertiary_color_0">#FF000000</color>
     <color name="thmbldr_light_on_dark_surface_tertiary_color_1">#FFffffff</color>
-    <item format="float" name="thmbldr_light_on_dark_surface_tertiary_position_0" type="dimen">0.0</item>
-    <item format="float" name="thmbldr_light_on_dark_surface_tertiary_position_1" type="dimen">0.7</item>
-    <item format="float" name="thmbldr_light_on_dark_surface_tertiary_angle" type="dimen">90.0</item>
+    <integer-array name="thmbldr_light_on_dark_surface_tertiary_colors">
+        <item>@color/thmbldr_light_on_dark_surface_tertiary_color_0</item>
+        <item>@color/thmbldr_light_on_dark_surface_tertiary_color_1</item>
+    </integer-array>
+    <string name="thmbldr_light_on_dark_surface_tertiary_angle">90.0</string>
+    <string-array name="thmbldr_light_on_dark_surface_tertiary_positions">
+        <item>0.0</item>
+        <item>0.7</item>
+    </string-array>
     <!--endregion Третичный линейный градиент поверхности-->
     <!--region Вторичный радиальный градиент поверхности-->
     <color name="thmbldr_light_on_dark_surface_secondary_color_0">#FF000000</color>
     <color name="thmbldr_light_on_dark_surface_secondary_color_1">#FFffffff</color>
-    <item format="float" name="thmbldr_light_on_dark_surface_secondary_position_0" type="dimen">0.0</item>
-    <item format="float" name="thmbldr_light_on_dark_surface_secondary_position_1" type="dimen">0.7</item>
-    <item format="float" name="thmbldr_light_on_dark_surface_secondary_radius" type="dimen">0.8</item>
-    <item format="float" name="thmbldr_light_on_dark_surface_secondary_center_x" type="dimen">0.5</item>
-    <item format="float" name="thmbldr_light_on_dark_surface_secondary_center_y" type="dimen">0.5</item>
+    <integer-array name="thmbldr_light_on_dark_surface_secondary_colors">
+        <item>@color/thmbldr_light_on_dark_surface_secondary_color_0</item>
+        <item>@color/thmbldr_light_on_dark_surface_secondary_color_1</item>
+    </integer-array>
+    <string name="thmbldr_light_on_dark_surface_secondary_center_x">0.5</string>
+    <string name="thmbldr_light_on_dark_surface_secondary_center_y">0.5</string>
+    <string name="thmbldr_light_on_dark_surface_secondary_radius">0.8</string>
+    <string-array name="thmbldr_light_on_dark_surface_secondary_positions">
+        <item>0.0</item>
+        <item>0.7</item>
+    </string-array>
     <!--endregion Вторичный радиальный градиент поверхности-->
 </resources>

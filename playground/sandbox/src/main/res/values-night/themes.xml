@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <style name="Theme.Sandbox" parent="Serv.SddsServ.MaterialComponents.DayNight">
-        <item name="gradientAccent">@style/Serv.SddsServ.Gradient.Accent</item>
         <item name="colorPrimary">?serv_surfaceDefaultSolidPrimary</item>
         <item name="colorPrimaryVariant">?serv_surfaceDefaultSolidSecondary</item>
         <item name="colorOnPrimary">?serv_textDefaultPrimary</item>

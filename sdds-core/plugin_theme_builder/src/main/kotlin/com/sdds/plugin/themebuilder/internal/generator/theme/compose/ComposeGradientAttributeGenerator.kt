@@ -11,7 +11,7 @@ import com.sdds.plugin.themebuilder.internal.exceptions.ThemeBuilderException
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.KtFileFromResourcesBuilderFactory
 import com.sdds.plugin.themebuilder.internal.generator.SimpleBaseGenerator
-import com.sdds.plugin.themebuilder.internal.generator.data.GradientTokenResult.TokenData
+import com.sdds.plugin.themebuilder.internal.generator.data.GradientTokenResult.ComposeTokenData
 import com.sdds.plugin.themebuilder.internal.generator.data.mergedLightAndDark
 import com.sdds.plugin.themebuilder.internal.utils.snakeToCamelCase
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
@@ -32,7 +32,7 @@ internal class ComposeGradientAttributeGenerator(
     private val themeName: String,
 ) : SimpleBaseGenerator {
 
-    private var tokenData: TokenData? = null
+    private var tokenData: ComposeTokenData? = null
     private val gradientAttributes = mutableSetOf<String>()
 
     private val gradientKtFileBuilder: KtFileBuilder by unsafeLazy {
@@ -49,7 +49,7 @@ internal class ComposeGradientAttributeGenerator(
         gradientKtFileBuilder.getInternalClassType(gradientClassName)
     }
 
-    fun setGradientTokenData(data: TokenData) {
+    fun setGradientTokenData(data: ComposeTokenData) {
         tokenData = data
         gradientAttributes.clear()
         gradientAttributes.addAll(data.mergedLightAndDark())
@@ -256,7 +256,7 @@ internal class ComposeGradientAttributeGenerator(
         val lightLayers = tokenData?.light?.get(attrName)
         val darkLayers = tokenData?.dark?.get(attrName)
 
-        val parameters: List<TokenData.Gradient>
+        val parameters: List<ComposeTokenData.Gradient>
         val objectName: String
 
         if (lightLayers != null) {
@@ -275,7 +275,7 @@ internal class ComposeGradientAttributeGenerator(
         val lightLayers = tokenData?.light?.get(attrName)
         val darkLayers = tokenData?.dark?.get(attrName)
 
-        val parameters: List<TokenData.Gradient>
+        val parameters: List<ComposeTokenData.Gradient>
         val objectName: String
 
         if (darkLayers != null) {
@@ -292,13 +292,13 @@ internal class ComposeGradientAttributeGenerator(
 
     private fun createGradientFabricCall(
         objectName: String,
-        gradient: TokenData.Gradient,
+        gradient: ComposeTokenData.Gradient,
     ): String {
         val funName = when (gradient.gradientType) {
-            TokenData.GradientType.LINEAR -> "linearGradient"
-            TokenData.GradientType.RADIAL -> "radialGradient"
-            TokenData.GradientType.SWEEP -> "sweepGradient"
-            TokenData.GradientType.BACKGROUND -> "singleColor"
+            ComposeTokenData.GradientType.LINEAR -> "linearGradient"
+            ComposeTokenData.GradientType.RADIAL -> "radialGradient"
+            ComposeTokenData.GradientType.SWEEP -> "sweepGradient"
+            ComposeTokenData.GradientType.BACKGROUND -> "singleColor"
         }
         return "$funName(${
             gradient.tokenRefs.joinToString(separator = ",·") { tokenRef ->

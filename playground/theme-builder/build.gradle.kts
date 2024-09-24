@@ -22,7 +22,7 @@ themeBuilder {
         }
         setupShapeAppearance(sddsShape())
     }
-    compose()
+//    compose()
     ktPackage("com.sdds.playground.themebuilder.tokens")
     mode(ThemeBuilderMode.THEME)
     outputLocation(OutputLocation.BUILD)
