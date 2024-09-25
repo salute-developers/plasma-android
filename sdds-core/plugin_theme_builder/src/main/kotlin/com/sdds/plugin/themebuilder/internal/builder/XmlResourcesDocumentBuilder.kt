@@ -29,7 +29,11 @@ internal open class XmlResourcesDocumentBuilder(
 
     private val capitalizedResPrefix = tokenPrefix.capitalized()
     private val camelCaseThemeName = themeName.snakeToCamelCase()
-    private val compositeResourcePrefix = "$capitalizedResPrefix.$camelCaseThemeName"
+    private val compositeResourcePrefix = if (camelCaseThemeName.isNotBlank()) {
+        "$capitalizedResPrefix.$camelCaseThemeName"
+    } else {
+        capitalizedResPrefix
+    }
 
     /**
      * Добавляет элемент в документ
