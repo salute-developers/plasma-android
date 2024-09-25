@@ -48,7 +48,7 @@ import com.sdds.playground.sandbox.radiobox.RadioBoxScreen
 import com.sdds.playground.sandbox.radiobox.group.RadioBoxGroupScreen
 import com.sdds.playground.sandbox.switch.SwitchScreen
 import com.sdds.playground.sandbox.textfield.TextFieldScreen
-import com.sdds.playground.sandbox.tokens.compose.StylesSaluteTheme
+import com.sdds.playground.sandbox.tokens.compose.SddsServTheme
 import kotlinx.coroutines.launch
 import com.sdds.icons.R.drawable as Icons
 
@@ -109,7 +109,7 @@ private fun SandboxContainer() {
     Scaffold(
         scaffoldState = scaffoldState,
         backgroundColor = Color.Transparent,
-        drawerBackgroundColor = StylesSaluteTheme.colors.surfaceDefaultSolidSecondary,
+        drawerBackgroundColor = SddsServTheme.colors.surfaceDefaultSolidSecondary,
         drawerContent = {
             Column(
                 modifier = Modifier.statusBarsPadding(),
@@ -139,7 +139,7 @@ private fun SandboxContainer() {
         Column(
             modifier = Modifier
                 .padding(it)
-                .background(StylesSaluteTheme.colors.backgroundDefaultPrimary)
+                .background(SddsServTheme.colors.backgroundDefaultPrimary)
                 .fillMaxSize(),
         ) {
             currentItem.screen()
@@ -164,7 +164,7 @@ private fun ColumnScope.NavigationItem(
                 onClick = onClick,
             )
             .padding(16.dp),
-        style = StylesSaluteTheme.typography.bodyMBold.copy(color = StylesSaluteTheme.colors.textDefaultPrimary),
+        style = SddsServTheme.typography.bodyMBold.copy(color = SddsServTheme.colors.textDefaultPrimary),
     )
 }
 
@@ -178,8 +178,8 @@ private fun TopBar(
         title = {
             Text(
                 text = title,
-                style = StylesSaluteTheme.typography.bodyMBold
-                    .copy(color = StylesSaluteTheme.colors.textDefaultPrimary),
+                style = SddsServTheme.typography.bodyMBold
+                    .copy(color = SddsServTheme.colors.textDefaultPrimary),
             )
         },
         elevation = 1.dp,
@@ -191,8 +191,8 @@ private fun TopBar(
                 onClick = onNavigationClick,
             )
         },
-        backgroundColor = StylesSaluteTheme.colors.surfaceDefaultSolidPrimary,
-        contentColor = StylesSaluteTheme.colors.textDefaultPrimary,
+        backgroundColor = SddsServTheme.colors.surfaceDefaultSolidPrimary,
+        contentColor = SddsServTheme.colors.textDefaultPrimary,
     )
 }
 

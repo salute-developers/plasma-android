@@ -23,7 +23,7 @@ import com.sdds.playground.sandbox.buttons.SandboxButton
 import com.sdds.playground.sandbox.chip.SandboxEmbeddedChip
 import com.sdds.playground.sandbox.core.ComponentScaffold
 import com.sdds.playground.sandbox.progress.SandboxProgress
-import com.sdds.playground.sandbox.tokens.compose.StylesSaluteTheme
+import com.sdds.playground.sandbox.tokens.compose.SddsServTheme
 
 /**
  * Экран с компонентом [SandboxProgress]
@@ -121,7 +121,7 @@ private fun ChipsContent(
                 Icon(
                     painter = painterResource(id = com.sdds.icons.R.drawable.ic_close_24),
                     contentDescription = "",
-                    tint = StylesSaluteTheme.colors.textDefaultSecondary,
+                    tint = SddsServTheme.colors.textDefaultSecondary,
                     modifier = Modifier.clickable(onClick = { onChipClosePressed?.invoke(chip) }),
                 )
             },
@@ -140,6 +140,7 @@ private fun Boolean.getExampleIcon(icon: Icon): (@Composable () -> Unit)? {
             Icon(
                 painter = painterResource(id = icon.res),
                 contentDescription = "",
+                tint = SddsServTheme.colors.textDefaultSecondary,
             )
         }
     } else {
