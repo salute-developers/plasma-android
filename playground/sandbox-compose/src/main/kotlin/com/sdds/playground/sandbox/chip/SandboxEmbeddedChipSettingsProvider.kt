@@ -9,7 +9,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.adjustBy
-import com.sdds.playground.sandbox.tokens.compose.StylesSaluteTheme
+import com.sdds.playground.sandbox.tokens.compose.SddsServTheme
 
 internal object SandboxEmbeddedChipSettingsProvider {
 
@@ -17,19 +17,19 @@ internal object SandboxEmbeddedChipSettingsProvider {
     fun style(size: SandboxEmbeddedChip.Size, state: SandboxEmbeddedChip.State): TextStyle {
         val color = contentColor(state)
         return when (size) {
-            SandboxEmbeddedChip.Size.L -> StylesSaluteTheme.typography.bodyLNormal.copy(color = color)
-            SandboxEmbeddedChip.Size.M -> StylesSaluteTheme.typography.bodyMNormal.copy(color = color)
-            SandboxEmbeddedChip.Size.S -> StylesSaluteTheme.typography.bodySNormal.copy(color = color)
-            SandboxEmbeddedChip.Size.XS -> StylesSaluteTheme.typography.bodyXsNormal.copy(color = color)
+            SandboxEmbeddedChip.Size.L -> SddsServTheme.typography.bodyLNormal.copy(color = color)
+            SandboxEmbeddedChip.Size.M -> SddsServTheme.typography.bodyMNormal.copy(color = color)
+            SandboxEmbeddedChip.Size.S -> SddsServTheme.typography.bodySNormal.copy(color = color)
+            SandboxEmbeddedChip.Size.XS -> SddsServTheme.typography.bodyXsNormal.copy(color = color)
         }
     }
 
     @Composable
     fun contentColor(state: SandboxEmbeddedChip.State): Color {
         return when (state) {
-            SandboxEmbeddedChip.State.Default -> StylesSaluteTheme.colors.textInversePrimary
-            SandboxEmbeddedChip.State.Secondary -> StylesSaluteTheme.colors.textDefaultPrimary
-            SandboxEmbeddedChip.State.Accent -> StylesSaluteTheme.colors.textOnDarkPrimary
+            SandboxEmbeddedChip.State.Default -> SddsServTheme.colors.textInversePrimary
+            SandboxEmbeddedChip.State.Secondary -> SddsServTheme.colors.textDefaultPrimary
+            SandboxEmbeddedChip.State.Accent -> SddsServTheme.colors.textOnDarkPrimary
         }
     }
 
@@ -37,9 +37,9 @@ internal object SandboxEmbeddedChipSettingsProvider {
     fun backgroundColor(state: SandboxEmbeddedChip.State): Brush {
         return SolidColor(
             when (state) {
-                SandboxEmbeddedChip.State.Default -> StylesSaluteTheme.colors.surfaceDefaultSolidDefault
-                SandboxEmbeddedChip.State.Secondary -> StylesSaluteTheme.colors.surfaceDefaultTransparentSecondary
-                SandboxEmbeddedChip.State.Accent -> StylesSaluteTheme.colors.surfaceDefaultAccent
+                SandboxEmbeddedChip.State.Default -> SddsServTheme.colors.surfaceDefaultSolidDefault
+                SandboxEmbeddedChip.State.Secondary -> SddsServTheme.colors.surfaceDefaultTransparentSecondary
+                SandboxEmbeddedChip.State.Accent -> SddsServTheme.colors.surfaceDefaultAccent
             },
         )
     }
@@ -47,10 +47,10 @@ internal object SandboxEmbeddedChipSettingsProvider {
     @Composable
     fun shape(size: SandboxEmbeddedChip.Size): CornerBasedShape {
         return when (size) {
-            SandboxEmbeddedChip.Size.L -> StylesSaluteTheme.shapes.roundS
-            SandboxEmbeddedChip.Size.M -> StylesSaluteTheme.shapes.roundXs
-            SandboxEmbeddedChip.Size.S -> StylesSaluteTheme.shapes.roundXxs
-            SandboxEmbeddedChip.Size.XS -> StylesSaluteTheme.shapes.roundXxs.adjustBy(all = (-2).dp)
+            SandboxEmbeddedChip.Size.L -> SddsServTheme.shapes.roundS
+            SandboxEmbeddedChip.Size.M -> SddsServTheme.shapes.roundXs
+            SandboxEmbeddedChip.Size.S -> SddsServTheme.shapes.roundXxs
+            SandboxEmbeddedChip.Size.XS -> SddsServTheme.shapes.roundXxs.adjustBy(all = (-2).dp)
         }
     }
 

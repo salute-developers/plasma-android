@@ -9,7 +9,7 @@ import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.Progress
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.progress.SandboxProgressSettingsProvider.progressBrushFor
-import com.sdds.playground.sandbox.tokens.compose.StylesSaluteTheme
+import com.sdds.playground.sandbox.tokens.compose.SddsServTheme
 
 @Composable
 internal fun SandboxProgress(
@@ -21,7 +21,7 @@ internal fun SandboxProgress(
         progress = progress,
         modifier = modifier,
         main = progressBrushFor(style),
-        background = SolidColor(StylesSaluteTheme.colors.surfaceDefaultTransparentSecondary),
+        background = SolidColor(SddsServTheme.colors.surfaceDefaultTransparentSecondary),
     )
 }
 

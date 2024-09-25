@@ -19,7 +19,7 @@ import com.sdds.compose.uikit.ScrollBarConfig
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.playground.sandbox.chip.SandboxEmbeddedChip
 import com.sdds.playground.sandbox.textfield.SandboxTextField.InputState
-import com.sdds.playground.sandbox.tokens.compose.StylesSaluteTheme
+import com.sdds.playground.sandbox.tokens.compose.SddsServTheme
 
 /**
  * Цвета текстового поля
@@ -226,8 +226,8 @@ internal object TextFieldDefaults {
         } else {
             ScrollBarConfig(
                 indicatorThickness = 1.dp,
-                indicatorColor = StylesSaluteTheme.colors.surfaceDefaultTransparentTertiary,
-                backgroundColor = StylesSaluteTheme.colors.surfaceDefaultTransparentPrimary,
+                indicatorColor = SddsServTheme.colors.surfaceDefaultTransparentTertiary,
+                backgroundColor = SddsServTheme.colors.surfaceDefaultTransparentPrimary,
                 padding = PaddingValues(top = 18.dp, end = 2.dp, bottom = 36.dp),
             )
         }
@@ -299,7 +299,7 @@ internal object TextFieldDefaults {
 
                 CoreTextField.DotBadge(
                     size = 6.dp,
-                    color = StylesSaluteTheme.colors.surfaceDefaultNegative,
+                    color = SddsServTheme.colors.surfaceDefaultNegative,
                     position = position,
                     horizontalPadding = horizontalPadding,
                     verticalPadding = verticalPadding,
@@ -313,7 +313,7 @@ internal object TextFieldDefaults {
                     } else {
                         8.dp
                     },
-                    color = StylesSaluteTheme.colors.surfaceDefaultNegative,
+                    color = SddsServTheme.colors.surfaceDefaultNegative,
                     position = position,
                     horizontalPadding = if (size == SandboxTextField.Size.XS) {
                         4.dp
@@ -329,7 +329,7 @@ internal object TextFieldDefaults {
                 } else {
                     8.dp
                 },
-                color = StylesSaluteTheme.colors.surfaceDefaultNegative,
+                color = SddsServTheme.colors.surfaceDefaultNegative,
                 position = position,
             )
         }
@@ -347,10 +347,10 @@ internal object TextFieldDefaults {
     @Composable
     fun chipContainerShape(size: SandboxTextField.Size): CornerBasedShape {
         return when (size) {
-            SandboxTextField.Size.L -> StylesSaluteTheme.shapes.roundS
-            SandboxTextField.Size.M -> StylesSaluteTheme.shapes.roundXs
-            SandboxTextField.Size.S -> StylesSaluteTheme.shapes.roundXxs
-            SandboxTextField.Size.XS -> StylesSaluteTheme.shapes.roundXxs.adjustBy(all = (-2).dp)
+            SandboxTextField.Size.L -> SddsServTheme.shapes.roundS
+            SandboxTextField.Size.M -> SddsServTheme.shapes.roundXs
+            SandboxTextField.Size.S -> SddsServTheme.shapes.roundXxs
+            SandboxTextField.Size.XS -> SddsServTheme.shapes.roundXxs.adjustBy(all = (-2).dp)
         }
     }
 
@@ -575,10 +575,10 @@ internal object TextFieldDefaults {
      */
     @Composable
     fun textFieldShapeFor(size: SandboxTextField.Size) = when (size) {
-        SandboxTextField.Size.XS -> StylesSaluteTheme.shapes.roundS
-        SandboxTextField.Size.S -> StylesSaluteTheme.shapes.roundM.adjustBy(all = (-2).dp)
-        SandboxTextField.Size.M -> StylesSaluteTheme.shapes.roundM
-        SandboxTextField.Size.L -> StylesSaluteTheme.shapes.roundM.adjustBy(all = 2.dp)
+        SandboxTextField.Size.XS -> SddsServTheme.shapes.roundS
+        SandboxTextField.Size.S -> SddsServTheme.shapes.roundM.adjustBy(all = (-2).dp)
+        SandboxTextField.Size.M -> SddsServTheme.shapes.roundM
+        SandboxTextField.Size.L -> SddsServTheme.shapes.roundM.adjustBy(all = 2.dp)
     }
 }
 
@@ -587,12 +587,12 @@ private class DefaultSandboxTextFieldColors : SandboxTextFieldColors {
 
     @Composable
     override fun leadingIconColor(state: InputState): State<Color> {
-        return rememberUpdatedState(StylesSaluteTheme.colors.textDefaultSecondary)
+        return rememberUpdatedState(SddsServTheme.colors.textDefaultSecondary)
     }
 
     @Composable
     override fun trailingIconColor(state: InputState, disabledAlpha: Float): State<Color> {
-        var color = StylesSaluteTheme.colors.textDefaultSecondary
+        var color = SddsServTheme.colors.textDefaultSecondary
         if (state == InputState.ReadOnly) {
             color = color.copy(alpha = color.alpha * disabledAlpha)
         }
@@ -604,12 +604,12 @@ private class DefaultSandboxTextFieldColors : SandboxTextFieldColors {
         val surfaceAlpha = if (isSystemInDarkTheme()) 0.12f else 0.06f
         val readOnlyAlpha = if (isSystemInDarkTheme()) 0.02f else 0.01f
         val color = when (state) {
-            InputState.Normal -> StylesSaluteTheme.colors.surfaceDefaultTransparentPrimary
-            InputState.Focused -> StylesSaluteTheme.colors.surfaceDefaultTransparentSecondary
-            InputState.Error -> StylesSaluteTheme.colors.surfaceDefaultNegative.copy(alpha = surfaceAlpha)
-            InputState.Warning -> StylesSaluteTheme.colors.surfaceDefaultWarning.copy(alpha = surfaceAlpha)
-            InputState.Success -> StylesSaluteTheme.colors.surfaceDefaultPositive.copy(alpha = surfaceAlpha)
-            InputState.ReadOnly -> StylesSaluteTheme.colors.surfaceDefaultSolidDefault.copy(alpha = readOnlyAlpha)
+            InputState.Normal -> SddsServTheme.colors.surfaceDefaultTransparentPrimary
+            InputState.Focused -> SddsServTheme.colors.surfaceDefaultTransparentSecondary
+            InputState.Error -> SddsServTheme.colors.surfaceDefaultNegative.copy(alpha = surfaceAlpha)
+            InputState.Warning -> SddsServTheme.colors.surfaceDefaultWarning.copy(alpha = surfaceAlpha)
+            InputState.Success -> SddsServTheme.colors.surfaceDefaultPositive.copy(alpha = surfaceAlpha)
+            InputState.ReadOnly -> SddsServTheme.colors.surfaceDefaultSolidDefault.copy(alpha = readOnlyAlpha)
         }
         return rememberUpdatedState(color)
     }
@@ -617,12 +617,12 @@ private class DefaultSandboxTextFieldColors : SandboxTextFieldColors {
     @Composable
     override fun dividerColor(state: InputState): State<Color> {
         val color = when (state) {
-            InputState.Normal -> StylesSaluteTheme.colors.surfaceDefaultTransparentTertiary
-            InputState.Focused -> StylesSaluteTheme.colors.surfaceDefaultAccent
-            InputState.Error -> StylesSaluteTheme.colors.surfaceDefaultNegative
-            InputState.Warning -> StylesSaluteTheme.colors.surfaceDefaultWarning
-            InputState.Success -> StylesSaluteTheme.colors.surfaceDefaultPositive
-            InputState.ReadOnly -> StylesSaluteTheme.colors.surfaceDefaultTransparentPrimary
+            InputState.Normal -> SddsServTheme.colors.surfaceDefaultTransparentTertiary
+            InputState.Focused -> SddsServTheme.colors.surfaceDefaultAccent
+            InputState.Error -> SddsServTheme.colors.surfaceDefaultNegative
+            InputState.Warning -> SddsServTheme.colors.surfaceDefaultWarning
+            InputState.Success -> SddsServTheme.colors.surfaceDefaultPositive
+            InputState.ReadOnly -> SddsServTheme.colors.surfaceDefaultTransparentPrimary
         }
         return rememberUpdatedState(color)
     }
@@ -631,17 +631,17 @@ private class DefaultSandboxTextFieldColors : SandboxTextFieldColors {
     override fun placeholderColor(state: InputState, isClear: Boolean): State<Color> {
         return rememberUpdatedState(
             if (state == InputState.Focused) {
-                StylesSaluteTheme.colors.textDefaultTertiary
+                SddsServTheme.colors.textDefaultTertiary
             } else {
                 if (isClear) {
                     when (state) {
-                        InputState.Error -> StylesSaluteTheme.colors.textDefaultNegative
-                        InputState.Warning -> StylesSaluteTheme.colors.textDefaultWarning
-                        InputState.Success -> StylesSaluteTheme.colors.textDefaultPositive
-                        else -> StylesSaluteTheme.colors.textDefaultSecondary
+                        InputState.Error -> SddsServTheme.colors.textDefaultNegative
+                        InputState.Warning -> SddsServTheme.colors.textDefaultWarning
+                        InputState.Success -> SddsServTheme.colors.textDefaultPositive
+                        else -> SddsServTheme.colors.textDefaultSecondary
                     }
                 } else {
-                    StylesSaluteTheme.colors.textDefaultSecondary
+                    SddsServTheme.colors.textDefaultSecondary
                 }
             },
         )
@@ -651,7 +651,7 @@ private class DefaultSandboxTextFieldColors : SandboxTextFieldColors {
     override fun labelColor(state: InputState, type: LabelPosition): State<Color> {
         val color = when (type) {
             LabelPosition.Outer -> textFieldTextColor(state = state)
-            LabelPosition.Inner -> StylesSaluteTheme.colors.textDefaultSecondary
+            LabelPosition.Inner -> SddsServTheme.colors.textDefaultSecondary
         }
         return rememberUpdatedState(color)
     }
@@ -661,9 +661,9 @@ private class DefaultSandboxTextFieldColors : SandboxTextFieldColors {
         return if (isClear) {
             rememberUpdatedState(
                 when (state) {
-                    InputState.Error -> StylesSaluteTheme.colors.textDefaultNegative
-                    InputState.Warning -> StylesSaluteTheme.colors.textDefaultWarning
-                    InputState.Success -> StylesSaluteTheme.colors.textDefaultPositive
+                    InputState.Error -> SddsServTheme.colors.textDefaultNegative
+                    InputState.Warning -> SddsServTheme.colors.textDefaultWarning
+                    InputState.Success -> SddsServTheme.colors.textDefaultPositive
                     else -> textFieldTextColor(state)
                 },
             )
@@ -677,20 +677,20 @@ private class DefaultSandboxTextFieldColors : SandboxTextFieldColors {
         return if (isClear) {
             rememberUpdatedState(
                 when (state) {
-                    InputState.Error -> StylesSaluteTheme.colors.surfaceDefaultNegative
-                    InputState.Warning -> StylesSaluteTheme.colors.surfaceDefaultWarning
-                    InputState.Success -> StylesSaluteTheme.colors.surfaceDefaultPositive
-                    else -> StylesSaluteTheme.colors.textDefaultSecondary
+                    InputState.Error -> SddsServTheme.colors.surfaceDefaultNegative
+                    InputState.Warning -> SddsServTheme.colors.surfaceDefaultWarning
+                    InputState.Success -> SddsServTheme.colors.surfaceDefaultPositive
+                    else -> SddsServTheme.colors.textDefaultSecondary
                 },
             )
         } else {
-            rememberUpdatedState(StylesSaluteTheme.colors.textDefaultSecondary)
+            rememberUpdatedState(SddsServTheme.colors.textDefaultSecondary)
         }
     }
 
     @Composable
     override fun cursorColor(state: InputState): State<Color> {
-        return rememberUpdatedState(StylesSaluteTheme.colors.textDefaultAccent)
+        return rememberUpdatedState(SddsServTheme.colors.textDefaultAccent)
     }
 
     @Composable
@@ -699,29 +699,29 @@ private class DefaultSandboxTextFieldColors : SandboxTextFieldColors {
             InputState.Normal,
             InputState.Focused,
             InputState.ReadOnly,
-            -> StylesSaluteTheme.colors.textDefaultSecondary
+            -> SddsServTheme.colors.textDefaultSecondary
 
-            InputState.Error -> StylesSaluteTheme.colors.textDefaultNegative
-            InputState.Warning -> StylesSaluteTheme.colors.textDefaultWarning
-            InputState.Success -> StylesSaluteTheme.colors.textDefaultPositive
+            InputState.Error -> SddsServTheme.colors.textDefaultNegative
+            InputState.Warning -> SddsServTheme.colors.textDefaultWarning
+            InputState.Success -> SddsServTheme.colors.textDefaultPositive
         }
         return rememberUpdatedState(newValue = color)
     }
 
     @Composable
     override fun optionalColor(): State<Color> {
-        return rememberUpdatedState(StylesSaluteTheme.colors.textDefaultTertiary)
+        return rememberUpdatedState(SddsServTheme.colors.textDefaultTertiary)
     }
 
     @Composable
     private fun textFieldTextColor(state: InputState) = when (state) {
-        InputState.ReadOnly -> StylesSaluteTheme.colors.textDefaultSecondary
+        InputState.ReadOnly -> SddsServTheme.colors.textDefaultSecondary
         InputState.Normal,
         InputState.Focused,
         InputState.Error,
         InputState.Warning,
         InputState.Success,
-        -> StylesSaluteTheme.colors.textDefaultPrimary
+        -> SddsServTheme.colors.textDefaultPrimary
     }
 }
 
@@ -765,10 +765,10 @@ private class DefaultSandboxTextFieldStyles : SandboxTextFieldStyles {
     ): State<TextStyle> {
         val style =
             when (size) {
-                SandboxTextField.Size.XS -> StylesSaluteTheme.typography.bodyXxsNormal
-                SandboxTextField.Size.S -> StylesSaluteTheme.typography.bodyXsNormal
-                SandboxTextField.Size.M -> StylesSaluteTheme.typography.bodyXsNormal
-                SandboxTextField.Size.L -> StylesSaluteTheme.typography.bodyXsNormal
+                SandboxTextField.Size.XS -> SddsServTheme.typography.bodyXxsNormal
+                SandboxTextField.Size.S -> SddsServTheme.typography.bodyXsNormal
+                SandboxTextField.Size.M -> SddsServTheme.typography.bodyXsNormal
+                SandboxTextField.Size.L -> SddsServTheme.typography.bodyXsNormal
             }
         return rememberUpdatedState(
             style.copy(
@@ -789,10 +789,10 @@ private class DefaultSandboxTextFieldStyles : SandboxTextFieldStyles {
     ): State<TextStyle> {
         val style =
             when (size) {
-                SandboxTextField.Size.XS -> StylesSaluteTheme.typography.bodyXxsNormal
-                SandboxTextField.Size.S -> StylesSaluteTheme.typography.bodyXsNormal
-                SandboxTextField.Size.M -> StylesSaluteTheme.typography.bodyXsNormal
-                SandboxTextField.Size.L -> StylesSaluteTheme.typography.bodyXsNormal
+                SandboxTextField.Size.XS -> SddsServTheme.typography.bodyXxsNormal
+                SandboxTextField.Size.S -> SddsServTheme.typography.bodyXsNormal
+                SandboxTextField.Size.M -> SddsServTheme.typography.bodyXsNormal
+                SandboxTextField.Size.L -> SddsServTheme.typography.bodyXsNormal
             }
         return rememberUpdatedState(
             style.copy(
@@ -822,7 +822,7 @@ private class DefaultSandboxTextFieldStyles : SandboxTextFieldStyles {
         inputState: InputState,
     ): State<TextStyle> {
         return rememberUpdatedState(
-            StylesSaluteTheme.typography.bodyXsNormal.copy(
+            SddsServTheme.typography.bodyXsNormal.copy(
                 color = colors.captionColor(inputState).value,
             ),
         )
@@ -831,8 +831,8 @@ private class DefaultSandboxTextFieldStyles : SandboxTextFieldStyles {
     @Composable
     override fun counterStyle(size: SandboxTextField.Size): State<TextStyle> {
         return rememberUpdatedState(
-            StylesSaluteTheme.typography.bodyXsNormal.copy(
-                color = StylesSaluteTheme.colors.textDefaultSecondary,
+            SddsServTheme.typography.bodyXsNormal.copy(
+                color = SddsServTheme.colors.textDefaultSecondary,
             ),
         )
     }
@@ -853,9 +853,9 @@ private class DefaultSandboxTextFieldStyles : SandboxTextFieldStyles {
 
     @Composable
     private fun textFieldTextStyle(size: SandboxTextField.Size) = when (size) {
-        SandboxTextField.Size.XS -> StylesSaluteTheme.typography.bodyXsNormal
-        SandboxTextField.Size.S -> StylesSaluteTheme.typography.bodySNormal
-        SandboxTextField.Size.M -> StylesSaluteTheme.typography.bodyMNormal
-        SandboxTextField.Size.L -> StylesSaluteTheme.typography.bodyLNormal
+        SandboxTextField.Size.XS -> SddsServTheme.typography.bodyXsNormal
+        SandboxTextField.Size.S -> SddsServTheme.typography.bodySNormal
+        SandboxTextField.Size.M -> SddsServTheme.typography.bodyMNormal
+        SandboxTextField.Size.L -> SddsServTheme.typography.bodyLNormal
     }
 }

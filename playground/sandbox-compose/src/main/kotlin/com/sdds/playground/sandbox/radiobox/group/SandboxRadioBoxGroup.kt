@@ -11,7 +11,7 @@ import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.radiobox.SandboxRadioBox
 import com.sdds.playground.sandbox.radiobox.SandboxRadioBoxSettingsProvider.descriptionTextStyleFor
 import com.sdds.playground.sandbox.radiobox.SandboxRadioBoxSettingsProvider.labelTextStyleFor
-import com.sdds.playground.sandbox.tokens.compose.StylesSaluteTheme
+import com.sdds.playground.sandbox.tokens.compose.SddsServTheme
 
 @Composable
 internal fun SandboxRadioBoxGroup(
@@ -30,12 +30,12 @@ internal fun SandboxRadioBoxGroup(
         onSelectionChanged = onSelectionChanged,
         labelTextStyle = labelTextStyleFor(size),
         descriptionTextStyle = descriptionTextStyleFor(size),
-        labelColor = StylesSaluteTheme.colors.textDefaultPrimary,
-        descriptionColor = StylesSaluteTheme.colors.textDefaultSecondary,
-        idleColor = StylesSaluteTheme.colors.textDefaultSecondary,
-        checkedColor = StylesSaluteTheme.colors.surfaceDefaultPositive,
-        focusedColor = StylesSaluteTheme.colors.surfaceDefaultSolidDefault,
-        baseColor = StylesSaluteTheme.colors.textOnDarkPrimary,
+        labelColor = SddsServTheme.colors.textDefaultPrimary,
+        descriptionColor = SddsServTheme.colors.textDefaultSecondary,
+        idleColor = SddsServTheme.colors.textDefaultSecondary,
+        checkedColor = SddsServTheme.colors.surfaceDefaultPositive,
+        focusedColor = SddsServTheme.colors.surfaceDefaultSolidDefault,
+        baseColor = SddsServTheme.colors.textOnDarkPrimary,
         innerDiameter = size.innerDiameter,
         verticalSpacing = size.verticalSpacing,
         horizontalSpacing = size.horizontalSpacing,
