@@ -3,7 +3,6 @@ package com.sdds.uikit.shape
 import android.content.Context
 import android.content.res.ColorStateList
 import android.content.res.Resources
-import android.content.res.TypedArray
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.ColorFilter
@@ -23,6 +22,7 @@ import com.sdds.uikit.internal.base.colorForState
 import com.sdds.uikit.internal.base.configure
 import com.sdds.uikit.internal.base.shape.Shapeable
 import com.sdds.uikit.shader.ShaderFactory
+import com.sdds.uikit.shaderFactory
 import com.sdds.uikit.shape.ShapeModel.Companion.adjust
 import org.xmlpull.v1.XmlPullParser
 
