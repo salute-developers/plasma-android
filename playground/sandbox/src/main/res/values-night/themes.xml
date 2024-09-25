@@ -41,5 +41,9 @@
         <item name="android:progressBarStyle">@style/Theme.Sandbox.Components.ProgressBar.Default</item>
         <item name="sd_avatarStyle">@style/Theme.Sandbox.Components.Avatar.M</item>
         <item name="sd_avatarGroupStyle">@style/Theme.Sandbox.Components.AvatarGroup</item>
+        <item name="sd_checkBoxGroupStyle">@style/Theme.Sandbox.Components.CheckBoxGroup.M</item>
+        <item name="sd_radioBoxGroupStyle">@style/Theme.Sandbox.Components.RadioBoxGroup.M</item>
+        <item name="sd_chipStyle">@style/Theme.Sandbox.Components.Chip.M</item>
+        <item name="sd_chipGroupStyle">@style/Theme.Sandbox.Components.ChipGroup.Wide</item>
     </style>
 </resources>

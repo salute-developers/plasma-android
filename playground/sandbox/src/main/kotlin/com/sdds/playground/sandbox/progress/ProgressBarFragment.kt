@@ -7,6 +7,7 @@ import android.view.ViewGroup.LayoutParams
 import android.widget.FrameLayout
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.core.view.ComponentFragment
 import com.sdds.playground.sandbox.core.view.PropertiesOwner
 import com.sdds.uikit.ProgressBar
@@ -19,7 +20,9 @@ import kotlinx.coroutines.flow.onEach
  */
 internal class ProgressBarFragment : ComponentFragment() {
 
-    private val progressBarParametersViewModel by viewModels<ProgressBarParametersViewModel>()
+    private val progressBarParametersViewModel by viewModels<ProgressBarParametersViewModel> {
+        ProgressBarParametersViewModelFactory(getState { ProgressUiState() })
+    }
 
     override val defaultLayoutParams: FrameLayout.LayoutParams by lazy {
         FrameLayout.LayoutParams(
@@ -30,6 +33,7 @@ internal class ProgressBarFragment : ComponentFragment() {
 
     override val componentLayout: ProgressBar
         get() = ProgressBar(ContextThemeWrapper(requireContext(), currentVariant.styleRes))
+            .apply { id = R.id.progressBar }
             .also { progressBar = it }
 
     override val propertiesOwner: PropertiesOwner

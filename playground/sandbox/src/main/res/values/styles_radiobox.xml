@@ -26,4 +26,14 @@
         <item name="android:textAppearance">@style/Serv.SddsServ.TextAppearance.BodyXsNormal</item>
         <item name="sd_descriptionTextAppearance">@style/Serv.SddsServ.TextAppearance.BodyXsNormal</item>
     </style>
+
+    <style name="Theme.Sandbox.Components.RadioBoxGroup" parent="Sdds.Components.RadioBoxGroup"/>
+
+    <style name="Theme.Sandbox.Components.RadioBoxGroup.M">
+        <item name="sd_itemSpacing">12dp</item>
+    </style>
+
+    <style name="Theme.Sandbox.Components.RadioBoxGroup.S">
+        <item name="sd_itemSpacing">10dp</item>
+    </style>
 </resources>

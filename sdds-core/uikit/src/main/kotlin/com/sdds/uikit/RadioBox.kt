@@ -98,10 +98,6 @@ open class RadioBox @JvmOverloads constructor(
         this.invalidateSelf()
     } ?: Unit
 
-    override fun toggle() {
-        isChecked = !isChecked
-    }
-
     final override fun setButtonIcon(icon: Icon?) {
         super.setButtonIcon(null)
         // buttonDrawable может быть только RadioBoxDrawable или null

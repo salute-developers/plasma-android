@@ -32,3 +32,20 @@ internal enum class CheckBoxVariant(@StyleRes val styleRes: Int) : Parcelable {
     CheckBoxM(R.style.Theme_Sandbox_ComponentOverlays_CheckBoxM),
     CheckBoxS(R.style.Theme_Sandbox_ComponentOverlays_CheckBoxS),
 }
+
+/**
+ * Стили вариаций компонента CheckBoxGroup
+ * @property styleRes ресурс стиля
+ */
+internal enum class CheckBoxGroupVariant(@StyleRes val styleRes: Int) {
+    CheckBoxGroupM(R.style.Theme_Sandbox_ComponentOverlays_CheckBoxGroupM),
+    CheckBoxGroupS(R.style.Theme_Sandbox_ComponentOverlays_CheckBoxGroupS),
+}
+
+/**
+ * Возвращает стили вариаций компонента CheckBoxGroup по [CheckBoxVariant]
+ */
+internal fun CheckBoxVariant.toGroupVariant() = when (this) {
+    CheckBoxVariant.CheckBoxM -> CheckBoxGroupVariant.CheckBoxGroupM
+    CheckBoxVariant.CheckBoxS -> CheckBoxGroupVariant.CheckBoxGroupS
+}

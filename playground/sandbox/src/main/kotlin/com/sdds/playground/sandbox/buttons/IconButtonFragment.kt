@@ -19,12 +19,15 @@ import kotlinx.coroutines.flow.onEach
 internal class IconButtonFragment : ComponentFragment() {
 
     private val buttonViewModel by viewModels<ButtonParametersViewModel> {
-        val default = ButtonUiState(IconButtonVariant.IconButtonLDefault)
-        ButtonParametersViewModelFactory(ButtonType.Icon, getState(default))
+        ButtonParametersViewModelFactory(
+            type = ButtonType.Icon,
+            defaultState = getState { ButtonUiState(IconButtonVariant.IconButtonLDefault) },
+        )
     }
 
     override val componentLayout: Button
         get() = Button(ContextThemeWrapper(requireContext(), currentVariant.styleRes))
+            .apply { id = com.sdds.playground.sandbox.R.id.icon_button }
             .also { button = it }
 
     override val propertiesOwner: PropertiesOwner

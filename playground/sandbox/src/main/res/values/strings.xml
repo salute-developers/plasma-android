@@ -12,8 +12,11 @@
     <string name="menu_basicButton">BasicButton</string>
     <string name="menu_iconButton">IconButton</string>
     <string name="menu_checkbox">CheckBox</string>
+    <string name="menu_checkbox_group">CheckBoxGroup</string>
     <string name="menu_chip">Chip</string>
+    <string name="menu_chip_group">ChipGroup</string>
     <string name="menu_radiobox">RadioBox</string>
+    <string name="menu_radiobox_group">RadioBoxGroup</string>
     <string name="menu_progressbar">ProgressBar</string>
     <string name="menu_switch">Switch</string>
     <string name="menu_textfield">TextField</string>

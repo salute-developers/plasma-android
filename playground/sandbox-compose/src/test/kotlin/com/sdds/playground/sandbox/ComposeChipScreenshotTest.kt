@@ -1,8 +1,8 @@
 package com.sdds.playground.sandbox
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.sdds.playground.sandbox.chip.SandboxChipPreviewSizeLDefault
 import com.sdds.playground.sandbox.chip.SandboxChipPreviewSizeMAccent
-import com.sdds.playground.sandbox.chip.SandboxChipPreviewSizeMDefault
 import com.sdds.playground.sandbox.chip.SandboxChipPreviewSizeSDisabled
 import com.sdds.playground.sandbox.chip.SandboxChipPreviewSizeXsSecondary
 import org.junit.Ignore
@@ -22,9 +22,9 @@ class ComposeChipScreenshotTest : RoborazziConfig() {
      */
     @Test
     @Ignore("Temporarily disabled")
-    fun testChipPreviewSizeMDefault() {
+    fun testChipPreviewSizeLDefault() {
         composeTestRule.setContent {
-            SandboxChipPreviewSizeMDefault()
+            SandboxChipPreviewSizeLDefault()
         }
     }
 

@@ -5,6 +5,7 @@ import android.view.ContextThemeWrapper
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.core.view.ComponentFragment
 import com.sdds.playground.sandbox.core.view.PropertiesOwner
 import com.sdds.uikit.Chip
@@ -18,10 +19,13 @@ import com.sdds.icons.R as Icons
  */
 internal class ChipFragment : ComponentFragment() {
 
-    private val chipParametersViewModel by viewModels<ChipParametersViewModel>()
+    private val chipParametersViewModel by viewModels<ChipParametersViewModel> {
+        ChipParametersViewModelFactory(false, getState { ChipUiState() })
+    }
 
     override val componentLayout: Chip
         get() = Chip(ContextThemeWrapper(requireContext(), currentVariant.styleRes))
+            .apply { id = R.id.chip }
             .also { chip = it }
 
     override val propertiesOwner: PropertiesOwner

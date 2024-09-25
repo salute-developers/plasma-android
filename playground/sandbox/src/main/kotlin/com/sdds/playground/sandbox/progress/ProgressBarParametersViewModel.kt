@@ -1,6 +1,7 @@
 package com.sdds.playground.sandbox.progress
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.sdds.playground.sandbox.core.view.PropertiesOwner
 import com.sdds.playground.sandbox.core.view.Property
@@ -16,9 +17,11 @@ import kotlinx.coroutines.flow.stateIn
 /**
  * ViewModel компонента ProgressBar
  */
-internal class ProgressBarParametersViewModel : ViewModel(), PropertiesOwner {
+internal class ProgressBarParametersViewModel(
+    private val defaultState: ProgressUiState,
+) : ViewModel(), PropertiesOwner {
 
-    private val _progressUiState = MutableStateFlow(ProgressUiState())
+    private val _progressUiState = MutableStateFlow(defaultState)
 
     /**
      * Состояние компонента
@@ -39,7 +42,7 @@ internal class ProgressBarParametersViewModel : ViewModel(), PropertiesOwner {
      * @see PropertiesOwner.resetToDefault
      */
     override fun resetToDefault() {
-        _progressUiState.value = ProgressUiState()
+        _progressUiState.value = defaultState
     }
 
     override fun updateProperty(name: String, value: Any?) {
@@ -84,5 +87,15 @@ internal class ProgressBarParametersViewModel : ViewModel(), PropertiesOwner {
 
     private companion object {
         const val MAX_PROGRESS = 100
+    }
+}
+
+internal class ProgressBarParametersViewModelFactory(
+    private val defaultState: ProgressUiState = ProgressUiState(),
+) : ViewModelProvider.Factory {
+
+    @Suppress("UNCHECKED_CAST")
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        return ProgressBarParametersViewModel(defaultState) as T
     }
 }

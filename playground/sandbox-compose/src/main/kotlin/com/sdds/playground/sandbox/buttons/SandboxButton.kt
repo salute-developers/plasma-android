@@ -297,3 +297,83 @@ internal fun SandboxButtonPreviewSizeLWhiteDarkTheme() {
         )
     }
 }
+
+@Composable
+@Preview
+internal fun SandboxIconButtonPreviewLDefault() {
+    SandboxTheme {
+        SandboxIconButton(
+            icon = painterResource(id = R.drawable.ic_plasma_24),
+            onClick = {},
+            shape = SandboxButton.IconButtonShape.Rounded,
+            size = SandboxButton.Size.L,
+            style = SandboxButton.Style.Default,
+            enabled = true,
+            loading = false,
+        )
+    }
+}
+
+@Composable
+@Preview
+internal fun SandboxIconButtonPreviewMWarning() {
+    SandboxTheme {
+        SandboxIconButton(
+            icon = painterResource(id = R.drawable.ic_plasma_24),
+            onClick = {},
+            shape = SandboxButton.IconButtonShape.Circle,
+            size = SandboxButton.Size.M,
+            style = SandboxButton.Style.Warning,
+            enabled = true,
+            loading = false,
+        )
+    }
+}
+
+@Composable
+@Preview
+internal fun SandboxIconButtonPreviewSDisabled() {
+    SandboxTheme {
+        SandboxIconButton(
+            icon = painterResource(id = R.drawable.ic_plasma_24),
+            onClick = {},
+            shape = SandboxButton.IconButtonShape.Rounded,
+            size = SandboxButton.Size.S,
+            style = SandboxButton.Style.Positive,
+            enabled = false,
+            loading = false,
+        )
+    }
+}
+
+@Composable
+@Preview
+internal fun SandboxIconButtonPreviewXsLoading() {
+    SandboxTheme {
+        SandboxIconButton(
+            icon = painterResource(id = R.drawable.ic_plasma_24),
+            onClick = {},
+            shape = SandboxButton.IconButtonShape.Circle,
+            size = SandboxButton.Size.XS,
+            style = SandboxButton.Style.Dark,
+            enabled = true,
+            loading = true,
+        )
+    }
+}
+
+@Composable
+@Preview
+internal fun SandboxIconButtonPreviewLWhiteDarkTheme() {
+    SandboxTheme(darkTheme = true) {
+        SandboxIconButton(
+            icon = painterResource(id = R.drawable.ic_plasma_24),
+            onClick = {},
+            shape = SandboxButton.IconButtonShape.Rounded,
+            size = SandboxButton.Size.L,
+            style = SandboxButton.Style.White,
+            enabled = true,
+            loading = false,
+        )
+    }
+}

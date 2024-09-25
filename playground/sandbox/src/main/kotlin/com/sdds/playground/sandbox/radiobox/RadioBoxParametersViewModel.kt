@@ -19,6 +19,7 @@ import kotlinx.coroutines.flow.stateIn
  */
 internal class RadioBoxParametersViewModel(
     private val defaultState: RadioBoxUiState,
+    private val groupMode: Boolean,
 ) : ViewModel(), PropertiesOwner {
 
     private val _radioBoxState = MutableStateFlow(defaultState)
@@ -32,7 +33,7 @@ internal class RadioBoxParametersViewModel(
     @OptIn(ExperimentalCoroutinesApi::class)
     override val properties: StateFlow<List<Property<*>>> =
         _radioBoxState
-            .mapLatest { state -> state.toProps() }
+            .mapLatest { state -> if (groupMode) state.toGroupProps() else state.toProps() }
             .stateIn(viewModelScope, SharingStarted.Lazily, emptyList())
 
     override fun updateProperty(name: String, value: Any?) {
@@ -100,6 +101,24 @@ internal class RadioBoxParametersViewModel(
         )
     }
 
+    private fun RadioBoxUiState.toGroupProps(): List<Property<*>> {
+        return listOfNotNull(
+            enumProperty(
+                name = RadioBoxPropertyName.Variant.value,
+                value = variant,
+            ),
+            Property.StringProperty(
+                name = RadioBoxPropertyName.Label.value,
+                value = label.orEmpty(),
+            ),
+
+            Property.StringProperty(
+                name = RadioBoxPropertyName.Description.value,
+                value = description.orEmpty(),
+            ),
+        )
+    }
+
     private enum class RadioBoxPropertyName(val value: String) {
         Variant("variant"),
         Checked("checked"),
@@ -109,12 +128,18 @@ internal class RadioBoxParametersViewModel(
     }
 }
 
+/**
+ * Фабрика [RadioBoxParametersViewModel]
+ * @param groupMode режим группы
+ * @param defaultState состояние по-умолчанию
+ */
 internal class RadioBoxParametersViewModelFactory(
+    private val groupMode: Boolean = false,
     private val defaultState: RadioBoxUiState,
 ) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return RadioBoxParametersViewModel(defaultState) as T
+        return RadioBoxParametersViewModel(groupMode = groupMode, defaultState = defaultState) as T
     }
 }

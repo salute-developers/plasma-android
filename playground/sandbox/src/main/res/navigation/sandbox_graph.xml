@@ -36,15 +36,33 @@
         tools:layout="@layout/fragment_component_scaffold" />
 
     <fragment
+        android:id="@+id/nav_checkbox_group"
+        android:name="com.sdds.playground.sandbox.checkbox.group.CheckBoxGroupFragment"
+        android:label="@string/menu_checkbox_group"
+        tools:layout="@layout/fragment_component_scaffold" />
+
+    <fragment
         android:id="@+id/nav_chip"
         android:name="com.sdds.playground.sandbox.chip.ChipFragment"
         android:label="@string/menu_chip"
         tools:layout="@layout/fragment_component_scaffold" />
 
     <fragment
+        android:id="@+id/nav_chip_group"
+        android:name="com.sdds.playground.sandbox.chip.group.ChipGroupFragment"
+        android:label="@string/menu_chip_group"
+        tools:layout="@layout/fragment_component_scaffold" />
+
+    <fragment
         android:id="@+id/nav_radiobox"
         android:name="com.sdds.playground.sandbox.radiobox.RadioBoxFragment"
         android:label="@string/menu_radiobox"
+        tools:layout="@layout/fragment_component_scaffold" />
+
+    <fragment
+        android:id="@+id/nav_radiobox_group"
+        android:name="com.sdds.playground.sandbox.radiobox.group.RadioBoxGroupFragment"
+        android:label="@string/menu_radiobox_group"
         tools:layout="@layout/fragment_component_scaffold" />
 
     <fragment

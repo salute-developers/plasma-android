@@ -25,12 +25,24 @@
             android:title="@string/menu_checkbox" />
 
         <item
+            android:id="@+id/nav_checkbox_group"
+            android:title="@string/menu_checkbox_group" />
+
+        <item
             android:id="@+id/nav_chip"
             android:title="@string/menu_chip" />
 
         <item
+            android:id="@+id/nav_chip_group"
+            android:title="@string/menu_chip_group" />
+
+        <item
             android:id="@+id/nav_radiobox"
             android:title="@string/menu_radiobox" />
+
+        <item
+            android:id="@+id/nav_radiobox_group"
+            android:title="@string/menu_radiobox_group" />
 
         <item
             android:id="@+id/nav_progressbar"

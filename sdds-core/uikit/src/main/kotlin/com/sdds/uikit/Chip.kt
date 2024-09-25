@@ -5,7 +5,9 @@ import android.content.res.ColorStateList
 import android.graphics.Canvas
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
+import android.view.SoundEffectConstants
 import android.view.View
+import android.widget.Checkable
 import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
 import androidx.annotation.StyleRes
@@ -27,7 +29,18 @@ open class Chip @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.sd_chipStyle,
     defStyleRes: Int = R.style.Sdds_Components_Chip,
-) : View(context, attrs, defStyleAttr), ViewStateHolder, ChipDrawable.Delegate {
+) : View(context, attrs, defStyleAttr), ViewStateHolder, ChipDrawable.Delegate, Checkable {
+
+    /**
+     * Слушатель изменений состояния [isChecked]
+     */
+    fun interface OnCheckedChangeListener {
+
+        /**
+         * Колбэк изменений состояния [isChecked]
+         */
+        fun onCheckedChanged(chip: Chip, isChecked: Boolean)
+    }
 
     private val _chipDrawable: ChipDrawable = ChipDrawable(
         context = context,
@@ -40,6 +53,19 @@ open class Chip @JvmOverloads constructor(
         setPaddings(paddingStart, paddingTop, paddingEnd, paddingBottom)
     }
     private val _viewAlphaHelper = ViewAlphaHelper(context, attrs, defStyleAttr)
+    private var _isCheckable: Boolean = false
+    private var _onCheckedChangedListener: OnCheckedChangeListener? = null
+    private var _isChecked: Boolean = false
+        set(value) {
+            if (field != value) {
+                field = value
+                _onCheckedChangedListener?.onCheckedChanged(this, value)
+            }
+        }
+
+    init {
+        obtainAttributes(context, attrs, defStyleAttr, defStyleRes)
+    }
 
     /**
      * Состояние внешнего вида компонента [Chip]
@@ -81,6 +107,25 @@ open class Chip @JvmOverloads constructor(
             _chipDrawable.drawableEnd = value
             refreshDrawableState()
         }
+
+    /**
+     * Может ли [Chip] изменять состояние [isChecked]
+     */
+    open var isCheckable: Boolean
+        get() = _isCheckable
+        set(value) {
+            if (_isCheckable != value) {
+                _isCheckable = value
+                refreshDrawableState()
+            }
+        }
+
+    /**
+     * Устанавливает слушатель изменения состояния [isChecked]
+     */
+    open fun setOnCheckedChangedListener(listener: OnCheckedChangeListener?) {
+        _onCheckedChangedListener = listener
+    }
 
     /**
      * Устанавливает цвета текста
@@ -175,16 +220,19 @@ open class Chip @JvmOverloads constructor(
         val specWidth = MeasureSpec.getSize(widthMeasureSpec)
         val specHeight = MeasureSpec.getSize(heightMeasureSpec)
 
+        val intrinsicWidth = _chipDrawable.intrinsicWidth
+        val intrinsicHeight = _chipDrawable.intrinsicHeight
+
         val width = when (widthMode) {
-            MeasureSpec.AT_MOST -> minOf(specWidth, maxOf(minimumWidth, _chipDrawable.intrinsicWidth))
+            MeasureSpec.AT_MOST -> minOf(specWidth, maxOf(minimumWidth, intrinsicWidth))
             MeasureSpec.EXACTLY -> specWidth
-            else -> _chipDrawable.intrinsicWidth
+            else -> maxOf(minimumWidth, intrinsicWidth)
         }
 
         val height = when (heightMode) {
-            MeasureSpec.AT_MOST -> minOf(specHeight, maxOf(minimumHeight, _chipDrawable.intrinsicHeight))
+            MeasureSpec.AT_MOST -> minOf(specHeight, maxOf(minimumHeight, intrinsicHeight))
             MeasureSpec.EXACTLY -> specHeight
-            else -> _chipDrawable.intrinsicHeight
+            else -> maxOf(minimumHeight, intrinsicHeight)
         }
         setMeasuredDimension(width, height)
         _chipDrawable.setBounds(0, 0, measuredWidth, measuredHeight)
@@ -202,6 +250,7 @@ open class Chip @JvmOverloads constructor(
     override fun drawableStateChanged() {
         super.drawableStateChanged()
         _chipDrawable.state = drawableState
+        _chipDrawable.invalidateSelf()
     }
 
     override fun onCreateDrawableState(extraSpace: Int): IntArray {
@@ -215,5 +264,37 @@ open class Chip @JvmOverloads constructor(
     override fun onChipDrawableSizeChange() {
         requestLayout()
         invalidateOutline()
+    }
+
+    override fun setChecked(checked: Boolean) {
+        if (_isChecked != checked) {
+            _isChecked = checked
+            refreshDrawableState()
+        }
+    }
+
+    override fun isChecked(): Boolean {
+        return _isChecked
+    }
+
+    override fun toggle() {
+        isChecked = !isChecked && isCheckable
+    }
+
+    override fun performClick(): Boolean {
+        toggle()
+        return super.performClick().also { handled ->
+            if (handled) {
+                playSoundEffect(SoundEffectConstants.CLICK)
+            }
+        }
+    }
+
+    @Suppress("PrivateResource")
+    private fun obtainAttributes(context: Context, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) {
+        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.Chip, defStyleAttr, defStyleRes)
+        _isCheckable = typedArray.getBoolean(R.styleable.Chip_android_checkable, true)
+        _isChecked = typedArray.getBoolean(R.styleable.Chip_android_checked, false)
+        typedArray.recycle()
     }
 }

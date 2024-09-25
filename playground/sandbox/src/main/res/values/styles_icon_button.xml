@@ -9,6 +9,7 @@
         <item name="sd_iconTint">@color/text_color_button</item>
         <item name="sd_valuePadding">0dp</item>
         <item name="sd_iconPadding">0dp</item>
+        <item name="android:textAppearance">@style/Serv.SddsServ.TextAppearance.TextXsNormal</item>
     </style>
 
     <style name="Theme.Sandbox.Components.IconButton.L">

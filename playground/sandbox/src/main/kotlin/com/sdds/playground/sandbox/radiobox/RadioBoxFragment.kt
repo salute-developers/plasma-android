@@ -13,13 +13,13 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
 /**
- * Фрагмент с компонентом CheckBox
+ * Фрагмент с компонентом RadioBox
  * @author Малышев Александр on 15.08.2024
  */
 internal class RadioBoxFragment : ComponentFragment() {
 
     private val radioBoxParametersViewModel by viewModels<RadioBoxParametersViewModel> {
-        RadioBoxParametersViewModelFactory(getState(RadioBoxUiState()))
+        RadioBoxParametersViewModelFactory(false, getState { RadioBoxUiState() })
     }
 
     override val componentLayout: RadioBox

@@ -20,21 +20,23 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.CoreTextField.DotBadge
+import com.sdds.compose.uikit.CoreTextField.HelperTextPosition
+import com.sdds.compose.uikit.CoreTextField.LabelPosition
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.TextField
-import com.sdds.compose.uikit.TextField.DotBadge
-import com.sdds.compose.uikit.TextField.LabelType
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.chip.SandboxEmbeddedChip
-import com.sdds.playground.sandbox.chip.group.SandboxEmbeddedChipGroup
 import com.sdds.playground.sandbox.textfield.SandboxTextField.InputState
 import com.sdds.playground.sandbox.textfield.SandboxTextField.Size
 import com.sdds.playground.sandbox.textfield.SandboxTextField.State
+import com.sdds.playground.sandbox.textfield.TextFieldDefaults.boxMinHeight
 import com.sdds.playground.sandbox.textfield.TextFieldDefaults.chipContainerShape
-import com.sdds.playground.sandbox.textfield.TextFieldDefaults.chipGroupSize
+import com.sdds.playground.sandbox.textfield.TextFieldDefaults.chipHeight
+import com.sdds.playground.sandbox.textfield.TextFieldDefaults.coreTextFieldPaddings
 import com.sdds.playground.sandbox.textfield.TextFieldDefaults.iconSize
+import com.sdds.playground.sandbox.textfield.TextFieldDefaults.scrollBarConfig
 import com.sdds.playground.sandbox.textfield.TextFieldDefaults.textFieldColors
-import com.sdds.playground.sandbox.textfield.TextFieldDefaults.textFieldPaddings
 import com.sdds.playground.sandbox.textfield.TextFieldDefaults.textFieldShapeFor
 import com.sdds.playground.sandbox.textfield.TextFieldDefaults.textFieldStyles
 import com.sdds.playground.sandbox.textfield.TextFieldDefaults.toFieldType
@@ -50,7 +52,7 @@ import com.sdds.playground.sandbox.textfield.TextFieldDefaults.toFieldType
  * @param keyboardActions когда на ввод подается [ImeAction] вызывается соответствующий callback
  * @param visualTransformation фильтр визуального отображения, например [PasswordVisualTransformation]
  * @param placeholderText заглушка если пустое [value] и тип [TextField.LabelType.Outer]
- * @param labelType тип отображения лэйбла: [LabelType.Outer] снаружи поля ввода, [LabelType.Inner] внутри поля ввода
+ * @param labelPosition тип отображения лэйбла: [LabelPosition.Outer] снаружи поля ввода, [LabelPosition.Inner] внутри поля ввода
  * @param fieldType тип текстового поля (обязательное или опциональное)
  * @param dotBadgePosition позиция индикатора-точки. См. [DotBadge.Position]
  * @param labelText текст лэйбла
@@ -63,26 +65,29 @@ import com.sdds.playground.sandbox.textfield.TextFieldDefaults.toFieldType
  * @param chips контент с chip-элементами
  * @param interactionSource источник взаимодействий
  */
-@Suppress("LongParameterList")
+@Suppress("LongParameterList", "LongMethod")
 @Composable
 internal fun SandboxTextField(
     value: TextFieldValue,
     onValueChange: (TextFieldValue) -> Unit,
     modifier: Modifier = Modifier,
+    singleLine: Boolean = true,
     enabled: Boolean = true,
     readOnly: Boolean = false,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
     visualTransformation: VisualTransformation = VisualTransformation.None,
     placeholderText: String? = null,
-    labelType: LabelType = LabelType.Outer,
+    labelPosition: LabelPosition = LabelPosition.Outer,
     fieldType: SandboxTextField.FieldType = SandboxTextField.FieldType.Optional,
+    helperTextPosition: HelperTextPosition = if (singleLine) HelperTextPosition.Outer else HelperTextPosition.Inner,
     dotBadgePosition: DotBadge.Position = DotBadge.Position.Start,
     labelText: String = "",
-    optionalText: String = "Optional",
+    optionalText: String = "",
     state: State = State.Default,
     size: Size = Size.L,
     captionText: String? = null,
+    counterText: String? = null,
     leadingIcon: @Composable (() -> Unit)? = null,
     trailingIcon: @Composable (() -> Unit)? = null,
     chips: @Composable (() -> Unit)? = null,
@@ -94,31 +99,34 @@ internal fun SandboxTextField(
     val styles = textFieldStyles()
     val colors = textFieldColors()
 
-    val label = if (size == Size.XS && labelType == LabelType.Inner) "" else labelText
-
     TextField(
         value = value,
         onValueChange = onValueChange,
         modifier = modifier,
         enabled = enabled,
         readOnly = readOnly,
+        singleLine = singleLine,
         keyboardOptions = keyboardOptions,
         keyboardActions = keyboardActions,
         visualTransformation = visualTransformation,
         placeholderText = placeholderText,
-        labelType = labelType,
+        labelPosition = labelPosition,
         fieldType = fieldType.toFieldType(
-            labelType = labelType,
+            labelPosition = labelPosition,
             position = dotBadgePosition,
             hasLabel = labelText.isNotEmpty(),
-            optionalText = optionalText,
+            optionalText = optionalText.dropInnerForSizeXS(size, labelPosition),
             size = size,
         ),
-        labelText = label,
+        labelText = labelText.dropInnerForSizeXS(size, labelPosition),
+        counterText = counterText,
         captionText = captionText,
         leadingIcon = leadingIcon,
         trailingIcon = trailingIcon,
         chipsContent = chips,
+        chipHeight = chipHeight(size),
+        boxMinHeight = boxMinHeight(size),
+        alignmentLineHeight = boxMinHeight(size),
         shape = textFieldShapeFor(size = size),
         chipContainerShape = chipContainerShape(size),
         outerLabelStyle = styles.outerLabelStyle(size, colors, inputState).value,
@@ -128,16 +136,38 @@ internal fun SandboxTextField(
             isEmpty = value.text.isEmpty(),
             colors = colors,
         ).value,
-        valuesStyle = styles.valueStyle(size, colors, inputState).value,
-        captionStyle = styles.captionStyle(size, colors, inputState).value,
+        innerOptionalStyle = styles.innerOptionalStyle(
+            size = size,
+            inputState = inputState,
+            isEmpty = value.text.isEmpty(),
+            colors = colors,
+        ).value,
+        outerOptionalStyle = styles.outerOptionalStyle(
+            size = size,
+            colors = colors,
+            inputState = inputState,
+        ).value,
+        valueStyle = styles.valueStyle(size, colors, inputState).value,
+        innerCaptionStyle = styles.captionStyle(size, colors, inputState).value,
+        outerCaptionStyle = styles.captionStyle(size, colors, inputState).value,
+        counterTextStyle = styles.counterStyle(size).value,
         placeHolderStyle = styles.placeholderStyle(size, colors, inputState).value,
         backgroundColor = colors.backgroundColor(inputState).value,
         cursorColor = colors.cursorColor(inputState).value,
+        paddings = coreTextFieldPaddings(
+            size = size,
+            labelPosition = labelPosition,
+            helperTextPosition = helperTextPosition,
+            singleLine = singleLine,
+        ),
         iconSize = iconSize(size),
-        paddings = textFieldPaddings(size, labelType, hasChips = chips != null),
-        fieldHeight = size.value,
         interactionSource = interactionSource,
+        scrollBarConfig = scrollBarConfig(),
     )
+}
+
+private fun String.dropInnerForSizeXS(size: Size, labelPosition: LabelPosition): String {
+    return if (size == Size.XS && labelPosition == LabelPosition.Inner) "" else this
 }
 
 /**
@@ -206,22 +236,6 @@ private fun State.toInputState(
     }
 }
 
-@Composable
-internal fun ChipsContent(
-    chips: List<String>?,
-    size: Size,
-    onChipClosePressed: ((String) -> Unit)?,
-) {
-    if (chips?.isNotEmpty() == true) {
-        SandboxEmbeddedChipGroup(
-            items = chips,
-            shouldWrap = false,
-            size = chipGroupSize(size),
-            onChipClosedPressed = onChipClosePressed,
-        )
-    }
-}
-
 /**
  * Превью [SandboxTextField]
  */
@@ -236,7 +250,7 @@ internal fun SandboxTextFieldPreview() {
             captionText = "Сaption",
             labelText = "Label",
             fieldType = SandboxTextField.FieldType.Required,
-            labelType = LabelType.Outer,
+            labelPosition = LabelPosition.Outer,
             placeholderText = "Placeholder",
             onValueChange = { value = it },
             leadingIcon = {
@@ -268,7 +282,7 @@ internal fun SandboxTextFieldPreviewXsError() {
             captionText = "Сaption",
             labelText = "",
             placeholderText = "Placeholder",
-            labelType = LabelType.Outer,
+            labelPosition = LabelPosition.Outer,
             size = Size.XS,
             onValueChange = {},
             enabled = true,
@@ -301,7 +315,7 @@ internal fun SandboxTextFieldPreviewLSuccess() {
             labelText = "Label",
             optionalText = "Optional",
             placeholderText = "Placeholder",
-            labelType = LabelType.Outer,
+            labelPosition = LabelPosition.Outer,
             size = Size.L,
             onValueChange = {},
             enabled = true,
@@ -334,7 +348,7 @@ internal fun SandboxTextFieldPreviewMWarning() {
             labelText = "Label",
             optionalText = "",
             placeholderText = "Placeholder",
-            labelType = LabelType.Outer,
+            labelPosition = LabelPosition.Outer,
             size = Size.M,
             onValueChange = {},
             enabled = true,
@@ -367,7 +381,7 @@ internal fun SandboxTextFieldPreviewInner() {
             labelText = "Label",
             optionalText = "",
             placeholderText = "Placeholder",
-            labelType = LabelType.Inner,
+            labelPosition = LabelPosition.Inner,
             size = Size.L,
             onValueChange = {},
             enabled = true,
@@ -400,7 +414,7 @@ internal fun SandboxTextFieldPreviewLInactive() {
             labelText = "Label",
             optionalText = "",
             placeholderText = "Placeholder",
-            labelType = LabelType.Inner,
+            labelPosition = LabelPosition.Inner,
             size = Size.L,
             onValueChange = {},
             enabled = false,
@@ -433,7 +447,7 @@ internal fun SandboxTextFieldPreviewSDefault() {
             labelText = "Label",
             optionalText = "",
             placeholderText = "Placeholder",
-            labelType = LabelType.Outer,
+            labelPosition = LabelPosition.Outer,
             fieldType = SandboxTextField.FieldType.Optional,
             size = Size.S,
             onValueChange = {},
@@ -467,7 +481,7 @@ internal fun SandboxTextFieldPreviewLReadOnly() {
             labelText = "Label",
             optionalText = "",
             placeholderText = "Placeholder",
-            labelType = LabelType.Outer,
+            labelPosition = LabelPosition.Outer,
             size = Size.L,
             onValueChange = {},
             enabled = true,
@@ -500,7 +514,7 @@ internal fun SandboxTextFieldPreviewLPlaceholder() {
             labelText = "Label",
             optionalText = "",
             placeholderText = "Placeholder",
-            labelType = LabelType.Outer,
+            labelPosition = LabelPosition.Outer,
             size = Size.L,
             onValueChange = {},
             enabled = true,
@@ -533,7 +547,7 @@ internal fun SandboxTextFieldPreviewHasDot() {
             labelText = "Label",
             optionalText = "",
             placeholderText = "Placeholder",
-            labelType = LabelType.Outer,
+            labelPosition = LabelPosition.Outer,
             fieldType = SandboxTextField.FieldType.Required,
             size = Size.L,
             onValueChange = {},
@@ -567,7 +581,7 @@ internal fun SandboxTextFieldPreviewHasDotInsideEnd() {
             labelText = "Label",
             optionalText = "",
             placeholderText = "Placeholder",
-            labelType = LabelType.Inner,
+            labelPosition = LabelPosition.Inner,
             fieldType = SandboxTextField.FieldType.Required,
             size = Size.M,
             onValueChange = {},

@@ -8,4 +8,12 @@
     <style name="Theme.Sandbox.ComponentOverlays.CheckBoxS">
         <item name="android:checkboxStyle">@style/Theme.Sandbox.Components.CheckBox.S</item>
     </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.CheckBoxGroupM">
+        <item name="sd_checkBoxGroupStyle">@style/Theme.Sandbox.Components.CheckBoxGroup.M</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.CheckBoxGroupS">
+        <item name="sd_checkBoxGroupStyle">@style/Theme.Sandbox.Components.CheckBoxGroup.S</item>
+    </style>
 </resources>
