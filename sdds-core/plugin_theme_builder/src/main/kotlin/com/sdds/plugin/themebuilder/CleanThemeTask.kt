@@ -3,7 +3,6 @@ package com.sdds.plugin.themebuilder
 import org.gradle.api.DefaultTask
 import org.gradle.api.provider.Property
 import org.gradle.api.tasks.Input
-import org.gradle.api.tasks.OutputDirectory
 import org.gradle.api.tasks.TaskAction
 import java.io.File
 
@@ -22,7 +21,7 @@ abstract class CleanThemeTask : DefaultTask() {
     /**
      * Путь для сохранения xml-файлов токенов
      */
-    @get:OutputDirectory
+    @get:Input
     abstract val outputResDirPath: Property<String>
 
     /**
