@@ -146,7 +146,7 @@ abstract class GenerateThemeTask : DefaultTask() {
     /**
      * Путь для сохранения kt-файлов токенов
      */
-    @get:Input
+    @get:OutputDirectory
     abstract val outputDirPath: Property<String>
 
     /**
@@ -156,7 +156,7 @@ abstract class GenerateThemeTask : DefaultTask() {
     abstract val outputResDirPath: Property<String>
 
     /**
-     * Префикс для названий ресурсов токенов
+     * Конфигурация размеров
      */
     @get:Input
     abstract val dimensionsConfig: Property<DimensionsConfig>
