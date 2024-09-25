@@ -91,7 +91,7 @@ internal class ShapeHelper(
                 }
             }
 
-            else -> ShapeDrawable()
+            else -> ShapeDrawable().setupBackground()
         }
             .apply {
                 DrawableCompat.setTintList(this, view.backgroundTintList)
