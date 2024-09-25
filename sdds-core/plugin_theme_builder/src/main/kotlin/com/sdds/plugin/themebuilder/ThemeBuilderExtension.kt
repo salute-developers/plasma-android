@@ -46,7 +46,6 @@ open class ThemeBuilderExtension {
         val builder = ViewConfigBuilder().apply(viewConfigBuilder)
         viewThemeParents = builder.themeParents
         viewShapeAppearanceConfig = builder.shapeAppearanceConfig
-        dimensionsConfig = builder.dimensionsConfig
         updateTarget(ThemeBuilderTarget.VIEW_SYSTEM)
     }
 
@@ -141,8 +140,6 @@ class ViewConfigBuilder {
         get() = _themeParents
 
     internal val shapeAppearanceConfig = mutableSetOf<ShapeAppearanceConfig>()
-
-    internal var dimensionsConfig: DimensionsConfig = DimensionsConfig()
 
     /**
      * Указывает родительские темы
