@@ -27,9 +27,9 @@ class ThemeBuilderPlugin : Plugin<Project> {
         val themeZip = project.layout.buildDirectory.file("$THEME_PATH/theme.zip")
         val paletteJson = project.layout.buildDirectory.file("$THEME_PATH/$PALETTE_JSON_NAME")
         val extension = project.themeBuilderExt()
+        project.configureSourceSets()
 
         project.afterEvaluate {
-            project.configureSourceSets(extension.outputLocation)
             project.registerClean(extension)
             val unzipTask = registerFetchAndUnzip(extension, themeZip, paletteJson)
             registerThemeBuilder(extension, unzipTask, extension.autoGenerate)
@@ -94,14 +94,14 @@ class ThemeBuilderPlugin : Plugin<Project> {
         }
     }
 
-    private fun Project.configureSourceSets(outputLocation: OutputLocation) {
+    private fun Project.configureSourceSets() {
         plugins.all {
             when (this) {
                 is AppPlugin -> project.extensions.getByType(AppExtension::class)
-                    .configureSourceSets(outputLocation)
+                    .configureSourceSets()
 
                 is LibraryPlugin -> project.extensions.getByType(LibraryExtension::class)
-                    .configureSourceSets(outputLocation)
+                    .configureSourceSets()
             }
         }
     }
@@ -231,9 +231,15 @@ class ThemeBuilderPlugin : Plugin<Project> {
         )
     }
 
-    private fun BaseExtension.configureSourceSets(outputLocation: OutputLocation) {
-        this.sourceSets.maybeCreate("main").res.srcDir(outputLocation.getResourcePath())
-        this.sourceSets.maybeCreate("main").kotlin.srcDir(outputLocation.getSourcePath())
+    private fun BaseExtension.configureSourceSets() {
+        this.sourceSets.maybeCreate("main").res.apply {
+            srcDir(OutputLocation.BUILD.getResourcePath())
+            srcDir(OutputLocation.SRC.getResourcePath())
+        }
+        this.sourceSets.maybeCreate("main").kotlin.apply {
+            srcDir(OutputLocation.BUILD.getSourcePath())
+            srcDir(OutputLocation.SRC.getSourcePath())
+        }
     }
 
     private fun Project.getDefaultResourcePrefix(): String {
