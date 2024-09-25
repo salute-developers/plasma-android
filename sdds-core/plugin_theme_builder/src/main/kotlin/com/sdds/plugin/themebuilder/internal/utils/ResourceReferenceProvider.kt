@@ -85,10 +85,10 @@ internal class ResourceReferenceProvider(
 
     /**
      * Возвращает ссылку на drawable с названием [name].
-     * Например, если drawable называется button_bg,
-     * то функция вернет ссылку @drawable/button_bg
+     * Например, если drawable называется button_bg, и ресурсам задан префикс "pref",
+     * то функция вернет ссылку @drawable/pref_button_bg
      */
     fun drawable(name: String): String {
-        return "@drawable/$name"
+        return "@drawable/${name.withPrefixIfNeed(resourcePrefix)}"
     }
 }

@@ -48,6 +48,7 @@ class GradientDrawableGeneratorTest {
                 resourcePrefix = "thmbldr",
                 themeName = "TestTheme",
             ),
+            resourcePrefix = "thmbldr",
         )
     }
 
@@ -69,8 +70,8 @@ class GradientDrawableGeneratorTest {
         val xmlMultiLayerFile = mockk<File>(relaxed = true)
         every { xmlSingleLayerFile.fileWriter() } returns outputSingleXml.writer()
         every { xmlMultiLayerFile.fileWriter() } returns outputMultiLayerXml.writer()
-        every { mockOutputResDir.drawableXmlFile("light_gradient_accent_layer_0") } returns xmlSingleLayerFile
-        every { mockOutputResDir.drawableXmlFile("light_gradient_accent") } returns xmlMultiLayerFile
+        every { mockOutputResDir.drawableXmlFile("thmbldr_light_gradient_accent_layer_0") } returns xmlSingleLayerFile
+        every { mockOutputResDir.drawableXmlFile("thmbldr_light_gradient_accent") } returns xmlMultiLayerFile
 
         val singleDrawableRef = underTest.addDrawable(
             drawableName = "light_gradient_accent_layer_0",
@@ -80,16 +81,16 @@ class GradientDrawableGeneratorTest {
         val layerDrawableRef = underTest.addLayerListDrawable(
             drawableName = "light_gradient_accent",
             drawableRefs = listOf(
-                "@drawable/light_gradient_accent_layer_0",
-                "@drawable/light_gradient_accent_layer_1",
-                "@drawable/light_gradient_accent_layer_2",
+                "@drawable/thmbldr_light_gradient_accent_layer_0",
+                "@drawable/thmbldr_light_gradient_accent_layer_1",
+                "@drawable/thmbldr_light_gradient_accent_layer_2",
             ),
         )
 
         underTest.generate()
 
-        Assert.assertEquals("@drawable/light_gradient_accent_layer_0", singleDrawableRef)
-        Assert.assertEquals("@drawable/light_gradient_accent", layerDrawableRef)
+        Assert.assertEquals("@drawable/thmbldr_light_gradient_accent_layer_0", singleDrawableRef)
+        Assert.assertEquals("@drawable/thmbldr_light_gradient_accent", layerDrawableRef)
 
         Assert.assertEquals(
             getResourceAsText("gradient-outputs/test-gradient-drawable-output.xml"),

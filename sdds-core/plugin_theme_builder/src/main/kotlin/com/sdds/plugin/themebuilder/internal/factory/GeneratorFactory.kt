@@ -140,6 +140,7 @@ internal class GeneratorFactory(
             outputResDir = outputResDir,
             xmlBuilderFactory = xmlResourcesDocumentBuilderFactory,
             resourceReferenceProvider = resourceReferenceProvider,
+            resourcePrefix = resPrefixConfig.resourcePrefix,
         )
     }
 

@@ -13,6 +13,7 @@ internal class ViewGradientGeneratorFactory(
     private val outputResDir: File,
     private val xmlBuilderFactory: XmlResourcesDocumentBuilderFactory,
     private val resourceReferenceProvider: ResourceReferenceProvider,
+    private val resourcePrefix: String,
 ) {
 
     /**
@@ -28,6 +29,7 @@ internal class ViewGradientGeneratorFactory(
             outputResDir = outputResDir,
             xmlBuilderFactory = xmlBuilderFactory,
             resourceReferenceProvider = resourceReferenceProvider,
+            resourcePrefix = resourcePrefix,
         ),
     )
 }

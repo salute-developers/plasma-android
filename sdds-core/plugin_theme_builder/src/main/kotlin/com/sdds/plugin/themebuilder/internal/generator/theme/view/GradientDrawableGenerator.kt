@@ -5,6 +5,7 @@ import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.generator.SimpleBaseGenerator
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.drawableXmlFile
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
+import com.sdds.plugin.themebuilder.internal.utils.withPrefixIfNeed
 import java.io.File
 
 /**
@@ -18,6 +19,7 @@ internal class GradientDrawableGenerator(
     private val outputResDir: File,
     private val xmlBuilderFactory: XmlResourcesDocumentBuilderFactory,
     private val resourceReferenceProvider: ResourceReferenceProvider,
+    private val resourcePrefix: String,
 ) : SimpleBaseGenerator {
 
     private val xmlDocumentBuilders = mutableMapOf<String, XmlResourcesDocumentBuilder>()
@@ -77,7 +79,7 @@ internal class GradientDrawableGenerator(
 
     override fun generate() {
         xmlDocumentBuilders.forEach {
-            it.value.build(outputResDir.drawableXmlFile(it.key))
+            it.value.build(outputResDir.drawableXmlFile(it.key.withPrefixIfNeed(resourcePrefix)))
         }
     }
 
