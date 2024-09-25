@@ -26,7 +26,7 @@ open class ThemeBuilderExtension {
     /**
      * Устанавливает источник темы по имени [name] и версии [version]
      */
-    fun themeSource(name: String, version: String = "latest") {
+    fun themeSource(name: String, version: String = ThemeSourceBuilder.VERSION_LATEST) {
         themeSource = ThemeBuilderSource.withNameAndVersion(name, version)
     }
 
@@ -35,6 +35,21 @@ open class ThemeBuilderExtension {
      */
     fun themeSource(url: String) {
         themeSource = ThemeBuilderSource.withUrl(url)
+    }
+
+    /**
+     * Конфигурирует источник темы
+     */
+    fun themeSource(sourceBuilder: ThemeSourceBuilder.() -> Unit) {
+        val builder = ThemeSourceBuilder().apply(sourceBuilder)
+        val name = builder.name
+        val url = builder.url
+        val version = builder.version
+        themeSource = if (url != null) {
+            ThemeBuilderSource.withUrl(url, name)
+        } else {
+            ThemeBuilderSource.withNameAndVersion(name, version)
+        }
     }
 
     /**
@@ -128,6 +143,44 @@ open class ThemeBuilderExtension {
         fun Project.themeBuilderExt(): ThemeBuilderExtension {
             return extensions.create("themeBuilder", ThemeBuilderExtension::class.java)
         }
+    }
+}
+
+/**
+ * Конфигуратор источника темы
+ */
+class ThemeSourceBuilder {
+    internal var name: String = ThemeBuilderSource.DEFAULT_THEME_NAME
+    internal var url: String? = null
+    internal var version: String = VERSION_LATEST
+
+    /**
+     * Устанавливает кастомный путь к теме
+     */
+    fun url(url: String) {
+        this.url = url
+    }
+
+    /**
+     * Устанавливает название темы
+     */
+    fun name(name: String) {
+        this.name = name
+    }
+
+    /**
+     * Устанавливает версию темы
+     */
+    fun version(version: String) {
+        this.version = version
+    }
+
+    companion object {
+
+        /**
+         * Самая поздняя версия
+         */
+        const val VERSION_LATEST = "latest"
     }
 }
 

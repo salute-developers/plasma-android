@@ -104,7 +104,9 @@ internal class ViewThemeGenerator(
         if (resPrefixConfig.shouldGenerateResPrefixStyle) {
             emptyStylesCollector.add(capitalizedResPrefix)
         }
-        emptyStylesCollector.add("$capitalizedResPrefix.$camelCaseThemeName")
+        if (camelCaseThemeName.isNotBlank()) {
+            emptyStylesCollector.add("$capitalizedResPrefix.$camelCaseThemeName")
+        }
     }
 
     private fun addEmptyStyles() {
@@ -146,27 +148,23 @@ internal class ViewThemeGenerator(
     }
 
     private fun themeStyleName(mode: ThemeMode, parent: ViewThemeParent? = null, withPrefix: Boolean = false): String {
-        return buildString {
-            if (withPrefix) {
-                append(capitalizedResPrefix)
-                append(THEME_NAME_DELIMITER)
-            }
-            append(camelCaseThemeName)
-            parent?.let {
-                append(THEME_NAME_DELIMITER)
-                append(it.childSuffix)
-            }
-            if (mode.suffix.isNotBlank()) {
-                append(THEME_NAME_DELIMITER)
-                append(mode.suffix)
-            }
-        }
+        return listOfNotNull(
+            capitalizedResPrefix.takeIf { withPrefix },
+            camelCaseThemeName.takeIf { it.isNotBlank() },
+            parent?.childSuffix?.takeIf { it.isNotBlank() },
+            mode.suffix.takeIf { it.isNotBlank() },
+        ).joinToString(THEME_NAME_DELIMITER)
     }
 
     private fun collectEmptyStyles(viewThemeParent: ViewThemeParent?) {
         viewThemeParent?.let { themeParent ->
             val subStyles = themeParent.childSuffix.split('.')
-            val styleBuilder = StringBuilder("$capitalizedResPrefix.$camelCaseThemeName")
+            val base = if (camelCaseThemeName.isNotBlank()) {
+                "$capitalizedResPrefix.$camelCaseThemeName"
+            } else {
+                capitalizedResPrefix
+            }
+            val styleBuilder = StringBuilder(base)
             subStyles
                 .subList(0, subStyles.lastIndex)
                 .forEach { subStyle ->
@@ -286,15 +284,11 @@ internal class ViewThemeGenerator(
 
         fun ViewThemeParent.fullName(mode: ThemeMode): String {
             if (mode.suffix.isBlank()) return fullName
-            return buildString {
-                append(themePrefix)
-                append(THEME_NAME_DELIMITER)
-                append(mode.suffix)
-                if (themeSuffix.isNotBlank()) {
-                    append(THEME_NAME_DELIMITER)
-                    append(themeSuffix)
-                }
-            }
+            return listOfNotNull(
+                themePrefix.takeIf { it.isNotBlank() },
+                mode.suffix.takeIf { it.isNotBlank() },
+                themeSuffix.takeIf { it.isNotBlank() },
+            ).joinToString(THEME_NAME_DELIMITER)
         }
     }
 }

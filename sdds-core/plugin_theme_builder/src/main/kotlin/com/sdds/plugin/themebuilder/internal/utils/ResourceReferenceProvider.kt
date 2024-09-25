@@ -40,7 +40,12 @@ internal class ResourceReferenceProvider(
      * то функция вернет ссылку @style/Pref.Typography
      */
     fun style(name: String): String {
-        return "@style/${name.withPrefixIfNeed("$capitalizedPrefix.$camelCaseThemeName", ".")}"
+        val prefix = if (camelCaseThemeName.isNotBlank()) {
+            "$capitalizedPrefix.$camelCaseThemeName"
+        } else {
+            capitalizedPrefix
+        }
+        return "@style/${name.withPrefixIfNeed(prefix, ".")}"
     }
 
     /**
