@@ -17,13 +17,13 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.uikit.CoreTextField.Animation
-import com.sdds.compose.uikit.CoreTextField.DotBadge.Position
-import com.sdds.compose.uikit.CoreTextField.FieldAppearance
-import com.sdds.compose.uikit.CoreTextField.FieldType
-import com.sdds.compose.uikit.CoreTextField.HelperTextPosition
-import com.sdds.compose.uikit.CoreTextField.LabelPosition
-import com.sdds.compose.uikit.CoreTextField.Paddings
+import com.sdds.compose.uikit.TextField.Animation
+import com.sdds.compose.uikit.TextField.FieldAppearance
+import com.sdds.compose.uikit.TextField.FieldType
+import com.sdds.compose.uikit.TextField.HelperTextPosition
+import com.sdds.compose.uikit.TextField.Indicator.Placement
+import com.sdds.compose.uikit.TextField.LabelPlacement
+import com.sdds.compose.uikit.TextField.Paddings
 import com.sdds.compose.uikit.internal.textfield.BaseTextField
 import com.sdds.compose.uikit.internal.textfield.PrefixSuffixTransformation
 
@@ -39,24 +39,20 @@ import com.sdds.compose.uikit.internal.textfield.PrefixSuffixTransformation
  * @param readOnly если false - доступно только для чтения, запись отключена
  * @param fieldAppearance внешний вид поля (с фоном или без)
  * @param fieldType тип текстового поля - обязательное или опциональное (см. [FieldType])
- * @param labelPosition тип отображения лэйбла: [LabelPosition.Outer] снаружи поля ввода, [LabelPosition.Inner] внутри поля ввода
+ * @param labelPlacement тип отображения лэйбла: [LabelPlacement.Outer] снаружи поля ввода, [LabelPlacement.Inner] внутри поля ввода
  * @param helperTextPosition тип отображения вспомогательного текста (caption/counter): [HelperTextPosition.Outer] снаружи поля ввода, [HelperTextPosition.Inner] внутри поля ввода
- * @param placeholderText заглушка если пустое [value] и тип [LabelPosition.Outer]
- * @param labelText текст лэйбла
- * @param captionText текст подписи под полем ввода
- * @param counterText текст счетчика под полем ввода
- * @param leadingIcon иконка, которая будет находиться в начале поля ввода
- * @param trailingIcon иконка, которая будет находиться в конце поля ввода
+ * @param placeholder заглушка если пустое [value] и тип [LabelPlacement.Outer]
+ * @param label текст лэйбла
+ * @param caption текст подписи под полем ввода
+ * @param counter текст счетчика под полем ввода
+ * @param contentStart контент, который будет находиться в начале поля ввода
+ * @param contentEnd контент, который будет находиться в конце поля ввода
  * @param chipsContent контент с chip-элементами. Chip должны иметь одинаковую высоту, которая должна быть задана в параметре [chipHeight]
  * @param valueStyle стиль value
- * @param innerLabelStyle стиль лэйбла в режиме [labelPosition] == [LabelPosition.Inner]
- * @param innerOptionalStyle стиль optional в режиме [labelPosition] == [LabelPosition.Inner]
- * @param innerCaptionStyle стиль надписи в режиме [helperTextPosition] == [HelperTextPosition.Inner]
- * @param innerCounterTextStyle стиль счетчика в режиме [helperTextPosition] == [HelperTextPosition.Inner]
- * @param outerLabelStyle стиль лэйбла в режиме [labelPosition] == [LabelPosition.Outer]
- * @param outerCaptionStyle стиль надписи в режиме [helperTextPosition] == [HelperTextPosition.Outer]
- * @param outerOptionalStyle стиль optional в режиме [labelPosition] == [LabelPosition.Outer]
- * @param outerCounterTextStyle стиль счетчика в режиме [helperTextPosition] == [HelperTextPosition.Outer]
+ * @param labelStyle стиль лэйбла
+ * @param optionalStyle стиль optional
+ * @param captionStyle стиль надписи
+ * @param counterStyle стиль счетчика
  * @param placeHolderStyle стиль placeholder
  * @param startContentColor цвет контента в начале
  * @param cursorColor цвет курсора
@@ -66,7 +62,7 @@ import com.sdds.compose.uikit.internal.textfield.PrefixSuffixTransformation
  * @param chipHeight высота чипов
  * @param iconSize размер иконки
  * @param paddings отступы [TextField]
- * @param scrollBarConfig настройки scroll bar для режима [singleLine] == true
+ * @param scrollBar настройки scroll bar для режима [singleLine] == true
  * @param animation параметры анимации [Animation]
  * @param keyboardOptions для настройки клавиатуры, например [KeyboardType] или [ImeAction]
  * @param keyboardActions когда на ввод подается [ImeAction] вызывается соответствующий callback
@@ -84,30 +80,26 @@ fun TextField(
     enabled: Boolean = true,
     readOnly: Boolean = false,
     fieldType: FieldType? = null,
-    labelPosition: LabelPosition = LabelPosition.Outer,
+    labelPlacement: LabelPlacement = LabelPlacement.Outer,
     fieldAppearance: FieldAppearance = FieldAppearance.Solid(),
     helperTextPosition: HelperTextPosition = if (singleLine || fieldAppearance is FieldAppearance.Clear) {
         HelperTextPosition.Outer
     } else {
         HelperTextPosition.Inner
     },
-    placeholderText: String? = null,
-    labelText: String = "",
-    captionText: String? = null,
-    counterText: String? = null,
-    leadingIcon: @Composable (() -> Unit)? = null,
-    trailingIcon: @Composable (() -> Unit)? = null,
+    placeholder: String? = null,
+    label: String = "",
+    caption: String? = null,
+    counter: String? = null,
+    contentStart: @Composable (() -> Unit)? = null,
+    contentEnd: @Composable (() -> Unit)? = null,
     chipsContent: @Composable (() -> Unit)? = null,
     valueStyle: TextStyle = TextStyle(),
     placeHolderStyle: TextStyle = TextStyle(),
-    innerLabelStyle: TextStyle = TextStyle(),
-    innerOptionalStyle: TextStyle = TextStyle(),
-    innerCaptionStyle: TextStyle = TextStyle(),
-    innerCounterTextStyle: TextStyle = TextStyle(),
-    outerLabelStyle: TextStyle = TextStyle(),
-    outerCaptionStyle: TextStyle = TextStyle(),
-    outerOptionalStyle: TextStyle = TextStyle(),
-    outerCounterTextStyle: TextStyle = TextStyle(),
+    labelStyle: TextStyle = TextStyle(),
+    optionalStyle: TextStyle = TextStyle(),
+    captionStyle: TextStyle = TextStyle(),
+    counterStyle: TextStyle = TextStyle(),
     cursorColor: Color = Color.Blue,
     startContentColor: Color = Color.DarkGray,
     enabledAlpha: Float = 1.0f,
@@ -118,7 +110,7 @@ fun TextField(
     chipHeight: Dp = 44.dp,
     iconSize: Dp = 24.dp,
     paddings: Paddings = Paddings(),
-    scrollBarConfig: ScrollBarConfig? = null,
+    scrollBar: ScrollBar? = null,
     animation: Animation = Animation(),
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
@@ -132,28 +124,24 @@ fun TextField(
         enabled = enabled,
         readOnly = readOnly,
         fieldType = fieldType,
-        labelPosition = labelPosition,
+        labelPlacement = labelPlacement,
         helperTextPosition = helperTextPosition,
         singleLine = singleLine,
-        placeholderText = placeholderText,
-        labelText = labelText,
-        captionText = captionText,
-        counterText = counterText,
-        leadingIcon = leadingIcon,
-        trailingIcon = trailingIcon,
+        placeholder = placeholder,
+        label = label,
+        caption = caption,
+        counter = counter,
+        contentStart = contentStart,
+        contentEnd = contentEnd,
         chipsContent = chipsContent,
         chipHeight = chipHeight,
         boxMinHeight = boxMinHeight,
         alignmentLineHeight = alignmentLineHeight,
-        outerLabelStyle = outerLabelStyle,
-        innerLabelStyle = innerLabelStyle,
+        labelStyle = labelStyle,
         valueStyle = valueStyle,
-        outerCaptionStyle = outerCaptionStyle,
-        innerCaptionStyle = innerCaptionStyle,
-        innerOptionalStyle = innerOptionalStyle,
-        outerOptionalStyle = outerOptionalStyle,
-        innerCounterTextStyle = innerCounterTextStyle,
-        outerCounterTextStyle = outerCounterTextStyle,
+        captionStyle = captionStyle,
+        optionalStyle = optionalStyle,
+        counterStyle = counterStyle,
         placeHolderStyle = placeHolderStyle,
         fieldAppearance = fieldAppearance,
         cursorColor = cursorColor,
@@ -163,7 +151,7 @@ fun TextField(
         chipContainerShape = chipContainerShape,
         paddings = paddings,
         iconSize = iconSize,
-        scrollBarConfig = scrollBarConfig,
+        scrollBar = scrollBar,
         animation = animation,
         keyboardOptions = keyboardOptions,
         keyboardActions = keyboardActions,
@@ -175,7 +163,7 @@ fun TextField(
 /**
  * Параметры текстового поля
  */
-object CoreTextField {
+object TextField {
 
     /**
      * Отступы текстового поля
@@ -191,7 +179,7 @@ object CoreTextField {
      * @property endContentStartPadding отступ перед endContent
      * @property chipsPadding отступ от контейнера с chip-элементами
      * @property chipsSpacing расстояние между chip-элементами
-     * @property keepDotBadgeStartPadding позволяет выставить отступ слева, для случаев, когда нужно сохранить отступ, эквивалентный ширине индикатора обязательного поля.
+     * @property keepIndicatorStartPadding позволяет выставить отступ слева, для случаев, когда нужно сохранить отступ, эквивалентный ширине индикатора обязательного поля.
      * Например, когда TextField используется в списке и состояние fieldType меняется у разных элементов,
      * может появиться необходимость сохранить отступ слева, когда индикатор обзательного поля скрывается.
      */
@@ -208,7 +196,7 @@ object CoreTextField {
         val endContentStartPadding: Dp = 6.dp,
         val chipsPadding: Dp = 6.dp,
         val chipsSpacing: Dp = 2.dp,
-        val keepDotBadgeStartPadding: Dp? = null,
+        val keepIndicatorStartPadding: Dp? = null,
     )
 
     /**
@@ -245,7 +233,7 @@ object CoreTextField {
     /**
      * Типы отображения лейбла
      */
-    enum class LabelPosition {
+    enum class LabelPlacement {
         /**
          * Лэйбл снаружи текстового поля
          */
@@ -255,6 +243,11 @@ object CoreTextField {
          * Лэйбл внутри текстового поля
          */
         Inner,
+
+        /**
+         * Нет лэйбла
+         */
+        None,
     }
 
     /**
@@ -288,11 +281,11 @@ object CoreTextField {
 
         /**
          * Обязательный тип поля.
-         * Когда поле имеет данный тип, к label или к полю добавляется бэйдж-точка [DotBadge].
+         * Когда поле имеет данный тип, к label или к полю добавляется бэйдж-точка [Indicator].
          *
-         * @property dotBadge модель, описывающая бэйдж-точку
+         * @property indicator модель, описывающая бэйдж-точку
          */
-        data class Required(val dotBadge: DotBadge = DotBadge()) : FieldType()
+        data class Required(val indicator: Indicator = Indicator()) : FieldType()
     }
 
     /**
@@ -316,21 +309,21 @@ object CoreTextField {
      * @property horizontalPadding горизонтальный отступ
      * @property verticalPadding вертикальный отступ
      * @property color цвет точки
-     * @property position расположение точки [Position]
+     * @property placement расположение точки [Placement]
      */
     @Immutable
-    data class DotBadge(
+    data class Indicator(
         val size: Dp = 6.dp,
         val horizontalPadding: Dp = 0.dp,
         val verticalPadding: Dp = 0.dp,
         val color: Color = Color.Red,
-        val position: Position = Position.End,
+        val placement: Placement = Placement.End,
     ) {
 
         /**
          * Расположение точки
          */
-        enum class Position {
+        enum class Placement {
             /**
              * Расположение в начале
              */

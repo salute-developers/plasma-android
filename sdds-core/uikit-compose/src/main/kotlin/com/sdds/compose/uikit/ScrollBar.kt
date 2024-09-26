@@ -211,7 +211,7 @@ private fun indicatorLength(
  * @property padding отступы скроллбара
  */
 @Immutable
-data class ScrollBarConfig(
+data class ScrollBar(
     val indicatorThickness: Dp = 2.dp,
     val indicatorColor: Color = Color.DarkGray,
     val backgroundColor: Color = Color.LightGray,
@@ -227,27 +227,27 @@ data class ScrollBarConfig(
  * @param enabled включен ли скролл
  * @param flingBehavior см. [FlingBehavior]
  * @param reverseScrolling обратный скролл
- * @param scrollbarConfig настройки скроллбара
+ * @param scrollbar настройки скроллбара
  */
 fun Modifier.verticalScrollWithScrollbar(
     state: ScrollState,
     enabled: Boolean = true,
     flingBehavior: FlingBehavior? = null,
     reverseScrolling: Boolean = false,
-    scrollbarConfig: ScrollBarConfig = ScrollBarConfig(),
+    scrollbar: ScrollBar = ScrollBar(),
 ) = this
     .scrollbar(
         state = state,
         direction = Orientation.Vertical,
-        indicatorThickness = scrollbarConfig.indicatorThickness,
-        indicatorColor = scrollbarConfig.indicatorColor,
-        backgroundColor = scrollbarConfig.backgroundColor,
-        alpha = scrollbarConfig.alpha ?: if (state.isScrollInProgress) 0.8f else 0f,
-        alphaAnimationSpec = scrollbarConfig.alphaAnimationSpec ?: tween(
+        indicatorThickness = scrollbar.indicatorThickness,
+        indicatorColor = scrollbar.indicatorColor,
+        backgroundColor = scrollbar.backgroundColor,
+        alpha = scrollbar.alpha ?: if (state.isScrollInProgress) 0.8f else 0f,
+        alphaAnimationSpec = scrollbar.alphaAnimationSpec ?: tween(
             delayMillis = if (state.isScrollInProgress) 0 else 1500,
             durationMillis = if (state.isScrollInProgress) 150 else 500,
         ),
-        padding = scrollbarConfig.padding,
+        padding = scrollbar.padding,
     )
     .verticalScroll(state, enabled, flingBehavior, reverseScrolling)
 
@@ -258,26 +258,26 @@ fun Modifier.verticalScrollWithScrollbar(
  * @param enabled включен ли скролл
  * @param flingBehavior см. [FlingBehavior]
  * @param reverseScrolling обратный скролл
- * @param scrollbarConfig настройки скроллбара
+ * @param scrollbar настройки скроллбара
  */
 fun Modifier.horizontalScrollWithScrollbar(
     state: ScrollState,
     enabled: Boolean = true,
     flingBehavior: FlingBehavior? = null,
     reverseScrolling: Boolean = false,
-    scrollbarConfig: ScrollBarConfig = ScrollBarConfig(),
+    scrollbar: ScrollBar = ScrollBar(),
 ) = this
     .scrollbar(
         state = state,
         direction = Orientation.Horizontal,
-        indicatorThickness = scrollbarConfig.indicatorThickness,
-        indicatorColor = scrollbarConfig.indicatorColor,
-        backgroundColor = scrollbarConfig.backgroundColor,
-        alpha = scrollbarConfig.alpha ?: if (state.isScrollInProgress) 0.8f else 0f,
-        alphaAnimationSpec = scrollbarConfig.alphaAnimationSpec ?: tween(
+        indicatorThickness = scrollbar.indicatorThickness,
+        indicatorColor = scrollbar.indicatorColor,
+        backgroundColor = scrollbar.backgroundColor,
+        alpha = scrollbar.alpha ?: if (state.isScrollInProgress) 0.8f else 0f,
+        alphaAnimationSpec = scrollbar.alphaAnimationSpec ?: tween(
             delayMillis = if (state.isScrollInProgress) 0 else 1500,
             durationMillis = if (state.isScrollInProgress) 150 else 500,
         ),
-        padding = scrollbarConfig.padding,
+        padding = scrollbar.padding,
     )
     .horizontalScroll(state, enabled, flingBehavior, reverseScrolling)

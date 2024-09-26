@@ -15,7 +15,7 @@ import com.sdds.compose.uikit.internal.common.FlowRowScope
  * @param modifier модификатор
  * @param horizontalSpacing горизонтальный отступ между элементами
  * @param verticalSpacing вертикальный отступ между элементами
- * @param overflowMode режим переполнения контейнера (см. [ChipGroup.OverflowMode])
+ * @param isWrapped режим переполнения контейнера
  * @param content контент (элементы группы)
  */
 @Composable
@@ -24,14 +24,14 @@ fun ChipGroup(
     modifier: Modifier = Modifier,
     horizontalSpacing: Dp = 2.dp,
     verticalSpacing: Dp = 2.dp,
-    overflowMode: ChipGroup.OverflowMode = ChipGroup.OverflowMode.Wrap,
+    isWrapped: Boolean = true,
     content: @Composable FlowRowScope.() -> Unit,
 ) {
     FlowRowLayout(
         modifier = modifier,
         horizontalSpacing = horizontalSpacing,
         verticalSpacing = verticalSpacing,
-        mode = overflowMode.toFlowRowLayoutMode(),
+        mode = isWrapped.toFlowRowLayoutMode(),
         content = content,
     )
 }
@@ -51,23 +51,14 @@ object ChipGroup {
         Wrap,
 
         /**
-         * Чипы будут добавляться в одну строку без ограничений с возможностью скролла
-         */
-        Scrollable,
-
-        /**
          * Чипы будут добавляться в одну строку без ограничений
          */
         Unlimited,
         ;
 
         internal companion object {
-            fun OverflowMode.toFlowRowLayoutMode(): FlowRowLayout.Mode =
-                when (this) {
-                    Wrap -> FlowRowLayout.Mode.Wrap
-                    Scrollable -> FlowRowLayout.Mode.Scrollable
-                    Unlimited -> FlowRowLayout.Mode.Unlimited
-                }
+            fun Boolean.toFlowRowLayoutMode(): FlowRowLayout.Mode =
+                if (this) FlowRowLayout.Mode.Wrap else FlowRowLayout.Mode.Unlimited
         }
     }
 }

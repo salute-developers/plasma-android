@@ -3,8 +3,8 @@ package com.sdds.playground.sandbox.textfield
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.sdds.compose.uikit.CoreTextField
-import com.sdds.compose.uikit.CoreTextField.DotBadge
+import com.sdds.compose.uikit.TextField
+import com.sdds.compose.uikit.TextField.Indicator
 import com.sdds.playground.sandbox.core.PropertiesOwner
 import com.sdds.playground.sandbox.core.Property
 import com.sdds.playground.sandbox.core.enumProperty
@@ -81,9 +81,9 @@ internal class TextFieldViewModel : ViewModel(), PropertiesOwner {
         )
     }
 
-    private fun updateLabelType(labelPosition: CoreTextField.LabelPosition) {
+    private fun updateLabelType(labelPlacement: TextField.LabelPlacement) {
         _textFieldUiState.value = _textFieldUiState.value.copy(
-            labelPosition = labelPosition,
+            labelPlacement = labelPlacement,
         )
     }
 
@@ -111,9 +111,9 @@ internal class TextFieldViewModel : ViewModel(), PropertiesOwner {
         )
     }
 
-    private fun updateDotBadgePosition(dotBadgePosition: DotBadge.Position) {
+    private fun updateIndicatorPlacement(indicatorPlacement: Indicator.Placement) {
         _textFieldUiState.value = _textFieldUiState.value.copy(
-            dotBadgePosition = dotBadgePosition,
+            indicatorPlacement = indicatorPlacement,
         )
     }
 
@@ -173,14 +173,14 @@ internal class TextFieldViewModel : ViewModel(), PropertiesOwner {
             ),
             enumProperty(
                 name = "label type",
-                value = labelPosition,
+                value = labelPlacement,
                 onApply = { updateLabelType(it) },
             ),
             enumProperty(
-                name = "dot badge position",
-                value = dotBadgePosition,
+                name = "indicator placement",
+                value = indicatorPlacement,
                 onApply = {
-                    updateDotBadgePosition(it)
+                    updateIndicatorPlacement(it)
                 },
             ),
             Property.StringProperty(

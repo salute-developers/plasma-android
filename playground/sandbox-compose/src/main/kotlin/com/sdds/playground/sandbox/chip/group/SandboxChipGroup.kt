@@ -1,8 +1,11 @@
 package com.sdds.playground.sandbox.chip.group
 
+import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -13,7 +16,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.ChipGroup
-import com.sdds.compose.uikit.ChipGroup.OverflowMode
 import com.sdds.compose.uikit.Icon
 import com.sdds.icons.R
 import com.sdds.playground.sandbox.chip.SandboxChip
@@ -30,10 +32,12 @@ internal fun SandboxChipGroup(
     enabled: Boolean = true,
 ) {
     ChipGroup(
-        modifier = modifier,
+        modifier = modifier
+            .applyHorizontalScroll(isWrapped = shouldWrap, rememberScrollState()),
         horizontalSpacing = gap.value,
         verticalSpacing = gap.value,
-        overflowMode = if (shouldWrap) OverflowMode.Wrap else OverflowMode.Scrollable,
+        isWrapped = shouldWrap,
+
     ) {
         items.forEach {
             var isSelected by remember { mutableStateOf(false) }
@@ -75,7 +79,7 @@ internal fun SandboxEmbeddedChipGroup(
         modifier = modifier,
         horizontalSpacing = gap.value,
         verticalSpacing = gap.value,
-        overflowMode = if (shouldWrap) OverflowMode.Wrap else OverflowMode.Unlimited,
+        isWrapped = shouldWrap,
     ) {
         items.forEach {
             SandboxEmbeddedChip(
@@ -98,6 +102,10 @@ internal fun SandboxEmbeddedChipGroup(
             )
         }
     }
+}
+
+private fun Modifier.applyHorizontalScroll(isWrapped: Boolean, scrollState: ScrollState): Modifier {
+    return if (isWrapped) this else Modifier.horizontalScroll(scrollState)
 }
 
 internal object SandboxChipGroup {
