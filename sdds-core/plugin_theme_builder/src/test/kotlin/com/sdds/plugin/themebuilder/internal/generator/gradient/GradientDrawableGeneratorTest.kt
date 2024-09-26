@@ -98,8 +98,8 @@ class GradientDrawableGeneratorTest {
         )
 
         Assert.assertEquals(
-            getResourceAsText("gradient-outputs/test-gradient-drawable-output.xml"),
-            outputSingleXml.toString(),
+            getResourceAsText("gradient-outputs/test-gradient-layer-drawable-output.xml"),
+            outputMultiLayerXml.toString(),
         )
     }
 }
