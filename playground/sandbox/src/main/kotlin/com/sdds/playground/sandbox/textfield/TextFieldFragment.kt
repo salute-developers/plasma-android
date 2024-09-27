@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.core.view.ComponentFragment
 import com.sdds.playground.sandbox.core.view.PropertiesOwner
 import com.sdds.uikit.TextField
@@ -44,6 +45,7 @@ internal open class TextFieldFragment : ComponentFragment() {
                 chipAdapter = adapter
                 addChipsHandler()
             }
+            .apply { id = R.id.textField }
 
     override val propertiesOwner: PropertiesOwner
         get() = textFieldViewModel

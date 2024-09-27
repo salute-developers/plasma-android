@@ -245,9 +245,8 @@ internal fun BaseTextField(
             )
         }
         OuterBottomContent(
-            modifier = Modifier
-                .padding(top = paddings.helperTextPadding),
             helperTextPosition = helperTextPosition,
+            helperTextPadding = paddings.helperTextPadding,
             captionText = captionText,
             counterText = counterText,
             captionStyle = outerCaptionStyle,
@@ -551,16 +550,18 @@ private fun OuterTopContent(
 
 @Composable
 private fun OuterBottomContent(
-    modifier: Modifier,
     captionText: String?,
     counterText: String?,
     captionStyle: TextStyle,
     counterStyle: TextStyle,
     helperTextPosition: HelperTextPosition,
+    helperTextPadding: Dp,
 ) {
-    if (helperTextPosition != HelperTextPosition.Outer) return
+    val isEmpty = captionText.isNullOrEmpty() && counterText.isNullOrEmpty()
+    if (helperTextPosition != HelperTextPosition.Outer || isEmpty) return
     Row(
-        modifier = modifier
+        modifier = Modifier
+            .padding(top = helperTextPadding)
             .fillMaxWidth(),
         horizontalArrangement = Arrangement.SpaceBetween,
     ) {
