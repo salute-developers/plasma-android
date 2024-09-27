@@ -290,15 +290,61 @@ internal fun SandboxTextFieldPreview() {
 
 @Composable
 @Preview(showBackground = true)
+internal fun SandboxTextFieldPreviewXS() {
+    SandboxTheme(darkTheme = true) {
+        SandboxTextField(
+            size = Size.XS,
+            state = State.Default,
+            value = TextFieldValue(text = ""),
+            labelPosition = LabelPosition.Outer,
+            dotBadgePosition = DotBadge.Position.End,
+            fieldType = SandboxTextField.FieldType.Required,
+            labelText = "Label",
+            placeholderText = "Placeholder",
+            captionText = "Caption",
+            onValueChange = {},
+            enabled = true,
+            chips = {
+                SandboxEmbeddedChip(
+                    label = "Chip",
+                    size = SandboxEmbeddedChip.Size.XS,
+                    state = SandboxEmbeddedChip.State.Secondary,
+                    endContent = {
+                        Icon(
+                            painter = painterResource(id = com.sdds.icons.R.drawable.ic_close_16),
+                            contentDescription = "",
+                        )
+                    },
+                )
+                SandboxEmbeddedChip(
+                    label = "Chip",
+                    size = SandboxEmbeddedChip.Size.XS,
+                    state = SandboxEmbeddedChip.State.Secondary,
+                    endContent = {
+                        Icon(
+                            painter = painterResource(id = com.sdds.icons.R.drawable.ic_close_16),
+                            contentDescription = "",
+                        )
+                    },
+                )
+            },
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
 internal fun SandboxTextFieldPreviewXsError() {
     SandboxTheme {
         SandboxTextField(
-            value = TextFieldValue(text = "Value"),
-            captionText = "Сaption",
-            labelText = "",
-            placeholderText = "Placeholder",
-            labelPosition = LabelPosition.Outer,
             size = Size.XS,
+            state = State.Error,
+            value = TextFieldValue(text = ""),
+            labelPosition = LabelPosition.Outer,
+            captionText = "Caption",
+            labelText = "Label",
+            placeholderText = "Placeholder",
+            optionalText = "optional",
             onValueChange = {},
             enabled = true,
             readOnly = false,
@@ -309,13 +355,6 @@ internal fun SandboxTextFieldPreviewXsError() {
                     contentDescription = "",
                 )
             },
-            trailingIcon = {
-                Icon(
-                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_shazam_16),
-                    contentDescription = "",
-                )
-            },
-            state = State.Error,
         )
     }
 }
@@ -325,30 +364,19 @@ internal fun SandboxTextFieldPreviewXsError() {
 internal fun SandboxTextFieldPreviewLSuccess() {
     SandboxTheme {
         SandboxTextField(
-            value = TextFieldValue(text = "Value"),
-            captionText = "Сaption",
-            labelText = "Label",
-            optionalText = "Optional",
-            placeholderText = "Placeholder",
-            labelPosition = LabelPosition.Outer,
+            state = State.Success,
             size = Size.L,
+            value = TextFieldValue(text = "Value"),
+            labelPosition = LabelPosition.Outer,
+            captionText = "",
+            labelText = "Label",
+            optionalText = "",
+            placeholderText = "Placeholder",
             onValueChange = {},
             enabled = true,
             readOnly = false,
+            fieldType = SandboxTextField.FieldType.Required,
             dotBadgePosition = DotBadge.Position.Start,
-            leadingIcon = {
-                Icon(
-                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_scribble_diagonal_24),
-                    contentDescription = "",
-                )
-            },
-            trailingIcon = {
-                Icon(
-                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_shazam_24),
-                    contentDescription = "",
-                )
-            },
-            state = State.Success,
         )
     }
 }
@@ -358,83 +386,47 @@ internal fun SandboxTextFieldPreviewLSuccess() {
 internal fun SandboxTextFieldPreviewMWarning() {
     SandboxTheme {
         SandboxTextField(
-            value = TextFieldValue(text = "Value"),
-            captionText = "Сaption",
-            labelText = "Label",
-            optionalText = "",
-            placeholderText = "Placeholder",
-            labelPosition = LabelPosition.Outer,
             size = Size.M,
-            onValueChange = {},
-            enabled = true,
-            readOnly = false,
-            dotBadgePosition = DotBadge.Position.Start,
-            leadingIcon = {
-                Icon(
-                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_scribble_diagonal_24),
-                    contentDescription = "",
-                )
-            },
-            trailingIcon = {
-                Icon(
-                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_shazam_24),
-                    contentDescription = "",
-                )
-            },
             state = State.Warning,
-        )
-    }
-}
-
-@Composable
-@Preview(showBackground = true)
-internal fun SandboxTextFieldPreviewInner() {
-    SandboxTheme {
-        SandboxTextField(
             value = TextFieldValue(text = "Value"),
-            captionText = "Сaption",
+            labelPosition = LabelPosition.Outer,
+            fieldType = SandboxTextField.FieldType.Required,
+            dotBadgePosition = DotBadge.Position.End,
+            captionText = "",
             labelText = "Label",
             optionalText = "",
             placeholderText = "Placeholder",
-            labelPosition = LabelPosition.Inner,
-            size = Size.L,
             onValueChange = {},
             enabled = true,
             readOnly = false,
-            dotBadgePosition = DotBadge.Position.Start,
             leadingIcon = {
                 Icon(
                     painter = painterResource(id = com.sdds.icons.R.drawable.ic_scribble_diagonal_24),
                     contentDescription = "",
                 )
             },
-            trailingIcon = {
-                Icon(
-                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_shazam_24),
-                    contentDescription = "",
-                )
-            },
-            state = State.Default,
         )
     }
 }
 
 @Composable
 @Preview(showBackground = true)
-internal fun SandboxTextFieldPreviewLInactive() {
+internal fun SandboxTextFieldPreviewSDisabled() {
     SandboxTheme {
         SandboxTextField(
+            size = Size.S,
+            state = State.Default,
             value = TextFieldValue(text = "Value"),
-            captionText = "Сaption",
+            labelPosition = LabelPosition.Inner,
+            dotBadgePosition = DotBadge.Position.End,
+            fieldType = SandboxTextField.FieldType.Required,
+            captionText = "",
             labelText = "Label",
             optionalText = "",
             placeholderText = "Placeholder",
-            labelPosition = LabelPosition.Inner,
-            size = Size.L,
             onValueChange = {},
             enabled = false,
             readOnly = false,
-            dotBadgePosition = DotBadge.Position.Start,
             leadingIcon = {
                 Icon(
                     painter = painterResource(id = com.sdds.icons.R.drawable.ic_scribble_diagonal_24),
@@ -447,162 +439,268 @@ internal fun SandboxTextFieldPreviewLInactive() {
                     contentDescription = "",
                 )
             },
-            state = State.Default,
         )
     }
 }
 
 @Composable
 @Preview(showBackground = true)
-internal fun SandboxTextFieldPreviewSDefault() {
+internal fun SandboxTextFieldPreviewSSuccess() {
     SandboxTheme {
         SandboxTextField(
+            size = Size.S,
+            state = State.Success,
             value = TextFieldValue(text = "Value"),
+            labelPosition = LabelPosition.Outer,
+            fieldType = SandboxTextField.FieldType.Required,
+            dotBadgePosition = DotBadge.Position.End,
             captionText = "Сaption",
             labelText = "Label",
-            optionalText = "",
+            optionalText = "optional",
             placeholderText = "Placeholder",
-            labelPosition = LabelPosition.Outer,
-            fieldType = SandboxTextField.FieldType.Optional,
-            size = Size.S,
             onValueChange = {},
             enabled = true,
             readOnly = false,
-            dotBadgePosition = DotBadge.Position.Start,
-            leadingIcon = {
-                Icon(
-                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_scribble_diagonal_24),
-                    contentDescription = "",
-                )
-            },
-            trailingIcon = {
-                Icon(
-                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_shazam_24),
-                    contentDescription = "",
-                )
-            },
-            state = State.Default,
         )
     }
 }
 
 @Composable
 @Preview(showBackground = true)
-internal fun SandboxTextFieldPreviewLReadOnly() {
+internal fun SandboxTextFieldPreviewSReadOnly() {
     SandboxTheme {
         SandboxTextField(
+            size = Size.S,
+            state = State.Error,
             value = TextFieldValue(text = "Value"),
+            labelPosition = LabelPosition.Inner,
+            fieldType = SandboxTextField.FieldType.Required,
+            dotBadgePosition = DotBadge.Position.Start,
             captionText = "Сaption",
             labelText = "Label",
             optionalText = "",
             placeholderText = "Placeholder",
-            labelPosition = LabelPosition.Outer,
-            size = Size.L,
             onValueChange = {},
             enabled = true,
             readOnly = true,
-            dotBadgePosition = DotBadge.Position.Start,
             leadingIcon = {
                 Icon(
                     painter = painterResource(id = com.sdds.icons.R.drawable.ic_scribble_diagonal_24),
                     contentDescription = "",
                 )
             },
-            trailingIcon = {
-                Icon(
-                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_shazam_24),
-                    contentDescription = "",
-                )
-            },
-            state = State.Default,
         )
     }
 }
 
 @Composable
 @Preview(showBackground = true)
-internal fun SandboxTextFieldPreviewLPlaceholder() {
+internal fun SandboxTextFieldPreviewLInputText() {
     SandboxTheme {
         SandboxTextField(
-            value = TextFieldValue(text = ""),
-            captionText = "Сaption",
-            labelText = "Label",
-            optionalText = "",
-            placeholderText = "Placeholder",
-            labelPosition = LabelPosition.Outer,
             size = Size.L,
+            state = State.Warning,
+            value = TextFieldValue(text = "абвгдежзabcdefg@#643!#\$"),
+            labelPosition = LabelPosition.Inner,
+            fieldType = SandboxTextField.FieldType.Optional,
+            dotBadgePosition = DotBadge.Position.Start,
+            captionText = "",
+            labelText = "Label",
+            optionalText = "optional",
+            placeholderText = "Placeholder",
             onValueChange = {},
             enabled = true,
             readOnly = false,
-            dotBadgePosition = DotBadge.Position.Start,
             leadingIcon = {
                 Icon(
                     painter = painterResource(id = com.sdds.icons.R.drawable.ic_scribble_diagonal_24),
                     contentDescription = "",
                 )
             },
-            trailingIcon = {
-                Icon(
-                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_shazam_24),
-                    contentDescription = "",
-                )
-            },
-            state = State.Default,
         )
     }
 }
 
 @Composable
 @Preview(showBackground = true)
-internal fun SandboxTextFieldPreviewHasDot() {
+internal fun SandboxTextFieldPreviewXsInputText() {
     SandboxTheme {
         SandboxTextField(
-            value = TextFieldValue(text = "Value"),
-            captionText = "Сaption",
-            labelText = "Label",
-            optionalText = "",
-            placeholderText = "Placeholder",
+            size = Size.XS,
+            state = State.Success,
+            value = TextFieldValue(text = "абвгдежзabcdefg@#643!#\$"),
             labelPosition = LabelPosition.Outer,
             fieldType = SandboxTextField.FieldType.Required,
-            size = Size.L,
+            dotBadgePosition = DotBadge.Position.End,
+            captionText = "",
+            labelText = "Label",
+            optionalText = "",
+            placeholderText = "Placeholder",
             onValueChange = {},
             enabled = true,
             readOnly = false,
-            dotBadgePosition = DotBadge.Position.Start,
-            leadingIcon = {
-                Icon(
-                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_scribble_diagonal_24),
-                    contentDescription = "",
-                )
-            },
-            trailingIcon = {
-                Icon(
-                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_shazam_24),
-                    contentDescription = "",
-                )
-            },
-            state = State.Default,
         )
     }
 }
 
 @Composable
 @Preview(showBackground = true)
-internal fun SandboxTextFieldPreviewHasDotInsideEnd() {
+internal fun SandboxTextFieldPreviewXsDotBadgeOutside() {
     SandboxTheme {
         SandboxTextField(
-            value = TextFieldValue(text = "Value"),
+            size = Size.XS,
+            state = State.Warning,
+            value = TextFieldValue(text = ""),
+            labelPosition = LabelPosition.Outer,
+            fieldType = SandboxTextField.FieldType.Required,
+            dotBadgePosition = DotBadge.Position.Start,
             captionText = "Сaption",
             labelText = "Label",
             optionalText = "",
             placeholderText = "Placeholder",
+            onValueChange = {},
+            enabled = true,
+            readOnly = false,
+            leadingIcon = {
+                Icon(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_scribble_diagonal_16),
+                    contentDescription = "",
+                )
+            },
+            trailingIcon = {
+                Icon(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_shazam_16),
+                    contentDescription = "",
+                )
+            },
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxTextFieldPreviewMDotBadgeInside() {
+    SandboxTheme {
+        SandboxTextField(
+            size = Size.M,
+            state = State.Error,
+            value = TextFieldValue(text = ""),
             labelPosition = LabelPosition.Inner,
             fieldType = SandboxTextField.FieldType.Required,
-            size = Size.M,
+            dotBadgePosition = DotBadge.Position.End,
+            captionText = "Сaption",
+            labelText = "Label",
+            optionalText = "",
+            placeholderText = "Placeholder",
             onValueChange = {},
             enabled = true,
             readOnly = false,
+            trailingIcon = {
+                Icon(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_shazam_24),
+                    contentDescription = "",
+                )
+            },
+            chips = {
+                SandboxEmbeddedChip(
+                    label = "Chip",
+                    size = SandboxEmbeddedChip.Size.M,
+                    state = SandboxEmbeddedChip.State.Secondary,
+                    endContent = {
+                        Icon(
+                            painter = painterResource(id = com.sdds.icons.R.drawable.ic_close_24),
+                            contentDescription = "",
+                        )
+                    },
+                )
+                SandboxEmbeddedChip(
+                    label = "Chip",
+                    size = SandboxEmbeddedChip.Size.M,
+                    state = SandboxEmbeddedChip.State.Secondary,
+                    endContent = {
+                        Icon(
+                            painter = painterResource(id = com.sdds.icons.R.drawable.ic_close_24),
+                            contentDescription = "",
+                        )
+                    },
+                )
+            },
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxTextFieldPreviewXsChipsInside() {
+    SandboxTheme {
+        SandboxTextField(
+            size = Size.XS,
+            state = State.Warning,
+            value = TextFieldValue(text = ""),
+            labelPosition = LabelPosition.Outer,
+            fieldType = SandboxTextField.FieldType.Optional,
             dotBadgePosition = DotBadge.Position.End,
+            captionText = "Сaption",
+            labelText = "Label",
+            optionalText = "optional",
+            placeholderText = "Placeholder",
+            onValueChange = {},
+            enabled = true,
+            readOnly = false,
+            trailingIcon = {
+                Icon(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_shazam_16),
+                    contentDescription = "",
+                )
+            },
+            chips = {
+                SandboxEmbeddedChip(
+                    label = "Chip",
+                    size = SandboxEmbeddedChip.Size.XS,
+                    state = SandboxEmbeddedChip.State.Secondary,
+                    endContent = {
+                        Icon(
+                            painter = painterResource(id = com.sdds.icons.R.drawable.ic_close_16),
+                            contentDescription = "",
+                        )
+                    },
+                )
+                SandboxEmbeddedChip(
+                    label = "Chip",
+                    size = SandboxEmbeddedChip.Size.XS,
+                    state = SandboxEmbeddedChip.State.Secondary,
+                    endContent = {
+                        Icon(
+                            painter = painterResource(id = com.sdds.icons.R.drawable.ic_close_16),
+                            contentDescription = "",
+                        )
+                    },
+                )
+            },
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxTextFieldPreviewLSuffixPrefix() {
+    SandboxTheme {
+        SandboxTextField(
+            size = Size.L,
+            state = State.Default,
+            value = TextFieldValue(text = "Value"),
+            labelPosition = LabelPosition.Inner,
+            fieldType = SandboxTextField.FieldType.Optional,
+            dotBadgePosition = DotBadge.Position.Start,
+            captionText = "Сaption",
+            labelText = "Label",
+            optionalText = "optional",
+            placeholderText = "Placeholder",
+            prefix = "TB Prefix",
+            suffix = "TA Suffix",
+            onValueChange = {},
+            enabled = true,
+            readOnly = false,
             leadingIcon = {
                 Icon(
                     painter = painterResource(id = com.sdds.icons.R.drawable.ic_scribble_diagonal_24),
@@ -615,7 +713,6 @@ internal fun SandboxTextFieldPreviewHasDotInsideEnd() {
                     contentDescription = "",
                 )
             },
-            state = State.Default,
         )
     }
 }
