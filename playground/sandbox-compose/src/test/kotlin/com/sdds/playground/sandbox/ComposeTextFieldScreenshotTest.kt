@@ -1,17 +1,19 @@
 package com.sdds.playground.sandbox
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
-import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewHasDot
-import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewHasDotInsideEnd
-import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewInner
-import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewLInactive
-import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewLPlaceholder
-import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewLReadOnly
+import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewLInputText
 import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewLSuccess
+import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewLSuffixPrefix
+import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewMDotBadgeInside
 import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewMWarning
-import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewSDefault
+import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewSDisabled
+import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewSReadOnly
+import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewSSuccess
+import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewXS
+import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewXsChipsInside
+import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewXsDotBadgeOutside
 import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewXsError
-import org.junit.Ignore
+import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewXsInputText
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
@@ -27,7 +29,15 @@ class ComposeTextFieldScreenshotTest : RoborazziConfig() {
      * Запуск скриншот тестов с использованием Preview
      */
     @Test
-    @Ignore("Temporarily disabled")
+    fun testTextFieldPreviewXs() {
+        composeTestRule.setContent {
+            SandboxTheme(darkTheme = true) {
+                SandboxTextFieldPreviewXS()
+            }
+        }
+    }
+
+    @Test
     fun testTextFieldPreviewXsError() {
         composeTestRule.setContent {
             SandboxTextFieldPreviewXsError()
@@ -35,7 +45,6 @@ class ComposeTextFieldScreenshotTest : RoborazziConfig() {
     }
 
     @Test
-    @Ignore("Temporarily disabled")
     fun testTextFieldPreviewLSuccess() {
         composeTestRule.setContent {
             SandboxTextFieldPreviewLSuccess()
@@ -43,7 +52,6 @@ class ComposeTextFieldScreenshotTest : RoborazziConfig() {
     }
 
     @Test
-    @Ignore("Temporarily disabled")
     fun testTextFieldPreviewMWarning() {
         composeTestRule.setContent {
             SandboxTextFieldPreviewMWarning()
@@ -51,58 +59,65 @@ class ComposeTextFieldScreenshotTest : RoborazziConfig() {
     }
 
     @Test
-    @Ignore("Temporarily disabled")
-    fun testTextFieldPreviewInner() {
+    fun testTextFieldPreviewDisabled() {
         composeTestRule.setContent {
-            SandboxTextFieldPreviewInner()
+            SandboxTextFieldPreviewSDisabled()
         }
     }
 
     @Test
-    @Ignore("Temporarily disabled")
-    fun testTextFieldPreviewLInactive() {
+    fun testTextFieldPreviewSSuccess() {
         composeTestRule.setContent {
-            SandboxTextFieldPreviewLInactive()
+            SandboxTextFieldPreviewSSuccess()
         }
     }
 
     @Test
-    @Ignore("Temporarily disabled")
-    fun testTextFieldPreviewSDefault() {
+    fun testTextFieldPreviewReadOnly() {
         composeTestRule.setContent {
-            SandboxTextFieldPreviewSDefault()
+            SandboxTextFieldPreviewSReadOnly()
         }
     }
 
     @Test
-    @Ignore("Temporarily disabled")
-    fun testTextFieldPreviewLReadOnly() {
+    fun testTextFieldPreviewLInputText() {
         composeTestRule.setContent {
-            SandboxTextFieldPreviewLReadOnly()
+            SandboxTextFieldPreviewLInputText()
         }
     }
 
     @Test
-    @Ignore("Temporarily disabled")
-    fun testTextFieldPreviewLPlaceholder() {
+    fun testTextFieldPreviewXsInputText() {
         composeTestRule.setContent {
-            SandboxTextFieldPreviewLPlaceholder()
+            SandboxTextFieldPreviewXsInputText()
         }
     }
 
     @Test
-    @Ignore("Temporarily disabled")
-    fun testTextFieldPreviewHasDot() {
+    fun testTextFieldPreviewHasDotBadgeOutside() {
         composeTestRule.setContent {
-            SandboxTextFieldPreviewHasDot()
+            SandboxTextFieldPreviewXsDotBadgeOutside()
         }
     }
 
     @Test
-    @Ignore("Temporarily disabled")
-    fun testTextFieldPreviewHasDotInsideEnd() {
+    fun testTextFieldPreviewHasDotBadgeInside() {
         composeTestRule.setContent {
-            SandboxTextFieldPreviewHasDotInsideEnd()
+            SandboxTextFieldPreviewMDotBadgeInside()
+        }
+    }
+
+    @Test
+    fun testTextFieldPreviewXsChipsInside() {
+        composeTestRule.setContent {
+            SandboxTextFieldPreviewXsChipsInside()
+        }
+    }
+
+    @Test
+    fun testTextFieldPreviewLSuffixPrefix() {
+        composeTestRule.setContent {
+            SandboxTextFieldPreviewLSuffixPrefix()
         }
     }
 }

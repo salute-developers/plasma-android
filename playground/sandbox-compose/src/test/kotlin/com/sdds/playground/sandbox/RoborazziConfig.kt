@@ -55,7 +55,7 @@ open class RoborazziConfig {
             },
             roborazziOptions = RoborazziOptions(
                 compareOptions = RoborazziOptions.CompareOptions(
-                    changeThreshold = 0.01f,
+                    changeThreshold = 0.005f,
                 ),
             ),
         ),
