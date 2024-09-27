@@ -56,6 +56,10 @@ internal class ComposeThemeGenerator(
                     "remember",
                 ),
             )
+            addImport(
+                packageName = "com.sdds.compose.uikit",
+                names = listOf("ProvideTextStyle"),
+            )
         }
     }
 
