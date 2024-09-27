@@ -421,7 +421,6 @@ internal class GradientTokenGenerator(
         val baseTokenName = token.xmlName + getXmlGradientLayerSuffix(layerIndex)
         val resolvedColor =
             resolveColor(tokenValue.background, token.name, palette, HexFormat.XML_HEX)
-        val colorParameter = "${baseTokenName}_color"
         val colorArrayParameter = "${baseTokenName}_colors"
         val description = token.description + getXmlGradientLayerDescription(layerIndex)
         with(xmlParametersDocumentBuilder) {
@@ -430,7 +429,7 @@ internal class GradientTokenGenerator(
                 appendElementWithContent(ElementName.INTEGER_ARRAY, colorArrayParameter) {
                     appendElement(
                         elementName = ElementName.ITEM,
-                        value = resourceReferenceProvider.color(colorParameter),
+                        value = resourceReferenceProvider.color(baseTokenName),
                     )
                 }
             }
