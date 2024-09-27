@@ -1,6 +1,7 @@
 name: 'Verify screenshots'
 
 on:
+  workflow_dispatch:
   pull_request:
     branches:
       - main

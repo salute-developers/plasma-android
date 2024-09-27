@@ -21,6 +21,7 @@ import kotlinx.parcelize.Parcelize
  * @property hasChips режим поддержки чипов
  * @property chipData данные для чипов
  */
+@Parcelize
 internal data class TextFieldUiState(
     val variant: FieldVariant,
     val state: TextField.FieldState = TextField.FieldState.Default,
@@ -36,15 +37,16 @@ internal data class TextFieldUiState(
     val chipData: List<ExampleChipData> = emptyList(),
     val prefix: String? = "TB",
     val suffix: String? = "TA",
-)
+) : Parcelable
 
 /**
  * Пример данных для чипа
  * @property text текст чипа
  */
+@Parcelize
 internal data class ExampleChipData(
     val text: String,
-)
+) : Parcelable
 
 @Parcelize
 internal sealed interface FieldVariant : Parcelable {
