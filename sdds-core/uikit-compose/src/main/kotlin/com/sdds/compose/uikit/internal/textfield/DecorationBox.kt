@@ -21,7 +21,7 @@ import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.Dp
-import com.sdds.compose.uikit.CoreTextField
+import com.sdds.compose.uikit.TextField
 
 /**
  * Реализация декоратора для многострочного текстового поля.
@@ -37,20 +37,20 @@ internal fun DecorationBox(
     chips: @Composable (() -> Unit)? = null,
     innerTextField: @Composable () -> Unit,
     placeholder: @Composable (() -> Unit)? = null,
-    leadingIcon: @Composable (() -> Unit)? = null,
-    trailingIcon: @Composable (() -> Unit)? = null,
+    contentStart: @Composable (() -> Unit)? = null,
+    contentEnd: @Composable (() -> Unit)? = null,
     innerCaption: @Composable (() -> Unit)? = null,
     innerCounter: @Composable (() -> Unit)? = null,
     valueTextStyle: TextStyle,
     innerLabelTextStyle: TextStyle,
-    paddings: CoreTextField.Paddings,
+    paddings: TextField.Paddings,
     chipContainerShape: CornerBasedShape? = null,
     iconSize: Dp,
     chipHeight: Dp,
     alignmentLineHeight: Dp,
     verticalScrollState: ScrollState?,
     visualTransformation: VisualTransformation,
-    animation: CoreTextField.Animation,
+    animation: TextField.Animation,
     interactionSource: InteractionSource,
 ) {
     val transformedText = remember(value, visualTransformation) {
@@ -94,8 +94,8 @@ internal fun DecorationBox(
             innerLabel = innerLabel,
             innerOptional = innerOptional,
             animationProgress = labelProgress,
-            startIcon = leadingIcon,
-            endIcon = trailingIcon,
+            contentStart = contentStart,
+            contentEnd = contentEnd,
             chips = chips,
             chipHeight = chipHeight,
             alignmentLineHeight = alignmentLineHeight,

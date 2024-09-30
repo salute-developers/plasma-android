@@ -4,15 +4,15 @@ import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewLInputText
 import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewLSuccess
 import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewLSuffixPrefix
-import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewMDotBadgeInside
+import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewMIndicatorInside
 import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewMWarning
 import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewSDisabled
 import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewSReadOnly
 import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewSSuccess
 import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewXS
 import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewXsChipsInside
-import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewXsDotBadgeOutside
 import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewXsError
+import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewXsIndicatorOutside
 import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewXsInputText
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -94,16 +94,16 @@ class ComposeTextFieldScreenshotTest : RoborazziConfig() {
     }
 
     @Test
-    fun testTextFieldPreviewHasDotBadgeOutside() {
+    fun testTextFieldPreviewHasIndicatorOutside() {
         composeTestRule.setContent {
-            SandboxTextFieldPreviewXsDotBadgeOutside()
+            SandboxTextFieldPreviewXsIndicatorOutside()
         }
     }
 
     @Test
-    fun testTextFieldPreviewHasDotBadgeInside() {
+    fun testTextFieldPreviewHasIndicatorInside() {
         composeTestRule.setContent {
-            SandboxTextFieldPreviewMDotBadgeInside()
+            SandboxTextFieldPreviewMIndicatorInside()
         }
     }
 

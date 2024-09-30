@@ -41,8 +41,8 @@ import com.sdds.compose.uikit.internal.common.surface
  * @param label текст
  * @param labelStyle стиль текста
  * @param shape форма компонента
- * @param startContent контент в начале
- * @param endContent контент в конце
+ * @param contentStart контент в начале
+ * @param contentEnd контент в конце
  * @param enabledAlpha альфа в состоянии [enabled] == true
  * @param disabledAlpha альфа в состоянии [enabled] == true
  * @param backgroundColor цвет бэкграунда
@@ -51,8 +51,8 @@ import com.sdds.compose.uikit.internal.common.surface
  * @param endContentColor цвет контента в конце
  * @param startContentSize размер контента в начале
  * @param endContentSize размер контента в конце
- * @param startContentMargin отступ от [startContent]
- * @param endContentMargin отступ от [endContent]
+ * @param startContentMargin отступ от [contentStart]
+ * @param endContentMargin отступ от [contentEnd]
  * @param startPadding отступ компонента в начале
  * @param endPadding отступ компонента в конце
  * @param enabled включен ли компонент
@@ -66,8 +66,8 @@ fun Chip(
     label: String = "",
     labelStyle: TextStyle = TextStyle(),
     shape: CornerBasedShape = RoundedCornerShape(25),
-    startContent: (@Composable () -> Unit)? = null,
-    endContent: (@Composable () -> Unit)? = null,
+    contentStart: (@Composable () -> Unit)? = null,
+    contentEnd: (@Composable () -> Unit)? = null,
     enabledAlpha: Float = 1f,
     disabledAlpha: Float = 0.4f,
     backgroundColor: Brush = SolidColor(Color.Black),
@@ -102,8 +102,8 @@ fun Chip(
         measurePolicy = measurePolicy,
         content = {
             ChipContent(
-                startContent = startContent,
-                endContent = endContent,
+                startContent = contentStart,
+                endContent = contentEnd,
                 startContentColor = startContentColor,
                 endContentColor = endContentColor,
                 label = label,

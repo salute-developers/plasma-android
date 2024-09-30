@@ -36,19 +36,18 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.uikit.CoreTextField
-import com.sdds.compose.uikit.CoreTextField.Animation
-import com.sdds.compose.uikit.CoreTextField.DotBadge
-import com.sdds.compose.uikit.CoreTextField.FieldAppearance
-import com.sdds.compose.uikit.CoreTextField.FieldType
-import com.sdds.compose.uikit.CoreTextField.HelperTextPosition
-import com.sdds.compose.uikit.CoreTextField.LabelPosition
 import com.sdds.compose.uikit.LocalTint
-import com.sdds.compose.uikit.ScrollBarConfig
+import com.sdds.compose.uikit.ScrollBar
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.TextField
-import com.sdds.compose.uikit.internal.common.DotBadgeMode
-import com.sdds.compose.uikit.internal.common.drawDotBadge
+import com.sdds.compose.uikit.TextField.Animation
+import com.sdds.compose.uikit.TextField.FieldAppearance
+import com.sdds.compose.uikit.TextField.FieldType
+import com.sdds.compose.uikit.TextField.HelperTextPosition
+import com.sdds.compose.uikit.TextField.Indicator
+import com.sdds.compose.uikit.TextField.LabelPlacement
+import com.sdds.compose.uikit.internal.common.IndicatorPlacement
+import com.sdds.compose.uikit.internal.common.drawIndicator
 import com.sdds.compose.uikit.scrollbar
 
 /**
@@ -62,24 +61,20 @@ import com.sdds.compose.uikit.scrollbar
  * @param readOnly если false - доступно только для чтения, запись отключена
  * @param fieldAppearance внешний вид поля (с фоном или без)
  * @param fieldType тип текстового поля - обязательное или опциональное (см. [FieldType])
- * @param labelPosition тип отображения лэйбла: [LabelPosition.Outer] снаружи поля ввода, [LabelPosition.Inner] внутри поля ввода
+ * @param labelPlacement тип отображения лэйбла: [LabelPlacement.Outer] снаружи поля ввода, [LabelPlacement.Inner] внутри поля ввода
  * @param helperTextPosition тип отображения вспомогательного текста (caption/counter): [HelperTextPosition.Outer] снаружи поля ввода, [HelperTextPosition.Inner] внутри поля ввода
- * @param placeholderText заглушка если пустое [value] и тип [LabelPosition.Outer]
- * @param labelText текст лэйбла
- * @param captionText текст подписи под полем ввода
- * @param counterText текст счетчика под полем ввода
- * @param leadingIcon иконка, которая будет находиться в начале поля ввода
- * @param trailingIcon иконка, которая будет находиться в конце поля ввода
+ * @param placeholder заглушка если пустое [value] и тип [LabelPlacement.Outer]
+ * @param label текст лэйбла
+ * @param caption текст подписи под полем ввода
+ * @param counter текст счетчика под полем ввода
+ * @param contentStart иконка, которая будет находиться в начале поля ввода
+ * @param contentEnd иконка, которая будет находиться в конце поля ввода
  * @param chipsContent контент с chip-элементами. Chip должны иметь одинаковую высоту, которая должна быть задана в параметре [chipHeight]
  * @param valueStyle стиль value
- * @param innerLabelStyle стиль лэйбла в режиме [labelPosition] == [LabelPosition.Inner]
- * @param innerOptionalStyle стиль optional в режиме [labelPosition] == [LabelPosition.Inner]
- * @param innerCaptionStyle стиль надписи в режиме [helperTextPosition] == [HelperTextPosition.Inner]
- * @param innerCounterTextStyle стиль счетчика в режиме [helperTextPosition] == [HelperTextPosition.Inner]
- * @param outerLabelStyle стиль лэйбла в режиме [labelPosition] == [LabelPosition.Outer]
- * @param outerCaptionStyle стиль надписи в режиме [helperTextPosition] == [HelperTextPosition.Outer]
- * @param outerOptionalStyle стиль optional в режиме [labelPosition] == [LabelPosition.Outer]
- * @param outerCounterTextStyle стиль счетчика в режиме [helperTextPosition] == [HelperTextPosition.Outer]
+ * @param labelStyle стиль лэйбла в режиме [labelPlacement] == [LabelPlacement.Inner]
+ * @param optionalStyle стиль optional в режиме [labelPlacement] == [LabelPlacement.Inner]
+ * @param captionStyle стиль надписи в режиме [helperTextPosition] == [HelperTextPosition.Inner]
+ * @param counterStyle стиль счетчика в режиме [helperTextPosition] == [HelperTextPosition.Inner]
  * @param placeHolderStyle стиль placeholder
  * @param startContentColor цвет контента в начале
  * @param cursorColor цвет курсора
@@ -89,7 +84,7 @@ import com.sdds.compose.uikit.scrollbar
  * @param chipHeight высота чипов
  * @param iconSize размер иконки
  * @param paddings отступы [TextField]
- * @param scrollBarConfig настройки scroll bar для режима [singleLine] == true
+ * @param scrollBar настройки scroll bar для режима [singleLine] == true
  * @param animation параметры анимации [Animation]
  * @param keyboardOptions для настройки клавиатуры, например [KeyboardType] или [ImeAction]
  * @param keyboardActions когда на ввод подается [ImeAction] вызывается соответствующий callback
@@ -107,40 +102,36 @@ internal fun BaseTextField(
     readOnly: Boolean = false,
     fieldAppearance: FieldAppearance = FieldAppearance.Solid(),
     fieldType: FieldType? = null,
-    labelPosition: LabelPosition = LabelPosition.Outer,
+    labelPlacement: LabelPlacement = LabelPlacement.Outer,
     helperTextPosition: HelperTextPosition = if (singleLine || fieldAppearance is FieldAppearance.Clear) {
         HelperTextPosition.Outer
     } else {
         HelperTextPosition.Inner
     },
-    placeholderText: String? = null,
-    labelText: String? = null,
-    captionText: String? = null,
-    counterText: String? = null,
-    leadingIcon: @Composable (() -> Unit)? = null,
-    trailingIcon: @Composable (() -> Unit)? = null,
+    placeholder: String? = null,
+    label: String? = null,
+    caption: String? = null,
+    counter: String? = null,
+    contentStart: @Composable (() -> Unit)? = null,
+    contentEnd: @Composable (() -> Unit)? = null,
     chipsContent: @Composable (() -> Unit)? = null,
     chipHeight: Dp,
     boxMinHeight: Dp,
     alignmentLineHeight: Dp,
-    outerLabelStyle: TextStyle = TextStyle(),
-    innerLabelStyle: TextStyle = TextStyle(),
-    innerOptionalStyle: TextStyle = TextStyle(),
-    outerOptionalStyle: TextStyle = TextStyle(),
+    labelStyle: TextStyle = TextStyle(),
+    optionalStyle: TextStyle = TextStyle(),
     valueStyle: TextStyle = TextStyle(),
-    outerCaptionStyle: TextStyle = TextStyle(),
-    innerCaptionStyle: TextStyle = TextStyle(),
-    innerCounterTextStyle: TextStyle = TextStyle(),
-    outerCounterTextStyle: TextStyle = TextStyle(),
+    captionStyle: TextStyle = TextStyle(),
+    counterStyle: TextStyle = TextStyle(),
     placeHolderStyle: TextStyle = TextStyle(),
     cursorColor: Color = Color.Blue,
     startContentColor: Color,
     enabledAlpha: Float = 1.0f,
     disabledAlpha: Float = 0.4f,
     chipContainerShape: CornerBasedShape? = null,
-    paddings: CoreTextField.Paddings = CoreTextField.Paddings(),
+    paddings: TextField.Paddings = TextField.Paddings(),
     iconSize: Dp = 24.dp,
-    scrollBarConfig: ScrollBarConfig? = null,
+    scrollBar: ScrollBar? = null,
     animation: Animation = Animation(),
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
@@ -156,22 +147,22 @@ internal fun BaseTextField(
                 alpha = if (enabled) enabledAlpha else disabledAlpha
             }
             .width(IntrinsicSize.Max)
-            .applyDotBadgePadding(
+            .applyIndicatorPadding(
                 requiredField = requiredField,
-                labelPosition = labelPosition,
-                labelText = labelText,
-                keepDotBadgeStartPadding = paddings.keepDotBadgeStartPadding,
+                labelPlacement = labelPlacement,
+                labelText = label,
+                keepIndicatorStartPadding = paddings.keepIndicatorStartPadding,
             ),
     ) {
         OuterTopContent(
             modifier = Modifier
                 .padding(bottom = paddings.labelPadding)
-                .applyOuterLabelDotBadge(requiredField, labelPosition),
-            labelPosition = labelPosition,
+                .applyOuterLabelIndicator(requiredField, labelPlacement),
+            labelPlacement = labelPlacement,
             fieldType = fieldType,
-            labelText = labelText,
-            labelTextStyle = outerLabelStyle,
-            optionalTextStyle = outerOptionalStyle,
+            labelText = label,
+            labelTextStyle = labelStyle,
+            optionalTextStyle = optionalStyle,
             horizontalSpacing = paddings.optionalPadding,
         )
 
@@ -182,15 +173,15 @@ internal fun BaseTextField(
             modifier = Modifier
                 .defaultMinSize(minHeight = boxMinHeight)
                 .fillMaxWidth()
-                .applyFieldDotBadge(
+                .applyFieldIndicator(
                     requiredField,
-                    labelPosition,
+                    labelPlacement,
                     fieldAppearance,
                     alignmentLineHeight,
                 )
                 .clip(if (fieldAppearance is FieldAppearance.Solid) fieldAppearance.shape else RectangleShape)
                 .drawFieldAppearance(fieldAppearance)
-                .applyScrollBar(scrollState, scrollBarConfig),
+                .applyScrollBar(scrollState, scrollBar),
             enabled = enabled,
             readOnly = readOnly,
             textStyle = valueStyle,
@@ -208,28 +199,28 @@ internal fun BaseTextField(
                 visualTransformation = visualTransformation,
                 interactionSource = interactionSource,
                 innerLabel = innerLabel(
-                    label = labelText,
-                    labelPosition = labelPosition,
+                    label = label,
+                    labelPlacement = labelPlacement,
                     isFocused = isFocused,
                     value = value,
                     placeHolderStyle = placeHolderStyle,
-                    innerLabelStyle = innerLabelStyle,
+                    innerLabelStyle = labelStyle,
                     hasChips = chipsContent != null,
                 ),
                 innerOptional = innerOptional(
-                    labelPosition = labelPosition,
+                    labelPlacement = labelPlacement,
                     optionalField = optionalField,
                     isFocused = isFocused,
                     value = value,
                     placeHolderStyle = placeHolderStyle,
-                    innerOptionalStyle = innerOptionalStyle,
+                    innerOptionalStyle = optionalStyle,
                     hasChips = chipsContent != null,
                 ),
-                placeholder = placeholder(placeholderText, placeHolderStyle),
-                leadingIcon = leadingIcon(leadingIcon, startContentColor),
-                trailingIcon = trailingIcon,
-                innerCaption = innerCaption(helperTextPosition, captionText, innerCaptionStyle),
-                innerCounter = innerCounter(helperTextPosition, counterText, innerCounterTextStyle),
+                placeholder = placeholder(placeholder, placeHolderStyle),
+                contentStart = contentStart(contentStart, startContentColor),
+                contentEnd = contentEnd,
+                innerCaption = innerCaption(helperTextPosition, caption, captionStyle),
+                innerCounter = innerCounter(helperTextPosition, counter, counterStyle),
                 animation = animation,
                 chips = chipsContent,
                 chipHeight = chipHeight,
@@ -241,16 +232,16 @@ internal fun BaseTextField(
                 singleLine = singleLine,
                 isClearAppearance = fieldAppearance is FieldAppearance.Clear,
                 valueTextStyle = valueStyle,
-                innerLabelTextStyle = innerLabelStyle,
+                innerLabelTextStyle = labelStyle,
             )
         }
         OuterBottomContent(
             helperTextPosition = helperTextPosition,
             helperTextPadding = paddings.helperTextPadding,
-            captionText = captionText,
-            counterText = counterText,
-            captionStyle = outerCaptionStyle,
-            counterStyle = outerCounterTextStyle,
+            captionText = caption,
+            counterText = counter,
+            captionStyle = captionStyle,
+            counterStyle = counterStyle,
         )
     }
 }
@@ -276,33 +267,33 @@ private fun Modifier.drawFieldAppearance(fieldAppearance: FieldAppearance): Modi
 
 private fun Modifier.applyScrollBar(
     scrollState: ScrollState,
-    scrollBarConfig: ScrollBarConfig?,
+    scrollBar: ScrollBar?,
 ): Modifier {
-    return scrollBarConfig?.let {
+    return scrollBar?.let {
         this.scrollbar(
             state = scrollState,
             direction = Orientation.Vertical,
-            indicatorThickness = scrollBarConfig.indicatorThickness,
-            indicatorColor = scrollBarConfig.indicatorColor,
-            alpha = scrollBarConfig.alpha
+            indicatorThickness = scrollBar.indicatorThickness,
+            indicatorColor = scrollBar.indicatorColor,
+            alpha = scrollBar.alpha
                 ?: if (scrollState.isScrollInProgress) 0.8f else 0f,
-            alphaAnimationSpec = scrollBarConfig.alphaAnimationSpec ?: tween(
+            alphaAnimationSpec = scrollBar.alphaAnimationSpec ?: tween(
                 delayMillis = if (scrollState.isScrollInProgress) 0 else 1500,
                 durationMillis = if (scrollState.isScrollInProgress) 150 else 500,
             ),
-            padding = scrollBarConfig.padding,
+            padding = scrollBar.padding,
         )
     } ?: this
 }
 
-private fun leadingIcon(
-    leadingIcon: @Composable (() -> Unit)?,
+private fun contentStart(
+    contentStart: @Composable (() -> Unit)?,
     startContentColor: Color,
 ): @Composable (() -> Unit)? {
-    return if (leadingIcon != null) {
+    return if (contentStart != null) {
         {
             CompositionLocalProvider(LocalTint provides startContentColor) {
-                leadingIcon()
+                contentStart()
             }
         }
     } else {
@@ -311,7 +302,7 @@ private fun leadingIcon(
 }
 
 private fun innerOptional(
-    labelPosition: LabelPosition,
+    labelPlacement: LabelPlacement,
     optionalField: FieldType.Optional?,
     isFocused: Boolean,
     value: TextFieldValue,
@@ -319,7 +310,7 @@ private fun innerOptional(
     innerOptionalStyle: TextStyle,
     hasChips: Boolean,
 ): (@Composable () -> Unit)? {
-    return if (labelPosition == LabelPosition.Inner && !hasChips) {
+    return if (labelPlacement == LabelPlacement.Inner && !hasChips) {
         textOrNull(
             text = optionalField?.optionalText,
             textStyle = if (!isFocused && value.text.isEmpty()) {
@@ -335,14 +326,14 @@ private fun innerOptional(
 
 private fun innerLabel(
     label: String?,
-    labelPosition: LabelPosition,
+    labelPlacement: LabelPlacement,
     isFocused: Boolean,
     value: TextFieldValue,
     placeHolderStyle: TextStyle,
     innerLabelStyle: TextStyle,
     hasChips: Boolean,
 ): (@Composable () -> Unit)? {
-    return if (labelPosition == LabelPosition.Inner && !hasChips) {
+    return if (labelPlacement == LabelPlacement.Inner && !hasChips) {
         textOrNull(
             text = label,
             textStyle = if (!isFocused && value.text.isEmpty()) {
@@ -386,19 +377,19 @@ private fun innerCounter(
     }
 }
 
-private fun Modifier.applyDotBadgePadding(
+private fun Modifier.applyIndicatorPadding(
     requiredField: FieldType.Required?,
-    labelPosition: LabelPosition,
+    labelPlacement: LabelPlacement,
     labelText: String?,
-    keepDotBadgeStartPadding: Dp?,
+    keepIndicatorStartPadding: Dp?,
 ): Modifier {
-    val isLabelOuter = labelPosition == LabelPosition.Outer
-    val isDotStart = requiredField?.dotBadge?.position == DotBadge.Position.Start
-    val shouldApply = isLabelOuter && isDotStart && !labelText.isNullOrEmpty() ||
-        keepDotBadgeStartPadding != null
+    val isLabelOuter = labelPlacement == LabelPlacement.Outer
+    val isIndicatorStart = requiredField?.indicator?.placement == Indicator.Placement.Start
+    val shouldApply = isLabelOuter && isIndicatorStart && !labelText.isNullOrEmpty() ||
+        keepIndicatorStartPadding != null
     return if (shouldApply) {
-        val startPadding = requiredField?.let { it.dotBadge.size + it.dotBadge.horizontalPadding }
-            ?: keepDotBadgeStartPadding
+        val startPadding = requiredField?.let { it.indicator.size + it.indicator.horizontalPadding }
+            ?: keepIndicatorStartPadding
             ?: 0.dp
         this.padding(start = startPadding)
     } else {
@@ -406,84 +397,84 @@ private fun Modifier.applyDotBadgePadding(
     }
 }
 
-private fun Modifier.applyFieldDotBadge(
+private fun Modifier.applyFieldIndicator(
     requiredFieldType: FieldType.Required?,
-    labelPosition: LabelPosition,
+    labelPlacement: LabelPlacement,
     fieldAppearance: FieldAppearance,
     alignmentLineHeight: Dp,
 ): Modifier {
-    if (requiredFieldType == null || labelPosition != LabelPosition.Inner) return this
+    if (requiredFieldType == null || labelPlacement == LabelPlacement.Outer) return this
 
-    val dotBadge = requiredFieldType.dotBadge
-    val alignment = fieldDotBadgeAlignment(dotBadge.position)
-    val horizontalMode = fieldDotBadgeHorizontalMode(fieldAppearance)
-    val verticalAlignmentOffset: Dp = dotVerticalAlignmentOffset(
+    val indicator = requiredFieldType.indicator
+    val alignment = fieldIndicatorAlignment(indicator.placement)
+    val horizontalMode = fieldIndicatorHorizontalMode(fieldAppearance)
+    val verticalAlignmentOffset: Dp = indicatorVerticalAlignmentOffset(
         fieldAppearance = fieldAppearance,
         alignmentLineHeight = alignmentLineHeight,
-        dotBadgeSize = dotBadge.size,
+        size = indicator.size,
     )
 
-    return this.drawDotBadge(
+    return this.drawIndicator(
         alignment = alignment,
-        color = dotBadge.color,
-        horizontalPadding = dotBadge.horizontalPadding,
-        verticalPadding = dotBadge.verticalPadding + verticalAlignmentOffset,
-        badgeSize = dotBadge.size,
+        color = indicator.color,
+        horizontalPadding = indicator.horizontalPadding,
+        verticalPadding = indicator.verticalPadding + verticalAlignmentOffset,
+        size = indicator.size,
         horizontalMode = horizontalMode,
-        verticalMode = DotBadgeMode.Inner,
+        verticalMode = IndicatorPlacement.Inner,
     )
 }
 
-private fun fieldDotBadgeAlignment(badgePosition: DotBadge.Position): Alignment {
-    return when (badgePosition) {
-        DotBadge.Position.Start -> Alignment.TopStart
-        DotBadge.Position.End -> Alignment.TopEnd
+private fun fieldIndicatorAlignment(badgePlacement: Indicator.Placement): Alignment {
+    return when (badgePlacement) {
+        Indicator.Placement.Start -> Alignment.TopStart
+        Indicator.Placement.End -> Alignment.TopEnd
     }
 }
 
-private fun fieldDotBadgeHorizontalMode(fieldAppearance: FieldAppearance): DotBadgeMode {
+private fun fieldIndicatorHorizontalMode(fieldAppearance: FieldAppearance): IndicatorPlacement {
     return if (fieldAppearance is FieldAppearance.Solid) {
-        DotBadgeMode.Inner
+        IndicatorPlacement.Inner
     } else {
-        DotBadgeMode.Outer
+        IndicatorPlacement.Outer
     }
 }
 
-private fun dotVerticalAlignmentOffset(
+private fun indicatorVerticalAlignmentOffset(
     fieldAppearance: FieldAppearance,
     alignmentLineHeight: Dp,
-    dotBadgeSize: Dp,
+    size: Dp,
 ): Dp {
     return if (fieldAppearance is FieldAppearance.Clear) {
-        (alignmentLineHeight - dotBadgeSize) / 2
+        (alignmentLineHeight - size) / 2
     } else {
         0.dp
     }
 }
 
-private fun Modifier.applyOuterLabelDotBadge(
+private fun Modifier.applyOuterLabelIndicator(
     requiredFieldType: FieldType.Required?,
-    labelPosition: LabelPosition,
+    labelPlacement: LabelPlacement,
 ): Modifier {
-    if (requiredFieldType == null || labelPosition != LabelPosition.Outer) return this
-    val dotBadge = requiredFieldType.dotBadge
-    val alignment = outerLabelDotBadgeAlignment(dotBadge.position)
+    if (requiredFieldType == null || labelPlacement != LabelPlacement.Outer) return this
+    val indicator = requiredFieldType.indicator
+    val alignment = outerLabelIndicatorAlignment(indicator.placement)
 
-    return this.drawDotBadge(
+    return this.drawIndicator(
         alignment = alignment,
-        color = dotBadge.color,
-        horizontalPadding = dotBadge.horizontalPadding,
-        verticalPadding = dotBadge.verticalPadding,
-        badgeSize = dotBadge.size,
-        horizontalMode = DotBadgeMode.Outer,
-        verticalMode = DotBadgeMode.Inner,
+        color = indicator.color,
+        horizontalPadding = indicator.horizontalPadding,
+        verticalPadding = indicator.verticalPadding,
+        size = indicator.size,
+        horizontalMode = IndicatorPlacement.Outer,
+        verticalMode = IndicatorPlacement.Inner,
     )
 }
 
-private fun outerLabelDotBadgeAlignment(badgePosition: DotBadge.Position): Alignment {
-    return when (badgePosition) {
-        DotBadge.Position.Start -> Alignment.CenterStart
-        DotBadge.Position.End -> Alignment.TopEnd
+private fun outerLabelIndicatorAlignment(badgePlacement: Indicator.Placement): Alignment {
+    return when (badgePlacement) {
+        Indicator.Placement.Start -> Alignment.CenterStart
+        Indicator.Placement.End -> Alignment.TopEnd
     }
 }
 
@@ -519,7 +510,7 @@ private fun textOrNull(
 @Composable
 private fun OuterTopContent(
     modifier: Modifier,
-    labelPosition: LabelPosition,
+    labelPlacement: LabelPlacement,
     fieldType: FieldType?,
     labelText: String?,
     labelTextStyle: TextStyle,
@@ -528,7 +519,7 @@ private fun OuterTopContent(
 ) {
     val hasContent =
         !labelText.isNullOrEmpty() || fieldType is FieldType.Optional && fieldType.optionalText.isNotEmpty()
-    val shouldShowTopContent = labelPosition == LabelPosition.Outer && hasContent
+    val shouldShowTopContent = labelPlacement == LabelPlacement.Outer && hasContent
     if (!shouldShowTopContent) return
 
     Row(

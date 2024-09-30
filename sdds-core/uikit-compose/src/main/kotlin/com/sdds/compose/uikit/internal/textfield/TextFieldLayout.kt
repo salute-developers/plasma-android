@@ -40,7 +40,7 @@ import androidx.compose.ui.unit.constrainWidth
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.offset
 import com.sdds.compose.uikit.ChipGroup
-import com.sdds.compose.uikit.CoreTextField
+import com.sdds.compose.uikit.TextField
 import com.sdds.compose.uikit.internal.heightOrZero
 import com.sdds.compose.uikit.internal.widthOrZero
 import kotlin.math.abs
@@ -61,8 +61,8 @@ internal fun TextFieldLayout(
     innerLabel: @Composable (() -> Unit)?,
     innerOptional: @Composable (() -> Unit)?,
     placeholder: @Composable (() -> Unit)?,
-    startIcon: @Composable (() -> Unit)?,
-    endIcon: @Composable (() -> Unit)?,
+    contentStart: @Composable (() -> Unit)?,
+    contentEnd: @Composable (() -> Unit)?,
     captionText: @Composable (() -> Unit)?,
     counterText: @Composable (() -> Unit)?,
     chips: @Composable (() -> Unit)?,
@@ -72,7 +72,7 @@ internal fun TextFieldLayout(
     iconSize: Dp,
     valueTextStyle: TextStyle,
     innerLabelTextStyle: TextStyle,
-    paddings: CoreTextField.Paddings,
+    paddings: TextField.Paddings,
     animationProgress: Float,
     verticalScrollState: ScrollState?,
 ) {
@@ -119,7 +119,7 @@ internal fun TextFieldLayout(
                     .padding(end = paddings.startContentEndPadding)
                     .size(iconSize)
                     .defaultMinSize(iconSize, iconSize),
-                icon = startIcon,
+                icon = contentStart,
             )
             IconContent(
                 modifier = Modifier
@@ -127,7 +127,7 @@ internal fun TextFieldLayout(
                     .padding(start = paddings.endContentStartPadding)
                     .size(iconSize)
                     .defaultMinSize(iconSize, iconSize),
-                icon = endIcon,
+                icon = contentEnd,
             )
             CaptionTextContent(
                 modifier = Modifier
@@ -231,7 +231,7 @@ private fun CompositeTextFieldContent(
     textField: @Composable () -> Unit,
     placeholder: @Composable (() -> Unit)?,
     chips: @Composable (() -> Unit)?,
-    paddings: CoreTextField.Paddings,
+    paddings: TextField.Paddings,
     scrollState: ScrollState?,
     singleLine: Boolean,
     chipContainerShape: CornerBasedShape?,
@@ -269,7 +269,7 @@ private fun TextAreaContent(
     modifier: Modifier,
     textContent: @Composable (() -> Unit),
     chips: @Composable (() -> Unit)?,
-    paddings: CoreTextField.Paddings,
+    paddings: TextField.Paddings,
     scrollState: ScrollState?,
     chipContainerShape: CornerBasedShape?,
 ) {
@@ -288,7 +288,7 @@ private fun TextAreaContent(
                 ChipGroup(
                     horizontalSpacing = paddings.chipsSpacing,
                     verticalSpacing = paddings.chipsSpacing,
-                    overflowMode = ChipGroup.OverflowMode.Wrap,
+                    isWrapped = true,
                 ) {
                     chips.invoke()
                 }
@@ -313,7 +313,7 @@ private fun TextFieldContent(
     modifier: Modifier,
     textContent: @Composable (() -> Unit),
     chips: @Composable (() -> Unit)?,
-    paddings: CoreTextField.Paddings,
+    paddings: TextField.Paddings,
     chipContainerShape: CornerBasedShape?,
 ) {
     Row(
@@ -332,7 +332,7 @@ private fun TextFieldContent(
                         .padding(end = paddings.boxPaddingStart + paddings.chipsSpacing),
                     horizontalSpacing = paddings.chipsSpacing,
                     verticalSpacing = paddings.chipsSpacing,
-                    overflowMode = ChipGroup.OverflowMode.Unlimited,
+                    isWrapped = false,
                 ) {
                     chips.invoke()
                 }
