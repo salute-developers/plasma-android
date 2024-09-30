@@ -2,6 +2,7 @@ package com.sdds.uikit.internal.base.shape
 
 import android.content.res.ColorStateList
 import android.graphics.drawable.Drawable
+import android.graphics.drawable.LayerDrawable
 import android.util.AttributeSet
 import android.view.View
 import androidx.core.graphics.drawable.DrawableCompat
@@ -79,18 +80,35 @@ internal class ShapeHelper(
     }
 
     private fun createBackground(): Drawable {
-        val shapeModel = getShapeAppearanceModel()
-        return (view.background as? ShapeDrawable ?: ShapeDrawable())
+        return when (val bg = view.background) {
+            is ShapeDrawable -> bg.setupBackground()
+
+            is LayerDrawable -> {
+                bg.apply {
+                    for (i in 0 until bg.numberOfLayers) {
+                        (bg.getDrawable(i) as? ShapeDrawable)?.setupBackground()
+                    }
+                }
+            }
+
+            else -> ShapeDrawable().setupBackground()
+        }
             .apply {
-                setShapeModel(shapeModel)
-                setStrokeTint(strokeColor)
-                setStrokeWidth(strokeWidth)
                 DrawableCompat.setTintList(this, view.backgroundTintList)
                 view.backgroundTintMode?.let { tintMode ->
                     DrawableCompat.setTintMode(this, tintMode)
                 }
             }
             .wrapWithInset(insetLeft, insetTop, insetRight, insetBottom)
+    }
+
+    private fun ShapeDrawable.setupBackground(): ShapeDrawable {
+        val shapeModel = getShapeAppearanceModel()
+        return this.apply {
+            setShapeModel(shapeModel)
+            setStrokeTint(strokeColor)
+            setStrokeWidth(strokeWidth)
+        }
     }
 
     private fun obtainAttrs(attributeSet: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) {

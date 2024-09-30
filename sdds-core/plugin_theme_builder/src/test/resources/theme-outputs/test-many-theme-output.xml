@@ -5,6 +5,8 @@
     <style name="Thmbldr.TestTheme.MaterialComponents.Dialog" parent="Theme.MaterialComponents.Dialog">
         <!--Dark colors-->
         <item name="thmbldr_textPrimary">@color/thmbldr_dark_text_primary</item>
+        <!--Dark gradients-->
+        <item name="thmbldr_gradientAccent">@drawable/Thmbldr.TestTheme.Gradient.DarkGradientAccent</item>
         <!--Shapes-->
         <item name="thmbldr_shapeRoundXs">@style/Thmbldr.TestTheme.Shape.Round.Xs</item>
         <item name="thmbldr_shapeRoundXxs">@style/Thmbldr.TestTheme.Shape.Round.Xxs</item>
@@ -15,6 +17,8 @@
     <style name="Thmbldr.TestTheme.MaterialComponents.Dialog.Light" parent="Theme.MaterialComponents.Light.Dialog">
         <!--Light colors-->
         <item name="thmbldr_textPrimary">@color/thmbldr_light_text_primary</item>
+        <!--Light gradients-->
+        <item name="thmbldr_gradientAccent">@drawable/Thmbldr.TestTheme.Gradient.LightGradientAccent</item>
         <!--Shapes-->
         <item name="thmbldr_shapeRoundXs">@style/Thmbldr.TestTheme.Shape.Round.Xs</item>
         <item name="thmbldr_shapeRoundXxs">@style/Thmbldr.TestTheme.Shape.Round.Xxs</item>
@@ -26,6 +30,8 @@
     <style name="Thmbldr.TestTheme.MaterialComponents.NoActionBar" parent="Theme.MaterialComponents.NoActionBar">
         <!--Dark colors-->
         <item name="thmbldr_textPrimary">@color/thmbldr_dark_text_primary</item>
+        <!--Dark gradients-->
+        <item name="thmbldr_gradientAccent">@drawable/Thmbldr.TestTheme.Gradient.DarkGradientAccent</item>
         <!--Shapes-->
         <item name="thmbldr_shapeRoundXs">@style/Thmbldr.TestTheme.Shape.Round.Xs</item>
         <item name="thmbldr_shapeRoundXxs">@style/Thmbldr.TestTheme.Shape.Round.Xxs</item>
@@ -36,6 +42,8 @@
     <style name="Thmbldr.TestTheme.MaterialComponents.NoActionBar.Light" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!--Light colors-->
         <item name="thmbldr_textPrimary">@color/thmbldr_light_text_primary</item>
+        <!--Light gradients-->
+        <item name="thmbldr_gradientAccent">@drawable/Thmbldr.TestTheme.Gradient.LightGradientAccent</item>
         <!--Shapes-->
         <item name="thmbldr_shapeRoundXs">@style/Thmbldr.TestTheme.Shape.Round.Xs</item>
         <item name="thmbldr_shapeRoundXxs">@style/Thmbldr.TestTheme.Shape.Round.Xxs</item>
@@ -47,6 +55,8 @@
     <style name="Thmbldr.TestTheme.AppCompat.NoActionBar" parent="Theme.AppCompat.NoActionBar">
         <!--Dark colors-->
         <item name="thmbldr_textPrimary">@color/thmbldr_dark_text_primary</item>
+        <!--Dark gradients-->
+        <item name="thmbldr_gradientAccent">@drawable/Thmbldr.TestTheme.Gradient.DarkGradientAccent</item>
         <!--Shapes-->
         <item name="thmbldr_shapeRoundXs">@style/Thmbldr.TestTheme.Shape.Round.Xs</item>
         <item name="thmbldr_shapeRoundXxs">@style/Thmbldr.TestTheme.Shape.Round.Xxs</item>
@@ -57,6 +67,8 @@
     <style name="Thmbldr.TestTheme.AppCompat.NoActionBar.Light" parent="Theme.AppCompat.Light.NoActionBar">
         <!--Light colors-->
         <item name="thmbldr_textPrimary">@color/thmbldr_light_text_primary</item>
+        <!--Light gradients-->
+        <item name="thmbldr_gradientAccent">@drawable/Thmbldr.TestTheme.Gradient.LightGradientAccent</item>
         <!--Shapes-->
         <item name="thmbldr_shapeRoundXs">@style/Thmbldr.TestTheme.Shape.Round.Xs</item>
         <item name="thmbldr_shapeRoundXxs">@style/Thmbldr.TestTheme.Shape.Round.Xxs</item>

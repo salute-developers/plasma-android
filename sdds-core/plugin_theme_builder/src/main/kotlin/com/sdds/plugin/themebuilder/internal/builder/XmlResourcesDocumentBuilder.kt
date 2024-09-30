@@ -15,10 +15,11 @@ internal open class XmlResourcesDocumentBuilder(
     private val tokenPrefix: String,
     private val rootAttributes: Map<String, String>,
     themeName: String,
+    private val rootElement: String = "resources",
 ) : XmlBaseDocumentBuilder() {
 
     override val rootContent: Element by unsafeLazy {
-        document.createElement("resources")
+        document.createElement(rootElement)
             .apply {
                 rootAttributes.forEach {
                     setAttribute(it.key, it.value)
@@ -33,6 +34,23 @@ internal open class XmlResourcesDocumentBuilder(
         "$capitalizedResPrefix.$camelCaseThemeName"
     } else {
         capitalizedResPrefix
+    }
+
+    /**
+     * Добавляет элемент с контентом внутри
+     * @param elementName название элемента xml документа
+     * @param name имя элемента
+     * @param value значение токена
+     * @param usePrefix использовать префикс ресурсов в имени [name]
+     */
+    fun appendElementWithContent(
+        elementName: ElementName,
+        name: String,
+        usePrefix: Boolean = true,
+        value: Element.() -> Unit,
+    ) {
+        val nameWithPrefix = name.withPrefixIfNeed(tokenPrefix.takeIf { usePrefix })
+        appendBaseElement(elementName.value, mapOf("name" to nameWithPrefix), value)
     }
 
     /**
@@ -68,15 +86,16 @@ internal open class XmlResourcesDocumentBuilder(
      */
     fun Element.appendElement(
         elementName: ElementName,
-        tokenName: String,
+        tokenName: String? = null,
         value: String,
         format: ElementFormat? = null,
         type: ElementType? = null,
         targetApi: TargetApi? = null,
         usePrefix: Boolean = true,
     ) {
-        val nameAttr = tokenName.withPrefixIfNeed(tokenPrefix.takeIf { usePrefix })
-        val attrs = mutableMapOf("name" to nameAttr).apply {
+        val nameAttr = tokenName?.withPrefixIfNeed(tokenPrefix.takeIf { usePrefix })
+        val attrs = mutableMapOf<String, String>().apply {
+            nameAttr?.let { put("name", nameAttr) }
             format?.let { put("format", it.value) }
             type?.let { put("type", it.value) }
             targetApi?.let { put("tools:targetApi", targetApi.value) }
@@ -153,6 +172,9 @@ internal open class XmlResourcesDocumentBuilder(
         COLOR("color"),
         DIMEN("dimen"),
         ITEM("item"),
+        STRING("string"),
+        STRING_ARRAY("string-array"),
+        INTEGER_ARRAY("integer-array"),
     }
 
     /**

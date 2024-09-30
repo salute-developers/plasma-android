@@ -4,6 +4,7 @@ import android.graphics.LinearGradient
 import android.graphics.RadialGradient
 import android.graphics.Shader
 import android.graphics.SweepGradient
+import com.sdds.uikit.shader.ShaderFactory
 import kotlin.math.PI
 import kotlin.math.abs
 import kotlin.math.acos
@@ -16,7 +17,7 @@ import kotlin.math.sqrt
  * Описывает [Shader] градиента.
  * @author Малышев Александр on 13.08.2024
  */
-sealed class GradientShader : ShapeDrawable.ShaderFactory {
+sealed class GradientShader : ShaderFactory {
 
     /**
      * Шейдер линейного градиента
