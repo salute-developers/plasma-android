@@ -28,6 +28,9 @@ internal data class GradientToken(
     }
 }
 
+internal val GradientToken.isTextGradient: Boolean
+    get() = name.contains("text")
+
 /**
  * Значение токена градиента
  * @author Малышев Александр on 05.03.2024

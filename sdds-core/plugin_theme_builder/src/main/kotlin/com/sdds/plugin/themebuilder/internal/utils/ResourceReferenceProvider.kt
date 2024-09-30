@@ -64,4 +64,31 @@ internal class ResourceReferenceProvider(
     fun color(name: String): String {
         return "@color/${name.withPrefixIfNeed(resourcePrefix)}"
     }
+
+    /**
+     * Возвращает ссылку на строку с названием [name].
+     * Например, если строка называется app_name, и ресурсам задан префикс "pref",
+     * то функция вернет ссылку @string/pref_app_name
+     */
+    fun string(name: String): String {
+        return "@string/${name.withPrefixIfNeed(resourcePrefix)}"
+    }
+
+    /**
+     * Возвращает ссылку на массив с названием [name].
+     * Например, если массив называется stops, и ресурсам задан префикс "pref",
+     * то функция вернет ссылку @array/pref_stops
+     */
+    fun array(name: String): String {
+        return "@array/${name.withPrefixIfNeed(resourcePrefix)}"
+    }
+
+    /**
+     * Возвращает ссылку на drawable с названием [name].
+     * Например, если drawable называется button_bg, и ресурсам задан префикс "pref",
+     * то функция вернет ссылку @drawable/pref_button_bg
+     */
+    fun drawable(name: String): String {
+        return "@drawable/${name.withPrefixIfNeed(resourcePrefix)}"
+    }
 }

@@ -10,10 +10,10 @@ import com.sdds.plugin.themebuilder.internal.factory.ComposeShapeAttributeGenera
 import com.sdds.plugin.themebuilder.internal.factory.ComposeThemeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ComposeTypographyAttributeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ViewColorAttributeGeneratorFactory
-import com.sdds.plugin.themebuilder.internal.factory.ViewGradientAttributeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ViewShapeAttributeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ViewThemeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ViewTypographyAttributeGeneratorFactory
+import com.sdds.plugin.themebuilder.internal.factory.ViewXmlGradientAttributeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.generator.SimpleBaseGenerator
 import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.GradientTokenResult
@@ -25,11 +25,12 @@ import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeShap
 import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeThemeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeTypographyAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewColorAttributeGenerator
-import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewGradientAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewShapeAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewThemeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewTypographyAttributeGenerator
+import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewXmlGradientAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
+import org.gradle.kotlin.dsl.provideDelegate
 
 /**
  * Генерирует темы и атрибуты, необходимые для темы под нужный таргет [ThemeBuilderTarget]
@@ -42,7 +43,7 @@ internal class ThemeGenerator(
     private val viewShapeAttributeGeneratorFactory: ViewShapeAttributeGeneratorFactory,
     private val composeShapeAttributeGeneratorFactory: ComposeShapeAttributeGeneratorFactory,
     private val composeGradientAttributeGeneratorFactory: ComposeGradientAttributeGeneratorFactory,
-    private val viewGradientAttributeGeneratorFactory: ViewGradientAttributeGeneratorFactory,
+    private val viewXmlGradientAttributeGeneratorFactory: ViewXmlGradientAttributeGeneratorFactory,
     private val viewTypographyAttributeGeneratorFactory: ViewTypographyAttributeGeneratorFactory,
     private val composeTypographyAttributeGeneratorFactory: ComposeTypographyAttributeGeneratorFactory,
     private val target: ThemeBuilderTarget,
@@ -68,8 +69,8 @@ internal class ThemeGenerator(
     private val composeTypographyAttributeGenerator: ComposeTypographyAttributeGenerator by unsafeLazy {
         composeTypographyAttributeGeneratorFactory.create()
     }
-    private val viewGradientAttributeGenerator: ViewGradientAttributeGenerator by unsafeLazy {
-        viewGradientAttributeGeneratorFactory.create()
+    private val viewXmlGradientAttributeGenerator: ViewXmlGradientAttributeGenerator by unsafeLazy {
+        viewXmlGradientAttributeGeneratorFactory.create()
     }
     private val viewColorAttributeGenerator: ViewColorAttributeGenerator by unsafeLazy {
         viewColorAttributeGeneratorFactory.create()
@@ -111,9 +112,8 @@ internal class ThemeGenerator(
             )
         }
         if (target.isViewSystemOrAll) {
-            viewGradientAttributeGenerator.setGradientTokenData(
-                data = gradientTokenResult.viewTokens,
-            )
+            viewXmlGradientAttributeGenerator.setGradientTokenData(gradientTokenResult.viewXmlTokens)
+            viewThemeGenerator.setGradientTokenData(gradientTokenResult.viewXmlTokens)
         }
     }
 
@@ -166,7 +166,7 @@ internal class ThemeGenerator(
         }
         if (target.isViewSystemOrAll) {
             viewColorAttributeGenerator.generate()
-            viewGradientAttributeGenerator.generate()
+            viewXmlGradientAttributeGenerator.generate()
             if (shouldGenerateViewShapeStyle) viewShapeAttributeGenerator.generate()
             viewTypographyAttributeGenerator.generate()
             viewThemeGenerator.generate()

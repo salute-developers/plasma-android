@@ -4,17 +4,56 @@ package com.sdds.plugin.themebuilder.internal.generator.data
  * Данные о токенах градиента.
  *
  * @property composeTokens данные о токенах для Compose
- * @property viewTokens данные о токенах для View
+ * @property viewXmlTokens данные о токенах для View
  */
 internal data class GradientTokenResult(
-    val composeTokens: TokenData,
-    val viewTokens: TokenData,
+    val composeTokens: ComposeTokenData,
+    val viewXmlTokens: ViewTokenData,
 ) {
+
+    internal data class ViewTokenData(
+        val light: Map<String, Gradient>,
+        val dark: Map<String, Gradient>,
+    ) {
+        internal data class Gradient(
+            val nameSnakeCase: String,
+            val layers: List<Layer>,
+            val description: String,
+            val isTextGradient: Boolean,
+        ) {
+            internal sealed class Layer {
+                data class Linear(
+                    val angle: String,
+                    val colors: String,
+                    val stops: String,
+                ) : Layer()
+
+                data class Radial(
+                    val centerX: String,
+                    val centerY: String,
+                    val radius: String,
+                    val colors: String,
+                    val stops: String,
+                ) : Layer()
+
+                data class Sweep(
+                    val centerX: String,
+                    val centerY: String,
+                    val colors: String,
+                    val stops: String,
+                ) : Layer()
+
+                data class Solid(
+                    val colors: String,
+                ) : Layer()
+            }
+        }
+    }
 
     /**
      * Выходные данные о токене градиента
      */
-    internal data class TokenData(
+    internal data class ComposeTokenData(
         val light: Map<String, List<Gradient>>,
         val dark: Map<String, List<Gradient>>,
     ) {
@@ -35,6 +74,10 @@ internal data class GradientTokenResult(
     }
 }
 
-internal fun GradientTokenResult.TokenData.mergedLightAndDark(): Set<String> {
+internal fun GradientTokenResult.ComposeTokenData.mergedLightAndDark(): Set<String> {
+    return light.keys + dark.keys
+}
+
+internal fun GradientTokenResult.ViewTokenData.mergedLightAndDark(): Set<String> {
     return light.keys + dark.keys
 }
