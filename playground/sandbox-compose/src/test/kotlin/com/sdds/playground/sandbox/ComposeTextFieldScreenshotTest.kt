@@ -1,12 +1,6 @@
 package com.sdds.playground.sandbox
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
-import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewHasIndicator
-import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewHasIndicatorInsideEnd
-import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewInner
-import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewLInactive
-import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewLPlaceholder
-import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewLReadOnly
 import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewLInputText
 import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewLSuccess
 import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewLSuffixPrefix
@@ -17,8 +11,8 @@ import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewSReadOnly
 import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewSSuccess
 import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewXS
 import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewXsChipsInside
-import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewXsIndicatorOutside
 import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewXsError
+import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewXsIndicatorOutside
 import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewXsInputText
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -100,16 +94,16 @@ class ComposeTextFieldScreenshotTest : RoborazziConfig() {
     }
 
     @Test
-    fun testTextFieldPreviewHasDotBadgeOutside() {
+    fun testTextFieldPreviewHasIndicatorOutside() {
         composeTestRule.setContent {
-            SandboxTextFieldPreviewXsIndicatorBadgeOutside()
+            SandboxTextFieldPreviewXsIndicatorOutside()
         }
     }
 
     @Test
-    fun testTextFieldPreviewHasDotBadgeInside() {
+    fun testTextFieldPreviewHasIndicatorInside() {
         composeTestRule.setContent {
-            SandboxTextFieldPreviewMIndicatorBadgeInside()
+            SandboxTextFieldPreviewMIndicatorInside()
         }
     }
 
