@@ -30,7 +30,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.StrokeCap
-import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
@@ -49,6 +48,7 @@ import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.TextField
 import com.sdds.compose.uikit.internal.common.DotBadgeMode
 import com.sdds.compose.uikit.internal.common.drawDotBadge
+import com.sdds.compose.uikit.internal.common.enable
 import com.sdds.compose.uikit.scrollbar
 
 /**
@@ -152,9 +152,7 @@ internal fun BaseTextField(
 
     Column(
         modifier = modifier
-            .graphicsLayer {
-                alpha = if (enabled) enabledAlpha else disabledAlpha
-            }
+            .enable(enabled, enabledAlpha, disabledAlpha)
             .width(IntrinsicSize.Max)
             .applyDotBadgePadding(
                 requiredField = requiredField,

@@ -14,13 +14,52 @@ import androidx.compose.ui.draw.drawWithContent
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.drawscope.translate
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.input.pointer.PointerEvent
+import androidx.compose.ui.input.pointer.PointerEventPass
+import androidx.compose.ui.input.pointer.PointerInputFilter
+import androidx.compose.ui.input.pointer.PointerInputModifier
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
+
+/**
+ * Модификатор, позволяющий дизэйблить Composable (менять альфу и игнорировать ввод).
+ *
+ * @param enabled включена ли сomposable
+ * @param enabledAlpha альфа во включенном состоянии
+ * @param disabledAlpha альфа в выключенном состоянии
+ */
+internal fun Modifier.enable(
+    enabled: Boolean,
+    enabledAlpha: Float = 1f,
+    disabledAlpha: Float = 0.4f,
+): Modifier {
+    val modifier = if (enabled) {
+        this
+    } else {
+        object : PointerInputModifier {
+            override val pointerInputFilter: PointerInputFilter = object : PointerInputFilter() {
+                override fun onCancel() = Unit
+
+                override fun onPointerEvent(
+                    pointerEvent: PointerEvent,
+                    pass: PointerEventPass,
+                    bounds: IntSize,
+                ) {
+                    pointerEvent.changes.forEach {
+                        it.consume()
+                    }
+                }
+            }
+        }
+    }
+    return modifier.graphicsLayer { alpha = if (enabled) enabledAlpha else disabledAlpha }
+}
 
 /**
  * Модификатор, позволяющий применять форму, бэкграунд и кликабельность
@@ -38,7 +77,7 @@ import androidx.compose.ui.unit.dp
  */
 internal fun Modifier.surface(
     shape: CornerBasedShape = RoundedCornerShape(25),
-    backgroundColor: Brush,
+    backgroundColor: Brush = SolidColor(Color.Transparent),
     indication: Indication? = null,
     onClick: (() -> Unit)? = null,
     role: Role? = null,
@@ -82,7 +121,7 @@ internal fun Modifier.surface(
     value: Boolean,
     onValueChange: ((Boolean) -> Unit)? = null,
     shape: CornerBasedShape = RoundedCornerShape(25),
-    backgroundColor: Brush,
+    backgroundColor: Brush = SolidColor(Color.Transparent),
     indication: Indication? = null,
     role: Role? = null,
     enabled: Boolean = true,
