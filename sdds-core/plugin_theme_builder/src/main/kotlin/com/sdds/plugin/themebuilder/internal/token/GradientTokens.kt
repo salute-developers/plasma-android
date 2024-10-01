@@ -86,8 +86,6 @@ internal data class BackgroundGradientTokenValue(
  * Значение токена sweep градиента
  * @property colors цвета градиента
  * @property locations позиции цвета градиента
- * @property startAngle угол начала градиента в градусах
- * @property endAngle угол окончания градиента в градусах
  * @property centerX координата X центра [0, 1]
  * @property centerY координата Y центра [0, 1]
  */

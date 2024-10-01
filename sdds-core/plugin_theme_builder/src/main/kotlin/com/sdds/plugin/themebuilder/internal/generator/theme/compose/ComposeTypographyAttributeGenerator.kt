@@ -59,8 +59,6 @@ internal class ComposeTypographyAttributeGenerator(
         addLocalTypographyVal()
         addDynamicTypographyFun()
         addBreakPointFun()
-        addLocalTextStyleVal()
-        addProvideTextStyleComposable()
 
         typographyKtFileBuilder.build(outputLocation)
     }
@@ -86,7 +84,6 @@ internal class ComposeTypographyAttributeGenerator(
                 names = listOf(
                     "staticCompositionLocalOf",
                     "Immutable",
-                    "CompositionLocalProvider",
                     "structuralEqualityPolicy",
                     "compositionLocalOf",
                 ),
@@ -223,42 +220,6 @@ internal class ComposeTypographyAttributeGenerator(
                 ?: safeTokenData.small[attributeName]
                 ?: safeTokenData.large[attributeName]
         }
-    }
-
-    private fun addLocalTextStyleVal() {
-        typographyKtFileBuilder.appendRootVal(
-            name = "Local${camelThemeName}TextStyle",
-            typeName = KtFileBuilder.TypeProvidableCompositionLocal,
-            parameterizedType = KtFileBuilder.TypeTextStyle,
-            initializer = "compositionLocalOf(structuralEqualityPolicy()) { TextStyle.Default }",
-            modifiers = listOf(Modifier.PRIVATE),
-        )
-    }
-
-    private fun addProvideTextStyleComposable() {
-        typographyKtFileBuilder.appendRootFun(
-            name = "ProvideTextStyle",
-            params = listOf(
-                KtFileBuilder.FunParameter(
-                    name = "value",
-                    type = KtFileBuilder.TypeTextStyle,
-                ),
-                KtFileBuilder.FunParameter(
-                    name = "content",
-                    type = KtFileBuilder.getLambdaType(
-                        annotation = KtFileBuilder.TypeAnnotationComposable,
-                    ),
-                ),
-            ),
-            modifiers = listOf(Modifier.INTERNAL),
-            annotation = KtFileBuilder.TypeAnnotationComposable,
-            body = listOf(
-                "val mergedStyle = Local${camelThemeName}TextStyle.current.merge(value)\n",
-                "CompositionLocalProvider(" +
-                    "Local${camelThemeName}TextStyle provides mergedStyle, " +
-                    "content = content)",
-            ),
-        )
     }
 
     private companion object {

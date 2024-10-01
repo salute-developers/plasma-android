@@ -79,7 +79,6 @@ private val Dp.px: Int
 package com.sdds.playground.themebuilder.tokens
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.ProvidableCompositionLocal
 import androidx.compose.runtime.compositionLocalOf
@@ -89,7 +88,6 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.playground.themebuilder.tokens.ThemeTypography
-import kotlin.Unit
 
 /**
  * Типографика Theme
@@ -102,9 +100,6 @@ public data class ThemeTypography internal constructor(
 
 internal val LocalThemeTypography: ProvidableCompositionLocal<ThemeTypography> =
         staticCompositionLocalOf { mediumThemeTypography() }
-
-private val LocalThemeTextStyle: ProvidableCompositionLocal<TextStyle> =
-        compositionLocalOf(structuralEqualityPolicy()) { TextStyle.Default }
 
 /**
  * Возвращает [ThemeTypography] для WindowSizeClass.Compact
@@ -143,10 +138,4 @@ public fun WindowSizeClass.widthBreakPoint(): Dp = when (this) {
     WindowSizeClass.Expanded -> 840.0.dp
     WindowSizeClass.Medium -> 600.0.dp
     WindowSizeClass.Compact -> 0.dp
-}
-
-@Composable
-internal fun ProvideTextStyle(`value`: TextStyle, content: @Composable () -> Unit): Unit {
-    val mergedStyle = LocalThemeTextStyle.current.merge(value)
-    CompositionLocalProvider(LocalThemeTextStyle provides mergedStyle, content = content)
 }
