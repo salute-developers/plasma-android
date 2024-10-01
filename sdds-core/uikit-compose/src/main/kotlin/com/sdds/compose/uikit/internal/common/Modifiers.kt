@@ -40,7 +40,7 @@ internal fun Modifier.enable(
     disabledAlpha: Float = 0.4f,
 ): Modifier {
     val modifier = if (enabled) {
-        this
+        Modifier
     } else {
         object : PointerInputModifier {
             override val pointerInputFilter: PointerInputFilter = object : PointerInputFilter() {
@@ -58,7 +58,9 @@ internal fun Modifier.enable(
             }
         }
     }
-    return modifier.graphicsLayer { alpha = if (enabled) enabledAlpha else disabledAlpha }
+    return this
+        .then(modifier)
+        .graphicsLayer { alpha = if (enabled) enabledAlpha else disabledAlpha }
 }
 
 /**
