@@ -20,6 +20,7 @@ import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -175,7 +176,12 @@ internal fun BaseTextField(
             horizontalSpacing = paddings.optionalPadding,
         )
 
-        val scrollState = rememberScrollState()
+        val verticalScrollState = if (!singleLine) rememberScrollState() else null
+        val horizontalScrollState = if (singleLine) rememberScrollState() else null
+        LaunchedEffect(value.text) {
+            horizontalScrollState?.scrollTo(value = Int.MAX_VALUE)
+            verticalScrollState?.scrollTo(value = Int.MAX_VALUE)
+        }
         BasicTextField(
             value = value,
             onValueChange = onValueChange,
@@ -190,7 +196,7 @@ internal fun BaseTextField(
                 )
                 .clip(if (fieldAppearance is FieldAppearance.Solid) fieldAppearance.shape else RectangleShape)
                 .drawFieldAppearance(fieldAppearance)
-                .applyScrollBar(scrollState, scrollBarConfig),
+                .applyVerticalScrollBar(verticalScrollState, scrollBarConfig),
             enabled = enabled,
             readOnly = readOnly,
             textStyle = valueStyle,
@@ -237,7 +243,8 @@ internal fun BaseTextField(
                 chipContainerShape = chipContainerShape,
                 iconSize = iconSize,
                 paddings = paddings,
-                verticalScrollState = if (!singleLine) scrollState else null,
+                verticalScrollState = verticalScrollState,
+                horizontalScrollState = horizontalScrollState,
                 singleLine = singleLine,
                 isClearAppearance = fieldAppearance is FieldAppearance.Clear,
                 valueTextStyle = valueStyle,
@@ -274,11 +281,11 @@ private fun Modifier.drawFieldAppearance(fieldAppearance: FieldAppearance): Modi
     }
 }
 
-private fun Modifier.applyScrollBar(
-    scrollState: ScrollState,
+private fun Modifier.applyVerticalScrollBar(
+    scrollState: ScrollState?,
     scrollBarConfig: ScrollBarConfig?,
 ): Modifier {
-    return scrollBarConfig?.let {
+    return if (scrollState != null && scrollBarConfig != null) {
         this.scrollbar(
             state = scrollState,
             direction = Orientation.Vertical,
@@ -292,7 +299,9 @@ private fun Modifier.applyScrollBar(
             ),
             padding = scrollBarConfig.padding,
         )
-    } ?: this
+    } else {
+        this
+    }
 }
 
 private fun leadingIcon(
