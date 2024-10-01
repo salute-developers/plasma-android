@@ -27,6 +27,7 @@ internal data class TextFieldUiState(
     val state: TextField.FieldState = TextField.FieldState.Default,
     val labelText: String = "Label",
     val placeholderText: String = "Placeholder",
+    val valueText: String = "Value",
     val captionText: String = "Caption",
     val counterText: String = "Counter",
     val icon: Boolean = true,

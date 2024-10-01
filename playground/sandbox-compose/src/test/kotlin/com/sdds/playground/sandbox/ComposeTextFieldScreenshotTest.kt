@@ -1,6 +1,9 @@
 package com.sdds.playground.sandbox
 
+import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.performClick
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewFocused
 import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewLInputText
 import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewLSuccess
 import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewLSuffixPrefix
@@ -119,5 +122,14 @@ class ComposeTextFieldScreenshotTest : RoborazziConfig() {
         composeTestRule.setContent {
             SandboxTextFieldPreviewLSuffixPrefix()
         }
+    }
+
+    @Test
+    fun testTextFieldPreviewFocused() {
+        composeTestRule.setContent {
+            SandboxTextFieldPreviewFocused()
+        }
+        composeTestRule.onNodeWithText("Placeholder")
+            .performClick()
     }
 }

@@ -70,6 +70,7 @@ internal open class TextFieldFragment : ComponentFragment() {
                     this.state = state.state
                     label = state.labelText
                     placeholder = state.placeholderText
+                    value = state.valueText
                     caption = state.captionText
                     counter = state.counterText
                     prefixText = state.prefix
