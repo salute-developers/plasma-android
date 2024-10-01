@@ -1,6 +1,9 @@
 package com.sdds.playground.sandbox
 
+import android.view.KeyEvent
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.action.ViewActions.pressKey
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.github.takahirom.roborazzi.captureRoboImage
@@ -30,6 +33,7 @@ class ViewSystemTextFieldScreenshotTest : RoborazziConfig() {
                 labelText = "Label",
                 hasChips = true,
                 placeholderText = "Placeholder",
+                valueText = "",
                 icon = false,
                 action = false,
                 enabled = true,
@@ -56,6 +60,7 @@ class ViewSystemTextFieldScreenshotTest : RoborazziConfig() {
                 labelText = "Label",
                 hasChips = true,
                 placeholderText = "Placeholder",
+                valueText = "",
                 captionText = "Caption",
                 icon = true,
                 action = false,
@@ -78,7 +83,8 @@ class ViewSystemTextFieldScreenshotTest : RoborazziConfig() {
                 state = TextField.FieldState.Positive,
                 labelText = "Label",
                 hasChips = true,
-                placeholderText = "Value",
+                placeholderText = "",
+                valueText = "Value",
                 captionText = "",
                 icon = false,
                 action = false,
@@ -101,7 +107,8 @@ class ViewSystemTextFieldScreenshotTest : RoborazziConfig() {
                 state = TextField.FieldState.Warning,
                 labelText = "Label",
                 hasChips = true,
-                placeholderText = "Value",
+                placeholderText = "",
+                valueText = "Value",
                 captionText = "",
                 counterText = "",
                 icon = true,
@@ -125,7 +132,8 @@ class ViewSystemTextFieldScreenshotTest : RoborazziConfig() {
                 state = TextField.FieldState.Warning,
                 labelText = "Label",
                 hasChips = true,
-                placeholderText = "абвгдежзabcdefg@#643!#\$",
+                placeholderText = "",
+                valueText = "абвгдежзabcdefg@#643!#\$",
                 captionText = "",
                 icon = true,
                 action = false,
@@ -148,7 +156,8 @@ class ViewSystemTextFieldScreenshotTest : RoborazziConfig() {
                 state = TextField.FieldState.Default,
                 labelText = "Label",
                 hasChips = true,
-                placeholderText = "Value",
+                placeholderText = "",
+                valueText = "Value",
                 captionText = "",
                 icon = true,
                 action = true,
@@ -171,7 +180,8 @@ class ViewSystemTextFieldScreenshotTest : RoborazziConfig() {
                 state = TextField.FieldState.Positive,
                 labelText = "Label",
                 hasChips = true,
-                placeholderText = "Value",
+                placeholderText = "Placeholder",
+                valueText = "Value",
                 captionText = "Caption",
                 icon = false,
                 action = false,
@@ -194,7 +204,8 @@ class ViewSystemTextFieldScreenshotTest : RoborazziConfig() {
                 state = TextField.FieldState.Negative,
                 labelText = "Label",
                 hasChips = true,
-                placeholderText = "Value",
+                placeholderText = "",
+                valueText = "Value",
                 captionText = "Caption",
                 icon = true,
                 action = false,
@@ -217,7 +228,8 @@ class ViewSystemTextFieldScreenshotTest : RoborazziConfig() {
                 state = TextField.FieldState.Positive,
                 labelText = "Label",
                 hasChips = true,
-                placeholderText = "абвгдежзabcdefg@#643!#\$",
+                placeholderText = "",
+                valueText = "абвгдежзabcdefg@#643!#\$",
                 captionText = "",
                 icon = false,
                 action = false,
@@ -241,6 +253,7 @@ class ViewSystemTextFieldScreenshotTest : RoborazziConfig() {
                 labelText = "Label",
                 hasChips = true,
                 placeholderText = "Placeholder",
+                valueText = "",
                 captionText = "",
                 icon = true,
                 action = true,
@@ -264,6 +277,7 @@ class ViewSystemTextFieldScreenshotTest : RoborazziConfig() {
                 labelText = "Label",
                 hasChips = true,
                 placeholderText = "Placeholder",
+                valueText = "",
                 captionText = "Caption",
                 icon = false,
                 action = true,
@@ -291,6 +305,7 @@ class ViewSystemTextFieldScreenshotTest : RoborazziConfig() {
                 labelText = "Label",
                 hasChips = true,
                 placeholderText = "Placeholder",
+                valueText = "Value",
                 captionText = "Caption",
                 icon = false,
                 action = true,
@@ -317,7 +332,8 @@ class ViewSystemTextFieldScreenshotTest : RoborazziConfig() {
                 state = TextField.FieldState.Default,
                 labelText = "Label",
                 hasChips = true,
-                placeholderText = "Value",
+                placeholderText = "",
+                valueText = "Value",
                 captionText = "Caption",
                 icon = true,
                 action = true,
@@ -327,6 +343,59 @@ class ViewSystemTextFieldScreenshotTest : RoborazziConfig() {
                 suffix = "TA Suffix",
             ),
         )
+        onView(withId(R.id.textField))
+            .captureRoboImage()
+    }
+
+    @Test
+    fun testTextFieldFocused() {
+        launchScreen(
+            R.id.nav_textfield,
+            TextFieldUiState(
+                variant = TextFieldVariant.TextFieldLInnerLabelRequiredStart,
+                state = TextField.FieldState.Default,
+                labelText = "Label",
+                hasChips = false,
+                placeholderText = "Placeholder",
+                valueText = "",
+                captionText = "Caption",
+                icon = true,
+                action = true,
+                enabled = true,
+                readOnly = false,
+                prefix = "",
+                suffix = "",
+            ),
+        )
+        onView(withId(R.id.textField))
+            .perform(click())
+        onView(withId(R.id.textField))
+            .captureRoboImage()
+    }
+
+    @Test
+    fun testTextFieldTextDeletes() {
+        launchScreen(
+            R.id.nav_textfield,
+            TextFieldUiState(
+                variant = TextFieldVariant.TextFieldLInnerLabelRequiredEnd,
+                state = TextField.FieldState.Negative,
+                labelText = "Label",
+                hasChips = false,
+                placeholderText = "",
+                valueText = "Value",
+                captionText = "Caption",
+                icon = true,
+                action = true,
+                enabled = true,
+                readOnly = false,
+                prefix = "",
+                suffix = "",
+            ),
+        )
+        onView(withId(R.id.textField))
+            .perform(click())
+            .perform(pressKey(KeyEvent.KEYCODE_DEL))
         onView(withId(R.id.textField))
             .captureRoboImage()
     }

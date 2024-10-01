@@ -11,6 +11,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
@@ -698,6 +699,80 @@ internal fun SandboxTextFieldPreviewLSuffixPrefix() {
             placeholderText = "Placeholder",
             prefix = "TB Prefix",
             suffix = "TA Suffix",
+            onValueChange = {},
+            enabled = true,
+            readOnly = false,
+            leadingIcon = {
+                Icon(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_scribble_diagonal_24),
+                    contentDescription = "",
+                )
+            },
+            trailingIcon = {
+                Icon(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_shazam_24),
+                    contentDescription = "",
+                )
+            },
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxTextFieldPreviewFocused() {
+    SandboxTheme {
+        SandboxTextField(
+            size = Size.L,
+            state = State.Default,
+            value = TextFieldValue(text = ""),
+            labelPosition = LabelPosition.Inner,
+            fieldType = SandboxTextField.FieldType.Required,
+            dotBadgePosition = DotBadge.Position.Start,
+            captionText = "Сaption",
+            labelText = "Label",
+            optionalText = "optional",
+            placeholderText = "Placeholder",
+            prefix = "",
+            suffix = "",
+            onValueChange = {},
+            enabled = true,
+            readOnly = false,
+            leadingIcon = {
+                Icon(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_scribble_diagonal_24),
+                    contentDescription = "",
+                )
+            },
+            trailingIcon = {
+                Icon(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_shazam_24),
+                    contentDescription = "",
+                )
+            },
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxTextFieldPreviewTextDeletes() {
+    SandboxTheme {
+        SandboxTextField(
+            modifier = Modifier
+                .testTag("textField"),
+            size = Size.L,
+            state = State.Error,
+            value = TextFieldValue(text = "Value"),
+            labelPosition = LabelPosition.Inner,
+            fieldType = SandboxTextField.FieldType.Required,
+            dotBadgePosition = DotBadge.Position.End,
+            captionText = "Сaption",
+            labelText = "Label",
+            optionalText = "optional",
+            placeholderText = "Placeholder",
+            prefix = "",
+            suffix = "",
             onValueChange = {},
             enabled = true,
             readOnly = false,
