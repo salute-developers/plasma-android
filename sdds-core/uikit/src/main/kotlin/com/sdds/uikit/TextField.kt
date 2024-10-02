@@ -164,6 +164,8 @@ open class TextField @JvmOverloads constructor(
         setAddStatesFromChildren(true)
         obtainAttributes(context, attrs, defStyleAttr, defStyleRes)
         layoutChildren()
+        clipChildren = false
+        clipToPadding = false
         isFocusable = false
         isFocusableInTouchMode = false
     }

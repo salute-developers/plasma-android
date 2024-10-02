@@ -2,6 +2,7 @@ package com.sdds.uikit.internal.focusselector
 
 import android.content.Context
 import android.graphics.Canvas
+import android.graphics.Color
 import android.graphics.ColorFilter
 import android.graphics.LinearGradient
 import android.graphics.Paint
@@ -13,11 +14,10 @@ import android.graphics.Shader
 import android.graphics.drawable.Drawable
 import android.view.View
 import android.view.View.OnScrollChangeListener
-import com.google.android.material.shape.AdjustedCornerSize
-import com.google.android.material.shape.ShapeAppearanceModel
-import com.google.android.material.shape.ShapeAppearancePathProvider
 import com.sdds.uikit.R
 import com.sdds.uikit.colorFromAttr
+import com.sdds.uikit.internal.base.configure
+import com.sdds.uikit.shape.ShapeModel
 
 /**
  * Drawable отрисовывающий контур фокусировки когда state_focused
@@ -25,15 +25,16 @@ import com.sdds.uikit.colorFromAttr
 @Suppress("RestrictedApi")
 internal class SelectorDrawable : Drawable, OnScrollChangeListener {
 
-    private val borderPaint = Paint()
-    private val gradientColors: IntArray
-    private val shapeAppearanceModel: ShapeAppearanceModel
+    private val borderPaint = Paint().configure(style = Paint.Style.STROKE, isAntiAlias = true)
+    private val colors: IntArray
+    private val shapeModel: ShapeModel
     private val shapePath = Path()
-    private val shapeAppearancePathProvider = ShapeAppearancePathProvider()
     private var scrollX: Float = 0f
     private var scrollY: Float = 0f
+    private val drawingRect = RectF()
+    private var focused = false
 
-    /**
+    /*
      * отступ отрисовки селектора (внутрь)
      * нужен, чтобы селектор не выходил за границы контейнера и идеально ложился на его края
      */
@@ -42,51 +43,31 @@ internal class SelectorDrawable : Drawable, OnScrollChangeListener {
     /**
      * @param context контекст
      * @param strokeWidth ширина селектора в пикселях
-     * @param shapeAppearanceModel модель описывающая форму
-     */
-    constructor(context: Context, strokeWidth: Float, shapeAppearanceModel: ShapeAppearanceModel) : super() {
-        val tertiaryColor = context.colorFromAttr(R.attr.sd_focusAdditionalColor)
-        gradientColors = intArrayOf(tertiaryColor, context.colorFromAttr(android.R.attr.colorPrimary), tertiaryColor)
-        this.shapeAppearanceModel = shapeAppearanceModel.withTransformedCornerSizes { cornerSize ->
-            AdjustedCornerSize(
-                context.resources.getDimension(R.dimen.sdds_spacer_1_5x),
-                cornerSize,
-            )
-        }
-        borderPaint.strokeWidth = strokeWidth
-        offset = strokeWidth / 2f
-    }
-
-    /**
-     * @param context контекст
-     * @param strokeWidth ширина селектора в пикселях
-     * @param cornerRadius радиус закругления селектора в пикселях
+     * @param shapeModel модель описывающая форму
      */
     constructor(
         context: Context,
         strokeWidth: Float,
-        cornerRadius: Float,
-    ) : this(context, strokeWidth, createShapeModel(cornerRadius))
-
-    init {
-        borderPaint.style = Paint.Style.STROKE
-        borderPaint.isAntiAlias = true
+        shapeModel: ShapeModel,
+        mainColor: Int = context.colorFromAttr(R.attr.sd_fsMainColor),
+        additionalColor: Int = 0,
+    ) : super() {
+        colors = if (additionalColor != 0) {
+            intArrayOf(additionalColor, mainColor, additionalColor)
+        } else {
+            intArrayOf(mainColor)
+        }
+        this.shapeModel = shapeModel
+        borderPaint.strokeWidth = strokeWidth
+        offset = strokeWidth / 2f
     }
-
-    private val drawingRect = RectF()
-
-    private var focused = false
 
     override fun draw(canvas: Canvas) {
         if (!focused) return
         canvas.save()
         canvas.translate(scrollX, scrollY)
-        if (shapeAppearanceModel.isRoundRect(drawingRect)) {
-            val cornerSize = shapeAppearanceModel.topLeftCornerSize.getCornerSize(drawingRect)
-            canvas.drawRoundRect(drawingRect, cornerSize, cornerSize, borderPaint)
-        } else {
-            canvas.drawPath(shapePath, borderPaint)
-        }
+        val cornerSize = shapeModel.cornerSizeTopLeft.getSize(drawingRect)
+        canvas.drawRoundRect(drawingRect, cornerSize, cornerSize, borderPaint)
         canvas.restore()
     }
 
@@ -104,28 +85,23 @@ internal class SelectorDrawable : Drawable, OnScrollChangeListener {
         drawingRect.top += offset
         drawingRect.right -= offset
         drawingRect.bottom -= offset
-        if (shapeAppearanceModel.isRoundRect(drawingRect)) {
-            shapePath.reset()
-            val cornerSize = shapeAppearanceModel.topLeftCornerSize.getCornerSize(drawingRect)
-            shapePath.addRoundRect(drawingRect, cornerSize, cornerSize, Path.Direction.CW)
-            shapePath.close()
-        } else {
-            shapeAppearancePathProvider.calculatePath(
-                shapeAppearanceModel,
-                1f,
-                drawingRect,
-                shapePath,
+        shapePath.reset()
+        val cornerSize = shapeModel.cornerSizeTopLeft.getSize(drawingRect)
+        shapePath.addRoundRect(drawingRect, cornerSize, cornerSize, Path.Direction.CW)
+        shapePath.close()
+        if (colors.size > 1) {
+            borderPaint.shader = LinearGradient(
+                0f,
+                0f,
+                bounds.width().toFloat(),
+                bounds.height().toFloat(),
+                colors,
+                null,
+                Shader.TileMode.MIRROR,
             )
+        } else {
+            borderPaint.color = colors.firstOrNull() ?: Color.TRANSPARENT
         }
-        borderPaint.shader = LinearGradient(
-            0f,
-            0f,
-            bounds.width().toFloat(),
-            bounds.height().toFloat(),
-            gradientColors,
-            null,
-            Shader.TileMode.MIRROR,
-        )
     }
 
     override fun setAlpha(alpha: Int) = Unit
@@ -138,12 +114,5 @@ internal class SelectorDrawable : Drawable, OnScrollChangeListener {
     override fun onScrollChange(v: View?, scrollX: Int, scrollY: Int, oldScrollX: Int, oldScrollY: Int) {
         this.scrollX = scrollX.toFloat()
         this.scrollY = scrollY.toFloat()
-    }
-
-    companion object {
-
-        private fun createShapeModel(cornerRadius: Float) = ShapeAppearanceModel.builder()
-            .setAllCornerSizes(cornerRadius)
-            .build()
     }
 }

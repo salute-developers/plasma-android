@@ -97,7 +97,7 @@ open class ShapeDrawable() : Drawable(), Shapeable {
     /**
      * @see Shapeable.shape
      */
-    override val shape: ShapeModel
+    override val shape: ShapeModel?
         get() = _shapeModel
 
     /**

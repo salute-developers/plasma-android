@@ -11,5 +11,5 @@ interface Shapeable {
     /**
      * Форма объекта
      */
-    val shape: ShapeModel
+    val shape: ShapeModel?
 }

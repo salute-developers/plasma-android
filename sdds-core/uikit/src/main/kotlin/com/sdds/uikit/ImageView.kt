@@ -4,14 +4,17 @@ import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Canvas
 import android.graphics.Path
+import android.graphics.Rect
 import android.util.AttributeSet
 import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
 import androidx.annotation.Dimension
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.AppCompatImageView
+import com.sdds.uikit.internal.base.shape.Shapeable
 import com.sdds.uikit.internal.base.shape.ShapeableImageDelegate
-import com.sdds.uikit.internal.focusselector.tryApplyFocusSelector
+import com.sdds.uikit.internal.focusselector.FocusSelectorDelegate
+import com.sdds.uikit.internal.focusselector.HasFocusSelector
 import com.sdds.uikit.shape.ShapeModel
 import com.sdds.uikit.viewstate.ViewState
 import com.sdds.uikit.viewstate.ViewState.Companion.isDefined
@@ -26,11 +29,15 @@ import com.sdds.uikit.viewstate.ViewStateHolder
  * @param defStyleAttr аттрибут стиля по умолчанию
  * @author Малышев Александр on 03.06.2024
  */
+@Suppress("LeakingThis")
 open class ImageView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0,
-) : AppCompatImageView(context, attrs, defStyleAttr), ViewStateHolder {
+) : AppCompatImageView(context, attrs, defStyleAttr),
+    ViewStateHolder,
+    Shapeable,
+    HasFocusSelector by FocusSelectorDelegate() {
 
     private var hasAdjustedPaddingAfterLayoutDirectionResolved = false
 
@@ -44,10 +51,10 @@ open class ImageView @JvmOverloads constructor(
     private var boundsPath: Path = Path()
 
     init {
-        @Suppress("LeakingThis")
         setLayerType(LAYER_TYPE_HARDWARE, null)
-        tryApplyFocusSelector(attrs, defStyleAttr)
         obtainAttributes(attrs, defStyleAttr)
+        applySelector(this, context, attrs, defStyleAttr)
+        clipToOutline = false
     }
 
     /**
@@ -124,6 +131,12 @@ open class ImageView @JvmOverloads constructor(
                 refreshDrawableState()
             }
         }
+
+    /**
+     * @see Shapeable
+     */
+    override val shape: ShapeModel?
+        get() = _shapeableImageDelegate?.shape
 
     /**
      * Устанавливает ширину границы [ImageView].
@@ -345,6 +358,11 @@ open class ImageView @JvmOverloads constructor(
             addRect(0f, 0f, w.toFloat(), h.toFloat(), Path.Direction.CW)
             close()
         }
+    }
+
+    override fun onFocusChanged(focused: Boolean, direction: Int, previouslyFocusedRect: Rect?) {
+        super.onFocusChanged(focused, direction, previouslyFocusedRect)
+        updateFocusSelector(this, focused)
     }
 
     override fun onDetachedFromWindow() {

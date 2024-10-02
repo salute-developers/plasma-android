@@ -25,7 +25,7 @@ import com.sdds.uikit.shape.ShapeModelPathProvider
  * @param imageView целевой [ImageView]
  * @author Малышев Александр on 03.06.2024
  */
-internal class ShapeableImageDelegate(private val imageView: ImageView) {
+internal class ShapeableImageDelegate(private val imageView: ImageView) : Shapeable {
 
     private val pathProvider: ShapeModelPathProvider by unsafeLazy { ShapeModelPathProvider() }
     private val borderPaint: Paint by unsafeLazy {
@@ -53,6 +53,12 @@ internal class ShapeableImageDelegate(private val imageView: ImageView) {
     private var strokeColor: ColorStateList? = null
     private var shapeModel: ShapeModel? = null
     private var shadowDrawable: ShapeDrawable? = null
+
+    /**
+     * @see Shapeable
+     */
+    override val shape: ShapeModel?
+        get() = shapeModel
 
     /**
      * Устанавливает форму [shape].

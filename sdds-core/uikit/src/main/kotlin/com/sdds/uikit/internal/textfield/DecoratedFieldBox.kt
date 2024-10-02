@@ -45,6 +45,8 @@ import com.sdds.uikit.internal.base.configure
 import com.sdds.uikit.internal.base.shape.ShapeHelper
 import com.sdds.uikit.internal.base.shape.Shapeable
 import com.sdds.uikit.internal.base.unsafeLazy
+import com.sdds.uikit.internal.focusselector.FocusSelectorDelegate
+import com.sdds.uikit.internal.focusselector.HasFocusSelector
 import com.sdds.uikit.shape.ShapeModel
 import com.sdds.uikit.viewstate.ViewState
 import com.sdds.uikit.viewstate.ViewState.Companion.isDefined
@@ -63,7 +65,7 @@ internal class DecoratedFieldBox(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0,
-) : FlowLayout(context, attrs, defStyleAttr), ViewStateHolder {
+) : FlowLayout(context, attrs, defStyleAttr), ViewStateHolder, Shapeable, HasFocusSelector by FocusSelectorDelegate() {
 
     private val _shapeHelper = ShapeHelper(this, attrs, defStyleAttr)
     private val _collapsingTextHelper: CollapsingTextHelper = CollapsingTextHelper(this)
@@ -211,9 +213,13 @@ internal class DecoratedFieldBox(
             chipGroup.adapter = value
         }
 
+    override val shape: ShapeModel?
+        get() = _shapeHelper.shape
+
     init {
         setWillNotDraw(false)
         obtainAttributes(context, attrs, defStyleAttr)
+        applySelector(this, context, attrs, defStyleAttr)
         _collapsingTextHelper.apply {
             setTextSizeInterpolator(AnimationUtils.LINEAR_INTERPOLATOR)
             setPositionInterpolator(AnimationUtils.LINEAR_INTERPOLATOR)
@@ -470,6 +476,7 @@ internal class DecoratedFieldBox(
 
     override fun onFocusChanged(gainFocus: Boolean, direction: Int, previouslyFocusedRect: Rect?) {
         super.onFocusChanged(gainFocus, direction, previouslyFocusedRect)
+        updateFocusSelector(this, gainFocus)
         redispatchActivated()
     }
 
