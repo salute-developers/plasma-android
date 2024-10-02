@@ -73,7 +73,7 @@ jobs:
         shell: bash
         run: |
           git fetch --all
-          git checkout -b release/${{steps.extract_version.outputs.tag}} develop
+          git checkout -b release/${{steps.extract_version.outputs.tag}} main
 
       - name: Create drawables folder
         working-directory: ./current
