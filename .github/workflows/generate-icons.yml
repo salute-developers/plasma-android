@@ -82,6 +82,15 @@ jobs:
           git fetch --all
           git checkout -b release/${{steps.extract_version.outputs.tag}}
 
+      - name: Create version commit
+        working-directory: ./current
+        shell: bash
+        run: |
+          git config --local user.email "salutedevs@gmail.com"
+          git config --local user.name "Salute Android Team"
+          git add ./sdds-core/icons/gradle.properties
+          git commit -m "feat(sdds-acore/icons): Bump icons version"
+
       - name: Create drawables folder
         working-directory: ./current
         continue-on-error: true
@@ -98,8 +107,6 @@ jobs:
         run: |
           TAG=${{steps.extract_version.outputs.tag}}
           PLASMA_VER=${{ github.event.client_payload.version || github.event.inputs.plasma-version }}
-          git config --local user.email "salutedevs@gmail.com"
-          git config --local user.name "Salute Android Team"
           git add ./sdds-core/icons/
           git commit -m "feat(sdds-acore/icons): New icons were added from plasma v$PLASMA_VER"
           git push --set-upstream origin release/$TAG
