@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <attr name="sd_focusAdditionalColor" format="color" />
-    <attr name="sd_focusMainColor" format="color" />
+    <attr name="sd_fsAdditionalColor" format="color" />
+    <attr name="sd_fsMainColor" format="color" />
+    <attr name="sd_fsMode" format="enum">
+        <enum name="none" value="0" />
+        <enum name="border" value="1" />
+        <enum name="gradient_border" value="2" />
+        <enum name="animated_border" value="3" />
+        <enum name="scale" value="4" />
+    </attr>
+    <attr name="sd_fsScaleFactor" format="float|fraction" />
+    <attr name="sd_fsStrokeWidth" format="dimension" />
+    <attr name="sd_fsStrokeInset" format="dimension" />
+    <attr name="sd_fsShapeAppearance" format="reference" />
+    <attr name="sd_fsShapeAdjustment" format="dimension" />
+
     <attr name="sd_shapeAppearance" format="reference" />
     <attr name="sd_shaderAppearance" format="reference" />
     <attr name="sd_shapeAppearanceAdjustment" format="dimension" />
@@ -74,13 +87,14 @@
     </declare-styleable>
 
     <declare-styleable name="SdFocusSelector">
-        <attr name="sd_fsEnabled" format="boolean" />
-        <attr name="sd_fsMode" format="enum">
-            <enum name="gradient" value="0" />
-            <enum name="animated" value="1" />
-        </attr>
-        <attr name="sd_fsStrokeWidth" format="float|fraction|dimension" />
-        <attr name="sd_fsShapeAppearance" format="reference" />
+        <attr name="sd_fsShapeAdjustment" />
+        <attr name="sd_fsAdditionalColor" />
+        <attr name="sd_fsMainColor" />
+        <attr name="sd_fsMode"/>
+        <attr name="sd_fsScaleFactor" />
+        <attr name="sd_fsStrokeWidth" />
+        <attr name="sd_fsStrokeInset" />
+        <attr name="sd_fsShapeAppearance" />
     </declare-styleable>
 
     <declare-styleable name="SdViewState">

@@ -6,6 +6,7 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.PorterDuff
+import android.graphics.Rect
 import android.graphics.drawable.Animatable
 import android.graphics.drawable.Drawable
 import android.text.Spannable
@@ -29,7 +30,10 @@ import com.sdds.uikit.internal.base.configure
 import com.sdds.uikit.internal.base.drawable.SpinnerDrawable
 import com.sdds.uikit.internal.base.set
 import com.sdds.uikit.internal.base.shape.ShapeHelper
-import com.sdds.uikit.internal.focusselector.tryApplyFocusSelector
+import com.sdds.uikit.internal.base.shape.Shapeable
+import com.sdds.uikit.internal.focusselector.FocusSelectorDelegate
+import com.sdds.uikit.internal.focusselector.HasFocusSelector
+import com.sdds.uikit.shape.ShapeModel
 import com.sdds.uikit.viewstate.ViewState
 import com.sdds.uikit.viewstate.ViewState.Companion.isDefined
 import com.sdds.uikit.viewstate.ViewStateHolder
@@ -42,13 +46,20 @@ import com.sdds.uikit.viewstate.ViewStateHolder
  * @param defStyleAttr аттрибут стиля по умолчанию
  * @author Малышев Александр on 24.05.2024
  */
+@Suppress("LeakingThis")
 open class Button @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = android.R.attr.buttonStyle,
-) : AppCompatButton(context, attrs, defStyleAttr), ViewStateHolder {
+) : AppCompatButton(
+    context,
+    attrs,
+    defStyleAttr,
+),
+    Shapeable,
+    ViewStateHolder,
+    HasFocusSelector by FocusSelectorDelegate() {
 
-    @Suppress("LeakingThis")
     private val _shapeHelper: ShapeHelper = ShapeHelper(this, attrs, defStyleAttr)
     private val _viewAlphaHelper: ViewAlphaHelper = ViewAlphaHelper(context, attrs, defStyleAttr)
 
@@ -231,9 +242,15 @@ open class Button @JvmOverloads constructor(
             }
         }
 
+    /**
+     * @see Shapeable
+     */
+    override val shape: ShapeModel?
+        get() = _shapeHelper.shape
+
     init {
-        tryApplyFocusSelector(attrs, defStyleAttr)
         obtainAttributes(attrs, defStyleAttr)
+        applySelector(this, context, attrs, defStyleAttr)
     }
 
     /**
@@ -341,6 +358,11 @@ open class Button @JvmOverloads constructor(
     override fun setEnabled(enabled: Boolean) {
         super.setEnabled(enabled)
         _viewAlphaHelper?.updateAlphaByEnabledState(this)
+    }
+
+    override fun onFocusChanged(focused: Boolean, direction: Int, previouslyFocusedRect: Rect?) {
+        super.onFocusChanged(focused, direction, previouslyFocusedRect)
+        updateFocusSelector(this, focused)
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {

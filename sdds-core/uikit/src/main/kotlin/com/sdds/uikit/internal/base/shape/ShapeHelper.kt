@@ -25,7 +25,7 @@ internal class ShapeHelper(
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0,
     defStyleRes: Int = 0,
-) {
+) : Shapeable {
 
     private var shapeModel: ShapeModel? = null
     private var strokeColor: ColorStateList? = null
@@ -39,6 +39,12 @@ internal class ShapeHelper(
     init {
         obtainAttrs(attrs, defStyleAttr, defStyleRes)
     }
+
+    /**
+     * @see Shapeable
+     */
+    override val shape: ShapeModel?
+        get() = shapeModel
 
     fun setShape(shapeModel: ShapeModel) {
         if (!canCreateShapeBackground()) return

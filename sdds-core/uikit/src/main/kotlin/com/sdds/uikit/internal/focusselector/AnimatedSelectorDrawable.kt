@@ -18,11 +18,9 @@ import android.graphics.drawable.Drawable
 import android.view.View
 import android.view.View.OnScrollChangeListener
 import android.view.animation.LinearInterpolator
-import com.google.android.material.shape.AdjustedCornerSize
-import com.google.android.material.shape.ShapeAppearanceModel
-import com.google.android.material.shape.ShapeAppearancePathProvider
 import com.sdds.uikit.R
 import com.sdds.uikit.colorFromAttr
+import com.sdds.uikit.shape.ShapeModel
 import kotlin.math.max
 import kotlin.math.min
 
@@ -35,9 +33,8 @@ internal class AnimatedSelectorDrawable : Drawable, Animatable, OnScrollChangeLi
     private val borderPaint = Paint()
     private val animationPaint = Paint()
     private val gradientColors: IntArray
-    private val shapeAppearanceModel: ShapeAppearanceModel
+    private val shapeModel: ShapeModel
     private val shapePath = Path()
-    private val shapeAppearancePathProvider = ShapeAppearancePathProvider()
     private val pathMeasure = PathMeasure()
     private val pathMatrix = Matrix()
     private var lineLength: Float = 0f
@@ -70,36 +67,22 @@ internal class AnimatedSelectorDrawable : Drawable, Animatable, OnScrollChangeLi
     /**
      * @param context контекст
      * @param strokeWidth ширина селектора в пикселях
-     * @param shapeAppearanceModel модель описывающая форму
+     * @param shapeModel модель описывающая форму
      */
     constructor(
         context: Context,
         strokeWidth: Float,
-        shapeAppearanceModel: ShapeAppearanceModel,
+        shapeModel: ShapeModel,
+        mainColor: Int = context.colorFromAttr(R.attr.sd_fsMainColor),
+        additionalColor: Int = context.colorFromAttr(R.attr.sd_fsAdditionalColor),
     ) : super() {
-        gradientColors = intArrayOf(context.colorFromAttr(android.R.attr.colorPrimary), 0)
-        borderPaint.color = context.colorFromAttr(R.attr.sd_focusMainColor)
-        this.shapeAppearanceModel = shapeAppearanceModel.withTransformedCornerSizes { cornerSize ->
-            AdjustedCornerSize(
-                context.resources.getDimension(R.dimen.sdds_spacer_0_5x),
-                cornerSize,
-            )
-        }
+        gradientColors = intArrayOf(mainColor, 0)
+        borderPaint.color = additionalColor
+        this.shapeModel = shapeModel
         borderPaint.applyStroke(strokeWidth)
         animationPaint.applyStroke(strokeWidth)
         offset = strokeWidth / 2f
     }
-
-    /**
-     * @param context контекст
-     * @param strokeWidth ширина селектора в пикселях
-     * @param cornerRadius радиус закругления селектора в пикселях
-     */
-    constructor(
-        context: Context,
-        strokeWidth: Float,
-        cornerRadius: Float,
-    ) : this(context, strokeWidth, createShapeModel(cornerRadius))
 
     override fun start() {
         animator.start()
@@ -142,20 +125,10 @@ internal class AnimatedSelectorDrawable : Drawable, Animatable, OnScrollChangeLi
         super.onBoundsChange(bounds)
         drawingRect.set(bounds)
         drawingRect.offset(offset)
-        if (shapeAppearanceModel.isRoundRect(drawingRect)) {
-            shapePath.reset()
-            val cornerSize = shapeAppearanceModel.topLeftCornerSize.getCornerSize(drawingRect)
-            shapePath.addRoundRect(drawingRect, cornerSize, cornerSize, Path.Direction.CW)
-            shapePath.close()
-        } else {
-            shapePath.reset()
-            shapeAppearancePathProvider.calculatePath(
-                shapeAppearanceModel,
-                1f,
-                drawingRect,
-                shapePath,
-            )
-        }
+        shapePath.reset()
+        val cornerSize = shapeModel.cornerSizeTopLeft.getSize(drawingRect)
+        shapePath.addRoundRect(drawingRect, cornerSize, cornerSize, Path.Direction.CW)
+        shapePath.close()
         pathMeasure.setPath(shapePath, true)
         updateLineLength()
         val radius = lineLength / 2
@@ -191,12 +164,8 @@ internal class AnimatedSelectorDrawable : Drawable, Animatable, OnScrollChangeLi
     }
 
     private fun drawShape(canvas: Canvas, paint: Paint) {
-        if (shapeAppearanceModel.isRoundRect(drawingRect)) {
-            val cornerSize = shapeAppearanceModel.topLeftCornerSize.getCornerSize(drawingRect)
-            canvas.drawRoundRect(drawingRect, cornerSize, cornerSize, paint)
-        } else {
-            canvas.drawPath(shapePath, paint)
-        }
+        val cornerSize = shapeModel.cornerSizeTopLeft.getSize(drawingRect)
+        canvas.drawRoundRect(drawingRect, cornerSize, cornerSize, paint)
     }
 
     private fun Shader.updateShader(shaderStart: Float) {
@@ -222,10 +191,6 @@ internal class AnimatedSelectorDrawable : Drawable, Animatable, OnScrollChangeLi
         const val ANIMATION_DURATION = 2500L
         const val LENGTH_COEFFICIENT = 0.1f
         const val MAX_RATION = 4
-
-        fun createShapeModel(cornerRadius: Float) = ShapeAppearanceModel.builder()
-            .setAllCornerSizes(cornerRadius)
-            .build()
 
         fun RectF.offset(offset: Float) {
             left += offset

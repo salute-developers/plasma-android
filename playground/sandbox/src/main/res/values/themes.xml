@@ -29,6 +29,11 @@
         <item name="serv_shapeRoundXs">@style/Serv.SddsServ.Shape.Round.Xs</item>
         <item name="serv_shapeRoundXxs">@style/Serv.SddsServ.Shape.Round.Xxs</item>
         <item name="sd_disabledAlpha">0.4</item>
+        <item name="sd_fsMode">border</item>
+        <item name="sd_fsMainColor">?serv_surfaceDefaultAccent</item>
+        <item name="sd_fsStrokeWidth">@dimen/sdds_spacer_0_5x</item>
+        <item name="sd_fsStrokeInset">@dimen/sdds_spacer_1x</item>
+        <item name="sd_fsShapeAdjustment">@dimen/sdds_spacer_1x</item>
 
         <item name="android:buttonStyle">@style/Theme.Sandbox.Components.BasicButton.M</item>
         <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextField.M</item>
