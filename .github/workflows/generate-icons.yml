@@ -16,10 +16,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # делаем сheckout в текущем репозитория
+      # делаем сheckout в текущем репозитории
       - name: Checkout
         uses: actions/checkout@v4
         with:
+          ref: main
           show-progress: false
           fetch-depth: 0
           path: current
@@ -73,7 +74,7 @@ jobs:
         shell: bash
         run: |
           git fetch --all
-          git checkout -b release/${{steps.extract_version.outputs.tag}} develop
+          git checkout -b release/${{steps.extract_version.outputs.tag}}
 
       - name: Create drawables folder
         working-directory: ./current
