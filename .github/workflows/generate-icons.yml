@@ -49,6 +49,12 @@ jobs:
           npx lerna bootstrap --scope="@salutejs/plasma-icons" --ignore-scripts
           npm run generate:android --prefix="packages/plasma-icons"
 
+      - name: Bump version
+        working-directory: ./current
+        shell: bash
+        run: |
+          ./gradlew :sdds-core:icons:bump --info
+
       - name: Extract current version
         id: extract_version
         working-directory: ./current
