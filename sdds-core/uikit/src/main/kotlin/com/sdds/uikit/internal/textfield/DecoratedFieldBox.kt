@@ -47,6 +47,7 @@ import com.sdds.uikit.internal.base.shape.Shapeable
 import com.sdds.uikit.internal.base.unsafeLazy
 import com.sdds.uikit.shape.ShapeModel
 import com.sdds.uikit.viewstate.ViewState
+import com.sdds.uikit.viewstate.ViewState.Companion.isDefined
 import com.sdds.uikit.viewstate.ViewStateHolder
 import kotlin.math.roundToInt
 
@@ -155,9 +156,13 @@ internal class DecoratedFieldBox(
     private var _scrollBarPaddingStart: Int = 0
     private var _scrollBarPaddingEnd: Int = 0
     private var _scrollBarPaddingBottom: Int = 0
-    private var _shouldDrawScrollBar: Boolean = false
     private var _scrollBarTrackColors: ColorStateList? = null
     private var _scrollBarThumbColors: ColorStateList? = null
+    private val _shouldDrawScrollBar: Boolean get() {
+        val chipsContentHeight = chipGroup.measuredHeight + _editableContainer.paddingTop +
+            _editableContainer.paddingBottom
+        return _scrollBarEnabled && _editableContainer.measuredHeight < chipsContentHeight
+    }
 
     val editText: StatefulEditText
         get() = _field
@@ -182,6 +187,7 @@ internal class DecoratedFieldBox(
         set(value) {
             if (field != value) {
                 field = value
+                refreshDrawableState()
                 _actionView.state = field
                 _iconView.state = field
                 _field.state = field
@@ -207,7 +213,6 @@ internal class DecoratedFieldBox(
 
     init {
         setWillNotDraw(false)
-        setAddStatesFromChildren(true)
         obtainAttributes(context, attrs, defStyleAttr)
         _collapsingTextHelper.apply {
             setTextSizeInterpolator(AnimationUtils.LINEAR_INTERPOLATOR)
@@ -218,6 +223,9 @@ internal class DecoratedFieldBox(
         }
         initContent()
         updateTextOffset()
+        viewTreeObserver.addOnGlobalFocusChangeListener { oldFocus, newFocus ->
+            isActivated = !isFocused && hasFocus()
+        }
     }
 
     fun isSingleLine(): Boolean = editText.singleLine()
@@ -413,14 +421,17 @@ internal class DecoratedFieldBox(
     }
 
     override fun onCreateDrawableState(extraSpace: Int): IntArray {
-        val state = super.onCreateDrawableState(extraSpace + 2)
+        val drawableState = super.onCreateDrawableState(extraSpace + 3)
+        if (state?.isDefined() == true) {
+            mergeDrawableStates(drawableState, state?.attr)
+        }
         if (labelEnabled) {
-            mergeDrawableStates(state, intArrayOf(R.attr.sd_state_inner_label))
+            mergeDrawableStates(drawableState, intArrayOf(R.attr.sd_state_inner_label))
         }
         if (editText.isReadOnly) {
-            mergeDrawableStates(state, intArrayOf(R.attr.sd_state_readonly))
+            mergeDrawableStates(drawableState, intArrayOf(R.attr.sd_state_readonly))
         }
-        return state
+        return drawableState
     }
 
     override fun drawableStateChanged() {
@@ -430,15 +441,13 @@ internal class DecoratedFieldBox(
 
         _inDrawableStateChanged = true
         val changed = _collapsingTextHelper.setState(drawableState)
-        val hasFocus = drawableState.contains(android.R.attr.state_focused)
-        _captionView.state = if (hasFocus) ViewState.PRIMARY else state
-        _counterView.state = if (hasFocus) ViewState.PRIMARY else state
+        _captionView.state = if (isActivated) ViewState.PRIMARY else state
+        _counterView.state = if (isActivated) ViewState.PRIMARY else state
         updateTextState(isLaidOut && isEnabled)
 
         if (changed) {
             invalidate()
         }
-
         _inDrawableStateChanged = false
     }
 
@@ -457,6 +466,22 @@ internal class DecoratedFieldBox(
         super.onDetachedFromWindow()
         _editableContainer.removeCallbacks(_smoothScrollRunnable)
         _smoothScrollRunnable = null
+    }
+
+    override fun onFocusChanged(gainFocus: Boolean, direction: Int, previouslyFocusedRect: Rect?) {
+        super.onFocusChanged(gainFocus, direction, previouslyFocusedRect)
+        redispatchActivated()
+    }
+
+    override fun dispatchSetActivated(activated: Boolean) {
+        // При вызове setActivated хотим, чтобы на children всегда приходил activated = false
+        // Чтобы потом самостоятельно отправить им нужное значение
+        super.dispatchSetActivated(false)
+    }
+
+    private fun redispatchActivated() {
+        // отправляем всем children значение activate = true, если в контейнер в фокусе
+        super.dispatchSetActivated(isFocused)
     }
 
     @Suppress("CustomViewStyleable", "LongMethod")
@@ -728,7 +753,7 @@ internal class DecoratedFieldBox(
     }
 
     private fun focusEditText() {
-        if (editText.requestFocus()) {
+        if (editText.requestFocus() && !editText.isReadOnly) {
             showImeImplicit()
         }
         editText.setSelection(editText.text?.length ?: 0)
@@ -744,8 +769,9 @@ internal class DecoratedFieldBox(
         val trackLeft = measuredWidth - _scrollBarPaddingEnd - _scrollBarThickness
         val trackRight = measuredWidth - _scrollBarPaddingEnd
         val trackTop = _scrollBarPaddingTop
-        val thumbHeightPercent = _editableContainer.height * 1f / chipGroup.height
-        val thumbOffsetPercent = _editableContainer.scrollY * 1f / (chipGroup.bottom - _editableContainer.height)
+        val thumbHeightPercent = (_editableContainer.height * 1f / chipGroup.height).let { if (it.isNaN()) 0f else it }
+        val thumbOffsetPercent = (_editableContainer.scrollY * 1f / (chipGroup.bottom - _editableContainer.height))
+            .let { if (it.isNaN()) 0f else it }
         _scrollBarTrackDrawable.setBounds(
             trackLeft,
             trackTop,
@@ -824,9 +850,6 @@ internal class DecoratedFieldBox(
         override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
             _minTextRowHeight = getAlignmentLine()
             super.onMeasure(widthMeasureSpec, heightMeasureSpec)
-            val chipsContentHeight = chipGroup.measuredHeight + _editableContainer.paddingTop +
-                _editableContainer.paddingBottom
-            _shouldDrawScrollBar = _scrollBarEnabled && _editableContainer.measuredHeight < chipsContentHeight
         }
 
         override fun onMeasureChild(child: View, widthMeasureSpec: Int, heightMeasureSpec: Int) {

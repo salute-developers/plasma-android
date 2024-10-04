@@ -83,4 +83,25 @@
         <item name="enableEdgeToEdge">false</item>
     </style>
 
+    <style name="Theme.Sandbox.PropertyItem">
+        <item name="android:background">@color/bg_property_item</item>
+    </style>
+
+    <style name="Theme.Sandbox.PropertyItemLabel">
+        <item name="android:textColor">@color/color_property_item_label</item>
+        <item name="android:textAppearance">@style/Serv.SddsServ.TextAppearance.BodyMBold</item>
+        <item name="android:duplicateParentState">true</item>
+    </style>
+
+    <style name="Theme.Sandbox.PropertyItemValue">
+        <item name="android:textColor">@color/color_property_item_value</item>
+        <item name="android:textAppearance">@style/Serv.SddsServ.TextAppearance.BodyMBold</item>
+        <item name="android:duplicateParentState">true</item>
+    </style>
+
+    <style name="Theme.Sandbox.PropertyItemSwitch" parent="Theme.Sandbox.Components.Switch.M">
+        <item name="sd_buttonTrackColor">@color/bg_color_property_switch_track</item>
+        <item name="android:duplicateParentState">true</item>
+    </style>
+
 </resources>

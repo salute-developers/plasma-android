@@ -15,6 +15,7 @@ import android.graphics.SweepGradient
 import android.graphics.drawable.Animatable
 import android.graphics.drawable.Drawable
 import android.view.animation.LinearInterpolator
+import com.sdds.uikit.internal.base.configure
 
 /**
  * Drawable с вращающейся окружностью.
@@ -30,11 +31,12 @@ internal class SpinnerDrawable(private val strokeWidth: Float) : Drawable(), Ani
     private var strokeCapDegrees: Float = 0f
     private var tint: ColorStateList? = null
     private val paint: Paint by lazy {
-        Paint().apply {
-            this.strokeWidth = this@SpinnerDrawable.strokeWidth
-            style = Paint.Style.STROKE
-            strokeCap = Paint.Cap.ROUND
-            isAntiAlias = true
+        Paint().configure(
+            strokeWidth = strokeWidth,
+            style = Paint.Style.STROKE,
+            strokeCap = Paint.Cap.ROUND,
+            isAntiAlias = true,
+        ).apply {
             shader = SweepGradient(
                 0f, 0f,
                 intArrayOf(

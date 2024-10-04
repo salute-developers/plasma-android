@@ -18,6 +18,7 @@ import com.sdds.uikit.R
 import com.sdds.uikit.internal.base.CancelableFontCallback
 import com.sdds.uikit.internal.base.applyTextAppearance
 import com.sdds.uikit.internal.base.colorForState
+import com.sdds.uikit.internal.base.configure
 import com.sdds.uikit.shape.ShapeDrawable
 import kotlin.math.roundToInt
 
@@ -66,7 +67,7 @@ open class ChipDrawable(
     private var _textPaddingEnd: Int = 0
     private var _textColor: ColorStateList? = null
     private val textBounds = Rect()
-    private val textPaint = TextPaint()
+    private val textPaint = TextPaint().configure(isAntiAlias = true)
     private var _fontCallback: CancelableFontCallback? = null
     private var _delegate: Delegate? = null
 

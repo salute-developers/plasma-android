@@ -32,7 +32,7 @@ internal class RadioBoxDrawable(
     defStyleAttr: Int,
 ) : Drawable(), Animatable {
 
-    private val _paint: Paint by unsafeLazy { Paint() }
+    private val _paint: Paint = Paint().configure(isAntiAlias = true)
     private val animator by unsafeLazy {
         ValueAnimator().apply {
             duration = ANIMATION_DURATION

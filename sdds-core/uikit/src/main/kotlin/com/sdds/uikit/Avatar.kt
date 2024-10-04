@@ -21,6 +21,7 @@ import androidx.core.content.ContextCompat
 import com.sdds.uikit.internal.base.CancelableFontCallback
 import com.sdds.uikit.internal.base.applyTextAppearance
 import com.sdds.uikit.internal.base.colorForState
+import com.sdds.uikit.internal.base.configure
 import java.util.Locale
 import kotlin.math.roundToInt
 
@@ -59,10 +60,10 @@ open class Avatar @JvmOverloads constructor(
     }
 
     private val _bounds: Rect = Rect()
-    private val _statusPaint = Paint().apply {
-        isAntiAlias = true
-        style = Paint.Style.FILL
-    }
+    private val _statusPaint = Paint().configure(
+        isAntiAlias = true,
+        style = Paint.Style.FILL,
+    )
 
     private var _statusSize: Float = 0f
     private var _statusOffsetX: Float = 0f
@@ -80,7 +81,7 @@ open class Avatar @JvmOverloads constructor(
     private var _text: CharSequence? = null
     private var _textAppearanceId: Int = 0
     private val _textBounds: Rect = Rect()
-    private val _textPaint = TextPaint()
+    private val _textPaint = TextPaint().configure(isAntiAlias = true)
     private var _textColor: ColorStateList? = null
     private var _fontCallback: CancelableFontCallback? = null
 

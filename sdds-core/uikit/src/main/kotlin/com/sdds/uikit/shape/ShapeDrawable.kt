@@ -13,6 +13,7 @@ import android.graphics.Rect
 import android.graphics.RectF
 import android.graphics.Shader
 import android.graphics.drawable.Drawable
+import android.graphics.drawable.ShapeDrawable
 import android.graphics.drawable.shapes.Shape
 import android.util.AttributeSet
 import android.util.TypedValue
@@ -230,7 +231,11 @@ open class ShapeDrawable() : Drawable(), Shapeable {
             val fillColor = _shapeTint.colorForState(state)
             if (fillColor != _shapePaint.color) {
                 _shapePaint.color = fillColor
+                stateChanged = true
             }
+        }
+        if (stateChanged) {
+            invalidateSelf()
         }
         return super.onStateChange(state) || stateChanged
     }
