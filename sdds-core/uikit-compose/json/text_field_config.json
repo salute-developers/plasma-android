@@ -1,0 +1,392 @@
+{
+    "variations": {
+        "style": {
+            "default": {
+                "valueColor": {
+                    "normal": "",
+                    "focused": "",
+                    "readOnly": ""
+                },
+                "optionalColor": "",
+                "captionColor": "",
+                "startContentColor": "",
+                "endContentColor": "",
+                "backgroundColor": {
+                    "normal": "",
+                    "focused": "",
+                    "readOnly": ""
+                },
+                "placeholderColor": {
+                    "normal": "",
+                    "focused": "",
+                    "readOnly": ""
+                },
+                "labelColor": {
+                    "outer": {
+                        "normal": "",
+                        "focused": "",
+                        "readOnly": ""
+                    },
+                    "inner": ""
+                },
+                "cursorColor": "",
+                "dividerColor": ""
+            },
+            "error": {
+                "valueColor": {
+                    "normal": "",
+                    "focused": "",
+                    "readOnly": ""
+                },
+                "optionalColor": "",
+                "captionColor": "",
+                "startContentColor": "",
+                "endContentColor": "",
+                "backgroundColor": {
+                    "normal": "",
+                    "focused": "",
+                    "readOnly": ""
+                },
+                "placeholderColor": {
+                    "normal": "",
+                    "focused": "",
+                    "readOnly": ""
+                },
+                "labelColor": {
+                    "outer": {
+                        "normal": "",
+                        "focused": "",
+                        "readOnly": ""
+                    },
+                    "inner": ""
+                },
+                "cursorColor": "",
+                "dividerColor": ""
+            },
+            "warning": {
+                "valueColor": {
+                    "normal": "",
+                    "focused": "",
+                    "readOnly": ""
+                },
+                "optionalColor": "",
+                "captionColor": "",
+                "startContentColor": "",
+                "endContentColor": "",
+                "backgroundColor": {
+                    "normal": "",
+                    "focused": "",
+                    "readOnly": ""
+                },
+                "placeholderColor": {
+                    "normal": "",
+                    "focused": "",
+                    "readOnly": ""
+                },
+                "labelColor": {
+                    "outer": {
+                        "normal": "",
+                        "focused": "",
+                        "readOnly": ""
+                    },
+                    "inner": ""
+                },
+                "cursorColor": "",
+                "dividerColor": ""
+            },
+            "success": {
+                "valueColor": {
+                    "normal": "",
+                    "focused": "",
+                    "readOnly": ""
+                },
+                "optionalColor": "",
+                "captionColor": "",
+                "startContentColor": "",
+                "endContentColor": "",
+                "backgroundColor": {
+                    "normal": "",
+                    "focused": "",
+                    "readOnly": ""
+                },
+                "placeholderColor": {
+                    "normal": "",
+                    "focused": "",
+                    "readOnly": ""
+                },
+                "labelColor": {
+                    "outer": {
+                        "normal": "",
+                        "focused": "",
+                        "readOnly": ""
+                    },
+                    "inner": ""
+                },
+                "cursorColor": "",
+                "dividerColor": ""
+            }
+        },
+        "size": {
+            "xs": {
+                "shape": "",
+                "indicator": {
+                    "innerLabelStart": {
+                        "size": 1,
+                        "horizontalPadding": 1,
+                        "verticalPadding": 1
+                    },
+                    "innerLabelEnd": {
+                        "size": 1,
+                        "horizontalPadding": 1,
+                        "verticalPadding": 1
+                    },
+                    "outerLabelStart": {
+                        "size": 1,
+                        "horizontalPadding": 1,
+                        "verticalPadding": 1
+                    },
+                    "outerLabelEnd": {
+                        "size": 1,
+                        "horizontalPadding": 1,
+                        "verticalPadding": 1
+                    }
+                },
+                "boxMinHeight": 1,
+                "chipHeight": 1,
+                "alignmentMinHeight": 1,
+                "iconSize": 1,
+                "boxPaddingStart": 1,
+                "boxPaddingEnd": 1,
+                "boxPaddingTop": {
+                    "innerLabel": 1,
+                    "outerLabel": 1
+                },
+                "boxPaddingBottom": {
+                    "innerLabel": 1,
+                    "outerLabel": 1
+                },
+                "labelPadding": {
+                    "innerLabel": 1,
+                    "outerLabel": 1
+                },
+                "optionalPadding": 1,
+                "helperTextPadding": {
+                    "innerHelperText": 1,
+                    "outerHelperText": 1
+                },
+                "startContentEndPadding": 1,
+                "endContentStartPadding": 1,
+                "chipsPadding": 1,
+                "chipsSpacing": 1,
+                "keepIndicatorStartPadding": 1,
+                "labelStyle": {
+                    "innerLabel": "bodyMNormal",
+                    "outerLabel": "bodyLNormal"
+                },
+                "optionalStyle": {
+                    "innerLabel": "bodyMNormal",
+                    "outerLabel": "bodyLNormal"
+                },
+                "valueStyle": "bodyMNormal",
+                "captionStyle": "bodyMNormal",
+                "counterStyle": "bodyMNormal",
+                "placeholderStyle": "bodyMNormal"
+            },
+            "s": {
+                "shape": "",
+                "indicator": {
+                    "innerLabelStart": {
+                        "size": 1,
+                        "horizontalPadding": 1,
+                        "verticalPadding": 1
+                    },
+                    "innerLabelEnd": {
+                        "size": 1,
+                        "horizontalPadding": 1,
+                        "verticalPadding": 1
+                    },
+                    "outerLabelStart": {
+                        "size": 1,
+                        "horizontalPadding": 1,
+                        "verticalPadding": 1
+                    },
+                    "outerLabelEnd": {
+                        "size": 1,
+                        "horizontalPadding": 1,
+                        "verticalPadding": 1
+                    }
+                },
+                "boxMinHeight": 1,
+                "chipHeight": 1,
+                "alignmentMinHeight": 1,
+                "iconSize": 1,
+                "boxPaddingStart": 1,
+                "boxPaddingEnd": 1,
+                "boxPaddingTop": {
+                    "innerLabel": 1,
+                    "outerLabel": 1
+                },
+                "boxPaddingBottom": {
+                    "innerLabel": 1,
+                    "outerLabel": 1
+                },
+                "labelPadding": {
+                    "innerLabel": 1,
+                    "outerLabel": 1
+                },
+                "optionalPadding": 1,
+                "helperTextPadding": {
+                    "innerHelperText": 1,
+                    "outerHelperText": 1
+                },
+                "startContentEndPadding": 1,
+                "endContentStartPadding": 1,
+                "chipsPadding": 1,
+                "chipsSpacing": 1,
+                "keepIndicatorStartPadding": 1,
+                "labelStyle": {
+                    "innerLabel": "bodyMNormal",
+                    "outerLabel": "bodyLNormal"
+                },
+                "optionalStyle": {
+                    "innerLabel": "bodyMNormal",
+                    "outerLabel": "bodyLNormal"
+                },
+                "valueStyle": "bodyMNormal",
+                "captionStyle": "bodyMNormal",
+                "counterStyle": "bodyMNormal",
+                "placeholderStyle": "bodyMNormal"
+            },
+            "m": {
+                "shape": "",
+                "indicator": {
+                    "innerLabelStart": {
+                        "size": 1,
+                        "horizontalPadding": 1,
+                        "verticalPadding": 1
+                    },
+                    "innerLabelEnd": {
+                        "size": 1,
+                        "horizontalPadding": 1,
+                        "verticalPadding": 1
+                    },
+                    "outerLabelStart": {
+                        "size": 1,
+                        "horizontalPadding": 1,
+                        "verticalPadding": 1
+                    },
+                    "outerLabelEnd": {
+                        "size": 1,
+                        "horizontalPadding": 1,
+                        "verticalPadding": 1
+                    }
+                },
+                "boxMinHeight": 1,
+                "chipHeight": 1,
+                "alignmentMinHeight": 1,
+                "iconSize": 1,
+                "boxPaddingStart": 1,
+                "boxPaddingEnd": 1,
+                "boxPaddingTop": {
+                    "innerLabel": 1,
+                    "outerLabel": 1
+                },
+                "boxPaddingBottom": {
+                    "innerLabel": 1,
+                    "outerLabel": 1
+                },
+                "labelPadding": {
+                    "innerLabel": 1,
+                    "outerLabel": 1
+                },
+                "optionalPadding": 1,
+                "helperTextPadding": {
+                    "innerHelperText": 1,
+                    "outerHelperText": 1
+                },
+                "startContentEndPadding": 1,
+                "endContentStartPadding": 1,
+                "chipsPadding": 1,
+                "chipsSpacing": 1,
+                "keepIndicatorStartPadding": 1,
+                "labelStyle": {
+                    "innerLabel": "bodyMNormal",
+                    "outerLabel": "bodyLNormal"
+                },
+                "optionalStyle": {
+                    "innerLabel": "bodyMNormal",
+                    "outerLabel": "bodyLNormal"
+                },
+                "valueStyle": "bodyMNormal",
+                "captionStyle": "bodyMNormal",
+                "counterStyle": "bodyMNormal",
+                "placeholderStyle": "bodyMNormal"
+            },
+            "l": {
+                "shape": "",
+                "indicator": {
+                    "innerLabelStart": {
+                        "size": 1,
+                        "horizontalPadding": 1,
+                        "verticalPadding": 1
+                    },
+                    "innerLabelEnd": {
+                        "size": 1,
+                        "horizontalPadding": 1,
+                        "verticalPadding": 1
+                    },
+                    "outerLabelStart": {
+                        "size": 1,
+                        "horizontalPadding": 1,
+                        "verticalPadding": 1
+                    },
+                    "outerLabelEnd": {
+                        "size": 1,
+                        "horizontalPadding": 1,
+                        "verticalPadding": 1
+                    }
+                },
+                "boxMinHeight": 1,
+                "chipHeight": 1,
+                "alignmentMinHeight": 1,
+                "iconSize": 1,
+                "boxPaddingStart": 1,
+                "boxPaddingEnd": 1,
+                "boxPaddingTop": {
+                    "innerLabel": 1,
+                    "outerLabel": 1
+                },
+                "boxPaddingBottom": {
+                    "innerLabel": 1,
+                    "outerLabel": 1
+                },
+                "labelPadding": {
+                    "innerLabel": 1,
+                    "outerLabel": 1
+                },
+                "optionalPadding": 1,
+                "helperTextPadding": {
+                    "innerHelperText": 1,
+                    "outerHelperText": 1
+                },
+                "startContentEndPadding": 1,
+                "endContentStartPadding": 1,
+                "chipsPadding": 1,
+                "chipsSpacing": 1,
+                "keepIndicatorStartPadding": 1,
+                "labelStyle": {
+                    "innerLabel": "bodyMNormal",
+                    "outerLabel": "bodyLNormal"
+                },
+                "optionalStyle": {
+                    "innerLabel": "bodyMNormal",
+                    "outerLabel": "bodyLNormal"
+                },
+                "valueStyle": "bodyMNormal",
+                "captionStyle": "bodyMNormal",
+                "counterStyle": "bodyMNormal",
+                "placeholderStyle": "bodyMNormal"
+            }
+        }
+    }
+}
