@@ -7,7 +7,7 @@
         <item name="sd_boxTint">@color/bg_textfield_box</item>
         <item name="sd_captionColor">@color/color_textfield_caption</item>
         <item name="sd_labelColor">@color/color_textfield_label</item>
-        <item name="sd_placeholderColor">?serv_textDefaultSecondary</item>
+        <item name="sd_placeholderColor">@color/color_textfield_placeholder</item>
         <item name="sd_valueColor">@color/color_textfield_value</item>
         <item name="sd_labelPlacement">none</item>
         <item name="sd_captionPlacement">outer</item>

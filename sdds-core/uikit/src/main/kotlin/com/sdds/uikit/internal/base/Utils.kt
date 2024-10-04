@@ -57,13 +57,13 @@ internal fun Drawable.wrapWithInset(
  * @param strokeCap [Paint.Cap]
  * @param isAntiAlias включено ли сглаживание
  */
-internal fun Paint.configure(
+internal fun <T : Paint> T.configure(
     style: Paint.Style = this.style,
     color: Int = this.color,
     strokeWidth: Float = this.strokeWidth,
     strokeCap: Paint.Cap = this.strokeCap,
     isAntiAlias: Boolean = this.isAntiAlias,
-): Paint = this.apply {
+): T = this.apply {
     if (this.style != style) this.style = style
     if (this.color != color) this.color = color
     if (this.strokeWidth != strokeWidth) this.strokeWidth = strokeWidth

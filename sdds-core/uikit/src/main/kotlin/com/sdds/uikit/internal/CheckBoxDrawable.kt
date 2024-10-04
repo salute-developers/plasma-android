@@ -41,7 +41,7 @@ internal class CheckBoxDrawable(
     private val _checkPath: Path = Path()
     private val _pathMeasure: PathMeasure = PathMeasure()
     private val _pathToDraw: Path = Path()
-    private val _paint: Paint by unsafeLazy { Paint() }
+    private val _paint: Paint = Paint().configure(isAntiAlias = true)
     private val animatorSet = AnimatorSet()
     private val checkDrawAnimation by unsafeLazy {
         ValueAnimator().apply {
@@ -138,6 +138,7 @@ internal class CheckBoxDrawable(
     override fun draw(canvas: Canvas) {
         canvas.save()
         canvas.translate(bounds.left.toFloat() + FocusBorderPadding, bounds.top.toFloat() + FocusBorderPadding)
+        canvas.clipRect(bounds)
         canvas.drawBox(
             checked = _checked,
             focused = _focused,
@@ -172,6 +173,9 @@ internal class CheckBoxDrawable(
                 else -> CheckBox.ToggleableState.OFF
             },
         )
+        if (changed) {
+            invalidateSelf()
+        }
         return super.onStateChange(state) && changed
     }
 
@@ -237,8 +241,8 @@ internal class CheckBoxDrawable(
 
         val checkedWidth = width - (FocusBorderPadding + _padding) * 2f
         val checkedHeight = height - (FocusBorderPadding + _padding) * 2f
-        val borderWidth = if (focused) width.toFloat() else checkedWidth - strokeWidth
-        val borderHeight = if (focused) height.toFloat() else checkedHeight - strokeWidth
+        val borderWidth = if (focused) width.toFloat() - strokeWidth else checkedWidth - strokeWidth
+        val borderHeight = if (focused) height.toFloat() - strokeWidth else checkedHeight - strokeWidth
 
         val borderRadius = if (focused) radius + 2.dp else radius
 

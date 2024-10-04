@@ -107,22 +107,28 @@ open class TextField @JvmOverloads constructor(
     private val _outerLabelView: TextView by unsafeLazy {
         TextView(context).apply {
             id = R.id.sd_textFieldOuterLabel
+            isFocusable = false
+            isFocusableInTouchMode = false
         }
     }
     private val _captionView: TextView by unsafeLazy {
         TextView(context).apply {
             id = R.id.sd_textFieldCaption
+            isFocusable = false
+            isFocusableInTouchMode = false
         }
     }
 
     private val _counterView: TextView by unsafeLazy {
         TextView(context).apply {
             id = R.id.sd_textFieldCounter
+            isFocusable = false
         }
     }
     private val _decorationBox: DecoratedFieldBox by unsafeLazy {
         DecoratedFieldBox(context, attrs, defStyleAttr).apply {
             id = R.id.sd_textFieldDecorationBox
+            isFocusable = true
         }
     }
     private val viewAlphaHelper = ViewAlphaHelper(context, attrs, defStyleAttr)
@@ -158,6 +164,8 @@ open class TextField @JvmOverloads constructor(
         setAddStatesFromChildren(true)
         obtainAttributes(context, attrs, defStyleAttr, defStyleRes)
         layoutChildren()
+        isFocusable = false
+        isFocusableInTouchMode = false
     }
 
     /**
@@ -587,9 +595,9 @@ open class TextField @JvmOverloads constructor(
             return
         }
         _inDrawableStateChanged = true
-        val hasFocus = drawableState.contains(android.R.attr.state_focused)
-        _captionView.state = if (hasFocus) ViewState.PRIMARY else _state
-        _counterView.state = if (hasFocus) ViewState.PRIMARY else _state
+        val isActivated = _decorationBox.isActivated
+        _captionView.state = if (isActivated) ViewState.PRIMARY else _state
+        _counterView.state = if (isActivated) ViewState.PRIMARY else _state
         _indicator?.state = drawableState
         _indicator?.invalidateSelf()
         _inDrawableStateChanged = false

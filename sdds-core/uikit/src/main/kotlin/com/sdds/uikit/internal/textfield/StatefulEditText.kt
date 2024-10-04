@@ -269,6 +269,7 @@ internal class StatefulEditText @JvmOverloads constructor(
             null,
         )
         updateSuffixPrefixPosition()
+        refreshDrawableState()
     }
 
     private fun updateSuffixPrefixPosition() {
@@ -333,7 +334,7 @@ internal class StatefulEditText @JvmOverloads constructor(
 
     internal class TextDrawable(text: CharSequence?) : Drawable() {
 
-        private val _textPaint: TextPaint = TextPaint()
+        private val _textPaint: TextPaint = TextPaint().configure(isAntiAlias = true)
         private val debug: Paint =
             Paint().configure(color = Color.MAGENTA, style = Paint.Style.STROKE, strokeWidth = 3f)
         private var _textColors: ColorStateList? = null
@@ -408,6 +409,10 @@ internal class StatefulEditText @JvmOverloads constructor(
 
         override fun getIntrinsicHeight(): Int {
             return (_textPaint.fontMetrics.descent - _textPaint.fontMetrics.ascent).toInt()
+        }
+
+        override fun isStateful(): Boolean {
+            return _textColors?.isStateful == true
         }
     }
 

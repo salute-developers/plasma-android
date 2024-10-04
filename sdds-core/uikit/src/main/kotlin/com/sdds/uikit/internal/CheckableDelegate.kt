@@ -14,6 +14,7 @@ import com.sdds.uikit.R
 import com.sdds.uikit.internal.base.CancelableFontCallback
 import com.sdds.uikit.internal.base.applyTextAppearance
 import com.sdds.uikit.internal.base.colorForState
+import com.sdds.uikit.internal.base.configure
 import kotlin.math.max
 
 /**
@@ -31,7 +32,7 @@ internal class CheckableDelegate(
     defStyleAttrs: Int = 0,
     defStyleRes: Int = 0,
 ) {
-    private val _descriptionPaint: TextPaint = TextPaint()
+    private val _descriptionPaint: TextPaint = TextPaint().configure(isAntiAlias = true)
     private val _lastLineBounds: Rect = Rect()
 
     private var descriptionLayout: Layout? = null

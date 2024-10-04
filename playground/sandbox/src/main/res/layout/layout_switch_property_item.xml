@@ -2,13 +2,14 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Theme.Sandbox.PropertyItem"
     android:layout_width="match_parent"
     android:layout_height="@dimen/sdds_spacer_28x"
     xmlns:tools="http://schemas.android.com/tools"
     android:paddingHorizontal="@dimen/sdds_spacer_8x">
 
     <com.sdds.uikit.TextView
-        style="@style/Serv.SddsServ.Typography.BodyMBold"
+        style="@style/Theme.Sandbox.PropertyItemLabel"
         android:id="@+id/property_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -16,13 +17,13 @@
         android:ellipsize="end"
         android:maxLines="1"
         tools:text="Property name"
-        android:textColor="?serv_textDefaultPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/property_switch"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.sdds.uikit.Switch
+        style="@style/Theme.Sandbox.PropertyItemSwitch"
         android:id="@+id/property_switch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
