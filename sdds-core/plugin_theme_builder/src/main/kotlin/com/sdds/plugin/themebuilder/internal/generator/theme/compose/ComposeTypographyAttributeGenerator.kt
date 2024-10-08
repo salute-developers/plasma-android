@@ -121,15 +121,14 @@ internal class ComposeTypographyAttributeGenerator(
 
     private fun addBreakPointFun() {
         val bp = dimensionsConfig.breakPoints
-        val multiplier = dimensionsConfig.multiplier
         typographyKtFileBuilder.appendRootFun(
             receiver = ClassName(typographyClassType.packageName, "WindowSizeClass"),
             name = "widthBreakPoint",
             returnType = KtFileBuilder.TypeDp,
             body = listOf(
                 "return when (this) {\n",
-                "${KtFileBuilder.DEFAULT_FILE_INDENT}WindowSizeClass.Expanded -> ${bp.large * multiplier}.dp\n",
-                "${KtFileBuilder.DEFAULT_FILE_INDENT}WindowSizeClass.Medium -> ${bp.medium * multiplier}.dp\n",
+                "${KtFileBuilder.DEFAULT_FILE_INDENT}WindowSizeClass.Expanded -> ${bp.large.toFloat()}.dp\n",
+                "${KtFileBuilder.DEFAULT_FILE_INDENT}WindowSizeClass.Medium -> ${bp.medium.toFloat()}.dp\n",
                 "${KtFileBuilder.DEFAULT_FILE_INDENT}WindowSizeClass.Compact -> 0.dp\n",
                 "}",
             ),

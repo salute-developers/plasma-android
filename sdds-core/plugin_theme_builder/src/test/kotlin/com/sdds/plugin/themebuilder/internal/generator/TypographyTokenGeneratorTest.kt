@@ -105,8 +105,8 @@ class TypographyTokenGeneratorTest {
         every { appearancesLargeXmlFile.fileWriter() } returns outputAppearancesLargeXml.writer()
         every { typographyXmlFile.fileWriter() } returns outputTypographyXml.writer()
         every { mockOutputResDir.textAppearancesXmlFile("") } returns appearancesSmallXmlFile
-        every { mockOutputResDir.textAppearancesXmlFile("sw1024dp") } returns appearancesMediumXmlFile
-        every { mockOutputResDir.textAppearancesXmlFile("sw2000dp") } returns appearancesLargeXmlFile
+        every { mockOutputResDir.textAppearancesXmlFile("w512dp") } returns appearancesMediumXmlFile
+        every { mockOutputResDir.textAppearancesXmlFile("w1000dp") } returns appearancesLargeXmlFile
         every { mockOutputResDir.typographyXmlFile(any()) } returns typographyXmlFile
 
         typographyTokens.forEach { token ->
