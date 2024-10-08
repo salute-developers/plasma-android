@@ -353,8 +353,8 @@ internal class TypographyTokenGenerator(
         fun ScreenClass.qualifier(dimensionsConfig: DimensionsConfig): String {
             val breakpoints = dimensionsConfig.breakPoints
             return when (this) {
-                ScreenClass.MEDIUM -> "sw${(breakpoints.medium * dimensionsConfig.multiplier).toInt()}dp"
-                ScreenClass.LARGE -> "sw${(breakpoints.large * dimensionsConfig.multiplier).toInt()}dp"
+                ScreenClass.MEDIUM -> "w${breakpoints.medium}dp"
+                ScreenClass.LARGE -> "w${breakpoints.large}dp"
                 else -> ""
             }
         }
