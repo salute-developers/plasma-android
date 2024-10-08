@@ -146,8 +146,8 @@
     <style name="Theme.Sandbox.Components.TextArea.M.InnerLabel.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">8dp</item>
-        <item name="sd_indicatorOffsetX">4dp</item>
-        <item name="sd_indicatorOffsetY">4dp</item>
+        <item name="sd_indicatorOffsetX">0dp</item>
+        <item name="sd_indicatorOffsetY">0dp</item>
     </style>
 
     <style name="Theme.Sandbox.Components.TextArea.S">
@@ -205,8 +205,8 @@
     <style name="Theme.Sandbox.Components.TextArea.S.InnerLabel.RequiredEnd">
         <item name="sd_requirementMode">end</item>
         <item name="sd_indicatorSize">6dp</item>
-        <item name="sd_indicatorOffsetX">4dp</item>
-        <item name="sd_indicatorOffsetY">4dp</item>
+        <item name="sd_indicatorOffsetX">0dp</item>
+        <item name="sd_indicatorOffsetY">0dp</item>
     </style>
 
     <style name="Theme.Sandbox.Components.TextArea.XS">
