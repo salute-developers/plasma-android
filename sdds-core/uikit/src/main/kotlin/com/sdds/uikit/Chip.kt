@@ -14,7 +14,7 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StyleRes
 import com.sdds.uikit.drawable.ChipDrawable
 import com.sdds.uikit.internal.base.ViewAlphaHelper
-import com.sdds.uikit.internal.base.shape.Shapeable
+import com.sdds.uikit.shape.Shapeable
 import com.sdds.uikit.internal.focusselector.FocusSelectorDelegate
 import com.sdds.uikit.internal.focusselector.HasFocusSelector
 import com.sdds.uikit.shape.ShapeModel

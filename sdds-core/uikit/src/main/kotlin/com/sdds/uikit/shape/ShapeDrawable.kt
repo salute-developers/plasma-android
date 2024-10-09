@@ -21,7 +21,6 @@ import androidx.core.graphics.withTranslation
 import com.sdds.uikit.R
 import com.sdds.uikit.internal.base.colorForState
 import com.sdds.uikit.internal.base.configure
-import com.sdds.uikit.internal.base.shape.Shapeable
 import com.sdds.uikit.shader.ShaderFactory
 import com.sdds.uikit.shaderFactory
 import com.sdds.uikit.shape.ShapeModel.Companion.adjust

@@ -43,7 +43,7 @@ import com.sdds.uikit.TextView
 import com.sdds.uikit.internal.base.AnimationUtils
 import com.sdds.uikit.internal.base.configure
 import com.sdds.uikit.internal.base.shape.ShapeHelper
-import com.sdds.uikit.internal.base.shape.Shapeable
+import com.sdds.uikit.shape.Shapeable
 import com.sdds.uikit.internal.base.unsafeLazy
 import com.sdds.uikit.internal.focusselector.FocusSelectorDelegate
 import com.sdds.uikit.internal.focusselector.HasFocusSelector

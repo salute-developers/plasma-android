@@ -19,6 +19,7 @@ import com.sdds.uikit.internal.base.unsafeLazy
 import com.sdds.uikit.shape.ShapeDrawable
 import com.sdds.uikit.shape.ShapeModel
 import com.sdds.uikit.shape.ShapeModelPathProvider
+import com.sdds.uikit.shape.Shapeable
 
 /**
  * Делегат, добавляющий [ImageView] возможность изменять форму и рисовать границу

@@ -5,7 +5,7 @@ import android.util.AttributeSet
 import android.view.View
 import androidx.annotation.StyleRes
 import com.sdds.uikit.R
-import com.sdds.uikit.internal.base.shape.Shapeable
+import com.sdds.uikit.shape.Shapeable
 import com.sdds.uikit.internal.focusselector.FocusSelectorMode.Companion.isEnabled
 import com.sdds.uikit.shape.ShapeModel
 import com.sdds.uikit.shape.ShapeModel.Companion.adjust

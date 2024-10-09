@@ -24,6 +24,8 @@ internal class GradientStyleGenerator(
         xmlBuilderFactory.create(XmlResourcesDocumentBuilder.DEFAULT_ROOT_ATTRIBUTES)
     }
 
+    private val gradientStyles: MutableMap<String, String> = mutableMapOf()
+
     /**
      * Добавляет стиль градиента
      *
@@ -39,6 +41,11 @@ internal class GradientStyleGenerator(
         description: String,
     ): String {
         val styleName = nameSnakeCase.snakeToCamelCase()
+        val styleRes = resourceReferenceProvider.style("Gradient.$styleName")
+        if (gradientStyles.contains(styleName)) {
+            return gradientStyles[styleName] ?: styleRes
+        }
+        gradientStyles[styleName] = styleRes
         with(xmlStylesDocumentBuilder) {
             appendGradientLayerStyle(
                 tokenName = styleName,
@@ -46,8 +53,7 @@ internal class GradientStyleGenerator(
                 description = description,
             )
         }
-
-        return resourceReferenceProvider.style("Gradient.$styleName")
+        return styleRes
     }
 
     override fun generate() {

@@ -30,7 +30,7 @@ import com.sdds.uikit.internal.base.configure
 import com.sdds.uikit.internal.base.drawable.SpinnerDrawable
 import com.sdds.uikit.internal.base.set
 import com.sdds.uikit.internal.base.shape.ShapeHelper
-import com.sdds.uikit.internal.base.shape.Shapeable
+import com.sdds.uikit.shape.Shapeable
 import com.sdds.uikit.internal.focusselector.FocusSelectorDelegate
 import com.sdds.uikit.internal.focusselector.HasFocusSelector
 import com.sdds.uikit.shape.ShapeModel
