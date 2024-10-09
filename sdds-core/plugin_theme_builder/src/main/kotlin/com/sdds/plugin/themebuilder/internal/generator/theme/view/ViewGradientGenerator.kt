@@ -25,6 +25,8 @@ internal class ViewGradientGenerator(
         val isSingleLayer = gradientData.layers.size == 1
         val styleRefs = gradientData
             .layers
+            // Последний элемент массива - самый первый слой градиента, поэтому разворачиваем список
+            .reversed()
             .mapIndexed { layer, gradientLayer ->
                 val layerSuffix = if (!isSingleLayer) "_layer_$layer" else ""
                 val descriptionSuffix = if (!isSingleLayer) " Слой $layer" else ""

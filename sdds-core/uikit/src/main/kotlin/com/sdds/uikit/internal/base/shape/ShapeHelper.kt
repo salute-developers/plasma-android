@@ -11,6 +11,7 @@ import com.sdds.uikit.R
 import com.sdds.uikit.internal.base.wrapWithInset
 import com.sdds.uikit.shape.ShapeDrawable
 import com.sdds.uikit.shape.ShapeModel
+import com.sdds.uikit.shape.Shapeable
 
 /**
  * Делегат для установки [ShapeDrawable] в качестве фона [View]
@@ -130,7 +131,7 @@ internal class ShapeHelper(
         insetBottom = typedArray.getDimensionPixelOffset(R.styleable.SdShape_android_insetBottom, 0)
         val currentBackground = typedArray.getDrawable(R.styleable.SdShape_android_background)
         backgroundOverwritten = typedArray.hasValue(R.styleable.SdShape_android_background) &&
-            currentBackground !is ShapeDrawable
+            currentBackground?.isShapeable() != true
         strokeColor = typedArray.getColorStateList(R.styleable.SdShape_sd_strokeColor)
         strokeWidth = typedArray.getDimension(R.styleable.SdShape_sd_strokeWidth, 0f)
         val hasShape = typedArray.hasValue(R.styleable.SdShape_sd_shapeAppearance)
@@ -141,4 +142,20 @@ internal class ShapeHelper(
     }
 
     private fun canCreateShapeBackground() = !backgroundOverwritten
+
+    private companion object {
+
+        private fun Drawable.isShapeable(): Boolean =
+            this is ShapeDrawable || (this as? LayerDrawable).isAnyLayerShapeable()
+
+        private fun LayerDrawable?.isAnyLayerShapeable(): Boolean {
+            if (this == null) return false
+            for (layer in 0 until numberOfLayers) {
+                if (getDrawable(layer) is ShapeDrawable) {
+                    return true
+                }
+            }
+            return false
+        }
+    }
 }

@@ -59,6 +59,7 @@ internal fun TypedArray.shaderFactory(): ShaderFactory? {
             resources.getIntArray(colorsId)
         }
         val stops = array.getResourceId(R.styleable.SdShaderAppearance_sd_stops, 0).let { stopsId ->
+            if (stopsId == 0) return@let floatArrayOf()
             resources.getStringArray(stopsId)
                 .map { it.toFloatOrNull() ?: 0f }
                 .toFloatArray()

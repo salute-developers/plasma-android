@@ -11,7 +11,7 @@ import androidx.annotation.ColorRes
 import androidx.annotation.Dimension
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.AppCompatImageView
-import com.sdds.uikit.internal.base.shape.Shapeable
+import com.sdds.uikit.shape.Shapeable
 import com.sdds.uikit.internal.base.shape.ShapeableImageDelegate
 import com.sdds.uikit.internal.focusselector.FocusSelectorDelegate
 import com.sdds.uikit.internal.focusselector.HasFocusSelector
