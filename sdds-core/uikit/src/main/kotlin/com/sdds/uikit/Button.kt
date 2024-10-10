@@ -30,10 +30,10 @@ import com.sdds.uikit.internal.base.configure
 import com.sdds.uikit.internal.base.drawable.SpinnerDrawable
 import com.sdds.uikit.internal.base.set
 import com.sdds.uikit.internal.base.shape.ShapeHelper
-import com.sdds.uikit.shape.Shapeable
 import com.sdds.uikit.internal.focusselector.FocusSelectorDelegate
 import com.sdds.uikit.internal.focusselector.HasFocusSelector
 import com.sdds.uikit.shape.ShapeModel
+import com.sdds.uikit.shape.Shapeable
 import com.sdds.uikit.viewstate.ViewState
 import com.sdds.uikit.viewstate.ViewState.Companion.isDefined
 import com.sdds.uikit.viewstate.ViewStateHolder
@@ -363,6 +363,13 @@ open class Button @JvmOverloads constructor(
     override fun onFocusChanged(focused: Boolean, direction: Int, previouslyFocusedRect: Rect?) {
         super.onFocusChanged(focused, direction, previouslyFocusedRect)
         updateFocusSelector(this, focused)
+    }
+
+    override fun setPressed(pressed: Boolean) {
+        if (isPressed != pressed) {
+            handlePressedChange(this, pressed)
+        }
+        super.setPressed(pressed)
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {

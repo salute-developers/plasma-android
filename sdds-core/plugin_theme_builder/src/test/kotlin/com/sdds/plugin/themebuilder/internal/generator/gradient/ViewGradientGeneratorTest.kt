@@ -25,35 +25,22 @@ class ViewGradientGeneratorTest {
         gradientStyleGenerator = mockk {
             every {
                 addStyle(
-                    nameSnakeCase = "light_gradient_accent_layer_0",
+                    nameSnakeCase = "light_gradient_accent_layer_3",
                     gradientParameters = mapOf(
                         "sd_gradientType" to "linear",
-                        "sd_angle" to "@string/light_gradient_accent_angle_layer_0",
-                        "sd_colors" to "@array/light_gradient_accent_colors_layer_0",
-                        "sd_stops" to "@array/light_gradient_accent_stops_layer_0",
+                        "sd_angle" to "@string/light_gradient_accent_angle_layer_3",
+                        "sd_colors" to "@array/light_gradient_accent_colors_layer_3",
+                        "sd_stops" to "@array/light_gradient_accent_stops_layer_3",
                     ),
-                    description = "Accent Gradient Слой 0",
+                    description = "Accent Gradient Слой 3",
                 )
-            } returns "@style/Gradient.LightGradientAccentLayer0"
-            every {
-                addStyle(
-                    nameSnakeCase = "light_gradient_accent_layer_1",
-                    gradientParameters = mapOf(
-                        "sd_gradientType" to "radial",
-                        "sd_radius" to "@string/light_gradient_accent_radius_layer_1",
-                        "sd_centerX" to "@string/light_gradient_accent_center_x_layer_1",
-                        "sd_centerY" to "@string/light_gradient_accent_center_y_layer_1",
-                        "sd_colors" to "@array/light_gradient_accent_colors_layer_1",
-                        "sd_stops" to "@array/light_gradient_accent_stops_layer_1",
-                    ),
-                    description = "Accent Gradient Слой 1",
-                )
-            } returns "@style/Gradient.LightGradientAccentLayer1"
+            } returns "@style/Gradient.LightGradientAccentLayer3"
             every {
                 addStyle(
                     nameSnakeCase = "light_gradient_accent_layer_2",
                     gradientParameters = mapOf(
-                        "sd_gradientType" to "sweep",
+                        "sd_gradientType" to "radial",
+                        "sd_radius" to "@string/light_gradient_accent_radius_layer_2",
                         "sd_centerX" to "@string/light_gradient_accent_center_x_layer_2",
                         "sd_centerY" to "@string/light_gradient_accent_center_y_layer_2",
                         "sd_colors" to "@array/light_gradient_accent_colors_layer_2",
@@ -64,14 +51,27 @@ class ViewGradientGeneratorTest {
             } returns "@style/Gradient.LightGradientAccentLayer2"
             every {
                 addStyle(
-                    nameSnakeCase = "light_gradient_accent_layer_3",
+                    nameSnakeCase = "light_gradient_accent_layer_1",
+                    gradientParameters = mapOf(
+                        "sd_gradientType" to "sweep",
+                        "sd_centerX" to "@string/light_gradient_accent_center_x_layer_1",
+                        "sd_centerY" to "@string/light_gradient_accent_center_y_layer_1",
+                        "sd_colors" to "@array/light_gradient_accent_colors_layer_1",
+                        "sd_stops" to "@array/light_gradient_accent_stops_layer_1",
+                    ),
+                    description = "Accent Gradient Слой 1",
+                )
+            } returns "@style/Gradient.LightGradientAccentLayer1"
+            every {
+                addStyle(
+                    nameSnakeCase = "light_gradient_accent_layer_0",
                     gradientParameters = mapOf(
                         "sd_gradientType" to "solid",
-                        "sd_colors" to "@array/light_gradient_accent_colors_layer_3",
+                        "sd_colors" to "@array/light_gradient_accent_colors_layer_0",
                     ),
-                    description = "Accent Gradient Слой 3",
+                    description = "Accent Gradient Слой 0",
                 )
-            } returns "@style/Gradient.LightGradientAccentLayer3"
+            } returns "@style/Gradient.LightGradientAccentLayer0"
             every {
                 addStyle(
                     nameSnakeCase = "light_text_gradient_accent",
@@ -136,21 +136,15 @@ class ViewGradientGeneratorTest {
             gradientStyleGenerator.addStyle(
                 nameSnakeCase = "light_gradient_accent_layer_0",
                 gradientParameters = mapOf(
-                    "sd_gradientType" to "linear",
-                    "sd_angle" to "@string/light_gradient_accent_angle_layer_0",
+                    "sd_gradientType" to "solid",
                     "sd_colors" to "@array/light_gradient_accent_colors_layer_0",
-                    "sd_stops" to "@array/light_gradient_accent_stops_layer_0",
                 ),
                 description = "Accent Gradient Слой 0",
             )
-        }
-
-        verify {
             gradientStyleGenerator.addStyle(
                 nameSnakeCase = "light_gradient_accent_layer_1",
                 gradientParameters = mapOf(
-                    "sd_gradientType" to "radial",
-                    "sd_radius" to "@string/light_gradient_accent_radius_layer_1",
+                    "sd_gradientType" to "sweep",
                     "sd_centerX" to "@string/light_gradient_accent_center_x_layer_1",
                     "sd_centerY" to "@string/light_gradient_accent_center_y_layer_1",
                     "sd_colors" to "@array/light_gradient_accent_colors_layer_1",
@@ -158,13 +152,11 @@ class ViewGradientGeneratorTest {
                 ),
                 description = "Accent Gradient Слой 1",
             )
-        }
-
-        verify {
             gradientStyleGenerator.addStyle(
                 nameSnakeCase = "light_gradient_accent_layer_2",
                 gradientParameters = mapOf(
-                    "sd_gradientType" to "sweep",
+                    "sd_gradientType" to "radial",
+                    "sd_radius" to "@string/light_gradient_accent_radius_layer_2",
                     "sd_centerX" to "@string/light_gradient_accent_center_x_layer_2",
                     "sd_centerY" to "@string/light_gradient_accent_center_y_layer_2",
                     "sd_colors" to "@array/light_gradient_accent_colors_layer_2",
@@ -172,14 +164,13 @@ class ViewGradientGeneratorTest {
                 ),
                 description = "Accent Gradient Слой 2",
             )
-        }
-
-        verify {
             gradientStyleGenerator.addStyle(
                 nameSnakeCase = "light_gradient_accent_layer_3",
                 gradientParameters = mapOf(
-                    "sd_gradientType" to "solid",
+                    "sd_gradientType" to "linear",
+                    "sd_angle" to "@string/light_gradient_accent_angle_layer_3",
                     "sd_colors" to "@array/light_gradient_accent_colors_layer_3",
+                    "sd_stops" to "@array/light_gradient_accent_stops_layer_3",
                 ),
                 description = "Accent Gradient Слой 3",
             )
@@ -248,25 +239,25 @@ class ViewGradientGeneratorTest {
             nameSnakeCase = "light_gradient_accent",
             layers = listOf(
                 GradientTokenResult.ViewTokenData.Gradient.Layer.Linear(
-                    angle = "@string/light_gradient_accent_angle_layer_0",
-                    colors = "@array/light_gradient_accent_colors_layer_0",
-                    stops = "@array/light_gradient_accent_stops_layer_0",
+                    angle = "@string/light_gradient_accent_angle_layer_3",
+                    colors = "@array/light_gradient_accent_colors_layer_3",
+                    stops = "@array/light_gradient_accent_stops_layer_3",
                 ),
                 GradientTokenResult.ViewTokenData.Gradient.Layer.Radial(
-                    centerX = "@string/light_gradient_accent_center_x_layer_1",
-                    centerY = "@string/light_gradient_accent_center_y_layer_1",
-                    radius = "@string/light_gradient_accent_radius_layer_1",
-                    colors = "@array/light_gradient_accent_colors_layer_1",
-                    stops = "@array/light_gradient_accent_stops_layer_1",
-                ),
-                GradientTokenResult.ViewTokenData.Gradient.Layer.Sweep(
                     centerX = "@string/light_gradient_accent_center_x_layer_2",
                     centerY = "@string/light_gradient_accent_center_y_layer_2",
+                    radius = "@string/light_gradient_accent_radius_layer_2",
                     colors = "@array/light_gradient_accent_colors_layer_2",
                     stops = "@array/light_gradient_accent_stops_layer_2",
                 ),
+                GradientTokenResult.ViewTokenData.Gradient.Layer.Sweep(
+                    centerX = "@string/light_gradient_accent_center_x_layer_1",
+                    centerY = "@string/light_gradient_accent_center_y_layer_1",
+                    colors = "@array/light_gradient_accent_colors_layer_1",
+                    stops = "@array/light_gradient_accent_stops_layer_1",
+                ),
                 GradientTokenResult.ViewTokenData.Gradient.Layer.Solid(
-                    colors = "@array/light_gradient_accent_colors_layer_3",
+                    colors = "@array/light_gradient_accent_colors_layer_0",
                 ),
             ),
             description = "Accent Gradient",

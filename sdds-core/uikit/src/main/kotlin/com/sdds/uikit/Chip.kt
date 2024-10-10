@@ -14,10 +14,10 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StyleRes
 import com.sdds.uikit.drawable.ChipDrawable
 import com.sdds.uikit.internal.base.ViewAlphaHelper
-import com.sdds.uikit.shape.Shapeable
 import com.sdds.uikit.internal.focusselector.FocusSelectorDelegate
 import com.sdds.uikit.internal.focusselector.HasFocusSelector
 import com.sdds.uikit.shape.ShapeModel
+import com.sdds.uikit.shape.Shapeable
 import com.sdds.uikit.viewstate.ViewState
 import com.sdds.uikit.viewstate.ViewState.Companion.isDefined
 import com.sdds.uikit.viewstate.ViewStateHolder
@@ -265,6 +265,13 @@ open class Chip @JvmOverloads constructor(
     override fun onFocusChanged(focused: Boolean, direction: Int, previouslyFocusedRect: Rect?) {
         super.onFocusChanged(focused, direction, previouslyFocusedRect)
         updateFocusSelector(this, focused)
+    }
+
+    override fun setPressed(pressed: Boolean) {
+        if (isPressed != pressed) {
+            handlePressedChange(this, pressed)
+        }
+        super.setPressed(pressed)
     }
 
     override fun verifyDrawable(who: Drawable): Boolean {

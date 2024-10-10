@@ -102,12 +102,18 @@ internal class ChipGroupFragment : ComponentFragment() {
 
     private fun getVerticalScrollView(): ScrollView =
         verticalScrollView ?: ScrollView(requireContext())
-            .apply { isVerticalScrollBarEnabled = false }
+            .apply {
+                isVerticalScrollBarEnabled = false
+                clipChildren = false
+            }
             .also { verticalScrollView = it }
 
     private fun getHorizontalScrollView(): HorizontalScrollView =
         horizontalScrollView ?: HorizontalScrollView(requireContext())
-            .apply { isHorizontalScrollBarEnabled = false }
+            .apply {
+                isHorizontalScrollBarEnabled = false
+                clipChildren = false
+            }
             .also { horizontalScrollView = it }
 
     private fun ChipGroup.scrollable(): ScrollView {
