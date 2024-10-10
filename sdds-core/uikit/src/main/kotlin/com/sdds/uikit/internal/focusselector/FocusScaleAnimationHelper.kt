@@ -15,6 +15,26 @@ internal class FocusScaleAnimationHelper(
     private var _initialsScaleY: Float = 1f
 
     /**
+     * Анимирует [view] при изменении [pressed]
+     */
+    fun animatePressedState(view: View, pressed: Boolean) {
+        if (!view.isFocused) return
+        if (pressed) {
+            view.animate()
+                .setDuration(duration)
+                .scaleX(_initialsScaleX)
+                .scaleY(_initialsScaleY)
+                .start()
+        } else {
+            view.animate()
+                .setDuration(duration)
+                .scaleX(_initialsScaleX + factor)
+                .scaleY(_initialsScaleY + factor)
+                .start()
+        }
+    }
+
+    /**
      * Анимирует изменение фокусного состояния [view]
      * @param view [View], фокусное состояние которого нужно анимировать
      * @param isFocused текущее фокусное состояние [view]
@@ -23,11 +43,11 @@ internal class FocusScaleAnimationHelper(
         view.animate()
             .setDuration(duration)
             .apply {
-                if (isFocused) {
+                if (isFocused && !view.isPressed) {
                     _initialsScaleX = view.scaleX
                     _initialsScaleY = view.scaleY
-                    scaleXBy(factor)
-                    scaleYBy(factor)
+                    scaleX(_initialsScaleX + factor)
+                    scaleY(_initialsScaleY + factor)
                 } else {
                     scaleX(_initialsScaleX)
                     scaleY(_initialsScaleY)

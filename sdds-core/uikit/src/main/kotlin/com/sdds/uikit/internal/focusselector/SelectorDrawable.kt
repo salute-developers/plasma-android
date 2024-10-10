@@ -22,7 +22,6 @@ import com.sdds.uikit.shape.ShapeModel
 /**
  * Drawable отрисовывающий контур фокусировки когда state_focused
  */
-@Suppress("RestrictedApi")
 internal class SelectorDrawable : Drawable, OnScrollChangeListener {
 
     private val borderPaint = Paint().configure(style = Paint.Style.STROKE, isAntiAlias = true)
@@ -75,6 +74,9 @@ internal class SelectorDrawable : Drawable, OnScrollChangeListener {
         val focused = state.contains(android.R.attr.state_focused)
         val needDraw = focused != this.focused
         this.focused = focused
+        if (needDraw) {
+            invalidateSelf()
+        }
         return needDraw
     }
 

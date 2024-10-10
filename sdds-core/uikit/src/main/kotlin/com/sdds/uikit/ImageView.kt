@@ -11,11 +11,11 @@ import androidx.annotation.ColorRes
 import androidx.annotation.Dimension
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.AppCompatImageView
-import com.sdds.uikit.shape.Shapeable
 import com.sdds.uikit.internal.base.shape.ShapeableImageDelegate
 import com.sdds.uikit.internal.focusselector.FocusSelectorDelegate
 import com.sdds.uikit.internal.focusselector.HasFocusSelector
 import com.sdds.uikit.shape.ShapeModel
+import com.sdds.uikit.shape.Shapeable
 import com.sdds.uikit.viewstate.ViewState
 import com.sdds.uikit.viewstate.ViewState.Companion.isDefined
 import com.sdds.uikit.viewstate.ViewStateHolder
@@ -363,6 +363,13 @@ open class ImageView @JvmOverloads constructor(
     override fun onFocusChanged(focused: Boolean, direction: Int, previouslyFocusedRect: Rect?) {
         super.onFocusChanged(focused, direction, previouslyFocusedRect)
         updateFocusSelector(this, focused)
+    }
+
+    override fun setPressed(pressed: Boolean) {
+        if (isPressed != pressed) {
+            handlePressedChange(this, pressed)
+        }
+        super.setPressed(pressed)
     }
 
     override fun onDetachedFromWindow() {

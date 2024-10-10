@@ -43,11 +43,11 @@ import com.sdds.uikit.TextView
 import com.sdds.uikit.internal.base.AnimationUtils
 import com.sdds.uikit.internal.base.configure
 import com.sdds.uikit.internal.base.shape.ShapeHelper
-import com.sdds.uikit.shape.Shapeable
 import com.sdds.uikit.internal.base.unsafeLazy
 import com.sdds.uikit.internal.focusselector.FocusSelectorDelegate
 import com.sdds.uikit.internal.focusselector.HasFocusSelector
 import com.sdds.uikit.shape.ShapeModel
+import com.sdds.uikit.shape.Shapeable
 import com.sdds.uikit.viewstate.ViewState
 import com.sdds.uikit.viewstate.ViewState.Companion.isDefined
 import com.sdds.uikit.viewstate.ViewStateHolder
@@ -238,6 +238,7 @@ internal class DecoratedFieldBox(
 
     fun setReadOnly(readonly: Boolean) {
         chipGroup.setReadOnly(readonly)
+        refreshDrawableState()
     }
 
     fun setIcon(drawable: Drawable?) {
@@ -491,6 +492,13 @@ internal class DecoratedFieldBox(
         super.dispatchSetActivated(isFocused)
     }
 
+    override fun setPressed(pressed: Boolean) {
+        if (isPressed != pressed) {
+            handlePressedChange(this, pressed)
+        }
+        super.setPressed(pressed)
+    }
+
     @Suppress("CustomViewStyleable", "LongMethod")
     private fun obtainAttributes(context: Context, attrs: AttributeSet?, defStyleAttr: Int) {
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.SdDecoratedFieldBox, defStyleAttr, 0)
@@ -622,6 +630,7 @@ internal class DecoratedFieldBox(
         }
         chipGroup = ChipGroupWithEditText(chipTheme)
         _editableContainer.apply {
+            clipChildren = false
             setAddStatesFromChildren(true)
             backgroundTintList = ColorStateList.valueOf(Color.TRANSPARENT)
             isHorizontalScrollBarEnabled = false

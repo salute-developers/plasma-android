@@ -1,14 +1,16 @@
 package com.sdds.uikit.internal.focusselector
 
 import android.content.Context
+import android.graphics.drawable.Drawable
+import android.graphics.drawable.DrawableWrapper
 import android.util.AttributeSet
 import android.view.View
 import androidx.annotation.StyleRes
 import com.sdds.uikit.R
-import com.sdds.uikit.shape.Shapeable
 import com.sdds.uikit.internal.focusselector.FocusSelectorMode.Companion.isEnabled
 import com.sdds.uikit.shape.ShapeModel
 import com.sdds.uikit.shape.ShapeModel.Companion.adjust
+import com.sdds.uikit.shape.Shapeable
 
 /**
  * Интерфейс описывающий сущность, которая поддерживает селектор фокуса
@@ -35,6 +37,11 @@ interface HasFocusSelector {
      * Обновляет селектор фокуса при изменении состояния [focus] у [view]
      */
     fun updateFocusSelector(view: View, focus: Boolean)
+
+    /**
+     * Обрабатывает изменение состояния [View.isPressed]
+     */
+    fun handlePressedChange(view: View, isPressed: Boolean)
 }
 
 /**
@@ -90,8 +97,14 @@ internal class FocusSelectorDelegate : HasFocusSelector {
         if (!mode.isEnabled()) return
         if (mode == FocusSelectorMode.SCALE) {
             scaleAnimationHelper?.animateFocusChange(view, focus)
-        } else if (focus) {
-            view.updateBounds()
+        } else {
+            view.foreground?.invalidateSelf()
+        }
+    }
+
+    override fun handlePressedChange(view: View, isPressed: Boolean) {
+        if (mode == FocusSelectorMode.SCALE) {
+            scaleAnimationHelper?.animatePressedState(view, isPressed)
         }
     }
 
@@ -117,6 +130,7 @@ internal class FocusSelectorDelegate : HasFocusSelector {
                 shapeModel = adjustedShapeModel,
                 mainColor = mainColor,
             )
+
             FocusSelectorMode.GRADIENT_BORDER -> SelectorDrawable(
                 context = context,
                 strokeWidth = strokeWidth,
@@ -134,16 +148,18 @@ internal class FocusSelectorDelegate : HasFocusSelector {
             )
 
             else -> return
-        }
-        updateBounds()
+        }.let { SelectorWrapper(it) }
     }
 
-    private fun View.updateBounds() {
-        foreground?.setBounds(
-            -strokeInsets,
-            -strokeInsets,
-            width + strokeInsets,
-            height + strokeInsets,
-        )
+    private inner class SelectorWrapper(selector: Drawable) : DrawableWrapper(selector) {
+
+        override fun setBounds(left: Int, top: Int, right: Int, bottom: Int) {
+            super.setBounds(
+                left - strokeInsets,
+                top - strokeInsets,
+                right + strokeInsets,
+                bottom + strokeInsets,
+            )
+        }
     }
 }
