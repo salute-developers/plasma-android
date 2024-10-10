@@ -12,7 +12,8 @@ import com.sdds.plugin.themebuilder.internal.token.SweepGradientTokenValue
 import com.sdds.plugin.themebuilder.internal.token.Token
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.fileWriter
-import com.sdds.plugin.themebuilder.internal.utils.FileProvider.gradientsXmlFile
+import com.sdds.plugin.themebuilder.internal.utils.FileProvider.gradientParametersXmlFile
+import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 import com.sdds.plugin.themebuilder.internal.utils.getResourceAsText
 import com.squareup.kotlinpoet.PropertySpec
 import com.squareup.kotlinpoet.TypeSpec
@@ -55,7 +56,8 @@ class GradientTokenGeneratorTest {
             xmlBuilderFactory = XmlResourcesDocumentBuilderFactory("thmbldr", "TestTheme"),
             ktFileBuilderFactory = KtFileBuilderFactory("com.test"),
             gradientTokenValues = gradientTokenValues,
-            mockk(),
+            palette = mockk(),
+            resourceReferenceProvider = ResourceReferenceProvider(resourcePrefix = "thmbldr", "TestTheme"),
         )
     }
 
@@ -76,7 +78,7 @@ class GradientTokenGeneratorTest {
         val outputXml = ByteArrayOutputStream()
         val gradientsXmlFile = mockk<File>(relaxed = true)
         every { gradientsXmlFile.fileWriter() } returns outputXml.writer()
-        every { mockOutputResDir.gradientsXmlFile() } returns gradientsXmlFile
+        every { mockOutputResDir.gradientParametersXmlFile() } returns gradientsXmlFile
 
         gradientTokens
             .filterIsInstance<GradientToken>()

@@ -14,7 +14,7 @@ import com.sdds.playground.sandbox.checkbox.SandboxCheckBoxSettingsProvider.labe
 import com.sdds.playground.sandbox.checkbox.group.SandboxCheckBoxGroupSettingsProvider.endPaddingFor
 import com.sdds.playground.sandbox.checkbox.group.SandboxCheckBoxGroupSettingsProvider.indentFor
 import com.sdds.playground.sandbox.checkbox.group.SandboxCheckBoxGroupSettingsProvider.verticalArrangementFor
-import com.sdds.playground.sandbox.tokens.compose.StylesSaluteTheme
+import com.sdds.playground.sandbox.tokens.compose.SddsServTheme
 
 @Composable
 internal fun SandboxCheckBoxGroup(
@@ -35,12 +35,12 @@ internal fun SandboxCheckBoxGroup(
         verticalArrangement = verticalArrangementFor(size),
         onRootStateChanged = { },
         onChildCheckedChanged = { _, _ -> },
-        labelColor = StylesSaluteTheme.colors.textDefaultPrimary,
-        descriptionColor = StylesSaluteTheme.colors.textDefaultSecondary,
-        idleColor = StylesSaluteTheme.colors.textDefaultSecondary,
-        checkedColor = StylesSaluteTheme.colors.surfaceDefaultPositive,
-        focusedColor = StylesSaluteTheme.colors.surfaceDefaultSolidDefault,
-        baseColor = StylesSaluteTheme.colors.textOnDarkPrimary,
+        labelColor = SddsServTheme.colors.textDefaultPrimary,
+        descriptionColor = SddsServTheme.colors.textDefaultSecondary,
+        idleColor = SddsServTheme.colors.textDefaultSecondary,
+        checkedColor = SddsServTheme.colors.surfaceDefaultPositive,
+        focusedColor = SddsServTheme.colors.surfaceDefaultSolidDefault,
+        baseColor = SddsServTheme.colors.textOnDarkPrimary,
         labelTextStyle = labelTextStyleFor(size),
         descriptionTextStyle = descriptionTextStyleFor(size),
         controlSize = size.controlSize,

@@ -27,12 +27,20 @@ class ThemeBuilderPlugin : Plugin<Project> {
         val themeZip = project.layout.buildDirectory.file("$THEME_PATH/theme.zip")
         val paletteJson = project.layout.buildDirectory.file("$THEME_PATH/$PALETTE_JSON_NAME")
         val extension = project.themeBuilderExt()
-
-        configureSourceSets(project)
+        project.configureSourceSets()
 
         project.afterEvaluate {
+            project.registerClean(extension)
             val unzipTask = registerFetchAndUnzip(extension, themeZip, paletteJson)
-            registerThemeBuilder(extension, unzipTask)
+            registerThemeBuilder(extension, unzipTask, extension.autoGenerate)
+        }
+    }
+
+    private fun Project.registerClean(extension: ThemeBuilderExtension): TaskProvider<CleanThemeTask> {
+        return project.tasks.register<CleanThemeTask>("cleanTheme") {
+            outputDirPath.set(extension.outputLocation.getSourcePath())
+            outputResDirPath.set(extension.outputLocation.getResourcePath())
+            packageName.set(extension.ktPackage ?: DEFAULT_KT_PACKAGE)
         }
     }
 
@@ -66,6 +74,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
     private fun Project.registerThemeBuilder(
         extension: ThemeBuilderExtension,
         unzipTask: Any,
+        dependOnPreBuild: Boolean,
     ) {
         val generateThemeTask =
             registerThemeGenerator(
@@ -80,12 +89,13 @@ class ThemeBuilderPlugin : Plugin<Project> {
                 shapeFileProvider = getValueFile(TokenValueFile.SHAPES),
                 unzipTask = unzipTask,
             )
-
-        tasks.named("preBuild").dependsOn(generateThemeTask)
+        if (dependOnPreBuild) {
+            tasks.named("preBuild").dependsOn(generateThemeTask)
+        }
     }
 
-    private fun configureSourceSets(project: Project) {
-        project.plugins.all {
+    private fun Project.configureSourceSets() {
+        plugins.all {
             when (this) {
                 is AppPlugin -> project.extensions.getByType(AppExtension::class)
                     .configureSourceSets()
@@ -201,10 +211,10 @@ class ThemeBuilderPlugin : Plugin<Project> {
             val projectDirProperty = objects.directoryProperty()
                 .apply { set(layout.projectDirectory) }
             projectDir.set(projectDirProperty)
-            outputDirPath.set(OUTPUT_PATH)
-            outputResDirPath.set(OUTPUT_RESOURCE_PATH)
+            outputDirPath.set(extension.outputLocation.getSourcePath())
+            outputResDirPath.set(extension.outputLocation.getResourcePath())
             namespace.set(getProjectNameSpace())
-
+            dimensionsConfig.set(extension.dimensionsConfig)
             dependsOn(unzipTask)
         }
     }
@@ -222,8 +232,14 @@ class ThemeBuilderPlugin : Plugin<Project> {
     }
 
     private fun BaseExtension.configureSourceSets() {
-        this.sourceSets.maybeCreate("main").res.srcDir(OUTPUT_RESOURCE_PATH)
-        this.sourceSets.maybeCreate("main").kotlin.srcDir(OUTPUT_PATH)
+        this.sourceSets.maybeCreate("main").res.apply {
+            srcDir(OutputLocation.BUILD.getResourcePath())
+            srcDir(OutputLocation.SRC.getResourcePath())
+        }
+        this.sourceSets.maybeCreate("main").kotlin.apply {
+            srcDir(OutputLocation.BUILD.getSourcePath())
+            srcDir(OutputLocation.SRC.getSourcePath())
+        }
     }
 
     private fun Project.getDefaultResourcePrefix(): String {
@@ -237,6 +253,18 @@ class ThemeBuilderPlugin : Plugin<Project> {
     private fun Project.getBaseExtension() = extensions.findByType<AppExtension>()
         ?: extensions.findByType<LibraryExtension>()
 
+    private fun OutputLocation.getSourcePath(): String =
+        when (this) {
+            OutputLocation.BUILD -> BUILD_OUTPUT_PATH
+            OutputLocation.SRC -> SRC_OUTPUT_PATH
+        }
+
+    private fun OutputLocation.getResourcePath(): String =
+        when (this) {
+            OutputLocation.BUILD -> BUILD_OUTPUT_RESOURCE_PATH
+            OutputLocation.SRC -> SRC_OUTPUT_RESOURCE_PATH
+        }
+
     private enum class TokenValueFile(val fileName: String) {
         COLORS("android_color.json"),
         TYPOGRAPHY("android_typography.json"),
@@ -248,8 +276,10 @@ class ThemeBuilderPlugin : Plugin<Project> {
 
     private companion object {
         const val DEFAULT_KT_PACKAGE = "com.themebuilder.tokens"
-        const val OUTPUT_RESOURCE_PATH = "build/generated/theme-builder-res"
-        const val OUTPUT_PATH = "build/generated/theme-builder"
+        const val BUILD_OUTPUT_RESOURCE_PATH = "build/generated/theme-builder-res"
+        const val BUILD_OUTPUT_PATH = "build/generated/theme-builder"
+        const val SRC_OUTPUT_RESOURCE_PATH = "src/main/theme-builder-res"
+        const val SRC_OUTPUT_PATH = "src/main/kotlin"
 
         const val THEME_PATH = "theme-builder/theme"
         const val META_JSON_NAME = "meta.json"

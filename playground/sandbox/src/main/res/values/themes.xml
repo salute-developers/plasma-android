@@ -1,5 +1,4 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-
     <style name="Theme.Sandbox" parent="Serv.SddsServ.MaterialComponents.DayNight">
         <item name="colorPrimary">?serv_surfaceDefaultSolidPrimary</item>
         <item name="colorPrimaryVariant">?serv_surfaceDefaultSolidSecondary</item>
@@ -30,6 +29,11 @@
         <item name="serv_shapeRoundXs">@style/Serv.SddsServ.Shape.Round.Xs</item>
         <item name="serv_shapeRoundXxs">@style/Serv.SddsServ.Shape.Round.Xxs</item>
         <item name="sd_disabledAlpha">0.4</item>
+        <item name="sd_fsMode">border</item>
+        <item name="sd_fsMainColor">?serv_surfaceDefaultAccent</item>
+        <item name="sd_fsStrokeWidth">@dimen/sdds_spacer_0_5x</item>
+        <item name="sd_fsStrokeInset">@dimen/sdds_spacer_1x</item>
+        <item name="sd_fsShapeAdjustment">@dimen/sdds_spacer_1x</item>
 
         <item name="android:buttonStyle">@style/Theme.Sandbox.Components.BasicButton.M</item>
         <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextField.M</item>
@@ -82,6 +86,27 @@
         <item name="android:statusBarColor">?android:colorBackground</item>
         <item name="android:navigationBarColor">?android:colorBackground</item>
         <item name="enableEdgeToEdge">false</item>
+    </style>
+
+    <style name="Theme.Sandbox.PropertyItem">
+        <item name="android:background">@color/bg_property_item</item>
+    </style>
+
+    <style name="Theme.Sandbox.PropertyItemLabel">
+        <item name="android:textColor">@color/color_property_item_label</item>
+        <item name="android:textAppearance">@style/Serv.SddsServ.TextAppearance.BodyMBold</item>
+        <item name="android:duplicateParentState">true</item>
+    </style>
+
+    <style name="Theme.Sandbox.PropertyItemValue">
+        <item name="android:textColor">@color/color_property_item_value</item>
+        <item name="android:textAppearance">@style/Serv.SddsServ.TextAppearance.BodyMBold</item>
+        <item name="android:duplicateParentState">true</item>
+    </style>
+
+    <style name="Theme.Sandbox.PropertyItemSwitch" parent="Theme.Sandbox.Components.Switch.M">
+        <item name="sd_buttonTrackColor">@color/bg_color_property_switch_track</item>
+        <item name="android:duplicateParentState">true</item>
     </style>
 
 </resources>

@@ -3,6 +3,7 @@ package com.sdds.uikit
 import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Canvas
+import android.graphics.Rect
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.SoundEffectConstants
@@ -13,6 +14,10 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StyleRes
 import com.sdds.uikit.drawable.ChipDrawable
 import com.sdds.uikit.internal.base.ViewAlphaHelper
+import com.sdds.uikit.internal.focusselector.FocusSelectorDelegate
+import com.sdds.uikit.internal.focusselector.HasFocusSelector
+import com.sdds.uikit.shape.ShapeModel
+import com.sdds.uikit.shape.Shapeable
 import com.sdds.uikit.viewstate.ViewState
 import com.sdds.uikit.viewstate.ViewState.Companion.isDefined
 import com.sdds.uikit.viewstate.ViewStateHolder
@@ -24,12 +29,18 @@ import com.sdds.uikit.viewstate.ViewStateHolder
  * @param defStyleAttr аттрибут стиля по умолчанию
  * @author Малышев Александр on 29.07.2024
  */
+@Suppress("LeakingThis")
 open class Chip @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.sd_chipStyle,
     defStyleRes: Int = R.style.Sdds_Components_Chip,
-) : View(context, attrs, defStyleAttr), ViewStateHolder, ChipDrawable.Delegate, Checkable {
+) : View(context, attrs, defStyleAttr),
+    ViewStateHolder,
+    ChipDrawable.Delegate,
+    Checkable,
+    Shapeable,
+    HasFocusSelector by FocusSelectorDelegate() {
 
     /**
      * Слушатель изменений состояния [isChecked]
@@ -64,8 +75,16 @@ open class Chip @JvmOverloads constructor(
         }
 
     init {
+        applySelector(this, context, attrs, defStyleAttr)
         obtainAttributes(context, attrs, defStyleAttr, defStyleRes)
     }
+
+    /**
+     * @see ShapeModel
+     * @see Shapeable.shape
+     */
+    override val shape: ShapeModel?
+        get() = _chipDrawable.shape
 
     /**
      * Состояние внешнего вида компонента [Chip]
@@ -243,6 +262,18 @@ open class Chip @JvmOverloads constructor(
         _chipDrawable.draw(canvas)
     }
 
+    override fun onFocusChanged(focused: Boolean, direction: Int, previouslyFocusedRect: Rect?) {
+        super.onFocusChanged(focused, direction, previouslyFocusedRect)
+        updateFocusSelector(this, focused)
+    }
+
+    override fun setPressed(pressed: Boolean) {
+        if (isPressed != pressed) {
+            handlePressedChange(this, pressed)
+        }
+        super.setPressed(pressed)
+    }
+
     override fun verifyDrawable(who: Drawable): Boolean {
         return super.verifyDrawable(who) || who == _chipDrawable
     }
@@ -250,7 +281,6 @@ open class Chip @JvmOverloads constructor(
     override fun drawableStateChanged() {
         super.drawableStateChanged()
         _chipDrawable.state = drawableState
-        _chipDrawable.invalidateSelf()
     }
 
     override fun onCreateDrawableState(extraSpace: Int): IntArray {

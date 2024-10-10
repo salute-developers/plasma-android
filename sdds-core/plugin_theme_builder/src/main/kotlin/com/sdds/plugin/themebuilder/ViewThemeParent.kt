@@ -5,34 +5,24 @@ import java.io.Serializable
 /**
  * Модель наследуемой темы
  *
- * @property fullName полное название наследуемой темы
+ * @property themePrefix префикс темы
+ * @property themeSuffix суффикс темы
  * @property childSuffix строка, которую нужно добавить к названию наследника данной темы
- * @property themeType тип темы (только светлые токены, только темные токены, светлые и темные токены)
  *
- * @see [ViewThemeType]
  */
 data class ViewThemeParent(
-    val fullName: String,
-    val childSuffix: String,
-    val themeType: ViewThemeType = ViewThemeType.DARK_LIGHT,
-) : Serializable
-
-/**
- * Тип темы
- */
-enum class ViewThemeType {
-    /**
-     * Дефолтная тема (директория res/values) с темными токенами
-     */
-    DARK,
+    val themePrefix: String,
+    val themeSuffix: String = "",
+    val childSuffix: String = "",
+) : Serializable {
 
     /**
-     * Дефолтная тема (директория res/values) со светлыми токенами
+     * Полное название наследуемой темы
      */
-    LIGHT,
-
-    /**
-     * Дефолтная (директория res/values) и night (директория res/values-night) темы со светлыми и темными токенами
-     */
-    DARK_LIGHT,
+    val fullName: String
+        get() = if (themeSuffix.isEmpty()) {
+            themePrefix
+        } else {
+            "$themePrefix.$themeSuffix"
+        }
 }

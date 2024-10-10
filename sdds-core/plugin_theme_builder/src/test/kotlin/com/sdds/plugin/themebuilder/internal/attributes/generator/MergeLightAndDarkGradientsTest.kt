@@ -9,7 +9,7 @@ import org.junit.runners.Parameterized
 
 @RunWith(Parameterized::class)
 internal class MergeLightAndDarkGradientsTest(
-    private val tokenData: GradientTokenResult.TokenData,
+    private val tokenData: GradientTokenResult.ComposeTokenData,
     private val expectedResultSet: Set<String>,
 ) {
 
@@ -20,9 +20,9 @@ internal class MergeLightAndDarkGradientsTest(
 
     companion object {
         private fun getParams(value: String) = listOf(
-            GradientTokenResult.TokenData.Gradient(
+            GradientTokenResult.ComposeTokenData.Gradient(
                 listOf(value),
-                GradientTokenResult.TokenData.GradientType.LINEAR,
+                GradientTokenResult.ComposeTokenData.GradientType.LINEAR,
             ),
         )
 
@@ -30,7 +30,7 @@ internal class MergeLightAndDarkGradientsTest(
         @Parameterized.Parameters
         fun data() = listOf(
             arrayOf(
-                GradientTokenResult.TokenData(
+                GradientTokenResult.ComposeTokenData(
                     light = mapOf(
                         "key1" to getParams("value1"),
                         "key2" to getParams("value2"),
@@ -43,7 +43,7 @@ internal class MergeLightAndDarkGradientsTest(
                 setOf("key1", "key2"),
             ),
             arrayOf(
-                GradientTokenResult.TokenData(
+                GradientTokenResult.ComposeTokenData(
                     light = mapOf(
                         "key1" to getParams("value1"),
                         "key2" to getParams("value2"),
@@ -56,7 +56,7 @@ internal class MergeLightAndDarkGradientsTest(
                 setOf("key1", "key2", "key3", "key4"),
             ),
             arrayOf(
-                GradientTokenResult.TokenData(
+                GradientTokenResult.ComposeTokenData(
                     light = emptyMap(),
                     dark = mapOf(
                         "key3" to getParams("value3"),
@@ -66,7 +66,7 @@ internal class MergeLightAndDarkGradientsTest(
                 setOf("key3", "key4"),
             ),
             arrayOf(
-                GradientTokenResult.TokenData(
+                GradientTokenResult.ComposeTokenData(
                     light = emptyMap(),
                     dark = emptyMap(),
                 ),

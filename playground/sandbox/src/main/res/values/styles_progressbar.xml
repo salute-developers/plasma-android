@@ -19,7 +19,7 @@
 
     <style name="Theme.Sandbox.Components.ProgressBar.GradientAccent">
         <item name="android:progressTint">@null</item>
-        <item name="android:progressDrawable">@drawable/bg_progressbar_gradient_accent</item>
+        <item name="android:progressDrawable">?serv_surfaceDefaultAccentGradient</item>
     </style>
 
     <style name="Theme.Sandbox.Components.ProgressBar.Positive">

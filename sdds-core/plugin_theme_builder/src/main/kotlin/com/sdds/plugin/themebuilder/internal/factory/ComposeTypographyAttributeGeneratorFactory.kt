@@ -1,5 +1,6 @@
 package com.sdds.plugin.themebuilder.internal.factory
 
+import com.sdds.plugin.themebuilder.DimensionsConfig
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeTypographyAttributeGenerator
 
@@ -11,6 +12,7 @@ internal class ComposeTypographyAttributeGeneratorFactory(
     private val ktFileFromResourcesBuilderFactory: KtFileFromResourcesBuilderFactory,
     private val outputLocation: KtFileBuilder.OutputLocation,
     private val themeName: String,
+    private val dimensionsConfig: DimensionsConfig,
 ) {
 
     /**
@@ -21,5 +23,6 @@ internal class ComposeTypographyAttributeGeneratorFactory(
         ktFileFromResourcesBuilderFactory = ktFileFromResourcesBuilderFactory,
         outputLocation = outputLocation,
         themeName = themeName,
+        dimensionsConfig = dimensionsConfig,
     )
 }

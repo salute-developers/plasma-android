@@ -4,6 +4,7 @@ import com.sdds.plugin.themebuilder.ShapeAppearanceConfig.Companion.materialShap
 import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.exceptions.ThemeBuilderException
 import org.gradle.api.Project
+import java.io.Serializable
 
 /**
  * Расширение для плагина ThemeBuilder
@@ -18,11 +19,14 @@ open class ThemeBuilderExtension {
     internal var themeSource: ThemeBuilderSource? = null
     internal var paletteUrl: String = DEFAULT_PALETTE_URL
     internal var mode: ThemeBuilderMode = ThemeBuilderMode.TOKENS_ONLY
+    internal var outputLocation = OutputLocation.BUILD
+    internal var dimensionsConfig = DimensionsConfig()
+    internal var autoGenerate: Boolean = true
 
     /**
      * Устанавливает источник темы по имени [name] и версии [version]
      */
-    fun themeSource(name: String, version: String = "latest") {
+    fun themeSource(name: String, version: String = ThemeSourceBuilder.VERSION_LATEST) {
         themeSource = ThemeBuilderSource.withNameAndVersion(name, version)
     }
 
@@ -31,6 +35,21 @@ open class ThemeBuilderExtension {
      */
     fun themeSource(url: String) {
         themeSource = ThemeBuilderSource.withUrl(url)
+    }
+
+    /**
+     * Конфигурирует источник темы
+     */
+    fun themeSource(sourceBuilder: ThemeSourceBuilder.() -> Unit) {
+        val builder = ThemeSourceBuilder().apply(sourceBuilder)
+        val name = builder.name
+        val url = builder.url
+        val version = builder.version
+        themeSource = if (url != null) {
+            ThemeBuilderSource.withUrl(url, name)
+        } else {
+            ThemeBuilderSource.withNameAndVersion(name, version)
+        }
     }
 
     /**
@@ -81,6 +100,30 @@ open class ThemeBuilderExtension {
         this.mode = mode
     }
 
+    /**
+     * Устанавливает расположение генерируемых файлов.
+     * @see OutputLocation
+     */
+    fun outputLocation(location: OutputLocation) {
+        this.outputLocation = location
+    }
+
+    /**
+     * Если [auto] == true, то генерация темы будет запущена автоматически на этапе preBuild
+     */
+    fun autoGenerate(auto: Boolean) {
+        this.autoGenerate = auto
+    }
+
+    /**
+     * Устанавливает конфигурацию размеров
+     * @see DimensionsConfig
+     */
+    fun dimensions(dimensionsConfigBuilder: DimensionsConfigBuilder.() -> Unit) {
+        val builder = DimensionsConfigBuilder().apply(dimensionsConfigBuilder)
+        this.dimensionsConfig = DimensionsConfig(builder.multiplier, builder.breakPoints)
+    }
+
     private fun updateTarget(newTarget: ThemeBuilderTarget) {
         if (target == ThemeBuilderTarget.ALL || target == newTarget) return
         target = if (target != null) {
@@ -100,6 +143,44 @@ open class ThemeBuilderExtension {
         fun Project.themeBuilderExt(): ThemeBuilderExtension {
             return extensions.create("themeBuilder", ThemeBuilderExtension::class.java)
         }
+    }
+}
+
+/**
+ * Конфигуратор источника темы
+ */
+class ThemeSourceBuilder {
+    internal var name: String = ThemeBuilderSource.DEFAULT_THEME_NAME
+    internal var url: String? = null
+    internal var version: String = VERSION_LATEST
+
+    /**
+     * Устанавливает кастомный путь к теме
+     */
+    fun url(url: String) {
+        this.url = url
+    }
+
+    /**
+     * Устанавливает название темы
+     */
+    fun name(name: String) {
+        this.name = name
+    }
+
+    /**
+     * Устанавливает версию темы
+     */
+    fun version(version: String) {
+        this.version = version
+    }
+
+    companion object {
+
+        /**
+         * Самая поздняя версия
+         */
+        const val VERSION_LATEST = "latest"
     }
 }
 
@@ -137,6 +218,84 @@ class ViewConfigBuilder {
 }
 
 /**
+ * Билдер конфигурации размеров
+ */
+class DimensionsConfigBuilder {
+    internal var multiplier: Float = 1f
+    internal var breakPoints: BreakPoints = BreakPoints()
+
+    /**
+     * Задает множитель [value] для всех генерируемых размеров
+     */
+    fun multiplier(value: Float) {
+        this.multiplier = value.coerceAtLeast(0f)
+    }
+
+    /**
+     * Задает брейкпоинты типографики
+     */
+    fun breakPoints(breakPointsBuilder: BreakPointsBuilder.() -> Unit) {
+        val builder = BreakPointsBuilder().apply(breakPointsBuilder)
+        this.breakPoints = BreakPoints(builder.medium, builder.large)
+    }
+}
+
+/**
+ * Конфигурация размеров
+ * @property multiplier множитель для всех размеров
+ * @property breakPoints брейкпоинты типографики
+ */
+data class DimensionsConfig(
+    val multiplier: Float = 1f,
+    val breakPoints: BreakPoints = BreakPoints(),
+) : Serializable
+
+/**
+ * Билдер брейкпоинтов типографики
+ */
+class BreakPointsBuilder {
+    internal var medium: Int = BreakPoints.DEFAULT_MEDIUM
+    internal var large: Int = BreakPoints.DEFAULT_LARGE
+
+    /**
+     * Брейкпоинт типографики класса Medium
+     */
+    fun medium(point: Int) {
+        this.medium = point
+    }
+
+    /**
+     * Брейкпоинт типографики класса Large
+     */
+    fun large(point: Int) {
+        this.large = point
+    }
+}
+
+/**
+ * Брейкпоинты типографики
+ * @property medium нижняя граница ScreenClass.MEDIUM
+ * @property large нижняя граница ScreenClass.LARGE
+ */
+data class BreakPoints(
+    val medium: Int = DEFAULT_MEDIUM,
+    val large: Int = DEFAULT_LARGE,
+) : Serializable {
+
+    companion object {
+        /**
+         * Значение по умолчанию для брейкпоинта типографики класса Medium
+         */
+        const val DEFAULT_MEDIUM = 560
+
+        /**
+         * Значение по умолчанию для брейкпоинта типографики класса Large
+         */
+        const val DEFAULT_LARGE = 960
+    }
+}
+
+/**
  * Билдер списка родительских тем.
  * Позволяет указывать material, appCompat и любые custom темы в качестве родительских.
  */
@@ -150,17 +309,15 @@ class ViewParentListBuilder {
     /**
      * Добавляет Material тему в качестве родитльской темы.
      *
-     * @param themeSuffix суффикс темы. Например для темы Theme.MaterialComponents.DayNight
-     * нужно указать суффикс "DayNight".
-     * Если суффикс не указан, родительская тема будет соответствовать Theme.MaterialComponents.
-     * Если суффикс содержит "DayNight", будут сгенерированы темы для дневного и ночного режимов в директориях res/values и res/values-night.
-     * Если суффикс содержит "Light", будет сгенерирована тема со светлыми токенами в директории res/values.
-     * Если суффикс не содержит "Light" или "DayNight", будет сгенерирована тема с темными токенами в директории res/values.
+     * @param themeSuffix суффикс темы. Например для темы Theme.MaterialComponents.NoActionBar
+     * нужно указать суффикс "NoActionBar".
+     * Если суффикс не указан, родительская тема будет соответствовать Theme.MaterialComponents
+     * и Theme.MaterialComponents.Light
      */
     fun materialComponentsTheme(themeSuffix: String = "") {
         addThemeParent(
             themePrefix = "Theme.MaterialComponents",
-            themeSuffix = themeSuffix,
+            themeSuffix = themeSuffix.validatedSuffix(),
             defaultChildSuffix = "MaterialComponents",
         )
         hasMaterial = true
@@ -169,36 +326,27 @@ class ViewParentListBuilder {
     /**
      * Добавляет AppCompat тему в качестве родитльской темы.
      *
-     * @param themeSuffix суффикс темы. Например для темы Theme.AppCompat.DayNight
-     * нужно указать суффикс "DayNight".
-     * Если суффикс не указан, родительская тема будет соответствовать Theme.AppCompat.
-     * Если суффикс содержит "DayNight", будут сгенерированы темы для дневного и ночного режимов в директориях res/values и res/values-night.
-     * Если суффикс содержит "Light", будет сгенерирована тема со светлыми токенами в директории res/values.
-     * Если суффикс не содержит "Light" или "DayNight", будет сгенерирована тема с темными токенами в директории res/values.
+     * @param themeSuffix суффикс темы. Например для темы Theme.AppCompat.NoActionBar
+     * нужно указать суффикс "NoActionBar".
+     * Если суффикс не указан, родительская тема будет соответствовать Theme.AppCompat и Theme.AppCompat.Light.
      */
-    fun appCompatTheme(themeSuffix: String = "") =
+    fun appCompatTheme(themeSuffix: String = "") {
         addThemeParent(
             themePrefix = "Theme.AppCompat",
-            themeSuffix = themeSuffix,
+            themeSuffix = themeSuffix.validatedSuffix(),
             defaultChildSuffix = "AppCompat",
         )
+    }
 
     /**
      * Добавляет любую тему в качестве родитльской темы.
      *
      * @param themeName полное название наследуемой темы. Не должно быть пустым.
-     * @param themeType тип темы, от которого будет зависеть, какие токены (светлые/темные)
      * и в каких файлах ресурсов будут сгенерированы.
      *
-     * @see ViewThemeType
      */
-    fun customTheme(
-        themeName: String,
-        themeType: ViewThemeType = ViewThemeType.DARK_LIGHT,
-    ) = addThemeParent(
-        themeName = themeName,
-        themeType = themeType,
-    )
+    fun customTheme(themeName: String) =
+        addThemeParent(themeName = themeName)
 
     private fun addThemeParent(
         themePrefix: String,
@@ -212,42 +360,45 @@ class ViewParentListBuilder {
             if (themeSuffix.isEmpty()) defaultChildSuffix else "$defaultChildSuffix.$themeSuffix"
         _themeParents.add(
             ViewThemeParent(
-                fullName = getFullThemeName(themePrefix, themeSuffix),
-                themeType = getThemeType(themeSuffix),
+                themePrefix = themePrefix,
+                themeSuffix = themeSuffix,
                 childSuffix = childSuffix,
             ),
         )
     }
 
-    private fun getFullThemeName(themePrefix: String, themeSuffix: String): String {
-        return if (themeSuffix.isEmpty()) {
-            themePrefix
-        } else {
-            "$themePrefix.$themeSuffix"
-        }
-    }
-
-    private fun getThemeType(themeSuffix: String): ViewThemeType {
-        return if (themeSuffix.contains("DayNight")) {
-            ViewThemeType.DARK_LIGHT
-        } else if (themeSuffix.contains("Light")) {
-            ViewThemeType.LIGHT
-        } else {
-            ViewThemeType.DARK
-        }
-    }
-
-    private fun addThemeParent(
-        themeName: String,
-        themeType: ViewThemeType,
-    ) {
+    private fun addThemeParent(themeName: String) {
         if (themeName.isEmpty()) throw ThemeBuilderException("themeName must be defined for parent theme")
         _themeParents.add(
             ViewThemeParent(
-                fullName = themeName,
+                themePrefix = themeName,
                 childSuffix = themeName,
-                themeType = themeType,
             ),
         )
     }
+
+    private companion object {
+
+        fun String.validatedSuffix(): String {
+            if (this.contains("Light") || this.contains("DayNight")) {
+                throw ThemeBuilderException("Suffix $this is not valid for theme builder")
+            }
+            return this
+        }
+    }
+}
+
+/**
+ * Расположение генерируемых файлов
+ */
+enum class OutputLocation {
+    /**
+     * Директорию build/ проекта
+     */
+    BUILD,
+
+    /**
+     * Директория src/ проекта
+     */
+    SRC,
 }

@@ -99,7 +99,7 @@ internal class TextEditorFragment : EditorFragment<String>() {
             textEditorField.label = "Параметр: $propertyName"
             textEditorField.value = currentValue
             textEditorConfirmButton.setOnClickListener {
-                confirm(textEditorField.value)
+                confirm(textEditorField.value?.toString())
             }
         }
         return _binding?.root

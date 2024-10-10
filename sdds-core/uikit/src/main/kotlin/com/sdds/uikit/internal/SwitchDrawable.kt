@@ -46,15 +46,16 @@ internal class SwitchDrawable(
         }
     }
 
-    private var _paint: Paint = Paint().apply {
-        isAntiAlias = true
-        style = Paint.Style.FILL
-    }
+    private var _paint: Paint = Paint().configure(
+        isAntiAlias = true,
+        style = Paint.Style.FILL,
+    )
     private var _trackColorList: ColorStateList = DefaultBlackTint
     private var _thumbColorList: ColorStateList = DefaultWhiteTint
     private var _thumbPosition: Float = 0f
     private var _boundsF: RectF = RectF()
     private var _checked: Boolean = false
+    private var _focused: Boolean = false
     private var _switchWidth: Int = 0
     private var _switchHeight: Int = 0
     private var _thumbSize: Float = 0f
@@ -116,14 +117,24 @@ internal class SwitchDrawable(
     }
 
     override fun onStateChange(state: IntArray): Boolean {
+        var invalidate = super.onStateChange(state)
         val checked = state.contains(android.R.attr.state_checked)
         if (_checked != checked) {
             _checked = checked
             resetAnimator()
             start()
-            return true
+            invalidate = true
         }
-        return super.onStateChange(state)
+
+        val focused = state.contains(android.R.attr.state_focused)
+        if (_focused != focused) {
+            _focused = focused
+            invalidate = true
+        }
+        if (invalidate) {
+            invalidateSelf()
+        }
+        return invalidate
     }
 
     override fun isStateful(): Boolean = true

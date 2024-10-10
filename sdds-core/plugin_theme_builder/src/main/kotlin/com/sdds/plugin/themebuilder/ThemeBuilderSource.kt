@@ -13,11 +13,11 @@ internal sealed class ThemeBuilderSource(val themeName: String) {
     /**
      * Способ получения темы с помощью ссылки [url].
      */
-    data class Url(val url: String, val name: String = DEFAULT_THEME_NAME) : ThemeBuilderSource(name)
+    data class Url(val url: String, val name: String) : ThemeBuilderSource(name)
 
     companion object {
 
-        private const val DEFAULT_THEME_NAME = "Default"
+        const val DEFAULT_THEME_NAME = "Default"
 
         /**
          * Позволяет указать источник получения темы с помощью [name] и [version]
@@ -28,6 +28,6 @@ internal sealed class ThemeBuilderSource(val themeName: String) {
         /**
          * Позволяет указать источник получения темы с помощью [url]
          */
-        fun withUrl(url: String): ThemeBuilderSource = Url(url)
+        fun withUrl(url: String, name: String = DEFAULT_THEME_NAME): ThemeBuilderSource = Url(url, name)
     }
 }

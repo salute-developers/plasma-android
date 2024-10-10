@@ -2,6 +2,7 @@ package com.sdds.uikit.internal.base.shape
 
 import android.content.res.ColorStateList
 import android.graphics.drawable.Drawable
+import android.graphics.drawable.LayerDrawable
 import android.util.AttributeSet
 import android.view.View
 import androidx.core.graphics.drawable.DrawableCompat
@@ -10,6 +11,7 @@ import com.sdds.uikit.R
 import com.sdds.uikit.internal.base.wrapWithInset
 import com.sdds.uikit.shape.ShapeDrawable
 import com.sdds.uikit.shape.ShapeModel
+import com.sdds.uikit.shape.Shapeable
 
 /**
  * Делегат для установки [ShapeDrawable] в качестве фона [View]
@@ -24,13 +26,12 @@ internal class ShapeHelper(
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0,
     defStyleRes: Int = 0,
-) {
+) : Shapeable {
 
     private var shapeModel: ShapeModel? = null
     private var strokeColor: ColorStateList? = null
     private var strokeWidth: Float = 0f
     private var backgroundOverwritten: Boolean = false
-    private var needShapeBackground: Boolean = false
     private var insetLeft: Int = 0
     private var insetTop: Int = 0
     private var insetRight: Int = 0
@@ -39,6 +40,12 @@ internal class ShapeHelper(
     init {
         obtainAttrs(attrs, defStyleAttr, defStyleRes)
     }
+
+    /**
+     * @see Shapeable
+     */
+    override val shape: ShapeModel?
+        get() = shapeModel
 
     fun setShape(shapeModel: ShapeModel) {
         if (!canCreateShapeBackground()) return
@@ -80,18 +87,35 @@ internal class ShapeHelper(
     }
 
     private fun createBackground(): Drawable {
-        val shapeModel = getShapeAppearanceModel()
-        return (view.background as? ShapeDrawable ?: ShapeDrawable())
+        return when (val bg = view.background) {
+            is ShapeDrawable -> bg.setupBackground()
+
+            is LayerDrawable -> {
+                bg.apply {
+                    for (i in 0 until bg.numberOfLayers) {
+                        (bg.getDrawable(i) as? ShapeDrawable)?.setupBackground()
+                    }
+                }
+            }
+
+            else -> ShapeDrawable().setupBackground()
+        }
             .apply {
-                setShapeModel(shapeModel)
-                setStrokeTint(strokeColor)
-                setStrokeWidth(strokeWidth)
                 DrawableCompat.setTintList(this, view.backgroundTintList)
                 view.backgroundTintMode?.let { tintMode ->
                     DrawableCompat.setTintMode(this, tintMode)
                 }
             }
             .wrapWithInset(insetLeft, insetTop, insetRight, insetBottom)
+    }
+
+    private fun ShapeDrawable.setupBackground(): ShapeDrawable {
+        val shapeModel = getShapeAppearanceModel()
+        return this.apply {
+            setShapeModel(shapeModel)
+            setStrokeTint(strokeColor)
+            setStrokeWidth(strokeWidth)
+        }
     }
 
     private fun obtainAttrs(attributeSet: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) {
@@ -107,8 +131,7 @@ internal class ShapeHelper(
         insetBottom = typedArray.getDimensionPixelOffset(R.styleable.SdShape_android_insetBottom, 0)
         val currentBackground = typedArray.getDrawable(R.styleable.SdShape_android_background)
         backgroundOverwritten = typedArray.hasValue(R.styleable.SdShape_android_background) &&
-            currentBackground !is ShapeDrawable
-        needShapeBackground = typedArray.hasValue(R.styleable.SdShape_sd_shapeAppearance)
+            currentBackground?.isShapeable() != true
         strokeColor = typedArray.getColorStateList(R.styleable.SdShape_sd_strokeColor)
         strokeWidth = typedArray.getDimension(R.styleable.SdShape_sd_strokeWidth, 0f)
         val hasShape = typedArray.hasValue(R.styleable.SdShape_sd_shapeAppearance)
@@ -118,5 +141,21 @@ internal class ShapeHelper(
         typedArray.recycle()
     }
 
-    private fun canCreateShapeBackground() = !backgroundOverwritten && needShapeBackground
+    private fun canCreateShapeBackground() = !backgroundOverwritten
+
+    private companion object {
+
+        private fun Drawable.isShapeable(): Boolean =
+            this is ShapeDrawable || (this as? LayerDrawable).isAnyLayerShapeable()
+
+        private fun LayerDrawable?.isAnyLayerShapeable(): Boolean {
+            if (this == null) return false
+            for (layer in 0 until numberOfLayers) {
+                if (getDrawable(layer) is ShapeDrawable) {
+                    return true
+                }
+            }
+            return false
+        }
+    }
 }

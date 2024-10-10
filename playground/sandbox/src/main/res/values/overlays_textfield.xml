@@ -5,15 +5,123 @@
         <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextField.L</item>
     </style>
 
+    <style name="Theme.Sandbox.ComponentOverlays.TextFieldLOuterLabel">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextField.L.OuterLabel</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.TextFieldLOuterLabelRequiredStart">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextField.L.OuterLabel.RequiredStart</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.TextFieldLOuterLabelRequiredEnd">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextField.L.OuterLabel.RequiredEnd</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.TextFieldLInnerLabel">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextField.L.InnerLabel</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.TextFieldLInnerLabelRequiredStart">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextField.L.InnerLabel.RequiredStart</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.TextFieldLInnerLabelRequiredEnd">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextField.L.InnerLabel.RequiredEnd</item>
+    </style>
+
     <style name="Theme.Sandbox.ComponentOverlays.TextFieldM">
         <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextField.M</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.TextFieldMOuterLabel">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextField.M.OuterLabel</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.TextFieldMOuterLabelRequiredStart">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextField.M.OuterLabel.RequiredStart</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.TextFieldMOuterLabelRequiredEnd">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextField.M.OuterLabel.RequiredEnd</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.TextFieldMInnerLabel">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextField.M.InnerLabel</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.TextFieldMInnerLabelRequiredStart">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextField.M.InnerLabel.RequiredStart</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.TextFieldMInnerLabelRequiredEnd">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextField.M.InnerLabel.RequiredEnd</item>
     </style>
 
     <style name="Theme.Sandbox.ComponentOverlays.TextFieldS">
         <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextField.S</item>
     </style>
 
+    <style name="Theme.Sandbox.ComponentOverlays.TextFieldSOuterLabel">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextField.S.OuterLabel</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.TextFieldSOuterLabelRequiredStart">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextField.S.OuterLabel.RequiredStart</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.TextFieldSOuterLabelRequiredEnd">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextField.S.OuterLabel.RequiredEnd</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.TextFieldSInnerLabel">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextField.S.InnerLabel</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.TextFieldSInnerLabelRequiredStart">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextField.S.InnerLabel.RequiredStart</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.TextFieldSInnerLabelRequiredEnd">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextField.S.InnerLabel.RequiredEnd</item>
+    </style>
+
     <style name="Theme.Sandbox.ComponentOverlays.TextFieldXS">
         <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextField.XS</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.TextFieldXSRequiredStart">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextField.XS.RequiredStart</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.TextFieldXSRequiredEnd">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextField.XS.RequiredEnd</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.TextFieldXSOuterLabel">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextField.XS.OuterLabel</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.TextFieldXSOuterLabelRequiredStart">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextField.XS.OuterLabel.RequiredStart</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.TextFieldXSOuterLabelRequiredEnd">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextField.XS.OuterLabel.RequiredEnd</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.ChipGroupDense.TextFieldEmbeddedL">
+        <item name="sd_chipGroupStyle">@style/Theme.Sandbox.Components.ChipGroup.Dense.EmbeddedL.Secondary</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.ChipGroupDense.TextFieldEmbeddedM">
+        <item name="sd_chipGroupStyle">@style/Theme.Sandbox.Components.ChipGroup.Dense.EmbeddedM.Secondary</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.ChipGroupDense.TextFieldEmbeddedS">
+        <item name="sd_chipGroupStyle">@style/Theme.Sandbox.Components.ChipGroup.Dense.EmbeddedS.Secondary</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.ChipGroupDense.TextFieldEmbeddedXS">
+        <item name="sd_chipGroupStyle">@style/Theme.Sandbox.Components.ChipGroup.Dense.EmbeddedXS.Secondary</item>
     </style>
 </resources>

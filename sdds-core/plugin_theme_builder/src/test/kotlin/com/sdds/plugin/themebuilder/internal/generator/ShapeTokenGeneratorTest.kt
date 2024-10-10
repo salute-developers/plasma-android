@@ -1,5 +1,6 @@
 package com.sdds.plugin.themebuilder.internal.generator
 
+import com.sdds.plugin.themebuilder.DimensionsConfig
 import com.sdds.plugin.themebuilder.ShapeAppearanceConfig.Companion.materialShape
 import com.sdds.plugin.themebuilder.ShapeAppearanceConfig.Companion.sddsShape
 import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
@@ -39,6 +40,7 @@ class ShapeTokenGeneratorTest {
     private lateinit var outputKt: ByteArrayOutputStream
     private lateinit var mockOutputResDir: File
     private lateinit var mockDimenAggregator: DimensAggregator
+    private lateinit var dimensionsConfig: DimensionsConfig
     private lateinit var underTest: ShapeTokenGenerator
 
     @Before
@@ -51,6 +53,7 @@ class ShapeTokenGeneratorTest {
         outputKt = ByteArrayOutputStream()
         mockOutputResDir = mockk(relaxed = true)
         mockDimenAggregator = mockk(relaxed = true)
+        dimensionsConfig = mockk(relaxed = true)
         underTest = ShapeTokenGenerator(
             outputLocation = KtFileBuilder.OutputLocation.Stream(outputKt),
             outputResDir = mockOutputResDir,
@@ -61,6 +64,7 @@ class ShapeTokenGeneratorTest {
             resourceReferenceProvider = ResourceReferenceProvider("thmbldr", "TestTheme"),
             shapeTokenValues = shapeTokenValues,
             viewShapeAppearanceConfig = listOf(materialShape(), sddsShape()),
+            dimensionsConfig = dimensionsConfig,
         )
     }
 
@@ -82,6 +86,7 @@ class ShapeTokenGeneratorTest {
         val shapesXmlFile = mockk<File>(relaxed = true)
         every { shapesXmlFile.fileWriter() } returns outputXml.writer()
         every { mockOutputResDir.shapesXmlFile() } returns shapesXmlFile
+        every { dimensionsConfig.multiplier } returns 1f
 
         shapeTokens.forEach { underTest.addToken(it) }
         underTest.generate()

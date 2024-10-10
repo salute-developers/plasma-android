@@ -1,5 +1,6 @@
 package com.sdds.plugin.themebuilder.internal.generator
 
+import com.sdds.plugin.themebuilder.DimensionsConfig
 import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
@@ -41,6 +42,7 @@ class TypographyTokenGeneratorTest {
     private lateinit var mockOutputResDir: File
     private lateinit var mockDimensAggregator: DimensAggregator
     private lateinit var mockFontsAggregator: FontsAggregator
+    private lateinit var dimensionsConfig: DimensionsConfig
     private lateinit var underTest: TypographyTokenGenerator
 
     @Before
@@ -56,6 +58,7 @@ class TypographyTokenGeneratorTest {
         mockFontsAggregator = mockk(relaxed = true) {
             every { fonts } returns fontsAggregatorData
         }
+        dimensionsConfig = mockk(relaxed = true)
         underTest = TypographyTokenGenerator(
             outputLocation = KtFileBuilder.OutputLocation.Stream(outputKt),
             outputResDir = mockOutputResDir,
@@ -66,6 +69,7 @@ class TypographyTokenGeneratorTest {
             resourceReferenceProvider = ResourceReferenceProvider("thmbldr", "TestTheme"),
             typographyTokenValues = typographyTokenValues,
             fontsAggregator = mockFontsAggregator,
+            dimensionsConfig = dimensionsConfig,
         )
     }
 
@@ -91,13 +95,18 @@ class TypographyTokenGeneratorTest {
         val appearancesSmallXmlFile = mockk<File>(relaxed = true)
         val appearancesLargeXmlFile = mockk<File>(relaxed = true)
         val typographyXmlFile = mockk<File>(relaxed = true)
+        every { dimensionsConfig.multiplier } returns 2f
+        every { dimensionsConfig.breakPoints } returns mockk(relaxed = true) {
+            every { medium } returns 512
+            every { large } returns 1000
+        }
         every { appearancesMediumXmlFile.fileWriter() } returns outputAppearancesMediumXml.writer()
         every { appearancesSmallXmlFile.fileWriter() } returns outputAppearancesSmallXml.writer()
         every { appearancesLargeXmlFile.fileWriter() } returns outputAppearancesLargeXml.writer()
         every { typographyXmlFile.fileWriter() } returns outputTypographyXml.writer()
-        every { mockOutputResDir.textAppearancesXmlFile("") } returns appearancesMediumXmlFile
-        every { mockOutputResDir.textAppearancesXmlFile("small") } returns appearancesSmallXmlFile
-        every { mockOutputResDir.textAppearancesXmlFile("large") } returns appearancesLargeXmlFile
+        every { mockOutputResDir.textAppearancesXmlFile("") } returns appearancesSmallXmlFile
+        every { mockOutputResDir.textAppearancesXmlFile("w512dp") } returns appearancesMediumXmlFile
+        every { mockOutputResDir.textAppearancesXmlFile("w1000dp") } returns appearancesLargeXmlFile
         every { mockOutputResDir.typographyXmlFile(any()) } returns typographyXmlFile
 
         typographyTokens.forEach { token ->
@@ -110,12 +119,12 @@ class TypographyTokenGeneratorTest {
             outputTypographyXml.toString(),
         )
         assertEquals(
-            getResourceAsText("typography-outputs/test-appearances-output.xml"),
-            outputAppearancesMediumXml.toString(),
-        )
-        assertEquals(
             getResourceAsText("typography-outputs/test-appearances-small-output.xml"),
             outputAppearancesSmallXml.toString(),
+        )
+        assertEquals(
+            getResourceAsText("typography-outputs/test-appearances-medium-output.xml"),
+            outputAppearancesMediumXml.toString(),
         )
         assertEquals(
             getResourceAsText("typography-outputs/test-appearances-large-output.xml"),

@@ -3,7 +3,6 @@ package com.sdds.uikit.shape
 import android.content.Context
 import android.content.res.ColorStateList
 import android.content.res.Resources
-import android.content.res.TypedArray
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.ColorFilter
@@ -14,12 +13,16 @@ import android.graphics.Rect
 import android.graphics.RectF
 import android.graphics.Shader
 import android.graphics.drawable.Drawable
+import android.graphics.drawable.ShapeDrawable
 import android.graphics.drawable.shapes.Shape
 import android.util.AttributeSet
+import android.util.TypedValue
 import androidx.core.graphics.withTranslation
 import com.sdds.uikit.R
 import com.sdds.uikit.internal.base.colorForState
 import com.sdds.uikit.internal.base.configure
+import com.sdds.uikit.shader.ShaderFactory
+import com.sdds.uikit.shaderFactory
 import com.sdds.uikit.shape.ShapeModel.Companion.adjust
 import org.xmlpull.v1.XmlPullParser
 
@@ -27,20 +30,7 @@ import org.xmlpull.v1.XmlPullParser
  * Drawable рисующий форму согласно [ShapeModel].
  * @author Малышев Александр on 29.07.2024
  */
-open class ShapeDrawable() : Drawable() {
-
-    /**
-     * Фабрика [Shader].
-     */
-    interface ShaderFactory {
-
-        /**
-         * Изменяет размер [Shader]
-         * @param width ширина
-         * @param height высота
-         */
-        fun resize(width: Float, height: Float): Shader
-    }
+open class ShapeDrawable() : Drawable(), Shapeable {
 
     private val _drawingBounds: RectF = RectF()
     private var _shapeModel: ShapeModel = ShapeModel()
@@ -55,6 +45,8 @@ open class ShapeDrawable() : Drawable() {
     private var _shape: Shape? = null
 
     private var _shaderFactory: ShaderFactory? = null
+    private var sdShaderAppearanceRes: TypedValue? = null
+    private var sdShaderAppearanceResFallback: Int = 0
 
     private val drawStroke: Boolean
         get() = _strokeWidth > 0 && _strokePaint.color != Color.TRANSPARENT
@@ -100,6 +92,12 @@ open class ShapeDrawable() : Drawable() {
         _strokeWidth = typedArray.getDimension(R.styleable.SdShape_sd_strokeWidth, 0f)
         typedArray.recycle()
     }
+
+    /**
+     * @see Shapeable.shape
+     */
+    override val shape: ShapeModel?
+        get() = _shapeModel
 
     /**
      * Фабрика для [Shader].
@@ -232,43 +230,57 @@ open class ShapeDrawable() : Drawable() {
             val fillColor = _shapeTint.colorForState(state)
             if (fillColor != _shapePaint.color) {
                 _shapePaint.color = fillColor
+                stateChanged = true
             }
+        }
+        if (stateChanged) {
+            invalidateSelf()
         }
         return super.onStateChange(state) || stateChanged
     }
 
-    override fun inflate(r: Resources, parser: XmlPullParser, attrs: AttributeSet, theme: Resources.Theme?) {
+    override fun inflate(
+        r: Resources,
+        parser: XmlPullParser,
+        attrs: AttributeSet,
+        theme: Resources.Theme?,
+    ) {
         super.inflate(r, parser, attrs, theme)
-        obtainAttributes(r, theme, attrs, R.styleable.SdShapeDrawable) {
-            val type = GradientType.values().getOrElse(
-                getInt(R.styleable.SdShapeDrawable_sd_gradientType, 0),
-            ) { GradientType.NONE }
 
-            if (type == GradientType.NONE) {
-                shaderFactory = null
-                return@obtainAttributes
-            }
+        val themeTypedArray = theme?.obtainStyledAttributes(
+            attrs,
+            R.styleable.SdShader,
+            0,
+            0,
+        ) ?: r.obtainAttributes(
+            attrs,
+            R.styleable.SdShader,
+        )
+        val typedValue = TypedValue()
+        val getValueResult = themeTypedArray.getValue(R.styleable.SdShader_sd_shaderAppearance, typedValue)
+        sdShaderAppearanceResFallback = themeTypedArray.getResourceId(R.styleable.SdShader_sd_shaderAppearance, 0)
 
-            val colors = getResourceId(R.styleable.SdShapeDrawable_sd_colors, 0).let { colorsId ->
-                if (colorsId == 0) return@let intArrayOf()
-                resources.getIntArray(colorsId)
-            }
-            val stops = getResourceId(R.styleable.SdShapeDrawable_sd_stops, 0).let { stopsId ->
-                resources.getStringArray(stopsId)
-                    .map { it.toFloatOrNull() ?: 0f }
-                    .toFloatArray()
-            }
-            val centerX = getFloat(R.styleable.SdShapeDrawable_sd_centerX, 0f)
-            val centerY = getFloat(R.styleable.SdShapeDrawable_sd_centerY, 0f)
-            val radius = getFloat(R.styleable.SdShapeDrawable_sd_radius, 0f)
-            shaderFactory = when (type) {
-                GradientType.LINEAR -> GradientShader.Linear(colors, stops, 0f)
-                GradientType.RADIAL -> GradientShader.Radial(colors, stops, radius, centerX, centerY)
-                GradientType.SWEEP -> GradientShader.Sweep(colors, stops, centerX, centerY)
-                GradientType.SOLID -> GradientShader.Solid(colors.firstOrNull() ?: 0)
-                else -> null
-            }
+        if (getValueResult) sdShaderAppearanceRes = typedValue
+
+        themeTypedArray.recycle()
+        if (theme != null) applyTheme(theme) // принудительный вызов applyTheme() для preview
+    }
+
+    override fun canApplyTheme(): Boolean = true
+
+    override fun applyTheme(t: Resources.Theme) {
+        super.applyTheme(t)
+
+        var shaderAppearance = sdShaderAppearanceRes
+        if (shaderAppearance != null && shaderAppearance.type == TypedValue.TYPE_ATTRIBUTE) {
+            val outTypedValue = TypedValue()
+            t.resolveAttribute(shaderAppearance.data, outTypedValue, true)
+            shaderAppearance = outTypedValue
         }
+        val resId = shaderAppearance?.data ?: sdShaderAppearanceResFallback
+        val typedArray = t.obtainStyledAttributes(resId, R.styleable.SdShaderAppearance)
+        shaderFactory = typedArray.shaderFactory()
+        typedArray.recycle()
     }
 
     private fun initPaint() {
@@ -284,30 +296,11 @@ open class ShapeDrawable() : Drawable() {
         )
     }
 
-    private enum class GradientType {
+    internal enum class GradientType {
         NONE,
         LINEAR,
         RADIAL,
         SWEEP,
         SOLID,
-    }
-
-    private companion object {
-
-        @Suppress("Recycle")
-        fun obtainAttributes(
-            res: Resources,
-            theme: Resources.Theme?,
-            set: AttributeSet,
-            attrs: IntArray,
-            block: TypedArray.() -> Unit,
-        ) {
-            (
-                theme?.obtainStyledAttributes(set, attrs, 0, 0)
-                    ?: res.obtainAttributes(set, attrs)
-                )
-                .apply(block)
-                .recycle()
-        }
     }
 }

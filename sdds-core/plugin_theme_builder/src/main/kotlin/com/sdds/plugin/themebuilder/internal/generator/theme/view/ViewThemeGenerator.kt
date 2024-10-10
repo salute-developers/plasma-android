@@ -2,12 +2,12 @@ package com.sdds.plugin.themebuilder.internal.generator.theme.view
 
 import com.sdds.plugin.themebuilder.ResourcePrefixConfig
 import com.sdds.plugin.themebuilder.ViewThemeParent
-import com.sdds.plugin.themebuilder.ViewThemeType
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.exceptions.ThemeBuilderException
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.generator.SimpleBaseGenerator
 import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult
+import com.sdds.plugin.themebuilder.internal.generator.data.GradientTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.ShapeTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.TypographyTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.mergedLightAndDark
@@ -34,12 +34,15 @@ internal class ViewThemeGenerator(
     private val xmlBuilderFactory: XmlResourcesDocumentBuilderFactory,
     private val outputResDir: File,
     private val viewThemeParents: List<ViewThemeParent>,
+    private val viewGradientGenerator: ViewGradientGenerator,
     private val resPrefixConfig: ResourcePrefixConfig,
     themeName: String,
 ) : SimpleBaseGenerator {
 
-    private var colors: ColorTokenResult.TokenData? = null
+    private var colorData: ColorTokenResult.TokenData? = null
+    private var gradientData: GradientTokenResult.ViewTokenData? = null
     private val colorAttributes = mutableSetOf<String>()
+    private val gradientAttributes = mutableSetOf<String>()
     private val shapes = mutableListOf<ShapeTokenResult.TokenData>()
     private var typography: TypographyTokenResult.ViewTokenData? = null
 
@@ -58,9 +61,15 @@ internal class ViewThemeGenerator(
     private val camelCaseThemeName = themeName.snakeToCamelCase()
 
     internal fun setColorTokenData(data: ColorTokenResult.TokenData) {
-        colors = data
+        colorData = data
         colorAttributes.clear()
         colorAttributes.addAll(data.mergedLightAndDark())
+    }
+
+    internal fun setGradientTokenData(data: GradientTokenResult.ViewTokenData) {
+        gradientData = data
+        gradientAttributes.clear()
+        gradientAttributes.addAll(data.mergedLightAndDark())
     }
 
     internal fun setShapeTokenData(data: List<ShapeTokenResult.TokenData>) {
@@ -83,36 +92,32 @@ internal class ViewThemeGenerator(
     override fun generate() {
         emptyStylesCollector.clear()
         stylesWithAttributesCollector.clear()
-        var shouldGenerateNightTheme = false
 
         if (viewThemeParents.isEmpty()) {
-            addStyleWithDefaultAttributes(lightColorTokens = true)
-            addStyleWithNightAttributes()
-            shouldGenerateNightTheme = true
+            addStyleWithDefaultAttributes(mode = ThemeMode.DARK)
+            addStyleWithDefaultAttributes(mode = ThemeMode.LIGHT)
+            addDayNightStyle()
         } else {
             viewThemeParents.forEach {
-                when (it.themeType) {
-                    ViewThemeType.DARK -> addStyleWithDefaultAttributes(parent = it, lightColorTokens = false)
-                    ViewThemeType.LIGHT -> addStyleWithDefaultAttributes(parent = it, lightColorTokens = true)
-                    ViewThemeType.DARK_LIGHT -> {
-                        addStyleWithDefaultAttributes(parent = it, lightColorTokens = true)
-                        addStyleWithNightAttributes(parent = it)
-                        shouldGenerateNightTheme = true
-                    }
-                }
+                addStyleWithDefaultAttributes(parent = it, mode = ThemeMode.DARK)
+                addStyleWithDefaultAttributes(parent = it, mode = ThemeMode.LIGHT)
+                addDayNightStyle(parent = it)
             }
         }
 
+        viewGradientGenerator.generate()
         collectEmptyBaseStyles()
         addEmptyStyles()
-        buildFiles(shouldGenerateNightTheme)
+        buildFiles()
     }
 
     private fun collectEmptyBaseStyles() {
         if (resPrefixConfig.shouldGenerateResPrefixStyle) {
             emptyStylesCollector.add(capitalizedResPrefix)
         }
-        emptyStylesCollector.add("$capitalizedResPrefix.$camelCaseThemeName")
+        if (camelCaseThemeName.isNotBlank()) {
+            emptyStylesCollector.add("$capitalizedResPrefix.$camelCaseThemeName")
+        }
     }
 
     private fun addEmptyStyles() {
@@ -120,43 +125,58 @@ internal class ViewThemeGenerator(
             .forEach(defaultThemeXmlFileBuilder::appendStyle)
     }
 
-    private fun buildFiles(shouldGenerateNightTheme: Boolean) {
-        defaultThemeXmlFileBuilder.build(outputResDir.themeXmlFile(ThemeMode.LIGHT.qualifier))
-        if (shouldGenerateNightTheme) {
-            nightThemeXmlFileBuilder.build(outputResDir.themeXmlFile(ThemeMode.DARK.qualifier))
-        }
+    private fun buildFiles() {
+        defaultThemeXmlFileBuilder.build(outputResDir.themeXmlFile())
+        nightThemeXmlFileBuilder.build(outputResDir.themeXmlFile(ThemeMode.DAYNIGHT.qualifier))
     }
 
-    private fun addStyleWithDefaultAttributes(parent: ViewThemeParent? = null, lightColorTokens: Boolean) {
+    private fun addStyleWithDefaultAttributes(parent: ViewThemeParent? = null, mode: ThemeMode) {
         with(defaultThemeXmlFileBuilder) {
             collectEmptyStyles(parent)
             addStyleWithAttrs(
-                styleName = parent.styleName(),
-                parent = parent?.fullName,
-                colorAttributesBlock(lightColorTokens = lightColorTokens),
+                styleName = themeStyleName(mode, parent),
+                parent = parent?.fullName(mode),
+                colorAttributesBlock(lightColorTokens = mode == ThemeMode.LIGHT),
+                gradientAttributesBlock(lightGradientTokens = mode == ThemeMode.LIGHT),
                 shapeAttributesBlock(),
                 typographyAttributesBlock(),
             )
         }
     }
 
-    private fun addStyleWithNightAttributes(parent: ViewThemeParent? = null) {
+    private fun addDayNightStyle(parent: ViewThemeParent? = null) {
+        with(defaultThemeXmlFileBuilder) {
+            addStyleWithAttrs(
+                styleName = themeStyleName(ThemeMode.DAYNIGHT, parent),
+                parent = themeStyleName(ThemeMode.LIGHT, parent, true),
+            )
+        }
         with(nightThemeXmlFileBuilder) {
             addStyleWithAttrs(
-                styleName = parent.styleName(),
-                parent = parent?.fullName,
-                colorAttributesBlock(lightColorTokens = false),
+                styleName = themeStyleName(ThemeMode.DAYNIGHT, parent),
+                parent = themeStyleName(ThemeMode.DARK, parent, true),
             )
         }
     }
 
-    private fun ViewThemeParent?.styleName() =
-        this?.let { "$camelCaseThemeName.${it.childSuffix}" } ?: camelCaseThemeName
+    private fun themeStyleName(mode: ThemeMode, parent: ViewThemeParent? = null, withPrefix: Boolean = false): String {
+        return listOfNotNull(
+            capitalizedResPrefix.takeIf { withPrefix },
+            camelCaseThemeName.takeIf { it.isNotBlank() },
+            parent?.childSuffix?.takeIf { it.isNotBlank() },
+            mode.suffix.takeIf { it.isNotBlank() },
+        ).joinToString(THEME_NAME_DELIMITER)
+    }
 
     private fun collectEmptyStyles(viewThemeParent: ViewThemeParent?) {
         viewThemeParent?.let { themeParent ->
             val subStyles = themeParent.childSuffix.split('.')
-            val styleBuilder = StringBuilder("$capitalizedResPrefix.$camelCaseThemeName")
+            val base = if (camelCaseThemeName.isNotBlank()) {
+                "$capitalizedResPrefix.$camelCaseThemeName"
+            } else {
+                capitalizedResPrefix
+            }
+            val styleBuilder = StringBuilder(base)
             subStyles
                 .subList(0, subStyles.lastIndex)
                 .forEach { subStyle ->
@@ -175,10 +195,30 @@ internal class ViewThemeGenerator(
             val attrs: List<ViewThemeAttribute>
             if (lightColorTokens) {
                 commentText = "Light colors"
-                attrs = colorAttributes.toLightThemeAttrs()
+                attrs = colorAttributes.toLightColorThemeAttrs()
             } else {
                 commentText = "Dark colors"
-                attrs = colorAttributes.toDarkThemeAttrs()
+                attrs = colorAttributes.toDarkColorThemeAttrs()
+            }
+            if (attrs.isNotEmpty()) appendComment(commentText)
+            appendAttrs(
+                attrs = attrs,
+                toElement = this,
+            )
+        }
+
+    private fun XmlResourcesDocumentBuilder.gradientAttributesBlock(
+        lightGradientTokens: Boolean,
+    ): Element.() -> Unit =
+        {
+            val commentText: String
+            val attrs: List<ViewThemeAttribute>
+            if (lightGradientTokens) {
+                commentText = "Light gradients"
+                attrs = gradientAttributes.toLightGradientThemeAttrs()
+            } else {
+                commentText = "Dark gradients"
+                attrs = gradientAttributes.toDarkGradientThemeAttrs()
             }
             if (attrs.isNotEmpty()) appendComment(commentText)
             appendAttrs(
@@ -208,24 +248,42 @@ internal class ViewThemeGenerator(
             )
         } ?: emptyList()
 
-    private fun Set<String>.toDarkThemeAttrs(): List<ViewThemeAttribute> =
+    private fun Set<String>.toDarkColorThemeAttrs(): List<ViewThemeAttribute> =
         map { color ->
             ViewThemeAttribute(
                 name = color,
-                value = colors?.dark?.get(color)
-                    ?: colors?.light?.get(color)
+                value = colorData?.dark?.get(color)
+                    ?: colorData?.light?.get(color)
                     ?: throw ThemeBuilderException("Can't find token value for color $color"),
             )
         }
 
-    private fun Set<String>.toLightThemeAttrs(): List<ViewThemeAttribute> =
+    private fun Set<String>.toLightColorThemeAttrs(): List<ViewThemeAttribute> =
         map { color ->
             ViewThemeAttribute(
                 name = color,
-                value = colors?.light?.get(color)
-                    ?: colors?.dark?.get(color)
+                value = colorData?.light?.get(color)
+                    ?: colorData?.dark?.get(color)
                     ?: throw ThemeBuilderException("Can't find token value for color $color"),
             )
+        }
+
+    private fun Set<String>.toLightGradientThemeAttrs(): List<ViewThemeAttribute> =
+        map { gradient ->
+            val gradientValue = gradientData?.light?.get(gradient)
+                ?: gradientData?.dark?.get(gradient)
+                ?: throw ThemeBuilderException("Can't find token value for gradient $gradient")
+            val resReference = viewGradientGenerator.addGradient(gradientValue)
+            ViewThemeAttribute(name = gradient, value = resReference)
+        }
+
+    private fun Set<String>.toDarkGradientThemeAttrs(): List<ViewThemeAttribute> =
+        map { gradient ->
+            val gradientValue = gradientData?.dark?.get(gradient)
+                ?: gradientData?.light?.get(gradient)
+                ?: throw ThemeBuilderException("Can't find token value for gradient $gradient")
+            val resReference = viewGradientGenerator.addGradient(gradientValue)
+            ViewThemeAttribute(name = gradient, value = resReference)
         }
 
     private fun List<ShapeTokenResult.TokenData>.shapesToThemeAttrs(): List<ViewThemeAttribute> =
@@ -265,8 +323,22 @@ internal class ViewThemeGenerator(
         }
     }
 
-    private enum class ThemeMode(val qualifier: String) {
-        LIGHT(""),
-        DARK("night"),
+    private enum class ThemeMode(val suffix: String, val qualifier: String) {
+        LIGHT("Light", ""),
+        DARK("", ""),
+        DAYNIGHT("DayNight", "night"),
+    }
+
+    private companion object {
+        const val THEME_NAME_DELIMITER = "."
+
+        fun ViewThemeParent.fullName(mode: ThemeMode): String {
+            if (mode.suffix.isBlank()) return fullName
+            return listOfNotNull(
+                themePrefix.takeIf { it.isNotBlank() },
+                mode.suffix.takeIf { it.isNotBlank() },
+                themeSuffix.takeIf { it.isNotBlank() },
+            ).joinToString(THEME_NAME_DELIMITER)
+        }
     }
 }

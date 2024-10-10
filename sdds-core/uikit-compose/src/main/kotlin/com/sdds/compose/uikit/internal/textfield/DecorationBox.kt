@@ -30,6 +30,7 @@ import com.sdds.compose.uikit.CoreTextField
 internal fun DecorationBox(
     value: String,
     singleLine: Boolean,
+    isClearAppearance: Boolean,
     isError: Boolean = false,
     innerLabel: @Composable (() -> Unit)?,
     innerOptional: @Composable (() -> Unit)?,
@@ -48,6 +49,7 @@ internal fun DecorationBox(
     chipHeight: Dp,
     alignmentLineHeight: Dp,
     verticalScrollState: ScrollState?,
+    horizontalScrollState: ScrollState?,
     visualTransformation: VisualTransformation,
     animation: CoreTextField.Animation,
     interactionSource: InteractionSource,
@@ -87,6 +89,7 @@ internal fun DecorationBox(
             modifier = decorationBoxModifier,
             textField = innerTextField,
             verticalScrollState = verticalScrollState,
+            horizontalScrollState = horizontalScrollState,
             placeholder = decoratedPlaceholder,
             captionText = innerCaption,
             counterText = innerCounter,
@@ -102,6 +105,7 @@ internal fun DecorationBox(
             iconSize = iconSize,
             paddings = paddings,
             singleLine = singleLine,
+            isClearAppearance = isClearAppearance,
             valueTextStyle = valueTextStyle,
             innerLabelTextStyle = innerLabelTextStyle,
         )

@@ -8,7 +8,6 @@ import androidx.annotation.ColorRes
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.AppCompatTextView
 import com.sdds.uikit.internal.base.shape.ShapeHelper
-import com.sdds.uikit.internal.focusselector.tryApplyFocusSelector
 import com.sdds.uikit.viewstate.ViewState
 import com.sdds.uikit.viewstate.ViewState.Companion.isDefined
 import com.sdds.uikit.viewstate.ViewStateHolder
@@ -40,10 +39,6 @@ open class TextView @JvmOverloads constructor(
                 refreshDrawableState()
             }
         }
-
-    init {
-        tryApplyFocusSelector(attrs, defStyleAttr)
-    }
 
     /**
      * Устанавливает толщину линии границы [TextView]

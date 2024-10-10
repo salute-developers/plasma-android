@@ -14,6 +14,7 @@ internal class ViewThemeGeneratorFactory(
     private val viewThemeParents: List<ViewThemeParent>,
     private val themeName: String,
     private val resPrefixConfig: ResourcePrefixConfig,
+    private val viewGradientGeneratorFactory: ViewGradientGeneratorFactory,
 ) {
 
     /**
@@ -26,5 +27,6 @@ internal class ViewThemeGeneratorFactory(
             viewThemeParents = viewThemeParents,
             themeName = themeName,
             resPrefixConfig = resPrefixConfig,
+            viewGradientGenerator = viewGradientGeneratorFactory.create(),
         )
 }

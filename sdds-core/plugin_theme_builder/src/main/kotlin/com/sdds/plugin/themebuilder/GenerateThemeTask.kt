@@ -146,7 +146,7 @@ abstract class GenerateThemeTask : DefaultTask() {
     /**
      * Путь для сохранения kt-файлов токенов
      */
-    @get:Input
+    @get:OutputDirectory
     abstract val outputDirPath: Property<String>
 
     /**
@@ -154,6 +154,12 @@ abstract class GenerateThemeTask : DefaultTask() {
      */
     @get:OutputDirectory
     abstract val outputResDirPath: Property<String>
+
+    /**
+     * Конфигурация размеров
+     */
+    @get:Input
+    abstract val dimensionsConfig: Property<DimensionsConfig>
 
     private val dimensAggregator by unsafeLazy { DimensAggregator() }
     private val fontsAggregator by unsafeLazy { FontsAggregator() }
@@ -183,6 +189,7 @@ abstract class GenerateThemeTask : DefaultTask() {
             viewThemeParents = viewThemeParents.get(),
             viewShapeAppearanceConfig = viewShapeAppearanceConfig.get(),
             themeName = themeName.get(),
+            dimensionsConfig = dimensionsConfig.get(),
         )
     }
 

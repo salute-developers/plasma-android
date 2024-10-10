@@ -1,3 +1,4 @@
+import com.sdds.plugin.themebuilder.OutputLocation
 import com.sdds.plugin.themebuilder.ShapeAppearanceConfig.Companion.sddsShape
 import com.sdds.plugin.themebuilder.ThemeBuilderMode
 
@@ -17,13 +18,22 @@ themeBuilder {
     themeSource("file://${projectDir.path}/json/test_theme.zip")
     view {
         themeParents {
-            customTheme("Thmbldr.Theme.App.Test")
+            materialComponentsTheme()
         }
         setupShapeAppearance(sddsShape())
     }
     compose()
     ktPackage("com.sdds.playground.themebuilder.tokens")
     mode(ThemeBuilderMode.THEME)
+    outputLocation(OutputLocation.BUILD)
+    autoGenerate(false)
+    dimensions {
+        multiplier(2f)
+        breakPoints {
+            large(960)
+            medium(560)
+        }
+    }
 }
 
 dependencies {

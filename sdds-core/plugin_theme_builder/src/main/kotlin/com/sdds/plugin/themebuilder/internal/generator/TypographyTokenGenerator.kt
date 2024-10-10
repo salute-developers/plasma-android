@@ -1,5 +1,6 @@
 package com.sdds.plugin.themebuilder.internal.generator
 
+import com.sdds.plugin.themebuilder.DimensionsConfig
 import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
@@ -55,6 +56,7 @@ internal class TypographyTokenGenerator(
     private val resourceReferenceProvider: ResourceReferenceProvider,
     private val typographyTokenValues: Map<String, TypographyTokenValue>,
     private val fontsAggregator: FontsAggregator,
+    private val dimensionsConfig: DimensionsConfig,
 ) : TokenGenerator<TypographyToken, TypographyTokenResult>(target) {
 
     private val textAppearanceXmlBuilders =
@@ -104,7 +106,7 @@ internal class TypographyTokenGenerator(
         }
 
         textAppearanceXmlBuilders.forEach {
-            it.value.build(outputResDir.textAppearancesXmlFile(it.key.qualifier()))
+            it.value.build(outputResDir.textAppearancesXmlFile(it.key.qualifier(dimensionsConfig)))
         }
         typographyXmlBuilder.build(outputResDir.typographyXmlFile())
     }
@@ -195,7 +197,7 @@ internal class TypographyTokenGenerator(
                 textAppearanceXmlBuilders[screenClass] = it
             }
         val textAppearanceName = "TextAppearance.${token.xmlName}"
-        if (screenClass == ScreenClass.MEDIUM) {
+        if (screenClass == ScreenClass.SMALL) {
             if (needDeclareStyle) {
                 needDeclareStyle = false
                 builder.appendStyleWithCompositePrefix("TextAppearance")
@@ -328,8 +330,8 @@ internal class TypographyTokenGenerator(
         val initializer = KtFileBuilder.createConstructorCall(
             "TextStyle",
             "fontWeight = FontWeight(${tokenValue.fontWeight})",
-            "fontSize = ${tokenValue.textSize}.sp",
-            "lineHeight = ${tokenValue.lineHeight}.sp",
+            "fontSize = ${tokenValue.textSize * dimensionsConfig.multiplier}.sp",
+            "lineHeight = ${tokenValue.lineHeight * dimensionsConfig.multiplier}.sp",
             "letterSpacing = $letterSpacing",
             "fontFamily = FontTokens.${
                 tokenValue.fontFamilyRef.split('.').last()
@@ -348,10 +350,11 @@ internal class TypographyTokenGenerator(
         const val TYPOGRAPHY_MEDIUM_TOKENS_NAME = "TypographyMediumTokens"
         const val TYPOGRAPHY_LARGE_TOKENS_NAME = "TypographyLargeTokens"
 
-        fun ScreenClass.qualifier(): String {
+        fun ScreenClass.qualifier(dimensionsConfig: DimensionsConfig): String {
+            val breakpoints = dimensionsConfig.breakPoints
             return when (this) {
-                ScreenClass.SMALL -> "small"
-                ScreenClass.LARGE -> "large"
+                ScreenClass.MEDIUM -> "w${breakpoints.medium}dp"
+                ScreenClass.LARGE -> "w${breakpoints.large}dp"
                 else -> ""
             }
         }

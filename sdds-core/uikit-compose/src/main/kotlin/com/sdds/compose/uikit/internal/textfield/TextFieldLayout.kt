@@ -7,12 +7,13 @@ import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
@@ -43,6 +44,7 @@ import com.sdds.compose.uikit.ChipGroup
 import com.sdds.compose.uikit.CoreTextField
 import com.sdds.compose.uikit.internal.heightOrZero
 import com.sdds.compose.uikit.internal.widthOrZero
+import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.roundToInt
 
@@ -55,6 +57,7 @@ import kotlin.math.roundToInt
 internal fun TextFieldLayout(
     modifier: Modifier,
     singleLine: Boolean,
+    isClearAppearance: Boolean,
     textField: @Composable () -> Unit,
     innerLabel: @Composable (() -> Unit)?,
     innerOptional: @Composable (() -> Unit)?,
@@ -73,6 +76,7 @@ internal fun TextFieldLayout(
     paddings: CoreTextField.Paddings,
     animationProgress: Float,
     verticalScrollState: ScrollState?,
+    horizontalScrollState: ScrollState?,
 ) {
     val hasChips = chips != null
     val minTextHeight = alignmentLineHeight - paddings.boxPaddingTop * 2
@@ -98,7 +102,7 @@ internal fun TextFieldLayout(
     Layout(
         modifier = modifier
             .padding(
-                start = if (hasChips) paddings.chipsPadding else paddings.boxPaddingStart,
+                start = if (hasChips && !isClearAppearance) paddings.chipsPadding else paddings.boxPaddingStart,
                 end = paddings.boxPaddingEnd,
                 top = if (hasChips) paddings.chipsPadding else paddings.boxPaddingTop,
                 bottom = if (hasChips) paddings.chipsPadding else paddings.boxPaddingBottom,
@@ -153,7 +157,8 @@ internal fun TextFieldLayout(
                 chips = chips,
                 chipContainerShape = chipContainerShape,
                 paddings = paddings,
-                scrollState = verticalScrollState,
+                verticalScrollState = verticalScrollState,
+                horizontalScrollState = horizontalScrollState,
                 singleLine = singleLine,
             )
         },
@@ -166,7 +171,7 @@ private fun adjustStartPaddingWhenHasChips(
     startPadding: Dp,
     chipsPadding: Dp,
 ): Dp {
-    return if (hasChips) startPadding - chipsPadding else 0.dp
+    return if (hasChips) abs(startPadding.value - chipsPadding.value).dp else 0.dp
 }
 
 @Composable
@@ -230,12 +235,13 @@ private fun CompositeTextFieldContent(
     placeholder: @Composable (() -> Unit)?,
     chips: @Composable (() -> Unit)?,
     paddings: CoreTextField.Paddings,
-    scrollState: ScrollState?,
+    verticalScrollState: ScrollState?,
+    horizontalScrollState: ScrollState?,
     singleLine: Boolean,
     chipContainerShape: CornerBasedShape?,
 ) {
     val textContent: @Composable () -> Unit = {
-        Box {
+        Box(modifier = Modifier.width(IntrinsicSize.Max)) {
             if (placeholder != null) {
                 Box(Modifier.layoutId(PlaceholderId)) { placeholder() }
             }
@@ -248,7 +254,7 @@ private fun CompositeTextFieldContent(
             textContent = textContent,
             chips = chips,
             paddings = paddings,
-            scrollState = scrollState,
+            scrollState = verticalScrollState,
             chipContainerShape = chipContainerShape,
         )
     } else {
@@ -257,6 +263,7 @@ private fun CompositeTextFieldContent(
             textContent = textContent,
             chips = chips,
             paddings = paddings,
+            scrollState = horizontalScrollState,
             chipContainerShape = chipContainerShape,
         )
     }
@@ -277,9 +284,7 @@ private fun TextAreaContent(
                 hasChips = chips != null,
                 chipContainerShape = chipContainerShape,
             )
-            .then(
-                scrollState?.let { Modifier.verticalScroll(it) } ?: Modifier,
-            ),
+            .then(scrollState?.let { Modifier.verticalScroll(it) } ?: Modifier),
         verticalArrangement = Arrangement.spacedBy(paddings.boxPaddingTop),
         content = {
             if (chips != null) {
@@ -313,6 +318,7 @@ private fun TextFieldContent(
     chips: @Composable (() -> Unit)?,
     paddings: CoreTextField.Paddings,
     chipContainerShape: CornerBasedShape?,
+    scrollState: ScrollState?,
 ) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
@@ -322,7 +328,7 @@ private fun TextFieldContent(
                 hasChips = chips != null,
                 chipContainerShape = chipContainerShape,
             )
-            .horizontalScroll(rememberScrollState()),
+            .then(scrollState?.let { Modifier.horizontalScroll(it) } ?: Modifier),
         content = {
             if (chips != null) {
                 ChipGroup(

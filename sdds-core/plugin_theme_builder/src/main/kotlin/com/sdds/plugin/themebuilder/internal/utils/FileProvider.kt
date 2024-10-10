@@ -13,7 +13,7 @@ object FileProvider {
     /**
      * Директория values с указанным квалификатором [qualifier]
      */
-    fun File.valuesDir(qualifier: String = ""): File {
+    private fun File.valuesDir(qualifier: String = ""): File {
         val valueDirName = if (qualifier.isNotBlank()) {
             "values-$qualifier"
         } else {
@@ -22,6 +22,20 @@ object FileProvider {
         val valueDir = File("${this.path}/$valueDirName")
         if (!valueDir.exists()) valueDir.mkdirs()
         return valueDir
+    }
+
+    /**
+     * Директория drawable с указанным квалификатором [qualifier]
+     */
+    private fun File.drawableDir(qualifier: String = ""): File {
+        val drawableDirName = if (qualifier.isNotBlank()) {
+            "drawable-$qualifier"
+        } else {
+            "drawable"
+        }
+        val drawableDir = File("${this.path}/$drawableDirName")
+        if (!drawableDir.exists()) drawableDir.mkdirs()
+        return drawableDir
     }
 
     /**
@@ -41,10 +55,22 @@ object FileProvider {
         File("${valuesDir().path}/colors.xml")
 
     /**
-     * XML файл для токенов градиента
+     * XML файл для параметров токенов градиента
      */
-    fun File.gradientsXmlFile(): File =
-        File("${valuesDir().path}/gradients.xml")
+    fun File.gradientParametersXmlFile(): File =
+        File("${valuesDir().path}/gradient-parameters.xml")
+
+    /**
+     * XML файл для стилей токенов градиента
+     */
+    fun File.gradientStylesXmlFile(): File =
+        File("${valuesDir().path}/gradient-styles.xml")
+
+    /**
+     * XML файл для drawable
+     */
+    fun File.drawableXmlFile(name: String): File =
+        File("${drawableDir().path}/$name.xml")
 
     /**
      * XML файл для размеров

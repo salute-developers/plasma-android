@@ -17,5 +17,7 @@
     <style name="Sdds.Components.ChipGroup">
         <item name="sd_gap">8dp</item>
         <item name="sd_lineSpacing">8dp</item>
+        <item name="android:clipChildren">false</item>
+        <item name="android:clipToPadding">false</item>
     </style>
 </resources>

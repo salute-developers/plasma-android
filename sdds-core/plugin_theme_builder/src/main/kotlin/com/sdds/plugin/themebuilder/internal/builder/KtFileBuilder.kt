@@ -30,7 +30,10 @@ internal class KtFileBuilder(
     private val fileName: String,
 ) {
 
-    private val fileSpecBuilder by unsafeLazy { FileSpec.builder(packageName, fileName) }
+    private val fileSpecBuilder by unsafeLazy {
+        FileSpec.builder(packageName, fileName)
+            .addFileComment(AUTOGEN_COMMENT)
+    }
 
     private val rootTypeBuilders = mutableListOf<TypeSpec.Builder>()
     private val rootPropBuilders = mutableListOf<PropertySpec.Builder>()

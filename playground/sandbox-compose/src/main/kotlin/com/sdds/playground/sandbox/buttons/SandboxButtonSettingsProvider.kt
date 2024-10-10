@@ -6,7 +6,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.Button
-import com.sdds.playground.sandbox.tokens.compose.StylesSaluteTheme
+import com.sdds.playground.sandbox.tokens.compose.SddsServTheme
 
 /**
  * Провайдер настроек кнопки для демо-приложения
@@ -19,10 +19,10 @@ internal object SandboxButtonSettingsProvider {
     @Composable
     fun shapeFor(size: SandboxButton.Size): CornerBasedShape =
         when (size) {
-            SandboxButton.Size.L -> StylesSaluteTheme.shapes.roundL
-            SandboxButton.Size.M -> StylesSaluteTheme.shapes.roundM
-            SandboxButton.Size.S -> StylesSaluteTheme.shapes.roundS
-            SandboxButton.Size.XS -> StylesSaluteTheme.shapes.roundXs
+            SandboxButton.Size.L -> SddsServTheme.shapes.roundL
+            SandboxButton.Size.M -> SddsServTheme.shapes.roundM
+            SandboxButton.Size.S -> SddsServTheme.shapes.roundS
+            SandboxButton.Size.XS -> SddsServTheme.shapes.roundXs
         }
 
     /**
@@ -31,10 +31,10 @@ internal object SandboxButtonSettingsProvider {
     @Composable
     fun contentColorFor(style: SandboxButton.Style): Color =
         when (style) {
-            SandboxButton.Style.Default -> StylesSaluteTheme.colors.textInversePrimary
-            SandboxButton.Style.Secondary, SandboxButton.Style.Clear -> StylesSaluteTheme.colors.textDefaultPrimary
-            SandboxButton.Style.White -> StylesSaluteTheme.colors.textOnLightPrimary
-            else -> StylesSaluteTheme.colors.textOnDarkPrimary
+            SandboxButton.Style.Default -> SddsServTheme.colors.textInversePrimary
+            SandboxButton.Style.Secondary, SandboxButton.Style.Clear -> SddsServTheme.colors.textDefaultPrimary
+            SandboxButton.Style.White -> SddsServTheme.colors.textOnLightPrimary
+            else -> SddsServTheme.colors.textOnDarkPrimary
         }
 
     /**
@@ -43,16 +43,16 @@ internal object SandboxButtonSettingsProvider {
     @Composable
     fun backgroundColorFor(style: SandboxButton.Style): Color =
         when (style) {
-            SandboxButton.Style.Default -> StylesSaluteTheme.colors.surfaceDefaultSolidDefault
-            SandboxButton.Style.Secondary -> StylesSaluteTheme.colors.surfaceDefaultTransparentSecondary
-            SandboxButton.Style.Accent -> StylesSaluteTheme.colors.surfaceDefaultAccent
-            SandboxButton.Style.Positive -> StylesSaluteTheme.colors.surfaceDefaultPositive
-            SandboxButton.Style.Negative -> StylesSaluteTheme.colors.surfaceDefaultNegative
-            SandboxButton.Style.Warning -> StylesSaluteTheme.colors.surfaceDefaultWarning
-            SandboxButton.Style.Clear -> StylesSaluteTheme.colors.surfaceDefaultClear
-            SandboxButton.Style.Dark -> StylesSaluteTheme.colors.surfaceOnLightTransparentDeep
-            SandboxButton.Style.Black -> StylesSaluteTheme.colors.surfaceOnLightSolidDefault
-            SandboxButton.Style.White -> StylesSaluteTheme.colors.surfaceOnDarkSolidDefault
+            SandboxButton.Style.Default -> SddsServTheme.colors.surfaceDefaultSolidDefault
+            SandboxButton.Style.Secondary -> SddsServTheme.colors.surfaceDefaultTransparentSecondary
+            SandboxButton.Style.Accent -> SddsServTheme.colors.surfaceDefaultAccent
+            SandboxButton.Style.Positive -> SddsServTheme.colors.surfaceDefaultPositive
+            SandboxButton.Style.Negative -> SddsServTheme.colors.surfaceDefaultNegative
+            SandboxButton.Style.Warning -> SddsServTheme.colors.surfaceDefaultWarning
+            SandboxButton.Style.Clear -> SddsServTheme.colors.surfaceDefaultClear
+            SandboxButton.Style.Dark -> SddsServTheme.colors.surfaceOnLightTransparentDeep
+            SandboxButton.Style.Black -> SddsServTheme.colors.surfaceOnLightSolidDefault
+            SandboxButton.Style.White -> SddsServTheme.colors.surfaceOnDarkSolidDefault
         }
 
     /**
@@ -61,16 +61,16 @@ internal object SandboxButtonSettingsProvider {
     @Composable
     fun pressedBackgroundColorFor(style: SandboxButton.Style): Color =
         when (style) {
-            SandboxButton.Style.Default -> StylesSaluteTheme.colors.surfaceDefaultSolidDefaultActive
-            SandboxButton.Style.Secondary -> StylesSaluteTheme.colors.surfaceDefaultTransparentSecondaryActive
-            SandboxButton.Style.Accent -> StylesSaluteTheme.colors.surfaceDefaultAccentActive
-            SandboxButton.Style.Positive -> StylesSaluteTheme.colors.surfaceDefaultPositiveActive
-            SandboxButton.Style.Negative -> StylesSaluteTheme.colors.surfaceDefaultNegativeActive
-            SandboxButton.Style.Warning -> StylesSaluteTheme.colors.surfaceDefaultWarningActive
-            SandboxButton.Style.Clear -> StylesSaluteTheme.colors.surfaceDefaultClearActive
-            SandboxButton.Style.Dark -> StylesSaluteTheme.colors.surfaceOnLightTransparentDeepActive
-            SandboxButton.Style.Black -> StylesSaluteTheme.colors.surfaceOnLightSolidDefaultActive
-            SandboxButton.Style.White -> StylesSaluteTheme.colors.surfaceOnDarkSolidDefaultActive
+            SandboxButton.Style.Default -> SddsServTheme.colors.surfaceDefaultSolidDefaultActive
+            SandboxButton.Style.Secondary -> SddsServTheme.colors.surfaceDefaultTransparentSecondaryActive
+            SandboxButton.Style.Accent -> SddsServTheme.colors.surfaceDefaultAccentActive
+            SandboxButton.Style.Positive -> SddsServTheme.colors.surfaceDefaultPositiveActive
+            SandboxButton.Style.Negative -> SddsServTheme.colors.surfaceDefaultNegativeActive
+            SandboxButton.Style.Warning -> SddsServTheme.colors.surfaceDefaultWarningActive
+            SandboxButton.Style.Clear -> SddsServTheme.colors.surfaceDefaultClearActive
+            SandboxButton.Style.Dark -> SddsServTheme.colors.surfaceOnLightTransparentDeepActive
+            SandboxButton.Style.Black -> SddsServTheme.colors.surfaceOnLightSolidDefaultActive
+            SandboxButton.Style.White -> SddsServTheme.colors.surfaceOnDarkSolidDefaultActive
         }
 
     /**
@@ -79,10 +79,10 @@ internal object SandboxButtonSettingsProvider {
     @Composable
     fun textStyleFor(size: SandboxButton.Size): TextStyle =
         when (size) {
-            SandboxButton.Size.L -> StylesSaluteTheme.typography.bodyLBold
-            SandboxButton.Size.M -> StylesSaluteTheme.typography.bodyMBold
-            SandboxButton.Size.S -> StylesSaluteTheme.typography.bodySBold
-            SandboxButton.Size.XS -> StylesSaluteTheme.typography.bodyXsBold
+            SandboxButton.Size.L -> SddsServTheme.typography.bodyLBold
+            SandboxButton.Size.M -> SddsServTheme.typography.bodyMBold
+            SandboxButton.Size.S -> SddsServTheme.typography.bodySBold
+            SandboxButton.Size.XS -> SddsServTheme.typography.bodyXsBold
         }
 
     /**

@@ -20,6 +20,7 @@
         <item name="sd_actionSize">16dp</item>
         <item name="android:background">@drawable/sd_bg_avatar</item>
         <item name="android:scaleType">centerCrop</item>
+        <item name="sd_fsMode">none</item>
     </style>
 
     <style name="Sdds.Components.AvatarGroup">

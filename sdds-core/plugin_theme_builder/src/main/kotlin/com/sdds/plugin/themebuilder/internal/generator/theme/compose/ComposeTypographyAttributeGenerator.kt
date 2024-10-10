@@ -1,5 +1,6 @@
 package com.sdds.plugin.themebuilder.internal.generator.theme.compose
 
+import com.sdds.plugin.themebuilder.DimensionsConfig
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Constructor
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Modifier
@@ -11,20 +12,24 @@ import com.sdds.plugin.themebuilder.internal.generator.data.mergedScreenClasses
 import com.sdds.plugin.themebuilder.internal.token.TypographyToken.ScreenClass
 import com.sdds.plugin.themebuilder.internal.utils.snakeToCamelCase
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
+import com.squareup.kotlinpoet.ClassName
 
 /**
  * Генератор Compose-атрибутов типографики.
  * Генерирует kt-файл, содержащий в себе всю типографику темы.
  *
  * @property ktFileBuilderFactory фабрика [KtFileBuilder]
+ * @property ktFileFromResourcesBuilderFactory фабрика для билдера kt файлов из ресурсов
  * @property outputLocation директория для Kotlin-файлов
  * @property themeName название темы
+ * @property dimensionsConfig конфигурация размеров
  */
 internal class ComposeTypographyAttributeGenerator(
     private val ktFileBuilderFactory: KtFileBuilderFactory,
     private val ktFileFromResourcesBuilderFactory: KtFileFromResourcesBuilderFactory,
     private val outputLocation: KtFileBuilder.OutputLocation,
     private val themeName: String,
+    private val dimensionsConfig: DimensionsConfig,
 ) : SimpleBaseGenerator {
 
     private var tokenData: TypographyTokenResult.ComposeTokenData? = null
@@ -53,8 +58,7 @@ internal class ComposeTypographyAttributeGenerator(
         addLargeTypographyFun()
         addLocalTypographyVal()
         addDynamicTypographyFun()
-        addLocalTextStyleVal()
-        addProvideTextStyleComposable()
+        addBreakPointFun()
 
         typographyKtFileBuilder.build(outputLocation)
     }
@@ -80,11 +84,11 @@ internal class ComposeTypographyAttributeGenerator(
                 names = listOf(
                     "staticCompositionLocalOf",
                     "Immutable",
-                    "CompositionLocalProvider",
                     "structuralEqualityPolicy",
                     "compositionLocalOf",
                 ),
             )
+            addImport(KtFileBuilder.TypeDpExtension)
         }
     }
 
@@ -115,6 +119,23 @@ internal class ComposeTypographyAttributeGenerator(
         )
     }
 
+    private fun addBreakPointFun() {
+        val bp = dimensionsConfig.breakPoints
+        typographyKtFileBuilder.appendRootFun(
+            receiver = ClassName(typographyClassType.packageName, "WindowSizeClass"),
+            name = "widthBreakPoint",
+            returnType = KtFileBuilder.TypeDp,
+            body = listOf(
+                "return when (this) {\n",
+                "${KtFileBuilder.DEFAULT_FILE_INDENT}WindowSizeClass.Expanded -> ${bp.large.toFloat()}.dp\n",
+                "${KtFileBuilder.DEFAULT_FILE_INDENT}WindowSizeClass.Medium -> ${bp.medium.toFloat()}.dp\n",
+                "${KtFileBuilder.DEFAULT_FILE_INDENT}WindowSizeClass.Compact -> 0.dp\n",
+                "}",
+            ),
+            description = "Возвращает значение в dp - брейкпоинт по ширине для указанного класса размерности.",
+        )
+    }
+
     private fun addTypographyClass() {
         with(typographyKtFileBuilder) {
             rootClass(
@@ -141,7 +162,7 @@ internal class ComposeTypographyAttributeGenerator(
         addScreenSpecificTypographyFun(
             funName = "small$typographyClassName",
             screenClass = ScreenClass.SMALL,
-            description = "Возвращает [$typographyClassName] для ширины окна до 600dp",
+            description = "Возвращает [$typographyClassName] для WindowSizeClass.Compact",
         )
     }
 
@@ -149,7 +170,7 @@ internal class ComposeTypographyAttributeGenerator(
         addScreenSpecificTypographyFun(
             funName = "medium$typographyClassName",
             screenClass = ScreenClass.MEDIUM,
-            description = "Возвращает [$typographyClassName] для ширины окна от 600dp до 840dp",
+            description = "Возвращает [$typographyClassName] для WindowSizeClass.Medium",
         )
     }
 
@@ -157,7 +178,7 @@ internal class ComposeTypographyAttributeGenerator(
         addScreenSpecificTypographyFun(
             funName = "large$typographyClassName",
             screenClass = ScreenClass.LARGE,
-            description = "Возвращает [$typographyClassName] для ширины окна от 840dp",
+            description = "Возвращает [$typographyClassName] для WindowSizeClass.Expanded",
         )
     }
 
@@ -198,42 +219,6 @@ internal class ComposeTypographyAttributeGenerator(
                 ?: safeTokenData.small[attributeName]
                 ?: safeTokenData.large[attributeName]
         }
-    }
-
-    private fun addLocalTextStyleVal() {
-        typographyKtFileBuilder.appendRootVal(
-            name = "Local${camelThemeName}TextStyle",
-            typeName = KtFileBuilder.TypeProvidableCompositionLocal,
-            parameterizedType = KtFileBuilder.TypeTextStyle,
-            initializer = "compositionLocalOf(structuralEqualityPolicy()) { TextStyle.Default }",
-            modifiers = listOf(Modifier.PRIVATE),
-        )
-    }
-
-    private fun addProvideTextStyleComposable() {
-        typographyKtFileBuilder.appendRootFun(
-            name = "ProvideTextStyle",
-            params = listOf(
-                KtFileBuilder.FunParameter(
-                    name = "value",
-                    type = KtFileBuilder.TypeTextStyle,
-                ),
-                KtFileBuilder.FunParameter(
-                    name = "content",
-                    type = KtFileBuilder.getLambdaType(
-                        annotation = KtFileBuilder.TypeAnnotationComposable,
-                    ),
-                ),
-            ),
-            modifiers = listOf(Modifier.INTERNAL),
-            annotation = KtFileBuilder.TypeAnnotationComposable,
-            body = listOf(
-                "val mergedStyle = Local${camelThemeName}TextStyle.current.merge(value)\n",
-                "CompositionLocalProvider(" +
-                    "Local${camelThemeName}TextStyle provides mergedStyle, " +
-                    "content = content)",
-            ),
-        )
     }
 
     private companion object {

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Sandbox.ComponentOverlays.TextAreaL">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextArea.L</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.TextAreaLOuterLabel">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextArea.L.OuterLabel</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.TextAreaLOuterLabelRequiredStart">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextArea.L.OuterLabel.RequiredStart</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.TextAreaLOuterLabelRequiredEnd">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextArea.L.OuterLabel.RequiredEnd</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.TextAreaLInnerLabel">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextArea.L.InnerLabel</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.TextAreaLInnerLabelRequiredStart">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextArea.L.InnerLabel.RequiredStart</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.TextAreaLInnerLabelRequiredEnd">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextArea.L.InnerLabel.RequiredEnd</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.TextAreaM">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextArea.M</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.TextAreaMOuterLabel">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextArea.M.OuterLabel</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.TextAreaMOuterLabelRequiredStart">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextArea.M.OuterLabel.RequiredStart</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.TextAreaMOuterLabelRequiredEnd">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextArea.M.OuterLabel.RequiredEnd</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.TextAreaMInnerLabel">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextArea.M.InnerLabel</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.TextAreaMInnerLabelRequiredStart">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextArea.M.InnerLabel.RequiredStart</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.TextAreaMInnerLabelRequiredEnd">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextArea.M.InnerLabel.RequiredEnd</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.TextAreaS">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextArea.S</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.TextAreaSOuterLabel">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextArea.S.OuterLabel</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.TextAreaSOuterLabelRequiredStart">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextArea.S.OuterLabel.RequiredStart</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.TextAreaSOuterLabelRequiredEnd">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextArea.S.OuterLabel.RequiredEnd</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.TextAreaSInnerLabel">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextArea.S.InnerLabel</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.TextAreaSInnerLabelRequiredStart">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextArea.S.InnerLabel.RequiredStart</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.TextAreaSInnerLabelRequiredEnd">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextArea.S.InnerLabel.RequiredEnd</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.TextAreaXS">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextArea.XS</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.TextAreaXSOuterLabel">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextArea.XS.OuterLabel</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.TextAreaXSOuterLabelRequiredStart">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextArea.XS.OuterLabel.RequiredStart</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.TextAreaXSOuterLabelRequiredEnd">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextArea.XS.OuterLabel.RequiredEnd</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.TextAreaXSRequiredStart">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextArea.XS.RequiredStart</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.TextAreaXSRequiredEnd">
+        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextArea.XS.RequiredEnd</item>
+    </style>
+</resources>

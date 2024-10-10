@@ -11,7 +11,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.playground.sandbox.chip.SandboxChip.Shape
-import com.sdds.playground.sandbox.tokens.compose.StylesSaluteTheme
+import com.sdds.playground.sandbox.tokens.compose.SddsServTheme
 
 internal object SandboxChipSettingsProvider {
 
@@ -19,19 +19,19 @@ internal object SandboxChipSettingsProvider {
     fun style(size: SandboxChip.Size, state: SandboxChip.State): TextStyle {
         val color = contentColor(state)
         return when (size) {
-            SandboxChip.Size.L -> StylesSaluteTheme.typography.bodyLNormal.copy(color = color)
-            SandboxChip.Size.M -> StylesSaluteTheme.typography.bodyMNormal.copy(color = color)
-            SandboxChip.Size.S -> StylesSaluteTheme.typography.bodySNormal.copy(color = color)
-            SandboxChip.Size.XS -> StylesSaluteTheme.typography.bodyXsNormal.copy(color = color)
+            SandboxChip.Size.L -> SddsServTheme.typography.bodyLNormal.copy(color = color)
+            SandboxChip.Size.M -> SddsServTheme.typography.bodyMNormal.copy(color = color)
+            SandboxChip.Size.S -> SddsServTheme.typography.bodySNormal.copy(color = color)
+            SandboxChip.Size.XS -> SddsServTheme.typography.bodyXsNormal.copy(color = color)
         }
     }
 
     @Composable
     fun contentColor(state: SandboxChip.State): Color {
         return when (state) {
-            SandboxChip.State.Default -> StylesSaluteTheme.colors.textInversePrimary
-            SandboxChip.State.Secondary -> StylesSaluteTheme.colors.textDefaultPrimary
-            SandboxChip.State.Accent -> StylesSaluteTheme.colors.textOnDarkPrimary
+            SandboxChip.State.Default -> SddsServTheme.colors.textInversePrimary
+            SandboxChip.State.Secondary -> SddsServTheme.colors.textDefaultPrimary
+            SandboxChip.State.Accent -> SddsServTheme.colors.textOnDarkPrimary
         }
     }
 
@@ -39,9 +39,9 @@ internal object SandboxChipSettingsProvider {
     fun backgroundColor(state: SandboxChip.State): Brush {
         return SolidColor(
             when (state) {
-                SandboxChip.State.Default -> StylesSaluteTheme.colors.surfaceDefaultSolidDefault
-                SandboxChip.State.Secondary -> StylesSaluteTheme.colors.surfaceDefaultTransparentSecondary
-                SandboxChip.State.Accent -> StylesSaluteTheme.colors.surfaceDefaultAccent
+                SandboxChip.State.Default -> SddsServTheme.colors.surfaceDefaultSolidDefault
+                SandboxChip.State.Secondary -> SddsServTheme.colors.surfaceDefaultTransparentSecondary
+                SandboxChip.State.Accent -> SddsServTheme.colors.surfaceDefaultAccent
             },
         )
     }
@@ -50,9 +50,9 @@ internal object SandboxChipSettingsProvider {
     fun pressedBackgroundColor(state: SandboxChip.State): Brush {
         return SolidColor(
             when (state) {
-                SandboxChip.State.Default -> StylesSaluteTheme.colors.surfaceDefaultSolidDefaultActive
-                SandboxChip.State.Secondary -> StylesSaluteTheme.colors.surfaceDefaultTransparentSecondaryActive
-                SandboxChip.State.Accent -> StylesSaluteTheme.colors.surfaceDefaultAccentActive
+                SandboxChip.State.Default -> SddsServTheme.colors.surfaceDefaultSolidDefaultActive
+                SandboxChip.State.Secondary -> SddsServTheme.colors.surfaceDefaultTransparentSecondaryActive
+                SandboxChip.State.Accent -> SddsServTheme.colors.surfaceDefaultAccentActive
             },
         )
     }
@@ -62,10 +62,10 @@ internal object SandboxChipSettingsProvider {
         return when (shape) {
             Shape.Default -> {
                 when (size) {
-                    SandboxChip.Size.L -> StylesSaluteTheme.shapes.roundM
-                    SandboxChip.Size.M -> StylesSaluteTheme.shapes.roundM.adjustBy(all = (-2).dp)
-                    SandboxChip.Size.S -> StylesSaluteTheme.shapes.roundS
-                    SandboxChip.Size.XS -> StylesSaluteTheme.shapes.roundXs
+                    SandboxChip.Size.L -> SddsServTheme.shapes.roundM
+                    SandboxChip.Size.M -> SddsServTheme.shapes.roundM.adjustBy(all = (-2).dp)
+                    SandboxChip.Size.S -> SddsServTheme.shapes.roundS
+                    SandboxChip.Size.XS -> SddsServTheme.shapes.roundXs
                 }
             }
 

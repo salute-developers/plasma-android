@@ -18,6 +18,7 @@ import com.sdds.uikit.R
 import com.sdds.uikit.internal.base.CancelableFontCallback
 import com.sdds.uikit.internal.base.applyTextAppearance
 import com.sdds.uikit.internal.base.colorForState
+import com.sdds.uikit.internal.base.configure
 import com.sdds.uikit.shape.ShapeDrawable
 import kotlin.math.roundToInt
 
@@ -66,7 +67,7 @@ open class ChipDrawable(
     private var _textPaddingEnd: Int = 0
     private var _textColor: ColorStateList? = null
     private val textBounds = Rect()
-    private val textPaint = TextPaint()
+    private val textPaint = TextPaint().configure(isAntiAlias = true)
     private var _fontCallback: CancelableFontCallback? = null
     private var _delegate: Delegate? = null
 
@@ -260,8 +261,11 @@ open class ChipDrawable(
             textPaint.color = textColor
             stateChanged = true
         }
-        stateChanged = (_drawableStart?.setState(state) == true) or stateChanged
-        stateChanged = (_drawableEnd?.setState(state) == true) or stateChanged
+        stateChanged = (_drawableStart?.setState(state) == true) || stateChanged
+        stateChanged = (_drawableEnd?.setState(state) == true) || stateChanged
+        if (stateChanged) {
+            invalidateSelf()
+        }
         return super.onStateChange(state) || stateChanged
     }
 
@@ -382,10 +386,12 @@ open class ChipDrawable(
                 contentStartBounds.right + _textPaddingStart,
                 textPositionWithoutDrawable,
             )
+
             _drawableEnd != null -> minOf(
                 contentEndBounds.left - _textPaddingEnd - textBounds.width(),
                 textPositionWithoutDrawable,
             )
+
             else -> textPositionWithoutDrawable
         }
         textBounds.offsetTo(
@@ -422,9 +428,9 @@ open class ChipDrawable(
         DrawableCompat.setLayoutDirection(this, DrawableCompat.getLayoutDirection(this))
         level = level
         setVisible(isVisible, false)
+        DrawableCompat.setTintList(this, tint)
         if (isStateful) {
             state = this@ChipDrawable.state
         }
-        DrawableCompat.setTintList(this, tint)
     }
 }

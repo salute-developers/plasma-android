@@ -17,6 +17,9 @@ internal class XmlResourcesDocumentBuilderFactory(
      *
      * @param rootAttributes атрибуты корневого элемента документа
      */
-    fun create(rootAttributes: Map<String, String> = emptyMap()): XmlResourcesDocumentBuilder =
-        XmlResourcesDocumentBuilder(tokenPrefix, rootAttributes, themeName)
+    fun create(
+        rootAttributes: Map<String, String> = emptyMap(),
+        rootElement: String = "resources",
+    ): XmlResourcesDocumentBuilder =
+        XmlResourcesDocumentBuilder(tokenPrefix, rootAttributes, themeName, rootElement)
 }

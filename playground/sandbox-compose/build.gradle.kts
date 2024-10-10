@@ -20,7 +20,7 @@ android {
 }
 
 themeBuilder {
-    themeSource(name = "stylesSalute")
+    themeSource(name = "sdds_serv", version = "latest")
     compose()
     ktPackage("com.sdds.playground.sandbox.tokens")
     mode(ThemeBuilderMode.THEME)

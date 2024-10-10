@@ -140,10 +140,7 @@ internal fun RowScope.ButtonText(
                 Button.Spacing.Packed -> Arrangement.Center
                 Button.Spacing.SpaceBetween -> Arrangement.SpaceBetween
             },
-            modifier = when (spacing) {
-                Button.Spacing.Packed -> modifier
-                Button.Spacing.SpaceBetween -> modifier.weight(1f)
-            },
+            modifier = modifier.weight(1f, spacing == Button.Spacing.SpaceBetween),
         ) {
             Text(
                 text = label,
@@ -164,7 +161,7 @@ internal fun RowScope.ButtonText(
     } else {
         Text(
             text = label,
-            modifier = modifier,
+            modifier = modifier.weight(1f, false),
             style = labelTextStyle,
             softWrap = false,
             overflow = TextOverflow.Ellipsis,

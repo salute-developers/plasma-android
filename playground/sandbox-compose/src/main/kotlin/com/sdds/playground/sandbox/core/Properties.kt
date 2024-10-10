@@ -26,7 +26,7 @@ import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.buttons.SandboxButton
 import com.sdds.playground.sandbox.buttons.SandboxIconButton
 import com.sdds.playground.sandbox.switch.SandboxSwitch
-import com.sdds.playground.sandbox.tokens.compose.StylesSaluteTheme
+import com.sdds.playground.sandbox.tokens.compose.SddsServTheme
 import com.sdds.icons.R.drawable as Icons
 
 /**
@@ -123,12 +123,12 @@ internal fun PropertiesList(
 ) {
     Column(
         modifier = Modifier
-            .clip(StylesSaluteTheme.shapes.roundM)
-            .border(1.dp, StylesSaluteTheme.colors.surfaceDefaultSolidTertiary, StylesSaluteTheme.shapes.roundM)
-            .background(StylesSaluteTheme.colors.surfaceDefaultSolidCard),
+            .clip(SddsServTheme.shapes.roundM)
+            .border(1.dp, SddsServTheme.colors.surfaceDefaultSolidTertiary, SddsServTheme.shapes.roundM)
+            .background(SddsServTheme.colors.surfaceDefaultSolidCard),
     ) {
         PropertiesHeader(
-            modifier = Modifier.background(StylesSaluteTheme.colors.surfaceDefaultSolidSecondary),
+            modifier = Modifier.background(SddsServTheme.colors.surfaceDefaultSolidSecondary),
             onResetClicked = onReset,
         )
 
@@ -169,7 +169,7 @@ internal fun PropertiesList(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(1.dp)
-                    .background(StylesSaluteTheme.colors.surfaceDefaultSolidSecondary),
+                    .background(SddsServTheme.colors.surfaceDefaultSolidSecondary),
             )
         }
     }
@@ -189,7 +189,7 @@ private fun PropertiesHeader(
     ) {
         Text(
             text = stringResource(R.string.sandbox_properties_header_name),
-            style = StylesSaluteTheme.typography.bodyMBold.copy(color = StylesSaluteTheme.colors.textDefaultSecondary),
+            style = SddsServTheme.typography.bodyMBold.copy(color = SddsServTheme.colors.textDefaultSecondary),
             modifier = Modifier
                 .weight(1f)
                 .padding(start = 4.dp)
@@ -197,7 +197,7 @@ private fun PropertiesHeader(
         )
         Text(
             text = stringResource(R.string.sandbox_properties_header_value),
-            style = StylesSaluteTheme.typography.bodyMBold.copy(color = StylesSaluteTheme.colors.textDefaultSecondary),
+            style = SddsServTheme.typography.bodyMBold.copy(color = SddsServTheme.colors.textDefaultSecondary),
             modifier = Modifier
                 .weight(1f)
                 .padding(start = 4.dp)
@@ -232,7 +232,7 @@ private fun ValuePropertyListItem(
     ) {
         Text(
             text = propertyName,
-            style = StylesSaluteTheme.typography.bodyMBold.copy(color = StylesSaluteTheme.colors.textDefaultPrimary),
+            style = SddsServTheme.typography.bodyMBold.copy(color = SddsServTheme.colors.textDefaultPrimary),
             modifier = Modifier
                 .weight(1f)
                 .padding(start = 4.dp)
@@ -240,7 +240,7 @@ private fun ValuePropertyListItem(
         )
         Text(
             text = propertyValue,
-            style = StylesSaluteTheme.typography.bodyMBold.copy(color = StylesSaluteTheme.colors.textDefaultSecondary),
+            style = SddsServTheme.typography.bodyMBold.copy(color = SddsServTheme.colors.textDefaultSecondary),
             modifier = Modifier
                 .weight(1f)
                 .padding(start = 4.dp)
@@ -266,7 +266,7 @@ private fun SwitchPropertyListItem(
     ) {
         Text(
             text = propertyName,
-            style = StylesSaluteTheme.typography.bodyMBold.copy(color = StylesSaluteTheme.colors.textDefaultPrimary),
+            style = SddsServTheme.typography.bodyMBold.copy(color = SddsServTheme.colors.textDefaultPrimary),
             modifier = Modifier
                 .weight(1f)
                 .padding(start = 4.dp)
@@ -285,7 +285,7 @@ private fun SwitchPropertyListItem(
 @Composable
 @Preview(showBackground = true)
 private fun PropertiesPreview() {
-    StylesSaluteTheme {
+    SddsServTheme {
         Column {
             ValuePropertyListItem(
                 propertyName = "Property",

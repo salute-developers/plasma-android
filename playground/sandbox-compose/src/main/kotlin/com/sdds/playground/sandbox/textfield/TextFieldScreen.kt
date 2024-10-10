@@ -23,7 +23,6 @@ import com.sdds.playground.sandbox.buttons.SandboxButton
 import com.sdds.playground.sandbox.chip.SandboxEmbeddedChip
 import com.sdds.playground.sandbox.core.ComponentScaffold
 import com.sdds.playground.sandbox.progress.SandboxProgress
-import com.sdds.playground.sandbox.tokens.compose.StylesSaluteTheme
 
 /**
  * Экран с компонентом [SandboxProgress]
@@ -50,12 +49,16 @@ internal fun TextFieldScreen() {
                 onValueChange = {
                     textFieldViewModel.onValueChange(it)
                 },
+                isClear = textFieldUiState.isClear,
+                hasDivider = textFieldUiState.hasDivider,
                 enabled = textFieldUiState.enabled,
                 placeholderText = textFieldUiState.placeholderText,
                 labelText = textFieldUiState.labelText,
                 optionalText = textFieldUiState.optionalText,
                 captionText = textFieldUiState.captionText,
                 counterText = textFieldUiState.counterText,
+                prefix = textFieldUiState.prefix,
+                suffix = textFieldUiState.suffix,
                 labelPosition = textFieldUiState.labelPosition,
                 fieldType = textFieldUiState.fieldType,
                 dotBadgePosition = textFieldUiState.dotBadgePosition,
@@ -117,7 +120,6 @@ private fun ChipsContent(
                 Icon(
                     painter = painterResource(id = com.sdds.icons.R.drawable.ic_close_24),
                     contentDescription = "",
-                    tint = StylesSaluteTheme.colors.textDefaultSecondary,
                     modifier = Modifier.clickable(onClick = { onChipClosePressed?.invoke(chip) }),
                 )
             },
@@ -136,7 +138,6 @@ private fun Boolean.getExampleIcon(icon: Icon): (@Composable () -> Unit)? {
             Icon(
                 painter = painterResource(id = icon.res),
                 contentDescription = "",
-                tint = StylesSaluteTheme.colors.textDefaultSecondary,
             )
         }
     } else {
