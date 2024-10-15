@@ -77,6 +77,7 @@ internal class CheckBoxDrawable(
     private var _checkCenterGravitationShiftFraction: Float = 0f
     private var _size: Int = 0
     private var _padding: Int = 0
+    private var _focusBorderEnabled: Boolean = false
 
     init {
         obtainAttributes(context, attrs, defStyleAttr)
@@ -137,11 +138,14 @@ internal class CheckBoxDrawable(
 
     override fun draw(canvas: Canvas) {
         canvas.save()
-        canvas.translate(bounds.left.toFloat() + FocusBorderPadding, bounds.top.toFloat() + FocusBorderPadding)
+        canvas.translate(
+            bounds.left.toFloat() + getFocusBorderPadding(),
+            bounds.top.toFloat() + getFocusBorderPadding(),
+        )
         canvas.clipRect(bounds)
         canvas.drawBox(
             checked = _checked,
-            focused = _focused,
+            focused = _focused && _focusBorderEnabled,
             boxColor = _boxTintList.getColorForState(state, _boxTintList.defaultColor),
             borderColor = _borderTintList.getColorForState(state, _borderTintList.defaultColor),
             radius = _cornerRadius,
@@ -181,9 +185,9 @@ internal class CheckBoxDrawable(
 
     override fun isStateful(): Boolean = true
 
-    override fun getIntrinsicWidth(): Int = _size + FocusBorderPadding * 2
+    override fun getIntrinsicWidth(): Int = _size + getFocusBorderPadding() * 2
 
-    override fun getIntrinsicHeight(): Int = _size + FocusBorderPadding * 2
+    override fun getIntrinsicHeight(): Int = _size + getFocusBorderPadding() * 2
     override fun setAlpha(alpha: Int) {
         _paint.alpha = alpha
     }
@@ -239,8 +243,8 @@ internal class CheckBoxDrawable(
         val width = bounds.width()
         val height = bounds.height()
 
-        val checkedWidth = width - (FocusBorderPadding + _padding) * 2f
-        val checkedHeight = height - (FocusBorderPadding + _padding) * 2f
+        val checkedWidth = width - (getFocusBorderPadding() + _padding) * 2f
+        val checkedHeight = height - (getFocusBorderPadding() + _padding) * 2f
         val borderWidth = if (focused) width.toFloat() - strokeWidth else checkedWidth - strokeWidth
         val borderHeight = if (focused) height.toFloat() - strokeWidth else checkedHeight - strokeWidth
 
@@ -363,7 +367,12 @@ internal class CheckBoxDrawable(
             R.styleable.SdCheckBoxDrawable_sd_buttonPadding,
             CheckBoxPadding,
         )
+        _focusBorderEnabled = typedArray.getBoolean(R.styleable.SdRadioBoxDrawable_sd_focusBorderEnabled, false)
         typedArray.recycle()
+    }
+
+    private fun getFocusBorderPadding(): Int {
+        return if (_focusBorderEnabled) FocusBorderPadding else 0
     }
 
     private companion object {
