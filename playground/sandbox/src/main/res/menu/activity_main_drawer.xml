@@ -21,6 +21,10 @@
             android:title="@string/menu_iconButton" />
 
         <item
+            android:id="@+id/nav_cell"
+            android:title="@string/menu_cell" />
+
+        <item
             android:id="@+id/nav_checkbox"
             android:title="@string/menu_checkbox" />
 
