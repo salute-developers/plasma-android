@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:color="?serv_textInverseSecondary" android:state_focused="true" app:sd_state_secondary="true" />
+    <item android:color="?serv_textDefaultSecondary" android:state_focused="false" app:sd_state_secondary="true" />
+
+    <item android:color="?serv_textInversePrimary" android:state_focused="true" />
+    <item android:color="?serv_textDefaultPrimary" android:state_focused="false" />
+</selector>

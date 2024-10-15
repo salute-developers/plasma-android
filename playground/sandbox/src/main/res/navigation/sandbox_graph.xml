@@ -30,6 +30,12 @@
         tools:layout="@layout/fragment_component_scaffold" />
 
     <fragment
+        android:id="@+id/nav_cell"
+        android:name="com.sdds.playground.sandbox.cell.CellFragment"
+        android:label="@string/menu_cell"
+        tools:layout="@layout/fragment_component_scaffold" />
+
+    <fragment
         android:id="@+id/nav_checkbox"
         android:name="com.sdds.playground.sandbox.checkbox.CheckBoxFragment"
         android:label="@string/menu_checkbox"

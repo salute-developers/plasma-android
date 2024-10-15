@@ -48,6 +48,7 @@
         <item name="sd_radioBoxGroupStyle">@style/Theme.Sandbox.Components.RadioBoxGroup.M</item>
         <item name="sd_chipStyle">@style/Theme.Sandbox.Components.Chip.M</item>
         <item name="sd_chipGroupStyle">@style/Theme.Sandbox.Components.ChipGroup.Wide</item>
+        <item name="sd_cellStyle">@style/Theme.Sandbox.Components.Cell.M</item>
     </style>
 
     <style name="Theme.Sandbox.Toolbar" parent="Widget.MaterialComponents.Toolbar.Primary">
