@@ -55,6 +55,7 @@ internal class RadioBoxDrawable(
     private var _markSize: Int = 0
     private var _size: Int = 0
     private var _padding: Int = 0
+    private var _focusBorderEnabled: Boolean = false
 
     private val _markRadius: Float get() = _markSize / 2f
 
@@ -96,10 +97,10 @@ internal class RadioBoxDrawable(
 
     override fun draw(canvas: Canvas) = with(canvas) {
         save()
-        translate(bounds.left.toFloat() + FocusBorderPadding, bounds.top.toFloat() + FocusBorderPadding)
+        translate(bounds.left.toFloat() + getFocusBorderPadding(), bounds.top.toFloat() + getFocusBorderPadding())
         drawBox(
             checked = _checked,
-            focused = _focused,
+            focused = _focused && _focusBorderEnabled,
             boxColor = _boxTintList.getColorForState(state, _boxTintList.defaultColor),
             borderColor = _borderTintList.getColorForState(state, _borderTintList.defaultColor),
         )
@@ -138,11 +139,11 @@ internal class RadioBoxDrawable(
     }
 
     override fun getIntrinsicWidth(): Int {
-        return _size + FocusBorderPadding * 2
+        return _size + getFocusBorderPadding() * 2
     }
 
     override fun getIntrinsicHeight(): Int {
-        return _size + FocusBorderPadding * 2
+        return _size + getFocusBorderPadding() * 2
     }
 
     override fun setAlpha(alpha: Int) {
@@ -188,7 +189,7 @@ internal class RadioBoxDrawable(
         val width = bounds.width()
         val height = bounds.height()
 
-        val radioRadius = (width / 2f) - FocusBorderPadding - _padding
+        val radioRadius = (width / 2f) - getFocusBorderPadding() - _padding
         val strokeWidth = if (_checked) DefaultCheckedRadioStrokeWidth else DefaultRadioStrokeWidth
 
         if ((checked && focused) || !checked) {
@@ -252,7 +253,12 @@ internal class RadioBoxDrawable(
             R.styleable.SdRadioBoxDrawable_sd_buttonPadding,
             DefaultRadioCheckedPadding,
         )
+        _focusBorderEnabled = typedArray.getBoolean(R.styleable.SdRadioBoxDrawable_sd_focusBorderEnabled, false)
         typedArray.recycle()
+    }
+
+    private fun getFocusBorderPadding(): Int {
+        return if (_focusBorderEnabled) FocusBorderPadding else 0
     }
 
     private companion object {

@@ -22,6 +22,8 @@
         <!-- Цвет маркера -->
         <attr name="sd_buttonMarkColor" format="reference|color" />
 
+        <attr name="sd_focusBorderEnabled" format="boolean" />
+
         <attr name="android:textAppearance" />
     </declare-styleable>
 
@@ -48,6 +50,8 @@
         <!-- Цвет маркера -->
         <attr name="sd_buttonMarkColor" />
 
+        <attr name="sd_focusBorderEnabled" />
+
     </declare-styleable>
 
     <declare-styleable name="RadioBox" tools:ignore="ResourceName">
@@ -66,6 +70,8 @@
         <attr name="sd_buttonBorderColor" />
         <!-- Цвет маркера -->
         <attr name="sd_buttonMarkColor" />
+
+        <attr name="sd_focusBorderEnabled" />
     </declare-styleable>
 
     <declare-styleable name="Switch" tools:ignore="ResourceName">
@@ -79,12 +85,14 @@
         <attr name="sd_buttonSize" format="dimension|float" />
         <attr name="sd_boxCornerRadius" format="dimension|float" />
         <attr name="sd_buttonPadding" format="dimension|float" />
+        <attr name="sd_focusBorderEnabled" />
     </declare-styleable>
 
     <declare-styleable name="SdRadioBoxDrawable">
         <attr name="sd_buttonSize" />
         <attr name="sd_buttonMarkSize" format="dimension|float" />
         <attr name="sd_buttonPadding" />
+        <attr name="sd_focusBorderEnabled" />
     </declare-styleable>
 
     <declare-styleable name="SdSwitchDrawable">
