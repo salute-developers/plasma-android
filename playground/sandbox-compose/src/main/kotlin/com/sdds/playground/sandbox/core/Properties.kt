@@ -21,11 +21,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.Switch
 import com.sdds.compose.uikit.Text
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.buttons.SandboxButton
 import com.sdds.playground.sandbox.buttons.SandboxIconButton
-import com.sdds.playground.sandbox.switch.SandboxSwitch
 import com.sdds.playground.sandbox.tokens.compose.SddsServTheme
 import com.sdds.icons.R.drawable as Icons
 
@@ -272,7 +272,7 @@ private fun SwitchPropertyListItem(
                 .padding(start = 4.dp)
                 .wrapContentWidth(Alignment.Start),
         )
-        SandboxSwitch(
+        Switch(
             active = propertyValue,
             modifier = Modifier
                 .weight(1f)
