@@ -4,10 +4,13 @@ import android.app.Activity
 import android.graphics.Color
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
+import com.sdds.compose.uikit.LocalSwitchStyle
+import com.sdds.playground.sandbox.switch.Switch
 import com.sdds.playground.sandbox.tokens.compose.SddsServTheme
 import com.sdds.playground.sandbox.tokens.compose.darkSddsServColors
 import com.sdds.playground.sandbox.tokens.compose.darkSddsServGradients
@@ -48,6 +51,11 @@ fun SandboxTheme(
     SddsServTheme(
         colors = colorScheme,
         gradients = if (darkTheme) DarkGradients else LightGradients,
-        content = content,
+        content = {
+            CompositionLocalProvider(
+                LocalSwitchStyle provides Switch.M,
+                content = content,
+            )
+        },
     )
 }
