@@ -305,7 +305,7 @@ open class Button @JvmOverloads constructor(
      * Устанавливает цвета иконке кнопки согласно состоянию [getDrawableState]
      * @param tintList цвета иконки кнопки
      */
-    open fun setIconTintList(tintList: ColorStateList) {
+    open fun setIconTintList(tintList: ColorStateList?) {
         if (_iconTint != tintList) {
             _iconTint = tintList
             updateIcon(false)

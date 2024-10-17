@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Sandbox.ComponentOverlays.CellL" parent="">
+        <item name="sd_cellStyle">@style/Theme.Sandbox.Components.Cell.L</item>
+        <item name="sd_switchStyle">@style/Theme.Sandbox.Components.CellContent.Switch</item>
+        <item name="sd_avatarStyle">@style/Theme.Sandbox.Components.Avatar.L</item>
+        <item name="android:buttonStyle">@style/Theme.Sandbox.Components.CellContent.IconButton.L</item>
+        <item name="android:checkboxStyle">@style/Theme.Sandbox.Components.CellContent.CheckBox.M</item>
+        <item name="android:radioButtonStyle">@style/Theme.Sandbox.Components.CellContent.RadioBox.M</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.CellM" parent="">
+        <item name="sd_cellStyle">@style/Theme.Sandbox.Components.Cell.M</item>
+        <item name="sd_switchStyle">@style/Theme.Sandbox.Components.CellContent.Switch</item>
+        <item name="sd_avatarStyle">@style/Theme.Sandbox.Components.Avatar.M</item>
+        <item name="android:buttonStyle">@style/Theme.Sandbox.Components.CellContent.IconButton.M</item>
+        <item name="android:checkboxStyle">@style/Theme.Sandbox.Components.CellContent.CheckBox.M</item>
+        <item name="android:radioButtonStyle">@style/Theme.Sandbox.Components.CellContent.RadioBox.M</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.CellS" parent="">
+        <item name="sd_cellStyle">@style/Theme.Sandbox.Components.Cell.S</item>
+        <item name="sd_switchStyle">@style/Theme.Sandbox.Components.CellContent.Switch</item>
+        <item name="sd_avatarStyle">@style/Theme.Sandbox.Components.Avatar.S</item>
+        <item name="android:buttonStyle">@style/Theme.Sandbox.Components.CellContent.IconButton.S</item>
+        <item name="android:checkboxStyle">@style/Theme.Sandbox.Components.CellContent.CheckBox.S</item>
+        <item name="android:radioButtonStyle">@style/Theme.Sandbox.Components.CellContent.RadioBox.S</item>
+    </style>
+
+    <style name="Theme.Sandbox.ComponentOverlays.CellXS" parent="">
+        <item name="sd_cellStyle">@style/Theme.Sandbox.Components.Cell.XS</item>
+        <item name="sd_switchStyle">@style/Theme.Sandbox.Components.CellContent.Switch</item>
+        <item name="sd_avatarStyle">@style/Theme.Sandbox.Components.Avatar.S</item>
+        <item name="android:buttonStyle">@style/Theme.Sandbox.Components.CellContent.IconButton.XS</item>
+        <item name="android:checkboxStyle">@style/Theme.Sandbox.Components.CellContent.CheckBox.S</item>
+        <item name="android:radioButtonStyle">@style/Theme.Sandbox.Components.CellContent.RadioBox.S</item>
+    </style>
+    
+</resources>

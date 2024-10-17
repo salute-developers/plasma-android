@@ -12,6 +12,7 @@
         <item name="sd_descriptionTextColor">#8F080808</item>
         <item name="android:gravity">start|center_vertical</item>
         <item name="android:drawablePadding">10dp</item>
+        <item name="sd_focusBorderEnabled">true</item>
     </style>
 
     <style name="Sdds.Components.RadioBoxGroup">

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <attr name="sd_cellStyle" format="reference" />
+
+    <declare-styleable name="CellLayout" tools:ignore="ResourceName">
+        <attr name="android:gravity" />
+        <attr name="sd_contentStartPadding" format="dimension" />
+        <attr name="sd_contentEndPadding" format="dimension" />
+
+        <attr name="sd_labelAppearance" />
+        <attr name="sd_labelColor" />
+
+        <attr name="sd_titleAppearance" format="reference" />
+        <attr name="sd_titleColor" format="color" />
+
+        <attr name="sd_subtitleAppearance" format="reference" />
+        <attr name="sd_subtitleColor" format="color" />
+
+        <attr name="sd_disclosureEnabled" format="boolean" />
+        <attr name="sd_disclosureText" format="string" />
+        <attr name="sd_disclosureTextAppearance" format="reference" />
+        <attr name="sd_disclosureColor" format="color" />
+        <attr name="sd_disclosureIcon" format="reference" />
+        <attr name="sd_forceDuplicateParentState" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="CellLayout_Layout" tools:ignore="ResourceName">
+        <attr name="android:layout_gravity" />
+        <attr name="sd_layout_forceDuplicateParentState" format="boolean" />
+        <attr name="layout_cellContent" format="enum">
+            <enum name="start" value="0" />
+            <enum name="center" value="1" />
+            <enum name="end" value="2" />
+            <enum name="label" value="3"/>
+            <enum name="title" value="4"/>
+            <enum name="subtitle" value="5"/>
+            <enum name="disclosure" value="6"/>
+        </attr>
+    </declare-styleable>
+</resources>

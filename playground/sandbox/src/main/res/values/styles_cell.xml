@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Sandbox.Components.Cell" parent="Sdds.Components.Cell">
+        <item name="sd_labelColor">@color/color_cell_text</item>
+        <item name="sd_titleColor">@color/color_cell_text</item>
+        <item name="sd_subtitleColor">@color/color_cell_text</item>
+        <item name="sd_disclosureColor">@color/color_cell_text</item>
+        <item name="android:descendantFocusability">beforeDescendants</item>
+        <item name="sd_forceDuplicateParentState">true</item>
+    </style>
+
+    <style name="Theme.Sandbox.Components.Cell.L">
+        <item name="sd_contentStartPadding">8dp</item>
+        <item name="sd_contentEndPadding">8dp</item>
+        <item name="sd_labelAppearance">@style/Serv.SddsServ.TextAppearance.BodyMNormal</item>
+        <item name="sd_titleAppearance">@style/Serv.SddsServ.TextAppearance.BodyLNormal</item>
+        <item name="sd_subtitleAppearance">@style/Serv.SddsServ.TextAppearance.BodyMNormal</item>
+        <item name="sd_disclosureTextAppearance">@style/Serv.SddsServ.TextAppearance.BodyMNormal</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_24</item>
+        <item name="android:theme">@style/Theme.Sandbox.ComponentOverlays.CellL</item>
+    </style>
+
+    <style name="Theme.Sandbox.Components.Cell.M">
+        <item name="sd_contentStartPadding">6dp</item>
+        <item name="sd_contentEndPadding">6dp</item>
+        <item name="sd_labelAppearance">@style/Serv.SddsServ.TextAppearance.BodySNormal</item>
+        <item name="sd_titleAppearance">@style/Serv.SddsServ.TextAppearance.BodyMNormal</item>
+        <item name="sd_subtitleAppearance">@style/Serv.SddsServ.TextAppearance.BodySNormal</item>
+        <item name="sd_disclosureTextAppearance">@style/Serv.SddsServ.TextAppearance.BodySNormal</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_24</item>
+        <item name="android:theme">@style/Theme.Sandbox.ComponentOverlays.CellM</item>
+    </style>
+
+    <style name="Theme.Sandbox.Components.Cell.S">
+        <item name="sd_contentStartPadding">6dp</item>
+        <item name="sd_contentEndPadding">6dp</item>
+        <item name="sd_labelAppearance">@style/Serv.SddsServ.TextAppearance.BodyXsNormal</item>
+        <item name="sd_titleAppearance">@style/Serv.SddsServ.TextAppearance.BodySNormal</item>
+        <item name="sd_subtitleAppearance">@style/Serv.SddsServ.TextAppearance.BodyXsNormal</item>
+        <item name="sd_disclosureTextAppearance">@style/Serv.SddsServ.TextAppearance.BodyXsNormal</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_16</item>
+        <item name="android:theme">@style/Theme.Sandbox.ComponentOverlays.CellS</item>
+    </style>
+
+    <style name="Theme.Sandbox.Components.Cell.XS">
+        <item name="sd_contentStartPadding">4dp</item>
+        <item name="sd_contentEndPadding">4dp</item>
+        <item name="sd_labelAppearance">@style/Serv.SddsServ.TextAppearance.BodyXsNormal</item>
+        <item name="sd_titleAppearance">@style/Serv.SddsServ.TextAppearance.BodyXsNormal</item>
+        <item name="sd_subtitleAppearance">@style/Serv.SddsServ.TextAppearance.BodyXsNormal</item>
+        <item name="sd_disclosureTextAppearance">@style/Serv.SddsServ.TextAppearance.BodyXsNormal</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_16</item>
+        <item name="android:theme">@style/Theme.Sandbox.ComponentOverlays.CellXS</item>
+    </style>
+
+    <style name="Theme.Sandbox.Components.CellContent" />
+
+    <style name="Theme.Sandbox.Components.CellContent.IconButton" parent="Theme.Sandbox.Components.IconButton" />
+
+    <style name="Theme.Sandbox.Components.CellContent.IconButton.L" parent="Theme.Sandbox.Components.IconButton.L.Clear" >
+        <item name="sd_iconTint">@color/color_cell_text</item>
+    </style>
+
+    <style name="Theme.Sandbox.Components.CellContent.IconButton.M" parent="Theme.Sandbox.Components.IconButton.M.Clear">
+        <item name="sd_iconTint">@color/color_cell_text</item>
+    </style>
+
+    <style name="Theme.Sandbox.Components.CellContent.IconButton.S" parent="Theme.Sandbox.Components.IconButton.S.Clear" >
+        <item name="sd_iconTint">@color/color_cell_text</item>
+    </style>
+
+    <style name="Theme.Sandbox.Components.CellContent.IconButton.XS" parent="Theme.Sandbox.Components.IconButton.XS.Clear" >
+        <item name="sd_iconTint">@color/color_cell_text</item>
+    </style>
+
+    <style name="Theme.Sandbox.Components.CellContent.Switch" parent="Theme.Sandbox.Components.Switch">
+        <item name="sd_buttonTrackColor">@color/bg_cell_switch_track</item>
+        <item name="android:drawablePadding">0dp</item>
+    </style>
+
+    <style name="Theme.Sandbox.Components.CellContent.CheckBox" parent="Theme.Sandbox.Components.CheckBox">
+        <item name="sd_buttonBorderColor">@color/color_cell_checkable_border</item>
+        <item name="sd_focusBorderEnabled">false</item>
+        <item name="android:drawablePadding">0dp</item>
+    </style>
+
+    <style name="Theme.Sandbox.Components.CellContent.CheckBox.M" parent="Theme.Sandbox.Components.CheckBox.M">
+        <item name="sd_buttonBorderColor">@color/color_cell_checkable_border</item>
+        <item name="sd_focusBorderEnabled">false</item>
+        <item name="android:drawablePadding">0dp</item>
+    </style>
+
+    <style name="Theme.Sandbox.Components.CellContent.CheckBox.S" parent="Theme.Sandbox.Components.CheckBox.S">
+        <item name="sd_buttonBorderColor">@color/color_cell_checkable_border</item>
+        <item name="sd_focusBorderEnabled">false</item>
+        <item name="android:drawablePadding">0dp</item>
+    </style>
+
+    <style name="Theme.Sandbox.Components.CellContent.RadioBox" parent="Theme.Sandbox.Components.RadioBox">
+        <item name="sd_buttonBorderColor">@color/color_cell_checkable_border</item>
+        <item name="sd_focusBorderEnabled">false</item>
+        <item name="android:drawablePadding">0dp</item>
+    </style>
+
+    <style name="Theme.Sandbox.Components.CellContent.RadioBox.M" parent="Theme.Sandbox.Components.RadioBox.M">
+        <item name="sd_buttonBorderColor">@color/color_cell_checkable_border</item>
+        <item name="sd_focusBorderEnabled">false</item>
+        <item name="android:drawablePadding">0dp</item>
+    </style>
+
+    <style name="Theme.Sandbox.Components.CellContent.RadioBox.S" parent="Theme.Sandbox.Components.RadioBox.S">
+        <item name="sd_buttonBorderColor">@color/color_cell_checkable_border</item>
+        <item name="sd_focusBorderEnabled">false</item>
+        <item name="android:drawablePadding">0dp</item>
+    </style>
+
+</resources>
