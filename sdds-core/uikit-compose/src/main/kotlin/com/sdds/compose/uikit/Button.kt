@@ -3,15 +3,11 @@ package com.sdds.compose.uikit
 import androidx.compose.foundation.Indication
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.requiredSize
-import androidx.compose.foundation.shape.CornerBasedShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.internal.BaseButton
@@ -27,13 +23,7 @@ import com.sdds.compose.uikit.internal.ButtonText
  * @param icon иконка
  * @param onClick обработчик нажатий
  * @param modifier модификатор
- * @param shape форма кнопки
- * @param dimensions размеры кнопки
- * @param contentColor цвет контента кнопки
- * @param spinnerColor цвет индикатора загрузки
  * @param spinnerMode режим, определяющий, как выглядит контент во время анимации загрузки
- * @param backgroundColor цвет фона кнопки
- * @param pressedBackgroundColor цвет фона, когда кнопка нажата
  * @param enabled флаг доступности кнопки
  * @param loading флаг загрузки
  * @param interactionSource источник взаимодействий [MutableInteractionSource]
@@ -43,32 +33,24 @@ fun IconButton(
     icon: Painter,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    shape: CornerBasedShape = RoundedCornerShape(25),
-    dimensions: Button.Dimensions = Button.Dimensions(),
-    contentColor: Color = Color.White,
-    spinnerColor: Color = contentColor,
-    spinnerMode: Button.SpinnerMode = Button.SpinnerMode.HideContent,
-    backgroundColor: Color = Color.Black,
-    pressedBackgroundColor: Color = Color.Black.copy(alpha = 0.2f),
+    style: ButtonStyle = LocalIconButtonStyle.current,
     enabled: Boolean = true,
     loading: Boolean = false,
     indication: Indication? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
+    val dimensions = style.dimensions
     BaseButton(
         modifier = modifier.requiredSize(dimensions.height),
         onClick = onClick,
-        shape = shape,
+        shape = style.shape,
         dimensions = dimensions,
-        contentColor = contentColor,
-        backgroundColor = backgroundColor,
-        pressedBackgroundColor = pressedBackgroundColor,
-        enabledAlpha = ENABLED_BUTTON_ALPHA,
-        disabledAlpha = DISABLED_BUTTON_ALPHA,
-        spinnerColor = spinnerColor,
-        spinnerMode = spinnerMode,
+        colors = style.colors,
+        spinnerMode = Button.SpinnerMode.HideContent,
         enabled = enabled,
         loading = loading,
+        enabledAlpha = ENABLED_BUTTON_ALPHA,
+        disabledAlpha = style.disableAlpha,
         indication = indication,
         interactionSource = interactionSource,
     ) {
@@ -87,24 +69,12 @@ fun IconButton(
  * @param label текст кнопки
  * @param onClick обработчик нажатий
  * @param modifier модификатор
- * @param shape форма кнопки
- * @param dimensions размеры кнопки
- * @param contentColor цвет контента (иконка, label)
- * @param spinnerColor цвет индикатора загрузки
  * @param spinnerMode режим, определяющий, как выглядит контент во время анимации загрузки
- * @param backgroundColor цвет фона кнопки
- * @param pressedBackgroundColor цвет фона, когда кнопка нажата
  * @param value доп. текст кнопки
- * @param valueColor цвет доп. текста
- * @param labelTextStyle стиль основного текста
- * @param valueTextStyle стиль доп. текста
- * @param valueColor цвет доп. текста
  * @param icons иконки
  * @param spacing вид отступа между [label] и [value]
  * @param enabled флаг доступности кнопки
  * @param loading флаг загрузки
- * @param enabledAlpha альфа кнопки в активном состоянии
- * @param disabledAlpha альфа кнопки в неактивном состоянии
  * @param interactionSource источник взаимодействий [MutableInteractionSource]
  */
 @Composable
@@ -112,27 +82,16 @@ fun Button(
     label: String,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    shape: CornerBasedShape = RoundedCornerShape(25),
-    dimensions: Button.Dimensions = Button.Dimensions(),
-    contentColor: Color = Color.White,
-    spinnerColor: Color = contentColor,
-    spinnerMode: Button.SpinnerMode = Button.SpinnerMode.HideContent,
-    backgroundColor: Color = Color.Black,
-    pressedBackgroundColor: Color = Color.Black.copy(alpha = 0.2f),
     value: String? = null,
-    valueColor: Color = contentColor.copy(alpha = VALUE_ALPHA),
-    labelTextStyle: TextStyle = TextStyle.Default,
-    valueTextStyle: TextStyle = labelTextStyle,
-    icons: Button.Icons? = null,
+    style: ButtonStyle = LocalButtonStyle.current,
     spacing: Button.Spacing = Button.Spacing.Packed,
+    icons: Button.Icons? = null,
     enabled: Boolean = true,
     loading: Boolean = false,
-    enabledAlpha: Float = ENABLED_BUTTON_ALPHA,
-    disabledAlpha: Float = DISABLED_BUTTON_ALPHA,
     indication: Indication? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
-    val dimensions = dimensions.let {
+    val dimensions = style.dimensions.let {
         var paddings = it.paddings
         paddings = when {
             icons?.start != null -> paddings.copy(start = paddings.start - IconPaddingOffset)
@@ -141,18 +100,17 @@ fun Button(
         }
         it.copy(paddings = paddings)
     }
+    val colors = style.colors
+
     BaseButton(
         modifier = modifier,
         onClick = onClick,
-        contentColor = contentColor,
-        backgroundColor = backgroundColor,
-        pressedBackgroundColor = pressedBackgroundColor,
-        spinnerColor = spinnerColor,
-        spinnerMode = spinnerMode,
-        enabledAlpha = enabledAlpha,
-        disabledAlpha = disabledAlpha,
+        colors = colors,
+        spinnerMode = style.spinnerMode,
+        enabledAlpha = ENABLED_BUTTON_ALPHA,
+        disabledAlpha = style.disableAlpha,
         enabled = enabled,
-        shape = shape,
+        shape = style.shape,
         loading = loading,
         dimensions = dimensions,
         indication = indication,
@@ -165,11 +123,14 @@ fun Button(
                 marginEnd = dimensions.iconMargin,
             )
         }
-
+        val labelColor = colors.labelColor.colorForInteraction(interactionSource)
+        val valueColor = colors.valueColor.colorForInteraction(interactionSource)
         ButtonText(
             label = label,
-            labelTextStyle = labelTextStyle.copy(color = contentColor),
-            valueTextStyle = valueTextStyle.copy(color = valueColor),
+            labelTextStyle = style.labelStyle,
+            labelColor = labelColor,
+            valueTextStyle = style.valueStyle,
+            valueColor = valueColor,
             spacing = spacing,
             value = value,
             valueMargin = dimensions.valueMargin,
@@ -276,7 +237,5 @@ object Button {
     )
 }
 
-private const val VALUE_ALPHA = 0.56f
 private const val ENABLED_BUTTON_ALPHA = 1f
-private const val DISABLED_BUTTON_ALPHA = 0.4f
 private val IconPaddingOffset = 2.dp

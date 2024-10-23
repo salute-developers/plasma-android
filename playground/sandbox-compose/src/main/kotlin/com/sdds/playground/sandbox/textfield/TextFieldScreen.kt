@@ -15,11 +15,12 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.Icon
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.SandboxTheme
-import com.sdds.playground.sandbox.buttons.SandboxBasicButton
-import com.sdds.playground.sandbox.buttons.SandboxButton
+import com.sdds.playground.sandbox.buttons.BasicButton
+import com.sdds.playground.sandbox.buttons.Default
 import com.sdds.playground.sandbox.chip.SandboxEmbeddedChip
 import com.sdds.playground.sandbox.core.ComponentScaffold
 import com.sdds.playground.sandbox.progress.SandboxProgress
@@ -76,9 +77,8 @@ internal fun TextFieldScreen() {
                 ),
             )
 
-            SandboxBasicButton(
-                style = SandboxButton.Style.Default,
-                size = SandboxButton.Size.XS,
+            Button(
+                style = BasicButton.Xs.Default.style(),
                 label = stringResource(R.string.sandbox_clear_focus),
                 modifier = Modifier.align(Alignment.BottomEnd),
                 onClick = { focusManager.clearFocus(true) },

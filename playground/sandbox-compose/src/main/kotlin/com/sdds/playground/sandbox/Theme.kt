@@ -9,7 +9,12 @@ import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
+import com.sdds.compose.uikit.LocalButtonStyle
+import com.sdds.compose.uikit.LocalIconButtonStyle
 import com.sdds.compose.uikit.LocalSwitchStyle
+import com.sdds.playground.sandbox.buttons.BasicButton
+import com.sdds.playground.sandbox.buttons.Default
+import com.sdds.playground.sandbox.buttons.IconButton
 import com.sdds.playground.sandbox.switch.Switch
 import com.sdds.playground.sandbox.tokens.compose.SddsServTheme
 import com.sdds.playground.sandbox.tokens.compose.darkSddsServColors
@@ -54,6 +59,8 @@ fun SandboxTheme(
         content = {
             CompositionLocalProvider(
                 LocalSwitchStyle provides Switch.M,
+                LocalButtonStyle provides BasicButton.M.Default.style(),
+                LocalIconButtonStyle provides IconButton.M.Default.style(),
                 content = content,
             )
         },

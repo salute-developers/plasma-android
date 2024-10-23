@@ -2,7 +2,6 @@ package com.sdds.compose.uikit.internal
 
 import androidx.compose.foundation.Indication
 import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
@@ -14,11 +13,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -32,6 +29,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.Button
+import com.sdds.compose.uikit.ButtonColors
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.LocalTint
 import com.sdds.compose.uikit.Text
@@ -45,10 +43,7 @@ internal fun BaseButton(
     modifier: Modifier = Modifier,
     onClick: () -> Unit = {},
     shape: CornerBasedShape,
-    contentColor: Color,
-    backgroundColor: Color,
-    pressedBackgroundColor: Color,
-    spinnerColor: Color,
+    colors: ButtonColors,
     spinnerMode: Button.SpinnerMode,
     dimensions: Button.Dimensions,
     enabledAlpha: Float,
@@ -59,40 +54,41 @@ internal fun BaseButton(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     content: @Composable RowScope.() -> Unit,
 ) {
-    val isPressed by interactionSource.collectIsPressedAsState()
-    CompositionLocalProvider(LocalTint provides contentColor) {
-        Box(
-            modifier = modifier
-                .defaultMinSize(dimensions.minWidth, dimensions.height)
-                .height(dimensions.height)
-                .wrapContentWidth()
-                .surface(
-                    shape = shape,
-                    onClick = onClick,
-                    backgroundColor = SolidColor(if (isPressed) pressedBackgroundColor else backgroundColor),
-                    indication = indication,
-                    enabled = enabled,
-                    enabledAlpha = enabledAlpha,
-                    disabledAlpha = disabledAlpha,
-                    role = Role.Button,
-                    interactionSource = interactionSource,
-                )
-                .padding(dimensions.paddings.start, 0.dp, dimensions.paddings.end, 0.dp),
-            contentAlignment = Alignment.Center,
-        ) {
+    val contentColor = colors.contentColor.colorForInteraction(interactionSource)
+    val backgroundColor = colors.backgroundColor.colorForInteraction(interactionSource)
+    val spinnerColor = colors.spinnerColor.colorForInteraction(interactionSource)
+    Box(
+        modifier = modifier
+            .defaultMinSize(dimensions.minWidth, dimensions.height)
+            .height(dimensions.height)
+            .surface(
+                shape = shape,
+                onClick = onClick,
+                backgroundColor = { SolidColor(backgroundColor) },
+                indication = indication,
+                enabled = enabled,
+                alpha = { if (it) enabledAlpha else disabledAlpha },
+                role = Role.Button,
+                interactionSource = interactionSource,
+            )
+            .padding(dimensions.paddings.start, 0.dp, dimensions.paddings.end, 0.dp),
+        contentAlignment = Alignment.Center,
+    ) {
+        CompositionLocalProvider(LocalTint provides contentColor) {
             Row(
                 modifier = Modifier.alpha(if (loading) spinnerMode.contentAlpha else enabledAlpha),
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.Center,
                 content = content,
             )
-            if (loading && enabled) {
-                BaseSpinner(
-                    tint = spinnerColor,
-                    modifier = Modifier.size(dimensions.spinnerSize),
-                    strokeWidth = dimensions.spinnerStrokeWidth,
-                )
-            }
+        }
+
+        if (loading && enabled) {
+            BaseSpinner(
+                tint = spinnerColor,
+                modifier = Modifier.size(dimensions.spinnerSize),
+                strokeWidth = dimensions.spinnerStrokeWidth,
+            )
         }
     }
 }
@@ -102,7 +98,7 @@ internal fun BaseButton(
  *
  */
 @Composable
-internal fun ButtonIcon(
+internal fun RowScope.ButtonIcon(
     icon: Painter,
     size: Dp,
     marginStart: Dp = 0.dp,
@@ -128,7 +124,9 @@ internal fun ButtonIcon(
 internal fun RowScope.ButtonText(
     label: String,
     labelTextStyle: TextStyle,
+    labelColor: Color,
     valueTextStyle: TextStyle,
+    valueColor: Color,
     modifier: Modifier = Modifier,
     valueMargin: Dp,
     spacing: Button.Spacing,
@@ -144,7 +142,7 @@ internal fun RowScope.ButtonText(
         ) {
             Text(
                 text = label,
-                style = labelTextStyle,
+                style = labelTextStyle.copy(color = labelColor),
                 softWrap = false,
                 overflow = TextOverflow.Ellipsis,
             )
@@ -153,7 +151,7 @@ internal fun RowScope.ButtonText(
 
             Text(
                 text = value,
-                style = valueTextStyle,
+                style = valueTextStyle.copy(color = valueColor),
                 softWrap = false,
                 overflow = TextOverflow.Ellipsis,
             )
@@ -162,7 +160,7 @@ internal fun RowScope.ButtonText(
         Text(
             text = label,
             modifier = modifier.weight(1f, false),
-            style = labelTextStyle,
+            style = labelTextStyle.copy(color = labelColor),
             softWrap = false,
             overflow = TextOverflow.Ellipsis,
         )
