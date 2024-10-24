@@ -12,10 +12,11 @@ import androidx.core.view.WindowCompat
 import com.sdds.compose.uikit.LocalButtonStyle
 import com.sdds.compose.uikit.LocalIconButtonStyle
 import com.sdds.compose.uikit.LocalSwitchStyle
+import com.sdds.compose.uikit.Switch
 import com.sdds.playground.sandbox.buttons.BasicButton
 import com.sdds.playground.sandbox.buttons.Default
 import com.sdds.playground.sandbox.buttons.IconButton
-import com.sdds.playground.sandbox.switch.Switch
+import com.sdds.playground.sandbox.switch.M
 import com.sdds.playground.sandbox.tokens.compose.SddsServTheme
 import com.sdds.playground.sandbox.tokens.compose.darkSddsServColors
 import com.sdds.playground.sandbox.tokens.compose.darkSddsServGradients
@@ -58,7 +59,7 @@ fun SandboxTheme(
         gradients = if (darkTheme) DarkGradients else LightGradients,
         content = {
             CompositionLocalProvider(
-                LocalSwitchStyle provides Switch.M,
+                LocalSwitchStyle provides Switch.M.style(),
                 LocalButtonStyle provides BasicButton.M.Default.style(),
                 LocalIconButtonStyle provides IconButton.M.Default.style(),
                 content = content,

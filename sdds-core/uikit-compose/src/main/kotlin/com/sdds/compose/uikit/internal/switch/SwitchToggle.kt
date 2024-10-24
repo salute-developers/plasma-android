@@ -39,7 +39,6 @@ internal fun SwitchToggle(
     interactionSource: InteractionSource = remember { MutableInteractionSource() },
 ) {
     val trackColor by colors.trackColor(enabled = enabled, active = active, interactionSource)
-    val thumbColor by colors.thumbColor(enabled = enabled, active = active, interactionSource)
     val thumbPosition by animateFloatAsState(
         targetValue = if (active) 1f else 0f,
         animationSpec = tween(durationMillis = animationDuration),
@@ -60,7 +59,7 @@ internal fun SwitchToggle(
 
         // Рисуем thumb
         drawCircle(
-            color = thumbColor,
+            color = colors.thumbColor,
             radius = thumbRadius,
             center = Offset(
                 x = lerp(

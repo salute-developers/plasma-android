@@ -2,6 +2,7 @@ package com.sdds.playground.sandbox.checkbox
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.state.ToggleableState
+import com.sdds.compose.uikit.CheckBox
 import com.sdds.compose.uikit.CheckBoxStyle
 
 /**

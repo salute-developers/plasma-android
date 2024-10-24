@@ -2,58 +2,43 @@ package com.sdds.playground.sandbox.switch
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.ReadOnlyComposable
-import com.sdds.compose.uikit.SwitchColors
+import com.sdds.compose.uikit.Switch
+import com.sdds.compose.uikit.SwitchColorsBuilder
 import com.sdds.compose.uikit.SwitchStyle
+import com.sdds.compose.uikit.SwitchStyleBuilder
 import com.sdds.playground.sandbox.tokens.compose.SddsServTheme
 
 /**
  * Вариации [SwitchStyle]
  * @author Малышев Александр on 17.10.2024
  */
-internal object Switch {
+internal val Switch.L: SwitchStyleBuilder
+    @Composable
+    get() = SwitchStyle.builder()
+        .colors { defaultColors() }
+        .labelStyle(SddsServTheme.typography.bodyLNormal)
+        .descriptionStyle(SddsServTheme.typography.bodyMNormal)
 
-    val L: SwitchStyle
-        @Composable
-        @ReadOnlyComposable
-        get() = SwitchStyle.create(
-            colors = SwitchColors.create(
-                labelColor = SddsServTheme.colors.textDefaultPrimary,
-                descriptionColor = SddsServTheme.colors.textDefaultSecondary,
-                thumbColor = SddsServTheme.colors.surfaceOnDarkSolidDefault,
-                activeTrackColor = SddsServTheme.colors.surfaceDefaultPositive,
-                inactiveTrackColor = SddsServTheme.colors.surfaceDefaultTransparentTertiary,
-            ),
-            labelTextStyle = SddsServTheme.typography.bodyLNormal,
-            descriptionTextStyle = SddsServTheme.typography.bodyMNormal,
-        )
+internal val Switch.M: SwitchStyleBuilder
+    @Composable
+    get() = SwitchStyle.builder()
+        .colors { defaultColors() }
+        .labelStyle(SddsServTheme.typography.bodyMNormal)
+        .descriptionStyle(SddsServTheme.typography.bodySNormal)
 
-    val M: SwitchStyle
-        @Composable
-        @ReadOnlyComposable
-        get() = SwitchStyle.create(
-            colors = SwitchColors.create(
-                labelColor = SddsServTheme.colors.textDefaultPrimary,
-                descriptionColor = SddsServTheme.colors.textDefaultSecondary,
-                thumbColor = SddsServTheme.colors.surfaceOnDarkSolidDefault,
-                activeTrackColor = SddsServTheme.colors.surfaceDefaultPositive,
-                inactiveTrackColor = SddsServTheme.colors.surfaceDefaultTransparentTertiary,
-            ),
-            labelTextStyle = SddsServTheme.typography.bodyMNormal,
-            descriptionTextStyle = SddsServTheme.typography.bodySNormal,
-        )
+internal val Switch.S: SwitchStyleBuilder
+    @Composable
+    get() = SwitchStyle.builder()
+        .colors { defaultColors() }
+        .labelStyle(SddsServTheme.typography.bodySNormal)
+        .descriptionStyle(SddsServTheme.typography.bodyXsNormal)
 
-    val S: SwitchStyle
-        @Composable
-        @ReadOnlyComposable
-        get() = SwitchStyle.create(
-            colors = SwitchColors.create(
-                labelColor = SddsServTheme.colors.textDefaultPrimary,
-                descriptionColor = SddsServTheme.colors.textDefaultSecondary,
-                thumbColor = SddsServTheme.colors.surfaceOnDarkSolidDefault,
-                activeTrackColor = SddsServTheme.colors.surfaceDefaultPositive,
-                inactiveTrackColor = SddsServTheme.colors.surfaceDefaultTransparentTertiary,
-            ),
-            labelTextStyle = SddsServTheme.typography.bodySNormal,
-            descriptionTextStyle = SddsServTheme.typography.bodyXsNormal,
-        )
+@Composable
+@ReadOnlyComposable
+private fun SwitchColorsBuilder.defaultColors(): SwitchColorsBuilder = apply {
+    labelColor(SddsServTheme.colors.textDefaultPrimary)
+    descriptionColor(SddsServTheme.colors.textDefaultSecondary)
+    thumbColor(SddsServTheme.colors.surfaceOnDarkSolidDefault)
+    activeTrackColor(SddsServTheme.colors.surfaceDefaultPositive)
+    inactiveTrackColor(SddsServTheme.colors.surfaceDefaultTransparentTertiary)
 }

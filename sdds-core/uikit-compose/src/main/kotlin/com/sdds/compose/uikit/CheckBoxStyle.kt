@@ -161,13 +161,13 @@ interface CheckBoxColors {
 interface CheckBoxColorsBuilder {
 
     /**
-     * Устанавливает цвет основного текста кнопки [labelColor]
+     * Устанавливает цвет основного текста [labelColor]
      * @see CheckBoxColors.labelColor
      */
     fun labelColor(labelColor: Color): CheckBoxColorsBuilder
 
     /**
-     * Устанавливает цвет дополнительного текста кнопки [descriptionColor]
+     * Устанавливает цвет дополнительного текста [descriptionColor]
      * @see CheckBoxColors.descriptionColor
      */
     fun descriptionColor(descriptionColor: Color): CheckBoxColorsBuilder
@@ -286,6 +286,15 @@ private class DefaultCheckBoxColors(
     override val baseColor: Color,
 ) : CheckBoxColors {
 
+    @Composable
+    override fun controlBorderColor(checked: Boolean, focused: Boolean): State<Color> {
+        val color = when {
+            checked || focused -> focusedColor
+            else -> idleColor
+        }
+        return rememberUpdatedState(color)
+    }
+
     class Builder : CheckBoxColorsBuilder {
         private var labelColor: Color? = null
         private var descriptionColor: Color? = null
@@ -328,15 +337,6 @@ private class DefaultCheckBoxColors(
                 baseColor = baseColor ?: Color.Green,
             )
         }
-    }
-
-    @Composable
-    override fun controlBorderColor(checked: Boolean, focused: Boolean): State<Color> {
-        val color = when {
-            checked || focused -> focusedColor
-            else -> idleColor
-        }
-        return rememberUpdatedState(color)
     }
 }
 
