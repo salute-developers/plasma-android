@@ -1,10 +1,10 @@
 package com.sdds.playground.sandbox
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
-import com.sdds.playground.sandbox.radiobox.SandboxRadioBoxPreviewMedium
-import com.sdds.playground.sandbox.radiobox.SandboxRadioBoxPreviewOff
-import com.sdds.playground.sandbox.radiobox.SandboxRadioBoxPreviewSmallDark
-import com.sdds.playground.sandbox.radiobox.SandboxRadioBoxPreviewUnchecked
+import com.sdds.playground.sandbox.radiobox.RadioBoxPreviewMedium
+import com.sdds.playground.sandbox.radiobox.RadioBoxPreviewOff
+import com.sdds.playground.sandbox.radiobox.RadioBoxPreviewSmallDark
+import com.sdds.playground.sandbox.radiobox.RadioBoxPreviewUnchecked
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
@@ -22,7 +22,7 @@ class ComposeRadioBoxScreenshotTest : RoborazziConfig() {
     @Test
     fun testRadioBoxMedium() {
         composeTestRule.setContent {
-            SandboxRadioBoxPreviewMedium()
+            RadioBoxPreviewMedium()
         }
     }
 
@@ -30,7 +30,7 @@ class ComposeRadioBoxScreenshotTest : RoborazziConfig() {
     fun testRadioBoxSmallDark() {
         composeTestRule.setContent {
             SandboxTheme(darkTheme = true) {
-                SandboxRadioBoxPreviewSmallDark()
+                RadioBoxPreviewSmallDark()
             }
         }
     }
@@ -38,14 +38,14 @@ class ComposeRadioBoxScreenshotTest : RoborazziConfig() {
     @Test
     fun testRadioBoxUnchecked() {
         composeTestRule.setContent {
-            SandboxRadioBoxPreviewUnchecked()
+            RadioBoxPreviewUnchecked()
         }
     }
 
     @Test
     fun testRadioBoxOff() {
         composeTestRule.setContent {
-            SandboxRadioBoxPreviewOff()
+            RadioBoxPreviewOff()
         }
     }
 }

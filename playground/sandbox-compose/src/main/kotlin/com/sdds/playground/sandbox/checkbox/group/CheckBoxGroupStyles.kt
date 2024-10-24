@@ -25,5 +25,5 @@ internal val CheckBoxGroup.S: CheckBoxGroupStyleBuilder
     @Composable
     get() = CheckBoxGroupStyle.builder()
         .startIndent(24.dp)
-        .verticalArrangement(Arrangement.spacedBy(8.dp))
+        .verticalArrangement(Arrangement.spacedBy(10.dp))
         .checkBoxStyle(CheckBox.S.style())

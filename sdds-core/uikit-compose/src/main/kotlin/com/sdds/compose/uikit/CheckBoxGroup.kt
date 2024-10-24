@@ -39,7 +39,7 @@ fun CheckBoxGroup(
 ) {
     val delegate = rememberCheckBoxGroupStateDelegate(items)
 
-    CheckBoxGroupContainer(modifier) {
+    CheckBoxGroupContainer(modifier, style) {
         rootCheckbox {
             rootItem?.let {
                 CheckBox(
