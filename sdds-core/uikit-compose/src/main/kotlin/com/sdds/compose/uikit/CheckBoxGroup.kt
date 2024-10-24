@@ -1,19 +1,16 @@
 package com.sdds.compose.uikit
 
 import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.mutableStateMapOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.state.ToggleableState
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
 /**
@@ -21,28 +18,11 @@ import androidx.compose.ui.unit.dp
  *
  * @param items список дочерних checkbox
  * @param modifier модификатор
+ * @param style стиль компонента
  * @param rootItem рутовый checkbox
- * @param startIndent отступ для дочерних checkbox. Если рутовый checkbox [rootItem] отсутствует, отступ игнорируется (не применяется к дочерним).
- * @param verticalArrangement расположение элементов по вертикали
  * @param onRootStateChanged колбэк, сообщающий об имзенении состояния рутового checkbox
  * @param onChildCheckedChanged колбэк, сообщающий об имзенении состояния дочернего checkbox
  * @param enabled включен ли компонент
- * @param labelColor цвет лейбла
- * @param descriptionColor цвет описания
- * @param idleColor цвет бордера CheckBox, когда checked = false и focused = false
- * @param checkedColor цвет заполняющего прямоугольника CheckBox, когда checked = true
- * @param focusedColor цвет бордера CheckBox, когда focused = true
- * @param baseColor цвет отметки-индикатора CheckBox, когда checked = true
- * @param labelTextStyle стиль текста лэйбла
- * @param descriptionTextStyle стиль текста описания
- * @param controlSize размер заполняющего круга контрола
- * @param controlRadius радиус скруглений контрола
- * @param verticalSpacing расстояние между названием и описанием
- * @param horizontalSpacing расстояние между контролом и текстом ([label] или [description])
- * @param strokeWidth ширина линий
- * @param checkedStrokeWidth ширина линий границ в состоянии checked
- * @param innerCheckBoxPadding внутренний отступ между фокусной границей и контролом
- * @param animationDuration длительность анимации переключения
  * @param interactionSource источник событий
  */
 @Suppress("LongMethod")
@@ -50,33 +30,16 @@ import androidx.compose.ui.unit.dp
 fun CheckBoxGroup(
     items: List<CheckBoxGroup.Item>,
     modifier: Modifier = Modifier,
+    style: CheckBoxGroupStyle = LocalCheckBoxGroupStyle.current,
     rootItem: CheckBoxGroup.RootItem? = null,
-    startIndent: Dp = 36.dp,
-    verticalArrangement: Arrangement.Vertical = Arrangement.spacedBy(12.dp),
     onRootStateChanged: (ToggleableState) -> Unit = {},
     onChildCheckedChanged: (Any, Boolean) -> Unit = { _, _ -> },
     enabled: Boolean = true,
-    labelColor: Color = Color.Black,
-    descriptionColor: Color = Color.Black,
-    idleColor: Color = Color.Black,
-    checkedColor: Color = Color.Gray,
-    focusedColor: Color = Color.Green,
-    baseColor: Color = Color.Green,
-    labelTextStyle: TextStyle = TextStyle.Default,
-    descriptionTextStyle: TextStyle = TextStyle.Default,
-    controlSize: Dp = 24.dp,
-    controlRadius: Dp = 6.dp,
-    verticalSpacing: Dp = 2.dp,
-    horizontalSpacing: Dp = 10.dp,
-    strokeWidth: Dp = 2.dp,
-    checkedStrokeWidth: Dp = 1.dp,
-    innerCheckBoxPadding: Dp = 2.dp,
-    animationDuration: Int = 100,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     val delegate = rememberCheckBoxGroupStateDelegate(items)
 
-    CheckBoxGroupContainer(modifier, verticalArrangement) {
+    CheckBoxGroupContainer(modifier) {
         rootCheckbox {
             rootItem?.let {
                 CheckBox(
@@ -89,27 +52,11 @@ fun CheckBoxGroup(
                         delegate.onRootCheckedChange(newState)
                     },
                     enabled = enabled,
-                    labelColor = labelColor,
-                    descriptionColor = descriptionColor,
-                    idleColor = idleColor,
-                    checkedColor = checkedColor,
-                    focusedColor = focusedColor,
-                    baseColor = baseColor,
-                    labelTextStyle = labelTextStyle,
-                    descriptionTextStyle = descriptionTextStyle,
-                    controlSize = controlSize,
-                    controlRadius = controlRadius,
-                    verticalSpacing = verticalSpacing,
-                    horizontalSpacing = horizontalSpacing,
-                    strokeWidth = strokeWidth,
-                    checkedStrokeWidth = checkedStrokeWidth,
-                    innerCheckBoxPadding = innerCheckBoxPadding,
-                    animationDuration = animationDuration,
                     interactionSource = interactionSource,
                 )
             }
         }
-        val startIndent = rootItem?.let { startIndent } ?: 0.dp
+        val startIndent = rootItem?.let { style.startIndent } ?: 0.dp
         checkboxes {
             items.forEach {
                 CheckBox(
@@ -124,22 +71,6 @@ fun CheckBoxGroup(
                         }
                     },
                     enabled = enabled,
-                    labelColor = labelColor,
-                    descriptionColor = descriptionColor,
-                    idleColor = idleColor,
-                    checkedColor = checkedColor,
-                    focusedColor = focusedColor,
-                    baseColor = baseColor,
-                    labelTextStyle = labelTextStyle,
-                    descriptionTextStyle = descriptionTextStyle,
-                    controlSize = controlSize,
-                    controlRadius = controlRadius,
-                    verticalSpacing = verticalSpacing,
-                    horizontalSpacing = horizontalSpacing,
-                    strokeWidth = strokeWidth,
-                    checkedStrokeWidth = checkedStrokeWidth,
-                    innerCheckBoxPadding = innerCheckBoxPadding,
-                    animationDuration = animationDuration,
                     interactionSource = interactionSource,
                 )
             }
@@ -157,7 +88,7 @@ fun CheckBoxGroup(
  * Чтобы иметь логику управления состоянием checkbox из коробки можно использовать [CheckBoxGroup].
  *
  * @param modifier модификатор
- * @param verticalArrangement расположение элементов по вертикали
+ * @param style стиль компонента
  * @param content содержимое контейнера
  *
  * @see CheckBoxGroup
@@ -166,21 +97,23 @@ fun CheckBoxGroup(
 @Composable
 fun CheckBoxGroupContainer(
     modifier: Modifier = Modifier,
-    verticalArrangement: Arrangement.Vertical,
+    style: CheckBoxGroupStyle = LocalCheckBoxGroupStyle.current,
     content: CheckboxGroupScope.() -> Unit,
 ) {
     val scope = remember { CheckboxGroupScopeImpl() }
-    Column(modifier, verticalArrangement) {
-        scope.content()
-        val rootCheckBoxContent = scope.rootCheckbox
-        if (rootCheckBoxContent != null) {
-            CheckBoxGroupItemScopeImpl.rootCheckBoxContent()
+    Column(modifier, style.verticalArrangement) {
+        CompositionLocalProvider(LocalCheckBoxStyle provides style.checkBoxStyle) {
+            scope.content()
+            val rootCheckBoxContent = scope.rootCheckbox
+            if (rootCheckBoxContent != null) {
+                CheckBoxGroupItemScopeImpl.rootCheckBoxContent()
+            }
+            scope.checkboxes.forEach {
+                val itemContent = it
+                CheckBoxGroupItemScopeImpl.itemContent()
+            }
+            scope.reset()
         }
-        scope.checkboxes.forEach {
-            val itemContent = it
-            CheckBoxGroupItemScopeImpl.itemContent()
-        }
-        scope.reset()
     }
 }
 

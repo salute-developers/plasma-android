@@ -28,8 +28,9 @@ import androidx.compose.ui.graphics.drawscope.Fill
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.drawscope.translate
 import androidx.compose.ui.state.ToggleableState
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.CheckBoxColors
+import com.sdds.compose.uikit.CheckBoxDimensions
 import com.sdds.compose.uikit.internal.lerp
 import kotlin.math.floor
 
@@ -52,11 +53,7 @@ internal fun CheckBoxControl(
     state: ToggleableState,
     focused: Boolean,
     modifier: Modifier = Modifier,
-    controlSize: Dp,
-    controlRadius: Dp,
-    strokeWidth: Dp,
-    checkedStrokeWidth: Dp,
-    innerCheckBoxPadding: Dp,
+    dimensions: CheckBoxDimensions,
     colors: CheckBoxColors,
     animationDuration: Int,
 ) {
@@ -96,30 +93,30 @@ internal fun CheckBoxControl(
     }
     val checked = state != ToggleableState.Off
     val checkCache = remember { CheckDrawingCache() }
-    val checkColor by colors.baseColor()
-    val boxColor by colors.fillColor(checked)
-    val borderColor by colors.borderColor(checked, focused)
+    val checkColor = colors.baseColor
+    val boxColor = colors.checkedColor
+    val borderColor by colors.controlBorderColor(checked, focused)
     Canvas(
         modifier
             .wrapContentSize(Alignment.Center)
-            .requiredSize(controlSize),
+            .requiredSize(dimensions.controlSize),
     ) {
         drawBox(
             checked = checked,
             focused = focused,
             boxColor = boxColor,
             borderColor = borderColor,
-            radius = controlRadius.toPx(),
-            strokeWidth = floor(if (checked) checkedStrokeWidth.toPx() else strokeWidth.toPx()),
-            padding = innerCheckBoxPadding.roundToPx(),
+            radius = dimensions.controlRadius.toPx(),
+            strokeWidth = floor(if (checked) dimensions.checkedStrokeWidth.toPx() else dimensions.strokeWidth.toPx()),
+            padding = dimensions.innerCheckBoxPadding.roundToPx(),
         )
         drawCheck(
             checkColor = checkColor,
             checkFraction = checkDrawFraction,
             crossCenterGravitation = checkCenterGravitationShiftFraction,
-            strokeWidthPx = floor(strokeWidth.toPx()),
+            strokeWidthPx = floor(dimensions.strokeWidth.toPx()),
             drawingCache = checkCache,
-            padding = innerCheckBoxPadding.toPx(),
+            padding = dimensions.innerCheckBoxPadding.toPx(),
         )
     }
 }
