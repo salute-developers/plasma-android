@@ -23,11 +23,10 @@ internal fun BasicButtonScreen() {
 
     ComponentScaffold(
         component = {
-            SandboxBasicButton(
+            Button(
                 label = buttonState.buttonLabel,
                 value = buttonState.buttonValue,
-                style = buttonState.style,
-                size = buttonState.size,
+                style = buttonState.basicButtonStyle(),
                 enabled = buttonState.enabled,
                 loading = buttonState.loading,
                 spacing = buttonState.spacing,

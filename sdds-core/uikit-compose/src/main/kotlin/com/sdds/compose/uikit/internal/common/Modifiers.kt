@@ -7,9 +7,11 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.runtime.Stable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.draw.drawWithContent
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
@@ -61,6 +63,49 @@ internal fun Modifier.enable(
     return this
         .then(modifier)
         .graphicsLayer { alpha = if (enabled) enabledAlpha else disabledAlpha }
+}
+
+/**
+ * Модификатор, позволяющий применять форму, бэкграунд и кликабельность
+ * Полезен при создании таких компонентов, как chip, badge и т.д.
+ *
+ * @param shape форма компонента
+ * @param backgroundColor цвет бэкграунда
+ * @param indication индикация нажатия
+ * @param onClick обработчик нажатий
+ * @param role тип элемента для Accesabillity
+ * @param enabled включен ли компонент
+ * @param enabledAlpha альфа в состоянии [enabled] == true
+ * @param disabledAlpha альфа в состоянии [enabled] == true
+ * @param interactionSource источник взаимодействий
+ */
+@Stable
+internal fun Modifier.surface(
+    shape: CornerBasedShape = RoundedCornerShape(25),
+    backgroundColor: () -> Brush = { SolidColor(Color.Transparent) },
+    alpha: (Boolean) -> Float = { enable: Boolean -> if (enable) 1f else 0f },
+    indication: Indication? = null,
+    onClick: (() -> Unit)? = null,
+    role: Role? = null,
+    enabled: Boolean = true,
+    interactionSource: MutableInteractionSource,
+): Modifier {
+    val clickableModifier = onClick?.let {
+        Modifier.clickable(
+            interactionSource = interactionSource,
+            indication = indication,
+            enabled = enabled,
+            role = role,
+            onClick = onClick,
+        )
+    } ?: Modifier
+
+    return clip(shape)
+        .then(clickableModifier)
+        .graphicsLayer { this.alpha = alpha(enabled) }
+        .drawBehind {
+            drawRect(backgroundColor())
+        }
 }
 
 /**

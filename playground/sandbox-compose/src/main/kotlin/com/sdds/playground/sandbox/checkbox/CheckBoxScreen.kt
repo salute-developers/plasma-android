@@ -5,11 +5,12 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.sdds.compose.uikit.CheckBox
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.core.ComponentScaffold
 
 /**
- * Экран с [SandboxCheckBox]
+ * Экран с [CheckBox]
  */
 @Composable
 internal fun CheckBoxScreen() {
@@ -19,11 +20,11 @@ internal fun CheckBoxScreen() {
 
     ComponentScaffold(
         component = {
-            SandboxCheckBox(
+            CheckBox(
+                style = checkboxState.checkBoxStyle(),
                 state = checkboxState.state,
                 label = checkboxState.label,
                 description = checkboxState.description,
-                size = checkboxState.size,
                 enabled = checkboxState.enabled,
             )
         },

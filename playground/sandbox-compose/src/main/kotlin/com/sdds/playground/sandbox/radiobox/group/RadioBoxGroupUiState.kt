@@ -1,7 +1,9 @@
 package com.sdds.playground.sandbox.radiobox.group
 
+import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.RadioBoxGroup
-import com.sdds.playground.sandbox.radiobox.SandboxRadioBox
+import com.sdds.compose.uikit.RadioBoxGroupStyle
+import com.sdds.playground.sandbox.radiobox.Size
 
 /**
  * Состояния компонента RadioBoxGroup
@@ -10,7 +12,7 @@ import com.sdds.playground.sandbox.radiobox.SandboxRadioBox
  * @property current текущий выбранный элемент
  */
 internal data class RadioBoxGroupUiState(
-    val size: SandboxRadioBox.Size = SandboxRadioBox.Size.M,
+    val size: Size = Size.M,
     val items: List<RadioBoxGroup.Item> = ITEMS,
     val current: Any? = items.first().id,
 ) {
@@ -22,3 +24,10 @@ internal data class RadioBoxGroupUiState(
         )
     }
 }
+
+@Composable
+internal fun RadioBoxGroupUiState.radioBoxGroupStyle(): RadioBoxGroupStyle =
+    when (size) {
+        Size.M -> RadioBoxGroup.M.style()
+        Size.S -> RadioBoxGroup.S.style()
+    }

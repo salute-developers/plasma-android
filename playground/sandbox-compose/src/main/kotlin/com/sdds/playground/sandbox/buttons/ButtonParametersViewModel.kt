@@ -53,13 +53,13 @@ internal class ButtonParametersViewModel(
         _buttonSate.value = ButtonUiState()
     }
 
-    private fun updateStyle(style: SandboxButton.Style) {
+    private fun updateStyle(style: Style) {
         _buttonSate.value = _buttonSate.value.copy(
             style = style,
         )
     }
 
-    private fun updateSize(size: SandboxButton.Size) {
+    private fun updateSize(size: Size) {
         _buttonSate.value = _buttonSate.value.copy(
             size = size,
         )
@@ -71,7 +71,7 @@ internal class ButtonParametersViewModel(
         )
     }
 
-    private fun updateShape(shape: SandboxButton.IconButtonShape) {
+    private fun updateShape(shape: IconButtonShape) {
         _buttonSate.value = _buttonSate.value.copy(
             shape = shape,
         )

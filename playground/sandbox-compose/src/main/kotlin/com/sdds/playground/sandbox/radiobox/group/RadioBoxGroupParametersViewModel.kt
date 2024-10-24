@@ -5,7 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.sdds.playground.sandbox.core.PropertiesOwner
 import com.sdds.playground.sandbox.core.Property
 import com.sdds.playground.sandbox.core.enumProperty
-import com.sdds.playground.sandbox.radiobox.SandboxRadioBox
+import com.sdds.playground.sandbox.radiobox.Size
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -53,7 +53,7 @@ internal class RadioBoxGroupParametersViewModel : ViewModel(), PropertiesOwner {
         )
     }
 
-    private fun updateSize(size: SandboxRadioBox.Size) {
+    private fun updateSize(size: Size) {
         _radioBoxGroupUiState.value = _radioBoxGroupUiState.value.copy(
             size = size,
         )

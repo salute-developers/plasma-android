@@ -2,7 +2,7 @@ package com.sdds.playground.sandbox.checkbox.group
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.sdds.playground.sandbox.checkbox.SandboxCheckBox
+import com.sdds.playground.sandbox.checkbox.Size
 import com.sdds.playground.sandbox.checkbox.group.CheckBoxGroupUiState.Companion.ROOT_ITEM
 import com.sdds.playground.sandbox.core.PropertiesOwner
 import com.sdds.playground.sandbox.core.Property
@@ -42,7 +42,7 @@ internal class CheckBoxGroupParametersViewModel : ViewModel(), PropertiesOwner {
         _checkboxGroupState.value = _checkboxGroupState.value.copy(rootItem = rootItem)
     }
 
-    private fun updateSize(size: SandboxCheckBox.Size) {
+    private fun updateSize(size: Size) {
         _checkboxGroupState.value = _checkboxGroupState.value.copy(size = size)
     }
 

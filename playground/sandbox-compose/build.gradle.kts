@@ -17,6 +17,15 @@ android {
     testOptions {
         unitTests.isIncludeAndroidResources = true
     }
+    kotlinOptions {
+        //comment following lines (freeCompilerArgs) to disable compose-metrics
+        freeCompilerArgs += listOf(
+            "-P",
+            "plugin:androidx.compose.compiler.plugins.kotlin:metricsDestination=" + project.buildDir.absolutePath + "/compose_metrics")
+        freeCompilerArgs += listOf(
+            "-P",
+            "plugin:androidx.compose.compiler.plugins.kotlin:reportsDestination="  + project.buildDir.absolutePath + "/compose_metrics")
+    }
 }
 
 themeBuilder {

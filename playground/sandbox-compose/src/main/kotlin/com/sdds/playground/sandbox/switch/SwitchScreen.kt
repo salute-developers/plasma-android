@@ -7,11 +7,12 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.sdds.compose.uikit.Switch
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.core.ComponentScaffold
 
 /**
- * Экран с [SandboxSwitch]
+ * Экран с [Switch]
  */
 @Composable
 internal fun SwitchScreen() {
@@ -21,12 +22,13 @@ internal fun SwitchScreen() {
 
     ComponentScaffold(
         component = {
-            SandboxSwitch(
+            Switch(
                 active = switchState.active,
                 label = switchState.label,
                 description = switchState.description,
                 enabled = switchState.enabled,
                 modifier = Modifier.fillMaxWidth(),
+                onActiveChanged = { switchViewModel.updateActive(it) },
             )
         },
         propertiesOwner = switchViewModel,

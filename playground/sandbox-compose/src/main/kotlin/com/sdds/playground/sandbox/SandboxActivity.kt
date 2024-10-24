@@ -32,13 +32,15 @@ import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
+import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.Text
 import com.sdds.playground.sandbox.avatar.AvatarGroupScreen
 import com.sdds.playground.sandbox.avatar.AvatarScreen
 import com.sdds.playground.sandbox.buttons.BasicButtonScreen
-import com.sdds.playground.sandbox.buttons.IconButtonsScreen
-import com.sdds.playground.sandbox.buttons.SandboxButton
-import com.sdds.playground.sandbox.buttons.SandboxIconButton
+import com.sdds.playground.sandbox.buttons.Clear
+import com.sdds.playground.sandbox.buttons.IconButton
+import com.sdds.playground.sandbox.buttons.IconButtonScreen
+import com.sdds.playground.sandbox.buttons.Pilled
 import com.sdds.playground.sandbox.checkbox.CheckBoxScreen
 import com.sdds.playground.sandbox.checkbox.group.CheckBoxGroupScreen
 import com.sdds.playground.sandbox.chip.ChipScreen
@@ -71,7 +73,7 @@ private sealed class MenuItem(val title: String, val screen: @Composable () -> U
     object Avatar : MenuItem("Avatar", { AvatarScreen() })
     object AvatarGroup : MenuItem("AvatarGroup", { AvatarGroupScreen() })
     object Buttons : MenuItem("Button", { BasicButtonScreen() })
-    object IconButtons : MenuItem("IconButton", { IconButtonsScreen() })
+    object IconButtons : MenuItem("IconButton", { IconButtonScreen() })
     object CheckBox : MenuItem("CheckBox", { CheckBoxScreen() })
     object CheckBoxGroup : MenuItem("CheckBoxGroup", { CheckBoxGroupScreen() })
     object RadioBox : MenuItem("RadioBox", { RadioBoxScreen() })
@@ -184,10 +186,9 @@ private fun TopBar(
         },
         elevation = 1.dp,
         navigationIcon = {
-            SandboxIconButton(
+            IconButton(
+                style = IconButton.M.Pilled.Clear.style(),
                 icon = painterResource(id = Icons.ic_menu_24),
-                style = SandboxButton.Style.Clear,
-                shape = SandboxButton.IconButtonShape.Circle,
                 onClick = onNavigationClick,
             )
         },
