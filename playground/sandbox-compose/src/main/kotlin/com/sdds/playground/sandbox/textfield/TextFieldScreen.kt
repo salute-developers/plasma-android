@@ -23,10 +23,9 @@ import com.sdds.playground.sandbox.buttons.BasicButton
 import com.sdds.playground.sandbox.buttons.Default
 import com.sdds.playground.sandbox.chip.SandboxEmbeddedChip
 import com.sdds.playground.sandbox.core.ComponentScaffold
-import com.sdds.playground.sandbox.progress.SandboxProgress
 
 /**
- * Экран с компонентом [SandboxProgress]
+ * Экран с компонентом [SandboxTextField]
  */
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable

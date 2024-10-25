@@ -1,11 +1,11 @@
 package com.sdds.playground.sandbox
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
-import com.sdds.playground.sandbox.progress.SandboxProgressPreviewDefault
-import com.sdds.playground.sandbox.progress.SandboxProgressPreviewDefaultDark
-import com.sdds.playground.sandbox.progress.SandboxProgressPreviewNegative
-import com.sdds.playground.sandbox.progress.SandboxProgressPreviewPositive
-import com.sdds.playground.sandbox.progress.SandboxProgressPreviewWarning
+import com.sdds.playground.sandbox.progress.ProgressPreviewDefault
+import com.sdds.playground.sandbox.progress.ProgressPreviewDefaultDark
+import com.sdds.playground.sandbox.progress.ProgressPreviewNegative
+import com.sdds.playground.sandbox.progress.ProgressPreviewPositive
+import com.sdds.playground.sandbox.progress.ProgressPreviewWarning
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
@@ -23,35 +23,35 @@ class ComposeProgressBarScreenshotTest : RoborazziConfig() {
     @Test
     fun testProgressBarPreviewDefault() {
         composeTestRule.setContent {
-            SandboxProgressPreviewDefault()
+            ProgressPreviewDefault()
         }
     }
 
     @Test
     fun testProgressBarNegative() {
         composeTestRule.setContent {
-            SandboxProgressPreviewNegative()
+            ProgressPreviewNegative()
         }
     }
 
     @Test
     fun testProgressBarWarning() {
         composeTestRule.setContent {
-            SandboxProgressPreviewWarning()
+            ProgressPreviewWarning()
         }
     }
 
     @Test
     fun testProgressBarPositive() {
         composeTestRule.setContent {
-            SandboxProgressPreviewPositive()
+            ProgressPreviewPositive()
         }
     }
 
     @Test
     fun testProgressBarDefaultDark() {
         composeTestRule.setContent {
-            SandboxProgressPreviewDefaultDark()
+            ProgressPreviewDefaultDark()
         }
     }
 }

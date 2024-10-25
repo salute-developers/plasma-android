@@ -14,7 +14,7 @@ import kotlinx.coroutines.flow.mapLatest
 import kotlinx.coroutines.flow.stateIn
 
 /**
- * ViewModel компонента [SandboxProgress]
+ * ViewModel компонента Progress
  */
 internal class ProgressViewModel : ViewModel(), PropertiesOwner {
 
@@ -42,7 +42,7 @@ internal class ProgressViewModel : ViewModel(), PropertiesOwner {
         _progressUiState.value = ProgressUiState()
     }
 
-    private fun updateStyle(style: SandboxProgress.Style) {
+    private fun updateStyle(style: Style) {
         _progressUiState.value = _progressUiState.value.copy(
             style = style,
         )

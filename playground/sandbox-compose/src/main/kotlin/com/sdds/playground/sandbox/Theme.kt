@@ -15,9 +15,11 @@ import com.sdds.compose.uikit.LocalButtonStyle
 import com.sdds.compose.uikit.LocalCheckBoxGroupStyle
 import com.sdds.compose.uikit.LocalCheckBoxStyle
 import com.sdds.compose.uikit.LocalIconButtonStyle
+import com.sdds.compose.uikit.LocalProgressBarStyle
 import com.sdds.compose.uikit.LocalRadioBoxGroupStyle
 import com.sdds.compose.uikit.LocalRadioBoxStyle
 import com.sdds.compose.uikit.LocalSwitchStyle
+import com.sdds.compose.uikit.ProgressBar
 import com.sdds.compose.uikit.RadioBox
 import com.sdds.compose.uikit.RadioBoxGroup
 import com.sdds.compose.uikit.Switch
@@ -26,6 +28,7 @@ import com.sdds.playground.sandbox.buttons.Default
 import com.sdds.playground.sandbox.buttons.IconButton
 import com.sdds.playground.sandbox.checkbox.M
 import com.sdds.playground.sandbox.checkbox.group.M
+import com.sdds.playground.sandbox.progress.Default
 import com.sdds.playground.sandbox.radiobox.M
 import com.sdds.playground.sandbox.radiobox.group.M
 import com.sdds.playground.sandbox.switch.M
@@ -78,6 +81,7 @@ fun SandboxTheme(
                 LocalCheckBoxGroupStyle provides CheckBoxGroup.M.style(),
                 LocalRadioBoxStyle provides RadioBox.M.style(),
                 LocalRadioBoxGroupStyle provides RadioBoxGroup.M.style(),
+                LocalProgressBarStyle provides ProgressBar.Default.style(),
                 content = content,
             )
         },
