@@ -1,7 +1,6 @@
 package com.sdds.compose.uikit
 
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.NonRestartableComposable
@@ -10,7 +9,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.BlendMode
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.drawOutline
@@ -18,7 +16,6 @@ import androidx.compose.ui.graphics.drawscope.withTransform
 import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.layout.MeasurePolicy
 import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.Dp
 import com.sdds.compose.uikit.internal.AvatarDefaults
@@ -61,30 +58,25 @@ interface AvatarGroupItemScope
 /**
  * Контейнер для группы аватаров
  * @param modifier модификатор
- * @param itemShape форма аватаров
- * @param itemTextStyle стиль текста аватаров
- * @param itemOffset смещение аватаров относительно друг друга
- * @param itemSpacing расстояние между аватарами (влияет на толщину выреза аватара)
+ * @param style стиль компонента
  * @param threshold максимальное кол-во отображаемых аватаров
  * @param content контент
  */
 @Composable
 fun AvatarGroup(
     modifier: Modifier = Modifier,
-    itemShape: Shape = RoundedCornerShape(50),
-    itemTextStyle: TextStyle = LocalTextStyle.current,
-    itemOffset: Dp = AvatarDefaults.DefaultItemOffset,
-    itemSpacing: Dp = AvatarDefaults.DefaultItemSpacing,
+    style: AvatarGroupStyle = LocalAvatarGroupStyle.current,
     threshold: Int = AvatarDefaults.DefaultThreshold,
     content: AvatarGroupScope.() -> Unit,
 ) {
-    val policy = remember(itemOffset, itemSpacing) { avatarGroupMeasurePolicy(itemOffset, itemSpacing) }
+    val dimensions = style.dimensions
+    val policy = remember(dimensions) {
+        avatarGroupMeasurePolicy(dimensions.itemOffset, dimensions.itemSpacing)
+    }
     val scope = remember(threshold) { AvatarGroupScopeImpl(threshold) }
     CompositionLocalProvider(
         LocalAvatarGroupStatusEnabled provides false,
-        LocalAvatarGroupShape provides itemShape,
         LocalAvatarGroupActionEnabled provides false,
-        LocalTextStyle provides itemTextStyle,
     ) {
         Layout(
             modifier = modifier,
@@ -93,8 +85,8 @@ fun AvatarGroup(
                 scope.avatars.forEachIndexed { index, avatar ->
                     AvatarContainer(
                         index = index,
-                        offset = itemOffset.floatPx,
-                        shape = itemShape,
+                        offset = dimensions.itemOffset.floatPx,
+                        shape = style.avatarStyle.shape,
                         clipOut = index < scope.avatars.size - 1 || scope.counter != null,
                         content = avatar.content,
                     )
@@ -114,25 +106,24 @@ fun AvatarGroup(
 /**
  * @param displayCount значение счетчиков
  * @param modifier модификатор
- * @param textStyle [TextStyle] стиль текста счетчика
- * @param textBrush [Brush] для текста счетчика
  */
 @Composable
 @NonRestartableComposable
 fun AvatarGroupItemScope.AvatarCounter(
     displayCount: Int,
     modifier: Modifier = Modifier,
-    textStyle: TextStyle = LocalTextStyle.current,
-    textBrush: Brush = AvatarDefaults.defaultBrush,
 ) {
     Avatar(
         modifier = modifier,
         painter = null,
         placeholder = Avatar.Placeholder.Text("+$displayCount"),
-        textStyle = textStyle,
-        textBrush = textBrush,
     )
 }
+
+/**
+ * Вспомогательный объект для описания API и стиля компонента [AvatarGroup]
+ */
+object AvatarGroup
 
 /**
  * Провайдер доступности статуса аватара
@@ -143,11 +134,6 @@ internal val LocalAvatarGroupStatusEnabled = compositionLocalOf { true }
  * Провайдер доступности иконки-действия аватара
  */
 internal val LocalAvatarGroupActionEnabled = compositionLocalOf { true }
-
-/**
- * Провайдер формы аватара
- */
-internal val LocalAvatarGroupShape = compositionLocalOf<Shape?> { null }
 
 @Composable
 private fun AvatarContainer(

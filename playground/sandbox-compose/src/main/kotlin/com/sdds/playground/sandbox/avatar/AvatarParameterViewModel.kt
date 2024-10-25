@@ -1,6 +1,5 @@
 package com.sdds.playground.sandbox.avatar
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
@@ -19,7 +18,7 @@ import kotlinx.coroutines.flow.stateIn
 /**
  * ViewModel для экранов с компонентом Avatar
  */
-internal class SandboxAvatarParameterViewModel(
+internal class AvatarParameterViewModel(
     private val groupMode: Boolean = false,
 ) : ViewModel(), PropertiesOwner {
 
@@ -34,7 +33,7 @@ internal class SandboxAvatarParameterViewModel(
     @OptIn(ExperimentalCoroutinesApi::class)
     override val properties: StateFlow<List<Property<*>>> =
         _avatarUiState
-            .mapLatest { state -> state.toProps() }
+            .mapLatest { state -> if (groupMode) state.toGroupProps() else state.toProps() }
             .stateIn(viewModelScope, SharingStarted.Lazily, emptyList())
 
     override fun resetToDefault() {
@@ -45,11 +44,11 @@ internal class SandboxAvatarParameterViewModel(
         _avatarUiState.value = _avatarUiState.value.copy(exampleMode = type)
     }
 
-    private fun updateSize(size: SandboxAvatar.Size) {
+    private fun updateSize(size: Size) {
         _avatarUiState.value = _avatarUiState.value.copy(size = size)
     }
 
-    private fun updateStatus(status: SandboxAvatar.Status) {
+    private fun updateStatus(status: Avatar.Status) {
         _avatarUiState.value = _avatarUiState.value.copy(status = status)
     }
 
@@ -71,64 +70,49 @@ internal class SandboxAvatarParameterViewModel(
         _avatarUiState.value = _avatarUiState.value.copy(threshold = threshold)
     }
 
+    private fun AvatarUiState.toGroupProps(): List<Property<*>> {
+        return listOf(
+            Property.StringProperty(
+                name = "placeholder",
+                value = placeholder?.name.orEmpty(),
+                onApply = { updatePlaceholder(it) },
+            ),
+            Property.IntProperty(
+                name = "threshold",
+                value = threshold,
+                onApply = { updateThreshold(it) },
+            ),
+        )
+    }
+
     private fun AvatarUiState.toProps(): List<Property<*>> {
-        return mutableListOf<Property<*>>().apply {
-            if (!groupMode) {
-                add(
-                    enumProperty(
-                        name = "exampleMode",
-                        value = exampleMode,
-                        onApply = { updateDisplayType(it) },
-                    ),
-                )
-            }
-
-            add(
-                enumProperty(
-                    name = "size",
-                    value = this@toProps.size,
-                    onApply = { updateSize(it) },
-                ),
-            )
-
-            if (!groupMode) {
-                add(
-                    enumProperty(
-                        name = "status",
-                        value = status,
-                        onApply = { updateStatus(it) },
-                    ),
-                )
-            }
-
-            add(
-                Property.StringProperty(
-                    name = "placeholder",
-                    value = placeholder?.name.orEmpty(),
-                    onApply = { updatePlaceholder(it) },
-                ),
-            )
-
-            if (!groupMode) {
-                add(
-                    Property.BooleanProperty(
-                        name = "actionEnabled",
-                        value = actionEnabled,
-                        onApply = { updateActionEnabledState(it) },
-                    ),
-                )
-            }
-
-            if (groupMode) {
-                add(
-                    Property.IntProperty(
-                        name = "threshold",
-                        value = threshold,
-                        onApply = { updateThreshold(it) },
-                    ),
-                )
-            }
-        }
+        return listOf(
+            enumProperty(
+                name = "exampleMode",
+                value = exampleMode,
+                onApply = { updateDisplayType(it) },
+            ),
+            enumProperty(
+                name = "size",
+                value = size,
+                onApply = { updateSize(it) },
+            ),
+            enumProperty(
+                name = "status",
+                value = status,
+                onApply = { updateStatus(it) },
+            ),
+            Property.StringProperty(
+                name = "placeholder",
+                value = placeholder?.name.orEmpty(),
+                onApply = { updatePlaceholder(it) },
+            ),
+            Property.BooleanProperty(
+                name = "actionEnabled",
+                value = actionEnabled,
+                onApply = { updateActionEnabledState(it) },
+            ),
+        )
     }
 
     companion object {
@@ -138,16 +122,15 @@ internal class SandboxAvatarParameterViewModel(
 }
 
 /**
- * Фабрика [SandboxAvatarParameterViewModel]
+ * Фабрика [AvatarParameterViewModel]
  * @param groupMode режим группы аватаров
  */
-internal class SandboxAvatarParameterViewModelFactory(
+internal class AvatarParameterViewModelFactory(
     private val groupMode: Boolean = false,
 ) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        Log.e("SandboxAvatarParameterViewModel", "create: groupMode = $groupMode")
-        return SandboxAvatarParameterViewModel(groupMode = groupMode) as T
+        return AvatarParameterViewModel(groupMode = groupMode) as T
     }
 }

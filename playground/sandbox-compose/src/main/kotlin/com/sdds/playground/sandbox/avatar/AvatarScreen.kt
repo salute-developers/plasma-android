@@ -9,27 +9,30 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
+import com.sdds.compose.uikit.Avatar
 import com.sdds.compose.uikit.Image
+import com.sdds.compose.uikit.avatar
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.core.ComponentScaffold
 import com.sdds.icons.R.drawable as Icons
 
 /**
- * Экран с [SandboxAvatar]
+ * Экран с [Avatar]
  */
 @Composable
 internal fun AvatarScreen() {
-    val avatarViewModel: SandboxAvatarParameterViewModel = viewModel(
-        factory = SandboxAvatarParameterViewModelFactory(),
+    val avatarViewModel: AvatarParameterViewModel = viewModel(
+        factory = AvatarParameterViewModelFactory(),
         key = "Avatar",
     )
     val avatarUiState by avatarViewModel.avatarUiState.collectAsState()
 
     ComponentScaffold(
         component = {
+            val avatarStyle = avatarUiState.avatarStyle()
             val avatarModifier = Modifier.avatar(
-                size = avatarUiState.size,
+                style = avatarStyle,
                 status = avatarUiState.status,
                 action = painterResource(id = Icons.ic_sber_24),
                 actionEnabled = avatarUiState.actionEnabled,
@@ -50,8 +53,9 @@ internal fun AvatarScreen() {
                     contentDescription = "AsyncAvatar",
                 )
 
-                ExampleMode.Placeholder -> SandboxAvatar(
-                    size = avatarUiState.size,
+                ExampleMode.Placeholder -> Avatar(
+                    style = avatarStyle,
+                    painter = null,
                     status = avatarUiState.status,
                     action = if (avatarUiState.actionEnabled) painterResource(id = Icons.ic_sber_24) else null,
                     actionEnabled = avatarUiState.actionEnabled,

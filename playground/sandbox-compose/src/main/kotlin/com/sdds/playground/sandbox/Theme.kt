@@ -9,8 +9,12 @@ import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
+import com.sdds.compose.uikit.Avatar
+import com.sdds.compose.uikit.AvatarGroup
 import com.sdds.compose.uikit.CheckBox
 import com.sdds.compose.uikit.CheckBoxGroup
+import com.sdds.compose.uikit.LocalAvatarGroupStyle
+import com.sdds.compose.uikit.LocalAvatarStyle
 import com.sdds.compose.uikit.LocalButtonStyle
 import com.sdds.compose.uikit.LocalCheckBoxGroupStyle
 import com.sdds.compose.uikit.LocalCheckBoxStyle
@@ -23,6 +27,8 @@ import com.sdds.compose.uikit.ProgressBar
 import com.sdds.compose.uikit.RadioBox
 import com.sdds.compose.uikit.RadioBoxGroup
 import com.sdds.compose.uikit.Switch
+import com.sdds.playground.sandbox.avatar.M
+import com.sdds.playground.sandbox.avatar.S
 import com.sdds.playground.sandbox.buttons.BasicButton
 import com.sdds.playground.sandbox.buttons.Default
 import com.sdds.playground.sandbox.buttons.IconButton
@@ -82,6 +88,8 @@ fun SandboxTheme(
                 LocalRadioBoxStyle provides RadioBox.M.style(),
                 LocalRadioBoxGroupStyle provides RadioBoxGroup.M.style(),
                 LocalProgressBarStyle provides ProgressBar.Default.style(),
+                LocalAvatarStyle provides Avatar.M.style(),
+                LocalAvatarGroupStyle provides AvatarGroup.S.style(),
                 content = content,
             )
         },
