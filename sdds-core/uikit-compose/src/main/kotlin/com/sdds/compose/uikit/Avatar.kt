@@ -1,6 +1,5 @@
 package com.sdds.compose.uikit
 
-import android.annotation.SuppressLint
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.size
@@ -188,7 +187,7 @@ fun Avatar(
  * @param actionEnabled включена ли иконка действия
  * @param placeholder текст-заглушка
  */
-@SuppressLint("ComposableModifierFactory")
+@Suppress("ComposableModifierFactory")
 @OptIn(ExperimentalTextApi::class)
 @Composable
 fun Modifier.avatar(

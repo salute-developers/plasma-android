@@ -19,14 +19,19 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.Chip
 import com.sdds.compose.uikit.CoreTextField.DotBadge
 import com.sdds.compose.uikit.CoreTextField.HelperTextPosition
 import com.sdds.compose.uikit.CoreTextField.LabelPosition
+import com.sdds.compose.uikit.EmbeddedChip
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.TextField
 import com.sdds.compose.uikit.prefixSuffixTransformation
 import com.sdds.playground.sandbox.SandboxTheme
-import com.sdds.playground.sandbox.chip.SandboxEmbeddedChip
+import com.sdds.playground.sandbox.chip.Default
+import com.sdds.playground.sandbox.chip.M
+import com.sdds.playground.sandbox.chip.Secondary
+import com.sdds.playground.sandbox.chip.Xs
 import com.sdds.playground.sandbox.textfield.SandboxTextField.InputState
 import com.sdds.playground.sandbox.textfield.SandboxTextField.Size
 import com.sdds.playground.sandbox.textfield.SandboxTextField.State
@@ -280,9 +285,9 @@ internal fun SandboxTextFieldPreview() {
             size = Size.S,
             dotBadgePosition = DotBadge.Position.End,
             chips = {
-                SandboxEmbeddedChip(
+                Chip(
                     label = "Chip",
-                    size = SandboxEmbeddedChip.Size.M,
+                    style = EmbeddedChip.M.Default.style(),
                 )
             },
         )
@@ -306,10 +311,9 @@ internal fun SandboxTextFieldPreviewXS() {
             onValueChange = {},
             enabled = true,
             chips = {
-                SandboxEmbeddedChip(
+                Chip(
                     label = "Chip",
-                    size = SandboxEmbeddedChip.Size.XS,
-                    state = SandboxEmbeddedChip.State.Secondary,
+                    style = EmbeddedChip.Xs.Secondary.style(),
                     endContent = {
                         Icon(
                             painter = painterResource(id = com.sdds.icons.R.drawable.ic_close_16),
@@ -317,10 +321,9 @@ internal fun SandboxTextFieldPreviewXS() {
                         )
                     },
                 )
-                SandboxEmbeddedChip(
+                Chip(
                     label = "Chip",
-                    size = SandboxEmbeddedChip.Size.XS,
-                    state = SandboxEmbeddedChip.State.Secondary,
+                    style = EmbeddedChip.Xs.Secondary.style(),
                     endContent = {
                         Icon(
                             painter = painterResource(id = com.sdds.icons.R.drawable.ic_close_16),
@@ -603,10 +606,9 @@ internal fun SandboxTextFieldPreviewMDotBadgeInside() {
                 )
             },
             chips = {
-                SandboxEmbeddedChip(
+                Chip(
                     label = "Chip",
-                    size = SandboxEmbeddedChip.Size.M,
-                    state = SandboxEmbeddedChip.State.Secondary,
+                    style = EmbeddedChip.M.Secondary.style(),
                     endContent = {
                         Icon(
                             painter = painterResource(id = com.sdds.icons.R.drawable.ic_close_24),
@@ -614,10 +616,9 @@ internal fun SandboxTextFieldPreviewMDotBadgeInside() {
                         )
                     },
                 )
-                SandboxEmbeddedChip(
+                Chip(
                     label = "Chip",
-                    size = SandboxEmbeddedChip.Size.M,
-                    state = SandboxEmbeddedChip.State.Secondary,
+                    style = EmbeddedChip.M.Secondary.style(),
                     endContent = {
                         Icon(
                             painter = painterResource(id = com.sdds.icons.R.drawable.ic_close_24),
@@ -655,10 +656,9 @@ internal fun SandboxTextFieldPreviewXsChipsInside() {
                 )
             },
             chips = {
-                SandboxEmbeddedChip(
+                Chip(
                     label = "Chip",
-                    size = SandboxEmbeddedChip.Size.XS,
-                    state = SandboxEmbeddedChip.State.Secondary,
+                    style = EmbeddedChip.Xs.Secondary.style(),
                     endContent = {
                         Icon(
                             painter = painterResource(id = com.sdds.icons.R.drawable.ic_close_16),
@@ -666,10 +666,9 @@ internal fun SandboxTextFieldPreviewXsChipsInside() {
                         )
                     },
                 )
-                SandboxEmbeddedChip(
+                Chip(
                     label = "Chip",
-                    size = SandboxEmbeddedChip.Size.XS,
-                    state = SandboxEmbeddedChip.State.Secondary,
+                    style = EmbeddedChip.Xs.Secondary.style(),
                     endContent = {
                         Icon(
                             painter = painterResource(id = com.sdds.icons.R.drawable.ic_close_16),

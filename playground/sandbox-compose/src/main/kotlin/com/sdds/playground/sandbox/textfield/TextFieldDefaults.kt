@@ -12,12 +12,17 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.ChipStyle
 import com.sdds.compose.uikit.CoreTextField
 import com.sdds.compose.uikit.CoreTextField.HelperTextPosition
 import com.sdds.compose.uikit.CoreTextField.LabelPosition
+import com.sdds.compose.uikit.EmbeddedChip
 import com.sdds.compose.uikit.ScrollBarConfig
 import com.sdds.compose.uikit.adjustBy
-import com.sdds.playground.sandbox.chip.SandboxEmbeddedChip
+import com.sdds.playground.sandbox.chip.L
+import com.sdds.playground.sandbox.chip.M
+import com.sdds.playground.sandbox.chip.S
+import com.sdds.playground.sandbox.chip.Xs
 import com.sdds.playground.sandbox.textfield.SandboxTextField.InputState
 import com.sdds.playground.sandbox.tokens.compose.SddsServTheme
 
@@ -335,13 +340,14 @@ internal object TextFieldDefaults {
         }
     }
 
-    fun chipSize(size: SandboxTextField.Size): SandboxEmbeddedChip.Size {
+    @Composable
+    fun chipStyle(size: SandboxTextField.Size): ChipStyle {
         return when (size) {
-            SandboxTextField.Size.L -> SandboxEmbeddedChip.Size.L
-            SandboxTextField.Size.M -> SandboxEmbeddedChip.Size.M
-            SandboxTextField.Size.S -> SandboxEmbeddedChip.Size.S
-            SandboxTextField.Size.XS -> SandboxEmbeddedChip.Size.XS
-        }
+            SandboxTextField.Size.L -> EmbeddedChip.L
+            SandboxTextField.Size.M -> EmbeddedChip.M
+            SandboxTextField.Size.S -> EmbeddedChip.S
+            SandboxTextField.Size.XS -> EmbeddedChip.Xs
+        }.style()
     }
 
     @Composable
@@ -354,13 +360,10 @@ internal object TextFieldDefaults {
         }
     }
 
+    // Нужно удалить. Научить TextField принимать размер чипа из стиля.
+    @Composable
     fun chipHeight(size: SandboxTextField.Size): Dp {
-        return when (size) {
-            SandboxTextField.Size.L -> SandboxEmbeddedChip.Size.L.height
-            SandboxTextField.Size.M -> SandboxEmbeddedChip.Size.M.height
-            SandboxTextField.Size.S -> SandboxEmbeddedChip.Size.S.height
-            SandboxTextField.Size.XS -> SandboxEmbeddedChip.Size.XS.height
-        }
+        return chipStyle(size = size).dimensions.height
     }
 
     fun boxMinHeight(size: SandboxTextField.Size): Dp {

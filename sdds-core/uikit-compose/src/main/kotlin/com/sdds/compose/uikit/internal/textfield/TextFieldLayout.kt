@@ -289,8 +289,6 @@ private fun TextAreaContent(
         content = {
             if (chips != null) {
                 ChipGroup(
-                    horizontalSpacing = paddings.chipsSpacing,
-                    verticalSpacing = paddings.chipsSpacing,
                     overflowMode = ChipGroup.OverflowMode.Wrap,
                 ) {
                     chips.invoke()
@@ -334,8 +332,6 @@ private fun TextFieldContent(
                 ChipGroup(
                     modifier = Modifier
                         .padding(end = paddings.boxPaddingStart + paddings.chipsSpacing),
-                    horizontalSpacing = paddings.chipsSpacing,
-                    verticalSpacing = paddings.chipsSpacing,
                     overflowMode = ChipGroup.OverflowMode.Unlimited,
                 ) {
                     chips.invoke()

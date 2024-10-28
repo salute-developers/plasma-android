@@ -6,6 +6,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.sdds.compose.uikit.Chip
 import com.sdds.compose.uikit.Icon
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.core.ComponentScaffold
@@ -18,11 +19,9 @@ internal fun ChipScreen() {
 
     ComponentScaffold(
         component = {
-            SandboxChip(
+            Chip(
                 onClick = getOnClick(chipUiState.isClickable),
-                state = chipUiState.state,
-                size = chipUiState.size,
-                shape = chipUiState.shape,
+                style = chipUiState.chipStyle(),
                 label = chipUiState.label,
                 enabled = chipUiState.enabled,
                 startContent = startContent(chipUiState.hasStartIcon),

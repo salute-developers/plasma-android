@@ -4,10 +4,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
+import com.sdds.compose.uikit.Chip
 import com.sdds.compose.uikit.CoreTextField
 import com.sdds.compose.uikit.Icon
+import com.sdds.icons.R
 import com.sdds.playground.sandbox.SandboxTheme
-import com.sdds.playground.sandbox.chip.SandboxEmbeddedChip
+import com.sdds.playground.sandbox.chip.L
+import com.sdds.playground.sandbox.chip.S
+import com.sdds.playground.sandbox.chip.Secondary
 
 @Composable
 @Preview(showBackground = true)
@@ -90,10 +94,9 @@ internal fun SandboxTextAreaPreviewS() {
                 )
             },
             chips = {
-                SandboxEmbeddedChip(
+                Chip(
                     label = "Chip",
-                    size = SandboxEmbeddedChip.Size.S,
-                    state = SandboxEmbeddedChip.State.Secondary,
+                    style = Chip.S.Secondary.style(),
                     endContent = {
                         Icon(
                             painter = painterResource(id = com.sdds.icons.R.drawable.ic_close_24),
@@ -101,10 +104,9 @@ internal fun SandboxTextAreaPreviewS() {
                         )
                     },
                 )
-                SandboxEmbeddedChip(
+                Chip(
                     label = "Chip",
-                    size = SandboxEmbeddedChip.Size.S,
-                    state = SandboxEmbeddedChip.State.Secondary,
+                    style = Chip.S.Secondary.style(),
                     endContent = {
                         Icon(
                             painter = painterResource(id = com.sdds.icons.R.drawable.ic_close_24),
@@ -228,10 +230,9 @@ internal fun SandboxTextAreaPreviewFocused() {
                 )
             },
             chips = {
-                SandboxEmbeddedChip(
+                Chip(
                     label = "Chip",
-                    size = SandboxEmbeddedChip.Size.S,
-                    state = SandboxEmbeddedChip.State.Secondary,
+                    style = Chip.S.Secondary.style(),
                     endContent = {
                         Icon(
                             painter = painterResource(id = com.sdds.icons.R.drawable.ic_close_24),
@@ -239,10 +240,9 @@ internal fun SandboxTextAreaPreviewFocused() {
                         )
                     },
                 )
-                SandboxEmbeddedChip(
+                Chip(
                     label = "Chip",
-                    size = SandboxEmbeddedChip.Size.S,
-                    state = SandboxEmbeddedChip.State.Secondary,
+                    style = Chip.S.Secondary.style(),
                     endContent = {
                         Icon(
                             painter = painterResource(id = com.sdds.icons.R.drawable.ic_close_24),
@@ -339,10 +339,9 @@ internal fun SandboxTextAreaPreviewTitleNotDisplayedWithChips() {
             readOnly = true,
             enabled = true,
             chips = {
-                SandboxEmbeddedChip(
+                Chip(
                     label = "Chip",
-                    size = SandboxEmbeddedChip.Size.L,
-                    state = SandboxEmbeddedChip.State.Secondary,
+                    style = Chip.L.Secondary.style(),
                     endContent = {
                         Icon(
                             painter = painterResource(id = com.sdds.icons.R.drawable.ic_close_24),
@@ -350,13 +349,12 @@ internal fun SandboxTextAreaPreviewTitleNotDisplayedWithChips() {
                         )
                     },
                 )
-                SandboxEmbeddedChip(
+                Chip(
                     label = "Chip",
-                    size = SandboxEmbeddedChip.Size.L,
-                    state = SandboxEmbeddedChip.State.Secondary,
+                    style = Chip.L.Secondary.style(),
                     endContent = {
                         Icon(
-                            painter = painterResource(id = com.sdds.icons.R.drawable.ic_close_24),
+                            painter = painterResource(id = R.drawable.ic_close_24),
                             contentDescription = "",
                         )
                     },

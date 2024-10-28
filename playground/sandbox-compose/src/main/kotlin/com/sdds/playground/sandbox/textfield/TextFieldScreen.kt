@@ -16,12 +16,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.sdds.compose.uikit.Button
+import com.sdds.compose.uikit.Chip
 import com.sdds.compose.uikit.Icon
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.buttons.BasicButton
 import com.sdds.playground.sandbox.buttons.Default
-import com.sdds.playground.sandbox.chip.SandboxEmbeddedChip
 import com.sdds.playground.sandbox.core.ComponentScaffold
 
 /**
@@ -111,10 +111,9 @@ private fun ChipsContent(
     onChipClosePressed: ((String) -> Unit)?,
 ) {
     chips?.forEach { chip ->
-        SandboxEmbeddedChip(
+        Chip(
             label = chip,
-            size = TextFieldDefaults.chipSize(size),
-            state = SandboxEmbeddedChip.State.Secondary,
+            style = TextFieldDefaults.chipStyle(size),
             endContent = {
                 Icon(
                     painter = painterResource(id = com.sdds.icons.R.drawable.ic_close_24),

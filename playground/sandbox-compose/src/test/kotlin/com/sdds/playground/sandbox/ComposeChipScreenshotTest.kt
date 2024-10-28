@@ -1,10 +1,10 @@
 package com.sdds.playground.sandbox
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
-import com.sdds.playground.sandbox.chip.SandboxChipPreviewSizeLDefault
-import com.sdds.playground.sandbox.chip.SandboxChipPreviewSizeMAccent
-import com.sdds.playground.sandbox.chip.SandboxChipPreviewSizeSDisabled
-import com.sdds.playground.sandbox.chip.SandboxChipPreviewSizeXsSecondary
+import com.sdds.playground.sandbox.chip.ChipPreviewSizeLDefault
+import com.sdds.playground.sandbox.chip.ChipPreviewSizeMAccent
+import com.sdds.playground.sandbox.chip.ChipPreviewSizeSDisabled
+import com.sdds.playground.sandbox.chip.ChipPreviewSizeXsSecondary
 import org.junit.Ignore
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -24,7 +24,7 @@ class ComposeChipScreenshotTest : RoborazziConfig() {
     @Ignore("Temporarily disabled")
     fun testChipPreviewSizeLDefault() {
         composeTestRule.setContent {
-            SandboxChipPreviewSizeLDefault()
+            ChipPreviewSizeLDefault()
         }
     }
 
@@ -32,7 +32,7 @@ class ComposeChipScreenshotTest : RoborazziConfig() {
     @Ignore("Temporarily disabled")
     fun testChipPreviewSizeXsSecondary() {
         composeTestRule.setContent {
-            SandboxChipPreviewSizeXsSecondary()
+            ChipPreviewSizeXsSecondary()
         }
     }
 
@@ -40,7 +40,7 @@ class ComposeChipScreenshotTest : RoborazziConfig() {
     @Ignore("Temporarily disabled")
     fun testChipPreviewSizeMAccent() {
         composeTestRule.setContent {
-            SandboxChipPreviewSizeMAccent()
+            ChipPreviewSizeMAccent()
         }
     }
 
@@ -48,7 +48,7 @@ class ComposeChipScreenshotTest : RoborazziConfig() {
     @Ignore("Temporarily disabled")
     fun testChipPreviewSizeSDisabled() {
         composeTestRule.setContent {
-            SandboxChipPreviewSizeSDisabled()
+            ChipPreviewSizeSDisabled()
         }
     }
 }

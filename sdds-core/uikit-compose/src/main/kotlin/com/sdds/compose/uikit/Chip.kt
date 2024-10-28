@@ -2,19 +2,17 @@ package com.sdds.compose.uikit
 
 import androidx.compose.foundation.Indication
 import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredSize
-import androidx.compose.foundation.shape.CornerBasedShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.layout.Layout
@@ -24,6 +22,7 @@ import androidx.compose.ui.layout.MeasureResult
 import androidx.compose.ui.layout.MeasureScope
 import androidx.compose.ui.layout.Placeable
 import androidx.compose.ui.layout.layoutId
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Constraints
@@ -37,24 +36,11 @@ import com.sdds.compose.uikit.internal.common.surface
  * Компонент Chip с поддержкой кликабельности
  *
  * @param modifier модификатор
+ * @param style стиль компонента
  * @param onClick обработчик нажатий
  * @param label текст
- * @param labelStyle стиль текста
- * @param shape форма компонента
  * @param startContent контент в начале
  * @param endContent контент в конце
- * @param enabledAlpha альфа в состоянии [enabled] == true
- * @param disabledAlpha альфа в состоянии [enabled] == true
- * @param backgroundColor цвет бэкграунда
- * @param pressedBackgroundColor цвет бэкграунда в нажатом состоянии
- * @param startContentColor цвет контента в начале
- * @param endContentColor цвет контента в конце
- * @param startContentSize размер контента в начале
- * @param endContentSize размер контента в конце
- * @param startContentMargin отступ от [startContent]
- * @param endContentMargin отступ от [endContent]
- * @param startPadding отступ компонента в начале
- * @param endPadding отступ компонента в конце
  * @param enabled включен ли компонент
  * @param indication [Indication]
  * @param interactionSource источник взаимодействий
@@ -62,56 +48,45 @@ import com.sdds.compose.uikit.internal.common.surface
 @Composable
 fun Chip(
     modifier: Modifier = Modifier,
+    style: ChipStyle = LocalChipStyle.current,
     onClick: (() -> Unit)? = null,
     label: String = "",
-    labelStyle: TextStyle = TextStyle(),
-    shape: CornerBasedShape = RoundedCornerShape(25),
     startContent: (@Composable () -> Unit)? = null,
     endContent: (@Composable () -> Unit)? = null,
-    enabledAlpha: Float = 1f,
-    disabledAlpha: Float = 0.4f,
-    backgroundColor: Brush = SolidColor(Color.Black),
-    pressedBackgroundColor: Brush = SolidColor(Color.Gray),
-    startContentColor: Color = Color.White,
-    endContentColor: Color = Color.White,
-    startContentSize: Dp = 24.dp,
-    endContentSize: Dp = 24.dp,
-    startContentMargin: Dp = 12.dp,
-    endContentMargin: Dp = 12.dp,
-    startPadding: Dp = 12.dp,
-    endPadding: Dp = 12.dp,
     enabled: Boolean = true,
     indication: Indication? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
-    val isPressed by interactionSource.collectIsPressedAsState()
     val measurePolicy = remember { ChipMeasurePolicy() }
+    val dimensions = remember(style) { style.dimensions }
+    val colors = remember(style) { style.colors }
+    val backgroundColor = colors.backgroundColor.colorForInteractionAsState(interactionSource)
     Layout(
         modifier = modifier
+            .height(dimensions.height)
             .surface(
+                shape = style.shape,
                 onClick = onClick,
-                shape = shape,
+                backgroundColor = { SolidColor(backgroundColor.value) },
                 indication = indication,
-                enabledAlpha = enabledAlpha,
-                disabledAlpha = disabledAlpha,
-                backgroundColor = if (isPressed) pressedBackgroundColor else backgroundColor,
                 enabled = enabled,
+                alpha = { if (it) ENABLED_CHIP_ALPHA else style.disableAlpha },
+                role = Role.Button,
                 interactionSource = interactionSource,
             )
-            .padding(start = startPadding, end = endPadding),
+            .padding(start = dimensions.startPadding, end = dimensions.endPadding),
         measurePolicy = measurePolicy,
         content = {
+            val startContentColor = colors.startContentColor.colorForInteraction(interactionSource)
+            val endContentColor = colors.endContentColor.colorForInteraction(interactionSource)
             ChipContent(
                 startContent = startContent,
                 endContent = endContent,
+                label = label,
+                labelStyle = style.labelStyle,
+                dimensions = dimensions,
                 startContentColor = startContentColor,
                 endContentColor = endContentColor,
-                label = label,
-                labelStyle = labelStyle,
-                startContentSize = startContentSize,
-                endContentSize = endContentSize,
-                startContentMargin = startContentMargin,
-                endContentMargin = endContentMargin,
             )
         },
     )
@@ -121,24 +96,12 @@ fun Chip(
  * Компонент Chip с поддержкой selected состояния
  *
  * @param modifier модификатор
+ * @param style стиль компонента
  * @param isSelected выбран ли chip
  * @param onSelectedChange обработчик смены состояния chip
- * @param shape форма компонента
  * @param startContent контент вначале
  * @param label текст
- * @param labelStyle стиль текста
  * @param endContent контент вконце
- * @param enabledAlpha альфа в состоянии [enabled] == true
- * @param disabledAlpha альфа в состоянии [enabled] == true
- * @param backgroundColor цвет бэкграунда
- * @param startContentColor цвет контента вначале
- * @param endContentColor цвет контента вконце
- * @param startPadding отступ в начале
- * @param endPadding отступ в конце
- * @param startContentSize размер контента в начале
- * @param endContentSize размер контента в конце
- * @param startContentMargin отступ от [startContent]
- * @param endContentMargin отступ от [endContent]
  * @param enabled включен ли компонент
  * @param indication [Indication]
  * @param interactionSource источник взаимодействий
@@ -146,61 +109,82 @@ fun Chip(
 @Composable
 fun Chip(
     modifier: Modifier = Modifier,
+    style: ChipStyle = LocalChipStyle.current,
     isSelected: Boolean = false,
     onSelectedChange: ((Boolean) -> Unit)? = null,
     label: String = "",
-    labelStyle: TextStyle = TextStyle(),
-    shape: CornerBasedShape = RoundedCornerShape(25),
     startContent: (@Composable () -> Unit)? = null,
     endContent: (@Composable () -> Unit)? = null,
-    enabledAlpha: Float = 1f,
-    disabledAlpha: Float = 0.4f,
-    backgroundColor: Brush = SolidColor(Color.Black),
-    startContentColor: Color = Color.White,
-    endContentColor: Color = Color.White,
-    startPadding: Dp = 12.dp,
-    endPadding: Dp = 12.dp,
-    startContentSize: Dp = 24.dp,
-    endContentSize: Dp = 24.dp,
-    startContentMargin: Dp = 12.dp,
-    endContentMargin: Dp = 12.dp,
     enabled: Boolean = true,
     indication: Indication? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     val measurePolicy = remember { ChipMeasurePolicy() }
-
+    val dimensions = remember(style) { style.dimensions }
+    val colors = remember(style) { style.colors }
+    val backgroundColor = colors.backgroundColor.colorForInteractionAsState(interactionSource)
     Layout(
         modifier = modifier
+            .height(dimensions.height)
             .surface(
                 value = isSelected,
                 onValueChange = onSelectedChange,
-                shape = shape,
+                shape = style.shape,
                 indication = indication,
-                enabledAlpha = enabledAlpha,
-                disabledAlpha = disabledAlpha,
-                backgroundColor = backgroundColor,
+                backgroundColor = { SolidColor(backgroundColor.value) },
+                alpha = { if (it) ENABLED_CHIP_ALPHA else style.disableAlpha },
                 enabled = enabled,
                 interactionSource = interactionSource,
             )
-            .padding(start = startPadding, end = endPadding),
+            .padding(start = dimensions.startPadding, end = dimensions.endPadding),
         measurePolicy = measurePolicy,
         content = {
+            val startContentColor = colors.startContentColor.colorForInteraction(interactionSource)
+            val endContentColor = colors.endContentColor.colorForInteraction(interactionSource)
             ChipContent(
                 startContent = startContent,
                 endContent = endContent,
+                label = label,
+                labelStyle = style.labelStyle,
+                dimensions = dimensions,
                 startContentColor = startContentColor,
                 endContentColor = endContentColor,
-                label = label,
-                labelStyle = labelStyle,
-                startContentSize = startContentSize,
-                endContentSize = endContentSize,
-                startContentMargin = startContentMargin,
-                endContentMargin = endContentMargin,
             )
         },
     )
 }
+
+/**
+ * Вспомогательный объект для описания API и стиля компонента
+ */
+object Chip {
+
+    /**
+     * Размеры и отступы компонента [Chip]
+     * @property height высота компонента
+     * @property startPadding отступ в начале
+     * @property endPadding отступ в конце
+     * @property startContentSize размер контента в начале
+     * @property endContentSize размер контента в конце
+     * @property startContentMargin отступ от контента в начале
+     * @property endContentMargin отступ от контента в конце
+     */
+    @Immutable
+    data class Dimensions(
+        val height: Dp = 48.dp,
+        val startContentSize: Dp = 24.dp,
+        val endContentSize: Dp = 24.dp,
+        val startContentMargin: Dp = 12.dp,
+        val endContentMargin: Dp = 12.dp,
+        val startPadding: Dp = 12.dp,
+        val endPadding: Dp = 12.dp,
+    )
+}
+
+/**
+ * Вспомогательный объект для описания API и стиля компонента
+ */
+object EmbeddedChip
 
 @Composable
 private fun ChipContent(
@@ -210,10 +194,7 @@ private fun ChipContent(
     endContentColor: Color,
     label: String,
     labelStyle: TextStyle,
-    startContentSize: Dp,
-    endContentSize: Dp,
-    startContentMargin: Dp,
-    endContentMargin: Dp,
+    dimensions: Chip.Dimensions,
 ) {
     startContent?.let {
         CompositionLocalProvider(
@@ -222,8 +203,8 @@ private fun ChipContent(
             Box(
                 modifier = Modifier
                     .layoutId(START_CONTENT)
-                    .padding(end = startContentMargin)
-                    .requiredSize(startContentSize),
+                    .padding(end = dimensions.startContentMargin)
+                    .requiredSize(dimensions.startContentSize),
             ) {
                 startContent()
             }
@@ -245,8 +226,8 @@ private fun ChipContent(
             Box(
                 modifier = Modifier
                     .layoutId(END_CONTENT)
-                    .padding(start = endContentMargin)
-                    .requiredSize(endContentSize),
+                    .padding(start = dimensions.endContentMargin)
+                    .requiredSize(dimensions.endContentSize),
             ) {
                 endContent()
             }
@@ -312,6 +293,7 @@ private fun Placeable?.heightOrZero(): Int {
     return this?.measuredHeight ?: 0
 }
 
+private const val ENABLED_CHIP_ALPHA = 1f
 private const val START_CONTENT = "StartChipContent"
 private const val END_CONTENT = "EndChipContent"
 private const val TEXT_CONTENT = "TextChipContent"
