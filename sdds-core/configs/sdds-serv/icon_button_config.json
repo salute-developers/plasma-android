@@ -1,0 +1,214 @@
+{
+    "variations": {
+        "style": {
+            "default": {
+                "contentColor": {
+                    "default": "textInversePrimary",
+                    "pressed": "textInversePrimaryActive",
+                    "hovered": "textInversePrimaryHover"
+                }, 
+                "backgroundColor": {
+                    "default": "surfaceDefaultSolidDefault",
+                    "pressed": "surfaceDefaultSolidDefaultActive",
+                    "hovered": "surfaceDefaultSolidDefaultHover"
+                }, 
+                "valueColor": {
+                    "default": "textInverseSecondary",
+                    "pressed": "textInverseSecondaryActive",
+                    "hovered": "textInverseSecondaryHover"
+                }
+            },
+            "secondary": {
+                "contentColor": {
+                    "default": "textDefaultPrimary",
+                    "pressed": "textDefaultPrimaryActive",
+                    "hovered": "textDefaultPrimaryHover"
+                }, 
+                "backgroundColor": {
+                    "default": "surfaceDefaultTransparentSecondary",
+                    "pressed": "surfaceDefaultTransparentSecondaryActive",
+                    "hovered": "surfaceDefaultTransparentSecondaryHover"
+                }, 
+                "valueColor": {
+                    "default": "textDefaultSecondary",
+                    "pressed": "textDefaultSecondaryActive",
+                    "hovered": "textDefaultSecondaryHover"
+                }
+            },
+            "accent": {
+                "contentColor": {
+                    "default": "textOnDarkPrimary",
+                    "pressed": "textOnDarkPrimaryActive",
+                    "hovered": "textOnDarkPrimaryHover"
+                }, 
+                "backgroundColor": {
+                    "default": "surfaceDefaultAccent",
+                    "pressed": "surfaceDefaultAccentActive",
+                    "hovered": "surfaceDefaultAccentHover"
+                }, 
+                "valueColor": {
+                    "default": "textOnDarkSecondary",
+                    "pressed": "textOnDarkSecondaryActive",
+                    "hovered": "textOnDarkSecondaryHover"
+                }
+            },
+            "positive": {
+                "contentColor": {
+                    "default": "textOnDarkPrimary",
+                    "pressed": "textOnDarkPrimaryActive",
+                    "hovered": "textOnDarkPrimaryHover"
+                }, 
+                "backgroundColor": {
+                    "default": "surfaceDefaultPositive",
+                    "pressed": "surfaceDefaultPositiveActive",
+                    "hovered": "surfaceDefaultPositiveHover"
+                }, 
+                "valueColor": {
+                    "default": "textOnDarkSecondary",
+                    "pressed": "textOnDarkSecondaryActive",
+                    "hovered": "textOnDarkSecondaryHover"
+                }
+            },
+            "negative": {
+                "contentColor": {
+                    "default": "textOnDarkPrimary",
+                    "pressed": "textOnDarkPrimaryActive",
+                    "hovered": "textOnDarkPrimaryHover"
+                }, 
+                "backgroundColor": {
+                    "default": "surfaceDefaultNegative",
+                    "pressed": "surfaceDefaultNegativeActive",
+                    "hovered": "surfaceDefaultNegativeHover"
+                }, 
+                "valueColor": {
+                    "default": "textOnDarkSecondary",
+                    "pressed": "textOnDarkSecondaryActive",
+                    "hovered": "textOnDarkSecondaryHover"
+                }
+            },
+            "warning": {
+                "contentColor": {
+                    "default": "textOnDarkPrimary",
+                    "pressed": "textOnDarkPrimaryActive",
+                    "hovered": "textOnDarkPrimaryHover"
+                }, 
+                "backgroundColor": {
+                    "default": "surfaceDefaultWarning",
+                    "pressed": "surfaceDefaultWarningActive",
+                    "hovered": "surfaceDefaultWarningHover"
+                }, 
+                "valueColor": {
+                    "default": "textOnDarkSecondary",
+                    "pressed": "textOnDarkSecondaryActive",
+                    "hovered": "textOnDarkSecondaryHover"
+                }
+            },
+            "clear": {
+                "contentColor": {
+                    "default": "textDefaultPrimary",
+                    "pressed": "textDefaultPrimaryActive",
+                    "hovered": "textDefaultPrimaryHover"
+                }, 
+                "backgroundColor": {
+                    "default": "surfaceDefaultClear",
+                    "pressed": "surfaceDefaultClearActive",
+                    "hovered": "surfaceDefaultClearHover"
+                }, 
+                "valueColor": {
+                    "default": "textDefaultSecondary",
+                    "pressed": "textDefaultSecondaryActive",
+                    "hovered": "textDefaultSecondaryHover"
+                }
+            },
+            "dark": {
+                "contentColor": {
+                    "default": "textOnDarkPrimary",
+                    "pressed": "textOnDarkPrimaryActive",
+                    "hovered": "textOnDarkPrimaryHover"
+                }, 
+                "backgroundColor": {
+                    "default": "surfaceOnLightTransparentDeep",
+                    "pressed": "surfaceOnLightTransparentDeepActive",
+                    "hovered": "surfaceOnLightTransparentDeepHover"
+                }, 
+                "valueColor": {
+                    "default": "textOnDarkSecondary",
+                    "pressed": "textOnDarkSecondaryActive",
+                    "hovered": "textOnDarkSecondaryHover"
+                }
+            },
+            "black": {
+                "contentColor": {
+                    "default": "textOnDarkPrimary",
+                    "pressed": "textOnDarkPrimaryActive",
+                    "hovered": "textOnDarkPrimaryHover"
+                }, 
+                "backgroundColor": {
+                    "default": "surfaceOnLightSolidDefault",
+                    "pressed": "surfaceOnLightSolidDefaultActive",
+                    "hovered": "surfaceOnLightSolidDefaultHover"
+                }, 
+                "valueColor": {
+                    "default": "textOnDarkSecondary",
+                    "pressed": "textOnDarkSecondaryActive",
+                    "hovered": "textOnDarkSecondaryHover"
+                }
+            },
+            "white": {
+                "contentColor": {
+                    "default": "textOnLightPrimary",
+                    "pressed": "textOnLightPrimaryActive",
+                    "hovered": "textOnLightPrimaryHover"
+                }, 
+                "backgroundColor": {
+                    "default": "surfaceOnLightSolidDefault",
+                    "pressed": "surfaceOnLightSolidDefaultActive",
+                    "hovered": "surfaceOnLightSolidDefaultHover"
+                }, 
+                "valueColor": {
+                    "default": "textOnLightSecondary",
+                    "pressed": "textOnLightSecondaryActive",
+                    "hovered": "textOnLightSecondaryHover"
+                }
+            }
+        },
+        "size": {
+            "l": {
+                "shape": "round.l",
+                "height": 56, 
+                "paddingStart": 16,
+                "paddingEnd": 16,
+                "minWidth": 56,
+                "iconSize": 24,
+                "spinnerSize": 22
+            },
+            "m": {
+                "shape": "round.m",
+                "height": 48,
+                "paddingStart": 12,
+                "paddingEnd": 12,
+                "minWidth": 48,
+                "iconSize": 24,
+                "spinnerSize": 22
+            },
+            "s": {
+                "shape": "round.s",
+                "height": 40,
+                "paddingStart": 8,
+                "paddingEnd": 8,
+                "minWidth": 40,
+                "iconSize": 24,
+                "spinnerSize": 22
+            },
+            "xs": {
+                "shape": "round.xs",
+                "height": 32,
+                "paddingStart": 8,
+                "paddingEnd": 8,
+                "minWidth": 32,
+                "iconSize": 16,
+                "spinnerSize": 16
+            }
+        }
+    }
+}

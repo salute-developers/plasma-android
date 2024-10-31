@@ -1,0 +1,99 @@
+{
+    "invariant": {
+        "loadingAlpha": 0.06,
+        "backgroundColor": "surfaceDefaultClear"
+    },
+    "variations": {
+        "style": {
+            "default": {
+                "contentColor": {
+                    "default": "textDefaultPrimary",
+                    "pressed": "textDefaultPrimaryActive",
+                    "hovered": "textDefaultPrimaryHover"
+                }
+            },
+            "secondary": {
+                "contentColor": {
+                    "default": "textDefaultSecondary",
+                    "pressed": "textDefaultSecondaryActive",
+                    "hovered": "textDefaultSecondaryHover"
+                }
+            },
+            "accent": {
+                "contentColor": {
+                    "default": "textDefaultAccent",
+                    "pressed": "textDefaultAccentActive",
+                    "hovered": "textDefaultAccentHover"
+                }
+            },
+            "positive": {
+                "contentColor": {
+                    "default": "textDefaultPositive",
+                    "pressed": "textDefaultPositiveActive",
+                    "hovered": "textDefaultPositiveHover"
+                }
+            },
+            "negative": {
+                "contentColor": {
+                    "default": "textDefaultNegative",
+                    "pressed": "textDefaultNegativeActive",
+                    "hovered": "textDefaultNegativeHover"
+                }
+            },
+            "warning": {
+                "contentColor": {
+                    "default": "textDefaultWarning",
+                    "pressed": "textDefaultWarningActive",
+                    "hovered": "textDefaultWarningHover"
+                }
+            }
+        },
+        "size": {
+            "l": {
+                "labelStyle": "body.l.bold",
+                "valueStyle": "body.l.bold",
+                "height": 56, 
+                "paddingStart": 0,
+                "paddingEnd": 0,
+                "minWidth": 50,
+                "iconSize": 24,
+                "spinnerSize": 22,
+                "iconMargin": 8,
+                "valueMargin": 4
+            },
+            "m": {
+                "labelStyle": "body.m.bold",
+                "height": 48,
+                "paddingStart": 0,
+                "paddingEnd": 0,
+                "minWidth": 44,
+                "iconSize": 24,
+                "spinnerSize": 22,
+                "iconMargin": 6,
+                "valueMargin": 4
+            },
+            "s": {
+                "labelStyle": "body.s.bold",
+                "height": 40,
+                "paddingStart": 0,
+                "paddingEnd": 0,
+                "minWidth": 39,
+                "iconSize": 24,
+                "spinnerSize": 22,
+                "iconMargin": 4,
+                "valueMargin": 4
+            },
+            "xs": {
+                "labelStyle": "body.xs.bold",
+                "height": 32,
+                "paddingStart": 0,
+                "paddingEnd": 0,
+                "minWidth": 33,
+                "iconSize": 16,
+                "spinnerSize": 16,
+                "iconMargin": 4,
+                "valueMargin": 2
+            }
+        }
+    }
+}
