@@ -32,12 +32,6 @@ internal fun AvatarGroupScreen() {
 
     ComponentScaffold(
         component = {
-            val avatarModifier = Modifier.avatar(
-                status = avatarUiState.status,
-                action = painterResource(id = Icons.ic_sber_24),
-                actionEnabled = avatarUiState.actionEnabled,
-                placeholder = avatarUiState.placeholder,
-            )
             AvatarGroup(
                 style = AvatarGroup.S.style(),
                 threshold = avatarUiState.threshold,
@@ -47,7 +41,12 @@ internal fun AvatarGroupScreen() {
                         Avatar(placeholder = avatarUiState.placeholder)
                     } else {
                         AsyncImage(
-                            modifier = avatarModifier,
+                            modifier = Modifier.avatar(
+                                status = avatarUiState.status,
+                                action = painterResource(id = Icons.ic_sber_24),
+                                actionEnabled = avatarUiState.actionEnabled,
+                                placeholder = avatarUiState.placeholder,
+                            ),
                             contentScale = ContentScale.Crop,
                             model = "https://cdn.costumewall.com/wp-content/uploads/2018/09/michael-scott.jpg",
                             contentDescription = "AsyncAvatar",
@@ -57,7 +56,12 @@ internal fun AvatarGroupScreen() {
 
                 avatar {
                     Image(
-                        modifier = avatarModifier,
+                        modifier = Modifier.avatar(
+                            status = avatarUiState.status,
+                            action = painterResource(id = Icons.ic_sber_24),
+                            actionEnabled = avatarUiState.actionEnabled,
+                            placeholder = avatarUiState.placeholder,
+                        ),
                         contentScale = ContentScale.Crop,
                         painter = painterResource(id = R.drawable.il_avatar_test),
                         contentDescription = "Avatar",

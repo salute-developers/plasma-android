@@ -77,6 +77,7 @@ fun AvatarGroup(
     CompositionLocalProvider(
         LocalAvatarGroupStatusEnabled provides false,
         LocalAvatarGroupActionEnabled provides false,
+        LocalAvatarStyle provides style.avatarStyle,
     ) {
         Layout(
             modifier = modifier,
