@@ -22,12 +22,13 @@ import androidx.compose.ui.text.TextRange
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.BasicButton
 import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.RadioBox
 import com.sdds.compose.uikit.Text
 import com.sdds.playground.sandbox.R
-import com.sdds.playground.sandbox.buttons.BasicButton
 import com.sdds.playground.sandbox.buttons.Default
+import com.sdds.playground.sandbox.buttons.M
 import com.sdds.playground.sandbox.textfield.SandboxTextField
 import com.sdds.playground.sandbox.tokens.compose.SddsServTheme
 import kotlin.math.roundToInt

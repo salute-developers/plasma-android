@@ -38,8 +38,9 @@ import com.sdds.playground.sandbox.avatar.AvatarGroupScreen
 import com.sdds.playground.sandbox.avatar.AvatarScreen
 import com.sdds.playground.sandbox.buttons.BasicButtonScreen
 import com.sdds.playground.sandbox.buttons.Clear
-import com.sdds.playground.sandbox.buttons.IconButton
 import com.sdds.playground.sandbox.buttons.IconButtonScreen
+import com.sdds.playground.sandbox.buttons.LinkButtonScreen
+import com.sdds.playground.sandbox.buttons.M
 import com.sdds.playground.sandbox.buttons.Pilled
 import com.sdds.playground.sandbox.checkbox.CheckBoxScreen
 import com.sdds.playground.sandbox.checkbox.group.CheckBoxGroupScreen
@@ -72,8 +73,9 @@ class SandboxActivity : ComponentActivity() {
 private sealed class MenuItem(val title: String, val screen: @Composable () -> Unit) {
     object Avatar : MenuItem("Avatar", { AvatarScreen() })
     object AvatarGroup : MenuItem("AvatarGroup", { AvatarGroupScreen() })
-    object Buttons : MenuItem("Button", { BasicButtonScreen() })
+    object Buttons : MenuItem("BasicButton", { BasicButtonScreen() })
     object IconButtons : MenuItem("IconButton", { IconButtonScreen() })
+    object LinkButtons : MenuItem("LinkButton", { LinkButtonScreen() })
     object CheckBox : MenuItem("CheckBox", { CheckBoxScreen() })
     object CheckBoxGroup : MenuItem("CheckBoxGroup", { CheckBoxGroupScreen() })
     object RadioBox : MenuItem("RadioBox", { RadioBoxScreen() })
@@ -90,6 +92,7 @@ private val menuItems = listOf(
     MenuItem.AvatarGroup,
     MenuItem.Buttons,
     MenuItem.IconButtons,
+    MenuItem.LinkButtons,
     MenuItem.CheckBox,
     MenuItem.CheckBoxGroup,
     MenuItem.RadioBox,

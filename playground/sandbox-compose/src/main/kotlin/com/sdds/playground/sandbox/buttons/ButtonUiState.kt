@@ -1,10 +1,12 @@
 package com.sdds.playground.sandbox.buttons
 
 import androidx.compose.runtime.Composable
+import com.sdds.compose.uikit.BasicButton
 import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.ButtonStyleBuilder
 import com.sdds.compose.uikit.IconButton
+import com.sdds.compose.uikit.LinkButton
 import com.sdds.icons.R.drawable as Icons
 
 /**
@@ -134,5 +136,18 @@ internal fun ButtonUiState.iconButtonStyle(): ButtonStyle {
                 it
             }
         }
+        .style()
+}
+
+@Composable
+internal fun ButtonUiState.linkButtonStyle(): ButtonStyle {
+    val styleBuilder = when (size) {
+        Size.L -> LinkButton.L
+        Size.M -> LinkButton.M
+        Size.S -> LinkButton.S
+        Size.XS -> LinkButton.Xs
+    }
+    return styleBuilder
+        .applyColorStyle(style)
         .style()
 }

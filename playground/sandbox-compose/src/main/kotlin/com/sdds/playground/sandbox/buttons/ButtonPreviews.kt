@@ -3,6 +3,7 @@ package com.sdds.playground.sandbox.buttons
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import com.sdds.compose.uikit.BasicButton
 import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.IconButton
 import com.sdds.icons.R

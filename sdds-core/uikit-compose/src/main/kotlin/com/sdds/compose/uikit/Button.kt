@@ -94,8 +94,10 @@ fun Button(
     val dimensions = style.dimensions.let {
         var paddings = it.paddings
         paddings = when {
-            icons?.start != null -> paddings.copy(start = paddings.start - IconPaddingOffset)
-            icons?.end != null -> paddings.copy(end = paddings.end - IconPaddingOffset)
+            icons?.start != null && paddings.start > IconPaddingOffset ->
+                paddings.copy(start = paddings.start - IconPaddingOffset)
+            icons?.end != null && paddings.end > IconPaddingOffset ->
+                paddings.copy(end = paddings.end - IconPaddingOffset)
             else -> paddings
         }
         it.copy(paddings = paddings)
@@ -236,6 +238,21 @@ object Button {
         val end: Painter? = null,
     )
 }
+
+/**
+ * Вспомогательный объект для описания API и стиля компонента BasicButton
+ */
+object BasicButton
+
+/**
+ * Вспомогательный объект для описания API и стиля компонента IconButton
+ */
+object IconButton
+
+/**
+ * Вспомогательный объект для описания API и стиля компонента LinkButton
+ */
+object LinkButton
 
 private const val ENABLED_BUTTON_ALPHA = 1f
 private val IconPaddingOffset = 2.dp

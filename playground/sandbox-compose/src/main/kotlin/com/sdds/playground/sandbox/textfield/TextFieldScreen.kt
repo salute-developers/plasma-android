@@ -15,13 +15,14 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.sdds.compose.uikit.BasicButton
 import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.Chip
 import com.sdds.compose.uikit.Icon
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.SandboxTheme
-import com.sdds.playground.sandbox.buttons.BasicButton
 import com.sdds.playground.sandbox.buttons.Default
+import com.sdds.playground.sandbox.buttons.Xs
 import com.sdds.playground.sandbox.core.ComponentScaffold
 
 /**

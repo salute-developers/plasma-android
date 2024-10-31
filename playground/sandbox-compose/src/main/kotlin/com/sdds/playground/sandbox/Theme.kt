@@ -11,8 +11,10 @@ import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 import com.sdds.compose.uikit.Avatar
 import com.sdds.compose.uikit.AvatarGroup
+import com.sdds.compose.uikit.BasicButton
 import com.sdds.compose.uikit.CheckBox
 import com.sdds.compose.uikit.CheckBoxGroup
+import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.LocalAvatarGroupStyle
 import com.sdds.compose.uikit.LocalAvatarStyle
 import com.sdds.compose.uikit.LocalButtonStyle
@@ -29,9 +31,8 @@ import com.sdds.compose.uikit.RadioBoxGroup
 import com.sdds.compose.uikit.Switch
 import com.sdds.playground.sandbox.avatar.M
 import com.sdds.playground.sandbox.avatar.S
-import com.sdds.playground.sandbox.buttons.BasicButton
 import com.sdds.playground.sandbox.buttons.Default
-import com.sdds.playground.sandbox.buttons.IconButton
+import com.sdds.playground.sandbox.buttons.M
 import com.sdds.playground.sandbox.checkbox.M
 import com.sdds.playground.sandbox.checkbox.group.M
 import com.sdds.playground.sandbox.progress.Default

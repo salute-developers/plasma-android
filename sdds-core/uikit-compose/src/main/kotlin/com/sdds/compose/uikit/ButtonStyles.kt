@@ -1,6 +1,5 @@
 package com.sdds.compose.uikit
 
-import android.util.Log
 import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
@@ -230,7 +229,7 @@ interface ButtonStyle : Style {
         /**
          * Возвращает экземпляр [ButtonStyleBuilder]
          */
-        fun builder(): ButtonStyleBuilder = ButtonStyleBuilderImpl()
+        fun builder(receiver: Any? = null): ButtonStyleBuilder = ButtonStyleBuilderImpl(receiver)
     }
 }
 
@@ -286,7 +285,7 @@ interface ButtonColors {
 }
 
 @Stable
-private class ButtonStyleBuilderImpl : ButtonStyleBuilder {
+private class ButtonStyleBuilderImpl(override val receiver: Any?) : ButtonStyleBuilder {
     private var shape: CornerBasedShape? = null
     private var colorsBuilder: ButtonColorsBuilder = ButtonColors.builder()
     private var labelStyle: TextStyle? = null
@@ -294,10 +293,6 @@ private class ButtonStyleBuilderImpl : ButtonStyleBuilder {
     private var dimensions: Button.Dimensions? = null
     private var disableAlpha: Float? = null
     private var spinnerMode: Button.SpinnerMode? = null
-
-    init {
-        Log.e("Styles", "ButtonStyleBuilder: init $this")
-    }
 
     override fun shape(shape: CornerBasedShape) = apply {
         this.shape = shape
@@ -350,10 +345,6 @@ private class DefaultButtonColors(
     override val iconColor: InteractiveColor,
     override val spinnerColor: InteractiveColor,
 ) : ButtonColors {
-
-    init {
-        Log.e("Styles", "DefaultButtonColors: init $this")
-    }
 
     class Builder : ButtonColorsBuilder {
         private var contentColor: InteractiveColor? = null
@@ -410,11 +401,6 @@ private class DefaultButtonStyle(
     override val dimensions: Button.Dimensions,
     override val disableAlpha: Float,
     override val spinnerMode: Button.SpinnerMode,
-) : ButtonStyle {
-
-    init {
-        Log.e("Styles", "DefaultButtonStyle: init $this")
-    }
-}
+) : ButtonStyle
 
 private const val DISABLED_BUTTON_ALPHA = 0.4f
