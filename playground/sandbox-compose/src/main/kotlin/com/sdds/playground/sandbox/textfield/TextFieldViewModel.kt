@@ -3,8 +3,7 @@ package com.sdds.playground.sandbox.textfield
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.sdds.compose.uikit.CoreTextField
-import com.sdds.compose.uikit.CoreTextField.DotBadge
+import com.sdds.compose.uikit.TextField
 import com.sdds.playground.sandbox.core.PropertiesOwner
 import com.sdds.playground.sandbox.core.Property
 import com.sdds.playground.sandbox.core.enumProperty
@@ -69,21 +68,21 @@ internal class TextFieldViewModel : ViewModel(), PropertiesOwner {
         )
     }
 
-    private fun updateState(state: SandboxTextField.State) {
+    private fun updateState(state: State) {
         _textFieldUiState.value = _textFieldUiState.value.copy(
             state = state,
         )
     }
 
-    private fun updateSize(size: SandboxTextField.Size) {
+    private fun updateSize(size: Size) {
         _textFieldUiState.value = _textFieldUiState.value.copy(
             size = size,
         )
     }
 
-    private fun updateLabelType(labelPosition: CoreTextField.LabelPosition) {
+    private fun updateLabelType(labelPosition: TextField.LabelPlacement) {
         _textFieldUiState.value = _textFieldUiState.value.copy(
-            labelPosition = labelPosition,
+            labelPlacement = labelPosition,
         )
     }
 
@@ -111,13 +110,7 @@ internal class TextFieldViewModel : ViewModel(), PropertiesOwner {
         )
     }
 
-    private fun updateDotBadgePosition(dotBadgePosition: DotBadge.Position) {
-        _textFieldUiState.value = _textFieldUiState.value.copy(
-            dotBadgePosition = dotBadgePosition,
-        )
-    }
-
-    private fun updateFieldType(fieldType: SandboxTextField.FieldType) {
+    private fun updateFieldType(fieldType: TextField.FieldType) {
         _textFieldUiState.value = _textFieldUiState.value.copy(
             fieldType = fieldType,
         )
@@ -173,15 +166,8 @@ internal class TextFieldViewModel : ViewModel(), PropertiesOwner {
             ),
             enumProperty(
                 name = "label type",
-                value = labelPosition,
+                value = labelPlacement,
                 onApply = { updateLabelType(it) },
-            ),
-            enumProperty(
-                name = "dot badge position",
-                value = dotBadgePosition,
-                onApply = {
-                    updateDotBadgePosition(it)
-                },
             ),
             Property.StringProperty(
                 name = "label",

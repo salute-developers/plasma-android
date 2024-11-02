@@ -79,12 +79,14 @@ fun Chip(
         content = {
             val startContentColor = colors.startContentColor.colorForInteraction(interactionSource)
             val endContentColor = colors.endContentColor.colorForInteraction(interactionSource)
+            val labelColor = colors.labelColor.colorForInteraction(interactionSource)
             ChipContent(
                 startContent = startContent,
                 endContent = endContent,
                 label = label,
                 labelStyle = style.labelStyle,
                 dimensions = dimensions,
+                labelColor = labelColor,
                 startContentColor = startContentColor,
                 endContentColor = endContentColor,
             )
@@ -141,11 +143,13 @@ fun Chip(
         content = {
             val startContentColor = colors.startContentColor.colorForInteraction(interactionSource)
             val endContentColor = colors.endContentColor.colorForInteraction(interactionSource)
+            val labelColor = colors.labelColor.colorForInteraction(interactionSource)
             ChipContent(
                 startContent = startContent,
                 endContent = endContent,
                 label = label,
                 labelStyle = style.labelStyle,
+                labelColor = labelColor,
                 dimensions = dimensions,
                 startContentColor = startContentColor,
                 endContentColor = endContentColor,
@@ -192,6 +196,7 @@ private fun ChipContent(
     endContent: (@Composable () -> Unit)?,
     startContentColor: Color,
     endContentColor: Color,
+    labelColor: Color,
     label: String,
     labelStyle: TextStyle,
     dimensions: Chip.Dimensions,
@@ -214,7 +219,7 @@ private fun ChipContent(
         Text(
             modifier = Modifier.layoutId(TEXT_CONTENT),
             text = label,
-            style = labelStyle,
+            style = labelStyle.copy(color = labelColor),
             maxLines = 1,
             overflow = TextOverflow.Ellipsis,
         )

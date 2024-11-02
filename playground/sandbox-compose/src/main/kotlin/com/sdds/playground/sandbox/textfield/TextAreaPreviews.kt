@@ -5,27 +5,20 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import com.sdds.compose.uikit.Chip
-import com.sdds.compose.uikit.CoreTextField
 import com.sdds.compose.uikit.Icon
+import com.sdds.compose.uikit.TextArea
+import com.sdds.compose.uikit.TextField
 import com.sdds.icons.R
 import com.sdds.playground.sandbox.SandboxTheme
-import com.sdds.playground.sandbox.chip.L
-import com.sdds.playground.sandbox.chip.S
-import com.sdds.playground.sandbox.chip.Secondary
 
 @Composable
 @Preview(showBackground = true)
 internal fun SandboxTextAreaPreviewL() {
     SandboxTheme {
-        SandboxTextField(
-            singleLine = false,
-            size = SandboxTextField.Size.L,
-            state = SandboxTextField.State.Default,
+        TextField(
             placeholderText = "Placeholder",
             value = TextFieldValue(text = "Value"),
-            labelPosition = CoreTextField.LabelPosition.Outer,
-            dotBadgePosition = CoreTextField.DotBadge.Position.Start,
-            fieldType = SandboxTextField.FieldType.Required,
+            style = TextArea.L.Default.OuterLabel.RequiredStart.style(),
             labelText = "Label",
             optionalText = "Optional",
             captionText = "Caption",
@@ -47,15 +40,10 @@ internal fun SandboxTextAreaPreviewL() {
 @Preview(showBackground = true)
 internal fun SandboxTextAreaPreviewM() {
     SandboxTheme {
-        SandboxTextField(
-            singleLine = false,
-            size = SandboxTextField.Size.M,
-            state = SandboxTextField.State.Error,
+        TextField(
             placeholderText = "Placeholder",
             value = TextFieldValue(text = "Value"),
-            labelPosition = CoreTextField.LabelPosition.Inner,
-            dotBadgePosition = CoreTextField.DotBadge.Position.End,
-            fieldType = SandboxTextField.FieldType.Required,
+            style = TextArea.M.Error.InnerLabel.RequiredEnd.style(),
             labelText = "Label",
             optionalText = "Optional",
             captionText = "Caption",
@@ -71,15 +59,10 @@ internal fun SandboxTextAreaPreviewM() {
 @Preview(showBackground = true)
 internal fun SandboxTextAreaPreviewS() {
     SandboxTheme {
-        SandboxTextField(
-            singleLine = false,
-            size = SandboxTextField.Size.S,
-            state = SandboxTextField.State.Warning,
+        TextField(
             placeholderText = "Placeholder",
             value = TextFieldValue(text = ""),
-            labelPosition = CoreTextField.LabelPosition.Outer,
-            dotBadgePosition = CoreTextField.DotBadge.Position.Start,
-            fieldType = SandboxTextField.FieldType.Optional,
+            style = TextArea.S.Warning.OuterLabel.Optional.style(),
             labelText = "Label",
             optionalText = "Optional",
             captionText = "Caption",
@@ -93,20 +76,18 @@ internal fun SandboxTextAreaPreviewS() {
                     contentDescription = "",
                 )
             },
-            chips = {
+            chipsContent = {
                 Chip(
                     label = "Chip",
-                    style = Chip.S.Secondary.style(),
                     endContent = {
                         Icon(
-                            painter = painterResource(id = com.sdds.icons.R.drawable.ic_close_24),
+                            painter = painterResource(id = R.drawable.ic_close_24),
                             contentDescription = "",
                         )
                     },
                 )
                 Chip(
                     label = "Chip",
-                    style = Chip.S.Secondary.style(),
                     endContent = {
                         Icon(
                             painter = painterResource(id = com.sdds.icons.R.drawable.ic_close_24),
@@ -123,15 +104,10 @@ internal fun SandboxTextAreaPreviewS() {
 @Preview(showBackground = true)
 internal fun SandboxTextAreaPreviewXs() {
     SandboxTheme {
-        SandboxTextField(
-            singleLine = false,
-            size = SandboxTextField.Size.XS,
-            state = SandboxTextField.State.Default,
+        TextField(
             placeholderText = "Placeholder",
             value = TextFieldValue(text = ""),
-            labelPosition = CoreTextField.LabelPosition.Outer,
-            dotBadgePosition = CoreTextField.DotBadge.Position.Start,
-            fieldType = SandboxTextField.FieldType.Required,
+            style = TextArea.Xs.Default.RequiredStart.OuterLabel.style(),
             labelText = "Label",
             optionalText = "Optional",
             captionText = "Caption",
@@ -153,15 +129,10 @@ internal fun SandboxTextAreaPreviewXs() {
 @Preview(showBackground = true)
 internal fun SandboxTextAreaPreviewDisabled() {
     SandboxTheme {
-        SandboxTextField(
-            singleLine = false,
-            size = SandboxTextField.Size.L,
-            state = SandboxTextField.State.Default,
+        TextField(
             placeholderText = "Placeholder",
             value = TextFieldValue(text = "Value"),
-            labelPosition = CoreTextField.LabelPosition.Outer,
-            dotBadgePosition = CoreTextField.DotBadge.Position.Start,
-            fieldType = SandboxTextField.FieldType.Required,
+            style = TextArea.L.Default.OuterLabel.RequiredStart.style(),
             labelText = "Label",
             optionalText = "Optional",
             captionText = "Caption",
@@ -183,15 +154,10 @@ internal fun SandboxTextAreaPreviewDisabled() {
 @Preview(showBackground = true)
 internal fun SandboxTextAreaPreviewReadOnly() {
     SandboxTheme {
-        SandboxTextField(
-            singleLine = false,
-            size = SandboxTextField.Size.M,
-            state = SandboxTextField.State.Default,
+        TextField(
             placeholderText = "Placeholder",
             value = TextFieldValue(text = "Value"),
-            labelPosition = CoreTextField.LabelPosition.Outer,
-            dotBadgePosition = CoreTextField.DotBadge.Position.Start,
-            fieldType = SandboxTextField.FieldType.Optional,
+            style = TextArea.M.Default.OuterLabel.Optional.style(),
             labelText = "Label",
             optionalText = "Optional",
             captionText = "Caption",
@@ -207,15 +173,10 @@ internal fun SandboxTextAreaPreviewReadOnly() {
 @Preview(showBackground = true)
 internal fun SandboxTextAreaPreviewFocused() {
     SandboxTheme {
-        SandboxTextField(
-            singleLine = false,
-            size = SandboxTextField.Size.S,
-            state = SandboxTextField.State.Error,
+        TextField(
             placeholderText = "Placeholder",
             value = TextFieldValue(text = ""),
-            labelPosition = CoreTextField.LabelPosition.Inner,
-            dotBadgePosition = CoreTextField.DotBadge.Position.End,
-            fieldType = SandboxTextField.FieldType.Required,
+            style = TextArea.S.Error.RequiredEnd.InnerLabel.style(),
             labelText = "Label",
             optionalText = "Optional",
             captionText = "Caption",
@@ -229,10 +190,9 @@ internal fun SandboxTextAreaPreviewFocused() {
                     contentDescription = "",
                 )
             },
-            chips = {
+            chipsContent = {
                 Chip(
                     label = "Chip",
-                    style = Chip.S.Secondary.style(),
                     endContent = {
                         Icon(
                             painter = painterResource(id = com.sdds.icons.R.drawable.ic_close_24),
@@ -242,7 +202,6 @@ internal fun SandboxTextAreaPreviewFocused() {
                 )
                 Chip(
                     label = "Chip",
-                    style = Chip.S.Secondary.style(),
                     endContent = {
                         Icon(
                             painter = painterResource(id = com.sdds.icons.R.drawable.ic_close_24),
@@ -259,15 +218,10 @@ internal fun SandboxTextAreaPreviewFocused() {
 @Preview(showBackground = true)
 internal fun SandboxTextAreaPreviewTitleInsideNotVisible() {
     SandboxTheme {
-        SandboxTextField(
-            singleLine = false,
-            size = SandboxTextField.Size.XS,
-            state = SandboxTextField.State.Warning,
+        TextField(
             placeholderText = "Placeholder",
             value = TextFieldValue(text = ""),
-            labelPosition = CoreTextField.LabelPosition.Inner,
-            dotBadgePosition = CoreTextField.DotBadge.Position.Start,
-            fieldType = SandboxTextField.FieldType.Optional,
+            style = TextArea.Xs.Warning.InnerLabel.Optional.style(),
             labelText = "Label",
             optionalText = "Optional",
             captionText = "",
@@ -289,18 +243,13 @@ internal fun SandboxTextAreaPreviewTitleInsideNotVisible() {
 @Preview(showBackground = true)
 internal fun SandboxTextAreaPreviewTextMovesToNextLines() {
     SandboxTheme {
-        SandboxTextField(
-            singleLine = false,
-            size = SandboxTextField.Size.M,
-            state = SandboxTextField.State.Default,
+        TextField(
             placeholderText = "Placeholder",
             value = TextFieldValue(
                 text = "O Captain! my Captain! our fearful trip is done,\n" +
-                    "The ship has weather’d every rack, the prize we sought is won",
+                        "The ship has weather’d every rack, the prize we sought is won",
             ),
-            labelPosition = CoreTextField.LabelPosition.Outer,
-            dotBadgePosition = CoreTextField.DotBadge.Position.Start,
-            fieldType = SandboxTextField.FieldType.Required,
+            style = TextArea.M.Default.RequiredStart.OuterLabel.style(),
             labelText = "Label",
             optionalText = "Optional",
             captionText = "Caption",
@@ -322,15 +271,10 @@ internal fun SandboxTextAreaPreviewTextMovesToNextLines() {
 @Preview(showBackground = true)
 internal fun SandboxTextAreaPreviewTitleNotDisplayedWithChips() {
     SandboxTheme {
-        SandboxTextField(
-            singleLine = false,
-            size = SandboxTextField.Size.L,
-            state = SandboxTextField.State.Default,
+        TextField(
             placeholderText = "Placeholder",
             value = TextFieldValue(text = ""),
-            labelPosition = CoreTextField.LabelPosition.Inner,
-            dotBadgePosition = CoreTextField.DotBadge.Position.Start,
-            fieldType = SandboxTextField.FieldType.Required,
+            style = TextArea.L.Default.RequiredStart.InnerLabel.style(),
             labelText = "Label",
             optionalText = "Optional",
             captionText = "Caption",
@@ -338,10 +282,9 @@ internal fun SandboxTextAreaPreviewTitleNotDisplayedWithChips() {
             onValueChange = {},
             readOnly = true,
             enabled = true,
-            chips = {
+            chipsContent = {
                 Chip(
                     label = "Chip",
-                    style = Chip.L.Secondary.style(),
                     endContent = {
                         Icon(
                             painter = painterResource(id = com.sdds.icons.R.drawable.ic_close_24),
@@ -351,7 +294,6 @@ internal fun SandboxTextAreaPreviewTitleNotDisplayedWithChips() {
                 )
                 Chip(
                     label = "Chip",
-                    style = Chip.L.Secondary.style(),
                     endContent = {
                         Icon(
                             painter = painterResource(id = R.drawable.ic_close_24),

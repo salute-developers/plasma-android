@@ -41,7 +41,8 @@ import androidx.compose.ui.unit.constrainWidth
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.offset
 import com.sdds.compose.uikit.ChipGroup
-import com.sdds.compose.uikit.CoreTextField
+import com.sdds.compose.uikit.ChipGroupStyle
+import com.sdds.compose.uikit.TextField
 import com.sdds.compose.uikit.internal.heightOrZero
 import com.sdds.compose.uikit.internal.widthOrZero
 import kotlin.math.abs
@@ -67,19 +68,28 @@ internal fun TextFieldLayout(
     captionText: @Composable (() -> Unit)?,
     counterText: @Composable (() -> Unit)?,
     chips: @Composable (() -> Unit)?,
-    chipHeight: Dp,
-    alignmentLineHeight: Dp,
+    chipGroupStyle: ChipGroupStyle,
     chipContainerShape: CornerBasedShape?,
-    iconSize: Dp,
     valueTextStyle: TextStyle,
     innerLabelTextStyle: TextStyle,
-    paddings: CoreTextField.Paddings,
+    dimensions: TextField.Dimensions,
     animationProgress: Float,
     verticalScrollState: ScrollState?,
     horizontalScrollState: ScrollState?,
 ) {
+    val boxPaddingTop = if (innerLabel != null) {
+        dimensions.boxPaddingTopInnerLabel
+    } else {
+        dimensions.boxPaddingTopOuterLabel
+    }
+    val boxPaddingBottom = if (innerLabel != null) {
+        dimensions.boxPaddingBottomInnerLabel
+    } else {
+        dimensions.boxPaddingBottomOuterLabel
+    }
     val hasChips = chips != null
-    val minTextHeight = alignmentLineHeight - paddings.boxPaddingTop * 2
+    val chipHeight = chipGroupStyle.chipStyle.dimensions.height
+    val minTextHeight = dimensions.alignmentLineHeight - boxPaddingTop * 2
     val textMeasurer = rememberTextMeasurer()
     val measurePolicy = remember(
         animationProgress,
@@ -102,10 +112,10 @@ internal fun TextFieldLayout(
     Layout(
         modifier = modifier
             .padding(
-                start = if (hasChips && !isClearAppearance) paddings.chipsPadding else paddings.boxPaddingStart,
-                end = paddings.boxPaddingEnd,
-                top = if (hasChips) paddings.chipsPadding else paddings.boxPaddingTop,
-                bottom = if (hasChips) paddings.chipsPadding else paddings.boxPaddingBottom,
+                start = if (hasChips && !isClearAppearance) dimensions.chipsPadding else dimensions.boxPaddingStart,
+                end = dimensions.boxPaddingEnd,
+                top = if (hasChips) dimensions.chipsPadding else boxPaddingTop,
+                bottom = if (hasChips) dimensions.chipsPadding else boxPaddingBottom,
             ),
         content = {
             LabelContent(
@@ -113,33 +123,33 @@ internal fun TextFieldLayout(
                     .layoutId(LabelId),
                 innerLabel = innerLabel,
                 innerOptional = innerOptional,
-                horizontalPadding = paddings.optionalPadding,
+                horizontalPadding = dimensions.optionalPadding,
             )
             IconContent(
                 modifier = Modifier
                     .layoutId(LeadingId)
-                    .padding(end = paddings.startContentEndPadding)
-                    .size(iconSize)
-                    .defaultMinSize(iconSize, iconSize),
+                    .padding(end = dimensions.startContentEndPadding)
+                    .size(dimensions.iconSize)
+                    .defaultMinSize(dimensions.iconSize, dimensions.iconSize),
                 icon = startIcon,
             )
             IconContent(
                 modifier = Modifier
                     .layoutId(TrailingId)
-                    .padding(start = paddings.endContentStartPadding)
-                    .size(iconSize)
-                    .defaultMinSize(iconSize, iconSize),
+                    .padding(start = dimensions.endContentStartPadding)
+                    .size(dimensions.iconSize)
+                    .defaultMinSize(dimensions.iconSize, dimensions.iconSize),
                 icon = endIcon,
             )
             CaptionTextContent(
                 modifier = Modifier
                     .layoutId(CaptionTextId)
                     .padding(
-                        top = paddings.helperTextPadding,
+                        top = dimensions.helperTextPaddingInner,
                         start = adjustStartPaddingWhenHasChips(
                             hasChips = hasChips,
-                            startPadding = paddings.boxPaddingStart,
-                            chipsPadding = paddings.chipsPadding,
+                            startPadding = dimensions.boxPaddingStart,
+                            chipsPadding = dimensions.chipsPadding,
                         ),
                     ),
                 captionText = captionText,
@@ -147,7 +157,7 @@ internal fun TextFieldLayout(
             CounterTextContent(
                 modifier = Modifier
                     .layoutId(CounterTextId)
-                    .padding(top = paddings.helperTextPadding),
+                    .padding(top = dimensions.helperTextPaddingInner),
                 counterText = counterText,
             )
             CompositeTextFieldContent(
@@ -155,8 +165,9 @@ internal fun TextFieldLayout(
                 textField = textField,
                 placeholder = placeholder,
                 chips = chips,
+                chipStyle = chipGroupStyle,
                 chipContainerShape = chipContainerShape,
-                paddings = paddings,
+                dimensions = dimensions,
                 verticalScrollState = verticalScrollState,
                 horizontalScrollState = horizontalScrollState,
                 singleLine = singleLine,
@@ -234,7 +245,8 @@ private fun CompositeTextFieldContent(
     textField: @Composable () -> Unit,
     placeholder: @Composable (() -> Unit)?,
     chips: @Composable (() -> Unit)?,
-    paddings: CoreTextField.Paddings,
+    chipStyle: ChipGroupStyle,
+    dimensions: TextField.Dimensions,
     verticalScrollState: ScrollState?,
     horizontalScrollState: ScrollState?,
     singleLine: Boolean,
@@ -253,7 +265,8 @@ private fun CompositeTextFieldContent(
             modifier = modifier,
             textContent = textContent,
             chips = chips,
-            paddings = paddings,
+            chipStyle = chipStyle,
+            dimensions = dimensions,
             scrollState = verticalScrollState,
             chipContainerShape = chipContainerShape,
         )
@@ -262,7 +275,8 @@ private fun CompositeTextFieldContent(
             modifier = modifier,
             textContent = textContent,
             chips = chips,
-            paddings = paddings,
+            chipStyle = chipStyle,
+            dimensions = dimensions,
             scrollState = horizontalScrollState,
             chipContainerShape = chipContainerShape,
         )
@@ -274,7 +288,8 @@ private fun TextAreaContent(
     modifier: Modifier,
     textContent: @Composable (() -> Unit),
     chips: @Composable (() -> Unit)?,
-    paddings: CoreTextField.Paddings,
+    chipStyle: ChipGroupStyle,
+    dimensions: TextField.Dimensions,
     scrollState: ScrollState?,
     chipContainerShape: CornerBasedShape?,
 ) {
@@ -285,11 +300,12 @@ private fun TextAreaContent(
                 chipContainerShape = chipContainerShape,
             )
             .then(scrollState?.let { Modifier.verticalScroll(it) } ?: Modifier),
-        verticalArrangement = Arrangement.spacedBy(paddings.boxPaddingTop),
+        verticalArrangement = Arrangement.spacedBy(dimensions.boxPaddingTopOuterLabel),
         content = {
             if (chips != null) {
                 ChipGroup(
                     overflowMode = ChipGroup.OverflowMode.Wrap,
+                    style = chipStyle,
                 ) {
                     chips.invoke()
                 }
@@ -298,8 +314,8 @@ private fun TextAreaContent(
                 modifier = Modifier.padding(
                     start = adjustStartPaddingWhenHasChips(
                         hasChips = chips != null,
-                        startPadding = paddings.boxPaddingStart,
-                        chipsPadding = paddings.chipsPadding,
+                        startPadding = dimensions.boxPaddingStart,
+                        chipsPadding = dimensions.chipsPadding,
                     ),
                 ),
             ) {
@@ -314,13 +330,14 @@ private fun TextFieldContent(
     modifier: Modifier,
     textContent: @Composable (() -> Unit),
     chips: @Composable (() -> Unit)?,
-    paddings: CoreTextField.Paddings,
+    chipStyle: ChipGroupStyle,
+    dimensions: TextField.Dimensions,
     chipContainerShape: CornerBasedShape?,
     scrollState: ScrollState?,
 ) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(paddings.chipsSpacing),
+        horizontalArrangement = Arrangement.spacedBy(dimensions.chipsSpacing),
         modifier = modifier
             .fieldShapeDecoration(
                 hasChips = chips != null,
@@ -331,7 +348,8 @@ private fun TextFieldContent(
             if (chips != null) {
                 ChipGroup(
                     modifier = Modifier
-                        .padding(end = paddings.boxPaddingStart + paddings.chipsSpacing),
+                        .padding(end = dimensions.boxPaddingStart + dimensions.chipsSpacing),
+                    style = chipStyle,
                     overflowMode = ChipGroup.OverflowMode.Unlimited,
                 ) {
                     chips.invoke()
@@ -512,7 +530,9 @@ private fun getLabelLineHeight(
     textMeasurer: TextMeasurer,
     textStyle: TextStyle,
 ): Int {
-    return if (hasLabel) { getLineHeight(textMeasurer, textStyle) } else 0
+    return if (hasLabel) {
+        getLineHeight(textMeasurer, textStyle)
+    } else 0
 }
 
 private fun calculateWidth(

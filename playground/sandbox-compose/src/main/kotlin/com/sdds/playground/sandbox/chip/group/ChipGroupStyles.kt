@@ -17,7 +17,7 @@ import com.sdds.playground.sandbox.chip.M
 internal val ChipGroup.Wide: ChipGroupStyleBuilder
     @Composable
     get() = ChipGroupStyle.builder()
-        .chipStyle(Chip.M.Default.style())
+//        .chipStyle(Chip.M.Default.style())
         .dimensions(
             ChipGroupDimensions(
                 horizontalSpacing = 8.dp,
@@ -28,5 +28,5 @@ internal val ChipGroup.Wide: ChipGroupStyleBuilder
 internal val ChipGroup.Dense: ChipGroupStyleBuilder
     @Composable
     get() = ChipGroupStyle.builder()
-        .chipStyle(Chip.M.Default.style())
+//        .chipStyle(Chip.M.Default.style())
         .dimensions(ChipGroupDimensions())

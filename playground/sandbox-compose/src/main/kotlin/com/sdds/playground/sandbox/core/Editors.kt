@@ -26,10 +26,10 @@ import com.sdds.compose.uikit.BasicButton
 import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.RadioBox
 import com.sdds.compose.uikit.Text
+import com.sdds.compose.uikit.TextField
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.buttons.Default
 import com.sdds.playground.sandbox.buttons.M
-import com.sdds.playground.sandbox.textfield.SandboxTextField
 import com.sdds.playground.sandbox.tokens.compose.SddsServTheme
 import kotlin.math.roundToInt
 
@@ -100,7 +100,7 @@ private fun ColumnScope.TextPropertyEditor(
         style = SddsServTheme.typography.headerH3Bold.copy(color = SddsServTheme.colors.textDefaultPrimary),
         modifier = Modifier.padding(16.dp),
     )
-    SandboxTextField(
+    TextField(
         value = textFieldValue,
         modifier = Modifier
             .fillMaxWidth()
