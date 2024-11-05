@@ -270,6 +270,7 @@ internal fun TextFieldColorsBuilder.defaultClearColors(): TextFieldColorsBuilder
         )
     )
     dividerColorReadOnly(SddsServTheme.colors.surfaceDefaultTransparentPrimary.asInteractive())
+    indicatorColor(SddsServTheme.colors.surfaceDefaultNegative)
 }
 
 @Composable
@@ -312,6 +313,7 @@ internal fun TextFieldColorsBuilder.successClearColors(): TextFieldColorsBuilder
         )
     )
     dividerColorReadOnly(SddsServTheme.colors.surfaceDefaultTransparentPrimary.asInteractive())
+    indicatorColor(SddsServTheme.colors.surfaceDefaultNegative)
 }
 
 @Composable
@@ -354,6 +356,7 @@ internal fun TextFieldColorsBuilder.warningClearColors(): TextFieldColorsBuilder
         )
     )
     dividerColorReadOnly(SddsServTheme.colors.surfaceDefaultTransparentPrimary.asInteractive())
+    indicatorColor(SddsServTheme.colors.surfaceDefaultNegative)
 }
 
 @Composable
@@ -396,4 +399,5 @@ internal fun TextFieldColorsBuilder.errorClearColors(): TextFieldColorsBuilder =
         )
     )
     dividerColorReadOnly(SddsServTheme.colors.surfaceDefaultTransparentPrimary.asInteractive())
+    indicatorColor(SddsServTheme.colors.surfaceDefaultNegative)
 }

@@ -349,6 +349,8 @@ interface TextFieldColorsBuilder {
 
     fun dividerColorReadOnly(dividerColorReadOnly: InteractiveColor)
 
+    fun indicatorColor(indicatorColor: Color)
+
     fun build(): TextFieldColors
 }
 
@@ -508,6 +510,10 @@ private class DefaultTextFieldColors(
 
         override fun dividerColorReadOnly(dividerColorReadOnly: InteractiveColor) {
             this.dividerColorReadOnly = dividerColorReadOnly
+        }
+
+        override fun indicatorColor(indicatorColor: Color) {
+            this.indicatorColor = indicatorColor
         }
 
         override fun build(): TextFieldColors {

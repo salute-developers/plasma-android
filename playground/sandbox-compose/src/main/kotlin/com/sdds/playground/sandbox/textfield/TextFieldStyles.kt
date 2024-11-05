@@ -339,6 +339,7 @@ internal fun TextFieldColorsBuilder.defaultColors(): TextFieldColorsBuilder = ap
             .copy(alpha = readOnlyAlpha)
             .asInteractive()
     )
+    indicatorColor(SddsServTheme.colors.surfaceDefaultNegative)
 }
 
 @Composable
@@ -381,6 +382,7 @@ internal fun TextFieldColorsBuilder.successColors(): TextFieldColorsBuilder = ap
             .copy(alpha = readOnlyAlpha)
             .asInteractive()
     )
+    indicatorColor(SddsServTheme.colors.surfaceDefaultNegative)
 }
 
 @Composable
@@ -423,6 +425,7 @@ internal fun TextFieldColorsBuilder.warningColors(): TextFieldColorsBuilder = ap
             .copy(alpha = readOnlyAlpha)
             .asInteractive()
     )
+    indicatorColor(SddsServTheme.colors.surfaceDefaultNegative)
 }
 
 @Composable
@@ -465,4 +468,5 @@ internal fun TextFieldColorsBuilder.errorColors(): TextFieldColorsBuilder = appl
             .copy(alpha = readOnlyAlpha)
             .asInteractive()
     )
+    indicatorColor(SddsServTheme.colors.surfaceDefaultNegative)
 }
