@@ -24,6 +24,7 @@ include(
 //    ":flamingo.compose",
 //    ":flamingo.view",
     ":plasma.b2c.compose",
+    ":plasma_b2c_sandbox_compose",
     ":plasma.b2c.view",
 //    ":plasma.web.compose",
 //    ":plasma.web.view",
