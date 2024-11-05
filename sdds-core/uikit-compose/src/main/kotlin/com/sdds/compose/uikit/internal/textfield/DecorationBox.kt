@@ -9,7 +9,6 @@ import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.interaction.InteractionSource
 import androidx.compose.foundation.interaction.collectIsFocusedAsState
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
@@ -45,7 +44,6 @@ internal fun DecorationBox(
     valueTextStyle: TextStyle,
     innerLabelTextStyle: TextStyle,
     dimensions: TextField.Dimensions,
-    chipContainerShape: CornerBasedShape? = null,
     verticalScrollState: ScrollState?,
     horizontalScrollState: ScrollState?,
     visualTransformation: VisualTransformation,
@@ -98,7 +96,6 @@ internal fun DecorationBox(
             endIcon = trailingIcon,
             chips = chips,
             chipGroupStyle = chipGroupStyle,
-            chipContainerShape = chipContainerShape,
             dimensions = dimensions,
             singleLine = singleLine,
             isClearAppearance = isClearAppearance,

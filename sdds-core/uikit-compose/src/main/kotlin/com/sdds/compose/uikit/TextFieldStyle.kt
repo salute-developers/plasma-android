@@ -69,12 +69,6 @@ interface TextFieldStyle : Style {
     val helperTextPlacement: TextField.HelperTextPlacement
 
     /**
-     * Форма контейнера для чипов
-     * @see CornerBasedShape
-     */
-    val chipContainerShape: CornerBasedShape?
-
-    /**
      * Настройки вертикального скроллбара
      * @see ScrollBar
      */
@@ -184,11 +178,6 @@ interface TextFieldStyleBuilder : StyleBuilder<TextFieldStyle> {
      * Устаналивает настройки скроллбара [scrollBar]
      */
     fun scrollBar(scrollBar: ScrollBar?): TextFieldStyleBuilder
-
-    /**
-     * Устанавливает форму контейнера чипов [chipContainerShape]
-     */
-    fun chipContainerShape(chipContainerShape: CornerBasedShape): TextFieldStyleBuilder
 
     /**
      * Устанавливает стиль внутреннего лэйбла [innerLabelStyle]
@@ -346,7 +335,6 @@ private class DefaultTextFieldStyle(
     override val fieldAppearance: TextField.FieldAppearance,
     override val labelPlacement: TextField.LabelPlacement,
     override val helperTextPlacement: TextField.HelperTextPlacement,
-    override val chipContainerShape: CornerBasedShape?,
     override val scrollBar: ScrollBar?,
     override val valueStyle: TextStyle,
     override val captionStyle: TextStyle,
@@ -383,7 +371,6 @@ private class DefaultTextFieldStyle(
         private var fieldType: TextField.FieldType? = null
         private var fieldAppearance: TextField.FieldAppearance? = null
         private var scrollBar: ScrollBar? = null
-        private var chipContainerShape: CornerBasedShape? = null
         private var innerLabelStyle: TextStyle? = null
         private var outerLabelStyle: TextStyle? = null
         private var innerOptionalStyle: TextStyle? = null
@@ -429,10 +416,6 @@ private class DefaultTextFieldStyle(
 
         override fun scrollBar(scrollBar: ScrollBar?) = apply {
             this.scrollBar = scrollBar
-        }
-
-        override fun chipContainerShape(chipContainerShape: CornerBasedShape) = apply {
-            this.chipContainerShape = chipContainerShape
         }
 
         override fun innerLabelStyle(innerLabelStyle: TextStyle) = apply {
@@ -493,7 +476,6 @@ private class DefaultTextFieldStyle(
                 fieldAppearance = fieldAppearance ?: TextField.FieldAppearance.Solid,
                 labelPlacement = labelPlacement ?: TextField.LabelPlacement.Outer,
                 helperTextPlacement = helperTextPlacement ?: TextField.HelperTextPlacement.Inner,
-                chipContainerShape = chipContainerShape ?: RoundedCornerShape(15),
                 scrollBar = scrollBar,
                 innerLabelStyle = innerLabelStyle ?: TextStyle.Default,
                 outerLabelStyle = outerLabelStyle ?: TextStyle.Default,

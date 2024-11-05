@@ -8,7 +8,6 @@ import com.sdds.compose.uikit.TextAreaClear
 import com.sdds.compose.uikit.TextField
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.TextFieldStyleBuilder
-import com.sdds.compose.uikit.adjustBy
 import com.sdds.playground.sandbox.chip.L
 import com.sdds.playground.sandbox.chip.M
 import com.sdds.playground.sandbox.chip.S
@@ -21,7 +20,6 @@ internal val TextAreaClear.Xs: TextFieldStyleBuilder
     @Composable
     get() = TextFieldStyle.builder(this)
         .fieldAppearance(TextField.FieldAppearance.Clear)
-        .chipContainerShape(SddsServTheme.shapes.roundXxs.adjustBy(all = (-2).dp))
         .helperTextPlacement(TextField.HelperTextPlacement.Outer)
         .chipGroupStyle(
             ChipGroup.Dense.chipStyle(
@@ -77,7 +75,6 @@ internal val TextAreaClear.S: TextFieldStyleBuilder
     @Composable
     get() = TextFieldStyle.builder(this)
         .fieldAppearance(TextField.FieldAppearance.Clear)
-        .chipContainerShape(SddsServTheme.shapes.roundXxs)
         .helperTextPlacement(TextField.HelperTextPlacement.Outer)
         .chipGroupStyle(
             ChipGroup.Dense.chipStyle(
@@ -132,7 +129,6 @@ internal val TextAreaClear.M: TextFieldStyleBuilder
     @Composable
     get() = TextFieldStyle.builder(this)
         .fieldAppearance(TextField.FieldAppearance.Clear)
-        .chipContainerShape(SddsServTheme.shapes.roundXs)
         .helperTextPlacement(TextField.HelperTextPlacement.Outer)
         .chipGroupStyle(
             ChipGroup.Dense.chipStyle(
@@ -187,7 +183,6 @@ internal val TextAreaClear.L: TextFieldStyleBuilder
     @Composable
     get() = TextFieldStyle.builder(this)
         .fieldAppearance(TextField.FieldAppearance.Clear)
-        .chipContainerShape(SddsServTheme.shapes.roundS)
         .helperTextPlacement(TextField.HelperTextPlacement.Outer)
         .chipGroupStyle(
             ChipGroup.Dense.chipStyle(

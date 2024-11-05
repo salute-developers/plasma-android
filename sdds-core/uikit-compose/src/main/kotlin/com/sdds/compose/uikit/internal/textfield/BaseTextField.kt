@@ -137,7 +137,6 @@ internal fun BaseTextField(
     val enabledAlpha = 1f
     val disabledAlpha = colors.disabledAlpha
     val scrollBar = style.scrollBar
-    val chipContainerShape = style.chipContainerShape
 
     val finalLabelText =
         if (style.dropInnerLabel && labelPlacement == LabelPlacement.Inner) "" else labelText
@@ -256,7 +255,6 @@ internal fun BaseTextField(
                 animation = animation,
                 chips = chipsContent,
                 chipGroupStyle = style.chipGroupStyle,
-                chipContainerShape = chipContainerShape,
                 dimensions = dimensions,
                 verticalScrollState = verticalScrollState,
                 horizontalScrollState = horizontalScrollState,

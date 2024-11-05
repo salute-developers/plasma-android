@@ -91,7 +91,6 @@ internal val TextField.Xs: TextFieldStyleBuilder
     get() = TextFieldStyle.builder(this)
         .fieldAppearance(TextField.FieldAppearance.Solid)
         .shape(SddsServTheme.shapes.roundS)
-        .chipContainerShape(SddsServTheme.shapes.roundXxs.adjustBy(all = (-2).dp))
         .helperTextPlacement(TextField.HelperTextPlacement.Outer)
         .chipGroupStyle(
             ChipGroup.Dense.chipStyle(
@@ -144,7 +143,6 @@ internal val TextField.S: TextFieldStyleBuilder
     get() = TextFieldStyle.builder(this)
         .fieldAppearance(TextField.FieldAppearance.Solid)
         .shape(SddsServTheme.shapes.roundM.adjustBy(all = (-2).dp))
-        .chipContainerShape(SddsServTheme.shapes.roundXxs)
         .helperTextPlacement(TextField.HelperTextPlacement.Outer)
         .chipGroupStyle(
             ChipGroup.Dense.chipStyle(
@@ -196,7 +194,6 @@ internal val TextField.M: TextFieldStyleBuilder
     get() = TextFieldStyle.builder(this)
         .fieldAppearance(TextField.FieldAppearance.Solid)
         .shape(SddsServTheme.shapes.roundM)
-        .chipContainerShape(SddsServTheme.shapes.roundXs)
         .helperTextPlacement(TextField.HelperTextPlacement.Outer)
         .chipGroupStyle(
             ChipGroup.Dense.chipStyle(
@@ -248,7 +245,6 @@ internal val TextField.L: TextFieldStyleBuilder
     get() = TextFieldStyle.builder(this)
         .fieldAppearance(TextField.FieldAppearance.Solid)
         .shape(SddsServTheme.shapes.roundM.adjustBy(all = 2.dp))
-        .chipContainerShape(SddsServTheme.shapes.roundS)
         .helperTextPlacement(TextField.HelperTextPlacement.Outer)
         .chipGroupStyle(
             ChipGroup.Dense.chipStyle(

@@ -69,7 +69,6 @@ internal fun TextFieldLayout(
     counterText: @Composable (() -> Unit)?,
     chips: @Composable (() -> Unit)?,
     chipGroupStyle: ChipGroupStyle,
-    chipContainerShape: CornerBasedShape?,
     valueTextStyle: TextStyle,
     innerLabelTextStyle: TextStyle,
     dimensions: TextField.Dimensions,
@@ -166,7 +165,6 @@ internal fun TextFieldLayout(
                 placeholder = placeholder,
                 chips = chips,
                 chipStyle = chipGroupStyle,
-                chipContainerShape = chipContainerShape,
                 dimensions = dimensions,
                 verticalScrollState = verticalScrollState,
                 horizontalScrollState = horizontalScrollState,
@@ -250,7 +248,6 @@ private fun CompositeTextFieldContent(
     verticalScrollState: ScrollState?,
     horizontalScrollState: ScrollState?,
     singleLine: Boolean,
-    chipContainerShape: CornerBasedShape?,
 ) {
     val textContent: @Composable () -> Unit = {
         Box(modifier = Modifier.width(IntrinsicSize.Max)) {
@@ -268,7 +265,6 @@ private fun CompositeTextFieldContent(
             chipStyle = chipStyle,
             dimensions = dimensions,
             scrollState = verticalScrollState,
-            chipContainerShape = chipContainerShape,
         )
     } else {
         TextFieldContent(
@@ -278,7 +274,6 @@ private fun CompositeTextFieldContent(
             chipStyle = chipStyle,
             dimensions = dimensions,
             scrollState = horizontalScrollState,
-            chipContainerShape = chipContainerShape,
         )
     }
 }
@@ -291,13 +286,12 @@ private fun TextAreaContent(
     chipStyle: ChipGroupStyle,
     dimensions: TextField.Dimensions,
     scrollState: ScrollState?,
-    chipContainerShape: CornerBasedShape?,
 ) {
     Column(
         modifier = modifier
             .fieldShapeDecoration(
                 hasChips = chips != null,
-                chipContainerShape = chipContainerShape,
+                chipContainerShape = chipStyle.chipStyle.shape,
             )
             .then(scrollState?.let { Modifier.verticalScroll(it) } ?: Modifier),
         verticalArrangement = Arrangement.spacedBy(dimensions.boxPaddingTopOuterLabel),
@@ -332,7 +326,6 @@ private fun TextFieldContent(
     chips: @Composable (() -> Unit)?,
     chipStyle: ChipGroupStyle,
     dimensions: TextField.Dimensions,
-    chipContainerShape: CornerBasedShape?,
     scrollState: ScrollState?,
 ) {
     Row(
@@ -341,7 +334,7 @@ private fun TextFieldContent(
         modifier = modifier
             .fieldShapeDecoration(
                 hasChips = chips != null,
-                chipContainerShape = chipContainerShape,
+                chipContainerShape = chipStyle.chipStyle.shape,
             )
             .then(scrollState?.let { Modifier.horizontalScroll(it) } ?: Modifier),
         content = {
@@ -362,9 +355,9 @@ private fun TextFieldContent(
 
 private fun Modifier.fieldShapeDecoration(
     hasChips: Boolean,
-    chipContainerShape: CornerBasedShape?,
+    chipContainerShape: CornerBasedShape,
 ): Modifier {
-    return if (hasChips && chipContainerShape != null) {
+    return if (hasChips) {
         this.clip(chipContainerShape)
     } else {
         this
