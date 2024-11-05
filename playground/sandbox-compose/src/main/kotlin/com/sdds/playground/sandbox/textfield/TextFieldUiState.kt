@@ -43,33 +43,10 @@ internal enum class State {
 @Composable
 internal fun TextFieldUiState.textFieldStyle(): TextFieldStyle {
     val styleBuilder = when {
-        singleLine && !isClear -> when (size) {
-            Size.L -> TextField.L
-            Size.M -> TextField.M
-            Size.S -> TextField.S
-            Size.XS -> TextField.Xs
-        }
-
-        singleLine && isClear -> when (size) {
-            Size.L -> TextFieldClear.L
-            Size.M -> TextFieldClear.M
-            Size.S -> TextFieldClear.S
-            Size.XS -> TextFieldClear.Xs
-        }
-
-        !singleLine && !isClear -> when (size) {
-            Size.L -> TextArea.L
-            Size.M -> TextArea.M
-            Size.S -> TextArea.S
-            Size.XS -> TextArea.Xs
-        }
-
-        else -> when (size) {
-            Size.L -> TextAreaClear.L
-            Size.M -> TextAreaClear.M
-            Size.S -> TextAreaClear.S
-            Size.XS -> TextAreaClear.Xs
-        }
+        singleLine && !isClear -> size.toTextFieldStyleBuilder()
+        singleLine && isClear -> size.toTextFieldClearStyleBuilder()
+        !singleLine && !isClear -> size.toTextAreaStyleBuilder()
+        else -> size.toTextAreaClearStyleBuilder()
     }
 
     return styleBuilder
@@ -81,9 +58,41 @@ internal fun TextFieldUiState.textFieldStyle(): TextFieldStyle {
         .style()
 }
 
+@Composable
+private fun Size.toTextFieldStyleBuilder(): TextFieldStyleBuilder = when (this) {
+    Size.L -> TextField.L
+    Size.M -> TextField.M
+    Size.S -> TextField.S
+    Size.XS -> TextField.Xs
+}
+
+@Composable
+private fun Size.toTextFieldClearStyleBuilder(): TextFieldStyleBuilder = when (this) {
+    Size.L -> TextFieldClear.L
+    Size.M -> TextFieldClear.M
+    Size.S -> TextFieldClear.S
+    Size.XS -> TextFieldClear.Xs
+}
+
+@Composable
+private fun Size.toTextAreaStyleBuilder(): TextFieldStyleBuilder = when (this) {
+    Size.L -> TextArea.L
+    Size.M -> TextArea.M
+    Size.S -> TextArea.S
+    Size.XS -> TextArea.Xs
+}
+
+@Composable
+private fun Size.toTextAreaClearStyleBuilder(): TextFieldStyleBuilder = when (this) {
+    Size.L -> TextAreaClear.L
+    Size.M -> TextAreaClear.M
+    Size.S -> TextAreaClear.S
+    Size.XS -> TextAreaClear.Xs
+}
+
 private fun TextFieldStyleBuilder.applyBackground(isClear: Boolean): TextFieldStyleBuilder {
     return fieldAppearance(
-        if (isClear) TextField.FieldAppearance.Clear else TextField.FieldAppearance.Solid
+        if (isClear) TextField.FieldAppearance.Clear else TextField.FieldAppearance.Solid,
     )
 }
 

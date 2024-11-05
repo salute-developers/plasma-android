@@ -26,7 +26,7 @@ internal fun SandboxTextAreaPreviewL() {
             onValueChange = {},
             readOnly = false,
             enabled = true,
-            trailingIcon = {
+            endContent = {
                 Icon(
                     painter = painterResource(id = com.sdds.icons.R.drawable.ic_shazam_24),
                     contentDescription = "",
@@ -70,7 +70,7 @@ internal fun SandboxTextAreaPreviewS() {
             onValueChange = {},
             readOnly = false,
             enabled = true,
-            trailingIcon = {
+            endContent = {
                 Icon(
                     painter = painterResource(id = com.sdds.icons.R.drawable.ic_shazam_24),
                     contentDescription = "",
@@ -115,7 +115,7 @@ internal fun SandboxTextAreaPreviewXs() {
             onValueChange = {},
             readOnly = false,
             enabled = true,
-            trailingIcon = {
+            endContent = {
                 Icon(
                     painter = painterResource(id = com.sdds.icons.R.drawable.ic_shazam_16),
                     contentDescription = "",
@@ -140,7 +140,7 @@ internal fun SandboxTextAreaPreviewDisabled() {
             onValueChange = {},
             readOnly = false,
             enabled = false,
-            trailingIcon = {
+            endContent = {
                 Icon(
                     painter = painterResource(id = com.sdds.icons.R.drawable.ic_shazam_16),
                     contentDescription = "",
@@ -184,7 +184,7 @@ internal fun SandboxTextAreaPreviewFocused() {
             onValueChange = {},
             readOnly = false,
             enabled = true,
-            trailingIcon = {
+            endContent = {
                 Icon(
                     painter = painterResource(id = com.sdds.icons.R.drawable.ic_shazam_24),
                     contentDescription = "",
@@ -229,7 +229,7 @@ internal fun SandboxTextAreaPreviewTitleInsideNotVisible() {
             onValueChange = {},
             readOnly = false,
             enabled = true,
-            trailingIcon = {
+            endContent = {
                 Icon(
                     painter = painterResource(id = com.sdds.icons.R.drawable.ic_shazam_16),
                     contentDescription = "",
@@ -257,7 +257,7 @@ internal fun SandboxTextAreaPreviewTextMovesToNextLines() {
             onValueChange = {},
             readOnly = false,
             enabled = true,
-            trailingIcon = {
+            endContent = {
                 Icon(
                     painter = painterResource(id = com.sdds.icons.R.drawable.ic_shazam_16),
                     contentDescription = "",

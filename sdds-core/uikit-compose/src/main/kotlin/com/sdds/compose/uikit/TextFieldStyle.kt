@@ -15,29 +15,119 @@ import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.style.Style
 import com.sdds.compose.uikit.style.StyleBuilder
 
+/**
+ * CompositionLocal c [TextFieldStyle] для компонента [TextField]
+ */
 val LocalTextFieldStyle = compositionLocalOf { TextFieldStyle.builder().style() }
 
+/**
+ * Стиль компонента [TextField]
+ */
 @Stable
 interface TextFieldStyle : Style {
 
+    /**
+     * Размеры и отступы компонента
+     * @see TextField.Dimensions
+     */
     val dimensions: TextField.Dimensions
+
+    /**
+     * Цвета компонента
+     * @see TextFieldColors
+     */
     val colors: TextFieldColors
+
+    /**
+     * Форма компонента
+     * @see CornerBasedShape
+     */
     val shape: CornerBasedShape
+
+    /**
+     * Тип текстового поля
+     * @see TextField.FieldType
+     */
     val fieldType: TextField.FieldType
+
+    /**
+     * Внешний вид текстового поля
+     * @see TextField.FieldAppearance
+     */
     val fieldAppearance: TextField.FieldAppearance
+
+    /**
+     * Расположение лэйбла
+     * @see
+     */
     val labelPlacement: TextField.LabelPlacement
+
+    /**
+     * Расположение вспомогательного текста
+     * @see TextField.HelperTextPlacement
+     */
     val helperTextPlacement: TextField.HelperTextPlacement
+
+    /**
+     * Форма контейнера для чипов
+     * @see CornerBasedShape
+     */
     val chipContainerShape: CornerBasedShape?
+
+    /**
+     * Настройки вертикального скроллбара
+     * @see ScrollBar
+     */
     val scrollBar: ScrollBar?
+
+    /**
+     * Стиль лэйбла
+     */
     val labelStyle: TextStyle
+
+    /**
+     * Стиль опционального текста
+     */
     val optionalStyle: TextStyle
+
+    /**
+     * Стиль основного текста
+     */
     val valueStyle: TextStyle
+
+    /**
+     * Стиль надписи
+     */
     val captionStyle: TextStyle
+
+    /**
+     * Стиль счетчика
+     */
     val counterStyle: TextStyle
+
+    /**
+     * Стиль плэйсхолдера
+     */
     val placeholderStyle: TextStyle
+
+    /**
+     * Однострочный или многострочный режим
+     */
     val singleLine: Boolean
+
+    /**
+     * Есть ли разделитель
+     */
     val hasDivider: Boolean
+
+    /**
+     * Нужно ли скрыть внутренний лэйбл
+     */
     val dropInnerLabel: Boolean
+
+    /**
+     * Стиль чипов
+     */
     val chipGroupStyle: ChipGroupStyle
 
     companion object {
@@ -49,90 +139,205 @@ interface TextFieldStyle : Style {
     }
 }
 
+/**
+ * Билдер стиля [TextFieldStyle]
+ */
 interface TextFieldStyleBuilder : StyleBuilder<TextFieldStyle> {
 
+    /**
+     * Устанавливает размеры и отступы компонента [dimensions]
+     */
     fun dimensions(dimensions: TextField.Dimensions): TextFieldStyleBuilder
 
+    /**
+     * Устанавливает цвета компонента при помощи [builder]
+     */
     @Composable
     fun colors(builder: @Composable TextFieldColorsBuilder.() -> Unit): TextFieldStyleBuilder
 
+    /**
+     * Устанавливает форму компонента [shape]
+     */
     fun shape(shape: CornerBasedShape): TextFieldStyleBuilder
 
+    /**
+     * Устанавливает расположение лэйбла [labelPlacement]
+     */
     fun labelPlacement(labelPlacement: TextField.LabelPlacement): TextFieldStyleBuilder
 
+    /**
+     * Устанавливает расположение вспомогательного текста [helperTextPlacement]
+     */
     fun helperTextPlacement(helperTextPlacement: TextField.HelperTextPlacement): TextFieldStyleBuilder
 
+    /**
+     * Устанавливает тип поля [fieldType]
+     */
     fun fieldType(fieldType: TextField.FieldType): TextFieldStyleBuilder
 
+    /**
+     * Устанавливает внешний вид поля [fieldAppearance]
+     */
     fun fieldAppearance(fieldAppearance: TextField.FieldAppearance): TextFieldStyleBuilder
 
+    /**
+     * Устаналивает настройки скроллбара [scrollBar]
+     */
     fun scrollBar(scrollBar: ScrollBar?): TextFieldStyleBuilder
 
+    /**
+     * Устанавливает форму контейнера чипов [chipContainerShape]
+     */
     fun chipContainerShape(chipContainerShape: CornerBasedShape): TextFieldStyleBuilder
 
+    /**
+     * Устанавливает стиль внутреннего лэйбла [innerLabelStyle]
+     */
     fun innerLabelStyle(innerLabelStyle: TextStyle): TextFieldStyleBuilder
 
+    /**
+     * Устанавливает стиль внешнего лэйбла [outerLabelStyle]
+     */
     fun outerLabelStyle(outerLabelStyle: TextStyle): TextFieldStyleBuilder
 
+    /**
+     * Устанавливает стиль внутреннего optional текста [innerOptionalStyle]
+     */
     fun innerOptionalStyle(innerOptionalStyle: TextStyle): TextFieldStyleBuilder
 
+    /**
+     * Устанавливает стиль внешнего optional текста [outerOptionalStyle]
+     */
     fun outerOptionalStyle(outerOptionalStyle: TextStyle): TextFieldStyleBuilder
 
+    /**
+     * Устанавливает стиль основного текста [valueStyle]
+     */
     fun valueStyle(valueStyle: TextStyle): TextFieldStyleBuilder
 
+    /**
+     * Устанавливает стиль надписи [captionStyle]
+     */
     fun captionStyle(captionStyle: TextStyle): TextFieldStyleBuilder
 
+    /**
+     * Устанавливает стиль счетчика [counterStyle]
+     */
     fun counterStyle(counterStyle: TextStyle): TextFieldStyleBuilder
 
+    /**
+     * Устанавливает стиль плэйсхолдера [placeholderStyle]
+     */
     fun placeholderStyle(placeholderStyle: TextStyle): TextFieldStyleBuilder
 
+    /**
+     * Устанавливает однострочный/многострочный режим [singleLine]
+     */
     fun singleLine(singleLine: Boolean): TextFieldStyleBuilder
 
+    /**
+     * Устанавливает наличие разделителя [hasDivider]
+     */
     fun hasDivider(hasDivider: Boolean): TextFieldStyleBuilder
 
+    /**
+     * Устаналивает необходимость скрывать внутренний лэйбл [dropInnerLabel]
+     */
     fun dropInnerLabel(dropInnerLabel: Boolean): TextFieldStyleBuilder
 
+    /**
+     * Устанавливает стиль чипов [chipGroupStyle]
+     */
     fun chipGroupStyle(chipGroupStyle: ChipGroupStyle): TextFieldStyleBuilder
 }
 
+/**
+ * Цвета компонента [TextField]
+ */
 @Stable
 interface TextFieldColors {
 
+    /**
+     * Альфа в состоянии disabled
+     */
     val disabledAlpha: Float
 
+    /**
+     * Альфа в состоянии enabled
+     */
     val enabledAlpha: Float
 
+    /**
+     * Цвет курсора
+     */
     val cursorColor: Color
 
+    /**
+     * Цвет индикатора
+     */
     val indicatorColor: Color
 
+    /**
+     * Цвет контенат в начале
+     */
     val startContentColor: InteractiveColor
 
+    /**
+     * Цвет контента в конце
+     */
     val endContentColor: Color
 
+    /**
+     * Цвет лэйбла
+     */
     fun labelColor(isReadOnly: Boolean, labelPlacement: TextField.LabelPlacement): Color
 
+    /**
+     * Цвет основного текста
+     */
     fun valueColor(isReadOnly: Boolean): InteractiveColor
 
+    /**
+     * Цвет надписи
+     */
     fun captionColor(isReadOnly: Boolean): InteractiveColor
 
+    /**
+     * Цвет опционального текста
+     */
     val optionalColor: Color
 
+    /**
+     * Цвет счетчика
+     */
     val counterColor: Color
 
+    /**
+     * Цвет разделителя
+     */
     fun dividerColor(isReadOnly: Boolean): InteractiveColor
 
+    /**
+     * Цвет плэйсхолдера
+     */
     fun placeholderColor(isReadOnly: Boolean): InteractiveColor
 
+    /**
+     * Цвет бэкграунда
+     */
     fun backgroundColor(isReadOnly: Boolean): InteractiveColor
 
     companion object {
 
+        /**
+         * Вернет экземпляр билдера [TextFieldColorsBuilder]
+         */
         fun builder(): TextFieldColorsBuilder = DefaultTextFieldColors.Builder()
     }
 }
 
 @Immutable
+@Suppress("LongParameterList")
 private class DefaultTextFieldStyle(
     override val dimensions: TextField.Dimensions,
     override val colors: TextFieldColors,
@@ -246,7 +451,6 @@ private class DefaultTextFieldStyle(
             this.outerOptionalStyle = outerOptionalStyle
         }
 
-
         override fun valueStyle(valueStyle: TextStyle) = apply {
             this.valueStyle = valueStyle
         }
@@ -279,6 +483,7 @@ private class DefaultTextFieldStyle(
             this.chipGroupStyle = chipGroupStyle
         }
 
+        @Suppress("CyclomaticComplexMethod")
         override fun style(): TextFieldStyle {
             return DefaultTextFieldStyle(
                 dimensions = dimensions ?: TextField.Dimensions(),
@@ -301,59 +506,129 @@ private class DefaultTextFieldStyle(
                 singleLine = singleLine ?: true,
                 hasDivider = hasDivider ?: true,
                 dropInnerLabel = dropInnerLabel ?: false,
-                chipGroupStyle = chipGroupStyle ?: ChipGroupStyle.builder().style()
+                chipGroupStyle = chipGroupStyle ?: ChipGroupStyle.builder().style(),
             )
         }
     }
 }
 
+/**
+ * Билдер цветов [TextFieldColors]
+ */
 interface TextFieldColorsBuilder {
 
+    /**
+     * Устанавливает альфу [disabledAlpha] в состоянии disabled
+     */
     fun disabledAlpha(disabledAlpha: Float)
 
+    /**
+     * Устанавливает альфу [enabledAlpha] в состоянии enabled
+     */
     fun enabledAlpha(enabledAlpha: Float)
 
+    /**
+     * Устанавливает цвет курсора [cursorColor]
+     */
     fun cursorColor(cursorColor: Color)
 
+    /**
+     * Устанавливает цвет контента в начале [startContentColor]
+     */
     fun startContentColor(startContentColor: InteractiveColor)
 
+    /**
+     * Устанавливает цвет контента в конце [endContentColor]
+     */
     fun endContentColor(endContentColor: Color)
 
+    /**
+     * Устанавливает цвет внутреннего лэйбла [innerLabelColor]
+     */
     fun innerLabelColor(innerLabelColor: Color)
 
+    /**
+     * Устанавливает цвет внешнего лэйбла [outerLabelColor]
+     */
     fun outerLabelColor(outerLabelColor: Color)
 
+    /**
+     * Устанавливает цвет внешнего лэйбла в состоянии readOnly [outerLabelColorReadOnly]
+     */
     fun outerLabelColorReadOnly(outerLabelColorReadOnly: Color)
 
+    /**
+     * Устанавливает цвет основного текста [valueColor]
+     */
     fun valueColor(valueColor: InteractiveColor)
 
+    /**
+     * Устанавливает цвет основного текста в состоянии readOnly [valueColorReadOnly]
+     */
     fun valueColorReadOnly(valueColorReadOnly: InteractiveColor)
 
+    /**
+     * Устанавливает цвет надписи [captionColor]
+     */
     fun captionColor(captionColor: InteractiveColor)
 
+    /**
+     * Устанавливает цвет надписи в состоянии readOnly [captionColorReadOnly]
+     */
     fun captionColorReadOnly(captionColorReadOnly: InteractiveColor)
 
+    /**
+     * Устанавливает цвет опционального текста [optionalColor]
+     */
     fun optionalColor(optionalColor: Color)
 
+    /**
+     * Устанавливает цвет счетчика [counterColor]
+     */
     fun counterColor(counterColor: Color)
 
+    /**
+     * Устанавливает цвет плэйсхолдера [placeholderColor]
+     */
     fun placeholderColor(placeholderColor: InteractiveColor)
 
+    /**
+     * Устанавливает цвет плэйсхолдеоа в состоянии readOnly [placeholderColorReadOnly]
+     */
     fun placeholderColorReadOnly(placeholderColorReadOnly: InteractiveColor)
 
+    /**
+     * Устанавливает цвет бэкграунда [backgroundColor]
+     */
     fun backgroundColor(backgroundColor: InteractiveColor)
 
+    /**
+     * Устанавливает цвет бэкграунда в состоянии readOnly [backgroundColorReadOnly]
+     */
     fun backgroundColorReadOnly(backgroundColorReadOnly: InteractiveColor)
 
+    /**
+     * Устанавливает цвет разделителя [dividerColor]
+     */
     fun dividerColor(dividerColor: InteractiveColor)
 
+    /**
+     * Устанавливает цвет разделителя в состоянии readOnlu [dividerColorReadOnly]
+     */
     fun dividerColorReadOnly(dividerColorReadOnly: InteractiveColor)
 
+    /**
+     * Устанавливает цвет индикатора
+     */
     fun indicatorColor(indicatorColor: Color)
 
+    /**
+     * Вернет экземпляр [TextFieldColors]
+     */
     fun build(): TextFieldColors
 }
 
+@Suppress("LongParameterList")
 private class DefaultTextFieldColors(
     override val disabledAlpha: Float,
     override val enabledAlpha: Float,
@@ -380,7 +655,7 @@ private class DefaultTextFieldColors(
 
     override fun labelColor(
         isReadOnly: Boolean,
-        labelPlacement: TextField.LabelPlacement
+        labelPlacement: TextField.LabelPlacement,
     ): Color {
         return when (labelPlacement) {
             TextField.LabelPlacement.Outer -> if (isReadOnly) outerLabelColorReadOnly else outerLabelColor
@@ -463,7 +738,6 @@ private class DefaultTextFieldColors(
             this.outerLabelColorReadOnly = outerLabelColorReadOnly
         }
 
-
         override fun valueColor(valueColor: InteractiveColor) {
             this.valueColor = valueColor
         }
@@ -516,6 +790,7 @@ private class DefaultTextFieldColors(
             this.indicatorColor = indicatorColor
         }
 
+        @Suppress("CyclomaticComplexMethod")
         override fun build(): TextFieldColors {
             return DefaultTextFieldColors(
                 disabledAlpha = disabledAlpha ?: DEFAULT_DISABLED_ALPHA,

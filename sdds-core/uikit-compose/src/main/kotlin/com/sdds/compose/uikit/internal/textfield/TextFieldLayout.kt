@@ -532,7 +532,9 @@ private fun getLabelLineHeight(
 ): Int {
     return if (hasLabel) {
         getLineHeight(textMeasurer, textStyle)
-    } else 0
+    } else {
+        0
+    }
 }
 
 private fun calculateWidth(

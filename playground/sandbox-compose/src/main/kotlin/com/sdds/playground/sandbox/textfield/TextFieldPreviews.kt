@@ -33,7 +33,7 @@ internal fun SandboxTextFieldPreview() {
             style = TextField.S.Warning.RequiredStart.OuterLabel.style(),
             placeholderText = "Placeholder",
             onValueChange = { value = it },
-            leadingIcon = {
+            startContent = {
                 Icon(
                     painter = painterResource(id = R.drawable.ic_add_fill_24),
                     contentDescription = "",
@@ -95,7 +95,7 @@ internal fun SandboxTextFieldPreviewXsError() {
             onValueChange = {},
             enabled = true,
             readOnly = false,
-            leadingIcon = {
+            startContent = {
                 Icon(
                     painter = painterResource(id = com.sdds.icons.R.drawable.ic_shazam_16),
                     contentDescription = "",
@@ -137,7 +137,7 @@ internal fun SandboxTextFieldPreviewMWarning() {
             onValueChange = {},
             enabled = true,
             readOnly = false,
-            leadingIcon = {
+            startContent = {
                 Icon(
                     painter = painterResource(id = com.sdds.icons.R.drawable.ic_scribble_diagonal_24),
                     contentDescription = "",
@@ -161,13 +161,13 @@ internal fun SandboxTextFieldPreviewSDisabled() {
             onValueChange = {},
             enabled = false,
             readOnly = false,
-            leadingIcon = {
+            startContent = {
                 Icon(
                     painter = painterResource(id = com.sdds.icons.R.drawable.ic_scribble_diagonal_24),
                     contentDescription = "",
                 )
             },
-            trailingIcon = {
+            endContent = {
                 Icon(
                     painter = painterResource(id = com.sdds.icons.R.drawable.ic_shazam_24),
                     contentDescription = "",
@@ -209,7 +209,7 @@ internal fun SandboxTextFieldPreviewSReadOnly() {
             onValueChange = {},
             enabled = true,
             readOnly = true,
-            leadingIcon = {
+            startContent = {
                 Icon(
                     painter = painterResource(id = com.sdds.icons.R.drawable.ic_scribble_diagonal_24),
                     contentDescription = "",
@@ -233,7 +233,7 @@ internal fun SandboxTextFieldPreviewLInputText() {
             onValueChange = {},
             enabled = true,
             readOnly = false,
-            leadingIcon = {
+            startContent = {
                 Icon(
                     painter = painterResource(id = com.sdds.icons.R.drawable.ic_scribble_diagonal_24),
                     contentDescription = "",
@@ -275,13 +275,13 @@ internal fun SandboxTextFieldPreviewXsDotBadgeOutside() {
             onValueChange = {},
             enabled = true,
             readOnly = false,
-            leadingIcon = {
+            startContent = {
                 Icon(
                     painter = painterResource(id = com.sdds.icons.R.drawable.ic_scribble_diagonal_16),
                     contentDescription = "",
                 )
             },
-            trailingIcon = {
+            endContent = {
                 Icon(
                     painter = painterResource(id = com.sdds.icons.R.drawable.ic_shazam_16),
                     contentDescription = "",
@@ -305,7 +305,7 @@ internal fun SandboxTextFieldPreviewMDotBadgeInside() {
             onValueChange = {},
             enabled = true,
             readOnly = false,
-            trailingIcon = {
+            endContent = {
                 Icon(
                     painter = painterResource(id = com.sdds.icons.R.drawable.ic_shazam_24),
                     contentDescription = "",
@@ -349,7 +349,7 @@ internal fun SandboxTextFieldPreviewXsChipsInside() {
             onValueChange = {},
             enabled = true,
             readOnly = false,
-            trailingIcon = {
+            endContent = {
                 Icon(
                     painter = painterResource(id = com.sdds.icons.R.drawable.ic_shazam_16),
                     contentDescription = "",
@@ -395,13 +395,13 @@ internal fun SandboxTextFieldPreviewLSuffixPrefix() {
             onValueChange = {},
             enabled = true,
             readOnly = false,
-            leadingIcon = {
+            startContent = {
                 Icon(
                     painter = painterResource(id = com.sdds.icons.R.drawable.ic_scribble_diagonal_24),
                     contentDescription = "",
                 )
             },
-            trailingIcon = {
+            endContent = {
                 Icon(
                     painter = painterResource(id = com.sdds.icons.R.drawable.ic_shazam_24),
                     contentDescription = "",
@@ -427,13 +427,13 @@ internal fun SandboxTextFieldPreviewFocused() {
             onValueChange = {},
             enabled = true,
             readOnly = false,
-            leadingIcon = {
+            startContent = {
                 Icon(
                     painter = painterResource(id = com.sdds.icons.R.drawable.ic_scribble_diagonal_24),
                     contentDescription = "",
                 )
             },
-            trailingIcon = {
+            endContent = {
                 Icon(
                     painter = painterResource(id = com.sdds.icons.R.drawable.ic_shazam_24),
                     contentDescription = "",
@@ -461,13 +461,13 @@ internal fun SandboxTextFieldPreviewTextDeletes() {
             onValueChange = {},
             enabled = true,
             readOnly = false,
-            leadingIcon = {
+            startContent = {
                 Icon(
                     painter = painterResource(id = com.sdds.icons.R.drawable.ic_scribble_diagonal_24),
                     contentDescription = "",
                 )
             },
-            trailingIcon = {
+            endContent = {
                 Icon(
                     painter = painterResource(id = com.sdds.icons.R.drawable.ic_shazam_24),
                     contentDescription = "",

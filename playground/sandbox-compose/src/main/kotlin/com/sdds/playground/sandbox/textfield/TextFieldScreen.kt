@@ -18,11 +18,8 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.sdds.compose.uikit.BasicButton
 import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.Chip
-import com.sdds.compose.uikit.ChipStyle
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.TextField
-import com.sdds.compose.uikit.TextFieldStyle
-import com.sdds.compose.uikit.prefixSuffixTransformation
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.buttons.Default
@@ -65,8 +62,8 @@ internal fun TextFieldScreen() {
                 optionalText = textFieldUiState.optionalText,
                 captionText = textFieldUiState.captionText,
                 counterText = textFieldUiState.counterText,
-                leadingIcon = textFieldUiState.hasStartIcon.getExampleIcon(Icon.Start),
-                trailingIcon = textFieldUiState.hasEndIcon.getExampleIcon(Icon.End),
+                startContent = textFieldUiState.hasStartIcon.getExampleIcon(Icon.Start),
+                endContent = textFieldUiState.hasEndIcon.getExampleIcon(Icon.End),
                 chipsContent = textFieldUiState.chips.toChipContent(
                     onChipClosePressed = {
                         textFieldViewModel.onChipClosePressed(it)

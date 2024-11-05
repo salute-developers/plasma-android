@@ -27,8 +27,8 @@ internal val TextFieldClear.Xs: TextFieldStyleBuilder
         .helperTextPlacement(TextField.HelperTextPlacement.Outer)
         .chipGroupStyle(
             ChipGroup.Dense.chipStyle(
-                EmbeddedChip.Xs.Secondary.style()
-            ).style()
+                EmbeddedChip.Xs.Secondary.style(),
+            ).style(),
         )
         .dimensions(
             TextField.Dimensions(
@@ -62,7 +62,7 @@ internal val TextFieldClear.Xs: TextFieldStyleBuilder
                     fieldIndicatorSize = 6.dp,
                     labelIndicatorSize = 6.dp,
                 ),
-            )
+            ),
         )
         .innerLabelStyle(SddsServTheme.typography.bodyXxsNormal)
         .outerLabelStyle(SddsServTheme.typography.bodyXsNormal)
@@ -83,8 +83,8 @@ internal val TextFieldClear.S: TextFieldStyleBuilder
         .helperTextPlacement(TextField.HelperTextPlacement.Outer)
         .chipGroupStyle(
             ChipGroup.Dense.chipStyle(
-                EmbeddedChip.S.Secondary.style()
-            ).style()
+                EmbeddedChip.S.Secondary.style(),
+            ).style(),
         )
         .dimensions(
             TextField.Dimensions(
@@ -118,7 +118,7 @@ internal val TextFieldClear.S: TextFieldStyleBuilder
                     fieldIndicatorSize = 6.dp,
                     labelIndicatorSize = 6.dp,
                 ),
-            )
+            ),
         )
         .innerLabelStyle(SddsServTheme.typography.bodyXsNormal)
         .outerLabelStyle(SddsServTheme.typography.bodySNormal)
@@ -138,8 +138,8 @@ internal val TextFieldClear.M: TextFieldStyleBuilder
         .helperTextPlacement(TextField.HelperTextPlacement.Outer)
         .chipGroupStyle(
             ChipGroup.Dense.chipStyle(
-                EmbeddedChip.M.Secondary.style()
-            ).style()
+                EmbeddedChip.M.Secondary.style(),
+            ).style(),
         )
         .dimensions(
             TextField.Dimensions(
@@ -171,9 +171,9 @@ internal val TextFieldClear.M: TextFieldStyleBuilder
                     endFieldHorizontalPadding = 6.dp,
                     endFieldVerticalPadding = 0.dp,
                     fieldIndicatorSize = 8.dp,
-                    labelIndicatorSize = 8.dp
+                    labelIndicatorSize = 8.dp,
                 ),
-            )
+            ),
         )
         .innerLabelStyle(SddsServTheme.typography.bodyXsNormal)
         .outerLabelStyle(SddsServTheme.typography.bodyMNormal)
@@ -193,8 +193,8 @@ internal val TextFieldClear.L: TextFieldStyleBuilder
         .helperTextPlacement(TextField.HelperTextPlacement.Outer)
         .chipGroupStyle(
             ChipGroup.Dense.chipStyle(
-                EmbeddedChip.L.Secondary.style()
-            ).style()
+                EmbeddedChip.L.Secondary.style(),
+            ).style(),
         )
         .dimensions(
             TextField.Dimensions(
@@ -226,9 +226,9 @@ internal val TextFieldClear.L: TextFieldStyleBuilder
                     endFieldHorizontalPadding = 6.dp,
                     endFieldVerticalPadding = 0.dp,
                     fieldIndicatorSize = 8.dp,
-                    labelIndicatorSize = 8.dp
+                    labelIndicatorSize = 8.dp,
                 ),
-            )
+            ),
         )
         .innerLabelStyle(SddsServTheme.typography.bodyXsNormal)
         .outerLabelStyle(SddsServTheme.typography.bodyLNormal)
@@ -260,14 +260,14 @@ internal fun TextFieldColorsBuilder.defaultClearColors(): TextFieldColorsBuilder
         SddsServTheme.colors.textDefaultSecondary.asInteractive(
             focused = SddsServTheme.colors.textDefaultTertiary,
             pressed = SddsServTheme.colors.textDefaultTertiary,
-        )
+        ),
     )
     placeholderColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
     dividerColor(
         SddsServTheme.colors.surfaceDefaultTransparentTertiary.asInteractive(
             focused = SddsServTheme.colors.surfaceDefaultAccent,
             pressed = SddsServTheme.colors.surfaceDefaultAccent,
-        )
+        ),
     )
     dividerColorReadOnly(SddsServTheme.colors.surfaceDefaultTransparentPrimary.asInteractive())
     indicatorColor(SddsServTheme.colors.surfaceDefaultNegative)
@@ -287,14 +287,14 @@ internal fun TextFieldColorsBuilder.successClearColors(): TextFieldColorsBuilder
         SddsServTheme.colors.textDefaultPositive.asInteractive(
             focused = SddsServTheme.colors.textDefaultPrimary,
             pressed = SddsServTheme.colors.textDefaultPrimary,
-        )
+        ),
     )
     valueColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
     captionColor(
         SddsServTheme.colors.textDefaultPositive.asInteractive(
             focused = SddsServTheme.colors.textDefaultSecondary,
             pressed = SddsServTheme.colors.textDefaultSecondary,
-        )
+        ),
     )
     captionColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
     optionalColor(SddsServTheme.colors.textDefaultTertiary)
@@ -303,14 +303,14 @@ internal fun TextFieldColorsBuilder.successClearColors(): TextFieldColorsBuilder
         SddsServTheme.colors.textDefaultPositive.asInteractive(
             focused = SddsServTheme.colors.textDefaultTertiary,
             pressed = SddsServTheme.colors.textDefaultTertiary,
-        )
+        ),
     )
     placeholderColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
     dividerColor(
         SddsServTheme.colors.surfaceDefaultPositive.asInteractive(
             focused = SddsServTheme.colors.surfaceDefaultAccent,
             pressed = SddsServTheme.colors.surfaceDefaultAccent,
-        )
+        ),
     )
     dividerColorReadOnly(SddsServTheme.colors.surfaceDefaultTransparentPrimary.asInteractive())
     indicatorColor(SddsServTheme.colors.surfaceDefaultNegative)
@@ -330,14 +330,14 @@ internal fun TextFieldColorsBuilder.warningClearColors(): TextFieldColorsBuilder
         SddsServTheme.colors.textDefaultWarning.asInteractive(
             focused = SddsServTheme.colors.textDefaultPrimary,
             pressed = SddsServTheme.colors.textDefaultPrimary,
-        )
+        ),
     )
     valueColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
     captionColor(
         SddsServTheme.colors.textDefaultWarning.asInteractive(
             focused = SddsServTheme.colors.textDefaultSecondary,
             pressed = SddsServTheme.colors.textDefaultSecondary,
-        )
+        ),
     )
     captionColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
     optionalColor(SddsServTheme.colors.textDefaultTertiary)
@@ -346,14 +346,14 @@ internal fun TextFieldColorsBuilder.warningClearColors(): TextFieldColorsBuilder
         SddsServTheme.colors.textDefaultWarning.asInteractive(
             focused = SddsServTheme.colors.textDefaultTertiary,
             pressed = SddsServTheme.colors.textDefaultTertiary,
-        )
+        ),
     )
     placeholderColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
     dividerColor(
         SddsServTheme.colors.surfaceDefaultWarning.asInteractive(
             focused = SddsServTheme.colors.surfaceDefaultAccent,
             pressed = SddsServTheme.colors.surfaceDefaultAccent,
-        )
+        ),
     )
     dividerColorReadOnly(SddsServTheme.colors.surfaceDefaultTransparentPrimary.asInteractive())
     indicatorColor(SddsServTheme.colors.surfaceDefaultNegative)
@@ -373,14 +373,14 @@ internal fun TextFieldColorsBuilder.errorClearColors(): TextFieldColorsBuilder =
         SddsServTheme.colors.textDefaultNegative.asInteractive(
             focused = SddsServTheme.colors.textDefaultPrimary,
             pressed = SddsServTheme.colors.textDefaultPrimary,
-        )
+        ),
     )
     valueColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
     captionColor(
         SddsServTheme.colors.textDefaultNegative.asInteractive(
             focused = SddsServTheme.colors.textDefaultSecondary,
             pressed = SddsServTheme.colors.textDefaultSecondary,
-        )
+        ),
     )
     captionColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
     optionalColor(SddsServTheme.colors.textDefaultTertiary)
@@ -389,14 +389,14 @@ internal fun TextFieldColorsBuilder.errorClearColors(): TextFieldColorsBuilder =
         SddsServTheme.colors.textDefaultNegative.asInteractive(
             focused = SddsServTheme.colors.textDefaultTertiary,
             pressed = SddsServTheme.colors.textDefaultTertiary,
-        )
+        ),
     )
     placeholderColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
     dividerColor(
         SddsServTheme.colors.surfaceDefaultNegative.asInteractive(
             focused = SddsServTheme.colors.surfaceDefaultAccent,
             pressed = SddsServTheme.colors.surfaceDefaultAccent,
-        )
+        ),
     )
     dividerColorReadOnly(SddsServTheme.colors.surfaceDefaultTransparentPrimary.asInteractive())
     indicatorColor(SddsServTheme.colors.surfaceDefaultNegative)

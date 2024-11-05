@@ -25,8 +25,8 @@ internal val TextAreaClear.Xs: TextFieldStyleBuilder
         .helperTextPlacement(TextField.HelperTextPlacement.Outer)
         .chipGroupStyle(
             ChipGroup.Dense.chipStyle(
-                EmbeddedChip.Xs.Secondary.style()
-            ).style()
+                EmbeddedChip.Xs.Secondary.style(),
+            ).style(),
         )
         .dimensions(
             TextField.Dimensions(
@@ -60,7 +60,7 @@ internal val TextAreaClear.Xs: TextFieldStyleBuilder
                     fieldIndicatorSize = 6.dp,
                     labelIndicatorSize = 6.dp,
                 ),
-            )
+            ),
         )
         .innerLabelStyle(SddsServTheme.typography.bodyXxsNormal)
         .outerLabelStyle(SddsServTheme.typography.bodyXsNormal)
@@ -81,8 +81,8 @@ internal val TextAreaClear.S: TextFieldStyleBuilder
         .helperTextPlacement(TextField.HelperTextPlacement.Outer)
         .chipGroupStyle(
             ChipGroup.Dense.chipStyle(
-                EmbeddedChip.S.Secondary.style()
-            ).style()
+                EmbeddedChip.S.Secondary.style(),
+            ).style(),
         )
         .dimensions(
             TextField.Dimensions(
@@ -116,7 +116,7 @@ internal val TextAreaClear.S: TextFieldStyleBuilder
                     fieldIndicatorSize = 6.dp,
                     labelIndicatorSize = 6.dp,
                 ),
-            )
+            ),
         )
         .innerLabelStyle(SddsServTheme.typography.bodyXsNormal)
         .outerLabelStyle(SddsServTheme.typography.bodySNormal)
@@ -136,8 +136,8 @@ internal val TextAreaClear.M: TextFieldStyleBuilder
         .helperTextPlacement(TextField.HelperTextPlacement.Outer)
         .chipGroupStyle(
             ChipGroup.Dense.chipStyle(
-                EmbeddedChip.M.Secondary.style()
-            ).style()
+                EmbeddedChip.M.Secondary.style(),
+            ).style(),
         )
         .dimensions(
             TextField.Dimensions(
@@ -169,9 +169,9 @@ internal val TextAreaClear.M: TextFieldStyleBuilder
                     endFieldHorizontalPadding = 6.dp,
                     endFieldVerticalPadding = 0.dp,
                     fieldIndicatorSize = 8.dp,
-                    labelIndicatorSize = 8.dp
+                    labelIndicatorSize = 8.dp,
                 ),
-            )
+            ),
         )
         .innerLabelStyle(SddsServTheme.typography.bodyXsNormal)
         .outerLabelStyle(SddsServTheme.typography.bodyMNormal)
@@ -191,8 +191,8 @@ internal val TextAreaClear.L: TextFieldStyleBuilder
         .helperTextPlacement(TextField.HelperTextPlacement.Outer)
         .chipGroupStyle(
             ChipGroup.Dense.chipStyle(
-                EmbeddedChip.L.Secondary.style()
-            ).style()
+                EmbeddedChip.L.Secondary.style(),
+            ).style(),
         )
         .dimensions(
             TextField.Dimensions(
@@ -224,9 +224,9 @@ internal val TextAreaClear.L: TextFieldStyleBuilder
                     endFieldHorizontalPadding = 6.dp,
                     endFieldVerticalPadding = 0.dp,
                     fieldIndicatorSize = 8.dp,
-                    labelIndicatorSize = 8.dp
+                    labelIndicatorSize = 8.dp,
                 ),
-            )
+            ),
         )
         .innerLabelStyle(SddsServTheme.typography.bodyXsNormal)
         .outerLabelStyle(SddsServTheme.typography.bodyLNormal)

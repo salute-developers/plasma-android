@@ -62,43 +62,23 @@ import com.sdds.compose.uikit.scrollbar
  * @param value значение в поле ввода
  * @param onValueChange callback для изменения текста при вводе
  * @param modifier Modifier для дополнительного изменения компонента, по умолчанию пустой
- * @param singleLine однострочный или многострочный режим
  * @param enabled если false - фокусировка, ввод текста и копирование отключены
  * @param readOnly если false - доступно только для чтения, запись отключена
- * @param fieldAppearance внешний вид поля (с фоном или без)
- * @param fieldType тип текстового поля - обязательное или опциональное (см. [FieldType])
- * @param labelPosition тип отображения лэйбла: [LabelPlacement.Outer] снаружи поля ввода, [LabelPlacement.Inner] внутри поля ввода
- * @param helperTextPosition тип отображения вспомогательного текста (caption/counter): [HelperTextPlacement.Outer] снаружи поля ввода, [HelperTextPlacement.Inner] внутри поля ввода
  * @param placeholderText заглушка если пустое [value] и тип [LabelPlacement.Outer]
  * @param labelText текст лэйбла
  * @param captionText текст подписи под полем ввода
  * @param counterText текст счетчика под полем ввода
- * @param leadingIcon иконка, которая будет находиться в начале поля ввода
- * @param trailingIcon иконка, которая будет находиться в конце поля ввода
- * @param chipsContent контент с chip-элементами. Chip должны иметь одинаковую высоту, которая должна быть задана в параметре [chipHeight]
- * @param valueStyle стиль value
- * @param innerLabelStyle стиль лэйбла в режиме [labelPosition] == [LabelPlacement.Inner]
- * @param innerOptionalStyle стиль optional в режиме [labelPosition] == [LabelPlacement.Inner]
- * @param innerCaptionStyle стиль надписи в режиме [helperTextPosition] == [HelperTextPlacement.Inner]
- * @param innerCounterTextStyle стиль счетчика в режиме [helperTextPosition] == [HelperTextPlacement.Inner]
- * @param outerLabelStyle стиль лэйбла в режиме [labelPosition] == [LabelPlacement.Outer]
- * @param outerCaptionStyle стиль надписи в режиме [helperTextPosition] == [HelperTextPlacement.Outer]
- * @param outerOptionalStyle стиль optional в режиме [labelPosition] == [LabelPlacement.Outer]
- * @param outerCounterTextStyle стиль счетчика в режиме [helperTextPosition] == [HelperTextPlacement.Outer]
- * @param placeHolderStyle стиль placeholder
- * @param startContentColor цвет контента в начале
- * @param cursorColor цвет курсора
- * @param enabledAlpha альфа, когда компонент в режиме [enabled] == true
- * @param disabledAlpha альфа, когда компонент в режиме [enabled] == false
- * @param chipContainerShape позволяет скруглять контейнер, в котором находятся чипы
- * @param chipHeight высота чипов
- * @param iconSize размер иконки
- * @param dimensions отступы [TextField]
- * @param scrollBarConfig настройки scroll bar для режима [singleLine] == true
+ * @param optionalText текст опционального поля
+ * @param prefix текст префикса
+ * @param suffix текст суффикса
+ * @param startContent иконка, которая будет находиться в начале поля ввода
+ * @param endContent иконка, которая будет находиться в конце поля ввода
+ * @param chipsContent контент с chip-элементами. Chip должны иметь одинаковую высоту.
  * @param animation параметры анимации [Animation]
  * @param keyboardOptions для настройки клавиатуры, например [KeyboardType] или [ImeAction]
  * @param keyboardActions когда на ввод подается [ImeAction] вызывается соответствующий callback
- * @param visualTransformation фильтр визуального отображения, например [PasswordVisualTransformation]
+ * @param visualTransformation фильтр визуального отображения, например [PasswordVisualTransformation].
+ * Используется, только если отсутствуют [prefix] и [suffix].
  * @param interactionSource источник взаимодействия с полем
  */
 @Composable
@@ -117,8 +97,8 @@ internal fun BaseTextField(
     optionalText: String? = null,
     prefix: String? = null,
     suffix: String? = null,
-    leadingIcon: @Composable (() -> Unit)? = null,
-    trailingIcon: @Composable (() -> Unit)? = null,
+    startContent: @Composable (() -> Unit)? = null,
+    endContent: @Composable (() -> Unit)? = null,
     chipsContent: @Composable (() -> Unit)? = null,
     animation: Animation = Animation(),
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
@@ -148,9 +128,7 @@ internal fun BaseTextField(
         color = colors.captionColor(isReadOnly = readOnly),
         interactionSource = interactionSource,
     )
-    val counterStyle = style.counterStyle.applyColor(
-        color = colors.counterColor
-    )
+    val counterStyle = style.counterStyle.applyColor(color = colors.counterColor)
     val placeholderStyle = style.placeholderStyle.applyColor(
         color = colors.placeholderColor(isReadOnly = readOnly),
         interactionSource = interactionSource,
@@ -167,8 +145,12 @@ internal fun BaseTextField(
         if (style.dropInnerLabel && labelPlacement == LabelPlacement.Inner) "" else optionalText
 
     val innerVisualTransformation = remember(prefix, suffix, visualTransformation) {
-        if (prefix.isNullOrEmpty() && suffix.isNullOrEmpty()) visualTransformation
-        else prefixSuffixTransformation(prefix, suffix, placeholderStyle, placeholderStyle)
+        if (prefix.isNullOrEmpty() && suffix.isNullOrEmpty()) {
+            visualTransformation
+        }
+        else {
+            prefixSuffixTransformation(prefix, suffix, placeholderStyle, placeholderStyle)
+        }
     }
 
     Column(
@@ -264,12 +246,12 @@ internal fun BaseTextField(
                 ),
                 placeholder = placeholder(placeholderText, placeholderStyle),
                 leadingIcon = leadingIcon(
-                    leadingIcon,
+                    startContent,
                     colors
                         .startContentColor
-                        .colorForInteraction(interactionSource)
+                        .colorForInteraction(interactionSource),
                 ),
-                trailingIcon = trailingIcon,
+                trailingIcon = endContent,
                 innerCaption = innerCaption(helperTextPlacement, captionText, captionStyle),
                 innerCounter = innerCounter(helperTextPlacement, counterText, counterStyle),
                 animation = animation,
@@ -450,7 +432,7 @@ private fun Modifier.applyIndicatorPadding(
     return if (shouldApply) {
         val startPadding =
             dimensions.indicatorDimensions.labelIndicatorSize + dimensions.labelIndicatorHorizontalPadding(
-                fieldType
+                fieldType,
             )
         this.padding(start = startPadding)
     } else {
@@ -539,7 +521,7 @@ private fun TextField.Dimensions.labelIndicatorHorizontalPadding(fieldType: Fiel
         FieldType.RequiredStart -> {
             Log.e(
                 "testtag",
-                "startOuterHorizontalPadding=${indicatorDimensions.startLabelHorizontalPadding}"
+                "startOuterHorizontalPadding=${indicatorDimensions.startLabelHorizontalPadding}",
             )
             indicatorDimensions.startLabelHorizontalPadding
         }
@@ -547,7 +529,7 @@ private fun TextField.Dimensions.labelIndicatorHorizontalPadding(fieldType: Fiel
         FieldType.RequiredEnd -> {
             Log.e(
                 "testtag",
-                "endOuterHorizontalPadding=${indicatorDimensions.endLabelHorizontalPadding}"
+                "endOuterHorizontalPadding=${indicatorDimensions.endLabelHorizontalPadding}",
             )
             indicatorDimensions.endLabelHorizontalPadding
         }
@@ -694,6 +676,6 @@ private fun TextStyle.applyColor(color: Color): TextStyle =
 @Composable
 private fun TextStyle.applyColor(
     color: InteractiveColor,
-    interactionSource: InteractionSource
+    interactionSource: InteractionSource,
 ): TextStyle =
     this.copy(color = color.colorForInteraction(interactionSource))

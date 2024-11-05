@@ -28,8 +28,8 @@ internal val TextArea.Xs: TextFieldStyleBuilder
         .helperTextPlacement(TextField.HelperTextPlacement.Inner)
         .chipGroupStyle(
             ChipGroup.Dense.chipStyle(
-                EmbeddedChip.Xs.Secondary.style()
-            ).style()
+                EmbeddedChip.Xs.Secondary.style(),
+            ).style(),
         )
         .scrollBar(scrollBar)
         .dimensions(
@@ -58,9 +58,9 @@ internal val TextArea.Xs: TextFieldStyleBuilder
                     endLabelHorizontalPadding = 4.dp,
                     endLabelVerticalPadding = 2.dp,
                     fieldIndicatorSize = 6.dp,
-                    labelIndicatorSize = 6.dp
+                    labelIndicatorSize = 6.dp,
                 ),
-            )
+            ),
         )
         .innerLabelStyle(SddsServTheme.typography.bodyXxsNormal)
         .outerLabelStyle(SddsServTheme.typography.bodyXsNormal)
@@ -82,8 +82,8 @@ internal val TextArea.S: TextFieldStyleBuilder
         .helperTextPlacement(TextField.HelperTextPlacement.Inner)
         .chipGroupStyle(
             ChipGroup.Dense.chipStyle(
-                EmbeddedChip.S.Secondary.style()
-            ).style()
+                EmbeddedChip.S.Secondary.style(),
+            ).style(),
         )
         .scrollBar(scrollBar)
         .dimensions(
@@ -112,9 +112,9 @@ internal val TextArea.S: TextFieldStyleBuilder
                     endLabelHorizontalPadding = 4.dp,
                     endLabelVerticalPadding = 4.dp,
                     fieldIndicatorSize = 6.dp,
-                    labelIndicatorSize = 6.dp
+                    labelIndicatorSize = 6.dp,
                 ),
-            )
+            ),
         )
         .innerLabelStyle(SddsServTheme.typography.bodyXsNormal)
         .outerLabelStyle(SddsServTheme.typography.bodySNormal)
@@ -135,8 +135,8 @@ internal val TextArea.M: TextFieldStyleBuilder
         .helperTextPlacement(TextField.HelperTextPlacement.Inner)
         .chipGroupStyle(
             ChipGroup.Dense.chipStyle(
-                EmbeddedChip.M.Secondary.style()
-            ).style()
+                EmbeddedChip.M.Secondary.style(),
+            ).style(),
         )
         .scrollBar(scrollBar)
         .dimensions(
@@ -165,9 +165,9 @@ internal val TextArea.M: TextFieldStyleBuilder
                     endLabelHorizontalPadding = 4.dp,
                     endLabelVerticalPadding = 4.dp,
                     fieldIndicatorSize = 8.dp,
-                    labelIndicatorSize = 6.dp
+                    labelIndicatorSize = 6.dp,
                 ),
-            )
+            ),
         )
         .innerLabelStyle(SddsServTheme.typography.bodyXsNormal)
         .outerLabelStyle(SddsServTheme.typography.bodyMNormal)
@@ -188,8 +188,8 @@ internal val TextArea.L: TextFieldStyleBuilder
         .helperTextPlacement(TextField.HelperTextPlacement.Inner)
         .chipGroupStyle(
             ChipGroup.Dense.chipStyle(
-                EmbeddedChip.L.Secondary.style()
-            ).style()
+                EmbeddedChip.L.Secondary.style(),
+            ).style(),
         )
         .scrollBar(scrollBar)
         .dimensions(
@@ -218,9 +218,9 @@ internal val TextArea.L: TextFieldStyleBuilder
                     endLabelHorizontalPadding = 4.dp,
                     endLabelVerticalPadding = 4.dp,
                     fieldIndicatorSize = 8.dp,
-                    labelIndicatorSize = 6.dp
+                    labelIndicatorSize = 6.dp,
                 ),
-            )
+            ),
         )
         .innerLabelStyle(SddsServTheme.typography.bodyXsNormal)
         .outerLabelStyle(SddsServTheme.typography.bodyLNormal)

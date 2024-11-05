@@ -2,13 +2,10 @@ package com.sdds.playground.sandbox.chip.group
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.uikit.Chip
 import com.sdds.compose.uikit.ChipGroup
 import com.sdds.compose.uikit.ChipGroupDimensions
 import com.sdds.compose.uikit.ChipGroupStyle
 import com.sdds.compose.uikit.ChipGroupStyleBuilder
-import com.sdds.playground.sandbox.chip.Default
-import com.sdds.playground.sandbox.chip.M
 
 /**
  *
@@ -17,7 +14,6 @@ import com.sdds.playground.sandbox.chip.M
 internal val ChipGroup.Wide: ChipGroupStyleBuilder
     @Composable
     get() = ChipGroupStyle.builder()
-//        .chipStyle(Chip.M.Default.style())
         .dimensions(
             ChipGroupDimensions(
                 horizontalSpacing = 8.dp,
@@ -28,5 +24,4 @@ internal val ChipGroup.Wide: ChipGroupStyleBuilder
 internal val ChipGroup.Dense: ChipGroupStyleBuilder
     @Composable
     get() = ChipGroupStyle.builder()
-//        .chipStyle(Chip.M.Default.style())
         .dimensions(ChipGroupDimensions())

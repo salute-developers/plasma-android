@@ -25,20 +25,23 @@ import com.sdds.compose.uikit.internal.textfield.PrefixSuffixTransformation
  * @param value значение в поле ввода
  * @param onValueChange callback для изменения текста при вводе
  * @param modifier Modifier для дополнительного изменения компонента, по умолчанию пустой
- * @param singleLine однострочный или многострочный режим
  * @param enabled если false - фокусировка, ввод текста и копирование отключены
  * @param readOnly если false - доступно только для чтения, запись отключена
  * @param placeholderText заглушка если пустое [value] и тип [LabelPlacement.Outer]
  * @param labelText текст лэйбла
  * @param captionText текст подписи под полем ввода
  * @param counterText текст счетчика под полем ввода
- * @param leadingIcon иконка, которая будет находиться в начале поля ввода
- * @param trailingIcon иконка, которая будет находиться в конце поля ввода
- * @param chipsContent контент с chip-элементами. Chip должны иметь одинаковую высоту, которая должна быть задана в параметре [chipHeight]
+ * @param optionalText текст опционального поля
+ * @param prefix текст префикса
+ * @param suffix текст суффикса
+ * @param startContent иконка, которая будет находиться в начале поля ввода
+ * @param endContent иконка, которая будет находиться в конце поля ввода
+ * @param chipsContent контент с chip-элементами. Chip должны иметь одинаковую высоту.
  * @param animation параметры анимации [Animation]
  * @param keyboardOptions для настройки клавиатуры, например [KeyboardType] или [ImeAction]
  * @param keyboardActions когда на ввод подается [ImeAction] вызывается соответствующий callback
- * @param visualTransformation фильтр визуального отображения, например [PasswordVisualTransformation]
+ * @param visualTransformation фильтр визуального отображения, например [PasswordVisualTransformation].
+ * Используется, только если отсутствуют [prefix] и [suffix].
  * @param interactionSource источник взаимодействия с полем
  */
 @Suppress("LongParameterList")
@@ -58,8 +61,8 @@ fun TextField(
     optionalText: String? = null,
     prefix: String? = null,
     suffix: String? = null,
-    leadingIcon: @Composable (() -> Unit)? = null,
-    trailingIcon: @Composable (() -> Unit)? = null,
+    startContent: @Composable (() -> Unit)? = null,
+    endContent: @Composable (() -> Unit)? = null,
     chipsContent: @Composable (() -> Unit)? = null,
     animation: Animation = Animation(),
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
@@ -81,8 +84,8 @@ fun TextField(
         counterText = counterText,
         prefix = prefix,
         suffix = suffix,
-        leadingIcon = leadingIcon,
-        trailingIcon = trailingIcon,
+        startContent = startContent,
+        endContent = endContent,
         chipsContent = chipsContent,
         animation = animation,
         keyboardOptions = keyboardOptions,
@@ -102,15 +105,24 @@ object TextField {
      *
      * @property boxPaddingStart отступ контента в начале
      * @property boxPaddingEnd отступ контента в конце
-     * @property boxPaddingTop верхний отступ контента
-     * @property boxPaddingBottom нижний отступ контента
-     * @property labelPadding нижний отступ лэйбла
+     * @property boxPaddingTopInnerLabel верхний отступ контента с внутренним лэйблом
+     * @property boxPaddingBottomInnerLabel нижний отступ контента с внутренним лэйблом
+     * @property boxPaddingTopOuterLabel верхний отступ контента с наружным лэйблом
+     * @property boxPaddingBottomOuterLabel нижний отступ контента с наружным лэйблом
+     * @property innerLabelPadding нижний отступ внутреннего лэйбла
+     * @property outerLabelPadding нижний отступ наружного лэйбла
      * @property optionalPadding отступ в начале optional текста
-     * @property helperTextPadding верхний отступ helper текста (caption/counter)
+     * @property helperTextPaddingInner верхний отступ внутреннего helper текста (caption/counter)
+     * @property helperTextPaddingOuter верхний отступ наружного helper текста (caption/counter)
      * @property startContentEndPadding отступ после startContent
-     * @property endContentStartPadding отступ перед endContent968327
+     * @property endContentStartPadding отступ перед endContent
      * @property chipsPadding отступ от контейнера с chip-элементами
      * @property chipsSpacing расстояние между chip-элементами
+     * @property boxMinHeight минимальная высота поля
+     * @property alignmentLineHeight высота первой строки контента
+     * @property iconSize размер иконки
+     * @property indicatorDimensions настройки индикатора
+     * @property dividerThickness толщина разделителя в clear режиме
      */
     @Immutable
     data class Dimensions(
@@ -135,6 +147,21 @@ object TextField {
         val indicatorDimensions: IndicatorDimensions = IndicatorDimensions(),
         val dividerThickness: Dp = 1.dp,
     ) {
+
+        /**
+         * Настройки индикатора
+         *
+         * @property startLabelHorizontalPadding начальный горизонтальный отступ внешнего индикатора
+         * @property startLabelVerticalPadding начальный вертикальный отступ внешнего индикатора
+         * @property endLabelHorizontalPadding конечный горизонтальный отступ внешнего индикатора
+         * @property endLabelVerticalPadding конечный вертикальный отступ внешнего индикатора
+         * @property startFieldHorizontalPadding начальный горизонтальный отступ внутреннего индикатора
+         * @property startFieldVerticalPadding начальный вертикальный отступ внутреннего индикатора
+         * @property endFieldHorizontalPadding конечный горизонтальный отступ внутреннего индикатора
+         * @property endFieldVerticalPadding конечный вертикальный отступ внутреннего индикатора
+         * @property labelIndicatorSize размер внешнего индикатора
+         * @property fieldIndicatorSize размер внутреннего индикатора
+         */
         @Immutable
         data class IndicatorDimensions(
             val startLabelHorizontalPadding: Dp = 0.dp,
@@ -163,7 +190,7 @@ object TextField {
         /**
          * Текстовое поле без фона
          */
-        Clear
+        Clear,
     }
 
     /**
@@ -233,10 +260,19 @@ object TextField {
     )
 }
 
+/**
+ * Вспомогательный объект для описания API и стиля компонента
+ */
 object TextFieldClear
 
+/**
+ * Вспомогательный объект для описания API и стиля компонента
+ */
 object TextArea
 
+/**
+ * Вспомогательный объект для описания API и стиля компонента
+ */
 object TextAreaClear
 
 /**
