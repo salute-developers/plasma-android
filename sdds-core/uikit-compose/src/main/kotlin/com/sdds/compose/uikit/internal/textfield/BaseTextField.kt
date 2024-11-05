@@ -254,6 +254,7 @@ internal fun BaseTextField(
                 ),
                 innerOptional = innerOptional(
                     labelPlacement = labelPlacement,
+                    fieldType = fieldType,
                     optionalText = finalOptionalText,
                     isFocused = isFocused,
                     value = value,
@@ -361,6 +362,7 @@ private fun leadingIcon(
 
 private fun innerOptional(
     labelPlacement: LabelPlacement,
+    fieldType: FieldType,
     optionalText: String?,
     isFocused: Boolean,
     value: TextFieldValue,
@@ -368,6 +370,7 @@ private fun innerOptional(
     innerOptionalStyle: TextStyle,
     hasChips: Boolean,
 ): (@Composable () -> Unit)? {
+    if (fieldType != FieldType.Optional) return null
     return if (labelPlacement == LabelPlacement.Inner && !hasChips) {
         textOrNull(
             text = optionalText,
