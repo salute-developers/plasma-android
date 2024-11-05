@@ -3,7 +3,9 @@ package com.sdds.plasma.b2c.sandbox.radiobox.group
 import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.RadioBoxGroup
 import com.sdds.compose.uikit.RadioBoxGroupStyle
-import com.sdds.playground.sandbox.radiobox.Size
+import com.sdds.plasma.b2c.sandbox.radiobox.Size
+import com.sdds.plasma.b2c.styles.M
+import com.sdds.plasma.b2c.styles.S
 
 /**
  * Состояния компонента RadioBoxGroup

@@ -7,7 +7,21 @@ import com.sdds.compose.uikit.BasicButton
 import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.IconButton
 import com.sdds.icons.R
-import com.sdds.playground.sandbox.SandboxTheme
+import com.sdds.plasma.b2c.sandbox.SandboxTheme
+import com.sdds.plasma.b2c.styles.Black
+import com.sdds.plasma.b2c.styles.Clear
+import com.sdds.plasma.b2c.styles.Dark
+import com.sdds.plasma.b2c.styles.Default
+import com.sdds.plasma.b2c.styles.L
+import com.sdds.plasma.b2c.styles.M
+import com.sdds.plasma.b2c.styles.Negative
+import com.sdds.plasma.b2c.styles.Pilled
+import com.sdds.plasma.b2c.styles.Positive
+import com.sdds.plasma.b2c.styles.S
+import com.sdds.plasma.b2c.styles.Secondary
+import com.sdds.plasma.b2c.styles.Warning
+import com.sdds.plasma.b2c.styles.White
+import com.sdds.plasma.b2c.styles.Xs
 
 /**
  * Previews для тестирования

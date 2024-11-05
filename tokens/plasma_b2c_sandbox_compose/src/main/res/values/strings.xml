@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">PlasmaB2C Sandbox Compose</string>
+    <string name="sandbox_text_editor_title" formatted="true">Введите значение %1$s</string>
+    <string name="sandbox_text_editor_placeholder" formatted="true">Введите значение</string>
+    <string name="sandbox_choice_editor_title" formatted="true">Выберите значение %1$s</string>
+    <string name="sandbox_clear_focus">Убрать фокус</string>
+    <string name="sandbox_editor_confirm">Подтвердить</string>
+    <string name="sandbox_properties_header_name">Параметр</string>
+    <string name="sandbox_properties_header_value">Значение</string>
 </resources>

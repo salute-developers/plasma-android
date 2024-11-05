@@ -24,10 +24,10 @@ import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.Switch
 import com.sdds.compose.uikit.Text
-import com.sdds.playground.sandbox.R
-import com.sdds.playground.sandbox.buttons.Clear
-import com.sdds.playground.sandbox.buttons.Xs
-import com.sdds.playground.sandbox.tokens.compose.SddsServTheme
+import com.sdds.plasma.b2c.sandbox.compose.R
+import com.sdds.plasma.b2c.styles.Clear
+import com.sdds.plasma.b2c.styles.Xs
+import com.sdds.plasma.b2c.tokens.compose.PlasmaB2cTheme
 import com.sdds.icons.R.drawable as Icons
 
 /**
@@ -124,12 +124,12 @@ internal fun PropertiesList(
 ) {
     Column(
         modifier = Modifier
-            .clip(SddsServTheme.shapes.roundM)
-            .border(1.dp, SddsServTheme.colors.surfaceDefaultSolidTertiary, SddsServTheme.shapes.roundM)
-            .background(SddsServTheme.colors.surfaceDefaultSolidCard),
+            .clip(PlasmaB2cTheme.shapes.roundM)
+            .border(1.dp, PlasmaB2cTheme.colors.surfaceDefaultSolidTertiary, PlasmaB2cTheme.shapes.roundM)
+            .background(PlasmaB2cTheme.colors.surfaceDefaultSolidCard),
     ) {
         PropertiesHeader(
-            modifier = Modifier.background(SddsServTheme.colors.surfaceDefaultSolidSecondary),
+            modifier = Modifier.background(PlasmaB2cTheme.colors.surfaceDefaultSolidSecondary),
             onResetClicked = onReset,
         )
 
@@ -170,7 +170,7 @@ internal fun PropertiesList(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(1.dp)
-                    .background(SddsServTheme.colors.surfaceDefaultSolidSecondary),
+                    .background(PlasmaB2cTheme.colors.surfaceDefaultSolidSecondary),
             )
         }
     }
@@ -190,7 +190,7 @@ private fun PropertiesHeader(
     ) {
         Text(
             text = stringResource(R.string.sandbox_properties_header_name),
-            style = SddsServTheme.typography.bodyMBold.copy(color = SddsServTheme.colors.textDefaultSecondary),
+            style = PlasmaB2cTheme.typography.bodyMBold.copy(color = PlasmaB2cTheme.colors.textDefaultSecondary),
             modifier = Modifier
                 .weight(1f)
                 .padding(start = 4.dp)
@@ -198,7 +198,7 @@ private fun PropertiesHeader(
         )
         Text(
             text = stringResource(R.string.sandbox_properties_header_value),
-            style = SddsServTheme.typography.bodyMBold.copy(color = SddsServTheme.colors.textDefaultSecondary),
+            style = PlasmaB2cTheme.typography.bodyMBold.copy(color = PlasmaB2cTheme.colors.textDefaultSecondary),
             modifier = Modifier
                 .weight(1f)
                 .padding(start = 4.dp)
@@ -232,7 +232,7 @@ private fun ValuePropertyListItem(
     ) {
         Text(
             text = propertyName,
-            style = SddsServTheme.typography.bodyMBold.copy(color = SddsServTheme.colors.textDefaultPrimary),
+            style = PlasmaB2cTheme.typography.bodyMBold.copy(color = PlasmaB2cTheme.colors.textDefaultPrimary),
             modifier = Modifier
                 .weight(1f)
                 .padding(start = 4.dp)
@@ -240,7 +240,7 @@ private fun ValuePropertyListItem(
         )
         Text(
             text = propertyValue,
-            style = SddsServTheme.typography.bodyMBold.copy(color = SddsServTheme.colors.textDefaultSecondary),
+            style = PlasmaB2cTheme.typography.bodyMBold.copy(color = PlasmaB2cTheme.colors.textDefaultSecondary),
             modifier = Modifier
                 .weight(1f)
                 .padding(start = 4.dp)
@@ -266,7 +266,7 @@ private fun SwitchPropertyListItem(
     ) {
         Text(
             text = propertyName,
-            style = SddsServTheme.typography.bodyMBold.copy(color = SddsServTheme.colors.textDefaultPrimary),
+            style = PlasmaB2cTheme.typography.bodyMBold.copy(color = PlasmaB2cTheme.colors.textDefaultPrimary),
             modifier = Modifier
                 .weight(1f)
                 .padding(start = 4.dp)
@@ -285,7 +285,7 @@ private fun SwitchPropertyListItem(
 @Composable
 @Preview(showBackground = true)
 private fun PropertiesPreview() {
-    SddsServTheme {
+    PlasmaB2cTheme {
         Column {
             ValuePropertyListItem(
                 propertyName = "Property",

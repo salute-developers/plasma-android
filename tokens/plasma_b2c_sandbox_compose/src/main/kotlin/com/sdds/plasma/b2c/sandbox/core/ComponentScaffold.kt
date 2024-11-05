@@ -32,7 +32,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
-import com.sdds.playground.sandbox.tokens.compose.SddsServTheme
+import com.sdds.plasma.b2c.tokens.compose.PlasmaB2cTheme
 import kotlinx.coroutines.launch
 
 /**
@@ -63,11 +63,11 @@ internal fun ComponentScaffold(
             )
             Spacer(modifier = Modifier.imePadding().navigationBarsPadding())
         },
-        sheetShape = SddsServTheme.shapes.roundS.copy(
+        sheetShape = PlasmaB2cTheme.shapes.roundS.copy(
             bottomStart = CornerSize(0.dp),
             bottomEnd = CornerSize(0.dp),
         ),
-        sheetBackgroundColor = SddsServTheme.colors.surfaceDefaultSolidCard,
+        sheetBackgroundColor = PlasmaB2cTheme.colors.surfaceDefaultSolidCard,
     ) {
         Column(
             modifier = Modifier
@@ -81,9 +81,9 @@ internal fun ComponentScaffold(
                 modifier = Modifier
                     .fillMaxWidth()
                     .requiredHeight(230.dp)
-                    .clip(SddsServTheme.shapes.roundM)
-                    .border(1.dp, SddsServTheme.colors.surfaceDefaultSolidTertiary, SddsServTheme.shapes.roundM)
-                    .background(SddsServTheme.colors.surfaceDefaultSolidCard)
+                    .clip(PlasmaB2cTheme.shapes.roundM)
+                    .border(1.dp, PlasmaB2cTheme.colors.surfaceDefaultSolidTertiary, PlasmaB2cTheme.shapes.roundM)
+                    .background(PlasmaB2cTheme.colors.surfaceDefaultSolidCard)
                     .padding(16.dp),
 
                 contentAlignment = Alignment.Center,

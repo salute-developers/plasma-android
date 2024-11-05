@@ -3,7 +3,9 @@ package com.sdds.plasma.b2c.sandbox.radiobox
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.sdds.compose.uikit.RadioBox
-import com.sdds.playground.sandbox.SandboxTheme
+import com.sdds.plasma.b2c.sandbox.SandboxTheme
+import com.sdds.plasma.b2c.styles.M
+import com.sdds.plasma.b2c.styles.S
 
 /**
  * Превью [RadioBox]

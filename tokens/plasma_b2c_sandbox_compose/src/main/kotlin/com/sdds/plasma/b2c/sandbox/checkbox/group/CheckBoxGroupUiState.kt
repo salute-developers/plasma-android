@@ -3,7 +3,9 @@ package com.sdds.plasma.b2c.sandbox.checkbox.group
 import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.CheckBoxGroup
 import com.sdds.compose.uikit.CheckBoxGroupStyle
-import com.sdds.playground.sandbox.checkbox.Size
+import com.sdds.plasma.b2c.sandbox.checkbox.Size
+import com.sdds.plasma.b2c.styles.M
+import com.sdds.plasma.b2c.styles.S
 
 /**
  * Состояние checkbox group

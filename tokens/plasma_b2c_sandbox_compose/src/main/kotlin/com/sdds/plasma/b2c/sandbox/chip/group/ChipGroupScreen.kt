@@ -13,11 +13,11 @@ import com.sdds.compose.uikit.Chip
 import com.sdds.compose.uikit.ChipGroup
 import com.sdds.compose.uikit.Icon
 import com.sdds.icons.R
-import com.sdds.playground.sandbox.SandboxTheme
-import com.sdds.playground.sandbox.chip.Accent
-import com.sdds.playground.sandbox.chip.Secondary
-import com.sdds.playground.sandbox.chip.chipStyleBuilder
-import com.sdds.playground.sandbox.core.ComponentScaffold
+import com.sdds.plasma.b2c.sandbox.SandboxTheme
+import com.sdds.plasma.b2c.sandbox.chip.chipStyleBuilder
+import com.sdds.plasma.b2c.sandbox.core.ComponentScaffold
+import com.sdds.plasma.b2c.styles.Accent
+import com.sdds.plasma.b2c.styles.Secondary
 
 /**
  * Экран с [ChipGroup]

@@ -7,8 +7,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.sdds.compose.uikit.Button
-import com.sdds.playground.sandbox.SandboxTheme
-import com.sdds.playground.sandbox.core.ComponentScaffold
+import com.sdds.plasma.b2c.sandbox.SandboxTheme
+import com.sdds.plasma.b2c.sandbox.core.ComponentScaffold
 
 /**
  * Экран с LinkButton

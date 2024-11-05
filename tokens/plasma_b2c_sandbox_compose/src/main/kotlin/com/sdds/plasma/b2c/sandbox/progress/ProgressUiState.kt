@@ -3,6 +3,13 @@ package com.sdds.plasma.b2c.sandbox.progress
 import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.ProgressBar
 import com.sdds.compose.uikit.ProgressBarStyle
+import com.sdds.plasma.b2c.styles.Accent
+import com.sdds.plasma.b2c.styles.Default
+import com.sdds.plasma.b2c.styles.GradientAccent
+import com.sdds.plasma.b2c.styles.Negative
+import com.sdds.plasma.b2c.styles.Positive
+import com.sdds.plasma.b2c.styles.Secondary
+import com.sdds.plasma.b2c.styles.Warning
 
 /**
  * Состояние компонента Progress

@@ -19,14 +19,15 @@ import com.sdds.compose.uikit.BasicButton
 import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.Chip
 import com.sdds.compose.uikit.Icon
-import com.sdds.playground.sandbox.R
-import com.sdds.playground.sandbox.SandboxTheme
-import com.sdds.playground.sandbox.buttons.Default
-import com.sdds.playground.sandbox.buttons.Xs
-import com.sdds.playground.sandbox.core.ComponentScaffold
+import com.sdds.compose.uikit.TextField
+import com.sdds.plasma.b2c.sandbox.SandboxTheme
+import com.sdds.plasma.b2c.sandbox.compose.R
+import com.sdds.plasma.b2c.sandbox.core.ComponentScaffold
+import com.sdds.plasma.b2c.styles.Default
+import com.sdds.plasma.b2c.styles.Xs
 
 /**
- * Экран с компонентом [SandboxTextField]
+ * Экран с компонентом [TextField]
  */
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
@@ -36,7 +37,12 @@ internal fun TextFieldScreen() {
     ComponentScaffold(
         component = {
             val focusManager = LocalFocusManager.current
-            SandboxTextField(
+            val style = textFieldUiState.textFieldStyle()
+            TextField(
+                value = textFieldUiState.textFieldValue,
+                onValueChange = {
+                    textFieldViewModel.onValueChange(it)
+                },
                 modifier = Modifier
                     .onKeyEvent {
                         if (it.key == Key.Backspace) {
@@ -46,31 +52,19 @@ internal fun TextFieldScreen() {
                             true
                         }
                     },
-                value = textFieldUiState.textFieldValue,
-                onValueChange = {
-                    textFieldViewModel.onValueChange(it)
-                },
-                isClear = textFieldUiState.isClear,
-                hasDivider = textFieldUiState.hasDivider,
+                style = style,
                 enabled = textFieldUiState.enabled,
+                readOnly = textFieldUiState.readOnly,
                 placeholderText = textFieldUiState.placeholderText,
+                prefix = textFieldUiState.prefix,
+                suffix = textFieldUiState.suffix,
                 labelText = textFieldUiState.labelText,
                 optionalText = textFieldUiState.optionalText,
                 captionText = textFieldUiState.captionText,
                 counterText = textFieldUiState.counterText,
-                prefix = textFieldUiState.prefix,
-                suffix = textFieldUiState.suffix,
-                labelPosition = textFieldUiState.labelPosition,
-                fieldType = textFieldUiState.fieldType,
-                dotBadgePosition = textFieldUiState.dotBadgePosition,
-                size = textFieldUiState.size,
-                state = textFieldUiState.state,
-                leadingIcon = textFieldUiState.hasStartIcon.getExampleIcon(Icon.Start),
-                trailingIcon = textFieldUiState.hasEndIcon.getExampleIcon(Icon.End),
-                readOnly = textFieldUiState.readOnly,
-                singleLine = textFieldUiState.singleLine,
-                chips = textFieldUiState.chips.toChipContent(
-                    size = textFieldUiState.size,
+                startContent = textFieldUiState.hasStartIcon.getExampleIcon(Icon.Start),
+                endContent = textFieldUiState.hasEndIcon.getExampleIcon(Icon.End),
+                chipsContent = textFieldUiState.chips.toChipContent(
                     onChipClosePressed = {
                         textFieldViewModel.onChipClosePressed(it)
                     },
@@ -89,7 +83,6 @@ internal fun TextFieldScreen() {
 }
 
 private fun List<String>.toChipContent(
-    size: SandboxTextField.Size,
     onChipClosePressed: (String) -> Unit,
 ): (@Composable () -> Unit)? {
     return if (isEmpty()) {
@@ -98,7 +91,6 @@ private fun List<String>.toChipContent(
         {
             ChipsContent(
                 chips = this,
-                size = size,
                 onChipClosePressed = onChipClosePressed,
             )
         }
@@ -108,13 +100,11 @@ private fun List<String>.toChipContent(
 @Composable
 private fun ChipsContent(
     chips: List<String>?,
-    size: SandboxTextField.Size,
     onChipClosePressed: ((String) -> Unit)?,
 ) {
     chips?.forEach { chip ->
         Chip(
             label = chip,
-            style = TextFieldDefaults.chipStyle(size),
             endContent = {
                 Icon(
                     painter = painterResource(id = com.sdds.icons.R.drawable.ic_close_24),

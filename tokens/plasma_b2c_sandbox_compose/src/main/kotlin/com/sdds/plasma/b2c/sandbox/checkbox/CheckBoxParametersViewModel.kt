@@ -3,9 +3,9 @@ package com.sdds.plasma.b2c.sandbox.checkbox
 import androidx.compose.ui.state.ToggleableState
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.sdds.playground.sandbox.core.PropertiesOwner
-import com.sdds.playground.sandbox.core.Property
-import com.sdds.playground.sandbox.core.enumProperty
+import com.sdds.plasma.b2c.sandbox.core.PropertiesOwner
+import com.sdds.plasma.b2c.sandbox.core.Property
+import com.sdds.plasma.b2c.sandbox.core.enumProperty
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted

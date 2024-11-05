@@ -3,7 +3,9 @@ package com.sdds.plasma.b2c.sandbox.chip.group
 import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.ChipGroup
 import com.sdds.compose.uikit.ChipGroupStyle
-import com.sdds.playground.sandbox.chip.Size
+import com.sdds.plasma.b2c.sandbox.chip.Size
+import com.sdds.plasma.b2c.styles.Dense
+import com.sdds.plasma.b2c.styles.Wide
 
 internal data class ChipGroupUiState(
     val items: List<String> = List(3) { "label" },

@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.sdds.compose.uikit.RadioBoxGroup
 import com.sdds.compose.uikit.VerticalRadioBoxGroup
-import com.sdds.playground.sandbox.SandboxTheme
+import com.sdds.plasma.b2c.sandbox.SandboxTheme
 
 /**
  * Превью RadioBoxGroup

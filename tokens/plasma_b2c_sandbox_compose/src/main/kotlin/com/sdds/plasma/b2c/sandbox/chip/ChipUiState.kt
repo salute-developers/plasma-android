@@ -4,6 +4,14 @@ import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.Chip
 import com.sdds.compose.uikit.ChipStyle
 import com.sdds.compose.uikit.ChipStyleBuilder
+import com.sdds.plasma.b2c.styles.Accent
+import com.sdds.plasma.b2c.styles.Default
+import com.sdds.plasma.b2c.styles.L
+import com.sdds.plasma.b2c.styles.M
+import com.sdds.plasma.b2c.styles.Pilled
+import com.sdds.plasma.b2c.styles.S
+import com.sdds.plasma.b2c.styles.Secondary
+import com.sdds.plasma.b2c.styles.Xs
 
 internal data class ChipUiState(
     val state: State = State.Default,

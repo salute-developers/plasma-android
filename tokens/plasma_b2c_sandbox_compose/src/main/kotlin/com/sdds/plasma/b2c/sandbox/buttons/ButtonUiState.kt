@@ -7,6 +7,21 @@ import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.ButtonStyleBuilder
 import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.LinkButton
+import com.sdds.plasma.b2c.styles.Accent
+import com.sdds.plasma.b2c.styles.Black
+import com.sdds.plasma.b2c.styles.Clear
+import com.sdds.plasma.b2c.styles.Dark
+import com.sdds.plasma.b2c.styles.Default
+import com.sdds.plasma.b2c.styles.L
+import com.sdds.plasma.b2c.styles.M
+import com.sdds.plasma.b2c.styles.Negative
+import com.sdds.plasma.b2c.styles.Pilled
+import com.sdds.plasma.b2c.styles.Positive
+import com.sdds.plasma.b2c.styles.S
+import com.sdds.plasma.b2c.styles.Secondary
+import com.sdds.plasma.b2c.styles.Warning
+import com.sdds.plasma.b2c.styles.White
+import com.sdds.plasma.b2c.styles.Xs
 import com.sdds.icons.R.drawable as Icons
 
 /**

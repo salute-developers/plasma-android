@@ -34,24 +34,24 @@ import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
 import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.Text
-import com.sdds.playground.sandbox.avatar.AvatarGroupScreen
-import com.sdds.playground.sandbox.avatar.AvatarScreen
-import com.sdds.playground.sandbox.buttons.BasicButtonScreen
-import com.sdds.playground.sandbox.buttons.Clear
-import com.sdds.playground.sandbox.buttons.IconButtonScreen
-import com.sdds.playground.sandbox.buttons.LinkButtonScreen
-import com.sdds.playground.sandbox.buttons.M
-import com.sdds.playground.sandbox.buttons.Pilled
-import com.sdds.playground.sandbox.checkbox.CheckBoxScreen
-import com.sdds.playground.sandbox.checkbox.group.CheckBoxGroupScreen
-import com.sdds.playground.sandbox.chip.ChipScreen
-import com.sdds.playground.sandbox.chip.group.ChipGroupScreen
-import com.sdds.playground.sandbox.progress.ProgressScreen
-import com.sdds.playground.sandbox.radiobox.RadioBoxScreen
-import com.sdds.playground.sandbox.radiobox.group.RadioBoxGroupScreen
-import com.sdds.playground.sandbox.switch.SwitchScreen
-import com.sdds.playground.sandbox.textfield.TextFieldScreen
-import com.sdds.playground.sandbox.tokens.compose.SddsServTheme
+import com.sdds.plasma.b2c.sandbox.avatar.AvatarGroupScreen
+import com.sdds.plasma.b2c.sandbox.avatar.AvatarScreen
+import com.sdds.plasma.b2c.sandbox.buttons.BasicButtonScreen
+import com.sdds.plasma.b2c.sandbox.buttons.IconButtonScreen
+import com.sdds.plasma.b2c.sandbox.buttons.LinkButtonScreen
+import com.sdds.plasma.b2c.sandbox.checkbox.CheckBoxScreen
+import com.sdds.plasma.b2c.sandbox.checkbox.group.CheckBoxGroupScreen
+import com.sdds.plasma.b2c.sandbox.chip.ChipScreen
+import com.sdds.plasma.b2c.sandbox.chip.group.ChipGroupScreen
+import com.sdds.plasma.b2c.sandbox.progress.ProgressScreen
+import com.sdds.plasma.b2c.sandbox.radiobox.RadioBoxScreen
+import com.sdds.plasma.b2c.sandbox.radiobox.group.RadioBoxGroupScreen
+import com.sdds.plasma.b2c.sandbox.switch.SwitchScreen
+import com.sdds.plasma.b2c.sandbox.textfield.TextFieldScreen
+import com.sdds.plasma.b2c.styles.Clear
+import com.sdds.plasma.b2c.styles.M
+import com.sdds.plasma.b2c.styles.Pilled
+import com.sdds.plasma.b2c.tokens.compose.PlasmaB2cTheme
 import kotlinx.coroutines.launch
 import com.sdds.icons.R.drawable as Icons
 
@@ -114,7 +114,7 @@ private fun SandboxContainer() {
     Scaffold(
         scaffoldState = scaffoldState,
         backgroundColor = Color.Transparent,
-        drawerBackgroundColor = SddsServTheme.colors.surfaceDefaultSolidSecondary,
+        drawerBackgroundColor = PlasmaB2cTheme.colors.surfaceDefaultSolidSecondary,
         drawerContent = {
             Column(
                 modifier = Modifier.statusBarsPadding(),
@@ -144,7 +144,7 @@ private fun SandboxContainer() {
         Column(
             modifier = Modifier
                 .padding(it)
-                .background(SddsServTheme.colors.backgroundDefaultPrimary)
+                .background(PlasmaB2cTheme.colors.backgroundDefaultPrimary)
                 .fillMaxSize(),
         ) {
             currentItem.screen()
@@ -169,7 +169,7 @@ private fun ColumnScope.NavigationItem(
                 onClick = onClick,
             )
             .padding(16.dp),
-        style = SddsServTheme.typography.bodyMBold.copy(color = SddsServTheme.colors.textDefaultPrimary),
+        style = PlasmaB2cTheme.typography.bodyMBold.copy(color = PlasmaB2cTheme.colors.textDefaultPrimary),
     )
 }
 
@@ -183,8 +183,8 @@ private fun TopBar(
         title = {
             Text(
                 text = title,
-                style = SddsServTheme.typography.bodyMBold
-                    .copy(color = SddsServTheme.colors.textDefaultPrimary),
+                style = PlasmaB2cTheme.typography.bodyMBold
+                    .copy(color = PlasmaB2cTheme.colors.textDefaultPrimary),
             )
         },
         elevation = 1.dp,
@@ -195,8 +195,8 @@ private fun TopBar(
                 onClick = onNavigationClick,
             )
         },
-        backgroundColor = SddsServTheme.colors.surfaceDefaultSolidPrimary,
-        contentColor = SddsServTheme.colors.textDefaultPrimary,
+        backgroundColor = PlasmaB2cTheme.colors.surfaceDefaultSolidPrimary,
+        contentColor = PlasmaB2cTheme.colors.textDefaultPrimary,
     )
 }
 

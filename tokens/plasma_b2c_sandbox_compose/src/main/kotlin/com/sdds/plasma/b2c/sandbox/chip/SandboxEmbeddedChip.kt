@@ -6,7 +6,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.sdds.compose.uikit.Chip
 import com.sdds.compose.uikit.EmbeddedChip
 import com.sdds.compose.uikit.Icon
-import com.sdds.playground.sandbox.SandboxTheme
+import com.sdds.plasma.b2c.sandbox.SandboxTheme
+import com.sdds.plasma.b2c.styles.Default
+import com.sdds.plasma.b2c.styles.M
 
 @Preview(showBackground = true)
 @Composable

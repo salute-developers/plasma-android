@@ -3,6 +3,8 @@ package com.sdds.plasma.b2c.sandbox.radiobox
 import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.RadioBox
 import com.sdds.compose.uikit.RadioBoxStyle
+import com.sdds.plasma.b2c.styles.M
+import com.sdds.plasma.b2c.styles.S
 
 /**
  * Состояние radiobox

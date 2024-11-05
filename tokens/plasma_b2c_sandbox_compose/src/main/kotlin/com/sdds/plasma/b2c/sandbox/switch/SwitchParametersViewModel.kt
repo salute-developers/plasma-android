@@ -2,8 +2,8 @@ package com.sdds.plasma.b2c.sandbox.switch
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.sdds.playground.sandbox.core.PropertiesOwner
-import com.sdds.playground.sandbox.core.Property
+import com.sdds.plasma.b2c.sandbox.core.PropertiesOwner
+import com.sdds.plasma.b2c.sandbox.core.Property
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted

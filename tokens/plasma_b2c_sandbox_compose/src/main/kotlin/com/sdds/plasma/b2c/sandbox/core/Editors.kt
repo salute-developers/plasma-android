@@ -26,11 +26,11 @@ import com.sdds.compose.uikit.BasicButton
 import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.RadioBox
 import com.sdds.compose.uikit.Text
-import com.sdds.playground.sandbox.R
-import com.sdds.playground.sandbox.buttons.Default
-import com.sdds.playground.sandbox.buttons.M
-import com.sdds.playground.sandbox.textfield.SandboxTextField
-import com.sdds.playground.sandbox.tokens.compose.SddsServTheme
+import com.sdds.compose.uikit.TextField
+import com.sdds.plasma.b2c.sandbox.compose.R
+import com.sdds.plasma.b2c.styles.Default
+import com.sdds.plasma.b2c.styles.M
+import com.sdds.plasma.b2c.tokens.compose.PlasmaB2cTheme
 import kotlin.math.roundToInt
 
 /**
@@ -97,10 +97,10 @@ private fun ColumnScope.TextPropertyEditor(
 
     Text(
         text = stringResource(id = R.string.sandbox_text_editor_title, propertyName),
-        style = SddsServTheme.typography.headerH3Bold.copy(color = SddsServTheme.colors.textDefaultPrimary),
+        style = PlasmaB2cTheme.typography.headerH3Bold.copy(color = PlasmaB2cTheme.colors.textDefaultPrimary),
         modifier = Modifier.padding(16.dp),
     )
-    SandboxTextField(
+    TextField(
         value = textFieldValue,
         modifier = Modifier
             .fillMaxWidth()
@@ -141,7 +141,7 @@ private fun <T> ChoiceEditor(
 ) {
     Text(
         text = stringResource(id = R.string.sandbox_choice_editor_title, propertyName),
-        style = SddsServTheme.typography.headerH3Bold.copy(color = SddsServTheme.colors.textDefaultPrimary),
+        style = PlasmaB2cTheme.typography.headerH3Bold.copy(color = PlasmaB2cTheme.colors.textDefaultPrimary),
         modifier = Modifier.padding(8.dp),
     )
     choices.forEach {

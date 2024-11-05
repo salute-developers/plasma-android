@@ -14,10 +14,10 @@ import com.sdds.compose.uikit.AvatarCounter
 import com.sdds.compose.uikit.AvatarGroup
 import com.sdds.compose.uikit.Image
 import com.sdds.compose.uikit.avatar
+import com.sdds.plasma.b2c.sandbox.compose.R
+import com.sdds.plasma.b2c.sandbox.core.ComponentScaffold
+import com.sdds.plasma.b2c.styles.S
 import com.sdds.plasma.b2c.tokens.compose.PlasmaB2cTheme
-import com.sdds.playground.sandbox.R
-import com.sdds.playground.sandbox.SandboxTheme
-import com.sdds.playground.sandbox.core.ComponentScaffold
 import com.sdds.icons.R.drawable as Icons
 
 /**

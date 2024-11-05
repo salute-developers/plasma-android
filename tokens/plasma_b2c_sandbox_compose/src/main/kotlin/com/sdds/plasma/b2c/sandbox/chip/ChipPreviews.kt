@@ -6,7 +6,15 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.sdds.compose.uikit.Chip
 import com.sdds.compose.uikit.Icon
 import com.sdds.icons.R
-import com.sdds.playground.sandbox.SandboxTheme
+import com.sdds.plasma.b2c.sandbox.SandboxTheme
+import com.sdds.plasma.b2c.styles.Accent
+import com.sdds.plasma.b2c.styles.Default
+import com.sdds.plasma.b2c.styles.L
+import com.sdds.plasma.b2c.styles.M
+import com.sdds.plasma.b2c.styles.Pilled
+import com.sdds.plasma.b2c.styles.S
+import com.sdds.plasma.b2c.styles.Secondary
+import com.sdds.plasma.b2c.styles.Xs
 
 @Composable
 @Preview(showBackground = true)

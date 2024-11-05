@@ -6,7 +6,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.ProgressBar
-import com.sdds.playground.sandbox.SandboxTheme
+import com.sdds.plasma.b2c.sandbox.SandboxTheme
+import com.sdds.plasma.b2c.styles.Default
+import com.sdds.plasma.b2c.styles.Negative
+import com.sdds.plasma.b2c.styles.Positive
+import com.sdds.plasma.b2c.styles.Warning
 
 @Composable
 @Preview(showBackground = true)

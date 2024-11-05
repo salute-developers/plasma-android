@@ -3,6 +3,10 @@ package com.sdds.plasma.b2c.sandbox.avatar
 import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.Avatar
 import com.sdds.compose.uikit.AvatarStyle
+import com.sdds.plasma.b2c.styles.L
+import com.sdds.plasma.b2c.styles.M
+import com.sdds.plasma.b2c.styles.S
+import com.sdds.plasma.b2c.styles.Xxl
 
 /**
  * Состояние [Avatar]

@@ -12,9 +12,9 @@ import coil.compose.AsyncImage
 import com.sdds.compose.uikit.Avatar
 import com.sdds.compose.uikit.Image
 import com.sdds.compose.uikit.avatar
-import com.sdds.playground.sandbox.R
-import com.sdds.playground.sandbox.SandboxTheme
-import com.sdds.playground.sandbox.core.ComponentScaffold
+import com.sdds.plasma.b2c.sandbox.SandboxTheme
+import com.sdds.plasma.b2c.sandbox.compose.R
+import com.sdds.plasma.b2c.sandbox.core.ComponentScaffold
 import com.sdds.icons.R.drawable as Icons
 
 /**
