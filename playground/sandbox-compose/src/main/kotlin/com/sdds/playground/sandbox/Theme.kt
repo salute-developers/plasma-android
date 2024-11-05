@@ -14,8 +14,8 @@ import com.sdds.compose.uikit.AvatarGroup
 import com.sdds.compose.uikit.BasicButton
 import com.sdds.compose.uikit.CheckBox
 import com.sdds.compose.uikit.CheckBoxGroup
-import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.Chip
+import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.LocalAvatarGroupStyle
 import com.sdds.compose.uikit.LocalAvatarStyle
 import com.sdds.compose.uikit.LocalButtonStyle

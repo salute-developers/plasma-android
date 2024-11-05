@@ -247,7 +247,7 @@ internal fun SandboxTextAreaPreviewTextMovesToNextLines() {
             placeholderText = "Placeholder",
             value = TextFieldValue(
                 text = "O Captain! my Captain! our fearful trip is done,\n" +
-                        "The ship has weather’d every rack, the prize we sought is won",
+                    "The ship has weather’d every rack, the prize we sought is won",
             ),
             style = TextArea.M.Default.RequiredStart.OuterLabel.style(),
             labelText = "Label",

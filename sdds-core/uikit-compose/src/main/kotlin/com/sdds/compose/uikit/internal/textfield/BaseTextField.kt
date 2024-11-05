@@ -147,8 +147,7 @@ internal fun BaseTextField(
     val innerVisualTransformation = remember(prefix, suffix, visualTransformation) {
         if (prefix.isNullOrEmpty() && suffix.isNullOrEmpty()) {
             visualTransformation
-        }
-        else {
+        } else {
             prefixSuffixTransformation(prefix, suffix, placeholderStyle, placeholderStyle)
         }
     }
