@@ -11,6 +11,7 @@ import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.ButtonStyleBuilder
 import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.LinkButton
+import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.style.applyExclude
 import com.sdds.compose.uikit.style.applyFor
@@ -177,7 +178,7 @@ val BasicButton.M: ButtonStyleBuilder
 val BasicButton.S: ButtonStyleBuilder
     @Composable
     get() = ButtonStyle.builder(this)
-        .shape(PlasmaB2cTheme.shapes.roundS)
+        .shape(PlasmaB2cTheme.shapes.roundM.adjustBy(all = (-2).dp))
         .dimensions(
             Button.Dimensions(
                 height = 40.dp,
@@ -198,7 +199,7 @@ val BasicButton.S: ButtonStyleBuilder
 val BasicButton.Xs: ButtonStyleBuilder
     @Composable
     get() = ButtonStyle.builder(this)
-        .shape(PlasmaB2cTheme.shapes.roundXs)
+        .shape(PlasmaB2cTheme.shapes.roundS)
         .dimensions(
             Button.Dimensions(
                 height = 32.dp,
@@ -257,7 +258,7 @@ val IconButton.M: ButtonStyleBuilder
 val IconButton.S: ButtonStyleBuilder
     @Composable
     get() = ButtonStyle.builder(this)
-        .shape(PlasmaB2cTheme.shapes.roundS)
+        .shape(PlasmaB2cTheme.shapes.roundM.adjustBy(all = (-2).dp))
         .dimensions(
             Button.Dimensions(
                 height = 40.dp,
@@ -276,7 +277,7 @@ val IconButton.S: ButtonStyleBuilder
 val IconButton.Xs: ButtonStyleBuilder
     @Composable
     get() = ButtonStyle.builder(this)
-        .shape(PlasmaB2cTheme.shapes.roundXs)
+        .shape(PlasmaB2cTheme.shapes.roundS)
         .dimensions(
             Button.Dimensions(
                 height = 32.dp,

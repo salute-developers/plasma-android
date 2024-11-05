@@ -19,7 +19,7 @@ val RadioBoxGroup.M: RadioBoxGroupStyleBuilder
         .radioBoxStyle(RadioBox.M.style())
 
 /**
- * Стиль [RadioBoxGroup] размера M
+ * Стиль [RadioBoxGroup] размера S
  */
 val RadioBoxGroup.S: RadioBoxGroupStyleBuilder
     @Composable

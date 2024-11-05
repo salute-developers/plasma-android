@@ -14,7 +14,6 @@ import com.sdds.compose.uikit.ChipGroupStyleBuilder
 val ChipGroup.Wide: ChipGroupStyleBuilder
     @Composable
     get() = ChipGroupStyle.builder()
-        .chipStyle(Chip.M.Default.style())
         .dimensions(
             ChipGroupDimensions(
                 horizontalSpacing = 8.dp,
@@ -28,5 +27,4 @@ val ChipGroup.Wide: ChipGroupStyleBuilder
 val ChipGroup.Dense: ChipGroupStyleBuilder
     @Composable
     get() = ChipGroupStyle.builder()
-        .chipStyle(Chip.M.Default.style())
         .dimensions(ChipGroupDimensions())

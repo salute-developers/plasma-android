@@ -44,6 +44,6 @@ private fun SwitchColorsBuilder.defaultColors(): SwitchColorsBuilder = apply {
     labelColor(PlasmaB2cTheme.colors.textDefaultPrimary)
     descriptionColor(PlasmaB2cTheme.colors.textDefaultSecondary)
     thumbColor(PlasmaB2cTheme.colors.surfaceOnDarkSolidDefault)
-    activeTrackColor(PlasmaB2cTheme.colors.surfaceDefaultPositive)
+    activeTrackColor(PlasmaB2cTheme.colors.surfaceDefaultAccent)
     inactiveTrackColor(PlasmaB2cTheme.colors.surfaceDefaultTransparentTertiary)
 }

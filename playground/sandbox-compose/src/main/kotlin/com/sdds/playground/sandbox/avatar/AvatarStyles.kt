@@ -31,7 +31,7 @@ internal val Avatar.Xxl: AvatarStyleBuilder
                 size = 88.dp,
                 actionSize = Size(36.dp.floatPx, 36.dp.floatPx),
                 statusSize = 12.dp,
-                statusOffset = Offset(7.dp.floatPx, 7.dp.floatPx),
+                statusOffset = Offset(1.dp.floatPx, 7.dp.floatPx),
             ),
         )
         .textStyle(SddsServTheme.typography.headerH2Bold)
@@ -45,7 +45,7 @@ internal val Avatar.L: AvatarStyleBuilder
                 size = 48.dp,
                 actionSize = Size(24.dp.floatPx, 24.dp.floatPx),
                 statusSize = 8.dp,
-                statusOffset = Offset(3.dp.floatPx, 3.dp.floatPx),
+                statusOffset = Offset(1.dp.floatPx, 3.dp.floatPx),
             ),
         )
         .textStyle(SddsServTheme.typography.headerH4Bold)
@@ -59,7 +59,7 @@ internal val Avatar.M: AvatarStyleBuilder
                 size = 36.dp,
                 actionSize = Size(24.dp.floatPx, 24.dp.floatPx),
                 statusSize = 8.dp,
-                statusOffset = Offset(2.dp.floatPx, 2.dp.floatPx),
+                statusOffset = Offset(0.dp.floatPx, 2.dp.floatPx),
             ),
         )
         .textStyle(SddsServTheme.typography.bodySBold)
@@ -92,7 +92,7 @@ internal val AvatarGroup.S: AvatarGroupStyleBuilder
 @Composable
 @ReadOnlyComposable
 private fun AvatarColorsBuilder.defaultColors(): AvatarColorsBuilder = apply {
-    activeStatusColor(SddsServTheme.colors.textDefaultAccent)
+    activeStatusColor(SddsServTheme.colors.surfaceDefaultPositive)
     inactiveStatusColor(SddsServTheme.colors.surfaceOnLightSolidTertiary)
     textColor(SddsServTheme.gradients.textDefaultAccentGradient.first())
 }

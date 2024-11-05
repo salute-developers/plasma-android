@@ -28,7 +28,7 @@ val Avatar.Xxl: AvatarStyleBuilder
                 size = 88.dp,
                 actionSize = Size(36.dp.floatPx, 36.dp.floatPx),
                 statusSize = 12.dp,
-                statusOffset = Offset(7.dp.floatPx, 7.dp.floatPx),
+                statusOffset = Offset(1.dp.floatPx, 7.dp.floatPx),
             ),
         )
         .textStyle(PlasmaB2cTheme.typography.headerH2Bold)
@@ -45,7 +45,7 @@ val Avatar.L: AvatarStyleBuilder
                 size = 48.dp,
                 actionSize = Size(24.dp.floatPx, 24.dp.floatPx),
                 statusSize = 8.dp,
-                statusOffset = Offset(3.dp.floatPx, 3.dp.floatPx),
+                statusOffset = Offset(1.dp.floatPx, 3.dp.floatPx),
             ),
         )
         .textStyle(PlasmaB2cTheme.typography.headerH4Bold)
@@ -62,7 +62,7 @@ val Avatar.M: AvatarStyleBuilder
                 size = 36.dp,
                 actionSize = Size(24.dp.floatPx, 24.dp.floatPx),
                 statusSize = 8.dp,
-                statusOffset = Offset(2.dp.floatPx, 2.dp.floatPx),
+                statusOffset = Offset(0.dp.floatPx, 2.dp.floatPx),
             ),
         )
         .textStyle(PlasmaB2cTheme.typography.bodySBold)
@@ -100,7 +100,7 @@ val AvatarGroup.S: AvatarGroupStyleBuilder
 
 @Composable
 private fun AvatarColorsBuilder.defaultColors(): AvatarColorsBuilder = apply {
-    activeStatusColor(PlasmaB2cTheme.colors.textDefaultAccent)
+    activeStatusColor(PlasmaB2cTheme.colors.surfaceDefaultPositive)
     inactiveStatusColor(PlasmaB2cTheme.colors.surfaceOnLightSolidTertiary)
     textColor(PlasmaB2cTheme.gradients.textDefaultAccentGradient.first())
 }

@@ -52,7 +52,7 @@ private fun CheckBoxColorsBuilder.defaultColors(): CheckBoxColorsBuilder = apply
     labelColor(PlasmaB2cTheme.colors.textDefaultPrimary)
     descriptionColor(PlasmaB2cTheme.colors.textDefaultSecondary)
     idleColor(PlasmaB2cTheme.colors.textDefaultSecondary)
-    checkedColor(PlasmaB2cTheme.colors.surfaceDefaultPositive)
+    checkedColor(PlasmaB2cTheme.colors.surfaceDefaultAccent)
     focusedColor(PlasmaB2cTheme.colors.surfaceDefaultSolidDefault)
     baseColor(PlasmaB2cTheme.colors.textOnDarkPrimary)
 }
