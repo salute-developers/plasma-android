@@ -151,47 +151,47 @@ internal fun Modifier.surface(
 }
 
 /**
- * Позволяет нарисовать dot badge внутри либо снаружи любого Composable
+ * Позволяет нарисовать indicator внутри либо снаружи любого Composable
  *
  * @param alignment выравнивание
- * @param color цвет бэйджа
+ * @param color цвет индикатора
  * @param horizontalPadding горизонтальный отступ от границы composable, может быть отрицательным
  * @param verticalPadding вертикальный отступ от границы composable, может быть отрицательным
- * @param badgeSize размер бэйджа
+ * @param indicatorSize размер индикатора
  * @param horizontalMode режим размещения относительно границ composable по горизонтали
  * @param verticalMode режим размещения относительно границ composable по вертикали
  */
-internal fun Modifier.drawDotBadge(
+internal fun Modifier.drawIndicator(
     alignment: Alignment,
     color: Color = Color.Red,
     horizontalPadding: Dp = 0.dp,
     verticalPadding: Dp = 0.dp,
-    badgeSize: Dp = 6.dp,
-    horizontalMode: DotBadgeMode = DotBadgeMode.Inner,
-    verticalMode: DotBadgeMode = DotBadgeMode.Inner,
+    indicatorSize: Dp = 6.dp,
+    horizontalMode: IndicatorMode = IndicatorMode.Inner,
+    verticalMode: IndicatorMode = IndicatorMode.Inner,
 ): Modifier {
     return drawWithContent {
         drawContent()
 
         val horizontalOffset = horizontalPadding.roundToPx()
         val verticalOffset = verticalPadding.roundToPx()
-        val badgeSizePx = badgeSize.roundToPx()
+        val indicatorSizePx = indicatorSize.roundToPx()
 
         val deltaSpace = IntOffset(
             x = when (horizontalMode) {
-                DotBadgeMode.Inner -> -horizontalOffset * 2
-                DotBadgeMode.Outer -> horizontalOffset * 2 + badgeSizePx * 2
+                IndicatorMode.Inner -> -horizontalOffset * 2
+                IndicatorMode.Outer -> horizontalOffset * 2 + indicatorSizePx * 2
             },
             y = when (verticalMode) {
-                DotBadgeMode.Inner -> -verticalOffset * 2
-                DotBadgeMode.Outer -> verticalOffset * 2 + badgeSizePx * 2
+                IndicatorMode.Inner -> -verticalOffset * 2
+                IndicatorMode.Outer -> verticalOffset * 2 + indicatorSizePx * 2
             },
         )
 
         val offset = alignment.align(
             IntSize(
-                badgeSizePx,
-                badgeSizePx,
+                indicatorSizePx,
+                indicatorSizePx,
             ),
             IntSize(
                 (size.width + deltaSpace.x).toInt(),
@@ -203,17 +203,17 @@ internal fun Modifier.drawDotBadge(
         translate(resultOffset.x.toFloat(), resultOffset.y.toFloat()) {
             drawCircle(
                 color = color,
-                radius = badgeSizePx / 2f,
-                center = Offset(badgeSizePx / 2f, badgeSizePx / 2f),
+                radius = indicatorSizePx / 2f,
+                center = Offset(indicatorSizePx / 2f, indicatorSizePx / 2f),
             )
         }
     }
 }
 
 /**
- * Режим размещения dot badge относительно границ composable
+ * Режим размещения indicator относительно границ composable
  */
-internal enum class DotBadgeMode {
+internal enum class IndicatorMode {
 
     /**
      * Размещение внутри границ

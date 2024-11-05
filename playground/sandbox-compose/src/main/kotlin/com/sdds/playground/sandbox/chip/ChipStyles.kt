@@ -94,9 +94,9 @@ internal val EmbeddedChip.L: ChipStyleBuilder
                 startContentSize = 24.dp,
                 endContentSize = 24.dp,
                 startContentMargin = 8.dp,
-                endContentMargin = 8.dp,
+                endContentMargin = 10.dp,
                 startPadding = 16.dp,
-                endPadding = 16.dp,
+                endPadding = 12.dp,
             ),
         )
 
@@ -111,9 +111,9 @@ internal val EmbeddedChip.M: ChipStyleBuilder
                 startContentSize = 24.dp,
                 endContentSize = 24.dp,
                 startContentMargin = 6.dp,
-                endContentMargin = 6.dp,
+                endContentMargin = 8.dp,
                 startPadding = 14.dp,
-                endPadding = 14.dp,
+                endPadding = 10.dp,
             ),
         )
 
@@ -128,9 +128,9 @@ internal val EmbeddedChip.S: ChipStyleBuilder
                 startContentSize = 16.dp,
                 endContentSize = 16.dp,
                 startContentMargin = 4.dp,
-                endContentMargin = 4.dp,
+                endContentMargin = 6.dp,
                 startPadding = 12.dp,
-                endPadding = 12.dp,
+                endPadding = 8.dp,
             ),
         )
 
@@ -144,10 +144,10 @@ internal val EmbeddedChip.Xs: ChipStyleBuilder
                 height = 20.dp,
                 startContentSize = 12.dp,
                 endContentSize = 12.dp,
-                startContentMargin = 2.dp,
-                endContentMargin = 2.dp,
-                startPadding = 10.dp,
-                endPadding = 10.dp,
+                startContentMargin = 4.dp,
+                endContentMargin = 4.dp,
+                startPadding = 8.dp,
+                endPadding = 4.dp,
             ),
         )
 
