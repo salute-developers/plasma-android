@@ -20,12 +20,16 @@ import kotlinx.coroutines.flow.onEach
 internal class AvatarFragment : ComponentFragment() {
 
     private val avatarParametersViewModel by viewModels<AvatarParameterViewModel>() {
-        AvatarParameterViewModelFactory(groupMode = false)
+        AvatarParameterViewModelFactory(
+            groupMode = false,
+            defaultState = getState { AvatarUiState(AvatarVariant.AvatarL) },
+        )
     }
 
     override val componentLayout: Avatar
         get() = Avatar(ContextThemeWrapper(requireContext(), currentVariant.styleRes))
             .also { avatar = it }
+            .apply { id = R.id.avatar }
 
     override val propertiesOwner: PropertiesOwner
         get() = avatarParametersViewModel

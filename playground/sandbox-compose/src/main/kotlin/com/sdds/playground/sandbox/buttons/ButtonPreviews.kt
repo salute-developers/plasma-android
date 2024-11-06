@@ -13,13 +13,11 @@ import com.sdds.playground.sandbox.SandboxTheme
  * Previews для тестирования
  */
 @Composable
-@Preview
+@Preview(showBackground = true)
 internal fun SandboxButtonPreviewSizeLDefault() {
     SandboxTheme {
         Button(
             style = BasicButton.L.Default.style(),
-            icons = Button.Icons(start = painterResource(id = R.drawable.ic_plasma_24)),
-            spacing = Button.Spacing.Packed,
             label = "Label",
             enabled = true,
             loading = false,
@@ -29,13 +27,43 @@ internal fun SandboxButtonPreviewSizeLDefault() {
 }
 
 @Composable
-@Preview
-internal fun SandboxButtonPreviewSizeXSDefault() {
+@Preview(showBackground = true)
+internal fun SandboxButtonPreviewSizeMAccent() {
     SandboxTheme {
         Button(
-            style = BasicButton.Xs.Default.style(),
-            icons = Button.Icons(start = painterResource(id = R.drawable.ic_plasma_16)),
-            spacing = Button.Spacing.Packed,
+            style = BasicButton.M.Accent.style(),
+            icons = Button.Icons(start = painterResource(id = R.drawable.ic_plasma_24)),
+            label = "Label",
+            value = "",
+            enabled = true,
+            loading = false,
+            onClick = {},
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxButtonPreviewSizeSWarning() {
+    SandboxTheme {
+        Button(
+            style = BasicButton.S.Warning.style(),
+            icons = Button.Icons(end = painterResource(id = R.drawable.ic_plasma_24)),
+            label = "Label",
+            value = "",
+            enabled = true,
+            loading = false,
+            onClick = {},
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxButtonPreviewSizeXSDark() {
+    SandboxTheme {
+        Button(
+            style = BasicButton.Xs.Dark.style(),
             label = "Label",
             value = "Value",
             enabled = true,
@@ -47,10 +75,41 @@ internal fun SandboxButtonPreviewSizeXSDefault() {
 
 @Composable
 @Preview(showBackground = true)
-internal fun SandboxButtonPreviewSizeMSecondary() {
+internal fun SandboxButtonPreviewSizeLIsLoading() {
     SandboxTheme {
         Button(
-            style = BasicButton.M.Secondary.style(),
+            style = BasicButton.L.Default.style(),
+            label = "Label",
+            value = "",
+            enabled = true,
+            loading = true,
+            onClick = {},
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxButtonPreviewSizeLDisabled() {
+    SandboxTheme {
+        Button(
+            style = BasicButton.L.Default.style(),
+            spacing = Button.Spacing.Packed,
+            label = "Label",
+            value = "",
+            enabled = false,
+            loading = false,
+            onClick = {},
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxButtonPreviewSizeLSecondary() {
+    SandboxTheme {
+        Button(
+            style = BasicButton.L.Secondary.style(),
             icons = Button.Icons(start = painterResource(id = R.drawable.ic_plasma_24)),
             spacing = Button.Spacing.Packed,
             label = "Label",
@@ -62,77 +121,12 @@ internal fun SandboxButtonPreviewSizeMSecondary() {
 }
 
 @Composable
-@Preview
-internal fun SandboxButtonPreviewSizeSClear() {
+@Preview(showBackground = true)
+internal fun SandboxButtonPreviewSizeMSpaceBetween() {
     SandboxTheme {
         Button(
-            style = BasicButton.S.Clear.style(),
-            icons = Button.Icons(start = painterResource(id = R.drawable.ic_plasma_24)),
-            spacing = Button.Spacing.Packed,
-            label = "Label",
-            enabled = true,
-            loading = false,
-            onClick = {},
-        )
-    }
-}
-
-@Composable
-@Preview
-internal fun SandboxButtonPreviewSizeLPositive() {
-    SandboxTheme {
-        Button(
-            style = BasicButton.L.Positive.style(),
-            icons = Button.Icons(start = painterResource(id = R.drawable.ic_plasma_24)),
-            spacing = Button.Spacing.Packed,
-            label = "Label",
-            enabled = true,
-            loading = false,
-            onClick = {},
-        )
-    }
-}
-
-@Composable
-@Preview
-internal fun SandboxButtonPreviewSizeMNegative() {
-    SandboxTheme {
-        Button(
-            style = BasicButton.M.Negative.style(),
-            icons = Button.Icons(start = painterResource(id = R.drawable.ic_plasma_24)),
-            spacing = Button.Spacing.Packed,
-            label = "Label",
-            value = "Value",
-            enabled = true,
-            loading = false,
-            onClick = {},
-        )
-    }
-}
-
-@Composable
-@Preview
-internal fun SandboxButtonPreviewSizeSWarning() {
-    SandboxTheme {
-        Button(
-            style = BasicButton.S.Warning.style(),
-            icons = Button.Icons(start = painterResource(id = R.drawable.ic_plasma_24)),
-            spacing = Button.Spacing.Packed,
-            label = "Label",
-            enabled = true,
-            loading = false,
-            onClick = {},
-        )
-    }
-}
-
-@Composable
-@Preview
-internal fun SandboxButtonPreviewSizeXsBlack() {
-    SandboxTheme {
-        Button(
-            style = BasicButton.Xs.Black.style(),
-            icons = Button.Icons(end = painterResource(id = R.drawable.ic_plasma_16)),
+            style = BasicButton.M.Clear.style(),
+            icons = Button.Icons(start = painterResource(id = R.drawable.ic_plasma_16)),
             spacing = Button.Spacing.SpaceBetween,
             label = "Label",
             value = "Value",
@@ -144,7 +138,41 @@ internal fun SandboxButtonPreviewSizeXsBlack() {
 }
 
 @Composable
-@Preview
+@Preview(showBackground = true)
+internal fun SandboxButtonPreviewSizeSLongText() {
+    SandboxTheme {
+        Button(
+            style = BasicButton.S.Positive.style(),
+            icons = Button.Icons(end = painterResource(id = R.drawable.ic_plasma_16)),
+            spacing = Button.Spacing.Packed,
+            label = "LabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabel",
+            value = "",
+            enabled = true,
+            loading = false,
+            onClick = {},
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxButtonPreviewSizeXSNegative() {
+    SandboxTheme {
+        Button(
+            style = BasicButton.Xs.Negative.style(),
+            icons = Button.Icons(end = painterResource(id = R.drawable.ic_plasma_16)),
+            spacing = Button.Spacing.Packed,
+            label = "Label",
+            value = "",
+            enabled = true,
+            loading = false,
+            onClick = {},
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
 internal fun SandboxButtonPreviewSizeLWhiteDarkTheme() {
     SandboxTheme(darkTheme = true) {
         Button(
@@ -160,7 +188,7 @@ internal fun SandboxButtonPreviewSizeLWhiteDarkTheme() {
 }
 
 @Composable
-@Preview
+@Preview(showBackground = true)
 internal fun SandboxIconButtonPreviewLDefault() {
     SandboxTheme {
         IconButton(
@@ -175,10 +203,10 @@ internal fun SandboxIconButtonPreviewLDefault() {
 
 @Composable
 @Preview
-internal fun SandboxIconButtonPreviewMWarning() {
+internal fun SandboxIconButtonPreviewMAccent() {
     SandboxTheme {
         IconButton(
-            style = IconButton.M.Pilled.Warning.style(),
+            style = IconButton.M.Accent.style(),
             icon = painterResource(id = R.drawable.ic_plasma_24),
             onClick = {},
             enabled = true,
@@ -188,11 +216,53 @@ internal fun SandboxIconButtonPreviewMWarning() {
 }
 
 @Composable
-@Preview
-internal fun SandboxIconButtonPreviewSDisabled() {
+@Preview(showBackground = true)
+internal fun SandboxIconButtonPreviewSWarning() {
     SandboxTheme {
         IconButton(
-            style = IconButton.S.Positive.style(),
+            style = IconButton.S.Warning.style(),
+            icon = painterResource(id = R.drawable.ic_plasma_24),
+            onClick = {},
+            enabled = true,
+            loading = false,
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxIconButtonPreviewXSDark() {
+    SandboxTheme {
+        IconButton(
+            style = IconButton.Xs.Dark.style(),
+            icon = painterResource(id = R.drawable.ic_plasma_16),
+            onClick = {},
+            enabled = true,
+            loading = false,
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxIconButtonPreviewIsLoading() {
+    SandboxTheme {
+        IconButton(
+            style = IconButton.L.Default.style(),
+            icon = painterResource(id = R.drawable.ic_plasma_24),
+            onClick = {},
+            enabled = true,
+            loading = true,
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxIconButtonPreviewLDisabled() {
+    SandboxTheme {
+        IconButton(
+            style = IconButton.L.Default.style(),
             icon = painterResource(id = R.drawable.ic_plasma_24),
             onClick = {},
             enabled = false,
@@ -202,11 +272,53 @@ internal fun SandboxIconButtonPreviewSDisabled() {
 }
 
 @Composable
-@Preview
-internal fun SandboxIconButtonPreviewXsLoading() {
+@Preview(showBackground = true)
+internal fun SandboxIconButtonPreviewLSecondary() {
     SandboxTheme {
         IconButton(
-            style = IconButton.Xs.Pilled.Dark.style(),
+            style = IconButton.L.Pilled.Secondary.style(),
+            icon = painterResource(id = R.drawable.ic_plasma_24),
+            onClick = {},
+            enabled = true,
+            loading = false,
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxIconButtonPreviewMClear() {
+    SandboxTheme {
+        IconButton(
+            style = IconButton.M.Clear.style(),
+            icon = painterResource(id = R.drawable.ic_plasma_24),
+            onClick = {},
+            enabled = true,
+            loading = false,
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxIconButtonPreviewSPositive() {
+    SandboxTheme {
+        IconButton(
+            style = IconButton.S.Positive.style(),
+            icon = painterResource(id = R.drawable.ic_plasma_24),
+            onClick = {},
+            enabled = true,
+            loading = false,
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxIconButtonPreviewXSNegative() {
+    SandboxTheme {
+        IconButton(
+            style = IconButton.Xs.Pilled.Negative.style(),
             icon = painterResource(id = R.drawable.ic_plasma_24),
             onClick = {},
             enabled = true,

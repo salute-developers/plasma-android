@@ -1,6 +1,7 @@
 package com.sdds.playground.sandbox
 
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.github.takahirom.roborazzi.captureRoboImage
@@ -79,6 +80,42 @@ class ViewSystemRadioBoxScreenshotTest : RoborazziConfig() {
             ),
         )
         onView(withId(R.id.radioBox))
+            .captureRoboImage()
+    }
+
+    @Test
+    fun testRadioBoxGroupSizeM() {
+        launchScreen(
+            R.id.nav_radiobox_group,
+            RadioBoxUiState(
+                variant = RadioBoxVariant.RadioBoxM,
+                checked = false,
+                label = "Label",
+                description = "Description",
+                enabled = true,
+            ),
+        )
+        onView(withId(R.id.radioBox_group))
+            .perform(click())
+        onView(withId(R.id.radioBox_group))
+            .captureRoboImage()
+    }
+
+    @Test
+    fun testRadioBoxGroupSizeS() {
+        launchScreen(
+            R.id.nav_radiobox_group,
+            RadioBoxUiState(
+                variant = RadioBoxVariant.RadioBoxS,
+                checked = true,
+                label = "Label",
+                description = "Description",
+                enabled = true,
+            ),
+        )
+        onView(withId(R.id.radioBox_group))
+            .perform(click())
+        onView(withId(R.id.radioBox_group))
             .captureRoboImage()
     }
 }

@@ -1,12 +1,15 @@
 package com.sdds.playground.sandbox
 
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.espresso.matcher.ViewMatchers.withText
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.github.takahirom.roborazzi.captureRoboImage
 import com.sdds.playground.sandbox.checkbox.CheckBoxUiState
 import com.sdds.playground.sandbox.checkbox.CheckBoxVariant
 import com.sdds.uikit.CheckBox
+import org.hamcrest.Matchers.allOf
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
@@ -112,6 +115,40 @@ class ViewSystemCheckBoxScreenshotTest : RoborazziConfig() {
             ),
         )
         onView(withId(R.id.checkBox))
+            .captureRoboImage()
+    }
+
+    @Test
+    fun testCheckBoxGroupSizeM() {
+        launchScreen(
+            R.id.nav_checkbox_group,
+            CheckBoxUiState(
+                variant = CheckBoxVariant.CheckBoxM,
+                label = "Label",
+                description = "Description",
+                enabled = true,
+            ),
+        )
+        onView(allOf(withId(1), withText("Label")))
+            .perform(click())
+        onView(withId(R.id.checkBox_group))
+            .captureRoboImage()
+    }
+
+    @Test
+    fun testCheckBoxGroupSizeS() {
+        launchScreen(
+            R.id.nav_checkbox_group,
+            CheckBoxUiState(
+                variant = CheckBoxVariant.CheckBoxS,
+                label = "Label",
+                description = "Description",
+                enabled = true,
+            ),
+        )
+        onView(withId(R.id.checkBox_group))
+            .perform(click())
+        onView(withId(R.id.checkBox_group))
             .captureRoboImage()
     }
 }

@@ -20,7 +20,10 @@ import kotlinx.coroutines.flow.onEach
 internal class AvatarGroupFragment : ComponentFragment() {
 
     private val avatarParametersViewModel by viewModels<AvatarParameterViewModel> {
-        AvatarParameterViewModelFactory(groupMode = true)
+        AvatarParameterViewModelFactory(
+            groupMode = true,
+            defaultState = getState { AvatarUiState(AvatarVariant.AvatarL) },
+        )
     }
 
     private val avatarAdapter: AvatarAdapter by lazy { AvatarAdapter() }
@@ -29,6 +32,7 @@ internal class AvatarGroupFragment : ComponentFragment() {
         get() = AvatarGroup(requireContext())
             .also { avatarGroup = it }
             .apply { adapter = avatarAdapter }
+            .apply { id = R.id.avatar_group }
 
     override val propertiesOwner: PropertiesOwner
         get() = avatarParametersViewModel

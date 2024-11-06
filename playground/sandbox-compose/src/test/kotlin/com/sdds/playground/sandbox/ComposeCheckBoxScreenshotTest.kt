@@ -1,6 +1,8 @@
 package com.sdds.playground.sandbox
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.sdds.playground.sandbox.checkbox.CheckBoxGroupPreviewSizeM
+import com.sdds.playground.sandbox.checkbox.CheckBoxGroupPreviewSizeS
 import com.sdds.playground.sandbox.checkbox.CheckBoxPreviewCheckedSizeSmall
 import com.sdds.playground.sandbox.checkbox.CheckBoxPreviewOffSizeSmall
 import com.sdds.playground.sandbox.checkbox.CheckBoxPreviewOnSizeMediumNoDesc
@@ -62,6 +64,20 @@ class ComposeCheckBoxScreenshotTest : RoborazziConfig() {
     fun testCheckBoxSizeMediumNoLabelAndDesc() {
         composeTestRule.setContent {
             CheckBoxPreviewSizeMediumNoLabelAndDesc()
+        }
+    }
+
+    @Test
+    fun testCheckBoxGroupSizeM() {
+        composeTestRule.setContent {
+            CheckBoxGroupPreviewSizeM()
+        }
+    }
+
+    @Test
+    fun testCheckBoxGroupSizeS() {
+        composeTestRule.setContent {
+            CheckBoxGroupPreviewSizeS()
         }
     }
 }
