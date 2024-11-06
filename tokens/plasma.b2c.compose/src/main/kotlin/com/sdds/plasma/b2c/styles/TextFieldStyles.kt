@@ -112,7 +112,7 @@ val TextField.Xs: TextFieldStyleBuilder
                 alignmentLineHeight = 32.dp,
                 iconSize = 16.dp,
                 indicatorDimensions = TextField.Dimensions.IndicatorDimensions(
-                    startLabelHorizontalPadding = 6.dp,
+                    startLabelHorizontalPadding = 4.dp,
                     startLabelVerticalPadding = 0.dp,
                     endLabelHorizontalPadding = 4.dp,
                     endLabelVerticalPadding = 2.dp,
@@ -164,7 +164,7 @@ val TextField.S: TextFieldStyleBuilder
                 alignmentLineHeight = 40.dp,
                 iconSize = 24.dp,
                 indicatorDimensions = TextField.Dimensions.IndicatorDimensions(
-                    startLabelHorizontalPadding = 6.dp,
+                    startLabelHorizontalPadding = 4.dp,
                     startLabelVerticalPadding = 0.dp,
                     endLabelHorizontalPadding = 4.dp,
                     endLabelVerticalPadding = 4.dp,

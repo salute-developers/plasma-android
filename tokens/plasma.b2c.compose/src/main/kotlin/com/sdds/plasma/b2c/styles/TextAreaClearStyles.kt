@@ -104,7 +104,7 @@ val TextAreaClear.S: TextFieldStyleBuilder
                 indicatorDimensions = TextField.Dimensions.IndicatorDimensions(
                     startLabelHorizontalPadding = 6.dp,
                     startLabelVerticalPadding = 0.dp,
-                    endLabelHorizontalPadding = 6.dp,
+                    endLabelHorizontalPadding = 4.dp,
                     endLabelVerticalPadding = 0.dp,
                     startFieldHorizontalPadding = 6.dp,
                     startFieldVerticalPadding = 0.dp,
