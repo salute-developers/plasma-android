@@ -112,13 +112,13 @@ class ThemeBuilderPlugin : Plugin<Project> {
     private fun getThemeUrl(source: ThemeBuilderSource): String {
         return when (source) {
             is ThemeBuilderSource.NameAndVersion -> {
-                if (source.name.isEmpty() || source.version.isEmpty()) {
+                if (source.remoteName.isEmpty() || source.version.isEmpty()) {
                     throw GradleException(
                         "Theme name and version should not be empty: " +
-                            "name=${source.name} version=${source.version}",
+                            "name=${source.remoteName} version=${source.version}",
                     )
                 }
-                "$BASE_THEME_URL${source.name}/${source.version}.zip"
+                "$BASE_THEME_URL${source.remoteName}/${source.version}.zip"
             }
 
             is ThemeBuilderSource.Url -> {
