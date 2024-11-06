@@ -73,6 +73,7 @@ internal class AnimatedSelectorDrawable : Drawable, Animatable, OnScrollChangeLi
         context: Context,
         strokeWidth: Float,
         shapeModel: ShapeModel,
+        insets: Int = 0,
         mainColor: Int = context.colorFromAttr(R.attr.sd_fsMainColor),
         additionalColor: Int = context.colorFromAttr(R.attr.sd_fsAdditionalColor),
     ) : super() {
@@ -81,7 +82,7 @@ internal class AnimatedSelectorDrawable : Drawable, Animatable, OnScrollChangeLi
         this.shapeModel = shapeModel
         borderPaint.applyStroke(strokeWidth)
         animationPaint.applyStroke(strokeWidth)
-        offset = strokeWidth / 2f
+        offset = strokeWidth / 2f - insets
     }
 
     override fun start() {
