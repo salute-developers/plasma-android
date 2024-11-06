@@ -1,8 +1,6 @@
 package com.sdds.uikit.internal.focusselector
 
 import android.content.Context
-import android.graphics.drawable.Drawable
-import android.graphics.drawable.DrawableWrapper
 import android.util.AttributeSet
 import android.view.View
 import androidx.annotation.StyleRes
@@ -142,24 +140,13 @@ internal class FocusSelectorDelegate : HasFocusSelector {
             FocusSelectorMode.ANIMATED_BORDER -> AnimatedSelectorDrawable(
                 context = context,
                 strokeWidth = strokeWidth,
+                insets = strokeInsets,
                 shapeModel = adjustedShapeModel,
                 mainColor = mainColor,
                 additionalColor = additionalColor,
             )
 
             else -> return
-        }.let { SelectorWrapper(it) }
-    }
-
-    private inner class SelectorWrapper(selector: Drawable) : DrawableWrapper(selector) {
-
-        override fun setBounds(left: Int, top: Int, right: Int, bottom: Int) {
-            super.setBounds(
-                left - strokeInsets,
-                top - strokeInsets,
-                right + strokeInsets,
-                bottom + strokeInsets,
-            )
         }
     }
 }
