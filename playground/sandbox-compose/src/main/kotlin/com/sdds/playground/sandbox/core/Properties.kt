@@ -21,11 +21,12 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.IconButton
+import com.sdds.compose.uikit.Switch
 import com.sdds.compose.uikit.Text
 import com.sdds.playground.sandbox.R
-import com.sdds.playground.sandbox.buttons.SandboxButton
-import com.sdds.playground.sandbox.buttons.SandboxIconButton
-import com.sdds.playground.sandbox.switch.SandboxSwitch
+import com.sdds.playground.sandbox.buttons.Clear
+import com.sdds.playground.sandbox.buttons.Xs
 import com.sdds.playground.sandbox.tokens.compose.SddsServTheme
 import com.sdds.icons.R.drawable as Icons
 
@@ -206,10 +207,9 @@ private fun PropertiesHeader(
 
         Spacer(modifier = Modifier.width(10.dp))
 
-        SandboxIconButton(
+        IconButton(
+            style = IconButton.Xs.Clear.style(),
             icon = painterResource(id = Icons.ic_reset_outline_24),
-            size = SandboxButton.Size.XS,
-            style = SandboxButton.Style.Clear,
             onClick = onResetClicked,
         )
     }
@@ -272,7 +272,7 @@ private fun SwitchPropertyListItem(
                 .padding(start = 4.dp)
                 .wrapContentWidth(Alignment.Start),
         )
-        SandboxSwitch(
+        Switch(
             active = propertyValue,
             modifier = Modifier
                 .weight(1f)

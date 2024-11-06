@@ -40,7 +40,7 @@ internal class RadioBoxParametersViewModel : ViewModel(), PropertiesOwner {
         _radioBoxState.value = _radioBoxState.value.copy(checked = checked)
     }
 
-    private fun updateSize(size: SandboxRadioBox.Size) {
+    private fun updateSize(size: Size) {
         _radioBoxState.value = _radioBoxState.value.copy(size = size)
     }
 

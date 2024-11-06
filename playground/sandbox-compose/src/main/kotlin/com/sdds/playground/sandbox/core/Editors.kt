@@ -1,5 +1,6 @@
 package com.sdds.playground.sandbox.core
 
+import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -21,11 +22,14 @@ import androidx.compose.ui.text.TextRange
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.BasicButton
+import com.sdds.compose.uikit.Button
+import com.sdds.compose.uikit.RadioBox
 import com.sdds.compose.uikit.Text
+import com.sdds.compose.uikit.TextField
 import com.sdds.playground.sandbox.R
-import com.sdds.playground.sandbox.buttons.SandboxBasicButton
-import com.sdds.playground.sandbox.radiobox.SandboxRadioBox
-import com.sdds.playground.sandbox.textfield.SandboxTextField
+import com.sdds.playground.sandbox.buttons.Default
+import com.sdds.playground.sandbox.buttons.M
 import com.sdds.playground.sandbox.tokens.compose.SddsServTheme
 import kotlin.math.roundToInt
 
@@ -37,7 +41,7 @@ import kotlin.math.roundToInt
  * @param modifier модификатор
  */
 @Composable
-internal fun PropertyEditor(
+internal fun ColumnScope.PropertyEditor(
     property: Property<*>?,
     onConfirm: () -> Unit,
     modifier: Modifier = Modifier,
@@ -79,7 +83,7 @@ internal fun PropertyEditor(
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
-private fun TextPropertyEditor(
+private fun ColumnScope.TextPropertyEditor(
     onConfirm: (String) -> Unit,
     propertyName: String,
     currentValue: String,
@@ -96,7 +100,7 @@ private fun TextPropertyEditor(
         style = SddsServTheme.typography.headerH3Bold.copy(color = SddsServTheme.colors.textDefaultPrimary),
         modifier = Modifier.padding(16.dp),
     )
-    SandboxTextField(
+    TextField(
         value = textFieldValue,
         modifier = Modifier
             .fillMaxWidth()
@@ -107,16 +111,18 @@ private fun TextPropertyEditor(
         placeholderText = stringResource(id = R.string.sandbox_text_editor_placeholder),
     )
     Spacer(modifier = Modifier.height(16.dp))
-    SandboxBasicButton(
+    Button(
+        style = BasicButton.M.Default.style(),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(Margins),
         label = stringResource(R.string.sandbox_editor_confirm),
         onClick = {
             focusRequester.freeFocus()
             keyboardController?.hide()
             onConfirm(textFieldValue.text)
         },
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(Margins),
+
     )
     Spacer(modifier = Modifier.height(16.dp))
     LaunchedEffect(Unit) {
@@ -139,7 +145,7 @@ private fun <T> ChoiceEditor(
         modifier = Modifier.padding(8.dp),
     )
     choices.forEach {
-        SandboxRadioBox(
+        RadioBox(
             checked = it == currentValue,
             label = it.toString(),
             modifier = modifier

@@ -36,7 +36,7 @@ internal class ChipParametersViewModel : ViewModel(), PropertiesOwner {
         _chipState.value = ChipUiState()
     }
 
-    private fun updateSize(size: SandboxChip.Size) {
+    private fun updateSize(size: Size) {
         _chipState.value = _chipState.value.copy(size = size)
     }
 
@@ -48,11 +48,11 @@ internal class ChipParametersViewModel : ViewModel(), PropertiesOwner {
         _chipState.value = _chipState.value.copy(enabled = enabled)
     }
 
-    private fun updateState(state: SandboxChip.State) {
+    private fun updateState(state: State) {
         _chipState.value = _chipState.value.copy(state = state)
     }
 
-    private fun updateShape(shape: SandboxChip.Shape) {
+    private fun updateShape(shape: Shape) {
         _chipState.value = _chipState.value.copy(shape = shape)
     }
 

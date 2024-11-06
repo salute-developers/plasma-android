@@ -8,11 +8,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.sdds.compose.uikit.ProgressBar
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.core.ComponentScaffold
 
 /**
- * Экран с компонентом [SandboxProgress]
+ * Экран с компонентом [ProgressBar]
  */
 @Composable
 internal fun ProgressScreen() {
@@ -21,10 +22,10 @@ internal fun ProgressScreen() {
 
     ComponentScaffold(
         component = {
-            SandboxProgress(
+            ProgressBar(
                 progress = progressUiState.progress,
                 modifier = Modifier.width(240.dp),
-                style = progressUiState.style,
+                style = progressUiState.progressStyle(),
             )
         },
         propertiesOwner = progressViewModel,

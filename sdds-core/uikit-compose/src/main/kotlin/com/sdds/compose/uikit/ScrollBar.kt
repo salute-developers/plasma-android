@@ -211,7 +211,7 @@ private fun indicatorLength(
  * @property padding отступы скроллбара
  */
 @Immutable
-data class ScrollBarConfig(
+data class ScrollBar(
     val indicatorThickness: Dp = 2.dp,
     val indicatorColor: Color = Color.DarkGray,
     val backgroundColor: Color = Color.LightGray,
@@ -234,7 +234,7 @@ fun Modifier.verticalScrollWithScrollbar(
     enabled: Boolean = true,
     flingBehavior: FlingBehavior? = null,
     reverseScrolling: Boolean = false,
-    scrollbarConfig: ScrollBarConfig = ScrollBarConfig(),
+    scrollbarConfig: ScrollBar = ScrollBar(),
 ) = this
     .scrollbar(
         state = state,
@@ -265,7 +265,7 @@ fun Modifier.horizontalScrollWithScrollbar(
     enabled: Boolean = true,
     flingBehavior: FlingBehavior? = null,
     reverseScrolling: Boolean = false,
-    scrollbarConfig: ScrollBarConfig = ScrollBarConfig(),
+    scrollbarConfig: ScrollBar = ScrollBar(),
 ) = this
     .scrollbar(
         state = state,

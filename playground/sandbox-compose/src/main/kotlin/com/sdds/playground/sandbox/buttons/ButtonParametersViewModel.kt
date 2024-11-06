@@ -42,6 +42,7 @@ internal class ButtonParametersViewModel(
                 when (buttonType) {
                     ButtonType.Basic -> state.toProps()
                     ButtonType.Icon -> state.toIconButtonProps()
+                    ButtonType.Link -> state.toLinkButtonProps()
                 }
             }
             .stateIn(viewModelScope, SharingStarted.Lazily, emptyList())
@@ -53,13 +54,13 @@ internal class ButtonParametersViewModel(
         _buttonSate.value = ButtonUiState()
     }
 
-    private fun updateStyle(style: SandboxButton.Style) {
+    private fun updateStyle(style: Style) {
         _buttonSate.value = _buttonSate.value.copy(
             style = style,
         )
     }
 
-    private fun updateSize(size: SandboxButton.Size) {
+    private fun updateSize(size: Size) {
         _buttonSate.value = _buttonSate.value.copy(
             size = size,
         )
@@ -71,7 +72,7 @@ internal class ButtonParametersViewModel(
         )
     }
 
-    private fun updateShape(shape: SandboxButton.IconButtonShape) {
+    private fun updateShape(shape: IconButtonShape) {
         _buttonSate.value = _buttonSate.value.copy(
             shape = shape,
         )
@@ -127,6 +128,57 @@ internal class ButtonParametersViewModel(
                 onApply = { updateShape(it) },
             ),
 
+            Property.BooleanProperty(
+                name = "enabled",
+                value = enabled,
+                onApply = { updateEnabledState(it) },
+            ),
+            Property.BooleanProperty(
+                name = "loading",
+                value = loading,
+                onApply = { updateLoadingState(it) },
+            ),
+        )
+    }
+
+    private fun ButtonUiState.toLinkButtonProps(): List<Property<*>> {
+        return listOfNotNull(
+            enumProperty(
+                name = "style",
+                value = style,
+                onApply = { updateStyle(it) },
+            ),
+
+            enumProperty(
+                name = "size",
+                value = size,
+                onApply = { updateSize(it) },
+            ),
+
+            Property.SingleChoiceProperty(
+                name = "icon",
+                value = icon::class.simpleName.orEmpty(),
+                variants = listOf(
+                    ButtonIcon.Start::class.simpleName.orEmpty(),
+                    ButtonIcon.End::class.simpleName.orEmpty(),
+                    ButtonIcon.No::class.simpleName.orEmpty(),
+                ),
+                onApply = { variantName ->
+                    updateIcon(
+                        when (variantName) {
+                            ButtonIcon.Start::class.simpleName -> ButtonIcon.Start
+                            ButtonIcon.End::class.simpleName -> ButtonIcon.End
+                            else -> ButtonIcon.No
+                        },
+                    )
+                },
+            ),
+
+            Property.StringProperty(
+                name = "buttonLabel",
+                value = buttonLabel,
+                onApply = { updateLabel(it) },
+            ),
             Property.BooleanProperty(
                 name = "enabled",
                 value = enabled,
@@ -217,6 +269,11 @@ internal enum class ButtonType {
      * Компонент IconButton
      */
     Icon,
+
+    /**
+     * Компонент LinkButton
+     */
+    Link,
 }
 
 /**

@@ -35,7 +35,7 @@ internal class SwitchParametersViewModel : ViewModel(), PropertiesOwner {
         _switchState.value = SwitchUiState()
     }
 
-    private fun updateActive(active: Boolean) {
+    fun updateActive(active: Boolean) {
         _switchState.value = _switchState.value.copy(active = active)
     }
 

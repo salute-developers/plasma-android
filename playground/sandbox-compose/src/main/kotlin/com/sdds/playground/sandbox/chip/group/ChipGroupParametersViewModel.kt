@@ -2,7 +2,7 @@ package com.sdds.playground.sandbox.chip.group
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.sdds.playground.sandbox.chip.SandboxChip
+import com.sdds.playground.sandbox.chip.Size
 import com.sdds.playground.sandbox.core.PropertiesOwner
 import com.sdds.playground.sandbox.core.Property
 import com.sdds.playground.sandbox.core.enumProperty
@@ -44,11 +44,11 @@ internal class ChipGroupParametersViewModel : ViewModel(), PropertiesOwner {
         )
     }
 
-    private fun updateSize(size: SandboxChip.Size) {
+    private fun updateSize(size: Size) {
         _chipGroupState.value = _chipGroupState.value.copy(size = size)
     }
 
-    private fun updateGap(gap: SandboxChipGroup.Gap) {
+    private fun updateGap(gap: Gap) {
         _chipGroupState.value = _chipGroupState.value.copy(gap = gap)
     }
 
