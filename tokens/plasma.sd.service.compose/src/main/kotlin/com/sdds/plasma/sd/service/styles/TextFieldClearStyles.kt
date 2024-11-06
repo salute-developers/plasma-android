@@ -46,7 +46,7 @@ val TextFieldClear.Xs: TextFieldStyleBuilder
                     startLabelHorizontalPadding = 4.dp,
                     startLabelVerticalPadding = 0.dp,
                     endLabelHorizontalPadding = 4.dp,
-                    endLabelVerticalPadding = 0.dp,
+                    endLabelVerticalPadding = 2.dp,
                     startFieldHorizontalPadding = 4.dp,
                     startFieldVerticalPadding = 0.dp,
                     endFieldHorizontalPadding = 4.dp,
@@ -101,7 +101,7 @@ val TextFieldClear.S: TextFieldStyleBuilder
                     startLabelHorizontalPadding = 6.dp,
                     startLabelVerticalPadding = 0.dp,
                     endLabelHorizontalPadding = 4.dp,
-                    endLabelVerticalPadding = 0.dp,
+                    endLabelVerticalPadding = 4.dp,
                     startFieldHorizontalPadding = 6.dp,
                     startFieldVerticalPadding = 0.dp,
                     endFieldHorizontalPadding = 6.dp,
@@ -154,14 +154,14 @@ val TextFieldClear.M: TextFieldStyleBuilder
                 indicatorDimensions = TextField.Dimensions.IndicatorDimensions(
                     startLabelHorizontalPadding = 6.dp,
                     startLabelVerticalPadding = 0.dp,
-                    endLabelHorizontalPadding = 6.dp,
-                    endLabelVerticalPadding = 0.dp,
+                    endLabelHorizontalPadding = 4.dp,
+                    endLabelVerticalPadding = 4.dp,
                     startFieldHorizontalPadding = 6.dp,
                     startFieldVerticalPadding = 0.dp,
                     endFieldHorizontalPadding = 6.dp,
                     endFieldVerticalPadding = 0.dp,
                     fieldIndicatorSize = 8.dp,
-                    labelIndicatorSize = 8.dp,
+                    labelIndicatorSize = 6.dp,
                 ),
             ),
         )
@@ -208,14 +208,14 @@ val TextFieldClear.L: TextFieldStyleBuilder
                 indicatorDimensions = TextField.Dimensions.IndicatorDimensions(
                     startLabelHorizontalPadding = 6.dp,
                     startLabelVerticalPadding = 0.dp,
-                    endLabelHorizontalPadding = 6.dp,
-                    endLabelVerticalPadding = 0.dp,
+                    endLabelHorizontalPadding = 4.dp,
+                    endLabelVerticalPadding = 4.dp,
                     startFieldHorizontalPadding = 6.dp,
                     startFieldVerticalPadding = 0.dp,
                     endFieldHorizontalPadding = 6.dp,
                     endFieldVerticalPadding = 0.dp,
                     fieldIndicatorSize = 8.dp,
-                    labelIndicatorSize = 8.dp,
+                    labelIndicatorSize = 6.dp,
                 ),
             ),
         )
@@ -267,7 +267,12 @@ internal fun TextFieldColorsBuilder.successClearColors(): TextFieldColorsBuilder
     disabledAlpha(0.4f)
     enabledAlpha(1f)
     cursorColor(PlasmaSdServiceTheme.colors.textDefaultAccent)
-    startContentColor(PlasmaSdServiceTheme.colors.surfaceDefaultPositive.asInteractive())
+    startContentColor(
+        PlasmaSdServiceTheme.colors.surfaceDefaultPositive.asInteractive(
+            focused = PlasmaSdServiceTheme.colors.textDefaultSecondary,
+            pressed = PlasmaSdServiceTheme.colors.textDefaultSecondary,
+        ),
+    )
     endContentColor(PlasmaSdServiceTheme.colors.textDefaultSecondary)
     innerLabelColor(PlasmaSdServiceTheme.colors.textDefaultSecondary)
     outerLabelColor(PlasmaSdServiceTheme.colors.textDefaultPrimary)
@@ -310,7 +315,12 @@ internal fun TextFieldColorsBuilder.warningClearColors(): TextFieldColorsBuilder
     disabledAlpha(0.4f)
     enabledAlpha(1f)
     cursorColor(PlasmaSdServiceTheme.colors.textDefaultAccent)
-    startContentColor(PlasmaSdServiceTheme.colors.surfaceDefaultWarning.asInteractive())
+    startContentColor(
+        PlasmaSdServiceTheme.colors.surfaceDefaultWarning.asInteractive(
+            focused = PlasmaSdServiceTheme.colors.textDefaultSecondary,
+            pressed = PlasmaSdServiceTheme.colors.textDefaultSecondary,
+        ),
+    )
     endContentColor(PlasmaSdServiceTheme.colors.textDefaultSecondary)
     innerLabelColor(PlasmaSdServiceTheme.colors.textDefaultSecondary)
     outerLabelColor(PlasmaSdServiceTheme.colors.textDefaultPrimary)
@@ -353,7 +363,12 @@ internal fun TextFieldColorsBuilder.errorClearColors(): TextFieldColorsBuilder =
     disabledAlpha(0.4f)
     enabledAlpha(1f)
     cursorColor(PlasmaSdServiceTheme.colors.textDefaultAccent)
-    startContentColor(PlasmaSdServiceTheme.colors.surfaceDefaultNegative.asInteractive())
+    startContentColor(
+        PlasmaSdServiceTheme.colors.surfaceDefaultNegative.asInteractive(
+            focused = PlasmaSdServiceTheme.colors.textDefaultSecondary,
+            pressed = PlasmaSdServiceTheme.colors.textDefaultSecondary,
+        ),
+    )
     endContentColor(PlasmaSdServiceTheme.colors.textDefaultSecondary)
     innerLabelColor(PlasmaSdServiceTheme.colors.textDefaultSecondary)
     outerLabelColor(PlasmaSdServiceTheme.colors.textDefaultPrimary)
