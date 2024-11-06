@@ -52,7 +52,7 @@ internal val TextFieldClear.Xs: TextFieldStyleBuilder
                     startLabelHorizontalPadding = 4.dp,
                     startLabelVerticalPadding = 0.dp,
                     endLabelHorizontalPadding = 4.dp,
-                    endLabelVerticalPadding = 0.dp,
+                    endLabelVerticalPadding = 2.dp,
                     startFieldHorizontalPadding = 4.dp,
                     startFieldVerticalPadding = 0.dp,
                     endFieldHorizontalPadding = 4.dp,
@@ -106,8 +106,8 @@ internal val TextFieldClear.S: TextFieldStyleBuilder
                 indicatorDimensions = TextField.Dimensions.IndicatorDimensions(
                     startLabelHorizontalPadding = 6.dp,
                     startLabelVerticalPadding = 0.dp,
-                    endLabelHorizontalPadding = 6.dp,
-                    endLabelVerticalPadding = 0.dp,
+                    endLabelHorizontalPadding = 4.dp,
+                    endLabelVerticalPadding = 4.dp,
                     startFieldHorizontalPadding = 6.dp,
                     startFieldVerticalPadding = 0.dp,
                     endFieldHorizontalPadding = 6.dp,
@@ -160,14 +160,14 @@ internal val TextFieldClear.M: TextFieldStyleBuilder
                 indicatorDimensions = TextField.Dimensions.IndicatorDimensions(
                     startLabelHorizontalPadding = 6.dp,
                     startLabelVerticalPadding = 0.dp,
-                    endLabelHorizontalPadding = 6.dp,
-                    endLabelVerticalPadding = 0.dp,
+                    endLabelHorizontalPadding = 4.dp,
+                    endLabelVerticalPadding = 4.dp,
                     startFieldHorizontalPadding = 6.dp,
                     startFieldVerticalPadding = 0.dp,
                     endFieldHorizontalPadding = 6.dp,
                     endFieldVerticalPadding = 0.dp,
                     fieldIndicatorSize = 8.dp,
-                    labelIndicatorSize = 8.dp,
+                    labelIndicatorSize = 6.dp,
                 ),
             ),
         )
@@ -214,14 +214,14 @@ internal val TextFieldClear.L: TextFieldStyleBuilder
                 indicatorDimensions = TextField.Dimensions.IndicatorDimensions(
                     startLabelHorizontalPadding = 6.dp,
                     startLabelVerticalPadding = 0.dp,
-                    endLabelHorizontalPadding = 6.dp,
-                    endLabelVerticalPadding = 0.dp,
+                    endLabelHorizontalPadding = 4.dp,
+                    endLabelVerticalPadding = 4.dp,
                     startFieldHorizontalPadding = 6.dp,
                     startFieldVerticalPadding = 0.dp,
                     endFieldHorizontalPadding = 6.dp,
                     endFieldVerticalPadding = 0.dp,
                     fieldIndicatorSize = 8.dp,
-                    labelIndicatorSize = 8.dp,
+                    labelIndicatorSize = 6.dp,
                 ),
             ),
         )
@@ -273,7 +273,12 @@ internal fun TextFieldColorsBuilder.successClearColors(): TextFieldColorsBuilder
     disabledAlpha(0.4f)
     enabledAlpha(1f)
     cursorColor(SddsServTheme.colors.textDefaultAccent)
-    startContentColor(SddsServTheme.colors.surfaceDefaultPositive.asInteractive())
+    startContentColor(
+        SddsServTheme.colors.surfaceDefaultPositive.asInteractive(
+            focused = SddsServTheme.colors.textDefaultSecondary,
+            pressed = SddsServTheme.colors.textDefaultSecondary,
+        ),
+    )
     endContentColor(SddsServTheme.colors.textDefaultSecondary)
     innerLabelColor(SddsServTheme.colors.textDefaultSecondary)
     outerLabelColor(SddsServTheme.colors.textDefaultPrimary)
@@ -316,7 +321,12 @@ internal fun TextFieldColorsBuilder.warningClearColors(): TextFieldColorsBuilder
     disabledAlpha(0.4f)
     enabledAlpha(1f)
     cursorColor(SddsServTheme.colors.textDefaultAccent)
-    startContentColor(SddsServTheme.colors.surfaceDefaultWarning.asInteractive())
+    startContentColor(
+        SddsServTheme.colors.surfaceDefaultWarning.asInteractive(
+            focused = SddsServTheme.colors.textDefaultSecondary,
+            pressed = SddsServTheme.colors.textDefaultSecondary,
+        ),
+    )
     endContentColor(SddsServTheme.colors.textDefaultSecondary)
     innerLabelColor(SddsServTheme.colors.textDefaultSecondary)
     outerLabelColor(SddsServTheme.colors.textDefaultPrimary)
@@ -359,7 +369,12 @@ internal fun TextFieldColorsBuilder.errorClearColors(): TextFieldColorsBuilder =
     disabledAlpha(0.4f)
     enabledAlpha(1f)
     cursorColor(SddsServTheme.colors.textDefaultAccent)
-    startContentColor(SddsServTheme.colors.surfaceDefaultNegative.asInteractive())
+    startContentColor(
+        SddsServTheme.colors.surfaceDefaultNegative.asInteractive(
+            focused = SddsServTheme.colors.textDefaultSecondary,
+            pressed = SddsServTheme.colors.textDefaultSecondary,
+        ),
+    )
     endContentColor(SddsServTheme.colors.textDefaultSecondary)
     innerLabelColor(SddsServTheme.colors.textDefaultSecondary)
     outerLabelColor(SddsServTheme.colors.textDefaultPrimary)
