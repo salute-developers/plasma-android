@@ -471,7 +471,7 @@ public fun darkPlasmaSdServiceGradients(overrideGradients: GradientOverrideScope
             listOf(linearGradient(DarkGradientTokens.TextInverseAccentGradientActive.colors, DarkGradientTokens.TextInverseAccentGradientActive.positions, DarkGradientTokens.TextInverseAccentGradientActive.angle)),
             overwrite)
     initial.add("surfaceDefaultAccentGradient",
-            listOf(linearGradient(DarkGradientTokens.SurfaceDefaultAccentGradient.colors, DarkGradientTokens.SurfaceDefaultAccentGradient.positions, DarkGradientTokens.SurfaceDefaultAccentGradient.angle)),
+            listOf(linearGradient(DarkGradientTokens.SurfaceDefaultAccentGradient.Layer0.colors, DarkGradientTokens.SurfaceDefaultAccentGradient.Layer0.positions, DarkGradientTokens.SurfaceDefaultAccentGradient.Layer0.angle),linearGradient(DarkGradientTokens.SurfaceDefaultAccentGradient.Layer1.colors, DarkGradientTokens.SurfaceDefaultAccentGradient.Layer1.positions, DarkGradientTokens.SurfaceDefaultAccentGradient.Layer1.angle)),
             overwrite)
     initial.add("surfaceDefaultAccentGradientHover",
             listOf(linearGradient(DarkGradientTokens.SurfaceDefaultAccentGradientHover.colors, DarkGradientTokens.SurfaceDefaultAccentGradientHover.positions, DarkGradientTokens.SurfaceDefaultAccentGradientHover.angle)),

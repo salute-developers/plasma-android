@@ -11,11 +11,11 @@ public object DarkGradientTokens {
      * Акцентный цвет с градиентом
      */
     public object TextDefaultAccentGradient {
-        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
+        public val colors: List<Color> = listOf(Color(0xFF5E94FF), Color(0xFF43DBFA))
 
         public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
 
-        public val angle: Float = 90.0f
+        public val angle: Float = 89.83f
     }
 
     /**
@@ -44,11 +44,11 @@ public object DarkGradientTokens {
      * Акцентный цвет с градиентом на темном фоне
      */
     public object TextOnDarkAccentGradient {
-        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
+        public val colors: List<Color> = listOf(Color(0xFF5E94FF), Color(0xFF43DBFA))
 
         public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
 
-        public val angle: Float = 90.0f
+        public val angle: Float = 89.83f
     }
 
     /**
@@ -77,11 +77,11 @@ public object DarkGradientTokens {
      * Акцентный цвет с градиентом на светлом фоне
      */
     public object TextOnLightAccentGradient {
-        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
+        public val colors: List<Color> = listOf(Color(0xFF3E79F0), Color(0xFF27C6E5))
 
-        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
+        public val positions: FloatArray = floatArrayOf(0.0649f, 0.9351f)
 
-        public val angle: Float = 90.0f
+        public val angle: Float = 93.97f
     }
 
     /**
@@ -110,11 +110,11 @@ public object DarkGradientTokens {
      * Инвертированный акцентный цвет с градиентом
      */
     public object TextInverseAccentGradient {
-        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
+        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFFFFFFFF))
 
         public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
 
-        public val angle: Float = 90.0f
+        public val angle: Float = 135.0f
     }
 
     /**
@@ -143,11 +143,21 @@ public object DarkGradientTokens {
      * Акцентный фон поверхности/контрола с градиентом
      */
     public object SurfaceDefaultAccentGradient {
-        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
+        public object Layer0 {
+            public val colors: List<Color> = listOf(Color(0xFF3E79F0), Color(0xFF27C6E5))
 
-        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
+            public val positions: FloatArray = floatArrayOf(0.0649f, 0.9351f)
 
-        public val angle: Float = 90.0f
+            public val angle: Float = 93.97f
+        }
+
+        public object Layer1 {
+            public val colors: List<Color> = listOf(Color(0xFF5E94FF), Color(0xFF43DBFA))
+
+            public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
+
+            public val angle: Float = 89.83f
+        }
     }
 
     /**
@@ -250,11 +260,11 @@ public object DarkGradientTokens {
      * Акцентный фон поверхн./контрола с градиентом на темном фоне
      */
     public object SurfaceOnDarkAccentGradient {
-        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
+        public val colors: List<Color> = listOf(Color(0xFF3E79F0), Color(0xFF27C6E5))
 
-        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
+        public val positions: FloatArray = floatArrayOf(0.0649f, 0.9351f)
 
-        public val angle: Float = 90.0f
+        public val angle: Float = 93.97f
     }
 
     /**
@@ -357,11 +367,11 @@ public object DarkGradientTokens {
      * Акцент. фон поверхн./контрола с градиентом на светлом фоне
      */
     public object SurfaceOnLightAccentGradient {
-        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
+        public val colors: List<Color> = listOf(Color(0xFF3E79F0), Color(0xFF27C6E5))
 
-        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
+        public val positions: FloatArray = floatArrayOf(0.0649f, 0.9351f)
 
-        public val angle: Float = 90.0f
+        public val angle: Float = 93.97f
     }
 
     /**
@@ -464,11 +474,11 @@ public object DarkGradientTokens {
      * Инвертированный акцентный фон поверхности/контрола с градиентом
      */
     public object SurfaceInverseAccentGradient {
-        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
+        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFFFFFFFF))
 
         public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
 
-        public val angle: Float = 90.0f
+        public val angle: Float = 135.0f
     }
 
     /**
@@ -573,11 +583,11 @@ public object LightGradientTokens {
      * Акцентный цвет с градиентом
      */
     public object TextDefaultAccentGradient {
-        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
+        public val colors: List<Color> = listOf(Color(0xFF3E79F0), Color(0xFF27C6E5))
 
-        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
+        public val positions: FloatArray = floatArrayOf(0.0649f, 0.9351f)
 
-        public val angle: Float = 90.0f
+        public val angle: Float = 93.97f
     }
 
     /**
@@ -606,11 +616,11 @@ public object LightGradientTokens {
      * Акцентный цвет с градиентом на темном фоне
      */
     public object TextOnDarkAccentGradient {
-        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
+        public val colors: List<Color> = listOf(Color(0xFF5E94FF), Color(0xFF43DBFA))
 
         public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
 
-        public val angle: Float = 90.0f
+        public val angle: Float = 89.83f
     }
 
     /**
@@ -639,11 +649,11 @@ public object LightGradientTokens {
      * Акцентный цвет с градиентом на светлом фоне
      */
     public object TextOnLightAccentGradient {
-        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
+        public val colors: List<Color> = listOf(Color(0xFF3E79F0), Color(0xFF27C6E5))
 
-        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
+        public val positions: FloatArray = floatArrayOf(0.0649f, 0.9351f)
 
-        public val angle: Float = 90.0f
+        public val angle: Float = 93.97f
     }
 
     /**
@@ -672,11 +682,11 @@ public object LightGradientTokens {
      * Инвертированный акцентный цвет с градиентом
      */
     public object TextInverseAccentGradient {
-        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
+        public val colors: List<Color> = listOf(Color(0xFF000000), Color(0xFFFFFFFF))
 
         public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
 
-        public val angle: Float = 90.0f
+        public val angle: Float = 135.0f
     }
 
     /**
@@ -705,11 +715,11 @@ public object LightGradientTokens {
      * Акцентный фон поверхности/контрола с градиентом
      */
     public object SurfaceDefaultAccentGradient {
-        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
+        public val colors: List<Color> = listOf(Color(0xFF3E79F0), Color(0xFF27C6E5))
 
-        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
+        public val positions: FloatArray = floatArrayOf(0.0649f, 0.9351f)
 
-        public val angle: Float = 90.0f
+        public val angle: Float = 93.97f
     }
 
     /**
@@ -812,11 +822,11 @@ public object LightGradientTokens {
      * Акц. фон поверхности/контрола с градиентом на темном фоне
      */
     public object SurfaceOnDarkAccentGradient {
-        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
+        public val colors: List<Color> = listOf(Color(0xFF3E79F0), Color(0xFF27C6E5))
 
-        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
+        public val positions: FloatArray = floatArrayOf(0.0649f, 0.9351f)
 
-        public val angle: Float = 90.0f
+        public val angle: Float = 93.97f
     }
 
     /**
@@ -919,11 +929,11 @@ public object LightGradientTokens {
      * Акц. фон поверхности/контрола с градиентом на светлом фоне
      */
     public object SurfaceOnLightAccentGradient {
-        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
+        public val colors: List<Color> = listOf(Color(0xFF3E79F0), Color(0xFF27C6E5))
 
-        public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
+        public val positions: FloatArray = floatArrayOf(0.0649f, 0.9351f)
 
-        public val angle: Float = 90.0f
+        public val angle: Float = 93.97f
     }
 
     /**
@@ -1026,11 +1036,11 @@ public object LightGradientTokens {
      * Инвертированный акцентный фон поверхности/контрола с градиентом
      */
     public object SurfaceInverseAccentGradient {
-        public val colors: List<Color> = listOf(Color(0xFFFFFFFF), Color(0xFF000000))
+        public val colors: List<Color> = listOf(Color(0xFF000000), Color(0xFFFFFFFF))
 
         public val positions: FloatArray = floatArrayOf(0.0f, 1.0f)
 
-        public val angle: Float = 90.0f
+        public val angle: Float = 135.0f
     }
 
     /**

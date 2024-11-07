@@ -2,7 +2,6 @@ package com.sdds.plasma.sd.service.styles
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.BasicButton
 import com.sdds.compose.uikit.Button
@@ -134,9 +133,8 @@ val ButtonStyleBuilder.Pilled: ButtonStyleBuilder
  */
 val BasicButton.L: ButtonStyleBuilder
     @Composable
-    @ReadOnlyComposable
     get() = ButtonStyle.builder(this)
-        .shape(PlasmaSdServiceTheme.shapes.roundL)
+        .shape(PlasmaSdServiceTheme.shapes.roundL.adjustBy(all = (-2).dp))
         .dimensions(
             Button.Dimensions(
                 height = 56.dp,

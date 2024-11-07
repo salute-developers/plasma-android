@@ -29,7 +29,7 @@ import kotlin.math.abs
 internal fun BaseProgress(
     progress: Float,
     modifier: Modifier,
-    main: Brush,
+    main: List<Brush>,
     background: Brush,
     backgroundHeight: Dp,
     backgroundCornerRadius: Dp,
@@ -52,13 +52,15 @@ internal fun BaseProgress(
 
         // Рисуем индикатор
         if (progress > 0f) {
-            drawLineIndicator(
-                startFraction = 0f,
-                endFraction = progress,
-                brush = main,
-                indicatorHeight = size.height,
-                cornerRadius = indicatorCornerRadius.toPx(),
-            )
+            main.forEach {
+                drawLineIndicator(
+                    startFraction = 0f,
+                    endFraction = progress,
+                    brush = it,
+                    indicatorHeight = size.height,
+                    cornerRadius = indicatorCornerRadius.toPx(),
+                )
+            }
         }
     }
 }

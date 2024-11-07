@@ -46,7 +46,7 @@ val ProgressBar.GradientAccent: ProgressBarStyleBuilder
     @Composable
     get() = ProgressBarStyle.builder()
         .colors {
-            indicatorColor(PlasmaSdServiceTheme.gradients.surfaceDefaultAccentGradient.first())
+            indicatorColor(PlasmaSdServiceTheme.gradients.surfaceDefaultAccentGradient)
             backgroundColor(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondary)
         }
 

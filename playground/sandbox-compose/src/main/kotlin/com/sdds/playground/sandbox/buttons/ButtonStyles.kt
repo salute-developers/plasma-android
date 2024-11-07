@@ -2,7 +2,6 @@ package com.sdds.playground.sandbox.buttons
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.BasicButton
 import com.sdds.compose.uikit.Button
@@ -102,9 +101,8 @@ internal val ButtonStyleBuilder.Pilled: ButtonStyleBuilder
 
 internal val BasicButton.L: ButtonStyleBuilder
     @Composable
-    @ReadOnlyComposable
     get() = ButtonStyle.builder(this)
-        .shape(SddsServTheme.shapes.roundL)
+        .shape(SddsServTheme.shapes.roundL.adjustBy(all = (-2).dp))
         .dimensions(
             Button.Dimensions(
                 height = 56.dp,
