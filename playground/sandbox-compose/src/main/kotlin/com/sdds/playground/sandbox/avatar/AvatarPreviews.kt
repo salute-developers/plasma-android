@@ -1,6 +1,7 @@
 package com.sdds.playground.sandbox.avatar
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.sdds.compose.uikit.Avatar
@@ -54,6 +55,7 @@ internal fun AvatarGroupPreviewSizeS() {
                     actionEnabled = false,
                     placeholder = Avatar.Placeholder.Name("Michael Scott"),
                     painter = painterResource(id = R.drawable.il_avatar_test),
+                    contentScale = ContentScale.Fit,
                 )
             }
             avatar {
