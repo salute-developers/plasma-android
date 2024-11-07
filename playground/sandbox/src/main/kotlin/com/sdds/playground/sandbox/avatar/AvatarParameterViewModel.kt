@@ -1,6 +1,5 @@
 package com.sdds.playground.sandbox.avatar
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
@@ -21,9 +20,10 @@ import kotlinx.coroutines.flow.stateIn
  */
 internal class AvatarParameterViewModel(
     private val groupMode: Boolean = false,
+    private val defaultState: AvatarUiState,
 ) : ViewModel(), PropertiesOwner {
 
-    private val _avatarUiState = MutableStateFlow(AvatarUiState())
+    private val _avatarUiState = MutableStateFlow(defaultState)
 
     /**
      * Состояние [Avatar]
@@ -141,11 +141,11 @@ internal class AvatarParameterViewModel(
  */
 internal class AvatarParameterViewModelFactory(
     private val groupMode: Boolean = false,
+    private val defaultState: AvatarUiState,
 ) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        Log.e("SandboxAvatarParameterViewModel", "create: groupMode = $groupMode")
-        return AvatarParameterViewModel(groupMode = groupMode) as T
+        return AvatarParameterViewModel(groupMode = groupMode, defaultState = defaultState) as T
     }
 }

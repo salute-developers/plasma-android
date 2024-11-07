@@ -38,7 +38,7 @@ internal class CheckBoxGroupFragment : ComponentFragment() {
 
     override val componentLayout: CheckBoxGroup
         get() = CheckBoxGroup(ContextThemeWrapper(requireContext(), currentVariant.styleRes))
-            .apply { R.id.checkBox_group }
+            .apply { id = R.id.checkBox_group }
             .also { checkBoxGroup = it }
 
     override val propertiesOwner: PropertiesOwner

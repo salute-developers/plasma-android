@@ -4,7 +4,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.state.ToggleableState
 import androidx.compose.ui.tooling.preview.Preview
 import com.sdds.compose.uikit.CheckBox
+import com.sdds.compose.uikit.CheckBoxGroup
 import com.sdds.playground.sandbox.SandboxTheme
+import com.sdds.playground.sandbox.checkbox.group.M
+import com.sdds.playground.sandbox.checkbox.group.S
 
 /**
  * Превью [CheckBox]
@@ -103,6 +106,62 @@ internal fun CheckBoxPreviewSizeMediumNoLabelAndDesc() {
             state = ToggleableState.On,
             enabled = true,
             onClick = {},
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun CheckBoxGroupPreviewSizeM() {
+    SandboxTheme {
+        CheckBoxGroup(
+            style = CheckBoxGroup.M.style(),
+            rootItem = CheckBoxGroup.RootItem(
+                label = "Label",
+                description = "Description",
+            ),
+            items = listOf(
+                CheckBoxGroup.Item(
+                    id = 1,
+                    label = "Label",
+                    description = "Description",
+                    initialChecked = true,
+                ),
+                CheckBoxGroup.Item(
+                    id = 2,
+                    label = "Label",
+                    description = "Description",
+                    initialChecked = true,
+                ),
+            ),
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun CheckBoxGroupPreviewSizeS() {
+    SandboxTheme {
+        CheckBoxGroup(
+            style = CheckBoxGroup.S.style(),
+            rootItem = CheckBoxGroup.RootItem(
+                label = "Label",
+                description = "Description",
+            ),
+            items = listOf(
+                CheckBoxGroup.Item(
+                    id = 1,
+                    label = "Label",
+                    description = "Description",
+                    initialChecked = true,
+                ),
+                CheckBoxGroup.Item(
+                    id = 2,
+                    label = "Label",
+                    description = "Description",
+                    initialChecked = false,
+                ),
+            ),
         )
     }
 }

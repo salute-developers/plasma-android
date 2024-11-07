@@ -284,9 +284,12 @@ open class Chip @JvmOverloads constructor(
     }
 
     override fun onCreateDrawableState(extraSpace: Int): IntArray {
-        val drawableState = super.onCreateDrawableState(extraSpace + 1)
+        val drawableState = super.onCreateDrawableState(extraSpace + 2)
         if (state?.isDefined() == true) {
             mergeDrawableStates(drawableState, state?.attr)
+        }
+        if (isChecked) {
+            mergeDrawableStates(drawableState, intArrayOf(android.R.attr.state_checked))
         }
         return drawableState
     }

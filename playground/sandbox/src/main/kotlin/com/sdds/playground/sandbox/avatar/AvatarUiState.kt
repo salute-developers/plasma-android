@@ -1,8 +1,10 @@
 package com.sdds.playground.sandbox.avatar
 
+import android.os.Parcelable
 import androidx.annotation.StyleRes
 import com.sdds.playground.sandbox.R
 import com.sdds.uikit.Avatar
+import kotlinx.parcelize.Parcelize
 
 internal const val AVATAR_REMOTE_URL = "https://cdn.costumewall.com/wp-content/uploads/2018/09/michael-scott.jpg"
 
@@ -16,6 +18,7 @@ internal const val AVATAR_REMOTE_URL = "https://cdn.costumewall.com/wp-content/u
  * @property actionEnabled включен ли action у [Avatar]
  * @property threshold максимальное кол-во отображаемых [Avatar]
  */
+@Parcelize
 internal data class AvatarUiState(
     val variant: AvatarVariant = AvatarVariant.AvatarXXL,
     val status: Avatar.Status = Avatar.Status.ACTIVE,
@@ -23,7 +26,7 @@ internal data class AvatarUiState(
     val fullName: String? = "Michael Scott",
     val actionEnabled: Boolean = false,
     val threshold: Int = 3,
-)
+) : Parcelable
 
 /**
  * Стили вариаций компонента
@@ -40,7 +43,8 @@ internal enum class AvatarVariant(@StyleRes val styleRes: Int) {
  * Режим отображения аватара.
  * Нужен только для песочницы, чтобы показать, что аватар может работать в нескольких режимах.
  */
-internal enum class ExampleMode {
+@Parcelize
+internal enum class ExampleMode : Parcelable {
     /**
      * Аватар будет отображать локальное изображение
      */

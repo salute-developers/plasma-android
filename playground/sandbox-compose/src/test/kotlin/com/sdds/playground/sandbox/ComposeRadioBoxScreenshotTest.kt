@@ -3,6 +3,8 @@ package com.sdds.playground.sandbox
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.sdds.playground.sandbox.radiobox.RadioBoxPreviewMedium
 import com.sdds.playground.sandbox.radiobox.RadioBoxPreviewOff
+import com.sdds.playground.sandbox.radiobox.RadioBoxPreviewSizeM
+import com.sdds.playground.sandbox.radiobox.RadioBoxPreviewSizeS
 import com.sdds.playground.sandbox.radiobox.RadioBoxPreviewSmallDark
 import com.sdds.playground.sandbox.radiobox.RadioBoxPreviewUnchecked
 import org.junit.Test
@@ -46,6 +48,20 @@ class ComposeRadioBoxScreenshotTest : RoborazziConfig() {
     fun testRadioBoxOff() {
         composeTestRule.setContent {
             RadioBoxPreviewOff()
+        }
+    }
+
+    @Test
+    fun testRadioBoxGroupSizeM() {
+        composeTestRule.setContent {
+            RadioBoxPreviewSizeM()
+        }
+    }
+
+    @Test
+    fun testRadioBoxGroupSizeS() {
+        composeTestRule.setContent {
+            RadioBoxPreviewSizeS()
         }
     }
 }
