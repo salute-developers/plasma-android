@@ -1,6 +1,8 @@
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     id("convention.android-app")
     id("convention.compose")
+    alias(libs.plugins.roborazzi)
 }
 
 android {

@@ -82,7 +82,11 @@ internal fun ComponentScaffold(
                     .fillMaxWidth()
                     .requiredHeight(230.dp)
                     .clip(PlasmaSdServiceTheme.shapes.roundM)
-                    .border(1.dp, PlasmaSdServiceTheme.colors.surfaceDefaultSolidTertiary, PlasmaSdServiceTheme.shapes.roundM)
+                    .border(
+                        1.dp,
+                        PlasmaSdServiceTheme.colors.surfaceDefaultSolidTertiary,
+                        PlasmaSdServiceTheme.shapes.roundM,
+                    )
                     .background(PlasmaSdServiceTheme.colors.surfaceDefaultSolidCard)
                     .padding(16.dp),
 

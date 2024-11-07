@@ -190,7 +190,9 @@ private fun PropertiesHeader(
     ) {
         Text(
             text = stringResource(R.string.sandbox_properties_header_name),
-            style = PlasmaSdServiceTheme.typography.bodyMBold.copy(color = PlasmaSdServiceTheme.colors.textDefaultSecondary),
+            style = PlasmaSdServiceTheme.typography.bodyMBold.copy(
+                color = PlasmaSdServiceTheme.colors.textDefaultSecondary,
+            ),
             modifier = Modifier
                 .weight(1f)
                 .padding(start = 4.dp)
@@ -198,7 +200,9 @@ private fun PropertiesHeader(
         )
         Text(
             text = stringResource(R.string.sandbox_properties_header_value),
-            style = PlasmaSdServiceTheme.typography.bodyMBold.copy(color = PlasmaSdServiceTheme.colors.textDefaultSecondary),
+            style = PlasmaSdServiceTheme.typography.bodyMBold.copy(
+                color = PlasmaSdServiceTheme.colors.textDefaultSecondary,
+            ),
             modifier = Modifier
                 .weight(1f)
                 .padding(start = 4.dp)
@@ -232,7 +236,9 @@ private fun ValuePropertyListItem(
     ) {
         Text(
             text = propertyName,
-            style = PlasmaSdServiceTheme.typography.bodyMBold.copy(color = PlasmaSdServiceTheme.colors.textDefaultPrimary),
+            style = PlasmaSdServiceTheme.typography.bodyMBold.copy(
+                color = PlasmaSdServiceTheme.colors.textDefaultPrimary,
+            ),
             modifier = Modifier
                 .weight(1f)
                 .padding(start = 4.dp)
@@ -240,7 +246,9 @@ private fun ValuePropertyListItem(
         )
         Text(
             text = propertyValue,
-            style = PlasmaSdServiceTheme.typography.bodyMBold.copy(color = PlasmaSdServiceTheme.colors.textDefaultSecondary),
+            style = PlasmaSdServiceTheme.typography.bodyMBold.copy(
+                color = PlasmaSdServiceTheme.colors.textDefaultSecondary,
+            ),
             modifier = Modifier
                 .weight(1f)
                 .padding(start = 4.dp)
@@ -266,7 +274,9 @@ private fun SwitchPropertyListItem(
     ) {
         Text(
             text = propertyName,
-            style = PlasmaSdServiceTheme.typography.bodyMBold.copy(color = PlasmaSdServiceTheme.colors.textDefaultPrimary),
+            style = PlasmaSdServiceTheme.typography.bodyMBold.copy(
+                color = PlasmaSdServiceTheme.colors.textDefaultPrimary,
+            ),
             modifier = Modifier
                 .weight(1f)
                 .padding(start = 4.dp)

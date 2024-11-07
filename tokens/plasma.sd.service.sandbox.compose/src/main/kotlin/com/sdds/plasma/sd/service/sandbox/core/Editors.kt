@@ -97,7 +97,9 @@ private fun ColumnScope.TextPropertyEditor(
 
     Text(
         text = stringResource(id = R.string.sandbox_text_editor_title, propertyName),
-        style = PlasmaSdServiceTheme.typography.headerH3Bold.copy(color = PlasmaSdServiceTheme.colors.textDefaultPrimary),
+        style = PlasmaSdServiceTheme.typography.headerH3Bold.copy(
+            color = PlasmaSdServiceTheme.colors.textDefaultPrimary,
+        ),
         modifier = Modifier.padding(16.dp),
     )
     TextField(
@@ -141,7 +143,9 @@ private fun <T> ChoiceEditor(
 ) {
     Text(
         text = stringResource(id = R.string.sandbox_choice_editor_title, propertyName),
-        style = PlasmaSdServiceTheme.typography.headerH3Bold.copy(color = PlasmaSdServiceTheme.colors.textDefaultPrimary),
+        style = PlasmaSdServiceTheme.typography.headerH3Bold.copy(
+            color = PlasmaSdServiceTheme.colors.textDefaultPrimary,
+        ),
         modifier = Modifier.padding(8.dp),
     )
     choices.forEach {
