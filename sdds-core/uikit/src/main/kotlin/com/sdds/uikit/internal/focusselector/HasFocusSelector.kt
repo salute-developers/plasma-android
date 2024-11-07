@@ -125,6 +125,7 @@ internal class FocusSelectorDelegate : HasFocusSelector {
             FocusSelectorMode.BORDER -> SelectorDrawable(
                 context = context,
                 strokeWidth = strokeWidth,
+                insets = strokeInsets,
                 shapeModel = adjustedShapeModel,
                 mainColor = mainColor,
             )
@@ -132,6 +133,7 @@ internal class FocusSelectorDelegate : HasFocusSelector {
             FocusSelectorMode.GRADIENT_BORDER -> SelectorDrawable(
                 context = context,
                 strokeWidth = strokeWidth,
+                insets = strokeInsets,
                 shapeModel = adjustedShapeModel,
                 mainColor = mainColor,
                 additionalColor = additionalColor,
