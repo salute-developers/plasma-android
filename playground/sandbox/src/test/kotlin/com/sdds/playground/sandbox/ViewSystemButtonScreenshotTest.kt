@@ -26,10 +26,9 @@ class ViewSystemButtonScreenshotTest : RoborazziConfig() {
             R.id.nav_basic_button,
             ButtonUiState(
                 variant = BasicButtonVariant.BasicButtonLDefault,
-                icon = ButtonIcon.Start,
+                icon = ButtonIcon.No,
                 buttonLabel = "Label",
                 buttonValue = "",
-                spacing = Button.Spacing.Packed,
                 enabled = true,
                 loading = false,
                 fixedSize = false,
@@ -40,91 +39,14 @@ class ViewSystemButtonScreenshotTest : RoborazziConfig() {
     }
 
     @Test
-    fun testButtonSizeXSDefault() {
+    fun testButtonSizeMAccent() {
         launchScreen(
             R.id.nav_basic_button,
             ButtonUiState(
-                variant = BasicButtonVariant.BasicButtonXSDefault,
+                variant = BasicButtonVariant.BasicButtonMAccent,
                 icon = ButtonIcon.Start,
                 buttonLabel = "Label",
                 buttonValue = "",
-                spacing = Button.Spacing.Packed,
-                enabled = true,
-                loading = false,
-                fixedSize = false,
-            ),
-        )
-        onView(withId(R.id.basic_button))
-            .captureRoboImage()
-    }
-
-    @Test
-    fun testButtonSizeMSecondary() {
-        launchScreen(
-            R.id.nav_basic_button,
-            ButtonUiState(
-                variant = BasicButtonVariant.BasicButtonMSecondary,
-                icon = ButtonIcon.Start,
-                buttonLabel = "Label",
-                buttonValue = "",
-                spacing = Button.Spacing.Packed,
-                enabled = true,
-                loading = false,
-                fixedSize = false,
-            ),
-        )
-        onView(withId(R.id.basic_button))
-            .captureRoboImage()
-    }
-
-    @Test
-    fun testButtonSizeSClear() {
-        launchScreen(
-            R.id.nav_basic_button,
-            ButtonUiState(
-                variant = BasicButtonVariant.BasicButtonSClear,
-                icon = ButtonIcon.Start,
-                buttonLabel = "Label",
-                buttonValue = "",
-                spacing = Button.Spacing.Packed,
-                enabled = true,
-                loading = false,
-                fixedSize = false,
-            ),
-        )
-        onView(withId(R.id.basic_button))
-            .captureRoboImage()
-    }
-
-    @Test
-    fun testButtonSizeLPositive() {
-        launchScreen(
-            R.id.nav_basic_button,
-            ButtonUiState(
-                variant = BasicButtonVariant.BasicButtonLPositive,
-                icon = ButtonIcon.Start,
-                buttonLabel = "Label",
-                buttonValue = "",
-                spacing = Button.Spacing.Packed,
-                enabled = true,
-                loading = false,
-                fixedSize = false,
-            ),
-        )
-        onView(withId(R.id.basic_button))
-            .captureRoboImage()
-    }
-
-    @Test
-    fun testButtonSizeMNegative() {
-        launchScreen(
-            R.id.nav_basic_button,
-            ButtonUiState(
-                variant = BasicButtonVariant.BasicButtonMNegative,
-                icon = ButtonIcon.Start,
-                buttonLabel = "Label",
-                buttonValue = "Value",
-                spacing = Button.Spacing.Packed,
                 enabled = true,
                 loading = false,
                 fixedSize = false,
@@ -140,10 +62,9 @@ class ViewSystemButtonScreenshotTest : RoborazziConfig() {
             R.id.nav_basic_button,
             ButtonUiState(
                 variant = BasicButtonVariant.BasicButtonSWarning,
-                icon = ButtonIcon.Start,
+                icon = ButtonIcon.End,
                 buttonLabel = "Label",
                 buttonValue = "",
-                spacing = Button.Spacing.Packed,
                 enabled = true,
                 loading = false,
                 fixedSize = false,
@@ -154,15 +75,125 @@ class ViewSystemButtonScreenshotTest : RoborazziConfig() {
     }
 
     @Test
-    fun testButtonSizeXSBlack() {
+    fun testButtonSizeXSDark() {
         launchScreen(
             R.id.nav_basic_button,
             ButtonUiState(
-                variant = BasicButtonVariant.BasicButtonXSBlack,
+                variant = BasicButtonVariant.BasicButtonXSDark,
+                icon = ButtonIcon.No,
+                buttonLabel = "Label",
+                buttonValue = "Value",
+                enabled = true,
+                loading = false,
+                fixedSize = false,
+            ),
+        )
+        onView(withId(R.id.basic_button))
+            .captureRoboImage()
+    }
+
+    @Test
+    fun testButtonSizeLIsLoading() {
+        launchScreen(
+            R.id.nav_basic_button,
+            ButtonUiState(
+                variant = BasicButtonVariant.BasicButtonLDefault,
+                icon = ButtonIcon.No,
+                buttonLabel = "Label",
+                buttonValue = "",
+                enabled = true,
+                loading = true,
+                fixedSize = false,
+            ),
+        )
+        onView(withId(R.id.basic_button))
+            .captureRoboImage()
+    }
+
+    @Test
+    fun testButtonSizeLDisabled() {
+        launchScreen(
+            R.id.nav_basic_button,
+            ButtonUiState(
+                variant = BasicButtonVariant.BasicButtonLDefault,
+                icon = ButtonIcon.No,
+                buttonLabel = "Label",
+                buttonValue = "",
+                enabled = false,
+                loading = false,
+                fixedSize = false,
+            ),
+        )
+        onView(withId(R.id.basic_button))
+            .captureRoboImage()
+    }
+
+    @Test
+    fun testButtonSizeLSecondary() {
+        launchScreen(
+            R.id.nav_basic_button,
+            ButtonUiState(
+                variant = BasicButtonVariant.BasicButtonLSecondary,
+                icon = ButtonIcon.Start,
+                buttonLabel = "Label",
+                buttonValue = "",
+                spacing = Button.Spacing.Packed,
+                enabled = true,
+                loading = false,
+                fixedSize = true,
+            ),
+        )
+        onView(withId(R.id.basic_button))
+            .captureRoboImage()
+    }
+
+    @Test
+    fun testButtonSizeMSpaceBetween() {
+        launchScreen(
+            R.id.nav_basic_button,
+            ButtonUiState(
+                variant = BasicButtonVariant.BasicButtonMClear,
                 icon = ButtonIcon.Start,
                 buttonLabel = "Label",
                 buttonValue = "Value",
                 spacing = Button.Spacing.SpaceBetween,
+                enabled = true,
+                loading = false,
+                fixedSize = true,
+            ),
+        )
+        onView(withId(R.id.basic_button))
+            .captureRoboImage()
+    }
+
+    @Test
+    fun testButtonSizeSLongText() {
+        launchScreen(
+            R.id.nav_basic_button,
+            ButtonUiState(
+                variant = BasicButtonVariant.BasicButtonSPositive,
+                icon = ButtonIcon.End,
+                buttonLabel = "LabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabel",
+                buttonValue = "",
+                enabled = true,
+                loading = false,
+                fixedSize = false,
+            ),
+        )
+        onView(withId(R.id.basic_button))
+            .captureRoboImage()
+    }
+
+    @Test
+    fun testButtonXSNegative() {
+        launchScreen(
+            R.id.nav_basic_button,
+            ButtonUiState(
+                variant = BasicButtonVariant.BasicButtonXSNegative,
+                icon = ButtonIcon.End,
+                buttonLabel = "Label",
+                buttonValue = "",
+                spacing = Button.Spacing.Packed,
                 enabled = true,
                 loading = false,
                 fixedSize = false,
@@ -174,15 +205,15 @@ class ViewSystemButtonScreenshotTest : RoborazziConfig() {
 
     @Config(qualifiers = "+night")
     @Test
-    fun testButtonSizeLWhite() {
+    fun testButtonLWhiteDarkTheme() {
         launchScreen(
             R.id.nav_basic_button,
             ButtonUiState(
                 variant = BasicButtonVariant.BasicButtonLWhite,
                 icon = ButtonIcon.End,
+                spacing = Button.Spacing.Packed,
                 buttonLabel = "Label",
                 buttonValue = "",
-                spacing = Button.Spacing.Packed,
                 enabled = true,
                 loading = false,
                 fixedSize = false,
@@ -207,11 +238,11 @@ class ViewSystemButtonScreenshotTest : RoborazziConfig() {
     }
 
     @Test
-    fun testIconButtonMWarning() {
+    fun testIconButtonMAccent() {
         launchScreen(
             R.id.nav_icon_button,
             ButtonUiState(
-                variant = IconButtonVariant.IconButtonMPilledWarning,
+                variant = IconButtonVariant.IconButtonMAccent,
                 loading = false,
                 enabled = true,
             ),
@@ -221,11 +252,53 @@ class ViewSystemButtonScreenshotTest : RoborazziConfig() {
     }
 
     @Test
-    fun testIconButtonSDisabled() {
+    fun testIconButtonSWarning() {
         launchScreen(
             R.id.nav_icon_button,
             ButtonUiState(
-                variant = IconButtonVariant.IconButtonSPositive,
+                variant = IconButtonVariant.IconButtonSWarning,
+                loading = false,
+                enabled = true,
+            ),
+        )
+        onView(withId(R.id.icon_button))
+            .captureRoboImage()
+    }
+
+    @Test
+    fun testIconButtonXSDark() {
+        launchScreen(
+            R.id.nav_icon_button,
+            ButtonUiState(
+                variant = IconButtonVariant.IconButtonXSDark,
+                loading = false,
+                enabled = true,
+            ),
+        )
+        onView(withId(R.id.icon_button))
+            .captureRoboImage()
+    }
+
+    @Test
+    fun testIconButtonLIsLoading() {
+        launchScreen(
+            R.id.nav_icon_button,
+            ButtonUiState(
+                variant = IconButtonVariant.IconButtonLDefault,
+                loading = true,
+                enabled = true,
+            ),
+        )
+        onView(withId(R.id.icon_button))
+            .captureRoboImage()
+    }
+
+    @Test
+    fun testIconButtonDisabled() {
+        launchScreen(
+            R.id.nav_icon_button,
+            ButtonUiState(
+                variant = IconButtonVariant.IconButtonMDefault,
                 loading = false,
                 enabled = false,
             ),
@@ -235,11 +308,53 @@ class ViewSystemButtonScreenshotTest : RoborazziConfig() {
     }
 
     @Test
-    fun testIconButtonXsLoading() {
+    fun testIconButtonLPilledSecondary() {
         launchScreen(
             R.id.nav_icon_button,
             ButtonUiState(
-                variant = IconButtonVariant.IconButtonXSPilledDark,
+                variant = IconButtonVariant.IconButtonLPilledSecondary,
+                loading = false,
+                enabled = true,
+            ),
+        )
+        onView(withId(R.id.icon_button))
+            .captureRoboImage()
+    }
+
+    @Test
+    fun testIconButtonMClear() {
+        launchScreen(
+            R.id.nav_icon_button,
+            ButtonUiState(
+                variant = IconButtonVariant.IconButtonMClear,
+                loading = false,
+                enabled = true,
+            ),
+        )
+        onView(withId(R.id.icon_button))
+            .captureRoboImage()
+    }
+
+    @Test
+    fun testIconButtonSPositive() {
+        launchScreen(
+            R.id.nav_icon_button,
+            ButtonUiState(
+                variant = IconButtonVariant.IconButtonSPositive,
+                loading = false,
+                enabled = true,
+            ),
+        )
+        onView(withId(R.id.icon_button))
+            .captureRoboImage()
+    }
+
+    @Test
+    fun testIconButtonXSNegative() {
+        launchScreen(
+            R.id.nav_icon_button,
+            ButtonUiState(
+                variant = IconButtonVariant.IconButtonXSPilledNegative,
                 loading = true,
                 enabled = true,
             ),
