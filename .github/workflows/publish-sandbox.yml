@@ -54,4 +54,8 @@ jobs:
           allowUpdates: true
           artifacts: playground/sandbox/build/outputs/apk/release/*.apk
 
+      - name: Distribute to testers
+        env:
+          TESTFAIRY_API_KEY: ${{ secrets.TESTFAIRY_API_KEY }}
+        run: sh .github/scripts/testfairy-uploader.sh playground/sandbox/build/outputs/apk/release/*.apk
 

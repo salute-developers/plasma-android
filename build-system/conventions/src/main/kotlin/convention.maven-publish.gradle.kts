@@ -91,6 +91,7 @@ signing {
 // plugins with single-digital GitHub stars. So for now, we create a zip file and use the manual
 // upload process.
 // See https://github.com/gradle/gradle/issues/28120
+val distributionName = "$nexusArtifactId-v${versionInfo.fullName}"
 tasks.register<Zip>("generateDistributionZip") {
     val publishTask = tasks.named(
         "publishReleasePublicationToLocalRepository",
@@ -98,13 +99,13 @@ tasks.register<Zip>("generateDistributionZip") {
     from(publishTask.map { it.repository.url })
     into("")
     exclude("**/maven-metadata*.*") // Sonatype does not want these files in ZIP file
-    archiveFileName.set("$nexusArtifactId.zip")
+    archiveFileName.set("$distributionName.zip")
 }
 
 tasks.register<MavenPublishTask>("mavenPublish") {
     token.set(properties["publicationToken"]?.toString() ?: System.getenv("PP_AUTH_TOKEN"))
-    publicationType.set(properties["publicationType"]?.toString() ?: "USER_MANAGED")
-    publicationName.set("$nexusArtifactId-${versionInfo.fullName}")
-    artifact.set(File("${project.buildDir}/distributions/${nexusArtifactId}.zip"))
+    publicationType.set(properties["publicationType"]?.toString() ?: "AUTOMATIC")
+    publicationName.set(distributionName)
+    artifact.set(File("${project.buildDir}/distributions/$distributionName.zip"))
     dependsOn(tasks.first { it.name == "generateDistributionZip" })
 }
