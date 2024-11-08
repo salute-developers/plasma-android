@@ -52,7 +52,7 @@ private fun RadioBoxColorsBuilder.defaultColors(): RadioBoxColorsBuilder = apply
     labelColor(SddsServTheme.colors.textDefaultPrimary)
     descriptionColor(SddsServTheme.colors.textDefaultSecondary)
     idleColor(SddsServTheme.colors.textDefaultSecondary)
-    checkedColor(SddsServTheme.colors.surfaceDefaultPositive)
+    checkedColor(SddsServTheme.colors.surfaceDefaultAccent)
     focusedColor(SddsServTheme.colors.surfaceDefaultSolidDefault)
     baseColor(SddsServTheme.colors.textOnDarkPrimary)
 }

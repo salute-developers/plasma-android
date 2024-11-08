@@ -6,9 +6,13 @@ package com.sdds.plugin.themebuilder
 internal sealed class ThemeBuilderSource(val themeName: String) {
 
     /**
-     * Предпочтительный способ получения темы с помощью названия [name] и версии [version] темы.
+     * Предпочтительный способ получения темы с помощью названия [remoteName] и версии [version] темы.
      */
-    data class NameAndVersion(val name: String, val version: String) : ThemeBuilderSource(name)
+    data class NameAndVersion(
+        val remoteName: String,
+        val version: String,
+        val alias: String = remoteName,
+    ) : ThemeBuilderSource(alias)
 
     /**
      * Способ получения темы с помощью ссылки [url].
@@ -22,8 +26,8 @@ internal sealed class ThemeBuilderSource(val themeName: String) {
         /**
          * Позволяет указать источник получения темы с помощью [name] и [version]
          */
-        fun withNameAndVersion(name: String, version: String): ThemeBuilderSource =
-            NameAndVersion(name, version)
+        fun withNameAndVersion(name: String, version: String, alias: String = name): ThemeBuilderSource =
+            NameAndVersion(name, version, alias)
 
         /**
          * Позволяет указать источник получения темы с помощью [url]
