@@ -53,6 +53,10 @@ internal class RadioBoxGroupParametersViewModel : ViewModel(), PropertiesOwner {
         )
     }
 
+    fun isChecked(id: Any): Boolean {
+        return _radioBoxGroupUiState.value.current == id
+    }
+
     private fun updateSize(size: Size) {
         _radioBoxGroupUiState.value = _radioBoxGroupUiState.value.copy(
             size = size,

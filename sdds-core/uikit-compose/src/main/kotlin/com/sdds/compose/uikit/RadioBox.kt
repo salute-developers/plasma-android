@@ -4,7 +4,7 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsFocusedAsState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
@@ -86,58 +86,22 @@ fun RadioBox(
 }
 
 /**
- * Горизонтальная группа [RadioBox]
- * @param items элементы группы
- * @param modifier модификатор
- * @param horizontalArrangement способ распределения элементов по горизонтали
- * @param verticalAlignment выравнивание по вертикали
- * @param default выбранный по умолчанию элемент
- * @param onSelectionChanged колбэк изменения выбора
- */
-@Composable
-fun HorizontalRadioBoxGroup(
-    items: List<RadioBoxGroup.Item>,
-    modifier: Modifier = Modifier,
-    horizontalArrangement: Arrangement.Horizontal = Arrangement.Start,
-    verticalAlignment: Alignment.Vertical = Alignment.Top,
-    default: Any? = null,
-    onSelectionChanged: (Any) -> Unit = {},
-) {
-    val selection = remember { mutableStateOf(default) }
-    Row(
-        modifier = modifier,
-        horizontalArrangement = horizontalArrangement,
-        verticalAlignment = verticalAlignment,
-    ) {
-        items.forEach { item ->
-            RadioBoxGroupItem(
-                item = item,
-                selection = selection,
-                onSelectionChanged = onSelectionChanged,
-            )
-        }
-    }
-}
-
-/**
- * Вертикальная группа [RadioBox]
- * @param items элементы группы
+ * Stateful вертикальная группа [RadioBox].
  * @param modifier модификатор
  * @param style стиль компонента
  * @param verticalArrangement способ распределения элементов по вертикали
  * @param horizontalAlignment выравнивание по горизонтали
  * @param default выбранный по умолчанию элемент
- * @param onSelectionChanged колбэк изменения выбора
+ * @param content контент, состоящий из [RadioBox]
  */
 @Composable
-fun VerticalRadioBoxGroup(
-    items: List<RadioBoxGroup.Item>,
+fun <T : Any> RadioBoxGroup(
     modifier: Modifier = Modifier,
     style: RadioBoxGroupStyle = LocalRadioBoxGroupStyle.current,
     verticalArrangement: Arrangement.Vertical = style.verticalArrangement,
     horizontalAlignment: Alignment.Horizontal = Alignment.Start,
-    default: Any? = null,
-    onSelectionChanged: (Any) -> Unit = {},
+    default: T? = null,
+    content: @Composable RadioBoxGroupScope.(selection: MutableState<T?>) -> Unit,
 ) {
     val selection = remember { mutableStateOf(default) }
     Column(
@@ -146,53 +110,90 @@ fun VerticalRadioBoxGroup(
         horizontalAlignment = horizontalAlignment,
     ) {
         CompositionLocalProvider(LocalRadioBoxStyle provides style.radioBoxStyle) {
-            items.forEach { item ->
-                RadioBoxGroupItem(
-                    item = item,
-                    selection = selection,
-                    onSelectionChanged = onSelectionChanged,
-                )
-            }
+            RadioBoxScopeInstance.content(selection)
         }
     }
 }
 
+/**
+ * Stateless вертикальная группа [RadioBox].
+ * @param modifier модификатор
+ * @param style стиль компонента
+ * @param verticalArrangement способ распределения элементов по вертикали
+ * @param horizontalAlignment выравнивание по горизонтали
+ * @param content контент, состоящий из [RadioBox]
+ */
 @Composable
-private inline fun RadioBoxGroupItem(
-    item: RadioBoxGroup.Item,
-    selection: MutableState<Any?>,
-    crossinline onSelectionChanged: (Any) -> Unit,
+fun RadioBoxGroup(
+    modifier: Modifier = Modifier,
+    style: RadioBoxGroupStyle = LocalRadioBoxGroupStyle.current,
+    verticalArrangement: Arrangement.Vertical = style.verticalArrangement,
+    horizontalAlignment: Alignment.Horizontal = Alignment.Start,
+    content: @Composable ColumnScope.() -> Unit,
 ) {
-    RadioBox(
-        checked = item.id == selection.value,
-        label = item.label,
-        description = item.description,
-        onClick = {
-            if (selection.value != item.id) {
-                selection.value = item.id
-                onSelectionChanged(item.id)
-            }
-        },
-    )
+    Column(
+        modifier = modifier,
+        verticalArrangement = verticalArrangement,
+        horizontalAlignment = horizontalAlignment,
+    ) {
+        CompositionLocalProvider(LocalRadioBoxStyle provides style.radioBoxStyle) {
+            content()
+        }
+    }
+}
+
+/**
+ * Скоуп элемента stateful группы [RadioBoxGroup]
+ */
+interface RadioBoxGroupItemScope
+
+private object RadioBoxGroupItemScopeInstance : RadioBoxGroupItemScope
+
+/**
+ * Скоуп stateful группы [RadioBoxGroup]
+ */
+interface RadioBoxGroupScope {
+
+    /**
+     * Добавляет элемент с ключом [key] в группу
+     *
+     * @param key уникальный ключ элмента группы
+     * @param content composable элемента
+     */
+    @Composable
+    fun <T> radioBoxItem(key: T, content: @Composable RadioBoxGroupItemScope.(key: T) -> Unit)
+}
+
+private object RadioBoxScopeInstance : RadioBoxGroupScope {
+
+    @Composable
+    override fun <T> radioBoxItem(
+        key: T,
+        content: @Composable (RadioBoxGroupItemScope.(key: T) -> Unit),
+    ) {
+        RadioBoxGroupItemScopeInstance.content(key)
+    }
+}
+
+/**
+ * Проверяет совадает ли ключ элемента [key] с текущим значением значением [selection]
+ */
+fun <T> RadioBoxGroupItemScope.isChecked(selection: MutableState<T>, key: T) =
+    selection.value == key
+
+/**
+ * Обновляет текущее значение [selection] значением ключа [key]
+ */
+fun <T> RadioBoxGroupItemScope.updateSelection(selection: MutableState<T>, key: T) {
+    if (selection.value != key) {
+        selection.value = key
+    }
 }
 
 /**
  * Вспомогательный объект для описания API и стиля компонента [RadioBoxGroup]
  */
-object RadioBoxGroup {
-
-    /**
-     * Элемент группы.
-     * @property id идентификатор элемента
-     * @property label название элемента
-     * @property description описание элемента
-     */
-    data class Item(
-        val id: Any,
-        val label: String? = null,
-        val description: String? = null,
-    )
-}
+object RadioBoxGroup
 
 /**
  * Вспомогательный объект для описания API и стиля компонента [RadioBox]

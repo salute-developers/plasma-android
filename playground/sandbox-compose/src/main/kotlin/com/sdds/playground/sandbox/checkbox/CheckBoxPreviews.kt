@@ -116,25 +116,29 @@ internal fun CheckBoxGroupPreviewSizeM() {
     SandboxTheme {
         CheckBoxGroup(
             style = CheckBoxGroup.M.style(),
-            rootItem = CheckBoxGroup.RootItem(
-                label = "Label",
-                description = "Description",
-            ),
-            items = listOf(
-                CheckBoxGroup.Item(
-                    id = 1,
+        ) {
+            rootCheckbox {
+                CheckBox(
+                    state = ToggleableState.On,
                     label = "Label",
                     description = "Description",
-                    initialChecked = true,
-                ),
-                CheckBoxGroup.Item(
-                    id = 2,
+                )
+            }
+            checkbox {
+                CheckBox(
+                    state = ToggleableState.On,
                     label = "Label",
                     description = "Description",
-                    initialChecked = true,
-                ),
-            ),
-        )
+                )
+            }
+            checkbox {
+                CheckBox(
+                    state = ToggleableState.On,
+                    label = "Label",
+                    description = "Description",
+                )
+            }
+        }
     }
 }
 
@@ -144,24 +148,28 @@ internal fun CheckBoxGroupPreviewSizeS() {
     SandboxTheme {
         CheckBoxGroup(
             style = CheckBoxGroup.S.style(),
-            rootItem = CheckBoxGroup.RootItem(
-                label = "Label",
-                description = "Description",
-            ),
-            items = listOf(
-                CheckBoxGroup.Item(
-                    id = 1,
+        ) {
+            rootCheckbox {
+                CheckBox(
+                    state = ToggleableState.Indeterminate,
                     label = "Label",
                     description = "Description",
-                    initialChecked = true,
-                ),
-                CheckBoxGroup.Item(
-                    id = 2,
+                )
+            }
+            checkbox {
+                CheckBox(
+                    state = ToggleableState.On,
                     label = "Label",
                     description = "Description",
-                    initialChecked = false,
-                ),
-            ),
-        )
+                )
+            }
+            checkbox {
+                CheckBox(
+                    state = ToggleableState.Off,
+                    label = "Label",
+                    description = "Description",
+                )
+            }
+        }
     }
 }

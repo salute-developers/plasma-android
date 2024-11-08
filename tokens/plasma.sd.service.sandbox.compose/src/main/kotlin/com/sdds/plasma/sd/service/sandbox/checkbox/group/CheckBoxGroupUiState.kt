@@ -1,6 +1,7 @@
 package com.sdds.plasma.sd.service.sandbox.checkbox.group
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.state.ToggleableState
 import com.sdds.compose.uikit.CheckBoxGroup
 import com.sdds.compose.uikit.CheckBoxGroupStyle
 import com.sdds.plasma.sd.service.sandbox.checkbox.Size
@@ -17,27 +18,24 @@ import com.sdds.plasma.sd.service.styles.S
  */
 internal data class CheckBoxGroupUiState(
     val size: Size = Size.M,
-    val rootItem: CheckBoxGroup.RootItem? = ROOT_ITEM,
-    val items: List<CheckBoxGroup.Item> = ITEMS,
+    val rootItem: CheckBoxGroupItem? = ROOT_ITEM,
+    val items: List<CheckBoxGroupItem> = ITEMS,
     val enabled: Boolean = true,
 ) {
     internal companion object {
-        val ROOT_ITEM = CheckBoxGroup.RootItem(
+        val ROOT_ITEM = CheckBoxGroupItem(
             label = "root label",
             description = "root description",
         )
 
         val ITEMS = listOf(
-            CheckBoxGroup.Item(
-                id = "1",
+            CheckBoxGroupItem(
                 label = "label",
                 description = "description",
             ),
-            CheckBoxGroup.Item(
-                id = "2",
+            CheckBoxGroupItem(
                 label = "label",
                 description = "description",
-                initialChecked = true,
             ),
         )
     }
@@ -49,3 +47,9 @@ internal fun CheckBoxGroupUiState.checkBoxGroupStyle(): CheckBoxGroupStyle =
         Size.M -> CheckBoxGroup.M.style()
         Size.S -> CheckBoxGroup.S.style()
     }
+
+internal data class CheckBoxGroupItem(
+    val label: String?,
+    val description: String?,
+    val state: ToggleableState = ToggleableState.Off,
+)
