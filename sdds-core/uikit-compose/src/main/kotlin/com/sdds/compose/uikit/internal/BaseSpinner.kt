@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.progressSemantics
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.center
 import androidx.compose.ui.graphics.Brush
@@ -21,6 +22,7 @@ import androidx.compose.ui.graphics.drawscope.withTransform
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.LocalTint
 import com.sdds.compose.uikit.floatPx
 
 /**
@@ -32,7 +34,7 @@ import com.sdds.compose.uikit.floatPx
 @Composable
 internal fun BaseSpinner(
     modifier: Modifier = Modifier,
-    tint: Color,
+    tint: Color = LocalTint.current,
     strokeWidth: Dp = StrokeWidth,
 ) {
     val stroke = Stroke(width = strokeWidth.floatPx, cap = StrokeCap.Square)
@@ -47,10 +49,13 @@ internal fun BaseSpinner(
             ),
         ),
     )
-    val brush = Brush.sweepGradient(
-        BRUSH_COLOR_STOP_START to tint.copy(BRUSH_ALPHA),
-        BRUSH_COLOR_STOP_END to tint,
-    )
+
+    val brush = remember(tint) {
+        Brush.sweepGradient(
+            BRUSH_COLOR_STOP_START to tint.copy(BRUSH_ALPHA),
+            BRUSH_COLOR_STOP_END to tint,
+        )
+    }
 
     Canvas(
         modifier

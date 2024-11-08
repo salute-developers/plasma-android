@@ -1,6 +1,5 @@
 package com.sdds.uikit
 
-import android.animation.ValueAnimator
 import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Canvas
@@ -9,11 +8,15 @@ import android.graphics.Rect
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.DrawableWrapper
 import android.util.AttributeSet
+import android.util.Log
 import android.view.View
 import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.graphics.withTranslation
+import androidx.dynamicanimation.animation.FloatPropertyCompat
+import androidx.dynamicanimation.animation.SpringAnimation
+import androidx.dynamicanimation.animation.SpringForce
 import com.sdds.uikit.internal.base.wrapWithInset
 import com.sdds.uikit.shape.ShapeDrawable
 import com.sdds.uikit.shape.ShapeModel
@@ -35,10 +38,19 @@ open class ProgressBar @JvmOverloads constructor(
 
     private lateinit var _progressDrawable: LineDrawable
     private lateinit var _backgroundDrawable: Drawable
+    private var _progressListener: ProgressListener? = null
 
-    private var _progressAnimator: ValueAnimator = ValueAnimator().apply {
-        addUpdateListener {
-            progress = it.animatedValue as Float
+    @Suppress("LeakingThis")
+    private var _progressAnimator: SpringAnimation = SpringAnimation(this, PropertyHolder).apply {
+        spring = SpringForce().apply {
+            dampingRatio = SpringForce.DAMPING_RATIO_NO_BOUNCY
+            stiffness = SpringForce.STIFFNESS_VERY_LOW
+        }
+        addUpdateListener { _, value, _ ->
+            _currentProgress = value
+            Log.e("Progress", "onUpdate: $value")
+            _progressListener?.onProgressChanged(_currentProgress)
+            updateProgress()
         }
     }
 
@@ -105,11 +117,15 @@ open class ProgressBar @JvmOverloads constructor(
             this.progress = progress
             return
         }
-        if (_progressAnimator.isRunning) {
-            _progressAnimator.cancel()
-        }
-        _progressAnimator.setFloatValues(_currentProgress, progress)
-        _progressAnimator.start()
+        _progressAnimator.setStartValue(_currentProgress)
+        _progressAnimator.animateToFinalPosition(progress)
+    }
+
+    /**
+     * Устанавливает слушателя изменения прогресса
+     */
+    fun setProgressListener(progressListener: ProgressListener?) {
+        this._progressListener = progressListener
     }
 
     /**
@@ -185,6 +201,7 @@ open class ProgressBar @JvmOverloads constructor(
             w - paddingEnd,
             h - paddingBottom,
         )
+        _progressAnimator.minimumVisibleChange = 1f / _progressDrawable.bounds.width()
     }
 
     override fun onDraw(canvas: Canvas) {
@@ -247,6 +264,18 @@ open class ProgressBar @JvmOverloads constructor(
         postInvalidateOnAnimation()
     }
 
+    /**
+     * Слушатель прогресса
+     */
+    fun interface ProgressListener {
+
+        /**
+         * Колбэк изменения прогресса
+         * @param progress текущее значение прогресса
+         */
+        fun onProgressChanged(progress: Float)
+    }
+
     private class LineDrawable(private val shapeDrawable: ShapeDrawable) : DrawableWrapper(shapeDrawable) {
 
         private var _skipDraw: Boolean = false
@@ -278,6 +307,16 @@ open class ProgressBar @JvmOverloads constructor(
             val height = bounds.height().toFloat()
             _skipDraw = width == 0f
             shapeDrawable.resizeShape(width, height)
+        }
+    }
+
+    private object PropertyHolder : FloatPropertyCompat<ProgressBar>("progress") {
+        override fun getValue(progressBar: ProgressBar): Float {
+            return progressBar._currentProgress
+        }
+
+        override fun setValue(progressBar: ProgressBar, value: Float) {
+            progressBar._currentProgress = value
         }
     }
 

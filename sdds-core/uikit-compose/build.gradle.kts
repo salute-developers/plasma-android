@@ -12,6 +12,16 @@ group = "sdds-core"
 
 android {
     namespace = "com.sdds.compose.uikit"
+
+    kotlinOptions {
+        //comment following lines (freeCompilerArgs) to disable compose-metrics
+        freeCompilerArgs += listOf(
+            "-P",
+            "plugin:androidx.compose.compiler.plugins.kotlin:metricsDestination=" + project.buildDir.absolutePath + "/compose_metrics")
+        freeCompilerArgs += listOf(
+            "-P",
+            "plugin:androidx.compose.compiler.plugins.kotlin:reportsDestination="  + project.buildDir.absolutePath + "/compose_metrics")
+    }
 }
 
 dependencies {

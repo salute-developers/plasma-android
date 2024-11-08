@@ -9,7 +9,8 @@ import androidx.compose.ui.text.input.VisualTransformation
 internal class PrefixSuffixTransformation(
     prefix: String = "",
     suffix: String = "",
-    textStyle: TextStyle = TextStyle(),
+    prefixTextStyle: TextStyle = TextStyle(),
+    suffixTextStyle: TextStyle = TextStyle(),
 ) : VisualTransformation {
 
     private val prefixWithWhiteSpace = if (prefix.isNotEmpty()) "$prefix " else ""
@@ -17,12 +18,12 @@ internal class PrefixSuffixTransformation(
 
     private val prefixAnnotated = AnnotatedString(
         text = prefixWithWhiteSpace,
-        spanStyle = textStyle.toSpanStyle(),
+        spanStyle = prefixTextStyle.toSpanStyle(),
     )
 
     private val suffixAnnotated = AnnotatedString(
         text = suffixWithWhiteSpace,
-        spanStyle = textStyle.toSpanStyle(),
+        spanStyle = suffixTextStyle.toSpanStyle(),
     )
     override fun filter(text: AnnotatedString): TransformedText {
         val result = prefixAnnotated + text + suffixAnnotated

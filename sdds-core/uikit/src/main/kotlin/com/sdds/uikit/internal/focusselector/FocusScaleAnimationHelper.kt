@@ -13,6 +13,7 @@ internal class FocusScaleAnimationHelper(
 
     private var _initialsScaleX: Float = 1f
     private var _initialsScaleY: Float = 1f
+    private var _initialScaleSet: Boolean = false
 
     /**
      * Анимирует [view] при изменении [pressed]
@@ -44,8 +45,11 @@ internal class FocusScaleAnimationHelper(
             .setDuration(duration)
             .apply {
                 if (isFocused && !view.isPressed) {
-                    _initialsScaleX = view.scaleX
-                    _initialsScaleY = view.scaleY
+                    if (!_initialScaleSet) {
+                        _initialsScaleX = view.scaleX
+                        _initialsScaleY = view.scaleY
+                        _initialScaleSet = true
+                    }
                     scaleX(_initialsScaleX + factor)
                     scaleY(_initialsScaleY + factor)
                 } else {

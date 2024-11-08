@@ -21,4 +21,6 @@ internal object AvatarDefaults {
         start = Offset(0f, Float.POSITIVE_INFINITY),
         end = Offset(Float.POSITIVE_INFINITY, 0f),
     )
+
+    val DefaultScrimColor = Color(0x8F080808)
 }

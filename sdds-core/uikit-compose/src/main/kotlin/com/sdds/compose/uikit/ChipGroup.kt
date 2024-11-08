@@ -1,10 +1,9 @@
 package com.sdds.compose.uikit
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.Dp
-import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.ChipGroup.OverflowMode.Companion.toFlowRowLayoutMode
 import com.sdds.compose.uikit.internal.common.FlowRowLayout
 import com.sdds.compose.uikit.internal.common.FlowRowScope
@@ -13,8 +12,7 @@ import com.sdds.compose.uikit.internal.common.FlowRowScope
  * Компонент предназначен для группировки chip в строку с возможностью переноса или скролла
  *
  * @param modifier модификатор
- * @param horizontalSpacing горизонтальный отступ между элементами
- * @param verticalSpacing вертикальный отступ между элементами
+ * @param style стиль компонента
  * @param overflowMode режим переполнения контейнера (см. [ChipGroup.OverflowMode])
  * @param content контент (элементы группы)
  */
@@ -22,18 +20,19 @@ import com.sdds.compose.uikit.internal.common.FlowRowScope
 @NonRestartableComposable
 fun ChipGroup(
     modifier: Modifier = Modifier,
-    horizontalSpacing: Dp = 2.dp,
-    verticalSpacing: Dp = 2.dp,
+    style: ChipGroupStyle = LocalChipGroupStyle.current,
     overflowMode: ChipGroup.OverflowMode = ChipGroup.OverflowMode.Wrap,
     content: @Composable FlowRowScope.() -> Unit,
 ) {
-    FlowRowLayout(
-        modifier = modifier,
-        horizontalSpacing = horizontalSpacing,
-        verticalSpacing = verticalSpacing,
-        mode = overflowMode.toFlowRowLayoutMode(),
-        content = content,
-    )
+    CompositionLocalProvider(LocalChipStyle provides style.chipStyle) {
+        FlowRowLayout(
+            modifier = modifier,
+            horizontalSpacing = style.dimensions.horizontalSpacing,
+            verticalSpacing = style.dimensions.verticalSpacing,
+            mode = overflowMode.toFlowRowLayoutMode(),
+            content = content,
+        )
+    }
 }
 
 /**

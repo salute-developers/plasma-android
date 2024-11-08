@@ -5,6 +5,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.sdds.compose.uikit.CheckBoxGroup
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.core.ComponentScaffold
 
@@ -19,10 +20,10 @@ internal fun CheckBoxGroupScreen() {
 
     ComponentScaffold(
         component = {
-            SandboxCheckBoxGroup(
+            CheckBoxGroup(
                 items = checkboxGroupState.items,
                 rootItem = checkboxGroupState.rootItem,
-                size = checkboxGroupState.size,
+                style = checkboxGroupState.checkBoxGroupStyle(),
                 enabled = checkboxGroupState.enabled,
             )
         },

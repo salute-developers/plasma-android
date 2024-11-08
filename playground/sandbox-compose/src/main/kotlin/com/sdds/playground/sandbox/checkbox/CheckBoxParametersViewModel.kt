@@ -41,7 +41,7 @@ internal class CheckBoxParametersViewModel : ViewModel(), PropertiesOwner {
         _checkboxState.value = _checkboxState.value.copy(state = state)
     }
 
-    private fun updateSize(size: SandboxCheckBox.Size) {
+    private fun updateSize(size: Size) {
         _checkboxState.value = _checkboxState.value.copy(size = size)
     }
 

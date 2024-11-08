@@ -9,7 +9,6 @@ import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.interaction.InteractionSource
 import androidx.compose.foundation.interaction.collectIsFocusedAsState
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
@@ -20,8 +19,8 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.VisualTransformation
-import androidx.compose.ui.unit.Dp
-import com.sdds.compose.uikit.CoreTextField
+import com.sdds.compose.uikit.ChipGroupStyle
+import com.sdds.compose.uikit.TextField
 
 /**
  * Реализация декоратора для многострочного текстового поля.
@@ -35,6 +34,7 @@ internal fun DecorationBox(
     innerLabel: @Composable (() -> Unit)?,
     innerOptional: @Composable (() -> Unit)?,
     chips: @Composable (() -> Unit)? = null,
+    chipGroupStyle: ChipGroupStyle,
     innerTextField: @Composable () -> Unit,
     placeholder: @Composable (() -> Unit)? = null,
     leadingIcon: @Composable (() -> Unit)? = null,
@@ -43,15 +43,11 @@ internal fun DecorationBox(
     innerCounter: @Composable (() -> Unit)? = null,
     valueTextStyle: TextStyle,
     innerLabelTextStyle: TextStyle,
-    paddings: CoreTextField.Paddings,
-    chipContainerShape: CornerBasedShape? = null,
-    iconSize: Dp,
-    chipHeight: Dp,
-    alignmentLineHeight: Dp,
+    dimensions: TextField.Dimensions,
     verticalScrollState: ScrollState?,
     horizontalScrollState: ScrollState?,
     visualTransformation: VisualTransformation,
-    animation: CoreTextField.Animation,
+    animation: TextField.Animation,
     interactionSource: InteractionSource,
 ) {
     val transformedText = remember(value, visualTransformation) {
@@ -99,11 +95,8 @@ internal fun DecorationBox(
             startIcon = leadingIcon,
             endIcon = trailingIcon,
             chips = chips,
-            chipHeight = chipHeight,
-            alignmentLineHeight = alignmentLineHeight,
-            chipContainerShape = chipContainerShape,
-            iconSize = iconSize,
-            paddings = paddings,
+            chipGroupStyle = chipGroupStyle,
+            dimensions = dimensions,
             singleLine = singleLine,
             isClearAppearance = isClearAppearance,
             valueTextStyle = valueTextStyle,
