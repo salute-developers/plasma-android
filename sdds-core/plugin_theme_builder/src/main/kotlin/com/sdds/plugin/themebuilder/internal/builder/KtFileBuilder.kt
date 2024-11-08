@@ -233,6 +233,19 @@ internal class KtFileBuilder(
     }
 
     /**
+     * Добавляет аннотацию Suppress для генерируемого файла
+     * c подавлением ппредупреждения [warningName]
+     */
+    fun addSuppressAnnotation(warningName: String) {
+        fileSpecBuilder.addAnnotation(
+            AnnotationSpec.builder(Suppress::class)
+                .addMember("%S", warningName)
+                .useSiteTarget(AnnotationSpec.UseSiteTarget.FILE)
+                .build(),
+        )
+    }
+
+    /**
      * Сохраняет файл в директорию [output]
      */
     fun build(output: OutputLocation) {
