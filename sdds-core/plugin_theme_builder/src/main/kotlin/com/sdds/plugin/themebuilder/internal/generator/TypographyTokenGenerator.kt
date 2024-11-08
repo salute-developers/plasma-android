@@ -64,7 +64,10 @@ internal class TypographyTokenGenerator(
     private val typographyXmlBuilder by unsafeLazy {
         xmlBuilderFactory.create(DEFAULT_ROOT_ATTRIBUTES)
     }
-    private val ktFileBuilder by unsafeLazy { ktFileBuilderFactory.create("TypographyTokens") }
+    private val ktFileBuilder by unsafeLazy {
+        ktFileBuilderFactory.create("TypographyTokens")
+            .apply { this.addSuppressAnnotation("DEPRECATION") }
+    }
     private val largeBuilder by unsafeLazy { ktFileBuilder.rootObject(TYPOGRAPHY_LARGE_TOKENS_NAME) }
     private val mediumBuilder by unsafeLazy { ktFileBuilder.rootObject(TYPOGRAPHY_MEDIUM_TOKENS_NAME) }
     private val smallBuilder by unsafeLazy { ktFileBuilder.rootObject(TYPOGRAPHY_SMALL_TOKENS_NAME) }
