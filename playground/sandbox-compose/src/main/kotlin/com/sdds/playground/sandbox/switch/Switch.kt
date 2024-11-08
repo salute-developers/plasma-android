@@ -39,6 +39,6 @@ private fun SwitchColorsBuilder.defaultColors(): SwitchColorsBuilder = apply {
     labelColor(SddsServTheme.colors.textDefaultPrimary)
     descriptionColor(SddsServTheme.colors.textDefaultSecondary)
     thumbColor(SddsServTheme.colors.surfaceOnDarkSolidDefault)
-    activeTrackColor(SddsServTheme.colors.surfaceDefaultPositive)
+    activeTrackColor(SddsServTheme.colors.surfaceDefaultAccent)
     inactiveTrackColor(SddsServTheme.colors.surfaceDefaultTransparentTertiary)
 }

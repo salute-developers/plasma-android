@@ -1,6 +1,6 @@
 package com.sdds.playground.sandbox.chip
 
-import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.Chip
@@ -152,7 +152,7 @@ internal val EmbeddedChip.Xs: ChipStyleBuilder
         )
 
 internal val ChipStyleBuilder.Pilled: ChipStyleBuilder
-    get() = this.shape(RoundedCornerShape(50))
+    get() = this.shape(CircleShape)
 
 internal val ChipStyleBuilder.Default: ChipStyleBuilder
     @Composable
@@ -165,6 +165,11 @@ internal val ChipStyleBuilder.Default: ChipStyleBuilder
         backgroundColor(
             SddsServTheme.colors.surfaceDefaultSolidDefault.asInteractive(
                 pressed = SddsServTheme.colors.surfaceDefaultSolidDefaultActive,
+            ),
+        )
+        endContentColor(
+            SddsServTheme.colors.textInverseSecondary.asInteractive(
+                pressed = SddsServTheme.colors.textInverseSecondaryActive,
             ),
         )
     }
@@ -182,6 +187,11 @@ internal val ChipStyleBuilder.Secondary: ChipStyleBuilder
                 pressed = SddsServTheme.colors.surfaceDefaultTransparentSecondaryActive,
             ),
         )
+        endContentColor(
+            SddsServTheme.colors.textDefaultSecondary.asInteractive(
+                pressed = SddsServTheme.colors.textDefaultSecondaryActive,
+            ),
+        )
     }
 
 internal val ChipStyleBuilder.Accent: ChipStyleBuilder
@@ -195,6 +205,11 @@ internal val ChipStyleBuilder.Accent: ChipStyleBuilder
         backgroundColor(
             SddsServTheme.colors.surfaceDefaultAccent.asInteractive(
                 pressed = SddsServTheme.colors.surfaceDefaultAccentActive,
+            ),
+        )
+        endContentColor(
+            SddsServTheme.colors.textOnDarkSecondary.asInteractive(
+                pressed = SddsServTheme.colors.textOnDarkSecondaryActive,
             ),
         )
     }

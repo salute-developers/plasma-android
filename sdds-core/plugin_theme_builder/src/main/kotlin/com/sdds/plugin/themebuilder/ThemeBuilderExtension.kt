@@ -26,8 +26,12 @@ open class ThemeBuilderExtension {
     /**
      * Устанавливает источник темы по имени [name] и версии [version]
      */
-    fun themeSource(name: String, version: String = ThemeSourceBuilder.VERSION_LATEST) {
-        themeSource = ThemeBuilderSource.withNameAndVersion(name, version)
+    fun themeSource(
+        name: String,
+        version: String = ThemeSourceBuilder.VERSION_LATEST,
+        alias: String = name,
+    ) {
+        themeSource = ThemeBuilderSource.withNameAndVersion(name, version, alias)
     }
 
     /**
@@ -45,10 +49,11 @@ open class ThemeBuilderExtension {
         val name = builder.name
         val url = builder.url
         val version = builder.version
+        val alias = builder.alias
         themeSource = if (url != null) {
             ThemeBuilderSource.withUrl(url, name)
         } else {
-            ThemeBuilderSource.withNameAndVersion(name, version)
+            ThemeBuilderSource.withNameAndVersion(name, version, alias)
         }
     }
 
@@ -153,6 +158,14 @@ class ThemeSourceBuilder {
     internal var name: String = ThemeBuilderSource.DEFAULT_THEME_NAME
     internal var url: String? = null
     internal var version: String = VERSION_LATEST
+    internal var alias: String = name
+
+    /**
+     * Устанавливает альтернативное название темы
+     */
+    fun alias(alias: String) {
+        this.alias = alias
+    }
 
     /**
      * Устанавливает кастомный путь к теме

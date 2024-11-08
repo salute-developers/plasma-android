@@ -38,7 +38,7 @@ internal val ProgressBar.GradientAccent: ProgressBarStyleBuilder
     @Composable
     get() = ProgressBarStyle.builder()
         .colors {
-            indicatorColor(SddsServTheme.gradients.surfaceDefaultAccentGradient.first())
+            indicatorColor(SddsServTheme.gradients.surfaceDefaultAccentGradient)
             backgroundColor(SddsServTheme.colors.surfaceDefaultTransparentSecondary)
         }
 
