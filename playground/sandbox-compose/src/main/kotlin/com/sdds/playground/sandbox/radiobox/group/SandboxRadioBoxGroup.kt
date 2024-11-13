@@ -2,8 +2,10 @@ package com.sdds.playground.sandbox.radiobox.group
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import com.sdds.compose.uikit.RadioBox
 import com.sdds.compose.uikit.RadioBoxGroup
-import com.sdds.compose.uikit.VerticalRadioBoxGroup
+import com.sdds.compose.uikit.isChecked
+import com.sdds.compose.uikit.updateSelection
 import com.sdds.playground.sandbox.SandboxTheme
 
 /**
@@ -13,25 +15,37 @@ import com.sdds.playground.sandbox.SandboxTheme
 @Preview(showBackground = true)
 fun RadioBoxPreview() {
     SandboxTheme {
-        VerticalRadioBoxGroup(
-            items = listOf(
-                RadioBoxGroup.Item(
-                    id = 1,
+        RadioBoxGroup(default = 1) { selection ->
+            radioBoxItem(key = 1) { key ->
+                RadioBox(
+                    checked = isChecked(selection, key),
                     label = "RadioBox 1",
                     description = "Description 1",
-                ),
-                RadioBoxGroup.Item(
-                    id = 2,
+                    onClick = {
+                        updateSelection(selection, key)
+                    },
+                )
+            }
+            radioBoxItem(key = 2) { key ->
+                RadioBox(
+                    checked = isChecked(selection, key),
                     label = "RadioBox 2",
                     description = "Description 2",
-                ),
-                RadioBoxGroup.Item(
-                    id = 3,
+                    onClick = {
+                        updateSelection(selection, key)
+                    },
+                )
+            }
+            radioBoxItem(key = 3) { key ->
+                RadioBox(
+                    checked = isChecked(selection, key),
                     label = "RadioBox 3",
                     description = "Description 3",
-                ),
-            ),
-            default = 1,
-        )
+                    onClick = {
+                        updateSelection(selection, key)
+                    },
+                )
+            }
+        }
     }
 }

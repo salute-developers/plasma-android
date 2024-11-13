@@ -1,5 +1,6 @@
 package com.sdds.plasma.sd.service.sandbox.checkbox.group
 
+import androidx.compose.ui.state.ToggleableState
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sdds.plasma.sd.service.sandbox.checkbox.Size
@@ -35,6 +36,50 @@ internal class CheckBoxGroupParametersViewModel : ViewModel(), PropertiesOwner {
 
     override fun resetToDefault() {
         _checkboxGroupState.value = CheckBoxGroupUiState()
+    }
+
+    fun checkBoxClicked(id: Int) {
+        _checkboxGroupState.value = _checkboxGroupState.value.copy(
+            items = _checkboxGroupState.value.items.mapIndexed { i, item ->
+                if (i == id) {
+                    item.copy(state = item.state.toggle())
+                } else {
+                    item
+                }
+            },
+        )
+        _checkboxGroupState.value = _checkboxGroupState.value.copy(
+            rootItem = _checkboxGroupState.value.rootItem?.copy(
+                state = _checkboxGroupState.value.getParentState(),
+            ),
+        )
+    }
+
+    fun rootCheckBoxClicked() {
+        val newState = _checkboxGroupState.value.rootItem?.state!!.toggle()
+        _checkboxGroupState.value = _checkboxGroupState.value.copy(
+            rootItem = _checkboxGroupState.value.rootItem?.copy(
+                state = newState,
+            ),
+            items = _checkboxGroupState.value.items.map {
+                it.copy(state = newState)
+            },
+        )
+    }
+
+    private fun CheckBoxGroupUiState.getParentState(): ToggleableState =
+        when {
+            this.items.all { it.state == ToggleableState.On } -> ToggleableState.On
+            this.items.all { it.state == ToggleableState.Off } -> ToggleableState.Off
+            else -> ToggleableState.Indeterminate
+        }
+
+    private fun ToggleableState.toggle(): ToggleableState {
+        return if (this == ToggleableState.Off || this == ToggleableState.Indeterminate) {
+            ToggleableState.On
+        } else {
+            ToggleableState.Off
+        }
     }
 
     private fun updateRootState(hasRoot: Boolean) {

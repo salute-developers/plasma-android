@@ -15,14 +15,14 @@ import com.sdds.plasma.sd.service.styles.S
  */
 internal data class RadioBoxGroupUiState(
     val size: Size = Size.M,
-    val items: List<RadioBoxGroup.Item> = ITEMS,
+    val items: List<RadioBoxGroupItem> = ITEMS,
     val current: Any? = items.first().id,
 ) {
 
     private companion object {
         val ITEMS = listOf(
-            RadioBoxGroup.Item(1, "Label", "Description"),
-            RadioBoxGroup.Item(2, "Label", "Description"),
+            RadioBoxGroupItem(1, "Label", "Description"),
+            RadioBoxGroupItem(2, "Label", "Description"),
         )
     }
 }
@@ -33,3 +33,9 @@ internal fun RadioBoxGroupUiState.radioBoxGroupStyle(): RadioBoxGroupStyle =
         Size.M -> RadioBoxGroup.M.style()
         Size.S -> RadioBoxGroup.S.style()
     }
+
+internal data class RadioBoxGroupItem(
+    val id: Int,
+    val label: String? = null,
+    val description: String? = null,
+)

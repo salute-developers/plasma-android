@@ -5,7 +5,8 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.sdds.compose.uikit.VerticalRadioBoxGroup
+import com.sdds.compose.uikit.RadioBox
+import com.sdds.compose.uikit.RadioBoxGroup
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.core.ComponentScaffold
 
@@ -20,12 +21,18 @@ internal fun RadioBoxGroupScreen() {
 
     ComponentScaffold(
         component = {
-            VerticalRadioBoxGroup(
+            RadioBoxGroup(
                 style = radioBoxGroupState.radioBoxGroupStyle(),
-                items = radioBoxGroupState.items,
-                default = radioBoxGroupState.current,
-                onSelectionChanged = { radioBoxGroupViewModel.updateCurrentItem(it) },
-            )
+            ) {
+                radioBoxGroupState.items.map { itemData ->
+                    RadioBox(
+                        checked = radioBoxGroupViewModel.isChecked(itemData.id),
+                        label = itemData.label,
+                        description = itemData.description,
+                        onClick = { radioBoxGroupViewModel.updateCurrentItem(itemData.id) },
+                    )
+                }
+            }
         },
         propertiesOwner = radioBoxGroupViewModel,
     )
