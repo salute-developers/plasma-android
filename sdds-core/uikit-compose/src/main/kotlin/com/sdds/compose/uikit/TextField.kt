@@ -117,7 +117,6 @@ object TextField {
      * @property startContentEndPadding отступ после startContent
      * @property endContentStartPadding отступ перед endContent
      * @property chipsPadding отступ от контейнера с chip-элементами
-     * @property chipsSpacing расстояние между chip-элементами
      * @property boxMinHeight минимальная высота поля
      * @property alignmentLineHeight высота первой строки контента
      * @property iconSize размер иконки
@@ -140,7 +139,6 @@ object TextField {
         val startContentEndPadding: Dp = 6.dp,
         val endContentStartPadding: Dp = 6.dp,
         val chipsPadding: Dp = 6.dp,
-        val chipsSpacing: Dp = 2.dp,
         val boxMinHeight: Dp = 56.dp,
         val alignmentLineHeight: Dp = 56.dp,
         val iconSize: Dp = 24.dp,

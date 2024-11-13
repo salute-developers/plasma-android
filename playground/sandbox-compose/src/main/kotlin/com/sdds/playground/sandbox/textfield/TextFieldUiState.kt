@@ -122,5 +122,5 @@ private fun TextFieldStyleBuilder.applyFieldType(fieldType: TextField.FieldType)
 }
 
 private fun TextFieldStyleBuilder.applyHasDivider(hasDivider: Boolean): TextFieldStyleBuilder {
-    return hasDivider(hasDivider)
+    return if (hasDivider) HasDivider else NoDivider
 }
