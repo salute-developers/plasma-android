@@ -1,5 +1,6 @@
 import com.sdds.plugin.themebuilder.OutputLocation.SRC
 import com.sdds.plugin.themebuilder.ThemeBuilderMode.THEME
+import utils.versionInfo
 
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
@@ -10,7 +11,8 @@ plugins {
     id(libs.plugins.themebuilder.get().pluginId)
 }
 
-group = "sdds-core"
+group = "io.github.salute-developers"
+version = versionInfo().fullName
 
 android {
     namespace = "com.sdds.plasma.sd.service"
