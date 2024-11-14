@@ -232,6 +232,7 @@ tasks.replace("testAll")
 tasks.replace("testDebugAll")
 tasks.replace("detektAll")
 tasks.replace("spotlessCheckAll")
+tasks.replace("spotlessApplyAll")
 tasks.replace("apiCheckAll")
 
 tasks.register("cleanAll") {
