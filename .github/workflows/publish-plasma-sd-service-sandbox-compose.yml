@@ -6,9 +6,12 @@ on:
       versionName:
         description: 'Version Name'
         required: true
-  push:
-    tags:
-      - "sdds-plasma-sd-service-sandbox-compose-v[0-9]+.[0-9]+.[0-9]+"
+  pull_request:
+    branches:
+      - develop
+#  push:
+#    tags:
+#      - "sdds-plasma-sd-service-sandbox-compose-v[0-9]+.[0-9]+.[0-9]+"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head-ref }}
@@ -34,8 +37,8 @@ jobs:
         env:
           KEY_STORE_FILE: "keystore.jks"
           RELEASE_STORE_PASSWORD: ${{ secrets.RELEASE_STORE_PASSWORD }}
-          RELEASE_KEY_ALIAS: ${{ secrets.SANDBOX_CMP_RELEASE_KEY_ALIAS }}
-          RELEASE_KEY_PASSWORD: ${{ secrets.SANDBOX_CMP_RELEASE_KEY_PASSWORD }}
+          RELEASE_KEY_ALIAS: ${{ secrets.PLASMA_SD_SERVICE_SANDBOX_CMP_RELEASE_KEY_ALIAS }}
+          RELEASE_KEY_PASSWORD: ${{ secrets.RELEASE_STORE_PASSWORD }}
         run: ./gradlew :tokens:plasma.sd.service.sandbox.compose:assembleRelease
 
       - name: Upload APK
