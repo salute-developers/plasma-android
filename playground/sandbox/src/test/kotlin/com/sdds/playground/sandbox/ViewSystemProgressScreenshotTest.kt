@@ -8,14 +8,16 @@ import com.sdds.playground.sandbox.progress.ProgressUiState
 import com.sdds.playground.sandbox.progress.ProgressVariant
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.robolectric.RobolectricTestRunner
+import org.robolectric.ParameterizedRobolectricTestRunner
 import org.robolectric.annotation.Config
 import org.robolectric.annotation.GraphicsMode
 
-@RunWith(RobolectricTestRunner::class)
+@RunWith(ParameterizedRobolectricTestRunner::class)
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
 @Config(sdk = [SDK_NUMBER], qualifiers = RobolectricDeviceQualifiers.Pixel6)
-class ViewSystemProgressScreenshotTest : RoborazziConfig() {
+class ViewSystemProgressScreenshotTest(
+    theme: String,
+) : RoborazziConfig(theme) {
 
     @Test
     fun testProgressDefault() {
@@ -69,7 +71,6 @@ class ViewSystemProgressScreenshotTest : RoborazziConfig() {
             .captureRoboImage()
     }
 
-    @Config(qualifiers = "+night")
     @Test
     fun testProgressDefaultDark() {
         launchScreen(

@@ -173,8 +173,8 @@ internal fun SandboxButtonPreviewSizeXSNegative() {
 
 @Composable
 @Preview(showBackground = true)
-internal fun SandboxButtonPreviewSizeLWhiteDarkTheme() {
-    SandboxTheme(darkTheme = true) {
+internal fun SandboxButtonPreviewSizeLWhite() {
+    SandboxTheme {
         Button(
             style = BasicButton.L.White.style(),
             icons = Button.Icons(end = painterResource(id = R.drawable.ic_plasma_24)),
@@ -202,7 +202,7 @@ internal fun SandboxIconButtonPreviewLDefault() {
 }
 
 @Composable
-@Preview
+@Preview(showBackground = true)
 internal fun SandboxIconButtonPreviewMAccent() {
     SandboxTheme {
         IconButton(
@@ -328,9 +328,9 @@ internal fun SandboxIconButtonPreviewXSNegative() {
 }
 
 @Composable
-@Preview
+@Preview(showBackground = true)
 internal fun SandboxIconButtonPreviewLWhiteDarkTheme() {
-    SandboxTheme(darkTheme = true) {
+    SandboxTheme {
         IconButton(
             style = IconButton.L.White.style(),
             icon = painterResource(id = R.drawable.ic_plasma_24),

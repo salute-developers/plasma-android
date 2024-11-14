@@ -33,7 +33,7 @@ internal fun ChipPreview() {
 }
 
 @Composable
-@Preview
+@Preview(showBackground = true)
 internal fun ChipPreviewSizeLDefault() {
     SandboxTheme {
         Chip(
@@ -58,9 +58,9 @@ internal fun ChipPreviewSizeLDefault() {
 }
 
 @Composable
-@Preview
+@Preview(showBackground = true)
 internal fun ChipPreviewSizeXsSecondary() {
-    SandboxTheme(darkTheme = true) {
+    SandboxTheme {
         Chip(
             style = Chip.Xs.Secondary.style(),
             label = "Label",
@@ -83,7 +83,7 @@ internal fun ChipPreviewSizeXsSecondary() {
 }
 
 @Composable
-@Preview
+@Preview(showBackground = true)
 internal fun ChipPreviewSizeMAccent() {
     SandboxTheme {
         Chip(
@@ -96,7 +96,7 @@ internal fun ChipPreviewSizeMAccent() {
 }
 
 @Composable
-@Preview
+@Preview(showBackground = true)
 internal fun ChipPreviewSizeSDisabled() {
     SandboxTheme {
         Chip(
