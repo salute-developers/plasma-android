@@ -1,9 +1,12 @@
 name: 'Publish PlasmaSdService Compose Release'
 
 on:
-  push:
-    tags:
-      - "sdds-plasma-sd-service-compose-v[0-9]+.[0-9]+.[0-9]+"
+#  push:
+#    tags:
+#      - "sdds-plasma-sd-service-compose-v[0-9]+.[0-9]+.[0-9]+"
+  pull_request:
+    branches:
+      - feature/sd-service-publication-workflow
 
 concurrency:
   # New commit on branch cancels running workflows of the same branch
