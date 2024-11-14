@@ -27,6 +27,6 @@ themeBuilder {
 }
 
 dependencies {
-    implementation(libs.sdds.uikit.compose)
+    implementation("sdds-core:uikit-compose")
     implementation(libs.base.androidX.compose.foundation)
 }
