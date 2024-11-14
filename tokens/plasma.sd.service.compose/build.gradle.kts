@@ -11,9 +11,6 @@ plugins {
     id(libs.plugins.themebuilder.get().pluginId)
 }
 
-group = "io.github.salute-developers"
-version = versionInfo().fullName
-
 android {
     namespace = "com.sdds.plasma.sd.service"
     resourcePrefix = "sd_service"
