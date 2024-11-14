@@ -31,7 +31,7 @@ jobs:
           OSS_SIGNING_KEY: ${{ secrets.OSS_SIGNING_KEY }}
           OSS_SIGNING_PASSWORD: ${{ secrets.OSS_SIGNING_PASSWORD }}
           PP_AUTH_TOKEN: ${{ secrets.PP_AUTH_TOKEN }}
-        run: ./gradlew :tokens:plasma.sd.service.compose:mavenPublish --info -PbranchName=main -PpublicationType=USER_MANAGED
+        run: ./gradlew :tokens:plasma.sd.service.compose:mavenPublish --info -PbranchName=develop -PpublicationType=USER_MANAGED
 
       - name: Upload distribution
         uses: actions/upload-artifact@v4
