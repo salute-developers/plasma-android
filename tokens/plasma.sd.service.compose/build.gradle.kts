@@ -1,6 +1,5 @@
 import com.sdds.plugin.themebuilder.OutputLocation.SRC
 import com.sdds.plugin.themebuilder.ThemeBuilderMode.THEME
-import utils.versionInfo
 
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
