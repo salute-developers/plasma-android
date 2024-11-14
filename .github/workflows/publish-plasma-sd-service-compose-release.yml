@@ -1,0 +1,46 @@
+name: 'Publish PlasmaSdService Compose Release'
+
+on:
+  push:
+    tags:
+      - "sdds-plasma-sd-service-compose-v[0-9]+.[0-9]+.[0-9]+"
+
+concurrency:
+  # New commit on branch cancels running workflows of the same branch
+  group: ${{ github.workflow }}-${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  publish-uikit:
+    name: Generate plasma sd service compose distribution zip
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v4
+
+      - name: Prepare environment
+        uses: ./.github/actions/prepare-android-env
+
+      - name: Generate distribution zip
+        env:
+          OSS_SIGNING_KEY_ID: ${{ secrets.OSS_SIGNING_KEY_ID }}
+          OSS_SIGNING_KEY: ${{ secrets.OSS_SIGNING_KEY }}
+          OSS_SIGNING_PASSWORD: ${{ secrets.OSS_SIGNING_PASSWORD }}
+          PP_AUTH_TOKEN: ${{ secrets.PP_AUTH_TOKEN }}
+        run: ./gradlew :tokens:plasma.sd.service.compose:mavenPublish --info -PbranchName=main -PpublicationType=USER_MANAGED
+
+      - name: Upload distribution
+        uses: actions/upload-artifact@v4
+        with:
+          name: distribution
+          path: tokens/plasma.sd.service.compose/build/distributions/*.zip
+
+      - name: Create or Update Release
+        uses: ncipollo/release-action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ github.ref_name }}
+          draft: true
+          allowUpdates: true
+          omitBody: true
+          artifacts: tokens/plasma.sd.service.compose/build/distributions/*.zip
