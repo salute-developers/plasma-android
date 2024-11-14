@@ -10,6 +10,8 @@ plugins {
     id(libs.plugins.themebuilder.get().pluginId)
 }
 
+group = "sdds-core"
+
 android {
     namespace = "com.sdds.plasma.sd.service"
     resourcePrefix = "sd_service"
