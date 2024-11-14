@@ -6,12 +6,9 @@ on:
       versionName:
         description: 'Version Name'
         required: true
-  pull_request:
-    branches:
-      - develop
-#  push:
-#    tags:
-#      - "sdds-plasma-sd-service-sandbox-compose-v[0-9]+.[0-9]+.[0-9]+"
+  push:
+    tags:
+      - "sdds-plasma-sd-service-sandbox-compose-v[0-9]+.[0-9]+.[0-9]+"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head-ref }}
