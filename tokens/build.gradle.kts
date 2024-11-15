@@ -33,9 +33,11 @@ buildscript {
     }
 }
 
+val isMainBranch = getBranchName().isMainBranch()
+
 allprojects {
     configurations.all {
-        if (getBranchName().isMainBranch()) {
+        if (isMainBranch) {
             resolutionStrategy.dependencySubstitution {
                 substitute(module("sdds-core:uikit-compose:+"))
                     .using(module("io.github.salute-developers:sdds-uikit-compose:+"))
