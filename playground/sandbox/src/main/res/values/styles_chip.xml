@@ -63,22 +63,34 @@
     <style name="Theme.Sandbox.Components.Chip.L.Embedded">
         <item name="android:minHeight">44dp</item>
         <item name="sd_shapeAppearance">?serv_shapeRoundS</item>
+        <item name="sd_fsStrokeInset">0dp</item>
+        <item name="sd_fsShapeAdjustment">0dp</item>
+        <item name="sd_fsScaleFactor">0.03</item>
     </style>
 
     <style name="Theme.Sandbox.Components.Chip.M.Embedded">
         <item name="android:minHeight">36dp</item>
         <item name="sd_shapeAppearance">?serv_shapeRoundXs</item>
+        <item name="sd_fsStrokeInset">0dp</item>
+        <item name="sd_fsShapeAdjustment">0dp</item>
+        <item name="sd_fsScaleFactor">0.03</item>
     </style>
 
     <style name="Theme.Sandbox.Components.Chip.S.Embedded">
         <item name="android:minHeight">28dp</item>
         <item name="sd_shapeAppearance">?serv_shapeRoundXxs</item>
+        <item name="sd_fsStrokeInset">0dp</item>
+        <item name="sd_fsShapeAdjustment">0dp</item>
+        <item name="sd_fsScaleFactor">0.03</item>
     </style>
 
     <style name="Theme.Sandbox.Components.Chip.XS.Embedded">
         <item name="android:minHeight">20dp</item>
         <item name="sd_shapeAppearance">?serv_shapeRoundXxs</item>
         <item name="sd_shapeAppearanceAdjustment">-2dp</item>
+        <item name="sd_fsStrokeInset">0dp</item>
+        <item name="sd_fsShapeAdjustment">0dp</item>
+        <item name="sd_fsScaleFactor">0.03</item>
     </style>
 
     <style name="Theme.Sandbox.Components.Chip.L.Pilled">

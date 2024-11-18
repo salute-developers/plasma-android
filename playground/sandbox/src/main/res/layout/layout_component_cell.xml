@@ -4,6 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     style="?sd_cellStyle"
     android:id="@+id/cell"
+    android:focusable="true"
+    app:sd_shapeAppearance="?serv_shapeRoundM"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center_vertical"

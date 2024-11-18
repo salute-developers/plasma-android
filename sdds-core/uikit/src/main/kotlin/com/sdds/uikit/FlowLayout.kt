@@ -12,6 +12,12 @@ import android.view.ViewDebug
 import android.view.ViewGroup
 import androidx.core.view.isGone
 import com.sdds.uikit.internal.base.configure
+import com.sdds.uikit.internal.base.isClippedToOutline
+import com.sdds.uikit.internal.focusselector.FocusSelectorDelegate
+import com.sdds.uikit.internal.focusselector.HasFocusSelector
+import com.sdds.uikit.shape.ShapeModel
+import com.sdds.uikit.shape.Shapeable
+import com.sdds.uikit.shape.shapeable
 
 /**
  * FlowLayout поддерживает позиционирование с автоматическим построчным переносом.
@@ -25,8 +31,9 @@ open class FlowLayout @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0,
     defStyleRes: Int = 0,
-) : ViewGroup(context, attrs, defStyleAttr, defStyleRes) {
+) : ViewGroup(context, attrs, defStyleAttr, defStyleRes), Shapeable, HasFocusSelector by FocusSelectorDelegate() {
 
+    private val _shapeable: Shapeable = shapeable(attrs, defStyleAttr)
     private val _flowManager: FlowLayoutManager
     private var _horizontalSpacing: Int
     private var _verticalSpacing: Int
@@ -46,6 +53,12 @@ open class FlowLayout @JvmOverloads constructor(
             }
         }
 
+    /**
+     * @see Shapeable.shape
+     */
+    override val shape: ShapeModel?
+        get() = _shapeable.shape
+
     init {
         if (DEBUG_BOUNDS) {
             setWillNotDraw(false)
@@ -56,10 +69,25 @@ open class FlowLayout @JvmOverloads constructor(
         _gravity = typedArray.getInt(R.styleable.FlowLayout_android_gravity, Gravity.TOP or Gravity.START)
         _flowManager = FlowLayoutManager(_horizontalSpacing, _verticalSpacing)
         typedArray.recycle()
+        clipToOutline = context.isClippedToOutline(attrs, defStyleAttr, defStyleRes)
+        @Suppress("LeakingThis")
+        applySelector(this, context, attrs, defStyleAttr)
     }
 
     internal fun getRowBounds(rowIndex: Int, outRect: Rect) {
         outRect.set(_flowManager.boundsList.getOrNull(rowIndex) ?: return)
+    }
+
+    override fun onFocusChanged(gainFocus: Boolean, direction: Int, previouslyFocusedRect: Rect?) {
+        super.onFocusChanged(gainFocus, direction, previouslyFocusedRect)
+        updateFocusSelector(this, gainFocus)
+    }
+
+    override fun setPressed(pressed: Boolean) {
+        if (isPressed != pressed) {
+            handlePressedChange(this, pressed)
+        }
+        super.setPressed(pressed)
     }
 
     override fun onDraw(canvas: Canvas) {

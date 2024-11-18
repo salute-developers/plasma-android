@@ -20,5 +20,5 @@ interface Shapeable {
  * Возвращает для @receiver делегат [Shapeable], с помощью которого можно установить [ShapeModel], либо через
  * атрибуты [attributeSet], либо через [Shapeable.shape].
  */
-fun View.shapeable(attributeSet: AttributeSet? = null, defStyleRes: Int = 0): Shapeable =
-    ShapeHelper(this, attributeSet, defStyleRes)
+fun View.shapeable(attributeSet: AttributeSet? = null, defStyleAttr: Int = 0, defStyleRes: Int = 0): Shapeable =
+    ShapeHelper(this, attributeSet, defStyleAttr, defStyleRes)
