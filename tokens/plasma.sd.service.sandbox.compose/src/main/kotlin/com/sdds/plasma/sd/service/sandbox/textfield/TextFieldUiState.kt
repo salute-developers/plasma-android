@@ -10,9 +10,11 @@ import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.TextFieldStyleBuilder
 import com.sdds.plasma.sd.service.styles.Default
 import com.sdds.plasma.sd.service.styles.Error
+import com.sdds.plasma.sd.service.styles.HasDivider
 import com.sdds.plasma.sd.service.styles.InnerLabel
 import com.sdds.plasma.sd.service.styles.L
 import com.sdds.plasma.sd.service.styles.M
+import com.sdds.plasma.sd.service.styles.NoDivider
 import com.sdds.plasma.sd.service.styles.Optional
 import com.sdds.plasma.sd.service.styles.OuterLabel
 import com.sdds.plasma.sd.service.styles.RequiredEnd
@@ -135,5 +137,5 @@ private fun TextFieldStyleBuilder.applyFieldType(fieldType: TextField.FieldType)
 }
 
 private fun TextFieldStyleBuilder.applyHasDivider(hasDivider: Boolean): TextFieldStyleBuilder {
-    return hasDivider(hasDivider)
+    return if (hasDivider) HasDivider else NoDivider
 }

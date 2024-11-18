@@ -330,7 +330,7 @@ private fun TextFieldContent(
 ) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(dimensions.chipsSpacing),
+        horizontalArrangement = Arrangement.spacedBy(chipStyle.dimensions.horizontalSpacing),
         modifier = modifier
             .fieldShapeDecoration(
                 hasChips = chips != null,
@@ -341,7 +341,7 @@ private fun TextFieldContent(
             if (chips != null) {
                 ChipGroup(
                     modifier = Modifier
-                        .padding(end = dimensions.boxPaddingStart + dimensions.chipsSpacing),
+                        .padding(end = dimensions.boxPaddingStart + chipStyle.dimensions.horizontalSpacing),
                     style = chipStyle,
                     overflowMode = ChipGroup.OverflowMode.Unlimited,
                 ) {

@@ -38,7 +38,6 @@ val TextFieldClear.Xs: TextFieldStyleBuilder
                 startContentEndPadding = 4.dp,
                 endContentStartPadding = 4.dp,
                 chipsPadding = 6.dp,
-                chipsSpacing = 2.dp,
                 boxMinHeight = 32.dp,
                 alignmentLineHeight = 32.dp,
                 iconSize = 16.dp,
@@ -93,7 +92,6 @@ val TextFieldClear.S: TextFieldStyleBuilder
                 startContentEndPadding = 4.dp,
                 endContentStartPadding = 6.dp,
                 chipsPadding = 6.dp,
-                chipsSpacing = 2.dp,
                 boxMinHeight = 40.dp,
                 alignmentLineHeight = 40.dp,
                 iconSize = 24.dp,
@@ -147,7 +145,6 @@ val TextFieldClear.M: TextFieldStyleBuilder
                 startContentEndPadding = 6.dp,
                 endContentStartPadding = 8.dp,
                 chipsPadding = 6.dp,
-                chipsSpacing = 2.dp,
                 boxMinHeight = 48.dp,
                 alignmentLineHeight = 48.dp,
                 iconSize = 24.dp,
@@ -201,7 +198,6 @@ val TextFieldClear.L: TextFieldStyleBuilder
                 startContentEndPadding = 8.dp,
                 endContentStartPadding = 10.dp,
                 chipsPadding = 6.dp,
-                chipsSpacing = 2.dp,
                 boxMinHeight = 56.dp,
                 alignmentLineHeight = 56.dp,
                 iconSize = 24.dp,
@@ -228,6 +224,12 @@ val TextFieldClear.L: TextFieldStyleBuilder
         .counterStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
         .placeholderStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
         .singleLine(true)
+
+val TextFieldStyleBuilder.HasDivider: TextFieldStyleBuilder
+    get() = hasDivider(true)
+
+val TextFieldStyleBuilder.NoDivider: TextFieldStyleBuilder
+    get() = hasDivider(false)
 
 @Composable
 internal fun TextFieldColorsBuilder.defaultClearColors(): TextFieldColorsBuilder = apply {
