@@ -55,6 +55,8 @@
         <attr name="sd_strokeColor" />
         <attr name="sd_strokeWidth" />
         <attr name="sd_disabledAlpha"/>
+        <attr name="android:checkable"/>
+        <attr name="android:checked"/>
     </declare-styleable>
 
 </resources>
