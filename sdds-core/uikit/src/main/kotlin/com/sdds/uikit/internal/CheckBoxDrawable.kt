@@ -139,8 +139,8 @@ internal class CheckBoxDrawable(
     override fun draw(canvas: Canvas) {
         canvas.save()
         canvas.translate(
-            bounds.left.toFloat() + getFocusBorderPadding(),
-            bounds.top.toFloat() + getFocusBorderPadding(),
+            bounds.left.toFloat(),
+            bounds.top.toFloat(),
         )
         canvas.clipRect(bounds)
         canvas.drawBox(
