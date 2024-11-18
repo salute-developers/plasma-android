@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/sdds_spacer_8x"
@@ -21,18 +22,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <FrameLayout
+        <com.sdds.uikit.FrameLayout
             android:id="@+id/component_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:focusable="false"
             android:clipChildren="false"/>
 
     </com.sdds.uikit.FrameLayout>
 
-    <com.sdds.uikit.FrameLayout
+    <com.sdds.uikit.LinearLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/sdds_spacer_8x"
+        android:orientation="vertical"
+        app:sd_clipToOutline="true"
         app:sd_shapeAppearance="@style/Serv.SddsServ.Shape.Round.L"
         app:sd_strokeColor="?serv_surfaceDefaultSolidTertiary"
         app:sd_strokeWidth="1dp"
@@ -41,28 +45,22 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/component_canvas">
+        app:layout_constraintTop_toBottomOf="@id/component_canvas"
+        tools:targetApi="s">
 
-        <LinearLayout
+        <include
+            android:id="@+id/header"
+            layout="@layout/layout_header_property_item" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/properties_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:scrollbars="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
-            <include
-                android:id="@+id/header"
-                layout="@layout/layout_header_property_item"
-                />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/properties_recycler_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:scrollbars="vertical"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
-
-        </LinearLayout>
-
-    </com.sdds.uikit.FrameLayout>
+    </com.sdds.uikit.LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

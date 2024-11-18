@@ -22,6 +22,9 @@ import com.sdds.uikit.CellLayout.CellContent.START
 import com.sdds.uikit.CellLayout.CellContent.SUBTITLE
 import com.sdds.uikit.CellLayout.CellContent.TITLE
 import com.sdds.uikit.internal.base.configure
+import com.sdds.uikit.internal.base.isClippedToOutline
+import com.sdds.uikit.internal.focusselector.FocusSelectorDelegate
+import com.sdds.uikit.internal.focusselector.HasFocusSelector
 import com.sdds.uikit.shape.ShapeModel
 import com.sdds.uikit.shape.Shapeable
 import com.sdds.uikit.shape.shapeable
@@ -43,7 +46,7 @@ open class CellLayout @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.sd_cellStyle,
     defStyleRes: Int = R.style.Sdds_Components_Cell,
-) : ViewGroup(context, attrs, defStyleAttr, defStyleRes), Shapeable {
+) : ViewGroup(context, attrs, defStyleAttr, defStyleRes), Shapeable, HasFocusSelector by FocusSelectorDelegate() {
 
     private val _shaper = shapeable(attrs, defStyleAttr)
     private val _startContentBounds: Rect = Rect()
@@ -143,6 +146,33 @@ open class CellLayout @JvmOverloads constructor(
         _disclosureEnabled = typedArray.getBoolean(R.styleable.CellLayout_sd_disclosureEnabled, false)
         _forceDuplicateParentState = typedArray.getBoolean(R.styleable.CellLayout_sd_forceDuplicateParentState, false)
         typedArray.recycle()
+        clipToOutline = context.isClippedToOutline(attrs, defStyleAttr, defStyleRes)
+        @Suppress("LeakingThis")
+        applySelector(this, context, attrs, defStyleAttr)
+    }
+
+    override fun setPressed(pressed: Boolean) {
+        if (isPressed != pressed) {
+            handlePressedChange(this, pressed)
+        }
+        super.setPressed(pressed)
+    }
+
+    override fun onFocusChanged(gainFocus: Boolean, direction: Int, previouslyFocusedRect: Rect?) {
+        super.onFocusChanged(gainFocus, direction, previouslyFocusedRect)
+        updateFocusSelector(this, gainFocus)
+        redispatchActivated()
+    }
+
+    override fun dispatchSetActivated(activated: Boolean) {
+        // При вызове setActivated хотим, чтобы на children всегда приходил activated = false
+        // Чтобы потом самостоятельно отправить им нужное значение
+        super.dispatchSetActivated(false)
+    }
+
+    private fun redispatchActivated() {
+        // отправляем всем children значение activate = true, если в контейнер в фокусе
+        super.dispatchSetActivated(isFocused)
     }
 
     override fun addView(child: View?, index: Int, params: ViewGroup.LayoutParams?) {
@@ -395,7 +425,6 @@ open class CellLayout @JvmOverloads constructor(
     }
 
     private fun View.applyContentRole(cellParams: LayoutParams) {
-        isDuplicateParentStateEnabled = cellParams.forceDuplicateParentState && _forceDuplicateParentState
         (this as? TextView)?.apply {
             when (cellParams.cellContent) {
                 LABEL -> {

@@ -40,7 +40,7 @@ open class ShapeDrawable() : Drawable(), Shapeable {
     private var _strokeWidth: Float = 0f
     private var _strokeTint: ColorStateList? = null
 
-    private val _shapePaint = Paint()
+    private val _shapePaint = Paint().configure(color = 0)
     private var _shapeTint: ColorStateList? = null
     private var _shape: Shape? = null
 

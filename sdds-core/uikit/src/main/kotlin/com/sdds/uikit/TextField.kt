@@ -584,6 +584,18 @@ open class TextField @JvmOverloads constructor(
         return _decorationBox.baseline
     }
 
+    override fun applySelector(view: View, context: Context, attributeSet: AttributeSet?, defStyleAttr: Int) {
+        // Выключаем селектор для TextField, т.к. селектор должен добавляться в DecoratedFieldBox
+    }
+
+    override fun handlePressedChange(view: View, isPressed: Boolean) {
+        // Выключаем селектор для TextField, т.к. селектор должен добавляться в DecoratedFieldBox
+    }
+
+    override fun updateFocusSelector(view: View, focus: Boolean) {
+        // Выключаем селектор для TextField, т.к. селектор должен добавляться в DecoratedFieldBox
+    }
+
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         if (isRequired()) {

@@ -9,21 +9,21 @@ import com.sdds.uikit.internal.focusselector.HasFocusSelector
 import com.sdds.uikit.shape.ShapeModel
 import com.sdds.uikit.shape.Shapeable
 import com.sdds.uikit.shape.shapeable
-import android.widget.FrameLayout as AndroidFrameLayout
+import android.widget.LinearLayout as AndroidLinearLayout
 
 /**
- * Реализация [FrameLayout] с поддержкой ShapeModel и селектором фокуса
+ * Реализация [LinearLayout] с поддержкой ShapeModel и селектором фокуса
  * @param context контекст
  * @param attrs аттрибуты view
  * @param defStyleAttr аттрибут стиля по умолчанию
  * @author Малышев Александр on 27.08.2024
  */
-open class FrameLayout @JvmOverloads constructor(
+open class LinearLayout @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0,
     defStyleRes: Int = 0,
-) : AndroidFrameLayout(
+) : AndroidLinearLayout(
     context,
     attrs,
     defStyleAttr,

@@ -44,8 +44,6 @@ import com.sdds.uikit.internal.base.AnimationUtils
 import com.sdds.uikit.internal.base.configure
 import com.sdds.uikit.internal.base.shape.ShapeHelper
 import com.sdds.uikit.internal.base.unsafeLazy
-import com.sdds.uikit.internal.focusselector.FocusSelectorDelegate
-import com.sdds.uikit.internal.focusselector.HasFocusSelector
 import com.sdds.uikit.shape.ShapeModel
 import com.sdds.uikit.shape.Shapeable
 import com.sdds.uikit.viewstate.ViewState
@@ -65,9 +63,8 @@ internal class DecoratedFieldBox(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0,
-) : FlowLayout(context, attrs, defStyleAttr), ViewStateHolder, Shapeable, HasFocusSelector by FocusSelectorDelegate() {
+) : FlowLayout(context, attrs, defStyleAttr), ViewStateHolder {
 
-    private val _shapeHelper = ShapeHelper(this, attrs, defStyleAttr)
     private val _collapsingTextHelper: CollapsingTextHelper = CollapsingTextHelper(this)
     private val _collapsedBounds = Rect()
     private val _expandedBounds = Rect()
@@ -213,13 +210,9 @@ internal class DecoratedFieldBox(
             chipGroup.adapter = value
         }
 
-    override val shape: ShapeModel?
-        get() = _shapeHelper.shape
-
     init {
         setWillNotDraw(false)
         obtainAttributes(context, attrs, defStyleAttr)
-        applySelector(this, context, attrs, defStyleAttr)
         _collapsingTextHelper.apply {
             setTextSizeInterpolator(AnimationUtils.LINEAR_INTERPOLATOR)
             setPositionInterpolator(AnimationUtils.LINEAR_INTERPOLATOR)
@@ -435,7 +428,7 @@ internal class DecoratedFieldBox(
         if (labelEnabled) {
             mergeDrawableStates(drawableState, intArrayOf(R.attr.sd_state_inner_label))
         }
-        if (editText.isReadOnly) {
+        if (editText?.isReadOnly == true) {
             mergeDrawableStates(drawableState, intArrayOf(R.attr.sd_state_readonly))
         }
         return drawableState
@@ -477,7 +470,6 @@ internal class DecoratedFieldBox(
 
     override fun onFocusChanged(gainFocus: Boolean, direction: Int, previouslyFocusedRect: Rect?) {
         super.onFocusChanged(gainFocus, direction, previouslyFocusedRect)
-        updateFocusSelector(this, gainFocus)
         redispatchActivated()
     }
 
@@ -490,13 +482,6 @@ internal class DecoratedFieldBox(
     private fun redispatchActivated() {
         // отправляем всем children значение activate = true, если в контейнер в фокусе
         super.dispatchSetActivated(isFocused)
-    }
-
-    override fun setPressed(pressed: Boolean) {
-        if (isPressed != pressed) {
-            handlePressedChange(this, pressed)
-        }
-        super.setPressed(pressed)
     }
 
     @Suppress("CustomViewStyleable", "LongMethod")

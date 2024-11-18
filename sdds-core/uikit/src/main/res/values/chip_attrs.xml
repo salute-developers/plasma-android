@@ -27,6 +27,14 @@
         <attr name="sd_strokeWidth"/>
         <attr name="android:checkable"/>
         <attr name="android:checked"/>
+        <attr name="sd_fsAdditionalColor" />
+        <attr name="sd_fsMainColor" />
+        <attr name="sd_fsMode" />
+        <attr name="sd_fsScaleFactor" />
+        <attr name="sd_fsStrokeWidth" />
+        <attr name="sd_fsStrokeInset" />
+        <attr name="sd_fsShapeAppearance" />
+        <attr name="sd_fsShapeAdjustment" />
     </declare-styleable>
 
     <declare-styleable name="ChipGroup" tools:ignore="ResourceName">

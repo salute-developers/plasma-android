@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Checkable
 import android.widget.CompoundButton
-import android.widget.LinearLayout
 import androidx.core.view.children
 import androidx.core.view.marginTop
 import androidx.core.view.updateMarginsRelative
