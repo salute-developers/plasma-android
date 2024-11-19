@@ -4,6 +4,8 @@ plugins {
 
 buildscript {
     repositories {
+        mavenCentral()
+        google()
         maven {
             url = uri("https://plugins.gradle.org/m2/")
         }
@@ -11,6 +13,8 @@ buildscript {
     dependencies {
         classpath(libs.base.gradle.kotlin)
         classpath(libs.base.gradle.nexusPublish)
+        classpath(libs.base.dokka.graddle)
+        classpath(libs.base.dokka.analysis)
     }
 }
 
