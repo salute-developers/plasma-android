@@ -97,7 +97,7 @@ internal class RadioBoxDrawable(
 
     override fun draw(canvas: Canvas) = with(canvas) {
         save()
-        translate(bounds.left.toFloat() + getFocusBorderPadding(), bounds.top.toFloat() + getFocusBorderPadding())
+        translate(bounds.left.toFloat(), bounds.top.toFloat())
         drawBox(
             checked = _checked,
             focused = _focused && _focusBorderEnabled,
