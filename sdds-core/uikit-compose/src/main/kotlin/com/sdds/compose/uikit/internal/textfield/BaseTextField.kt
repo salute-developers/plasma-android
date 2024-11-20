@@ -22,6 +22,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -53,6 +54,8 @@ import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.internal.common.IndicatorMode
 import com.sdds.compose.uikit.internal.common.drawIndicator
 import com.sdds.compose.uikit.internal.common.enable
+import com.sdds.compose.uikit.internal.focusselector.LocalFocusSelectorMode
+import com.sdds.compose.uikit.internal.focusselector.applyFocusSelector
 import com.sdds.compose.uikit.prefixSuffixTransformation
 import com.sdds.compose.uikit.scrollbar
 
@@ -181,11 +184,13 @@ internal fun BaseTextField(
             horizontalScrollState?.scrollTo(value = Int.MAX_VALUE)
             verticalScrollState?.scrollTo(value = Int.MAX_VALUE)
         }
+        val isFocused by interactionSource.collectIsFocusedAsState()
         BasicTextField(
             value = value,
             onValueChange = onValueChange,
             modifier = Modifier
                 .defaultMinSize(minHeight = dimensions.boxMinHeight)
+                .applyFocusSelector(isFocused, LocalFocusSelectorMode.current, style.shape)
                 .fillMaxWidth()
                 .applyFieldIndicator(
                     fieldType,

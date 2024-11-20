@@ -2,6 +2,7 @@ package com.sdds.compose.uikit.internal
 
 import androidx.compose.foundation.Indication
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.interaction.collectIsFocusedAsState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
@@ -16,6 +17,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -34,6 +36,8 @@ import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.LocalTint
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.internal.common.surface
+import com.sdds.compose.uikit.internal.focusselector.LocalFocusSelectorMode
+import com.sdds.compose.uikit.internal.focusselector.applyFocusSelector
 
 /**
  * Базовая кнопка
@@ -57,8 +61,10 @@ internal fun BaseButton(
     val contentColor = colors.contentColor.colorForInteraction(interactionSource)
     val backgroundColor = colors.backgroundColor.colorForInteraction(interactionSource)
     val spinnerColor = colors.spinnerColor.colorForInteraction(interactionSource)
+    val isFocused by interactionSource.collectIsFocusedAsState()
     Box(
         modifier = modifier
+            .applyFocusSelector(isFocused, LocalFocusSelectorMode.current, shape)
             .defaultMinSize(dimensions.minWidth, dimensions.height)
             .height(dimensions.height)
             .surface(

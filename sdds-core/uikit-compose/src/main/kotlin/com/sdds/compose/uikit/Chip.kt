@@ -2,6 +2,7 @@ package com.sdds.compose.uikit
 
 import androidx.compose.foundation.Indication
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.interaction.collectIsFocusedAsState
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -31,6 +32,8 @@ import androidx.compose.ui.unit.constrainHeight
 import androidx.compose.ui.unit.constrainWidth
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.internal.common.surface
+import com.sdds.compose.uikit.internal.focusselector.LocalFocusSelectorMode
+import com.sdds.compose.uikit.internal.focusselector.applyFocusSelector
 
 /**
  * Компонент Chip с поддержкой кликабельности
@@ -61,9 +64,15 @@ fun Chip(
     val dimensions = remember(style) { style.dimensions }
     val colors = remember(style) { style.colors }
     val backgroundColor = colors.backgroundColor.colorForInteractionAsState(interactionSource)
+    val isFocused by interactionSource.collectIsFocusedAsState()
     Layout(
         modifier = modifier
             .height(dimensions.height)
+            .applyFocusSelector(
+                isFocused,
+                focusSelectorMode = LocalFocusSelectorMode.current,
+                originalShape = style.shape,
+            )
             .surface(
                 shape = style.shape,
                 onClick = onClick,
@@ -125,9 +134,15 @@ fun Chip(
     val dimensions = remember(style) { style.dimensions }
     val colors = remember(style) { style.colors }
     val backgroundColor = colors.backgroundColor.colorForInteractionAsState(interactionSource)
+    val isFocused = interactionSource.collectIsFocusedAsState()
     Layout(
         modifier = modifier
             .height(dimensions.height)
+            .applyFocusSelector(
+                isFocused.value,
+                focusSelectorMode = LocalFocusSelectorMode.current,
+                originalShape = style.shape,
+            )
             .surface(
                 value = isSelected,
                 onValueChange = onSelectedChange,
