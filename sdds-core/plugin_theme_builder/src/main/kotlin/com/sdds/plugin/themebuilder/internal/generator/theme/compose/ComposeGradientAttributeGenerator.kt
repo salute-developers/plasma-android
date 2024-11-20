@@ -508,7 +508,7 @@ internal class ComposeGradientAttributeGenerator(
             body = listOf("return this then Modifier.drawBehind { brushes.forEach(::drawRect) }"),
             returnType = KtFileBuilder.TypeModifier,
             receiver = KtFileBuilder.TypeModifier,
-            annotation = KtFileBuilder.TypeAnnotationComposable,
+            annotations = listOf(KtFileBuilder.TypeAnnotationComposable),
             description = "Модификатор, позволяющий применить композитный градиент.",
         )
     }

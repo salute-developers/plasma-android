@@ -65,6 +65,7 @@ class ShapeTokenGeneratorTest {
             shapeTokenValues = shapeTokenValues,
             viewShapeAppearanceConfig = listOf(materialShape(), sddsShape()),
             dimensionsConfig = dimensionsConfig,
+            namespace = "com.test",
         )
     }
 
@@ -93,6 +94,23 @@ class ShapeTokenGeneratorTest {
 
         assertEquals(getResourceAsText("shape-outputs/test-shape-output.xml"), outputXml.toString())
         assertEquals(getResourceAsText("shape-outputs/TestShapeOutputKt.txt"), outputKt.toString())
+    }
+
+    @Test
+    fun `ShapeGenerator добавляет токен и генерирует файлы для compose c размерами из ресурсов`() {
+        val input = getResourceAsText("inputs/test-shape-input.json")
+        val shapeTokens = Serializer.meta.decodeFromString<List<ShapeToken>>(input)
+        val outputXml = ByteArrayOutputStream()
+        val shapesXmlFile = mockk<File>(relaxed = true)
+        every { shapesXmlFile.fileWriter() } returns outputXml.writer()
+        every { mockOutputResDir.shapesXmlFile() } returns shapesXmlFile
+        every { dimensionsConfig.multiplier } returns 1f
+        every { dimensionsConfig.fromResources } returns true
+
+        shapeTokens.forEach { underTest.addToken(it) }
+        underTest.generate()
+
+        assertEquals(getResourceAsText("shape-outputs/TestShapeFromResourceOutputKt.txt"), outputKt.toString())
     }
 
     private companion object {

@@ -44,7 +44,7 @@ public object TestTheme {
 public fun TestTheme(
     colors: TestColors = TestTheme.colors,
     gradients: TestGradients = TestTheme.gradients,
-    shapes: TestShapes = TestTheme.shapes,
+    shapes: TestShapes = defaultTestShapes(),
     typography: TestTypography = dynamicTestTypography(),
     content: @Composable () -> Unit,
 ): Unit {

@@ -22,6 +22,8 @@ import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 import com.sdds.plugin.themebuilder.internal.utils.techToSnakeCase
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import com.sdds.plugin.themebuilder.internal.validator.ShapeTokenValidator
+import com.squareup.kotlinpoet.ClassName
+import com.squareup.kotlinpoet.TypeSpec
 import java.io.File
 import java.util.Locale
 
@@ -34,6 +36,7 @@ import java.util.Locale
  * @param ktFileBuilderFactory фабрика делегата построения kt файлов
  * @param dimensAggregator агрегатор размеров
  * @param resourceReferenceProvider провайдер ссылок на ресурсы
+ * @param namespace пакет проекта
  * @author Малышев Александр on 07.03.2024
  */
 internal class ShapeTokenGenerator(
@@ -47,12 +50,14 @@ internal class ShapeTokenGenerator(
     private val resourceReferenceProvider: ResourceReferenceProvider,
     private val shapeTokenValues: Map<String, ShapeTokenValue>,
     private val dimensionsConfig: DimensionsConfig,
+    namespace: String,
 ) : TokenGenerator<ShapeToken, ShapeTokenResult>(target) {
 
     private val xmlDocumentBuilder by unsafeLazy { xmlBuilderFactory.create(DEFAULT_ROOT_ATTRIBUTES) }
     private val ktFileBuilder by unsafeLazy { ktFileBuilderFactory.create("ShapeTokens") }
     private val rootRoundShapes by unsafeLazy { ktFileBuilder.rootObject("RoundShapeTokens") }
     private val shouldGenerateShapeStyles: Boolean = viewShapeAppearanceConfig.isNotEmpty()
+    private val rFileImport = ClassName(namespace, "R")
     private var needCreateStyle: Boolean = true
 
     private val composeTokenDataCollector =
@@ -81,6 +86,10 @@ internal class ShapeTokenGenerator(
         super.generateCompose()
         ktFileBuilder.addImport(KtFileBuilder.TypeDpExtension)
         ktFileBuilder.addImport(KtFileBuilder.TypeCornerSize)
+        if (dimensionsConfig.fromResources) {
+            ktFileBuilder.addImport(KtFileBuilder.TypeDimensionResource)
+            ktFileBuilder.addImport(rFileImport)
+        }
         ktFileBuilder.build(outputLocation)
     }
 
@@ -156,17 +165,11 @@ internal class ShapeTokenGenerator(
             )
         ShapeTokenValidator.validate(roundedShapeTokenValue, token.name)
 
-        val value = "${roundedShapeTokenValue.cornerRadius * dimensionsConfig.multiplier}.dp"
-        val initializer = KtFileBuilder.createConstructorCall(
-            "RoundedCornerShape",
-            "CornerSize($value)",
-        )
-        rootRoundShapes.appendProperty(
-            token.ktName,
-            KtFileBuilder.TypeRoundRectShape,
-            initializer,
-            token.description,
-        )
+        if (dimensionsConfig.fromResources) {
+            rootRoundShapes.addShapeTokenWithResources(token, roundedShapeTokenValue)
+        } else {
+            rootRoundShapes.addShapeToken(token, roundedShapeTokenValue)
+        }
         composeTokenDataCollector.add(
             ShapeTokenResult.TokenData(
                 attrName = token.ktName.decapitalize(Locale.getDefault()),
@@ -174,5 +177,53 @@ internal class ShapeTokenGenerator(
             ),
         )
         return@with true
+    }
+
+    private fun TypeSpec.Builder.addShapeToken(
+        token: ShapeToken,
+        value: RoundedShapeTokenValue,
+    ) = with(ktFileBuilder) {
+        val initializer = "${value.cornerRadius * dimensionsConfig.multiplier}.dp"
+
+        appendProperty(
+            token.ktName,
+            KtFileBuilder.TypeRoundRectShape,
+            createInitializer(initializer),
+            token.description,
+        )
+    }
+
+    private fun TypeSpec.Builder.addShapeTokenWithResources(
+        token: ShapeToken,
+        value: RoundedShapeTokenValue,
+    ) = with(ktFileBuilder) {
+        val cornerSize = DimenData(
+            name = "${token.name.techToSnakeCase()}_corner_size",
+            value = value.cornerRadius,
+            type = DimenData.Type.DP,
+        )
+        dimensAggregator.addDimen(cornerSize)
+        val initializer = "dimensionResource(${resourceReferenceProvider.dimenR(cornerSize)})"
+
+        appendProperty(
+            name = token.ktName,
+            typeName = KtFileBuilder.TypeRoundRectShape,
+            propGetter = KtFileBuilder.Getter.Annotated(
+                annotations = listOf(
+                    KtFileBuilder.TypeAnnotationComposable,
+                    KtFileBuilder.TypeAnnotationReadOnlyComposable,
+                ),
+                body = "return ${createInitializer(initializer)}",
+            ),
+            description = token.description,
+        )
+    }
+
+    private companion object {
+        fun createInitializer(cornerSizeInitializer: String): String =
+            KtFileBuilder.createConstructorCall(
+                "RoundedCornerShape",
+                "CornerSize($cornerSizeInitializer)",
+            )
     }
 }

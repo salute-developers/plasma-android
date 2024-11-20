@@ -1,5 +1,6 @@
 package com.sdds.plugin.themebuilder.internal.generator.theme.compose
 
+import com.sdds.plugin.themebuilder.DimensionsConfig
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Constructor
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Modifier.DATA
@@ -22,6 +23,7 @@ internal class ComposeShapeAttributeGenerator(
     private val ktFileBuilderFactory: KtFileBuilderFactory,
     private val outputLocation: KtFileBuilder.OutputLocation,
     private val themeName: String,
+    private val dimensionsConfig: DimensionsConfig,
 ) : SimpleBaseGenerator {
     private val shapes = mutableListOf<ShapeTokenResult.TokenData>()
 
@@ -31,6 +33,9 @@ internal class ComposeShapeAttributeGenerator(
 
     private val camelThemeName = themeName.snakeToCamelCase()
     private val shapeClassName = "${camelThemeName}Shapes"
+    private val shapeClassType by unsafeLazy {
+        shapeKtFileBuilder.getInternalClassType(shapeClassName)
+    }
 
     fun setShapeTokenData(shapes: List<ShapeTokenResult.TokenData>) {
         this.shapes.clear()
@@ -41,6 +46,7 @@ internal class ComposeShapeAttributeGenerator(
         if (shapes.isEmpty()) return
 
         addImports()
+        addShapeClassFactoryFun()
         addShapesClass(shapes)
         addLocalShapesVal()
 
@@ -56,7 +62,7 @@ internal class ComposeShapeAttributeGenerator(
                         KtFileBuilder.FunParameter(
                             name = it.attrName,
                             type = KtFileBuilder.TypeCornerBasedShape,
-                            defValue = "RoundShapeTokens.${it.tokenRefName}",
+                            defValue = "RoundedCornerShape(0)",
                             asProperty = true,
                         )
                     },
@@ -87,6 +93,27 @@ internal class ComposeShapeAttributeGenerator(
                     "Immutable",
                 ),
             )
+            addImport(KtFileBuilder.TypeRoundRectShape)
         }
+    }
+
+    private fun addShapeClassFactoryFun() = with(shapeKtFileBuilder) {
+        appendRootFun(
+            name = "default$shapeClassName",
+            returnType = shapeClassType,
+            body = listOf(
+                KtFileBuilder.createConstructorCall(
+                    constructorName = shapeClassName,
+                    initializers = shapes.map {
+                        "${it.attrName} = RoundShapeTokens.${it.tokenRefName}"
+                    }.toTypedArray(),
+                ).let { "return $it" },
+            ),
+            description = "Возвращает [$shapeClassName]",
+            annotations = listOf(
+                KtFileBuilder.TypeAnnotationComposable,
+                KtFileBuilder.TypeAnnotationReadOnlyComposable,
+            ).takeIf { dimensionsConfig.fromResources },
+        )
     }
 }

@@ -94,30 +94,36 @@ import com.sdds.playground.themebuilder.tokens.ThemeTypography
  */
 @Immutable
 public data class ThemeTypography internal constructor(
-    public val displayLNormal: TextStyle,
-    public val displayLBold: TextStyle,
+    public val displayLNormal: TextStyle = TextStyle.Default,
+    public val displayLBold: TextStyle = TextStyle.Default,
 )
 
 internal val LocalThemeTypography: ProvidableCompositionLocal<ThemeTypography> =
-        staticCompositionLocalOf { mediumThemeTypography() }
+        staticCompositionLocalOf { ThemeTypography() }
 
 /**
  * Возвращает [ThemeTypography] для WindowSizeClass.Compact
  */
-public fun smallThemeTypography(): ThemeTypography = ThemeTypography(displayLNormal =
-        TypographyLargeTokens.DisplayLNormal, displayLBold = TypographyLargeTokens.DisplayLBold)
+public fun smallThemeTypography(): ThemeTypography = ThemeTypography(
+    displayLNormal = TypographyLargeTokens.DisplayLNormal,
+    displayLBold = TypographyLargeTokens.DisplayLBold,
+)
 
 /**
  * Возвращает [ThemeTypography] для WindowSizeClass.Medium
  */
-public fun mediumThemeTypography(): ThemeTypography = ThemeTypography(displayLNormal =
-        TypographyLargeTokens.DisplayLNormal, displayLBold = TypographyLargeTokens.DisplayLBold)
+public fun mediumThemeTypography(): ThemeTypography = ThemeTypography(
+    displayLNormal = TypographyLargeTokens.DisplayLNormal,
+    displayLBold = TypographyLargeTokens.DisplayLBold,
+)
 
 /**
  * Возвращает [ThemeTypography] для WindowSizeClass.Expanded
  */
-public fun largeThemeTypography(): ThemeTypography = ThemeTypography(displayLNormal =
-        TypographyLargeTokens.DisplayLNormal, displayLBold = TypographyLargeTokens.DisplayLBold)
+public fun largeThemeTypography(): ThemeTypography = ThemeTypography(
+    displayLNormal = TypographyLargeTokens.DisplayLNormal,
+    displayLBold = TypographyLargeTokens.DisplayLBold,
+)
 
 /**
  * Возвращает разные [ThemeTypography] в зависимости от ширины окна. Значение динамически изменяется

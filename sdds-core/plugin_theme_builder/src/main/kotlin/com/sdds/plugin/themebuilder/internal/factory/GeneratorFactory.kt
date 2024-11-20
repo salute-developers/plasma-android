@@ -132,6 +132,7 @@ internal class GeneratorFactory(
             ktFileBuilderFactory = ktFileBuilderFactory,
             outputLocation = OutputLocation.Directory(outputDir),
             themeName = themeName,
+            dimensionsConfig = dimensionsConfig,
         )
     }
 
@@ -268,6 +269,7 @@ internal class GeneratorFactory(
             typographyTokenValues = typography,
             fontsAggregator = fontsAggregator,
             dimensionsConfig = dimensionsConfig,
+            namespace = namespace,
         )
     }
 
@@ -298,6 +300,7 @@ internal class GeneratorFactory(
             resourceReferenceProvider = resourceReferenceProvider,
             shapeTokenValues = shapes,
             dimensionsConfig = dimensionsConfig,
+            namespace = namespace,
         )
     }
 

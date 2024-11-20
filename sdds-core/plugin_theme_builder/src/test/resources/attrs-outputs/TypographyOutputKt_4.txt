@@ -81,6 +81,7 @@ package com.sdds.playground.themebuilder.tokens
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.ProvidableCompositionLocal
+import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.runtime.structuralEqualityPolicy
@@ -104,6 +105,8 @@ internal val LocalThemeTypography: ProvidableCompositionLocal<ThemeTypography> =
 /**
  * Возвращает [ThemeTypography] для WindowSizeClass.Compact
  */
+@Composable
+@ReadOnlyComposable
 public fun smallThemeTypography(): ThemeTypography = ThemeTypography(
     displayLNormal = TypographySmallTokens.DisplayLNormal,
     displayLBold = TypographySmallTokens.DisplayLBold,
@@ -112,6 +115,8 @@ public fun smallThemeTypography(): ThemeTypography = ThemeTypography(
 /**
  * Возвращает [ThemeTypography] для WindowSizeClass.Medium
  */
+@Composable
+@ReadOnlyComposable
 public fun mediumThemeTypography(): ThemeTypography = ThemeTypography(
     displayLNormal = TypographyMediumTokens.DisplayLNormal,
     displayLBold = TypographyMediumTokens.DisplayLBold,
@@ -120,6 +125,8 @@ public fun mediumThemeTypography(): ThemeTypography = ThemeTypography(
 /**
  * Возвращает [ThemeTypography] для WindowSizeClass.Expanded
  */
+@Composable
+@ReadOnlyComposable
 public fun largeThemeTypography(): ThemeTypography = ThemeTypography(
     displayLNormal = TypographyLargeTokens.DisplayLNormal,
     displayLBold = TypographyLargeTokens.DisplayLBold,
