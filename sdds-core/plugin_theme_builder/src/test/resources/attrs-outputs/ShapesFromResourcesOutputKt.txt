@@ -3,8 +3,10 @@ package com.sdds.playground.themebuilder.tokens
 
 import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.ProvidableCompositionLocal
+import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.staticCompositionLocalOf
 import com.sdds.playground.themebuilder.tokens.ThemeShapes
 
@@ -23,6 +25,8 @@ internal val LocalThemeShapes: ProvidableCompositionLocal<ThemeShapes> = staticC
 /**
  * Возвращает [ThemeShapes]
  */
+@Composable
+@ReadOnlyComposable
 public fun defaultThemeShapes(): ThemeShapes = ThemeShapes(
     roundXs = RoundShapeTokens.RoundXs,
     roundXxs = RoundShapeTokens.RoundXxs,

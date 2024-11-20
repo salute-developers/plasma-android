@@ -96,6 +96,31 @@ class ComposeTypographyAttributeGeneratorTest {
     }
 
     @Test
+    fun `KtAttributeGenerator должен генерировать kotlin файлы с атрибутами типографики и размерами из ресурсов`() {
+        outputKt = ByteArrayOutputStream()
+        underTest = ComposeTypographyAttributeGenerator(
+            ktFileBuilderFactory = mockKtFileBuilderFactory,
+            ktFileFromResourcesBuilderFactory = mockKtFileFromResourceBuilderFactory,
+            outputLocation = KtFileBuilder.OutputLocation.Stream(outputKt),
+            themeName = "Theme",
+            dimensionsConfig = dimensionsConfig.copy(fromResources = true),
+        )
+
+        underTest.setTypographyTokenData(input1)
+        underTest.generate()
+
+        verify {
+            mockKtFileBuilderFactory.create("ThemeTypography")
+            mockKtFileFromResourceBuilderFactory.create()
+        }
+
+        Assert.assertEquals(
+            getResourceAsText("attrs-outputs/TypographyOutputKt_4.txt"),
+            outputKt.toString(),
+        )
+    }
+
+    @Test
     fun `KtAttributeGenerator генерирует атрибуты типографики с недостающими токенами`() {
         outputKt = ByteArrayOutputStream()
         underTest = ComposeTypographyAttributeGenerator(

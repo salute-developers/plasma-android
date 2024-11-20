@@ -97,7 +97,7 @@ internal class ComposeTypographyAttributeGenerator(
             name = "Local$typographyClassName",
             typeName = KtFileBuilder.TypeProvidableCompositionLocal,
             parameterizedType = typographyClassType,
-            initializer = "staticCompositionLocalOf { medium$typographyClassName() }",
+            initializer = "staticCompositionLocalOf { $typographyClassName() }",
             modifiers = listOf(Modifier.INTERNAL),
         )
     }
@@ -105,7 +105,7 @@ internal class ComposeTypographyAttributeGenerator(
     private fun addDynamicTypographyFun() {
         typographyKtFileBuilder.appendRootFun(
             name = "dynamic$typographyClassName",
-            annotation = KtFileBuilder.TypeAnnotationComposable,
+            annotations = listOf(KtFileBuilder.TypeAnnotationComposable),
             returnType = typographyClassType,
             body = listOf(
                 "return when (collectWindowSizeInfoAsState().value.widthClass) {\n",
@@ -146,6 +146,7 @@ internal class ComposeTypographyAttributeGenerator(
                             KtFileBuilder.FunParameter(
                                 name = it,
                                 type = KtFileBuilder.TypeTextStyle,
+                                defValue = "TextStyle.Default",
                                 asProperty = true,
                             )
                         },
@@ -192,14 +193,18 @@ internal class ComposeTypographyAttributeGenerator(
                 name = funName,
                 returnType = typographyClassType,
                 body = listOf(
-                    "return $typographyClassName(${
-                        typographyAttributes
-                            .joinToString(separator = ",·") {
-                                "$it = ${findTypographyTokenRef(it, screenClass)}"
-                            }
-                    })",
+                    KtFileBuilder.createConstructorCall(
+                        constructorName = typographyClassName,
+                        initializers = typographyAttributes.map {
+                            "$it = ${findTypographyTokenRef(it, screenClass)}"
+                        }.toTypedArray(),
+                    ).let { "return $it" },
                 ),
                 description = description,
+                annotations = listOf(
+                    KtFileBuilder.TypeAnnotationComposable,
+                    KtFileBuilder.TypeAnnotationReadOnlyComposable,
+                ).takeIf { dimensionsConfig.fromResources },
             )
         }
     }

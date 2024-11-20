@@ -94,7 +94,7 @@ internal class ComposeThemeGenerator(
                     KtFileBuilder.FunParameter(
                         name = "shapes",
                         type = shapeAttributesClassType,
-                        defValue = "$themeClassName.shapes",
+                        defValue = "default${camelThemeName}Shapes()",
                     ),
                     KtFileBuilder.FunParameter(
                         name = "typography",
@@ -109,7 +109,7 @@ internal class ComposeThemeGenerator(
                     ),
                 ),
                 body = listOf(buildThemeFunBody()),
-                annotation = KtFileBuilder.TypeAnnotationComposable,
+                annotations = listOf(KtFileBuilder.TypeAnnotationComposable),
                 description = "Базовая тема $camelThemeName",
             )
         }
