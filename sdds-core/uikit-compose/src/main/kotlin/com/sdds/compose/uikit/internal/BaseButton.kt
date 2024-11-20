@@ -64,7 +64,7 @@ internal fun BaseButton(
     val isFocused by interactionSource.collectIsFocusedAsState()
     Box(
         modifier = modifier
-            .applyFocusSelector(isFocused, LocalFocusSelectorMode.current, shape)
+            .applyFocusSelector(LocalFocusSelectorMode.current, shape) { isFocused }
             .defaultMinSize(dimensions.minWidth, dimensions.height)
             .height(dimensions.height)
             .surface(

@@ -47,10 +47,8 @@ internal fun TextFieldScreen() {
                     .onKeyEvent {
                         if (it.key == Key.Backspace) {
                             textFieldViewModel.onBackspacePressed()
-                            false
-                        } else {
-                            true
                         }
+                        return@onKeyEvent false
                     },
                 style = style,
                 enabled = textFieldUiState.enabled,

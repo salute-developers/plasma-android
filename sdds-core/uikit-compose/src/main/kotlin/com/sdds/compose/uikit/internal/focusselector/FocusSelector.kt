@@ -1,6 +1,7 @@
 package com.sdds.compose.uikit.internal.focusselector
 
 import androidx.compose.foundation.shape.CornerBasedShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.graphicsLayer
 
@@ -14,29 +15,26 @@ import androidx.compose.ui.graphics.graphicsLayer
  * @see FocusSelectorMode
  */
 fun Modifier.applyFocusSelector(
-    isFocused: Boolean,
-    focusSelectorMode: FocusSelectorMode,
-    originalShape: CornerBasedShape,
-): Modifier =
-    if (isFocused) {
-        this.then(
-            when (focusSelectorMode) {
-                is FocusSelectorMode.Border ->
-                    Modifier.drawBorder(
-                        stroke = focusSelectorMode.borderStroke,
-                        strokePadding = focusSelectorMode.strokePadding,
-                        originalShape = originalShape,
-                    )
+    focusSelectorMode: FocusSelectorMode = FocusSelectorMode.Border(),
+    originalShape: CornerBasedShape = RoundedCornerShape(5),
+    isFocused: () -> Boolean,
+): Modifier = this.then(
+    when (focusSelectorMode) {
+        is FocusSelectorMode.Border ->
+            Modifier.drawBorder(
+                stroke = focusSelectorMode.borderStroke,
+                strokePadding = focusSelectorMode.strokePadding,
+                originalShape = originalShape,
+                isFocused = isFocused,
+            )
 
-                is FocusSelectorMode.Scale ->
-                    Modifier.graphicsLayer {
-                        scaleX = focusSelectorMode.scale
-                        scaleY = focusSelectorMode.scale
-                    }
+        is FocusSelectorMode.Scale ->
+            Modifier.graphicsLayer {
+                if (!isFocused()) return@graphicsLayer
+                scaleX = focusSelectorMode.scale
+                scaleY = focusSelectorMode.scale
+            }
 
-                FocusSelectorMode.None -> Modifier
-            },
-        )
-    } else {
-        this
-    }
+        FocusSelectorMode.None -> Modifier
+    },
+)

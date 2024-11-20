@@ -18,7 +18,6 @@ import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.vector.DefaultStrokeLineMiter
 import androidx.compose.ui.unit.Dp
 import com.sdds.compose.uikit.adjustBy
-import kotlin.math.max
 
 /**
  * Рисует бордер вокруг [originalShape].
@@ -28,10 +27,12 @@ internal fun Modifier.drawBorder(
     stroke: BorderStroke,
     strokePadding: Dp,
     originalShape: CornerBasedShape,
+    isFocused: () -> Boolean,
 ): Modifier {
     return this.drawWithContent {
         drawContent()
 
+        if (!isFocused()) return@drawWithContent
         val strokePaddingPx = strokePadding.toPx()
         val strokeWidthPx = stroke.width.toPx()
         val pathSize = Size(
@@ -113,6 +114,6 @@ private fun RoundRect.adjustRoundRect(delta: Float): RoundRect =
     )
 
 private fun CornerRadius.shrink(value: Float): CornerRadius = CornerRadius(
-    max(0f, this.x - value),
-    max(0f, this.y - value),
+    (this.x - value).coerceAtLeast(0f),
+    (this.y - value).coerceAtLeast(0f),
 )
