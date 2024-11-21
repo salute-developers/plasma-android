@@ -3,17 +3,16 @@ package com.sdds.compose.uikit.internal.focusselector
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.drawWithContent
+import androidx.compose.ui.draw.CacheDrawScope
+import androidx.compose.ui.draw.drawWithCache
 import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.RoundRect
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.geometry.isSimple
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Outline
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.PathOperation
-import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.vector.DefaultStrokeLineMiter
 import androidx.compose.ui.unit.Dp
@@ -29,62 +28,77 @@ internal fun Modifier.drawBorder(
     originalShape: CornerBasedShape,
     isFocused: () -> Boolean,
 ): Modifier {
-    return this.drawWithContent {
-        drawContent()
-
-        if (!isFocused()) return@drawWithContent
-        val strokePaddingPx = strokePadding.toPx()
+    return this.drawWithCache {
         val strokeWidthPx = stroke.width.toPx()
-        val pathSize = Size(
-            width = this.size.width + (strokePaddingPx + strokeWidthPx / 2) * 2,
-            height = this.size.height + (strokePaddingPx + strokeWidthPx / 2) * 2,
-        )
-        val outline = originalShape
-            .adjustBy(strokePaddingPx + strokeWidthPx / 2f)
-            .createOutline(pathSize, layoutDirection, this)
-            as? Outline.Rounded ?: return@drawWithContent
+        val halfStrokeWidthPx = strokeWidthPx / 2f
+        val strokePaddingPx = strokePadding.toPx()
+        val pathSize = pathSize(strokePaddingPx, halfStrokeWidthPx)
+        val outline = borderOutline(originalShape, pathSize, strokePaddingPx, strokeWidthPx)
+        val roundedRectPath = customRoundRectPath(outline, strokePaddingPx, halfStrokeWidthPx)
 
-        drawRoundRectBorder(
-            brush = stroke.brush,
-            outline = outline,
-            pathSize = pathSize,
-            strokeWidth = strokeWidthPx,
-            strokePadding = strokePaddingPx,
-        )
+        onDrawWithContent {
+            drawContent()
+
+            if (!isFocused()) return@onDrawWithContent
+            if (outline !is Outline.Rounded) return@onDrawWithContent
+
+            if (outline.roundRect.isSimple) {
+                val cornerRadius = outline.roundRect.topLeftCornerRadius
+                val borderStroke = Stroke(strokeWidthPx, miter = DefaultStrokeLineMiter)
+                val pathOffset =
+                    Offset(strokePaddingPx + halfStrokeWidthPx, strokePaddingPx + halfStrokeWidthPx)
+                drawRoundRect(
+                    brush = stroke.brush,
+                    topLeft = -pathOffset,
+                    size = pathSize,
+                    cornerRadius = cornerRadius,
+                    style = borderStroke,
+                )
+            } else {
+                drawPath(
+                    path = roundedRectPath ?: return@onDrawWithContent,
+                    brush = stroke.brush,
+                )
+            }
+        }
     }
 }
 
-private fun DrawScope.drawRoundRectBorder(
-    brush: Brush,
-    outline: Outline.Rounded,
+private fun CacheDrawScope.borderOutline(
+    shape: CornerBasedShape,
     pathSize: Size,
-    strokeWidth: Float,
-    strokePadding: Float,
-) {
-    val halfStrokeWidth = strokeWidth / 2f
-    if (outline.roundRect.isSimple) {
-        val cornerRadius = outline.roundRect.topLeftCornerRadius
-        val borderStroke = Stroke(strokeWidth, miter = DefaultStrokeLineMiter)
-        val pathOffset =
-            Offset(strokePadding + halfStrokeWidth, strokePadding + halfStrokeWidth)
-        drawRoundRect(
-            brush = brush,
-            topLeft = -pathOffset,
-            size = pathSize,
-            cornerRadius = cornerRadius,
-            style = borderStroke,
+    strokePaddingPx: Float,
+    strokeWidthPx: Float,
+): Outline {
+    return shape
+        .adjustBy(strokePaddingPx + strokeWidthPx / 2f)
+        .createOutline(pathSize, layoutDirection, this)
+}
+
+private fun CacheDrawScope.customRoundRectPath(
+    outline: Outline,
+    strokePaddingPx: Float,
+    halfStrokeWidthPx: Float,
+): Path? {
+    return if ((outline is Outline.Rounded) && !outline.roundRect.isSimple) {
+        createRoundRectPath(
+            roundedRect = outline.roundRect,
+            halfStrokeWidth = halfStrokeWidthPx,
+            strokePadding = strokePaddingPx,
         )
     } else {
-        val roundedRectPath = createRoundRectPath(
-            roundedRect = outline.roundRect,
-            halfStrokeWidth = halfStrokeWidth,
-            strokePadding = strokePadding,
-        )
-        drawPath(
-            path = roundedRectPath,
-            brush = brush,
-        )
+        null
     }
+}
+
+private fun CacheDrawScope.pathSize(
+    strokePaddingPx: Float,
+    halfStrokeWidth: Float,
+): Size {
+    return Size(
+        width = this.size.width + (strokePaddingPx + halfStrokeWidth) * 2,
+        height = this.size.height + (strokePaddingPx + halfStrokeWidth) * 2,
+    )
 }
 
 private fun createRoundRectPath(
