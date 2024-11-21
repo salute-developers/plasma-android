@@ -2,12 +2,14 @@ package com.sdds.plasma.sd.service.sandbox
 
 import android.app.Activity
 import android.graphics.Color
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalView
+import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
 import com.sdds.compose.uikit.Avatar
 import com.sdds.compose.uikit.AvatarGroup
@@ -33,6 +35,8 @@ import com.sdds.compose.uikit.RadioBox
 import com.sdds.compose.uikit.RadioBoxGroup
 import com.sdds.compose.uikit.Switch
 import com.sdds.compose.uikit.TextField
+import com.sdds.compose.uikit.internal.focusselector.FocusSelectorMode
+import com.sdds.compose.uikit.internal.focusselector.LocalFocusSelectorMode
 import com.sdds.plasma.sd.service.styles.Default
 import com.sdds.plasma.sd.service.styles.M
 import com.sdds.plasma.sd.service.styles.Optional
@@ -80,6 +84,10 @@ fun SandboxTheme(
         gradients = if (darkTheme) DarkGradients else LightGradients,
         content = {
             CompositionLocalProvider(
+                LocalFocusSelectorMode provides FocusSelectorMode.Border(
+                    borderStroke = BorderStroke(1.dp, colorScheme.surfaceDefaultAccent),
+                    strokePadding = 2.dp,
+                ),
                 LocalSwitchStyle provides Switch.M.style(),
                 LocalButtonStyle provides BasicButton.M.Default.style(),
                 LocalIconButtonStyle provides IconButton.M.Default.style(),
