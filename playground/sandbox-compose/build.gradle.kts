@@ -17,6 +17,9 @@ android {
     testOptions {
         unitTests.isIncludeAndroidResources = true
     }
+    tasks.withType<Test> {
+        maxHeapSize = "4096m"
+    }
     kotlinOptions {
         //comment following lines (freeCompilerArgs) to disable compose-metrics
         freeCompilerArgs += listOf(

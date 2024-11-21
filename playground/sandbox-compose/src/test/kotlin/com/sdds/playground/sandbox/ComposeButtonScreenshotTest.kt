@@ -5,7 +5,7 @@ import com.sdds.playground.sandbox.buttons.SandboxButtonPreviewSizeLDefault
 import com.sdds.playground.sandbox.buttons.SandboxButtonPreviewSizeLDisabled
 import com.sdds.playground.sandbox.buttons.SandboxButtonPreviewSizeLIsLoading
 import com.sdds.playground.sandbox.buttons.SandboxButtonPreviewSizeLSecondary
-import com.sdds.playground.sandbox.buttons.SandboxButtonPreviewSizeLWhiteDarkTheme
+import com.sdds.playground.sandbox.buttons.SandboxButtonPreviewSizeLWhite
 import com.sdds.playground.sandbox.buttons.SandboxButtonPreviewSizeMAccent
 import com.sdds.playground.sandbox.buttons.SandboxButtonPreviewSizeMSpaceBetween
 import com.sdds.playground.sandbox.buttons.SandboxButtonPreviewSizeSLongText
@@ -25,14 +25,16 @@ import com.sdds.playground.sandbox.buttons.SandboxIconButtonPreviewXSDark
 import com.sdds.playground.sandbox.buttons.SandboxIconButtonPreviewXSNegative
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.robolectric.RobolectricTestRunner
+import org.robolectric.ParameterizedRobolectricTestRunner
 import org.robolectric.annotation.Config
 import org.robolectric.annotation.GraphicsMode
 
+@RunWith(ParameterizedRobolectricTestRunner::class)
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
 @Config(sdk = [SDK_NUMBER], qualifiers = RobolectricDeviceQualifiers.Pixel6)
-@RunWith(RobolectricTestRunner::class)
-class ComposeButtonScreenshotTest : RoborazziConfig() {
+class ComposeButtonScreenshotTest(
+    theme: String,
+) : RoborazziConfig(theme) {
 
     /**
      * Запуск скриншот тестов с использованием Preview
@@ -59,7 +61,7 @@ class ComposeButtonScreenshotTest : RoborazziConfig() {
     }
 
     @Test
-    fun testButtonPreviewSizeXSDark() {
+    fun testButtonPreviewSizeXS() {
         composeTestRule.setContent {
             SandboxButtonPreviewSizeXSDark()
         }
@@ -108,10 +110,10 @@ class ComposeButtonScreenshotTest : RoborazziConfig() {
     }
 
     @Test
-    fun testButtonPreviewSizeLWhiteDarkTheme() {
+    fun testButtonPreviewSizeLWhite() {
         composeTestRule.setContent {
-            SandboxTheme(darkTheme = true) {
-                SandboxButtonPreviewSizeLWhiteDarkTheme()
+            SandboxTheme {
+                SandboxButtonPreviewSizeLWhite()
             }
         }
     }
@@ -138,7 +140,7 @@ class ComposeButtonScreenshotTest : RoborazziConfig() {
     }
 
     @Test
-    fun testIconButtonPreviewXsDark() {
+    fun testIconButtonPreviewXs() {
         composeTestRule.setContent {
             SandboxIconButtonPreviewXSDark()
         }

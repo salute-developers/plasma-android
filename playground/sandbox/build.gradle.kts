@@ -20,6 +20,9 @@ android {
     testOptions {
         unitTests.isIncludeAndroidResources = true
     }
+    tasks.withType<Test> {
+        maxHeapSize = "4096m"
+    }
 }
 
 themeBuilder {

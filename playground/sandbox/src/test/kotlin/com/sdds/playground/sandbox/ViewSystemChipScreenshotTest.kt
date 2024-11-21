@@ -8,14 +8,16 @@ import com.sdds.playground.sandbox.chip.ChipUiState
 import com.sdds.playground.sandbox.chip.ChipVariant
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.robolectric.RobolectricTestRunner
+import org.robolectric.ParameterizedRobolectricTestRunner
 import org.robolectric.annotation.Config
 import org.robolectric.annotation.GraphicsMode
 
-@RunWith(RobolectricTestRunner::class)
+@RunWith(ParameterizedRobolectricTestRunner::class)
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
 @Config(sdk = [SDK_NUMBER], qualifiers = RobolectricDeviceQualifiers.Pixel6)
-class ViewSystemChipScreenshotTest : RoborazziConfig() {
+class ViewSystemChipScreenshotTest(
+    theme: String,
+) : RoborazziConfig(theme) {
 
     @Test
     fun testChipLDefault() {
@@ -33,7 +35,6 @@ class ViewSystemChipScreenshotTest : RoborazziConfig() {
             .captureRoboImage()
     }
 
-    @Config(qualifiers = "+night")
     @Test
     fun testChipXsSecondary() {
         launchScreen(

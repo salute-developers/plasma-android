@@ -21,7 +21,7 @@ internal fun ProgressPreviewDefault() {
 }
 
 @Composable
-@Preview
+@Preview(showBackground = true)
 internal fun ProgressPreviewNegative() {
     SandboxTheme {
         ProgressBar(
@@ -45,7 +45,7 @@ internal fun ProgressPreviewWarning() {
 }
 
 @Composable
-@Preview
+@Preview(showBackground = true)
 internal fun ProgressPreviewPositive() {
     SandboxTheme {
         ProgressBar(
@@ -57,9 +57,9 @@ internal fun ProgressPreviewPositive() {
 }
 
 @Composable
-@Preview
+@Preview(showBackground = true)
 internal fun ProgressPreviewDefaultDark() {
-    SandboxTheme(darkTheme = true) {
+    SandboxTheme {
         ProgressBar(
             progress = 0.2f,
             modifier = Modifier.width(240.dp),
