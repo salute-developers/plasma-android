@@ -29,14 +29,16 @@ internal fun RadioBoxPreview() {
 @Composable
 @Preview
 internal fun RadioBoxPreviewMedium() {
-    RadioBox(
-        style = RadioBox.M.style(),
-        checked = true,
-        enabled = true,
-        label = "Title",
-        description = "Description",
-        onClick = {},
-    )
+    SandboxTheme {
+        RadioBox(
+            style = RadioBox.M.style(),
+            checked = true,
+            enabled = true,
+            label = "Title",
+            description = "Description",
+            onClick = {},
+        )
+    }
 }
 
 @Composable
@@ -57,27 +59,31 @@ internal fun RadioBoxPreviewSmallDark() {
 @Composable
 @Preview
 internal fun RadioBoxPreviewUnchecked() {
-    RadioBox(
-        style = RadioBox.M.style(),
-        checked = false,
-        enabled = true,
-        label = "Label",
-        description = "Description",
-        onClick = {},
-    )
+    SandboxTheme {
+        RadioBox(
+            style = RadioBox.M.style(),
+            checked = false,
+            enabled = true,
+            label = "Label",
+            description = "Description",
+            onClick = {},
+        )
+    }
 }
 
 @Composable
 @Preview
 internal fun RadioBoxPreviewOff() {
-    RadioBox(
-        style = RadioBox.M.style(),
-        checked = false,
-        enabled = false,
-        label = "Label",
-        description = "Description",
-        onClick = {},
-    )
+    SandboxTheme {
+        RadioBox(
+            style = RadioBox.M.style(),
+            checked = false,
+            enabled = false,
+            label = "Label",
+            description = "Description",
+            onClick = {},
+        )
+    }
 }
 
 @Composable
