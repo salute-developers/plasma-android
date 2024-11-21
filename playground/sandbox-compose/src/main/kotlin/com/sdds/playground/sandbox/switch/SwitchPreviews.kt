@@ -6,7 +6,7 @@ import com.sdds.compose.uikit.Switch
 import com.sdds.playground.sandbox.SandboxTheme
 
 @Composable
-@Preview
+@Preview(showBackground = true)
 internal fun SandboxSwitchPreviewOn() {
     SandboxTheme {
         Switch(
@@ -19,7 +19,7 @@ internal fun SandboxSwitchPreviewOn() {
 }
 
 @Composable
-@Preview
+@Preview(showBackground = true)
 internal fun SandboxSwitchPreviewOff() {
     SandboxTheme {
         Switch(
@@ -32,7 +32,7 @@ internal fun SandboxSwitchPreviewOff() {
 }
 
 @Composable
-@Preview
+@Preview(showBackground = true)
 internal fun SandboxSwitchPreviewOnDisabled() {
     SandboxTheme {
         Switch(

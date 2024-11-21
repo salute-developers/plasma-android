@@ -9,14 +9,16 @@ import com.sdds.playground.sandbox.radiobox.RadioBoxPreviewSmallDark
 import com.sdds.playground.sandbox.radiobox.RadioBoxPreviewUnchecked
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.robolectric.RobolectricTestRunner
+import org.robolectric.ParameterizedRobolectricTestRunner
 import org.robolectric.annotation.Config
 import org.robolectric.annotation.GraphicsMode
 
+@RunWith(ParameterizedRobolectricTestRunner::class)
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
 @Config(sdk = [SDK_NUMBER], qualifiers = RobolectricDeviceQualifiers.Pixel6)
-@RunWith(RobolectricTestRunner::class)
-class ComposeRadioBoxScreenshotTest : RoborazziConfig() {
+class ComposeRadioBoxScreenshotTest(
+    theme: String,
+) : RoborazziConfig(theme) {
 
     /**
      * Запуск скриншот тестов с использованием Preview

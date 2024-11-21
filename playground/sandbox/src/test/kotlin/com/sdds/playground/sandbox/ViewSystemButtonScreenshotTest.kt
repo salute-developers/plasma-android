@@ -11,14 +11,16 @@ import com.sdds.playground.sandbox.buttons.IconButtonVariant
 import com.sdds.uikit.Button
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.robolectric.RobolectricTestRunner
+import org.robolectric.ParameterizedRobolectricTestRunner
 import org.robolectric.annotation.Config
 import org.robolectric.annotation.GraphicsMode
 
-@RunWith(RobolectricTestRunner::class)
+@RunWith(ParameterizedRobolectricTestRunner::class)
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
 @Config(sdk = [SDK_NUMBER], qualifiers = RobolectricDeviceQualifiers.Pixel6)
-class ViewSystemButtonScreenshotTest : RoborazziConfig() {
+class ViewSystemButtonScreenshotTest(
+    theme: String,
+) : RoborazziConfig(theme) {
 
     @Test
     fun testButtonSizeLDefault() {
@@ -203,9 +205,8 @@ class ViewSystemButtonScreenshotTest : RoborazziConfig() {
             .captureRoboImage()
     }
 
-    @Config(qualifiers = "+night")
     @Test
-    fun testButtonLWhiteDarkTheme() {
+    fun testButtonLWhite() {
         launchScreen(
             R.id.nav_basic_button,
             ButtonUiState(
@@ -363,9 +364,8 @@ class ViewSystemButtonScreenshotTest : RoborazziConfig() {
             .captureRoboImage()
     }
 
-    @Config(qualifiers = "+night")
     @Test
-    fun testIconButtonLWhiteDarkTheme() {
+    fun testIconButtonLWhite() {
         launchScreen(
             R.id.nav_icon_button,
             ButtonUiState(

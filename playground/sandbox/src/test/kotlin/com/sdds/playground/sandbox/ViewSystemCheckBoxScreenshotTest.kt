@@ -12,14 +12,32 @@ import com.sdds.uikit.CheckBox
 import org.hamcrest.Matchers.allOf
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.robolectric.RobolectricTestRunner
+import org.robolectric.ParameterizedRobolectricTestRunner
 import org.robolectric.annotation.Config
 import org.robolectric.annotation.GraphicsMode
 
-@RunWith(RobolectricTestRunner::class)
+@RunWith(ParameterizedRobolectricTestRunner::class)
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
 @Config(sdk = [SDK_NUMBER], qualifiers = RobolectricDeviceQualifiers.Pixel6)
-class ViewSystemCheckBoxScreenshotTest : RoborazziConfig() {
+class ViewSystemCheckBoxScreenshotTest(
+    theme: String,
+) : RoborazziConfig(theme) {
+
+    @Test
+    fun testCheckBoxSizeM() {
+        launchScreen(
+            R.id.nav_checkbox,
+            CheckBoxUiState(
+                variant = CheckBoxVariant.CheckBoxM,
+                state = CheckBox.ToggleableState.ON,
+                label = "Label",
+                description = "Description",
+                enabled = true,
+            ),
+        )
+        onView(withId(R.id.checkBox))
+            .captureRoboImage()
+    }
 
     @Test
     fun testCheckBoxSizeMUnchecked() {
@@ -101,7 +119,6 @@ class ViewSystemCheckBoxScreenshotTest : RoborazziConfig() {
             .captureRoboImage()
     }
 
-    @Config(qualifiers = "+night")
     @Test
     fun testCheckBoxSizeSDark() {
         launchScreen(
@@ -129,7 +146,7 @@ class ViewSystemCheckBoxScreenshotTest : RoborazziConfig() {
                 enabled = true,
             ),
         )
-        onView(allOf(withId(1), withText("Label")))
+        onView(allOf(withId(0), withText("Label")))
             .perform(click())
         onView(withId(R.id.checkBox_group))
             .captureRoboImage()
