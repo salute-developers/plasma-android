@@ -64,14 +64,14 @@ fun Chip(
     val dimensions = remember(style) { style.dimensions }
     val colors = remember(style) { style.colors }
     val backgroundColor = colors.backgroundColor.colorForInteractionAsState(interactionSource)
-    val isFocused by interactionSource.collectIsFocusedAsState()
+    val isFocused = interactionSource.collectIsFocusedAsState()
     Layout(
         modifier = modifier
             .height(dimensions.height)
             .applyFocusSelector(
                 focusSelectorMode = LocalFocusSelectorMode.current,
                 originalShape = style.shape,
-            ) { isFocused }
+            ) { isFocused.value }
             .surface(
                 shape = style.shape,
                 onClick = onClick,
@@ -133,14 +133,14 @@ fun Chip(
     val dimensions = remember(style) { style.dimensions }
     val colors = remember(style) { style.colors }
     val backgroundColor = colors.backgroundColor.colorForInteractionAsState(interactionSource)
-    val isFocused by interactionSource.collectIsFocusedAsState()
+    val isFocused = interactionSource.collectIsFocusedAsState()
     Layout(
         modifier = modifier
             .height(dimensions.height)
             .applyFocusSelector(
                 focusSelectorMode = LocalFocusSelectorMode.current,
                 originalShape = style.shape,
-            ) { isFocused }
+            ) { isFocused.value }
             .surface(
                 value = isSelected,
                 onValueChange = onSelectedChange,

@@ -61,10 +61,10 @@ internal fun BaseButton(
     val contentColor = colors.contentColor.colorForInteraction(interactionSource)
     val backgroundColor = colors.backgroundColor.colorForInteraction(interactionSource)
     val spinnerColor = colors.spinnerColor.colorForInteraction(interactionSource)
-    val isFocused by interactionSource.collectIsFocusedAsState()
+    val isFocused = interactionSource.collectIsFocusedAsState()
     Box(
         modifier = modifier
-            .applyFocusSelector(LocalFocusSelectorMode.current, shape) { isFocused }
+            .applyFocusSelector(LocalFocusSelectorMode.current, shape) { isFocused.value }
             .defaultMinSize(dimensions.minWidth, dimensions.height)
             .height(dimensions.height)
             .surface(
