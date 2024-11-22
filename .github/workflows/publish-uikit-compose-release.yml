@@ -34,3 +34,13 @@ jobs:
         with:
           name: distribution
           path: sdds-core/uikit-compose/build/distributions/*.zip
+
+      - name: Create or Update Release
+        uses: ncipollo/release-action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ github.ref_name }}
+          draft: true
+          allowUpdates: true
+          omitBody: true
+          artifacts: sdds-core/uikit-compose/build/distributions/*.zip

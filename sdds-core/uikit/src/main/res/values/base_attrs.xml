@@ -178,4 +178,8 @@
         <attr name="android:lineBreakWordStyle" />
         <attr name="android:lineHeight"/>
     </declare-styleable>
+
+    <declare-styleable name="SdView">
+        <attr name="sd_clipToOutline" format="boolean" />
+    </declare-styleable>
 </resources>

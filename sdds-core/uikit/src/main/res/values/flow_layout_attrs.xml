@@ -13,6 +13,15 @@
         <attr name="sd_strokeWidth"/>
         <attr name="sd_strokeColor"/>
         <attr name="sd_viewState" />
+        <attr name="sd_clipToOutline"/>
+        <attr name="sd_fsAdditionalColor" />
+        <attr name="sd_fsMainColor" />
+        <attr name="sd_fsMode" />
+        <attr name="sd_fsScaleFactor" />
+        <attr name="sd_fsStrokeWidth" />
+        <attr name="sd_fsStrokeInset" />
+        <attr name="sd_fsShapeAppearance" />
+        <attr name="sd_fsShapeAdjustment" />
     </declare-styleable>
 
     <declare-styleable name="FlowLayout_Layout" tools:ignore="ResourceName">

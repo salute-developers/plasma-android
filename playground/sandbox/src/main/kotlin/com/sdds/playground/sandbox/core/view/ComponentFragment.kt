@@ -68,6 +68,9 @@ internal abstract class ComponentFragment : Fragment(), PropertiesAdapter.Intera
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        _binding?.componentContainer?.setOnClickListener {
+            view.findFocus()?.clearFocus()
+        }
         propertiesOwner.properties
             .flowWithLifecycle(lifecycle, Lifecycle.State.RESUMED)
             .onEach { propertiesAdapter.updateProperties(it) }

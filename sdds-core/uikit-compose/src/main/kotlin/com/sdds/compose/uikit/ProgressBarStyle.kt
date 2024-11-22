@@ -73,7 +73,7 @@ interface ProgressBarColors {
     /**
      * Цвет (или градиент) индикатора [ProgressBar]
      */
-    val indicatorColor: Brush
+    val indicatorColor: List<Brush>
 
     /**
      * Цвет (или градиент) фона [ProgressBar]
@@ -100,6 +100,12 @@ interface ProgressBarColorsBuilder {
      * @see ProgressBarColors.indicatorColor
      */
     fun indicatorColor(indicatorColor: Color): ProgressBarColorsBuilder
+
+    /**
+     * Устанавливает композитный градиент [indicatorColor] индикатора компонента.
+     * @see ProgressBarColors.indicatorColor
+     */
+    fun indicatorColor(indicatorColor: List<Brush>): ProgressBarColorsBuilder
 
     /**
      * Устанавливает цвет (или градиент) [indicatorColor] индикатора компонента.
@@ -170,19 +176,22 @@ private data class DefaultProgressBarStyle(
 
 @Immutable
 private data class DefaultProgressBarColors(
-    override val indicatorColor: Brush,
+    override val indicatorColor: List<Brush>,
     override val backgroundColor: Brush,
 ) : ProgressBarColors {
 
     class Builder : ProgressBarColorsBuilder {
 
-        private var indicatorColor: Brush? = null
+        private var indicatorColor: List<Brush>? = null
         private var backgroundColor: Brush? = null
 
         override fun indicatorColor(indicatorColor: Color) =
             this.indicatorColor(SolidColor(indicatorColor))
 
-        override fun indicatorColor(indicatorColor: Brush) = apply {
+        override fun indicatorColor(indicatorColor: Brush) =
+            this.indicatorColor(listOf(indicatorColor))
+
+        override fun indicatorColor(indicatorColor: List<Brush>) = apply {
             this.indicatorColor = indicatorColor
         }
 
@@ -195,7 +204,7 @@ private data class DefaultProgressBarColors(
 
         override fun build(): ProgressBarColors =
             DefaultProgressBarColors(
-                indicatorColor = indicatorColor ?: SolidColor(Color.Green),
+                indicatorColor = indicatorColor ?: listOf(SolidColor(Color.Green)),
                 backgroundColor = backgroundColor ?: SolidColor(Color.Gray),
             )
     }

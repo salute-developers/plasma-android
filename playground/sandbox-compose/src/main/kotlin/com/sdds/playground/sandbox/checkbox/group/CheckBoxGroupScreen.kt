@@ -5,12 +5,13 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.sdds.compose.uikit.CheckBox
 import com.sdds.compose.uikit.CheckBoxGroup
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.core.ComponentScaffold
 
 /**
- * Экран с [SandboxCheckBoxGroup]
+ * Экран с [CheckBoxGroup]
  */
 @Composable
 internal fun CheckBoxGroupScreen() {
@@ -20,12 +21,35 @@ internal fun CheckBoxGroupScreen() {
 
     ComponentScaffold(
         component = {
-            CheckBoxGroup(
-                items = checkboxGroupState.items,
-                rootItem = checkboxGroupState.rootItem,
-                style = checkboxGroupState.checkBoxGroupStyle(),
-                enabled = checkboxGroupState.enabled,
-            )
+            CheckBoxGroup(style = checkboxGroupState.checkBoxGroupStyle()) {
+                checkboxGroupState.rootItem?.let {
+                    rootCheckbox {
+                        CheckBox(
+                            state = it.state,
+                            enabled = checkboxGroupState.enabled,
+                            label = it.label,
+                            description = it.description,
+                            onClick = {
+                                checkboxGroupViewModel.rootCheckBoxClicked()
+                            },
+                        )
+                    }
+                }
+
+                checkboxGroupState.items.forEachIndexed { index, item ->
+                    checkbox {
+                        CheckBox(
+                            state = item.state,
+                            enabled = checkboxGroupState.enabled,
+                            label = item.label,
+                            description = item.description,
+                            onClick = {
+                                checkboxGroupViewModel.checkBoxClicked(index)
+                            },
+                        )
+                    }
+                }
+            }
         },
         propertiesOwner = checkboxGroupViewModel,
     )

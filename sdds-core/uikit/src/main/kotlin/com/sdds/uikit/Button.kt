@@ -15,6 +15,8 @@ import android.text.style.CharacterStyle
 import android.text.style.ReplacementSpan
 import android.text.style.UpdateAppearance
 import android.util.AttributeSet
+import android.view.SoundEffectConstants
+import android.widget.Checkable
 import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
@@ -56,9 +58,21 @@ open class Button @JvmOverloads constructor(
     attrs,
     defStyleAttr,
 ),
+    Checkable,
     Shapeable,
     ViewStateHolder,
     HasFocusSelector by FocusSelectorDelegate() {
+
+    /**
+     * Слушатель изменений состояния [isChecked]
+     */
+    fun interface OnCheckedChangeListener {
+
+        /**
+         * Колбэк изменений состояния [isChecked]
+         */
+        fun onCheckedChanged(button: Button, isChecked: Boolean)
+    }
 
     private val _shapeHelper: ShapeHelper = ShapeHelper(this, attrs, defStyleAttr)
     private val _viewAlphaHelper: ViewAlphaHelper = ViewAlphaHelper(context, attrs, defStyleAttr)
@@ -85,6 +99,16 @@ open class Button @JvmOverloads constructor(
     private var _spinnerSize: Int = 0
     private var _spinnerStrokeWidth: Float = 0f
     private var _spinnerTintList: ColorStateList? = null
+
+    private var _isCheckable: Boolean = false
+    private var _onCheckedChangedListener: OnCheckedChangeListener? = null
+    private var _isChecked: Boolean = false
+        set(value) {
+            if (field != value) {
+                field = value
+                _onCheckedChangedListener?.onCheckedChanged(this, value)
+            }
+        }
 
     /**
      * Режим обработки расстояния между основным ([getText]) и дополнительным [value] текстами
@@ -115,6 +139,25 @@ open class Button @JvmOverloads constructor(
          * В конце всего текста (Text + Value)
          */
         TextEnd,
+    }
+
+    /**
+     * Может ли [Button] изменять состояние [isChecked]
+     */
+    open var isCheckable: Boolean
+        get() = _isCheckable
+        set(value) {
+            if (_isCheckable != value) {
+                _isCheckable = value
+                refreshDrawableState()
+            }
+        }
+
+    /**
+     * Устанавливает слушатель изменения состояния [isChecked]
+     */
+    open fun setOnCheckedChangedListener(listener: OnCheckedChangeListener?) {
+        _onCheckedChangedListener = listener
     }
 
     /**
@@ -404,9 +447,12 @@ open class Button @JvmOverloads constructor(
     }
 
     override fun onCreateDrawableState(extraSpace: Int): IntArray {
-        val drawableState = super.onCreateDrawableState(extraSpace + 2)
+        val drawableState = super.onCreateDrawableState(extraSpace + 3)
         if (state?.isDefined() == true) {
             mergeDrawableStates(drawableState, state?.attr)
+        }
+        if (isChecked) {
+            mergeDrawableStates(drawableState, intArrayOf(android.R.attr.state_checked))
         }
         val loadingState = if (isLoading) R.attr.sd_state_loading else -R.attr.sd_state_loading
         mergeDrawableStates(drawableState, intArrayOf(loadingState))
@@ -447,7 +493,14 @@ open class Button @JvmOverloads constructor(
         _iconTint = typedArray.getColorStateList(R.styleable.Button_sd_iconTint)
         _iconPosition = IconPosition
             .values()
-            .getOrElse(typedArray.getInt(R.styleable.Button_sd_iconPosition, 0)) { IconPosition.TextStart }
+            .getOrElse(
+                typedArray.getInt(
+                    R.styleable.Button_sd_iconPosition,
+                    0,
+                ),
+            ) { IconPosition.TextStart }
+        _isCheckable = typedArray.getBoolean(R.styleable.Button_android_checkable, true)
+        _isChecked = typedArray.getBoolean(R.styleable.Button_android_checked, false)
 
         typedArray.recycle()
         resetText()
@@ -563,7 +616,8 @@ open class Button @JvmOverloads constructor(
         if (isIconStart() || isIconEnd()) {
             _iconTop = 0
             val textWidth = getTextWidth() + _spanSpaceSize
-            var newIconLeft = ((buttonWidth - textWidth - paddingEnd - iconSize - iconPadding - paddingStart) / 2)
+            var newIconLeft =
+                ((buttonWidth - textWidth - paddingEnd - iconSize - iconPadding - paddingStart) / 2)
             newIconLeft = newIconLeft.coerceAtLeast(0)
 
             // Меняем значение левой границы только если isLayoutRTL() или iconGravity = textEnd, но не в обоих случаях
@@ -673,6 +727,30 @@ open class Button @JvmOverloads constructor(
             if (tp == null) return
             val colorState = _valueTextColor ?: return
             tp.color = colorState.getColorForState(drawableState, colorState.defaultColor)
+        }
+    }
+
+    override fun setChecked(checked: Boolean) {
+        if (_isChecked != checked) {
+            _isChecked = checked
+            refreshDrawableState()
+        }
+    }
+
+    override fun isChecked(): Boolean {
+        return _isChecked
+    }
+
+    override fun toggle() {
+        isChecked = !isChecked && isCheckable
+    }
+
+    override fun performClick(): Boolean {
+        toggle()
+        return super.performClick().also { handled ->
+            if (handled) {
+                playSoundEffect(SoundEffectConstants.CLICK)
+            }
         }
     }
 

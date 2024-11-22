@@ -186,6 +186,7 @@ internal fun BaseTextField(
             onValueChange = onValueChange,
             modifier = Modifier
                 .defaultMinSize(minHeight = dimensions.boxMinHeight)
+                .weight(1f, fill = false)
                 .fillMaxWidth()
                 .applyFieldIndicator(
                     fieldType,

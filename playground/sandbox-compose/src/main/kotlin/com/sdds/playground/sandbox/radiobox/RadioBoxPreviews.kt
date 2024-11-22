@@ -4,7 +4,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.sdds.compose.uikit.RadioBox
 import com.sdds.compose.uikit.RadioBoxGroup
-import com.sdds.compose.uikit.VerticalRadioBoxGroup
+import com.sdds.compose.uikit.isChecked
+import com.sdds.compose.uikit.updateSelection
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.radiobox.group.M
 import com.sdds.playground.sandbox.radiobox.group.S
@@ -83,27 +84,35 @@ internal fun RadioBoxPreviewOff() {
 @Preview(showBackground = true)
 internal fun RadioBoxPreviewSizeM() {
     SandboxTheme {
-        VerticalRadioBoxGroup(
+        RadioBoxGroup(
             style = RadioBoxGroup.M.style(),
-            items = listOf(
-                RadioBoxGroup.Item(
-                    id = 1,
-                    label = "Label",
-                    description = "Description",
-                ),
-                RadioBoxGroup.Item(
-                    id = 2,
-                    label = "Label",
-                    description = "Description",
-                ),
-                RadioBoxGroup.Item(
-                    id = 3,
-                    label = "Label",
-                    description = "Description",
-                ),
-            ),
             default = 2,
-        )
+        ) { selection ->
+            radioBoxItem(key = 1) { key ->
+                RadioBox(
+                    checked = isChecked(selection, key),
+                    label = "Label",
+                    description = "Description",
+                    onClick = { updateSelection(selection, key) },
+                )
+            }
+            radioBoxItem(key = 2) { key ->
+                RadioBox(
+                    checked = isChecked(selection, key),
+                    label = "Label",
+                    description = "Description",
+                    onClick = { updateSelection(selection, key) },
+                )
+            }
+            radioBoxItem(key = 3) { key ->
+                RadioBox(
+                    checked = isChecked(selection, key),
+                    label = "Label",
+                    description = "Description",
+                    onClick = { updateSelection(selection, key) },
+                )
+            }
+        }
     }
 }
 
@@ -111,26 +120,34 @@ internal fun RadioBoxPreviewSizeM() {
 @Preview(showBackground = true)
 internal fun RadioBoxPreviewSizeS() {
     SandboxTheme {
-        VerticalRadioBoxGroup(
+        RadioBoxGroup(
             style = RadioBoxGroup.S.style(),
-            items = listOf(
-                RadioBoxGroup.Item(
-                    id = 1,
-                    label = "Label",
-                    description = "Description",
-                ),
-                RadioBoxGroup.Item(
-                    id = 2,
-                    label = "Label",
-                    description = "Description",
-                ),
-                RadioBoxGroup.Item(
-                    id = 3,
-                    label = "Label",
-                    description = "Description",
-                ),
-            ),
             default = 2,
-        )
+        ) { selection ->
+            radioBoxItem(key = 1) { key ->
+                RadioBox(
+                    checked = isChecked(selection, key),
+                    label = "Label",
+                    description = "Description",
+                    onClick = { updateSelection(selection, key) },
+                )
+            }
+            radioBoxItem(key = 2) { key ->
+                RadioBox(
+                    checked = isChecked(selection, key),
+                    label = "Label",
+                    description = "Description",
+                    onClick = { updateSelection(selection, key) },
+                )
+            }
+            radioBoxItem(key = 3) { key ->
+                RadioBox(
+                    checked = isChecked(selection, key),
+                    label = "Label",
+                    description = "Description",
+                    onClick = { updateSelection(selection, key) },
+                )
+            }
+        }
     }
 }

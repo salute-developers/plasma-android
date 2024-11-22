@@ -1,5 +1,6 @@
 package com.sdds.plugin.themebuilder.internal.builder
 
+import com.squareup.kotlinpoet.AnnotationSpec
 import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.FileSpec
 import com.squareup.kotlinpoet.FunSpec
@@ -325,9 +326,29 @@ class KtFileBuilderTest {
         }
     }
 
+    @Test
+    fun `addSuppressAnnotation добавляет аннотацию Supress по имени warningName для всего файла`() {
+        val mockResultFileSpec = mockk<FileSpec.Builder>(relaxed = true) {
+            every { addFileComment(any()) } returns this
+        }
+        every { FileSpec.builder(TEST_PACKAGE, TEST_CLASS) } returns mockResultFileSpec
+
+        underTest.addSuppressAnnotation(WARNING)
+
+        val expectAnnotationSpec = AnnotationSpec.builder(Suppress::class)
+            .addMember("%S", WARNING)
+            .useSiteTarget(AnnotationSpec.UseSiteTarget.FILE)
+            .build()
+
+        verify {
+            mockResultFileSpec.addAnnotation(expectAnnotationSpec)
+        }
+    }
+
     private companion object {
         const val TEST_PACKAGE = "com.package"
         const val TEST_CLASS = "TestClass"
+        const val WARNING = "DEPRECATION"
 
         val testParameterType = ClassName(TEST_PACKAGE, "TestParameterType")
         val testFunParameter = KtFileBuilder.FunParameter(

@@ -2,7 +2,6 @@ package com.sdds.playground.sandbox.buttons
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.BasicButton
 import com.sdds.compose.uikit.Button
@@ -11,6 +10,7 @@ import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.ButtonStyleBuilder
 import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.LinkButton
+import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.style.applyExclude
 import com.sdds.compose.uikit.style.applyFor
@@ -101,9 +101,8 @@ internal val ButtonStyleBuilder.Pilled: ButtonStyleBuilder
 
 internal val BasicButton.L: ButtonStyleBuilder
     @Composable
-    @ReadOnlyComposable
     get() = ButtonStyle.builder(this)
-        .shape(SddsServTheme.shapes.roundL)
+        .shape(SddsServTheme.shapes.roundL.adjustBy(all = (-2).dp))
         .dimensions(
             Button.Dimensions(
                 height = 56.dp,
@@ -139,7 +138,7 @@ internal val BasicButton.M: ButtonStyleBuilder
 internal val BasicButton.S: ButtonStyleBuilder
     @Composable
     get() = ButtonStyle.builder(this)
-        .shape(SddsServTheme.shapes.roundS)
+        .shape(SddsServTheme.shapes.roundM.adjustBy(all = (-2).dp))
         .dimensions(
             Button.Dimensions(
                 height = 40.dp,
@@ -157,7 +156,7 @@ internal val BasicButton.S: ButtonStyleBuilder
 internal val BasicButton.Xs: ButtonStyleBuilder
     @Composable
     get() = ButtonStyle.builder(this)
-        .shape(SddsServTheme.shapes.roundXs)
+        .shape(SddsServTheme.shapes.roundS)
         .dimensions(
             Button.Dimensions(
                 height = 32.dp,
@@ -207,7 +206,7 @@ internal val IconButton.M: ButtonStyleBuilder
 internal val IconButton.S: ButtonStyleBuilder
     @Composable
     get() = ButtonStyle.builder(this)
-        .shape(SddsServTheme.shapes.roundS)
+        .shape(SddsServTheme.shapes.roundM.adjustBy(all = (-2).dp))
         .dimensions(
             Button.Dimensions(
                 height = 40.dp,
@@ -223,7 +222,7 @@ internal val IconButton.S: ButtonStyleBuilder
 internal val IconButton.Xs: ButtonStyleBuilder
     @Composable
     get() = ButtonStyle.builder(this)
-        .shape(SddsServTheme.shapes.roundXs)
+        .shape(SddsServTheme.shapes.roundS)
         .dimensions(
             Button.Dimensions(
                 height = 32.dp,

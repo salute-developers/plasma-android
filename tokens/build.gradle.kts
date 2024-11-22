@@ -1,6 +1,8 @@
 @file:Suppress("DSL_SCOPE_VIOLATION")
 
 import org.jetbrains.kotlin.incremental.mkdirsOrThrow
+import utils.getBranchName
+import utils.isMainBranch
 
 plugins {
     id("convention.root-project")
@@ -28,6 +30,20 @@ buildscript {
         classpath(libs.base.gradle.android)
         classpath(libs.base.gradle.kotlin)
         classpath(libs.base.gradle.cacheFix)
+    }
+}
+
+val isMainBranch = getBranchName().isMainBranch()
+
+allprojects {
+    configurations.all {
+        if (isMainBranch) {
+            resolutionStrategy.dependencySubstitution {
+                substitute(module("sdds-core:uikit-compose:+"))
+                    .using(module("io.github.salute-developers:sdds-uikit-compose:+"))
+                    .because("we work with the unreleased development version")
+            }
+        }
     }
 }
 
@@ -232,6 +248,7 @@ tasks.replace("testAll")
 tasks.replace("testDebugAll")
 tasks.replace("detektAll")
 tasks.replace("spotlessCheckAll")
+tasks.replace("spotlessApplyAll")
 tasks.replace("apiCheckAll")
 
 tasks.register("cleanAll") {
