@@ -9,6 +9,7 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.State
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.graphics.Color
 
@@ -49,6 +50,37 @@ fun Color.asInteractive(
     return SimpleInteractiveColor(this, focused, hovered, pressed)
 }
 
+/**
+ * Создает [InteractiveColor] из текущего цвета и позволяет более гибко определить дополнитнльные цвета для состояний
+ * [InteractiveState]
+ * @receiver [Color] текущий цвет
+ * @param colorStates цвета для каждого стейта
+ */
+@Stable
+fun Color.asInteractive(vararg colorStates: Pair<Set<InteractiveState>, Color>): InteractiveColor {
+    return ColorStateList(this, colorStates.associate { it.first to it.second })
+}
+
+/**
+ * Интерактивные состояния цвета
+ */
+enum class InteractiveState {
+    /**
+     * Состояние цвета в фокусе
+     */
+    Focused,
+
+    /**
+     * Состояние цвета в нажатом состоянии
+     */
+    Pressed,
+
+    /**
+     * Состояние цвета при наведении курсором
+     */
+    Hovered,
+}
+
 @Immutable
 private data class SimpleInteractiveColor(
     val default: Color,
@@ -68,6 +100,33 @@ private data class SimpleInteractiveColor(
             isFocused -> focused
             else -> default
         }
+    }
+
+    @Composable
+    override fun colorForInteractionAsState(interactionSource: InteractionSource): State<Color> {
+        return rememberUpdatedState(newValue = colorForInteraction(interactionSource))
+    }
+}
+
+@Immutable
+private data class ColorStateList(
+    val default: Color,
+    val colorStates: Map<Set<InteractiveState>, Color> = emptyMap(),
+) : InteractiveColor {
+
+    @Composable
+    override fun colorForInteraction(interactionSource: InteractionSource): Color {
+        val isPressed by interactionSource.collectIsPressedAsState()
+        val isHovered by interactionSource.collectIsHoveredAsState()
+        val isFocused by interactionSource.collectIsFocusedAsState()
+        val stateSet = remember(isPressed, isFocused, isHovered) {
+            HashSet<InteractiveState>().apply {
+                if (isPressed) add(InteractiveState.Pressed)
+                if (isFocused) add(InteractiveState.Focused)
+                if (isHovered) add(InteractiveState.Hovered)
+            }
+        }
+        return colorStates[stateSet] ?: default
     }
 
     @Composable
