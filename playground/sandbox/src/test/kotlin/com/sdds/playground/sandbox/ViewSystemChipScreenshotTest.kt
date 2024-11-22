@@ -26,7 +26,7 @@ class ViewSystemChipScreenshotTest(
             ChipUiState(
                 variant = ChipVariant.ChipLDefault,
                 label = "Label",
-                contentLeft = true,
+                contentLeft = false,
                 hasClose = true,
                 enabled = true,
             ),
@@ -36,27 +36,11 @@ class ViewSystemChipScreenshotTest(
     }
 
     @Test
-    fun testChipXsSecondary() {
+    fun testChipMSecondary() {
         launchScreen(
             R.id.nav_chip,
             ChipUiState(
-                variant = ChipVariant.ChipXSSecondary,
-                label = "Label",
-                contentLeft = true,
-                hasClose = true,
-                enabled = true,
-            ),
-        )
-        onView(withId(R.id.chip))
-            .captureRoboImage()
-    }
-
-    @Test
-    fun testChipMAccent() {
-        launchScreen(
-            R.id.nav_chip,
-            ChipUiState(
-                variant = ChipVariant.ChipMPilledAccent,
+                variant = ChipVariant.ChipMPilledSecondary,
                 label = "Label",
                 contentLeft = false,
                 hasClose = false,
@@ -72,11 +56,27 @@ class ViewSystemChipScreenshotTest(
         launchScreen(
             R.id.nav_chip,
             ChipUiState(
-                variant = ChipVariant.ChipSDefault,
+                variant = ChipVariant.ChipSAccent,
+                label = "Label",
+                contentLeft = false,
+                hasClose = false,
+                enabled = false,
+            ),
+        )
+        onView(withId(R.id.chip))
+            .captureRoboImage()
+    }
+
+    @Test
+    fun testChipXsDefault() {
+        launchScreen(
+            R.id.nav_chip,
+            ChipUiState(
+                variant = ChipVariant.ChipXSDefault,
                 label = "Label",
                 contentLeft = true,
-                hasClose = true,
-                enabled = false,
+                hasClose = false,
+                enabled = true,
             ),
         )
         onView(withId(R.id.chip))

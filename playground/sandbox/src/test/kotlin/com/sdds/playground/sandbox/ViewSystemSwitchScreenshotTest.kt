@@ -20,14 +20,46 @@ class ViewSystemSwitchScreenshotTest(
 ) : RoborazziConfig(theme) {
 
     @Test
+    fun testSwitchSizeL() {
+        launchScreen(
+            R.id.nav_switch,
+            SwitchUiState(
+                variant = SwitchVariant.SwitchL,
+                active = true,
+                label = "Label",
+                description = "Description",
+                enabled = true,
+            ),
+        )
+        onView(withId(R.id.switcher))
+            .captureRoboImage()
+    }
+
+    @Test
     fun testSwitchSizeM() {
         launchScreen(
             R.id.nav_switch,
             SwitchUiState(
                 variant = SwitchVariant.SwitchM,
-                active = true,
+                active = false,
                 label = "Label",
-                description = "Description",
+                description = "",
+                enabled = true,
+            ),
+        )
+        onView(withId(R.id.switcher))
+            .captureRoboImage()
+    }
+
+    @Test
+    fun testSwitchSizeS() {
+        launchScreen(
+            R.id.nav_switch,
+            SwitchUiState(
+                variant = SwitchVariant.SwitchS,
+                active = true,
+                label = "",
+                description = "",
                 enabled = true,
             ),
         )
@@ -40,27 +72,11 @@ class ViewSystemSwitchScreenshotTest(
         launchScreen(
             R.id.nav_switch,
             SwitchUiState(
-                variant = SwitchVariant.SwitchS,
-                active = false,
+                variant = SwitchVariant.SwitchM,
+                active = true,
                 label = "Label",
                 description = "Description",
                 enabled = false,
-            ),
-        )
-        onView(withId(R.id.switcher))
-            .captureRoboImage()
-    }
-
-    @Test
-    fun testSwitchOff() {
-        launchScreen(
-            R.id.nav_switch,
-            SwitchUiState(
-                variant = SwitchVariant.SwitchL,
-                active = false,
-                label = "Label",
-                description = "Description",
-                enabled = true,
             ),
         )
         onView(withId(R.id.switcher))

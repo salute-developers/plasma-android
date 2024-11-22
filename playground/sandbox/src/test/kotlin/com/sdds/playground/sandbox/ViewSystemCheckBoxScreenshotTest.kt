@@ -40,11 +40,11 @@ class ViewSystemCheckBoxScreenshotTest(
     }
 
     @Test
-    fun testCheckBoxSizeMUnchecked() {
+    fun testCheckBoxSizeSUnchecked() {
         launchScreen(
             R.id.nav_checkbox,
             CheckBoxUiState(
-                variant = CheckBoxVariant.CheckBoxM,
+                variant = CheckBoxVariant.CheckBoxS,
                 state = CheckBox.ToggleableState.OFF,
                 label = "Label",
                 description = "Description",
@@ -72,44 +72,12 @@ class ViewSystemCheckBoxScreenshotTest(
     }
 
     @Test
-    fun testCheckBoxMediumNoDesc() {
-        launchScreen(
-            R.id.nav_checkbox,
-            CheckBoxUiState(
-                variant = CheckBoxVariant.CheckBoxM,
-                state = CheckBox.ToggleableState.ON,
-                label = "Label",
-                description = "",
-                enabled = true,
-            ),
-        )
-        onView(withId(R.id.checkBox))
-            .captureRoboImage()
-    }
-
-    @Test
-    fun testCheckBoxMediumNoLabel() {
-        launchScreen(
-            R.id.nav_checkbox,
-            CheckBoxUiState(
-                variant = CheckBoxVariant.CheckBoxM,
-                state = CheckBox.ToggleableState.ON,
-                label = "",
-                description = "Description",
-                enabled = false,
-            ),
-        )
-        onView(withId(R.id.checkBox))
-            .captureRoboImage()
-    }
-
-    @Test
     fun testCheckBoxDisabled() {
         launchScreen(
             R.id.nav_checkbox,
             CheckBoxUiState(
                 variant = CheckBoxVariant.CheckBoxS,
-                state = CheckBox.ToggleableState.INDETERMINATE,
+                state = CheckBox.ToggleableState.ON,
                 label = "Label",
                 description = "Description",
                 enabled = false,
@@ -120,15 +88,15 @@ class ViewSystemCheckBoxScreenshotTest(
     }
 
     @Test
-    fun testCheckBoxSizeSDark() {
+    fun testCheckBoxSizeMIndeterminate() {
         launchScreen(
             R.id.nav_checkbox,
             CheckBoxUiState(
-                variant = CheckBoxVariant.CheckBoxS,
-                state = CheckBox.ToggleableState.ON,
+                variant = CheckBoxVariant.CheckBoxM,
+                state = CheckBox.ToggleableState.INDETERMINATE,
                 label = "Label",
                 description = "Description",
-                enabled = false,
+                enabled = true,
             ),
         )
         onView(withId(R.id.checkBox))
@@ -163,8 +131,23 @@ class ViewSystemCheckBoxScreenshotTest(
                 enabled = true,
             ),
         )
-        onView(withId(R.id.checkBox_group))
+        onView(withId(1))
             .perform(click())
+        onView(withId(R.id.checkBox_group))
+            .captureRoboImage()
+    }
+
+    @Test
+    fun testCheckBoxGroupMDisabled() {
+        launchScreen(
+            R.id.nav_checkbox_group,
+            CheckBoxUiState(
+                variant = CheckBoxVariant.CheckBoxM,
+                label = "Label",
+                description = "Description",
+                enabled = false,
+            ),
+        )
         onView(withId(R.id.checkBox_group))
             .captureRoboImage()
     }
