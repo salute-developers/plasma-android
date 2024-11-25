@@ -1,12 +1,14 @@
 package com.sdds.playground.sandbox
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
-import com.sdds.playground.sandbox.radiobox.RadioBoxPreviewMedium
-import com.sdds.playground.sandbox.radiobox.RadioBoxPreviewOff
+import com.sdds.playground.sandbox.radiobox.RadioBoxGroupPreviewSizeM
+import com.sdds.playground.sandbox.radiobox.RadioBoxGroupPreviewSizeMDescription
+import com.sdds.playground.sandbox.radiobox.RadioBoxGroupPreviewSizeS
+import com.sdds.playground.sandbox.radiobox.RadioBoxGroupPreviewSizeSLabel
+import com.sdds.playground.sandbox.radiobox.RadioBoxPreviewDisabled
 import com.sdds.playground.sandbox.radiobox.RadioBoxPreviewSizeM
+import com.sdds.playground.sandbox.radiobox.RadioBoxPreviewSizeMNoDescription
 import com.sdds.playground.sandbox.radiobox.RadioBoxPreviewSizeS
-import com.sdds.playground.sandbox.radiobox.RadioBoxPreviewSmallDark
-import com.sdds.playground.sandbox.radiobox.RadioBoxPreviewUnchecked
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.ParameterizedRobolectricTestRunner
@@ -24,46 +26,58 @@ class ComposeRadioBoxScreenshotTest(
      * Запуск скриншот тестов с использованием Preview
      */
     @Test
-    fun testRadioBoxMedium() {
-        composeTestRule.setContent {
-            RadioBoxPreviewMedium()
-        }
-    }
-
-    @Test
-    fun testRadioBoxSmallDark() {
-        composeTestRule.setContent {
-            SandboxTheme(darkTheme = true) {
-                RadioBoxPreviewSmallDark()
-            }
-        }
-    }
-
-    @Test
-    fun testRadioBoxUnchecked() {
-        composeTestRule.setContent {
-            RadioBoxPreviewUnchecked()
-        }
-    }
-
-    @Test
-    fun testRadioBoxOff() {
-        composeTestRule.setContent {
-            RadioBoxPreviewOff()
-        }
-    }
-
-    @Test
-    fun testRadioBoxGroupSizeM() {
+    fun testRadioBoxPreviewSizeM() {
         composeTestRule.setContent {
             RadioBoxPreviewSizeM()
         }
     }
 
     @Test
-    fun testRadioBoxGroupSizeS() {
+    fun testRadioBoxPreviewSizeS() {
         composeTestRule.setContent {
             RadioBoxPreviewSizeS()
+        }
+    }
+
+    @Test
+    fun testRadioBoxPreviewSizeMNoDescription() {
+        composeTestRule.setContent {
+            RadioBoxPreviewSizeMNoDescription()
+        }
+    }
+
+    @Test
+    fun testRadioBoxPreviewDisabled() {
+        composeTestRule.setContent {
+            RadioBoxPreviewDisabled()
+        }
+    }
+
+    @Test
+    fun testRadioBoxGroupSizeM() {
+        composeTestRule.setContent {
+            RadioBoxGroupPreviewSizeM()
+        }
+    }
+
+    @Test
+    fun testRadioBoxGroupSizeS() {
+        composeTestRule.setContent {
+            RadioBoxGroupPreviewSizeS()
+        }
+    }
+
+    @Test
+    fun testRadioBoxGroupSizeMDescription() {
+        composeTestRule.setContent {
+            RadioBoxGroupPreviewSizeMDescription()
+        }
+    }
+
+    @Test
+    fun testRadioBoxGroupSizeSLabel() {
+        composeTestRule.setContent {
+            RadioBoxGroupPreviewSizeSLabel()
         }
     }
 }

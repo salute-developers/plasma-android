@@ -2,13 +2,13 @@ package com.sdds.playground.sandbox
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.sdds.playground.sandbox.checkbox.CheckBoxGroupPreviewSizeM
+import com.sdds.playground.sandbox.checkbox.CheckBoxGroupPreviewSizeMDisabled
 import com.sdds.playground.sandbox.checkbox.CheckBoxGroupPreviewSizeS
-import com.sdds.playground.sandbox.checkbox.CheckBoxPreviewCheckedSizeSmall
-import com.sdds.playground.sandbox.checkbox.CheckBoxPreviewOffSizeSmall
-import com.sdds.playground.sandbox.checkbox.CheckBoxPreviewOnSizeMediumNoDesc
-import com.sdds.playground.sandbox.checkbox.CheckBoxPreviewOnSizeMediumNoLabel
+import com.sdds.playground.sandbox.checkbox.CheckBoxPreviewSizeM
+import com.sdds.playground.sandbox.checkbox.CheckBoxPreviewSizeMIndeterminate
 import com.sdds.playground.sandbox.checkbox.CheckBoxPreviewSizeMediumNoLabelAndDesc
-import com.sdds.playground.sandbox.checkbox.CheckBoxPreviewUncheckedSizeMedium
+import com.sdds.playground.sandbox.checkbox.CheckBoxPreviewSizeSDisabled
+import com.sdds.playground.sandbox.checkbox.CheckBoxPreviewSizeSUnchecked
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.ParameterizedRobolectricTestRunner
@@ -26,39 +26,30 @@ class ComposeCheckBoxScreenshotTest(
      * Запуск скриншот тестов с использованием Preview
      */
     @Test
-    fun testCheckBoxUncheckedSizeMedium() {
+    fun testCheckBoxSizeM() {
         composeTestRule.setContent {
-            CheckBoxPreviewUncheckedSizeMedium()
+            CheckBoxPreviewSizeM()
         }
     }
 
     @Test
-    fun testCheckBoxCheckedSizeSmallDark() {
+    fun testCheckBoxSizeSUnchecked() {
         composeTestRule.setContent {
-            SandboxTheme(darkTheme = true) {
-                CheckBoxPreviewCheckedSizeSmall()
-            }
+            CheckBoxPreviewSizeSUnchecked()
         }
     }
 
     @Test
-    fun testCheckBoxOffSizeSmall() {
+    fun testCheckBoxSizeSDisabled() {
         composeTestRule.setContent {
-            CheckBoxPreviewOffSizeSmall()
+            CheckBoxPreviewSizeSDisabled()
         }
     }
 
     @Test
-    fun testCheckBoxOnSizeMediumNoDesc() {
+    fun testCheckBoxSizeMIndeterminate() {
         composeTestRule.setContent {
-            CheckBoxPreviewOnSizeMediumNoDesc()
-        }
-    }
-
-    @Test
-    fun testCheckBoxOnSizeMediumNoLabel() {
-        composeTestRule.setContent {
-            CheckBoxPreviewOnSizeMediumNoLabel()
+            CheckBoxPreviewSizeMIndeterminate()
         }
     }
 
@@ -80,6 +71,13 @@ class ComposeCheckBoxScreenshotTest(
     fun testCheckBoxGroupSizeS() {
         composeTestRule.setContent {
             CheckBoxGroupPreviewSizeS()
+        }
+    }
+
+    @Test
+    fun testCheckBoxGroupSizeMDisabled() {
+        composeTestRule.setContent {
+            CheckBoxGroupPreviewSizeMDisabled()
         }
     }
 }

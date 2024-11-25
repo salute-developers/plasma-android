@@ -2,9 +2,9 @@ package com.sdds.playground.sandbox
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.sdds.playground.sandbox.chip.ChipPreviewSizeLDefault
-import com.sdds.playground.sandbox.chip.ChipPreviewSizeMAccent
-import com.sdds.playground.sandbox.chip.ChipPreviewSizeSDisabled
-import com.sdds.playground.sandbox.chip.ChipPreviewSizeXsSecondary
+import com.sdds.playground.sandbox.chip.ChipPreviewSizeMSecondaryPilled
+import com.sdds.playground.sandbox.chip.ChipPreviewSizeSAccentDisabled
+import com.sdds.playground.sandbox.chip.ChipPreviewSizeXSContentLeft
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.ParameterizedRobolectricTestRunner
@@ -29,23 +29,23 @@ class ComposeChipScreenshotTest(
     }
 
     @Test
-    fun testChipPreviewSizeXsSecondary() {
+    fun testChipPreviewSizeMSecondaryPilled() {
         composeTestRule.setContent {
-            ChipPreviewSizeXsSecondary()
+            ChipPreviewSizeMSecondaryPilled()
         }
     }
 
     @Test
-    fun testChipPreviewSizeMAccent() {
+    fun testChipPreviewSizeSAccentDisabled() {
         composeTestRule.setContent {
-            ChipPreviewSizeMAccent()
+            ChipPreviewSizeSAccentDisabled()
         }
     }
 
     @Test
-    fun testChipPreviewSizeSDisabled() {
+    fun testChipPreviewSizeXSContentLeft() {
         composeTestRule.setContent {
-            ChipPreviewSizeSDisabled()
+            ChipPreviewSizeXSContentLeft()
         }
     }
 }

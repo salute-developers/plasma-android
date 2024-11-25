@@ -6,6 +6,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.sdds.compose.uikit.BasicButton
 import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.IconButton
+import com.sdds.compose.uikit.LinkButton
 import com.sdds.icons.R
 import com.sdds.playground.sandbox.SandboxTheme
 
@@ -337,6 +338,97 @@ internal fun SandboxIconButtonPreviewLWhiteDarkTheme() {
             onClick = {},
             enabled = true,
             loading = false,
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxLinkButtonPreviewSizeLDefault() {
+    SandboxTheme {
+        Button(
+            style = LinkButton.L.Default.style(),
+            label = "Label",
+            enabled = true,
+            loading = false,
+            onClick = {},
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxLinkButtonPreviewSizeLIsLoading() {
+    SandboxTheme {
+        Button(
+            style = LinkButton.L.Default.style(),
+            label = "Label",
+            value = "",
+            enabled = true,
+            loading = true,
+            onClick = {},
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxLinkButtonPreviewSizeMAccent() {
+    SandboxTheme {
+        Button(
+            style = LinkButton.M.Accent.style(),
+            icons = Button.Icons(start = painterResource(id = R.drawable.ic_plasma_24)),
+            label = "Label",
+            value = "",
+            enabled = true,
+            loading = false,
+            onClick = {},
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxLinkButtonPreviewSizeLDisabled() {
+    SandboxTheme {
+        Button(
+            style = LinkButton.L.Default.style(),
+            spacing = Button.Spacing.Packed,
+            label = "Label",
+            value = "",
+            enabled = false,
+            loading = false,
+            onClick = {},
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxLinkButtonPreviewSizeSWarning() {
+    SandboxTheme {
+        Button(
+            style = LinkButton.S.Warning.style(),
+            icons = Button.Icons(end = painterResource(id = R.drawable.ic_plasma_24)),
+            label = "Label",
+            value = "",
+            enabled = true,
+            loading = false,
+            onClick = {},
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxLinkButtonPreviewSizeXSDark() {
+    SandboxTheme {
+        Button(
+            style = LinkButton.Xs.Dark.style(),
+            label = "Label",
+            enabled = true,
+            loading = false,
+            onClick = {},
         )
     }
 }
