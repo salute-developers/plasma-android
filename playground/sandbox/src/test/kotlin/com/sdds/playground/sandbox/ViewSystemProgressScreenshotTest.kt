@@ -25,7 +25,7 @@ class ViewSystemProgressScreenshotTest(
             R.id.nav_progressbar,
             ProgressUiState(
                 variant = ProgressVariant.Default,
-                progress = 0.5f,
+                progress = 0.25f,
             ),
         )
         onView(withId(R.id.progressBar))
@@ -33,12 +33,12 @@ class ViewSystemProgressScreenshotTest(
     }
 
     @Test
-    fun testProgressNegative() {
+    fun testProgressSecondary() {
         launchScreen(
             R.id.nav_progressbar,
             ProgressUiState(
-                variant = ProgressVariant.Negative,
-                progress = 0.5f,
+                variant = ProgressVariant.Secondary,
+                progress = 0.25f,
             ),
         )
         onView(withId(R.id.progressBar))
@@ -51,7 +51,7 @@ class ViewSystemProgressScreenshotTest(
             R.id.nav_progressbar,
             ProgressUiState(
                 variant = ProgressVariant.Warning,
-                progress = 0.8f,
+                progress = 0.25f,
             ),
         )
         onView(withId(R.id.progressBar))
@@ -72,12 +72,51 @@ class ViewSystemProgressScreenshotTest(
     }
 
     @Test
-    fun testProgressDefaultDark() {
+    fun testProgressNegative() {
+        launchScreen(
+            R.id.nav_progressbar,
+            ProgressUiState(
+                variant = ProgressVariant.Negative,
+                progress = 0.99f,
+            ),
+        )
+        onView(withId(R.id.progressBar))
+            .captureRoboImage()
+    }
+
+    @Test
+    fun testProgressAccent() {
+        launchScreen(
+            R.id.nav_progressbar,
+            ProgressUiState(
+                variant = ProgressVariant.Accent,
+                progress = 1f,
+            ),
+        )
+        onView(withId(R.id.progressBar))
+            .captureRoboImage()
+    }
+
+    @Test
+    fun testProgressGradientAccent() {
+        launchScreen(
+            R.id.nav_progressbar,
+            ProgressUiState(
+                variant = ProgressVariant.GradientAccent,
+                progress = 0.5f,
+            ),
+        )
+        onView(withId(R.id.progressBar))
+            .captureRoboImage()
+    }
+
+    @Test
+    fun testProgressDefaultValueOne() {
         launchScreen(
             R.id.nav_progressbar,
             ProgressUiState(
                 variant = ProgressVariant.Default,
-                progress = 0.2f,
+                progress = 0.01f,
             ),
         )
         onView(withId(R.id.progressBar))

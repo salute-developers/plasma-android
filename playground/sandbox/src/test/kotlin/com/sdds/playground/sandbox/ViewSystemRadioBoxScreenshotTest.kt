@@ -7,6 +7,7 @@ import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.github.takahirom.roborazzi.captureRoboImage
 import com.sdds.playground.sandbox.radiobox.RadioBoxUiState
 import com.sdds.playground.sandbox.radiobox.RadioBoxVariant
+import org.hamcrest.core.AllOf.allOf
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.ParameterizedRobolectricTestRunner
@@ -42,9 +43,25 @@ class ViewSystemRadioBoxScreenshotTest(
             R.id.nav_radiobox,
             RadioBoxUiState(
                 variant = RadioBoxVariant.RadioBoxS,
+                checked = false,
+                label = "Label",
+                description = "Description",
+                enabled = true,
+            ),
+        )
+        onView(withId(R.id.radioBox))
+            .captureRoboImage()
+    }
+
+    @Test
+    fun testRadioBoxSizeMNoDescription() {
+        launchScreen(
+            R.id.nav_radiobox,
+            RadioBoxUiState(
+                variant = RadioBoxVariant.RadioBoxM,
                 checked = true,
                 label = "Label",
-                description = "Description",
+                description = "",
                 enabled = true,
             ),
         )
@@ -53,28 +70,12 @@ class ViewSystemRadioBoxScreenshotTest(
     }
 
     @Test
-    fun testRadioBoxUnchecked() {
+    fun testRadioBoxDisabled() {
         launchScreen(
             R.id.nav_radiobox,
             RadioBoxUiState(
                 variant = RadioBoxVariant.RadioBoxM,
-                checked = false,
-                label = "Label",
-                description = "Description",
-                enabled = true,
-            ),
-        )
-        onView(withId(R.id.radioBox))
-            .captureRoboImage()
-    }
-
-    @Test
-    fun testRadioBoxOff() {
-        launchScreen(
-            R.id.nav_radiobox,
-            RadioBoxUiState(
-                variant = RadioBoxVariant.RadioBoxM,
-                checked = false,
+                checked = true,
                 label = "Label",
                 description = "Description",
                 enabled = false,
@@ -96,7 +97,7 @@ class ViewSystemRadioBoxScreenshotTest(
                 enabled = true,
             ),
         )
-        onView(withId(R.id.radioBox_group))
+        onView(allOf(withId(0)))
             .perform(click())
         onView(withId(R.id.radioBox_group))
             .captureRoboImage()
@@ -114,7 +115,43 @@ class ViewSystemRadioBoxScreenshotTest(
                 enabled = true,
             ),
         )
+        onView(allOf(withId(1)))
+            .perform(click())
         onView(withId(R.id.radioBox_group))
+            .captureRoboImage()
+    }
+
+    @Test
+    fun testRadioBoxGroupSizeMDescription() {
+        launchScreen(
+            R.id.nav_radiobox_group,
+            RadioBoxUiState(
+                variant = RadioBoxVariant.RadioBoxM,
+                checked = false,
+                label = "",
+                description = "Description",
+                enabled = true,
+            ),
+        )
+        onView(allOf(withId(0)))
+            .perform(click())
+        onView(withId(R.id.radioBox_group))
+            .captureRoboImage()
+    }
+
+    @Test
+    fun testRadioBoxGroupSizeSLabel() {
+        launchScreen(
+            R.id.nav_radiobox_group,
+            RadioBoxUiState(
+                variant = RadioBoxVariant.RadioBoxS,
+                checked = false,
+                label = "Label",
+                description = "",
+                enabled = true,
+            ),
+        )
+        onView(allOf(withId(1)))
             .perform(click())
         onView(withId(R.id.radioBox_group))
             .captureRoboImage()
