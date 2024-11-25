@@ -93,20 +93,6 @@ interface LinkButtonColorsBuilder {
         contentColor(contentColor.asInteractive())
 
     /**
-     * Устанавливает цвет фона кнопки [backgroundColor]
-     * @see ButtonColors.backgroundColor
-     * @see InteractiveColor
-     */
-    fun backgroundColor(backgroundColor: InteractiveColor): LinkButtonColorsBuilder
-
-    /**
-     * Устанавливает цвет фона кнопки [backgroundColor]
-     * @see ButtonColors.backgroundColor
-     */
-    fun backgroundColor(backgroundColor: Color): LinkButtonColorsBuilder =
-        backgroundColor(backgroundColor.asInteractive())
-
-    /**
      * Устанавливает цвет основного текста кнопки [labelColor]
      * @see ButtonColors.labelColor
      * @see InteractiveColor
@@ -234,7 +220,6 @@ private class LinkButtonStyleBuilderImpl(override val receiver: Any?) : LinkButt
 @Immutable
 private class DefaultLinkButtonColors(
     override val contentColor: InteractiveColor,
-    override val backgroundColor: InteractiveColor,
     override val labelColor: InteractiveColor,
     override val valueColor: InteractiveColor,
     override val iconColor: InteractiveColor,
@@ -243,7 +228,6 @@ private class DefaultLinkButtonColors(
 
     class Builder : LinkButtonColorsBuilder {
         private var contentColor: InteractiveColor? = null
-        private var backgroundColor: InteractiveColor? = null
         private var labelColor: InteractiveColor? = null
         private var valueColor: InteractiveColor? = null
         private var iconColor: InteractiveColor? = null
@@ -251,10 +235,6 @@ private class DefaultLinkButtonColors(
 
         override fun contentColor(contentColor: InteractiveColor) = apply {
             this.contentColor = contentColor
-        }
-
-        override fun backgroundColor(backgroundColor: InteractiveColor) = apply {
-            this.backgroundColor = backgroundColor
         }
 
         override fun labelColor(labelColor: InteractiveColor) = apply {
@@ -277,7 +257,6 @@ private class DefaultLinkButtonColors(
             val contentColor = contentColor ?: Color.Black.asInteractive()
             return DefaultLinkButtonColors(
                 contentColor = contentColor,
-                backgroundColor = backgroundColor ?: Color.White.asInteractive(),
                 labelColor = labelColor ?: contentColor,
                 valueColor = valueColor ?: contentColor,
                 iconColor = iconColor ?: contentColor,
@@ -285,6 +264,9 @@ private class DefaultLinkButtonColors(
             )
         }
     }
+
+    override val backgroundColor: InteractiveColor
+        get() = Color.Transparent.asInteractive()
 }
 
 private const val DISABLED_BUTTON_ALPHA = 0.4f
