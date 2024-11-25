@@ -2,11 +2,13 @@ package com.sdds.plasma.sd.service.sandbox.buttons
 
 import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.BasicButton
+import com.sdds.compose.uikit.BasicButtonStyleBuilder
 import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.ButtonStyle
-import com.sdds.compose.uikit.ButtonStyleBuilder
 import com.sdds.compose.uikit.IconButton
+import com.sdds.compose.uikit.IconButtonStyleBuilder
 import com.sdds.compose.uikit.LinkButton
+import com.sdds.compose.uikit.LinkButtonStyleBuilder
 import com.sdds.plasma.sd.service.styles.Accent
 import com.sdds.plasma.sd.service.styles.Black
 import com.sdds.plasma.sd.service.styles.Clear
@@ -108,7 +110,39 @@ enum class IconButtonShape {
 }
 
 @Composable
-private fun ButtonStyleBuilder.applyColorStyle(style: Style): ButtonStyleBuilder {
+private fun BasicButtonStyleBuilder.applyColorStyle(style: Style): BasicButtonStyleBuilder {
+    return when (style) {
+        Style.Default -> Default
+        Style.Secondary -> Secondary
+        Style.Accent -> Accent
+        Style.Positive -> Positive
+        Style.Negative -> Negative
+        Style.Warning -> Warning
+        Style.Clear -> Clear
+        Style.Dark -> Dark
+        Style.Black -> Black
+        Style.White -> White
+    }
+}
+
+@Composable
+private fun IconButtonStyleBuilder.applyColorStyle(style: Style): IconButtonStyleBuilder {
+    return when (style) {
+        Style.Default -> Default
+        Style.Secondary -> Secondary
+        Style.Accent -> Accent
+        Style.Positive -> Positive
+        Style.Negative -> Negative
+        Style.Warning -> Warning
+        Style.Clear -> Clear
+        Style.Dark -> Dark
+        Style.Black -> Black
+        Style.White -> White
+    }
+}
+
+@Composable
+private fun LinkButtonStyleBuilder.applyColorStyle(style: Style): LinkButtonStyleBuilder {
     return when (style) {
         Style.Default -> Default
         Style.Secondary -> Secondary

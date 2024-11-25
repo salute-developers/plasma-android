@@ -1,27 +1,13 @@
 package com.sdds.compose.uikit
 
 import androidx.compose.foundation.shape.CornerBasedShape
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
-import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.style.Style
-import com.sdds.compose.uikit.style.StyleBuilder
-
-/**
- * CompositionLocal c [ButtonStyle] для компонента [Button]
- */
-val LocalButtonStyle = compositionLocalOf { ButtonStyle.builder().style() }
-
-/**
- * CompositionLocal с [ButtonStyle]  для компонента [IconButton]
- */
-val LocalIconButtonStyle = compositionLocalOf { ButtonStyle.builder().style() }
 
 /**
  * Builder для [ButtonColors].
@@ -125,59 +111,6 @@ interface ButtonColorsBuilder {
 }
 
 /**
- * Builder стиля кнопки.
- */
-@Stable
-interface ButtonStyleBuilder : StyleBuilder<ButtonStyle> {
-
-    /**
-     * Устанавливает форму кнопки [shape]
-     * @see ButtonStyle.shape
-     */
-    fun shape(shape: CornerBasedShape): ButtonStyleBuilder
-
-    /**
-     * Устанавливает цвета кнопки при помощи [builder]
-     * @see ButtonStyle.colors
-     * @see [ButtonColorsBuilder]
-     */
-    @Composable
-    fun colors(builder: @Composable ButtonColorsBuilder.() -> Unit): ButtonStyleBuilder
-
-    /**
-     * Устанавливает стиль основного текста кнопки [labelStyle]
-     * @see ButtonStyle.labelStyle
-     */
-    fun labelStyle(labelStyle: TextStyle): ButtonStyleBuilder
-
-    /**
-     * Устанавливает стиль дополнительного текста кнопки [valueStyle]
-     * @see ButtonStyle.valueStyle
-     */
-    fun valueStyle(valueStyle: TextStyle): ButtonStyleBuilder
-
-    /**
-     * Устанавливает размеры и отступы контента кнопки [dimensions]
-     * @see ButtonStyle.dimensions
-     * @see Button.Dimensions
-     */
-    fun dimensions(dimensions: Button.Dimensions): ButtonStyleBuilder
-
-    /**
-     * Устанавливает значение прозрачности выключенной кнопки [disableAlpha]
-     * @see ButtonStyle.disableAlpha
-     */
-    fun disableAlpha(disableAlpha: Float): ButtonStyleBuilder
-
-    /**
-     * Устанавливает режим работы индикатора загрузки [spinnerMode]
-     * @see ButtonStyle.spinnerMode
-     * @see Button.SpinnerMode
-     */
-    fun spinnerMode(spinnerMode: Button.SpinnerMode): ButtonStyleBuilder
-}
-
-/**
  * Стиль кнопки [Button]
  */
 @Stable
@@ -223,14 +156,6 @@ interface ButtonStyle : Style {
      * @see Button.SpinnerMode
      */
     val spinnerMode: Button.SpinnerMode
-
-    companion object {
-
-        /**
-         * Возвращает экземпляр [ButtonStyleBuilder]
-         */
-        fun builder(receiver: Any? = null): ButtonStyleBuilder = ButtonStyleBuilderImpl(receiver)
-    }
 }
 
 /**
@@ -281,58 +206,6 @@ interface ButtonColors {
          * Возвращает экземпляр [ButtonColorsBuilder]
          */
         fun builder(): ButtonColorsBuilder = DefaultButtonColors.Builder()
-    }
-}
-
-@Stable
-private class ButtonStyleBuilderImpl(override val receiver: Any?) : ButtonStyleBuilder {
-    private var shape: CornerBasedShape? = null
-    private var colorsBuilder: ButtonColorsBuilder = ButtonColors.builder()
-    private var labelStyle: TextStyle? = null
-    private var valueStyle: TextStyle? = null
-    private var dimensions: Button.Dimensions? = null
-    private var disableAlpha: Float? = null
-    private var spinnerMode: Button.SpinnerMode? = null
-
-    override fun shape(shape: CornerBasedShape) = apply {
-        this.shape = shape
-    }
-
-    @Composable
-    override fun colors(builder: @Composable ButtonColorsBuilder.() -> Unit): ButtonStyleBuilder = apply {
-        this.colorsBuilder.builder()
-    }
-
-    override fun labelStyle(labelStyle: TextStyle) = apply {
-        this.labelStyle = labelStyle
-    }
-
-    override fun valueStyle(valueStyle: TextStyle) = apply {
-        this.valueStyle = valueStyle
-    }
-
-    override fun dimensions(dimensions: Button.Dimensions) = apply {
-        this.dimensions = dimensions
-    }
-
-    override fun disableAlpha(disableAlpha: Float) = apply {
-        this.disableAlpha = disableAlpha
-    }
-
-    override fun spinnerMode(spinnerMode: Button.SpinnerMode) = apply {
-        this.spinnerMode = spinnerMode
-    }
-
-    override fun style(): ButtonStyle {
-        return DefaultButtonStyle(
-            shape = shape ?: RoundedCornerShape(25),
-            colors = colorsBuilder.build(),
-            labelStyle = labelStyle ?: TextStyle.Default,
-            valueStyle = valueStyle ?: TextStyle.Default,
-            dimensions = dimensions ?: Button.Dimensions(),
-            disableAlpha = disableAlpha ?: DISABLED_BUTTON_ALPHA,
-            spinnerMode = spinnerMode ?: Button.SpinnerMode.HideContent,
-        )
     }
 }
 
@@ -393,7 +266,7 @@ private class DefaultButtonColors(
 }
 
 @Immutable
-private class DefaultButtonStyle(
+internal class DefaultButtonStyle(
     override val shape: CornerBasedShape,
     override val colors: ButtonColors,
     override val labelStyle: TextStyle,
@@ -402,5 +275,3 @@ private class DefaultButtonStyle(
     override val disableAlpha: Float,
     override val spinnerMode: Button.SpinnerMode,
 ) : ButtonStyle
-
-private const val DISABLED_BUTTON_ALPHA = 0.4f
