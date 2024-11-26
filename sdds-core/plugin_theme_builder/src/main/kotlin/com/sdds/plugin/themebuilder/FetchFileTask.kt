@@ -9,10 +9,10 @@ import org.gradle.api.tasks.TaskAction
 import java.net.URL
 
 /**
- * Gradle-task для загрузки файла темы
+ * Gradle-task для загрузки файла
  * @author Малышев Александр on 04.03.2024
  */
-internal abstract class FetchThemeTask : DefaultTask() {
+internal abstract class FetchFileTask : DefaultTask() {
 
     /**
      * Строка URL файла темы
@@ -24,7 +24,13 @@ internal abstract class FetchThemeTask : DefaultTask() {
      * Местоположение архива с темой после загрузки
      */
     @get:OutputFile
-    abstract val themeFile: RegularFileProperty
+    abstract val file: RegularFileProperty
+
+    /**
+     * Строка с указанием ошибки
+     */
+    @get:Input
+    abstract val failMessage: Property<String>
 
     /**
      * Загружает файл с темой
@@ -33,10 +39,10 @@ internal abstract class FetchThemeTask : DefaultTask() {
     fun fetch() {
         runCatching { URL(url.get()).readBytes() }
             .onSuccess { themeContent ->
-                val themeJSON = themeFile.get().asFile
-                themeJSON.writeBytes(themeContent)
+                val json = file.get().asFile
+                json.writeBytes(themeContent)
             }.onFailure {
-                logger.error("Can't fetch theme", it)
+                logger.error(failMessage.get(), it)
                 throw it
             }
     }
