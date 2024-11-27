@@ -28,13 +28,13 @@ internal fun RadioBoxPreview() {
 
 @Composable
 @Preview(showBackground = true)
-internal fun RadioBoxPreviewMedium() {
+internal fun RadioBoxPreviewSizeM() {
     SandboxTheme {
         RadioBox(
             style = RadioBox.M.style(),
             checked = true,
             enabled = true,
-            label = "Title",
+            label = "Label",
             description = "Description",
             onClick = {},
         )
@@ -43,14 +43,29 @@ internal fun RadioBoxPreviewMedium() {
 
 @Composable
 @Preview(showBackground = true)
-internal fun RadioBoxPreviewSmallDark() {
+internal fun RadioBoxPreviewSizeS() {
     SandboxTheme {
         RadioBox(
             style = RadioBox.S.style(),
+            checked = false,
+            enabled = true,
+            label = "Label",
+            description = "Description",
+            onClick = {},
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun RadioBoxPreviewSizeMNoDescription() {
+    SandboxTheme {
+        RadioBox(
+            style = RadioBox.M.style(),
             checked = true,
             enabled = true,
             label = "Label",
-            description = "Description",
+            description = "",
             onClick = {},
         )
     }
@@ -58,26 +73,11 @@ internal fun RadioBoxPreviewSmallDark() {
 
 @Composable
 @Preview(showBackground = true)
-internal fun RadioBoxPreviewUnchecked() {
+internal fun RadioBoxPreviewDisabled() {
     SandboxTheme {
         RadioBox(
             style = RadioBox.M.style(),
-            checked = false,
-            enabled = true,
-            label = "Label",
-            description = "Description",
-            onClick = {},
-        )
-    }
-}
-
-@Composable
-@Preview(showBackground = true)
-internal fun RadioBoxPreviewOff() {
-    SandboxTheme {
-        RadioBox(
-            style = RadioBox.M.style(),
-            checked = false,
+            checked = true,
             enabled = false,
             label = "Label",
             description = "Description",
@@ -88,10 +88,46 @@ internal fun RadioBoxPreviewOff() {
 
 @Composable
 @Preview(showBackground = true)
-internal fun RadioBoxPreviewSizeM() {
+internal fun RadioBoxGroupPreviewSizeM() {
     SandboxTheme {
         RadioBoxGroup(
             style = RadioBoxGroup.M.style(),
+            default = 1,
+        ) { selection ->
+            radioBoxItem(key = 1) { key ->
+                RadioBox(
+                    checked = isChecked(selection, key),
+                    label = "Label",
+                    description = "Description",
+                    onClick = { updateSelection(selection, key) },
+                )
+            }
+            radioBoxItem(key = 2) { key ->
+                RadioBox(
+                    checked = isChecked(selection, key),
+                    label = "Label",
+                    description = "Description",
+                    onClick = { updateSelection(selection, key) },
+                )
+            }
+            radioBoxItem(key = 3) { key ->
+                RadioBox(
+                    checked = isChecked(selection, key),
+                    label = "Label",
+                    description = "Description",
+                    onClick = { updateSelection(selection, key) },
+                )
+            }
+        }
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun RadioBoxGroupPreviewSizeS() {
+    SandboxTheme {
+        RadioBoxGroup(
+            style = RadioBoxGroup.S.style(),
             default = 2,
         ) { selection ->
             radioBoxItem(key = 1) { key ->
@@ -124,7 +160,40 @@ internal fun RadioBoxPreviewSizeM() {
 
 @Composable
 @Preview(showBackground = true)
-internal fun RadioBoxPreviewSizeS() {
+internal fun RadioBoxGroupPreviewSizeMDescription() {
+    SandboxTheme {
+        RadioBoxGroup(
+            style = RadioBoxGroup.M.style(),
+            default = 1,
+        ) { selection ->
+            radioBoxItem(key = 1) { key ->
+                RadioBox(
+                    checked = isChecked(selection, key),
+                    description = "Description",
+                    onClick = { updateSelection(selection, key) },
+                )
+            }
+            radioBoxItem(key = 2) { key ->
+                RadioBox(
+                    checked = isChecked(selection, key),
+                    description = "Description",
+                    onClick = { updateSelection(selection, key) },
+                )
+            }
+            radioBoxItem(key = 3) { key ->
+                RadioBox(
+                    checked = isChecked(selection, key),
+                    description = "Description",
+                    onClick = { updateSelection(selection, key) },
+                )
+            }
+        }
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun RadioBoxGroupPreviewSizeSLabel() {
     SandboxTheme {
         RadioBoxGroup(
             style = RadioBoxGroup.S.style(),
@@ -134,7 +203,6 @@ internal fun RadioBoxPreviewSizeS() {
                 RadioBox(
                     checked = isChecked(selection, key),
                     label = "Label",
-                    description = "Description",
                     onClick = { updateSelection(selection, key) },
                 )
             }
@@ -142,7 +210,6 @@ internal fun RadioBoxPreviewSizeS() {
                 RadioBox(
                     checked = isChecked(selection, key),
                     label = "Label",
-                    description = "Description",
                     onClick = { updateSelection(selection, key) },
                 )
             }
@@ -150,7 +217,6 @@ internal fun RadioBoxPreviewSizeS() {
                 RadioBox(
                     checked = isChecked(selection, key),
                     label = "Label",
-                    description = "Description",
                     onClick = { updateSelection(selection, key) },
                 )
             }

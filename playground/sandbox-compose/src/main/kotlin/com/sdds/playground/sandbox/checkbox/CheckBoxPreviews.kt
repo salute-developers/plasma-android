@@ -27,10 +27,25 @@ internal fun CheckBoxPreview() {
 
 @Composable
 @Preview(showBackground = true)
-internal fun CheckBoxPreviewUncheckedSizeMedium() {
+internal fun CheckBoxPreviewSizeM() {
     SandboxTheme {
         CheckBox(
             style = CheckBox.M.style(),
+            state = ToggleableState.On,
+            enabled = true,
+            label = "Label",
+            description = "Description",
+            onClick = {},
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun CheckBoxPreviewSizeSUnchecked() {
+    SandboxTheme {
+        CheckBox(
+            style = CheckBox.S.style(),
             state = ToggleableState.Off,
             enabled = true,
             label = "Label",
@@ -42,26 +57,11 @@ internal fun CheckBoxPreviewUncheckedSizeMedium() {
 
 @Composable
 @Preview(showBackground = true)
-internal fun CheckBoxPreviewCheckedSizeSmall() {
-    SandboxTheme(darkTheme = true) {
-        CheckBox(
-            style = CheckBox.S.style(),
-            state = ToggleableState.On,
-            enabled = true,
-            label = "Label",
-            description = "Description",
-            onClick = {},
-        )
-    }
-}
-
-@Composable
-@Preview(showBackground = true)
-internal fun CheckBoxPreviewOffSizeSmall() {
+internal fun CheckBoxPreviewSizeSDisabled() {
     SandboxTheme {
         CheckBox(
             style = CheckBox.S.style(),
-            state = ToggleableState.Indeterminate,
+            state = ToggleableState.On,
             enabled = false,
             label = "Label",
             description = "Description",
@@ -71,26 +71,13 @@ internal fun CheckBoxPreviewOffSizeSmall() {
 
 @Composable
 @Preview(showBackground = true)
-internal fun CheckBoxPreviewOnSizeMediumNoDesc() {
+internal fun CheckBoxPreviewSizeMIndeterminate() {
     SandboxTheme {
         CheckBox(
             style = CheckBox.M.style(),
-            state = ToggleableState.On,
+            state = ToggleableState.Indeterminate,
             enabled = true,
             label = "Label",
-            onClick = {},
-        )
-    }
-}
-
-@Composable
-@Preview(showBackground = true)
-internal fun CheckBoxPreviewOnSizeMediumNoLabel() {
-    SandboxTheme {
-        CheckBox(
-            style = CheckBox.M.style(),
-            state = ToggleableState.On,
-            enabled = true,
             description = "Description",
             onClick = {},
         )
@@ -168,6 +155,41 @@ internal fun CheckBoxGroupPreviewSizeS() {
                     state = ToggleableState.Off,
                     label = "Label",
                     description = "Description",
+                )
+            }
+        }
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun CheckBoxGroupPreviewSizeMDisabled() {
+    SandboxTheme {
+        CheckBoxGroup(
+            style = CheckBoxGroup.M.style(),
+        ) {
+            rootCheckbox {
+                CheckBox(
+                    state = ToggleableState.Off,
+                    label = "Label",
+                    description = "Description",
+                    enabled = false,
+                )
+            }
+            checkbox {
+                CheckBox(
+                    state = ToggleableState.Off,
+                    label = "Label",
+                    description = "Description",
+                    enabled = false,
+                )
+            }
+            checkbox {
+                CheckBox(
+                    state = ToggleableState.Off,
+                    label = "Label",
+                    description = "Description",
+                    enabled = false,
                 )
             }
         }

@@ -40,12 +40,6 @@ internal fun ChipPreviewSizeLDefault() {
             style = Chip.L.Default.style(),
             label = "Label",
             onClick = {},
-            startContent = {
-                Icon(
-                    painter = painterResource(id = R.drawable.ic_plasma_24),
-                    contentDescription = null,
-                )
-            },
             endContent = {
                 Icon(
                     painter = painterResource(id = R.drawable.ic_close_24),
@@ -59,35 +53,10 @@ internal fun ChipPreviewSizeLDefault() {
 
 @Composable
 @Preview(showBackground = true)
-internal fun ChipPreviewSizeXsSecondary() {
+internal fun ChipPreviewSizeMSecondaryPilled() {
     SandboxTheme {
         Chip(
-            style = Chip.Xs.Secondary.style(),
-            label = "Label",
-            onClick = {},
-            startContent = {
-                Icon(
-                    painter = painterResource(id = R.drawable.ic_plasma_24),
-                    contentDescription = null,
-                )
-            },
-            endContent = {
-                Icon(
-                    painter = painterResource(id = R.drawable.ic_close_24),
-                    contentDescription = null,
-                )
-            },
-            enabled = true,
-        )
-    }
-}
-
-@Composable
-@Preview(showBackground = true)
-internal fun ChipPreviewSizeMAccent() {
-    SandboxTheme {
-        Chip(
-            style = Chip.M.Accent.Pilled.style(),
+            style = Chip.M.Secondary.Pilled.style(),
             label = "Label",
             onClick = {},
             enabled = true,
@@ -97,25 +66,32 @@ internal fun ChipPreviewSizeMAccent() {
 
 @Composable
 @Preview(showBackground = true)
-internal fun ChipPreviewSizeSDisabled() {
+internal fun ChipPreviewSizeSAccentDisabled() {
     SandboxTheme {
         Chip(
-            style = Chip.S.Default.style(),
+            style = Chip.S.Accent.style(),
             label = "Label",
             onClick = {},
-            startContent = {
-                Icon(
-                    painter = painterResource(id = R.drawable.ic_plasma_24),
-                    contentDescription = null,
-                )
-            },
-            endContent = {
-                Icon(
-                    painter = painterResource(id = R.drawable.ic_close_24),
-                    contentDescription = null,
-                )
-            },
             enabled = false,
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun ChipPreviewSizeXSContentLeft() {
+    SandboxTheme {
+        Chip(
+            style = Chip.Xs.Default.style(),
+            label = "Label",
+            onClick = {},
+            startContent = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_plasma_16),
+                    contentDescription = null,
+                )
+            },
+            enabled = true,
         )
     }
 }

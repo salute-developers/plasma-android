@@ -23,6 +23,12 @@ import com.sdds.playground.sandbox.buttons.SandboxIconButtonPreviewSPositive
 import com.sdds.playground.sandbox.buttons.SandboxIconButtonPreviewSWarning
 import com.sdds.playground.sandbox.buttons.SandboxIconButtonPreviewXSDark
 import com.sdds.playground.sandbox.buttons.SandboxIconButtonPreviewXSNegative
+import com.sdds.playground.sandbox.buttons.SandboxLinkButtonPreviewSizeLDefault
+import com.sdds.playground.sandbox.buttons.SandboxLinkButtonPreviewSizeLDisabled
+import com.sdds.playground.sandbox.buttons.SandboxLinkButtonPreviewSizeLIsLoading
+import com.sdds.playground.sandbox.buttons.SandboxLinkButtonPreviewSizeMAccent
+import com.sdds.playground.sandbox.buttons.SandboxLinkButtonPreviewSizeSWarning
+import com.sdds.playground.sandbox.buttons.SandboxLinkButtonPreviewSizeXSDark
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.ParameterizedRobolectricTestRunner
@@ -194,6 +200,48 @@ class ComposeButtonScreenshotTest(
             SandboxTheme(darkTheme = true) {
                 SandboxIconButtonPreviewLWhiteDarkTheme()
             }
+        }
+    }
+
+    @Test
+    fun testLinkButtonPreviewLDefault() {
+        composeTestRule.setContent {
+            SandboxLinkButtonPreviewSizeLDefault()
+        }
+    }
+
+    @Test
+    fun testLinkButtonPreviewSizeLIsLoading() {
+        composeTestRule.setContent {
+            SandboxLinkButtonPreviewSizeLIsLoading()
+        }
+    }
+
+    @Test
+    fun testLinkButtonPreviewSizeMAccent() {
+        composeTestRule.setContent {
+            SandboxLinkButtonPreviewSizeMAccent()
+        }
+    }
+
+    @Test
+    fun testLinkButtonPreviewSizeLDisabled() {
+        composeTestRule.setContent {
+            SandboxLinkButtonPreviewSizeLDisabled()
+        }
+    }
+
+    @Test
+    fun testLinkButtonPreviewSizeSWarning() {
+        composeTestRule.setContent {
+            SandboxLinkButtonPreviewSizeSWarning()
+        }
+    }
+
+    @Test
+    fun testLinkButtonPreviewSizeXSDark() {
+        composeTestRule.setContent {
+            SandboxLinkButtonPreviewSizeXSDark()
         }
     }
 }
