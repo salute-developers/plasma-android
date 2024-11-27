@@ -25,9 +25,9 @@ import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.Switch
 import com.sdds.compose.uikit.Text
 import com.sdds.playground.sandbox.R
-import com.sdds.playground.sandbox.buttons.Clear
-import com.sdds.playground.sandbox.buttons.Xs
-import com.sdds.playground.sandbox.tokens.compose.SddsServTheme
+import com.sdds.serv.styles.buttons.Clear
+import com.sdds.serv.styles.buttons.Xs
+import com.sdds.serv.tokens.compose.SddsServTheme
 import com.sdds.icons.R.drawable as Icons
 
 /**

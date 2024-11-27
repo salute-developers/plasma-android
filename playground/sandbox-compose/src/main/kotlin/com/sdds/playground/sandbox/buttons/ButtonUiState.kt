@@ -7,6 +7,21 @@ import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.ButtonStyleBuilder
 import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.LinkButton
+import com.sdds.serv.styles.buttons.Accent
+import com.sdds.serv.styles.buttons.Black
+import com.sdds.serv.styles.buttons.Clear
+import com.sdds.serv.styles.buttons.Dark
+import com.sdds.serv.styles.buttons.Default
+import com.sdds.serv.styles.buttons.L
+import com.sdds.serv.styles.buttons.M
+import com.sdds.serv.styles.buttons.Negative
+import com.sdds.serv.styles.buttons.Pilled
+import com.sdds.serv.styles.buttons.Positive
+import com.sdds.serv.styles.buttons.S
+import com.sdds.serv.styles.buttons.Secondary
+import com.sdds.serv.styles.buttons.Warning
+import com.sdds.serv.styles.buttons.White
+import com.sdds.serv.styles.buttons.Xs
 import com.sdds.icons.R.drawable as Icons
 
 /**

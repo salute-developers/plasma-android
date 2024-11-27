@@ -7,8 +7,10 @@ import com.sdds.compose.uikit.RadioBoxGroup
 import com.sdds.compose.uikit.isChecked
 import com.sdds.compose.uikit.updateSelection
 import com.sdds.playground.sandbox.SandboxTheme
-import com.sdds.playground.sandbox.radiobox.group.M
-import com.sdds.playground.sandbox.radiobox.group.S
+import com.sdds.serv.styles.radiobox.M
+import com.sdds.serv.styles.radiobox.S
+import com.sdds.serv.styles.radiobox.group.M
+import com.sdds.serv.styles.radiobox.group.S
 
 /**
  * Превью [RadioBox]

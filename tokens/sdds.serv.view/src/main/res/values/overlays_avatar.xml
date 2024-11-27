@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Serv.Sdds.ComponentOverlays.AvatarXXL">
+        <item name="sd_avatarStyle">@style/Serv.Sdds.Components.Avatar.XXL</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.AvatarL">
+        <item name="sd_avatarStyle">@style/Serv.Sdds.Components.Avatar.L</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.AvatarM">
+        <item name="sd_avatarStyle">@style/Serv.Sdds.Components.Avatar.M</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.AvatarS">
+        <item name="sd_avatarStyle">@style/Serv.Sdds.Components.Avatar.S</item>
+    </style>
+</resources>

@@ -9,6 +9,9 @@ import com.sdds.compose.uikit.AvatarCounter
 import com.sdds.compose.uikit.AvatarGroup
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.SandboxTheme
+import com.sdds.serv.styles.avatar.M
+import com.sdds.serv.styles.avatar.S
+import com.sdds.serv.styles.avatar.Xxl
 
 /**
  * Превью [Avatar]
