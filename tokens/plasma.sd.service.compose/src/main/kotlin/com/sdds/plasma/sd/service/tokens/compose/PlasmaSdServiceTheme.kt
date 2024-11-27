@@ -44,7 +44,7 @@ public object PlasmaSdServiceTheme {
 public fun PlasmaSdServiceTheme(
     colors: PlasmaSdServiceColors = PlasmaSdServiceTheme.colors,
     gradients: PlasmaSdServiceGradients = PlasmaSdServiceTheme.gradients,
-    shapes: PlasmaSdServiceShapes = PlasmaSdServiceTheme.shapes,
+    shapes: PlasmaSdServiceShapes = defaultPlasmaSdServiceShapes(),
     typography: PlasmaSdServiceTypography = dynamicPlasmaSdServiceTypography(),
     content: @Composable () -> Unit,
 ): Unit {
