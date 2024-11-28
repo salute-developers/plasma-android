@@ -20,6 +20,11 @@ internal fun String.techToSnakeCase(): String {
     return replace("[.-]+".toRegex(), "_")
 }
 
+internal fun String.techToCamelCase(): String {
+    val segments = split(".", "-")
+    return segments.joinToString("") { it.capitalized() }
+}
+
 /**
  * Переводит строку из snake_case в CamelCase
  */

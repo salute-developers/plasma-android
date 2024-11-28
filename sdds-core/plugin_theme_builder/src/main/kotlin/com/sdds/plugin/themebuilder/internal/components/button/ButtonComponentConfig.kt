@@ -1,5 +1,6 @@
-package com.sdds.plugin.themebuilder.internal.components
+package com.sdds.plugin.themebuilder.internal.components.button
 
+import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
 import kotlinx.serialization.Serializable
 
 /**
@@ -13,19 +14,27 @@ internal data class ButtonComponentConfig(
 
     @Serializable
     data class Invariant(
-        val loadingAlpha: Float,
+        val loadingAlpha: Float? = null,
         val backgroundColor: Color? = null,
     )
 
     @Serializable
     data class Variations(
         val size: Map<String, Size>,
-        val color: Map<String, Map<String, Color>>,
+        val color: Map<String, ColorScheme>,
+    )
+
+    @Serializable
+    data class ColorScheme(
+        val contentColor: Color,
+        val backgroundColor: Color? = null,
+        val valueColor: Color? = null,
+        val loadingAlpha: Float? = null,
     )
 
     @Serializable
     data class Size(
-        val shape: String? = null,
+        val shape: Shape? = null,
         val labelStyle: String? = null,
         val valueStyle: String? = null,
         val height: Float,
@@ -36,6 +45,12 @@ internal data class ButtonComponentConfig(
         val spinnerSize: Float,
         val iconMargin: Float? = null,
         val valueMargin: Float? = null,
+    )
+
+    @Serializable
+    data class Shape(
+        val name: String,
+        val adjustment: Float? = null,
     )
 
     @Serializable
