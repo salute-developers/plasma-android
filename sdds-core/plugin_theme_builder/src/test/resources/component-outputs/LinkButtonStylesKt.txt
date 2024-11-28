@@ -1,0 +1,56 @@
+// AUTO-GENERATED. DO NOT MODIFY this file.
+package com.sdds.playground.themebuilder.styles.button
+
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.Button
+import com.sdds.compose.uikit.LinkButton
+import com.sdds.compose.uikit.LinkButtonStyleBuilder
+import com.sdds.compose.uikit.adjustBy
+import com.sdds.playground.themebuilder.theme.SddsServTheme
+
+public val LinkButton.L: LinkButtonStyleBuilder
+    @Composable
+    get() = LinkButtonStyleBuilder.builder(this)
+        .dimensions(
+            Button.Dimensions(
+                height = 56.0.dp,
+                paddings = Button.Dimensions.PaddingValues(start = 24.0.dp, end = 24.0.dp),
+                minWidth = 98.0.dp,
+                iconSize = 24.0.dp,
+                spinnerSize = 22.0.dp,
+                iconMargin = 8.0.dp,
+            ),
+        )
+        .labelStyle(SddsServTheme.typography.bodyLBold)
+
+public val LinkButton.M: LinkButtonStyleBuilder
+    @Composable
+    get() = LinkButtonStyleBuilder.builder(this)
+        .dimensions(
+            Button.Dimensions(
+                height = 56.0.dp,
+                paddings = Button.Dimensions.PaddingValues(start = 24.0.dp, end = 24.0.dp),
+                minWidth = 98.0.dp,
+                iconSize = 24.0.dp,
+                spinnerSize = 22.0.dp,
+                iconMargin = 8.0.dp,
+            ),
+        )
+        .labelStyle(SddsServTheme.typography.bodyMBold)
+
+public val LinkButton.S: LinkButtonStyleBuilder
+    @Composable
+    get() = LinkButtonStyleBuilder.builder(this)
+        .dimensions(
+            Button.Dimensions(
+                height = 56.0.dp,
+                paddings = Button.Dimensions.PaddingValues(start = 24.0.dp, end = 24.0.dp),
+                minWidth = 98.0.dp,
+                iconSize = 24.0.dp,
+                spinnerSize = 22.0.dp,
+                iconMargin = 8.0.dp,
+            ),
+        )
+        .labelStyle(SddsServTheme.typography.bodySBold)

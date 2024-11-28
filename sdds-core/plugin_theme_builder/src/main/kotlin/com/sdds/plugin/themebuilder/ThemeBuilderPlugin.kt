@@ -41,7 +41,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
             )
 
             val fetchComponentConfigsTasks = registerFetchComponentConfigs(extension, componentJsons)
-            registerGenerateComponentConfigsTask(fetchComponentConfigsTasks)
+            registerGenerateComponentConfigsTask(extension, fetchComponentConfigsTasks)
         }
     }
 
@@ -94,12 +94,19 @@ class ThemeBuilderPlugin : Plugin<Project> {
     }
 
     private fun Project.registerGenerateComponentConfigsTask(
+        extension: ThemeBuilderExtension,
         fetchComponentConfigsTasks: List<TaskProvider<FetchFileTask>>,
     ) {
         val task = project.tasks.register<GenerateComponentConfigsTask>("generateComponentConfigs") {
             basicButtonConfigFile.set(getComponentConfigFile(ComponentConfig.BASIC_BUTTON.fileName))
             iconButtonConfigFile.set(getComponentConfigFile(ComponentConfig.ICON_BUTTON.fileName))
             linkButtonConfigFile.set(getComponentConfigFile(ComponentConfig.LINK_BUTTON.fileName))
+            outputDirPath.set(extension.outputLocation.getSourcePath())
+            packageName.set(extension.ktPackage ?: DEFAULT_KT_PACKAGE)
+            val projectDirProperty = objects.directoryProperty()
+                .apply { set(layout.projectDirectory) }
+            projectDir.set(projectDirProperty)
+            themeName.set(getThemeSource(extension).themeName)
         }
         fetchComponentConfigsTasks.forEach { task.dependsOn(it) }
     }
