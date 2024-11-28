@@ -1,4 +1,4 @@
-package com.sdds.plasma.sd.service.styles.textfield
+package com.sdds.plasma.sd.service.styles.textfield.clear
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp

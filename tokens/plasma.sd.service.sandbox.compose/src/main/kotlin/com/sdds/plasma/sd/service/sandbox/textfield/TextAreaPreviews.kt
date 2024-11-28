@@ -10,18 +10,18 @@ import com.sdds.compose.uikit.TextArea
 import com.sdds.compose.uikit.TextField
 import com.sdds.icons.R
 import com.sdds.plasma.sd.service.sandbox.SandboxTheme
+import com.sdds.plasma.sd.service.styles.textarea.L
+import com.sdds.plasma.sd.service.styles.textarea.M
+import com.sdds.plasma.sd.service.styles.textarea.S
+import com.sdds.plasma.sd.service.styles.textarea.Xs
 import com.sdds.plasma.sd.service.styles.textfield.Default
 import com.sdds.plasma.sd.service.styles.textfield.Error
 import com.sdds.plasma.sd.service.styles.textfield.InnerLabel
-import com.sdds.plasma.sd.service.styles.textfield.L
-import com.sdds.plasma.sd.service.styles.textfield.M
 import com.sdds.plasma.sd.service.styles.textfield.Optional
 import com.sdds.plasma.sd.service.styles.textfield.OuterLabel
 import com.sdds.plasma.sd.service.styles.textfield.RequiredEnd
 import com.sdds.plasma.sd.service.styles.textfield.RequiredStart
-import com.sdds.plasma.sd.service.styles.textfield.S
 import com.sdds.plasma.sd.service.styles.textfield.Warning
-import com.sdds.plasma.sd.service.styles.textfield.Xs
 
 @Composable
 @Preview(showBackground = true)

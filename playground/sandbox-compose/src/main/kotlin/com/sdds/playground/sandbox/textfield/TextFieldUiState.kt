@@ -8,6 +8,10 @@ import com.sdds.compose.uikit.TextField
 import com.sdds.compose.uikit.TextFieldClear
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.TextFieldStyleBuilder
+import com.sdds.serv.styles.textarea.L
+import com.sdds.serv.styles.textarea.M
+import com.sdds.serv.styles.textarea.S
+import com.sdds.serv.styles.textarea.Xs
 import com.sdds.serv.styles.textfield.Default
 import com.sdds.serv.styles.textfield.Error
 import com.sdds.serv.styles.textfield.InnerLabel

@@ -1,4 +1,4 @@
-package com.sdds.plasma.sd.service.styles.textfield
+package com.sdds.plasma.sd.service.styles.textarea
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable

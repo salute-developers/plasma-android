@@ -21,6 +21,10 @@ import com.sdds.serv.styles.chip.S
 import com.sdds.serv.styles.chip.Secondary
 import com.sdds.serv.styles.chip.Xs
 import com.sdds.serv.styles.chip.group.Dense
+import com.sdds.serv.styles.textfield.clear.defaultClearColors
+import com.sdds.serv.styles.textfield.clear.errorClearColors
+import com.sdds.serv.styles.textfield.clear.successClearColors
+import com.sdds.serv.styles.textfield.clear.warningClearColors
 import com.sdds.serv.tokens.compose.SddsServTheme
 
 val TextFieldStyleBuilder.Default: TextFieldStyleBuilder

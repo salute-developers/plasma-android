@@ -1,4 +1,4 @@
-package com.sdds.serv.styles.textfield
+package com.sdds.serv.styles.textarea.clear
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
