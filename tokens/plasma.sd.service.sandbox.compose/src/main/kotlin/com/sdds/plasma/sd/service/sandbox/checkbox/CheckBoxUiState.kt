@@ -4,8 +4,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.state.ToggleableState
 import com.sdds.compose.uikit.CheckBox
 import com.sdds.compose.uikit.CheckBoxStyle
-import com.sdds.plasma.sd.service.styles.M
-import com.sdds.plasma.sd.service.styles.S
+import com.sdds.plasma.sd.service.styles.checkbox.M
+import com.sdds.plasma.sd.service.styles.checkbox.S
 
 /**
  * Состояние checkbox

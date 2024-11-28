@@ -7,10 +7,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.ProgressBar
 import com.sdds.plasma.sd.service.sandbox.SandboxTheme
-import com.sdds.plasma.sd.service.styles.Default
-import com.sdds.plasma.sd.service.styles.Negative
-import com.sdds.plasma.sd.service.styles.Positive
-import com.sdds.plasma.sd.service.styles.Warning
+import com.sdds.plasma.sd.service.styles.progress.Default
+import com.sdds.plasma.sd.service.styles.progress.Negative
+import com.sdds.plasma.sd.service.styles.progress.Positive
+import com.sdds.plasma.sd.service.styles.progress.Warning
 
 @Composable
 @Preview(showBackground = true)

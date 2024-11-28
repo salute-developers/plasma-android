@@ -8,20 +8,33 @@ import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.IconButton
 import com.sdds.icons.R
 import com.sdds.plasma.sd.service.sandbox.SandboxTheme
-import com.sdds.plasma.sd.service.styles.Accent
-import com.sdds.plasma.sd.service.styles.Clear
-import com.sdds.plasma.sd.service.styles.Dark
-import com.sdds.plasma.sd.service.styles.Default
-import com.sdds.plasma.sd.service.styles.L
-import com.sdds.plasma.sd.service.styles.M
-import com.sdds.plasma.sd.service.styles.Negative
-import com.sdds.plasma.sd.service.styles.Pilled
-import com.sdds.plasma.sd.service.styles.Positive
-import com.sdds.plasma.sd.service.styles.S
-import com.sdds.plasma.sd.service.styles.Secondary
-import com.sdds.plasma.sd.service.styles.Warning
-import com.sdds.plasma.sd.service.styles.White
-import com.sdds.plasma.sd.service.styles.Xs
+import com.sdds.plasma.sd.service.styles.button.basic.Accent
+import com.sdds.plasma.sd.service.styles.button.basic.Clear
+import com.sdds.plasma.sd.service.styles.button.basic.Dark
+import com.sdds.plasma.sd.service.styles.button.basic.Default
+import com.sdds.plasma.sd.service.styles.button.basic.L
+import com.sdds.plasma.sd.service.styles.button.basic.M
+import com.sdds.plasma.sd.service.styles.button.basic.Negative
+import com.sdds.plasma.sd.service.styles.button.basic.Positive
+import com.sdds.plasma.sd.service.styles.button.basic.S
+import com.sdds.plasma.sd.service.styles.button.basic.Secondary
+import com.sdds.plasma.sd.service.styles.button.basic.Warning
+import com.sdds.plasma.sd.service.styles.button.basic.White
+import com.sdds.plasma.sd.service.styles.button.basic.Xs
+import com.sdds.plasma.sd.service.styles.button.icon.Accent
+import com.sdds.plasma.sd.service.styles.button.icon.Clear
+import com.sdds.plasma.sd.service.styles.button.icon.Dark
+import com.sdds.plasma.sd.service.styles.button.icon.Default
+import com.sdds.plasma.sd.service.styles.button.icon.L
+import com.sdds.plasma.sd.service.styles.button.icon.M
+import com.sdds.plasma.sd.service.styles.button.icon.Negative
+import com.sdds.plasma.sd.service.styles.button.icon.Pilled
+import com.sdds.plasma.sd.service.styles.button.icon.Positive
+import com.sdds.plasma.sd.service.styles.button.icon.S
+import com.sdds.plasma.sd.service.styles.button.icon.Secondary
+import com.sdds.plasma.sd.service.styles.button.icon.Warning
+import com.sdds.plasma.sd.service.styles.button.icon.White
+import com.sdds.plasma.sd.service.styles.button.icon.Xs
 
 /**
  * Previews для тестирования

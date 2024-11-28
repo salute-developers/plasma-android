@@ -6,8 +6,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.sdds.compose.uikit.CheckBox
 import com.sdds.compose.uikit.CheckBoxGroup
 import com.sdds.plasma.sd.service.sandbox.SandboxTheme
-import com.sdds.plasma.sd.service.styles.M
-import com.sdds.plasma.sd.service.styles.S
+import com.sdds.plasma.sd.service.styles.checkbox.M
+import com.sdds.plasma.sd.service.styles.checkbox.S
+import com.sdds.plasma.sd.service.styles.checkbox.group.M
+import com.sdds.plasma.sd.service.styles.checkbox.group.S
 
 /**
  * Превью [CheckBox]

@@ -1,4 +1,4 @@
-package com.sdds.plasma.sd.service.styles
+package com.sdds.plasma.sd.service.styles.checkbox.group
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.runtime.Composable
@@ -7,6 +7,8 @@ import com.sdds.compose.uikit.CheckBox
 import com.sdds.compose.uikit.CheckBoxGroup
 import com.sdds.compose.uikit.CheckBoxGroupStyle
 import com.sdds.compose.uikit.CheckBoxGroupStyleBuilder
+import com.sdds.plasma.sd.service.styles.checkbox.M
+import com.sdds.plasma.sd.service.styles.checkbox.S
 
 /**
  * Стиль [CheckBoxGroup] размера M

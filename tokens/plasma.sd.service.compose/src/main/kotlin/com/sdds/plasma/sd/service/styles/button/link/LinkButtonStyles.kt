@@ -1,4 +1,4 @@
-package com.sdds.playground.sandbox.buttons
+package com.sdds.plasma.sd.service.styles.button.link
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
@@ -7,7 +7,7 @@ import com.sdds.compose.uikit.LinkButton
 import com.sdds.compose.uikit.LinkButtonColorsBuilder
 import com.sdds.compose.uikit.LinkButtonStyleBuilder
 import com.sdds.compose.uikit.interactions.asInteractive
-import com.sdds.playground.sandbox.tokens.compose.SddsServTheme
+import com.sdds.plasma.sd.service.tokens.compose.PlasmaSdServiceTheme
 
 /**
  * Вариация [LinkButton] цвета Default
@@ -36,6 +36,7 @@ val LinkButtonStyleBuilder.Accent: LinkButtonStyleBuilder
 val LinkButtonStyleBuilder.Positive: LinkButtonStyleBuilder
     @Composable
     get() = colors { linkPositiveColors() }
+
 
 /**
  * Вариация [LinkButton] цвета Warning
@@ -79,7 +80,7 @@ val LinkButtonStyleBuilder.White: LinkButtonStyleBuilder
     @Composable
     get() = colors { linkWhiteColors() }
 
-internal val LinkButton.L: LinkButtonStyleBuilder
+val LinkButton.L: LinkButtonStyleBuilder
     @Composable
     get() = LinkButtonStyleBuilder.builder(this)
         .dimensions(
@@ -92,10 +93,10 @@ internal val LinkButton.L: LinkButtonStyleBuilder
                 iconMargin = 8.dp,
             ),
         )
-        .labelStyle(SddsServTheme.typography.bodyLBold)
+        .labelStyle(PlasmaSdServiceTheme.typography.bodyLBold)
         .spinnerMode(Button.SpinnerMode.SemitransparentContent(SEMITRANSPARENT_SPINNER_ALPHA))
 
-internal val LinkButton.M: LinkButtonStyleBuilder
+val LinkButton.M: LinkButtonStyleBuilder
     @Composable
     get() = LinkButtonStyleBuilder.builder(this)
         .dimensions(
@@ -108,10 +109,10 @@ internal val LinkButton.M: LinkButtonStyleBuilder
                 iconMargin = 6.dp,
             ),
         )
-        .labelStyle(SddsServTheme.typography.bodyMBold)
+        .labelStyle(PlasmaSdServiceTheme.typography.bodyMBold)
         .spinnerMode(Button.SpinnerMode.SemitransparentContent(SEMITRANSPARENT_SPINNER_ALPHA))
 
-internal val LinkButton.S: LinkButtonStyleBuilder
+val LinkButton.S: LinkButtonStyleBuilder
     @Composable
     get() = LinkButtonStyleBuilder.builder(this)
         .dimensions(
@@ -124,10 +125,10 @@ internal val LinkButton.S: LinkButtonStyleBuilder
                 iconMargin = 4.dp,
             ),
         )
-        .labelStyle(SddsServTheme.typography.bodySBold)
+        .labelStyle(PlasmaSdServiceTheme.typography.bodySBold)
         .spinnerMode(Button.SpinnerMode.SemitransparentContent(SEMITRANSPARENT_SPINNER_ALPHA))
 
-internal val LinkButton.Xs: LinkButtonStyleBuilder
+val LinkButton.Xs: LinkButtonStyleBuilder
     @Composable
     get() = LinkButtonStyleBuilder.builder(this)
         .dimensions(
@@ -140,19 +141,19 @@ internal val LinkButton.Xs: LinkButtonStyleBuilder
                 iconMargin = 4.dp,
             ),
         )
-        .labelStyle(SddsServTheme.typography.bodyXsBold)
+        .labelStyle(PlasmaSdServiceTheme.typography.bodyXsBold)
         .spinnerMode(Button.SpinnerMode.SemitransparentContent(SEMITRANSPARENT_SPINNER_ALPHA))
 
 @Composable
 private fun LinkButtonColorsBuilder.linkClearColors(): LinkButtonColorsBuilder = apply {
     contentColor(
-        SddsServTheme.colors.textDefaultPrimary.asInteractive(
-            pressed = SddsServTheme.colors.textDefaultPrimaryActive,
+        PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+            pressed = PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
         ),
     )
     valueColor(
-        SddsServTheme.colors.textDefaultSecondary.asInteractive(
-            pressed = SddsServTheme.colors.textDefaultSecondaryActive,
+        PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
+            pressed = PlasmaSdServiceTheme.colors.textDefaultSecondaryActive,
         ),
     )
 }
@@ -160,13 +161,13 @@ private fun LinkButtonColorsBuilder.linkClearColors(): LinkButtonColorsBuilder =
 @Composable
 private fun LinkButtonColorsBuilder.linkDarkColors(): LinkButtonColorsBuilder = apply {
     contentColor(
-        SddsServTheme.colors.textOnDarkPrimary.asInteractive(
-            pressed = SddsServTheme.colors.textOnDarkPrimaryActive,
+        PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
+            pressed = PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
         ),
     )
     valueColor(
-        SddsServTheme.colors.textOnDarkSecondary.asInteractive(
-            pressed = SddsServTheme.colors.textOnDarkSecondaryActive,
+        PlasmaSdServiceTheme.colors.textOnDarkSecondary.asInteractive(
+            pressed = PlasmaSdServiceTheme.colors.textOnDarkSecondaryActive,
         ),
     )
 }
@@ -174,13 +175,13 @@ private fun LinkButtonColorsBuilder.linkDarkColors(): LinkButtonColorsBuilder = 
 @Composable
 private fun LinkButtonColorsBuilder.linkBlackColors(): LinkButtonColorsBuilder = apply {
     contentColor(
-        SddsServTheme.colors.textOnDarkPrimary.asInteractive(
-            pressed = SddsServTheme.colors.textOnDarkPrimaryActive,
+        PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
+            pressed = PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
         ),
     )
     valueColor(
-        SddsServTheme.colors.textOnDarkSecondary.asInteractive(
-            pressed = SddsServTheme.colors.textOnDarkSecondaryActive,
+        PlasmaSdServiceTheme.colors.textOnDarkSecondary.asInteractive(
+            pressed = PlasmaSdServiceTheme.colors.textOnDarkSecondaryActive,
         ),
     )
 }
@@ -188,13 +189,13 @@ private fun LinkButtonColorsBuilder.linkBlackColors(): LinkButtonColorsBuilder =
 @Composable
 private fun LinkButtonColorsBuilder.linkWhiteColors(): LinkButtonColorsBuilder = apply {
     contentColor(
-        SddsServTheme.colors.textOnLightPrimary.asInteractive(
-            pressed = SddsServTheme.colors.textOnLightPrimaryActive,
+        PlasmaSdServiceTheme.colors.textOnLightPrimary.asInteractive(
+            pressed = PlasmaSdServiceTheme.colors.textOnLightPrimaryActive,
         ),
     )
     valueColor(
-        SddsServTheme.colors.textOnLightSecondary.asInteractive(
-            pressed = SddsServTheme.colors.textOnLightSecondaryActive,
+        PlasmaSdServiceTheme.colors.textOnLightSecondary.asInteractive(
+            pressed = PlasmaSdServiceTheme.colors.textOnLightSecondaryActive,
         ),
     )
 }
@@ -202,8 +203,8 @@ private fun LinkButtonColorsBuilder.linkWhiteColors(): LinkButtonColorsBuilder =
 @Composable
 private fun LinkButtonColorsBuilder.linkDefaultColors(): LinkButtonColorsBuilder = apply {
     contentColor(
-        SddsServTheme.colors.textDefaultPrimary.asInteractive(
-            pressed = SddsServTheme.colors.textDefaultPrimaryActive,
+        PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+            pressed = PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
         ),
     )
 }
@@ -211,8 +212,8 @@ private fun LinkButtonColorsBuilder.linkDefaultColors(): LinkButtonColorsBuilder
 @Composable
 private fun LinkButtonColorsBuilder.linkSecondaryColors(): LinkButtonColorsBuilder = apply {
     contentColor(
-        SddsServTheme.colors.textDefaultSecondary.asInteractive(
-            pressed = SddsServTheme.colors.textDefaultSecondaryActive,
+        PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
+            pressed = PlasmaSdServiceTheme.colors.textDefaultSecondaryActive,
         ),
     )
 }
@@ -220,8 +221,8 @@ private fun LinkButtonColorsBuilder.linkSecondaryColors(): LinkButtonColorsBuild
 @Composable
 private fun LinkButtonColorsBuilder.linkAccentColors(): LinkButtonColorsBuilder = apply {
     contentColor(
-        SddsServTheme.colors.textDefaultAccent.asInteractive(
-            pressed = SddsServTheme.colors.textDefaultAccentActive,
+        PlasmaSdServiceTheme.colors.textDefaultAccent.asInteractive(
+            pressed = PlasmaSdServiceTheme.colors.textDefaultAccentActive,
         ),
     )
 }
@@ -229,8 +230,8 @@ private fun LinkButtonColorsBuilder.linkAccentColors(): LinkButtonColorsBuilder 
 @Composable
 private fun LinkButtonColorsBuilder.linkPositiveColors(): LinkButtonColorsBuilder = apply {
     contentColor(
-        SddsServTheme.colors.textDefaultPositive.asInteractive(
-            pressed = SddsServTheme.colors.textDefaultPositiveActive,
+        PlasmaSdServiceTheme.colors.textDefaultPositive.asInteractive(
+            pressed = PlasmaSdServiceTheme.colors.textDefaultPositiveActive,
         ),
     )
 }
@@ -238,8 +239,8 @@ private fun LinkButtonColorsBuilder.linkPositiveColors(): LinkButtonColorsBuilde
 @Composable
 private fun LinkButtonColorsBuilder.linkNegativeColors(): LinkButtonColorsBuilder = apply {
     contentColor(
-        SddsServTheme.colors.textDefaultNegative.asInteractive(
-            pressed = SddsServTheme.colors.textDefaultNegativeActive,
+        PlasmaSdServiceTheme.colors.textDefaultNegative.asInteractive(
+            pressed = PlasmaSdServiceTheme.colors.textDefaultNegativeActive,
         ),
     )
 }
@@ -247,8 +248,8 @@ private fun LinkButtonColorsBuilder.linkNegativeColors(): LinkButtonColorsBuilde
 @Composable
 private fun LinkButtonColorsBuilder.linkWarningColors(): LinkButtonColorsBuilder = apply {
     contentColor(
-        SddsServTheme.colors.textDefaultWarning.asInteractive(
-            pressed = SddsServTheme.colors.textDefaultWarningActive,
+        PlasmaSdServiceTheme.colors.textDefaultWarning.asInteractive(
+            pressed = PlasmaSdServiceTheme.colors.textDefaultWarningActive,
         ),
     )
 }

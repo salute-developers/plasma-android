@@ -1,90 +1,27 @@
-package com.sdds.plasma.sd.service.styles
+package com.sdds.plasma.sd.service.styles.textfield
 
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.ChipGroup
 import com.sdds.compose.uikit.EmbeddedChip
-import com.sdds.compose.uikit.TextArea
-import com.sdds.compose.uikit.TextAreaClear
 import com.sdds.compose.uikit.TextField
 import com.sdds.compose.uikit.TextFieldClear
 import com.sdds.compose.uikit.TextFieldColorsBuilder
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.TextFieldStyleBuilder
-import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.asInteractive
-import com.sdds.compose.uikit.style.applyFor
+import com.sdds.plasma.sd.service.styles.chip.L
+import com.sdds.plasma.sd.service.styles.chip.M
+import com.sdds.plasma.sd.service.styles.chip.S
+import com.sdds.plasma.sd.service.styles.chip.Secondary
+import com.sdds.plasma.sd.service.styles.chip.Xs
+import com.sdds.plasma.sd.service.styles.chip.group.Dense
 import com.sdds.plasma.sd.service.tokens.compose.PlasmaSdServiceTheme
 
-val TextFieldStyleBuilder.Default: TextFieldStyleBuilder
-    @Composable
-    get() = applyFor(TextField) {
-        colors { defaultColors() }
-    }.applyFor(TextArea) {
-        colors { defaultColors() }
-    }.applyFor(TextFieldClear) {
-        colors { defaultClearColors() }
-    }.applyFor(TextAreaClear) {
-        colors { defaultClearColors() }
-    }
-
-val TextFieldStyleBuilder.Error: TextFieldStyleBuilder
-    @Composable
-    get() = applyFor(TextField) {
-        colors { errorColors() }
-    }.applyFor(TextArea) {
-        colors { errorColors() }
-    }.applyFor(TextFieldClear) {
-        colors { errorClearColors() }
-    }.applyFor(TextAreaClear) {
-        colors { errorClearColors() }
-    }
-
-val TextFieldStyleBuilder.Warning: TextFieldStyleBuilder
-    @Composable
-    get() = applyFor(TextField) {
-        colors { warningColors() }
-    }.applyFor(TextArea) {
-        colors { warningColors() }
-    }.applyFor(TextFieldClear) {
-        colors { warningClearColors() }
-    }.applyFor(TextAreaClear) {
-        colors { warningClearColors() }
-    }
-
-val TextFieldStyleBuilder.Success: TextFieldStyleBuilder
-    @Composable
-    get() = applyFor(TextField) {
-        colors { successColors() }
-    }.applyFor(TextArea) {
-        colors { successColors() }
-    }.applyFor(TextFieldClear) {
-        colors { successClearColors() }
-    }.applyFor(TextAreaClear) {
-        colors { successClearColors() }
-    }
-
-val TextFieldStyleBuilder.RequiredStart: TextFieldStyleBuilder
-    get() = fieldType(TextField.FieldType.RequiredStart)
-
-val TextFieldStyleBuilder.RequiredEnd: TextFieldStyleBuilder
-    get() = fieldType(TextField.FieldType.RequiredEnd)
-
-val TextFieldStyleBuilder.Optional: TextFieldStyleBuilder
-    get() = fieldType(TextField.FieldType.Optional)
-
-val TextFieldStyleBuilder.InnerLabel: TextFieldStyleBuilder
-    get() = labelPlacement(TextField.LabelPlacement.Inner)
-
-val TextFieldStyleBuilder.OuterLabel: TextFieldStyleBuilder
-    get() = labelPlacement(TextField.LabelPlacement.Outer)
-
-val TextField.Xs: TextFieldStyleBuilder
+val TextFieldClear.Xs: TextFieldStyleBuilder
     @Composable
     get() = TextFieldStyle.builder(this)
-        .fieldAppearance(TextField.FieldAppearance.Solid)
-        .shape(PlasmaSdServiceTheme.shapes.roundS)
+        .fieldAppearance(TextField.FieldAppearance.Clear)
         .helperTextPlacement(TextField.HelperTextPlacement.Outer)
         .chipGroupStyle(
             ChipGroup.Dense.chipStyle(
@@ -93,16 +30,16 @@ val TextField.Xs: TextFieldStyleBuilder
         )
         .dimensions(
             TextField.Dimensions(
-                boxPaddingStart = 8.dp,
-                boxPaddingEnd = 8.dp,
+                boxPaddingStart = 0.dp,
+                boxPaddingEnd = 0.dp,
                 boxPaddingTopInnerLabel = 8.dp,
                 boxPaddingBottomInnerLabel = 8.dp,
                 boxPaddingTopOuterLabel = 8.dp,
                 boxPaddingBottomOuterLabel = 8.dp,
                 innerLabelPadding = 0.dp,
-                outerLabelPadding = 6.dp,
+                outerLabelPadding = 2.dp,
                 optionalPadding = 4.dp,
-                helperTextPaddingInner = 8.dp,
+                helperTextPaddingInner = 0.dp,
                 helperTextPaddingOuter = 4.dp,
                 startContentEndPadding = 4.dp,
                 endContentStartPadding = 4.dp,
@@ -115,6 +52,10 @@ val TextField.Xs: TextFieldStyleBuilder
                     startLabelVerticalPadding = 0.dp,
                     endLabelHorizontalPadding = 4.dp,
                     endLabelVerticalPadding = 2.dp,
+                    startFieldHorizontalPadding = 4.dp,
+                    startFieldVerticalPadding = 0.dp,
+                    endFieldHorizontalPadding = 4.dp,
+                    endFieldVerticalPadding = 0.dp,
                     fieldIndicatorSize = 6.dp,
                     labelIndicatorSize = 6.dp,
                 ),
@@ -131,11 +72,10 @@ val TextField.Xs: TextFieldStyleBuilder
         .dropInnerLabel(true)
         .singleLine(true)
 
-val TextField.S: TextFieldStyleBuilder
+val TextFieldClear.S: TextFieldStyleBuilder
     @Composable
     get() = TextFieldStyle.builder(this)
-        .fieldAppearance(TextField.FieldAppearance.Solid)
-        .shape(PlasmaSdServiceTheme.shapes.roundM.adjustBy(all = (-2).dp))
+        .fieldAppearance(TextField.FieldAppearance.Clear)
         .helperTextPlacement(TextField.HelperTextPlacement.Outer)
         .chipGroupStyle(
             ChipGroup.Dense.chipStyle(
@@ -144,16 +84,16 @@ val TextField.S: TextFieldStyleBuilder
         )
         .dimensions(
             TextField.Dimensions(
-                boxPaddingStart = 12.dp,
-                boxPaddingEnd = 12.dp,
+                boxPaddingStart = 0.dp,
+                boxPaddingEnd = 0.dp,
                 boxPaddingTopInnerLabel = 4.dp,
                 boxPaddingBottomInnerLabel = 4.dp,
                 boxPaddingTopOuterLabel = 8.dp,
                 boxPaddingBottomOuterLabel = 8.dp,
                 innerLabelPadding = 0.dp,
-                outerLabelPadding = 8.dp,
+                outerLabelPadding = 4.dp,
                 optionalPadding = 4.dp,
-                helperTextPaddingInner = 12.dp,
+                helperTextPaddingInner = 0.dp,
                 helperTextPaddingOuter = 4.dp,
                 startContentEndPadding = 4.dp,
                 endContentStartPadding = 6.dp,
@@ -162,10 +102,14 @@ val TextField.S: TextFieldStyleBuilder
                 alignmentLineHeight = 40.dp,
                 iconSize = 24.dp,
                 indicatorDimensions = TextField.Dimensions.IndicatorDimensions(
-                    startLabelHorizontalPadding = 4.dp,
+                    startLabelHorizontalPadding = 6.dp,
                     startLabelVerticalPadding = 0.dp,
                     endLabelHorizontalPadding = 4.dp,
                     endLabelVerticalPadding = 4.dp,
+                    startFieldHorizontalPadding = 6.dp,
+                    startFieldVerticalPadding = 0.dp,
+                    endFieldHorizontalPadding = 6.dp,
+                    endFieldVerticalPadding = 0.dp,
                     fieldIndicatorSize = 6.dp,
                     labelIndicatorSize = 6.dp,
                 ),
@@ -181,11 +125,10 @@ val TextField.S: TextFieldStyleBuilder
         .placeholderStyle(PlasmaSdServiceTheme.typography.bodySNormal)
         .singleLine(true)
 
-val TextField.M: TextFieldStyleBuilder
+val TextFieldClear.M: TextFieldStyleBuilder
     @Composable
     get() = TextFieldStyle.builder(this)
-        .fieldAppearance(TextField.FieldAppearance.Solid)
-        .shape(PlasmaSdServiceTheme.shapes.roundM)
+        .fieldAppearance(TextField.FieldAppearance.Clear)
         .helperTextPlacement(TextField.HelperTextPlacement.Outer)
         .chipGroupStyle(
             ChipGroup.Dense.chipStyle(
@@ -194,16 +137,16 @@ val TextField.M: TextFieldStyleBuilder
         )
         .dimensions(
             TextField.Dimensions(
-                boxPaddingStart = 14.dp,
-                boxPaddingEnd = 14.dp,
+                boxPaddingStart = 0.dp,
+                boxPaddingEnd = 0.dp,
                 boxPaddingTopInnerLabel = 6.dp,
                 boxPaddingBottomInnerLabel = 6.dp,
                 boxPaddingTopOuterLabel = 12.dp,
                 boxPaddingBottomOuterLabel = 12.dp,
                 innerLabelPadding = 2.dp,
-                outerLabelPadding = 10.dp,
+                outerLabelPadding = 4.dp,
                 optionalPadding = 4.dp,
-                helperTextPaddingInner = 12.dp,
+                helperTextPaddingInner = 0.dp,
                 helperTextPaddingOuter = 4.dp,
                 startContentEndPadding = 6.dp,
                 endContentStartPadding = 8.dp,
@@ -216,6 +159,10 @@ val TextField.M: TextFieldStyleBuilder
                     startLabelVerticalPadding = 0.dp,
                     endLabelHorizontalPadding = 4.dp,
                     endLabelVerticalPadding = 4.dp,
+                    startFieldHorizontalPadding = 6.dp,
+                    startFieldVerticalPadding = 0.dp,
+                    endFieldHorizontalPadding = 6.dp,
+                    endFieldVerticalPadding = 0.dp,
                     fieldIndicatorSize = 8.dp,
                     labelIndicatorSize = 6.dp,
                 ),
@@ -231,11 +178,10 @@ val TextField.M: TextFieldStyleBuilder
         .placeholderStyle(PlasmaSdServiceTheme.typography.bodyMNormal)
         .singleLine(true)
 
-val TextField.L: TextFieldStyleBuilder
+val TextFieldClear.L: TextFieldStyleBuilder
     @Composable
     get() = TextFieldStyle.builder(this)
-        .fieldAppearance(TextField.FieldAppearance.Solid)
-        .shape(PlasmaSdServiceTheme.shapes.roundM.adjustBy(all = 2.dp))
+        .fieldAppearance(TextField.FieldAppearance.Clear)
         .helperTextPlacement(TextField.HelperTextPlacement.Outer)
         .chipGroupStyle(
             ChipGroup.Dense.chipStyle(
@@ -244,16 +190,16 @@ val TextField.L: TextFieldStyleBuilder
         )
         .dimensions(
             TextField.Dimensions(
-                boxPaddingStart = 16.dp,
-                boxPaddingEnd = 16.dp,
+                boxPaddingStart = 0.dp,
+                boxPaddingEnd = 0.dp,
                 boxPaddingTopInnerLabel = 9.dp,
                 boxPaddingBottomInnerLabel = 9.dp,
                 boxPaddingTopOuterLabel = 16.dp,
                 boxPaddingBottomOuterLabel = 16.dp,
                 innerLabelPadding = 2.dp,
-                outerLabelPadding = 12.dp,
+                outerLabelPadding = 4.dp,
                 optionalPadding = 4.dp,
-                helperTextPaddingInner = 12.dp,
+                helperTextPaddingInner = 0.dp,
                 helperTextPaddingOuter = 4.dp,
                 startContentEndPadding = 8.dp,
                 endContentStartPadding = 10.dp,
@@ -266,6 +212,10 @@ val TextField.L: TextFieldStyleBuilder
                     startLabelVerticalPadding = 0.dp,
                     endLabelHorizontalPadding = 4.dp,
                     endLabelVerticalPadding = 4.dp,
+                    startFieldHorizontalPadding = 6.dp,
+                    startFieldVerticalPadding = 0.dp,
+                    endFieldHorizontalPadding = 6.dp,
+                    endFieldVerticalPadding = 0.dp,
                     fieldIndicatorSize = 8.dp,
                     labelIndicatorSize = 6.dp,
                 ),
@@ -281,16 +231,14 @@ val TextField.L: TextFieldStyleBuilder
         .placeholderStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
         .singleLine(true)
 
-private val readOnlyAlpha: Float
-    @Composable
-    get() = if (isSystemInDarkTheme()) 0.02f else 0.01f
+val TextFieldStyleBuilder.HasDivider: TextFieldStyleBuilder
+    get() = hasDivider(true)
 
-private val surfaceAlpha: Float
-    @Composable
-    get() = if (isSystemInDarkTheme()) 0.12f else 0.06f
+val TextFieldStyleBuilder.NoDivider: TextFieldStyleBuilder
+    get() = hasDivider(false)
 
 @Composable
-internal fun TextFieldColorsBuilder.defaultColors(): TextFieldColorsBuilder = apply {
+internal fun TextFieldColorsBuilder.defaultClearColors(): TextFieldColorsBuilder = apply {
     disabledAlpha(0.4f)
     enabledAlpha(1f)
     cursorColor(PlasmaSdServiceTheme.colors.textDefaultAccent)
@@ -312,32 +260,37 @@ internal fun TextFieldColorsBuilder.defaultColors(): TextFieldColorsBuilder = ap
         ),
     )
     placeholderColorReadOnly(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
-    backgroundColor(
-        PlasmaSdServiceTheme.colors.surfaceDefaultTransparentPrimary
-            .asInteractive(
-                focused = PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondary,
-                pressed = PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondary,
-            ),
+    dividerColor(
+        PlasmaSdServiceTheme.colors.surfaceDefaultTransparentTertiary.asInteractive(
+            focused = PlasmaSdServiceTheme.colors.surfaceDefaultAccent,
+            pressed = PlasmaSdServiceTheme.colors.surfaceDefaultAccent,
+        ),
     )
-    backgroundColorReadOnly(
-        PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefault
-            .copy(alpha = readOnlyAlpha)
-            .asInteractive(),
-    )
+    dividerColorReadOnly(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentPrimary.asInteractive())
     indicatorColor(PlasmaSdServiceTheme.colors.surfaceDefaultNegative)
 }
 
 @Composable
-internal fun TextFieldColorsBuilder.successColors(): TextFieldColorsBuilder = apply {
+internal fun TextFieldColorsBuilder.successClearColors(): TextFieldColorsBuilder = apply {
     disabledAlpha(0.4f)
     enabledAlpha(1f)
     cursorColor(PlasmaSdServiceTheme.colors.textDefaultAccent)
-    startContentColor(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
+    startContentColor(
+        PlasmaSdServiceTheme.colors.surfaceDefaultPositive.asInteractive(
+            focused = PlasmaSdServiceTheme.colors.textDefaultSecondary,
+            pressed = PlasmaSdServiceTheme.colors.textDefaultSecondary,
+        ),
+    )
     endContentColor(PlasmaSdServiceTheme.colors.textDefaultSecondary)
     innerLabelColor(PlasmaSdServiceTheme.colors.textDefaultSecondary)
     outerLabelColor(PlasmaSdServiceTheme.colors.textDefaultPrimary)
     outerLabelColorReadOnly(PlasmaSdServiceTheme.colors.textDefaultSecondary)
-    valueColor(PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive())
+    valueColor(
+        PlasmaSdServiceTheme.colors.textDefaultPositive.asInteractive(
+            focused = PlasmaSdServiceTheme.colors.textDefaultPrimary,
+            pressed = PlasmaSdServiceTheme.colors.textDefaultPrimary,
+        ),
+    )
     valueColorReadOnly(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
     captionColor(
         PlasmaSdServiceTheme.colors.textDefaultPositive.asInteractive(
@@ -349,38 +302,43 @@ internal fun TextFieldColorsBuilder.successColors(): TextFieldColorsBuilder = ap
     optionalColor(PlasmaSdServiceTheme.colors.textDefaultTertiary)
     counterColor(PlasmaSdServiceTheme.colors.textDefaultSecondary)
     placeholderColor(
-        PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
+        PlasmaSdServiceTheme.colors.textDefaultPositive.asInteractive(
             focused = PlasmaSdServiceTheme.colors.textDefaultTertiary,
             pressed = PlasmaSdServiceTheme.colors.textDefaultTertiary,
         ),
     )
     placeholderColorReadOnly(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
-    backgroundColor(
-        PlasmaSdServiceTheme.colors.surfaceDefaultPositive.copy(alpha = surfaceAlpha)
-            .asInteractive(
-                focused = PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondary,
-                pressed = PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondary,
-            ),
+    dividerColor(
+        PlasmaSdServiceTheme.colors.surfaceDefaultPositive.asInteractive(
+            focused = PlasmaSdServiceTheme.colors.surfaceDefaultAccent,
+            pressed = PlasmaSdServiceTheme.colors.surfaceDefaultAccent,
+        ),
     )
-    backgroundColorReadOnly(
-        PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefault
-            .copy(alpha = readOnlyAlpha)
-            .asInteractive(),
-    )
+    dividerColorReadOnly(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentPrimary.asInteractive())
     indicatorColor(PlasmaSdServiceTheme.colors.surfaceDefaultNegative)
 }
 
 @Composable
-internal fun TextFieldColorsBuilder.warningColors(): TextFieldColorsBuilder = apply {
+internal fun TextFieldColorsBuilder.warningClearColors(): TextFieldColorsBuilder = apply {
     disabledAlpha(0.4f)
     enabledAlpha(1f)
     cursorColor(PlasmaSdServiceTheme.colors.textDefaultAccent)
-    startContentColor(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
+    startContentColor(
+        PlasmaSdServiceTheme.colors.surfaceDefaultWarning.asInteractive(
+            focused = PlasmaSdServiceTheme.colors.textDefaultSecondary,
+            pressed = PlasmaSdServiceTheme.colors.textDefaultSecondary,
+        ),
+    )
     endContentColor(PlasmaSdServiceTheme.colors.textDefaultSecondary)
     innerLabelColor(PlasmaSdServiceTheme.colors.textDefaultSecondary)
     outerLabelColor(PlasmaSdServiceTheme.colors.textDefaultPrimary)
     outerLabelColorReadOnly(PlasmaSdServiceTheme.colors.textDefaultSecondary)
-    valueColor(PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive())
+    valueColor(
+        PlasmaSdServiceTheme.colors.textDefaultWarning.asInteractive(
+            focused = PlasmaSdServiceTheme.colors.textDefaultPrimary,
+            pressed = PlasmaSdServiceTheme.colors.textDefaultPrimary,
+        ),
+    )
     valueColorReadOnly(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
     captionColor(
         PlasmaSdServiceTheme.colors.textDefaultWarning.asInteractive(
@@ -392,38 +350,43 @@ internal fun TextFieldColorsBuilder.warningColors(): TextFieldColorsBuilder = ap
     optionalColor(PlasmaSdServiceTheme.colors.textDefaultTertiary)
     counterColor(PlasmaSdServiceTheme.colors.textDefaultSecondary)
     placeholderColor(
-        PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
+        PlasmaSdServiceTheme.colors.textDefaultWarning.asInteractive(
             focused = PlasmaSdServiceTheme.colors.textDefaultTertiary,
             pressed = PlasmaSdServiceTheme.colors.textDefaultTertiary,
         ),
     )
     placeholderColorReadOnly(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
-    backgroundColor(
-        PlasmaSdServiceTheme.colors.surfaceDefaultWarning.copy(alpha = surfaceAlpha)
-            .asInteractive(
-                focused = PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondary,
-                pressed = PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondary,
-            ),
+    dividerColor(
+        PlasmaSdServiceTheme.colors.surfaceDefaultWarning.asInteractive(
+            focused = PlasmaSdServiceTheme.colors.surfaceDefaultAccent,
+            pressed = PlasmaSdServiceTheme.colors.surfaceDefaultAccent,
+        ),
     )
-    backgroundColorReadOnly(
-        PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefault
-            .copy(alpha = readOnlyAlpha)
-            .asInteractive(),
-    )
+    dividerColorReadOnly(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentPrimary.asInteractive())
     indicatorColor(PlasmaSdServiceTheme.colors.surfaceDefaultNegative)
 }
 
 @Composable
-internal fun TextFieldColorsBuilder.errorColors(): TextFieldColorsBuilder = apply {
+internal fun TextFieldColorsBuilder.errorClearColors(): TextFieldColorsBuilder = apply {
     disabledAlpha(0.4f)
     enabledAlpha(1f)
     cursorColor(PlasmaSdServiceTheme.colors.textDefaultAccent)
-    startContentColor(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
+    startContentColor(
+        PlasmaSdServiceTheme.colors.surfaceDefaultNegative.asInteractive(
+            focused = PlasmaSdServiceTheme.colors.textDefaultSecondary,
+            pressed = PlasmaSdServiceTheme.colors.textDefaultSecondary,
+        ),
+    )
     endContentColor(PlasmaSdServiceTheme.colors.textDefaultSecondary)
     innerLabelColor(PlasmaSdServiceTheme.colors.textDefaultSecondary)
     outerLabelColor(PlasmaSdServiceTheme.colors.textDefaultPrimary)
     outerLabelColorReadOnly(PlasmaSdServiceTheme.colors.textDefaultSecondary)
-    valueColor(PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive())
+    valueColor(
+        PlasmaSdServiceTheme.colors.textDefaultNegative.asInteractive(
+            focused = PlasmaSdServiceTheme.colors.textDefaultPrimary,
+            pressed = PlasmaSdServiceTheme.colors.textDefaultPrimary,
+        ),
+    )
     valueColorReadOnly(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
     captionColor(
         PlasmaSdServiceTheme.colors.textDefaultNegative.asInteractive(
@@ -435,23 +398,18 @@ internal fun TextFieldColorsBuilder.errorColors(): TextFieldColorsBuilder = appl
     optionalColor(PlasmaSdServiceTheme.colors.textDefaultTertiary)
     counterColor(PlasmaSdServiceTheme.colors.textDefaultSecondary)
     placeholderColor(
-        PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
+        PlasmaSdServiceTheme.colors.textDefaultNegative.asInteractive(
             focused = PlasmaSdServiceTheme.colors.textDefaultTertiary,
             pressed = PlasmaSdServiceTheme.colors.textDefaultTertiary,
         ),
     )
     placeholderColorReadOnly(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
-    backgroundColor(
-        PlasmaSdServiceTheme.colors.surfaceDefaultNegative.copy(alpha = surfaceAlpha)
-            .asInteractive(
-                focused = PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondary,
-                pressed = PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondary,
-            ),
+    dividerColor(
+        PlasmaSdServiceTheme.colors.surfaceDefaultNegative.asInteractive(
+            focused = PlasmaSdServiceTheme.colors.surfaceDefaultAccent,
+            pressed = PlasmaSdServiceTheme.colors.surfaceDefaultAccent,
+        ),
     )
-    backgroundColorReadOnly(
-        PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefault
-            .copy(alpha = readOnlyAlpha)
-            .asInteractive(),
-    )
+    dividerColorReadOnly(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentPrimary.asInteractive())
     indicatorColor(PlasmaSdServiceTheme.colors.surfaceDefaultNegative)
 }

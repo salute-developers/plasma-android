@@ -3,10 +3,10 @@ package com.sdds.plasma.sd.service.sandbox.avatar
 import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.Avatar
 import com.sdds.compose.uikit.AvatarStyle
-import com.sdds.plasma.sd.service.styles.L
-import com.sdds.plasma.sd.service.styles.M
-import com.sdds.plasma.sd.service.styles.S
-import com.sdds.plasma.sd.service.styles.Xxl
+import com.sdds.plasma.sd.service.styles.avatar.L
+import com.sdds.plasma.sd.service.styles.avatar.M
+import com.sdds.plasma.sd.service.styles.avatar.S
+import com.sdds.plasma.sd.service.styles.avatar.Xxl
 
 /**
  * Состояние [Avatar]

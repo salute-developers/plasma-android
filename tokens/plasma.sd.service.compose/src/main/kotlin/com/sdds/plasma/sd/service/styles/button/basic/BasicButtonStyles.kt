@@ -1,4 +1,4 @@
-package com.sdds.playground.sandbox.buttons
+package com.sdds.plasma.sd.service.styles.button.basic
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
@@ -9,7 +9,7 @@ import com.sdds.compose.uikit.BasicButtonStyleBuilder
 import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.asInteractive
-import com.sdds.playground.sandbox.tokens.compose.SddsServTheme
+import com.sdds.plasma.sd.service.tokens.compose.PlasmaSdServiceTheme
 
 /**
  * Вариация [Button] цвета Default
@@ -88,10 +88,10 @@ val BasicButtonStyleBuilder.Pilled: BasicButtonStyleBuilder
     @Composable
     get() = shape(CircleShape)
 
-internal val BasicButton.L: BasicButtonStyleBuilder
+val BasicButton.L: BasicButtonStyleBuilder
     @Composable
     get() = BasicButtonStyleBuilder.builder(this)
-        .shape(SddsServTheme.shapes.roundL.adjustBy(all = (-2).dp))
+        .shape(PlasmaSdServiceTheme.shapes.roundL.adjustBy(all = (-2).dp))
         .dimensions(
             Button.Dimensions(
                 height = 56.dp,
@@ -103,13 +103,13 @@ internal val BasicButton.L: BasicButtonStyleBuilder
                 valueMargin = 4.dp,
             ),
         )
-        .labelStyle(SddsServTheme.typography.bodyLBold)
-        .valueStyle(SddsServTheme.typography.bodyLBold)
+        .labelStyle(PlasmaSdServiceTheme.typography.bodyLBold)
+        .valueStyle(PlasmaSdServiceTheme.typography.bodyLBold)
 
-internal val BasicButton.M: BasicButtonStyleBuilder
+val BasicButton.M: BasicButtonStyleBuilder
     @Composable
     get() = BasicButtonStyleBuilder.builder(this)
-        .shape(SddsServTheme.shapes.roundM)
+        .shape(PlasmaSdServiceTheme.shapes.roundM)
         .dimensions(
             Button.Dimensions(
                 height = 48.dp,
@@ -121,13 +121,13 @@ internal val BasicButton.M: BasicButtonStyleBuilder
                 valueMargin = 4.dp,
             ),
         )
-        .labelStyle(SddsServTheme.typography.bodyMBold)
-        .valueStyle(SddsServTheme.typography.bodyMBold)
+        .labelStyle(PlasmaSdServiceTheme.typography.bodyMBold)
+        .valueStyle(PlasmaSdServiceTheme.typography.bodyMBold)
 
-internal val BasicButton.S: BasicButtonStyleBuilder
+val BasicButton.S: BasicButtonStyleBuilder
     @Composable
     get() = BasicButtonStyleBuilder.builder(this)
-        .shape(SddsServTheme.shapes.roundM.adjustBy(all = (-2).dp))
+        .shape(PlasmaSdServiceTheme.shapes.roundM.adjustBy(all = (-2).dp))
         .dimensions(
             Button.Dimensions(
                 height = 40.dp,
@@ -139,13 +139,13 @@ internal val BasicButton.S: BasicButtonStyleBuilder
                 valueMargin = 4.dp,
             ),
         )
-        .labelStyle(SddsServTheme.typography.bodySBold)
-        .valueStyle(SddsServTheme.typography.bodySBold)
+        .labelStyle(PlasmaSdServiceTheme.typography.bodySBold)
+        .valueStyle(PlasmaSdServiceTheme.typography.bodySBold)
 
-internal val BasicButton.Xs: BasicButtonStyleBuilder
+val BasicButton.Xs: BasicButtonStyleBuilder
     @Composable
     get() = BasicButtonStyleBuilder.builder(this)
-        .shape(SddsServTheme.shapes.roundS)
+        .shape(PlasmaSdServiceTheme.shapes.roundS)
         .dimensions(
             Button.Dimensions(
                 height = 32.dp,
@@ -157,24 +157,24 @@ internal val BasicButton.Xs: BasicButtonStyleBuilder
                 valueMargin = 2.dp,
             ),
         )
-        .labelStyle(SddsServTheme.typography.bodyXsBold)
-        .valueStyle(SddsServTheme.typography.bodyXsBold)
+        .labelStyle(PlasmaSdServiceTheme.typography.bodyXsBold)
+        .valueStyle(PlasmaSdServiceTheme.typography.bodyXsBold)
 
 @Composable
 private fun BasicButtonColorsBuilder.defaultColors(): BasicButtonColorsBuilder = apply {
     contentColor(
-        SddsServTheme.colors.textInversePrimary.asInteractive(
-            pressed = SddsServTheme.colors.textInversePrimaryActive,
+        PlasmaSdServiceTheme.colors.textInversePrimary.asInteractive(
+            pressed = PlasmaSdServiceTheme.colors.textInversePrimaryActive,
         ),
     )
     backgroundColor(
-        SddsServTheme.colors.surfaceDefaultSolidDefault.asInteractive(
-            pressed = SddsServTheme.colors.surfaceDefaultSolidDefaultActive,
+        PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefault.asInteractive(
+            pressed = PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultActive,
         ),
     )
     valueColor(
-        SddsServTheme.colors.textInverseSecondary.asInteractive(
-            pressed = SddsServTheme.colors.textInverseSecondaryActive,
+        PlasmaSdServiceTheme.colors.textInverseSecondary.asInteractive(
+            pressed = PlasmaSdServiceTheme.colors.textInverseSecondaryActive,
         ),
     )
 }
@@ -182,18 +182,18 @@ private fun BasicButtonColorsBuilder.defaultColors(): BasicButtonColorsBuilder =
 @Composable
 private fun BasicButtonColorsBuilder.secondaryColors(): BasicButtonColorsBuilder = apply {
     contentColor(
-        SddsServTheme.colors.textDefaultPrimary.asInteractive(
-            pressed = SddsServTheme.colors.textDefaultPrimaryActive,
+        PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+            pressed = PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
         ),
     )
     backgroundColor(
-        SddsServTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(
-            pressed = SddsServTheme.colors.surfaceDefaultTransparentSecondaryActive,
+        PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(
+            pressed = PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondaryActive,
         ),
     )
     valueColor(
-        SddsServTheme.colors.textDefaultSecondary.asInteractive(
-            pressed = SddsServTheme.colors.textDefaultSecondaryActive,
+        PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
+            pressed = PlasmaSdServiceTheme.colors.textDefaultSecondaryActive,
         ),
     )
 }
@@ -201,18 +201,18 @@ private fun BasicButtonColorsBuilder.secondaryColors(): BasicButtonColorsBuilder
 @Composable
 private fun BasicButtonColorsBuilder.accentColors(): BasicButtonColorsBuilder = apply {
     contentColor(
-        SddsServTheme.colors.textOnDarkPrimary.asInteractive(
-            pressed = SddsServTheme.colors.textOnDarkPrimaryActive,
+        PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
+            pressed = PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
         ),
     )
     backgroundColor(
-        SddsServTheme.colors.surfaceDefaultAccent.asInteractive(
-            pressed = SddsServTheme.colors.surfaceDefaultAccentActive,
+        PlasmaSdServiceTheme.colors.surfaceDefaultAccent.asInteractive(
+            pressed = PlasmaSdServiceTheme.colors.surfaceDefaultAccentActive,
         ),
     )
     valueColor(
-        SddsServTheme.colors.textOnDarkSecondary.asInteractive(
-            pressed = SddsServTheme.colors.textOnDarkSecondaryActive,
+        PlasmaSdServiceTheme.colors.textOnDarkSecondary.asInteractive(
+            pressed = PlasmaSdServiceTheme.colors.textOnDarkSecondaryActive,
         ),
     )
 }
@@ -220,18 +220,18 @@ private fun BasicButtonColorsBuilder.accentColors(): BasicButtonColorsBuilder = 
 @Composable
 private fun BasicButtonColorsBuilder.positiveColors(): BasicButtonColorsBuilder = apply {
     contentColor(
-        SddsServTheme.colors.textOnDarkPrimary.asInteractive(
-            pressed = SddsServTheme.colors.textOnDarkPrimaryActive,
+        PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
+            pressed = PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
         ),
     )
     backgroundColor(
-        SddsServTheme.colors.surfaceDefaultPositive.asInteractive(
-            pressed = SddsServTheme.colors.surfaceDefaultPositiveActive,
+        PlasmaSdServiceTheme.colors.surfaceDefaultPositive.asInteractive(
+            pressed = PlasmaSdServiceTheme.colors.surfaceDefaultPositiveActive,
         ),
     )
     valueColor(
-        SddsServTheme.colors.textOnDarkSecondary.asInteractive(
-            pressed = SddsServTheme.colors.textOnDarkSecondaryActive,
+        PlasmaSdServiceTheme.colors.textOnDarkSecondary.asInteractive(
+            pressed = PlasmaSdServiceTheme.colors.textOnDarkSecondaryActive,
         ),
     )
 }
@@ -239,18 +239,18 @@ private fun BasicButtonColorsBuilder.positiveColors(): BasicButtonColorsBuilder 
 @Composable
 private fun BasicButtonColorsBuilder.negativeColors(): BasicButtonColorsBuilder = apply {
     contentColor(
-        SddsServTheme.colors.textOnDarkPrimary.asInteractive(
-            pressed = SddsServTheme.colors.textOnDarkPrimaryActive,
+        PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
+            pressed = PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
         ),
     )
     backgroundColor(
-        SddsServTheme.colors.surfaceDefaultNegative.asInteractive(
-            pressed = SddsServTheme.colors.surfaceDefaultNegativeActive,
+        PlasmaSdServiceTheme.colors.surfaceDefaultNegative.asInteractive(
+            pressed = PlasmaSdServiceTheme.colors.surfaceDefaultNegativeActive,
         ),
     )
     valueColor(
-        SddsServTheme.colors.textOnDarkSecondary.asInteractive(
-            pressed = SddsServTheme.colors.textOnDarkSecondaryActive,
+        PlasmaSdServiceTheme.colors.textOnDarkSecondary.asInteractive(
+            pressed = PlasmaSdServiceTheme.colors.textOnDarkSecondaryActive,
         ),
     )
 }
@@ -258,18 +258,18 @@ private fun BasicButtonColorsBuilder.negativeColors(): BasicButtonColorsBuilder 
 @Composable
 private fun BasicButtonColorsBuilder.warningColors(): BasicButtonColorsBuilder = apply {
     contentColor(
-        SddsServTheme.colors.textOnDarkPrimary.asInteractive(
-            pressed = SddsServTheme.colors.textOnDarkPrimaryActive,
+        PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
+            pressed = PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
         ),
     )
     backgroundColor(
-        SddsServTheme.colors.surfaceDefaultWarning.asInteractive(
-            pressed = SddsServTheme.colors.surfaceDefaultWarningActive,
+        PlasmaSdServiceTheme.colors.surfaceDefaultWarning.asInteractive(
+            pressed = PlasmaSdServiceTheme.colors.surfaceDefaultWarningActive,
         ),
     )
     valueColor(
-        SddsServTheme.colors.textOnDarkSecondary.asInteractive(
-            pressed = SddsServTheme.colors.textOnDarkSecondaryActive,
+        PlasmaSdServiceTheme.colors.textOnDarkSecondary.asInteractive(
+            pressed = PlasmaSdServiceTheme.colors.textOnDarkSecondaryActive,
         ),
     )
 }
@@ -277,18 +277,18 @@ private fun BasicButtonColorsBuilder.warningColors(): BasicButtonColorsBuilder =
 @Composable
 private fun BasicButtonColorsBuilder.clearColors(): BasicButtonColorsBuilder = apply {
     contentColor(
-        SddsServTheme.colors.textDefaultPrimary.asInteractive(
-            pressed = SddsServTheme.colors.textDefaultPrimaryActive,
+        PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+            pressed = PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
         ),
     )
     backgroundColor(
-        SddsServTheme.colors.surfaceDefaultClear.asInteractive(
-            pressed = SddsServTheme.colors.surfaceDefaultClearActive,
+        PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
+            pressed = PlasmaSdServiceTheme.colors.surfaceDefaultClearActive,
         ),
     )
     valueColor(
-        SddsServTheme.colors.textDefaultSecondary.asInteractive(
-            pressed = SddsServTheme.colors.textDefaultSecondaryActive,
+        PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
+            pressed = PlasmaSdServiceTheme.colors.textDefaultSecondaryActive,
         ),
     )
 }
@@ -296,18 +296,18 @@ private fun BasicButtonColorsBuilder.clearColors(): BasicButtonColorsBuilder = a
 @Composable
 private fun BasicButtonColorsBuilder.darkColors(): BasicButtonColorsBuilder = apply {
     contentColor(
-        SddsServTheme.colors.textOnDarkPrimary.asInteractive(
-            pressed = SddsServTheme.colors.textOnDarkPrimaryActive,
+        PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
+            pressed = PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
         ),
     )
     backgroundColor(
-        SddsServTheme.colors.surfaceOnLightTransparentDeep.asInteractive(
-            pressed = SddsServTheme.colors.surfaceOnLightTransparentDeepActive,
+        PlasmaSdServiceTheme.colors.surfaceOnLightTransparentDeep.asInteractive(
+            pressed = PlasmaSdServiceTheme.colors.surfaceOnLightTransparentDeepActive,
         ),
     )
     valueColor(
-        SddsServTheme.colors.textOnDarkSecondary.asInteractive(
-            pressed = SddsServTheme.colors.textOnDarkSecondaryActive,
+        PlasmaSdServiceTheme.colors.textOnDarkSecondary.asInteractive(
+            pressed = PlasmaSdServiceTheme.colors.textOnDarkSecondaryActive,
         ),
     )
 }
@@ -315,18 +315,18 @@ private fun BasicButtonColorsBuilder.darkColors(): BasicButtonColorsBuilder = ap
 @Composable
 private fun BasicButtonColorsBuilder.blackColors(): BasicButtonColorsBuilder = apply {
     contentColor(
-        SddsServTheme.colors.textOnDarkPrimary.asInteractive(
-            pressed = SddsServTheme.colors.textOnDarkPrimaryActive,
+        PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
+            pressed = PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
         ),
     )
     backgroundColor(
-        SddsServTheme.colors.surfaceOnLightSolidDefault.asInteractive(
-            pressed = SddsServTheme.colors.surfaceOnLightSolidDefaultActive,
+        PlasmaSdServiceTheme.colors.surfaceOnLightSolidDefault.asInteractive(
+            pressed = PlasmaSdServiceTheme.colors.surfaceOnLightSolidDefaultActive,
         ),
     )
     valueColor(
-        SddsServTheme.colors.textOnDarkSecondary.asInteractive(
-            pressed = SddsServTheme.colors.textOnDarkSecondaryActive,
+        PlasmaSdServiceTheme.colors.textOnDarkSecondary.asInteractive(
+            pressed = PlasmaSdServiceTheme.colors.textOnDarkSecondaryActive,
         ),
     )
 }
@@ -334,18 +334,18 @@ private fun BasicButtonColorsBuilder.blackColors(): BasicButtonColorsBuilder = a
 @Composable
 private fun BasicButtonColorsBuilder.whiteColors(): BasicButtonColorsBuilder = apply {
     contentColor(
-        SddsServTheme.colors.textOnLightPrimary.asInteractive(
-            pressed = SddsServTheme.colors.textOnLightPrimaryActive,
+        PlasmaSdServiceTheme.colors.textOnLightPrimary.asInteractive(
+            pressed = PlasmaSdServiceTheme.colors.textOnLightPrimaryActive,
         ),
     )
     backgroundColor(
-        SddsServTheme.colors.surfaceOnDarkSolidDefault.asInteractive(
-            pressed = SddsServTheme.colors.surfaceOnDarkSolidDefaultActive,
+        PlasmaSdServiceTheme.colors.surfaceOnDarkSolidDefault.asInteractive(
+            pressed = PlasmaSdServiceTheme.colors.surfaceOnDarkSolidDefaultActive,
         ),
     )
     valueColor(
-        SddsServTheme.colors.textOnLightSecondary.asInteractive(
-            pressed = SddsServTheme.colors.textOnLightSecondaryActive,
+        PlasmaSdServiceTheme.colors.textOnLightSecondary.asInteractive(
+            pressed = PlasmaSdServiceTheme.colors.textOnLightSecondaryActive,
         ),
     )
 }

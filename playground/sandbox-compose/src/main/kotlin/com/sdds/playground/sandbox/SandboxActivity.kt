@@ -48,9 +48,9 @@ import com.sdds.playground.sandbox.radiobox.RadioBoxScreen
 import com.sdds.playground.sandbox.radiobox.group.RadioBoxGroupScreen
 import com.sdds.playground.sandbox.switch.SwitchScreen
 import com.sdds.playground.sandbox.textfield.TextFieldScreen
-import com.sdds.serv.styles.buttons.Clear
-import com.sdds.serv.styles.buttons.M
-import com.sdds.serv.styles.buttons.Pilled
+import com.sdds.serv.styles.button.icon.Clear
+import com.sdds.serv.styles.button.icon.M
+import com.sdds.serv.styles.button.icon.Pilled
 import com.sdds.serv.tokens.compose.SddsServTheme
 import kotlinx.coroutines.launch
 import com.sdds.icons.R.drawable as Icons

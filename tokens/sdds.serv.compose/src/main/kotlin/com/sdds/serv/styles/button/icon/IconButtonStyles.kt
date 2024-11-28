@@ -1,4 +1,4 @@
-package com.sdds.playground.sandbox.buttons
+package com.sdds.serv.styles.button.icon
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
@@ -9,7 +9,7 @@ import com.sdds.compose.uikit.IconButtonColorsBuilder
 import com.sdds.compose.uikit.IconButtonStyleBuilder
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.asInteractive
-import com.sdds.playground.sandbox.tokens.compose.SddsServTheme
+import com.sdds.serv.tokens.compose.SddsServTheme
 
 /**
  * Вариация [IconButton] цвета Default
@@ -88,7 +88,7 @@ val IconButtonStyleBuilder.Pilled: IconButtonStyleBuilder
     @Composable
     get() = shape(CircleShape)
 
-internal val IconButton.L: IconButtonStyleBuilder
+val IconButton.L: IconButtonStyleBuilder
     @Composable
     get() = IconButtonStyleBuilder.builder(this)
         .shape(SddsServTheme.shapes.roundL)
@@ -102,7 +102,7 @@ internal val IconButton.L: IconButtonStyleBuilder
             ),
         )
 
-internal val IconButton.M: IconButtonStyleBuilder
+val IconButton.M: IconButtonStyleBuilder
     @Composable
     get() = IconButtonStyleBuilder.builder(this)
         .shape(SddsServTheme.shapes.roundM)
@@ -116,7 +116,7 @@ internal val IconButton.M: IconButtonStyleBuilder
             ),
         )
 
-internal val IconButton.S: IconButtonStyleBuilder
+val IconButton.S: IconButtonStyleBuilder
     @Composable
     get() = IconButtonStyleBuilder.builder(this)
         .shape(SddsServTheme.shapes.roundM.adjustBy(all = (-2).dp))
@@ -130,7 +130,7 @@ internal val IconButton.S: IconButtonStyleBuilder
             ),
         )
 
-internal val IconButton.Xs: IconButtonStyleBuilder
+val IconButton.Xs: IconButtonStyleBuilder
     @Composable
     get() = IconButtonStyleBuilder.builder(this)
         .shape(SddsServTheme.shapes.roundS)

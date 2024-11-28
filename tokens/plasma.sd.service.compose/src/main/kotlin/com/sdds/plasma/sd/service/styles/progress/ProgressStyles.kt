@@ -1,4 +1,4 @@
-package com.sdds.plasma.sd.service.styles
+package com.sdds.plasma.sd.service.styles.progress
 
 import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.ProgressBar

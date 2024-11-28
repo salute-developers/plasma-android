@@ -23,8 +23,8 @@ import com.sdds.compose.uikit.TextField
 import com.sdds.plasma.sd.service.sandbox.SandboxTheme
 import com.sdds.plasma.sd.service.sandbox.compose.R
 import com.sdds.plasma.sd.service.sandbox.core.ComponentScaffold
-import com.sdds.plasma.sd.service.styles.Default
-import com.sdds.plasma.sd.service.styles.Xs
+import com.sdds.plasma.sd.service.styles.button.basic.Default
+import com.sdds.plasma.sd.service.styles.button.basic.Xs
 
 /**
  * Экран с компонентом [TextField]
