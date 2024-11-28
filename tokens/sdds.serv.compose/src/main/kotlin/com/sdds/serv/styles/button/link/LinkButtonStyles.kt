@@ -52,34 +52,6 @@ val LinkButtonStyleBuilder.Negative: LinkButtonStyleBuilder
     @Composable
     get() = colors { linkNegativeColors() }
 
-/**
- * Вариация [LinkButton] цвета Clear
- */
-val LinkButtonStyleBuilder.Clear: LinkButtonStyleBuilder
-    @Composable
-    get() = colors { linkClearColors() }
-
-/**
- * Вариация [LinkButton] цвета Dark
- */
-val LinkButtonStyleBuilder.Dark: LinkButtonStyleBuilder
-    @Composable
-    get() = colors { linkDarkColors() }
-
-/**
- * Вариация [LinkButton] цвета Black
- */
-val LinkButtonStyleBuilder.Black: LinkButtonStyleBuilder
-    @Composable
-    get() = colors { linkBlackColors() }
-
-/**
- * Вариация [LinkButton] цвета White
- */
-val LinkButtonStyleBuilder.White: LinkButtonStyleBuilder
-    @Composable
-    get() = colors { linkWhiteColors() }
-
 val LinkButton.L: LinkButtonStyleBuilder
     @Composable
     get() = LinkButtonStyleBuilder.builder(this)
@@ -155,82 +127,6 @@ val LinkButton.Xs: LinkButtonStyleBuilder
         .colors {
             backgroundColor(SddsServTheme.colors.surfaceDefaultClear)
         }
-
-@Composable
-private fun LinkButtonColorsBuilder.linkClearColors(): LinkButtonColorsBuilder = apply {
-    contentColor(
-        SddsServTheme.colors.textDefaultPrimary.asInteractive(
-            pressed = SddsServTheme.colors.textDefaultPrimaryActive,
-        ),
-    )
-    backgroundColor(
-        SddsServTheme.colors.surfaceDefaultClear.asInteractive(
-            pressed = SddsServTheme.colors.surfaceDefaultClearActive,
-        ),
-    )
-    valueColor(
-        SddsServTheme.colors.textDefaultSecondary.asInteractive(
-            pressed = SddsServTheme.colors.textDefaultSecondaryActive,
-        ),
-    )
-}
-
-@Composable
-private fun LinkButtonColorsBuilder.linkDarkColors(): LinkButtonColorsBuilder = apply {
-    contentColor(
-        SddsServTheme.colors.textOnDarkPrimary.asInteractive(
-            pressed = SddsServTheme.colors.textOnDarkPrimaryActive,
-        ),
-    )
-    backgroundColor(
-        SddsServTheme.colors.surfaceOnLightTransparentDeep.asInteractive(
-            pressed = SddsServTheme.colors.surfaceOnLightTransparentDeepActive,
-        ),
-    )
-    valueColor(
-        SddsServTheme.colors.textOnDarkSecondary.asInteractive(
-            pressed = SddsServTheme.colors.textOnDarkSecondaryActive,
-        ),
-    )
-}
-
-@Composable
-private fun LinkButtonColorsBuilder.linkBlackColors(): LinkButtonColorsBuilder = apply {
-    contentColor(
-        SddsServTheme.colors.textOnDarkPrimary.asInteractive(
-            pressed = SddsServTheme.colors.textOnDarkPrimaryActive,
-        ),
-    )
-    backgroundColor(
-        SddsServTheme.colors.surfaceOnLightSolidDefault.asInteractive(
-            pressed = SddsServTheme.colors.surfaceOnLightSolidDefaultActive,
-        ),
-    )
-    valueColor(
-        SddsServTheme.colors.textOnDarkSecondary.asInteractive(
-            pressed = SddsServTheme.colors.textOnDarkSecondaryActive,
-        ),
-    )
-}
-
-@Composable
-private fun LinkButtonColorsBuilder.linkWhiteColors(): LinkButtonColorsBuilder = apply {
-    contentColor(
-        SddsServTheme.colors.textOnLightPrimary.asInteractive(
-            pressed = SddsServTheme.colors.textOnLightPrimaryActive,
-        ),
-    )
-    backgroundColor(
-        SddsServTheme.colors.surfaceOnDarkSolidDefault.asInteractive(
-            pressed = SddsServTheme.colors.surfaceOnDarkSolidDefaultActive,
-        ),
-    )
-    valueColor(
-        SddsServTheme.colors.textOnLightSecondary.asInteractive(
-            pressed = SddsServTheme.colors.textOnLightSecondaryActive,
-        ),
-    )
-}
 
 @Composable
 private fun LinkButtonColorsBuilder.linkDefaultColors(): LinkButtonColorsBuilder = apply {

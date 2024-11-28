@@ -39,9 +39,6 @@ import com.sdds.plasma.sd.service.styles.button.icon.Warning
 import com.sdds.plasma.sd.service.styles.button.icon.White
 import com.sdds.plasma.sd.service.styles.button.icon.Xs
 import com.sdds.plasma.sd.service.styles.button.link.Accent
-import com.sdds.plasma.sd.service.styles.button.link.Black
-import com.sdds.plasma.sd.service.styles.button.link.Clear
-import com.sdds.plasma.sd.service.styles.button.link.Dark
 import com.sdds.plasma.sd.service.styles.button.link.Default
 import com.sdds.plasma.sd.service.styles.button.link.L
 import com.sdds.plasma.sd.service.styles.button.link.M
@@ -50,7 +47,6 @@ import com.sdds.plasma.sd.service.styles.button.link.Positive
 import com.sdds.plasma.sd.service.styles.button.link.S
 import com.sdds.plasma.sd.service.styles.button.link.Secondary
 import com.sdds.plasma.sd.service.styles.button.link.Warning
-import com.sdds.plasma.sd.service.styles.button.link.White
 import com.sdds.plasma.sd.service.styles.button.link.Xs
 import com.sdds.icons.R.drawable as Icons
 
@@ -178,10 +174,7 @@ private fun LinkButtonStyleBuilder.applyColorStyle(style: Style): LinkButtonStyl
         Style.Positive -> Positive
         Style.Negative -> Negative
         Style.Warning -> Warning
-        Style.Clear -> Clear
-        Style.Dark -> Dark
-        Style.Black -> Black
-        Style.White -> White
+        else -> Default
     }
 }
 

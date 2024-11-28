@@ -37,7 +37,6 @@ import com.sdds.serv.styles.button.icon.Warning
 import com.sdds.serv.styles.button.icon.White
 import com.sdds.serv.styles.button.icon.Xs
 import com.sdds.serv.styles.button.link.Accent
-import com.sdds.serv.styles.button.link.Dark
 import com.sdds.serv.styles.button.link.Default
 import com.sdds.serv.styles.button.link.L
 import com.sdds.serv.styles.button.link.M
@@ -456,10 +455,10 @@ internal fun SandboxLinkButtonPreviewSizeSWarning() {
 
 @Composable
 @Preview(showBackground = true)
-internal fun SandboxLinkButtonPreviewSizeXSDark() {
+internal fun SandboxLinkButtonPreviewSizeXSAccent() {
     SandboxTheme {
         Button(
-            style = LinkButton.Xs.Dark.style(),
+            style = LinkButton.Xs.Accent.style(),
             label = "Label",
             enabled = true,
             loading = false,
