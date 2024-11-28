@@ -27,8 +27,8 @@ android {
 
 dependencies {
     implementation(project(":plasma.sd.service.compose"))
-    implementation("sdds-core:uikit-compose")
-    implementation("sdds-core:icons")
+    implementation(libs.sdds.uikit.compose)
+    implementation(libs.sdds.icons)
 
     implementation(libs.base.androidX.core)
     implementation(libs.base.androidX.appcompat)

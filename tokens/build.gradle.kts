@@ -33,15 +33,29 @@ buildscript {
     }
 }
 
-val isMainBranch = getBranchName().isMainBranch()
-
-allprojects {
+subprojects {
     configurations.all {
-        if (isMainBranch) {
-            resolutionStrategy.dependencySubstitution {
-                substitute(module("sdds-core:uikit-compose:+"))
-                    .using(module("io.github.salute-developers:sdds-uikit-compose:+"))
-                    .because("we work with the unreleased development version")
+        resolutionStrategy.dependencySubstitution.all {
+            val moduleSelector = requested as? ModuleComponentSelector
+            if (moduleSelector == null || moduleSelector.group != "io.github.salute-developers") {
+                return@all
+            }
+            println("requested module ${moduleSelector.module}")
+            when (moduleSelector.module) {
+                "sdds-uikit-compose" -> useTarget(
+                    "sdds-core:uikit-compose:*",
+                    "we work with the unreleased development version"
+                )
+
+                "sdds-uikit" -> useTarget(
+                    "sdds-core:uikit:*",
+                    "we work with the unreleased development version"
+                )
+
+                "sdds-icons" -> useTarget(
+                    "sdds-core:icons:*",
+                    "we work with the unreleased development version"
+                )
             }
         }
     }

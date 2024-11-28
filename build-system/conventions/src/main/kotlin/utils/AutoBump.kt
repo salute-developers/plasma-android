@@ -10,8 +10,20 @@ import org.gradle.api.tasks.TaskAction
  * Область автоинкремента версии
  * @author Малышев Александр on 22.03.2024
  */
-enum class BumpScope {
+private enum class BumpScope {
     MAJOR, MINOR, PATCH
+}
+
+/**
+ * Информация об инкременте версии
+ */
+private data class VersionBump(
+    val major: Int,
+    val minor: Int,
+    val patch: Int,
+) {
+
+    val name: String = "$major.$minor.$patch"
 }
 
 /**
@@ -21,36 +33,13 @@ enum class BumpScope {
  * Если [scope] == [BumpScope.MAJOR], то versionMajor инкрементируется,
  *  * а versionMinor и versionPatch становятся равными 0.
  */
-fun Project.bumpVersion(scope: BumpScope = BumpScope.MINOR) {
-    val major = properties.getOrDefault("versionMajor", 0).toString().toInt()
-    val minor = properties.getOrDefault("versionMinor", 0).toString().toInt()
-    val patch = properties.getOrDefault("versionPatch", 0).toString().toInt()
-    val updatedProps = file("gradle.properties")
-    val content = updatedProps.readText()
-    val newContent = when(scope) {
-        BumpScope.MAJOR -> {
-            content
-                .replace("versionMajor=\\d+".toRegex(), "versionMajor=${major + 1}")
-                .replace("versionMinor=\\d+".toRegex(), "versionMinor=0")
-                .replace("versionPatch=\\d+".toRegex(), "versionPatch=0")
-        }
-        BumpScope.MINOR -> {
-            content
-                .replace("versionMinor=\\d+".toRegex(), "versionMinor=${minor + 1}")
-                .replace("versionPatch=\\d+".toRegex(), "versionPatch=0")
-        }
-        BumpScope.PATCH -> content.replace("versionPatch=\\d+".toRegex(), "versionPatch=${patch + 1}")
-    }
-    updatedProps.writeText(newContent)
-}
-
-/**
- * Gradle задача для инкремента версии
- */
 abstract class AutoBumpTask : DefaultTask() {
 
     @get:Input
     abstract val scope: Property<String?>
+
+    @get:Input
+    abstract val versionBumpFileName: Property<String>
 
     @TaskAction
     fun execute() {
@@ -59,7 +48,33 @@ abstract class AutoBumpTask : DefaultTask() {
             "patch" -> BumpScope.PATCH
             else -> BumpScope.MINOR
         }
-        project.bumpVersion(scope)
+        val versionBump = project.getVersionBump(scope)
+        project.updateVersionProperties(versionBump)
+        project.cacheBumpInfo(versionBump)
+    }
+
+    private fun Project.getVersionBump(scope: BumpScope = BumpScope.MINOR): VersionBump {
+        val major = properties.getOrDefault("versionMajor", 0).toString().toInt()
+        val minor = properties.getOrDefault("versionMinor", 0).toString().toInt()
+        val patch = properties.getOrDefault("versionPatch", 0).toString().toInt()
+        return when(scope) {
+            BumpScope.MAJOR -> VersionBump(major + 1, 0, 0)
+            BumpScope.MINOR -> VersionBump(major, minor + 1, 0)
+            BumpScope.PATCH -> VersionBump(major, minor, patch + 1)
+        }
+    }
+
+    private fun Project.updateVersionProperties(versionBump: VersionBump) {
+        val updatedProps = file("gradle.properties")
+        val content = updatedProps.readText()
+            .replace("versionMajor=\\d+".toRegex(), "versionMajor=${versionBump.major}")
+            .replace("versionMinor=\\d+".toRegex(), "versionMinor=${versionBump.minor}")
+            .replace("versionPatch=\\d+".toRegex(), "versionPatch=${versionBump.patch}")
+        updatedProps.writeText(content)
+    }
+
+    private fun Project.cacheBumpInfo(versionBump: VersionBump) {
+        layout.buildDirectory.file(versionBumpFileName.get()).get().asFile.writeText(versionBump.name)
     }
 }
 
