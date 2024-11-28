@@ -18,6 +18,7 @@ dependencyResolutionManagement {
 rootProject.name = "playground"
 includeBuild("../build-system")
 includeBuild("../sdds-core")
+includeBuild("../tokens")
 include(
     ":sandbox",
     ":sandbox-compose",

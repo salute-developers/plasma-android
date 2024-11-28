@@ -10,6 +10,18 @@ import com.sdds.compose.uikit.TextArea
 import com.sdds.compose.uikit.TextField
 import com.sdds.icons.R
 import com.sdds.playground.sandbox.SandboxTheme
+import com.sdds.serv.styles.textfield.Default
+import com.sdds.serv.styles.textfield.Error
+import com.sdds.serv.styles.textfield.InnerLabel
+import com.sdds.serv.styles.textfield.L
+import com.sdds.serv.styles.textfield.M
+import com.sdds.serv.styles.textfield.Optional
+import com.sdds.serv.styles.textfield.OuterLabel
+import com.sdds.serv.styles.textfield.RequiredEnd
+import com.sdds.serv.styles.textfield.RequiredStart
+import com.sdds.serv.styles.textfield.S
+import com.sdds.serv.styles.textfield.Warning
+import com.sdds.serv.styles.textfield.Xs
 
 @Composable
 @Preview(showBackground = true)

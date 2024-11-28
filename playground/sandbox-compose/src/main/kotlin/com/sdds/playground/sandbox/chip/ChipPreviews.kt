@@ -7,6 +7,14 @@ import com.sdds.compose.uikit.Chip
 import com.sdds.compose.uikit.Icon
 import com.sdds.icons.R
 import com.sdds.playground.sandbox.SandboxTheme
+import com.sdds.serv.styles.chip.Accent
+import com.sdds.serv.styles.chip.Default
+import com.sdds.serv.styles.chip.L
+import com.sdds.serv.styles.chip.M
+import com.sdds.serv.styles.chip.Pilled
+import com.sdds.serv.styles.chip.S
+import com.sdds.serv.styles.chip.Secondary
+import com.sdds.serv.styles.chip.Xs
 
 @Composable
 @Preview(showBackground = true)

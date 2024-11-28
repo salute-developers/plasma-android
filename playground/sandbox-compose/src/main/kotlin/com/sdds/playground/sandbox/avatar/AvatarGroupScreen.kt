@@ -17,6 +17,7 @@ import com.sdds.compose.uikit.avatar
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.core.ComponentScaffold
+import com.sdds.serv.styles.avatar.S
 import com.sdds.icons.R.drawable as Icons
 
 /**

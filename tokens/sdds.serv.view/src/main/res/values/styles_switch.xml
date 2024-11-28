@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Serv.Sdds.Components.Switch" parent="Sdds.Components.Switch">
+        <item name="sd_buttonTrackColor">@color/bg_color_switch_track</item>
+        <item name="android:textColor">?serv_textDefaultPrimary</item>
+        <item name="sd_descriptionTextColor">?serv_textDefaultSecondary</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Switch.L">
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyLNormal</item>
+        <item name="sd_descriptionTextAppearance">@style/Serv.Sdds.TextAppearance.BodyMNormal</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Switch.M">
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyMNormal</item>
+        <item name="sd_descriptionTextAppearance">@style/Serv.Sdds.TextAppearance.BodySNormal</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Switch.S">
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodySNormal</item>
+        <item name="sd_descriptionTextAppearance">@style/Serv.Sdds.TextAppearance.BodyXsNormal</item>
+    </style>
+
+</resources>

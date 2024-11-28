@@ -37,11 +37,8 @@ import com.sdds.compose.uikit.Text
 import com.sdds.playground.sandbox.avatar.AvatarGroupScreen
 import com.sdds.playground.sandbox.avatar.AvatarScreen
 import com.sdds.playground.sandbox.buttons.BasicButtonScreen
-import com.sdds.playground.sandbox.buttons.Clear
 import com.sdds.playground.sandbox.buttons.IconButtonScreen
 import com.sdds.playground.sandbox.buttons.LinkButtonScreen
-import com.sdds.playground.sandbox.buttons.M
-import com.sdds.playground.sandbox.buttons.Pilled
 import com.sdds.playground.sandbox.checkbox.CheckBoxScreen
 import com.sdds.playground.sandbox.checkbox.group.CheckBoxGroupScreen
 import com.sdds.playground.sandbox.chip.ChipScreen
@@ -51,7 +48,10 @@ import com.sdds.playground.sandbox.radiobox.RadioBoxScreen
 import com.sdds.playground.sandbox.radiobox.group.RadioBoxGroupScreen
 import com.sdds.playground.sandbox.switch.SwitchScreen
 import com.sdds.playground.sandbox.textfield.TextFieldScreen
-import com.sdds.playground.sandbox.tokens.compose.SddsServTheme
+import com.sdds.serv.styles.buttons.Clear
+import com.sdds.serv.styles.buttons.M
+import com.sdds.serv.styles.buttons.Pilled
+import com.sdds.serv.tokens.compose.SddsServTheme
 import kotlinx.coroutines.launch
 import com.sdds.icons.R.drawable as Icons
 

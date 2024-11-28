@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Serv.Sdds.ComponentOverlays.CheckBoxM">
+        <item name="android:checkboxStyle">@style/Serv.Sdds.Components.CheckBox.M</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.CheckBoxS">
+        <item name="android:checkboxStyle">@style/Serv.Sdds.Components.CheckBox.S</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.CheckBoxGroupM">
+        <item name="sd_checkBoxGroupStyle">@style/Serv.Sdds.Components.CheckBoxGroup.M</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.CheckBoxGroupS">
+        <item name="sd_checkBoxGroupStyle">@style/Serv.Sdds.Components.CheckBoxGroup.S</item>
+    </style>
+</resources>

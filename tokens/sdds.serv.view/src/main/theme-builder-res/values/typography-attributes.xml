@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <!--Typography-->
+    <attr format="reference" name="serv_typographyDisplayLNormal"/>
+    <attr format="reference" name="serv_typographyDisplayLBold"/>
+    <attr format="reference" name="serv_typographyDisplayMNormal"/>
+    <attr format="reference" name="serv_typographyDisplayMBold"/>
+    <attr format="reference" name="serv_typographyDisplaySNormal"/>
+    <attr format="reference" name="serv_typographyDisplaySBold"/>
+    <attr format="reference" name="serv_typographyHeaderH1Normal"/>
+    <attr format="reference" name="serv_typographyHeaderH1Bold"/>
+    <attr format="reference" name="serv_typographyHeaderH2Normal"/>
+    <attr format="reference" name="serv_typographyHeaderH2Bold"/>
+    <attr format="reference" name="serv_typographyHeaderH3Normal"/>
+    <attr format="reference" name="serv_typographyHeaderH3Bold"/>
+    <attr format="reference" name="serv_typographyHeaderH4Normal"/>
+    <attr format="reference" name="serv_typographyHeaderH4Bold"/>
+    <attr format="reference" name="serv_typographyHeaderH5Normal"/>
+    <attr format="reference" name="serv_typographyHeaderH5Bold"/>
+    <attr format="reference" name="serv_typographyBodyLNormal"/>
+    <attr format="reference" name="serv_typographyBodyLBold"/>
+    <attr format="reference" name="serv_typographyBodyMNormal"/>
+    <attr format="reference" name="serv_typographyBodyMBold"/>
+    <attr format="reference" name="serv_typographyBodySNormal"/>
+    <attr format="reference" name="serv_typographyBodySBold"/>
+    <attr format="reference" name="serv_typographyBodyXsNormal"/>
+    <attr format="reference" name="serv_typographyBodyXsBold"/>
+    <attr format="reference" name="serv_typographyBodyXxsNormal"/>
+    <attr format="reference" name="serv_typographyBodyXxsBold"/>
+    <attr format="reference" name="serv_typographyTextLNormal"/>
+    <attr format="reference" name="serv_typographyTextLBold"/>
+    <attr format="reference" name="serv_typographyTextMNormal"/>
+    <attr format="reference" name="serv_typographyTextMBold"/>
+    <attr format="reference" name="serv_typographyTextSNormal"/>
+    <attr format="reference" name="serv_typographyTextSBold"/>
+    <attr format="reference" name="serv_typographyTextXsNormal"/>
+    <attr format="reference" name="serv_typographyTextXsBold"/>
+</resources>

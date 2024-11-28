@@ -10,7 +10,7 @@
     android:clipToPadding="false">
 
     <com.sdds.uikit.TextField
-        style="@style/Theme.Sandbox.Components.TextField.M.OuterLabel"
+        style="@style/Serv.Sdds.Components.TextField.M.OuterLabel"
         android:id="@+id/text_editor_field"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:sd_label="@string/sandbox_editor_title"
         app:sd_placeholder="@string/sandbox_editor_placeholder"
-        app:sd_labelAppearance="@style/Serv.SddsServ.TextAppearance.BodyLBold"
+        app:sd_labelAppearance="@style/Serv.Sdds.TextAppearance.BodyLBold"
         app:sd_labelColor="?serv_textDefaultPrimary"
         app:sd_labelPadding="@dimen/sdds_spacer_8x"
         android:imeOptions="actionDone"/>

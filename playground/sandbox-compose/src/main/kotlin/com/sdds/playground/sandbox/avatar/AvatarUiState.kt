@@ -3,6 +3,10 @@ package com.sdds.playground.sandbox.avatar
 import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.Avatar
 import com.sdds.compose.uikit.AvatarStyle
+import com.sdds.serv.styles.avatar.L
+import com.sdds.serv.styles.avatar.M
+import com.sdds.serv.styles.avatar.S
+import com.sdds.serv.styles.avatar.Xxl
 
 /**
  * Состояние [Avatar]
