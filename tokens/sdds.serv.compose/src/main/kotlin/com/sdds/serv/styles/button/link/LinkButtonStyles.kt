@@ -95,6 +95,9 @@ val LinkButton.L: LinkButtonStyleBuilder
         )
         .labelStyle(SddsServTheme.typography.bodyLBold)
         .spinnerMode(Button.SpinnerMode.SemitransparentContent(SEMITRANSPARENT_SPINNER_ALPHA))
+        .colors {
+            backgroundColor(SddsServTheme.colors.surfaceDefaultClear)
+        }
 
 val LinkButton.M: LinkButtonStyleBuilder
     @Composable
@@ -111,6 +114,9 @@ val LinkButton.M: LinkButtonStyleBuilder
         )
         .labelStyle(SddsServTheme.typography.bodyMBold)
         .spinnerMode(Button.SpinnerMode.SemitransparentContent(SEMITRANSPARENT_SPINNER_ALPHA))
+        .colors {
+            backgroundColor(SddsServTheme.colors.surfaceDefaultClear)
+        }
 
 val LinkButton.S: LinkButtonStyleBuilder
     @Composable
@@ -127,6 +133,9 @@ val LinkButton.S: LinkButtonStyleBuilder
         )
         .labelStyle(SddsServTheme.typography.bodySBold)
         .spinnerMode(Button.SpinnerMode.SemitransparentContent(SEMITRANSPARENT_SPINNER_ALPHA))
+        .colors {
+            backgroundColor(SddsServTheme.colors.surfaceDefaultClear)
+        }
 
 val LinkButton.Xs: LinkButtonStyleBuilder
     @Composable
@@ -143,12 +152,20 @@ val LinkButton.Xs: LinkButtonStyleBuilder
         )
         .labelStyle(SddsServTheme.typography.bodyXsBold)
         .spinnerMode(Button.SpinnerMode.SemitransparentContent(SEMITRANSPARENT_SPINNER_ALPHA))
+        .colors {
+            backgroundColor(SddsServTheme.colors.surfaceDefaultClear)
+        }
 
 @Composable
 private fun LinkButtonColorsBuilder.linkClearColors(): LinkButtonColorsBuilder = apply {
     contentColor(
         SddsServTheme.colors.textDefaultPrimary.asInteractive(
             pressed = SddsServTheme.colors.textDefaultPrimaryActive,
+        ),
+    )
+    backgroundColor(
+        SddsServTheme.colors.surfaceDefaultClear.asInteractive(
+            pressed = SddsServTheme.colors.surfaceDefaultClearActive,
         ),
     )
     valueColor(
@@ -165,6 +182,11 @@ private fun LinkButtonColorsBuilder.linkDarkColors(): LinkButtonColorsBuilder = 
             pressed = SddsServTheme.colors.textOnDarkPrimaryActive,
         ),
     )
+    backgroundColor(
+        SddsServTheme.colors.surfaceOnLightTransparentDeep.asInteractive(
+            pressed = SddsServTheme.colors.surfaceOnLightTransparentDeepActive,
+        ),
+    )
     valueColor(
         SddsServTheme.colors.textOnDarkSecondary.asInteractive(
             pressed = SddsServTheme.colors.textOnDarkSecondaryActive,
@@ -179,6 +201,11 @@ private fun LinkButtonColorsBuilder.linkBlackColors(): LinkButtonColorsBuilder =
             pressed = SddsServTheme.colors.textOnDarkPrimaryActive,
         ),
     )
+    backgroundColor(
+        SddsServTheme.colors.surfaceOnLightSolidDefault.asInteractive(
+            pressed = SddsServTheme.colors.surfaceOnLightSolidDefaultActive,
+        ),
+    )
     valueColor(
         SddsServTheme.colors.textOnDarkSecondary.asInteractive(
             pressed = SddsServTheme.colors.textOnDarkSecondaryActive,
@@ -191,6 +218,11 @@ private fun LinkButtonColorsBuilder.linkWhiteColors(): LinkButtonColorsBuilder =
     contentColor(
         SddsServTheme.colors.textOnLightPrimary.asInteractive(
             pressed = SddsServTheme.colors.textOnLightPrimaryActive,
+        ),
+    )
+    backgroundColor(
+        SddsServTheme.colors.surfaceOnDarkSolidDefault.asInteractive(
+            pressed = SddsServTheme.colors.surfaceOnDarkSolidDefaultActive,
         ),
     )
     valueColor(

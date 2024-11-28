@@ -38,6 +38,18 @@ interface IconButtonStyleBuilder : StyleBuilder<ButtonStyle> {
     fun colors(builder: @Composable IconButtonColorsBuilder.() -> Unit): IconButtonStyleBuilder
 
     /**
+     * Устанавливает стиль основного текста кнопки [labelStyle]
+     * @see ButtonStyle.labelStyle
+     */
+    fun labelStyle(labelStyle: TextStyle): IconButtonStyleBuilder
+
+    /**
+     * Устанавливает стиль дополнительного текста кнопки [valueStyle]
+     * @see ButtonStyle.valueStyle
+     */
+    fun valueStyle(valueStyle: TextStyle): IconButtonStyleBuilder
+
+    /**
      * Устанавливает размеры и отступы контента кнопки [dimensions]
      * @see ButtonStyle.dimensions
      * @see Button.Dimensions
@@ -101,6 +113,36 @@ interface IconButtonColorsBuilder {
         backgroundColor(backgroundColor.asInteractive())
 
     /**
+     * Устанавливает цвет основного текста кнопки [labelColor]
+     * @see ButtonColors.labelColor
+     * @see InteractiveColor
+     */
+    fun labelColor(labelColor: InteractiveColor): IconButtonColorsBuilder
+
+    /**
+     * Устанавливает цвет основного текста кнопки [labelColor]
+     * @see ButtonColors.labelColor
+     * @see InteractiveColor
+     */
+    fun labelColor(labelColor: Color): IconButtonColorsBuilder =
+        labelColor(labelColor.asInteractive())
+
+    /**
+     * Устанавливает цвет дополнительного текста кнопки [valueColor]
+     * @see ButtonColors.valueColor
+     * @see InteractiveColor
+     */
+    fun valueColor(valueColor: InteractiveColor): IconButtonColorsBuilder
+
+    /**
+     * Устанавливает цвет дополнительного текста кнопки [valueColor]
+     * @see ButtonColors.valueColor
+     * @see InteractiveColor
+     */
+    fun valueColor(valueColor: Color): IconButtonColorsBuilder =
+        valueColor(valueColor.asInteractive())
+
+    /**
      * Устанавливает цвет иконки кнопки [iconColor]
      * @see ButtonColors.iconColor
      * @see InteractiveColor
@@ -147,6 +189,8 @@ interface IconButtonColorsBuilder {
 private class IconButtonStyleBuilderImpl(override val receiver: Any?) : IconButtonStyleBuilder {
     private var shape: CornerBasedShape? = null
     private var colorsBuilder: IconButtonColorsBuilder = IconButtonColorsBuilder.builder()
+    private var labelStyle: TextStyle? = null
+    private var valueStyle: TextStyle? = null
     private var dimensions: Button.Dimensions? = null
     private var disableAlpha: Float? = null
     private var spinnerMode: Button.SpinnerMode? = null
@@ -158,6 +202,14 @@ private class IconButtonStyleBuilderImpl(override val receiver: Any?) : IconButt
     @Composable
     override fun colors(builder: @Composable IconButtonColorsBuilder.() -> Unit): IconButtonStyleBuilder = apply {
         this.colorsBuilder.builder()
+    }
+
+    override fun labelStyle(labelStyle: TextStyle) = apply {
+        this.labelStyle = labelStyle
+    }
+
+    override fun valueStyle(valueStyle: TextStyle) = apply {
+        this.valueStyle = valueStyle
     }
 
     override fun dimensions(dimensions: Button.Dimensions) = apply {
@@ -176,8 +228,8 @@ private class IconButtonStyleBuilderImpl(override val receiver: Any?) : IconButt
         return DefaultButtonStyle(
             shape = shape ?: RoundedCornerShape(25),
             colors = colorsBuilder.build(),
-            labelStyle = TextStyle.Default,
-            valueStyle = TextStyle.Default,
+            labelStyle = labelStyle ?: TextStyle.Default,
+            valueStyle = valueStyle ?: TextStyle.Default,
             dimensions = dimensions ?: Button.Dimensions(),
             disableAlpha = disableAlpha ?: DISABLED_BUTTON_ALPHA,
             spinnerMode = spinnerMode ?: Button.SpinnerMode.HideContent,
@@ -189,6 +241,8 @@ private class IconButtonStyleBuilderImpl(override val receiver: Any?) : IconButt
 private class DefaultIconButtonColors(
     override val contentColor: InteractiveColor,
     override val backgroundColor: InteractiveColor,
+    override val labelColor: InteractiveColor,
+    override val valueColor: InteractiveColor,
     override val iconColor: InteractiveColor,
     override val spinnerColor: InteractiveColor,
 ) : ButtonColors {
@@ -196,6 +250,8 @@ private class DefaultIconButtonColors(
     class Builder : IconButtonColorsBuilder {
         private var contentColor: InteractiveColor? = null
         private var backgroundColor: InteractiveColor? = null
+        private var labelColor: InteractiveColor? = null
+        private var valueColor: InteractiveColor? = null
         private var iconColor: InteractiveColor? = null
         private var spinnerColor: InteractiveColor? = null
 
@@ -205,6 +261,14 @@ private class DefaultIconButtonColors(
 
         override fun backgroundColor(backgroundColor: InteractiveColor) = apply {
             this.backgroundColor = backgroundColor
+        }
+
+        override fun labelColor(labelColor: InteractiveColor) = apply {
+            this.labelColor = labelColor
+        }
+
+        override fun valueColor(valueColor: InteractiveColor) = apply {
+            this.valueColor = valueColor
         }
 
         override fun iconColor(iconColor: InteractiveColor) = apply {
@@ -220,17 +284,13 @@ private class DefaultIconButtonColors(
             return DefaultIconButtonColors(
                 contentColor = contentColor,
                 backgroundColor = backgroundColor ?: Color.White.asInteractive(),
+                labelColor = labelColor ?: contentColor,
+                valueColor = valueColor ?: contentColor,
                 iconColor = iconColor ?: contentColor,
                 spinnerColor = spinnerColor ?: contentColor,
             )
         }
     }
-
-    override val labelColor: InteractiveColor
-        get() = Color.Black.asInteractive()
-
-    override val valueColor: InteractiveColor
-        get() = Color.Black.asInteractive()
 }
 
 private const val DISABLED_BUTTON_ALPHA = 0.4f
