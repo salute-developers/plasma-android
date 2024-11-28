@@ -89,17 +89,26 @@ internal class KtFileBuilder(
         parameterizedType: ClassName? = null,
         initializer: String? = null,
         modifiers: List<Modifier>? = null,
+        isMutable: Boolean = false,
+        setter: Setter? = null,
+        getter: Getter? = null,
+        receiver: TypeName? = null,
     ) {
         val type = if (parameterizedType != null) {
             typeName.parameterizedBy(parameterizedType)
         } else {
             typeName
         }
-        PropertySpec.builder(name, type).apply {
-            initializer?.let(::initializer)
-            modifiers?.toKModifiers()?.let(::addModifiers)
-            rootPropBuilders.add(this)
-        }
+        appendPropertyInternal(
+            name = name,
+            typeName = type,
+            initializer = initializer,
+            isMutable = isMutable,
+            modifiers = modifiers?.toKModifiers(),
+            setter = setter,
+            getter = getter,
+            receiver = receiver,
+        ).also(rootPropBuilders::add)
     }
 
     /**
@@ -312,7 +321,8 @@ internal class KtFileBuilder(
         setter: Setter? = null,
         getter: Getter? = null,
         delegate: String? = null,
-    ) {
+        receiver: TypeName? = null,
+    ): PropertySpec.Builder {
         if (typeName is ClassName) addImport(typeName)
         val spec = PropertySpec.builder(
             name,
@@ -325,10 +335,12 @@ internal class KtFileBuilder(
         setter?.let { spec.setter(it.toFunSpec()) }
         getter?.let { spec.getter(it.toFunSpec()) }
         delegate?.let(spec::delegate)
+        receiver?.let(spec::receiver)
 
         val prop = spec.build()
         rootObject?.addProperty(prop)
-            ?: fileSpecBuilder.addProperty(prop)
+
+        return spec
     }
 
     private fun appendFun(
