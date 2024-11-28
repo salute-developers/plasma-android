@@ -22,8 +22,8 @@ android {
 }
 
 dependencies {
-    implementation("sdds-core:icons")
-    implementation("sdds-core:uikit")
+    implementation(libs.sdds.icons)
+    implementation(libs.sdds.uikit)
     implementation("tokens:sdds.serv.view")
 
     implementation(libs.base.androidX.core)
