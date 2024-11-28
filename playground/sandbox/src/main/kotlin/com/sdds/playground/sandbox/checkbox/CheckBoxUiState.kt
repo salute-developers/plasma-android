@@ -2,7 +2,7 @@ package com.sdds.playground.sandbox.checkbox
 
 import android.os.Parcelable
 import androidx.annotation.StyleRes
-import com.sdds.playground.sandbox.R
+import com.sdds.themes.sdds.serv.tokens.R
 import com.sdds.uikit.CheckBox
 import kotlinx.parcelize.Parcelize
 
@@ -29,8 +29,8 @@ internal data class CheckBoxUiState(
  */
 @Parcelize
 internal enum class CheckBoxVariant(@StyleRes val styleRes: Int) : Parcelable {
-    CheckBoxM(R.style.Theme_Sandbox_ComponentOverlays_CheckBoxM),
-    CheckBoxS(R.style.Theme_Sandbox_ComponentOverlays_CheckBoxS),
+    CheckBoxM(R.style.Serv_Sdds_ComponentOverlays_CheckBoxM),
+    CheckBoxS(R.style.Serv_Sdds_ComponentOverlays_CheckBoxS),
 }
 
 /**
@@ -38,8 +38,8 @@ internal enum class CheckBoxVariant(@StyleRes val styleRes: Int) : Parcelable {
  * @property styleRes ресурс стиля
  */
 internal enum class CheckBoxGroupVariant(@StyleRes val styleRes: Int) {
-    CheckBoxGroupM(R.style.Theme_Sandbox_ComponentOverlays_CheckBoxGroupM),
-    CheckBoxGroupS(R.style.Theme_Sandbox_ComponentOverlays_CheckBoxGroupS),
+    CheckBoxGroupM(R.style.Serv_Sdds_ComponentOverlays_CheckBoxGroupM),
+    CheckBoxGroupS(R.style.Serv_Sdds_ComponentOverlays_CheckBoxGroupS),
 }
 
 /**

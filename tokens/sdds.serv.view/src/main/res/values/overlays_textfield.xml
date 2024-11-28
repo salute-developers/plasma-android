@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldL">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.L</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldLOuterLabel">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.L.OuterLabel</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldLOuterLabelRequiredStart">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.L.OuterLabel.RequiredStart</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldLOuterLabelRequiredEnd">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.L.OuterLabel.RequiredEnd</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldLInnerLabel">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.L.InnerLabel</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldLInnerLabelRequiredStart">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.L.InnerLabel.RequiredStart</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldLInnerLabelRequiredEnd">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.L.InnerLabel.RequiredEnd</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldM">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.M</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldMOuterLabel">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.M.OuterLabel</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldMOuterLabelRequiredStart">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.M.OuterLabel.RequiredStart</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldMOuterLabelRequiredEnd">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.M.OuterLabel.RequiredEnd</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldMInnerLabel">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.M.InnerLabel</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldMInnerLabelRequiredStart">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.M.InnerLabel.RequiredStart</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldMInnerLabelRequiredEnd">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.M.InnerLabel.RequiredEnd</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldS">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.S</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldSOuterLabel">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.S.OuterLabel</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldSOuterLabelRequiredStart">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.S.OuterLabel.RequiredStart</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldSOuterLabelRequiredEnd">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.S.OuterLabel.RequiredEnd</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldSInnerLabel">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.S.InnerLabel</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldSInnerLabelRequiredStart">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.S.InnerLabel.RequiredStart</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldSInnerLabelRequiredEnd">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.S.InnerLabel.RequiredEnd</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXS">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.XS</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXSRequiredStart">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.XS.RequiredStart</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXSRequiredEnd">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.XS.RequiredEnd</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXSOuterLabel">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.XS.OuterLabel</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXSOuterLabelRequiredStart">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.XS.OuterLabel.RequiredStart</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXSOuterLabelRequiredEnd">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.XS.OuterLabel.RequiredEnd</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.ChipGroupDense.TextFieldEmbeddedL">
+        <item name="sd_chipGroupStyle">@style/Serv.Sdds.Components.ChipGroup.Dense.EmbeddedL.Secondary</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.ChipGroupDense.TextFieldEmbeddedM">
+        <item name="sd_chipGroupStyle">@style/Serv.Sdds.Components.ChipGroup.Dense.EmbeddedM.Secondary</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.ChipGroupDense.TextFieldEmbeddedS">
+        <item name="sd_chipGroupStyle">@style/Serv.Sdds.Components.ChipGroup.Dense.EmbeddedS.Secondary</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.ChipGroupDense.TextFieldEmbeddedXS">
+        <item name="sd_chipGroupStyle">@style/Serv.Sdds.Components.ChipGroup.Dense.EmbeddedXS.Secondary</item>
+    </style>
+</resources>

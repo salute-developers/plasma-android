@@ -7,7 +7,7 @@
     android:background="?serv_surfaceDefaultSolidSecondary">
 
     <com.sdds.uikit.TextView
-        style="@style/Serv.SddsServ.Typography.BodyMBold"
+        style="@style/Serv.Sdds.Typography.BodyMBold"
         android:id="@+id/property_name_header"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.sdds.uikit.TextView
-        style="@style/Serv.SddsServ.Typography.BodyMBold"
+        style="@style/Serv.Sdds.Typography.BodyMBold"
         android:id="@+id/property_value_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

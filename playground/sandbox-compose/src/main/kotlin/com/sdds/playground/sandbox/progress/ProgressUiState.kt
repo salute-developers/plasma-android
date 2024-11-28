@@ -3,6 +3,13 @@ package com.sdds.playground.sandbox.progress
 import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.ProgressBar
 import com.sdds.compose.uikit.ProgressBarStyle
+import com.sdds.serv.styles.progress.Accent
+import com.sdds.serv.styles.progress.Default
+import com.sdds.serv.styles.progress.GradientAccent
+import com.sdds.serv.styles.progress.Negative
+import com.sdds.serv.styles.progress.Positive
+import com.sdds.serv.styles.progress.Secondary
+import com.sdds.serv.styles.progress.Warning
 
 /**
  * Состояние компонента Progress

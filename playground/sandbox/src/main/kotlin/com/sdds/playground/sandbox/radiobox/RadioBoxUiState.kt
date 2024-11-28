@@ -2,7 +2,7 @@ package com.sdds.playground.sandbox.radiobox
 
 import android.os.Parcelable
 import androidx.annotation.StyleRes
-import com.sdds.playground.sandbox.R
+import com.sdds.themes.sdds.serv.tokens.R
 import kotlinx.parcelize.Parcelize
 
 /**
@@ -28,8 +28,8 @@ internal data class RadioBoxUiState(
  */
 @Parcelize
 internal enum class RadioBoxVariant(@StyleRes val styleRes: Int) : Parcelable {
-    RadioBoxM(R.style.Theme_Sandbox_ComponentOverlays_RadioBoxM),
-    RadioBoxS(R.style.Theme_Sandbox_ComponentOverlays_RadioBoxS),
+    RadioBoxM(R.style.Serv_Sdds_ComponentOverlays_RadioBoxM),
+    RadioBoxS(R.style.Serv_Sdds_ComponentOverlays_RadioBoxS),
 }
 
 /**
@@ -37,8 +37,8 @@ internal enum class RadioBoxVariant(@StyleRes val styleRes: Int) : Parcelable {
  * @property styleRes ресурс стиля
  */
 internal enum class RadioBoxGroupVariant(@StyleRes val styleRes: Int) {
-    RadioBoxGroupM(R.style.Theme_Sandbox_ComponentOverlays_RadioBoxGroupM),
-    RadioBoxGroupS(R.style.Theme_Sandbox_ComponentOverlays_RadioBoxGroupS),
+    RadioBoxGroupM(R.style.Serv_Sdds_ComponentOverlays_RadioBoxGroupM),
+    RadioBoxGroupS(R.style.Serv_Sdds_ComponentOverlays_RadioBoxGroupS),
 }
 
 /**

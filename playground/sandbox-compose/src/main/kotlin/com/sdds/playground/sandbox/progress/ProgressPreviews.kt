@@ -7,6 +7,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.ProgressBar
 import com.sdds.playground.sandbox.SandboxTheme
+import com.sdds.serv.styles.progress.Accent
+import com.sdds.serv.styles.progress.Default
+import com.sdds.serv.styles.progress.GradientAccent
+import com.sdds.serv.styles.progress.Negative
+import com.sdds.serv.styles.progress.Positive
+import com.sdds.serv.styles.progress.Secondary
+import com.sdds.serv.styles.progress.Warning
 
 @Composable
 @Preview(showBackground = true)

@@ -44,8 +44,8 @@ include(
     ":sberonline.view",
     ":sberprime.compose",
     ":sberprime.view",
-//    ":sdds.serv.compose",
-//    ":sdds.serv.view",
+    ":sdds.serv.compose",
+    ":sdds.serv.view",
     ":stylessalute.compose",
     ":stylessalute.view",
 )

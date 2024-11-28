@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" tools:ignore="ResourceName">
+
+    <item android:color="?serv_textDefaultSecondary" app:sd_state_inner_label="true" />
+    <item android:color="?serv_textDefaultSecondary" app:sd_state_secondary="true" />
+    <item android:color="?serv_textDefaultPrimary" />
+</selector>

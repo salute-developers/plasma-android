@@ -1,3 +1,6 @@
+import com.sdds.plugin.themebuilder.OutputLocation.SRC
+import com.sdds.plugin.themebuilder.ThemeBuilderMode.THEME
+
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     id("convention.android-lib")
@@ -8,16 +11,22 @@ plugins {
 }
 
 android {
-    namespace = "com.sdds.themes.sdds.serv.tokens"
+    namespace = "com.sdds.serv"
+    resourcePrefix = "serv"
 }
 
 themeBuilder {
-    themeSource(name = "sdds_serv", version = "latest")
+    val themeVersion = project.property("theme-version")?.toString()
+        ?: throw GradleException("star design service version must be specified")
+    themeSource(name = "sdds_serv", version = themeVersion, alias = "SddsServ")
     compose()
-    ktPackage(ktPackage = "com.sdds.themes.sdds.serv.tokens")
-    resourcesPrefix(prefix = "sdgen")
+    ktPackage(ktPackage = "com.sdds.serv.tokens")
+    autoGenerate(false)
+    mode(THEME)
+    outputLocation(SRC)
 }
 
 dependencies {
+    implementation("sdds-core:uikit-compose")
     implementation(libs.base.androidX.compose.foundation)
 }

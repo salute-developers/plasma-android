@@ -22,9 +22,9 @@ import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.TextField
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.SandboxTheme
-import com.sdds.playground.sandbox.buttons.Default
-import com.sdds.playground.sandbox.buttons.Xs
 import com.sdds.playground.sandbox.core.ComponentScaffold
+import com.sdds.serv.styles.buttons.Default
+import com.sdds.serv.styles.buttons.Xs
 
 /**
  * Экран с компонентом [TextField]
