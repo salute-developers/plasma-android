@@ -38,18 +38,6 @@ interface IconButtonStyleBuilder : StyleBuilder<ButtonStyle> {
     fun colors(builder: @Composable IconButtonColorsBuilder.() -> Unit): IconButtonStyleBuilder
 
     /**
-     * Устанавливает стиль основного текста кнопки [labelStyle]
-     * @see ButtonStyle.labelStyle
-     */
-    fun labelStyle(labelStyle: TextStyle): IconButtonStyleBuilder
-
-    /**
-     * Устанавливает стиль дополнительного текста кнопки [valueStyle]
-     * @see ButtonStyle.valueStyle
-     */
-    fun valueStyle(valueStyle: TextStyle): IconButtonStyleBuilder
-
-    /**
      * Устанавливает размеры и отступы контента кнопки [dimensions]
      * @see ButtonStyle.dimensions
      * @see Button.Dimensions
@@ -113,36 +101,6 @@ interface IconButtonColorsBuilder {
         backgroundColor(backgroundColor.asInteractive())
 
     /**
-     * Устанавливает цвет основного текста кнопки [labelColor]
-     * @see ButtonColors.labelColor
-     * @see InteractiveColor
-     */
-    fun labelColor(labelColor: InteractiveColor): IconButtonColorsBuilder
-
-    /**
-     * Устанавливает цвет основного текста кнопки [labelColor]
-     * @see ButtonColors.labelColor
-     * @see InteractiveColor
-     */
-    fun labelColor(labelColor: Color): IconButtonColorsBuilder =
-        labelColor(labelColor.asInteractive())
-
-    /**
-     * Устанавливает цвет дополнительного текста кнопки [valueColor]
-     * @see ButtonColors.valueColor
-     * @see InteractiveColor
-     */
-    fun valueColor(valueColor: InteractiveColor): IconButtonColorsBuilder
-
-    /**
-     * Устанавливает цвет дополнительного текста кнопки [valueColor]
-     * @see ButtonColors.valueColor
-     * @see InteractiveColor
-     */
-    fun valueColor(valueColor: Color): IconButtonColorsBuilder =
-        valueColor(valueColor.asInteractive())
-
-    /**
      * Устанавливает цвет иконки кнопки [iconColor]
      * @see ButtonColors.iconColor
      * @see InteractiveColor
@@ -204,14 +162,6 @@ private class IconButtonStyleBuilderImpl(override val receiver: Any?) : IconButt
         this.colorsBuilder.builder()
     }
 
-    override fun labelStyle(labelStyle: TextStyle) = apply {
-        this.labelStyle = labelStyle
-    }
-
-    override fun valueStyle(valueStyle: TextStyle) = apply {
-        this.valueStyle = valueStyle
-    }
-
     override fun dimensions(dimensions: Button.Dimensions) = apply {
         this.dimensions = dimensions
     }
@@ -261,14 +211,6 @@ private class DefaultIconButtonColors(
 
         override fun backgroundColor(backgroundColor: InteractiveColor) = apply {
             this.backgroundColor = backgroundColor
-        }
-
-        override fun labelColor(labelColor: InteractiveColor) = apply {
-            this.labelColor = labelColor
-        }
-
-        override fun valueColor(valueColor: InteractiveColor) = apply {
-            this.valueColor = valueColor
         }
 
         override fun iconColor(iconColor: InteractiveColor) = apply {

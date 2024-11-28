@@ -101,8 +101,6 @@ val IconButton.L: IconButtonStyleBuilder
                 spinnerSize = 22.dp,
             ),
         )
-        .labelStyle(SddsServTheme.typography.bodyLBold)
-        .valueStyle(SddsServTheme.typography.bodyLBold)
 
 val IconButton.M: IconButtonStyleBuilder
     @Composable
@@ -117,8 +115,6 @@ val IconButton.M: IconButtonStyleBuilder
                 spinnerSize = 22.dp,
             ),
         )
-        .labelStyle(SddsServTheme.typography.bodyMBold)
-        .valueStyle(SddsServTheme.typography.bodyMBold)
 
 val IconButton.S: IconButtonStyleBuilder
     @Composable
@@ -133,8 +129,6 @@ val IconButton.S: IconButtonStyleBuilder
                 spinnerSize = 22.dp,
             ),
         )
-        .labelStyle(SddsServTheme.typography.bodySBold)
-        .valueStyle(SddsServTheme.typography.bodySBold)
 
 val IconButton.Xs: IconButtonStyleBuilder
     @Composable
@@ -149,8 +143,6 @@ val IconButton.Xs: IconButtonStyleBuilder
                 spinnerSize = 16.dp,
             ),
         )
-        .labelStyle(SddsServTheme.typography.bodyXsBold)
-        .valueStyle(SddsServTheme.typography.bodyXsBold)
 
 @Composable
 private fun IconButtonColorsBuilder.iconDefaultColors(): IconButtonColorsBuilder = apply {
@@ -162,11 +154,6 @@ private fun IconButtonColorsBuilder.iconDefaultColors(): IconButtonColorsBuilder
     backgroundColor(
         SddsServTheme.colors.surfaceDefaultSolidDefault.asInteractive(
             pressed = SddsServTheme.colors.surfaceDefaultSolidDefaultActive,
-        ),
-    )
-    valueColor(
-        SddsServTheme.colors.textInverseSecondary.asInteractive(
-            pressed = SddsServTheme.colors.textInverseSecondaryActive,
         ),
     )
 }
@@ -183,11 +170,6 @@ private fun IconButtonColorsBuilder.iconSecondaryColors(): IconButtonColorsBuild
             pressed = SddsServTheme.colors.surfaceDefaultTransparentSecondaryActive,
         ),
     )
-    valueColor(
-        SddsServTheme.colors.textDefaultSecondary.asInteractive(
-            pressed = SddsServTheme.colors.textDefaultSecondaryActive,
-        ),
-    )
 }
 
 @Composable
@@ -200,11 +182,6 @@ private fun IconButtonColorsBuilder.iconAccentColors(): IconButtonColorsBuilder 
     backgroundColor(
         SddsServTheme.colors.surfaceDefaultAccent.asInteractive(
             pressed = SddsServTheme.colors.surfaceDefaultAccentActive,
-        ),
-    )
-    valueColor(
-        SddsServTheme.colors.textOnDarkSecondary.asInteractive(
-            pressed = SddsServTheme.colors.textOnDarkSecondaryActive,
         ),
     )
 }
@@ -221,11 +198,6 @@ private fun IconButtonColorsBuilder.iconPositiveColors(): IconButtonColorsBuilde
             pressed = SddsServTheme.colors.surfaceDefaultPositiveActive,
         ),
     )
-    valueColor(
-        SddsServTheme.colors.textOnDarkSecondary.asInteractive(
-            pressed = SddsServTheme.colors.textOnDarkSecondaryActive,
-        ),
-    )
 }
 
 @Composable
@@ -238,11 +210,6 @@ private fun IconButtonColorsBuilder.iconNegativeColors(): IconButtonColorsBuilde
     backgroundColor(
         SddsServTheme.colors.surfaceDefaultNegative.asInteractive(
             pressed = SddsServTheme.colors.surfaceDefaultNegativeActive,
-        ),
-    )
-    valueColor(
-        SddsServTheme.colors.textOnDarkSecondary.asInteractive(
-            pressed = SddsServTheme.colors.textOnDarkSecondaryActive,
         ),
     )
 }
@@ -259,11 +226,6 @@ private fun IconButtonColorsBuilder.iconWarningColors(): IconButtonColorsBuilder
             pressed = SddsServTheme.colors.surfaceDefaultWarningActive,
         ),
     )
-    valueColor(
-        SddsServTheme.colors.textOnDarkSecondary.asInteractive(
-            pressed = SddsServTheme.colors.textOnDarkSecondaryActive,
-        ),
-    )
 }
 
 @Composable
@@ -276,11 +238,6 @@ private fun IconButtonColorsBuilder.iconClearColors(): IconButtonColorsBuilder =
     backgroundColor(
         SddsServTheme.colors.surfaceDefaultClear.asInteractive(
             pressed = SddsServTheme.colors.surfaceDefaultClearActive,
-        ),
-    )
-    valueColor(
-        SddsServTheme.colors.textDefaultSecondary.asInteractive(
-            pressed = SddsServTheme.colors.textDefaultSecondaryActive,
         ),
     )
 }
@@ -297,11 +254,6 @@ private fun IconButtonColorsBuilder.iconDarkColors(): IconButtonColorsBuilder = 
             pressed = SddsServTheme.colors.surfaceOnLightTransparentDeepActive,
         ),
     )
-    valueColor(
-        SddsServTheme.colors.textOnDarkSecondary.asInteractive(
-            pressed = SddsServTheme.colors.textOnDarkSecondaryActive,
-        ),
-    )
 }
 
 @Composable
@@ -316,11 +268,6 @@ private fun IconButtonColorsBuilder.iconBlackColors(): IconButtonColorsBuilder =
             pressed = SddsServTheme.colors.surfaceOnLightSolidDefaultActive,
         ),
     )
-    valueColor(
-        SddsServTheme.colors.textOnDarkSecondary.asInteractive(
-            pressed = SddsServTheme.colors.textOnDarkSecondaryActive,
-        ),
-    )
 }
 
 @Composable
@@ -333,11 +280,6 @@ private fun IconButtonColorsBuilder.iconWhiteColors(): IconButtonColorsBuilder =
     backgroundColor(
         SddsServTheme.colors.surfaceOnDarkSolidDefault.asInteractive(
             pressed = SddsServTheme.colors.surfaceOnDarkSolidDefaultActive,
-        ),
-    )
-    valueColor(
-        SddsServTheme.colors.textOnLightSecondary.asInteractive(
-            pressed = SddsServTheme.colors.textOnLightSecondaryActive,
         ),
     )
 }

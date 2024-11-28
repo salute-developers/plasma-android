@@ -101,8 +101,6 @@ val IconButton.L: IconButtonStyleBuilder
                 spinnerSize = 22.dp,
             ),
         )
-        .labelStyle(PlasmaSdServiceTheme.typography.bodyLBold)
-        .valueStyle(PlasmaSdServiceTheme.typography.bodyLBold)
 
 val IconButton.M: IconButtonStyleBuilder
     @Composable
@@ -117,8 +115,6 @@ val IconButton.M: IconButtonStyleBuilder
                 spinnerSize = 22.dp,
             ),
         )
-        .labelStyle(PlasmaSdServiceTheme.typography.bodyMBold)
-        .valueStyle(PlasmaSdServiceTheme.typography.bodyMBold)
 
 val IconButton.S: IconButtonStyleBuilder
     @Composable
@@ -133,8 +129,6 @@ val IconButton.S: IconButtonStyleBuilder
                 spinnerSize = 22.dp,
             ),
         )
-        .labelStyle(PlasmaSdServiceTheme.typography.bodySBold)
-        .valueStyle(PlasmaSdServiceTheme.typography.bodySBold)
 
 val IconButton.Xs: IconButtonStyleBuilder
     @Composable
@@ -149,8 +143,6 @@ val IconButton.Xs: IconButtonStyleBuilder
                 spinnerSize = 16.dp,
             ),
         )
-        .labelStyle(PlasmaSdServiceTheme.typography.bodyXsBold)
-        .valueStyle(PlasmaSdServiceTheme.typography.bodyXsBold)
 
 @Composable
 private fun IconButtonColorsBuilder.iconDefaultColors(): IconButtonColorsBuilder = apply {
@@ -162,11 +154,6 @@ private fun IconButtonColorsBuilder.iconDefaultColors(): IconButtonColorsBuilder
     backgroundColor(
         PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefault.asInteractive(
             pressed = PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultActive,
-        ),
-    )
-    valueColor(
-        PlasmaSdServiceTheme.colors.textInverseSecondary.asInteractive(
-            pressed = PlasmaSdServiceTheme.colors.textInverseSecondaryActive,
         ),
     )
 }
@@ -183,11 +170,6 @@ private fun IconButtonColorsBuilder.iconSecondaryColors(): IconButtonColorsBuild
             pressed = PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondaryActive,
         ),
     )
-    valueColor(
-        PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
-            pressed = PlasmaSdServiceTheme.colors.textDefaultSecondaryActive,
-        ),
-    )
 }
 
 @Composable
@@ -200,11 +182,6 @@ private fun IconButtonColorsBuilder.iconAccentColors(): IconButtonColorsBuilder 
     backgroundColor(
         PlasmaSdServiceTheme.colors.surfaceDefaultAccent.asInteractive(
             pressed = PlasmaSdServiceTheme.colors.surfaceDefaultAccentActive,
-        ),
-    )
-    valueColor(
-        PlasmaSdServiceTheme.colors.textOnDarkSecondary.asInteractive(
-            pressed = PlasmaSdServiceTheme.colors.textOnDarkSecondaryActive,
         ),
     )
 }
@@ -221,11 +198,6 @@ private fun IconButtonColorsBuilder.iconPositiveColors(): IconButtonColorsBuilde
             pressed = PlasmaSdServiceTheme.colors.surfaceDefaultPositiveActive,
         ),
     )
-    valueColor(
-        PlasmaSdServiceTheme.colors.textOnDarkSecondary.asInteractive(
-            pressed = PlasmaSdServiceTheme.colors.textOnDarkSecondaryActive,
-        ),
-    )
 }
 
 @Composable
@@ -238,11 +210,6 @@ private fun IconButtonColorsBuilder.iconNegativeColors(): IconButtonColorsBuilde
     backgroundColor(
         PlasmaSdServiceTheme.colors.surfaceDefaultNegative.asInteractive(
             pressed = PlasmaSdServiceTheme.colors.surfaceDefaultNegativeActive,
-        ),
-    )
-    valueColor(
-        PlasmaSdServiceTheme.colors.textOnDarkSecondary.asInteractive(
-            pressed = PlasmaSdServiceTheme.colors.textOnDarkSecondaryActive,
         ),
     )
 }
@@ -259,11 +226,6 @@ private fun IconButtonColorsBuilder.iconWarningColors(): IconButtonColorsBuilder
             pressed = PlasmaSdServiceTheme.colors.surfaceDefaultWarningActive,
         ),
     )
-    valueColor(
-        PlasmaSdServiceTheme.colors.textOnDarkSecondary.asInteractive(
-            pressed = PlasmaSdServiceTheme.colors.textOnDarkSecondaryActive,
-        ),
-    )
 }
 
 @Composable
@@ -276,11 +238,6 @@ private fun IconButtonColorsBuilder.iconClearColors(): IconButtonColorsBuilder =
     backgroundColor(
         PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
             pressed = PlasmaSdServiceTheme.colors.surfaceDefaultClearActive,
-        ),
-    )
-    valueColor(
-        PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
-            pressed = PlasmaSdServiceTheme.colors.textDefaultSecondaryActive,
         ),
     )
 }
@@ -297,11 +254,6 @@ private fun IconButtonColorsBuilder.iconDarkColors(): IconButtonColorsBuilder = 
             pressed = PlasmaSdServiceTheme.colors.surfaceOnLightTransparentDeepActive,
         ),
     )
-    valueColor(
-        PlasmaSdServiceTheme.colors.textOnDarkSecondary.asInteractive(
-            pressed = PlasmaSdServiceTheme.colors.textOnDarkSecondaryActive,
-        ),
-    )
 }
 
 @Composable
@@ -316,11 +268,6 @@ private fun IconButtonColorsBuilder.iconBlackColors(): IconButtonColorsBuilder =
             pressed = PlasmaSdServiceTheme.colors.surfaceOnLightSolidDefaultActive,
         ),
     )
-    valueColor(
-        PlasmaSdServiceTheme.colors.textOnDarkSecondary.asInteractive(
-            pressed = PlasmaSdServiceTheme.colors.textOnDarkSecondaryActive,
-        ),
-    )
 }
 
 @Composable
@@ -333,11 +280,6 @@ private fun IconButtonColorsBuilder.iconWhiteColors(): IconButtonColorsBuilder =
     backgroundColor(
         PlasmaSdServiceTheme.colors.surfaceOnDarkSolidDefault.asInteractive(
             pressed = PlasmaSdServiceTheme.colors.surfaceOnDarkSolidDefaultActive,
-        ),
-    )
-    valueColor(
-        PlasmaSdServiceTheme.colors.textOnLightSecondary.asInteractive(
-            pressed = PlasmaSdServiceTheme.colors.textOnLightSecondaryActive,
         ),
     )
 }
