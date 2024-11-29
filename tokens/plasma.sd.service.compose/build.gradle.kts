@@ -11,8 +11,8 @@ plugins {
 }
 
 android {
-    namespace = "com.sdds.plasma.sd.service"
-    resourcePrefix = "sd_service"
+    namespace = "com.sdds.plasma.sd.service.compose"
+    resourcePrefix = "sd_service_cmp"
 }
 
 themeBuilder {

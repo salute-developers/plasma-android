@@ -11,13 +11,13 @@ plugins {
 }
 
 android {
-    namespace = "com.sdds.serv"
-    resourcePrefix = "serv"
+    namespace = "com.sdds.serv.compose"
+    resourcePrefix = "serv_cmp"
 }
 
 themeBuilder {
     val themeVersion = project.property("theme-version")?.toString()
-        ?: throw GradleException("star design service version must be specified")
+        ?: throw GradleException("sdds serv version must be specified")
     themeSource(name = "sdds_serv", version = themeVersion, alias = "SddsServ")
     compose()
     ktPackage(ktPackage = "com.sdds.serv.tokens")
