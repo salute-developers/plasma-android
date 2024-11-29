@@ -25,8 +25,8 @@ import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.Switch
 import com.sdds.compose.uikit.Text
 import com.sdds.plasma.sd.service.sandbox.compose.R
-import com.sdds.plasma.sd.service.styles.Clear
-import com.sdds.plasma.sd.service.styles.Xs
+import com.sdds.plasma.sd.service.styles.button.icon.Clear
+import com.sdds.plasma.sd.service.styles.button.icon.Xs
 import com.sdds.plasma.sd.service.tokens.compose.PlasmaSdServiceTheme
 import com.sdds.icons.R.drawable as Icons
 

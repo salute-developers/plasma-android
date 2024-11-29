@@ -1,4 +1,4 @@
-package com.sdds.plasma.sd.service.styles
+package com.sdds.plasma.sd.service.styles.textfield
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
@@ -15,6 +15,16 @@ import com.sdds.compose.uikit.TextFieldStyleBuilder
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.style.applyFor
+import com.sdds.plasma.sd.service.styles.chip.L
+import com.sdds.plasma.sd.service.styles.chip.M
+import com.sdds.plasma.sd.service.styles.chip.S
+import com.sdds.plasma.sd.service.styles.chip.Secondary
+import com.sdds.plasma.sd.service.styles.chip.Xs
+import com.sdds.plasma.sd.service.styles.chip.group.Dense
+import com.sdds.plasma.sd.service.styles.textfield.clear.defaultClearColors
+import com.sdds.plasma.sd.service.styles.textfield.clear.errorClearColors
+import com.sdds.plasma.sd.service.styles.textfield.clear.successClearColors
+import com.sdds.plasma.sd.service.styles.textfield.clear.warningClearColors
 import com.sdds.plasma.sd.service.tokens.compose.PlasmaSdServiceTheme
 
 val TextFieldStyleBuilder.Default: TextFieldStyleBuilder

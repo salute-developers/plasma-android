@@ -8,8 +8,8 @@ import com.sdds.compose.uikit.EmbeddedChip
 import com.sdds.compose.uikit.Icon
 import com.sdds.icons.R
 import com.sdds.plasma.sd.service.sandbox.SandboxTheme
-import com.sdds.plasma.sd.service.styles.Default
-import com.sdds.plasma.sd.service.styles.M
+import com.sdds.plasma.sd.service.styles.chip.Default
+import com.sdds.plasma.sd.service.styles.chip.M
 
 @Preview(showBackground = true)
 @Composable

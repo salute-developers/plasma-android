@@ -9,20 +9,40 @@ import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.LinkButton
 import com.sdds.icons.R
 import com.sdds.playground.sandbox.SandboxTheme
-import com.sdds.serv.styles.buttons.Accent
-import com.sdds.serv.styles.buttons.Clear
-import com.sdds.serv.styles.buttons.Dark
-import com.sdds.serv.styles.buttons.Default
-import com.sdds.serv.styles.buttons.L
-import com.sdds.serv.styles.buttons.M
-import com.sdds.serv.styles.buttons.Negative
-import com.sdds.serv.styles.buttons.Pilled
-import com.sdds.serv.styles.buttons.Positive
-import com.sdds.serv.styles.buttons.S
-import com.sdds.serv.styles.buttons.Secondary
-import com.sdds.serv.styles.buttons.Warning
-import com.sdds.serv.styles.buttons.White
-import com.sdds.serv.styles.buttons.Xs
+import com.sdds.serv.styles.button.basic.Accent
+import com.sdds.serv.styles.button.basic.Clear
+import com.sdds.serv.styles.button.basic.Dark
+import com.sdds.serv.styles.button.basic.Default
+import com.sdds.serv.styles.button.basic.L
+import com.sdds.serv.styles.button.basic.M
+import com.sdds.serv.styles.button.basic.Negative
+import com.sdds.serv.styles.button.basic.Positive
+import com.sdds.serv.styles.button.basic.S
+import com.sdds.serv.styles.button.basic.Secondary
+import com.sdds.serv.styles.button.basic.Warning
+import com.sdds.serv.styles.button.basic.White
+import com.sdds.serv.styles.button.basic.Xs
+import com.sdds.serv.styles.button.icon.Accent
+import com.sdds.serv.styles.button.icon.Clear
+import com.sdds.serv.styles.button.icon.Dark
+import com.sdds.serv.styles.button.icon.Default
+import com.sdds.serv.styles.button.icon.L
+import com.sdds.serv.styles.button.icon.M
+import com.sdds.serv.styles.button.icon.Negative
+import com.sdds.serv.styles.button.icon.Pilled
+import com.sdds.serv.styles.button.icon.Positive
+import com.sdds.serv.styles.button.icon.S
+import com.sdds.serv.styles.button.icon.Secondary
+import com.sdds.serv.styles.button.icon.Warning
+import com.sdds.serv.styles.button.icon.White
+import com.sdds.serv.styles.button.icon.Xs
+import com.sdds.serv.styles.button.link.Accent
+import com.sdds.serv.styles.button.link.Default
+import com.sdds.serv.styles.button.link.L
+import com.sdds.serv.styles.button.link.M
+import com.sdds.serv.styles.button.link.S
+import com.sdds.serv.styles.button.link.Warning
+import com.sdds.serv.styles.button.link.Xs
 
 /**
  * Previews для тестирования
@@ -435,10 +455,10 @@ internal fun SandboxLinkButtonPreviewSizeSWarning() {
 
 @Composable
 @Preview(showBackground = true)
-internal fun SandboxLinkButtonPreviewSizeXSDark() {
+internal fun SandboxLinkButtonPreviewSizeXSAccent() {
     SandboxTheme {
         Button(
-            style = LinkButton.Xs.Dark.style(),
+            style = LinkButton.Xs.Accent.style(),
             label = "Label",
             enabled = true,
             loading = false,

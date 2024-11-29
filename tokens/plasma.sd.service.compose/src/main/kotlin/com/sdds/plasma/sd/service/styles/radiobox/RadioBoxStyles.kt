@@ -1,4 +1,4 @@
-package com.sdds.plasma.sd.service.styles
+package com.sdds.plasma.sd.service.styles.radiobox
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp

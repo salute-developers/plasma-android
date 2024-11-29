@@ -39,8 +39,10 @@ import com.sdds.compose.uikit.internal.focusselector.FocusSelectorMode
 import com.sdds.compose.uikit.internal.focusselector.LocalFocusSelectorMode
 import com.sdds.serv.styles.avatar.M
 import com.sdds.serv.styles.avatar.S
-import com.sdds.serv.styles.buttons.Default
-import com.sdds.serv.styles.buttons.M
+import com.sdds.serv.styles.button.basic.Default
+import com.sdds.serv.styles.button.basic.M
+import com.sdds.serv.styles.button.icon.Default
+import com.sdds.serv.styles.button.icon.M
 import com.sdds.serv.styles.checkbox.M
 import com.sdds.serv.styles.checkbox.group.M
 import com.sdds.serv.styles.chip.Default

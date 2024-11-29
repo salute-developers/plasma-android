@@ -16,19 +16,19 @@ import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.TextField
 import com.sdds.icons.R
 import com.sdds.plasma.sd.service.sandbox.SandboxTheme
-import com.sdds.plasma.sd.service.styles.Default
-import com.sdds.plasma.sd.service.styles.Error
-import com.sdds.plasma.sd.service.styles.InnerLabel
-import com.sdds.plasma.sd.service.styles.L
-import com.sdds.plasma.sd.service.styles.M
-import com.sdds.plasma.sd.service.styles.Optional
-import com.sdds.plasma.sd.service.styles.OuterLabel
-import com.sdds.plasma.sd.service.styles.RequiredEnd
-import com.sdds.plasma.sd.service.styles.RequiredStart
-import com.sdds.plasma.sd.service.styles.S
-import com.sdds.plasma.sd.service.styles.Success
-import com.sdds.plasma.sd.service.styles.Warning
-import com.sdds.plasma.sd.service.styles.Xs
+import com.sdds.plasma.sd.service.styles.textfield.Default
+import com.sdds.plasma.sd.service.styles.textfield.Error
+import com.sdds.plasma.sd.service.styles.textfield.InnerLabel
+import com.sdds.plasma.sd.service.styles.textfield.L
+import com.sdds.plasma.sd.service.styles.textfield.M
+import com.sdds.plasma.sd.service.styles.textfield.Optional
+import com.sdds.plasma.sd.service.styles.textfield.OuterLabel
+import com.sdds.plasma.sd.service.styles.textfield.RequiredEnd
+import com.sdds.plasma.sd.service.styles.textfield.RequiredStart
+import com.sdds.plasma.sd.service.styles.textfield.S
+import com.sdds.plasma.sd.service.styles.textfield.Success
+import com.sdds.plasma.sd.service.styles.textfield.Warning
+import com.sdds.plasma.sd.service.styles.textfield.Xs
 
 /**
  * Превью [TextField]

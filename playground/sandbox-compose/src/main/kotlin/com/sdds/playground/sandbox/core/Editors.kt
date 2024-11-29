@@ -28,8 +28,8 @@ import com.sdds.compose.uikit.RadioBox
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.TextField
 import com.sdds.playground.sandbox.R
-import com.sdds.serv.styles.buttons.Default
-import com.sdds.serv.styles.buttons.M
+import com.sdds.serv.styles.button.basic.Default
+import com.sdds.serv.styles.button.basic.M
 import com.sdds.serv.tokens.compose.SddsServTheme
 import kotlin.math.roundToInt
 

@@ -28,7 +28,7 @@ import com.sdds.playground.sandbox.buttons.SandboxLinkButtonPreviewSizeLDisabled
 import com.sdds.playground.sandbox.buttons.SandboxLinkButtonPreviewSizeLIsLoading
 import com.sdds.playground.sandbox.buttons.SandboxLinkButtonPreviewSizeMAccent
 import com.sdds.playground.sandbox.buttons.SandboxLinkButtonPreviewSizeSWarning
-import com.sdds.playground.sandbox.buttons.SandboxLinkButtonPreviewSizeXSDark
+import com.sdds.playground.sandbox.buttons.SandboxLinkButtonPreviewSizeXSAccent
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.ParameterizedRobolectricTestRunner
@@ -239,9 +239,9 @@ class ComposeButtonScreenshotTest(
     }
 
     @Test
-    fun testLinkButtonPreviewSizeXSDark() {
+    fun testLinkButtonPreviewSizeXSAccent() {
         composeTestRule.setContent {
-            SandboxLinkButtonPreviewSizeXSDark()
+            SandboxLinkButtonPreviewSizeXSAccent()
         }
     }
 }

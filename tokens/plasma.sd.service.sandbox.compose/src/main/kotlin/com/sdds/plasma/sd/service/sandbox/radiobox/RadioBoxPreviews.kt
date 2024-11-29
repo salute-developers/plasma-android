@@ -7,8 +7,10 @@ import com.sdds.compose.uikit.RadioBoxGroup
 import com.sdds.compose.uikit.isChecked
 import com.sdds.compose.uikit.updateSelection
 import com.sdds.plasma.sd.service.sandbox.SandboxTheme
-import com.sdds.plasma.sd.service.styles.M
-import com.sdds.plasma.sd.service.styles.S
+import com.sdds.plasma.sd.service.styles.radiobox.M
+import com.sdds.plasma.sd.service.styles.radiobox.S
+import com.sdds.plasma.sd.service.styles.radiobox.group.M
+import com.sdds.plasma.sd.service.styles.radiobox.group.S
 
 /**
  * Превью [RadioBox]

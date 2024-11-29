@@ -1,4 +1,4 @@
-package com.sdds.plasma.sd.service.styles
+package com.sdds.plasma.sd.service.styles.radiobox.group
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.runtime.Composable
@@ -8,6 +8,8 @@ import com.sdds.compose.uikit.RadioBox
 import com.sdds.compose.uikit.RadioBoxGroup
 import com.sdds.compose.uikit.RadioBoxGroupStyle
 import com.sdds.compose.uikit.RadioBoxGroupStyleBuilder
+import com.sdds.plasma.sd.service.styles.radiobox.M
+import com.sdds.plasma.sd.service.styles.radiobox.S
 
 /**
  * Стиль [RadioBoxGroup] размера M
