@@ -1,5 +1,5 @@
 // AUTO-GENERATED. DO NOT MODIFY this file.
-package com.sdds.playground.themebuilder.tokens.compose
+package com.sdds.playground.themebuilder.theme
 import androidx.compose.runtime.Immutable
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
@@ -107,7 +107,7 @@ internal class ThmbldrLinearGradient constructor(
     }
 }
 // AUTO-GENERATED. DO NOT MODIFY this file.
-package com.sdds.playground.themebuilder.tokens.compose
+package com.sdds.playground.themebuilder.theme
 import androidx.compose.runtime.Immutable
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
@@ -148,7 +148,7 @@ internal data class ThmbldrRadialGradient(
     }
 }
 // AUTO-GENERATED. DO NOT MODIFY this file.
-package com.sdds.playground.themebuilder.tokens.compose
+package com.sdds.playground.themebuilder.theme
 import androidx.compose.runtime.Immutable
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
@@ -181,7 +181,7 @@ internal data class ThmbldrSweepGradient(
     }
 }
 // AUTO-GENERATED. DO NOT MODIFY this file.
-package com.sdds.playground.themebuilder.tokens.compose
+package com.sdds.playground.themebuilder.theme
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
@@ -192,8 +192,10 @@ import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ShaderBrush
-import com.sdds.playground.themebuilder.tokens.compose.GradientOverrideScope
-import com.sdds.playground.themebuilder.tokens.compose.ThemeGradients
+import com.sdds.playground.themebuilder.theme.GradientOverrideScope
+import com.sdds.playground.themebuilder.theme.ThemeGradients
+import com.sdds.playground.themebuilder.tokens.DarkGradientTokens
+import com.sdds.playground.themebuilder.tokens.LightGradientTokens
 import kotlin.Float
 import kotlin.FloatArray
 import kotlin.String

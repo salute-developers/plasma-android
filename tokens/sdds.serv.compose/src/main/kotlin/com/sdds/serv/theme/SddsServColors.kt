@@ -1,5 +1,5 @@
 // AUTO-GENERATED. DO NOT MODIFY this file.
-package com.sdds.serv.tokens
+package com.sdds.serv.theme
 
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.ProvidableCompositionLocal
@@ -9,8 +9,10 @@ import androidx.compose.runtime.setValue
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.runtime.structuralEqualityPolicy
 import androidx.compose.ui.graphics.Color
-import com.sdds.serv.tokens.ColorOverrideScope
-import com.sdds.serv.tokens.SddsServColors
+import com.sdds.serv.theme.ColorOverrideScope
+import com.sdds.serv.theme.SddsServColors
+import com.sdds.serv.tokens.DarkColorTokens
+import com.sdds.serv.tokens.LightColorTokens
 import kotlin.String
 import kotlin.Unit
 import kotlin.collections.Map

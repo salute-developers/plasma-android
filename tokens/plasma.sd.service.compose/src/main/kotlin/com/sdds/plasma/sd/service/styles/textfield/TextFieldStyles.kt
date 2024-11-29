@@ -25,7 +25,7 @@ import com.sdds.plasma.sd.service.styles.textfield.clear.defaultClearColors
 import com.sdds.plasma.sd.service.styles.textfield.clear.errorClearColors
 import com.sdds.plasma.sd.service.styles.textfield.clear.successClearColors
 import com.sdds.plasma.sd.service.styles.textfield.clear.warningClearColors
-import com.sdds.plasma.sd.service.tokens.PlasmaSdServiceTheme
+import com.sdds.plasma.sd.service.theme.PlasmaSdServiceTheme
 
 val TextFieldStyleBuilder.Default: TextFieldStyleBuilder
     @Composable

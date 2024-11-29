@@ -1,5 +1,5 @@
 // AUTO-GENERATED. DO NOT MODIFY this file.
-package com.sdds.serv.tokens
+package com.sdds.serv.theme
 
 import androidx.compose.foundation.text.selection.LocalTextSelectionColors
 import androidx.compose.foundation.text.selection.TextSelectionColors
@@ -9,10 +9,10 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.remember
 import com.sdds.compose.uikit.ProvideTextStyle
-import com.sdds.serv.tokens.SddsServColors
-import com.sdds.serv.tokens.SddsServGradients
-import com.sdds.serv.tokens.SddsServShapes
-import com.sdds.serv.tokens.SddsServTypography
+import com.sdds.serv.theme.SddsServColors
+import com.sdds.serv.theme.SddsServGradients
+import com.sdds.serv.theme.SddsServShapes
+import com.sdds.serv.theme.SddsServTypography
 import kotlin.Unit
 
 public object SddsServTheme {

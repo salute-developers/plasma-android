@@ -3,6 +3,7 @@ package com.sdds.plugin.themebuilder.internal.generator
 import com.sdds.plugin.themebuilder.DimensionsConfig
 import com.sdds.plugin.themebuilder.ShapeAppearanceConfig.Companion.materialShape
 import com.sdds.plugin.themebuilder.ShapeAppearanceConfig.Companion.sddsShape
+import com.sdds.plugin.themebuilder.internal.PackageResolver
 import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
@@ -59,7 +60,7 @@ class ShapeTokenGeneratorTest {
             outputResDir = mockOutputResDir,
             target = ThemeBuilderTarget.ALL,
             xmlBuilderFactory = XmlResourcesDocumentBuilderFactory("thmbldr", "TestTheme"),
-            ktFileBuilderFactory = KtFileBuilderFactory("com.test"),
+            ktFileBuilderFactory = KtFileBuilderFactory(PackageResolver("com.test")),
             dimensAggregator = mockDimenAggregator,
             resourceReferenceProvider = ResourceReferenceProvider("thmbldr", "TestTheme"),
             shapeTokenValues = shapeTokenValues,

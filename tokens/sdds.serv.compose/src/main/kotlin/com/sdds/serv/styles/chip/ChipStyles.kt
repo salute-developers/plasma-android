@@ -9,7 +9,7 @@ import com.sdds.compose.uikit.ChipStyleBuilder
 import com.sdds.compose.uikit.EmbeddedChip
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.asInteractive
-import com.sdds.serv.tokens.SddsServTheme
+import com.sdds.serv.theme.SddsServTheme
 
 /**
  * Стиль [Chip] размера L

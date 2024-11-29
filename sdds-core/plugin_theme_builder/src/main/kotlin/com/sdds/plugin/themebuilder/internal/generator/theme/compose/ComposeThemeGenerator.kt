@@ -1,5 +1,6 @@
 package com.sdds.plugin.themebuilder.internal.generator.theme.compose
 
+import com.sdds.plugin.themebuilder.internal.TargetPackage
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.generator.SimpleBaseGenerator
@@ -20,7 +21,7 @@ internal class ComposeThemeGenerator(
 ) : SimpleBaseGenerator {
 
     private val themeKtFileBuilder by unsafeLazy {
-        ktFileBuilderFactory.create(themeClassName)
+        ktFileBuilderFactory.create(themeClassName, TargetPackage.THEME)
     }
 
     private val camelThemeName = themeName.snakeToCamelCase()

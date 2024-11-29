@@ -1,5 +1,6 @@
 package com.sdds.plugin.themebuilder
 
+import com.sdds.plugin.themebuilder.internal.PackageResolver
 import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.FontDownloaderFactory
@@ -163,6 +164,7 @@ abstract class GenerateThemeTask : DefaultTask() {
 
     private val dimensAggregator by unsafeLazy { DimensAggregator() }
     private val fontsAggregator by unsafeLazy { FontsAggregator() }
+    private val packageResolver by unsafeLazy { PackageResolver(packageName.get()) }
     private val generatorFactory by unsafeLazy {
         GeneratorFactory(
             outputDirPath = outputDirPath.get(),
@@ -178,7 +180,7 @@ abstract class GenerateThemeTask : DefaultTask() {
             ),
             xmlFontFamilyDocumentBuilderFactory = XmlFontFamilyDocumentBuilderFactory(),
             fontDownloaderFactory = FontDownloaderFactory(),
-            ktFileBuilderFactory = KtFileBuilderFactory(packageName.get()),
+            ktFileBuilderFactory = KtFileBuilderFactory(packageResolver),
             ktFileFromResourcesBuilderFactory = KtFileFromResourcesBuilderFactory(packageName.get()),
             resourceReferenceProvider = ResourceReferenceProvider(
                 resourcesPrefixConfig.get().resourcePrefix,
@@ -190,6 +192,7 @@ abstract class GenerateThemeTask : DefaultTask() {
             viewShapeAppearanceConfig = viewShapeAppearanceConfig.get(),
             themeName = themeName.get(),
             dimensionsConfig = dimensionsConfig.get(),
+            packageResolver = packageResolver,
         )
     }
 

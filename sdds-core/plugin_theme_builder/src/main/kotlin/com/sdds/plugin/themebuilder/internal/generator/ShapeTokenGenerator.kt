@@ -55,7 +55,7 @@ internal class ShapeTokenGenerator(
 
     private val xmlDocumentBuilder by unsafeLazy { xmlBuilderFactory.create(DEFAULT_ROOT_ATTRIBUTES) }
     private val ktFileBuilder by unsafeLazy { ktFileBuilderFactory.create("ShapeTokens") }
-    private val rootRoundShapes by unsafeLazy { ktFileBuilder.rootObject("RoundShapeTokens") }
+    private val rootRoundShapes by unsafeLazy { ktFileBuilder.rootObject(ROUND_SHAPE_TOKENS_NAME) }
     private val shouldGenerateShapeStyles: Boolean = viewShapeAppearanceConfig.isNotEmpty()
     private val rFileImport = ClassName(namespace, "R")
     private var needCreateStyle: Boolean = true
@@ -219,11 +219,13 @@ internal class ShapeTokenGenerator(
         )
     }
 
-    private companion object {
-        fun createInitializer(cornerSizeInitializer: String): String =
+    companion object {
+        private fun createInitializer(cornerSizeInitializer: String): String =
             KtFileBuilder.createConstructorCall(
                 "RoundedCornerShape",
                 "CornerSize($cornerSizeInitializer)",
             )
+
+        internal const val ROUND_SHAPE_TOKENS_NAME = "RoundShapeTokens"
     }
 }

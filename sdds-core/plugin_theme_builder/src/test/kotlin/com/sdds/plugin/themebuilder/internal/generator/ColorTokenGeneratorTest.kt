@@ -1,5 +1,6 @@
 package com.sdds.plugin.themebuilder.internal.generator
 
+import com.sdds.plugin.themebuilder.internal.PackageResolver
 import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
@@ -53,7 +54,7 @@ class ColorTokenGeneratorTest {
             outputResDir = mockOutputResDir,
             target = ThemeBuilderTarget.ALL,
             xmlBuilderFactory = XmlResourcesDocumentBuilderFactory("thmbldr", "TestTheme"),
-            ktFileBuilderFactory = KtFileBuilderFactory("com.test"),
+            ktFileBuilderFactory = KtFileBuilderFactory(PackageResolver("com.test")),
             colorTokenValues = colorTokenValues,
             resourceReferenceProvider = ResourceReferenceProvider("thmbldr", "TestTheme"),
             palette = palette,

@@ -6,7 +6,7 @@ import com.sdds.compose.uikit.Switch
 import com.sdds.compose.uikit.SwitchColorsBuilder
 import com.sdds.compose.uikit.SwitchStyle
 import com.sdds.compose.uikit.SwitchStyleBuilder
-import com.sdds.serv.tokens.SddsServTheme
+import com.sdds.serv.theme.SddsServTheme
 
 /**
  * Стиль [Switch] размера L

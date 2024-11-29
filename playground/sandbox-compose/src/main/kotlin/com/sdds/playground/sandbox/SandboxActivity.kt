@@ -51,7 +51,7 @@ import com.sdds.playground.sandbox.textfield.TextFieldScreen
 import com.sdds.serv.styles.button.icon.Clear
 import com.sdds.serv.styles.button.icon.M
 import com.sdds.serv.styles.button.icon.Pilled
-import com.sdds.serv.tokens.SddsServTheme
+import com.sdds.serv.theme.SddsServTheme
 import kotlinx.coroutines.launch
 import com.sdds.icons.R.drawable as Icons
 

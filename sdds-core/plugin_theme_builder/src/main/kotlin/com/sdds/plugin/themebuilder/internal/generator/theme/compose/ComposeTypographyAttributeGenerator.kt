@@ -1,12 +1,17 @@
 package com.sdds.plugin.themebuilder.internal.generator.theme.compose
 
 import com.sdds.plugin.themebuilder.DimensionsConfig
+import com.sdds.plugin.themebuilder.internal.PackageResolver
+import com.sdds.plugin.themebuilder.internal.TargetPackage
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Constructor
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Modifier
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.KtFileFromResourcesBuilderFactory
 import com.sdds.plugin.themebuilder.internal.generator.SimpleBaseGenerator
+import com.sdds.plugin.themebuilder.internal.generator.TypographyTokenGenerator.Companion.TYPOGRAPHY_LARGE_TOKENS_NAME
+import com.sdds.plugin.themebuilder.internal.generator.TypographyTokenGenerator.Companion.TYPOGRAPHY_MEDIUM_TOKENS_NAME
+import com.sdds.plugin.themebuilder.internal.generator.TypographyTokenGenerator.Companion.TYPOGRAPHY_SMALL_TOKENS_NAME
 import com.sdds.plugin.themebuilder.internal.generator.data.TypographyTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.mergedScreenClasses
 import com.sdds.plugin.themebuilder.internal.token.TypographyToken.ScreenClass
@@ -30,15 +35,16 @@ internal class ComposeTypographyAttributeGenerator(
     private val outputLocation: KtFileBuilder.OutputLocation,
     private val themeName: String,
     private val dimensionsConfig: DimensionsConfig,
+    private val packageResolver: PackageResolver,
 ) : SimpleBaseGenerator {
 
     private var tokenData: TypographyTokenResult.ComposeTokenData? = null
     private val typographyAttributes = mutableSetOf<String>()
     private val typographyKtFileBuilder by unsafeLazy {
-        ktFileBuilderFactory.create(typographyClassName)
+        ktFileBuilderFactory.create(typographyClassName, TargetPackage.THEME)
     }
     private val ktFileFromResBuilder by unsafeLazy {
-        ktFileFromResourcesBuilderFactory.create()
+        ktFileFromResourcesBuilderFactory.create(TargetPackage.THEME)
     }
 
     private val camelThemeName = themeName.snakeToCamelCase()
@@ -89,6 +95,24 @@ internal class ComposeTypographyAttributeGenerator(
                 ),
             )
             addImport(KtFileBuilder.TypeDpExtension)
+            addImport(
+                getInternalClassType(
+                    className = TYPOGRAPHY_SMALL_TOKENS_NAME,
+                    classPackage = packageResolver.getPackage(TargetPackage.TOKENS),
+                ),
+            )
+            addImport(
+                getInternalClassType(
+                    className = TYPOGRAPHY_MEDIUM_TOKENS_NAME,
+                    classPackage = packageResolver.getPackage(TargetPackage.TOKENS),
+                ),
+            )
+            addImport(
+                getInternalClassType(
+                    className = TYPOGRAPHY_LARGE_TOKENS_NAME,
+                    classPackage = packageResolver.getPackage(TargetPackage.TOKENS),
+                ),
+            )
         }
     }
 

@@ -1,7 +1,7 @@
 package com.sdds.plugin.themebuilder.internal.factory
 
+import com.sdds.plugin.themebuilder.internal.TargetPackage
 import com.sdds.plugin.themebuilder.internal.builder.KtFileFromResourcesBuilder
-import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory.Package
 
 /**
  * Фабрика для [KtFileFromResourcesBuilder]
@@ -14,6 +14,6 @@ internal class KtFileFromResourcesBuilderFactory(
     /**
      * Создает [KtFileFromResourcesBuilder]
      */
-    fun create(frameworkPackage: Package = Package.TOKENS): KtFileFromResourcesBuilder =
+    fun create(frameworkPackage: TargetPackage = TargetPackage.TOKENS): KtFileFromResourcesBuilder =
         KtFileFromResourcesBuilder("$packageName.${frameworkPackage.packageName}")
 }

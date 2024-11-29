@@ -1,5 +1,7 @@
 package com.sdds.plugin.themebuilder.internal.attributes.generator
 
+import com.sdds.plugin.themebuilder.internal.PackageResolver
+import com.sdds.plugin.themebuilder.internal.TargetPackage
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult
@@ -29,6 +31,7 @@ class ComposeColorAttributeGeneratorTest {
     private lateinit var underTest: ComposeColorAttributeGenerator
     private lateinit var mockKtFileBuilderFactory: KtFileBuilderFactory
     private lateinit var ktFileBuilder: KtFileBuilder
+    private lateinit var packageResolver: PackageResolver
 
     @Before
     fun before() {
@@ -39,16 +42,18 @@ class ComposeColorAttributeGeneratorTest {
         )
         outputKt = ByteArrayOutputStream()
         ktFileBuilder = KtFileBuilder(
-            packageName = "com.sdds.playground.themebuilder.tokens",
+            packageName = "com.sdds.playground.themebuilder.theme",
             fileName = "ThemeColors",
         )
         mockKtFileBuilderFactory = mockk<KtFileBuilderFactory> {
-            every { create("ThemeColors") } returns ktFileBuilder
+            every { create("ThemeColors", TargetPackage.THEME) } returns ktFileBuilder
         }
+        packageResolver = PackageResolver("com.sdds.playground.themebuilder")
         underTest = ComposeColorAttributeGenerator(
             ktFileBuilderFactory = mockKtFileBuilderFactory,
             outputLocation = KtFileBuilder.OutputLocation.Stream(outputKt),
             themeName = "Theme",
+            packageResolver = packageResolver,
         )
     }
 
@@ -68,7 +73,7 @@ class ComposeColorAttributeGeneratorTest {
         underTest.generate()
 
         verify {
-            mockKtFileBuilderFactory.create("ThemeColors")
+            mockKtFileBuilderFactory.create("ThemeColors", TargetPackage.THEME)
         }
 
         Assert.assertEquals(

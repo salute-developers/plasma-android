@@ -9,7 +9,7 @@ import com.sdds.compose.uikit.BasicButtonStyleBuilder
 import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.asInteractive
-import com.sdds.serv.tokens.SddsServTheme
+import com.sdds.serv.theme.SddsServTheme
 
 /**
  * Вариация [Button] цвета Default

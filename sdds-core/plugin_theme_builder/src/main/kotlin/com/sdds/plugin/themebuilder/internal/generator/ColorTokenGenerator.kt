@@ -44,8 +44,8 @@ internal class ColorTokenGenerator(
 
     private val xmlDocumentBuilder by unsafeLazy { xmlBuilderFactory.create(DEFAULT_ROOT_ATTRIBUTES) }
     private val ktFileBuilder by unsafeLazy { ktFileBuilderFactory.create("ColorTokens") }
-    private val lightBuilder by unsafeLazy { ktFileBuilder.rootObject("LightColorTokens") }
-    private val darkBuilder by unsafeLazy { ktFileBuilder.rootObject("DarkColorTokens") }
+    private val lightBuilder by unsafeLazy { ktFileBuilder.rootObject(LIGHT_COLOR_TOKENS_NAME) }
+    private val darkBuilder by unsafeLazy { ktFileBuilder.rootObject(DARK_COLOR_TOKENS_NAME) }
 
     private val composeLightTokenDataCollector = mutableMapOf<String, String>()
     private val composeDarkTokenDataCollector = mutableMapOf<String, String>()
@@ -153,4 +153,9 @@ internal class ColorTokenGenerator(
     }
 
     private fun ColorToken.toViewTokenRef(): String = resourceReferenceProvider.color(xmlName)
+
+    internal companion object {
+        const val LIGHT_COLOR_TOKENS_NAME = "LightColorTokens"
+        const val DARK_COLOR_TOKENS_NAME = "DarkColorTokens"
+    }
 }

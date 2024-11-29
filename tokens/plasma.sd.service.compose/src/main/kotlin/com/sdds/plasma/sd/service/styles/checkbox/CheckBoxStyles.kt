@@ -7,7 +7,7 @@ import com.sdds.compose.uikit.CheckBoxColorsBuilder
 import com.sdds.compose.uikit.CheckBoxDimensions
 import com.sdds.compose.uikit.CheckBoxStyle
 import com.sdds.compose.uikit.CheckBoxStyleBuilder
-import com.sdds.plasma.sd.service.tokens.PlasmaSdServiceTheme
+import com.sdds.plasma.sd.service.theme.PlasmaSdServiceTheme
 
 /**
  * Стиль [CheckBox] размера M

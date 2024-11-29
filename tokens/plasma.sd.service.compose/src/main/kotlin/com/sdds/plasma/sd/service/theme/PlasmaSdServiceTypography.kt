@@ -1,5 +1,5 @@
 // AUTO-GENERATED. DO NOT MODIFY this file.
-package com.sdds.serv.tokens
+package com.sdds.plasma.sd.service.theme
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
@@ -10,13 +10,16 @@ import androidx.compose.runtime.structuralEqualityPolicy
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.sdds.serv.tokens.SddsServTypography
+import com.sdds.plasma.sd.service.theme.PlasmaSdServiceTypography
+import com.sdds.plasma.sd.service.tokens.TypographyLargeTokens
+import com.sdds.plasma.sd.service.tokens.TypographyMediumTokens
+import com.sdds.plasma.sd.service.tokens.TypographySmallTokens
 
 /**
- * Типографика SddsServ
+ * Типографика PlasmaSdService
  */
 @Immutable
-public data class SddsServTypography internal constructor(
+public data class PlasmaSdServiceTypography internal constructor(
     public val displayLNormal: TextStyle = TextStyle.Default,
     public val displayLBold: TextStyle = TextStyle.Default,
     public val displayMNormal: TextStyle = TextStyle.Default,
@@ -53,13 +56,13 @@ public data class SddsServTypography internal constructor(
     public val textXsBold: TextStyle = TextStyle.Default,
 )
 
-internal val LocalSddsServTypography: ProvidableCompositionLocal<SddsServTypography> =
-        staticCompositionLocalOf { SddsServTypography() }
+internal val LocalPlasmaSdServiceTypography: ProvidableCompositionLocal<PlasmaSdServiceTypography> =
+        staticCompositionLocalOf { PlasmaSdServiceTypography() }
 
 /**
- * Возвращает [SddsServTypography] для WindowSizeClass.Compact
+ * Возвращает [PlasmaSdServiceTypography] для WindowSizeClass.Compact
  */
-public fun smallSddsServTypography(): SddsServTypography = SddsServTypography(
+public fun smallPlasmaSdServiceTypography(): PlasmaSdServiceTypography = PlasmaSdServiceTypography(
     displayLNormal = TypographySmallTokens.DisplayLNormal,
     displayLBold = TypographySmallTokens.DisplayLBold,
     displayMNormal = TypographySmallTokens.DisplayMNormal,
@@ -97,9 +100,9 @@ public fun smallSddsServTypography(): SddsServTypography = SddsServTypography(
 )
 
 /**
- * Возвращает [SddsServTypography] для WindowSizeClass.Medium
+ * Возвращает [PlasmaSdServiceTypography] для WindowSizeClass.Medium
  */
-public fun mediumSddsServTypography(): SddsServTypography = SddsServTypography(
+public fun mediumPlasmaSdServiceTypography(): PlasmaSdServiceTypography = PlasmaSdServiceTypography(
     displayLNormal = TypographyMediumTokens.DisplayLNormal,
     displayLBold = TypographyMediumTokens.DisplayLBold,
     displayMNormal = TypographyMediumTokens.DisplayMNormal,
@@ -137,9 +140,9 @@ public fun mediumSddsServTypography(): SddsServTypography = SddsServTypography(
 )
 
 /**
- * Возвращает [SddsServTypography] для WindowSizeClass.Expanded
+ * Возвращает [PlasmaSdServiceTypography] для WindowSizeClass.Expanded
  */
-public fun largeSddsServTypography(): SddsServTypography = SddsServTypography(
+public fun largePlasmaSdServiceTypography(): PlasmaSdServiceTypography = PlasmaSdServiceTypography(
     displayLNormal = TypographyLargeTokens.DisplayLNormal,
     displayLBold = TypographyLargeTokens.DisplayLBold,
     displayMNormal = TypographyLargeTokens.DisplayMNormal,
@@ -177,15 +180,15 @@ public fun largeSddsServTypography(): SddsServTypography = SddsServTypography(
 )
 
 /**
- * Возвращает разные [SddsServTypography] в зависимости от ширины окна. Значение динамически
+ * Возвращает разные [PlasmaSdServiceTypography] в зависимости от ширины окна. Значение динамически
  * изменяется при изменении ширины окна.
  */
 @Composable
-public fun dynamicSddsServTypography(): SddsServTypography = when
+public fun dynamicPlasmaSdServiceTypography(): PlasmaSdServiceTypography = when
         (collectWindowSizeInfoAsState().value.widthClass) {
-    WindowSizeClass.Expanded -> largeSddsServTypography()
-    WindowSizeClass.Medium -> mediumSddsServTypography()
-    WindowSizeClass.Compact -> smallSddsServTypography()
+    WindowSizeClass.Expanded -> largePlasmaSdServiceTypography()
+    WindowSizeClass.Medium -> mediumPlasmaSdServiceTypography()
+    WindowSizeClass.Compact -> smallPlasmaSdServiceTypography()
 }
 
 /**
