@@ -1,5 +1,5 @@
 // AUTO-GENERATED. DO NOT MODIFY this file.
-package com.sdds.plasma.sd.service.tokens.compose
+package com.sdds.plasma.sd.service.tokens
 
 import androidx.compose.foundation.text.selection.LocalTextSelectionColors
 import androidx.compose.foundation.text.selection.TextSelectionColors
@@ -9,10 +9,10 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.remember
 import com.sdds.compose.uikit.ProvideTextStyle
-import com.sdds.plasma.sd.service.tokens.compose.PlasmaSdServiceColors
-import com.sdds.plasma.sd.service.tokens.compose.PlasmaSdServiceGradients
-import com.sdds.plasma.sd.service.tokens.compose.PlasmaSdServiceShapes
-import com.sdds.plasma.sd.service.tokens.compose.PlasmaSdServiceTypography
+import com.sdds.plasma.sd.service.tokens.PlasmaSdServiceColors
+import com.sdds.plasma.sd.service.tokens.PlasmaSdServiceGradients
+import com.sdds.plasma.sd.service.tokens.PlasmaSdServiceShapes
+import com.sdds.plasma.sd.service.tokens.PlasmaSdServiceTypography
 import kotlin.Unit
 
 public object PlasmaSdServiceTheme {

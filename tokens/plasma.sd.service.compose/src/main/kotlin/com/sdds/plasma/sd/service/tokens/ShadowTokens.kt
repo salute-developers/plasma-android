@@ -1,5 +1,5 @@
 // AUTO-GENERATED. DO NOT MODIFY this file.
-package com.sdds.plasma.sd.service.tokens.compose
+package com.sdds.plasma.sd.service.tokens
 
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.ui.graphics.Color

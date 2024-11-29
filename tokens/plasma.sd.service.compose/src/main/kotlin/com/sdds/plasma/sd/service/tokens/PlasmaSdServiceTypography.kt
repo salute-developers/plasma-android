@@ -1,5 +1,5 @@
 // AUTO-GENERATED. DO NOT MODIFY this file.
-package com.sdds.plasma.sd.service.tokens.compose
+package com.sdds.plasma.sd.service.tokens
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
@@ -10,7 +10,7 @@ import androidx.compose.runtime.structuralEqualityPolicy
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.sdds.plasma.sd.service.tokens.compose.PlasmaSdServiceTypography
+import com.sdds.plasma.sd.service.tokens.PlasmaSdServiceTypography
 
 /**
  * Типографика PlasmaSdService

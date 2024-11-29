@@ -55,11 +55,11 @@ import com.sdds.serv.styles.textfield.Default
 import com.sdds.serv.styles.textfield.M
 import com.sdds.serv.styles.textfield.Optional
 import com.sdds.serv.styles.textfield.OuterLabel
-import com.sdds.serv.tokens.compose.SddsServTheme
-import com.sdds.serv.tokens.compose.darkSddsServColors
-import com.sdds.serv.tokens.compose.darkSddsServGradients
-import com.sdds.serv.tokens.compose.lightSddsServColors
-import com.sdds.serv.tokens.compose.lightSddsServGradients
+import com.sdds.serv.tokens.SddsServTheme
+import com.sdds.serv.tokens.darkSddsServColors
+import com.sdds.serv.tokens.darkSddsServGradients
+import com.sdds.serv.tokens.lightSddsServColors
+import com.sdds.serv.tokens.lightSddsServGradients
 
 private val DarkColors = darkSddsServColors()
 private val LightColors = lightSddsServColors()

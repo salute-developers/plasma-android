@@ -51,7 +51,7 @@ import com.sdds.plasma.sd.service.sandbox.textfield.TextFieldScreen
 import com.sdds.plasma.sd.service.styles.button.icon.Clear
 import com.sdds.plasma.sd.service.styles.button.icon.M
 import com.sdds.plasma.sd.service.styles.button.icon.Pilled
-import com.sdds.plasma.sd.service.tokens.compose.PlasmaSdServiceTheme
+import com.sdds.plasma.sd.service.tokens.PlasmaSdServiceTheme
 import kotlinx.coroutines.launch
 import com.sdds.icons.R.drawable as Icons
 

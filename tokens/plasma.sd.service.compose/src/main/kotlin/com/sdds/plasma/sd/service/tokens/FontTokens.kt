@@ -1,11 +1,11 @@
 // AUTO-GENERATED. DO NOT MODIFY this file.
-package com.sdds.plasma.sd.service.tokens.compose
+package com.sdds.plasma.sd.service.tokens
 
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
-import com.sdds.plasma.sd.service.R
+import com.sdds.plasma.sd.service.compose.R
 
 public object FontTokens {
     /**

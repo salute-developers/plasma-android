@@ -1,18 +1,18 @@
 // AUTO-GENERATED. DO NOT MODIFY this file.
-package com.sdds.serv.tokens.compose
+package com.sdds.plasma.sd.service.tokens
 
 import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.ProvidableCompositionLocal
 import androidx.compose.runtime.staticCompositionLocalOf
-import com.sdds.serv.tokens.compose.SddsServShapes
+import com.sdds.plasma.sd.service.tokens.PlasmaSdServiceShapes
 
 /**
- * Формы SddsServ
+ * Формы PlasmaSdService
  */
 @Immutable
-public data class SddsServShapes(
+public data class PlasmaSdServiceShapes(
     public val roundXxs: CornerBasedShape = RoundedCornerShape(0),
     public val roundXs: CornerBasedShape = RoundedCornerShape(0),
     public val roundS: CornerBasedShape = RoundedCornerShape(0),
@@ -22,13 +22,13 @@ public data class SddsServShapes(
     public val roundXxl: CornerBasedShape = RoundedCornerShape(0),
 )
 
-internal val LocalSddsServShapes: ProvidableCompositionLocal<SddsServShapes> =
-        staticCompositionLocalOf { SddsServShapes() }
+internal val LocalPlasmaSdServiceShapes: ProvidableCompositionLocal<PlasmaSdServiceShapes> =
+        staticCompositionLocalOf { PlasmaSdServiceShapes() }
 
 /**
- * Возвращает [SddsServShapes]
+ * Возвращает [PlasmaSdServiceShapes]
  */
-public fun defaultSddsServShapes(): SddsServShapes = SddsServShapes(
+public fun defaultPlasmaSdServiceShapes(): PlasmaSdServiceShapes = PlasmaSdServiceShapes(
     roundXxs = RoundShapeTokens.RoundXxs,
     roundXs = RoundShapeTokens.RoundXs,
     roundS = RoundShapeTokens.RoundS,

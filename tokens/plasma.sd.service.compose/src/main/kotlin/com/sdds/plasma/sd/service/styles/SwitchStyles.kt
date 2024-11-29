@@ -6,7 +6,7 @@ import com.sdds.compose.uikit.Switch
 import com.sdds.compose.uikit.SwitchColorsBuilder
 import com.sdds.compose.uikit.SwitchStyle
 import com.sdds.compose.uikit.SwitchStyleBuilder
-import com.sdds.plasma.sd.service.tokens.compose.PlasmaSdServiceTheme
+import com.sdds.plasma.sd.service.tokens.PlasmaSdServiceTheme
 
 /**
  * Стиль [Switch] размера L

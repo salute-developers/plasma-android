@@ -31,7 +31,7 @@ class ComposeThemeGeneratorTest {
             TypeSpec,
             FileProvider,
         )
-        ktFileBuilderFactory = KtFileBuilderFactory("com.sdds.playground.themebuilder.tokens")
+        ktFileBuilderFactory = KtFileBuilderFactory("com.sdds.playground.themebuilder")
     }
 
     @After

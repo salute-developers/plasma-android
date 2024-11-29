@@ -62,7 +62,7 @@ class FontTokenGeneratorTest {
             target = ThemeBuilderTarget.ALL,
             xmlFontFamilyBuilderFactory = XmlFontFamilyDocumentBuilderFactory(),
             fontDownloaderFactory = mockDownloaderFactory,
-            ktFileBuilderFactory = KtFileBuilderFactory("com.test.tokens"),
+            ktFileBuilderFactory = KtFileBuilderFactory("com.test"),
             namespace = "com.test",
             resPrefix = "thmbldr",
             fontTokenValues = fontTokenValues,

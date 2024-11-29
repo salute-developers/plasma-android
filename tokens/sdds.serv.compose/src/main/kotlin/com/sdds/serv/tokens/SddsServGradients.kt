@@ -1,5 +1,5 @@
 // AUTO-GENERATED. DO NOT MODIFY this file.
-package com.sdds.serv.tokens.compose
+package com.sdds.serv.tokens
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
@@ -10,8 +10,8 @@ import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ShaderBrush
-import com.sdds.serv.tokens.compose.GradientOverrideScope
-import com.sdds.serv.tokens.compose.SddsServGradients
+import com.sdds.serv.tokens.GradientOverrideScope
+import com.sdds.serv.tokens.SddsServGradients
 import kotlin.Float
 import kotlin.FloatArray
 import kotlin.String

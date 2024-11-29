@@ -16,7 +16,6 @@ themeBuilder {
         ?: throw GradleException("sdds serv version must be specified")
     themeSource(name = "stylesSalute", version = themeVersion)
     view()
-    ktPackage(ktPackage = "com.sdds.themes.stylessalute.tokens")
 }
 
 dependencies {

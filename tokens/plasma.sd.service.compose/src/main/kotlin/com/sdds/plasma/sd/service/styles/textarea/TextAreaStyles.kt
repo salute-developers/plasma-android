@@ -17,7 +17,7 @@ import com.sdds.plasma.sd.service.styles.chip.S
 import com.sdds.plasma.sd.service.styles.chip.Secondary
 import com.sdds.plasma.sd.service.styles.chip.Xs
 import com.sdds.plasma.sd.service.styles.chip.group.Dense
-import com.sdds.plasma.sd.service.tokens.compose.PlasmaSdServiceTheme
+import com.sdds.plasma.sd.service.tokens.PlasmaSdServiceTheme
 
 val TextArea.Xs: TextFieldStyleBuilder
     @Composable

@@ -7,7 +7,7 @@ import com.sdds.compose.uikit.RadioBoxColorsBuilder
 import com.sdds.compose.uikit.RadioBoxDimensions
 import com.sdds.compose.uikit.RadioBoxStyle
 import com.sdds.compose.uikit.RadioBoxStyleBuilder
-import com.sdds.serv.tokens.compose.SddsServTheme
+import com.sdds.serv.tokens.SddsServTheme
 
 /**
  * Стиль [RadioBox] размера M

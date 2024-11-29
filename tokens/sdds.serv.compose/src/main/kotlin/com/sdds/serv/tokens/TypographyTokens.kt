@@ -1,7 +1,7 @@
 // AUTO-GENERATED. DO NOT MODIFY this file.
 @file:Suppress("DEPRECATION")
 
-package com.sdds.plasma.sd.service.tokens.compose
+package com.sdds.serv.tokens
 
 import androidx.compose.ui.text.PlatformTextStyle
 import androidx.compose.ui.text.TextStyle

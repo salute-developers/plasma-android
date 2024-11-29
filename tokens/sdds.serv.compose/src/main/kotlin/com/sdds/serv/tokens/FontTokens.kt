@@ -1,11 +1,11 @@
 // AUTO-GENERATED. DO NOT MODIFY this file.
-package com.sdds.serv.tokens.compose
+package com.sdds.serv.tokens
 
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
-import com.sdds.serv.R
+import com.sdds.serv.compose.R
 
 public object FontTokens {
     /**

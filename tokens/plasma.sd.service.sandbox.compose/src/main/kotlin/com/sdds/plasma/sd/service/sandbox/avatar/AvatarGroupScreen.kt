@@ -17,7 +17,7 @@ import com.sdds.compose.uikit.avatar
 import com.sdds.plasma.sd.service.sandbox.compose.R
 import com.sdds.plasma.sd.service.sandbox.core.ComponentScaffold
 import com.sdds.plasma.sd.service.styles.avatar.S
-import com.sdds.plasma.sd.service.tokens.compose.PlasmaSdServiceTheme
+import com.sdds.plasma.sd.service.tokens.PlasmaSdServiceTheme
 import com.sdds.icons.R.drawable as Icons
 
 /**

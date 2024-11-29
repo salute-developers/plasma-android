@@ -1,5 +1,5 @@
 // AUTO-GENERATED. DO NOT MODIFY this file.
-package com.sdds.serv.tokens.compose
+package com.sdds.serv.tokens
 
 import androidx.compose.ui.graphics.Color
 

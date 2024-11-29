@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.ProgressBar
 import com.sdds.compose.uikit.ProgressBarStyle
 import com.sdds.compose.uikit.ProgressBarStyleBuilder
-import com.sdds.serv.tokens.compose.SddsServTheme
+import com.sdds.serv.tokens.SddsServTheme
 
 /**
  * Стиль [ProgressBar] цвета Default

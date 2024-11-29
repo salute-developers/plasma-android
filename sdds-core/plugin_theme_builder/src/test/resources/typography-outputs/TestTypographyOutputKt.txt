@@ -1,7 +1,7 @@
 // AUTO-GENERATED. DO NOT MODIFY this file.
 @file:Suppress("DEPRECATION")
 
-package com.test.compose
+package com.test.tokens
 
 import androidx.compose.ui.text.PlatformTextStyle
 import androidx.compose.ui.text.TextStyle

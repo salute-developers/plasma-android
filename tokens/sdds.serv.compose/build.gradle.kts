@@ -20,8 +20,7 @@ themeBuilder {
         ?: throw GradleException("sdds serv version must be specified")
     themeSource(name = "sdds_serv", version = themeVersion, alias = "SddsServ")
     compose()
-    ktPackage(ktPackage = "com.sdds.serv.tokens")
-    autoGenerate(false)
+    ktPackage(ktPackage = "com.sdds.serv")
     mode(THEME)
     outputLocation(SRC)
 }

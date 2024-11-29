@@ -2,7 +2,7 @@ package com.sdds.playground.sandbox.textfield
 
 import android.os.Parcelable
 import androidx.annotation.StyleRes
-import com.sdds.themes.sdds.serv.tokens.R
+import com.sdds.serv.R
 import com.sdds.uikit.TextField
 import kotlinx.parcelize.Parcelize
 

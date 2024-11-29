@@ -20,7 +20,7 @@ themeBuilder {
         ?: throw GradleException("plasma sd service version must be specified")
     themeSource(name = "plasma_b2c", version = themeVersion, alias = "PlasmaSdService")
     compose()
-    ktPackage(ktPackage = "com.sdds.plasma.sd.service.tokens")
+    ktPackage(ktPackage = "com.sdds.plasma.sd.service")
     mode(THEME)
     outputLocation(SRC)
 }

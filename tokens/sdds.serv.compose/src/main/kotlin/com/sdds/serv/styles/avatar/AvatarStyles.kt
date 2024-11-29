@@ -15,7 +15,7 @@ import com.sdds.compose.uikit.AvatarGroupStyleBuilder
 import com.sdds.compose.uikit.AvatarStyle
 import com.sdds.compose.uikit.AvatarStyleBuilder
 import com.sdds.compose.uikit.floatPx
-import com.sdds.serv.tokens.compose.SddsServTheme
+import com.sdds.serv.tokens.SddsServTheme
 
 
 

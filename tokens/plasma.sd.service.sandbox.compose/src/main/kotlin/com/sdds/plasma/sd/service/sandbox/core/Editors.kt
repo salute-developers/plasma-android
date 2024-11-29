@@ -30,7 +30,7 @@ import com.sdds.compose.uikit.TextField
 import com.sdds.plasma.sd.service.sandbox.compose.R
 import com.sdds.plasma.sd.service.styles.button.basic.Default
 import com.sdds.plasma.sd.service.styles.button.basic.M
-import com.sdds.plasma.sd.service.tokens.compose.PlasmaSdServiceTheme
+import com.sdds.plasma.sd.service.tokens.PlasmaSdServiceTheme
 import kotlin.math.roundToInt
 
 /**

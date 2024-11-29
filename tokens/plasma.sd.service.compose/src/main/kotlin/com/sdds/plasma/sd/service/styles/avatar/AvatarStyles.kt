@@ -14,7 +14,7 @@ import com.sdds.compose.uikit.AvatarGroupStyleBuilder
 import com.sdds.compose.uikit.AvatarStyle
 import com.sdds.compose.uikit.AvatarStyleBuilder
 import com.sdds.compose.uikit.floatPx
-import com.sdds.plasma.sd.service.tokens.compose.PlasmaSdServiceTheme
+import com.sdds.plasma.sd.service.tokens.PlasmaSdServiceTheme
 
 /**
  * Стиль [Avatar] размера XXL

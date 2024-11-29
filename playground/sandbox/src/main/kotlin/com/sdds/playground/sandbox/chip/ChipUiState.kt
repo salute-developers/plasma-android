@@ -3,7 +3,7 @@ package com.sdds.playground.sandbox.chip
 import android.os.Parcelable
 import android.view.Gravity
 import androidx.annotation.StyleRes
-import com.sdds.themes.sdds.serv.tokens.R
+import com.sdds.serv.R
 import com.sdds.uikit.ChipGroup
 import com.sdds.uikit.viewstate.ViewState
 import kotlinx.parcelize.Parcelize

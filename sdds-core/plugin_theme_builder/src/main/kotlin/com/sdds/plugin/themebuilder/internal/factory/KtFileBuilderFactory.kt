@@ -12,14 +12,14 @@ internal class KtFileBuilderFactory(private val packageName: String) {
     /**
      * Создает [KtFileBuilder]
      */
-    fun create(fileName: String, frameworkPackage: Package = Package.COMPOSE): KtFileBuilder =
+    fun create(fileName: String, frameworkPackage: Package = Package.TOKENS): KtFileBuilder =
         KtFileBuilder(
             packageName = "$packageName.${frameworkPackage.packageName}",
             fileName = fileName,
         )
 
     internal enum class Package(val packageName: String) {
-        VS("vs"),
-        COMPOSE("compose"),
+        TOKENS("tokens"),
+        STYLES("styles"),
     }
 }

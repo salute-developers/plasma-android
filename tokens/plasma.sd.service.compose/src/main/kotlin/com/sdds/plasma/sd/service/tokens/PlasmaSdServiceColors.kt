@@ -1,5 +1,5 @@
 // AUTO-GENERATED. DO NOT MODIFY this file.
-package com.sdds.plasma.sd.service.tokens.compose
+package com.sdds.plasma.sd.service.tokens
 
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.ProvidableCompositionLocal
@@ -9,8 +9,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.runtime.structuralEqualityPolicy
 import androidx.compose.ui.graphics.Color
-import com.sdds.plasma.sd.service.tokens.compose.ColorOverrideScope
-import com.sdds.plasma.sd.service.tokens.compose.PlasmaSdServiceColors
+import com.sdds.plasma.sd.service.tokens.ColorOverrideScope
+import com.sdds.plasma.sd.service.tokens.PlasmaSdServiceColors
 import kotlin.String
 import kotlin.Unit
 import kotlin.collections.Map

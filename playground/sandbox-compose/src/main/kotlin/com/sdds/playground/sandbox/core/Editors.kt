@@ -30,7 +30,7 @@ import com.sdds.compose.uikit.TextField
 import com.sdds.playground.sandbox.R
 import com.sdds.serv.styles.button.basic.Default
 import com.sdds.serv.styles.button.basic.M
-import com.sdds.serv.tokens.compose.SddsServTheme
+import com.sdds.serv.tokens.SddsServTheme
 import kotlin.math.roundToInt
 
 /**

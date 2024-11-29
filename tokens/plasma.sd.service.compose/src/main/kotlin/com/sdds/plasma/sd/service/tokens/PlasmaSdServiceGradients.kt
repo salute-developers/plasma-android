@@ -1,5 +1,5 @@
 // AUTO-GENERATED. DO NOT MODIFY this file.
-package com.sdds.plasma.sd.service.tokens.compose
+package com.sdds.plasma.sd.service.tokens
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
@@ -10,8 +10,8 @@ import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ShaderBrush
-import com.sdds.plasma.sd.service.tokens.compose.GradientOverrideScope
-import com.sdds.plasma.sd.service.tokens.compose.PlasmaSdServiceGradients
+import com.sdds.plasma.sd.service.tokens.GradientOverrideScope
+import com.sdds.plasma.sd.service.tokens.PlasmaSdServiceGradients
 import kotlin.Float
 import kotlin.FloatArray
 import kotlin.String

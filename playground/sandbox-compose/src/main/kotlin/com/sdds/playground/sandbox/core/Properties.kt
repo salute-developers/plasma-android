@@ -27,7 +27,7 @@ import com.sdds.compose.uikit.Text
 import com.sdds.playground.sandbox.R
 import com.sdds.serv.styles.button.icon.Clear
 import com.sdds.serv.styles.button.icon.Xs
-import com.sdds.serv.tokens.compose.SddsServTheme
+import com.sdds.serv.tokens.SddsServTheme
 import com.sdds.icons.R.drawable as Icons
 
 /**
