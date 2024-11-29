@@ -32,8 +32,8 @@ themeBuilder {
 }
 
 dependencies {
-    implementation("sdds-core:icons")
-    implementation("sdds-core:uikit")
+    implementation(libs.sdds.icons)
+    implementation(libs.sdds.uikit)
     implementation(libs.base.androidX.core)
     implementation(libs.base.androidX.appcompat)
 }

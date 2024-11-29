@@ -6,6 +6,7 @@ import utils.isMainBranch
 
 plugins {
     id("convention.root-project")
+    id("convention.core-dependencies")
     alias(libs.plugins.android.lib) apply false
     alias(libs.plugins.kotlin.android) apply false
     alias(libs.plugins.kotlin.jvm) apply false
@@ -30,20 +31,6 @@ buildscript {
         classpath(libs.base.gradle.android)
         classpath(libs.base.gradle.kotlin)
         classpath(libs.base.gradle.cacheFix)
-    }
-}
-
-val isMainBranch = getBranchName().isMainBranch()
-
-allprojects {
-    configurations.all {
-        if (isMainBranch) {
-            resolutionStrategy.dependencySubstitution {
-                substitute(module("sdds-core:uikit-compose:+"))
-                    .using(module("io.github.salute-developers:sdds-uikit-compose:+"))
-                    .because("we work with the unreleased development version")
-            }
-        }
     }
 }
 
