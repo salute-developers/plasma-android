@@ -13,7 +13,7 @@ import com.sdds.playground.themebuilder.theme.SddsServTheme
 public val BasicButton.L: BasicButtonStyleBuilder
     @Composable
     get() = BasicButtonStyleBuilder.builder(this)
-        .shape(SddsServTheme.shapes.roundL.adjustBy(all = (-2.0.dp)))
+        .shape(SddsServTheme.shapes.roundL.adjustBy(all = -2.0.dp))
         .dimensions(
             Button.Dimensions(
                 height = 56.0.dp,
@@ -55,7 +55,7 @@ public val BasicButton.M: BasicButtonStyleBuilder
 public val BasicButton.S: BasicButtonStyleBuilder
     @Composable
     get() = BasicButtonStyleBuilder.builder(this)
-        .shape(SddsServTheme.shapes.roundS.adjustBy(all = (2.0.dp)))
+        .shape(SddsServTheme.shapes.roundS.adjustBy(all = 2.0.dp))
         .dimensions(
             Button.Dimensions(
                 height = 56.0.dp,

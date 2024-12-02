@@ -20,7 +20,7 @@ internal class ButtonStyleGeneratorComposeFactory(
     private val resourceReferenceProvider: ResourceReferenceProvider,
 ) {
 
-    private val componentPackage = "${packageResolver.getPackage(TargetPackage.STYLES)}.button"
+    private val commonComponentPackage = "${packageResolver.getPackage(TargetPackage.STYLES)}.button"
     private val themePackage = packageResolver.getPackage(TargetPackage.THEME)
     private val themeClassName = "${themeName.snakeToCamelCase()}Theme"
 
@@ -28,7 +28,7 @@ internal class ButtonStyleGeneratorComposeFactory(
         return BasicButtonStyleGeneratorCompose(
             outputLocation = outputLocation,
             ktFileBuilderFactory = ktFileBuilderFactory,
-            componentPackage = componentPackage,
+            componentPackage = "$commonComponentPackage.basic",
             themeClassName = themeClassName,
             themePackage = themePackage,
             namespace = namespace,
@@ -42,7 +42,7 @@ internal class ButtonStyleGeneratorComposeFactory(
         return IconButtonStyleGeneratorCompose(
             outputLocation = outputLocation,
             ktFileBuilderFactory = ktFileBuilderFactory,
-            componentPackage = componentPackage,
+            componentPackage = "$commonComponentPackage.icon",
             themeClassName = themeClassName,
             themePackage = themePackage,
             namespace = namespace,
@@ -56,7 +56,7 @@ internal class ButtonStyleGeneratorComposeFactory(
         return LinkButtonStyleGeneratorCompose(
             outputLocation = outputLocation,
             ktFileBuilderFactory = ktFileBuilderFactory,
-            componentPackage = componentPackage,
+            componentPackage = "$commonComponentPackage.link",
             themeClassName = themeClassName,
             themePackage = themePackage,
             namespace = namespace,
