@@ -15,6 +15,7 @@ themeBuilder {
     val themeVersion = project.property("theme-version")?.toString()
         ?: throw GradleException("sdds serv version must be specified")
     themeSource(name = "stylesSalute", version = themeVersion)
+    autoGenerate(false)
     view()
 }
 
