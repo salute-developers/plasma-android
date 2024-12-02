@@ -1,11 +1,14 @@
 package com.sdds.plugin.themebuilder.internal.generator.theme.compose
 
 import com.sdds.plugin.themebuilder.DimensionsConfig
+import com.sdds.plugin.themebuilder.internal.PackageResolver
+import com.sdds.plugin.themebuilder.internal.TargetPackage
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Constructor
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Modifier.DATA
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Modifier.INTERNAL
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
+import com.sdds.plugin.themebuilder.internal.generator.ShapeTokenGenerator.Companion.ROUND_SHAPE_TOKENS_NAME
 import com.sdds.plugin.themebuilder.internal.generator.SimpleBaseGenerator
 import com.sdds.plugin.themebuilder.internal.generator.data.ShapeTokenResult
 import com.sdds.plugin.themebuilder.internal.utils.snakeToCamelCase
@@ -24,11 +27,12 @@ internal class ComposeShapeAttributeGenerator(
     private val outputLocation: KtFileBuilder.OutputLocation,
     private val themeName: String,
     private val dimensionsConfig: DimensionsConfig,
+    private val packageResolver: PackageResolver,
 ) : SimpleBaseGenerator {
     private val shapes = mutableListOf<ShapeTokenResult.TokenData>()
 
     private val shapeKtFileBuilder by unsafeLazy {
-        ktFileBuilderFactory.create(shapeClassName)
+        ktFileBuilderFactory.create(shapeClassName, TargetPackage.THEME)
     }
 
     private val camelThemeName = themeName.snakeToCamelCase()
@@ -94,6 +98,12 @@ internal class ComposeShapeAttributeGenerator(
                 ),
             )
             addImport(KtFileBuilder.TypeRoundRectShape)
+            addImport(
+                getInternalClassType(
+                    className = ROUND_SHAPE_TOKENS_NAME,
+                    classPackage = packageResolver.getPackage(TargetPackage.TOKENS),
+                ),
+            )
         }
     }
 

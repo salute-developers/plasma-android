@@ -55,11 +55,11 @@ import com.sdds.plasma.sd.service.styles.textfield.Default
 import com.sdds.plasma.sd.service.styles.textfield.M
 import com.sdds.plasma.sd.service.styles.textfield.Optional
 import com.sdds.plasma.sd.service.styles.textfield.OuterLabel
-import com.sdds.plasma.sd.service.tokens.compose.PlasmaSdServiceTheme
-import com.sdds.plasma.sd.service.tokens.compose.darkPlasmaSdServiceColors
-import com.sdds.plasma.sd.service.tokens.compose.darkPlasmaSdServiceGradients
-import com.sdds.plasma.sd.service.tokens.compose.lightPlasmaSdServiceColors
-import com.sdds.plasma.sd.service.tokens.compose.lightPlasmaSdServiceGradients
+import com.sdds.plasma.sd.service.theme.PlasmaSdServiceTheme
+import com.sdds.plasma.sd.service.theme.darkPlasmaSdServiceColors
+import com.sdds.plasma.sd.service.theme.darkPlasmaSdServiceGradients
+import com.sdds.plasma.sd.service.theme.lightPlasmaSdServiceColors
+import com.sdds.plasma.sd.service.theme.lightPlasmaSdServiceGradients
 
 private val DarkColors = darkPlasmaSdServiceColors()
 private val LightColors = lightPlasmaSdServiceColors()

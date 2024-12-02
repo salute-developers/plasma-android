@@ -53,8 +53,8 @@ internal class GradientTokenGenerator(
 ) : TokenGenerator<GradientToken, GradientTokenResult>(target) {
 
     private val composeKtFileBuilder by unsafeLazy { ktFileBuilderFactory.create("GradientTokens") }
-    private val composeLightBuilder by unsafeLazy { composeKtFileBuilder.rootObject("LightGradientTokens") }
-    private val composeDarkBuilder by unsafeLazy { composeKtFileBuilder.rootObject("DarkGradientTokens") }
+    private val composeLightBuilder by unsafeLazy { composeKtFileBuilder.rootObject(LIGHT_GRADIENT_TOKENS_NAME) }
+    private val composeDarkBuilder by unsafeLazy { composeKtFileBuilder.rootObject(DARK_GRADIENT_TOKENS_NAME) }
     private val xmlParametersDocumentBuilder by unsafeLazy {
         xmlBuilderFactory.create(DEFAULT_ROOT_ATTRIBUTES)
     }
@@ -627,13 +627,16 @@ internal class GradientTokenGenerator(
         val value: String,
     )
 
-    private companion object {
-        const val COLORS_KT_PROPERTY_NAME = "colors"
-        const val POSITIONS_KT_PROPERTY_NAME = "positions"
-        const val ANGLE_KT_PROPERTY_NAME = "angle"
-        const val RADIUS_KT_PROPERTY_NAME = "radius"
-        const val CENTER_X_KT_PROPERTY_NAME = "centerX"
-        const val CENTER_Y_KT_PROPERTY_NAME = "centerY"
-        const val BACKGROUND_PROPERTY_NAME = "background"
+    companion object {
+        private const val COLORS_KT_PROPERTY_NAME = "colors"
+        private const val POSITIONS_KT_PROPERTY_NAME = "positions"
+        private const val ANGLE_KT_PROPERTY_NAME = "angle"
+        private const val RADIUS_KT_PROPERTY_NAME = "radius"
+        private const val CENTER_X_KT_PROPERTY_NAME = "centerX"
+        private const val CENTER_Y_KT_PROPERTY_NAME = "centerY"
+        private const val BACKGROUND_PROPERTY_NAME = "background"
+
+        internal const val LIGHT_GRADIENT_TOKENS_NAME = "LightGradientTokens"
+        internal const val DARK_GRADIENT_TOKENS_NAME = "DarkGradientTokens"
     }
 }

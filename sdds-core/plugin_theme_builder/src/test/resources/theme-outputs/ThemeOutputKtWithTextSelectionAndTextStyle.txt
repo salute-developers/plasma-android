@@ -1,5 +1,5 @@
 // AUTO-GENERATED. DO NOT MODIFY this file.
-package com.sdds.playground.themebuilder.tokens.compose
+package com.sdds.playground.themebuilder.theme
 
 import androidx.compose.foundation.text.selection.LocalTextSelectionColors
 import androidx.compose.foundation.text.selection.TextSelectionColors
@@ -9,10 +9,10 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.remember
 import com.sdds.compose.uikit.ProvideTextStyle
-import com.sdds.playground.themebuilder.tokens.compose.TestColors
-import com.sdds.playground.themebuilder.tokens.compose.TestGradients
-import com.sdds.playground.themebuilder.tokens.compose.TestShapes
-import com.sdds.playground.themebuilder.tokens.compose.TestTypography
+import com.sdds.playground.themebuilder.theme.TestColors
+import com.sdds.playground.themebuilder.theme.TestGradients
+import com.sdds.playground.themebuilder.theme.TestShapes
+import com.sdds.playground.themebuilder.theme.TestTypography
 import kotlin.Unit
 
 public object TestTheme {

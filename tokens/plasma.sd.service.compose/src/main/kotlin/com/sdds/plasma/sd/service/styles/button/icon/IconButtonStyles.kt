@@ -9,7 +9,7 @@ import com.sdds.compose.uikit.IconButtonColorsBuilder
 import com.sdds.compose.uikit.IconButtonStyleBuilder
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.asInteractive
-import com.sdds.plasma.sd.service.tokens.compose.PlasmaSdServiceTheme
+import com.sdds.plasma.sd.service.theme.PlasmaSdServiceTheme
 
 /**
  * Вариация [IconButton] цвета Default

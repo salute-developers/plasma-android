@@ -397,12 +397,12 @@ internal class TypographyTokenGenerator(
         }
     }
 
-    private companion object {
-        const val TYPOGRAPHY_SMALL_TOKENS_NAME = "TypographySmallTokens"
-        const val TYPOGRAPHY_MEDIUM_TOKENS_NAME = "TypographyMediumTokens"
-        const val TYPOGRAPHY_LARGE_TOKENS_NAME = "TypographyLargeTokens"
+    companion object {
+        internal const val TYPOGRAPHY_SMALL_TOKENS_NAME = "TypographySmallTokens"
+        internal const val TYPOGRAPHY_MEDIUM_TOKENS_NAME = "TypographyMediumTokens"
+        internal const val TYPOGRAPHY_LARGE_TOKENS_NAME = "TypographyLargeTokens"
 
-        fun ScreenClass.qualifier(dimensionsConfig: DimensionsConfig): String {
+        private fun ScreenClass.qualifier(dimensionsConfig: DimensionsConfig): String {
             val breakpoints = dimensionsConfig.breakPoints
             return when (this) {
                 ScreenClass.MEDIUM -> "w${breakpoints.medium}dp"

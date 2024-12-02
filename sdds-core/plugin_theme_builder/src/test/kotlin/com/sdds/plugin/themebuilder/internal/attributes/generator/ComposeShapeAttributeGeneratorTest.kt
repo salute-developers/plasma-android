@@ -1,6 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.attributes.generator
 
 import com.sdds.plugin.themebuilder.DimensionsConfig
+import com.sdds.plugin.themebuilder.internal.PackageResolver
+import com.sdds.plugin.themebuilder.internal.TargetPackage
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.generator.data.ShapeTokenResult
@@ -30,6 +32,7 @@ class ComposeShapeAttributeGeneratorTest {
     private lateinit var mockKtFileBuilderFactory: KtFileBuilderFactory
     private lateinit var ktFileBuilder: KtFileBuilder
     private lateinit var dimensionsConfig: DimensionsConfig
+    private lateinit var packageResolver: PackageResolver
 
     @Before
     fun before() {
@@ -40,20 +43,22 @@ class ComposeShapeAttributeGeneratorTest {
         )
         outputKt = ByteArrayOutputStream()
         ktFileBuilder = KtFileBuilder(
-            packageName = "com.sdds.playground.themebuilder.tokens",
+            packageName = "com.sdds.playground.themebuilder.theme",
             fileName = "ThemeShapes",
         )
         mockKtFileBuilderFactory = mockk {
-            every { create("ThemeShapes") } returns ktFileBuilder
+            every { create("ThemeShapes", TargetPackage.THEME) } returns ktFileBuilder
         }
         dimensionsConfig = mockk(relaxed = true) {
             every { multiplier } returns 1f
         }
+        packageResolver = PackageResolver("com.sdds.playground.themebuilder")
         underTest = ComposeShapeAttributeGenerator(
             ktFileBuilderFactory = mockKtFileBuilderFactory,
             outputLocation = KtFileBuilder.OutputLocation.Stream(outputKt),
             themeName = "Theme",
             dimensionsConfig = dimensionsConfig,
+            packageResolver = packageResolver,
         )
     }
 
@@ -73,7 +78,7 @@ class ComposeShapeAttributeGeneratorTest {
         underTest.generate()
 
         verify {
-            mockKtFileBuilderFactory.create("ThemeShapes")
+            mockKtFileBuilderFactory.create("ThemeShapes", TargetPackage.THEME)
         }
 
         Assert.assertEquals(
@@ -89,7 +94,7 @@ class ComposeShapeAttributeGeneratorTest {
         underTest.generate()
 
         verify {
-            mockKtFileBuilderFactory.create("ThemeShapes")
+            mockKtFileBuilderFactory.create("ThemeShapes", TargetPackage.THEME)
         }
 
         Assert.assertEquals(

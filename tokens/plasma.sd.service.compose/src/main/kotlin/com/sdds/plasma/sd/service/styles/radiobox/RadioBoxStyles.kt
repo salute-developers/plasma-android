@@ -7,7 +7,7 @@ import com.sdds.compose.uikit.RadioBoxColorsBuilder
 import com.sdds.compose.uikit.RadioBoxDimensions
 import com.sdds.compose.uikit.RadioBoxStyle
 import com.sdds.compose.uikit.RadioBoxStyleBuilder
-import com.sdds.plasma.sd.service.tokens.compose.PlasmaSdServiceTheme
+import com.sdds.plasma.sd.service.theme.PlasmaSdServiceTheme
 
 /**
  * Стиль [RadioBox] размера M

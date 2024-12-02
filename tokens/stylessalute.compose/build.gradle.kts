@@ -8,16 +8,19 @@ plugins {
 }
 
 android {
-    namespace = "com.sdds.themes.stylessalute.tokens"
+    namespace = "com.sdds.stylessalute.compose"
+    resourcePrefix = "styles_cmp"
 }
 
 themeBuilder {
-    themeSource(name = "stylesSalute", version = "latest")
+    val themeVersion = project.property("theme-version")?.toString()
+        ?: throw GradleException("sdds serv version must be specified")
+    themeSource(name = "stylesSalute", version = themeVersion)
     compose()
-    ktPackage(ktPackage = "com.sdds.themes.stylessalute.tokens")
-    resourcesPrefix(prefix = "sdgen")
+    ktPackage(ktPackage = "com.sdds.stylessalute")
 }
 
 dependencies {
+    implementation(libs.sdds.uikit.compose)
     implementation(libs.base.androidX.compose.foundation)
 }

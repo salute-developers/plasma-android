@@ -14,7 +14,7 @@ import com.sdds.serv.styles.chip.S
 import com.sdds.serv.styles.chip.Secondary
 import com.sdds.serv.styles.chip.Xs
 import com.sdds.serv.styles.chip.group.Dense
-import com.sdds.serv.tokens.compose.SddsServTheme
+import com.sdds.serv.theme.SddsServTheme
 
 val TextAreaClear.Xs: TextFieldStyleBuilder
     @Composable

@@ -1,3 +1,6 @@
+import com.sdds.plugin.themebuilder.OutputLocation
+import com.sdds.plugin.themebuilder.ThemeBuilderMode
+
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     id("convention.android-lib")
@@ -7,17 +10,21 @@ plugins {
 }
 
 android {
-    namespace = "com.sdds.themes.plasma.b2c.tokens"
+    namespace = "com.sdds.plasma.sd.service"
+    resourcePrefix = "sd_service"
 }
 
 themeBuilder {
-    themeSource(name = "plasma_b2c", version = "latest")
+    val themeVersion = project.property("theme-version")?.toString()
+        ?: throw GradleException("plasma sd service version must be specified")
+    themeSource(name = "plasma_b2c", version = themeVersion, alias = "PlasmaSdService")
     view()
-    ktPackage(ktPackage = "com.sdds.themes.plasma.b2c.tokens")
-    resourcesPrefix(prefix = "sdgen")
+    mode(ThemeBuilderMode.THEME)
+    outputLocation(OutputLocation.SRC)
 }
 
 dependencies {
+    implementation(libs.sdds.uikit)
     implementation(libs.base.androidX.core)
     implementation(libs.base.androidX.appcompat)
 }

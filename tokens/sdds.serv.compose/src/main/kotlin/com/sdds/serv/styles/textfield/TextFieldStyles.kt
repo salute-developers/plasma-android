@@ -25,7 +25,7 @@ import com.sdds.serv.styles.textfield.clear.defaultClearColors
 import com.sdds.serv.styles.textfield.clear.errorClearColors
 import com.sdds.serv.styles.textfield.clear.successClearColors
 import com.sdds.serv.styles.textfield.clear.warningClearColors
-import com.sdds.serv.tokens.compose.SddsServTheme
+import com.sdds.serv.theme.SddsServTheme
 
 val TextFieldStyleBuilder.Default: TextFieldStyleBuilder
     @Composable

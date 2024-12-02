@@ -11,7 +11,7 @@ plugins {
 }
 
 android {
-    namespace = "com.sdds.themes.sdds.serv.tokens"
+    namespace = "com.sdds.serv"
     resourcePrefix = "serv"
 }
 
@@ -25,7 +25,6 @@ themeBuilder {
         }
         setupShapeAppearance(sddsShape())
     }
-    ktPackage(ktPackage = "com.sdds.themes.sdds.serv.tokens")
     autoGenerate(false)
     mode(THEME)
     outputLocation(SRC)

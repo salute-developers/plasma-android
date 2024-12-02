@@ -1,7 +1,7 @@
 package com.sdds.playground.sandbox.cell
 
 import android.os.Parcelable
-import com.sdds.themes.sdds.serv.tokens.R
+import com.sdds.serv.R
 import kotlinx.parcelize.Parcelize
 
 /**

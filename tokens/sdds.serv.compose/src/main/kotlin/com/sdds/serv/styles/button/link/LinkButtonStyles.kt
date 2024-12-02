@@ -7,7 +7,7 @@ import com.sdds.compose.uikit.LinkButton
 import com.sdds.compose.uikit.LinkButtonColorsBuilder
 import com.sdds.compose.uikit.LinkButtonStyleBuilder
 import com.sdds.compose.uikit.interactions.asInteractive
-import com.sdds.serv.tokens.compose.SddsServTheme
+import com.sdds.serv.theme.SddsServTheme
 
 /**
  * Вариация [LinkButton] цвета Default

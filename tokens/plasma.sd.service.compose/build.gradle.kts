@@ -11,8 +11,8 @@ plugins {
 }
 
 android {
-    namespace = "com.sdds.plasma.sd.service"
-    resourcePrefix = "sd_service"
+    namespace = "com.sdds.plasma.sd.service.compose"
+    resourcePrefix = "sd_service_cmp"
 }
 
 themeBuilder {
@@ -20,7 +20,7 @@ themeBuilder {
         ?: throw GradleException("plasma sd service version must be specified")
     themeSource(name = "plasma_b2c", version = themeVersion, alias = "PlasmaSdService")
     compose()
-    ktPackage(ktPackage = "com.sdds.plasma.sd.service.tokens")
+    ktPackage(ktPackage = "com.sdds.plasma.sd.service")
     mode(THEME)
     outputLocation(SRC)
 }

@@ -1,5 +1,5 @@
 // AUTO-GENERATED. DO NOT MODIFY this file.
-package com.sdds.playground.themebuilder.tokens
+package com.sdds.playground.themebuilder.theme
 
 import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -8,7 +8,8 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.ProvidableCompositionLocal
 import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.staticCompositionLocalOf
-import com.sdds.playground.themebuilder.tokens.ThemeShapes
+import com.sdds.playground.themebuilder.theme.ThemeShapes
+import com.sdds.playground.themebuilder.tokens.RoundShapeTokens
 
 /**
  * Формы Theme

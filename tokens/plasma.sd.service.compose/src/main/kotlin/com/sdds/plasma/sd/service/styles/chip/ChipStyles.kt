@@ -9,7 +9,7 @@ import com.sdds.compose.uikit.ChipStyleBuilder
 import com.sdds.compose.uikit.EmbeddedChip
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.asInteractive
-import com.sdds.plasma.sd.service.tokens.compose.PlasmaSdServiceTheme
+import com.sdds.plasma.sd.service.theme.PlasmaSdServiceTheme
 
 /**
  * Стиль [Chip] размера L
