@@ -2,189 +2,96 @@ package com.sdds.plugin.themebuilder.internal.components.button
 
 import com.sdds.plugin.themebuilder.DimensionsConfig
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
-import com.sdds.plugin.themebuilder.internal.components.ComponentStyleGenerator
-import com.sdds.plugin.themebuilder.internal.dimens.DimenData
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
-import com.sdds.plugin.themebuilder.internal.utils.techToCamelCase
-import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
-import com.squareup.kotlinpoet.ClassName
 import java.util.Locale
 
 internal class IconButtonStyleGeneratorCompose(
-    private val outputLocation: KtFileBuilder.OutputLocation,
-    private val ktFileBuilderFactory: KtFileBuilderFactory,
-    private val componentPackage: String,
     private val themeClassName: String,
     private val themePackage: String,
-    private val dimensionsConfig: DimensionsConfig,
-    private val dimensAggregator: DimensAggregator,
-    private val resourceReferenceProvider: ResourceReferenceProvider,
+    dimensionsConfig: DimensionsConfig,
+    outputLocation: KtFileBuilder.OutputLocation,
+    componentPackage: String,
+    ktFileBuilderFactory: KtFileBuilderFactory,
+    dimensAggregator: DimensAggregator,
+    resourceReferenceProvider: ResourceReferenceProvider,
     namespace: String,
-) : ComponentStyleGenerator<ButtonComponentConfig> {
+) : BaseButtonStyleGeneratorCompose<ButtonComponentConfig>(
+    dimensionsConfig = dimensionsConfig,
+    dimensAggregator = dimensAggregator,
+    resourceReferenceProvider = resourceReferenceProvider,
+    namespace = namespace,
+    ktFileBuilderFactory = ktFileBuilderFactory,
+    componentPackage = componentPackage,
+    outputLocation = outputLocation,
+) {
+    override val componentXmlPrefix: String = "icon_button"
+    override val ktFileName: String = "IconButtonStyles"
 
-    private val ktFileBuilder by unsafeLazy {
-        ktFileBuilderFactory.create("IconButtonStyles", componentPackage)
-    }
-    private val rFileImport = ClassName(namespace, "R")
-
-    override fun generate(config: ButtonComponentConfig) {
+    override fun KtFileBuilder.addCode(config: ButtonComponentConfig) {
         addImports()
         addSizes(config)
-        ktFileBuilder.build(outputLocation)
     }
 
-    private fun addSizes(config: ButtonComponentConfig) {
+    private fun KtFileBuilder.addSizes(config: ButtonComponentConfig) {
         val sizeVariations = config.variations.size
         sizeVariations.forEach { (size, sizeData) ->
-            with(ktFileBuilder) {
-                val fromResources = dimensionsConfig.fromResources
-                appendRootVal(
-                    name = size.toUpperCase(Locale.getDefault()),
-                    typeName = getInternalClassType(
-                        "IconButtonStyleBuilder",
-                        "com.sdds.compose.uikit",
-                    ),
-                    receiver = getInternalClassType("IconButton", "com.sdds.compose.uikit"),
-                    getter = KtFileBuilder.Getter.Annotated(
-                        annotations = listOf(KtFileBuilder.TypeAnnotationComposable),
-                        body = """
+            appendRootVal(
+                name = size.toUpperCase(Locale.getDefault()),
+                typeName = getInternalClassType(
+                    "IconButtonStyleBuilder",
+                    "com.sdds.compose.uikit",
+                ),
+                receiver = getInternalClassType("IconButton", "com.sdds.compose.uikit"),
+                getter = KtFileBuilder.Getter.Annotated(
+                    annotations = listOf(KtFileBuilder.TypeAnnotationComposable),
+                    body = """
                             return IconButtonStyleBuilder.builder(this)
                                 .shape($themeClassName.shapes.${sizeData.shape?.name?.toKtTokenName()}${
-                            sizeData.shapeAdjustmentIfNeed(fromResources, size)
-                        })
+                        sizeData.shapeAdjustmentIfNeed(size)
+                    })
                                 .dimensions(
                                     Button.Dimensions(
-                                        height = ${sizeData.getHeight(fromResources, size)},
+                                        height = ${sizeData.getHeight(size)},
                                         paddings = Button.Dimensions.PaddingValues(
-                                            start = ${sizeData.getPaddingStart(fromResources, size)},
-                                            end = ${sizeData.getPaddingEnd(fromResources, size)},
+                                            start = ${sizeData.getPaddingStart(size)},
+                                            end = ${sizeData.getPaddingEnd(size)},
                                         ),
-                                        minWidth = ${sizeData.getMinWidth(fromResources, size)},
-                                        iconSize = ${sizeData.getIconSize(fromResources, size)},
-                                        spinnerSize = ${sizeData.getSpinnerSize(fromResources, size)},
+                                        minWidth = ${sizeData.getMinWidth(size)},
+                                        iconSize = ${sizeData.getIconSize(size)},
+                                        spinnerSize = ${sizeData.getSpinnerSize(size)},
                                     ),
                                 )
-                        """.trimIndent(),
-                    ),
-                )
-            }
-        }
-    }
-
-    private fun ButtonComponentConfig.Size.getHeight(fromResources: Boolean, size: String): String {
-        return getDimension("height", height, fromResources, size)
-    }
-
-    private fun ButtonComponentConfig.Size.getPaddingStart(
-        fromResources: Boolean,
-        size: String,
-    ): String {
-        return getDimension("padding_start", paddingStart, fromResources, size)
-    }
-
-    private fun ButtonComponentConfig.Size.getPaddingEnd(
-        fromResources: Boolean,
-        size: String,
-    ): String {
-        return getDimension("padding_end", paddingEnd, fromResources, size)
-    }
-
-    private fun ButtonComponentConfig.Size.getMinWidth(
-        fromResources: Boolean,
-        size: String,
-    ): String {
-        return getDimension("min_width", minWidth, fromResources, size)
-    }
-
-    private fun ButtonComponentConfig.Size.getIconSize(
-        fromResources: Boolean,
-        size: String,
-    ): String {
-        return getDimension("icon_size", iconSize, fromResources, size)
-    }
-
-    private fun ButtonComponentConfig.Size.getSpinnerSize(
-        fromResources: Boolean,
-        size: String,
-    ): String {
-        return getDimension("spinner_size", spinnerSize, fromResources, size)
-    }
-
-    private fun getDimension(
-        dimenName: String,
-        dimenValue: Float,
-        fromResources: Boolean,
-        size: String,
-    ): String {
-        return if (fromResources) {
-            val dimenData = DimenData(
-                name = "${ICON_BUTTON_XML_PREFIX}_${dimenName}_size_$size",
-                value = dimenValue,
-                type = DimenData.Type.DP,
-            )
-            dimensAggregator.addDimen(dimenData)
-            "dimensionResource(${resourceReferenceProvider.dimenR(dimenData)})"
-        } else {
-            "${dimenValue * dimensionsConfig.multiplier}.dp"
-        }
-    }
-
-    private fun ButtonComponentConfig.Size.shapeAdjustmentIfNeed(
-        fromResources: Boolean,
-        size: String,
-    ): String {
-        return shape?.adjustment?.let {
-            ".adjustBy(all = (${getShapeAdjustment(fromResources, size)}))"
-        }.orEmpty()
-    }
-
-    private fun ButtonComponentConfig.Size.getShapeAdjustment(fromResources: Boolean, size: String): String {
-        return getDimension(
-            dimenName = "shapeAdjustment",
-            dimenValue = shape?.adjustment ?: 0f,
-            fromResources = fromResources,
-            size = size,
-        )
-    }
-
-    private fun String.toKtTokenName(): String = techToCamelCase().decapitalize(Locale.getDefault())
-
-    private fun addImports() {
-        with(ktFileBuilder) {
-            addImport(
-                packageName = themePackage,
-                names = listOf(themeClassName),
-            )
-            addImport(
-                packageName = "com.sdds.compose.uikit",
-                names = listOf(
-                    "Button",
-                    "adjustBy",
+                    """.trimIndent(),
                 ),
             )
-            addImport(
-                packageName = "androidx.compose.foundation.shape",
-                names = listOf("CircleShape"),
-            )
-            addImport(
-                packageName = "androidx.compose.runtime",
-                names = listOf("Composable"),
-            )
-            addImport(
-                packageName = "androidx.compose.ui.unit",
-                names = listOf("dp"),
-            )
-            if (dimensionsConfig.fromResources) {
-                addImport(KtFileBuilder.TypeLocalDensity)
-                addImport(KtFileBuilder.TypeDimensionResource)
-                addImport(rFileImport)
-            }
         }
     }
 
-    private companion object {
-        const val ICON_BUTTON_XML_PREFIX = "icon_button"
+    private fun KtFileBuilder.addImports() {
+        addImport(
+            packageName = themePackage,
+            names = listOf(themeClassName),
+        )
+        addImport(
+            packageName = "com.sdds.compose.uikit",
+            names = listOf(
+                "Button",
+                "adjustBy",
+            ),
+        )
+        addImport(
+            packageName = "androidx.compose.foundation.shape",
+            names = listOf("CircleShape"),
+        )
+        addImport(
+            packageName = "androidx.compose.runtime",
+            names = listOf("Composable"),
+        )
+        addImport(
+            packageName = "androidx.compose.ui.unit",
+            names = listOf("dp"),
+        )
     }
 }
