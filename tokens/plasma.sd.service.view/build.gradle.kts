@@ -19,6 +19,7 @@ themeBuilder {
         ?: throw GradleException("plasma sd service version must be specified")
     themeSource(name = "plasma_b2c", version = themeVersion, alias = "PlasmaSdService")
     view()
+    autoGenerate(false)
     mode(ThemeBuilderMode.THEME)
     outputLocation(OutputLocation.SRC)
 }
