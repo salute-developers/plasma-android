@@ -17,6 +17,7 @@ themeBuilder {
         ?: throw GradleException("sdds serv version must be specified")
     themeSource(name = "stylesSalute", version = themeVersion)
     compose()
+    autoGenerate(false)
     ktPackage(ktPackage = "com.sdds.stylessalute")
 }
 
