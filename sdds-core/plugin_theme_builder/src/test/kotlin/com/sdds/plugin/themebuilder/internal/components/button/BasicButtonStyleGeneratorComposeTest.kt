@@ -1,7 +1,9 @@
 package com.sdds.plugin.themebuilder.internal.components.button
 
+import com.sdds.plugin.themebuilder.DimensionsConfig
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
+import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 import com.sdds.plugin.themebuilder.internal.utils.getResourceAsText
 import io.mockk.clearAllMocks
 import io.mockk.every
@@ -40,6 +42,10 @@ class BasicButtonStyleGeneratorComposeTest {
             componentPackage = "com.sdds.playground.themebuilder.styles.button",
             themeClassName = "SddsServTheme",
             themePackage = "com.sdds.playground.themebuilder.theme",
+            dimensionsConfig = DimensionsConfig(),
+            dimensAggregator = mockk(),
+            namespace = "com.sdds.playground.themebuilder",
+            resourceReferenceProvider = ResourceReferenceProvider("thmbldr", "sdds_serv"),
         )
     }
 
