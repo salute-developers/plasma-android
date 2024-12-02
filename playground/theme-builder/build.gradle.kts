@@ -36,6 +36,7 @@ themeBuilder {
             large(960)
             medium(560)
         }
+        fromResources(false)
     }
 }
 

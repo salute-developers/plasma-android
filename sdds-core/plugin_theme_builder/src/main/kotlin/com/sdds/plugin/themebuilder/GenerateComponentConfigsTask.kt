@@ -2,9 +2,12 @@ package com.sdds.plugin.themebuilder
 
 import com.sdds.plugin.themebuilder.internal.PackageResolver
 import com.sdds.plugin.themebuilder.internal.components.button.ButtonComponentConfig
+import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.ComponentStyleGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
+import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.serializer.Serializer
+import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 import com.sdds.plugin.themebuilder.internal.utils.decode
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import org.gradle.api.DefaultTask
@@ -43,6 +46,12 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
     abstract val outputDirPath: Property<String>
 
     /**
+     * Путь для сохранения файлов ресурсов
+     */
+    @get:OutputDirectory
+    abstract val outputResDirPath: Property<String>
+
+    /**
      * Название пакета для файлов kotlin
      */
     @get:Input
@@ -55,22 +64,55 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
     abstract val themeName: Property<String>
 
     /**
+     * Пакет модуля
+     */
+    @get:Input
+    abstract val namespace: Property<String>
+
+    /**
      * Директория проекта
      */
     @get:OutputDirectory
     abstract val projectDir: DirectoryProperty
 
+    /**
+     * Конфигурация размеров
+     */
+    @get:Input
+    abstract val dimensionsConfig: Property<DimensionsConfig>
+
+    /**
+     * Префикс для названий ресурсов токенов
+     */
+    @get:Input
+    abstract val resourcesPrefixConfig: Property<ResourcePrefixConfig>
+
     private val packageResolver by unsafeLazy {
         PackageResolver(packageName.get())
     }
 
+    private val dimensAggregator by unsafeLazy { DimensAggregator() }
+    private val dimensGenerator by unsafeLazy { componentStyleGeneratorFactory.createDimensionGenerator() }
+
     private val componentStyleGeneratorFactory by unsafeLazy {
         ComponentStyleGeneratorFactory(
             outputDirPath = outputDirPath.get(),
+            outputResDirPath = outputResDirPath.get(),
             projectDir = projectDir,
             ktFileBuilderFactory = KtFileBuilderFactory(packageResolver),
+            xmlBuilderFactory = XmlResourcesDocumentBuilderFactory(
+                resourcesPrefixConfig.get().resourcePrefix,
+                themeName.get(),
+            ),
             packageResolver = packageResolver,
             themeName = themeName.get(),
+            namespace = namespace.get(),
+            dimensionsConfig = dimensionsConfig.get(),
+            dimensAggregator = dimensAggregator,
+            resourceReferenceProvider = ResourceReferenceProvider(
+                resourcePrefix = resourcesPrefixConfig.get().resourcePrefix,
+                themeName = themeName.get(),
+            ),
         )
     }
 
@@ -109,5 +151,6 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
         basicButtonStyleGenerator.generate(basicButtonConfig)
         iconButtonStyleGenerator.generate(iconButtonConfig)
         linkButtonStyleGenerator.generate(linkButtonConfig)
+        dimensGenerator.generate()
     }
 }
