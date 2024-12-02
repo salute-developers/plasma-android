@@ -89,8 +89,6 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.playground.themebuilder.theme.ThemeTypography
 import com.sdds.playground.themebuilder.tokens.TypographyLargeTokens
-import com.sdds.playground.themebuilder.tokens.TypographyMediumTokens
-import com.sdds.playground.themebuilder.tokens.TypographySmallTokens
 
 /**
  * Типографика Theme
