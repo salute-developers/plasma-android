@@ -1,9 +1,12 @@
 package com.sdds.plugin.themebuilder.internal.components.button
 
+import com.sdds.plugin.themebuilder.DimensionsConfig
 import com.sdds.plugin.themebuilder.internal.PackageResolver
 import com.sdds.plugin.themebuilder.internal.TargetPackage
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
+import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
+import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 import com.sdds.plugin.themebuilder.internal.utils.snakeToCamelCase
 
 internal class ButtonStyleGeneratorComposeFactory(
@@ -11,6 +14,10 @@ internal class ButtonStyleGeneratorComposeFactory(
     private val ktFileBuilderFactory: KtFileBuilderFactory,
     themeName: String,
     packageResolver: PackageResolver,
+    private val namespace: String,
+    private val dimensionsConfig: DimensionsConfig,
+    private val dimensAggregator: DimensAggregator,
+    private val resourceReferenceProvider: ResourceReferenceProvider,
 ) {
 
     private val componentPackage = "${packageResolver.getPackage(TargetPackage.STYLES)}.button"
@@ -24,6 +31,10 @@ internal class ButtonStyleGeneratorComposeFactory(
             componentPackage = componentPackage,
             themeClassName = themeClassName,
             themePackage = themePackage,
+            namespace = namespace,
+            dimensionsConfig = dimensionsConfig,
+            dimensAggregator = dimensAggregator,
+            resourceReferenceProvider = resourceReferenceProvider,
         )
     }
 
@@ -34,6 +45,10 @@ internal class ButtonStyleGeneratorComposeFactory(
             componentPackage = componentPackage,
             themeClassName = themeClassName,
             themePackage = themePackage,
+            namespace = namespace,
+            dimensionsConfig = dimensionsConfig,
+            dimensAggregator = dimensAggregator,
+            resourceReferenceProvider = resourceReferenceProvider,
         )
     }
 
@@ -44,6 +59,10 @@ internal class ButtonStyleGeneratorComposeFactory(
             componentPackage = componentPackage,
             themeClassName = themeClassName,
             themePackage = themePackage,
+            namespace = namespace,
+            dimensionsConfig = dimensionsConfig,
+            dimensAggregator = dimensAggregator,
+            resourceReferenceProvider = resourceReferenceProvider,
         )
     }
 }

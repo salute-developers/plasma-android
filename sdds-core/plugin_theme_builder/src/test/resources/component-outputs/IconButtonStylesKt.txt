@@ -13,11 +13,14 @@ import com.sdds.playground.themebuilder.theme.SddsServTheme
 public val IconButton.L: IconButtonStyleBuilder
     @Composable
     get() = IconButtonStyleBuilder.builder(this)
-        .shape(SddsServTheme.shapes.roundL.adjustBy(all = (-2.0).dp))
+        .shape(SddsServTheme.shapes.roundL.adjustBy(all = (-2.0.dp)))
         .dimensions(
             Button.Dimensions(
                 height = 56.0.dp,
-                paddings = Button.Dimensions.PaddingValues(start = 24.0.dp, end = 24.0.dp),
+                paddings = Button.Dimensions.PaddingValues(
+                    start = 24.0.dp,
+                    end = 24.0.dp,
+                ),
                 minWidth = 98.0.dp,
                 iconSize = 24.0.dp,
                 spinnerSize = 22.0.dp,
@@ -31,7 +34,10 @@ public val IconButton.M: IconButtonStyleBuilder
         .dimensions(
             Button.Dimensions(
                 height = 56.0.dp,
-                paddings = Button.Dimensions.PaddingValues(start = 24.0.dp, end = 24.0.dp),
+                paddings = Button.Dimensions.PaddingValues(
+                    start = 24.0.dp,
+                    end = 24.0.dp,
+                ),
                 minWidth = 98.0.dp,
                 iconSize = 24.0.dp,
                 spinnerSize = 22.0.dp,
@@ -41,11 +47,14 @@ public val IconButton.M: IconButtonStyleBuilder
 public val IconButton.S: IconButtonStyleBuilder
     @Composable
     get() = IconButtonStyleBuilder.builder(this)
-        .shape(SddsServTheme.shapes.roundS.adjustBy(all = (2.0).dp))
+        .shape(SddsServTheme.shapes.roundS.adjustBy(all = (2.0.dp)))
         .dimensions(
             Button.Dimensions(
                 height = 56.0.dp,
-                paddings = Button.Dimensions.PaddingValues(start = 24.0.dp, end = 24.0.dp),
+                paddings = Button.Dimensions.PaddingValues(
+                    start = 24.0.dp,
+                    end = 24.0.dp,
+                ),
                 minWidth = 98.0.dp,
                 iconSize = 24.0.dp,
                 spinnerSize = 22.0.dp,

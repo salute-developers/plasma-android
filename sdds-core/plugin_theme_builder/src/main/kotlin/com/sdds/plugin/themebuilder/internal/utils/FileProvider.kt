@@ -74,9 +74,13 @@ object FileProvider {
 
     /**
      * XML файл для размеров
+     *
+     * @param filePref опциональный префикс названия файла
      */
-    fun File.dimensFile(): File =
-        File("${valuesDir().path}/dimens.xml")
+    fun File.dimensFile(filePref: String = ""): File {
+        val prefix = if (filePref.isBlank()) "" else "$filePref-"
+        return File("${valuesDir().path}/${prefix}dimens.xml")
+    }
 
     /**
      * XML файл для токенов стилей текста

@@ -16,7 +16,10 @@ public val LinkButton.L: LinkButtonStyleBuilder
         .dimensions(
             Button.Dimensions(
                 height = 56.0.dp,
-                paddings = Button.Dimensions.PaddingValues(start = 24.0.dp, end = 24.0.dp),
+                paddings = Button.Dimensions.PaddingValues(
+                    start = 24.0.dp,
+                    end = 24.0.dp,
+                ),
                 minWidth = 98.0.dp,
                 iconSize = 24.0.dp,
                 spinnerSize = 22.0.dp,
@@ -31,7 +34,10 @@ public val LinkButton.M: LinkButtonStyleBuilder
         .dimensions(
             Button.Dimensions(
                 height = 56.0.dp,
-                paddings = Button.Dimensions.PaddingValues(start = 24.0.dp, end = 24.0.dp),
+                paddings = Button.Dimensions.PaddingValues(
+                    start = 24.0.dp,
+                    end = 24.0.dp,
+                ),
                 minWidth = 98.0.dp,
                 iconSize = 24.0.dp,
                 spinnerSize = 22.0.dp,
@@ -46,7 +52,10 @@ public val LinkButton.S: LinkButtonStyleBuilder
         .dimensions(
             Button.Dimensions(
                 height = 56.0.dp,
-                paddings = Button.Dimensions.PaddingValues(start = 24.0.dp, end = 24.0.dp),
+                paddings = Button.Dimensions.PaddingValues(
+                    start = 24.0.dp,
+                    end = 24.0.dp,
+                ),
                 minWidth = 98.0.dp,
                 iconSize = 24.0.dp,
                 spinnerSize = 22.0.dp,

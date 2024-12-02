@@ -102,10 +102,14 @@ class ThemeBuilderPlugin : Plugin<Project> {
             iconButtonConfigFile.set(getComponentConfigFile(ComponentConfig.ICON_BUTTON.fileName))
             linkButtonConfigFile.set(getComponentConfigFile(ComponentConfig.LINK_BUTTON.fileName))
             outputDirPath.set(extension.outputLocation.getSourcePath())
+            outputResDirPath.set(extension.outputLocation.getResourcePath())
             packageName.set(extension.ktPackage ?: DEFAULT_KT_PACKAGE)
             val projectDirProperty = objects.directoryProperty()
                 .apply { set(layout.projectDirectory) }
             projectDir.set(projectDirProperty)
+            dimensionsConfig.set(extension.dimensionsConfig)
+            resourcesPrefixConfig.set(getResourcePrefixConfig(extension))
+            namespace.set(getProjectNameSpace())
             themeName.set(getThemeSource(extension).themeName)
         }
         fetchComponentConfigsTasks.forEach { task.dependsOn(it) }
