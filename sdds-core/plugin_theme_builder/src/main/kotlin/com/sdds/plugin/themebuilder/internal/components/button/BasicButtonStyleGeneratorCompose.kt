@@ -9,7 +9,7 @@ import java.util.Locale
 
 internal class BasicButtonStyleGeneratorCompose(
     private val themeClassName: String,
-    private val themePackage: String,
+    themePackage: String,
     dimensionsConfig: DimensionsConfig,
     outputLocation: KtFileBuilder.OutputLocation,
     componentPackage: String,
@@ -18,6 +18,8 @@ internal class BasicButtonStyleGeneratorCompose(
     resourceReferenceProvider: ResourceReferenceProvider,
     namespace: String,
 ) : BaseButtonStyleGeneratorCompose<ButtonComponentConfig>(
+    themeClassName = themeClassName,
+    themePackage = themePackage,
     dimensionsConfig = dimensionsConfig,
     dimensAggregator = dimensAggregator,
     resourceReferenceProvider = resourceReferenceProvider,
@@ -29,9 +31,9 @@ internal class BasicButtonStyleGeneratorCompose(
     override val componentXmlPrefix: String = "basic_button"
     override val ktFileName: String = "BasicButtonStyles"
 
-    override fun KtFileBuilder.addCode(config: ButtonComponentConfig) {
-        addImports()
-        addSizes(config)
+    override fun addCode(config: ButtonComponentConfig, ktFileBuilder: KtFileBuilder) {
+        super.addCode(config, ktFileBuilder)
+        ktFileBuilder.addSizes(config)
     }
 
     private fun KtFileBuilder.addSizes(config: ButtonComponentConfig) {
@@ -71,31 +73,5 @@ internal class BasicButtonStyleGeneratorCompose(
                 ),
             )
         }
-    }
-
-    private fun KtFileBuilder.addImports() {
-        addImport(
-            packageName = themePackage,
-            names = listOf(themeClassName),
-        )
-        addImport(
-            packageName = "com.sdds.compose.uikit",
-            names = listOf(
-                "Button",
-                "adjustBy",
-            ),
-        )
-        addImport(
-            packageName = "androidx.compose.foundation.shape",
-            names = listOf("CircleShape"),
-        )
-        addImport(
-            packageName = "androidx.compose.runtime",
-            names = listOf("Composable"),
-        )
-        addImport(
-            packageName = "androidx.compose.ui.unit",
-            names = listOf("dp"),
-        )
     }
 }
