@@ -13,6 +13,8 @@ import com.squareup.kotlinpoet.ClassName
  * Базовый класс для генераторов стилей компонентов на Compose
  */
 internal abstract class ComposeComponentStyleGenerator<T : ComponentConfig>(
+    private val themeClassName: String,
+    private val themePackage: String,
     private val dimensionsConfig: DimensionsConfig,
     private val dimensAggregator: DimensAggregator,
     private val resourceReferenceProvider: ResourceReferenceProvider,
@@ -34,11 +36,11 @@ internal abstract class ComposeComponentStyleGenerator<T : ComponentConfig>(
 
     private val rFileImport by unsafeLazy { ClassName(namespace, "R") }
 
-    abstract fun KtFileBuilder.addCode(config: T)
+    abstract fun addCode(config: T, ktFileBuilder: KtFileBuilder)
 
     override fun generate(config: T) {
-        ktFileBuilder.addImportsForDimensionsFromResources()
-        ktFileBuilder.addCode(config)
+        ktFileBuilder.addCommonImports()
+        addCode(config, ktFileBuilder)
         ktFileBuilder.build(outputLocation)
     }
 
@@ -60,11 +62,27 @@ internal abstract class ComposeComponentStyleGenerator<T : ComponentConfig>(
         }
     }
 
-    private fun KtFileBuilder.addImportsForDimensionsFromResources() {
+    private fun KtFileBuilder.addCommonImports() {
+        addImport(
+            packageName = "com.sdds.compose.uikit",
+            names = listOf("adjustBy"),
+        )
+        addImport(
+            packageName = "androidx.compose.runtime",
+            names = listOf("Composable"),
+        )
+        addImport(
+            packageName = "androidx.compose.ui.unit",
+            names = listOf("dp"),
+        )
         if (dimensionsConfig.fromResources) {
             addImport(KtFileBuilder.TypeLocalDensity)
             addImport(KtFileBuilder.TypeDimensionResource)
             addImport(rFileImport)
         }
+        addImport(
+            packageName = themePackage,
+            names = listOf(themeClassName),
+        )
     }
 }
