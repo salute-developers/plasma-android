@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Thmbldr.TestTheme.Components.IconButton" parent="Sdds.Components.Button"/>
+    <style name="Thmbldr.TestTheme.Components.IconButton.L">
+        <item name="android:minHeight">@dimen/thmbldr_icon_button_l_min_height</item>
+        <item name="android:minWidth">@dimen/thmbldr_icon_button_l_min_width</item>
+        <item name="android:paddingStart">@dimen/thmbldr_icon_button_l_padding_start</item>
+        <item name="android:paddingEnd">@dimen/thmbldr_icon_button_l_padding_end</item>
+        <item name="sd_iconSize">@dimen/thmbldr_icon_button_l_icon_size</item>
+        <item name="sd_spinnerSize">@dimen/thmbldr_icon_button_l_spinner_size</item>
+        <item name="sd_shapeAppearance">?thmbldr_shapeRoundL</item>
+    </style>
+    <style name="Thmbldr.TestTheme.Components.IconButton.L.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+</resources>

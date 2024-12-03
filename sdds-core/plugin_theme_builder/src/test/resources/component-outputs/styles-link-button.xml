@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Thmbldr.TestTheme.Components.LinkButton" parent="Sdds.Components.Button"/>
+    <style name="Thmbldr.TestTheme.Components.LinkButton.L">
+        <item name="android:minHeight">@dimen/thmbldr_link_button_l_min_height</item>
+        <item name="android:minWidth">@dimen/thmbldr_link_button_l_min_width</item>
+        <item name="android:paddingStart">@dimen/thmbldr_link_button_l_padding_start</item>
+        <item name="android:paddingEnd">@dimen/thmbldr_link_button_l_padding_end</item>
+        <item name="sd_iconSize">@dimen/thmbldr_link_button_l_icon_size</item>
+        <item name="sd_spinnerSize">@dimen/thmbldr_link_button_l_spinner_size</item>
+        <item name="sd_iconPadding">@dimen/thmbldr_link_button_l_icon_padding</item>
+        <item name="sd_valuePadding">@dimen/thmbldr_link_button_l_value_padding</item>
+        <item name="android:textAppearance">@style/Thmbldr.TestTheme.TextAppearance.BodyLBold</item>
+    </style>
+</resources>

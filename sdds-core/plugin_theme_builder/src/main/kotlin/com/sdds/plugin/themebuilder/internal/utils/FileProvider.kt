@@ -137,4 +137,22 @@ object FileProvider {
     fun File.attrsFile(type: String): File {
         return File("${valuesDir().path}/$type-attributes.xml")
     }
+
+    /**
+     * XML файл для стилей BasicButton
+     */
+    fun File.basicButtonXmlFile(): File =
+        File("${valuesDir().path}/styles-basic-button.xml")
+
+    /**
+     * XML файл для стилей IconButton
+     */
+    fun File.iconButtonXmlFile(): File =
+        File("${valuesDir().path}/styles-icon-button.xml")
+
+    /**
+     * XML файл для стилей LinkButton
+     */
+    fun File.linkButtonXmlFile(): File =
+        File("${valuesDir().path}/styles-link-button.xml")
 }
