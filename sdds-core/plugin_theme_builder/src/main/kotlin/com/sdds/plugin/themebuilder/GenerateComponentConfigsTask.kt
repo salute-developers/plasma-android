@@ -95,62 +95,80 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
     private val dimensGenerator by unsafeLazy { componentStyleGeneratorFactory.createDimensionGenerator() }
 
     private val componentStyleGeneratorFactory by unsafeLazy {
+        val resPrefixConfig = resourcesPrefixConfig.get()
+        val themeName = themeName.get()
         ComponentStyleGeneratorFactory(
             outputDirPath = outputDirPath.get(),
             outputResDirPath = outputResDirPath.get(),
             projectDir = projectDir,
             ktFileBuilderFactory = KtFileBuilderFactory(packageResolver),
             xmlBuilderFactory = XmlResourcesDocumentBuilderFactory(
-                resourcesPrefixConfig.get().resourcePrefix,
-                themeName.get(),
+                resPrefixConfig.resourcePrefix,
+                themeName,
             ),
             packageResolver = packageResolver,
-            themeName = themeName.get(),
+            themeName = themeName,
             namespace = namespace.get(),
             dimensionsConfig = dimensionsConfig.get(),
             dimensAggregator = dimensAggregator,
             resourceReferenceProvider = ResourceReferenceProvider(
-                resourcePrefix = resourcesPrefixConfig.get().resourcePrefix,
-                themeName = themeName.get(),
+                resourcePrefix = resPrefixConfig.resourcePrefix,
+                themeName = themeName,
             ),
+            resourcePrefixConfig = resPrefixConfig,
         )
     }
 
-    private val basicButtonStyleGenerator by unsafeLazy {
+    private val basicButtonStyleGeneratorCompose by unsafeLazy {
         componentStyleGeneratorFactory.createBasicButtonStyleGeneratorCompose()
     }
 
-    private val iconButtonStyleGenerator by unsafeLazy {
+    private val basicButtonStyleGeneratorView by unsafeLazy {
+        componentStyleGeneratorFactory.createBasicButtonStyleGeneratorView()
+    }
+
+    private val iconButtonStyleGeneratorCompose by unsafeLazy {
         componentStyleGeneratorFactory.createIconButtonStyleGeneratorCompose()
     }
 
-    private val linkButtonStyleGenerator by unsafeLazy {
+    private val iconButtonStyleGeneratorView by unsafeLazy {
+        componentStyleGeneratorFactory.createIconButtonStyleGeneratorView()
+    }
+
+    private val linkButtonStyleGeneratorCompose by unsafeLazy {
         componentStyleGeneratorFactory.createLinkButtonStyleGeneratorCompose()
+    }
+
+    private val linkButtonStyleGeneratorView by unsafeLazy {
+        componentStyleGeneratorFactory.createLinkButtonStyleGeneratorView()
     }
 
     private val basicButtonConfig: ButtonComponentConfig by unsafeLazy {
         basicButtonConfigFile.get()
             .asFile
-            .decode<ButtonComponentConfig>(Serializer.componentConfig)
+            .decode(Serializer.componentConfig)
     }
 
     private val iconButtonConfig: ButtonComponentConfig by unsafeLazy {
         iconButtonConfigFile.get()
             .asFile
-            .decode<ButtonComponentConfig>(Serializer.componentConfig)
+            .decode(Serializer.componentConfig)
     }
 
     private val linkButtonConfig: ButtonComponentConfig by unsafeLazy {
         linkButtonConfigFile.get()
             .asFile
-            .decode<ButtonComponentConfig>(Serializer.componentConfig)
+            .decode(Serializer.componentConfig)
     }
 
     @TaskAction
     fun generate() {
-        basicButtonStyleGenerator.generate(basicButtonConfig)
-        iconButtonStyleGenerator.generate(iconButtonConfig)
-        linkButtonStyleGenerator.generate(linkButtonConfig)
+        basicButtonStyleGeneratorCompose.generate(basicButtonConfig)
+        basicButtonStyleGeneratorView.generate(basicButtonConfig)
+        iconButtonStyleGeneratorCompose.generate(iconButtonConfig)
+        iconButtonStyleGeneratorView.generate(iconButtonConfig)
+        linkButtonStyleGeneratorCompose.generate(linkButtonConfig)
+        linkButtonStyleGeneratorView.generate(linkButtonConfig)
         dimensGenerator.generate()
     }
 }
