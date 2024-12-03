@@ -131,18 +131,23 @@ internal class ComposeGradientAttributeGenerator(
                 packageName = "androidx.compose.ui.graphics",
                 names = listOf("Color", "ShaderBrush"),
             )
-            addImport(
-                getInternalClassType(
-                    className = DARK_GRADIENT_TOKENS_NAME,
-                    classPackage = packageResolver.getPackage(TargetPackage.TOKENS),
-                ),
-            )
-            addImport(
-                getInternalClassType(
-                    className = LIGHT_GRADIENT_TOKENS_NAME,
-                    classPackage = packageResolver.getPackage(TargetPackage.TOKENS),
-                ),
-            )
+            val tokenData = tokenData ?: return
+            if (tokenData.dark.isNotEmpty()) {
+                addImport(
+                    getInternalClassType(
+                        className = DARK_GRADIENT_TOKENS_NAME,
+                        classPackage = packageResolver.getPackage(TargetPackage.TOKENS),
+                    ),
+                )
+            }
+            if (tokenData.light.isNotEmpty()) {
+                addImport(
+                    getInternalClassType(
+                        className = LIGHT_GRADIENT_TOKENS_NAME,
+                        classPackage = packageResolver.getPackage(TargetPackage.TOKENS),
+                    ),
+                )
+            }
         }
     }
 

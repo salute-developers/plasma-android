@@ -311,18 +311,23 @@ internal class ComposeColorAttributeGenerator(
                 packageName = "androidx.compose.ui.graphics",
                 names = listOf("Color"),
             )
-            addImport(
-                getInternalClassType(
-                    className = DARK_COLOR_TOKENS_NAME,
-                    classPackage = packageResolver.getPackage(TargetPackage.TOKENS),
-                ),
-            )
-            addImport(
-                getInternalClassType(
-                    className = LIGHT_COLOR_TOKENS_NAME,
-                    classPackage = packageResolver.getPackage(TargetPackage.TOKENS),
-                ),
-            )
+            val tokenData = tokenData ?: return
+            if (tokenData.dark.isNotEmpty()) {
+                addImport(
+                    getInternalClassType(
+                        className = DARK_COLOR_TOKENS_NAME,
+                        classPackage = packageResolver.getPackage(TargetPackage.TOKENS),
+                    ),
+                )
+            }
+            if (tokenData.light.isNotEmpty()) {
+                addImport(
+                    getInternalClassType(
+                        className = LIGHT_COLOR_TOKENS_NAME,
+                        classPackage = packageResolver.getPackage(TargetPackage.TOKENS),
+                    ),
+                )
+            }
         }
     }
 }

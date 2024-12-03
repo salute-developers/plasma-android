@@ -95,24 +95,31 @@ internal class ComposeTypographyAttributeGenerator(
                 ),
             )
             addImport(KtFileBuilder.TypeDpExtension)
-            addImport(
-                getInternalClassType(
-                    className = TYPOGRAPHY_SMALL_TOKENS_NAME,
-                    classPackage = packageResolver.getPackage(TargetPackage.TOKENS),
-                ),
-            )
-            addImport(
-                getInternalClassType(
-                    className = TYPOGRAPHY_MEDIUM_TOKENS_NAME,
-                    classPackage = packageResolver.getPackage(TargetPackage.TOKENS),
-                ),
-            )
-            addImport(
-                getInternalClassType(
-                    className = TYPOGRAPHY_LARGE_TOKENS_NAME,
-                    classPackage = packageResolver.getPackage(TargetPackage.TOKENS),
-                ),
-            )
+            val tokenData = tokenData ?: return
+            if (tokenData.small.isNotEmpty()) {
+                addImport(
+                    getInternalClassType(
+                        className = TYPOGRAPHY_SMALL_TOKENS_NAME,
+                        classPackage = packageResolver.getPackage(TargetPackage.TOKENS),
+                    ),
+                )
+            }
+            if (tokenData.medium.isNotEmpty()) {
+                addImport(
+                    getInternalClassType(
+                        className = TYPOGRAPHY_MEDIUM_TOKENS_NAME,
+                        classPackage = packageResolver.getPackage(TargetPackage.TOKENS),
+                    ),
+                )
+            }
+            if (tokenData.large.isNotEmpty()) {
+                addImport(
+                    getInternalClassType(
+                        className = TYPOGRAPHY_LARGE_TOKENS_NAME,
+                        classPackage = packageResolver.getPackage(TargetPackage.TOKENS),
+                    ),
+                )
+            }
         }
     }
 
