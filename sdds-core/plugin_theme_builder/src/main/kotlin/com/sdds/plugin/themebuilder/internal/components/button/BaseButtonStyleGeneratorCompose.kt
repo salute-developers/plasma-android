@@ -15,6 +15,8 @@ import java.util.Locale
  * @see ComposeComponentStyleGenerator
  */
 internal abstract class BaseButtonStyleGeneratorCompose<T : ComponentConfig>(
+    themeClassName: String,
+    themePackage: String,
     dimensionsConfig: DimensionsConfig,
     dimensAggregator: DimensAggregator,
     resourceReferenceProvider: ResourceReferenceProvider,
@@ -23,6 +25,8 @@ internal abstract class BaseButtonStyleGeneratorCompose<T : ComponentConfig>(
     componentPackage: String,
     outputLocation: KtFileBuilder.OutputLocation,
 ) : ComposeComponentStyleGenerator<T>(
+    themeClassName = themeClassName,
+    themePackage = themePackage,
     dimensionsConfig = dimensionsConfig,
     dimensAggregator = dimensAggregator,
     resourceReferenceProvider = resourceReferenceProvider,
@@ -31,6 +35,13 @@ internal abstract class BaseButtonStyleGeneratorCompose<T : ComponentConfig>(
     componentPackage = componentPackage,
     outputLocation = outputLocation,
 ) {
+    override fun addCode(config: T, ktFileBuilder: KtFileBuilder) {
+        ktFileBuilder.addImport(
+            packageName = "com.sdds.compose.uikit",
+            names = listOf("Button"),
+        )
+    }
+
     protected fun ButtonComponentConfig.Size.getHeight(size: String): String {
         return getDimension("height", height, size)
     }
