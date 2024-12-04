@@ -1,63 +1,55 @@
 package com.sdds.plasma.sd.service
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
-import com.sdds.plasma.sd.service.sandbox.SandboxTheme
 import com.sdds.plasma.sd.service.sandbox.checkbox.CheckBoxGroupPreviewSizeM
+import com.sdds.plasma.sd.service.sandbox.checkbox.CheckBoxGroupPreviewSizeMDisabled
 import com.sdds.plasma.sd.service.sandbox.checkbox.CheckBoxGroupPreviewSizeS
-import com.sdds.plasma.sd.service.sandbox.checkbox.CheckBoxPreviewCheckedSizeSmall
-import com.sdds.plasma.sd.service.sandbox.checkbox.CheckBoxPreviewOffSizeSmall
-import com.sdds.plasma.sd.service.sandbox.checkbox.CheckBoxPreviewOnSizeMediumNoDesc
-import com.sdds.plasma.sd.service.sandbox.checkbox.CheckBoxPreviewOnSizeMediumNoLabel
+import com.sdds.plasma.sd.service.sandbox.checkbox.CheckBoxPreviewSizeM
+import com.sdds.plasma.sd.service.sandbox.checkbox.CheckBoxPreviewSizeMIndeterminate
 import com.sdds.plasma.sd.service.sandbox.checkbox.CheckBoxPreviewSizeMediumNoLabelAndDesc
-import com.sdds.plasma.sd.service.sandbox.checkbox.CheckBoxPreviewUncheckedSizeMedium
+import com.sdds.plasma.sd.service.sandbox.checkbox.CheckBoxPreviewSizeSDisabled
+import com.sdds.plasma.sd.service.sandbox.checkbox.CheckBoxPreviewSizeSUnchecked
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.robolectric.RobolectricTestRunner
+import org.robolectric.ParameterizedRobolectricTestRunner
 import org.robolectric.annotation.Config
 import org.robolectric.annotation.GraphicsMode
 
+@RunWith(ParameterizedRobolectricTestRunner::class)
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
 @Config(sdk = [SDK_NUMBER], qualifiers = RobolectricDeviceQualifiers.Pixel6)
-@RunWith(RobolectricTestRunner::class)
-class ComposeCheckBoxScreenshotTest : RoborazziConfig() {
+class ComposeCheckBoxScreenshotTest(
+    theme: String,
+) : RoborazziConfig(theme) {
 
     /**
      * Запуск скриншот тестов с использованием Preview
      */
     @Test
-    fun testCheckBoxUncheckedSizeMedium() {
+    fun testCheckBoxSizeM() {
         composeTestRule.setContent {
-            CheckBoxPreviewUncheckedSizeMedium()
+            CheckBoxPreviewSizeM()
         }
     }
 
     @Test
-    fun testCheckBoxCheckedSizeSmallDark() {
+    fun testCheckBoxSizeSUnchecked() {
         composeTestRule.setContent {
-            SandboxTheme(darkTheme = true) {
-                CheckBoxPreviewCheckedSizeSmall()
-            }
+            CheckBoxPreviewSizeSUnchecked()
         }
     }
 
     @Test
-    fun testCheckBoxOffSizeSmall() {
+    fun testCheckBoxSizeSDisabled() {
         composeTestRule.setContent {
-            CheckBoxPreviewOffSizeSmall()
+            CheckBoxPreviewSizeSDisabled()
         }
     }
 
     @Test
-    fun testCheckBoxOnSizeMediumNoDesc() {
+    fun testCheckBoxSizeMIndeterminate() {
         composeTestRule.setContent {
-            CheckBoxPreviewOnSizeMediumNoDesc()
-        }
-    }
-
-    @Test
-    fun testCheckBoxOnSizeMediumNoLabel() {
-        composeTestRule.setContent {
-            CheckBoxPreviewOnSizeMediumNoLabel()
+            CheckBoxPreviewSizeMIndeterminate()
         }
     }
 
@@ -79,6 +71,13 @@ class ComposeCheckBoxScreenshotTest : RoborazziConfig() {
     fun testCheckBoxGroupSizeS() {
         composeTestRule.setContent {
             CheckBoxGroupPreviewSizeS()
+        }
+    }
+
+    @Test
+    fun testCheckBoxGroupSizeMDisabled() {
+        composeTestRule.setContent {
+            CheckBoxGroupPreviewSizeMDisabled()
         }
     }
 }
