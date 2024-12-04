@@ -654,11 +654,15 @@ private fun OuterBottomContent(
 ) {
     val isEmpty = captionText.isNullOrEmpty() && counterText.isNullOrEmpty()
     if (helperTextPlacement != HelperTextPlacement.Outer || isEmpty) return
+    val horizontalArrangement = when {
+        captionText.isNullOrEmpty() -> Arrangement.End
+        else -> Arrangement.SpaceBetween
+    }
     Row(
         modifier = modifier
             .padding(top = helperTextPadding)
             .fillMaxWidth(),
-        horizontalArrangement = Arrangement.SpaceBetween,
+        horizontalArrangement = horizontalArrangement,
     ) {
         TextOrEmpty(
             text = captionText,
