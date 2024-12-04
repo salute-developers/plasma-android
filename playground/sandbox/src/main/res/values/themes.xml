@@ -60,7 +60,8 @@
     </style>
 
     <style name="Theme.Sandbox.PropertyItem">
-        <item name="android:background">@color/bg_property_item</item>
+        <item name="android:backgroundTint">@color/bg_property_item</item>
+        <item name="sd_shapeAppearance">?serv_shapeRoundXxs</item>
     </style>
 
     <style name="Theme.Sandbox.PropertyItemLabel">
@@ -72,11 +73,6 @@
     <style name="Theme.Sandbox.PropertyItemValue">
         <item name="android:textColor">@color/color_property_item_value</item>
         <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyMBold</item>
-        <item name="android:duplicateParentState">true</item>
-    </style>
-
-    <style name="Theme.Sandbox.PropertyItemSwitch" parent="Serv.Sdds.Components.Switch.M">
-        <item name="sd_buttonTrackColor">@color/bg_color_property_switch_track</item>
         <item name="android:duplicateParentState">true</item>
     </style>
 

@@ -6,9 +6,9 @@
     <item android:color="?serv_textDefaultSecondary" android:state_hovered="true" app:sd_state_secondary="true" />
     <item android:color="?serv_textDefaultSecondary" app:sd_state_secondary="true" />
 
-    <item android:color="?serv_textOnDarkPrimaryActive" android:state_pressed="true" app:sd_state_accent="true" />
-    <item android:color="?serv_textOnDarkPrimaryHover" android:state_hovered="true" app:sd_state_accent="true" />
-    <item android:color="?serv_textOnDarkPrimary" app:sd_state_accent="true" />
+    <item android:color="?serv_textOnDarkSecondaryActive" android:state_pressed="true" app:sd_state_accent="true" />
+    <item android:color="?serv_textOnDarkSecondaryHover" android:state_hovered="true" app:sd_state_accent="true" />
+    <item android:color="?serv_textOnDarkSecondary" app:sd_state_accent="true" />
 
     <item android:color="?serv_textInverseSecondaryActive" android:state_pressed="true" />
     <item android:color="?serv_textInverseSecondaryHover" android:state_hovered="true" />

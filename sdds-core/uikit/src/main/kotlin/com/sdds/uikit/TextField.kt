@@ -704,7 +704,7 @@ open class TextField @JvmOverloads constructor(
                 _outerLabelView.text = null
                 _outerLabelView.isVisible = false
                 _decorationBox.setLabel(label)
-                _decorationBox.labelEnabled = true
+                _decorationBox.labelEnabled = !label.isNullOrBlank()
             }
         }
         _decorationBox.updateTextOffset()

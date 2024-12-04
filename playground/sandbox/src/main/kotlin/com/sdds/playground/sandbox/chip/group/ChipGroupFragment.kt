@@ -79,7 +79,7 @@ internal class ChipGroupFragment : ComponentFragment() {
         removeAllViews()
         val theme = ContextThemeWrapper(requireContext(), state.variant.styleRes)
         gravity = state.gravityMode.gravity
-        this.state = state.checkedState
+        this.state = state.checkedState.viewState
         this.selectionMode = state.selectionMode
         repeat(state.quantity) {
             val chip = Chip(theme).apply {
