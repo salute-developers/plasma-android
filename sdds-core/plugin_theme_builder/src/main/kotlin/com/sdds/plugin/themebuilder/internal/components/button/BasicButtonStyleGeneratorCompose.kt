@@ -84,7 +84,6 @@ internal class BasicButtonStyleGeneratorCompose(
             "BasicButtonStyleBuilder",
             "com.sdds.compose.uikit",
         )
-        CodeBlock.builder().add("").build()
         colorVariations.forEach { (color, colorData) ->
             appendRootVal(
                 name = color.capitalize(Locale.getDefault()),
