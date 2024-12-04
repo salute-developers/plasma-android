@@ -7,6 +7,8 @@ import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.LinkButton
 import com.sdds.compose.uikit.LinkButtonStyleBuilder
 import com.sdds.compose.uikit.adjustBy
+import com.sdds.compose.uikit.interactions.InteractiveState
+import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.playground.themebuilder.theme.SddsServTheme
 
 public val LinkButton.L: LinkButtonStyleBuilder
@@ -62,3 +64,18 @@ public val LinkButton.S: LinkButtonStyleBuilder
             ),
         )
         .labelStyle(SddsServTheme.typography.bodySBold)
+
+public val LinkButtonStyleBuilder.Default: LinkButtonStyleBuilder
+    @Composable
+    get() = this.colors {
+        contentColor(SddsServTheme.colors.textInversePrimaryActive.asInteractive(setOf(InteractiveState.Pressed)
+                to SddsServTheme.colors.surfaceInversePrimaryPressed))
+        spinnerMode(Button.SpinnerMode.SemitransparentContent(0.02f))
+    }
+
+public val LinkButtonStyleBuilder.Warning: LinkButtonStyleBuilder
+    @Composable
+    get() = this.colors {
+        contentColor(SddsServTheme.colors.textInverseWarningActive.asInteractive())
+        spinnerMode(Button.SpinnerMode.SemitransparentContent(0.02f))
+    }

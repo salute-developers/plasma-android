@@ -108,7 +108,7 @@ fun Button(
         modifier = modifier,
         onClick = onClick,
         colors = colors,
-        spinnerMode = style.spinnerMode,
+        spinnerMode = colors.spinnerMode,
         enabledAlpha = ENABLED_BUTTON_ALPHA,
         disabledAlpha = style.disableAlpha,
         enabled = enabled,

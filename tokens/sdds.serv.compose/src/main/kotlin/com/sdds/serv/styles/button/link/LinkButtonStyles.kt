@@ -66,9 +66,9 @@ val LinkButton.L: LinkButtonStyleBuilder
             ),
         )
         .labelStyle(SddsServTheme.typography.bodyLBold)
-        .spinnerMode(Button.SpinnerMode.SemitransparentContent(SEMITRANSPARENT_SPINNER_ALPHA))
         .colors {
             backgroundColor(SddsServTheme.colors.surfaceDefaultClear)
+            spinnerMode(Button.SpinnerMode.SemitransparentContent(SEMITRANSPARENT_SPINNER_ALPHA))
         }
 
 val LinkButton.M: LinkButtonStyleBuilder
@@ -85,9 +85,9 @@ val LinkButton.M: LinkButtonStyleBuilder
             ),
         )
         .labelStyle(SddsServTheme.typography.bodyMBold)
-        .spinnerMode(Button.SpinnerMode.SemitransparentContent(SEMITRANSPARENT_SPINNER_ALPHA))
         .colors {
             backgroundColor(SddsServTheme.colors.surfaceDefaultClear)
+            spinnerMode(Button.SpinnerMode.SemitransparentContent(SEMITRANSPARENT_SPINNER_ALPHA))
         }
 
 val LinkButton.S: LinkButtonStyleBuilder
@@ -104,9 +104,9 @@ val LinkButton.S: LinkButtonStyleBuilder
             ),
         )
         .labelStyle(SddsServTheme.typography.bodySBold)
-        .spinnerMode(Button.SpinnerMode.SemitransparentContent(SEMITRANSPARENT_SPINNER_ALPHA))
         .colors {
             backgroundColor(SddsServTheme.colors.surfaceDefaultClear)
+            spinnerMode(Button.SpinnerMode.SemitransparentContent(SEMITRANSPARENT_SPINNER_ALPHA))
         }
 
 val LinkButton.Xs: LinkButtonStyleBuilder
@@ -123,9 +123,9 @@ val LinkButton.Xs: LinkButtonStyleBuilder
             ),
         )
         .labelStyle(SddsServTheme.typography.bodyXsBold)
-        .spinnerMode(Button.SpinnerMode.SemitransparentContent(SEMITRANSPARENT_SPINNER_ALPHA))
         .colors {
             backgroundColor(SddsServTheme.colors.surfaceDefaultClear)
+            spinnerMode(Button.SpinnerMode.SemitransparentContent(SEMITRANSPARENT_SPINNER_ALPHA))
         }
 
 @Composable

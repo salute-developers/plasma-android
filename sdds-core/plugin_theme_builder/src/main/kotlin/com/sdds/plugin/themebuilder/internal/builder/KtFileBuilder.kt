@@ -3,6 +3,7 @@ package com.sdds.plugin.themebuilder.internal.builder
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import com.squareup.kotlinpoet.AnnotationSpec
 import com.squareup.kotlinpoet.ClassName
+import com.squareup.kotlinpoet.CodeBlock
 import com.squareup.kotlinpoet.FileSpec
 import com.squareup.kotlinpoet.FunSpec
 import com.squareup.kotlinpoet.KModifier
@@ -412,6 +413,13 @@ internal class KtFileBuilder(
                 }
                 body?.let { builder.addCode(it) }
             }
+            is Getter.AnnotatedCodeBlock -> {
+                modifiers?.let { builder.addModifiers(it.toKModifiers()) }
+                annotations?.let { annotationList ->
+                    annotationList.forEach { builder.addAnnotation(it) }
+                }
+                body?.let { builder.addCode(it) }
+            }
         }
         return builder.build()
     }
@@ -489,6 +497,15 @@ internal class KtFileBuilder(
             val annotations: List<ClassName>? = null,
             val modifiers: List<Modifier>? = null,
             val body: String? = null,
+        ) : Getter()
+
+        /**
+         * Геттер
+         */
+        data class AnnotatedCodeBlock(
+            val annotations: List<ClassName>? = null,
+            val modifiers: List<Modifier>? = null,
+            val body: CodeBlock? = null,
         ) : Getter()
     }
 
