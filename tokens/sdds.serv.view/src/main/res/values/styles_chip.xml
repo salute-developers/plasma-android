@@ -2,9 +2,9 @@
 <resources>
 
     <style name="Serv.Sdds.Components.Chip" parent="Sdds.Components.Chip">
-        <item name="android:backgroundTint">@color/bg_color_button</item>
-        <item name="android:textColor">@color/text_color_button</item>
-        <item name="sd_drawableStartTint">@color/text_color_button</item>
+        <item name="android:backgroundTint">@color/bg_color_chip</item>
+        <item name="android:textColor">@color/text_color_chip</item>
+        <item name="sd_drawableStartTint">@color/text_color_chip</item>
         <item name="sd_drawableEndTint">@color/drawable_color_chip</item>
         <item name="sd_viewState">primary</item>
     </style>

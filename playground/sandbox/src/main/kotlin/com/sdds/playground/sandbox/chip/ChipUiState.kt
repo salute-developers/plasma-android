@@ -33,9 +33,19 @@ internal data class ChipUiState(
     val isWrapped: Boolean = false,
     val quantity: Int = 3,
     val gravityMode: GravityMode = GravityMode.Start,
-    val checkedState: ViewState = ViewState.ACCENT,
+    val checkedState: CheckedState = CheckedState.Accent,
     val selectionMode: ChipGroup.SelectionMode = ChipGroup.SelectionMode.Single,
 ) : Parcelable
+
+/**
+ * Состояния выбранного Chip
+ */
+@Parcelize
+internal enum class CheckedState(val viewState: ViewState) : Parcelable {
+    Default(ViewState.PRIMARY),
+    Secondary(ViewState.SECONDARY),
+    Accent(ViewState.ACCENT),
+}
 
 /**
  * Горизонтальное выравнивание в группе

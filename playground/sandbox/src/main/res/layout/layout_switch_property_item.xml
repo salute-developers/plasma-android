@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<com.sdds.uikit.CellLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/Theme.Sandbox.PropertyItem"
@@ -11,26 +11,27 @@
     <com.sdds.uikit.TextView
         style="@style/Theme.Sandbox.PropertyItemLabel"
         android:id="@+id/property_name"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/sdds_spacer_4x"
         android:ellipsize="end"
         android:maxLines="1"
         tools:text="Property name"
+        app:layout_cellContent="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/property_switch"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.sdds.uikit.Switch
-        style="@style/Theme.Sandbox.PropertyItemSwitch"
         android:id="@+id/property_switch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:drawablePadding="0dp"
         android:clickable="false"
+        app:layout_cellContent="end"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</com.sdds.uikit.CellLayout>
