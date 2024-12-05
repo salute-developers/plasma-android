@@ -544,6 +544,11 @@ interface TextFieldDimensionsBuilder {
     fun indicatorDimensions(indicatorDimensions: TextField.Dimensions.IndicatorDimensions): TextFieldDimensionsBuilder
 
     /**
+     * Устанавливает настройки индикатора
+     */
+    fun indicatorDimensions(builder: TextFieldIndicatorDimensionsBuilder.() -> Unit): TextFieldDimensionsBuilder
+
+    /**
      * Устанавливает толщину разделителя в clear режиме
      */
     fun dividerThickness(dividerThickness: Dp): TextFieldDimensionsBuilder
@@ -558,6 +563,143 @@ interface TextFieldDimensionsBuilder {
          * Вернет экземпляр билдера [TextFieldDimensionsBuilder]
          */
         fun builder(): TextFieldDimensionsBuilder = DefaultTextFieldDimensionsBuilder()
+    }
+}
+
+/**
+ * Билдер настроек индикатора
+ */
+interface TextFieldIndicatorDimensionsBuilder {
+
+    /**
+     * Устанавливает начальный горизонтальный отступ внешнего индикатора
+     */
+    fun startLabelHorizontalPadding(startLabelHorizontalPadding: Dp): TextFieldIndicatorDimensionsBuilder
+
+    /**
+     * Устанавливает начальный вертикальный отступ внешнего индикатора
+     */
+    fun startLabelVerticalPadding(startLabelVerticalPadding: Dp): TextFieldIndicatorDimensionsBuilder
+
+    /**
+     * Устанавливает конечный горизонтальный отступ внешнего индикатора
+     */
+    fun endLabelHorizontalPadding(endLabelHorizontalPadding: Dp): TextFieldIndicatorDimensionsBuilder
+
+    /**
+     * Устанавливает конечный вертикальный отступ внешнего индикатора
+     */
+    fun endLabelVerticalPadding(endLabelVerticalPadding: Dp): TextFieldIndicatorDimensionsBuilder
+
+    /**
+     * Устанавливает начальный горизонтальный отступ внутреннего индикатора
+     */
+    fun startFieldHorizontalPadding(startFieldHorizontalPadding: Dp): TextFieldIndicatorDimensionsBuilder
+
+    /**
+     * Устанавливает начальный вертикальный отступ внутреннего индикатора
+     */
+    fun startFieldVerticalPadding(startFieldVerticalPadding: Dp): TextFieldIndicatorDimensionsBuilder
+
+    /**
+     * Устанавливает конечный горизонтальный отступ внутреннего индикатора
+     */
+    fun endFieldHorizontalPadding(endFieldHorizontalPadding: Dp): TextFieldIndicatorDimensionsBuilder
+
+    /**
+     * Устанавливает конечный вертикальный отступ внутреннего индикатора
+     */
+    fun endFieldVerticalPadding(endFieldVerticalPadding: Dp): TextFieldIndicatorDimensionsBuilder
+
+    /**
+     * Устанавливает размер внешнего индикатора
+     */
+    fun labelIndicatorSize(labelIndicatorSize: Dp): TextFieldIndicatorDimensionsBuilder
+
+    /**
+     * Устанавливает размер внутреннего индикатора
+     */
+    fun fieldIndicatorSize(fieldIndicatorSize: Dp): TextFieldIndicatorDimensionsBuilder
+
+    /**
+     * Возвращает экземпляр [TextField.Dimensions.IndicatorDimensions]
+     */
+    fun build(): TextField.Dimensions.IndicatorDimensions
+
+    companion object {
+
+        /**
+         * Возвращает билдер [TextFieldIndicatorDimensionsBuilder]
+         */
+        fun builder(): TextFieldIndicatorDimensionsBuilder =
+            DefaultTextFieldIndicatorDimensionsBuilder()
+    }
+}
+
+private class DefaultTextFieldIndicatorDimensionsBuilder : TextFieldIndicatorDimensionsBuilder {
+    private var startLabelHorizontalPadding: Dp? = null
+    private var startLabelVerticalPadding: Dp? = null
+    private var endLabelHorizontalPadding: Dp? = null
+    private var endLabelVerticalPadding: Dp? = null
+    private var startFieldHorizontalPadding: Dp? = null
+    private var startFieldVerticalPadding: Dp? = null
+    private var endFieldHorizontalPadding: Dp? = null
+    private var endFieldVerticalPadding: Dp? = null
+    private var labelIndicatorSize: Dp? = null
+    private var fieldIndicatorSize: Dp? = null
+    override fun startLabelHorizontalPadding(startLabelHorizontalPadding: Dp) = apply {
+        this.startLabelHorizontalPadding = startLabelHorizontalPadding
+    }
+
+    override fun startLabelVerticalPadding(startLabelVerticalPadding: Dp) = apply {
+        this.startLabelVerticalPadding = startLabelVerticalPadding
+    }
+
+    override fun endLabelHorizontalPadding(endLabelHorizontalPadding: Dp) = apply {
+        this.endLabelHorizontalPadding = endLabelHorizontalPadding
+    }
+
+    override fun endLabelVerticalPadding(endLabelVerticalPadding: Dp) = apply {
+        this.endLabelVerticalPadding = endLabelVerticalPadding
+    }
+
+    override fun startFieldHorizontalPadding(startFieldHorizontalPadding: Dp) = apply {
+        this.startFieldHorizontalPadding = startFieldHorizontalPadding
+    }
+
+    override fun startFieldVerticalPadding(startFieldVerticalPadding: Dp) = apply {
+        this.startFieldVerticalPadding = startFieldVerticalPadding
+    }
+
+    override fun endFieldHorizontalPadding(endFieldHorizontalPadding: Dp) = apply {
+        this.endFieldHorizontalPadding = endFieldHorizontalPadding
+    }
+
+    override fun endFieldVerticalPadding(endFieldVerticalPadding: Dp) = apply {
+        this.endFieldVerticalPadding = endFieldVerticalPadding
+    }
+
+    override fun labelIndicatorSize(labelIndicatorSize: Dp) = apply {
+        this.labelIndicatorSize = labelIndicatorSize
+    }
+
+    override fun fieldIndicatorSize(fieldIndicatorSize: Dp) = apply {
+        this.fieldIndicatorSize = fieldIndicatorSize
+    }
+
+    override fun build(): TextField.Dimensions.IndicatorDimensions {
+        return TextField.Dimensions.IndicatorDimensions(
+            startLabelHorizontalPadding = startLabelHorizontalPadding ?: 0.dp,
+            startLabelVerticalPadding = startLabelVerticalPadding ?: 0.dp,
+            endLabelHorizontalPadding = endLabelHorizontalPadding ?: 0.dp,
+            endLabelVerticalPadding = endLabelVerticalPadding ?: 0.dp,
+            startFieldHorizontalPadding = startFieldHorizontalPadding ?: 0.dp,
+            startFieldVerticalPadding = startFieldVerticalPadding ?: 0.dp,
+            endFieldHorizontalPadding = endFieldHorizontalPadding ?: 0.dp,
+            endFieldVerticalPadding = endFieldVerticalPadding ?: 0.dp,
+            labelIndicatorSize = labelIndicatorSize ?: 6.dp,
+            fieldIndicatorSize = fieldIndicatorSize ?: 6.dp,
+        )
     }
 }
 
@@ -580,6 +722,8 @@ private class DefaultTextFieldDimensionsBuilder : TextFieldDimensionsBuilder {
     private var alignmentLineHeight: Dp? = null
     private var iconSize: Dp? = null
     private var indicatorDimensions: TextField.Dimensions.IndicatorDimensions? = null
+    private var indicatorDimensionsBuilder: TextFieldIndicatorDimensionsBuilder =
+        TextFieldIndicatorDimensionsBuilder.builder()
     private var dividerThickness: Dp? = null
     override fun boxPaddingStart(boxPaddingStart: Dp) = apply {
         this.boxPaddingStart = boxPaddingStart
@@ -649,9 +793,16 @@ private class DefaultTextFieldDimensionsBuilder : TextFieldDimensionsBuilder {
         this.iconSize = iconSize
     }
 
-    override fun indicatorDimensions(indicatorDimensions: TextField.Dimensions.IndicatorDimensions) = apply {
-        this.indicatorDimensions = indicatorDimensions
-    }
+    override fun indicatorDimensions(indicatorDimensions: TextField.Dimensions.IndicatorDimensions) =
+        apply {
+            this.indicatorDimensions = indicatorDimensions
+        }
+
+    override fun indicatorDimensions(builder: TextFieldIndicatorDimensionsBuilder.() -> Unit) =
+        apply {
+            this.indicatorDimensionsBuilder.builder()
+            this.indicatorDimensions = indicatorDimensionsBuilder.build()
+        }
 
     override fun dividerThickness(dividerThickness: Dp) = apply {
         this.dividerThickness = dividerThickness
@@ -722,7 +873,8 @@ private class DefaultTextFieldStyle(
     class Builder(override val receiver: Any?) : TextFieldStyleBuilder {
 
         private var colorsBuilder: TextFieldColorsBuilder = TextFieldColorsBuilder.builder()
-        private var dimensionsBuilder: TextFieldDimensionsBuilder = TextFieldDimensionsBuilder.builder()
+        private var dimensionsBuilder: TextFieldDimensionsBuilder =
+            TextFieldDimensionsBuilder.builder()
         private var dimensions: TextField.Dimensions? = null
         private var shape: CornerBasedShape? = null
         private var labelPlacement: TextField.LabelPlacement? = null

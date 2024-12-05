@@ -124,7 +124,7 @@ object TextField {
      * @property dividerThickness толщина разделителя в clear режиме
      */
     @Immutable
-    data class Dimensions (
+    data class Dimensions(
         val boxPaddingStart: Dp = 16.dp,
         val boxPaddingEnd: Dp = 16.dp,
         val boxPaddingTopInnerLabel: Dp = 25.dp,
