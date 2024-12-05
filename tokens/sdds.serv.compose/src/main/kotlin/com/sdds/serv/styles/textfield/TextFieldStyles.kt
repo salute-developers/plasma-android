@@ -10,10 +10,12 @@ import com.sdds.compose.uikit.TextAreaClear
 import com.sdds.compose.uikit.TextField
 import com.sdds.compose.uikit.TextFieldClear
 import com.sdds.compose.uikit.TextFieldColorsBuilder
+import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.TextFieldStyleBuilder
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.style.applyFor
+import com.sdds.compose.uikit.textFieldBuilder
 import com.sdds.serv.styles.chip.L
 import com.sdds.serv.styles.chip.M
 import com.sdds.serv.styles.chip.S
@@ -91,7 +93,7 @@ val TextFieldStyleBuilder.OuterLabel: TextFieldStyleBuilder
 
 val TextField.Xs: TextFieldStyleBuilder
     @Composable
-    get() = TextFieldStyleBuilder.builder(this)
+    get() = TextFieldStyle.textFieldBuilder(this)
         .fieldAppearance(TextField.FieldAppearance.Solid)
         .shape(SddsServTheme.shapes.roundS)
         .helperTextPlacement(TextField.HelperTextPlacement.Outer)
@@ -142,7 +144,7 @@ val TextField.Xs: TextFieldStyleBuilder
 
 val TextField.S: TextFieldStyleBuilder
     @Composable
-    get() = TextFieldStyleBuilder.builder(this)
+    get() = TextFieldStyle.textFieldBuilder(this)
         .fieldAppearance(TextField.FieldAppearance.Solid)
         .shape(SddsServTheme.shapes.roundM.adjustBy(all = (-2).dp))
         .helperTextPlacement(TextField.HelperTextPlacement.Outer)
@@ -192,7 +194,7 @@ val TextField.S: TextFieldStyleBuilder
 
 val TextField.M: TextFieldStyleBuilder
     @Composable
-    get() = TextFieldStyleBuilder.builder(this)
+    get() = TextFieldStyle.textFieldBuilder(this)
         .fieldAppearance(TextField.FieldAppearance.Solid)
         .shape(SddsServTheme.shapes.roundM)
         .helperTextPlacement(TextField.HelperTextPlacement.Outer)
@@ -242,7 +244,7 @@ val TextField.M: TextFieldStyleBuilder
 
 val TextField.L: TextFieldStyleBuilder
     @Composable
-    get() = TextFieldStyleBuilder.builder(this)
+    get() = TextFieldStyle.textFieldBuilder(this)
         .fieldAppearance(TextField.FieldAppearance.Solid)
         .shape(SddsServTheme.shapes.roundM.adjustBy(all = 2.dp))
         .helperTextPlacement(TextField.HelperTextPlacement.Outer)

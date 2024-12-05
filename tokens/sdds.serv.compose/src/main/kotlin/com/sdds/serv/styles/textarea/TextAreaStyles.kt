@@ -8,8 +8,10 @@ import com.sdds.compose.uikit.EmbeddedChip
 import com.sdds.compose.uikit.ScrollBar
 import com.sdds.compose.uikit.TextArea
 import com.sdds.compose.uikit.TextField
+import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.TextFieldStyleBuilder
 import com.sdds.compose.uikit.adjustBy
+import com.sdds.compose.uikit.textFieldBuilder
 import com.sdds.serv.styles.chip.L
 import com.sdds.serv.styles.chip.M
 import com.sdds.serv.styles.chip.S
@@ -20,7 +22,7 @@ import com.sdds.serv.theme.SddsServTheme
 
 val TextArea.Xs: TextFieldStyleBuilder
     @Composable
-    get() = TextFieldStyleBuilder.builder(this)
+    get() = TextFieldStyle.textFieldBuilder(this)
         .fieldAppearance(TextField.FieldAppearance.Solid)
         .shape(SddsServTheme.shapes.roundS)
         .helperTextPlacement(TextField.HelperTextPlacement.Inner)
@@ -72,7 +74,7 @@ val TextArea.Xs: TextFieldStyleBuilder
 
 val TextArea.S: TextFieldStyleBuilder
     @Composable
-    get() = TextFieldStyleBuilder.builder(this)
+    get() = TextFieldStyle.textFieldBuilder(this)
         .fieldAppearance(TextField.FieldAppearance.Solid)
         .shape(SddsServTheme.shapes.roundM.adjustBy(all = (-2).dp))
         .helperTextPlacement(TextField.HelperTextPlacement.Inner)
@@ -123,7 +125,7 @@ val TextArea.S: TextFieldStyleBuilder
 
 val TextArea.M: TextFieldStyleBuilder
     @Composable
-    get() = TextFieldStyleBuilder.builder(this)
+    get() = TextFieldStyle.textFieldBuilder(this)
         .fieldAppearance(TextField.FieldAppearance.Solid)
         .shape(SddsServTheme.shapes.roundM)
         .helperTextPlacement(TextField.HelperTextPlacement.Inner)
@@ -174,7 +176,7 @@ val TextArea.M: TextFieldStyleBuilder
 
 val TextArea.L: TextFieldStyleBuilder
     @Composable
-    get() = TextFieldStyleBuilder.builder(this)
+    get() = TextFieldStyle.textFieldBuilder(this)
         .fieldAppearance(TextField.FieldAppearance.Solid)
         .shape(SddsServTheme.shapes.roundM.adjustBy(all = 2.dp))
         .helperTextPlacement(TextField.HelperTextPlacement.Inner)

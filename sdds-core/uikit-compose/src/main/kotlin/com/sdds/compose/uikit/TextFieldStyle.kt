@@ -19,7 +19,7 @@ import com.sdds.compose.uikit.style.StyleBuilder
 /**
  * CompositionLocal c [TextFieldStyle] для компонента [TextField]
  */
-val LocalTextFieldStyle = compositionLocalOf { TextFieldStyleBuilder.builder().style() }
+val LocalTextFieldStyle = compositionLocalOf { TextFieldStyle.textFieldBuilder().style() }
 
 /**
  * Стиль компонента [TextField]
@@ -124,6 +124,15 @@ interface TextFieldStyle : Style {
      * Стиль чипов
      */
     val chipGroupStyle: ChipGroupStyle
+
+    companion object
+}
+
+/**
+ * Возвращает экземпляр [TextFieldStyleBuilder]
+ */
+fun TextFieldStyle.Companion.textFieldBuilder(receiver: Any? = null): TextFieldStyleBuilder {
+    return DefaultTextFieldStyle.Builder(receiver)
 }
 
 /**
@@ -139,6 +148,7 @@ interface TextFieldStyleBuilder : StyleBuilder<TextFieldStyle> {
     /**
      * Устанавливает размеры и отступы компонента [dimensions]
      */
+    @Deprecated("Use dimensions() with builder instead")
     fun dimensions(dimensions: TextField.Dimensions): TextFieldStyleBuilder
 
     /**
@@ -236,15 +246,6 @@ interface TextFieldStyleBuilder : StyleBuilder<TextFieldStyle> {
      * Устанавливает стиль чипов [chipGroupStyle]
      */
     fun chipGroupStyle(chipGroupStyle: ChipGroupStyle): TextFieldStyleBuilder
-
-    companion object {
-
-        /**
-         * Возвращает экземпляр [TextFieldStyleBuilder]
-         */
-        fun builder(receiver: Any? = null): TextFieldStyleBuilder =
-            DefaultTextFieldStyle.Builder(receiver)
-    }
 }
 
 /**
@@ -541,11 +542,6 @@ interface TextFieldDimensionsBuilder {
     /**
      * Устанавливает настройки индикатора
      */
-    fun indicatorDimensions(indicatorDimensions: TextField.Dimensions.IndicatorDimensions): TextFieldDimensionsBuilder
-
-    /**
-     * Устанавливает настройки индикатора
-     */
     fun indicatorDimensions(builder: TextFieldIndicatorDimensionsBuilder.() -> Unit): TextFieldDimensionsBuilder
 
     /**
@@ -721,7 +717,6 @@ private class DefaultTextFieldDimensionsBuilder : TextFieldDimensionsBuilder {
     private var boxMinHeight: Dp? = null
     private var alignmentLineHeight: Dp? = null
     private var iconSize: Dp? = null
-    private var indicatorDimensions: TextField.Dimensions.IndicatorDimensions? = null
     private var indicatorDimensionsBuilder: TextFieldIndicatorDimensionsBuilder =
         TextFieldIndicatorDimensionsBuilder.builder()
     private var dividerThickness: Dp? = null
@@ -793,15 +788,9 @@ private class DefaultTextFieldDimensionsBuilder : TextFieldDimensionsBuilder {
         this.iconSize = iconSize
     }
 
-    override fun indicatorDimensions(indicatorDimensions: TextField.Dimensions.IndicatorDimensions) =
-        apply {
-            this.indicatorDimensions = indicatorDimensions
-        }
-
     override fun indicatorDimensions(builder: TextFieldIndicatorDimensionsBuilder.() -> Unit) =
         apply {
             this.indicatorDimensionsBuilder.builder()
-            this.indicatorDimensions = indicatorDimensionsBuilder.build()
         }
 
     override fun dividerThickness(dividerThickness: Dp) = apply {
@@ -828,7 +817,7 @@ private class DefaultTextFieldDimensionsBuilder : TextFieldDimensionsBuilder {
             boxMinHeight = boxMinHeight ?: 56.dp,
             alignmentLineHeight = alignmentLineHeight ?: 56.dp,
             iconSize = iconSize ?: 24.dp,
-            indicatorDimensions = indicatorDimensions ?: TextField.Dimensions.IndicatorDimensions(),
+            indicatorDimensions = indicatorDimensionsBuilder.build(),
             dividerThickness = dividerThickness ?: 1.dp,
         )
     }

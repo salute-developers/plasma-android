@@ -10,6 +10,7 @@ import com.sdds.compose.uikit.TextFieldColorsBuilder
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.TextFieldStyleBuilder
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.textFieldBuilder
 import com.sdds.serv.styles.chip.L
 import com.sdds.serv.styles.chip.M
 import com.sdds.serv.styles.chip.S
@@ -20,7 +21,7 @@ import com.sdds.serv.theme.SddsServTheme
 
 val TextFieldClear.Xs: TextFieldStyleBuilder
     @Composable
-    get() = TextFieldStyleBuilder.builder(this)
+    get() = TextFieldStyle.textFieldBuilder(this)
         .fieldAppearance(TextField.FieldAppearance.Clear)
         .helperTextPlacement(TextField.HelperTextPlacement.Outer)
         .chipGroupStyle(
@@ -74,7 +75,7 @@ val TextFieldClear.Xs: TextFieldStyleBuilder
 
 val TextFieldClear.S: TextFieldStyleBuilder
     @Composable
-    get() = TextFieldStyleBuilder.builder(this)
+    get() = TextFieldStyle.textFieldBuilder(this)
         .fieldAppearance(TextField.FieldAppearance.Clear)
         .helperTextPlacement(TextField.HelperTextPlacement.Outer)
         .chipGroupStyle(
@@ -127,7 +128,7 @@ val TextFieldClear.S: TextFieldStyleBuilder
 
 val TextFieldClear.M: TextFieldStyleBuilder
     @Composable
-    get() = TextFieldStyleBuilder.builder(this)
+    get() = TextFieldStyle.textFieldBuilder(this)
         .fieldAppearance(TextField.FieldAppearance.Clear)
         .helperTextPlacement(TextField.HelperTextPlacement.Outer)
         .chipGroupStyle(
@@ -180,7 +181,7 @@ val TextFieldClear.M: TextFieldStyleBuilder
 
 val TextFieldClear.L: TextFieldStyleBuilder
     @Composable
-    get() = TextFieldStyleBuilder.builder(this)
+    get() = TextFieldStyle.textFieldBuilder(this)
         .fieldAppearance(TextField.FieldAppearance.Clear)
         .helperTextPlacement(TextField.HelperTextPlacement.Outer)
         .chipGroupStyle(
