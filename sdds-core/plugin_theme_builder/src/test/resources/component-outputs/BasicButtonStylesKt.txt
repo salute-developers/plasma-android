@@ -7,6 +7,8 @@ import com.sdds.compose.uikit.BasicButton
 import com.sdds.compose.uikit.BasicButtonStyleBuilder
 import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.adjustBy
+import com.sdds.compose.uikit.interactions.InteractiveState
+import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.playground.themebuilder.theme.SddsServTheme
 
 public val BasicButton.L: BasicButtonStyleBuilder
@@ -71,3 +73,24 @@ public val BasicButton.S: BasicButtonStyleBuilder
         )
         .labelStyle(SddsServTheme.typography.bodySBold)
         .valueStyle(SddsServTheme.typography.bodySBold)
+
+public val BasicButtonStyleBuilder.Default: BasicButtonStyleBuilder
+    @Composable
+    get() = this.colors {
+        contentColor(SddsServTheme.colors.textInversePrimaryActive.asInteractive(setOf(InteractiveState.Pressed)
+                to SddsServTheme.colors.surfaceInversePrimaryPressed))
+        backgroundColor(SddsServTheme.colors.surfaceInversePrimaryActive.asInteractive(setOf(InteractiveState.Pressed,
+                InteractiveState.Focused) to SddsServTheme.colors.surfaceInversePrimaryPressed))
+        valueColor(SddsServTheme.colors.textInversePrimaryActive.asInteractive())
+        spinnerMode(Button.SpinnerMode.SemitransparentContent(0.02f))
+    }
+
+public val BasicButtonStyleBuilder.Warning: BasicButtonStyleBuilder
+    @Composable
+    get() = this.colors {
+        contentColor(SddsServTheme.colors.textInverseWarningActive.asInteractive())
+        backgroundColor(SddsServTheme.colors.surfaceInverseWarningActive.asInteractive(setOf(InteractiveState.Pressed,
+                InteractiveState.Focused) to SddsServTheme.colors.surfaceInverseWarningPressed))
+        valueColor(SddsServTheme.colors.textInversePrimaryActive.asInteractive())
+        spinnerMode(Button.SpinnerMode.SemitransparentContent(0.02f))
+    }

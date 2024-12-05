@@ -5,6 +5,8 @@ import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
+import com.squareup.kotlinpoet.CodeBlock
+import com.squareup.kotlinpoet.withIndent
 import java.util.Locale
 
 internal class BasicButtonStyleGeneratorCompose(
@@ -34,6 +36,7 @@ internal class BasicButtonStyleGeneratorCompose(
     override fun addCode(config: ButtonComponentConfig, ktFileBuilder: KtFileBuilder) {
         super.addCode(config, ktFileBuilder)
         ktFileBuilder.addSizes(config)
+        ktFileBuilder.addColors(config)
     }
 
     private fun KtFileBuilder.addSizes(config: ButtonComponentConfig) {
@@ -70,6 +73,34 @@ internal class BasicButtonStyleGeneratorCompose(
                                 .labelStyle($themeClassName.typography.${sizeData.labelStyle?.toKtTokenName()})
                                 .valueStyle($themeClassName.typography.${sizeData.valueStyle?.toKtTokenName()})
                     """.trimIndent(),
+                ),
+            )
+        }
+    }
+
+    private fun KtFileBuilder.addColors(config: ButtonComponentConfig) {
+        val colorVariations = config.variations.color
+        val builderType = getInternalClassType(
+            "BasicButtonStyleBuilder",
+            "com.sdds.compose.uikit",
+        )
+        colorVariations.forEach { (color, colorData) ->
+            appendRootVal(
+                name = color.capitalize(Locale.getDefault()),
+                typeName = builderType,
+                receiver = builderType,
+                getter = KtFileBuilder.Getter.AnnotatedCodeBlock(
+                    annotations = listOf(KtFileBuilder.TypeAnnotationComposable),
+                    body = CodeBlock.builder()
+                        .add("return this.colors {\n")
+                        .withIndent {
+                            add(colorData.getContentColor())
+                            add(colorData.getBackgroundColor(config.invariant))
+                            add(colorData.getValueColor())
+                            add(colorData.getSpinnerMode(config.invariant))
+                        }
+                        .add("}\n")
+                        .build(),
                 ),
             )
         }

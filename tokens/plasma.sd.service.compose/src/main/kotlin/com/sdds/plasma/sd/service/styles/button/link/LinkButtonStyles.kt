@@ -66,9 +66,9 @@ val LinkButton.L: LinkButtonStyleBuilder
             ),
         )
         .labelStyle(PlasmaSdServiceTheme.typography.bodyLBold)
-        .spinnerMode(Button.SpinnerMode.SemitransparentContent(SEMITRANSPARENT_SPINNER_ALPHA))
         .colors {
             backgroundColor(PlasmaSdServiceTheme.colors.surfaceDefaultClear)
+            spinnerMode(Button.SpinnerMode.SemitransparentContent(SEMITRANSPARENT_SPINNER_ALPHA))
         }
 
 val LinkButton.M: LinkButtonStyleBuilder
@@ -85,9 +85,9 @@ val LinkButton.M: LinkButtonStyleBuilder
             ),
         )
         .labelStyle(PlasmaSdServiceTheme.typography.bodyMBold)
-        .spinnerMode(Button.SpinnerMode.SemitransparentContent(SEMITRANSPARENT_SPINNER_ALPHA))
         .colors {
             backgroundColor(PlasmaSdServiceTheme.colors.surfaceDefaultClear)
+            spinnerMode(Button.SpinnerMode.SemitransparentContent(SEMITRANSPARENT_SPINNER_ALPHA))
         }
 
 val LinkButton.S: LinkButtonStyleBuilder
@@ -104,9 +104,9 @@ val LinkButton.S: LinkButtonStyleBuilder
             ),
         )
         .labelStyle(PlasmaSdServiceTheme.typography.bodySBold)
-        .spinnerMode(Button.SpinnerMode.SemitransparentContent(SEMITRANSPARENT_SPINNER_ALPHA))
         .colors {
             backgroundColor(PlasmaSdServiceTheme.colors.surfaceDefaultClear)
+            spinnerMode(Button.SpinnerMode.SemitransparentContent(SEMITRANSPARENT_SPINNER_ALPHA))
         }
 
 val LinkButton.Xs: LinkButtonStyleBuilder
@@ -123,9 +123,9 @@ val LinkButton.Xs: LinkButtonStyleBuilder
             ),
         )
         .labelStyle(PlasmaSdServiceTheme.typography.bodyXsBold)
-        .spinnerMode(Button.SpinnerMode.SemitransparentContent(SEMITRANSPARENT_SPINNER_ALPHA))
         .colors {
             backgroundColor(PlasmaSdServiceTheme.colors.surfaceDefaultClear)
+            spinnerMode(Button.SpinnerMode.SemitransparentContent(SEMITRANSPARENT_SPINNER_ALPHA))
         }
 
 @Composable

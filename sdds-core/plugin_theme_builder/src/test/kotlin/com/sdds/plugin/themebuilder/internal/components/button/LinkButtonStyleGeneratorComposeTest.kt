@@ -123,7 +123,25 @@ class LinkButtonStyleGeneratorComposeTest {
                         valueMargin = 4f,
                     ),
                 ),
-                color = emptyMap(),
+                color = mapOf(
+                    "default" to ButtonComponentConfig.ColorScheme(
+                        contentColor = ButtonComponentConfig.Color(
+                            default = "textInversePrimaryActive",
+                            states = listOf(
+                                ButtonComponentConfig.ColorState(
+                                    listOf("pressed"),
+                                    "surfaceInversePrimaryPressed",
+                                ),
+                            ),
+                        ),
+                    ),
+                    "warning" to ButtonComponentConfig.ColorScheme(
+                        contentColor = ButtonComponentConfig.Color(
+                            default = "textInverseWarningActive",
+                            states = emptyList(),
+                        ),
+                    ),
+                ),
             ),
         )
     }
