@@ -114,7 +114,38 @@ class IconButtonStyleGeneratorComposeTest {
                         spinnerSize = 22f,
                     ),
                 ),
-                color = emptyMap(),
+                color = mapOf(
+                    "default" to ButtonComponentConfig.ColorScheme(
+                        contentColor = ButtonComponentConfig.Color(
+                            default = "textInversePrimaryActive",
+                            states = emptyList(),
+                        ),
+                        backgroundColor = ButtonComponentConfig.Color(
+                            default = "surfaceInversePrimaryActive",
+                            states = listOf(
+                                ButtonComponentConfig.ColorState(
+                                    listOf("pressed", "focused"),
+                                    "surfaceInversePrimaryPressed",
+                                ),
+                            ),
+                        ),
+                    ),
+                    "warning" to ButtonComponentConfig.ColorScheme(
+                        contentColor = ButtonComponentConfig.Color(
+                            default = "textInverseWarningActive",
+                            states = emptyList(),
+                        ),
+                        backgroundColor = ButtonComponentConfig.Color(
+                            default = "surfaceInverseWarningActive",
+                            states = listOf(
+                                ButtonComponentConfig.ColorState(
+                                    listOf("pressed", "focused"),
+                                    "surfaceInverseWarningPressed",
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
             ),
         )
     }

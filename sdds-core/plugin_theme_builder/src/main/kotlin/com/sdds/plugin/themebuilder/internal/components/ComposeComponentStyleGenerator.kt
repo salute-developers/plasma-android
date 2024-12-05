@@ -2,12 +2,15 @@ package com.sdds.plugin.themebuilder.internal.components
 
 import com.sdds.plugin.themebuilder.DimensionsConfig
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
+import com.sdds.plugin.themebuilder.internal.components.button.ButtonComponentConfig
 import com.sdds.plugin.themebuilder.internal.dimens.DimenData
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
+import com.sdds.plugin.themebuilder.internal.utils.techToCamelCase
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import com.squareup.kotlinpoet.ClassName
+import java.util.Locale
 
 /**
  * Базовый класс для генераторов стилей компонентов на Compose
@@ -62,6 +65,20 @@ internal abstract class ComposeComponentStyleGenerator<T : ComponentConfig>(
         }
     }
 
+    protected fun ButtonComponentConfig.Color?.getAsInteractiveParameters(): String {
+        return this?.states?.joinToString(separator = ", ") { it.getStateParameter() }.orEmpty()
+    }
+
+    protected fun String.toKtTokenName(): String =
+        techToCamelCase().decapitalize(Locale.getDefault())
+
+    private fun ButtonComponentConfig.ColorState.getStateParameter(): String {
+        return this.let { "setOf(${it.state.toColorStates()}) to $themeClassName.colors.${it.value.toKtTokenName()}" }
+    }
+
+    private fun List<String>.toColorStates(): String =
+        joinToString { "InteractiveState.${it.capitalize(Locale.getDefault())}" }
+
     private fun KtFileBuilder.addCommonImports() {
         addImport(
             packageName = "com.sdds.compose.uikit",
@@ -83,6 +100,10 @@ internal abstract class ComposeComponentStyleGenerator<T : ComponentConfig>(
         addImport(
             packageName = themePackage,
             names = listOf(themeClassName),
+        )
+        addImport(
+            packageName = "com.sdds.compose.uikit.interactions",
+            names = listOf("InteractiveState", "asInteractive"),
         )
     }
 }

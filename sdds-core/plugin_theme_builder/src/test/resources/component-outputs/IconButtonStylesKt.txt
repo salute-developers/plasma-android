@@ -7,6 +7,8 @@ import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.IconButtonStyleBuilder
 import com.sdds.compose.uikit.adjustBy
+import com.sdds.compose.uikit.interactions.InteractiveState
+import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.playground.themebuilder.theme.SddsServTheme
 
 public val IconButton.L: IconButtonStyleBuilder
@@ -59,3 +61,21 @@ public val IconButton.S: IconButtonStyleBuilder
                 spinnerSize = 22.0.dp,
             ),
         )
+
+public val IconButtonStyleBuilder.Default: IconButtonStyleBuilder
+    @Composable
+    get() = this.colors {
+        contentColor(SddsServTheme.colors.textInversePrimaryActive.asInteractive())
+        backgroundColor(SddsServTheme.colors.surfaceInversePrimaryActive.asInteractive(setOf(InteractiveState.Pressed,
+                InteractiveState.Focused) to SddsServTheme.colors.surfaceInversePrimaryPressed))
+        spinnerMode(Button.SpinnerMode.SemitransparentContent(0.02f))
+    }
+
+public val IconButtonStyleBuilder.Warning: IconButtonStyleBuilder
+    @Composable
+    get() = this.colors {
+        contentColor(SddsServTheme.colors.textInverseWarningActive.asInteractive())
+        backgroundColor(SddsServTheme.colors.surfaceInverseWarningActive.asInteractive(setOf(InteractiveState.Pressed,
+                InteractiveState.Focused) to SddsServTheme.colors.surfaceInverseWarningPressed))
+        spinnerMode(Button.SpinnerMode.SemitransparentContent(0.02f))
+    }

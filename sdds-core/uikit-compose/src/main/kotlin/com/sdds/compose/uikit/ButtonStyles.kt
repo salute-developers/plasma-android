@@ -105,6 +105,13 @@ interface ButtonColorsBuilder {
         spinnerColor(spinnerColor.asInteractive())
 
     /**
+     * Устанавливает режим работы индикатора загрузки [spinnerMode]
+     * @see ButtonColors.spinnerMode
+     * @see Button.SpinnerMode
+     */
+    fun spinnerMode(spinnerMode: Button.SpinnerMode): ButtonColorsBuilder
+
+    /**
      * Возвращает готовый экземпляр [ButtonColors]
      */
     fun build(): ButtonColors
@@ -150,12 +157,6 @@ interface ButtonStyle : Style {
      * Значение прозрачности выключенной кнопки
      */
     val disableAlpha: Float
-
-    /**
-     * Режим работы индикатора загрузки
-     * @see Button.SpinnerMode
-     */
-    val spinnerMode: Button.SpinnerMode
 }
 
 /**
@@ -200,6 +201,12 @@ interface ButtonColors {
      */
     val spinnerColor: InteractiveColor
 
+    /**
+     * Режим работы индикатора загрузки
+     * @see Button.SpinnerMode
+     */
+    val spinnerMode: Button.SpinnerMode
+
     companion object {
 
         /**
@@ -217,6 +224,7 @@ private class DefaultButtonColors(
     override val valueColor: InteractiveColor,
     override val iconColor: InteractiveColor,
     override val spinnerColor: InteractiveColor,
+    override val spinnerMode: Button.SpinnerMode,
 ) : ButtonColors {
 
     class Builder : ButtonColorsBuilder {
@@ -226,6 +234,7 @@ private class DefaultButtonColors(
         private var valueColor: InteractiveColor? = null
         private var iconColor: InteractiveColor? = null
         private var spinnerColor: InteractiveColor? = null
+        private var spinnerMode: Button.SpinnerMode? = null
 
         override fun contentColor(contentColor: InteractiveColor) = apply {
             this.contentColor = contentColor
@@ -251,6 +260,10 @@ private class DefaultButtonColors(
             this.spinnerColor = spinnerColor
         }
 
+        override fun spinnerMode(spinnerMode: Button.SpinnerMode) = apply {
+            this.spinnerMode = spinnerMode
+        }
+
         override fun build(): ButtonColors {
             val contentColor = contentColor ?: Color.Black.asInteractive()
             return DefaultButtonColors(
@@ -260,6 +273,7 @@ private class DefaultButtonColors(
                 valueColor = valueColor ?: contentColor,
                 iconColor = iconColor ?: contentColor,
                 spinnerColor = spinnerColor ?: contentColor,
+                spinnerMode = spinnerMode ?: Button.SpinnerMode.HideContent,
             )
         }
     }
@@ -273,5 +287,4 @@ internal class DefaultButtonStyle(
     override val valueStyle: TextStyle,
     override val dimensions: Button.Dimensions,
     override val disableAlpha: Float,
-    override val spinnerMode: Button.SpinnerMode,
 ) : ButtonStyle
