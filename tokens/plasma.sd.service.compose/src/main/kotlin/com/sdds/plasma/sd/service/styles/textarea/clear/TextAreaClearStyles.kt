@@ -8,6 +8,7 @@ import com.sdds.compose.uikit.TextAreaClear
 import com.sdds.compose.uikit.TextField
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.TextFieldStyleBuilder
+import com.sdds.compose.uikit.textFieldBuilder
 import com.sdds.plasma.sd.service.styles.chip.L
 import com.sdds.plasma.sd.service.styles.chip.M
 import com.sdds.plasma.sd.service.styles.chip.S
@@ -18,7 +19,7 @@ import com.sdds.plasma.sd.service.theme.PlasmaSdServiceTheme
 
 val TextAreaClear.Xs: TextFieldStyleBuilder
     @Composable
-    get() = TextFieldStyleBuilder.builder(this)
+    get() = TextFieldStyle.textFieldBuilder(this)
         .fieldAppearance(TextField.FieldAppearance.Clear)
         .helperTextPlacement(TextField.HelperTextPlacement.Outer)
         .chipGroupStyle(
@@ -72,7 +73,7 @@ val TextAreaClear.Xs: TextFieldStyleBuilder
 
 val TextAreaClear.S: TextFieldStyleBuilder
     @Composable
-    get() = TextFieldStyleBuilder.builder(this)
+    get() = TextFieldStyle.textFieldBuilder(this)
         .fieldAppearance(TextField.FieldAppearance.Clear)
         .helperTextPlacement(TextField.HelperTextPlacement.Outer)
         .chipGroupStyle(
@@ -125,7 +126,7 @@ val TextAreaClear.S: TextFieldStyleBuilder
 
 val TextAreaClear.M: TextFieldStyleBuilder
     @Composable
-    get() = TextFieldStyleBuilder.builder(this)
+    get() = TextFieldStyle.textFieldBuilder(this)
         .fieldAppearance(TextField.FieldAppearance.Clear)
         .helperTextPlacement(TextField.HelperTextPlacement.Outer)
         .chipGroupStyle(
@@ -178,7 +179,7 @@ val TextAreaClear.M: TextFieldStyleBuilder
 
 val TextAreaClear.L: TextFieldStyleBuilder
     @Composable
-    get() = TextFieldStyleBuilder.builder(this)
+    get() = TextFieldStyle.textFieldBuilder(this)
         .fieldAppearance(TextField.FieldAppearance.Clear)
         .helperTextPlacement(TextField.HelperTextPlacement.Outer)
         .chipGroupStyle(

@@ -5,11 +5,23 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
+import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.style.StyleBuilder
+
+/**
+ * CompositionLocal с [ButtonStyle]  для компонента [IconButton]
+ */
+val LocalLinkButtonStyle = compositionLocalOf { ButtonStyle.iconButtonBuilder().style() }
+
+/**
+ * Возвращает экземпляр [LinkButtonStyleBuilder]
+ */
+fun ButtonStyle.Companion.linkButtonBuilder(receiver: Any? = null): LinkButtonStyleBuilder =
+    LinkButtonStyleBuilderImpl(receiver)
 
 /**
  * Builder стиля кнопки.
@@ -55,13 +67,6 @@ interface LinkButtonStyleBuilder : StyleBuilder<ButtonStyle> {
      * @see ButtonStyle.disableAlpha
      */
     fun disableAlpha(disableAlpha: Float): LinkButtonStyleBuilder
-
-    companion object {
-        /**
-         * Возвращает экземпляр [LinkButtonStyleBuilder]
-         */
-        fun builder(receiver: Any? = null): LinkButtonStyleBuilder = LinkButtonStyleBuilderImpl(receiver)
-    }
 }
 
 /**

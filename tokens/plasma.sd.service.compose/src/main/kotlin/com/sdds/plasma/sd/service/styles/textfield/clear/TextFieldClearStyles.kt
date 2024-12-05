@@ -7,8 +7,10 @@ import com.sdds.compose.uikit.EmbeddedChip
 import com.sdds.compose.uikit.TextField
 import com.sdds.compose.uikit.TextFieldClear
 import com.sdds.compose.uikit.TextFieldColorsBuilder
+import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.TextFieldStyleBuilder
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.textFieldBuilder
 import com.sdds.plasma.sd.service.styles.chip.L
 import com.sdds.plasma.sd.service.styles.chip.M
 import com.sdds.plasma.sd.service.styles.chip.S
@@ -19,7 +21,7 @@ import com.sdds.plasma.sd.service.theme.PlasmaSdServiceTheme
 
 val TextFieldClear.Xs: TextFieldStyleBuilder
     @Composable
-    get() = TextFieldStyleBuilder.builder(this)
+    get() = TextFieldStyle.textFieldBuilder(this)
         .fieldAppearance(TextField.FieldAppearance.Clear)
         .helperTextPlacement(TextField.HelperTextPlacement.Outer)
         .chipGroupStyle(
@@ -73,7 +75,7 @@ val TextFieldClear.Xs: TextFieldStyleBuilder
 
 val TextFieldClear.S: TextFieldStyleBuilder
     @Composable
-    get() = TextFieldStyleBuilder.builder(this)
+    get() = TextFieldStyle.textFieldBuilder(this)
         .fieldAppearance(TextField.FieldAppearance.Clear)
         .helperTextPlacement(TextField.HelperTextPlacement.Outer)
         .chipGroupStyle(
@@ -126,7 +128,7 @@ val TextFieldClear.S: TextFieldStyleBuilder
 
 val TextFieldClear.M: TextFieldStyleBuilder
     @Composable
-    get() = TextFieldStyleBuilder.builder(this)
+    get() = TextFieldStyle.textFieldBuilder(this)
         .fieldAppearance(TextField.FieldAppearance.Clear)
         .helperTextPlacement(TextField.HelperTextPlacement.Outer)
         .chipGroupStyle(
@@ -179,7 +181,7 @@ val TextFieldClear.M: TextFieldStyleBuilder
 
 val TextFieldClear.L: TextFieldStyleBuilder
     @Composable
-    get() = TextFieldStyleBuilder.builder(this)
+    get() = TextFieldStyle.textFieldBuilder(this)
         .fieldAppearance(TextField.FieldAppearance.Clear)
         .helperTextPlacement(TextField.HelperTextPlacement.Outer)
         .chipGroupStyle(

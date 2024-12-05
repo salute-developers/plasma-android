@@ -3,10 +3,12 @@ package com.sdds.serv.styles.button.link
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.Button
+import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.LinkButton
 import com.sdds.compose.uikit.LinkButtonColorsBuilder
 import com.sdds.compose.uikit.LinkButtonStyleBuilder
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.linkButtonBuilder
 import com.sdds.serv.theme.SddsServTheme
 
 /**
@@ -54,7 +56,7 @@ val LinkButtonStyleBuilder.Negative: LinkButtonStyleBuilder
 
 val LinkButton.L: LinkButtonStyleBuilder
     @Composable
-    get() = LinkButtonStyleBuilder.builder(this)
+    get() = ButtonStyle.linkButtonBuilder(this)
         .dimensions(
             Button.Dimensions(
                 height = 56.dp,
@@ -73,7 +75,7 @@ val LinkButton.L: LinkButtonStyleBuilder
 
 val LinkButton.M: LinkButtonStyleBuilder
     @Composable
-    get() = LinkButtonStyleBuilder.builder(this)
+    get() = ButtonStyle.linkButtonBuilder(this)
         .dimensions(
             Button.Dimensions(
                 height = 48.dp,
@@ -92,7 +94,7 @@ val LinkButton.M: LinkButtonStyleBuilder
 
 val LinkButton.S: LinkButtonStyleBuilder
     @Composable
-    get() = LinkButtonStyleBuilder.builder(this)
+    get() = ButtonStyle.linkButtonBuilder(this)
         .dimensions(
             Button.Dimensions(
                 height = 40.dp,
@@ -111,7 +113,7 @@ val LinkButton.S: LinkButtonStyleBuilder
 
 val LinkButton.Xs: LinkButtonStyleBuilder
     @Composable
-    get() = LinkButtonStyleBuilder.builder(this)
+    get() = ButtonStyle.linkButtonBuilder(this)
         .dimensions(
             Button.Dimensions(
                 height = 32.dp,

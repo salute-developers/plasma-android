@@ -36,7 +36,7 @@ internal abstract class BaseButtonStyleGeneratorCompose<T : ComponentConfig>(
     override fun addCode(config: T, ktFileBuilder: KtFileBuilder) {
         ktFileBuilder.addImport(
             packageName = "com.sdds.compose.uikit",
-            names = listOf("Button"),
+            names = listOf("Button", "ButtonStyle"),
         )
     }
 
