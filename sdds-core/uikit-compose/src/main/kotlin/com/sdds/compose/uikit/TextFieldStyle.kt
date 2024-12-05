@@ -9,6 +9,7 @@ import androidx.compose.runtime.Stable
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.asInteractive
@@ -18,7 +19,7 @@ import com.sdds.compose.uikit.style.StyleBuilder
 /**
  * CompositionLocal c [TextFieldStyle] для компонента [TextField]
  */
-val LocalTextFieldStyle = compositionLocalOf { TextFieldStyle.builder().style() }
+val LocalTextFieldStyle = compositionLocalOf { TextFieldStyleBuilder.builder().style() }
 
 /**
  * Стиль компонента [TextField]
@@ -123,20 +124,17 @@ interface TextFieldStyle : Style {
      * Стиль чипов
      */
     val chipGroupStyle: ChipGroupStyle
-
-    companion object {
-
-        /**
-         * Возвращает экземпляр [TextFieldStyleBuilder]
-         */
-        fun builder(receiver: Any? = null): TextFieldStyleBuilder = DefaultTextFieldStyle.Builder(receiver)
-    }
 }
 
 /**
  * Билдер стиля [TextFieldStyle]
  */
 interface TextFieldStyleBuilder : StyleBuilder<TextFieldStyle> {
+
+    /**
+     * Устанавливает размеры и отступы компонента [dimensions]
+     */
+    fun dimensions(builder: TextFieldDimensionsBuilder.() -> Unit): TextFieldStyleBuilder
 
     /**
      * Устанавливает размеры и отступы компонента [dimensions]
@@ -238,6 +236,15 @@ interface TextFieldStyleBuilder : StyleBuilder<TextFieldStyle> {
      * Устанавливает стиль чипов [chipGroupStyle]
      */
     fun chipGroupStyle(chipGroupStyle: ChipGroupStyle): TextFieldStyleBuilder
+
+    companion object {
+
+        /**
+         * Возвращает экземпляр [TextFieldStyleBuilder]
+         */
+        fun builder(receiver: Any? = null): TextFieldStyleBuilder =
+            DefaultTextFieldStyle.Builder(receiver)
+    }
 }
 
 /**
@@ -315,183 +322,6 @@ interface TextFieldColors {
      * Цвет бэкграунда
      */
     fun backgroundColor(isReadOnly: Boolean): InteractiveColor
-
-    companion object {
-
-        /**
-         * Вернет экземпляр билдера [TextFieldColorsBuilder]
-         */
-        fun builder(): TextFieldColorsBuilder = DefaultTextFieldColors.Builder()
-    }
-}
-
-@Immutable
-@Suppress("LongParameterList")
-private class DefaultTextFieldStyle(
-    override val dimensions: TextField.Dimensions,
-    override val colors: TextFieldColors,
-    override val shape: CornerBasedShape,
-    override val fieldType: TextField.FieldType,
-    override val fieldAppearance: TextField.FieldAppearance,
-    override val labelPlacement: TextField.LabelPlacement,
-    override val helperTextPlacement: TextField.HelperTextPlacement,
-    override val scrollBar: ScrollBar?,
-    override val valueStyle: TextStyle,
-    override val captionStyle: TextStyle,
-    override val counterStyle: TextStyle,
-    override val placeholderStyle: TextStyle,
-    override val singleLine: Boolean,
-    override val hasDivider: Boolean,
-    override val dropInnerLabel: Boolean,
-    override val chipGroupStyle: ChipGroupStyle,
-    private val innerLabelStyle: TextStyle,
-    private val outerLabelStyle: TextStyle,
-    private val innerOptionalStyle: TextStyle,
-    private val outerOptionalStyle: TextStyle,
-) : TextFieldStyle {
-
-    override val labelStyle: TextStyle
-        get() = when (labelPlacement) {
-            TextField.LabelPlacement.Outer -> outerLabelStyle
-            TextField.LabelPlacement.Inner -> innerLabelStyle
-        }
-    override val optionalStyle: TextStyle
-        get() = when (labelPlacement) {
-            TextField.LabelPlacement.Outer -> outerOptionalStyle
-            TextField.LabelPlacement.Inner -> innerOptionalStyle
-        }
-
-    class Builder(override val receiver: Any?) : TextFieldStyleBuilder {
-
-        private var colorsBuilder: TextFieldColorsBuilder = TextFieldColors.builder()
-        private var dimensions: TextField.Dimensions? = null
-        private var shape: CornerBasedShape? = null
-        private var labelPlacement: TextField.LabelPlacement? = null
-        private var helperTextPlacement: TextField.HelperTextPlacement? = null
-        private var fieldType: TextField.FieldType? = null
-        private var fieldAppearance: TextField.FieldAppearance? = null
-        private var scrollBar: ScrollBar? = null
-        private var innerLabelStyle: TextStyle? = null
-        private var outerLabelStyle: TextStyle? = null
-        private var innerOptionalStyle: TextStyle? = null
-        private var outerOptionalStyle: TextStyle? = null
-        private var valueStyle: TextStyle? = null
-        private var captionStyle: TextStyle? = null
-        private var counterStyle: TextStyle? = null
-        private var placeholderStyle: TextStyle? = null
-        private var singleLine: Boolean? = null
-        private var hasDivider: Boolean? = null
-        private var dropInnerLabel: Boolean? = null
-        private var chipGroupStyle: ChipGroupStyle? = null
-
-        override fun dimensions(dimensions: TextField.Dimensions) = apply {
-            this.dimensions = dimensions
-        }
-
-        @Composable
-        override fun colors(builder: @Composable (TextFieldColorsBuilder.() -> Unit)) = apply {
-            this.colorsBuilder.builder()
-        }
-
-        override fun shape(shape: CornerBasedShape) = apply {
-            this.shape = shape
-        }
-
-        override fun labelPlacement(labelPlacement: TextField.LabelPlacement) = apply {
-            this.labelPlacement = labelPlacement
-        }
-
-        override fun helperTextPlacement(helperTextPlacement: TextField.HelperTextPlacement) =
-            apply {
-                this.helperTextPlacement = helperTextPlacement
-            }
-
-        override fun fieldType(fieldType: TextField.FieldType) = apply {
-            this.fieldType = fieldType
-        }
-
-        override fun fieldAppearance(fieldAppearance: TextField.FieldAppearance) = apply {
-            this.fieldAppearance = fieldAppearance
-        }
-
-        override fun scrollBar(scrollBar: ScrollBar?) = apply {
-            this.scrollBar = scrollBar
-        }
-
-        override fun innerLabelStyle(innerLabelStyle: TextStyle) = apply {
-            this.innerLabelStyle = innerLabelStyle
-        }
-
-        override fun outerLabelStyle(outerLabelStyle: TextStyle) = apply {
-            this.outerLabelStyle = outerLabelStyle
-        }
-
-        override fun innerOptionalStyle(innerOptionalStyle: TextStyle) = apply {
-            this.innerOptionalStyle = innerOptionalStyle
-        }
-
-        override fun outerOptionalStyle(outerOptionalStyle: TextStyle) = apply {
-            this.outerOptionalStyle = outerOptionalStyle
-        }
-
-        override fun valueStyle(valueStyle: TextStyle) = apply {
-            this.valueStyle = valueStyle
-        }
-
-        override fun captionStyle(captionStyle: TextStyle) = apply {
-            this.captionStyle = captionStyle
-        }
-
-        override fun counterStyle(counterStyle: TextStyle) = apply {
-            this.counterStyle = counterStyle
-        }
-
-        override fun placeholderStyle(placeholderStyle: TextStyle) = apply {
-            this.placeholderStyle = placeholderStyle
-        }
-
-        override fun singleLine(singleLine: Boolean) = apply {
-            this.singleLine = singleLine
-        }
-
-        override fun hasDivider(hasDivider: Boolean) = apply {
-            this.hasDivider = hasDivider
-        }
-
-        override fun dropInnerLabel(dropInnerLabel: Boolean) = apply {
-            this.dropInnerLabel = dropInnerLabel
-        }
-
-        override fun chipGroupStyle(chipGroupStyle: ChipGroupStyle) = apply {
-            this.chipGroupStyle = chipGroupStyle
-        }
-
-        @Suppress("CyclomaticComplexMethod")
-        override fun style(): TextFieldStyle {
-            return DefaultTextFieldStyle(
-                dimensions = dimensions ?: TextField.Dimensions(),
-                colors = colorsBuilder.build(),
-                shape = shape ?: RoundedCornerShape(CornerSize(8.dp)),
-                fieldType = fieldType ?: TextField.FieldType.Optional,
-                fieldAppearance = fieldAppearance ?: TextField.FieldAppearance.Solid,
-                labelPlacement = labelPlacement ?: TextField.LabelPlacement.Outer,
-                helperTextPlacement = helperTextPlacement ?: TextField.HelperTextPlacement.Inner,
-                scrollBar = scrollBar,
-                innerLabelStyle = innerLabelStyle ?: TextStyle.Default,
-                outerLabelStyle = outerLabelStyle ?: TextStyle.Default,
-                innerOptionalStyle = innerOptionalStyle ?: TextStyle.Default,
-                outerOptionalStyle = outerOptionalStyle ?: TextStyle.Default,
-                valueStyle = valueStyle ?: TextStyle.Default,
-                captionStyle = captionStyle ?: TextStyle.Default,
-                counterStyle = counterStyle ?: TextStyle.Default,
-                placeholderStyle = placeholderStyle ?: TextStyle.Default,
-                singleLine = singleLine ?: true,
-                hasDivider = hasDivider ?: true,
-                dropInnerLabel = dropInnerLabel ?: false,
-                chipGroupStyle = chipGroupStyle ?: ChipGroupStyle.builder().style(),
-            )
-        }
-    }
 }
 
 /**
@@ -608,6 +438,424 @@ interface TextFieldColorsBuilder {
      * Вернет экземпляр [TextFieldColors]
      */
     fun build(): TextFieldColors
+
+    companion object {
+
+        /**
+         * Вернет экземпляр билдера [TextFieldColorsBuilder]
+         */
+        fun builder(): TextFieldColorsBuilder = DefaultTextFieldColors.Builder()
+    }
+}
+
+/**
+ * Билдер размеров для [TextField]
+ */
+interface TextFieldDimensionsBuilder {
+
+    /**
+     * Устанавливает отступ контента в начале
+     */
+    fun boxPaddingStart(boxPaddingStart: Dp): TextFieldDimensionsBuilder
+
+    /**
+     * Устанавливает отступ контента в конце
+     */
+    fun boxPaddingEnd(boxPaddingEnd: Dp): TextFieldDimensionsBuilder
+
+    /**
+     * Устанавливает верхний отступ контента с внутренним лэйблом
+     */
+    fun boxPaddingTopInnerLabel(boxPaddingTopInnerLabel: Dp): TextFieldDimensionsBuilder
+
+    /**
+     * Устанавливает нижний отступ контента с внутренним лэйблом
+     */
+    fun boxPaddingBottomInnerLabel(boxPaddingBottomInnerLabel: Dp): TextFieldDimensionsBuilder
+
+    /**
+     * Устанавливает верхний отступ контента с наружным лэйблом
+     */
+    fun boxPaddingTopOuterLabel(boxPaddingTopOuterLabel: Dp): TextFieldDimensionsBuilder
+
+    /**
+     * Устанавливает нижний отступ контента с наружным лэйблом
+     */
+    fun boxPaddingBottomOuterLabel(boxPaddingBottomOuterLabel: Dp): TextFieldDimensionsBuilder
+
+    /**
+     * Устанавливает нижний отступ внутреннего лэйбла
+     */
+    fun innerLabelPadding(innerLabelPadding: Dp): TextFieldDimensionsBuilder
+
+    /**
+     * Устанавливает нижний отступ наружного лэйбла
+     */
+    fun outerLabelPadding(outerLabelPadding: Dp): TextFieldDimensionsBuilder
+
+    /**
+     * Устанавливает отступ в начале optional текста
+     */
+    fun optionalPadding(optionalPadding: Dp): TextFieldDimensionsBuilder
+
+    /**
+     * Устанавливает верхний отступ внутреннего helper текста (caption/counter)
+     */
+    fun helperTextPaddingInner(helperTextPaddingInner: Dp): TextFieldDimensionsBuilder
+
+    /**
+     * Устанавливает верхний отступ наружного helper текста (caption/counter)
+     */
+    fun helperTextPaddingOuter(helperTextPaddingOuter: Dp): TextFieldDimensionsBuilder
+
+    /**
+     * Устанавливает отступ после startContent
+     */
+    fun startContentEndPadding(startContentEndPadding: Dp): TextFieldDimensionsBuilder
+
+    /**
+     * Устанавливает отступ перед endContent
+     */
+    fun endContentStartPadding(endContentStartPadding: Dp): TextFieldDimensionsBuilder
+
+    /**
+     * Устанавливает отступ от контейнера с chip-элементами
+     */
+    fun chipsPadding(chipsPadding: Dp): TextFieldDimensionsBuilder
+
+    /**
+     * Устанавливает минимальную высоту поля
+     */
+    fun boxMinHeight(boxMinHeight: Dp): TextFieldDimensionsBuilder
+
+    /**
+     * Устанавливает высоту первой строки контента
+     */
+    fun alignmentLineHeight(alignmentLineHeight: Dp): TextFieldDimensionsBuilder
+
+    /**
+     * Устанавливает размер иконки
+     */
+    fun iconSize(iconSize: Dp): TextFieldDimensionsBuilder
+
+    /**
+     * Устанавливает настройки индикатора
+     */
+    fun indicatorDimensions(indicatorDimensions: TextField.Dimensions.IndicatorDimensions): TextFieldDimensionsBuilder
+
+    /**
+     * Устанавливает толщину разделителя в clear режиме
+     */
+    fun dividerThickness(dividerThickness: Dp): TextFieldDimensionsBuilder
+
+    /**
+     * Возвращает [TextField.Dimensions]
+     */
+    fun build(): TextField.Dimensions
+
+    companion object {
+        /**
+         * Вернет экземпляр билдера [TextFieldDimensionsBuilder]
+         */
+        fun builder(): TextFieldDimensionsBuilder = DefaultTextFieldDimensionsBuilder()
+    }
+}
+
+private class DefaultTextFieldDimensionsBuilder : TextFieldDimensionsBuilder {
+    private var boxPaddingStart: Dp? = null
+    private var boxPaddingEnd: Dp? = null
+    private var boxPaddingTopInnerLabel: Dp? = null
+    private var boxPaddingBottomInnerLabel: Dp? = null
+    private var boxPaddingTopOuterLabel: Dp? = null
+    private var boxPaddingBottomOuterLabel: Dp? = null
+    private var innerLabelPadding: Dp? = null
+    private var outerLabelPadding: Dp? = null
+    private var optionalPadding: Dp? = null
+    private var helperTextPaddingInner: Dp? = null
+    private var helperTextPaddingOuter: Dp? = null
+    private var startContentEndPadding: Dp? = null
+    private var endContentStartPadding: Dp? = null
+    private var chipsPadding: Dp? = null
+    private var boxMinHeight: Dp? = null
+    private var alignmentLineHeight: Dp? = null
+    private var iconSize: Dp? = null
+    private var indicatorDimensions: TextField.Dimensions.IndicatorDimensions? = null
+    private var dividerThickness: Dp? = null
+    override fun boxPaddingStart(boxPaddingStart: Dp) = apply {
+        this.boxPaddingStart = boxPaddingStart
+    }
+
+    override fun boxPaddingEnd(boxPaddingEnd: Dp) = apply {
+        this.boxPaddingEnd = boxPaddingEnd
+    }
+
+    override fun boxPaddingTopInnerLabel(boxPaddingTopInnerLabel: Dp) = apply {
+        this.boxPaddingTopInnerLabel = boxPaddingTopInnerLabel
+    }
+
+    override fun boxPaddingBottomInnerLabel(boxPaddingBottomInnerLabel: Dp) = apply {
+        this.boxPaddingBottomInnerLabel = boxPaddingBottomInnerLabel
+    }
+
+    override fun boxPaddingTopOuterLabel(boxPaddingTopOuterLabel: Dp) = apply {
+        this.boxPaddingTopOuterLabel = boxPaddingTopOuterLabel
+    }
+
+    override fun boxPaddingBottomOuterLabel(boxPaddingBottomOuterLabel: Dp) = apply {
+        this.boxPaddingBottomOuterLabel = boxPaddingBottomOuterLabel
+    }
+
+    override fun innerLabelPadding(innerLabelPadding: Dp) = apply {
+        this.innerLabelPadding = innerLabelPadding
+    }
+
+    override fun outerLabelPadding(outerLabelPadding: Dp) = apply {
+        this.outerLabelPadding = outerLabelPadding
+    }
+
+    override fun optionalPadding(optionalPadding: Dp) = apply {
+        this.optionalPadding = optionalPadding
+    }
+
+    override fun helperTextPaddingInner(helperTextPaddingInner: Dp) = apply {
+        this.helperTextPaddingInner = helperTextPaddingInner
+    }
+
+    override fun helperTextPaddingOuter(helperTextPaddingOuter: Dp) = apply {
+        this.helperTextPaddingOuter = helperTextPaddingOuter
+    }
+
+    override fun startContentEndPadding(startContentEndPadding: Dp) = apply {
+        this.startContentEndPadding = startContentEndPadding
+    }
+
+    override fun endContentStartPadding(endContentStartPadding: Dp) = apply {
+        this.endContentStartPadding = endContentStartPadding
+    }
+
+    override fun chipsPadding(chipsPadding: Dp) = apply {
+        this.chipsPadding = chipsPadding
+    }
+
+    override fun boxMinHeight(boxMinHeight: Dp) = apply {
+        this.boxMinHeight = boxMinHeight
+    }
+
+    override fun alignmentLineHeight(alignmentLineHeight: Dp) = apply {
+        this.alignmentLineHeight = alignmentLineHeight
+    }
+
+    override fun iconSize(iconSize: Dp) = apply {
+        this.iconSize = iconSize
+    }
+
+    override fun indicatorDimensions(indicatorDimensions: TextField.Dimensions.IndicatorDimensions) = apply {
+        this.indicatorDimensions = indicatorDimensions
+    }
+
+    override fun dividerThickness(dividerThickness: Dp) = apply {
+        this.dividerThickness = dividerThickness
+    }
+
+    @Suppress("CyclomaticComplexMethod")
+    override fun build(): TextField.Dimensions {
+        return TextField.Dimensions(
+            boxPaddingStart = boxPaddingStart ?: 16.dp,
+            boxPaddingEnd = boxPaddingEnd ?: 16.dp,
+            boxPaddingTopInnerLabel = boxPaddingTopInnerLabel ?: 25.dp,
+            boxPaddingBottomInnerLabel = boxPaddingBottomInnerLabel ?: 9.dp,
+            boxPaddingTopOuterLabel = boxPaddingTopOuterLabel ?: 25.dp,
+            boxPaddingBottomOuterLabel = boxPaddingBottomOuterLabel ?: 9.dp,
+            innerLabelPadding = innerLabelPadding ?: 2.dp,
+            outerLabelPadding = outerLabelPadding ?: 2.dp,
+            optionalPadding = optionalPadding ?: 4.dp,
+            helperTextPaddingInner = helperTextPaddingInner ?: 4.dp,
+            helperTextPaddingOuter = helperTextPaddingOuter ?: 4.dp,
+            startContentEndPadding = startContentEndPadding ?: 6.dp,
+            endContentStartPadding = endContentStartPadding ?: 6.dp,
+            chipsPadding = chipsPadding ?: 6.dp,
+            boxMinHeight = boxMinHeight ?: 56.dp,
+            alignmentLineHeight = alignmentLineHeight ?: 56.dp,
+            iconSize = iconSize ?: 24.dp,
+            indicatorDimensions = indicatorDimensions ?: TextField.Dimensions.IndicatorDimensions(),
+            dividerThickness = dividerThickness ?: 1.dp,
+        )
+    }
+}
+
+@Immutable
+@Suppress("LongParameterList")
+private class DefaultTextFieldStyle(
+    override val dimensions: TextField.Dimensions,
+    override val colors: TextFieldColors,
+    override val shape: CornerBasedShape,
+    override val fieldType: TextField.FieldType,
+    override val fieldAppearance: TextField.FieldAppearance,
+    override val labelPlacement: TextField.LabelPlacement,
+    override val helperTextPlacement: TextField.HelperTextPlacement,
+    override val scrollBar: ScrollBar?,
+    override val valueStyle: TextStyle,
+    override val captionStyle: TextStyle,
+    override val counterStyle: TextStyle,
+    override val placeholderStyle: TextStyle,
+    override val singleLine: Boolean,
+    override val hasDivider: Boolean,
+    override val dropInnerLabel: Boolean,
+    override val chipGroupStyle: ChipGroupStyle,
+    private val innerLabelStyle: TextStyle,
+    private val outerLabelStyle: TextStyle,
+    private val innerOptionalStyle: TextStyle,
+    private val outerOptionalStyle: TextStyle,
+) : TextFieldStyle {
+
+    override val labelStyle: TextStyle
+        get() = when (labelPlacement) {
+            TextField.LabelPlacement.Outer -> outerLabelStyle
+            TextField.LabelPlacement.Inner -> innerLabelStyle
+        }
+    override val optionalStyle: TextStyle
+        get() = when (labelPlacement) {
+            TextField.LabelPlacement.Outer -> outerOptionalStyle
+            TextField.LabelPlacement.Inner -> innerOptionalStyle
+        }
+
+    class Builder(override val receiver: Any?) : TextFieldStyleBuilder {
+
+        private var colorsBuilder: TextFieldColorsBuilder = TextFieldColorsBuilder.builder()
+        private var dimensionsBuilder: TextFieldDimensionsBuilder = TextFieldDimensionsBuilder.builder()
+        private var dimensions: TextField.Dimensions? = null
+        private var shape: CornerBasedShape? = null
+        private var labelPlacement: TextField.LabelPlacement? = null
+        private var helperTextPlacement: TextField.HelperTextPlacement? = null
+        private var fieldType: TextField.FieldType? = null
+        private var fieldAppearance: TextField.FieldAppearance? = null
+        private var scrollBar: ScrollBar? = null
+        private var innerLabelStyle: TextStyle? = null
+        private var outerLabelStyle: TextStyle? = null
+        private var innerOptionalStyle: TextStyle? = null
+        private var outerOptionalStyle: TextStyle? = null
+        private var valueStyle: TextStyle? = null
+        private var captionStyle: TextStyle? = null
+        private var counterStyle: TextStyle? = null
+        private var placeholderStyle: TextStyle? = null
+        private var singleLine: Boolean? = null
+        private var hasDivider: Boolean? = null
+        private var dropInnerLabel: Boolean? = null
+        private var chipGroupStyle: ChipGroupStyle? = null
+
+        override fun dimensions(builder: TextFieldDimensionsBuilder.() -> Unit) = apply {
+            this.dimensionsBuilder.builder()
+            this.dimensions = dimensionsBuilder.build()
+        }
+
+        override fun dimensions(dimensions: TextField.Dimensions) = apply {
+            this.dimensions = dimensions
+        }
+
+        @Composable
+        override fun colors(builder: @Composable (TextFieldColorsBuilder.() -> Unit)) = apply {
+            this.colorsBuilder.builder()
+        }
+
+        override fun shape(shape: CornerBasedShape) = apply {
+            this.shape = shape
+        }
+
+        override fun labelPlacement(labelPlacement: TextField.LabelPlacement) = apply {
+            this.labelPlacement = labelPlacement
+        }
+
+        override fun helperTextPlacement(helperTextPlacement: TextField.HelperTextPlacement) =
+            apply {
+                this.helperTextPlacement = helperTextPlacement
+            }
+
+        override fun fieldType(fieldType: TextField.FieldType) = apply {
+            this.fieldType = fieldType
+        }
+
+        override fun fieldAppearance(fieldAppearance: TextField.FieldAppearance) = apply {
+            this.fieldAppearance = fieldAppearance
+        }
+
+        override fun scrollBar(scrollBar: ScrollBar?) = apply {
+            this.scrollBar = scrollBar
+        }
+
+        override fun innerLabelStyle(innerLabelStyle: TextStyle) = apply {
+            this.innerLabelStyle = innerLabelStyle
+        }
+
+        override fun outerLabelStyle(outerLabelStyle: TextStyle) = apply {
+            this.outerLabelStyle = outerLabelStyle
+        }
+
+        override fun innerOptionalStyle(innerOptionalStyle: TextStyle) = apply {
+            this.innerOptionalStyle = innerOptionalStyle
+        }
+
+        override fun outerOptionalStyle(outerOptionalStyle: TextStyle) = apply {
+            this.outerOptionalStyle = outerOptionalStyle
+        }
+
+        override fun valueStyle(valueStyle: TextStyle) = apply {
+            this.valueStyle = valueStyle
+        }
+
+        override fun captionStyle(captionStyle: TextStyle) = apply {
+            this.captionStyle = captionStyle
+        }
+
+        override fun counterStyle(counterStyle: TextStyle) = apply {
+            this.counterStyle = counterStyle
+        }
+
+        override fun placeholderStyle(placeholderStyle: TextStyle) = apply {
+            this.placeholderStyle = placeholderStyle
+        }
+
+        override fun singleLine(singleLine: Boolean) = apply {
+            this.singleLine = singleLine
+        }
+
+        override fun hasDivider(hasDivider: Boolean) = apply {
+            this.hasDivider = hasDivider
+        }
+
+        override fun dropInnerLabel(dropInnerLabel: Boolean) = apply {
+            this.dropInnerLabel = dropInnerLabel
+        }
+
+        override fun chipGroupStyle(chipGroupStyle: ChipGroupStyle) = apply {
+            this.chipGroupStyle = chipGroupStyle
+        }
+
+        @Suppress("CyclomaticComplexMethod")
+        override fun style(): TextFieldStyle {
+            return DefaultTextFieldStyle(
+                dimensions = dimensions ?: TextField.Dimensions(),
+                colors = colorsBuilder.build(),
+                shape = shape ?: RoundedCornerShape(CornerSize(8.dp)),
+                fieldType = fieldType ?: TextField.FieldType.Optional,
+                fieldAppearance = fieldAppearance ?: TextField.FieldAppearance.Solid,
+                labelPlacement = labelPlacement ?: TextField.LabelPlacement.Outer,
+                helperTextPlacement = helperTextPlacement ?: TextField.HelperTextPlacement.Inner,
+                scrollBar = scrollBar,
+                innerLabelStyle = innerLabelStyle ?: TextStyle.Default,
+                outerLabelStyle = outerLabelStyle ?: TextStyle.Default,
+                innerOptionalStyle = innerOptionalStyle ?: TextStyle.Default,
+                outerOptionalStyle = outerOptionalStyle ?: TextStyle.Default,
+                valueStyle = valueStyle ?: TextStyle.Default,
+                captionStyle = captionStyle ?: TextStyle.Default,
+                counterStyle = counterStyle ?: TextStyle.Default,
+                placeholderStyle = placeholderStyle ?: TextStyle.Default,
+                singleLine = singleLine ?: true,
+                hasDivider = hasDivider ?: true,
+                dropInnerLabel = dropInnerLabel ?: false,
+                chipGroupStyle = chipGroupStyle ?: ChipGroupStyle.builder().style(),
+            )
+        }
+    }
 }
 
 @Suppress("LongParameterList")

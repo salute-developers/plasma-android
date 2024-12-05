@@ -21,7 +21,7 @@ import com.sdds.plasma.sd.service.theme.PlasmaSdServiceTheme
 
 val TextArea.Xs: TextFieldStyleBuilder
     @Composable
-    get() = TextFieldStyle.builder(this)
+    get() = TextFieldStyleBuilder.builder(this)
         .fieldAppearance(TextField.FieldAppearance.Solid)
         .shape(PlasmaSdServiceTheme.shapes.roundS)
         .helperTextPlacement(TextField.HelperTextPlacement.Inner)
@@ -73,7 +73,7 @@ val TextArea.Xs: TextFieldStyleBuilder
 
 val TextArea.S: TextFieldStyleBuilder
     @Composable
-    get() = TextFieldStyle.builder(this)
+    get() = TextFieldStyleBuilder.builder(this)
         .fieldAppearance(TextField.FieldAppearance.Solid)
         .shape(PlasmaSdServiceTheme.shapes.roundM.adjustBy(all = (-2).dp))
         .helperTextPlacement(TextField.HelperTextPlacement.Inner)
@@ -124,7 +124,7 @@ val TextArea.S: TextFieldStyleBuilder
 
 val TextArea.M: TextFieldStyleBuilder
     @Composable
-    get() = TextFieldStyle.builder(this)
+    get() = TextFieldStyleBuilder.builder(this)
         .fieldAppearance(TextField.FieldAppearance.Solid)
         .shape(PlasmaSdServiceTheme.shapes.roundM)
         .helperTextPlacement(TextField.HelperTextPlacement.Inner)
@@ -175,7 +175,7 @@ val TextArea.M: TextFieldStyleBuilder
 
 val TextArea.L: TextFieldStyleBuilder
     @Composable
-    get() = TextFieldStyle.builder(this)
+    get() = TextFieldStyleBuilder.builder(this)
         .fieldAppearance(TextField.FieldAppearance.Solid)
         .shape(PlasmaSdServiceTheme.shapes.roundM.adjustBy(all = 2.dp))
         .helperTextPlacement(TextField.HelperTextPlacement.Inner)

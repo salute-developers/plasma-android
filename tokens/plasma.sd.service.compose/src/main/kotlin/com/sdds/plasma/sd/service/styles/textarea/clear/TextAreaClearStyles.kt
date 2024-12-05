@@ -18,7 +18,7 @@ import com.sdds.plasma.sd.service.theme.PlasmaSdServiceTheme
 
 val TextAreaClear.Xs: TextFieldStyleBuilder
     @Composable
-    get() = TextFieldStyle.builder(this)
+    get() = TextFieldStyleBuilder.builder(this)
         .fieldAppearance(TextField.FieldAppearance.Clear)
         .helperTextPlacement(TextField.HelperTextPlacement.Outer)
         .chipGroupStyle(
@@ -72,7 +72,7 @@ val TextAreaClear.Xs: TextFieldStyleBuilder
 
 val TextAreaClear.S: TextFieldStyleBuilder
     @Composable
-    get() = TextFieldStyle.builder(this)
+    get() = TextFieldStyleBuilder.builder(this)
         .fieldAppearance(TextField.FieldAppearance.Clear)
         .helperTextPlacement(TextField.HelperTextPlacement.Outer)
         .chipGroupStyle(
@@ -125,7 +125,7 @@ val TextAreaClear.S: TextFieldStyleBuilder
 
 val TextAreaClear.M: TextFieldStyleBuilder
     @Composable
-    get() = TextFieldStyle.builder(this)
+    get() = TextFieldStyleBuilder.builder(this)
         .fieldAppearance(TextField.FieldAppearance.Clear)
         .helperTextPlacement(TextField.HelperTextPlacement.Outer)
         .chipGroupStyle(
@@ -178,7 +178,7 @@ val TextAreaClear.M: TextFieldStyleBuilder
 
 val TextAreaClear.L: TextFieldStyleBuilder
     @Composable
-    get() = TextFieldStyle.builder(this)
+    get() = TextFieldStyleBuilder.builder(this)
         .fieldAppearance(TextField.FieldAppearance.Clear)
         .helperTextPlacement(TextField.HelperTextPlacement.Outer)
         .chipGroupStyle(

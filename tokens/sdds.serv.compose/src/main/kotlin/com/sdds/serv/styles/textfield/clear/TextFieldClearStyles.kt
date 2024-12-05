@@ -20,7 +20,7 @@ import com.sdds.serv.theme.SddsServTheme
 
 val TextFieldClear.Xs: TextFieldStyleBuilder
     @Composable
-    get() = TextFieldStyle.builder(this)
+    get() = TextFieldStyleBuilder.builder(this)
         .fieldAppearance(TextField.FieldAppearance.Clear)
         .helperTextPlacement(TextField.HelperTextPlacement.Outer)
         .chipGroupStyle(
@@ -74,7 +74,7 @@ val TextFieldClear.Xs: TextFieldStyleBuilder
 
 val TextFieldClear.S: TextFieldStyleBuilder
     @Composable
-    get() = TextFieldStyle.builder(this)
+    get() = TextFieldStyleBuilder.builder(this)
         .fieldAppearance(TextField.FieldAppearance.Clear)
         .helperTextPlacement(TextField.HelperTextPlacement.Outer)
         .chipGroupStyle(
@@ -127,7 +127,7 @@ val TextFieldClear.S: TextFieldStyleBuilder
 
 val TextFieldClear.M: TextFieldStyleBuilder
     @Composable
-    get() = TextFieldStyle.builder(this)
+    get() = TextFieldStyleBuilder.builder(this)
         .fieldAppearance(TextField.FieldAppearance.Clear)
         .helperTextPlacement(TextField.HelperTextPlacement.Outer)
         .chipGroupStyle(
@@ -180,7 +180,7 @@ val TextFieldClear.M: TextFieldStyleBuilder
 
 val TextFieldClear.L: TextFieldStyleBuilder
     @Composable
-    get() = TextFieldStyle.builder(this)
+    get() = TextFieldStyleBuilder.builder(this)
         .fieldAppearance(TextField.FieldAppearance.Clear)
         .helperTextPlacement(TextField.HelperTextPlacement.Outer)
         .chipGroupStyle(
