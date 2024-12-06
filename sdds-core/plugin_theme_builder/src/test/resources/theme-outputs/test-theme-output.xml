@@ -28,4 +28,6 @@
     </style>
     <style name="Thmbldr.TestTheme.DayNight" parent="Thmbldr.TestTheme.Light"/>
     <style name="Thmbldr"/>
+    <style name="Thmbldr.TestTheme.Components"/>
+    <style name="Thmbldr.TestTheme.ComponentOverlays"/>
 </resources>

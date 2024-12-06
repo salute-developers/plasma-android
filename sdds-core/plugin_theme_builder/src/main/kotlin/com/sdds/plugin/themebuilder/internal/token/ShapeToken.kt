@@ -24,10 +24,18 @@ internal data class ShapeToken(
     /**
      * @see Token.xmlName
      */
-    override val xmlName: String by unsafeLazy {
-        name
-            .split(".")
-            .joinToString(".") { it.capitalized() }
+    override val xmlName: String by unsafeLazy { getXmlName(name) }
+
+    companion object {
+
+        fun getXmlName(tokenName: String): String {
+            return tokenName
+                .split(".")
+                .joinToString(".") { it.capitalized() }
+        }
+
+        fun getAttrName(tokenName: String): String =
+            "shape${tokenName.split(".").joinToString(separator = "") { it.capitalized() }}"
     }
 }
 
@@ -49,6 +57,3 @@ internal sealed class ShapeTokenValue : TokenValue
 internal data class RoundedShapeTokenValue(
     val cornerRadius: Float,
 ) : ShapeTokenValue()
-
-internal fun ShapeToken.attrName() =
-    "shape${name.split(".").joinToString(separator = "") { it.capitalized() }}"

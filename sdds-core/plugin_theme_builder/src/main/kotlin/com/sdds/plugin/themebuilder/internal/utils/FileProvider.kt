@@ -74,9 +74,13 @@ object FileProvider {
 
     /**
      * XML файл для размеров
+     *
+     * @param filePref опциональный префикс названия файла
      */
-    fun File.dimensFile(): File =
-        File("${valuesDir().path}/dimens.xml")
+    fun File.dimensFile(filePref: String = ""): File {
+        val prefix = if (filePref.isBlank()) "" else "$filePref-"
+        return File("${valuesDir().path}/${prefix}dimens.xml")
+    }
 
     /**
      * XML файл для токенов стилей текста
@@ -133,4 +137,22 @@ object FileProvider {
     fun File.attrsFile(type: String): File {
         return File("${valuesDir().path}/$type-attributes.xml")
     }
+
+    /**
+     * XML файл для стилей BasicButton
+     */
+    fun File.basicButtonXmlFile(): File =
+        File("${valuesDir().path}/styles-basic-button.xml")
+
+    /**
+     * XML файл для стилей IconButton
+     */
+    fun File.iconButtonXmlFile(): File =
+        File("${valuesDir().path}/styles-icon-button.xml")
+
+    /**
+     * XML файл для стилей LinkButton
+     */
+    fun File.linkButtonXmlFile(): File =
+        File("${valuesDir().path}/styles-link-button.xml")
 }

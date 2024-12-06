@@ -5,11 +5,23 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
+import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.style.StyleBuilder
+
+/**
+ * CompositionLocal с [ButtonStyle]  для компонента [IconButton]
+ */
+val LocalLinkButtonStyle = compositionLocalOf { ButtonStyle.iconButtonBuilder().style() }
+
+/**
+ * Возвращает экземпляр [LinkButtonStyleBuilder]
+ */
+fun ButtonStyle.Companion.linkButtonBuilder(receiver: Any? = null): LinkButtonStyleBuilder =
+    LinkButtonStyleBuilderImpl(receiver)
 
 /**
  * Builder стиля кнопки.
@@ -55,20 +67,6 @@ interface LinkButtonStyleBuilder : StyleBuilder<ButtonStyle> {
      * @see ButtonStyle.disableAlpha
      */
     fun disableAlpha(disableAlpha: Float): LinkButtonStyleBuilder
-
-    /**
-     * Устанавливает режим работы индикатора загрузки [spinnerMode]
-     * @see ButtonStyle.spinnerMode
-     * @see Button.SpinnerMode
-     */
-    fun spinnerMode(spinnerMode: Button.SpinnerMode): LinkButtonStyleBuilder
-
-    companion object {
-        /**
-         * Возвращает экземпляр [LinkButtonStyleBuilder]
-         */
-        fun builder(receiver: Any? = null): LinkButtonStyleBuilder = LinkButtonStyleBuilderImpl(receiver)
-    }
 }
 
 /**
@@ -159,6 +157,13 @@ interface LinkButtonColorsBuilder {
     fun spinnerColor(spinnerColor: InteractiveColor): LinkButtonColorsBuilder
 
     /**
+     * Устанавливает режим работы индикатора загрузки [spinnerMode]
+     * @see ButtonColors.spinnerMode
+     * @see Button.SpinnerMode
+     */
+    fun spinnerMode(spinnerMode: Button.SpinnerMode): LinkButtonColorsBuilder
+
+    /**
      * Устанавливает цвет индикатора загрузки кнопки [spinnerColor]
      * @see ButtonColors.spinnerColor
      * @see InteractiveColor
@@ -187,7 +192,6 @@ private class LinkButtonStyleBuilderImpl(override val receiver: Any?) : LinkButt
     private var valueStyle: TextStyle? = null
     private var dimensions: Button.Dimensions? = null
     private var disableAlpha: Float? = null
-    private var spinnerMode: Button.SpinnerMode? = null
 
     override fun shape(shape: CornerBasedShape) = apply {
         this.shape = shape
@@ -214,10 +218,6 @@ private class LinkButtonStyleBuilderImpl(override val receiver: Any?) : LinkButt
         this.disableAlpha = disableAlpha
     }
 
-    override fun spinnerMode(spinnerMode: Button.SpinnerMode) = apply {
-        this.spinnerMode = spinnerMode
-    }
-
     override fun style(): ButtonStyle {
         return DefaultButtonStyle(
             shape = shape ?: RoundedCornerShape(25),
@@ -226,7 +226,6 @@ private class LinkButtonStyleBuilderImpl(override val receiver: Any?) : LinkButt
             valueStyle = valueStyle ?: TextStyle.Default,
             dimensions = dimensions ?: Button.Dimensions(),
             disableAlpha = disableAlpha ?: DISABLED_BUTTON_ALPHA,
-            spinnerMode = spinnerMode ?: Button.SpinnerMode.HideContent,
         )
     }
 }
@@ -239,6 +238,7 @@ private class DefaultLinkButtonColors(
     override val valueColor: InteractiveColor,
     override val iconColor: InteractiveColor,
     override val spinnerColor: InteractiveColor,
+    override val spinnerMode: Button.SpinnerMode,
 ) : ButtonColors {
 
     class Builder : LinkButtonColorsBuilder {
@@ -248,6 +248,7 @@ private class DefaultLinkButtonColors(
         private var valueColor: InteractiveColor? = null
         private var iconColor: InteractiveColor? = null
         private var spinnerColor: InteractiveColor? = null
+        private var spinnerMode: Button.SpinnerMode? = null
 
         override fun contentColor(contentColor: InteractiveColor) = apply {
             this.contentColor = contentColor
@@ -273,6 +274,10 @@ private class DefaultLinkButtonColors(
             this.spinnerColor = spinnerColor
         }
 
+        override fun spinnerMode(spinnerMode: Button.SpinnerMode) = apply {
+            this.spinnerMode = spinnerMode
+        }
+
         override fun build(): ButtonColors {
             val contentColor = contentColor ?: Color.Black.asInteractive()
             return DefaultLinkButtonColors(
@@ -282,6 +287,7 @@ private class DefaultLinkButtonColors(
                 valueColor = valueColor ?: contentColor,
                 iconColor = iconColor ?: contentColor,
                 spinnerColor = spinnerColor ?: contentColor,
+                spinnerMode = spinnerMode ?: Button.SpinnerMode.HideContent,
             )
         }
     }
