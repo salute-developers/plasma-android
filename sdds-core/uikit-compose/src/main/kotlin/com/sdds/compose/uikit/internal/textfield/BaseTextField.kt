@@ -62,7 +62,6 @@ import com.sdds.compose.uikit.TextField.FieldAppearance
 import com.sdds.compose.uikit.TextField.FieldType
 import com.sdds.compose.uikit.TextField.HelperTextPlacement
 import com.sdds.compose.uikit.TextField.LabelPlacement
-import com.sdds.compose.uikit.TextFieldColors
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.activatable
@@ -137,9 +136,11 @@ internal fun BaseTextField(
 
     val labelStyle = style.labelStyle.applyColor(
         color = colors.labelColor(readOnly, labelPlacement),
+        interactionSource = interactionSource,
     )
     val optionalStyle = style.optionalStyle.applyColor(
         color = colors.optionalColor,
+        interactionSource = interactionSource,
     )
     val valueStyle = style.valueStyle.applyColor(
         color = colors.valueColor(isReadOnly = readOnly),
@@ -149,7 +150,10 @@ internal fun BaseTextField(
         color = colors.captionColor(isReadOnly = readOnly),
         interactionSource = interactionSource,
     )
-    val counterStyle = style.counterStyle.applyColor(color = colors.counterColor)
+    val counterStyle = style.counterStyle.applyColor(
+        color = colors.counterColor,
+        interactionSource = interactionSource,
+    )
     val placeholderStyle = style.placeholderStyle.applyColor(
         color = colors.placeholderColor(isReadOnly = readOnly),
         interactionSource = interactionSource,
@@ -192,7 +196,12 @@ internal fun BaseTextField(
                     .layoutId(TOP_CONTENT_ID)
                     .focusProperties { canFocus = false }
                     .padding(bottom = dimensions.outerLabelPadding)
-                    .applyLabelIndicator(fieldType, labelPlacement, colors, dimensions),
+                    .applyLabelIndicator(
+                    fieldType = fieldType,
+                    labelPlacement = labelPlacement,
+                    indicatorColor = colors.indicatorColor.colorForInteraction(interactionSource),
+                    dimensions = dimensions,
+                ),
                 labelPlacement = labelPlacement,
                 fieldType = fieldType,
                 labelText = finalLabelText,
@@ -229,7 +238,7 @@ internal fun BaseTextField(
                         labelPlacement,
                         fieldAppearance,
                         dimensions,
-                        colors,
+                        colors.indicatorColor.colorForInteraction(interactionSource),
                     )
                     .clip(if (fieldAppearance == FieldAppearance.Solid) style.shape else RectangleShape)
                     .drawFieldAppearance(
@@ -260,7 +269,7 @@ internal fun BaseTextField(
                         singleLine = singleLine,
                         visualTransformation = innerVisualTransformation,
                         interactionSource = interactionSource,
-                        cursorBrush = SolidColor(colors.cursorColor),
+                        cursorBrush = SolidColor(colors.cursorColor.colorForInteraction(interactionSource)),
                     )
                 },
                 visualTransformation = innerVisualTransformation,
@@ -495,7 +504,7 @@ private fun Modifier.applyFieldIndicator(
     labelPlacement: LabelPlacement,
     fieldAppearance: FieldAppearance,
     dimensions: TextField.Dimensions,
-    colors: TextFieldColors,
+    indicatorColor: Color,
 ): Modifier {
     if (fieldType == FieldType.Optional || labelPlacement != LabelPlacement.Inner) return this
 
@@ -509,7 +518,7 @@ private fun Modifier.applyFieldIndicator(
 
     return this.drawIndicator(
         alignment = alignment,
-        color = colors.indicatorColor,
+        color = indicatorColor,
         horizontalPadding = dimensions.fieldIndicatorHorizontalPadding(fieldType),
         verticalPadding = dimensions.fieldIndicatorVerticalPadding(fieldType) + verticalAlignmentOffset,
         indicatorSize = dimensions.indicatorDimensions.fieldIndicatorSize,
@@ -549,7 +558,7 @@ private fun indicatorVerticalAlignmentOffset(
 private fun Modifier.applyLabelIndicator(
     fieldType: FieldType,
     labelPlacement: LabelPlacement,
-    colors: TextFieldColors,
+    indicatorColor: Color,
     dimensions: TextField.Dimensions,
 ): Modifier {
     if (fieldType == FieldType.Optional || labelPlacement != LabelPlacement.Outer) return this
@@ -557,7 +566,7 @@ private fun Modifier.applyLabelIndicator(
 
     return this.drawIndicator(
         alignment = alignment,
-        color = colors.indicatorColor,
+        color = indicatorColor,
         horizontalPadding = dimensions.labelIndicatorHorizontalPadding(fieldType),
         verticalPadding = dimensions.labelIndicatorVerticalPadding(fieldType),
         indicatorSize = dimensions.indicatorDimensions.labelIndicatorSize,
