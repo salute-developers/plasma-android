@@ -157,6 +157,8 @@ interface ButtonStyle : Style {
      * Значение прозрачности выключенной кнопки
      */
     val disableAlpha: Float
+
+    companion object
 }
 
 /**

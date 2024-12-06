@@ -4,16 +4,18 @@ package com.sdds.playground.themebuilder.styles.button
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.Button
+import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.IconButtonStyleBuilder
 import com.sdds.compose.uikit.adjustBy
+import com.sdds.compose.uikit.iconButtonBuilder
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.playground.themebuilder.theme.SddsServTheme
 
 public val IconButton.L: IconButtonStyleBuilder
     @Composable
-    get() = IconButtonStyleBuilder.builder(this)
+    get() = ButtonStyle.iconButtonBuilder(this)
         .shape(SddsServTheme.shapes.roundL.adjustBy(all = -2.0.dp))
         .dimensions(
             Button.Dimensions(
@@ -30,7 +32,7 @@ public val IconButton.L: IconButtonStyleBuilder
 
 public val IconButton.M: IconButtonStyleBuilder
     @Composable
-    get() = IconButtonStyleBuilder.builder(this)
+    get() = ButtonStyle.iconButtonBuilder(this)
         .shape(SddsServTheme.shapes.roundM)
         .dimensions(
             Button.Dimensions(
@@ -47,7 +49,7 @@ public val IconButton.M: IconButtonStyleBuilder
 
 public val IconButton.S: IconButtonStyleBuilder
     @Composable
-    get() = IconButtonStyleBuilder.builder(this)
+    get() = ButtonStyle.iconButtonBuilder(this)
         .shape(SddsServTheme.shapes.roundS.adjustBy(all = 2.0.dp))
         .dimensions(
             Button.Dimensions(
