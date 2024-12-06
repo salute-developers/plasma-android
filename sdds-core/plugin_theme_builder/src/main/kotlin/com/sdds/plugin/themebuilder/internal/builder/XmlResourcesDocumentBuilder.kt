@@ -175,6 +175,9 @@ internal open class XmlResourcesDocumentBuilder(
         STRING("string"),
         STRING_ARRAY("string-array"),
         INTEGER_ARRAY("integer-array"),
+        DECLARE_STYLEABLE("declare-styleable"),
+        ATTR("attr"),
+        ENUM("enum"),
     }
 
     /**
@@ -183,6 +186,8 @@ internal open class XmlResourcesDocumentBuilder(
      */
     enum class ElementFormat(val value: String) {
         FLOAT("float"),
+        BOOLEAN("boolean"),
+        ENUM("enum"),
     }
 
     /**
