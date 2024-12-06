@@ -15,7 +15,13 @@ import com.sdds.compose.uikit.style.StyleBuilder
 /**
  * CompositionLocal с [ButtonStyle]  для компонента [IconButton]
  */
-val LocalIconButtonStyle = compositionLocalOf { IconButtonStyleBuilder.builder().style() }
+val LocalIconButtonStyle = compositionLocalOf { ButtonStyle.iconButtonBuilder().style() }
+
+/**
+ * Возвращает экземпляр [IconButtonStyleBuilder]
+ */
+fun ButtonStyle.Companion.iconButtonBuilder(receiver: Any? = null): IconButtonStyleBuilder =
+    IconButtonStyleBuilderImpl(receiver)
 
 /**
  * Builder стиля кнопки c иконкой
@@ -49,13 +55,6 @@ interface IconButtonStyleBuilder : StyleBuilder<ButtonStyle> {
      * @see ButtonStyle.disableAlpha
      */
     fun disableAlpha(disableAlpha: Float): IconButtonStyleBuilder
-
-    companion object {
-        /**
-         * Возвращает экземпляр [IconButtonStyleBuilder]
-         */
-        fun builder(receiver: Any? = null): IconButtonStyleBuilder = IconButtonStyleBuilderImpl(receiver)
-    }
 }
 
 /**

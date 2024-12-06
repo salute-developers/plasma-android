@@ -35,6 +35,10 @@ internal class BasicButtonStyleGeneratorCompose(
 
     override fun addCode(config: ButtonComponentConfig, ktFileBuilder: KtFileBuilder) {
         super.addCode(config, ktFileBuilder)
+        ktFileBuilder.addImport(
+            packageName = "com.sdds.compose.uikit",
+            listOf(element = "basicButtonBuilder"),
+        )
         ktFileBuilder.addSizes(config)
         ktFileBuilder.addColors(config)
     }
@@ -52,7 +56,7 @@ internal class BasicButtonStyleGeneratorCompose(
                 getter = KtFileBuilder.Getter.Annotated(
                     annotations = listOf(KtFileBuilder.TypeAnnotationComposable),
                     body = """
-                            return BasicButtonStyleBuilder.builder(this)
+                            return ButtonStyle.basicButtonBuilder(this)
                                 .shape($themeClassName.shapes.${sizeData.shape?.name?.toKtTokenName()}${
                         sizeData.shapeAdjustmentIfNeed(size)
                     })
