@@ -1,6 +1,7 @@
 package com.sdds.plugin.themebuilder
 
 import com.sdds.plugin.themebuilder.internal.PackageResolver
+import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.components.button.ButtonComponentConfig
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.ComponentStyleGeneratorFactory
@@ -87,6 +88,12 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
     @get:Input
     abstract val resourcesPrefixConfig: Property<ResourcePrefixConfig>
 
+    /**
+     * Целевой фреймворк
+     */
+    @get:Input
+    abstract val target: Property<ThemeBuilderTarget>
+
     private val packageResolver by unsafeLazy {
         PackageResolver(packageName.get())
     }
@@ -97,15 +104,17 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
     private val componentStyleGeneratorFactory by unsafeLazy {
         val resPrefixConfig = resourcesPrefixConfig.get()
         val themeName = themeName.get()
+        val xmlBuilderFactory = XmlResourcesDocumentBuilderFactory(
+            resPrefixConfig.resourcePrefix,
+            themeName,
+        )
+        val ktFileBuilderFactory = KtFileBuilderFactory(packageResolver)
         ComponentStyleGeneratorFactory(
             outputDirPath = outputDirPath.get(),
             outputResDirPath = outputResDirPath.get(),
             projectDir = projectDir,
-            ktFileBuilderFactory = KtFileBuilderFactory(packageResolver),
-            xmlBuilderFactory = XmlResourcesDocumentBuilderFactory(
-                resPrefixConfig.resourcePrefix,
-                themeName,
-            ),
+            ktFileBuilderFactory = ktFileBuilderFactory,
+            xmlBuilderFactory = xmlBuilderFactory,
             packageResolver = packageResolver,
             themeName = themeName,
             namespace = namespace.get(),
@@ -163,12 +172,27 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
 
     @TaskAction
     fun generate() {
-        basicButtonStyleGeneratorCompose.generate(basicButtonConfig)
-        basicButtonStyleGeneratorView.generate(basicButtonConfig)
-        iconButtonStyleGeneratorCompose.generate(iconButtonConfig)
-        iconButtonStyleGeneratorView.generate(iconButtonConfig)
-        linkButtonStyleGeneratorCompose.generate(linkButtonConfig)
-        linkButtonStyleGeneratorView.generate(linkButtonConfig)
+        when (target.get()) {
+            ThemeBuilderTarget.VIEW_SYSTEM -> generateViewsConfigs()
+            ThemeBuilderTarget.COMPOSE -> generateComposeConfigs()
+            ThemeBuilderTarget.ALL -> {
+                generateViewsConfigs()
+                generateComposeConfigs()
+            }
+            else -> {}
+        }
         dimensGenerator.generate()
+    }
+
+    private fun generateComposeConfigs() {
+        basicButtonStyleGeneratorCompose.generate(basicButtonConfig)
+        iconButtonStyleGeneratorCompose.generate(iconButtonConfig)
+        linkButtonStyleGeneratorCompose.generate(linkButtonConfig)
+    }
+
+    private fun generateViewsConfigs() {
+        basicButtonStyleGeneratorView.generate(basicButtonConfig)
+        iconButtonStyleGeneratorView.generate(iconButtonConfig)
+        linkButtonStyleGeneratorView.generate(linkButtonConfig)
     }
 }

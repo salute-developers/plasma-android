@@ -67,6 +67,7 @@ class SandboxActivity : AppCompatActivity() {
         private val navigationSet = setOf(
             R.id.nav_basic_button,
             R.id.nav_icon_button,
+            R.id.nav_link_button,
             R.id.nav_cell,
             R.id.nav_checkbox,
             R.id.nav_checkbox_group,
