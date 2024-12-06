@@ -35,6 +35,10 @@ internal class LinkButtonStyleGeneratorCompose(
 
     override fun addCode(config: ButtonComponentConfig, ktFileBuilder: KtFileBuilder) {
         super.addCode(config, ktFileBuilder)
+        ktFileBuilder.addImport(
+            packageName = "com.sdds.compose.uikit",
+            listOf(element = "linkButtonBuilder"),
+        )
         ktFileBuilder.addSizes(config)
         ktFileBuilder.addColors(config)
     }
@@ -52,7 +56,7 @@ internal class LinkButtonStyleGeneratorCompose(
                 getter = KtFileBuilder.Getter.Annotated(
                     annotations = listOf(KtFileBuilder.TypeAnnotationComposable),
                     body = """
-                            return LinkButtonStyleBuilder.builder(this)
+                            return ButtonStyle.linkButtonBuilder(this)
                                 .dimensions(
                                     Button.Dimensions(
                                         height = ${sizeData.getHeight(size)},

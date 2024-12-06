@@ -12,6 +12,10 @@ import com.sdds.serv.styles.textarea.L
 import com.sdds.serv.styles.textarea.M
 import com.sdds.serv.styles.textarea.S
 import com.sdds.serv.styles.textarea.Xs
+import com.sdds.serv.styles.textarea.clear.L
+import com.sdds.serv.styles.textarea.clear.M
+import com.sdds.serv.styles.textarea.clear.S
+import com.sdds.serv.styles.textarea.clear.Xs
 import com.sdds.serv.styles.textfield.Default
 import com.sdds.serv.styles.textfield.Error
 import com.sdds.serv.styles.textfield.InnerLabel
@@ -25,6 +29,12 @@ import com.sdds.serv.styles.textfield.S
 import com.sdds.serv.styles.textfield.Success
 import com.sdds.serv.styles.textfield.Warning
 import com.sdds.serv.styles.textfield.Xs
+import com.sdds.serv.styles.textfield.clear.HasDivider
+import com.sdds.serv.styles.textfield.clear.L
+import com.sdds.serv.styles.textfield.clear.M
+import com.sdds.serv.styles.textfield.clear.NoDivider
+import com.sdds.serv.styles.textfield.clear.S
+import com.sdds.serv.styles.textfield.clear.Xs
 
 internal data class TextFieldUiState(
     val singleLine: Boolean = true,

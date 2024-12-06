@@ -4,16 +4,18 @@ package com.sdds.playground.themebuilder.styles.button
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.Button
+import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.LinkButton
 import com.sdds.compose.uikit.LinkButtonStyleBuilder
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.linkButtonBuilder
 import com.sdds.playground.themebuilder.theme.SddsServTheme
 
 public val LinkButton.L: LinkButtonStyleBuilder
     @Composable
-    get() = LinkButtonStyleBuilder.builder(this)
+    get() = ButtonStyle.linkButtonBuilder(this)
         .dimensions(
             Button.Dimensions(
                 height = 56.0.dp,
@@ -31,7 +33,7 @@ public val LinkButton.L: LinkButtonStyleBuilder
 
 public val LinkButton.M: LinkButtonStyleBuilder
     @Composable
-    get() = LinkButtonStyleBuilder.builder(this)
+    get() = ButtonStyle.linkButtonBuilder(this)
         .dimensions(
             Button.Dimensions(
                 height = 56.0.dp,
@@ -49,7 +51,7 @@ public val LinkButton.M: LinkButtonStyleBuilder
 
 public val LinkButton.S: LinkButtonStyleBuilder
     @Composable
-    get() = LinkButtonStyleBuilder.builder(this)
+    get() = ButtonStyle.linkButtonBuilder(this)
         .dimensions(
             Button.Dimensions(
                 height = 56.0.dp,

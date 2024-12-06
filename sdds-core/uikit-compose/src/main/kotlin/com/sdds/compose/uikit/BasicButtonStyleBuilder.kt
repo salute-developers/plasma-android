@@ -15,7 +15,13 @@ import com.sdds.compose.uikit.style.StyleBuilder
 /**
  * CompositionLocal c [ButtonStyle] для компонента [Button]
  */
-val LocalButtonStyle = compositionLocalOf { BasicButtonStyleBuilder.builder().style() }
+val LocalButtonStyle = compositionLocalOf { ButtonStyle.basicButtonBuilder().style() }
+
+/**
+ * Возвращает экземпляр [BasicButtonStyleBuilder]
+ */
+fun ButtonStyle.Companion.basicButtonBuilder(receiver: Any? = null): BasicButtonStyleBuilder =
+    BasicButtonStyleBuilderImpl(receiver)
 
 /**
  * Builder стиля базовой кнопки.
@@ -61,13 +67,6 @@ interface BasicButtonStyleBuilder : StyleBuilder<ButtonStyle> {
      * @see ButtonStyle.disableAlpha
      */
     fun disableAlpha(disableAlpha: Float): BasicButtonStyleBuilder
-
-    companion object {
-        /**
-         * Возвращает экземпляр [BasicButtonStyleBuilder]
-         */
-        fun builder(receiver: Any? = null): BasicButtonStyleBuilder = BasicButtonStyleBuilderImpl(receiver)
-    }
 }
 
 /**
@@ -199,9 +198,10 @@ private class BasicButtonStyleBuilderImpl(override val receiver: Any?) : BasicBu
     }
 
     @Composable
-    override fun colors(builder: @Composable BasicButtonColorsBuilder.() -> Unit): BasicButtonStyleBuilder = apply {
-        this.colorsBuilder.builder()
-    }
+    override fun colors(builder: @Composable BasicButtonColorsBuilder.() -> Unit): BasicButtonStyleBuilder =
+        apply {
+            this.colorsBuilder.builder()
+        }
 
     override fun labelStyle(labelStyle: TextStyle) = apply {
         this.labelStyle = labelStyle
