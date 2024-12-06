@@ -16,8 +16,8 @@ import com.sdds.icons.R
 import com.sdds.plasma.sd.service.sandbox.SandboxTheme
 import com.sdds.plasma.sd.service.sandbox.chip.chipStyleBuilder
 import com.sdds.plasma.sd.service.sandbox.core.ComponentScaffold
-import com.sdds.plasma.sd.service.styles.Accent
-import com.sdds.plasma.sd.service.styles.Secondary
+import com.sdds.plasma.sd.service.styles.chip.Accent
+import com.sdds.plasma.sd.service.styles.chip.Secondary
 
 /**
  * Экран с [ChipGroup]

@@ -1,10 +1,7 @@
-import com.sdds.plugin.themebuilder.ThemeBuilderMode
-
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     id("convention.android-app")
     id("convention.compose")
-    id(libs.plugins.themebuilder.get().pluginId)
     alias(libs.plugins.roborazzi)
 }
 
@@ -17,6 +14,9 @@ android {
     testOptions {
         unitTests.isIncludeAndroidResources = true
     }
+    tasks.withType<Test> {
+        maxHeapSize = "4096m"
+    }
     kotlinOptions {
         //comment following lines (freeCompilerArgs) to disable compose-metrics
         freeCompilerArgs += listOf(
@@ -28,16 +28,10 @@ android {
     }
 }
 
-themeBuilder {
-    themeSource(name = "sdds_serv", version = "latest")
-    compose()
-    ktPackage("com.sdds.playground.sandbox.tokens")
-    mode(ThemeBuilderMode.THEME)
-}
-
 dependencies {
-    implementation("sdds-core:uikit-compose")
-    implementation("sdds-core:icons")
+    implementation(libs.sdds.icons)
+    implementation("tokens:sdds.serv.compose")
+    implementation(libs.sdds.uikit.compose)
 
     implementation(libs.base.androidX.core)
     implementation(libs.base.androidX.appcompat)

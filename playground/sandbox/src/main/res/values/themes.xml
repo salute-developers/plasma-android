@@ -1,5 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <style name="Theme.Sandbox" parent="Serv.SddsServ.MaterialComponents.DayNight">
+    <style name="Theme.Sandbox" parent="Serv.Sdds.MaterialComponents.DayNight">
         <item name="colorPrimary">?serv_surfaceDefaultSolidPrimary</item>
         <item name="colorPrimaryVariant">?serv_surfaceDefaultSolidSecondary</item>
         <item name="colorOnPrimary">?serv_textDefaultPrimary</item>
@@ -20,35 +20,8 @@
         <item name="android:toolbarStyle">@style/Theme.Sandbox.Toolbar</item>
         <item name="toolbarStyle">@style/Theme.Sandbox.Toolbar</item>
 
-        <item name="sd_shapeAppearanceCircle">@style/Sdds.Shape.Round.Circle</item>
-        <item name="serv_shapeRoundXxl">@style/Serv.SddsServ.Shape.Round.Xxl</item>
-        <item name="serv_shapeRoundXl">@style/Serv.SddsServ.Shape.Round.Xl</item>
-        <item name="serv_shapeRoundL">@style/Serv.SddsServ.Shape.Round.L</item>
-        <item name="serv_shapeRoundM">@style/Serv.SddsServ.Shape.Round.M</item>
-        <item name="serv_shapeRoundS">@style/Serv.SddsServ.Shape.Round.S</item>
-        <item name="serv_shapeRoundXs">@style/Serv.SddsServ.Shape.Round.Xs</item>
-        <item name="serv_shapeRoundXxs">@style/Serv.SddsServ.Shape.Round.Xxs</item>
-        <item name="sd_disabledAlpha">0.4</item>
-        <item name="sd_fsMode">border</item>
-        <item name="sd_fsMainColor">?serv_surfaceDefaultAccent</item>
-        <item name="sd_fsStrokeWidth">@dimen/sdds_spacer_0_5x</item>
-        <item name="sd_fsStrokeInset">@dimen/sdds_spacer_1x</item>
-        <item name="sd_fsShapeAdjustment">@dimen/sdds_spacer_1x</item>
-
-        <item name="android:buttonStyle">@style/Theme.Sandbox.Components.BasicButton.M</item>
-        <item name="sd_textFieldStyle">@style/Theme.Sandbox.Components.TextField.M</item>
-        <item name="sd_switchStyle">@style/Theme.Sandbox.Components.Switch</item>
-        <item name="android:checkboxStyle">@style/Theme.Sandbox.Components.CheckBox.M</item>
-        <item name="android:radioButtonStyle">@style/Theme.Sandbox.Components.RadioBox.M</item>
         <item name="bottomSheetDialogTheme">@style/Theme.Sandbox.ComponentOverlays.BottomSheetDialog</item>
-        <item name="android:progressBarStyle">@style/Theme.Sandbox.Components.ProgressBar.Default</item>
-        <item name="sd_avatarStyle">@style/Theme.Sandbox.Components.Avatar.M</item>
-        <item name="sd_avatarGroupStyle">@style/Theme.Sandbox.Components.AvatarGroup</item>
-        <item name="sd_checkBoxGroupStyle">@style/Theme.Sandbox.Components.CheckBoxGroup.M</item>
-        <item name="sd_radioBoxGroupStyle">@style/Theme.Sandbox.Components.RadioBoxGroup.M</item>
-        <item name="sd_chipStyle">@style/Theme.Sandbox.Components.Chip.M</item>
-        <item name="sd_chipGroupStyle">@style/Theme.Sandbox.Components.ChipGroup.Wide</item>
-        <item name="sd_cellStyle">@style/Theme.Sandbox.Components.Cell.M</item>
+
     </style>
 
     <style name="Theme.Sandbox.Toolbar" parent="Widget.MaterialComponents.Toolbar.Primary">
@@ -75,7 +48,7 @@
 
     <style name="Theme.Sandbox.ModalBottomSheetDialog" parent="Widget.MaterialComponents.BottomSheet.Modal">
         <item name="backgroundTint">?android:colorBackground</item>
-        <item name="shapeAppearance">@style/Serv.SddsServ.Shape.Round.M</item>
+        <item name="shapeAppearance">@style/Serv.Sdds.Shape.Round.M</item>
     </style>
 
     <style name="Theme.Sandbox.Components" />
@@ -84,29 +57,22 @@
 
     <style name="Theme.Sandbox.ComponentOverlays.BottomSheetDialog" parent="ThemeOverlay.MaterialComponents.BottomSheetDialog">
         <item name="bottomSheetStyle">@style/Theme.Sandbox.ModalBottomSheetDialog</item>
-        <item name="android:statusBarColor">?android:colorBackground</item>
-        <item name="android:navigationBarColor">?android:colorBackground</item>
-        <item name="enableEdgeToEdge">false</item>
     </style>
 
     <style name="Theme.Sandbox.PropertyItem">
-        <item name="android:background">@color/bg_property_item</item>
+        <item name="android:backgroundTint">@color/bg_property_item</item>
+        <item name="sd_shapeAppearance">?serv_shapeRoundXxs</item>
     </style>
 
     <style name="Theme.Sandbox.PropertyItemLabel">
         <item name="android:textColor">@color/color_property_item_label</item>
-        <item name="android:textAppearance">@style/Serv.SddsServ.TextAppearance.BodyMBold</item>
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyMBold</item>
         <item name="android:duplicateParentState">true</item>
     </style>
 
     <style name="Theme.Sandbox.PropertyItemValue">
         <item name="android:textColor">@color/color_property_item_value</item>
-        <item name="android:textAppearance">@style/Serv.SddsServ.TextAppearance.BodyMBold</item>
-        <item name="android:duplicateParentState">true</item>
-    </style>
-
-    <style name="Theme.Sandbox.PropertyItemSwitch" parent="Theme.Sandbox.Components.Switch.M">
-        <item name="sd_buttonTrackColor">@color/bg_color_property_switch_track</item>
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyMBold</item>
         <item name="android:duplicateParentState">true</item>
     </style>
 

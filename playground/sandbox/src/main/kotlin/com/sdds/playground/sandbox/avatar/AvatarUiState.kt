@@ -2,7 +2,7 @@ package com.sdds.playground.sandbox.avatar
 
 import android.os.Parcelable
 import androidx.annotation.StyleRes
-import com.sdds.playground.sandbox.R
+import com.sdds.serv.R
 import com.sdds.uikit.Avatar
 import kotlinx.parcelize.Parcelize
 
@@ -33,10 +33,10 @@ internal data class AvatarUiState(
  * @property styleRes ресурс стиля
  */
 internal enum class AvatarVariant(@StyleRes val styleRes: Int) {
-    AvatarXXL(R.style.Theme_Sandbox_ComponentOverlays_AvatarXXL),
-    AvatarL(R.style.Theme_Sandbox_ComponentOverlays_AvatarL),
-    AvatarM(R.style.Theme_Sandbox_ComponentOverlays_AvatarM),
-    AvatarS(R.style.Theme_Sandbox_ComponentOverlays_AvatarS),
+    AvatarXXL(R.style.Serv_Sdds_ComponentOverlays_AvatarXXL),
+    AvatarL(R.style.Serv_Sdds_ComponentOverlays_AvatarL),
+    AvatarM(R.style.Serv_Sdds_ComponentOverlays_AvatarM),
+    AvatarS(R.style.Serv_Sdds_ComponentOverlays_AvatarS),
 }
 
 /**

@@ -1,5 +1,5 @@
 // AUTO-GENERATED. DO NOT MODIFY this file.
-package com.test.compose
+package com.test.tokens
 
 import androidx.compose.ui.graphics.Color
 import kotlin.Float

@@ -2,6 +2,8 @@ package com.sdds.plugin.themebuilder.internal.attributes.generator
 
 import com.sdds.plugin.themebuilder.BreakPoints
 import com.sdds.plugin.themebuilder.DimensionsConfig
+import com.sdds.plugin.themebuilder.internal.PackageResolver
+import com.sdds.plugin.themebuilder.internal.TargetPackage
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.builder.KtFileFromResourcesBuilder
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
@@ -36,6 +38,7 @@ class ComposeTypographyAttributeGeneratorTest {
     private lateinit var ktFileBuilder: KtFileBuilder
     private lateinit var ktFileFromResourcesBuilder: KtFileFromResourcesBuilder
     private lateinit var dimensionsConfig: DimensionsConfig
+    private lateinit var packageResolver: PackageResolver
 
     @Before
     fun before() {
@@ -45,18 +48,19 @@ class ComposeTypographyAttributeGeneratorTest {
             FileProvider,
         )
         ktFileBuilder = KtFileBuilder(
-            packageName = "com.sdds.playground.themebuilder.tokens",
+            packageName = "com.sdds.playground.themebuilder.theme",
             fileName = "ThemeColors",
         )
         dimensionsConfig = DimensionsConfig(1f, BreakPoints(600, 840))
         ktFileFromResourcesBuilder = KtFileFromResourcesBuilder(
-            packageName = "com.sdds.playground.themebuilder.tokens",
+            packageName = "com.sdds.playground.themebuilder.theme",
         )
+        packageResolver = PackageResolver("com.sdds.playground.themebuilder")
         mockKtFileBuilderFactory = mockk<KtFileBuilderFactory> {
-            every { create("ThemeTypography") } returns ktFileBuilder
+            every { create("ThemeTypography", TargetPackage.THEME) } returns ktFileBuilder
         }
         mockKtFileFromResourceBuilderFactory = mockk<KtFileFromResourcesBuilderFactory> {
-            every { create() } returns ktFileFromResourcesBuilder
+            every { create(TargetPackage.THEME) } returns ktFileFromResourcesBuilder
         }
     }
 
@@ -73,24 +77,52 @@ class ComposeTypographyAttributeGeneratorTest {
     @Test
     fun `KtAttributeGenerator должен генерировать kotlin файлы с атрибутами типографики`() {
         outputKt = ByteArrayOutputStream()
+
         underTest = ComposeTypographyAttributeGenerator(
             ktFileBuilderFactory = mockKtFileBuilderFactory,
             ktFileFromResourcesBuilderFactory = mockKtFileFromResourceBuilderFactory,
             outputLocation = KtFileBuilder.OutputLocation.Stream(outputKt),
             themeName = "Theme",
             dimensionsConfig = dimensionsConfig,
+            packageResolver = packageResolver,
         )
 
         underTest.setTypographyTokenData(input1)
         underTest.generate()
 
         verify {
-            mockKtFileBuilderFactory.create("ThemeTypography")
-            mockKtFileFromResourceBuilderFactory.create()
+            mockKtFileBuilderFactory.create("ThemeTypography", TargetPackage.THEME)
+            mockKtFileFromResourceBuilderFactory.create(TargetPackage.THEME)
         }
 
         Assert.assertEquals(
             getResourceAsText("attrs-outputs/TypographyOutputKt_1.txt"),
+            outputKt.toString(),
+        )
+    }
+
+    @Test
+    fun `KtAttributeGenerator должен генерировать kotlin файлы с атрибутами типографики и размерами из ресурсов`() {
+        outputKt = ByteArrayOutputStream()
+        underTest = ComposeTypographyAttributeGenerator(
+            ktFileBuilderFactory = mockKtFileBuilderFactory,
+            ktFileFromResourcesBuilderFactory = mockKtFileFromResourceBuilderFactory,
+            outputLocation = KtFileBuilder.OutputLocation.Stream(outputKt),
+            themeName = "Theme",
+            dimensionsConfig = dimensionsConfig.copy(fromResources = true),
+            packageResolver = packageResolver,
+        )
+
+        underTest.setTypographyTokenData(input1)
+        underTest.generate()
+
+        verify {
+            mockKtFileBuilderFactory.create("ThemeTypography", TargetPackage.THEME)
+            mockKtFileFromResourceBuilderFactory.create(TargetPackage.THEME)
+        }
+
+        Assert.assertEquals(
+            getResourceAsText("attrs-outputs/TypographyOutputKt_4.txt"),
             outputKt.toString(),
         )
     }
@@ -104,14 +136,15 @@ class ComposeTypographyAttributeGeneratorTest {
             outputLocation = KtFileBuilder.OutputLocation.Stream(outputKt),
             themeName = "Theme",
             dimensionsConfig = dimensionsConfig,
+            packageResolver = packageResolver,
         )
 
         underTest.setTypographyTokenData(input2)
         underTest.generate()
 
         verify {
-            mockKtFileBuilderFactory.create("ThemeTypography")
-            mockKtFileFromResourceBuilderFactory.create()
+            mockKtFileBuilderFactory.create("ThemeTypography", TargetPackage.THEME)
+            mockKtFileFromResourceBuilderFactory.create(TargetPackage.THEME)
         }
 
         Assert.assertEquals(
@@ -129,14 +162,15 @@ class ComposeTypographyAttributeGeneratorTest {
             outputLocation = KtFileBuilder.OutputLocation.Stream(outputKt),
             themeName = "Theme",
             dimensionsConfig = dimensionsConfig,
+            packageResolver = packageResolver,
         )
 
         underTest.setTypographyTokenData(input3)
         underTest.generate()
 
         verify {
-            mockKtFileBuilderFactory.create("ThemeTypography")
-            mockKtFileFromResourceBuilderFactory.create()
+            mockKtFileBuilderFactory.create("ThemeTypography", TargetPackage.THEME)
+            mockKtFileFromResourceBuilderFactory.create(TargetPackage.THEME)
         }
 
         Assert.assertEquals(

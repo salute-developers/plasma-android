@@ -4,6 +4,8 @@ import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.ChipGroup
 import com.sdds.compose.uikit.ChipGroupStyle
 import com.sdds.playground.sandbox.chip.Size
+import com.sdds.serv.styles.chip.group.Dense
+import com.sdds.serv.styles.chip.group.Wide
 
 internal data class ChipGroupUiState(
     val items: List<String> = List(3) { "label" },

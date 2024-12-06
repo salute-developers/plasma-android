@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Serv.Sdds.ComponentOverlays.SwitchL">
+        <item name="sd_switchStyle">@style/Serv.Sdds.Components.Switch.L</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.SwitchM">
+        <item name="sd_switchStyle">@style/Serv.Sdds.Components.Switch.M</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.SwitchS">
+        <item name="sd_switchStyle">@style/Serv.Sdds.Components.Switch.S</item>
+    </style>
+</resources>

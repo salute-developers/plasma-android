@@ -5,6 +5,7 @@ import com.sdds.plugin.themebuilder.ResourcePrefixConfig
 import com.sdds.plugin.themebuilder.ShapeAppearanceConfig
 import com.sdds.plugin.themebuilder.ThemeBuilderMode
 import com.sdds.plugin.themebuilder.ViewThemeParent
+import com.sdds.plugin.themebuilder.internal.PackageResolver
 import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.OutputLocation
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
@@ -48,6 +49,7 @@ import java.io.File
  *
  * @author Малышев Александр on 12.03.2024
  */
+@Suppress("LongParameterList")
 internal class GeneratorFactory(
     private val outputDirPath: String,
     private val outputResDirPath: String,
@@ -68,6 +70,7 @@ internal class GeneratorFactory(
     private val viewShapeAppearanceConfig: List<ShapeAppearanceConfig>,
     private val themeName: String,
     private val dimensionsConfig: DimensionsConfig,
+    private val packageResolver: PackageResolver,
 ) {
 
     private val outputDir: File by unsafeLazy {
@@ -83,6 +86,7 @@ internal class GeneratorFactory(
             ktFileBuilderFactory = ktFileBuilderFactory,
             outputLocation = OutputLocation.Directory(outputDir),
             themeName = themeName,
+            packageResolver = packageResolver,
         )
     }
 
@@ -92,6 +96,7 @@ internal class GeneratorFactory(
             ktFileFromResourcesBuilderFactory = ktFileFromResourcesBuilderFactory,
             outputLocation = OutputLocation.Directory(outputDir),
             themeName = themeName,
+            packageResolver = packageResolver,
         )
     }
 
@@ -132,6 +137,8 @@ internal class GeneratorFactory(
             ktFileBuilderFactory = ktFileBuilderFactory,
             outputLocation = OutputLocation.Directory(outputDir),
             themeName = themeName,
+            dimensionsConfig = dimensionsConfig,
+            packageResolver = packageResolver,
         )
     }
 
@@ -162,6 +169,7 @@ internal class GeneratorFactory(
             outputLocation = OutputLocation.Directory(outputDir),
             themeName = themeName,
             dimensionsConfig = dimensionsConfig,
+            packageResolver = packageResolver,
         )
     }
 
@@ -268,6 +276,7 @@ internal class GeneratorFactory(
             typographyTokenValues = typography,
             fontsAggregator = fontsAggregator,
             dimensionsConfig = dimensionsConfig,
+            namespace = namespace,
         )
     }
 
@@ -298,6 +307,7 @@ internal class GeneratorFactory(
             resourceReferenceProvider = resourceReferenceProvider,
             shapeTokenValues = shapes,
             dimensionsConfig = dimensionsConfig,
+            namespace = namespace,
         )
     }
 

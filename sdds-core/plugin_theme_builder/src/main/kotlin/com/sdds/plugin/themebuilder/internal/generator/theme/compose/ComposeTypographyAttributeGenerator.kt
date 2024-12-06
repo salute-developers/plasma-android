@@ -1,12 +1,17 @@
 package com.sdds.plugin.themebuilder.internal.generator.theme.compose
 
 import com.sdds.plugin.themebuilder.DimensionsConfig
+import com.sdds.plugin.themebuilder.internal.PackageResolver
+import com.sdds.plugin.themebuilder.internal.TargetPackage
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Constructor
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Modifier
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.KtFileFromResourcesBuilderFactory
 import com.sdds.plugin.themebuilder.internal.generator.SimpleBaseGenerator
+import com.sdds.plugin.themebuilder.internal.generator.TypographyTokenGenerator.Companion.TYPOGRAPHY_LARGE_TOKENS_NAME
+import com.sdds.plugin.themebuilder.internal.generator.TypographyTokenGenerator.Companion.TYPOGRAPHY_MEDIUM_TOKENS_NAME
+import com.sdds.plugin.themebuilder.internal.generator.TypographyTokenGenerator.Companion.TYPOGRAPHY_SMALL_TOKENS_NAME
 import com.sdds.plugin.themebuilder.internal.generator.data.TypographyTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.mergedScreenClasses
 import com.sdds.plugin.themebuilder.internal.token.TypographyToken.ScreenClass
@@ -30,15 +35,16 @@ internal class ComposeTypographyAttributeGenerator(
     private val outputLocation: KtFileBuilder.OutputLocation,
     private val themeName: String,
     private val dimensionsConfig: DimensionsConfig,
+    private val packageResolver: PackageResolver,
 ) : SimpleBaseGenerator {
 
     private var tokenData: TypographyTokenResult.ComposeTokenData? = null
     private val typographyAttributes = mutableSetOf<String>()
     private val typographyKtFileBuilder by unsafeLazy {
-        ktFileBuilderFactory.create(typographyClassName)
+        ktFileBuilderFactory.create(typographyClassName, TargetPackage.THEME)
     }
     private val ktFileFromResBuilder by unsafeLazy {
-        ktFileFromResourcesBuilderFactory.create()
+        ktFileFromResourcesBuilderFactory.create(TargetPackage.THEME)
     }
 
     private val camelThemeName = themeName.snakeToCamelCase()
@@ -89,6 +95,31 @@ internal class ComposeTypographyAttributeGenerator(
                 ),
             )
             addImport(KtFileBuilder.TypeDpExtension)
+            val tokenData = tokenData ?: return
+            if (tokenData.small.isNotEmpty()) {
+                addImport(
+                    getInternalClassType(
+                        className = TYPOGRAPHY_SMALL_TOKENS_NAME,
+                        classPackage = packageResolver.getPackage(TargetPackage.TOKENS),
+                    ),
+                )
+            }
+            if (tokenData.medium.isNotEmpty()) {
+                addImport(
+                    getInternalClassType(
+                        className = TYPOGRAPHY_MEDIUM_TOKENS_NAME,
+                        classPackage = packageResolver.getPackage(TargetPackage.TOKENS),
+                    ),
+                )
+            }
+            if (tokenData.large.isNotEmpty()) {
+                addImport(
+                    getInternalClassType(
+                        className = TYPOGRAPHY_LARGE_TOKENS_NAME,
+                        classPackage = packageResolver.getPackage(TargetPackage.TOKENS),
+                    ),
+                )
+            }
         }
     }
 
@@ -97,7 +128,7 @@ internal class ComposeTypographyAttributeGenerator(
             name = "Local$typographyClassName",
             typeName = KtFileBuilder.TypeProvidableCompositionLocal,
             parameterizedType = typographyClassType,
-            initializer = "staticCompositionLocalOf { medium$typographyClassName() }",
+            initializer = "staticCompositionLocalOf { $typographyClassName() }",
             modifiers = listOf(Modifier.INTERNAL),
         )
     }
@@ -105,7 +136,7 @@ internal class ComposeTypographyAttributeGenerator(
     private fun addDynamicTypographyFun() {
         typographyKtFileBuilder.appendRootFun(
             name = "dynamic$typographyClassName",
-            annotation = KtFileBuilder.TypeAnnotationComposable,
+            annotations = listOf(KtFileBuilder.TypeAnnotationComposable),
             returnType = typographyClassType,
             body = listOf(
                 "return when (collectWindowSizeInfoAsState().value.widthClass) {\n",
@@ -146,6 +177,7 @@ internal class ComposeTypographyAttributeGenerator(
                             KtFileBuilder.FunParameter(
                                 name = it,
                                 type = KtFileBuilder.TypeTextStyle,
+                                defValue = "TextStyle.Default",
                                 asProperty = true,
                             )
                         },
@@ -192,14 +224,18 @@ internal class ComposeTypographyAttributeGenerator(
                 name = funName,
                 returnType = typographyClassType,
                 body = listOf(
-                    "return $typographyClassName(${
-                        typographyAttributes
-                            .joinToString(separator = ",·") {
-                                "$it = ${findTypographyTokenRef(it, screenClass)}"
-                            }
-                    })",
+                    KtFileBuilder.createConstructorCall(
+                        constructorName = typographyClassName,
+                        initializers = typographyAttributes.map {
+                            "$it = ${findTypographyTokenRef(it, screenClass)}"
+                        }.toTypedArray(),
+                    ).let { "return $it" },
                 ),
                 description = description,
+                annotations = listOf(
+                    KtFileBuilder.TypeAnnotationComposable,
+                    KtFileBuilder.TypeAnnotationReadOnlyComposable,
+                ).takeIf { dimensionsConfig.fromResources },
             )
         }
     }

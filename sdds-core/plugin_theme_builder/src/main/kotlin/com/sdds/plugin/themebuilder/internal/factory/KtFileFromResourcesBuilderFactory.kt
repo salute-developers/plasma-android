@@ -1,5 +1,6 @@
 package com.sdds.plugin.themebuilder.internal.factory
 
+import com.sdds.plugin.themebuilder.internal.TargetPackage
 import com.sdds.plugin.themebuilder.internal.builder.KtFileFromResourcesBuilder
 
 /**
@@ -13,11 +14,6 @@ internal class KtFileFromResourcesBuilderFactory(
     /**
      * Создает [KtFileFromResourcesBuilder]
      */
-    fun create(frameworkPackage: Package = Package.COMPOSE): KtFileFromResourcesBuilder =
+    fun create(frameworkPackage: TargetPackage = TargetPackage.TOKENS): KtFileFromResourcesBuilder =
         KtFileFromResourcesBuilder("$packageName.${frameworkPackage.packageName}")
-
-    internal enum class Package(val packageName: String) {
-        VS("vs"),
-        COMPOSE("compose"),
-    }
 }

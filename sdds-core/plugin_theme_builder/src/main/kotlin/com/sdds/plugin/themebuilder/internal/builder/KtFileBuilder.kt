@@ -119,7 +119,7 @@ internal class KtFileBuilder(
         returnType: TypeName? = null,
         receiver: TypeName? = null,
         description: String? = null,
-        annotation: ClassName? = null,
+        annotations: Iterable<ClassName>? = null,
     ) {
         appendFun(
             name = name,
@@ -129,7 +129,7 @@ internal class KtFileBuilder(
             returnType = returnType,
             receiver = receiver,
             description = description,
-            annotation = annotation,
+            annotations = annotations,
         )
             .also(rootFunBuilders::add)
     }
@@ -340,11 +340,11 @@ internal class KtFileBuilder(
         receiver: TypeName? = null,
         description: String? = null,
         rootObject: TypeSpec.Builder? = null,
-        annotation: ClassName? = null,
+        annotations: Iterable<ClassName>? = null,
     ): FunSpec.Builder {
         return FunSpec.builder(name).apply {
             modifiers?.let { addModifiers(it.toKModifiers()) }
-            annotation?.let(::addAnnotation)
+            annotations?.forEach { addAnnotation(it) }
             params?.let { resolvedParams ->
                 addParameters(resolvedParams.toParameterSpecs())
             }
@@ -542,6 +542,10 @@ internal class KtFileBuilder(
         val TypeAnnotationReadOnlyComposable = ClassName("androidx.compose.runtime", listOf("ReadOnlyComposable"))
         val TypeProvidableCompositionLocal =
             ClassName("androidx.compose.runtime", listOf("ProvidableCompositionLocal"))
+        val TypeLocalDensity =
+            ClassName("androidx.compose.ui.platform", listOf("LocalDensity"))
+        val TypeDimensionResource =
+            ClassName("androidx.compose.ui.res", listOf("dimensionResource"))
 
         fun getLambdaType(annotation: ClassName? = null, receiver: ClassName? = null): TypeName {
             val lambdaType = LambdaTypeName.get(

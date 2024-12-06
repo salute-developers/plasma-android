@@ -26,13 +26,22 @@ class ThemeBuilderPlugin : Plugin<Project> {
     override fun apply(project: Project) {
         val themeZip = project.layout.buildDirectory.file("$THEME_PATH/theme.zip")
         val paletteJson = project.layout.buildDirectory.file("$THEME_PATH/$PALETTE_JSON_NAME")
+        val componentJsons = ComponentConfig.values()
+            .associateWith { project.layout.buildDirectory.file("$COMPONENTS_PATH/${it.fileName}") }
         val extension = project.themeBuilderExt()
         project.configureSourceSets()
 
         project.afterEvaluate {
             project.registerClean(extension)
-            val unzipTask = registerFetchAndUnzip(extension, themeZip, paletteJson)
-            registerThemeBuilder(extension, unzipTask, extension.autoGenerate)
+            val unzipThemeTask = registerFetchAndUnzipTheme(extension, themeZip, paletteJson)
+            registerThemeBuilder(
+                extension = extension,
+                unzipThemeTask = unzipThemeTask,
+                dependOnPreBuild = extension.autoGenerate,
+            )
+
+            val fetchComponentConfigsTasks = registerFetchComponentConfigs(extension, componentJsons)
+            registerGenerateComponentConfigsTask(fetchComponentConfigsTasks)
         }
     }
 
@@ -44,7 +53,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
         }
     }
 
-    private fun Project.registerFetchAndUnzip(
+    private fun Project.registerFetchAndUnzipTheme(
         extension: ThemeBuilderExtension,
         themeOutputZip: Provider<RegularFile>,
         paletteOutputJson: Provider<RegularFile>,
@@ -71,9 +80,33 @@ class ThemeBuilderPlugin : Plugin<Project> {
         return unzipTask
     }
 
+    private fun Project.registerFetchComponentConfigs(
+        extension: ThemeBuilderExtension,
+        componentJsons: Map<ComponentConfig, Provider<RegularFile>>,
+    ): List<TaskProvider<FetchFileTask>> {
+        return ComponentConfig.values().map {
+            project.tasks.register<FetchFileTask>(it.fetchTaskName) {
+                url.set("${BASE_COMPONENT_CONFIG_URL}${getThemeSource(extension).themeName}/${it.fileName}")
+                file.set(componentJsons[it]!!)
+                failMessage.set("Can't fetch ${it.fileName}")
+            }
+        }
+    }
+
+    private fun Project.registerGenerateComponentConfigsTask(
+        fetchComponentConfigsTasks: List<TaskProvider<FetchFileTask>>,
+    ) {
+        val task = project.tasks.register<GenerateComponentConfigsTask>("generateComponentConfigs") {
+            basicButtonConfigFile.set(getComponentConfigFile(ComponentConfig.BASIC_BUTTON.fileName))
+            iconButtonConfigFile.set(getComponentConfigFile(ComponentConfig.ICON_BUTTON.fileName))
+            linkButtonConfigFile.set(getComponentConfigFile(ComponentConfig.LINK_BUTTON.fileName))
+        }
+        fetchComponentConfigsTasks.forEach { task.dependsOn(it) }
+    }
+
     private fun Project.registerThemeBuilder(
         extension: ThemeBuilderExtension,
-        unzipTask: Any,
+        unzipThemeTask: Any,
         dependOnPreBuild: Boolean,
     ) {
         val generateThemeTask =
@@ -87,7 +120,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
                 shadowFileProvider = getValueFile(TokenValueFile.SHADOWS),
                 gradientFileProvider = getValueFile(TokenValueFile.GRADIENTS),
                 shapeFileProvider = getValueFile(TokenValueFile.SHAPES),
-                unzipTask = unzipTask,
+                unzipTask = unzipThemeTask,
             )
         if (dependOnPreBuild) {
             tasks.named("preBuild").dependsOn(generateThemeTask)
@@ -142,6 +175,10 @@ class ThemeBuilderPlugin : Plugin<Project> {
         return layout.buildDirectory.file("$THEME_PATH/android/${fileType.fileName}")
     }
 
+    private fun Project.getComponentConfigFile(fileName: String): Provider<RegularFile> {
+        return layout.buildDirectory.file("$COMPONENTS_PATH/$fileName")
+    }
+
     private fun Project.registerUnzip(
         taskName: String,
         zipFile: Provider<RegularFile>,
@@ -160,10 +197,11 @@ class ThemeBuilderPlugin : Plugin<Project> {
         themeUrl: String,
         themeOutput: Provider<RegularFile>,
         dependsOnTask: Any,
-    ): TaskProvider<FetchThemeTask> {
-        return project.tasks.register<FetchThemeTask>(taskName) {
+    ): TaskProvider<FetchFileTask> {
+        return project.tasks.register<FetchFileTask>(taskName) {
             url.set(themeUrl)
-            themeFile.set(themeOutput)
+            file.set(themeOutput)
+            failMessage.set("Can't fetch theme")
             dependsOn(dependsOnTask)
         }
     }
@@ -172,10 +210,11 @@ class ThemeBuilderPlugin : Plugin<Project> {
         taskName: String,
         paletteUrl: String,
         paletteOutput: Provider<RegularFile>,
-    ): TaskProvider<FetchPaletteTask> {
-        return project.tasks.register<FetchPaletteTask>(taskName) {
+    ): TaskProvider<FetchFileTask> {
+        return project.tasks.register<FetchFileTask>(taskName) {
             url.set(paletteUrl)
-            paletteFile.set(paletteOutput)
+            file.set(paletteOutput)
+            failMessage.set("Can't fetch palette")
         }
     }
 
@@ -274,6 +313,12 @@ class ThemeBuilderPlugin : Plugin<Project> {
         SHAPES("android_shape.json"),
     }
 
+    private enum class ComponentConfig(val fileName: String, val fetchTaskName: String) {
+        BASIC_BUTTON("basic_button_config.json", "fetchBasicButtonConfig"),
+        ICON_BUTTON("icon_button_config.json", "fetchIconButtonConfig"),
+        LINK_BUTTON("link_button_config.json", "fetchLinkButtonConfig"),
+    }
+
     private companion object {
         const val DEFAULT_KT_PACKAGE = "com.themebuilder.tokens"
         const val BUILD_OUTPUT_RESOURCE_PATH = "build/generated/theme-builder-res"
@@ -282,10 +327,13 @@ class ThemeBuilderPlugin : Plugin<Project> {
         const val SRC_OUTPUT_PATH = "src/main/kotlin"
 
         const val THEME_PATH = "theme-builder/theme"
+        const val COMPONENTS_PATH = "theme-builder/components"
         const val META_JSON_NAME = "meta.json"
         const val PALETTE_JSON_NAME = "palette.json"
 
         const val BASE_THEME_URL =
             "https://github.com/salute-developers/theme-converter/raw/main/themes/"
+        const val BASE_COMPONENT_CONFIG_URL =
+            "https://github.com/salute-developers/theme-converter/raw/main/components/"
     }
 }

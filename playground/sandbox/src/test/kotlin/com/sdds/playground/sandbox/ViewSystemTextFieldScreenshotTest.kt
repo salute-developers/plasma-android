@@ -13,16 +13,17 @@ import com.sdds.playground.sandbox.textfield.TextFieldVariant
 import com.sdds.uikit.TextField
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.robolectric.RobolectricTestRunner
+import org.robolectric.ParameterizedRobolectricTestRunner
 import org.robolectric.annotation.Config
 import org.robolectric.annotation.GraphicsMode
 
-@RunWith(RobolectricTestRunner::class)
+@RunWith(ParameterizedRobolectricTestRunner::class)
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
 @Config(sdk = [SDK_NUMBER], qualifiers = RobolectricDeviceQualifiers.Pixel6)
-class ViewSystemTextFieldScreenshotTest : RoborazziConfig() {
+class ViewSystemTextFieldScreenshotTest(
+    theme: String,
+) : RoborazziConfig(theme) {
 
-    @Config(qualifiers = "+night")
     @Test
     fun testTextFieldXs() {
         launchScreen(

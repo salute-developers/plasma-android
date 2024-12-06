@@ -22,9 +22,9 @@ import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.TextField
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.SandboxTheme
-import com.sdds.playground.sandbox.buttons.Default
-import com.sdds.playground.sandbox.buttons.Xs
 import com.sdds.playground.sandbox.core.ComponentScaffold
+import com.sdds.serv.styles.button.basic.Default
+import com.sdds.serv.styles.button.basic.Xs
 
 /**
  * Экран с компонентом [TextField]
@@ -47,10 +47,8 @@ internal fun TextFieldScreen() {
                     .onKeyEvent {
                         if (it.key == Key.Backspace) {
                             textFieldViewModel.onBackspacePressed()
-                            false
-                        } else {
-                            true
                         }
+                        return@onKeyEvent false
                     },
                 style = style,
                 enabled = textFieldUiState.enabled,

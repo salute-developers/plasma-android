@@ -8,14 +8,16 @@ import com.sdds.playground.sandbox.progress.ProgressUiState
 import com.sdds.playground.sandbox.progress.ProgressVariant
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.robolectric.RobolectricTestRunner
+import org.robolectric.ParameterizedRobolectricTestRunner
 import org.robolectric.annotation.Config
 import org.robolectric.annotation.GraphicsMode
 
-@RunWith(RobolectricTestRunner::class)
+@RunWith(ParameterizedRobolectricTestRunner::class)
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
 @Config(sdk = [SDK_NUMBER], qualifiers = RobolectricDeviceQualifiers.Pixel6)
-class ViewSystemProgressScreenshotTest : RoborazziConfig() {
+class ViewSystemProgressScreenshotTest(
+    theme: String,
+) : RoborazziConfig(theme) {
 
     @Test
     fun testProgressDefault() {
@@ -23,7 +25,7 @@ class ViewSystemProgressScreenshotTest : RoborazziConfig() {
             R.id.nav_progressbar,
             ProgressUiState(
                 variant = ProgressVariant.Default,
-                progress = 0.5f,
+                progress = 0.25f,
             ),
         )
         onView(withId(R.id.progressBar))
@@ -31,12 +33,12 @@ class ViewSystemProgressScreenshotTest : RoborazziConfig() {
     }
 
     @Test
-    fun testProgressNegative() {
+    fun testProgressSecondary() {
         launchScreen(
             R.id.nav_progressbar,
             ProgressUiState(
-                variant = ProgressVariant.Negative,
-                progress = 0.5f,
+                variant = ProgressVariant.Secondary,
+                progress = 0.25f,
             ),
         )
         onView(withId(R.id.progressBar))
@@ -49,7 +51,7 @@ class ViewSystemProgressScreenshotTest : RoborazziConfig() {
             R.id.nav_progressbar,
             ProgressUiState(
                 variant = ProgressVariant.Warning,
-                progress = 0.8f,
+                progress = 0.25f,
             ),
         )
         onView(withId(R.id.progressBar))
@@ -69,14 +71,52 @@ class ViewSystemProgressScreenshotTest : RoborazziConfig() {
             .captureRoboImage()
     }
 
-    @Config(qualifiers = "+night")
     @Test
-    fun testProgressDefaultDark() {
+    fun testProgressNegative() {
+        launchScreen(
+            R.id.nav_progressbar,
+            ProgressUiState(
+                variant = ProgressVariant.Negative,
+                progress = 0.99f,
+            ),
+        )
+        onView(withId(R.id.progressBar))
+            .captureRoboImage()
+    }
+
+    @Test
+    fun testProgressAccent() {
+        launchScreen(
+            R.id.nav_progressbar,
+            ProgressUiState(
+                variant = ProgressVariant.Accent,
+                progress = 1f,
+            ),
+        )
+        onView(withId(R.id.progressBar))
+            .captureRoboImage()
+    }
+
+    @Test
+    fun testProgressGradientAccent() {
+        launchScreen(
+            R.id.nav_progressbar,
+            ProgressUiState(
+                variant = ProgressVariant.GradientAccent,
+                progress = 0.5f,
+            ),
+        )
+        onView(withId(R.id.progressBar))
+            .captureRoboImage()
+    }
+
+    @Test
+    fun testProgressDefaultValueOne() {
         launchScreen(
             R.id.nav_progressbar,
             ProgressUiState(
                 variant = ProgressVariant.Default,
-                progress = 0.2f,
+                progress = 0.01f,
             ),
         )
         onView(withId(R.id.progressBar))

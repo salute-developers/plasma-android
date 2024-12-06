@@ -1,5 +1,7 @@
 package com.sdds.plugin.themebuilder.internal.attributes.generator
 
+import com.sdds.plugin.themebuilder.internal.PackageResolver
+import com.sdds.plugin.themebuilder.internal.TargetPackage
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.builder.KtFileFromResourcesBuilder
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
@@ -32,6 +34,7 @@ class ComposeGradientAttributeGeneratorTest {
     private lateinit var ktFileBuilder: KtFileBuilder
     private lateinit var mockKtFileFromResourcesBuilderFactory: KtFileFromResourcesBuilderFactory
     private lateinit var ktFileFromResourcesBuilder: KtFileFromResourcesBuilder
+    private lateinit var packageResolver: PackageResolver
 
     @Before
     fun before() {
@@ -42,23 +45,25 @@ class ComposeGradientAttributeGeneratorTest {
         )
         outputKt = ByteArrayOutputStream()
         ktFileBuilder = KtFileBuilder(
-            packageName = "com.sdds.playground.themebuilder.tokens.compose",
+            packageName = "com.sdds.playground.themebuilder.theme",
             fileName = "ThemeGradients",
         )
         ktFileFromResourcesBuilder = KtFileFromResourcesBuilder(
-            packageName = "com.sdds.playground.themebuilder.tokens.compose",
+            packageName = "com.sdds.playground.themebuilder.theme",
         )
         mockKtFileBuilderFactory = mockk<KtFileBuilderFactory> {
-            every { create("ThemeGradients") } returns ktFileBuilder
+            every { create("ThemeGradients", TargetPackage.THEME) } returns ktFileBuilder
         }
         mockKtFileFromResourcesBuilderFactory = mockk<KtFileFromResourcesBuilderFactory> {
-            every { create() } returns ktFileFromResourcesBuilder
+            every { create(TargetPackage.THEME) } returns ktFileFromResourcesBuilder
         }
+        packageResolver = PackageResolver("com.sdds.playground.themebuilder")
         underTest = ComposeGradientAttributeGenerator(
             ktFileBuilderFactory = mockKtFileBuilderFactory,
             ktFileFromResourcesBuilderFactory = mockKtFileFromResourcesBuilderFactory,
             outputLocation = KtFileBuilder.OutputLocation.Stream(outputKt),
             themeName = "Theme",
+            packageResolver = packageResolver,
         )
     }
 
@@ -78,8 +83,8 @@ class ComposeGradientAttributeGeneratorTest {
         underTest.generate()
 
         verify {
-            mockKtFileBuilderFactory.create("ThemeGradients")
-            mockKtFileFromResourcesBuilderFactory.create()
+            mockKtFileBuilderFactory.create("ThemeGradients", TargetPackage.THEME)
+            mockKtFileFromResourcesBuilderFactory.create(TargetPackage.THEME)
         }
 
         Assert.assertEquals(

@@ -12,21 +12,39 @@ import com.sdds.uikit.CheckBox
 import org.hamcrest.Matchers.allOf
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.robolectric.RobolectricTestRunner
+import org.robolectric.ParameterizedRobolectricTestRunner
 import org.robolectric.annotation.Config
 import org.robolectric.annotation.GraphicsMode
 
-@RunWith(RobolectricTestRunner::class)
+@RunWith(ParameterizedRobolectricTestRunner::class)
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
 @Config(sdk = [SDK_NUMBER], qualifiers = RobolectricDeviceQualifiers.Pixel6)
-class ViewSystemCheckBoxScreenshotTest : RoborazziConfig() {
+class ViewSystemCheckBoxScreenshotTest(
+    theme: String,
+) : RoborazziConfig(theme) {
 
     @Test
-    fun testCheckBoxSizeMUnchecked() {
+    fun testCheckBoxSizeM() {
         launchScreen(
             R.id.nav_checkbox,
             CheckBoxUiState(
                 variant = CheckBoxVariant.CheckBoxM,
+                state = CheckBox.ToggleableState.ON,
+                label = "Label",
+                description = "Description",
+                enabled = true,
+            ),
+        )
+        onView(withId(R.id.checkBox))
+            .captureRoboImage()
+    }
+
+    @Test
+    fun testCheckBoxSizeSUnchecked() {
+        launchScreen(
+            R.id.nav_checkbox,
+            CheckBoxUiState(
+                variant = CheckBoxVariant.CheckBoxS,
                 state = CheckBox.ToggleableState.OFF,
                 label = "Label",
                 description = "Description",
@@ -54,44 +72,12 @@ class ViewSystemCheckBoxScreenshotTest : RoborazziConfig() {
     }
 
     @Test
-    fun testCheckBoxMediumNoDesc() {
-        launchScreen(
-            R.id.nav_checkbox,
-            CheckBoxUiState(
-                variant = CheckBoxVariant.CheckBoxM,
-                state = CheckBox.ToggleableState.ON,
-                label = "Label",
-                description = "",
-                enabled = true,
-            ),
-        )
-        onView(withId(R.id.checkBox))
-            .captureRoboImage()
-    }
-
-    @Test
-    fun testCheckBoxMediumNoLabel() {
-        launchScreen(
-            R.id.nav_checkbox,
-            CheckBoxUiState(
-                variant = CheckBoxVariant.CheckBoxM,
-                state = CheckBox.ToggleableState.ON,
-                label = "",
-                description = "Description",
-                enabled = false,
-            ),
-        )
-        onView(withId(R.id.checkBox))
-            .captureRoboImage()
-    }
-
-    @Test
     fun testCheckBoxDisabled() {
         launchScreen(
             R.id.nav_checkbox,
             CheckBoxUiState(
                 variant = CheckBoxVariant.CheckBoxS,
-                state = CheckBox.ToggleableState.INDETERMINATE,
+                state = CheckBox.ToggleableState.ON,
                 label = "Label",
                 description = "Description",
                 enabled = false,
@@ -101,17 +87,16 @@ class ViewSystemCheckBoxScreenshotTest : RoborazziConfig() {
             .captureRoboImage()
     }
 
-    @Config(qualifiers = "+night")
     @Test
-    fun testCheckBoxSizeSDark() {
+    fun testCheckBoxSizeMIndeterminate() {
         launchScreen(
             R.id.nav_checkbox,
             CheckBoxUiState(
-                variant = CheckBoxVariant.CheckBoxS,
-                state = CheckBox.ToggleableState.ON,
+                variant = CheckBoxVariant.CheckBoxM,
+                state = CheckBox.ToggleableState.INDETERMINATE,
                 label = "Label",
                 description = "Description",
-                enabled = false,
+                enabled = true,
             ),
         )
         onView(withId(R.id.checkBox))
@@ -129,7 +114,7 @@ class ViewSystemCheckBoxScreenshotTest : RoborazziConfig() {
                 enabled = true,
             ),
         )
-        onView(allOf(withId(1), withText("Label")))
+        onView(allOf(withId(0), withText("Label")))
             .perform(click())
         onView(withId(R.id.checkBox_group))
             .captureRoboImage()
@@ -146,8 +131,23 @@ class ViewSystemCheckBoxScreenshotTest : RoborazziConfig() {
                 enabled = true,
             ),
         )
-        onView(withId(R.id.checkBox_group))
+        onView(withId(1))
             .perform(click())
+        onView(withId(R.id.checkBox_group))
+            .captureRoboImage()
+    }
+
+    @Test
+    fun testCheckBoxGroupMDisabled() {
+        launchScreen(
+            R.id.nav_checkbox_group,
+            CheckBoxUiState(
+                variant = CheckBoxVariant.CheckBoxM,
+                label = "Label",
+                description = "Description",
+                enabled = false,
+            ),
+        )
         onView(withId(R.id.checkBox_group))
             .captureRoboImage()
     }

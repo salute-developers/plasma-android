@@ -1,10 +1,6 @@
-import com.sdds.plugin.themebuilder.ShapeAppearanceConfig.Companion.sddsShape
-import com.sdds.plugin.themebuilder.ThemeBuilderMode
-
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     id("convention.android-app")
-    id(libs.plugins.themebuilder.get().pluginId)
     alias(libs.plugins.roborazzi)
     id("kotlin-parcelize")
 }
@@ -20,24 +16,15 @@ android {
     testOptions {
         unitTests.isIncludeAndroidResources = true
     }
-}
-
-themeBuilder {
-    themeSource(name = "sdds_serv", version = "latest")
-    view {
-        themeParents {
-            materialComponentsTheme()
-        }
-        setupShapeAppearance(sddsShape())
+    tasks.withType<Test> {
+        maxHeapSize = "4096m"
     }
-    resourcesPrefix("serv")
-    ktPackage("com.sdds.playground.sandbox.tokens")
-    mode(ThemeBuilderMode.THEME)
 }
 
 dependencies {
-    implementation("sdds-core:uikit")
-    implementation("sdds-core:icons")
+    implementation(libs.sdds.icons)
+    implementation(libs.sdds.uikit)
+    implementation("tokens:sdds.serv.view")
 
     implementation(libs.base.androidX.core)
     implementation(libs.base.androidX.appcompat)

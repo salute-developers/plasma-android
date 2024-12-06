@@ -42,4 +42,11 @@ object Serializer {
         ignoreUnknownKeys = true
         classDiscriminator = "kind"
     }
+
+    /**
+     * Экземпляр сериализации json файла с конфигами компонентов
+     */
+    val componentConfig: Json = Json {
+        ignoreUnknownKeys = true
+    }
 }

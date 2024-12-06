@@ -1,7 +1,7 @@
 package com.sdds.playground.sandbox.cell
 
 import android.os.Parcelable
-import com.sdds.playground.sandbox.R
+import com.sdds.serv.R
 import kotlinx.parcelize.Parcelize
 
 /**
@@ -39,8 +39,8 @@ internal enum class CellContent : Parcelable {
  */
 @Parcelize
 internal enum class CellVariant(val styleRes: Int) : Parcelable {
-    CellL(R.style.Theme_Sandbox_ComponentOverlays_CellL),
-    CellM(R.style.Theme_Sandbox_ComponentOverlays_CellM),
-    CellS(R.style.Theme_Sandbox_ComponentOverlays_CellS),
-    CellXS(R.style.Theme_Sandbox_ComponentOverlays_CellXS),
+    CellL(R.style.Serv_Sdds_ComponentOverlays_CellL),
+    CellM(R.style.Serv_Sdds_ComponentOverlays_CellM),
+    CellS(R.style.Serv_Sdds_ComponentOverlays_CellS),
+    CellXS(R.style.Serv_Sdds_ComponentOverlays_CellXS),
 }

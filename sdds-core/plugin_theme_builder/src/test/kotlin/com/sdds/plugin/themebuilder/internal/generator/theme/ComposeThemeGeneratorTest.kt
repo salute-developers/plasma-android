@@ -1,5 +1,6 @@
 package com.sdds.plugin.themebuilder.internal.generator.theme
 
+import com.sdds.plugin.themebuilder.internal.PackageResolver
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult
@@ -31,7 +32,7 @@ class ComposeThemeGeneratorTest {
             TypeSpec,
             FileProvider,
         )
-        ktFileBuilderFactory = KtFileBuilderFactory("com.sdds.playground.themebuilder.tokens")
+        ktFileBuilderFactory = KtFileBuilderFactory(PackageResolver("com.sdds.playground.themebuilder"))
     }
 
     @After

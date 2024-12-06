@@ -9,9 +9,9 @@ import com.sdds.compose.uikit.AvatarCounter
 import com.sdds.compose.uikit.AvatarGroup
 import com.sdds.plasma.sd.service.sandbox.SandboxTheme
 import com.sdds.plasma.sd.service.sandbox.compose.R
-import com.sdds.plasma.sd.service.styles.M
-import com.sdds.plasma.sd.service.styles.S
-import com.sdds.plasma.sd.service.styles.Xxl
+import com.sdds.plasma.sd.service.styles.avatar.M
+import com.sdds.plasma.sd.service.styles.avatar.S
+import com.sdds.plasma.sd.service.styles.avatar.Xxl
 
 /**
  * Превью [Avatar]

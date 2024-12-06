@@ -2,7 +2,9 @@ package com.sdds.compose.uikit.internal.textfield
 
 import android.util.Log
 import androidx.compose.animation.core.tween
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.ScrollState
+import androidx.compose.foundation.focusable
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.interaction.InteractionSource
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -24,9 +26,11 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.focus.focusProperties
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
@@ -53,6 +57,8 @@ import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.internal.common.IndicatorMode
 import com.sdds.compose.uikit.internal.common.drawIndicator
 import com.sdds.compose.uikit.internal.common.enable
+import com.sdds.compose.uikit.internal.focusselector.LocalFocusSelectorMode
+import com.sdds.compose.uikit.internal.focusselector.applyFocusSelector
 import com.sdds.compose.uikit.prefixSuffixTransformation
 import com.sdds.compose.uikit.scrollbar
 
@@ -81,6 +87,7 @@ import com.sdds.compose.uikit.scrollbar
  * Используется, только если отсутствуют [prefix] и [suffix].
  * @param interactionSource источник взаимодействия с полем
  */
+@OptIn(ExperimentalComposeUiApi::class, ExperimentalFoundationApi::class)
 @Composable
 @Suppress("LongMethod")
 internal fun BaseTextField(
@@ -151,8 +158,10 @@ internal fun BaseTextField(
         }
     }
 
+    val componentInteractionSource = remember { MutableInteractionSource() }
     Column(
         modifier = modifier
+            .focusable(enabled = enabled, interactionSource = componentInteractionSource)
             .enable(enabled, enabledAlpha, disabledAlpha)
             .width(IntrinsicSize.Max)
             .applyIndicatorPadding(
@@ -164,6 +173,7 @@ internal fun BaseTextField(
     ) {
         OuterTopContent(
             modifier = Modifier
+                .focusProperties { canFocus = false }
                 .padding(bottom = dimensions.outerLabelPadding)
                 .applyLabelIndicator(fieldType, labelPlacement, colors, dimensions),
             labelPlacement = labelPlacement,
@@ -181,10 +191,15 @@ internal fun BaseTextField(
             horizontalScrollState?.scrollTo(value = Int.MAX_VALUE)
             verticalScrollState?.scrollTo(value = Int.MAX_VALUE)
         }
+
+        val isComponentFocused = componentInteractionSource.collectIsFocusedAsState()
         BasicTextField(
             value = value,
             onValueChange = onValueChange,
             modifier = Modifier
+                .applyFocusSelector(LocalFocusSelectorMode.current, style.shape) {
+                    isComponentFocused.value
+                }
                 .defaultMinSize(minHeight = dimensions.boxMinHeight)
                 .weight(1f, fill = false)
                 .fillMaxWidth()
@@ -266,6 +281,7 @@ internal fun BaseTextField(
             )
         }
         OuterBottomContent(
+            modifier = Modifier.focusProperties { canFocus = false },
             helperTextPlacement = helperTextPlacement,
             helperTextPadding = dimensions.helperTextPaddingOuter,
             captionText = captionText,
@@ -628,6 +644,7 @@ private fun OuterTopContent(
 
 @Composable
 private fun OuterBottomContent(
+    modifier: Modifier,
     captionText: String?,
     counterText: String?,
     captionStyle: TextStyle,
@@ -637,11 +654,15 @@ private fun OuterBottomContent(
 ) {
     val isEmpty = captionText.isNullOrEmpty() && counterText.isNullOrEmpty()
     if (helperTextPlacement != HelperTextPlacement.Outer || isEmpty) return
+    val horizontalArrangement = when {
+        captionText.isNullOrEmpty() -> Arrangement.End
+        else -> Arrangement.SpaceBetween
+    }
     Row(
-        modifier = Modifier
+        modifier = modifier
             .padding(top = helperTextPadding)
             .fillMaxWidth(),
-        horizontalArrangement = Arrangement.SpaceBetween,
+        horizontalArrangement = horizontalArrangement,
     ) {
         TextOrEmpty(
             text = captionText,

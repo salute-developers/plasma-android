@@ -7,8 +7,10 @@ import com.sdds.compose.uikit.RadioBoxGroup
 import com.sdds.compose.uikit.isChecked
 import com.sdds.compose.uikit.updateSelection
 import com.sdds.plasma.sd.service.sandbox.SandboxTheme
-import com.sdds.plasma.sd.service.styles.M
-import com.sdds.plasma.sd.service.styles.S
+import com.sdds.plasma.sd.service.styles.radiobox.M
+import com.sdds.plasma.sd.service.styles.radiobox.S
+import com.sdds.plasma.sd.service.styles.radiobox.group.M
+import com.sdds.plasma.sd.service.styles.radiobox.group.S
 
 /**
  * Превью [RadioBox]
@@ -29,14 +31,16 @@ internal fun RadioBoxPreview() {
 @Composable
 @Preview
 internal fun RadioBoxPreviewMedium() {
-    RadioBox(
-        style = RadioBox.M.style(),
-        checked = true,
-        enabled = true,
-        label = "Title",
-        description = "Description",
-        onClick = {},
-    )
+    SandboxTheme {
+        RadioBox(
+            style = RadioBox.M.style(),
+            checked = true,
+            enabled = true,
+            label = "Title",
+            description = "Description",
+            onClick = {},
+        )
+    }
 }
 
 @Composable
@@ -57,27 +61,31 @@ internal fun RadioBoxPreviewSmallDark() {
 @Composable
 @Preview
 internal fun RadioBoxPreviewUnchecked() {
-    RadioBox(
-        style = RadioBox.M.style(),
-        checked = false,
-        enabled = true,
-        label = "Label",
-        description = "Description",
-        onClick = {},
-    )
+    SandboxTheme {
+        RadioBox(
+            style = RadioBox.M.style(),
+            checked = false,
+            enabled = true,
+            label = "Label",
+            description = "Description",
+            onClick = {},
+        )
+    }
 }
 
 @Composable
 @Preview
 internal fun RadioBoxPreviewOff() {
-    RadioBox(
-        style = RadioBox.M.style(),
-        checked = false,
-        enabled = false,
-        label = "Label",
-        description = "Description",
-        onClick = {},
-    )
+    SandboxTheme {
+        RadioBox(
+            style = RadioBox.M.style(),
+            checked = false,
+            enabled = false,
+            label = "Label",
+            description = "Description",
+            onClick = {},
+        )
+    }
 }
 
 @Composable

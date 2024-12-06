@@ -7,7 +7,6 @@ import com.sdds.playground.sandbox.core.view.PropertiesOwner
 import com.sdds.playground.sandbox.core.view.Property
 import com.sdds.playground.sandbox.core.view.enumProperty
 import com.sdds.uikit.ChipGroup
-import com.sdds.uikit.viewstate.ViewState
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -53,7 +52,7 @@ internal class ChipParametersViewModel(
             ChipPropertyName.Wrapped -> updateWrapped(value as Boolean)
             ChipPropertyName.Quantity -> updateQuantity(value?.toString()?.toInt() ?: 0)
             ChipPropertyName.GravityMode -> updateGravity(GravityMode.valueOf(value?.toString() ?: return))
-            ChipPropertyName.CheckedState -> updateCheckedState(ViewState.valueOf(value?.toString() ?: return))
+            ChipPropertyName.CheckedState -> updateCheckedState(CheckedState.valueOf(value?.toString() ?: return))
             ChipPropertyName.SelectionMode -> updateSelectionMode(
                 ChipGroup.SelectionMode.valueOf(
                     value?.toString() ?: return,
@@ -103,7 +102,7 @@ internal class ChipParametersViewModel(
         _chipState.value = _chipState.value.copy(gravityMode = gravityMode)
     }
 
-    private fun updateCheckedState(checkedState: ViewState) {
+    private fun updateCheckedState(checkedState: CheckedState) {
         _chipState.value = _chipState.value.copy(checkedState = checkedState)
     }
 

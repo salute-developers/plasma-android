@@ -2,7 +2,7 @@ package com.sdds.playground.sandbox.switcher
 
 import android.os.Parcelable
 import androidx.annotation.StyleRes
-import com.sdds.playground.sandbox.R
+import com.sdds.serv.R
 import kotlinx.parcelize.Parcelize
 
 /**
@@ -29,7 +29,7 @@ internal data class SwitchUiState(
  */
 @Parcelize
 internal enum class SwitchVariant(@StyleRes val styleRes: Int) : Parcelable {
-    SwitchL(R.style.Theme_Sandbox_ComponentOverlays_SwitchL),
-    SwitchM(R.style.Theme_Sandbox_ComponentOverlays_SwitchM),
-    SwitchS(R.style.Theme_Sandbox_ComponentOverlays_SwitchS),
+    SwitchL(R.style.Serv_Sdds_ComponentOverlays_SwitchL),
+    SwitchM(R.style.Serv_Sdds_ComponentOverlays_SwitchM),
+    SwitchS(R.style.Serv_Sdds_ComponentOverlays_SwitchS),
 }

@@ -2,26 +2,52 @@ package com.sdds.plasma.sd.service.sandbox.buttons
 
 import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.BasicButton
+import com.sdds.compose.uikit.BasicButtonStyleBuilder
 import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.ButtonStyle
-import com.sdds.compose.uikit.ButtonStyleBuilder
 import com.sdds.compose.uikit.IconButton
+import com.sdds.compose.uikit.IconButtonStyleBuilder
 import com.sdds.compose.uikit.LinkButton
-import com.sdds.plasma.sd.service.styles.Accent
-import com.sdds.plasma.sd.service.styles.Black
-import com.sdds.plasma.sd.service.styles.Clear
-import com.sdds.plasma.sd.service.styles.Dark
-import com.sdds.plasma.sd.service.styles.Default
-import com.sdds.plasma.sd.service.styles.L
-import com.sdds.plasma.sd.service.styles.M
-import com.sdds.plasma.sd.service.styles.Negative
-import com.sdds.plasma.sd.service.styles.Pilled
-import com.sdds.plasma.sd.service.styles.Positive
-import com.sdds.plasma.sd.service.styles.S
-import com.sdds.plasma.sd.service.styles.Secondary
-import com.sdds.plasma.sd.service.styles.Warning
-import com.sdds.plasma.sd.service.styles.White
-import com.sdds.plasma.sd.service.styles.Xs
+import com.sdds.compose.uikit.LinkButtonStyleBuilder
+import com.sdds.plasma.sd.service.styles.button.basic.Accent
+import com.sdds.plasma.sd.service.styles.button.basic.Black
+import com.sdds.plasma.sd.service.styles.button.basic.Clear
+import com.sdds.plasma.sd.service.styles.button.basic.Dark
+import com.sdds.plasma.sd.service.styles.button.basic.Default
+import com.sdds.plasma.sd.service.styles.button.basic.L
+import com.sdds.plasma.sd.service.styles.button.basic.M
+import com.sdds.plasma.sd.service.styles.button.basic.Negative
+import com.sdds.plasma.sd.service.styles.button.basic.Positive
+import com.sdds.plasma.sd.service.styles.button.basic.S
+import com.sdds.plasma.sd.service.styles.button.basic.Secondary
+import com.sdds.plasma.sd.service.styles.button.basic.Warning
+import com.sdds.plasma.sd.service.styles.button.basic.White
+import com.sdds.plasma.sd.service.styles.button.basic.Xs
+import com.sdds.plasma.sd.service.styles.button.icon.Accent
+import com.sdds.plasma.sd.service.styles.button.icon.Black
+import com.sdds.plasma.sd.service.styles.button.icon.Clear
+import com.sdds.plasma.sd.service.styles.button.icon.Dark
+import com.sdds.plasma.sd.service.styles.button.icon.Default
+import com.sdds.plasma.sd.service.styles.button.icon.L
+import com.sdds.plasma.sd.service.styles.button.icon.M
+import com.sdds.plasma.sd.service.styles.button.icon.Negative
+import com.sdds.plasma.sd.service.styles.button.icon.Pilled
+import com.sdds.plasma.sd.service.styles.button.icon.Positive
+import com.sdds.plasma.sd.service.styles.button.icon.S
+import com.sdds.plasma.sd.service.styles.button.icon.Secondary
+import com.sdds.plasma.sd.service.styles.button.icon.Warning
+import com.sdds.plasma.sd.service.styles.button.icon.White
+import com.sdds.plasma.sd.service.styles.button.icon.Xs
+import com.sdds.plasma.sd.service.styles.button.link.Accent
+import com.sdds.plasma.sd.service.styles.button.link.Default
+import com.sdds.plasma.sd.service.styles.button.link.L
+import com.sdds.plasma.sd.service.styles.button.link.M
+import com.sdds.plasma.sd.service.styles.button.link.Negative
+import com.sdds.plasma.sd.service.styles.button.link.Positive
+import com.sdds.plasma.sd.service.styles.button.link.S
+import com.sdds.plasma.sd.service.styles.button.link.Secondary
+import com.sdds.plasma.sd.service.styles.button.link.Warning
+import com.sdds.plasma.sd.service.styles.button.link.Xs
 import com.sdds.icons.R.drawable as Icons
 
 /**
@@ -108,7 +134,7 @@ enum class IconButtonShape {
 }
 
 @Composable
-private fun ButtonStyleBuilder.applyColorStyle(style: Style): ButtonStyleBuilder {
+private fun BasicButtonStyleBuilder.applyColorStyle(style: Style): BasicButtonStyleBuilder {
     return when (style) {
         Style.Default -> Default
         Style.Secondary -> Secondary
@@ -120,6 +146,35 @@ private fun ButtonStyleBuilder.applyColorStyle(style: Style): ButtonStyleBuilder
         Style.Dark -> Dark
         Style.Black -> Black
         Style.White -> White
+    }
+}
+
+@Composable
+private fun IconButtonStyleBuilder.applyColorStyle(style: Style): IconButtonStyleBuilder {
+    return when (style) {
+        Style.Default -> Default
+        Style.Secondary -> Secondary
+        Style.Accent -> Accent
+        Style.Positive -> Positive
+        Style.Negative -> Negative
+        Style.Warning -> Warning
+        Style.Clear -> Clear
+        Style.Dark -> Dark
+        Style.Black -> Black
+        Style.White -> White
+    }
+}
+
+@Composable
+private fun LinkButtonStyleBuilder.applyColorStyle(style: Style): LinkButtonStyleBuilder {
+    return when (style) {
+        Style.Default -> Default
+        Style.Secondary -> Secondary
+        Style.Accent -> Accent
+        Style.Positive -> Positive
+        Style.Negative -> Negative
+        Style.Warning -> Warning
+        else -> Default
     }
 }
 

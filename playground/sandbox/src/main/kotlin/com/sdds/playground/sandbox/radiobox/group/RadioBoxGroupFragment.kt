@@ -70,6 +70,7 @@ internal class RadioBoxGroupFragment : ComponentFragment() {
                 .apply {
                     text = state.label
                     description = state.description
+                    id = it
                 }
             addView(radioBox)
         }

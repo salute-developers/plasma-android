@@ -5,6 +5,8 @@ import androidx.compose.ui.state.ToggleableState
 import com.sdds.compose.uikit.CheckBoxGroup
 import com.sdds.compose.uikit.CheckBoxGroupStyle
 import com.sdds.playground.sandbox.checkbox.Size
+import com.sdds.serv.styles.checkbox.group.M
+import com.sdds.serv.styles.checkbox.group.S
 
 /**
  * Состояние checkbox group

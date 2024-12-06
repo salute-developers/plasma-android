@@ -1,20 +1,30 @@
 // AUTO-GENERATED. DO NOT MODIFY this file.
-package com.sdds.playground.themebuilder.tokens
+package com.sdds.playground.themebuilder.theme
 
 import androidx.compose.foundation.shape.CornerBasedShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.ProvidableCompositionLocal
 import androidx.compose.runtime.staticCompositionLocalOf
-import com.sdds.playground.themebuilder.tokens.ThemeShapes
+import com.sdds.playground.themebuilder.theme.ThemeShapes
+import com.sdds.playground.themebuilder.tokens.RoundShapeTokens
 
 /**
  * Формы Theme
  */
 @Immutable
 public data class ThemeShapes(
-    public val roundXs: CornerBasedShape = RoundShapeTokens.RoundXs,
-    public val roundXxs: CornerBasedShape = RoundShapeTokens.RoundXxs,
+    public val roundXs: CornerBasedShape = RoundedCornerShape(0),
+    public val roundXxs: CornerBasedShape = RoundedCornerShape(0),
 )
 
 internal val LocalThemeShapes: ProvidableCompositionLocal<ThemeShapes> = staticCompositionLocalOf {
         ThemeShapes() }
+
+/**
+ * Возвращает [ThemeShapes]
+ */
+public fun defaultThemeShapes(): ThemeShapes = ThemeShapes(
+    roundXs = RoundShapeTokens.RoundXs,
+    roundXxs = RoundShapeTokens.RoundXxs,
+)

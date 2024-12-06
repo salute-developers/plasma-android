@@ -37,7 +37,9 @@ internal class CellFragment : ComponentFragment() {
     override val componentLayout: CellLayout
         get() = LayoutComponentCellBinding.inflate(
             LayoutInflater.from(ContextThemeWrapper(requireContext(), currentVariant.styleRes)),
-        ).also { cellLayout = it }.root
+        )
+            .also { cellLayout = it }.root
+            .apply { id = R.id.cell }
 
     override val propertiesOwner: PropertiesOwner
         get() = cellParametersViewModel

@@ -7,14 +7,16 @@ plugins {
 }
 
 android {
-    namespace = "com.sdds.themes.stylessalute.tokens"
+    namespace = "com.sdds.stylessalute"
+    resourcePrefix = "styles"
 }
 
 themeBuilder {
-    themeSource(name = "stylesSalute", version = "latest")
+    val themeVersion = project.property("theme-version")?.toString()
+        ?: throw GradleException("sdds serv version must be specified")
+    themeSource(name = "stylesSalute", version = themeVersion)
+    autoGenerate(false)
     view()
-    ktPackage(ktPackage = "com.sdds.themes.stylessalute.tokens")
-    resourcesPrefix(prefix = "sdgen")
 }
 
 dependencies {

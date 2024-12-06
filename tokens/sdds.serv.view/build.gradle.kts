@@ -1,3 +1,7 @@
+import com.sdds.plugin.themebuilder.OutputLocation.SRC
+import com.sdds.plugin.themebuilder.ShapeAppearanceConfig.Companion.sddsShape
+import com.sdds.plugin.themebuilder.ThemeBuilderMode.THEME
+
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     id("convention.android-lib")
@@ -7,17 +11,28 @@ plugins {
 }
 
 android {
-    namespace = "com.sdds.themes.sdds.serv.tokens"
+    namespace = "com.sdds.serv"
+    resourcePrefix = "serv"
 }
 
 themeBuilder {
-    themeSource(name = "sdds_serv", version = "latest")
-    view()
-    ktPackage(ktPackage = "com.sdds.themes.sdds.serv.tokens")
-    resourcesPrefix(prefix = "sdgen")
+    val themeVersion = project.property("theme-version")?.toString()
+        ?: throw GradleException("star design service version must be specified")
+    themeSource(name = "sdds_serv", version = themeVersion, alias = "Sdds")
+    view{
+        themeParents {
+            materialComponentsTheme()
+        }
+        setupShapeAppearance(sddsShape())
+    }
+    autoGenerate(false)
+    mode(THEME)
+    outputLocation(SRC)
 }
 
 dependencies {
+    implementation(libs.sdds.icons)
+    implementation(libs.sdds.uikit)
     implementation(libs.base.androidX.core)
     implementation(libs.base.androidX.appcompat)
 }

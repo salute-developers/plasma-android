@@ -1,5 +1,5 @@
 // AUTO-GENERATED. DO NOT MODIFY this file.
-package com.test.tokens.compose
+package com.test.tokens
 
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily

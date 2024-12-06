@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.drawscope.Fill
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.times
 import com.sdds.compose.uikit.RadioBoxColors
 import com.sdds.compose.uikit.RadioBoxDimensions
 
@@ -33,8 +34,8 @@ internal fun RadioBoxControl(
     colors: RadioBoxColors,
     modifier: Modifier = Modifier,
 ) {
+    val focusBorderPadding = FocusBorderPadding
     val targetCheckedRadius = dimensions.innerDiameter / 2
-    val radioRadius = dimensions.controlSize / 2
     val baseRadius = animateDpAsState(
         targetValue = if (checked) targetCheckedRadius else 0.dp,
         animationSpec = tween(durationMillis = animationDuration),
@@ -49,11 +50,12 @@ internal fun RadioBoxControl(
             .wrapContentSize(Alignment.Center)
             .requiredSize(dimensions.controlSize),
     ) {
+        val radioRadius = dimensions.controlSize.toPx() / 2 - dimensions.checkedPadding.toPx()
         val strokeWidth = if (checked) dimensions.checkedStrokeWidth.toPx() else dimensions.strokeWidth.toPx()
         if ((checked && focused) || !checked) {
             // Рисуем пограничную окружность
             val borderRadius =
-                if (focused) radioRadius.toPx() else (radioRadius - dimensions.checkedPadding).toPx()
+                if (focused) (size.width + FocusBorderPadding.toPx()) / 2 else radioRadius
             drawCircle(
                 borderColor.value,
                 borderRadius - strokeWidth,
@@ -65,7 +67,7 @@ internal fun RadioBoxControl(
             // Рисуем заполняющий круг при checked = true
             drawCircle(
                 radioColor,
-                (radioRadius - dimensions.checkedPadding).toPx(),
+                radioRadius,
                 style = Fill,
             )
         }
@@ -76,3 +78,5 @@ internal fun RadioBoxControl(
         }
     }
 }
+
+private val FocusBorderPadding = 2.dp

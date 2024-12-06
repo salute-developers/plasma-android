@@ -8,14 +8,32 @@ import com.sdds.playground.sandbox.switcher.SwitchUiState
 import com.sdds.playground.sandbox.switcher.SwitchVariant
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.robolectric.RobolectricTestRunner
+import org.robolectric.ParameterizedRobolectricTestRunner
 import org.robolectric.annotation.Config
 import org.robolectric.annotation.GraphicsMode
 
-@RunWith(RobolectricTestRunner::class)
+@RunWith(ParameterizedRobolectricTestRunner::class)
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
 @Config(sdk = [SDK_NUMBER], qualifiers = RobolectricDeviceQualifiers.Pixel6)
-class ViewSystemSwitchScreenshotTest : RoborazziConfig() {
+class ViewSystemSwitchScreenshotTest(
+    theme: String,
+) : RoborazziConfig(theme) {
+
+    @Test
+    fun testSwitchSizeL() {
+        launchScreen(
+            R.id.nav_switch,
+            SwitchUiState(
+                variant = SwitchVariant.SwitchL,
+                active = true,
+                label = "Label",
+                description = "Description",
+                enabled = true,
+            ),
+        )
+        onView(withId(R.id.switcher))
+            .captureRoboImage()
+    }
 
     @Test
     fun testSwitchSizeM() {
@@ -23,9 +41,25 @@ class ViewSystemSwitchScreenshotTest : RoborazziConfig() {
             R.id.nav_switch,
             SwitchUiState(
                 variant = SwitchVariant.SwitchM,
-                active = true,
+                active = false,
                 label = "Label",
-                description = "Description",
+                description = "",
+                enabled = true,
+            ),
+        )
+        onView(withId(R.id.switcher))
+            .captureRoboImage()
+    }
+
+    @Test
+    fun testSwitchSizeS() {
+        launchScreen(
+            R.id.nav_switch,
+            SwitchUiState(
+                variant = SwitchVariant.SwitchS,
+                active = true,
+                label = "",
+                description = "",
                 enabled = true,
             ),
         )
@@ -38,27 +72,11 @@ class ViewSystemSwitchScreenshotTest : RoborazziConfig() {
         launchScreen(
             R.id.nav_switch,
             SwitchUiState(
-                variant = SwitchVariant.SwitchS,
-                active = false,
+                variant = SwitchVariant.SwitchM,
+                active = true,
                 label = "Label",
                 description = "Description",
                 enabled = false,
-            ),
-        )
-        onView(withId(R.id.switcher))
-            .captureRoboImage()
-    }
-
-    @Test
-    fun testSwitchOff() {
-        launchScreen(
-            R.id.nav_switch,
-            SwitchUiState(
-                variant = SwitchVariant.SwitchL,
-                active = false,
-                label = "Label",
-                description = "Description",
-                enabled = true,
             ),
         )
         onView(withId(R.id.switcher))

@@ -1,5 +1,6 @@
 package com.sdds.plugin.themebuilder.internal.generator
 
+import com.sdds.plugin.themebuilder.internal.PackageResolver
 import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.download.FileDownloader
@@ -62,7 +63,7 @@ class FontTokenGeneratorTest {
             target = ThemeBuilderTarget.ALL,
             xmlFontFamilyBuilderFactory = XmlFontFamilyDocumentBuilderFactory(),
             fontDownloaderFactory = mockDownloaderFactory,
-            ktFileBuilderFactory = KtFileBuilderFactory("com.test.tokens"),
+            ktFileBuilderFactory = KtFileBuilderFactory(PackageResolver("com.test")),
             namespace = "com.test",
             resPrefix = "thmbldr",
             fontTokenValues = fontTokenValues,

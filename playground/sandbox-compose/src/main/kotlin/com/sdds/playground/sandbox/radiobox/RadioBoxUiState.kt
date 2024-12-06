@@ -3,6 +3,8 @@ package com.sdds.playground.sandbox.radiobox
 import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.RadioBox
 import com.sdds.compose.uikit.RadioBoxStyle
+import com.sdds.serv.styles.radiobox.M
+import com.sdds.serv.styles.radiobox.S
 
 /**
  * Состояние radiobox

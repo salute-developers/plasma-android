@@ -8,14 +8,16 @@ import com.sdds.playground.sandbox.chip.ChipUiState
 import com.sdds.playground.sandbox.chip.ChipVariant
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.robolectric.RobolectricTestRunner
+import org.robolectric.ParameterizedRobolectricTestRunner
 import org.robolectric.annotation.Config
 import org.robolectric.annotation.GraphicsMode
 
-@RunWith(RobolectricTestRunner::class)
+@RunWith(ParameterizedRobolectricTestRunner::class)
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
 @Config(sdk = [SDK_NUMBER], qualifiers = RobolectricDeviceQualifiers.Pixel6)
-class ViewSystemChipScreenshotTest : RoborazziConfig() {
+class ViewSystemChipScreenshotTest(
+    theme: String,
+) : RoborazziConfig(theme) {
 
     @Test
     fun testChipLDefault() {
@@ -24,24 +26,7 @@ class ViewSystemChipScreenshotTest : RoborazziConfig() {
             ChipUiState(
                 variant = ChipVariant.ChipLDefault,
                 label = "Label",
-                contentLeft = true,
-                hasClose = true,
-                enabled = true,
-            ),
-        )
-        onView(withId(R.id.chip))
-            .captureRoboImage()
-    }
-
-    @Config(qualifiers = "+night")
-    @Test
-    fun testChipXsSecondary() {
-        launchScreen(
-            R.id.nav_chip,
-            ChipUiState(
-                variant = ChipVariant.ChipXSSecondary,
-                label = "Label",
-                contentLeft = true,
+                contentLeft = false,
                 hasClose = true,
                 enabled = true,
             ),
@@ -51,11 +36,11 @@ class ViewSystemChipScreenshotTest : RoborazziConfig() {
     }
 
     @Test
-    fun testChipMAccent() {
+    fun testChipMSecondary() {
         launchScreen(
             R.id.nav_chip,
             ChipUiState(
-                variant = ChipVariant.ChipMPilledAccent,
+                variant = ChipVariant.ChipMPilledSecondary,
                 label = "Label",
                 contentLeft = false,
                 hasClose = false,
@@ -71,11 +56,27 @@ class ViewSystemChipScreenshotTest : RoborazziConfig() {
         launchScreen(
             R.id.nav_chip,
             ChipUiState(
-                variant = ChipVariant.ChipSDefault,
+                variant = ChipVariant.ChipSAccent,
+                label = "Label",
+                contentLeft = false,
+                hasClose = false,
+                enabled = false,
+            ),
+        )
+        onView(withId(R.id.chip))
+            .captureRoboImage()
+    }
+
+    @Test
+    fun testChipXsDefault() {
+        launchScreen(
+            R.id.nav_chip,
+            ChipUiState(
+                variant = ChipVariant.ChipXSDefault,
                 label = "Label",
                 contentLeft = true,
-                hasClose = true,
-                enabled = false,
+                hasClose = false,
+                enabled = true,
             ),
         )
         onView(withId(R.id.chip))

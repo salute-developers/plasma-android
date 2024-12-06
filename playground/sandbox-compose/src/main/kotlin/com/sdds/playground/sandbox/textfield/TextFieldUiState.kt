@@ -8,6 +8,23 @@ import com.sdds.compose.uikit.TextField
 import com.sdds.compose.uikit.TextFieldClear
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.TextFieldStyleBuilder
+import com.sdds.serv.styles.textarea.L
+import com.sdds.serv.styles.textarea.M
+import com.sdds.serv.styles.textarea.S
+import com.sdds.serv.styles.textarea.Xs
+import com.sdds.serv.styles.textfield.Default
+import com.sdds.serv.styles.textfield.Error
+import com.sdds.serv.styles.textfield.InnerLabel
+import com.sdds.serv.styles.textfield.L
+import com.sdds.serv.styles.textfield.M
+import com.sdds.serv.styles.textfield.Optional
+import com.sdds.serv.styles.textfield.OuterLabel
+import com.sdds.serv.styles.textfield.RequiredEnd
+import com.sdds.serv.styles.textfield.RequiredStart
+import com.sdds.serv.styles.textfield.S
+import com.sdds.serv.styles.textfield.Success
+import com.sdds.serv.styles.textfield.Warning
+import com.sdds.serv.styles.textfield.Xs
 
 internal data class TextFieldUiState(
     val singleLine: Boolean = true,

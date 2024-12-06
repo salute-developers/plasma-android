@@ -70,6 +70,8 @@ internal class CheckBoxGroupFragment : ComponentFragment() {
                 .apply {
                     text = state.label
                     description = state.description
+                    isEnabled = state.enabled
+                    id = it
                 }
             addView(checkBox)
         }

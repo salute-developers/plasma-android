@@ -1,5 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.attributes.generator
 
+import com.sdds.plugin.themebuilder.DimensionsConfig
+import com.sdds.plugin.themebuilder.internal.PackageResolver
+import com.sdds.plugin.themebuilder.internal.TargetPackage
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.generator.data.ShapeTokenResult
@@ -28,6 +31,8 @@ class ComposeShapeAttributeGeneratorTest {
     private lateinit var underTest: ComposeShapeAttributeGenerator
     private lateinit var mockKtFileBuilderFactory: KtFileBuilderFactory
     private lateinit var ktFileBuilder: KtFileBuilder
+    private lateinit var dimensionsConfig: DimensionsConfig
+    private lateinit var packageResolver: PackageResolver
 
     @Before
     fun before() {
@@ -38,16 +43,22 @@ class ComposeShapeAttributeGeneratorTest {
         )
         outputKt = ByteArrayOutputStream()
         ktFileBuilder = KtFileBuilder(
-            packageName = "com.sdds.playground.themebuilder.tokens",
+            packageName = "com.sdds.playground.themebuilder.theme",
             fileName = "ThemeShapes",
         )
-        mockKtFileBuilderFactory = mockk<KtFileBuilderFactory> {
-            every { create("ThemeShapes") } returns ktFileBuilder
+        mockKtFileBuilderFactory = mockk {
+            every { create("ThemeShapes", TargetPackage.THEME) } returns ktFileBuilder
         }
+        dimensionsConfig = mockk(relaxed = true) {
+            every { multiplier } returns 1f
+        }
+        packageResolver = PackageResolver("com.sdds.playground.themebuilder")
         underTest = ComposeShapeAttributeGenerator(
             ktFileBuilderFactory = mockKtFileBuilderFactory,
             outputLocation = KtFileBuilder.OutputLocation.Stream(outputKt),
             themeName = "Theme",
+            dimensionsConfig = dimensionsConfig,
+            packageResolver = packageResolver,
         )
     }
 
@@ -62,16 +73,32 @@ class ComposeShapeAttributeGeneratorTest {
     }
 
     @Test
-    fun `KtAttributeGenerator должен генерировать kotlin файлы с атрибутами цвета`() {
+    fun `ComposeShapeAttributeGenerator должен генерировать kotlin файлы с атрибутами формы`() {
         underTest.setShapeTokenData(inputAttrs)
         underTest.generate()
 
         verify {
-            mockKtFileBuilderFactory.create("ThemeShapes")
+            mockKtFileBuilderFactory.create("ThemeShapes", TargetPackage.THEME)
         }
 
         Assert.assertEquals(
             getResourceAsText("attrs-outputs/ShapesOutputKt.txt"),
+            outputKt.toString(),
+        )
+    }
+
+    @Test
+    fun `ComposeShapeAttributeGenerator должен генерировать kotlin файлы с атрибутами формы с размерами из ресурсов`() {
+        every { dimensionsConfig.fromResources } returns true
+        underTest.setShapeTokenData(inputAttrs)
+        underTest.generate()
+
+        verify {
+            mockKtFileBuilderFactory.create("ThemeShapes", TargetPackage.THEME)
+        }
+
+        Assert.assertEquals(
+            getResourceAsText("attrs-outputs/ShapesFromResourcesOutputKt.txt"),
             outputKt.toString(),
         )
     }

@@ -23,6 +23,7 @@ import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 import com.sdds.plugin.themebuilder.internal.utils.techToSnakeCase
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import com.sdds.plugin.themebuilder.internal.validator.TypographyTokenValidator
+import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.TypeSpec
 import java.io.File
 import java.util.Locale
@@ -44,6 +45,7 @@ import java.util.Locale
  * @param resourceReferenceProvider провайдер ссылок на ресурсы
  * @param typographyTokenValues значения токенов типографики
  * @param fontsAggregator агрегатор шрифтов
+ * @param namespace пакет проекта
  * @author Малышев Александр on 07.03.2024
  */
 internal class TypographyTokenGenerator(
@@ -57,6 +59,7 @@ internal class TypographyTokenGenerator(
     private val typographyTokenValues: Map<String, TypographyTokenValue>,
     private val fontsAggregator: FontsAggregator,
     private val dimensionsConfig: DimensionsConfig,
+    namespace: String,
 ) : TokenGenerator<TypographyToken, TypographyTokenResult>(target) {
 
     private val textAppearanceXmlBuilders =
@@ -82,6 +85,7 @@ internal class TypographyTokenGenerator(
     private val viewSmallTokens = mutableMapOf<String, TypographyToken>()
     private val viewMediumTokens = mutableMapOf<String, TypographyToken>()
     private val viewLargeTokens = mutableMapOf<String, TypographyToken>()
+    private val rFileImport = ClassName(namespace, "R")
 
     override fun collectResult() = TypographyTokenResult(
         composeTokens = TypographyTokenResult.ComposeTokenData(
@@ -123,6 +127,11 @@ internal class TypographyTokenGenerator(
         ktFileBuilder.addImport(KtFileBuilder.TypeFontWeight)
         ktFileBuilder.addImport(KtFileBuilder.TypeLineHeightStyle)
         ktFileBuilder.addImport(KtFileBuilder.TypePlatformTextStyle)
+        if (dimensionsConfig.fromResources) {
+            ktFileBuilder.addImport(KtFileBuilder.TypeLocalDensity)
+            ktFileBuilder.addImport(KtFileBuilder.TypeDimensionResource)
+            ktFileBuilder.addImport(rFileImport)
+        }
         ktFileBuilder.build(outputLocation)
     }
 
@@ -153,7 +162,7 @@ internal class TypographyTokenGenerator(
         when (token.screenClass) {
             ScreenClass.SMALL -> {
                 smallBuilder.addTypographyToken(
-                    token.ktName,
+                    token,
                     token.description,
                     tokenValue,
                 )
@@ -163,7 +172,7 @@ internal class TypographyTokenGenerator(
 
             ScreenClass.LARGE -> {
                 largeBuilder.addTypographyToken(
-                    token.ktName,
+                    token,
                     token.description,
                     tokenValue,
                 )
@@ -173,7 +182,7 @@ internal class TypographyTokenGenerator(
 
             else -> {
                 mediumBuilder.addTypographyToken(
-                    token.ktName,
+                    token,
                     token.description,
                     tokenValue,
                 )
@@ -320,8 +329,9 @@ internal class TypographyTokenGenerator(
         }
     }
 
+    @Suppress("LongMethod")
     private fun TypeSpec.Builder.addTypographyToken(
-        name: String,
+        token: TypographyToken,
         description: String,
         tokenValue: TypographyTokenValue,
     ) = with(ktFileBuilder) {
@@ -330,30 +340,69 @@ internal class TypographyTokenGenerator(
         } else {
             "${tokenValue.letterSpacing}.sp"
         }
+        val fromResources = dimensionsConfig.fromResources
+        val fontSizeInitializer: String
+        val lineHeightInitializer: String
+        if (fromResources) {
+            val textSizeDimen = DimenData(
+                "${token.name.techToSnakeCase()}_text_size",
+                tokenValue.textSize,
+                DimenData.Type.SP,
+            )
+            val lineHeightDimen = DimenData(
+                "${token.name.techToSnakeCase()}_line_height",
+                tokenValue.lineHeight,
+                DimenData.Type.SP,
+            )
+            dimensAggregator.addDimen(textSizeDimen)
+            dimensAggregator.addDimen(lineHeightDimen)
+            fontSizeInitializer = "dimensionResource(${resourceReferenceProvider.dimenR(textSizeDimen)}).toSp()"
+            lineHeightInitializer = "dimensionResource(${resourceReferenceProvider.dimenR(lineHeightDimen)}).toSp()"
+        } else {
+            fontSizeInitializer = "${tokenValue.textSize * dimensionsConfig.multiplier}.sp"
+            lineHeightInitializer = "${tokenValue.lineHeight * dimensionsConfig.multiplier}.sp"
+        }
         val initializer = KtFileBuilder.createConstructorCall(
             "TextStyle",
             "fontWeight = FontWeight(${tokenValue.fontWeight})",
-            "fontSize = ${tokenValue.textSize * dimensionsConfig.multiplier}.sp",
-            "lineHeight = ${tokenValue.lineHeight * dimensionsConfig.multiplier}.sp",
+            "fontSize = $fontSizeInitializer",
+            "lineHeight = $lineHeightInitializer",
             "letterSpacing = $letterSpacing",
-            "fontFamily = FontTokens.${
-                tokenValue.fontFamilyRef.split('.').last()
-            }",
+            "fontFamily = FontTokens.${tokenValue.fontFamilyRef.split('.').last()}",
             "lineHeightStyle = LineHeightStyle(" +
                 "alignment = LineHeightStyle.Alignment.Center, " +
                 "trim = LineHeightStyle.Trim.None" +
                 ")",
             "platformStyle = PlatformTextStyle(includeFontPadding = false)",
-        )
-        appendProperty(name, KtFileBuilder.TypeTextStyle, initializer, description)
+        ).trimIndent()
+
+        if (fromResources) {
+            appendProperty(
+                name = token.ktName,
+                typeName = KtFileBuilder.TypeTextStyle,
+                propGetter = KtFileBuilder.Getter.Annotated(
+                    annotations = listOf(
+                        KtFileBuilder.TypeAnnotationComposable,
+                        KtFileBuilder.TypeAnnotationReadOnlyComposable,
+                    ),
+                    body = """return with(LocalDensity.current) {
+                    |${initializer.trimMargin()}
+                |}
+                    """.trimMargin(),
+                ),
+                description = description,
+            )
+        } else {
+            appendProperty(token.ktName, KtFileBuilder.TypeTextStyle, initializer, description)
+        }
     }
 
-    private companion object {
-        const val TYPOGRAPHY_SMALL_TOKENS_NAME = "TypographySmallTokens"
-        const val TYPOGRAPHY_MEDIUM_TOKENS_NAME = "TypographyMediumTokens"
-        const val TYPOGRAPHY_LARGE_TOKENS_NAME = "TypographyLargeTokens"
+    companion object {
+        internal const val TYPOGRAPHY_SMALL_TOKENS_NAME = "TypographySmallTokens"
+        internal const val TYPOGRAPHY_MEDIUM_TOKENS_NAME = "TypographyMediumTokens"
+        internal const val TYPOGRAPHY_LARGE_TOKENS_NAME = "TypographyLargeTokens"
 
-        fun ScreenClass.qualifier(dimensionsConfig: DimensionsConfig): String {
+        private fun ScreenClass.qualifier(dimensionsConfig: DimensionsConfig): String {
             val breakpoints = dimensionsConfig.breakPoints
             return when (this) {
                 ScreenClass.MEDIUM -> "w${breakpoints.medium}dp"

@@ -1,5 +1,7 @@
 package com.sdds.plugin.themebuilder.internal.generator.theme.compose
 
+import com.sdds.plugin.themebuilder.internal.PackageResolver
+import com.sdds.plugin.themebuilder.internal.TargetPackage
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Constructor
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.FunParameter
@@ -10,6 +12,8 @@ import com.sdds.plugin.themebuilder.internal.builder.KtFileFromResourcesBuilder
 import com.sdds.plugin.themebuilder.internal.exceptions.ThemeBuilderException
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.KtFileFromResourcesBuilderFactory
+import com.sdds.plugin.themebuilder.internal.generator.GradientTokenGenerator.Companion.DARK_GRADIENT_TOKENS_NAME
+import com.sdds.plugin.themebuilder.internal.generator.GradientTokenGenerator.Companion.LIGHT_GRADIENT_TOKENS_NAME
 import com.sdds.plugin.themebuilder.internal.generator.SimpleBaseGenerator
 import com.sdds.plugin.themebuilder.internal.generator.data.GradientTokenResult.ComposeTokenData
 import com.sdds.plugin.themebuilder.internal.generator.data.mergedLightAndDark
@@ -30,17 +34,18 @@ internal class ComposeGradientAttributeGenerator(
     private val ktFileFromResourcesBuilderFactory: KtFileFromResourcesBuilderFactory,
     private val outputLocation: KtFileBuilder.OutputLocation,
     private val themeName: String,
+    private val packageResolver: PackageResolver,
 ) : SimpleBaseGenerator {
 
     private var tokenData: ComposeTokenData? = null
     private val gradientAttributes = mutableSetOf<String>()
 
     private val gradientKtFileBuilder: KtFileBuilder by unsafeLazy {
-        ktFileBuilderFactory.create(gradientClassName)
+        ktFileBuilderFactory.create(gradientClassName, TargetPackage.THEME)
     }
 
     private val ktFileFromResBuilder: KtFileFromResourcesBuilder by unsafeLazy {
-        ktFileFromResourcesBuilderFactory.create()
+        ktFileFromResourcesBuilderFactory.create(TargetPackage.THEME)
     }
 
     private val camelThemeName = themeName.snakeToCamelCase()
@@ -126,6 +131,23 @@ internal class ComposeGradientAttributeGenerator(
                 packageName = "androidx.compose.ui.graphics",
                 names = listOf("Color", "ShaderBrush"),
             )
+            val tokenData = tokenData ?: return
+            if (tokenData.dark.isNotEmpty()) {
+                addImport(
+                    getInternalClassType(
+                        className = DARK_GRADIENT_TOKENS_NAME,
+                        classPackage = packageResolver.getPackage(TargetPackage.TOKENS),
+                    ),
+                )
+            }
+            if (tokenData.light.isNotEmpty()) {
+                addImport(
+                    getInternalClassType(
+                        className = LIGHT_GRADIENT_TOKENS_NAME,
+                        classPackage = packageResolver.getPackage(TargetPackage.TOKENS),
+                    ),
+                )
+            }
         }
     }
 
@@ -508,7 +530,7 @@ internal class ComposeGradientAttributeGenerator(
             body = listOf("return this then Modifier.drawBehind { brushes.forEach(::drawRect) }"),
             returnType = KtFileBuilder.TypeModifier,
             receiver = KtFileBuilder.TypeModifier,
-            annotation = KtFileBuilder.TypeAnnotationComposable,
+            annotations = listOf(KtFileBuilder.TypeAnnotationComposable),
             description = "Модификатор, позволяющий применить композитный градиент.",
         )
     }

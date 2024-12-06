@@ -8,13 +8,13 @@ import com.sdds.compose.uikit.TextAreaClear
 import com.sdds.compose.uikit.TextField
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.TextFieldStyleBuilder
-import com.sdds.playground.sandbox.chip.L
-import com.sdds.playground.sandbox.chip.M
-import com.sdds.playground.sandbox.chip.S
-import com.sdds.playground.sandbox.chip.Secondary
-import com.sdds.playground.sandbox.chip.Xs
-import com.sdds.playground.sandbox.chip.group.Dense
-import com.sdds.playground.sandbox.tokens.compose.SddsServTheme
+import com.sdds.serv.styles.chip.L
+import com.sdds.serv.styles.chip.M
+import com.sdds.serv.styles.chip.S
+import com.sdds.serv.styles.chip.Secondary
+import com.sdds.serv.styles.chip.Xs
+import com.sdds.serv.styles.chip.group.Dense
+import com.sdds.serv.theme.SddsServTheme
 
 internal val TextAreaClear.Xs: TextFieldStyleBuilder
     @Composable

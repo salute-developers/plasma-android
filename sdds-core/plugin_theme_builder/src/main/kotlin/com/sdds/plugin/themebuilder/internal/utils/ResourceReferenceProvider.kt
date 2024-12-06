@@ -35,6 +35,15 @@ internal class ResourceReferenceProvider(
     }
 
     /**
+     * Возвращает ссылку на размер [dimen] в R классе.
+     * Например, если размер называется text_size, и ресурсам задан префикс "pref",
+     * то функция вернет ссылку R.dimen.pref_text_size
+     */
+    fun dimenR(dimen: DimenData): String {
+        return "R.dimen.${dimen.name.withPrefixIfNeed(resourcePrefix)}"
+    }
+
+    /**
      * Возвращает ссылку на стиль с названием [name].
      * Например, если стиль называется Typography, и ресурсам задан префикс "pref",
      * то функция вернет ссылку @style/Pref.Typography

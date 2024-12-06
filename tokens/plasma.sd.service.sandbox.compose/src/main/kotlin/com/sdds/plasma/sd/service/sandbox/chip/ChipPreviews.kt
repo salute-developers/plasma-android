@@ -7,14 +7,14 @@ import com.sdds.compose.uikit.Chip
 import com.sdds.compose.uikit.Icon
 import com.sdds.icons.R
 import com.sdds.plasma.sd.service.sandbox.SandboxTheme
-import com.sdds.plasma.sd.service.styles.Accent
-import com.sdds.plasma.sd.service.styles.Default
-import com.sdds.plasma.sd.service.styles.L
-import com.sdds.plasma.sd.service.styles.M
-import com.sdds.plasma.sd.service.styles.Pilled
-import com.sdds.plasma.sd.service.styles.S
-import com.sdds.plasma.sd.service.styles.Secondary
-import com.sdds.plasma.sd.service.styles.Xs
+import com.sdds.plasma.sd.service.styles.chip.Accent
+import com.sdds.plasma.sd.service.styles.chip.Default
+import com.sdds.plasma.sd.service.styles.chip.L
+import com.sdds.plasma.sd.service.styles.chip.M
+import com.sdds.plasma.sd.service.styles.chip.Pilled
+import com.sdds.plasma.sd.service.styles.chip.S
+import com.sdds.plasma.sd.service.styles.chip.Secondary
+import com.sdds.plasma.sd.service.styles.chip.Xs
 
 @Composable
 @Preview(showBackground = true)

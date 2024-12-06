@@ -126,7 +126,7 @@ open class ThemeBuilderExtension {
      */
     fun dimensions(dimensionsConfigBuilder: DimensionsConfigBuilder.() -> Unit) {
         val builder = DimensionsConfigBuilder().apply(dimensionsConfigBuilder)
-        this.dimensionsConfig = DimensionsConfig(builder.multiplier, builder.breakPoints)
+        this.dimensionsConfig = DimensionsConfig(builder.multiplier, builder.breakPoints, builder.fromResources)
     }
 
     private fun updateTarget(newTarget: ThemeBuilderTarget) {
@@ -236,6 +236,7 @@ class ViewConfigBuilder {
 class DimensionsConfigBuilder {
     internal var multiplier: Float = 1f
     internal var breakPoints: BreakPoints = BreakPoints()
+    internal var fromResources: Boolean = false
 
     /**
      * Задает множитель [value] для всех генерируемых размеров
@@ -251,16 +252,26 @@ class DimensionsConfigBuilder {
         val builder = BreakPointsBuilder().apply(breakPointsBuilder)
         this.breakPoints = BreakPoints(builder.medium, builder.large)
     }
+
+    /**
+     * Включает/выключает флаг использования размеров из ресурсов.
+     * Справедливо для Compose, т.к. в Xml размеры всегда берутся из ресурсов
+     */
+    fun fromResources(fromResources: Boolean) {
+        this.fromResources = fromResources
+    }
 }
 
 /**
  * Конфигурация размеров
  * @property multiplier множитель для всех размеров
  * @property breakPoints брейкпоинты типографики
+ * @property fromResources флаг использования размеров из ресурсов (только для Compose)
  */
 data class DimensionsConfig(
     val multiplier: Float = 1f,
     val breakPoints: BreakPoints = BreakPoints(),
+    val fromResources: Boolean = false,
 ) : Serializable
 
 /**

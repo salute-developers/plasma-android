@@ -2,26 +2,26 @@ package com.sdds.playground.sandbox
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.sdds.playground.sandbox.chip.ChipPreviewSizeLDefault
-import com.sdds.playground.sandbox.chip.ChipPreviewSizeMAccent
-import com.sdds.playground.sandbox.chip.ChipPreviewSizeSDisabled
-import com.sdds.playground.sandbox.chip.ChipPreviewSizeXsSecondary
-import org.junit.Ignore
+import com.sdds.playground.sandbox.chip.ChipPreviewSizeMSecondaryPilled
+import com.sdds.playground.sandbox.chip.ChipPreviewSizeSAccentDisabled
+import com.sdds.playground.sandbox.chip.ChipPreviewSizeXSContentLeft
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.robolectric.RobolectricTestRunner
+import org.robolectric.ParameterizedRobolectricTestRunner
 import org.robolectric.annotation.Config
 import org.robolectric.annotation.GraphicsMode
 
+@RunWith(ParameterizedRobolectricTestRunner::class)
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
 @Config(sdk = [SDK_NUMBER], qualifiers = RobolectricDeviceQualifiers.Pixel6)
-@RunWith(RobolectricTestRunner::class)
-class ComposeChipScreenshotTest : RoborazziConfig() {
+class ComposeChipScreenshotTest(
+    theme: String,
+) : RoborazziConfig(theme) {
 
     /**
      * Запуск скриншот тестов с использованием Preview
      */
     @Test
-    @Ignore("Temporarily disabled")
     fun testChipPreviewSizeLDefault() {
         composeTestRule.setContent {
             ChipPreviewSizeLDefault()
@@ -29,26 +29,23 @@ class ComposeChipScreenshotTest : RoborazziConfig() {
     }
 
     @Test
-    @Ignore("Temporarily disabled")
-    fun testChipPreviewSizeXsSecondary() {
+    fun testChipPreviewSizeMSecondaryPilled() {
         composeTestRule.setContent {
-            ChipPreviewSizeXsSecondary()
+            ChipPreviewSizeMSecondaryPilled()
         }
     }
 
     @Test
-    @Ignore("Temporarily disabled")
-    fun testChipPreviewSizeMAccent() {
+    fun testChipPreviewSizeSAccentDisabled() {
         composeTestRule.setContent {
-            ChipPreviewSizeMAccent()
+            ChipPreviewSizeSAccentDisabled()
         }
     }
 
     @Test
-    @Ignore("Temporarily disabled")
-    fun testChipPreviewSizeSDisabled() {
+    fun testChipPreviewSizeXSContentLeft() {
         composeTestRule.setContent {
-            ChipPreviewSizeSDisabled()
+            ChipPreviewSizeXSContentLeft()
         }
     }
 }

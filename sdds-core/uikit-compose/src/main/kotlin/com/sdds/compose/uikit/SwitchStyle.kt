@@ -1,12 +1,12 @@
 package com.sdds.compose.uikit
 
-import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.interaction.InteractionSource
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.State
 import androidx.compose.runtime.compositionLocalOf
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
@@ -277,13 +277,12 @@ private class DefaultSwitchColors(
 
     @Composable
     override fun trackColor(enabled: Boolean, active: Boolean, interactionSource: InteractionSource): State<Color> {
-        return animateColorAsState(
+        return rememberUpdatedState(
             if (active) {
                 activeTrackColor
             } else {
                 inactiveTrackColor
             },
-            label = "trackColor",
         )
     }
 

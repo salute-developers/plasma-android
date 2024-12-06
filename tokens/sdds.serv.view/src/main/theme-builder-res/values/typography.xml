@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Serv.Sdds.Typography"/>
+    <!--typography s display-l-->
+    <style name="Serv.Sdds.Typography.DisplayLNormal">
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.DisplayLNormal</item>
+    </style>
+    <!--typography s display-l-bold-->
+    <style name="Serv.Sdds.Typography.DisplayLBold">
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.DisplayLBold</item>
+    </style>
+    <!--typography s display-m-->
+    <style name="Serv.Sdds.Typography.DisplayMNormal">
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.DisplayMNormal</item>
+    </style>
+    <!--typography s display-m-bold-->
+    <style name="Serv.Sdds.Typography.DisplayMBold">
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.DisplayMBold</item>
+    </style>
+    <!--typography s display-s-->
+    <style name="Serv.Sdds.Typography.DisplaySNormal">
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.DisplaySNormal</item>
+    </style>
+    <!--typography s display-s-bold-->
+    <style name="Serv.Sdds.Typography.DisplaySBold">
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.DisplaySBold</item>
+    </style>
+    <!--typography s header-h1-->
+    <style name="Serv.Sdds.Typography.HeaderH1Normal">
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.HeaderH1Normal</item>
+    </style>
+    <!--typography s header-h1-bold-->
+    <style name="Serv.Sdds.Typography.HeaderH1Bold">
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.HeaderH1Bold</item>
+    </style>
+    <!--typography s header-h2-->
+    <style name="Serv.Sdds.Typography.HeaderH2Normal">
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.HeaderH2Normal</item>
+    </style>
+    <!--typography s header-h2-bold-->
+    <style name="Serv.Sdds.Typography.HeaderH2Bold">
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.HeaderH2Bold</item>
+    </style>
+    <!--typography s header-h3-->
+    <style name="Serv.Sdds.Typography.HeaderH3Normal">
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.HeaderH3Normal</item>
+    </style>
+    <!--typography s header-h3-bold-->
+    <style name="Serv.Sdds.Typography.HeaderH3Bold">
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.HeaderH3Bold</item>
+    </style>
+    <!--typography s header-h4-->
+    <style name="Serv.Sdds.Typography.HeaderH4Normal">
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.HeaderH4Normal</item>
+    </style>
+    <!--typography s header-h4-bold-->
+    <style name="Serv.Sdds.Typography.HeaderH4Bold">
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.HeaderH4Bold</item>
+    </style>
+    <!--typography s header-h5-->
+    <style name="Serv.Sdds.Typography.HeaderH5Normal">
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.HeaderH5Normal</item>
+    </style>
+    <!--typography s header-h5-bold-->
+    <style name="Serv.Sdds.Typography.HeaderH5Bold">
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.HeaderH5Bold</item>
+    </style>
+    <!--typography s body-l-->
+    <style name="Serv.Sdds.Typography.BodyLNormal">
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyLNormal</item>
+    </style>
+    <!--typography s body-l-bold-->
+    <style name="Serv.Sdds.Typography.BodyLBold">
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyLBold</item>
+    </style>
+    <!--typography s body-m-->
+    <style name="Serv.Sdds.Typography.BodyMNormal">
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyMNormal</item>
+    </style>
+    <!--typography s body-m-bold-->
+    <style name="Serv.Sdds.Typography.BodyMBold">
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyMBold</item>
+    </style>
+    <!--typography s body-s-->
+    <style name="Serv.Sdds.Typography.BodySNormal">
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodySNormal</item>
+    </style>
+    <!--typography s body-s-bold-->
+    <style name="Serv.Sdds.Typography.BodySBold">
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodySBold</item>
+    </style>
+    <!--typography s body-xs-->
+    <style name="Serv.Sdds.Typography.BodyXsNormal">
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyXsNormal</item>
+    </style>
+    <!--typography s body-xs-bold-->
+    <style name="Serv.Sdds.Typography.BodyXsBold">
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyXsBold</item>
+    </style>
+    <!--typography s body-xxs-->
+    <style name="Serv.Sdds.Typography.BodyXxsNormal">
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyXxsNormal</item>
+    </style>
+    <!--typography s body-xxs-bold-->
+    <style name="Serv.Sdds.Typography.BodyXxsBold">
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyXxsBold</item>
+    </style>
+    <!--typography s text-l-->
+    <style name="Serv.Sdds.Typography.TextLNormal">
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.TextLNormal</item>
+    </style>
+    <!--typography s text-l-bold-->
+    <style name="Serv.Sdds.Typography.TextLBold">
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.TextLBold</item>
+    </style>
+    <!--typography s text-m-->
+    <style name="Serv.Sdds.Typography.TextMNormal">
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.TextMNormal</item>
+    </style>
+    <!--typography s text-m-bold-->
+    <style name="Serv.Sdds.Typography.TextMBold">
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.TextMBold</item>
+    </style>
+    <!--typography s text-s-->
+    <style name="Serv.Sdds.Typography.TextSNormal">
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.TextSNormal</item>
+    </style>
+    <!--typography s text-s-bold-->
+    <style name="Serv.Sdds.Typography.TextSBold">
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.TextSBold</item>
+    </style>
+    <!--typography s text-xs-->
+    <style name="Serv.Sdds.Typography.TextXsNormal">
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.TextXsNormal</item>
+    </style>
+    <!--typography s text-xs-bold-->
+    <style name="Serv.Sdds.Typography.TextXsBold">
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.TextXsBold</item>
+    </style>
+</resources>

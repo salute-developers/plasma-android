@@ -15,7 +15,10 @@ android {
 }
 
 themeBuilder {
-    themeSource("file://${projectDir.path}/json/test_theme.zip")
+    themeSource{
+        url("file://${projectDir.path}/json/test_theme.zip")
+        name("sdds_serv")
+    }
     view {
         themeParents {
             materialComponentsTheme()
@@ -23,7 +26,7 @@ themeBuilder {
         setupShapeAppearance(sddsShape())
     }
     compose()
-    ktPackage("com.sdds.playground.themebuilder.tokens")
+    ktPackage("com.sdds.playground.themebuilder")
     mode(ThemeBuilderMode.THEME)
     outputLocation(OutputLocation.BUILD)
     autoGenerate(false)

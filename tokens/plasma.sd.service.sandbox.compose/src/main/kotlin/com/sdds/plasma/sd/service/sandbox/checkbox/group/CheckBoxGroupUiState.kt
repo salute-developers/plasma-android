@@ -5,8 +5,8 @@ import androidx.compose.ui.state.ToggleableState
 import com.sdds.compose.uikit.CheckBoxGroup
 import com.sdds.compose.uikit.CheckBoxGroupStyle
 import com.sdds.plasma.sd.service.sandbox.checkbox.Size
-import com.sdds.plasma.sd.service.styles.M
-import com.sdds.plasma.sd.service.styles.S
+import com.sdds.plasma.sd.service.styles.checkbox.group.M
+import com.sdds.plasma.sd.service.styles.checkbox.group.S
 
 /**
  * Состояние checkbox group
