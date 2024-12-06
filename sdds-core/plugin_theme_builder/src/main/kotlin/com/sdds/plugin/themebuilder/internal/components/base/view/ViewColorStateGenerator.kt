@@ -40,7 +40,7 @@ internal class ViewColorStateGenerator(
     }
     private val ktFileBuilder by unsafeLazy {
         ktFileBuilderFactory.create(
-            fileName = "${componentName}ViewStyle",
+            fileName = "${componentName}ColorState",
             fullPackageName = "${packageResolver.getPackage()}.colorstate",
         ).also { it.getInternalClassType("R", namespace) }
     }
