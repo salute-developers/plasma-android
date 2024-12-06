@@ -25,6 +25,7 @@ themeBuilder {
         }
         setupShapeAppearance(sddsShape())
     }
+    ktPackage("com.sdds.serv")
     autoGenerate(false)
     mode(THEME)
     outputLocation(SRC)

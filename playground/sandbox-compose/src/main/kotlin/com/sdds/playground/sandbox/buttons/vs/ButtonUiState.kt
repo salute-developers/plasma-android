@@ -95,6 +95,37 @@ internal enum class BasicButtonVariant(@StyleRes override val styleRes: Int) : B
     BasicButtonXSClear(R.style.Serv_Sdds_ComponentOverlays_BasicButtonXSClear),
 }
 
+@Parcelize
+internal enum class LinkButtonVariant(@StyleRes override val styleRes: Int) : ButtonVariant {
+    LinkButtonLDefault(R.style.Serv_Sdds_ComponentOverlays_LinkButtonLDefault),
+    LinkButtonLSecondary(R.style.Serv_Sdds_ComponentOverlays_LinkButtonLSecondary),
+    LinkButtonLAccent(R.style.Serv_Sdds_ComponentOverlays_LinkButtonLAccent),
+    LinkButtonLPositive(R.style.Serv_Sdds_ComponentOverlays_LinkButtonLPositive),
+    LinkButtonLWarning(R.style.Serv_Sdds_ComponentOverlays_LinkButtonLWarning),
+    LinkButtonLNegative(R.style.Serv_Sdds_ComponentOverlays_LinkButtonLNegative),
+
+    LinkButtonMDefault(R.style.Serv_Sdds_ComponentOverlays_LinkButtonMDefault),
+    LinkButtonMSecondary(R.style.Serv_Sdds_ComponentOverlays_LinkButtonMSecondary),
+    LinkButtonMAccent(R.style.Serv_Sdds_ComponentOverlays_LinkButtonMAccent),
+    LinkButtonMPositive(R.style.Serv_Sdds_ComponentOverlays_LinkButtonMPositive),
+    LinkButtonMWarning(R.style.Serv_Sdds_ComponentOverlays_LinkButtonMWarning),
+    LinkButtonMNegative(R.style.Serv_Sdds_ComponentOverlays_LinkButtonMNegative),
+
+    LinkButtonSDefault(R.style.Serv_Sdds_ComponentOverlays_LinkButtonSDefault),
+    LinkButtonSSecondary(R.style.Serv_Sdds_ComponentOverlays_LinkButtonSSecondary),
+    LinkButtonSAccent(R.style.Serv_Sdds_ComponentOverlays_LinkButtonSAccent),
+    LinkButtonSPositive(R.style.Serv_Sdds_ComponentOverlays_LinkButtonSPositive),
+    LinkButtonSWarning(R.style.Serv_Sdds_ComponentOverlays_LinkButtonSWarning),
+    LinkButtonSNegative(R.style.Serv_Sdds_ComponentOverlays_LinkButtonSNegative),
+
+    LinkButtonXSDefault(R.style.Serv_Sdds_ComponentOverlays_LinkButtonXsDefault),
+    LinkButtonXSSecondary(R.style.Serv_Sdds_ComponentOverlays_LinkButtonXsSecondary),
+    LinkButtonXSAccent(R.style.Serv_Sdds_ComponentOverlays_LinkButtonXsAccent),
+    LinkButtonXSPositive(R.style.Serv_Sdds_ComponentOverlays_LinkButtonXsPositive),
+    LinkButtonXSWarning(R.style.Serv_Sdds_ComponentOverlays_LinkButtonXsWarning),
+    LinkButtonXSNegative(R.style.Serv_Sdds_ComponentOverlays_LinkButtonXsNegative),
+}
+
 /**
  * Стили вариаций IconButton
  * @property styleRes ресурс стиля
