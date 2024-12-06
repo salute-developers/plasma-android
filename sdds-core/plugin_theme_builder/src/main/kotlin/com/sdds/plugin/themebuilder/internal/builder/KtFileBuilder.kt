@@ -59,6 +59,7 @@ internal class KtFileBuilder(
         primaryConstructor: Constructor.Primary? = null,
         secondaryConstructors: List<Constructor.Secondary>? = null,
         superType: TypeName? = null,
+        superInterface: TypeName? = null,
         description: String? = null,
     ) = TypeSpec.classBuilder(name).apply {
         annotation?.let(::addAnnotation)
@@ -66,6 +67,7 @@ internal class KtFileBuilder(
         primaryConstructor?.let { addPrimaryConstructor(it) }
         secondaryConstructors?.let { addSecondaryConstructors(it) }
         superType?.let { superclass(it) }
+        superInterface?.let { addSuperinterface(it) }
         description?.let(::addKdoc)
         rootTypeBuilders.add(this)
     }
@@ -160,6 +162,25 @@ internal class KtFileBuilder(
         initializer = initializer,
         description = description,
         rootObject = this,
+    )
+
+    /**
+     * Добавляет kotlin свойство с именем [name], типом [typeName], инициализатором [initializer]
+     * и описанием (документацией) [description]
+     * @return [TypeSpec.Builder]
+     */
+    fun TypeSpec.Builder.appendEnumConstant(
+        name: String,
+        initializer: String? = null,
+        description: String? = null,
+    ) = this.addEnumConstant(
+        name = name,
+        typeSpec = TypeSpec.anonymousClassBuilder()
+            .apply {
+                initializer?.let { addSuperclassConstructorParameter(it) }
+                description?.let { addKdoc(it) }
+            }
+            .build(),
     )
 
     /**
@@ -391,6 +412,7 @@ internal class KtFileBuilder(
                 Modifier.PRIVATE -> KModifier.PRIVATE
                 Modifier.DATA -> KModifier.DATA
                 Modifier.INFIX -> KModifier.INFIX
+                Modifier.ENUM -> KModifier.ENUM
             }
         }
 
@@ -467,6 +489,7 @@ internal class KtFileBuilder(
         OVERRIDE,
         DATA,
         INFIX,
+        ENUM,
     }
 
     /**
@@ -575,6 +598,16 @@ internal class KtFileBuilder(
             ClassName("androidx.compose.ui.platform", listOf("LocalDensity"))
         val TypeDimensionResource =
             ClassName("androidx.compose.ui.res", listOf("dimensionResource"))
+        val TypeColorState =
+            ClassName("com.sdds.uikit.colorstate", listOf("ColorState"))
+        val TypeColorStateProvider =
+            ClassName("com.sdds.uikit.colorstate", listOf("ColorStateProvider"))
+        val TypeAttributeSet = ClassName("android.util", "AttributeSet")
+
+        /**
+         * Возвращает [TypeName] как nullable тип
+         */
+        fun TypeName.nullable() = this.copy(true)
 
         fun getLambdaType(annotation: ClassName? = null, receiver: ClassName? = null): TypeName {
             val lambdaType = LambdaTypeName.get(
