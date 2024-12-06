@@ -864,7 +864,6 @@ private class DefaultTextFieldStyle(
         private var colorsBuilder: TextFieldColorsBuilder = TextFieldColorsBuilder.builder()
         private var dimensionsBuilder: TextFieldDimensionsBuilder =
             TextFieldDimensionsBuilder.builder()
-        private var dimensions: TextField.Dimensions? = null
         private var shape: CornerBasedShape? = null
         private var labelPlacement: TextField.LabelPlacement? = null
         private var helperTextPlacement: TextField.HelperTextPlacement? = null
@@ -886,11 +885,42 @@ private class DefaultTextFieldStyle(
 
         override fun dimensions(builder: TextFieldDimensionsBuilder.() -> Unit) = apply {
             this.dimensionsBuilder.builder()
-            this.dimensions = dimensionsBuilder.build()
         }
 
+        @Deprecated("Use dimensions() with builder instead")
         override fun dimensions(dimensions: TextField.Dimensions) = apply {
-            this.dimensions = dimensions
+            this.dimensionsBuilder.apply {
+                boxPaddingStart(dimensions.boxPaddingStart)
+                boxPaddingEnd(dimensions.boxPaddingEnd)
+                boxPaddingTopInnerLabel(dimensions.boxPaddingTopInnerLabel)
+                boxPaddingBottomInnerLabel(dimensions.boxPaddingBottomInnerLabel)
+                boxPaddingTopOuterLabel(dimensions.boxPaddingTopOuterLabel)
+                boxPaddingBottomOuterLabel(dimensions.boxPaddingBottomOuterLabel)
+                innerLabelPadding(dimensions.innerLabelPadding)
+                outerLabelPadding(dimensions.outerLabelPadding)
+                optionalPadding(dimensions.optionalPadding)
+                helperTextPaddingInner(dimensions.helperTextPaddingInner)
+                helperTextPaddingOuter(dimensions.helperTextPaddingOuter)
+                startContentEndPadding(dimensions.startContentEndPadding)
+                endContentStartPadding(dimensions.endContentStartPadding)
+                chipsPadding(dimensions.chipsPadding)
+                boxMinHeight(dimensions.boxMinHeight)
+                alignmentLineHeight(dimensions.alignmentLineHeight)
+                iconSize(dimensions.iconSize)
+                indicatorDimensions {
+                    startLabelHorizontalPadding(dimensions.indicatorDimensions.startLabelHorizontalPadding)
+                    startLabelVerticalPadding(dimensions.indicatorDimensions.startLabelVerticalPadding)
+                    endLabelHorizontalPadding(dimensions.indicatorDimensions.endLabelHorizontalPadding)
+                    endLabelVerticalPadding(dimensions.indicatorDimensions.endLabelVerticalPadding)
+                    startFieldHorizontalPadding(dimensions.indicatorDimensions.startFieldHorizontalPadding)
+                    startFieldVerticalPadding(dimensions.indicatorDimensions.startFieldVerticalPadding)
+                    endFieldHorizontalPadding(dimensions.indicatorDimensions.endFieldHorizontalPadding)
+                    endFieldVerticalPadding(dimensions.indicatorDimensions.endFieldVerticalPadding)
+                    labelIndicatorSize(dimensions.indicatorDimensions.labelIndicatorSize)
+                    fieldIndicatorSize(dimensions.indicatorDimensions.fieldIndicatorSize)
+                }
+                dividerThickness(dimensions.dividerThickness)
+            }
         }
 
         @Composable
@@ -974,7 +1004,7 @@ private class DefaultTextFieldStyle(
         @Suppress("CyclomaticComplexMethod")
         override fun style(): TextFieldStyle {
             return DefaultTextFieldStyle(
-                dimensions = dimensions ?: TextField.Dimensions(),
+                dimensions = dimensionsBuilder.build(),
                 colors = colorsBuilder.build(),
                 shape = shape ?: RoundedCornerShape(CornerSize(8.dp)),
                 fieldType = fieldType ?: TextField.FieldType.Optional,
