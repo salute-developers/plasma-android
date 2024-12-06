@@ -6,7 +6,7 @@ import com.sdds.plasma.sd.service.sandbox.buttons.SandboxButtonPreviewSizeLDefau
 import com.sdds.plasma.sd.service.sandbox.buttons.SandboxButtonPreviewSizeLDisabled
 import com.sdds.plasma.sd.service.sandbox.buttons.SandboxButtonPreviewSizeLIsLoading
 import com.sdds.plasma.sd.service.sandbox.buttons.SandboxButtonPreviewSizeLSecondary
-import com.sdds.plasma.sd.service.sandbox.buttons.SandboxButtonPreviewSizeLWhiteDarkTheme
+import com.sdds.plasma.sd.service.sandbox.buttons.SandboxButtonPreviewSizeLWhite
 import com.sdds.plasma.sd.service.sandbox.buttons.SandboxButtonPreviewSizeMAccent
 import com.sdds.plasma.sd.service.sandbox.buttons.SandboxButtonPreviewSizeMSpaceBetween
 import com.sdds.plasma.sd.service.sandbox.buttons.SandboxButtonPreviewSizeSLongText
@@ -24,16 +24,24 @@ import com.sdds.plasma.sd.service.sandbox.buttons.SandboxIconButtonPreviewSPosit
 import com.sdds.plasma.sd.service.sandbox.buttons.SandboxIconButtonPreviewSWarning
 import com.sdds.plasma.sd.service.sandbox.buttons.SandboxIconButtonPreviewXSDark
 import com.sdds.plasma.sd.service.sandbox.buttons.SandboxIconButtonPreviewXSNegative
+import com.sdds.plasma.sd.service.sandbox.buttons.SandboxLinkButtonPreviewSizeLDefault
+import com.sdds.plasma.sd.service.sandbox.buttons.SandboxLinkButtonPreviewSizeLDisabled
+import com.sdds.plasma.sd.service.sandbox.buttons.SandboxLinkButtonPreviewSizeLIsLoading
+import com.sdds.plasma.sd.service.sandbox.buttons.SandboxLinkButtonPreviewSizeMAccent
+import com.sdds.plasma.sd.service.sandbox.buttons.SandboxLinkButtonPreviewSizeSWarning
+import com.sdds.plasma.sd.service.sandbox.buttons.SandboxLinkButtonPreviewSizeXSAccent
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.robolectric.RobolectricTestRunner
+import org.robolectric.ParameterizedRobolectricTestRunner
 import org.robolectric.annotation.Config
 import org.robolectric.annotation.GraphicsMode
 
+@RunWith(ParameterizedRobolectricTestRunner::class)
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
 @Config(sdk = [SDK_NUMBER], qualifiers = RobolectricDeviceQualifiers.Pixel6)
-@RunWith(RobolectricTestRunner::class)
-class ComposeButtonScreenshotTest : RoborazziConfig() {
+class ComposeButtonScreenshotTest(
+    theme: String,
+) : RoborazziConfig(theme) {
 
     /**
      * Запуск скриншот тестов с использованием Preview
@@ -60,7 +68,7 @@ class ComposeButtonScreenshotTest : RoborazziConfig() {
     }
 
     @Test
-    fun testButtonPreviewSizeXSDark() {
+    fun testButtonPreviewSizeXS() {
         composeTestRule.setContent {
             SandboxButtonPreviewSizeXSDark()
         }
@@ -109,10 +117,10 @@ class ComposeButtonScreenshotTest : RoborazziConfig() {
     }
 
     @Test
-    fun testButtonPreviewSizeLWhiteDarkTheme() {
+    fun testButtonPreviewSizeLWhite() {
         composeTestRule.setContent {
-            SandboxTheme(darkTheme = true) {
-                SandboxButtonPreviewSizeLWhiteDarkTheme()
+            SandboxTheme {
+                SandboxButtonPreviewSizeLWhite()
             }
         }
     }
@@ -139,7 +147,7 @@ class ComposeButtonScreenshotTest : RoborazziConfig() {
     }
 
     @Test
-    fun testIconButtonPreviewXsDark() {
+    fun testIconButtonPreviewXs() {
         composeTestRule.setContent {
             SandboxIconButtonPreviewXSDark()
         }
@@ -193,6 +201,48 @@ class ComposeButtonScreenshotTest : RoborazziConfig() {
             SandboxTheme(darkTheme = true) {
                 SandboxIconButtonPreviewLWhiteDarkTheme()
             }
+        }
+    }
+
+    @Test
+    fun testLinkButtonPreviewLDefault() {
+        composeTestRule.setContent {
+            SandboxLinkButtonPreviewSizeLDefault()
+        }
+    }
+
+    @Test
+    fun testLinkButtonPreviewSizeLIsLoading() {
+        composeTestRule.setContent {
+            SandboxLinkButtonPreviewSizeLIsLoading()
+        }
+    }
+
+    @Test
+    fun testLinkButtonPreviewSizeMAccent() {
+        composeTestRule.setContent {
+            SandboxLinkButtonPreviewSizeMAccent()
+        }
+    }
+
+    @Test
+    fun testLinkButtonPreviewSizeLDisabled() {
+        composeTestRule.setContent {
+            SandboxLinkButtonPreviewSizeLDisabled()
+        }
+    }
+
+    @Test
+    fun testLinkButtonPreviewSizeSWarning() {
+        composeTestRule.setContent {
+            SandboxLinkButtonPreviewSizeSWarning()
+        }
+    }
+
+    @Test
+    fun testLinkButtonPreviewSizeXSAccent() {
+        composeTestRule.setContent {
+            SandboxLinkButtonPreviewSizeXSAccent()
         }
     }
 }

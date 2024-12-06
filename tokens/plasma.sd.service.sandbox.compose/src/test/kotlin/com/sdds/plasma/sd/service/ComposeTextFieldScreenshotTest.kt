@@ -20,14 +20,16 @@ import com.sdds.plasma.sd.service.sandbox.textfield.SandboxTextFieldPreviewXsErr
 import com.sdds.plasma.sd.service.sandbox.textfield.SandboxTextFieldPreviewXsInputText
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.robolectric.RobolectricTestRunner
+import org.robolectric.ParameterizedRobolectricTestRunner
 import org.robolectric.annotation.Config
 import org.robolectric.annotation.GraphicsMode
 
+@RunWith(ParameterizedRobolectricTestRunner::class)
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
 @Config(sdk = [SDK_NUMBER], qualifiers = RobolectricDeviceQualifiers.Pixel6)
-@RunWith(RobolectricTestRunner::class)
-class ComposeTextFieldScreenshotTest : RoborazziConfig() {
+class ComposeTextFieldScreenshotTest(
+    theme: String,
+) : RoborazziConfig(theme) {
 
     /**
      * Запуск скриншот тестов с использованием Preview
