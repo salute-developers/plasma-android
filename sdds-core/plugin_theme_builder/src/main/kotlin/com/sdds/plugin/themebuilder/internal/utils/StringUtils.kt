@@ -56,3 +56,15 @@ internal fun String.fontFileNameFromUrl(): String =
     fileNameFromUrl()
         .replace('-', '_')
         .camelToSnakeCase()
+
+/**
+ * Возвращает слово с заглавной буквы
+ */
+internal fun String.capitalized(): String =
+    this.capitalize(Locale.getDefault())
+
+/**
+ * Возвращает слово, убрав заглавную букву
+ */
+internal fun String.decapitalized(): String =
+    this.decapitalize(Locale.getDefault())

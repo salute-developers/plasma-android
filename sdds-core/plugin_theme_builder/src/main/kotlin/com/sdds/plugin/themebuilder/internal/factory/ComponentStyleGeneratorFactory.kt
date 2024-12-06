@@ -5,12 +5,12 @@ import com.sdds.plugin.themebuilder.ResourcePrefixConfig
 import com.sdds.plugin.themebuilder.internal.PackageResolver
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.components.button.BasicButtonStyleGeneratorCompose
-import com.sdds.plugin.themebuilder.internal.components.button.BasicButtonStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.components.button.ButtonStyleGeneratorComposeFactory
 import com.sdds.plugin.themebuilder.internal.components.button.IconButtonStyleGeneratorCompose
-import com.sdds.plugin.themebuilder.internal.components.button.IconButtonStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.components.button.LinkButtonStyleGeneratorCompose
-import com.sdds.plugin.themebuilder.internal.components.button.LinkButtonStyleGeneratorView
+import com.sdds.plugin.themebuilder.internal.components.button.view.BasicButtonStyleGeneratorView
+import com.sdds.plugin.themebuilder.internal.components.button.view.IconButtonStyleGeneratorView
+import com.sdds.plugin.themebuilder.internal.components.button.view.LinkButtonStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.generator.DimenTokenGenerator
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
@@ -53,6 +53,25 @@ internal class ComponentStyleGeneratorFactory(
         )
     }
 
+    private val mViewColorStateGeneratorFactory by unsafeLazy {
+        ViewColorStateGeneratorFactory(
+            ktFileBuilderFactory = ktFileBuilderFactory,
+            xmlBuilderFactory = xmlBuilderFactory,
+            outputResDir = outputResDir,
+            colorStateOutputLocation = KtFileBuilder.OutputLocation.Directory(outputDir),
+            resourcePrefixConfig = resourcePrefixConfig,
+            namespace = namespace,
+            packageResolver = packageResolver,
+        )
+    }
+
+    private val colorStateListGeneratorFactory by unsafeLazy {
+        ColorStateListGeneratorFactory(
+            xmlBuilderFactory = xmlBuilderFactory,
+            resourcePrefixConfig = resourcePrefixConfig,
+        )
+    }
+
     fun createBasicButtonStyleGeneratorCompose(): BasicButtonStyleGeneratorCompose =
         buttonStyleGeneratorComposeFactory.createBasicButtonGenerator()
 
@@ -62,7 +81,9 @@ internal class ComponentStyleGeneratorFactory(
             resourceReferenceProvider = resourceReferenceProvider,
             dimensAggregator = dimensAggregator,
             outputResDir = outputResDir,
-            attrPrefix = resourcePrefixConfig.resourcePrefix,
+            resourcePrefix = resourcePrefixConfig.resourcePrefix,
+            colorStateListGeneratorFactory = colorStateListGeneratorFactory,
+            viewColorStateGeneratorFactory = mViewColorStateGeneratorFactory,
         )
 
     fun createIconButtonStyleGeneratorCompose(): IconButtonStyleGeneratorCompose =
@@ -75,6 +96,8 @@ internal class ComponentStyleGeneratorFactory(
             dimensAggregator = dimensAggregator,
             outputResDir = outputResDir,
             attrPrefix = resourcePrefixConfig.resourcePrefix,
+            viewColorStateGeneratorFactory = mViewColorStateGeneratorFactory,
+            colorStateListGeneratorFactory = colorStateListGeneratorFactory,
         )
 
     fun createLinkButtonStyleGeneratorCompose(): LinkButtonStyleGeneratorCompose =
@@ -87,6 +110,8 @@ internal class ComponentStyleGeneratorFactory(
             dimensAggregator = dimensAggregator,
             outputResDir = outputResDir,
             attrPrefix = resourcePrefixConfig.resourcePrefix,
+            viewColorStateGeneratorFactory = mViewColorStateGeneratorFactory,
+            colorStateListGeneratorFactory = colorStateListGeneratorFactory,
         )
 
     fun createDimensionGenerator(): DimenTokenGenerator = DimenTokenGenerator(
