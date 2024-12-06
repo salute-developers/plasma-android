@@ -8,6 +8,7 @@ import com.sdds.uikit.R
  * Состояние компонента из дизайн-системы
  * @property attr атрибут состояния
  */
+@Deprecated("Использовать ColorState")
 enum class ViewState(val attr: IntArray) {
     UNDEFINED(intArrayOf()),
     PRIMARY(intArrayOf(R.attr.sd_state_primary)),
@@ -34,6 +35,7 @@ enum class ViewState(val attr: IntArray) {
          * @param defStyleRes стиль по умолчанию
          * @return [ViewState]
          */
+        @Deprecated("Использовать ColorState.obtain()")
         fun obtain(
             context: Context,
             attrs: AttributeSet?,
