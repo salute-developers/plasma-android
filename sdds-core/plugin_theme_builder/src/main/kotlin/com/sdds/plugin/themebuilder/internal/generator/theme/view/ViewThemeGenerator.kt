@@ -117,6 +117,8 @@ internal class ViewThemeGenerator(
         }
         if (camelCaseThemeName.isNotBlank()) {
             emptyStylesCollector.add("$capitalizedResPrefix.$camelCaseThemeName")
+            emptyStylesCollector.add("$capitalizedResPrefix.$camelCaseThemeName.Components")
+            emptyStylesCollector.add("$capitalizedResPrefix.$camelCaseThemeName.ComponentOverlays")
         }
     }
 

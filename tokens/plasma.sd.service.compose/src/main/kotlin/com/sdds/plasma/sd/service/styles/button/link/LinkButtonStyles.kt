@@ -3,10 +3,12 @@ package com.sdds.plasma.sd.service.styles.button.link
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.Button
+import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.LinkButton
 import com.sdds.compose.uikit.LinkButtonColorsBuilder
 import com.sdds.compose.uikit.LinkButtonStyleBuilder
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.linkButtonBuilder
 import com.sdds.plasma.sd.service.theme.PlasmaSdServiceTheme
 
 /**
@@ -54,7 +56,7 @@ val LinkButtonStyleBuilder.Negative: LinkButtonStyleBuilder
 
 val LinkButton.L: LinkButtonStyleBuilder
     @Composable
-    get() = LinkButtonStyleBuilder.builder(this)
+    get() = ButtonStyle.linkButtonBuilder(this)
         .dimensions(
             Button.Dimensions(
                 height = 56.dp,
@@ -66,14 +68,14 @@ val LinkButton.L: LinkButtonStyleBuilder
             ),
         )
         .labelStyle(PlasmaSdServiceTheme.typography.bodyLBold)
-        .spinnerMode(Button.SpinnerMode.SemitransparentContent(SEMITRANSPARENT_SPINNER_ALPHA))
         .colors {
             backgroundColor(PlasmaSdServiceTheme.colors.surfaceDefaultClear)
+            spinnerMode(Button.SpinnerMode.SemitransparentContent(SEMITRANSPARENT_SPINNER_ALPHA))
         }
 
 val LinkButton.M: LinkButtonStyleBuilder
     @Composable
-    get() = LinkButtonStyleBuilder.builder(this)
+    get() = ButtonStyle.linkButtonBuilder(this)
         .dimensions(
             Button.Dimensions(
                 height = 48.dp,
@@ -85,14 +87,14 @@ val LinkButton.M: LinkButtonStyleBuilder
             ),
         )
         .labelStyle(PlasmaSdServiceTheme.typography.bodyMBold)
-        .spinnerMode(Button.SpinnerMode.SemitransparentContent(SEMITRANSPARENT_SPINNER_ALPHA))
         .colors {
             backgroundColor(PlasmaSdServiceTheme.colors.surfaceDefaultClear)
+            spinnerMode(Button.SpinnerMode.SemitransparentContent(SEMITRANSPARENT_SPINNER_ALPHA))
         }
 
 val LinkButton.S: LinkButtonStyleBuilder
     @Composable
-    get() = LinkButtonStyleBuilder.builder(this)
+    get() = ButtonStyle.linkButtonBuilder(this)
         .dimensions(
             Button.Dimensions(
                 height = 40.dp,
@@ -104,14 +106,14 @@ val LinkButton.S: LinkButtonStyleBuilder
             ),
         )
         .labelStyle(PlasmaSdServiceTheme.typography.bodySBold)
-        .spinnerMode(Button.SpinnerMode.SemitransparentContent(SEMITRANSPARENT_SPINNER_ALPHA))
         .colors {
             backgroundColor(PlasmaSdServiceTheme.colors.surfaceDefaultClear)
+            spinnerMode(Button.SpinnerMode.SemitransparentContent(SEMITRANSPARENT_SPINNER_ALPHA))
         }
 
 val LinkButton.Xs: LinkButtonStyleBuilder
     @Composable
-    get() = LinkButtonStyleBuilder.builder(this)
+    get() = ButtonStyle.linkButtonBuilder(this)
         .dimensions(
             Button.Dimensions(
                 height = 32.dp,
@@ -123,9 +125,9 @@ val LinkButton.Xs: LinkButtonStyleBuilder
             ),
         )
         .labelStyle(PlasmaSdServiceTheme.typography.bodyXsBold)
-        .spinnerMode(Button.SpinnerMode.SemitransparentContent(SEMITRANSPARENT_SPINNER_ALPHA))
         .colors {
             backgroundColor(PlasmaSdServiceTheme.colors.surfaceDefaultClear)
+            spinnerMode(Button.SpinnerMode.SemitransparentContent(SEMITRANSPARENT_SPINNER_ALPHA))
         }
 
 @Composable

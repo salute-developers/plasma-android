@@ -81,4 +81,6 @@
     <style name="Thmbldr.TestTheme.AppCompat"/>
     <style name="Thmbldr"/>
     <style name="Thmbldr.TestTheme"/>
+    <style name="Thmbldr.TestTheme.Components"/>
+    <style name="Thmbldr.TestTheme.ComponentOverlays"/>
 </resources>

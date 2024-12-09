@@ -22,4 +22,16 @@ internal class KtFileBuilderFactory(private val packageResolver: PackageResolver
             packageName = packageResolver.getPackage(targetPackage),
             fileName = fileName,
         )
+
+    /**
+     * Создает [KtFileBuilder]
+     */
+    fun create(
+        fileName: String,
+        fullPackageName: String,
+    ): KtFileBuilder =
+        KtFileBuilder(
+            packageName = fullPackageName,
+            fileName = fileName,
+        )
 }

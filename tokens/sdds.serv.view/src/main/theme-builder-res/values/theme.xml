@@ -1144,6 +1144,8 @@
         <item name="sd_fsShapeAdjustment">@dimen/sdds_spacer_1x</item>
 
         <item name="android:buttonStyle">@style/Serv.Sdds.Components.BasicButton.M</item>
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.IconButton.M</item>
+        <item name="sd_linkButtonStyle">@style/Serv.Sdds.Components.LinkButton.M.Default</item>
         <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.M</item>
         <item name="sd_switchStyle">@style/Serv.Sdds.Components.Switch</item>
         <item name="android:checkboxStyle">@style/Serv.Sdds.Components.CheckBox.M</item>
@@ -2299,6 +2301,8 @@
         <item name="sd_fsShapeAdjustment">@dimen/sdds_spacer_1x</item>
 
         <item name="android:buttonStyle">@style/Serv.Sdds.Components.BasicButton.M</item>
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.IconButton.M</item>
+        <item name="sd_linkButtonStyle">@style/Serv.Sdds.Components.LinkButton.M.Default</item>
         <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.M</item>
         <item name="sd_switchStyle">@style/Serv.Sdds.Components.Switch</item>
         <item name="android:checkboxStyle">@style/Serv.Sdds.Components.CheckBox.M</item>
@@ -2314,4 +2318,6 @@
     </style>
     <style name="Serv.Sdds.MaterialComponents.DayNight" parent="Serv.Sdds.MaterialComponents.Light"/>
     <style name="Serv.Sdds"/>
+    <style name="Serv.Sdds.Components"/>
+    <style name="Serv.Sdds.ComponentOverlays"/>
 </resources>

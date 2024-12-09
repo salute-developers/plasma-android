@@ -4,10 +4,12 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.Button
+import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.IconButtonColorsBuilder
 import com.sdds.compose.uikit.IconButtonStyleBuilder
 import com.sdds.compose.uikit.adjustBy
+import com.sdds.compose.uikit.iconButtonBuilder
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.plasma.sd.service.theme.PlasmaSdServiceTheme
 
@@ -90,7 +92,7 @@ val IconButtonStyleBuilder.Pilled: IconButtonStyleBuilder
 
 val IconButton.L: IconButtonStyleBuilder
     @Composable
-    get() = IconButtonStyleBuilder.builder(this)
+    get() = ButtonStyle.iconButtonBuilder(this)
         .shape(PlasmaSdServiceTheme.shapes.roundL)
         .dimensions(
             Button.Dimensions(
@@ -104,7 +106,7 @@ val IconButton.L: IconButtonStyleBuilder
 
 val IconButton.M: IconButtonStyleBuilder
     @Composable
-    get() = IconButtonStyleBuilder.builder(this)
+    get() = ButtonStyle.iconButtonBuilder(this)
         .shape(PlasmaSdServiceTheme.shapes.roundM)
         .dimensions(
             Button.Dimensions(
@@ -118,7 +120,7 @@ val IconButton.M: IconButtonStyleBuilder
 
 val IconButton.S: IconButtonStyleBuilder
     @Composable
-    get() = IconButtonStyleBuilder.builder(this)
+    get() = ButtonStyle.iconButtonBuilder(this)
         .shape(PlasmaSdServiceTheme.shapes.roundM.adjustBy(all = (-2).dp))
         .dimensions(
             Button.Dimensions(
@@ -132,7 +134,7 @@ val IconButton.S: IconButtonStyleBuilder
 
 val IconButton.Xs: IconButtonStyleBuilder
     @Composable
-    get() = IconButtonStyleBuilder.builder(this)
+    get() = ButtonStyle.iconButtonBuilder(this)
         .shape(PlasmaSdServiceTheme.shapes.roundS)
         .dimensions(
             Button.Dimensions(

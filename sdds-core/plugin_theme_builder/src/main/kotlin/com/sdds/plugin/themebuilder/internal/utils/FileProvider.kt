@@ -3,6 +3,7 @@ package com.sdds.plugin.themebuilder.internal.utils
 import java.io.File
 import java.io.FileWriter
 import java.io.Writer
+import java.util.Locale
 
 /**
  * Провайдер имен файлов для токенов
@@ -18,6 +19,20 @@ object FileProvider {
             "values-$qualifier"
         } else {
             "values"
+        }
+        val valueDir = File("${this.path}/$valueDirName")
+        if (!valueDir.exists()) valueDir.mkdirs()
+        return valueDir
+    }
+
+    /**
+     * Директория colors с указанным квалификатором [qualifier]
+     */
+    private fun File.colorsDir(qualifier: String = ""): File {
+        val valueDirName = if (qualifier.isNotBlank()) {
+            "color-$qualifier"
+        } else {
+            "color"
         }
         val valueDir = File("${this.path}/$valueDirName")
         if (!valueDir.exists()) valueDir.mkdirs()
@@ -74,9 +89,13 @@ object FileProvider {
 
     /**
      * XML файл для размеров
+     *
+     * @param filePref опциональный префикс названия файла
      */
-    fun File.dimensFile(): File =
-        File("${valuesDir().path}/dimens.xml")
+    fun File.dimensFile(filePref: String = ""): File {
+        val prefix = if (filePref.isBlank()) "" else "$filePref-"
+        return File("${valuesDir().path}/${prefix}dimens.xml")
+    }
 
     /**
      * XML файл для токенов стилей текста
@@ -133,4 +152,16 @@ object FileProvider {
     fun File.attrsFile(type: String): File {
         return File("${valuesDir().path}/$type-attributes.xml")
     }
+
+    /**
+     * XML файл с ColorStateList из директории colors
+     */
+    fun File.colorXmlFile(fileName: String, prefix: String = ""): File =
+        File("${colorsDir().path}/${fileName.withPrefixIfNeed(prefix)}.xml")
+
+    /**
+     * XML файл для стилей LinkButton
+     */
+    fun File.componentStyleXmlFile(componentName: String): File =
+        File("${valuesDir().path}/styles-${componentName.toLowerCase(Locale.getDefault())}.xml")
 }

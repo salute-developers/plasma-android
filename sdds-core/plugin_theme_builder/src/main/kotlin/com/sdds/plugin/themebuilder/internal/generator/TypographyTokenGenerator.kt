@@ -227,7 +227,7 @@ internal class TypographyTokenGenerator(
                     )
                 }
             }
-            val attrName = "typography${token.xmlName}"
+            val attrName = TypographyToken.getViewAttrName(token.name)
             val tokenRef = resourceReferenceProvider.style(typographyName)
             viewTokenDataCollector[attrName] = tokenRef
         }

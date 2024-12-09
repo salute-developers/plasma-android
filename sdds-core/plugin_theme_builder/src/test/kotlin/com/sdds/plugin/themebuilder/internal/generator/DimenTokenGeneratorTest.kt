@@ -40,8 +40,8 @@ class DimenTokenGeneratorTest {
         underTest = DimenTokenGenerator(
             outputResDir = mockOutputResDir,
             dimensAggregator = mockDimensAggregator,
-            dimensConfig = dimensionsConfig,
             xmlBuilderFactory = XmlResourcesDocumentBuilderFactory("thmbldr", "TestTheme"),
+            dimensConfig = dimensionsConfig,
         )
     }
 

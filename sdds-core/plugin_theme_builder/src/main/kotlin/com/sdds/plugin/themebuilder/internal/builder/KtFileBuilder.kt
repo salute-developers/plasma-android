@@ -3,6 +3,7 @@ package com.sdds.plugin.themebuilder.internal.builder
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import com.squareup.kotlinpoet.AnnotationSpec
 import com.squareup.kotlinpoet.ClassName
+import com.squareup.kotlinpoet.CodeBlock
 import com.squareup.kotlinpoet.FileSpec
 import com.squareup.kotlinpoet.FunSpec
 import com.squareup.kotlinpoet.KModifier
@@ -58,6 +59,7 @@ internal class KtFileBuilder(
         primaryConstructor: Constructor.Primary? = null,
         secondaryConstructors: List<Constructor.Secondary>? = null,
         superType: TypeName? = null,
+        superInterface: TypeName? = null,
         description: String? = null,
     ) = TypeSpec.classBuilder(name).apply {
         annotation?.let(::addAnnotation)
@@ -65,6 +67,7 @@ internal class KtFileBuilder(
         primaryConstructor?.let { addPrimaryConstructor(it) }
         secondaryConstructors?.let { addSecondaryConstructors(it) }
         superType?.let { superclass(it) }
+        superInterface?.let { addSuperinterface(it) }
         description?.let(::addKdoc)
         rootTypeBuilders.add(this)
     }
@@ -89,17 +92,26 @@ internal class KtFileBuilder(
         parameterizedType: ClassName? = null,
         initializer: String? = null,
         modifiers: List<Modifier>? = null,
+        isMutable: Boolean = false,
+        setter: Setter? = null,
+        getter: Getter? = null,
+        receiver: TypeName? = null,
     ) {
         val type = if (parameterizedType != null) {
             typeName.parameterizedBy(parameterizedType)
         } else {
             typeName
         }
-        PropertySpec.builder(name, type).apply {
-            initializer?.let(::initializer)
-            modifiers?.toKModifiers()?.let(::addModifiers)
-            rootPropBuilders.add(this)
-        }
+        appendPropertyInternal(
+            name = name,
+            typeName = type,
+            initializer = initializer,
+            isMutable = isMutable,
+            modifiers = modifiers?.toKModifiers(),
+            setter = setter,
+            getter = getter,
+            receiver = receiver,
+        ).also(rootPropBuilders::add)
     }
 
     /**
@@ -150,6 +162,25 @@ internal class KtFileBuilder(
         initializer = initializer,
         description = description,
         rootObject = this,
+    )
+
+    /**
+     * Добавляет kotlin свойство с именем [name], типом [typeName], инициализатором [initializer]
+     * и описанием (документацией) [description]
+     * @return [TypeSpec.Builder]
+     */
+    fun TypeSpec.Builder.appendEnumConstant(
+        name: String,
+        initializer: String? = null,
+        description: String? = null,
+    ) = this.addEnumConstant(
+        name = name,
+        typeSpec = TypeSpec.anonymousClassBuilder()
+            .apply {
+                initializer?.let { addSuperclassConstructorParameter(it) }
+                description?.let { addKdoc(it) }
+            }
+            .build(),
     )
 
     /**
@@ -312,7 +343,8 @@ internal class KtFileBuilder(
         setter: Setter? = null,
         getter: Getter? = null,
         delegate: String? = null,
-    ) {
+        receiver: TypeName? = null,
+    ): PropertySpec.Builder {
         if (typeName is ClassName) addImport(typeName)
         val spec = PropertySpec.builder(
             name,
@@ -325,10 +357,12 @@ internal class KtFileBuilder(
         setter?.let { spec.setter(it.toFunSpec()) }
         getter?.let { spec.getter(it.toFunSpec()) }
         delegate?.let(spec::delegate)
+        receiver?.let(spec::receiver)
 
         val prop = spec.build()
         rootObject?.addProperty(prop)
-            ?: fileSpecBuilder.addProperty(prop)
+
+        return spec
     }
 
     private fun appendFun(
@@ -378,6 +412,7 @@ internal class KtFileBuilder(
                 Modifier.PRIVATE -> KModifier.PRIVATE
                 Modifier.DATA -> KModifier.DATA
                 Modifier.INFIX -> KModifier.INFIX
+                Modifier.ENUM -> KModifier.ENUM
             }
         }
 
@@ -394,6 +429,13 @@ internal class KtFileBuilder(
         when (this) {
             is Getter.Empty -> modifiers?.let { builder.addModifiers(it.toKModifiers()) }
             is Getter.Annotated -> {
+                modifiers?.let { builder.addModifiers(it.toKModifiers()) }
+                annotations?.let { annotationList ->
+                    annotationList.forEach { builder.addAnnotation(it) }
+                }
+                body?.let { builder.addCode(it) }
+            }
+            is Getter.AnnotatedCodeBlock -> {
                 modifiers?.let { builder.addModifiers(it.toKModifiers()) }
                 annotations?.let { annotationList ->
                     annotationList.forEach { builder.addAnnotation(it) }
@@ -447,6 +489,7 @@ internal class KtFileBuilder(
         OVERRIDE,
         DATA,
         INFIX,
+        ENUM,
     }
 
     /**
@@ -477,6 +520,15 @@ internal class KtFileBuilder(
             val annotations: List<ClassName>? = null,
             val modifiers: List<Modifier>? = null,
             val body: String? = null,
+        ) : Getter()
+
+        /**
+         * Геттер
+         */
+        data class AnnotatedCodeBlock(
+            val annotations: List<ClassName>? = null,
+            val modifiers: List<Modifier>? = null,
+            val body: CodeBlock? = null,
         ) : Getter()
     }
 
@@ -546,6 +598,16 @@ internal class KtFileBuilder(
             ClassName("androidx.compose.ui.platform", listOf("LocalDensity"))
         val TypeDimensionResource =
             ClassName("androidx.compose.ui.res", listOf("dimensionResource"))
+        val TypeColorState =
+            ClassName("com.sdds.uikit.colorstate", listOf("ColorState"))
+        val TypeColorStateProvider =
+            ClassName("com.sdds.uikit.colorstate", listOf("ColorStateProvider"))
+        val TypeAttributeSet = ClassName("android.util", "AttributeSet")
+
+        /**
+         * Возвращает [TypeName] как nullable тип
+         */
+        fun TypeName.nullable() = this.copy(true)
 
         fun getLambdaType(annotation: ClassName? = null, receiver: ClassName? = null): TypeName {
             val lambdaType = LambdaTypeName.get(
