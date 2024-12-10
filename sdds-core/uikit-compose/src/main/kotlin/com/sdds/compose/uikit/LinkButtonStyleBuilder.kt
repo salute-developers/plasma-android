@@ -219,7 +219,7 @@ private class LinkButtonStyleBuilderImpl(override val receiver: Any?) : LinkButt
     }
 
     override fun style(): ButtonStyle {
-        return DefaultButtonStyle(
+        return DefaultLinkButtonStyle(
             shape = shape ?: RoundedCornerShape(25),
             colors = colorsBuilder.build(),
             labelStyle = labelStyle ?: TextStyle.Default,
@@ -229,6 +229,16 @@ private class LinkButtonStyleBuilderImpl(override val receiver: Any?) : LinkButt
         )
     }
 }
+
+@Immutable
+private class DefaultLinkButtonStyle(
+    override val shape: CornerBasedShape,
+    override val colors: ButtonColors,
+    override val labelStyle: TextStyle,
+    override val valueStyle: TextStyle,
+    override val dimensions: Button.Dimensions,
+    override val disableAlpha: Float,
+) : ButtonStyle
 
 @Immutable
 private class DefaultLinkButtonColors(

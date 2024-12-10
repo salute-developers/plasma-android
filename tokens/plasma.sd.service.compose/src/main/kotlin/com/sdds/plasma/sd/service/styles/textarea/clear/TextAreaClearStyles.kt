@@ -5,10 +5,12 @@ import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.ChipGroup
 import com.sdds.compose.uikit.EmbeddedChip
 import com.sdds.compose.uikit.TextAreaClear
+import com.sdds.compose.uikit.TextAreaClearColorsBuilder
+import com.sdds.compose.uikit.TextAreaClearStyleBuilder
 import com.sdds.compose.uikit.TextField
 import com.sdds.compose.uikit.TextFieldStyle
-import com.sdds.compose.uikit.TextFieldStyleBuilder
-import com.sdds.compose.uikit.textFieldBuilder
+import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.textAreaClearBuilder
 import com.sdds.plasma.sd.service.styles.chip.L
 import com.sdds.plasma.sd.service.styles.chip.M
 import com.sdds.plasma.sd.service.styles.chip.S
@@ -17,11 +19,40 @@ import com.sdds.plasma.sd.service.styles.chip.Xs
 import com.sdds.plasma.sd.service.styles.chip.group.Dense
 import com.sdds.plasma.sd.service.theme.PlasmaSdServiceTheme
 
-val TextAreaClear.Xs: TextFieldStyleBuilder
+val TextAreaClearStyleBuilder.Default: TextAreaClearStyleBuilder
     @Composable
-    get() = TextFieldStyle.textFieldBuilder(this)
-        .fieldAppearance(TextField.FieldAppearance.Clear)
-        .helperTextPlacement(TextField.HelperTextPlacement.Outer)
+    get() = colors { defaultClearColors() }
+
+val TextAreaClearStyleBuilder.Error: TextAreaClearStyleBuilder
+    @Composable
+    get() = colors { errorClearColors() }
+
+val TextAreaClearStyleBuilder.Warning: TextAreaClearStyleBuilder
+    @Composable
+    get() = colors { warningClearColors() }
+
+val TextAreaClearStyleBuilder.Success: TextAreaClearStyleBuilder
+    @Composable
+    get() = colors { successClearColors() }
+
+val TextAreaClearStyleBuilder.RequiredStart: TextAreaClearStyleBuilder
+    get() = fieldType(TextField.FieldType.RequiredStart)
+
+val TextAreaClearStyleBuilder.RequiredEnd: TextAreaClearStyleBuilder
+    get() = fieldType(TextField.FieldType.RequiredEnd)
+
+val TextAreaClearStyleBuilder.Optional: TextAreaClearStyleBuilder
+    get() = fieldType(TextField.FieldType.Optional)
+
+val TextAreaClearStyleBuilder.InnerLabel: TextAreaClearStyleBuilder
+    get() = labelPlacement(TextField.LabelPlacement.Inner)
+
+val TextAreaClearStyleBuilder.OuterLabel: TextAreaClearStyleBuilder
+    get() = labelPlacement(TextField.LabelPlacement.Outer)
+
+val TextAreaClear.Xs: TextAreaClearStyleBuilder
+    @Composable
+    get() = TextFieldStyle.textAreaClearBuilder(this)
         .chipGroupStyle(
             ChipGroup.Dense.chipStyle(
                 EmbeddedChip.Xs.Secondary.style(),
@@ -69,13 +100,10 @@ val TextAreaClear.Xs: TextFieldStyleBuilder
         .counterStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
         .placeholderStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
         .dropInnerLabel(true)
-        .singleLine(false)
 
-val TextAreaClear.S: TextFieldStyleBuilder
+val TextAreaClear.S: TextAreaClearStyleBuilder
     @Composable
-    get() = TextFieldStyle.textFieldBuilder(this)
-        .fieldAppearance(TextField.FieldAppearance.Clear)
-        .helperTextPlacement(TextField.HelperTextPlacement.Outer)
+    get() = TextFieldStyle.textAreaClearBuilder(this)
         .chipGroupStyle(
             ChipGroup.Dense.chipStyle(
                 EmbeddedChip.S.Secondary.style(),
@@ -122,13 +150,10 @@ val TextAreaClear.S: TextFieldStyleBuilder
         .captionStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
         .counterStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
         .placeholderStyle(PlasmaSdServiceTheme.typography.bodySNormal)
-        .singleLine(false)
 
-val TextAreaClear.M: TextFieldStyleBuilder
+val TextAreaClear.M: TextAreaClearStyleBuilder
     @Composable
-    get() = TextFieldStyle.textFieldBuilder(this)
-        .fieldAppearance(TextField.FieldAppearance.Clear)
-        .helperTextPlacement(TextField.HelperTextPlacement.Outer)
+    get() = TextFieldStyle.textAreaClearBuilder(this)
         .chipGroupStyle(
             ChipGroup.Dense.chipStyle(
                 EmbeddedChip.M.Secondary.style(),
@@ -175,13 +200,10 @@ val TextAreaClear.M: TextFieldStyleBuilder
         .captionStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
         .counterStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
         .placeholderStyle(PlasmaSdServiceTheme.typography.bodyMNormal)
-        .singleLine(false)
 
-val TextAreaClear.L: TextFieldStyleBuilder
+val TextAreaClear.L: TextAreaClearStyleBuilder
     @Composable
-    get() = TextFieldStyle.textFieldBuilder(this)
-        .fieldAppearance(TextField.FieldAppearance.Clear)
-        .helperTextPlacement(TextField.HelperTextPlacement.Outer)
+    get() = TextFieldStyle.textAreaClearBuilder(this)
         .chipGroupStyle(
             ChipGroup.Dense.chipStyle(
                 EmbeddedChip.L.Secondary.style(),
@@ -228,4 +250,186 @@ val TextAreaClear.L: TextFieldStyleBuilder
         .captionStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
         .counterStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
         .placeholderStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
-        .singleLine(false)
+
+val TextAreaClearStyleBuilder.HasDivider: TextAreaClearStyleBuilder
+    get() = hasDivider(true)
+
+val TextAreaClearStyleBuilder.NoDivider: TextAreaClearStyleBuilder
+    get() = hasDivider(false)
+
+@Composable
+private fun TextAreaClearColorsBuilder.defaultClearColors(): TextAreaClearColorsBuilder = apply {
+    disabledAlpha(0.4f)
+    enabledAlpha(1f)
+    cursorColor(PlasmaSdServiceTheme.colors.textDefaultAccent)
+    startContentColor(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
+    endContentColor(PlasmaSdServiceTheme.colors.textDefaultSecondary)
+    innerLabelColor(PlasmaSdServiceTheme.colors.textDefaultSecondary)
+    outerLabelColor(PlasmaSdServiceTheme.colors.textDefaultPrimary)
+    outerLabelColorReadOnly(PlasmaSdServiceTheme.colors.textDefaultSecondary)
+    valueColor(PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive())
+    valueColorReadOnly(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
+    captionColor(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
+    captionColorReadOnly(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
+    optionalColor(PlasmaSdServiceTheme.colors.textDefaultTertiary)
+    counterColor(PlasmaSdServiceTheme.colors.textDefaultSecondary)
+    placeholderColor(
+        PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
+            focused = PlasmaSdServiceTheme.colors.textDefaultTertiary,
+            pressed = PlasmaSdServiceTheme.colors.textDefaultTertiary,
+        ),
+    )
+    placeholderColorReadOnly(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
+    dividerColor(
+        PlasmaSdServiceTheme.colors.surfaceDefaultTransparentTertiary.asInteractive(
+            focused = PlasmaSdServiceTheme.colors.surfaceDefaultAccent,
+            pressed = PlasmaSdServiceTheme.colors.surfaceDefaultAccent,
+        ),
+    )
+    dividerColorReadOnly(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentPrimary.asInteractive())
+    indicatorColor(PlasmaSdServiceTheme.colors.surfaceDefaultNegative)
+}
+
+@Composable
+private fun TextAreaClearColorsBuilder.successClearColors(): TextAreaClearColorsBuilder = apply {
+    disabledAlpha(0.4f)
+    enabledAlpha(1f)
+    cursorColor(PlasmaSdServiceTheme.colors.textDefaultAccent)
+    startContentColor(
+        PlasmaSdServiceTheme.colors.surfaceDefaultPositive.asInteractive(
+            focused = PlasmaSdServiceTheme.colors.textDefaultSecondary,
+            pressed = PlasmaSdServiceTheme.colors.textDefaultSecondary,
+        ),
+    )
+    endContentColor(PlasmaSdServiceTheme.colors.textDefaultSecondary)
+    innerLabelColor(PlasmaSdServiceTheme.colors.textDefaultSecondary)
+    outerLabelColor(PlasmaSdServiceTheme.colors.textDefaultPrimary)
+    outerLabelColorReadOnly(PlasmaSdServiceTheme.colors.textDefaultSecondary)
+    valueColor(
+        PlasmaSdServiceTheme.colors.textDefaultPositive.asInteractive(
+            focused = PlasmaSdServiceTheme.colors.textDefaultPrimary,
+            pressed = PlasmaSdServiceTheme.colors.textDefaultPrimary,
+        ),
+    )
+    valueColorReadOnly(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
+    captionColor(
+        PlasmaSdServiceTheme.colors.textDefaultPositive.asInteractive(
+            focused = PlasmaSdServiceTheme.colors.textDefaultSecondary,
+            pressed = PlasmaSdServiceTheme.colors.textDefaultSecondary,
+        ),
+    )
+    captionColorReadOnly(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
+    optionalColor(PlasmaSdServiceTheme.colors.textDefaultTertiary)
+    counterColor(PlasmaSdServiceTheme.colors.textDefaultSecondary)
+    placeholderColor(
+        PlasmaSdServiceTheme.colors.textDefaultPositive.asInteractive(
+            focused = PlasmaSdServiceTheme.colors.textDefaultTertiary,
+            pressed = PlasmaSdServiceTheme.colors.textDefaultTertiary,
+        ),
+    )
+    placeholderColorReadOnly(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
+    dividerColor(
+        PlasmaSdServiceTheme.colors.surfaceDefaultPositive.asInteractive(
+            focused = PlasmaSdServiceTheme.colors.surfaceDefaultAccent,
+            pressed = PlasmaSdServiceTheme.colors.surfaceDefaultAccent,
+        ),
+    )
+    dividerColorReadOnly(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentPrimary.asInteractive())
+    indicatorColor(PlasmaSdServiceTheme.colors.surfaceDefaultNegative)
+}
+
+@Composable
+private fun TextAreaClearColorsBuilder.warningClearColors(): TextAreaClearColorsBuilder = apply {
+    disabledAlpha(0.4f)
+    enabledAlpha(1f)
+    cursorColor(PlasmaSdServiceTheme.colors.textDefaultAccent)
+    startContentColor(
+        PlasmaSdServiceTheme.colors.surfaceDefaultWarning.asInteractive(
+            focused = PlasmaSdServiceTheme.colors.textDefaultSecondary,
+            pressed = PlasmaSdServiceTheme.colors.textDefaultSecondary,
+        ),
+    )
+    endContentColor(PlasmaSdServiceTheme.colors.textDefaultSecondary)
+    innerLabelColor(PlasmaSdServiceTheme.colors.textDefaultSecondary)
+    outerLabelColor(PlasmaSdServiceTheme.colors.textDefaultPrimary)
+    outerLabelColorReadOnly(PlasmaSdServiceTheme.colors.textDefaultSecondary)
+    valueColor(
+        PlasmaSdServiceTheme.colors.textDefaultWarning.asInteractive(
+            focused = PlasmaSdServiceTheme.colors.textDefaultPrimary,
+            pressed = PlasmaSdServiceTheme.colors.textDefaultPrimary,
+        ),
+    )
+    valueColorReadOnly(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
+    captionColor(
+        PlasmaSdServiceTheme.colors.textDefaultWarning.asInteractive(
+            focused = PlasmaSdServiceTheme.colors.textDefaultSecondary,
+            pressed = PlasmaSdServiceTheme.colors.textDefaultSecondary,
+        ),
+    )
+    captionColorReadOnly(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
+    optionalColor(PlasmaSdServiceTheme.colors.textDefaultTertiary)
+    counterColor(PlasmaSdServiceTheme.colors.textDefaultSecondary)
+    placeholderColor(
+        PlasmaSdServiceTheme.colors.textDefaultWarning.asInteractive(
+            focused = PlasmaSdServiceTheme.colors.textDefaultTertiary,
+            pressed = PlasmaSdServiceTheme.colors.textDefaultTertiary,
+        ),
+    )
+    placeholderColorReadOnly(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
+    dividerColor(
+        PlasmaSdServiceTheme.colors.surfaceDefaultWarning.asInteractive(
+            focused = PlasmaSdServiceTheme.colors.surfaceDefaultAccent,
+            pressed = PlasmaSdServiceTheme.colors.surfaceDefaultAccent,
+        ),
+    )
+    dividerColorReadOnly(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentPrimary.asInteractive())
+    indicatorColor(PlasmaSdServiceTheme.colors.surfaceDefaultNegative)
+}
+
+@Composable
+private fun TextAreaClearColorsBuilder.errorClearColors(): TextAreaClearColorsBuilder = apply {
+    disabledAlpha(0.4f)
+    enabledAlpha(1f)
+    cursorColor(PlasmaSdServiceTheme.colors.textDefaultAccent)
+    startContentColor(
+        PlasmaSdServiceTheme.colors.surfaceDefaultNegative.asInteractive(
+            focused = PlasmaSdServiceTheme.colors.textDefaultSecondary,
+            pressed = PlasmaSdServiceTheme.colors.textDefaultSecondary,
+        ),
+    )
+    endContentColor(PlasmaSdServiceTheme.colors.textDefaultSecondary)
+    innerLabelColor(PlasmaSdServiceTheme.colors.textDefaultSecondary)
+    outerLabelColor(PlasmaSdServiceTheme.colors.textDefaultPrimary)
+    outerLabelColorReadOnly(PlasmaSdServiceTheme.colors.textDefaultSecondary)
+    valueColor(
+        PlasmaSdServiceTheme.colors.textDefaultNegative.asInteractive(
+            focused = PlasmaSdServiceTheme.colors.textDefaultPrimary,
+            pressed = PlasmaSdServiceTheme.colors.textDefaultPrimary,
+        ),
+    )
+    valueColorReadOnly(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
+    captionColor(
+        PlasmaSdServiceTheme.colors.textDefaultNegative.asInteractive(
+            focused = PlasmaSdServiceTheme.colors.textDefaultSecondary,
+            pressed = PlasmaSdServiceTheme.colors.textDefaultSecondary,
+        ),
+    )
+    captionColorReadOnly(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
+    optionalColor(PlasmaSdServiceTheme.colors.textDefaultTertiary)
+    counterColor(PlasmaSdServiceTheme.colors.textDefaultSecondary)
+    placeholderColor(
+        PlasmaSdServiceTheme.colors.textDefaultNegative.asInteractive(
+            focused = PlasmaSdServiceTheme.colors.textDefaultTertiary,
+            pressed = PlasmaSdServiceTheme.colors.textDefaultTertiary,
+        ),
+    )
+    placeholderColorReadOnly(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
+    dividerColor(
+        PlasmaSdServiceTheme.colors.surfaceDefaultNegative.asInteractive(
+            focused = PlasmaSdServiceTheme.colors.surfaceDefaultAccent,
+            pressed = PlasmaSdServiceTheme.colors.surfaceDefaultAccent,
+        ),
+    )
+    dividerColorReadOnly(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentPrimary.asInteractive())
+    indicatorColor(PlasmaSdServiceTheme.colors.surfaceDefaultNegative)
+}
