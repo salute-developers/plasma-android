@@ -84,6 +84,7 @@ internal class ChipGroupFragment : ComponentFragment() {
         repeat(state.quantity) {
             val chip = Chip(theme).apply {
                 text = state.label
+                id = it
                 if (state.contentLeft) {
                     setDrawableStartRes(Icons.drawable.ic_plasma_24)
                 } else {

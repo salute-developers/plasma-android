@@ -1,9 +1,7 @@
 package com.sdds.playground.sandbox
 
-import android.view.KeyEvent
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
-import androidx.test.espresso.action.ViewActions.pressKey
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.github.takahirom.roborazzi.captureRoboImage
@@ -25,26 +23,71 @@ class ViewSystemTextFieldScreenshotTest(
 ) : RoborazziConfig(theme) {
 
     @Test
-    fun testTextFieldXs() {
+    fun testTextFieldLDefaultInnerLeft() {
         launchScreen(
             R.id.nav_textfield,
             TextFieldUiState(
-                variant = TextFieldVariant.TextFieldXSOuterLabelRequiredEnd,
+                variant = TextFieldVariant.TextFieldLInnerLabelRequiredStart,
                 state = TextField.FieldState.Default,
                 labelText = "Label",
-                hasChips = true,
-                placeholderText = "Placeholder",
+                valueText = "Value",
+                captionText = "Caption",
+                placeholderText = "",
+                icon = true,
+                action = true,
+                enabled = true,
+                readOnly = false,
+                prefix = "",
+                suffix = "",
+                hasChips = false,
+            ),
+        )
+        onView(withId(R.id.textField))
+            .captureRoboImage()
+    }
+
+    @Test
+    fun testTextFieldMSuccessOuterLabel() {
+        launchScreen(
+            R.id.nav_textfield,
+            TextFieldUiState(
+                variant = TextFieldVariant.TextFieldMOuterLabel,
+                state = TextField.FieldState.Positive,
+                labelText = "Label",
                 valueText = "",
+                captionText = "Caption",
+                placeholderText = "Placeholder",
                 icon = false,
+                action = true,
+                enabled = true,
+                readOnly = false,
+                prefix = "",
+                suffix = "",
+                hasChips = false,
+            ),
+        )
+        onView(withId(R.id.textField))
+            .captureRoboImage()
+    }
+
+    @Test
+    fun testTextFieldSWarningInnerRight() {
+        launchScreen(
+            R.id.nav_textfield,
+            TextFieldUiState(
+                variant = TextFieldVariant.TextFieldSInnerLabelRequiredEnd,
+                state = TextField.FieldState.Warning,
+                labelText = "Label",
+                valueText = "",
+                captionText = "Caption",
+                placeholderText = "Placeholder",
+                icon = true,
                 action = false,
                 enabled = true,
                 readOnly = false,
                 prefix = "",
                 suffix = "",
-                chipData = listOf(
-                    ExampleChipData(text = "Chip"),
-                    ExampleChipData(text = "Chip"),
-                ),
+                hasChips = false,
             ),
         )
         onView(withId(R.id.textField))
@@ -56,19 +99,19 @@ class ViewSystemTextFieldScreenshotTest(
         launchScreen(
             R.id.nav_textfield,
             TextFieldUiState(
-                variant = TextFieldVariant.TextFieldXSOuterLabel, // no optional
+                variant = TextFieldVariant.TextFieldXS,
                 state = TextField.FieldState.Negative,
                 labelText = "Label",
-                hasChips = true,
-                placeholderText = "Placeholder",
                 valueText = "",
                 captionText = "Caption",
-                icon = true,
+                placeholderText = "Placeholder",
+                icon = false,
                 action = false,
                 enabled = true,
                 readOnly = false,
                 prefix = "",
                 suffix = "",
+                hasChips = false,
             ),
         )
         onView(withId(R.id.textField))
@@ -76,23 +119,23 @@ class ViewSystemTextFieldScreenshotTest(
     }
 
     @Test
-    fun testTextFieldLSuccess() {
+    fun testTextFieldLSuccessRequiredOuterLabel() {
         launchScreen(
             R.id.nav_textfield,
             TextFieldUiState(
                 variant = TextFieldVariant.TextFieldLOuterLabelRequiredStart,
                 state = TextField.FieldState.Positive,
                 labelText = "Label",
-                hasChips = true,
-                placeholderText = "",
                 valueText = "Value",
-                captionText = "",
-                icon = false,
-                action = false,
+                placeholderText = "",
+                captionText = "Caption",
+                icon = true,
+                action = true,
                 enabled = true,
                 readOnly = false,
                 prefix = "",
                 suffix = "",
+                hasChips = false,
             ),
         )
         onView(withId(R.id.component_container))
@@ -100,24 +143,201 @@ class ViewSystemTextFieldScreenshotTest(
     }
 
     @Test
-    fun testTextFieldMWarning() {
+    fun testTextFieldMWarningInnerLabel() {
         launchScreen(
             R.id.nav_textfield,
             TextFieldUiState(
-                variant = TextFieldVariant.TextFieldMOuterLabelRequiredEnd,
+                variant = TextFieldVariant.TextFieldMInnerLabel,
                 state = TextField.FieldState.Warning,
                 labelText = "Label",
-                hasChips = true,
-                placeholderText = "",
                 valueText = "Value",
-                captionText = "",
-                counterText = "",
+                placeholderText = "",
+                captionText = "Caption",
                 icon = true,
-                action = false,
+                action = true,
                 enabled = true,
                 readOnly = false,
                 prefix = "",
                 suffix = "",
+                hasChips = false,
+            ),
+        )
+        onView(withId(R.id.textField))
+            .captureRoboImage()
+    }
+
+    @Test
+    fun testTextFieldSDefaultReadOnly() {
+        launchScreen(
+            R.id.nav_textfield,
+            TextFieldUiState(
+                variant = TextFieldVariant.TextFieldSInnerLabelRequiredEnd,
+                state = TextField.FieldState.Default,
+                labelText = "",
+                valueText = "",
+                placeholderText = "Placeholder",
+                captionText = "Caption",
+                icon = true,
+                action = true,
+                enabled = true,
+                readOnly = true,
+                prefix = "",
+                suffix = "",
+                hasChips = false,
+            ),
+        )
+        onView(withId(R.id.textField))
+            .captureRoboImage()
+    }
+
+    @Test
+    fun testTextFieldXSSuccessOuterLabel() {
+        launchScreen(
+            R.id.nav_textfield,
+            TextFieldUiState(
+                variant = TextFieldVariant.TextFieldXSOuterLabel,
+                state = TextField.FieldState.Positive,
+                labelText = "Label",
+                valueText = "Value",
+                placeholderText = "",
+                captionText = "Caption",
+                icon = true,
+                action = true,
+                enabled = true,
+                readOnly = false,
+                prefix = "",
+                suffix = "",
+                hasChips = false,
+            ),
+        )
+        onView(withId(R.id.textField))
+            .captureRoboImage()
+    }
+
+    @Test
+    fun testTextFieldLDisabled() {
+        launchScreen(
+            R.id.nav_textfield,
+            TextFieldUiState(
+                variant = TextFieldVariant.TextFieldLInnerLabelRequiredStart,
+                state = TextField.FieldState.Default,
+                labelText = "Label",
+                valueText = "",
+                placeholderText = "Placeholder",
+                captionText = "",
+                icon = true,
+                action = true,
+                enabled = false,
+                readOnly = false,
+                prefix = "",
+                suffix = "",
+                hasChips = false,
+            ),
+        )
+        onView(withId(R.id.textField))
+            .captureRoboImage()
+    }
+
+    @Test
+    fun testTextFieldMErrorOuterLabel() {
+        launchScreen(
+            R.id.nav_textfield,
+            TextFieldUiState(
+                variant = TextFieldVariant.TextFieldMOuterLabel,
+                state = TextField.FieldState.Negative,
+                labelText = "Label",
+                valueText = "",
+                placeholderText = "Placeholder",
+                captionText = "Caption",
+                icon = true,
+                action = true,
+                enabled = true,
+                readOnly = false,
+                prefix = "",
+                suffix = "",
+                hasChips = false,
+            ),
+        )
+        onView(withId(R.id.textField))
+            .captureRoboImage()
+    }
+
+    @Test
+    fun testTextFieldSWarningInnerLabelRightFocused() {
+        launchScreen(
+            R.id.nav_textfield,
+            TextFieldUiState(
+                variant = TextFieldVariant.TextFieldSInnerLabelRequiredEnd,
+                state = TextField.FieldState.Warning,
+                labelText = "Label",
+                valueText = "Value",
+                placeholderText = "Placeholder",
+                captionText = "Caption",
+                icon = true,
+                action = true,
+                enabled = true,
+                readOnly = false,
+                prefix = "",
+                suffix = "",
+                hasChips = false,
+            ),
+        )
+        onView(withId(R.id.textField))
+            .perform(click())
+        onView(withId(R.id.textField))
+            .captureRoboImage()
+    }
+
+    @Test
+    fun testTextFieldMSuccessInnerLabelChips() {
+        launchScreen(
+            R.id.nav_textfield,
+            TextFieldUiState(
+                variant = TextFieldVariant.TextFieldMInnerLabel,
+                state = TextField.FieldState.Positive,
+                labelText = "Label",
+                placeholderText = "Placeholder",
+                valueText = "",
+                captionText = "Caption",
+                icon = true,
+                action = true,
+                enabled = true,
+                readOnly = false,
+                prefix = "",
+                suffix = "",
+                hasChips = true,
+                chipData = listOf(
+                    ExampleChipData(text = "Chip"),
+                    ExampleChipData(text = "Chip"),
+                ),
+            ),
+        )
+        onView(withId(R.id.textField))
+            .captureRoboImage()
+    }
+
+    @Test
+    fun testTextFieldSDefaultOuterLabelRightChips() {
+        launchScreen(
+            R.id.nav_textfield,
+            TextFieldUiState(
+                variant = TextFieldVariant.TextFieldSOuterLabelRequiredEnd,
+                state = TextField.FieldState.Default,
+                labelText = "Label",
+                valueText = "",
+                placeholderText = "Placeholder",
+                captionText = "Caption",
+                icon = true,
+                action = true,
+                enabled = true,
+                readOnly = false,
+                prefix = "",
+                suffix = "",
+                hasChips = true,
+                chipData = listOf(
+                    ExampleChipData(text = "Chip"),
+                    ExampleChipData(text = "Chip"),
+                ),
             ),
         )
         onView(withId(R.id.textField))
@@ -129,10 +349,9 @@ class ViewSystemTextFieldScreenshotTest(
         launchScreen(
             R.id.nav_textfield,
             TextFieldUiState(
-                variant = TextFieldVariant.TextFieldMInnerLabel,
+                variant = TextFieldVariant.TextFieldLInnerLabel,
                 state = TextField.FieldState.Warning,
                 labelText = "Label",
-                hasChips = true,
                 placeholderText = "",
                 valueText = "абвгдежзabcdefg@#643!#\$",
                 captionText = "",
@@ -142,182 +361,7 @@ class ViewSystemTextFieldScreenshotTest(
                 readOnly = false,
                 prefix = "",
                 suffix = "",
-            ),
-        )
-        onView(withId(R.id.textField))
-            .captureRoboImage()
-    }
-
-    @Test
-    fun testTextFieldSDisabled() {
-        launchScreen(
-            R.id.nav_textfield,
-            TextFieldUiState(
-                variant = TextFieldVariant.TextFieldSInnerLabelRequiredEnd,
-                state = TextField.FieldState.Default,
-                labelText = "Label",
-                hasChips = true,
-                placeholderText = "",
-                valueText = "Value",
-                captionText = "",
-                icon = true,
-                action = true,
-                enabled = false,
-                readOnly = false,
-                prefix = "",
-                suffix = "",
-            ),
-        )
-        onView(withId(R.id.textField))
-            .captureRoboImage()
-    }
-
-    @Test
-    fun testTextFieldSSuccess() {
-        launchScreen(
-            R.id.nav_textfield,
-            TextFieldUiState(
-                variant = TextFieldVariant.TextFieldSOuterLabelRequiredEnd,
-                state = TextField.FieldState.Positive,
-                labelText = "Label",
-                hasChips = true,
-                placeholderText = "Placeholder",
-                valueText = "Value",
-                captionText = "Caption",
-                icon = false,
-                action = false,
-                enabled = true,
-                readOnly = false,
-                prefix = "",
-                suffix = "",
-            ),
-        )
-        onView(withId(R.id.textField))
-            .captureRoboImage()
-    }
-
-    @Test
-    fun testTextFieldSReadOnly() {
-        launchScreen(
-            R.id.nav_textfield,
-            TextFieldUiState(
-                variant = TextFieldVariant.TextFieldSInnerLabelRequiredStart,
-                state = TextField.FieldState.Negative,
-                labelText = "Label",
-                hasChips = true,
-                placeholderText = "",
-                valueText = "Value",
-                captionText = "Caption",
-                icon = true,
-                action = false,
-                enabled = true,
-                readOnly = true,
-                prefix = "",
-                suffix = "",
-            ),
-        )
-        onView(withId(R.id.textField))
-            .captureRoboImage()
-    }
-
-    @Test
-    fun testTextFieldXsInputText() {
-        launchScreen(
-            R.id.nav_textfield,
-            TextFieldUiState(
-                variant = TextFieldVariant.TextFieldXSOuterLabelRequiredEnd,
-                state = TextField.FieldState.Positive,
-                labelText = "Label",
-                hasChips = true,
-                placeholderText = "",
-                valueText = "абвгдежзabcdefg@#643!#\$",
-                captionText = "",
-                icon = false,
-                action = false,
-                enabled = true,
-                readOnly = false,
-                prefix = "",
-                suffix = "",
-            ),
-        )
-        onView(withId(R.id.textField))
-            .captureRoboImage()
-    }
-
-    @Test
-    fun testTextFieldXsDotBadgeOutside() {
-        launchScreen(
-            R.id.nav_textfield,
-            TextFieldUiState(
-                variant = TextFieldVariant.TextFieldXSOuterLabelRequiredStart,
-                state = TextField.FieldState.Warning,
-                labelText = "Label",
-                hasChips = true,
-                placeholderText = "Placeholder",
-                valueText = "",
-                captionText = "",
-                icon = true,
-                action = true,
-                enabled = true,
-                readOnly = false,
-                prefix = "",
-                suffix = "",
-            ),
-        )
-        onView(withId(R.id.component_container))
-            .captureRoboImage()
-    }
-
-    @Test
-    fun testTextFieldDotBadgeInside() {
-        launchScreen(
-            R.id.nav_textfield,
-            TextFieldUiState(
-                variant = TextFieldVariant.TextFieldMInnerLabelRequiredEnd,
-                state = TextField.FieldState.Negative,
-                labelText = "Label",
-                hasChips = true,
-                placeholderText = "Placeholder",
-                valueText = "",
-                captionText = "Caption",
-                icon = false,
-                action = true,
-                enabled = true,
-                readOnly = false,
-                prefix = "",
-                suffix = "",
-                chipData = listOf(
-                    ExampleChipData(text = "Chip"),
-                    ExampleChipData(text = "Chip"),
-                ),
-            ),
-        )
-        onView(withId(R.id.textField))
-            .captureRoboImage()
-    }
-
-    @Test
-    fun testTextFieldXsChipsInside() {
-        launchScreen(
-            R.id.nav_textfield,
-            TextFieldUiState(
-                variant = TextFieldVariant.TextFieldXSOuterLabel,
-                state = TextField.FieldState.Warning,
-                labelText = "Label",
-                hasChips = true,
-                placeholderText = "Placeholder",
-                valueText = "Value",
-                captionText = "Caption",
-                icon = false,
-                action = true,
-                enabled = true,
-                readOnly = false,
-                prefix = "",
-                suffix = "",
-                chipData = listOf(
-                    ExampleChipData(text = "Chip"),
-                    ExampleChipData(text = "Chip"),
-                ),
+                hasChips = false,
             ),
         )
         onView(withId(R.id.textField))
@@ -329,75 +373,22 @@ class ViewSystemTextFieldScreenshotTest(
         launchScreen(
             R.id.nav_textfield,
             TextFieldUiState(
-                variant = TextFieldVariant.TextFieldLInnerLabel,
+                variant = TextFieldVariant.TextFieldLOuterLabelRequiredStart,
                 state = TextField.FieldState.Default,
                 labelText = "Label",
-                hasChips = true,
-                placeholderText = "",
                 valueText = "Value",
+                placeholderText = "",
                 captionText = "Caption",
                 icon = true,
                 action = true,
                 enabled = true,
                 readOnly = false,
+                hasChips = false,
                 prefix = "TB Prefix",
                 suffix = "TA Suffix",
             ),
         )
-        onView(withId(R.id.textField))
-            .captureRoboImage()
-    }
-
-    @Test
-    fun testTextFieldFocused() {
-        launchScreen(
-            R.id.nav_textfield,
-            TextFieldUiState(
-                variant = TextFieldVariant.TextFieldLInnerLabelRequiredStart,
-                state = TextField.FieldState.Default,
-                labelText = "Label",
-                hasChips = false,
-                placeholderText = "Placeholder",
-                valueText = "",
-                captionText = "Caption",
-                icon = true,
-                action = true,
-                enabled = true,
-                readOnly = false,
-                prefix = "",
-                suffix = "",
-            ),
-        )
-        onView(withId(R.id.textField))
-            .perform(click())
-        onView(withId(R.id.textField))
-            .captureRoboImage()
-    }
-
-    @Test
-    fun testTextFieldTextDeletes() {
-        launchScreen(
-            R.id.nav_textfield,
-            TextFieldUiState(
-                variant = TextFieldVariant.TextFieldLInnerLabelRequiredEnd,
-                state = TextField.FieldState.Negative,
-                labelText = "Label",
-                hasChips = false,
-                placeholderText = "",
-                valueText = "Value",
-                captionText = "Caption",
-                icon = true,
-                action = true,
-                enabled = true,
-                readOnly = false,
-                prefix = "",
-                suffix = "",
-            ),
-        )
-        onView(withId(R.id.textField))
-            .perform(click())
-            .perform(pressKey(KeyEvent.KEYCODE_DEL))
-        onView(withId(R.id.textField))
+        onView(withId(R.id.component_container))
             .captureRoboImage()
     }
 }
