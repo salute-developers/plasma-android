@@ -2,21 +2,23 @@ package com.sdds.playground.sandbox
 
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.performTextInput
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
-import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewFocused
+import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewLDefaultInnerLeft
+import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewLDisabled
 import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewLInputText
-import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewLSuccess
+import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewLSuccessRequiredLeftOuter
 import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewLSuffixPrefix
-import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewMDotBadgeInside
-import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewMWarning
-import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewSDisabled
+import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewMErrorOuterLabelOptional
+import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewMSuccessInnerLabelChips
+import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewMSuccessOuterLabel
+import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewMWarningInnerLabelOptional
+import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewSOuterLabelRightChips
 import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewSReadOnly
-import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewSSuccess
-import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewXS
-import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewXsChipsInside
-import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewXsDotBadgeOutside
-import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewXsError
-import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewXsInputText
+import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewSWarningInnerLabelRightFocused
+import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewSWarningInnerRight
+import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewXSErrorInner
+import com.sdds.playground.sandbox.textfield.SandboxTextFieldPreviewXSSuccessOuterLabelOptional
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.ParameterizedRobolectricTestRunner
@@ -34,46 +36,46 @@ class ComposeTextFieldScreenshotTest(
      * Запуск скриншот тестов с использованием Preview
      */
     @Test
-    fun testTextFieldPreviewXs() {
+    fun testTextFieldPreviewLDefaultInnerLeft() {
         composeTestRule.setContent {
-            SandboxTheme(darkTheme = true) {
-                SandboxTextFieldPreviewXS()
+            SandboxTheme {
+                SandboxTextFieldPreviewLDefaultInnerLeft()
             }
         }
     }
 
     @Test
-    fun testTextFieldPreviewXsError() {
+    fun testTextFieldPreviewMSuccessOuterLabel() {
         composeTestRule.setContent {
-            SandboxTextFieldPreviewXsError()
+            SandboxTextFieldPreviewMSuccessOuterLabel()
         }
     }
 
     @Test
-    fun testTextFieldPreviewLSuccess() {
+    fun testTextFieldPreviewSWarningInnerRight() {
         composeTestRule.setContent {
-            SandboxTextFieldPreviewLSuccess()
+            SandboxTextFieldPreviewSWarningInnerRight()
         }
     }
 
     @Test
-    fun testTextFieldPreviewMWarning() {
+    fun testTextFieldPreviewXSErrorInner() {
         composeTestRule.setContent {
-            SandboxTextFieldPreviewMWarning()
+            SandboxTextFieldPreviewXSErrorInner()
         }
     }
 
     @Test
-    fun testTextFieldPreviewDisabled() {
+    fun testTextFieldPreviewLSuccessRequiredLeftOuter() {
         composeTestRule.setContent {
-            SandboxTextFieldPreviewSDisabled()
+            SandboxTextFieldPreviewLSuccessRequiredLeftOuter()
         }
     }
 
     @Test
-    fun testTextFieldPreviewSSuccess() {
+    fun testTextFieldPreviewMWarningInnerLabelOptional() {
         composeTestRule.setContent {
-            SandboxTextFieldPreviewSSuccess()
+            SandboxTextFieldPreviewMWarningInnerLabelOptional()
         }
     }
 
@@ -85,38 +87,58 @@ class ComposeTextFieldScreenshotTest(
     }
 
     @Test
+    fun testTextFieldPreviewXSSuccessOuterLabelOptional() {
+        composeTestRule.setContent {
+            SandboxTextFieldPreviewXSSuccessOuterLabelOptional()
+        }
+    }
+
+    @Test
+    fun testTextFieldPreviewLDisabled() {
+        composeTestRule.setContent {
+            SandboxTextFieldPreviewLDisabled()
+        }
+    }
+
+    @Test
+    fun testTextFieldPreviewMErrorOuterLabelOptional() {
+        composeTestRule.setContent {
+            SandboxTextFieldPreviewMErrorOuterLabelOptional()
+        }
+    }
+
+    @Test
+    fun testTextFieldPreviewFocused() {
+        composeTestRule.setContent {
+            SandboxTextFieldPreviewSWarningInnerLabelRightFocused()
+        }
+        composeTestRule.onNodeWithText("Placeholder")
+            .performClick()
+            .performTextInput("Value")
+    }
+
+    @Test
+    fun testTextFieldPreviewMSuccessInnerLabelChips() {
+        composeTestRule.setContent {
+            SandboxTextFieldPreviewMSuccessInnerLabelChips()
+        }
+    }
+
+    @Test
+    fun testTextFieldPreviewSOuterLabelRightChips() {
+        composeTestRule.setContent {
+            SandboxTextFieldPreviewSOuterLabelRightChips()
+        }
+    }
+
+    @Test
     fun testTextFieldPreviewLInputText() {
         composeTestRule.setContent {
             SandboxTextFieldPreviewLInputText()
         }
-    }
-
-    @Test
-    fun testTextFieldPreviewXsInputText() {
-        composeTestRule.setContent {
-            SandboxTextFieldPreviewXsInputText()
-        }
-    }
-
-    @Test
-    fun testTextFieldPreviewHasDotBadgeOutside() {
-        composeTestRule.setContent {
-            SandboxTextFieldPreviewXsDotBadgeOutside()
-        }
-    }
-
-    @Test
-    fun testTextFieldPreviewHasDotBadgeInside() {
-        composeTestRule.setContent {
-            SandboxTextFieldPreviewMDotBadgeInside()
-        }
-    }
-
-    @Test
-    fun testTextFieldPreviewXsChipsInside() {
-        composeTestRule.setContent {
-            SandboxTextFieldPreviewXsChipsInside()
-        }
+        composeTestRule.onNodeWithText("Placeholder")
+            .performClick()
+            .performTextInput("абвгдежзabcdefg@#643!#\$")
     }
 
     @Test
@@ -124,14 +146,5 @@ class ComposeTextFieldScreenshotTest(
         composeTestRule.setContent {
             SandboxTextFieldPreviewLSuffixPrefix()
         }
-    }
-
-    @Test
-    fun testTextFieldPreviewFocused() {
-        composeTestRule.setContent {
-            SandboxTextFieldPreviewFocused()
-        }
-        composeTestRule.onNodeWithText("Placeholder")
-            .performClick()
     }
 }
