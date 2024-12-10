@@ -59,24 +59,9 @@ interface TextAreaClearStyleBuilder : StyleBuilder<TextFieldStyle> {
     fun labelPlacement(labelPlacement: TextField.LabelPlacement): TextAreaClearStyleBuilder
 
     /**
-     * Устанавливает расположение вспомогательного текста [helperTextPlacement]
-     */
-    fun helperTextPlacement(helperTextPlacement: TextField.HelperTextPlacement): TextAreaClearStyleBuilder
-
-    /**
      * Устанавливает тип поля [fieldType]
      */
     fun fieldType(fieldType: TextField.FieldType): TextAreaClearStyleBuilder
-
-    /**
-     * Устанавливает внешний вид поля [fieldAppearance]
-     */
-    fun fieldAppearance(fieldAppearance: TextField.FieldAppearance): TextAreaClearStyleBuilder
-
-    /**
-     * Устаналивает настройки скроллбара [scrollBar]
-     */
-    fun scrollBar(scrollBar: ScrollBar?): TextAreaClearStyleBuilder
 
     /**
      * Устанавливает стиль внутреннего лэйбла [innerLabelStyle]
@@ -117,11 +102,6 @@ interface TextAreaClearStyleBuilder : StyleBuilder<TextFieldStyle> {
      * Устанавливает стиль плэйсхолдера [placeholderStyle]
      */
     fun placeholderStyle(placeholderStyle: TextStyle): TextAreaClearStyleBuilder
-
-    /**
-     * Устанавливает однострочный/многострочный режим [singleLine]
-     */
-    fun singleLine(singleLine: Boolean): TextAreaClearStyleBuilder
 
     /**
      * Устанавливает наличие разделителя [hasDivider]
@@ -309,28 +289,6 @@ interface TextAreaClearColorsBuilder {
     fun placeholderColorReadOnly(placeholderColorReadOnly: InteractiveColor): TextAreaClearColorsBuilder
 
     /**
-     * Устанавливает цвет бэкграунда [backgroundColor]
-     */
-    fun backgroundColor(backgroundColor: Color): TextAreaClearColorsBuilder =
-        backgroundColor(backgroundColor.asInteractive())
-
-    /**
-     * Устанавливает цвет бэкграунда [backgroundColor]
-     */
-    fun backgroundColor(backgroundColor: InteractiveColor): TextAreaClearColorsBuilder
-
-    /**
-     * Устанавливает цвет бэкграунда в состоянии readOnly [backgroundColorReadOnly]
-     */
-    fun backgroundColorReadOnly(backgroundColorReadOnly: Color): TextAreaClearColorsBuilder =
-        backgroundColorReadOnly(backgroundColorReadOnly.asInteractive())
-
-    /**
-     * Устанавливает цвет бэкграунда в состоянии readOnly [backgroundColorReadOnly]
-     */
-    fun backgroundColorReadOnly(backgroundColorReadOnly: InteractiveColor): TextAreaClearColorsBuilder
-
-    /**
      * Устанавливает цвет разделителя [dividerColor]
      */
     fun dividerColor(dividerColor: Color): TextAreaClearColorsBuilder =
@@ -428,14 +386,9 @@ interface TextAreaClearDimensionsBuilder {
     fun optionalPadding(optionalPadding: Dp): TextAreaClearDimensionsBuilder
 
     /**
-     * Устанавливает верхний отступ внутреннего helper текста (caption/counter)
-     */
-    fun helperTextPaddingInner(helperTextPaddingInner: Dp): TextAreaClearDimensionsBuilder
-
-    /**
      * Устанавливает верхний отступ наружного helper текста (caption/counter)
      */
-    fun helperTextPaddingOuter(helperTextPaddingOuter: Dp): TextAreaClearDimensionsBuilder
+    fun helperTextPadding(helperTextPadding: Dp): TextAreaClearDimensionsBuilder
 
     /**
      * Устанавливает отступ после startContent
@@ -637,8 +590,7 @@ private class DefaultTextAreaClearDimensionsBuilder : TextAreaClearDimensionsBui
     private var innerLabelPadding: Dp? = null
     private var outerLabelPadding: Dp? = null
     private var optionalPadding: Dp? = null
-    private var helperTextPaddingInner: Dp? = null
-    private var helperTextPaddingOuter: Dp? = null
+    private var helperTextPadding: Dp? = null
     private var startContentEndPadding: Dp? = null
     private var endContentStartPadding: Dp? = null
     private var chipsPadding: Dp? = null
@@ -684,12 +636,8 @@ private class DefaultTextAreaClearDimensionsBuilder : TextAreaClearDimensionsBui
         this.optionalPadding = optionalPadding
     }
 
-    override fun helperTextPaddingInner(helperTextPaddingInner: Dp) = apply {
-        this.helperTextPaddingInner = helperTextPaddingInner
-    }
-
-    override fun helperTextPaddingOuter(helperTextPaddingOuter: Dp) = apply {
-        this.helperTextPaddingOuter = helperTextPaddingOuter
+    override fun helperTextPadding(helperTextPadding: Dp) = apply {
+        this.helperTextPadding = helperTextPadding
     }
 
     override fun startContentEndPadding(startContentEndPadding: Dp) = apply {
@@ -737,8 +685,7 @@ private class DefaultTextAreaClearDimensionsBuilder : TextAreaClearDimensionsBui
             innerLabelPadding = innerLabelPadding ?: 2.dp,
             outerLabelPadding = outerLabelPadding ?: 2.dp,
             optionalPadding = optionalPadding ?: 4.dp,
-            helperTextPaddingInner = helperTextPaddingInner ?: 4.dp,
-            helperTextPaddingOuter = helperTextPaddingOuter ?: 4.dp,
+            helperTextPaddingOuter = helperTextPadding ?: 4.dp,
             startContentEndPadding = startContentEndPadding ?: 6.dp,
             endContentStartPadding = endContentStartPadding ?: 6.dp,
             chipsPadding = chipsPadding ?: 6.dp,
@@ -794,10 +741,7 @@ private class DefaultTextAreaClearStyle(
             TextAreaClearDimensionsBuilder.builder()
         private var shape: CornerBasedShape? = null
         private var labelPlacement: TextField.LabelPlacement? = null
-        private var helperTextPlacement: TextField.HelperTextPlacement? = null
         private var fieldType: TextField.FieldType? = null
-        private var fieldAppearance: TextField.FieldAppearance? = null
-        private var scrollBar: ScrollBar? = null
         private var innerLabelStyle: TextStyle? = null
         private var outerLabelStyle: TextStyle? = null
         private var innerOptionalStyle: TextStyle? = null
@@ -827,8 +771,7 @@ private class DefaultTextAreaClearStyle(
                 innerLabelPadding(dimensions.innerLabelPadding)
                 outerLabelPadding(dimensions.outerLabelPadding)
                 optionalPadding(dimensions.optionalPadding)
-                helperTextPaddingInner(dimensions.helperTextPaddingInner)
-                helperTextPaddingOuter(dimensions.helperTextPaddingOuter)
+                helperTextPadding(dimensions.helperTextPaddingInner)
                 startContentEndPadding(dimensions.startContentEndPadding)
                 endContentStartPadding(dimensions.endContentStartPadding)
                 chipsPadding(dimensions.chipsPadding)
@@ -864,21 +807,8 @@ private class DefaultTextAreaClearStyle(
             this.labelPlacement = labelPlacement
         }
 
-        override fun helperTextPlacement(helperTextPlacement: TextField.HelperTextPlacement) =
-            apply {
-                this.helperTextPlacement = helperTextPlacement
-            }
-
         override fun fieldType(fieldType: TextField.FieldType) = apply {
             this.fieldType = fieldType
-        }
-
-        override fun fieldAppearance(fieldAppearance: TextField.FieldAppearance) = apply {
-            this.fieldAppearance = fieldAppearance
-        }
-
-        override fun scrollBar(scrollBar: ScrollBar?) = apply {
-            this.scrollBar = scrollBar
         }
 
         override fun innerLabelStyle(innerLabelStyle: TextStyle) = apply {
@@ -913,10 +843,6 @@ private class DefaultTextAreaClearStyle(
             this.placeholderStyle = placeholderStyle
         }
 
-        override fun singleLine(singleLine: Boolean) = apply {
-            this.singleLine = singleLine
-        }
-
         override fun hasDivider(hasDivider: Boolean) = apply {
             this.hasDivider = hasDivider
         }
@@ -932,14 +858,14 @@ private class DefaultTextAreaClearStyle(
         @Suppress("CyclomaticComplexMethod")
         override fun style(): TextFieldStyle {
             return DefaultTextAreaClearStyle(
+                scrollBar = null,
+                labelPlacement = labelPlacement ?: TextField.LabelPlacement.Outer,
+                helperTextPlacement = TextField.HelperTextPlacement.Outer,
                 dimensions = dimensionsBuilder.build(),
                 colors = colorsBuilder.build(),
                 shape = shape ?: RoundedCornerShape(CornerSize(8.dp)),
                 fieldType = fieldType ?: TextField.FieldType.Optional,
-                fieldAppearance = fieldAppearance ?: TextField.FieldAppearance.Solid,
-                labelPlacement = labelPlacement ?: TextField.LabelPlacement.Outer,
-                helperTextPlacement = helperTextPlacement ?: TextField.HelperTextPlacement.Inner,
-                scrollBar = scrollBar,
+                fieldAppearance = TextField.FieldAppearance.Clear,
                 innerLabelStyle = innerLabelStyle ?: TextStyle.Default,
                 outerLabelStyle = outerLabelStyle ?: TextStyle.Default,
                 innerOptionalStyle = innerOptionalStyle ?: TextStyle.Default,
@@ -976,8 +902,6 @@ private class DefaultTextAreaClearColors(
     private val captionColorReadOnly: InteractiveColor,
     private val placeholderColor: InteractiveColor,
     private val placeholderColorReadOnly: InteractiveColor,
-    private val backgroundColor: InteractiveColor,
-    private val backgroundColorReadOnly: InteractiveColor,
     private val dividerColor: InteractiveColor,
     private val dividerColorReadOnly: InteractiveColor,
 ) : TextFieldColors {
@@ -1008,9 +932,7 @@ private class DefaultTextAreaClearColors(
         return if (isReadOnly) placeholderColorReadOnly else placeholderColor
     }
 
-    override fun backgroundColor(isReadOnly: Boolean): InteractiveColor {
-        return if (isReadOnly) backgroundColorReadOnly else backgroundColor
-    }
+    override fun backgroundColor(isReadOnly: Boolean) = DUMMY_COLOR
 
     class Builder : TextAreaClearColorsBuilder {
         private var disabledAlpha: Float? = null
@@ -1099,14 +1021,6 @@ private class DefaultTextAreaClearColors(
             this.placeholderColorReadOnly = placeholderColorReadOnly
         }
 
-        override fun backgroundColor(backgroundColor: InteractiveColor) = apply {
-            this.backgroundColor = backgroundColor
-        }
-
-        override fun backgroundColorReadOnly(backgroundColorReadOnly: InteractiveColor) = apply {
-            this.backgroundColorReadOnly = backgroundColorReadOnly
-        }
-
         override fun dividerColor(dividerColor: InteractiveColor) = apply {
             this.dividerColor = dividerColor
         }
@@ -1136,9 +1050,6 @@ private class DefaultTextAreaClearColors(
                 captionColorReadOnly = captionColorReadOnly ?: Color.Black.asInteractive(),
                 optionalColor = optionalColor ?: Color.Black.asInteractive(),
                 counterColor = counterColor ?: Color.Black.asInteractive(),
-                backgroundColor = backgroundColor ?: Color.LightGray.asInteractive(),
-                backgroundColorReadOnly = backgroundColorReadOnly
-                    ?: Color.LightGray.asInteractive(),
                 placeholderColor = placeholderColor ?: Color.Gray.asInteractive(),
                 placeholderColorReadOnly = placeholderColorReadOnly ?: Color.Gray.asInteractive(),
                 indicatorColor = indicatorColor ?: Color.Red.asInteractive(),
@@ -1151,3 +1062,4 @@ private class DefaultTextAreaClearColors(
 
 private const val DEFAULT_DISABLED_ALPHA = 0.4f
 private const val DEFAULT_ENABLED_ALPHA = 1f
+private val DUMMY_COLOR = Color.Transparent.asInteractive()

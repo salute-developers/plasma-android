@@ -1,5 +1,6 @@
 package com.sdds.serv.styles.textarea
 
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
@@ -7,11 +8,13 @@ import com.sdds.compose.uikit.ChipGroup
 import com.sdds.compose.uikit.EmbeddedChip
 import com.sdds.compose.uikit.ScrollBar
 import com.sdds.compose.uikit.TextArea
+import com.sdds.compose.uikit.TextAreaColorsBuilder
+import com.sdds.compose.uikit.TextAreaStyleBuilder
 import com.sdds.compose.uikit.TextField
 import com.sdds.compose.uikit.TextFieldStyle
-import com.sdds.compose.uikit.TextFieldStyleBuilder
 import com.sdds.compose.uikit.adjustBy
-import com.sdds.compose.uikit.textFieldBuilder
+import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.textAreaBuilder
 import com.sdds.serv.styles.chip.L
 import com.sdds.serv.styles.chip.M
 import com.sdds.serv.styles.chip.S
@@ -20,12 +23,41 @@ import com.sdds.serv.styles.chip.Xs
 import com.sdds.serv.styles.chip.group.Dense
 import com.sdds.serv.theme.SddsServTheme
 
-val TextArea.Xs: TextFieldStyleBuilder
+val TextAreaStyleBuilder.Default: TextAreaStyleBuilder
     @Composable
-    get() = TextFieldStyle.textFieldBuilder(this)
-        .fieldAppearance(TextField.FieldAppearance.Solid)
+    get() = colors { defaultColors() }
+
+val TextAreaStyleBuilder.Error: TextAreaStyleBuilder
+    @Composable
+    get() = colors { errorColors() }
+
+val TextAreaStyleBuilder.Warning: TextAreaStyleBuilder
+    @Composable
+    get() = colors { warningColors() }
+
+val TextAreaStyleBuilder.Success: TextAreaStyleBuilder
+    @Composable
+    get() = colors { successColors() }
+
+val TextAreaStyleBuilder.RequiredStart: TextAreaStyleBuilder
+    get() = fieldType(TextField.FieldType.RequiredStart)
+
+val TextAreaStyleBuilder.RequiredEnd: TextAreaStyleBuilder
+    get() = fieldType(TextField.FieldType.RequiredEnd)
+
+val TextAreaStyleBuilder.Optional: TextAreaStyleBuilder
+    get() = fieldType(TextField.FieldType.Optional)
+
+val TextAreaStyleBuilder.InnerLabel: TextAreaStyleBuilder
+    get() = labelPlacement(TextField.LabelPlacement.Inner)
+
+val TextAreaStyleBuilder.OuterLabel: TextAreaStyleBuilder
+    get() = labelPlacement(TextField.LabelPlacement.Outer)
+
+val TextArea.Xs: TextAreaStyleBuilder
+    @Composable
+    get() = TextFieldStyle.textAreaBuilder(this)
         .shape(SddsServTheme.shapes.roundS)
-        .helperTextPlacement(TextField.HelperTextPlacement.Inner)
         .chipGroupStyle(
             ChipGroup.Dense.chipStyle(
                 EmbeddedChip.Xs.Secondary.style(),
@@ -70,14 +102,11 @@ val TextArea.Xs: TextFieldStyleBuilder
         .counterStyle(SddsServTheme.typography.bodyXsNormal)
         .placeholderStyle(SddsServTheme.typography.bodyXsNormal)
         .dropInnerLabel(true)
-        .singleLine(false)
 
-val TextArea.S: TextFieldStyleBuilder
+val TextArea.S: TextAreaStyleBuilder
     @Composable
-    get() = TextFieldStyle.textFieldBuilder(this)
-        .fieldAppearance(TextField.FieldAppearance.Solid)
+    get() = TextFieldStyle.textAreaBuilder(this)
         .shape(SddsServTheme.shapes.roundM.adjustBy(all = (-2).dp))
-        .helperTextPlacement(TextField.HelperTextPlacement.Inner)
         .chipGroupStyle(
             ChipGroup.Dense.chipStyle(
                 EmbeddedChip.S.Secondary.style(),
@@ -121,14 +150,11 @@ val TextArea.S: TextFieldStyleBuilder
         .captionStyle(SddsServTheme.typography.bodyXsNormal)
         .counterStyle(SddsServTheme.typography.bodyXsNormal)
         .placeholderStyle(SddsServTheme.typography.bodySNormal)
-        .singleLine(false)
 
-val TextArea.M: TextFieldStyleBuilder
+val TextArea.M: TextAreaStyleBuilder
     @Composable
-    get() = TextFieldStyle.textFieldBuilder(this)
-        .fieldAppearance(TextField.FieldAppearance.Solid)
+    get() = TextFieldStyle.textAreaBuilder(this)
         .shape(SddsServTheme.shapes.roundM)
-        .helperTextPlacement(TextField.HelperTextPlacement.Inner)
         .chipGroupStyle(
             ChipGroup.Dense.chipStyle(
                 EmbeddedChip.M.Secondary.style(),
@@ -172,14 +198,11 @@ val TextArea.M: TextFieldStyleBuilder
         .captionStyle(SddsServTheme.typography.bodyXsNormal)
         .counterStyle(SddsServTheme.typography.bodyXsNormal)
         .placeholderStyle(SddsServTheme.typography.bodyMNormal)
-        .singleLine(false)
 
-val TextArea.L: TextFieldStyleBuilder
+val TextArea.L: TextAreaStyleBuilder
     @Composable
-    get() = TextFieldStyle.textFieldBuilder(this)
-        .fieldAppearance(TextField.FieldAppearance.Solid)
+    get() = TextFieldStyle.textAreaBuilder(this)
         .shape(SddsServTheme.shapes.roundM.adjustBy(all = 2.dp))
-        .helperTextPlacement(TextField.HelperTextPlacement.Inner)
         .chipGroupStyle(
             ChipGroup.Dense.chipStyle(
                 EmbeddedChip.L.Secondary.style(),
@@ -223,7 +246,6 @@ val TextArea.L: TextFieldStyleBuilder
         .captionStyle(SddsServTheme.typography.bodyXsNormal)
         .counterStyle(SddsServTheme.typography.bodyXsNormal)
         .placeholderStyle(SddsServTheme.typography.bodyLNormal)
-        .singleLine(false)
 
 private val scrollBar: ScrollBar
     @Composable
@@ -233,3 +255,178 @@ private val scrollBar: ScrollBar
         backgroundColor = SddsServTheme.colors.surfaceDefaultTransparentPrimary,
         padding = PaddingValues(top = 18.dp, end = 2.dp, bottom = 36.dp),
     )
+
+private val readOnlyAlpha: Float
+    @Composable
+    get() = if (isSystemInDarkTheme()) 0.02f else 0.01f
+
+private val surfaceAlpha: Float
+    @Composable
+    get() = if (isSystemInDarkTheme()) 0.12f else 0.06f
+
+@Composable
+private fun TextAreaColorsBuilder.defaultColors(): TextAreaColorsBuilder = apply {
+    disabledAlpha(0.4f)
+    enabledAlpha(1f)
+    cursorColor(SddsServTheme.colors.textDefaultAccent)
+    startContentColor(SddsServTheme.colors.textDefaultSecondary.asInteractive())
+    endContentColor(SddsServTheme.colors.textDefaultSecondary)
+    innerLabelColor(SddsServTheme.colors.textDefaultSecondary)
+    outerLabelColor(SddsServTheme.colors.textDefaultPrimary)
+    outerLabelColorReadOnly(SddsServTheme.colors.textDefaultSecondary)
+    valueColor(SddsServTheme.colors.textDefaultPrimary.asInteractive())
+    valueColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
+    captionColor(SddsServTheme.colors.textDefaultSecondary.asInteractive())
+    captionColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
+    optionalColor(SddsServTheme.colors.textDefaultTertiary)
+    counterColor(SddsServTheme.colors.textDefaultSecondary)
+    placeholderColor(
+        SddsServTheme.colors.textDefaultSecondary.asInteractive(
+            focused = SddsServTheme.colors.textDefaultTertiary,
+            pressed = SddsServTheme.colors.textDefaultTertiary,
+        ),
+    )
+    placeholderColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
+    backgroundColor(
+        SddsServTheme.colors.surfaceDefaultTransparentPrimary
+            .asInteractive(
+                focused = SddsServTheme.colors.surfaceDefaultTransparentSecondary,
+                pressed = SddsServTheme.colors.surfaceDefaultTransparentSecondary,
+            ),
+    )
+    backgroundColorReadOnly(
+        SddsServTheme.colors.surfaceDefaultSolidDefault
+            .copy(alpha = readOnlyAlpha)
+            .asInteractive(),
+    )
+    indicatorColor(SddsServTheme.colors.surfaceDefaultNegative)
+}
+
+@Composable
+private fun TextAreaColorsBuilder.successColors(): TextAreaColorsBuilder = apply {
+    disabledAlpha(0.4f)
+    enabledAlpha(1f)
+    cursorColor(SddsServTheme.colors.textDefaultAccent)
+    startContentColor(SddsServTheme.colors.textDefaultSecondary.asInteractive())
+    endContentColor(SddsServTheme.colors.textDefaultSecondary)
+    innerLabelColor(SddsServTheme.colors.textDefaultSecondary)
+    outerLabelColor(SddsServTheme.colors.textDefaultPrimary)
+    outerLabelColorReadOnly(SddsServTheme.colors.textDefaultSecondary)
+    valueColor(SddsServTheme.colors.textDefaultPrimary.asInteractive())
+    valueColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
+    captionColor(
+        SddsServTheme.colors.textDefaultPositive.asInteractive(
+            focused = SddsServTheme.colors.textDefaultSecondary,
+            pressed = SddsServTheme.colors.textDefaultSecondary,
+        ),
+    )
+    captionColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
+    optionalColor(SddsServTheme.colors.textDefaultTertiary)
+    counterColor(SddsServTheme.colors.textDefaultSecondary)
+    placeholderColor(
+        SddsServTheme.colors.textDefaultSecondary.asInteractive(
+            focused = SddsServTheme.colors.textDefaultTertiary,
+            pressed = SddsServTheme.colors.textDefaultTertiary,
+        ),
+    )
+    placeholderColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
+    backgroundColor(
+        SddsServTheme.colors.surfaceDefaultPositive.copy(alpha = surfaceAlpha)
+            .asInteractive(
+                focused = SddsServTheme.colors.surfaceDefaultTransparentSecondary,
+                pressed = SddsServTheme.colors.surfaceDefaultTransparentSecondary,
+            ),
+    )
+    backgroundColorReadOnly(
+        SddsServTheme.colors.surfaceDefaultSolidDefault
+            .copy(alpha = readOnlyAlpha)
+            .asInteractive(),
+    )
+    indicatorColor(SddsServTheme.colors.surfaceDefaultNegative)
+}
+
+@Composable
+private fun TextAreaColorsBuilder.warningColors(): TextAreaColorsBuilder = apply {
+    disabledAlpha(0.4f)
+    enabledAlpha(1f)
+    cursorColor(SddsServTheme.colors.textDefaultAccent)
+    startContentColor(SddsServTheme.colors.textDefaultSecondary.asInteractive())
+    endContentColor(SddsServTheme.colors.textDefaultSecondary)
+    innerLabelColor(SddsServTheme.colors.textDefaultSecondary)
+    outerLabelColor(SddsServTheme.colors.textDefaultPrimary)
+    outerLabelColorReadOnly(SddsServTheme.colors.textDefaultSecondary)
+    valueColor(SddsServTheme.colors.textDefaultPrimary.asInteractive())
+    valueColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
+    captionColor(
+        SddsServTheme.colors.textDefaultWarning.asInteractive(
+            focused = SddsServTheme.colors.textDefaultSecondary,
+            pressed = SddsServTheme.colors.textDefaultSecondary,
+        ),
+    )
+    captionColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
+    optionalColor(SddsServTheme.colors.textDefaultTertiary)
+    counterColor(SddsServTheme.colors.textDefaultSecondary)
+    placeholderColor(
+        SddsServTheme.colors.textDefaultSecondary.asInteractive(
+            focused = SddsServTheme.colors.textDefaultTertiary,
+            pressed = SddsServTheme.colors.textDefaultTertiary,
+        ),
+    )
+    placeholderColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
+    backgroundColor(
+        SddsServTheme.colors.surfaceDefaultWarning.copy(alpha = surfaceAlpha)
+            .asInteractive(
+                focused = SddsServTheme.colors.surfaceDefaultTransparentSecondary,
+                pressed = SddsServTheme.colors.surfaceDefaultTransparentSecondary,
+            ),
+    )
+    backgroundColorReadOnly(
+        SddsServTheme.colors.surfaceDefaultSolidDefault
+            .copy(alpha = readOnlyAlpha)
+            .asInteractive(),
+    )
+    indicatorColor(SddsServTheme.colors.surfaceDefaultNegative)
+}
+
+@Composable
+private fun TextAreaColorsBuilder.errorColors(): TextAreaColorsBuilder = apply {
+    disabledAlpha(0.4f)
+    enabledAlpha(1f)
+    cursorColor(SddsServTheme.colors.textDefaultAccent)
+    startContentColor(SddsServTheme.colors.textDefaultSecondary.asInteractive())
+    endContentColor(SddsServTheme.colors.textDefaultSecondary)
+    innerLabelColor(SddsServTheme.colors.textDefaultSecondary)
+    outerLabelColor(SddsServTheme.colors.textDefaultPrimary)
+    outerLabelColorReadOnly(SddsServTheme.colors.textDefaultSecondary)
+    valueColor(SddsServTheme.colors.textDefaultPrimary.asInteractive())
+    valueColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
+    captionColor(
+        SddsServTheme.colors.textDefaultNegative.asInteractive(
+            focused = SddsServTheme.colors.textDefaultSecondary,
+            pressed = SddsServTheme.colors.textDefaultSecondary,
+        ),
+    )
+    captionColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
+    optionalColor(SddsServTheme.colors.textDefaultTertiary)
+    counterColor(SddsServTheme.colors.textDefaultSecondary)
+    placeholderColor(
+        SddsServTheme.colors.textDefaultSecondary.asInteractive(
+            focused = SddsServTheme.colors.textDefaultTertiary,
+            pressed = SddsServTheme.colors.textDefaultTertiary,
+        ),
+    )
+    placeholderColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
+    backgroundColor(
+        SddsServTheme.colors.surfaceDefaultNegative.copy(alpha = surfaceAlpha)
+            .asInteractive(
+                focused = SddsServTheme.colors.surfaceDefaultTransparentSecondary,
+                pressed = SddsServTheme.colors.surfaceDefaultTransparentSecondary,
+            ),
+    )
+    backgroundColorReadOnly(
+        SddsServTheme.colors.surfaceDefaultSolidDefault
+            .copy(alpha = readOnlyAlpha)
+            .asInteractive(),
+    )
+    indicatorColor(SddsServTheme.colors.surfaceDefaultNegative)
+}
