@@ -3,16 +3,21 @@ package com.sdds.playground.sandbox
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
-import com.sdds.playground.sandbox.textfield.SandboxTextAreaPreviewDisabled
-import com.sdds.playground.sandbox.textfield.SandboxTextAreaPreviewFocused
-import com.sdds.playground.sandbox.textfield.SandboxTextAreaPreviewL
-import com.sdds.playground.sandbox.textfield.SandboxTextAreaPreviewM
-import com.sdds.playground.sandbox.textfield.SandboxTextAreaPreviewReadOnly
-import com.sdds.playground.sandbox.textfield.SandboxTextAreaPreviewS
-import com.sdds.playground.sandbox.textfield.SandboxTextAreaPreviewTextMovesToNextLines
-import com.sdds.playground.sandbox.textfield.SandboxTextAreaPreviewTitleInsideNotVisible
-import com.sdds.playground.sandbox.textfield.SandboxTextAreaPreviewTitleNotDisplayedWithChips
-import com.sdds.playground.sandbox.textfield.SandboxTextAreaPreviewXs
+import com.sdds.playground.sandbox.textfield.SandboxTextAreaPreviewLDefaultInnerLeft
+import com.sdds.playground.sandbox.textfield.SandboxTextAreaPreviewLDefaultTBTA
+import com.sdds.playground.sandbox.textfield.SandboxTextAreaPreviewLDisabled
+import com.sdds.playground.sandbox.textfield.SandboxTextAreaPreviewLReadOnly
+import com.sdds.playground.sandbox.textfield.SandboxTextAreaPreviewMErrorOuterOptional
+import com.sdds.playground.sandbox.textfield.SandboxTextAreaPreviewMSuccessInnerOptionalChips
+import com.sdds.playground.sandbox.textfield.SandboxTextAreaPreviewMSuccessOuterOptional
+import com.sdds.playground.sandbox.textfield.SandboxTextAreaPreviewMWarningInnerOptional
+import com.sdds.playground.sandbox.textfield.SandboxTextAreaPreviewSDefaultInnerRight
+import com.sdds.playground.sandbox.textfield.SandboxTextAreaPreviewSDefaultOuterRightChips
+import com.sdds.playground.sandbox.textfield.SandboxTextAreaPreviewSLongText
+import com.sdds.playground.sandbox.textfield.SandboxTextAreaPreviewSWarningInnerRight
+import com.sdds.playground.sandbox.textfield.SandboxTextAreaPreviewSWarningInnerRightFocused
+import com.sdds.playground.sandbox.textfield.SandboxTextAreaPreviewXSSuccessOuterOptional
+import com.sdds.playground.sandbox.textfield.SandboxTextAreaPreviewXsErrorInnerOptional
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.ParameterizedRobolectricTestRunner
@@ -30,76 +35,109 @@ class ComposeTextAreaScreenshotTest(
      * Запуск скриншот тестов с использованием Preview
      */
     @Test
-    fun testTextAreaPreviewL() {
+    fun testTextAreaPreviewLDefaultInnerLeft() {
         composeTestRule.setContent {
-            SandboxTextAreaPreviewL()
+            SandboxTextAreaPreviewLDefaultInnerLeft()
         }
     }
 
     @Test
-    fun testTextAreaPreviewM() {
+    fun testTextAreaPreviewMSuccessOuterOptional() {
         composeTestRule.setContent {
-            SandboxTextAreaPreviewM()
+            SandboxTextAreaPreviewMSuccessOuterOptional()
         }
     }
 
     @Test
-    fun testTextAreaPreviewS() {
+    fun testTextAreaPreviewSWarningInnerRight() {
         composeTestRule.setContent {
-            SandboxTextAreaPreviewS()
+            SandboxTextAreaPreviewSWarningInnerRight()
         }
     }
 
     @Test
-    fun testTextAreaPreviewXs() {
+    fun testTextAreaPreviewXsErrorInnerOptional() {
         composeTestRule.setContent {
-            SandboxTextAreaPreviewXs()
+            SandboxTextAreaPreviewXsErrorInnerOptional()
         }
-        composeTestRule.onNodeWithText("Placeholder")
-            .performClick()
+    }
+
+    @Test
+    fun testTextAreaPreviewLReadOnly() {
+        composeTestRule.setContent {
+            SandboxTextAreaPreviewLReadOnly()
+        }
+    }
+
+    @Test
+    fun testTextAreaPreviewMWarningInnerOptional() {
+        composeTestRule.setContent {
+            SandboxTextAreaPreviewMWarningInnerOptional()
+        }
+    }
+
+    @Test
+    fun testTextAreaPreviewSDefaultInnerRight() {
+        composeTestRule.setContent {
+            SandboxTextAreaPreviewSDefaultInnerRight()
+        }
+    }
+
+    @Test
+    fun testTextAreaPreviewXsSuccessOuterOptional() {
+        composeTestRule.setContent {
+            SandboxTextAreaPreviewXSSuccessOuterOptional()
+        }
     }
 
     @Test
     fun testTextAreaPreviewDisabled() {
         composeTestRule.setContent {
-            SandboxTextAreaPreviewDisabled()
+            SandboxTextAreaPreviewLDisabled()
         }
     }
 
     @Test
-    fun testTextAreaPreviewReadOnly() {
+    fun testTextAreaPreviewMErrorOuterOptional() {
         composeTestRule.setContent {
-            SandboxTextAreaPreviewReadOnly()
+            SandboxTextAreaPreviewMErrorOuterOptional()
         }
     }
 
     @Test
-    fun testTextAreaPreviewFocused() {
+    fun testTextAreaPreviewSWarningInnerRightFocused() {
         composeTestRule.setContent {
-            SandboxTextAreaPreviewFocused()
+            SandboxTextAreaPreviewSWarningInnerRightFocused()
         }
         composeTestRule.onNodeWithText("Placeholder")
             .performClick()
     }
 
     @Test
-    fun testTextAreaPreviewTitleInsideNotVisible() {
+    fun testTextAreaPreviewMSuccessInnerOptionalChips() {
         composeTestRule.setContent {
-            SandboxTextAreaPreviewTitleInsideNotVisible()
+            SandboxTextAreaPreviewMSuccessInnerOptionalChips()
         }
     }
 
     @Test
-    fun testTextAreaPreviewTextMovesToNextLines() {
+    fun testTextAreaPreviewSDefaultOuterRightChips() {
         composeTestRule.setContent {
-            SandboxTextAreaPreviewTextMovesToNextLines()
+            SandboxTextAreaPreviewSDefaultOuterRightChips()
         }
     }
 
     @Test
-    fun testTextAreaPreviewTitleNotDisplayedWithChips() {
+    fun testTextAreaPreviewSLongText() {
         composeTestRule.setContent {
-            SandboxTextAreaPreviewTitleNotDisplayedWithChips()
+            SandboxTextAreaPreviewSLongText()
+        }
+    }
+
+    @Test
+    fun testTextAreaPreviewLDefaultTBTA() {
+        composeTestRule.setContent {
+            SandboxTextAreaPreviewLDefaultTBTA()
         }
     }
 }

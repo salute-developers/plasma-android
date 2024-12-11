@@ -1,6 +1,12 @@
 package com.sdds.playground.sandbox.textfield
 
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
@@ -21,16 +27,20 @@ import com.sdds.serv.styles.textfield.Optional
 import com.sdds.serv.styles.textfield.OuterLabel
 import com.sdds.serv.styles.textfield.RequiredEnd
 import com.sdds.serv.styles.textfield.RequiredStart
+import com.sdds.serv.styles.textfield.Success
 import com.sdds.serv.styles.textfield.Warning
 
 @Composable
 @Preview(showBackground = true)
-internal fun SandboxTextAreaPreviewL() {
+internal fun SandboxTextAreaPreviewLDefaultInnerLeft() {
     SandboxTheme {
+        var value by remember { mutableStateOf(TextFieldValue("Value")) }
+
         TextField(
+            modifier = Modifier.fillMaxWidth(),
             placeholderText = "Placeholder",
-            value = TextFieldValue(text = "Value"),
-            style = TextArea.L.Default.OuterLabel.RequiredStart.style(),
+            value = value,
+            style = TextArea.L.Default.InnerLabel.RequiredStart.style(),
             labelText = "Label",
             optionalText = "Optional",
             captionText = "Caption",
@@ -40,7 +50,7 @@ internal fun SandboxTextAreaPreviewL() {
             enabled = true,
             endContent = {
                 Icon(
-                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_shazam_24),
+                    painter = painterResource(id = R.drawable.ic_shazam_24),
                     contentDescription = "",
                 )
             },
@@ -50,31 +60,15 @@ internal fun SandboxTextAreaPreviewL() {
 
 @Composable
 @Preview(showBackground = true)
-internal fun SandboxTextAreaPreviewM() {
+internal fun SandboxTextAreaPreviewMSuccessOuterOptional() {
     SandboxTheme {
-        TextField(
-            placeholderText = "Placeholder",
-            value = TextFieldValue(text = "Value"),
-            style = TextArea.M.Error.InnerLabel.RequiredEnd.style(),
-            labelText = "Label",
-            optionalText = "Optional",
-            captionText = "Caption",
-            counterText = "Counter",
-            onValueChange = {},
-            readOnly = false,
-            enabled = true,
-        )
-    }
-}
+        var value by remember { mutableStateOf(TextFieldValue("")) }
 
-@Composable
-@Preview(showBackground = true)
-internal fun SandboxTextAreaPreviewS() {
-    SandboxTheme {
         TextField(
+            modifier = Modifier.fillMaxWidth(),
             placeholderText = "Placeholder",
-            value = TextFieldValue(text = ""),
-            style = TextArea.S.Warning.OuterLabel.Optional.style(),
+            value = value,
+            style = TextArea.M.Success.OuterLabel.Optional.style(),
             labelText = "Label",
             optionalText = "Optional",
             captionText = "Caption",
@@ -84,52 +78,7 @@ internal fun SandboxTextAreaPreviewS() {
             enabled = true,
             endContent = {
                 Icon(
-                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_shazam_24),
-                    contentDescription = "",
-                )
-            },
-            chipsContent = {
-                Chip(
-                    label = "Chip",
-                    endContent = {
-                        Icon(
-                            painter = painterResource(id = R.drawable.ic_close_24),
-                            contentDescription = "",
-                        )
-                    },
-                )
-                Chip(
-                    label = "Chip",
-                    endContent = {
-                        Icon(
-                            painter = painterResource(id = com.sdds.icons.R.drawable.ic_close_24),
-                            contentDescription = "",
-                        )
-                    },
-                )
-            },
-        )
-    }
-}
-
-@Composable
-@Preview(showBackground = true)
-internal fun SandboxTextAreaPreviewXs() {
-    SandboxTheme {
-        TextField(
-            placeholderText = "Placeholder",
-            value = TextFieldValue(text = ""),
-            style = TextArea.Xs.Default.RequiredStart.OuterLabel.style(),
-            labelText = "Label",
-            optionalText = "Optional",
-            captionText = "Caption",
-            counterText = "Counter",
-            onValueChange = {},
-            readOnly = false,
-            enabled = true,
-            endContent = {
-                Icon(
-                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_shazam_16),
+                    painter = painterResource(id = R.drawable.ic_shazam_24),
                     contentDescription = "",
                 )
             },
@@ -139,101 +88,15 @@ internal fun SandboxTextAreaPreviewXs() {
 
 @Composable
 @Preview(showBackground = true)
-internal fun SandboxTextAreaPreviewDisabled() {
+internal fun SandboxTextAreaPreviewSWarningInnerRight() {
     SandboxTheme {
-        TextField(
-            placeholderText = "Placeholder",
-            value = TextFieldValue(text = "Value"),
-            style = TextArea.L.Default.OuterLabel.RequiredStart.style(),
-            labelText = "Label",
-            optionalText = "Optional",
-            captionText = "Caption",
-            counterText = "Counter",
-            onValueChange = {},
-            readOnly = false,
-            enabled = false,
-            endContent = {
-                Icon(
-                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_shazam_16),
-                    contentDescription = "",
-                )
-            },
-        )
-    }
-}
+        var value by remember { mutableStateOf(TextFieldValue("")) }
 
-@Composable
-@Preview(showBackground = true)
-internal fun SandboxTextAreaPreviewReadOnly() {
-    SandboxTheme {
         TextField(
+            modifier = Modifier.fillMaxWidth(),
             placeholderText = "Placeholder",
-            value = TextFieldValue(text = "Value"),
-            style = TextArea.M.Default.OuterLabel.Optional.style(),
-            labelText = "Label",
-            optionalText = "Optional",
-            captionText = "Caption",
-            counterText = "Counter",
-            onValueChange = {},
-            readOnly = true,
-            enabled = true,
-        )
-    }
-}
-
-@Composable
-@Preview(showBackground = true)
-internal fun SandboxTextAreaPreviewFocused() {
-    SandboxTheme {
-        TextField(
-            placeholderText = "Placeholder",
-            value = TextFieldValue(text = ""),
-            style = TextArea.S.Error.RequiredEnd.InnerLabel.style(),
-            labelText = "Label",
-            optionalText = "Optional",
-            captionText = "Caption",
-            counterText = "Counter",
-            onValueChange = {},
-            readOnly = false,
-            enabled = true,
-            endContent = {
-                Icon(
-                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_shazam_24),
-                    contentDescription = "",
-                )
-            },
-            chipsContent = {
-                Chip(
-                    label = "Chip",
-                    endContent = {
-                        Icon(
-                            painter = painterResource(id = com.sdds.icons.R.drawable.ic_close_24),
-                            contentDescription = "",
-                        )
-                    },
-                )
-                Chip(
-                    label = "Chip",
-                    endContent = {
-                        Icon(
-                            painter = painterResource(id = com.sdds.icons.R.drawable.ic_close_24),
-                            contentDescription = "",
-                        )
-                    },
-                )
-            },
-        )
-    }
-}
-
-@Composable
-@Preview(showBackground = true)
-internal fun SandboxTextAreaPreviewTitleInsideNotVisible() {
-    SandboxTheme {
-        TextField(
-            placeholderText = "Placeholder",
-            value = TextFieldValue(text = ""),
-            style = TextArea.Xs.Warning.InnerLabel.Optional.style(),
+            value = value,
+            style = TextArea.S.Warning.InnerLabel.RequiredEnd.style(),
             labelText = "Label",
             optionalText = "Optional",
             captionText = "",
@@ -241,9 +104,31 @@ internal fun SandboxTextAreaPreviewTitleInsideNotVisible() {
             onValueChange = {},
             readOnly = false,
             enabled = true,
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxTextAreaPreviewXsErrorInnerOptional() {
+    SandboxTheme {
+        var value by remember { mutableStateOf(TextFieldValue("")) }
+
+        TextField(
+            modifier = Modifier.fillMaxWidth(),
+            placeholderText = "Placeholder",
+            value = value,
+            style = TextArea.Xs.Error.InnerLabel.Optional.style(),
+            labelText = "",
+            optionalText = "Optional",
+            captionText = "Caption",
+            counterText = "Counter",
+            onValueChange = {},
+            readOnly = false,
+            enabled = true,
             endContent = {
                 Icon(
-                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_shazam_16),
+                    painter = painterResource(id = R.drawable.ic_shazam_16),
                     contentDescription = "",
                 )
             },
@@ -253,15 +138,93 @@ internal fun SandboxTextAreaPreviewTitleInsideNotVisible() {
 
 @Composable
 @Preview(showBackground = true)
-internal fun SandboxTextAreaPreviewTextMovesToNextLines() {
+internal fun SandboxTextAreaPreviewLReadOnly() {
     SandboxTheme {
+        var value by remember { mutableStateOf(TextFieldValue("")) }
+
         TextField(
+            modifier = Modifier.fillMaxWidth(),
+            placeholderText = "",
+            value = value,
+            style = TextArea.L.Success.OuterLabel.RequiredStart.style(),
+            labelText = "Label",
+            optionalText = "Optional",
+            captionText = "",
+            counterText = "",
+            onValueChange = {},
+            readOnly = true,
+            enabled = true,
+            endContent = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_shazam_24),
+                    contentDescription = "",
+                )
+            },
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxTextAreaPreviewMWarningInnerOptional() {
+    SandboxTheme {
+        var value by remember { mutableStateOf(TextFieldValue("Value")) }
+
+        TextField(
+            modifier = Modifier.fillMaxWidth(),
             placeholderText = "Placeholder",
-            value = TextFieldValue(
-                text = "O Captain! my Captain! our fearful trip is done,\n" +
-                    "The ship has weather’d every rack, the prize we sought is won",
-            ),
-            style = TextArea.M.Default.RequiredStart.OuterLabel.style(),
+            value = value,
+            style = TextArea.M.Warning.InnerLabel.Optional.style(),
+            labelText = "Label",
+            optionalText = "Optional",
+            captionText = "Caption",
+            counterText = "Counter",
+            onValueChange = {},
+            readOnly = false,
+            enabled = true,
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxTextAreaPreviewSDefaultInnerRight() {
+    SandboxTheme {
+        var value by remember { mutableStateOf(TextFieldValue("")) }
+
+        TextField(
+            modifier = Modifier.fillMaxWidth(),
+            placeholderText = "Placeholder",
+            value = value,
+            style = TextArea.S.Default.InnerLabel.RequiredEnd.style(),
+            labelText = "",
+            optionalText = "Optional",
+            captionText = "Caption",
+            counterText = "Counter",
+            onValueChange = {},
+            readOnly = false,
+            enabled = true,
+            endContent = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_shazam_24),
+                    contentDescription = "",
+                )
+            },
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxTextAreaPreviewXSSuccessOuterOptional() {
+    SandboxTheme {
+        var value by remember { mutableStateOf(TextFieldValue("Value")) }
+
+        TextField(
+            modifier = Modifier.fillMaxWidth(),
+            placeholderText = "Placeholder",
+            value = value,
+            style = TextArea.Xs.Success.OuterLabel.Optional.style(),
             labelText = "Label",
             optionalText = "Optional",
             captionText = "Caption",
@@ -271,7 +234,7 @@ internal fun SandboxTextAreaPreviewTextMovesToNextLines() {
             enabled = true,
             endContent = {
                 Icon(
-                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_shazam_16),
+                    painter = painterResource(id = R.drawable.ic_shazam_16),
                     contentDescription = "",
                 )
             },
@@ -281,25 +244,112 @@ internal fun SandboxTextAreaPreviewTextMovesToNextLines() {
 
 @Composable
 @Preview(showBackground = true)
-internal fun SandboxTextAreaPreviewTitleNotDisplayedWithChips() {
+internal fun SandboxTextAreaPreviewLDisabled() {
     SandboxTheme {
+        var value by remember { mutableStateOf(TextFieldValue("")) }
+
         TextField(
+            modifier = Modifier.fillMaxWidth(),
             placeholderText = "Placeholder",
-            value = TextFieldValue(text = ""),
-            style = TextArea.L.Default.RequiredStart.InnerLabel.style(),
+            value = value,
+            style = TextArea.L.Default.InnerLabel.RequiredStart.style(),
+            labelText = "Label",
+            optionalText = "Optional",
+            captionText = "",
+            counterText = "",
+            onValueChange = {},
+            readOnly = false,
+            enabled = false,
+            endContent = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_shazam_16),
+                    contentDescription = "",
+                )
+            },
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxTextAreaPreviewMErrorOuterOptional() {
+    SandboxTheme {
+        var value by remember { mutableStateOf(TextFieldValue("")) }
+
+        TextField(
+            modifier = Modifier.fillMaxWidth(),
+            placeholderText = "Placeholder",
+            value = value,
+            style = TextArea.M.Error.OuterLabel.Optional.style(),
             labelText = "Label",
             optionalText = "Optional",
             captionText = "Caption",
             counterText = "Counter",
             onValueChange = {},
-            readOnly = true,
+            readOnly = false,
             enabled = true,
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxTextAreaPreviewSWarningInnerRightFocused() {
+    SandboxTheme {
+        var value by remember { mutableStateOf(TextFieldValue("")) }
+
+        TextField(
+            modifier = Modifier.fillMaxWidth(),
+            placeholderText = "Placeholder",
+            value = value,
+            style = TextArea.S.Warning.InnerLabel.RequiredEnd.style(),
+            labelText = "Label",
+            optionalText = "Optional",
+            captionText = "Caption",
+            counterText = "Counter",
+            onValueChange = {},
+            readOnly = false,
+            enabled = true,
+            endContent = {
+                Icon(
+                    painter = painterResource(id = com.sdds.icons.R.drawable.ic_shazam_24),
+                    contentDescription = "",
+                )
+            },
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxTextAreaPreviewMSuccessInnerOptionalChips() {
+    SandboxTheme {
+        var value by remember { mutableStateOf(TextFieldValue("")) }
+
+        TextField(
+            modifier = Modifier.fillMaxWidth(),
+            placeholderText = "Placeholder",
+            value = value,
+            style = TextArea.M.Success.InnerLabel.Optional.style(),
+            labelText = "Label",
+            optionalText = "Optional",
+            captionText = "Caption",
+            counterText = "Counter",
+            onValueChange = {},
+            readOnly = false,
+            enabled = true,
+            endContent = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_shazam_24),
+                    contentDescription = "",
+                )
+            },
             chipsContent = {
                 Chip(
                     label = "Chip",
                     endContent = {
                         Icon(
-                            painter = painterResource(id = com.sdds.icons.R.drawable.ic_close_24),
+                            painter = painterResource(id = R.drawable.ic_close_24),
                             contentDescription = "",
                         )
                     },
@@ -312,6 +362,118 @@ internal fun SandboxTextAreaPreviewTitleNotDisplayedWithChips() {
                             contentDescription = "",
                         )
                     },
+                )
+            },
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxTextAreaPreviewSDefaultOuterRightChips() {
+    SandboxTheme {
+        var value by remember { mutableStateOf(TextFieldValue("")) }
+
+        TextField(
+            modifier = Modifier.fillMaxWidth(),
+            placeholderText = "Placeholder",
+            value = value,
+            style = TextArea.S.Default.OuterLabel.RequiredEnd.style(),
+            labelText = "Label",
+            optionalText = "Optional",
+            captionText = "Caption",
+            counterText = "Counter",
+            onValueChange = {},
+            readOnly = false,
+            enabled = true,
+            chipsContent = {
+                Chip(
+                    label = "Chip",
+                    endContent = {
+                        Icon(
+                            painter = painterResource(id = R.drawable.ic_close_24),
+                            contentDescription = "",
+                        )
+                    },
+                )
+                Chip(
+                    label = "Chip",
+                    endContent = {
+                        Icon(
+                            painter = painterResource(id = R.drawable.ic_close_24),
+                            contentDescription = "",
+                        )
+                    },
+                )
+            },
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxTextAreaPreviewSLongText() {
+    SandboxTheme {
+        var value by remember {
+            mutableStateOf(
+                TextFieldValue(
+                    "O Captain! my Captain! our fearful trip is done,\n" +
+                        "The ship has weather’d every rack, the prize we sought is won,\n" +
+                        "The port is near, the bells I hear, the people all exulting,\n" +
+                        "While follow eyes the steady keel, the vessel grim and daring;\n" +
+                        "But O heart! heart! heart!\n" +
+                        "O the bleeding drops of red,\n" +
+                        "Where on the deck my Captain lies,\n" +
+                        "                                  Fallen cold and dead.",
+                ),
+            )
+        }
+
+        TextField(
+            placeholderText = "Placeholder",
+            value = value,
+            style = TextArea.S.Warning.Optional.InnerLabel.style(),
+            labelText = "Label",
+            optionalText = "Optional",
+            captionText = "Caption",
+            counterText = "Counter",
+            onValueChange = { value = it },
+            readOnly = false,
+            enabled = true,
+            endContent = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_shazam_24),
+                    contentDescription = "",
+                )
+            },
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxTextAreaPreviewLDefaultTBTA() {
+    SandboxTheme {
+        var value by remember { mutableStateOf(TextFieldValue("Value")) }
+
+        TextField(
+            modifier = Modifier.fillMaxWidth(),
+            placeholderText = "Placeholder",
+            value = value,
+            style = TextArea.L.Default.InnerLabel.RequiredEnd.style(),
+            labelText = "Label",
+            optionalText = "Optional",
+            captionText = "Caption",
+            counterText = "Counter",
+            onValueChange = {},
+            readOnly = false,
+            enabled = true,
+            prefix = "TB1!",
+            suffix = "TA2@",
+            endContent = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_shazam_24),
+                    contentDescription = "",
                 )
             },
         )
