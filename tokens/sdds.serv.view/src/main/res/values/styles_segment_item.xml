@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Serv.Sdds.Components.SegmentItem" parent="Sdds.Components.SegmentItem">
+        <item name="backgroundTint">@color/bg_color_segment_item</item>
+        <item name="android:textColor">@color/text_color_segment_item</item>
+        <item name="sd_valueTextColor">@color/value_color_segment_item</item>
+        <item name="sd_iconTint">@color/text_color_segment_item</item>
+        <item name="sd_spinnerTint">@color/color_button_spinner</item>
+        <item name="android:checkable">true</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.SegmentItem.L">
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:minWidth">116dp</item>
+        <item name="android:minHeight">56dp</item>
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyLBold</item>
+        <item name="sd_iconPadding">8dp</item>
+        <item name="sd_iconSize">24dp</item>
+        <item name="sd_shapeAppearance">?serv_shapeRoundL</item>
+        <item name="sd_shapeAppearanceAdjustment">-2dp</item>
+        <item name="sd_valuePadding">8dp</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.SegmentItem.M">
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingEnd">12dp</item>
+        <item name="android:minWidth">100dp</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyMBold</item>
+        <item name="sd_iconPadding">6dp</item>
+        <item name="sd_iconSize">24dp</item>
+        <item name="sd_shapeAppearance">?serv_shapeRoundM</item>
+        <item name="sd_valuePadding">8dp</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.SegmentItem.S">
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:paddingEnd">8dp</item>
+        <item name="android:minWidth">85dp</item>
+        <item name="android:minHeight">40dp</item>
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodySBold</item>
+        <item name="sd_iconPadding">6dp</item>
+        <item name="sd_iconSize">24dp</item>
+        <item name="sd_shapeAppearance">?serv_shapeRoundM</item>
+        <item name="sd_shapeAppearanceAdjustment">-2dp</item>
+        <item name="sd_valuePadding">6dp</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.SegmentItem.Xs">
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:paddingEnd">8dp</item>
+        <item name="android:minWidth">71dp</item>
+        <item name="android:minHeight">32dp</item>
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyXsBold</item>
+        <item name="sd_iconPadding">4dp</item>
+        <item name="sd_iconSize">16dp</item>
+        <item name="sd_shapeAppearance">?serv_shapeRoundS</item>
+        <item name="sd_valuePadding">6dp</item>
+    </style>
+
+    <!--region SegmentItem L styles   -->
+    <style name="Serv.Sdds.Components.SegmentItem.L.Secondary">
+        <item name="sd_viewState">secondary</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.SegmentItem.L.Clear">
+        <item name="sd_viewState">clear</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.SegmentItem.L.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_shapeAppearanceAdjustment">0dp</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.SegmentItem.L.Pilled.Secondary">
+        <item name="sd_viewState">secondary</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.SegmentItem.L.Pilled.Clear">
+        <item name="sd_viewState">clear</item>
+    </style>
+    <!--endregion SegmentItem L styles   -->
+
+    <!--region SegmentItem M styles   -->
+    <style name="Serv.Sdds.Components.SegmentItem.M.Secondary">
+        <item name="sd_viewState">secondary</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.SegmentItem.M.Clear">
+        <item name="sd_viewState">clear</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.SegmentItem.M.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_shapeAppearanceAdjustment">0dp</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.SegmentItem.M.Pilled.Secondary">
+        <item name="sd_viewState">secondary</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.SegmentItem.M.Pilled.Clear">
+        <item name="sd_viewState">clear</item>
+    </style>
+    <!--endregion SegmentItem M styles   -->
+
+    <!--region SegmentItem S styles   -->
+    <style name="Serv.Sdds.Components.SegmentItem.S.Secondary">
+        <item name="sd_viewState">secondary</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.SegmentItem.S.Clear">
+        <item name="sd_viewState">clear</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.SegmentItem.S.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_shapeAppearanceAdjustment">0dp</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.SegmentItem.S.Pilled.Secondary">
+        <item name="sd_viewState">secondary</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.SegmentItem.S.Pilled.Clear">
+        <item name="sd_viewState">clear</item>
+    </style>
+    <!--endregion SegmentItem S styles   -->
+
+    <!--region SegmentItem Xs styles   -->
+    <style name="Serv.Sdds.Components.SegmentItem.Xs.Secondary">
+        <item name="sd_viewState">secondary</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.SegmentItem.Xs.Clear">
+        <item name="sd_viewState">clear</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.SegmentItem.Xs.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_shapeAppearanceAdjustment">0dp</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.SegmentItem.Xs.Pilled.Secondary">
+        <item name="sd_viewState">secondary</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.SegmentItem.Xs.Pilled.Clear">
+        <item name="sd_viewState">clear</item>
+    </style>
+    <!--endregion SegmentItem Xs styles   -->
+
+</resources>
