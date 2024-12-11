@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <!--Gradient attributes-->
+    <attr format="reference" name="sd_service_textDefaultAccentGradient"/>
+    <attr format="reference" name="sd_service_textDefaultAccentGradientHover"/>
+    <attr format="reference" name="sd_service_textDefaultAccentGradientActive"/>
+    <attr format="reference" name="sd_service_textOnDarkAccentGradient"/>
+    <attr format="reference" name="sd_service_textOnDarkAccentGradientHover"/>
+    <attr format="reference" name="sd_service_textOnDarkAccentGradientActive"/>
+    <attr format="reference" name="sd_service_textOnLightAccentGradient"/>
+    <attr format="reference" name="sd_service_textOnLightAccentGradientHover"/>
+    <attr format="reference" name="sd_service_textOnLightAccentGradientActive"/>
+    <attr format="reference" name="sd_service_textInverseAccentGradientHover"/>
+    <attr format="reference" name="sd_service_textInverseAccentGradientActive"/>
+    <attr format="reference" name="sd_service_textInverseAccentGradient"/>
+    <attr format="reference" name="sd_service_surfaceDefaultAccentGradient"/>
+    <attr format="reference" name="sd_service_surfaceDefaultAccentGradientHover"/>
+    <attr format="reference" name="sd_service_surfaceDefaultAccentGradientActive"/>
+    <attr format="reference" name="sd_service_surfaceDefaultSkeletonGradient"/>
+    <attr format="reference" name="sd_service_surfaceDefaultSkeletonGradientHover"/>
+    <attr format="reference" name="sd_service_surfaceDefaultSkeletonGradientActive"/>
+    <attr format="reference" name="sd_service_surfaceDefaultSkeletonDeepGradient"/>
+    <attr format="reference" name="sd_service_surfaceDefaultSkeletonDeepGradientHover"/>
+    <attr format="reference" name="sd_service_surfaceDefaultSkeletonDeepGradientActive"/>
+    <attr format="reference" name="sd_service_surfaceOnDarkAccentGradient"/>
+    <attr format="reference" name="sd_service_surfaceOnDarkAccentGradientHover"/>
+    <attr format="reference" name="sd_service_surfaceOnDarkAccentGradientActive"/>
+    <attr format="reference" name="sd_service_surfaceOnDarkSkeletonGradient"/>
+    <attr format="reference" name="sd_service_surfaceOnDarkSkeletonGradientHover"/>
+    <attr format="reference" name="sd_service_surfaceOnDarkSkeletonGradientActive"/>
+    <attr format="reference" name="sd_service_surfaceOnDarkSkeletonDeepGradient"/>
+    <attr format="reference" name="sd_service_surfaceOnDarkSkeletonDeepGradientHover"/>
+    <attr format="reference" name="sd_service_surfaceOnDarkSkeletonDeepGradientActive"/>
+    <attr format="reference" name="sd_service_surfaceOnLightAccentGradient"/>
+    <attr format="reference" name="sd_service_surfaceOnLightAccentGradientHover"/>
+    <attr format="reference" name="sd_service_surfaceOnLightAccentGradientActive"/>
+    <attr format="reference" name="sd_service_surfaceOnLightSkeletonGradient"/>
+    <attr format="reference" name="sd_service_surfaceOnLightSkeletonGradientHover"/>
+    <attr format="reference" name="sd_service_surfaceOnLightSkeletonGradientActive"/>
+    <attr format="reference" name="sd_service_surfaceOnLightSkeletonDeepGradient"/>
+    <attr format="reference" name="sd_service_surfaceOnLightSkeletonDeepGradientHover"/>
+    <attr format="reference" name="sd_service_surfaceOnLightSkeletonDeepGradientActive"/>
+    <attr format="reference" name="sd_service_surfaceInverseAccentGradient"/>
+    <attr format="reference" name="sd_service_surfaceInverseAccentGradientHover"/>
+    <attr format="reference" name="sd_service_surfaceInverseAccentGradientActive"/>
+    <attr format="reference" name="sd_service_surfaceInverseSkeletonGradient"/>
+    <attr format="reference" name="sd_service_surfaceInverseSkeletonGradientHover"/>
+    <attr format="reference" name="sd_service_surfaceInverseSkeletonGradientActive"/>
+    <attr format="reference" name="sd_service_surfaceInverseSkeletonDeepGradient"/>
+    <attr format="reference" name="sd_service_surfaceInverseSkeletonDeepGradientHover"/>
+    <attr format="reference" name="sd_service_surfaceInverseSkeletonDeepGradientActive"/>
+</resources>

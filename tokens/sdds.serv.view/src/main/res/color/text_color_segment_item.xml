@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" tools:ignore="ResourceName">
+
+    <item android:color="?serv_textDefaultPrimaryActive" android:state_pressed="true" app:sd_state_secondary="true" />
+    <item android:color="?serv_textDefaultPrimaryHover" android:state_hovered="true" app:sd_state_secondary="true" />
+    <item android:color="?serv_textDefaultPrimary" app:sd_state_secondary="true" />
+
+    <item android:color="?serv_textDefaultPrimaryActive" android:state_pressed="true" app:sd_state_clear="true" />
+    <item android:color="?serv_textDefaultPrimaryHover" android:state_hovered="true" app:sd_state_clear="true" />
+    <item android:color="?serv_textDefaultPrimary" app:sd_state_clear="true" />
+
+    <item android:color="?serv_textInversePrimaryActive" android:state_pressed="true" />
+    <item android:color="?serv_textInversePrimaryHover" android:state_hovered="true" />
+    <item android:color="?serv_textInversePrimary" />
+</selector>

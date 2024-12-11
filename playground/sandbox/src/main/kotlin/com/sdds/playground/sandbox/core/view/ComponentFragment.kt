@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout.LayoutParams
+import android.widget.HorizontalScrollView
+import android.widget.ScrollView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
@@ -26,6 +28,8 @@ internal abstract class ComponentFragment : Fragment(), PropertiesAdapter.Intera
     private var _binding: FragmentComponentScaffoldBinding? = null
     private val propertiesAdapter: PropertiesAdapter = PropertiesAdapter()
     private var currentProperty: Property<*>? = null
+    private var verticalScrollView: ScrollView? = null
+    private var horizontalScrollView: HorizontalScrollView? = null
 
     protected open val defaultLayoutParams: LayoutParams =
         LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)
@@ -44,13 +48,22 @@ internal abstract class ComponentFragment : Fragment(), PropertiesAdapter.Intera
             ) ?: default()
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?,
+    ): View? {
         _binding = FragmentComponentScaffoldBinding.inflate(inflater, container, false)
         dispatchComponentStyleChanged()
         _binding?.apply {
             propertiesRecyclerView.itemAnimator = null
             propertiesRecyclerView.adapter = propertiesAdapter
-            propertiesRecyclerView.addItemDecoration(DividerItemDecoration(context, RecyclerView.VERTICAL))
+            propertiesRecyclerView.addItemDecoration(
+                DividerItemDecoration(
+                    context,
+                    RecyclerView.VERTICAL,
+                ),
+            )
             propertiesAdapter.setInteractionListener(this@ComponentFragment)
             header.propertyValueHeader.setOnClickListener { propertiesOwner.resetToDefault() }
         }
@@ -89,6 +102,8 @@ internal abstract class ComponentFragment : Fragment(), PropertiesAdapter.Intera
         super.onDestroyView()
         propertiesAdapter.setInteractionListener(null)
         currentProperty = null
+        verticalScrollView = null
+        horizontalScrollView = null
         _binding?.propertiesRecyclerView?.adapter = null
         _binding = null
     }
@@ -96,7 +111,11 @@ internal abstract class ComponentFragment : Fragment(), PropertiesAdapter.Intera
     override fun onSelect(property: Property<*>) {
         currentProperty = property
         when (property) {
-            is Property.BooleanProperty -> propertiesOwner.updateProperty(property.name, !property.value)
+            is Property.BooleanProperty -> propertiesOwner.updateProperty(
+                property.name,
+                !property.value,
+            )
+
             is Property.SingleChoiceProperty -> EditorFragment.choiceEditor(
                 propertyName = property.name,
                 currentValue = property.value,
@@ -112,6 +131,48 @@ internal abstract class ComponentFragment : Fragment(), PropertiesAdapter.Intera
                 propertyName = property.name,
                 currentValue = property.value,
             ).show(childFragmentManager, "StringPropertyEditor")
+        }
+    }
+
+    private fun getVerticalScrollView(): ScrollView =
+        verticalScrollView ?: ScrollView(requireContext())
+            .apply {
+                isVerticalScrollBarEnabled = false
+                clipChildren = false
+            }
+            .also { verticalScrollView = it }
+
+    private fun getHorizontalScrollView(): HorizontalScrollView =
+        horizontalScrollView ?: HorizontalScrollView(requireContext())
+            .apply {
+                isHorizontalScrollBarEnabled = false
+                clipChildren = false
+            }
+            .also { horizontalScrollView = it }
+
+    fun View.horizontalScrollable(): HorizontalScrollView {
+        return getHorizontalScrollView().apply {
+            removeAllViews()
+            addView(
+                this@horizontalScrollable,
+                ViewGroup.LayoutParams(
+                    ViewGroup.LayoutParams.WRAP_CONTENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT,
+                ),
+            )
+        }
+    }
+
+    fun View.verticalScrollable(): ScrollView {
+        return getVerticalScrollView().apply {
+            removeAllViews()
+            addView(
+                this@verticalScrollable,
+                LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT,
+                ).apply { gravity = Gravity.CENTER_HORIZONTAL },
+            )
         }
     }
 

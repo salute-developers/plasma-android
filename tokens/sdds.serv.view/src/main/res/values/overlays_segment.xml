@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Serv.Sdds.ComponentOverlays.SegmentItem.LDefault" parent="">
+        <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.L</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.SegmentItem.LSecondary" parent="">
+        <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.L.Secondary</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.SegmentItem.LClear" parent="">
+        <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.L.Clear</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.SegmentItem.LDefaultPilled" parent="">
+        <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.L.Pilled</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.SegmentItem.LSecondaryPilled" parent="">
+        <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.L.Pilled.Secondary</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.SegmentItem.LClearPilled" parent="">
+        <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.L.Pilled.Clear</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.SegmentItem.MDefault" parent="">
+        <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.M</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.SegmentItem.MSecondary" parent="">
+        <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.M.Secondary</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.SegmentItem.MClear" parent="">
+        <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.M.Clear</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.SegmentItem.MDefaultPilled" parent="">
+        <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.M.Pilled</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.SegmentItem.MSecondaryPilled" parent="">
+        <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.M.Pilled.Secondary</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.SegmentItem.MClearPilled" parent="">
+        <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.M.Pilled.Clear</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.SegmentItem.SDefault" parent="">
+        <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.S</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.SegmentItem.SSecondary" parent="">
+        <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.S.Secondary</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.SegmentItem.SClear" parent="">
+        <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.S.Clear</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.SegmentItem.SDefaultPilled" parent="">
+        <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.S.Pilled</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.SegmentItem.SSecondaryPilled" parent="">
+        <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.S.Pilled.Secondary</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.SegmentItem.SClearPilled" parent="">
+        <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.S.Pilled.Clear</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.SegmentItem.XsDefault" parent="">
+        <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.Xs</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.SegmentItem.XsSecondary" parent="">
+        <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.Xs.Secondary</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.SegmentItem.XsClear" parent="">
+        <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.Xs.Clear</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.SegmentItem.XsDefaultPilled" parent="">
+        <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.Xs.Pilled</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.SegmentItem.XsSecondaryPilled" parent="">
+        <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.Xs.Pilled.Secondary</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.SegmentItem.XsClearPilled" parent="">
+        <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.Xs.Pilled.Clear</item>
+    </style>
+
+
+    <style name="Serv.Sdds.ComponentOverlays.SegmentL">
+        <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.L</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.SegmentLDefault">
+        <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.L.Default</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.SegmentLSecondary">
+        <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.L.Secondary</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.SegmentM">
+        <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.M</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.SegmentMDefault">
+        <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.M.Default</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.SegmentMSecondary">
+        <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.M.Secondary</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.SegmentS">
+        <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.S</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.SegmentSDefault">
+        <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.S.Default</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.SegmentSSecondary">
+        <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.S.Secondary</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.SegmentXs">
+        <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.Xs</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.SegmentXsDefault">
+        <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.Xs.Default</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.SegmentXsSecondary">
+        <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.Xs.Secondary</item>
+    </style>
+
+
+    <style name="Serv.Sdds.ComponentOverlays.SegmentLPilled">
+        <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.LPilled</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.SegmentLDefaultPilled">
+        <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.LPilled.Default</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.SegmentLSecondaryPilled">
+        <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.LPilled.Secondary</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.SegmentMPilled">
+        <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.MPilled</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.SegmentMDefaultPilled">
+        <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.MPilled.Default</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.SegmentMSecondaryPilled">
+        <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.MPilled.Secondary</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.SegmentSPilled">
+        <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.SPilled</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.SegmentSDefaultPilled">
+        <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.SPilled.Default</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.SegmentSSecondaryPilled">
+        <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.SPilled.Secondary</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.SegmentXsPilled">
+        <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.XsPilled</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.SegmentXsDefaultPilled">
+        <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.XsPilled.Default</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.SegmentXsSecondaryPilled">
+        <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.XsPilled.Secondary</item>
+    </style>
+</resources>

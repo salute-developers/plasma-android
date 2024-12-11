@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Sdds.Components.SegmentItem" parent="Sdds.Components.Button">
+
+    </style>
+
+    <style name="Sdds.Components.Segment">
+        <item name="android:backgroundTint">#0808080F</item>
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+</resources>
