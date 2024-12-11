@@ -3,6 +3,8 @@ package com.sdds.plugin.themebuilder
 import com.sdds.plugin.themebuilder.internal.PackageResolver
 import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.components.button.ButtonComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.textfield.TextFieldConfig
+import com.sdds.plugin.themebuilder.internal.components.textfield.TextFieldProperties
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.ComponentStyleGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
@@ -39,6 +41,12 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
      */
     @get:InputFile
     abstract val linkButtonConfigFile: RegularFileProperty
+
+    /**
+     * Файл с конфигом TextField
+     */
+    @get:InputFile
+    abstract val textFieldConfigFile: RegularFileProperty
 
     /**
      * Путь для сохранения kt-файлов токенов
@@ -152,6 +160,10 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
         componentStyleGeneratorFactory.createLinkButtonStyleGeneratorView()
     }
 
+    private val textFieldStyleGeneratorView by unsafeLazy {
+        componentStyleGeneratorFactory.createTextFieldStyleGeneratorView()
+    }
+
     private val basicButtonConfig: ButtonComponentConfig by unsafeLazy {
         basicButtonConfigFile.get()
             .asFile
@@ -166,6 +178,12 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
 
     private val linkButtonConfig: ButtonComponentConfig by unsafeLazy {
         linkButtonConfigFile.get()
+            .asFile
+            .decode(Serializer.componentConfig)
+    }
+
+    private val textFieldConfig: TextFieldConfig by unsafeLazy {
+        textFieldConfigFile.get()
             .asFile
             .decode(Serializer.componentConfig)
     }
@@ -194,5 +212,6 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
         basicButtonStyleGeneratorView.generate(basicButtonConfig)
         iconButtonStyleGeneratorView.generate(iconButtonConfig)
         linkButtonStyleGeneratorView.generate(linkButtonConfig)
+        textFieldStyleGeneratorView.generate(textFieldConfig)
     }
 }

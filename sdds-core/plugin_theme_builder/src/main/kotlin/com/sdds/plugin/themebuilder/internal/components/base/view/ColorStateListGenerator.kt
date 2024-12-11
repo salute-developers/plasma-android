@@ -29,6 +29,10 @@ internal class ColorStateListGenerator(
 
     private val stateListItems = mutableSetOf<StateListItem>()
 
+    fun addFrom(other: ColorStateListGenerator) {
+        stateListItems.addAll(other.stateListItems)
+    }
+
     /**
      * Добавляет цвет из токена [colorTokenName] с состояниями [states] и прозрачностью [alpha] в ColorStateList
      */
@@ -37,13 +41,13 @@ internal class ColorStateListGenerator(
         states: Set<StateListAttribute> = emptySet(),
         alpha: Float? = null,
     ) {
-        stateListItems.add(
-            StateListItem(
-                "?${resourcePrefix}_${ColorToken.getAttrName(colorTokenName)}",
-                states,
-                alpha,
-            ),
+        val newItem = StateListItem(
+            "?${resourcePrefix}_${ColorToken.getAttrName(colorTokenName)}",
+            states,
+            alpha,
         )
+        stateListItems.removeIf { it.states == newItem.states }
+        stateListItems.add(newItem)
     }
 
     override fun generate() {

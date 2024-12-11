@@ -47,13 +47,14 @@ internal abstract class ViewComponentStyleGenerator<T : ComponentConfig>(
     private val colorStateAttributesGenerator by unsafeLazy {
         viewColorStateGeneratorFactory.create(coreComponentName)
     }
-    private val stateListGenerators = mutableMapOf<ColorProperty, ColorStateListGenerator?>()
+    private val baseStateListGenerators = mutableMapOf<ColorProperty, ColorStateListGenerator?>()
+    private val overrideStateListGenerators = mutableMapOf<String, MutableMap<ColorProperty, ColorStateListGenerator?>>()
 
     override fun generate(config: T) {
         onGenerate(xmlResourceBuilder, config)
         colorStateAttributesGenerator.generate()
         xmlResourceBuilder.build(outputResDir.componentStyleXmlFile(styleComponentName))
-        stateListGenerators.forEach { it.value?.generate() }
+        baseStateListGenerators.forEach { it.value?.generate() }
     }
 
     abstract fun onGenerate(xmlResourcesBuilder: XmlResourcesDocumentBuilder, config: T)
@@ -67,11 +68,19 @@ internal abstract class ViewComponentStyleGenerator<T : ComponentConfig>(
     }
 
     /**
+     * Возвращает ColorState с названием [name]
+     * @param name название ColorState, а также вариации цвета
+     */
+    protected open fun getColorState(name: String): ColorStateAttribute? {
+        return colorStateAttributesGenerator.getColorStateAttribute(name)
+    }
+
+    /**
      * Добавляет базовый стиль компонента с контентом [content].
      */
     protected fun XmlResourcesDocumentBuilder.baseStyle(content: Element.() -> Unit = {}) {
         appendStyleWithCompositePrefix(baseStyleName, componentParent) {
-            stateListGenerators.forEach { (property, _) ->
+            baseStateListGenerators.forEach { (property, _) ->
                 colorAttribute(property.attribute, property.colorFileName())
             }
             colorStateAttributesGenerator.colorStateProviderInfo.run {
@@ -255,18 +264,54 @@ internal abstract class ViewComponentStyleGenerator<T : ComponentConfig>(
         property: ColorProperty,
         block: ColorStateListGenerator.() -> Unit,
     ) {
-        val generator = stateListGenerators[property] ?: colorStateListGeneratorFactory.create(
+        val generator = baseStateListGenerators[property] ?: colorStateListGeneratorFactory.create(
             outputResDir.colorXmlFile(
                 fileName = property.colorFileName(),
                 prefix = resourcePrefix,
             ),
-        ).also { stateListGenerators[property] = it }
+        ).also { baseStateListGenerators[property] = it }
 
         generator.block()
     }
 
-    private fun ColorProperty.colorFileName(): String =
-        "${snakeCaseStyleComponentName}_$colorFileSuffix"
+    /**
+     * Переопределяет ColorState для свойства [property] в вариации [variationName]
+     */
+    protected fun overrideInStateList(
+        variationName: String,
+        property: ColorProperty,
+        block: ColorStateListGenerator.() -> Unit,
+    ) {
+        val baseGenerator = baseStateListGenerators[property]
+        val colorStateGenerators = overrideStateListGenerators[variationName]
+            ?: mutableMapOf<ColorProperty, ColorStateListGenerator?>().also {
+                overrideStateListGenerators[variationName] = it
+            }
+        val generator = colorStateGenerators[property] ?: colorStateListGeneratorFactory.create(
+            outputResDir.colorXmlFile(
+                fileName = property.colorFileName(variationName),
+                prefix = resourcePrefix,
+            ),
+        )
+            .apply {
+
+            }
+            .also { colorStateGenerators[property] = it }
+
+        generator.block()
+    }
+
+    private fun ColorProperty.colorFileName(variationSuffix: String? = null): String = buildString {
+        append(snakeCaseStyleComponentName)
+        if (!variationSuffix.isNullOrBlank()) {
+            append("_")
+            append(variationSuffix)
+        }
+        if (colorFileSuffix.isNotBlank()) {
+            append("_")
+            append(colorFileSuffix)
+        }
+    }
 }
 
 /**
