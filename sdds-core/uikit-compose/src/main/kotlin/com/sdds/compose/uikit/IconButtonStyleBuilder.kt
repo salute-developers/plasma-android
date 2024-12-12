@@ -169,7 +169,7 @@ private class IconButtonStyleBuilderImpl(override val receiver: Any?) : IconButt
     }
 
     override fun style(): ButtonStyle {
-        return DefaultButtonStyle(
+        return DefaultIconButtonStyle(
             shape = shape ?: RoundedCornerShape(25),
             colors = colorsBuilder.build(),
             labelStyle = labelStyle ?: TextStyle.Default,
@@ -179,6 +179,16 @@ private class IconButtonStyleBuilderImpl(override val receiver: Any?) : IconButt
         )
     }
 }
+
+@Immutable
+private class DefaultIconButtonStyle(
+    override val shape: CornerBasedShape,
+    override val colors: ButtonColors,
+    override val labelStyle: TextStyle,
+    override val valueStyle: TextStyle,
+    override val dimensions: Button.Dimensions,
+    override val disableAlpha: Float,
+) : ButtonStyle
 
 @Immutable
 private class DefaultIconButtonColors(
