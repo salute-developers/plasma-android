@@ -70,7 +70,6 @@ internal fun TextFieldUiState.textFieldStyle(): TextFieldStyle {
         .applyState(state)
         .applyLabelPlacement(labelPlacement)
         .applyFieldType(fieldType)
-        .applyBackground(isClear)
         .applyHasDivider(hasDivider)
         .style()
 }

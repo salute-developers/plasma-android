@@ -388,14 +388,13 @@ constructor(
         // measure leading icon
         val leadingPlaceable = measurables.find { it.layoutId == LeadingId }
             ?.measure(looseConstraints)
-        occupiedSpaceHorizontally += leadingPlaceable.widthOrZero()
 
         // measure trailing icon
         val trailingPlaceable = measurables.find { it.layoutId == TrailingId }
             ?.measure(looseConstraints)
-        occupiedSpaceHorizontally += trailingPlaceable.widthOrZero()
 
         // measure label
+        occupiedSpaceHorizontally = leadingPlaceable.widthOrZero() + trailingPlaceable.widthOrZero()
         val labelConstraints = looseConstraints.offset(horizontal = -occupiedSpaceHorizontally)
         val labelPlaceable =
             measurables.find { it.layoutId == LabelId }?.measure(labelConstraints)
@@ -404,6 +403,7 @@ constructor(
         val captionTextPlaceable = measurables
             .find { it.layoutId == CaptionTextId }
             ?.measure(looseConstraints)
+        val captionTextHeight = captionTextPlaceable.heightOrZero()
 
         // measure counterText
         val counterTextPlaceable = measurables
@@ -413,17 +413,16 @@ constructor(
 
         // measure input field
         val labelHeight = labelPlaceable.heightOrZero()
-        val captionTextHeight = captionTextPlaceable.heightOrZero()
         val maxHelperTextHeight = max(captionTextHeight, counterTextHeight)
-        val verticalConstraintOffset = if (labelPlaceable != null) {
-            -labelHeight - maxHelperTextHeight
+        val occupiedSpaceVertically = if (labelPlaceable != null) {
+            labelHeight + maxHelperTextHeight
         } else {
-            -maxHelperTextHeight
+            maxHelperTextHeight
         }
-        val textFieldConstraints = constraints
-            .copy(minHeight = 0)
+
+        val textFieldConstraints = looseConstraints
             .offset(
-                vertical = verticalConstraintOffset,
+                vertical = -occupiedSpaceVertically,
                 horizontal = -occupiedSpaceHorizontally,
             )
         val textFieldPlaceable = measurables
