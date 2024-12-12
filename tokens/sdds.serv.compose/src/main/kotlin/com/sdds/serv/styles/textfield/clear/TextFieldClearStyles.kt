@@ -6,11 +6,11 @@ import com.sdds.compose.uikit.ChipGroup
 import com.sdds.compose.uikit.EmbeddedChip
 import com.sdds.compose.uikit.TextField
 import com.sdds.compose.uikit.TextFieldClear
-import com.sdds.compose.uikit.TextFieldColorsBuilder
+import com.sdds.compose.uikit.TextFieldClearColorsBuilder
+import com.sdds.compose.uikit.TextFieldClearStyleBuilder
 import com.sdds.compose.uikit.TextFieldStyle
-import com.sdds.compose.uikit.TextFieldStyleBuilder
 import com.sdds.compose.uikit.interactions.asInteractive
-import com.sdds.compose.uikit.textFieldBuilder
+import com.sdds.compose.uikit.textFieldClearBuilder
 import com.sdds.serv.styles.chip.L
 import com.sdds.serv.styles.chip.M
 import com.sdds.serv.styles.chip.S
@@ -19,11 +19,40 @@ import com.sdds.serv.styles.chip.Xs
 import com.sdds.serv.styles.chip.group.Dense
 import com.sdds.serv.theme.SddsServTheme
 
-val TextFieldClear.Xs: TextFieldStyleBuilder
+val TextFieldClearStyleBuilder.Default: TextFieldClearStyleBuilder
     @Composable
-    get() = TextFieldStyle.textFieldBuilder(this)
-        .fieldAppearance(TextField.FieldAppearance.Clear)
-        .helperTextPlacement(TextField.HelperTextPlacement.Outer)
+    get() = colors { defaultClearColors() }
+
+val TextFieldClearStyleBuilder.Error: TextFieldClearStyleBuilder
+    @Composable
+    get() = colors { errorClearColors() }
+
+val TextFieldClearStyleBuilder.Warning: TextFieldClearStyleBuilder
+    @Composable
+    get() = colors { warningClearColors() }
+
+val TextFieldClearStyleBuilder.Success: TextFieldClearStyleBuilder
+    @Composable
+    get() = colors { successClearColors() }
+
+val TextFieldClearStyleBuilder.RequiredStart: TextFieldClearStyleBuilder
+    get() = fieldType(TextField.FieldType.RequiredStart)
+
+val TextFieldClearStyleBuilder.RequiredEnd: TextFieldClearStyleBuilder
+    get() = fieldType(TextField.FieldType.RequiredEnd)
+
+val TextFieldClearStyleBuilder.Optional: TextFieldClearStyleBuilder
+    get() = fieldType(TextField.FieldType.Optional)
+
+val TextFieldClearStyleBuilder.InnerLabel: TextFieldClearStyleBuilder
+    get() = labelPlacement(TextField.LabelPlacement.Inner)
+
+val TextFieldClearStyleBuilder.OuterLabel: TextFieldClearStyleBuilder
+    get() = labelPlacement(TextField.LabelPlacement.Outer)
+
+val TextFieldClear.Xs: TextFieldClearStyleBuilder
+    @Composable
+    get() = TextFieldStyle.textFieldClearBuilder(this)
         .chipGroupStyle(
             ChipGroup.Dense.chipStyle(
                 EmbeddedChip.Xs.Secondary.style(),
@@ -71,13 +100,10 @@ val TextFieldClear.Xs: TextFieldStyleBuilder
         .counterStyle(SddsServTheme.typography.bodyXsNormal)
         .placeholderStyle(SddsServTheme.typography.bodyXsNormal)
         .dropInnerLabel(true)
-        .singleLine(true)
 
-val TextFieldClear.S: TextFieldStyleBuilder
+val TextFieldClear.S: TextFieldClearStyleBuilder
     @Composable
-    get() = TextFieldStyle.textFieldBuilder(this)
-        .fieldAppearance(TextField.FieldAppearance.Clear)
-        .helperTextPlacement(TextField.HelperTextPlacement.Outer)
+    get() = TextFieldStyle.textFieldClearBuilder(this)
         .chipGroupStyle(
             ChipGroup.Dense.chipStyle(
                 EmbeddedChip.S.Secondary.style(),
@@ -124,13 +150,10 @@ val TextFieldClear.S: TextFieldStyleBuilder
         .captionStyle(SddsServTheme.typography.bodyXsNormal)
         .counterStyle(SddsServTheme.typography.bodyXsNormal)
         .placeholderStyle(SddsServTheme.typography.bodySNormal)
-        .singleLine(true)
 
-val TextFieldClear.M: TextFieldStyleBuilder
+val TextFieldClear.M: TextFieldClearStyleBuilder
     @Composable
-    get() = TextFieldStyle.textFieldBuilder(this)
-        .fieldAppearance(TextField.FieldAppearance.Clear)
-        .helperTextPlacement(TextField.HelperTextPlacement.Outer)
+    get() = TextFieldStyle.textFieldClearBuilder(this)
         .chipGroupStyle(
             ChipGroup.Dense.chipStyle(
                 EmbeddedChip.M.Secondary.style(),
@@ -177,13 +200,10 @@ val TextFieldClear.M: TextFieldStyleBuilder
         .captionStyle(SddsServTheme.typography.bodyXsNormal)
         .counterStyle(SddsServTheme.typography.bodyXsNormal)
         .placeholderStyle(SddsServTheme.typography.bodyMNormal)
-        .singleLine(true)
 
-val TextFieldClear.L: TextFieldStyleBuilder
+val TextFieldClear.L: TextFieldClearStyleBuilder
     @Composable
-    get() = TextFieldStyle.textFieldBuilder(this)
-        .fieldAppearance(TextField.FieldAppearance.Clear)
-        .helperTextPlacement(TextField.HelperTextPlacement.Outer)
+    get() = TextFieldStyle.textFieldClearBuilder(this)
         .chipGroupStyle(
             ChipGroup.Dense.chipStyle(
                 EmbeddedChip.L.Secondary.style(),
@@ -230,16 +250,15 @@ val TextFieldClear.L: TextFieldStyleBuilder
         .captionStyle(SddsServTheme.typography.bodyXsNormal)
         .counterStyle(SddsServTheme.typography.bodyXsNormal)
         .placeholderStyle(SddsServTheme.typography.bodyLNormal)
-        .singleLine(true)
 
-val TextFieldStyleBuilder.HasDivider: TextFieldStyleBuilder
+val TextFieldClearStyleBuilder.HasDivider: TextFieldClearStyleBuilder
     get() = hasDivider(true)
 
-val TextFieldStyleBuilder.NoDivider: TextFieldStyleBuilder
+val TextFieldClearStyleBuilder.NoDivider: TextFieldClearStyleBuilder
     get() = hasDivider(false)
 
 @Composable
-internal fun TextFieldColorsBuilder.defaultClearColors(): TextFieldColorsBuilder = apply {
+private fun TextFieldClearColorsBuilder.defaultClearColors(): TextFieldClearColorsBuilder = apply {
     disabledAlpha(0.4f)
     enabledAlpha(1f)
     cursorColor(SddsServTheme.colors.textDefaultAccent)
@@ -272,7 +291,7 @@ internal fun TextFieldColorsBuilder.defaultClearColors(): TextFieldColorsBuilder
 }
 
 @Composable
-internal fun TextFieldColorsBuilder.successClearColors(): TextFieldColorsBuilder = apply {
+private fun TextFieldClearColorsBuilder.successClearColors(): TextFieldClearColorsBuilder = apply {
     disabledAlpha(0.4f)
     enabledAlpha(1f)
     cursorColor(SddsServTheme.colors.textDefaultAccent)
@@ -320,7 +339,7 @@ internal fun TextFieldColorsBuilder.successClearColors(): TextFieldColorsBuilder
 }
 
 @Composable
-internal fun TextFieldColorsBuilder.warningClearColors(): TextFieldColorsBuilder = apply {
+private fun TextFieldClearColorsBuilder.warningClearColors(): TextFieldClearColorsBuilder = apply {
     disabledAlpha(0.4f)
     enabledAlpha(1f)
     cursorColor(SddsServTheme.colors.textDefaultAccent)
@@ -368,7 +387,7 @@ internal fun TextFieldColorsBuilder.warningClearColors(): TextFieldColorsBuilder
 }
 
 @Composable
-internal fun TextFieldColorsBuilder.errorClearColors(): TextFieldColorsBuilder = apply {
+private fun TextFieldClearColorsBuilder.errorClearColors(): TextFieldClearColorsBuilder = apply {
     disabledAlpha(0.4f)
     enabledAlpha(1f)
     cursorColor(SddsServTheme.colors.textDefaultAccent)
