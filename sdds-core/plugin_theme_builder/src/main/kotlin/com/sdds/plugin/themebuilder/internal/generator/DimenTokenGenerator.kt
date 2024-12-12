@@ -24,6 +24,7 @@ internal class DimenTokenGenerator(
     private val dimensAggregator: DimensAggregator,
     private val xmlBuilderFactory: XmlResourcesDocumentBuilderFactory,
     private val dimensConfig: DimensionsConfig,
+    private val filePrefix: String = "",
 ) : SimpleBaseGenerator {
 
     private val xmlResourcesDocumentBuilder: XmlResourcesDocumentBuilder by unsafeLazy {
@@ -38,7 +39,7 @@ internal class DimenTokenGenerator(
             xmlResourcesDocumentBuilder.appendDimen(it)
         }
         if (dimensAggregator.dimens.isNotEmpty()) {
-            xmlResourcesDocumentBuilder.build(outputResDir.dimensFile())
+            xmlResourcesDocumentBuilder.build(outputResDir.dimensFile(filePrefix))
         }
     }
 

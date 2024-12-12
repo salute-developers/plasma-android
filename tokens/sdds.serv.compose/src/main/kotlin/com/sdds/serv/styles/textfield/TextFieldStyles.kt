@@ -5,75 +5,36 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.ChipGroup
 import com.sdds.compose.uikit.EmbeddedChip
-import com.sdds.compose.uikit.TextArea
-import com.sdds.compose.uikit.TextAreaClear
 import com.sdds.compose.uikit.TextField
-import com.sdds.compose.uikit.TextFieldClear
 import com.sdds.compose.uikit.TextFieldColorsBuilder
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.TextFieldStyleBuilder
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.asInteractive
-import com.sdds.compose.uikit.style.applyFor
+import com.sdds.compose.uikit.textFieldBuilder
 import com.sdds.serv.styles.chip.L
 import com.sdds.serv.styles.chip.M
 import com.sdds.serv.styles.chip.S
 import com.sdds.serv.styles.chip.Secondary
 import com.sdds.serv.styles.chip.Xs
 import com.sdds.serv.styles.chip.group.Dense
-import com.sdds.serv.styles.textfield.clear.defaultClearColors
-import com.sdds.serv.styles.textfield.clear.errorClearColors
-import com.sdds.serv.styles.textfield.clear.successClearColors
-import com.sdds.serv.styles.textfield.clear.warningClearColors
 import com.sdds.serv.theme.SddsServTheme
 
 val TextFieldStyleBuilder.Default: TextFieldStyleBuilder
     @Composable
-    get() = applyFor(TextField) {
-        colors { defaultColors() }
-    }.applyFor(TextArea) {
-        colors { defaultColors() }
-    }.applyFor(TextFieldClear) {
-        colors { defaultClearColors() }
-    }.applyFor(TextAreaClear) {
-        colors { defaultClearColors() }
-    }
+    get() = colors { defaultColors() }
 
 val TextFieldStyleBuilder.Error: TextFieldStyleBuilder
     @Composable
-    get() = applyFor(TextField) {
-        colors { errorColors() }
-    }.applyFor(TextArea) {
-        colors { errorColors() }
-    }.applyFor(TextFieldClear) {
-        colors { errorClearColors() }
-    }.applyFor(TextAreaClear) {
-        colors { errorClearColors() }
-    }
+    get() = colors { errorColors() }
 
 val TextFieldStyleBuilder.Warning: TextFieldStyleBuilder
     @Composable
-    get() = applyFor(TextField) {
-        colors { warningColors() }
-    }.applyFor(TextArea) {
-        colors { warningColors() }
-    }.applyFor(TextFieldClear) {
-        colors { warningClearColors() }
-    }.applyFor(TextAreaClear) {
-        colors { warningClearColors() }
-    }
+    get() = colors { warningColors() }
 
 val TextFieldStyleBuilder.Success: TextFieldStyleBuilder
     @Composable
-    get() = applyFor(TextField) {
-        colors { successColors() }
-    }.applyFor(TextArea) {
-        colors { successColors() }
-    }.applyFor(TextFieldClear) {
-        colors { successClearColors() }
-    }.applyFor(TextAreaClear) {
-        colors { successClearColors() }
-    }
+    get() = colors { successColors() }
 
 val TextFieldStyleBuilder.RequiredStart: TextFieldStyleBuilder
     get() = fieldType(TextField.FieldType.RequiredStart)
@@ -92,10 +53,8 @@ val TextFieldStyleBuilder.OuterLabel: TextFieldStyleBuilder
 
 val TextField.Xs: TextFieldStyleBuilder
     @Composable
-    get() = TextFieldStyle.builder(this)
-        .fieldAppearance(TextField.FieldAppearance.Solid)
+    get() = TextFieldStyle.textFieldBuilder(this)
         .shape(SddsServTheme.shapes.roundS)
-        .helperTextPlacement(TextField.HelperTextPlacement.Outer)
         .chipGroupStyle(
             ChipGroup.Dense.chipStyle(
                 EmbeddedChip.Xs.Secondary.style(),
@@ -139,14 +98,11 @@ val TextField.Xs: TextFieldStyleBuilder
         .counterStyle(SddsServTheme.typography.bodyXsNormal)
         .placeholderStyle(SddsServTheme.typography.bodyXsNormal)
         .dropInnerLabel(true)
-        .singleLine(true)
 
 val TextField.S: TextFieldStyleBuilder
     @Composable
-    get() = TextFieldStyle.builder(this)
-        .fieldAppearance(TextField.FieldAppearance.Solid)
+    get() = TextFieldStyle.textFieldBuilder(this)
         .shape(SddsServTheme.shapes.roundM.adjustBy(all = (-2).dp))
-        .helperTextPlacement(TextField.HelperTextPlacement.Outer)
         .chipGroupStyle(
             ChipGroup.Dense.chipStyle(
                 EmbeddedChip.S.Secondary.style(),
@@ -189,14 +145,11 @@ val TextField.S: TextFieldStyleBuilder
         .captionStyle(SddsServTheme.typography.bodyXsNormal)
         .counterStyle(SddsServTheme.typography.bodyXsNormal)
         .placeholderStyle(SddsServTheme.typography.bodySNormal)
-        .singleLine(true)
 
 val TextField.M: TextFieldStyleBuilder
     @Composable
-    get() = TextFieldStyle.builder(this)
-        .fieldAppearance(TextField.FieldAppearance.Solid)
+    get() = TextFieldStyle.textFieldBuilder(this)
         .shape(SddsServTheme.shapes.roundM)
-        .helperTextPlacement(TextField.HelperTextPlacement.Outer)
         .chipGroupStyle(
             ChipGroup.Dense.chipStyle(
                 EmbeddedChip.M.Secondary.style(),
@@ -239,14 +192,11 @@ val TextField.M: TextFieldStyleBuilder
         .captionStyle(SddsServTheme.typography.bodyXsNormal)
         .counterStyle(SddsServTheme.typography.bodyXsNormal)
         .placeholderStyle(SddsServTheme.typography.bodyMNormal)
-        .singleLine(true)
 
 val TextField.L: TextFieldStyleBuilder
     @Composable
-    get() = TextFieldStyle.builder(this)
-        .fieldAppearance(TextField.FieldAppearance.Solid)
+    get() = TextFieldStyle.textFieldBuilder(this)
         .shape(SddsServTheme.shapes.roundM.adjustBy(all = 2.dp))
-        .helperTextPlacement(TextField.HelperTextPlacement.Outer)
         .chipGroupStyle(
             ChipGroup.Dense.chipStyle(
                 EmbeddedChip.L.Secondary.style(),
@@ -289,7 +239,6 @@ val TextField.L: TextFieldStyleBuilder
         .captionStyle(SddsServTheme.typography.bodyXsNormal)
         .counterStyle(SddsServTheme.typography.bodyXsNormal)
         .placeholderStyle(SddsServTheme.typography.bodyLNormal)
-        .singleLine(true)
 
 private val readOnlyAlpha: Float
     @Composable
@@ -300,7 +249,7 @@ private val surfaceAlpha: Float
     get() = if (isSystemInDarkTheme()) 0.12f else 0.06f
 
 @Composable
-internal fun TextFieldColorsBuilder.defaultColors(): TextFieldColorsBuilder = apply {
+private fun TextFieldColorsBuilder.defaultColors(): TextFieldColorsBuilder = apply {
     disabledAlpha(0.4f)
     enabledAlpha(1f)
     cursorColor(SddsServTheme.colors.textDefaultAccent)
@@ -338,7 +287,7 @@ internal fun TextFieldColorsBuilder.defaultColors(): TextFieldColorsBuilder = ap
 }
 
 @Composable
-internal fun TextFieldColorsBuilder.successColors(): TextFieldColorsBuilder = apply {
+private fun TextFieldColorsBuilder.successColors(): TextFieldColorsBuilder = apply {
     disabledAlpha(0.4f)
     enabledAlpha(1f)
     cursorColor(SddsServTheme.colors.textDefaultAccent)
@@ -381,7 +330,7 @@ internal fun TextFieldColorsBuilder.successColors(): TextFieldColorsBuilder = ap
 }
 
 @Composable
-internal fun TextFieldColorsBuilder.warningColors(): TextFieldColorsBuilder = apply {
+private fun TextFieldColorsBuilder.warningColors(): TextFieldColorsBuilder = apply {
     disabledAlpha(0.4f)
     enabledAlpha(1f)
     cursorColor(SddsServTheme.colors.textDefaultAccent)
@@ -424,7 +373,7 @@ internal fun TextFieldColorsBuilder.warningColors(): TextFieldColorsBuilder = ap
 }
 
 @Composable
-internal fun TextFieldColorsBuilder.errorColors(): TextFieldColorsBuilder = apply {
+private fun TextFieldColorsBuilder.errorColors(): TextFieldColorsBuilder = apply {
     disabledAlpha(0.4f)
     enabledAlpha(1f)
     cursorColor(SddsServTheme.colors.textDefaultAccent)

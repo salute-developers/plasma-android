@@ -15,7 +15,13 @@ import com.sdds.compose.uikit.style.StyleBuilder
 /**
  * CompositionLocal c [ButtonStyle] для компонента [Button]
  */
-val LocalButtonStyle = compositionLocalOf { BasicButtonStyleBuilder.builder().style() }
+val LocalButtonStyle = compositionLocalOf { ButtonStyle.basicButtonBuilder().style() }
+
+/**
+ * Возвращает экземпляр [BasicButtonStyleBuilder]
+ */
+fun ButtonStyle.Companion.basicButtonBuilder(receiver: Any? = null): BasicButtonStyleBuilder =
+    BasicButtonStyleBuilderImpl(receiver)
 
 /**
  * Builder стиля базовой кнопки.
@@ -61,20 +67,6 @@ interface BasicButtonStyleBuilder : StyleBuilder<ButtonStyle> {
      * @see ButtonStyle.disableAlpha
      */
     fun disableAlpha(disableAlpha: Float): BasicButtonStyleBuilder
-
-    /**
-     * Устанавливает режим работы индикатора загрузки [spinnerMode]
-     * @see ButtonStyle.spinnerMode
-     * @see Button.SpinnerMode
-     */
-    fun spinnerMode(spinnerMode: Button.SpinnerMode): BasicButtonStyleBuilder
-
-    companion object {
-        /**
-         * Возвращает экземпляр [BasicButtonStyleBuilder]
-         */
-        fun builder(receiver: Any? = null): BasicButtonStyleBuilder = BasicButtonStyleBuilderImpl(receiver)
-    }
 }
 
 /**
@@ -173,6 +165,13 @@ interface BasicButtonColorsBuilder {
         spinnerColor(spinnerColor.asInteractive())
 
     /**
+     * Устанавливает режим работы индикатора загрузки [spinnerMode]
+     * @see ButtonColors.spinnerMode
+     * @see Button.SpinnerMode
+     */
+    fun spinnerMode(spinnerMode: Button.SpinnerMode): BasicButtonColorsBuilder
+
+    /**
      * Возвращает готовый экземпляр [ButtonColors]
      */
     fun build(): ButtonColors
@@ -193,16 +192,16 @@ private class BasicButtonStyleBuilderImpl(override val receiver: Any?) : BasicBu
     private var valueStyle: TextStyle? = null
     private var dimensions: Button.Dimensions? = null
     private var disableAlpha: Float? = null
-    private var spinnerMode: Button.SpinnerMode? = null
 
     override fun shape(shape: CornerBasedShape) = apply {
         this.shape = shape
     }
 
     @Composable
-    override fun colors(builder: @Composable BasicButtonColorsBuilder.() -> Unit): BasicButtonStyleBuilder = apply {
-        this.colorsBuilder.builder()
-    }
+    override fun colors(builder: @Composable BasicButtonColorsBuilder.() -> Unit): BasicButtonStyleBuilder =
+        apply {
+            this.colorsBuilder.builder()
+        }
 
     override fun labelStyle(labelStyle: TextStyle) = apply {
         this.labelStyle = labelStyle
@@ -220,22 +219,27 @@ private class BasicButtonStyleBuilderImpl(override val receiver: Any?) : BasicBu
         this.disableAlpha = disableAlpha
     }
 
-    override fun spinnerMode(spinnerMode: Button.SpinnerMode) = apply {
-        this.spinnerMode = spinnerMode
-    }
-
     override fun style(): ButtonStyle {
-        return DefaultButtonStyle(
+        return DefaultBasicButtonStyle(
             shape = shape ?: RoundedCornerShape(25),
             colors = colorsBuilder.build(),
             labelStyle = labelStyle ?: TextStyle.Default,
             valueStyle = valueStyle ?: TextStyle.Default,
             dimensions = dimensions ?: Button.Dimensions(),
             disableAlpha = disableAlpha ?: DISABLED_BUTTON_ALPHA,
-            spinnerMode = spinnerMode ?: Button.SpinnerMode.HideContent,
         )
     }
 }
+
+@Immutable
+private class DefaultBasicButtonStyle(
+    override val shape: CornerBasedShape,
+    override val colors: ButtonColors,
+    override val labelStyle: TextStyle,
+    override val valueStyle: TextStyle,
+    override val dimensions: Button.Dimensions,
+    override val disableAlpha: Float,
+) : ButtonStyle
 
 @Immutable
 private class DefaultBasicButtonColors(
@@ -245,6 +249,7 @@ private class DefaultBasicButtonColors(
     override val valueColor: InteractiveColor,
     override val iconColor: InteractiveColor,
     override val spinnerColor: InteractiveColor,
+    override val spinnerMode: Button.SpinnerMode,
 ) : ButtonColors {
 
     class Builder : BasicButtonColorsBuilder {
@@ -254,6 +259,7 @@ private class DefaultBasicButtonColors(
         private var valueColor: InteractiveColor? = null
         private var iconColor: InteractiveColor? = null
         private var spinnerColor: InteractiveColor? = null
+        private var spinnerMode: Button.SpinnerMode? = null
 
         override fun contentColor(contentColor: InteractiveColor) = apply {
             this.contentColor = contentColor
@@ -279,6 +285,10 @@ private class DefaultBasicButtonColors(
             this.spinnerColor = spinnerColor
         }
 
+        override fun spinnerMode(spinnerMode: Button.SpinnerMode) = apply {
+            this.spinnerMode = spinnerMode
+        }
+
         override fun build(): ButtonColors {
             val contentColor = contentColor ?: Color.Black.asInteractive()
             return DefaultBasicButtonColors(
@@ -288,6 +298,7 @@ private class DefaultBasicButtonColors(
                 valueColor = valueColor ?: contentColor,
                 iconColor = iconColor ?: contentColor,
                 spinnerColor = spinnerColor ?: contentColor,
+                spinnerMode = spinnerMode ?: Button.SpinnerMode.HideContent,
             )
         }
     }

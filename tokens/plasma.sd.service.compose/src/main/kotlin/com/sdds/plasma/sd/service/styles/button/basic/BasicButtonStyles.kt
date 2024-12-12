@@ -7,7 +7,9 @@ import com.sdds.compose.uikit.BasicButton
 import com.sdds.compose.uikit.BasicButtonColorsBuilder
 import com.sdds.compose.uikit.BasicButtonStyleBuilder
 import com.sdds.compose.uikit.Button
+import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.adjustBy
+import com.sdds.compose.uikit.basicButtonBuilder
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.plasma.sd.service.theme.PlasmaSdServiceTheme
 
@@ -90,7 +92,7 @@ val BasicButtonStyleBuilder.Pilled: BasicButtonStyleBuilder
 
 val BasicButton.L: BasicButtonStyleBuilder
     @Composable
-    get() = BasicButtonStyleBuilder.builder(this)
+    get() = ButtonStyle.basicButtonBuilder(this)
         .shape(PlasmaSdServiceTheme.shapes.roundL.adjustBy(all = (-2).dp))
         .dimensions(
             Button.Dimensions(
@@ -108,7 +110,7 @@ val BasicButton.L: BasicButtonStyleBuilder
 
 val BasicButton.M: BasicButtonStyleBuilder
     @Composable
-    get() = BasicButtonStyleBuilder.builder(this)
+    get() = ButtonStyle.basicButtonBuilder(this)
         .shape(PlasmaSdServiceTheme.shapes.roundM)
         .dimensions(
             Button.Dimensions(
@@ -126,7 +128,7 @@ val BasicButton.M: BasicButtonStyleBuilder
 
 val BasicButton.S: BasicButtonStyleBuilder
     @Composable
-    get() = BasicButtonStyleBuilder.builder(this)
+    get() = ButtonStyle.basicButtonBuilder(this)
         .shape(PlasmaSdServiceTheme.shapes.roundM.adjustBy(all = (-2).dp))
         .dimensions(
             Button.Dimensions(
@@ -144,7 +146,7 @@ val BasicButton.S: BasicButtonStyleBuilder
 
 val BasicButton.Xs: BasicButtonStyleBuilder
     @Composable
-    get() = BasicButtonStyleBuilder.builder(this)
+    get() = ButtonStyle.basicButtonBuilder(this)
         .shape(PlasmaSdServiceTheme.shapes.roundS)
         .dimensions(
             Button.Dimensions(

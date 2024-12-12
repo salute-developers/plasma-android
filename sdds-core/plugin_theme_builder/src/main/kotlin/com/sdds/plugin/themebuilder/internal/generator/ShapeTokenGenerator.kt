@@ -16,7 +16,6 @@ import com.sdds.plugin.themebuilder.internal.generator.data.ShapeTokenResult
 import com.sdds.plugin.themebuilder.internal.token.RoundedShapeTokenValue
 import com.sdds.plugin.themebuilder.internal.token.ShapeToken
 import com.sdds.plugin.themebuilder.internal.token.ShapeTokenValue
-import com.sdds.plugin.themebuilder.internal.token.attrName
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.shapesXmlFile
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 import com.sdds.plugin.themebuilder.internal.utils.techToSnakeCase
@@ -148,7 +147,7 @@ internal class ShapeTokenGenerator(
         }
         viewTokenDataCollector.add(
             ShapeTokenResult.TokenData(
-                attrName = token.attrName(),
+                attrName = ShapeToken.getAttrName(token.name),
                 tokenRefName = resourceReferenceProvider.style(styleName),
             ),
         )
