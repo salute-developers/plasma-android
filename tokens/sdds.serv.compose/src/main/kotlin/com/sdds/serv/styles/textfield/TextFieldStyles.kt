@@ -317,7 +317,7 @@ internal fun TextFieldColorsBuilder.defaultColors(): TextFieldColorsBuilder = ap
     counterColor(SddsServTheme.colors.textDefaultSecondary)
     placeholderColor(
         SddsServTheme.colors.textDefaultSecondary.asInteractive(
-            focused = SddsServTheme.colors.textDefaultTertiary,
+            activated = SddsServTheme.colors.textDefaultTertiary,
             pressed = SddsServTheme.colors.textDefaultTertiary,
         ),
     )
@@ -325,7 +325,7 @@ internal fun TextFieldColorsBuilder.defaultColors(): TextFieldColorsBuilder = ap
     backgroundColor(
         SddsServTheme.colors.surfaceDefaultTransparentPrimary
             .asInteractive(
-                focused = SddsServTheme.colors.surfaceDefaultTransparentSecondary,
+                activated = SddsServTheme.colors.surfaceDefaultTransparentSecondary,
                 pressed = SddsServTheme.colors.surfaceDefaultTransparentSecondary,
             ),
     )
@@ -351,7 +351,7 @@ internal fun TextFieldColorsBuilder.successColors(): TextFieldColorsBuilder = ap
     valueColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
     captionColor(
         SddsServTheme.colors.textDefaultPositive.asInteractive(
-            focused = SddsServTheme.colors.textDefaultSecondary,
+            activated = SddsServTheme.colors.textDefaultSecondary,
             pressed = SddsServTheme.colors.textDefaultSecondary,
         ),
     )
@@ -360,7 +360,7 @@ internal fun TextFieldColorsBuilder.successColors(): TextFieldColorsBuilder = ap
     counterColor(SddsServTheme.colors.textDefaultSecondary)
     placeholderColor(
         SddsServTheme.colors.textDefaultSecondary.asInteractive(
-            focused = SddsServTheme.colors.textDefaultTertiary,
+            activated = SddsServTheme.colors.textDefaultTertiary,
             pressed = SddsServTheme.colors.textDefaultTertiary,
         ),
     )
@@ -368,7 +368,7 @@ internal fun TextFieldColorsBuilder.successColors(): TextFieldColorsBuilder = ap
     backgroundColor(
         SddsServTheme.colors.surfaceDefaultPositive.copy(alpha = surfaceAlpha)
             .asInteractive(
-                focused = SddsServTheme.colors.surfaceDefaultTransparentSecondary,
+                activated = SddsServTheme.colors.surfaceDefaultTransparentSecondary,
                 pressed = SddsServTheme.colors.surfaceDefaultTransparentSecondary,
             ),
     )
@@ -394,7 +394,7 @@ internal fun TextFieldColorsBuilder.warningColors(): TextFieldColorsBuilder = ap
     valueColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
     captionColor(
         SddsServTheme.colors.textDefaultWarning.asInteractive(
-            focused = SddsServTheme.colors.textDefaultSecondary,
+            activated = SddsServTheme.colors.textDefaultSecondary,
             pressed = SddsServTheme.colors.textDefaultSecondary,
         ),
     )
@@ -403,7 +403,7 @@ internal fun TextFieldColorsBuilder.warningColors(): TextFieldColorsBuilder = ap
     counterColor(SddsServTheme.colors.textDefaultSecondary)
     placeholderColor(
         SddsServTheme.colors.textDefaultSecondary.asInteractive(
-            focused = SddsServTheme.colors.textDefaultTertiary,
+            activated = SddsServTheme.colors.textDefaultTertiary,
             pressed = SddsServTheme.colors.textDefaultTertiary,
         ),
     )
@@ -411,7 +411,7 @@ internal fun TextFieldColorsBuilder.warningColors(): TextFieldColorsBuilder = ap
     backgroundColor(
         SddsServTheme.colors.surfaceDefaultWarning.copy(alpha = surfaceAlpha)
             .asInteractive(
-                focused = SddsServTheme.colors.surfaceDefaultTransparentSecondary,
+                activated = SddsServTheme.colors.surfaceDefaultTransparentSecondary,
                 pressed = SddsServTheme.colors.surfaceDefaultTransparentSecondary,
             ),
     )
@@ -437,7 +437,7 @@ internal fun TextFieldColorsBuilder.errorColors(): TextFieldColorsBuilder = appl
     valueColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
     captionColor(
         SddsServTheme.colors.textDefaultNegative.asInteractive(
-            focused = SddsServTheme.colors.textDefaultSecondary,
+            activated = SddsServTheme.colors.textDefaultSecondary,
             pressed = SddsServTheme.colors.textDefaultSecondary,
         ),
     )
@@ -446,7 +446,7 @@ internal fun TextFieldColorsBuilder.errorColors(): TextFieldColorsBuilder = appl
     counterColor(SddsServTheme.colors.textDefaultSecondary)
     placeholderColor(
         SddsServTheme.colors.textDefaultSecondary.asInteractive(
-            focused = SddsServTheme.colors.textDefaultTertiary,
+            activated = SddsServTheme.colors.textDefaultTertiary,
             pressed = SddsServTheme.colors.textDefaultTertiary,
         ),
     )
@@ -454,7 +454,7 @@ internal fun TextFieldColorsBuilder.errorColors(): TextFieldColorsBuilder = appl
     backgroundColor(
         SddsServTheme.colors.surfaceDefaultNegative.copy(alpha = surfaceAlpha)
             .asInteractive(
-                focused = SddsServTheme.colors.surfaceDefaultTransparentSecondary,
+                activated = SddsServTheme.colors.surfaceDefaultTransparentSecondary,
                 pressed = SddsServTheme.colors.surfaceDefaultTransparentSecondary,
             ),
     )
