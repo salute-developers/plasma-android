@@ -46,8 +46,9 @@ fun Color.asInteractive(
     focused: Color = this,
     hovered: Color = this,
     pressed: Color = this,
+    activated: Color = this,
 ): InteractiveColor {
-    return SimpleInteractiveColor(this, focused, hovered, pressed)
+    return SimpleInteractiveColor(this, focused, hovered, pressed, activated)
 }
 
 /**
@@ -79,6 +80,11 @@ enum class InteractiveState {
      * Состояние цвета при наведении курсором
      */
     Hovered,
+
+    /**
+     * Состояние цвета в активном состоянии
+     */
+    Activated,
 }
 
 @Immutable
@@ -87,6 +93,7 @@ private data class SimpleInteractiveColor(
     val focused: Color = default,
     val hovered: Color = default,
     val pressed: Color = default,
+    val activated: Color = default,
 ) : InteractiveColor {
 
     @Composable
@@ -94,7 +101,9 @@ private data class SimpleInteractiveColor(
         val isPressed by interactionSource.collectIsPressedAsState()
         val isHovered by interactionSource.collectIsHoveredAsState()
         val isFocused by interactionSource.collectIsFocusedAsState()
+        val isActivated by interactionSource.collectIsActivatedAsState()
         return when {
+            isActivated -> activated
             isPressed -> pressed
             isHovered -> hovered
             isFocused -> focused
@@ -119,11 +128,13 @@ private data class ColorStateList(
         val isPressed by interactionSource.collectIsPressedAsState()
         val isHovered by interactionSource.collectIsHoveredAsState()
         val isFocused by interactionSource.collectIsFocusedAsState()
-        val stateSet = remember(isPressed, isFocused, isHovered) {
+        val isActivated by interactionSource.collectIsActivatedAsState()
+        val stateSet = remember(isPressed, isFocused, isHovered, isActivated) {
             HashSet<InteractiveState>().apply {
                 if (isPressed) add(InteractiveState.Pressed)
                 if (isFocused) add(InteractiveState.Focused)
                 if (isHovered) add(InteractiveState.Hovered)
+                if (isActivated) add(InteractiveState.Activated)
             }
         }
         return colorStates[stateSet] ?: default

@@ -3,7 +3,6 @@ package com.sdds.compose.uikit.internal.textfield
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.ScrollState
-import androidx.compose.foundation.focusable
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.interaction.InteractionSource
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -20,7 +19,10 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
@@ -59,6 +61,7 @@ import com.sdds.compose.uikit.TextField.LabelPlacement
 import com.sdds.compose.uikit.TextFieldColors
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.interactions.InteractiveColor
+import com.sdds.compose.uikit.interactions.activatable
 import com.sdds.compose.uikit.internal.common.IndicatorMode
 import com.sdds.compose.uikit.internal.common.drawIndicator
 import com.sdds.compose.uikit.internal.common.enable
@@ -164,11 +167,10 @@ internal fun BaseTextField(
             prefixSuffixTransformation(prefix, suffix, placeholderStyle, placeholderStyle)
         }
     }
-
-    val componentInteractionSource = remember { MutableInteractionSource() }
+    var isComponentFocused by remember { mutableStateOf(false) }
     Layout(
         modifier = modifier
-            .focusable(enabled = enabled, interactionSource = componentInteractionSource)
+            .activatable(enabled, interactionSource) { isComponentFocused = it.isFocused }
             .enable(enabled, enabledAlpha, disabledAlpha)
             .applyIndicatorPadding(
                 fieldType = fieldType,
@@ -202,15 +204,15 @@ internal fun BaseTextField(
                 verticalScrollState?.scrollTo(value = Int.MAX_VALUE)
             }
 
-            val isComponentFocused = componentInteractionSource.collectIsFocusedAsState()
             BasicTextField(
                 value = value,
                 onValueChange = onValueChange,
                 modifier = Modifier
                     .layoutId(FIELD_CONTENT_ID)
-                    .applyFocusSelector(LocalFocusSelectorMode.current, style.shape) {
-                        isComponentFocused.value
-                    }
+                    .applyFocusSelector(
+                        LocalFocusSelectorMode.current,
+                        style.shape,
+                    ) { isComponentFocused }
                     .defaultMinSize(minHeight = dimensions.boxMinHeight)
                     .applyFieldIndicator(
                         fieldType,
