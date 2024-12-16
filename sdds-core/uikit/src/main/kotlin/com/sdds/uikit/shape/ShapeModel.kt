@@ -106,10 +106,15 @@ data class ShapeModel(
                 defStyleAttr,
                 defStyleRes,
             )
-            val adjustment = typedArray.getDimension(R.styleable.SdShape_sd_shapeAppearanceAdjustment, 0f)
+            val adjustment =
+                typedArray.getDimension(R.styleable.SdShape_sd_shapeAppearanceAdjustment, 0f)
             val shapeResId = typedArray.getResourceId(R.styleable.SdShape_sd_shapeAppearance, 0)
+            val baselineOrdinal =
+                typedArray.getInt(R.styleable.SdShape_sd_shapeAppearanceBaseline, 0)
             typedArray.recycle()
-            return create(context, shapeResId).adjust(adjustment)
+            val baseline =
+                CornerSizeBaseline.values().getOrNull(baselineOrdinal) ?: CornerSizeBaseline.AUTO
+            return create(context, shapeResId, baseline).adjust(adjustment)
         }
 
         /**
@@ -120,33 +125,48 @@ data class ShapeModel(
         fun create(
             context: Context,
             @StyleRes shapeAppearanceResId: Int,
+            cornerSizeBaseline: CornerSizeBaseline = CornerSizeBaseline.AUTO,
+
         ): ShapeModel {
-            val typedArray = context.obtainStyledAttributes(shapeAppearanceResId, R.styleable.SdShapeAppearance)
+            val typedArray =
+                context.obtainStyledAttributes(shapeAppearanceResId, R.styleable.SdShapeAppearance)
             val cornerFamily = CornerFamily.values().getOrElse(
                 typedArray.getInt(R.styleable.SdShapeAppearance_sd_cornerFamily, 0),
             ) { CornerFamily.ROUNDED }
             if (cornerFamily != CornerFamily.ROUNDED) {
                 throw IllegalArgumentException("Only ${CornerFamily.ROUNDED} is supported.")
             }
-            val defaultCornerSize = typedArray.getCornerSize(R.styleable.SdShapeAppearance_sd_cornerSize)
+            val defaultCornerSize = typedArray.getCornerSize(
+                R.styleable.SdShapeAppearance_sd_cornerSize,
+                cornerSizeBaseline,
+            )
             val cornerSizeTopLeft = typedArray.getCornerSize(
                 R.styleable.SdShapeAppearance_sd_cornerSizeTopLeft,
+                cornerSizeBaseline,
                 defaultCornerSize,
             )
             val cornerSizeTopRight = typedArray.getCornerSize(
                 R.styleable.SdShapeAppearance_sd_cornerSizeTopRight,
+                cornerSizeBaseline,
                 defaultCornerSize,
             )
             val cornerSizeBottomRight = typedArray.getCornerSize(
                 R.styleable.SdShapeAppearance_sd_cornerSizeBottomRight,
+                cornerSizeBaseline,
                 defaultCornerSize,
             )
             val cornerSizeBottomLeft = typedArray.getCornerSize(
                 R.styleable.SdShapeAppearance_sd_cornerSizeBottomLeft,
+                cornerSizeBaseline,
                 defaultCornerSize,
             )
             typedArray.recycle()
-            return ShapeModel(cornerSizeTopLeft, cornerSizeTopRight, cornerSizeBottomRight, cornerSizeBottomLeft)
+            return ShapeModel(
+                cornerSizeTopLeft,
+                cornerSizeTopRight,
+                cornerSizeBottomRight,
+                cornerSizeBottomLeft,
+            )
         }
     }
 }

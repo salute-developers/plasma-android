@@ -19,6 +19,8 @@
     <string name="menu_radiobox">RadioBox</string>
     <string name="menu_radiobox_group">RadioBoxGroup</string>
     <string name="menu_progressbar">ProgressBar</string>
+    <string name="menu_segment">Segment</string>
+    <string name="menu_segment_item">SegmentItem</string>
     <string name="menu_switch">Switch</string>
     <string name="menu_textfield">TextField</string>
     <string name="menu_textarea">TextArea</string>

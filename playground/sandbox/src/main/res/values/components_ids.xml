@@ -14,4 +14,6 @@
     <item type="id" name="textField"/>
     <item type="id" name="avatar"/>
     <item type="id" name="avatar_group"/>
+    <item type="id" name="segment"/>
+    <item type="id" name="segment_item"/>
 </resources>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Sd_service.PlasmaSdService.Typography"/>
+    <!--typography s display-l-->
+    <style name="Sd_service.PlasmaSdService.Typography.DisplayLNormal">
+        <item name="android:textAppearance">@style/Sd_service.PlasmaSdService.TextAppearance.DisplayLNormal</item>
+    </style>
+    <!--typography s display-l-bold-->
+    <style name="Sd_service.PlasmaSdService.Typography.DisplayLBold">
+        <item name="android:textAppearance">@style/Sd_service.PlasmaSdService.TextAppearance.DisplayLBold</item>
+    </style>
+    <!--typography s display-m-->
+    <style name="Sd_service.PlasmaSdService.Typography.DisplayMNormal">
+        <item name="android:textAppearance">@style/Sd_service.PlasmaSdService.TextAppearance.DisplayMNormal</item>
+    </style>
+    <!--typography s display-m-bold-->
+    <style name="Sd_service.PlasmaSdService.Typography.DisplayMBold">
+        <item name="android:textAppearance">@style/Sd_service.PlasmaSdService.TextAppearance.DisplayMBold</item>
+    </style>
+    <!--typography s display-s-->
+    <style name="Sd_service.PlasmaSdService.Typography.DisplaySNormal">
+        <item name="android:textAppearance">@style/Sd_service.PlasmaSdService.TextAppearance.DisplaySNormal</item>
+    </style>
+    <!--typography s display-s-bold-->
+    <style name="Sd_service.PlasmaSdService.Typography.DisplaySBold">
+        <item name="android:textAppearance">@style/Sd_service.PlasmaSdService.TextAppearance.DisplaySBold</item>
+    </style>
+    <!--typography s header-h1-->
+    <style name="Sd_service.PlasmaSdService.Typography.HeaderH1Normal">
+        <item name="android:textAppearance">@style/Sd_service.PlasmaSdService.TextAppearance.HeaderH1Normal</item>
+    </style>
+    <!--typography s header-h1-bold-->
+    <style name="Sd_service.PlasmaSdService.Typography.HeaderH1Bold">
+        <item name="android:textAppearance">@style/Sd_service.PlasmaSdService.TextAppearance.HeaderH1Bold</item>
+    </style>
+    <!--typography s header-h2-->
+    <style name="Sd_service.PlasmaSdService.Typography.HeaderH2Normal">
+        <item name="android:textAppearance">@style/Sd_service.PlasmaSdService.TextAppearance.HeaderH2Normal</item>
+    </style>
+    <!--typography s header-h2-bold-->
+    <style name="Sd_service.PlasmaSdService.Typography.HeaderH2Bold">
+        <item name="android:textAppearance">@style/Sd_service.PlasmaSdService.TextAppearance.HeaderH2Bold</item>
+    </style>
+    <!--typography s header-h3-->
+    <style name="Sd_service.PlasmaSdService.Typography.HeaderH3Normal">
+        <item name="android:textAppearance">@style/Sd_service.PlasmaSdService.TextAppearance.HeaderH3Normal</item>
+    </style>
+    <!--typography s header-h3-bold-->
+    <style name="Sd_service.PlasmaSdService.Typography.HeaderH3Bold">
+        <item name="android:textAppearance">@style/Sd_service.PlasmaSdService.TextAppearance.HeaderH3Bold</item>
+    </style>
+    <!--typography s header-h4-->
+    <style name="Sd_service.PlasmaSdService.Typography.HeaderH4Normal">
+        <item name="android:textAppearance">@style/Sd_service.PlasmaSdService.TextAppearance.HeaderH4Normal</item>
+    </style>
+    <!--typography s header-h4-bold-->
+    <style name="Sd_service.PlasmaSdService.Typography.HeaderH4Bold">
+        <item name="android:textAppearance">@style/Sd_service.PlasmaSdService.TextAppearance.HeaderH4Bold</item>
+    </style>
+    <!--typography s header-h5-->
+    <style name="Sd_service.PlasmaSdService.Typography.HeaderH5Normal">
+        <item name="android:textAppearance">@style/Sd_service.PlasmaSdService.TextAppearance.HeaderH5Normal</item>
+    </style>
+    <!--typography s header-h5-bold-->
+    <style name="Sd_service.PlasmaSdService.Typography.HeaderH5Bold">
+        <item name="android:textAppearance">@style/Sd_service.PlasmaSdService.TextAppearance.HeaderH5Bold</item>
+    </style>
+    <!--typography s body-l-->
+    <style name="Sd_service.PlasmaSdService.Typography.BodyLNormal">
+        <item name="android:textAppearance">@style/Sd_service.PlasmaSdService.TextAppearance.BodyLNormal</item>
+    </style>
+    <!--typography s body-l-bold-->
+    <style name="Sd_service.PlasmaSdService.Typography.BodyLBold">
+        <item name="android:textAppearance">@style/Sd_service.PlasmaSdService.TextAppearance.BodyLBold</item>
+    </style>
+    <!--typography s body-m-->
+    <style name="Sd_service.PlasmaSdService.Typography.BodyMNormal">
+        <item name="android:textAppearance">@style/Sd_service.PlasmaSdService.TextAppearance.BodyMNormal</item>
+    </style>
+    <!--typography s body-m-bold-->
+    <style name="Sd_service.PlasmaSdService.Typography.BodyMBold">
+        <item name="android:textAppearance">@style/Sd_service.PlasmaSdService.TextAppearance.BodyMBold</item>
+    </style>
+    <!--typography s body-s-->
+    <style name="Sd_service.PlasmaSdService.Typography.BodySNormal">
+        <item name="android:textAppearance">@style/Sd_service.PlasmaSdService.TextAppearance.BodySNormal</item>
+    </style>
+    <!--typography s body-s-bold-->
+    <style name="Sd_service.PlasmaSdService.Typography.BodySBold">
+        <item name="android:textAppearance">@style/Sd_service.PlasmaSdService.TextAppearance.BodySBold</item>
+    </style>
+    <!--typography s body-xs-->
+    <style name="Sd_service.PlasmaSdService.Typography.BodyXsNormal">
+        <item name="android:textAppearance">@style/Sd_service.PlasmaSdService.TextAppearance.BodyXsNormal</item>
+    </style>
+    <!--typography s body-xs-bold-->
+    <style name="Sd_service.PlasmaSdService.Typography.BodyXsBold">
+        <item name="android:textAppearance">@style/Sd_service.PlasmaSdService.TextAppearance.BodyXsBold</item>
+    </style>
+    <!--typography s body-xxs-->
+    <style name="Sd_service.PlasmaSdService.Typography.BodyXxsNormal">
+        <item name="android:textAppearance">@style/Sd_service.PlasmaSdService.TextAppearance.BodyXxsNormal</item>
+    </style>
+    <!--typography s body-xxs-bold-->
+    <style name="Sd_service.PlasmaSdService.Typography.BodyXxsBold">
+        <item name="android:textAppearance">@style/Sd_service.PlasmaSdService.TextAppearance.BodyXxsBold</item>
+    </style>
+    <!--typography s text-l-->
+    <style name="Sd_service.PlasmaSdService.Typography.TextLNormal">
+        <item name="android:textAppearance">@style/Sd_service.PlasmaSdService.TextAppearance.TextLNormal</item>
+    </style>
+    <!--typography s text-l-bold-->
+    <style name="Sd_service.PlasmaSdService.Typography.TextLBold">
+        <item name="android:textAppearance">@style/Sd_service.PlasmaSdService.TextAppearance.TextLBold</item>
+    </style>
+    <!--typography s text-m-->
+    <style name="Sd_service.PlasmaSdService.Typography.TextMNormal">
+        <item name="android:textAppearance">@style/Sd_service.PlasmaSdService.TextAppearance.TextMNormal</item>
+    </style>
+    <!--typography s text-m-bold-->
+    <style name="Sd_service.PlasmaSdService.Typography.TextMBold">
+        <item name="android:textAppearance">@style/Sd_service.PlasmaSdService.TextAppearance.TextMBold</item>
+    </style>
+    <!--typography s text-s-->
+    <style name="Sd_service.PlasmaSdService.Typography.TextSNormal">
+        <item name="android:textAppearance">@style/Sd_service.PlasmaSdService.TextAppearance.TextSNormal</item>
+    </style>
+    <!--typography s text-s-bold-->
+    <style name="Sd_service.PlasmaSdService.Typography.TextSBold">
+        <item name="android:textAppearance">@style/Sd_service.PlasmaSdService.TextAppearance.TextSBold</item>
+    </style>
+    <!--typography s text-xs-->
+    <style name="Sd_service.PlasmaSdService.Typography.TextXsNormal">
+        <item name="android:textAppearance">@style/Sd_service.PlasmaSdService.TextAppearance.TextXsNormal</item>
+    </style>
+    <!--typography s text-xs-bold-->
+    <style name="Sd_service.PlasmaSdService.Typography.TextXsBold">
+        <item name="android:textAppearance">@style/Sd_service.PlasmaSdService.TextAppearance.TextXsBold</item>
+    </style>
+</resources>
