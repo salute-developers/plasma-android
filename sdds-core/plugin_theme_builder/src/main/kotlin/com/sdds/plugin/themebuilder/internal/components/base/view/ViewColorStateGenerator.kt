@@ -83,6 +83,14 @@ internal class ViewColorStateGenerator(
         ).also { colorStateAttributes.add(it) }
     }
 
+    /**
+     * Возвращает ColorState по названию
+     */
+    fun getColorStateAttribute(name: String): ColorStateAttribute? {
+        val normalizedName = name.toLowerCase(Locale.getDefault())
+        return colorStateAttributes.find { it.name == normalizedName }
+    }
+
     override fun generate() {
         if (colorStateAttributes.isEmpty()) return
         createColorStateAttrsSet()

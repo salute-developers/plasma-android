@@ -3,6 +3,9 @@ package com.sdds.plugin.themebuilder.internal.components.base.view
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
 import com.sdds.plugin.themebuilder.internal.components.ComponentStyleGenerator
+import com.sdds.plugin.themebuilder.internal.components.base.Color
+import com.sdds.plugin.themebuilder.internal.components.base.PropertyOwner
+import com.sdds.plugin.themebuilder.internal.components.base.view.AndroidState.Companion.asAndroidStates
 import com.sdds.plugin.themebuilder.internal.dimens.DimenData
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.ColorStateListGeneratorFactory
@@ -17,6 +20,7 @@ import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 import com.sdds.plugin.themebuilder.internal.utils.camelToSnakeCase
 import com.sdds.plugin.themebuilder.internal.utils.capitalized
 import com.sdds.plugin.themebuilder.internal.utils.techToCamelCase
+import com.sdds.plugin.themebuilder.internal.utils.techToSnakeCase
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import org.w3c.dom.Element
 import java.io.File
@@ -47,13 +51,13 @@ internal abstract class ViewComponentStyleGenerator<T : ComponentConfig>(
     private val colorStateAttributesGenerator by unsafeLazy {
         viewColorStateGeneratorFactory.create(coreComponentName)
     }
-    private val stateListGenerators = mutableMapOf<ColorProperty, ColorStateListGenerator?>()
+    private val stateListGenerators = mutableMapOf<String?, MutableMap<ColorProperty, ColorStateListGenerator?>>()
 
     override fun generate(config: T) {
         onGenerate(xmlResourceBuilder, config)
         colorStateAttributesGenerator.generate()
         xmlResourceBuilder.build(outputResDir.componentStyleXmlFile(styleComponentName))
-        stateListGenerators.forEach { it.value?.generate() }
+        stateListGenerators.values.flatMap { it.values }.forEach { it?.generate() }
     }
 
     abstract fun onGenerate(xmlResourcesBuilder: XmlResourcesDocumentBuilder, config: T)
@@ -67,12 +71,22 @@ internal abstract class ViewComponentStyleGenerator<T : ComponentConfig>(
     }
 
     /**
+     * Возвращает ColorState с названием [name]
+     * @param name название ColorState, а также вариации цвета
+     */
+    protected open fun getColorState(name: String): ColorStateAttribute? {
+        return colorStateAttributesGenerator.getColorStateAttribute(name)
+    }
+
+    /**
      * Добавляет базовый стиль компонента с контентом [content].
      */
     protected fun XmlResourcesDocumentBuilder.baseStyle(content: Element.() -> Unit = {}) {
         appendStyleWithCompositePrefix(baseStyleName, componentParent) {
-            stateListGenerators.forEach { (property, _) ->
-                colorAttribute(property.attribute, property.colorFileName())
+            stateListGenerators.forEach { (variationName, stateLists) ->
+                stateLists.forEach { (property, _) ->
+                    colorAttribute(property.attribute, property.colorFileName(variationName))
+                }
             }
             colorStateAttributesGenerator.colorStateProviderInfo.run {
                 valueAttribute(colorStateViewAttr, classCanonicalName)
@@ -226,6 +240,14 @@ internal abstract class ViewComponentStyleGenerator<T : ComponentConfig>(
     }
 
     /**
+     * Добавляет атрибут типа color со значением @color/[colorName]
+     */
+    protected fun Element.colorAttribute(
+        colorProperty: ColorProperty,
+        variation: String? = null,
+    ) = colorAttribute(colorProperty.attribute, colorProperty.colorFileName(variation))
+
+    /**
      * Добавляет атрибут типа dimen
      */
     protected fun Element.dimenAttribute(
@@ -235,7 +257,8 @@ internal abstract class ViewComponentStyleGenerator<T : ComponentConfig>(
         value: Float,
     ) = with(xmlResourceBuilder) {
         val dimen = DimenData(
-            name = "${dimenPrefix}_${variation}_$dimenName",
+            name = listOfNotNull(dimenPrefix, variation.takeIf { it.isNotBlank() }, dimenName)
+                .joinToString("_"),
             value = value,
             type = DimenData.Type.DP,
         )
@@ -255,18 +278,68 @@ internal abstract class ViewComponentStyleGenerator<T : ComponentConfig>(
         property: ColorProperty,
         block: ColorStateListGenerator.() -> Unit,
     ) {
-        val generator = stateListGenerators[property] ?: colorStateListGeneratorFactory.create(
+        addToStateList(null, property, block)
+    }
+
+    /**
+     * Добавляет атрибут типа color со значением вида ?prefix_attrName, где attrName - это преобразованный
+     * [tokenName]
+     */
+    protected fun addToStateList(
+        property: ColorProperty,
+        color: Color,
+        variation: String? = null,
+        colorStateName: String? = null,
+        extraAttrs: Set<StateListAttribute> = emptySet(),
+    ) {
+        val colorStateAttr = colorStateName?.let {
+            getColorState(it) ?: registerColorState(it)
+        }?.toStateListAttribute()
+        val stateAttrs = if (colorStateAttr != null) {
+            extraAttrs + colorStateAttr
+        } else {
+            extraAttrs
+        }
+        addToStateList(variation, property) {
+            color.states?.forEach { colorState ->
+                val androidStateAttrs = colorState.state.asAndroidStates()
+                    .map { it.toStateListAttribute() }
+                addColor(colorState.value, stateAttrs + androidStateAttrs)
+            }
+            addColor(color.default, stateAttrs)
+        }
+    }
+
+    private fun addToStateList(
+        variationName: String?,
+        property: ColorProperty,
+        block: ColorStateListGenerator.() -> Unit,
+    ) {
+        val variationStateLists = stateListGenerators[variationName]
+            ?: mutableMapOf<ColorProperty, ColorStateListGenerator?>().also {
+                stateListGenerators[variationName] = it
+            }
+        val generator = variationStateLists[property] ?: colorStateListGeneratorFactory.create(
             outputResDir.colorXmlFile(
-                fileName = property.colorFileName(),
+                fileName = property.colorFileName(variationName?.techToSnakeCase()),
                 prefix = resourcePrefix,
             ),
-        ).also { stateListGenerators[property] = it }
+        ).also { variationStateLists[property] = it }
 
         generator.block()
     }
 
-    private fun ColorProperty.colorFileName(): String =
-        "${snakeCaseStyleComponentName}_$colorFileSuffix"
+    private fun ColorProperty.colorFileName(variationSuffix: String? = null): String = buildString {
+        append(snakeCaseStyleComponentName)
+        if (!variationSuffix.isNullOrBlank()) {
+            append("_")
+            append(variationSuffix)
+        }
+        if (colorFileSuffix.isNotBlank()) {
+            append("_")
+            append(colorFileSuffix)
+        }
+    }
 }
 
 /**
@@ -275,4 +348,15 @@ internal abstract class ViewComponentStyleGenerator<T : ComponentConfig>(
 internal interface ColorProperty {
     val attribute: String
     val colorFileSuffix: String
+}
+
+/**
+ * Свойство цвета компонента с возможностью получить ссылку на него из [PropertyOwner]
+ */
+internal interface ProvidableColorProperty<T : PropertyOwner> : ColorProperty {
+
+    /**
+     * Возвращает [Color] для [ProvidableColorProperty] из [PropertyOwner]
+     */
+    fun provide(owner: T): Color?
 }
