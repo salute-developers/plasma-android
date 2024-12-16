@@ -7,6 +7,7 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.State
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -84,21 +85,13 @@ fun Modifier.activatable(
     var isActivated by remember { mutableStateOf(false) }
     DisposableEffect(interactionSource) {
         onDispose {
-            activateInteraction.value?.let { oldValue ->
-                val interaction = ActivateInteraction.Deactivate(oldValue)
-                interactionSource?.tryEmit(interaction)
-                activateInteraction.value = null
-            }
+            activateInteraction.tryDeactivate(interactionSource)
         }
     }
     DisposableEffect(enabled) {
         if (!enabled) {
             scope.launch {
-                activateInteraction.value?.let { oldValue ->
-                    val interaction = ActivateInteraction.Deactivate(oldValue)
-                    interactionSource?.emit(interaction)
-                    activateInteraction.value = null
-                }
+                activateInteraction.deactivate(interactionSource)
             }
         }
         onDispose { }
@@ -110,22 +103,12 @@ fun Modifier.activatable(
             onFocusChanged.invoke(it)
             if (isActivated) {
                 scope.launch {
-                    activateInteraction.value?.let { oldValue ->
-                        val interaction = ActivateInteraction.Deactivate(oldValue)
-                        interactionSource?.emit(interaction)
-                        activateInteraction.value = null
-                    }
-                    val interaction = ActivateInteraction.Activate()
-                    interactionSource?.emit(interaction)
-                    activateInteraction.value = interaction
+                    activateInteraction.deactivate(interactionSource)
+                    activateInteraction.activate(interactionSource)
                 }
             } else {
                 scope.launch {
-                    activateInteraction.value?.let { oldValue ->
-                        val interaction = ActivateInteraction.Deactivate(oldValue)
-                        interactionSource?.emit(interaction)
-                        activateInteraction.value = null
-                    }
+                    activateInteraction.deactivate(interactionSource)
                 }
             }
         }
@@ -133,4 +116,32 @@ fun Modifier.activatable(
         this
     }
         .focusable(enabled, interactionSource)
+}
+
+private fun MutableState<ActivateInteraction.Activate?>.tryDeactivate(
+    interactionSource: MutableInteractionSource?,
+) {
+    value?.let { oldValue ->
+        val interaction = ActivateInteraction.Deactivate(oldValue)
+        interactionSource?.tryEmit(interaction)
+        value = null
+    }
+}
+
+private suspend fun MutableState<ActivateInteraction.Activate?>.deactivate(
+    interactionSource: MutableInteractionSource?,
+) {
+    value?.let { oldValue ->
+        val interaction = ActivateInteraction.Deactivate(oldValue)
+        interactionSource?.emit(interaction)
+        value = null
+    }
+}
+
+private suspend fun MutableState<ActivateInteraction.Activate?>.activate(
+    interactionSource: MutableInteractionSource?,
+) {
+    val interaction = ActivateInteraction.Activate()
+    interactionSource?.emit(interaction)
+    value = interaction
 }
