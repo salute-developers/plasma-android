@@ -4,11 +4,12 @@ import android.content.Context
 import android.graphics.Rect
 import android.util.AttributeSet
 import com.sdds.uikit.internal.base.isClippedToOutline
+import com.sdds.uikit.internal.base.shape.ShapeHelper
 import com.sdds.uikit.internal.focusselector.FocusSelectorDelegate
 import com.sdds.uikit.internal.focusselector.HasFocusSelector
 import com.sdds.uikit.shape.ShapeModel
 import com.sdds.uikit.shape.Shapeable
-import com.sdds.uikit.shape.shapeable
+import com.sdds.uikit.shape.shapeHelper
 import android.widget.LinearLayout as AndroidLinearLayout
 
 /**
@@ -32,7 +33,7 @@ open class LinearLayout @JvmOverloads constructor(
     Shapeable,
     HasFocusSelector by FocusSelectorDelegate() {
 
-    private val _shapeable: Shapeable = shapeable(attrs, defStyleAttr, defStyleRes)
+    private val _shapeable: ShapeHelper = shapeHelper(attrs, defStyleAttr, defStyleRes)
 
     /**
      * @see Shapeable.shape

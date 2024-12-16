@@ -1156,6 +1156,8 @@
         <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.M</item>
         <item name="sd_chipGroupStyle">@style/Serv.Sdds.Components.ChipGroup.Wide</item>
         <item name="sd_cellStyle">@style/Serv.Sdds.Components.Cell.M</item>
+        <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.M</item>
+        <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.M</item>
     </style>
     <style name="Serv.Sdds.MaterialComponents.Light" parent="Theme.MaterialComponents.Light">
         <!--Light colors-->
@@ -2311,6 +2313,8 @@
         <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.M</item>
         <item name="sd_chipGroupStyle">@style/Serv.Sdds.Components.ChipGroup.Wide</item>
         <item name="sd_cellStyle">@style/Serv.Sdds.Components.Cell.M</item>
+        <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.M</item>
+        <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.M</item>
     </style>
     <style name="Serv.Sdds.MaterialComponents.DayNight" parent="Serv.Sdds.MaterialComponents.Light"/>
     <style name="Serv.Sdds"/>

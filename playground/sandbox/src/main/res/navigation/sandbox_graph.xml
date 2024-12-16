@@ -78,6 +78,18 @@
         tools:layout="@layout/fragment_component_scaffold" />
 
     <fragment
+        android:id="@+id/nav_segment"
+        android:name="com.sdds.playground.sandbox.segment.group.SegmentFragment"
+        android:label="@string/menu_segment"
+        tools:layout="@layout/fragment_component_scaffold" />
+
+    <fragment
+        android:id="@+id/nav_segment_item"
+        android:name="com.sdds.playground.sandbox.segment.SegmentItemFragment"
+        android:label="@string/menu_segment_item"
+        tools:layout="@layout/fragment_component_scaffold" />
+
+    <fragment
         android:id="@+id/nav_switch"
         android:name="com.sdds.playground.sandbox.switcher.SwitchFragment"
         android:label="@string/menu_switch"
