@@ -1,6 +1,6 @@
 package com.sdds.playground.sandbox.compose
 
-import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performTextInput
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
@@ -113,8 +113,9 @@ class ComposeTextFieldScreenshotTest(
         composeTestRule.setContent {
             SandboxTextFieldPreviewSWarningInnerLabelRightFocused()
         }
-        composeTestRule.onNodeWithText("Placeholder")
+        composeTestRule.onNodeWithTag("textField")
             .performClick()
+        composeTestRule.onNodeWithTag("innerTextField")
             .performTextInput("Value")
     }
 
@@ -137,8 +138,9 @@ class ComposeTextFieldScreenshotTest(
         composeTestRule.setContent {
             SandboxTextFieldPreviewLInputText()
         }
-        composeTestRule.onNodeWithText("Placeholder")
+        composeTestRule.onNodeWithTag("textField")
             .performClick()
+        composeTestRule.onNodeWithTag("innerTextField")
             .performTextInput("абвгдежзabcdefg@#643!#\$")
     }
 

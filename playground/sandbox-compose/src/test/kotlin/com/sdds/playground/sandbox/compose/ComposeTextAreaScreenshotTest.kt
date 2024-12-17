@@ -1,6 +1,6 @@
 package com.sdds.playground.sandbox.compose
 
-import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.performClick
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.sdds.playground.sandbox.textfield.compose.SandboxTextAreaPreviewLDefaultInnerLeft
@@ -109,8 +109,9 @@ class ComposeTextAreaScreenshotTest(
         composeTestRule.setContent {
             SandboxTextAreaPreviewSWarningInnerRightFocused()
         }
-        composeTestRule.onNodeWithText("Placeholder")
+        composeTestRule.onNodeWithTag("textField")
             .performClick()
+        composeTestRule.mainClock.advanceTimeByFrame()
     }
 
     @Test

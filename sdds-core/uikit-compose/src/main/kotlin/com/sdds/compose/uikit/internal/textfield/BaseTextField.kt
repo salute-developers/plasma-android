@@ -3,6 +3,7 @@ package com.sdds.compose.uikit.internal.textfield
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.ScrollState
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.interaction.InteractionSource
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -28,7 +29,9 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusProperties
+import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
@@ -40,6 +43,7 @@ import androidx.compose.ui.layout.MeasurePolicy
 import androidx.compose.ui.layout.MeasureResult
 import androidx.compose.ui.layout.MeasureScope
 import androidx.compose.ui.layout.layoutId
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
@@ -170,6 +174,7 @@ internal fun BaseTextField(
     var isComponentFocused by remember { mutableStateOf(false) }
     Layout(
         modifier = modifier
+            .testTag("textField")
             .activatable(enabled, interactionSource) { isComponentFocused = it.isFocused }
             .enable(enabled, enabledAlpha, disabledAlpha)
             .applyIndicatorPadding(
@@ -203,12 +208,17 @@ internal fun BaseTextField(
                 horizontalScrollState?.scrollTo(value = Int.MAX_VALUE)
                 verticalScrollState?.scrollTo(value = Int.MAX_VALUE)
             }
-
-            BasicTextField(
-                value = value,
-                onValueChange = onValueChange,
+            val isFocused = interactionSource.collectIsFocusedAsState().value
+            val fieldFocusRequester = remember { FocusRequester() }
+            DecorationBox(
                 modifier = Modifier
                     .layoutId(FIELD_CONTENT_ID)
+                    .focusProperties { canFocus = false }
+                    .clickable(
+                        interactionSource = interactionSource,
+                        indication = null,
+                        enabled = enabled,
+                    ) { fieldFocusRequester.requestFocus() }
                     .applyFocusSelector(
                         LocalFocusSelectorMode.current,
                         style.shape,
@@ -234,63 +244,67 @@ internal fun BaseTextField(
                         dividerThickness = dimensions.dividerThickness,
                     )
                     .applyVerticalScrollBar(verticalScrollState, scrollBar),
-                enabled = enabled,
-                readOnly = readOnly,
-                textStyle = valueStyle,
-                keyboardOptions = keyboardOptions,
-                keyboardActions = keyboardActions,
-                singleLine = singleLine,
+                value = value.text,
+                innerTextField = {
+                    BasicTextField(
+                        modifier = Modifier
+                            .focusRequester(fieldFocusRequester)
+                            .testTag("innerTextField"),
+                        value = value,
+                        onValueChange = onValueChange,
+                        enabled = enabled,
+                        readOnly = readOnly,
+                        textStyle = valueStyle,
+                        keyboardOptions = keyboardOptions,
+                        keyboardActions = keyboardActions,
+                        singleLine = singleLine,
+                        visualTransformation = innerVisualTransformation,
+                        interactionSource = interactionSource,
+                        cursorBrush = SolidColor(colors.cursorColor),
+                    )
+                },
                 visualTransformation = innerVisualTransformation,
                 interactionSource = interactionSource,
-                cursorBrush = SolidColor(colors.cursorColor),
-            ) {
-                val isFocused = interactionSource.collectIsFocusedAsState().value
-                DecorationBox(
-                    value = value.text,
-                    innerTextField = it,
-                    visualTransformation = innerVisualTransformation,
-                    interactionSource = interactionSource,
-                    innerLabel = innerLabel(
-                        label = finalLabelText,
-                        labelPlacement = labelPlacement,
-                        isFocused = isFocused,
-                        value = value,
-                        placeHolderStyle = placeholderStyle,
-                        innerLabelStyle = labelStyle,
-                        hasChips = chipsContent != null,
-                    ),
-                    innerOptional = innerOptional(
-                        labelPlacement = labelPlacement,
-                        fieldType = fieldType,
-                        optionalText = finalOptionalText,
-                        isFocused = isFocused,
-                        value = value,
-                        placeHolderStyle = placeholderStyle,
-                        innerOptionalStyle = optionalStyle,
-                        hasChips = chipsContent != null,
-                    ),
-                    placeholder = placeholder(placeholderText, placeholderStyle),
-                    leadingIcon = leadingIcon(
-                        startContent,
-                        colors
-                            .startContentColor
-                            .colorForInteraction(interactionSource),
-                    ),
-                    trailingIcon = endContent,
-                    innerCaption = innerCaption(helperTextPlacement, captionText, captionStyle),
-                    innerCounter = innerCounter(helperTextPlacement, counterText, counterStyle),
-                    animation = animation,
-                    chips = chipsContent,
-                    chipGroupStyle = style.chipGroupStyle,
-                    dimensions = dimensions,
-                    verticalScrollState = verticalScrollState,
-                    horizontalScrollState = horizontalScrollState,
-                    singleLine = singleLine,
-                    isClearAppearance = fieldAppearance == FieldAppearance.Clear,
-                    valueTextStyle = valueStyle,
-                    innerLabelTextStyle = labelStyle,
-                )
-            }
+                innerLabel = innerLabel(
+                    label = finalLabelText,
+                    labelPlacement = labelPlacement,
+                    isFocused = isFocused,
+                    value = value,
+                    placeHolderStyle = placeholderStyle,
+                    innerLabelStyle = labelStyle,
+                    hasChips = chipsContent != null,
+                ),
+                innerOptional = innerOptional(
+                    labelPlacement = labelPlacement,
+                    fieldType = fieldType,
+                    optionalText = finalOptionalText,
+                    isFocused = isFocused,
+                    value = value,
+                    placeHolderStyle = placeholderStyle,
+                    innerOptionalStyle = optionalStyle,
+                    hasChips = chipsContent != null,
+                ),
+                placeholder = placeholder(placeholderText, placeholderStyle),
+                leadingIcon = leadingIcon(
+                    startContent,
+                    colors
+                        .startContentColor
+                        .colorForInteraction(interactionSource),
+                ),
+                trailingIcon = endContent,
+                innerCaption = innerCaption(helperTextPlacement, captionText, captionStyle),
+                innerCounter = innerCounter(helperTextPlacement, counterText, counterStyle),
+                animation = animation,
+                chips = chipsContent,
+                chipGroupStyle = style.chipGroupStyle,
+                dimensions = dimensions,
+                verticalScrollState = verticalScrollState,
+                horizontalScrollState = horizontalScrollState,
+                singleLine = singleLine,
+                isClearAppearance = fieldAppearance == FieldAppearance.Clear,
+                valueTextStyle = valueStyle,
+                innerLabelTextStyle = labelStyle,
+            )
             OuterBottomText(
                 modifier = Modifier
                     .layoutId(CAPTION_CONTENT_ID)
