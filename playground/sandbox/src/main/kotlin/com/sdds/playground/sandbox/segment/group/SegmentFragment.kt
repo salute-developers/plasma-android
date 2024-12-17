@@ -117,6 +117,7 @@ private class SegmentAdapter : Segment.Adapter() {
             text = _state.segmentItemLabel
             value = _state.segmentItemValue
             isEnabled = _state.enabled
+            id = position
             if (_state.icon != SegmentItemIcon.No) {
                 setIconResource(_state.icon.iconId)
             } else {
