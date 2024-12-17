@@ -17,6 +17,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -43,6 +44,8 @@ import androidx.compose.ui.unit.offset
 import com.sdds.compose.uikit.ChipGroup
 import com.sdds.compose.uikit.ChipGroupStyle
 import com.sdds.compose.uikit.TextField
+import com.sdds.compose.uikit.internal.focusselector.FocusSelectorMode
+import com.sdds.compose.uikit.internal.focusselector.LocalFocusSelectorMode
 import com.sdds.compose.uikit.internal.heightOrZero
 import com.sdds.compose.uikit.internal.widthOrZero
 import kotlin.math.abs
@@ -257,24 +260,36 @@ private fun CompositeTextFieldContent(
             textField()
         }
     }
-    if (!singleLine) {
-        TextAreaContent(
-            modifier = modifier,
-            textContent = textContent,
-            chips = chips,
-            chipStyle = chipStyle,
-            dimensions = dimensions,
-            scrollState = verticalScrollState,
-        )
-    } else {
-        TextFieldContent(
-            modifier = modifier,
-            textContent = textContent,
-            chips = chips,
-            chipStyle = chipStyle,
-            dimensions = dimensions,
-            scrollState = horizontalScrollState,
-        )
+    CompositionLocalProvider(
+        // Принудительно уменьшаем бордер, чтобы он был в границах чипов
+        LocalFocusSelectorMode provides LocalFocusSelectorMode.current.reduceBorderPadding(),
+    ) {
+        if (!singleLine) {
+            TextAreaContent(
+                modifier = modifier,
+                textContent = textContent,
+                chips = chips,
+                chipStyle = chipStyle,
+                dimensions = dimensions,
+                scrollState = verticalScrollState,
+            )
+        } else {
+            TextFieldContent(
+                modifier = modifier,
+                textContent = textContent,
+                chips = chips,
+                chipStyle = chipStyle,
+                dimensions = dimensions,
+                scrollState = horizontalScrollState,
+            )
+        }
+    }
+}
+
+private fun FocusSelectorMode.reduceBorderPadding(): FocusSelectorMode {
+    return when (this) {
+        is FocusSelectorMode.Border -> copy(strokePadding = -borderStroke.width)
+        else -> this
     }
 }
 
