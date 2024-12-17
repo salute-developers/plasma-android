@@ -14,8 +14,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.semantics.error
-import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.VisualTransformation
@@ -27,10 +25,10 @@ import com.sdds.compose.uikit.TextField
  */
 @Composable
 internal fun DecorationBox(
+    modifier: Modifier,
     value: String,
     singleLine: Boolean,
     isClearAppearance: Boolean,
-    isError: Boolean = false,
     innerLabel: @Composable (() -> Unit)?,
     innerOptional: @Composable (() -> Unit)?,
     chips: @Composable (() -> Unit)? = null,
@@ -61,9 +59,6 @@ internal fun DecorationBox(
         else -> InputPhase.UnfocusedNotEmpty
     }
 
-    val decorationBoxModifier = Modifier
-        .semantics { if (isError) error("") }
-
     TextFieldTransitionScope.Transition(
         inputState = inputState,
         showLabel = innerLabel != null || innerOptional != null,
@@ -82,7 +77,7 @@ internal fun DecorationBox(
         }
 
         TextFieldLayout(
-            modifier = decorationBoxModifier,
+            modifier = modifier,
             textField = innerTextField,
             verticalScrollState = verticalScrollState,
             horizontalScrollState = horizontalScrollState,

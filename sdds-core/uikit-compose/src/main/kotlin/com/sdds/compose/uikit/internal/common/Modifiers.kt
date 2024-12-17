@@ -2,6 +2,7 @@ package com.sdds.compose.uikit.internal.common
 
 import androidx.compose.foundation.Indication
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.focusable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.shape.CornerBasedShape
@@ -89,7 +90,7 @@ internal fun Modifier.surface(
     enabled: Boolean = true,
     interactionSource: MutableInteractionSource,
 ): Modifier {
-    val clickableModifier = onClick?.let {
+    val clickableOrFocusableModifier = onClick?.let {
         Modifier.clickable(
             interactionSource = interactionSource,
             indication = indication,
@@ -97,10 +98,10 @@ internal fun Modifier.surface(
             role = role,
             onClick = onClick,
         )
-    } ?: Modifier
+    } ?: Modifier.focusable(enabled, interactionSource)
 
     return clip(shape)
-        .then(clickableModifier)
+        .then(clickableOrFocusableModifier)
         .graphicsLayer { this.alpha = alpha(enabled) }
         .drawBehind {
             drawRect(backgroundColor())
@@ -131,7 +132,7 @@ internal fun Modifier.surface(
     enabled: Boolean = true,
     interactionSource: MutableInteractionSource,
 ): Modifier {
-    val toggleableModifier = onValueChange?.let {
+    val toggleableOrFocusableModifier = onValueChange?.let {
         Modifier.toggleable(
             value = value,
             interactionSource = interactionSource,
@@ -140,10 +141,10 @@ internal fun Modifier.surface(
             role = role,
             onValueChange = onValueChange,
         )
-    } ?: Modifier
+    } ?: Modifier.focusable(enabled, interactionSource)
 
     return clip(shape)
-        .then(toggleableModifier)
+        .then(toggleableOrFocusableModifier)
         .graphicsLayer { this.alpha = alpha(enabled) }
         .drawBehind {
             drawRect(backgroundColor())
