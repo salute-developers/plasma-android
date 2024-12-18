@@ -108,6 +108,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
             basicButtonConfigFile.set(getComponentConfigFile(ComponentConfig.BASIC_BUTTON.fileName))
             iconButtonConfigFile.set(getComponentConfigFile(ComponentConfig.ICON_BUTTON.fileName))
             linkButtonConfigFile.set(getComponentConfigFile(ComponentConfig.LINK_BUTTON.fileName))
+            textFieldConfigFile.set(getComponentConfigFile(ComponentConfig.TEXT_FIELD.fileName))
             outputDirPath.set(extension.outputLocation.getSourcePath())
             outputResDirPath.set(extension.outputLocation.getResourcePath())
             packageName.set(extension.ktPackage ?: DEFAULT_KT_PACKAGE)
@@ -340,6 +341,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
         BASIC_BUTTON("basic_button_config.json", "fetchBasicButtonConfig"),
         ICON_BUTTON("icon_button_config.json", "fetchIconButtonConfig"),
         LINK_BUTTON("link_button_config.json", "fetchLinkButtonConfig"),
+        TEXT_FIELD("text_field_config.json", "fetchTextFieldConfig"),
     }
 
     private companion object {
