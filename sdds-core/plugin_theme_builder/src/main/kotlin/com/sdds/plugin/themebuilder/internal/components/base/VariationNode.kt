@@ -88,11 +88,14 @@ internal class VariationNode<PO : PropertyOwner>(
 internal fun <PO : PropertyOwner> Config<PO>.asVariationTree(rootId: String): VariationNode<PO> {
     val variationsNodeMap = variations.associate { it.id to VariationNode(it.id, it) }
     val root = VariationNode(rootId, this)
-    variations.forEach {
-        if (it.parentId == null) {
-            root.addChild(VariationNode(it.id, it))
-        } else {
-            variationsNodeMap[it.parentId]?.addChild(VariationNode(it.id, it))
+    variations.forEach { variation ->
+        val child = variationsNodeMap[variation.id]
+        child?.let {
+            if (variation.parent == null) {
+                root.addChild(child)
+            } else {
+                variationsNodeMap[variation.parent]?.addChild(child)
+            }
         }
     }
     return root
