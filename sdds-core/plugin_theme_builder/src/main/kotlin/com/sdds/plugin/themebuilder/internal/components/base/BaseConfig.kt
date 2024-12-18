@@ -50,7 +50,7 @@ internal interface BaseVariation<PO : PropertyOwner> : ViewVariation<PO> {
  */
 internal interface ChildVariation<PO : PropertyOwner> : BaseVariation<PO> {
     val id: String
-    val parentId: String?
+    val parent: String?
 }
 
 /**

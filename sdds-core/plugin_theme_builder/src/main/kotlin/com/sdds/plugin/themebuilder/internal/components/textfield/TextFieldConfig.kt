@@ -149,7 +149,7 @@ internal data class TextFieldView(override val props: TextFieldProperties) : Vie
 @Serializable
 internal data class TextFieldVariation(
     override val id: String,
-    override val parentId: String? = null,
+    override val parent: String? = null,
     override val view: Map<String, TextFieldView> = emptyMap(),
     override val props: TextFieldProperties,
 ) : ChildVariation<TextFieldProperties>
