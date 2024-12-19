@@ -20,7 +20,6 @@ includeBuild("../build-system")
 includeBuild("../sdds-core")
 includeBuild("../tokens")
 include(
-    ":sandbox",
     ":sandbox-compose",
     ":theme-builder",
 )
