@@ -2,11 +2,17 @@
 plugins {
     id("convention.android-app")
     id("convention.compose")
+    id("kotlin-parcelize")
     alias(libs.plugins.roborazzi)
+    alias(libs.plugins.kotlin.android)
 }
 
 android {
     namespace = "com.sdds.playground.sandbox"
+
+    buildFeatures {
+        viewBinding = true
+    }
 
     defaultConfig {
         applicationId = "com.sdds.playground.sandbox.compose"
@@ -31,7 +37,9 @@ android {
 dependencies {
     implementation(libs.sdds.icons)
     implementation("tokens:sdds.serv.compose")
+    implementation("tokens:sdds.serv.view")
     implementation(libs.sdds.uikit.compose)
+    implementation(libs.sdds.uikit)
 
     implementation(libs.base.androidX.core)
     implementation(libs.base.androidX.appcompat)
@@ -42,6 +50,14 @@ dependencies {
     implementation(libs.base.androidX.activity.compose)
     implementation(libs.base.androidX.lifecycle.compose.viewmodel)
     implementation(libs.base.koil.compose)
+
+    implementation(libs.base.android.material)
+    implementation(libs.base.androidX.constraintLayout)
+    implementation(libs.base.androidX.lifecycle.viewmodel)
+    implementation(libs.base.androidX.navigation.fragment)
+    implementation(libs.base.androidX.navigation.ui)
+    implementation(libs.base.androidX.activity.ktx)
+    implementation(libs.base.glide)
 
     // Preview support
     implementation(libs.base.androidX.compose.uiTooling.preview)
