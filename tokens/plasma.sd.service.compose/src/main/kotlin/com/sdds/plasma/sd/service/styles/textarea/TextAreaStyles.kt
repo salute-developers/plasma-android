@@ -282,7 +282,7 @@ private fun TextAreaColorsBuilder.defaultColors(): TextAreaColorsBuilder = apply
     counterColor(PlasmaSdServiceTheme.colors.textDefaultSecondary)
     placeholderColor(
         PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
-            focused = PlasmaSdServiceTheme.colors.textDefaultTertiary,
+            activated = PlasmaSdServiceTheme.colors.textDefaultTertiary,
             pressed = PlasmaSdServiceTheme.colors.textDefaultTertiary,
         ),
     )
@@ -290,7 +290,7 @@ private fun TextAreaColorsBuilder.defaultColors(): TextAreaColorsBuilder = apply
     backgroundColor(
         PlasmaSdServiceTheme.colors.surfaceDefaultTransparentPrimary
             .asInteractive(
-                focused = PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondary,
+                activated = PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondary,
                 pressed = PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondary,
             ),
     )
@@ -316,7 +316,7 @@ private fun TextAreaColorsBuilder.successColors(): TextAreaColorsBuilder = apply
     valueColorReadOnly(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
     captionColor(
         PlasmaSdServiceTheme.colors.textDefaultPositive.asInteractive(
-            focused = PlasmaSdServiceTheme.colors.textDefaultSecondary,
+            activated = PlasmaSdServiceTheme.colors.textDefaultSecondary,
             pressed = PlasmaSdServiceTheme.colors.textDefaultSecondary,
         ),
     )
@@ -325,7 +325,7 @@ private fun TextAreaColorsBuilder.successColors(): TextAreaColorsBuilder = apply
     counterColor(PlasmaSdServiceTheme.colors.textDefaultSecondary)
     placeholderColor(
         PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
-            focused = PlasmaSdServiceTheme.colors.textDefaultTertiary,
+            activated = PlasmaSdServiceTheme.colors.textDefaultTertiary,
             pressed = PlasmaSdServiceTheme.colors.textDefaultTertiary,
         ),
     )
@@ -333,7 +333,7 @@ private fun TextAreaColorsBuilder.successColors(): TextAreaColorsBuilder = apply
     backgroundColor(
         PlasmaSdServiceTheme.colors.surfaceDefaultPositive.copy(alpha = surfaceAlpha)
             .asInteractive(
-                focused = PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondary,
+                activated = PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondary,
                 pressed = PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondary,
             ),
     )
@@ -359,7 +359,7 @@ private fun TextAreaColorsBuilder.warningColors(): TextAreaColorsBuilder = apply
     valueColorReadOnly(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
     captionColor(
         PlasmaSdServiceTheme.colors.textDefaultWarning.asInteractive(
-            focused = PlasmaSdServiceTheme.colors.textDefaultSecondary,
+            activated = PlasmaSdServiceTheme.colors.textDefaultSecondary,
             pressed = PlasmaSdServiceTheme.colors.textDefaultSecondary,
         ),
     )
@@ -368,7 +368,7 @@ private fun TextAreaColorsBuilder.warningColors(): TextAreaColorsBuilder = apply
     counterColor(PlasmaSdServiceTheme.colors.textDefaultSecondary)
     placeholderColor(
         PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
-            focused = PlasmaSdServiceTheme.colors.textDefaultTertiary,
+            activated = PlasmaSdServiceTheme.colors.textDefaultTertiary,
             pressed = PlasmaSdServiceTheme.colors.textDefaultTertiary,
         ),
     )
@@ -376,7 +376,7 @@ private fun TextAreaColorsBuilder.warningColors(): TextAreaColorsBuilder = apply
     backgroundColor(
         PlasmaSdServiceTheme.colors.surfaceDefaultWarning.copy(alpha = surfaceAlpha)
             .asInteractive(
-                focused = PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondary,
+                activated = PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondary,
                 pressed = PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondary,
             ),
     )
@@ -402,7 +402,7 @@ private fun TextAreaColorsBuilder.errorColors(): TextAreaColorsBuilder = apply {
     valueColorReadOnly(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
     captionColor(
         PlasmaSdServiceTheme.colors.textDefaultNegative.asInteractive(
-            focused = PlasmaSdServiceTheme.colors.textDefaultSecondary,
+            activated = PlasmaSdServiceTheme.colors.textDefaultSecondary,
             pressed = PlasmaSdServiceTheme.colors.textDefaultSecondary,
         ),
     )
@@ -411,7 +411,7 @@ private fun TextAreaColorsBuilder.errorColors(): TextAreaColorsBuilder = apply {
     counterColor(PlasmaSdServiceTheme.colors.textDefaultSecondary)
     placeholderColor(
         PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
-            focused = PlasmaSdServiceTheme.colors.textDefaultTertiary,
+            activated = PlasmaSdServiceTheme.colors.textDefaultTertiary,
             pressed = PlasmaSdServiceTheme.colors.textDefaultTertiary,
         ),
     )
@@ -419,7 +419,7 @@ private fun TextAreaColorsBuilder.errorColors(): TextAreaColorsBuilder = apply {
     backgroundColor(
         PlasmaSdServiceTheme.colors.surfaceDefaultNegative.copy(alpha = surfaceAlpha)
             .asInteractive(
-                focused = PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondary,
+                activated = PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondary,
                 pressed = PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondary,
             ),
     )

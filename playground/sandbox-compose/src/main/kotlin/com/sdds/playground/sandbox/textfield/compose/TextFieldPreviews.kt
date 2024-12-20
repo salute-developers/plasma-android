@@ -32,6 +32,20 @@ import com.sdds.serv.styles.textfield.S
 import com.sdds.serv.styles.textfield.Success
 import com.sdds.serv.styles.textfield.Warning
 import com.sdds.serv.styles.textfield.Xs
+import com.sdds.serv.styles.textfield.clear.Default
+import com.sdds.serv.styles.textfield.clear.Error
+import com.sdds.serv.styles.textfield.clear.HasDivider
+import com.sdds.serv.styles.textfield.clear.InnerLabel
+import com.sdds.serv.styles.textfield.clear.L
+import com.sdds.serv.styles.textfield.clear.M
+import com.sdds.serv.styles.textfield.clear.Optional
+import com.sdds.serv.styles.textfield.clear.OuterLabel
+import com.sdds.serv.styles.textfield.clear.RequiredEnd
+import com.sdds.serv.styles.textfield.clear.RequiredStart
+import com.sdds.serv.styles.textfield.clear.S
+import com.sdds.serv.styles.textfield.clear.Success
+import com.sdds.serv.styles.textfield.clear.Warning
+import com.sdds.serv.styles.textfield.clear.Xs
 
 /**
  * Превью [TextField]

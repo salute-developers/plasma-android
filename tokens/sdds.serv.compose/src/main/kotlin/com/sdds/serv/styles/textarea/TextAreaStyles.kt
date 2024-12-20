@@ -282,7 +282,7 @@ private fun TextAreaColorsBuilder.defaultColors(): TextAreaColorsBuilder = apply
     counterColor(SddsServTheme.colors.textDefaultSecondary)
     placeholderColor(
         SddsServTheme.colors.textDefaultSecondary.asInteractive(
-            focused = SddsServTheme.colors.textDefaultTertiary,
+            activated = SddsServTheme.colors.textDefaultTertiary,
             pressed = SddsServTheme.colors.textDefaultTertiary,
         ),
     )
@@ -290,7 +290,7 @@ private fun TextAreaColorsBuilder.defaultColors(): TextAreaColorsBuilder = apply
     backgroundColor(
         SddsServTheme.colors.surfaceDefaultTransparentPrimary
             .asInteractive(
-                focused = SddsServTheme.colors.surfaceDefaultTransparentSecondary,
+                activated = SddsServTheme.colors.surfaceDefaultTransparentSecondary,
                 pressed = SddsServTheme.colors.surfaceDefaultTransparentSecondary,
             ),
     )
@@ -316,7 +316,7 @@ private fun TextAreaColorsBuilder.successColors(): TextAreaColorsBuilder = apply
     valueColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
     captionColor(
         SddsServTheme.colors.textDefaultPositive.asInteractive(
-            focused = SddsServTheme.colors.textDefaultSecondary,
+            activated = SddsServTheme.colors.textDefaultSecondary,
             pressed = SddsServTheme.colors.textDefaultSecondary,
         ),
     )
@@ -325,7 +325,7 @@ private fun TextAreaColorsBuilder.successColors(): TextAreaColorsBuilder = apply
     counterColor(SddsServTheme.colors.textDefaultSecondary)
     placeholderColor(
         SddsServTheme.colors.textDefaultSecondary.asInteractive(
-            focused = SddsServTheme.colors.textDefaultTertiary,
+            activated = SddsServTheme.colors.textDefaultTertiary,
             pressed = SddsServTheme.colors.textDefaultTertiary,
         ),
     )
@@ -333,7 +333,7 @@ private fun TextAreaColorsBuilder.successColors(): TextAreaColorsBuilder = apply
     backgroundColor(
         SddsServTheme.colors.surfaceDefaultPositive.copy(alpha = surfaceAlpha)
             .asInteractive(
-                focused = SddsServTheme.colors.surfaceDefaultTransparentSecondary,
+                activated = SddsServTheme.colors.surfaceDefaultTransparentSecondary,
                 pressed = SddsServTheme.colors.surfaceDefaultTransparentSecondary,
             ),
     )
@@ -359,7 +359,7 @@ private fun TextAreaColorsBuilder.warningColors(): TextAreaColorsBuilder = apply
     valueColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
     captionColor(
         SddsServTheme.colors.textDefaultWarning.asInteractive(
-            focused = SddsServTheme.colors.textDefaultSecondary,
+            activated = SddsServTheme.colors.textDefaultSecondary,
             pressed = SddsServTheme.colors.textDefaultSecondary,
         ),
     )
@@ -368,7 +368,7 @@ private fun TextAreaColorsBuilder.warningColors(): TextAreaColorsBuilder = apply
     counterColor(SddsServTheme.colors.textDefaultSecondary)
     placeholderColor(
         SddsServTheme.colors.textDefaultSecondary.asInteractive(
-            focused = SddsServTheme.colors.textDefaultTertiary,
+            activated = SddsServTheme.colors.textDefaultTertiary,
             pressed = SddsServTheme.colors.textDefaultTertiary,
         ),
     )
@@ -376,7 +376,7 @@ private fun TextAreaColorsBuilder.warningColors(): TextAreaColorsBuilder = apply
     backgroundColor(
         SddsServTheme.colors.surfaceDefaultWarning.copy(alpha = surfaceAlpha)
             .asInteractive(
-                focused = SddsServTheme.colors.surfaceDefaultTransparentSecondary,
+                activated = SddsServTheme.colors.surfaceDefaultTransparentSecondary,
                 pressed = SddsServTheme.colors.surfaceDefaultTransparentSecondary,
             ),
     )
@@ -402,7 +402,7 @@ private fun TextAreaColorsBuilder.errorColors(): TextAreaColorsBuilder = apply {
     valueColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
     captionColor(
         SddsServTheme.colors.textDefaultNegative.asInteractive(
-            focused = SddsServTheme.colors.textDefaultSecondary,
+            activated = SddsServTheme.colors.textDefaultSecondary,
             pressed = SddsServTheme.colors.textDefaultSecondary,
         ),
     )
@@ -411,7 +411,7 @@ private fun TextAreaColorsBuilder.errorColors(): TextAreaColorsBuilder = apply {
     counterColor(SddsServTheme.colors.textDefaultSecondary)
     placeholderColor(
         SddsServTheme.colors.textDefaultSecondary.asInteractive(
-            focused = SddsServTheme.colors.textDefaultTertiary,
+            activated = SddsServTheme.colors.textDefaultTertiary,
             pressed = SddsServTheme.colors.textDefaultTertiary,
         ),
     )
@@ -419,7 +419,7 @@ private fun TextAreaColorsBuilder.errorColors(): TextAreaColorsBuilder = apply {
     backgroundColor(
         SddsServTheme.colors.surfaceDefaultNegative.copy(alpha = surfaceAlpha)
             .asInteractive(
-                focused = SddsServTheme.colors.surfaceDefaultTransparentSecondary,
+                activated = SddsServTheme.colors.surfaceDefaultTransparentSecondary,
                 pressed = SddsServTheme.colors.surfaceDefaultTransparentSecondary,
             ),
     )

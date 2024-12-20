@@ -8,7 +8,6 @@ import com.sdds.compose.uikit.TextAreaClear
 import com.sdds.compose.uikit.TextAreaClearColorsBuilder
 import com.sdds.compose.uikit.TextAreaClearStyleBuilder
 import com.sdds.compose.uikit.TextField
-import com.sdds.compose.uikit.TextFieldClearStyleBuilder
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.textAreaClearBuilder
@@ -276,14 +275,14 @@ private fun TextAreaClearColorsBuilder.defaultClearColors(): TextAreaClearColors
     counterColor(SddsServTheme.colors.textDefaultSecondary)
     placeholderColor(
         SddsServTheme.colors.textDefaultSecondary.asInteractive(
-            focused = SddsServTheme.colors.textDefaultTertiary,
+            activated = SddsServTheme.colors.textDefaultTertiary,
             pressed = SddsServTheme.colors.textDefaultTertiary,
         ),
     )
     placeholderColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
     dividerColor(
         SddsServTheme.colors.surfaceDefaultTransparentTertiary.asInteractive(
-            focused = SddsServTheme.colors.surfaceDefaultAccent,
+            activated = SddsServTheme.colors.surfaceDefaultAccent,
             pressed = SddsServTheme.colors.surfaceDefaultAccent,
         ),
     )
@@ -298,7 +297,7 @@ private fun TextAreaClearColorsBuilder.successClearColors(): TextAreaClearColors
     cursorColor(SddsServTheme.colors.textDefaultAccent)
     startContentColor(
         SddsServTheme.colors.surfaceDefaultPositive.asInteractive(
-            focused = SddsServTheme.colors.textDefaultSecondary,
+            activated = SddsServTheme.colors.textDefaultSecondary,
             pressed = SddsServTheme.colors.textDefaultSecondary,
         ),
     )
@@ -308,14 +307,14 @@ private fun TextAreaClearColorsBuilder.successClearColors(): TextAreaClearColors
     outerLabelColorReadOnly(SddsServTheme.colors.textDefaultSecondary)
     valueColor(
         SddsServTheme.colors.textDefaultPositive.asInteractive(
-            focused = SddsServTheme.colors.textDefaultPrimary,
+            activated = SddsServTheme.colors.textDefaultPrimary,
             pressed = SddsServTheme.colors.textDefaultPrimary,
         ),
     )
     valueColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
     captionColor(
         SddsServTheme.colors.textDefaultPositive.asInteractive(
-            focused = SddsServTheme.colors.textDefaultSecondary,
+            activated = SddsServTheme.colors.textDefaultSecondary,
             pressed = SddsServTheme.colors.textDefaultSecondary,
         ),
     )
@@ -324,14 +323,14 @@ private fun TextAreaClearColorsBuilder.successClearColors(): TextAreaClearColors
     counterColor(SddsServTheme.colors.textDefaultSecondary)
     placeholderColor(
         SddsServTheme.colors.textDefaultPositive.asInteractive(
-            focused = SddsServTheme.colors.textDefaultTertiary,
+            activated = SddsServTheme.colors.textDefaultTertiary,
             pressed = SddsServTheme.colors.textDefaultTertiary,
         ),
     )
     placeholderColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
     dividerColor(
         SddsServTheme.colors.surfaceDefaultPositive.asInteractive(
-            focused = SddsServTheme.colors.surfaceDefaultAccent,
+            activated = SddsServTheme.colors.surfaceDefaultAccent,
             pressed = SddsServTheme.colors.surfaceDefaultAccent,
         ),
     )
@@ -346,7 +345,7 @@ private fun TextAreaClearColorsBuilder.warningClearColors(): TextAreaClearColors
     cursorColor(SddsServTheme.colors.textDefaultAccent)
     startContentColor(
         SddsServTheme.colors.surfaceDefaultWarning.asInteractive(
-            focused = SddsServTheme.colors.textDefaultSecondary,
+            activated = SddsServTheme.colors.textDefaultSecondary,
             pressed = SddsServTheme.colors.textDefaultSecondary,
         ),
     )
@@ -356,14 +355,14 @@ private fun TextAreaClearColorsBuilder.warningClearColors(): TextAreaClearColors
     outerLabelColorReadOnly(SddsServTheme.colors.textDefaultSecondary)
     valueColor(
         SddsServTheme.colors.textDefaultWarning.asInteractive(
-            focused = SddsServTheme.colors.textDefaultPrimary,
+            activated = SddsServTheme.colors.textDefaultPrimary,
             pressed = SddsServTheme.colors.textDefaultPrimary,
         ),
     )
     valueColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
     captionColor(
         SddsServTheme.colors.textDefaultWarning.asInteractive(
-            focused = SddsServTheme.colors.textDefaultSecondary,
+            activated = SddsServTheme.colors.textDefaultSecondary,
             pressed = SddsServTheme.colors.textDefaultSecondary,
         ),
     )
@@ -372,14 +371,14 @@ private fun TextAreaClearColorsBuilder.warningClearColors(): TextAreaClearColors
     counterColor(SddsServTheme.colors.textDefaultSecondary)
     placeholderColor(
         SddsServTheme.colors.textDefaultWarning.asInteractive(
-            focused = SddsServTheme.colors.textDefaultTertiary,
+            activated = SddsServTheme.colors.textDefaultTertiary,
             pressed = SddsServTheme.colors.textDefaultTertiary,
         ),
     )
     placeholderColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
     dividerColor(
         SddsServTheme.colors.surfaceDefaultWarning.asInteractive(
-            focused = SddsServTheme.colors.surfaceDefaultAccent,
+            activated = SddsServTheme.colors.surfaceDefaultAccent,
             pressed = SddsServTheme.colors.surfaceDefaultAccent,
         ),
     )
@@ -394,7 +393,7 @@ private fun TextAreaClearColorsBuilder.errorClearColors(): TextAreaClearColorsBu
     cursorColor(SddsServTheme.colors.textDefaultAccent)
     startContentColor(
         SddsServTheme.colors.surfaceDefaultNegative.asInteractive(
-            focused = SddsServTheme.colors.textDefaultSecondary,
+            activated = SddsServTheme.colors.textDefaultSecondary,
             pressed = SddsServTheme.colors.textDefaultSecondary,
         ),
     )
@@ -404,14 +403,14 @@ private fun TextAreaClearColorsBuilder.errorClearColors(): TextAreaClearColorsBu
     outerLabelColorReadOnly(SddsServTheme.colors.textDefaultSecondary)
     valueColor(
         SddsServTheme.colors.textDefaultNegative.asInteractive(
-            focused = SddsServTheme.colors.textDefaultPrimary,
+            activated = SddsServTheme.colors.textDefaultPrimary,
             pressed = SddsServTheme.colors.textDefaultPrimary,
         ),
     )
     valueColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
     captionColor(
         SddsServTheme.colors.textDefaultNegative.asInteractive(
-            focused = SddsServTheme.colors.textDefaultSecondary,
+            activated = SddsServTheme.colors.textDefaultSecondary,
             pressed = SddsServTheme.colors.textDefaultSecondary,
         ),
     )
@@ -420,14 +419,14 @@ private fun TextAreaClearColorsBuilder.errorClearColors(): TextAreaClearColorsBu
     counterColor(SddsServTheme.colors.textDefaultSecondary)
     placeholderColor(
         SddsServTheme.colors.textDefaultNegative.asInteractive(
-            focused = SddsServTheme.colors.textDefaultTertiary,
+            activated = SddsServTheme.colors.textDefaultTertiary,
             pressed = SddsServTheme.colors.textDefaultTertiary,
         ),
     )
     placeholderColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
     dividerColor(
         SddsServTheme.colors.surfaceDefaultNegative.asInteractive(
-            focused = SddsServTheme.colors.surfaceDefaultAccent,
+            activated = SddsServTheme.colors.surfaceDefaultAccent,
             pressed = SddsServTheme.colors.surfaceDefaultAccent,
         ),
     )
