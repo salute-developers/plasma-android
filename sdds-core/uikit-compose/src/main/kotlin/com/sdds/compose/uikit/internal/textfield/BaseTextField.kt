@@ -197,11 +197,11 @@ internal fun BaseTextField(
                     .focusProperties { canFocus = false }
                     .padding(bottom = dimensions.outerLabelPadding)
                     .applyLabelIndicator(
-                    fieldType = fieldType,
-                    labelPlacement = labelPlacement,
-                    indicatorColor = colors.indicatorColor.colorForInteraction(interactionSource),
-                    dimensions = dimensions,
-                ),
+                        fieldType = fieldType,
+                        labelPlacement = labelPlacement,
+                        indicatorColor = colors.indicatorColor.colorForInteraction(interactionSource),
+                        dimensions = dimensions,
+                    ),
                 labelPlacement = labelPlacement,
                 fieldType = fieldType,
                 labelText = finalLabelText,
