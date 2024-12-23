@@ -427,6 +427,7 @@ internal class KtFileBuilder(
                 Modifier.DATA -> KModifier.DATA
                 Modifier.INFIX -> KModifier.INFIX
                 Modifier.ENUM -> KModifier.ENUM
+                Modifier.VALUE -> KModifier.VALUE
             }
         }
 
@@ -515,6 +516,7 @@ internal class KtFileBuilder(
         DATA,
         INFIX,
         ENUM,
+        VALUE,
     }
 
     /**
