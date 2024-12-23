@@ -4,6 +4,7 @@ import com.sdds.plugin.themebuilder.DimensionsConfig
 import com.sdds.plugin.themebuilder.ShapeAppearanceConfig
 import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
+import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Annotation
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder.Companion.DEFAULT_ROOT_ATTRIBUTES
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder.ElementName
@@ -209,8 +210,8 @@ internal class ShapeTokenGenerator(
             typeName = KtFileBuilder.TypeRoundRectShape,
             propGetter = KtFileBuilder.Getter.Annotated(
                 annotations = listOf(
-                    KtFileBuilder.TypeAnnotationComposable,
-                    KtFileBuilder.TypeAnnotationReadOnlyComposable,
+                    Annotation(KtFileBuilder.TypeAnnotationComposable),
+                    Annotation(KtFileBuilder.TypeAnnotationReadOnlyComposable),
                 ),
                 body = "return ${createInitializer(initializer)}",
             ),

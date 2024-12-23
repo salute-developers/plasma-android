@@ -431,19 +431,30 @@ internal class KtFileBuilder(
             is Getter.Annotated -> {
                 modifiers?.let { builder.addModifiers(it.toKModifiers()) }
                 annotations?.let { annotationList ->
-                    annotationList.forEach { builder.addAnnotation(it) }
+                    annotationList.forEach {
+                        builder.addAnnotation(it.toAnnotationSpec())
+                    }
                 }
                 body?.let { builder.addCode(it) }
             }
             is Getter.AnnotatedCodeBlock -> {
                 modifiers?.let { builder.addModifiers(it.toKModifiers()) }
                 annotations?.let { annotationList ->
-                    annotationList.forEach { builder.addAnnotation(it) }
+                    annotationList.forEach {
+                        builder.addAnnotation(it.toAnnotationSpec())
+                    }
                 }
                 body?.let { builder.addCode(it) }
             }
         }
         return builder.build()
+    }
+
+    private fun Annotation.toAnnotationSpec(): AnnotationSpec {
+        return AnnotationSpec
+            .builder(annotation)
+            .apply { parameter?.let(::addMember) }
+            .build()
     }
 
     private fun List<FunParameter>.toParameterSpecs(): List<ParameterSpec> =
@@ -517,7 +528,7 @@ internal class KtFileBuilder(
          * Геттер
          */
         data class Annotated(
-            val annotations: List<ClassName>? = null,
+            val annotations: List<Annotation>? = null,
             val modifiers: List<Modifier>? = null,
             val body: String? = null,
         ) : Getter()
@@ -526,7 +537,7 @@ internal class KtFileBuilder(
          * Геттер
          */
         data class AnnotatedCodeBlock(
-            val annotations: List<ClassName>? = null,
+            val annotations: List<Annotation>? = null,
             val modifiers: List<Modifier>? = null,
             val body: CodeBlock? = null,
         ) : Getter()
@@ -542,6 +553,8 @@ internal class KtFileBuilder(
          */
         data class Empty(val modifiers: List<Modifier>? = null) : Setter()
     }
+
+    internal data class Annotation(val annotation: ClassName, val parameter: String? = null)
 
     sealed class OutputLocation {
         class Directory(val dir: File) : OutputLocation()

@@ -2,6 +2,7 @@ package com.sdds.plugin.themebuilder.internal.components.button
 
 import com.sdds.plugin.themebuilder.DimensionsConfig
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
+import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Annotation
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
@@ -54,7 +55,7 @@ internal class BasicButtonStyleGeneratorCompose(
                 ),
                 receiver = getInternalClassType("BasicButton", "com.sdds.compose.uikit"),
                 getter = KtFileBuilder.Getter.Annotated(
-                    annotations = listOf(KtFileBuilder.TypeAnnotationComposable),
+                    annotations = listOf(Annotation(KtFileBuilder.TypeAnnotationComposable)),
                     body = """
                             return ButtonStyle.basicButtonBuilder(this)
                                 .shape($themeClassName.shapes.${sizeData.shape?.name?.toKtTokenName()}${
@@ -94,7 +95,7 @@ internal class BasicButtonStyleGeneratorCompose(
                 typeName = builderType,
                 receiver = builderType,
                 getter = KtFileBuilder.Getter.AnnotatedCodeBlock(
-                    annotations = listOf(KtFileBuilder.TypeAnnotationComposable),
+                    annotations = listOf(Annotation(KtFileBuilder.TypeAnnotationComposable)),
                     body = CodeBlock.builder()
                         .add("return this.colors {\n")
                         .withIndent {
