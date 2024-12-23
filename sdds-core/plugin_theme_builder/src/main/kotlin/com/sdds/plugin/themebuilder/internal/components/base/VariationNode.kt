@@ -23,7 +23,7 @@ internal class VariationNode<PO : PropertyOwner>(
      *  Название вариации без учета названия родительской вариации
      */
     val name: String
-        get() = parent?.id?.let { id.removePrefix(it) } ?: id
+        get() = parent?.id?.let { id.removePrefix("$it.") } ?: id
 
     /**
      * Возвращает все [ViewVariation] от родительской до текущей [VariationNode].
