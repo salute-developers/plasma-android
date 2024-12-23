@@ -267,7 +267,6 @@ private val surfaceAlpha: Float
 @Composable
 private fun TextAreaColorsBuilder.defaultColors(): TextAreaColorsBuilder = apply {
     disabledAlpha(0.4f)
-    enabledAlpha(1f)
     cursorColor(PlasmaSdServiceTheme.colors.textDefaultAccent)
     startContentColor(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
     endContentColor(PlasmaSdServiceTheme.colors.textDefaultSecondary)
@@ -305,7 +304,6 @@ private fun TextAreaColorsBuilder.defaultColors(): TextAreaColorsBuilder = apply
 @Composable
 private fun TextAreaColorsBuilder.successColors(): TextAreaColorsBuilder = apply {
     disabledAlpha(0.4f)
-    enabledAlpha(1f)
     cursorColor(PlasmaSdServiceTheme.colors.textDefaultAccent)
     startContentColor(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
     endContentColor(PlasmaSdServiceTheme.colors.textDefaultSecondary)
@@ -348,7 +346,6 @@ private fun TextAreaColorsBuilder.successColors(): TextAreaColorsBuilder = apply
 @Composable
 private fun TextAreaColorsBuilder.warningColors(): TextAreaColorsBuilder = apply {
     disabledAlpha(0.4f)
-    enabledAlpha(1f)
     cursorColor(PlasmaSdServiceTheme.colors.textDefaultAccent)
     startContentColor(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
     endContentColor(PlasmaSdServiceTheme.colors.textDefaultSecondary)
@@ -391,7 +388,6 @@ private fun TextAreaColorsBuilder.warningColors(): TextAreaColorsBuilder = apply
 @Composable
 private fun TextAreaColorsBuilder.errorColors(): TextAreaColorsBuilder = apply {
     disabledAlpha(0.4f)
-    enabledAlpha(1f)
     cursorColor(PlasmaSdServiceTheme.colors.textDefaultAccent)
     startContentColor(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
     endContentColor(PlasmaSdServiceTheme.colors.textDefaultSecondary)

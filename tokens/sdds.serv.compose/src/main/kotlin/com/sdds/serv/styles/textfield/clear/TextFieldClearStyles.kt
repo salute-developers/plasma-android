@@ -260,7 +260,6 @@ val TextFieldClearStyleBuilder.NoDivider: TextFieldClearStyleBuilder
 @Composable
 private fun TextFieldClearColorsBuilder.defaultClearColors(): TextFieldClearColorsBuilder = apply {
     disabledAlpha(0.4f)
-    enabledAlpha(1f)
     cursorColor(SddsServTheme.colors.textDefaultAccent)
     startContentColor(SddsServTheme.colors.textDefaultSecondary.asInteractive())
     endContentColor(SddsServTheme.colors.textDefaultSecondary)
@@ -293,7 +292,6 @@ private fun TextFieldClearColorsBuilder.defaultClearColors(): TextFieldClearColo
 @Composable
 private fun TextFieldClearColorsBuilder.successClearColors(): TextFieldClearColorsBuilder = apply {
     disabledAlpha(0.4f)
-    enabledAlpha(1f)
     cursorColor(SddsServTheme.colors.textDefaultAccent)
     startContentColor(
         SddsServTheme.colors.surfaceDefaultPositive.asInteractive(
@@ -341,7 +339,6 @@ private fun TextFieldClearColorsBuilder.successClearColors(): TextFieldClearColo
 @Composable
 private fun TextFieldClearColorsBuilder.warningClearColors(): TextFieldClearColorsBuilder = apply {
     disabledAlpha(0.4f)
-    enabledAlpha(1f)
     cursorColor(SddsServTheme.colors.textDefaultAccent)
     startContentColor(
         SddsServTheme.colors.surfaceDefaultWarning.asInteractive(
@@ -389,7 +386,6 @@ private fun TextFieldClearColorsBuilder.warningClearColors(): TextFieldClearColo
 @Composable
 private fun TextFieldClearColorsBuilder.errorClearColors(): TextFieldClearColorsBuilder = apply {
     disabledAlpha(0.4f)
-    enabledAlpha(1f)
     cursorColor(SddsServTheme.colors.textDefaultAccent)
     startContentColor(
         SddsServTheme.colors.surfaceDefaultNegative.asInteractive(

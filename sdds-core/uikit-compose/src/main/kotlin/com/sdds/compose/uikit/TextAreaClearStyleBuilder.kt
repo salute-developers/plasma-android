@@ -130,11 +130,6 @@ interface TextAreaClearColorsBuilder {
     fun disabledAlpha(disabledAlpha: Float): TextAreaClearColorsBuilder
 
     /**
-     * Устанавливает альфу [enabledAlpha] в состоянии enabled
-     */
-    fun enabledAlpha(enabledAlpha: Float): TextAreaClearColorsBuilder
-
-    /**
      * Устанавливает цвет курсора [cursorColor]
      */
     fun cursorColor(cursorColor: Color): TextAreaClearColorsBuilder =
@@ -886,7 +881,6 @@ private class DefaultTextAreaClearStyle(
 @Suppress("LongParameterList")
 private class DefaultTextAreaClearColors(
     override val disabledAlpha: Float,
-    override val enabledAlpha: Float,
     override val endContentColor: InteractiveColor,
     override val optionalColor: InteractiveColor,
     override val counterColor: InteractiveColor,
@@ -936,7 +930,6 @@ private class DefaultTextAreaClearColors(
 
     class Builder : TextAreaClearColorsBuilder {
         private var disabledAlpha: Float? = null
-        private var enabledAlpha: Float? = null
         private var cursorColor: InteractiveColor? = null
         private var startContentColor: InteractiveColor? = null
         private var endContentColor: InteractiveColor? = null
@@ -949,8 +942,6 @@ private class DefaultTextAreaClearColors(
         private var captionColorReadOnly: InteractiveColor? = null
         private var optionalColor: InteractiveColor? = null
         private var counterColor: InteractiveColor? = null
-        private var backgroundColor: InteractiveColor? = null
-        private var backgroundColorReadOnly: InteractiveColor? = null
         private var placeholderColor: InteractiveColor? = null
         private var placeholderColorReadOnly: InteractiveColor? = null
         private var indicatorColor: InteractiveColor? = null
@@ -959,10 +950,6 @@ private class DefaultTextAreaClearColors(
 
         override fun disabledAlpha(disabledAlpha: Float) = apply {
             this.disabledAlpha = disabledAlpha
-        }
-
-        override fun enabledAlpha(enabledAlpha: Float) = apply {
-            this.enabledAlpha = enabledAlpha
         }
 
         override fun cursorColor(cursorColor: InteractiveColor) = apply {
@@ -1037,7 +1024,6 @@ private class DefaultTextAreaClearColors(
         override fun build(): TextFieldColors {
             return DefaultTextAreaClearColors(
                 disabledAlpha = disabledAlpha ?: DEFAULT_DISABLED_ALPHA,
-                enabledAlpha = enabledAlpha ?: DEFAULT_ENABLED_ALPHA,
                 cursorColor = cursorColor ?: Color.Black.asInteractive(),
                 startContentColor = startContentColor ?: Color.Black.asInteractive(),
                 endContentColor = endContentColor ?: Color.Black.asInteractive(),
@@ -1061,5 +1047,4 @@ private class DefaultTextAreaClearColors(
 }
 
 private const val DEFAULT_DISABLED_ALPHA = 0.4f
-private const val DEFAULT_ENABLED_ALPHA = 1f
 private val DUMMY_COLOR = Color.Transparent.asInteractive()

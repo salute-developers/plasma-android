@@ -260,7 +260,6 @@ val TextAreaClearStyleBuilder.NoDivider: TextAreaClearStyleBuilder
 @Composable
 private fun TextAreaClearColorsBuilder.defaultClearColors(): TextAreaClearColorsBuilder = apply {
     disabledAlpha(0.4f)
-    enabledAlpha(1f)
     cursorColor(SddsServTheme.colors.textDefaultAccent)
     startContentColor(SddsServTheme.colors.textDefaultSecondary.asInteractive())
     endContentColor(SddsServTheme.colors.textDefaultSecondary)
@@ -293,7 +292,6 @@ private fun TextAreaClearColorsBuilder.defaultClearColors(): TextAreaClearColors
 @Composable
 private fun TextAreaClearColorsBuilder.successClearColors(): TextAreaClearColorsBuilder = apply {
     disabledAlpha(0.4f)
-    enabledAlpha(1f)
     cursorColor(SddsServTheme.colors.textDefaultAccent)
     startContentColor(
         SddsServTheme.colors.surfaceDefaultPositive.asInteractive(
@@ -341,7 +339,6 @@ private fun TextAreaClearColorsBuilder.successClearColors(): TextAreaClearColors
 @Composable
 private fun TextAreaClearColorsBuilder.warningClearColors(): TextAreaClearColorsBuilder = apply {
     disabledAlpha(0.4f)
-    enabledAlpha(1f)
     cursorColor(SddsServTheme.colors.textDefaultAccent)
     startContentColor(
         SddsServTheme.colors.surfaceDefaultWarning.asInteractive(
@@ -389,7 +386,6 @@ private fun TextAreaClearColorsBuilder.warningClearColors(): TextAreaClearColors
 @Composable
 private fun TextAreaClearColorsBuilder.errorClearColors(): TextAreaClearColorsBuilder = apply {
     disabledAlpha(0.4f)
-    enabledAlpha(1f)
     cursorColor(SddsServTheme.colors.textDefaultAccent)
     startContentColor(
         SddsServTheme.colors.surfaceDefaultNegative.asInteractive(

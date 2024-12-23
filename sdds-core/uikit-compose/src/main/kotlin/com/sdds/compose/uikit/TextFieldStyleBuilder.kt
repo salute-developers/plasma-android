@@ -125,11 +125,6 @@ interface TextFieldColorsBuilder {
     fun disabledAlpha(disabledAlpha: Float): TextFieldColorsBuilder
 
     /**
-     * Устанавливает альфу [enabledAlpha] в состоянии enabled
-     */
-    fun enabledAlpha(enabledAlpha: Float): TextFieldColorsBuilder
-
-    /**
      * Устанавливает цвет курсора [cursorColor]
      */
     fun cursorColor(cursorColor: Color): TextFieldColorsBuilder =
@@ -863,7 +858,6 @@ private class DefaultTextFieldStyle(
 @Suppress("LongParameterList")
 private class DefaultTextFieldColors(
     override val disabledAlpha: Float,
-    override val enabledAlpha: Float,
     override val endContentColor: InteractiveColor,
     override val optionalColor: InteractiveColor,
     override val counterColor: InteractiveColor,
@@ -913,7 +907,6 @@ private class DefaultTextFieldColors(
 
     class Builder : TextFieldColorsBuilder {
         private var disabledAlpha: Float? = null
-        private var enabledAlpha: Float? = null
         private var cursorColor: InteractiveColor? = null
         private var startContentColor: InteractiveColor? = null
         private var endContentColor: InteractiveColor? = null
@@ -934,10 +927,6 @@ private class DefaultTextFieldColors(
 
         override fun disabledAlpha(disabledAlpha: Float) = apply {
             this.disabledAlpha = disabledAlpha
-        }
-
-        override fun enabledAlpha(enabledAlpha: Float) = apply {
-            this.enabledAlpha = enabledAlpha
         }
 
         override fun cursorColor(cursorColor: InteractiveColor) = apply {
@@ -1012,7 +1001,6 @@ private class DefaultTextFieldColors(
         override fun build(): TextFieldColors {
             return DefaultTextFieldColors(
                 disabledAlpha = disabledAlpha ?: DEFAULT_DISABLED_ALPHA,
-                enabledAlpha = enabledAlpha ?: DEFAULT_ENABLED_ALPHA,
                 cursorColor = cursorColor ?: Color.Black.asInteractive(),
                 startContentColor = startContentColor ?: Color.Black.asInteractive(),
                 endContentColor = endContentColor ?: Color.Black.asInteractive(),
@@ -1037,5 +1025,4 @@ private class DefaultTextFieldColors(
 }
 
 private const val DEFAULT_DISABLED_ALPHA = 0.4f
-private const val DEFAULT_ENABLED_ALPHA = 1f
 private val DUMMY_COLOR = Color.Transparent.asInteractive()

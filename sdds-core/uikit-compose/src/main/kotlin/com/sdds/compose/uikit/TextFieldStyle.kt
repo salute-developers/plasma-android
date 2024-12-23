@@ -125,11 +125,6 @@ interface TextFieldColors {
     val disabledAlpha: Float
 
     /**
-     * Альфа в состоянии enabled
-     */
-    val enabledAlpha: Float
-
-    /**
      * Цвет курсора
      */
     val cursorColor: InteractiveColor
