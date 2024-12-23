@@ -40,6 +40,20 @@ internal class KtFileBuilder(
     private val rootPropBuilders = mutableListOf<PropertySpec.Builder>()
     private val rootFunBuilders = mutableListOf<FunSpec.Builder>()
 
+    fun rootInterface(
+        name: String,
+        modifiers: List<Modifier>? = null,
+        annotation: ClassName? = null,
+        superInterface: TypeName? = null,
+        description: String? = null,
+    ) = TypeSpec.interfaceBuilder(name).apply {
+        annotation?.let(::addAnnotation)
+        modifiers?.toKModifiers()?.let(::addModifiers)
+        superInterface?.let { addSuperinterface(it) }
+        description?.let(::addKdoc)
+        rootTypeBuilders.add(this)
+    }
+
     /**
      * Создает kotlin class в корне файла.
      *
