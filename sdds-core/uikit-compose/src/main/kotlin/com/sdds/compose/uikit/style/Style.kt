@@ -38,3 +38,24 @@ fun <T : Style, B : StyleBuilder<T>> B.applyFor(receiver: Any, block: @Composabl
 @Composable
 fun <T : Style, B : StyleBuilder<T>> B.applyExclude(receiver: Any, block: @Composable B.() -> Unit): B =
     if (this.receiver != receiver) apply { block() } else this
+
+interface BuilderWrapper<S : Style, Sb : StyleBuilder<S>> {
+
+    val builder: Sb
+
+    @Composable
+    fun modify(block: @Composable Sb.() -> Unit): BuilderWrapper<S, Sb> {
+        builder.block()
+        return this
+    }
+
+    fun style(): S = builder.style()
+
+    fun <W : BuilderWrapper<S, Sb>> wrap(block: (Sb) -> W): W {
+        return block(builder)
+    }
+}
+
+fun <S : Style, Sb : StyleBuilder<S>, W : BuilderWrapper<S, Sb>> Sb.wrap(block: (Sb) -> W): W {
+    return block(this)
+}
