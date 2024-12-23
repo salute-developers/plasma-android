@@ -620,6 +620,8 @@ internal class KtFileBuilder(
         val TypeCornerSize = ClassName("androidx.compose.foundation.shape", listOf("CornerSize"))
         val TypeAnnotationImmutable = ClassName("androidx.compose.runtime", listOf("Immutable"))
         val TypeAnnotationComposable = ClassName("androidx.compose.runtime", listOf("Composable"))
+        val TypeAnnotationJvmInline = ClassName("kotlin.jvm", listOf("JvmInline"))
+        val TypeAnnotationJvmName = ClassName("kotlin.jvm", listOf("JvmName"))
         val TypeAnnotationReadOnlyComposable = ClassName("androidx.compose.runtime", listOf("ReadOnlyComposable"))
         val TypeProvidableCompositionLocal =
             ClassName("androidx.compose.runtime", listOf("ProvidableCompositionLocal"))
