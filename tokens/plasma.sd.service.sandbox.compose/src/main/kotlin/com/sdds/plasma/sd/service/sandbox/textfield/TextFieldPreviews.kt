@@ -32,10 +32,19 @@ import com.sdds.plasma.sd.service.styles.textfield.S
 import com.sdds.plasma.sd.service.styles.textfield.Success
 import com.sdds.plasma.sd.service.styles.textfield.Warning
 import com.sdds.plasma.sd.service.styles.textfield.Xs
+import com.sdds.plasma.sd.service.styles.textfield.clear.Default
+import com.sdds.plasma.sd.service.styles.textfield.clear.Error
 import com.sdds.plasma.sd.service.styles.textfield.clear.HasDivider
+import com.sdds.plasma.sd.service.styles.textfield.clear.InnerLabel
 import com.sdds.plasma.sd.service.styles.textfield.clear.L
 import com.sdds.plasma.sd.service.styles.textfield.clear.M
+import com.sdds.plasma.sd.service.styles.textfield.clear.Optional
+import com.sdds.plasma.sd.service.styles.textfield.clear.OuterLabel
+import com.sdds.plasma.sd.service.styles.textfield.clear.RequiredEnd
+import com.sdds.plasma.sd.service.styles.textfield.clear.RequiredStart
 import com.sdds.plasma.sd.service.styles.textfield.clear.S
+import com.sdds.plasma.sd.service.styles.textfield.clear.Success
+import com.sdds.plasma.sd.service.styles.textfield.clear.Warning
 import com.sdds.plasma.sd.service.styles.textfield.clear.Xs
 
 /**
