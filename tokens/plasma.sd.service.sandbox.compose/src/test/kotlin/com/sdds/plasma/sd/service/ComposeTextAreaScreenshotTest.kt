@@ -1,18 +1,23 @@
 package com.sdds.plasma.sd.service
 
-import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.performClick
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
-import com.sdds.plasma.sd.service.sandbox.textfield.SandboxTextAreaPreviewDisabled
-import com.sdds.plasma.sd.service.sandbox.textfield.SandboxTextAreaPreviewFocused
-import com.sdds.plasma.sd.service.sandbox.textfield.SandboxTextAreaPreviewL
-import com.sdds.plasma.sd.service.sandbox.textfield.SandboxTextAreaPreviewM
-import com.sdds.plasma.sd.service.sandbox.textfield.SandboxTextAreaPreviewReadOnly
-import com.sdds.plasma.sd.service.sandbox.textfield.SandboxTextAreaPreviewS
-import com.sdds.plasma.sd.service.sandbox.textfield.SandboxTextAreaPreviewTextMovesToNextLines
-import com.sdds.plasma.sd.service.sandbox.textfield.SandboxTextAreaPreviewTitleInsideNotVisible
-import com.sdds.plasma.sd.service.sandbox.textfield.SandboxTextAreaPreviewTitleNotDisplayedWithChips
-import com.sdds.plasma.sd.service.sandbox.textfield.SandboxTextAreaPreviewXs
+import com.sdds.plasma.sd.service.sandbox.textfield.SandboxTextAreaPreviewLDefaultInnerLeft
+import com.sdds.plasma.sd.service.sandbox.textfield.SandboxTextAreaPreviewLDefaultTBTA
+import com.sdds.plasma.sd.service.sandbox.textfield.SandboxTextAreaPreviewLDisabled
+import com.sdds.plasma.sd.service.sandbox.textfield.SandboxTextAreaPreviewLReadOnly
+import com.sdds.plasma.sd.service.sandbox.textfield.SandboxTextAreaPreviewMErrorOuterOptional
+import com.sdds.plasma.sd.service.sandbox.textfield.SandboxTextAreaPreviewMSuccessInnerOptionalChips
+import com.sdds.plasma.sd.service.sandbox.textfield.SandboxTextAreaPreviewMSuccessOuterOptional
+import com.sdds.plasma.sd.service.sandbox.textfield.SandboxTextAreaPreviewMWarningInnerOptional
+import com.sdds.plasma.sd.service.sandbox.textfield.SandboxTextAreaPreviewSDefaultInnerRight
+import com.sdds.plasma.sd.service.sandbox.textfield.SandboxTextAreaPreviewSDefaultOuterRightChips
+import com.sdds.plasma.sd.service.sandbox.textfield.SandboxTextAreaPreviewSLongText
+import com.sdds.plasma.sd.service.sandbox.textfield.SandboxTextAreaPreviewSWarningInnerRight
+import com.sdds.plasma.sd.service.sandbox.textfield.SandboxTextAreaPreviewSWarningInnerRightFocused
+import com.sdds.plasma.sd.service.sandbox.textfield.SandboxTextAreaPreviewXSSuccessOuterOptional
+import com.sdds.plasma.sd.service.sandbox.textfield.SandboxTextAreaPreviewXsErrorInnerOptional
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.ParameterizedRobolectricTestRunner
@@ -30,76 +35,110 @@ class ComposeTextAreaScreenshotTest(
      * Запуск скриншот тестов с использованием Preview
      */
     @Test
-    fun testTextAreaPreviewL() {
+    fun testTextAreaPreviewLDefaultInnerLeft() {
         composeTestRule.setContent {
-            SandboxTextAreaPreviewL()
+            SandboxTextAreaPreviewLDefaultInnerLeft()
         }
     }
 
     @Test
-    fun testTextAreaPreviewM() {
+    fun testTextAreaPreviewMSuccessOuterOptional() {
         composeTestRule.setContent {
-            SandboxTextAreaPreviewM()
+            SandboxTextAreaPreviewMSuccessOuterOptional()
         }
     }
 
     @Test
-    fun testTextAreaPreviewS() {
+    fun testTextAreaPreviewSWarningInnerRight() {
         composeTestRule.setContent {
-            SandboxTextAreaPreviewS()
+            SandboxTextAreaPreviewSWarningInnerRight()
         }
     }
 
     @Test
-    fun testTextAreaPreviewXs() {
+    fun testTextAreaPreviewXsErrorInnerOptional() {
         composeTestRule.setContent {
-            SandboxTextAreaPreviewXs()
+            SandboxTextAreaPreviewXsErrorInnerOptional()
         }
-        composeTestRule.onNodeWithText("Placeholder")
-            .performClick()
+    }
+
+    @Test
+    fun testTextAreaPreviewLReadOnly() {
+        composeTestRule.setContent {
+            SandboxTextAreaPreviewLReadOnly()
+        }
+    }
+
+    @Test
+    fun testTextAreaPreviewMWarningInnerOptional() {
+        composeTestRule.setContent {
+            SandboxTextAreaPreviewMWarningInnerOptional()
+        }
+    }
+
+    @Test
+    fun testTextAreaPreviewSDefaultInnerRight() {
+        composeTestRule.setContent {
+            SandboxTextAreaPreviewSDefaultInnerRight()
+        }
+    }
+
+    @Test
+    fun testTextAreaPreviewXsSuccessOuterOptional() {
+        composeTestRule.setContent {
+            SandboxTextAreaPreviewXSSuccessOuterOptional()
+        }
     }
 
     @Test
     fun testTextAreaPreviewDisabled() {
         composeTestRule.setContent {
-            SandboxTextAreaPreviewDisabled()
+            SandboxTextAreaPreviewLDisabled()
         }
     }
 
     @Test
-    fun testTextAreaPreviewReadOnly() {
+    fun testTextAreaPreviewMErrorOuterOptional() {
         composeTestRule.setContent {
-            SandboxTextAreaPreviewReadOnly()
+            SandboxTextAreaPreviewMErrorOuterOptional()
         }
     }
 
     @Test
-    fun testTextAreaPreviewFocused() {
+    fun testTextAreaPreviewSWarningInnerRightFocused() {
         composeTestRule.setContent {
-            SandboxTextAreaPreviewFocused()
+            SandboxTextAreaPreviewSWarningInnerRightFocused()
         }
-        composeTestRule.onNodeWithText("Placeholder")
+        composeTestRule.onNodeWithTag("textField")
             .performClick()
+        composeTestRule.mainClock.advanceTimeByFrame()
     }
 
     @Test
-    fun testTextAreaPreviewTitleInsideNotVisible() {
+    fun testTextAreaPreviewMSuccessInnerOptionalChips() {
         composeTestRule.setContent {
-            SandboxTextAreaPreviewTitleInsideNotVisible()
+            SandboxTextAreaPreviewMSuccessInnerOptionalChips()
         }
     }
 
     @Test
-    fun testTextAreaPreviewTextMovesToNextLines() {
+    fun testTextAreaPreviewSDefaultOuterRightChips() {
         composeTestRule.setContent {
-            SandboxTextAreaPreviewTextMovesToNextLines()
+            SandboxTextAreaPreviewSDefaultOuterRightChips()
         }
     }
 
     @Test
-    fun testTextAreaPreviewTitleNotDisplayedWithChips() {
+    fun testTextAreaPreviewSLongText() {
         composeTestRule.setContent {
-            SandboxTextAreaPreviewTitleNotDisplayedWithChips()
+            SandboxTextAreaPreviewSLongText()
+        }
+    }
+
+    @Test
+    fun testTextAreaPreviewLDefaultTBTA() {
+        composeTestRule.setContent {
+            SandboxTextAreaPreviewLDefaultTBTA()
         }
     }
 }
