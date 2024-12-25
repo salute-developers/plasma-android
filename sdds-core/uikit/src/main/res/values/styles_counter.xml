@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Sdds.Components.Counter">
+        <item name="android:backgroundTint">#000</item>
+        <item name="android:textColor">#fff</item>
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+</resources>
