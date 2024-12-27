@@ -7,8 +7,6 @@ on:
         description: 'Version Name'
         required: true
 
-permissions: write-all
-
 concurrency:
   # New commit on branch cancels running workflows of the same branch
   group: ${{ github.workflow }}-${{ github.head_ref }}
@@ -23,7 +21,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: main
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GH_TOKEN }}
 
       - name: Retrieve tag exists flag
         uses: mukunku/tag-exists-action@v1.0.0
