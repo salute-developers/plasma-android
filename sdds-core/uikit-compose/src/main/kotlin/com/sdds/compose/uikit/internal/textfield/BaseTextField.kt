@@ -1,22 +1,18 @@
 package com.sdds.compose.uikit.internal.textfield
 
-import android.util.Log
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.ScrollState
-import androidx.compose.foundation.focusable
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.interaction.InteractionSource
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsFocusedAsState
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.IntrinsicSize
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.defaultMinSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardActions
@@ -24,23 +20,38 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusProperties
+import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.StrokeCap
+import androidx.compose.ui.layout.Layout
+import androidx.compose.ui.layout.Measurable
+import androidx.compose.ui.layout.MeasurePolicy
+import androidx.compose.ui.layout.MeasureResult
+import androidx.compose.ui.layout.MeasureScope
+import androidx.compose.ui.layout.layoutId
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.offset
 import com.sdds.compose.uikit.LocalTextFieldStyle
 import com.sdds.compose.uikit.LocalTint
 import com.sdds.compose.uikit.ScrollBar
@@ -54,11 +65,14 @@ import com.sdds.compose.uikit.TextField.LabelPlacement
 import com.sdds.compose.uikit.TextFieldColors
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.interactions.InteractiveColor
+import com.sdds.compose.uikit.interactions.activatable
 import com.sdds.compose.uikit.internal.common.IndicatorMode
 import com.sdds.compose.uikit.internal.common.drawIndicator
 import com.sdds.compose.uikit.internal.common.enable
 import com.sdds.compose.uikit.internal.focusselector.LocalFocusSelectorMode
 import com.sdds.compose.uikit.internal.focusselector.applyFocusSelector
+import com.sdds.compose.uikit.internal.heightOrZero
+import com.sdds.compose.uikit.internal.widthOrZero
 import com.sdds.compose.uikit.prefixSuffixTransformation
 import com.sdds.compose.uikit.scrollbar
 
@@ -157,86 +171,98 @@ internal fun BaseTextField(
             prefixSuffixTransformation(prefix, suffix, placeholderStyle, placeholderStyle)
         }
     }
-
-    val componentInteractionSource = remember { MutableInteractionSource() }
-    Column(
+    var isComponentFocused by remember { mutableStateOf(false) }
+    Layout(
         modifier = modifier
-            .focusable(enabled = enabled, interactionSource = componentInteractionSource)
+            .testTag("textField")
+            .activatable(enabled, interactionSource) { isComponentFocused = it.isFocused }
             .enable(enabled, enabledAlpha, disabledAlpha)
-            .width(IntrinsicSize.Max)
             .applyIndicatorPadding(
                 fieldType = fieldType,
                 labelPlacement = labelPlacement,
                 labelText = finalLabelText,
                 dimensions = dimensions,
             ),
-    ) {
-        OuterTopContent(
-            modifier = Modifier
-                .focusProperties { canFocus = false }
-                .padding(bottom = dimensions.outerLabelPadding)
-                .applyLabelIndicator(fieldType, labelPlacement, colors, dimensions),
-            labelPlacement = labelPlacement,
-            fieldType = fieldType,
-            labelText = finalLabelText,
-            optionalText = finalOptionalText,
-            labelTextStyle = labelStyle,
-            optionalTextStyle = optionalStyle,
-            horizontalSpacing = dimensions.optionalPadding,
-        )
+        measurePolicy = remember {
+            BaseTextFieldMeasurePolicy()
+        },
+        content = {
+            OuterTopContent(
+                modifier = Modifier
+                    .layoutId(TOP_CONTENT_ID)
+                    .focusProperties { canFocus = false }
+                    .padding(bottom = dimensions.outerLabelPadding)
+                    .applyLabelIndicator(fieldType, labelPlacement, colors, dimensions),
+                labelPlacement = labelPlacement,
+                fieldType = fieldType,
+                labelText = finalLabelText,
+                optionalText = finalOptionalText,
+                labelTextStyle = labelStyle,
+                optionalTextStyle = optionalStyle,
+                horizontalSpacing = dimensions.optionalPadding,
+            )
 
-        val verticalScrollState = if (!singleLine) rememberScrollState() else null
-        val horizontalScrollState = if (singleLine) rememberScrollState() else null
-        LaunchedEffect(value.text) {
-            horizontalScrollState?.scrollTo(value = Int.MAX_VALUE)
-            verticalScrollState?.scrollTo(value = Int.MAX_VALUE)
-        }
-
-        val isComponentFocused = componentInteractionSource.collectIsFocusedAsState()
-        BasicTextField(
-            value = value,
-            onValueChange = onValueChange,
-            modifier = Modifier
-                .applyFocusSelector(LocalFocusSelectorMode.current, style.shape) {
-                    isComponentFocused.value
-                }
-                .defaultMinSize(minHeight = dimensions.boxMinHeight)
-                .weight(1f, fill = false)
-                .fillMaxWidth()
-                .applyFieldIndicator(
-                    fieldType,
-                    labelPlacement,
-                    fieldAppearance,
-                    dimensions,
-                    colors,
-                )
-                .clip(if (fieldAppearance == FieldAppearance.Solid) style.shape else RectangleShape)
-                .drawFieldAppearance(
-                    fieldAppearance = fieldAppearance,
-                    hasDivider = style.hasDivider,
-                    backgroundColor = colors
-                        .backgroundColor(readOnly)
-                        .colorForInteraction(interactionSource),
-                    dividerColor = colors
-                        .dividerColor(readOnly)
-                        .colorForInteraction(interactionSource),
-                    dividerThickness = dimensions.dividerThickness,
-                )
-                .applyVerticalScrollBar(verticalScrollState, scrollBar),
-            enabled = enabled,
-            readOnly = readOnly,
-            textStyle = valueStyle,
-            keyboardOptions = keyboardOptions,
-            keyboardActions = keyboardActions,
-            singleLine = singleLine,
-            visualTransformation = innerVisualTransformation,
-            interactionSource = interactionSource,
-            cursorBrush = SolidColor(colors.cursorColor),
-        ) {
+            val verticalScrollState = if (!singleLine) rememberScrollState() else null
+            val horizontalScrollState = if (singleLine) rememberScrollState() else null
+            LaunchedEffect(value.text) {
+                horizontalScrollState?.scrollTo(value = Int.MAX_VALUE)
+                verticalScrollState?.scrollTo(value = Int.MAX_VALUE)
+            }
             val isFocused = interactionSource.collectIsFocusedAsState().value
+            val fieldFocusRequester = remember { FocusRequester() }
             DecorationBox(
+                modifier = Modifier
+                    .layoutId(FIELD_CONTENT_ID)
+                    .focusProperties { canFocus = false }
+                    .clickable(
+                        interactionSource = interactionSource,
+                        indication = null,
+                        enabled = enabled,
+                    ) { fieldFocusRequester.requestFocus() }
+                    .applyFocusSelector(
+                        LocalFocusSelectorMode.current,
+                        style.shape,
+                    ) { isComponentFocused }
+                    .defaultMinSize(minHeight = dimensions.boxMinHeight)
+                    .applyFieldIndicator(
+                        fieldType,
+                        labelPlacement,
+                        fieldAppearance,
+                        dimensions,
+                        colors,
+                    )
+                    .clip(if (fieldAppearance == FieldAppearance.Solid) style.shape else RectangleShape)
+                    .drawFieldAppearance(
+                        fieldAppearance = fieldAppearance,
+                        hasDivider = style.hasDivider,
+                        backgroundColor = colors
+                            .backgroundColor(readOnly)
+                            .colorForInteraction(interactionSource),
+                        dividerColor = colors
+                            .dividerColor(readOnly)
+                            .colorForInteraction(interactionSource),
+                        dividerThickness = dimensions.dividerThickness,
+                    )
+                    .applyVerticalScrollBar(verticalScrollState, scrollBar),
                 value = value.text,
-                innerTextField = it,
+                innerTextField = {
+                    BasicTextField(
+                        modifier = Modifier
+                            .focusRequester(fieldFocusRequester)
+                            .testTag("innerTextField"),
+                        value = value,
+                        onValueChange = onValueChange,
+                        enabled = enabled,
+                        readOnly = readOnly,
+                        textStyle = valueStyle,
+                        keyboardOptions = keyboardOptions,
+                        keyboardActions = keyboardActions,
+                        singleLine = singleLine,
+                        visualTransformation = innerVisualTransformation,
+                        interactionSource = interactionSource,
+                        cursorBrush = SolidColor(colors.cursorColor),
+                    )
+                },
                 visualTransformation = innerVisualTransformation,
                 interactionSource = interactionSource,
                 innerLabel = innerLabel(
@@ -279,17 +305,27 @@ internal fun BaseTextField(
                 valueTextStyle = valueStyle,
                 innerLabelTextStyle = labelStyle,
             )
-        }
-        OuterBottomContent(
-            modifier = Modifier.focusProperties { canFocus = false },
-            helperTextPlacement = helperTextPlacement,
-            helperTextPadding = dimensions.helperTextPaddingOuter,
-            captionText = captionText,
-            counterText = counterText,
-            captionStyle = captionStyle,
-            counterStyle = counterStyle,
-        )
-    }
+            OuterBottomText(
+                modifier = Modifier
+                    .layoutId(CAPTION_CONTENT_ID)
+                    .focusProperties { canFocus = false }
+                    .layoutId(CAPTION_CONTENT_ID)
+                    .padding(top = dimensions.helperTextPaddingOuter),
+                text = captionText,
+                textStyle = captionStyle,
+                helperTextPlacement = helperTextPlacement,
+            )
+            OuterBottomText(
+                modifier = Modifier
+                    .layoutId(COUNTER_CONTENT_ID)
+                    .focusProperties { canFocus = false }
+                    .padding(top = dimensions.helperTextPaddingOuter),
+                text = counterText,
+                textStyle = counterStyle,
+                helperTextPlacement = helperTextPlacement,
+            )
+        },
+    )
 }
 
 private fun Modifier.drawFieldAppearance(
@@ -532,22 +568,8 @@ private fun Modifier.applyLabelIndicator(
 
 private fun TextField.Dimensions.labelIndicatorHorizontalPadding(fieldType: FieldType): Dp =
     when (fieldType) {
-        FieldType.RequiredStart -> {
-            Log.e(
-                "testtag",
-                "startOuterHorizontalPadding=${indicatorDimensions.startLabelHorizontalPadding}",
-            )
-            indicatorDimensions.startLabelHorizontalPadding
-        }
-
-        FieldType.RequiredEnd -> {
-            Log.e(
-                "testtag",
-                "endOuterHorizontalPadding=${indicatorDimensions.endLabelHorizontalPadding}",
-            )
-            indicatorDimensions.endLabelHorizontalPadding
-        }
-
+        FieldType.RequiredStart -> indicatorDimensions.startLabelHorizontalPadding
+        FieldType.RequiredEnd -> indicatorDimensions.endLabelHorizontalPadding
         FieldType.Optional -> 0.dp
     }
 
@@ -602,6 +624,8 @@ private fun textOrNull(
             Text(
                 text = text,
                 style = textStyle,
+                overflow = TextOverflow.Ellipsis,
+                maxLines = 1,
             )
         }
     } else {
@@ -630,47 +654,36 @@ private fun OuterTopContent(
         horizontalArrangement = Arrangement.spacedBy(horizontalSpacing),
     ) {
         TextOrEmpty(
+            modifier = Modifier.weight(1f, fill = false),
             text = labelText,
             textStyle = labelTextStyle,
+            maxLines = 1,
+            overflow = TextOverflow.Ellipsis,
         )
         if (fieldType == FieldType.Optional) {
             TextOrEmpty(
                 text = optionalText,
                 textStyle = optionalTextStyle,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
             )
         }
     }
 }
 
 @Composable
-private fun OuterBottomContent(
+private fun OuterBottomText(
     modifier: Modifier,
-    captionText: String?,
-    counterText: String?,
-    captionStyle: TextStyle,
-    counterStyle: TextStyle,
+    text: String?,
+    textStyle: TextStyle,
     helperTextPlacement: HelperTextPlacement,
-    helperTextPadding: Dp,
 ) {
-    val isEmpty = captionText.isNullOrEmpty() && counterText.isNullOrEmpty()
+    val isEmpty = text.isNullOrEmpty()
     if (helperTextPlacement != HelperTextPlacement.Outer || isEmpty) return
-    val horizontalArrangement = when {
-        captionText.isNullOrEmpty() -> Arrangement.End
-        else -> Arrangement.SpaceBetween
-    }
-    Row(
-        modifier = modifier
-            .padding(top = helperTextPadding)
-            .fillMaxWidth(),
-        horizontalArrangement = horizontalArrangement,
-    ) {
+    Box(modifier = modifier) {
         TextOrEmpty(
-            text = captionText,
-            textStyle = captionStyle,
-        )
-        TextOrEmpty(
-            text = counterText,
-            textStyle = counterStyle,
+            text = text,
+            textStyle = textStyle,
         )
     }
 }
@@ -680,12 +693,16 @@ private fun TextOrEmpty(
     modifier: Modifier = Modifier,
     text: String?,
     textStyle: TextStyle,
+    maxLines: Int = Int.MAX_VALUE,
+    overflow: TextOverflow = TextOverflow.Clip,
 ) {
     if (text.isNullOrEmpty()) return
     Text(
         modifier = modifier,
         text = text,
         style = textStyle,
+        maxLines = maxLines,
+        overflow = overflow,
     )
 }
 
@@ -698,3 +715,66 @@ private fun TextStyle.applyColor(
     interactionSource: InteractionSource,
 ): TextStyle =
     this.copy(color = color.colorForInteraction(interactionSource))
+
+private class BaseTextFieldMeasurePolicy : MeasurePolicy {
+    override fun MeasureScope.measure(
+        measurables: List<Measurable>,
+        constraints: Constraints,
+    ): MeasureResult {
+        val looseConstraints = constraints.copy(minWidth = 0, minHeight = 0)
+
+        // measure top text (label + optional)
+        val topPlaceable = measurables.find { it.layoutId == TOP_CONTENT_ID }
+            ?.measure(looseConstraints)
+
+        // measure counter
+        val counterPlaceable = measurables.find { it.layoutId == COUNTER_CONTENT_ID }
+            ?.measure(looseConstraints)
+
+        // measure caption
+        val captionPlaceable = measurables.find { it.layoutId == CAPTION_CONTENT_ID }
+            ?.measure(looseConstraints.offset(horizontal = -counterPlaceable.widthOrZero()))
+
+        // calculate field constraints
+        val maxBottomTextHeight =
+            maxOf(counterPlaceable.heightOrZero(), captionPlaceable.heightOrZero())
+        val occupiedSpaceVertical = topPlaceable.heightOrZero() + maxBottomTextHeight
+        val topContentWidth = topPlaceable.widthOrZero()
+        val bottomContentWidth = counterPlaceable.widthOrZero() + captionPlaceable.widthOrZero()
+        val outerContentMaxWidth = maxOf(topContentWidth, bottomContentWidth)
+        val fieldConstraints = if (!constraints.hasFixedWidth) {
+            constraints.copy(minWidth = outerContentMaxWidth)
+        } else {
+            constraints
+        }.offset(vertical = -occupiedSpaceVertical)
+
+        // measure field
+        val fieldContent = measurables.find { it.layoutId == FIELD_CONTENT_ID }
+            ?.measure(fieldConstraints)
+
+        // calculate width and height
+        val totalHeight = minOf(
+            topPlaceable.heightOrZero() + fieldContent.heightOrZero() + maxBottomTextHeight,
+            constraints.maxHeight,
+        )
+        val totalWidth = minOf(fieldContent.widthOrZero(), constraints.maxWidth)
+
+        return layout(totalWidth, totalHeight) {
+            topPlaceable?.placeRelative(0, 0)
+            fieldContent?.placeRelative(0, topPlaceable.heightOrZero())
+            captionPlaceable?.placeRelative(
+                0,
+                topPlaceable.heightOrZero() + fieldContent.heightOrZero(),
+            )
+            counterPlaceable?.placeRelative(
+                fieldContent.widthOrZero() - counterPlaceable.widthOrZero(),
+                topPlaceable.heightOrZero() + fieldContent.heightOrZero(),
+            )
+        }
+    }
+}
+
+private const val TOP_CONTENT_ID = "TopContentId"
+private const val FIELD_CONTENT_ID = "FieldContentId"
+private const val CAPTION_CONTENT_ID = "CaptionContentId"
+private const val COUNTER_CONTENT_ID = "CounterContentId"

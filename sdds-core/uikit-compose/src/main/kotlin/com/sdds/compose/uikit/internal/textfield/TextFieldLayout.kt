@@ -17,6 +17,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -43,6 +44,8 @@ import androidx.compose.ui.unit.offset
 import com.sdds.compose.uikit.ChipGroup
 import com.sdds.compose.uikit.ChipGroupStyle
 import com.sdds.compose.uikit.TextField
+import com.sdds.compose.uikit.internal.focusselector.FocusSelectorMode
+import com.sdds.compose.uikit.internal.focusselector.LocalFocusSelectorMode
 import com.sdds.compose.uikit.internal.heightOrZero
 import com.sdds.compose.uikit.internal.widthOrZero
 import kotlin.math.abs
@@ -257,24 +260,36 @@ private fun CompositeTextFieldContent(
             textField()
         }
     }
-    if (!singleLine) {
-        TextAreaContent(
-            modifier = modifier,
-            textContent = textContent,
-            chips = chips,
-            chipStyle = chipStyle,
-            dimensions = dimensions,
-            scrollState = verticalScrollState,
-        )
-    } else {
-        TextFieldContent(
-            modifier = modifier,
-            textContent = textContent,
-            chips = chips,
-            chipStyle = chipStyle,
-            dimensions = dimensions,
-            scrollState = horizontalScrollState,
-        )
+    CompositionLocalProvider(
+        // Принудительно уменьшаем бордер, чтобы он был в границах чипов
+        LocalFocusSelectorMode provides LocalFocusSelectorMode.current.reduceBorderPadding(),
+    ) {
+        if (!singleLine) {
+            TextAreaContent(
+                modifier = modifier,
+                textContent = textContent,
+                chips = chips,
+                chipStyle = chipStyle,
+                dimensions = dimensions,
+                scrollState = verticalScrollState,
+            )
+        } else {
+            TextFieldContent(
+                modifier = modifier,
+                textContent = textContent,
+                chips = chips,
+                chipStyle = chipStyle,
+                dimensions = dimensions,
+                scrollState = horizontalScrollState,
+            )
+        }
+    }
+}
+
+private fun FocusSelectorMode.reduceBorderPadding(): FocusSelectorMode {
+    return when (this) {
+        is FocusSelectorMode.Border -> copy(strokePadding = -borderStroke.width)
+        else -> this
     }
 }
 
@@ -388,14 +403,13 @@ constructor(
         // measure leading icon
         val leadingPlaceable = measurables.find { it.layoutId == LeadingId }
             ?.measure(looseConstraints)
-        occupiedSpaceHorizontally += leadingPlaceable.widthOrZero()
 
         // measure trailing icon
         val trailingPlaceable = measurables.find { it.layoutId == TrailingId }
             ?.measure(looseConstraints)
-        occupiedSpaceHorizontally += trailingPlaceable.widthOrZero()
 
         // measure label
+        occupiedSpaceHorizontally = leadingPlaceable.widthOrZero() + trailingPlaceable.widthOrZero()
         val labelConstraints = looseConstraints.offset(horizontal = -occupiedSpaceHorizontally)
         val labelPlaceable =
             measurables.find { it.layoutId == LabelId }?.measure(labelConstraints)
@@ -404,6 +418,7 @@ constructor(
         val captionTextPlaceable = measurables
             .find { it.layoutId == CaptionTextId }
             ?.measure(looseConstraints)
+        val captionTextHeight = captionTextPlaceable.heightOrZero()
 
         // measure counterText
         val counterTextPlaceable = measurables
@@ -413,17 +428,16 @@ constructor(
 
         // measure input field
         val labelHeight = labelPlaceable.heightOrZero()
-        val captionTextHeight = captionTextPlaceable.heightOrZero()
         val maxHelperTextHeight = max(captionTextHeight, counterTextHeight)
-        val verticalConstraintOffset = if (labelPlaceable != null) {
-            -labelHeight - maxHelperTextHeight
+        val occupiedSpaceVertically = if (labelPlaceable != null) {
+            labelHeight + maxHelperTextHeight
         } else {
-            -maxHelperTextHeight
+            maxHelperTextHeight
         }
-        val textFieldConstraints = constraints
-            .copy(minHeight = 0)
+
+        val textFieldConstraints = looseConstraints
             .offset(
-                vertical = verticalConstraintOffset,
+                vertical = -occupiedSpaceVertically,
                 horizontal = -occupiedSpaceHorizontally,
             )
         val textFieldPlaceable = measurables

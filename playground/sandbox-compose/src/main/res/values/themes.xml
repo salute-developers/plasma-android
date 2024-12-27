@@ -1,4 +1,80 @@
 <resources>
     <!-- Base application theme. -->
     <style name="Theme.SddsSandbox" parent="Theme.AppCompat.Light.NoActionBar" />
+    <style name="Theme.Sandbox" parent="Serv.Sdds.MaterialComponents.DayNight">
+        <item name="colorPrimary">?serv_surfaceDefaultSolidPrimary</item>
+        <item name="colorPrimaryVariant">?serv_surfaceDefaultSolidSecondary</item>
+        <item name="colorOnPrimary">?serv_textDefaultPrimary</item>
+        <item name="colorSurface">?serv_surfaceDefaultSolidCard</item>
+        <item name="colorOnSurface">?serv_textDefaultPrimary</item>
+        <item name="colorAccent">?serv_textDefaultAccent</item>
+        <item name="colorControlActivated">?serv_textDefaultAccent</item>
+        <item name="colorControlHighlight">@android:color/transparent</item>
+
+        <item name="android:colorBackground">?serv_backgroundDefaultPrimary</item>
+
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
+
+        <item name="toolbarNavigationButtonStyle">@style/Toolbar.Button.Navigation.Tinted</item>
+        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+        <item name="android:toolbarStyle">@style/Theme.Sandbox.Toolbar</item>
+        <item name="toolbarStyle">@style/Theme.Sandbox.Toolbar</item>
+
+        <item name="bottomSheetDialogTheme">@style/Theme.Sandbox.ComponentOverlays.BottomSheetDialog</item>
+
+    </style>
+
+    <style name="Theme.Sandbox.Toolbar" parent="Widget.MaterialComponents.Toolbar.Primary">
+        <item name="titleTextColor">?serv_textDefaultPrimary</item>
+        <item name="popupTheme">@style/Theme.Sandbox.PopupOverlay</item>
+    </style>
+
+    <style name="Theme.Sandbox.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.Sandbox.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar" />
+
+    <style name="Theme.Sandbox.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Dark" />
+
+    <style name="Toolbar.Button.Navigation.Tinted" parent="Widget.AppCompat.Toolbar.Button.Navigation">
+        <item name="tint">?serv_textDefaultPrimary</item>
+    </style>
+
+    <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="color">?serv_textDefaultPrimary</item>
+    </style>
+
+    <style name="Theme.Sandbox.ModalBottomSheetDialog" parent="Widget.MaterialComponents.BottomSheet.Modal">
+        <item name="backgroundTint">?android:colorBackground</item>
+        <item name="shapeAppearance">@style/Serv.Sdds.Shape.Round.M</item>
+    </style>
+
+    <style name="Theme.Sandbox.Components" />
+
+    <style name="Theme.Sandbox.ComponentOverlays" />
+
+    <style name="Theme.Sandbox.ComponentOverlays.BottomSheetDialog" parent="ThemeOverlay.MaterialComponents.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/Theme.Sandbox.ModalBottomSheetDialog</item>
+    </style>
+
+    <style name="Theme.Sandbox.PropertyItem">
+        <item name="android:backgroundTint">@color/bg_property_item</item>
+        <item name="sd_shapeAppearance">?serv_shapeRoundXxs</item>
+    </style>
+
+    <style name="Theme.Sandbox.PropertyItemLabel">
+        <item name="android:textColor">@color/color_property_item_label</item>
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyMBold</item>
+        <item name="android:duplicateParentState">true</item>
+    </style>
+
+    <style name="Theme.Sandbox.PropertyItemValue">
+        <item name="android:textColor">@color/color_property_item_value</item>
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyMBold</item>
+        <item name="android:duplicateParentState">true</item>
+    </style>
 </resources>

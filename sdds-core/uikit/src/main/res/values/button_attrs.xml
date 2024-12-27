@@ -29,7 +29,7 @@
         <attr name="sd_icon" format="reference" />
         <!-- Окрас иконки кнопки -->
         <attr name="sd_iconTint" format="reference|color" />
-        <!-- Отступ между иконок и текстом кнопки -->
+        <!-- Отступ между иконкой и текстом кнопки -->
         <attr name="sd_iconPadding" format="dimension" />
         <!--
             Размер иконки кнопки.

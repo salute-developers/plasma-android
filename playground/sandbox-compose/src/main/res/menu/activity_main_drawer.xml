@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_avatar"
+            android:title="@string/menu_avatar" />
+
+        <item
+            android:id="@+id/nav_avatargroup"
+            android:title="@string/menu_avatargroup" />
+
+        <item
+            android:id="@+id/nav_basic_button"
+            android:title="@string/menu_basicButton" />
+
+        <item
+            android:id="@+id/nav_icon_button"
+            android:title="@string/menu_iconButton" />
+
+        <item
+            android:id="@+id/nav_cell"
+            android:title="@string/menu_cell" />
+
+        <item
+            android:id="@+id/nav_checkbox"
+            android:title="@string/menu_checkbox" />
+
+        <item
+            android:id="@+id/nav_checkbox_group"
+            android:title="@string/menu_checkbox_group" />
+
+        <item
+            android:id="@+id/nav_chip"
+            android:title="@string/menu_chip" />
+
+        <item
+            android:id="@+id/nav_chip_group"
+            android:title="@string/menu_chip_group" />
+
+        <item
+            android:id="@+id/nav_radiobox"
+            android:title="@string/menu_radiobox" />
+
+        <item
+            android:id="@+id/nav_radiobox_group"
+            android:title="@string/menu_radiobox_group" />
+
+        <item
+            android:id="@+id/nav_progressbar"
+            android:title="@string/menu_progressbar" />
+
+        <item
+            android:id="@+id/nav_segment"
+            android:title="@string/menu_segment" />
+
+        <item
+            android:id="@+id/nav_segment_item"
+            android:title="@string/menu_segment_item" />
+
+        <item
+            android:id="@+id/nav_switch"
+            android:title="@string/menu_switch" />
+
+        <item
+            android:id="@+id/nav_textfield"
+            android:title="@string/menu_textfield" />
+
+        <item
+            android:id="@+id/nav_textarea"
+            android:title="@string/menu_textarea" />
+    </group>
+</menu>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Serv.Sdds.Components.Segment" parent="Sdds.Components.Segment">
+        <item name="android:padding">2dp</item>
+        <item name="android:backgroundTint">?serv_surfaceDefaultTransparentSecondary</item>
+        <item name="sd_stretch">false</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Segment.L">
+        <item name="sd_segmentItemStyleOverlay">@style/Serv.Sdds.ComponentOverlays.SegmentItem.LClear</item>
+        <item name="sd_shapeAppearance">?serv_shapeRoundL </item>
+        <item name="sd_shapeAppearanceAdjustment">-2dp </item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Segment.L.Default">
+        <item name="sd_viewState">primary</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Segment.L.Secondary">
+        <item name="sd_viewState">secondary</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Segment.M">
+        <item name="sd_segmentItemStyleOverlay">@style/Serv.Sdds.ComponentOverlays.SegmentItem.MClear</item>
+        <item name="sd_shapeAppearance">?serv_shapeRoundM </item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Segment.M.Default">
+        <item name="sd_viewState">primary</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Segment.M.Secondary">
+        <item name="sd_viewState">secondary</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Segment.S">
+        <item name="sd_segmentItemStyleOverlay">@style/Serv.Sdds.ComponentOverlays.SegmentItem.SClear</item>
+        <item name="sd_shapeAppearance">?serv_shapeRoundM </item>
+        <item name="sd_shapeAppearanceAdjustment">-2dp </item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Segment.S.Default">
+        <item name="sd_viewState">primary</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Segment.S.Secondary">
+        <item name="sd_viewState">secondary</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Segment.Xs">
+        <item name="sd_segmentItemStyleOverlay">@style/Serv.Sdds.ComponentOverlays.SegmentItem.XsClear</item>
+        <item name="sd_shapeAppearance">?serv_shapeRoundS </item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Segment.Xs.Default">
+        <item name="sd_viewState">primary</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Segment.Xs.Secondary">
+        <item name="sd_viewState">secondary</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Segment.LPilled">
+        <item name="sd_segmentItemStyleOverlay"> @style/Serv.Sdds.ComponentOverlays.SegmentItem.LClearPilled </item>
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle </item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Segment.LPilled.Default">
+        <item name="sd_viewState">primary</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Segment.LPilled.Secondary">
+        <item name="sd_viewState">secondary</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Segment.MPilled">
+        <item name="sd_segmentItemStyleOverlay"> @style/Serv.Sdds.ComponentOverlays.SegmentItem.MClearPilled </item>
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle </item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Segment.MPilled.Default">
+        <item name="sd_viewState">primary</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Segment.MPilled.Secondary">
+        <item name="sd_viewState">secondary</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Segment.SPilled">
+        <item name="sd_segmentItemStyleOverlay"> @style/Serv.Sdds.ComponentOverlays.SegmentItem.SClearPilled </item>
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle </item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Segment.SPilled.Default">
+        <item name="sd_viewState">primary</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Segment.SPilled.Secondary">
+        <item name="sd_viewState">secondary</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Segment.XsPilled">
+        <item name="sd_segmentItemStyleOverlay"> @style/Serv.Sdds.ComponentOverlays.SegmentItem.XsClearPilled </item>
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle </item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Segment.XsPilled.Default">
+        <item name="sd_viewState">primary</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Segment.XsPilled.Secondary">
+        <item name="sd_viewState">secondary</item>
+    </style>
+
+</resources>
+
+
+

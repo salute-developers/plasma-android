@@ -22,3 +22,6 @@ interface Shapeable {
  */
 fun View.shapeable(attributeSet: AttributeSet? = null, defStyleAttr: Int = 0, defStyleRes: Int = 0): Shapeable =
     ShapeHelper(this, attributeSet, defStyleAttr, defStyleRes)
+
+internal fun View.shapeHelper(attributeSet: AttributeSet? = null, defStyleAttr: Int = 0, defStyleRes: Int = 0) =
+    ShapeHelper(this, attributeSet, defStyleAttr, defStyleRes)

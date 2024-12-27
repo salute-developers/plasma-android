@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="basic_button"/>
+    <item type="id" name="radioBox"/>
+    <item type="id" name="cell"/>
+    <item type="id" name="checkBox"/>
+    <item type="id" name="checkBox_group" />
+    <item type="id" name="radioBox_group" />
+    <item type="id" name="chip"/>
+    <item type="id" name="chip_group"/>
+    <item type="id" name="icon_button"/>
+    <item type="id" name="progressBar"/>
+    <item type="id" name="switcher"/>
+    <item type="id" name="textField"/>
+    <item type="id" name="avatar"/>
+    <item type="id" name="avatar_group"/>
+    <item type="id" name="segment"/>
+    <item type="id" name="segment_item"/>
+</resources>

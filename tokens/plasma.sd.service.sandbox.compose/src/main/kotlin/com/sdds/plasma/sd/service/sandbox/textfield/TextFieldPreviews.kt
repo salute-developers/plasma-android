@@ -1,19 +1,22 @@
 package com.sdds.plasma.sd.service.sandbox.textfield
 
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import com.sdds.compose.uikit.Chip
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.TextField
+import com.sdds.compose.uikit.TextFieldClear
 import com.sdds.icons.R
 import com.sdds.plasma.sd.service.sandbox.SandboxTheme
 import com.sdds.plasma.sd.service.styles.textfield.Default
@@ -29,6 +32,11 @@ import com.sdds.plasma.sd.service.styles.textfield.S
 import com.sdds.plasma.sd.service.styles.textfield.Success
 import com.sdds.plasma.sd.service.styles.textfield.Warning
 import com.sdds.plasma.sd.service.styles.textfield.Xs
+import com.sdds.plasma.sd.service.styles.textfield.clear.HasDivider
+import com.sdds.plasma.sd.service.styles.textfield.clear.L
+import com.sdds.plasma.sd.service.styles.textfield.clear.M
+import com.sdds.plasma.sd.service.styles.textfield.clear.S
+import com.sdds.plasma.sd.service.styles.textfield.clear.Xs
 
 /**
  * Превью [TextField]
@@ -60,57 +68,28 @@ internal fun SandboxTextFieldPreview() {
 
 @Composable
 @Preview(showBackground = true)
-internal fun SandboxTextFieldPreviewXS() {
-    SandboxTheme(darkTheme = true) {
-        TextField(
-            value = TextFieldValue(text = ""),
-            style = TextField.Xs.Default.OuterLabel.RequiredEnd.style(),
-            labelText = "Label",
-            placeholderText = "Placeholder",
-            captionText = "Caption",
-            onValueChange = {},
-            enabled = true,
-            chipsContent = {
-                Chip(
-                    label = "Chip",
-                    endContent = {
-                        Icon(
-                            painter = painterResource(id = R.drawable.ic_close_16),
-                            contentDescription = "",
-                        )
-                    },
-                )
-                Chip(
-                    label = "Chip",
-                    endContent = {
-                        Icon(
-                            painter = painterResource(id = R.drawable.ic_close_16),
-                            contentDescription = "",
-                        )
-                    },
-                )
-            },
-        )
-    }
-}
-
-@Composable
-@Preview(showBackground = true)
-internal fun SandboxTextFieldPreviewXsError() {
+internal fun SandboxTextFieldPreviewLDefaultInnerLeft() {
     SandboxTheme {
+        var value by remember { mutableStateOf(TextFieldValue("Value")) }
+
         TextField(
-            value = TextFieldValue(text = ""),
-            style = TextField.Xs.Error.OuterLabel.Optional.style(),
-            captionText = "Caption",
+            value = value,
+            style = TextField.L.Default.InnerLabel.RequiredStart.style(),
             labelText = "Label",
-            placeholderText = "Placeholder",
-            optionalText = "optional",
-            onValueChange = {},
+            placeholderText = "",
+            captionText = "Caption",
+            onValueChange = { value = it },
             enabled = true,
             readOnly = false,
             startContent = {
                 Icon(
-                    painter = painterResource(id = R.drawable.ic_shazam_16),
+                    painter = painterResource(id = R.drawable.ic_scribble_diagonal_24),
+                    contentDescription = "",
+                )
+            },
+            endContent = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_shazam_24),
                     contentDescription = "",
                 )
             },
@@ -120,34 +99,44 @@ internal fun SandboxTextFieldPreviewXsError() {
 
 @Composable
 @Preview(showBackground = true)
-internal fun SandboxTextFieldPreviewLSuccess() {
+internal fun SandboxTextFieldPreviewMSuccessOuterLabel() {
     SandboxTheme {
+        var value by remember { mutableStateOf(TextFieldValue("")) }
+
         TextField(
-            value = TextFieldValue(text = "Value"),
-            style = TextField.L.Success.OuterLabel.RequiredStart.style(),
-            captionText = "",
+            value = value,
+            style = TextField.M.Success.OuterLabel.Optional.style(),
+            captionText = "Caption",
             labelText = "Label",
-            optionalText = "",
             placeholderText = "Placeholder",
-            onValueChange = {},
+            optionalText = "optional",
+            onValueChange = { value = it },
             enabled = true,
             readOnly = false,
+            endContent = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_shazam_24),
+                    contentDescription = "",
+                )
+            },
         )
     }
 }
 
 @Composable
 @Preview(showBackground = true)
-internal fun SandboxTextFieldPreviewMWarning() {
+internal fun SandboxTextFieldPreviewSWarningInnerRight() {
     SandboxTheme {
+        var value by remember { mutableStateOf(TextFieldValue("")) }
+
         TextField(
-            value = TextFieldValue(text = "Value"),
-            style = TextField.M.Warning.RequiredEnd.OuterLabel.style(),
-            captionText = "",
+            value = value,
+            style = TextField.S.Warning.InnerLabel.RequiredEnd.style(),
+            captionText = "Caption",
             labelText = "Label",
             optionalText = "",
             placeholderText = "Placeholder",
-            onValueChange = {},
+            onValueChange = { value = it },
             enabled = true,
             readOnly = false,
             startContent = {
@@ -162,14 +151,156 @@ internal fun SandboxTextFieldPreviewMWarning() {
 
 @Composable
 @Preview(showBackground = true)
-internal fun SandboxTextFieldPreviewSDisabled() {
+internal fun SandboxTextFieldPreviewXSErrorInner() {
+    SandboxTheme {
+        TextField(
+            value = TextFieldValue(text = ""),
+            style = TextField.Xs.Error.InnerLabel.Optional.style(),
+            captionText = "Caption",
+            labelText = "Label",
+            optionalText = "",
+            placeholderText = "Placeholder",
+            onValueChange = {},
+            enabled = true,
+            readOnly = false,
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxTextFieldPreviewLSuccessRequiredLeftOuter() {
+    SandboxTheme {
+        var value by remember { mutableStateOf(TextFieldValue("Value")) }
+
+        TextField(
+            value = value,
+            style = TextField.L.Success.OuterLabel.RequiredStart.style(),
+            captionText = "Caption",
+            labelText = "Label",
+            optionalText = "",
+            placeholderText = "",
+            onValueChange = { value = it },
+            enabled = true,
+            readOnly = false,
+            startContent = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_scribble_diagonal_24),
+                    contentDescription = "",
+                )
+            },
+            endContent = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_shazam_24),
+                    contentDescription = "",
+                )
+            },
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxTextFieldPreviewMWarningInnerLabelOptional() {
+    SandboxTheme {
+        var value by remember { mutableStateOf(TextFieldValue("Value")) }
+
+        TextField(
+            value = value,
+            style = TextField.M.Warning.InnerLabel.Optional.style(),
+            captionText = "Сaption",
+            labelText = "Label",
+            optionalText = "optional",
+            placeholderText = "",
+            onValueChange = { value = it },
+            enabled = true,
+            readOnly = false,
+            startContent = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_scribble_diagonal_24),
+                    contentDescription = "",
+                )
+            },
+            endContent = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_shazam_24),
+                    contentDescription = "",
+                )
+            },
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxTextFieldPreviewSReadOnly() {
+    SandboxTheme {
+        TextField(
+            value = TextFieldValue(text = ""),
+            style = TextField.S.Default.InnerLabel.RequiredEnd.style(),
+            captionText = "Сaption",
+            labelText = "",
+            optionalText = "",
+            placeholderText = "Placeholder",
+            onValueChange = {},
+            enabled = true,
+            readOnly = true,
+            startContent = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_scribble_diagonal_24),
+                    contentDescription = "",
+                )
+            },
+            endContent = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_shazam_24),
+                    contentDescription = "",
+                )
+            },
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxTextFieldPreviewXSSuccessOuterLabelOptional() {
     SandboxTheme {
         TextField(
             value = TextFieldValue(text = "Value"),
-            style = TextField.S.Default.InnerLabel.RequiredEnd.style(),
+            style = TextField.Xs.Success.OuterLabel.Optional.style(),
+            captionText = "Сaption",
+            labelText = "Label",
+            optionalText = "optional",
+            placeholderText = "",
+            onValueChange = {},
+            enabled = true,
+            readOnly = false,
+            startContent = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_scribble_diagonal_16),
+                    contentDescription = "",
+                )
+            },
+            endContent = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_shazam_16),
+                    contentDescription = "",
+                )
+            },
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxTextFieldPreviewLDisabled() {
+    SandboxTheme {
+        TextField(
+            value = TextFieldValue(text = ""),
+            style = TextField.L.Default.RequiredStart.InnerLabel.style(),
             captionText = "",
             labelText = "Label",
-            optionalText = "",
+            optionalText = "optional",
             placeholderText = "Placeholder",
             onValueChange = {},
             enabled = false,
@@ -192,11 +323,11 @@ internal fun SandboxTextFieldPreviewSDisabled() {
 
 @Composable
 @Preview(showBackground = true)
-internal fun SandboxTextFieldPreviewSSuccess() {
+internal fun SandboxTextFieldPreviewMErrorOuterLabelOptional() {
     SandboxTheme {
         TextField(
-            value = TextFieldValue(text = "Value"),
-            style = TextField.S.Success.RequiredEnd.OuterLabel.style(),
+            value = TextFieldValue(text = ""),
+            style = TextField.M.Error.OuterLabel.Optional.style(),
             captionText = "Сaption",
             labelText = "Label",
             optionalText = "optional",
@@ -204,28 +335,146 @@ internal fun SandboxTextFieldPreviewSSuccess() {
             onValueChange = {},
             enabled = true,
             readOnly = false,
+            startContent = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_scribble_diagonal_24),
+                    contentDescription = "",
+                )
+            },
+            endContent = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_shazam_24),
+                    contentDescription = "",
+                )
+            },
         )
     }
 }
 
 @Composable
 @Preview(showBackground = true)
-internal fun SandboxTextFieldPreviewSReadOnly() {
+internal fun SandboxTextFieldPreviewSWarningInnerLabelRightFocused() {
     SandboxTheme {
+        var value by remember { mutableStateOf(TextFieldValue("")) }
+
         TextField(
-            value = TextFieldValue(text = "Value"),
-            style = TextField.S.Error.InnerLabel.RequiredStart.style(),
+            value = value,
+            style = TextField.S.Warning.InnerLabel.RequiredEnd.style(),
             captionText = "Сaption",
             labelText = "Label",
-            optionalText = "",
+            optionalText = "optional",
             placeholderText = "Placeholder",
-            onValueChange = {},
+            prefix = "",
+            suffix = "",
+            onValueChange = { value = it },
             enabled = true,
-            readOnly = true,
+            readOnly = false,
             startContent = {
                 Icon(
                     painter = painterResource(id = R.drawable.ic_scribble_diagonal_24),
                     contentDescription = "",
+                )
+            },
+            endContent = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_shazam_24),
+                    contentDescription = "",
+                )
+            },
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxTextFieldPreviewMSuccessInnerLabelChips() {
+    SandboxTheme {
+        var value by remember { mutableStateOf(TextFieldValue("")) }
+        TextField(
+            value = value,
+            style = TextField.M.Success.InnerLabel.Optional.style(),
+            captionText = "Сaption",
+            labelText = "Label",
+            optionalText = "optional",
+            placeholderText = "Placeholder",
+            onValueChange = { value = it },
+            enabled = true,
+            readOnly = false,
+            startContent = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_scribble_diagonal_24),
+                    contentDescription = "",
+                )
+            },
+            endContent = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_shazam_24),
+                    contentDescription = "",
+                )
+            },
+            chipsContent = {
+                Chip(
+                    label = "Chip",
+                    endContent = {
+                        Icon(
+                            painter = painterResource(id = R.drawable.ic_close_24),
+                            contentDescription = "",
+                        )
+                    },
+                )
+                Chip(
+                    label = "Chip",
+                    endContent = {
+                        Icon(
+                            painter = painterResource(id = R.drawable.ic_close_24),
+                            contentDescription = "",
+                        )
+                    },
+                )
+            },
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxTextFieldPreviewSOuterLabelRightChips() {
+    SandboxTheme {
+        var value by remember { mutableStateOf(TextFieldValue("")) }
+        TextField(
+            value = value,
+            style = TextField.S.Default.OuterLabel.RequiredEnd.style(),
+            captionText = "Сaption",
+            labelText = "Label",
+            optionalText = "",
+            placeholderText = "Placeholder",
+            onValueChange = { value = it },
+            enabled = true,
+            readOnly = false,
+            endContent = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_shazam_24),
+                    contentDescription = "",
+                )
+            },
+            chipsContent = {
+                Chip(
+                    label = "Chip",
+                    endContent = {
+                        Icon(
+                            painter = painterResource(id = R.drawable.ic_close_24),
+                            contentDescription = "",
+                        )
+                    },
+                )
+                Chip(
+                    label = "Chip",
+                    endContent = {
+                        Icon(
+                            painter = painterResource(id = R.drawable.ic_close_24),
+                            contentDescription = "",
+                        )
+                    },
                 )
             },
         )
@@ -236,156 +485,22 @@ internal fun SandboxTextFieldPreviewSReadOnly() {
 @Preview(showBackground = true)
 internal fun SandboxTextFieldPreviewLInputText() {
     SandboxTheme {
+        var value by remember { mutableStateOf(TextFieldValue("")) }
+
         TextField(
-            value = TextFieldValue(text = "абвгдежзabcdefg@#643!#\$"),
+            value = value,
             style = TextField.L.Warning.InnerLabel.Optional.style(),
             captionText = "",
             labelText = "Label",
             optionalText = "optional",
             placeholderText = "Placeholder",
-            onValueChange = {},
+            onValueChange = { value = it },
             enabled = true,
             readOnly = false,
             startContent = {
                 Icon(
                     painter = painterResource(id = R.drawable.ic_scribble_diagonal_24),
                     contentDescription = "",
-                )
-            },
-        )
-    }
-}
-
-@Composable
-@Preview(showBackground = true)
-internal fun SandboxTextFieldPreviewXsInputText() {
-    SandboxTheme {
-        TextField(
-            value = TextFieldValue(text = "абвгдежзabcdefg@#643!#\$"),
-            style = TextField.Xs.Success.OuterLabel.RequiredEnd.style(),
-            captionText = "",
-            labelText = "Label",
-            optionalText = "",
-            placeholderText = "Placeholder",
-            onValueChange = {},
-            enabled = true,
-            readOnly = false,
-        )
-    }
-}
-
-@Composable
-@Preview(showBackground = true)
-internal fun SandboxTextFieldPreviewXsDotBadgeOutside() {
-    SandboxTheme {
-        TextField(
-            value = TextFieldValue(text = ""),
-            style = TextField.Xs.Warning.OuterLabel.RequiredStart.style(),
-            captionText = "Сaption",
-            labelText = "Label",
-            optionalText = "",
-            placeholderText = "Placeholder",
-            onValueChange = {},
-            enabled = true,
-            readOnly = false,
-            startContent = {
-                Icon(
-                    painter = painterResource(id = R.drawable.ic_scribble_diagonal_16),
-                    contentDescription = "",
-                )
-            },
-            endContent = {
-                Icon(
-                    painter = painterResource(id = R.drawable.ic_shazam_16),
-                    contentDescription = "",
-                )
-            },
-        )
-    }
-}
-
-@Composable
-@Preview(showBackground = true)
-internal fun SandboxTextFieldPreviewMDotBadgeInside() {
-    SandboxTheme {
-        TextField(
-            value = TextFieldValue(text = ""),
-            style = TextField.M.Error.InnerLabel.RequiredEnd.style(),
-            captionText = "Сaption",
-            labelText = "Label",
-            optionalText = "",
-            placeholderText = "Placeholder",
-            onValueChange = {},
-            enabled = true,
-            readOnly = false,
-            endContent = {
-                Icon(
-                    painter = painterResource(id = R.drawable.ic_shazam_24),
-                    contentDescription = "",
-                )
-            },
-            chipsContent = {
-                Chip(
-                    label = "Chip",
-                    endContent = {
-                        Icon(
-                            painter = painterResource(id = R.drawable.ic_close_24),
-                            contentDescription = "",
-                        )
-                    },
-                )
-                Chip(
-                    label = "Chip",
-                    endContent = {
-                        Icon(
-                            painter = painterResource(id = R.drawable.ic_close_24),
-                            contentDescription = "",
-                        )
-                    },
-                )
-            },
-        )
-    }
-}
-
-@Composable
-@Preview(showBackground = true)
-internal fun SandboxTextFieldPreviewXsChipsInside() {
-    SandboxTheme {
-        TextField(
-            value = TextFieldValue(text = ""),
-            style = TextField.Xs.Warning.OuterLabel.Optional.style(),
-            captionText = "Сaption",
-            labelText = "Label",
-            optionalText = "optional",
-            placeholderText = "Placeholder",
-            onValueChange = {},
-            enabled = true,
-            readOnly = false,
-            endContent = {
-                Icon(
-                    painter = painterResource(id = R.drawable.ic_shazam_16),
-                    contentDescription = "",
-                )
-            },
-            chipsContent = {
-                Chip(
-                    label = "Chip",
-                    endContent = {
-                        Icon(
-                            painter = painterResource(id = R.drawable.ic_close_16),
-                            contentDescription = "",
-                        )
-                    },
-                )
-                Chip(
-                    label = "Chip",
-                    endContent = {
-                        Icon(
-                            painter = painterResource(id = R.drawable.ic_close_16),
-                            contentDescription = "",
-                        )
-                    },
                 )
             },
         )
@@ -396,16 +511,18 @@ internal fun SandboxTextFieldPreviewXsChipsInside() {
 @Preview(showBackground = true)
 internal fun SandboxTextFieldPreviewLSuffixPrefix() {
     SandboxTheme {
+        var value by remember { mutableStateOf(TextFieldValue("Value")) }
+
         TextField(
-            value = TextFieldValue(text = "Value"),
-            style = TextField.L.Default.InnerLabel.Optional.style(),
+            value = value,
+            style = TextField.L.Default.OuterLabel.RequiredStart.style(),
             captionText = "Сaption",
             labelText = "Label",
             optionalText = "optional",
             placeholderText = "Placeholder",
             prefix = "TB Prefix",
             suffix = "TA Suffix",
-            onValueChange = {},
+            onValueChange = { value = it },
             enabled = true,
             readOnly = false,
             startContent = {
@@ -426,20 +543,20 @@ internal fun SandboxTextFieldPreviewLSuffixPrefix() {
 
 @Composable
 @Preview(showBackground = true)
-internal fun SandboxTextFieldPreviewFocused() {
+internal fun SandboxTextFieldClearLErrorInnerOptional() {
     SandboxTheme {
+        var value by remember { mutableStateOf(TextFieldValue("")) }
+
         TextField(
-            value = TextFieldValue(text = ""),
-            style = TextField.L.Default.InnerLabel.RequiredStart.style(),
+            value = value,
+            style = TextFieldClear.L.Error.InnerLabel.Optional.HasDivider.style(),
             captionText = "Сaption",
             labelText = "Label",
             optionalText = "optional",
             placeholderText = "Placeholder",
-            prefix = "",
-            suffix = "",
-            onValueChange = {},
-            enabled = true,
+            onValueChange = { value = it },
             readOnly = false,
+            enabled = true,
             startContent = {
                 Icon(
                     painter = painterResource(id = R.drawable.ic_scribble_diagonal_24),
@@ -458,22 +575,53 @@ internal fun SandboxTextFieldPreviewFocused() {
 
 @Composable
 @Preview(showBackground = true)
-internal fun SandboxTextFieldPreviewTextDeletes() {
+internal fun SandboxTextFieldClearMWarningInnerRequiredLeft() {
     SandboxTheme {
+        var value by remember { mutableStateOf(TextFieldValue("Value")) }
+        Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
+            TextField(
+                value = value,
+                style = TextFieldClear.M.Warning.InnerLabel.RequiredStart.HasDivider.style(),
+                captionText = "Сaption",
+                labelText = "Label",
+                optionalText = "optional",
+                placeholderText = "Placeholder",
+                onValueChange = { value = it },
+                readOnly = false,
+                enabled = true,
+                startContent = {
+                    Icon(
+                        painter = painterResource(id = R.drawable.ic_scribble_diagonal_24),
+                        contentDescription = "",
+                    )
+                },
+                endContent = {
+                    Icon(
+                        painter = painterResource(id = R.drawable.ic_shazam_24),
+                        contentDescription = "",
+                    )
+                },
+            )
+        }
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxTextFieldClearSDefaultOuterOptional() {
+    SandboxTheme {
+        var value by remember { mutableStateOf(TextFieldValue("")) }
+
         TextField(
-            modifier = Modifier
-                .testTag("textField"),
-            value = TextFieldValue(text = "Value"),
-            style = TextField.L.Error.InnerLabel.RequiredEnd.style(),
+            value = value,
+            style = TextFieldClear.S.Default.OuterLabel.Optional.HasDivider.style(),
             captionText = "Сaption",
-            labelText = "Label",
-            optionalText = "optional",
+            labelText = "",
+            optionalText = "Optional",
             placeholderText = "Placeholder",
-            prefix = "",
-            suffix = "",
-            onValueChange = {},
-            enabled = true,
+            onValueChange = { value = it },
             readOnly = false,
+            enabled = true,
             startContent = {
                 Icon(
                     painter = painterResource(id = R.drawable.ic_scribble_diagonal_24),
@@ -487,5 +635,106 @@ internal fun SandboxTextFieldPreviewTextDeletes() {
                 )
             },
         )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxTextFieldClearXSSuccessOuterRequiredRightFocused() {
+    SandboxTheme {
+        var value by remember { mutableStateOf(TextFieldValue("")) }
+
+        TextField(
+            value = value,
+            style = TextFieldClear.Xs.Success.OuterLabel.RequiredEnd.HasDivider.style(),
+            captionText = "Сaption",
+            labelText = "Label",
+            optionalText = "optional",
+            placeholderText = "Placeholder",
+            onValueChange = { value = it },
+            readOnly = false,
+            enabled = true,
+            startContent = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_scribble_diagonal_24),
+                    contentDescription = "",
+                )
+            },
+            endContent = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_shazam_24),
+                    contentDescription = "",
+                )
+            },
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxTextFieldClearLDefaultInnerRequiredRight() {
+    SandboxTheme {
+        var value by remember { mutableStateOf(TextFieldValue("Value")) }
+        Box(
+            modifier = Modifier.fillMaxWidth(),
+            contentAlignment = Alignment.Center,
+        ) {
+            TextField(
+                value = value,
+                style = TextFieldClear.L.Default.InnerLabel.RequiredEnd.HasDivider.style(),
+                captionText = "Сaption",
+                labelText = "Label",
+                optionalText = "optional",
+                placeholderText = "Placeholder",
+                onValueChange = { value = it },
+                readOnly = false,
+                enabled = true,
+                startContent = {
+                    Icon(
+                        painter = painterResource(id = R.drawable.ic_scribble_diagonal_24),
+                        contentDescription = "",
+                    )
+                },
+                endContent = {
+                    Icon(
+                        painter = painterResource(id = R.drawable.ic_shazam_24),
+                        contentDescription = "",
+                    )
+                },
+            )
+        }
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxTextFieldClearMErrorInnerRequiredLeft() {
+    SandboxTheme {
+        var value by remember { mutableStateOf(TextFieldValue("Value")) }
+        Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
+            TextField(
+                value = value,
+                style = TextFieldClear.M.Error.InnerLabel.RequiredStart.HasDivider.style(),
+                captionText = "Сaption",
+                labelText = "",
+                optionalText = "optional",
+                placeholderText = "Placeholder",
+                onValueChange = { value = it },
+                readOnly = false,
+                enabled = true,
+                startContent = {
+                    Icon(
+                        painter = painterResource(id = R.drawable.ic_scribble_diagonal_24),
+                        contentDescription = "",
+                    )
+                },
+                endContent = {
+                    Icon(
+                        painter = painterResource(id = R.drawable.ic_shazam_24),
+                        contentDescription = "",
+                    )
+                },
+            )
+        }
     }
 }

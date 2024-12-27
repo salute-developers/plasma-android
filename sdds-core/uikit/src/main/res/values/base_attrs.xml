@@ -18,6 +18,11 @@
     <attr name="sd_shapeAppearance" format="reference" />
     <attr name="sd_shaderAppearance" format="reference" />
     <attr name="sd_shapeAppearanceAdjustment" format="dimension" />
+    <attr name="sd_shapeAppearanceBaseline" format="enum" >
+        <enum name="auto" value="0" />
+        <enum name="width" value="1" />
+        <enum name="height" value="2" />
+    </attr>
     <attr name="sd_strokeColor" format="reference|color" />
     <attr name="sd_strokeWidth" format="float|fraction|dimension" />
     <attr name="sd_disabledAlpha" format="float" />
@@ -49,6 +54,7 @@
         <attr name="sd_strokeColor" />
         <attr name="sd_strokeWidth" />
         <attr name="sd_shapeAppearanceAdjustment"/>
+        <attr name="sd_shapeAppearanceBaseline"/>
     </declare-styleable>
 
     <declare-styleable name="SdShapeAppearance">
