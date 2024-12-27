@@ -7,6 +7,8 @@ on:
         description: 'Version Name'
         required: true
 
+permissions: write-all
+
 concurrency:
   # New commit on branch cancels running workflows of the same branch
   group: ${{ github.workflow }}-${{ github.head_ref }}
@@ -16,13 +18,12 @@ jobs:
   tag-release:
     name: Build release artifacts
     runs-on: ubuntu-latest
-    permissions: write-all
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           ref: main
-          token: ${{ secrets.GH_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Retrieve tag exists flag
         uses: mukunku/tag-exists-action@v1.0.0
@@ -30,7 +31,7 @@ jobs:
         with:
           tag: ${{ github.event.inputs.versionName }}
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Verify tag not exists
         run: |
@@ -49,7 +50,7 @@ jobs:
       - name: Create Release on GitHub
         uses: actions/create-release@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ github.event.inputs.versionName }}
           release_name: ${{ github.event.inputs.versionName }}
