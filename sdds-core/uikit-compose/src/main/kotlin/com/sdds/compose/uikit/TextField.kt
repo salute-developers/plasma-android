@@ -105,17 +105,13 @@ object TextField {
      *
      * @property boxPaddingStart отступ контента в начале
      * @property boxPaddingEnd отступ контента в конце
-     * @property boxPaddingTopInnerLabel верхний отступ контента с внутренним лэйблом
-     * @property boxPaddingBottomInnerLabel нижний отступ контента с внутренним лэйблом
-     * @property boxPaddingTopOuterLabel верхний отступ контента с наружным лэйблом
-     * @property boxPaddingBottomOuterLabel нижний отступ контента с наружным лэйблом
-     * @property innerLabelPadding нижний отступ внутреннего лэйбла
-     * @property outerLabelPadding нижний отступ наружного лэйбла
+     * @property boxPaddingTop верхний отступ контента с внутренним лэйблом
+     * @property boxPaddingBottom нижний отступ контента с внутренним лэйблом
+     * @property labelPadding нижний отступ внутреннего лэйбла
      * @property optionalPadding отступ в начале optional текста
-     * @property helperTextPaddingInner верхний отступ внутреннего helper текста (caption/counter)
-     * @property helperTextPaddingOuter верхний отступ наружного helper текста (caption/counter)
-     * @property startContentEndPadding отступ после startContent
-     * @property endContentStartPadding отступ перед endContent
+     * @property helperTextPadding верхний отступ внутреннего helper текста (caption/counter)
+     * @property startContentPadding отступ после startContent
+     * @property endContentPadding отступ перед endContent
      * @property chipsPadding отступ от контейнера с chip-элементами
      * @property boxMinHeight минимальная высота поля
      * @property alignmentLineHeight высота первой строки контента
@@ -127,17 +123,13 @@ object TextField {
     data class Dimensions(
         val boxPaddingStart: Dp = 16.dp,
         val boxPaddingEnd: Dp = 16.dp,
-        val boxPaddingTopInnerLabel: Dp = 25.dp,
-        val boxPaddingBottomInnerLabel: Dp = 9.dp,
-        val boxPaddingTopOuterLabel: Dp = 25.dp,
-        val boxPaddingBottomOuterLabel: Dp = 9.dp,
-        val innerLabelPadding: Dp = 2.dp,
-        val outerLabelPadding: Dp = 2.dp,
+        val boxPaddingTop: Dp = 25.dp,
+        val boxPaddingBottom: Dp = 9.dp,
+        val labelPadding: Dp = 2.dp,
         val optionalPadding: Dp = 4.dp,
-        val helperTextPaddingInner: Dp = 4.dp,
-        val helperTextPaddingOuter: Dp = 4.dp,
-        val startContentEndPadding: Dp = 6.dp,
-        val endContentStartPadding: Dp = 6.dp,
+        val helperTextPadding: Dp = 4.dp,
+        val startContentPadding: Dp = 6.dp,
+        val endContentPadding: Dp = 6.dp,
         val chipsPadding: Dp = 6.dp,
         val boxMinHeight: Dp = 56.dp,
         val alignmentLineHeight: Dp = 56.dp,
@@ -149,29 +141,15 @@ object TextField {
         /**
          * Настройки индикатора
          *
-         * @property startLabelHorizontalPadding начальный горизонтальный отступ внешнего индикатора
-         * @property startLabelVerticalPadding начальный вертикальный отступ внешнего индикатора
-         * @property endLabelHorizontalPadding конечный горизонтальный отступ внешнего индикатора
-         * @property endLabelVerticalPadding конечный вертикальный отступ внешнего индикатора
-         * @property startFieldHorizontalPadding начальный горизонтальный отступ внутреннего индикатора
-         * @property startFieldVerticalPadding начальный вертикальный отступ внутреннего индикатора
-         * @property endFieldHorizontalPadding конечный горизонтальный отступ внутреннего индикатора
-         * @property endFieldVerticalPadding конечный вертикальный отступ внутреннего индикатора
-         * @property labelIndicatorSize размер внешнего индикатора
-         * @property fieldIndicatorSize размер внутреннего индикатора
+         * @property horizontalPadding горизонтальный отступ индикатора
+         * @property verticalPadding вертикальный отступ индикатора
+         * @property indicatorSize размер внешнего индикатора
          */
         @Immutable
         data class IndicatorDimensions(
-            val startLabelHorizontalPadding: Dp = 0.dp,
-            val startLabelVerticalPadding: Dp = 0.dp,
-            val endLabelHorizontalPadding: Dp = 0.dp,
-            val endLabelVerticalPadding: Dp = 0.dp,
-            val startFieldHorizontalPadding: Dp = 0.dp,
-            val startFieldVerticalPadding: Dp = 0.dp,
-            val endFieldHorizontalPadding: Dp = 0.dp,
-            val endFieldVerticalPadding: Dp = 0.dp,
-            val labelIndicatorSize: Dp = 6.dp,
-            val fieldIndicatorSize: Dp = 6.dp,
+            val horizontalPadding: Dp = 0.dp,
+            val verticalPadding: Dp = 0.dp,
+            val indicatorSize: Dp = 6.dp,
         )
     }
 
@@ -204,6 +182,11 @@ object TextField {
          * Лэйбл внутри текстового поля
          */
         Inner,
+
+        /**
+         * Нет лэйбла
+         */
+        None,
     }
 
     /**

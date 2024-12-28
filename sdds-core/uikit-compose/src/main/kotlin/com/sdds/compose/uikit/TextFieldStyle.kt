@@ -101,14 +101,14 @@ interface TextFieldStyle : Style {
     val hasDivider: Boolean
 
     /**
-     * Нужно ли скрыть внутренний лэйбл
+     * Стиль группы чипов
      */
-    val dropInnerLabel: Boolean
+    val chipGroupStyle: ChipGroupStyle
 
     /**
      * Стиль чипов
      */
-    val chipGroupStyle: ChipGroupStyle
+    val chipStyle: ChipStyle
 
     companion object
 }
@@ -147,7 +147,7 @@ interface TextFieldColors {
     /**
      * Цвет лэйбла
      */
-    fun labelColor(isReadOnly: Boolean, labelPlacement: TextField.LabelPlacement): InteractiveColor
+    fun labelColor(isReadOnly: Boolean): InteractiveColor
 
     /**
      * Цвет основного текста
