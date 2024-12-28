@@ -17,11 +17,23 @@ open class ThemeBuilderExtension {
     internal var viewThemeParents: Set<ViewThemeParent> = emptySet()
     internal var viewShapeAppearanceConfig: Set<ShapeAppearanceConfig> = emptySet()
     internal var themeSource: ThemeBuilderSource? = null
+    internal var componentsSource: String? = null
     internal var paletteUrl: String = DEFAULT_PALETTE_URL
     internal var mode: ThemeBuilderMode = ThemeBuilderMode.TOKENS_ONLY
     internal var outputLocation = OutputLocation.BUILD
     internal var dimensionsConfig = DimensionsConfig()
     internal var autoGenerate: Boolean = true
+
+    /**
+     * Временный способ установки любого url для конфигов компонентов
+     */
+    @Deprecated(
+        "Для внутреннего использования. Функия будет удалена",
+        ReplaceWith("mode(COMPONENTS)"),
+    )
+    fun componentsSource(url: String) {
+        this.componentsSource = url
+    }
 
     /**
      * Устанавливает источник темы по имени [name] и версии [version]
