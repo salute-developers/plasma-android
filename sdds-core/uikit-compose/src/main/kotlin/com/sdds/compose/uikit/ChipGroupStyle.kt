@@ -20,12 +20,6 @@ val LocalChipGroupStyle = compositionLocalOf { ChipGroupStyle.builder().style() 
 interface ChipGroupStyle : Style {
 
     /**
-     * Стиль дочерних [Chip]
-     * @see ChipStyle
-     */
-    val chipStyle: ChipStyle
-
-    /**
      * Размеры и отступы компонента
      * @see ChipGroupDimensions
      */
@@ -45,13 +39,6 @@ interface ChipGroupStyle : Style {
  */
 @Stable
 interface ChipGroupStyleBuilder : StyleBuilder<ChipGroupStyle> {
-
-    /**
-     * Устанавливает стиль [chipStyle] для дочерних [Chip]
-     * @see ChipGroupStyle.chipStyle
-     * @see ChipStyle
-     */
-    fun chipStyle(chipStyle: ChipStyle): ChipGroupStyleBuilder
 
     /**
      * Устанавливает размеры и отступы компонента [dimensions]
@@ -74,18 +61,12 @@ data class ChipGroupDimensions(
 
 @Immutable
 private data class DefaultChipGroupStyle(
-    override val chipStyle: ChipStyle,
     override val dimensions: ChipGroupDimensions,
 ) : ChipGroupStyle {
 
     class Builder : ChipGroupStyleBuilder {
 
-        private var chipStyle: ChipStyle? = null
         private var dimensions: ChipGroupDimensions? = null
-
-        override fun chipStyle(chipStyle: ChipStyle) = apply {
-            this.chipStyle = chipStyle
-        }
 
         override fun dimensions(dimensions: ChipGroupDimensions) = apply {
             this.dimensions = dimensions
@@ -93,7 +74,6 @@ private data class DefaultChipGroupStyle(
 
         override fun style(): ChipGroupStyle =
             DefaultChipGroupStyle(
-                chipStyle = chipStyle ?: ChipStyle.builder().style(),
                 dimensions = dimensions ?: ChipGroupDimensions(),
             )
     }
