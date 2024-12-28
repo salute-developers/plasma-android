@@ -16,7 +16,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 internal data class TextFieldProperties(
     // field box
-    val shape: Shape? = null,
+    val shape: Shape? = null, // not clear only
     val boxPaddingStart: Dimension? = null,
     val boxPaddingEnd: Dimension? = null,
     val boxPaddingTop: Dimension? = null,
@@ -52,11 +52,15 @@ internal data class TextFieldProperties(
     val placeholderColorReadOnly: Color? = null,
 
     // indicator
-    val indicatorPlacement: Value? = null,
+    val fieldType: Value? = null,
     val indicatorSize: Dimension? = null,
     val indicatorOffsetX: Dimension? = null,
     val indicatorOffsetY: Dimension? = null,
     val indicatorColor: Color? = null,
+
+    // divider (clear only)
+    val dividerColor: Color? = null,
+    val dividerHeight: Dimension? = null,
 
     // start content
     val startContentSize: Dimension? = null,
@@ -78,12 +82,20 @@ internal data class TextFieldProperties(
     val counterStyle: Typography? = null,
     val counterColor: Color? = null,
 
-    // background
+    // background (not clear only)
     val backgroundColor: Color? = null,
     val backgroundColorReadOnly: Color? = null,
 
     // cursor
     val cursorColor: Color? = null,
+
+    // scrollBar (text area only)
+    val scrollBarThickness: Dimension? = null,
+    val scrollBarPaddingTop: Dimension? = null,
+    val scrollBarPaddingBottom: Dimension? = null,
+    val scrollBarPaddingEnd: Dimension? = null,
+    val scrollBarTrackColor: Color? = null,
+    val scrollBarThumbColor: Color? = null,
 ) : PropertyOwner {
 
     @Suppress("CyclomaticComplexMethod")
@@ -114,7 +126,7 @@ internal data class TextFieldProperties(
             placeholderStyle = placeholderStyle ?: otherProps.placeholderStyle,
             placeholderColor = placeholderColor ?: otherProps.placeholderColor,
             placeholderColorReadOnly = placeholderColorReadOnly ?: otherProps.placeholderColorReadOnly,
-            indicatorPlacement = indicatorPlacement ?: otherProps.indicatorPlacement,
+            fieldType = fieldType ?: otherProps.fieldType,
             indicatorSize = indicatorSize ?: otherProps.indicatorSize,
             indicatorOffsetX = indicatorOffsetX ?: otherProps.indicatorOffsetX,
             indicatorOffsetY = indicatorOffsetY ?: otherProps.indicatorOffsetY,

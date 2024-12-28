@@ -10,7 +10,9 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsFocusedAsState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.calculateEndPadding
 import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
@@ -43,6 +45,7 @@ import androidx.compose.ui.layout.MeasurePolicy
 import androidx.compose.ui.layout.MeasureResult
 import androidx.compose.ui.layout.MeasureScope
 import androidx.compose.ui.layout.layoutId
+import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.TextFieldValue
@@ -54,7 +57,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.offset
 import com.sdds.compose.uikit.LocalTextFieldStyle
 import com.sdds.compose.uikit.LocalTint
-import com.sdds.compose.uikit.ScrollBar
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.TextField
 import com.sdds.compose.uikit.TextField.Animation
@@ -135,7 +137,7 @@ internal fun BaseTextField(
     val helperTextPlacement = style.helperTextPlacement
 
     val labelStyle = style.labelStyle.applyColor(
-        color = colors.labelColor(readOnly, labelPlacement),
+        color = colors.labelColor(readOnly),
         interactionSource = interactionSource,
     )
     val optionalStyle = style.optionalStyle.applyColor(
@@ -164,9 +166,9 @@ internal fun BaseTextField(
     val scrollBar = style.scrollBar
 
     val finalLabelText =
-        if (style.dropInnerLabel && labelPlacement == LabelPlacement.Inner) "" else labelText
+        if (labelPlacement == LabelPlacement.None) "" else labelText
     val finalOptionalText =
-        if (style.dropInnerLabel && labelPlacement == LabelPlacement.Inner) "" else optionalText
+        if (labelPlacement == LabelPlacement.None) "" else optionalText
 
     val innerVisualTransformation = remember(prefix, suffix, visualTransformation) {
         if (prefix.isNullOrEmpty() && suffix.isNullOrEmpty()) {
@@ -195,7 +197,7 @@ internal fun BaseTextField(
                 modifier = Modifier
                     .layoutId(TOP_CONTENT_ID)
                     .focusProperties { canFocus = false }
-                    .padding(bottom = dimensions.outerLabelPadding)
+                    .padding(bottom = dimensions.labelPadding)
                     .applyLabelIndicator(
                         fieldType = fieldType,
                         labelPlacement = labelPlacement,
@@ -252,7 +254,26 @@ internal fun BaseTextField(
                             .colorForInteraction(interactionSource),
                         dividerThickness = dimensions.dividerThickness,
                     )
-                    .applyVerticalScrollBar(verticalScrollState, scrollBar),
+                    .then(
+                        if (scrollBar != null) {
+                            Modifier.applyVerticalScrollBar(
+                                scrollState = verticalScrollState,
+                                scrollBarTrackColor = scrollBar.indicatorColor.colorForInteraction(
+                                    interactionSource,
+                                ),
+                                scrollBarThumbColor = scrollBar.backgroundColor.colorForInteraction(
+                                    interactionSource,
+                                ),
+                                scrollBarThickness = scrollBar.indicatorThickness,
+                                scrollBarPaddingEnd = scrollBar.padding
+                                    .calculateEndPadding(LocalLayoutDirection.current),
+                                scrollBarPaddingTop = scrollBar.padding.calculateTopPadding(),
+                                scrollBarPaddingBottom = scrollBar.padding.calculateBottomPadding(),
+                            )
+                        } else {
+                            Modifier
+                        },
+                    ),
                 value = value.text,
                 innerTextField = {
                     BasicTextField(
@@ -269,7 +290,9 @@ internal fun BaseTextField(
                         singleLine = singleLine,
                         visualTransformation = innerVisualTransformation,
                         interactionSource = interactionSource,
-                        cursorBrush = SolidColor(colors.cursorColor.colorForInteraction(interactionSource)),
+                        cursorBrush = SolidColor(
+                            colors.cursorColor.colorForInteraction(interactionSource),
+                        ),
                     )
                 },
                 visualTransformation = innerVisualTransformation,
@@ -306,6 +329,7 @@ internal fun BaseTextField(
                 animation = animation,
                 chips = chipsContent,
                 chipGroupStyle = style.chipGroupStyle,
+                chipStyle = style.chipStyle,
                 dimensions = dimensions,
                 verticalScrollState = verticalScrollState,
                 horizontalScrollState = horizontalScrollState,
@@ -319,7 +343,7 @@ internal fun BaseTextField(
                     .layoutId(CAPTION_CONTENT_ID)
                     .focusProperties { canFocus = false }
                     .layoutId(CAPTION_CONTENT_ID)
-                    .padding(top = dimensions.helperTextPaddingOuter),
+                    .padding(top = dimensions.helperTextPadding),
                 text = captionText,
                 textStyle = captionStyle,
                 helperTextPlacement = helperTextPlacement,
@@ -328,7 +352,7 @@ internal fun BaseTextField(
                 modifier = Modifier
                     .layoutId(COUNTER_CONTENT_ID)
                     .focusProperties { canFocus = false }
-                    .padding(top = dimensions.helperTextPaddingOuter),
+                    .padding(top = dimensions.helperTextPadding),
                 text = counterText,
                 textStyle = counterStyle,
                 helperTextPlacement = helperTextPlacement,
@@ -365,21 +389,30 @@ private fun Modifier.drawFieldAppearance(
 
 private fun Modifier.applyVerticalScrollBar(
     scrollState: ScrollState?,
-    scrollBarConfig: ScrollBar?,
+    scrollBarThickness: Dp,
+    scrollBarPaddingTop: Dp,
+    scrollBarPaddingBottom: Dp,
+    scrollBarPaddingEnd: Dp,
+    scrollBarTrackColor: Color,
+    scrollBarThumbColor: Color,
 ): Modifier {
-    return if (scrollState != null && scrollBarConfig != null) {
+    return if (scrollState != null) {
         this.scrollbar(
             state = scrollState,
             direction = Orientation.Vertical,
-            indicatorThickness = scrollBarConfig.indicatorThickness,
-            indicatorColor = scrollBarConfig.indicatorColor,
-            alpha = scrollBarConfig.alpha
-                ?: if (scrollState.isScrollInProgress) 0.8f else 0f,
-            alphaAnimationSpec = scrollBarConfig.alphaAnimationSpec ?: tween(
+            indicatorThickness = scrollBarThickness,
+            indicatorColor = scrollBarTrackColor,
+            backgroundColor = scrollBarThumbColor,
+            alpha = if (scrollState.isScrollInProgress) 0.8f else 0f,
+            alphaAnimationSpec = tween(
                 delayMillis = if (scrollState.isScrollInProgress) 0 else 1500,
                 durationMillis = if (scrollState.isScrollInProgress) 150 else 500,
             ),
-            padding = scrollBarConfig.padding,
+            padding = PaddingValues(
+                end = scrollBarPaddingEnd,
+                top = scrollBarPaddingTop,
+                bottom = scrollBarPaddingBottom,
+            ),
         )
     } else {
         this
@@ -490,7 +523,7 @@ private fun Modifier.applyIndicatorPadding(
     val shouldApply = isLabelOuter && isIndicatorStart && !labelText.isNullOrEmpty()
     return if (shouldApply) {
         val startPadding =
-            dimensions.indicatorDimensions.labelIndicatorSize + dimensions.labelIndicatorHorizontalPadding(
+            dimensions.indicatorDimensions.indicatorSize + dimensions.labelIndicatorHorizontalPadding(
                 fieldType,
             )
         this.padding(start = startPadding)
@@ -513,7 +546,7 @@ private fun Modifier.applyFieldIndicator(
     val verticalAlignmentOffset: Dp = indicatorVerticalAlignmentOffset(
         fieldAppearance = fieldAppearance,
         alignmentLineHeight = dimensions.alignmentLineHeight,
-        indicatorSize = dimensions.indicatorDimensions.fieldIndicatorSize,
+        indicatorSize = dimensions.indicatorDimensions.indicatorSize,
     )
 
     return this.drawIndicator(
@@ -521,7 +554,7 @@ private fun Modifier.applyFieldIndicator(
         color = indicatorColor,
         horizontalPadding = dimensions.fieldIndicatorHorizontalPadding(fieldType),
         verticalPadding = dimensions.fieldIndicatorVerticalPadding(fieldType) + verticalAlignmentOffset,
-        indicatorSize = dimensions.indicatorDimensions.fieldIndicatorSize,
+        indicatorSize = dimensions.indicatorDimensions.indicatorSize,
         horizontalMode = horizontalMode,
         verticalMode = IndicatorMode.Inner,
     )
@@ -569,7 +602,7 @@ private fun Modifier.applyLabelIndicator(
         color = indicatorColor,
         horizontalPadding = dimensions.labelIndicatorHorizontalPadding(fieldType),
         verticalPadding = dimensions.labelIndicatorVerticalPadding(fieldType),
-        indicatorSize = dimensions.indicatorDimensions.labelIndicatorSize,
+        indicatorSize = dimensions.indicatorDimensions.indicatorSize,
         horizontalMode = IndicatorMode.Outer,
         verticalMode = IndicatorMode.Inner,
     )
@@ -577,29 +610,29 @@ private fun Modifier.applyLabelIndicator(
 
 private fun TextField.Dimensions.labelIndicatorHorizontalPadding(fieldType: FieldType): Dp =
     when (fieldType) {
-        FieldType.RequiredStart -> indicatorDimensions.startLabelHorizontalPadding
-        FieldType.RequiredEnd -> indicatorDimensions.endLabelHorizontalPadding
+        FieldType.RequiredStart -> indicatorDimensions.horizontalPadding
+        FieldType.RequiredEnd -> indicatorDimensions.horizontalPadding
         FieldType.Optional -> 0.dp
     }
 
 private fun TextField.Dimensions.labelIndicatorVerticalPadding(fieldType: FieldType): Dp =
     when (fieldType) {
-        FieldType.RequiredStart -> indicatorDimensions.startLabelVerticalPadding
-        FieldType.RequiredEnd -> indicatorDimensions.endLabelVerticalPadding
+        FieldType.RequiredStart -> indicatorDimensions.verticalPadding
+        FieldType.RequiredEnd -> indicatorDimensions.verticalPadding
         FieldType.Optional -> 0.dp
     }
 
 private fun TextField.Dimensions.fieldIndicatorHorizontalPadding(fieldType: FieldType): Dp =
     when (fieldType) {
-        FieldType.RequiredStart -> indicatorDimensions.startFieldHorizontalPadding
-        FieldType.RequiredEnd -> indicatorDimensions.endFieldHorizontalPadding
+        FieldType.RequiredStart -> indicatorDimensions.horizontalPadding
+        FieldType.RequiredEnd -> indicatorDimensions.horizontalPadding
         FieldType.Optional -> 0.dp
     }
 
 private fun TextField.Dimensions.fieldIndicatorVerticalPadding(fieldType: FieldType): Dp =
     when (fieldType) {
-        FieldType.RequiredStart -> indicatorDimensions.startFieldVerticalPadding
-        FieldType.RequiredEnd -> indicatorDimensions.endFieldVerticalPadding
+        FieldType.RequiredStart -> indicatorDimensions.verticalPadding
+        FieldType.RequiredEnd -> indicatorDimensions.verticalPadding
         FieldType.Optional -> 0.dp
     }
 

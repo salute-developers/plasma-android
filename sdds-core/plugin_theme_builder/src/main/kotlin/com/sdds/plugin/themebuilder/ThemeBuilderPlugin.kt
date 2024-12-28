@@ -89,10 +89,11 @@ class ThemeBuilderPlugin : Plugin<Project> {
             is ThemeBuilderSource.NameAndVersion -> source.remoteName
             is ThemeBuilderSource.Url -> source.themeName
         }
+        val baseUrl = extension.componentsSource ?: "${BASE_COMPONENT_CONFIG_URL}$themeRemoteName"
         return ComponentConfig.values().map {
             project.tasks.register<FetchFileTask>(it.fetchTaskName) {
                 group = TASK_GROUP
-                url.set("${BASE_COMPONENT_CONFIG_URL}$themeRemoteName/${it.fileName}")
+                url.set("$baseUrl/${it.fileName}")
                 file.set(componentJsons[it]!!)
                 failMessage.set("Can't fetch ${it.fileName}")
             }
@@ -109,6 +110,9 @@ class ThemeBuilderPlugin : Plugin<Project> {
             iconButtonConfigFile.set(getComponentConfigFile(ComponentConfig.ICON_BUTTON.fileName))
             linkButtonConfigFile.set(getComponentConfigFile(ComponentConfig.LINK_BUTTON.fileName))
             textFieldConfigFile.set(getComponentConfigFile(ComponentConfig.TEXT_FIELD.fileName))
+            textFieldClearConfigFile.set(getComponentConfigFile(ComponentConfig.TEXT_FIELD_CLEAR.fileName))
+            textAreaConfigFile.set(getComponentConfigFile(ComponentConfig.TEXT_AREA.fileName))
+            textAreaClearConfigFile.set(getComponentConfigFile(ComponentConfig.TEXT_AREA_CLEAR.fileName))
             outputDirPath.set(extension.outputLocation.getSourcePath())
             outputResDirPath.set(extension.outputLocation.getResourcePath())
             packageName.set(extension.ktPackage ?: DEFAULT_KT_PACKAGE)
@@ -342,6 +346,9 @@ class ThemeBuilderPlugin : Plugin<Project> {
         ICON_BUTTON("icon_button_config.json", "fetchIconButtonConfig"),
         LINK_BUTTON("link_button_config.json", "fetchLinkButtonConfig"),
         TEXT_FIELD("text_field_config.json", "fetchTextFieldConfig"),
+        TEXT_FIELD_CLEAR("text_field_clear_config.json", "fetchTextFieldClearConfig"),
+        TEXT_AREA("text_area_config.json", "fetchTextAreaConfig"),
+        TEXT_AREA_CLEAR("text_area_clear_config.json", "fetchTextAreaClearConfig"),
     }
 
     private companion object {
