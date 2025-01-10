@@ -317,13 +317,18 @@ internal fun BaseTextField(
                     hasChips = chipsContent != null,
                 ),
                 placeholder = placeholder(placeholderText, placeholderStyle),
-                leadingIcon = leadingIcon(
+                startIcon = icon(
                     startContent,
                     colors
                         .startContentColor
                         .colorForInteraction(interactionSource),
                 ),
-                trailingIcon = endContent,
+                endIcon = icon(
+                    endContent,
+                    colors
+                        .endContentColor
+                        .colorForInteraction(interactionSource),
+                ),
                 innerCaption = innerCaption(helperTextPlacement, captionText, captionStyle),
                 innerCounter = innerCounter(helperTextPlacement, counterText, counterStyle),
                 animation = animation,
@@ -419,14 +424,14 @@ private fun Modifier.applyVerticalScrollBar(
     }
 }
 
-private fun leadingIcon(
-    leadingIcon: @Composable (() -> Unit)?,
-    startContentColor: Color,
+private fun icon(
+    iconContent: @Composable (() -> Unit)?,
+    contentColor: Color,
 ): @Composable (() -> Unit)? {
-    return if (leadingIcon != null) {
+    return if (iconContent != null) {
         {
-            CompositionLocalProvider(LocalTint provides startContentColor) {
-                leadingIcon()
+            CompositionLocalProvider(LocalTint provides contentColor) {
+                iconContent()
             }
         }
     } else {
