@@ -54,14 +54,18 @@ internal fun ComponentScaffold(
     ModalBottomSheetLayout(
         sheetState = sheetState,
         sheetContent = {
-            Spacer(modifier = Modifier.height(16.dp))
-            PropertyEditor(
-                property = currentProperty,
-                onConfirm = {
-                    uiScope.launch { sheetState.hide() }
-                },
-            )
-            Spacer(modifier = Modifier.imePadding().navigationBarsPadding())
+            Column(
+                modifier = Modifier.verticalScroll(rememberScrollState()),
+            ) {
+                Spacer(modifier = Modifier.height(16.dp))
+                PropertyEditor(
+                    property = currentProperty,
+                    onConfirm = {
+                        uiScope.launch { sheetState.hide() }
+                    },
+                )
+                Spacer(modifier = Modifier.imePadding().navigationBarsPadding())
+            }
         },
         sheetShape = SddsServTheme.shapes.roundS.copy(
             bottomStart = CornerSize(0.dp),
