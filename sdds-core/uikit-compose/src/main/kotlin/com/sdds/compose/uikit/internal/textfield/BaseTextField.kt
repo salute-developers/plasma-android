@@ -218,7 +218,6 @@ internal fun BaseTextField(
                 horizontalScrollState?.scrollTo(value = Int.MAX_VALUE)
                 verticalScrollState?.scrollTo(value = Int.MAX_VALUE)
             }
-            val isFocused = interactionSource.collectIsFocusedAsState().value
             val fieldFocusRequester = remember { FocusRequester() }
             DecorationBox(
                 modifier = Modifier
@@ -299,7 +298,7 @@ internal fun BaseTextField(
                 innerLabel = innerLabel(
                     label = finalLabelText,
                     labelPlacement = labelPlacement,
-                    isFocused = isFocused,
+                    isFocused = { interactionSource.collectIsFocusedAsState().value },
                     value = value,
                     placeHolderStyle = placeholderStyle,
                     innerLabelStyle = labelStyle,
@@ -309,7 +308,7 @@ internal fun BaseTextField(
                     labelPlacement = labelPlacement,
                     fieldType = fieldType,
                     optionalText = finalOptionalText,
-                    isFocused = isFocused,
+                    isFocused = { interactionSource.collectIsFocusedAsState().value },
                     value = value,
                     placeHolderStyle = placeholderStyle,
                     innerOptionalStyle = optionalStyle,
@@ -442,22 +441,26 @@ private fun innerOptional(
     labelPlacement: LabelPlacement,
     fieldType: FieldType,
     optionalText: String?,
-    isFocused: Boolean,
+    isFocused: @Composable () -> Boolean,
     value: TextFieldValue,
     placeHolderStyle: TextStyle,
     innerOptionalStyle: TextStyle,
     hasChips: Boolean,
 ): (@Composable () -> Unit)? {
     if (fieldType != FieldType.Optional) return null
-    return if (labelPlacement == LabelPlacement.Inner && !hasChips) {
-        textOrNull(
-            text = optionalText,
-            textStyle = if (!isFocused && value.text.isEmpty()) {
-                placeHolderStyle.copy(color = innerOptionalStyle.color)
-            } else {
-                innerOptionalStyle
-            },
-        )
+    return if (labelPlacement == LabelPlacement.Inner && !hasChips && !optionalText.isNullOrEmpty()) {
+        {
+            Text(
+                text = optionalText,
+                style = if (!isFocused() && value.text.isEmpty()) {
+                    placeHolderStyle.copy(color = innerOptionalStyle.color)
+                } else {
+                    innerOptionalStyle
+                },
+                overflow = TextOverflow.Ellipsis,
+                maxLines = 1,
+            )
+        }
     } else {
         null
     }
@@ -466,21 +469,25 @@ private fun innerOptional(
 private fun innerLabel(
     label: String?,
     labelPlacement: LabelPlacement,
-    isFocused: Boolean,
+    isFocused: @Composable () -> Boolean,
     value: TextFieldValue,
     placeHolderStyle: TextStyle,
     innerLabelStyle: TextStyle,
     hasChips: Boolean,
 ): (@Composable () -> Unit)? {
-    return if (labelPlacement == LabelPlacement.Inner && !hasChips) {
-        textOrNull(
-            text = label,
-            textStyle = if (!isFocused && value.text.isEmpty()) {
-                placeHolderStyle
-            } else {
-                innerLabelStyle
-            },
-        )
+    return if (labelPlacement == LabelPlacement.Inner && !hasChips && !label.isNullOrEmpty()) {
+        {
+            Text(
+                text = label,
+                style = if (!isFocused() && value.text.isEmpty()) {
+                    placeHolderStyle
+                } else {
+                    innerLabelStyle
+                },
+                overflow = TextOverflow.Ellipsis,
+                maxLines = 1,
+            )
+        }
     } else {
         null
     }
