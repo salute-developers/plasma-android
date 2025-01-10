@@ -53,7 +53,6 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.Dp
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.offset
 import com.sdds.compose.uikit.LocalTextFieldStyle
 import com.sdds.compose.uikit.LocalTint
@@ -528,9 +527,7 @@ private fun Modifier.applyIndicatorPadding(
     val shouldApply = isLabelOuter && isIndicatorStart && !labelText.isNullOrEmpty()
     return if (shouldApply) {
         val startPadding =
-            dimensions.indicatorDimensions.indicatorSize + dimensions.labelIndicatorHorizontalPadding(
-                fieldType,
-            )
+            dimensions.indicatorDimensions.indicatorSize + dimensions.indicatorDimensions.horizontalPadding
         this.padding(start = startPadding)
     } else {
         this
@@ -544,21 +541,16 @@ private fun Modifier.applyFieldIndicator(
     dimensions: TextField.Dimensions,
     indicatorColor: Color,
 ): Modifier {
-    if (fieldType == FieldType.Optional || labelPlacement != LabelPlacement.Inner) return this
+    if (fieldType == FieldType.Optional || labelPlacement == LabelPlacement.Outer) return this
 
     val alignment = fieldIndicatorAlignment(fieldType)
     val horizontalMode = fieldIndicatorHorizontalMode(fieldAppearance)
-    val verticalAlignmentOffset: Dp = indicatorVerticalAlignmentOffset(
-        fieldAppearance = fieldAppearance,
-        alignmentLineHeight = dimensions.alignmentLineHeight,
-        indicatorSize = dimensions.indicatorDimensions.indicatorSize,
-    )
 
     return this.drawIndicator(
         alignment = alignment,
         color = indicatorColor,
-        horizontalPadding = dimensions.fieldIndicatorHorizontalPadding(fieldType),
-        verticalPadding = dimensions.fieldIndicatorVerticalPadding(fieldType) + verticalAlignmentOffset,
+        horizontalPadding = dimensions.indicatorDimensions.horizontalPadding,
+        verticalPadding = dimensions.indicatorDimensions.verticalPadding,
         indicatorSize = dimensions.indicatorDimensions.indicatorSize,
         horizontalMode = horizontalMode,
         verticalMode = IndicatorMode.Inner,
@@ -581,18 +573,6 @@ private fun fieldIndicatorHorizontalMode(fieldAppearance: FieldAppearance): Indi
     }
 }
 
-private fun indicatorVerticalAlignmentOffset(
-    fieldAppearance: FieldAppearance,
-    alignmentLineHeight: Dp,
-    indicatorSize: Dp,
-): Dp {
-    return if (fieldAppearance == FieldAppearance.Clear) {
-        (alignmentLineHeight - indicatorSize) / 2
-    } else {
-        0.dp
-    }
-}
-
 private fun Modifier.applyLabelIndicator(
     fieldType: FieldType,
     labelPlacement: LabelPlacement,
@@ -605,47 +585,19 @@ private fun Modifier.applyLabelIndicator(
     return this.drawIndicator(
         alignment = alignment,
         color = indicatorColor,
-        horizontalPadding = dimensions.labelIndicatorHorizontalPadding(fieldType),
-        verticalPadding = dimensions.labelIndicatorVerticalPadding(fieldType),
+        horizontalPadding = dimensions.indicatorDimensions.horizontalPadding,
+        verticalPadding = dimensions.indicatorDimensions.verticalPadding,
         indicatorSize = dimensions.indicatorDimensions.indicatorSize,
         horizontalMode = IndicatorMode.Outer,
         verticalMode = IndicatorMode.Inner,
     )
 }
 
-private fun TextField.Dimensions.labelIndicatorHorizontalPadding(fieldType: FieldType): Dp =
-    when (fieldType) {
-        FieldType.RequiredStart -> indicatorDimensions.horizontalPadding
-        FieldType.RequiredEnd -> indicatorDimensions.horizontalPadding
-        FieldType.Optional -> 0.dp
-    }
-
-private fun TextField.Dimensions.labelIndicatorVerticalPadding(fieldType: FieldType): Dp =
-    when (fieldType) {
-        FieldType.RequiredStart -> indicatorDimensions.verticalPadding
-        FieldType.RequiredEnd -> indicatorDimensions.verticalPadding
-        FieldType.Optional -> 0.dp
-    }
-
-private fun TextField.Dimensions.fieldIndicatorHorizontalPadding(fieldType: FieldType): Dp =
-    when (fieldType) {
-        FieldType.RequiredStart -> indicatorDimensions.horizontalPadding
-        FieldType.RequiredEnd -> indicatorDimensions.horizontalPadding
-        FieldType.Optional -> 0.dp
-    }
-
-private fun TextField.Dimensions.fieldIndicatorVerticalPadding(fieldType: FieldType): Dp =
-    when (fieldType) {
-        FieldType.RequiredStart -> indicatorDimensions.verticalPadding
-        FieldType.RequiredEnd -> indicatorDimensions.verticalPadding
-        FieldType.Optional -> 0.dp
-    }
-
 private fun outerLabelIndicatorAlignment(fieldType: FieldType): Alignment {
     return when (fieldType) {
-        FieldType.RequiredStart -> Alignment.CenterStart
+        FieldType.RequiredStart -> Alignment.TopStart
         FieldType.RequiredEnd -> Alignment.TopEnd
-        FieldType.Optional -> Alignment.CenterStart
+        FieldType.Optional -> Alignment.TopStart
     }
 }
 

@@ -409,7 +409,7 @@ public val WrapperTextFieldXsOuterLabel.RequiredStart: WrapperTextFieldXsOuterLa
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(4.0.dp)
-                verticalPadding(0.0.dp)
+                verticalPadding(4.0.dp)
                 indicatorSize(6.0.dp)
             }
         }
@@ -501,7 +501,7 @@ public val WrapperTextFieldSOuterLabel.RequiredStart: WrapperTextFieldSOuterLabe
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(4.0.dp)
-                verticalPadding(0.0.dp)
+                verticalPadding(6.0.dp)
                 indicatorSize(6.0.dp)
             }
         }
@@ -635,7 +635,7 @@ public val WrapperTextFieldMOuterLabel.RequiredStart: WrapperTextFieldMOuterLabe
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(6.0.dp)
-                verticalPadding(0.0.dp)
+                verticalPadding(7.0.dp)
                 indicatorSize(6.0.dp)
             }
         }
@@ -769,7 +769,7 @@ public val WrapperTextFieldLOuterLabel.RequiredStart: WrapperTextFieldLOuterLabe
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(6.0.dp)
-                verticalPadding(0.0.dp)
+                verticalPadding(8.0.dp)
                 indicatorSize(6.0.dp)
             }
         }

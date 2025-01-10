@@ -421,8 +421,8 @@ public val TextFieldClear.Xs: WrapperTextFieldClearXs
             alignmentLineHeight(32.0.dp)
             startContentPadding(4.0.dp)
             endContentPadding(4.0.dp)
-            iconSize(16.0.dp)
-            iconSize(16.0.dp)
+            startContentSize(16.0.dp)
+            endContentSize(16.0.dp)
         }
         .valueStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
         .placeholderStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
@@ -518,8 +518,8 @@ public val TextFieldClear.S: WrapperTextFieldClearS
             alignmentLineHeight(40.0.dp)
             startContentPadding(4.0.dp)
             endContentPadding(6.0.dp)
-            iconSize(24.0.dp)
-            iconSize(24.0.dp)
+            startContentSize(24.0.dp)
+            endContentSize(24.0.dp)
         }
         .valueStyle(PlasmaSdServiceTheme.typography.bodySNormal)
         .placeholderStyle(PlasmaSdServiceTheme.typography.bodySNormal)
@@ -661,8 +661,8 @@ public val TextFieldClear.M: WrapperTextFieldClearM
             alignmentLineHeight(48.0.dp)
             startContentPadding(6.0.dp)
             endContentPadding(8.0.dp)
-            iconSize(24.0.dp)
-            iconSize(24.0.dp)
+            startContentSize(24.0.dp)
+            endContentSize(24.0.dp)
         }
         .valueStyle(PlasmaSdServiceTheme.typography.bodyMNormal)
         .placeholderStyle(PlasmaSdServiceTheme.typography.bodyMNormal)
@@ -802,8 +802,8 @@ public val TextFieldClear.L: WrapperTextFieldClearL
             alignmentLineHeight(56.0.dp)
             startContentPadding(8.0.dp)
             endContentPadding(10.0.dp)
-            iconSize(24.0.dp)
-            iconSize(24.0.dp)
+            startContentSize(24.0.dp)
+            endContentSize(24.0.dp)
         }
         .valueStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
         .placeholderStyle(PlasmaSdServiceTheme.typography.bodyLNormal)

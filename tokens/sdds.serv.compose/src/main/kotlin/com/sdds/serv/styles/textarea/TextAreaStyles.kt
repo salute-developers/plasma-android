@@ -418,7 +418,7 @@ public val WrapperTextAreaXsOuterLabel.RequiredStart: WrapperTextAreaXsOuterLabe
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(4.0.dp)
-                verticalPadding(0.0.dp)
+                verticalPadding(4.0.dp)
                 indicatorSize(6.0.dp)
             }
         }
@@ -511,7 +511,7 @@ public val WrapperTextAreaSOuterLabel.RequiredStart: WrapperTextAreaSOuterLabelR
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(4.0.dp)
-                verticalPadding(0.0.dp)
+                verticalPadding(6.0.dp)
                 indicatorSize(6.0.dp)
             }
         }
@@ -646,7 +646,7 @@ public val WrapperTextAreaMOuterLabel.RequiredStart: WrapperTextAreaMOuterLabelR
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(6.0.dp)
-                verticalPadding(0.0.dp)
+                verticalPadding(7.0.dp)
                 indicatorSize(6.0.dp)
             }
         }
@@ -781,7 +781,7 @@ public val WrapperTextAreaLOuterLabel.RequiredStart: WrapperTextAreaLOuterLabelR
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(6.0.dp)
-                verticalPadding(0.0.dp)
+                verticalPadding(8.0.dp)
                 indicatorSize(6.0.dp)
             }
         }

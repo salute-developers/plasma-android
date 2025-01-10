@@ -360,8 +360,8 @@ public val TextArea.Xs: WrapperTextAreaXs
             helperTextPadding(8.0.dp)
             startContentPadding(4.0.dp)
             endContentPadding(4.0.dp)
-            iconSize(16.0.dp)
-            iconSize(16.0.dp)
+            startContentSize(16.0.dp)
+            endContentSize(16.0.dp)
         }
         .valueStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
         .placeholderStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
@@ -418,7 +418,7 @@ public val WrapperTextAreaXsOuterLabel.RequiredStart: WrapperTextAreaXsOuterLabe
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(4.0.dp)
-                verticalPadding(0.0.dp)
+                verticalPadding(4.0.dp)
                 indicatorSize(6.0.dp)
             }
         }
@@ -455,8 +455,8 @@ public val TextArea.S: WrapperTextAreaS
             helperTextPadding(12.0.dp)
             startContentPadding(4.0.dp)
             endContentPadding(6.0.dp)
-            iconSize(24.0.dp)
-            iconSize(24.0.dp)
+            startContentSize(24.0.dp)
+            endContentSize(24.0.dp)
         }
         .valueStyle(PlasmaSdServiceTheme.typography.bodySNormal)
         .placeholderStyle(PlasmaSdServiceTheme.typography.bodySNormal)
@@ -511,7 +511,7 @@ public val WrapperTextAreaSOuterLabel.RequiredStart: WrapperTextAreaSOuterLabelR
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(4.0.dp)
-                verticalPadding(0.0.dp)
+                verticalPadding(6.0.dp)
                 indicatorSize(6.0.dp)
             }
         }
@@ -590,8 +590,8 @@ public val TextArea.M: WrapperTextAreaM
             helperTextPadding(12.0.dp)
             startContentPadding(6.0.dp)
             endContentPadding(8.0.dp)
-            iconSize(24.0.dp)
-            iconSize(24.0.dp)
+            startContentSize(24.0.dp)
+            endContentSize(24.0.dp)
         }
         .valueStyle(PlasmaSdServiceTheme.typography.bodyMNormal)
         .placeholderStyle(PlasmaSdServiceTheme.typography.bodyMNormal)
@@ -646,7 +646,7 @@ public val WrapperTextAreaMOuterLabel.RequiredStart: WrapperTextAreaMOuterLabelR
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(6.0.dp)
-                verticalPadding(0.0.dp)
+                verticalPadding(7.0.dp)
                 indicatorSize(6.0.dp)
             }
         }
@@ -725,8 +725,8 @@ public val TextArea.L: WrapperTextAreaL
             helperTextPadding(12.0.dp)
             startContentPadding(8.0.dp)
             endContentPadding(10.0.dp)
-            iconSize(24.0.dp)
-            iconSize(24.0.dp)
+            startContentSize(24.0.dp)
+            endContentSize(24.0.dp)
         }
         .valueStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
         .placeholderStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
@@ -781,7 +781,7 @@ public val WrapperTextAreaLOuterLabel.RequiredStart: WrapperTextAreaLOuterLabelR
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(6.0.dp)
-                verticalPadding(0.0.dp)
+                verticalPadding(8.0.dp)
                 indicatorSize(6.0.dp)
             }
         }

@@ -351,8 +351,8 @@ public val TextField.Xs: WrapperTextFieldXs
             alignmentLineHeight(32.0.dp)
             startContentPadding(4.0.dp)
             endContentPadding(4.0.dp)
-            iconSize(16.0.dp)
-            iconSize(16.0.dp)
+            startContentSize(16.0.dp)
+            endContentSize(16.0.dp)
         }
         .valueStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
         .placeholderStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
@@ -409,7 +409,7 @@ public val WrapperTextFieldXsOuterLabel.RequiredStart: WrapperTextFieldXsOuterLa
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(4.0.dp)
-                verticalPadding(0.0.dp)
+                verticalPadding(4.0.dp)
                 indicatorSize(6.0.dp)
             }
         }
@@ -445,8 +445,8 @@ public val TextField.S: WrapperTextFieldS
             alignmentLineHeight(40.0.dp)
             startContentPadding(4.0.dp)
             endContentPadding(6.0.dp)
-            iconSize(24.0.dp)
-            iconSize(24.0.dp)
+            startContentSize(24.0.dp)
+            endContentSize(24.0.dp)
         }
         .valueStyle(PlasmaSdServiceTheme.typography.bodySNormal)
         .placeholderStyle(PlasmaSdServiceTheme.typography.bodySNormal)
@@ -501,7 +501,7 @@ public val WrapperTextFieldSOuterLabel.RequiredStart: WrapperTextFieldSOuterLabe
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(4.0.dp)
-                verticalPadding(0.0.dp)
+                verticalPadding(6.0.dp)
                 indicatorSize(6.0.dp)
             }
         }
@@ -579,8 +579,8 @@ public val TextField.M: WrapperTextFieldM
             alignmentLineHeight(48.0.dp)
             startContentPadding(6.0.dp)
             endContentPadding(8.0.dp)
-            iconSize(24.0.dp)
-            iconSize(24.0.dp)
+            startContentSize(24.0.dp)
+            endContentSize(24.0.dp)
         }
         .valueStyle(PlasmaSdServiceTheme.typography.bodyMNormal)
         .placeholderStyle(PlasmaSdServiceTheme.typography.bodyMNormal)
@@ -635,7 +635,7 @@ public val WrapperTextFieldMOuterLabel.RequiredStart: WrapperTextFieldMOuterLabe
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(6.0.dp)
-                verticalPadding(0.0.dp)
+                verticalPadding(7.0.dp)
                 indicatorSize(6.0.dp)
             }
         }
@@ -713,8 +713,8 @@ public val TextField.L: WrapperTextFieldL
             alignmentLineHeight(56.0.dp)
             startContentPadding(8.0.dp)
             endContentPadding(10.0.dp)
-            iconSize(24.0.dp)
-            iconSize(24.0.dp)
+            startContentSize(24.0.dp)
+            endContentSize(24.0.dp)
         }
         .valueStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
         .placeholderStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
@@ -769,7 +769,7 @@ public val WrapperTextFieldLOuterLabel.RequiredStart: WrapperTextFieldLOuterLabe
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(6.0.dp)
-                verticalPadding(0.0.dp)
+                verticalPadding(8.0.dp)
                 indicatorSize(6.0.dp)
             }
         }
