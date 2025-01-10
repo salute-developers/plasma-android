@@ -614,7 +614,6 @@ private class DefaultTextAreaClearStyle(
         private var captionStyle: TextStyle? = null
         private var counterStyle: TextStyle? = null
         private var placeholderStyle: TextStyle? = null
-        private var singleLine: Boolean? = null
         private var hasDivider: Boolean? = null
         private var chipGroupStyle: ChipGroupStyle? = null
         private var chipStyle: ChipStyle? = null
@@ -709,6 +708,7 @@ private class DefaultTextAreaClearStyle(
         override fun style(): TextFieldStyle {
             return DefaultTextAreaClearStyle(
                 scrollBar = null,
+                singleLine = false,
                 labelPlacement = labelPlacement ?: TextField.LabelPlacement.None,
                 helperTextPlacement = TextField.HelperTextPlacement.Outer,
                 dimensions = dimensionsBuilder.build(),
@@ -722,7 +722,6 @@ private class DefaultTextAreaClearStyle(
                 captionStyle = captionStyle ?: TextStyle.Default,
                 counterStyle = counterStyle ?: TextStyle.Default,
                 placeholderStyle = placeholderStyle ?: TextStyle.Default,
-                singleLine = singleLine ?: true,
                 hasDivider = hasDivider ?: true,
                 chipGroupStyle = chipGroupStyle ?: ChipGroupStyle.builder().style(),
                 chipStyle = chipStyle ?: ChipStyle.builder().style(),
