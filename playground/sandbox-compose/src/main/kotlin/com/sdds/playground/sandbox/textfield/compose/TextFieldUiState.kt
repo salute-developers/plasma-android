@@ -86,6 +86,8 @@ internal enum class State {
 
 internal enum class TextFieldVariant {
     TextFieldL,
+    TextFieldLRequiredStart,
+    TextFieldLRequiredEnd,
     TextFieldLOuterLabel,
     TextFieldLOuterLabelRequiredStart,
     TextFieldLOuterLabelRequiredEnd,
@@ -93,6 +95,8 @@ internal enum class TextFieldVariant {
     TextFieldLInnerLabelRequiredStart,
     TextFieldLInnerLabelRequiredEnd,
     TextFieldM,
+    TextFieldMRequiredStart,
+    TextFieldMRequiredEnd,
     TextFieldMOuterLabel,
     TextFieldMOuterLabelRequiredStart,
     TextFieldMOuterLabelRequiredEnd,
@@ -100,6 +104,8 @@ internal enum class TextFieldVariant {
     TextFieldMInnerLabelRequiredStart,
     TextFieldMInnerLabelRequiredEnd,
     TextFieldS,
+    TextFieldSRequiredStart,
+    TextFieldSRequiredEnd,
     TextFieldSOuterLabel,
     TextFieldSOuterLabelRequiredStart,
     TextFieldSOuterLabelRequiredEnd,
@@ -129,6 +135,8 @@ internal fun TextFieldUiState.textFieldStyle(): TextFieldStyle {
 private fun TextFieldUiState.textFieldWrapperView(): WrapperTextFieldView {
     return when (variant) {
         TextFieldVariant.TextFieldL -> TextField.L
+        TextFieldVariant.TextFieldLRequiredStart -> TextField.L.RequiredStart
+        TextFieldVariant.TextFieldLRequiredEnd -> TextField.L.RequiredEnd
         TextFieldVariant.TextFieldLOuterLabel -> TextField.L.OuterLabel
         TextFieldVariant.TextFieldLOuterLabelRequiredStart -> TextField.L.OuterLabel.RequiredStart
         TextFieldVariant.TextFieldLOuterLabelRequiredEnd -> TextField.L.OuterLabel.RequiredEnd
@@ -136,6 +144,8 @@ private fun TextFieldUiState.textFieldWrapperView(): WrapperTextFieldView {
         TextFieldVariant.TextFieldLInnerLabelRequiredStart -> TextField.L.InnerLabel.RequiredStart
         TextFieldVariant.TextFieldLInnerLabelRequiredEnd -> TextField.L.InnerLabel.RequiredEnd
         TextFieldVariant.TextFieldM -> TextField.M
+        TextFieldVariant.TextFieldMRequiredStart -> TextField.M.RequiredStart
+        TextFieldVariant.TextFieldMRequiredEnd -> TextField.M.RequiredEnd
         TextFieldVariant.TextFieldMOuterLabel -> TextField.M.OuterLabel
         TextFieldVariant.TextFieldMOuterLabelRequiredStart -> TextField.M.OuterLabel.RequiredStart
         TextFieldVariant.TextFieldMOuterLabelRequiredEnd -> TextField.M.OuterLabel.RequiredEnd
@@ -143,6 +153,8 @@ private fun TextFieldUiState.textFieldWrapperView(): WrapperTextFieldView {
         TextFieldVariant.TextFieldMInnerLabelRequiredStart -> TextField.M.InnerLabel.RequiredStart
         TextFieldVariant.TextFieldMInnerLabelRequiredEnd -> TextField.M.InnerLabel.RequiredEnd
         TextFieldVariant.TextFieldS -> TextField.S
+        TextFieldVariant.TextFieldSRequiredStart -> TextField.S.RequiredStart
+        TextFieldVariant.TextFieldSRequiredEnd -> TextField.S.RequiredEnd
         TextFieldVariant.TextFieldSOuterLabel -> TextField.S.OuterLabel
         TextFieldVariant.TextFieldSOuterLabelRequiredStart -> TextField.S.OuterLabel.RequiredStart
         TextFieldVariant.TextFieldSOuterLabelRequiredEnd -> TextField.S.OuterLabel.RequiredEnd
@@ -163,6 +175,8 @@ private fun TextFieldUiState.textFieldWrapperView(): WrapperTextFieldView {
 private fun TextFieldUiState.textAreaWrapperView(): WrapperTextAreaView {
     return when (variant) {
         TextFieldVariant.TextFieldL -> TextArea.L
+        TextFieldVariant.TextFieldLRequiredStart -> TextArea.L.RequiredStart
+        TextFieldVariant.TextFieldLRequiredEnd -> TextArea.L.RequiredEnd
         TextFieldVariant.TextFieldLOuterLabel -> TextArea.L.OuterLabel
         TextFieldVariant.TextFieldLOuterLabelRequiredStart -> TextArea.L.OuterLabel.RequiredStart
         TextFieldVariant.TextFieldLOuterLabelRequiredEnd -> TextArea.L.OuterLabel.RequiredEnd
@@ -170,6 +184,8 @@ private fun TextFieldUiState.textAreaWrapperView(): WrapperTextAreaView {
         TextFieldVariant.TextFieldLInnerLabelRequiredStart -> TextArea.L.InnerLabel.RequiredStart
         TextFieldVariant.TextFieldLInnerLabelRequiredEnd -> TextArea.L.InnerLabel.RequiredEnd
         TextFieldVariant.TextFieldM -> TextArea.M
+        TextFieldVariant.TextFieldMRequiredStart -> TextArea.M.RequiredStart
+        TextFieldVariant.TextFieldMRequiredEnd -> TextArea.M.RequiredEnd
         TextFieldVariant.TextFieldMOuterLabel -> TextArea.M.OuterLabel
         TextFieldVariant.TextFieldMOuterLabelRequiredStart -> TextArea.M.OuterLabel.RequiredStart
         TextFieldVariant.TextFieldMOuterLabelRequiredEnd -> TextArea.M.OuterLabel.RequiredEnd
@@ -177,6 +193,8 @@ private fun TextFieldUiState.textAreaWrapperView(): WrapperTextAreaView {
         TextFieldVariant.TextFieldMInnerLabelRequiredStart -> TextArea.M.InnerLabel.RequiredStart
         TextFieldVariant.TextFieldMInnerLabelRequiredEnd -> TextArea.M.InnerLabel.RequiredEnd
         TextFieldVariant.TextFieldS -> TextArea.S
+        TextFieldVariant.TextFieldSRequiredStart -> TextArea.S.RequiredStart
+        TextFieldVariant.TextFieldSRequiredEnd -> TextArea.S.RequiredEnd
         TextFieldVariant.TextFieldSOuterLabel -> TextArea.S.OuterLabel
         TextFieldVariant.TextFieldSOuterLabelRequiredStart -> TextArea.S.OuterLabel.RequiredStart
         TextFieldVariant.TextFieldSOuterLabelRequiredEnd -> TextArea.S.OuterLabel.RequiredEnd
@@ -197,6 +215,8 @@ private fun TextFieldUiState.textAreaWrapperView(): WrapperTextAreaView {
 private fun TextFieldUiState.textFieldClearWrapperView(): WrapperTextFieldClearView {
     return when (variant) {
         TextFieldVariant.TextFieldL -> TextFieldClear.L
+        TextFieldVariant.TextFieldLRequiredStart -> TextFieldClear.L.RequiredStart
+        TextFieldVariant.TextFieldLRequiredEnd -> TextFieldClear.L.RequiredEnd
         TextFieldVariant.TextFieldLOuterLabel -> TextFieldClear.L.OuterLabel
         TextFieldVariant.TextFieldLOuterLabelRequiredStart -> TextFieldClear.L.OuterLabel.RequiredStart
         TextFieldVariant.TextFieldLOuterLabelRequiredEnd -> TextFieldClear.L.OuterLabel.RequiredEnd
@@ -204,6 +224,8 @@ private fun TextFieldUiState.textFieldClearWrapperView(): WrapperTextFieldClearV
         TextFieldVariant.TextFieldLInnerLabelRequiredStart -> TextFieldClear.L.InnerLabel.RequiredStart
         TextFieldVariant.TextFieldLInnerLabelRequiredEnd -> TextFieldClear.L.InnerLabel.RequiredEnd
         TextFieldVariant.TextFieldM -> TextFieldClear.M
+        TextFieldVariant.TextFieldMRequiredStart -> TextFieldClear.M.RequiredStart
+        TextFieldVariant.TextFieldMRequiredEnd -> TextFieldClear.M.RequiredEnd
         TextFieldVariant.TextFieldMOuterLabel -> TextFieldClear.M.OuterLabel
         TextFieldVariant.TextFieldMOuterLabelRequiredStart -> TextFieldClear.M.OuterLabel.RequiredStart
         TextFieldVariant.TextFieldMOuterLabelRequiredEnd -> TextFieldClear.M.OuterLabel.RequiredEnd
@@ -211,6 +233,8 @@ private fun TextFieldUiState.textFieldClearWrapperView(): WrapperTextFieldClearV
         TextFieldVariant.TextFieldMInnerLabelRequiredStart -> TextFieldClear.M.InnerLabel.RequiredStart
         TextFieldVariant.TextFieldMInnerLabelRequiredEnd -> TextFieldClear.M.InnerLabel.RequiredEnd
         TextFieldVariant.TextFieldS -> TextFieldClear.S
+        TextFieldVariant.TextFieldSRequiredStart -> TextFieldClear.S.RequiredStart
+        TextFieldVariant.TextFieldSRequiredEnd -> TextFieldClear.S.RequiredEnd
         TextFieldVariant.TextFieldSOuterLabel -> TextFieldClear.S.OuterLabel
         TextFieldVariant.TextFieldSOuterLabelRequiredStart -> TextFieldClear.S.OuterLabel.RequiredStart
         TextFieldVariant.TextFieldSOuterLabelRequiredEnd -> TextFieldClear.S.OuterLabel.RequiredEnd
@@ -231,6 +255,8 @@ private fun TextFieldUiState.textFieldClearWrapperView(): WrapperTextFieldClearV
 private fun TextFieldUiState.textAreaClearWrapperView(): WrapperTextAreaClearView {
     return when (variant) {
         TextFieldVariant.TextFieldL -> TextAreaClear.L
+        TextFieldVariant.TextFieldLRequiredStart -> TextAreaClear.L.RequiredStart
+        TextFieldVariant.TextFieldLRequiredEnd -> TextAreaClear.L.RequiredEnd
         TextFieldVariant.TextFieldLOuterLabel -> TextAreaClear.L.OuterLabel
         TextFieldVariant.TextFieldLOuterLabelRequiredStart -> TextAreaClear.L.OuterLabel.RequiredStart
         TextFieldVariant.TextFieldLOuterLabelRequiredEnd -> TextAreaClear.L.OuterLabel.RequiredEnd
@@ -238,6 +264,8 @@ private fun TextFieldUiState.textAreaClearWrapperView(): WrapperTextAreaClearVie
         TextFieldVariant.TextFieldLInnerLabelRequiredStart -> TextAreaClear.L.InnerLabel.RequiredStart
         TextFieldVariant.TextFieldLInnerLabelRequiredEnd -> TextAreaClear.L.InnerLabel.RequiredEnd
         TextFieldVariant.TextFieldM -> TextAreaClear.M
+        TextFieldVariant.TextFieldMRequiredStart -> TextAreaClear.M.RequiredStart
+        TextFieldVariant.TextFieldMRequiredEnd -> TextAreaClear.M.RequiredEnd
         TextFieldVariant.TextFieldMOuterLabel -> TextAreaClear.M.OuterLabel
         TextFieldVariant.TextFieldMOuterLabelRequiredStart -> TextAreaClear.M.OuterLabel.RequiredStart
         TextFieldVariant.TextFieldMOuterLabelRequiredEnd -> TextAreaClear.M.OuterLabel.RequiredEnd
@@ -245,6 +273,8 @@ private fun TextFieldUiState.textAreaClearWrapperView(): WrapperTextAreaClearVie
         TextFieldVariant.TextFieldMInnerLabelRequiredStart -> TextAreaClear.M.InnerLabel.RequiredStart
         TextFieldVariant.TextFieldMInnerLabelRequiredEnd -> TextAreaClear.M.InnerLabel.RequiredEnd
         TextFieldVariant.TextFieldS -> TextAreaClear.S
+        TextFieldVariant.TextFieldSRequiredStart -> TextAreaClear.S.RequiredStart
+        TextFieldVariant.TextFieldSRequiredEnd -> TextAreaClear.S.RequiredEnd
         TextFieldVariant.TextFieldSOuterLabel -> TextAreaClear.S.OuterLabel
         TextFieldVariant.TextFieldSOuterLabelRequiredStart -> TextAreaClear.S.OuterLabel.RequiredStart
         TextFieldVariant.TextFieldSOuterLabelRequiredEnd -> TextAreaClear.S.OuterLabel.RequiredEnd
