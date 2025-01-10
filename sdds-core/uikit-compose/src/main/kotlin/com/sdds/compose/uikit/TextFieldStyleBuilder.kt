@@ -372,9 +372,14 @@ interface TextFieldDimensionsBuilder {
     fun alignmentLineHeight(alignmentLineHeight: Dp): TextFieldDimensionsBuilder
 
     /**
-     * Устанавливает размер иконки
+     * Устанавливает размер иконки в начале
      */
-    fun iconSize(iconSize: Dp): TextFieldDimensionsBuilder
+    fun startContentSize(startContentSize: Dp): TextFieldDimensionsBuilder
+
+    /**
+     * Устанавливает размер иконки в конце
+     */
+    fun endContentSize(endContentSize: Dp): TextFieldDimensionsBuilder
 
     /**
      * Устанавливает настройки индикатора
@@ -470,7 +475,8 @@ private class DefaultTextFieldDimensionsBuilder : TextFieldDimensionsBuilder {
     private var chipsPadding: Dp? = null
     private var boxMinHeight: Dp? = null
     private var alignmentLineHeight: Dp? = null
-    private var iconSize: Dp? = null
+    private var startContentSize: Dp? = null
+    private var endContentSize: Dp? = null
     private var indicatorDimensionsBuilder: TextFieldIndicatorDimensionsBuilder =
         TextFieldIndicatorDimensionsBuilder.builder()
 
@@ -522,8 +528,12 @@ private class DefaultTextFieldDimensionsBuilder : TextFieldDimensionsBuilder {
         this.alignmentLineHeight = alignmentLineHeight
     }
 
-    override fun iconSize(iconSize: Dp) = apply {
-        this.iconSize = iconSize
+    override fun startContentSize(startContentSize: Dp) = apply {
+        this.startContentSize = startContentSize
+    }
+
+    override fun endContentSize(endContentSize: Dp) = apply {
+        this.endContentSize = endContentSize
     }
 
     @Composable
@@ -545,7 +555,8 @@ private class DefaultTextFieldDimensionsBuilder : TextFieldDimensionsBuilder {
             chipsPadding = chipsPadding ?: 6.dp,
             boxMinHeight = boxMinHeight ?: 56.dp,
             alignmentLineHeight = alignmentLineHeight ?: 56.dp,
-            iconSize = iconSize ?: 24.dp,
+            startContentSize = startContentSize ?: 24.dp,
+            endContentSize = endContentSize ?: 24.dp,
             indicatorDimensions = indicatorDimensionsBuilder.build(),
         )
     }
@@ -613,7 +624,8 @@ private class DefaultTextFieldStyle(
                 chipsPadding(dimensions.chipsPadding)
                 boxMinHeight(dimensions.boxMinHeight)
                 alignmentLineHeight(dimensions.alignmentLineHeight)
-                iconSize(dimensions.iconSize)
+                startContentSize(dimensions.startContentSize)
+                endContentSize(dimensions.endContentSize)
                 indicatorDimensions {
                     horizontalPadding(dimensions.indicatorDimensions.horizontalPadding)
                     verticalPadding(dimensions.indicatorDimensions.verticalPadding)

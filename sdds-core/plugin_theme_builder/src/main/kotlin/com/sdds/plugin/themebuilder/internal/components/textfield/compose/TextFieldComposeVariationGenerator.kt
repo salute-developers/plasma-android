@@ -305,10 +305,10 @@ internal class TextFieldComposeVariationGenerator(
                     appendDimension("chips_padding", it, variationId)
                 }
                 props.startContentSize?.let {
-                    appendDimension("icon_size", it, variationId)
+                    appendDimension("start_content_size", it, variationId)
                 }
                 props.endContentSize?.let {
-                    appendDimension("icon_size", it, variationId)
+                    appendDimension("end_content_size", it, variationId)
                 }
                 if (props.hasIndicatorDimensions()) {
                     append(

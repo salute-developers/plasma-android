@@ -372,9 +372,14 @@ interface TextFieldClearDimensionsBuilder {
     fun alignmentLineHeight(alignmentLineHeight: Dp): TextFieldClearDimensionsBuilder
 
     /**
-     * Устанавливает размер иконки
+     * Устанавливает размер иконки в начале
      */
-    fun iconSize(iconSize: Dp): TextFieldClearDimensionsBuilder
+    fun startContentSize(startContentSize: Dp): TextFieldClearDimensionsBuilder
+
+    /**
+     * Устанавливает размер иконки в конце
+     */
+    fun endContentSize(endContentSize: Dp): TextFieldClearDimensionsBuilder
 
     /**
      * Устанавливает настройки индикатора
@@ -476,7 +481,8 @@ private class DefaultTextFieldClearDimensionsBuilder : TextFieldClearDimensionsB
     private var chipsPadding: Dp? = null
     private var boxMinHeight: Dp? = null
     private var alignmentLineHeight: Dp? = null
-    private var iconSize: Dp? = null
+    private var startContentSize: Dp? = null
+    private var endContentSize: Dp? = null
     private var indicatorDimensionsBuilder: TextFieldClearIndicatorDimensionsBuilder =
         TextFieldClearIndicatorDimensionsBuilder.builder()
     private var dividerThickness: Dp? = null
@@ -528,8 +534,12 @@ private class DefaultTextFieldClearDimensionsBuilder : TextFieldClearDimensionsB
         this.alignmentLineHeight = alignmentLineHeight
     }
 
-    override fun iconSize(iconSize: Dp) = apply {
-        this.iconSize = iconSize
+    override fun startContentSize(startContentSize: Dp) = apply {
+        this.startContentSize = startContentSize
+    }
+
+    override fun endContentSize(endContentSize: Dp) = apply {
+        this.endContentSize = endContentSize
     }
 
     @Composable
@@ -554,7 +564,8 @@ private class DefaultTextFieldClearDimensionsBuilder : TextFieldClearDimensionsB
             chipsPadding = chipsPadding ?: 6.dp,
             boxMinHeight = boxMinHeight ?: 56.dp,
             alignmentLineHeight = alignmentLineHeight ?: 56.dp,
-            iconSize = iconSize ?: 24.dp,
+            startContentSize = startContentSize ?: 24.dp,
+            endContentSize = endContentSize ?: 24.dp,
             indicatorDimensions = indicatorDimensionsBuilder.build(),
             dividerThickness = dividerThickness ?: 1.dp,
         )
@@ -624,7 +635,8 @@ private class DefaultTextFieldClearStyle(
                 chipsPadding(dimensions.chipsPadding)
                 boxMinHeight(dimensions.boxMinHeight)
                 alignmentLineHeight(dimensions.alignmentLineHeight)
-                iconSize(dimensions.iconSize)
+                startContentSize(dimensions.startContentSize)
+                endContentSize(dimensions.endContentSize)
                 indicatorDimensions {
                     horizontalPadding(dimensions.indicatorDimensions.horizontalPadding)
                     verticalPadding(dimensions.indicatorDimensions.verticalPadding)

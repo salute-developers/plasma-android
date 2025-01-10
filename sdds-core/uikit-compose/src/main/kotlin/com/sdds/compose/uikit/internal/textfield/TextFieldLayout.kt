@@ -125,16 +125,16 @@ internal fun TextFieldLayout(
                 modifier = Modifier
                     .layoutId(LeadingId)
                     .padding(end = dimensions.startContentPadding)
-                    .size(dimensions.iconSize)
-                    .defaultMinSize(dimensions.iconSize, dimensions.iconSize),
+                    .size(dimensions.startContentSize)
+                    .defaultMinSize(dimensions.startContentSize, dimensions.startContentSize),
                 icon = startIcon,
             )
             IconContent(
                 modifier = Modifier
                     .layoutId(TrailingId)
                     .padding(start = dimensions.endContentPadding)
-                    .size(dimensions.iconSize)
-                    .defaultMinSize(dimensions.iconSize, dimensions.iconSize),
+                    .size(dimensions.endContentSize)
+                    .defaultMinSize(dimensions.endContentSize, dimensions.endContentSize),
                 icon = endIcon,
             )
             CaptionTextContent(

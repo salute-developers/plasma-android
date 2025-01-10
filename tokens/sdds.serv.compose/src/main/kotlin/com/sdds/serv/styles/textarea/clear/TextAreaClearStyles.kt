@@ -421,8 +421,8 @@ public val TextAreaClear.Xs: WrapperTextAreaClearXs
             alignmentLineHeight(32.0.dp)
             startContentPadding(4.0.dp)
             endContentPadding(4.0.dp)
-            iconSize(16.0.dp)
-            iconSize(16.0.dp)
+            startContentSize(16.0.dp)
+            endContentSize(16.0.dp)
         }
         .valueStyle(SddsServTheme.typography.bodyXsNormal)
         .placeholderStyle(SddsServTheme.typography.bodyXsNormal)
@@ -517,8 +517,8 @@ public val TextAreaClear.S: WrapperTextAreaClearS
             alignmentLineHeight(40.0.dp)
             startContentPadding(4.0.dp)
             endContentPadding(6.0.dp)
-            iconSize(24.0.dp)
-            iconSize(24.0.dp)
+            startContentSize(24.0.dp)
+            endContentSize(24.0.dp)
         }
         .valueStyle(SddsServTheme.typography.bodySNormal)
         .placeholderStyle(SddsServTheme.typography.bodySNormal)
@@ -660,8 +660,8 @@ public val TextAreaClear.M: WrapperTextAreaClearM
             alignmentLineHeight(48.0.dp)
             startContentPadding(6.0.dp)
             endContentPadding(8.0.dp)
-            iconSize(24.0.dp)
-            iconSize(24.0.dp)
+            startContentSize(24.0.dp)
+            endContentSize(24.0.dp)
         }
         .valueStyle(SddsServTheme.typography.bodyMNormal)
         .placeholderStyle(SddsServTheme.typography.bodyMNormal)
@@ -801,8 +801,8 @@ public val TextAreaClear.L: WrapperTextAreaClearL
             alignmentLineHeight(56.0.dp)
             startContentPadding(8.0.dp)
             endContentPadding(10.0.dp)
-            iconSize(24.0.dp)
-            iconSize(24.0.dp)
+            startContentSize(24.0.dp)
+            endContentSize(24.0.dp)
         }
         .valueStyle(SddsServTheme.typography.bodyLNormal)
         .placeholderStyle(SddsServTheme.typography.bodyLNormal)

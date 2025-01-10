@@ -115,7 +115,8 @@ object TextField {
      * @property chipsPadding отступ от контейнера с chip-элементами
      * @property boxMinHeight минимальная высота поля
      * @property alignmentLineHeight высота первой строки контента
-     * @property iconSize размер иконки
+     * @property startContentSize размер иконки в начале
+     * @property endContentSize размер иконки в конце
      * @property indicatorDimensions настройки индикатора
      * @property dividerThickness толщина разделителя в clear режиме
      */
@@ -133,7 +134,8 @@ object TextField {
         val chipsPadding: Dp = 6.dp,
         val boxMinHeight: Dp = 56.dp,
         val alignmentLineHeight: Dp = 56.dp,
-        val iconSize: Dp = 24.dp,
+        val startContentSize: Dp = 24.dp,
+        val endContentSize: Dp = 24.dp,
         val indicatorDimensions: IndicatorDimensions = IndicatorDimensions(),
         val dividerThickness: Dp = 1.dp,
     ) {
