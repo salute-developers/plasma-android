@@ -29,6 +29,7 @@ import androidx.compose.ui.layout.MeasureResult
 import androidx.compose.ui.layout.MeasureScope
 import androidx.compose.ui.layout.Placeable
 import androidx.compose.ui.layout.layoutId
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.ExperimentalTextApi
 import androidx.compose.ui.text.TextLayoutResult
@@ -84,14 +85,14 @@ internal fun TextFieldLayout(
 ) {
     val hasChips = chips != null
     val chipHeight = chipStyle.dimensions.height
-    val minTextHeight = dimensions.alignmentLineHeight - dimensions.boxPaddingTop * 2
+    val alignmentLine = dimensions.alignmentLineHeight - dimensions.boxPaddingTop * 2
     val textMeasurer = rememberTextMeasurer()
     val measurePolicy = remember(
         animationProgress,
         valueTextStyle,
         innerLabelTextStyle,
         chipHeight,
-        minTextHeight,
+        alignmentLine,
         hasChips,
     ) {
         CoreTextFieldLayoutMeasurePolicy(
@@ -100,7 +101,7 @@ internal fun TextFieldLayout(
             innerLabelTextStyle = innerLabelTextStyle,
             animationProgress = animationProgress,
             chipHeight = chipHeight,
-            minTextHeight = minTextHeight,
+            alignmentLine = alignmentLine,
             hasChips = hasChips,
         )
     }
@@ -162,6 +163,7 @@ internal fun TextFieldLayout(
                 chips = chips,
                 chipGroupStyle = chipGroupStyle,
                 chipStyle = chipStyle,
+                valueTextStyle = valueTextStyle,
                 dimensions = dimensions,
                 verticalScrollState = verticalScrollState,
                 horizontalScrollState = horizontalScrollState,
@@ -246,6 +248,7 @@ private fun CompositeTextFieldContent(
     verticalScrollState: ScrollState?,
     horizontalScrollState: ScrollState?,
     singleLine: Boolean,
+    valueTextStyle: TextStyle,
 ) {
     val textContent: @Composable () -> Unit = {
         Box(modifier = Modifier.width(IntrinsicSize.Max)) {
@@ -268,6 +271,7 @@ private fun CompositeTextFieldContent(
                 chipGroupStyle = chipGroupStyle,
                 dimensions = dimensions,
                 scrollState = verticalScrollState,
+                valueTextStyle = valueTextStyle,
             )
         } else {
             TextFieldContent(
@@ -297,18 +301,24 @@ private fun TextAreaContent(
     chipGroupStyle: ChipGroupStyle,
     dimensions: TextField.Dimensions,
     scrollState: ScrollState?,
+    valueTextStyle: TextStyle,
 ) {
+    val chipStyle = LocalChipStyle.current
     Column(
         modifier = modifier
             .fieldShapeDecoration(
                 hasChips = chips != null,
-                chipContainerShape = LocalChipStyle.current.shape,
+                chipContainerShape = chipStyle.shape,
             )
             .then(scrollState?.let { Modifier.verticalScroll(it) } ?: Modifier),
-        verticalArrangement = Arrangement.spacedBy(dimensions.boxPaddingTop),
         content = {
             if (chips != null) {
+                val valueHeight = with(LocalDensity.current) { valueTextStyle.lineHeight.toDp() }
+                val chipHeight = chipStyle.dimensions.height
+                val chipSpacing = chipGroupStyle.dimensions.verticalSpacing
+                val chipsBottomPadding = chipSpacing + (chipHeight - valueHeight) / 2
                 ChipGroup(
+                    modifier = Modifier.padding(bottom = chipsBottomPadding),
                     overflowMode = ChipGroup.OverflowMode.Wrap,
                     style = chipGroupStyle,
                 ) {
@@ -383,7 +393,7 @@ constructor(
     private val textMeasurer: TextMeasurer,
     private val animationProgress: Float,
     private val chipHeight: Dp,
-    private val minTextHeight: Dp,
+    private val alignmentLine: Dp,
     private val hasChips: Boolean,
 ) : MeasurePolicy {
 
@@ -446,7 +456,7 @@ constructor(
             .find { it.layoutId == PlaceholderId }
             ?.measure(placeholderConstraints)
 
-        val firstValueLineHeight = getLineHeight(textMeasurer, valueTextStyle)
+        val valueLineHeight = getLineHeight(textMeasurer, valueTextStyle)
         val smallLabelTextHeight = getLabelLineHeight(
             hasLabel = labelPlaceable != null,
             textMeasurer = textMeasurer,
@@ -455,11 +465,11 @@ constructor(
         val chipsHeightOrZero = if (hasChips) chipHeight.roundToPx() else 0
         // расчет высоты первой строки контента (icons/innerLabel + 1 строка value/chips)
         val firstLineHeight = maxOf(
-            firstValueLineHeight + smallLabelTextHeight,
+            valueLineHeight + smallLabelTextHeight,
             leadingPlaceable.heightOrZero(),
             trailingPlaceable.heightOrZero(),
             chipsHeightOrZero,
-            minTextHeight.roundToPx(),
+            alignmentLine.roundToPx(),
         )
 
         val width = calculateWidth(
@@ -475,7 +485,7 @@ constructor(
         val height = calculateHeight(
             textFieldHeight = textFieldPlaceable.height,
             firstLineHeight = firstLineHeight,
-            labelHeight = labelPlaceable?.let { smallLabelTextHeight } ?: 0,
+            labelHeight = smallLabelTextHeight,
             placeholderHeight = placeholderPlaceable.heightOrZero(),
             captionTextHeight = captionTextHeight,
             counterTextHeight = counterTextHeight,
@@ -505,7 +515,7 @@ constructor(
                     trailingPlaceable = trailingPlaceable,
                     captionTextPlaceable = captionTextPlaceable,
                     counterTextPlaceable = counterTextPlaceable,
-                    firstValueLineHeight = firstValueLineHeight,
+                    valueLineHeight = valueLineHeight,
                     firstLineHeight = firstLineHeight,
                     hasChips = hasChips,
                 )
@@ -634,7 +644,7 @@ private fun Placeable.PlacementScope.placeWithoutLabel(
     trailingPlaceable: Placeable?,
     captionTextPlaceable: Placeable?,
     counterTextPlaceable: Placeable?,
-    firstValueLineHeight: Int,
+    valueLineHeight: Int,
     firstLineHeight: Int,
     hasChips: Boolean,
 ) {
@@ -655,7 +665,7 @@ private fun Placeable.PlacementScope.placeWithoutLabel(
 
     // размещение текста
     val textVerticalPosition =
-        if (hasChips) 0 else Alignment.CenterVertically.align(firstValueLineHeight, firstLineHeight)
+        if (hasChips) 0 else Alignment.CenterVertically.align(valueLineHeight, firstLineHeight)
     textPlaceable.placeRelative(leadingPlaceable.widthOrZero(), textVerticalPosition)
 
     // размещение нижних надписей
