@@ -18,6 +18,8 @@ import androidx.annotation.StyleRes
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
+import com.sdds.uikit.colorstate.ColorState
+import com.sdds.uikit.colorstate.ColorStateHolder
 import com.sdds.uikit.internal.base.ViewAlphaHelper
 import com.sdds.uikit.internal.base.unsafeLazy
 import com.sdds.uikit.internal.textfield.DecoratedFieldBox
@@ -39,7 +41,7 @@ open class TextField @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.sd_textFieldStyle,
     defStyleRes: Int = R.style.Sdds_Components_TextField,
-) : FlowLayout(context, attrs, defStyleAttr, defStyleRes) {
+) : FlowLayout(context, attrs, defStyleAttr, defStyleRes), ColorStateHolder {
 
     /**
      * Тип заголовка
@@ -147,18 +149,6 @@ open class TextField @JvmOverloads constructor(
     private var _inDrawableStateChanged: Boolean = false
     private var _requirementMode: RequirementMode = RequirementMode.Optional
 
-    private var _state: ViewState? = null
-        set(value) {
-            if (field != value) {
-                field = value
-                _decorationBox.state = field
-                _captionView.state = field
-                _counterView.state = field
-                _outerLabelView.state = field
-                refreshDrawableState()
-            }
-        }
-
     init {
         setWillNotDraw(false)
         setAddStatesFromChildren(true)
@@ -168,26 +158,31 @@ open class TextField @JvmOverloads constructor(
         clipToPadding = false
         isFocusable = false
         isFocusableInTouchMode = false
+        viewTreeObserver.addOnGlobalFocusChangeListener { oldFocus, newFocus ->
+            isActivated = !_decorationBox.isFocused && hasFocus()
+        }
     }
 
     /**
      * Состояние текстового поля
      * @see ViewState
      */
+    @Deprecated("Use colorState")
     var state: FieldState
-        get() = when (_state) {
-            ViewState.POSITIVE -> FieldState.Positive
-            ViewState.WARNING -> FieldState.Warning
-            ViewState.NEGATIVE -> FieldState.Negative
-            else -> FieldState.Default
-        }
+        get() = FieldState.Default
         set(value) {
-            _state = when (value) {
-                FieldState.Default -> ViewState.PRIMARY
-                FieldState.Positive -> ViewState.POSITIVE
-                FieldState.Warning -> ViewState.WARNING
-                FieldState.Negative -> ViewState.NEGATIVE
+        }
+
+    override var colorState: ColorState? = ColorState.obtain(context, attrs, defStyleAttr, defStyleRes)
+        set(value) {
+            if (field != value) {
+                field = value
+                refreshDrawableState()
             }
+            _decorationBox.colorState = field
+            _captionView.colorState = field
+            _counterView.colorState = field
+            _outerLabelView.colorState = field
         }
 
     /**
@@ -294,10 +289,6 @@ open class TextField @JvmOverloads constructor(
         get() = _decorationBox.editText.isReadOnly
         set(value) {
             _decorationBox.setReadOnly(value)
-            val newState = if (value) ViewState.SECONDARY else _state
-            _captionView.state = newState
-            _counterView.state = newState
-            _outerLabelView.state = newState
             refreshDrawableState()
         }
 
@@ -472,6 +463,7 @@ open class TextField @JvmOverloads constructor(
      */
     open fun setCounterAppearance(@StyleRes appearanceId: Int) {
         if (appearanceId != 0) {
+            _counterView.setTextAppearance(appearanceId)
             _decorationBox.setCounterAppearance(appearanceId)
         }
     }
@@ -596,8 +588,8 @@ open class TextField @JvmOverloads constructor(
         // Выключаем селектор для TextField, т.к. селектор должен добавляться в DecoratedFieldBox
     }
 
-    override fun onDraw(canvas: Canvas) {
-        super.onDraw(canvas)
+    override fun draw(canvas: Canvas) {
+        super.draw(canvas)
         if (isRequired()) {
             _indicator?.draw(canvas)
         }
@@ -609,9 +601,6 @@ open class TextField @JvmOverloads constructor(
             return
         }
         _inDrawableStateChanged = true
-        val isActivated = _decorationBox.isActivated
-        _captionView.state = if (isActivated) ViewState.PRIMARY else _state
-        _counterView.state = if (isActivated) ViewState.PRIMARY else _state
         _indicator?.state = drawableState
         _indicator?.invalidateSelf()
         _inDrawableStateChanged = false
@@ -821,7 +810,6 @@ open class TextField @JvmOverloads constructor(
             horizontalOffset = typedArray.getDimensionPixelSize(R.styleable.TextField_sd_indicatorOffsetX, 0),
         )
         typedArray.recycle()
-        _state = ViewState.obtain(context, attrs, defStyleAttr)
         updateLabel()
         updateCounter()
         updateCaption()

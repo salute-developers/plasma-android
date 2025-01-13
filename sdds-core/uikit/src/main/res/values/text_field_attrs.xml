@@ -39,7 +39,8 @@
         <attr name="sd_suffixDrawable" format="reference"/>
         <attr name="sd_prefixText" format="string"/>
         <attr name="sd_prefixDrawable" format="reference"/>
-        <attr name="sd_prefixSuffixPadding" format="dimension"/>
+        <attr name="sd_prefixTextPadding" format="dimension"/>
+        <attr name="sd_suffixTextPadding" format="dimension"/>
 
         <attr name="sd_scrollBarEnabled" format="boolean"/>
         <attr name="sd_scrollBarThickness" format="dimension"/>
@@ -140,7 +141,8 @@
         <attr name="sd_suffixDrawable" />
         <attr name="sd_prefixText" />
         <attr name="sd_prefixDrawable" />
-        <attr name="sd_prefixSuffixPadding" />
+        <attr name="sd_prefixTextPadding" />
+        <attr name="sd_suffixTextPadding" />
 
         <attr name="sd_scrollBarEnabled" />
         <attr name="sd_scrollBarThickness" />
