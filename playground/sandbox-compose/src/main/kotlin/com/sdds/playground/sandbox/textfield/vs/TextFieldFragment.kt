@@ -11,6 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
 import com.sdds.playground.sandbox.core.vs.PropertiesOwner
+import com.sdds.serv.colorstate.TextFieldColorState
 import com.sdds.uikit.TextField
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -67,12 +68,17 @@ internal open class TextFieldFragment : ComponentFragment() {
                     dispatchComponentStyleChanged()
                 }
                 textField?.apply {
-                    this.state = state.state
+                    colorState = when (state.state) {
+                        TextField.FieldState.Default -> TextFieldColorState.DEFAULT
+                        TextField.FieldState.Positive -> TextFieldColorState.SUCCESS
+                        TextField.FieldState.Warning -> TextFieldColorState.WARNING
+                        TextField.FieldState.Negative -> TextFieldColorState.ERROR
+                    }
                     label = state.labelText
                     placeholder = state.placeholderText
-                    value = state.valueText
+                    state.valueText?.let { this.value = it }
                     caption = state.captionText
-                    counter = state.counterText
+                    counter = state.counterText.takeIf { mode == TextFieldViewModel.Mode.TextArea }
                     prefixText = state.prefix
                     suffixText = state.suffix
                     if (state.icon) {

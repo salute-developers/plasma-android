@@ -108,4 +108,20 @@
     <style name="Serv.Sdds.ComponentOverlays.TextAreaXSRequiredEnd">
         <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextArea.XS.RequiredEnd</item>
     </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.ChipGroupDense.TextFieldEmbeddedL">
+        <item name="sd_chipGroupStyle">@style/Serv.Sdds.Components.ChipGroup.Dense.EmbeddedL.Secondary</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.ChipGroupDense.TextFieldEmbeddedM">
+        <item name="sd_chipGroupStyle">@style/Serv.Sdds.Components.ChipGroup.Dense.EmbeddedM.Secondary</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.ChipGroupDense.TextFieldEmbeddedS">
+        <item name="sd_chipGroupStyle">@style/Serv.Sdds.Components.ChipGroup.Dense.EmbeddedS.Secondary</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.ChipGroupDense.TextFieldEmbeddedXS">
+        <item name="sd_chipGroupStyle">@style/Serv.Sdds.Components.ChipGroup.Dense.EmbeddedXS.Secondary</item>
+    </style>
 </resources>

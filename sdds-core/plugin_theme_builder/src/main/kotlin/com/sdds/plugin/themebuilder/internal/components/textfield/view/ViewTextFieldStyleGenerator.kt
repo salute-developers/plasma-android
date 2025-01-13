@@ -143,6 +143,8 @@ internal class ViewTextFieldStyleGenerator(
         props.captionStyle?.let { typographyAttribute("sd_captionAppearance", it.value) }
         props.counterStyle?.let { typographyAttribute("sd_counterAppearance", it.value) }
         props.placeholderStyle?.let { typographyAttribute("sd_placeholderAppearance", it.value) }
+        props.prefixPadding?.let { dimenAttribute(variation, "sd_prefixTextPadding", "prefix_padding", it.value) }
+        props.suffixPadding?.let { dimenAttribute(variation, "sd_suffixTextPadding", "suffix_padding", it.value) }
     }
 
     private fun Element.addChipStyle(
