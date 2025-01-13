@@ -201,7 +201,7 @@ internal class TextFieldViewModel(
             Property.StringProperty(
                 name = TextFieldPropertyName.Counter.value,
                 value = counterText,
-            ),
+            ).takeIf { mode == Mode.TextArea },
             Property.StringProperty(
                 name = TextFieldPropertyName.Placeholder.value,
                 value = placeholderText,

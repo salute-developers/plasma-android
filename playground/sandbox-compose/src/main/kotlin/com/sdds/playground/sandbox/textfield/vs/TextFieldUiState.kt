@@ -27,7 +27,7 @@ internal data class TextFieldUiState(
     val state: TextField.FieldState = TextField.FieldState.Default,
     val labelText: String = "Label",
     val placeholderText: String = "Placeholder",
-    val valueText: String = "Value",
+    val valueText: String? = null,
     val captionText: String = "Caption",
     val counterText: String = "Counter",
     val icon: Boolean = true,
@@ -82,12 +82,12 @@ internal enum class TextFieldVariant(@StyleRes override val styleRes: Int) : Fie
     TextFieldSInnerLabel(R.style.Serv_Sdds_ComponentOverlays_TextFieldSInnerLabel),
     TextFieldSInnerLabelRequiredStart(R.style.Serv_Sdds_ComponentOverlays_TextFieldSInnerLabelRequiredStart),
     TextFieldSInnerLabelRequiredEnd(R.style.Serv_Sdds_ComponentOverlays_TextFieldSInnerLabelRequiredEnd),
-    TextFieldXS(R.style.Serv_Sdds_ComponentOverlays_TextFieldXS),
-    TextFieldXSRequiredStart(R.style.Serv_Sdds_ComponentOverlays_TextFieldXSRequiredStart),
-    TextFieldXSRequiredEnd(R.style.Serv_Sdds_ComponentOverlays_TextFieldXSRequiredEnd),
-    TextFieldXSOuterLabel(R.style.Serv_Sdds_ComponentOverlays_TextFieldXSOuterLabel),
-    TextFieldXSOuterLabelRequiredStart(R.style.Serv_Sdds_ComponentOverlays_TextFieldXSOuterLabelRequiredStart),
-    TextFieldXSOuterLabelRequiredEnd(R.style.Serv_Sdds_ComponentOverlays_TextFieldXSOuterLabelRequiredEnd),
+    TextFieldXS(R.style.Serv_Sdds_ComponentOverlays_TextFieldXs),
+    TextFieldXSRequiredStart(R.style.Serv_Sdds_ComponentOverlays_TextFieldXsRequiredStart),
+    TextFieldXSRequiredEnd(R.style.Serv_Sdds_ComponentOverlays_TextFieldXsRequiredEnd),
+    TextFieldXSOuterLabel(R.style.Serv_Sdds_ComponentOverlays_TextFieldXsOuterLabel),
+    TextFieldXSOuterLabelRequiredStart(R.style.Serv_Sdds_ComponentOverlays_TextFieldXsOuterLabelRequiredStart),
+    TextFieldXSOuterLabelRequiredEnd(R.style.Serv_Sdds_ComponentOverlays_TextFieldXsOuterLabelRequiredEnd),
 }
 
 /**

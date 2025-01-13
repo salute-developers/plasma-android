@@ -105,6 +105,10 @@ internal data class TextFieldProperties(
     val scrollBarPaddingEnd: Dimension? = null,
     val scrollBarTrackColor: Color? = null,
     val scrollBarThumbColor: Color? = null,
+
+    // suffix, prefix
+    val suffixPadding: Dimension? = null,
+    val prefixPadding: Dimension? = null,
 ) : PropertyOwner {
 
     @Suppress("CyclomaticComplexMethod", "LongMethod")
@@ -167,6 +171,8 @@ internal data class TextFieldProperties(
             backgroundColorReadOnly = backgroundColorReadOnly ?: otherProps.backgroundColorReadOnly,
             cursorColor = cursorColor ?: otherProps.cursorColor,
             cursorColorReadOnly = cursorColorReadOnly ?: otherProps.cursorColorReadOnly,
+            prefixPadding = prefixPadding ?: otherProps.prefixPadding,
+            suffixPadding = suffixPadding ?: otherProps.suffixPadding,
         )
     }
 }
