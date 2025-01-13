@@ -6,6 +6,7 @@ import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.ComponentStyle
 import com.sdds.plugin.themebuilder.internal.components.base.Config
 import com.sdds.plugin.themebuilder.internal.components.base.Dimension
+import com.sdds.plugin.themebuilder.internal.components.base.FloatValue
 import com.sdds.plugin.themebuilder.internal.components.base.PropertyOwner
 import com.sdds.plugin.themebuilder.internal.components.base.Shape
 import com.sdds.plugin.themebuilder.internal.components.base.Typography
@@ -15,6 +16,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 internal data class TextFieldProperties(
+    val disableAlpha: FloatValue? = null,
     // field box
     val shape: Shape? = null, // not clear only
     val boxPaddingStart: Dimension? = null,
@@ -109,6 +111,7 @@ internal data class TextFieldProperties(
     override fun merge(parent: PropertyOwner): PropertyOwner {
         val otherProps = parent as? TextFieldProperties ?: return this
         return copy(
+            disableAlpha = disableAlpha ?: otherProps.disableAlpha,
             shape = shape ?: otherProps.shape,
             boxPaddingStart = boxPaddingStart ?: otherProps.boxPaddingStart,
             boxPaddingEnd = boxPaddingEnd ?: otherProps.boxPaddingEnd,

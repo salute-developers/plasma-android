@@ -37,13 +37,13 @@ internal class ColorStateListGenerator(
         states: Set<StateListAttribute> = emptySet(),
         alpha: Float? = null,
     ) {
-        stateListItems.add(
-            StateListItem(
-                "?${resourcePrefix}_${ColorToken.getAttrName(colorTokenName)}",
-                states,
-                alpha,
-            ),
+        val newItem = StateListItem(
+            "?${resourcePrefix}_${ColorToken.getAttrName(colorTokenName)}",
+            states,
+            alpha,
         )
+        stateListItems.removeIf { it.states == newItem.states }
+        stateListItems.add(newItem)
     }
 
     override fun generate() {
@@ -54,7 +54,7 @@ internal class ColorStateListGenerator(
 
     private fun prepareStateList() = with(xmlBuilder) {
         stateListItems
-            .sortedByDescending { it.priority }.forEach { stateListItem ->
+            .forEach { stateListItem ->
                 appendBaseElement(
                     elementName = ElementName.ITEM.value,
                     attrs = mutableMapOf<String, String>().apply {
@@ -73,10 +73,7 @@ internal class ColorStateListGenerator(
         val value: String,
         val states: Set<StateListAttribute>,
         val alpha: Float? = null,
-    ) {
-
-        val priority: Int = states.size + states.size
-    }
+    )
 }
 
 /**
@@ -91,6 +88,7 @@ internal enum class AndroidState(val key: String, private val attribute: String)
     FOCUSED("focused", "android:state_focused"),
     PRESSED("pressed", "android:state_pressed"),
     HOVERED("hovered", "android:state_hovered"),
+    ACTIVATED("activated", "android:state_activated"),
     ;
 
     /**

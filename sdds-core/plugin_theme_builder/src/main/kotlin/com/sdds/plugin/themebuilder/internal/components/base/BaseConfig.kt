@@ -83,6 +83,11 @@ internal data class Dimension(
 )
 
 @Serializable
+internal data class FloatValue(
+    val value: Float,
+)
+
+@Serializable
 internal data class Value(
     val value: String,
 )
@@ -92,6 +97,7 @@ internal data class Color(
     val default: String,
     val alpha: Float? = null,
     val states: List<ColorState>? = null,
+    val alpha: Float? = null,
 )
 
 @Serializable

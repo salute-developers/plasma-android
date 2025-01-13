@@ -178,6 +178,10 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
         componentStyleGeneratorFactory.createLinkButtonStyleGeneratorView()
     }
 
+    private val textFieldStyleGeneratorView by unsafeLazy {
+        componentStyleGeneratorFactory.createTextFieldStyleGeneratorView()
+    }
+
     private val textFieldStyleGeneratorCompose by unsafeLazy {
         componentStyleGeneratorFactory.createTextFieldStyleGeneratorCompose()
     }
@@ -264,5 +268,6 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
         basicButtonStyleGeneratorView.generate(basicButtonConfig)
         iconButtonStyleGeneratorView.generate(iconButtonConfig)
         linkButtonStyleGeneratorView.generate(linkButtonConfig)
+        textFieldStyleGeneratorView.generate(textFieldConfig)
     }
 }

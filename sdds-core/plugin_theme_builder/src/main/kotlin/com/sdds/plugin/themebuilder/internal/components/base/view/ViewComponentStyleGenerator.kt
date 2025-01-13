@@ -129,10 +129,11 @@ internal abstract class ViewComponentStyleGenerator<T : ComponentConfig>(
      */
     protected fun XmlResourcesDocumentBuilder.overlayStyle(
         name: String,
+        base: String = baseOverlayStyleName,
         content: Element.() -> Unit,
     ) {
         val normalizedName = name.techToCamelCase()
-        appendStyleWithCompositePrefix("$baseOverlayStyleName$normalizedName", content = content)
+        appendStyleWithCompositePrefix("$base$normalizedName", content = content)
     }
 
     /**
@@ -215,6 +216,36 @@ internal abstract class ViewComponentStyleGenerator<T : ComponentConfig>(
     }
 
     /**
+     * Добавляет атрибут со значением вида @style/ComponentOverlays.styleName, где [styleName] - стиль компонента
+     */
+    protected fun Element.componentOverlayAttribute(
+        attributeName: String,
+        styleName: String,
+    ) = with(xmlResourceBuilder) {
+        this@componentOverlayAttribute.appendElement(
+            elementName = XmlResourcesDocumentBuilder.ElementName.ITEM,
+            tokenName = attributeName,
+            value = resourceReferenceProvider.style("ComponentOverlays.$styleName"),
+            usePrefix = false,
+        )
+    }
+
+    /**
+     * Добавляет атрибут со значением вида @style/Components.styleName, где [styleName] - стиль компонента
+     */
+    protected fun Element.componentStyleAttribute(
+        attributeName: String,
+        styleName: String,
+    ) = with(xmlResourceBuilder) {
+        this@componentStyleAttribute.appendElement(
+            elementName = XmlResourcesDocumentBuilder.ElementName.ITEM,
+            tokenName = attributeName,
+            value = resourceReferenceProvider.style("Components.$styleName"),
+            usePrefix = false,
+        )
+    }
+
+    /**
      * Добавляет атрибут со значением ColorState
      */
     protected fun Element.colorStateAttribute(
@@ -282,8 +313,7 @@ internal abstract class ViewComponentStyleGenerator<T : ComponentConfig>(
     }
 
     /**
-     * Добавляет атрибут типа color со значением вида ?prefix_attrName, где attrName - это преобразованный
-     * [tokenName]
+     * Конфигурирует ColorState для свойства [property].
      */
     protected fun addToStateList(
         property: ColorProperty,
@@ -304,9 +334,9 @@ internal abstract class ViewComponentStyleGenerator<T : ComponentConfig>(
             color.states?.forEach { colorState ->
                 val androidStateAttrs = colorState.state.asAndroidStates()
                     .map { it.toStateListAttribute() }
-                addColor(colorState.value, stateAttrs + androidStateAttrs)
+                addColor(colorState.value, stateAttrs + androidStateAttrs, alpha = color.alpha)
             }
-            addColor(color.default, stateAttrs)
+            addColor(color.default, stateAttrs, alpha = color.alpha)
         }
     }
 
