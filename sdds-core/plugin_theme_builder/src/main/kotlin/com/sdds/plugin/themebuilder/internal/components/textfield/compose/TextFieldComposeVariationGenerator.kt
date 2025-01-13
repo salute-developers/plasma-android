@@ -124,20 +124,27 @@ internal class TextFieldComposeVariationGenerator(
         return labelColor != null ||
             labelColorReadOnly != null ||
             optionalColor != null ||
+            optionalColorReadOnly != null ||
             valueColor != null ||
             valueColorReadOnly != null ||
             placeholderColor != null ||
             placeholderColorReadOnly != null ||
             indicatorColor != null ||
+            indicatorColorReadOnly != null ||
             startContentColor != null ||
+            startContentColorReadOnly != null ||
             endContentColor != null ||
+            endContentColorReadOnly != null ||
             captionColor != null ||
             captionColorReadOnly != null ||
             counterColor != null ||
+            counterColorReadOnly != null ||
             backgroundColor != null ||
             backgroundColorReadOnly != null ||
             cursorColor != null ||
-            dividerColor != null
+            cursorColorReadOnly != null ||
+            dividerColor != null ||
+            dividerColorReadOnly != null
     }
 
     @Suppress("LongMethod", "CyclomaticComplexMethod")
@@ -154,6 +161,9 @@ internal class TextFieldComposeVariationGenerator(
                 props.optionalColor?.let {
                     appendLine(getColor("optionalColor", it))
                 }
+                props.optionalColorReadOnly?.let {
+                    appendLine(getColor("optionalColorReadOnly", it))
+                }
                 props.valueColor?.let {
                     appendLine(getColor("valueColor", it))
                 }
@@ -169,11 +179,20 @@ internal class TextFieldComposeVariationGenerator(
                 props.indicatorColor?.let {
                     appendLine(getColor("indicatorColor", it))
                 }
+                props.indicatorColorReadOnly?.let {
+                    appendLine(getColor("indicatorColorReadOnly", it))
+                }
                 props.startContentColor?.let {
                     appendLine(getColor("startContentColor", it))
                 }
+                props.startContentColorReadOnly?.let {
+                    appendLine(getColor("startContentColorReadOnly", it))
+                }
                 props.endContentColor?.let {
                     appendLine(getColor("endContentColor", it))
+                }
+                props.endContentColorReadOnly?.let {
+                    appendLine(getColor("endContentColorReadOnly", it))
                 }
                 props.captionColor?.let {
                     appendLine(getColor("captionColor", it))
@@ -184,6 +203,9 @@ internal class TextFieldComposeVariationGenerator(
                 props.counterColor?.let {
                     appendLine(getColor("counterColor", it))
                 }
+                props.counterColorReadOnly?.let {
+                    appendLine(getColor("counterColorReadOnly", it))
+                }
                 props.backgroundColor?.let {
                     appendLine(getColor("backgroundColor", it))
                 }
@@ -193,8 +215,14 @@ internal class TextFieldComposeVariationGenerator(
                 props.cursorColor?.let {
                     appendLine(getColor("cursorColor", it))
                 }
+                props.cursorColorReadOnly?.let {
+                    appendLine(getColor("cursorColorReadOnly", it))
+                }
                 props.dividerColor?.let {
                     appendLine(getColor("dividerColor", it))
+                }
+                props.dividerColorReadOnly?.let {
+                    appendLine(getColor("dividerColorReadOnly", it))
                 }
                 append("}")
             }

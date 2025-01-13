@@ -128,6 +128,17 @@ interface TextFieldColorsBuilder {
     fun cursorColor(cursorColor: InteractiveColor): TextFieldColorsBuilder
 
     /**
+     * Устанавливает цвет курсора [cursorColorReadOnly]
+     */
+    fun cursorColorReadOnly(cursorColorReadOnly: InteractiveColor): TextFieldColorsBuilder
+
+    /**
+     * Устанавливает цвет курсора [cursorColorReadOnly]
+     */
+    fun cursorColorReadOnly(cursorColorReadOnly: Color): TextFieldColorsBuilder =
+        cursorColorReadOnly(cursorColorReadOnly.asInteractive())
+
+    /**
      * Устанавливает цвет контента в начале [startContentColor]
      */
     fun startContentColor(startContentColor: Color): TextFieldColorsBuilder =
@@ -139,6 +150,17 @@ interface TextFieldColorsBuilder {
     fun startContentColor(startContentColor: InteractiveColor): TextFieldColorsBuilder
 
     /**
+     * Устанавливает цвет контента в начале [startContentColorReadOnly]
+     */
+    fun startContentColorReadOnly(startContentColorReadOnly: Color): TextFieldColorsBuilder =
+        startContentColorReadOnly(startContentColorReadOnly.asInteractive())
+
+    /**
+     * Устанавливает цвет контента в начале [startContentColorReadOnly]
+     */
+    fun startContentColorReadOnly(startContentColorReadOnly: InteractiveColor): TextFieldColorsBuilder
+
+    /**
      * Устанавливает цвет контента в конце [endContentColor]
      */
     fun endContentColor(endContentColor: Color): TextFieldColorsBuilder =
@@ -148,6 +170,17 @@ interface TextFieldColorsBuilder {
      * Устанавливает цвет контента в конце [endContentColor]
      */
     fun endContentColor(endContentColor: InteractiveColor): TextFieldColorsBuilder
+
+    /**
+     * Устанавливает цвет контента в конце [endContentColorReadOnly]
+     */
+    fun endContentColorReadOnly(endContentColorReadOnly: Color): TextFieldColorsBuilder =
+        endContentColorReadOnly(endContentColorReadOnly.asInteractive())
+
+    /**
+     * Устанавливает цвет контента в конце [endContentColorReadOnly]
+     */
+    fun endContentColorReadOnly(endContentColorReadOnly: InteractiveColor): TextFieldColorsBuilder
 
     /**
      * Устанавливает цвет лэйбла [labelColor]
@@ -227,6 +260,17 @@ interface TextFieldColorsBuilder {
     fun optionalColor(optionalColor: InteractiveColor): TextFieldColorsBuilder
 
     /**
+     * Устанавливает цвет опционального текста [optionalColorReadOnly]
+     */
+    fun optionalColorReadOnly(optionalColorReadOnly: Color): TextFieldColorsBuilder =
+        optionalColorReadOnly(optionalColorReadOnly.asInteractive())
+
+    /**
+     * Устанавливает цвет опционального текста [optionalColorReadOnly]
+     */
+    fun optionalColorReadOnly(optionalColorReadOnly: InteractiveColor): TextFieldColorsBuilder
+
+    /**
      * Устанавливает цвет счетчика [counterColor]
      */
     fun counterColor(counterColor: Color): TextFieldColorsBuilder =
@@ -236,6 +280,17 @@ interface TextFieldColorsBuilder {
      * Устанавливает цвет счетчика [counterColor]
      */
     fun counterColor(counterColor: InteractiveColor): TextFieldColorsBuilder
+
+    /**
+     * Устанавливает цвет счетчика [counterColorReadOnly]
+     */
+    fun counterColorReadOnly(counterColorReadOnly: Color): TextFieldColorsBuilder =
+        counterColorReadOnly(counterColorReadOnly.asInteractive())
+
+    /**
+     * Устанавливает цвет счетчика [counterColorReadOnly]
+     */
+    fun counterColorReadOnly(counterColorReadOnly: InteractiveColor): TextFieldColorsBuilder
 
     /**
      * Устанавливает цвет плэйсхолдера [placeholderColor]
@@ -291,6 +346,17 @@ interface TextFieldColorsBuilder {
      * Устанавливает цвет индикатора
      */
     fun indicatorColor(indicatorColor: InteractiveColor): TextFieldColorsBuilder
+
+    /**
+     * Устанавливает цвет индикатора
+     */
+    fun indicatorColorReadOnly(indicatorColorReadOnly: Color): TextFieldColorsBuilder =
+        indicatorColorReadOnly(indicatorColorReadOnly.asInteractive())
+
+    /**
+     * Устанавливает цвет индикатора
+     */
+    fun indicatorColorReadOnly(indicatorColorReadOnly: InteractiveColor): TextFieldColorsBuilder
 
     /**
      * Вернет экземпляр [TextFieldColors]
@@ -712,12 +778,18 @@ private class DefaultTextFieldStyle(
 @Suppress("LongParameterList")
 private class DefaultTextFieldColors(
     override val disabledAlpha: Float,
-    override val endContentColor: InteractiveColor,
-    override val optionalColor: InteractiveColor,
-    override val counterColor: InteractiveColor,
-    override val cursorColor: InteractiveColor,
-    override val indicatorColor: InteractiveColor,
-    override val startContentColor: InteractiveColor,
+    private val endContentColor: InteractiveColor,
+    private val endContentColorReadOnly: InteractiveColor,
+    private val optionalColor: InteractiveColor,
+    private val optionalColorReadOnly: InteractiveColor,
+    private val counterColor: InteractiveColor,
+    private val counterColorReadOnly: InteractiveColor,
+    private val cursorColor: InteractiveColor,
+    private val cursorColorReadOnly: InteractiveColor,
+    private val indicatorColor: InteractiveColor,
+    private val indicatorColorReadOnly: InteractiveColor,
+    private val startContentColor: InteractiveColor,
+    private val startContentColorReadOnly: InteractiveColor,
     private val labelColor: InteractiveColor,
     private val labelColorReadOnly: InteractiveColor,
     private val valueColor: InteractiveColor,
@@ -729,6 +801,21 @@ private class DefaultTextFieldColors(
     private val backgroundColor: InteractiveColor,
     private val backgroundColorReadOnly: InteractiveColor,
 ) : TextFieldColors {
+    override fun cursorColor(isReadOnly: Boolean): InteractiveColor {
+        return if (isReadOnly) cursorColorReadOnly else cursorColor
+    }
+
+    override fun indicatorColor(isReadOnly: Boolean): InteractiveColor {
+        return if (isReadOnly) indicatorColorReadOnly else indicatorColor
+    }
+
+    override fun startContentColor(isReadOnly: Boolean): InteractiveColor {
+        return if (isReadOnly) startContentColorReadOnly else startContentColor
+    }
+
+    override fun endContentColor(isReadOnly: Boolean): InteractiveColor {
+        return if (isReadOnly) endContentColorReadOnly else endContentColor
+    }
 
     override fun labelColor(isReadOnly: Boolean): InteractiveColor {
         return if (isReadOnly) labelColorReadOnly else labelColor
@@ -740,6 +827,14 @@ private class DefaultTextFieldColors(
 
     override fun captionColor(isReadOnly: Boolean): InteractiveColor {
         return if (isReadOnly) captionColorReadOnly else captionColor
+    }
+
+    override fun optionalColor(isReadOnly: Boolean): InteractiveColor {
+        return if (isReadOnly) optionalColorReadOnly else optionalColor
+    }
+
+    override fun counterColor(isReadOnly: Boolean): InteractiveColor {
+        return if (isReadOnly) counterColorReadOnly else counterColor
     }
 
     override fun dividerColor(isReadOnly: Boolean) = DUMMY_COLOR
@@ -755,8 +850,11 @@ private class DefaultTextFieldColors(
     class Builder : TextFieldColorsBuilder {
         private var disabledAlpha: Float? = null
         private var cursorColor: InteractiveColor? = null
+        private var cursorColorReadOnly: InteractiveColor? = null
         private var startContentColor: InteractiveColor? = null
+        private var startContentColorReadOnly: InteractiveColor? = null
         private var endContentColor: InteractiveColor? = null
+        private var endContentColorReadOnly: InteractiveColor? = null
         private var labelColor: InteractiveColor? = null
         private var labelColorReadOnly: InteractiveColor? = null
         private var valueColor: InteractiveColor? = null
@@ -764,12 +862,15 @@ private class DefaultTextFieldColors(
         private var captionColor: InteractiveColor? = null
         private var captionColorReadOnly: InteractiveColor? = null
         private var optionalColor: InteractiveColor? = null
+        private var optionalColorReadOnly: InteractiveColor? = null
         private var counterColor: InteractiveColor? = null
+        private var counterColorReadOnly: InteractiveColor? = null
         private var backgroundColor: InteractiveColor? = null
         private var backgroundColorReadOnly: InteractiveColor? = null
         private var placeholderColor: InteractiveColor? = null
         private var placeholderColorReadOnly: InteractiveColor? = null
         private var indicatorColor: InteractiveColor? = null
+        private var indicatorColorReadOnly: InteractiveColor? = null
 
         override fun disabledAlpha(disabledAlpha: Float) = apply {
             this.disabledAlpha = disabledAlpha
@@ -779,12 +880,24 @@ private class DefaultTextFieldColors(
             this.cursorColor = cursorColor
         }
 
+        override fun cursorColorReadOnly(cursorColorReadOnly: InteractiveColor) = apply {
+            this.cursorColorReadOnly = cursorColorReadOnly
+        }
+
         override fun startContentColor(startContentColor: InteractiveColor) = apply {
             this.startContentColor = startContentColor
         }
 
+        override fun startContentColorReadOnly(startContentColorReadOnly: InteractiveColor) = apply {
+            this.startContentColorReadOnly = startContentColorReadOnly
+        }
+
         override fun endContentColor(endContentColor: InteractiveColor) = apply {
             this.endContentColor = endContentColor
+        }
+
+        override fun endContentColorReadOnly(endContentColorReadOnly: InteractiveColor) = apply {
+            this.endContentColorReadOnly = endContentColorReadOnly
         }
 
         override fun labelColor(labelColor: InteractiveColor) = apply {
@@ -815,8 +928,16 @@ private class DefaultTextFieldColors(
             this.optionalColor = optionalColor
         }
 
+        override fun optionalColorReadOnly(optionalColorReadOnly: InteractiveColor) = apply {
+            this.optionalColorReadOnly = optionalColorReadOnly
+        }
+
         override fun counterColor(counterColor: InteractiveColor) = apply {
             this.counterColor = counterColor
+        }
+
+        override fun counterColorReadOnly(counterColorReadOnly: InteractiveColor) = apply {
+            this.counterColorReadOnly = counterColorReadOnly
         }
 
         override fun placeholderColor(placeholderColor: InteractiveColor) = apply {
@@ -839,27 +960,39 @@ private class DefaultTextFieldColors(
             this.indicatorColor = indicatorColor
         }
 
+        override fun indicatorColorReadOnly(indicatorColorReadOnly: InteractiveColor) = apply {
+            this.indicatorColorReadOnly = indicatorColorReadOnly
+        }
+
         @Suppress("CyclomaticComplexMethod")
         override fun build(): TextFieldColors {
             return DefaultTextFieldColors(
                 disabledAlpha = disabledAlpha ?: DEFAULT_DISABLED_ALPHA,
                 cursorColor = cursorColor ?: Color.Black.asInteractive(),
+                cursorColorReadOnly = cursorColorReadOnly ?: cursorColor ?: Color.Black.asInteractive(),
                 startContentColor = startContentColor ?: Color.Black.asInteractive(),
+                startContentColorReadOnly = startContentColorReadOnly
+                    ?: startContentColor
+                    ?: Color.Black.asInteractive(),
                 endContentColor = endContentColor ?: Color.Black.asInteractive(),
+                endContentColorReadOnly = endContentColorReadOnly ?: endContentColor ?: Color.Black.asInteractive(),
                 labelColor = labelColor ?: Color.Black.asInteractive(),
-                labelColorReadOnly = labelColorReadOnly ?: Color.Black.asInteractive(),
+                labelColorReadOnly = labelColorReadOnly ?: labelColor ?: Color.Black.asInteractive(),
                 valueColor = valueColor ?: Color.Black.asInteractive(),
-                valueColorReadOnly = valueColorReadOnly ?: Color.Black.asInteractive(),
+                valueColorReadOnly = valueColorReadOnly ?: valueColor ?: Color.Black.asInteractive(),
                 captionColor = captionColor ?: Color.Black.asInteractive(),
-                captionColorReadOnly = captionColorReadOnly ?: Color.Black.asInteractive(),
+                captionColorReadOnly = captionColorReadOnly ?: captionColor ?: Color.Black.asInteractive(),
                 optionalColor = optionalColor ?: Color.Black.asInteractive(),
+                optionalColorReadOnly = optionalColorReadOnly ?: optionalColor ?: Color.Black.asInteractive(),
                 counterColor = counterColor ?: Color.Black.asInteractive(),
+                counterColorReadOnly = counterColorReadOnly ?: counterColor ?: Color.Black.asInteractive(),
                 backgroundColor = backgroundColor ?: Color.LightGray.asInteractive(),
                 backgroundColorReadOnly = backgroundColorReadOnly
-                    ?: Color.LightGray.asInteractive(),
+                    ?: backgroundColor ?: Color.LightGray.asInteractive(),
                 placeholderColor = placeholderColor ?: Color.Gray.asInteractive(),
-                placeholderColorReadOnly = placeholderColorReadOnly ?: Color.Gray.asInteractive(),
+                placeholderColorReadOnly = placeholderColorReadOnly ?: placeholderColor ?: Color.Gray.asInteractive(),
                 indicatorColor = indicatorColor ?: Color.Red.asInteractive(),
+                indicatorColorReadOnly = indicatorColorReadOnly ?: indicatorColor ?: Color.Red.asInteractive(),
             )
         }
     }

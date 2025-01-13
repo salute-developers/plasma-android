@@ -90,7 +90,8 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
     protected open fun KtFileBuilder.onAddImports() = Unit
 
     protected fun getColor(colorName: String, color: Color): String {
-        return "$colorName($themeClassName.colors.${color.default.toKtTokenName()}" +
+        val alphaString = color.alpha?.let { ".multiplyAlpha(${it}f)" }.orEmpty()
+        return "$colorName($themeClassName.colors.${color.default.toKtTokenName()}$alphaString" +
             ".${color.asInteractiveFragment})"
     }
 
@@ -349,7 +350,11 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
     }
 
     private fun ColorState.getStateParameter(): String {
-        return this.let { "setOf(${it.state.toColorStates()}) to $themeClassName.colors.${it.value.toKtAttrName()}" }
+        val alphaString = alpha?.let { ".multiplyAlpha(${it}f)" }.orEmpty()
+        return this.let {
+            "setOf(${it.state.toColorStates()}) " +
+                "to $themeClassName.colors.${it.value.toKtAttrName()}$alphaString"
+        }
     }
 
     private fun List<String>.toColorStates(): String =
@@ -362,6 +367,7 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
             names = listOf(
                 "adjustBy",
                 styleBuilderFactoryMethodName,
+                "multiplyAlpha",
             ),
         )
         addImport(

@@ -127,22 +127,22 @@ interface TextFieldColors {
     /**
      * Цвет курсора
      */
-    val cursorColor: InteractiveColor
+    fun cursorColor(isReadOnly: Boolean): InteractiveColor
 
     /**
      * Цвет индикатора
      */
-    val indicatorColor: InteractiveColor
+    fun indicatorColor(isReadOnly: Boolean): InteractiveColor
 
     /**
      * Цвет контенат в начале
      */
-    val startContentColor: InteractiveColor
+    fun startContentColor(isReadOnly: Boolean): InteractiveColor
 
     /**
      * Цвет контента в конце
      */
-    val endContentColor: InteractiveColor
+    fun endContentColor(isReadOnly: Boolean): InteractiveColor
 
     /**
      * Цвет лэйбла
@@ -162,12 +162,12 @@ interface TextFieldColors {
     /**
      * Цвет опционального текста
      */
-    val optionalColor: InteractiveColor
+    fun optionalColor(isReadOnly: Boolean): InteractiveColor
 
     /**
      * Цвет счетчика
      */
-    val counterColor: InteractiveColor
+    fun counterColor(isReadOnly: Boolean): InteractiveColor
 
     /**
      * Цвет разделителя

@@ -140,23 +140,23 @@ internal fun BaseTextField(
         interactionSource = interactionSource,
     )
     val optionalStyle = style.optionalStyle.applyColor(
-        color = colors.optionalColor,
+        color = colors.optionalColor(readOnly),
         interactionSource = interactionSource,
     )
     val valueStyle = style.valueStyle.applyColor(
-        color = colors.valueColor(isReadOnly = readOnly),
+        color = colors.valueColor(readOnly),
         interactionSource = interactionSource,
     )
     val captionStyle = style.captionStyle.applyColor(
-        color = colors.captionColor(isReadOnly = readOnly),
+        color = colors.captionColor(readOnly),
         interactionSource = interactionSource,
     )
     val counterStyle = style.counterStyle.applyColor(
-        color = colors.counterColor,
+        color = colors.counterColor(readOnly),
         interactionSource = interactionSource,
     )
     val placeholderStyle = style.placeholderStyle.applyColor(
-        color = colors.placeholderColor(isReadOnly = readOnly),
+        color = colors.placeholderColor(readOnly),
         interactionSource = interactionSource,
     )
     val singleLine = style.singleLine
@@ -200,7 +200,7 @@ internal fun BaseTextField(
                     .applyLabelIndicator(
                         fieldType = fieldType,
                         labelPlacement = labelPlacement,
-                        indicatorColor = colors.indicatorColor.colorForInteraction(interactionSource),
+                        indicatorColor = colors.indicatorColor(readOnly).colorForInteraction(interactionSource),
                         dimensions = dimensions,
                     ),
                 labelPlacement = labelPlacement,
@@ -238,7 +238,7 @@ internal fun BaseTextField(
                         labelPlacement,
                         fieldAppearance,
                         dimensions,
-                        colors.indicatorColor.colorForInteraction(interactionSource),
+                        colors.indicatorColor(readOnly).colorForInteraction(interactionSource),
                     )
                     .clip(if (fieldAppearance == FieldAppearance.Solid) style.shape else RectangleShape)
                     .drawFieldAppearance(
@@ -289,7 +289,7 @@ internal fun BaseTextField(
                         visualTransformation = innerVisualTransformation,
                         interactionSource = interactionSource,
                         cursorBrush = SolidColor(
-                            colors.cursorColor.colorForInteraction(interactionSource),
+                            colors.cursorColor(readOnly).colorForInteraction(interactionSource),
                         ),
                     )
                 },
@@ -318,13 +318,13 @@ internal fun BaseTextField(
                 startIcon = icon(
                     startContent,
                     colors
-                        .startContentColor
+                        .startContentColor(readOnly)
                         .colorForInteraction(interactionSource),
                 ),
                 endIcon = icon(
                     endContent,
                     colors
-                        .endContentColor
+                        .endContentColor(readOnly)
                         .colorForInteraction(interactionSource),
                 ),
                 innerCaption = innerCaption(helperTextPlacement, captionText, captionStyle),

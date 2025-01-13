@@ -90,6 +90,7 @@ internal data class Value(
 @Serializable
 internal data class Color(
     val default: String,
+    val alpha: Float? = null,
     val states: List<ColorState>? = null,
 )
 
@@ -97,4 +98,5 @@ internal data class Color(
 internal data class ColorState(
     val state: List<String>,
     val value: String,
+    val alpha: Float? = null,
 )

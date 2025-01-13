@@ -39,6 +39,7 @@ internal data class TextFieldProperties(
     // optional
     val optionalStyle: Typography? = null,
     val optionalColor: Color? = null,
+    val optionalColorReadOnly: Color? = null,
     val optionalPadding: Dimension? = null,
 
     // value
@@ -57,20 +58,24 @@ internal data class TextFieldProperties(
     val indicatorOffsetX: Dimension? = null,
     val indicatorOffsetY: Dimension? = null,
     val indicatorColor: Color? = null,
+    val indicatorColorReadOnly: Color? = null,
 
     // divider (clear only)
     val dividerColor: Color? = null,
+    val dividerColorReadOnly: Color? = null,
     val dividerHeight: Dimension? = null,
 
     // start content
     val startContentSize: Dimension? = null,
     val startContentPadding: Dimension? = null,
     val startContentColor: Color? = null,
+    val startContentColorReadOnly: Color? = null,
 
     // end content
     val endContentSize: Dimension? = null,
     val endContentPadding: Dimension? = null,
     val endContentColor: Color? = null,
+    val endContentColorReadOnly: Color? = null,
 
     // helper text
     val helperTextPadding: Dimension? = null,
@@ -81,6 +86,7 @@ internal data class TextFieldProperties(
     val counterPlacement: Value? = null,
     val counterStyle: Typography? = null,
     val counterColor: Color? = null,
+    val counterColorReadOnly: Color? = null,
 
     // background (not clear only)
     val backgroundColor: Color? = null,
@@ -88,6 +94,7 @@ internal data class TextFieldProperties(
 
     // cursor
     val cursorColor: Color? = null,
+    val cursorColorReadOnly: Color? = null,
 
     // scrollBar (text area only)
     val scrollBarThickness: Dimension? = null,
@@ -98,7 +105,7 @@ internal data class TextFieldProperties(
     val scrollBarThumbColor: Color? = null,
 ) : PropertyOwner {
 
-    @Suppress("CyclomaticComplexMethod")
+    @Suppress("CyclomaticComplexMethod", "LongMethod")
     override fun merge(parent: PropertyOwner): PropertyOwner {
         val otherProps = parent as? TextFieldProperties ?: return this
         return copy(
@@ -119,6 +126,7 @@ internal data class TextFieldProperties(
             labelColorReadOnly = labelColorReadOnly ?: otherProps.labelColorReadOnly,
             optionalStyle = optionalStyle ?: otherProps.optionalStyle,
             optionalColor = optionalColor ?: otherProps.optionalColor,
+            optionalColorReadOnly = optionalColorReadOnly ?: otherProps.optionalColorReadOnly,
             optionalPadding = optionalPadding ?: otherProps.optionalPadding,
             valueStyle = valueStyle ?: otherProps.valueStyle,
             valueColor = valueColor ?: otherProps.valueColor,
@@ -131,12 +139,18 @@ internal data class TextFieldProperties(
             indicatorOffsetX = indicatorOffsetX ?: otherProps.indicatorOffsetX,
             indicatorOffsetY = indicatorOffsetY ?: otherProps.indicatorOffsetY,
             indicatorColor = indicatorColor ?: otherProps.indicatorColor,
+            indicatorColorReadOnly = indicatorColorReadOnly ?: otherProps.indicatorColorReadOnly,
+            dividerHeight = dividerHeight ?: otherProps.dividerHeight,
+            dividerColor = dividerColor ?: otherProps.dividerColor,
+            dividerColorReadOnly = dividerColorReadOnly ?: otherProps.dividerColorReadOnly,
             startContentSize = startContentSize ?: otherProps.startContentSize,
             startContentPadding = startContentPadding ?: otherProps.startContentPadding,
             startContentColor = startContentColor ?: otherProps.startContentColor,
+            startContentColorReadOnly = startContentColorReadOnly ?: otherProps.startContentColorReadOnly,
             endContentSize = endContentSize ?: otherProps.endContentSize,
             endContentPadding = endContentPadding ?: otherProps.endContentPadding,
             endContentColor = endContentColor ?: otherProps.endContentColor,
+            endContentColorReadOnly = endContentColorReadOnly ?: otherProps.endContentColorReadOnly,
             helperTextPadding = helperTextPadding ?: otherProps.helperTextPadding,
             captionPlacement = captionPlacement ?: otherProps.captionPlacement,
             captionStyle = captionStyle ?: otherProps.captionStyle,
@@ -145,9 +159,11 @@ internal data class TextFieldProperties(
             counterPlacement = counterPlacement ?: otherProps.counterPlacement,
             counterStyle = counterStyle ?: otherProps.counterStyle,
             counterColor = counterColor ?: otherProps.counterColor,
+            counterColorReadOnly = counterColorReadOnly ?: otherProps.counterColorReadOnly,
             backgroundColor = backgroundColor ?: otherProps.backgroundColor,
             backgroundColorReadOnly = backgroundColorReadOnly ?: otherProps.backgroundColorReadOnly,
             cursorColor = cursorColor ?: otherProps.cursorColor,
+            cursorColorReadOnly = cursorColorReadOnly ?: otherProps.cursorColorReadOnly,
         )
     }
 }

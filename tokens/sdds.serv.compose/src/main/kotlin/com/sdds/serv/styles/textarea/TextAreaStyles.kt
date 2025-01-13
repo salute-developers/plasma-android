@@ -12,6 +12,7 @@ import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.multiplyAlpha
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.compose.uikit.textAreaBuilder
@@ -310,7 +311,6 @@ private val TextAreaStyleBuilder.invariantProps: TextAreaStyleBuilder
         .colors {
             optionalColor(SddsServTheme.colors.textDefaultTertiary.asInteractive())
             valueColor(SddsServTheme.colors.textDefaultPrimary.asInteractive())
-            valueColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
             placeholderColor(
                 SddsServTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Activated)
@@ -319,7 +319,6 @@ private val TextAreaStyleBuilder.invariantProps: TextAreaStyleBuilder
                             SddsServTheme.colors.textDefaultTertiary
                 )
             )
-            placeholderColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
             indicatorColor(SddsServTheme.colors.surfaceDefaultNegative.asInteractive())
             startContentColor(SddsServTheme.colors.textDefaultSecondary.asInteractive())
             endContentColor(
@@ -330,9 +329,15 @@ private val TextAreaStyleBuilder.invariantProps: TextAreaStyleBuilder
                             SddsServTheme.colors.textDefaultSecondaryHover
                 )
             )
-            captionColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
+            endContentColorReadOnly(
+                SddsServTheme.colors.textDefaultSecondary.multiplyAlpha(0.4f).asInteractive()
+            )
             counterColor(SddsServTheme.colors.textDefaultSecondary.asInteractive())
-            backgroundColorReadOnly(SddsServTheme.colors.surfaceDefaultSolidDefault.asInteractive())
+            backgroundColorReadOnly(
+                SddsServTheme.colors.surfaceDefaultSolidPrimary.multiplyAlpha(
+                    0.4f
+                ).asInteractive()
+            )
             cursorColor(SddsServTheme.colors.textDefaultAccent.asInteractive())
         }
         .scrollBar {
@@ -407,7 +412,6 @@ public val WrapperTextAreaXs.OuterLabel: WrapperTextAreaXsOuterLabel
         .labelPlacement(TextField.LabelPlacement.Outer)
         .colors {
             labelColor(SddsServTheme.colors.textDefaultPrimary.asInteractive())
-            labelColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
         }
         .wrap(::WrapperTextAreaXsOuterLabel)
 
@@ -500,7 +504,6 @@ public val WrapperTextAreaS.OuterLabel: WrapperTextAreaSOuterLabel
         .labelPlacement(TextField.LabelPlacement.Outer)
         .colors {
             labelColor(SddsServTheme.colors.textDefaultPrimary.asInteractive())
-            labelColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
         }
         .wrap(::WrapperTextAreaSOuterLabel)
 
@@ -546,7 +549,6 @@ public val WrapperTextAreaS.InnerLabel: WrapperTextAreaSInnerLabel
         .labelPlacement(TextField.LabelPlacement.Inner)
         .colors {
             labelColor(SddsServTheme.colors.textDefaultSecondary.asInteractive())
-            labelColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
         }
         .wrap(::WrapperTextAreaSInnerLabel)
 
@@ -635,7 +637,6 @@ public val WrapperTextAreaM.OuterLabel: WrapperTextAreaMOuterLabel
         .labelPlacement(TextField.LabelPlacement.Outer)
         .colors {
             labelColor(SddsServTheme.colors.textDefaultPrimary.asInteractive())
-            labelColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
         }
         .wrap(::WrapperTextAreaMOuterLabel)
 
@@ -681,7 +682,6 @@ public val WrapperTextAreaM.InnerLabel: WrapperTextAreaMInnerLabel
         .labelPlacement(TextField.LabelPlacement.Inner)
         .colors {
             labelColor(SddsServTheme.colors.textDefaultSecondary.asInteractive())
-            labelColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
         }
         .wrap(::WrapperTextAreaMInnerLabel)
 
@@ -770,7 +770,6 @@ public val WrapperTextAreaL.OuterLabel: WrapperTextAreaLOuterLabel
         .labelPlacement(TextField.LabelPlacement.Outer)
         .colors {
             labelColor(SddsServTheme.colors.textDefaultPrimary.asInteractive())
-            labelColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
         }
         .wrap(::WrapperTextAreaLOuterLabel)
 
@@ -816,7 +815,6 @@ public val WrapperTextAreaL.InnerLabel: WrapperTextAreaLInnerLabel
         .labelPlacement(TextField.LabelPlacement.Inner)
         .colors {
             labelColor(SddsServTheme.colors.textDefaultSecondary.asInteractive())
-            labelColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
         }
         .wrap(::WrapperTextAreaLInnerLabel)
 
