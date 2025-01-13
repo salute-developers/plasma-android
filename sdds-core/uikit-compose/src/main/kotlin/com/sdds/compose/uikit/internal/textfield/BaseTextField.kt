@@ -219,6 +219,7 @@ internal fun BaseTextField(
                 verticalScrollState?.scrollTo(value = Int.MAX_VALUE)
             }
             val fieldFocusRequester = remember { FocusRequester() }
+            val innerInteractionSource = remember { MutableInteractionSource() }
             DecorationBox(
                 modifier = Modifier
                     .layoutId(FIELD_CONTENT_ID)
@@ -287,18 +288,18 @@ internal fun BaseTextField(
                         keyboardActions = keyboardActions,
                         singleLine = singleLine,
                         visualTransformation = innerVisualTransformation,
-                        interactionSource = interactionSource,
+                        interactionSource = innerInteractionSource,
                         cursorBrush = SolidColor(
                             colors.cursorColor(readOnly).colorForInteraction(interactionSource),
                         ),
                     )
                 },
                 visualTransformation = innerVisualTransformation,
-                interactionSource = interactionSource,
+                interactionSource = innerInteractionSource,
                 innerLabel = innerLabel(
                     label = finalLabelText,
                     labelPlacement = labelPlacement,
-                    isFocused = { interactionSource.collectIsFocusedAsState().value },
+                    isFocused = { innerInteractionSource.collectIsFocusedAsState().value },
                     value = value,
                     placeHolderStyle = placeholderStyle,
                     innerLabelStyle = labelStyle,
@@ -308,7 +309,7 @@ internal fun BaseTextField(
                     labelPlacement = labelPlacement,
                     fieldType = fieldType,
                     optionalText = finalOptionalText,
-                    isFocused = { interactionSource.collectIsFocusedAsState().value },
+                    isFocused = { innerInteractionSource.collectIsFocusedAsState().value },
                     value = value,
                     placeHolderStyle = placeholderStyle,
                     innerOptionalStyle = optionalStyle,
