@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Serv.Sdds.Components.TextArea" parent="Sdds.Components.TextField">
+    <style name="Serv.Sdds.Components.TextArea" parent="Sdds.Components.TextArea">
         <item name="sd_actionTint">@color/color_textfield_action</item>
         <item name="sd_iconTint">?serv_textDefaultSecondary</item>
         <item name="sd_boxTint">@color/bg_textfield_box</item>
@@ -17,20 +17,17 @@
         <item name="android:focusable">true</item>
         <item name="sd_iconSize">24dp</item>
         <item name="sd_actionSize">24dp</item>
-        <item name="android:inputType">text|textMultiLine</item>
         <item name="sd_captionAppearance">@style/Serv.Sdds.TextAppearance.BodyXsNormal</item>
         <item name="sd_counterAppearance">@style/Serv.Sdds.TextAppearance.BodyXsNormal</item>
         <item name="android:minWidth">240dp</item>
         <item name="sd_boxMinHeight">130dp</item>
         <item name="sd_chipsPadding">6dp</item>
-        <item name="android:imeOptions">actionDone</item>
-        <item name="sd_allowBreakLines">false</item>
-        <item name="sd_prefixSuffixPadding">6dp</item>
+        <item name="sd_prefixTextPadding">6dp</item>
+        <item name="sd_suffixTextPadding">6dp</item>
         <item name="sd_scrollBarPaddingTop">18dp</item>
         <item name="sd_scrollBarPaddingBottom">36dp</item>
         <item name="sd_scrollBarPaddingEnd">2dp</item>
         <item name="sd_scrollBarThickness">1dp</item>
-        <item name="sd_scrollBarEnabled">true</item>
         <item name="sd_scrollBarTrackColor">?serv_surfaceDefaultTransparentPrimary</item>
         <item name="sd_scrollBarThumbColor">?serv_surfaceDefaultTransparentTertiary</item>
     </style>
