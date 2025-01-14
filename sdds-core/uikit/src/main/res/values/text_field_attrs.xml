@@ -2,6 +2,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <attr name="sd_textFieldStyle" format="reference" />
+    <attr name="sd_textAreaStyle" format="reference" />
 
     <declare-styleable name="SdTextFieldState">
         <attr name="sd_state_readonly" format="boolean" />

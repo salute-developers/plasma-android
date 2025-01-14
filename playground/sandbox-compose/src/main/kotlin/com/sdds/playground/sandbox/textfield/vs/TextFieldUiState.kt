@@ -3,6 +3,8 @@ package com.sdds.playground.sandbox.textfield.vs
 import android.os.Parcelable
 import androidx.annotation.StyleRes
 import com.sdds.serv.R
+import com.sdds.serv.colorstate.TextAreaColorState
+import com.sdds.serv.colorstate.TextFieldColorState
 import com.sdds.uikit.TextField
 import kotlinx.parcelize.Parcelize
 
@@ -24,7 +26,7 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 internal data class TextFieldUiState(
     val variant: FieldVariant,
-    val state: TextField.FieldState = TextField.FieldState.Default,
+    val state: FieldColorState = FieldColorState.Default,
     val labelText: String = "Label",
     val placeholderText: String = "Placeholder",
     val valueText: String? = null,
@@ -39,6 +41,45 @@ internal data class TextFieldUiState(
     val prefix: String? = "TB",
     val suffix: String? = "TA",
 ) : Parcelable
+
+@Parcelize
+internal enum class FieldColorState : Parcelable {
+    /**
+     * Нормальное состояние поля
+     */
+    Default,
+
+    /**
+     * Обозначение позитивного сценария
+     */
+    Success,
+
+    /**
+     * Обозначение предупреждения
+     */
+    Warning,
+
+    /**
+     * Обозначение негативного сценария
+     */
+    Error,
+}
+
+internal fun FieldColorState.asTextFieldState(): TextFieldColorState =
+    when (this) {
+        FieldColorState.Default -> TextFieldColorState.DEFAULT
+        FieldColorState.Success -> TextFieldColorState.SUCCESS
+        FieldColorState.Warning -> TextFieldColorState.WARNING
+        FieldColorState.Error -> TextFieldColorState.ERROR
+    }
+
+internal fun FieldColorState.asTextAreaState(): TextAreaColorState =
+    when (this) {
+        FieldColorState.Default -> TextAreaColorState.DEFAULT
+        FieldColorState.Success -> TextAreaColorState.SUCCESS
+        FieldColorState.Warning -> TextAreaColorState.WARNING
+        FieldColorState.Error -> TextAreaColorState.ERROR
+    }
 
 /**
  * Пример данных для чипа
@@ -117,10 +158,10 @@ internal enum class TextAreaVariant(@StyleRes override val styleRes: Int) : Fiel
     TextAreaSInnerLabel(R.style.Serv_Sdds_ComponentOverlays_TextAreaSInnerLabel),
     TextAreaSInnerLabelRequiredStart(R.style.Serv_Sdds_ComponentOverlays_TextAreaSInnerLabelRequiredStart),
     TextAreaSInnerLabelRequiredEnd(R.style.Serv_Sdds_ComponentOverlays_TextAreaSInnerLabelRequiredEnd),
-    TextAreaXS(R.style.Serv_Sdds_ComponentOverlays_TextAreaXS),
-    TextAreaXSRequiredStart(R.style.Serv_Sdds_ComponentOverlays_TextAreaXSRequiredStart),
-    TextAreaXSRequiredEnd(R.style.Serv_Sdds_ComponentOverlays_TextAreaXSRequiredEnd),
-    TextAreaXSOuterLabel(R.style.Serv_Sdds_ComponentOverlays_TextAreaXSOuterLabel),
-    TextAreaXSOuterLabelRequiredStart(R.style.Serv_Sdds_ComponentOverlays_TextAreaXSOuterLabelRequiredStart),
-    TextAreaXSOuterLabelRequiredEnd(R.style.Serv_Sdds_ComponentOverlays_TextAreaXSOuterLabelRequiredEnd),
+    TextAreaXS(R.style.Serv_Sdds_ComponentOverlays_TextAreaXs),
+    TextAreaXSRequiredStart(R.style.Serv_Sdds_ComponentOverlays_TextAreaXsRequiredStart),
+    TextAreaXSRequiredEnd(R.style.Serv_Sdds_ComponentOverlays_TextAreaXsRequiredEnd),
+    TextAreaXSOuterLabel(R.style.Serv_Sdds_ComponentOverlays_TextAreaXsOuterLabel),
+    TextAreaXSOuterLabelRequiredStart(R.style.Serv_Sdds_ComponentOverlays_TextAreaXsOuterLabelRequiredStart),
+    TextAreaXSOuterLabelRequiredEnd(R.style.Serv_Sdds_ComponentOverlays_TextAreaXsOuterLabelRequiredEnd),
 }
