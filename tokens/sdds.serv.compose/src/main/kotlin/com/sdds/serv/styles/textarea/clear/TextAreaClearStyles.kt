@@ -651,8 +651,6 @@ public val TextAreaClear.M: WrapperTextAreaClearM
     get() = TextFieldStyle.textAreaClearBuilder(this)
         .invariantProps
         .dimensions {
-            boxPaddingStart(14.0.dp)
-            boxPaddingEnd(14.0.dp)
             boxPaddingTop(12.0.dp)
             boxPaddingBottom(12.0.dp)
             boxMinHeight(48.0.dp)
