@@ -20,6 +20,7 @@ import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.InputFile
 import org.gradle.api.tasks.OutputDirectory
 import org.gradle.api.tasks.TaskAction
+import org.gradle.kotlin.dsl.provideDelegate
 
 internal abstract class GenerateComponentConfigsTask : DefaultTask() {
 
@@ -46,6 +47,24 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
      */
     @get:InputFile
     abstract val textFieldConfigFile: RegularFileProperty
+
+    /**
+     * Файл с конфигом TextFieldClear
+     */
+    @get:InputFile
+    abstract val textFieldClearConfigFile: RegularFileProperty
+
+    /**
+     * Файл с конфигом TextArea
+     */
+    @get:InputFile
+    abstract val textAreaConfigFile: RegularFileProperty
+
+    /**
+     * Файл с конфигом TextAreaClear
+     */
+    @get:InputFile
+    abstract val textAreaClearConfigFile: RegularFileProperty
 
     /**
      * Путь для сохранения kt-файлов токенов
@@ -159,6 +178,22 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
         componentStyleGeneratorFactory.createLinkButtonStyleGeneratorView()
     }
 
+    private val textFieldStyleGeneratorCompose by unsafeLazy {
+        componentStyleGeneratorFactory.createTextFieldStyleGeneratorCompose()
+    }
+
+    private val textFieldClearStyleGeneratorCompose by unsafeLazy {
+        componentStyleGeneratorFactory.createTextFieldClearStyleGeneratorCompose()
+    }
+
+    private val textAreaStyleGeneratorCompose by unsafeLazy {
+        componentStyleGeneratorFactory.createTextAreaStyleGeneratorCompose()
+    }
+
+    private val textAreaClearStyleGeneratorCompose by unsafeLazy {
+        componentStyleGeneratorFactory.createTextAreaClearStyleGeneratorCompose()
+    }
+
     private val basicButtonConfig: ButtonComponentConfig by unsafeLazy {
         basicButtonConfigFile.get()
             .asFile
@@ -183,6 +218,24 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
             .decode(Serializer.componentConfig)
     }
 
+    private val textFieldClearConfig: TextFieldConfig by unsafeLazy {
+        textFieldClearConfigFile.get()
+            .asFile
+            .decode(Serializer.componentConfig)
+    }
+
+    private val textAreaConfig: TextFieldConfig by unsafeLazy {
+        textAreaConfigFile.get()
+            .asFile
+            .decode(Serializer.componentConfig)
+    }
+
+    private val textAreaClearConfig: TextFieldConfig by unsafeLazy {
+        textAreaClearConfigFile.get()
+            .asFile
+            .decode(Serializer.componentConfig)
+    }
+
     @TaskAction
     fun generate() {
         when (target.get()) {
@@ -198,9 +251,13 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
     }
 
     private fun generateComposeConfigs() {
-        basicButtonStyleGeneratorCompose.generate(basicButtonConfig)
-        iconButtonStyleGeneratorCompose.generate(iconButtonConfig)
-        linkButtonStyleGeneratorCompose.generate(linkButtonConfig)
+//        basicButtonStyleGeneratorCompose.generate(basicButtonConfig)
+//        iconButtonStyleGeneratorCompose.generate(iconButtonConfig)
+//        linkButtonStyleGeneratorCompose.generate(linkButtonConfig)
+        textFieldStyleGeneratorCompose.generate(textFieldConfig)
+        textFieldClearStyleGeneratorCompose.generate(textFieldClearConfig)
+        textAreaStyleGeneratorCompose.generate(textAreaConfig)
+        textAreaClearStyleGeneratorCompose.generate(textAreaClearConfig)
     }
 
     private fun generateViewsConfigs() {

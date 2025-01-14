@@ -34,12 +34,14 @@ interface TextFieldStyleBuilder : StyleBuilder<TextFieldStyle> {
     /**
      * Устанавливает размеры и отступы компонента [dimensions]
      */
-    fun dimensions(builder: TextFieldDimensionsBuilder.() -> Unit): TextFieldStyleBuilder
+    @Composable
+    fun dimensions(builder: @Composable TextFieldDimensionsBuilder.() -> Unit): TextFieldStyleBuilder
 
     /**
      * Устанавливает размеры и отступы компонента [dimensions]
      */
     @Deprecated("Use dimensions() with builder instead")
+    @Composable
     fun dimensions(dimensions: TextField.Dimensions): TextFieldStyleBuilder
 
     /**
@@ -64,24 +66,14 @@ interface TextFieldStyleBuilder : StyleBuilder<TextFieldStyle> {
     fun fieldType(fieldType: TextField.FieldType): TextFieldStyleBuilder
 
     /**
-     * Устанавливает стиль внутреннего лэйбла [innerLabelStyle]
+     * Устанавливает стиль лэйбла [labelStyle]
      */
-    fun innerLabelStyle(innerLabelStyle: TextStyle): TextFieldStyleBuilder
+    fun labelStyle(labelStyle: TextStyle): TextFieldStyleBuilder
 
     /**
-     * Устанавливает стиль внешнего лэйбла [outerLabelStyle]
+     * Устанавливает стиль optional текста [optionalStyle]
      */
-    fun outerLabelStyle(outerLabelStyle: TextStyle): TextFieldStyleBuilder
-
-    /**
-     * Устанавливает стиль внутреннего optional текста [innerOptionalStyle]
-     */
-    fun innerOptionalStyle(innerOptionalStyle: TextStyle): TextFieldStyleBuilder
-
-    /**
-     * Устанавливает стиль внешнего optional текста [outerOptionalStyle]
-     */
-    fun outerOptionalStyle(outerOptionalStyle: TextStyle): TextFieldStyleBuilder
+    fun optionalStyle(optionalStyle: TextStyle): TextFieldStyleBuilder
 
     /**
      * Устанавливает стиль основного текста [valueStyle]
@@ -104,14 +96,14 @@ interface TextFieldStyleBuilder : StyleBuilder<TextFieldStyle> {
     fun placeholderStyle(placeholderStyle: TextStyle): TextFieldStyleBuilder
 
     /**
-     * Устаналивает необходимость скрывать внутренний лэйбл [dropInnerLabel]
-     */
-    fun dropInnerLabel(dropInnerLabel: Boolean): TextFieldStyleBuilder
-
-    /**
-     * Устанавливает стиль чипов [chipGroupStyle]
+     * Устанавливает стиль группы чипов [chipGroupStyle]
      */
     fun chipGroupStyle(chipGroupStyle: ChipGroupStyle): TextFieldStyleBuilder
+
+    /**
+     * Устанавливает стиль чипов [chipStyle]
+     */
+    fun chipStyle(chipStyle: ChipStyle): TextFieldStyleBuilder
 }
 
 /**
@@ -136,6 +128,17 @@ interface TextFieldColorsBuilder {
     fun cursorColor(cursorColor: InteractiveColor): TextFieldColorsBuilder
 
     /**
+     * Устанавливает цвет курсора [cursorColorReadOnly]
+     */
+    fun cursorColorReadOnly(cursorColorReadOnly: InteractiveColor): TextFieldColorsBuilder
+
+    /**
+     * Устанавливает цвет курсора [cursorColorReadOnly]
+     */
+    fun cursorColorReadOnly(cursorColorReadOnly: Color): TextFieldColorsBuilder =
+        cursorColorReadOnly(cursorColorReadOnly.asInteractive())
+
+    /**
      * Устанавливает цвет контента в начале [startContentColor]
      */
     fun startContentColor(startContentColor: Color): TextFieldColorsBuilder =
@@ -145,6 +148,17 @@ interface TextFieldColorsBuilder {
      * Устанавливает цвет контента в начале [startContentColor]
      */
     fun startContentColor(startContentColor: InteractiveColor): TextFieldColorsBuilder
+
+    /**
+     * Устанавливает цвет контента в начале [startContentColorReadOnly]
+     */
+    fun startContentColorReadOnly(startContentColorReadOnly: Color): TextFieldColorsBuilder =
+        startContentColorReadOnly(startContentColorReadOnly.asInteractive())
+
+    /**
+     * Устанавливает цвет контента в начале [startContentColorReadOnly]
+     */
+    fun startContentColorReadOnly(startContentColorReadOnly: InteractiveColor): TextFieldColorsBuilder
 
     /**
      * Устанавливает цвет контента в конце [endContentColor]
@@ -158,37 +172,37 @@ interface TextFieldColorsBuilder {
     fun endContentColor(endContentColor: InteractiveColor): TextFieldColorsBuilder
 
     /**
-     * Устанавливает цвет внутреннего лэйбла [innerLabelColor]
+     * Устанавливает цвет контента в конце [endContentColorReadOnly]
      */
-    fun innerLabelColor(innerLabelColor: Color): TextFieldColorsBuilder =
-        innerLabelColor(innerLabelColor.asInteractive())
+    fun endContentColorReadOnly(endContentColorReadOnly: Color): TextFieldColorsBuilder =
+        endContentColorReadOnly(endContentColorReadOnly.asInteractive())
 
     /**
-     * Устанавливает цвет внутреннего лэйбла [innerLabelColor]
+     * Устанавливает цвет контента в конце [endContentColorReadOnly]
      */
-    fun innerLabelColor(innerLabelColor: InteractiveColor): TextFieldColorsBuilder
+    fun endContentColorReadOnly(endContentColorReadOnly: InteractiveColor): TextFieldColorsBuilder
 
     /**
-     * Устанавливает цвет внешнего лэйбла [outerLabelColor]
+     * Устанавливает цвет лэйбла [labelColor]
      */
-    fun outerLabelColor(outerLabelColor: Color): TextFieldColorsBuilder =
-        outerLabelColor(outerLabelColor.asInteractive())
+    fun labelColor(labelColor: Color): TextFieldColorsBuilder =
+        this.labelColor(labelColor.asInteractive())
 
     /**
-     * Устанавливает цвет внешнего лэйбла [outerLabelColor]
+     * Устанавливает цвет лэйбла [labelColor]
      */
-    fun outerLabelColor(outerLabelColor: InteractiveColor): TextFieldColorsBuilder
+    fun labelColor(labelColor: InteractiveColor): TextFieldColorsBuilder
 
     /**
-     * Устанавливает цвет внешнего лэйбла в состоянии readOnly [outerLabelColorReadOnly]
+     * Устанавливает цвет лэйбла в состоянии readOnly [labelColorReadOnly]
      */
-    fun outerLabelColorReadOnly(outerLabelColorReadOnly: Color): TextFieldColorsBuilder =
-        outerLabelColorReadOnly(outerLabelColorReadOnly.asInteractive())
+    fun labelColorReadOnly(labelColorReadOnly: Color): TextFieldColorsBuilder =
+        this.labelColorReadOnly(labelColorReadOnly.asInteractive())
 
     /**
-     * Устанавливает цвет внешнего лэйбла в состоянии readOnly [outerLabelColorReadOnly]
+     * Устанавливает цвет лэйбла в состоянии readOnly [labelColorReadOnly]
      */
-    fun outerLabelColorReadOnly(outerLabelColorReadOnly: InteractiveColor): TextFieldColorsBuilder
+    fun labelColorReadOnly(labelColorReadOnly: InteractiveColor): TextFieldColorsBuilder
 
     /**
      * Устанавливает цвет основного текста [valueColor]
@@ -246,6 +260,17 @@ interface TextFieldColorsBuilder {
     fun optionalColor(optionalColor: InteractiveColor): TextFieldColorsBuilder
 
     /**
+     * Устанавливает цвет опционального текста [optionalColorReadOnly]
+     */
+    fun optionalColorReadOnly(optionalColorReadOnly: Color): TextFieldColorsBuilder =
+        optionalColorReadOnly(optionalColorReadOnly.asInteractive())
+
+    /**
+     * Устанавливает цвет опционального текста [optionalColorReadOnly]
+     */
+    fun optionalColorReadOnly(optionalColorReadOnly: InteractiveColor): TextFieldColorsBuilder
+
+    /**
      * Устанавливает цвет счетчика [counterColor]
      */
     fun counterColor(counterColor: Color): TextFieldColorsBuilder =
@@ -255,6 +280,17 @@ interface TextFieldColorsBuilder {
      * Устанавливает цвет счетчика [counterColor]
      */
     fun counterColor(counterColor: InteractiveColor): TextFieldColorsBuilder
+
+    /**
+     * Устанавливает цвет счетчика [counterColorReadOnly]
+     */
+    fun counterColorReadOnly(counterColorReadOnly: Color): TextFieldColorsBuilder =
+        counterColorReadOnly(counterColorReadOnly.asInteractive())
+
+    /**
+     * Устанавливает цвет счетчика [counterColorReadOnly]
+     */
+    fun counterColorReadOnly(counterColorReadOnly: InteractiveColor): TextFieldColorsBuilder
 
     /**
      * Устанавливает цвет плэйсхолдера [placeholderColor]
@@ -312,6 +348,17 @@ interface TextFieldColorsBuilder {
     fun indicatorColor(indicatorColor: InteractiveColor): TextFieldColorsBuilder
 
     /**
+     * Устанавливает цвет индикатора
+     */
+    fun indicatorColorReadOnly(indicatorColorReadOnly: Color): TextFieldColorsBuilder =
+        indicatorColorReadOnly(indicatorColorReadOnly.asInteractive())
+
+    /**
+     * Устанавливает цвет индикатора
+     */
+    fun indicatorColorReadOnly(indicatorColorReadOnly: InteractiveColor): TextFieldColorsBuilder
+
+    /**
      * Вернет экземпляр [TextFieldColors]
      */
     fun build(): TextFieldColors
@@ -341,34 +388,19 @@ interface TextFieldDimensionsBuilder {
     fun boxPaddingEnd(boxPaddingEnd: Dp): TextFieldDimensionsBuilder
 
     /**
-     * Устанавливает верхний отступ контента с внутренним лэйблом
+     * Устанавливает верхний отступ контента
      */
-    fun boxPaddingTopInnerLabel(boxPaddingTopInnerLabel: Dp): TextFieldDimensionsBuilder
+    fun boxPaddingTop(boxPaddingTop: Dp): TextFieldDimensionsBuilder
 
     /**
-     * Устанавливает нижний отступ контента с внутренним лэйблом
+     * Устанавливает нижний отступ контента
      */
-    fun boxPaddingBottomInnerLabel(boxPaddingBottomInnerLabel: Dp): TextFieldDimensionsBuilder
+    fun boxPaddingBottom(boxPaddingBottom: Dp): TextFieldDimensionsBuilder
 
     /**
-     * Устанавливает верхний отступ контента с наружным лэйблом
+     * Устанавливает нижний отступ лэйбла
      */
-    fun boxPaddingTopOuterLabel(boxPaddingTopOuterLabel: Dp): TextFieldDimensionsBuilder
-
-    /**
-     * Устанавливает нижний отступ контента с наружным лэйблом
-     */
-    fun boxPaddingBottomOuterLabel(boxPaddingBottomOuterLabel: Dp): TextFieldDimensionsBuilder
-
-    /**
-     * Устанавливает нижний отступ внутреннего лэйбла
-     */
-    fun innerLabelPadding(innerLabelPadding: Dp): TextFieldDimensionsBuilder
-
-    /**
-     * Устанавливает нижний отступ наружного лэйбла
-     */
-    fun outerLabelPadding(outerLabelPadding: Dp): TextFieldDimensionsBuilder
+    fun labelPadding(labelPadding: Dp): TextFieldDimensionsBuilder
 
     /**
      * Устанавливает отступ в начале optional текста
@@ -376,19 +408,19 @@ interface TextFieldDimensionsBuilder {
     fun optionalPadding(optionalPadding: Dp): TextFieldDimensionsBuilder
 
     /**
-     * Устанавливает верхний отступ наружного helper текста (caption/counter)
+     * Устанавливает верхний отступ helper текста (caption/counter)
      */
-    fun helperTextPadding(helperTextPaddingOuter: Dp): TextFieldDimensionsBuilder
+    fun helperTextPadding(helperTextPadding: Dp): TextFieldDimensionsBuilder
 
     /**
      * Устанавливает отступ после startContent
      */
-    fun startContentEndPadding(startContentEndPadding: Dp): TextFieldDimensionsBuilder
+    fun startContentPadding(startContentPadding: Dp): TextFieldDimensionsBuilder
 
     /**
      * Устанавливает отступ перед endContent
      */
-    fun endContentStartPadding(endContentStartPadding: Dp): TextFieldDimensionsBuilder
+    fun endContentPadding(endContentPadding: Dp): TextFieldDimensionsBuilder
 
     /**
      * Устанавливает отступ от контейнера с chip-элементами
@@ -406,14 +438,22 @@ interface TextFieldDimensionsBuilder {
     fun alignmentLineHeight(alignmentLineHeight: Dp): TextFieldDimensionsBuilder
 
     /**
-     * Устанавливает размер иконки
+     * Устанавливает размер иконки в начале
      */
-    fun iconSize(iconSize: Dp): TextFieldDimensionsBuilder
+    fun startContentSize(startContentSize: Dp): TextFieldDimensionsBuilder
+
+    /**
+     * Устанавливает размер иконки в конце
+     */
+    fun endContentSize(endContentSize: Dp): TextFieldDimensionsBuilder
 
     /**
      * Устанавливает настройки индикатора
      */
-    fun indicatorDimensions(builder: TextFieldIndicatorDimensionsBuilder.() -> Unit): TextFieldDimensionsBuilder
+    @Composable
+    fun indicatorDimensions(
+        builder: @Composable TextFieldIndicatorDimensionsBuilder.() -> Unit,
+    ): TextFieldDimensionsBuilder
 
     /**
      * Возвращает [TextField.Dimensions]
@@ -434,54 +474,19 @@ interface TextFieldDimensionsBuilder {
 interface TextFieldIndicatorDimensionsBuilder {
 
     /**
-     * Устанавливает начальный горизонтальный отступ внешнего индикатора
+     * Устанавливает горизонтальный отступ индикатора
      */
-    fun startLabelHorizontalPadding(startLabelHorizontalPadding: Dp): TextFieldIndicatorDimensionsBuilder
+    fun horizontalPadding(horizontalPadding: Dp): TextFieldIndicatorDimensionsBuilder
 
     /**
-     * Устанавливает начальный вертикальный отступ внешнего индикатора
+     * Устанавливает вертикальный отступ индикатора
      */
-    fun startLabelVerticalPadding(startLabelVerticalPadding: Dp): TextFieldIndicatorDimensionsBuilder
+    fun verticalPadding(verticalPadding: Dp): TextFieldIndicatorDimensionsBuilder
 
     /**
-     * Устанавливает конечный горизонтальный отступ внешнего индикатора
+     * Устанавливает размер индикатора
      */
-    fun endLabelHorizontalPadding(endLabelHorizontalPadding: Dp): TextFieldIndicatorDimensionsBuilder
-
-    /**
-     * Устанавливает конечный вертикальный отступ внешнего индикатора
-     */
-    fun endLabelVerticalPadding(endLabelVerticalPadding: Dp): TextFieldIndicatorDimensionsBuilder
-
-    /**
-     * Устанавливает начальный горизонтальный отступ внутреннего индикатора
-     */
-    fun startFieldHorizontalPadding(startFieldHorizontalPadding: Dp): TextFieldIndicatorDimensionsBuilder
-
-    /**
-     * Устанавливает начальный вертикальный отступ внутреннего индикатора
-     */
-    fun startFieldVerticalPadding(startFieldVerticalPadding: Dp): TextFieldIndicatorDimensionsBuilder
-
-    /**
-     * Устанавливает конечный горизонтальный отступ внутреннего индикатора
-     */
-    fun endFieldHorizontalPadding(endFieldHorizontalPadding: Dp): TextFieldIndicatorDimensionsBuilder
-
-    /**
-     * Устанавливает конечный вертикальный отступ внутреннего индикатора
-     */
-    fun endFieldVerticalPadding(endFieldVerticalPadding: Dp): TextFieldIndicatorDimensionsBuilder
-
-    /**
-     * Устанавливает размер внешнего индикатора
-     */
-    fun labelIndicatorSize(labelIndicatorSize: Dp): TextFieldIndicatorDimensionsBuilder
-
-    /**
-     * Устанавливает размер внутреннего индикатора
-     */
-    fun fieldIndicatorSize(fieldIndicatorSize: Dp): TextFieldIndicatorDimensionsBuilder
+    fun indicatorSize(indicatorSize: Dp): TextFieldIndicatorDimensionsBuilder
 
     /**
      * Возвращает экземпляр [TextField.Dimensions.IndicatorDimensions]
@@ -499,68 +504,26 @@ interface TextFieldIndicatorDimensionsBuilder {
 }
 
 private class DefaultTextFieldIndicatorDimensionsBuilder : TextFieldIndicatorDimensionsBuilder {
-    private var startLabelHorizontalPadding: Dp? = null
-    private var startLabelVerticalPadding: Dp? = null
-    private var endLabelHorizontalPadding: Dp? = null
-    private var endLabelVerticalPadding: Dp? = null
-    private var startFieldHorizontalPadding: Dp? = null
-    private var startFieldVerticalPadding: Dp? = null
-    private var endFieldHorizontalPadding: Dp? = null
-    private var endFieldVerticalPadding: Dp? = null
-    private var labelIndicatorSize: Dp? = null
-    private var fieldIndicatorSize: Dp? = null
-    override fun startLabelHorizontalPadding(startLabelHorizontalPadding: Dp) = apply {
-        this.startLabelHorizontalPadding = startLabelHorizontalPadding
+    private var horizontalPadding: Dp? = null
+    private var verticalPadding: Dp? = null
+    private var indicatorSize: Dp? = null
+    override fun horizontalPadding(horizontalPadding: Dp) = apply {
+        this.horizontalPadding = horizontalPadding
     }
 
-    override fun startLabelVerticalPadding(startLabelVerticalPadding: Dp) = apply {
-        this.startLabelVerticalPadding = startLabelVerticalPadding
+    override fun verticalPadding(verticalPadding: Dp) = apply {
+        this.verticalPadding = verticalPadding
     }
 
-    override fun endLabelHorizontalPadding(endLabelHorizontalPadding: Dp) = apply {
-        this.endLabelHorizontalPadding = endLabelHorizontalPadding
-    }
-
-    override fun endLabelVerticalPadding(endLabelVerticalPadding: Dp) = apply {
-        this.endLabelVerticalPadding = endLabelVerticalPadding
-    }
-
-    override fun startFieldHorizontalPadding(startFieldHorizontalPadding: Dp) = apply {
-        this.startFieldHorizontalPadding = startFieldHorizontalPadding
-    }
-
-    override fun startFieldVerticalPadding(startFieldVerticalPadding: Dp) = apply {
-        this.startFieldVerticalPadding = startFieldVerticalPadding
-    }
-
-    override fun endFieldHorizontalPadding(endFieldHorizontalPadding: Dp) = apply {
-        this.endFieldHorizontalPadding = endFieldHorizontalPadding
-    }
-
-    override fun endFieldVerticalPadding(endFieldVerticalPadding: Dp) = apply {
-        this.endFieldVerticalPadding = endFieldVerticalPadding
-    }
-
-    override fun labelIndicatorSize(labelIndicatorSize: Dp) = apply {
-        this.labelIndicatorSize = labelIndicatorSize
-    }
-
-    override fun fieldIndicatorSize(fieldIndicatorSize: Dp) = apply {
-        this.fieldIndicatorSize = fieldIndicatorSize
+    override fun indicatorSize(indicatorSize: Dp) = apply {
+        this.indicatorSize = indicatorSize
     }
 
     override fun build(): TextField.Dimensions.IndicatorDimensions {
         return TextField.Dimensions.IndicatorDimensions(
-            startLabelHorizontalPadding = startLabelHorizontalPadding ?: 0.dp,
-            startLabelVerticalPadding = startLabelVerticalPadding ?: 0.dp,
-            endLabelHorizontalPadding = endLabelHorizontalPadding ?: 0.dp,
-            endLabelVerticalPadding = endLabelVerticalPadding ?: 0.dp,
-            startFieldHorizontalPadding = startFieldHorizontalPadding ?: 0.dp,
-            startFieldVerticalPadding = startFieldVerticalPadding ?: 0.dp,
-            endFieldHorizontalPadding = endFieldHorizontalPadding ?: 0.dp,
-            endFieldVerticalPadding = endFieldVerticalPadding ?: 0.dp,
-            labelIndicatorSize = labelIndicatorSize ?: 6.dp,
-            fieldIndicatorSize = fieldIndicatorSize ?: 6.dp,
+            horizontalPadding = horizontalPadding ?: 0.dp,
+            verticalPadding = verticalPadding ?: 0.dp,
+            indicatorSize = indicatorSize ?: 6.dp,
         )
     }
 }
@@ -568,22 +531,21 @@ private class DefaultTextFieldIndicatorDimensionsBuilder : TextFieldIndicatorDim
 private class DefaultTextFieldDimensionsBuilder : TextFieldDimensionsBuilder {
     private var boxPaddingStart: Dp? = null
     private var boxPaddingEnd: Dp? = null
-    private var boxPaddingTopInnerLabel: Dp? = null
-    private var boxPaddingBottomInnerLabel: Dp? = null
-    private var boxPaddingTopOuterLabel: Dp? = null
-    private var boxPaddingBottomOuterLabel: Dp? = null
-    private var innerLabelPadding: Dp? = null
-    private var outerLabelPadding: Dp? = null
+    private var boxPaddingTop: Dp? = null
+    private var boxPaddingBottom: Dp? = null
+    private var labelPadding: Dp? = null
     private var optionalPadding: Dp? = null
     private var helperTextPadding: Dp? = null
-    private var startContentEndPadding: Dp? = null
-    private var endContentStartPadding: Dp? = null
+    private var startContentPadding: Dp? = null
+    private var endContentPadding: Dp? = null
     private var chipsPadding: Dp? = null
     private var boxMinHeight: Dp? = null
     private var alignmentLineHeight: Dp? = null
-    private var iconSize: Dp? = null
+    private var startContentSize: Dp? = null
+    private var endContentSize: Dp? = null
     private var indicatorDimensionsBuilder: TextFieldIndicatorDimensionsBuilder =
         TextFieldIndicatorDimensionsBuilder.builder()
+
     override fun boxPaddingStart(boxPaddingStart: Dp) = apply {
         this.boxPaddingStart = boxPaddingStart
     }
@@ -592,44 +554,32 @@ private class DefaultTextFieldDimensionsBuilder : TextFieldDimensionsBuilder {
         this.boxPaddingEnd = boxPaddingEnd
     }
 
-    override fun boxPaddingTopInnerLabel(boxPaddingTopInnerLabel: Dp) = apply {
-        this.boxPaddingTopInnerLabel = boxPaddingTopInnerLabel
+    override fun boxPaddingTop(boxPaddingTop: Dp) = apply {
+        this.boxPaddingTop = boxPaddingTop
     }
 
-    override fun boxPaddingBottomInnerLabel(boxPaddingBottomInnerLabel: Dp) = apply {
-        this.boxPaddingBottomInnerLabel = boxPaddingBottomInnerLabel
+    override fun boxPaddingBottom(boxPaddingBottom: Dp) = apply {
+        this.boxPaddingBottom = boxPaddingBottom
     }
 
-    override fun boxPaddingTopOuterLabel(boxPaddingTopOuterLabel: Dp) = apply {
-        this.boxPaddingTopOuterLabel = boxPaddingTopOuterLabel
-    }
-
-    override fun boxPaddingBottomOuterLabel(boxPaddingBottomOuterLabel: Dp) = apply {
-        this.boxPaddingBottomOuterLabel = boxPaddingBottomOuterLabel
-    }
-
-    override fun innerLabelPadding(innerLabelPadding: Dp) = apply {
-        this.innerLabelPadding = innerLabelPadding
-    }
-
-    override fun outerLabelPadding(outerLabelPadding: Dp) = apply {
-        this.outerLabelPadding = outerLabelPadding
+    override fun labelPadding(labelPadding: Dp) = apply {
+        this.labelPadding = labelPadding
     }
 
     override fun optionalPadding(optionalPadding: Dp) = apply {
         this.optionalPadding = optionalPadding
     }
 
-    override fun helperTextPadding(helperTextPaddingOuter: Dp) = apply {
-        this.helperTextPadding = helperTextPaddingOuter
+    override fun helperTextPadding(helperTextPadding: Dp) = apply {
+        this.helperTextPadding = helperTextPadding
     }
 
-    override fun startContentEndPadding(startContentEndPadding: Dp) = apply {
-        this.startContentEndPadding = startContentEndPadding
+    override fun startContentPadding(startContentPadding: Dp) = apply {
+        this.startContentPadding = startContentPadding
     }
 
-    override fun endContentStartPadding(endContentStartPadding: Dp) = apply {
-        this.endContentStartPadding = endContentStartPadding
+    override fun endContentPadding(endContentPadding: Dp) = apply {
+        this.endContentPadding = endContentPadding
     }
 
     override fun chipsPadding(chipsPadding: Dp) = apply {
@@ -644,34 +594,35 @@ private class DefaultTextFieldDimensionsBuilder : TextFieldDimensionsBuilder {
         this.alignmentLineHeight = alignmentLineHeight
     }
 
-    override fun iconSize(iconSize: Dp) = apply {
-        this.iconSize = iconSize
+    override fun startContentSize(startContentSize: Dp) = apply {
+        this.startContentSize = startContentSize
     }
 
-    override fun indicatorDimensions(builder: TextFieldIndicatorDimensionsBuilder.() -> Unit) =
-        apply {
-            this.indicatorDimensionsBuilder.builder()
-        }
+    override fun endContentSize(endContentSize: Dp) = apply {
+        this.endContentSize = endContentSize
+    }
+
+    @Composable
+    override fun indicatorDimensions(builder: @Composable TextFieldIndicatorDimensionsBuilder.() -> Unit) =
+        apply { this.indicatorDimensionsBuilder.builder() }
 
     @Suppress("CyclomaticComplexMethod")
     override fun build(): TextField.Dimensions {
         return TextField.Dimensions(
             boxPaddingStart = boxPaddingStart ?: 16.dp,
             boxPaddingEnd = boxPaddingEnd ?: 16.dp,
-            boxPaddingTopInnerLabel = boxPaddingTopInnerLabel ?: 25.dp,
-            boxPaddingBottomInnerLabel = boxPaddingBottomInnerLabel ?: 9.dp,
-            boxPaddingTopOuterLabel = boxPaddingTopOuterLabel ?: 25.dp,
-            boxPaddingBottomOuterLabel = boxPaddingBottomOuterLabel ?: 9.dp,
-            innerLabelPadding = innerLabelPadding ?: 2.dp,
-            outerLabelPadding = outerLabelPadding ?: 2.dp,
+            boxPaddingTop = boxPaddingTop ?: 25.dp,
+            boxPaddingBottom = boxPaddingBottom ?: 9.dp,
+            labelPadding = labelPadding ?: 2.dp,
             optionalPadding = optionalPadding ?: 4.dp,
-            helperTextPaddingOuter = helperTextPadding ?: 4.dp,
-            startContentEndPadding = startContentEndPadding ?: 6.dp,
-            endContentStartPadding = endContentStartPadding ?: 6.dp,
+            helperTextPadding = helperTextPadding ?: 4.dp,
+            startContentPadding = startContentPadding ?: 6.dp,
+            endContentPadding = endContentPadding ?: 6.dp,
             chipsPadding = chipsPadding ?: 6.dp,
             boxMinHeight = boxMinHeight ?: 56.dp,
             alignmentLineHeight = alignmentLineHeight ?: 56.dp,
-            iconSize = iconSize ?: 24.dp,
+            startContentSize = startContentSize ?: 24.dp,
+            endContentSize = endContentSize ?: 24.dp,
             indicatorDimensions = indicatorDimensionsBuilder.build(),
         )
     }
@@ -694,24 +645,11 @@ private class DefaultTextFieldStyle(
     override val placeholderStyle: TextStyle,
     override val singleLine: Boolean,
     override val hasDivider: Boolean,
-    override val dropInnerLabel: Boolean,
     override val chipGroupStyle: ChipGroupStyle,
-    private val innerLabelStyle: TextStyle,
-    private val outerLabelStyle: TextStyle,
-    private val innerOptionalStyle: TextStyle,
-    private val outerOptionalStyle: TextStyle,
+    override val chipStyle: ChipStyle,
+    override val labelStyle: TextStyle,
+    override val optionalStyle: TextStyle,
 ) : TextFieldStyle {
-
-    override val labelStyle: TextStyle
-        get() = when (labelPlacement) {
-            TextField.LabelPlacement.Outer -> outerLabelStyle
-            TextField.LabelPlacement.Inner -> innerLabelStyle
-        }
-    override val optionalStyle: TextStyle
-        get() = when (labelPlacement) {
-            TextField.LabelPlacement.Outer -> outerOptionalStyle
-            TextField.LabelPlacement.Inner -> innerOptionalStyle
-        }
 
     class Builder(override val receiver: Any?) : TextFieldStyleBuilder {
 
@@ -721,51 +659,43 @@ private class DefaultTextFieldStyle(
         private var shape: CornerBasedShape? = null
         private var labelPlacement: TextField.LabelPlacement? = null
         private var fieldType: TextField.FieldType? = null
-        private var innerLabelStyle: TextStyle? = null
-        private var outerLabelStyle: TextStyle? = null
-        private var innerOptionalStyle: TextStyle? = null
-        private var outerOptionalStyle: TextStyle? = null
+        private var labelStyle: TextStyle? = null
+        private var optionalStyle: TextStyle? = null
         private var valueStyle: TextStyle? = null
         private var captionStyle: TextStyle? = null
         private var counterStyle: TextStyle? = null
         private var placeholderStyle: TextStyle? = null
-        private var dropInnerLabel: Boolean? = null
         private var chipGroupStyle: ChipGroupStyle? = null
+        private var chipStyle: ChipStyle? = null
 
-        override fun dimensions(builder: TextFieldDimensionsBuilder.() -> Unit) = apply {
-            this.dimensionsBuilder.builder()
-        }
+        @Composable
+        override fun dimensions(builder: @Composable TextFieldDimensionsBuilder.() -> Unit) =
+            apply {
+                this.dimensionsBuilder.builder()
+            }
 
         @Deprecated("Use dimensions() with builder instead")
+        @Composable
         override fun dimensions(dimensions: TextField.Dimensions) = apply {
             this.dimensionsBuilder.apply {
                 boxPaddingStart(dimensions.boxPaddingStart)
                 boxPaddingEnd(dimensions.boxPaddingEnd)
-                boxPaddingTopInnerLabel(dimensions.boxPaddingTopInnerLabel)
-                boxPaddingBottomInnerLabel(dimensions.boxPaddingBottomInnerLabel)
-                boxPaddingTopOuterLabel(dimensions.boxPaddingTopOuterLabel)
-                boxPaddingBottomOuterLabel(dimensions.boxPaddingBottomOuterLabel)
-                innerLabelPadding(dimensions.innerLabelPadding)
-                outerLabelPadding(dimensions.outerLabelPadding)
+                boxPaddingTop(dimensions.boxPaddingTop)
+                boxPaddingBottom(dimensions.boxPaddingBottom)
+                labelPadding(dimensions.labelPadding)
                 optionalPadding(dimensions.optionalPadding)
-                helperTextPadding(dimensions.helperTextPaddingOuter)
-                startContentEndPadding(dimensions.startContentEndPadding)
-                endContentStartPadding(dimensions.endContentStartPadding)
+                helperTextPadding(dimensions.helperTextPadding)
+                startContentPadding(dimensions.startContentPadding)
+                endContentPadding(dimensions.endContentPadding)
                 chipsPadding(dimensions.chipsPadding)
                 boxMinHeight(dimensions.boxMinHeight)
                 alignmentLineHeight(dimensions.alignmentLineHeight)
-                iconSize(dimensions.iconSize)
+                startContentSize(dimensions.startContentSize)
+                endContentSize(dimensions.endContentSize)
                 indicatorDimensions {
-                    startLabelHorizontalPadding(dimensions.indicatorDimensions.startLabelHorizontalPadding)
-                    startLabelVerticalPadding(dimensions.indicatorDimensions.startLabelVerticalPadding)
-                    endLabelHorizontalPadding(dimensions.indicatorDimensions.endLabelHorizontalPadding)
-                    endLabelVerticalPadding(dimensions.indicatorDimensions.endLabelVerticalPadding)
-                    startFieldHorizontalPadding(dimensions.indicatorDimensions.startFieldHorizontalPadding)
-                    startFieldVerticalPadding(dimensions.indicatorDimensions.startFieldVerticalPadding)
-                    endFieldHorizontalPadding(dimensions.indicatorDimensions.endFieldHorizontalPadding)
-                    endFieldVerticalPadding(dimensions.indicatorDimensions.endFieldVerticalPadding)
-                    labelIndicatorSize(dimensions.indicatorDimensions.labelIndicatorSize)
-                    fieldIndicatorSize(dimensions.indicatorDimensions.fieldIndicatorSize)
+                    horizontalPadding(dimensions.indicatorDimensions.horizontalPadding)
+                    verticalPadding(dimensions.indicatorDimensions.verticalPadding)
+                    indicatorSize(dimensions.indicatorDimensions.indicatorSize)
                 }
             }
         }
@@ -787,20 +717,12 @@ private class DefaultTextFieldStyle(
             this.fieldType = fieldType
         }
 
-        override fun innerLabelStyle(innerLabelStyle: TextStyle) = apply {
-            this.innerLabelStyle = innerLabelStyle
+        override fun labelStyle(labelStyle: TextStyle) = apply {
+            this.labelStyle = labelStyle
         }
 
-        override fun outerLabelStyle(outerLabelStyle: TextStyle) = apply {
-            this.outerLabelStyle = outerLabelStyle
-        }
-
-        override fun innerOptionalStyle(innerOptionalStyle: TextStyle) = apply {
-            this.innerOptionalStyle = innerOptionalStyle
-        }
-
-        override fun outerOptionalStyle(outerOptionalStyle: TextStyle) = apply {
-            this.outerOptionalStyle = outerOptionalStyle
+        override fun optionalStyle(optionalStyle: TextStyle) = apply {
+            this.optionalStyle = optionalStyle
         }
 
         override fun valueStyle(valueStyle: TextStyle) = apply {
@@ -819,12 +741,12 @@ private class DefaultTextFieldStyle(
             this.placeholderStyle = placeholderStyle
         }
 
-        override fun dropInnerLabel(dropInnerLabel: Boolean) = apply {
-            this.dropInnerLabel = dropInnerLabel
-        }
-
         override fun chipGroupStyle(chipGroupStyle: ChipGroupStyle) = apply {
             this.chipGroupStyle = chipGroupStyle
+        }
+
+        override fun chipStyle(chipStyle: ChipStyle) = apply {
+            this.chipStyle = chipStyle
         }
 
         @Suppress("CyclomaticComplexMethod")
@@ -839,17 +761,15 @@ private class DefaultTextFieldStyle(
                 colors = colorsBuilder.build(),
                 shape = shape ?: RoundedCornerShape(CornerSize(8.dp)),
                 fieldType = fieldType ?: TextField.FieldType.Optional,
-                labelPlacement = labelPlacement ?: TextField.LabelPlacement.Outer,
-                innerLabelStyle = innerLabelStyle ?: TextStyle.Default,
-                outerLabelStyle = outerLabelStyle ?: TextStyle.Default,
-                innerOptionalStyle = innerOptionalStyle ?: TextStyle.Default,
-                outerOptionalStyle = outerOptionalStyle ?: TextStyle.Default,
+                labelPlacement = labelPlacement ?: TextField.LabelPlacement.None,
+                labelStyle = labelStyle ?: TextStyle.Default,
+                optionalStyle = optionalStyle ?: TextStyle.Default,
                 valueStyle = valueStyle ?: TextStyle.Default,
                 captionStyle = captionStyle ?: TextStyle.Default,
                 counterStyle = counterStyle ?: TextStyle.Default,
                 placeholderStyle = placeholderStyle ?: TextStyle.Default,
-                dropInnerLabel = dropInnerLabel ?: false,
                 chipGroupStyle = chipGroupStyle ?: ChipGroupStyle.builder().style(),
+                chipStyle = chipStyle ?: ChipStyle.builder().style(),
             )
         }
     }
@@ -858,15 +778,20 @@ private class DefaultTextFieldStyle(
 @Suppress("LongParameterList")
 private class DefaultTextFieldColors(
     override val disabledAlpha: Float,
-    override val endContentColor: InteractiveColor,
-    override val optionalColor: InteractiveColor,
-    override val counterColor: InteractiveColor,
-    override val cursorColor: InteractiveColor,
-    override val indicatorColor: InteractiveColor,
-    override val startContentColor: InteractiveColor,
-    private val innerLabelColor: InteractiveColor,
-    private val outerLabelColor: InteractiveColor,
-    private val outerLabelColorReadOnly: InteractiveColor,
+    private val endContentColor: InteractiveColor,
+    private val endContentColorReadOnly: InteractiveColor,
+    private val optionalColor: InteractiveColor,
+    private val optionalColorReadOnly: InteractiveColor,
+    private val counterColor: InteractiveColor,
+    private val counterColorReadOnly: InteractiveColor,
+    private val cursorColor: InteractiveColor,
+    private val cursorColorReadOnly: InteractiveColor,
+    private val indicatorColor: InteractiveColor,
+    private val indicatorColorReadOnly: InteractiveColor,
+    private val startContentColor: InteractiveColor,
+    private val startContentColorReadOnly: InteractiveColor,
+    private val labelColor: InteractiveColor,
+    private val labelColorReadOnly: InteractiveColor,
     private val valueColor: InteractiveColor,
     private val valueColorReadOnly: InteractiveColor,
     private val captionColor: InteractiveColor,
@@ -876,15 +801,24 @@ private class DefaultTextFieldColors(
     private val backgroundColor: InteractiveColor,
     private val backgroundColorReadOnly: InteractiveColor,
 ) : TextFieldColors {
+    override fun cursorColor(isReadOnly: Boolean): InteractiveColor {
+        return if (isReadOnly) cursorColorReadOnly else cursorColor
+    }
 
-    override fun labelColor(
-        isReadOnly: Boolean,
-        labelPlacement: TextField.LabelPlacement,
-    ): InteractiveColor {
-        return when (labelPlacement) {
-            TextField.LabelPlacement.Outer -> if (isReadOnly) outerLabelColorReadOnly else outerLabelColor
-            TextField.LabelPlacement.Inner -> innerLabelColor
-        }
+    override fun indicatorColor(isReadOnly: Boolean): InteractiveColor {
+        return if (isReadOnly) indicatorColorReadOnly else indicatorColor
+    }
+
+    override fun startContentColor(isReadOnly: Boolean): InteractiveColor {
+        return if (isReadOnly) startContentColorReadOnly else startContentColor
+    }
+
+    override fun endContentColor(isReadOnly: Boolean): InteractiveColor {
+        return if (isReadOnly) endContentColorReadOnly else endContentColor
+    }
+
+    override fun labelColor(isReadOnly: Boolean): InteractiveColor {
+        return if (isReadOnly) labelColorReadOnly else labelColor
     }
 
     override fun valueColor(isReadOnly: Boolean): InteractiveColor {
@@ -893,6 +827,14 @@ private class DefaultTextFieldColors(
 
     override fun captionColor(isReadOnly: Boolean): InteractiveColor {
         return if (isReadOnly) captionColorReadOnly else captionColor
+    }
+
+    override fun optionalColor(isReadOnly: Boolean): InteractiveColor {
+        return if (isReadOnly) optionalColorReadOnly else optionalColor
+    }
+
+    override fun counterColor(isReadOnly: Boolean): InteractiveColor {
+        return if (isReadOnly) counterColorReadOnly else counterColor
     }
 
     override fun dividerColor(isReadOnly: Boolean) = DUMMY_COLOR
@@ -908,22 +850,27 @@ private class DefaultTextFieldColors(
     class Builder : TextFieldColorsBuilder {
         private var disabledAlpha: Float? = null
         private var cursorColor: InteractiveColor? = null
+        private var cursorColorReadOnly: InteractiveColor? = null
         private var startContentColor: InteractiveColor? = null
+        private var startContentColorReadOnly: InteractiveColor? = null
         private var endContentColor: InteractiveColor? = null
-        private var innerLabelColor: InteractiveColor? = null
-        private var outerLabelColor: InteractiveColor? = null
-        private var outerLabelColorReadOnly: InteractiveColor? = null
+        private var endContentColorReadOnly: InteractiveColor? = null
+        private var labelColor: InteractiveColor? = null
+        private var labelColorReadOnly: InteractiveColor? = null
         private var valueColor: InteractiveColor? = null
         private var valueColorReadOnly: InteractiveColor? = null
         private var captionColor: InteractiveColor? = null
         private var captionColorReadOnly: InteractiveColor? = null
         private var optionalColor: InteractiveColor? = null
+        private var optionalColorReadOnly: InteractiveColor? = null
         private var counterColor: InteractiveColor? = null
+        private var counterColorReadOnly: InteractiveColor? = null
         private var backgroundColor: InteractiveColor? = null
         private var backgroundColorReadOnly: InteractiveColor? = null
         private var placeholderColor: InteractiveColor? = null
         private var placeholderColorReadOnly: InteractiveColor? = null
         private var indicatorColor: InteractiveColor? = null
+        private var indicatorColorReadOnly: InteractiveColor? = null
 
         override fun disabledAlpha(disabledAlpha: Float) = apply {
             this.disabledAlpha = disabledAlpha
@@ -933,24 +880,32 @@ private class DefaultTextFieldColors(
             this.cursorColor = cursorColor
         }
 
+        override fun cursorColorReadOnly(cursorColorReadOnly: InteractiveColor) = apply {
+            this.cursorColorReadOnly = cursorColorReadOnly
+        }
+
         override fun startContentColor(startContentColor: InteractiveColor) = apply {
             this.startContentColor = startContentColor
+        }
+
+        override fun startContentColorReadOnly(startContentColorReadOnly: InteractiveColor) = apply {
+            this.startContentColorReadOnly = startContentColorReadOnly
         }
 
         override fun endContentColor(endContentColor: InteractiveColor) = apply {
             this.endContentColor = endContentColor
         }
 
-        override fun innerLabelColor(innerLabelColor: InteractiveColor) = apply {
-            this.innerLabelColor = innerLabelColor
+        override fun endContentColorReadOnly(endContentColorReadOnly: InteractiveColor) = apply {
+            this.endContentColorReadOnly = endContentColorReadOnly
         }
 
-        override fun outerLabelColor(outerLabelColor: InteractiveColor) = apply {
-            this.outerLabelColor = outerLabelColor
+        override fun labelColor(labelColor: InteractiveColor) = apply {
+            this.labelColor = labelColor
         }
 
-        override fun outerLabelColorReadOnly(outerLabelColorReadOnly: InteractiveColor) = apply {
-            this.outerLabelColorReadOnly = outerLabelColorReadOnly
+        override fun labelColorReadOnly(labelColorReadOnly: InteractiveColor) = apply {
+            this.labelColorReadOnly = labelColorReadOnly
         }
 
         override fun valueColor(valueColor: InteractiveColor) = apply {
@@ -973,8 +928,16 @@ private class DefaultTextFieldColors(
             this.optionalColor = optionalColor
         }
 
+        override fun optionalColorReadOnly(optionalColorReadOnly: InteractiveColor) = apply {
+            this.optionalColorReadOnly = optionalColorReadOnly
+        }
+
         override fun counterColor(counterColor: InteractiveColor) = apply {
             this.counterColor = counterColor
+        }
+
+        override fun counterColorReadOnly(counterColorReadOnly: InteractiveColor) = apply {
+            this.counterColorReadOnly = counterColorReadOnly
         }
 
         override fun placeholderColor(placeholderColor: InteractiveColor) = apply {
@@ -997,28 +960,39 @@ private class DefaultTextFieldColors(
             this.indicatorColor = indicatorColor
         }
 
+        override fun indicatorColorReadOnly(indicatorColorReadOnly: InteractiveColor) = apply {
+            this.indicatorColorReadOnly = indicatorColorReadOnly
+        }
+
         @Suppress("CyclomaticComplexMethod")
         override fun build(): TextFieldColors {
             return DefaultTextFieldColors(
                 disabledAlpha = disabledAlpha ?: DEFAULT_DISABLED_ALPHA,
                 cursorColor = cursorColor ?: Color.Black.asInteractive(),
+                cursorColorReadOnly = cursorColorReadOnly ?: cursorColor ?: Color.Black.asInteractive(),
                 startContentColor = startContentColor ?: Color.Black.asInteractive(),
+                startContentColorReadOnly = startContentColorReadOnly
+                    ?: startContentColor
+                    ?: Color.Black.asInteractive(),
                 endContentColor = endContentColor ?: Color.Black.asInteractive(),
-                innerLabelColor = innerLabelColor ?: Color.Black.asInteractive(),
-                outerLabelColor = outerLabelColor ?: Color.Black.asInteractive(),
-                outerLabelColorReadOnly = outerLabelColorReadOnly ?: Color.Black.asInteractive(),
+                endContentColorReadOnly = endContentColorReadOnly ?: endContentColor ?: Color.Black.asInteractive(),
+                labelColor = labelColor ?: Color.Black.asInteractive(),
+                labelColorReadOnly = labelColorReadOnly ?: labelColor ?: Color.Black.asInteractive(),
                 valueColor = valueColor ?: Color.Black.asInteractive(),
-                valueColorReadOnly = valueColorReadOnly ?: Color.Black.asInteractive(),
+                valueColorReadOnly = valueColorReadOnly ?: valueColor ?: Color.Black.asInteractive(),
                 captionColor = captionColor ?: Color.Black.asInteractive(),
-                captionColorReadOnly = captionColorReadOnly ?: Color.Black.asInteractive(),
+                captionColorReadOnly = captionColorReadOnly ?: captionColor ?: Color.Black.asInteractive(),
                 optionalColor = optionalColor ?: Color.Black.asInteractive(),
+                optionalColorReadOnly = optionalColorReadOnly ?: optionalColor ?: Color.Black.asInteractive(),
                 counterColor = counterColor ?: Color.Black.asInteractive(),
+                counterColorReadOnly = counterColorReadOnly ?: counterColor ?: Color.Black.asInteractive(),
                 backgroundColor = backgroundColor ?: Color.LightGray.asInteractive(),
                 backgroundColorReadOnly = backgroundColorReadOnly
-                    ?: Color.LightGray.asInteractive(),
+                    ?: backgroundColor ?: Color.LightGray.asInteractive(),
                 placeholderColor = placeholderColor ?: Color.Gray.asInteractive(),
-                placeholderColorReadOnly = placeholderColorReadOnly ?: Color.Gray.asInteractive(),
+                placeholderColorReadOnly = placeholderColorReadOnly ?: placeholderColor ?: Color.Gray.asInteractive(),
                 indicatorColor = indicatorColor ?: Color.Red.asInteractive(),
+                indicatorColorReadOnly = indicatorColorReadOnly ?: indicatorColor ?: Color.Red.asInteractive(),
             )
         }
     }

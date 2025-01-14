@@ -10,7 +10,9 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsFocusedAsState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.calculateEndPadding
 import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
@@ -43,6 +45,7 @@ import androidx.compose.ui.layout.MeasurePolicy
 import androidx.compose.ui.layout.MeasureResult
 import androidx.compose.ui.layout.MeasureScope
 import androidx.compose.ui.layout.layoutId
+import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.TextFieldValue
@@ -50,11 +53,9 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.Dp
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.offset
 import com.sdds.compose.uikit.LocalTextFieldStyle
 import com.sdds.compose.uikit.LocalTint
-import com.sdds.compose.uikit.ScrollBar
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.TextField
 import com.sdds.compose.uikit.TextField.Animation
@@ -135,27 +136,27 @@ internal fun BaseTextField(
     val helperTextPlacement = style.helperTextPlacement
 
     val labelStyle = style.labelStyle.applyColor(
-        color = colors.labelColor(readOnly, labelPlacement),
+        color = colors.labelColor(readOnly),
         interactionSource = interactionSource,
     )
     val optionalStyle = style.optionalStyle.applyColor(
-        color = colors.optionalColor,
+        color = colors.optionalColor(readOnly),
         interactionSource = interactionSource,
     )
     val valueStyle = style.valueStyle.applyColor(
-        color = colors.valueColor(isReadOnly = readOnly),
+        color = colors.valueColor(readOnly),
         interactionSource = interactionSource,
     )
     val captionStyle = style.captionStyle.applyColor(
-        color = colors.captionColor(isReadOnly = readOnly),
+        color = colors.captionColor(readOnly),
         interactionSource = interactionSource,
     )
     val counterStyle = style.counterStyle.applyColor(
-        color = colors.counterColor,
+        color = colors.counterColor(readOnly),
         interactionSource = interactionSource,
     )
     val placeholderStyle = style.placeholderStyle.applyColor(
-        color = colors.placeholderColor(isReadOnly = readOnly),
+        color = colors.placeholderColor(readOnly),
         interactionSource = interactionSource,
     )
     val singleLine = style.singleLine
@@ -164,9 +165,9 @@ internal fun BaseTextField(
     val scrollBar = style.scrollBar
 
     val finalLabelText =
-        if (style.dropInnerLabel && labelPlacement == LabelPlacement.Inner) "" else labelText
+        if (labelPlacement == LabelPlacement.None) "" else labelText
     val finalOptionalText =
-        if (style.dropInnerLabel && labelPlacement == LabelPlacement.Inner) "" else optionalText
+        if (labelPlacement == LabelPlacement.None) "" else optionalText
 
     val innerVisualTransformation = remember(prefix, suffix, visualTransformation) {
         if (prefix.isNullOrEmpty() && suffix.isNullOrEmpty()) {
@@ -195,11 +196,11 @@ internal fun BaseTextField(
                 modifier = Modifier
                     .layoutId(TOP_CONTENT_ID)
                     .focusProperties { canFocus = false }
-                    .padding(bottom = dimensions.outerLabelPadding)
+                    .padding(bottom = dimensions.labelPadding)
                     .applyLabelIndicator(
                         fieldType = fieldType,
                         labelPlacement = labelPlacement,
-                        indicatorColor = colors.indicatorColor.colorForInteraction(interactionSource),
+                        indicatorColor = colors.indicatorColor(readOnly).colorForInteraction(interactionSource),
                         dimensions = dimensions,
                     ),
                 labelPlacement = labelPlacement,
@@ -217,8 +218,8 @@ internal fun BaseTextField(
                 horizontalScrollState?.scrollTo(value = Int.MAX_VALUE)
                 verticalScrollState?.scrollTo(value = Int.MAX_VALUE)
             }
-            val isFocused = interactionSource.collectIsFocusedAsState().value
             val fieldFocusRequester = remember { FocusRequester() }
+            val innerInteractionSource = remember { MutableInteractionSource() }
             DecorationBox(
                 modifier = Modifier
                     .layoutId(FIELD_CONTENT_ID)
@@ -238,7 +239,7 @@ internal fun BaseTextField(
                         labelPlacement,
                         fieldAppearance,
                         dimensions,
-                        colors.indicatorColor.colorForInteraction(interactionSource),
+                        colors.indicatorColor(readOnly).colorForInteraction(interactionSource),
                     )
                     .clip(if (fieldAppearance == FieldAppearance.Solid) style.shape else RectangleShape)
                     .drawFieldAppearance(
@@ -252,7 +253,26 @@ internal fun BaseTextField(
                             .colorForInteraction(interactionSource),
                         dividerThickness = dimensions.dividerThickness,
                     )
-                    .applyVerticalScrollBar(verticalScrollState, scrollBar),
+                    .then(
+                        if (scrollBar != null) {
+                            Modifier.applyVerticalScrollBar(
+                                scrollState = verticalScrollState,
+                                scrollBarTrackColor = scrollBar.indicatorColor.colorForInteraction(
+                                    interactionSource,
+                                ),
+                                scrollBarThumbColor = scrollBar.backgroundColor.colorForInteraction(
+                                    interactionSource,
+                                ),
+                                scrollBarThickness = scrollBar.indicatorThickness,
+                                scrollBarPaddingEnd = scrollBar.padding
+                                    .calculateEndPadding(LocalLayoutDirection.current),
+                                scrollBarPaddingTop = scrollBar.padding.calculateTopPadding(),
+                                scrollBarPaddingBottom = scrollBar.padding.calculateBottomPadding(),
+                            )
+                        } else {
+                            Modifier
+                        },
+                    ),
                 value = value.text,
                 innerTextField = {
                     BasicTextField(
@@ -268,16 +288,18 @@ internal fun BaseTextField(
                         keyboardActions = keyboardActions,
                         singleLine = singleLine,
                         visualTransformation = innerVisualTransformation,
-                        interactionSource = interactionSource,
-                        cursorBrush = SolidColor(colors.cursorColor.colorForInteraction(interactionSource)),
+                        interactionSource = innerInteractionSource,
+                        cursorBrush = SolidColor(
+                            colors.cursorColor(readOnly).colorForInteraction(interactionSource),
+                        ),
                     )
                 },
                 visualTransformation = innerVisualTransformation,
-                interactionSource = interactionSource,
+                interactionSource = innerInteractionSource,
                 innerLabel = innerLabel(
                     label = finalLabelText,
                     labelPlacement = labelPlacement,
-                    isFocused = isFocused,
+                    isFocused = { innerInteractionSource.collectIsFocusedAsState().value },
                     value = value,
                     placeHolderStyle = placeholderStyle,
                     innerLabelStyle = labelStyle,
@@ -287,25 +309,31 @@ internal fun BaseTextField(
                     labelPlacement = labelPlacement,
                     fieldType = fieldType,
                     optionalText = finalOptionalText,
-                    isFocused = isFocused,
+                    isFocused = { innerInteractionSource.collectIsFocusedAsState().value },
                     value = value,
                     placeHolderStyle = placeholderStyle,
                     innerOptionalStyle = optionalStyle,
                     hasChips = chipsContent != null,
                 ),
                 placeholder = placeholder(placeholderText, placeholderStyle),
-                leadingIcon = leadingIcon(
+                startIcon = icon(
                     startContent,
                     colors
-                        .startContentColor
+                        .startContentColor(readOnly)
                         .colorForInteraction(interactionSource),
                 ),
-                trailingIcon = endContent,
+                endIcon = icon(
+                    endContent,
+                    colors
+                        .endContentColor(readOnly)
+                        .colorForInteraction(interactionSource),
+                ),
                 innerCaption = innerCaption(helperTextPlacement, captionText, captionStyle),
                 innerCounter = innerCounter(helperTextPlacement, counterText, counterStyle),
                 animation = animation,
                 chips = chipsContent,
                 chipGroupStyle = style.chipGroupStyle,
+                chipStyle = style.chipStyle,
                 dimensions = dimensions,
                 verticalScrollState = verticalScrollState,
                 horizontalScrollState = horizontalScrollState,
@@ -319,7 +347,7 @@ internal fun BaseTextField(
                     .layoutId(CAPTION_CONTENT_ID)
                     .focusProperties { canFocus = false }
                     .layoutId(CAPTION_CONTENT_ID)
-                    .padding(top = dimensions.helperTextPaddingOuter),
+                    .padding(top = dimensions.helperTextPadding),
                 text = captionText,
                 textStyle = captionStyle,
                 helperTextPlacement = helperTextPlacement,
@@ -328,7 +356,7 @@ internal fun BaseTextField(
                 modifier = Modifier
                     .layoutId(COUNTER_CONTENT_ID)
                     .focusProperties { canFocus = false }
-                    .padding(top = dimensions.helperTextPaddingOuter),
+                    .padding(top = dimensions.helperTextPadding),
                 text = counterText,
                 textStyle = counterStyle,
                 helperTextPlacement = helperTextPlacement,
@@ -365,35 +393,44 @@ private fun Modifier.drawFieldAppearance(
 
 private fun Modifier.applyVerticalScrollBar(
     scrollState: ScrollState?,
-    scrollBarConfig: ScrollBar?,
+    scrollBarThickness: Dp,
+    scrollBarPaddingTop: Dp,
+    scrollBarPaddingBottom: Dp,
+    scrollBarPaddingEnd: Dp,
+    scrollBarTrackColor: Color,
+    scrollBarThumbColor: Color,
 ): Modifier {
-    return if (scrollState != null && scrollBarConfig != null) {
+    return if (scrollState != null) {
         this.scrollbar(
             state = scrollState,
             direction = Orientation.Vertical,
-            indicatorThickness = scrollBarConfig.indicatorThickness,
-            indicatorColor = scrollBarConfig.indicatorColor,
-            alpha = scrollBarConfig.alpha
-                ?: if (scrollState.isScrollInProgress) 0.8f else 0f,
-            alphaAnimationSpec = scrollBarConfig.alphaAnimationSpec ?: tween(
+            indicatorThickness = scrollBarThickness,
+            indicatorColor = scrollBarTrackColor,
+            backgroundColor = scrollBarThumbColor,
+            alpha = if (scrollState.isScrollInProgress) 0.8f else 0f,
+            alphaAnimationSpec = tween(
                 delayMillis = if (scrollState.isScrollInProgress) 0 else 1500,
                 durationMillis = if (scrollState.isScrollInProgress) 150 else 500,
             ),
-            padding = scrollBarConfig.padding,
+            padding = PaddingValues(
+                end = scrollBarPaddingEnd,
+                top = scrollBarPaddingTop,
+                bottom = scrollBarPaddingBottom,
+            ),
         )
     } else {
         this
     }
 }
 
-private fun leadingIcon(
-    leadingIcon: @Composable (() -> Unit)?,
-    startContentColor: Color,
+private fun icon(
+    iconContent: @Composable (() -> Unit)?,
+    contentColor: Color,
 ): @Composable (() -> Unit)? {
-    return if (leadingIcon != null) {
+    return if (iconContent != null) {
         {
-            CompositionLocalProvider(LocalTint provides startContentColor) {
-                leadingIcon()
+            CompositionLocalProvider(LocalTint provides contentColor) {
+                iconContent()
             }
         }
     } else {
@@ -405,22 +442,26 @@ private fun innerOptional(
     labelPlacement: LabelPlacement,
     fieldType: FieldType,
     optionalText: String?,
-    isFocused: Boolean,
+    isFocused: @Composable () -> Boolean,
     value: TextFieldValue,
     placeHolderStyle: TextStyle,
     innerOptionalStyle: TextStyle,
     hasChips: Boolean,
 ): (@Composable () -> Unit)? {
     if (fieldType != FieldType.Optional) return null
-    return if (labelPlacement == LabelPlacement.Inner && !hasChips) {
-        textOrNull(
-            text = optionalText,
-            textStyle = if (!isFocused && value.text.isEmpty()) {
-                placeHolderStyle.copy(color = innerOptionalStyle.color)
-            } else {
-                innerOptionalStyle
-            },
-        )
+    return if (labelPlacement == LabelPlacement.Inner && !hasChips && !optionalText.isNullOrEmpty()) {
+        {
+            Text(
+                text = optionalText,
+                style = if (!isFocused() && value.text.isEmpty()) {
+                    placeHolderStyle.copy(color = innerOptionalStyle.color)
+                } else {
+                    innerOptionalStyle
+                },
+                overflow = TextOverflow.Ellipsis,
+                maxLines = 1,
+            )
+        }
     } else {
         null
     }
@@ -429,21 +470,25 @@ private fun innerOptional(
 private fun innerLabel(
     label: String?,
     labelPlacement: LabelPlacement,
-    isFocused: Boolean,
+    isFocused: @Composable () -> Boolean,
     value: TextFieldValue,
     placeHolderStyle: TextStyle,
     innerLabelStyle: TextStyle,
     hasChips: Boolean,
 ): (@Composable () -> Unit)? {
-    return if (labelPlacement == LabelPlacement.Inner && !hasChips) {
-        textOrNull(
-            text = label,
-            textStyle = if (!isFocused && value.text.isEmpty()) {
-                placeHolderStyle
-            } else {
-                innerLabelStyle
-            },
-        )
+    return if (labelPlacement == LabelPlacement.Inner && !hasChips && !label.isNullOrEmpty()) {
+        {
+            Text(
+                text = label,
+                style = if (!isFocused() && value.text.isEmpty()) {
+                    placeHolderStyle
+                } else {
+                    innerLabelStyle
+                },
+                overflow = TextOverflow.Ellipsis,
+                maxLines = 1,
+            )
+        }
     } else {
         null
     }
@@ -490,9 +535,7 @@ private fun Modifier.applyIndicatorPadding(
     val shouldApply = isLabelOuter && isIndicatorStart && !labelText.isNullOrEmpty()
     return if (shouldApply) {
         val startPadding =
-            dimensions.indicatorDimensions.labelIndicatorSize + dimensions.labelIndicatorHorizontalPadding(
-                fieldType,
-            )
+            dimensions.indicatorDimensions.indicatorSize + dimensions.indicatorDimensions.horizontalPadding
         this.padding(start = startPadding)
     } else {
         this
@@ -506,22 +549,17 @@ private fun Modifier.applyFieldIndicator(
     dimensions: TextField.Dimensions,
     indicatorColor: Color,
 ): Modifier {
-    if (fieldType == FieldType.Optional || labelPlacement != LabelPlacement.Inner) return this
+    if (fieldType == FieldType.Optional || labelPlacement == LabelPlacement.Outer) return this
 
     val alignment = fieldIndicatorAlignment(fieldType)
     val horizontalMode = fieldIndicatorHorizontalMode(fieldAppearance)
-    val verticalAlignmentOffset: Dp = indicatorVerticalAlignmentOffset(
-        fieldAppearance = fieldAppearance,
-        alignmentLineHeight = dimensions.alignmentLineHeight,
-        indicatorSize = dimensions.indicatorDimensions.fieldIndicatorSize,
-    )
 
     return this.drawIndicator(
         alignment = alignment,
         color = indicatorColor,
-        horizontalPadding = dimensions.fieldIndicatorHorizontalPadding(fieldType),
-        verticalPadding = dimensions.fieldIndicatorVerticalPadding(fieldType) + verticalAlignmentOffset,
-        indicatorSize = dimensions.indicatorDimensions.fieldIndicatorSize,
+        horizontalPadding = dimensions.indicatorDimensions.horizontalPadding,
+        verticalPadding = dimensions.indicatorDimensions.verticalPadding,
+        indicatorSize = dimensions.indicatorDimensions.indicatorSize,
         horizontalMode = horizontalMode,
         verticalMode = IndicatorMode.Inner,
     )
@@ -543,18 +581,6 @@ private fun fieldIndicatorHorizontalMode(fieldAppearance: FieldAppearance): Indi
     }
 }
 
-private fun indicatorVerticalAlignmentOffset(
-    fieldAppearance: FieldAppearance,
-    alignmentLineHeight: Dp,
-    indicatorSize: Dp,
-): Dp {
-    return if (fieldAppearance == FieldAppearance.Clear) {
-        (alignmentLineHeight - indicatorSize) / 2
-    } else {
-        0.dp
-    }
-}
-
 private fun Modifier.applyLabelIndicator(
     fieldType: FieldType,
     labelPlacement: LabelPlacement,
@@ -567,47 +593,19 @@ private fun Modifier.applyLabelIndicator(
     return this.drawIndicator(
         alignment = alignment,
         color = indicatorColor,
-        horizontalPadding = dimensions.labelIndicatorHorizontalPadding(fieldType),
-        verticalPadding = dimensions.labelIndicatorVerticalPadding(fieldType),
-        indicatorSize = dimensions.indicatorDimensions.labelIndicatorSize,
+        horizontalPadding = dimensions.indicatorDimensions.horizontalPadding,
+        verticalPadding = dimensions.indicatorDimensions.verticalPadding,
+        indicatorSize = dimensions.indicatorDimensions.indicatorSize,
         horizontalMode = IndicatorMode.Outer,
         verticalMode = IndicatorMode.Inner,
     )
 }
 
-private fun TextField.Dimensions.labelIndicatorHorizontalPadding(fieldType: FieldType): Dp =
-    when (fieldType) {
-        FieldType.RequiredStart -> indicatorDimensions.startLabelHorizontalPadding
-        FieldType.RequiredEnd -> indicatorDimensions.endLabelHorizontalPadding
-        FieldType.Optional -> 0.dp
-    }
-
-private fun TextField.Dimensions.labelIndicatorVerticalPadding(fieldType: FieldType): Dp =
-    when (fieldType) {
-        FieldType.RequiredStart -> indicatorDimensions.startLabelVerticalPadding
-        FieldType.RequiredEnd -> indicatorDimensions.endLabelVerticalPadding
-        FieldType.Optional -> 0.dp
-    }
-
-private fun TextField.Dimensions.fieldIndicatorHorizontalPadding(fieldType: FieldType): Dp =
-    when (fieldType) {
-        FieldType.RequiredStart -> indicatorDimensions.startFieldHorizontalPadding
-        FieldType.RequiredEnd -> indicatorDimensions.endFieldHorizontalPadding
-        FieldType.Optional -> 0.dp
-    }
-
-private fun TextField.Dimensions.fieldIndicatorVerticalPadding(fieldType: FieldType): Dp =
-    when (fieldType) {
-        FieldType.RequiredStart -> indicatorDimensions.startFieldVerticalPadding
-        FieldType.RequiredEnd -> indicatorDimensions.endFieldVerticalPadding
-        FieldType.Optional -> 0.dp
-    }
-
 private fun outerLabelIndicatorAlignment(fieldType: FieldType): Alignment {
     return when (fieldType) {
-        FieldType.RequiredStart -> Alignment.CenterStart
+        FieldType.RequiredStart -> Alignment.TopStart
         FieldType.RequiredEnd -> Alignment.TopEnd
-        FieldType.Optional -> Alignment.CenterStart
+        FieldType.Optional -> Alignment.TopStart
     }
 }
 

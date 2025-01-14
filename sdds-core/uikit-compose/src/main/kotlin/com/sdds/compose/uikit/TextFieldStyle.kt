@@ -101,14 +101,14 @@ interface TextFieldStyle : Style {
     val hasDivider: Boolean
 
     /**
-     * Нужно ли скрыть внутренний лэйбл
+     * Стиль группы чипов
      */
-    val dropInnerLabel: Boolean
+    val chipGroupStyle: ChipGroupStyle
 
     /**
      * Стиль чипов
      */
-    val chipGroupStyle: ChipGroupStyle
+    val chipStyle: ChipStyle
 
     companion object
 }
@@ -127,27 +127,27 @@ interface TextFieldColors {
     /**
      * Цвет курсора
      */
-    val cursorColor: InteractiveColor
+    fun cursorColor(isReadOnly: Boolean): InteractiveColor
 
     /**
      * Цвет индикатора
      */
-    val indicatorColor: InteractiveColor
+    fun indicatorColor(isReadOnly: Boolean): InteractiveColor
 
     /**
      * Цвет контенат в начале
      */
-    val startContentColor: InteractiveColor
+    fun startContentColor(isReadOnly: Boolean): InteractiveColor
 
     /**
      * Цвет контента в конце
      */
-    val endContentColor: InteractiveColor
+    fun endContentColor(isReadOnly: Boolean): InteractiveColor
 
     /**
      * Цвет лэйбла
      */
-    fun labelColor(isReadOnly: Boolean, labelPlacement: TextField.LabelPlacement): InteractiveColor
+    fun labelColor(isReadOnly: Boolean): InteractiveColor
 
     /**
      * Цвет основного текста
@@ -162,12 +162,12 @@ interface TextFieldColors {
     /**
      * Цвет опционального текста
      */
-    val optionalColor: InteractiveColor
+    fun optionalColor(isReadOnly: Boolean): InteractiveColor
 
     /**
      * Цвет счетчика
      */
-    val counterColor: InteractiveColor
+    fun counterColor(isReadOnly: Boolean): InteractiveColor
 
     /**
      * Цвет разделителя

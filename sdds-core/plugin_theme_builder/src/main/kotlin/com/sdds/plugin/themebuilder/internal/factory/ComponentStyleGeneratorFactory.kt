@@ -3,6 +3,7 @@ package com.sdds.plugin.themebuilder.internal.factory
 import com.sdds.plugin.themebuilder.DimensionsConfig
 import com.sdds.plugin.themebuilder.ResourcePrefixConfig
 import com.sdds.plugin.themebuilder.internal.PackageResolver
+import com.sdds.plugin.themebuilder.internal.TargetPackage
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.components.button.BasicButtonStyleGeneratorCompose
 import com.sdds.plugin.themebuilder.internal.components.button.ButtonStyleGeneratorComposeFactory
@@ -11,9 +12,11 @@ import com.sdds.plugin.themebuilder.internal.components.button.LinkButtonStyleGe
 import com.sdds.plugin.themebuilder.internal.components.button.view.BasicButtonStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.components.button.view.IconButtonStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.components.button.view.LinkButtonStyleGeneratorView
+import com.sdds.plugin.themebuilder.internal.components.textfield.compose.TextFieldComposeVariationGenerator
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.generator.DimenTokenGenerator
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
+import com.sdds.plugin.themebuilder.internal.utils.snakeToCamelCase
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import org.gradle.api.file.DirectoryProperty
 import java.io.File
@@ -113,6 +116,48 @@ internal class ComponentStyleGeneratorFactory(
             viewColorStateGeneratorFactory = mViewColorStateGeneratorFactory,
             colorStateListGeneratorFactory = colorStateListGeneratorFactory,
         )
+
+    fun createTextFieldStyleGeneratorCompose() =
+        createBaseTextFieldStyleGeneratorCompose(
+            componentName = "text_field",
+            componentPackage = "textfield",
+        )
+
+    fun createTextAreaStyleGeneratorCompose() =
+        createBaseTextFieldStyleGeneratorCompose(
+            componentName = "text_area",
+            componentPackage = "textarea",
+        )
+
+    fun createTextFieldClearStyleGeneratorCompose() =
+        createBaseTextFieldStyleGeneratorCompose(
+            componentName = "text_field_clear",
+            componentPackage = "textfield.clear",
+        )
+
+    fun createTextAreaClearStyleGeneratorCompose() =
+        createBaseTextFieldStyleGeneratorCompose(
+            componentName = "text_area_clear",
+            componentPackage = "textarea.clear",
+        )
+
+    private fun createBaseTextFieldStyleGeneratorCompose(
+        componentName: String,
+        componentPackage: String,
+    ) = TextFieldComposeVariationGenerator(
+        themeClassName = "${themeName.snakeToCamelCase()}Theme",
+        themePackage = packageResolver.getPackage(TargetPackage.THEME),
+        chipStylesPackage = "${packageResolver.getPackage(TargetPackage.STYLES)}.chip",
+        chipGroupStylesPackage = "${packageResolver.getPackage(TargetPackage.STYLES)}.chip.group",
+        dimensionsConfig = dimensionsConfig,
+        dimensAggregator = dimensAggregator,
+        resourceReferenceProvider = resourceReferenceProvider,
+        namespace = namespace,
+        ktFileBuilderFactory = ktFileBuilderFactory,
+        componentPackage = "${packageResolver.getPackage(TargetPackage.STYLES)}.$componentPackage",
+        componentName = componentName,
+        outputLocation = KtFileBuilder.OutputLocation.Directory(outputDir),
+    )
 
     fun createDimensionGenerator(): DimenTokenGenerator = DimenTokenGenerator(
         outputResDir = outputResDir,
