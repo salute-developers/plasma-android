@@ -16,6 +16,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 internal data class TextFieldProperties(
+    val fieldType: Value? = null,
     val disableAlpha: FloatValue? = null,
     // field box
     val shape: Shape? = null, // not clear only
@@ -55,7 +56,6 @@ internal data class TextFieldProperties(
     val placeholderColorReadOnly: Color? = null,
 
     // indicator
-    val fieldType: Value? = null,
     val indicatorSize: Dimension? = null,
     val indicatorOffsetX: Dimension? = null,
     val indicatorOffsetY: Dimension? = null,
@@ -98,23 +98,26 @@ internal data class TextFieldProperties(
     val cursorColor: Color? = null,
     val cursorColorReadOnly: Color? = null,
 
+    // suffix, prefix
+    val suffixPadding: Dimension? = null,
+    val prefixPadding: Dimension? = null,
+
     // scrollBar (text area only)
     val scrollBarThickness: Dimension? = null,
     val scrollBarPaddingTop: Dimension? = null,
     val scrollBarPaddingBottom: Dimension? = null,
     val scrollBarPaddingEnd: Dimension? = null,
     val scrollBarTrackColor: Color? = null,
+    val scrollBarTrackColorReadOnly: Color? = null,
     val scrollBarThumbColor: Color? = null,
-
-    // suffix, prefix
-    val suffixPadding: Dimension? = null,
-    val prefixPadding: Dimension? = null,
+    val scrollBarThumbColorReadOnly: Color? = null,
 ) : PropertyOwner {
 
     @Suppress("CyclomaticComplexMethod", "LongMethod")
     override fun merge(parent: PropertyOwner): PropertyOwner {
         val otherProps = parent as? TextFieldProperties ?: return this
         return copy(
+            fieldType = fieldType ?: otherProps.fieldType,
             disableAlpha = disableAlpha ?: otherProps.disableAlpha,
             shape = shape ?: otherProps.shape,
             boxPaddingStart = boxPaddingStart ?: otherProps.boxPaddingStart,
@@ -141,7 +144,6 @@ internal data class TextFieldProperties(
             placeholderStyle = placeholderStyle ?: otherProps.placeholderStyle,
             placeholderColor = placeholderColor ?: otherProps.placeholderColor,
             placeholderColorReadOnly = placeholderColorReadOnly ?: otherProps.placeholderColorReadOnly,
-            fieldType = fieldType ?: otherProps.fieldType,
             indicatorSize = indicatorSize ?: otherProps.indicatorSize,
             indicatorOffsetX = indicatorOffsetX ?: otherProps.indicatorOffsetX,
             indicatorOffsetY = indicatorOffsetY ?: otherProps.indicatorOffsetY,
@@ -173,6 +175,14 @@ internal data class TextFieldProperties(
             cursorColorReadOnly = cursorColorReadOnly ?: otherProps.cursorColorReadOnly,
             prefixPadding = prefixPadding ?: otherProps.prefixPadding,
             suffixPadding = suffixPadding ?: otherProps.suffixPadding,
+            scrollBarThickness = scrollBarThickness ?: otherProps.scrollBarThickness,
+            scrollBarPaddingTop = scrollBarPaddingTop ?: otherProps.scrollBarPaddingTop,
+            scrollBarPaddingBottom = scrollBarPaddingBottom ?: otherProps.scrollBarPaddingBottom,
+            scrollBarPaddingEnd = scrollBarPaddingEnd ?: otherProps.scrollBarPaddingEnd,
+            scrollBarTrackColor = scrollBarTrackColor ?: otherProps.scrollBarTrackColor,
+            scrollBarTrackColorReadOnly = scrollBarTrackColorReadOnly ?: otherProps.scrollBarTrackColorReadOnly,
+            scrollBarThumbColor = scrollBarThumbColor ?: otherProps.scrollBarThumbColor,
+            scrollBarThumbColorReadOnly = scrollBarThumbColorReadOnly ?: otherProps.scrollBarThumbColorReadOnly,
         )
     }
 }

@@ -11,7 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
 import com.sdds.playground.sandbox.core.vs.PropertiesOwner
-import com.sdds.serv.colorstate.TextFieldColorState
+import com.sdds.uikit.TextArea
 import com.sdds.uikit.TextField
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -40,7 +40,16 @@ internal open class TextFieldFragment : ComponentFragment() {
         get() = TextFieldViewModel.Mode.TextField
 
     override val componentLayout: TextField
-        get() = TextField(ContextThemeWrapper(requireContext(), currentVariant.styleRes))
+        get() = when (mode) {
+            TextFieldViewModel.Mode.TextField -> TextField(
+                ContextThemeWrapper(
+                    requireContext(),
+                    currentVariant.styleRes,
+                ),
+            )
+
+            TextFieldViewModel.Mode.TextArea -> TextArea(ContextThemeWrapper(requireContext(), currentVariant.styleRes))
+        }
             .also { textField = it }
             .apply {
                 chipAdapter = adapter
@@ -68,11 +77,9 @@ internal open class TextFieldFragment : ComponentFragment() {
                     dispatchComponentStyleChanged()
                 }
                 textField?.apply {
-                    colorState = when (state.state) {
-                        TextField.FieldState.Default -> TextFieldColorState.DEFAULT
-                        TextField.FieldState.Positive -> TextFieldColorState.SUCCESS
-                        TextField.FieldState.Warning -> TextFieldColorState.WARNING
-                        TextField.FieldState.Negative -> TextFieldColorState.ERROR
+                    colorState = when (mode) {
+                        TextFieldViewModel.Mode.TextField -> state.state.asTextFieldState()
+                        TextFieldViewModel.Mode.TextArea -> state.state.asTextAreaState()
                     }
                     label = state.labelText
                     placeholder = state.placeholderText
@@ -131,6 +138,7 @@ internal open class TextFieldFragment : ComponentFragment() {
                     editText.append(chipToDelete?.text)
                     chipToDelete != null
                 }
+
                 else -> false
             }
         }

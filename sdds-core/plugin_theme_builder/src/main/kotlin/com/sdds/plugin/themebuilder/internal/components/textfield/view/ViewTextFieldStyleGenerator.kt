@@ -24,7 +24,7 @@ import java.io.File
  * Генератор стилей для компонента TextField для ViewSystem
  * @author Малышев Александр on 10.12.2024
  */
-internal class ViewTextFieldStyleGenerator(
+internal open class ViewTextFieldStyleGenerator(
     xmlBuilderFactory: XmlResourcesDocumentBuilderFactory,
     resourceReferenceProvider: ResourceReferenceProvider,
     dimensAggregator: DimensAggregator,
@@ -32,17 +32,20 @@ internal class ViewTextFieldStyleGenerator(
     resourcePrefix: String,
     viewColorStateGeneratorFactory: ViewColorStateGeneratorFactory,
     colorStateListGeneratorFactory: ColorStateListGeneratorFactory,
+    coreComponentName: String = CORE_COMPONENT_NAME,
+    componentParent: String = COMPONENT_PARENT,
+    defStyleAttr: String = DEF_STYLE_ATTR,
 ) : ViewVariationGenerator<TextFieldProperties>(
     xmlBuilderFactory = xmlBuilderFactory,
     resourceReferenceProvider = resourceReferenceProvider,
     dimensAggregator = dimensAggregator,
     outputResDir = outputResDir,
     resourcePrefix = resourcePrefix,
-    coreComponentName = CORE_COMPONENT_NAME,
-    componentParent = COMPONENT_PARENT,
+    coreComponentName = coreComponentName,
+    componentParent = componentParent,
     viewColorStateGeneratorFactory = viewColorStateGeneratorFactory,
     colorStateListGeneratorFactory = colorStateListGeneratorFactory,
-    defStyleAttr = DEF_STYLE_ATTR,
+    defStyleAttr = defStyleAttr,
 ) {
     override fun onCreateStyle(
         variation: String,
@@ -233,6 +236,8 @@ internal class ViewTextFieldStyleGenerator(
             TextFieldColorProp.START_CONTENT -> TextFieldReadOnlyColorProps.START_CONTENT_READ_ONLY
             TextFieldColorProp.END_CONTENT -> TextFieldReadOnlyColorProps.END_CONTENT_READ_ONLY
             TextFieldColorProp.COUNTER -> TextFieldReadOnlyColorProps.COUNTER_READ_ONLY
+            TextFieldColorProp.SCROLL_TRACK -> TextFieldReadOnlyColorProps.SCROLL_TRACK_READ_ONLY
+            TextFieldColorProp.SCROLL_THUMB -> TextFieldReadOnlyColorProps.SCROLL_THUMB_READ_ONLY
         }
 
     private enum class TextFieldReadOnlyColorProps(
@@ -247,6 +252,8 @@ internal class ViewTextFieldStyleGenerator(
         COUNTER_READ_ONLY("sd_counterColor", "counter_color"),
         PLACEHOLDER_READ_ONLY("sd_placeholderColor", "placeholder_color"),
         BACKGROUND_READ_ONLY("sd_boxTint", "bg_color"),
+        SCROLL_TRACK_READ_ONLY("sd_scrollBarTrackColor", "scroll_track_color"),
+        SCROLL_THUMB_READ_ONLY("sd_scrollBarThumbColor", "scroll_thumb_color"),
         ;
 
         override fun provide(owner: TextFieldProperties): Color? {
@@ -259,6 +266,8 @@ internal class ViewTextFieldStyleGenerator(
                 START_CONTENT_READ_ONLY -> owner.startContentColorReadOnly
                 END_CONTENT_READ_ONLY -> owner.endContentColorReadOnly
                 COUNTER_READ_ONLY -> owner.counterColorReadOnly
+                SCROLL_TRACK_READ_ONLY -> owner.scrollBarTrackColorReadOnly
+                SCROLL_THUMB_READ_ONLY -> owner.scrollBarThumbColorReadOnly
             }
         }
     }
@@ -275,6 +284,8 @@ internal class ViewTextFieldStyleGenerator(
         COUNTER("sd_counterColor", "counter_color"),
         PLACEHOLDER("sd_placeholderColor", "placeholder_color"),
         BACKGROUND("sd_boxTint", "bg_color"),
+        SCROLL_TRACK("sd_scrollBarTrackColor", "scroll_track_color"),
+        SCROLL_THUMB("sd_scrollBarThumbColor", "scroll_thumb_color"),
         ;
 
         override fun provide(owner: TextFieldProperties): Color? {
@@ -287,6 +298,8 @@ internal class ViewTextFieldStyleGenerator(
                 COUNTER -> owner.counterColor
                 PLACEHOLDER -> owner.placeholderColor
                 BACKGROUND -> owner.backgroundColor
+                SCROLL_TRACK -> owner.scrollBarTrackColor
+                SCROLL_THUMB -> owner.scrollBarThumbColor
             }
         }
     }

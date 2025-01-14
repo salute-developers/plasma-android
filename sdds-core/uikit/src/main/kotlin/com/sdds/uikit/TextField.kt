@@ -84,6 +84,7 @@ open class TextField @JvmOverloads constructor(
     /**
      * Состояние поля для ввода
      */
+    @Deprecated("Use colorState")
     enum class FieldState {
         /**
          * Нормальное состояние поля

@@ -56,7 +56,7 @@ internal class TextFieldViewModel(
             TextFieldPropertyName.Caption -> updateCaption(value?.toString().orEmpty())
             TextFieldPropertyName.Counter -> updateCounter(value?.toString().orEmpty())
             TextFieldPropertyName.Placeholder -> updatePlaceholder(value?.toString().orEmpty())
-            TextFieldPropertyName.State -> updateState(TextField.FieldState.valueOf(value?.toString() ?: return))
+            TextFieldPropertyName.State -> updateState(FieldColorState.valueOf(value?.toString() ?: return))
             TextFieldPropertyName.Icon -> updateStartIcon(value as Boolean)
             TextFieldPropertyName.Action -> updateEndIcon(value as Boolean)
             TextFieldPropertyName.Enabled -> updateEnabledState(value as Boolean)
@@ -128,7 +128,7 @@ internal class TextFieldViewModel(
         )
     }
 
-    private fun updateState(state: TextField.FieldState) {
+    private fun updateState(state: FieldColorState) {
         _textFieldUiState.value = _textFieldUiState.value.copy(
             state = state,
         )

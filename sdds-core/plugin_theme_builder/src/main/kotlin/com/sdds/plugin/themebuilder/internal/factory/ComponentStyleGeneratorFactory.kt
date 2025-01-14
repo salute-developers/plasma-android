@@ -12,6 +12,7 @@ import com.sdds.plugin.themebuilder.internal.components.button.LinkButtonStyleGe
 import com.sdds.plugin.themebuilder.internal.components.button.view.BasicButtonStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.components.button.view.IconButtonStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.components.button.view.LinkButtonStyleGeneratorView
+import com.sdds.plugin.themebuilder.internal.components.textfield.view.ViewTextAreaStyleGenerator
 import com.sdds.plugin.themebuilder.internal.components.textfield.compose.TextFieldComposeVariationGenerator
 import com.sdds.plugin.themebuilder.internal.components.textfield.view.ViewTextFieldStyleGenerator
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
@@ -120,6 +121,17 @@ internal class ComponentStyleGeneratorFactory(
 
     fun createTextFieldStyleGeneratorView(): ViewTextFieldStyleGenerator =
         ViewTextFieldStyleGenerator(
+            xmlBuilderFactory = xmlBuilderFactory,
+            resourceReferenceProvider = resourceReferenceProvider,
+            dimensAggregator = dimensAggregator,
+            outputResDir = outputResDir,
+            resourcePrefix = resourcePrefixConfig.resourcePrefix,
+            viewColorStateGeneratorFactory = mViewColorStateGeneratorFactory,
+            colorStateListGeneratorFactory = colorStateListGeneratorFactory,
+        )
+
+    fun createTextAreaStyleGeneratorView(): ViewTextAreaStyleGenerator =
+        ViewTextAreaStyleGenerator(
             xmlBuilderFactory = xmlBuilderFactory,
             resourceReferenceProvider = resourceReferenceProvider,
             dimensAggregator = dimensAggregator,
