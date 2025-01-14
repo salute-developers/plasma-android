@@ -83,6 +83,11 @@ internal data class Dimension(
 )
 
 @Serializable
+internal data class FloatValue(
+    val value: Float,
+)
+
+@Serializable
 internal data class Value(
     val value: String,
 )
