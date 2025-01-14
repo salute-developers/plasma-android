@@ -12,8 +12,8 @@ import com.sdds.plugin.themebuilder.internal.components.button.LinkButtonStyleGe
 import com.sdds.plugin.themebuilder.internal.components.button.view.BasicButtonStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.components.button.view.IconButtonStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.components.button.view.LinkButtonStyleGeneratorView
-import com.sdds.plugin.themebuilder.internal.components.textfield.view.ViewTextAreaStyleGenerator
 import com.sdds.plugin.themebuilder.internal.components.textfield.compose.TextFieldComposeVariationGenerator
+import com.sdds.plugin.themebuilder.internal.components.textfield.view.ViewTextAreaStyleGenerator
 import com.sdds.plugin.themebuilder.internal.components.textfield.view.ViewTextFieldStyleGenerator
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.generator.DimenTokenGenerator

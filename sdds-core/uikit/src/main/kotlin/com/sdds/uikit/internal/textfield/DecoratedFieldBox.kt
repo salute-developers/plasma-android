@@ -128,7 +128,6 @@ internal class DecoratedFieldBox(
     private var _actionPadding: Int = 0
 
     private var _alignmentLineHeight: Int = 0
-    private var _boxMaxHeight: Int = 0
     private var _boxPaddingStart: Int = 0
     private var _boxPaddingTop: Int = 0
     private var _boxPaddingEnd: Int = 0
@@ -178,6 +177,16 @@ internal class DecoratedFieldBox(
             if (field != value) {
                 field = value
                 refreshDrawableState()
+                invalidate()
+                requestLayout()
+            }
+        }
+
+    var maximumHeight: Int = Int.MAX_VALUE
+        set(value) {
+            if (field != value) {
+                field = value
+                invalidate()
                 requestLayout()
             }
         }
@@ -187,12 +196,12 @@ internal class DecoratedFieldBox(
             if (field != value) {
                 field = value
                 refreshDrawableState()
-                _actionView.colorState = field
-                _iconView.colorState = field
-                _field.colorState = field
-                _captionView.colorState = field
-                _counterView.colorState = field
             }
+            _actionView.colorState = field
+            _iconView.colorState = field
+            _field.colorState = field
+            _captionView.colorState = field
+            _counterView.colorState = field
         }
 
     var placeholder: CharSequence?
@@ -345,10 +354,10 @@ internal class DecoratedFieldBox(
         val heightMode = MeasureSpec.getMode(heightMeasureSpec)
         val heightSize = MeasureSpec.getSize(heightMeasureSpec)
         val newHeightSpec = when {
-            _boxMaxHeight == 0 -> heightMeasureSpec
-            heightMode == MeasureSpec.EXACTLY -> makeMeasureSpec(minOf(_boxMaxHeight, heightSize), heightMode)
-            heightMode == MeasureSpec.AT_MOST -> makeMeasureSpec(minOf(_boxMaxHeight, heightSize), heightMode)
-            heightMode == MeasureSpec.UNSPECIFIED -> makeMeasureSpec(_boxMaxHeight, MeasureSpec.AT_MOST)
+            maximumHeight == 0 -> heightMeasureSpec
+            heightMode == MeasureSpec.EXACTLY -> makeMeasureSpec(minOf(maximumHeight, heightSize), heightMode)
+            heightMode == MeasureSpec.AT_MOST -> makeMeasureSpec(minOf(maximumHeight, heightSize), heightMode)
+            heightMode == MeasureSpec.UNSPECIFIED -> makeMeasureSpec(maximumHeight, MeasureSpec.AT_MOST)
             else -> heightMeasureSpec
         }
         super.onMeasure(widthMeasureSpec, newHeightSpec)
@@ -493,11 +502,6 @@ internal class DecoratedFieldBox(
             R.styleable.SdDecoratedFieldBox_sd_alignmentLineHeight,
             0,
         )
-        minimumHeight = typedArray.getDimensionPixelSize(
-            R.styleable.SdDecoratedFieldBox_sd_boxMinHeight,
-            _alignmentLineHeight,
-        )
-        _boxMaxHeight = typedArray.getDimensionPixelSize(R.styleable.SdDecoratedFieldBox_sd_boxMaxHeight, 0)
         _chipGroupStyleOverlay = typedArray.getResourceId(R.styleable.SdDecoratedFieldBox_sd_chipGroupStyleOverlay, 0)
         _chipsPadding = typedArray.getDimensionPixelSize(R.styleable.SdDecoratedFieldBox_sd_chipsPadding, 0)
         _allowBreakLines = typedArray.getBoolean(R.styleable.SdDecoratedFieldBox_sd_allowBreakLines, true)

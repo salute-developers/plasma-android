@@ -22,7 +22,6 @@
 
         <attr name="sd_alignmentLineHeight" format="dimension" />
         <attr name="sd_boxMinHeight" format="dimension" />
-        <attr name="sd_boxMaxHeight" format="dimension" />
         <attr name="sd_boxTint" format="color|reference" />
         <attr name="sd_boxPadding" format="dimension" />
         <attr name="sd_boxPaddingStart" format="dimension" />
@@ -120,8 +119,8 @@
         <attr name="sd_actionSize" />
         <attr name="sd_actionPadding" />
 
+        <attr name="sd_alignmentLineHeight" />
         <attr name="sd_boxMinHeight" />
-        <attr name="sd_boxMaxHeight" />
         <attr name="sd_boxTint" />
         <attr name="sd_boxPadding" />
         <attr name="sd_boxPaddingStart" />
@@ -158,5 +157,6 @@
         <attr name="android:imeActionId" />
         <attr name="android:imeActionLabel" />
         <attr name="android:imeOptions" />
+        <attr name="android:maxHeight"/>
     </declare-styleable>
 </resources>
