@@ -2,7 +2,7 @@ package com.sdds.plugin.themebuilder
 
 import com.sdds.plugin.themebuilder.internal.PackageResolver
 import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
-import com.sdds.plugin.themebuilder.internal.components.button.ButtonComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.button.ButtonConfig
 import com.sdds.plugin.themebuilder.internal.components.textfield.TextFieldConfig
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.ComponentStyleGeneratorFactory
@@ -202,19 +202,19 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
         componentStyleGeneratorFactory.createTextAreaClearStyleGeneratorCompose()
     }
 
-    private val basicButtonConfig: ButtonComponentConfig by unsafeLazy {
+    private val basicButtonConfig: ButtonConfig by unsafeLazy {
         basicButtonConfigFile.get()
             .asFile
             .decode(Serializer.componentConfig)
     }
 
-    private val iconButtonConfig: ButtonComponentConfig by unsafeLazy {
+    private val iconButtonConfig: ButtonConfig by unsafeLazy {
         iconButtonConfigFile.get()
             .asFile
             .decode(Serializer.componentConfig)
     }
 
-    private val linkButtonConfig: ButtonComponentConfig by unsafeLazy {
+    private val linkButtonConfig: ButtonConfig by unsafeLazy {
         linkButtonConfigFile.get()
             .asFile
             .decode(Serializer.componentConfig)
@@ -259,6 +259,9 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
     }
 
     private fun generateComposeConfigs() {
+        println(basicButtonConfig)
+        println(iconButtonConfig)
+        println(linkButtonConfig)
 //        basicButtonStyleGeneratorCompose.generate(basicButtonConfig)
 //        iconButtonStyleGeneratorCompose.generate(iconButtonConfig)
 //        linkButtonStyleGeneratorCompose.generate(linkButtonConfig)
