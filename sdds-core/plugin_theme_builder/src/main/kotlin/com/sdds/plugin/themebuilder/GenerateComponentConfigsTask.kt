@@ -259,9 +259,6 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
     }
 
     private fun generateComposeConfigs() {
-        println(basicButtonConfig)
-        println(iconButtonConfig)
-        println(linkButtonConfig)
 //        basicButtonStyleGeneratorCompose.generate(basicButtonConfig)
 //        iconButtonStyleGeneratorCompose.generate(iconButtonConfig)
 //        linkButtonStyleGeneratorCompose.generate(linkButtonConfig)
