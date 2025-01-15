@@ -343,12 +343,12 @@ private val TextAreaStyleBuilder.invariantProps: TextAreaStyleBuilder
             cursorColor(PlasmaSdServiceTheme.colors.textDefaultAccent.asInteractive())
         }
         .scrollBar {
-            scrollBarThickness(1.0.dp)
+            scrollBarThickness(2.0.dp)
             scrollBarPaddingTop(18.0.dp)
             scrollBarPaddingBottom(36.0.dp)
             scrollBarPaddingEnd(2.0.dp)
-            scrollBarTrackColor(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentTertiary.asInteractive())
-            scrollBarThumbColor(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentPrimary.asInteractive())
+            scrollBarTrackColor(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentPrimary.asInteractive())
+            scrollBarThumbColor(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentTertiary.asInteractive())
         }
 
 public val TextArea.Xs: WrapperTextAreaXs
