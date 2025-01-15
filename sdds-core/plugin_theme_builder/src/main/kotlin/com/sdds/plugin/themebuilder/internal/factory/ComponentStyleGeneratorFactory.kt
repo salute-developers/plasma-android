@@ -13,6 +13,8 @@ import com.sdds.plugin.themebuilder.internal.components.button.view.BasicButtonS
 import com.sdds.plugin.themebuilder.internal.components.button.view.IconButtonStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.components.button.view.LinkButtonStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.components.textfield.compose.TextFieldComposeVariationGenerator
+import com.sdds.plugin.themebuilder.internal.components.textfield.view.ViewTextAreaStyleGenerator
+import com.sdds.plugin.themebuilder.internal.components.textfield.view.ViewTextFieldStyleGenerator
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.generator.DimenTokenGenerator
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
@@ -113,6 +115,28 @@ internal class ComponentStyleGeneratorFactory(
             dimensAggregator = dimensAggregator,
             outputResDir = outputResDir,
             attrPrefix = resourcePrefixConfig.resourcePrefix,
+            viewColorStateGeneratorFactory = mViewColorStateGeneratorFactory,
+            colorStateListGeneratorFactory = colorStateListGeneratorFactory,
+        )
+
+    fun createTextFieldStyleGeneratorView(): ViewTextFieldStyleGenerator =
+        ViewTextFieldStyleGenerator(
+            xmlBuilderFactory = xmlBuilderFactory,
+            resourceReferenceProvider = resourceReferenceProvider,
+            dimensAggregator = dimensAggregator,
+            outputResDir = outputResDir,
+            resourcePrefix = resourcePrefixConfig.resourcePrefix,
+            viewColorStateGeneratorFactory = mViewColorStateGeneratorFactory,
+            colorStateListGeneratorFactory = colorStateListGeneratorFactory,
+        )
+
+    fun createTextAreaStyleGeneratorView(): ViewTextAreaStyleGenerator =
+        ViewTextAreaStyleGenerator(
+            xmlBuilderFactory = xmlBuilderFactory,
+            resourceReferenceProvider = resourceReferenceProvider,
+            dimensAggregator = dimensAggregator,
+            outputResDir = outputResDir,
+            resourcePrefix = resourcePrefixConfig.resourcePrefix,
             viewColorStateGeneratorFactory = mViewColorStateGeneratorFactory,
             colorStateListGeneratorFactory = colorStateListGeneratorFactory,
         )

@@ -2,6 +2,7 @@ package com.sdds.plugin.themebuilder.internal.components.base.view
 
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.components.base.Color
+import com.sdds.plugin.themebuilder.internal.components.base.ComponentStyle
 import com.sdds.plugin.themebuilder.internal.components.base.Config
 import com.sdds.plugin.themebuilder.internal.components.base.PropertyOwner
 import com.sdds.plugin.themebuilder.internal.components.base.VariationNode
@@ -49,15 +50,16 @@ internal abstract class ViewVariationGenerator<PO : PropertyOwner>(
         xmlResourcesBuilder: XmlResourcesDocumentBuilder,
         config: Config<PO>,
     ): Unit = with(xmlResourcesBuilder) {
-        val rootVariation = config.asVariationTree(styleComponentName)
+        val rootVariation = config.asVariationTree("")
         baseStyle {
-            onCreateStyle("", this, rootVariation)
+            onCreateStyle("", xmlResourcesBuilder, this, rootVariation)
         }
         createVariations(rootVariation.children)
     }
 
     protected abstract fun onCreateStyle(
         variation: String,
+        rootDocument: XmlResourcesDocumentBuilder,
         styleElement: Element,
         variationNode: VariationNode<PO>,
     )
@@ -68,12 +70,22 @@ internal abstract class ViewVariationGenerator<PO : PropertyOwner>(
         if (variations.isEmpty()) return
         variations.forEach { variationNode ->
             variationStyle(variationNode.camelCaseName(), withOverlay = true) {
-                onCreateStyle(variationNode.id.techToSnakeCase(), this, variationNode)
+                onCreateStyle(variationNode.id.techToSnakeCase(), this@createVariations, this, variationNode)
             }
+            createVariations(variationNode.children)
         }
-        variations.forEach { variation ->
-            createVariations(variation.children)
-        }
+    }
+
+    protected fun <P : Any> getProperty(
+        variationNode: VariationNode<PO>,
+        propertyProvider: (PO) -> P?,
+    ): PropertyValue<P>? {
+        val currentProps = variationNode.value.props
+        val mergedProps = variationNode.mergedProps
+        var propertyInherited = false
+        val property = propertyProvider(currentProps)
+            ?: propertyProvider(mergedProps).also { propertyInherited = true }
+        return property?.let { PropertyValue(it, propertyInherited) }
     }
 
     protected fun getColorProperty(
@@ -118,6 +130,8 @@ internal abstract class ViewVariationGenerator<PO : PropertyOwner>(
     }
 }
 
+internal class PropertyValue<T : Any>(val value: T, val inherited: Boolean)
+
 internal sealed class ColorValue {
     data class ViewValue(val colors: Map<String, Color>) : ColorValue()
     data class SimpleValue(val color: Color, val inherited: Boolean) : ColorValue()
@@ -126,8 +140,14 @@ internal sealed class ColorValue {
 internal val ColorValue?.isNullOrInherited: Boolean
     get() = this == null || (this is ColorValue.SimpleValue && this.inherited)
 
-internal fun VariationNode<*>.camelCaseName(): String =
-    this.id.split(".").joinToString(separator = ".") { it.techToCamelCase() }
+internal val PropertyValue<*>?.isNullOrInherited: Boolean
+    get() = this == null || this.inherited
 
-internal fun VariationNode<*>.snakeCaseName(): String =
-    this.id.split(".").joinToString(separator = ".") { it.techToSnakeCase() }
+internal fun VariationNode<*>.camelCaseName(separator: String = "."): String =
+    this.id.split(".").joinToString(separator = separator) { it.techToCamelCase() }
+
+internal fun ComponentStyle.camelCaseValue(): String =
+    this.value.split(".").joinToString(separator = ".") { it.techToCamelCase() }
+
+internal fun VariationNode<*>.snakeCaseName(separator: String = "."): String =
+    this.id.split(".").joinToString(separator = separator) { it.techToSnakeCase() }

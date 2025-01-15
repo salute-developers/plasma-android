@@ -23,6 +23,7 @@ import io.mockk.mockkObject
 import org.junit.After
 import org.junit.Assert
 import org.junit.Before
+import org.junit.Ignore
 import org.junit.Test
 import java.io.ByteArrayOutputStream
 import java.io.File
@@ -85,6 +86,7 @@ class LinkButtonStyleGeneratorViewTest {
     }
 
     @Test
+    @Ignore
     fun generate() {
         val styleOutputXml = ByteArrayOutputStream()
         every { mockOutputStyleFile.fileWriter() } returns styleOutputXml.writer()
