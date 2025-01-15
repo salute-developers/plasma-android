@@ -1,6 +1,7 @@
 package com.sdds.plugin.themebuilder.internal.components.base
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
@@ -83,6 +84,7 @@ internal data class Dimension(
 )
 
 @Serializable
+@SerialName("float")
 internal data class FloatValue(
     val value: Float,
 )
