@@ -26,6 +26,11 @@ internal data class ShapeToken(
      */
     override val xmlName: String by unsafeLazy { getXmlName(name) }
 
+    /**
+     * Признак того, что данный токен - это специальный токен для скругления в 50%
+     */
+    val isCircle: Boolean get() = isCircle(name)
+
     companion object {
 
         fun getXmlName(tokenName: String): String {
@@ -33,6 +38,8 @@ internal data class ShapeToken(
                 .split(".")
                 .joinToString(".") { it.capitalized() }
         }
+
+        fun isCircle(tokenName: String): Boolean = tokenName == "round.circle"
 
         fun getAttrName(tokenName: String): String =
             "shape${tokenName.split(".").joinToString(separator = "") { it.capitalized() }}"

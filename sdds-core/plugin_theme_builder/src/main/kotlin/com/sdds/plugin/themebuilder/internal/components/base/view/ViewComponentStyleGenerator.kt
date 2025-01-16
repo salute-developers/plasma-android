@@ -158,10 +158,15 @@ internal abstract class ViewComponentStyleGenerator<T : ComponentConfig>(
         tokenName: String,
         adjustment: Float? = null,
     ) = with(xmlResourceBuilder) {
+        val shapeValue = if (ShapeToken.isCircle(tokenName)) {
+            "?sd_shapeAppearanceCircle"
+        } else {
+            "?${resourcePrefix}_${ShapeToken.getAttrName(tokenName)}"
+        }
         this@shapeAttribute.appendElement(
             elementName = XmlResourcesDocumentBuilder.ElementName.ITEM,
             tokenName = "sd_shapeAppearance",
-            value = "?${resourcePrefix}_${ShapeToken.getAttrName(tokenName)}",
+            value = shapeValue,
             usePrefix = false,
         )
         val normalizedAdjustment = adjustment.takeIf { it != 0f } ?: return@with

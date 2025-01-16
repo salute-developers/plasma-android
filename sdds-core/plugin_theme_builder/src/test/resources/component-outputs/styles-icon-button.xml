@@ -3,9 +3,10 @@
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <resources>
     <style name="Thmbldr.TestTheme.Components.IconButton" parent="Sdds.Components.IconButton">
+        <item name="sd_colorStateProvider">com.test.colorstate.IconButtonColorStateProvider</item>
+        <item name="android:textColor">@color/thmbldr_icon_button_text_color</item>
         <item name="sd_spinnerTint">@color/thmbldr_icon_button_spinner_tint</item>
         <item name="sd_iconTint">@color/thmbldr_icon_button_icon_tint</item>
-        <item name="sd_colorStateProvider">com.test.colorstate.IconButtonColorStateProvider</item>
     </style>
     <style name="Thmbldr.TestTheme.Components.IconButton.L">
         <item name="android:minHeight">@dimen/thmbldr_icon_button_l_min_height</item>
@@ -14,7 +15,13 @@
         <item name="android:paddingEnd">@dimen/thmbldr_icon_button_l_padding_end</item>
         <item name="sd_iconSize">@dimen/thmbldr_icon_button_l_icon_size</item>
         <item name="sd_spinnerSize">@dimen/thmbldr_icon_button_l_spinner_size</item>
+        <item name="sd_iconPadding">@dimen/thmbldr_icon_button_l_icon_padding</item>
+        <item name="sd_valuePadding">@dimen/thmbldr_icon_button_l_value_padding</item>
         <item name="sd_shapeAppearance">?thmbldr_shapeRoundL</item>
+        <item name="android:textAppearance">@style/Thmbldr.TestTheme.TextAppearance.BodyLBold</item>
+    </style>
+    <style name="Thmbldr.TestTheme.ComponentOverlays.IconButtonL">
+        <item name="sd_iconButtonStyle">@style/Thmbldr.TestTheme.Components.IconButton.L</item>
     </style>
     <style name="Thmbldr.TestTheme.Components.IconButton.L.Default">
         <item name="thmbldr_iconbuttonColors">state_default</item>
@@ -27,20 +34,5 @@
     </style>
     <style name="Thmbldr.TestTheme.ComponentOverlays.IconButtonLWarning">
         <item name="sd_iconButtonStyle">@style/Thmbldr.TestTheme.Components.IconButton.L.Warning</item>
-    </style>
-    <style name="Thmbldr.TestTheme.Components.IconButton.L.Pilled">
-        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
-    </style>
-    <style name="Thmbldr.TestTheme.Components.IconButton.L.Pilled.Default">
-        <item name="thmbldr_iconbuttonColors">state_default</item>
-    </style>
-    <style name="Thmbldr.TestTheme.ComponentOverlays.IconButtonLPilledDefault">
-        <item name="sd_iconButtonStyle">@style/Thmbldr.TestTheme.Components.IconButton.L.Pilled.Default</item>
-    </style>
-    <style name="Thmbldr.TestTheme.Components.IconButton.L.Pilled.Warning">
-        <item name="thmbldr_iconbuttonColors">state_warning</item>
-    </style>
-    <style name="Thmbldr.TestTheme.ComponentOverlays.IconButtonLPilledWarning">
-        <item name="sd_iconButtonStyle">@style/Thmbldr.TestTheme.Components.IconButton.L.Pilled.Warning</item>
     </style>
 </resources>

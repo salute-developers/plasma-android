@@ -3,10 +3,10 @@
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <resources>
     <style name="Thmbldr.TestTheme.Components.LinkButton" parent="Sdds.Components.LinkButton">
+        <item name="sd_colorStateProvider">com.test.colorstate.LinkButtonColorStateProvider</item>
         <item name="android:textColor">@color/thmbldr_link_button_text_color</item>
         <item name="sd_spinnerTint">@color/thmbldr_link_button_spinner_tint</item>
         <item name="sd_iconTint">@color/thmbldr_link_button_icon_tint</item>
-        <item name="sd_colorStateProvider">com.test.colorstate.LinkButtonColorStateProvider</item>
     </style>
     <style name="Thmbldr.TestTheme.Components.LinkButton.L">
         <item name="android:minHeight">@dimen/thmbldr_link_button_l_min_height</item>
@@ -17,7 +17,11 @@
         <item name="sd_spinnerSize">@dimen/thmbldr_link_button_l_spinner_size</item>
         <item name="sd_iconPadding">@dimen/thmbldr_link_button_l_icon_padding</item>
         <item name="sd_valuePadding">@dimen/thmbldr_link_button_l_value_padding</item>
+        <item name="sd_shapeAppearance">?thmbldr_shapeRoundL</item>
         <item name="android:textAppearance">@style/Thmbldr.TestTheme.TextAppearance.BodyLBold</item>
+    </style>
+    <style name="Thmbldr.TestTheme.ComponentOverlays.LinkButtonL">
+        <item name="sd_linkButtonStyle">@style/Thmbldr.TestTheme.Components.LinkButton.L</item>
     </style>
     <style name="Thmbldr.TestTheme.Components.LinkButton.L.Default">
         <item name="thmbldr_linkbuttonColors">state_default</item>

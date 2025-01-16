@@ -46,6 +46,11 @@ internal class ViewTextAreaStyleGenerator(
             super.onCreateStyle(variation, rootDocument, styleElement, variationNode)
         }
 
+    override fun createColorStateStyles(
+        rootDocument: XmlResourcesDocumentBuilder,
+        variationNode: VariationNode<TextFieldProperties>,
+    ) = Unit
+
     @Suppress("CyclomaticComplexMethod", "LongMethod")
     private fun Element.addProps(
         variation: String,

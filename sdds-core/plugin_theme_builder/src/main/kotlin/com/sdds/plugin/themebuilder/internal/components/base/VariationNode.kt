@@ -31,22 +31,21 @@ internal class VariationNode<PO : PropertyOwner>(
      * [Map] со всеми [ViewVariation] из Node1 и Node2, при этом при возникновении конфликта
      * значения из Node2 заменят значения из Node1.
      */
-    val mergedViews: Map<String, ViewVariation<PO>>
-        get() {
-            if (value.view.isEmpty()) return emptyMap()
-            val mergedViews = mutableMapOf<String, ViewVariation<PO>>()
-                .apply { putAll(value.view) }
-            var parentRef = parent
+    fun mergedViews(force: Boolean = false): Map<String, ViewVariation<PO>> {
+        if (!force && value.view.isEmpty()) return emptyMap()
+        val mergedViews = mutableMapOf<String, ViewVariation<PO>>()
+            .apply { putAll(value.view) }
+        var parentRef = parent
 
-            while (parentRef != null) {
-                val parentViews = parentRef.value.view
-                parentViews.forEach {
-                    mergedViews[it.key] = mergedViews[it.key]?.merge(it.value) ?: it.value
-                }
-                parentRef = parentRef.parent
+        while (parentRef != null) {
+            val parentViews = parentRef.value.view
+            parentViews.forEach {
+                mergedViews[it.key] = mergedViews[it.key]?.merge(it.value) ?: it.value
             }
-            return mergedViews
+            parentRef = parentRef.parent
         }
+        return mergedViews
+    }
 
     /**
      * Возвращает все [PO] от родительской до текущей [VariationNode].

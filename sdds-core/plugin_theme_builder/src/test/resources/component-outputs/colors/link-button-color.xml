@@ -2,26 +2,26 @@
 
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:color="?thmbldr_surfaceInverseWarningActive" android:state_focused="true" android:state_pressed="true" app:thmbldr_linkbutton_state_warning="true"/>
     <item android:color="?thmbldr_surfaceInversePrimaryActive" android:state_pressed="true" app:thmbldr_linkbutton_state_default="true"/>
     <item android:color="?thmbldr_textInversePrimary" app:thmbldr_linkbutton_state_default="true"/>
+    <item android:color="?thmbldr_surfaceInverseWarningActive" android:state_focused="true" android:state_pressed="true" app:thmbldr_linkbutton_state_warning="true"/>
     <item android:color="?thmbldr_textInverseWarning" app:thmbldr_linkbutton_state_warning="true"/>
 </selector>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:color="?thmbldr_surfaceInverseWarningActive" android:state_focused="true" android:state_pressed="true" app:thmbldr_linkbutton_state_warning="true"/>
     <item android:color="?thmbldr_surfaceInversePrimaryActive" android:state_pressed="true" app:thmbldr_linkbutton_state_default="true"/>
     <item android:color="?thmbldr_textInversePrimary" app:thmbldr_linkbutton_state_default="true"/>
+    <item android:color="?thmbldr_surfaceInverseWarningActive" android:state_focused="true" android:state_pressed="true" app:thmbldr_linkbutton_state_warning="true"/>
     <item android:color="?thmbldr_textInverseWarning" app:thmbldr_linkbutton_state_warning="true"/>
 </selector>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:color="?thmbldr_surfaceInverseWarningActive" android:state_focused="true" android:state_pressed="true" app:thmbldr_linkbutton_state_warning="true"/>
     <item android:color="?thmbldr_surfaceInversePrimaryActive" android:state_pressed="true" app:thmbldr_linkbutton_state_default="true"/>
     <item android:color="?thmbldr_textInversePrimary" app:thmbldr_linkbutton_state_default="true"/>
+    <item android:color="?thmbldr_surfaceInverseWarningActive" android:state_focused="true" android:state_pressed="true" app:thmbldr_linkbutton_state_warning="true"/>
     <item android:color="?thmbldr_textInverseWarning" app:thmbldr_linkbutton_state_warning="true"/>
 </selector>

@@ -1,19 +1,20 @@
 package com.sdds.plugin.themebuilder.internal.components.button.view
 
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
-import com.sdds.plugin.themebuilder.internal.components.base.view.AndroidState.Companion.asAndroidStates
-import com.sdds.plugin.themebuilder.internal.components.base.view.ColorProperty
-import com.sdds.plugin.themebuilder.internal.components.base.view.ColorStateAttribute
+import com.sdds.plugin.themebuilder.internal.components.base.Color
+import com.sdds.plugin.themebuilder.internal.components.base.VariationNode
+import com.sdds.plugin.themebuilder.internal.components.base.view.ColorValue
+import com.sdds.plugin.themebuilder.internal.components.base.view.ProvidableColorProperty
 import com.sdds.plugin.themebuilder.internal.components.base.view.StateListAttribute
-import com.sdds.plugin.themebuilder.internal.components.base.view.ViewComponentStyleGenerator
-import com.sdds.plugin.themebuilder.internal.components.base.view.toStateListAttribute
-import com.sdds.plugin.themebuilder.internal.components.button.ButtonComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.view.ViewVariationGenerator
+import com.sdds.plugin.themebuilder.internal.components.base.view.isNullOrInherited
+import com.sdds.plugin.themebuilder.internal.components.button.ButtonProperties
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.ColorStateListGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ViewColorStateGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
-import com.sdds.plugin.themebuilder.internal.utils.capitalized
+import org.w3c.dom.Element
 import java.io.File
 
 /**
@@ -32,7 +33,7 @@ internal abstract class BaseButtonStyleGeneratorView(
     viewColorStateGeneratorFactory: ViewColorStateGeneratorFactory,
     colorStateListGeneratorFactory: ColorStateListGeneratorFactory,
     defStyleAttr: String,
-) : ViewComponentStyleGenerator<ButtonComponentConfig>(
+) : ViewVariationGenerator<ButtonProperties>(
     xmlBuilderFactory = xmlBuilderFactory,
     resourceReferenceProvider = resourceReferenceProvider,
     dimensAggregator = dimensAggregator,
@@ -45,62 +46,173 @@ internal abstract class BaseButtonStyleGeneratorView(
     colorStateListGeneratorFactory = colorStateListGeneratorFactory,
     defStyleAttr = defStyleAttr,
 ) {
-    private val colorStateAttrs = mutableMapOf<String, ColorStateAttribute>()
 
-    protected fun XmlResourcesDocumentBuilder.addColor(
-        base: String,
+    override fun onCreateStyle(
         variation: String,
-    ) {
-        val variationEnumValue = colorStateAttrs[variation]?.enum ?: return
-        variationStyle("$base.${variation.capitalized()}", true) {
-            colorStateAttribute(variationEnumValue)
+        rootDocument: XmlResourcesDocumentBuilder,
+        styleElement: Element,
+        variationNode: VariationNode<ButtonProperties>,
+    ) = with(styleElement) {
+        addProps(variation, variationNode)
+        ButtonColorProperty.values().forEach {
+            addColorProperties(it, variation, variationNode)
         }
     }
 
-    override fun registerColorState(name: String): ColorStateAttribute {
-        return super.registerColorState(name).also {
-            colorStateAttrs[name] = it
+    private fun Element.addProps(variation: String, variationNode: VariationNode<ButtonProperties>) {
+        val props = variationNode.value.props
+
+        props.height?.let { dimenAttribute(variation, "android:minHeight", "min_height", it.value) }
+        props.disableAlpha?.let { valueAttribute("sd_disabledAlpha", it.value.toString()) }
+        props.minWidth?.let { dimenAttribute(variation, "android:minWidth", "min_width", it.value) }
+        props.paddingStart?.let { dimenAttribute(variation, "android:paddingStart", "padding_start", it.value) }
+        props.paddingEnd?.let { dimenAttribute(variation, "android:paddingEnd", "padding_end", it.value) }
+        props.iconSize?.let { dimenAttribute(variation, "sd_iconSize", "icon_size", it.value) }
+        props.spinnerSize?.let { dimenAttribute(variation, "sd_spinnerSize", "spinner_size", it.value) }
+        props.spinnerStrokeWidth?.let {
+            dimenAttribute(
+                variation,
+                "sd_spinnerStrokeWidth",
+                "spinner_stroke_width",
+                it.value,
+            )
         }
+        props.iconMargin?.let {
+            dimenAttribute(variation, "sd_iconPadding", "icon_padding", it.value)
+        }
+        props.valueMargin?.let {
+            dimenAttribute(variation, "sd_valuePadding", "value_padding", it.value)
+        }
+        props.shape?.let { shapeAttribute(variation, it.value, it.adjustment) }
+        props.labelStyle?.let { typographyAttribute("android:textAppearance", it.value) }
     }
 
-    protected fun ButtonComponentConfig.Color?.addToStateList(
-        property: ColorProperty,
-        colorStateAttribute: ColorStateAttribute,
-        loadingAlpha: Float? = null,
+    protected fun Element.addColorProperties(
+        colorProperty: ButtonColorProperty,
+        variation: String,
+        variationNode: VariationNode<ButtonProperties>,
     ) {
-        if (this == null || this.states.isNullOrEmpty()) return
-        val loadingAttr = loadingAlpha?.let { StateListAttribute("app:sd_state_loading", "true") }
-        val colorStateListAttribute = colorStateAttribute.toStateListAttribute()
-        addToStateList(property) {
-            addColor(default, states = setOf(colorStateListAttribute))
-            if (loadingAttr != null) {
-                addColor(default, states = setOf(colorStateListAttribute, loadingAttr), alpha = loadingAlpha)
-            }
-            states.forEach { colorState ->
-                addColor(
-                    colorState.value,
-                    setOf(colorStateListAttribute) + colorState.state.asAndroidStates()
-                        .map { it.toStateListAttribute(true) },
+        val colorValue = getColorProperty(colorProperty, variationNode)
+        val loadingColorProperty = colorProperty.getLoadingColor()
+        val loadingColorValue = loadingColorProperty?.let { getColorProperty(it, variationNode) }
+
+        // Если для colorProperty применим loadingAlpha, но значение не задано во view вариации
+        // Попробуем найти loadingAlpha в props
+        val loadingAlpha = if (loadingColorProperty != null && loadingColorValue == null) {
+            (getProperty(variationNode) { it.loadingAlpha })?.value?.value
+        } else {
+            null
+        }
+
+        if (colorValue.isNullOrInherited) {
+            return
+        }
+
+        println("add color $colorValue with loading alpha $loadingAlpha")
+
+        when (loadingColorValue) {
+            is ColorValue.SimpleValue -> {
+                addToStateList(
+                    colorProperty,
+                    loadingColorValue.color,
+                    variation,
+                    extraAttrs = LoadingAttrs,
                 )
-                if (loadingAttr != null) {
-                    addColor(
-                        default,
-                        states = setOf(colorStateListAttribute, loadingAttr),
-                        alpha = loadingAlpha,
+            }
+
+            is ColorValue.ViewValue -> loadingColorValue.colors.forEach { (colorStateName, color) ->
+                addToStateList(
+                    colorProperty,
+                    color,
+                    variation,
+                    colorStateName,
+                    LoadingAttrs,
+                )
+            }
+        }
+
+        when (colorValue) {
+            is ColorValue.SimpleValue -> {
+                if (loadingAlpha != null) {
+                    addToStateList(
+                        colorProperty,
+                        colorValue.color.copy(alpha = loadingAlpha),
+                        variation,
+                        extraAttrs = LoadingAttrs,
                     )
                 }
+                addToStateList(colorProperty, colorValue.color, variation)
             }
+
+            is ColorValue.ViewValue -> colorValue.colors.forEach { (colorStateName, color) ->
+                if (loadingAlpha != null) {
+                    addToStateList(
+                        colorProperty,
+                        color.copy(alpha = loadingAlpha),
+                        variation,
+                        colorStateName,
+                        LoadingAttrs,
+                    )
+                }
+                addToStateList(colorProperty, color, variation, colorStateName)
+            }
+        }
+
+        colorAttribute(colorProperty, variation)
+    }
+
+    private fun ButtonColorProperty.getLoadingColor(): ButtonLoadingColorProperty? {
+        return when (this) {
+            ButtonColorProperty.TEXT_COLOR -> ButtonLoadingColorProperty.TEXT_COLOR
+            ButtonColorProperty.VALUE_COLOR -> ButtonLoadingColorProperty.VALUE_COLOR
+            ButtonColorProperty.ICON_COLOR -> ButtonLoadingColorProperty.ICON_COLOR
+            else -> null
         }
     }
 
     internal enum class ButtonColorProperty(
         override val attribute: String,
         override val colorFileSuffix: String,
-    ) : ColorProperty {
+    ) : ProvidableColorProperty<ButtonProperties> {
         BACKGROUND_COLOR("backgroundTint", "bg_color"),
         TEXT_COLOR("android:textColor", "text_color"),
         VALUE_COLOR("sd_valueTextColor", "value_color"),
         SPINNER_COLOR("sd_spinnerTint", "spinner_tint"),
         ICON_COLOR("sd_iconTint", "icon_tint"),
+        ;
+
+        override fun provide(owner: ButtonProperties): Color? {
+            return when (this) {
+                BACKGROUND_COLOR -> owner.backgroundColor
+                TEXT_COLOR -> owner.labelColor ?: owner.contentColor
+                VALUE_COLOR -> owner.valueColor
+                SPINNER_COLOR -> owner.spinnerColor ?: owner.contentColor
+                ICON_COLOR -> owner.iconColor ?: owner.contentColor
+            }
+        }
+    }
+
+    internal enum class ButtonLoadingColorProperty(
+        override val attribute: String,
+        override val colorFileSuffix: String,
+    ) : ProvidableColorProperty<ButtonProperties> {
+        TEXT_COLOR("android:textColor", "text_color"),
+        VALUE_COLOR("sd_valueTextColor", "value_color"),
+        ICON_COLOR("sd_iconTint", "icon_tint"),
+        ;
+
+        override fun provide(owner: ButtonProperties): Color? {
+            val loadingAlpha = owner.loadingAlpha?.value
+            val color = when (this) {
+                TEXT_COLOR -> owner.labelColor ?: owner.contentColor
+                VALUE_COLOR -> owner.valueColor
+                ICON_COLOR -> owner.iconColor ?: owner.contentColor
+            }
+            return loadingAlpha?.let { color?.copy(alpha = loadingAlpha) }
+        }
+    }
+
+    private companion object {
+        val LoadingAttrs = setOf(StateListAttribute("app:sd_state_loading", "true"))
     }
 }
