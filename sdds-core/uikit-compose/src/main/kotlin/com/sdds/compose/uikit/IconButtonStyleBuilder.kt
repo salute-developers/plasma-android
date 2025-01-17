@@ -8,6 +8,8 @@ import androidx.compose.runtime.Stable
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.style.StyleBuilder
@@ -38,7 +40,7 @@ interface IconButtonStyleBuilder : StyleBuilder<ButtonStyle> {
     /**
      * Устанавливает цвета кнопки при помощи [builder]
      * @see ButtonStyle.colors
-     * @see [ButtonColorsBuilder]
+     * @see [IconButtonColorsBuilder]
      */
     @Composable
     fun colors(builder: @Composable IconButtonColorsBuilder.() -> Unit): IconButtonStyleBuilder
@@ -48,13 +50,26 @@ interface IconButtonStyleBuilder : StyleBuilder<ButtonStyle> {
      * @see ButtonStyle.dimensions
      * @see Button.Dimensions
      */
+    @Deprecated("Use dimensions() with builder instead")
     fun dimensions(dimensions: Button.Dimensions): IconButtonStyleBuilder
+
+    /**
+     * Устанавливает размеры и отступы компонента [dimensions]
+     */
+    @Composable
+    fun dimensions(builder: @Composable IconButtonDimensionsBuilder.() -> Unit): IconButtonStyleBuilder
 
     /**
      * Устанавливает значение прозрачности выключенной кнопки [disableAlpha]
      * @see ButtonStyle.disableAlpha
      */
     fun disableAlpha(disableAlpha: Float): IconButtonStyleBuilder
+
+    /**
+     * Устанавливает значение прозрачности кнопки в состоянии загрузки [loadingAlpha]
+     * @see ButtonStyle.loadingAlpha
+     */
+    fun loadingAlpha(loadingAlpha: Float): IconButtonStyleBuilder
 }
 
 /**
@@ -123,22 +138,117 @@ interface IconButtonColorsBuilder {
         spinnerColor(spinnerColor.asInteractive())
 
     /**
-     * Устанавливает режим работы индикатора загрузки [spinnerMode]
-     * @see ButtonColors.spinnerMode
-     * @see Button.SpinnerMode
-     */
-    fun spinnerMode(spinnerMode: Button.SpinnerMode): IconButtonColorsBuilder
-
-    /**
      * Возвращает готовый экземпляр [ButtonColors]
      */
     fun build(): ButtonColors
 
     companion object {
         /**
-         * Возвращает экземпляр [ButtonColorsBuilder]
+         * Возвращает экземпляр [IconButtonColorsBuilder]
          */
         fun builder(): IconButtonColorsBuilder = DefaultIconButtonColors.Builder()
+    }
+}
+
+/**
+ * Билдер размеров для [BasicButton]
+ */
+interface IconButtonDimensionsBuilder {
+
+    /**
+     * Устанавливает высоту кнопки
+     */
+    fun height(height: Dp): IconButtonDimensionsBuilder
+
+    /**
+     * Устанавливает отступ кнопки в начале
+     */
+    fun paddingStart(paddingStart: Dp): IconButtonDimensionsBuilder
+
+    /**
+     * Устанавливает отступ кнопки в конце
+     */
+    fun paddingEnd(paddingEnd: Dp): IconButtonDimensionsBuilder
+
+    /**
+     * Устанавливает минимальную ширину кнопки
+     */
+    fun minWidth(minWidth: Dp): IconButtonDimensionsBuilder
+
+    /**
+     * Устанавливает размер иконки
+     */
+    fun iconSize(iconSize: Dp): IconButtonDimensionsBuilder
+
+    /**
+     * Устанавливает размер спиннера
+     */
+    fun spinnerSize(spinnerSize: Dp): IconButtonDimensionsBuilder
+
+    /**
+     * Устанавливает толщину спиннера
+     */
+    fun spinnerStrokeWidth(spinnerStrokeWidth: Dp): IconButtonDimensionsBuilder
+
+    /**
+     * Возвращает [Button.Dimensions]
+     */
+    fun build(): Button.Dimensions
+
+    companion object {
+        /**
+         * Вернет экземпляр билдера [IconButtonDimensionsBuilder]
+         */
+        fun builder(): IconButtonDimensionsBuilder = DefaultIconButtonDimensionsBuilder()
+    }
+}
+
+private class DefaultIconButtonDimensionsBuilder : IconButtonDimensionsBuilder {
+    private var height: Dp? = null
+    private var paddingStart: Dp? = null
+    private var paddingEnd: Dp? = null
+    private var minWidth: Dp? = null
+    private var iconSize: Dp? = null
+    private var spinnerSize: Dp? = null
+    private var spinnerStrokeWidth: Dp? = null
+    override fun height(height: Dp): IconButtonDimensionsBuilder = apply {
+        this.height = height
+    }
+
+    override fun paddingStart(paddingStart: Dp): IconButtonDimensionsBuilder = apply {
+        this.paddingStart = paddingStart
+    }
+
+    override fun paddingEnd(paddingEnd: Dp): IconButtonDimensionsBuilder = apply {
+        this.paddingEnd = paddingEnd
+    }
+
+    override fun minWidth(minWidth: Dp): IconButtonDimensionsBuilder = apply {
+        this.minWidth = minWidth
+    }
+
+    override fun iconSize(iconSize: Dp): IconButtonDimensionsBuilder = apply {
+        this.iconSize = iconSize
+    }
+
+    override fun spinnerSize(spinnerSize: Dp): IconButtonDimensionsBuilder = apply {
+        this.spinnerSize = spinnerSize
+    }
+
+    override fun spinnerStrokeWidth(spinnerStrokeWidth: Dp) = apply {
+        this.spinnerStrokeWidth = spinnerStrokeWidth
+    }
+
+    override fun build(): Button.Dimensions {
+        return Button.Dimensions(
+            height = height ?: 46.dp,
+            paddingStart = paddingStart ?: 0.dp,
+            paddingEnd = paddingEnd ?: 0.dp,
+            minWidth = minWidth ?: 84.dp,
+            iconSize = iconSize ?: 24.dp,
+            spinnerSize = spinnerSize ?: 22.dp,
+            spinnerStrokeWidth = spinnerStrokeWidth ?: 2.dp,
+        )
     }
 }
 
@@ -148,24 +258,45 @@ private class IconButtonStyleBuilderImpl(override val receiver: Any?) : IconButt
     private var colorsBuilder: IconButtonColorsBuilder = IconButtonColorsBuilder.builder()
     private var labelStyle: TextStyle? = null
     private var valueStyle: TextStyle? = null
-    private var dimensions: Button.Dimensions? = null
+    private var dimensionsBuilder: IconButtonDimensionsBuilder =
+        IconButtonDimensionsBuilder.builder()
     private var disableAlpha: Float? = null
+    private var loadingAlpha: Float? = null
 
     override fun shape(shape: CornerBasedShape) = apply {
         this.shape = shape
     }
 
     @Composable
-    override fun colors(builder: @Composable IconButtonColorsBuilder.() -> Unit): IconButtonStyleBuilder = apply {
-        this.colorsBuilder.builder()
+    override fun colors(builder: @Composable IconButtonColorsBuilder.() -> Unit): IconButtonStyleBuilder =
+        apply {
+            this.colorsBuilder.builder()
+        }
+
+    @Deprecated("Use dimensions() with builder instead")
+    override fun dimensions(dimensions: Button.Dimensions) = apply {
+        this.dimensionsBuilder.apply {
+            height(dimensions.height)
+            paddingStart(dimensions.paddingStart)
+            paddingEnd(dimensions.paddingEnd)
+            minWidth(dimensions.minWidth)
+            iconSize(dimensions.iconSize)
+            spinnerSize(dimensions.spinnerSize)
+        }
     }
 
-    override fun dimensions(dimensions: Button.Dimensions) = apply {
-        this.dimensions = dimensions
-    }
+    @Composable
+    override fun dimensions(builder: @Composable (IconButtonDimensionsBuilder.() -> Unit)) =
+        apply {
+            this.dimensionsBuilder.builder()
+        }
 
     override fun disableAlpha(disableAlpha: Float) = apply {
         this.disableAlpha = disableAlpha
+    }
+
+    override fun loadingAlpha(loadingAlpha: Float) = apply {
+        this.loadingAlpha = loadingAlpha
     }
 
     override fun style(): ButtonStyle {
@@ -174,8 +305,9 @@ private class IconButtonStyleBuilderImpl(override val receiver: Any?) : IconButt
             colors = colorsBuilder.build(),
             labelStyle = labelStyle ?: TextStyle.Default,
             valueStyle = valueStyle ?: TextStyle.Default,
-            dimensions = dimensions ?: Button.Dimensions(),
+            dimensions = dimensionsBuilder.build(),
             disableAlpha = disableAlpha ?: DISABLED_BUTTON_ALPHA,
+            loadingAlpha = loadingAlpha ?: LOADING_BUTTON_ALPHA,
         )
     }
 }
@@ -188,17 +320,16 @@ private class DefaultIconButtonStyle(
     override val valueStyle: TextStyle,
     override val dimensions: Button.Dimensions,
     override val disableAlpha: Float,
+    override val loadingAlpha: Float,
 ) : ButtonStyle
 
 @Immutable
 private class DefaultIconButtonColors(
-    override val contentColor: InteractiveColor,
     override val backgroundColor: InteractiveColor,
     override val labelColor: InteractiveColor,
     override val valueColor: InteractiveColor,
     override val iconColor: InteractiveColor,
     override val spinnerColor: InteractiveColor,
-    override val spinnerMode: Button.SpinnerMode,
 ) : ButtonColors {
 
     class Builder : IconButtonColorsBuilder {
@@ -208,7 +339,6 @@ private class DefaultIconButtonColors(
         private var valueColor: InteractiveColor? = null
         private var iconColor: InteractiveColor? = null
         private var spinnerColor: InteractiveColor? = null
-        private var spinnerMode: Button.SpinnerMode? = null
 
         override fun contentColor(contentColor: InteractiveColor) = apply {
             this.contentColor = contentColor
@@ -226,23 +356,17 @@ private class DefaultIconButtonColors(
             this.spinnerColor = spinnerColor
         }
 
-        override fun spinnerMode(spinnerMode: Button.SpinnerMode) = apply {
-            this.spinnerMode = spinnerMode
-        }
-
         override fun build(): ButtonColors {
-            val contentColor = contentColor ?: Color.Black.asInteractive()
             return DefaultIconButtonColors(
-                contentColor = contentColor,
                 backgroundColor = backgroundColor ?: Color.White.asInteractive(),
-                labelColor = labelColor ?: contentColor,
-                valueColor = valueColor ?: contentColor,
-                iconColor = iconColor ?: contentColor,
-                spinnerColor = spinnerColor ?: contentColor,
-                spinnerMode = spinnerMode ?: Button.SpinnerMode.HideContent,
+                labelColor = labelColor ?: Color.Black.asInteractive(),
+                valueColor = valueColor ?: Color.Black.asInteractive(),
+                iconColor = iconColor ?: Color.Black.asInteractive(),
+                spinnerColor = spinnerColor ?: Color.Black.asInteractive(),
             )
         }
     }
 }
 
 private const val DISABLED_BUTTON_ALPHA = 0.4f
+private const val LOADING_BUTTON_ALPHA = 0f

@@ -8,13 +8,16 @@ import com.sdds.plugin.themebuilder.internal.components.ComponentStyleGenerator
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.ColorState
 import com.sdds.plugin.themebuilder.internal.components.base.Config
+import com.sdds.plugin.themebuilder.internal.components.base.Dimension
 import com.sdds.plugin.themebuilder.internal.components.base.PropertyOwner
 import com.sdds.plugin.themebuilder.internal.components.base.Shape
+import com.sdds.plugin.themebuilder.internal.components.base.Typography
 import com.sdds.plugin.themebuilder.internal.components.base.VariationNode
 import com.sdds.plugin.themebuilder.internal.components.base.asVariationTree
 import com.sdds.plugin.themebuilder.internal.dimens.DimenData
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
+import com.sdds.plugin.themebuilder.internal.token.ShapeToken
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 import com.sdds.plugin.themebuilder.internal.utils.capitalized
 import com.sdds.plugin.themebuilder.internal.utils.decapitalized
@@ -96,12 +99,24 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
     }
 
     protected fun getShape(shape: Shape, variationId: String): String {
-        return ".shape($themeClassName.shapes.${shape.value.toKtAttrName()}${
-            shape.shapeAdjustment(suffix = variationId)
-        })"
+        return if (ShapeToken.isCircle(shape.value)) {
+            ktFileBuilder.addImport(
+                packageName = "androidx.compose.foundation.shape",
+                names = listOf("CircleShape"),
+            )
+            ".shape(CircleShape)"
+        } else {
+            ".shape($themeClassName.shapes.${shape.value.toKtAttrName()}${
+                shape.shapeAdjustment(suffix = variationId)
+            })"
+        }
     }
 
-    protected fun getDimension(
+    protected fun getTypography(styleName: String, typography: Typography): String {
+        return ".$styleName($themeClassName.typography.${typography.value.toKtAttrName()})"
+    }
+
+    private fun getDimension(
         dimenName: String,
         dimenValue: Float,
         dimensionResSuffix: String,
@@ -119,7 +134,24 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
         }
     }
 
-    protected fun String.toKtAttrName(): String =
+    protected fun StringBuilder.appendDimension(
+        dimensionName: String,
+        dimension: Dimension,
+        variationId: String,
+    ) {
+        val camelCaseName = dimensionName.toCamelCase().decapitalized()
+        appendLine(
+            "$camelCaseName(${
+                getDimension(
+                    dimensionName,
+                    dimension.value,
+                    variationId,
+                )
+            })",
+        )
+    }
+
+    private fun String.toKtAttrName(): String =
         toCamelCase().decapitalize(Locale.getDefault())
 
     protected fun String.toCamelCase(): String {
@@ -127,7 +159,7 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
         return segments.joinToString("") { it.capitalized() }
     }
 
-    protected fun Shape.shapeAdjustment(suffix: String): String {
+    private fun Shape.shapeAdjustment(suffix: String): String {
         return this.adjustment?.let {
             ".adjustBy(all = ${getShapeAdjustment(suffix)})"
         }.orEmpty()

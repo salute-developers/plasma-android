@@ -2,14 +2,11 @@ package com.sdds.plugin.themebuilder.internal.components.textfield.compose
 
 import com.sdds.plugin.themebuilder.DimensionsConfig
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
-import com.sdds.plugin.themebuilder.internal.components.base.Dimension
-import com.sdds.plugin.themebuilder.internal.components.base.Typography
 import com.sdds.plugin.themebuilder.internal.components.base.compose.ComposeVariationGenerator
 import com.sdds.plugin.themebuilder.internal.components.textfield.TextFieldProperties
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
-import com.sdds.plugin.themebuilder.internal.utils.decapitalized
 import com.squareup.kotlinpoet.ClassName
 
 /**
@@ -18,7 +15,7 @@ import com.squareup.kotlinpoet.ClassName
 internal class TextFieldComposeVariationGenerator(
     private val chipStylesPackage: String,
     private val chipGroupStylesPackage: String,
-    private val themeClassName: String,
+    themeClassName: String,
     themePackage: String,
     dimensionsConfig: DimensionsConfig,
     dimensAggregator: DimensAggregator,
@@ -362,61 +359,40 @@ internal class TextFieldComposeVariationGenerator(
         }
     }
 
-    private fun StringBuilder.appendDimension(
-        dimensionName: String,
-        dimension: Dimension,
-        variationId: String,
-    ) {
-        val camelCaseName = dimensionName.toCamelCase().decapitalized()
-        appendLine(
-            "$camelCaseName(${
-                getDimension(
-                    dimensionName,
-                    dimension.value,
-                    variationId,
-                )
-            })",
-        )
-    }
-
     private fun captionStyleCall(props: TextFieldProperties): String? {
         return props.captionStyle?.let {
-            typographyCall("captionStyle", it)
+            getTypography("captionStyle", it)
         }
     }
 
     private fun optionalStyleCall(props: TextFieldProperties): String? {
         return props.optionalStyle?.let {
-            typographyCall("optionalStyle", it)
+            getTypography("optionalStyle", it)
         }
     }
 
     private fun counterStyleCall(props: TextFieldProperties): String? {
         return props.counterStyle?.let {
-            typographyCall("counterStyle", it)
+            getTypography("counterStyle", it)
         }
     }
 
     private fun labelStyleCall(props: TextFieldProperties): String? {
         return props.labelStyle?.let {
-            typographyCall("labelStyle", it)
+            getTypography("labelStyle", it)
         }
     }
 
     private fun valueStyleCall(props: TextFieldProperties): String? {
         return props.valueStyle?.let {
-            typographyCall("valueStyle", it)
+            getTypography("valueStyle", it)
         }
     }
 
     private fun placeholderStyleCall(props: TextFieldProperties): String? {
         return props.placeholderStyle?.let {
-            typographyCall("placeholderStyle", it)
+            getTypography("placeholderStyle", it)
         }
-    }
-
-    private fun typographyCall(styleName: String, typography: Typography): String {
-        return ".$styleName($themeClassName.typography.${typography.value.toKtAttrName()})"
     }
 
     private fun TextFieldProperties.hasIndicatorDimensions(): Boolean {

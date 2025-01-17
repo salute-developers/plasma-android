@@ -47,6 +47,11 @@ interface ButtonStyle : Style {
      */
     val disableAlpha: Float
 
+    /**
+     * Значение прозрачности кнопки в состоянии загрузки
+     */
+    val loadingAlpha: Float
+
     companion object
 }
 
@@ -55,12 +60,6 @@ interface ButtonStyle : Style {
  */
 @Stable
 interface ButtonColors {
-
-    /**
-     * Цвет контента кнопки
-     * @see InteractiveColor
-     */
-    val contentColor: InteractiveColor
 
     /**
      * Цвет фона кнопки
@@ -91,10 +90,4 @@ interface ButtonColors {
      * @see InteractiveColor
      */
     val spinnerColor: InteractiveColor
-
-    /**
-     * Режим работы индикатора загрузки
-     * @see Button.SpinnerMode
-     */
-    val spinnerMode: Button.SpinnerMode
 }

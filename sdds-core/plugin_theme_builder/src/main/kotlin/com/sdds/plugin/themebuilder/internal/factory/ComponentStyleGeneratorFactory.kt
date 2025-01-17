@@ -5,10 +5,7 @@ import com.sdds.plugin.themebuilder.ResourcePrefixConfig
 import com.sdds.plugin.themebuilder.internal.PackageResolver
 import com.sdds.plugin.themebuilder.internal.TargetPackage
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
-import com.sdds.plugin.themebuilder.internal.components.button.BasicButtonStyleGeneratorCompose
-import com.sdds.plugin.themebuilder.internal.components.button.ButtonStyleGeneratorComposeFactory
-import com.sdds.plugin.themebuilder.internal.components.button.IconButtonStyleGeneratorCompose
-import com.sdds.plugin.themebuilder.internal.components.button.LinkButtonStyleGeneratorCompose
+import com.sdds.plugin.themebuilder.internal.components.button.compose.ButtonComposeVariationGenerator
 import com.sdds.plugin.themebuilder.internal.components.button.view.BasicButtonStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.components.button.view.IconButtonStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.components.button.view.LinkButtonStyleGeneratorView
@@ -45,19 +42,6 @@ internal class ComponentStyleGeneratorFactory(
         projectDir.get().dir(outputResDirPath).asFile
     }
 
-    private val buttonStyleGeneratorComposeFactory by unsafeLazy {
-        ButtonStyleGeneratorComposeFactory(
-            outputLocation = KtFileBuilder.OutputLocation.Directory(outputDir),
-            ktFileBuilderFactory = ktFileBuilderFactory,
-            themeName = themeName,
-            packageResolver = packageResolver,
-            namespace = namespace,
-            dimensionsConfig = dimensionsConfig,
-            dimensAggregator = dimensAggregator,
-            resourceReferenceProvider = resourceReferenceProvider,
-        )
-    }
-
     private val mViewColorStateGeneratorFactory by unsafeLazy {
         ViewColorStateGeneratorFactory(
             ktFileBuilderFactory = ktFileBuilderFactory,
@@ -77,9 +61,6 @@ internal class ComponentStyleGeneratorFactory(
         )
     }
 
-    fun createBasicButtonStyleGeneratorCompose(): BasicButtonStyleGeneratorCompose =
-        buttonStyleGeneratorComposeFactory.createBasicButtonGenerator()
-
     fun createBasicButtonStyleGeneratorView(): BasicButtonStyleGeneratorView =
         BasicButtonStyleGeneratorView(
             xmlBuilderFactory = xmlBuilderFactory,
@@ -91,9 +72,6 @@ internal class ComponentStyleGeneratorFactory(
             viewColorStateGeneratorFactory = mViewColorStateGeneratorFactory,
         )
 
-    fun createIconButtonStyleGeneratorCompose(): IconButtonStyleGeneratorCompose =
-        buttonStyleGeneratorComposeFactory.createIconButtonGenerator()
-
     fun createIconButtonStyleGeneratorView(): IconButtonStyleGeneratorView =
         IconButtonStyleGeneratorView(
             xmlBuilderFactory = xmlBuilderFactory,
@@ -104,9 +82,6 @@ internal class ComponentStyleGeneratorFactory(
             viewColorStateGeneratorFactory = mViewColorStateGeneratorFactory,
             colorStateListGeneratorFactory = colorStateListGeneratorFactory,
         )
-
-    fun createLinkButtonStyleGeneratorCompose(): LinkButtonStyleGeneratorCompose =
-        buttonStyleGeneratorComposeFactory.createLinkButtonGenerator()
 
     fun createLinkButtonStyleGeneratorView(): LinkButtonStyleGeneratorView =
         LinkButtonStyleGeneratorView(
@@ -173,6 +148,40 @@ internal class ComponentStyleGeneratorFactory(
         themePackage = packageResolver.getPackage(TargetPackage.THEME),
         chipStylesPackage = "${packageResolver.getPackage(TargetPackage.STYLES)}.chip",
         chipGroupStylesPackage = "${packageResolver.getPackage(TargetPackage.STYLES)}.chip.group",
+        dimensionsConfig = dimensionsConfig,
+        dimensAggregator = dimensAggregator,
+        resourceReferenceProvider = resourceReferenceProvider,
+        namespace = namespace,
+        ktFileBuilderFactory = ktFileBuilderFactory,
+        componentPackage = "${packageResolver.getPackage(TargetPackage.STYLES)}.$componentPackage",
+        componentName = componentName,
+        outputLocation = KtFileBuilder.OutputLocation.Directory(outputDir),
+    )
+
+    fun createBasicButtonStyleGeneratorCompose() =
+        createBaseButtonStyleGeneratorCompose(
+            componentName = "basic_button",
+            componentPackage = "button.basic",
+        )
+
+    fun createLinkButtonStyleGeneratorCompose() =
+        createBaseButtonStyleGeneratorCompose(
+            componentName = "link_button",
+            componentPackage = "button.link",
+        )
+
+    fun createIconButtonStyleGeneratorCompose() =
+        createBaseButtonStyleGeneratorCompose(
+            componentName = "icon_button",
+            componentPackage = "button.icon",
+        )
+
+    private fun createBaseButtonStyleGeneratorCompose(
+        componentName: String,
+        componentPackage: String,
+    ) = ButtonComposeVariationGenerator(
+        themeClassName = "${themeName.snakeToCamelCase()}Theme",
+        themePackage = packageResolver.getPackage(TargetPackage.THEME),
         dimensionsConfig = dimensionsConfig,
         dimensAggregator = dimensAggregator,
         resourceReferenceProvider = resourceReferenceProvider,

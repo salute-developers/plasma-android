@@ -18,12 +18,12 @@ import com.sdds.compose.uikit.internal.ButtonText
  * Кнопка с иконкой.
  * Если [loading] == true, кнопка отобразит круглый индикатор загрузки.
  * На время анимации загрузки контент будет скрыт или станет полупрозрачным
- * в зависимости от режима [spinnerMode].
+ * в зависимости от стиля.
  *
  * @param icon иконка
  * @param onClick обработчик нажатий
  * @param modifier модификатор
- * @param spinnerMode режим, определяющий, как выглядит контент во время анимации загрузки
+ * @param style стиль кнопки
  * @param enabled флаг доступности кнопки
  * @param loading флаг загрузки
  * @param interactionSource источник взаимодействий [MutableInteractionSource]
@@ -46,10 +46,9 @@ fun IconButton(
         shape = style.shape,
         dimensions = dimensions,
         colors = style.colors,
-        spinnerMode = Button.SpinnerMode.HideContent,
         enabled = enabled,
         loading = loading,
-        enabledAlpha = ENABLED_BUTTON_ALPHA,
+        loadingAlpha = style.loadingAlpha,
         disabledAlpha = style.disableAlpha,
         indication = indication,
         interactionSource = interactionSource,
@@ -57,6 +56,7 @@ fun IconButton(
         ButtonIcon(
             icon = icon,
             size = dimensions.iconSize,
+            iconColor = style.colors.iconColor.colorForInteraction(interactionSource),
         )
     }
 }
@@ -69,7 +69,7 @@ fun IconButton(
  * @param label текст кнопки
  * @param onClick обработчик нажатий
  * @param modifier модификатор
- * @param spinnerMode режим, определяющий, как выглядит контент во время анимации загрузки
+ * @param style стиль кнопки
  * @param value доп. текст кнопки
  * @param icons иконки
  * @param spacing вид отступа между [label] и [value]
@@ -92,15 +92,16 @@ fun Button(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     val dimensions = style.dimensions.let {
-        var paddings = it.paddings
-        paddings = when {
-            icons?.start != null && paddings.start > IconPaddingOffset ->
-                paddings.copy(start = paddings.start - IconPaddingOffset)
-            icons?.end != null && paddings.end > IconPaddingOffset ->
-                paddings.copy(end = paddings.end - IconPaddingOffset)
-            else -> paddings
+        var paddingStart = it.paddingStart
+        var paddingEnd = it.paddingEnd
+        when {
+            icons?.start != null && paddingStart > IconPaddingOffset ->
+                paddingStart -= IconPaddingOffset
+            icons?.end != null && paddingEnd > IconPaddingOffset ->
+                paddingEnd -= IconPaddingOffset
+            else -> {}
         }
-        it.copy(paddings = paddings)
+        it.copy(paddingStart = paddingStart, paddingEnd = paddingEnd)
     }
     val colors = style.colors
 
@@ -108,8 +109,7 @@ fun Button(
         modifier = modifier,
         onClick = onClick,
         colors = colors,
-        spinnerMode = colors.spinnerMode,
-        enabledAlpha = ENABLED_BUTTON_ALPHA,
+        loadingAlpha = style.loadingAlpha,
         disabledAlpha = style.disableAlpha,
         enabled = enabled,
         shape = style.shape,
@@ -123,6 +123,7 @@ fun Button(
                 icon = icons.start,
                 size = dimensions.iconSize,
                 marginEnd = dimensions.iconMargin,
+                iconColor = style.colors.iconColor.colorForInteraction(interactionSource),
             )
         }
         val labelColor = colors.labelColor.colorForInteraction(interactionSource)
@@ -143,6 +144,7 @@ fun Button(
                 icon = icons.end,
                 size = dimensions.iconSize,
                 marginStart = dimensions.iconMargin,
+                iconColor = style.colors.iconColor.colorForInteraction(interactionSource),
             )
         }
     }
@@ -157,7 +159,8 @@ object Button {
      * Размеры и отступы, которые используются внутри кнопки.
      *
      * @property height высота кнопки
-     * @property paddings горизонтальные отступы кнопки
+     * @property paddingStart отступ кнопки в начале
+     * @property paddingEnd отступ кнопки в конце
      * @property minWidth минимальная ширина кнопки
      * @property iconSize размер иконки
      * @property spinnerSize размер спиннера
@@ -168,7 +171,8 @@ object Button {
     @Immutable
     data class Dimensions(
         val height: Dp = 48.dp,
-        val paddings: PaddingValues = PaddingValues(),
+        val paddingStart: Dp = 0.dp,
+        val paddingEnd: Dp = 0.dp,
         val minWidth: Dp = 84.dp,
         val iconSize: Dp = 24.dp,
         val spinnerSize: Dp = 22.dp,
@@ -190,24 +194,6 @@ object Button {
         ) {
             constructor(horizontal: Dp) : this(horizontal, horizontal)
         }
-    }
-
-    /**
-     * Режим, определяющий, как выглядит контент во время индикации загрузки.
-     *
-     * @property contentAlpha альфа контента
-     */
-    sealed class SpinnerMode(val contentAlpha: Float) {
-
-        /**
-         * Контент будет скрыт во время загрузки, имеет alpha = 0
-         */
-        object HideContent : SpinnerMode(0f)
-
-        /**
-         * Контент станет полупрозрачным, с альфой [alpha]
-         */
-        data class SemitransparentContent(val alpha: Float) : SpinnerMode(alpha)
     }
 
     /**
@@ -254,5 +240,4 @@ object IconButton
  */
 object LinkButton
 
-private const val ENABLED_BUTTON_ALPHA = 1f
 private val IconPaddingOffset = 2.dp
