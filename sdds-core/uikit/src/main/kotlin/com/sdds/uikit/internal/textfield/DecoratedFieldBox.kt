@@ -39,7 +39,6 @@ import com.sdds.uikit.ChipGroup
 import com.sdds.uikit.FlowLayout
 import com.sdds.uikit.ImageView
 import com.sdds.uikit.R
-import com.sdds.uikit.TextView
 import com.sdds.uikit.colorstate.ColorState
 import com.sdds.uikit.colorstate.ColorState.Companion.isDefined
 import com.sdds.uikit.colorstate.ColorStateHolder
@@ -75,27 +74,29 @@ internal class DecoratedFieldBox(
             addUpdateListener { _collapsingTextHelper.expansionFraction = (it.animatedValue as Float) }
         }
     }
-    private val _iconView: ImageView by unsafeLazy {
-        ImageView(context).apply {
+    private val _iconView: TextFieldImageView by unsafeLazy {
+        TextFieldImageView(context).apply {
             id = R.id.sd_textFieldIcon
         }
     }
-    private val _actionView: ImageView by unsafeLazy {
-        ImageView(context).apply {
+    private val _actionView: TextFieldImageView by unsafeLazy {
+        TextFieldImageView(context).apply {
             id = R.id.sd_textFieldAction
         }
     }
-    private val _captionView: TextView by unsafeLazy {
-        TextView(context).apply {
+    private val _captionView: TextFieldTextView by unsafeLazy {
+        TextFieldTextView(context).apply {
             id = R.id.sd_textFieldCaption
             includeFontPadding = false
+            isClickable = false
         }
     }
 
-    private val _counterView: TextView by unsafeLazy {
-        TextView(context).apply {
+    private val _counterView: TextFieldTextView by unsafeLazy {
+        TextFieldTextView(context).apply {
             id = R.id.sd_textFieldCounter
             includeFontPadding = false
+            isClickable = false
         }
     }
     private val _field = StatefulEditText(context).apply {
@@ -146,8 +147,12 @@ internal class DecoratedFieldBox(
     private var _allowBreakLines: Boolean = true
     private var _smoothScrollRunnable: Runnable? = null
 
-    private val _scrollBarTrackDrawable: Drawable = ScrollBarIndicatorDrawable(context)
-    private val _scrollBarThumbDrawable: Drawable = ScrollBarIndicatorDrawable(context)
+    private val _scrollBarTrackDrawable: Drawable = ScrollBarIndicatorDrawable(context).apply {
+        callback = this@DecoratedFieldBox
+    }
+    private val _scrollBarThumbDrawable: Drawable = ScrollBarIndicatorDrawable(context).apply {
+        callback = this@DecoratedFieldBox
+    }
     private var _scrollBarEnabled: Boolean = false
     private var _scrollBarThickness: Int = 0
     private var _scrollBarPaddingTop: Int = 0
@@ -237,6 +242,10 @@ internal class DecoratedFieldBox(
 
     fun setReadOnly(readonly: Boolean) {
         chipGroup.setReadOnly(readonly)
+        _captionView.isReadOnly = readonly
+        _counterView.isReadOnly = readonly
+        _iconView.isReadOnly = readonly
+        _actionView.isReadOnly = readonly
         refreshDrawableState()
     }
 
@@ -446,6 +455,8 @@ internal class DecoratedFieldBox(
         if (_inDrawableStateChanged) return
 
         _inDrawableStateChanged = true
+        _scrollBarThumbDrawable.state = drawableState
+        _scrollBarTrackDrawable.state = drawableState
         val changed = _collapsingTextHelper.setState(drawableState)
         updateTextState(isLaidOut && isEnabled)
 
@@ -464,6 +475,10 @@ internal class DecoratedFieldBox(
         focusEditText()
         updateTextState(true)
         return result
+    }
+
+    override fun verifyDrawable(who: Drawable): Boolean {
+        return super.verifyDrawable(who) || who == _scrollBarThumbDrawable || who == _scrollBarTrackDrawable
     }
 
     override fun onDetachedFromWindow() {
