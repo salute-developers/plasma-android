@@ -145,7 +145,7 @@ private data class ColorStateList(
             ?: default
     }
 
-    private fun  Map<Set<InteractiveState>, Color>.getSingleState(
+    private fun Map<Set<InteractiveState>, Color>.getSingleState(
         stateSet: HashSet<InteractiveState>,
         singleState: InteractiveState,
     ): Color? {
