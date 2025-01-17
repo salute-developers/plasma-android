@@ -17,6 +17,7 @@ import com.sdds.plugin.themebuilder.internal.components.base.asVariationTree
 import com.sdds.plugin.themebuilder.internal.dimens.DimenData
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
+import com.sdds.plugin.themebuilder.internal.token.ShapeToken
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 import com.sdds.plugin.themebuilder.internal.utils.capitalized
 import com.sdds.plugin.themebuilder.internal.utils.decapitalized
@@ -98,7 +99,7 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
     }
 
     protected fun getShape(shape: Shape, variationId: String): String {
-        return if (shape.value == "round.circle") {
+        return if (ShapeToken.isCircle(shape.value)) {
             ktFileBuilder.addImport(
                 packageName = "androidx.compose.foundation.shape",
                 names = listOf("CircleShape"),

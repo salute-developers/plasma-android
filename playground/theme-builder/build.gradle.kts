@@ -19,7 +19,6 @@ themeBuilder {
         url("file://${projectDir.path}/json/test_theme.zip")
         name("sdds_serv")
     }
-    componentsSource("file://${projectDir.path}/json")
     view {
         themeParents {
             materialComponentsTheme()
