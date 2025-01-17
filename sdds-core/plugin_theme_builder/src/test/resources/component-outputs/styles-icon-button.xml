@@ -4,8 +4,6 @@
 <resources>
     <style name="Thmbldr.TestTheme.Components.IconButton" parent="Sdds.Components.IconButton">
         <item name="sd_colorStateProvider">com.test.colorstate.IconButtonColorStateProvider</item>
-        <item name="android:textColor">@color/thmbldr_icon_button_text_color</item>
-        <item name="sd_spinnerTint">@color/thmbldr_icon_button_spinner_tint</item>
         <item name="sd_iconTint">@color/thmbldr_icon_button_icon_tint</item>
     </style>
     <style name="Thmbldr.TestTheme.Components.IconButton.L">

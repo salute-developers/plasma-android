@@ -108,8 +108,6 @@ internal abstract class BaseButtonStyleGeneratorView(
             return
         }
 
-        println("add color $colorValue with loading alpha $loadingAlpha")
-
         when (loadingColorValue) {
             is ColorValue.SimpleValue -> {
                 addToStateList(
@@ -184,10 +182,10 @@ internal abstract class BaseButtonStyleGeneratorView(
         override fun provide(owner: ButtonProperties): Color? {
             return when (this) {
                 BACKGROUND_COLOR -> owner.backgroundColor
-                TEXT_COLOR -> owner.labelColor ?: owner.contentColor
+                TEXT_COLOR -> owner.labelColor
                 VALUE_COLOR -> owner.valueColor
-                SPINNER_COLOR -> owner.spinnerColor ?: owner.contentColor
-                ICON_COLOR -> owner.iconColor ?: owner.contentColor
+                SPINNER_COLOR -> owner.spinnerColor
+                ICON_COLOR -> owner.iconColor
             }
         }
     }
@@ -204,9 +202,9 @@ internal abstract class BaseButtonStyleGeneratorView(
         override fun provide(owner: ButtonProperties): Color? {
             val loadingAlpha = owner.loadingAlpha?.value
             val color = when (this) {
-                TEXT_COLOR -> owner.labelColor ?: owner.contentColor
+                TEXT_COLOR -> owner.labelColor
                 VALUE_COLOR -> owner.valueColor
-                ICON_COLOR -> owner.iconColor ?: owner.contentColor
+                ICON_COLOR -> owner.iconColor
             }
             return loadingAlpha?.let { color?.copy(alpha = loadingAlpha) }
         }

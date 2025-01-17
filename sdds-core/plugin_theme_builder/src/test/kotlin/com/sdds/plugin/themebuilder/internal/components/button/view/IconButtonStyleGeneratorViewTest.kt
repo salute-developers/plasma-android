@@ -128,7 +128,7 @@ class IconButtonStyleGeneratorViewTest {
             view = mapOf(
                 "default" to ButtonView(
                     props = ButtonProperties(
-                        contentColor = Color(
+                        iconColor = Color(
                             default = "textInversePrimary",
                             states = listOf(
                                 ColorState(
@@ -141,7 +141,7 @@ class IconButtonStyleGeneratorViewTest {
                 ),
                 "warning" to ButtonView(
                     props = ButtonProperties(
-                        contentColor = Color(
+                        iconColor = Color(
                             default = "textInverseWarning",
                             states = listOf(
                                 ColorState(

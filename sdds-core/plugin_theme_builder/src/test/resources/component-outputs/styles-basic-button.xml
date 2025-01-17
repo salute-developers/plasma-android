@@ -5,8 +5,6 @@
     <style name="Thmbldr.TestTheme.Components.BasicButton" parent="Sdds.Components.Button">
         <item name="sd_colorStateProvider">com.test.colorstate.ButtonColorStateProvider</item>
         <item name="android:textColor">@color/thmbldr_basic_button_text_color</item>
-        <item name="sd_spinnerTint">@color/thmbldr_basic_button_spinner_tint</item>
-        <item name="sd_iconTint">@color/thmbldr_basic_button_icon_tint</item>
     </style>
     <style name="Thmbldr.TestTheme.Components.BasicButton.L">
         <item name="android:minHeight">@dimen/thmbldr_basic_button_l_min_height</item>

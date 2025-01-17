@@ -29,7 +29,6 @@ internal data class ButtonProperties(
     val iconMargin: Dimension? = null,
     val valueMargin: Dimension? = null,
 
-    val contentColor: Color? = null,
     val backgroundColor: Color? = null,
     val iconColor: Color? = null,
     val labelColor: Color? = null,
@@ -55,7 +54,6 @@ internal data class ButtonProperties(
             spinnerStrokeWidth = spinnerStrokeWidth ?: otherProps.spinnerStrokeWidth,
             iconMargin = iconMargin ?: otherProps.iconMargin,
             valueMargin = valueMargin ?: otherProps.valueMargin,
-            contentColor = contentColor ?: otherProps.contentColor,
             backgroundColor = backgroundColor ?: otherProps.backgroundColor,
             iconColor = iconColor ?: otherProps.iconColor,
             labelColor = labelColor ?: otherProps.labelColor,
