@@ -161,18 +161,7 @@ open class CellLayout @JvmOverloads constructor(
     override fun onFocusChanged(gainFocus: Boolean, direction: Int, previouslyFocusedRect: Rect?) {
         super.onFocusChanged(gainFocus, direction, previouslyFocusedRect)
         updateFocusSelector(this, gainFocus)
-        redispatchActivated()
-    }
-
-    override fun dispatchSetActivated(activated: Boolean) {
-        // При вызове setActivated хотим, чтобы на children всегда приходил activated = false
-        // Чтобы потом самостоятельно отправить им нужное значение
-        super.dispatchSetActivated(false)
-    }
-
-    private fun redispatchActivated() {
-        // отправляем всем children значение activate = true, если в контейнер в фокусе
-        super.dispatchSetActivated(isFocused)
+        isActivated = gainFocus
     }
 
     override fun addView(child: View?, index: Int, params: ViewGroup.LayoutParams?) {

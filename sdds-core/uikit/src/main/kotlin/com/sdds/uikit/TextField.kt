@@ -25,6 +25,7 @@ import com.sdds.uikit.internal.base.unsafeLazy
 import com.sdds.uikit.internal.textfield.DecoratedFieldBox
 import com.sdds.uikit.internal.textfield.IndicatorDrawable
 import com.sdds.uikit.internal.textfield.StatefulEditText
+import com.sdds.uikit.internal.textfield.TextFieldTextView
 
 /**
  * Компонент TextField - однострочное текстовое поле
@@ -80,23 +81,24 @@ open class TextField @JvmOverloads constructor(
         End,
     }
 
-    private val _outerLabelView: TextView by unsafeLazy {
-        TextView(context).apply {
+    private val _outerLabelView: TextFieldTextView by unsafeLazy {
+        TextFieldTextView(context).apply {
             id = R.id.sd_textFieldOuterLabel
             isFocusable = false
             isFocusableInTouchMode = false
         }
     }
-    private val _captionView: TextView by unsafeLazy {
-        TextView(context).apply {
+    private val _captionView: TextFieldTextView by unsafeLazy {
+        TextFieldTextView(context).apply {
             id = R.id.sd_textFieldCaption
             isFocusable = false
+            isClickable = false
             isFocusableInTouchMode = false
         }
     }
 
-    private val _counterView: TextView by unsafeLazy {
-        TextView(context).apply {
+    private val _counterView: TextFieldTextView by unsafeLazy {
+        TextFieldTextView(context).apply {
             id = R.id.sd_textFieldCounter
             isFocusable = false
         }
@@ -142,7 +144,7 @@ open class TextField @JvmOverloads constructor(
         isFocusable = false
         isFocusableInTouchMode = false
         viewTreeObserver.addOnGlobalFocusChangeListener { oldFocus, newFocus ->
-            isActivated = !_decorationBox.isFocused && hasFocus()
+            isActivated = !_decorationBox.isFocused && hasFocus() && !isReadOnly
         }
     }
 
@@ -262,6 +264,9 @@ open class TextField @JvmOverloads constructor(
         get() = _decorationBox.editText.isReadOnly
         set(value) {
             _decorationBox.setReadOnly(value)
+            _captionView.isReadOnly = value
+            _counterView.isReadOnly = value
+            _outerLabelView.isReadOnly = value
             refreshDrawableState()
         }
 
