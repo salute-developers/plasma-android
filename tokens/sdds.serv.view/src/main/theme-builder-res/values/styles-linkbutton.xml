@@ -3,11 +3,12 @@
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <resources>
     <style name="Serv.Sdds.Components.LinkButton" parent="Sdds.Components.LinkButton">
+        <item name="sd_colorStateProvider">com.sdds.serv.colorstate.LinkButtonColorStateProvider</item>
+        <item name="sd_disabledAlpha">0.4</item>
+        <item name="backgroundTint">@color/serv_link_button_bg_color</item>
         <item name="android:textColor">@color/serv_link_button_text_color</item>
         <item name="sd_spinnerTint">@color/serv_link_button_spinner_tint</item>
         <item name="sd_iconTint">@color/serv_link_button_icon_tint</item>
-        <item name="sd_colorStateProvider">com.sdds.serv.colorstate.LinkButtonColorStateProvider</item>
-        <item name="backgroundTint">?serv_surfaceDefaultClear</item>
     </style>
     <style name="Serv.Sdds.Components.LinkButton.L">
         <item name="android:minHeight">@dimen/serv_link_button_l_min_height</item>
@@ -16,9 +17,12 @@
         <item name="android:paddingEnd">@dimen/serv_link_button_l_padding_end</item>
         <item name="sd_iconSize">@dimen/serv_link_button_l_icon_size</item>
         <item name="sd_spinnerSize">@dimen/serv_link_button_l_spinner_size</item>
+        <item name="sd_spinnerStrokeWidth">@dimen/serv_link_button_l_spinner_stroke_width</item>
         <item name="sd_iconPadding">@dimen/serv_link_button_l_icon_padding</item>
-        <item name="sd_valuePadding">@dimen/serv_link_button_l_value_padding</item>
         <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyLBold</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.LinkButtonL">
+        <item name="sd_linkButtonStyle">@style/Serv.Sdds.Components.LinkButton.L</item>
     </style>
     <style name="Serv.Sdds.Components.LinkButton.L.Default">
         <item name="serv_linkbuttonColors">state_default</item>
@@ -63,9 +67,12 @@
         <item name="android:paddingEnd">@dimen/serv_link_button_m_padding_end</item>
         <item name="sd_iconSize">@dimen/serv_link_button_m_icon_size</item>
         <item name="sd_spinnerSize">@dimen/serv_link_button_m_spinner_size</item>
+        <item name="sd_spinnerStrokeWidth">@dimen/serv_link_button_m_spinner_stroke_width</item>
         <item name="sd_iconPadding">@dimen/serv_link_button_m_icon_padding</item>
-        <item name="sd_valuePadding">@dimen/serv_link_button_m_value_padding</item>
         <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyMBold</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.LinkButtonM">
+        <item name="sd_linkButtonStyle">@style/Serv.Sdds.Components.LinkButton.M</item>
     </style>
     <style name="Serv.Sdds.Components.LinkButton.M.Default">
         <item name="serv_linkbuttonColors">state_default</item>
@@ -110,9 +117,12 @@
         <item name="android:paddingEnd">@dimen/serv_link_button_s_padding_end</item>
         <item name="sd_iconSize">@dimen/serv_link_button_s_icon_size</item>
         <item name="sd_spinnerSize">@dimen/serv_link_button_s_spinner_size</item>
+        <item name="sd_spinnerStrokeWidth">@dimen/serv_link_button_s_spinner_stroke_width</item>
         <item name="sd_iconPadding">@dimen/serv_link_button_s_icon_padding</item>
-        <item name="sd_valuePadding">@dimen/serv_link_button_s_value_padding</item>
         <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodySBold</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.LinkButtonS">
+        <item name="sd_linkButtonStyle">@style/Serv.Sdds.Components.LinkButton.S</item>
     </style>
     <style name="Serv.Sdds.Components.LinkButton.S.Default">
         <item name="serv_linkbuttonColors">state_default</item>
@@ -157,9 +167,12 @@
         <item name="android:paddingEnd">@dimen/serv_link_button_xs_padding_end</item>
         <item name="sd_iconSize">@dimen/serv_link_button_xs_icon_size</item>
         <item name="sd_spinnerSize">@dimen/serv_link_button_xs_spinner_size</item>
+        <item name="sd_spinnerStrokeWidth">@dimen/serv_link_button_xs_spinner_stroke_width</item>
         <item name="sd_iconPadding">@dimen/serv_link_button_xs_icon_padding</item>
-        <item name="sd_valuePadding">@dimen/serv_link_button_xs_value_padding</item>
         <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyXsBold</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.LinkButtonXs">
+        <item name="sd_linkButtonStyle">@style/Serv.Sdds.Components.LinkButton.Xs</item>
     </style>
     <style name="Serv.Sdds.Components.LinkButton.Xs.Default">
         <item name="serv_linkbuttonColors">state_default</item>

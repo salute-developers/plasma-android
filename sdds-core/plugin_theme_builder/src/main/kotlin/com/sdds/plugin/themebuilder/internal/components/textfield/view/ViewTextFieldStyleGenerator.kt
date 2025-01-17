@@ -61,6 +61,11 @@ internal open class ViewTextFieldStyleGenerator(
             }
         }
 
+    override fun createColorStateStyles(
+        rootDocument: XmlResourcesDocumentBuilder,
+        variationNode: VariationNode<TextFieldProperties>,
+    ) = Unit
+
     @Suppress("CyclomaticComplexMethod", "LongMethod")
     private fun Element.addProps(
         variation: String,

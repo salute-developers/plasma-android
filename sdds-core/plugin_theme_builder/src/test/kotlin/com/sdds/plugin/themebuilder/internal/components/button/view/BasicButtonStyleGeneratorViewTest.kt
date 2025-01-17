@@ -3,7 +3,15 @@ package com.sdds.plugin.themebuilder.internal.components.button.view
 import com.sdds.plugin.themebuilder.ResourcePrefixConfig
 import com.sdds.plugin.themebuilder.internal.PackageResolver
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
-import com.sdds.plugin.themebuilder.internal.components.button.ButtonComponentConfig
+import com.sdds.plugin.themebuilder.internal.components.base.Color
+import com.sdds.plugin.themebuilder.internal.components.base.ColorState
+import com.sdds.plugin.themebuilder.internal.components.base.Dimension
+import com.sdds.plugin.themebuilder.internal.components.base.Shape
+import com.sdds.plugin.themebuilder.internal.components.base.Typography
+import com.sdds.plugin.themebuilder.internal.components.button.ButtonConfig
+import com.sdds.plugin.themebuilder.internal.components.button.ButtonProperties
+import com.sdds.plugin.themebuilder.internal.components.button.ButtonVariation
+import com.sdds.plugin.themebuilder.internal.components.button.ButtonView
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.ColorStateListGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
@@ -23,7 +31,6 @@ import io.mockk.mockkObject
 import org.junit.After
 import org.junit.Assert
 import org.junit.Before
-import org.junit.Ignore
 import org.junit.Test
 import java.io.ByteArrayOutputStream
 import java.io.File
@@ -87,7 +94,6 @@ class BasicButtonStyleGeneratorViewTest {
     }
 
     @Test
-    @Ignore
     fun generate() {
         val styleOutputXml = ByteArrayOutputStream()
         every { mockOutputStyleFile.fileWriter() } returns styleOutputXml.writer()
@@ -118,44 +124,49 @@ class BasicButtonStyleGeneratorViewTest {
 
     private companion object {
 
-        val config = ButtonComponentConfig(
-            variations = ButtonComponentConfig.Variations(
-                size = mapOf(
-                    "l" to ButtonComponentConfig.Size(
-                        shape = ButtonComponentConfig.Shape("round.l"),
-                        labelStyle = "body.l.bold",
-                        height = 56f,
-                        paddingStart = 24f,
-                        paddingEnd = 24f,
-                        minWidth = 98f,
-                        iconSize = 24f,
-                        spinnerSize = 22f,
-                        iconMargin = 8f,
-                        valueMargin = 4f,
-                    ),
-                ),
-                color = mapOf(
-                    "default" to ButtonComponentConfig.ColorScheme(
-                        contentColor = ButtonComponentConfig.Color(
+        val config = ButtonConfig(
+            view = mapOf(
+                "default" to ButtonView(
+                    props = ButtonProperties(
+                        labelColor = Color(
                             default = "textInversePrimary",
                             states = listOf(
-                                ButtonComponentConfig.ColorState(
+                                ColorState(
                                     listOf("pressed"),
                                     "surfaceInversePrimaryActive",
                                 ),
                             ),
                         ),
                     ),
-                    "warning" to ButtonComponentConfig.ColorScheme(
-                        contentColor = ButtonComponentConfig.Color(
+                ),
+                "warning" to ButtonView(
+                    props = ButtonProperties(
+                        labelColor = Color(
                             default = "textInverseWarning",
                             states = listOf(
-                                ButtonComponentConfig.ColorState(
+                                ColorState(
                                     listOf("pressed", "focused"),
                                     "surfaceInverseWarningActive",
                                 ),
                             ),
                         ),
+                    ),
+                ),
+            ),
+            variations = listOf(
+                ButtonVariation(
+                    id = "l",
+                    props = ButtonProperties(
+                        shape = Shape("round.l"),
+                        labelStyle = Typography("body.l.bold"),
+                        height = Dimension(56f),
+                        paddingStart = Dimension(24f),
+                        paddingEnd = Dimension(24f),
+                        minWidth = Dimension(98f),
+                        iconSize = Dimension(24f),
+                        spinnerSize = Dimension(22f),
+                        iconMargin = Dimension(8f),
+                        valueMargin = Dimension(4f),
                     ),
                 ),
             ),

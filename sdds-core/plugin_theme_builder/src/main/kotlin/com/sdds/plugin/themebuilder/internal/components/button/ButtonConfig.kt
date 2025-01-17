@@ -25,13 +25,17 @@ internal data class ButtonProperties(
     val minWidth: Dimension? = null,
     val iconSize: Dimension? = null,
     val spinnerSize: Dimension? = null,
+    val spinnerStrokeWidth: Dimension? = null,
     val iconMargin: Dimension? = null,
     val valueMargin: Dimension? = null,
 
-    val contentColor: Color? = null,
     val backgroundColor: Color? = null,
+    val iconColor: Color? = null,
+    val labelColor: Color? = null,
     val valueColor: Color? = null,
+    val spinnerColor: Color? = null,
     val loadingAlpha: FloatValue? = null,
+    val disableAlpha: FloatValue? = null,
 ) : PropertyOwner {
 
     @Suppress("CyclomaticComplexMethod")
@@ -47,12 +51,16 @@ internal data class ButtonProperties(
             minWidth = minWidth ?: otherProps.minWidth,
             iconSize = iconSize ?: otherProps.iconSize,
             spinnerSize = spinnerSize ?: otherProps.spinnerSize,
+            spinnerStrokeWidth = spinnerStrokeWidth ?: otherProps.spinnerStrokeWidth,
             iconMargin = iconMargin ?: otherProps.iconMargin,
             valueMargin = valueMargin ?: otherProps.valueMargin,
-            contentColor = contentColor ?: otherProps.contentColor,
             backgroundColor = backgroundColor ?: otherProps.backgroundColor,
+            iconColor = iconColor ?: otherProps.iconColor,
+            labelColor = labelColor ?: otherProps.labelColor,
             valueColor = valueColor ?: otherProps.valueColor,
+            spinnerColor = spinnerColor ?: otherProps.spinnerColor,
             loadingAlpha = loadingAlpha ?: otherProps.loadingAlpha,
+            disableAlpha = disableAlpha ?: otherProps.disableAlpha,
         )
     }
 }
@@ -76,6 +84,6 @@ internal data class ButtonVariation(
 @Serializable
 internal data class ButtonConfig(
     override val view: Map<String, ButtonView> = emptyMap(),
-    override val props: ButtonProperties,
+    override val props: ButtonProperties = ButtonProperties(),
     override val variations: List<ButtonVariation> = emptyList(),
 ) : Config<ButtonProperties>, ComponentConfig

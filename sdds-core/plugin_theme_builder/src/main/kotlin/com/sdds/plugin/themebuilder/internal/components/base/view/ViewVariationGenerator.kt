@@ -12,6 +12,7 @@ import com.sdds.plugin.themebuilder.internal.factory.ColorStateListGeneratorFact
 import com.sdds.plugin.themebuilder.internal.factory.ViewColorStateGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
+import com.sdds.plugin.themebuilder.internal.utils.capitalized
 import com.sdds.plugin.themebuilder.internal.utils.techToCamelCase
 import com.sdds.plugin.themebuilder.internal.utils.techToSnakeCase
 import org.w3c.dom.Element
@@ -64,6 +65,30 @@ internal abstract class ViewVariationGenerator<PO : PropertyOwner>(
         variationNode: VariationNode<PO>,
     )
 
+    protected open fun createColorStateStyles(
+        rootDocument: XmlResourcesDocumentBuilder,
+        variationNode: VariationNode<PO>,
+    ) {
+        variationNode.mergedViews(true).keys.mapNotNull {
+            getColorState(it)
+        }.forEach { colorStateAttr ->
+            rootDocument.variationStyle(
+                "${variationNode.camelCaseName()}.${colorStateAttr.name.capitalized()}",
+                true,
+            ) {
+                onCreateColorStateStyle(this, variationNode, colorStateAttr)
+            }
+        }
+    }
+
+    protected open fun onCreateColorStateStyle(
+        styleElement: Element,
+        variationNode: VariationNode<PO>,
+        colorStateAttribute: ColorStateAttribute,
+    ) = with(styleElement) {
+        colorStateAttribute(colorStateAttribute.enum)
+    }
+
     private fun XmlResourcesDocumentBuilder.createVariations(
         variations: Set<VariationNode<PO>>,
     ) {
@@ -72,6 +97,7 @@ internal abstract class ViewVariationGenerator<PO : PropertyOwner>(
             variationStyle(variationNode.camelCaseName(), withOverlay = true) {
                 onCreateStyle(variationNode.id.techToSnakeCase(), this@createVariations, this, variationNode)
             }
+            createColorStateStyles(this, variationNode)
             createVariations(variationNode.children)
         }
     }
@@ -95,7 +121,7 @@ internal abstract class ViewVariationGenerator<PO : PropertyOwner>(
         val currentProps = variationNode.value.props
         val mergedProps = variationNode.mergedProps
         val currentViewVariations = variationNode.value.view
-        val mergedViewVariations = variationNode.mergedViews
+        val mergedViewVariations = variationNode.mergedViews()
         val overriddenViews = mutableSetOf<String>()
         val colorStates = mutableMapOf<String, Color>()
 
