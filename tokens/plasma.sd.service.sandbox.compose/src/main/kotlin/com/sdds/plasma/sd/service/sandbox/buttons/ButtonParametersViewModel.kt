@@ -54,27 +54,21 @@ internal class ButtonParametersViewModel(
         _buttonSate.value = ButtonUiState()
     }
 
-    private fun updateStyle(style: Style) {
+    private fun updateState(state: State) {
         _buttonSate.value = _buttonSate.value.copy(
-            style = style,
+            state = state,
         )
     }
 
-    private fun updateSize(size: Size) {
+    private fun updateVariant(variant: ButtonVariant) {
         _buttonSate.value = _buttonSate.value.copy(
-            size = size,
+            variant = variant,
         )
     }
 
     private fun updateIcon(icon: ButtonIcon) {
         _buttonSate.value = _buttonSate.value.copy(
             icon = icon,
-        )
-    }
-
-    private fun updateShape(shape: IconButtonShape) {
-        _buttonSate.value = _buttonSate.value.copy(
-            shape = shape,
         )
     }
 
@@ -111,23 +105,15 @@ internal class ButtonParametersViewModel(
     private fun ButtonUiState.toIconButtonProps(): List<Property<*>> {
         return listOfNotNull(
             enumProperty(
-                name = "style",
-                value = style,
-                onApply = { updateStyle(it) },
+                name = "state",
+                value = state,
+                onApply = { updateState(it) },
             ),
-
             enumProperty(
-                name = "size",
-                value = size,
-                onApply = { updateSize(it) },
+                name = "variant",
+                value = variant,
+                onApply = { updateVariant(it) },
             ),
-
-            enumProperty(
-                name = "shape",
-                value = shape,
-                onApply = { updateShape(it) },
-            ),
-
             Property.BooleanProperty(
                 name = "enabled",
                 value = enabled,
@@ -144,17 +130,15 @@ internal class ButtonParametersViewModel(
     private fun ButtonUiState.toLinkButtonProps(): List<Property<*>> {
         return listOfNotNull(
             enumProperty(
-                name = "style",
-                value = style,
-                onApply = { updateStyle(it) },
+                name = "state",
+                value = state,
+                onApply = { updateState(it) },
             ),
-
             enumProperty(
-                name = "size",
-                value = size,
-                onApply = { updateSize(it) },
+                name = "variant",
+                value = variant,
+                onApply = { updateVariant(it) },
             ),
-
             Property.SingleChoiceProperty(
                 name = "icon",
                 value = icon::class.simpleName.orEmpty(),
@@ -195,17 +179,15 @@ internal class ButtonParametersViewModel(
     private fun ButtonUiState.toProps(): List<Property<*>> {
         return listOfNotNull(
             enumProperty(
-                name = "style",
-                value = style,
-                onApply = { updateStyle(it) },
+                name = "state",
+                value = state,
+                onApply = { updateState(it) },
             ),
-
             enumProperty(
-                name = "size",
-                value = size,
-                onApply = { updateSize(it) },
+                name = "variant",
+                value = variant,
+                onApply = { updateVariant(it) },
             ),
-
             Property.SingleChoiceProperty(
                 name = "icon",
                 value = icon::class.simpleName.orEmpty(),
@@ -251,7 +233,7 @@ internal class ButtonParametersViewModel(
                 onApply = { updateLoadingState(it) },
             ),
 
-        )
+            )
     }
 }
 

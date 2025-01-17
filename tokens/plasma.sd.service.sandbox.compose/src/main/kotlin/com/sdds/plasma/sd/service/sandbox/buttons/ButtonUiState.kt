@@ -2,13 +2,10 @@ package com.sdds.plasma.sd.service.sandbox.buttons
 
 import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.BasicButton
-import com.sdds.compose.uikit.BasicButtonStyleBuilder
 import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.IconButton
-import com.sdds.compose.uikit.IconButtonStyleBuilder
 import com.sdds.compose.uikit.LinkButton
-import com.sdds.compose.uikit.LinkButtonStyleBuilder
 import com.sdds.plasma.sd.service.styles.button.basic.Accent
 import com.sdds.plasma.sd.service.styles.button.basic.Black
 import com.sdds.plasma.sd.service.styles.button.basic.Clear
@@ -22,6 +19,7 @@ import com.sdds.plasma.sd.service.styles.button.basic.S
 import com.sdds.plasma.sd.service.styles.button.basic.Secondary
 import com.sdds.plasma.sd.service.styles.button.basic.Warning
 import com.sdds.plasma.sd.service.styles.button.basic.White
+import com.sdds.plasma.sd.service.styles.button.basic.WrapperBasicButtonView
 import com.sdds.plasma.sd.service.styles.button.basic.Xs
 import com.sdds.plasma.sd.service.styles.button.icon.Accent
 import com.sdds.plasma.sd.service.styles.button.icon.Black
@@ -37,6 +35,7 @@ import com.sdds.plasma.sd.service.styles.button.icon.S
 import com.sdds.plasma.sd.service.styles.button.icon.Secondary
 import com.sdds.plasma.sd.service.styles.button.icon.Warning
 import com.sdds.plasma.sd.service.styles.button.icon.White
+import com.sdds.plasma.sd.service.styles.button.icon.WrapperIconButtonView
 import com.sdds.plasma.sd.service.styles.button.icon.Xs
 import com.sdds.plasma.sd.service.styles.button.link.Accent
 import com.sdds.plasma.sd.service.styles.button.link.Default
@@ -47,15 +46,14 @@ import com.sdds.plasma.sd.service.styles.button.link.Positive
 import com.sdds.plasma.sd.service.styles.button.link.S
 import com.sdds.plasma.sd.service.styles.button.link.Secondary
 import com.sdds.plasma.sd.service.styles.button.link.Warning
+import com.sdds.plasma.sd.service.styles.button.link.WrapperLinkButtonView
 import com.sdds.plasma.sd.service.styles.button.link.Xs
 import com.sdds.icons.R.drawable as Icons
 
 /**
  * Состояние кнопки
- * @property style стиль кнопки [Style]
- * @property size размер кнопки [Size]
+ * @property state стиль кнопки [State]
  * @property icon положение и ресурс иконки кнопки [ButtonIcon]
- * @property shape форма кнопки (справедливо только для StarIconButton) [IconButtonShape]
  * @property buttonLabel подпись кнопки
  * @property buttonValue значение кнопки
  * @property spacing способ группировки контента в кнопке [Button.Spacing]
@@ -63,16 +61,77 @@ import com.sdds.icons.R.drawable as Icons
  * @property loading индикация загрузки
  */
 internal data class ButtonUiState(
-    val style: Style = Style.Default,
-    val size: Size = Size.L,
+    val state: State = State.Default,
+    val variant: ButtonVariant = ButtonVariant.ButtonM,
     val icon: ButtonIcon = ButtonIcon.Start,
-    val shape: IconButtonShape = IconButtonShape.Rounded,
     val buttonLabel: String = "Label",
     val buttonValue: String? = null,
     val spacing: Button.Spacing = Button.Spacing.Packed,
     val enabled: Boolean = true,
     val loading: Boolean = false,
 )
+
+@Composable
+internal fun ButtonUiState.basicButtonStyle(): ButtonStyle {
+    return when (variant) {
+        ButtonVariant.ButtonL,
+        ButtonVariant.ButtonLPilled -> BasicButton.L
+
+        ButtonVariant.ButtonM,
+        ButtonVariant.ButtonMPilled -> BasicButton.M
+
+        ButtonVariant.ButtonS,
+        ButtonVariant.ButtonSPilled -> BasicButton.S
+
+        ButtonVariant.ButtonXS,
+        ButtonVariant.ButtonXSPilled -> BasicButton.Xs
+    }
+        .applyState(state)
+}
+
+@Composable
+internal fun ButtonUiState.iconButtonStyle(): ButtonStyle {
+    return when (variant) {
+        ButtonVariant.ButtonL -> IconButton.L
+        ButtonVariant.ButtonLPilled -> IconButton.L.Pilled
+        ButtonVariant.ButtonM -> IconButton.M
+        ButtonVariant.ButtonMPilled -> IconButton.M.Pilled
+        ButtonVariant.ButtonS -> IconButton.S
+        ButtonVariant.ButtonSPilled -> IconButton.S.Pilled
+        ButtonVariant.ButtonXS -> IconButton.Xs
+        ButtonVariant.ButtonXSPilled -> IconButton.Xs.Pilled
+    }
+        .applyState(state)
+}
+
+@Composable
+internal fun ButtonUiState.linkButtonStyle(): ButtonStyle {
+    return when (variant) {
+        ButtonVariant.ButtonL,
+        ButtonVariant.ButtonLPilled -> LinkButton.L
+
+        ButtonVariant.ButtonM,
+        ButtonVariant.ButtonMPilled -> LinkButton.M
+
+        ButtonVariant.ButtonS,
+        ButtonVariant.ButtonSPilled -> LinkButton.S
+
+        ButtonVariant.ButtonXS,
+        ButtonVariant.ButtonXSPilled -> LinkButton.Xs
+    }
+        .applyState(state)
+}
+
+internal enum class ButtonVariant {
+    ButtonL,
+    ButtonLPilled,
+    ButtonM,
+    ButtonMPilled,
+    ButtonS,
+    ButtonSPilled,
+    ButtonXS,
+    ButtonXSPilled,
+}
 
 /**
  * Иконка кнопки
@@ -96,16 +155,9 @@ internal sealed class ButtonIcon(val iconId: Int = Icons.ic_plasma_24) {
 }
 
 /**
- * Размеры кнопки
- */
-enum class Size {
-    L, M, S, XS
-}
-
-/**
  * Стиль отображения кнопки
  */
-enum class Style {
+internal enum class State {
     Default,
     Secondary,
     Accent,
@@ -118,106 +170,47 @@ enum class Style {
     White,
 }
 
-/**
- * Форма кнопки [IconButton]
- */
-enum class IconButtonShape {
-    /**
-     * Скругленные края
-     */
-    Rounded,
-
-    /**
-     * Круглая форма
-     */
-    Circle,
+@Composable
+private fun WrapperBasicButtonView.applyState(state: State): ButtonStyle {
+    return when (state) {
+        State.Default -> Default
+        State.Secondary -> Secondary
+        State.Accent -> Accent
+        State.Positive -> Positive
+        State.Negative -> Negative
+        State.Warning -> Warning
+        State.Clear -> Clear
+        State.Dark -> Dark
+        State.Black -> Black
+        State.White -> White
+    }.style()
 }
 
 @Composable
-private fun BasicButtonStyleBuilder.applyColorStyle(style: Style): BasicButtonStyleBuilder {
-    return when (style) {
-        Style.Default -> Default
-        Style.Secondary -> Secondary
-        Style.Accent -> Accent
-        Style.Positive -> Positive
-        Style.Negative -> Negative
-        Style.Warning -> Warning
-        Style.Clear -> Clear
-        Style.Dark -> Dark
-        Style.Black -> Black
-        Style.White -> White
-    }
+private fun WrapperIconButtonView.applyState(state: State): ButtonStyle {
+    return when (state) {
+        State.Default -> Default
+        State.Secondary -> Secondary
+        State.Accent -> Accent
+        State.Positive -> Positive
+        State.Negative -> Negative
+        State.Warning -> Warning
+        State.Clear -> Clear
+        State.Dark -> Dark
+        State.Black -> Black
+        State.White -> White
+    }.style()
 }
 
 @Composable
-private fun IconButtonStyleBuilder.applyColorStyle(style: Style): IconButtonStyleBuilder {
-    return when (style) {
-        Style.Default -> Default
-        Style.Secondary -> Secondary
-        Style.Accent -> Accent
-        Style.Positive -> Positive
-        Style.Negative -> Negative
-        Style.Warning -> Warning
-        Style.Clear -> Clear
-        Style.Dark -> Dark
-        Style.Black -> Black
-        Style.White -> White
-    }
-}
-
-@Composable
-private fun LinkButtonStyleBuilder.applyColorStyle(style: Style): LinkButtonStyleBuilder {
-    return when (style) {
-        Style.Default -> Default
-        Style.Secondary -> Secondary
-        Style.Accent -> Accent
-        Style.Positive -> Positive
-        Style.Negative -> Negative
-        Style.Warning -> Warning
+private fun WrapperLinkButtonView.applyState(state: State): ButtonStyle {
+    return when (state) {
+        State.Default -> Default
+        State.Secondary -> Secondary
+        State.Accent -> Accent
+        State.Positive -> Positive
+        State.Negative -> Negative
+        State.Warning -> Warning
         else -> Default
-    }
-}
-
-@Composable
-internal fun ButtonUiState.basicButtonStyle(): ButtonStyle {
-    val styleBuilder = when (size) {
-        Size.L -> BasicButton.L
-        Size.M -> BasicButton.M
-        Size.S -> BasicButton.S
-        Size.XS -> BasicButton.Xs
-    }
-    return styleBuilder.applyColorStyle(style).style()
-}
-
-@Composable
-internal fun ButtonUiState.iconButtonStyle(): ButtonStyle {
-    val styleBuilder = when (size) {
-        Size.L -> IconButton.L
-        Size.M -> IconButton.M
-        Size.S -> IconButton.S
-        Size.XS -> IconButton.Xs
-    }
-    return styleBuilder
-        .applyColorStyle(style)
-        .let {
-            if (shape == IconButtonShape.Circle) {
-                it.Pilled
-            } else {
-                it
-            }
-        }
-        .style()
-}
-
-@Composable
-internal fun ButtonUiState.linkButtonStyle(): ButtonStyle {
-    val styleBuilder = when (size) {
-        Size.L -> LinkButton.L
-        Size.M -> LinkButton.M
-        Size.S -> LinkButton.S
-        Size.XS -> LinkButton.Xs
-    }
-    return styleBuilder
-        .applyColorStyle(style)
-        .style()
+    }.style()
 }

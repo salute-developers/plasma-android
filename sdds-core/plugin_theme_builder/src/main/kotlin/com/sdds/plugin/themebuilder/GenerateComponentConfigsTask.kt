@@ -259,9 +259,9 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
     }
 
     private fun generateComposeConfigs() {
-//        basicButtonStyleGeneratorCompose.generate(basicButtonConfig)
-//        iconButtonStyleGeneratorCompose.generate(iconButtonConfig)
-//        linkButtonStyleGeneratorCompose.generate(linkButtonConfig)
+        basicButtonStyleGeneratorCompose.generate(basicButtonConfig)
+        iconButtonStyleGeneratorCompose.generate(iconButtonConfig)
+        linkButtonStyleGeneratorCompose.generate(linkButtonConfig)
         textFieldStyleGeneratorCompose.generate(textFieldConfig)
         textFieldClearStyleGeneratorCompose.generate(textFieldClearConfig)
         textAreaStyleGeneratorCompose.generate(textAreaConfig)

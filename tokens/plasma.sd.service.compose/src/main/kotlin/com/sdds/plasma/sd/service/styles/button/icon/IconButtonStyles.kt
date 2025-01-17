@@ -1,287 +1,522 @@
+// AUTO-GENERATED. DO NOT MODIFY this file.
 package com.sdds.plasma.sd.service.styles.button.icon
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.IconButton
-import com.sdds.compose.uikit.IconButtonColorsBuilder
 import com.sdds.compose.uikit.IconButtonStyleBuilder
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.iconButtonBuilder
+import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.style.BuilderWrapper
+import com.sdds.compose.uikit.style.wrap
 import com.sdds.plasma.sd.service.theme.PlasmaSdServiceTheme
 
-/**
- * Вариация [IconButton] цвета Default
- */
-val IconButtonStyleBuilder.Default: IconButtonStyleBuilder
-    @Composable
-    get() = colors { iconDefaultColors() }
+public interface WrapperIconButton : BuilderWrapper<ButtonStyle, IconButtonStyleBuilder>
 
-/**
- * Вариация [IconButton] цвета Secondary
- */
-val IconButtonStyleBuilder.Secondary: IconButtonStyleBuilder
-    @Composable
-    get() = colors { iconSecondaryColors() }
+public interface WrapperIconButtonView : WrapperIconButton
 
-/**
- * Вариация [IconButton] цвета Accent
- */
-val IconButtonStyleBuilder.Accent: IconButtonStyleBuilder
-    @Composable
-    get() = colors { iconAccentColors() }
+@JvmInline
+public value class WrapperIconButtonDefaultViewTerminate(
+    public override val builder: IconButtonStyleBuilder,
+) : WrapperIconButton
 
-/**
- * Вариация [IconButton] цвета Positive
- */
-val IconButtonStyleBuilder.Positive: IconButtonStyleBuilder
-    @Composable
-    get() = colors { iconPositiveColors() }
+@JvmInline
+public value class WrapperIconButtonSecondaryViewTerminate(
+    public override val builder: IconButtonStyleBuilder,
+) : WrapperIconButton
 
-/**
- * Вариация [IconButton] цвета Warning
- */
-val IconButtonStyleBuilder.Warning: IconButtonStyleBuilder
-    @Composable
-    get() = colors { iconWarningColors() }
+@JvmInline
+public value class WrapperIconButtonAccentViewTerminate(
+    public override val builder: IconButtonStyleBuilder,
+) : WrapperIconButton
 
-/**
- * Вариация [IconButton] цвета Negative
- */
-val IconButtonStyleBuilder.Negative: IconButtonStyleBuilder
-    @Composable
-    get() = colors { iconNegativeColors() }
+@JvmInline
+public value class WrapperIconButtonPositiveViewTerminate(
+    public override val builder: IconButtonStyleBuilder,
+) : WrapperIconButton
 
-/**
- * Вариация [IconButton] цвета Clear
- */
-val IconButtonStyleBuilder.Clear: IconButtonStyleBuilder
-    @Composable
-    get() = colors { iconClearColors() }
+@JvmInline
+public value class WrapperIconButtonNegativeViewTerminate(
+    public override val builder: IconButtonStyleBuilder,
+) : WrapperIconButton
 
-/**
- * Вариация [IconButton] цвета Dark
- */
-val IconButtonStyleBuilder.Dark: IconButtonStyleBuilder
-    @Composable
-    get() = colors { iconDarkColors() }
+@JvmInline
+public value class WrapperIconButtonWarningViewTerminate(
+    public override val builder: IconButtonStyleBuilder,
+) : WrapperIconButton
 
-/**
- * Вариация [IconButton] цвета Black
- */
-val IconButtonStyleBuilder.Black: IconButtonStyleBuilder
-    @Composable
-    get() = colors { iconBlackColors() }
+@JvmInline
+public value class WrapperIconButtonClearViewTerminate(
+    public override val builder: IconButtonStyleBuilder,
+) : WrapperIconButton
 
-/**
- * Вариация [IconButton] цвета White
- */
-val IconButtonStyleBuilder.White: IconButtonStyleBuilder
-    @Composable
-    get() = colors { iconWhiteColors() }
+@JvmInline
+public value class WrapperIconButtonDarkViewTerminate(
+    public override val builder: IconButtonStyleBuilder,
+) : WrapperIconButton
 
-/**
- * Вариация [IconButton] со скругленными на 50% углами (figma: Pilled)
- */
-val IconButtonStyleBuilder.Pilled: IconButtonStyleBuilder
-    @Composable
-    get() = shape(CircleShape)
+@JvmInline
+public value class WrapperIconButtonBlackViewTerminate(
+    public override val builder: IconButtonStyleBuilder,
+) : WrapperIconButton
 
-val IconButton.L: IconButtonStyleBuilder
+@JvmInline
+public value class WrapperIconButtonWhiteViewTerminate(
+    public override val builder: IconButtonStyleBuilder,
+) : WrapperIconButton
+
+@JvmInline
+public value class WrapperIconButtonL(
+    public override val builder: IconButtonStyleBuilder,
+) : WrapperIconButtonView
+
+@JvmInline
+public value class WrapperIconButtonLPilled(
+    public override val builder: IconButtonStyleBuilder,
+) : WrapperIconButtonView
+
+@JvmInline
+public value class WrapperIconButtonM(
+    public override val builder: IconButtonStyleBuilder,
+) : WrapperIconButtonView
+
+@JvmInline
+public value class WrapperIconButtonMPilled(
+    public override val builder: IconButtonStyleBuilder,
+) : WrapperIconButtonView
+
+@JvmInline
+public value class WrapperIconButtonS(
+    public override val builder: IconButtonStyleBuilder,
+) : WrapperIconButtonView
+
+@JvmInline
+public value class WrapperIconButtonSPilled(
+    public override val builder: IconButtonStyleBuilder,
+) : WrapperIconButtonView
+
+@JvmInline
+public value class WrapperIconButtonXs(
+    public override val builder: IconButtonStyleBuilder,
+) : WrapperIconButtonView
+
+@JvmInline
+public value class WrapperIconButtonXsPilled(
+    public override val builder: IconButtonStyleBuilder,
+) : WrapperIconButtonView
+
+public val WrapperIconButtonView.Default: WrapperIconButtonDefaultViewTerminate
     @Composable
+    get() = builder
+        .colors {
+            spinnerColor(
+                PlasmaSdServiceTheme.colors.textInversePrimary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                            to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                            to PlasmaSdServiceTheme.colors.textInversePrimaryHover
+                )
+            )
+            iconColor(
+                PlasmaSdServiceTheme.colors.textInversePrimary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                            to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                            to PlasmaSdServiceTheme.colors.textInversePrimaryHover
+                )
+            )
+            backgroundColor(
+                PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefault.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                            to PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultActive,
+                    setOf(InteractiveState.Hovered) to
+                            PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultHover
+                )
+            )
+        }
+        .wrap(::WrapperIconButtonDefaultViewTerminate)
+
+public val WrapperIconButtonView.Secondary: WrapperIconButtonSecondaryViewTerminate
+    @Composable
+    get() = builder
+        .colors {
+            spinnerColor(
+                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                            to PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                            to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover
+                )
+            )
+            iconColor(
+                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                            to PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                            to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover
+                )
+            )
+            backgroundColor(
+                PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                            to PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondaryActive,
+                    setOf(InteractiveState.Hovered) to
+                            PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondaryHover
+                )
+            )
+        }
+        .wrap(::WrapperIconButtonSecondaryViewTerminate)
+
+public val WrapperIconButtonView.Accent: WrapperIconButtonAccentViewTerminate
+    @Composable
+    get() = builder
+        .colors {
+            spinnerColor(
+                PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                            to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                            to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover
+                )
+            )
+            iconColor(
+                PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                            to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                            to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover
+                )
+            )
+            backgroundColor(
+                PlasmaSdServiceTheme.colors.surfaceDefaultAccent.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                            to PlasmaSdServiceTheme.colors.surfaceDefaultAccentActive,
+                    setOf(InteractiveState.Hovered) to
+                            PlasmaSdServiceTheme.colors.surfaceDefaultAccentHover
+                )
+            )
+        }
+        .wrap(::WrapperIconButtonAccentViewTerminate)
+
+public val WrapperIconButtonView.Positive: WrapperIconButtonPositiveViewTerminate
+    @Composable
+    get() = builder
+        .colors {
+            spinnerColor(
+                PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                            to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                            to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover
+                )
+            )
+            iconColor(
+                PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                            to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                            to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover
+                )
+            )
+            backgroundColor(
+                PlasmaSdServiceTheme.colors.surfaceDefaultPositive.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                            to PlasmaSdServiceTheme.colors.surfaceDefaultPositiveActive,
+                    setOf(InteractiveState.Hovered) to
+                            PlasmaSdServiceTheme.colors.surfaceDefaultPositiveHover
+                )
+            )
+        }
+        .wrap(::WrapperIconButtonPositiveViewTerminate)
+
+public val WrapperIconButtonView.Negative: WrapperIconButtonNegativeViewTerminate
+    @Composable
+    get() = builder
+        .colors {
+            spinnerColor(
+                PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                            to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                            to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover
+                )
+            )
+            iconColor(
+                PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                            to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                            to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover
+                )
+            )
+            backgroundColor(
+                PlasmaSdServiceTheme.colors.surfaceDefaultNegative.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                            to PlasmaSdServiceTheme.colors.surfaceDefaultNegativeActive,
+                    setOf(InteractiveState.Hovered) to
+                            PlasmaSdServiceTheme.colors.surfaceDefaultNegativeHover
+                )
+            )
+        }
+        .wrap(::WrapperIconButtonNegativeViewTerminate)
+
+public val WrapperIconButtonView.Warning: WrapperIconButtonWarningViewTerminate
+    @Composable
+    get() = builder
+        .colors {
+            spinnerColor(
+                PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                            to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                            to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover
+                )
+            )
+            iconColor(
+                PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                            to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                            to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover
+                )
+            )
+            backgroundColor(
+                PlasmaSdServiceTheme.colors.surfaceDefaultWarning.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                            to PlasmaSdServiceTheme.colors.surfaceDefaultWarningActive,
+                    setOf(InteractiveState.Hovered) to
+                            PlasmaSdServiceTheme.colors.surfaceDefaultWarningHover
+                )
+            )
+        }
+        .wrap(::WrapperIconButtonWarningViewTerminate)
+
+public val WrapperIconButtonView.Clear: WrapperIconButtonClearViewTerminate
+    @Composable
+    get() = builder
+        .colors {
+            spinnerColor(
+                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                            to PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                            to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover
+                )
+            )
+            iconColor(
+                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                            to PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                            to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover
+                )
+            )
+            backgroundColor(
+                PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                            to PlasmaSdServiceTheme.colors.surfaceDefaultClearActive,
+                    setOf(InteractiveState.Hovered) to
+                            PlasmaSdServiceTheme.colors.surfaceDefaultClearHover
+                )
+            )
+        }
+        .wrap(::WrapperIconButtonClearViewTerminate)
+
+public val WrapperIconButtonView.Dark: WrapperIconButtonDarkViewTerminate
+    @Composable
+    get() = builder
+        .colors {
+            spinnerColor(
+                PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                            to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                            to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover
+                )
+            )
+            iconColor(
+                PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                            to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                            to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover
+                )
+            )
+            backgroundColor(
+                PlasmaSdServiceTheme.colors.surfaceOnLightTransparentDeep.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                            to PlasmaSdServiceTheme.colors.surfaceOnLightTransparentDeepActive,
+                    setOf(InteractiveState.Hovered) to
+                            PlasmaSdServiceTheme.colors.surfaceOnLightTransparentDeepHover
+                )
+            )
+        }
+        .wrap(::WrapperIconButtonDarkViewTerminate)
+
+public val WrapperIconButtonView.Black: WrapperIconButtonBlackViewTerminate
+    @Composable
+    get() = builder
+        .colors {
+            spinnerColor(
+                PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                            to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                            to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover
+                )
+            )
+            iconColor(
+                PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                            to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                            to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover
+                )
+            )
+            backgroundColor(
+                PlasmaSdServiceTheme.colors.surfaceOnLightSolidDefault.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                            to PlasmaSdServiceTheme.colors.surfaceOnLightSolidDefaultActive,
+                    setOf(InteractiveState.Hovered) to
+                            PlasmaSdServiceTheme.colors.surfaceOnLightSolidDefaultHover
+                )
+            )
+        }
+        .wrap(::WrapperIconButtonBlackViewTerminate)
+
+public val WrapperIconButtonView.White: WrapperIconButtonWhiteViewTerminate
+    @Composable
+    get() = builder
+        .colors {
+            spinnerColor(
+                PlasmaSdServiceTheme.colors.textOnLightPrimary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                            to PlasmaSdServiceTheme.colors.textOnLightPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                            to PlasmaSdServiceTheme.colors.textOnLightPrimaryHover
+                )
+            )
+            iconColor(
+                PlasmaSdServiceTheme.colors.textOnLightPrimary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                            to PlasmaSdServiceTheme.colors.textOnLightPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                            to PlasmaSdServiceTheme.colors.textOnLightPrimaryHover
+                )
+            )
+            backgroundColor(
+                PlasmaSdServiceTheme.colors.surfaceOnDarkSolidDefault.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                            to PlasmaSdServiceTheme.colors.surfaceOnDarkSolidDefaultActive,
+                    setOf(InteractiveState.Hovered) to
+                            PlasmaSdServiceTheme.colors.surfaceOnDarkSolidDefaultHover
+                )
+            )
+        }
+        .wrap(::WrapperIconButtonWhiteViewTerminate)
+
+private val IconButtonStyleBuilder.invariantProps: IconButtonStyleBuilder
+    @Composable
+    get() = this
+        .loadingAlpha(0.0f)
+        .disableAlpha(0.4f)
+
+public val IconButton.L: WrapperIconButtonL
+    @Composable
+    @JvmName("WrapperIconButtonL")
     get() = ButtonStyle.iconButtonBuilder(this)
-        .shape(PlasmaSdServiceTheme.shapes.roundL)
-        .dimensions(
-            Button.Dimensions(
-                height = 56.dp,
-                paddings = Button.Dimensions.PaddingValues(horizontal = 16.dp),
-                minWidth = 56.dp,
-                iconSize = 24.dp,
-                spinnerSize = 22.dp,
-            ),
-        )
+        .invariantProps
+        .shape(PlasmaSdServiceTheme.shapes.roundL.adjustBy(all = -2.0.dp))
+        .dimensions {
+            height(56.0.dp)
+            paddingStart(16.0.dp)
+            paddingEnd(16.0.dp)
+            minWidth(56.0.dp)
+            iconSize(24.0.dp)
+            spinnerSize(22.0.dp)
+            spinnerStrokeWidth(2.0.dp)
+        }
+        .wrap(::WrapperIconButtonL)
 
-val IconButton.M: IconButtonStyleBuilder
+public val WrapperIconButtonL.Pilled: WrapperIconButtonLPilled
     @Composable
+    @JvmName("WrapperIconButtonLPilled")
+    get() = builder
+        .shape(CircleShape)
+        .wrap(::WrapperIconButtonLPilled)
+
+public val IconButton.M: WrapperIconButtonM
+    @Composable
+    @JvmName("WrapperIconButtonM")
     get() = ButtonStyle.iconButtonBuilder(this)
+        .invariantProps
         .shape(PlasmaSdServiceTheme.shapes.roundM)
-        .dimensions(
-            Button.Dimensions(
-                height = 48.dp,
-                paddings = Button.Dimensions.PaddingValues(horizontal = 12.dp),
-                minWidth = 48.dp,
-                iconSize = 24.dp,
-                spinnerSize = 22.dp,
-            ),
-        )
+        .dimensions {
+            height(48.0.dp)
+            paddingStart(12.0.dp)
+            paddingEnd(12.0.dp)
+            minWidth(48.0.dp)
+            iconSize(24.0.dp)
+            spinnerSize(22.0.dp)
+            spinnerStrokeWidth(2.0.dp)
+        }
+        .wrap(::WrapperIconButtonM)
 
-val IconButton.S: IconButtonStyleBuilder
+public val WrapperIconButtonM.Pilled: WrapperIconButtonMPilled
     @Composable
-    get() = ButtonStyle.iconButtonBuilder(this)
-        .shape(PlasmaSdServiceTheme.shapes.roundM.adjustBy(all = (-2).dp))
-        .dimensions(
-            Button.Dimensions(
-                height = 40.dp,
-                paddings = Button.Dimensions.PaddingValues(horizontal = 8.dp),
-                minWidth = 40.dp,
-                iconSize = 24.dp,
-                spinnerSize = 22.dp,
-            ),
-        )
+    @JvmName("WrapperIconButtonMPilled")
+    get() = builder
+        .shape(CircleShape)
+        .wrap(::WrapperIconButtonMPilled)
 
-val IconButton.Xs: IconButtonStyleBuilder
+public val IconButton.S: WrapperIconButtonS
     @Composable
+    @JvmName("WrapperIconButtonS")
     get() = ButtonStyle.iconButtonBuilder(this)
+        .invariantProps
+        .shape(PlasmaSdServiceTheme.shapes.roundM.adjustBy(all = -2.0.dp))
+        .dimensions {
+            height(40.0.dp)
+            paddingStart(8.0.dp)
+            paddingEnd(8.0.dp)
+            minWidth(40.0.dp)
+            iconSize(24.0.dp)
+            spinnerSize(22.0.dp)
+            spinnerStrokeWidth(2.0.dp)
+        }
+        .wrap(::WrapperIconButtonS)
+
+public val WrapperIconButtonS.Pilled: WrapperIconButtonSPilled
+    @Composable
+    @JvmName("WrapperIconButtonSPilled")
+    get() = builder
+        .shape(CircleShape)
+        .wrap(::WrapperIconButtonSPilled)
+
+public val IconButton.Xs: WrapperIconButtonXs
+    @Composable
+    @JvmName("WrapperIconButtonXs")
+    get() = ButtonStyle.iconButtonBuilder(this)
+        .invariantProps
         .shape(PlasmaSdServiceTheme.shapes.roundS)
-        .dimensions(
-            Button.Dimensions(
-                height = 32.dp,
-                paddings = Button.Dimensions.PaddingValues(horizontal = 8.dp),
-                minWidth = 32.dp,
-                iconSize = 16.dp,
-                spinnerSize = 16.dp,
-            ),
-        )
+        .dimensions {
+            height(32.0.dp)
+            paddingStart(8.0.dp)
+            paddingEnd(8.0.dp)
+            minWidth(32.0.dp)
+            iconSize(16.0.dp)
+            spinnerSize(16.0.dp)
+            spinnerStrokeWidth(1.0.dp)
+        }
+        .wrap(::WrapperIconButtonXs)
 
-@Composable
-private fun IconButtonColorsBuilder.iconDefaultColors(): IconButtonColorsBuilder = apply {
-    contentColor(
-        PlasmaSdServiceTheme.colors.textInversePrimary.asInteractive(
-            pressed = PlasmaSdServiceTheme.colors.textInversePrimaryActive,
-        ),
-    )
-    backgroundColor(
-        PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefault.asInteractive(
-            pressed = PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultActive,
-        ),
-    )
-}
-
-@Composable
-private fun IconButtonColorsBuilder.iconSecondaryColors(): IconButtonColorsBuilder = apply {
-    contentColor(
-        PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
-            pressed = PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
-        ),
-    )
-    backgroundColor(
-        PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(
-            pressed = PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondaryActive,
-        ),
-    )
-}
-
-@Composable
-private fun IconButtonColorsBuilder.iconAccentColors(): IconButtonColorsBuilder = apply {
-    contentColor(
-        PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
-            pressed = PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
-        ),
-    )
-    backgroundColor(
-        PlasmaSdServiceTheme.colors.surfaceDefaultAccent.asInteractive(
-            pressed = PlasmaSdServiceTheme.colors.surfaceDefaultAccentActive,
-        ),
-    )
-}
-
-@Composable
-private fun IconButtonColorsBuilder.iconPositiveColors(): IconButtonColorsBuilder = apply {
-    contentColor(
-        PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
-            pressed = PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
-        ),
-    )
-    backgroundColor(
-        PlasmaSdServiceTheme.colors.surfaceDefaultPositive.asInteractive(
-            pressed = PlasmaSdServiceTheme.colors.surfaceDefaultPositiveActive,
-        ),
-    )
-}
-
-@Composable
-private fun IconButtonColorsBuilder.iconNegativeColors(): IconButtonColorsBuilder = apply {
-    contentColor(
-        PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
-            pressed = PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
-        ),
-    )
-    backgroundColor(
-        PlasmaSdServiceTheme.colors.surfaceDefaultNegative.asInteractive(
-            pressed = PlasmaSdServiceTheme.colors.surfaceDefaultNegativeActive,
-        ),
-    )
-}
-
-@Composable
-private fun IconButtonColorsBuilder.iconWarningColors(): IconButtonColorsBuilder = apply {
-    contentColor(
-        PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
-            pressed = PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
-        ),
-    )
-    backgroundColor(
-        PlasmaSdServiceTheme.colors.surfaceDefaultWarning.asInteractive(
-            pressed = PlasmaSdServiceTheme.colors.surfaceDefaultWarningActive,
-        ),
-    )
-}
-
-@Composable
-private fun IconButtonColorsBuilder.iconClearColors(): IconButtonColorsBuilder = apply {
-    contentColor(
-        PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
-            pressed = PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
-        ),
-    )
-    backgroundColor(
-        PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
-            pressed = PlasmaSdServiceTheme.colors.surfaceDefaultClearActive,
-        ),
-    )
-}
-
-@Composable
-private fun IconButtonColorsBuilder.iconDarkColors(): IconButtonColorsBuilder = apply {
-    contentColor(
-        PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
-            pressed = PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
-        ),
-    )
-    backgroundColor(
-        PlasmaSdServiceTheme.colors.surfaceOnLightTransparentDeep.asInteractive(
-            pressed = PlasmaSdServiceTheme.colors.surfaceOnLightTransparentDeepActive,
-        ),
-    )
-}
-
-@Composable
-private fun IconButtonColorsBuilder.iconBlackColors(): IconButtonColorsBuilder = apply {
-    contentColor(
-        PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
-            pressed = PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
-        ),
-    )
-    backgroundColor(
-        PlasmaSdServiceTheme.colors.surfaceOnLightSolidDefault.asInteractive(
-            pressed = PlasmaSdServiceTheme.colors.surfaceOnLightSolidDefaultActive,
-        ),
-    )
-}
-
-@Composable
-private fun IconButtonColorsBuilder.iconWhiteColors(): IconButtonColorsBuilder = apply {
-    contentColor(
-        PlasmaSdServiceTheme.colors.textOnLightPrimary.asInteractive(
-            pressed = PlasmaSdServiceTheme.colors.textOnLightPrimaryActive,
-        ),
-    )
-    backgroundColor(
-        PlasmaSdServiceTheme.colors.surfaceOnDarkSolidDefault.asInteractive(
-            pressed = PlasmaSdServiceTheme.colors.surfaceOnDarkSolidDefaultActive,
-        ),
-    )
-}
+public val WrapperIconButtonXs.Pilled: WrapperIconButtonXsPilled
+    @Composable
+    @JvmName("WrapperIconButtonXsPilled")
+    get() = builder
+        .shape(CircleShape)
+        .wrap(::WrapperIconButtonXsPilled)
