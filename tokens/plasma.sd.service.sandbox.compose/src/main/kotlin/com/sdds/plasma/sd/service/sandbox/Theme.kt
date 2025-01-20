@@ -53,7 +53,6 @@ import com.sdds.plasma.sd.service.styles.radiobox.M
 import com.sdds.plasma.sd.service.styles.radiobox.group.M
 import com.sdds.plasma.sd.service.styles.textfield.Default
 import com.sdds.plasma.sd.service.styles.textfield.M
-import com.sdds.plasma.sd.service.styles.textfield.Optional
 import com.sdds.plasma.sd.service.styles.textfield.OuterLabel
 import com.sdds.plasma.sd.service.theme.PlasmaSdServiceTheme
 import com.sdds.plasma.sd.service.theme.darkPlasmaSdServiceColors
@@ -112,7 +111,7 @@ fun SandboxTheme(
                 LocalAvatarStyle provides Avatar.M.style(),
                 LocalAvatarGroupStyle provides AvatarGroup.S.style(),
                 LocalChipStyle provides Chip.M.Default.style(),
-                LocalTextFieldStyle provides TextField.M.Default.OuterLabel.Optional.style(),
+                LocalTextFieldStyle provides TextField.M.OuterLabel.Default.style(),
                 content = content,
             )
         },

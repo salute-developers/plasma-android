@@ -34,16 +34,12 @@ internal data class TypographyToken(
     /**
      * @see Token.xmlName
      */
-    override val xmlName: String by unsafeLazy {
-        val nameTokens = name.split(".")
-        val nameTokensExcludeScreen = nameTokens.subList(1, nameTokens.size)
-        nameTokensExcludeScreen.joinToString("") { it.capitalized() }
-    }
+    override val xmlName: String by unsafeLazy { getXmlName(name) }
 
     /**
      * @see Token.ktName
      */
-    override val ktName: String by unsafeLazy { xmlName }
+    override val ktName: String by unsafeLazy { getKtName(name) }
 
     /**
      * Класс размера экрана
@@ -73,6 +69,29 @@ internal data class TypographyToken(
          * Класс размера по-умолчанию
          */
         val isDefault: Boolean get() = this == UNKNOWN || this == MEDIUM
+    }
+
+    companion object {
+
+        fun getXmlName(tokenName: String): String {
+            val nameTokens = tokenName.split(".")
+            val nameTokensExcludeScreen = if (nameTokens.firstOrNull()?.contains("screen") == true) {
+                nameTokens.subList(1, nameTokens.size)
+            } else {
+                nameTokens
+            }
+            return nameTokensExcludeScreen.joinToString("") { it.capitalized() }
+        }
+
+        fun getKtName(tokenName: String): String = getXmlName(tokenName)
+
+        fun getViewAttrName(tokenName: String): String {
+            return "typography${getXmlName(tokenName)}"
+        }
+
+        fun getViewTextAppearanceName(tokenName: String): String {
+            return "TextAppearance.${getXmlName(tokenName)}"
+        }
     }
 }
 

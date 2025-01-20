@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" tools:ignore="ResourceName">
-
-    <item android:color="?serv_textDefaultPositive" app:sd_state_positive="true" app:sd_state_readonly="false" />
-    <item android:color="?serv_textDefaultWarning" app:sd_state_warning="true" app:sd_state_readonly="false" />
-    <item android:color="?serv_textDefaultNegative" app:sd_state_negative="true" app:sd_state_readonly="false" />
-    <item android:color="?serv_textDefaultSecondary" />
-</selector>

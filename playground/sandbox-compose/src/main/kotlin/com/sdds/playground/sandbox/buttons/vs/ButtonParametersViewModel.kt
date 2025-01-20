@@ -42,6 +42,7 @@ internal class ButtonParametersViewModel(
                 when (buttonType) {
                     ButtonType.Basic -> state.toProps()
                     ButtonType.Icon -> state.toIconButtonProps()
+                    ButtonType.Link -> state.toLinkButtonProps()
                 }
             }
             .stateIn(viewModelScope, SharingStarted.Lazily, emptyList())
@@ -52,27 +53,29 @@ internal class ButtonParametersViewModel(
     @Suppress("CyclomaticComplexMethod")
     override fun updateProperty(name: String, value: Any?) {
         val pName = PropertyName.values().find { it.value == name }
+        val valueString = value?.toString() ?: return
         when (pName) {
             PropertyName.Variant -> {
                 val variant = when (buttonType) {
-                    ButtonType.Basic -> BasicButtonVariant.valueOf(value?.toString() ?: return)
-                    ButtonType.Icon -> IconButtonVariant.valueOf(value?.toString() ?: return)
+                    ButtonType.Basic -> BasicButtonVariant.valueOf(valueString)
+                    ButtonType.Icon -> IconButtonVariant.valueOf(valueString)
+                    ButtonType.Link -> LinkButtonVariant.valueOf(valueString)
                 }
                 updateVariant(variant)
             }
             PropertyName.Icon -> updateIcon(
-                when (value?.toString()) {
+                when (valueString) {
                     ButtonIcon.Start::class.simpleName -> ButtonIcon.Start
                     ButtonIcon.End::class.simpleName -> ButtonIcon.End
                     else -> ButtonIcon.No
                 },
             )
             PropertyName.Label -> updateLabel(value?.toString().orEmpty())
-            PropertyName.Value -> updateValue(value?.toString())
-            PropertyName.Spacing -> updateSpacing(Button.Spacing.valueOf(value?.toString() ?: return))
-            PropertyName.Loading -> updateLoadingState(value?.toString().toBoolean())
-            PropertyName.Enabled -> updateEnabledState(value?.toString().toBoolean())
-            PropertyName.FixedSize -> updateFixedSize(value?.toString().toBoolean())
+            PropertyName.Value -> updateValue(valueString)
+            PropertyName.Spacing -> updateSpacing(Button.Spacing.valueOf(valueString))
+            PropertyName.Loading -> updateLoadingState(valueString.toBoolean())
+            PropertyName.Enabled -> updateEnabledState(valueString.toBoolean())
+            PropertyName.FixedSize -> updateFixedSize(valueString.toBoolean())
             null -> {}
         }
     }
@@ -195,6 +198,38 @@ internal class ButtonParametersViewModel(
         )
     }
 
+    private fun ButtonUiState.toLinkButtonProps(): List<Property<*>> {
+        return listOfNotNull(
+            enumProperty(
+                name = PropertyName.Variant.value,
+                value = variant as LinkButtonVariant,
+            ),
+
+            Property.SingleChoiceProperty(
+                name = PropertyName.Icon.value,
+                value = icon::class.simpleName.orEmpty(),
+                variants = listOf(
+                    ButtonIcon.Start::class.simpleName.orEmpty(),
+                    ButtonIcon.End::class.simpleName.orEmpty(),
+                    ButtonIcon.No::class.simpleName.orEmpty(),
+                ),
+            ),
+
+            Property.StringProperty(
+                name = PropertyName.Label.value,
+                value = buttonLabel,
+            ),
+            Property.BooleanProperty(
+                name = PropertyName.Enabled.value,
+                value = enabled,
+            ),
+            Property.BooleanProperty(
+                name = PropertyName.Loading.value,
+                value = loading,
+            ),
+        )
+    }
+
     private enum class PropertyName(val value: String) {
         Variant("variant"),
         Icon("icon"),
@@ -221,6 +256,11 @@ internal enum class ButtonType {
      * Компонент IconButton
      */
     Icon,
+
+    /**
+     * Компонент LinkButton
+     */
+    Link,
 }
 
 /**

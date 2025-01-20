@@ -1,6 +1,7 @@
 package com.sdds.compose.uikit
 
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Dp
 
@@ -26,3 +27,8 @@ val Dp.floatPx: Float
 val Int.dp: Dp
     @Composable
     get() = with(LocalDensity.current) { this@dp.toDp() }
+
+/**
+ * Применяет альфу [alpha] к цвету путём умножения на имеющуюся альфу.
+ */
+fun Color.multiplyAlpha(alpha: Float): Color = copy(alpha = this.alpha * alpha)

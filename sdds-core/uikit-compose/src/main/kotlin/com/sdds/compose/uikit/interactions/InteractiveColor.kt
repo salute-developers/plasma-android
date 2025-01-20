@@ -103,10 +103,10 @@ private data class SimpleInteractiveColor(
         val isFocused by interactionSource.collectIsFocusedAsState()
         val isActivated by interactionSource.collectIsActivatedAsState()
         return when {
-            isActivated -> activated
             isPressed -> pressed
             isHovered -> hovered
             isFocused -> focused
+            isActivated -> activated
             else -> default
         }
     }
@@ -137,7 +137,20 @@ private data class ColorStateList(
                 if (isActivated) add(InteractiveState.Activated)
             }
         }
-        return colorStates[stateSet] ?: default
+        return colorStates[stateSet]
+            ?: colorStates.getSingleState(stateSet, InteractiveState.Pressed)
+            ?: colorStates.getSingleState(stateSet, InteractiveState.Focused)
+            ?: colorStates.getSingleState(stateSet, InteractiveState.Hovered)
+            ?: colorStates.getSingleState(stateSet, InteractiveState.Activated)
+            ?: default
+    }
+
+    private fun Map<Set<InteractiveState>, Color>.getSingleState(
+        stateSet: HashSet<InteractiveState>,
+        singleState: InteractiveState,
+    ): Color? {
+        if (!stateSet.contains(singleState)) return null
+        return this[hashSetOf(singleState)]
     }
 
     @Composable

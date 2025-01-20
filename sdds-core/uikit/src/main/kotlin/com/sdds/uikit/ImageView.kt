@@ -11,6 +11,9 @@ import androidx.annotation.ColorRes
 import androidx.annotation.Dimension
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.AppCompatImageView
+import com.sdds.uikit.colorstate.ColorState
+import com.sdds.uikit.colorstate.ColorState.Companion.isDefined
+import com.sdds.uikit.colorstate.ColorStateHolder
 import com.sdds.uikit.internal.base.shape.ShapeableImageDelegate
 import com.sdds.uikit.internal.focusselector.FocusSelectorDelegate
 import com.sdds.uikit.internal.focusselector.HasFocusSelector
@@ -36,6 +39,7 @@ open class ImageView @JvmOverloads constructor(
     defStyleAttr: Int = 0,
 ) : AppCompatImageView(context, attrs, defStyleAttr),
     ViewStateHolder,
+    ColorStateHolder,
     Shapeable,
     HasFocusSelector by FocusSelectorDelegate() {
 
@@ -124,7 +128,19 @@ open class ImageView @JvmOverloads constructor(
      * Состояние внешнего вида изображения
      * @see ViewState
      */
+    @Deprecated("Use colorState")
     override var state: ViewState? = ViewState.obtain(context, attrs, defStyleAttr)
+        set(value) {
+            if (field != value) {
+                field = value
+                refreshDrawableState()
+            }
+        }
+
+    /**
+     * @see ColorStateHolder.colorState
+     */
+    override var colorState: ColorState? = ColorState.obtain(context, attrs, defStyleAttr)
         set(value) {
             if (field != value) {
                 field = value
@@ -319,6 +335,9 @@ open class ImageView @JvmOverloads constructor(
         val drawableState = super.onCreateDrawableState(extraSpace + 1)
         if (state?.isDefined() == true) {
             mergeDrawableStates(drawableState, state?.attr)
+        }
+        if (colorState?.isDefined() == true) {
+            mergeDrawableStates(drawableState, colorState?.attrs)
         }
         return drawableState
     }

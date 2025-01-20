@@ -16,8 +16,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -33,7 +31,6 @@ import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.ButtonColors
 import com.sdds.compose.uikit.Icon
-import com.sdds.compose.uikit.LocalTint
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.internal.common.surface
 import com.sdds.compose.uikit.internal.focusselector.LocalFocusSelectorMode
@@ -48,9 +45,8 @@ internal fun BaseButton(
     onClick: () -> Unit = {},
     shape: CornerBasedShape,
     colors: ButtonColors,
-    spinnerMode: Button.SpinnerMode,
+    loadingAlpha: Float,
     dimensions: Button.Dimensions,
-    enabledAlpha: Float,
     disabledAlpha: Float,
     enabled: Boolean = true,
     loading: Boolean = false,
@@ -58,7 +54,6 @@ internal fun BaseButton(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     content: @Composable RowScope.() -> Unit,
 ) {
-    val contentColor = colors.contentColor.colorForInteraction(interactionSource)
     val backgroundColor = colors.backgroundColor.colorForInteraction(interactionSource)
     val spinnerColor = colors.spinnerColor.colorForInteraction(interactionSource)
     val isFocused = interactionSource.collectIsFocusedAsState()
@@ -73,21 +68,19 @@ internal fun BaseButton(
                 backgroundColor = { SolidColor(backgroundColor) },
                 indication = indication,
                 enabled = enabled,
-                alpha = { if (it) enabledAlpha else disabledAlpha },
+                alpha = { if (it) ENABLED_BUTTON_ALPHA else disabledAlpha },
                 role = Role.Button,
                 interactionSource = interactionSource,
             )
-            .padding(dimensions.paddings.start, 0.dp, dimensions.paddings.end, 0.dp),
+            .padding(dimensions.paddingStart, 0.dp, dimensions.paddingEnd, 0.dp),
         contentAlignment = Alignment.Center,
     ) {
-        CompositionLocalProvider(LocalTint provides contentColor) {
-            Row(
-                modifier = Modifier.alpha(if (loading) spinnerMode.contentAlpha else enabledAlpha),
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.Center,
-                content = content,
-            )
-        }
+        Row(
+            modifier = Modifier.alpha(if (loading) loadingAlpha else ENABLED_BUTTON_ALPHA),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Center,
+            content = content,
+        )
 
         if (loading && enabled) {
             BaseSpinner(
@@ -109,6 +102,7 @@ internal fun RowScope.ButtonIcon(
     size: Dp,
     marginStart: Dp = 0.dp,
     marginEnd: Dp = 0.dp,
+    iconColor: Color,
 ) {
     if (marginStart.value > 0) {
         Spacer(modifier = Modifier.width(marginStart))
@@ -117,6 +111,7 @@ internal fun RowScope.ButtonIcon(
         painter = icon,
         contentDescription = null,
         modifier = Modifier.requiredSize(size),
+        tint = iconColor,
     )
     if (marginEnd.value > 0) {
         Spacer(modifier = Modifier.width(marginEnd))
@@ -172,3 +167,5 @@ internal fun RowScope.ButtonText(
         )
     }
 }
+
+private const val ENABLED_BUTTON_ALPHA = 1f

@@ -41,12 +41,13 @@ class ThemeBuilderPlugin : Plugin<Project> {
             )
 
             val fetchComponentConfigsTasks = registerFetchComponentConfigs(extension, componentJsons)
-            registerGenerateComponentConfigsTask(fetchComponentConfigsTasks)
+            registerGenerateComponentConfigsTask(extension, fetchComponentConfigsTasks)
         }
     }
 
     private fun Project.registerClean(extension: ThemeBuilderExtension): TaskProvider<CleanThemeTask> {
         return project.tasks.register<CleanThemeTask>("cleanTheme") {
+            group = TASK_GROUP
             outputDirPath.set(extension.outputLocation.getSourcePath())
             outputResDirPath.set(extension.outputLocation.getResourcePath())
             packageName.set(extension.ktPackage ?: DEFAULT_KT_PACKAGE)
@@ -84,9 +85,15 @@ class ThemeBuilderPlugin : Plugin<Project> {
         extension: ThemeBuilderExtension,
         componentJsons: Map<ComponentConfig, Provider<RegularFile>>,
     ): List<TaskProvider<FetchFileTask>> {
+        val themeRemoteName = when (val source = getThemeSource(extension)) {
+            is ThemeBuilderSource.NameAndVersion -> source.remoteName
+            is ThemeBuilderSource.Url -> source.themeName
+        }
+        val baseUrl = extension.componentsSource ?: "${BASE_COMPONENT_CONFIG_URL}$themeRemoteName"
         return ComponentConfig.values().map {
             project.tasks.register<FetchFileTask>(it.fetchTaskName) {
-                url.set("${BASE_COMPONENT_CONFIG_URL}${getThemeSource(extension).themeName}/${it.fileName}")
+                group = TASK_GROUP
+                url.set("$baseUrl/${it.fileName}")
                 file.set(componentJsons[it]!!)
                 failMessage.set("Can't fetch ${it.fileName}")
             }
@@ -94,12 +101,29 @@ class ThemeBuilderPlugin : Plugin<Project> {
     }
 
     private fun Project.registerGenerateComponentConfigsTask(
+        extension: ThemeBuilderExtension,
         fetchComponentConfigsTasks: List<TaskProvider<FetchFileTask>>,
     ) {
         val task = project.tasks.register<GenerateComponentConfigsTask>("generateComponentConfigs") {
+            group = TASK_GROUP
             basicButtonConfigFile.set(getComponentConfigFile(ComponentConfig.BASIC_BUTTON.fileName))
             iconButtonConfigFile.set(getComponentConfigFile(ComponentConfig.ICON_BUTTON.fileName))
             linkButtonConfigFile.set(getComponentConfigFile(ComponentConfig.LINK_BUTTON.fileName))
+            textFieldConfigFile.set(getComponentConfigFile(ComponentConfig.TEXT_FIELD.fileName))
+            textFieldClearConfigFile.set(getComponentConfigFile(ComponentConfig.TEXT_FIELD_CLEAR.fileName))
+            textAreaConfigFile.set(getComponentConfigFile(ComponentConfig.TEXT_AREA.fileName))
+            textAreaClearConfigFile.set(getComponentConfigFile(ComponentConfig.TEXT_AREA_CLEAR.fileName))
+            outputDirPath.set(extension.outputLocation.getSourcePath())
+            outputResDirPath.set(extension.outputLocation.getResourcePath())
+            packageName.set(extension.ktPackage ?: DEFAULT_KT_PACKAGE)
+            val projectDirProperty = objects.directoryProperty()
+                .apply { set(layout.projectDirectory) }
+            projectDir.set(projectDirProperty)
+            dimensionsConfig.set(extension.dimensionsConfig)
+            resourcesPrefixConfig.set(getResourcePrefixConfig(extension))
+            namespace.set(getProjectNameSpace())
+            themeName.set(getThemeSource(extension).themeName)
+            target.set(extension.target)
         }
         fetchComponentConfigsTasks.forEach { task.dependsOn(it) }
     }
@@ -186,6 +210,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
         dependsOnTask: Any,
     ): TaskProvider<Copy> {
         return project.tasks.register<Copy>(taskName) {
+            group = TASK_GROUP
             from(zipTree(zipFile.get().asFile))
             into(layout.buildDirectory.dir(outputPath))
             dependsOn(dependsOnTask)
@@ -199,6 +224,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
         dependsOnTask: Any,
     ): TaskProvider<FetchFileTask> {
         return project.tasks.register<FetchFileTask>(taskName) {
+            group = TASK_GROUP
             url.set(themeUrl)
             file.set(themeOutput)
             failMessage.set("Can't fetch theme")
@@ -212,6 +238,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
         paletteOutput: Provider<RegularFile>,
     ): TaskProvider<FetchFileTask> {
         return project.tasks.register<FetchFileTask>(taskName) {
+            group = TASK_GROUP
             url.set(paletteUrl)
             file.set(paletteOutput)
             failMessage.set("Can't fetch palette")
@@ -231,6 +258,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
         unzipTask: Any,
     ): TaskProvider<GenerateThemeTask> {
         return project.tasks.register<GenerateThemeTask>("generateTheme") {
+            group = TASK_GROUP
             paletteFile.set(paletteFileProvider)
             themeName.set(getThemeSource(extension).themeName)
             metaFile.set(baseFileProvider)
@@ -317,9 +345,14 @@ class ThemeBuilderPlugin : Plugin<Project> {
         BASIC_BUTTON("basic_button_config.json", "fetchBasicButtonConfig"),
         ICON_BUTTON("icon_button_config.json", "fetchIconButtonConfig"),
         LINK_BUTTON("link_button_config.json", "fetchLinkButtonConfig"),
+        TEXT_FIELD("text_field_config.json", "fetchTextFieldConfig"),
+        TEXT_FIELD_CLEAR("text_field_clear_config.json", "fetchTextFieldClearConfig"),
+        TEXT_AREA("text_area_config.json", "fetchTextAreaConfig"),
+        TEXT_AREA_CLEAR("text_area_clear_config.json", "fetchTextAreaClearConfig"),
     }
 
     private companion object {
+        const val TASK_GROUP = "theme-builder"
         const val DEFAULT_KT_PACKAGE = "com.themebuilder.tokens"
         const val BUILD_OUTPUT_RESOURCE_PATH = "build/generated/theme-builder-res"
         const val BUILD_OUTPUT_PATH = "build/generated/theme-builder"

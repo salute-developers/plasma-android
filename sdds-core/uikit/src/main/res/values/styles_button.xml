@@ -22,17 +22,26 @@
 
         <item name="sd_spacing">packed</item>
 
-        <item name="sd_iconTint">?android:textColor</item>
+        <item name="sd_iconTint">#F5F5F5F5</item>
         <item name="sd_iconPadding">6dp</item>
         <item name="sd_iconSize">24dp</item>
         <item name="sd_iconPosition">textStart</item>
 
         <item name="sd_spinnerSize">22dp</item>
-        <item name="sd_spinnerStrokeWidth">4dp</item>
-        <item name="sd_spinnerTint">?sd_iconTint</item>
+        <item name="sd_spinnerStrokeWidth">2dp</item>
+        <item name="sd_spinnerTint">#F5F5F5F5</item>
 
         <item name="sd_shapeAppearance">?sd_shapeAppearanceMedium</item>
         <item name="sd_disabledAlpha">0.4</item>
+    </style>
 
+    <style name="Sdds.Components.IconButton" parent="Sdds.Components.Button">
+        <item name="sd_valuePadding">0dp</item>
+        <item name="sd_iconPadding">0dp</item>
+    </style>
+
+    <style name="Sdds.Components.LinkButton" parent="Sdds.Components.Button">
+        <item name="sd_valuePadding">0dp</item>
+        <item name="backgroundTint">@android:color/transparent</item>
     </style>
 </resources>

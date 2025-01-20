@@ -53,7 +53,6 @@ import com.sdds.serv.styles.radiobox.group.M
 import com.sdds.serv.styles.switch.M
 import com.sdds.serv.styles.textfield.Default
 import com.sdds.serv.styles.textfield.M
-import com.sdds.serv.styles.textfield.Optional
 import com.sdds.serv.styles.textfield.OuterLabel
 import com.sdds.serv.theme.SddsServTheme
 import com.sdds.serv.theme.darkSddsServColors
@@ -112,7 +111,7 @@ fun SandboxTheme(
                 LocalAvatarStyle provides Avatar.M.style(),
                 LocalAvatarGroupStyle provides AvatarGroup.S.style(),
                 LocalChipStyle provides Chip.M.Default.style(),
-                LocalTextFieldStyle provides TextField.M.Default.OuterLabel.Optional.style(),
+                LocalTextFieldStyle provides TextField.M.OuterLabel.Default.style(),
                 content = content,
             )
         },

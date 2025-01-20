@@ -4,13 +4,10 @@ import androidx.compose.animation.core.AnimationSpec
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.ScrollState
-import androidx.compose.foundation.gestures.FlingBehavior
 import androidx.compose.foundation.gestures.Orientation
-import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.calculateEndPadding
 import androidx.compose.foundation.layout.calculateStartPadding
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
@@ -24,6 +21,8 @@ import androidx.compose.ui.graphics.drawscope.ContentDrawScope
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.interactions.InteractiveColor
+import com.sdds.compose.uikit.interactions.asInteractive
 import kotlin.math.max
 
 /**
@@ -213,71 +212,9 @@ private fun indicatorLength(
 @Immutable
 data class ScrollBar(
     val indicatorThickness: Dp = 2.dp,
-    val indicatorColor: Color = Color.DarkGray,
-    val backgroundColor: Color = Color.LightGray,
+    val indicatorColor: InteractiveColor = Color.DarkGray.asInteractive(),
+    val backgroundColor: InteractiveColor = Color.LightGray.asInteractive(),
     val alpha: Float? = null,
     val alphaAnimationSpec: AnimationSpec<Float>? = null,
     val padding: PaddingValues = PaddingValues(all = 0.dp),
 )
-
-/**
- * Добавляет вертикадльный скролл со скроллбаром
- *
- * @param state состояние скролла
- * @param enabled включен ли скролл
- * @param flingBehavior см. [FlingBehavior]
- * @param reverseScrolling обратный скролл
- * @param scrollbarConfig настройки скроллбара
- */
-fun Modifier.verticalScrollWithScrollbar(
-    state: ScrollState,
-    enabled: Boolean = true,
-    flingBehavior: FlingBehavior? = null,
-    reverseScrolling: Boolean = false,
-    scrollbarConfig: ScrollBar = ScrollBar(),
-) = this
-    .scrollbar(
-        state = state,
-        direction = Orientation.Vertical,
-        indicatorThickness = scrollbarConfig.indicatorThickness,
-        indicatorColor = scrollbarConfig.indicatorColor,
-        backgroundColor = scrollbarConfig.backgroundColor,
-        alpha = scrollbarConfig.alpha ?: if (state.isScrollInProgress) 0.8f else 0f,
-        alphaAnimationSpec = scrollbarConfig.alphaAnimationSpec ?: tween(
-            delayMillis = if (state.isScrollInProgress) 0 else 1500,
-            durationMillis = if (state.isScrollInProgress) 150 else 500,
-        ),
-        padding = scrollbarConfig.padding,
-    )
-    .verticalScroll(state, enabled, flingBehavior, reverseScrolling)
-
-/**
- * Добавляет горизонтальный скролл со скроллбаром
- *
- * @param state состояние скролла
- * @param enabled включен ли скролл
- * @param flingBehavior см. [FlingBehavior]
- * @param reverseScrolling обратный скролл
- * @param scrollbarConfig настройки скроллбара
- */
-fun Modifier.horizontalScrollWithScrollbar(
-    state: ScrollState,
-    enabled: Boolean = true,
-    flingBehavior: FlingBehavior? = null,
-    reverseScrolling: Boolean = false,
-    scrollbarConfig: ScrollBar = ScrollBar(),
-) = this
-    .scrollbar(
-        state = state,
-        direction = Orientation.Horizontal,
-        indicatorThickness = scrollbarConfig.indicatorThickness,
-        indicatorColor = scrollbarConfig.indicatorColor,
-        backgroundColor = scrollbarConfig.backgroundColor,
-        alpha = scrollbarConfig.alpha ?: if (state.isScrollInProgress) 0.8f else 0f,
-        alphaAnimationSpec = scrollbarConfig.alphaAnimationSpec ?: tween(
-            delayMillis = if (state.isScrollInProgress) 0 else 1500,
-            durationMillis = if (state.isScrollInProgress) 150 else 500,
-        ),
-        padding = scrollbarConfig.padding,
-    )
-    .horizontalScroll(state, enabled, flingBehavior, reverseScrolling)

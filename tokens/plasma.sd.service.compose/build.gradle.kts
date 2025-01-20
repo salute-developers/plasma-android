@@ -22,6 +22,7 @@ themeBuilder {
     compose()
     ktPackage(ktPackage = "com.sdds.plasma.sd.service")
     mode(THEME)
+    componentsSource("https://github.com/salute-developers/theme-converter/raw/main/components/sdds_serv")
     outputLocation(SRC)
 }
 

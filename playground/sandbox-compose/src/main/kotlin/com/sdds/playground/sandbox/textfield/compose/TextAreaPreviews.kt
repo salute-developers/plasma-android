@@ -16,19 +16,18 @@ import com.sdds.compose.uikit.TextArea
 import com.sdds.compose.uikit.TextField
 import com.sdds.icons.R
 import com.sdds.playground.sandbox.SandboxTheme
+import com.sdds.serv.styles.textarea.Default
+import com.sdds.serv.styles.textarea.Error
+import com.sdds.serv.styles.textarea.InnerLabel
 import com.sdds.serv.styles.textarea.L
 import com.sdds.serv.styles.textarea.M
+import com.sdds.serv.styles.textarea.OuterLabel
+import com.sdds.serv.styles.textarea.RequiredEnd
+import com.sdds.serv.styles.textarea.RequiredStart
 import com.sdds.serv.styles.textarea.S
+import com.sdds.serv.styles.textarea.Success
+import com.sdds.serv.styles.textarea.Warning
 import com.sdds.serv.styles.textarea.Xs
-import com.sdds.serv.styles.textfield.Default
-import com.sdds.serv.styles.textfield.Error
-import com.sdds.serv.styles.textfield.InnerLabel
-import com.sdds.serv.styles.textfield.Optional
-import com.sdds.serv.styles.textfield.OuterLabel
-import com.sdds.serv.styles.textfield.RequiredEnd
-import com.sdds.serv.styles.textfield.RequiredStart
-import com.sdds.serv.styles.textfield.Success
-import com.sdds.serv.styles.textfield.Warning
 
 @Composable
 @Preview(showBackground = true)
@@ -40,7 +39,7 @@ internal fun SandboxTextAreaPreviewLDefaultInnerLeft() {
             modifier = Modifier.fillMaxWidth(),
             placeholderText = "Placeholder",
             value = value,
-            style = TextArea.L.Default.InnerLabel.RequiredStart.style(),
+            style = TextArea.L.InnerLabel.RequiredStart.Default.style(),
             labelText = "Label",
             optionalText = "Optional",
             captionText = "Caption",
@@ -68,7 +67,7 @@ internal fun SandboxTextAreaPreviewMSuccessOuterOptional() {
             modifier = Modifier.fillMaxWidth(),
             placeholderText = "Placeholder",
             value = value,
-            style = TextArea.M.Success.OuterLabel.Optional.style(),
+            style = TextArea.M.OuterLabel.Success.style(),
             labelText = "Label",
             optionalText = "Optional",
             captionText = "Caption",
@@ -96,7 +95,7 @@ internal fun SandboxTextAreaPreviewSWarningInnerRight() {
             modifier = Modifier.fillMaxWidth(),
             placeholderText = "Placeholder",
             value = value,
-            style = TextArea.S.Warning.InnerLabel.RequiredEnd.style(),
+            style = TextArea.S.InnerLabel.RequiredEnd.Warning.style(),
             labelText = "Label",
             optionalText = "Optional",
             captionText = "",
@@ -118,7 +117,7 @@ internal fun SandboxTextAreaPreviewXsErrorInnerOptional() {
             modifier = Modifier.fillMaxWidth(),
             placeholderText = "Placeholder",
             value = value,
-            style = TextArea.Xs.Error.InnerLabel.Optional.style(),
+            style = TextArea.Xs.Error.style(),
             labelText = "",
             optionalText = "Optional",
             captionText = "Caption",
@@ -146,7 +145,7 @@ internal fun SandboxTextAreaPreviewLReadOnly() {
             modifier = Modifier.fillMaxWidth(),
             placeholderText = "",
             value = value,
-            style = TextArea.L.Success.OuterLabel.RequiredStart.style(),
+            style = TextArea.L.OuterLabel.RequiredStart.Success.style(),
             labelText = "Label",
             optionalText = "Optional",
             captionText = "",
@@ -174,7 +173,7 @@ internal fun SandboxTextAreaPreviewMWarningInnerOptional() {
             modifier = Modifier.fillMaxWidth(),
             placeholderText = "Placeholder",
             value = value,
-            style = TextArea.M.Warning.InnerLabel.Optional.style(),
+            style = TextArea.M.InnerLabel.Warning.style(),
             labelText = "Label",
             optionalText = "Optional",
             captionText = "Caption",
@@ -196,7 +195,7 @@ internal fun SandboxTextAreaPreviewSDefaultInnerRight() {
             modifier = Modifier.fillMaxWidth(),
             placeholderText = "Placeholder",
             value = value,
-            style = TextArea.S.Default.InnerLabel.RequiredEnd.style(),
+            style = TextArea.S.InnerLabel.RequiredEnd.Default.style(),
             labelText = "",
             optionalText = "Optional",
             captionText = "Caption",
@@ -224,7 +223,7 @@ internal fun SandboxTextAreaPreviewXSSuccessOuterOptional() {
             modifier = Modifier.fillMaxWidth(),
             placeholderText = "Placeholder",
             value = value,
-            style = TextArea.Xs.Success.OuterLabel.Optional.style(),
+            style = TextArea.Xs.OuterLabel.Success.style(),
             labelText = "Label",
             optionalText = "Optional",
             captionText = "Caption",
@@ -252,7 +251,7 @@ internal fun SandboxTextAreaPreviewLDisabled() {
             modifier = Modifier.fillMaxWidth(),
             placeholderText = "Placeholder",
             value = value,
-            style = TextArea.L.Default.InnerLabel.RequiredStart.style(),
+            style = TextArea.L.InnerLabel.RequiredStart.Default.style(),
             labelText = "Label",
             optionalText = "Optional",
             captionText = "",
@@ -280,7 +279,7 @@ internal fun SandboxTextAreaPreviewMErrorOuterOptional() {
             modifier = Modifier.fillMaxWidth(),
             placeholderText = "Placeholder",
             value = value,
-            style = TextArea.M.Error.OuterLabel.Optional.style(),
+            style = TextArea.M.OuterLabel.Error.style(),
             labelText = "Label",
             optionalText = "Optional",
             captionText = "Caption",
@@ -302,7 +301,7 @@ internal fun SandboxTextAreaPreviewSWarningInnerRightFocused() {
             modifier = Modifier.fillMaxWidth(),
             placeholderText = "Placeholder",
             value = value,
-            style = TextArea.S.Warning.InnerLabel.RequiredEnd.style(),
+            style = TextArea.S.InnerLabel.RequiredEnd.Warning.style(),
             labelText = "Label",
             optionalText = "Optional",
             captionText = "Caption",
@@ -330,7 +329,7 @@ internal fun SandboxTextAreaPreviewMSuccessInnerOptionalChips() {
             modifier = Modifier.fillMaxWidth(),
             placeholderText = "Placeholder",
             value = value,
-            style = TextArea.M.Success.InnerLabel.Optional.style(),
+            style = TextArea.M.Success.style(),
             labelText = "Label",
             optionalText = "Optional",
             captionText = "Caption",
@@ -378,7 +377,7 @@ internal fun SandboxTextAreaPreviewSDefaultOuterRightChips() {
             modifier = Modifier.fillMaxWidth(),
             placeholderText = "Placeholder",
             value = value,
-            style = TextArea.S.Default.OuterLabel.RequiredEnd.style(),
+            style = TextArea.S.OuterLabel.RequiredEnd.Default.style(),
             labelText = "Label",
             optionalText = "Optional",
             captionText = "Caption",
@@ -432,7 +431,7 @@ internal fun SandboxTextAreaPreviewSLongText() {
         TextField(
             placeholderText = "Placeholder",
             value = value,
-            style = TextArea.S.Warning.Optional.InnerLabel.style(),
+            style = TextArea.S.InnerLabel.Warning.style(),
             labelText = "Label",
             optionalText = "Optional",
             captionText = "Caption",
@@ -460,7 +459,7 @@ internal fun SandboxTextAreaPreviewLDefaultTBTA() {
             modifier = Modifier.fillMaxWidth(),
             placeholderText = "Placeholder",
             value = value,
-            style = TextArea.L.Default.InnerLabel.RequiredEnd.style(),
+            style = TextArea.L.InnerLabel.RequiredEnd.Default.style(),
             labelText = "Label",
             optionalText = "Optional",
             captionText = "Caption",

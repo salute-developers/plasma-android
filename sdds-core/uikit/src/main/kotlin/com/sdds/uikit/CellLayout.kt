@@ -71,6 +71,8 @@ open class CellLayout @JvmOverloads constructor(
     private var _disclosureView: View? = null
     private var _disclosureEnabled: Boolean = false
     private var _forceDuplicateParentState: Boolean = false
+    private var _contentStartPaddingEnabled = false
+    private var _contentEndPaddingEnabled = false
 
     /**
      * Выравнивание дочерних элементов относительно строки, в которой они находятся.
@@ -161,18 +163,7 @@ open class CellLayout @JvmOverloads constructor(
     override fun onFocusChanged(gainFocus: Boolean, direction: Int, previouslyFocusedRect: Rect?) {
         super.onFocusChanged(gainFocus, direction, previouslyFocusedRect)
         updateFocusSelector(this, gainFocus)
-        redispatchActivated()
-    }
-
-    override fun dispatchSetActivated(activated: Boolean) {
-        // При вызове setActivated хотим, чтобы на children всегда приходил activated = false
-        // Чтобы потом самостоятельно отправить им нужное значение
-        super.dispatchSetActivated(false)
-    }
-
-    private fun redispatchActivated() {
-        // отправляем всем children значение activate = true, если в контейнер в фокусе
-        super.dispatchSetActivated(isFocused)
+        isActivated = gainFocus
     }
 
     override fun addView(child: View?, index: Int, params: ViewGroup.LayoutParams?) {
@@ -216,7 +207,7 @@ open class CellLayout @JvmOverloads constructor(
         _endContentBounds.setEmpty()
         _centerContentBounds.setEmpty()
 
-        var totalWidth = _contentStartPadding + _contentEndPadding
+        var totalWidth = paddingStart + paddingEnd
         var totalHeight = 0
 
         for (index in 0 until childCount) {
@@ -230,13 +221,20 @@ open class CellLayout @JvmOverloads constructor(
 
             when (lp.cellContent) {
                 START -> {
+                    if (!_contentStartPaddingEnabled) {
+                        _contentStartPaddingEnabled = true
+                        totalWidth += _contentStartPadding
+                    }
                     _startContentBounds.apply {
                         right += totalChildWidth
                         bottom = maxOf(bottom, totalChildHeight)
                     }
                 }
-
                 END, DISCLOSURE -> {
+                    if (!_contentEndPaddingEnabled) {
+                        _contentEndPaddingEnabled = true
+                        totalWidth += _contentEndPadding
+                    }
                     _endContentBounds.apply {
                         right += totalChildWidth
                         bottom = maxOf(bottom, totalChildHeight)
@@ -245,9 +243,9 @@ open class CellLayout @JvmOverloads constructor(
 
                 else -> Unit
             }
-        }
 
-        totalWidth += _startContentBounds.width() + _endContentBounds.width()
+            totalWidth += totalChildWidth
+        }
 
         for (index in 0 until childCount) {
             val child = getChildAt(index)
@@ -265,7 +263,7 @@ open class CellLayout @JvmOverloads constructor(
             }
         }
 
-        totalWidth += _centerContentBounds.width() + paddingStart + paddingEnd
+        totalWidth += _centerContentBounds.width()
         totalHeight += maxOf(
             _startContentBounds.height(),
             _centerContentBounds.height(),
@@ -419,7 +417,7 @@ open class CellLayout @JvmOverloads constructor(
             layoutDirection,
         )
         _centerContentBounds.offsetTo(
-            _startContentBounds.right + _contentStartPadding,
+            _startContentBounds.right + (_contentStartPadding.takeIf { _contentStartPaddingEnabled } ?: 0),
             _centerContentBounds.top,
         )
     }

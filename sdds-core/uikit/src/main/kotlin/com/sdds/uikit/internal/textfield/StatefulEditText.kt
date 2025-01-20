@@ -21,12 +21,13 @@ import android.widget.TextView
 import androidx.annotation.StyleRes
 import androidx.appcompat.widget.AppCompatEditText
 import com.sdds.uikit.R
+import com.sdds.uikit.colorstate.ColorState
+import com.sdds.uikit.colorstate.ColorState.Companion.isDefined
+import com.sdds.uikit.colorstate.ColorStateHolder
 import com.sdds.uikit.internal.base.applyTextAppearance
 import com.sdds.uikit.internal.base.colorForState
 import com.sdds.uikit.internal.base.configure
 import com.sdds.uikit.viewstate.ViewState
-import com.sdds.uikit.viewstate.ViewState.Companion.isDefined
-import com.sdds.uikit.viewstate.ViewStateHolder
 import kotlin.math.roundToInt
 
 /**
@@ -40,7 +41,7 @@ internal class StatefulEditText @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = android.R.attr.editTextStyle,
-) : AppCompatEditText(context, attrs, defStyleAttr), ViewStateHolder {
+) : AppCompatEditText(context, attrs, defStyleAttr), ColorStateHolder {
 
     private var _currentImeAction: Int = 0
     private val keyListener = KeyListener()
@@ -51,6 +52,8 @@ internal class StatefulEditText @JvmOverloads constructor(
     private var _prefixDrawable: Drawable? = null
     private var _previousFilters: Array<out InputFilter>? = null
     private var _valueTextAppearance: Int = 0
+    private var _prefixPadding: Int = 0
+    private var _suffixPadding: Int = 0
 
     private val readOnlyFilter = InputFilter { source, _, _, dest, dstart, dend ->
         dest.subSequence(dstart, dend)
@@ -60,7 +63,7 @@ internal class StatefulEditText @JvmOverloads constructor(
      * Состояние внешнего вида текста
      * @see ViewState
      */
-    override var state: ViewState? = ViewState.obtain(context, attrs, defStyleAttr)
+    override var colorState: ColorState? = ColorState.obtain(context, attrs, defStyleAttr)
         set(value) {
             if (field != value) {
                 field = value
@@ -142,6 +145,23 @@ internal class StatefulEditText @JvmOverloads constructor(
             updatePrefixSuffixDrawable()
         }
 
+    var prefixTextPadding: Int
+        get() = _prefixPadding
+        set(value) {
+            if (_prefixPadding != value) {
+                _prefixPadding = value
+                requestLayout()
+            }
+        }
+    var suffixTextPadding: Int
+        get() = _suffixPadding
+        set(value) {
+            if (_suffixPadding != value) {
+                _suffixPadding = value
+                requestLayout()
+            }
+        }
+
     init {
         super.setOnKeyListener(keyListener)
         super.setOnEditorActionListener(editorListener)
@@ -209,8 +229,8 @@ internal class StatefulEditText @JvmOverloads constructor(
 
     override fun onCreateDrawableState(extraSpace: Int): IntArray {
         val drawableState = super.onCreateDrawableState(extraSpace + 2)
-        if (state?.isDefined() == true) {
-            mergeDrawableStates(drawableState, state?.attr)
+        if (colorState?.isDefined() == true) {
+            mergeDrawableStates(drawableState, colorState?.attrs)
         }
         if (isReadOnly) {
             mergeDrawableStates(drawableState, intArrayOf(R.attr.sd_state_readonly))
@@ -257,10 +277,12 @@ internal class StatefulEditText @JvmOverloads constructor(
         (_prefixDrawable as? TextDrawable)?.apply {
             setTextAppearance(context, _valueTextAppearance)
             setTintList(hintTextColors)
+            tryUpdatePaddings(0, _prefixPadding)
         }
         (_suffixDrawable as? TextDrawable)?.apply {
             setTextAppearance(context, _valueTextAppearance)
             setTintList(hintTextColors)
+            tryUpdatePaddings(_suffixPadding, 0)
         }
         setCompoundDrawablesRelativeWithIntrinsicBounds(
             _prefixDrawable,
@@ -348,6 +370,22 @@ internal class StatefulEditText @JvmOverloads constructor(
                 }
             }
 
+        var paddingStart: Int = 0
+            set(value) {
+                if (field != value) {
+                    field = value
+                    invalidateSelf()
+                }
+            }
+
+        var paddingEnd: Int = 0
+            set(value) {
+                if (field != value) {
+                    field = value
+                    invalidateSelf()
+                }
+            }
+
         fun setTextAppearance(context: Context, @StyleRes appearance: Int) {
             _textPaint.applyTextAppearance(context, appearance) {
                 _textPaint.color = _textColors.colorForState(state)
@@ -396,7 +434,7 @@ internal class StatefulEditText @JvmOverloads constructor(
             text?.toString()?.let { safeText ->
                 _textPaint.getTextBounds(safeText, 0, safeText.length, _textBounds)
                 _textBounds.offsetTo(
-                    bounds.left,
+                    bounds.left + paddingStart,
                     bounds.centerY() - _textBounds.centerY(),
                 )
             }
@@ -404,7 +442,7 @@ internal class StatefulEditText @JvmOverloads constructor(
 
         override fun getIntrinsicWidth(): Int {
             val measurableText = text?.toString() ?: return 0
-            return _textPaint.measureText(measurableText).roundToInt()
+            return _textPaint.measureText(measurableText).roundToInt() + paddingStart + paddingEnd
         }
 
         override fun getIntrinsicHeight(): Int {
@@ -422,6 +460,13 @@ internal class StatefulEditText @JvmOverloads constructor(
 
         fun Drawable.tryUpdateText(text: CharSequence?) {
             (this as? TextDrawable)?.text = text
+        }
+
+        fun Drawable.tryUpdatePaddings(paddingStart: Int = 0, paddingEnd: Int = 0) {
+            (this as? TextDrawable)?.apply {
+                this.paddingStart = paddingStart
+                this.paddingEnd = paddingEnd
+            }
         }
 
         fun Drawable.getText(): CharSequence? {

@@ -38,3 +38,42 @@ fun <T : Style, B : StyleBuilder<T>> B.applyFor(receiver: Any, block: @Composabl
 @Composable
 fun <T : Style, B : StyleBuilder<T>> B.applyExclude(receiver: Any, block: @Composable B.() -> Unit): B =
     if (this.receiver != receiver) apply { block() } else this
+
+/**
+ * Базовый интерфейс врапперов
+ */
+interface BuilderWrapper<S : Style, Sb : StyleBuilder<S>> {
+
+    /**
+     * Ссылка на билдер стиля [S]
+     */
+    val builder: Sb
+
+    /**
+     * Применяет [block] к [builder]
+     */
+    @Composable
+    fun modify(block: @Composable Sb.() -> Unit): BuilderWrapper<S, Sb> {
+        builder.block()
+        return this
+    }
+
+    /**
+     * Сконструирует и вернет стиль [S]
+     */
+    fun style(): S = builder.style()
+
+    /**
+     * Оборачивает враппер другим враппером, применяя [block] к [builder]
+     */
+    fun <W : BuilderWrapper<S, Sb>> wrap(block: (Sb) -> W): W {
+        return block(builder)
+    }
+}
+
+/**
+ * Оборачивает враппер другим враппером, применяя [block] к билдеру
+ */
+fun <S : Style, Sb : StyleBuilder<S>, W : BuilderWrapper<S, Sb>> Sb.wrap(block: (Sb) -> W): W {
+    return block(this)
+}

@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
 
+    <attr name="sd_iconButtonStyle" format="reference"/>
+    <attr name="sd_linkButtonStyle" format="reference"/>
+
     <!--
         Компонент "Кнопка".
         Умеет отображать иконку, индикатор загрузки, а также два текста: основной и дополнительный.

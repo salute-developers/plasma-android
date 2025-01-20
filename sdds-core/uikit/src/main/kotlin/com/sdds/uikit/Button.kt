@@ -27,6 +27,9 @@ import androidx.core.graphics.drawable.DrawableCompat
 import androidx.core.text.buildSpannedString
 import androidx.core.view.ViewCompat
 import androidx.core.widget.TextViewCompat
+import com.sdds.uikit.colorstate.ColorState
+import com.sdds.uikit.colorstate.ColorState.Companion.isDefined
+import com.sdds.uikit.colorstate.ColorStateHolder
 import com.sdds.uikit.internal.base.ViewAlphaHelper
 import com.sdds.uikit.internal.base.configure
 import com.sdds.uikit.internal.base.drawable.SpinnerDrawable
@@ -61,6 +64,7 @@ open class Button @JvmOverloads constructor(
     Checkable,
     Shapeable,
     ViewStateHolder,
+    ColorStateHolder,
     HasFocusSelector by FocusSelectorDelegate() {
 
     /**
@@ -277,7 +281,20 @@ open class Button @JvmOverloads constructor(
      * Состояние внешнего вида кнопки
      * @see ViewState
      */
+    @Deprecated("Использовать Button.colorState")
     override var state: ViewState? = ViewState.obtain(context, attrs, defStyleAttr)
+        set(value) {
+            if (field != value) {
+                field = value
+                refreshDrawableState()
+            }
+        }
+
+    /**
+     * Состояние внешнего вида кнопки
+     * @see ColorState
+     */
+    override var colorState: ColorState? = ColorState.obtain(context, attrs, defStyleAttr)
         set(value) {
             if (field != value) {
                 field = value
@@ -447,9 +464,12 @@ open class Button @JvmOverloads constructor(
     }
 
     override fun onCreateDrawableState(extraSpace: Int): IntArray {
-        val drawableState = super.onCreateDrawableState(extraSpace + 3)
+        val drawableState = super.onCreateDrawableState(extraSpace + 4)
         if (state?.isDefined() == true) {
             mergeDrawableStates(drawableState, state?.attr)
+        }
+        if (colorState?.isDefined() == true) {
+            mergeDrawableStates(drawableState, colorState?.attrs)
         }
         if (isChecked) {
             mergeDrawableStates(drawableState, intArrayOf(android.R.attr.state_checked))

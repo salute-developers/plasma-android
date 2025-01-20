@@ -7,9 +7,9 @@ import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.github.takahirom.roborazzi.captureRoboImage
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.textfield.vs.ExampleChipData
+import com.sdds.playground.sandbox.textfield.vs.FieldColorState
 import com.sdds.playground.sandbox.textfield.vs.TextFieldUiState
 import com.sdds.playground.sandbox.textfield.vs.TextFieldVariant
-import com.sdds.uikit.TextField
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.ParameterizedRobolectricTestRunner
@@ -29,7 +29,7 @@ class ViewSystemTextFieldScreenshotTest(
             R.id.nav_textfield,
             TextFieldUiState(
                 variant = TextFieldVariant.TextFieldLInnerLabelRequiredStart,
-                state = TextField.FieldState.Default,
+                state = FieldColorState.Default,
                 labelText = "Label",
                 valueText = "Value",
                 captionText = "Caption",
@@ -53,7 +53,7 @@ class ViewSystemTextFieldScreenshotTest(
             R.id.nav_textfield,
             TextFieldUiState(
                 variant = TextFieldVariant.TextFieldMOuterLabel,
-                state = TextField.FieldState.Positive,
+                state = FieldColorState.Success,
                 labelText = "Label",
                 valueText = "",
                 captionText = "Caption",
@@ -77,7 +77,7 @@ class ViewSystemTextFieldScreenshotTest(
             R.id.nav_textfield,
             TextFieldUiState(
                 variant = TextFieldVariant.TextFieldSInnerLabelRequiredEnd,
-                state = TextField.FieldState.Warning,
+                state = FieldColorState.Warning,
                 labelText = "Label",
                 valueText = "",
                 captionText = "Caption",
@@ -101,7 +101,7 @@ class ViewSystemTextFieldScreenshotTest(
             R.id.nav_textfield,
             TextFieldUiState(
                 variant = TextFieldVariant.TextFieldXS,
-                state = TextField.FieldState.Negative,
+                state = FieldColorState.Error,
                 labelText = "Label",
                 valueText = "",
                 captionText = "Caption",
@@ -125,7 +125,7 @@ class ViewSystemTextFieldScreenshotTest(
             R.id.nav_textfield,
             TextFieldUiState(
                 variant = TextFieldVariant.TextFieldLOuterLabelRequiredStart,
-                state = TextField.FieldState.Positive,
+                state = FieldColorState.Success,
                 labelText = "Label",
                 valueText = "Value",
                 placeholderText = "",
@@ -149,7 +149,7 @@ class ViewSystemTextFieldScreenshotTest(
             R.id.nav_textfield,
             TextFieldUiState(
                 variant = TextFieldVariant.TextFieldMInnerLabel,
-                state = TextField.FieldState.Warning,
+                state = FieldColorState.Warning,
                 labelText = "Label",
                 valueText = "Value",
                 placeholderText = "",
@@ -173,7 +173,7 @@ class ViewSystemTextFieldScreenshotTest(
             R.id.nav_textfield,
             TextFieldUiState(
                 variant = TextFieldVariant.TextFieldSInnerLabelRequiredEnd,
-                state = TextField.FieldState.Default,
+                state = FieldColorState.Default,
                 labelText = "",
                 valueText = "",
                 placeholderText = "Placeholder",
@@ -197,7 +197,7 @@ class ViewSystemTextFieldScreenshotTest(
             R.id.nav_textfield,
             TextFieldUiState(
                 variant = TextFieldVariant.TextFieldXSOuterLabel,
-                state = TextField.FieldState.Positive,
+                state = FieldColorState.Success,
                 labelText = "Label",
                 valueText = "Value",
                 placeholderText = "",
@@ -221,7 +221,7 @@ class ViewSystemTextFieldScreenshotTest(
             R.id.nav_textfield,
             TextFieldUiState(
                 variant = TextFieldVariant.TextFieldLInnerLabelRequiredStart,
-                state = TextField.FieldState.Default,
+                state = FieldColorState.Default,
                 labelText = "Label",
                 valueText = "",
                 placeholderText = "Placeholder",
@@ -245,7 +245,7 @@ class ViewSystemTextFieldScreenshotTest(
             R.id.nav_textfield,
             TextFieldUiState(
                 variant = TextFieldVariant.TextFieldMOuterLabel,
-                state = TextField.FieldState.Negative,
+                state = FieldColorState.Error,
                 labelText = "Label",
                 valueText = "",
                 placeholderText = "Placeholder",
@@ -269,7 +269,7 @@ class ViewSystemTextFieldScreenshotTest(
             R.id.nav_textfield,
             TextFieldUiState(
                 variant = TextFieldVariant.TextFieldSInnerLabelRequiredEnd,
-                state = TextField.FieldState.Warning,
+                state = FieldColorState.Warning,
                 labelText = "Label",
                 valueText = "Value",
                 placeholderText = "Placeholder",
@@ -295,7 +295,7 @@ class ViewSystemTextFieldScreenshotTest(
             R.id.nav_textfield,
             TextFieldUiState(
                 variant = TextFieldVariant.TextFieldMInnerLabel,
-                state = TextField.FieldState.Positive,
+                state = FieldColorState.Success,
                 labelText = "Label",
                 placeholderText = "Placeholder",
                 valueText = "",
@@ -323,7 +323,7 @@ class ViewSystemTextFieldScreenshotTest(
             R.id.nav_textfield,
             TextFieldUiState(
                 variant = TextFieldVariant.TextFieldSOuterLabelRequiredEnd,
-                state = TextField.FieldState.Default,
+                state = FieldColorState.Default,
                 labelText = "Label",
                 valueText = "",
                 placeholderText = "Placeholder",
@@ -351,7 +351,7 @@ class ViewSystemTextFieldScreenshotTest(
             R.id.nav_textfield,
             TextFieldUiState(
                 variant = TextFieldVariant.TextFieldLInnerLabel,
-                state = TextField.FieldState.Warning,
+                state = FieldColorState.Warning,
                 labelText = "Label",
                 placeholderText = "",
                 valueText = "абвгдежзabcdefg@#643!#\$",
@@ -375,7 +375,7 @@ class ViewSystemTextFieldScreenshotTest(
             R.id.nav_textfield,
             TextFieldUiState(
                 variant = TextFieldVariant.TextFieldLOuterLabelRequiredStart,
-                state = TextField.FieldState.Default,
+                state = FieldColorState.Default,
                 labelText = "Label",
                 valueText = "Value",
                 placeholderText = "",

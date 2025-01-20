@@ -70,7 +70,7 @@
         <item name="sd_iconTint">@color/color_cell_text</item>
     </style>
 
-    <style name="Serv.Sdds.Components.CellContent.IconButton.XS" parent="Serv.Sdds.Components.IconButton.XS.Clear" >
+    <style name="Serv.Sdds.Components.CellContent.IconButton.XS" parent="Serv.Sdds.Components.IconButton.Xs.Clear" >
         <item name="sd_iconTint">@color/color_cell_text</item>
     </style>
 

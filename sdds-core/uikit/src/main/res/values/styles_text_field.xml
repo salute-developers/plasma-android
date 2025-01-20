@@ -16,5 +16,38 @@
         <item name="sd_shapeAppearance">?sd_shapeAppearanceMedium</item>
         <item name="sd_valueAppearance">@style/TextAppearance.AppCompat.Body1</item>
         <item name="sd_valueColor">#F5171717</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:minWidth">240dp</item>
+        <item name="android:imeOptions">actionDone</item>
+        <item name="sd_allowBreakLines">false</item>
+        <item name="android:inputType">text</item>
+    </style>
+
+    <style name="Sdds.Components.TextArea">
+        <item name="sd_actionTint">#8F171717</item>
+        <item name="sd_actionPadding">8dp</item>
+        <item name="sd_boxMinHeight">130dp</item>
+        <item name="sd_alignmentLineHeight">48dp</item>
+        <item name="sd_boxPadding">14dp</item>
+        <item name="sd_boxTint">@color/sd_color_text_field_box</item>
+        <item name="sd_captionColor">#8F171717</item>
+        <item name="sd_helperTextPadding">4dp</item>
+        <item name="sd_iconPadding">4dp</item>
+        <item name="sd_iconTint">#8F171717</item>
+        <item name="sd_labelColor">#000</item>
+        <item name="sd_placeholderColor">#8F171717</item>
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceMedium</item>
+        <item name="sd_valueAppearance">@style/TextAppearance.AppCompat.Body1</item>
+        <item name="sd_valueColor">#F5171717</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:minWidth">240dp</item>
+        <item name="android:imeOptions">actionDone</item>
+        <item name="sd_allowBreakLines">false</item>
+        <item name="android:inputType">text|textMultiLine</item>
+        <item name="sd_scrollBarEnabled">true</item>
     </style>
 </resources>
