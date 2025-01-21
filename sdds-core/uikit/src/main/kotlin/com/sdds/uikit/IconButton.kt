@@ -21,13 +21,6 @@ open class IconButton @JvmOverloads constructor(
         get() = null
         set(_) {}
 
-    init {
-        super.value = null
-        super.setText(null)
-    }
-
-    final override fun getText(): CharSequence? = null
-
     final override fun setText(text: CharSequence?, type: BufferType?) {
         super.setText(null, null)
     }
