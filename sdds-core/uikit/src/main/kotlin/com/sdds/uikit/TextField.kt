@@ -21,6 +21,8 @@ import androidx.core.view.isVisible
 import com.sdds.uikit.colorstate.ColorState
 import com.sdds.uikit.colorstate.ColorStateHolder
 import com.sdds.uikit.internal.base.ViewAlphaHelper
+import com.sdds.uikit.internal.base.fullHeight
+import com.sdds.uikit.internal.base.fullWidth
 import com.sdds.uikit.internal.base.unsafeLazy
 import com.sdds.uikit.internal.textfield.DecoratedFieldBox
 import com.sdds.uikit.internal.textfield.IndicatorDrawable
@@ -101,18 +103,22 @@ open class TextField @JvmOverloads constructor(
         TextFieldTextView(context).apply {
             id = R.id.sd_textFieldCounter
             isFocusable = false
+            isClickable = false
+            isFocusableInTouchMode = false
         }
     }
     private val _decorationBox: DecoratedFieldBox by unsafeLazy {
         DecoratedFieldBox(context, attrs, defStyleAttr).apply {
             id = R.id.sd_textFieldDecorationBox
-            isFocusable = true
         }
     }
 
     private val _helperTextContainer: CellLayout by unsafeLazy {
         CellLayout(context).apply {
             id = R.id.sd_textFieldHelperTextContainer
+            isFocusable = false
+            isClickable = false
+            isFocusableInTouchMode = false
         }
     }
 
@@ -593,11 +599,12 @@ open class TextField @JvmOverloads constructor(
         val specWidth = MeasureSpec.getSize(widthMeasureSpec)
         val specHeight = MeasureSpec.getSize(heightMeasureSpec)
 
+        var totalWidth = 0
         var totalHeight = 0
 
         fun measureChild(child: View) {
             if (child.isGone) return
-            measureChildWithMargins(child, widthMeasureSpec, 0, heightMeasureSpec, totalHeight)
+            measureChildWithMargins(child, widthMeasureSpec, totalWidth, heightMeasureSpec, totalHeight)
             totalHeight += child.fullHeight()
         }
 
@@ -605,10 +612,12 @@ open class TextField @JvmOverloads constructor(
         measureChild(_helperTextContainer)
         _decorationBox.minimumHeight = (minimumHeight - totalHeight).coerceAtLeast(_boxMinHeight)
         _decorationBox.maximumHeight = _maximumHeight - totalHeight
+        _decorationBox.minimumWidth = minimumWidth
         measureChild(_decorationBox)
 
-        val totalWidth =
-            maxOf(_outerLabelView.fullWidth(), _helperTextContainer.fullWidth(), _decorationBox.fullWidth())
+        totalWidth += maxOf(_outerLabelView.fullWidth(), _helperTextContainer.fullWidth(), _decorationBox.fullWidth())
+        totalWidth += paddingStart + paddingEnd
+        totalHeight += paddingTop + paddingBottom
 
         // Выбираем конечные размеры согласно требованиям родителя
         val desiredWidth = when (widthMode) {
@@ -787,10 +796,13 @@ open class TextField @JvmOverloads constructor(
                 bottomMargin = _labelPadding
             },
         )
-
         addView(
             _helperTextContainer,
             MarginLayoutParams(MATCH_PARENT, WRAP_CONTENT),
+        )
+        addView(
+            _decorationBox,
+            MarginLayoutParams(MATCH_PARENT, MATCH_PARENT),
         )
         _helperTextContainer.apply {
             addView(
@@ -810,11 +822,6 @@ open class TextField @JvmOverloads constructor(
                 },
             )
         }
-
-        addView(
-            _decorationBox,
-            MarginLayoutParams(MATCH_PARENT, MATCH_PARENT),
-        )
     }
 
     private fun obtainAttributes(context: Context, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) {
@@ -879,16 +886,6 @@ open class TextField @JvmOverloads constructor(
             return RequirementMode.values()
                 .getOrNull(getInt(index, 0))
                 ?: RequirementMode.Optional
-        }
-
-        fun View.fullWidth(): Int {
-            val lp = layoutParams as MarginLayoutParams
-            return measuredWidth + lp.leftMargin + lp.rightMargin
-        }
-
-        fun View.fullHeight(): Int {
-            val lp = layoutParams as MarginLayoutParams
-            return measuredHeight + lp.topMargin + lp.bottomMargin
         }
     }
 }

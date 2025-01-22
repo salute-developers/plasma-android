@@ -50,6 +50,7 @@ internal class FocusSelectorDelegate : HasFocusSelector {
     private var scaleAnimationHelper: FocusScaleAnimationHelper? = null
     private var strokeInsets: Int = 0
     private var mode: FocusSelectorMode = FocusSelectorMode.GRADIENT_BORDER
+    internal val isEnabled: Boolean get() = mode.isEnabled()
 
     override fun applySelector(view: View, context: Context, attributeSet: AttributeSet?, defStyleAttr: Int) {
         val attr = context.obtainStyledAttributes(

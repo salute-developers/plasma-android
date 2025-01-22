@@ -7,7 +7,11 @@ import android.graphics.Typeface
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.InsetDrawable
 import android.text.TextPaint
+import android.util.Size
+import android.view.View
+import android.view.ViewGroup
 import androidx.annotation.StyleRes
+import androidx.core.view.isGone
 
 /**
  * Удобный вариант [lazy] с [LazyThreadSafetyMode.NONE]
@@ -100,3 +104,26 @@ internal fun TextPaint.applyTextAppearance(
     TextAppearance(context, styleId).updateDrawState(context, this, callback)
     return callback
 }
+
+internal fun View.fullWidth(): Int {
+    if (isGone) return 0
+    val lp = layoutParams as ViewGroup.MarginLayoutParams
+    return measuredWidth + lp.leftMargin + lp.rightMargin
+}
+
+internal fun View.fullHeight(): Int {
+    if (isGone) return 0
+    val lp = layoutParams as ViewGroup.MarginLayoutParams
+    return measuredHeight + lp.topMargin + lp.bottomMargin
+}
+
+internal fun View.fullSize(): Size {
+    if (isGone) return ZeroSize
+    val lp = layoutParams as ViewGroup.MarginLayoutParams
+    return Size(
+        measuredWidth + lp.leftMargin + lp.rightMargin,
+        measuredHeight + lp.topMargin + lp.bottomMargin,
+    )
+}
+
+internal val ZeroSize = Size(0, 0)
