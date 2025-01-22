@@ -219,10 +219,8 @@ public val WrapperTextFieldView.Default: WrapperTextFieldDefaultViewTerminate
             captionColor(SddsServTheme.colors.textDefaultSecondary.asInteractive())
             backgroundColor(
                 SddsServTheme.colors.surfaceDefaultTransparentPrimary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.surfaceDefaultTransparentSecondary,
-                    setOf(InteractiveState.Activated) to
-                            SddsServTheme.colors.surfaceDefaultTransparentSecondary
+                    setOf(InteractiveState.Activated)
+                            to SddsServTheme.colors.surfaceDefaultTransparentSecondary
                 )
             )
         }
@@ -235,17 +233,13 @@ public val WrapperTextFieldView.Success: WrapperTextFieldSuccessViewTerminate
             captionColor(
                 SddsServTheme.colors.textDefaultPositive.asInteractive(
                     setOf(InteractiveState.Activated)
-                            to SddsServTheme.colors.textDefaultSecondary,
-                    setOf(InteractiveState.Pressed) to
-                            SddsServTheme.colors.textDefaultSecondary
+                            to SddsServTheme.colors.textDefaultSecondary
                 )
             )
             backgroundColor(
                 SddsServTheme.colors.surfaceDefaultTransparentPositive.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.surfaceDefaultTransparentSecondary,
-                    setOf(InteractiveState.Activated) to
-                            SddsServTheme.colors.surfaceDefaultTransparentSecondary
+                    setOf(InteractiveState.Activated)
+                            to SddsServTheme.colors.surfaceDefaultTransparentSecondary
                 )
             )
         }
@@ -258,17 +252,13 @@ public val WrapperTextFieldView.Warning: WrapperTextFieldWarningViewTerminate
             captionColor(
                 SddsServTheme.colors.textDefaultWarning.asInteractive(
                     setOf(InteractiveState.Activated)
-                            to SddsServTheme.colors.textDefaultSecondary,
-                    setOf(InteractiveState.Pressed) to
-                            SddsServTheme.colors.textDefaultSecondary
+                            to SddsServTheme.colors.textDefaultSecondary
                 )
             )
             backgroundColor(
                 SddsServTheme.colors.surfaceDefaultTransparentWarning.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.surfaceDefaultTransparentSecondary,
-                    setOf(InteractiveState.Activated) to
-                            SddsServTheme.colors.surfaceDefaultTransparentSecondary
+                    setOf(InteractiveState.Activated)
+                            to SddsServTheme.colors.surfaceDefaultTransparentSecondary
                 )
             )
         }
@@ -281,17 +271,13 @@ public val WrapperTextFieldView.Error: WrapperTextFieldErrorViewTerminate
             captionColor(
                 SddsServTheme.colors.textDefaultNegative.asInteractive(
                     setOf(InteractiveState.Activated)
-                            to SddsServTheme.colors.textDefaultSecondary,
-                    setOf(InteractiveState.Pressed) to
-                            SddsServTheme.colors.textDefaultSecondary
+                            to SddsServTheme.colors.textDefaultSecondary
                 )
             )
             backgroundColor(
                 SddsServTheme.colors.surfaceDefaultTransparentNegative.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.surfaceDefaultTransparentSecondary,
-                    setOf(InteractiveState.Activated) to
-                            SddsServTheme.colors.surfaceDefaultTransparentSecondary
+                    setOf(InteractiveState.Activated)
+                            to SddsServTheme.colors.surfaceDefaultTransparentSecondary
                 )
             )
         }
@@ -314,9 +300,7 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
             placeholderColor(
                 SddsServTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Activated)
-                            to SddsServTheme.colors.textDefaultTertiary,
-                    setOf(InteractiveState.Pressed) to
-                            SddsServTheme.colors.textDefaultTertiary
+                            to SddsServTheme.colors.textDefaultTertiary
                 )
             )
             indicatorColor(SddsServTheme.colors.surfaceDefaultNegative.asInteractive())
@@ -332,6 +316,7 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
             endContentColorReadOnly(
                 SddsServTheme.colors.textDefaultSecondary.multiplyAlpha(0.4f).asInteractive()
             )
+            captionColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
             counterColor(SddsServTheme.colors.textDefaultSecondary.asInteractive())
             backgroundColorReadOnly(
                 SddsServTheme.colors.surfaceDefaultSolidPrimary.multiplyAlpha(

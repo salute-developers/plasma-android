@@ -219,10 +219,8 @@ public val WrapperTextAreaClearView.Default: WrapperTextAreaClearDefaultViewTerm
             valueColor(SddsServTheme.colors.textDefaultPrimary.asInteractive())
             placeholderColor(
                 SddsServTheme.colors.textDefaultSecondary.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textDefaultTertiary,
-                    setOf(InteractiveState.Activated) to
-                            SddsServTheme.colors.textDefaultTertiary
+                    setOf(InteractiveState.Activated)
+                            to SddsServTheme.colors.textDefaultTertiary
                 )
             )
             startContentColor(SddsServTheme.colors.textDefaultSecondary.asInteractive())
@@ -230,9 +228,7 @@ public val WrapperTextAreaClearView.Default: WrapperTextAreaClearDefaultViewTerm
             dividerColor(
                 SddsServTheme.colors.surfaceDefaultTransparentTertiary.asInteractive(
                     setOf(InteractiveState.Activated)
-                            to SddsServTheme.colors.surfaceDefaultAccent,
-                    setOf(InteractiveState.Pressed) to
-                            SddsServTheme.colors.surfaceDefaultAccent
+                            to SddsServTheme.colors.surfaceDefaultAccent
                 )
             )
         }
@@ -244,42 +240,32 @@ public val WrapperTextAreaClearView.Success: WrapperTextAreaClearSuccessViewTerm
         .colors {
             valueColor(
                 SddsServTheme.colors.textDefaultPositive.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textDefaultPrimary,
-                    setOf(InteractiveState.Activated) to
-                            SddsServTheme.colors.textDefaultPrimary
+                    setOf(InteractiveState.Activated)
+                            to SddsServTheme.colors.textDefaultPrimary
                 )
             )
             placeholderColor(
                 SddsServTheme.colors.textDefaultPositive.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textDefaultTertiary,
-                    setOf(InteractiveState.Activated) to
-                            SddsServTheme.colors.textDefaultTertiary
+                    setOf(InteractiveState.Activated)
+                            to SddsServTheme.colors.textDefaultTertiary
                 )
             )
             startContentColor(
                 SddsServTheme.colors.textDefaultPositive.asInteractive(
                     setOf(InteractiveState.Activated)
-                            to SddsServTheme.colors.textDefaultSecondary,
-                    setOf(InteractiveState.Pressed) to
-                            SddsServTheme.colors.textDefaultSecondary
+                            to SddsServTheme.colors.textDefaultSecondary
                 )
             )
             captionColor(
                 SddsServTheme.colors.textDefaultPositive.asInteractive(
                     setOf(InteractiveState.Activated)
-                            to SddsServTheme.colors.textDefaultSecondary,
-                    setOf(InteractiveState.Pressed) to
-                            SddsServTheme.colors.textDefaultSecondary
+                            to SddsServTheme.colors.textDefaultSecondary
                 )
             )
             dividerColor(
                 SddsServTheme.colors.surfaceDefaultPositive.asInteractive(
                     setOf(InteractiveState.Activated)
-                            to SddsServTheme.colors.surfaceDefaultAccent,
-                    setOf(InteractiveState.Pressed) to
-                            SddsServTheme.colors.surfaceDefaultAccent
+                            to SddsServTheme.colors.surfaceDefaultAccent
                 )
             )
         }
@@ -291,42 +277,32 @@ public val WrapperTextAreaClearView.Warning: WrapperTextAreaClearWarningViewTerm
         .colors {
             valueColor(
                 SddsServTheme.colors.textDefaultWarning.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textDefaultPrimary,
-                    setOf(InteractiveState.Activated) to
-                            SddsServTheme.colors.textDefaultPrimary
+                    setOf(InteractiveState.Activated)
+                            to SddsServTheme.colors.textDefaultPrimary
                 )
             )
             placeholderColor(
                 SddsServTheme.colors.textDefaultWarning.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textDefaultTertiary,
-                    setOf(InteractiveState.Activated) to
-                            SddsServTheme.colors.textDefaultTertiary
+                    setOf(InteractiveState.Activated)
+                            to SddsServTheme.colors.textDefaultTertiary
                 )
             )
             startContentColor(
                 SddsServTheme.colors.textDefaultWarning.asInteractive(
                     setOf(InteractiveState.Activated)
-                            to SddsServTheme.colors.textDefaultSecondary,
-                    setOf(InteractiveState.Pressed) to
-                            SddsServTheme.colors.textDefaultSecondary
+                            to SddsServTheme.colors.textDefaultSecondary
                 )
             )
             captionColor(
                 SddsServTheme.colors.textDefaultWarning.asInteractive(
                     setOf(InteractiveState.Activated)
-                            to SddsServTheme.colors.textDefaultSecondary,
-                    setOf(InteractiveState.Pressed) to
-                            SddsServTheme.colors.textDefaultSecondary
+                            to SddsServTheme.colors.textDefaultSecondary
                 )
             )
             dividerColor(
                 SddsServTheme.colors.surfaceDefaultWarning.asInteractive(
                     setOf(InteractiveState.Activated)
-                            to SddsServTheme.colors.surfaceDefaultAccent,
-                    setOf(InteractiveState.Pressed) to
-                            SddsServTheme.colors.surfaceDefaultAccent
+                            to SddsServTheme.colors.surfaceDefaultAccent
                 )
             )
         }
@@ -338,42 +314,32 @@ public val WrapperTextAreaClearView.Error: WrapperTextAreaClearErrorViewTerminat
         .colors {
             valueColor(
                 SddsServTheme.colors.textDefaultNegative.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textDefaultPrimary,
-                    setOf(InteractiveState.Activated) to
-                            SddsServTheme.colors.textDefaultPrimary
+                    setOf(InteractiveState.Activated)
+                            to SddsServTheme.colors.textDefaultPrimary
                 )
             )
             placeholderColor(
                 SddsServTheme.colors.textDefaultNegative.asInteractive(
-                    setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textDefaultTertiary,
-                    setOf(InteractiveState.Activated) to
-                            SddsServTheme.colors.textDefaultTertiary
+                    setOf(InteractiveState.Activated)
+                            to SddsServTheme.colors.textDefaultTertiary
                 )
             )
             startContentColor(
                 SddsServTheme.colors.textDefaultNegative.asInteractive(
                     setOf(InteractiveState.Activated)
-                            to SddsServTheme.colors.textDefaultSecondary,
-                    setOf(InteractiveState.Pressed) to
-                            SddsServTheme.colors.textDefaultSecondary
+                            to SddsServTheme.colors.textDefaultSecondary
                 )
             )
             captionColor(
                 SddsServTheme.colors.textDefaultNegative.asInteractive(
                     setOf(InteractiveState.Activated)
-                            to SddsServTheme.colors.textDefaultSecondary,
-                    setOf(InteractiveState.Pressed) to
-                            SddsServTheme.colors.textDefaultSecondary
+                            to SddsServTheme.colors.textDefaultSecondary
                 )
             )
             dividerColor(
                 SddsServTheme.colors.surfaceDefaultNegative.asInteractive(
                     setOf(InteractiveState.Activated)
-                            to SddsServTheme.colors.surfaceDefaultAccent,
-                    setOf(InteractiveState.Pressed) to
-                            SddsServTheme.colors.surfaceDefaultAccent
+                            to SddsServTheme.colors.surfaceDefaultAccent
                 )
             )
         }
@@ -394,7 +360,10 @@ private val TextAreaClearStyleBuilder.invariantProps: TextAreaClearStyleBuilder
         .chipGroupStyle(ChipGroup.Dense.style())
         .colors {
             optionalColor(SddsServTheme.colors.textDefaultTertiary.asInteractive())
+            valueColorReadOnly(SddsServTheme.colors.textDefaultPrimary.asInteractive())
+            placeholderColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
             indicatorColor(SddsServTheme.colors.surfaceDefaultNegative.asInteractive())
+            startContentColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
             endContentColor(
                 SddsServTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Pressed)
@@ -406,6 +375,7 @@ private val TextAreaClearStyleBuilder.invariantProps: TextAreaClearStyleBuilder
             endContentColorReadOnly(
                 SddsServTheme.colors.textDefaultSecondary.multiplyAlpha(0.4f).asInteractive()
             )
+            captionColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
             counterColor(SddsServTheme.colors.textDefaultSecondary.asInteractive())
             cursorColor(SddsServTheme.colors.textDefaultAccent.asInteractive())
             dividerColorReadOnly(SddsServTheme.colors.surfaceDefaultTransparentPrimary.asInteractive())
