@@ -59,6 +59,7 @@
         <attr name="android:imeActionId" />
         <attr name="android:imeActionLabel" />
         <attr name="android:imeOptions" />
+        <attr name="android:minWidth" />
     </declare-styleable>
 
     <declare-styleable name="TextField" tools:ignore="ResourceName">
