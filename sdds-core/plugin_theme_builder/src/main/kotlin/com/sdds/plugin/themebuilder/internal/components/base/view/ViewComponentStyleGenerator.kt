@@ -337,9 +337,21 @@ internal abstract class ViewComponentStyleGenerator<T : ComponentConfig>(
         }
         addToStateList(variation, property) {
             color.states?.forEach { colorState ->
-                val androidStateAttrs = colorState.state.asAndroidStates()
-                    .map { it.toStateListAttribute() }
-                addColor(colorState.value, stateAttrs + androidStateAttrs, alpha = color.alpha)
+                val androidStates = colorState.state.asAndroidStates()
+                val androidStateAttrs = androidStates.map { it.toStateListAttribute() }
+                val excludeStateAttrs = if (androidStates.isNotEmpty()) {
+                    AndroidState.values()
+                        .filter { !androidStates.contains(it) }
+                        .map { it.toStateListAttribute(false) }
+                        .toSet()
+                } else {
+                    emptySet()
+                }
+                addColor(
+                    colorState.value,
+                    stateAttrs + androidStateAttrs + excludeStateAttrs,
+                    alpha = color.alpha,
+                )
             }
             addColor(color.default, stateAttrs, alpha = color.alpha)
         }

@@ -2,6 +2,6 @@
 
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:color="?serv_textDefaultTertiary" android:state_activated="true"/>
+    <item android:color="?serv_textDefaultTertiary" android:state_activated="true" android:state_focused="false" android:state_hovered="false" android:state_pressed="false"/>
     <item android:color="?serv_textDefaultSecondary"/>
 </selector>

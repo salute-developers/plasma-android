@@ -4,10 +4,10 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:color="?serv_textDefaultSecondary" app:sd_state_readonly="true"/>
     <item android:color="?serv_textDefaultSecondary" app:serv_textfield_state_default="true"/>
-    <item android:color="?serv_textDefaultSecondary" android:state_activated="true" app:serv_textfield_state_success="true"/>
+    <item android:color="?serv_textDefaultSecondary" android:state_activated="true" android:state_focused="false" android:state_hovered="false" android:state_pressed="false" app:serv_textfield_state_success="true"/>
     <item android:color="?serv_textDefaultPositive" app:serv_textfield_state_success="true"/>
-    <item android:color="?serv_textDefaultSecondary" android:state_activated="true" app:serv_textfield_state_warning="true"/>
+    <item android:color="?serv_textDefaultSecondary" android:state_activated="true" android:state_focused="false" android:state_hovered="false" android:state_pressed="false" app:serv_textfield_state_warning="true"/>
     <item android:color="?serv_textDefaultWarning" app:serv_textfield_state_warning="true"/>
-    <item android:color="?serv_textDefaultSecondary" android:state_activated="true" app:serv_textfield_state_error="true"/>
+    <item android:color="?serv_textDefaultSecondary" android:state_activated="true" android:state_focused="false" android:state_hovered="false" android:state_pressed="false" app:serv_textfield_state_error="true"/>
     <item android:color="?serv_textDefaultNegative" app:serv_textfield_state_error="true"/>
 </selector>
