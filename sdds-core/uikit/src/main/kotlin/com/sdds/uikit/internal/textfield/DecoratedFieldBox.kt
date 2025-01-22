@@ -265,6 +265,30 @@ internal class DecoratedFieldBox(
         }
         initContent()
         updateTextOffset()
+        setChildrenDuplicateParentState(true)
+    }
+
+    private fun setChildrenDuplicateParentState(enabled: Boolean) {
+        _iconView.isDuplicateParentStateEnabled = enabled
+        _iconView.refreshDrawableState()
+
+        _actionView.isDuplicateParentStateEnabled = enabled
+        _actionView.refreshDrawableState()
+
+        _captionView.isDuplicateParentStateEnabled = enabled
+        _captionView.refreshDrawableState()
+
+        _counterView.isDuplicateParentStateEnabled = enabled
+        _counterView.refreshDrawableState()
+
+        _editableContainer.isDuplicateParentStateEnabled = enabled
+        _editableContainer.refreshDrawableState()
+
+        chipGroup.isDuplicateParentStateEnabled = enabled
+        chipGroup.refreshDrawableState()
+
+        _field.isDuplicateParentStateEnabled = enabled
+        _field.refreshDrawableState()
     }
 
     fun isSingleLine(): Boolean = editText.singleLine()
@@ -584,6 +608,7 @@ internal class DecoratedFieldBox(
     override fun onFocusChanged(gainFocus: Boolean, direction: Int, previouslyFocusedRect: Rect?) {
         super.onFocusChanged(gainFocus, direction, previouslyFocusedRect)
         focusSelectorDelegate.updateFocusSelector(this, gainFocus)
+        setChildrenDuplicateParentState(gainFocus && !isActivated)
     }
 
     override fun setPressed(pressed: Boolean) {
@@ -738,7 +763,6 @@ internal class DecoratedFieldBox(
         chipGroup = ChipGroupWithEditText(chipTheme)
         _editableContainer.apply {
             clipChildren = false
-            setAddStatesFromChildren(true)
             backgroundTintList = ColorStateList.valueOf(Color.TRANSPARENT)
             isHorizontalScrollBarEnabled = false
             isVerticalScrollBarEnabled = false
@@ -929,10 +953,6 @@ internal class DecoratedFieldBox(
         private var _editTextWasInFocus: Boolean = false
         private var groupShapeHelper: ShapeHelper? = null
         private var _childrenWasEnabled: Boolean = true
-
-        init {
-            setAddStatesFromChildren(true)
-        }
 
         fun setReadOnly(readonly: Boolean) {
             editText.isReadOnly = readonly

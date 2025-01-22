@@ -142,7 +142,6 @@ open class TextField @JvmOverloads constructor(
 
     init {
         setWillNotDraw(false)
-        setAddStatesFromChildren(true)
         obtainAttributes(context, attrs, defStyleAttr, defStyleRes)
         layoutChildren()
         clipChildren = false
@@ -150,7 +149,7 @@ open class TextField @JvmOverloads constructor(
         isFocusable = false
         isFocusableInTouchMode = false
         viewTreeObserver.addOnGlobalFocusChangeListener { oldFocus, newFocus ->
-            isActivated = !_decorationBox.isFocused && hasFocus() && !isReadOnly
+            isActivated = !_decorationBox.isFocused && hasFocus()
         }
     }
 
