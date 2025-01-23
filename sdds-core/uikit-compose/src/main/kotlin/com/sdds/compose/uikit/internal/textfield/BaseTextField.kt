@@ -198,13 +198,7 @@ internal fun BaseTextField(
     Layout(
         modifier = modifier
             .enable(enabled, enabledAlpha, disabledAlpha)
-            .focusProperties { canFocus = false }
-            .applyIndicatorPadding(
-                fieldType = fieldType,
-                labelPlacement = labelPlacement,
-                labelText = finalLabelText,
-                dimensions = dimensions,
-            ),
+            .focusProperties { canFocus = false },
         measurePolicy = remember {
             BaseTextFieldMeasurePolicy()
         },
@@ -613,24 +607,6 @@ private fun innerCounter(
     }
 }
 
-private fun Modifier.applyIndicatorPadding(
-    fieldType: FieldType,
-    labelPlacement: LabelPlacement,
-    labelText: String?,
-    dimensions: TextField.Dimensions,
-): Modifier {
-    val isLabelOuter = labelPlacement == LabelPlacement.Outer
-    val isIndicatorStart = fieldType == FieldType.RequiredStart
-    val shouldApply = isLabelOuter && isIndicatorStart && !labelText.isNullOrEmpty()
-    return if (shouldApply) {
-        val startPadding =
-            dimensions.indicatorDimensions.indicatorSize + dimensions.indicatorDimensions.horizontalPadding
-        this.padding(start = startPadding)
-    } else {
-        this
-    }
-}
-
 private fun Modifier.applyFieldIndicator(
     fieldType: FieldType,
     labelPlacement: LabelPlacement,
@@ -802,9 +778,6 @@ private fun TextOrEmpty(
         overflow = overflow,
     )
 }
-
-private fun TextStyle.applyColor(color: Color): TextStyle =
-    this.copy(color = color)
 
 @Composable
 private fun TextStyle.applyColor(

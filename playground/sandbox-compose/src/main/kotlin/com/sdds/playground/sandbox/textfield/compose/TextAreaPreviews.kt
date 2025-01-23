@@ -1,6 +1,8 @@
 package com.sdds.playground.sandbox.textfield.compose
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -10,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.Chip
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.TextArea
@@ -140,26 +143,27 @@ internal fun SandboxTextAreaPreviewXsErrorInnerOptional() {
 internal fun SandboxTextAreaPreviewLReadOnly() {
     SandboxTheme {
         var value by remember { mutableStateOf(TextFieldValue("")) }
-
-        TextField(
-            modifier = Modifier.fillMaxWidth(),
-            placeholderText = "",
-            value = value,
-            style = TextArea.L.OuterLabel.RequiredStart.Success.style(),
-            labelText = "Label",
-            optionalText = "Optional",
-            captionText = "",
-            counterText = "",
-            onValueChange = {},
-            readOnly = true,
-            enabled = true,
-            endContent = {
-                Icon(
-                    painter = painterResource(id = R.drawable.ic_shazam_24),
-                    contentDescription = "",
-                )
-            },
-        )
+        Box(modifier = Modifier.padding(start = 20.dp)) {
+            TextField(
+                modifier = Modifier.fillMaxWidth(),
+                placeholderText = "",
+                value = value,
+                style = TextArea.L.OuterLabel.RequiredStart.Success.style(),
+                labelText = "Label",
+                optionalText = "Optional",
+                captionText = "",
+                counterText = "",
+                onValueChange = { value = it },
+                readOnly = true,
+                enabled = true,
+                endContent = {
+                    Icon(
+                        painter = painterResource(id = R.drawable.ic_shazam_24),
+                        contentDescription = "",
+                    )
+                },
+            )
+        }
     }
 }
 

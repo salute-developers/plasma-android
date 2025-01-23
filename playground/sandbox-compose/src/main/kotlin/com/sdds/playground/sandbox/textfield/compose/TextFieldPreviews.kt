@@ -2,6 +2,7 @@ package com.sdds.playground.sandbox.textfield.compose
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -13,6 +14,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.Chip
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.TextField
@@ -178,30 +180,31 @@ internal fun SandboxTextFieldPreviewXSErrorInner() {
 internal fun SandboxTextFieldPreviewLSuccessRequiredLeftOuter() {
     SandboxTheme {
         var value by remember { mutableStateOf(TextFieldValue("Value")) }
-
-        TextField(
-            value = value,
-            style = TextField.L.OuterLabel.RequiredStart.Success.style(),
-            captionText = "Caption",
-            labelText = "Label",
-            optionalText = "",
-            placeholderText = "",
-            onValueChange = { value = it },
-            enabled = true,
-            readOnly = false,
-            startContent = {
-                Icon(
-                    painter = painterResource(id = R.drawable.ic_scribble_diagonal_24),
-                    contentDescription = "",
-                )
-            },
-            endContent = {
-                Icon(
-                    painter = painterResource(id = R.drawable.ic_shazam_24),
-                    contentDescription = "",
-                )
-            },
-        )
+        Box(modifier = Modifier.padding(start = 20.dp)) {
+            TextField(
+                value = value,
+                style = TextField.L.OuterLabel.RequiredStart.Success.style(),
+                captionText = "Caption",
+                labelText = "Label",
+                optionalText = "",
+                placeholderText = "",
+                onValueChange = { value = it },
+                enabled = true,
+                readOnly = false,
+                startContent = {
+                    Icon(
+                        painter = painterResource(id = R.drawable.ic_scribble_diagonal_24),
+                        contentDescription = "",
+                    )
+                },
+                endContent = {
+                    Icon(
+                        painter = painterResource(id = R.drawable.ic_shazam_24),
+                        contentDescription = "",
+                    )
+                },
+            )
+        }
     }
 }
 
@@ -518,32 +521,33 @@ internal fun SandboxTextFieldPreviewLInputText() {
 internal fun SandboxTextFieldPreviewLSuffixPrefix() {
     SandboxTheme {
         var value by remember { mutableStateOf(TextFieldValue("Value")) }
-
-        TextField(
-            value = value,
-            style = TextField.L.OuterLabel.RequiredStart.Default.style(),
-            captionText = "Сaption",
-            labelText = "Label",
-            optionalText = "optional",
-            placeholderText = "Placeholder",
-            prefix = "TB Prefix",
-            suffix = "TA Suffix",
-            onValueChange = { value = it },
-            enabled = true,
-            readOnly = false,
-            startContent = {
-                Icon(
-                    painter = painterResource(id = R.drawable.ic_scribble_diagonal_24),
-                    contentDescription = "",
-                )
-            },
-            endContent = {
-                Icon(
-                    painter = painterResource(id = R.drawable.ic_shazam_24),
-                    contentDescription = "",
-                )
-            },
-        )
+        Box(modifier = Modifier.padding(start = 20.dp)) {
+            TextField(
+                value = value,
+                style = TextField.L.OuterLabel.RequiredStart.Default.style(),
+                captionText = "Сaption",
+                labelText = "Label",
+                optionalText = "optional",
+                placeholderText = "Placeholder",
+                prefix = "TB Prefix",
+                suffix = "TA Suffix",
+                onValueChange = { value = it },
+                enabled = true,
+                readOnly = false,
+                startContent = {
+                    Icon(
+                        painter = painterResource(id = R.drawable.ic_scribble_diagonal_24),
+                        contentDescription = "",
+                    )
+                },
+                endContent = {
+                    Icon(
+                        painter = painterResource(id = R.drawable.ic_shazam_24),
+                        contentDescription = "",
+                    )
+                },
+            )
+        }
     }
 }
 
