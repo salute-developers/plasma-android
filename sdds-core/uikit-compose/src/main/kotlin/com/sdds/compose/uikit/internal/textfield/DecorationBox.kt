@@ -26,7 +26,7 @@ import com.sdds.compose.uikit.TextField
  */
 @Composable
 internal fun DecorationBox(
-    modifier: Modifier,
+    modifier: Modifier = Modifier,
     value: String,
     singleLine: Boolean,
     isClearAppearance: Boolean,

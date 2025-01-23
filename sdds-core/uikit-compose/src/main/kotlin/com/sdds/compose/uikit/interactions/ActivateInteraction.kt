@@ -1,6 +1,5 @@
 package com.sdds.compose.uikit.interactions
 
-import androidx.compose.foundation.focusable
 import androidx.compose.foundation.interaction.Interaction
 import androidx.compose.foundation.interaction.InteractionSource
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -115,7 +114,6 @@ fun Modifier.activatable(
     } else {
         this
     }
-        .focusable(enabled, interactionSource)
 }
 
 private fun MutableState<ActivateInteraction.Activate?>.tryDeactivate(
