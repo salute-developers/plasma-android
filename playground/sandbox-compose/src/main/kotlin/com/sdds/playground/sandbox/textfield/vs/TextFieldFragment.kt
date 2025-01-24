@@ -11,6 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
 import com.sdds.playground.sandbox.core.vs.PropertiesOwner
+import com.sdds.uikit.TextArea
 import com.sdds.uikit.TextField
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -39,7 +40,16 @@ internal open class TextFieldFragment : ComponentFragment() {
         get() = TextFieldViewModel.Mode.TextField
 
     override val componentLayout: TextField
-        get() = TextField(ContextThemeWrapper(requireContext(), currentVariant.styleRes))
+        get() = when (mode) {
+            TextFieldViewModel.Mode.TextField -> TextField(
+                ContextThemeWrapper(
+                    requireContext(),
+                    currentVariant.styleRes,
+                ),
+            )
+
+            TextFieldViewModel.Mode.TextArea -> TextArea(ContextThemeWrapper(requireContext(), currentVariant.styleRes))
+        }
             .also { textField = it }
             .apply {
                 chipAdapter = adapter
@@ -67,12 +77,15 @@ internal open class TextFieldFragment : ComponentFragment() {
                     dispatchComponentStyleChanged()
                 }
                 textField?.apply {
-                    this.state = state.state
+                    colorState = when (mode) {
+                        TextFieldViewModel.Mode.TextField -> state.state.asTextFieldState()
+                        TextFieldViewModel.Mode.TextArea -> state.state.asTextAreaState()
+                    }
                     label = state.labelText
                     placeholder = state.placeholderText
-                    value = state.valueText
+                    state.valueText?.let { this.value = it }
                     caption = state.captionText
-                    counter = state.counterText
+                    counter = state.counterText.takeIf { mode == TextFieldViewModel.Mode.TextArea }
                     prefixText = state.prefix
                     suffixText = state.suffix
                     if (state.icon) {
@@ -125,6 +138,7 @@ internal open class TextFieldFragment : ComponentFragment() {
                     editText.append(chipToDelete?.text)
                     chipToDelete != null
                 }
+
                 else -> false
             }
         }

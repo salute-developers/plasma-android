@@ -1,6 +1,5 @@
 package com.sdds.compose.uikit.interactions
 
-import androidx.compose.foundation.focusable
 import androidx.compose.foundation.interaction.Interaction
 import androidx.compose.foundation.interaction.InteractionSource
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -66,18 +65,21 @@ fun InteractionSource.collectIsActivatedAsState(): State<Boolean> {
  *
  * @param enabled включен или выключен компонент
  * @param interactionSource источник взаимодействий
+ * @param isActivatedEqualsFocused флаг для случаев, когда состояние focused эквивалентно activated.
  * @param onFocusChanged слушатель событий фокуса
  */
 @Suppress("LongMethod")
-fun Modifier.activatable(
+internal fun Modifier.activatable(
     enabled: Boolean = true,
     interactionSource: MutableInteractionSource? = null,
+    isActivatedEqualsFocused: Boolean = false,
     onFocusChanged: (focusState: FocusState) -> Unit = {},
 ) = composed(
     inspectorInfo = debugInspectorInfo {
         name = "activatable"
         properties["enabled"] = enabled
         properties["interactionSource"] = interactionSource
+        properties["isActivatedEqualsFocused"] = isActivatedEqualsFocused
     },
 ) {
     val scope = rememberCoroutineScope()
@@ -99,7 +101,12 @@ fun Modifier.activatable(
 
     if (enabled) {
         this.onFocusChanged {
-            isActivated = !it.isFocused && it.hasFocus
+            if (isActivatedEqualsFocused) it.isFocused else !it.isFocused && it.hasFocus
+            isActivated = if (isActivatedEqualsFocused) {
+                it.isFocused
+            } else {
+                !it.isFocused && it.hasFocus
+            }
             onFocusChanged.invoke(it)
             if (isActivated) {
                 scope.launch {
@@ -115,7 +122,6 @@ fun Modifier.activatable(
     } else {
         this
     }
-        .focusable(enabled, interactionSource)
 }
 
 private fun MutableState<ActivateInteraction.Activate?>.tryDeactivate(

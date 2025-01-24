@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.LinkButton" parent="Sdds.Components.LinkButton">
+        <item name="sd_colorStateProvider">com.sdds.serv.colorstate.LinkButtonColorStateProvider</item>
+        <item name="sd_disabledAlpha">0.4</item>
+        <item name="backgroundTint">@color/serv_link_button_bg_color</item>
+        <item name="android:textColor">@color/serv_link_button_text_color</item>
+        <item name="sd_spinnerTint">@color/serv_link_button_spinner_tint</item>
+        <item name="sd_iconTint">@color/serv_link_button_icon_tint</item>
+    </style>
+    <style name="Serv.Sdds.Components.LinkButton.L">
+        <item name="android:minHeight">@dimen/serv_link_button_l_min_height</item>
+        <item name="android:minWidth">@dimen/serv_link_button_l_min_width</item>
+        <item name="android:paddingStart">@dimen/serv_link_button_l_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_link_button_l_padding_end</item>
+        <item name="sd_iconSize">@dimen/serv_link_button_l_icon_size</item>
+        <item name="sd_spinnerSize">@dimen/serv_link_button_l_spinner_size</item>
+        <item name="sd_spinnerStrokeWidth">@dimen/serv_link_button_l_spinner_stroke_width</item>
+        <item name="sd_iconPadding">@dimen/serv_link_button_l_icon_padding</item>
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyLBold</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.LinkButtonL">
+        <item name="sd_linkButtonStyle">@style/Serv.Sdds.Components.LinkButton.L</item>
+    </style>
+    <style name="Serv.Sdds.Components.LinkButton.L.Default">
+        <item name="serv_linkbuttonColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.LinkButtonLDefault">
+        <item name="sd_linkButtonStyle">@style/Serv.Sdds.Components.LinkButton.L.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.LinkButton.L.Secondary">
+        <item name="serv_linkbuttonColors">state_secondary</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.LinkButtonLSecondary">
+        <item name="sd_linkButtonStyle">@style/Serv.Sdds.Components.LinkButton.L.Secondary</item>
+    </style>
+    <style name="Serv.Sdds.Components.LinkButton.L.Accent">
+        <item name="serv_linkbuttonColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.LinkButtonLAccent">
+        <item name="sd_linkButtonStyle">@style/Serv.Sdds.Components.LinkButton.L.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.LinkButton.L.Positive">
+        <item name="serv_linkbuttonColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.LinkButtonLPositive">
+        <item name="sd_linkButtonStyle">@style/Serv.Sdds.Components.LinkButton.L.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.LinkButton.L.Negative">
+        <item name="serv_linkbuttonColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.LinkButtonLNegative">
+        <item name="sd_linkButtonStyle">@style/Serv.Sdds.Components.LinkButton.L.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.LinkButton.L.Warning">
+        <item name="serv_linkbuttonColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.LinkButtonLWarning">
+        <item name="sd_linkButtonStyle">@style/Serv.Sdds.Components.LinkButton.L.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.LinkButton.M">
+        <item name="android:minHeight">@dimen/serv_link_button_m_min_height</item>
+        <item name="android:minWidth">@dimen/serv_link_button_m_min_width</item>
+        <item name="android:paddingStart">@dimen/serv_link_button_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_link_button_m_padding_end</item>
+        <item name="sd_iconSize">@dimen/serv_link_button_m_icon_size</item>
+        <item name="sd_spinnerSize">@dimen/serv_link_button_m_spinner_size</item>
+        <item name="sd_spinnerStrokeWidth">@dimen/serv_link_button_m_spinner_stroke_width</item>
+        <item name="sd_iconPadding">@dimen/serv_link_button_m_icon_padding</item>
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyMBold</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.LinkButtonM">
+        <item name="sd_linkButtonStyle">@style/Serv.Sdds.Components.LinkButton.M</item>
+    </style>
+    <style name="Serv.Sdds.Components.LinkButton.M.Default">
+        <item name="serv_linkbuttonColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.LinkButtonMDefault">
+        <item name="sd_linkButtonStyle">@style/Serv.Sdds.Components.LinkButton.M.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.LinkButton.M.Secondary">
+        <item name="serv_linkbuttonColors">state_secondary</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.LinkButtonMSecondary">
+        <item name="sd_linkButtonStyle">@style/Serv.Sdds.Components.LinkButton.M.Secondary</item>
+    </style>
+    <style name="Serv.Sdds.Components.LinkButton.M.Accent">
+        <item name="serv_linkbuttonColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.LinkButtonMAccent">
+        <item name="sd_linkButtonStyle">@style/Serv.Sdds.Components.LinkButton.M.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.LinkButton.M.Positive">
+        <item name="serv_linkbuttonColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.LinkButtonMPositive">
+        <item name="sd_linkButtonStyle">@style/Serv.Sdds.Components.LinkButton.M.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.LinkButton.M.Negative">
+        <item name="serv_linkbuttonColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.LinkButtonMNegative">
+        <item name="sd_linkButtonStyle">@style/Serv.Sdds.Components.LinkButton.M.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.LinkButton.M.Warning">
+        <item name="serv_linkbuttonColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.LinkButtonMWarning">
+        <item name="sd_linkButtonStyle">@style/Serv.Sdds.Components.LinkButton.M.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.LinkButton.S">
+        <item name="android:minHeight">@dimen/serv_link_button_s_min_height</item>
+        <item name="android:minWidth">@dimen/serv_link_button_s_min_width</item>
+        <item name="android:paddingStart">@dimen/serv_link_button_s_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_link_button_s_padding_end</item>
+        <item name="sd_iconSize">@dimen/serv_link_button_s_icon_size</item>
+        <item name="sd_spinnerSize">@dimen/serv_link_button_s_spinner_size</item>
+        <item name="sd_spinnerStrokeWidth">@dimen/serv_link_button_s_spinner_stroke_width</item>
+        <item name="sd_iconPadding">@dimen/serv_link_button_s_icon_padding</item>
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodySBold</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.LinkButtonS">
+        <item name="sd_linkButtonStyle">@style/Serv.Sdds.Components.LinkButton.S</item>
+    </style>
+    <style name="Serv.Sdds.Components.LinkButton.S.Default">
+        <item name="serv_linkbuttonColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.LinkButtonSDefault">
+        <item name="sd_linkButtonStyle">@style/Serv.Sdds.Components.LinkButton.S.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.LinkButton.S.Secondary">
+        <item name="serv_linkbuttonColors">state_secondary</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.LinkButtonSSecondary">
+        <item name="sd_linkButtonStyle">@style/Serv.Sdds.Components.LinkButton.S.Secondary</item>
+    </style>
+    <style name="Serv.Sdds.Components.LinkButton.S.Accent">
+        <item name="serv_linkbuttonColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.LinkButtonSAccent">
+        <item name="sd_linkButtonStyle">@style/Serv.Sdds.Components.LinkButton.S.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.LinkButton.S.Positive">
+        <item name="serv_linkbuttonColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.LinkButtonSPositive">
+        <item name="sd_linkButtonStyle">@style/Serv.Sdds.Components.LinkButton.S.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.LinkButton.S.Negative">
+        <item name="serv_linkbuttonColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.LinkButtonSNegative">
+        <item name="sd_linkButtonStyle">@style/Serv.Sdds.Components.LinkButton.S.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.LinkButton.S.Warning">
+        <item name="serv_linkbuttonColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.LinkButtonSWarning">
+        <item name="sd_linkButtonStyle">@style/Serv.Sdds.Components.LinkButton.S.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.LinkButton.Xs">
+        <item name="android:minHeight">@dimen/serv_link_button_xs_min_height</item>
+        <item name="android:minWidth">@dimen/serv_link_button_xs_min_width</item>
+        <item name="android:paddingStart">@dimen/serv_link_button_xs_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_link_button_xs_padding_end</item>
+        <item name="sd_iconSize">@dimen/serv_link_button_xs_icon_size</item>
+        <item name="sd_spinnerSize">@dimen/serv_link_button_xs_spinner_size</item>
+        <item name="sd_spinnerStrokeWidth">@dimen/serv_link_button_xs_spinner_stroke_width</item>
+        <item name="sd_iconPadding">@dimen/serv_link_button_xs_icon_padding</item>
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyXsBold</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.LinkButtonXs">
+        <item name="sd_linkButtonStyle">@style/Serv.Sdds.Components.LinkButton.Xs</item>
+    </style>
+    <style name="Serv.Sdds.Components.LinkButton.Xs.Default">
+        <item name="serv_linkbuttonColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.LinkButtonXsDefault">
+        <item name="sd_linkButtonStyle">@style/Serv.Sdds.Components.LinkButton.Xs.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.LinkButton.Xs.Secondary">
+        <item name="serv_linkbuttonColors">state_secondary</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.LinkButtonXsSecondary">
+        <item name="sd_linkButtonStyle">@style/Serv.Sdds.Components.LinkButton.Xs.Secondary</item>
+    </style>
+    <style name="Serv.Sdds.Components.LinkButton.Xs.Accent">
+        <item name="serv_linkbuttonColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.LinkButtonXsAccent">
+        <item name="sd_linkButtonStyle">@style/Serv.Sdds.Components.LinkButton.Xs.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.LinkButton.Xs.Positive">
+        <item name="serv_linkbuttonColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.LinkButtonXsPositive">
+        <item name="sd_linkButtonStyle">@style/Serv.Sdds.Components.LinkButton.Xs.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.LinkButton.Xs.Negative">
+        <item name="serv_linkbuttonColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.LinkButtonXsNegative">
+        <item name="sd_linkButtonStyle">@style/Serv.Sdds.Components.LinkButton.Xs.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.LinkButton.Xs.Warning">
+        <item name="serv_linkbuttonColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.LinkButtonXsWarning">
+        <item name="sd_linkButtonStyle">@style/Serv.Sdds.Components.LinkButton.Xs.Warning</item>
+    </style>
+</resources>

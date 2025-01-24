@@ -39,16 +39,15 @@ import com.sdds.uikit.ChipGroup
 import com.sdds.uikit.FlowLayout
 import com.sdds.uikit.ImageView
 import com.sdds.uikit.R
-import com.sdds.uikit.TextView
+import com.sdds.uikit.colorstate.ColorState
+import com.sdds.uikit.colorstate.ColorState.Companion.isDefined
+import com.sdds.uikit.colorstate.ColorStateHolder
 import com.sdds.uikit.internal.base.AnimationUtils
 import com.sdds.uikit.internal.base.configure
 import com.sdds.uikit.internal.base.shape.ShapeHelper
 import com.sdds.uikit.internal.base.unsafeLazy
 import com.sdds.uikit.shape.ShapeModel
 import com.sdds.uikit.shape.Shapeable
-import com.sdds.uikit.viewstate.ViewState
-import com.sdds.uikit.viewstate.ViewState.Companion.isDefined
-import com.sdds.uikit.viewstate.ViewStateHolder
 import kotlin.math.roundToInt
 
 /**
@@ -63,7 +62,7 @@ internal class DecoratedFieldBox(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0,
-) : FlowLayout(context, attrs, defStyleAttr), ViewStateHolder {
+) : FlowLayout(context, attrs, defStyleAttr), ColorStateHolder {
 
     private val _collapsingTextHelper: CollapsingTextHelper = CollapsingTextHelper(this)
     private val _collapsedBounds = Rect()
@@ -75,27 +74,29 @@ internal class DecoratedFieldBox(
             addUpdateListener { _collapsingTextHelper.expansionFraction = (it.animatedValue as Float) }
         }
     }
-    private val _iconView: ImageView by unsafeLazy {
-        ImageView(context).apply {
+    private val _iconView: TextFieldImageView by unsafeLazy {
+        TextFieldImageView(context).apply {
             id = R.id.sd_textFieldIcon
         }
     }
-    private val _actionView: ImageView by unsafeLazy {
-        ImageView(context).apply {
+    private val _actionView: TextFieldImageView by unsafeLazy {
+        TextFieldImageView(context).apply {
             id = R.id.sd_textFieldAction
         }
     }
-    private val _captionView: TextView by unsafeLazy {
-        TextView(context).apply {
+    private val _captionView: TextFieldTextView by unsafeLazy {
+        TextFieldTextView(context).apply {
             id = R.id.sd_textFieldCaption
             includeFontPadding = false
+            isClickable = false
         }
     }
 
-    private val _counterView: TextView by unsafeLazy {
-        TextView(context).apply {
+    private val _counterView: TextFieldTextView by unsafeLazy {
+        TextFieldTextView(context).apply {
             id = R.id.sd_textFieldCounter
             includeFontPadding = false
+            isClickable = false
         }
     }
     private val _field = StatefulEditText(context).apply {
@@ -128,7 +129,6 @@ internal class DecoratedFieldBox(
     private var _actionPadding: Int = 0
 
     private var _alignmentLineHeight: Int = 0
-    private var _boxMaxHeight: Int = 0
     private var _boxPaddingStart: Int = 0
     private var _boxPaddingTop: Int = 0
     private var _boxPaddingEnd: Int = 0
@@ -147,8 +147,12 @@ internal class DecoratedFieldBox(
     private var _allowBreakLines: Boolean = true
     private var _smoothScrollRunnable: Runnable? = null
 
-    private val _scrollBarTrackDrawable: Drawable = ScrollBarIndicatorDrawable(context)
-    private val _scrollBarThumbDrawable: Drawable = ScrollBarIndicatorDrawable(context)
+    private val _scrollBarTrackDrawable: Drawable = ScrollBarIndicatorDrawable(context).apply {
+        callback = this@DecoratedFieldBox
+    }
+    private val _scrollBarThumbDrawable: Drawable = ScrollBarIndicatorDrawable(context).apply {
+        callback = this@DecoratedFieldBox
+    }
     private var _scrollBarEnabled: Boolean = false
     private var _scrollBarThickness: Int = 0
     private var _scrollBarPaddingTop: Int = 0
@@ -178,21 +182,31 @@ internal class DecoratedFieldBox(
             if (field != value) {
                 field = value
                 refreshDrawableState()
+                invalidate()
                 requestLayout()
             }
         }
 
-    override var state: ViewState? = null
+    var maximumHeight: Int = Int.MAX_VALUE
+        set(value) {
+            if (field != value) {
+                field = value
+                invalidate()
+                requestLayout()
+            }
+        }
+
+    override var colorState: ColorState? = null
         set(value) {
             if (field != value) {
                 field = value
                 refreshDrawableState()
-                _actionView.state = field
-                _iconView.state = field
-                _field.state = field
-                _captionView.state = field
-                _counterView.state = field
             }
+            _actionView.colorState = field
+            _iconView.colorState = field
+            _field.colorState = field
+            _captionView.colorState = field
+            _counterView.colorState = field
         }
 
     var placeholder: CharSequence?
@@ -222,15 +236,16 @@ internal class DecoratedFieldBox(
         }
         initContent()
         updateTextOffset()
-        viewTreeObserver.addOnGlobalFocusChangeListener { oldFocus, newFocus ->
-            isActivated = !isFocused && hasFocus()
-        }
     }
 
     fun isSingleLine(): Boolean = editText.singleLine()
 
     fun setReadOnly(readonly: Boolean) {
         chipGroup.setReadOnly(readonly)
+        _captionView.isReadOnly = readonly
+        _counterView.isReadOnly = readonly
+        _iconView.isReadOnly = readonly
+        _actionView.isReadOnly = readonly
         refreshDrawableState()
     }
 
@@ -348,10 +363,10 @@ internal class DecoratedFieldBox(
         val heightMode = MeasureSpec.getMode(heightMeasureSpec)
         val heightSize = MeasureSpec.getSize(heightMeasureSpec)
         val newHeightSpec = when {
-            _boxMaxHeight == 0 -> heightMeasureSpec
-            heightMode == MeasureSpec.EXACTLY -> makeMeasureSpec(minOf(_boxMaxHeight, heightSize), heightMode)
-            heightMode == MeasureSpec.AT_MOST -> makeMeasureSpec(minOf(_boxMaxHeight, heightSize), heightMode)
-            heightMode == MeasureSpec.UNSPECIFIED -> makeMeasureSpec(_boxMaxHeight, MeasureSpec.AT_MOST)
+            maximumHeight == 0 -> heightMeasureSpec
+            heightMode == MeasureSpec.EXACTLY -> makeMeasureSpec(minOf(maximumHeight, heightSize), heightMode)
+            heightMode == MeasureSpec.AT_MOST -> makeMeasureSpec(minOf(maximumHeight, heightSize), heightMode)
+            heightMode == MeasureSpec.UNSPECIFIED -> makeMeasureSpec(maximumHeight, MeasureSpec.AT_MOST)
             else -> heightMeasureSpec
         }
         super.onMeasure(widthMeasureSpec, newHeightSpec)
@@ -422,8 +437,8 @@ internal class DecoratedFieldBox(
 
     override fun onCreateDrawableState(extraSpace: Int): IntArray {
         val drawableState = super.onCreateDrawableState(extraSpace + 3)
-        if (state?.isDefined() == true) {
-            mergeDrawableStates(drawableState, state?.attr)
+        if (colorState?.isDefined() == true) {
+            mergeDrawableStates(drawableState, colorState?.attrs)
         }
         if (labelEnabled) {
             mergeDrawableStates(drawableState, intArrayOf(R.attr.sd_state_inner_label))
@@ -440,9 +455,9 @@ internal class DecoratedFieldBox(
         if (_inDrawableStateChanged) return
 
         _inDrawableStateChanged = true
+        _scrollBarThumbDrawable.state = drawableState
+        _scrollBarTrackDrawable.state = drawableState
         val changed = _collapsingTextHelper.setState(drawableState)
-        _captionView.state = if (isActivated) ViewState.PRIMARY else state
-        _counterView.state = if (isActivated) ViewState.PRIMARY else state
         updateTextState(isLaidOut && isEnabled)
 
         if (changed) {
@@ -462,26 +477,14 @@ internal class DecoratedFieldBox(
         return result
     }
 
+    override fun verifyDrawable(who: Drawable): Boolean {
+        return super.verifyDrawable(who) || who == _scrollBarThumbDrawable || who == _scrollBarTrackDrawable
+    }
+
     override fun onDetachedFromWindow() {
         super.onDetachedFromWindow()
         _editableContainer.removeCallbacks(_smoothScrollRunnable)
         _smoothScrollRunnable = null
-    }
-
-    override fun onFocusChanged(gainFocus: Boolean, direction: Int, previouslyFocusedRect: Rect?) {
-        super.onFocusChanged(gainFocus, direction, previouslyFocusedRect)
-        redispatchActivated()
-    }
-
-    override fun dispatchSetActivated(activated: Boolean) {
-        // При вызове setActivated хотим, чтобы на children всегда приходил activated = false
-        // Чтобы потом самостоятельно отправить им нужное значение
-        super.dispatchSetActivated(false)
-    }
-
-    private fun redispatchActivated() {
-        // отправляем всем children значение activate = true, если в контейнер в фокусе
-        super.dispatchSetActivated(isFocused)
     }
 
     @Suppress("CustomViewStyleable", "LongMethod")
@@ -509,16 +512,11 @@ internal class DecoratedFieldBox(
         backgroundTintList = typedArray.getColorStateList(R.styleable.SdDecoratedFieldBox_sd_boxTint)
         _labelPadding = typedArray.getDimensionPixelSize(R.styleable.SdDecoratedFieldBox_sd_labelPadding, 0)
         _helperTextPadding = typedArray.getDimensionPixelSize(R.styleable.SdDecoratedFieldBox_sd_helperTextPadding, 0)
-        state = ViewState.obtain(context, attrs, defStyleAttr)
+        colorState = ColorState.obtain(context, attrs, defStyleAttr)
         _alignmentLineHeight = typedArray.getDimensionPixelSize(
             R.styleable.SdDecoratedFieldBox_sd_alignmentLineHeight,
             0,
         )
-        minimumHeight = typedArray.getDimensionPixelSize(
-            R.styleable.SdDecoratedFieldBox_sd_boxMinHeight,
-            _alignmentLineHeight,
-        )
-        _boxMaxHeight = typedArray.getDimensionPixelSize(R.styleable.SdDecoratedFieldBox_sd_boxMaxHeight, 0)
         _chipGroupStyleOverlay = typedArray.getResourceId(R.styleable.SdDecoratedFieldBox_sd_chipGroupStyleOverlay, 0)
         _chipsPadding = typedArray.getDimensionPixelSize(R.styleable.SdDecoratedFieldBox_sd_chipsPadding, 0)
         _allowBreakLines = typedArray.getBoolean(R.styleable.SdDecoratedFieldBox_sd_allowBreakLines, true)
@@ -544,8 +542,12 @@ internal class DecoratedFieldBox(
             )
             imeOptions =
                 typedArray.getInt(R.styleable.SdDecoratedFieldBox_android_imeOptions, EditorInfo.IME_ACTION_UNSPECIFIED)
-            compoundDrawablePadding = typedArray.getDimensionPixelSize(
-                R.styleable.SdDecoratedFieldBox_sd_prefixSuffixPadding,
+            prefixTextPadding = typedArray.getDimensionPixelSize(
+                R.styleable.SdDecoratedFieldBox_sd_prefixTextPadding,
+                0,
+            )
+            suffixTextPadding = typedArray.getDimensionPixelSize(
+                R.styleable.SdDecoratedFieldBox_sd_suffixTextPadding,
                 0,
             )
             val prefixText = typedArray.getString(R.styleable.SdDecoratedFieldBox_sd_prefixText)

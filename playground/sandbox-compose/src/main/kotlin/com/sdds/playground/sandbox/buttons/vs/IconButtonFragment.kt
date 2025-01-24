@@ -9,6 +9,7 @@ import com.sdds.icons.R
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
 import com.sdds.playground.sandbox.core.vs.PropertiesOwner
 import com.sdds.uikit.Button
+import com.sdds.uikit.IconButton
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
@@ -26,7 +27,7 @@ internal class IconButtonFragment : ComponentFragment() {
     }
 
     override val componentLayout: Button
-        get() = Button(ContextThemeWrapper(requireContext(), currentVariant.styleRes))
+        get() = IconButton(ContextThemeWrapper(requireContext(), currentVariant.styleRes))
             .apply { id = com.sdds.playground.sandbox.R.id.icon_button }
             .also { button = it }
 

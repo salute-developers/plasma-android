@@ -2,6 +2,7 @@ package com.sdds.plugin.themebuilder.internal.generator.theme.compose
 
 import com.sdds.plugin.themebuilder.internal.TargetPackage
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
+import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Annotation
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.generator.SimpleBaseGenerator
 import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult
@@ -167,8 +168,8 @@ internal class ComposeThemeGenerator(
                     typeName = colorAttributesClassType,
                     propGetter = KtFileBuilder.Getter.Annotated(
                         annotations = listOf(
-                            KtFileBuilder.TypeAnnotationComposable,
-                            KtFileBuilder.TypeAnnotationReadOnlyComposable,
+                            Annotation(KtFileBuilder.TypeAnnotationComposable),
+                            Annotation(KtFileBuilder.TypeAnnotationReadOnlyComposable),
                         ),
                         body = "return Local${colorAttributesClassType.simpleName}.current",
                     ),
@@ -178,8 +179,8 @@ internal class ComposeThemeGenerator(
                     typeName = gradientAttributesClassType,
                     propGetter = KtFileBuilder.Getter.Annotated(
                         annotations = listOf(
-                            KtFileBuilder.TypeAnnotationComposable,
-                            KtFileBuilder.TypeAnnotationReadOnlyComposable,
+                            Annotation(KtFileBuilder.TypeAnnotationComposable),
+                            Annotation(KtFileBuilder.TypeAnnotationReadOnlyComposable),
                         ),
                         body = "return Local${gradientAttributesClassType.simpleName}.current",
                     ),
@@ -189,8 +190,8 @@ internal class ComposeThemeGenerator(
                     typeName = shapeAttributesClassType,
                     propGetter = KtFileBuilder.Getter.Annotated(
                         annotations = listOf(
-                            KtFileBuilder.TypeAnnotationComposable,
-                            KtFileBuilder.TypeAnnotationReadOnlyComposable,
+                            Annotation(KtFileBuilder.TypeAnnotationComposable),
+                            Annotation(KtFileBuilder.TypeAnnotationReadOnlyComposable),
                         ),
                         body = "return Local${shapeAttributesClassType.simpleName}.current",
                     ),
@@ -200,8 +201,8 @@ internal class ComposeThemeGenerator(
                     typeName = typographyAttributesClassType,
                     propGetter = KtFileBuilder.Getter.Annotated(
                         annotations = listOf(
-                            KtFileBuilder.TypeAnnotationComposable,
-                            KtFileBuilder.TypeAnnotationReadOnlyComposable,
+                            Annotation(KtFileBuilder.TypeAnnotationComposable),
+                            Annotation(KtFileBuilder.TypeAnnotationReadOnlyComposable),
                         ),
                         body = "return Local${typographyAttributesClassType.simpleName}.current",
                     ),

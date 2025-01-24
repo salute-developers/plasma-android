@@ -26,7 +26,13 @@
     <fragment
         android:id="@+id/nav_icon_button"
         android:name="com.sdds.playground.sandbox.buttons.vs.IconButtonFragment"
-        android:label="@string/menu_basicButton"
+        android:label="@string/menu_iconButton"
+        tools:layout="@layout/fragment_component_scaffold" />
+
+    <fragment
+        android:id="@+id/nav_link_button"
+        android:name="com.sdds.playground.sandbox.buttons.vs.LinkButtonFragment"
+        android:label="@string/menu_linkButton"
         tools:layout="@layout/fragment_component_scaffold" />
 
     <fragment

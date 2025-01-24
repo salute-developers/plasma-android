@@ -7,9 +7,9 @@ import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.github.takahirom.roborazzi.captureRoboImage
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.textfield.vs.ExampleChipData
+import com.sdds.playground.sandbox.textfield.vs.FieldColorState
 import com.sdds.playground.sandbox.textfield.vs.TextAreaVariant
 import com.sdds.playground.sandbox.textfield.vs.TextFieldUiState
-import com.sdds.uikit.TextField
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.ParameterizedRobolectricTestRunner
@@ -29,7 +29,7 @@ class ViewSystemTextAreaScreenshotTest(
             R.id.nav_textarea,
             TextFieldUiState(
                 variant = TextAreaVariant.TextAreaLInnerLabelRequiredStart,
-                state = TextField.FieldState.Default,
+                state = FieldColorState.Default,
                 labelText = "Label",
                 placeholderText = "Placeholder",
                 valueText = "Value",
@@ -54,7 +54,7 @@ class ViewSystemTextAreaScreenshotTest(
             R.id.nav_textarea,
             TextFieldUiState(
                 variant = TextAreaVariant.TextAreaMOuterLabel,
-                state = TextField.FieldState.Positive,
+                state = FieldColorState.Success,
                 labelText = "Label",
                 placeholderText = "Placeholder",
                 valueText = "",
@@ -79,7 +79,7 @@ class ViewSystemTextAreaScreenshotTest(
             R.id.nav_textarea,
             TextFieldUiState(
                 variant = TextAreaVariant.TextAreaSInnerLabelRequiredEnd,
-                state = TextField.FieldState.Warning,
+                state = FieldColorState.Warning,
                 labelText = "Label",
                 placeholderText = "",
                 valueText = "",
@@ -104,7 +104,7 @@ class ViewSystemTextAreaScreenshotTest(
             R.id.nav_textarea,
             TextFieldUiState(
                 variant = TextAreaVariant.TextAreaXS,
-                state = TextField.FieldState.Negative,
+                state = FieldColorState.Error,
                 labelText = "",
                 placeholderText = "Placeholder",
                 valueText = "",
@@ -129,7 +129,7 @@ class ViewSystemTextAreaScreenshotTest(
             R.id.nav_textarea,
             TextFieldUiState(
                 variant = TextAreaVariant.TextAreaLOuterLabelRequiredStart,
-                state = TextField.FieldState.Positive,
+                state = FieldColorState.Success,
                 labelText = "Label",
                 placeholderText = "",
                 valueText = "",
@@ -154,7 +154,7 @@ class ViewSystemTextAreaScreenshotTest(
             R.id.nav_textarea,
             TextFieldUiState(
                 variant = TextAreaVariant.TextAreaMInnerLabel,
-                state = TextField.FieldState.Warning,
+                state = FieldColorState.Warning,
                 labelText = "Label",
                 placeholderText = "Placeholder",
                 valueText = "Value",
@@ -179,7 +179,7 @@ class ViewSystemTextAreaScreenshotTest(
             R.id.nav_textarea,
             TextFieldUiState(
                 variant = TextAreaVariant.TextAreaSInnerLabelRequiredEnd,
-                state = TextField.FieldState.Default,
+                state = FieldColorState.Default,
                 labelText = "",
                 placeholderText = "Placeholder",
                 valueText = "",
@@ -204,7 +204,7 @@ class ViewSystemTextAreaScreenshotTest(
             R.id.nav_textarea,
             TextFieldUiState(
                 variant = TextAreaVariant.TextAreaXSOuterLabel,
-                state = TextField.FieldState.Positive,
+                state = FieldColorState.Success,
                 labelText = "Label",
                 placeholderText = "Placeholder",
                 valueText = "Value",
@@ -229,7 +229,7 @@ class ViewSystemTextAreaScreenshotTest(
             R.id.nav_textarea,
             TextFieldUiState(
                 variant = TextAreaVariant.TextAreaLInnerLabelRequiredStart,
-                state = TextField.FieldState.Default,
+                state = FieldColorState.Default,
                 labelText = "Label",
                 placeholderText = "",
                 valueText = "",
@@ -254,7 +254,7 @@ class ViewSystemTextAreaScreenshotTest(
             R.id.nav_textarea,
             TextFieldUiState(
                 variant = TextAreaVariant.TextAreaMOuterLabel,
-                state = TextField.FieldState.Negative,
+                state = FieldColorState.Error,
                 labelText = "Label",
                 placeholderText = "Placeholder",
                 valueText = "",
@@ -279,7 +279,7 @@ class ViewSystemTextAreaScreenshotTest(
             R.id.nav_textarea,
             TextFieldUiState(
                 variant = TextAreaVariant.TextAreaSInnerLabelRequiredEnd,
-                state = TextField.FieldState.Warning,
+                state = FieldColorState.Warning,
                 labelText = "Label",
                 placeholderText = "Placeholder",
                 valueText = "",
@@ -306,7 +306,7 @@ class ViewSystemTextAreaScreenshotTest(
             R.id.nav_textarea,
             TextFieldUiState(
                 variant = TextAreaVariant.TextAreaMInnerLabel,
-                state = TextField.FieldState.Positive,
+                state = FieldColorState.Success,
                 labelText = "Label",
                 placeholderText = "Placeholder",
                 valueText = "",
@@ -335,7 +335,7 @@ class ViewSystemTextAreaScreenshotTest(
             R.id.nav_textarea,
             TextFieldUiState(
                 variant = TextAreaVariant.TextAreaSOuterLabelRequiredEnd,
-                state = TextField.FieldState.Default,
+                state = FieldColorState.Default,
                 labelText = "Label",
                 placeholderText = "Placeholder",
                 valueText = "",
@@ -364,7 +364,7 @@ class ViewSystemTextAreaScreenshotTest(
             R.id.nav_textarea,
             TextFieldUiState(
                 variant = TextAreaVariant.TextAreaSInnerLabel,
-                state = TextField.FieldState.Warning,
+                state = FieldColorState.Warning,
                 labelText = "Label",
                 placeholderText = "Placeholder",
                 valueText = "O Captain! my Captain! our fearful trip is done,\n" +
@@ -396,7 +396,7 @@ class ViewSystemTextAreaScreenshotTest(
             R.id.nav_textarea,
             TextFieldUiState(
                 variant = TextAreaVariant.TextAreaLInnerLabelRequiredEnd,
-                state = TextField.FieldState.Default,
+                state = FieldColorState.Default,
                 labelText = "Label",
                 placeholderText = "Placeholder",
                 valueText = "Value",

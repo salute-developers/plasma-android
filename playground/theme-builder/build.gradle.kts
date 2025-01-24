@@ -29,13 +29,14 @@ themeBuilder {
     ktPackage("com.sdds.playground.themebuilder")
     mode(ThemeBuilderMode.THEME)
     outputLocation(OutputLocation.BUILD)
-    autoGenerate(false)
+    autoGenerate(true)
     dimensions {
         multiplier(2f)
         breakPoints {
             large(960)
             medium(560)
         }
+        fromResources(false)
     }
 }
 

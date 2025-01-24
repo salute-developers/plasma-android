@@ -43,6 +43,12 @@ sealed class FocusSelectorMode {
      */
     data class Scale(val scale: Float = DEFAULT_SCALE_FACTOR) : FocusSelectorMode()
 
+    internal val FocusSelectorMode.isEnabled: Boolean
+        get() = this !is None
+
+    internal val FocusSelectorMode.isDisabled: Boolean
+        get() = !isEnabled
+
     private companion object {
         const val DEFAULT_SCALE_FACTOR = 1.05f
         const val DEFAULT_STROKE_WIDTH = 2

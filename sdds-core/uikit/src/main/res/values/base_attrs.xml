@@ -44,6 +44,10 @@
         </attr>
     </declare-styleable>
 
+    <declare-styleable name="SdColorStateHolder">
+        <attr name="sd_colorStateProvider" format="string"/>
+    </declare-styleable>
+
     <declare-styleable name="SdShape">
         <attr name="sd_shapeAppearance" />
         <attr name="android:insetLeft" />

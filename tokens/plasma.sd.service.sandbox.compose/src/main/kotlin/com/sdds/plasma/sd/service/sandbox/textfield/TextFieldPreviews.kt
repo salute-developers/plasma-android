@@ -24,7 +24,6 @@ import com.sdds.plasma.sd.service.styles.textfield.Error
 import com.sdds.plasma.sd.service.styles.textfield.InnerLabel
 import com.sdds.plasma.sd.service.styles.textfield.L
 import com.sdds.plasma.sd.service.styles.textfield.M
-import com.sdds.plasma.sd.service.styles.textfield.Optional
 import com.sdds.plasma.sd.service.styles.textfield.OuterLabel
 import com.sdds.plasma.sd.service.styles.textfield.RequiredEnd
 import com.sdds.plasma.sd.service.styles.textfield.RequiredStart
@@ -32,10 +31,17 @@ import com.sdds.plasma.sd.service.styles.textfield.S
 import com.sdds.plasma.sd.service.styles.textfield.Success
 import com.sdds.plasma.sd.service.styles.textfield.Warning
 import com.sdds.plasma.sd.service.styles.textfield.Xs
-import com.sdds.plasma.sd.service.styles.textfield.clear.HasDivider
+import com.sdds.plasma.sd.service.styles.textfield.clear.Default
+import com.sdds.plasma.sd.service.styles.textfield.clear.Error
+import com.sdds.plasma.sd.service.styles.textfield.clear.InnerLabel
 import com.sdds.plasma.sd.service.styles.textfield.clear.L
 import com.sdds.plasma.sd.service.styles.textfield.clear.M
+import com.sdds.plasma.sd.service.styles.textfield.clear.OuterLabel
+import com.sdds.plasma.sd.service.styles.textfield.clear.RequiredEnd
+import com.sdds.plasma.sd.service.styles.textfield.clear.RequiredStart
 import com.sdds.plasma.sd.service.styles.textfield.clear.S
+import com.sdds.plasma.sd.service.styles.textfield.clear.Success
+import com.sdds.plasma.sd.service.styles.textfield.clear.Warning
 import com.sdds.plasma.sd.service.styles.textfield.clear.Xs
 
 /**
@@ -51,7 +57,7 @@ internal fun SandboxTextFieldPreview() {
             value = value,
             captionText = "Сaption",
             labelText = "Label",
-            style = TextField.S.Warning.RequiredStart.OuterLabel.style(),
+            style = TextField.S.OuterLabel.RequiredStart.Warning.style(),
             placeholderText = "Placeholder",
             onValueChange = { value = it },
             startContent = {
@@ -74,7 +80,7 @@ internal fun SandboxTextFieldPreviewLDefaultInnerLeft() {
 
         TextField(
             value = value,
-            style = TextField.L.Default.InnerLabel.RequiredStart.style(),
+            style = TextField.L.InnerLabel.RequiredStart.Default.style(),
             labelText = "Label",
             placeholderText = "",
             captionText = "Caption",
@@ -105,7 +111,7 @@ internal fun SandboxTextFieldPreviewMSuccessOuterLabel() {
 
         TextField(
             value = value,
-            style = TextField.M.Success.OuterLabel.Optional.style(),
+            style = TextField.M.OuterLabel.Success.style(),
             captionText = "Caption",
             labelText = "Label",
             placeholderText = "Placeholder",
@@ -131,7 +137,7 @@ internal fun SandboxTextFieldPreviewSWarningInnerRight() {
 
         TextField(
             value = value,
-            style = TextField.S.Warning.InnerLabel.RequiredEnd.style(),
+            style = TextField.S.InnerLabel.RequiredEnd.Warning.style(),
             captionText = "Caption",
             labelText = "Label",
             optionalText = "",
@@ -155,7 +161,7 @@ internal fun SandboxTextFieldPreviewXSErrorInner() {
     SandboxTheme {
         TextField(
             value = TextFieldValue(text = ""),
-            style = TextField.Xs.Error.InnerLabel.Optional.style(),
+            style = TextField.Xs.Error.style(),
             captionText = "Caption",
             labelText = "Label",
             optionalText = "",
@@ -175,7 +181,7 @@ internal fun SandboxTextFieldPreviewLSuccessRequiredLeftOuter() {
 
         TextField(
             value = value,
-            style = TextField.L.Success.OuterLabel.RequiredStart.style(),
+            style = TextField.L.OuterLabel.RequiredStart.Success.style(),
             captionText = "Caption",
             labelText = "Label",
             optionalText = "",
@@ -207,7 +213,7 @@ internal fun SandboxTextFieldPreviewMWarningInnerLabelOptional() {
 
         TextField(
             value = value,
-            style = TextField.M.Warning.InnerLabel.Optional.style(),
+            style = TextField.M.InnerLabel.Warning.style(),
             captionText = "Сaption",
             labelText = "Label",
             optionalText = "optional",
@@ -237,7 +243,7 @@ internal fun SandboxTextFieldPreviewSReadOnly() {
     SandboxTheme {
         TextField(
             value = TextFieldValue(text = ""),
-            style = TextField.S.Default.InnerLabel.RequiredEnd.style(),
+            style = TextField.S.InnerLabel.RequiredEnd.Default.style(),
             captionText = "Сaption",
             labelText = "",
             optionalText = "",
@@ -267,7 +273,7 @@ internal fun SandboxTextFieldPreviewXSSuccessOuterLabelOptional() {
     SandboxTheme {
         TextField(
             value = TextFieldValue(text = "Value"),
-            style = TextField.Xs.Success.OuterLabel.Optional.style(),
+            style = TextField.Xs.OuterLabel.Success.style(),
             captionText = "Сaption",
             labelText = "Label",
             optionalText = "optional",
@@ -297,7 +303,7 @@ internal fun SandboxTextFieldPreviewLDisabled() {
     SandboxTheme {
         TextField(
             value = TextFieldValue(text = ""),
-            style = TextField.L.Default.RequiredStart.InnerLabel.style(),
+            style = TextField.L.InnerLabel.RequiredStart.Default.style(),
             captionText = "",
             labelText = "Label",
             optionalText = "optional",
@@ -327,7 +333,7 @@ internal fun SandboxTextFieldPreviewMErrorOuterLabelOptional() {
     SandboxTheme {
         TextField(
             value = TextFieldValue(text = ""),
-            style = TextField.M.Error.OuterLabel.Optional.style(),
+            style = TextField.M.OuterLabel.Error.style(),
             captionText = "Сaption",
             labelText = "Label",
             optionalText = "optional",
@@ -359,7 +365,7 @@ internal fun SandboxTextFieldPreviewSWarningInnerLabelRightFocused() {
 
         TextField(
             value = value,
-            style = TextField.S.Warning.InnerLabel.RequiredEnd.style(),
+            style = TextField.S.InnerLabel.RequiredEnd.Warning.style(),
             captionText = "Сaption",
             labelText = "Label",
             optionalText = "optional",
@@ -392,7 +398,7 @@ internal fun SandboxTextFieldPreviewMSuccessInnerLabelChips() {
         var value by remember { mutableStateOf(TextFieldValue("")) }
         TextField(
             value = value,
-            style = TextField.M.Success.InnerLabel.Optional.style(),
+            style = TextField.M.InnerLabel.Success.style(),
             captionText = "Сaption",
             labelText = "Label",
             optionalText = "optional",
@@ -443,7 +449,7 @@ internal fun SandboxTextFieldPreviewSOuterLabelRightChips() {
         var value by remember { mutableStateOf(TextFieldValue("")) }
         TextField(
             value = value,
-            style = TextField.S.Default.OuterLabel.RequiredEnd.style(),
+            style = TextField.S.OuterLabel.RequiredEnd.Default.style(),
             captionText = "Сaption",
             labelText = "Label",
             optionalText = "",
@@ -489,7 +495,7 @@ internal fun SandboxTextFieldPreviewLInputText() {
 
         TextField(
             value = value,
-            style = TextField.L.Warning.InnerLabel.Optional.style(),
+            style = TextField.L.InnerLabel.Warning.style(),
             captionText = "",
             labelText = "Label",
             optionalText = "optional",
@@ -515,7 +521,7 @@ internal fun SandboxTextFieldPreviewLSuffixPrefix() {
 
         TextField(
             value = value,
-            style = TextField.L.Default.OuterLabel.RequiredStart.style(),
+            style = TextField.L.OuterLabel.RequiredStart.Default.style(),
             captionText = "Сaption",
             labelText = "Label",
             optionalText = "optional",
@@ -549,7 +555,7 @@ internal fun SandboxTextFieldClearLErrorInnerOptional() {
 
         TextField(
             value = value,
-            style = TextFieldClear.L.Error.InnerLabel.Optional.HasDivider.style(),
+            style = TextFieldClear.L.InnerLabel.Error.style(),
             captionText = "Сaption",
             labelText = "Label",
             optionalText = "optional",
@@ -581,7 +587,7 @@ internal fun SandboxTextFieldClearMWarningInnerRequiredLeft() {
         Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
             TextField(
                 value = value,
-                style = TextFieldClear.M.Warning.InnerLabel.RequiredStart.HasDivider.style(),
+                style = TextFieldClear.M.InnerLabel.RequiredStart.Warning.style(),
                 captionText = "Сaption",
                 labelText = "Label",
                 optionalText = "optional",
@@ -614,7 +620,7 @@ internal fun SandboxTextFieldClearSDefaultOuterOptional() {
 
         TextField(
             value = value,
-            style = TextFieldClear.S.Default.OuterLabel.Optional.HasDivider.style(),
+            style = TextFieldClear.S.OuterLabel.Default.style(),
             captionText = "Сaption",
             labelText = "",
             optionalText = "Optional",
@@ -646,7 +652,7 @@ internal fun SandboxTextFieldClearXSSuccessOuterRequiredRightFocused() {
 
         TextField(
             value = value,
-            style = TextFieldClear.Xs.Success.OuterLabel.RequiredEnd.HasDivider.style(),
+            style = TextFieldClear.Xs.OuterLabel.RequiredEnd.Success.style(),
             captionText = "Сaption",
             labelText = "Label",
             optionalText = "optional",
@@ -681,7 +687,7 @@ internal fun SandboxTextFieldClearLDefaultInnerRequiredRight() {
         ) {
             TextField(
                 value = value,
-                style = TextFieldClear.L.Default.InnerLabel.RequiredEnd.HasDivider.style(),
+                style = TextFieldClear.L.InnerLabel.RequiredEnd.Default.style(),
                 captionText = "Сaption",
                 labelText = "Label",
                 optionalText = "optional",
@@ -714,7 +720,7 @@ internal fun SandboxTextFieldClearMErrorInnerRequiredLeft() {
         Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
             TextField(
                 value = value,
-                style = TextFieldClear.M.Error.InnerLabel.RequiredStart.HasDivider.style(),
+                style = TextFieldClear.M.InnerLabel.RequiredStart.Error.style(),
                 captionText = "Сaption",
                 labelText = "",
                 optionalText = "optional",

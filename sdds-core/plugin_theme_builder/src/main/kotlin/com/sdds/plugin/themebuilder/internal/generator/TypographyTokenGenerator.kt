@@ -3,6 +3,7 @@ package com.sdds.plugin.themebuilder.internal.generator
 import com.sdds.plugin.themebuilder.DimensionsConfig
 import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
+import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Annotation
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder.Companion.DEFAULT_ROOT_ATTRIBUTES
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder.ElementName
@@ -227,7 +228,7 @@ internal class TypographyTokenGenerator(
                     )
                 }
             }
-            val attrName = "typography${token.xmlName}"
+            val attrName = TypographyToken.getViewAttrName(token.name)
             val tokenRef = resourceReferenceProvider.style(typographyName)
             viewTokenDataCollector[attrName] = tokenRef
         }
@@ -382,8 +383,8 @@ internal class TypographyTokenGenerator(
                 typeName = KtFileBuilder.TypeTextStyle,
                 propGetter = KtFileBuilder.Getter.Annotated(
                     annotations = listOf(
-                        KtFileBuilder.TypeAnnotationComposable,
-                        KtFileBuilder.TypeAnnotationReadOnlyComposable,
+                        Annotation(KtFileBuilder.TypeAnnotationComposable),
+                        Annotation(KtFileBuilder.TypeAnnotationReadOnlyComposable),
                     ),
                     body = """return with(LocalDensity.current) {
                     |${initializer.trimMargin()}

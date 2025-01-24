@@ -78,7 +78,7 @@ internal abstract class XmlBaseDocumentBuilder {
      * @param attrs набор атрибутов элемента
      * @param value значение элемента
      */
-    private fun Element.appendBaseElement(
+    fun Element.appendBaseElement(
         elementName: String,
         attrs: Map<String, String>,
         value: Element.() -> Unit,
