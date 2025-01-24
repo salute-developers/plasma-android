@@ -269,7 +269,11 @@ internal fun BaseTextField(
             val internalActivatableModifier =
                 if (focusSelectorMode.isDisabled) {
                     Modifier
-                        .activatable(enabled, interactionSource) { isComponentFocused = it.isFocused }
+                        .activatable(
+                            enabled = enabled,
+                            interactionSource = interactionSource,
+                            isActivatedEqualsFocused = true,
+                        ) { isComponentFocused = it.isFocused }
                 } else {
                     Modifier
                         .then(activationRequester?.let(Modifier::focusRequester) ?: Modifier)
