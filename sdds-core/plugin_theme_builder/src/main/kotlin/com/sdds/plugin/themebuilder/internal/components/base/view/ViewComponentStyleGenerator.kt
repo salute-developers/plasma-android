@@ -4,6 +4,7 @@ import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
 import com.sdds.plugin.themebuilder.internal.components.ComponentStyleGenerator
 import com.sdds.plugin.themebuilder.internal.components.base.Color
+import com.sdds.plugin.themebuilder.internal.components.base.ColorState
 import com.sdds.plugin.themebuilder.internal.components.base.PropertyOwner
 import com.sdds.plugin.themebuilder.internal.components.base.view.AndroidState.Companion.asAndroidStates
 import com.sdds.plugin.themebuilder.internal.dimens.DimenData
@@ -319,13 +320,17 @@ internal abstract class ViewComponentStyleGenerator<T : ComponentConfig>(
 
     /**
      * Конфигурирует ColorState для свойства [property].
+     * @param extraAttrs дополнительные атрибуты состояния, которые применяются ко всему [Color].
+     * @param extraStateAttrsBuilder билдер дополнительных атрибутов состояния, которые применяются к [Color.states]
+     *
      */
-    protected fun addToStateList(
+    protected open fun addToStateList(
         property: ColorProperty,
         color: Color,
         variation: String? = null,
         colorStateName: String? = null,
         extraAttrs: Set<StateListAttribute> = emptySet(),
+        extraStateAttrsBuilder: ((ColorState) -> Set<StateListAttribute>)? = null,
     ) {
         val colorStateAttr = colorStateName?.let {
             getColorState(it) ?: registerColorState(it)
@@ -337,9 +342,15 @@ internal abstract class ViewComponentStyleGenerator<T : ComponentConfig>(
         }
         addToStateList(variation, property) {
             color.states?.forEach { colorState ->
-                val androidStateAttrs = colorState.state.asAndroidStates()
-                    .map { it.toStateListAttribute() }
-                addColor(colorState.value, stateAttrs + androidStateAttrs, alpha = color.alpha)
+                val androidStates = colorState.state.asAndroidStates()
+                val extraStateAttrs = extraStateAttrsBuilder?.invoke(colorState) ?: emptySet()
+                val androidStateAttrs = androidStates.map { it.toStateListAttribute() }
+                    .filter { !extraStateAttrs.contains(it) }
+                addColor(
+                    colorState.value,
+                    stateAttrs + androidStateAttrs + extraStateAttrs,
+                    alpha = color.alpha,
+                )
             }
             addColor(color.default, stateAttrs, alpha = color.alpha)
         }
