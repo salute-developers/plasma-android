@@ -32,7 +32,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.focus.FocusRequester
-import androidx.compose.ui.focus.focusProperties
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
@@ -218,7 +217,7 @@ internal fun BaseTextField(
             OuterTopContent(
                 modifier = Modifier
                     .layoutId(TOP_CONTENT_ID)
-                    .focusProperties { canFocus = false }
+                    .focusable(false)
                     .padding(bottom = dimensions.labelPadding)
                     .applyLabelIndicator(
                         fieldType = fieldType,
@@ -401,7 +400,7 @@ internal fun BaseTextField(
             OuterBottomText(
                 modifier = Modifier
                     .layoutId(CAPTION_CONTENT_ID)
-                    .focusProperties { canFocus = false }
+                    .focusable(false)
                     .layoutId(CAPTION_CONTENT_ID)
                     .padding(top = dimensions.helperTextPadding),
                 text = captionText,
@@ -411,7 +410,7 @@ internal fun BaseTextField(
             OuterBottomText(
                 modifier = Modifier
                     .layoutId(COUNTER_CONTENT_ID)
-                    .focusProperties { canFocus = false }
+                    .focusable(false)
                     .padding(top = dimensions.helperTextPadding),
                 text = counterText,
                 textStyle = counterStyle,

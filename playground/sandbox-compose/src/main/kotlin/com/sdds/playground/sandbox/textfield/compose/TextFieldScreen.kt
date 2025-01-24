@@ -143,6 +143,7 @@ private fun Boolean.getExampleIcon(icon: Icon): (@Composable () -> Unit)? {
         {
             Icon(
                 painter = painterResource(id = icon.res),
+                modifier = Modifier.clickable {},
                 contentDescription = "",
             )
         }
