@@ -669,7 +669,6 @@ internal class DecoratedFieldBox(
             typedArray.getDimensionPixelSize(R.styleable.SdDecoratedFieldBox_sd_scrollBarPaddingBottom, 0)
         _scrollBarTrackColors = typedArray.getColorStateList(R.styleable.SdDecoratedFieldBox_sd_scrollBarTrackColor)
         _scrollBarThumbColors = typedArray.getColorStateList(R.styleable.SdDecoratedFieldBox_sd_scrollBarThumbColor)
-        // minimumWidth = typedArray.getDimensionPixelSize(R.styleable.SdDecoratedFieldBox_sd_boxMinHeight)
 
         editText.apply {
             inputType = typedArray.getInt(R.styleable.SdDecoratedFieldBox_android_inputType, InputType.TYPE_CLASS_TEXT)

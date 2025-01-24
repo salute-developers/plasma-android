@@ -2,8 +2,11 @@ package com.sdds.plugin.themebuilder.internal.components.textfield.view
 
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.components.base.Color
+import com.sdds.plugin.themebuilder.internal.components.base.ColorState
 import com.sdds.plugin.themebuilder.internal.components.base.Value
 import com.sdds.plugin.themebuilder.internal.components.base.VariationNode
+import com.sdds.plugin.themebuilder.internal.components.base.view.AndroidState
+import com.sdds.plugin.themebuilder.internal.components.base.view.ColorProperty
 import com.sdds.plugin.themebuilder.internal.components.base.view.ColorValue
 import com.sdds.plugin.themebuilder.internal.components.base.view.ProvidableColorProperty
 import com.sdds.plugin.themebuilder.internal.components.base.view.StateListAttribute
@@ -222,6 +225,24 @@ internal open class ViewTextFieldStyleGenerator(
         }
 
         colorAttribute(colorProperty, variation)
+    }
+
+    override fun addToStateList(
+        property: ColorProperty,
+        color: Color,
+        variation: String?,
+        colorStateName: String?,
+        extraAttrs: Set<StateListAttribute>,
+        extraStateAttrsBuilder: ((ColorState) -> Set<StateListAttribute>)?,
+    ) {
+        super.addToStateList(property, color, variation, colorStateName, extraAttrs) {
+            // Состояния FOCUSED должно иметь эффект только, если ACTIVATED = false
+            if (it.state.contains(AndroidState.FOCUSED.key)) {
+                setOf(AndroidState.ACTIVATED.toStateListAttribute(false))
+            } else {
+                emptySet()
+            }
+        }
     }
 
     private fun Value.asRequirementModeEnum(): String =
