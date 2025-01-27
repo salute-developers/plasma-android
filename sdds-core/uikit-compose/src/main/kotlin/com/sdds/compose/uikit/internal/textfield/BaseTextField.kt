@@ -48,9 +48,10 @@ import androidx.compose.ui.layout.MeasureScope
 import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
-import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.semantics.clearAndSetSemantics
+import androidx.compose.ui.semantics.invisibleToUser
 import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.testTag
 import androidx.compose.ui.semantics.text
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
@@ -195,7 +196,6 @@ internal fun BaseTextField(
 
     Layout(
         modifier = modifier
-            .testTag("textField")
             .enable(enabled, enabledAlpha, disabledAlpha)
             .focusProperties { canFocus = false }
             .applyIndicatorPadding(
@@ -333,7 +333,10 @@ internal fun BaseTextField(
                             .colorForInteraction(interactionSource),
                         dividerThickness = dimensions.dividerThickness,
                     )
-                    .semantics { this.text = AnnotatedString(contentDescription) }
+                    .semantics(mergeDescendants = true) {
+                        this.text = AnnotatedString(contentDescription)
+                        this.testTag = "textField"
+                    }
                     .then(
                         if (scrollBar != null) {
                             Modifier.applyVerticalScrollBar(
@@ -358,8 +361,10 @@ internal fun BaseTextField(
                 innerTextField = {
                     BasicTextField(
                         modifier = Modifier
-                            .testTag("innerTextField")
-                            .clearAndSetSemantics {}
+                            .semantics {
+                                testTag = "innerTextField"
+                                invisibleToUser()
+                            }
                             .then(internalActivatableModifier),
                         value = value,
                         onValueChange = onValueChange,
@@ -744,7 +749,6 @@ private fun OuterTopContent(
     ) {
         TextOrEmpty(
             modifier = Modifier
-                .focusProperties { canFocus = false }
                 .weight(1f, fill = false),
             text = labelText,
             textStyle = labelTextStyle,
