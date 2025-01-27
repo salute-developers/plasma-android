@@ -46,6 +46,8 @@ import androidx.compose.ui.layout.MeasureScope
 import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.semantics.invisibleToUser
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
@@ -217,7 +219,7 @@ internal fun BaseTextField(
             OuterTopContent(
                 modifier = Modifier
                     .layoutId(TOP_CONTENT_ID)
-                    .focusable(false)
+                    .semantics(mergeDescendants = true) { invisibleToUser() }
                     .padding(bottom = dimensions.labelPadding)
                     .applyLabelIndicator(
                         fieldType = fieldType,
@@ -400,7 +402,7 @@ internal fun BaseTextField(
             OuterBottomText(
                 modifier = Modifier
                     .layoutId(CAPTION_CONTENT_ID)
-                    .focusable(false)
+                    .semantics(mergeDescendants = true) { invisibleToUser() }
                     .layoutId(CAPTION_CONTENT_ID)
                     .padding(top = dimensions.helperTextPadding),
                 text = captionText,
@@ -410,7 +412,7 @@ internal fun BaseTextField(
             OuterBottomText(
                 modifier = Modifier
                     .layoutId(COUNTER_CONTENT_ID)
-                    .focusable(false)
+                    .semantics(mergeDescendants = true) { invisibleToUser() }
                     .padding(top = dimensions.helperTextPadding),
                 text = counterText,
                 textStyle = counterStyle,
