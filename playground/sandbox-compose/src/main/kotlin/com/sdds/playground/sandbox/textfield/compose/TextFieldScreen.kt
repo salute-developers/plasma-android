@@ -70,15 +70,14 @@ internal fun TextFieldScreen() {
                 startContent = textFieldUiState.hasStartIcon.getExampleIcon(Icon.Start),
                 endContent = textFieldUiState.hasEndIcon.getExampleIcon(Icon.End),
                 chipsContent = textFieldUiState.chips.toChipContent(
-                    onChipClosePressed = {
-                        textFieldViewModel.onChipClosePressed(it)
-                    },
+                    onChipClosePressed = { textFieldViewModel.onChipClosePressed(it) },
                 ),
                 focusSelectorMode = if (isFocusSelectorOn) {
                     LocalFocusSelectorMode.current
                 } else {
                     FocusSelectorMode.None
                 },
+                contentDescription = "TextField",
             )
 
             Switch(
@@ -143,7 +142,6 @@ private fun Boolean.getExampleIcon(icon: Icon): (@Composable () -> Unit)? {
         {
             Icon(
                 painter = painterResource(id = icon.res),
-                modifier = Modifier.clickable {},
                 contentDescription = "",
             )
         }
