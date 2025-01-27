@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable
 import android.graphics.drawable.LayerDrawable
 import android.util.AttributeSet
 import android.view.View
+import androidx.annotation.StyleRes
 import androidx.core.graphics.drawable.DrawableCompat
 import androidx.core.view.updatePadding
 import com.sdds.uikit.R
@@ -36,6 +37,9 @@ internal class ShapeHelper(
     private var insetTop: Int = 0
     private var insetRight: Int = 0
     private var insetBottom: Int = 0
+
+    @StyleRes
+    private var shadowAppearance: Int = 0
 
     init {
         obtainAttrs(attrs, defStyleAttr, defStyleRes)
@@ -93,7 +97,7 @@ internal class ShapeHelper(
             is LayerDrawable -> {
                 bg.apply {
                     for (i in 0 until bg.numberOfLayers) {
-                        (bg.getDrawable(i) as? ShapeDrawable)?.setupBackground()
+                        (bg.getDrawable(i) as? ShapeDrawable)?.setupBackground(shadowEnabled = i == 0)
                     }
                 }
             }
@@ -109,12 +113,13 @@ internal class ShapeHelper(
             .wrapWithInset(insetLeft, insetTop, insetRight, insetBottom)
     }
 
-    private fun ShapeDrawable.setupBackground(): ShapeDrawable {
+    private fun ShapeDrawable.setupBackground(shadowEnabled: Boolean = true): ShapeDrawable {
         val shapeModel = getShapeAppearanceModel()
         return this.apply {
             setShapeModel(shapeModel)
             setStrokeTint(strokeColor)
             setStrokeWidth(strokeWidth)
+            if (shadowEnabled) setShadowAppearance(view.context, shadowAppearance)
         }
     }
 
@@ -134,6 +139,7 @@ internal class ShapeHelper(
             currentBackground?.isShapeable() != true
         strokeColor = typedArray.getColorStateList(R.styleable.SdShape_sd_strokeColor)
         strokeWidth = typedArray.getDimension(R.styleable.SdShape_sd_strokeWidth, 0f)
+        shadowAppearance = typedArray.getResourceId(R.styleable.SdShape_sd_shadowAppearance, 0)
         val hasShape = typedArray.hasValue(R.styleable.SdShape_sd_shapeAppearance)
         if (hasShape) {
             setShape(ShapeModel.create(view.context, attributeSet, defStyleAttr, defStyleRes))

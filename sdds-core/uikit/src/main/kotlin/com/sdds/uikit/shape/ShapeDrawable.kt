@@ -17,6 +17,7 @@ import android.graphics.drawable.ShapeDrawable
 import android.graphics.drawable.shapes.Shape
 import android.util.AttributeSet
 import android.util.TypedValue
+import androidx.annotation.StyleRes
 import androidx.core.graphics.withTranslation
 import com.sdds.uikit.R
 import com.sdds.uikit.internal.base.colorForState
@@ -47,6 +48,8 @@ open class ShapeDrawable() : Drawable(), Shapeable {
     private var _shaderFactory: ShaderFactory? = null
     private var sdShaderAppearanceRes: TypedValue? = null
     private var sdShaderAppearanceResFallback: Int = 0
+
+    private val _shadowRenderer = ShadowRenderer()
 
     private val drawStroke: Boolean
         get() = _strokeWidth > 0 && _strokePaint.color != Color.TRANSPARENT
@@ -90,6 +93,12 @@ open class ShapeDrawable() : Drawable(), Shapeable {
             .adjust(adjustment)
         _strokeTint = typedArray.getColorStateList(R.styleable.SdShape_sd_strokeColor)
         _strokeWidth = typedArray.getDimension(R.styleable.SdShape_sd_strokeWidth, 0f)
+        if (typedArray.hasValue(R.styleable.SdShape_sd_shadowAppearance)) {
+            _shadowRenderer.setShadowAppearance(
+                context,
+                typedArray.getResourceId(R.styleable.SdShape_sd_shadowAppearance, 0),
+            )
+        }
         typedArray.recycle()
     }
 
@@ -125,6 +134,14 @@ open class ShapeDrawable() : Drawable(), Shapeable {
     }
 
     /**
+     * Устанавливает стиль теней [shadowAppearance]
+     */
+    open fun setShadowAppearance(context: Context, @StyleRes shadowAppearance: Int) {
+        if (shadowAppearance == 0) return
+        _shadowRenderer.setShadowAppearance(context, shadowAppearance)
+    }
+
+    /**
      * Устанавливает ширину линии границы
      * @param width ширина линии
      */
@@ -154,10 +171,12 @@ open class ShapeDrawable() : Drawable(), Shapeable {
     }
 
     override fun draw(canvas: Canvas) {
+        val shape = _shape ?: return
         canvas.withTranslation(_boundedOffset, _boundedOffset) {
-            _shape?.draw(canvas, _shapePaint)
+            _shadowRenderer.render(canvas, shape)
+            shape.draw(canvas, _shapePaint)
             if (drawStroke) {
-                _shape?.draw(this, _strokePaint)
+                shape.draw(this, _strokePaint)
             }
         }
     }

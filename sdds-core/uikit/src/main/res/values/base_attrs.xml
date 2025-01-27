@@ -59,6 +59,7 @@
         <attr name="sd_strokeWidth" />
         <attr name="sd_shapeAppearanceAdjustment"/>
         <attr name="sd_shapeAppearanceBaseline"/>
+        <attr name="sd_shadowAppearance"/>
     </declare-styleable>
 
     <declare-styleable name="SdShapeAppearance">
@@ -191,5 +192,32 @@
 
     <declare-styleable name="SdView">
         <attr name="sd_clipToOutline" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="SdShadow">
+        <attr name="sd_shadowAppearance" format="reference"/>
+    </declare-styleable>
+    
+    <declare-styleable name="SdShadowAppearance">
+        <!--
+            Ссылка на массив стилей, описывающий один слой тени. Нужен для поддержки многослойных теней.
+            Если задан этот атрибут, то данные для отрисовки будут браться из стилей, указанных в этом атрибуте.
+            В противном случае - из атрибутов указанных ниже (sd_shadowColor, sd_shadowOffsetX, sd_shadowOffsetY и т.д.)
+            -->
+        <attr name="sd_shadowLayers" format="reference"/>
+
+        <attr name="sd_shadowColor" />
+        <attr name="sd_shadowOffsetX" />
+        <attr name="sd_shadowOffsetY" />
+        <attr name="sd_shadowBlurRadius" />
+        <attr name="sd_shadowSpreadRadius" />
+    </declare-styleable>
+
+    <declare-styleable name="SdShadowLayer">
+        <attr name="sd_shadowColor" format="color" />
+        <attr name="sd_shadowOffsetX" format="dimension" />
+        <attr name="sd_shadowOffsetY" format="dimension" />
+        <attr name="sd_shadowBlurRadius" format="dimension" />
+        <attr name="sd_shadowSpreadRadius" format="dimension" />
     </declare-styleable>
 </resources>
