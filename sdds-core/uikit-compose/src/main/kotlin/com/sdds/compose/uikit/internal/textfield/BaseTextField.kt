@@ -49,11 +49,12 @@ import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.semantics.clearAndSetSemantics
-import androidx.compose.ui.semantics.invisibleToUser
 import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.setText
 import androidx.compose.ui.semantics.testTag
 import androidx.compose.ui.semantics.text
 import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.TextRange
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
@@ -336,6 +337,10 @@ internal fun BaseTextField(
                     .semantics(mergeDescendants = true) {
                         this.text = AnnotatedString(contentDescription)
                         this.testTag = "textField"
+                        setText {
+                            onValueChange(TextFieldValue(it.text, TextRange(it.text.length)))
+                            true
+                        }
                     }
                     .then(
                         if (scrollBar != null) {
@@ -361,10 +366,7 @@ internal fun BaseTextField(
                 innerTextField = {
                     BasicTextField(
                         modifier = Modifier
-                            .semantics {
-                                testTag = "innerTextField"
-                                invisibleToUser()
-                            }
+                            .clearAndSetSemantics {}
                             .then(internalActivatableModifier),
                         value = value,
                         onValueChange = onValueChange,
