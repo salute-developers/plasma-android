@@ -115,7 +115,6 @@ class ComposeTextFieldScreenshotTest(
         }
         composeTestRule.onNodeWithTag("textField")
             .performClick()
-        composeTestRule.onNodeWithTag("innerTextField")
             .performTextInput("Value")
     }
 
@@ -140,7 +139,6 @@ class ComposeTextFieldScreenshotTest(
         }
         composeTestRule.onNodeWithTag("textField")
             .performClick()
-        composeTestRule.onNodeWithTag("innerTextField")
             .performTextInput("абвгдежзabcdefg@#643!#\$")
     }
 

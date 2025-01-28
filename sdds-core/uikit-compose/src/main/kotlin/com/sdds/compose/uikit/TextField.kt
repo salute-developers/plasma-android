@@ -80,6 +80,7 @@ fun TextField(
     visualTransformation: VisualTransformation = VisualTransformation.None,
     focusSelectorMode: FocusSelectorMode = LocalFocusSelectorMode.current,
     activationRequester: FocusRequester? = null,
+    contentDescription: String = "",
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     BaseTextField(
@@ -105,6 +106,7 @@ fun TextField(
         visualTransformation = visualTransformation,
         focusSelectorMode = focusSelectorMode,
         activationRequester = activationRequester,
+        contentDescription = contentDescription,
         interactionSource = interactionSource,
     )
 }
@@ -164,6 +166,7 @@ fun TextField(
     visualTransformation: VisualTransformation = VisualTransformation.None,
     focusSelectorMode: FocusSelectorMode = LocalFocusSelectorMode.current,
     activationRequester: FocusRequester? = null,
+    contentDescription: String = "",
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     var textFieldValueState by remember { mutableStateOf(TextFieldValue(text = value)) }
@@ -209,6 +212,7 @@ fun TextField(
         visualTransformation = visualTransformation,
         focusSelectorMode = focusSelectorMode,
         activationRequester = activationRequester,
+        contentDescription = contentDescription,
         interactionSource = interactionSource,
     )
 }
