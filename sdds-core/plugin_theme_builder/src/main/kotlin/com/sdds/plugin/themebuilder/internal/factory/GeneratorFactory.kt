@@ -124,6 +124,14 @@ internal class GeneratorFactory(
         )
     }
 
+    private val viewShadowAttributeGeneratorFactory by unsafeLazy {
+        ViewShadowAttributeGeneratorFactory(
+            xmlDocumentBuilderFactory = xmlResourcesDocumentBuilderFactory,
+            outputResDir = outputResDir,
+            attrPrefix = resPrefixConfig.resourcePrefix,
+        )
+    }
+
     private val viewTypographyAttributeGeneratorFactory by unsafeLazy {
         ViewTypographyAttributeGeneratorFactory(
             xmlDocumentBuilderFactory = xmlResourcesDocumentBuilderFactory,
@@ -151,6 +159,14 @@ internal class GeneratorFactory(
         )
     }
 
+    private val shadowStyleGeneratorFactory by unsafeLazy {
+        ShadowStyleGeneratorFactory(
+            outputResDir = outputResDir,
+            xmlBuilderFactory = xmlResourcesDocumentBuilderFactory,
+            resourceReferenceProvider = resourceReferenceProvider,
+        )
+    }
+
     private val viewThemeGeneratorFactory: ViewThemeGeneratorFactory by unsafeLazy {
         ViewThemeGeneratorFactory(
             xmlResourcesDocumentBuilderFactory,
@@ -159,6 +175,7 @@ internal class GeneratorFactory(
             themeName,
             resPrefixConfig,
             viewGradientGeneratorFactory,
+            shadowStyleGeneratorFactory,
         )
     }
 
@@ -190,6 +207,7 @@ internal class GeneratorFactory(
         viewColorAttributeGeneratorFactory = viewColorAttributeGeneratorFactory,
         composeColorAttributeGeneratorFactory = composeColorAttributeGeneratorFactory,
         viewShapeAttributeGeneratorFactory = viewShapeAttributeGeneratorFactory,
+        viewShadowAttributeGeneratorFactory = viewShadowAttributeGeneratorFactory,
         composeShapeAttributeGeneratorFactory = composeShapeAttributeGeneratorFactory,
         composeGradientAttributeGeneratorFactory = composeGradientAttributeGeneratorFactory,
         viewXmlGradientAttributeGeneratorFactory = viewXmlGradientAttributeGeneratorFactory,
@@ -314,7 +332,7 @@ internal class GeneratorFactory(
     /**
      * Создает генератор теней [ShadowTokenGenerator]
      */
-    fun createShadowGenerator(shadows: Map<String, ShadowTokenValue>): ShadowTokenGenerator {
+    fun createShadowGenerator(shadows: Map<String, List<ShadowTokenValue>>): ShadowTokenGenerator {
         return ShadowTokenGenerator(
             OutputLocation.Directory(outputDir),
             outputResDir,
@@ -322,6 +340,7 @@ internal class GeneratorFactory(
             xmlResourcesDocumentBuilderFactory,
             ktFileBuilderFactory,
             shadows,
+            resourceReferenceProvider,
         )
     }
 }

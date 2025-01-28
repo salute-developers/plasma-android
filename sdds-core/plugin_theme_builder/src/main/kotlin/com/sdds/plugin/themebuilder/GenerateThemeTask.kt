@@ -241,7 +241,7 @@ abstract class GenerateThemeTask : DefaultTask() {
         gradientGenerator.generate().also(themeGenerator::setGradientTokenData)
         typographyGenerator.generate().also(themeGenerator::setTypographyTokenData)
         shapesGenerator.generate().also(themeGenerator::setShapeTokenData)
-        shadowGenerator.generate()
+        shadowGenerator.generate().also(themeGenerator::setShadowTokenData)
         dimensGenerator.generate()
         fontGenerator.generate()
 
@@ -267,8 +267,8 @@ abstract class GenerateThemeTask : DefaultTask() {
             .also { logger.debug("decoded gradients $it") }
     }
 
-    private val shadows: Map<String, ShadowTokenValue> by unsafeLazy {
-        shadowFile.get().asFile.decode<Map<String, ShadowTokenValue>>()
+    private val shadows: Map<String, List<ShadowTokenValue>> by unsafeLazy {
+        shadowFile.get().asFile.decode<Map<String, List<ShadowTokenValue>>>()
             .also { logger.debug("decoded shadows $it") }
     }
 

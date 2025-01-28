@@ -5,6 +5,7 @@ import com.sdds.plugin.themebuilder.ViewThemeParent
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.GradientTokenResult
+import com.sdds.plugin.themebuilder.internal.generator.data.ShadowTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.ShapeTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.TypographyTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewThemeGenerator
@@ -73,6 +74,11 @@ class ViewThemeGeneratorTest {
                     addGradient(gradientAttrs.light["gradientAccent"]!!)
                 } returns "@drawable/Thmbldr.TestTheme.Gradient.LightGradientAccent"
             },
+            shadowStyleGenerator = mockk(relaxed = true) {
+                every {
+                    addStyle(testShadow.tokenTechName, testShadow.layers, testShadow.tokenDescription)
+                } returns "@style/Thmbldr.TestTheme.Shadow.DownSoftS"
+            },
         )
 
         val lightOutputXml = ByteArrayOutputStream()
@@ -91,6 +97,7 @@ class ViewThemeGeneratorTest {
         underTest.setColorTokenData(colorAttrs)
         underTest.setGradientTokenData(gradientAttrs)
         underTest.setTypographyTokenData(typographyAttrs)
+        underTest.setShadowsTokenData(listOf(testShadow))
         underTest.generate()
 
         assertEquals(
@@ -127,6 +134,11 @@ class ViewThemeGeneratorTest {
                     addGradient(gradientAttrs.light["gradientAccent"]!!)
                 } returns "@drawable/Thmbldr.TestTheme.Gradient.LightGradientAccent"
             },
+            shadowStyleGenerator = mockk(relaxed = true) {
+                every {
+                    addStyle(testShadow.tokenTechName, testShadow.layers, testShadow.tokenDescription)
+                } returns "@style/Thmbldr.TestTheme.Shadow.DownSoftS"
+            },
         )
 
         val lightOutputXml = ByteArrayOutputStream()
@@ -145,6 +157,7 @@ class ViewThemeGeneratorTest {
         underTest.setColorTokenData(colorAttrs)
         underTest.setGradientTokenData(gradientAttrs)
         underTest.setTypographyTokenData(typographyAttrs)
+        underTest.setShadowsTokenData(listOf(testShadow))
         underTest.generate()
 
         assertEquals(
@@ -192,6 +205,11 @@ class ViewThemeGeneratorTest {
                     addGradient(gradientAttrs.light["gradientAccent"]!!)
                 } returns "@drawable/Thmbldr.TestTheme.Gradient.LightGradientAccent"
             },
+            shadowStyleGenerator = mockk(relaxed = true) {
+                every {
+                    addStyle(testShadow.tokenTechName, testShadow.layers, testShadow.tokenDescription)
+                } returns "@style/Thmbldr.TestTheme.Shadow.DownSoftS"
+            },
         )
 
         val defaultOutputXml = ByteArrayOutputStream()
@@ -207,6 +225,7 @@ class ViewThemeGeneratorTest {
         underTest.setColorTokenData(colorAttrs)
         underTest.setGradientTokenData(gradientAttrs)
         underTest.setTypographyTokenData(typographyAttrs)
+        underTest.setShadowsTokenData(listOf(testShadow))
         underTest.generate()
 
         assertEquals(
@@ -235,6 +254,20 @@ class ViewThemeGeneratorTest {
                 attrName = "shapeRoundXxs",
                 tokenRefName = "@style/Thmbldr.TestTheme.Shape.Round.Xxs",
             ),
+        )
+
+        val testShadow = ShadowTokenResult.TokenData(
+            tokenTechName = "down.soft.s",
+            layers = listOf(
+                ShadowTokenResult.ShadowLayer(
+                    colorRef = "@color/thmbldr_shadow_down_soft_s_color",
+                    offsetXRef = "@dimen/thmbldr_shadow_down_soft_s_offset_x",
+                    offsetYRef = "@dimen/thmbldr_shadow_down_soft_s_offset_y",
+                    spreadRef = "@dimen/thmbldr_shadow_down_soft_s_spread",
+                    blurRef = "@dimen/thmbldr_shadow_down_soft_s_blur",
+                ),
+            ),
+            tokenDescription = "Shadow/Down/Soft/S",
         )
 
         val typographyAttrs = TypographyTokenResult.ViewTokenData(

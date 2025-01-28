@@ -24,4 +24,10 @@ internal data class XmlAttribute(
         COLOR("color"),
         DIMENSION("dimension"),
     }
+
+    companion object {
+        const val ELEMENT = "attr"
+        const val FIELD_NAME = "name"
+        const val FIELD_FORMAT = "format"
+    }
 }

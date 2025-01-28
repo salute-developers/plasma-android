@@ -52,6 +52,15 @@ internal abstract class Token {
     }
 }
 
+@Serializable
+internal object Unknown : Token() {
+    override val displayName: String = ""
+    override val name: String = ""
+    override val tags: Set<String> = emptySet()
+    override val enabled: Boolean = false
+    override val description: String = ""
+}
+
 /**
  * Интерфейс-маркер для значения токена
  */
