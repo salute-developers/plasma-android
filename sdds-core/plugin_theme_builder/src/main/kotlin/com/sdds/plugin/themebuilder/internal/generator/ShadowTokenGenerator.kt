@@ -8,9 +8,11 @@ import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.exceptions.ThemeBuilderException
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
+import com.sdds.plugin.themebuilder.internal.generator.data.ShadowTokenResult
 import com.sdds.plugin.themebuilder.internal.token.ShadowToken
 import com.sdds.plugin.themebuilder.internal.token.ShadowTokenValue
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.shadowsXmlFile
+import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import com.sdds.plugin.themebuilder.internal.validator.ShadowTokenValidator
 import java.io.File
@@ -22,6 +24,8 @@ import java.io.File
  * @param target целевой фреймворк
  * @param xmlBuilderFactory фабрика делегата построения xml файлов
  * @param ktFileBuilderFactory фабрика делегата построения kt файлов
+ * @param shadowTokenValues значения токенов теней
+ * @param resourceReferenceProvider провайдер ссылок на ресурсы
  * @author Малышев Александр on 07.03.2024
  */
 internal class ShadowTokenGenerator(
@@ -30,14 +34,24 @@ internal class ShadowTokenGenerator(
     target: ThemeBuilderTarget,
     private val xmlBuilderFactory: XmlResourcesDocumentBuilderFactory,
     private val ktFileBuilderFactory: KtFileBuilderFactory,
-    private val shadowTokenValues: Map<String, ShadowTokenValue>,
-) : TokenGenerator<ShadowToken, String>(target) {
+    private val shadowTokenValues: Map<String, List<ShadowTokenValue>>,
+    private val resourceReferenceProvider: ResourceReferenceProvider,
+) : TokenGenerator<ShadowToken, ShadowTokenResult>(target) {
 
     private val xmlDocumentBuilder by unsafeLazy { xmlBuilderFactory.create(DEFAULT_ROOT_ATTRIBUTES) }
     private val ktFileBuilder by unsafeLazy { ktFileBuilderFactory.create("ShadowTokens") }
     private val rootShadows by unsafeLazy { ktFileBuilder.rootObject("ShadowTokens") }
 
-    override fun collectResult() = ""
+    private val composeTokenDataCollector = mutableListOf<ShadowTokenResult.TokenData>()
+    private val viewTokenDataCollector = mutableListOf<ShadowTokenResult.TokenData>()
+
+    /**
+     * @see TokenGenerator.collectResult
+     */
+    override fun collectResult() = ShadowTokenResult(
+        composeTokenDataCollector,
+        viewTokenDataCollector,
+    )
 
     /**
      * @see TokenGenerator.generateViewSystem
@@ -61,20 +75,60 @@ internal class ShadowTokenGenerator(
      * @see TokenGenerator.addViewSystemToken
      */
     override fun addViewSystemToken(token: ShadowToken): Boolean = with(xmlDocumentBuilder) {
-        val tokenValue = shadowTokenValues[token.name]
+        val tokenValues = shadowTokenValues[token.name]
             ?: throw ThemeBuilderException(
                 "Can't find value for shadow token ${token.name}. " +
                     "It should be in android_shadow.json.",
             )
-        ShadowTokenValidator.validate(tokenValue, token.name)
+        val layers = mutableListOf<ShadowTokenResult.ShadowLayer>()
         wrapWithRegion(token.description) {
-            appendElement(ElementName.COLOR, "shadow_${token.xmlName}_color", tokenValue.color)
-            appendElement(
-                ElementName.DIMEN,
-                "shadow_${token.xmlName}_elevation",
-                "${tokenValue.elevation}dp",
-            )
+            val useLayerSuffix = tokenValues.size > 1
+            tokenValues.forEachIndexed { index, tokenValue ->
+                ShadowTokenValidator.validate(tokenValue, token.name)
+                val layerSuffix = "_layer_${index + 1}".takeIf { useLayerSuffix }.orEmpty()
+                val tokenName = "${token.xmlName}$layerSuffix"
+
+                appendElement(ElementName.COLOR, "shadow_${tokenName}_color", tokenValue.color)
+
+                appendElement(
+                    ElementName.DIMEN,
+                    "shadow_${tokenName}_offset_x",
+                    "${tokenValue.offsetX}dp",
+                )
+                appendElement(
+                    ElementName.DIMEN,
+                    "shadow_${tokenName}_offset_y",
+                    "${tokenValue.offsetY}dp",
+                )
+                appendElement(
+                    ElementName.DIMEN,
+                    "shadow_${tokenName}_spread",
+                    "${tokenValue.spreadRadius}dp",
+                )
+                appendElement(
+                    ElementName.DIMEN,
+                    "shadow_${tokenName}_blur",
+                    "${tokenValue.blurRadius}dp",
+                )
+
+                layers.add(
+                    ShadowTokenResult.ShadowLayer(
+                        colorRef = resourceReferenceProvider.color("shadow_${tokenName}_color"),
+                        offsetXRef = resourceReferenceProvider.dimen("shadow_${tokenName}_offset_x"),
+                        offsetYRef = resourceReferenceProvider.dimen("shadow_${tokenName}_offset_y"),
+                        spreadRef = resourceReferenceProvider.dimen("shadow_${tokenName}_spread"),
+                        blurRef = resourceReferenceProvider.dimen("shadow_${tokenName}_blur"),
+                    ),
+                )
+            }
         }
+        viewTokenDataCollector.add(
+            ShadowTokenResult.TokenData(
+                tokenTechName = token.name,
+                layers = layers,
+                tokenDescription = token.description,
+            ),
+        )
         return@with true
     }
 
@@ -82,25 +136,28 @@ internal class ShadowTokenGenerator(
      * @see TokenGenerator.addComposeToken
      */
     override fun addComposeToken(token: ShadowToken): Boolean = with(ktFileBuilder) {
-        val tokenValue = shadowTokenValues[token.name]
+        val tokenValues = shadowTokenValues[token.name]
             ?: throw ThemeBuilderException(
                 "Can't find value for shadow token ${token.name}. " +
                     "It should be in android_shadow.json.",
             )
-        ShadowTokenValidator.validate(tokenValue, token.name)
-        rootShadows.appendObject(token.ktName, token.description) {
-            appendProperty(
-                "elevation",
-                KtFileBuilder.TypeDp,
-                "${tokenValue.elevation}.dp",
-                token.description,
-            )
-            appendProperty(
-                "color",
-                KtFileBuilder.TypeColor,
-                "Color(${tokenValue.color.replace("#", "0x")})",
-                token.description,
-            )
+        tokenValues.forEachIndexed { index, tokenValue ->
+            ShadowTokenValidator.validate(tokenValue, token.name)
+            val tokenName = "${token.ktName}Layer${index + 1}"
+            rootShadows.appendObject(tokenName, token.description) {
+                appendProperty(
+                    "elevation",
+                    KtFileBuilder.TypeDp,
+                    "${tokenValue.blurRadius}.dp",
+                    token.description,
+                )
+                appendProperty(
+                    "color",
+                    KtFileBuilder.TypeColor,
+                    "Color(${tokenValue.color.replace("#", "0x")})",
+                    token.description,
+                )
+            }
         }
         return@with true
     }
