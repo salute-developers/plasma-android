@@ -6,7 +6,7 @@ val bumpFileName = "version-bump.txt"
 
 val clean = tasks.register("cleanVersionBump") {
     doLast {
-        project.layout.projectDirectory.file(bumpFileName).asFile.delete()
+        project.layout.buildDirectory.file(bumpFileName).get().asFile.delete()
     }
 }
 
@@ -18,7 +18,7 @@ val clean = tasks.register("cleanVersionBump") {
 val syncCatalog = tasks.register("syncVersionCatalog") {
     finalizedBy(clean)
     doLast {
-        val coreVersionFile = project.layout.projectDirectory.file(bumpFileName).asFile
+        val coreVersionFile = project.layout.buildDirectory.file(bumpFileName).get().asFile
         val bumpRequiredException = GradleException("${project.name} project's version must be bumped first")
         if (!coreVersionFile.exists()) {
             throw bumpRequiredException

@@ -2,6 +2,7 @@ package utils
 
 import org.gradle.api.DefaultTask
 import org.gradle.api.Project
+import org.gradle.api.file.DirectoryProperty
 import org.gradle.api.provider.Property
 import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.TaskAction
@@ -43,7 +44,7 @@ abstract class AutoBumpTask : DefaultTask() {
 
     @TaskAction
     fun execute() {
-        val scope = when(this.scope.get()) {
+        val scope = when (this.scope.get()) {
             "major" -> BumpScope.MAJOR
             "patch" -> BumpScope.PATCH
             else -> BumpScope.MINOR
@@ -57,7 +58,7 @@ abstract class AutoBumpTask : DefaultTask() {
         val major = properties.getOrDefault("versionMajor", 0).toString().toInt()
         val minor = properties.getOrDefault("versionMinor", 0).toString().toInt()
         val patch = properties.getOrDefault("versionPatch", 0).toString().toInt()
-        return when(scope) {
+        return when (scope) {
             BumpScope.MAJOR -> VersionBump(major + 1, 0, 0)
             BumpScope.MINOR -> VersionBump(major, minor + 1, 0)
             BumpScope.PATCH -> VersionBump(major, minor, patch + 1)
@@ -74,7 +75,17 @@ abstract class AutoBumpTask : DefaultTask() {
     }
 
     private fun Project.cacheBumpInfo(versionBump: VersionBump) {
-        layout.projectDirectory.file(versionBumpFileName).get().asFile.writeText(versionBump.name)
+        buildDirectory.file(versionBumpFileName.get()).get().asFile.writeText(versionBump.name)
     }
+
+    /**
+     * Создаст build директорию, если она не существует
+     */
+    private val Project.buildDirectory: DirectoryProperty
+        get() {
+            val buildDir = project.layout.buildDirectory.asFile.get()
+            if (!buildDir.exists()) project.mkdir("build")
+            return layout.buildDirectory
+        }
 }
 
