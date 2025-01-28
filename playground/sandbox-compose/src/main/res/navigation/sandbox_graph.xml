@@ -24,6 +24,12 @@
         tools:layout="@layout/fragment_component_scaffold" />
 
     <fragment
+        android:id="@+id/nav_badge"
+        android:name="com.sdds.playground.sandbox.badge.vs.BadgeFragment"
+        android:label="@string/menu_badge"
+        tools:layout="@layout/fragment_component_scaffold" />
+
+    <fragment
         android:id="@+id/nav_icon_button"
         android:name="com.sdds.playground.sandbox.buttons.vs.IconButtonFragment"
         android:label="@string/menu_iconButton"
@@ -33,6 +39,12 @@
         android:id="@+id/nav_link_button"
         android:name="com.sdds.playground.sandbox.buttons.vs.LinkButtonFragment"
         android:label="@string/menu_linkButton"
+        tools:layout="@layout/fragment_component_scaffold" />
+
+    <fragment
+        android:id="@+id/nav_icon_badge"
+        android:name="com.sdds.playground.sandbox.badge.vs.IconBadgeFragment"
+        android:label="@string/menu_iconBadge"
         tools:layout="@layout/fragment_component_scaffold" />
 
     <fragment

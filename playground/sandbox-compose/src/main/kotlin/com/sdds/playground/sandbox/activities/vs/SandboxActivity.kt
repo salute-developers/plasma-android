@@ -79,7 +79,9 @@ class SandboxActivity : AppCompatActivity() {
         const val DESTINATION_ID_ARG = "DESTINATION_ID_ARG"
         private val navigationSet = setOf(
             R.id.nav_basic_button,
+            R.id.nav_badge,
             R.id.nav_icon_button,
+            R.id.nav_icon_badge,
             R.id.nav_link_button,
             R.id.nav_cell,
             R.id.nav_checkbox,

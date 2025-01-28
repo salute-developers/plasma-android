@@ -1160,6 +1160,7 @@
         <item name="sd_cellStyle">@style/Serv.Sdds.Components.Cell.M</item>
         <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.M</item>
         <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.M</item>
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.Badge.M</item>
     </style>
     <style name="Serv.Sdds.MaterialComponents.Light" parent="Theme.MaterialComponents.Light">
         <!--Light colors-->
@@ -2319,6 +2320,7 @@
         <item name="sd_cellStyle">@style/Serv.Sdds.Components.Cell.M</item>
         <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.M</item>
         <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.M</item>
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.Badge.M</item>
     </style>
     <style name="Serv.Sdds.MaterialComponents.DayNight" parent="Serv.Sdds.MaterialComponents.Light"/>
     <style name="Serv.Sdds"/>

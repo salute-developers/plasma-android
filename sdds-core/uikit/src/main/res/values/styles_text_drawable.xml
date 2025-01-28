@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Sdds.Components.TextDrawable">
+        <item name="android:backgroundTint">#000</item>
+        <item name="android:textColor">#fff</item>
+        <item name="sd_shapeAppearance">@style/Sdds.Shape.Round.Circle</item>
+    </style>
+</resources>

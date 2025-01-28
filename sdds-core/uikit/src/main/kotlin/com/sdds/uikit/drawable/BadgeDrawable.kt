@@ -6,15 +6,14 @@ import android.util.AttributeSet
 import com.sdds.uikit.R
 
 /**
- * [Drawable] рисующий компонент Chip.
+ * [Drawable] рисующий компонент Badge.
  * @param context контекст
  * @param attrs аттрибуты
  * @param defStyleAttr аттрибут стиля по умолчанию
- * @author Малышев Александр on 29.07.2024
  */
-open class ChipDrawable(
+class BadgeDrawable(
     context: Context,
     attrs: AttributeSet? = null,
-    defStyleAttr: Int = R.attr.sd_chipStyle,
-    defStyleRes: Int = R.style.Sdds_Components_Chip,
+    defStyleAttr: Int = R.attr.sd_badgeStyle,
+    defStyleRes: Int = R.style.Sdds_Components_Badge,
 ) : TextDrawable(context, attrs, defStyleAttr, defStyleRes)

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <item type="id" name="basic_button"/>
+    <item type="id" name="badge"/>
     <item type="id" name="link_button"/>
     <item type="id" name="radioBox"/>
     <item type="id" name="cell"/>
@@ -10,6 +11,7 @@
     <item type="id" name="chip"/>
     <item type="id" name="chip_group"/>
     <item type="id" name="icon_button"/>
+    <item type="id" name="icon_badge"/>
     <item type="id" name="progressBar"/>
     <item type="id" name="switcher"/>
     <item type="id" name="textField"/>

@@ -9,15 +9,15 @@
     <declare-styleable name="Chip" tools:ignore="ResourceName">
         <attr name="android:drawableStart" />
         <attr name="android:drawableEnd" />
-        <attr name="sd_drawableStartTint" format="color" />
-        <attr name="sd_drawableEndTint" format="color" />
-        <attr name="sd_drawableSize" format="dimension" />
+        <attr name="sd_drawableStartTint" />
+        <attr name="sd_drawableEndTint"  />
+        <attr name="sd_drawableSize"  />
 
         <attr name="android:text" />
         <attr name="android:textAppearance" />
         <attr name="android:textColor" />
-        <attr name="sd_textPaddingStart" format="dimension"/>
-        <attr name="sd_textPaddingEnd" format="dimension"/>
+        <attr name="sd_textPaddingStart" />
+        <attr name="sd_textPaddingEnd" />
 
         <attr name="android:backgroundTint"/>
         <attr name="backgroundTint"/>
