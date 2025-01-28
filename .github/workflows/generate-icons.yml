@@ -20,7 +20,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          ref: main
+          ref: bugfix/fix-update-icons-workflow
           show-progress: false
           fetch-depth: 0
           path: current
