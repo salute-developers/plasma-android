@@ -56,6 +56,7 @@ class ShadowTokenGeneratorTest {
             xmlBuilderFactory = XmlResourcesDocumentBuilderFactory("thmbldr", "TestTheme"),
             ktFileBuilderFactory = KtFileBuilderFactory(PackageResolver("com.test")),
             shadowTokenValues = shadowTokenValues,
+            resourceReferenceProvider = mockk(relaxed = true),
         )
     }
 
@@ -92,6 +93,23 @@ class ShadowTokenGeneratorTest {
     }
 
     private companion object {
-        val shadowTokenValues = mapOf("down.hard.l" to ShadowTokenValue("#99000000", 1.0f))
+        val shadowTokenValues = mapOf(
+            "down.hard.l" to listOf(
+                ShadowTokenValue(
+                    color = "#99000000",
+                    offsetX = 1.0f,
+                    offsetY = 1.0f,
+                    spreadRadius = 1.0f,
+                    blurRadius = 1.0f,
+                ),
+                ShadowTokenValue(
+                    color = "#99000000",
+                    offsetX = 1.0f,
+                    offsetY = 1.0f,
+                    spreadRadius = 1.0f,
+                    blurRadius = 1.0f,
+                ),
+            ),
+        )
     }
 }

@@ -7,6 +7,7 @@ import com.sdds.plugin.themebuilder.internal.token.ShadowToken
 import com.sdds.plugin.themebuilder.internal.token.ShapeToken
 import com.sdds.plugin.themebuilder.internal.token.Token
 import com.sdds.plugin.themebuilder.internal.token.TypographyToken
+import com.sdds.plugin.themebuilder.internal.token.Unknown
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.modules.SerializersModule
 import kotlinx.serialization.modules.polymorphic
@@ -31,6 +32,7 @@ object Serializer {
                 subclass(ShapeToken::class)
                 subclass(TypographyToken::class)
                 subclass(FontToken::class)
+                default { Unknown.serializer() }
             }
         }
     }

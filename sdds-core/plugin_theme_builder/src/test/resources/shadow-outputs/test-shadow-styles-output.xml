@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!--region Shadow/Down/Soft/S-->
+    <style name="Thmbldr.TestTheme.Shadow"/>
+    <style name="Thmbldr.TestTheme.Shadow.DownSoftS">
+        <item name="sd_shadowColor">@color/thmbldr_shadow_down_soft_s_color</item>
+        <item name="sd_shadowOffsetX">@dimen/thmbldr_shadow_down_soft_s_offset_x</item>
+        <item name="sd_shadowOffsetY">@dimen/thmbldr_shadow_down_soft_s_offset_y</item>
+        <item name="sd_shadowSpreadRadius">@dimen/thmbldr_shadow_down_soft_s_spread</item>
+        <item name="sd_shadowBlurRadius">@dimen/thmbldr_shadow_down_soft_s_blur</item>
+    </style>
+    <!--endregion Shadow/Down/Soft/S-->
+</resources>
