@@ -13,6 +13,7 @@ import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
 import androidx.annotation.StyleRes
 import com.sdds.uikit.drawable.ChipDrawable
+import com.sdds.uikit.drawable.TextDrawable
 import com.sdds.uikit.internal.base.ViewAlphaHelper
 import com.sdds.uikit.internal.focusselector.FocusSelectorDelegate
 import com.sdds.uikit.internal.focusselector.HasFocusSelector
@@ -37,7 +38,7 @@ open class Chip @JvmOverloads constructor(
     defStyleRes: Int = R.style.Sdds_Components_Chip,
 ) : View(context, attrs, defStyleAttr),
     ViewStateHolder,
-    ChipDrawable.Delegate,
+    TextDrawable.Delegate,
     Checkable,
     Shapeable,
     HasFocusSelector by FocusSelectorDelegate() {
@@ -294,7 +295,7 @@ open class Chip @JvmOverloads constructor(
         return drawableState
     }
 
-    override fun onChipDrawableSizeChange() {
+    override fun onDrawableSizeChange() {
         requestLayout()
         invalidateOutline()
     }

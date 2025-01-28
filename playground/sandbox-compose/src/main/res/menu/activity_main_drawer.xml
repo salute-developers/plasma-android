@@ -17,8 +17,16 @@
             android:title="@string/menu_basicButton" />
 
         <item
+            android:id="@+id/nav_badge"
+            android:title="@string/menu_badge" />
+
+        <item
             android:id="@+id/nav_icon_button"
             android:title="@string/menu_iconButton" />
+
+        <item
+            android:id="@+id/nav_icon_badge"
+            android:title="@string/menu_iconBadge" />
 
         <item
             android:id="@+id/nav_link_button"

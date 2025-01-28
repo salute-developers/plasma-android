@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--    start region L size-->
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentLDefault">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.L</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentLAccent">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.L.Accent</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentLPositive">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.L.Positive</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentLWarning">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.L.Warning</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentLNegative">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.L.Negative</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentLWhite">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.L.White</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentLBlack">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.L.Black</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentLPilledDefault">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.L.Pilled</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentLPilledAccent">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.L.Pilled.Accent</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentLPilledPositive">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.L.Pilled.Positive</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentLPilledWarning">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.L.Pilled.Warning</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentLPilledNegative">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.L.Pilled.Negative</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentLPilledWhite">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.L.Pilled.White</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentLPilledBlack">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.L.Pilled.Black</item>
+    </style>
+    <!--    end region L size-->
+
+    <!--    start region M size-->
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentMDefault">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.M</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentMAccent">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.M.Accent</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentMPositive">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.M.Positive</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentMWarning">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.M.Warning</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentMNegative">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.M.Negative</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentMWhite">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.M.White</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentMBlack">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.M.Black</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentMPilledDefault">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.M.Pilled</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentMPilledAccent">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.M.Pilled.Accent</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentMPilledPositive">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.M.Pilled.Positive</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentMPilledWarning">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.M.Pilled.Warning</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentMPilledNegative">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.M.Pilled.Negative</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentMPilledWhite">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.M.Pilled.White</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentMPilledBlack">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.M.Pilled.Black</item>
+    </style>
+    <!--    end region M size-->
+
+    <!--    start region S size-->
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentSDefault">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.S</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentSAccent">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.S.Accent</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentSPositive">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.S.Positive</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentSWarning">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.S.Warning</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentSNegative">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.S.Negative</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentSWhite">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.S.White</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentSBlack">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.S.Black</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentSPilledDefault">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.S.Pilled</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentSPilledAccent">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.S.Pilled.Accent</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentSPilledPositive">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.S.Pilled.Positive</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentSPilledWarning">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.S.Pilled.Warning</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentSPilledNegative">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.S.Pilled.Negative</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentSPilledWhite">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.S.Pilled.White</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentSPilledBlack">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.S.Pilled.Black</item>
+    </style>
+    <!--    end region S size-->
+
+    <!--    start region Xs size-->
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentXsDefault">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.Xs</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentXsAccent">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.Xs.Accent</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentXsPositive">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.Xs.Positive</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentXsWarning">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.Xs.Warning</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentXsNegative">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.Xs.Negative</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentXsWhite">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.Xs.White</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentXsBlack">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.Xs.Black</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentXsPilledDefault">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.Xs.Pilled</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentXsPilledAccent">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.Xs.Pilled.Accent</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentXsPilledPositive">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.Xs.Pilled.Positive</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentXsPilledWarning">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.Xs.Pilled.Warning</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentXsPilledNegative">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.Xs.Pilled.Negative</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentXsPilledWhite">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.Xs.Pilled.White</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.IconBadgeTransparentXsPilledBlack">
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.IconBadgeTransparent.Xs.Pilled.Black</item>
+    </style>
+    <!--    end region Xs size-->
+
+</resources>

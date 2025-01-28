@@ -1,0 +1,353 @@
+package com.sdds.playground.sandbox.badge.vs
+
+import android.os.Parcelable
+import androidx.annotation.StyleRes
+import com.sdds.serv.R
+import kotlinx.parcelize.Parcelize
+
+/**
+ * Состояние компонента Badge
+ * @property variant стиль варианта компонента
+ * @property label текст
+ * @property contentLeft контент слева
+ * @property contentRight контент справа
+ */
+@Parcelize
+internal data class BadgeUiState(
+    val variant: BadgesVariant,
+    val label: String = "Label",
+    val contentLeft: Boolean = true,
+    val contentRight: Boolean = false,
+) : Parcelable
+
+/**
+ * Стили вариаций badge
+ * @property styleRes ресурс стиля
+ */
+@Parcelize
+internal sealed interface BadgesVariant : Parcelable {
+
+    /**
+     * Ресурс стиля
+     */
+    @get:StyleRes
+    val styleRes: Int
+}
+
+/**
+ * Стили вариаций Badge
+ * @property styleRes ресурс стиля
+ */
+@Parcelize
+internal enum class BadgeVariant(@StyleRes override val styleRes: Int) : BadgesVariant {
+    BadgeLDefault(R.style.Serv_Sdds_ComponentOverlays_BadgeLDefault),
+    BadgeLAccent(R.style.Serv_Sdds_ComponentOverlays_BadgeLAccent),
+    BadgeLPositive(R.style.Serv_Sdds_ComponentOverlays_BadgeLPositive),
+    BadgeLWarning(R.style.Serv_Sdds_ComponentOverlays_BadgeLWarning),
+    BadgeLNegative(R.style.Serv_Sdds_ComponentOverlays_BadgeLNegative),
+    BadgeLWhite(R.style.Serv_Sdds_ComponentOverlays_BadgeLWhite),
+    BadgeLBlack(R.style.Serv_Sdds_ComponentOverlays_BadgeLBlack),
+    BadgeLPilledDefault(R.style.Serv_Sdds_ComponentOverlays_BadgeLPilledDefault),
+    BadgeLPilledAccent(R.style.Serv_Sdds_ComponentOverlays_BadgeLPilledAccent),
+    BadgeLPilledPositive(R.style.Serv_Sdds_ComponentOverlays_BadgeLPilledPositive),
+    BadgeLPilledWarning(R.style.Serv_Sdds_ComponentOverlays_BadgeLPilledWarning),
+    BadgeLPilledNegative(R.style.Serv_Sdds_ComponentOverlays_BadgeLPilledNegative),
+    BadgeLPilledWhite(R.style.Serv_Sdds_ComponentOverlays_BadgeLPilledWhite),
+    BadgeLPilledBlack(R.style.Serv_Sdds_ComponentOverlays_BadgeLPilledBlack),
+
+    BadgeMDefault(R.style.Serv_Sdds_ComponentOverlays_BadgeMDefault),
+    BadgeMAccent(R.style.Serv_Sdds_ComponentOverlays_BadgeMAccent),
+    BadgeMPositive(R.style.Serv_Sdds_ComponentOverlays_BadgeMPositive),
+    BadgeMWarning(R.style.Serv_Sdds_ComponentOverlays_BadgeMWarning),
+    BadgeMNegative(R.style.Serv_Sdds_ComponentOverlays_BadgeMNegative),
+    BadgeMWhite(R.style.Serv_Sdds_ComponentOverlays_BadgeMWhite),
+    BadgeMBlack(R.style.Serv_Sdds_ComponentOverlays_BadgeMBlack),
+    BadgeMPilledDefault(R.style.Serv_Sdds_ComponentOverlays_BadgeMPilledDefault),
+    BadgeMPilledAccent(R.style.Serv_Sdds_ComponentOverlays_BadgeMPilledAccent),
+    BadgeMPilledPositive(R.style.Serv_Sdds_ComponentOverlays_BadgeMPilledPositive),
+    BadgeMPilledWarning(R.style.Serv_Sdds_ComponentOverlays_BadgeMPilledWarning),
+    BadgeMPilledNegative(R.style.Serv_Sdds_ComponentOverlays_BadgeMPilledNegative),
+    BadgeMPilledWhite(R.style.Serv_Sdds_ComponentOverlays_BadgeMPilledWhite),
+    BadgeMPilledBlack(R.style.Serv_Sdds_ComponentOverlays_BadgeMPilledBlack),
+
+    BadgeSDefault(R.style.Serv_Sdds_ComponentOverlays_BadgeSDefault),
+    BadgeSAccent(R.style.Serv_Sdds_ComponentOverlays_BadgeSAccent),
+    BadgeSPositive(R.style.Serv_Sdds_ComponentOverlays_BadgeSPositive),
+    BadgeSWarning(R.style.Serv_Sdds_ComponentOverlays_BadgeSNegative),
+    BadgeSNegative(R.style.Serv_Sdds_ComponentOverlays_BadgeSWarning),
+    BadgeSWhite(R.style.Serv_Sdds_ComponentOverlays_BadgeSWhite),
+    BadgeSBlack(R.style.Serv_Sdds_ComponentOverlays_BadgeSBlack),
+    BadgeSPilledDefault(R.style.Serv_Sdds_ComponentOverlays_BadgeSPilledDefault),
+    BadgeSPilledAccent(R.style.Serv_Sdds_ComponentOverlays_BadgeSPilledAccent),
+    BadgeSPilledPositive(R.style.Serv_Sdds_ComponentOverlays_BadgeSPilledPositive),
+    BadgeSPilledWarning(R.style.Serv_Sdds_ComponentOverlays_BadgeSPilledWarning),
+    BadgeSPilledNegative(R.style.Serv_Sdds_ComponentOverlays_BadgeSPilledNegative),
+    BadgeSPilledWhite(R.style.Serv_Sdds_ComponentOverlays_BadgeSPilledWhite),
+    BadgeSPilledBlack(R.style.Serv_Sdds_ComponentOverlays_BadgeSPilledBlack),
+
+    BadgeXsDefault(R.style.Serv_Sdds_ComponentOverlays_BadgeXsDefault),
+    BadgeXsAccent(R.style.Serv_Sdds_ComponentOverlays_BadgeXsAccent),
+    BadgeXsPositive(R.style.Serv_Sdds_ComponentOverlays_BadgeXsPositive),
+    BadgeXsWarning(R.style.Serv_Sdds_ComponentOverlays_BadgeXsWarning),
+    BadgeXsNegative(R.style.Serv_Sdds_ComponentOverlays_BadgeXsNegative),
+    BadgeXsWhite(R.style.Serv_Sdds_ComponentOverlays_BadgeXsWhite),
+    BadgeXsBlack(R.style.Serv_Sdds_ComponentOverlays_BadgeXsBlack),
+    BadgeXsPilledDefault(R.style.Serv_Sdds_ComponentOverlays_BadgeXsPilledDefault),
+    BadgeXsPilledAccent(R.style.Serv_Sdds_ComponentOverlays_BadgeXsPilledAccent),
+    BadgeXsPilledPositive(R.style.Serv_Sdds_ComponentOverlays_BadgeXsPilledPositive),
+    BadgeXsPilledWarning(R.style.Serv_Sdds_ComponentOverlays_BadgeXsPilledWarning),
+    BadgeXsPilledNegative(R.style.Serv_Sdds_ComponentOverlays_BadgeXsPilledNegative),
+    BadgeXsPilledWhite(R.style.Serv_Sdds_ComponentOverlays_BadgeXsPilledWhite),
+    BadgeXsPilledBlack(R.style.Serv_Sdds_ComponentOverlays_BadgeXsPilledBlack),
+
+    BadgeTransparentLDefault(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentLDefault),
+    BadgeTransparentLAccent(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentLAccent),
+    BadgeTransparentLPositive(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentLPositive),
+    BadgeTransparentLWarning(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentLWarning),
+    BadgeTransparentLNegative(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentLNegative),
+    BadgeTransparentLWhite(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentLWhite),
+    BadgeTransparentLBlack(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentLBlack),
+    BadgeTransparentLPilledDefault(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentLPilledDefault),
+    BadgeTransparentLPilledAccent(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentLPilledAccent),
+    BadgeTransparentLPilledPositive(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentLPilledPositive),
+    BadgeTransparentLPilledWarning(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentLPilledWarning),
+    BadgeTransparentLPilledNegative(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentLPilledNegative),
+    BadgeTransparentLPilledWhite(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentLPilledWhite),
+    BadgeTransparentLPilledBlack(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentLPilledBlack),
+
+    BadgeTransparentMDefault(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentMDefault),
+    BadgeTransparentMAccent(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentMAccent),
+    BadgeTransparentMPositive(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentMPositive),
+    BadgeTransparentMWarning(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentMWarning),
+    BadgeTransparentMNegative(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentMNegative),
+    BadgeTransparentMWhite(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentMWhite),
+    BadgeTransparentMBlack(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentMBlack),
+    BadgeTransparentMPilledDefault(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentMPilledDefault),
+    BadgeTransparentMPilledAccent(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentMPilledAccent),
+    BadgeTransparentMPilledPositive(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentMPilledPositive),
+    BadgeTransparentMPilledWarning(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentMPilledWarning),
+    BadgeTransparentMPilledNegative(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentMPilledNegative),
+    BadgeTransparentMPilledWhite(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentMPilledWhite),
+    BadgeTransparentMPilledBlack(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentMPilledBlack),
+
+    BadgeTransparentSDefault(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentSDefault),
+    BadgeTransparentSAccent(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentSAccent),
+    BadgeTransparentSPositive(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentSPositive),
+    BadgeTransparentSWarning(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentSNegative),
+    BadgeTransparentSNegative(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentSWarning),
+    BadgeTransparentSWhite(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentSWhite),
+    BadgeTransparentSBlack(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentSBlack),
+    BadgeTransparentSPilledDefault(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentSPilledDefault),
+    BadgeTransparentSPilledAccent(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentSPilledAccent),
+    BadgeTransparentSPilledPositive(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentSPilledPositive),
+    BadgeTransparentSPilledWarning(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentSPilledWarning),
+    BadgeTransparentSPilledNegative(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentSPilledNegative),
+    BadgeTransparentSPilledWhite(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentSPilledWhite),
+    BadgeTransparentSPilledBlack(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentSPilledBlack),
+
+    BadgeTransparentXsDefault(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentXsDefault),
+    BadgeTransparentXsAccent(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentXsAccent),
+    BadgeTransparentXsPositive(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentXsPositive),
+    BadgeTransparentXsWarning(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentXsWarning),
+    BadgeTransparentXsNegative(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentXsNegative),
+    BadgeTransparentXsWhite(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentXsWhite),
+    BadgeTransparentXsBlack(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentXsBlack),
+    BadgeTransparentXsPilledDefault(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentXsPilledDefault),
+    BadgeTransparentXsPilledAccent(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentXsPilledAccent),
+    BadgeTransparentXsPilledPositive(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentXsPilledPositive),
+    BadgeTransparentXsPilledWarning(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentXsPilledWarning),
+    BadgeTransparentXsPilledNegative(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentXsPilledNegative),
+    BadgeTransparentXsPilledWhite(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentXsPilledWhite),
+    BadgeTransparentXsPilledBlack(R.style.Serv_Sdds_ComponentOverlays_BadgeTransparentXsPilledBlack),
+
+    BadgeClearLDefault(R.style.Serv_Sdds_ComponentOverlays_BadgeClearLDefault),
+    BadgeClearLAccent(R.style.Serv_Sdds_ComponentOverlays_BadgeClearLAccent),
+    BadgeClearLPositive(R.style.Serv_Sdds_ComponentOverlays_BadgeClearLPositive),
+    BadgeClearLWarning(R.style.Serv_Sdds_ComponentOverlays_BadgeClearLWarning),
+    BadgeClearLNegative(R.style.Serv_Sdds_ComponentOverlays_BadgeClearLNegative),
+    BadgeClearLWhite(R.style.Serv_Sdds_ComponentOverlays_BadgeClearLWhite),
+    BadgeClearLBlack(R.style.Serv_Sdds_ComponentOverlays_BadgeClearLBlack),
+
+    BadgeClearMDefault(R.style.Serv_Sdds_ComponentOverlays_BadgeClearMDefault),
+    BadgeClearMAccent(R.style.Serv_Sdds_ComponentOverlays_BadgeClearMAccent),
+    BadgeClearMPositive(R.style.Serv_Sdds_ComponentOverlays_BadgeClearMPositive),
+    BadgeClearMWarning(R.style.Serv_Sdds_ComponentOverlays_BadgeClearMWarning),
+    BadgeClearMNegative(R.style.Serv_Sdds_ComponentOverlays_BadgeClearMNegative),
+    BadgeClearMWhite(R.style.Serv_Sdds_ComponentOverlays_BadgeClearMWhite),
+    BadgeClearMBlack(R.style.Serv_Sdds_ComponentOverlays_BadgeClearMBlack),
+
+    BadgeClearSDefault(R.style.Serv_Sdds_ComponentOverlays_BadgeClearSDefault),
+    BadgeClearSAccent(R.style.Serv_Sdds_ComponentOverlays_BadgeClearSAccent),
+    BadgeClearSPositive(R.style.Serv_Sdds_ComponentOverlays_BadgeClearSPositive),
+    BadgeClearSWarning(R.style.Serv_Sdds_ComponentOverlays_BadgeClearSNegative),
+    BadgeClearSNegative(R.style.Serv_Sdds_ComponentOverlays_BadgeClearSWarning),
+    BadgeClearSWhite(R.style.Serv_Sdds_ComponentOverlays_BadgeClearSWhite),
+    BadgeClearSBlack(R.style.Serv_Sdds_ComponentOverlays_BadgeClearSBlack),
+
+    BadgeClearXsDefault(R.style.Serv_Sdds_ComponentOverlays_BadgeClearXsDefault),
+    BadgeClearXsAccent(R.style.Serv_Sdds_ComponentOverlays_BadgeClearXsAccent),
+    BadgeClearXsPositive(R.style.Serv_Sdds_ComponentOverlays_BadgeClearXsPositive),
+    BadgeClearXsWarning(R.style.Serv_Sdds_ComponentOverlays_BadgeClearXsWarning),
+    BadgeClearXsNegative(R.style.Serv_Sdds_ComponentOverlays_BadgeClearXsNegative),
+    BadgeClearXsWhite(R.style.Serv_Sdds_ComponentOverlays_BadgeClearXsWhite),
+    BadgeClearXsBlack(R.style.Serv_Sdds_ComponentOverlays_BadgeClearXsBlack),
+}
+
+/**
+ * Стили вариаций IconBadge
+ * @property styleRes ресурс стиля
+ */
+@Parcelize
+internal enum class IconBadgeVariant(@StyleRes override val styleRes: Int) : BadgesVariant {
+    IconBadgeLDefault(R.style.Serv_Sdds_ComponentOverlays_IconBadgeLDefault),
+    IconBadgeLAccent(R.style.Serv_Sdds_ComponentOverlays_IconBadgeLAccent),
+    IconBadgeLPositive(R.style.Serv_Sdds_ComponentOverlays_IconBadgeLPositive),
+    IconBadgeLWarning(R.style.Serv_Sdds_ComponentOverlays_IconBadgeLWarning),
+    IconBadgeLNegative(R.style.Serv_Sdds_ComponentOverlays_IconBadgeLNegative),
+    IconBadgeLWhite(R.style.Serv_Sdds_ComponentOverlays_IconBadgeLWhite),
+    IconBadgeLBlack(R.style.Serv_Sdds_ComponentOverlays_IconBadgeLBlack),
+    IconBadgeLPilledDefault(R.style.Serv_Sdds_ComponentOverlays_IconBadgeLPilledDefault),
+    IconBadgeLPilledAccent(R.style.Serv_Sdds_ComponentOverlays_IconBadgeLPilledAccent),
+    IconBadgeLPilledPositive(R.style.Serv_Sdds_ComponentOverlays_IconBadgeLPilledPositive),
+    IconBadgeLPilledWarning(R.style.Serv_Sdds_ComponentOverlays_IconBadgeLPilledWarning),
+    IconBadgeLPilledNegative(R.style.Serv_Sdds_ComponentOverlays_IconBadgeLPilledNegative),
+    IconBadgeLPilledWhite(R.style.Serv_Sdds_ComponentOverlays_IconBadgeLPilledWhite),
+    IconBadgeLPilledBlack(R.style.Serv_Sdds_ComponentOverlays_IconBadgeLPilledBlack),
+
+    IconBadgeMDefault(R.style.Serv_Sdds_ComponentOverlays_IconBadgeMDefault),
+    IconBadgeMAccent(R.style.Serv_Sdds_ComponentOverlays_IconBadgeMAccent),
+    IconBadgeMPositive(R.style.Serv_Sdds_ComponentOverlays_IconBadgeMPositive),
+    IconBadgeMWarning(R.style.Serv_Sdds_ComponentOverlays_IconBadgeMWarning),
+    IconBadgeMNegative(R.style.Serv_Sdds_ComponentOverlays_IconBadgeMNegative),
+    IconBadgeMWhite(R.style.Serv_Sdds_ComponentOverlays_IconBadgeMWhite),
+    IconBadgeMBlack(R.style.Serv_Sdds_ComponentOverlays_IconBadgeMBlack),
+    IconBadgeMPilledDefault(R.style.Serv_Sdds_ComponentOverlays_IconBadgeMPilledDefault),
+    IconBadgeMPilledAccent(R.style.Serv_Sdds_ComponentOverlays_IconBadgeMPilledAccent),
+    IconBadgeMPilledPositive(R.style.Serv_Sdds_ComponentOverlays_IconBadgeMPilledPositive),
+    IconBadgeMPilledWarning(R.style.Serv_Sdds_ComponentOverlays_IconBadgeMPilledWarning),
+    IconBadgeMPilledNegative(R.style.Serv_Sdds_ComponentOverlays_IconBadgeMPilledNegative),
+    IconBadgeMPilledWhite(R.style.Serv_Sdds_ComponentOverlays_IconBadgeMPilledWhite),
+    IconBadgeMPilledBlack(R.style.Serv_Sdds_ComponentOverlays_IconBadgeMPilledBlack),
+
+    IconBadgeSDefault(R.style.Serv_Sdds_ComponentOverlays_IconBadgeSDefault),
+    IconBadgeSAccent(R.style.Serv_Sdds_ComponentOverlays_IconBadgeSAccent),
+    IconBadgeSPositive(R.style.Serv_Sdds_ComponentOverlays_IconBadgeSPositive),
+    IconBadgeSWarning(R.style.Serv_Sdds_ComponentOverlays_IconBadgeSNegative),
+    IconBadgeSNegative(R.style.Serv_Sdds_ComponentOverlays_IconBadgeSWarning),
+    IconBadgeSWhite(R.style.Serv_Sdds_ComponentOverlays_IconBadgeSWhite),
+    IconBadgeSBlack(R.style.Serv_Sdds_ComponentOverlays_IconBadgeSBlack),
+    IconBadgeSPilledDefault(R.style.Serv_Sdds_ComponentOverlays_IconBadgeSPilledDefault),
+    IconBadgeSPilledAccent(R.style.Serv_Sdds_ComponentOverlays_IconBadgeSPilledAccent),
+    IconBadgeSPilledPositive(R.style.Serv_Sdds_ComponentOverlays_IconBadgeSPilledPositive),
+    IconBadgeSPilledWarning(R.style.Serv_Sdds_ComponentOverlays_IconBadgeSPilledWarning),
+    IconBadgeSPilledNegative(R.style.Serv_Sdds_ComponentOverlays_IconBadgeSPilledNegative),
+    IconBadgeSPilledWhite(R.style.Serv_Sdds_ComponentOverlays_IconBadgeSPilledWhite),
+    IconBadgeSPilledBlack(R.style.Serv_Sdds_ComponentOverlays_IconBadgeSPilledBlack),
+
+    IconBadgeXsDefault(R.style.Serv_Sdds_ComponentOverlays_IconBadgeXsDefault),
+    IconBadgeXsAccent(R.style.Serv_Sdds_ComponentOverlays_IconBadgeXsAccent),
+    IconBadgeXsPositive(R.style.Serv_Sdds_ComponentOverlays_IconBadgeXsPositive),
+    IconBadgeXsWarning(R.style.Serv_Sdds_ComponentOverlays_IconBadgeXsWarning),
+    IconBadgeXsNegative(R.style.Serv_Sdds_ComponentOverlays_IconBadgeXsNegative),
+    IconBadgeXsWhite(R.style.Serv_Sdds_ComponentOverlays_IconBadgeXsWhite),
+    IconBadgeXsBlack(R.style.Serv_Sdds_ComponentOverlays_IconBadgeXsBlack),
+    IconBadgeXsPilledDefault(R.style.Serv_Sdds_ComponentOverlays_IconBadgeXsPilledDefault),
+    IconBadgeXsPilledAccent(R.style.Serv_Sdds_ComponentOverlays_IconBadgeXsPilledAccent),
+    IconBadgeXsPilledPositive(R.style.Serv_Sdds_ComponentOverlays_IconBadgeXsPilledPositive),
+    IconBadgeXsPilledWarning(R.style.Serv_Sdds_ComponentOverlays_IconBadgeXsPilledWarning),
+    IconBadgeXsPilledNegative(R.style.Serv_Sdds_ComponentOverlays_IconBadgeXsPilledNegative),
+    IconBadgeXsPilledWhite(R.style.Serv_Sdds_ComponentOverlays_IconBadgeXsPilledWhite),
+    IconBadgeXsPilledBlack(R.style.Serv_Sdds_ComponentOverlays_IconBadgeXsPilledBlack),
+
+    IconBadgeTransparentLDefault(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentLDefault),
+    IconBadgeTransparentLAccent(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentLAccent),
+    IconBadgeTransparentLPositive(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentLPositive),
+    IconBadgeTransparentLWarning(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentLWarning),
+    IconBadgeTransparentLNegative(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentLNegative),
+    IconBadgeTransparentLWhite(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentLWhite),
+    IconBadgeTransparentLBlack(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentLBlack),
+    IconBadgeTransparentLPilledDefault(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentLPilledDefault),
+    IconBadgeTransparentLPilledAccent(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentLPilledAccent),
+    IconBadgeTransparentLPilledPositive(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentLPilledPositive),
+    IconBadgeTransparentLPilledWarning(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentLPilledWarning),
+    IconBadgeTransparentLPilledNegative(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentLPilledNegative),
+    IconBadgeTransparentLPilledWhite(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentLPilledWhite),
+    IconBadgeTransparentLPilledBlack(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentLPilledBlack),
+
+    IconBadgeTransparentMDefault(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentMDefault),
+    IconBadgeTransparentMAccent(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentMAccent),
+    IconBadgeTransparentMPositive(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentMPositive),
+    IconBadgeTransparentMWarning(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentMWarning),
+    IconBadgeTransparentMNegative(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentMNegative),
+    IconBadgeTransparentMWhite(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentMWhite),
+    IconBadgeTransparentMBlack(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentMBlack),
+    IconBadgeTransparentMPilledDefault(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentMPilledDefault),
+    IconBadgeTransparentMPilledAccent(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentMPilledAccent),
+    IconBadgeTransparentMPilledPositive(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentMPilledPositive),
+    IconBadgeTransparentMPilledWarning(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentMPilledWarning),
+    IconBadgeTransparentMPilledNegative(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentMPilledNegative),
+    IconBadgeTransparentMPilledWhite(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentMPilledWhite),
+    IconBadgeTransparentMPilledBlack(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentMPilledBlack),
+
+    IconBadgeTransparentSDefault(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentSDefault),
+    IconBadgeTransparentSAccent(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentSAccent),
+    IconBadgeTransparentSPositive(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentSPositive),
+    IconBadgeTransparentSWarning(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentSNegative),
+    IconBadgeTransparentSNegative(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentSWarning),
+    IconBadgeTransparentSWhite(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentSWhite),
+    IconBadgeTransparentSBlack(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentSBlack),
+    IconBadgeTransparentSPilledDefault(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentSPilledDefault),
+    IconBadgeTransparentSPilledAccent(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentSPilledAccent),
+    IconBadgeTransparentSPilledPositive(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentSPilledPositive),
+    IconBadgeTransparentSPilledWarning(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentSPilledWarning),
+    IconBadgeTransparentSPilledNegative(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentSPilledNegative),
+    IconBadgeTransparentSPilledWhite(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentSPilledWhite),
+    IconBadgeTransparentSPilledBlack(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentSPilledBlack),
+
+    IconBadgeTransparentXsDefault(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentXsDefault),
+    IconBadgeTransparentXsAccent(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentXsAccent),
+    IconBadgeTransparentXsPositive(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentXsPositive),
+    IconBadgeTransparentXsWarning(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentXsWarning),
+    IconBadgeTransparentXsNegative(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentXsNegative),
+    IconBadgeTransparentXsWhite(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentXsWhite),
+    IconBadgeTransparentXsBlack(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentXsBlack),
+    IconBadgeTransparentXsPilledDefault(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentXsPilledDefault),
+    IconBadgeTransparentXsPilledAccent(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentXsPilledAccent),
+    IconBadgeTransparentXsPilledPositive(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentXsPilledPositive),
+    IconBadgeTransparentXsPilledWarning(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentXsPilledWarning),
+    IconBadgeTransparentXsPilledNegative(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentXsPilledNegative),
+    IconBadgeTransparentXsPilledWhite(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentXsPilledWhite),
+    IconBadgeTransparentXsPilledBlack(R.style.Serv_Sdds_ComponentOverlays_IconBadgeTransparentXsPilledBlack),
+
+    IconBadgeClearLDefault(R.style.Serv_Sdds_ComponentOverlays_IconBadgeClearLDefault),
+    IconBadgeClearLAccent(R.style.Serv_Sdds_ComponentOverlays_IconBadgeClearLAccent),
+    IconBadgeClearLPositive(R.style.Serv_Sdds_ComponentOverlays_IconBadgeClearLPositive),
+    IconBadgeClearLWarning(R.style.Serv_Sdds_ComponentOverlays_IconBadgeClearLWarning),
+    IconBadgeClearLNegative(R.style.Serv_Sdds_ComponentOverlays_IconBadgeClearLNegative),
+    IconBadgeClearLWhite(R.style.Serv_Sdds_ComponentOverlays_IconBadgeClearLWhite),
+    IconBadgeClearLBlack(R.style.Serv_Sdds_ComponentOverlays_IconBadgeClearLBlack),
+
+    IconBadgeClearMDefault(R.style.Serv_Sdds_ComponentOverlays_IconBadgeClearMDefault),
+    IconBadgeClearMAccent(R.style.Serv_Sdds_ComponentOverlays_IconBadgeClearMAccent),
+    IconBadgeClearMPositive(R.style.Serv_Sdds_ComponentOverlays_IconBadgeClearMPositive),
+    IconBadgeClearMWarning(R.style.Serv_Sdds_ComponentOverlays_IconBadgeClearMWarning),
+    IconBadgeClearMNegative(R.style.Serv_Sdds_ComponentOverlays_IconBadgeClearMNegative),
+    IconBadgeClearMWhite(R.style.Serv_Sdds_ComponentOverlays_IconBadgeClearMWhite),
+    IconBadgeClearMBlack(R.style.Serv_Sdds_ComponentOverlays_IconBadgeClearMBlack),
+
+    IconBadgeClearSDefault(R.style.Serv_Sdds_ComponentOverlays_IconBadgeClearSDefault),
+    IconBadgeClearSAccent(R.style.Serv_Sdds_ComponentOverlays_IconBadgeClearSAccent),
+    IconBadgeClearSPositive(R.style.Serv_Sdds_ComponentOverlays_IconBadgeClearSPositive),
+    IconBadgeClearSWarning(R.style.Serv_Sdds_ComponentOverlays_IconBadgeClearSNegative),
+    IconBadgeClearSNegative(R.style.Serv_Sdds_ComponentOverlays_IconBadgeClearSWarning),
+    IconBadgeClearSWhite(R.style.Serv_Sdds_ComponentOverlays_IconBadgeClearSWhite),
+    IconBadgeClearSBlack(R.style.Serv_Sdds_ComponentOverlays_IconBadgeClearSBlack),
+
+    IconBadgeClearXsDefault(R.style.Serv_Sdds_ComponentOverlays_IconBadgeClearXsDefault),
+    IconBadgeClearXsAccent(R.style.Serv_Sdds_ComponentOverlays_IconBadgeClearXsAccent),
+    IconBadgeClearXsPositive(R.style.Serv_Sdds_ComponentOverlays_IconBadgeClearXsPositive),
+    IconBadgeClearXsWarning(R.style.Serv_Sdds_ComponentOverlays_IconBadgeClearXsWarning),
+    IconBadgeClearXsNegative(R.style.Serv_Sdds_ComponentOverlays_IconBadgeClearXsNegative),
+    IconBadgeClearXsWhite(R.style.Serv_Sdds_ComponentOverlays_IconBadgeClearXsWhite),
+    IconBadgeClearXsBlack(R.style.Serv_Sdds_ComponentOverlays_IconBadgeClearXsBlack),
+}

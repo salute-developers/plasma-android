@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Sdds.Components.Badge" parent="Sdds.Components.TextDrawable">
+        <item name="android:minHeight">40dp</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:paddingEnd">10dp</item>
+        <item name="sd_textPaddingEnd">4dp</item>
+        <item name="sd_textPaddingStart">4dp</item>
+    </style>
+</resources>

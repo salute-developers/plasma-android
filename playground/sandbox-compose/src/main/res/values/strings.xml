@@ -13,8 +13,10 @@
     <string name="menu_avatar">Avatar</string>
     <string name="menu_avatargroup">AvatarGroup</string>
     <string name="menu_basicButton">BasicButton</string>
+    <string name="menu_badge">Badge</string>
     <string name="menu_iconButton">IconButton</string>
     <string name="menu_linkButton">LinkButton</string>
+    <string name="menu_iconBadge">IconBadge</string>
     <string name="menu_cell">Cell</string>
     <string name="menu_checkbox">CheckBox</string>
     <string name="menu_checkbox_group">CheckBoxGroup</string>
