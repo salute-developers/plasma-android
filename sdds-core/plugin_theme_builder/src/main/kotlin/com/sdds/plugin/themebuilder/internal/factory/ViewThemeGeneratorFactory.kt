@@ -15,6 +15,7 @@ internal class ViewThemeGeneratorFactory(
     private val themeName: String,
     private val resPrefixConfig: ResourcePrefixConfig,
     private val viewGradientGeneratorFactory: ViewGradientGeneratorFactory,
+    private val shadowStyleGeneratorFactory: ShadowStyleGeneratorFactory,
 ) {
 
     /**
@@ -28,5 +29,6 @@ internal class ViewThemeGeneratorFactory(
             themeName = themeName,
             resPrefixConfig = resPrefixConfig,
             viewGradientGenerator = viewGradientGeneratorFactory.create(),
+            shadowStyleGenerator = shadowStyleGeneratorFactory.create(),
         )
 }

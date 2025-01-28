@@ -8,9 +8,11 @@ import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.generator.SimpleBaseGenerator
 import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.GradientTokenResult
+import com.sdds.plugin.themebuilder.internal.generator.data.ShadowTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.ShapeTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.TypographyTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.mergedLightAndDark
+import com.sdds.plugin.themebuilder.internal.token.ShadowToken
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.themeXmlFile
 import com.sdds.plugin.themebuilder.internal.utils.snakeToCamelCase
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
@@ -35,6 +37,7 @@ internal class ViewThemeGenerator(
     private val outputResDir: File,
     private val viewThemeParents: List<ViewThemeParent>,
     private val viewGradientGenerator: ViewGradientGenerator,
+    private val shadowStyleGenerator: ShadowStyleGenerator,
     private val resPrefixConfig: ResourcePrefixConfig,
     themeName: String,
 ) : SimpleBaseGenerator {
@@ -45,6 +48,7 @@ internal class ViewThemeGenerator(
     private val gradientAttributes = mutableSetOf<String>()
     private val shapes = mutableListOf<ShapeTokenResult.TokenData>()
     private var typography: TypographyTokenResult.ViewTokenData? = null
+    private val shadows = mutableListOf<ShadowTokenResult.TokenData>()
 
     private val emptyStylesCollector = mutableSetOf<String>()
     private val stylesWithAttributesCollector = mutableSetOf<String>()
@@ -81,6 +85,11 @@ internal class ViewThemeGenerator(
         typography = data
     }
 
+    internal fun setShadowsTokenData(data: List<ShadowTokenResult.TokenData>) {
+        shadows.clear()
+        shadows.addAll(data)
+    }
+
     fun generateEmptyTheme() {
         with(defaultThemeXmlFileBuilder) {
             collectEmptyBaseStyles()
@@ -106,6 +115,7 @@ internal class ViewThemeGenerator(
         }
 
         viewGradientGenerator.generate()
+        shadowStyleGenerator.generate()
         collectEmptyBaseStyles()
         addEmptyStyles()
         buildFiles()
@@ -142,6 +152,7 @@ internal class ViewThemeGenerator(
                 gradientAttributesBlock(lightGradientTokens = mode == ThemeMode.LIGHT),
                 shapeAttributesBlock(),
                 typographyAttributesBlock(),
+                shadowAttributesBlock(),
             )
         }
     }
@@ -242,6 +253,11 @@ internal class ViewThemeGenerator(
         }
     }
 
+    private fun XmlResourcesDocumentBuilder.shadowAttributesBlock(): Element.() -> Unit = {
+        if (shadows.isNotEmpty()) appendComment("Shadows")
+        appendAttrs(shadows.shadowsToThemeAttrs(), this)
+    }
+
     private fun Map<String, String>?.typographyToThemeAttrs(): List<ViewThemeAttribute> =
         this?.map { entry ->
             ViewThemeAttribute(
@@ -293,6 +309,15 @@ internal class ViewThemeGenerator(
             ViewThemeAttribute(
                 name = entry.attrName,
                 value = entry.tokenRefName,
+            )
+        }
+
+    private fun List<ShadowTokenResult.TokenData>.shadowsToThemeAttrs(): List<ViewThemeAttribute> =
+        map { entry ->
+            val ref = shadowStyleGenerator.addStyle(entry.tokenTechName, entry.layers, entry.tokenDescription)
+            ViewThemeAttribute(
+                name = ShadowToken.getAttrName(entry.tokenTechName),
+                value = ref,
             )
         }
 
