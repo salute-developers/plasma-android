@@ -74,7 +74,7 @@ abstract class AutoBumpTask : DefaultTask() {
     }
 
     private fun Project.cacheBumpInfo(versionBump: VersionBump) {
-        layout.buildDirectory.file(versionBumpFileName.get()).get().asFile.writeText(versionBump.name)
+        layout.projectDirectory.file(versionBumpFileName).get().asFile.writeText(versionBump.name)
     }
 }
 
