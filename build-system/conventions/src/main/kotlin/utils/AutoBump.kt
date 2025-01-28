@@ -2,6 +2,7 @@ package utils
 
 import org.gradle.api.DefaultTask
 import org.gradle.api.Project
+import org.gradle.api.file.DirectoryProperty
 import org.gradle.api.provider.Property
 import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.TaskAction
@@ -74,7 +75,17 @@ abstract class AutoBumpTask : DefaultTask() {
     }
 
     private fun Project.cacheBumpInfo(versionBump: VersionBump) {
-        layout.buildDirectory.file(versionBumpFileName.get()).get().asFile.writeText(versionBump.name)
+        buildDirectory.file(versionBumpFileName.get()).get().asFile.writeText(versionBump.name)
     }
+
+    /**
+     * Создаст build директорию, если она не существует
+     */
+    private val Project.buildDirectory: DirectoryProperty
+        get() {
+            val buildDir = project.layout.buildDirectory.asFile.get()
+            if (!buildDir.exists()) project.mkdir("build")
+            return layout.buildDirectory
+        }
 }
 
