@@ -314,6 +314,7 @@ internal fun BaseTextField(
                         colors.indicatorColor(readOnly, enabled, interactionSource),
                     )
                     .clip(if (fieldAppearance == FieldAppearance.Solid) style.shape else RectangleShape)
+                    .enable(enabled, enabledAlpha, disabledAlpha)
                     .drawFieldAppearance(
                         fieldAppearance = fieldAppearance,
                         hasDivider = style.hasDivider,
@@ -352,8 +353,7 @@ internal fun BaseTextField(
                         } else {
                             Modifier
                         },
-                    )
-                    .enable(enabled, enabledAlpha, disabledAlpha),
+                    ),
                 value = value.text,
                 innerTextField = {
                     BasicTextField(
