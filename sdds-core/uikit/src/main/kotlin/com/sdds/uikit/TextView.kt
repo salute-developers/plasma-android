@@ -7,6 +7,9 @@ import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.AppCompatTextView
+import com.sdds.uikit.colorstate.ColorState
+import com.sdds.uikit.colorstate.ColorState.Companion.isDefined
+import com.sdds.uikit.colorstate.ColorStateHolder
 import com.sdds.uikit.internal.base.shape.ShapeHelper
 import com.sdds.uikit.viewstate.ViewState
 import com.sdds.uikit.viewstate.ViewState.Companion.isDefined
@@ -23,7 +26,7 @@ open class TextView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = android.R.attr.textViewStyle,
-) : AppCompatTextView(context, attrs, defStyleAttr), ViewStateHolder {
+) : AppCompatTextView(context, attrs, defStyleAttr), ViewStateHolder, ColorStateHolder {
 
     @Suppress("LeakingThis")
     private val _shapeHelper: ShapeHelper = ShapeHelper(this, attrs, defStyleAttr)
@@ -32,7 +35,20 @@ open class TextView @JvmOverloads constructor(
      * Состояние внешнего вида текста
      * @see ViewState
      */
+    @Deprecated("Use colorState")
     override var state: ViewState? = ViewState.obtain(context, attrs, defStyleAttr)
+        set(value) {
+            if (field != value) {
+                field = value
+                refreshDrawableState()
+            }
+        }
+
+    /**
+     * Состояние цвета текста
+     * @see ColorState
+     */
+    override var colorState: ColorState? = ColorState.obtain(context, attrs, defStyleAttr)
         set(value) {
             if (field != value) {
                 field = value
@@ -73,9 +89,12 @@ open class TextView @JvmOverloads constructor(
     }
 
     override fun onCreateDrawableState(extraSpace: Int): IntArray {
-        val drawableState = super.onCreateDrawableState(extraSpace + 1)
+        val drawableState = super.onCreateDrawableState(extraSpace + 2)
         if (state?.isDefined() == true) {
             mergeDrawableStates(drawableState, state?.attr)
+        }
+        if (colorState?.isDefined() == true) {
+            mergeDrawableStates(drawableState, colorState?.attrs)
         }
         return drawableState
     }

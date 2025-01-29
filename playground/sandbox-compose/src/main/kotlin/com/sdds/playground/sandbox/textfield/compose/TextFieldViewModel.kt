@@ -3,7 +3,6 @@ package com.sdds.playground.sandbox.textfield.compose
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.sdds.compose.uikit.TextField
 import com.sdds.playground.sandbox.core.compose.PropertiesOwner
 import com.sdds.playground.sandbox.core.compose.Property
 import com.sdds.playground.sandbox.core.compose.enumProperty
@@ -68,21 +67,15 @@ internal class TextFieldViewModel : ViewModel(), PropertiesOwner {
         )
     }
 
+    private fun updateVariant(variant: TextFieldVariant) {
+        _textFieldUiState.value = _textFieldUiState.value.copy(
+            variant = variant,
+        )
+    }
+
     private fun updateState(state: State) {
         _textFieldUiState.value = _textFieldUiState.value.copy(
             state = state,
-        )
-    }
-
-    private fun updateSize(size: Size) {
-        _textFieldUiState.value = _textFieldUiState.value.copy(
-            size = size,
-        )
-    }
-
-    private fun updateLabelType(labelPosition: TextField.LabelPlacement) {
-        _textFieldUiState.value = _textFieldUiState.value.copy(
-            labelPlacement = labelPosition,
         )
     }
 
@@ -110,12 +103,6 @@ internal class TextFieldViewModel : ViewModel(), PropertiesOwner {
         )
     }
 
-    private fun updateFieldType(fieldType: TextField.FieldType) {
-        _textFieldUiState.value = _textFieldUiState.value.copy(
-            fieldType = fieldType,
-        )
-    }
-
     private fun updateChipsCount(count: Int) {
         if (count < 0) return
         _textFieldUiState.value = _textFieldUiState.value.copy(chips = List(count) { "chip $it" })
@@ -137,10 +124,6 @@ internal class TextFieldViewModel : ViewModel(), PropertiesOwner {
         _textFieldUiState.value = _textFieldUiState.value.copy(isClear = isClear)
     }
 
-    private fun updateHasDivider(hasDivider: Boolean) {
-        _textFieldUiState.value = _textFieldUiState.value.copy(hasDivider = hasDivider)
-    }
-
     @Suppress("LongMethod")
     private fun TextFieldUiState.toProps(): List<Property<*>> {
         return listOfNotNull(
@@ -153,21 +136,6 @@ internal class TextFieldViewModel : ViewModel(), PropertiesOwner {
                 name = "isClear",
                 value = isClear,
                 onApply = { updateClear(it) },
-            ),
-            Property.BooleanProperty(
-                name = "hasDivider",
-                value = hasDivider,
-                onApply = { updateHasDivider(it) },
-            ),
-            enumProperty(
-                name = "field type",
-                value = fieldType,
-                onApply = { updateFieldType(it) },
-            ),
-            enumProperty(
-                name = "label type",
-                value = labelPlacement,
-                onApply = { updateLabelType(it) },
             ),
             Property.StringProperty(
                 name = "label",
@@ -195,14 +163,14 @@ internal class TextFieldViewModel : ViewModel(), PropertiesOwner {
                 onApply = { updatePlaceholder(it) },
             ),
             enumProperty(
+                name = "variant",
+                value = variant,
+                onApply = { updateVariant(it) },
+            ),
+            enumProperty(
                 name = "state",
                 value = state,
                 onApply = { updateState(it) },
-            ),
-            enumProperty(
-                name = "size",
-                value = size,
-                onApply = { updateSize(it) },
             ),
             Property.BooleanProperty(
                 name = "start icon",

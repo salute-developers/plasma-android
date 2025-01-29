@@ -41,6 +41,18 @@ internal data class ColorToken(
     override val ktName: String by unsafeLazy {
         colorKtName(name)
     }
+
+    companion object {
+
+        fun getAttrName(tokenName: String): String =
+            tokenName
+                .removePrefix("dark.")
+                .removePrefix("light.")
+                .techToSnakeCase()
+                .split('_')
+                .joinToString(separator = "") { it.capitalized() }
+                .decapitalize(Locale.getDefault())
+    }
 }
 
 internal fun colorKtName(name: String): String {
@@ -52,14 +64,7 @@ internal fun colorKtName(name: String): String {
 /**
  * Название xml атрибута
  */
-internal fun Token.colorAttrName() =
-    name
-        .removePrefix("dark.")
-        .removePrefix("light.")
-        .techToSnakeCase()
-        .split('_')
-        .joinToString(separator = "") { it.capitalized() }
-        .decapitalize(Locale.getDefault())
+internal fun Token.colorAttrName() = ColorToken.getAttrName(name)
 
 /**
  * Предназначен ли токен для светлой темы

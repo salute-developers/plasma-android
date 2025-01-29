@@ -18,6 +18,7 @@ import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.VisualTransformation
 import com.sdds.compose.uikit.ChipGroupStyle
+import com.sdds.compose.uikit.ChipStyle
 import com.sdds.compose.uikit.TextField
 
 /**
@@ -25,7 +26,7 @@ import com.sdds.compose.uikit.TextField
  */
 @Composable
 internal fun DecorationBox(
-    modifier: Modifier,
+    modifier: Modifier = Modifier,
     value: String,
     singleLine: Boolean,
     isClearAppearance: Boolean,
@@ -33,10 +34,11 @@ internal fun DecorationBox(
     innerOptional: @Composable (() -> Unit)?,
     chips: @Composable (() -> Unit)? = null,
     chipGroupStyle: ChipGroupStyle,
+    chipStyle: ChipStyle,
     innerTextField: @Composable () -> Unit,
     placeholder: @Composable (() -> Unit)? = null,
-    leadingIcon: @Composable (() -> Unit)? = null,
-    trailingIcon: @Composable (() -> Unit)? = null,
+    startIcon: @Composable (() -> Unit)? = null,
+    endIcon: @Composable (() -> Unit)? = null,
     innerCaption: @Composable (() -> Unit)? = null,
     innerCounter: @Composable (() -> Unit)? = null,
     valueTextStyle: TextStyle,
@@ -87,10 +89,11 @@ internal fun DecorationBox(
             innerLabel = innerLabel,
             innerOptional = innerOptional,
             animationProgress = labelProgress,
-            startIcon = leadingIcon,
-            endIcon = trailingIcon,
+            startIcon = startIcon,
+            endIcon = endIcon,
             chips = chips,
             chipGroupStyle = chipGroupStyle,
+            chipStyle = chipStyle,
             dimensions = dimensions,
             singleLine = singleLine,
             isClearAppearance = isClearAppearance,

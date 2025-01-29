@@ -1,0 +1,98 @@
+// AUTO-GENERATED. DO NOT MODIFY this file.
+package com.sdds.playground.themebuilder.styles.button
+
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.BasicButton
+import com.sdds.compose.uikit.BasicButtonStyleBuilder
+import com.sdds.compose.uikit.Button
+import com.sdds.compose.uikit.ButtonStyle
+import com.sdds.compose.uikit.adjustBy
+import com.sdds.compose.uikit.basicButtonBuilder
+import com.sdds.compose.uikit.interactions.InteractiveState
+import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.playground.themebuilder.theme.SddsServTheme
+
+public val BasicButton.L: BasicButtonStyleBuilder
+    @Composable
+    get() = ButtonStyle.basicButtonBuilder(this)
+        .shape(SddsServTheme.shapes.roundL.adjustBy(all = -2.0.dp))
+        .dimensions(
+            Button.Dimensions(
+                height = 56.0.dp,
+                paddings = Button.Dimensions.PaddingValues(
+                    start = 24.0.dp,
+                    end = 24.0.dp,
+                ),
+                minWidth = 98.0.dp,
+                iconSize = 24.0.dp,
+                spinnerSize = 22.0.dp,
+                iconMargin = 8.0.dp,
+                valueMargin = 4.0.dp,
+            ),
+        )
+        .labelStyle(SddsServTheme.typography.bodyLBold)
+        .valueStyle(SddsServTheme.typography.bodyLBold)
+
+public val BasicButton.M: BasicButtonStyleBuilder
+    @Composable
+    get() = ButtonStyle.basicButtonBuilder(this)
+        .shape(SddsServTheme.shapes.roundM)
+        .dimensions(
+            Button.Dimensions(
+                height = 56.0.dp,
+                paddings = Button.Dimensions.PaddingValues(
+                    start = 24.0.dp,
+                    end = 24.0.dp,
+                ),
+                minWidth = 98.0.dp,
+                iconSize = 24.0.dp,
+                spinnerSize = 22.0.dp,
+                iconMargin = 8.0.dp,
+                valueMargin = 4.0.dp,
+            ),
+        )
+        .labelStyle(SddsServTheme.typography.bodyMBold)
+        .valueStyle(SddsServTheme.typography.bodyMBold)
+
+public val BasicButton.S: BasicButtonStyleBuilder
+    @Composable
+    get() = ButtonStyle.basicButtonBuilder(this)
+        .shape(SddsServTheme.shapes.roundS.adjustBy(all = 2.0.dp))
+        .dimensions(
+            Button.Dimensions(
+                height = 56.0.dp,
+                paddings = Button.Dimensions.PaddingValues(
+                    start = 24.0.dp,
+                    end = 24.0.dp,
+                ),
+                minWidth = 98.0.dp,
+                iconSize = 24.0.dp,
+                spinnerSize = 22.0.dp,
+                iconMargin = 8.0.dp,
+                valueMargin = 4.0.dp,
+            ),
+        )
+        .labelStyle(SddsServTheme.typography.bodySBold)
+        .valueStyle(SddsServTheme.typography.bodySBold)
+
+public val BasicButtonStyleBuilder.Default: BasicButtonStyleBuilder
+    @Composable
+    get() = this.colors {
+        contentColor(SddsServTheme.colors.textInversePrimaryActive.asInteractive(setOf(InteractiveState.Pressed)
+                to SddsServTheme.colors.surfaceInversePrimaryPressed))
+        backgroundColor(SddsServTheme.colors.surfaceInversePrimaryActive.asInteractive(setOf(InteractiveState.Pressed,
+                InteractiveState.Focused) to SddsServTheme.colors.surfaceInversePrimaryPressed))
+        valueColor(SddsServTheme.colors.textInversePrimaryActive.asInteractive())
+        spinnerMode(Button.SpinnerMode.SemitransparentContent(0.02f))
+    }
+
+public val BasicButtonStyleBuilder.Warning: BasicButtonStyleBuilder
+    @Composable
+    get() = this.colors {
+        contentColor(SddsServTheme.colors.textInverseWarningActive.asInteractive())
+        backgroundColor(SddsServTheme.colors.surfaceInverseWarningActive.asInteractive(setOf(InteractiveState.Pressed,
+                InteractiveState.Focused) to SddsServTheme.colors.surfaceInverseWarningPressed))
+        valueColor(SddsServTheme.colors.textInversePrimaryActive.asInteractive())
+        spinnerMode(Button.SpinnerMode.SemitransparentContent(0.02f))
+    }

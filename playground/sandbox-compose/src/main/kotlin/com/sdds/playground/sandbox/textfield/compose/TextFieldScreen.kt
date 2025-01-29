@@ -4,6 +4,9 @@ import androidx.compose.foundation.clickable
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
@@ -19,7 +22,10 @@ import com.sdds.compose.uikit.BasicButton
 import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.Chip
 import com.sdds.compose.uikit.Icon
+import com.sdds.compose.uikit.Switch
 import com.sdds.compose.uikit.TextField
+import com.sdds.compose.uikit.internal.focusselector.FocusSelectorMode
+import com.sdds.compose.uikit.internal.focusselector.LocalFocusSelectorMode
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.core.compose.ComponentScaffold
@@ -38,6 +44,7 @@ internal fun TextFieldScreen() {
         component = {
             val focusManager = LocalFocusManager.current
             val style = textFieldUiState.textFieldStyle()
+            var isFocusSelectorOn by remember { mutableStateOf(false) }
             TextField(
                 value = textFieldUiState.textFieldValue,
                 onValueChange = {
@@ -63,10 +70,21 @@ internal fun TextFieldScreen() {
                 startContent = textFieldUiState.hasStartIcon.getExampleIcon(Icon.Start),
                 endContent = textFieldUiState.hasEndIcon.getExampleIcon(Icon.End),
                 chipsContent = textFieldUiState.chips.toChipContent(
-                    onChipClosePressed = {
-                        textFieldViewModel.onChipClosePressed(it)
-                    },
+                    onChipClosePressed = { textFieldViewModel.onChipClosePressed(it) },
                 ),
+                focusSelectorMode = if (isFocusSelectorOn) {
+                    LocalFocusSelectorMode.current
+                } else {
+                    FocusSelectorMode.None
+                },
+                contentDescription = "TextField",
+            )
+
+            Switch(
+                active = isFocusSelectorOn,
+                label = stringResource(R.string.sandbox_enable_focus_selector),
+                modifier = Modifier.align(Alignment.BottomStart),
+                onActiveChanged = { isFocusSelectorOn = it },
             )
 
             Button(

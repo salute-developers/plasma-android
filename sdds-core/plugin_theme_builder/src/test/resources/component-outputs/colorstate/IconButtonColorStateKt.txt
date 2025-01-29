@@ -1,0 +1,46 @@
+// AUTO-GENERATED. DO NOT MODIFY this file.
+package com.test.colorstate
+
+import android.content.Context
+import android.util.AttributeSet
+import com.sdds.uikit.colorstate.ColorState
+import com.sdds.uikit.colorstate.ColorStateProvider
+import com.test.R
+import com.test.colorstate.IconButtonColorState
+import com.test.colorstate.IconButtonColorStateProvider
+import kotlin.Int
+import kotlin.IntArray
+
+/**
+ * Реализация [ColorState] для компонента IconButton
+ */
+public enum class IconButtonColorState(
+    public override val attrs: IntArray,
+) : ColorState {
+    DEFAULT(intArrayOf(R.attr.thmbldr_iconbutton_state_default)),
+    WARNING(intArrayOf(R.attr.thmbldr_iconbutton_state_warning)),
+    ;
+}
+
+/**
+ * Реализация [ColorStateProvider] для IconButtonColorState
+ */
+internal class IconButtonColorStateProvider : ColorStateProvider {
+    public override fun obtain(
+        context: Context,
+        attrs: AttributeSet?,
+        defStyleAttr: Int,
+        defStyleRes: Int,
+    ): IconButtonColorState? {
+        val typedArray = context.obtainStyledAttributes(
+            attrs,
+            R.styleable.IconButton,
+            defStyleAttr,
+            defStyleRes,
+        )
+        val stateOrdinal: Int = typedArray.getInt(R.styleable.IconButton_thmbldr_iconbuttonColors,
+                0)
+        typedArray.recycle()
+        return IconButtonColorState.values().getOrNull(stateOrdinal)
+    }
+}
