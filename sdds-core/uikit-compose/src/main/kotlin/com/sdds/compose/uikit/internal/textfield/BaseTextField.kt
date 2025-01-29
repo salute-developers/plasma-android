@@ -71,6 +71,7 @@ import com.sdds.compose.uikit.TextField.FieldAppearance
 import com.sdds.compose.uikit.TextField.FieldType
 import com.sdds.compose.uikit.TextField.HelperTextPlacement
 import com.sdds.compose.uikit.TextField.LabelPlacement
+import com.sdds.compose.uikit.TextFieldColors
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.activatable
@@ -197,7 +198,6 @@ internal fun BaseTextField(
 
     Layout(
         modifier = modifier
-            .enable(enabled, enabledAlpha, disabledAlpha)
             .focusProperties { canFocus = false },
         measurePolicy = remember {
             BaseTextFieldMeasurePolicy()
@@ -211,11 +211,10 @@ internal fun BaseTextField(
                     .applyLabelIndicator(
                         fieldType = fieldType,
                         labelPlacement = labelPlacement,
-                        indicatorColor = colors
-                            .indicatorColor(readOnly)
-                            .colorForInteraction(interactionSource),
+                        indicatorColor = colors.indicatorColor(readOnly, enabled, interactionSource),
                         dimensions = dimensions,
-                    ),
+                    )
+                    .enable(enabled, enabledAlpha, disabledAlpha),
                 labelPlacement = labelPlacement,
                 fieldType = fieldType,
                 labelText = finalLabelText,
@@ -312,9 +311,7 @@ internal fun BaseTextField(
                         labelPlacement,
                         fieldAppearance,
                         dimensions,
-                        colors
-                            .indicatorColor(readOnly)
-                            .colorForInteraction(interactionSource),
+                        colors.indicatorColor(readOnly, enabled, interactionSource),
                     )
                     .clip(if (fieldAppearance == FieldAppearance.Solid) style.shape else RectangleShape)
                     .drawFieldAppearance(
@@ -355,7 +352,8 @@ internal fun BaseTextField(
                         } else {
                             Modifier
                         },
-                    ),
+                    )
+                    .enable(enabled, enabledAlpha, disabledAlpha),
                 value = value.text,
                 innerTextField = {
                     BasicTextField(
@@ -430,7 +428,8 @@ internal fun BaseTextField(
                 modifier = Modifier
                     .layoutId(CAPTION_CONTENT_ID)
                     .clearAndSetSemantics {}
-                    .padding(top = dimensions.helperTextPadding),
+                    .padding(top = dimensions.helperTextPadding)
+                    .enable(enabled, enabledAlpha, disabledAlpha),
                 text = captionText,
                 textStyle = captionStyle,
                 helperTextPlacement = helperTextPlacement,
@@ -439,13 +438,27 @@ internal fun BaseTextField(
                 modifier = Modifier
                     .layoutId(COUNTER_CONTENT_ID)
                     .clearAndSetSemantics {}
-                    .padding(top = dimensions.helperTextPadding),
+                    .padding(top = dimensions.helperTextPadding)
+                    .enable(enabled, enabledAlpha, disabledAlpha),
                 text = counterText,
                 textStyle = counterStyle,
                 helperTextPlacement = helperTextPlacement,
             )
         },
     )
+}
+
+@Composable
+private fun TextFieldColors.indicatorColor(
+    readOnly: Boolean,
+    enabled: Boolean,
+    interactionSource: InteractionSource,
+): Color {
+    return indicatorColor(readOnly)
+        .colorForInteraction(interactionSource)
+        .let { color ->
+            if (enabled) color else color.copy(alpha = disabledAlpha)
+        }
 }
 
 private fun Modifier.drawFieldAppearance(
