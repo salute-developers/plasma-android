@@ -1,11 +1,14 @@
 package com.sdds.plugin.themebuilder.internal.generator
 
+import com.sdds.plugin.themebuilder.DimensionsConfig
 import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Companion.appendObject
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder.Companion.DEFAULT_ROOT_ATTRIBUTES
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder.ElementName
+import com.sdds.plugin.themebuilder.internal.dimens.DimenData
+import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.exceptions.ThemeBuilderException
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
@@ -14,8 +17,11 @@ import com.sdds.plugin.themebuilder.internal.token.ShadowToken
 import com.sdds.plugin.themebuilder.internal.token.ShadowTokenValue
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.shadowsXmlFile
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
+import com.sdds.plugin.themebuilder.internal.utils.camelToSnakeCase
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 import com.sdds.plugin.themebuilder.internal.validator.ShadowTokenValidator
+import com.squareup.kotlinpoet.ClassName
+import com.squareup.kotlinpoet.TypeSpec
 import java.io.File
 
 /**
@@ -37,11 +43,15 @@ internal class ShadowTokenGenerator(
     private val ktFileBuilderFactory: KtFileBuilderFactory,
     private val shadowTokenValues: Map<String, List<ShadowTokenValue>>,
     private val resourceReferenceProvider: ResourceReferenceProvider,
+    private val dimensionsConfig: DimensionsConfig,
+    private val dimensAggregator: DimensAggregator,
+    namespace: String,
 ) : TokenGenerator<ShadowToken, ShadowTokenResult>(target) {
 
     private val xmlDocumentBuilder by unsafeLazy { xmlBuilderFactory.create(DEFAULT_ROOT_ATTRIBUTES) }
-    private val ktFileBuilder by unsafeLazy { ktFileBuilderFactory.create("ShadowTokens") }
-    private val rootShadows by unsafeLazy { ktFileBuilder.rootObject("ShadowTokens") }
+    private val ktFileBuilder by unsafeLazy { ktFileBuilderFactory.create(SHADOW_TOKENS_NAME) }
+    private val rootShadows by unsafeLazy { ktFileBuilder.rootObject(SHADOW_TOKENS_NAME) }
+    private val rFileImport = ClassName(namespace, "R")
 
     private val composeTokenDataCollector = mutableListOf<ShadowTokenResult.TokenData>()
     private val viewTokenDataCollector = mutableListOf<ShadowTokenResult.TokenData>()
@@ -69,6 +79,10 @@ internal class ShadowTokenGenerator(
         super.generateCompose()
         ktFileBuilder.addImport(KtFileBuilder.TypeDpExtension)
         ktFileBuilder.addImport(KtFileBuilder.TypeCornerSize)
+        if (dimensionsConfig.fromResources) {
+            ktFileBuilder.addImport(KtFileBuilder.TypeDimensionResource)
+            ktFileBuilder.addImport(rFileImport)
+        }
         ktFileBuilder.build(outputLocation)
     }
 
@@ -136,10 +150,11 @@ internal class ShadowTokenGenerator(
         tokenName: String,
         value: Float,
     ): String {
+        val dimenValue = value * dimensionsConfig.multiplier
         appendElement(
             ElementName.DIMEN,
             tokenName,
-            "${value}dp",
+            "${dimenValue}dp",
         )
         return resourceReferenceProvider.dimen(tokenName)
     }
@@ -153,24 +168,133 @@ internal class ShadowTokenGenerator(
                 "Can't find value for shadow token ${token.name}. " +
                     "It should be in android_shadow.json.",
             )
+        val useLayerSuffix = tokenValues.size > 1
+        val layers = mutableListOf<ShadowTokenResult.ShadowLayer>()
         tokenValues.forEachIndexed { index, tokenValue ->
             ShadowTokenValidator.validate(tokenValue, token.name)
-            val tokenName = "${token.ktName}Layer${index + 1}"
+            val tokenName = "${token.ktName}Layer${index + 1}".takeIf { useLayerSuffix } ?: token.ktName
             rootShadows.appendObject(tokenName, token.description) {
-                appendProperty(
-                    "elevation",
-                    KtFileBuilder.TypeDp,
-                    "${tokenValue.blurRadius}.dp",
-                    token.description,
-                )
-                appendProperty(
-                    "color",
-                    KtFileBuilder.TypeColor,
-                    "Color(${tokenValue.color.replace("#", "0x")})",
-                    token.description,
-                )
+                val layerRef = appendShadowProperties(tokenName, tokenValue, token.description)
+                layers.add(layerRef)
             }
         }
+        composeTokenDataCollector.add(
+            ShadowTokenResult.TokenData(
+                tokenTechName = token.name,
+                layers = layers,
+                tokenDescription = token.description,
+            ),
+        )
         return@with true
+    }
+
+    private fun TypeSpec.Builder.appendShadowProperties(
+        tokenName: String,
+        tokenValue: ShadowTokenValue,
+        description: String,
+    ): ShadowTokenResult.ShadowLayer =
+        with(ktFileBuilder) {
+            val offsetXRef = appendShadowProperty(
+                tokenName,
+                "offsetX",
+                tokenValue.offsetX,
+                description,
+            )
+            val offsetYRef = appendShadowProperty(
+                tokenName,
+                "offsetY",
+                tokenValue.offsetY,
+                description,
+            )
+            val spreadRadiusRef = appendShadowProperty(
+                tokenName,
+                "spreadRadius",
+                tokenValue.spreadRadius,
+                description,
+            )
+            val blurRadiusRef = appendShadowProperty(
+                tokenName,
+                "blurRadius",
+                tokenValue.blurRadius,
+                description,
+            )
+            val elevationRef = tokenValue.fallbackElevation?.let {
+                appendShadowProperty(tokenName, "fallbackElevation", it, description)
+            }
+            appendProperty(
+                "color",
+                KtFileBuilder.TypeColor,
+                "Color(${tokenValue.color.replace("#", "0x")})",
+                description,
+            )
+
+            ShadowTokenResult.ShadowLayer(
+                colorRef = "$SHADOW_TOKENS_NAME.$tokenName.color",
+                offsetXRef = offsetXRef,
+                offsetYRef = offsetYRef,
+                spreadRef = spreadRadiusRef,
+                blurRef = blurRadiusRef,
+                fallbackElevationRef = elevationRef,
+            )
+        }
+
+    private fun TypeSpec.Builder.appendShadowProperty(
+        tokenName: String,
+        propertyName: String,
+        value: Float,
+        description: String,
+    ): String = with(ktFileBuilder) {
+        if (dimensionsConfig.fromResources) {
+            shadowPropertyWithResources(tokenName, propertyName, value, description)
+        } else {
+            shadowProperty(propertyName, value, description)
+        }
+        return "$SHADOW_TOKENS_NAME.$tokenName.$propertyName"
+    }
+
+    private fun TypeSpec.Builder.shadowProperty(
+        propertyName: String,
+        value: Float,
+        description: String,
+    ) = with(ktFileBuilder) {
+        val dimenValue = value * dimensionsConfig.multiplier
+        appendProperty(
+            propertyName,
+            KtFileBuilder.TypeDp,
+            "$dimenValue.dp",
+            description,
+        )
+    }
+
+    private fun TypeSpec.Builder.shadowPropertyWithResources(
+        tokenName: String,
+        propertyName: String,
+        value: Float,
+        description: String,
+    ) = with(ktFileBuilder) {
+        val dimenValue = DimenData(
+            name = "shadow_${tokenName.camelToSnakeCase()}_${propertyName.camelToSnakeCase()}",
+            value = value,
+            type = DimenData.Type.DP,
+        )
+        dimensAggregator.addDimen(dimenValue)
+        val initializer = "dimensionResource(${resourceReferenceProvider.dimenR(dimenValue)})"
+
+        appendProperty(
+            name = propertyName,
+            typeName = KtFileBuilder.TypeDp,
+            propGetter = KtFileBuilder.Getter.Annotated(
+                annotations = listOf(
+                    KtFileBuilder.Annotation(KtFileBuilder.TypeAnnotationComposable),
+                    KtFileBuilder.Annotation(KtFileBuilder.TypeAnnotationReadOnlyComposable),
+                ),
+                body = "return $initializer",
+            ),
+            description = description,
+        )
+    }
+
+    companion object {
+        internal const val SHADOW_TOKENS_NAME = "ShadowTokens"
     }
 }

@@ -11,6 +11,7 @@ import androidx.compose.runtime.remember
 import com.sdds.compose.uikit.ProvideTextStyle
 import com.sdds.playground.themebuilder.theme.TestColors
 import com.sdds.playground.themebuilder.theme.TestGradients
+import com.sdds.playground.themebuilder.theme.TestShadows
 import com.sdds.playground.themebuilder.theme.TestShapes
 import com.sdds.playground.themebuilder.theme.TestTypography
 import kotlin.Unit
@@ -31,6 +32,11 @@ public object TestTheme {
         @ReadOnlyComposable
         get() = LocalTestShapes.current
 
+    public val shadows: TestShadows
+        @Composable
+        @ReadOnlyComposable
+        get() = LocalTestShadows.current
+
     public val typography: TestTypography
         @Composable
         @ReadOnlyComposable
@@ -45,6 +51,7 @@ public fun TestTheme(
     colors: TestColors = TestTheme.colors,
     gradients: TestGradients = TestTheme.gradients,
     shapes: TestShapes = defaultTestShapes(),
+    shadows: TestShadows = defaultTestShadows(),
     typography: TestTypography = dynamicTestTypography(),
     content: @Composable () -> Unit,
 ): Unit {
@@ -59,6 +66,7 @@ public fun TestTheme(
         LocalTestGradients provides gradients,
         LocalTestTypography provides typography,
         LocalTestShapes provides shapes,
+        LocalTestShadows provides shadows,
         LocalTextSelectionColors provides textSelectionColors,
         content = { ProvideTextStyle(value = typography.bodyMNormal.copy(color =
             rememberColors.textPrimary), content = content,) },

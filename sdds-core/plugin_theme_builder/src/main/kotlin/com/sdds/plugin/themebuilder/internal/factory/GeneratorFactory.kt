@@ -150,6 +150,16 @@ internal class GeneratorFactory(
         )
     }
 
+    private val composeShadowAttributeGeneratorFactory by unsafeLazy {
+        ComposeShadowAttributeGeneratorFactory(
+            ktFileBuilderFactory = ktFileBuilderFactory,
+            outputLocation = OutputLocation.Directory(outputDir),
+            themeName = themeName,
+            dimensionsConfig = dimensionsConfig,
+            packageResolver = packageResolver,
+        )
+    }
+
     private val viewGradientGeneratorFactory by unsafeLazy {
         ViewGradientGeneratorFactory(
             outputResDir = outputResDir,
@@ -209,6 +219,7 @@ internal class GeneratorFactory(
         viewShapeAttributeGeneratorFactory = viewShapeAttributeGeneratorFactory,
         viewShadowAttributeGeneratorFactory = viewShadowAttributeGeneratorFactory,
         composeShapeAttributeGeneratorFactory = composeShapeAttributeGeneratorFactory,
+        composeShadowAttributeGeneratorFactory = composeShadowAttributeGeneratorFactory,
         composeGradientAttributeGeneratorFactory = composeGradientAttributeGeneratorFactory,
         viewXmlGradientAttributeGeneratorFactory = viewXmlGradientAttributeGeneratorFactory,
         viewTypographyAttributeGeneratorFactory = viewTypographyAttributeGeneratorFactory,
@@ -341,6 +352,9 @@ internal class GeneratorFactory(
             ktFileBuilderFactory,
             shadows,
             resourceReferenceProvider,
+            dimensionsConfig,
+            dimensAggregator,
+            namespace,
         )
     }
 }
