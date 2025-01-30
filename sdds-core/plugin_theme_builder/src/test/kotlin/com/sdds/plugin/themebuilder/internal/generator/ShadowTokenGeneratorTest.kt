@@ -57,6 +57,11 @@ class ShadowTokenGeneratorTest {
             ktFileBuilderFactory = KtFileBuilderFactory(PackageResolver("com.test")),
             shadowTokenValues = shadowTokenValues,
             resourceReferenceProvider = mockk(relaxed = true),
+            dimensionsConfig = mockk(relaxed = true) {
+                every { multiplier } returns 1.0f
+            },
+            dimensAggregator = mockk(relaxed = true),
+            namespace = "com.test",
         )
     }
 
