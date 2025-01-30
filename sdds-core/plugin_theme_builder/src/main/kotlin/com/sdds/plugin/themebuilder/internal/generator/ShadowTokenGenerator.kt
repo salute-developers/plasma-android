@@ -3,6 +3,7 @@ package com.sdds.plugin.themebuilder.internal.generator
 import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Companion.appendObject
+import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder.Companion.DEFAULT_ROOT_ATTRIBUTES
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder.ElementName
 import com.sdds.plugin.themebuilder.internal.exceptions.ThemeBuilderException
@@ -87,37 +88,36 @@ internal class ShadowTokenGenerator(
                 ShadowTokenValidator.validate(tokenValue, token.name)
                 val layerSuffix = "_layer_${index + 1}".takeIf { useLayerSuffix }.orEmpty()
                 val tokenName = "${token.xmlName}$layerSuffix"
-
                 appendElement(ElementName.COLOR, "shadow_${tokenName}_color", tokenValue.color)
-
-                appendElement(
-                    ElementName.DIMEN,
+                val offsetXRef = appendShadowDimenElement(
                     "shadow_${tokenName}_offset_x",
-                    "${tokenValue.offsetX}dp",
+                    tokenValue.offsetX,
                 )
-                appendElement(
-                    ElementName.DIMEN,
+                val offsetYRef = appendShadowDimenElement(
                     "shadow_${tokenName}_offset_y",
-                    "${tokenValue.offsetY}dp",
+                    tokenValue.offsetY,
                 )
-                appendElement(
-                    ElementName.DIMEN,
+                val spreadRadiusRef = appendShadowDimenElement(
                     "shadow_${tokenName}_spread",
-                    "${tokenValue.spreadRadius}dp",
+                    tokenValue.spreadRadius,
                 )
-                appendElement(
-                    ElementName.DIMEN,
+                val blurRadiusRef = appendShadowDimenElement(
                     "shadow_${tokenName}_blur",
-                    "${tokenValue.blurRadius}dp",
+                    tokenValue.blurRadius,
                 )
+
+                val elevationRef = tokenValue.fallbackElevation?.let {
+                    appendShadowDimenElement("shadow_${tokenName}_elevation", it)
+                }
 
                 layers.add(
                     ShadowTokenResult.ShadowLayer(
                         colorRef = resourceReferenceProvider.color("shadow_${tokenName}_color"),
-                        offsetXRef = resourceReferenceProvider.dimen("shadow_${tokenName}_offset_x"),
-                        offsetYRef = resourceReferenceProvider.dimen("shadow_${tokenName}_offset_y"),
-                        spreadRef = resourceReferenceProvider.dimen("shadow_${tokenName}_spread"),
-                        blurRef = resourceReferenceProvider.dimen("shadow_${tokenName}_blur"),
+                        offsetXRef = offsetXRef,
+                        offsetYRef = offsetYRef,
+                        spreadRef = spreadRadiusRef,
+                        blurRef = blurRadiusRef,
+                        fallbackElevationRef = elevationRef,
                     ),
                 )
             }
@@ -130,6 +130,18 @@ internal class ShadowTokenGenerator(
             ),
         )
         return@with true
+    }
+
+    private fun XmlResourcesDocumentBuilder.appendShadowDimenElement(
+        tokenName: String,
+        value: Float,
+    ): String {
+        appendElement(
+            ElementName.DIMEN,
+            tokenName,
+            "${value}dp",
+        )
+        return resourceReferenceProvider.dimen(tokenName)
     }
 
     /**

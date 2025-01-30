@@ -15,9 +15,10 @@ import android.graphics.Shader
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.ShapeDrawable
 import android.graphics.drawable.shapes.Shape
+import android.os.Build
 import android.util.AttributeSet
 import android.util.TypedValue
-import androidx.annotation.StyleRes
+import androidx.annotation.RequiresApi
 import androidx.core.graphics.withTranslation
 import com.sdds.uikit.R
 import com.sdds.uikit.internal.base.colorForState
@@ -93,10 +94,10 @@ open class ShapeDrawable() : Drawable(), Shapeable {
             .adjust(adjustment)
         _strokeTint = typedArray.getColorStateList(R.styleable.SdShape_sd_strokeColor)
         _strokeWidth = typedArray.getDimension(R.styleable.SdShape_sd_strokeWidth, 0f)
-        if (typedArray.hasValue(R.styleable.SdShape_sd_shadowAppearance)) {
-            _shadowRenderer.setShadowAppearance(
-                context,
-                typedArray.getResourceId(R.styleable.SdShape_sd_shadowAppearance, 0),
+        val hasShadowAppearance = typedArray.hasValue(R.styleable.SdShape_sd_shadowAppearance)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P && hasShadowAppearance) {
+            _shadowRenderer.setShadowModel(
+                ShadowModel.obtain(context, typedArray.getResourceId(R.styleable.SdShape_sd_shadowAppearance, 0)),
             )
         }
         typedArray.recycle()
@@ -134,11 +135,12 @@ open class ShapeDrawable() : Drawable(), Shapeable {
     }
 
     /**
-     * Устанавливает стиль теней [shadowAppearance]
+     * Устанавливает модель теней [ShadowModel]
      */
-    open fun setShadowAppearance(context: Context, @StyleRes shadowAppearance: Int) {
-        if (shadowAppearance == 0) return
-        _shadowRenderer.setShadowAppearance(context, shadowAppearance)
+    @RequiresApi(Build.VERSION_CODES.P)
+    open fun setShadowModel(model: ShadowModel?) {
+        if (model == null) return
+        _shadowRenderer.setShadowModel(model)
     }
 
     /**

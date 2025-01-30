@@ -46,6 +46,7 @@ internal data class ShadowToken(
  * @property offsetY смещение тени по оси Y
  * @property spreadRadius радиус распространения тени
  * @property blurRadius радиус сглаживания границ тени
+ * @property fallbackElevation значение elevation, которое используется на API < 28
  */
 @Serializable
 internal data class ShadowTokenValue(
@@ -54,4 +55,5 @@ internal data class ShadowTokenValue(
     val offsetY: Float,
     val spreadRadius: Float,
     val blurRadius: Float,
+    val fallbackElevation: Float? = null,
 ) : TokenValue
