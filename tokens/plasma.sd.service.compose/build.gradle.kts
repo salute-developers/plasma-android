@@ -24,6 +24,7 @@ themeBuilder {
     mode(THEME)
     componentsSource("https://github.com/salute-developers/theme-converter/raw/main/components/sdds_serv")
     outputLocation(SRC)
+    autoGenerate(false)
 }
 
 dependencies {
