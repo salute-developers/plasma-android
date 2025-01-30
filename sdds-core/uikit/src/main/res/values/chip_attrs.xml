@@ -10,7 +10,7 @@
         <attr name="android:drawableStart" />
         <attr name="android:drawableEnd" />
         <attr name="sd_drawableStartTint" />
-        <attr name="sd_drawableEndTint"  />
+        <attr name="sd_drawableEndTint" />
         <attr name="sd_drawableSize"  />
 
         <attr name="android:text" />

@@ -29,7 +29,7 @@ class ViewSystemSegmentScreenshotTest(
         launchScreen(
             R.id.nav_segment,
             SegmentUiState(
-                variant = SegmentVariant.SegmentL,
+                variant = SegmentVariant.SegmentLPrimary,
                 amount = 3,
                 icon = SegmentItemIcon.No,
                 segmentItemLabel = "Label",
@@ -50,7 +50,7 @@ class ViewSystemSegmentScreenshotTest(
         launchScreen(
             R.id.nav_segment,
             SegmentUiState(
-                variant = SegmentVariant.SegmentMPilled,
+                variant = SegmentVariant.SegmentMPrimaryPilled,
                 amount = 3,
                 icon = SegmentItemIcon.Start,
                 segmentItemLabel = "Label",
@@ -71,7 +71,7 @@ class ViewSystemSegmentScreenshotTest(
         launchScreen(
             R.id.nav_segment,
             SegmentUiState(
-                variant = SegmentVariant.SegmentS,
+                variant = SegmentVariant.SegmentSPrimary,
                 amount = 3,
                 icon = SegmentItemIcon.Start,
                 segmentItemLabel = "Label",
@@ -92,7 +92,7 @@ class ViewSystemSegmentScreenshotTest(
         launchScreen(
             R.id.nav_segment,
             SegmentUiState(
-                variant = SegmentVariant.SegmentXs,
+                variant = SegmentVariant.SegmentXsPrimary,
                 amount = 3,
                 icon = SegmentItemIcon.End,
                 segmentItemLabel = "Label",
@@ -113,7 +113,7 @@ class ViewSystemSegmentScreenshotTest(
         launchScreen(
             R.id.nav_segment,
             SegmentUiState(
-                variant = SegmentVariant.SegmentL,
+                variant = SegmentVariant.SegmentLPrimary,
                 amount = 3,
                 icon = SegmentItemIcon.No,
                 segmentItemLabel = "Label",
@@ -134,7 +134,7 @@ class ViewSystemSegmentScreenshotTest(
         launchScreen(
             R.id.nav_segment,
             SegmentUiState(
-                variant = SegmentVariant.SegmentL,
+                variant = SegmentVariant.SegmentLPrimary,
                 amount = 3,
                 icon = SegmentItemIcon.No,
                 segmentItemLabel = "Label",
@@ -153,7 +153,7 @@ class ViewSystemSegmentScreenshotTest(
         launchScreen(
             R.id.nav_segment,
             SegmentUiState(
-                variant = SegmentVariant.SegmentS,
+                variant = SegmentVariant.SegmentSPrimary,
                 amount = 3,
                 icon = SegmentItemIcon.No,
                 segmentItemLabel = "Label",
@@ -206,7 +206,7 @@ class ViewSystemSegmentScreenshotTest(
         launchScreen(
             R.id.nav_segment_item,
             SegmentUiState(
-                variant = SegmentItemVariant.SegmentItemSClear,
+                variant = SegmentItemVariant.SegmentItemSDefault,
                 icon = SegmentItemIcon.End,
                 segmentItemLabel = "Label",
                 segmentItemValue = "",
@@ -222,7 +222,7 @@ class ViewSystemSegmentScreenshotTest(
         launchScreen(
             R.id.nav_segment_item,
             SegmentUiState(
-                variant = SegmentItemVariant.SegmentItemXsDefaultPilled,
+                variant = SegmentItemVariant.SegmentItemXsPrimaryPilled,
                 icon = SegmentItemIcon.Start,
                 segmentItemLabel = "Label",
                 segmentItemValue = "Value",

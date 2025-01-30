@@ -69,6 +69,7 @@ open class TextDrawable(
     private val textPaint = TextPaint().configure(isAntiAlias = true)
     private var _fontCallback: CancelableFontCallback? = null
     private var _delegate: Delegate? = null
+    private var _lineHeight: Float = 0f
 
     private val _textWidth: Int
         get() = if (_text.isNotBlank()) {
@@ -159,7 +160,13 @@ open class TextDrawable(
      */
     open fun setTextAppearance(context: Context, @StyleRes appearanceId: Int) {
         _fontCallback?.cancel()
-        _fontCallback = textPaint.applyTextAppearance(context, appearanceId) {
+        _fontCallback = textPaint.applyTextAppearance(
+            context = context,
+            styleId = appearanceId,
+            tCallback = { textAppearance ->
+                _lineHeight = textAppearance.lineHeight
+            },
+        ) {
             onSizeChanged(true)
         }
     }
@@ -373,12 +380,20 @@ open class TextDrawable(
         }
     }
 
+    private fun getFontHeight(): Float {
+        val fontMetrics = textPaint.fontMetrics
+        return fontMetrics.descent - fontMetrics.ascent
+    }
+
     private fun updateTextBounds() {
         if (text.isEmpty()) {
             textBounds.set(0, 0, 0, 0)
             return
         }
         _textLayout?.getLineBounds(0, textBounds)
+        val topOffSet = ((_lineHeight - getFontHeight()) / 2)
+        textBounds.top = (textBounds.top - topOffSet).roundToInt()
+        textBounds.bottom = (textBounds.bottom + topOffSet).roundToInt()
         val textPositionWithoutDrawable = bounds.centerX() - textBounds.width() / 2
         val offsetLeft = when {
             _drawableStart != null -> maxOf(

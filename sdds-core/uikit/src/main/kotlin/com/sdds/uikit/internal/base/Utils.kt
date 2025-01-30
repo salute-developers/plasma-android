@@ -17,7 +17,8 @@ import androidx.core.view.isGone
  * Удобный вариант [lazy] с [LazyThreadSafetyMode.NONE]
  * @author Малышев Александр on 31.05.2024
  */
-internal inline fun <T> unsafeLazy(noinline initializer: () -> T) = lazy(LazyThreadSafetyMode.NONE, initializer)
+internal inline fun <T> unsafeLazy(noinline initializer: () -> T) =
+    lazy(LazyThreadSafetyMode.NONE, initializer)
 
 /**
  * Устанавливает значения метрик шрифта [Paint.FontMetricsInt] из [fm] в текущий объект [this]
@@ -92,6 +93,7 @@ internal fun ColorStateList?.colorForState(drawableState: IntArray?, defaultColo
 internal fun TextPaint.applyTextAppearance(
     context: Context,
     @StyleRes styleId: Int,
+    tCallback: ((TextAppearance) -> Unit)? = null,
     applyFont: CancelableFontCallback.ApplyFont? = null,
 ): CancelableFontCallback {
     val callback = CancelableFontCallback(
@@ -101,7 +103,9 @@ internal fun TextPaint.applyTextAppearance(
         },
         fallbackFont = Typeface.DEFAULT,
     )
-    TextAppearance(context, styleId).updateDrawState(context, this, callback)
+    TextAppearance(context, styleId).also {
+        tCallback?.invoke(it)
+    }.updateDrawState(context, this, callback)
     return callback
 }
 

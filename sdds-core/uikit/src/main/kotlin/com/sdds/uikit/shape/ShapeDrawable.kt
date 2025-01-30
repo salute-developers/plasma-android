@@ -174,7 +174,7 @@ open class ShapeDrawable() : Drawable(), Shapeable {
 
     override fun draw(canvas: Canvas) {
         val shape = _shape ?: return
-        canvas.withTranslation(_boundedOffset, _boundedOffset) {
+        canvas.withTranslation(_drawingBounds.left, _drawingBounds.top) {
             _shadowRenderer.render(canvas, shape)
             shape.draw(canvas, _shapePaint)
             if (drawStroke) {

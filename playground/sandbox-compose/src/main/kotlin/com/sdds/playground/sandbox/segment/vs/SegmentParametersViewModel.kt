@@ -38,6 +38,8 @@ internal class SegmentParametersViewModel(
         val propertyName = _propsMap[name] ?: return
         val currentState = _segmentItemState.value
         var stretch = currentState.stretch
+        var counter = currentState.counter
+        var icon = currentState.icon
         _segmentItemState.value = when (propertyName) {
             PropertyName.Variant -> currentState.copy(
                 variant = when (groupMode) {
@@ -48,30 +50,49 @@ internal class SegmentParametersViewModel(
 
             PropertyName.Amount -> currentState.copy(amount = valueString.toInt())
             PropertyName.Icon -> currentState.copy(
-                icon = when (valueString) {
-                    SegmentItemIcon.Start::class.simpleName -> SegmentItemIcon.Start
-                    SegmentItemIcon.End::class.simpleName -> SegmentItemIcon.End
+                icon = when {
+                    valueString == SegmentItemIcon.Start::class.simpleName -> SegmentItemIcon.Start
+                    valueString == SegmentItemIcon.End::class.simpleName && counter -> {
+                        counter = false
+                        SegmentItemIcon.End
+                    }
+                    valueString == SegmentItemIcon.End::class.simpleName && !counter -> {
+                        SegmentItemIcon.End
+                    }
                     else -> SegmentItemIcon.No
                 },
+                counter = counter,
             )
 
             PropertyName.Label -> currentState.copy(segmentItemLabel = valueString)
             PropertyName.Value -> currentState.copy(segmentItemValue = valueString)
             PropertyName.Enabled -> currentState.copy(enabled = valueString.toBoolean())
+            PropertyName.Checked -> currentState.copy(checked = valueString.toBoolean())
             PropertyName.Stretch -> {
                 if (currentState.orientation == SegmentOrientation.HORIZONTAL) {
                     stretch = valueString.toBoolean()
                 }
                 currentState.copy(stretch = stretch)
             }
+
             PropertyName.Orientation -> {
-                if (SegmentOrientation.valueOf(valueString) == SegmentOrientation.VERTICAL) {
-                    stretch = false
-                }
+                if (SegmentOrientation.valueOf(valueString) == SegmentOrientation.VERTICAL) stretch = false
                 currentState.copy(
                     orientation = SegmentOrientation.valueOf(valueString),
                     stretch = stretch,
                 )
+            }
+
+            PropertyName.Counter -> {
+                if (currentState.icon == SegmentItemIcon.End) icon = SegmentItemIcon.No
+                counter = valueString.toBoolean()
+                currentState.copy(counter = counter, icon = icon)
+            }
+
+            PropertyName.Count -> if (valueString.matches(Regex("[0-9]+"))) {
+                currentState.copy(count = valueString)
+            } else {
+                currentState
             }
         }
     }
@@ -107,6 +128,18 @@ internal class SegmentParametersViewModel(
             Property.BooleanProperty(
                 name = PropertyName.Enabled.value,
                 value = enabled,
+            ),
+            Property.BooleanProperty(
+                name = PropertyName.Checked.value,
+                value = checked,
+            ),
+            Property.BooleanProperty(
+                name = PropertyName.Counter.value,
+                value = counter,
+            ),
+            Property.StringProperty(
+                name = PropertyName.Count.value,
+                value = count,
             ),
         )
     }
@@ -151,6 +184,14 @@ internal class SegmentParametersViewModel(
                 name = PropertyName.Orientation.value,
                 value = orientation,
             ),
+            Property.BooleanProperty(
+                name = PropertyName.Counter.value,
+                value = counter,
+            ),
+            Property.StringProperty(
+                name = PropertyName.Count.value,
+                value = count,
+            ),
         )
     }
 
@@ -161,8 +202,11 @@ internal class SegmentParametersViewModel(
         Label("label"),
         Value("value"),
         Enabled("enabled"),
+        Checked("checked"),
         Stretch("stretch"),
         Orientation("orientation"),
+        Counter("counter"),
+        Count("count"),
     }
 }
 
