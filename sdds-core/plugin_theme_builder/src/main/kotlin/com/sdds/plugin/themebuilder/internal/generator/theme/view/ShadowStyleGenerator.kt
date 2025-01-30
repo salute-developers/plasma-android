@@ -160,6 +160,15 @@ internal class ShadowStyleGenerator(
             value = layer.blurRef,
             usePrefix = false,
         )
+        layer.fallbackElevationRef?.let {
+            appendElement(
+                elementName = ElementName.ITEM,
+                tokenName = "sd_shadowFallbackElevation",
+                value = it,
+                usePrefix = false,
+            )
+        }
+        Unit
     }
 
     private companion object {

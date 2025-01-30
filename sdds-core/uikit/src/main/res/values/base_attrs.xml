@@ -211,6 +211,7 @@
         <attr name="sd_shadowOffsetY" />
         <attr name="sd_shadowBlurRadius" />
         <attr name="sd_shadowSpreadRadius" />
+        <attr name="sd_shadowFallbackElevation" />
     </declare-styleable>
 
     <declare-styleable name="SdShadowLayer">
@@ -219,5 +220,6 @@
         <attr name="sd_shadowOffsetY" format="dimension" />
         <attr name="sd_shadowBlurRadius" format="dimension" />
         <attr name="sd_shadowSpreadRadius" format="dimension" />
+        <attr name="sd_shadowFallbackElevation" format="dimension" />
     </declare-styleable>
 </resources>

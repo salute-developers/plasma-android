@@ -31,6 +31,7 @@ internal data class ShadowTokenResult(
      * @property offsetYRef ссылка на смещение по Y в ресурсах
      * @property spreadRef ссылка на радиус распространения в ресурсах
      * @property blurRef ссылка на радиус сглаживания границ в ресурсах
+     * @property fallbackElevationRef ссылка на значение elevation, которое используется на API < 28
      */
     internal data class ShadowLayer(
         val colorRef: String,
@@ -38,5 +39,6 @@ internal data class ShadowTokenResult(
         val offsetYRef: String,
         val spreadRef: String,
         val blurRef: String,
+        val fallbackElevationRef: String? = null,
     )
 }

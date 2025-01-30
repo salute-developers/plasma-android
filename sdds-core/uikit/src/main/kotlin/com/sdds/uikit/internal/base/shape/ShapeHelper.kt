@@ -3,13 +3,14 @@ package com.sdds.uikit.internal.base.shape
 import android.content.res.ColorStateList
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.LayerDrawable
+import android.os.Build
 import android.util.AttributeSet
 import android.view.View
-import androidx.annotation.StyleRes
 import androidx.core.graphics.drawable.DrawableCompat
 import androidx.core.view.updatePadding
 import com.sdds.uikit.R
 import com.sdds.uikit.internal.base.wrapWithInset
+import com.sdds.uikit.shape.ShadowModel
 import com.sdds.uikit.shape.ShapeDrawable
 import com.sdds.uikit.shape.ShapeModel
 import com.sdds.uikit.shape.Shapeable
@@ -38,8 +39,7 @@ internal class ShapeHelper(
     private var insetRight: Int = 0
     private var insetBottom: Int = 0
 
-    @StyleRes
-    private var shadowAppearance: Int = 0
+    private var shadowModel: ShadowModel? = null
 
     init {
         obtainAttrs(attrs, defStyleAttr, defStyleRes)
@@ -119,7 +119,20 @@ internal class ShapeHelper(
             setShapeModel(shapeModel)
             setStrokeTint(strokeColor)
             setStrokeWidth(strokeWidth)
-            if (shadowEnabled) setShadowAppearance(view.context, shadowAppearance)
+            if (shadowEnabled) setupShadow()
+        }
+    }
+
+    private fun ShapeDrawable.setupShadow() {
+        val shadowModel = this@ShapeHelper.shadowModel ?: return
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            setShadowModel(shadowModel)
+            return
+        }
+
+        val fallbackElevation = shadowModel.fallbackElevation
+        if (fallbackElevation != null) {
+            view.elevation = fallbackElevation
         }
     }
 
@@ -139,7 +152,10 @@ internal class ShapeHelper(
             currentBackground?.isShapeable() != true
         strokeColor = typedArray.getColorStateList(R.styleable.SdShape_sd_strokeColor)
         strokeWidth = typedArray.getDimension(R.styleable.SdShape_sd_strokeWidth, 0f)
-        shadowAppearance = typedArray.getResourceId(R.styleable.SdShape_sd_shadowAppearance, 0)
+        val shadowAppearance = typedArray.getResourceId(R.styleable.SdShape_sd_shadowAppearance, 0)
+        if (shadowAppearance != 0) {
+            shadowModel = ShadowModel.obtain(view.context, shadowAppearance)
+        }
         val hasShape = typedArray.hasValue(R.styleable.SdShape_sd_shapeAppearance)
         if (hasShape) {
             setShape(ShapeModel.create(view.context, attributeSet, defStyleAttr, defStyleRes))
