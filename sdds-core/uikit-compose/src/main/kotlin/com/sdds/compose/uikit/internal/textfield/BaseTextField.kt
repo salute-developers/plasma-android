@@ -3,7 +3,6 @@ package com.sdds.compose.uikit.internal.textfield
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.ScrollState
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.focusable
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.interaction.InteractionSource
@@ -47,14 +46,7 @@ import androidx.compose.ui.layout.MeasureResult
 import androidx.compose.ui.layout.MeasureScope
 import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.platform.LocalLayoutDirection
-import androidx.compose.ui.platform.LocalSoftwareKeyboardController
-import androidx.compose.ui.semantics.clearAndSetSemantics
-import androidx.compose.ui.semantics.semantics
-import androidx.compose.ui.semantics.setText
-import androidx.compose.ui.semantics.testTag
-import androidx.compose.ui.semantics.text
-import androidx.compose.ui.text.AnnotatedString
-import androidx.compose.ui.text.TextRange
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
@@ -117,7 +109,7 @@ import com.sdds.compose.uikit.scrollbar
  */
 @OptIn(ExperimentalComposeUiApi::class, ExperimentalFoundationApi::class)
 @Composable
-@Suppress("LongMethod", "CyclomaticComplexMethod")
+@Suppress("LongMethod")
 internal fun BaseTextField(
     value: TextFieldValue,
     onValueChange: (TextFieldValue) -> Unit,
@@ -141,7 +133,6 @@ internal fun BaseTextField(
     visualTransformation: VisualTransformation = VisualTransformation.None,
     focusSelectorMode: FocusSelectorMode = LocalFocusSelectorMode.current,
     activationRequester: FocusRequester? = null,
-    contentDescription: String = "",
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     val dimensions = style.dimensions
@@ -195,10 +186,25 @@ internal fun BaseTextField(
     }
     var isComponentFocused by remember { mutableStateOf(false) }
 
+    /**
+     * Activatable модификатор компонента.
+     * Если внещний фокус включен, то компонент должен стать focusable
+     * и уметь отправлять ивенты focused и activated.
+     */
+    val externalActivatableModifier =
+        if (focusSelectorMode.isEnabled) {
+            Modifier
+                .activatable(enabled, interactionSource) { isComponentFocused = it.isFocused }
+                .focusable(enabled, interactionSource)
+        } else {
+            Modifier
+        }
+
     Layout(
         modifier = modifier
+            .testTag("textField")
+            .then(externalActivatableModifier)
             .enable(enabled, enabledAlpha, disabledAlpha)
-            .focusProperties { canFocus = false }
             .applyIndicatorPadding(
                 fieldType = fieldType,
                 labelPlacement = labelPlacement,
@@ -212,7 +218,7 @@ internal fun BaseTextField(
             OuterTopContent(
                 modifier = Modifier
                     .layoutId(TOP_CONTENT_ID)
-                    .clearAndSetSemantics {}
+                    .focusProperties { canFocus = false }
                     .padding(bottom = dimensions.labelPadding)
                     .applyLabelIndicator(
                         fieldType = fieldType,
@@ -251,13 +257,6 @@ internal fun BaseTextField(
                     remember { MutableInteractionSource() }
                 }
 
-            val focusRequester =
-                if (focusSelectorMode.isDisabled || activationRequester == null) {
-                    remember { FocusRequester() }
-                } else {
-                    activationRequester
-                }
-
             /**
              * Activatable модификатор внутреннего поля.
              * Если внешний фокус выключен, BasicTextField должен уметь эмиттить ивенты ActivateInteraction,
@@ -277,41 +276,18 @@ internal fun BaseTextField(
                         ) { isComponentFocused = it.isFocused }
                 } else {
                     Modifier
+                        .then(activationRequester?.let(Modifier::focusRequester) ?: Modifier)
                 }
-                    .focusRequester(focusRequester)
 
-            /**
-             * Activatable модификатор компонента.
-             * Если внещний фокус включен, то компонент должен стать focusable
-             * и уметь отправлять ивенты focused и activated.
-             */
-            val externalActivatableModifier =
-                if (focusSelectorMode.isEnabled) {
-                    Modifier
-                        .activatable(enabled, interactionSource) { isComponentFocused = it.isFocused }
-                        .focusable(enabled, interactionSource)
-                } else {
-                    Modifier
-                }
-            val keyboardController = LocalSoftwareKeyboardController.current
-
-            DecorationBox(
+            BasicTextField(
                 modifier = Modifier
+                    .testTag("innerTextField")
                     .layoutId(FIELD_CONTENT_ID)
-                    .clickable(
-                        enabled = enabled && !readOnly,
-                        indication = null,
-                        interactionSource = remember { MutableInteractionSource() },
-                        role = null,
-                    ) {
-                        focusRequester.requestFocus()
-                        keyboardController?.show()
-                    }
-                    .then(externalActivatableModifier)
                     .applyFocusSelector(
                         focusSelectorMode = focusSelectorMode,
                         originalShape = style.shape,
                     ) { isComponentFocused }
+                    .then(internalActivatableModifier)
                     .defaultMinSize(minHeight = dimensions.boxMinHeight)
                     .applyFieldIndicator(
                         fieldType,
@@ -334,14 +310,6 @@ internal fun BaseTextField(
                             .colorForInteraction(interactionSource),
                         dividerThickness = dimensions.dividerThickness,
                     )
-                    .semantics(mergeDescendants = true) {
-                        this.text = AnnotatedString(contentDescription)
-                        this.testTag = "textField"
-                        setText {
-                            onValueChange(TextFieldValue(it.text, TextRange(it.text.length)))
-                            true
-                        }
-                    }
                     .then(
                         if (scrollBar != null) {
                             Modifier.applyVerticalScrollBar(
@@ -362,80 +330,79 @@ internal fun BaseTextField(
                             Modifier
                         },
                     ),
-                value = value.text,
-                innerTextField = {
-                    BasicTextField(
-                        modifier = Modifier
-                            .clearAndSetSemantics {}
-                            .then(internalActivatableModifier),
-                        value = value,
-                        onValueChange = onValueChange,
-                        enabled = enabled,
-                        readOnly = readOnly,
-                        textStyle = valueStyle,
-                        keyboardOptions = keyboardOptions,
-                        keyboardActions = keyboardActions,
-                        singleLine = singleLine,
-                        visualTransformation = innerVisualTransformation,
-                        interactionSource = innerInteractionSource,
-                        cursorBrush = SolidColor(
-                            colors.cursorColor(readOnly).colorForInteraction(interactionSource),
-                        ),
-                    )
-                },
+                value = value,
+                onValueChange = onValueChange,
+                enabled = enabled,
+                readOnly = readOnly,
+                textStyle = valueStyle,
+                keyboardOptions = keyboardOptions,
+                keyboardActions = keyboardActions,
+                singleLine = singleLine,
                 visualTransformation = innerVisualTransformation,
                 interactionSource = innerInteractionSource,
-                innerLabel = innerLabel(
-                    label = finalLabelText,
-                    labelPlacement = labelPlacement,
-                    isFocused = { innerInteractionSource.collectIsFocusedAsState().value },
-                    value = value,
-                    placeHolderStyle = placeholderStyle,
-                    innerLabelStyle = labelStyle,
-                    hasChips = chipsContent != null,
+                cursorBrush = SolidColor(
+                    colors.cursorColor(readOnly).colorForInteraction(interactionSource),
                 ),
-                innerOptional = innerOptional(
-                    labelPlacement = labelPlacement,
-                    fieldType = fieldType,
-                    optionalText = finalOptionalText,
-                    isFocused = { innerInteractionSource.collectIsFocusedAsState().value },
-                    value = value,
-                    placeHolderStyle = placeholderStyle,
-                    innerOptionalStyle = optionalStyle,
-                    hasChips = chipsContent != null,
-                ),
-                placeholder = placeholder(placeholderText, placeholderStyle),
-                startIcon = icon(
-                    startContent,
-                    colors
-                        .startContentColor(readOnly)
-                        .colorForInteraction(interactionSource),
-                ),
-                endIcon = icon(
-                    endContent,
-                    colors
-                        .endContentColor(readOnly)
-                        .colorForInteraction(interactionSource),
-                ),
-                innerCaption = innerCaption(helperTextPlacement, captionText, captionStyle),
-                innerCounter = innerCounter(helperTextPlacement, counterText, counterStyle),
-                animation = animation,
-                chips = chipsContent,
-                chipGroupStyle = style.chipGroupStyle,
-                chipStyle = style.chipStyle,
-                dimensions = dimensions,
-                verticalScrollState = verticalScrollState,
-                horizontalScrollState = horizontalScrollState,
-                singleLine = singleLine,
-                isClearAppearance = fieldAppearance == FieldAppearance.Clear,
-                valueTextStyle = valueStyle,
-                innerLabelTextStyle = labelStyle,
+                decorationBox = {
+                    DecorationBox(
+                        value = value.text,
+                        innerTextField = it,
+                        visualTransformation = innerVisualTransformation,
+                        interactionSource = innerInteractionSource,
+                        innerLabel = innerLabel(
+                            label = finalLabelText,
+                            labelPlacement = labelPlacement,
+                            isFocused = { innerInteractionSource.collectIsFocusedAsState().value },
+                            value = value,
+                            placeHolderStyle = placeholderStyle,
+                            innerLabelStyle = labelStyle,
+                            hasChips = chipsContent != null,
+                        ),
+                        innerOptional = innerOptional(
+                            labelPlacement = labelPlacement,
+                            fieldType = fieldType,
+                            optionalText = finalOptionalText,
+                            isFocused = { innerInteractionSource.collectIsFocusedAsState().value },
+                            value = value,
+                            placeHolderStyle = placeholderStyle,
+                            innerOptionalStyle = optionalStyle,
+                            hasChips = chipsContent != null,
+                        ),
+                        placeholder = placeholder(placeholderText, placeholderStyle),
+                        startIcon = icon(
+                            startContent,
+                            colors
+                                .startContentColor(readOnly)
+                                .colorForInteraction(interactionSource),
+                        ),
+                        endIcon = icon(
+                            endContent,
+                            colors
+                                .endContentColor(readOnly)
+                                .colorForInteraction(interactionSource),
+                        ),
+                        innerCaption = innerCaption(helperTextPlacement, captionText, captionStyle),
+                        innerCounter = innerCounter(helperTextPlacement, counterText, counterStyle),
+                        animation = animation,
+                        chips = chipsContent,
+                        chipGroupStyle = style.chipGroupStyle,
+                        chipStyle = style.chipStyle,
+                        dimensions = dimensions,
+                        verticalScrollState = verticalScrollState,
+                        horizontalScrollState = horizontalScrollState,
+                        singleLine = singleLine,
+                        isClearAppearance = fieldAppearance == FieldAppearance.Clear,
+                        valueTextStyle = valueStyle,
+                        innerLabelTextStyle = labelStyle,
+                    )
+                },
             )
 
             OuterBottomText(
                 modifier = Modifier
                     .layoutId(CAPTION_CONTENT_ID)
-                    .clearAndSetSemantics {}
+                    .focusProperties { canFocus = false }
+                    .layoutId(CAPTION_CONTENT_ID)
                     .padding(top = dimensions.helperTextPadding),
                 text = captionText,
                 textStyle = captionStyle,
@@ -444,7 +411,7 @@ internal fun BaseTextField(
             OuterBottomText(
                 modifier = Modifier
                     .layoutId(COUNTER_CONTENT_ID)
-                    .clearAndSetSemantics {}
+                    .focusProperties { canFocus = false }
                     .padding(top = dimensions.helperTextPadding),
                 text = counterText,
                 textStyle = counterStyle,
@@ -750,8 +717,7 @@ private fun OuterTopContent(
         horizontalArrangement = Arrangement.spacedBy(horizontalSpacing),
     ) {
         TextOrEmpty(
-            modifier = Modifier
-                .weight(1f, fill = false),
+            modifier = Modifier.weight(1f, fill = false),
             text = labelText,
             textStyle = labelTextStyle,
             maxLines = 1,
