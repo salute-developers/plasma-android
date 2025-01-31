@@ -10,6 +10,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Stable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.draw.drawWithContent
@@ -62,7 +63,7 @@ internal fun Modifier.enable(
     }
     return this
         .then(modifier)
-        .graphicsLayer { alpha = if (enabled) enabledAlpha else disabledAlpha }
+        .alpha(if (enabled) enabledAlpha else disabledAlpha)
 }
 
 /**
