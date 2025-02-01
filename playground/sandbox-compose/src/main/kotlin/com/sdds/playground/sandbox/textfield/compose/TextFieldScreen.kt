@@ -16,6 +16,7 @@ import androidx.compose.ui.input.key.onKeyEvent
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.sdds.compose.uikit.BasicButton
@@ -142,6 +143,7 @@ private fun Boolean.getExampleIcon(icon: Icon): (@Composable () -> Unit)? {
     return if (this) {
         {
             Icon(
+                modifier = Modifier.clickable(role = Role.Button) { },
                 painter = painterResource(id = icon.res),
                 contentDescription = "",
             )

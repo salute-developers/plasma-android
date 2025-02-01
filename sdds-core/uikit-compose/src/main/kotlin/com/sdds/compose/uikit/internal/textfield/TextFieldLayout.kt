@@ -7,7 +7,6 @@ import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.defaultMinSize
@@ -251,7 +250,7 @@ private fun CompositeTextFieldContent(
     valueTextStyle: TextStyle,
 ) {
     val textContent: @Composable () -> Unit = {
-        Box(modifier = Modifier.width(IntrinsicSize.Max)) {
+        Box {
             if (placeholder != null) {
                 Box(Modifier.layoutId(PlaceholderId)) { placeholder() }
             }
