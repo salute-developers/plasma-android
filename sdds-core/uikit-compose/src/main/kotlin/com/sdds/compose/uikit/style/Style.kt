@@ -48,27 +48,32 @@ interface BuilderWrapper<S : Style, Sb : StyleBuilder<S>> {
      * Ссылка на билдер стиля [S]
      */
     val builder: Sb
+}
 
-    /**
-     * Применяет [block] к [builder]
-     */
-    @Composable
-    fun modify(block: @Composable Sb.() -> Unit): BuilderWrapper<S, Sb> {
-        builder.block()
-        return this
-    }
+/**
+ * Оборачивает враппер другим враппером, применяя [block] к [builder]
+ */
+fun <S : Style, Sb : StyleBuilder<S>> BuilderWrapper<S, Sb>.wrap(
+    block: (Sb) -> BuilderWrapper<S, Sb>,
+): BuilderWrapper<S, Sb> {
+    return block(builder)
+}
 
-    /**
-     * Сконструирует и вернет стиль [S]
-     */
-    fun style(): S = builder.style()
+/**
+ * Сконструирует и вернет стиль [S]
+ */
+fun <S : Style, Sb : StyleBuilder<S>> BuilderWrapper<S, Sb>.style(): S =
+    builder.style()
 
-    /**
-     * Оборачивает враппер другим враппером, применяя [block] к [builder]
-     */
-    fun <W : BuilderWrapper<S, Sb>> wrap(block: (Sb) -> W): W {
-        return block(builder)
-    }
+/**
+ * Применяет [block] к [builder]
+ */
+@Composable
+fun <S : Style, Sb : StyleBuilder<S>> BuilderWrapper<S, Sb>.modify(
+    block: @Composable Sb.() -> Unit,
+): BuilderWrapper<S, Sb> {
+    builder.block()
+    return this
 }
 
 /**

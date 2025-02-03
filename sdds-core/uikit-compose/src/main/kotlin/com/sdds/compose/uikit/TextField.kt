@@ -12,7 +12,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
@@ -50,7 +49,6 @@ import com.sdds.compose.uikit.internal.textfield.PrefixSuffixTransformation
  * @param visualTransformation фильтр визуального отображения, например [PasswordVisualTransformation].
  * Используется, только если отсутствуют [prefix] и [suffix].
  * @param focusSelectorMode режим отображения фокуса компонента [FocusSelectorMode]
- * @param activationRequester [FocusRequester], который позволяет запросить фокус внутреннго текстового поля,
  * когда [focusSelectorMode] != [FocusSelectorMode.None]
  * @param interactionSource источник взаимодействия с полем
  */
@@ -79,8 +77,6 @@ fun TextField(
     keyboardActions: KeyboardActions = KeyboardActions.Default,
     visualTransformation: VisualTransformation = VisualTransformation.None,
     focusSelectorMode: FocusSelectorMode = LocalFocusSelectorMode.current,
-    activationRequester: FocusRequester? = null,
-    contentDescription: String = "",
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     BaseTextField(
@@ -105,8 +101,6 @@ fun TextField(
         keyboardActions = keyboardActions,
         visualTransformation = visualTransformation,
         focusSelectorMode = focusSelectorMode,
-        activationRequester = activationRequester,
-        contentDescription = contentDescription,
         interactionSource = interactionSource,
     )
 }
@@ -136,7 +130,6 @@ fun TextField(
  * @param visualTransformation фильтр визуального отображения, например [PasswordVisualTransformation].
  * Используется, только если отсутствуют [prefix] и [suffix].
  * @param focusSelectorMode режим отображения фокуса компонента [FocusSelectorMode]
- * @param activationRequester [FocusRequester], который позволяет запросить фокус внутреннго текстового поля,
  * когда [focusSelectorMode] != [FocusSelectorMode.None]
  * @param interactionSource источник взаимодействия с полем
  */
@@ -165,8 +158,6 @@ fun TextField(
     keyboardActions: KeyboardActions = KeyboardActions.Default,
     visualTransformation: VisualTransformation = VisualTransformation.None,
     focusSelectorMode: FocusSelectorMode = LocalFocusSelectorMode.current,
-    activationRequester: FocusRequester? = null,
-    contentDescription: String = "",
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     var textFieldValueState by remember { mutableStateOf(TextFieldValue(text = value)) }
@@ -211,8 +202,6 @@ fun TextField(
         keyboardActions = keyboardActions,
         visualTransformation = visualTransformation,
         focusSelectorMode = focusSelectorMode,
-        activationRequester = activationRequester,
-        contentDescription = contentDescription,
         interactionSource = interactionSource,
     )
 }

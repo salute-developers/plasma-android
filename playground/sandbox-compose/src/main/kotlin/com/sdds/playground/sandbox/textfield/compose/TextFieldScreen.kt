@@ -16,6 +16,7 @@ import androidx.compose.ui.input.key.onKeyEvent
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.sdds.compose.uikit.BasicButton
@@ -26,6 +27,7 @@ import com.sdds.compose.uikit.Switch
 import com.sdds.compose.uikit.TextField
 import com.sdds.compose.uikit.internal.focusselector.FocusSelectorMode
 import com.sdds.compose.uikit.internal.focusselector.LocalFocusSelectorMode
+import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.core.compose.ComponentScaffold
@@ -70,14 +72,15 @@ internal fun TextFieldScreen() {
                 startContent = textFieldUiState.hasStartIcon.getExampleIcon(Icon.Start),
                 endContent = textFieldUiState.hasEndIcon.getExampleIcon(Icon.End),
                 chipsContent = textFieldUiState.chips.toChipContent(
-                    onChipClosePressed = { textFieldViewModel.onChipClosePressed(it) },
+                    onChipClosePressed = {
+                        textFieldViewModel.onChipClosePressed(it)
+                    },
                 ),
                 focusSelectorMode = if (isFocusSelectorOn) {
                     LocalFocusSelectorMode.current
                 } else {
                     FocusSelectorMode.None
                 },
-                contentDescription = "TextField",
             )
 
             Switch(
@@ -141,6 +144,7 @@ private fun Boolean.getExampleIcon(icon: Icon): (@Composable () -> Unit)? {
     return if (this) {
         {
             Icon(
+                modifier = Modifier.clickable(role = Role.Button) { },
                 painter = painterResource(id = icon.res),
                 contentDescription = "",
             )
