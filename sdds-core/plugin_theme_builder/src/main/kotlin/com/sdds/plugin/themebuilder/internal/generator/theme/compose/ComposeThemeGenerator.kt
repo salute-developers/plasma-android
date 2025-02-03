@@ -79,6 +79,9 @@ internal class ComposeThemeGenerator(
     private val shadowAttributesClassType by unsafeLazy {
         themeKtFileBuilder.getInternalClassType("${camelThemeName}Shadows")
     }
+    private val spacingAttributesClassType by unsafeLazy {
+        themeKtFileBuilder.getInternalClassType("${camelThemeName}Spacing")
+    }
     private val typographyAttributesClassType by unsafeLazy {
         themeKtFileBuilder.getInternalClassType("${camelThemeName}Typography")
     }
@@ -114,6 +117,11 @@ internal class ComposeThemeGenerator(
                         defValue = "dynamic${camelThemeName}Typography()",
                     ),
                     KtFileBuilder.FunParameter(
+                        name = "spacing",
+                        type = spacingAttributesClassType,
+                        defValue = "default${camelThemeName}Spacing()",
+                    ),
+                    KtFileBuilder.FunParameter(
                         name = "content",
                         type = KtFileBuilder.getLambdaType(
                             annotation = KtFileBuilder.TypeAnnotationComposable,
@@ -145,6 +153,7 @@ internal class ComposeThemeGenerator(
                 "Local${camelThemeName}Typography provides typography",
                 "Local${camelThemeName}Shapes provides shapes",
                 "Local${camelThemeName}Shadows provides shadows",
+                "Local${camelThemeName}Spacing provides spacing",
             )
             textSelectionHandleColor?.let {
                 compositionLocalProviderFunParametersList.add(
@@ -178,6 +187,7 @@ internal class ComposeThemeGenerator(
                 appendThemeProperty("gradients", gradientAttributesClassType)
                 appendThemeProperty("shapes", shapeAttributesClassType)
                 appendThemeProperty("shadows", shadowAttributesClassType)
+                appendThemeProperty("spacing", spacingAttributesClassType)
                 appendThemeProperty("typography", typographyAttributesClassType)
             }
         }

@@ -1,0 +1,22 @@
+// AUTO-GENERATED. DO NOT MODIFY this file.
+package com.test.tokens
+
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
+
+public object SpacingTokens {
+    /**
+     * spacing 0x
+     */
+    public val spacing0x: Dp = 0.0.dp
+
+    /**
+     * spacing 1x
+     */
+    public val spacing1x: Dp = 2.0.dp
+
+    /**
+     * spacing 2x
+     */
+    public val spacing2x: Dp = 4.0.dp
+}

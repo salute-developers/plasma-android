@@ -140,6 +140,12 @@ object FileProvider {
         File("${valuesDir().path}/styles-shadows.xml")
 
     /**
+     * XML файл для токенов отступов
+     */
+    fun File.spacingXmlFile(): File =
+        File("${valuesDir().path}/spacing.xml")
+
+    /**
      * XML файл темы
      */
     fun File.themeXmlFile(qualifier: String = ""): File =

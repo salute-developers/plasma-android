@@ -8,11 +8,13 @@ import com.sdds.plugin.themebuilder.internal.factory.ComposeColorAttributeGenera
 import com.sdds.plugin.themebuilder.internal.factory.ComposeGradientAttributeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ComposeShadowAttributeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ComposeShapeAttributeGeneratorFactory
+import com.sdds.plugin.themebuilder.internal.factory.ComposeSpacingAttributeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ComposeThemeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ComposeTypographyAttributeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ViewColorAttributeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ViewShadowAttributeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ViewShapeAttributeGeneratorFactory
+import com.sdds.plugin.themebuilder.internal.factory.ViewSpacingAttributeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ViewThemeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ViewTypographyAttributeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ViewXmlGradientAttributeGeneratorFactory
@@ -21,16 +23,19 @@ import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.GradientTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.ShadowTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.ShapeTokenResult
+import com.sdds.plugin.themebuilder.internal.generator.data.SpacingTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.TypographyTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeColorAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeGradientAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeShadowAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeShapeAttributeGenerator
+import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeSpacingAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeThemeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeTypographyAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewColorAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewShadowAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewShapeAttributeGenerator
+import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewSpacingAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewThemeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewTypographyAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewXmlGradientAttributeGenerator
@@ -46,8 +51,10 @@ internal class ThemeGenerator(
     private val composeColorAttributeGeneratorFactory: ComposeColorAttributeGeneratorFactory,
     private val viewColorAttributeGeneratorFactory: ViewColorAttributeGeneratorFactory,
     private val viewShapeAttributeGeneratorFactory: ViewShapeAttributeGeneratorFactory,
+    private val viewSpacingAttributeGeneratorFactory: ViewSpacingAttributeGeneratorFactory,
     private val viewShadowAttributeGeneratorFactory: ViewShadowAttributeGeneratorFactory,
     private val composeShapeAttributeGeneratorFactory: ComposeShapeAttributeGeneratorFactory,
+    private val composeSpacingAttributeGeneratorFactory: ComposeSpacingAttributeGeneratorFactory,
     private val composeShadowAttributeGeneratorFactory: ComposeShadowAttributeGeneratorFactory,
     private val composeGradientAttributeGeneratorFactory: ComposeGradientAttributeGeneratorFactory,
     private val viewXmlGradientAttributeGeneratorFactory: ViewXmlGradientAttributeGeneratorFactory,
@@ -73,6 +80,9 @@ internal class ThemeGenerator(
     private val composeShapeAttributeGenerator: ComposeShapeAttributeGenerator by unsafeLazy {
         composeShapeAttributeGeneratorFactory.create()
     }
+    private val composeSpacingAttributeGenerator: ComposeSpacingAttributeGenerator by unsafeLazy {
+        composeSpacingAttributeGeneratorFactory.create()
+    }
     private val composeShadowAttributeGenerator: ComposeShadowAttributeGenerator by unsafeLazy {
         composeShadowAttributeGeneratorFactory.create()
     }
@@ -87,6 +97,9 @@ internal class ThemeGenerator(
     }
     private val viewShapeAttributeGenerator: ViewShapeAttributeGenerator by unsafeLazy {
         viewShapeAttributeGeneratorFactory.create()
+    }
+    private val viewSpacingAttributeGenerator: ViewSpacingAttributeGenerator by unsafeLazy {
+        viewSpacingAttributeGeneratorFactory.create()
     }
     private val viewShadowAttributeGenerator: ViewShadowAttributeGenerator by unsafeLazy {
         viewShadowAttributeGeneratorFactory.create()
@@ -163,6 +176,22 @@ internal class ThemeGenerator(
     }
 
     /**
+     * Устанавливает данные о токенах отступов
+     *
+     * @param spacingTokenResult данные о токенах отступов
+     * @see [SpacingTokenResult]
+     */
+    fun setSpacingTokenData(spacingTokenResult: SpacingTokenResult) {
+        if (target.isComposeOrAll) {
+            composeSpacingAttributeGenerator.setSpacingTokenData(spacingTokenResult.composeTokens)
+        }
+        if (target.isViewSystemOrAll) {
+            viewSpacingAttributeGenerator.setSpacingTokenData(spacingTokenResult.viewTokens)
+            viewThemeGenerator.setSpacingTokenData(spacingTokenResult.viewTokens)
+        }
+    }
+
+    /**
      * Устанавливает данные о токенах типографики
      *
      * @param typographyTokenResult данные о токенах типографики
@@ -192,6 +221,7 @@ internal class ThemeGenerator(
             composeShapeAttributeGenerator.generate()
             composeShadowAttributeGenerator.generate()
             composeTypographyAttributeGenerator.generate()
+            composeSpacingAttributeGenerator.generate()
             composeThemeGenerator.generate()
         }
         if (target.isViewSystemOrAll) {
@@ -200,6 +230,7 @@ internal class ThemeGenerator(
             if (shouldGenerateViewShapeStyle) viewShapeAttributeGenerator.generate()
             viewShadowAttributeGenerator.generate()
             viewTypographyAttributeGenerator.generate()
+            viewSpacingAttributeGenerator.generate()
             viewThemeGenerator.generate()
         }
     }

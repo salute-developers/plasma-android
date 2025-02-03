@@ -16,12 +16,14 @@ import com.sdds.plugin.themebuilder.internal.generator.FontTokenGenerator
 import com.sdds.plugin.themebuilder.internal.generator.GradientTokenGenerator
 import com.sdds.plugin.themebuilder.internal.generator.ShadowTokenGenerator
 import com.sdds.plugin.themebuilder.internal.generator.ShapeTokenGenerator
+import com.sdds.plugin.themebuilder.internal.generator.SpacingTokenGenerator
 import com.sdds.plugin.themebuilder.internal.generator.TypographyTokenGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.ThemeGenerator
 import com.sdds.plugin.themebuilder.internal.token.FontTokenValue
 import com.sdds.plugin.themebuilder.internal.token.GradientTokenValue
 import com.sdds.plugin.themebuilder.internal.token.ShadowTokenValue
 import com.sdds.plugin.themebuilder.internal.token.ShapeTokenValue
+import com.sdds.plugin.themebuilder.internal.token.SpacingTokenValue
 import com.sdds.plugin.themebuilder.internal.token.TypographyTokenValue
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
@@ -123,6 +125,13 @@ internal class GeneratorFactory(
             attrPrefix = resPrefixConfig.resourcePrefix,
         )
     }
+    private val viewSpacingAttributeGeneratorFactory by unsafeLazy {
+        ViewSpacingAttributeGeneratorFactory(
+            xmlDocumentBuilderFactory = xmlResourcesDocumentBuilderFactory,
+            outputResDir = outputResDir,
+            attrPrefix = resPrefixConfig.resourcePrefix,
+        )
+    }
 
     private val viewShadowAttributeGeneratorFactory by unsafeLazy {
         ViewShadowAttributeGeneratorFactory(
@@ -166,6 +175,16 @@ internal class GeneratorFactory(
             xmlBuilderFactory = xmlResourcesDocumentBuilderFactory,
             resourceReferenceProvider = resourceReferenceProvider,
             resourcePrefix = resPrefixConfig.resourcePrefix,
+        )
+    }
+
+    private val composeSpacingAttributeGeneratorFactory by unsafeLazy {
+        ComposeSpacingAttributeGeneratorFactory(
+            ktFileBuilderFactory = ktFileBuilderFactory,
+            outputLocation = OutputLocation.Directory(outputDir),
+            themeName = themeName,
+            dimensionsConfig = dimensionsConfig,
+            packageResolver = packageResolver,
         )
     }
 
@@ -224,6 +243,8 @@ internal class GeneratorFactory(
         viewXmlGradientAttributeGeneratorFactory = viewXmlGradientAttributeGeneratorFactory,
         viewTypographyAttributeGeneratorFactory = viewTypographyAttributeGeneratorFactory,
         composeTypographyAttributeGeneratorFactory = composeTypographyAttributeGeneratorFactory,
+        viewSpacingAttributeGeneratorFactory = viewSpacingAttributeGeneratorFactory,
+        composeSpacingAttributeGeneratorFactory = composeSpacingAttributeGeneratorFactory,
         target = target,
         generatorMode = generatorMode,
         shouldGenerateViewShapeStyle = viewShapeAppearanceConfig.isNotEmpty(),
@@ -359,6 +380,23 @@ internal class GeneratorFactory(
             dimensAggregator = dimensAggregator,
             namespace = namespace,
             palette = palette,
+        )
+    }
+
+    /**
+     * Создает генератор форм [SpacingTokenGenerator]
+     */
+    fun createSpacingGenerator(spacings: Map<String, SpacingTokenValue>): SpacingTokenGenerator {
+        return SpacingTokenGenerator(
+            outputLocation = OutputLocation.Directory(outputDir),
+            outputResDir = outputResDir,
+            target = target,
+            ktFileBuilderFactory = ktFileBuilderFactory,
+            dimensAggregator = dimensAggregator,
+            resourceReferenceProvider = resourceReferenceProvider,
+            dimensionsConfig = dimensionsConfig,
+            namespace = namespace,
+            spacingTokenValues = spacings,
         )
     }
 }

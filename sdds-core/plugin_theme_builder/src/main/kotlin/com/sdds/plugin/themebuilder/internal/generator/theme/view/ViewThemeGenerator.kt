@@ -10,6 +10,7 @@ import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.GradientTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.ShadowTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.ShapeTokenResult
+import com.sdds.plugin.themebuilder.internal.generator.data.SpacingTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.TypographyTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.mergedLightAndDark
 import com.sdds.plugin.themebuilder.internal.token.ShadowToken
@@ -47,6 +48,7 @@ internal class ViewThemeGenerator(
     private val colorAttributes = mutableSetOf<String>()
     private val gradientAttributes = mutableSetOf<String>()
     private val shapes = mutableListOf<ShapeTokenResult.TokenData>()
+    private val spacing = mutableListOf<SpacingTokenResult.TokenData>()
     private var typography: TypographyTokenResult.ViewTokenData? = null
     private val shadows = mutableListOf<ShadowTokenResult.TokenData>()
 
@@ -79,6 +81,11 @@ internal class ViewThemeGenerator(
     internal fun setShapeTokenData(data: List<ShapeTokenResult.TokenData>) {
         shapes.clear()
         shapes.addAll(data)
+    }
+
+    internal fun setSpacingTokenData(data: List<SpacingTokenResult.TokenData>) {
+        spacing.clear()
+        spacing.addAll(data)
     }
 
     internal fun setTypographyTokenData(data: TypographyTokenResult.ViewTokenData) {
@@ -153,6 +160,7 @@ internal class ViewThemeGenerator(
                 shapeAttributesBlock(),
                 typographyAttributesBlock(),
                 shadowAttributesBlock(),
+                spacingAttributesBlock(),
             )
         }
     }
@@ -245,6 +253,11 @@ internal class ViewThemeGenerator(
         appendAttrs(shapes.shapesToThemeAttrs(), this)
     }
 
+    private fun XmlResourcesDocumentBuilder.spacingAttributesBlock(): Element.() -> Unit = {
+        if (spacing.isNotEmpty()) appendComment("Spacing")
+        appendAttrs(spacing.spacingToThemeAttrs(), this)
+    }
+
     private fun XmlResourcesDocumentBuilder.typographyAttributesBlock(): Element.() -> Unit = {
         val data = typography?.attrs
         if (!data.isNullOrEmpty()) {
@@ -305,6 +318,14 @@ internal class ViewThemeGenerator(
         }
 
     private fun List<ShapeTokenResult.TokenData>.shapesToThemeAttrs(): List<ViewThemeAttribute> =
+        map { entry ->
+            ViewThemeAttribute(
+                name = entry.attrName,
+                value = entry.tokenRefName,
+            )
+        }
+
+    private fun List<SpacingTokenResult.TokenData>.spacingToThemeAttrs(): List<ViewThemeAttribute> =
         map { entry ->
             ViewThemeAttribute(
                 name = entry.attrName,

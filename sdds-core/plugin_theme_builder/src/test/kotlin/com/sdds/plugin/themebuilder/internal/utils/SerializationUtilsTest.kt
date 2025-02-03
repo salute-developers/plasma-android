@@ -12,6 +12,7 @@ import com.sdds.plugin.themebuilder.internal.token.RoundedShapeTokenValue
 import com.sdds.plugin.themebuilder.internal.token.ShadowToken
 import com.sdds.plugin.themebuilder.internal.token.ShapeToken
 import com.sdds.plugin.themebuilder.internal.token.ShapeTokenValue
+import com.sdds.plugin.themebuilder.internal.token.SpacingTokenValue
 import com.sdds.plugin.themebuilder.internal.token.SweepGradientTokenValue
 import com.sdds.plugin.themebuilder.internal.token.Theme
 import com.sdds.plugin.themebuilder.internal.token.TypographyToken
@@ -122,6 +123,20 @@ class SerializationUtilsTest {
         val expectedValues = mapOf(
             "round.xss" to RoundedShapeTokenValue(cornerRadius = 1.5f),
             "round.xs" to RoundedShapeTokenValue(cornerRadius = 2.5f),
+        )
+
+        Assert.assertEquals(expectedValues, shapeValues)
+    }
+
+    @Test
+    fun `decode должна валидно парсить значения токенов отступов`() {
+        val inputFile = getResourceAsFile("inputs/test-spacing-value-input.json")
+        val shapeValues = inputFile.decode<Map<String, SpacingTokenValue>>()
+
+        val expectedValues = mapOf(
+            "spacing.0x" to SpacingTokenValue(0f),
+            "spacing.1x" to SpacingTokenValue(2f),
+            "spacing.2x" to SpacingTokenValue(4f),
         )
 
         Assert.assertEquals(expectedValues, shapeValues)

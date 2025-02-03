@@ -5,6 +5,7 @@ import com.sdds.plugin.themebuilder.internal.token.FontToken
 import com.sdds.plugin.themebuilder.internal.token.GradientToken
 import com.sdds.plugin.themebuilder.internal.token.ShadowToken
 import com.sdds.plugin.themebuilder.internal.token.ShapeToken
+import com.sdds.plugin.themebuilder.internal.token.SpacingToken
 import com.sdds.plugin.themebuilder.internal.token.Token
 import com.sdds.plugin.themebuilder.internal.token.TypographyToken
 import com.sdds.plugin.themebuilder.internal.token.Unknown
@@ -32,6 +33,7 @@ object Serializer {
                 subclass(ShapeToken::class)
                 subclass(TypographyToken::class)
                 subclass(FontToken::class)
+                subclass(SpacingToken::class)
                 default { Unknown.serializer() }
             }
         }

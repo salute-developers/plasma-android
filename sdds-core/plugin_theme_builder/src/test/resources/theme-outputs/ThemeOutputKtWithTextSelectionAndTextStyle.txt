@@ -13,6 +13,7 @@ import com.sdds.playground.themebuilder.theme.TestColors
 import com.sdds.playground.themebuilder.theme.TestGradients
 import com.sdds.playground.themebuilder.theme.TestShadows
 import com.sdds.playground.themebuilder.theme.TestShapes
+import com.sdds.playground.themebuilder.theme.TestSpacing
 import com.sdds.playground.themebuilder.theme.TestTypography
 import kotlin.Unit
 
@@ -37,6 +38,11 @@ public object TestTheme {
         @ReadOnlyComposable
         get() = LocalTestShadows.current
 
+    public val spacing: TestSpacing
+        @Composable
+        @ReadOnlyComposable
+        get() = LocalTestSpacing.current
+
     public val typography: TestTypography
         @Composable
         @ReadOnlyComposable
@@ -53,6 +59,7 @@ public fun TestTheme(
     shapes: TestShapes = defaultTestShapes(),
     shadows: TestShadows = defaultTestShadows(),
     typography: TestTypography = dynamicTestTypography(),
+    spacing: TestSpacing = defaultTestSpacing(),
     content: @Composable () -> Unit,
 ): Unit {
     val rememberColors = remember { colors.copy() }.apply { updateColorsFrom(colors) }
@@ -67,6 +74,7 @@ public fun TestTheme(
         LocalTestTypography provides typography,
         LocalTestShapes provides shapes,
         LocalTestShadows provides shadows,
+        LocalTestSpacing provides spacing,
         LocalTextSelectionColors provides textSelectionColors,
         content = { ProvideTextStyle(value = typography.bodyMNormal.copy(color =
             rememberColors.textPrimary), content = content,) },
