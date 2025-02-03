@@ -6,6 +6,12 @@
     app:startDestination="@id/nav_avatar">
 
     <fragment
+        android:id="@+id/nav_shadows"
+        android:name="com.sdds.playground.sandbox.shadows.vs.ShadowsFragment"
+        android:label="@string/menu_shadows"
+        tools:layout="@layout/layout_tokens_shadow" />
+
+    <fragment
         android:id="@+id/nav_avatar"
         android:name="com.sdds.playground.sandbox.avatar.vs.AvatarFragment"
         android:label="@string/menu_avatar"

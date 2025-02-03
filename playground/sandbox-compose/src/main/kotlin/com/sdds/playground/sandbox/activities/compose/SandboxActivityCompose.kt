@@ -52,6 +52,7 @@ import com.sdds.playground.sandbox.chip.compose.group.ChipGroupScreen
 import com.sdds.playground.sandbox.progress.compose.ProgressScreen
 import com.sdds.playground.sandbox.radiobox.compose.RadioBoxScreen
 import com.sdds.playground.sandbox.radiobox.compose.group.RadioBoxGroupScreen
+import com.sdds.playground.sandbox.shadows.compose.ShadowsScreen
 import com.sdds.playground.sandbox.switcher.compose.SwitchScreen
 import com.sdds.playground.sandbox.textfield.compose.TextFieldScreen
 import com.sdds.serv.styles.button.icon.Clear
@@ -79,6 +80,7 @@ class SandboxActivityCompose : ComponentActivity() {
 }
 
 private sealed class MenuItem(val title: String, val screen: @Composable () -> Unit) {
+    object Shadows : MenuItem("Shadows", { ShadowsScreen() })
     object Avatar : MenuItem("Avatar", { AvatarScreen() })
     object AvatarGroup : MenuItem("AvatarGroup", { AvatarGroupScreen() })
     object Buttons : MenuItem("BasicButton", { BasicButtonScreen() })
@@ -96,6 +98,7 @@ private sealed class MenuItem(val title: String, val screen: @Composable () -> U
 }
 
 private val menuItems = listOf(
+    MenuItem.Shadows,
     MenuItem.Avatar,
     MenuItem.AvatarGroup,
     MenuItem.Buttons,

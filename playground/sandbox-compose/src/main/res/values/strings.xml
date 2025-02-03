@@ -10,6 +10,7 @@
     <string name="sandbox_editor_confirm">Подтвердить</string>
     <string name="sandbox_properties_header_name">Параметр</string>
     <string name="sandbox_properties_header_value">Значение</string>
+    <string name="menu_shadows">Тени</string>
     <string name="menu_avatar">Avatar</string>
     <string name="menu_avatargroup">AvatarGroup</string>
     <string name="menu_basicButton">BasicButton</string>

@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.sdds.uikit.LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#fff"
+        android:gravity="center_horizontal"
+        android:clipToPadding="false"
+        android:clipChildren="false"
+        android:padding="@dimen/sdds_spacer_10x">
+
+        <com.sdds.uikit.CellLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipChildren="false"
+            android:paddingHorizontal="@dimen/sdds_spacer_20x"
+            android:clipToPadding="false">
+
+            <com.sdds.uikit.TextView
+                android:layout_width="120dp"
+                android:layout_height="32dp"
+                android:gravity="center"
+                app:layout_cellContent="start"
+                app:sd_shapeAppearance="?serv_shapeRoundS"
+                app:sd_shadowAppearance="?serv_shadowDownSoftS"
+                android:backgroundTint="#fff"
+                android:text="Shadows/Down/Soft S"
+                android:layout_marginEnd="20dp"/>
+
+            <com.sdds.uikit.TextView
+                android:layout_width="120dp"
+                android:layout_height="32dp"
+                android:gravity="center"
+                app:layout_cellContent="end"
+                app:sd_shapeAppearance="?serv_shapeRoundS"
+                app:sd_shadowAppearance="?serv_shadowDownHardS"
+                android:backgroundTint="#fff"
+                android:text="Shadows/Down/Hard S"/>
+        </com.sdds.uikit.CellLayout>
+
+        <com.sdds.uikit.CellLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipChildren="false"
+            android:layout_marginTop="@dimen/sdds_spacer_20x"
+            android:paddingHorizontal="@dimen/sdds_spacer_20x"
+            android:clipToPadding="false">
+
+            <com.sdds.uikit.TextView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:gravity="center"
+                app:layout_cellContent="start"
+                app:sd_shapeAppearance="?serv_shapeRoundL"
+                app:sd_shadowAppearance="?serv_shadowDownSoftM"
+                android:backgroundTint="#fff"
+                android:text="Shadows/Down/Soft M"
+                android:layout_marginEnd="20dp"/>
+
+            <com.sdds.uikit.TextView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:gravity="center"
+                app:layout_cellContent="end"
+                app:sd_shapeAppearance="?serv_shapeRoundL"
+                app:sd_shadowAppearance="?serv_shadowDownHardM"
+                android:backgroundTint="#fff"
+                android:text="Shadows/Down/Hard M"/>
+        </com.sdds.uikit.CellLayout>
+
+        <com.sdds.uikit.CellLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipChildren="false"
+            android:layout_marginTop="@dimen/sdds_spacer_20x"
+            android:paddingHorizontal="@dimen/sdds_spacer_20x"
+            android:clipToPadding="false">
+
+            <com.sdds.uikit.TextView
+                android:layout_width="120dp"
+                android:layout_height="160dp"
+                android:gravity="center"
+                app:layout_cellContent="start"
+                app:sd_shapeAppearance="?serv_shapeRoundL"
+                app:sd_shadowAppearance="?serv_shadowDownSoftL"
+                android:backgroundTint="#fff"
+                android:text="Shadows/Down/Soft L"
+                android:layout_marginEnd="20dp"/>
+
+            <com.sdds.uikit.TextView
+                android:layout_width="120dp"
+                android:layout_height="160dp"
+                android:gravity="center"
+                app:layout_cellContent="end"
+                app:sd_shapeAppearance="?serv_shapeRoundL"
+                app:sd_shadowAppearance="?serv_shadowDownHardL"
+                android:backgroundTint="#fff"
+                android:text="Shadows/Down/Hard L"/>
+        </com.sdds.uikit.CellLayout>
+
+        <com.sdds.uikit.CellLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipChildren="false"
+            android:layout_marginTop="@dimen/sdds_spacer_120x"
+            android:paddingHorizontal="@dimen/sdds_spacer_20x"
+            android:clipToPadding="false">
+
+            <com.sdds.uikit.TextView
+                android:layout_width="120dp"
+                android:layout_height="160dp"
+                android:gravity="center"
+                app:layout_cellContent="start"
+                app:sd_shapeAppearance="?serv_shapeRoundL"
+                app:sd_shadowAppearance="?serv_shadowUpSoftL"
+                android:backgroundTint="#fff"
+                android:text="Shadows/Up/Soft L"
+                android:layout_marginEnd="20dp"/>
+
+            <com.sdds.uikit.TextView
+                android:layout_width="120dp"
+                android:layout_height="160dp"
+                android:gravity="center"
+                app:layout_cellContent="end"
+                app:sd_shapeAppearance="?serv_shapeRoundL"
+                app:sd_shadowAppearance="?serv_shadowUpHardL"
+                android:backgroundTint="#fff"
+                android:text="Shadows/Up/Hard L"/>
+        </com.sdds.uikit.CellLayout>
+
+        <com.sdds.uikit.CellLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipChildren="false"
+            android:layout_marginTop="@dimen/sdds_spacer_20x"
+            android:paddingHorizontal="@dimen/sdds_spacer_20x"
+            android:clipToPadding="false">
+
+            <com.sdds.uikit.TextView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:gravity="center"
+                app:layout_cellContent="start"
+                app:sd_shapeAppearance="?serv_shapeRoundL"
+                app:sd_shadowAppearance="?serv_shadowUpSoftM"
+                android:backgroundTint="#fff"
+                android:text="Shadows/Up/Soft M"
+                android:layout_marginEnd="20dp"/>
+
+            <com.sdds.uikit.TextView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:gravity="center"
+                app:layout_cellContent="end"
+                app:sd_shapeAppearance="?serv_shapeRoundL"
+                app:sd_shadowAppearance="?serv_shadowUpHardM"
+                android:backgroundTint="#fff"
+                android:text="Shadows/Up/Hard M"/>
+        </com.sdds.uikit.CellLayout>
+
+        <com.sdds.uikit.CellLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipChildren="false"
+            android:layout_marginTop="@dimen/sdds_spacer_20x"
+            android:paddingHorizontal="@dimen/sdds_spacer_20x"
+            android:clipToPadding="false">
+
+            <com.sdds.uikit.TextView
+                android:layout_width="120dp"
+                android:layout_height="32dp"
+                android:gravity="center"
+                app:layout_cellContent="start"
+                app:sd_shapeAppearance="?serv_shapeRoundS"
+                app:sd_shadowAppearance="?serv_shadowUpSoftS"
+                android:backgroundTint="#fff"
+                android:text="Shadows/Up/Soft S"
+                android:layout_marginEnd="20dp"/>
+
+            <com.sdds.uikit.TextView
+                android:layout_width="120dp"
+                android:layout_height="32dp"
+                android:gravity="center"
+                app:layout_cellContent="end"
+                app:sd_shapeAppearance="?serv_shapeRoundS"
+                app:sd_shadowAppearance="?serv_shadowUpHardS"
+                android:backgroundTint="#fff"
+                android:text="Shadows/Up/Hard S"/>
+        </com.sdds.uikit.CellLayout>
+
+    </com.sdds.uikit.LinearLayout>
+</ScrollView>
+

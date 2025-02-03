@@ -5,6 +5,10 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/nav_shadows"
+            android:title="@string/menu_shadows" />
+
+        <item
             android:id="@+id/nav_avatar"
             android:title="@string/menu_avatar" />
 
