@@ -11,6 +11,7 @@ import androidx.compose.runtime.remember
 import com.sdds.compose.uikit.ProvideTextStyle
 import com.sdds.serv.theme.SddsServColors
 import com.sdds.serv.theme.SddsServGradients
+import com.sdds.serv.theme.SddsServShadows
 import com.sdds.serv.theme.SddsServShapes
 import com.sdds.serv.theme.SddsServTypography
 import kotlin.Unit
@@ -31,6 +32,11 @@ public object SddsServTheme {
         @ReadOnlyComposable
         get() = LocalSddsServShapes.current
 
+    public val shadows: SddsServShadows
+        @Composable
+        @ReadOnlyComposable
+        get() = LocalSddsServShadows.current
+
     public val typography: SddsServTypography
         @Composable
         @ReadOnlyComposable
@@ -45,6 +51,7 @@ public fun SddsServTheme(
     colors: SddsServColors = SddsServTheme.colors,
     gradients: SddsServGradients = SddsServTheme.gradients,
     shapes: SddsServShapes = defaultSddsServShapes(),
+    shadows: SddsServShadows = defaultSddsServShadows(),
     typography: SddsServTypography = dynamicSddsServTypography(),
     content: @Composable () -> Unit,
 ): Unit {
@@ -59,6 +66,7 @@ public fun SddsServTheme(
         LocalSddsServGradients provides gradients,
         LocalSddsServTypography provides typography,
         LocalSddsServShapes provides shapes,
+        LocalSddsServShadows provides shadows,
         LocalTextSelectionColors provides textSelectionColors,
         content = { ProvideTextStyle(value = typography.bodyMNormal.copy(color =
             rememberColors.textDefaultPrimary), content = content,) },
