@@ -1,0 +1,35 @@
+[
+  {
+    "type": "spacing",
+    "name": "spacing.0x",
+    "tags": [
+      "spacing",
+      "0x"
+    ],
+    "displayName": "spacing0x",
+    "description": "spacing 0x",
+    "enabled": true
+  },
+  {
+    "type": "spacing",
+    "name": "spacing.1x",
+    "tags": [
+      "spacing",
+      "1x"
+    ],
+    "displayName": "spacing1x",
+    "description": "spacing 1x",
+    "enabled": true
+  },
+  {
+    "type": "spacing",
+    "name": "spacing.2x",
+    "tags": [
+      "spacing",
+      "2x"
+    ],
+    "displayName": "spacing2x",
+    "description": "spacing 2x",
+    "enabled": true
+  }
+]

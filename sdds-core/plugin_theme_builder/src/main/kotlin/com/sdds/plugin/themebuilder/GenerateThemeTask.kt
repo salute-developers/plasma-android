@@ -20,6 +20,8 @@ import com.sdds.plugin.themebuilder.internal.token.ShadowToken
 import com.sdds.plugin.themebuilder.internal.token.ShadowTokenValue
 import com.sdds.plugin.themebuilder.internal.token.ShapeToken
 import com.sdds.plugin.themebuilder.internal.token.ShapeTokenValue
+import com.sdds.plugin.themebuilder.internal.token.SpacingToken
+import com.sdds.plugin.themebuilder.internal.token.SpacingTokenValue
 import com.sdds.plugin.themebuilder.internal.token.Theme
 import com.sdds.plugin.themebuilder.internal.token.TypographyToken
 import com.sdds.plugin.themebuilder.internal.token.TypographyTokenValue
@@ -83,6 +85,12 @@ abstract class GenerateThemeTask : DefaultTask() {
      */
     @get:InputFile
     abstract val shadowFile: RegularFileProperty
+
+    /**
+     * Путь до json-файла с отступами
+     */
+    @get:InputFile
+    abstract val spacingFile: RegularFileProperty
 
     /**
      * Путь до json-файла с градиентами
@@ -213,6 +221,7 @@ abstract class GenerateThemeTask : DefaultTask() {
     private val dimensGenerator by unsafeLazy { generatorFactory.createDimensGenerator() }
     private val shapesGenerator by unsafeLazy { generatorFactory.createShapesGenerator(shapes) }
     private val shadowGenerator by unsafeLazy { generatorFactory.createShadowGenerator(shadows, palette) }
+    private val spacingGenerator by unsafeLazy { generatorFactory.createSpacingGenerator(spacing) }
 
     /**
      * Генерирует файлы с токенами
@@ -232,6 +241,7 @@ abstract class GenerateThemeTask : DefaultTask() {
                 is ShapeToken -> shapesGenerator.addToken(it)
                 is TypographyToken -> typographyGenerator.addToken(it)
                 is FontToken -> fontGenerator.addToken(it)
+                is SpacingToken -> spacingGenerator.addToken(it)
             }
         }
     }
@@ -242,6 +252,7 @@ abstract class GenerateThemeTask : DefaultTask() {
         typographyGenerator.generate().also(themeGenerator::setTypographyTokenData)
         shapesGenerator.generate().also(themeGenerator::setShapeTokenData)
         shadowGenerator.generate().also(themeGenerator::setShadowTokenData)
+        spacingGenerator.generate().also(themeGenerator::setSpacingTokenData)
         dimensGenerator.generate()
         fontGenerator.generate()
 
@@ -270,6 +281,11 @@ abstract class GenerateThemeTask : DefaultTask() {
     private val shadows: Map<String, List<ShadowTokenValue>> by unsafeLazy {
         shadowFile.get().asFile.decode<Map<String, List<ShadowTokenValue>>>()
             .also { logger.debug("decoded shadows $it") }
+    }
+
+    private val spacing: Map<String, SpacingTokenValue> by unsafeLazy {
+        spacingFile.get().asFile.decode<Map<String, SpacingTokenValue>>()
+            .also { logger.debug("decoded spacing $it") }
     }
 
     private val typography: Map<String, TypographyTokenValue> by unsafeLazy {
