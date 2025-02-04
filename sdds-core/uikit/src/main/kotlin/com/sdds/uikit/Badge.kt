@@ -66,10 +66,10 @@ open class Badge @JvmOverloads constructor(
     /**
      * Текст
      */
-    open var text: CharSequence
+    open var text: CharSequence?
         get() = _badgeDrawable.text
         set(value) {
-            _badgeDrawable.text = value
+            _badgeDrawable.text = value ?: ""
         }
 
     /**
@@ -211,6 +211,7 @@ open class Badge @JvmOverloads constructor(
         super.drawableStateChanged()
         _badgeDrawable.state = drawableState
     }
+
     override fun onCreateDrawableState(extraSpace: Int): IntArray {
         val drawableState = super.onCreateDrawableState(extraSpace + 1)
         if (colorState?.isDefined() == true) {
