@@ -25,7 +25,6 @@ open class SegmentItem @JvmOverloads constructor(
     private var _counterPadding: Int = 0
     private var _isCounterEnabled: Boolean = false
     private var _counterState: ColorState? = null
-    private var _drawableState: IntArray = intArrayOf()
 
     /**
      * Включение counter
@@ -44,7 +43,7 @@ open class SegmentItem @JvmOverloads constructor(
      * Текст counter
      */
     open var counterText: CharSequence
-        get() = _counterDrawable?.text ?: ""
+        get() = _counterDrawable?.text ?: "0"
         set(value) {
             _counterDrawable?.text = value
             _counterDrawable?.setBounds(0, 0, getCounterWidth(), getCounterHeight())
@@ -83,6 +82,7 @@ open class SegmentItem @JvmOverloads constructor(
             R.styleable.SegmentItem_sd_counterStyle,
             R.style.Sdds_Components_Counter,
         )
+        counterText = typedArray.getString(R.styleable.SegmentItem_sd_counterText) ?: "0"
         typedArray.recycle()
         counterObtainAttributes(counterStyleAttr)
     }
@@ -170,16 +170,14 @@ open class SegmentItem @JvmOverloads constructor(
     override fun drawableStateChanged() {
         super.drawableStateChanged()
         if (_counterState?.isDefined() == true) {
-            _counterDrawable?.state = _drawableState
+            _counterDrawable?.state = drawableState
         }
     }
 
     override fun onCreateDrawableState(extraSpace: Int): IntArray {
         val drawableState = super.onCreateDrawableState(extraSpace + 1)
         if (_counterState?.isDefined() == true) {
-            _drawableState = drawableState.copyOf()
-            mergeDrawableStates(_drawableState, _counterState!!.attrs)
-            return _drawableState
+            mergeDrawableStates(drawableState, _counterState!!.attrs)
         }
         return drawableState
     }
