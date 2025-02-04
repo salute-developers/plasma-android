@@ -10,6 +10,20 @@
     Умеет отображать иконку, два текста: основной и дополнительный, и счетчик.
   -->
     <declare-styleable name="SegmentItem" tools:ignore="ResourceName">
+        <attr name="backgroundTint"/>
+        <attr name="sd_valueTextColor"/>
+        <attr name="sd_iconTint"/>
+        <attr name="sd_iconSize"/>
+        <attr name="sd_spinnerTint"/>
+        <attr name="android:checkable"/>
+        <attr name="android:checked"/>
+        <attr name="sd_counterStyle"/>
+        <attr name="sd_counterPadding" format="dimension"/>
+        <attr name="sd_counterText" format="string"/>
+        <attr name="sd_counterEnabled"/>
+        <attr name="sd_shapeAppearance"/>
+        <attr name="sd_shapeAppearanceAdjustment"/>
+        <attr name="sd_valuePadding"/>
 
     </declare-styleable>
 

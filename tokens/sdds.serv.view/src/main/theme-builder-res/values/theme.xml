@@ -1160,6 +1160,7 @@
         <item name="sd_cellStyle">@style/Serv.Sdds.Components.Cell.M</item>
         <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.M</item>
         <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.M</item>
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.M</item>
         <item name="sd_badgeStyle">@style/Serv.Sdds.Components.Badge.M</item>
         <!--Shadows-->
         <item name="serv_shadowDownSoftS">@style/Serv.Sdds.Shadow.DownSoftS</item>
@@ -2333,6 +2334,7 @@
         <item name="sd_cellStyle">@style/Serv.Sdds.Components.Cell.M</item>
         <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.M</item>
         <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.M</item>
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.M</item>
         <item name="sd_badgeStyle">@style/Serv.Sdds.Components.Badge.M</item>
 
         <!--Shadows-->

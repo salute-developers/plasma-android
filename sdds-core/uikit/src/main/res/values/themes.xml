@@ -15,6 +15,7 @@
         <item name="sd_avatarStyle">@style/Sdds.Components.Avatar</item>
         <item name="sd_avatarGroupStyle">@style/Sdds.Components.AvatarGroup</item>
         <item name="sd_chipStyle">@style/Sdds.Components.Chip</item>
+        <item name="sd_counterStyle">@style/Sdds.Components.Counter</item>
         <item name="sd_segmentStyle">@style/Sdds.Components.Segment</item>
         <item name="sd_segmentItemStyle">@style/Sdds.Components.SegmentItem</item>
         <item name="sd_switchStyle">@style/Sdds.Components.Switch</item>
@@ -30,6 +31,7 @@
         <item name="sd_avatarStyle">@style/Sdds.Components.Avatar</item>
         <item name="sd_avatarGroupStyle">@style/Sdds.Components.AvatarGroup</item>
         <item name="sd_chipStyle">@style/Sdds.Components.Chip</item>
+        <item name="sd_counterStyle">@style/Sdds.Components.Counter</item>
         <item name="sd_segmentStyle">@style/Sdds.Components.Segment</item>
         <item name="sd_segmentItemStyle">@style/Sdds.Components.SegmentItem</item>
         <item name="sd_switchStyle">@style/Sdds.Components.Switch</item>
@@ -45,6 +47,7 @@
         <item name="sd_avatarStyle">@style/Sdds.Components.Avatar</item>
         <item name="sd_avatarGroupStyle">@style/Sdds.Components.AvatarGroup</item>
         <item name="sd_chipStyle">@style/Sdds.Components.Chip</item>
+        <item name="sd_counterStyle">@style/Sdds.Components.Counter</item>
         <item name="sd_segmentStyle">@style/Sdds.Components.Segment</item>
         <item name="sd_segmentItemStyle">@style/Sdds.Components.SegmentItem</item>
         <item name="sd_switchStyle">@style/Sdds.Components.Switch</item>

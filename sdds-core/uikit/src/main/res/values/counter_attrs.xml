@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <attr name="sd_counterStyle" format="reference" />
+    <attr name="sd_counterStyleOverlay" format="reference" />
+
+    <declare-styleable name="Counter" tools:ignore="ResourceName">
+        <attr name="android:text" />
+        <attr name="android:textAppearance" />
+        <attr name="android:textColor" />
+        <attr name="android:backgroundTint"/>
+        <attr name="android:minWidth"/>
+        <attr name="android:minHeight"/>
+        <attr name="android:paddingLeft"/>
+        <attr name="android:paddingRight"/>
+        <attr name="android:paddingTop"/>
+        <attr name="android:paddingBottom"/>
+        <attr name="backgroundTint"/>
+        <attr name="sd_shapeAppearance" />
+    </declare-styleable>
+</resources>

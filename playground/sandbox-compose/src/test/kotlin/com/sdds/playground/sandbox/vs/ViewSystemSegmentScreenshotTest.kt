@@ -29,7 +29,7 @@ class ViewSystemSegmentScreenshotTest(
         launchScreen(
             R.id.nav_segment,
             SegmentUiState(
-                variant = SegmentVariant.SegmentL,
+                variant = SegmentVariant.SegmentLPrimary,
                 amount = 3,
                 icon = SegmentItemIcon.No,
                 segmentItemLabel = "Label",
@@ -50,7 +50,7 @@ class ViewSystemSegmentScreenshotTest(
         launchScreen(
             R.id.nav_segment,
             SegmentUiState(
-                variant = SegmentVariant.SegmentMPilled,
+                variant = SegmentVariant.SegmentMPrimaryPilled,
                 amount = 3,
                 icon = SegmentItemIcon.Start,
                 segmentItemLabel = "Label",
@@ -71,7 +71,7 @@ class ViewSystemSegmentScreenshotTest(
         launchScreen(
             R.id.nav_segment,
             SegmentUiState(
-                variant = SegmentVariant.SegmentS,
+                variant = SegmentVariant.SegmentSPrimary,
                 amount = 3,
                 icon = SegmentItemIcon.Start,
                 segmentItemLabel = "Label",
@@ -92,7 +92,7 @@ class ViewSystemSegmentScreenshotTest(
         launchScreen(
             R.id.nav_segment,
             SegmentUiState(
-                variant = SegmentVariant.SegmentXs,
+                variant = SegmentVariant.SegmentXsPrimary,
                 amount = 3,
                 icon = SegmentItemIcon.End,
                 segmentItemLabel = "Label",
@@ -113,7 +113,7 @@ class ViewSystemSegmentScreenshotTest(
         launchScreen(
             R.id.nav_segment,
             SegmentUiState(
-                variant = SegmentVariant.SegmentL,
+                variant = SegmentVariant.SegmentLPrimary,
                 amount = 3,
                 icon = SegmentItemIcon.No,
                 segmentItemLabel = "Label",
@@ -134,7 +134,7 @@ class ViewSystemSegmentScreenshotTest(
         launchScreen(
             R.id.nav_segment,
             SegmentUiState(
-                variant = SegmentVariant.SegmentL,
+                variant = SegmentVariant.SegmentLPrimary,
                 amount = 3,
                 icon = SegmentItemIcon.No,
                 segmentItemLabel = "Label",
@@ -153,7 +153,7 @@ class ViewSystemSegmentScreenshotTest(
         launchScreen(
             R.id.nav_segment,
             SegmentUiState(
-                variant = SegmentVariant.SegmentS,
+                variant = SegmentVariant.SegmentSPrimary,
                 amount = 3,
                 icon = SegmentItemIcon.No,
                 segmentItemLabel = "Label",
@@ -170,15 +170,39 @@ class ViewSystemSegmentScreenshotTest(
     }
 
     @Test
-    fun testSegmentItemSizeLDefault() {
+    fun testSegmentSizeLCounter() {
+        launchScreen(
+            R.id.nav_segment,
+            SegmentUiState(
+                variant = SegmentVariant.SegmentLPrimary,
+                amount = 3,
+                icon = SegmentItemIcon.Start,
+                segmentItemLabel = "Label",
+                segmentItemValue = "",
+                enabled = true,
+                stretch = false,
+                counter = true,
+                count = "123",
+                orientation = SegmentOrientation.HORIZONTAL,
+            ),
+        )
+        onView(withId(0))
+            .perform(click())
+        onView(withId(R.id.segment))
+            .captureRoboImage()
+    }
+
+    @Test
+    fun testSegmentItemSizeLPrimary() {
         launchScreen(
             R.id.nav_segment_item,
             SegmentUiState(
-                variant = SegmentItemVariant.SegmentItemLDefault,
+                variant = SegmentItemVariant.SegmentItemLPrimary,
                 icon = SegmentItemIcon.No,
                 segmentItemLabel = "Label",
                 segmentItemValue = "",
                 enabled = true,
+                checked = true,
             ),
         )
         onView(withId(R.id.segment_item))
@@ -195,6 +219,7 @@ class ViewSystemSegmentScreenshotTest(
                 segmentItemLabel = "Label",
                 segmentItemValue = "Value",
                 enabled = true,
+                checked = true,
             ),
         )
         onView(withId(R.id.segment_item))
@@ -202,15 +227,16 @@ class ViewSystemSegmentScreenshotTest(
     }
 
     @Test
-    fun testSegmentItemSizeSClear() {
+    fun testSegmentItemSizeSDefault() {
         launchScreen(
             R.id.nav_segment_item,
             SegmentUiState(
-                variant = SegmentItemVariant.SegmentItemSClear,
+                variant = SegmentItemVariant.SegmentItemSDefault,
                 icon = SegmentItemIcon.End,
                 segmentItemLabel = "Label",
                 segmentItemValue = "",
                 enabled = true,
+                checked = false,
             ),
         )
         onView(withId(R.id.segment_item))
@@ -218,15 +244,18 @@ class ViewSystemSegmentScreenshotTest(
     }
 
     @Test
-    fun testSegmentItemSizeXSDefaultPilled() {
+    fun testSegmentItemSizeXSPrimaryCounter() {
         launchScreen(
             R.id.nav_segment_item,
             SegmentUiState(
-                variant = SegmentItemVariant.SegmentItemXsDefaultPilled,
+                variant = SegmentItemVariant.SegmentItemXsPrimaryPilled,
                 icon = SegmentItemIcon.Start,
                 segmentItemLabel = "Label",
-                segmentItemValue = "Value",
+                segmentItemValue = "",
                 enabled = true,
+                checked = true,
+                counter = true,
+                count = "123",
             ),
         )
         onView(withId(R.id.segment_item))
@@ -238,10 +267,11 @@ class ViewSystemSegmentScreenshotTest(
         launchScreen(
             R.id.nav_segment_item,
             SegmentUiState(
-                variant = SegmentItemVariant.SegmentItemLDefault,
+                variant = SegmentItemVariant.SegmentItemLPrimary,
                 icon = SegmentItemIcon.No,
                 segmentItemLabel = "Label",
                 segmentItemValue = "",
+                checked = true,
                 enabled = false,
             ),
         )

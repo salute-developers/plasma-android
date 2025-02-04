@@ -202,7 +202,6 @@ open class Button @JvmOverloads constructor(
         set(value) {
             if (_iconPadding != value) {
                 _iconPadding = value
-                compoundDrawablePadding = iconPadding
                 resetSpanSpace()
             }
         }
@@ -433,7 +432,6 @@ open class Button @JvmOverloads constructor(
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-        _spanSpaceSize = valuePadding
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
         resetSpanSpace()
         val left = (measuredWidth - _spinnerSize) / 2
@@ -447,7 +445,12 @@ open class Button @JvmOverloads constructor(
         updateIconPosition(w)
     }
 
-    override fun onTextChanged(text: CharSequence?, start: Int, lengthBefore: Int, lengthAfter: Int) {
+    override fun onTextChanged(
+        text: CharSequence?,
+        start: Int,
+        lengthBefore: Int,
+        lengthAfter: Int,
+    ) {
         super.onTextChanged(text, start, lengthBefore, lengthAfter)
         updateIconPosition(measuredWidth)
     }
@@ -482,6 +485,32 @@ open class Button @JvmOverloads constructor(
     override fun drawableStateChanged() {
         super.drawableStateChanged()
         getSpinnerDrawable().state = drawableState
+    }
+
+    override fun getCompoundPaddingLeft(): Int {
+        val extraPadding = if (hasIcon()) {
+            if (isLayoutRTL()) {
+                if (isIconEnd()) iconPadding else 0
+            } else {
+                if (isIconStart()) iconPadding else 0
+            }
+        } else {
+            0
+        }
+        return super.getCompoundPaddingLeft() + extraPadding
+    }
+
+    override fun getCompoundPaddingRight(): Int {
+        val extraPadding = if (hasIcon()) {
+            if (isLayoutRTL()) {
+                if (isIconStart()) iconPadding else 0
+            } else {
+                if (isIconEnd()) iconPadding else 0
+            }
+        } else {
+            0
+        }
+        return super.getCompoundPaddingRight() + extraPadding
     }
 
     private fun obtainAttributes(attrs: AttributeSet?, defStyleAttr: Int) {
@@ -618,15 +647,16 @@ open class Button @JvmOverloads constructor(
         }
 
         if (needsIconReset) {
-            resetIconDrawable()
+            resetCompoundDrawables()
             return
         }
 
-        val existingDrawables = TextViewCompat.getCompoundDrawablesRelative(this)
+        val existingDrawables = getExistingDrawables()
         val drawableStart = existingDrawables[0]
         val drawableEnd = existingDrawables[2]
-        val hasIconChanged = isIconStart() && drawableStart != _icon || isIconEnd() && drawableEnd != _icon
-        if (hasIconChanged) resetIconDrawable()
+        val hasIconChanged =
+            isIconStart() && drawableStart != _icon || isIconEnd() && drawableEnd != _icon
+        if (hasIconChanged) resetCompoundDrawables()
     }
 
     private fun updateIconPosition(buttonWidth: Int) {
@@ -635,9 +665,7 @@ open class Button @JvmOverloads constructor(
         }
         if (isIconStart() || isIconEnd()) {
             _iconTop = 0
-            val textWidth = getTextWidth() + _spanSpaceSize
-            var newIconLeft =
-                ((buttonWidth - textWidth - paddingEnd - iconSize - iconPadding - paddingStart) / 2)
+            var newIconLeft = (buttonWidth - getContentWidth()) / 2
             newIconLeft = newIconLeft.coerceAtLeast(0)
 
             // Меняем значение левой границы только если isLayoutRTL() или iconGravity = textEnd, но не в обоих случаях
@@ -687,7 +715,7 @@ open class Button @JvmOverloads constructor(
         }
     }
 
-    private fun resetIconDrawable() = when {
+    protected open fun resetCompoundDrawables() = when {
         isIconStart() -> TextViewCompat.setCompoundDrawablesRelative(this, icon, null, null, null)
         isIconEnd() -> TextViewCompat.setCompoundDrawablesRelative(this, null, null, icon, null)
         else -> Unit
@@ -711,9 +739,22 @@ open class Button @JvmOverloads constructor(
         return ViewCompat.getLayoutDirection(this) == ViewCompat.LAYOUT_DIRECTION_RTL
     }
 
+    private fun getExistingDrawables() = TextViewCompat.getCompoundDrawablesRelative(this)
+
+    internal fun getContentWidth(): Int {
+        val textWidth = minOf(layout.ellipsizedWidth, getTextWidth() + _spanSpaceSize)
+        return textWidth + compoundPaddingStart + compoundPaddingEnd
+    }
+
     private inner class SpaceSpan : ReplacementSpan() {
 
-        override fun getSize(paint: Paint, text: CharSequence?, start: Int, end: Int, fm: Paint.FontMetricsInt?): Int {
+        override fun getSize(
+            paint: Paint,
+            text: CharSequence?,
+            start: Int,
+            end: Int,
+            fm: Paint.FontMetricsInt?,
+        ): Int {
             fm?.set(paint.fontMetricsInt)
             return _spanSpaceSize
         }
@@ -783,7 +824,8 @@ open class Button @JvmOverloads constructor(
         const val DEFAULT_SPINNER_STROKE_WIDTH = 2f
         const val DEBUG_MODE = false
         const val SPACING_MACROS = "*"
-        val DebugPaint = Paint().configure(style = Paint.Style.STROKE, color = Color.MAGENTA, strokeWidth = 3f)
+        val DebugPaint =
+            Paint().configure(style = Paint.Style.STROKE, color = Color.MAGENTA, strokeWidth = 3f)
 
         fun Paint.getTextWidth(text: CharSequence, start: Int = 0, end: Int = text.length): Int {
             if (text.isEmpty()) return 0

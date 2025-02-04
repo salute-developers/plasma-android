@@ -27,7 +27,7 @@ import kotlinx.coroutines.flow.onEach
 internal class SegmentFragment : ComponentFragment() {
 
     private var _segment: Segment? = null
-    private var _currentVariant: Variant = SegmentVariant.SegmentL
+    private var _currentVariant: Variant = SegmentVariant.SegmentLPrimary
     private val _segmentAdapter: SegmentAdapter by lazy { SegmentAdapter() }
     private val segmentViewModel by viewModels<SegmentParametersViewModel> {
         SegmentParametersViewModelFactory(
@@ -101,7 +101,7 @@ internal class SegmentFragment : ComponentFragment() {
 
 private class SegmentAdapter : Segment.Adapter() {
 
-    private var _state: SegmentUiState = SegmentUiState(SegmentVariant.SegmentL)
+    private var _state: SegmentUiState = SegmentUiState(SegmentVariant.SegmentLPrimary)
 
     fun updateState(state: SegmentUiState) {
         _state = state
@@ -127,6 +127,8 @@ private class SegmentAdapter : Segment.Adapter() {
                 SegmentItemIcon.End -> Button.IconPosition.TextEnd
                 else -> Button.IconPosition.TextStart
             }
+            isCounterEnabled = _state.counter
+            counterText = _state.count
         }
     }
 }

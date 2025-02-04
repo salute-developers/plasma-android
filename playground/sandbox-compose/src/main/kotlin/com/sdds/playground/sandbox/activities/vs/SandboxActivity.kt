@@ -88,6 +88,7 @@ class SandboxActivity : AppCompatActivity() {
             R.id.nav_checkbox_group,
             R.id.nav_chip,
             R.id.nav_chip_group,
+            R.id.nav_counter,
             R.id.nav_radiobox,
             R.id.nav_radiobox_group,
             R.id.nav_progressbar,
