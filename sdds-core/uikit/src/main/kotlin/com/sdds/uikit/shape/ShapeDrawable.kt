@@ -15,8 +15,10 @@ import android.graphics.Shader
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.ShapeDrawable
 import android.graphics.drawable.shapes.Shape
+import android.os.Build
 import android.util.AttributeSet
 import android.util.TypedValue
+import androidx.annotation.RequiresApi
 import androidx.core.graphics.withTranslation
 import com.sdds.uikit.R
 import com.sdds.uikit.internal.base.colorForState
@@ -47,6 +49,8 @@ open class ShapeDrawable() : Drawable(), Shapeable {
     private var _shaderFactory: ShaderFactory? = null
     private var sdShaderAppearanceRes: TypedValue? = null
     private var sdShaderAppearanceResFallback: Int = 0
+
+    private val _shadowRenderer = ShadowRenderer()
 
     private val drawStroke: Boolean
         get() = _strokeWidth > 0 && _strokePaint.color != Color.TRANSPARENT
@@ -90,6 +94,12 @@ open class ShapeDrawable() : Drawable(), Shapeable {
             .adjust(adjustment)
         _strokeTint = typedArray.getColorStateList(R.styleable.SdShape_sd_strokeColor)
         _strokeWidth = typedArray.getDimension(R.styleable.SdShape_sd_strokeWidth, 0f)
+        val hasShadowAppearance = typedArray.hasValue(R.styleable.SdShape_sd_shadowAppearance)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P && hasShadowAppearance) {
+            _shadowRenderer.setShadowModel(
+                ShadowModel.obtain(context, typedArray.getResourceId(R.styleable.SdShape_sd_shadowAppearance, 0)),
+            )
+        }
         typedArray.recycle()
     }
 
@@ -125,6 +135,15 @@ open class ShapeDrawable() : Drawable(), Shapeable {
     }
 
     /**
+     * Устанавливает модель теней [ShadowModel]
+     */
+    @RequiresApi(Build.VERSION_CODES.P)
+    open fun setShadowModel(model: ShadowModel?) {
+        if (model == null) return
+        _shadowRenderer.setShadowModel(model)
+    }
+
+    /**
      * Устанавливает ширину линии границы
      * @param width ширина линии
      */
@@ -154,10 +173,12 @@ open class ShapeDrawable() : Drawable(), Shapeable {
     }
 
     override fun draw(canvas: Canvas) {
+        val shape = _shape ?: return
         canvas.withTranslation(_boundedOffset, _boundedOffset) {
-            _shape?.draw(canvas, _shapePaint)
+            _shadowRenderer.render(canvas, shape)
+            shape.draw(canvas, _shapePaint)
             if (drawStroke) {
-                _shape?.draw(this, _strokePaint)
+                shape.draw(this, _strokePaint)
             }
         }
     }

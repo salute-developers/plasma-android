@@ -1161,6 +1161,19 @@
         <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.M</item>
         <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.M</item>
         <item name="sd_badgeStyle">@style/Serv.Sdds.Components.Badge.M</item>
+        <!--Shadows-->
+        <item name="serv_shadowDownSoftS">@style/Serv.Sdds.Shadow.DownSoftS</item>
+        <item name="serv_shadowDownSoftM">@style/Serv.Sdds.Shadow.DownSoftM</item>
+        <item name="serv_shadowDownSoftL">@style/Serv.Sdds.Shadow.DownSoftL</item>
+        <item name="serv_shadowDownHardS">@style/Serv.Sdds.Shadow.DownHardS</item>
+        <item name="serv_shadowDownHardM">@style/Serv.Sdds.Shadow.DownHardM</item>
+        <item name="serv_shadowDownHardL">@style/Serv.Sdds.Shadow.DownHardL</item>
+        <item name="serv_shadowUpSoftS">@style/Serv.Sdds.Shadow.UpSoftS</item>
+        <item name="serv_shadowUpSoftM">@style/Serv.Sdds.Shadow.UpSoftM</item>
+        <item name="serv_shadowUpSoftL">@style/Serv.Sdds.Shadow.UpSoftL</item>
+        <item name="serv_shadowUpHardS">@style/Serv.Sdds.Shadow.UpHardS</item>
+        <item name="serv_shadowUpHardM">@style/Serv.Sdds.Shadow.UpHardM</item>
+        <item name="serv_shadowUpHardL">@style/Serv.Sdds.Shadow.UpHardL</item>
     </style>
     <style name="Serv.Sdds.MaterialComponents.Light" parent="Theme.MaterialComponents.Light">
         <!--Light colors-->
@@ -2321,6 +2334,20 @@
         <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.M</item>
         <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.M</item>
         <item name="sd_badgeStyle">@style/Serv.Sdds.Components.Badge.M</item>
+
+        <!--Shadows-->
+        <item name="serv_shadowDownSoftS">@style/Serv.Sdds.Shadow.DownSoftS</item>
+        <item name="serv_shadowDownSoftM">@style/Serv.Sdds.Shadow.DownSoftM</item>
+        <item name="serv_shadowDownSoftL">@style/Serv.Sdds.Shadow.DownSoftL</item>
+        <item name="serv_shadowDownHardS">@style/Serv.Sdds.Shadow.DownHardS</item>
+        <item name="serv_shadowDownHardM">@style/Serv.Sdds.Shadow.DownHardM</item>
+        <item name="serv_shadowDownHardL">@style/Serv.Sdds.Shadow.DownHardL</item>
+        <item name="serv_shadowUpSoftS">@style/Serv.Sdds.Shadow.UpSoftS</item>
+        <item name="serv_shadowUpSoftM">@style/Serv.Sdds.Shadow.UpSoftM</item>
+        <item name="serv_shadowUpSoftL">@style/Serv.Sdds.Shadow.UpSoftL</item>
+        <item name="serv_shadowUpHardS">@style/Serv.Sdds.Shadow.UpHardS</item>
+        <item name="serv_shadowUpHardM">@style/Serv.Sdds.Shadow.UpHardM</item>
+        <item name="serv_shadowUpHardL">@style/Serv.Sdds.Shadow.UpHardL</item>
     </style>
     <style name="Serv.Sdds.MaterialComponents.DayNight" parent="Serv.Sdds.MaterialComponents.Light"/>
     <style name="Serv.Sdds"/>

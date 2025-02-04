@@ -40,16 +40,32 @@ internal abstract class Token {
     /**
      * Название токена для xml-файлов
      */
-    open val xmlName: String by unsafeLazy {
-        name.techToSnakeCase()
-    }
+    open val xmlName: String by unsafeLazy { getXmlName(name) }
 
     /**
      * Название токена для kt-файлов
      */
-    open val ktName: String by unsafeLazy {
-        name.split(".", "-").joinToString("") { it.capitalized() }
+    open val ktName: String by unsafeLazy { getKtName(name) }
+
+    companion object {
+
+        fun getXmlName(techName: String): String {
+            return techName.techToSnakeCase()
+        }
+
+        fun getKtName(techName: String): String {
+            return techName.split(".", "-").joinToString("") { it.capitalized() }
+        }
     }
+}
+
+@Serializable
+internal object Unknown : Token() {
+    override val displayName: String = ""
+    override val name: String = ""
+    override val tags: Set<String> = emptySet()
+    override val enabled: Boolean = false
+    override val description: String = ""
 }
 
 /**

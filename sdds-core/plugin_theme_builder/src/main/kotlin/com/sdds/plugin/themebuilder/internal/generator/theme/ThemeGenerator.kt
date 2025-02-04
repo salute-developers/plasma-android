@@ -6,10 +6,12 @@ import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget.Companion.isComp
 import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget.Companion.isViewSystemOrAll
 import com.sdds.plugin.themebuilder.internal.factory.ComposeColorAttributeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ComposeGradientAttributeGeneratorFactory
+import com.sdds.plugin.themebuilder.internal.factory.ComposeShadowAttributeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ComposeShapeAttributeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ComposeThemeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ComposeTypographyAttributeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ViewColorAttributeGeneratorFactory
+import com.sdds.plugin.themebuilder.internal.factory.ViewShadowAttributeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ViewShapeAttributeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ViewThemeGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ViewTypographyAttributeGeneratorFactory
@@ -17,14 +19,17 @@ import com.sdds.plugin.themebuilder.internal.factory.ViewXmlGradientAttributeGen
 import com.sdds.plugin.themebuilder.internal.generator.SimpleBaseGenerator
 import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.GradientTokenResult
+import com.sdds.plugin.themebuilder.internal.generator.data.ShadowTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.ShapeTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.TypographyTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeColorAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeGradientAttributeGenerator
+import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeShadowAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeShapeAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeThemeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeTypographyAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewColorAttributeGenerator
+import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewShadowAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewShapeAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewThemeGenerator
 import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewTypographyAttributeGenerator
@@ -41,7 +46,9 @@ internal class ThemeGenerator(
     private val composeColorAttributeGeneratorFactory: ComposeColorAttributeGeneratorFactory,
     private val viewColorAttributeGeneratorFactory: ViewColorAttributeGeneratorFactory,
     private val viewShapeAttributeGeneratorFactory: ViewShapeAttributeGeneratorFactory,
+    private val viewShadowAttributeGeneratorFactory: ViewShadowAttributeGeneratorFactory,
     private val composeShapeAttributeGeneratorFactory: ComposeShapeAttributeGeneratorFactory,
+    private val composeShadowAttributeGeneratorFactory: ComposeShadowAttributeGeneratorFactory,
     private val composeGradientAttributeGeneratorFactory: ComposeGradientAttributeGeneratorFactory,
     private val viewXmlGradientAttributeGeneratorFactory: ViewXmlGradientAttributeGeneratorFactory,
     private val viewTypographyAttributeGeneratorFactory: ViewTypographyAttributeGeneratorFactory,
@@ -66,6 +73,9 @@ internal class ThemeGenerator(
     private val composeShapeAttributeGenerator: ComposeShapeAttributeGenerator by unsafeLazy {
         composeShapeAttributeGeneratorFactory.create()
     }
+    private val composeShadowAttributeGenerator: ComposeShadowAttributeGenerator by unsafeLazy {
+        composeShadowAttributeGeneratorFactory.create()
+    }
     private val composeTypographyAttributeGenerator: ComposeTypographyAttributeGenerator by unsafeLazy {
         composeTypographyAttributeGeneratorFactory.create()
     }
@@ -77,6 +87,9 @@ internal class ThemeGenerator(
     }
     private val viewShapeAttributeGenerator: ViewShapeAttributeGenerator by unsafeLazy {
         viewShapeAttributeGeneratorFactory.create()
+    }
+    private val viewShadowAttributeGenerator: ViewShadowAttributeGenerator by unsafeLazy {
+        viewShadowAttributeGeneratorFactory.create()
     }
     private val viewTypographyAttributeGenerator: ViewTypographyAttributeGenerator by unsafeLazy {
         viewTypographyAttributeGeneratorFactory.create()
@@ -134,6 +147,22 @@ internal class ThemeGenerator(
     }
 
     /**
+     * Устанавливает данные о токенах теней
+     *
+     * @param shadowTokenResult данные о токенах теней
+     * @see [ShadowTokenResult]
+     */
+    fun setShadowTokenData(shadowTokenResult: ShadowTokenResult) {
+        if (target.isComposeOrAll) {
+            composeShadowAttributeGenerator.setShadowTokenData(shadowTokenResult.composeTokens)
+        }
+        if (target.isViewSystemOrAll) {
+            viewShadowAttributeGenerator.setShadowTokenData(shadowTokenResult.viewTokens)
+            viewThemeGenerator.setShadowsTokenData(shadowTokenResult.viewTokens)
+        }
+    }
+
+    /**
      * Устанавливает данные о токенах типографики
      *
      * @param typographyTokenResult данные о токенах типографики
@@ -161,6 +190,7 @@ internal class ThemeGenerator(
             composeColorAttributeGenerator.generate()
             composeGradientAttributeGenerator.generate()
             composeShapeAttributeGenerator.generate()
+            composeShadowAttributeGenerator.generate()
             composeTypographyAttributeGenerator.generate()
             composeThemeGenerator.generate()
         }
@@ -168,6 +198,7 @@ internal class ThemeGenerator(
             viewColorAttributeGenerator.generate()
             viewXmlGradientAttributeGenerator.generate()
             if (shouldGenerateViewShapeStyle) viewShapeAttributeGenerator.generate()
+            viewShadowAttributeGenerator.generate()
             viewTypographyAttributeGenerator.generate()
             viewThemeGenerator.generate()
         }

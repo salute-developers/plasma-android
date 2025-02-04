@@ -10,11 +10,56 @@ public object ShadowTokens {
     /**
      * Тень downHardL для android
      */
-    public object DownHardL {
+    public object DownHardLLayer1 {
         /**
          * Тень downHardL для android
          */
-        public val elevation: Dp = 1.0.dp
+        public val offsetX: Dp = 1.0.dp
+
+        /**
+         * Тень downHardL для android
+         */
+        public val offsetY: Dp = 1.0.dp
+
+        /**
+         * Тень downHardL для android
+         */
+        public val spreadRadius: Dp = 1.0.dp
+
+        /**
+         * Тень downHardL для android
+         */
+        public val blurRadius: Dp = 1.0.dp
+
+        /**
+         * Тень downHardL для android
+         */
+        public val color: Color = Color(0x99000000)
+    }
+
+    /**
+     * Тень downHardL для android
+     */
+    public object DownHardLLayer2 {
+        /**
+         * Тень downHardL для android
+         */
+        public val offsetX: Dp = 1.0.dp
+
+        /**
+         * Тень downHardL для android
+         */
+        public val offsetY: Dp = 1.0.dp
+
+        /**
+         * Тень downHardL для android
+         */
+        public val spreadRadius: Dp = 1.0.dp
+
+        /**
+         * Тень downHardL для android
+         */
+        public val blurRadius: Dp = 1.0.dp
 
         /**
          * Тень downHardL для android

@@ -22,6 +22,7 @@ themeBuilder {
     compose()
     ktPackage(ktPackage = "com.sdds.serv")
     mode(THEME)
+    autoGenerate(false)
     outputLocation(SRC)
 }
 

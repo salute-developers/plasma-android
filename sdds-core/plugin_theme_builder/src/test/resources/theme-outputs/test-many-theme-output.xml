@@ -13,6 +13,8 @@
         <!--Typography-->
         <item name="thmbldr_typographyDisplayLNormal">@style/Thmbldr.TestTheme.Typography.DisplayLNormal</item>
         <item name="thmbldr_typographyHeaderH3Bold">@style/Thmbldr.TestTheme.Typography.HeaderH3Bold</item>
+        <!--Shadows-->
+        <item name="thmbldr_shadowDownSoftS">@style/Thmbldr.TestTheme.Shadow.DownSoftS</item>
     </style>
     <style name="Thmbldr.TestTheme.MaterialComponents.Dialog.Light" parent="Theme.MaterialComponents.Light.Dialog">
         <!--Light colors-->
@@ -25,6 +27,8 @@
         <!--Typography-->
         <item name="thmbldr_typographyDisplayLNormal">@style/Thmbldr.TestTheme.Typography.DisplayLNormal</item>
         <item name="thmbldr_typographyHeaderH3Bold">@style/Thmbldr.TestTheme.Typography.HeaderH3Bold</item>
+        <!--Shadows-->
+        <item name="thmbldr_shadowDownSoftS">@style/Thmbldr.TestTheme.Shadow.DownSoftS</item>
     </style>
     <style name="Thmbldr.TestTheme.MaterialComponents.Dialog.DayNight" parent="Thmbldr.TestTheme.MaterialComponents.Dialog.Light"/>
     <style name="Thmbldr.TestTheme.MaterialComponents.NoActionBar" parent="Theme.MaterialComponents.NoActionBar">
@@ -38,6 +42,8 @@
         <!--Typography-->
         <item name="thmbldr_typographyDisplayLNormal">@style/Thmbldr.TestTheme.Typography.DisplayLNormal</item>
         <item name="thmbldr_typographyHeaderH3Bold">@style/Thmbldr.TestTheme.Typography.HeaderH3Bold</item>
+        <!--Shadows-->
+        <item name="thmbldr_shadowDownSoftS">@style/Thmbldr.TestTheme.Shadow.DownSoftS</item>
     </style>
     <style name="Thmbldr.TestTheme.MaterialComponents.NoActionBar.Light" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!--Light colors-->
@@ -50,6 +56,8 @@
         <!--Typography-->
         <item name="thmbldr_typographyDisplayLNormal">@style/Thmbldr.TestTheme.Typography.DisplayLNormal</item>
         <item name="thmbldr_typographyHeaderH3Bold">@style/Thmbldr.TestTheme.Typography.HeaderH3Bold</item>
+        <!--Shadows-->
+        <item name="thmbldr_shadowDownSoftS">@style/Thmbldr.TestTheme.Shadow.DownSoftS</item>
     </style>
     <style name="Thmbldr.TestTheme.MaterialComponents.NoActionBar.DayNight" parent="Thmbldr.TestTheme.MaterialComponents.NoActionBar.Light"/>
     <style name="Thmbldr.TestTheme.AppCompat.NoActionBar" parent="Theme.AppCompat.NoActionBar">
@@ -63,6 +71,8 @@
         <!--Typography-->
         <item name="thmbldr_typographyDisplayLNormal">@style/Thmbldr.TestTheme.Typography.DisplayLNormal</item>
         <item name="thmbldr_typographyHeaderH3Bold">@style/Thmbldr.TestTheme.Typography.HeaderH3Bold</item>
+        <!--Shadows-->
+        <item name="thmbldr_shadowDownSoftS">@style/Thmbldr.TestTheme.Shadow.DownSoftS</item>
     </style>
     <style name="Thmbldr.TestTheme.AppCompat.NoActionBar.Light" parent="Theme.AppCompat.Light.NoActionBar">
         <!--Light colors-->
@@ -75,6 +85,8 @@
         <!--Typography-->
         <item name="thmbldr_typographyDisplayLNormal">@style/Thmbldr.TestTheme.Typography.DisplayLNormal</item>
         <item name="thmbldr_typographyHeaderH3Bold">@style/Thmbldr.TestTheme.Typography.HeaderH3Bold</item>
+        <!--Shadows-->
+        <item name="thmbldr_shadowDownSoftS">@style/Thmbldr.TestTheme.Shadow.DownSoftS</item>
     </style>
     <style name="Thmbldr.TestTheme.AppCompat.NoActionBar.DayNight" parent="Thmbldr.TestTheme.AppCompat.NoActionBar.Light"/>
     <style name="Thmbldr.TestTheme.MaterialComponents"/>
