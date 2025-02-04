@@ -343,18 +343,22 @@ internal class GeneratorFactory(
     /**
      * Создает генератор теней [ShadowTokenGenerator]
      */
-    fun createShadowGenerator(shadows: Map<String, List<ShadowTokenValue>>): ShadowTokenGenerator {
+    fun createShadowGenerator(
+        shadows: Map<String, List<ShadowTokenValue>>,
+        palette: Map<String, Map<String, String>>,
+    ): ShadowTokenGenerator {
         return ShadowTokenGenerator(
             OutputLocation.Directory(outputDir),
-            outputResDir,
-            target,
-            xmlResourcesDocumentBuilderFactory,
-            ktFileBuilderFactory,
-            shadows,
-            resourceReferenceProvider,
-            dimensionsConfig,
-            dimensAggregator,
-            namespace,
+            outputResDir = outputResDir,
+            target = target,
+            xmlBuilderFactory = xmlResourcesDocumentBuilderFactory,
+            ktFileBuilderFactory = ktFileBuilderFactory,
+            shadowTokenValues = shadows,
+            resourceReferenceProvider = resourceReferenceProvider,
+            dimensionsConfig = dimensionsConfig,
+            dimensAggregator = dimensAggregator,
+            namespace = namespace,
+            palette = palette,
         )
     }
 }

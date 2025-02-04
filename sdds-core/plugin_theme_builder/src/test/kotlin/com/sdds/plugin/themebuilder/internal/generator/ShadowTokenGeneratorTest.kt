@@ -62,6 +62,7 @@ class ShadowTokenGeneratorTest {
             },
             dimensAggregator = mockk(relaxed = true),
             namespace = "com.test",
+            palette = palette,
         )
     }
 
@@ -101,20 +102,23 @@ class ShadowTokenGeneratorTest {
         val shadowTokenValues = mapOf(
             "down.hard.l" to listOf(
                 ShadowTokenValue(
-                    color = "#99000000",
+                    color = "#00000099",
                     offsetX = 1.0f,
                     offsetY = 1.0f,
                     spreadRadius = 1.0f,
                     blurRadius = 1.0f,
                 ),
                 ShadowTokenValue(
-                    color = "#99000000",
+                    color = "[general.black.1000]",
                     offsetX = 1.0f,
                     offsetY = 1.0f,
                     spreadRadius = 1.0f,
                     blurRadius = 1.0f,
                 ),
             ),
+        )
+        val palette = mapOf(
+            "black" to mapOf("1000" to "#00000099"),
         )
     }
 }

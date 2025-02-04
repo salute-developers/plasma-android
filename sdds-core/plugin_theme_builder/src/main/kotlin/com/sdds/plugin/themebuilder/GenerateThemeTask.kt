@@ -212,7 +212,7 @@ abstract class GenerateThemeTask : DefaultTask() {
     }
     private val dimensGenerator by unsafeLazy { generatorFactory.createDimensGenerator() }
     private val shapesGenerator by unsafeLazy { generatorFactory.createShapesGenerator(shapes) }
-    private val shadowGenerator by unsafeLazy { generatorFactory.createShadowGenerator(shadows) }
+    private val shadowGenerator by unsafeLazy { generatorFactory.createShadowGenerator(shadows, palette) }
 
     /**
      * Генерирует файлы с токенами

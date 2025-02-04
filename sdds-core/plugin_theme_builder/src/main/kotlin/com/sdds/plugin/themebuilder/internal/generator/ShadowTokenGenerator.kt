@@ -15,6 +15,8 @@ import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.generator.data.ShadowTokenResult
 import com.sdds.plugin.themebuilder.internal.token.ShadowToken
 import com.sdds.plugin.themebuilder.internal.token.ShadowTokenValue
+import com.sdds.plugin.themebuilder.internal.utils.ColorResolver.HexFormat
+import com.sdds.plugin.themebuilder.internal.utils.ColorResolver.resolveColor
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.shadowsXmlFile
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 import com.sdds.plugin.themebuilder.internal.utils.camelToSnakeCase
@@ -45,6 +47,7 @@ internal class ShadowTokenGenerator(
     private val resourceReferenceProvider: ResourceReferenceProvider,
     private val dimensionsConfig: DimensionsConfig,
     private val dimensAggregator: DimensAggregator,
+    private val palette: Map<String, Map<String, String>>,
     namespace: String,
 ) : TokenGenerator<ShadowToken, ShadowTokenResult>(target) {
 
@@ -102,7 +105,8 @@ internal class ShadowTokenGenerator(
                 ShadowTokenValidator.validate(tokenValue, token.name)
                 val layerSuffix = "_layer_${index + 1}".takeIf { useLayerSuffix }.orEmpty()
                 val tokenName = "${token.xmlName}$layerSuffix"
-                appendElement(ElementName.COLOR, "shadow_${tokenName}_color", tokenValue.color)
+                val resolvedColor = resolveColor(tokenValue.color, tokenName, palette, HexFormat.XML_HEX)
+                appendElement(ElementName.COLOR, "shadow_${tokenName}_color", resolvedColor)
                 val offsetXRef = appendShadowDimenElement(
                     "shadow_${tokenName}_offset_x",
                     tokenValue.offsetX,
@@ -221,10 +225,16 @@ internal class ShadowTokenGenerator(
             val elevationRef = tokenValue.fallbackElevation?.let {
                 appendShadowProperty(tokenName, "fallbackElevation", it, description)
             }
+            val resolvedColor = resolveColor(
+                tokenValue = tokenValue.color,
+                tokenName = tokenName,
+                palette = palette,
+                hexFormat = HexFormat.INT_HEX,
+            )
             appendProperty(
                 "color",
                 KtFileBuilder.TypeColor,
-                "Color(${tokenValue.color.replace("#", "0x")})",
+                "Color($resolvedColor)",
                 description,
             )
 
