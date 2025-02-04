@@ -8,7 +8,7 @@ import androidx.lifecycle.lifecycleScope
 import com.sdds.icons.R
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
 import com.sdds.playground.sandbox.core.vs.PropertiesOwner
-import com.sdds.uikit.Badge
+import com.sdds.uikit.IconBadge
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
@@ -23,12 +23,12 @@ internal class IconBadgeFragment : ComponentFragment() {
         )
     }
     private var currentVariant: BadgesVariant = IconBadgeVariant.IconBadgeLDefault
-    private var _badge: Badge? = null
+    private var _iconBadge: IconBadge? = null
 
     override val componentLayout: View
-        get() = Badge(ContextThemeWrapper(requireContext(), currentVariant.styleRes))
+        get() = IconBadge(ContextThemeWrapper(requireContext(), currentVariant.styleRes))
             .apply { id = com.sdds.playground.sandbox.R.id.icon_badge }
-            .also { _badge = it }
+            .also { _iconBadge = it }
 
     override val propertiesOwner: PropertiesOwner
         get() = badgeParametersViewModel
@@ -41,7 +41,7 @@ internal class IconBadgeFragment : ComponentFragment() {
                     currentVariant = state.variant
                     dispatchComponentStyleChanged()
                 }
-                _badge?.apply {
+                _iconBadge?.apply {
                     setDrawableStartRes(R.drawable.ic_plasma_24)
                 }
             }

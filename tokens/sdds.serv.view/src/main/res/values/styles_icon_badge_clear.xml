@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Serv.Sdds.Components.IconBadgeClear" parent="Sdds.Components.Badge">
+    <style name="Serv.Sdds.Components.IconBadgeClear" parent="Sdds.Components.IconBadge">
         <item name="android:backgroundTint">?serv_surfaceDefaultClear</item>
         <item name="sd_drawableStartTint">@color/serv_icon_badge_transparent_text_color</item>
-        <item name="sd_textPaddingEnd">0dp</item>
-        <item name="sd_textPaddingStart">0dp</item>
         <item name="sd_colorStateProvider">com.sdds.serv.colorstate.IconBadgeColorStateProvider</item>
     </style>
 

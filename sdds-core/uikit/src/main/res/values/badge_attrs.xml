@@ -2,6 +2,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <attr name="sd_badgeStyle" format="reference" />
+    <attr name="sd_iconBadgeStyle" format="reference" />
 
     <declare-styleable name="Badge" tools:ignore="ResourceName">
         <attr name="android:drawableStart" />
