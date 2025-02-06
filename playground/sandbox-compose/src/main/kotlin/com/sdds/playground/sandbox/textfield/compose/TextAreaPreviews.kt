@@ -60,33 +60,33 @@ internal fun SandboxTextAreaPreviewLDefaultInnerLeft() {
     }
 }
 
-//@Composable
-//@Preview(showBackground = true)
-//internal fun SandboxTextAreaPreviewMSuccessOuterOptional() {
-//    SandboxTheme {
-//        var value by remember { mutableStateOf(TextFieldValue("")) }
-//
-//        TextField(
-//            modifier = Modifier.fillMaxWidth(),
-//            placeholderText = "Placeholder",
-//            value = value,
-//            style = TextArea.M.OuterLabel.Success.style(),
-//            labelText = "Label",
-//            optionalText = "Optional",
-//            captionText = "Caption",
-//            counterText = "Counter",
-//            onValueChange = {},
-//            readOnly = false,
-//            enabled = true,
-//            endContent = {
-//                Icon(
-//                    painter = painterResource(id = R.drawable.ic_shazam_24),
-//                    contentDescription = "",
-//                )
-//            },
-//        )
-//    }
-//}
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxTextAreaPreviewMDefaultOuterOptional() {
+    SandboxTheme {
+        var value by remember { mutableStateOf(TextFieldValue("")) }
+
+        TextField(
+            modifier = Modifier.fillMaxWidth(),
+            placeholderText = "Placeholder",
+            value = value,
+            style = TextArea.M.OuterLabel.Default.style(),
+            labelText = "Label",
+            optionalText = "Optional",
+            captionText = "Caption",
+            counterText = "Counter",
+            onValueChange = {},
+            readOnly = false,
+            enabled = true,
+            endContent = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_shazam_24),
+                    contentDescription = "",
+                )
+            },
+        )
+    }
+}
 
 @Composable
 @Preview(showBackground = true)
@@ -138,34 +138,34 @@ internal fun SandboxTextAreaPreviewXsErrorInnerOptional() {
     }
 }
 
-//@Composable
-//@Preview(showBackground = true)
-//internal fun SandboxTextAreaPreviewLReadOnly() {
-//    SandboxTheme {
-//        var value by remember { mutableStateOf(TextFieldValue("")) }
-//        Box(modifier = Modifier.padding(start = 20.dp)) {
-//            TextField(
-//                modifier = Modifier.fillMaxWidth(),
-//                placeholderText = "",
-//                value = value,
-//                style = TextArea.L.OuterLabel.RequiredStart.Success.style(),
-//                labelText = "Label",
-//                optionalText = "Optional",
-//                captionText = "",
-//                counterText = "",
-//                onValueChange = { value = it },
-//                readOnly = true,
-//                enabled = true,
-//                endContent = {
-//                    Icon(
-//                        painter = painterResource(id = R.drawable.ic_shazam_24),
-//                        contentDescription = "",
-//                    )
-//                },
-//            )
-//        }
-//    }
-//}
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxTextAreaPreviewLReadOnly() {
+    SandboxTheme {
+        var value by remember { mutableStateOf(TextFieldValue("Value")) }
+        Box(modifier = Modifier.padding(start = 20.dp)) {
+            TextField(
+                modifier = Modifier.fillMaxWidth(),
+                placeholderText = "",
+                value = value,
+                style = TextArea.L.OuterLabel.RequiredStart.Default.style(),
+                labelText = "Label",
+                optionalText = "Optional",
+                captionText = "Caption",
+                counterText = "Counter",
+                onValueChange = { value = it },
+                readOnly = true,
+                enabled = true,
+                endContent = {
+                    Icon(
+                        painter = painterResource(id = R.drawable.ic_shazam_24),
+                        contentDescription = "",
+                    )
+                },
+            )
+        }
+    }
+}
 
 @Composable
 @Preview(showBackground = true)
@@ -217,33 +217,33 @@ internal fun SandboxTextAreaPreviewSDefaultInnerRight() {
     }
 }
 
-//@Composable
-//@Preview(showBackground = true)
-//internal fun SandboxTextAreaPreviewXSSuccessOuterOptional() {
-//    SandboxTheme {
-//        var value by remember { mutableStateOf(TextFieldValue("Value")) }
-//
-//        TextField(
-//            modifier = Modifier.fillMaxWidth(),
-//            placeholderText = "Placeholder",
-//            value = value,
-//            style = TextArea.Xs.OuterLabel.Success.style(),
-//            labelText = "Label",
-//            optionalText = "Optional",
-//            captionText = "Caption",
-//            counterText = "Counter",
-//            onValueChange = {},
-//            readOnly = false,
-//            enabled = true,
-//            endContent = {
-//                Icon(
-//                    painter = painterResource(id = R.drawable.ic_shazam_16),
-//                    contentDescription = "",
-//                )
-//            },
-//        )
-//    }
-//}
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxTextAreaPreviewXSDefaultOuterOptional() {
+    SandboxTheme {
+        var value by remember { mutableStateOf(TextFieldValue("Value")) }
+
+        TextField(
+            modifier = Modifier.fillMaxWidth(),
+            placeholderText = "Placeholder",
+            value = value,
+            style = TextArea.Xs.OuterLabel.Default.style(),
+            labelText = "Label",
+            optionalText = "Optional",
+            captionText = "Caption",
+            counterText = "Counter",
+            onValueChange = {},
+            readOnly = false,
+            enabled = true,
+            endContent = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_shazam_16),
+                    contentDescription = "",
+                )
+            },
+        )
+    }
+}
 
 @Composable
 @Preview(showBackground = true)
@@ -323,53 +323,53 @@ internal fun SandboxTextAreaPreviewSWarningInnerRightFocused() {
     }
 }
 
-//@Composable
-//@Preview(showBackground = true)
-//internal fun SandboxTextAreaPreviewMSuccessInnerOptionalChips() {
-//    SandboxTheme {
-//        var value by remember { mutableStateOf(TextFieldValue("")) }
-//
-//        TextField(
-//            modifier = Modifier.fillMaxWidth(),
-//            placeholderText = "Placeholder",
-//            value = value,
-//            style = TextArea.M.Success.style(),
-//            labelText = "Label",
-//            optionalText = "Optional",
-//            captionText = "Caption",
-//            counterText = "Counter",
-//            onValueChange = {},
-//            readOnly = false,
-//            enabled = true,
-//            endContent = {
-//                Icon(
-//                    painter = painterResource(id = R.drawable.ic_shazam_24),
-//                    contentDescription = "",
-//                )
-//            },
-//            chipsContent = {
-//                Chip(
-//                    label = "Chip",
-//                    endContent = {
-//                        Icon(
-//                            painter = painterResource(id = R.drawable.ic_close_24),
-//                            contentDescription = "",
-//                        )
-//                    },
-//                )
-//                Chip(
-//                    label = "Chip",
-//                    endContent = {
-//                        Icon(
-//                            painter = painterResource(id = R.drawable.ic_close_24),
-//                            contentDescription = "",
-//                        )
-//                    },
-//                )
-//            },
-//        )
-//    }
-//}
+@Composable
+@Preview(showBackground = true)
+internal fun SandboxTextAreaPreviewMInnerOptionalChips() {
+    SandboxTheme {
+        var value by remember { mutableStateOf(TextFieldValue("")) }
+
+        TextField(
+            modifier = Modifier.fillMaxWidth(),
+            placeholderText = "Placeholder",
+            value = value,
+            style = TextArea.M.Default.style(),
+            labelText = "Label",
+            optionalText = "Optional",
+            captionText = "Caption",
+            counterText = "Counter",
+            onValueChange = {},
+            readOnly = false,
+            enabled = true,
+            endContent = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_shazam_24),
+                    contentDescription = "",
+                )
+            },
+            chipsContent = {
+                Chip(
+                    label = "Chip",
+                    endContent = {
+                        Icon(
+                            painter = painterResource(id = R.drawable.ic_close_24),
+                            contentDescription = "",
+                        )
+                    },
+                )
+                Chip(
+                    label = "Chip",
+                    endContent = {
+                        Icon(
+                            painter = painterResource(id = R.drawable.ic_close_24),
+                            contentDescription = "",
+                        )
+                    },
+                )
+            },
+        )
+    }
+}
 
 @Composable
 @Preview(showBackground = true)

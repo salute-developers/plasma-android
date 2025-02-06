@@ -7,16 +7,16 @@ import com.sdds.playground.sandbox.textfield.compose.SandboxTextAreaPreviewLDefa
 import com.sdds.playground.sandbox.textfield.compose.SandboxTextAreaPreviewLDefaultTBTA
 import com.sdds.playground.sandbox.textfield.compose.SandboxTextAreaPreviewLDisabled
 import com.sdds.playground.sandbox.textfield.compose.SandboxTextAreaPreviewLReadOnly
+import com.sdds.playground.sandbox.textfield.compose.SandboxTextAreaPreviewMDefaultOuterOptional
 import com.sdds.playground.sandbox.textfield.compose.SandboxTextAreaPreviewMErrorOuterOptional
-import com.sdds.playground.sandbox.textfield.compose.SandboxTextAreaPreviewMSuccessInnerOptionalChips
-import com.sdds.playground.sandbox.textfield.compose.SandboxTextAreaPreviewMSuccessOuterOptional
+import com.sdds.playground.sandbox.textfield.compose.SandboxTextAreaPreviewMInnerOptionalChips
 import com.sdds.playground.sandbox.textfield.compose.SandboxTextAreaPreviewMWarningInnerOptional
 import com.sdds.playground.sandbox.textfield.compose.SandboxTextAreaPreviewSDefaultInnerRight
 import com.sdds.playground.sandbox.textfield.compose.SandboxTextAreaPreviewSDefaultOuterRightChips
 import com.sdds.playground.sandbox.textfield.compose.SandboxTextAreaPreviewSLongText
 import com.sdds.playground.sandbox.textfield.compose.SandboxTextAreaPreviewSWarningInnerRight
 import com.sdds.playground.sandbox.textfield.compose.SandboxTextAreaPreviewSWarningInnerRightFocused
-import com.sdds.playground.sandbox.textfield.compose.SandboxTextAreaPreviewXSSuccessOuterOptional
+import com.sdds.playground.sandbox.textfield.compose.SandboxTextAreaPreviewXSDefaultOuterOptional
 import com.sdds.playground.sandbox.textfield.compose.SandboxTextAreaPreviewXsErrorInnerOptional
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -42,9 +42,9 @@ class ComposeTextAreaScreenshotTest(
     }
 
     @Test
-    fun testTextAreaPreviewMSuccessOuterOptional() {
+    fun testTextAreaPreviewMDefaultOuterOptional() {
         composeTestRule.setContent {
-            SandboxTextAreaPreviewMSuccessOuterOptional()
+            SandboxTextAreaPreviewMDefaultOuterOptional()
         }
     }
 
@@ -84,9 +84,9 @@ class ComposeTextAreaScreenshotTest(
     }
 
     @Test
-    fun testTextAreaPreviewXsSuccessOuterOptional() {
+    fun testTextAreaPreviewXsDefaultOuterOptional() {
         composeTestRule.setContent {
-            SandboxTextAreaPreviewXSSuccessOuterOptional()
+            SandboxTextAreaPreviewXSDefaultOuterOptional()
         }
     }
 
@@ -115,9 +115,9 @@ class ComposeTextAreaScreenshotTest(
     }
 
     @Test
-    fun testTextAreaPreviewMSuccessInnerOptionalChips() {
+    fun testTextAreaPreviewMInnerOptionalChips() {
         composeTestRule.setContent {
-            SandboxTextAreaPreviewMSuccessInnerOptionalChips()
+            SandboxTextAreaPreviewMInnerOptionalChips()
         }
     }
 
