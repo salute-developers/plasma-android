@@ -49,8 +49,14 @@ internal class FontTokenGenerator(
 
     private val rFileImport = ClassName(namespace, "R")
     private val fontFamilyXmlBuilders = mutableMapOf<String, XmlFontFamilyDocumentBuilder>()
-    private val ktFileBuilder by unsafeLazy { ktFileBuilderFactory.create("FontTokens") }
-    private val ktFileRootObjectBuilder by unsafeLazy { ktFileBuilder.rootObject("FontTokens") }
+    private val ktFileBuilder by unsafeLazy {
+        ktFileBuilderFactory.create(FONT_TOKENS_NAME).also {
+            it.addSuppressAnnotation("ObjectPropertyNaming")
+        }
+    }
+    private val ktFileRootObjectBuilder by unsafeLazy {
+        ktFileBuilder.rootObject(FONT_TOKENS_NAME, FONT_TOKENS_DESC)
+    }
     private val fontDownloader by unsafeLazy { fontDownloaderFactory.create() }
 
     override fun collectResult() = ""
@@ -154,5 +160,10 @@ internal class FontTokenGenerator(
                 fontStyle = it.fontStyle,
             )
         }.toSet()
+    }
+
+    private companion object {
+        const val FONT_TOKENS_NAME = "FontTokens"
+        const val FONT_TOKENS_DESC = "Токены шрифтов"
     }
 }

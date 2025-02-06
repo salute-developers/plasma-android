@@ -4,7 +4,6 @@ import com.sdds.plugin.themebuilder.internal.PackageResolver
 import com.sdds.plugin.themebuilder.internal.TargetPackage
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Constructor
-import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Modifier
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Modifier.INFIX
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Modifier.INTERNAL
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Modifier.PRIVATE
@@ -17,6 +16,7 @@ import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.mergedLightAndDark
 import com.sdds.plugin.themebuilder.internal.utils.snakeToCamelCase
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
+import com.squareup.kotlinpoet.asTypeName
 
 /**
  * Генератор Compose-атрибутов цвета.
@@ -57,6 +57,7 @@ internal class ComposeColorAttributeGenerator(
         addLightColorsFun()
         addDarkColorsFun()
         addColorOverrideScopeClass()
+        addObtainStateFun()
 
         colorKtFileBuilder.build(outputLocation)
     }
@@ -90,7 +91,8 @@ internal class ComposeColorAttributeGenerator(
                     name = color,
                     typeName = KtFileBuilder.TypeColor,
                     isMutable = true,
-                    delegate = "mutableStateOf(colors[\"$color\"]!!, structuralEqualityPolicy())",
+                    delegate = "colors.obtain(\"$color\")",
+                    description = tokenData?.description(color),
                 )
             }
 
@@ -115,18 +117,6 @@ internal class ComposeColorAttributeGenerator(
                 description = "Возвращает копию [$colorClassName]. " +
                     "Предоставляет возможность переопределять цвета.",
             )
-
-            rootColorsClass.appendFun(
-                name = "toString",
-                modifiers = listOf(Modifier.OVERRIDE),
-                body = listOf(
-                    "return \"\${this::class.simpleName}(${
-                        colorAttributes.joinToString(
-                            separator = ",·",
-                        ) { "$it=$$it" }
-                    })\"",
-                ),
-            )
         }
     }
 
@@ -142,6 +132,7 @@ internal class ComposeColorAttributeGenerator(
             receiver = colorClassType,
             body = colorAttributes.map { "$it = other.$it\n" },
             modifiers = listOf(INTERNAL),
+            suppressAnnotations = listOf("LongMethod"),
         )
     }
 
@@ -187,11 +178,11 @@ internal class ComposeColorAttributeGenerator(
                 "val overwrite = colorOverrideScope.overrideMap\n",
                 "val initial = mutableMapOf<String, Color>()\n",
                 colorAttributes.joinToString(separator = "\n") {
-                    val defaultValue = if (tokenData?.light?.get(it) != null) {
-                        "LightColorTokens.${tokenData?.light?.get(it)}"
+                    val defaultValue = if (tokenData?.light?.get(it)?.colorRef != null) {
+                        "LightColorTokens.${tokenData?.light?.get(it)?.colorRef}"
                     } else {
                         "DarkColorTokens.${
-                            tokenData?.dark?.get(it) ?: throw ThemeBuilderException(
+                            tokenData?.dark?.get(it)?.colorRef ?: throw ThemeBuilderException(
                                 "Can't find token value for color $it",
                             )
                         }"
@@ -201,6 +192,7 @@ internal class ComposeColorAttributeGenerator(
                 "\nreturn $colorClassName(initial)",
             ),
             description = "Цвета [$colorClassName] для светлой темы",
+            suppressAnnotations = listOf("LongMethod"),
         )
     }
 
@@ -223,11 +215,11 @@ internal class ComposeColorAttributeGenerator(
                 "val overwrite = colorOverrideScope.overrideMap\n",
                 "val initial = mutableMapOf<String, Color>()\n",
                 colorAttributes.joinToString(separator = "\n") {
-                    val defaultValue = if (tokenData?.dark?.get(it) != null) {
-                        "DarkColorTokens.${tokenData?.dark?.get(it)}"
+                    val defaultValue = if (tokenData?.dark?.get(it)?.colorRef != null) {
+                        "DarkColorTokens.${tokenData?.dark?.get(it)?.colorRef}"
                     } else {
                         "LightColorTokens.${
-                            tokenData?.light?.get(it) ?: throw ThemeBuilderException(
+                            tokenData?.light?.get(it)?.colorRef ?: throw ThemeBuilderException(
                                 "Can't find token value for color $it",
                             )
                         }"
@@ -237,6 +229,7 @@ internal class ComposeColorAttributeGenerator(
                 "\nreturn $colorClassName(initial)",
             ),
             description = "Цвета [$colorClassName] для темной темы",
+            suppressAnnotations = listOf("LongMethod"),
         )
     }
 
@@ -250,7 +243,7 @@ internal class ComposeColorAttributeGenerator(
             rootColorsClass.appendProperty(
                 name = "_overrideMap",
                 typeName = KtFileBuilder.TypeMutableMapOfColors,
-                initializer = "mutableMapOf<String, Color>()",
+                initializer = "mutableMapOf()",
                 modifiers = listOf(PRIVATE),
             )
 
@@ -269,6 +262,7 @@ internal class ComposeColorAttributeGenerator(
                     typeName = KtFileBuilder.TypeString,
                     isMutable = false,
                     initializer = "\"$color\"",
+                    description = tokenData?.description(color),
                 )
             }
 
@@ -280,6 +274,7 @@ internal class ComposeColorAttributeGenerator(
                 modifiers = listOf(INFIX),
                 receiver = KtFileBuilder.TypeString,
                 body = listOf("_overrideMap[this] = color"),
+                description = "Переопределяет аттрибут цвета.",
             )
         }
     }
@@ -289,7 +284,11 @@ internal class ComposeColorAttributeGenerator(
             name = "Local$colorClassName",
             typeName = KtFileBuilder.TypeProvidableCompositionLocal,
             parameterizedType = colorClassType,
-            initializer = "staticCompositionLocalOf { light${camelThemeName}Colors() }",
+            initializer = """
+                staticCompositionLocalOf·{
+                    light${camelThemeName}Colors()
+                }
+            """.trimIndent(),
             modifiers = listOf(INTERNAL),
         )
     }
@@ -329,5 +328,18 @@ internal class ComposeColorAttributeGenerator(
                 )
             }
         }
+    }
+
+    private fun addObtainStateFun() {
+        colorKtFileBuilder.appendRootFun(
+            name = "obtain",
+            receiver = KtFileBuilder.TypeMapOfColors,
+            returnType = KtFileBuilder.TypeMutableStateOfColor,
+            modifiers = listOf(PRIVATE),
+            params = listOf(
+                KtFileBuilder.FunParameter("name", String::class.asTypeName()),
+            ),
+            body = listOf("return mutableStateOf(get(name)!!, structuralEqualityPolicy())"),
+        )
     }
 }

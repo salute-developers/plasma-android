@@ -68,6 +68,7 @@ internal class ComposeShapeAttributeGenerator(
                             type = KtFileBuilder.TypeCornerBasedShape,
                             defValue = "RoundedCornerShape(0)",
                             asProperty = true,
+                            description = it.description,
                         )
                     },
                 ),
@@ -83,7 +84,11 @@ internal class ComposeShapeAttributeGenerator(
             name = "Local$shapeClassName",
             typeName = KtFileBuilder.TypeProvidableCompositionLocal,
             parameterizedType = shapeKtFileBuilder.getInternalClassType(shapeClassName),
-            initializer = "staticCompositionLocalOf { $shapeClassName() }",
+            initializer = """
+                staticCompositionLocalOf·{
+                    $shapeClassName()
+                }
+            """.trimIndent(),
             modifiers = listOf(INTERNAL),
         )
     }

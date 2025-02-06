@@ -8,6 +8,9 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.test.R
 
+/**
+ * Токены отступов
+ */
 public object SpacingTokens {
     /**
      * spacing 0x

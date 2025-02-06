@@ -3,11 +3,12 @@ package com.sdds.plugin.themebuilder.internal.generator.theme
 import com.sdds.plugin.themebuilder.ResourcePrefixConfig
 import com.sdds.plugin.themebuilder.ViewThemeParent
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
-import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult
+import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult.TokenData
 import com.sdds.plugin.themebuilder.internal.generator.data.GradientTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.ShadowTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.ShapeTokenResult
 import com.sdds.plugin.themebuilder.internal.generator.data.TypographyTokenResult
+import com.sdds.plugin.themebuilder.internal.generator.data.TypographyTokenResult.TypographyInfo
 import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewThemeGenerator
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.fileWriter
@@ -240,9 +241,9 @@ class ViewThemeGeneratorTest {
     }
 
     private companion object {
-        val colorAttrs = ColorTokenResult.TokenData(
-            light = mapOf("textPrimary" to "@color/thmbldr_light_text_primary"),
-            dark = mapOf("textPrimary" to "@color/thmbldr_dark_text_primary"),
+        val colorAttrs = TokenData(
+            light = mapOf("textPrimary" to TokenData.ColorInfo("@color/thmbldr_light_text_primary")),
+            dark = mapOf("textPrimary" to TokenData.ColorInfo("@color/thmbldr_dark_text_primary")),
         )
 
         val shapeAttrs = listOf(
@@ -272,8 +273,8 @@ class ViewThemeGeneratorTest {
 
         val typographyAttrs = TypographyTokenResult.ViewTokenData(
             mapOf(
-                "typographyDisplayLNormal" to "@style/Thmbldr.TestTheme.Typography.DisplayLNormal",
-                "typographyHeaderH3Bold" to "@style/Thmbldr.TestTheme.Typography.HeaderH3Bold",
+                "typographyDisplayLNormal" to TypographyInfo("@style/Thmbldr.TestTheme.Typography.DisplayLNormal"),
+                "typographyHeaderH3Bold" to TypographyInfo("@style/Thmbldr.TestTheme.Typography.HeaderH3Bold"),
             ),
         )
 

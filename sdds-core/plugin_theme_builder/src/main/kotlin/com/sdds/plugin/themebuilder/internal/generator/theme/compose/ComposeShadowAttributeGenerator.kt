@@ -70,6 +70,7 @@ internal class ComposeShadowAttributeGenerator(
                             type = KtFileBuilder.TypeShadowAppearance,
                             defValue = "ShadowAppearance()",
                             asProperty = true,
+                            description = it.tokenDescription,
                         )
                     },
                 ),
@@ -85,7 +86,11 @@ internal class ComposeShadowAttributeGenerator(
             name = "Local$shadowClassName",
             typeName = KtFileBuilder.TypeProvidableCompositionLocal,
             parameterizedType = shadowKtFileBuilder.getInternalClassType(shadowClassName),
-            initializer = "staticCompositionLocalOf { $shadowClassName() }",
+            initializer = """
+                staticCompositionLocalOf·{
+                    $shadowClassName()
+                }
+            """.trimIndent(),
             modifiers = listOf(INTERNAL),
         )
     }
@@ -130,6 +135,7 @@ internal class ComposeShadowAttributeGenerator(
                 KtFileBuilder.TypeAnnotationComposable,
                 KtFileBuilder.TypeAnnotationReadOnlyComposable,
             ).takeIf { dimensionsConfig.fromResources },
+            suppressAnnotations = listOf("LongMethod"),
         )
     }
 

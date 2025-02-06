@@ -1,4 +1,6 @@
 // AUTO-GENERATED. DO NOT MODIFY this file.
+@file:Suppress("ObjectPropertyNaming")
+
 package com.test.tokens
 
 import androidx.compose.ui.text.font.Font
@@ -6,7 +8,11 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import com.test.R
+import kotlin.Suppress
 
+/**
+ * Токены шрифтов
+ */
 public object FontTokens {
     /**
      * Font-family: SB Sans Display

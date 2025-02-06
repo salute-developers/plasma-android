@@ -5,6 +5,9 @@ import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.unit.dp
 
+/**
+ * Токены скруглений
+ */
 public object RoundShapeTokens {
     /**
      * Форма со скругленными углами размером XS

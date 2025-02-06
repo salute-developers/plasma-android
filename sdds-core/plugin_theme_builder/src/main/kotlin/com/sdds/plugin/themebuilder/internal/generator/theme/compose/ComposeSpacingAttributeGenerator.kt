@@ -68,6 +68,7 @@ internal class ComposeSpacingAttributeGenerator(
                             type = KtFileBuilder.TypeDp,
                             defValue = "0.dp",
                             asProperty = true,
+                            description = it.description,
                         )
                     },
                 ),
@@ -83,7 +84,11 @@ internal class ComposeSpacingAttributeGenerator(
             name = "Local$spacingClassName",
             typeName = KtFileBuilder.TypeProvidableCompositionLocal,
             parameterizedType = spacingKtFileBuilder.getInternalClassType(spacingClassName),
-            initializer = "staticCompositionLocalOf { $spacingClassName() }",
+            initializer = """
+                staticCompositionLocalOf·{
+                    $spacingClassName()
+                }
+            """.trimIndent(),
             modifiers = listOf(INTERNAL),
         )
     }

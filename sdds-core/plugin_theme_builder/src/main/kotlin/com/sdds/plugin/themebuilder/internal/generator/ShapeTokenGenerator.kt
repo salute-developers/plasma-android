@@ -54,8 +54,10 @@ internal class ShapeTokenGenerator(
 ) : TokenGenerator<ShapeToken, ShapeTokenResult>(target) {
 
     private val xmlDocumentBuilder by unsafeLazy { xmlBuilderFactory.create(DEFAULT_ROOT_ATTRIBUTES) }
-    private val ktFileBuilder by unsafeLazy { ktFileBuilderFactory.create("ShapeTokens") }
-    private val rootRoundShapes by unsafeLazy { ktFileBuilder.rootObject(ROUND_SHAPE_TOKENS_NAME) }
+    private val ktFileBuilder by unsafeLazy { ktFileBuilderFactory.create(ROUND_SHAPE_TOKENS_NAME) }
+    private val rootRoundShapes by unsafeLazy {
+        ktFileBuilder.rootObject(ROUND_SHAPE_TOKENS_NAME, ROUND_SHAPE_TOKENS_DESC)
+    }
     private val shouldGenerateShapeStyles: Boolean = viewShapeAppearanceConfig.isNotEmpty()
     private val rFileImport = ClassName(namespace, "R")
     private var needCreateStyle: Boolean = true
@@ -150,6 +152,7 @@ internal class ShapeTokenGenerator(
             ShapeTokenResult.TokenData(
                 attrName = ShapeToken.getAttrName(token.name),
                 tokenRefName = resourceReferenceProvider.style(styleName),
+                description = token.description,
             ),
         )
     }
@@ -174,6 +177,7 @@ internal class ShapeTokenGenerator(
             ShapeTokenResult.TokenData(
                 attrName = token.ktName.decapitalize(Locale.getDefault()),
                 tokenRefName = token.ktName,
+                description = token.description,
             ),
         )
         return@with true
@@ -227,5 +231,6 @@ internal class ShapeTokenGenerator(
             )
 
         internal const val ROUND_SHAPE_TOKENS_NAME = "RoundShapeTokens"
+        internal const val ROUND_SHAPE_TOKENS_DESC = "Токены скруглений"
     }
 }

@@ -15,6 +15,9 @@ import androidx.compose.ui.unit.sp
 import com.test.R
 import kotlin.Suppress
 
+/**
+ * Токены типографии для ScreenClass.LARGE
+ */
 public object TypographyLargeTokens {
     /**
      * шрифт android
@@ -31,9 +34,8 @@ public object TypographyLargeTokens {
                 dimensionResource(R.dimen.thmbldr_screen_l_display_l_normal_line_height).toSp(),
             letterSpacing = 0.02.sp,
             fontFamily = FontTokens.sans,
-            lineHeightStyle = LineHeightStyle(alignment = LineHeightStyle.Alignment.Center, trim =
-                LineHeightStyle.Trim.None),
-            platformStyle = PlatformTextStyle(includeFontPadding = false),
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+            platformStyle = TextStyleDefault.platformStyle,
         )
         }
 
@@ -51,13 +53,15 @@ public object TypographyLargeTokens {
                 dimensionResource(R.dimen.thmbldr_screen_l_display_l_bold_line_height).toSp(),
             letterSpacing = 0.02.sp,
             fontFamily = FontTokens.sans,
-            lineHeightStyle = LineHeightStyle(alignment = LineHeightStyle.Alignment.Center, trim =
-                LineHeightStyle.Trim.None),
-            platformStyle = PlatformTextStyle(includeFontPadding = false),
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+            platformStyle = TextStyleDefault.platformStyle,
         )
         }
 }
 
+/**
+ * Токены типографии для ScreenClass.SMALL
+ */
 public object TypographySmallTokens {
     /**
      * шрифт android
@@ -73,9 +77,8 @@ public object TypographySmallTokens {
                 dimensionResource(R.dimen.thmbldr_screen_s_text_l_normal_line_height).toSp(),
             letterSpacing = 0.04.sp,
             fontFamily = FontTokens.sans,
-            lineHeightStyle = LineHeightStyle(alignment = LineHeightStyle.Alignment.Center, trim =
-                LineHeightStyle.Trim.None),
-            platformStyle = PlatformTextStyle(includeFontPadding = false),
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+            platformStyle = TextStyleDefault.platformStyle,
         )
         }
 
@@ -94,13 +97,15 @@ public object TypographySmallTokens {
                 dimensionResource(R.dimen.thmbldr_screen_s_display_l_normal_line_height).toSp(),
             letterSpacing = 0.02.sp,
             fontFamily = FontTokens.sans,
-            lineHeightStyle = LineHeightStyle(alignment = LineHeightStyle.Alignment.Center, trim =
-                LineHeightStyle.Trim.None),
-            platformStyle = PlatformTextStyle(includeFontPadding = false),
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+            platformStyle = TextStyleDefault.platformStyle,
         )
         }
 }
 
+/**
+ * Токены типографии для ScreenClass.MEDIUM
+ */
 public object TypographyMediumTokens {
     /**
      * шрифт android
@@ -116,9 +121,8 @@ public object TypographyMediumTokens {
                 dimensionResource(R.dimen.thmbldr_screen_m_header_l_normal_line_height).toSp(),
             letterSpacing = 0.04.sp,
             fontFamily = FontTokens.sans,
-            lineHeightStyle = LineHeightStyle(alignment = LineHeightStyle.Alignment.Center, trim =
-                LineHeightStyle.Trim.None),
-            platformStyle = PlatformTextStyle(includeFontPadding = false),
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+            platformStyle = TextStyleDefault.platformStyle,
         )
         }
 
@@ -137,9 +141,17 @@ public object TypographyMediumTokens {
                 dimensionResource(R.dimen.thmbldr_screen_m_display_l_normal_line_height).toSp(),
             letterSpacing = 0.02.sp,
             fontFamily = FontTokens.sans,
-            lineHeightStyle = LineHeightStyle(alignment = LineHeightStyle.Alignment.Center, trim =
-                LineHeightStyle.Trim.None),
-            platformStyle = PlatformTextStyle(includeFontPadding = false),
+            lineHeightStyle = TextStyleDefault.lineHeightStyle,
+            platformStyle = TextStyleDefault.platformStyle,
         )
         }
+}
+
+private object TextStyleDefault {
+    public val lineHeightStyle: LineHeightStyle = LineHeightStyle(
+               alignment = LineHeightStyle.Alignment.Center,
+               trim = LineHeightStyle.Trim.None,
+            )
+
+    public val platformStyle: PlatformTextStyle = PlatformTextStyle(includeFontPadding = false)
 }

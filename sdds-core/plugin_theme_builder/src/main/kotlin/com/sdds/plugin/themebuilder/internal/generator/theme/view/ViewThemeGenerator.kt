@@ -271,11 +271,11 @@ internal class ViewThemeGenerator(
         appendAttrs(shadows.shadowsToThemeAttrs(), this)
     }
 
-    private fun Map<String, String>?.typographyToThemeAttrs(): List<ViewThemeAttribute> =
+    private fun Map<String, TypographyTokenResult.TypographyInfo>?.typographyToThemeAttrs(): List<ViewThemeAttribute> =
         this?.map { entry ->
             ViewThemeAttribute(
                 name = entry.key,
-                value = entry.value,
+                value = entry.value.tokenRef,
             )
         } ?: emptyList()
 
@@ -283,8 +283,8 @@ internal class ViewThemeGenerator(
         map { color ->
             ViewThemeAttribute(
                 name = color,
-                value = colorData?.dark?.get(color)
-                    ?: colorData?.light?.get(color)
+                value = colorData?.dark?.get(color)?.colorRef
+                    ?: colorData?.light?.get(color)?.colorRef
                     ?: throw ThemeBuilderException("Can't find token value for color $color"),
             )
         }
@@ -293,8 +293,8 @@ internal class ViewThemeGenerator(
         map { color ->
             ViewThemeAttribute(
                 name = color,
-                value = colorData?.light?.get(color)
-                    ?: colorData?.dark?.get(color)
+                value = colorData?.light?.get(color)?.colorRef
+                    ?: colorData?.dark?.get(color)?.colorRef
                     ?: throw ThemeBuilderException("Can't find token value for color $color"),
             )
         }
