@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Plasma.SdService.Components.Avatar" parent="Sdds.Components.Avatar">
+        <!-- TODO Поменять градиент текста на сгенерированные токены -->
+        <item name="sd_textColorStart">#3E79F0</item>
+        <item name="sd_textColorEnd">#27C6E5</item>
+
+        <item name="sd_statusColor">@color/color_avatar_status</item>
+        <item name="sd_actionScrimColor">?plasma_overlayOnDarkSoft</item>
+        <item name="sd_actionTint">?plasma_textOnDarkPrimary</item>
+    </style>
+
+    <style name="Plasma.SdService.Components.Avatar.XXL">
+        <item name="android:maxWidth">88dp</item>
+        <item name="android:maxHeight">88dp</item>
+        <item name="android:minWidth">88dp</item>
+        <item name="android:minHeight">88dp</item>
+        <item name="sd_statusSize">12dp</item>
+        <item name="sd_statusOffsetX">1dp</item>
+        <item name="sd_statusOffsetY">7dp</item>
+        <item name="sd_actionSize">28dp</item>
+
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.HeaderH2Bold</item>
+    </style>
+
+    <style name="Plasma.SdService.Components.Avatar.L">
+        <item name="android:maxWidth">48dp</item>
+        <item name="android:maxHeight">48dp</item>
+        <item name="android:minWidth">48dp</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="sd_statusSize">8dp</item>
+        <item name="sd_statusOffsetX">1dp</item>
+        <item name="sd_statusOffsetY">3dp</item>
+        <item name="sd_actionSize">20dp</item>
+
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.HeaderH4Bold</item>
+    </style>
+
+    <style name="Plasma.SdService.Components.Avatar.M">
+        <item name="android:maxWidth">36dp</item>
+        <item name="android:maxHeight">36dp</item>
+        <item name="android:minWidth">36dp</item>
+        <item name="android:minHeight">36dp</item>
+        <item name="sd_statusSize">8dp</item>
+        <item name="sd_statusOffsetX">0dp</item>
+        <item name="sd_statusOffsetY">2dp</item>
+        <item name="sd_actionSize">16dp</item>
+
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodySBold</item>
+    </style>
+
+    <style name="Plasma.SdService.Components.Avatar.S">
+        <item name="android:maxWidth">24dp</item>
+        <item name="android:maxHeight">24dp</item>
+        <item name="android:minWidth">24dp</item>
+        <item name="android:minHeight">24dp</item>
+        <item name="sd_statusSize">6dp</item>
+        <item name="sd_statusOffsetX">0dp</item>
+        <item name="sd_statusOffsetY">0dp</item>
+        <item name="sd_actionSize">12dp</item>
+
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyXxsNormal</item>
+    </style>
+
+    <style name="Plasma.SdService.Components.AvatarGroup" parent="Sdds.Components.AvatarGroup">
+        <item name="sd_avatarStyleOverlay">@style/Plasma.SdService.ComponentOverlays.AvatarInGroup</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.AvatarInGroup">
+        <item name="sd_avatarStyle">@style/Plasma.SdService.Components.Avatar.S</item>
+    </style>
+
+</resources>

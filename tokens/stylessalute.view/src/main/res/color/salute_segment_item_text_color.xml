@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:color="?salute_textInversePrimaryActive" android:state_checked="true" android:state_pressed="true" app:salute_segmentItem_state_primary="true" />
+    <item android:color="?salute_textInversePrimaryHover" android:state_checked="true" android:state_hovered="true" app:salute_segmentItem_state_primary="true" />
+    <item android:color="?salute_textInversePrimary" android:state_checked="true" app:salute_segmentItem_state_primary="true" />
+    <item android:color="?salute_textDefaultPrimaryActive" android:state_checked="true" android:state_pressed="true" app:salute_segmentItem_state_secondary="true" />
+    <item android:color="?salute_textDefaultPrimaryHover" android:state_checked="true" android:state_hovered="true" app:salute_segmentItem_state_secondary="true" />
+    <item android:color="?salute_textDefaultPrimary" android:state_checked="true" app:salute_segmentItem_state_secondary="true" />
+    <item android:color="?salute_textDefaultPrimaryActive" android:state_pressed="true" />
+    <item android:color="?salute_textDefaultPrimaryHover" android:state_hovered="true" />
+    <item android:color="?salute_textDefaultPrimary" />
+</selector>

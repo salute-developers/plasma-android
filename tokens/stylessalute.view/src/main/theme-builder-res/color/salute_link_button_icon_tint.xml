@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:alpha="0.06" android:color="?salute_textDefaultPrimaryActive" android:state_pressed="true" app:salute_linkbutton_state_default="true" app:sd_state_loading="true"/>
+    <item android:alpha="0.06" android:color="?salute_textDefaultPrimaryHover" android:state_hovered="true" app:salute_linkbutton_state_default="true" app:sd_state_loading="true"/>
+    <item android:alpha="0.06" android:color="?salute_textDefaultPrimary" app:salute_linkbutton_state_default="true" app:sd_state_loading="true"/>
+    <item android:color="?salute_textDefaultPrimaryActive" android:state_pressed="true" app:salute_linkbutton_state_default="true"/>
+    <item android:color="?salute_textDefaultPrimaryHover" android:state_hovered="true" app:salute_linkbutton_state_default="true"/>
+    <item android:color="?salute_textDefaultPrimary" app:salute_linkbutton_state_default="true"/>
+    <item android:alpha="0.06" android:color="?salute_textDefaultSecondaryActive" android:state_pressed="true" app:salute_linkbutton_state_secondary="true" app:sd_state_loading="true"/>
+    <item android:alpha="0.06" android:color="?salute_textDefaultSecondaryHover" android:state_hovered="true" app:salute_linkbutton_state_secondary="true" app:sd_state_loading="true"/>
+    <item android:alpha="0.06" android:color="?salute_textDefaultSecondary" app:salute_linkbutton_state_secondary="true" app:sd_state_loading="true"/>
+    <item android:color="?salute_textDefaultSecondaryActive" android:state_pressed="true" app:salute_linkbutton_state_secondary="true"/>
+    <item android:color="?salute_textDefaultSecondaryHover" android:state_hovered="true" app:salute_linkbutton_state_secondary="true"/>
+    <item android:color="?salute_textDefaultSecondary" app:salute_linkbutton_state_secondary="true"/>
+    <item android:alpha="0.06" android:color="?salute_textDefaultAccenMaintActive" android:state_pressed="true" app:salute_linkbutton_state_accent="true" app:sd_state_loading="true"/>
+    <item android:alpha="0.06" android:color="?salute_textDefaultAccentMainHover" android:state_hovered="true" app:salute_linkbutton_state_accent="true" app:sd_state_loading="true"/>
+    <item android:alpha="0.06" android:color="?salute_textDefaultAccentMain" app:salute_linkbutton_state_accent="true" app:sd_state_loading="true"/>
+    <item android:color="?salute_textDefaultAccenMaintActive" android:state_pressed="true" app:salute_linkbutton_state_accent="true"/>
+    <item android:color="?salute_textDefaultAccentMainHover" android:state_hovered="true" app:salute_linkbutton_state_accent="true"/>
+    <item android:color="?salute_textDefaultAccentMain" app:salute_linkbutton_state_accent="true"/>
+    <item android:alpha="0.06" android:color="?salute_textDefaultPositiveActive" android:state_pressed="true" app:salute_linkbutton_state_positive="true" app:sd_state_loading="true"/>
+    <item android:alpha="0.06" android:color="?salute_textDefaultPositiveHover" android:state_hovered="true" app:salute_linkbutton_state_positive="true" app:sd_state_loading="true"/>
+    <item android:alpha="0.06" android:color="?salute_textDefaultPositive" app:salute_linkbutton_state_positive="true" app:sd_state_loading="true"/>
+    <item android:color="?salute_textDefaultPositiveActive" android:state_pressed="true" app:salute_linkbutton_state_positive="true"/>
+    <item android:color="?salute_textDefaultPositiveHover" android:state_hovered="true" app:salute_linkbutton_state_positive="true"/>
+    <item android:color="?salute_textDefaultPositive" app:salute_linkbutton_state_positive="true"/>
+    <item android:alpha="0.06" android:color="?salute_textDefaultNegativeActive" android:state_pressed="true" app:salute_linkbutton_state_negative="true" app:sd_state_loading="true"/>
+    <item android:alpha="0.06" android:color="?salute_textDefaultNegativeHover" android:state_hovered="true" app:salute_linkbutton_state_negative="true" app:sd_state_loading="true"/>
+    <item android:alpha="0.06" android:color="?salute_textDefaultNegative" app:salute_linkbutton_state_negative="true" app:sd_state_loading="true"/>
+    <item android:color="?salute_textDefaultNegativeActive" android:state_pressed="true" app:salute_linkbutton_state_negative="true"/>
+    <item android:color="?salute_textDefaultNegativeHover" android:state_hovered="true" app:salute_linkbutton_state_negative="true"/>
+    <item android:color="?salute_textDefaultNegative" app:salute_linkbutton_state_negative="true"/>
+    <item android:alpha="0.06" android:color="?salute_textDefaultWarningActive" android:state_pressed="true" app:salute_linkbutton_state_warning="true" app:sd_state_loading="true"/>
+    <item android:alpha="0.06" android:color="?salute_textDefaultWarningHover" android:state_hovered="true" app:salute_linkbutton_state_warning="true" app:sd_state_loading="true"/>
+    <item android:alpha="0.06" android:color="?salute_textDefaultWarning" app:salute_linkbutton_state_warning="true" app:sd_state_loading="true"/>
+    <item android:color="?salute_textDefaultWarningActive" android:state_pressed="true" app:salute_linkbutton_state_warning="true"/>
+    <item android:color="?salute_textDefaultWarningHover" android:state_hovered="true" app:salute_linkbutton_state_warning="true"/>
+    <item android:color="?salute_textDefaultWarning" app:salute_linkbutton_state_warning="true"/>
+</selector>

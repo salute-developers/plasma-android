@@ -5,8 +5,6 @@
     <item android:alpha="0.4" android:color="?serv_surfaceDefaultSolidPrimary" app:sd_state_readonly="true"/>
     <item android:color="?serv_surfaceDefaultTransparentSecondary" android:state_activated="true" app:serv_textarea_state_default="true"/>
     <item android:color="?serv_surfaceDefaultTransparentPrimary" app:serv_textarea_state_default="true"/>
-    <item android:color="?serv_surfaceDefaultTransparentSecondary" android:state_activated="true" app:serv_textarea_state_success="true"/>
-    <item android:color="?serv_surfaceDefaultTransparentPositive" app:serv_textarea_state_success="true"/>
     <item android:color="?serv_surfaceDefaultTransparentSecondary" android:state_activated="true" app:serv_textarea_state_warning="true"/>
     <item android:color="?serv_surfaceDefaultTransparentWarning" app:serv_textarea_state_warning="true"/>
     <item android:color="?serv_surfaceDefaultTransparentSecondary" android:state_activated="true" app:serv_textarea_state_error="true"/>

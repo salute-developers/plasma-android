@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <!--Gradient attributes-->
+    <attr format="reference" name="plasma_textDefaultAccentGradient"/>
+    <attr format="reference" name="plasma_textDefaultAccentGradientHover"/>
+    <attr format="reference" name="plasma_textDefaultAccentGradientActive"/>
+    <attr format="reference" name="plasma_textOnDarkAccentGradient"/>
+    <attr format="reference" name="plasma_textOnDarkAccentGradientHover"/>
+    <attr format="reference" name="plasma_textOnDarkAccentGradientActive"/>
+    <attr format="reference" name="plasma_textOnLightAccentGradient"/>
+    <attr format="reference" name="plasma_textOnLightAccentGradientHover"/>
+    <attr format="reference" name="plasma_textOnLightAccentGradientActive"/>
+    <attr format="reference" name="plasma_textInverseAccentGradientHover"/>
+    <attr format="reference" name="plasma_textInverseAccentGradientActive"/>
+    <attr format="reference" name="plasma_textInverseAccentGradient"/>
+    <attr format="reference" name="plasma_surfaceDefaultAccentGradient"/>
+    <attr format="reference" name="plasma_surfaceDefaultAccentGradientHover"/>
+    <attr format="reference" name="plasma_surfaceDefaultAccentGradientActive"/>
+    <attr format="reference" name="plasma_surfaceDefaultSkeletonGradient"/>
+    <attr format="reference" name="plasma_surfaceDefaultSkeletonGradientHover"/>
+    <attr format="reference" name="plasma_surfaceDefaultSkeletonGradientActive"/>
+    <attr format="reference" name="plasma_surfaceDefaultSkeletonDeepGradient"/>
+    <attr format="reference" name="plasma_surfaceDefaultSkeletonDeepGradientHover"/>
+    <attr format="reference" name="plasma_surfaceDefaultSkeletonDeepGradientActive"/>
+    <attr format="reference" name="plasma_surfaceOnDarkAccentGradient"/>
+    <attr format="reference" name="plasma_surfaceOnDarkAccentGradientHover"/>
+    <attr format="reference" name="plasma_surfaceOnDarkAccentGradientActive"/>
+    <attr format="reference" name="plasma_surfaceOnDarkSkeletonGradient"/>
+    <attr format="reference" name="plasma_surfaceOnDarkSkeletonGradientHover"/>
+    <attr format="reference" name="plasma_surfaceOnDarkSkeletonGradientActive"/>
+    <attr format="reference" name="plasma_surfaceOnDarkSkeletonDeepGradient"/>
+    <attr format="reference" name="plasma_surfaceOnDarkSkeletonDeepGradientHover"/>
+    <attr format="reference" name="plasma_surfaceOnDarkSkeletonDeepGradientActive"/>
+    <attr format="reference" name="plasma_surfaceOnLightAccentGradient"/>
+    <attr format="reference" name="plasma_surfaceOnLightAccentGradientHover"/>
+    <attr format="reference" name="plasma_surfaceOnLightAccentGradientActive"/>
+    <attr format="reference" name="plasma_surfaceOnLightSkeletonGradient"/>
+    <attr format="reference" name="plasma_surfaceOnLightSkeletonGradientHover"/>
+    <attr format="reference" name="plasma_surfaceOnLightSkeletonGradientActive"/>
+    <attr format="reference" name="plasma_surfaceOnLightSkeletonDeepGradient"/>
+    <attr format="reference" name="plasma_surfaceOnLightSkeletonDeepGradientHover"/>
+    <attr format="reference" name="plasma_surfaceOnLightSkeletonDeepGradientActive"/>
+    <attr format="reference" name="plasma_surfaceInverseAccentGradient"/>
+    <attr format="reference" name="plasma_surfaceInverseAccentGradientHover"/>
+    <attr format="reference" name="plasma_surfaceInverseAccentGradientActive"/>
+    <attr format="reference" name="plasma_surfaceInverseSkeletonGradient"/>
+    <attr format="reference" name="plasma_surfaceInverseSkeletonGradientHover"/>
+    <attr format="reference" name="plasma_surfaceInverseSkeletonGradientActive"/>
+    <attr format="reference" name="plasma_surfaceInverseSkeletonDeepGradient"/>
+    <attr format="reference" name="plasma_surfaceInverseSkeletonDeepGradientHover"/>
+    <attr format="reference" name="plasma_surfaceInverseSkeletonDeepGradientActive"/>
+</resources>

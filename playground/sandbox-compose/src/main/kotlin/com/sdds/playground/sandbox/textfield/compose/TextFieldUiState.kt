@@ -17,7 +17,6 @@ import com.sdds.serv.styles.textarea.OuterLabel
 import com.sdds.serv.styles.textarea.RequiredEnd
 import com.sdds.serv.styles.textarea.RequiredStart
 import com.sdds.serv.styles.textarea.S
-import com.sdds.serv.styles.textarea.Success
 import com.sdds.serv.styles.textarea.Warning
 import com.sdds.serv.styles.textarea.WrapperTextAreaView
 import com.sdds.serv.styles.textarea.Xs
@@ -30,7 +29,6 @@ import com.sdds.serv.styles.textarea.clear.OuterLabel
 import com.sdds.serv.styles.textarea.clear.RequiredEnd
 import com.sdds.serv.styles.textarea.clear.RequiredStart
 import com.sdds.serv.styles.textarea.clear.S
-import com.sdds.serv.styles.textarea.clear.Success
 import com.sdds.serv.styles.textarea.clear.Warning
 import com.sdds.serv.styles.textarea.clear.WrapperTextAreaClearView
 import com.sdds.serv.styles.textarea.clear.Xs
@@ -307,7 +305,7 @@ private fun WrapperTextAreaView.applyState(state: State): TextFieldStyle {
         State.Default -> Default
         State.Error -> Error
         State.Warning -> Warning
-        State.Success -> Success
+        else -> Default
     }.style()
 }
 
@@ -327,6 +325,6 @@ private fun WrapperTextAreaClearView.applyState(state: State): TextFieldStyle {
         State.Default -> Default
         State.Error -> Error
         State.Warning -> Warning
-        State.Success -> Success
+        else -> Default
     }.style()
 }

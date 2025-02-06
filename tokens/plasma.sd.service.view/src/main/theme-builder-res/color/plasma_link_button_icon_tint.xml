@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:alpha="0.06" android:color="?plasma_textDefaultPrimaryActive" android:state_pressed="true" app:plasma_linkbutton_state_default="true" app:sd_state_loading="true"/>
+    <item android:alpha="0.06" android:color="?plasma_textDefaultPrimaryHover" android:state_hovered="true" app:plasma_linkbutton_state_default="true" app:sd_state_loading="true"/>
+    <item android:alpha="0.06" android:color="?plasma_textDefaultPrimary" app:plasma_linkbutton_state_default="true" app:sd_state_loading="true"/>
+    <item android:color="?plasma_textDefaultPrimaryActive" android:state_pressed="true" app:plasma_linkbutton_state_default="true"/>
+    <item android:color="?plasma_textDefaultPrimaryHover" android:state_hovered="true" app:plasma_linkbutton_state_default="true"/>
+    <item android:color="?plasma_textDefaultPrimary" app:plasma_linkbutton_state_default="true"/>
+    <item android:alpha="0.06" android:color="?plasma_textDefaultSecondaryActive" android:state_pressed="true" app:plasma_linkbutton_state_secondary="true" app:sd_state_loading="true"/>
+    <item android:alpha="0.06" android:color="?plasma_textDefaultSecondaryHover" android:state_hovered="true" app:plasma_linkbutton_state_secondary="true" app:sd_state_loading="true"/>
+    <item android:alpha="0.06" android:color="?plasma_textDefaultSecondary" app:plasma_linkbutton_state_secondary="true" app:sd_state_loading="true"/>
+    <item android:color="?plasma_textDefaultSecondaryActive" android:state_pressed="true" app:plasma_linkbutton_state_secondary="true"/>
+    <item android:color="?plasma_textDefaultSecondaryHover" android:state_hovered="true" app:plasma_linkbutton_state_secondary="true"/>
+    <item android:color="?plasma_textDefaultSecondary" app:plasma_linkbutton_state_secondary="true"/>
+    <item android:alpha="0.06" android:color="?plasma_textDefaultAccentActive" android:state_pressed="true" app:plasma_linkbutton_state_accent="true" app:sd_state_loading="true"/>
+    <item android:alpha="0.06" android:color="?plasma_textDefaultAccentHover" android:state_hovered="true" app:plasma_linkbutton_state_accent="true" app:sd_state_loading="true"/>
+    <item android:alpha="0.06" android:color="?plasma_textDefaultAccent" app:plasma_linkbutton_state_accent="true" app:sd_state_loading="true"/>
+    <item android:color="?plasma_textDefaultAccentActive" android:state_pressed="true" app:plasma_linkbutton_state_accent="true"/>
+    <item android:color="?plasma_textDefaultAccentHover" android:state_hovered="true" app:plasma_linkbutton_state_accent="true"/>
+    <item android:color="?plasma_textDefaultAccent" app:plasma_linkbutton_state_accent="true"/>
+    <item android:alpha="0.06" android:color="?plasma_textDefaultPositiveActive" android:state_pressed="true" app:plasma_linkbutton_state_positive="true" app:sd_state_loading="true"/>
+    <item android:alpha="0.06" android:color="?plasma_textDefaultPositiveHover" android:state_hovered="true" app:plasma_linkbutton_state_positive="true" app:sd_state_loading="true"/>
+    <item android:alpha="0.06" android:color="?plasma_textDefaultPositive" app:plasma_linkbutton_state_positive="true" app:sd_state_loading="true"/>
+    <item android:color="?plasma_textDefaultPositiveActive" android:state_pressed="true" app:plasma_linkbutton_state_positive="true"/>
+    <item android:color="?plasma_textDefaultPositiveHover" android:state_hovered="true" app:plasma_linkbutton_state_positive="true"/>
+    <item android:color="?plasma_textDefaultPositive" app:plasma_linkbutton_state_positive="true"/>
+    <item android:alpha="0.06" android:color="?plasma_textDefaultNegativeActive" android:state_pressed="true" app:plasma_linkbutton_state_negative="true" app:sd_state_loading="true"/>
+    <item android:alpha="0.06" android:color="?plasma_textDefaultNegativeHover" android:state_hovered="true" app:plasma_linkbutton_state_negative="true" app:sd_state_loading="true"/>
+    <item android:alpha="0.06" android:color="?plasma_textDefaultNegative" app:plasma_linkbutton_state_negative="true" app:sd_state_loading="true"/>
+    <item android:color="?plasma_textDefaultNegativeActive" android:state_pressed="true" app:plasma_linkbutton_state_negative="true"/>
+    <item android:color="?plasma_textDefaultNegativeHover" android:state_hovered="true" app:plasma_linkbutton_state_negative="true"/>
+    <item android:color="?plasma_textDefaultNegative" app:plasma_linkbutton_state_negative="true"/>
+    <item android:alpha="0.06" android:color="?plasma_textDefaultWarningActive" android:state_pressed="true" app:plasma_linkbutton_state_warning="true" app:sd_state_loading="true"/>
+    <item android:alpha="0.06" android:color="?plasma_textDefaultWarningHover" android:state_hovered="true" app:plasma_linkbutton_state_warning="true" app:sd_state_loading="true"/>
+    <item android:alpha="0.06" android:color="?plasma_textDefaultWarning" app:plasma_linkbutton_state_warning="true" app:sd_state_loading="true"/>
+    <item android:color="?plasma_textDefaultWarningActive" android:state_pressed="true" app:plasma_linkbutton_state_warning="true"/>
+    <item android:color="?plasma_textDefaultWarningHover" android:state_hovered="true" app:plasma_linkbutton_state_warning="true"/>
+    <item android:color="?plasma_textDefaultWarning" app:plasma_linkbutton_state_warning="true"/>
+</selector>

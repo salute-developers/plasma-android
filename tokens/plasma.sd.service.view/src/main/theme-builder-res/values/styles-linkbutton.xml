@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Plasma.SdService.Components.LinkButton" parent="Sdds.Components.LinkButton">
+        <item name="sd_colorStateProvider">com.themebuilder.tokens.colorstate.LinkButtonColorStateProvider</item>
+        <item name="sd_disabledAlpha">0.4</item>
+        <item name="backgroundTint">@color/plasma_link_button_bg_color</item>
+        <item name="android:textColor">@color/plasma_link_button_text_color</item>
+        <item name="sd_spinnerTint">@color/plasma_link_button_spinner_tint</item>
+        <item name="sd_iconTint">@color/plasma_link_button_icon_tint</item>
+    </style>
+    <style name="Plasma.SdService.Components.LinkButton.L">
+        <item name="android:minHeight">@dimen/plasma_link_button_l_min_height</item>
+        <item name="android:minWidth">@dimen/plasma_link_button_l_min_width</item>
+        <item name="android:paddingStart">@dimen/plasma_link_button_l_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_link_button_l_padding_end</item>
+        <item name="sd_iconSize">@dimen/plasma_link_button_l_icon_size</item>
+        <item name="sd_spinnerSize">@dimen/plasma_link_button_l_spinner_size</item>
+        <item name="sd_spinnerStrokeWidth">@dimen/plasma_link_button_l_spinner_stroke_width</item>
+        <item name="sd_iconPadding">@dimen/plasma_link_button_l_icon_padding</item>
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyLBold</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.LinkButtonL">
+        <item name="sd_linkButtonStyle">@style/Plasma.SdService.Components.LinkButton.L</item>
+    </style>
+    <style name="Plasma.SdService.Components.LinkButton.L.Default">
+        <item name="plasma_linkbuttonColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.LinkButtonLDefault">
+        <item name="sd_linkButtonStyle">@style/Plasma.SdService.Components.LinkButton.L.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.LinkButton.L.Secondary">
+        <item name="plasma_linkbuttonColors">state_secondary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.LinkButtonLSecondary">
+        <item name="sd_linkButtonStyle">@style/Plasma.SdService.Components.LinkButton.L.Secondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.LinkButton.L.Accent">
+        <item name="plasma_linkbuttonColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.LinkButtonLAccent">
+        <item name="sd_linkButtonStyle">@style/Plasma.SdService.Components.LinkButton.L.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.LinkButton.L.Positive">
+        <item name="plasma_linkbuttonColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.LinkButtonLPositive">
+        <item name="sd_linkButtonStyle">@style/Plasma.SdService.Components.LinkButton.L.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.LinkButton.L.Negative">
+        <item name="plasma_linkbuttonColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.LinkButtonLNegative">
+        <item name="sd_linkButtonStyle">@style/Plasma.SdService.Components.LinkButton.L.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.LinkButton.L.Warning">
+        <item name="plasma_linkbuttonColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.LinkButtonLWarning">
+        <item name="sd_linkButtonStyle">@style/Plasma.SdService.Components.LinkButton.L.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.LinkButton.M">
+        <item name="android:minHeight">@dimen/plasma_link_button_m_min_height</item>
+        <item name="android:minWidth">@dimen/plasma_link_button_m_min_width</item>
+        <item name="android:paddingStart">@dimen/plasma_link_button_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_link_button_m_padding_end</item>
+        <item name="sd_iconSize">@dimen/plasma_link_button_m_icon_size</item>
+        <item name="sd_spinnerSize">@dimen/plasma_link_button_m_spinner_size</item>
+        <item name="sd_spinnerStrokeWidth">@dimen/plasma_link_button_m_spinner_stroke_width</item>
+        <item name="sd_iconPadding">@dimen/plasma_link_button_m_icon_padding</item>
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyMBold</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.LinkButtonM">
+        <item name="sd_linkButtonStyle">@style/Plasma.SdService.Components.LinkButton.M</item>
+    </style>
+    <style name="Plasma.SdService.Components.LinkButton.M.Default">
+        <item name="plasma_linkbuttonColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.LinkButtonMDefault">
+        <item name="sd_linkButtonStyle">@style/Plasma.SdService.Components.LinkButton.M.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.LinkButton.M.Secondary">
+        <item name="plasma_linkbuttonColors">state_secondary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.LinkButtonMSecondary">
+        <item name="sd_linkButtonStyle">@style/Plasma.SdService.Components.LinkButton.M.Secondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.LinkButton.M.Accent">
+        <item name="plasma_linkbuttonColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.LinkButtonMAccent">
+        <item name="sd_linkButtonStyle">@style/Plasma.SdService.Components.LinkButton.M.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.LinkButton.M.Positive">
+        <item name="plasma_linkbuttonColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.LinkButtonMPositive">
+        <item name="sd_linkButtonStyle">@style/Plasma.SdService.Components.LinkButton.M.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.LinkButton.M.Negative">
+        <item name="plasma_linkbuttonColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.LinkButtonMNegative">
+        <item name="sd_linkButtonStyle">@style/Plasma.SdService.Components.LinkButton.M.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.LinkButton.M.Warning">
+        <item name="plasma_linkbuttonColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.LinkButtonMWarning">
+        <item name="sd_linkButtonStyle">@style/Plasma.SdService.Components.LinkButton.M.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.LinkButton.S">
+        <item name="android:minHeight">@dimen/plasma_link_button_s_min_height</item>
+        <item name="android:minWidth">@dimen/plasma_link_button_s_min_width</item>
+        <item name="android:paddingStart">@dimen/plasma_link_button_s_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_link_button_s_padding_end</item>
+        <item name="sd_iconSize">@dimen/plasma_link_button_s_icon_size</item>
+        <item name="sd_spinnerSize">@dimen/plasma_link_button_s_spinner_size</item>
+        <item name="sd_spinnerStrokeWidth">@dimen/plasma_link_button_s_spinner_stroke_width</item>
+        <item name="sd_iconPadding">@dimen/plasma_link_button_s_icon_padding</item>
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodySBold</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.LinkButtonS">
+        <item name="sd_linkButtonStyle">@style/Plasma.SdService.Components.LinkButton.S</item>
+    </style>
+    <style name="Plasma.SdService.Components.LinkButton.S.Default">
+        <item name="plasma_linkbuttonColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.LinkButtonSDefault">
+        <item name="sd_linkButtonStyle">@style/Plasma.SdService.Components.LinkButton.S.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.LinkButton.S.Secondary">
+        <item name="plasma_linkbuttonColors">state_secondary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.LinkButtonSSecondary">
+        <item name="sd_linkButtonStyle">@style/Plasma.SdService.Components.LinkButton.S.Secondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.LinkButton.S.Accent">
+        <item name="plasma_linkbuttonColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.LinkButtonSAccent">
+        <item name="sd_linkButtonStyle">@style/Plasma.SdService.Components.LinkButton.S.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.LinkButton.S.Positive">
+        <item name="plasma_linkbuttonColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.LinkButtonSPositive">
+        <item name="sd_linkButtonStyle">@style/Plasma.SdService.Components.LinkButton.S.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.LinkButton.S.Negative">
+        <item name="plasma_linkbuttonColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.LinkButtonSNegative">
+        <item name="sd_linkButtonStyle">@style/Plasma.SdService.Components.LinkButton.S.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.LinkButton.S.Warning">
+        <item name="plasma_linkbuttonColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.LinkButtonSWarning">
+        <item name="sd_linkButtonStyle">@style/Plasma.SdService.Components.LinkButton.S.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.LinkButton.Xs">
+        <item name="android:minHeight">@dimen/plasma_link_button_xs_min_height</item>
+        <item name="android:minWidth">@dimen/plasma_link_button_xs_min_width</item>
+        <item name="android:paddingStart">@dimen/plasma_link_button_xs_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_link_button_xs_padding_end</item>
+        <item name="sd_iconSize">@dimen/plasma_link_button_xs_icon_size</item>
+        <item name="sd_spinnerSize">@dimen/plasma_link_button_xs_spinner_size</item>
+        <item name="sd_spinnerStrokeWidth">@dimen/plasma_link_button_xs_spinner_stroke_width</item>
+        <item name="sd_iconPadding">@dimen/plasma_link_button_xs_icon_padding</item>
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyXsBold</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.LinkButtonXs">
+        <item name="sd_linkButtonStyle">@style/Plasma.SdService.Components.LinkButton.Xs</item>
+    </style>
+    <style name="Plasma.SdService.Components.LinkButton.Xs.Default">
+        <item name="plasma_linkbuttonColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.LinkButtonXsDefault">
+        <item name="sd_linkButtonStyle">@style/Plasma.SdService.Components.LinkButton.Xs.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.LinkButton.Xs.Secondary">
+        <item name="plasma_linkbuttonColors">state_secondary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.LinkButtonXsSecondary">
+        <item name="sd_linkButtonStyle">@style/Plasma.SdService.Components.LinkButton.Xs.Secondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.LinkButton.Xs.Accent">
+        <item name="plasma_linkbuttonColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.LinkButtonXsAccent">
+        <item name="sd_linkButtonStyle">@style/Plasma.SdService.Components.LinkButton.Xs.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.LinkButton.Xs.Positive">
+        <item name="plasma_linkbuttonColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.LinkButtonXsPositive">
+        <item name="sd_linkButtonStyle">@style/Plasma.SdService.Components.LinkButton.Xs.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.LinkButton.Xs.Negative">
+        <item name="plasma_linkbuttonColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.LinkButtonXsNegative">
+        <item name="sd_linkButtonStyle">@style/Plasma.SdService.Components.LinkButton.Xs.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.LinkButton.Xs.Warning">
+        <item name="plasma_linkbuttonColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.LinkButtonXsWarning">
+        <item name="sd_linkButtonStyle">@style/Plasma.SdService.Components.LinkButton.Xs.Warning</item>
+    </style>
+</resources>

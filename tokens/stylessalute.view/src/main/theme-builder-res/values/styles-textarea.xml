@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextAreaChips">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroup.Dense</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextArea" parent="Sdds.Components.TextArea">
+        <item name="sd_colorStateProvider">com.themebuilder.tokens.colorstate.TextAreaColorStateProvider</item>
+        <item name="sd_scrollBarThickness">@dimen/salute_text_area_scrollbar_thickness</item>
+        <item name="sd_scrollBarPaddingTop">@dimen/salute_text_area_scrollbar_padding_top</item>
+        <item name="sd_scrollBarPaddingEnd">@dimen/salute_text_area_scrollbar_padding_end</item>
+        <item name="sd_scrollBarPaddingBottom">@dimen/salute_text_area_scrollbar_padding_bottom</item>
+        <item name="sd_disabledAlpha">0.4</item>
+        <item name="sd_counterPlacement">inner</item>
+        <item name="sd_captionPlacement">inner</item>
+        <item name="sd_chipsPadding">@dimen/salute_text_area_chips_padding</item>
+        <item name="sd_captionAppearance">@style/Salute.StylesSalute.TextAppearance.BodyXsNormal</item>
+        <item name="sd_counterAppearance">@style/Salute.StylesSalute.TextAppearance.BodyXsNormal</item>
+        <item name="sd_prefixTextPadding">@dimen/salute_text_area_prefix_padding</item>
+        <item name="sd_suffixTextPadding">@dimen/salute_text_area_suffix_padding</item>
+        <item name="sd_chipGroupStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.TextFieldChips</item>
+        <item name="sd_valueColor">@color/salute_text_area_value_color</item>
+        <item name="sd_captionColor">@color/salute_text_area_caption_color</item>
+        <item name="sd_iconTint">@color/salute_text_area_icon_color</item>
+        <item name="sd_actionTint">@color/salute_text_area_action_color</item>
+        <item name="sd_counterColor">@color/salute_text_area_counter_color</item>
+        <item name="sd_placeholderColor">@color/salute_text_area_placeholder_color</item>
+        <item name="sd_boxTint">@color/salute_text_area_bg_color</item>
+        <item name="sd_scrollBarTrackColor">@color/salute_text_area_scroll_track_color</item>
+        <item name="sd_scrollBarThumbColor">@color/salute_text_area_scroll_thumb_color</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextAreaXsChips">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroup.Dense</item>
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.EmbeddedChip.Xs.Secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextArea.Xs">
+        <item name="sd_requirementMode">optional</item>
+        <item name="sd_shapeAppearance">?salute_shapeRoundS</item>
+        <item name="sd_labelPlacement">none</item>
+        <item name="sd_boxPaddingStart">@dimen/salute_text_area_xs_box_padding_start</item>
+        <item name="sd_boxPaddingEnd">@dimen/salute_text_area_xs_box_padding_end</item>
+        <item name="sd_boxPaddingTop">@dimen/salute_text_area_xs_box_padding_top</item>
+        <item name="sd_boxPaddingBottom">@dimen/salute_text_area_xs_box_padding_bottom</item>
+        <item name="sd_helperTextPadding">@dimen/salute_text_area_xs_helper_padding</item>
+        <item name="sd_iconPadding">@dimen/salute_text_area_xs_icon_padding</item>
+        <item name="sd_actionPadding">@dimen/salute_text_area_xs_action_padding</item>
+        <item name="sd_boxMinHeight">@dimen/salute_text_area_xs_box_min_height</item>
+        <item name="sd_alignmentLineHeight">@dimen/salute_text_area_xs_alignment_height</item>
+        <item name="sd_iconSize">@dimen/salute_text_area_xs_icon_size</item>
+        <item name="sd_actionSize">@dimen/salute_text_area_xs_action_size</item>
+        <item name="sd_valueAppearance">@style/Salute.StylesSalute.TextAppearance.BodyXsNormal</item>
+        <item name="sd_placeholderAppearance">@style/Salute.StylesSalute.TextAppearance.BodyXsNormal</item>
+        <item name="sd_chipGroupStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.TextFieldXsChips</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextAreaXs">
+        <item name="sd_textAreaStyle">@style/Salute.StylesSalute.Components.TextArea.Xs</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextArea.Xs.RequiredStart">
+        <item name="sd_requirementMode">start</item>
+        <item name="sd_indicatorSize">@dimen/salute_text_area_xs_required_start_indicator_size</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextAreaXsRequiredStart">
+        <item name="sd_textAreaStyle">@style/Salute.StylesSalute.Components.TextArea.Xs.RequiredStart</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextArea.Xs.RequiredEnd">
+        <item name="sd_requirementMode">end</item>
+        <item name="sd_indicatorSize">@dimen/salute_text_area_xs_required_end_indicator_size</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextAreaXsRequiredEnd">
+        <item name="sd_textAreaStyle">@style/Salute.StylesSalute.Components.TextArea.Xs.RequiredEnd</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextArea.Xs.OuterLabel">
+        <item name="sd_labelPlacement">outer</item>
+        <item name="sd_boxPaddingTop">@dimen/salute_text_area_xs_outer_label_box_padding_top</item>
+        <item name="sd_boxPaddingBottom">@dimen/salute_text_area_xs_outer_label_box_padding_bottom</item>
+        <item name="sd_labelPadding">@dimen/salute_text_area_xs_outer_label_label_padding</item>
+        <item name="sd_labelAppearance">@style/Salute.StylesSalute.TextAppearance.BodyXsNormal</item>
+        <item name="sd_labelColor">@color/salute_text_area_xs_outer_label_label_color</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextAreaXsOuterLabel">
+        <item name="sd_textAreaStyle">@style/Salute.StylesSalute.Components.TextArea.Xs.OuterLabel</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextArea.Xs.OuterLabel.RequiredStart">
+        <item name="sd_requirementMode">start</item>
+        <item name="sd_indicatorSize">@dimen/salute_text_area_xs_outer_label_required_start_indicator_size</item>
+        <item name="sd_indicatorOffsetX">@dimen/salute_text_area_xs_outer_label_required_start_indicator_offset_x</item>
+        <item name="sd_indicatorOffsetY">@dimen/salute_text_area_xs_outer_label_required_start_indicator_offset_y</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextAreaXsOuterLabelRequiredStart">
+        <item name="sd_textAreaStyle">@style/Salute.StylesSalute.Components.TextArea.Xs.OuterLabel.RequiredStart</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextArea.Xs.OuterLabel.RequiredEnd">
+        <item name="sd_requirementMode">end</item>
+        <item name="sd_indicatorSize">@dimen/salute_text_area_xs_outer_label_required_end_indicator_size</item>
+        <item name="sd_indicatorOffsetX">@dimen/salute_text_area_xs_outer_label_required_end_indicator_offset_x</item>
+        <item name="sd_indicatorOffsetY">@dimen/salute_text_area_xs_outer_label_required_end_indicator_offset_y</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextAreaXsOuterLabelRequiredEnd">
+        <item name="sd_textAreaStyle">@style/Salute.StylesSalute.Components.TextArea.Xs.OuterLabel.RequiredEnd</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextAreaSChips">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroup.Dense</item>
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.EmbeddedChip.S.Secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextArea.S">
+        <item name="sd_requirementMode">optional</item>
+        <item name="sd_shapeAppearance">?salute_shapeRoundM</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/salute_text_area_s_shape_adjustment</item>
+        <item name="sd_labelPlacement">none</item>
+        <item name="sd_boxPaddingStart">@dimen/salute_text_area_s_box_padding_start</item>
+        <item name="sd_boxPaddingEnd">@dimen/salute_text_area_s_box_padding_end</item>
+        <item name="sd_boxPaddingTop">@dimen/salute_text_area_s_box_padding_top</item>
+        <item name="sd_boxPaddingBottom">@dimen/salute_text_area_s_box_padding_bottom</item>
+        <item name="sd_helperTextPadding">@dimen/salute_text_area_s_helper_padding</item>
+        <item name="sd_iconPadding">@dimen/salute_text_area_s_icon_padding</item>
+        <item name="sd_actionPadding">@dimen/salute_text_area_s_action_padding</item>
+        <item name="sd_boxMinHeight">@dimen/salute_text_area_s_box_min_height</item>
+        <item name="sd_alignmentLineHeight">@dimen/salute_text_area_s_alignment_height</item>
+        <item name="sd_iconSize">@dimen/salute_text_area_s_icon_size</item>
+        <item name="sd_actionSize">@dimen/salute_text_area_s_action_size</item>
+        <item name="sd_valueAppearance">@style/Salute.StylesSalute.TextAppearance.BodySNormal</item>
+        <item name="sd_placeholderAppearance">@style/Salute.StylesSalute.TextAppearance.BodySNormal</item>
+        <item name="sd_chipGroupStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.TextFieldSChips</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextAreaS">
+        <item name="sd_textAreaStyle">@style/Salute.StylesSalute.Components.TextArea.S</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextArea.S.RequiredStart">
+        <item name="sd_requirementMode">start</item>
+        <item name="sd_indicatorSize">@dimen/salute_text_area_s_required_start_indicator_size</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextAreaSRequiredStart">
+        <item name="sd_textAreaStyle">@style/Salute.StylesSalute.Components.TextArea.S.RequiredStart</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextArea.S.RequiredEnd">
+        <item name="sd_requirementMode">end</item>
+        <item name="sd_indicatorSize">@dimen/salute_text_area_s_required_end_indicator_size</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextAreaSRequiredEnd">
+        <item name="sd_textAreaStyle">@style/Salute.StylesSalute.Components.TextArea.S.RequiredEnd</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextArea.S.OuterLabel">
+        <item name="sd_labelPlacement">outer</item>
+        <item name="sd_labelPadding">@dimen/salute_text_area_s_outer_label_label_padding</item>
+        <item name="sd_labelAppearance">@style/Salute.StylesSalute.TextAppearance.BodySNormal</item>
+        <item name="sd_labelColor">@color/salute_text_area_s_outer_label_label_color</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextAreaSOuterLabel">
+        <item name="sd_textAreaStyle">@style/Salute.StylesSalute.Components.TextArea.S.OuterLabel</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextArea.S.OuterLabel.RequiredStart">
+        <item name="sd_requirementMode">start</item>
+        <item name="sd_indicatorSize">@dimen/salute_text_area_s_outer_label_required_start_indicator_size</item>
+        <item name="sd_indicatorOffsetX">@dimen/salute_text_area_s_outer_label_required_start_indicator_offset_x</item>
+        <item name="sd_indicatorOffsetY">@dimen/salute_text_area_s_outer_label_required_start_indicator_offset_y</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextAreaSOuterLabelRequiredStart">
+        <item name="sd_textAreaStyle">@style/Salute.StylesSalute.Components.TextArea.S.OuterLabel.RequiredStart</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextArea.S.OuterLabel.RequiredEnd">
+        <item name="sd_requirementMode">end</item>
+        <item name="sd_indicatorSize">@dimen/salute_text_area_s_outer_label_required_end_indicator_size</item>
+        <item name="sd_indicatorOffsetX">@dimen/salute_text_area_s_outer_label_required_end_indicator_offset_x</item>
+        <item name="sd_indicatorOffsetY">@dimen/salute_text_area_s_outer_label_required_end_indicator_offset_y</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextAreaSOuterLabelRequiredEnd">
+        <item name="sd_textAreaStyle">@style/Salute.StylesSalute.Components.TextArea.S.OuterLabel.RequiredEnd</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextArea.S.InnerLabel">
+        <item name="sd_labelPlacement">inner</item>
+        <item name="sd_boxPaddingTop">@dimen/salute_text_area_s_inner_label_box_padding_top</item>
+        <item name="sd_boxPaddingBottom">@dimen/salute_text_area_s_inner_label_box_padding_bottom</item>
+        <item name="sd_labelPadding">@dimen/salute_text_area_s_inner_label_label_padding</item>
+        <item name="sd_labelAppearance">@style/Salute.StylesSalute.TextAppearance.BodyXsNormal</item>
+        <item name="sd_labelColor">@color/salute_text_area_s_inner_label_label_color</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextAreaSInnerLabel">
+        <item name="sd_textAreaStyle">@style/Salute.StylesSalute.Components.TextArea.S.InnerLabel</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextArea.S.InnerLabel.RequiredStart">
+        <item name="sd_requirementMode">start</item>
+        <item name="sd_indicatorSize">@dimen/salute_text_area_s_inner_label_required_start_indicator_size</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextAreaSInnerLabelRequiredStart">
+        <item name="sd_textAreaStyle">@style/Salute.StylesSalute.Components.TextArea.S.InnerLabel.RequiredStart</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextArea.S.InnerLabel.RequiredEnd">
+        <item name="sd_requirementMode">end</item>
+        <item name="sd_indicatorSize">@dimen/salute_text_area_s_inner_label_required_end_indicator_size</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextAreaSInnerLabelRequiredEnd">
+        <item name="sd_textAreaStyle">@style/Salute.StylesSalute.Components.TextArea.S.InnerLabel.RequiredEnd</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextAreaMChips">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroup.Dense</item>
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.EmbeddedChip.M.Secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextArea.M">
+        <item name="sd_requirementMode">optional</item>
+        <item name="sd_shapeAppearance">?salute_shapeRoundM</item>
+        <item name="sd_labelPlacement">none</item>
+        <item name="sd_boxPaddingStart">@dimen/salute_text_area_m_box_padding_start</item>
+        <item name="sd_boxPaddingEnd">@dimen/salute_text_area_m_box_padding_end</item>
+        <item name="sd_boxPaddingTop">@dimen/salute_text_area_m_box_padding_top</item>
+        <item name="sd_boxPaddingBottom">@dimen/salute_text_area_m_box_padding_bottom</item>
+        <item name="sd_helperTextPadding">@dimen/salute_text_area_m_helper_padding</item>
+        <item name="sd_iconPadding">@dimen/salute_text_area_m_icon_padding</item>
+        <item name="sd_actionPadding">@dimen/salute_text_area_m_action_padding</item>
+        <item name="sd_boxMinHeight">@dimen/salute_text_area_m_box_min_height</item>
+        <item name="sd_alignmentLineHeight">@dimen/salute_text_area_m_alignment_height</item>
+        <item name="sd_iconSize">@dimen/salute_text_area_m_icon_size</item>
+        <item name="sd_actionSize">@dimen/salute_text_area_m_action_size</item>
+        <item name="sd_valueAppearance">@style/Salute.StylesSalute.TextAppearance.BodyMNormal</item>
+        <item name="sd_placeholderAppearance">@style/Salute.StylesSalute.TextAppearance.BodyMNormal</item>
+        <item name="sd_chipGroupStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.TextFieldMChips</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextAreaM">
+        <item name="sd_textAreaStyle">@style/Salute.StylesSalute.Components.TextArea.M</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextArea.M.RequiredStart">
+        <item name="sd_requirementMode">start</item>
+        <item name="sd_indicatorSize">@dimen/salute_text_area_m_required_start_indicator_size</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextAreaMRequiredStart">
+        <item name="sd_textAreaStyle">@style/Salute.StylesSalute.Components.TextArea.M.RequiredStart</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextArea.M.RequiredEnd">
+        <item name="sd_requirementMode">end</item>
+        <item name="sd_indicatorSize">@dimen/salute_text_area_m_required_end_indicator_size</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextAreaMRequiredEnd">
+        <item name="sd_textAreaStyle">@style/Salute.StylesSalute.Components.TextArea.M.RequiredEnd</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextArea.M.OuterLabel">
+        <item name="sd_labelPlacement">outer</item>
+        <item name="sd_labelPadding">@dimen/salute_text_area_m_outer_label_label_padding</item>
+        <item name="sd_labelAppearance">@style/Salute.StylesSalute.TextAppearance.BodyMNormal</item>
+        <item name="sd_labelColor">@color/salute_text_area_m_outer_label_label_color</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextAreaMOuterLabel">
+        <item name="sd_textAreaStyle">@style/Salute.StylesSalute.Components.TextArea.M.OuterLabel</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextArea.M.OuterLabel.RequiredStart">
+        <item name="sd_requirementMode">start</item>
+        <item name="sd_indicatorSize">@dimen/salute_text_area_m_outer_label_required_start_indicator_size</item>
+        <item name="sd_indicatorOffsetX">@dimen/salute_text_area_m_outer_label_required_start_indicator_offset_x</item>
+        <item name="sd_indicatorOffsetY">@dimen/salute_text_area_m_outer_label_required_start_indicator_offset_y</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextAreaMOuterLabelRequiredStart">
+        <item name="sd_textAreaStyle">@style/Salute.StylesSalute.Components.TextArea.M.OuterLabel.RequiredStart</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextArea.M.OuterLabel.RequiredEnd">
+        <item name="sd_requirementMode">end</item>
+        <item name="sd_indicatorSize">@dimen/salute_text_area_m_outer_label_required_end_indicator_size</item>
+        <item name="sd_indicatorOffsetX">@dimen/salute_text_area_m_outer_label_required_end_indicator_offset_x</item>
+        <item name="sd_indicatorOffsetY">@dimen/salute_text_area_m_outer_label_required_end_indicator_offset_y</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextAreaMOuterLabelRequiredEnd">
+        <item name="sd_textAreaStyle">@style/Salute.StylesSalute.Components.TextArea.M.OuterLabel.RequiredEnd</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextArea.M.InnerLabel">
+        <item name="sd_labelPlacement">inner</item>
+        <item name="sd_boxPaddingTop">@dimen/salute_text_area_m_inner_label_box_padding_top</item>
+        <item name="sd_boxPaddingBottom">@dimen/salute_text_area_m_inner_label_box_padding_bottom</item>
+        <item name="sd_labelPadding">@dimen/salute_text_area_m_inner_label_label_padding</item>
+        <item name="sd_labelAppearance">@style/Salute.StylesSalute.TextAppearance.BodyXsNormal</item>
+        <item name="sd_labelColor">@color/salute_text_area_m_inner_label_label_color</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextAreaMInnerLabel">
+        <item name="sd_textAreaStyle">@style/Salute.StylesSalute.Components.TextArea.M.InnerLabel</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextArea.M.InnerLabel.RequiredStart">
+        <item name="sd_requirementMode">start</item>
+        <item name="sd_indicatorSize">@dimen/salute_text_area_m_inner_label_required_start_indicator_size</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextAreaMInnerLabelRequiredStart">
+        <item name="sd_textAreaStyle">@style/Salute.StylesSalute.Components.TextArea.M.InnerLabel.RequiredStart</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextArea.M.InnerLabel.RequiredEnd">
+        <item name="sd_requirementMode">end</item>
+        <item name="sd_indicatorSize">@dimen/salute_text_area_m_inner_label_required_end_indicator_size</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextAreaMInnerLabelRequiredEnd">
+        <item name="sd_textAreaStyle">@style/Salute.StylesSalute.Components.TextArea.M.InnerLabel.RequiredEnd</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextAreaLChips">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroup.Dense</item>
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.EmbeddedChip.L.Secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextArea.L">
+        <item name="sd_requirementMode">optional</item>
+        <item name="sd_shapeAppearance">?salute_shapeRoundM</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/salute_text_area_l_shape_adjustment</item>
+        <item name="sd_labelPlacement">none</item>
+        <item name="sd_boxPaddingStart">@dimen/salute_text_area_l_box_padding_start</item>
+        <item name="sd_boxPaddingEnd">@dimen/salute_text_area_l_box_padding_end</item>
+        <item name="sd_boxPaddingTop">@dimen/salute_text_area_l_box_padding_top</item>
+        <item name="sd_boxPaddingBottom">@dimen/salute_text_area_l_box_padding_bottom</item>
+        <item name="sd_helperTextPadding">@dimen/salute_text_area_l_helper_padding</item>
+        <item name="sd_iconPadding">@dimen/salute_text_area_l_icon_padding</item>
+        <item name="sd_actionPadding">@dimen/salute_text_area_l_action_padding</item>
+        <item name="sd_boxMinHeight">@dimen/salute_text_area_l_box_min_height</item>
+        <item name="sd_alignmentLineHeight">@dimen/salute_text_area_l_alignment_height</item>
+        <item name="sd_iconSize">@dimen/salute_text_area_l_icon_size</item>
+        <item name="sd_actionSize">@dimen/salute_text_area_l_action_size</item>
+        <item name="sd_valueAppearance">@style/Salute.StylesSalute.TextAppearance.BodyLNormal</item>
+        <item name="sd_placeholderAppearance">@style/Salute.StylesSalute.TextAppearance.BodyLNormal</item>
+        <item name="sd_chipGroupStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.TextFieldLChips</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextAreaL">
+        <item name="sd_textAreaStyle">@style/Salute.StylesSalute.Components.TextArea.L</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextArea.L.RequiredStart">
+        <item name="sd_requirementMode">start</item>
+        <item name="sd_indicatorSize">@dimen/salute_text_area_l_required_start_indicator_size</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextAreaLRequiredStart">
+        <item name="sd_textAreaStyle">@style/Salute.StylesSalute.Components.TextArea.L.RequiredStart</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextArea.L.RequiredEnd">
+        <item name="sd_requirementMode">end</item>
+        <item name="sd_indicatorSize">@dimen/salute_text_area_l_required_end_indicator_size</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextAreaLRequiredEnd">
+        <item name="sd_textAreaStyle">@style/Salute.StylesSalute.Components.TextArea.L.RequiredEnd</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextArea.L.OuterLabel">
+        <item name="sd_labelPlacement">outer</item>
+        <item name="sd_labelPadding">@dimen/salute_text_area_l_outer_label_label_padding</item>
+        <item name="sd_labelAppearance">@style/Salute.StylesSalute.TextAppearance.BodyLNormal</item>
+        <item name="sd_labelColor">@color/salute_text_area_l_outer_label_label_color</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextAreaLOuterLabel">
+        <item name="sd_textAreaStyle">@style/Salute.StylesSalute.Components.TextArea.L.OuterLabel</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextArea.L.OuterLabel.RequiredStart">
+        <item name="sd_requirementMode">start</item>
+        <item name="sd_indicatorSize">@dimen/salute_text_area_l_outer_label_required_start_indicator_size</item>
+        <item name="sd_indicatorOffsetX">@dimen/salute_text_area_l_outer_label_required_start_indicator_offset_x</item>
+        <item name="sd_indicatorOffsetY">@dimen/salute_text_area_l_outer_label_required_start_indicator_offset_y</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextAreaLOuterLabelRequiredStart">
+        <item name="sd_textAreaStyle">@style/Salute.StylesSalute.Components.TextArea.L.OuterLabel.RequiredStart</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextArea.L.OuterLabel.RequiredEnd">
+        <item name="sd_requirementMode">end</item>
+        <item name="sd_indicatorSize">@dimen/salute_text_area_l_outer_label_required_end_indicator_size</item>
+        <item name="sd_indicatorOffsetX">@dimen/salute_text_area_l_outer_label_required_end_indicator_offset_x</item>
+        <item name="sd_indicatorOffsetY">@dimen/salute_text_area_l_outer_label_required_end_indicator_offset_y</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextAreaLOuterLabelRequiredEnd">
+        <item name="sd_textAreaStyle">@style/Salute.StylesSalute.Components.TextArea.L.OuterLabel.RequiredEnd</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextArea.L.InnerLabel">
+        <item name="sd_labelPlacement">inner</item>
+        <item name="sd_boxPaddingTop">@dimen/salute_text_area_l_inner_label_box_padding_top</item>
+        <item name="sd_boxPaddingBottom">@dimen/salute_text_area_l_inner_label_box_padding_bottom</item>
+        <item name="sd_labelPadding">@dimen/salute_text_area_l_inner_label_label_padding</item>
+        <item name="sd_labelAppearance">@style/Salute.StylesSalute.TextAppearance.BodyXsNormal</item>
+        <item name="sd_labelColor">@color/salute_text_area_l_inner_label_label_color</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextAreaLInnerLabel">
+        <item name="sd_textAreaStyle">@style/Salute.StylesSalute.Components.TextArea.L.InnerLabel</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextArea.L.InnerLabel.RequiredStart">
+        <item name="sd_requirementMode">start</item>
+        <item name="sd_indicatorSize">@dimen/salute_text_area_l_inner_label_required_start_indicator_size</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextAreaLInnerLabelRequiredStart">
+        <item name="sd_textAreaStyle">@style/Salute.StylesSalute.Components.TextArea.L.InnerLabel.RequiredStart</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.TextArea.L.InnerLabel.RequiredEnd">
+        <item name="sd_requirementMode">end</item>
+        <item name="sd_indicatorSize">@dimen/salute_text_area_l_inner_label_required_end_indicator_size</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.TextAreaLInnerLabelRequiredEnd">
+        <item name="sd_textAreaStyle">@style/Salute.StylesSalute.Components.TextArea.L.InnerLabel.RequiredEnd</item>
+    </style>
+</resources>

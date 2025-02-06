@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Salute.StylesSalute.Components.Segment" parent="Sdds.Components.Segment">
+        <item name="android:padding">2dp</item>
+        <item name="android:backgroundTint">?salute_surfaceDefaultTransparentSecondary</item>
+        <item name="sd_stretch">false</item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Segment.L">
+        <item name="sd_segmentItemStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.SegmentItem.LDefault</item>
+        <item name="sd_shapeAppearance">?salute_shapeRoundL </item>
+        <item name="sd_shapeAppearanceAdjustment">-2dp </item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Segment.L.Primary">
+        <item name="sd_segmentItemStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.SegmentItem.LPrimary</item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Segment.L.Secondary">
+        <item name="sd_segmentItemStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.SegmentItem.LSecondary</item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Segment.M">
+        <item name="sd_segmentItemStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.SegmentItem.MDefault</item>
+        <item name="sd_shapeAppearance">?salute_shapeRoundM </item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Segment.M.Primary">
+        <item name="sd_segmentItemStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.SegmentItem.MPrimary</item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Segment.M.Secondary">
+        <item name="sd_segmentItemStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.SegmentItem.MSecondary</item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Segment.S">
+        <item name="sd_segmentItemStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.SegmentItem.SDefault</item>
+        <item name="sd_shapeAppearance">?salute_shapeRoundM </item>
+        <item name="sd_shapeAppearanceAdjustment">-2dp </item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Segment.S.Primary">
+        <item name="sd_segmentItemStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.SegmentItem.SPrimary</item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Segment.S.Secondary">
+        <item name="sd_segmentItemStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.SegmentItem.SSecondary</item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Segment.Xs">
+        <item name="sd_segmentItemStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.SegmentItem.XsDefault</item>
+        <item name="sd_shapeAppearance">?salute_shapeRoundS </item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Segment.Xs.Primary">
+        <item name="sd_segmentItemStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.SegmentItem.XsPrimary</item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Segment.Xs.Secondary">
+        <item name="sd_segmentItemStyleOverlay">@style/Salute.StylesSalute.ComponentOverlays.SegmentItem.XsSecondary</item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Segment.LPilled">
+        <item name="sd_segmentItemStyleOverlay"> @style/Salute.StylesSalute.ComponentOverlays.SegmentItem.LDefaultPilled </item>
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle </item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Segment.LPilled.Primary">
+        <item name="sd_segmentItemStyleOverlay"> @style/Salute.StylesSalute.ComponentOverlays.SegmentItem.LPrimaryPilled </item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Segment.LPilled.Secondary">
+        <item name="sd_segmentItemStyleOverlay"> @style/Salute.StylesSalute.ComponentOverlays.SegmentItem.LSecondaryPilled </item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Segment.MPilled">
+        <item name="sd_segmentItemStyleOverlay"> @style/Salute.StylesSalute.ComponentOverlays.SegmentItem.MDefaultPilled </item>
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle </item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Segment.MPilled.Primary">
+        <item name="sd_segmentItemStyleOverlay"> @style/Salute.StylesSalute.ComponentOverlays.SegmentItem.MPrimaryPilled </item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Segment.MPilled.Secondary">
+        <item name="sd_segmentItemStyleOverlay"> @style/Salute.StylesSalute.ComponentOverlays.SegmentItem.MSecondaryPilled </item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Segment.SPilled">
+        <item name="sd_segmentItemStyleOverlay"> @style/Salute.StylesSalute.ComponentOverlays.SegmentItem.SDefaultPilled </item>
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle </item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Segment.SPilled.Primary">
+        <item name="sd_segmentItemStyleOverlay"> @style/Salute.StylesSalute.ComponentOverlays.SegmentItem.SPrimaryPilled </item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Segment.SPilled.Secondary">
+        <item name="sd_segmentItemStyleOverlay"> @style/Salute.StylesSalute.ComponentOverlays.SegmentItem.SSecondaryPilled </item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Segment.XsPilled">
+        <item name="sd_segmentItemStyleOverlay"> @style/Salute.StylesSalute.ComponentOverlays.SegmentItem.XsDefaultPilled </item>
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle </item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Segment.XsPilled.Primary">
+        <item name="sd_segmentItemStyleOverlay"> @style/Salute.StylesSalute.ComponentOverlays.SegmentItem.XsPrimaryPilled </item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Segment.XsPilled.Secondary">
+        <item name="sd_segmentItemStyleOverlay"> @style/Salute.StylesSalute.ComponentOverlays.SegmentItem.XsSecondaryPilled </item>
+    </style>
+
+</resources>
+
+
+

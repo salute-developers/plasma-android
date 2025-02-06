@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <!--Typography-->
+    <attr format="reference" name="salute_typographyDisplayLNormal"/>
+    <attr format="reference" name="salute_typographyDisplayLBold"/>
+    <attr format="reference" name="salute_typographyDisplayMNormal"/>
+    <attr format="reference" name="salute_typographyDisplayMBold"/>
+    <attr format="reference" name="salute_typographyDisplaySNormal"/>
+    <attr format="reference" name="salute_typographyDisplaySBold"/>
+    <attr format="reference" name="salute_typographyHeaderH1Normal"/>
+    <attr format="reference" name="salute_typographyHeaderH1Bold"/>
+    <attr format="reference" name="salute_typographyHeaderH2Normal"/>
+    <attr format="reference" name="salute_typographyHeaderH2Bold"/>
+    <attr format="reference" name="salute_typographyHeaderH3Normal"/>
+    <attr format="reference" name="salute_typographyHeaderH3Bold"/>
+    <attr format="reference" name="salute_typographyHeaderH4Normal"/>
+    <attr format="reference" name="salute_typographyHeaderH4Bold"/>
+    <attr format="reference" name="salute_typographyHeaderH5Normal"/>
+    <attr format="reference" name="salute_typographyHeaderH5Bold"/>
+    <attr format="reference" name="salute_typographyBodyLNormal"/>
+    <attr format="reference" name="salute_typographyBodyLBold"/>
+    <attr format="reference" name="salute_typographyBodyMNormal"/>
+    <attr format="reference" name="salute_typographyBodyMBold"/>
+    <attr format="reference" name="salute_typographyBodySNormal"/>
+    <attr format="reference" name="salute_typographyBodySBold"/>
+    <attr format="reference" name="salute_typographyBodyXsNormal"/>
+    <attr format="reference" name="salute_typographyBodyXsBold"/>
+    <attr format="reference" name="salute_typographyBodyXxsNormal"/>
+    <attr format="reference" name="salute_typographyBodyXxsBold"/>
+    <attr format="reference" name="salute_typographyTextLNormal"/>
+    <attr format="reference" name="salute_typographyTextLBold"/>
+    <attr format="reference" name="salute_typographyTextMNormal"/>
+    <attr format="reference" name="salute_typographyTextMBold"/>
+    <attr format="reference" name="salute_typographyTextSNormal"/>
+    <attr format="reference" name="salute_typographyTextSBold"/>
+    <attr format="reference" name="salute_typographyTextXsNormal"/>
+    <attr format="reference" name="salute_typographyTextXsBold"/>
+</resources>

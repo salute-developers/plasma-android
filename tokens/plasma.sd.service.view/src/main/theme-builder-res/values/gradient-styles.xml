@@ -1,0 +1,782 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Plasma.SdService.Gradient"/>
+    <!--region Акцентный цвет с градиентом-->
+    <style name="Plasma.SdService.Gradient.DarkTextDefaultAccentGradient">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_dark_text_default_accent_gradient_angle</item>
+        <item name="sd_colors">@array/plasma_dark_text_default_accent_gradient_colors</item>
+        <item name="sd_stops">@array/plasma_dark_text_default_accent_gradient_positions</item>
+    </style>
+    <!--endregion Акцентный цвет с градиентом-->
+    <!--region Акцентный цвет с градиентом-->
+    <style name="Plasma.SdService.Gradient.DarkTextDefaultAccentGradientHover">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_dark_text_default_accent_gradient_hover_angle</item>
+        <item name="sd_colors">@array/plasma_dark_text_default_accent_gradient_hover_colors</item>
+        <item name="sd_stops">@array/plasma_dark_text_default_accent_gradient_hover_positions</item>
+    </style>
+    <!--endregion Акцентный цвет с градиентом-->
+    <!--region Акцентный цвет с градиентом-->
+    <style name="Plasma.SdService.Gradient.DarkTextDefaultAccentGradientActive">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_dark_text_default_accent_gradient_active_angle</item>
+        <item name="sd_colors">@array/plasma_dark_text_default_accent_gradient_active_colors</item>
+        <item name="sd_stops">@array/plasma_dark_text_default_accent_gradient_active_positions</item>
+    </style>
+    <!--endregion Акцентный цвет с градиентом-->
+    <!--region Акцентный цвет с градиентом на темном фоне-->
+    <style name="Plasma.SdService.Gradient.DarkTextOnDarkAccentGradient">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_dark_text_on_dark_accent_gradient_angle</item>
+        <item name="sd_colors">@array/plasma_dark_text_on_dark_accent_gradient_colors</item>
+        <item name="sd_stops">@array/plasma_dark_text_on_dark_accent_gradient_positions</item>
+    </style>
+    <!--endregion Акцентный цвет с градиентом на темном фоне-->
+    <!--region Акцентный цвет с градиентом на темном фоне-->
+    <style name="Plasma.SdService.Gradient.DarkTextOnDarkAccentGradientHover">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_dark_text_on_dark_accent_gradient_hover_angle</item>
+        <item name="sd_colors">@array/plasma_dark_text_on_dark_accent_gradient_hover_colors</item>
+        <item name="sd_stops">@array/plasma_dark_text_on_dark_accent_gradient_hover_positions</item>
+    </style>
+    <!--endregion Акцентный цвет с градиентом на темном фоне-->
+    <!--region Акцентный цвет с градиентом на темном фоне-->
+    <style name="Plasma.SdService.Gradient.DarkTextOnDarkAccentGradientActive">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_dark_text_on_dark_accent_gradient_active_angle</item>
+        <item name="sd_colors">@array/plasma_dark_text_on_dark_accent_gradient_active_colors</item>
+        <item name="sd_stops">@array/plasma_dark_text_on_dark_accent_gradient_active_positions</item>
+    </style>
+    <!--endregion Акцентный цвет с градиентом на темном фоне-->
+    <!--region Акцентный цвет с градиентом на светлом фоне-->
+    <style name="Plasma.SdService.Gradient.DarkTextOnLightAccentGradient">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_dark_text_on_light_accent_gradient_angle</item>
+        <item name="sd_colors">@array/plasma_dark_text_on_light_accent_gradient_colors</item>
+        <item name="sd_stops">@array/plasma_dark_text_on_light_accent_gradient_positions</item>
+    </style>
+    <!--endregion Акцентный цвет с градиентом на светлом фоне-->
+    <!--region Акцентный цвет с градиентом на светлом фоне-->
+    <style name="Plasma.SdService.Gradient.DarkTextOnLightAccentGradientHover">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_dark_text_on_light_accent_gradient_hover_angle</item>
+        <item name="sd_colors">@array/plasma_dark_text_on_light_accent_gradient_hover_colors</item>
+        <item name="sd_stops">@array/plasma_dark_text_on_light_accent_gradient_hover_positions</item>
+    </style>
+    <!--endregion Акцентный цвет с градиентом на светлом фоне-->
+    <!--region Акцентный цвет с градиентом на светлом фоне-->
+    <style name="Plasma.SdService.Gradient.DarkTextOnLightAccentGradientActive">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_dark_text_on_light_accent_gradient_active_angle</item>
+        <item name="sd_colors">@array/plasma_dark_text_on_light_accent_gradient_active_colors</item>
+        <item name="sd_stops">@array/plasma_dark_text_on_light_accent_gradient_active_positions</item>
+    </style>
+    <!--endregion Акцентный цвет с градиентом на светлом фоне-->
+    <!--region Инвертированный акцентный цвет с градиентом-->
+    <style name="Plasma.SdService.Gradient.DarkTextInverseAccentGradientHover">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_dark_text_inverse_accent_gradient_hover_angle</item>
+        <item name="sd_colors">@array/plasma_dark_text_inverse_accent_gradient_hover_colors</item>
+        <item name="sd_stops">@array/plasma_dark_text_inverse_accent_gradient_hover_positions</item>
+    </style>
+    <!--endregion Инвертированный акцентный цвет с градиентом-->
+    <!--region Инвертированный акцентный цвет с градиентом-->
+    <style name="Plasma.SdService.Gradient.DarkTextInverseAccentGradientActive">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_dark_text_inverse_accent_gradient_active_angle</item>
+        <item name="sd_colors">@array/plasma_dark_text_inverse_accent_gradient_active_colors</item>
+        <item name="sd_stops">@array/plasma_dark_text_inverse_accent_gradient_active_positions</item>
+    </style>
+    <!--endregion Инвертированный акцентный цвет с градиентом-->
+    <!--region Инвертированный акцентный цвет с градиентом-->
+    <style name="Plasma.SdService.Gradient.DarkTextInverseAccentGradient">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_dark_text_inverse_accent_gradient_angle</item>
+        <item name="sd_colors">@array/plasma_dark_text_inverse_accent_gradient_colors</item>
+        <item name="sd_stops">@array/plasma_dark_text_inverse_accent_gradient_positions</item>
+    </style>
+    <!--endregion Инвертированный акцентный цвет с градиентом-->
+    <!--region Акцентный фон поверхности/контрола с градиентом Слой 0-->
+    <style name="Plasma.SdService.Gradient.DarkSurfaceDefaultAccentGradientLayer0">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_dark_surface_default_accent_gradient_layer_1_angle</item>
+        <item name="sd_colors">@array/plasma_dark_surface_default_accent_gradient_layer_1_colors</item>
+        <item name="sd_stops">@array/plasma_dark_surface_default_accent_gradient_layer_1_positions</item>
+    </style>
+    <!--endregion Акцентный фон поверхности/контрола с градиентом Слой 0-->
+    <!--region Акцентный фон поверхности/контрола с градиентом Слой 1-->
+    <style name="Plasma.SdService.Gradient.DarkSurfaceDefaultAccentGradientLayer1">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_dark_surface_default_accent_gradient_layer_0_angle</item>
+        <item name="sd_colors">@array/plasma_dark_surface_default_accent_gradient_layer_0_colors</item>
+        <item name="sd_stops">@array/plasma_dark_surface_default_accent_gradient_layer_0_positions</item>
+    </style>
+    <!--endregion Акцентный фон поверхности/контрола с градиентом Слой 1-->
+    <!--region Акцентный фон поверхности/контрола с градиентом-->
+    <style name="Plasma.SdService.Gradient.DarkSurfaceDefaultAccentGradientHover">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_dark_surface_default_accent_gradient_hover_angle</item>
+        <item name="sd_colors">@array/plasma_dark_surface_default_accent_gradient_hover_colors</item>
+        <item name="sd_stops">@array/plasma_dark_surface_default_accent_gradient_hover_positions</item>
+    </style>
+    <!--endregion Акцентный фон поверхности/контрола с градиентом-->
+    <!--region Акцентный фон поверхности/контрола с градиентом-->
+    <style name="Plasma.SdService.Gradient.DarkSurfaceDefaultAccentGradientActive">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_dark_surface_default_accent_gradient_active_angle</item>
+        <item name="sd_colors">@array/plasma_dark_surface_default_accent_gradient_active_colors</item>
+        <item name="sd_stops">@array/plasma_dark_surface_default_accent_gradient_active_positions</item>
+    </style>
+    <!--endregion Акцентный фон поверхности/контрола с градиентом-->
+    <!--region Фон для скелетона-->
+    <style name="Plasma.SdService.Gradient.DarkSurfaceDefaultSkeletonGradient">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_dark_surface_default_skeleton_gradient_angle</item>
+        <item name="sd_colors">@array/plasma_dark_surface_default_skeleton_gradient_colors</item>
+        <item name="sd_stops">@array/plasma_dark_surface_default_skeleton_gradient_positions</item>
+    </style>
+    <!--endregion Фон для скелетона-->
+    <!--region Фон для скелетона-->
+    <style name="Plasma.SdService.Gradient.DarkSurfaceDefaultSkeletonGradientHover">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_dark_surface_default_skeleton_gradient_hover_angle</item>
+        <item name="sd_colors">@array/plasma_dark_surface_default_skeleton_gradient_hover_colors</item>
+        <item name="sd_stops">@array/plasma_dark_surface_default_skeleton_gradient_hover_positions</item>
+    </style>
+    <!--endregion Фон для скелетона-->
+    <!--region Фон для скелетона-->
+    <style name="Plasma.SdService.Gradient.DarkSurfaceDefaultSkeletonGradientActive">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_dark_surface_default_skeleton_gradient_active_angle</item>
+        <item name="sd_colors">@array/plasma_dark_surface_default_skeleton_gradient_active_colors</item>
+        <item name="sd_stops">@array/plasma_dark_surface_default_skeleton_gradient_active_positions</item>
+    </style>
+    <!--endregion Фон для скелетона-->
+    <!--region Яркий фон для скелетона-->
+    <style name="Plasma.SdService.Gradient.DarkSurfaceDefaultSkeletonDeepGradient">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_dark_surface_default_skeleton_deep_gradient_angle</item>
+        <item name="sd_colors">@array/plasma_dark_surface_default_skeleton_deep_gradient_colors</item>
+        <item name="sd_stops">@array/plasma_dark_surface_default_skeleton_deep_gradient_positions</item>
+    </style>
+    <!--endregion Яркий фон для скелетона-->
+    <!--region Яркий фон для скелетона-->
+    <style name="Plasma.SdService.Gradient.DarkSurfaceDefaultSkeletonDeepGradientHover">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_dark_surface_default_skeleton_deep_gradient_hover_angle</item>
+        <item name="sd_colors">@array/plasma_dark_surface_default_skeleton_deep_gradient_hover_colors</item>
+        <item name="sd_stops">@array/plasma_dark_surface_default_skeleton_deep_gradient_hover_positions</item>
+    </style>
+    <!--endregion Яркий фон для скелетона-->
+    <!--region Яркий фон для скелетона-->
+    <style name="Plasma.SdService.Gradient.DarkSurfaceDefaultSkeletonDeepGradientActive">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_dark_surface_default_skeleton_deep_gradient_active_angle</item>
+        <item name="sd_colors">@array/plasma_dark_surface_default_skeleton_deep_gradient_active_colors</item>
+        <item name="sd_stops">@array/plasma_dark_surface_default_skeleton_deep_gradient_active_positions</item>
+    </style>
+    <!--endregion Яркий фон для скелетона-->
+    <!--region Акцентный фон поверхн./контрола с градиентом на темном фоне-->
+    <style name="Plasma.SdService.Gradient.DarkSurfaceOnDarkAccentGradient">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_dark_surface_on_dark_accent_gradient_angle</item>
+        <item name="sd_colors">@array/plasma_dark_surface_on_dark_accent_gradient_colors</item>
+        <item name="sd_stops">@array/plasma_dark_surface_on_dark_accent_gradient_positions</item>
+    </style>
+    <!--endregion Акцентный фон поверхн./контрола с градиентом на темном фоне-->
+    <!--region Акцентный фон поверхн./контрола с градиентом на темном фоне-->
+    <style name="Plasma.SdService.Gradient.DarkSurfaceOnDarkAccentGradientHover">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_dark_surface_on_dark_accent_gradient_hover_angle</item>
+        <item name="sd_colors">@array/plasma_dark_surface_on_dark_accent_gradient_hover_colors</item>
+        <item name="sd_stops">@array/plasma_dark_surface_on_dark_accent_gradient_hover_positions</item>
+    </style>
+    <!--endregion Акцентный фон поверхн./контрола с градиентом на темном фоне-->
+    <!--region Акцентный фон поверхн./контрола с градиентом на темном фоне-->
+    <style name="Plasma.SdService.Gradient.DarkSurfaceOnDarkAccentGradientActive">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_dark_surface_on_dark_accent_gradient_active_angle</item>
+        <item name="sd_colors">@array/plasma_dark_surface_on_dark_accent_gradient_active_colors</item>
+        <item name="sd_stops">@array/plasma_dark_surface_on_dark_accent_gradient_active_positions</item>
+    </style>
+    <!--endregion Акцентный фон поверхн./контрола с градиентом на темном фоне-->
+    <!--region Фон для скелетона-->
+    <style name="Plasma.SdService.Gradient.DarkSurfaceOnDarkSkeletonGradient">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_dark_surface_on_dark_skeleton_gradient_angle</item>
+        <item name="sd_colors">@array/plasma_dark_surface_on_dark_skeleton_gradient_colors</item>
+        <item name="sd_stops">@array/plasma_dark_surface_on_dark_skeleton_gradient_positions</item>
+    </style>
+    <!--endregion Фон для скелетона-->
+    <!--region Фон для скелетона-->
+    <style name="Plasma.SdService.Gradient.DarkSurfaceOnDarkSkeletonGradientHover">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_dark_surface_on_dark_skeleton_gradient_hover_angle</item>
+        <item name="sd_colors">@array/plasma_dark_surface_on_dark_skeleton_gradient_hover_colors</item>
+        <item name="sd_stops">@array/plasma_dark_surface_on_dark_skeleton_gradient_hover_positions</item>
+    </style>
+    <!--endregion Фон для скелетона-->
+    <!--region Фон для скелетона-->
+    <style name="Plasma.SdService.Gradient.DarkSurfaceOnDarkSkeletonGradientActive">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_dark_surface_on_dark_skeleton_gradient_active_angle</item>
+        <item name="sd_colors">@array/plasma_dark_surface_on_dark_skeleton_gradient_active_colors</item>
+        <item name="sd_stops">@array/plasma_dark_surface_on_dark_skeleton_gradient_active_positions</item>
+    </style>
+    <!--endregion Фон для скелетона-->
+    <!--region Яркий фон для скелетона-->
+    <style name="Plasma.SdService.Gradient.DarkSurfaceOnDarkSkeletonDeepGradient">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_dark_surface_on_dark_skeleton_deep_gradient_angle</item>
+        <item name="sd_colors">@array/plasma_dark_surface_on_dark_skeleton_deep_gradient_colors</item>
+        <item name="sd_stops">@array/plasma_dark_surface_on_dark_skeleton_deep_gradient_positions</item>
+    </style>
+    <!--endregion Яркий фон для скелетона-->
+    <!--region Яркий фон для скелетона-->
+    <style name="Plasma.SdService.Gradient.DarkSurfaceOnDarkSkeletonDeepGradientHover">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_dark_surface_on_dark_skeleton_deep_gradient_hover_angle</item>
+        <item name="sd_colors">@array/plasma_dark_surface_on_dark_skeleton_deep_gradient_hover_colors</item>
+        <item name="sd_stops">@array/plasma_dark_surface_on_dark_skeleton_deep_gradient_hover_positions</item>
+    </style>
+    <!--endregion Яркий фон для скелетона-->
+    <!--region Яркий фон для скелетона-->
+    <style name="Plasma.SdService.Gradient.DarkSurfaceOnDarkSkeletonDeepGradientActive">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_dark_surface_on_dark_skeleton_deep_gradient_active_angle</item>
+        <item name="sd_colors">@array/plasma_dark_surface_on_dark_skeleton_deep_gradient_active_colors</item>
+        <item name="sd_stops">@array/plasma_dark_surface_on_dark_skeleton_deep_gradient_active_positions</item>
+    </style>
+    <!--endregion Яркий фон для скелетона-->
+    <!--region Акцент. фон поверхн./контрола с градиентом на светлом фоне-->
+    <style name="Plasma.SdService.Gradient.DarkSurfaceOnLightAccentGradient">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_dark_surface_on_light_accent_gradient_angle</item>
+        <item name="sd_colors">@array/plasma_dark_surface_on_light_accent_gradient_colors</item>
+        <item name="sd_stops">@array/plasma_dark_surface_on_light_accent_gradient_positions</item>
+    </style>
+    <!--endregion Акцент. фон поверхн./контрола с градиентом на светлом фоне-->
+    <!--region Акцент. фон поверхн./контрола с градиентом на светлом фоне-->
+    <style name="Plasma.SdService.Gradient.DarkSurfaceOnLightAccentGradientHover">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_dark_surface_on_light_accent_gradient_hover_angle</item>
+        <item name="sd_colors">@array/plasma_dark_surface_on_light_accent_gradient_hover_colors</item>
+        <item name="sd_stops">@array/plasma_dark_surface_on_light_accent_gradient_hover_positions</item>
+    </style>
+    <!--endregion Акцент. фон поверхн./контрола с градиентом на светлом фоне-->
+    <!--region Акцент. фон поверхн./контрола с градиентом на светлом фоне-->
+    <style name="Plasma.SdService.Gradient.DarkSurfaceOnLightAccentGradientActive">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_dark_surface_on_light_accent_gradient_active_angle</item>
+        <item name="sd_colors">@array/plasma_dark_surface_on_light_accent_gradient_active_colors</item>
+        <item name="sd_stops">@array/plasma_dark_surface_on_light_accent_gradient_active_positions</item>
+    </style>
+    <!--endregion Акцент. фон поверхн./контрола с градиентом на светлом фоне-->
+    <!--region Фон для скелетона-->
+    <style name="Plasma.SdService.Gradient.DarkSurfaceOnLightSkeletonGradient">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_dark_surface_on_light_skeleton_gradient_angle</item>
+        <item name="sd_colors">@array/plasma_dark_surface_on_light_skeleton_gradient_colors</item>
+        <item name="sd_stops">@array/plasma_dark_surface_on_light_skeleton_gradient_positions</item>
+    </style>
+    <!--endregion Фон для скелетона-->
+    <!--region Фон для скелетона-->
+    <style name="Plasma.SdService.Gradient.DarkSurfaceOnLightSkeletonGradientHover">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_dark_surface_on_light_skeleton_gradient_hover_angle</item>
+        <item name="sd_colors">@array/plasma_dark_surface_on_light_skeleton_gradient_hover_colors</item>
+        <item name="sd_stops">@array/plasma_dark_surface_on_light_skeleton_gradient_hover_positions</item>
+    </style>
+    <!--endregion Фон для скелетона-->
+    <!--region Фон для скелетона-->
+    <style name="Plasma.SdService.Gradient.DarkSurfaceOnLightSkeletonGradientActive">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_dark_surface_on_light_skeleton_gradient_active_angle</item>
+        <item name="sd_colors">@array/plasma_dark_surface_on_light_skeleton_gradient_active_colors</item>
+        <item name="sd_stops">@array/plasma_dark_surface_on_light_skeleton_gradient_active_positions</item>
+    </style>
+    <!--endregion Фон для скелетона-->
+    <!--region Яркий фон для скелетона-->
+    <style name="Plasma.SdService.Gradient.DarkSurfaceOnLightSkeletonDeepGradient">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_dark_surface_on_light_skeleton_deep_gradient_angle</item>
+        <item name="sd_colors">@array/plasma_dark_surface_on_light_skeleton_deep_gradient_colors</item>
+        <item name="sd_stops">@array/plasma_dark_surface_on_light_skeleton_deep_gradient_positions</item>
+    </style>
+    <!--endregion Яркий фон для скелетона-->
+    <!--region Яркий фон для скелетона-->
+    <style name="Plasma.SdService.Gradient.DarkSurfaceOnLightSkeletonDeepGradientHover">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_dark_surface_on_light_skeleton_deep_gradient_hover_angle</item>
+        <item name="sd_colors">@array/plasma_dark_surface_on_light_skeleton_deep_gradient_hover_colors</item>
+        <item name="sd_stops">@array/plasma_dark_surface_on_light_skeleton_deep_gradient_hover_positions</item>
+    </style>
+    <!--endregion Яркий фон для скелетона-->
+    <!--region Яркий фон для скелетона-->
+    <style name="Plasma.SdService.Gradient.DarkSurfaceOnLightSkeletonDeepGradientActive">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_dark_surface_on_light_skeleton_deep_gradient_active_angle</item>
+        <item name="sd_colors">@array/plasma_dark_surface_on_light_skeleton_deep_gradient_active_colors</item>
+        <item name="sd_stops">@array/plasma_dark_surface_on_light_skeleton_deep_gradient_active_positions</item>
+    </style>
+    <!--endregion Яркий фон для скелетона-->
+    <!--region Инвертированный акцентный фон поверхности/контрола с градиентом-->
+    <style name="Plasma.SdService.Gradient.DarkSurfaceInverseAccentGradient">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_dark_surface_inverse_accent_gradient_angle</item>
+        <item name="sd_colors">@array/plasma_dark_surface_inverse_accent_gradient_colors</item>
+        <item name="sd_stops">@array/plasma_dark_surface_inverse_accent_gradient_positions</item>
+    </style>
+    <!--endregion Инвертированный акцентный фон поверхности/контрола с градиентом-->
+    <!--region Инвертированный акцентный фон поверхности/контрола с градиентом-->
+    <style name="Plasma.SdService.Gradient.DarkSurfaceInverseAccentGradientHover">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_dark_surface_inverse_accent_gradient_hover_angle</item>
+        <item name="sd_colors">@array/plasma_dark_surface_inverse_accent_gradient_hover_colors</item>
+        <item name="sd_stops">@array/plasma_dark_surface_inverse_accent_gradient_hover_positions</item>
+    </style>
+    <!--endregion Инвертированный акцентный фон поверхности/контрола с градиентом-->
+    <!--region Инвертированный акцентный фон поверхности/контрола с градиентом-->
+    <style name="Plasma.SdService.Gradient.DarkSurfaceInverseAccentGradientActive">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_dark_surface_inverse_accent_gradient_active_angle</item>
+        <item name="sd_colors">@array/plasma_dark_surface_inverse_accent_gradient_active_colors</item>
+        <item name="sd_stops">@array/plasma_dark_surface_inverse_accent_gradient_active_positions</item>
+    </style>
+    <!--endregion Инвертированный акцентный фон поверхности/контрола с градиентом-->
+    <!--region Фон для скелетона-->
+    <style name="Plasma.SdService.Gradient.DarkSurfaceInverseSkeletonGradient">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_dark_surface_inverse_skeleton_gradient_angle</item>
+        <item name="sd_colors">@array/plasma_dark_surface_inverse_skeleton_gradient_colors</item>
+        <item name="sd_stops">@array/plasma_dark_surface_inverse_skeleton_gradient_positions</item>
+    </style>
+    <!--endregion Фон для скелетона-->
+    <!--region Фон для скелетона-->
+    <style name="Plasma.SdService.Gradient.DarkSurfaceInverseSkeletonGradientHover">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_dark_surface_inverse_skeleton_gradient_hover_angle</item>
+        <item name="sd_colors">@array/plasma_dark_surface_inverse_skeleton_gradient_hover_colors</item>
+        <item name="sd_stops">@array/plasma_dark_surface_inverse_skeleton_gradient_hover_positions</item>
+    </style>
+    <!--endregion Фон для скелетона-->
+    <!--region Фон для скелетона-->
+    <style name="Plasma.SdService.Gradient.DarkSurfaceInverseSkeletonGradientActive">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_dark_surface_inverse_skeleton_gradient_active_angle</item>
+        <item name="sd_colors">@array/plasma_dark_surface_inverse_skeleton_gradient_active_colors</item>
+        <item name="sd_stops">@array/plasma_dark_surface_inverse_skeleton_gradient_active_positions</item>
+    </style>
+    <!--endregion Фон для скелетона-->
+    <!--region Яркий фон для скелетона-->
+    <style name="Plasma.SdService.Gradient.DarkSurfaceInverseSkeletonDeepGradient">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_dark_surface_inverse_skeleton_deep_gradient_angle</item>
+        <item name="sd_colors">@array/plasma_dark_surface_inverse_skeleton_deep_gradient_colors</item>
+        <item name="sd_stops">@array/plasma_dark_surface_inverse_skeleton_deep_gradient_positions</item>
+    </style>
+    <!--endregion Яркий фон для скелетона-->
+    <!--region Яркий фон для скелетона-->
+    <style name="Plasma.SdService.Gradient.DarkSurfaceInverseSkeletonDeepGradientHover">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_dark_surface_inverse_skeleton_deep_gradient_hover_angle</item>
+        <item name="sd_colors">@array/plasma_dark_surface_inverse_skeleton_deep_gradient_hover_colors</item>
+        <item name="sd_stops">@array/plasma_dark_surface_inverse_skeleton_deep_gradient_hover_positions</item>
+    </style>
+    <!--endregion Яркий фон для скелетона-->
+    <!--region Яркий фон для скелетона-->
+    <style name="Plasma.SdService.Gradient.DarkSurfaceInverseSkeletonDeepGradientActive">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_dark_surface_inverse_skeleton_deep_gradient_active_angle</item>
+        <item name="sd_colors">@array/plasma_dark_surface_inverse_skeleton_deep_gradient_active_colors</item>
+        <item name="sd_stops">@array/plasma_dark_surface_inverse_skeleton_deep_gradient_active_positions</item>
+    </style>
+    <!--endregion Яркий фон для скелетона-->
+    <!--region Акцентный цвет с градиентом-->
+    <style name="Plasma.SdService.Gradient.LightTextDefaultAccentGradient">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_light_text_default_accent_gradient_angle</item>
+        <item name="sd_colors">@array/plasma_light_text_default_accent_gradient_colors</item>
+        <item name="sd_stops">@array/plasma_light_text_default_accent_gradient_positions</item>
+    </style>
+    <!--endregion Акцентный цвет с градиентом-->
+    <!--region Акцентный цвет с градиентом-->
+    <style name="Plasma.SdService.Gradient.LightTextDefaultAccentGradientHover">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_light_text_default_accent_gradient_hover_angle</item>
+        <item name="sd_colors">@array/plasma_light_text_default_accent_gradient_hover_colors</item>
+        <item name="sd_stops">@array/plasma_light_text_default_accent_gradient_hover_positions</item>
+    </style>
+    <!--endregion Акцентный цвет с градиентом-->
+    <!--region Акцентный цвет с градиентом-->
+    <style name="Plasma.SdService.Gradient.LightTextDefaultAccentGradientActive">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_light_text_default_accent_gradient_active_angle</item>
+        <item name="sd_colors">@array/plasma_light_text_default_accent_gradient_active_colors</item>
+        <item name="sd_stops">@array/plasma_light_text_default_accent_gradient_active_positions</item>
+    </style>
+    <!--endregion Акцентный цвет с градиентом-->
+    <!--region Акцентный цвет с градиентом на темном фоне-->
+    <style name="Plasma.SdService.Gradient.LightTextOnDarkAccentGradient">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_light_text_on_dark_accent_gradient_angle</item>
+        <item name="sd_colors">@array/plasma_light_text_on_dark_accent_gradient_colors</item>
+        <item name="sd_stops">@array/plasma_light_text_on_dark_accent_gradient_positions</item>
+    </style>
+    <!--endregion Акцентный цвет с градиентом на темном фоне-->
+    <!--region Акцентный цвет с градиентом на темном фоне-->
+    <style name="Plasma.SdService.Gradient.LightTextOnDarkAccentGradientHover">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_light_text_on_dark_accent_gradient_hover_angle</item>
+        <item name="sd_colors">@array/plasma_light_text_on_dark_accent_gradient_hover_colors</item>
+        <item name="sd_stops">@array/plasma_light_text_on_dark_accent_gradient_hover_positions</item>
+    </style>
+    <!--endregion Акцентный цвет с градиентом на темном фоне-->
+    <!--region Акцентный цвет с градиентом на темном фоне-->
+    <style name="Plasma.SdService.Gradient.LightTextOnDarkAccentGradientActive">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_light_text_on_dark_accent_gradient_active_angle</item>
+        <item name="sd_colors">@array/plasma_light_text_on_dark_accent_gradient_active_colors</item>
+        <item name="sd_stops">@array/plasma_light_text_on_dark_accent_gradient_active_positions</item>
+    </style>
+    <!--endregion Акцентный цвет с градиентом на темном фоне-->
+    <!--region Акцентный цвет с градиентом на светлом фоне-->
+    <style name="Plasma.SdService.Gradient.LightTextOnLightAccentGradient">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_light_text_on_light_accent_gradient_angle</item>
+        <item name="sd_colors">@array/plasma_light_text_on_light_accent_gradient_colors</item>
+        <item name="sd_stops">@array/plasma_light_text_on_light_accent_gradient_positions</item>
+    </style>
+    <!--endregion Акцентный цвет с градиентом на светлом фоне-->
+    <!--region Акцентный цвет с градиентом на светлом фоне-->
+    <style name="Plasma.SdService.Gradient.LightTextOnLightAccentGradientHover">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_light_text_on_light_accent_gradient_hover_angle</item>
+        <item name="sd_colors">@array/plasma_light_text_on_light_accent_gradient_hover_colors</item>
+        <item name="sd_stops">@array/plasma_light_text_on_light_accent_gradient_hover_positions</item>
+    </style>
+    <!--endregion Акцентный цвет с градиентом на светлом фоне-->
+    <!--region Акцентный цвет с градиентом на светлом фоне-->
+    <style name="Plasma.SdService.Gradient.LightTextOnLightAccentGradientActive">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_light_text_on_light_accent_gradient_active_angle</item>
+        <item name="sd_colors">@array/plasma_light_text_on_light_accent_gradient_active_colors</item>
+        <item name="sd_stops">@array/plasma_light_text_on_light_accent_gradient_active_positions</item>
+    </style>
+    <!--endregion Акцентный цвет с градиентом на светлом фоне-->
+    <!--region Инвертированный акцентный цвет с градиентом-->
+    <style name="Plasma.SdService.Gradient.LightTextInverseAccentGradientHover">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_light_text_inverse_accent_gradient_hover_angle</item>
+        <item name="sd_colors">@array/plasma_light_text_inverse_accent_gradient_hover_colors</item>
+        <item name="sd_stops">@array/plasma_light_text_inverse_accent_gradient_hover_positions</item>
+    </style>
+    <!--endregion Инвертированный акцентный цвет с градиентом-->
+    <!--region Инвертированный акцентный цвет с градиентом-->
+    <style name="Plasma.SdService.Gradient.LightTextInverseAccentGradientActive">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_light_text_inverse_accent_gradient_active_angle</item>
+        <item name="sd_colors">@array/plasma_light_text_inverse_accent_gradient_active_colors</item>
+        <item name="sd_stops">@array/plasma_light_text_inverse_accent_gradient_active_positions</item>
+    </style>
+    <!--endregion Инвертированный акцентный цвет с градиентом-->
+    <!--region Инвертированный акцентный цвет с градиентом-->
+    <style name="Plasma.SdService.Gradient.LightTextInverseAccentGradient">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_light_text_inverse_accent_gradient_angle</item>
+        <item name="sd_colors">@array/plasma_light_text_inverse_accent_gradient_colors</item>
+        <item name="sd_stops">@array/plasma_light_text_inverse_accent_gradient_positions</item>
+    </style>
+    <!--endregion Инвертированный акцентный цвет с градиентом-->
+    <!--region Акцентный фон поверхности/контрола с градиентом-->
+    <style name="Plasma.SdService.Gradient.LightSurfaceDefaultAccentGradient">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_light_surface_default_accent_gradient_angle</item>
+        <item name="sd_colors">@array/plasma_light_surface_default_accent_gradient_colors</item>
+        <item name="sd_stops">@array/plasma_light_surface_default_accent_gradient_positions</item>
+    </style>
+    <!--endregion Акцентный фон поверхности/контрола с градиентом-->
+    <!--region Акцентный фон поверхности/контрола с градиентом-->
+    <style name="Plasma.SdService.Gradient.LightSurfaceDefaultAccentGradientHover">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_light_surface_default_accent_gradient_hover_angle</item>
+        <item name="sd_colors">@array/plasma_light_surface_default_accent_gradient_hover_colors</item>
+        <item name="sd_stops">@array/plasma_light_surface_default_accent_gradient_hover_positions</item>
+    </style>
+    <!--endregion Акцентный фон поверхности/контрола с градиентом-->
+    <!--region Акцентный фон поверхности/контрола с градиентом-->
+    <style name="Plasma.SdService.Gradient.LightSurfaceDefaultAccentGradientActive">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_light_surface_default_accent_gradient_active_angle</item>
+        <item name="sd_colors">@array/plasma_light_surface_default_accent_gradient_active_colors</item>
+        <item name="sd_stops">@array/plasma_light_surface_default_accent_gradient_active_positions</item>
+    </style>
+    <!--endregion Акцентный фон поверхности/контрола с градиентом-->
+    <!--region Фон для скелетона-->
+    <style name="Plasma.SdService.Gradient.LightSurfaceDefaultSkeletonGradient">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_light_surface_default_skeleton_gradient_angle</item>
+        <item name="sd_colors">@array/plasma_light_surface_default_skeleton_gradient_colors</item>
+        <item name="sd_stops">@array/plasma_light_surface_default_skeleton_gradient_positions</item>
+    </style>
+    <!--endregion Фон для скелетона-->
+    <!--region Фон для скелетона-->
+    <style name="Plasma.SdService.Gradient.LightSurfaceDefaultSkeletonGradientHover">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_light_surface_default_skeleton_gradient_hover_angle</item>
+        <item name="sd_colors">@array/plasma_light_surface_default_skeleton_gradient_hover_colors</item>
+        <item name="sd_stops">@array/plasma_light_surface_default_skeleton_gradient_hover_positions</item>
+    </style>
+    <!--endregion Фон для скелетона-->
+    <!--region Фон для скелетона-->
+    <style name="Plasma.SdService.Gradient.LightSurfaceDefaultSkeletonGradientActive">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_light_surface_default_skeleton_gradient_active_angle</item>
+        <item name="sd_colors">@array/plasma_light_surface_default_skeleton_gradient_active_colors</item>
+        <item name="sd_stops">@array/plasma_light_surface_default_skeleton_gradient_active_positions</item>
+    </style>
+    <!--endregion Фон для скелетона-->
+    <!--region Яркий фон для скелетона-->
+    <style name="Plasma.SdService.Gradient.LightSurfaceDefaultSkeletonDeepGradient">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_light_surface_default_skeleton_deep_gradient_angle</item>
+        <item name="sd_colors">@array/plasma_light_surface_default_skeleton_deep_gradient_colors</item>
+        <item name="sd_stops">@array/plasma_light_surface_default_skeleton_deep_gradient_positions</item>
+    </style>
+    <!--endregion Яркий фон для скелетона-->
+    <!--region Яркий фон для скелетона-->
+    <style name="Plasma.SdService.Gradient.LightSurfaceDefaultSkeletonDeepGradientHover">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_light_surface_default_skeleton_deep_gradient_hover_angle</item>
+        <item name="sd_colors">@array/plasma_light_surface_default_skeleton_deep_gradient_hover_colors</item>
+        <item name="sd_stops">@array/plasma_light_surface_default_skeleton_deep_gradient_hover_positions</item>
+    </style>
+    <!--endregion Яркий фон для скелетона-->
+    <!--region Яркий фон для скелетона-->
+    <style name="Plasma.SdService.Gradient.LightSurfaceDefaultSkeletonDeepGradientActive">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_light_surface_default_skeleton_deep_gradient_active_angle</item>
+        <item name="sd_colors">@array/plasma_light_surface_default_skeleton_deep_gradient_active_colors</item>
+        <item name="sd_stops">@array/plasma_light_surface_default_skeleton_deep_gradient_active_positions</item>
+    </style>
+    <!--endregion Яркий фон для скелетона-->
+    <!--region Акц. фон поверхности/контрола с градиентом на темном фоне-->
+    <style name="Plasma.SdService.Gradient.LightSurfaceOnDarkAccentGradient">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_light_surface_on_dark_accent_gradient_angle</item>
+        <item name="sd_colors">@array/plasma_light_surface_on_dark_accent_gradient_colors</item>
+        <item name="sd_stops">@array/plasma_light_surface_on_dark_accent_gradient_positions</item>
+    </style>
+    <!--endregion Акц. фон поверхности/контрола с градиентом на темном фоне-->
+    <!--region Акц. фон поверхности/контрола с градиентом на темном фоне-->
+    <style name="Plasma.SdService.Gradient.LightSurfaceOnDarkAccentGradientHover">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_light_surface_on_dark_accent_gradient_hover_angle</item>
+        <item name="sd_colors">@array/plasma_light_surface_on_dark_accent_gradient_hover_colors</item>
+        <item name="sd_stops">@array/plasma_light_surface_on_dark_accent_gradient_hover_positions</item>
+    </style>
+    <!--endregion Акц. фон поверхности/контрола с градиентом на темном фоне-->
+    <!--region Акц. фон поверхности/контрола с градиентом на темном фоне-->
+    <style name="Plasma.SdService.Gradient.LightSurfaceOnDarkAccentGradientActive">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_light_surface_on_dark_accent_gradient_active_angle</item>
+        <item name="sd_colors">@array/plasma_light_surface_on_dark_accent_gradient_active_colors</item>
+        <item name="sd_stops">@array/plasma_light_surface_on_dark_accent_gradient_active_positions</item>
+    </style>
+    <!--endregion Акц. фон поверхности/контрола с градиентом на темном фоне-->
+    <!--region Фон для скелетона-->
+    <style name="Plasma.SdService.Gradient.LightSurfaceOnDarkSkeletonGradient">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_light_surface_on_dark_skeleton_gradient_angle</item>
+        <item name="sd_colors">@array/plasma_light_surface_on_dark_skeleton_gradient_colors</item>
+        <item name="sd_stops">@array/plasma_light_surface_on_dark_skeleton_gradient_positions</item>
+    </style>
+    <!--endregion Фон для скелетона-->
+    <!--region Фон для скелетона-->
+    <style name="Plasma.SdService.Gradient.LightSurfaceOnDarkSkeletonGradientHover">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_light_surface_on_dark_skeleton_gradient_hover_angle</item>
+        <item name="sd_colors">@array/plasma_light_surface_on_dark_skeleton_gradient_hover_colors</item>
+        <item name="sd_stops">@array/plasma_light_surface_on_dark_skeleton_gradient_hover_positions</item>
+    </style>
+    <!--endregion Фон для скелетона-->
+    <!--region Фон для скелетона-->
+    <style name="Plasma.SdService.Gradient.LightSurfaceOnDarkSkeletonGradientActive">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_light_surface_on_dark_skeleton_gradient_active_angle</item>
+        <item name="sd_colors">@array/plasma_light_surface_on_dark_skeleton_gradient_active_colors</item>
+        <item name="sd_stops">@array/plasma_light_surface_on_dark_skeleton_gradient_active_positions</item>
+    </style>
+    <!--endregion Фон для скелетона-->
+    <!--region Яркий фон для скелетона-->
+    <style name="Plasma.SdService.Gradient.LightSurfaceOnDarkSkeletonDeepGradient">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_light_surface_on_dark_skeleton_deep_gradient_angle</item>
+        <item name="sd_colors">@array/plasma_light_surface_on_dark_skeleton_deep_gradient_colors</item>
+        <item name="sd_stops">@array/plasma_light_surface_on_dark_skeleton_deep_gradient_positions</item>
+    </style>
+    <!--endregion Яркий фон для скелетона-->
+    <!--region Яркий фон для скелетона-->
+    <style name="Plasma.SdService.Gradient.LightSurfaceOnDarkSkeletonDeepGradientHover">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_light_surface_on_dark_skeleton_deep_gradient_hover_angle</item>
+        <item name="sd_colors">@array/plasma_light_surface_on_dark_skeleton_deep_gradient_hover_colors</item>
+        <item name="sd_stops">@array/plasma_light_surface_on_dark_skeleton_deep_gradient_hover_positions</item>
+    </style>
+    <!--endregion Яркий фон для скелетона-->
+    <!--region Яркий фон для скелетона-->
+    <style name="Plasma.SdService.Gradient.LightSurfaceOnDarkSkeletonDeepGradientActive">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_light_surface_on_dark_skeleton_deep_gradient_active_angle</item>
+        <item name="sd_colors">@array/plasma_light_surface_on_dark_skeleton_deep_gradient_active_colors</item>
+        <item name="sd_stops">@array/plasma_light_surface_on_dark_skeleton_deep_gradient_active_positions</item>
+    </style>
+    <!--endregion Яркий фон для скелетона-->
+    <!--region Акц. фон поверхности/контрола с градиентом на светлом фоне-->
+    <style name="Plasma.SdService.Gradient.LightSurfaceOnLightAccentGradient">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_light_surface_on_light_accent_gradient_angle</item>
+        <item name="sd_colors">@array/plasma_light_surface_on_light_accent_gradient_colors</item>
+        <item name="sd_stops">@array/plasma_light_surface_on_light_accent_gradient_positions</item>
+    </style>
+    <!--endregion Акц. фон поверхности/контрола с градиентом на светлом фоне-->
+    <!--region Акц. фон поверхности/контрола с градиентом на светлом фоне-->
+    <style name="Plasma.SdService.Gradient.LightSurfaceOnLightAccentGradientHover">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_light_surface_on_light_accent_gradient_hover_angle</item>
+        <item name="sd_colors">@array/plasma_light_surface_on_light_accent_gradient_hover_colors</item>
+        <item name="sd_stops">@array/plasma_light_surface_on_light_accent_gradient_hover_positions</item>
+    </style>
+    <!--endregion Акц. фон поверхности/контрола с градиентом на светлом фоне-->
+    <!--region Акц. фон поверхности/контрола с градиентом на светлом фоне-->
+    <style name="Plasma.SdService.Gradient.LightSurfaceOnLightAccentGradientActive">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_light_surface_on_light_accent_gradient_active_angle</item>
+        <item name="sd_colors">@array/plasma_light_surface_on_light_accent_gradient_active_colors</item>
+        <item name="sd_stops">@array/plasma_light_surface_on_light_accent_gradient_active_positions</item>
+    </style>
+    <!--endregion Акц. фон поверхности/контрола с градиентом на светлом фоне-->
+    <!--region Фон для скелетона-->
+    <style name="Plasma.SdService.Gradient.LightSurfaceOnLightSkeletonGradient">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_light_surface_on_light_skeleton_gradient_angle</item>
+        <item name="sd_colors">@array/plasma_light_surface_on_light_skeleton_gradient_colors</item>
+        <item name="sd_stops">@array/plasma_light_surface_on_light_skeleton_gradient_positions</item>
+    </style>
+    <!--endregion Фон для скелетона-->
+    <!--region Фон для скелетона-->
+    <style name="Plasma.SdService.Gradient.LightSurfaceOnLightSkeletonGradientHover">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_light_surface_on_light_skeleton_gradient_hover_angle</item>
+        <item name="sd_colors">@array/plasma_light_surface_on_light_skeleton_gradient_hover_colors</item>
+        <item name="sd_stops">@array/plasma_light_surface_on_light_skeleton_gradient_hover_positions</item>
+    </style>
+    <!--endregion Фон для скелетона-->
+    <!--region Фон для скелетона-->
+    <style name="Plasma.SdService.Gradient.LightSurfaceOnLightSkeletonGradientActive">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_light_surface_on_light_skeleton_gradient_active_angle</item>
+        <item name="sd_colors">@array/plasma_light_surface_on_light_skeleton_gradient_active_colors</item>
+        <item name="sd_stops">@array/plasma_light_surface_on_light_skeleton_gradient_active_positions</item>
+    </style>
+    <!--endregion Фон для скелетона-->
+    <!--region Яркий фон для скелетона-->
+    <style name="Plasma.SdService.Gradient.LightSurfaceOnLightSkeletonDeepGradient">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_light_surface_on_light_skeleton_deep_gradient_angle</item>
+        <item name="sd_colors">@array/plasma_light_surface_on_light_skeleton_deep_gradient_colors</item>
+        <item name="sd_stops">@array/plasma_light_surface_on_light_skeleton_deep_gradient_positions</item>
+    </style>
+    <!--endregion Яркий фон для скелетона-->
+    <!--region Яркий фон для скелетона-->
+    <style name="Plasma.SdService.Gradient.LightSurfaceOnLightSkeletonDeepGradientHover">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_light_surface_on_light_skeleton_deep_gradient_hover_angle</item>
+        <item name="sd_colors">@array/plasma_light_surface_on_light_skeleton_deep_gradient_hover_colors</item>
+        <item name="sd_stops">@array/plasma_light_surface_on_light_skeleton_deep_gradient_hover_positions</item>
+    </style>
+    <!--endregion Яркий фон для скелетона-->
+    <!--region Яркий фон для скелетона-->
+    <style name="Plasma.SdService.Gradient.LightSurfaceOnLightSkeletonDeepGradientActive">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_light_surface_on_light_skeleton_deep_gradient_active_angle</item>
+        <item name="sd_colors">@array/plasma_light_surface_on_light_skeleton_deep_gradient_active_colors</item>
+        <item name="sd_stops">@array/plasma_light_surface_on_light_skeleton_deep_gradient_active_positions</item>
+    </style>
+    <!--endregion Яркий фон для скелетона-->
+    <!--region Инвертированный акцентный фон поверхности/контрола с градиентом-->
+    <style name="Plasma.SdService.Gradient.LightSurfaceInverseAccentGradient">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_light_surface_inverse_accent_gradient_angle</item>
+        <item name="sd_colors">@array/plasma_light_surface_inverse_accent_gradient_colors</item>
+        <item name="sd_stops">@array/plasma_light_surface_inverse_accent_gradient_positions</item>
+    </style>
+    <!--endregion Инвертированный акцентный фон поверхности/контрола с градиентом-->
+    <!--region Инвертированный акцентный фон поверхности/контрола с градиентом-->
+    <style name="Plasma.SdService.Gradient.LightSurfaceInverseAccentGradientHover">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_light_surface_inverse_accent_gradient_hover_angle</item>
+        <item name="sd_colors">@array/plasma_light_surface_inverse_accent_gradient_hover_colors</item>
+        <item name="sd_stops">@array/plasma_light_surface_inverse_accent_gradient_hover_positions</item>
+    </style>
+    <!--endregion Инвертированный акцентный фон поверхности/контрола с градиентом-->
+    <!--region Инвертированный акцентный фон поверхности/контрола с градиентом-->
+    <style name="Plasma.SdService.Gradient.LightSurfaceInverseAccentGradientActive">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_light_surface_inverse_accent_gradient_active_angle</item>
+        <item name="sd_colors">@array/plasma_light_surface_inverse_accent_gradient_active_colors</item>
+        <item name="sd_stops">@array/plasma_light_surface_inverse_accent_gradient_active_positions</item>
+    </style>
+    <!--endregion Инвертированный акцентный фон поверхности/контрола с градиентом-->
+    <!--region Фон для скелетона-->
+    <style name="Plasma.SdService.Gradient.LightSurfaceInverseSkeletonGradient">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_light_surface_inverse_skeleton_gradient_angle</item>
+        <item name="sd_colors">@array/plasma_light_surface_inverse_skeleton_gradient_colors</item>
+        <item name="sd_stops">@array/plasma_light_surface_inverse_skeleton_gradient_positions</item>
+    </style>
+    <!--endregion Фон для скелетона-->
+    <!--region Фон для скелетона-->
+    <style name="Plasma.SdService.Gradient.LightSurfaceInverseSkeletonGradientHover">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_light_surface_inverse_skeleton_gradient_hover_angle</item>
+        <item name="sd_colors">@array/plasma_light_surface_inverse_skeleton_gradient_hover_colors</item>
+        <item name="sd_stops">@array/plasma_light_surface_inverse_skeleton_gradient_hover_positions</item>
+    </style>
+    <!--endregion Фон для скелетона-->
+    <!--region Фон для скелетона-->
+    <style name="Plasma.SdService.Gradient.LightSurfaceInverseSkeletonGradientActive">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_light_surface_inverse_skeleton_gradient_active_angle</item>
+        <item name="sd_colors">@array/plasma_light_surface_inverse_skeleton_gradient_active_colors</item>
+        <item name="sd_stops">@array/plasma_light_surface_inverse_skeleton_gradient_active_positions</item>
+    </style>
+    <!--endregion Фон для скелетона-->
+    <!--region Яркий фон для скелетона-->
+    <style name="Plasma.SdService.Gradient.LightSurfaceInverseSkeletonDeepGradient">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_light_surface_inverse_skeleton_deep_gradient_angle</item>
+        <item name="sd_colors">@array/plasma_light_surface_inverse_skeleton_deep_gradient_colors</item>
+        <item name="sd_stops">@array/plasma_light_surface_inverse_skeleton_deep_gradient_positions</item>
+    </style>
+    <!--endregion Яркий фон для скелетона-->
+    <!--region Яркий фон для скелетона-->
+    <style name="Plasma.SdService.Gradient.LightSurfaceInverseSkeletonDeepGradientHover">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_light_surface_inverse_skeleton_deep_gradient_hover_angle</item>
+        <item name="sd_colors">@array/plasma_light_surface_inverse_skeleton_deep_gradient_hover_colors</item>
+        <item name="sd_stops">@array/plasma_light_surface_inverse_skeleton_deep_gradient_hover_positions</item>
+    </style>
+    <!--endregion Яркий фон для скелетона-->
+    <!--region Яркий фон для скелетона-->
+    <style name="Plasma.SdService.Gradient.LightSurfaceInverseSkeletonDeepGradientActive">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_light_surface_inverse_skeleton_deep_gradient_active_angle</item>
+        <item name="sd_colors">@array/plasma_light_surface_inverse_skeleton_deep_gradient_active_colors</item>
+        <item name="sd_stops">@array/plasma_light_surface_inverse_skeleton_deep_gradient_active_positions</item>
+    </style>
+    <!--endregion Яркий фон для скелетона-->
+</resources>

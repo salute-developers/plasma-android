@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:alpha="0.0" android:color="?plasma_textInverseSecondaryActive" android:state_pressed="true" app:plasma_button_state_default="true" app:sd_state_loading="true"/>
+    <item android:alpha="0.0" android:color="?plasma_textInverseSecondaryHover" android:state_hovered="true" app:plasma_button_state_default="true" app:sd_state_loading="true"/>
+    <item android:alpha="0.0" android:color="?plasma_textInverseSecondary" app:plasma_button_state_default="true" app:sd_state_loading="true"/>
+    <item android:alpha="0.0" android:color="?plasma_textDefaultSecondaryActive" android:state_pressed="true" app:plasma_button_state_secondary="true" app:sd_state_loading="true"/>
+    <item android:alpha="0.0" android:color="?plasma_textDefaultSecondaryHover" android:state_hovered="true" app:plasma_button_state_secondary="true" app:sd_state_loading="true"/>
+    <item android:alpha="0.0" android:color="?plasma_textDefaultSecondary" app:plasma_button_state_secondary="true" app:sd_state_loading="true"/>
+    <item android:alpha="0.0" android:color="?plasma_textOnDarkSecondaryActive" android:state_pressed="true" app:plasma_button_state_accent="true" app:sd_state_loading="true"/>
+    <item android:alpha="0.0" android:color="?plasma_textOnDarkSecondaryHover" android:state_hovered="true" app:plasma_button_state_accent="true" app:sd_state_loading="true"/>
+    <item android:alpha="0.0" android:color="?plasma_textOnDarkSecondary" app:plasma_button_state_accent="true" app:sd_state_loading="true"/>
+    <item android:alpha="0.0" android:color="?plasma_textOnDarkSecondaryActive" android:state_pressed="true" app:plasma_button_state_positive="true" app:sd_state_loading="true"/>
+    <item android:alpha="0.0" android:color="?plasma_textOnDarkSecondaryHover" android:state_hovered="true" app:plasma_button_state_positive="true" app:sd_state_loading="true"/>
+    <item android:alpha="0.0" android:color="?plasma_textOnDarkSecondary" app:plasma_button_state_positive="true" app:sd_state_loading="true"/>
+    <item android:alpha="0.0" android:color="?plasma_textOnDarkSecondaryActive" android:state_pressed="true" app:plasma_button_state_negative="true" app:sd_state_loading="true"/>
+    <item android:alpha="0.0" android:color="?plasma_textOnDarkSecondaryHover" android:state_hovered="true" app:plasma_button_state_negative="true" app:sd_state_loading="true"/>
+    <item android:alpha="0.0" android:color="?plasma_textOnDarkSecondary" app:plasma_button_state_negative="true" app:sd_state_loading="true"/>
+    <item android:alpha="0.0" android:color="?plasma_textOnDarkSecondaryActive" android:state_pressed="true" app:plasma_button_state_warning="true" app:sd_state_loading="true"/>
+    <item android:alpha="0.0" android:color="?plasma_textOnDarkSecondaryHover" android:state_hovered="true" app:plasma_button_state_warning="true" app:sd_state_loading="true"/>
+    <item android:alpha="0.0" android:color="?plasma_textOnDarkSecondary" app:plasma_button_state_warning="true" app:sd_state_loading="true"/>
+    <item android:alpha="0.06" android:color="?plasma_textDefaultSecondaryActive" android:state_pressed="true" app:plasma_button_state_clear="true" app:sd_state_loading="true"/>
+    <item android:alpha="0.06" android:color="?plasma_textDefaultSecondaryHover" android:state_hovered="true" app:plasma_button_state_clear="true" app:sd_state_loading="true"/>
+    <item android:alpha="0.06" android:color="?plasma_textDefaultSecondary" app:plasma_button_state_clear="true" app:sd_state_loading="true"/>
+    <item android:alpha="0.0" android:color="?plasma_textOnDarkSecondaryActive" android:state_pressed="true" app:plasma_button_state_dark="true" app:sd_state_loading="true"/>
+    <item android:alpha="0.0" android:color="?plasma_textOnDarkSecondaryHover" android:state_hovered="true" app:plasma_button_state_dark="true" app:sd_state_loading="true"/>
+    <item android:alpha="0.0" android:color="?plasma_textOnDarkSecondary" app:plasma_button_state_dark="true" app:sd_state_loading="true"/>
+    <item android:alpha="0.0" android:color="?plasma_textOnDarkSecondaryActive" android:state_pressed="true" app:plasma_button_state_black="true" app:sd_state_loading="true"/>
+    <item android:alpha="0.0" android:color="?plasma_textOnDarkSecondaryHover" android:state_hovered="true" app:plasma_button_state_black="true" app:sd_state_loading="true"/>
+    <item android:alpha="0.0" android:color="?plasma_textOnDarkSecondary" app:plasma_button_state_black="true" app:sd_state_loading="true"/>
+    <item android:alpha="0.0" android:color="?plasma_textOnLightSecondaryActive" android:state_pressed="true" app:plasma_button_state_white="true" app:sd_state_loading="true"/>
+    <item android:alpha="0.0" android:color="?plasma_textOnLightSecondaryHover" android:state_hovered="true" app:plasma_button_state_white="true" app:sd_state_loading="true"/>
+    <item android:alpha="0.0" android:color="?plasma_textOnLightSecondary" app:plasma_button_state_white="true" app:sd_state_loading="true"/>
+    <item android:color="?plasma_textInverseSecondaryActive" android:state_pressed="true" app:plasma_button_state_default="true"/>
+    <item android:color="?plasma_textInverseSecondaryHover" android:state_hovered="true" app:plasma_button_state_default="true"/>
+    <item android:color="?plasma_textInverseSecondary" app:plasma_button_state_default="true"/>
+    <item android:color="?plasma_textDefaultSecondaryActive" android:state_pressed="true" app:plasma_button_state_secondary="true"/>
+    <item android:color="?plasma_textDefaultSecondaryHover" android:state_hovered="true" app:plasma_button_state_secondary="true"/>
+    <item android:color="?plasma_textDefaultSecondary" app:plasma_button_state_secondary="true"/>
+    <item android:color="?plasma_textOnDarkSecondaryActive" android:state_pressed="true" app:plasma_button_state_accent="true"/>
+    <item android:color="?plasma_textOnDarkSecondaryHover" android:state_hovered="true" app:plasma_button_state_accent="true"/>
+    <item android:color="?plasma_textOnDarkSecondary" app:plasma_button_state_accent="true"/>
+    <item android:color="?plasma_textOnDarkSecondaryActive" android:state_pressed="true" app:plasma_button_state_positive="true"/>
+    <item android:color="?plasma_textOnDarkSecondaryHover" android:state_hovered="true" app:plasma_button_state_positive="true"/>
+    <item android:color="?plasma_textOnDarkSecondary" app:plasma_button_state_positive="true"/>
+    <item android:color="?plasma_textOnDarkSecondaryActive" android:state_pressed="true" app:plasma_button_state_negative="true"/>
+    <item android:color="?plasma_textOnDarkSecondaryHover" android:state_hovered="true" app:plasma_button_state_negative="true"/>
+    <item android:color="?plasma_textOnDarkSecondary" app:plasma_button_state_negative="true"/>
+    <item android:color="?plasma_textOnDarkSecondaryActive" android:state_pressed="true" app:plasma_button_state_warning="true"/>
+    <item android:color="?plasma_textOnDarkSecondaryHover" android:state_hovered="true" app:plasma_button_state_warning="true"/>
+    <item android:color="?plasma_textOnDarkSecondary" app:plasma_button_state_warning="true"/>
+    <item android:color="?plasma_textDefaultSecondaryActive" android:state_pressed="true" app:plasma_button_state_clear="true"/>
+    <item android:color="?plasma_textDefaultSecondaryHover" android:state_hovered="true" app:plasma_button_state_clear="true"/>
+    <item android:color="?plasma_textDefaultSecondary" app:plasma_button_state_clear="true"/>
+    <item android:color="?plasma_textOnDarkSecondaryActive" android:state_pressed="true" app:plasma_button_state_dark="true"/>
+    <item android:color="?plasma_textOnDarkSecondaryHover" android:state_hovered="true" app:plasma_button_state_dark="true"/>
+    <item android:color="?plasma_textOnDarkSecondary" app:plasma_button_state_dark="true"/>
+    <item android:color="?plasma_textOnDarkSecondaryActive" android:state_pressed="true" app:plasma_button_state_black="true"/>
+    <item android:color="?plasma_textOnDarkSecondaryHover" android:state_hovered="true" app:plasma_button_state_black="true"/>
+    <item android:color="?plasma_textOnDarkSecondary" app:plasma_button_state_black="true"/>
+    <item android:color="?plasma_textOnLightSecondaryActive" android:state_pressed="true" app:plasma_button_state_white="true"/>
+    <item android:color="?plasma_textOnLightSecondaryHover" android:state_hovered="true" app:plasma_button_state_white="true"/>
+    <item android:color="?plasma_textOnLightSecondary" app:plasma_button_state_white="true"/>
+</selector>

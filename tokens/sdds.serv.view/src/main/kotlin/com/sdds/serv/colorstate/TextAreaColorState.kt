@@ -18,7 +18,6 @@ public enum class TextAreaColorState(
     public override val attrs: IntArray,
 ) : ColorState {
     DEFAULT(intArrayOf(R.attr.serv_textarea_state_default)),
-    SUCCESS(intArrayOf(R.attr.serv_textarea_state_success)),
     WARNING(intArrayOf(R.attr.serv_textarea_state_warning)),
     ERROR(intArrayOf(R.attr.serv_textarea_state_error)),
     ;

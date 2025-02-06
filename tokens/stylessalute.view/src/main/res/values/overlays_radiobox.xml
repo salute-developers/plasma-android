@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.RadioBoxM">
+        <item name="android:radioButtonStyle">@style/Salute.StylesSalute.Components.RadioBox.M</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.RadioBoxS">
+        <item name="android:radioButtonStyle">@style/Salute.StylesSalute.Components.RadioBox.S</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.RadioBoxGroupM">
+        <item name="sd_radioBoxGroupStyle">@style/Salute.StylesSalute.Components.RadioBoxGroup.M</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.RadioBoxGroupS">
+        <item name="sd_radioBoxGroupStyle">@style/Salute.StylesSalute.Components.RadioBoxGroup.S</item>
+    </style>
+</resources>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <declare-styleable name="SaluteTextAreaColorState">
+        <attr format="boolean" name="salute_textarea_state_default"/>
+        <attr format="boolean" name="salute_textarea_state_warning"/>
+        <attr format="boolean" name="salute_textarea_state_error"/>
+    </declare-styleable>
+    <declare-styleable name="TextArea" tools:ignore="ResourceName">
+        <attr format="enum" name="salute_textareaColors">
+            <enum name="state_default" value="0"/>
+            <enum name="state_warning" value="1"/>
+            <enum name="state_error" value="2"/>
+        </attr>
+    </declare-styleable>
+</resources>
