@@ -174,6 +174,7 @@ internal class ComposeGradientAttributeGenerator(
                     name = gradient,
                     typeName = KtFileBuilder.TypeListOfShaderBrush,
                     delegate = "gradients",
+                    description = tokenData?.description(gradient).orEmpty(),
                 )
             }
 
@@ -198,18 +199,6 @@ internal class ComposeGradientAttributeGenerator(
                 description = "Возвращает копию [$gradientClassName]. " +
                     "Предоставляет возможность переопределять градиенты.",
             )
-
-            rootGradientClass.appendFun(
-                name = "toString",
-                modifiers = listOf(Modifier.OVERRIDE),
-                body = listOf(
-                    "return \"\${this::class.simpleName}(${
-                        gradientAttributes.joinToString(
-                            separator = ",·",
-                        ) { "$it=$$it" }
-                    })\"",
-                ),
-            )
         }
     }
 
@@ -218,7 +207,11 @@ internal class ComposeGradientAttributeGenerator(
             name = "Local$gradientClassName",
             typeName = KtFileBuilder.TypeProvidableCompositionLocal,
             parameterizedType = gradientKtFileBuilder.getInternalClassType(gradientClassName),
-            initializer = "staticCompositionLocalOf { light${camelThemeName}Gradients() }",
+            initializer = """
+                staticCompositionLocalOf·{
+                    light${camelThemeName}Gradients()
+                }
+            """.trimIndent(),
             modifiers = listOf(INTERNAL),
         )
     }
@@ -271,6 +264,7 @@ internal class ComposeGradientAttributeGenerator(
                 "\nreturn $gradientClassName(initial)",
             ),
             description = "Градиенты [$gradientClassName] для светлой темы",
+            suppressAnnotations = listOf("LongMethod"),
         )
     }
 
@@ -290,7 +284,10 @@ internal class ComposeGradientAttributeGenerator(
             objectName = "DarkGradientTokens"
         }
 
-        return "listOf(${parameters.joinToString(",") { createGradientFabricCall(objectName, it) }})"
+        return KtFileBuilder.createFunCall(
+            "listOf",
+            parameters.map { createGradientFabricCall(objectName, it) },
+        )
     }
 
     private fun defaultDarkGradientValue(attrName: String): String {
@@ -308,8 +305,10 @@ internal class ComposeGradientAttributeGenerator(
                 ?: throw ThemeBuilderException("Can't find token value for gradient $attrName")
             objectName = "LightGradientTokens"
         }
-
-        return "listOf(${parameters.joinToString(",") { createGradientFabricCall(objectName, it) }})"
+        return KtFileBuilder.createFunCall(
+            "listOf",
+            parameters.map { createGradientFabricCall(objectName, it) },
+        )
     }
 
     private fun createGradientFabricCall(
@@ -322,11 +321,10 @@ internal class ComposeGradientAttributeGenerator(
             ComposeTokenData.GradientType.SWEEP -> "sweepGradient"
             ComposeTokenData.GradientType.BACKGROUND -> "singleColor"
         }
-        return "$funName(${
-            gradient.tokenRefs.joinToString(separator = ",·") { tokenRef ->
-                "$objectName.$tokenRef"
-            }
-        })"
+        return KtFileBuilder.createFunCall(
+            funName = funName,
+            parameters = gradient.tokenRefs.map { "$objectName.$it" },
+        )
     }
 
     private fun addDarkGradientsFun() {
@@ -354,6 +352,7 @@ internal class ComposeGradientAttributeGenerator(
                 "\nreturn $gradientClassName(initial)",
             ),
             description = "Градиенты [$gradientClassName] для темной темы",
+            suppressAnnotations = listOf("LongMethod"),
         )
     }
 
@@ -367,14 +366,14 @@ internal class ComposeGradientAttributeGenerator(
             rootColorsClass.appendProperty(
                 name = "_overrideMap",
                 typeName = KtFileBuilder.TypeMutableMapOfListOfShaderBrush,
-                initializer = "mutableMapOf<String, List<ShaderBrush>>()",
+                initializer = "mutableMapOf()",
                 modifiers = listOf(Modifier.PRIVATE),
             )
 
             rootColorsClass.appendProperty(
                 name = "overrideMap",
                 typeName = KtFileBuilder.TypeMapOfListOfShaderBrush,
-                modifiers = listOf(Modifier.INTERNAL),
+                modifiers = listOf(INTERNAL),
                 propGetter = Getter.Annotated(body = "return _overrideMap.toMap()"),
             )
 
@@ -384,6 +383,7 @@ internal class ComposeGradientAttributeGenerator(
                     typeName = KtFileBuilder.TypeString,
                     isMutable = false,
                     initializer = "\"$gradient\"",
+                    description = tokenData?.description(gradient),
                 )
             }
 
@@ -395,6 +395,7 @@ internal class ComposeGradientAttributeGenerator(
                 modifiers = listOf(Modifier.INFIX),
                 receiver = KtFileBuilder.TypeString,
                 body = listOf("_overrideMap[this] = gradient"),
+                description = "Переопределяет аттрибут градиента.",
             )
         }
     }

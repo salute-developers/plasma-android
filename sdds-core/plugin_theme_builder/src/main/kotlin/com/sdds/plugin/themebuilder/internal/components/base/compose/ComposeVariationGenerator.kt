@@ -79,7 +79,9 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
         ktFileBuilderFactory.create(
             fileName = ktFileName,
             fullPackageName = componentPackage,
-        )
+        ).also {
+            it.addSuppressAnnotation("UndocumentedPublicClass", "UndocumentedPublicProperty")
+        }
     }
 
     protected open val componentStyleName: String = "${camelComponentName}Style"

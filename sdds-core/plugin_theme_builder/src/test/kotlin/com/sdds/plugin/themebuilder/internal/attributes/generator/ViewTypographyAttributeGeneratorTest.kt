@@ -2,6 +2,7 @@ package com.sdds.plugin.themebuilder.internal.attributes.generator
 
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.generator.data.TypographyTokenResult
+import com.sdds.plugin.themebuilder.internal.generator.data.TypographyTokenResult.TypographyInfo
 import com.sdds.plugin.themebuilder.internal.generator.theme.view.ViewTypographyAttributeGenerator
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.attrsFile
@@ -69,8 +70,8 @@ class ViewTypographyAttributeGeneratorTest {
     private companion object {
         val typographyAttrs = TypographyTokenResult.ViewTokenData(
             mapOf(
-                "typographyDisplayLNormal" to "@style/Thmbldr.Typography.DisplayLNormal",
-                "typographyHeaderH3Bold" to "@style/Thmbldr.Typography.HeaderH3Bold",
+                "typographyDisplayLNormal" to TypographyInfo("@style/Thmbldr.Typography.DisplayLNormal"),
+                "typographyHeaderH3Bold" to TypographyInfo("@style/Thmbldr.Typography.HeaderH3Bold"),
             ),
         )
     }

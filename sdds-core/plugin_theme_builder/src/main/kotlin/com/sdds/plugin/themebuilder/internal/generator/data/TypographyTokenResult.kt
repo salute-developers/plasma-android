@@ -19,10 +19,17 @@ internal data class TypographyTokenResult(
      * @property large атрибуты типографики для больших экранов
      */
     internal data class ComposeTokenData(
-        val small: Map<String, String>,
-        val medium: Map<String, String>,
-        val large: Map<String, String>,
-    )
+        val small: Map<String, TypographyInfo>,
+        val medium: Map<String, TypographyInfo>,
+        val large: Map<String, TypographyInfo>,
+    ) {
+
+        /**
+         * Возвращает описание токена
+         */
+        fun description(typography: String): String? =
+            (large[typography] ?: medium[typography] ?: small[typography])?.description
+    }
 
     /**
      * Данные о добавленных токенах для View
@@ -30,7 +37,12 @@ internal data class TypographyTokenResult(
      * @property attrs атрибуты типографики (ключ - название атрибута, значение - ссылка на токен)
      */
     internal data class ViewTokenData(
-        val attrs: Map<String, String>,
+        val attrs: Map<String, TypographyInfo>,
+    )
+
+    internal data class TypographyInfo(
+        val tokenRef: String,
+        val description: String = "",
     )
 }
 

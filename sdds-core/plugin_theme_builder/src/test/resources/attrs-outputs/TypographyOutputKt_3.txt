@@ -100,7 +100,9 @@ public data class ThemeTypography internal constructor(
 )
 
 internal val LocalThemeTypography: ProvidableCompositionLocal<ThemeTypography> =
-        staticCompositionLocalOf { ThemeTypography() }
+        staticCompositionLocalOf {
+            ThemeTypography()
+        }
 
 /**
  * Возвращает [ThemeTypography] для WindowSizeClass.Compact
@@ -131,11 +133,13 @@ public fun largeThemeTypography(): ThemeTypography = ThemeTypography(
  * при изменении ширины окна.
  */
 @Composable
-public fun dynamicThemeTypography(): ThemeTypography = when
-        (collectWindowSizeInfoAsState().value.widthClass) {
-    WindowSizeClass.Expanded -> largeThemeTypography()
-    WindowSizeClass.Medium -> mediumThemeTypography()
-    WindowSizeClass.Compact -> smallThemeTypography()
+public fun dynamicThemeTypography(): ThemeTypography {
+    val widthClass = collectWindowSizeInfoAsState().value.widthClass
+    return when (widthClass) {
+            WindowSizeClass.Expanded -> largeThemeTypography()
+            WindowSizeClass.Medium -> mediumThemeTypography()
+            WindowSizeClass.Compact -> smallThemeTypography()
+    }
 }
 
 /**

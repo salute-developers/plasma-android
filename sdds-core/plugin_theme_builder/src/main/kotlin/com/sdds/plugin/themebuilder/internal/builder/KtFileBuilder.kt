@@ -90,7 +90,16 @@ internal class KtFileBuilder(
      * Создает kotlin объект с именем [name] в корне файла.
      * @return [TypeSpec.Builder]
      */
-    fun rootObject(name: String) = TypeSpec.objectBuilder(name).also(rootTypeBuilders::add)
+    fun rootObject(
+        name: String,
+        description: String? = null,
+        modifiers: List<Modifier>? = null,
+    ) = TypeSpec.objectBuilder(name)
+        .apply {
+            modifiers?.let { addModifiers(it.toKModifiers()) }
+            description?.let(::addKdoc)
+        }
+        .also(rootTypeBuilders::add)
 
     /**
      * Создает val свойство в корне файла.
@@ -146,6 +155,7 @@ internal class KtFileBuilder(
         receiver: TypeName? = null,
         description: String? = null,
         annotations: Iterable<ClassName>? = null,
+        suppressAnnotations: Iterable<String>? = null,
     ) {
         appendFun(
             name = name,
@@ -157,6 +167,7 @@ internal class KtFileBuilder(
             description = description,
             annotations = annotations,
         )
+            .apply { suppressAnnotations?.forEach { addSuppressAnnotation(it) } }
             .also(rootFunBuilders::add)
     }
 
@@ -281,11 +292,23 @@ internal class KtFileBuilder(
      * Добавляет аннотацию Suppress для генерируемого файла
      * c подавлением ппредупреждения [warningName]
      */
-    fun addSuppressAnnotation(warningName: String) {
+    fun addSuppressAnnotation(vararg warningName: String) {
         fileSpecBuilder.addAnnotation(
             AnnotationSpec.builder(Suppress::class)
-                .addMember("%S", warningName)
+                .apply { warningName.forEach { addMember("%S", it) } }
                 .useSiteTarget(AnnotationSpec.UseSiteTarget.FILE)
+                .build(),
+        )
+    }
+
+    /**
+     * Добавляет аннотацию Suppress для генерируемой функции
+     * c подавлением ппредупреждения [warningName]
+     */
+    fun FunSpec.Builder.addSuppressAnnotation(vararg warningName: String): FunSpec.Builder {
+        return addAnnotation(
+            AnnotationSpec.builder(Suppress::class)
+                .apply { warningName.forEach { addMember("%S", it) } }
                 .build(),
         )
     }
@@ -428,6 +451,7 @@ internal class KtFileBuilder(
                 Modifier.INFIX -> KModifier.INFIX
                 Modifier.ENUM -> KModifier.ENUM
                 Modifier.VALUE -> KModifier.VALUE
+                Modifier.CONST -> KModifier.CONST
             }
         }
 
@@ -452,6 +476,7 @@ internal class KtFileBuilder(
                 }
                 body?.let { builder.addCode(it) }
             }
+
             is Getter.AnnotatedCodeBlock -> {
                 modifiers?.let { builder.addModifiers(it.toKModifiers()) }
                 annotations?.let { annotationList ->
@@ -481,6 +506,7 @@ internal class KtFileBuilder(
     private fun FunParameter.toParameterSpec() =
         ParameterSpec.builder(name = name, type = type).apply {
             defValue?.let(::defaultValue)
+            description?.let(::addKdoc)
         }.build()
 
     private fun FunParameter.toConstructorProperty() =
@@ -517,6 +543,7 @@ internal class KtFileBuilder(
         INFIX,
         ENUM,
         VALUE,
+        CONST,
     }
 
     /**
@@ -528,6 +555,7 @@ internal class KtFileBuilder(
         val defValue: String? = null,
         val asProperty: Boolean = false,
         val modifiers: List<Modifier>? = null,
+        val description: String? = null,
     )
 
     /**
@@ -639,6 +667,8 @@ internal class KtFileBuilder(
         val TypeShadowLayer =
             ClassName("com.sdds.compose.uikit.shadow", listOf("ShadowLayer"))
         val TypeDpOffset = ClassName("androidx.compose.ui.unit", "DpOffset")
+        val TypeMutableStateOfColor = ClassName("androidx.compose.runtime", "MutableState")
+            .parameterizedBy(TypeColor)
 
         /**
          * Возвращает [TypeName] как nullable тип

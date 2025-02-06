@@ -16,9 +16,11 @@ internal data class SpacingTokenResult(
      *
      * @property attrName название атрибута токена
      * @property tokenRefName ссылка на сгенерированный токен отступа
+     * @property description описание токена
      */
     internal data class TokenData(
         val attrName: String,
         val tokenRefName: String,
+        val description: String? = null,
     )
 }

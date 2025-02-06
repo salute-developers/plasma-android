@@ -17,32 +17,53 @@ import com.sdds.playground.themebuilder.theme.TestSpacing
 import com.sdds.playground.themebuilder.theme.TestTypography
 import kotlin.Unit
 
+/**
+ * Аттрибуты темы TestTheme
+ */
 public object TestTheme {
+    /**
+     * Аттрибуты цвета
+     */
     public val colors: TestColors
         @Composable
         @ReadOnlyComposable
         get() = LocalTestColors.current
 
+    /**
+     * Аттрибуты градиентов
+     */
     public val gradients: TestGradients
         @Composable
         @ReadOnlyComposable
         get() = LocalTestGradients.current
 
+    /**
+     * Аттрибуты форм
+     */
     public val shapes: TestShapes
         @Composable
         @ReadOnlyComposable
         get() = LocalTestShapes.current
 
+    /**
+     * Аттрибуты теней
+     */
     public val shadows: TestShadows
         @Composable
         @ReadOnlyComposable
         get() = LocalTestShadows.current
 
+    /**
+     * Аттрибуты отступов
+     */
     public val spacing: TestSpacing
         @Composable
         @ReadOnlyComposable
         get() = LocalTestSpacing.current
 
+    /**
+     * Аттрибуты типографики
+     */
     public val typography: TestTypography
         @Composable
         @ReadOnlyComposable
@@ -64,9 +85,12 @@ public fun TestTheme(
 ): Unit {
     val rememberColors = remember { colors.copy() }.apply { updateColorsFrom(colors) }
 
-    val textSelectionColors = remember { TextSelectionColors(handleColor =
-            rememberColors.textDefaultAccent, backgroundColor =
-            rememberColors.textDefaultAccent.copy(0.3f)) }
+    val textSelectionColors = remember {
+        TextSelectionColors(
+            handleColor = rememberColors.textDefaultAccent,
+            backgroundColor = rememberColors.textDefaultAccent.copy(0.3f)
+        )
+    }
 
     CompositionLocalProvider(
         LocalTestColors provides rememberColors,
@@ -76,7 +100,11 @@ public fun TestTheme(
         LocalTestShadows provides shadows,
         LocalTestSpacing provides spacing,
         LocalTextSelectionColors provides textSelectionColors,
-        content = { ProvideTextStyle(value = typography.bodyMNormal.copy(color =
-            rememberColors.textPrimary), content = content,) },
+        content = {
+        ProvideTextStyle(
+            value = typography.bodyMNormal.copy(color = rememberColors.textPrimary),
+            content = content,
+        )
+    },
     )
 }

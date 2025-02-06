@@ -19,7 +19,8 @@ public data class ThemeShapes(
 )
 
 internal val LocalThemeShapes: ProvidableCompositionLocal<ThemeShapes> = staticCompositionLocalOf {
-        ThemeShapes() }
+            ThemeShapes()
+        }
 
 /**
  * Возвращает [ThemeShapes]

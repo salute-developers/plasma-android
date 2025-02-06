@@ -44,13 +44,17 @@ internal class ColorTokenGenerator(
 
     private val xmlDocumentBuilder by unsafeLazy { xmlBuilderFactory.create(DEFAULT_ROOT_ATTRIBUTES) }
     private val ktFileBuilder by unsafeLazy { ktFileBuilderFactory.create("ColorTokens") }
-    private val lightBuilder by unsafeLazy { ktFileBuilder.rootObject(LIGHT_COLOR_TOKENS_NAME) }
-    private val darkBuilder by unsafeLazy { ktFileBuilder.rootObject(DARK_COLOR_TOKENS_NAME) }
+    private val lightBuilder by unsafeLazy {
+        ktFileBuilder.rootObject(LIGHT_COLOR_TOKENS_NAME, LIGHT_COLOR_TOKENS_DESC)
+    }
+    private val darkBuilder by unsafeLazy {
+        ktFileBuilder.rootObject(DARK_COLOR_TOKENS_NAME, DARK_COLOR_TOKENS_DESC)
+    }
 
-    private val composeLightTokenDataCollector = mutableMapOf<String, String>()
-    private val composeDarkTokenDataCollector = mutableMapOf<String, String>()
-    private val viewLightTokenDataCollector = mutableMapOf<String, String>()
-    private val viewDarkTokenDataCollector = mutableMapOf<String, String>()
+    private val composeLightTokenDataCollector = mutableMapOf<String, ColorTokenResult.TokenData.ColorInfo>()
+    private val composeDarkTokenDataCollector = mutableMapOf<String, ColorTokenResult.TokenData.ColorInfo>()
+    private val viewLightTokenDataCollector = mutableMapOf<String, ColorTokenResult.TokenData.ColorInfo>()
+    private val viewDarkTokenDataCollector = mutableMapOf<String, ColorTokenResult.TokenData.ColorInfo>()
 
     override fun collectResult() = ColorTokenResult(
         composeTokens = ColorTokenResult.TokenData(
@@ -99,7 +103,7 @@ internal class ColorTokenGenerator(
             tokenName = token.xmlName,
             value = resolvedColor,
         )
-        token.addViewTokenData(token.colorAttrName(), token.toViewTokenRef())
+        token.addViewTokenData(token.colorAttrName(), token.toViewTokenRef(), token.description)
         return true
     }
 
@@ -126,29 +130,31 @@ internal class ColorTokenGenerator(
         )
         val value = "Color($resolvedColor)"
         root.appendProperty(token.ktName, KtFileBuilder.TypeColor, value, token.description)
-        token.addComposeTokenData(token.ktName.decapitalize(Locale.getDefault()), token.ktName)
+        token.addComposeTokenData(token.ktName.decapitalize(Locale.getDefault()), token.ktName, token.description)
         return true
     }
 
-    private fun ColorToken.addViewTokenData(attrName: String, tokenRef: String) {
+    private fun ColorToken.addViewTokenData(attrName: String, tokenRef: String, description: String) {
+        val info = ColorTokenResult.TokenData.ColorInfo(tokenRef, description)
         if (this.isLight) {
-            viewLightTokenDataCollector[attrName] = tokenRef
+            viewLightTokenDataCollector[attrName] = info
         } else if (this.isDark) {
-            viewDarkTokenDataCollector[attrName] = tokenRef
+            viewDarkTokenDataCollector[attrName] = info
         } else {
-            viewLightTokenDataCollector[attrName] = tokenRef
-            viewDarkTokenDataCollector[attrName] = tokenRef
+            viewLightTokenDataCollector[attrName] = info
+            viewDarkTokenDataCollector[attrName] = info
         }
     }
 
-    private fun ColorToken.addComposeTokenData(attrName: String, tokenRef: String) {
+    private fun ColorToken.addComposeTokenData(attrName: String, tokenRef: String, description: String) {
+        val info = ColorTokenResult.TokenData.ColorInfo(tokenRef, description)
         if (this.isLight) {
-            composeLightTokenDataCollector[attrName] = tokenRef
+            composeLightTokenDataCollector[attrName] = info
         } else if (this.isDark) {
-            composeDarkTokenDataCollector[attrName] = tokenRef
+            composeDarkTokenDataCollector[attrName] = info
         } else {
-            composeLightTokenDataCollector[attrName] = tokenRef
-            composeDarkTokenDataCollector[attrName] = tokenRef
+            composeLightTokenDataCollector[attrName] = info
+            composeDarkTokenDataCollector[attrName] = info
         }
     }
 
@@ -156,6 +162,8 @@ internal class ColorTokenGenerator(
 
     internal companion object {
         const val LIGHT_COLOR_TOKENS_NAME = "LightColorTokens"
+        const val LIGHT_COLOR_TOKENS_DESC = "Токены цвета для светлой темы"
         const val DARK_COLOR_TOKENS_NAME = "DarkColorTokens"
+        const val DARK_COLOR_TOKENS_DESC = "Токены цвета для темной темы"
     }
 }
