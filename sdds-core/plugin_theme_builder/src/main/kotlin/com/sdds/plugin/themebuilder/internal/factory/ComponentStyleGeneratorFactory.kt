@@ -9,6 +9,7 @@ import com.sdds.plugin.themebuilder.internal.components.button.compose.ButtonCom
 import com.sdds.plugin.themebuilder.internal.components.button.view.BasicButtonStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.components.button.view.IconButtonStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.components.button.view.LinkButtonStyleGeneratorView
+import com.sdds.plugin.themebuilder.internal.components.indicator.view.IndicatorStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.components.textfield.compose.TextFieldComposeVariationGenerator
 import com.sdds.plugin.themebuilder.internal.components.textfield.view.ViewTextAreaStyleGenerator
 import com.sdds.plugin.themebuilder.internal.components.textfield.view.ViewTextFieldStyleGenerator
@@ -79,6 +80,17 @@ internal class ComponentStyleGeneratorFactory(
             dimensAggregator = dimensAggregator,
             outputResDir = outputResDir,
             attrPrefix = resourcePrefixConfig.resourcePrefix,
+            viewColorStateGeneratorFactory = mViewColorStateGeneratorFactory,
+            colorStateListGeneratorFactory = colorStateListGeneratorFactory,
+        )
+
+    fun createIndicatorStyleGeneratorView(): IndicatorStyleGeneratorView =
+        IndicatorStyleGeneratorView(
+            xmlBuilderFactory = xmlBuilderFactory,
+            resourceReferenceProvider = resourceReferenceProvider,
+            dimensAggregator = dimensAggregator,
+            outputResDir = outputResDir,
+            resourcePrefix = resourcePrefixConfig.resourcePrefix,
             viewColorStateGeneratorFactory = mViewColorStateGeneratorFactory,
             colorStateListGeneratorFactory = colorStateListGeneratorFactory,
         )
