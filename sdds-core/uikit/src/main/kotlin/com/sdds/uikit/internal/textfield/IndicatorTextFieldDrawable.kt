@@ -17,7 +17,7 @@ import com.sdds.uikit.internal.base.configure
  * Drawable для отрисовки индикатора в TextField
  * @author Малышев Александр on 10.09.2024
  */
-internal class IndicatorDrawable(
+internal class IndicatorTextFieldDrawable(
     private val size: Int,
     private val verticalOffset: Int = 0,
     private val horizontalOffset: Int = 0,

@@ -13,6 +13,7 @@
     <item type="id" name="counter"/>
     <item type="id" name="icon_button"/>
     <item type="id" name="icon_badge"/>
+    <item type="id" name="indicator"/>
     <item type="id" name="progressBar"/>
     <item type="id" name="switcher"/>
     <item type="id" name="textField"/>
