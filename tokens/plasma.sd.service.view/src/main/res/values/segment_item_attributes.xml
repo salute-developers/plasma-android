@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <declare-styleable name="PlasmaSegmentItemColorState">
+        <attr format="boolean" name="plasma_segmentItem_state_default"/>
+        <attr format="boolean" name="plasma_segmentItem_state_secondary"/>
+        <attr format="boolean" name="plasma_segmentItem_state_primary"/>
+    </declare-styleable>
+    <declare-styleable name="SegmentItem" tools:ignore="ResourceName">
+        <attr format="enum" name="plasma_segmentItemColors">
+            <enum name="state_default" value="0"/>
+            <enum name="state_secondary" value="1"/>
+            <enum name="state_primary" value="2"/>
+        </attr>
+    </declare-styleable>
+</resources>

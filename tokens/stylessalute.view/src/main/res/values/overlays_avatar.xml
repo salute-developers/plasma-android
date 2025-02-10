@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.AvatarXXL">
+        <item name="sd_avatarStyle">@style/Salute.StylesSalute.Components.Avatar.XXL</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.AvatarL">
+        <item name="sd_avatarStyle">@style/Salute.StylesSalute.Components.Avatar.L</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.AvatarM">
+        <item name="sd_avatarStyle">@style/Salute.StylesSalute.Components.Avatar.M</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.AvatarS">
+        <item name="sd_avatarStyle">@style/Salute.StylesSalute.Components.Avatar.S</item>
+    </style>
+</resources>

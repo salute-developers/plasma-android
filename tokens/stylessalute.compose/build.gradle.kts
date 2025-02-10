@@ -1,3 +1,6 @@
+import com.sdds.plugin.themebuilder.OutputLocation.SRC
+import com.sdds.plugin.themebuilder.ThemeBuilderMode.THEME
+
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     id("convention.android-lib")
@@ -9,7 +12,7 @@ plugins {
 
 android {
     namespace = "com.sdds.stylessalute.compose"
-    resourcePrefix = "styles_cmp"
+    resourcePrefix = "salute_cmp"
 }
 
 themeBuilder {
@@ -19,6 +22,8 @@ themeBuilder {
     compose()
     autoGenerate(false)
     ktPackage(ktPackage = "com.sdds.stylessalute")
+    mode(THEME)
+    outputLocation(SRC)
 }
 
 dependencies {

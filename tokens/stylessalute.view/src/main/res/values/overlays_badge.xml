@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--    start region L size-->
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeLDefault">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.L</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeLAccent">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.L.Accent</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeLPositive">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.L.Positive</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeLWarning">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.L.Warning</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeLNegative">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.L.Negative</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeLWhite">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.L.White</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeLBlack">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.L.Black</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeLPilledDefault">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.L.Pilled</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeLPilledAccent">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.L.Pilled.Accent</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeLPilledPositive">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.L.Pilled.Positive</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeLPilledWarning">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.L.Pilled.Warning</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeLPilledNegative">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.L.Pilled.Negative</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeLPilledWhite">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.L.Pilled.White</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeLPilledBlack">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.L.Pilled.Black</item>
+    </style>
+    <!--    end region L size-->
+
+    <!--    start region M size-->
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeMDefault">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.M</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeMAccent">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.M.Accent</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeMPositive">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.M.Positive</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeMWarning">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.M.Warning</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeMNegative">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.M.Negative</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeMWhite">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.M.White</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeMBlack">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.M.Black</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeMPilledDefault">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.M.Pilled</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeMPilledAccent">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.M.Pilled.Accent</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeMPilledPositive">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.M.Pilled.Positive</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeMPilledWarning">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.M.Pilled.Warning</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeMPilledNegative">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.M.Pilled.Negative</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeMPilledWhite">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.M.Pilled.White</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeMPilledBlack">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.M.Pilled.Black</item>
+    </style>
+    <!--    end region M size-->
+
+    <!--    start region S size-->
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeSDefault">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.S</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeSAccent">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.S.Accent</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeSPositive">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.S.Positive</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeSWarning">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.S.Warning</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeSNegative">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.S.Negative</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeSWhite">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.S.White</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeSBlack">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.S.Black</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeSPilledDefault">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.S.Pilled</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeSPilledAccent">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.S.Pilled.Accent</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeSPilledPositive">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.S.Pilled.Positive</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeSPilledWarning">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.S.Pilled.Warning</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeSPilledNegative">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.S.Pilled.Negative</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeSPilledWhite">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.S.Pilled.White</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeSPilledBlack">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.S.Pilled.Black</item>
+    </style>
+    <!--    end region S size-->
+
+    <!--    start region Xs size-->
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeXsDefault">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.Xs</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeXsAccent">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.Xs.Accent</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeXsPositive">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.Xs.Positive</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeXsWarning">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.Xs.Warning</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeXsNegative">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.Xs.Negative</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeXsWhite">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.Xs.White</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeXsBlack">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.Xs.Black</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeXsPilledDefault">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.Xs.Pilled</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeXsPilledAccent">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.Xs.Pilled.Accent</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeXsPilledPositive">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.Xs.Pilled.Positive</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeXsPilledWarning">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.Xs.Pilled.Warning</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeXsPilledNegative">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.Xs.Pilled.Negative</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeXsPilledWhite">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.Xs.Pilled.White</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.BadgeXsPilledBlack">
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.Xs.Pilled.Black</item>
+    </style>
+    <!--    end region Xs size-->
+
+</resources>

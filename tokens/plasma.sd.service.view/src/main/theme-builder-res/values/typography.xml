@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Plasma.SdService.Typography"/>
+    <!--typography s display-l-->
+    <style name="Plasma.SdService.Typography.DisplayLNormal">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.DisplayLNormal</item>
+    </style>
+    <!--typography s display-l-bold-->
+    <style name="Plasma.SdService.Typography.DisplayLBold">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.DisplayLBold</item>
+    </style>
+    <!--typography s display-m-->
+    <style name="Plasma.SdService.Typography.DisplayMNormal">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.DisplayMNormal</item>
+    </style>
+    <!--typography s display-m-bold-->
+    <style name="Plasma.SdService.Typography.DisplayMBold">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.DisplayMBold</item>
+    </style>
+    <!--typography s display-s-->
+    <style name="Plasma.SdService.Typography.DisplaySNormal">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.DisplaySNormal</item>
+    </style>
+    <!--typography s display-s-bold-->
+    <style name="Plasma.SdService.Typography.DisplaySBold">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.DisplaySBold</item>
+    </style>
+    <!--typography s header-h1-->
+    <style name="Plasma.SdService.Typography.HeaderH1Normal">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.HeaderH1Normal</item>
+    </style>
+    <!--typography s header-h1-bold-->
+    <style name="Plasma.SdService.Typography.HeaderH1Bold">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.HeaderH1Bold</item>
+    </style>
+    <!--typography s header-h2-->
+    <style name="Plasma.SdService.Typography.HeaderH2Normal">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.HeaderH2Normal</item>
+    </style>
+    <!--typography s header-h2-bold-->
+    <style name="Plasma.SdService.Typography.HeaderH2Bold">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.HeaderH2Bold</item>
+    </style>
+    <!--typography s header-h3-->
+    <style name="Plasma.SdService.Typography.HeaderH3Normal">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.HeaderH3Normal</item>
+    </style>
+    <!--typography s header-h3-bold-->
+    <style name="Plasma.SdService.Typography.HeaderH3Bold">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.HeaderH3Bold</item>
+    </style>
+    <!--typography s header-h4-->
+    <style name="Plasma.SdService.Typography.HeaderH4Normal">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.HeaderH4Normal</item>
+    </style>
+    <!--typography s header-h4-bold-->
+    <style name="Plasma.SdService.Typography.HeaderH4Bold">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.HeaderH4Bold</item>
+    </style>
+    <!--typography s header-h5-->
+    <style name="Plasma.SdService.Typography.HeaderH5Normal">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.HeaderH5Normal</item>
+    </style>
+    <!--typography s header-h5-bold-->
+    <style name="Plasma.SdService.Typography.HeaderH5Bold">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.HeaderH5Bold</item>
+    </style>
+    <!--typography s body-l-->
+    <style name="Plasma.SdService.Typography.BodyLNormal">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyLNormal</item>
+    </style>
+    <!--typography s body-l-bold-->
+    <style name="Plasma.SdService.Typography.BodyLBold">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyLBold</item>
+    </style>
+    <!--typography s body-m-->
+    <style name="Plasma.SdService.Typography.BodyMNormal">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyMNormal</item>
+    </style>
+    <!--typography s body-m-bold-->
+    <style name="Plasma.SdService.Typography.BodyMBold">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyMBold</item>
+    </style>
+    <!--typography s body-s-->
+    <style name="Plasma.SdService.Typography.BodySNormal">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodySNormal</item>
+    </style>
+    <!--typography s body-s-bold-->
+    <style name="Plasma.SdService.Typography.BodySBold">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodySBold</item>
+    </style>
+    <!--typography s body-xs-->
+    <style name="Plasma.SdService.Typography.BodyXsNormal">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyXsNormal</item>
+    </style>
+    <!--typography s body-xs-bold-->
+    <style name="Plasma.SdService.Typography.BodyXsBold">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyXsBold</item>
+    </style>
+    <!--typography s body-xxs-->
+    <style name="Plasma.SdService.Typography.BodyXxsNormal">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyXxsNormal</item>
+    </style>
+    <!--typography s body-xxs-bold-->
+    <style name="Plasma.SdService.Typography.BodyXxsBold">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyXxsBold</item>
+    </style>
+    <!--typography s text-l-->
+    <style name="Plasma.SdService.Typography.TextLNormal">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.TextLNormal</item>
+    </style>
+    <!--typography s text-l-bold-->
+    <style name="Plasma.SdService.Typography.TextLBold">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.TextLBold</item>
+    </style>
+    <!--typography s text-m-->
+    <style name="Plasma.SdService.Typography.TextMNormal">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.TextMNormal</item>
+    </style>
+    <!--typography s text-m-bold-->
+    <style name="Plasma.SdService.Typography.TextMBold">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.TextMBold</item>
+    </style>
+    <!--typography s text-s-->
+    <style name="Plasma.SdService.Typography.TextSNormal">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.TextSNormal</item>
+    </style>
+    <!--typography s text-s-bold-->
+    <style name="Plasma.SdService.Typography.TextSBold">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.TextSBold</item>
+    </style>
+    <!--typography s text-xs-->
+    <style name="Plasma.SdService.Typography.TextXsNormal">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.TextXsNormal</item>
+    </style>
+    <!--typography s text-xs-bold-->
+    <style name="Plasma.SdService.Typography.TextXsBold">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.TextXsBold</item>
+    </style>
+</resources>

@@ -76,9 +76,9 @@ internal fun FieldColorState.asTextFieldState(): TextFieldColorState =
 internal fun FieldColorState.asTextAreaState(): TextAreaColorState =
     when (this) {
         FieldColorState.Default -> TextAreaColorState.DEFAULT
-        FieldColorState.Success -> TextAreaColorState.SUCCESS
         FieldColorState.Warning -> TextAreaColorState.WARNING
         FieldColorState.Error -> TextAreaColorState.ERROR
+        else -> TextAreaColorState.DEFAULT
     }
 
 /**

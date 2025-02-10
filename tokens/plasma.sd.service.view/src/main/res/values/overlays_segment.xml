@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Plasma.SdService.ComponentOverlays.SegmentItem.LDefault" parent="">
+        <item name="sd_segmentItemStyle">@style/Plasma.SdService.Components.SegmentItem.L</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.SegmentItem.LSecondary" parent="">
+        <item name="sd_segmentItemStyle">@style/Plasma.SdService.Components.SegmentItem.L.Secondary</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.SegmentItem.LPrimary" parent="">
+        <item name="sd_segmentItemStyle">@style/Plasma.SdService.Components.SegmentItem.L.Primary</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.SegmentItem.LDefaultPilled" parent="">
+        <item name="sd_segmentItemStyle">@style/Plasma.SdService.Components.SegmentItem.L.Pilled</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.SegmentItem.LSecondaryPilled" parent="">
+        <item name="sd_segmentItemStyle">@style/Plasma.SdService.Components.SegmentItem.L.Pilled.Secondary</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.SegmentItem.LPrimaryPilled" parent="">
+        <item name="sd_segmentItemStyle">@style/Plasma.SdService.Components.SegmentItem.L.Pilled.Primary</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.SegmentItem.MDefault" parent="">
+        <item name="sd_segmentItemStyle">@style/Plasma.SdService.Components.SegmentItem.M</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.SegmentItem.MSecondary" parent="">
+        <item name="sd_segmentItemStyle">@style/Plasma.SdService.Components.SegmentItem.M.Secondary</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.SegmentItem.MPrimary" parent="">
+        <item name="sd_segmentItemStyle">@style/Plasma.SdService.Components.SegmentItem.M.Primary</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.SegmentItem.MDefaultPilled" parent="">
+        <item name="sd_segmentItemStyle">@style/Plasma.SdService.Components.SegmentItem.M.Pilled</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.SegmentItem.MSecondaryPilled" parent="">
+        <item name="sd_segmentItemStyle">@style/Plasma.SdService.Components.SegmentItem.M.Pilled.Secondary</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.SegmentItem.MPrimaryPilled" parent="">
+        <item name="sd_segmentItemStyle">@style/Plasma.SdService.Components.SegmentItem.M.Pilled.Primary</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.SegmentItem.SDefault" parent="">
+        <item name="sd_segmentItemStyle">@style/Plasma.SdService.Components.SegmentItem.S</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.SegmentItem.SSecondary" parent="">
+        <item name="sd_segmentItemStyle">@style/Plasma.SdService.Components.SegmentItem.S.Secondary</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.SegmentItem.SPrimary" parent="">
+        <item name="sd_segmentItemStyle">@style/Plasma.SdService.Components.SegmentItem.S.Primary</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.SegmentItem.SDefaultPilled" parent="">
+        <item name="sd_segmentItemStyle">@style/Plasma.SdService.Components.SegmentItem.S.Pilled</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.SegmentItem.SSecondaryPilled" parent="">
+        <item name="sd_segmentItemStyle">@style/Plasma.SdService.Components.SegmentItem.S.Pilled.Secondary</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.SegmentItem.SPrimaryPilled" parent="">
+        <item name="sd_segmentItemStyle">@style/Plasma.SdService.Components.SegmentItem.S.Pilled.Primary</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.SegmentItem.XsDefault" parent="">
+        <item name="sd_segmentItemStyle">@style/Plasma.SdService.Components.SegmentItem.Xs</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.SegmentItem.XsSecondary" parent="">
+        <item name="sd_segmentItemStyle">@style/Plasma.SdService.Components.SegmentItem.Xs.Secondary</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.SegmentItem.XsPrimary" parent="">
+        <item name="sd_segmentItemStyle">@style/Plasma.SdService.Components.SegmentItem.Xs.Primary</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.SegmentItem.XsDefaultPilled" parent="">
+        <item name="sd_segmentItemStyle">@style/Plasma.SdService.Components.SegmentItem.Xs.Pilled</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.SegmentItem.XsSecondaryPilled" parent="">
+        <item name="sd_segmentItemStyle">@style/Plasma.SdService.Components.SegmentItem.Xs.Pilled.Secondary</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.SegmentItem.XsPrimaryPilled" parent="">
+        <item name="sd_segmentItemStyle">@style/Plasma.SdService.Components.SegmentItem.Xs.Pilled.Primary</item>
+    </style>
+
+
+    <style name="Plasma.SdService.ComponentOverlays.SegmentL">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.L</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.SegmentLPrimary">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.L.Primary</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.SegmentLSecondary">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.L.Secondary</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.SegmentM">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.M</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.SegmentMPrimary">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.M.Primary</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.SegmentMSecondary">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.M.Secondary</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.SegmentS">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.S</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.SegmentSPrimary">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.S.Primary</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.SegmentSSecondary">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.S.Secondary</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.SegmentXs">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.Xs</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.SegmentXsPrimary">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.Xs.Primary</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.SegmentXsSecondary">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.Xs.Secondary</item>
+    </style>
+
+
+    <style name="Plasma.SdService.ComponentOverlays.SegmentLPilled">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.LPilled</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.SegmentLPrimaryPilled">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.LPilled.Primary</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.SegmentLSecondaryPilled">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.LPilled.Secondary</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.SegmentMPilled">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.MPilled</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.SegmentMPrimaryPilled">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.MPilled.Primary</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.SegmentMSecondaryPilled">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.MPilled.Secondary</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.SegmentSPilled">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.SPilled</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.SegmentSPrimaryPilled">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.SPilled.Primary</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.SegmentSSecondaryPilled">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.SPilled.Secondary</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.SegmentXsPilled">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.XsPilled</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.SegmentXsPrimaryPilled">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.XsPilled.Primary</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.SegmentXsSecondaryPilled">
+        <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.XsPilled.Secondary</item>
+    </style>
+</resources>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:alpha="0.4" android:color="?plasma_surfaceDefaultSolidPrimary" app:sd_state_readonly="true"/>
+    <item android:color="?plasma_surfaceDefaultTransparentSecondary" android:state_activated="true" app:plasma_textarea_state_default="true"/>
+    <item android:color="?plasma_surfaceDefaultTransparentPrimary" app:plasma_textarea_state_default="true"/>
+    <item android:color="?plasma_surfaceDefaultTransparentSecondary" android:state_activated="true" app:plasma_textarea_state_warning="true"/>
+    <item android:color="?plasma_surfaceDefaultTransparentWarning" app:plasma_textarea_state_warning="true"/>
+    <item android:color="?plasma_surfaceDefaultTransparentSecondary" android:state_activated="true" app:plasma_textarea_state_error="true"/>
+    <item android:color="?plasma_surfaceDefaultTransparentNegative" app:plasma_textarea_state_error="true"/>
+</selector>

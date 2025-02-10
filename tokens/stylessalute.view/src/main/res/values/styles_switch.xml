@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Salute.StylesSalute.Components.Switch" parent="Sdds.Components.Switch">
+        <item name="sd_buttonTrackColor">@color/bg_color_switch_track</item>
+        <item name="android:textColor">?salute_textDefaultPrimary</item>
+        <item name="sd_descriptionTextColor">?salute_textDefaultSecondary</item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Switch.L">
+        <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.BodyLNormal</item>
+        <item name="sd_descriptionTextAppearance">@style/Salute.StylesSalute.TextAppearance.BodyMNormal</item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Switch.M">
+        <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.BodyMNormal</item>
+        <item name="sd_descriptionTextAppearance">@style/Salute.StylesSalute.TextAppearance.BodySNormal</item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Switch.S">
+        <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.BodySNormal</item>
+        <item name="sd_descriptionTextAppearance">@style/Salute.StylesSalute.TextAppearance.BodyXsNormal</item>
+    </style>
+
+</resources>
