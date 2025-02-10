@@ -70,6 +70,12 @@
     <dimen name="plasma_icon_button_xs_icon_size">16.0dp</dimen>
     <dimen name="plasma_icon_button_xs_spinner_size">16.0dp</dimen>
     <dimen name="plasma_icon_button_xs_spinner_stroke_width">1.0dp</dimen>
+    <dimen name="plasma_indicator_l_max_height">12.0dp</dimen>
+    <dimen name="plasma_indicator_l_max_width">12.0dp</dimen>
+    <dimen name="plasma_indicator_m_max_height">8.0dp</dimen>
+    <dimen name="plasma_indicator_m_max_width">8.0dp</dimen>
+    <dimen name="plasma_indicator_s_max_height">6.0dp</dimen>
+    <dimen name="plasma_indicator_s_max_width">6.0dp</dimen>
     <dimen name="plasma_link_button_l_min_height">56.0dp</dimen>
     <dimen name="plasma_link_button_l_min_width">50.0dp</dimen>
     <dimen name="plasma_link_button_l_padding_start">0.0dp</dimen>

@@ -929,6 +929,7 @@
         <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.M</item>
         <item name="sd_counterStyle">@style/Plasma.SdService.Components.Counter.M</item>
         <item name="sd_badgeStyle">@style/Plasma.SdService.Components.Badge.M</item>
+        <item name="sd_indicatorStyle">@style/Plasma.SdService.Components.Indicator.M</item>
     </style>
     <style name="Plasma.SdService.MaterialComponents.Light" parent="Theme.MaterialComponents.Light">
         <!--Light colors-->
@@ -1857,6 +1858,7 @@
         <item name="sd_segmentStyle">@style/Plasma.SdService.Components.Segment.M</item>
         <item name="sd_counterStyle">@style/Plasma.SdService.Components.Counter.M</item>
         <item name="sd_badgeStyle">@style/Plasma.SdService.Components.Badge.M</item>
+        <item name="sd_indicatorStyle">@style/Plasma.SdService.Components.Indicator.M</item>
     </style>
     <style name="Plasma.SdService.MaterialComponents.DayNight" parent="Plasma.SdService.MaterialComponents.Light"/>
     <style name="Plasma.SdService"/>

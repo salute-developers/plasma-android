@@ -123,7 +123,7 @@ public val WrapperLinkButtonView.Accent: WrapperLinkButtonAccentViewTerminate
             to StylesSaluteTheme.colors.textDefaultAccentMainActive, setOf(InteractiveState.Hovered)
             to StylesSaluteTheme.colors.textDefaultAccentMainHover))
     iconColor(StylesSaluteTheme.colors.textDefaultAccentMain.asInteractive(setOf(InteractiveState.Pressed)
-            to StylesSaluteTheme.colors.textDefaultAccenMaintActive, setOf(InteractiveState.Hovered)
+            to StylesSaluteTheme.colors.textDefaultAccentMainActive, setOf(InteractiveState.Hovered)
             to StylesSaluteTheme.colors.textDefaultAccentMainHover))
     labelColor(StylesSaluteTheme.colors.textDefaultAccentMain.asInteractive(setOf(InteractiveState.Pressed)
             to StylesSaluteTheme.colors.textDefaultAccentMainActive, setOf(InteractiveState.Hovered)
