@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Plasma.SdService.ComponentOverlays.AvatarXXL">
+        <item name="sd_avatarStyle">@style/Plasma.SdService.Components.Avatar.XXL</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.AvatarL">
+        <item name="sd_avatarStyle">@style/Plasma.SdService.Components.Avatar.L</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.AvatarM">
+        <item name="sd_avatarStyle">@style/Plasma.SdService.Components.Avatar.M</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.AvatarS">
+        <item name="sd_avatarStyle">@style/Plasma.SdService.Components.Avatar.S</item>
+    </style>
+</resources>

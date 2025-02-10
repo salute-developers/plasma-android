@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<font-family xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!--fontFamily body-->
+    <font app:font="@font/s_b_sans_text_light" app:fontStyle="normal" app:fontWeight="300"/>
+    <font app:font="@font/s_b_sans_text_italic" app:fontStyle="italic" app:fontWeight="400"/>
+    <font app:font="@font/s_b_sans_text_semibold_italic" app:fontStyle="italic" app:fontWeight="600"/>
+    <font app:font="@font/s_b_sans_text_thin" app:fontStyle="normal" app:fontWeight="100"/>
+    <font app:font="@font/s_b_sans_text_regular" app:fontStyle="normal" app:fontWeight="400"/>
+    <font app:font="@font/s_b_sans_text_semibold" app:fontStyle="normal" app:fontWeight="600"/>
+    <font app:font="@font/s_b_sans_text_light_italic" app:fontStyle="italic" app:fontWeight="300"/>
+    <font app:font="@font/s_b_sans_text_bold" app:fontStyle="normal" app:fontWeight="700"/>
+    <font app:font="@font/s_b_sans_text_bold_italic" app:fontStyle="italic" app:fontWeight="700"/>
+    <font app:font="@font/s_b_sans_text_medium" app:fontStyle="normal" app:fontWeight="500"/>
+</font-family>

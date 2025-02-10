@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!--region shadow down soft s-->
+    <color name="salute_shadow_down_soft_s_color">#000000</color>
+    <dimen name="salute_shadow_down_soft_s_elevation">4.0dp</dimen>
+    <!--endregion shadow down soft s-->
+    <!--region shadow down soft m-->
+    <color name="salute_shadow_down_soft_m_color">#000000</color>
+    <dimen name="salute_shadow_down_soft_m_elevation">4.0dp</dimen>
+    <!--endregion shadow down soft m-->
+    <!--region shadow down soft l-->
+    <color name="salute_shadow_down_soft_l_color">#000000</color>
+    <dimen name="salute_shadow_down_soft_l_elevation">4.0dp</dimen>
+    <!--endregion shadow down soft l-->
+    <!--region shadow down hard s-->
+    <color name="salute_shadow_down_hard_s_color">#000000</color>
+    <dimen name="salute_shadow_down_hard_s_elevation">4.0dp</dimen>
+    <!--endregion shadow down hard s-->
+    <!--region shadow down hard m-->
+    <color name="salute_shadow_down_hard_m_color">#000000</color>
+    <dimen name="salute_shadow_down_hard_m_elevation">4.0dp</dimen>
+    <!--endregion shadow down hard m-->
+    <!--region shadow down hard l-->
+    <color name="salute_shadow_down_hard_l_color">#000000</color>
+    <dimen name="salute_shadow_down_hard_l_elevation">4.0dp</dimen>
+    <!--endregion shadow down hard l-->
+    <!--region shadow up soft s-->
+    <color name="salute_shadow_up_soft_s_color">#000000</color>
+    <dimen name="salute_shadow_up_soft_s_elevation">4.0dp</dimen>
+    <!--endregion shadow up soft s-->
+    <!--region shadow up soft m-->
+    <color name="salute_shadow_up_soft_m_color">#000000</color>
+    <dimen name="salute_shadow_up_soft_m_elevation">4.0dp</dimen>
+    <!--endregion shadow up soft m-->
+    <!--region shadow up soft l-->
+    <color name="salute_shadow_up_soft_l_color">#000000</color>
+    <dimen name="salute_shadow_up_soft_l_elevation">4.0dp</dimen>
+    <!--endregion shadow up soft l-->
+    <!--region shadow up hard s-->
+    <color name="salute_shadow_up_hard_s_color">#000000</color>
+    <dimen name="salute_shadow_up_hard_s_elevation">4.0dp</dimen>
+    <!--endregion shadow up hard s-->
+    <!--region shadow up hard m-->
+    <color name="salute_shadow_up_hard_m_color">#000000</color>
+    <dimen name="salute_shadow_up_hard_m_elevation">4.0dp</dimen>
+    <!--endregion shadow up hard m-->
+    <!--region shadow up hard l-->
+    <color name="salute_shadow_up_hard_l_color">#000000</color>
+    <dimen name="salute_shadow_up_hard_l_elevation">4.0dp</dimen>
+    <!--endregion shadow up hard l-->
+</resources>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Plasma.SdService.ComponentOverlays.ProgressBarDefault">
+        <item name="android:progressBarStyle">@style/Plasma.SdService.Components.ProgressBar.Default</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.ProgressBarSecondary">
+        <item name="android:progressBarStyle">@style/Plasma.SdService.Components.ProgressBar.Secondary</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.ProgressBarAccent">
+        <item name="android:progressBarStyle">@style/Plasma.SdService.Components.ProgressBar.Accent</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.ProgressBarGradientAccent">
+        <item name="android:progressBarStyle">@style/Plasma.SdService.Components.ProgressBar.GradientAccent</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.ProgressBarPositive">
+        <item name="android:progressBarStyle">@style/Plasma.SdService.Components.ProgressBar.Positive</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.ProgressBarWarning">
+        <item name="android:progressBarStyle">@style/Plasma.SdService.Components.ProgressBar.Warning</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.ProgressBarNegative">
+        <item name="android:progressBarStyle">@style/Plasma.SdService.Components.ProgressBar.Negative</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.ProgressBarInfo">
+        <item name="android:progressBarStyle">@style/Plasma.SdService.Components.ProgressBar.Info</item>
+    </style>
+</resources>

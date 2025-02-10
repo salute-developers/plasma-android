@@ -1,3 +1,7 @@
+import com.sdds.plugin.themebuilder.OutputLocation.SRC
+import com.sdds.plugin.themebuilder.ShapeAppearanceConfig.Companion.sddsShape
+import com.sdds.plugin.themebuilder.ThemeBuilderMode.THEME
+
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     id("convention.android-lib")
@@ -8,18 +12,27 @@ plugins {
 
 android {
     namespace = "com.sdds.stylessalute"
-    resourcePrefix = "styles"
+    resourcePrefix = "salute"
 }
 
 themeBuilder {
     val themeVersion = project.property("theme-version")?.toString()
         ?: throw GradleException("sdds serv version must be specified")
-    themeSource(name = "stylesSalute", version = themeVersion)
+    themeSource(name = "stylesSalute", version = themeVersion, alias = "StylesSalute")
     autoGenerate(false)
-    view()
+    mode(THEME)
+    outputLocation(SRC)
+    view {
+        themeParents {
+            materialComponentsTheme()
+        }
+        setupShapeAppearance(sddsShape())
+    }
 }
 
 dependencies {
+    implementation(libs.sdds.icons)
+    implementation(libs.sdds.uikit)
     implementation(libs.base.androidX.core)
     implementation(libs.base.androidX.appcompat)
 }

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Plasma.SdService.Components.ProgressBar" parent="Sdds.Components.ProgressBar">
+        <item name="backgroundTint">?plasma_surfaceDefaultTransparentSecondary</item>
+    </style>
+
+    <style name="Plasma.SdService.Components.ProgressBar.Default">
+        <item name="android:progressTint">?plasma_surfaceDefaultSolidDefault</item>
+    </style>
+
+    <style name="Plasma.SdService.Components.ProgressBar.Secondary">
+        <item name="android:progressTint">?plasma_surfaceDefaultSolidTertiary</item>
+    </style>
+
+    <style name="Plasma.SdService.Components.ProgressBar.Accent">
+        <item name="android:progressTint">?plasma_surfaceDefaultAccent</item>
+    </style>
+
+    <style name="Plasma.SdService.Components.ProgressBar.GradientAccent">
+        <item name="android:progressTint">@null</item>
+        <item name="android:progressDrawable">?plasma_surfaceDefaultAccentGradient</item>
+    </style>
+
+    <style name="Plasma.SdService.Components.ProgressBar.Positive">
+        <item name="android:progressTint">?plasma_surfaceDefaultPositive</item>
+    </style>
+
+    <style name="Plasma.SdService.Components.ProgressBar.Warning">
+        <item name="android:progressTint">?plasma_surfaceDefaultWarning</item>
+    </style>
+
+    <style name="Plasma.SdService.Components.ProgressBar.Negative">
+        <item name="android:progressTint">?plasma_surfaceDefaultNegative</item>
+    </style>
+
+    <style name="Plasma.SdService.Components.ProgressBar.Info">
+        <item name="android:progressTint">?plasma_surfaceDefaultInfo</item>
+    </style>
+</resources>

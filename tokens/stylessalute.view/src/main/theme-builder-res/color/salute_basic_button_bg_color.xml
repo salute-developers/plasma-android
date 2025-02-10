@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:color="?salute_surfaceDefaultSolidDefaultActive" android:state_pressed="true" app:salute_button_state_default="true"/>
+    <item android:color="?salute_surfaceDefaultSolidDefaultHover" android:state_hovered="true" app:salute_button_state_default="true"/>
+    <item android:color="?salute_surfaceDefaultSolidDefault" app:salute_button_state_default="true"/>
+    <item android:color="?salute_surfaceDefaultTransparentSecondaryActive" android:state_pressed="true" app:salute_button_state_secondary="true"/>
+    <item android:color="?salute_surfaceDefaultTransparentSecondaryHover" android:state_hovered="true" app:salute_button_state_secondary="true"/>
+    <item android:color="?salute_surfaceDefaultTransparentSecondary" app:salute_button_state_secondary="true"/>
+    <item android:color="?salute_surfaceDefaultAccentMainActive" android:state_pressed="true" app:salute_button_state_accent="true"/>
+    <item android:color="?salute_surfaceDefaultAccentMainHover" android:state_hovered="true" app:salute_button_state_accent="true"/>
+    <item android:color="?salute_surfaceDefaultAccentMain" app:salute_button_state_accent="true"/>
+    <item android:color="?salute_surfaceDefaultPositiveActive" android:state_pressed="true" app:salute_button_state_positive="true"/>
+    <item android:color="?salute_surfaceDefaultPositiveHover" android:state_hovered="true" app:salute_button_state_positive="true"/>
+    <item android:color="?salute_surfaceDefaultPositive" app:salute_button_state_positive="true"/>
+    <item android:color="?salute_surfaceDefaultNegativeActive" android:state_pressed="true" app:salute_button_state_negative="true"/>
+    <item android:color="?salute_surfaceDefaultNegativeHover" android:state_hovered="true" app:salute_button_state_negative="true"/>
+    <item android:color="?salute_surfaceDefaultNegative" app:salute_button_state_negative="true"/>
+    <item android:color="?salute_surfaceDefaultWarningActive" android:state_pressed="true" app:salute_button_state_warning="true"/>
+    <item android:color="?salute_surfaceDefaultWarningHover" android:state_hovered="true" app:salute_button_state_warning="true"/>
+    <item android:color="?salute_surfaceDefaultWarning" app:salute_button_state_warning="true"/>
+    <item android:color="?salute_surfaceDefaultClearActive" android:state_pressed="true" app:salute_button_state_clear="true"/>
+    <item android:color="?salute_surfaceDefaultClearHover" android:state_hovered="true" app:salute_button_state_clear="true"/>
+    <item android:color="?salute_surfaceDefaultClear" app:salute_button_state_clear="true"/>
+    <item android:color="?salute_surfaceOnLightTransparentDeepActive" android:state_pressed="true" app:salute_button_state_dark="true"/>
+    <item android:color="?salute_surfaceOnLightTransparentDeepHover" android:state_hovered="true" app:salute_button_state_dark="true"/>
+    <item android:color="?salute_surfaceOnLightTransparentDeep" app:salute_button_state_dark="true"/>
+    <item android:color="?salute_surfaceOnLightSolidDefaultActive" android:state_pressed="true" app:salute_button_state_black="true"/>
+    <item android:color="?salute_surfaceOnLightSolidDefaultHover" android:state_hovered="true" app:salute_button_state_black="true"/>
+    <item android:color="?salute_surfaceOnLightSolidDefault" app:salute_button_state_black="true"/>
+    <item android:color="?salute_surfaceOnDarkSolidDefaultActive" android:state_pressed="true" app:salute_button_state_white="true"/>
+    <item android:color="?salute_surfaceOnDarkSolidDefaultHover" android:state_hovered="true" app:salute_button_state_white="true"/>
+    <item android:color="?salute_surfaceOnDarkSolidDefault" app:salute_button_state_white="true"/>
+</selector>

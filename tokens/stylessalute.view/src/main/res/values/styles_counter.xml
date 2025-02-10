@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Salute.StylesSalute.Components.Counter" parent="Sdds.Components.Counter">
+        <item name="sd_colorStateProvider">com.sdds.serv.colorstate.CounterColorStateProvider</item>
+        <item name="android:backgroundTint">@color/salute_counter_bg_color</item>
+        <item name="android:textColor">@color/salute_counter_text_color</item>
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Counter.L">
+        <item name="android:minHeight">28dp</item>
+        <item name="android:minWidth">28dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.BodySNormal</item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Counter.M">
+        <item name="android:minHeight">24dp</item>
+        <item name="android:minWidth">24dp</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.BodyXsNormal</item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Counter.S">
+        <item name="android:minHeight">20dp</item>
+        <item name="android:minWidth">20dp</item>
+        <item name="android:paddingLeft">6dp</item>
+        <item name="android:paddingRight">6dp</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.BodyXxsNormal</item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Counter.Xs">
+        <item name="android:minHeight">16dp</item>
+        <item name="android:minWidth">16dp</item>
+        <item name="android:paddingLeft">4dp</item>
+        <item name="android:paddingRight">4dp</item>
+        <item name="android:paddingTop">1.5dp</item>
+        <item name="android:paddingBottom">2.5dp</item>
+        <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.BodyXxsNormal</item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Counter.Xxs">
+        <item name="android:minHeight">12dp</item>
+        <item name="android:minWidth">12dp</item>
+        <item name="android:paddingLeft">2dp</item>
+        <item name="android:paddingRight">2dp</item>
+        <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.BodyXxsNormal</item>
+    </style>
+
+    <!--region Counter L styles   -->
+    <style name="Salute.StylesSalute.Components.Counter.L.Accent">
+        <item name="salute_counterColors">state_accent</item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Counter.L.Positive">
+        <item name="salute_counterColors">state_positive</item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Counter.L.Warning">
+        <item name="salute_counterColors">state_warning</item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Counter.L.Negative">
+        <item name="salute_counterColors">state_negative</item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Counter.L.Black">
+        <item name="salute_counterColors">state_black</item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Counter.L.White">
+        <item name="salute_counterColors">state_white</item>
+    </style>
+    <!--end region Counter L styles   -->
+
+    <!--region Counter M styles   -->
+    <style name="Salute.StylesSalute.Components.Counter.M.Accent">
+        <item name="salute_counterColors">state_accent</item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Counter.M.Positive">
+        <item name="salute_counterColors">state_positive</item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Counter.M.Warning">
+        <item name="salute_counterColors">state_warning</item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Counter.M.Negative">
+        <item name="salute_counterColors">state_negative</item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Counter.M.Black">
+        <item name="salute_counterColors">state_black</item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Counter.M.White">
+        <item name="salute_counterColors">state_white</item>
+    </style>
+    <!--end region Counter M styles   -->
+
+    <!--region Counter S styles   -->
+    <style name="Salute.StylesSalute.Components.Counter.S.Accent">
+        <item name="salute_counterColors">state_accent</item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Counter.S.Positive">
+        <item name="salute_counterColors">state_positive</item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Counter.S.Warning">
+        <item name="salute_counterColors">state_warning</item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Counter.S.Negative">
+        <item name="salute_counterColors">state_negative</item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Counter.S.Black">
+        <item name="salute_counterColors">state_black</item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Counter.S.White">
+        <item name="salute_counterColors">state_white</item>
+    </style>
+    <!--end region Counter S styles   -->
+
+    <!--region Counter Xs styles   -->
+    <style name="Salute.StylesSalute.Components.Counter.Xs.Accent">
+        <item name="salute_counterColors">state_accent</item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Counter.Xs.Positive">
+        <item name="salute_counterColors">state_positive</item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Counter.Xs.Warning">
+        <item name="salute_counterColors">state_warning</item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Counter.Xs.Negative">
+        <item name="salute_counterColors">state_negative</item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Counter.Xs.Black">
+        <item name="salute_counterColors">state_black</item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Counter.Xs.White">
+        <item name="salute_counterColors">state_white</item>
+    </style>
+    <!--end region Counter Xs styles   -->
+
+    <!--region Counter Xxs styles   -->
+    <style name="Salute.StylesSalute.Components.Counter.Xxs.Accent">
+        <item name="salute_counterColors">state_accent</item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Counter.Xxs.Positive">
+        <item name="salute_counterColors">state_positive</item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Counter.Xxs.Warning">
+        <item name="salute_counterColors">state_warning</item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Counter.Xxs.Negative">
+        <item name="salute_counterColors">state_negative</item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Counter.Xxs.Black">
+        <item name="salute_counterColors">state_black</item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.Counter.Xxs.White">
+        <item name="salute_counterColors">state_white</item>
+    </style>
+    <!--end region Counter Xxs styles   -->
+</resources>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--   region Counter L overlays-->
+    <style name="Salute.StylesSalute.ComponentOverlays.CounterLDefault">
+        <item name="sd_counterStyle">@style/Salute.StylesSalute.Components.Counter.L</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.CounterLAccent">
+        <item name="sd_counterStyle">@style/Salute.StylesSalute.Components.Counter.L.Accent</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.CounterLPositive">
+        <item name="sd_counterStyle">@style/Salute.StylesSalute.Components.Counter.L.Positive</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.CounterLWarning">
+        <item name="sd_counterStyle">@style/Salute.StylesSalute.Components.Counter.L.Warning</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.CounterLNegative">
+        <item name="sd_counterStyle">@style/Salute.StylesSalute.Components.Counter.L.Negative</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.CounterLWhite">
+        <item name="sd_counterStyle">@style/Salute.StylesSalute.Components.Counter.L.White</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.CounterLBlack">
+        <item name="sd_counterStyle">@style/Salute.StylesSalute.Components.Counter.L.Black</item>
+    </style>
+    <!--  end region Counter L overlays-->
+
+    <!--   region Counter M overlays-->
+    <style name="Salute.StylesSalute.ComponentOverlays.CounterMDefault">
+        <item name="sd_counterStyle">@style/Salute.StylesSalute.Components.Counter.M</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.CounterMAccent">
+        <item name="sd_counterStyle">@style/Salute.StylesSalute.Components.Counter.M.Accent</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.CounterMPositive">
+        <item name="sd_counterStyle">@style/Salute.StylesSalute.Components.Counter.M.Positive</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.CounterMWarning">
+        <item name="sd_counterStyle">@style/Salute.StylesSalute.Components.Counter.M.Warning</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.CounterMNegative">
+        <item name="sd_counterStyle">@style/Salute.StylesSalute.Components.Counter.M.Negative</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.CounterMWhite">
+        <item name="sd_counterStyle">@style/Salute.StylesSalute.Components.Counter.M.White</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.CounterMBlack">
+        <item name="sd_counterStyle">@style/Salute.StylesSalute.Components.Counter.M.Black</item>
+    </style>
+    <!--  end region Counter M overlays-->
+
+    <!--   region Counter S overlays-->
+    <style name="Salute.StylesSalute.ComponentOverlays.CounterSDefault">
+        <item name="sd_counterStyle">@style/Salute.StylesSalute.Components.Counter.S</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.CounterSAccent">
+        <item name="sd_counterStyle">@style/Salute.StylesSalute.Components.Counter.S.Accent</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.CounterSPositive">
+        <item name="sd_counterStyle">@style/Salute.StylesSalute.Components.Counter.S.Positive</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.CounterSWarning">
+        <item name="sd_counterStyle">@style/Salute.StylesSalute.Components.Counter.S.Warning</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.CounterSNegative">
+        <item name="sd_counterStyle">@style/Salute.StylesSalute.Components.Counter.S.Negative</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.CounterSWhite">
+        <item name="sd_counterStyle">@style/Salute.StylesSalute.Components.Counter.S.White</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.CounterSBlack">
+        <item name="sd_counterStyle">@style/Salute.StylesSalute.Components.Counter.S.Black</item>
+    </style>
+    <!--  end region Counter S overlays-->
+
+    <!--   region Counter Xs overlays-->
+    <style name="Salute.StylesSalute.ComponentOverlays.CounterXsDefault">
+        <item name="sd_counterStyle">@style/Salute.StylesSalute.Components.Counter.Xs</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.CounterXsAccent">
+        <item name="sd_counterStyle">@style/Salute.StylesSalute.Components.Counter.Xs.Accent</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.CounterXsPositive">
+        <item name="sd_counterStyle">@style/Salute.StylesSalute.Components.Counter.Xs.Positive</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.CounterXsWarning">
+        <item name="sd_counterStyle">@style/Salute.StylesSalute.Components.Counter.Xs.Warning</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.CounterXsNegative">
+        <item name="sd_counterStyle">@style/Salute.StylesSalute.Components.Counter.Xs.Negative</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.CounterXsWhite">
+        <item name="sd_counterStyle">@style/Salute.StylesSalute.Components.Counter.Xs.White</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.CounterXsBlack">
+        <item name="sd_counterStyle">@style/Salute.StylesSalute.Components.Counter.Xs.Black</item>
+    </style>
+    <!--  end region Counter Xs overlays-->
+
+    <!--   region Counter Xxs overlays-->
+    <style name="Salute.StylesSalute.ComponentOverlays.CounterXxsDefault">
+        <item name="sd_counterStyle">@style/Salute.StylesSalute.Components.Counter.Xxs</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.CounterXxsAccent">
+        <item name="sd_counterStyle">@style/Salute.StylesSalute.Components.Counter.Xxs.Accent</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.CounterXxsPositive">
+        <item name="sd_counterStyle">@style/Salute.StylesSalute.Components.Counter.Xxs.Positive</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.CounterXxsWarning">
+        <item name="sd_counterStyle">@style/Salute.StylesSalute.Components.Counter.Xxs.Warning</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.CounterXxsNegative">
+        <item name="sd_counterStyle">@style/Salute.StylesSalute.Components.Counter.Xxs.Negative</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.CounterXxsWhite">
+        <item name="sd_counterStyle">@style/Salute.StylesSalute.Components.Counter.Xxs.White</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.CounterXxsBlack">
+        <item name="sd_counterStyle">@style/Salute.StylesSalute.Components.Counter.Xxs.Black</item>
+    </style>
+    <!--  end region Counter Xxs overlays-->
+</resources>

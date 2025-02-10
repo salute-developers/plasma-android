@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:color="?salute_textInversePrimaryActive" android:state_pressed="true" app:salute_iconbutton_state_default="true"/>
+    <item android:color="?salute_textInversePrimaryHover" android:state_hovered="true" app:salute_iconbutton_state_default="true"/>
+    <item android:color="?salute_textInversePrimary" app:salute_iconbutton_state_default="true"/>
+    <item android:color="?salute_textDefaultPrimaryActive" android:state_pressed="true" app:salute_iconbutton_state_secondary="true"/>
+    <item android:color="?salute_textDefaultPrimaryHover" android:state_hovered="true" app:salute_iconbutton_state_secondary="true"/>
+    <item android:color="?salute_textDefaultPrimary" app:salute_iconbutton_state_secondary="true"/>
+    <item android:color="?salute_textOnDarkPrimaryActive" android:state_pressed="true" app:salute_iconbutton_state_accent="true"/>
+    <item android:color="?salute_textOnDarkPrimaryHover" android:state_hovered="true" app:salute_iconbutton_state_accent="true"/>
+    <item android:color="?salute_textOnDarkPrimary" app:salute_iconbutton_state_accent="true"/>
+    <item android:color="?salute_textOnDarkPrimaryActive" android:state_pressed="true" app:salute_iconbutton_state_positive="true"/>
+    <item android:color="?salute_textOnDarkPrimaryHover" android:state_hovered="true" app:salute_iconbutton_state_positive="true"/>
+    <item android:color="?salute_textOnDarkPrimary" app:salute_iconbutton_state_positive="true"/>
+    <item android:color="?salute_textOnDarkPrimaryActive" android:state_pressed="true" app:salute_iconbutton_state_negative="true"/>
+    <item android:color="?salute_textOnDarkPrimaryHover" android:state_hovered="true" app:salute_iconbutton_state_negative="true"/>
+    <item android:color="?salute_textOnDarkPrimary" app:salute_iconbutton_state_negative="true"/>
+    <item android:color="?salute_textOnDarkPrimaryActive" android:state_pressed="true" app:salute_iconbutton_state_warning="true"/>
+    <item android:color="?salute_textOnDarkPrimaryHover" android:state_hovered="true" app:salute_iconbutton_state_warning="true"/>
+    <item android:color="?salute_textOnDarkPrimary" app:salute_iconbutton_state_warning="true"/>
+    <item android:color="?salute_textDefaultPrimaryActive" android:state_pressed="true" app:salute_iconbutton_state_clear="true"/>
+    <item android:color="?salute_textDefaultPrimaryHover" android:state_hovered="true" app:salute_iconbutton_state_clear="true"/>
+    <item android:color="?salute_textDefaultPrimary" app:salute_iconbutton_state_clear="true"/>
+    <item android:color="?salute_textOnDarkPrimaryActive" android:state_pressed="true" app:salute_iconbutton_state_dark="true"/>
+    <item android:color="?salute_textOnDarkPrimaryHover" android:state_hovered="true" app:salute_iconbutton_state_dark="true"/>
+    <item android:color="?salute_textOnDarkPrimary" app:salute_iconbutton_state_dark="true"/>
+    <item android:color="?salute_textOnDarkPrimaryActive" android:state_pressed="true" app:salute_iconbutton_state_black="true"/>
+    <item android:color="?salute_textOnDarkPrimaryHover" android:state_hovered="true" app:salute_iconbutton_state_black="true"/>
+    <item android:color="?salute_textOnDarkPrimary" app:salute_iconbutton_state_black="true"/>
+    <item android:color="?salute_textOnLightPrimaryActive" android:state_pressed="true" app:salute_iconbutton_state_white="true"/>
+    <item android:color="?salute_textOnLightPrimaryHover" android:state_hovered="true" app:salute_iconbutton_state_white="true"/>
+    <item android:color="?salute_textOnLightPrimary" app:salute_iconbutton_state_white="true"/>
+</selector>
