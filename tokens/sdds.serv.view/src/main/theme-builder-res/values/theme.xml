@@ -1158,6 +1158,7 @@
         <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.M</item>
         <item name="sd_chipGroupStyle">@style/Serv.Sdds.Components.ChipGroup.Wide</item>
         <item name="sd_cellStyle">@style/Serv.Sdds.Components.Cell.M</item>
+        <item name="sd_indicatorStyle">@style/Serv.Sdds.Components.Indicator.M</item>
         <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.M</item>
         <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.M</item>
         <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.M</item>
@@ -2332,6 +2333,7 @@
         <item name="sd_chipStyle">@style/Serv.Sdds.Components.Chip.M</item>
         <item name="sd_chipGroupStyle">@style/Serv.Sdds.Components.ChipGroup.Wide</item>
         <item name="sd_cellStyle">@style/Serv.Sdds.Components.Cell.M</item>
+        <item name="sd_indicatorStyle">@style/Serv.Sdds.Components.Indicator.M</item>
         <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.M</item>
         <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.M</item>
         <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.M</item>

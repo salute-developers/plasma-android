@@ -3,6 +3,7 @@ package com.sdds.plugin.themebuilder
 import com.sdds.plugin.themebuilder.internal.PackageResolver
 import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.components.button.ButtonConfig
+import com.sdds.plugin.themebuilder.internal.components.indicator.IndicatorConfig
 import com.sdds.plugin.themebuilder.internal.components.textfield.TextFieldConfig
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.ComponentStyleGeneratorFactory
@@ -65,6 +66,12 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
      */
     @get:InputFile
     abstract val textAreaClearConfigFile: RegularFileProperty
+
+    /**
+     * Файл с конфигом Indicator
+     */
+    @get:InputFile
+    abstract val indicatorConfigFile: RegularFileProperty
 
     /**
      * Путь для сохранения kt-файлов токенов
@@ -170,6 +177,10 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
         componentStyleGeneratorFactory.createIconButtonStyleGeneratorView()
     }
 
+    private val indicatorStyleGeneratorView by unsafeLazy {
+        componentStyleGeneratorFactory.createIndicatorStyleGeneratorView()
+    }
+
     private val linkButtonStyleGeneratorCompose by unsafeLazy {
         componentStyleGeneratorFactory.createLinkButtonStyleGeneratorCompose()
     }
@@ -210,6 +221,12 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
 
     private val iconButtonConfig: ButtonConfig by unsafeLazy {
         iconButtonConfigFile.get()
+            .asFile
+            .decode(Serializer.componentConfig)
+    }
+
+    private val indicatorConfig: IndicatorConfig by unsafeLazy {
+        indicatorConfigFile.get()
             .asFile
             .decode(Serializer.componentConfig)
     }
@@ -271,6 +288,7 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
     private fun generateViewsConfigs() {
         basicButtonStyleGeneratorView.generate(basicButtonConfig)
         iconButtonStyleGeneratorView.generate(iconButtonConfig)
+        indicatorStyleGeneratorView.generate(indicatorConfig)
         linkButtonStyleGeneratorView.generate(linkButtonConfig)
         textFieldStyleGeneratorView.generate(textFieldConfig)
         textAreaStyleGeneratorView.generate(textAreaConfig)

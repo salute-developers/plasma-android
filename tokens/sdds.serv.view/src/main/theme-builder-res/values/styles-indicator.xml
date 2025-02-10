@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.Indicator" parent="Sdds.Components.Indicator">
+        <item name="sd_colorStateProvider">com.sdds.serv.colorstate.IndicatorColorStateProvider</item>
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="backgroundTint">@color/serv_indicator_bg_color</item>
+    </style>
+    <style name="Serv.Sdds.Components.Indicator.L">
+        <item name="android:maxHeight">@dimen/serv_indicator_l_max_height</item>
+        <item name="android:maxWidth">@dimen/serv_indicator_l_max_width</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IndicatorL">
+        <item name="sd_indicatorStyle">@style/Serv.Sdds.Components.Indicator.L</item>
+    </style>
+    <style name="Serv.Sdds.Components.Indicator.L.Default">
+        <item name="serv_indicatorColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IndicatorLDefault">
+        <item name="sd_indicatorStyle">@style/Serv.Sdds.Components.Indicator.L.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.Indicator.L.Accent">
+        <item name="serv_indicatorColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IndicatorLAccent">
+        <item name="sd_indicatorStyle">@style/Serv.Sdds.Components.Indicator.L.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.Indicator.L.Inactive">
+        <item name="serv_indicatorColors">state_inactive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IndicatorLInactive">
+        <item name="sd_indicatorStyle">@style/Serv.Sdds.Components.Indicator.L.Inactive</item>
+    </style>
+    <style name="Serv.Sdds.Components.Indicator.L.Positive">
+        <item name="serv_indicatorColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IndicatorLPositive">
+        <item name="sd_indicatorStyle">@style/Serv.Sdds.Components.Indicator.L.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.Indicator.L.Warning">
+        <item name="serv_indicatorColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IndicatorLWarning">
+        <item name="sd_indicatorStyle">@style/Serv.Sdds.Components.Indicator.L.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.Indicator.L.Negative">
+        <item name="serv_indicatorColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IndicatorLNegative">
+        <item name="sd_indicatorStyle">@style/Serv.Sdds.Components.Indicator.L.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.Indicator.L.Dark">
+        <item name="serv_indicatorColors">state_dark</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IndicatorLDark">
+        <item name="sd_indicatorStyle">@style/Serv.Sdds.Components.Indicator.L.Dark</item>
+    </style>
+    <style name="Serv.Sdds.Components.Indicator.L.Black">
+        <item name="serv_indicatorColors">state_black</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IndicatorLBlack">
+        <item name="sd_indicatorStyle">@style/Serv.Sdds.Components.Indicator.L.Black</item>
+    </style>
+    <style name="Serv.Sdds.Components.Indicator.L.White">
+        <item name="serv_indicatorColors">state_white</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IndicatorLWhite">
+        <item name="sd_indicatorStyle">@style/Serv.Sdds.Components.Indicator.L.White</item>
+    </style>
+    <style name="Serv.Sdds.Components.Indicator.M">
+        <item name="android:maxHeight">@dimen/serv_indicator_m_max_height</item>
+        <item name="android:maxWidth">@dimen/serv_indicator_m_max_width</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IndicatorM">
+        <item name="sd_indicatorStyle">@style/Serv.Sdds.Components.Indicator.M</item>
+    </style>
+    <style name="Serv.Sdds.Components.Indicator.M.Default">
+        <item name="serv_indicatorColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IndicatorMDefault">
+        <item name="sd_indicatorStyle">@style/Serv.Sdds.Components.Indicator.M.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.Indicator.M.Accent">
+        <item name="serv_indicatorColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IndicatorMAccent">
+        <item name="sd_indicatorStyle">@style/Serv.Sdds.Components.Indicator.M.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.Indicator.M.Inactive">
+        <item name="serv_indicatorColors">state_inactive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IndicatorMInactive">
+        <item name="sd_indicatorStyle">@style/Serv.Sdds.Components.Indicator.M.Inactive</item>
+    </style>
+    <style name="Serv.Sdds.Components.Indicator.M.Positive">
+        <item name="serv_indicatorColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IndicatorMPositive">
+        <item name="sd_indicatorStyle">@style/Serv.Sdds.Components.Indicator.M.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.Indicator.M.Warning">
+        <item name="serv_indicatorColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IndicatorMWarning">
+        <item name="sd_indicatorStyle">@style/Serv.Sdds.Components.Indicator.M.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.Indicator.M.Negative">
+        <item name="serv_indicatorColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IndicatorMNegative">
+        <item name="sd_indicatorStyle">@style/Serv.Sdds.Components.Indicator.M.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.Indicator.M.Dark">
+        <item name="serv_indicatorColors">state_dark</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IndicatorMDark">
+        <item name="sd_indicatorStyle">@style/Serv.Sdds.Components.Indicator.M.Dark</item>
+    </style>
+    <style name="Serv.Sdds.Components.Indicator.M.Black">
+        <item name="serv_indicatorColors">state_black</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IndicatorMBlack">
+        <item name="sd_indicatorStyle">@style/Serv.Sdds.Components.Indicator.M.Black</item>
+    </style>
+    <style name="Serv.Sdds.Components.Indicator.M.White">
+        <item name="serv_indicatorColors">state_white</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IndicatorMWhite">
+        <item name="sd_indicatorStyle">@style/Serv.Sdds.Components.Indicator.M.White</item>
+    </style>
+    <style name="Serv.Sdds.Components.Indicator.S">
+        <item name="android:maxHeight">@dimen/serv_indicator_s_max_height</item>
+        <item name="android:maxWidth">@dimen/serv_indicator_s_max_width</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IndicatorS">
+        <item name="sd_indicatorStyle">@style/Serv.Sdds.Components.Indicator.S</item>
+    </style>
+    <style name="Serv.Sdds.Components.Indicator.S.Default">
+        <item name="serv_indicatorColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IndicatorSDefault">
+        <item name="sd_indicatorStyle">@style/Serv.Sdds.Components.Indicator.S.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.Indicator.S.Accent">
+        <item name="serv_indicatorColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IndicatorSAccent">
+        <item name="sd_indicatorStyle">@style/Serv.Sdds.Components.Indicator.S.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.Indicator.S.Inactive">
+        <item name="serv_indicatorColors">state_inactive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IndicatorSInactive">
+        <item name="sd_indicatorStyle">@style/Serv.Sdds.Components.Indicator.S.Inactive</item>
+    </style>
+    <style name="Serv.Sdds.Components.Indicator.S.Positive">
+        <item name="serv_indicatorColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IndicatorSPositive">
+        <item name="sd_indicatorStyle">@style/Serv.Sdds.Components.Indicator.S.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.Indicator.S.Warning">
+        <item name="serv_indicatorColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IndicatorSWarning">
+        <item name="sd_indicatorStyle">@style/Serv.Sdds.Components.Indicator.S.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.Indicator.S.Negative">
+        <item name="serv_indicatorColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IndicatorSNegative">
+        <item name="sd_indicatorStyle">@style/Serv.Sdds.Components.Indicator.S.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.Indicator.S.Dark">
+        <item name="serv_indicatorColors">state_dark</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IndicatorSDark">
+        <item name="sd_indicatorStyle">@style/Serv.Sdds.Components.Indicator.S.Dark</item>
+    </style>
+    <style name="Serv.Sdds.Components.Indicator.S.Black">
+        <item name="serv_indicatorColors">state_black</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IndicatorSBlack">
+        <item name="sd_indicatorStyle">@style/Serv.Sdds.Components.Indicator.S.Black</item>
+    </style>
+    <style name="Serv.Sdds.Components.Indicator.S.White">
+        <item name="serv_indicatorColors">state_white</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IndicatorSWhite">
+        <item name="sd_indicatorStyle">@style/Serv.Sdds.Components.Indicator.S.White</item>
+    </style>
+</resources>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:color="?serv_surfaceDefaultSolidDefault" app:serv_indicator_state_default="true"/>
+    <item android:color="?serv_surfaceDefaultAccent" app:serv_indicator_state_accent="true"/>
+    <item android:color="?serv_surfaceDefaultSolidTertiary" app:serv_indicator_state_inactive="true"/>
+    <item android:color="?serv_surfaceDefaultPositive" app:serv_indicator_state_positive="true"/>
+    <item android:color="?serv_surfaceDefaultWarning" app:serv_indicator_state_warning="true"/>
+    <item android:color="?serv_surfaceDefaultNegative" app:serv_indicator_state_negative="true"/>
+    <item android:color="?serv_surfaceOnLightTransparentDeep" app:serv_indicator_state_dark="true"/>
+    <item android:color="?serv_surfaceOnLightSolidDefault" app:serv_indicator_state_black="true"/>
+    <item android:color="?serv_surfaceOnDarkSolidDefault" app:serv_indicator_state_white="true"/>
+</selector>

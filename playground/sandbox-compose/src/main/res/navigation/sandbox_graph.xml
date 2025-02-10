@@ -48,6 +48,12 @@
         tools:layout="@layout/fragment_component_scaffold" />
 
     <fragment
+        android:id="@+id/nav_indicator"
+        android:name="com.sdds.playground.sandbox.indicator.vs.IndicatorFragment"
+        android:label="@string/menu_indicator"
+        tools:layout="@layout/fragment_component_scaffold" />
+
+    <fragment
         android:id="@+id/nav_cell"
         android:name="com.sdds.playground.sandbox.cell.vs.CellFragment"
         android:label="@string/menu_cell"
