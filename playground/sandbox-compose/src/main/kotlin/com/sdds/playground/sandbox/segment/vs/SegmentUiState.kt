@@ -14,8 +14,11 @@ internal data class SegmentUiState(
     val segmentItemLabel: String = "Label",
     val segmentItemValue: String? = null,
     val enabled: Boolean = true,
+    val checked: Boolean = false,
     val stretch: Boolean = false,
     val orientation: SegmentOrientation = SegmentOrientation.HORIZONTAL,
+    val counter: Boolean = false,
+    val count: String = "1",
 ) : Parcelable
 
 /**
@@ -34,38 +37,47 @@ internal sealed interface Variant : Parcelable {
 
 @Parcelize
 internal enum class SegmentItemVariant(@StyleRes override val styleRes: Int) : Variant {
-    SegmentItemLDefault(R.style.Serv_Sdds_ComponentOverlays_SegmentItem_LDefault),
+    SegmentItemLPrimary(R.style.Serv_Sdds_ComponentOverlays_SegmentItem_LPrimary),
     SegmentItemLSecondary(R.style.Serv_Sdds_ComponentOverlays_SegmentItem_LSecondary),
-    SegmentItemLClear(R.style.Serv_Sdds_ComponentOverlays_SegmentItem_LClear),
-    SegmentItemLDefaultPilled(R.style.Serv_Sdds_ComponentOverlays_SegmentItem_LDefaultPilled),
+    SegmentItemLDefault(R.style.Serv_Sdds_ComponentOverlays_SegmentItem_LDefault),
+    SegmentItemLPrimaryPilled(R.style.Serv_Sdds_ComponentOverlays_SegmentItem_LPrimaryPilled),
     SegmentItemLSecondaryPilled(R.style.Serv_Sdds_ComponentOverlays_SegmentItem_LSecondaryPilled),
-    SegmentItemMDefault(R.style.Serv_Sdds_ComponentOverlays_SegmentItem_MDefault),
+    SegmentItemMPrimary(R.style.Serv_Sdds_ComponentOverlays_SegmentItem_MPrimary),
     SegmentItemMSecondary(R.style.Serv_Sdds_ComponentOverlays_SegmentItem_MSecondary),
-    SegmentItemMClear(R.style.Serv_Sdds_ComponentOverlays_SegmentItem_MClear),
-    SegmentItemMDefaultPilled(R.style.Serv_Sdds_ComponentOverlays_SegmentItem_MDefaultPilled),
+    SegmentItemMDefault(R.style.Serv_Sdds_ComponentOverlays_SegmentItem_MDefault),
+    SegmentItemMPrimaryPilled(R.style.Serv_Sdds_ComponentOverlays_SegmentItem_MPrimaryPilled),
     SegmentItemMSecondaryPilled(R.style.Serv_Sdds_ComponentOverlays_SegmentItem_MSecondaryPilled),
-    SegmentItemSDefault(R.style.Serv_Sdds_ComponentOverlays_SegmentItem_SDefault),
+    SegmentItemSPrimary(R.style.Serv_Sdds_ComponentOverlays_SegmentItem_SPrimary),
     SegmentItemSSecondary(R.style.Serv_Sdds_ComponentOverlays_SegmentItem_SSecondary),
-    SegmentItemSClear(R.style.Serv_Sdds_ComponentOverlays_SegmentItem_SClear),
-    SegmentItemSDefaultPilled(R.style.Serv_Sdds_ComponentOverlays_SegmentItem_SDefaultPilled),
+    SegmentItemSDefault(R.style.Serv_Sdds_ComponentOverlays_SegmentItem_SDefault),
+    SegmentItemSPrimaryPilled(R.style.Serv_Sdds_ComponentOverlays_SegmentItem_SPrimaryPilled),
     SegmentItemSSecondaryPilled(R.style.Serv_Sdds_ComponentOverlays_SegmentItem_SSecondaryPilled),
-    SegmentItemXsDefault(R.style.Serv_Sdds_ComponentOverlays_SegmentItem_XsDefault),
+    SegmentItemXsPrimary(R.style.Serv_Sdds_ComponentOverlays_SegmentItem_XsPrimary),
     SegmentItemXsSecondary(R.style.Serv_Sdds_ComponentOverlays_SegmentItem_XsSecondary),
-    SegmentItemXsClear(R.style.Serv_Sdds_ComponentOverlays_SegmentItem_XsClear),
-    SegmentItemXsDefaultPilled(R.style.Serv_Sdds_ComponentOverlays_SegmentItem_XsDefaultPilled),
+    SegmentItemXsDefault(R.style.Serv_Sdds_ComponentOverlays_SegmentItem_XsDefault),
+    SegmentItemXsPrimaryPilled(R.style.Serv_Sdds_ComponentOverlays_SegmentItem_XsPrimaryPilled),
     SegmentItemXsSecondaryPilled(R.style.Serv_Sdds_ComponentOverlays_SegmentItem_XsSecondaryPilled),
 }
 
 @Parcelize
 internal enum class SegmentVariant(@StyleRes override val styleRes: Int) : Variant {
-    SegmentL(R.style.Serv_Sdds_ComponentOverlays_SegmentL),
-    SegmentM(R.style.Serv_Sdds_ComponentOverlays_SegmentM),
-    SegmentS(R.style.Serv_Sdds_ComponentOverlays_SegmentS),
-    SegmentXs(R.style.Serv_Sdds_ComponentOverlays_SegmentXs),
-    SegmentLPilled(R.style.Serv_Sdds_ComponentOverlays_SegmentLPilled),
-    SegmentMPilled(R.style.Serv_Sdds_ComponentOverlays_SegmentMPilled),
-    SegmentSPilled(R.style.Serv_Sdds_ComponentOverlays_SegmentSPilled),
-    SegmentXsPilled(R.style.Serv_Sdds_ComponentOverlays_SegmentXsPilled),
+    SegmentLPrimary(R.style.Serv_Sdds_ComponentOverlays_SegmentLPrimary),
+    SegmentMPrimary(R.style.Serv_Sdds_ComponentOverlays_SegmentMPrimary),
+    SegmentSPrimary(R.style.Serv_Sdds_ComponentOverlays_SegmentSPrimary),
+    SegmentXsPrimary(R.style.Serv_Sdds_ComponentOverlays_SegmentXsPrimary),
+    SegmentLPrimaryPilled(R.style.Serv_Sdds_ComponentOverlays_SegmentLPrimaryPilled),
+    SegmentMPrimaryPilled(R.style.Serv_Sdds_ComponentOverlays_SegmentMPrimaryPilled),
+    SegmentSPrimaryPilled(R.style.Serv_Sdds_ComponentOverlays_SegmentSPrimaryPilled),
+    SegmentXsPrimaryPilled(R.style.Serv_Sdds_ComponentOverlays_SegmentXsPrimaryPilled),
+
+    SegmentLSecondary(R.style.Serv_Sdds_ComponentOverlays_SegmentLSecondary),
+    SegmentMSecondary(R.style.Serv_Sdds_ComponentOverlays_SegmentMSecondary),
+    SegmentSSecondary(R.style.Serv_Sdds_ComponentOverlays_SegmentSSecondary),
+    SegmentXsSecondary(R.style.Serv_Sdds_ComponentOverlays_SegmentXsSecondary),
+    SegmentLSecondaryPilled(R.style.Serv_Sdds_ComponentOverlays_SegmentLSecondary),
+    SegmentMSecondaryPilled(R.style.Serv_Sdds_ComponentOverlays_SegmentMSecondaryPilled),
+    SegmentSSecondaryPilled(R.style.Serv_Sdds_ComponentOverlays_SegmentSSecondaryPilled),
+    SegmentXsSecondaryPilled(R.style.Serv_Sdds_ComponentOverlays_SegmentXsSecondaryPilled),
 }
 
 /**

@@ -13,8 +13,6 @@ import com.sdds.uikit.shape.AbsoluteCornerSize
 import com.sdds.uikit.shape.ShapeModel
 import com.sdds.uikit.shape.Shapeable
 import com.sdds.uikit.shape.shapeHelper
-import com.sdds.uikit.viewstate.ViewState
-import com.sdds.uikit.viewstate.ViewStateHolder
 
 /**
  * Компонент для группировки нескольких SegmentItem
@@ -27,12 +25,11 @@ open class Segment @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.sd_segmentStyle,
     defStyleRes: Int = R.style.Sdds_Components_Segment,
-) : LinearLayout(context, attrs, defStyleAttr, defStyleRes), ViewStateHolder {
+) : LinearLayout(context, attrs, defStyleAttr, defStyleRes) {
 
     private var _adapter: Adapter? = null
     private var _segmentItemsPool: Array<SegmentItem?>? = null
     private var _checkedItem: Button? = null
-    private var _checkedItemState: ViewState? = null
     private var _onCheckedChangeListener: OnCheckedChangeListener? = null
     private var _childOnCheckedChangeListener: Button.OnCheckedChangeListener =
         CheckedStateTracker()
@@ -160,13 +157,6 @@ open class Segment @JvmOverloads constructor(
         _passThroughListener.onHierarchyChangeListener = listener
     }
 
-    override var state: ViewState? = ViewState.obtain(context, attrs, defStyleAttr, defStyleRes)
-        set(value) {
-            if (field != value) {
-                field = value
-            }
-        }
-
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
         if (this.shape != null) adjustShape()
@@ -223,7 +213,7 @@ open class Segment @JvmOverloads constructor(
 
         /**
          * Отвязывает пользовательские данные с [SegmentItem]
-         * @param segmentItemViewiew экземпляр компонента [SegmentItem]
+         * @param segmentItemView экземпляр компонента [SegmentItem]
          */
         open fun onUnbindSegmentItem(segmentItemView: SegmentItem) = Unit
 
@@ -266,7 +256,6 @@ open class Segment @JvmOverloads constructor(
                 } else {
                     _checkedItem?.let {
                         it.isChecked = false
-                        it.state = _checkedItemState
                         _onCheckedChangeListener?.onCheckedChanged(
                             this@Segment,
                             button as SegmentItem,
@@ -274,8 +263,6 @@ open class Segment @JvmOverloads constructor(
                         )
                     }
                     _checkedItem = button
-                    _checkedItemState = button.state
-                    button.state = state
                     _onCheckedChangeListener?.onCheckedChanged(
                         this@Segment,
                         button as SegmentItem,

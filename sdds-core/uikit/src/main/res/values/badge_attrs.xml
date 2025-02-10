@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <attr name="sd_badgeStyle" format="reference" />
+    <attr name="sd_iconBadgeStyle" format="reference" />
+
+    <declare-styleable name="Badge" tools:ignore="ResourceName">
+        <attr name="android:drawableStart" />
+        <attr name="android:drawableEnd" />
+        <attr name="sd_drawableStartTint" />
+        <attr name="sd_drawableEndTint"  />
+        <attr name="sd_drawableSize"  />
+
+        <attr name="android:text" />
+        <attr name="android:textAppearance" />
+        <attr name="android:textColor" />
+        <attr name="sd_textPaddingStart" />
+        <attr name="sd_textPaddingEnd" />
+
+        <attr name="android:backgroundTint"/>
+        <attr name="backgroundTint"/>
+        <attr name="sd_shapeAppearance" />
+    </declare-styleable>
+</resources>

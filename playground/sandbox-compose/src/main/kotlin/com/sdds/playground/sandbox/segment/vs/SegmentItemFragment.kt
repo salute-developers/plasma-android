@@ -39,6 +39,9 @@ internal class SegmentItemFragment : ComponentFragment() {
                     dispatchComponentStyleChanged()
                 }
                 _segmentItem?.apply {
+                    setOnCheckedChangedListener { _, isChecked ->
+                        segmentItemViewModel.updateProperty("checked", isChecked)
+                    }
                     text = state.segmentItemLabel
                     value = state.segmentItemValue
                     isEnabled = state.enabled
@@ -47,10 +50,13 @@ internal class SegmentItemFragment : ComponentFragment() {
                     } else {
                         icon = null
                     }
+                    isChecked = state.checked
                     iconPosition = when (state.icon) {
                         SegmentItemIcon.End -> Button.IconPosition.TextEnd
                         else -> Button.IconPosition.TextStart
                     }
+                    counterText = state.count
+                    isCounterEnabled = state.counter
                 }
             }
             .launchIn(viewLifecycleOwner.lifecycleScope)

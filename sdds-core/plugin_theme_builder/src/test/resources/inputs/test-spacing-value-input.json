@@ -1,0 +1,11 @@
+{
+  "spacing.0x": {
+    "value": 0
+  },
+  "spacing.1x": {
+    "value": 2.0
+  },
+  "spacing.2x": {
+    "value": 4.0
+  }
+}

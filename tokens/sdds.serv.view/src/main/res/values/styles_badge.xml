@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Serv.Sdds.Components.Badge" parent="Sdds.Components.Badge">
+        <item name="android:backgroundTint">@color/serv_badge_bg_color</item>
+        <item name="android:textColor">@color/serv_badge_text_color</item>
+        <item name="sd_drawableStartTint">@color/serv_badge_text_color</item>
+        <item name="sd_drawableEndTint">@color/serv_badge_text_color</item>
+        <item name="sd_colorStateProvider">com.sdds.serv.colorstate.BadgeColorStateProvider</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Badge.L">
+        <item name="android:minHeight">28dp</item>
+        <item name="android:paddingStart">11dp</item>
+        <item name="android:paddingEnd">11dp</item>
+        <item name="sd_textPaddingEnd">4dp</item>
+        <item name="sd_textPaddingStart">4dp</item>
+        <item name="sd_drawableSize">16dp</item>
+
+        <item name="sd_shapeAppearance">?serv_shapeRoundS</item>
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodySNormal</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Badge.M">
+        <item name="android:minHeight">24dp</item>
+        <item name="android:paddingStart">9dp</item>
+        <item name="android:paddingEnd">9dp</item>
+        <item name="sd_textPaddingEnd">3dp</item>
+        <item name="sd_textPaddingStart">3dp</item>
+        <item name="sd_drawableSize">12dp</item>
+
+        <item name="sd_shapeAppearance">?serv_shapeRoundXs</item>
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyXsNormal</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Badge.S">
+        <item name="android:minHeight">20dp</item>
+        <item name="android:paddingStart">7dp</item>
+        <item name="android:paddingEnd">7dp</item>
+        <item name="sd_textPaddingEnd">2dp</item>
+        <item name="sd_textPaddingStart">2dp</item>
+        <item name="sd_drawableSize">12dp</item>
+
+        <item name="sd_shapeAppearance">?serv_shapeRoundXs</item>
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyXxsNormal</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Badge.Xs">
+        <item name="android:minHeight">16dp</item>
+        <item name="android:paddingStart">4dp</item>
+        <item name="android:paddingEnd">4dp</item>
+        <item name="sd_textPaddingEnd">2dp</item>
+        <item name="sd_textPaddingStart">2dp</item>
+        <item name="sd_drawableSize">10dp</item>
+
+        <item name="sd_shapeAppearance">?serv_shapeRoundXxs</item>
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyXxsNormal</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Badge.L.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Badge.M.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Badge.S.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Badge.Xs.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+
+<!--    start region L size-->
+    <style name="Serv.Sdds.Components.Badge.L.Accent">
+        <item name="serv_badgeColors">state_accent</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Badge.L.Positive">
+        <item name="serv_badgeColors">state_positive</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Badge.L.Warning">
+        <item name="serv_badgeColors">state_warning</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Badge.L.Negative">
+        <item name="serv_badgeColors">state_negative</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Badge.L.Black">
+        <item name="serv_badgeColors">state_black</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Badge.L.White">
+        <item name="serv_badgeColors">state_white</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Badge.L.Pilled.Accent">
+        <item name="serv_badgeColors">state_accent</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Badge.L.Pilled.Positive">
+        <item name="serv_badgeColors">state_positive</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Badge.L.Pilled.Warning">
+        <item name="serv_badgeColors">state_warning</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Badge.L.Pilled.Negative">
+        <item name="serv_badgeColors">state_negative</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Badge.L.Pilled.Black">
+        <item name="serv_badgeColors">state_black</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Badge.L.Pilled.White">
+        <item name="serv_badgeColors">state_white</item>
+    </style>
+    <!--    end region L size-->
+
+    <!--    start region M size-->
+    <style name="Serv.Sdds.Components.Badge.M.Accent">
+        <item name="serv_badgeColors">state_accent</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Badge.M.Positive">
+        <item name="serv_badgeColors">state_positive</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Badge.M.Warning">
+        <item name="serv_badgeColors">state_warning</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Badge.M.Negative">
+        <item name="serv_badgeColors">state_negative</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Badge.M.Black">
+        <item name="serv_badgeColors">state_black</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Badge.M.White">
+        <item name="serv_badgeColors">state_white</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Badge.M.Pilled.Accent">
+        <item name="serv_badgeColors">state_accent</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Badge.M.Pilled.Positive">
+        <item name="serv_badgeColors">state_positive</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Badge.M.Pilled.Warning">
+        <item name="serv_badgeColors">state_warning</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Badge.M.Pilled.Negative">
+        <item name="serv_badgeColors">state_negative</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Badge.M.Pilled.Black">
+        <item name="serv_badgeColors">state_black</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Badge.M.Pilled.White">
+        <item name="serv_badgeColors">state_white</item>
+    </style>
+    <!--    end region M size-->
+
+    <!--    start region S size-->
+    <style name="Serv.Sdds.Components.Badge.S.Accent">
+        <item name="serv_badgeColors">state_accent</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Badge.S.Positive">
+        <item name="serv_badgeColors">state_positive</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Badge.S.Warning">
+        <item name="serv_badgeColors">state_warning</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Badge.S.Negative">
+        <item name="serv_badgeColors">state_negative</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Badge.S.Black">
+        <item name="serv_badgeColors">state_black</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Badge.S.White">
+        <item name="serv_badgeColors">state_white</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Badge.S.Pilled.Accent">
+        <item name="serv_badgeColors">state_accent</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Badge.S.Pilled.Positive">
+        <item name="serv_badgeColors">state_positive</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Badge.S.Pilled.Warning">
+        <item name="serv_badgeColors">state_warning</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Badge.S.Pilled.Negative">
+        <item name="serv_badgeColors">state_negative</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Badge.S.Pilled.Black">
+        <item name="serv_badgeColors">state_black</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Badge.S.Pilled.White">
+        <item name="serv_badgeColors">state_white</item>
+    </style>
+    <!--    end region S size-->
+
+    <!--    start region Xs size-->
+    <style name="Serv.Sdds.Components.Badge.Xs.Accent">
+        <item name="serv_badgeColors">state_accent</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Badge.Xs.Positive">
+        <item name="serv_badgeColors">state_positive</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Badge.Xs.Warning">
+        <item name="serv_badgeColors">state_warning</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Badge.Xs.Negative">
+        <item name="serv_badgeColors">state_negative</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Badge.Xs.Black">
+        <item name="serv_badgeColors">state_black</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Badge.Xs.White">
+        <item name="serv_badgeColors">state_white</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Badge.Xs.Pilled.Accent">
+        <item name="serv_badgeColors">state_accent</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Badge.Xs.Pilled.Positive">
+        <item name="serv_badgeColors">state_positive</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Badge.Xs.Pilled.Warning">
+        <item name="serv_badgeColors">state_warning</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Badge.Xs.Pilled.Negative">
+        <item name="serv_badgeColors">state_negative</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Badge.Xs.Pilled.Black">
+        <item name="serv_badgeColors">state_black</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.Badge.Xs.Pilled.White">
+        <item name="serv_badgeColors">state_white</item>
+    </style>
+    <!--    end region Xs size-->
+</resources>

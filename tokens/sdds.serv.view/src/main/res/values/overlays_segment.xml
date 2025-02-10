@@ -8,8 +8,8 @@
         <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.L.Secondary</item>
     </style>
 
-    <style name="Serv.Sdds.ComponentOverlays.SegmentItem.LClear" parent="">
-        <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.L.Clear</item>
+    <style name="Serv.Sdds.ComponentOverlays.SegmentItem.LPrimary" parent="">
+        <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.L.Primary</item>
     </style>
 
     <style name="Serv.Sdds.ComponentOverlays.SegmentItem.LDefaultPilled" parent="">
@@ -20,8 +20,8 @@
         <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.L.Pilled.Secondary</item>
     </style>
 
-    <style name="Serv.Sdds.ComponentOverlays.SegmentItem.LClearPilled" parent="">
-        <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.L.Pilled.Clear</item>
+    <style name="Serv.Sdds.ComponentOverlays.SegmentItem.LPrimaryPilled" parent="">
+        <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.L.Pilled.Primary</item>
     </style>
 
     <style name="Serv.Sdds.ComponentOverlays.SegmentItem.MDefault" parent="">
@@ -32,8 +32,8 @@
         <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.M.Secondary</item>
     </style>
 
-    <style name="Serv.Sdds.ComponentOverlays.SegmentItem.MClear" parent="">
-        <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.M.Clear</item>
+    <style name="Serv.Sdds.ComponentOverlays.SegmentItem.MPrimary" parent="">
+        <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.M.Primary</item>
     </style>
 
     <style name="Serv.Sdds.ComponentOverlays.SegmentItem.MDefaultPilled" parent="">
@@ -44,8 +44,8 @@
         <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.M.Pilled.Secondary</item>
     </style>
 
-    <style name="Serv.Sdds.ComponentOverlays.SegmentItem.MClearPilled" parent="">
-        <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.M.Pilled.Clear</item>
+    <style name="Serv.Sdds.ComponentOverlays.SegmentItem.MPrimaryPilled" parent="">
+        <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.M.Pilled.Primary</item>
     </style>
 
     <style name="Serv.Sdds.ComponentOverlays.SegmentItem.SDefault" parent="">
@@ -56,8 +56,8 @@
         <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.S.Secondary</item>
     </style>
 
-    <style name="Serv.Sdds.ComponentOverlays.SegmentItem.SClear" parent="">
-        <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.S.Clear</item>
+    <style name="Serv.Sdds.ComponentOverlays.SegmentItem.SPrimary" parent="">
+        <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.S.Primary</item>
     </style>
 
     <style name="Serv.Sdds.ComponentOverlays.SegmentItem.SDefaultPilled" parent="">
@@ -68,8 +68,8 @@
         <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.S.Pilled.Secondary</item>
     </style>
 
-    <style name="Serv.Sdds.ComponentOverlays.SegmentItem.SClearPilled" parent="">
-        <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.S.Pilled.Clear</item>
+    <style name="Serv.Sdds.ComponentOverlays.SegmentItem.SPrimaryPilled" parent="">
+        <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.S.Pilled.Primary</item>
     </style>
 
     <style name="Serv.Sdds.ComponentOverlays.SegmentItem.XsDefault" parent="">
@@ -80,8 +80,8 @@
         <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.Xs.Secondary</item>
     </style>
 
-    <style name="Serv.Sdds.ComponentOverlays.SegmentItem.XsClear" parent="">
-        <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.Xs.Clear</item>
+    <style name="Serv.Sdds.ComponentOverlays.SegmentItem.XsPrimary" parent="">
+        <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.Xs.Primary</item>
     </style>
 
     <style name="Serv.Sdds.ComponentOverlays.SegmentItem.XsDefaultPilled" parent="">
@@ -92,8 +92,8 @@
         <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.Xs.Pilled.Secondary</item>
     </style>
 
-    <style name="Serv.Sdds.ComponentOverlays.SegmentItem.XsClearPilled" parent="">
-        <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.Xs.Pilled.Clear</item>
+    <style name="Serv.Sdds.ComponentOverlays.SegmentItem.XsPrimaryPilled" parent="">
+        <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.Xs.Pilled.Primary</item>
     </style>
 
 
@@ -101,8 +101,8 @@
         <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.L</item>
     </style>
 
-    <style name="Serv.Sdds.ComponentOverlays.SegmentLDefault">
-        <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.L.Default</item>
+    <style name="Serv.Sdds.ComponentOverlays.SegmentLPrimary">
+        <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.L.Primary</item>
     </style>
 
     <style name="Serv.Sdds.ComponentOverlays.SegmentLSecondary">
@@ -113,8 +113,8 @@
         <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.M</item>
     </style>
 
-    <style name="Serv.Sdds.ComponentOverlays.SegmentMDefault">
-        <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.M.Default</item>
+    <style name="Serv.Sdds.ComponentOverlays.SegmentMPrimary">
+        <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.M.Primary</item>
     </style>
 
     <style name="Serv.Sdds.ComponentOverlays.SegmentMSecondary">
@@ -125,8 +125,8 @@
         <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.S</item>
     </style>
 
-    <style name="Serv.Sdds.ComponentOverlays.SegmentSDefault">
-        <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.S.Default</item>
+    <style name="Serv.Sdds.ComponentOverlays.SegmentSPrimary">
+        <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.S.Primary</item>
     </style>
 
     <style name="Serv.Sdds.ComponentOverlays.SegmentSSecondary">
@@ -137,8 +137,8 @@
         <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.Xs</item>
     </style>
 
-    <style name="Serv.Sdds.ComponentOverlays.SegmentXsDefault">
-        <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.Xs.Default</item>
+    <style name="Serv.Sdds.ComponentOverlays.SegmentXsPrimary">
+        <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.Xs.Primary</item>
     </style>
 
     <style name="Serv.Sdds.ComponentOverlays.SegmentXsSecondary">
@@ -150,8 +150,8 @@
         <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.LPilled</item>
     </style>
 
-    <style name="Serv.Sdds.ComponentOverlays.SegmentLDefaultPilled">
-        <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.LPilled.Default</item>
+    <style name="Serv.Sdds.ComponentOverlays.SegmentLPrimaryPilled">
+        <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.LPilled.Primary</item>
     </style>
 
     <style name="Serv.Sdds.ComponentOverlays.SegmentLSecondaryPilled">
@@ -162,8 +162,8 @@
         <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.MPilled</item>
     </style>
 
-    <style name="Serv.Sdds.ComponentOverlays.SegmentMDefaultPilled">
-        <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.MPilled.Default</item>
+    <style name="Serv.Sdds.ComponentOverlays.SegmentMPrimaryPilled">
+        <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.MPilled.Primary</item>
     </style>
 
     <style name="Serv.Sdds.ComponentOverlays.SegmentMSecondaryPilled">
@@ -174,8 +174,8 @@
         <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.SPilled</item>
     </style>
 
-    <style name="Serv.Sdds.ComponentOverlays.SegmentSDefaultPilled">
-        <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.SPilled.Default</item>
+    <style name="Serv.Sdds.ComponentOverlays.SegmentSPrimaryPilled">
+        <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.SPilled.Primary</item>
     </style>
 
     <style name="Serv.Sdds.ComponentOverlays.SegmentSSecondaryPilled">
@@ -186,8 +186,8 @@
         <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.XsPilled</item>
     </style>
 
-    <style name="Serv.Sdds.ComponentOverlays.SegmentXsDefaultPilled">
-        <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.XsPilled.Default</item>
+    <style name="Serv.Sdds.ComponentOverlays.SegmentXsPrimaryPilled">
+        <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.XsPilled.Primary</item>
     </style>
 
     <style name="Serv.Sdds.ComponentOverlays.SegmentXsSecondaryPilled">

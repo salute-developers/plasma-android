@@ -2,7 +2,8 @@
 <resources>
 
     <style name="Sdds.Components.SegmentItem" parent="Sdds.Components.Button">
-
+        <item name="sd_counterEnabled">false</item>
+        <item name="sd_counterText">0</item>
     </style>
 
     <style name="Sdds.Components.Segment">

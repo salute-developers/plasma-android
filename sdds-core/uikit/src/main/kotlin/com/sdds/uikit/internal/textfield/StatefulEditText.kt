@@ -2,33 +2,22 @@ package com.sdds.uikit.internal.textfield
 
 import android.content.Context
 import android.content.res.ColorStateList
-import android.graphics.Canvas
-import android.graphics.Color
-import android.graphics.ColorFilter
-import android.graphics.Paint
-import android.graphics.PixelFormat
-import android.graphics.Rect
 import android.graphics.drawable.Drawable
 import android.os.Build
 import android.text.InputFilter
-import android.text.TextPaint
 import android.util.AttributeSet
 import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputConnection
 import android.widget.TextView
-import androidx.annotation.StyleRes
 import androidx.appcompat.widget.AppCompatEditText
 import com.sdds.uikit.R
 import com.sdds.uikit.colorstate.ColorState
 import com.sdds.uikit.colorstate.ColorState.Companion.isDefined
 import com.sdds.uikit.colorstate.ColorStateHolder
-import com.sdds.uikit.internal.base.applyTextAppearance
-import com.sdds.uikit.internal.base.colorForState
-import com.sdds.uikit.internal.base.configure
+import com.sdds.uikit.drawable.TextDrawable
 import com.sdds.uikit.viewstate.ViewState
-import kotlin.math.roundToInt
 
 /**
  * [AppCompatEditText] с поддержкой [ViewState]
@@ -125,7 +114,8 @@ internal class StatefulEditText @JvmOverloads constructor(
             if (value.isNullOrBlank()) {
                 prefix = null
             } else if (prefix == null) {
-                prefix = TextDrawable(value)
+                prefix = TextDrawable(context)
+                    .apply { text = value }
             } else {
                 prefix?.tryUpdateText(value)
             }
@@ -138,7 +128,8 @@ internal class StatefulEditText @JvmOverloads constructor(
             if (value.isNullOrBlank()) {
                 suffix = null
             } else if (suffix == null) {
-                suffix = TextDrawable(value)
+                suffix = TextDrawable(context)
+                    .apply { text = value }
             } else {
                 suffix?.tryUpdateText(value)
             }
@@ -275,13 +266,17 @@ internal class StatefulEditText @JvmOverloads constructor(
 
     private fun updatePrefixSuffixDrawable() {
         (_prefixDrawable as? TextDrawable)?.apply {
+            setTintList(null)
             setTextAppearance(context, _valueTextAppearance)
-            setTintList(hintTextColors)
+            setTextColor(hintTextColors)
+            textAlignment = TextDrawable.TextAlignment.START
             tryUpdatePaddings(0, _prefixPadding)
         }
         (_suffixDrawable as? TextDrawable)?.apply {
+            setTintList(null)
             setTextAppearance(context, _valueTextAppearance)
-            setTintList(hintTextColors)
+            setTextColor(hintTextColors)
+            textAlignment = TextDrawable.TextAlignment.START
             tryUpdatePaddings(_suffixPadding, 0)
         }
         setCompoundDrawablesRelativeWithIntrinsicBounds(
@@ -354,118 +349,17 @@ internal class StatefulEditText @JvmOverloads constructor(
         }
     }
 
-    internal class TextDrawable(text: CharSequence?) : Drawable() {
-
-        private val _textPaint: TextPaint = TextPaint().configure(isAntiAlias = true)
-        private val debug: Paint =
-            Paint().configure(color = Color.MAGENTA, style = Paint.Style.STROKE, strokeWidth = 3f)
-        private var _textColors: ColorStateList? = null
-        private var _textBounds: Rect = Rect()
-
-        var text: CharSequence? = text
-            set(value) {
-                if (field != value) {
-                    field = value
-                    invalidateSelf()
-                }
-            }
-
-        var paddingStart: Int = 0
-            set(value) {
-                if (field != value) {
-                    field = value
-                    invalidateSelf()
-                }
-            }
-
-        var paddingEnd: Int = 0
-            set(value) {
-                if (field != value) {
-                    field = value
-                    invalidateSelf()
-                }
-            }
-
-        fun setTextAppearance(context: Context, @StyleRes appearance: Int) {
-            _textPaint.applyTextAppearance(context, appearance) {
-                _textPaint.color = _textColors.colorForState(state)
-                invalidateSelf()
-            }
-        }
-
-        override fun draw(canvas: Canvas) {
-            text?.toString()?.let {
-                canvas.drawText(it, _textBounds.left.toFloat(), _textBounds.top.toFloat(), _textPaint)
-            }
-        }
-
-        override fun setAlpha(alpha: Int) {
-            _textPaint.alpha = alpha
-        }
-
-        override fun setColorFilter(colorFilter: ColorFilter?) {
-            _textPaint.colorFilter = colorFilter
-        }
-
-        override fun getOpacity(): Int = PixelFormat.OPAQUE
-
-        override fun setTintList(tint: ColorStateList?) {
-            super.setTintList(tint)
-            _textColors = tint
-            _textPaint.color = _textColors.colorForState(state)
-        }
-
-        override fun onStateChange(state: IntArray): Boolean {
-            var stateChanged = false
-            val newColor = _textColors.colorForState(state)
-            if (_textPaint.color != newColor) {
-                _textPaint.color = newColor
-                stateChanged = true
-            }
-
-            if (stateChanged) {
-                invalidateSelf()
-            }
-            return super.onStateChange(state) || stateChanged
-        }
-
-        override fun onBoundsChange(bounds: Rect) {
-            super.onBoundsChange(bounds)
-            text?.toString()?.let { safeText ->
-                _textPaint.getTextBounds(safeText, 0, safeText.length, _textBounds)
-                _textBounds.offsetTo(
-                    bounds.left + paddingStart,
-                    bounds.centerY() - _textBounds.centerY(),
-                )
-            }
-        }
-
-        override fun getIntrinsicWidth(): Int {
-            val measurableText = text?.toString() ?: return 0
-            return _textPaint.measureText(measurableText).roundToInt() + paddingStart + paddingEnd
-        }
-
-        override fun getIntrinsicHeight(): Int {
-            return (_textPaint.fontMetrics.descent - _textPaint.fontMetrics.ascent).toInt()
-        }
-
-        override fun isStateful(): Boolean {
-            return _textColors?.isStateful == true
-        }
-    }
-
     private companion object {
 
         const val DUMMY_MEASURE_TEXT = "M"
 
         fun Drawable.tryUpdateText(text: CharSequence?) {
-            (this as? TextDrawable)?.text = text
+            (this as? TextDrawable)?.text = text ?: return
         }
 
         fun Drawable.tryUpdatePaddings(paddingStart: Int = 0, paddingEnd: Int = 0) {
             (this as? TextDrawable)?.apply {
-                this.paddingStart = paddingStart
-                this.paddingEnd = paddingEnd
+                setPaddings(paddingStart, 0, paddingEnd, 0)
             }
         }
 

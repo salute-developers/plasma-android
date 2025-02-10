@@ -2,6 +2,7 @@ package com.sdds.plugin.themebuilder.internal.token
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import org.gradle.configurationcache.extensions.capitalized
 
 /**
  * Контракт токенов теней
@@ -29,15 +30,30 @@ internal data class ShadowToken(
     override val tags: Set<String>,
     override val enabled: Boolean,
     override val description: String,
-) : Token()
+) : Token() {
+
+    companion object {
+
+        fun getAttrName(tokenName: String): String =
+            "shadow${tokenName.split(".").joinToString(separator = "") { it.capitalized() }}"
+    }
+}
 
 /**
  * Значение токена тени
  * @property color цвет тени
- * @property elevation размер тени
+ * @property offsetX смещение тени по оси X
+ * @property offsetY смещение тени по оси Y
+ * @property spreadRadius радиус распространения тени
+ * @property blurRadius радиус сглаживания границ тени
+ * @property fallbackElevation значение elevation, которое используется на API < 28
  */
 @Serializable
 internal data class ShadowTokenValue(
     val color: String,
-    val elevation: Float,
+    val offsetX: Float,
+    val offsetY: Float,
+    val spreadRadius: Float,
+    val blurRadius: Float,
+    val fallbackElevation: Float? = null,
 ) : TokenValue

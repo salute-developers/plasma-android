@@ -11,6 +11,8 @@ import com.sdds.plugin.themebuilder.internal.generator.data.mergedLightAndDark
 import com.sdds.plugin.themebuilder.internal.generator.data.mergedScreenClasses
 import com.sdds.plugin.themebuilder.internal.utils.snakeToCamelCase
 import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
+import com.squareup.kotlinpoet.ClassName
+import com.squareup.kotlinpoet.TypeSpec
 
 /**
  * Генератор темы для Compose
@@ -74,6 +76,12 @@ internal class ComposeThemeGenerator(
     private val shapeAttributesClassType by unsafeLazy {
         themeKtFileBuilder.getInternalClassType("${camelThemeName}Shapes")
     }
+    private val shadowAttributesClassType by unsafeLazy {
+        themeKtFileBuilder.getInternalClassType("${camelThemeName}Shadows")
+    }
+    private val spacingAttributesClassType by unsafeLazy {
+        themeKtFileBuilder.getInternalClassType("${camelThemeName}Spacing")
+    }
     private val typographyAttributesClassType by unsafeLazy {
         themeKtFileBuilder.getInternalClassType("${camelThemeName}Typography")
     }
@@ -99,9 +107,19 @@ internal class ComposeThemeGenerator(
                         defValue = "default${camelThemeName}Shapes()",
                     ),
                     KtFileBuilder.FunParameter(
+                        name = "shadows",
+                        type = shadowAttributesClassType,
+                        defValue = "default${camelThemeName}Shadows()",
+                    ),
+                    KtFileBuilder.FunParameter(
                         name = "typography",
                         type = typographyAttributesClassType,
                         defValue = "dynamic${camelThemeName}Typography()",
+                    ),
+                    KtFileBuilder.FunParameter(
+                        name = "spacing",
+                        type = spacingAttributesClassType,
+                        defValue = "default${camelThemeName}Spacing()",
                     ),
                     KtFileBuilder.FunParameter(
                         name = "content",
@@ -134,6 +152,8 @@ internal class ComposeThemeGenerator(
                 "Local${camelThemeName}Gradients provides gradients",
                 "Local${camelThemeName}Typography provides typography",
                 "Local${camelThemeName}Shapes provides shapes",
+                "Local${camelThemeName}Shadows provides shadows",
+                "Local${camelThemeName}Spacing provides spacing",
             )
             textSelectionHandleColor?.let {
                 compositionLocalProviderFunParametersList.add(
@@ -163,52 +183,31 @@ internal class ComposeThemeGenerator(
     private fun addThemeObject() {
         with(themeKtFileBuilder) {
             rootObject(name = themeClassName).apply {
-                appendProperty(
-                    name = "colors",
-                    typeName = colorAttributesClassType,
-                    propGetter = KtFileBuilder.Getter.Annotated(
-                        annotations = listOf(
-                            Annotation(KtFileBuilder.TypeAnnotationComposable),
-                            Annotation(KtFileBuilder.TypeAnnotationReadOnlyComposable),
-                        ),
-                        body = "return Local${colorAttributesClassType.simpleName}.current",
-                    ),
-                )
-                appendProperty(
-                    name = "gradients",
-                    typeName = gradientAttributesClassType,
-                    propGetter = KtFileBuilder.Getter.Annotated(
-                        annotations = listOf(
-                            Annotation(KtFileBuilder.TypeAnnotationComposable),
-                            Annotation(KtFileBuilder.TypeAnnotationReadOnlyComposable),
-                        ),
-                        body = "return Local${gradientAttributesClassType.simpleName}.current",
-                    ),
-                )
-                appendProperty(
-                    name = "shapes",
-                    typeName = shapeAttributesClassType,
-                    propGetter = KtFileBuilder.Getter.Annotated(
-                        annotations = listOf(
-                            Annotation(KtFileBuilder.TypeAnnotationComposable),
-                            Annotation(KtFileBuilder.TypeAnnotationReadOnlyComposable),
-                        ),
-                        body = "return Local${shapeAttributesClassType.simpleName}.current",
-                    ),
-                )
-                appendProperty(
-                    name = "typography",
-                    typeName = typographyAttributesClassType,
-                    propGetter = KtFileBuilder.Getter.Annotated(
-                        annotations = listOf(
-                            Annotation(KtFileBuilder.TypeAnnotationComposable),
-                            Annotation(KtFileBuilder.TypeAnnotationReadOnlyComposable),
-                        ),
-                        body = "return Local${typographyAttributesClassType.simpleName}.current",
-                    ),
-                )
+                appendThemeProperty("colors", colorAttributesClassType)
+                appendThemeProperty("gradients", gradientAttributesClassType)
+                appendThemeProperty("shapes", shapeAttributesClassType)
+                appendThemeProperty("shadows", shadowAttributesClassType)
+                appendThemeProperty("spacing", spacingAttributesClassType)
+                appendThemeProperty("typography", typographyAttributesClassType)
             }
         }
+    }
+
+    private fun TypeSpec.Builder.appendThemeProperty(
+        name: String,
+        attrClassType: ClassName,
+    ) = with(themeKtFileBuilder) {
+        appendProperty(
+            name = name,
+            typeName = attrClassType,
+            propGetter = KtFileBuilder.Getter.Annotated(
+                annotations = listOf(
+                    Annotation(KtFileBuilder.TypeAnnotationComposable),
+                    Annotation(KtFileBuilder.TypeAnnotationReadOnlyComposable),
+                ),
+                body = "return Local${attrClassType.simpleName}.current",
+            ),
+        )
     }
 
     fun setColorTokenData(colors: ColorTokenResult.TokenData) {

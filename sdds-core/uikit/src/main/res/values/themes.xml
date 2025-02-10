@@ -10,10 +10,12 @@
     <!-- Базовая темная тема -->
     <style name="Sdds.Theme" parent="Theme.AppCompat">
         <item name="android:buttonStyle">@style/Sdds.Components.Button</item>
+        <item name="sd_badgeStyle">@style/Sdds.Components.Badge</item>
         <item name="sd_textFieldStyle">@style/Sdds.Components.TextField</item>
         <item name="sd_avatarStyle">@style/Sdds.Components.Avatar</item>
         <item name="sd_avatarGroupStyle">@style/Sdds.Components.AvatarGroup</item>
         <item name="sd_chipStyle">@style/Sdds.Components.Chip</item>
+        <item name="sd_counterStyle">@style/Sdds.Components.Counter</item>
         <item name="sd_segmentStyle">@style/Sdds.Components.Segment</item>
         <item name="sd_segmentItemStyle">@style/Sdds.Components.SegmentItem</item>
         <item name="sd_switchStyle">@style/Sdds.Components.Switch</item>
@@ -24,10 +26,12 @@
     <!-- Базовая светлая тема -->
     <style name="Sdds.Theme.Light" parent="Theme.AppCompat.Light">
         <item name="android:buttonStyle">@style/Sdds.Components.Button</item>
+        <item name="sd_badgeStyle">@style/Sdds.Components.Badge</item>
         <item name="sd_textFieldStyle">@style/Sdds.Components.TextField</item>
         <item name="sd_avatarStyle">@style/Sdds.Components.Avatar</item>
         <item name="sd_avatarGroupStyle">@style/Sdds.Components.AvatarGroup</item>
         <item name="sd_chipStyle">@style/Sdds.Components.Chip</item>
+        <item name="sd_counterStyle">@style/Sdds.Components.Counter</item>
         <item name="sd_segmentStyle">@style/Sdds.Components.Segment</item>
         <item name="sd_segmentItemStyle">@style/Sdds.Components.SegmentItem</item>
         <item name="sd_switchStyle">@style/Sdds.Components.Switch</item>
@@ -38,10 +42,12 @@
     <!-- Базовая тема DayNight -->
     <style name="Sdds.Theme.DayNight" parent="Theme.AppCompat.DayNight">
         <item name="android:buttonStyle">@style/Sdds.Components.Button</item>
+        <item name="sd_badgeStyle">@style/Sdds.Components.Badge</item>
         <item name="sd_textFieldStyle">@style/Sdds.Components.TextField</item>
         <item name="sd_avatarStyle">@style/Sdds.Components.Avatar</item>
         <item name="sd_avatarGroupStyle">@style/Sdds.Components.AvatarGroup</item>
         <item name="sd_chipStyle">@style/Sdds.Components.Chip</item>
+        <item name="sd_counterStyle">@style/Sdds.Components.Counter</item>
         <item name="sd_segmentStyle">@style/Sdds.Components.Segment</item>
         <item name="sd_segmentItemStyle">@style/Sdds.Components.SegmentItem</item>
         <item name="sd_switchStyle">@style/Sdds.Components.Switch</item>

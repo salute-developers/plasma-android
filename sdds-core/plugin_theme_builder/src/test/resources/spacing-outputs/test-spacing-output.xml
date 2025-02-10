@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Thmbldr.TestTheme.Shape"/>
+    <style name="Thmbldr.TestTheme.Shape.Round">
+        <item name="cornerFamily">rounded</item>
+        <item name="sd_cornerFamily">rounded</item>
+    </style>
+    <!--Форма со скругленными углами размером XS-->
+    <style name="Thmbldr.TestTheme.Shape.Round.Xs">
+        <item name="cornerSize">@dimen/thmbldr_round_xs_corner_size</item>
+        <item name="sd_cornerSize">@dimen/thmbldr_round_xs_corner_size</item>
+    </style>
+    <!--Форма со скругленными углами размером S-->
+    <style name="Thmbldr.TestTheme.Shape.Round.S">
+        <item name="cornerSize">@dimen/thmbldr_round_s_corner_size</item>
+        <item name="sd_cornerSize">@dimen/thmbldr_round_s_corner_size</item>
+    </style>
+    <!--Форма со скругленными углами размером L-->
+    <style name="Thmbldr.TestTheme.Shape.Round.L">
+        <item name="cornerSize">@dimen/thmbldr_round_l_corner_size</item>
+        <item name="sd_cornerSize">@dimen/thmbldr_round_l_corner_size</item>
+    </style>
+</resources>

@@ -59,6 +59,7 @@ import com.sdds.compose.uikit.TextField.FieldAppearance
 import com.sdds.compose.uikit.TextField.FieldType
 import com.sdds.compose.uikit.TextField.HelperTextPlacement
 import com.sdds.compose.uikit.TextField.LabelPlacement
+import com.sdds.compose.uikit.TextFieldColors
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.activatable
@@ -237,14 +238,6 @@ internal fun BaseTextField(
         ),
         decorationBox = {
             Layout(
-                modifier = Modifier
-                    .enable(enabled, enabledAlpha, disabledAlpha)
-                    .applyIndicatorPadding(
-                        fieldType = fieldType,
-                        labelPlacement = labelPlacement,
-                        labelText = finalLabelText,
-                        dimensions = dimensions,
-                    ),
                 measurePolicy = remember {
                     BaseTextFieldMeasurePolicy()
                 },
@@ -257,11 +250,14 @@ internal fun BaseTextField(
                             .applyLabelIndicator(
                                 fieldType = fieldType,
                                 labelPlacement = labelPlacement,
-                                indicatorColor = colors
-                                    .indicatorColor(readOnly)
-                                    .colorForInteraction(interactionSource),
+                                indicatorColor = colors.indicatorColor(
+                                    readOnly = readOnly,
+                                    enabled = enabled,
+                                    interactionSource = interactionSource,
+                                ),
                                 dimensions = dimensions,
-                            ),
+                            )
+                            .enable(enabled, enabledAlpha, disabledAlpha),
                         labelPlacement = labelPlacement,
                         fieldType = fieldType,
                         labelText = finalLabelText,
@@ -284,11 +280,10 @@ internal fun BaseTextField(
                                 labelPlacement,
                                 fieldAppearance,
                                 dimensions,
-                                colors
-                                    .indicatorColor(readOnly)
-                                    .colorForInteraction(interactionSource),
+                                colors.indicatorColor(readOnly, enabled, interactionSource),
                             )
                             .clip(if (fieldAppearance == FieldAppearance.Solid) style.shape else RectangleShape)
+                            .enable(enabled, enabledAlpha, disabledAlpha)
                             .drawFieldAppearance(
                                 fieldAppearance = fieldAppearance,
                                 hasDivider = style.hasDivider,
@@ -375,8 +370,8 @@ internal fun BaseTextField(
                         modifier = Modifier
                             .layoutId(CAPTION_CONTENT_ID)
                             .focusProperties { canFocus = false }
-                            .layoutId(CAPTION_CONTENT_ID)
-                            .padding(top = dimensions.helperTextPadding),
+                            .padding(top = dimensions.helperTextPadding)
+                            .enable(enabled, enabledAlpha, disabledAlpha),
                         text = captionText,
                         textStyle = captionStyle,
                         helperTextPlacement = helperTextPlacement,
@@ -385,7 +380,8 @@ internal fun BaseTextField(
                         modifier = Modifier
                             .layoutId(COUNTER_CONTENT_ID)
                             .focusProperties { canFocus = false }
-                            .padding(top = dimensions.helperTextPadding),
+                            .padding(top = dimensions.helperTextPadding)
+                            .enable(enabled, enabledAlpha, disabledAlpha),
                         text = counterText,
                         textStyle = counterStyle,
                         helperTextPlacement = helperTextPlacement,
@@ -394,6 +390,19 @@ internal fun BaseTextField(
             )
         },
     )
+}
+
+@Composable
+private fun TextFieldColors.indicatorColor(
+    readOnly: Boolean,
+    enabled: Boolean,
+    interactionSource: InteractionSource,
+): Color {
+    return indicatorColor(readOnly)
+        .colorForInteraction(interactionSource)
+        .let { color ->
+            if (enabled) color else color.copy(alpha = disabledAlpha)
+        }
 }
 
 private fun Modifier.drawFieldAppearance(
@@ -552,24 +561,6 @@ private fun innerCounter(
         )
     } else {
         null
-    }
-}
-
-private fun Modifier.applyIndicatorPadding(
-    fieldType: FieldType,
-    labelPlacement: LabelPlacement,
-    labelText: String?,
-    dimensions: TextField.Dimensions,
-): Modifier {
-    val isLabelOuter = labelPlacement == LabelPlacement.Outer
-    val isIndicatorStart = fieldType == FieldType.RequiredStart
-    val shouldApply = isLabelOuter && isIndicatorStart && !labelText.isNullOrEmpty()
-    return if (shouldApply) {
-        val startPadding =
-            dimensions.indicatorDimensions.indicatorSize + dimensions.indicatorDimensions.horizontalPadding
-        this.padding(start = startPadding)
-    } else {
-        this
     }
 }
 
@@ -743,9 +734,6 @@ private fun TextOrEmpty(
         overflow = overflow,
     )
 }
-
-private fun TextStyle.applyColor(color: Color): TextStyle =
-    this.copy(color = color)
 
 @Composable
 private fun TextStyle.applyColor(

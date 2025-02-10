@@ -41,6 +41,7 @@ internal class TextAppearance(context: Context, @StyleRes id: Int) {
     var hasLetterSpacing = false
     var letterSpacing = 0f
     var textSize: Float
+    val lineHeight: Float
 
     @RequiresApi(VERSION_CODES.O)
     var fontVariationSettings: String? = null
@@ -75,6 +76,7 @@ internal class TextAppearance(context: Context, @StyleRes id: Int) {
         shadowRadius = typedArray.getFloat(R.styleable.SdTextAppearance_android_shadowRadius, 0f)
         hasLetterSpacing = typedArray.hasValue(R.styleable.SdTextAppearance_android_letterSpacing)
         letterSpacing = typedArray.getFloat(R.styleable.SdTextAppearance_android_letterSpacing, 0f)
+        lineHeight = typedArray.getDimension(R.styleable.SdTextAppearance_android_lineHeight, 0f)
         typedArray.recycle()
     }
 

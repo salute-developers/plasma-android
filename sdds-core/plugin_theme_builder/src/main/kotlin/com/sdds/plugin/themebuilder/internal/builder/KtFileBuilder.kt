@@ -634,6 +634,11 @@ internal class KtFileBuilder(
         val TypeColorStateProvider =
             ClassName("com.sdds.uikit.colorstate", listOf("ColorStateProvider"))
         val TypeAttributeSet = ClassName("android.util", "AttributeSet")
+        val TypeShadowAppearance =
+            ClassName("com.sdds.compose.uikit.shadow", listOf("ShadowAppearance"))
+        val TypeShadowLayer =
+            ClassName("com.sdds.compose.uikit.shadow", listOf("ShadowLayer"))
+        val TypeDpOffset = ClassName("androidx.compose.ui.unit", "DpOffset")
 
         /**
          * Возвращает [TypeName] как nullable тип

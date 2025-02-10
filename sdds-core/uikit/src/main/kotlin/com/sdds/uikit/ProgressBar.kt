@@ -13,7 +13,6 @@ import android.view.View
 import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
 import androidx.appcompat.content.res.AppCompatResources
-import androidx.core.graphics.withTranslation
 import androidx.dynamicanimation.animation.FloatPropertyCompat
 import androidx.dynamicanimation.animation.SpringAnimation
 import androidx.dynamicanimation.animation.SpringForce
@@ -283,9 +282,7 @@ open class ProgressBar @JvmOverloads constructor(
 
         override fun draw(canvas: Canvas) {
             if (_skipDraw) return
-            canvas.withTranslation(bounds.left.toFloat(), bounds.top.toFloat()) {
-                super.draw(this)
-            }
+            super.draw(canvas)
         }
 
         @Suppress("OVERRIDE_DEPRECATION")

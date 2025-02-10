@@ -142,6 +142,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
                 typographyFileProvider = getValueFile(TokenValueFile.TYPOGRAPHY),
                 fontFileProvider = getValueFile(TokenValueFile.FONTS),
                 shadowFileProvider = getValueFile(TokenValueFile.SHADOWS),
+                spacingFileProvider = getValueFile(TokenValueFile.SPACING),
                 gradientFileProvider = getValueFile(TokenValueFile.GRADIENTS),
                 shapeFileProvider = getValueFile(TokenValueFile.SHAPES),
                 unzipTask = unzipThemeTask,
@@ -253,6 +254,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
         typographyFileProvider: Provider<RegularFile>,
         fontFileProvider: Provider<RegularFile>,
         shadowFileProvider: Provider<RegularFile>,
+        spacingFileProvider: Provider<RegularFile>,
         gradientFileProvider: Provider<RegularFile>,
         shapeFileProvider: Provider<RegularFile>,
         unzipTask: Any,
@@ -266,6 +268,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
             typographyFile.set(typographyFileProvider)
             fontFile.set(fontFileProvider)
             shadowFile.set(shadowFileProvider)
+            spacingFile.set(spacingFileProvider)
             gradientFile.set(gradientFileProvider)
             shapeFile.set(shapeFileProvider)
 
@@ -337,6 +340,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
         TYPOGRAPHY("android_typography.json"),
         FONTS("android_fontFamily.json"),
         SHADOWS("android_shadow.json"),
+        SPACING("android_spacing.json"),
         GRADIENTS("android_gradient.json"),
         SHAPES("android_shape.json"),
     }
