@@ -15,6 +15,11 @@
         <attr name="android:textColor" />
         <attr name="sd_textPaddingStart" format="dimension"/>
         <attr name="sd_textPaddingEnd" format="dimension"/>
+        <attr name="sd_textAlignment" format="enum">
+            <enum name="start" value="0" />
+            <enum name="center" value="1" />
+            <enum name="end" value="2" />
+        </attr>
 
         <attr name="android:backgroundTint"/>
         <attr name="backgroundTint"/>

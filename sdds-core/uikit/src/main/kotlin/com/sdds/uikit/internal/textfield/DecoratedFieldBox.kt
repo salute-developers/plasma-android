@@ -45,6 +45,7 @@ import com.sdds.uikit.R
 import com.sdds.uikit.colorstate.ColorState
 import com.sdds.uikit.colorstate.ColorState.Companion.isDefined
 import com.sdds.uikit.colorstate.ColorStateHolder
+import com.sdds.uikit.drawable.TextDrawable
 import com.sdds.uikit.internal.base.AnimationUtils
 import com.sdds.uikit.internal.base.configure
 import com.sdds.uikit.internal.base.fullHeight
@@ -688,11 +689,11 @@ internal class DecoratedFieldBox(
             )
             val prefixText = typedArray.getString(R.styleable.SdDecoratedFieldBox_sd_prefixText)
             val prefixDrawable = typedArray.getDrawable(R.styleable.SdDecoratedFieldBox_sd_prefixDrawable)
-            prefix = prefixDrawable ?: StatefulEditText.TextDrawable(prefixText)
+            prefix = prefixDrawable ?: prefixText?.let { TextDrawable(context).apply { text = it } }
 
             val suffixText = typedArray.getString(R.styleable.SdDecoratedFieldBox_sd_suffixText)
             val suffixDrawable = typedArray.getDrawable(R.styleable.SdDecoratedFieldBox_sd_suffixDrawable)
-            suffix = suffixDrawable ?: StatefulEditText.TextDrawable(suffixText)
+            suffix = suffixDrawable ?: suffixText?.let { TextDrawable(context).apply { text = it } }
             if (singleLine()) maxLines = 1
         }
         typedArray.recycle()
