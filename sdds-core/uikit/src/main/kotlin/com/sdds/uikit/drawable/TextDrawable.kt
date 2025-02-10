@@ -46,6 +46,13 @@ open class TextDrawable(
         fun onDrawableSizeChange()
     }
 
+    /**
+     * Выравнивание текста
+     */
+    enum class TextAlignment {
+        START, CENTER, END
+    }
+
     private var _drawableStart: Drawable? = null
     private var _drawableStartTint: ColorStateList? = null
     private var _drawableEnd: Drawable? = null
@@ -70,6 +77,7 @@ open class TextDrawable(
     private var _fontCallback: CancelableFontCallback? = null
     private var _delegate: Delegate? = null
     private var _lineHeight: Float = 0f
+    private var _textAlignment: TextAlignment = TextAlignment.CENTER
 
     private val _textWidth: Int
         get() = if (_text.isNotBlank()) {
@@ -130,6 +138,19 @@ open class TextDrawable(
             }
         }
 
+    /**
+     * Выравнивание текста
+     */
+    var textAlignment: TextAlignment
+        get() = _textAlignment
+        set(value) {
+            if (_textAlignment != value) {
+                _textAlignment = value
+                updateTextBounds()
+                invalidateSelf()
+            }
+        }
+
     init {
         obtainAttributes(context, attrs, defStyleAttr, defStyleRes)
     }
@@ -168,6 +189,9 @@ open class TextDrawable(
             },
         ) {
             onSizeChanged(true)
+        }
+        _textColor?.let { textColor ->
+            textPaint.color = textColor.colorForState(state)
         }
     }
 
@@ -302,6 +326,13 @@ open class TextDrawable(
         )
     }
 
+    override fun isStateful(): Boolean {
+        return super.isStateful() ||
+            (_textColor?.isStateful == true) ||
+            (drawableStart?.isStateful == true) ||
+            (drawableEnd?.isStateful == true)
+    }
+
     private fun onSizeChanged(updateParent: Boolean) {
         updateDrawableStartBounds()
         updateDrawableEndBounds()
@@ -394,7 +425,11 @@ open class TextDrawable(
         val topOffSet = ((_lineHeight - getFontHeight()) / 2)
         textBounds.top = (textBounds.top - topOffSet).roundToInt()
         textBounds.bottom = (textBounds.bottom + topOffSet).roundToInt()
-        val textPositionWithoutDrawable = bounds.centerX() - textBounds.width() / 2
+        val textPositionWithoutDrawable = when (textAlignment) {
+            TextAlignment.START -> bounds.left + _paddingLeft
+            TextAlignment.CENTER -> bounds.centerX() - textBounds.width() / 2
+            TextAlignment.END -> bounds.right - _paddingRight - textBounds.width()
+        }
         val offsetLeft = when {
             _drawableStart != null -> maxOf(
                 contentStartBounds.right + _textPaddingStart,
@@ -410,7 +445,7 @@ open class TextDrawable(
         }
         textBounds.offsetTo(
             offsetLeft,
-            maxOf(bounds.centerY() - textBounds.height() / 2, _paddingTop),
+            maxOf(bounds.centerY() - textBounds.height() / 2, bounds.top + _paddingTop),
         )
     }
 
@@ -433,6 +468,9 @@ open class TextDrawable(
         setDrawableStartTint(typedArray.getColorStateList(R.styleable.TextDrawable_sd_drawableStartTint) ?: textColor)
         setDrawableEndTint(typedArray.getColorStateList(R.styleable.TextDrawable_sd_drawableEndTint) ?: textColor)
         _contentDrawableSize = typedArray.getDimensionPixelSize(R.styleable.TextDrawable_sd_drawableSize, 0)
+        _textAlignment = TextAlignment.values().getOrElse(
+            typedArray.getInt(R.styleable.TextDrawable_sd_textAlignment, TextAlignment.CENTER.ordinal),
+        ) { TextAlignment.CENTER }
         typedArray.recycle()
     }
 
