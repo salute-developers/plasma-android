@@ -132,7 +132,6 @@ internal abstract class ComponentFragment<State : UiState, Component : View> :
             .launchIn(viewLifecycleOwner.lifecycleScope)
         componentViewModel.uiState
             .onEach {
-                Log.e("testtag", "on new uiState=$it")
                 var dispatchStyleChanged = false
                 if (currentVariant != it.variant) {
                     currentVariant = it.variant
@@ -147,7 +146,6 @@ internal abstract class ComponentFragment<State : UiState, Component : View> :
 
     private fun dispatchThemeChanged(theme: Theme) {
         _binding?.apply {
-            Log.e("testtag", "dispatchThemeChanged")
             componentCanvas.removeAllViews()
             componentCanvas.addView(
                 createComponentContainer(theme.view.themeRes),
@@ -158,7 +156,6 @@ internal abstract class ComponentFragment<State : UiState, Component : View> :
 
     private fun dispatchComponentStyleChanged(layoutParams: LayoutParams = defaultLayoutParams) {
         componentContainer?.apply {
-            Log.e("testtag", "dispatchComponentStyleChanged")
             removeAllViews()
             layoutParams.gravity = Gravity.CENTER
             val wrappedComponent = getComponentLayout()
