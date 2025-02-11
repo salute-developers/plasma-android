@@ -14,8 +14,8 @@ import com.sdds.serv.styles.progress.Warning
 
 internal object SddsServProgressVariationsCompose :
     ComposeStyleProvider<String, ProgressBarStyle>() {
-    override val variations: Map<String, @Composable () -> ProgressBarStyle>
-        get() = mapOf(
+    override val variations: Map<String, @Composable () -> ProgressBarStyle> =
+        mapOf(
             "Default" to { ProgressBar.Default.style() },
             "Secondary" to { ProgressBar.Secondary.style() },
             "Accent" to { ProgressBar.Accent.style() },

@@ -8,8 +8,8 @@ import com.sdds.serv.styles.checkbox.M
 import com.sdds.serv.styles.checkbox.S
 
 internal object SddsServCheckBoxVariationsCompose : ComposeStyleProvider<String, CheckBoxStyle>() {
-    override val variations: Map<String, @Composable () -> CheckBoxStyle>
-        get() = mapOf(
+    override val variations: Map<String, @Composable () -> CheckBoxStyle> =
+        mapOf(
             "M" to { CheckBox.M.style() },
             "S" to { CheckBox.S.style() },
         )

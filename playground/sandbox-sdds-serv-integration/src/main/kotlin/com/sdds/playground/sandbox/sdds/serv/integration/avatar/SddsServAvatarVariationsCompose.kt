@@ -10,8 +10,8 @@ import com.sdds.serv.styles.avatar.S
 import com.sdds.serv.styles.avatar.Xxl
 
 internal object SddsServAvatarVariationsCompose : ComposeStyleProvider<String, AvatarStyle>() {
-    override val variations: Map<String, @Composable () -> AvatarStyle>
-        get() = mapOf(
+    override val variations: Map<String, @Composable () -> AvatarStyle> =
+        mapOf(
             "S" to { Avatar.S.style() },
             "M" to { Avatar.M.style() },
             "L" to { Avatar.L.style() },

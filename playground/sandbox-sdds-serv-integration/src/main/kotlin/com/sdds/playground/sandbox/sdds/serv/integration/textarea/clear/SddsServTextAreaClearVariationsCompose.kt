@@ -19,8 +19,8 @@ import com.sdds.serv.styles.textarea.clear.Xs
 
 internal object SddsServTextAreaClearVariationsCompose : ComposeStyleProvider<String, TextFieldStyle>() {
 
-    override val variations: Map<String, @Composable () -> TextFieldStyle>
-        get() = mapOf(
+    override val variations: Map<String, @Composable () -> TextFieldStyle> =
+        mapOf(
             "LDefault" to { TextAreaClear.L.Default.style() },
             "LRequiredStartDefault" to { TextAreaClear.L.RequiredStart.Default.style() },
             "LRequiredEndDefault" to { TextAreaClear.L.RequiredEnd.Default.style() },

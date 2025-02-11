@@ -18,8 +18,8 @@ import com.sdds.serv.styles.button.link.Xs
 
 internal object SddsServLinkButtonVariationsCompose : ComposeStyleProvider<String, ButtonStyle>() {
 
-    override val variations: Map<String, @Composable () -> ButtonStyle>
-        get() = mapOf(
+    override val variations: Map<String, @Composable () -> ButtonStyle> =
+        mapOf(
             "LDefault" to { LinkButton.L.Default.style() },
             "MDefault" to { LinkButton.M.Default.style() },
             "SDefault" to { LinkButton.S.Default.style() },

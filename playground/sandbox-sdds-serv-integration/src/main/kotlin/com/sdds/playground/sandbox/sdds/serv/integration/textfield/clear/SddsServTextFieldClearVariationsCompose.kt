@@ -20,8 +20,8 @@ import com.sdds.serv.styles.textfield.clear.Xs
 
 internal object SddsServTextFieldClearVariationsCompose : ComposeStyleProvider<String, TextFieldStyle>() {
 
-    override val variations: Map<String, @Composable () -> TextFieldStyle>
-        get() = mapOf(
+    override val variations: Map<String, @Composable () -> TextFieldStyle> =
+        mapOf(
             "LDefault" to { TextFieldClear.L.Default.style() },
             "LRequiredStartDefault" to { TextFieldClear.L.RequiredStart.Default.style() },
             "LRequiredEndDefault" to { TextFieldClear.L.RequiredEnd.Default.style() },

@@ -9,8 +9,8 @@ import com.sdds.serv.styles.radiobox.group.S
 
 internal object SddsServRadioBoxGroupVariationsCompose :
     ComposeStyleProvider<String, RadioBoxGroupStyle>() {
-    override val variations: Map<String, @Composable () -> RadioBoxGroupStyle>
-        get() = mapOf(
+    override val variations: Map<String, @Composable () -> RadioBoxGroupStyle> =
+        mapOf(
             "M" to { RadioBoxGroup.M.style() },
             "S" to { RadioBoxGroup.S.style() },
         )

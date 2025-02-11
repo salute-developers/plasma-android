@@ -22,8 +22,8 @@ import com.sdds.serv.styles.button.basic.Xs
 
 internal object SddsServBasicButtonVariationsCompose : ComposeStyleProvider<String, ButtonStyle>() {
 
-    override val variations: Map<String, @Composable () -> ButtonStyle>
-        get() = mapOf(
+    override val variations: Map<String, @Composable () -> ButtonStyle> =
+        mapOf(
             "LDefault" to { BasicButton.L.Default.style() },
             "MDefault" to { BasicButton.M.Default.style() },
             "SDefault" to { BasicButton.S.Default.style() },

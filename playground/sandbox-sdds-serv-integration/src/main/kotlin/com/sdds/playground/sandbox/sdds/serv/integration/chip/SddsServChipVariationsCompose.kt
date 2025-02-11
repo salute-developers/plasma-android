@@ -15,8 +15,8 @@ import com.sdds.serv.styles.chip.Xs
 
 internal object SddsServChipVariationsCompose : ComposeStyleProvider<String, ChipStyle>() {
 
-    override val variations: Map<String, @Composable () -> ChipStyle>
-        get() = mapOf(
+    override val variations: Map<String, @Composable () -> ChipStyle> =
+        mapOf(
             "LDefault" to { Chip.L.Default.style() },
             "MDefault" to { Chip.M.Default.style() },
             "SDefault" to { Chip.S.Default.style() },

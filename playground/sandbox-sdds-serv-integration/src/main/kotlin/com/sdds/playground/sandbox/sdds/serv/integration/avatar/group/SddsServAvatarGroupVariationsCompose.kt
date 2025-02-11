@@ -8,8 +8,7 @@ import com.sdds.serv.styles.avatar.S
 
 internal object SddsServAvatarGroupVariationsCompose :
     ComposeStyleProvider<String, AvatarGroupStyle>() {
-    override val variations: Map<String, @Composable () -> AvatarGroupStyle>
-        get() = mapOf(
-            "S" to { AvatarGroup.S.style() },
-        )
+    override val variations: Map<String, @Composable () -> AvatarGroupStyle> = mapOf(
+        "S" to { AvatarGroup.S.style() },
+    )
 }

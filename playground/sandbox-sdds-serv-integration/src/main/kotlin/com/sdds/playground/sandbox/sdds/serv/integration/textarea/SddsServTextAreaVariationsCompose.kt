@@ -19,8 +19,8 @@ import com.sdds.serv.styles.textarea.Xs
 
 internal object SddsServTextAreaVariationsCompose : ComposeStyleProvider<String, TextFieldStyle>() {
 
-    override val variations: Map<String, @Composable () -> TextFieldStyle>
-        get() = mapOf(
+    override val variations: Map<String, @Composable () -> TextFieldStyle> =
+        mapOf(
             "LDefault" to { TextArea.L.Default.style() },
             "LRequiredStartDefault" to { TextArea.L.RequiredStart.Default.style() },
             "LRequiredEndDefault" to { TextArea.L.RequiredEnd.Default.style() },

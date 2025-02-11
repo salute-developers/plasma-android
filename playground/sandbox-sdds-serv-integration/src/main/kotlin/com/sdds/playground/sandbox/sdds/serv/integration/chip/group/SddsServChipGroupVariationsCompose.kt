@@ -8,8 +8,8 @@ import com.sdds.serv.styles.chip.group.Dense
 import com.sdds.serv.styles.chip.group.Wide
 
 internal object SddsServChipGroupVariationsCompose : ComposeStyleProvider<String, ChipGroupStyle>() {
-    override val variations: Map<String, @Composable () -> ChipGroupStyle>
-        get() = mapOf(
+    override val variations: Map<String, @Composable () -> ChipGroupStyle> =
+        mapOf(
             "Wide" to { ChipGroup.Wide.style() },
             "Dense" to { ChipGroup.Dense.style() },
         )
