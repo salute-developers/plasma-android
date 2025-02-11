@@ -7,10 +7,10 @@ import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 import com.sdds.stylessalute.styles.radiobox.M
 import com.sdds.stylessalute.styles.radiobox.S
 
-internal object StylesSaluteRadioBoxVariationsCompose : ComposeStyleProvider<String, RadioBoxStyle>() {
-    override val variations: Map<String, @Composable () -> RadioBoxStyle>
-        get() = mapOf(
-            "M" to { RadioBox.M.style() },
-            "S" to { RadioBox.S.style() },
-        )
+internal object StylesSaluteRadioBoxVariationsCompose :
+    ComposeStyleProvider<String, RadioBoxStyle>() {
+    override val variations: Map<String, @Composable () -> RadioBoxStyle> = mapOf(
+        "M" to { RadioBox.M.style() },
+        "S" to { RadioBox.S.style() },
+    )
 }

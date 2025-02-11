@@ -18,9 +18,10 @@ import com.sdds.stylessalute.styles.textfield.Success
 import com.sdds.stylessalute.styles.textfield.Warning
 import com.sdds.stylessalute.styles.textfield.Xs
 
-internal object StylesSaluteTextFieldVariationsCompose : ComposeStyleProvider<String, TextFieldStyle>() {
-    override val variations: Map<String, @Composable () -> TextFieldStyle>
-        get() = mapOf<String, @Composable () -> TextFieldStyle>(
+internal object StylesSaluteTextFieldVariationsCompose :
+    ComposeStyleProvider<String, TextFieldStyle>() {
+    override val variations: Map<String, @Composable () -> TextFieldStyle> =
+        mapOf<String, @Composable () -> TextFieldStyle>(
             "LDefault" to ({ TextField.L.Default.style() }),
             "LRequiredStartDefault" to ({ TextField.L.RequiredStart.Default.style() }),
             "LRequiredEndDefault" to ({ TextField.L.RequiredEnd.Default.style() }),

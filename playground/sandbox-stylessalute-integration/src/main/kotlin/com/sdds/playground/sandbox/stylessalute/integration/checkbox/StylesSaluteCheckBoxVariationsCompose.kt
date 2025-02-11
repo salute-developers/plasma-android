@@ -7,10 +7,10 @@ import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 import com.sdds.stylessalute.styles.checkbox.M
 import com.sdds.stylessalute.styles.checkbox.S
 
-internal object StylesSaluteCheckBoxVariationsCompose : ComposeStyleProvider<String, CheckBoxStyle>() {
-    override val variations: Map<String, @Composable () -> CheckBoxStyle>
-        get() = mapOf(
-            "M" to { CheckBox.M.style() },
-            "S" to { CheckBox.S.style() },
-        )
+internal object StylesSaluteCheckBoxVariationsCompose :
+    ComposeStyleProvider<String, CheckBoxStyle>() {
+    override val variations: Map<String, @Composable () -> CheckBoxStyle> = mapOf(
+        "M" to { CheckBox.M.style() },
+        "S" to { CheckBox.S.style() },
+    )
 }
