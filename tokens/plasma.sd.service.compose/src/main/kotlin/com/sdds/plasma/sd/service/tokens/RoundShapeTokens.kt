@@ -1,10 +1,13 @@
 // AUTO-GENERATED. DO NOT MODIFY this file.
-package com.sdds.stylessalute.tokens
+package com.sdds.plasma.sd.service.tokens
 
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.unit.dp
 
+/**
+ * Токены скруглений
+ */
 public object RoundShapeTokens {
     /**
      * borderRadius xxs

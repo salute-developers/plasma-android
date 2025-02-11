@@ -6,8 +6,6 @@ import android.util.AttributeSet
 import com.sdds.plasma.sd.service.R
 import com.sdds.uikit.colorstate.ColorState
 import com.sdds.uikit.colorstate.ColorStateProvider
-import com.themebuilder.tokens.colorstate.IndicatorColorState
-import com.themebuilder.tokens.colorstate.IndicatorColorStateProvider
 import kotlin.Int
 import kotlin.IntArray
 
@@ -26,7 +24,6 @@ public enum class IndicatorColorState(
     DARK(intArrayOf(R.attr.plasma_indicator_state_dark)),
     BLACK(intArrayOf(R.attr.plasma_indicator_state_black)),
     WHITE(intArrayOf(R.attr.plasma_indicator_state_white)),
-    ;
 }
 
 /**

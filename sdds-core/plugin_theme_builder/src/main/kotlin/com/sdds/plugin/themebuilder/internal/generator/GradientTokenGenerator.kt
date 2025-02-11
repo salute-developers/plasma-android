@@ -237,7 +237,7 @@ internal class GradientTokenGenerator(
         token: GradientToken,
     ) {
         tokenValues.mapIndexed { index, gradient ->
-            appendObject("Layer$index") {
+            appendObject("Layer$index", "Cлой $index") {
                 appendGradientLayer(gradient, token, index)
             }
         }

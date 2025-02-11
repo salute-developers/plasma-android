@@ -1070,26 +1070,18 @@
     <color name="plasma_dark_overlay_inverse_hard">#F5F9F9F9</color>
     <!--dark overlay inverse overlayBlur-->
     <color name="plasma_dark_overlay_inverse_blur">#47F9F9F9</color>
-    <!--dark outline default outlinePrimary-->
-    <color name="plasma_dark_outline_default_primary">#FF262626</color>
     <!--dark outline default outlinePrimaryHover-->
     <color name="plasma_dark_outline_default_primary_hover">#FF303030</color>
     <!--dark outline default outlinePrimaryActive-->
     <color name="plasma_dark_outline_default_primary_active">#FF212121</color>
-    <!--dark outline default outlineSecondary-->
-    <color name="plasma_dark_outline_default_secondary">#FF4E4E4E</color>
     <!--dark outline default outlineSecondaryHover-->
     <color name="plasma_dark_outline_default_secondary_hover">#FF595959</color>
     <!--dark outline default outlineSecondaryActive-->
     <color name="plasma_dark_outline_default_secondary_active">#FF4A4A4A</color>
-    <!--dark outline default outlineTertiary-->
-    <color name="plasma_dark_outline_default_tertiary">#FF707070</color>
     <!--dark outline default outlineTertiaryHover-->
     <color name="plasma_dark_outline_default_tertiary_hover">#FF7A7A7A</color>
     <!--dark outline default outlineTertiaryActive-->
     <color name="plasma_dark_outline_default_tertiary_active">#FF6B6B6B</color>
-    <!--dark outline default outlineDefault-->
-    <color name="plasma_dark_outline_default_default">#FFF9F9F9</color>
     <!--dark outline default outlineDefaultHover-->
     <color name="plasma_dark_outline_default_default_hover">#FFFFFFFF</color>
     <!--dark outline default outlineDefaultActive-->
@@ -1212,6 +1204,30 @@
     <color name="plasma_dark_outline_default_transparent_info">#473F81FD</color>
     <!--dark outline default outlineInfo-->
     <color name="plasma_dark_outline_default_info">#FF528EFF</color>
+    <!--dark outline default outlineSolidPrimary-->
+    <color name="plasma_dark_outline_default_solid_primary">#FF262626</color>
+    <!--dark outline default outlineSolidPrimaryHover-->
+    <color name="plasma_dark_outline_default_solid_primary_hover">#FFFFFFFF</color>
+    <!--dark outline default outlineSolidPrimaryActive-->
+    <color name="plasma_dark_outline_default_solid_primary_active">#FFADADAD</color>
+    <!--dark outline default outlineSolidSecondary-->
+    <color name="plasma_dark_outline_default_solid_secondary">#FF4E4E4E</color>
+    <!--dark outline default outlineSolidSecondaryHover-->
+    <color name="plasma_dark_outline_default_solid_secondary_hover">#FFFFFFFF</color>
+    <!--dark outline default outlineSolidSecondaryActive-->
+    <color name="plasma_dark_outline_default_solid_secondary_active">#FF8C8C8C</color>
+    <!--dark outline default outlineSolidTertiary-->
+    <color name="plasma_dark_outline_default_solid_tertiary">#FF707070</color>
+    <!--dark outline default outlineSolidTertiaryHover-->
+    <color name="plasma_dark_outline_default_solid_tertiary_hover">#FFFFFFFF</color>
+    <!--dark outline default outlineSolidTertiaryActive-->
+    <color name="plasma_dark_outline_default_solid_tertiary_active">#FF737373</color>
+    <!--dark outline default outlineSolidDefault-->
+    <color name="plasma_dark_outline_default_solid_default">#FFF9F9F9</color>
+    <!--dark outline default outlineSolidDefaultHover-->
+    <color name="plasma_dark_outline_default_solid_default_hover">#FFC7C7C7</color>
+    <!--dark outline default outlineSolidDefaultActive-->
+    <color name="plasma_dark_outline_default_solid_default_active">#FFE0E0E0</color>
     <!--dark outline onDark outlinePrimaryHover-->
     <color name="plasma_dark_outline_on_dark_primary_hover">#FF303030</color>
     <!--dark outline onDark outlinePrimaryActive-->
@@ -1300,14 +1316,6 @@
     <color name="plasma_dark_outline_on_dark_transparent_info_hover">#663F82FD</color>
     <!--dark outline onDark outlineTransparentInfoActive-->
     <color name="plasma_dark_outline_on_dark_transparent_info_active">#383F82FD</color>
-    <!--dark outline onDark outlinePrimary-->
-    <color name="plasma_dark_outline_on_dark_primary">#FF262626</color>
-    <!--dark outline onDark outlineSecondary-->
-    <color name="plasma_dark_outline_on_dark_secondary">#FF4E4E4E</color>
-    <!--dark outline onDark outlineTertiary-->
-    <color name="plasma_dark_outline_on_dark_tertiary">#FF707070</color>
-    <!--dark outline onDark outlineDefault-->
-    <color name="plasma_dark_outline_on_dark_default">#FFF9F9F9</color>
     <!--dark outline onDark outlineTransparentPrimary-->
     <color name="plasma_dark_outline_on_dark_transparent_primary">#1FFFFFFF</color>
     <!--dark outline onDark outlineTransparentSecondary-->
@@ -1344,6 +1352,30 @@
     <color name="plasma_dark_outline_on_dark_info">#FF528EFF</color>
     <!--dark outline onDark outlineTransparentInfo-->
     <color name="plasma_dark_outline_on_dark_transparent_info">#473F81FD</color>
+    <!--dark outline onDark outlineSolidPrimary-->
+    <color name="plasma_dark_outline_on_dark_solid_primary">#FF262626</color>
+    <!--dark outline onDark outlineSolidPrimaryHover-->
+    <color name="plasma_dark_outline_on_dark_solid_primary_hover">#FFFFFFFF</color>
+    <!--dark outline onDark outlineSolidPrimaryActive-->
+    <color name="plasma_dark_outline_on_dark_solid_primary_active">#FFADADAD</color>
+    <!--dark outline onDark outlineSolidSecondary-->
+    <color name="plasma_dark_outline_on_dark_solid_secondary">#FF4E4E4E</color>
+    <!--dark outline onDark outlineSolidSecondaryHover-->
+    <color name="plasma_dark_outline_on_dark_solid_secondary_hover">#FFFFFFFF</color>
+    <!--dark outline onDark outlineSolidSecondaryActive-->
+    <color name="plasma_dark_outline_on_dark_solid_secondary_active">#FF8C8C8C</color>
+    <!--dark outline onDark outlineSolidTertiary-->
+    <color name="plasma_dark_outline_on_dark_solid_tertiary">#FF707070</color>
+    <!--dark outline onDark outlineSolidTertiaryHover-->
+    <color name="plasma_dark_outline_on_dark_solid_tertiary_hover">#FFFFFFFF</color>
+    <!--dark outline onDark outlineSolidTertiaryActive-->
+    <color name="plasma_dark_outline_on_dark_solid_tertiary_active">#FF737373</color>
+    <!--dark outline onDark outlineSolidDefault-->
+    <color name="plasma_dark_outline_on_dark_solid_default">#FFF9F9F9</color>
+    <!--dark outline onDark outlineSolidDefaultHover-->
+    <color name="plasma_dark_outline_on_dark_solid_default_hover">#FFC7C7C7</color>
+    <!--dark outline onDark outlineSolidDefaultActive-->
+    <color name="plasma_dark_outline_on_dark_solid_default_active">#FFE0E0E0</color>
     <!--dark outline onLight outlinePrimaryHover-->
     <color name="plasma_dark_outline_on_light_primary_hover">#FFE8E8E8</color>
     <!--dark outline onLight outlinePrimaryActive-->
@@ -1352,14 +1384,10 @@
     <color name="plasma_dark_outline_on_light_secondary_hover">#FF9E9E9E</color>
     <!--dark outline onLight outlineSecondaryActive-->
     <color name="plasma_dark_outline_on_light_secondary_active">#FF8F8F8F</color>
-    <!--dark outline onLight outlineTertiary-->
-    <color name="plasma_dark_outline_on_light_tertiary">#FF707070</color>
     <!--dark outline onLight outlineTertiaryHover-->
     <color name="plasma_dark_outline_on_light_tertiary_hover">#FF7A7A7A</color>
     <!--dark outline onLight outlineTertiaryActive-->
     <color name="plasma_dark_outline_on_light_tertiary_active">#FF6B6B6B</color>
-    <!--dark outline onLight outlineDefault-->
-    <color name="plasma_dark_outline_on_light_default">#FF080808</color>
     <!--dark outline onLight outlineDefaultHover-->
     <color name="plasma_dark_outline_on_light_default_hover">#FF0D0D0D</color>
     <!--dark outline onLight outlineDefaultActive-->
@@ -1466,36 +1494,48 @@
     <color name="plasma_dark_outline_on_light_transparent_info_hover">#522A72F8</color>
     <!--dark outline onLight outlineTransparentInfoActive-->
     <color name="plasma_dark_outline_on_light_transparent_info_active">#242A72F8</color>
-    <!--dark outline onLight outlinePrimary-->
-    <color name="plasma_dark_outline_on_light_primary">#FFDDDDDD</color>
-    <!--dark outline onLight outlineSecondary-->
-    <color name="plasma_dark_outline_on_light_secondary">#FF949494</color>
     <!--dark outline onLight outlineInfo-->
     <color name="plasma_dark_outline_on_light_info">#FF3F81FD</color>
     <!--dark outline onLight outlineInfoMinor-->
     <color name="plasma_dark_outline_on_light_info_minor">#FF8BB2FC</color>
     <!--dark outline onLight outlineTransparentInfo-->
     <color name="plasma_dark_outline_on_light_transparent_info">#332A72F8</color>
+    <!--dark outline onLight outlineSolidTertiary-->
+    <color name="plasma_dark_outline_on_light_solid_tertiary">#FF707070</color>
+    <!--dark outline onLight outlineSolidTertiaryHover-->
+    <color name="plasma_dark_outline_on_light_solid_tertiary_hover">#FFFFFFFF</color>
+    <!--dark outline onLight outlineSolidTertiaryActive-->
+    <color name="plasma_dark_outline_on_light_solid_tertiary_active">#FF737373</color>
+    <!--dark outline onLight outlineSolidDefault-->
+    <color name="plasma_dark_outline_on_light_solid_default">#FF080808</color>
+    <!--dark outline onLight outlineSolidDefaultHover-->
+    <color name="plasma_dark_outline_on_light_solid_default_hover">#FFFFFFFF</color>
+    <!--dark outline onLight outlineSolidDefaultActive-->
+    <color name="plasma_dark_outline_on_light_solid_default_active">#FFC7C7C7</color>
+    <!--dark outline onLight outlineSolidPrimary-->
+    <color name="plasma_dark_outline_on_light_solid_primary">#FFDDDDDD</color>
+    <!--dark outline onLight outlineSolidPrimaryHover-->
+    <color name="plasma_dark_outline_on_light_solid_primary_hover">#FFABABAB</color>
+    <!--dark outline onLight outlineSolidPrimaryActive-->
+    <color name="plasma_dark_outline_on_light_solid_primary_active">#FFC4C4C4</color>
+    <!--dark outline onLight outlineSolidSecondary-->
+    <color name="plasma_dark_outline_on_light_solid_secondary">#FF949494</color>
+    <!--dark outline onLight outlineSolidSecondaryHover-->
+    <color name="plasma_dark_outline_on_light_solid_secondary_hover">#FFFFFFFF</color>
+    <!--dark outline onLight outlineSolidSecondaryActive-->
+    <color name="plasma_dark_outline_on_light_solid_secondary_active">#FF575757</color>
     <!--dark outline inverse outlinePrimaryHover-->
     <color name="plasma_dark_outline_inverse_primary_hover">#FFABABAB</color>
     <!--dark outline inverse outlinePrimaryActive-->
     <color name="plasma_dark_outline_inverse_primary_active">#FFC4C4C4</color>
-    <!--dark outline inverse outlinePrimary-->
-    <color name="plasma_dark_outline_inverse_primary">#FFDDDDDD</color>
-    <!--dark outline inverse outlineSecondary-->
-    <color name="plasma_dark_outline_inverse_secondary">#FF949494</color>
     <!--dark outline inverse outlineSecondaryHover-->
     <color name="plasma_dark_outline_inverse_secondary_hover">#FFFFFFFF</color>
     <!--dark outline inverse outlineSecondaryActive-->
     <color name="plasma_dark_outline_inverse_secondary_active">#FF575757</color>
-    <!--dark outline inverse outlineTertiary-->
-    <color name="plasma_dark_outline_inverse_tertiary">#FF707070</color>
     <!--dark outline inverse outlineTertiaryHover-->
     <color name="plasma_dark_outline_inverse_tertiary_hover">#FFFFFFFF</color>
     <!--dark outline inverse outlineTertiaryActive-->
     <color name="plasma_dark_outline_inverse_tertiary_active">#FF737373</color>
-    <!--dark outline inverse outlineDefault-->
-    <color name="plasma_dark_outline_inverse_default">#FF080808</color>
     <!--dark outline inverse outlineDefaultHover-->
     <color name="plasma_dark_outline_inverse_default_hover">#FFFFFFFF</color>
     <!--dark outline inverse outlineDefaultActive-->
@@ -1614,6 +1654,30 @@
     <color name="plasma_dark_outline_inverse_transparent_info_hover">#FF2A72F8</color>
     <!--dark outline inverse outlineTransparentInfoActive-->
     <color name="plasma_dark_outline_inverse_transparent_info_active">#3D2A72F8</color>
+    <!--dark outline inverse outlineSolidPrimary-->
+    <color name="plasma_dark_outline_inverse_solid_primary">#FFDDDDDD</color>
+    <!--dark outline inverse outlineSolidPrimaryHover-->
+    <color name="plasma_dark_outline_inverse_solid_primary_hover">#FFABABAB</color>
+    <!--dark outline inverse outlineSolidPrimaryActive-->
+    <color name="plasma_dark_outline_inverse_solid_primary_active">#FFC4C4C4</color>
+    <!--dark outline inverse outlineSolidSecondary-->
+    <color name="plasma_dark_outline_inverse_solid_secondary">#FF949494</color>
+    <!--dark outline inverse outlineSolidSecondaryHover-->
+    <color name="plasma_dark_outline_inverse_solid_secondary_hover">#FFFFFFFF</color>
+    <!--dark outline inverse outlineSolidSecondaryActive-->
+    <color name="plasma_dark_outline_inverse_solid_secondary_active">#FF575757</color>
+    <!--dark outline inverse outlineSolidTertiary-->
+    <color name="plasma_dark_outline_inverse_solid_tertiary">#FF707070</color>
+    <!--dark outline inverse outlineSolidTertiaryHover-->
+    <color name="plasma_dark_outline_inverse_solid_tertiary_hover">#FFFFFFFF</color>
+    <!--dark outline inverse outlineSolidTertiaryActive-->
+    <color name="plasma_dark_outline_inverse_solid_tertiary_active">#FF737373</color>
+    <!--dark outline inverse outlineSolidDefault-->
+    <color name="plasma_dark_outline_inverse_solid_default">#FF080808</color>
+    <!--dark outline inverse outlineSolidDefaultHover-->
+    <color name="plasma_dark_outline_inverse_solid_default_hover">#FFFFFFFF</color>
+    <!--dark outline inverse outlineSolidDefaultActive-->
+    <color name="plasma_dark_outline_inverse_solid_default_active">#FFC7C7C7</color>
     <!--Основной цвет текста-->
     <color name="plasma_light_text_default_primary">#F5080808</color>
     <!--Основной цвет текста-->
@@ -2770,18 +2834,10 @@
     <color name="plasma_light_outline_default_transparent_info_hover">#1F2A72F8</color>
     <!--light outline default outlineTransparentInfoActive-->
     <color name="plasma_light_outline_default_transparent_info_active">#3D2A72F8</color>
-    <!--light outline default outlinePrimary-->
-    <color name="plasma_light_outline_default_primary">#FFDDDDDD</color>
     <!--light outline default outlinePrimaryHover-->
     <color name="plasma_light_outline_default_primary_hover">#FFEDEDED</color>
     <!--light outline default outlinePrimaryActive-->
     <color name="plasma_light_outline_default_primary_active">#FFD4D4D4</color>
-    <!--light outline default outlineSecondary-->
-    <color name="plasma_light_outline_default_secondary">#FF949494</color>
-    <!--light outline default outlineTertiary-->
-    <color name="plasma_light_outline_default_tertiary">#FF707070</color>
-    <!--light outline default outlineDefault-->
-    <color name="plasma_light_outline_default_default">#FF080808</color>
     <!--light outline default outlineTransparentPrimary-->
     <color name="plasma_light_outline_default_transparent_primary">#33080808</color>
     <!--light outline default outlineTransparentSecondary-->
@@ -2824,6 +2880,30 @@
     <color name="plasma_light_outline_default_info_minor">#FF8BB2FC</color>
     <!--light outline default outlineTransparentInfo-->
     <color name="plasma_light_outline_default_transparent_info">#332A72F8</color>
+    <!--light outline default outlineSolidPrimary-->
+    <color name="plasma_light_outline_default_solid_primary">#FF262626</color>
+    <!--light outline default outlineSolidPrimaryHover-->
+    <color name="plasma_light_outline_default_solid_primary_hover">#FF787878</color>
+    <!--light outline default outlineSolidPrimaryActive-->
+    <color name="plasma_light_outline_default_solid_primary_active">#FF4F4F4F</color>
+    <!--light outline default outlineSolidSecondary-->
+    <color name="plasma_light_outline_default_solid_secondary">#FF4E4E4E</color>
+    <!--light outline default outlineSolidSecondaryHover-->
+    <color name="plasma_light_outline_default_solid_secondary_hover">#FFFFFFFF</color>
+    <!--light outline default outlineSolidSecondaryActive-->
+    <color name="plasma_light_outline_default_solid_secondary_active">#FF404040</color>
+    <!--light outline default outlineSolidTertiary-->
+    <color name="plasma_light_outline_default_solid_tertiary">#FF707070</color>
+    <!--light outline default outlineSolidTertiaryHover-->
+    <color name="plasma_light_outline_default_solid_tertiary_hover">#FFFFFFFF</color>
+    <!--light outline default outlineSolidTertiaryActive-->
+    <color name="plasma_light_outline_default_solid_tertiary_active">#FF595959</color>
+    <!--light outline default outlineSolidDefault-->
+    <color name="plasma_light_outline_default_solid_default">#FFF9F9F9</color>
+    <!--light outline default outlineSolidDefaultHover-->
+    <color name="plasma_light_outline_default_solid_default_hover">#FFFFFFFF</color>
+    <!--light outline default outlineSolidDefaultActive-->
+    <color name="plasma_light_outline_default_solid_default_active">#FFC7C7C7</color>
     <!--light outline onDark outlineSecondaryHover-->
     <color name="plasma_light_outline_on_dark_secondary_hover">#FF636363</color>
     <!--light outline onDark outlineSecondaryActive-->
@@ -2938,24 +3018,40 @@
     <color name="plasma_light_outline_on_dark_transparent_info_hover">#333F82FD</color>
     <!--light outline onDark outlineTransparentInfoActive-->
     <color name="plasma_light_outline_on_dark_transparent_info_active">#523F82FD</color>
-    <!--light outline onDark outlinePrimary-->
-    <color name="plasma_light_outline_on_dark_primary">#FF262626</color>
     <!--light outline onDark outlinePrimaryHover-->
     <color name="plasma_light_outline_on_dark_primary_hover">#FF3B3B3B</color>
     <!--light outline onDark outlinePrimaryActive-->
     <color name="plasma_light_outline_on_dark_primary_active">#FF1C1C1C</color>
-    <!--light outline onDark outlineSecondary-->
-    <color name="plasma_light_outline_on_dark_secondary">#FF4E4E4E</color>
-    <!--light outline onDark outlineTertiary-->
-    <color name="plasma_light_outline_on_dark_tertiary">#FF707070</color>
-    <!--light outline onDark outlineDefault-->
-    <color name="plasma_light_outline_on_dark_default">#FFF9F9F9</color>
     <!--light outline onDark outlineInfo-->
     <color name="plasma_light_outline_on_dark_info">#FF528EFF</color>
     <!--light outline onDark outlineInfoMinor-->
     <color name="plasma_light_outline_on_dark_info_minor">#FF1549AB</color>
     <!--light outline onDark outlineTransparentInfo-->
     <color name="plasma_light_outline_on_dark_transparent_info">#473F81FD</color>
+    <!--light outline onDark outlineSolidPrimary-->
+    <color name="plasma_light_outline_on_dark_solid_primary">#FF262626</color>
+    <!--light outline onDark outlineSolidPrimaryHover-->
+    <color name="plasma_light_outline_on_dark_solid_primary_hover">#FF787878</color>
+    <!--light outline onDark outlineSolidPrimaryActive-->
+    <color name="plasma_light_outline_on_dark_solid_primary_active">#FF4F4F4F</color>
+    <!--light outline onDark outlineSolidSecondary-->
+    <color name="plasma_light_outline_on_dark_solid_secondary">#FF4E4E4E</color>
+    <!--light outline onDark outlineSolidSecondaryHover-->
+    <color name="plasma_light_outline_on_dark_solid_secondary_hover">#FFFFFFFF</color>
+    <!--light outline onDark outlineSolidSecondaryActive-->
+    <color name="plasma_light_outline_on_dark_solid_secondary_active">#FF404040</color>
+    <!--light outline onDark outlineSolidTertiary-->
+    <color name="plasma_light_outline_on_dark_solid_tertiary">#FF707070</color>
+    <!--light outline onDark outlineSolidTertiaryHover-->
+    <color name="plasma_light_outline_on_dark_solid_tertiary_hover">#FFFFFFFF</color>
+    <!--light outline onDark outlineSolidTertiaryActive-->
+    <color name="plasma_light_outline_on_dark_solid_tertiary_active">#FF595959</color>
+    <!--light outline onDark outlineSolidDefault-->
+    <color name="plasma_light_outline_on_dark_solid_default">#FFF9F9F9</color>
+    <!--light outline onDark outlineSolidDefaultHover-->
+    <color name="plasma_light_outline_on_dark_solid_default_hover">#FFFFFFFF</color>
+    <!--light outline onDark outlineSolidDefaultActive-->
+    <color name="plasma_light_outline_on_dark_solid_default_active">#FFC7C7C7</color>
     <!--light outline onLight outlineSecondaryHover-->
     <color name="plasma_light_outline_on_light_secondary_hover">#FFA3A3A3</color>
     <!--light outline onLight outlineSecondaryActive-->
@@ -2964,8 +3060,6 @@
     <color name="plasma_light_outline_on_light_tertiary_hover">#FF858585</color>
     <!--light outline onLight outlineTertiaryActive-->
     <color name="plasma_light_outline_on_light_tertiary_active">#FF666666</color>
-    <!--light outline onLight outlineDefault-->
-    <color name="plasma_light_outline_on_light_default">#FF080808</color>
     <!--light outline onLight outlineDefaultHover-->
     <color name="plasma_light_outline_on_light_default_hover">#FF262626</color>
     <!--light outline onLight outlineDefaultActive-->
@@ -3072,22 +3166,40 @@
     <color name="plasma_light_outline_on_light_transparent_info_hover">#1F2A72F8</color>
     <!--light outline onLight outlineTransparentInfoActive-->
     <color name="plasma_light_outline_on_light_transparent_info_active">#3D2A72F8</color>
-    <!--light outline onLight outlinePrimary-->
-    <color name="plasma_light_outline_on_light_primary">#FFDDDDDD</color>
     <!--light outline onLight outlinePrimaryHover-->
     <color name="plasma_light_outline_on_light_primary_hover">#FFEDEDED</color>
     <!--light outline onLight outlinePrimaryActive-->
     <color name="plasma_light_outline_on_light_primary_active">#FFD4D4D4</color>
-    <!--light outline onLight outlineSecondary-->
-    <color name="plasma_light_outline_on_light_secondary">#FF949494</color>
-    <!--light outline onLight outlineTertiary-->
-    <color name="plasma_light_outline_on_light_tertiary">#FF707070</color>
     <!--light outline onLight outlineInfo-->
     <color name="plasma_light_outline_on_light_info">#FF3F81FD</color>
     <!--light outline onLight outlineInfoMinor-->
     <color name="plasma_light_outline_on_light_info_minor">#FF8BB2FC</color>
     <!--light outline onLight outlineTransparentInfo-->
     <color name="plasma_light_outline_on_light_transparent_info">#332A72F8</color>
+    <!--light outline onLight outlineSolidTertiary-->
+    <color name="plasma_light_outline_on_light_solid_tertiary">#FF707070</color>
+    <!--light outline onLight outlineSolidTertiaryHover-->
+    <color name="plasma_light_outline_on_light_solid_tertiary_hover">#FFFFFFFF</color>
+    <!--light outline onLight outlineSolidTertiaryActive-->
+    <color name="plasma_light_outline_on_light_solid_tertiary_active">#FF595959</color>
+    <!--light outline onLight outlineSolidDefault-->
+    <color name="plasma_light_outline_on_light_solid_default">#FF080808</color>
+    <!--light outline onLight outlineSolidDefaultHover-->
+    <color name="plasma_light_outline_on_light_solid_default_hover">#FF595959</color>
+    <!--light outline onLight outlineSolidDefaultActive-->
+    <color name="plasma_light_outline_on_light_solid_default_active">#FF303030</color>
+    <!--light outline onLight outlineSolidPrimary-->
+    <color name="plasma_light_outline_on_light_solid_primary">#FFDDDDDD</color>
+    <!--light outline onLight outlineSolidPrimaryHover-->
+    <color name="plasma_light_outline_on_light_solid_primary_hover">#FFFFFFFF</color>
+    <!--light outline onLight outlineSolidPrimaryActive-->
+    <color name="plasma_light_outline_on_light_solid_primary_active">#FFB3B3B3</color>
+    <!--light outline onLight outlineSolidSecondary-->
+    <color name="plasma_light_outline_on_light_solid_secondary">#FF949494</color>
+    <!--light outline onLight outlineSolidSecondaryHover-->
+    <color name="plasma_light_outline_on_light_solid_secondary_hover">#FFFFFFFF</color>
+    <!--light outline onLight outlineSolidSecondaryActive-->
+    <color name="plasma_light_outline_on_light_solid_secondary_active">#FF757575</color>
     <!--light outline inverse outlinePrimaryHover-->
     <color name="plasma_light_outline_inverse_primary_hover">#FF787878</color>
     <!--light outline inverse outlinePrimaryActive-->
@@ -3180,14 +3292,6 @@
     <color name="plasma_light_outline_inverse_transparent_info_hover">#FF3F82FD</color>
     <!--light outline inverse outlineTransparentInfoActive-->
     <color name="plasma_light_outline_inverse_transparent_info_active">#563F82FD</color>
-    <!--light outline inverse outlinePrimary-->
-    <color name="plasma_light_outline_inverse_primary">#FF262626</color>
-    <!--light outline inverse outlineSecondary-->
-    <color name="plasma_light_outline_inverse_secondary">#FF4E4E4E</color>
-    <!--light outline inverse outlineTertiary-->
-    <color name="plasma_light_outline_inverse_tertiary">#FF707070</color>
-    <!--light outline inverse outlineDefault-->
-    <color name="plasma_light_outline_inverse_default">#FFF9F9F9</color>
     <!--light outline inverse outlineTransparentPrimary-->
     <color name="plasma_light_outline_inverse_transparent_primary">#1FFFFFFF</color>
     <!--light outline inverse outlineTransparentSecondary-->
@@ -3226,4 +3330,28 @@
     <color name="plasma_light_outline_inverse_transparent_negative">#47FF293E</color>
     <!--light outline inverse outlineTransparentInfo-->
     <color name="plasma_light_outline_inverse_transparent_info">#473F81FD</color>
+    <!--light outline inverse outlineSolidPrimary-->
+    <color name="plasma_light_outline_inverse_solid_primary">#FFDDDDDD</color>
+    <!--light outline inverse outlineSolidPrimaryHover-->
+    <color name="plasma_light_outline_inverse_solid_primary_hover">#FFFFFFFF</color>
+    <!--light outline inverse outlineSolidPrimaryActive-->
+    <color name="plasma_light_outline_inverse_solid_primary_active">#FFB3B3B3</color>
+    <!--light outline inverse outlineSolidSecondary-->
+    <color name="plasma_light_outline_inverse_solid_secondary">#FF949494</color>
+    <!--light outline inverse outlineSolidSecondaryHover-->
+    <color name="plasma_light_outline_inverse_solid_secondary_hover">#FFFFFFFF</color>
+    <!--light outline inverse outlineSolidSecondaryActive-->
+    <color name="plasma_light_outline_inverse_solid_secondary_active">#FF757575</color>
+    <!--light outline inverse outlineSolidTertiary-->
+    <color name="plasma_light_outline_inverse_solid_tertiary">#FF707070</color>
+    <!--light outline inverse outlineSolidTertiaryHover-->
+    <color name="plasma_light_outline_inverse_solid_tertiary_hover">#FFFFFFFF</color>
+    <!--light outline inverse outlineSolidTertiaryActive-->
+    <color name="plasma_light_outline_inverse_solid_tertiary_active">#FF595959</color>
+    <!--light outline inverse outlineSolidDefault-->
+    <color name="plasma_light_outline_inverse_solid_default">#FF080808</color>
+    <!--light outline inverse outlineSolidDefaultHover-->
+    <color name="plasma_light_outline_inverse_solid_default_hover">#FF595959</color>
+    <!--light outline inverse outlineSolidDefaultActive-->
+    <color name="plasma_light_outline_inverse_solid_default_active">#FF303030</color>
 </resources>

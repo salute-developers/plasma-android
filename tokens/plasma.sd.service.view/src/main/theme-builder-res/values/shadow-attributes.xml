@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <attr format="reference" name="plasma_shadowDownSoftS"/>
+    <attr format="reference" name="plasma_shadowDownSoftM"/>
+    <attr format="reference" name="plasma_shadowDownSoftL"/>
+    <attr format="reference" name="plasma_shadowDownHardS"/>
+    <attr format="reference" name="plasma_shadowDownHardM"/>
+    <attr format="reference" name="plasma_shadowDownHardL"/>
+    <attr format="reference" name="plasma_shadowUpSoftS"/>
+    <attr format="reference" name="plasma_shadowUpSoftM"/>
+    <attr format="reference" name="plasma_shadowUpSoftL"/>
+    <attr format="reference" name="plasma_shadowUpHardS"/>
+    <attr format="reference" name="plasma_shadowUpHardM"/>
+    <attr format="reference" name="plasma_shadowUpHardL"/>
+</resources>

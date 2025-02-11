@@ -4,8 +4,6 @@ package com.sdds.serv.colorstate
 import android.content.Context
 import android.util.AttributeSet
 import com.sdds.serv.R
-import com.sdds.serv.colorstate.TextFieldColorState
-import com.sdds.serv.colorstate.TextFieldColorStateProvider
 import com.sdds.uikit.colorstate.ColorState
 import com.sdds.uikit.colorstate.ColorStateProvider
 import kotlin.Int
@@ -21,7 +19,6 @@ public enum class TextFieldColorState(
     SUCCESS(intArrayOf(R.attr.serv_textfield_state_success)),
     WARNING(intArrayOf(R.attr.serv_textfield_state_warning)),
     ERROR(intArrayOf(R.attr.serv_textfield_state_error)),
-    ;
 }
 
 /**

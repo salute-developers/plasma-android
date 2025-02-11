@@ -6,8 +6,6 @@ import android.util.AttributeSet
 import com.sdds.stylessalute.R
 import com.sdds.uikit.colorstate.ColorState
 import com.sdds.uikit.colorstate.ColorStateProvider
-import com.themebuilder.tokens.colorstate.IconButtonColorState
-import com.themebuilder.tokens.colorstate.IconButtonColorStateProvider
 import kotlin.Int
 import kotlin.IntArray
 
@@ -27,7 +25,6 @@ public enum class IconButtonColorState(
     DARK(intArrayOf(R.attr.salute_iconbutton_state_dark)),
     BLACK(intArrayOf(R.attr.salute_iconbutton_state_black)),
     WHITE(intArrayOf(R.attr.salute_iconbutton_state_white)),
-    ;
 }
 
 /**

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!--region shadow down soft s-->
+    <style name="Salute.StylesSalute.ShadowLayer"/>
+    <style name="Salute.StylesSalute.ShadowLayer.DownSoftSLayer1">
+        <item name="sd_shadowColor">@color/salute_shadow_down_soft_s_layer_1_color</item>
+        <item name="sd_shadowOffsetX">@dimen/salute_shadow_down_soft_s_layer_1_offset_x</item>
+        <item name="sd_shadowOffsetY">@dimen/salute_shadow_down_soft_s_layer_1_offset_y</item>
+        <item name="sd_shadowSpreadRadius">@dimen/salute_shadow_down_soft_s_layer_1_spread</item>
+        <item name="sd_shadowBlurRadius">@dimen/salute_shadow_down_soft_s_layer_1_blur</item>
+        <item name="sd_shadowFallbackElevation">@dimen/salute_shadow_down_soft_s_layer_1_elevation</item>
+    </style>
+    <style name="Salute.StylesSalute.ShadowLayer.DownSoftSLayer2">
+        <item name="sd_shadowColor">@color/salute_shadow_down_soft_s_layer_2_color</item>
+        <item name="sd_shadowOffsetX">@dimen/salute_shadow_down_soft_s_layer_2_offset_x</item>
+        <item name="sd_shadowOffsetY">@dimen/salute_shadow_down_soft_s_layer_2_offset_y</item>
+        <item name="sd_shadowSpreadRadius">@dimen/salute_shadow_down_soft_s_layer_2_spread</item>
+        <item name="sd_shadowBlurRadius">@dimen/salute_shadow_down_soft_s_layer_2_blur</item>
+    </style>
+    <style name="Salute.StylesSalute.Shadow"/>
+    <integer-array name="salute_shadow_down_soft_s_layers">
+        <item>@style/Salute.StylesSalute.ShadowLayer.DownSoftSLayer1</item>
+        <item>@style/Salute.StylesSalute.ShadowLayer.DownSoftSLayer2</item>
+    </integer-array>
+    <style name="Salute.StylesSalute.Shadow.DownSoftS">
+        <item name="sd_shadowLayers">@array/salute_shadow_down_soft_s_layers</item>
+    </style>
+    <!--endregion shadow down soft s-->
+    <!--region shadow down soft m-->
+    <style name="Salute.StylesSalute.Shadow.DownSoftM">
+        <item name="sd_shadowColor">@color/salute_shadow_down_soft_m_color</item>
+        <item name="sd_shadowOffsetX">@dimen/salute_shadow_down_soft_m_offset_x</item>
+        <item name="sd_shadowOffsetY">@dimen/salute_shadow_down_soft_m_offset_y</item>
+        <item name="sd_shadowSpreadRadius">@dimen/salute_shadow_down_soft_m_spread</item>
+        <item name="sd_shadowBlurRadius">@dimen/salute_shadow_down_soft_m_blur</item>
+        <item name="sd_shadowFallbackElevation">@dimen/salute_shadow_down_soft_m_elevation</item>
+    </style>
+    <!--endregion shadow down soft m-->
+    <!--region shadow down soft l-->
+    <style name="Salute.StylesSalute.Shadow.DownSoftL">
+        <item name="sd_shadowColor">@color/salute_shadow_down_soft_l_color</item>
+        <item name="sd_shadowOffsetX">@dimen/salute_shadow_down_soft_l_offset_x</item>
+        <item name="sd_shadowOffsetY">@dimen/salute_shadow_down_soft_l_offset_y</item>
+        <item name="sd_shadowSpreadRadius">@dimen/salute_shadow_down_soft_l_spread</item>
+        <item name="sd_shadowBlurRadius">@dimen/salute_shadow_down_soft_l_blur</item>
+        <item name="sd_shadowFallbackElevation">@dimen/salute_shadow_down_soft_l_elevation</item>
+    </style>
+    <!--endregion shadow down soft l-->
+    <!--region shadow down hard s-->
+    <style name="Salute.StylesSalute.ShadowLayer.DownHardSLayer1">
+        <item name="sd_shadowColor">@color/salute_shadow_down_hard_s_layer_1_color</item>
+        <item name="sd_shadowOffsetX">@dimen/salute_shadow_down_hard_s_layer_1_offset_x</item>
+        <item name="sd_shadowOffsetY">@dimen/salute_shadow_down_hard_s_layer_1_offset_y</item>
+        <item name="sd_shadowSpreadRadius">@dimen/salute_shadow_down_hard_s_layer_1_spread</item>
+        <item name="sd_shadowBlurRadius">@dimen/salute_shadow_down_hard_s_layer_1_blur</item>
+        <item name="sd_shadowFallbackElevation">@dimen/salute_shadow_down_hard_s_layer_1_elevation</item>
+    </style>
+    <style name="Salute.StylesSalute.ShadowLayer.DownHardSLayer2">
+        <item name="sd_shadowColor">@color/salute_shadow_down_hard_s_layer_2_color</item>
+        <item name="sd_shadowOffsetX">@dimen/salute_shadow_down_hard_s_layer_2_offset_x</item>
+        <item name="sd_shadowOffsetY">@dimen/salute_shadow_down_hard_s_layer_2_offset_y</item>
+        <item name="sd_shadowSpreadRadius">@dimen/salute_shadow_down_hard_s_layer_2_spread</item>
+        <item name="sd_shadowBlurRadius">@dimen/salute_shadow_down_hard_s_layer_2_blur</item>
+    </style>
+    <integer-array name="salute_shadow_down_hard_s_layers">
+        <item>@style/Salute.StylesSalute.ShadowLayer.DownHardSLayer1</item>
+        <item>@style/Salute.StylesSalute.ShadowLayer.DownHardSLayer2</item>
+    </integer-array>
+    <style name="Salute.StylesSalute.Shadow.DownHardS">
+        <item name="sd_shadowLayers">@array/salute_shadow_down_hard_s_layers</item>
+    </style>
+    <!--endregion shadow down hard s-->
+    <!--region shadow down hard m-->
+    <style name="Salute.StylesSalute.Shadow.DownHardM">
+        <item name="sd_shadowColor">@color/salute_shadow_down_hard_m_color</item>
+        <item name="sd_shadowOffsetX">@dimen/salute_shadow_down_hard_m_offset_x</item>
+        <item name="sd_shadowOffsetY">@dimen/salute_shadow_down_hard_m_offset_y</item>
+        <item name="sd_shadowSpreadRadius">@dimen/salute_shadow_down_hard_m_spread</item>
+        <item name="sd_shadowBlurRadius">@dimen/salute_shadow_down_hard_m_blur</item>
+        <item name="sd_shadowFallbackElevation">@dimen/salute_shadow_down_hard_m_elevation</item>
+    </style>
+    <!--endregion shadow down hard m-->
+    <!--region shadow down hard l-->
+    <style name="Salute.StylesSalute.Shadow.DownHardL">
+        <item name="sd_shadowColor">@color/salute_shadow_down_hard_l_color</item>
+        <item name="sd_shadowOffsetX">@dimen/salute_shadow_down_hard_l_offset_x</item>
+        <item name="sd_shadowOffsetY">@dimen/salute_shadow_down_hard_l_offset_y</item>
+        <item name="sd_shadowSpreadRadius">@dimen/salute_shadow_down_hard_l_spread</item>
+        <item name="sd_shadowBlurRadius">@dimen/salute_shadow_down_hard_l_blur</item>
+        <item name="sd_shadowFallbackElevation">@dimen/salute_shadow_down_hard_l_elevation</item>
+    </style>
+    <!--endregion shadow down hard l-->
+    <!--region shadow up soft s-->
+    <style name="Salute.StylesSalute.ShadowLayer.UpSoftSLayer1">
+        <item name="sd_shadowColor">@color/salute_shadow_up_soft_s_layer_1_color</item>
+        <item name="sd_shadowOffsetX">@dimen/salute_shadow_up_soft_s_layer_1_offset_x</item>
+        <item name="sd_shadowOffsetY">@dimen/salute_shadow_up_soft_s_layer_1_offset_y</item>
+        <item name="sd_shadowSpreadRadius">@dimen/salute_shadow_up_soft_s_layer_1_spread</item>
+        <item name="sd_shadowBlurRadius">@dimen/salute_shadow_up_soft_s_layer_1_blur</item>
+    </style>
+    <style name="Salute.StylesSalute.ShadowLayer.UpSoftSLayer2">
+        <item name="sd_shadowColor">@color/salute_shadow_up_soft_s_layer_2_color</item>
+        <item name="sd_shadowOffsetX">@dimen/salute_shadow_up_soft_s_layer_2_offset_x</item>
+        <item name="sd_shadowOffsetY">@dimen/salute_shadow_up_soft_s_layer_2_offset_y</item>
+        <item name="sd_shadowSpreadRadius">@dimen/salute_shadow_up_soft_s_layer_2_spread</item>
+        <item name="sd_shadowBlurRadius">@dimen/salute_shadow_up_soft_s_layer_2_blur</item>
+    </style>
+    <integer-array name="salute_shadow_up_soft_s_layers">
+        <item>@style/Salute.StylesSalute.ShadowLayer.UpSoftSLayer1</item>
+        <item>@style/Salute.StylesSalute.ShadowLayer.UpSoftSLayer2</item>
+    </integer-array>
+    <style name="Salute.StylesSalute.Shadow.UpSoftS">
+        <item name="sd_shadowLayers">@array/salute_shadow_up_soft_s_layers</item>
+    </style>
+    <!--endregion shadow up soft s-->
+    <!--region shadow up soft m-->
+    <style name="Salute.StylesSalute.Shadow.UpSoftM">
+        <item name="sd_shadowColor">@color/salute_shadow_up_soft_m_color</item>
+        <item name="sd_shadowOffsetX">@dimen/salute_shadow_up_soft_m_offset_x</item>
+        <item name="sd_shadowOffsetY">@dimen/salute_shadow_up_soft_m_offset_y</item>
+        <item name="sd_shadowSpreadRadius">@dimen/salute_shadow_up_soft_m_spread</item>
+        <item name="sd_shadowBlurRadius">@dimen/salute_shadow_up_soft_m_blur</item>
+    </style>
+    <!--endregion shadow up soft m-->
+    <!--region shadow up soft l-->
+    <style name="Salute.StylesSalute.Shadow.UpSoftL">
+        <item name="sd_shadowColor">@color/salute_shadow_up_soft_l_color</item>
+        <item name="sd_shadowOffsetX">@dimen/salute_shadow_up_soft_l_offset_x</item>
+        <item name="sd_shadowOffsetY">@dimen/salute_shadow_up_soft_l_offset_y</item>
+        <item name="sd_shadowSpreadRadius">@dimen/salute_shadow_up_soft_l_spread</item>
+        <item name="sd_shadowBlurRadius">@dimen/salute_shadow_up_soft_l_blur</item>
+    </style>
+    <!--endregion shadow up soft l-->
+    <!--region shadow up hard s-->
+    <style name="Salute.StylesSalute.ShadowLayer.UpHardSLayer1">
+        <item name="sd_shadowColor">@color/salute_shadow_up_hard_s_layer_1_color</item>
+        <item name="sd_shadowOffsetX">@dimen/salute_shadow_up_hard_s_layer_1_offset_x</item>
+        <item name="sd_shadowOffsetY">@dimen/salute_shadow_up_hard_s_layer_1_offset_y</item>
+        <item name="sd_shadowSpreadRadius">@dimen/salute_shadow_up_hard_s_layer_1_spread</item>
+        <item name="sd_shadowBlurRadius">@dimen/salute_shadow_up_hard_s_layer_1_blur</item>
+    </style>
+    <style name="Salute.StylesSalute.ShadowLayer.UpHardSLayer2">
+        <item name="sd_shadowColor">@color/salute_shadow_up_hard_s_layer_2_color</item>
+        <item name="sd_shadowOffsetX">@dimen/salute_shadow_up_hard_s_layer_2_offset_x</item>
+        <item name="sd_shadowOffsetY">@dimen/salute_shadow_up_hard_s_layer_2_offset_y</item>
+        <item name="sd_shadowSpreadRadius">@dimen/salute_shadow_up_hard_s_layer_2_spread</item>
+        <item name="sd_shadowBlurRadius">@dimen/salute_shadow_up_hard_s_layer_2_blur</item>
+    </style>
+    <integer-array name="salute_shadow_up_hard_s_layers">
+        <item>@style/Salute.StylesSalute.ShadowLayer.UpHardSLayer1</item>
+        <item>@style/Salute.StylesSalute.ShadowLayer.UpHardSLayer2</item>
+    </integer-array>
+    <style name="Salute.StylesSalute.Shadow.UpHardS">
+        <item name="sd_shadowLayers">@array/salute_shadow_up_hard_s_layers</item>
+    </style>
+    <!--endregion shadow up hard s-->
+    <!--region shadow up hard m-->
+    <style name="Salute.StylesSalute.Shadow.UpHardM">
+        <item name="sd_shadowColor">@color/salute_shadow_up_hard_m_color</item>
+        <item name="sd_shadowOffsetX">@dimen/salute_shadow_up_hard_m_offset_x</item>
+        <item name="sd_shadowOffsetY">@dimen/salute_shadow_up_hard_m_offset_y</item>
+        <item name="sd_shadowSpreadRadius">@dimen/salute_shadow_up_hard_m_spread</item>
+        <item name="sd_shadowBlurRadius">@dimen/salute_shadow_up_hard_m_blur</item>
+    </style>
+    <!--endregion shadow up hard m-->
+    <!--region shadow up hard l-->
+    <style name="Salute.StylesSalute.Shadow.UpHardL">
+        <item name="sd_shadowColor">@color/salute_shadow_up_hard_l_color</item>
+        <item name="sd_shadowOffsetX">@dimen/salute_shadow_up_hard_l_offset_x</item>
+        <item name="sd_shadowOffsetY">@dimen/salute_shadow_up_hard_l_offset_y</item>
+        <item name="sd_shadowSpreadRadius">@dimen/salute_shadow_up_hard_l_spread</item>
+        <item name="sd_shadowBlurRadius">@dimen/salute_shadow_up_hard_l_blur</item>
+    </style>
+    <!--endregion shadow up hard l-->
+</resources>

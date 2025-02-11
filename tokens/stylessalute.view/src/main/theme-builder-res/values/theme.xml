@@ -1743,6 +1743,35 @@
         <item name="sd_counterStyle">@style/Salute.StylesSalute.Components.Counter.M</item>
         <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.M</item>
         <item name="sd_indicatorStyle">@style/Salute.StylesSalute.Components.Indicator.M</item>
+        <!--Shadows-->
+        <item name="salute_shadowDownSoftS">@style/Salute.StylesSalute.Shadow.DownSoftS</item>
+        <item name="salute_shadowDownSoftM">@style/Salute.StylesSalute.Shadow.DownSoftM</item>
+        <item name="salute_shadowDownSoftL">@style/Salute.StylesSalute.Shadow.DownSoftL</item>
+        <item name="salute_shadowDownHardS">@style/Salute.StylesSalute.Shadow.DownHardS</item>
+        <item name="salute_shadowDownHardM">@style/Salute.StylesSalute.Shadow.DownHardM</item>
+        <item name="salute_shadowDownHardL">@style/Salute.StylesSalute.Shadow.DownHardL</item>
+        <item name="salute_shadowUpSoftS">@style/Salute.StylesSalute.Shadow.UpSoftS</item>
+        <item name="salute_shadowUpSoftM">@style/Salute.StylesSalute.Shadow.UpSoftM</item>
+        <item name="salute_shadowUpSoftL">@style/Salute.StylesSalute.Shadow.UpSoftL</item>
+        <item name="salute_shadowUpHardS">@style/Salute.StylesSalute.Shadow.UpHardS</item>
+        <item name="salute_shadowUpHardM">@style/Salute.StylesSalute.Shadow.UpHardM</item>
+        <item name="salute_shadowUpHardL">@style/Salute.StylesSalute.Shadow.UpHardL</item>
+        <!--Spacing-->
+        <item name="salute_spacing0x">@dimen/salute_spacing_0x</item>
+        <item name="salute_spacing1x">@dimen/salute_spacing_1x</item>
+        <item name="salute_spacing2x">@dimen/salute_spacing_2x</item>
+        <item name="salute_spacing3x">@dimen/salute_spacing_3x</item>
+        <item name="salute_spacing4x">@dimen/salute_spacing_4x</item>
+        <item name="salute_spacing6x">@dimen/salute_spacing_6x</item>
+        <item name="salute_spacing8x">@dimen/salute_spacing_8x</item>
+        <item name="salute_spacing10x">@dimen/salute_spacing_10x</item>
+        <item name="salute_spacing12x">@dimen/salute_spacing_12x</item>
+        <item name="salute_spacing16x">@dimen/salute_spacing_16x</item>
+        <item name="salute_spacing20x">@dimen/salute_spacing_20x</item>
+        <item name="salute_spacing24x">@dimen/salute_spacing_24x</item>
+        <item name="salute_spacing32x">@dimen/salute_spacing_32x</item>
+        <item name="salute_spacing40x">@dimen/salute_spacing_40x</item>
+        <item name="salute_spacing60x">@dimen/salute_spacing_60x</item>
     </style>
     <style name="Salute.StylesSalute.MaterialComponents.Light" parent="Theme.MaterialComponents.Light">
         <!--Light colors-->
@@ -3485,7 +3514,38 @@
         <item name="sd_counterStyle">@style/Salute.StylesSalute.Components.Counter.M</item>
         <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.M</item>
         <item name="sd_indicatorStyle">@style/Salute.StylesSalute.Components.Indicator.M</item>
+        <!--Shadows-->
+        <item name="salute_shadowDownSoftS">@style/Salute.StylesSalute.Shadow.DownSoftS</item>
+        <item name="salute_shadowDownSoftM">@style/Salute.StylesSalute.Shadow.DownSoftM</item>
+        <item name="salute_shadowDownSoftL">@style/Salute.StylesSalute.Shadow.DownSoftL</item>
+        <item name="salute_shadowDownHardS">@style/Salute.StylesSalute.Shadow.DownHardS</item>
+        <item name="salute_shadowDownHardM">@style/Salute.StylesSalute.Shadow.DownHardM</item>
+        <item name="salute_shadowDownHardL">@style/Salute.StylesSalute.Shadow.DownHardL</item>
+        <item name="salute_shadowUpSoftS">@style/Salute.StylesSalute.Shadow.UpSoftS</item>
+        <item name="salute_shadowUpSoftM">@style/Salute.StylesSalute.Shadow.UpSoftM</item>
+        <item name="salute_shadowUpSoftL">@style/Salute.StylesSalute.Shadow.UpSoftL</item>
+        <item name="salute_shadowUpHardS">@style/Salute.StylesSalute.Shadow.UpHardS</item>
+        <item name="salute_shadowUpHardM">@style/Salute.StylesSalute.Shadow.UpHardM</item>
+        <item name="salute_shadowUpHardL">@style/Salute.StylesSalute.Shadow.UpHardL</item>
+        <!--Spacing-->
+        <item name="salute_spacing0x">@dimen/salute_spacing_0x</item>
+        <item name="salute_spacing1x">@dimen/salute_spacing_1x</item>
+        <item name="salute_spacing2x">@dimen/salute_spacing_2x</item>
+        <item name="salute_spacing3x">@dimen/salute_spacing_3x</item>
+        <item name="salute_spacing4x">@dimen/salute_spacing_4x</item>
+        <item name="salute_spacing6x">@dimen/salute_spacing_6x</item>
+        <item name="salute_spacing8x">@dimen/salute_spacing_8x</item>
+        <item name="salute_spacing10x">@dimen/salute_spacing_10x</item>
+        <item name="salute_spacing12x">@dimen/salute_spacing_12x</item>
+        <item name="salute_spacing16x">@dimen/salute_spacing_16x</item>
+        <item name="salute_spacing20x">@dimen/salute_spacing_20x</item>
+        <item name="salute_spacing24x">@dimen/salute_spacing_24x</item>
+        <item name="salute_spacing32x">@dimen/salute_spacing_32x</item>
+        <item name="salute_spacing40x">@dimen/salute_spacing_40x</item>
+        <item name="salute_spacing60x">@dimen/salute_spacing_60x</item>
     </style>
     <style name="Salute.StylesSalute.MaterialComponents.DayNight" parent="Salute.StylesSalute.MaterialComponents.Light"/>
     <style name="Salute.StylesSalute"/>
+    <style name="Salute.StylesSalute.Components"/>
+    <style name="Salute.StylesSalute.ComponentOverlays"/>
 </resources>

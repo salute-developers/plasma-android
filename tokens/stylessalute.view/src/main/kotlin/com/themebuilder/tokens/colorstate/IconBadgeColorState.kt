@@ -9,7 +9,8 @@ import com.sdds.uikit.colorstate.ColorStateProvider
 /**
  * Реализация [ColorState] для компонента IconBadge
  */
-public enum class IconBadgeColorState( public override val attrs: IntArray,
+public enum class IconBadgeColorState(
+    public override val attrs: IntArray,
 ) : ColorState {
     DEFAULT(intArrayOf(R.attr.salute_iconBadge_state_default)),
     ACCENT(intArrayOf(R.attr.salute_iconBadge_state_accent)),

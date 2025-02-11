@@ -1176,6 +1176,22 @@
         <item name="serv_shadowUpHardS">@style/Serv.Sdds.Shadow.UpHardS</item>
         <item name="serv_shadowUpHardM">@style/Serv.Sdds.Shadow.UpHardM</item>
         <item name="serv_shadowUpHardL">@style/Serv.Sdds.Shadow.UpHardL</item>
+        <!--Spacing-->
+        <item name="serv_spacing0x">@dimen/serv_spacing_0x</item>
+        <item name="serv_spacing1x">@dimen/serv_spacing_1x</item>
+        <item name="serv_spacing2x">@dimen/serv_spacing_2x</item>
+        <item name="serv_spacing3x">@dimen/serv_spacing_3x</item>
+        <item name="serv_spacing4x">@dimen/serv_spacing_4x</item>
+        <item name="serv_spacing6x">@dimen/serv_spacing_6x</item>
+        <item name="serv_spacing8x">@dimen/serv_spacing_8x</item>
+        <item name="serv_spacing10x">@dimen/serv_spacing_10x</item>
+        <item name="serv_spacing12x">@dimen/serv_spacing_12x</item>
+        <item name="serv_spacing16x">@dimen/serv_spacing_16x</item>
+        <item name="serv_spacing20x">@dimen/serv_spacing_20x</item>
+        <item name="serv_spacing24x">@dimen/serv_spacing_24x</item>
+        <item name="serv_spacing32x">@dimen/serv_spacing_32x</item>
+        <item name="serv_spacing40x">@dimen/serv_spacing_40x</item>
+        <item name="serv_spacing60x">@dimen/serv_spacing_60x</item>
     </style>
     <style name="Serv.Sdds.MaterialComponents.Light" parent="Theme.MaterialComponents.Light">
         <!--Light colors-->
@@ -2352,6 +2368,22 @@
         <item name="serv_shadowUpHardS">@style/Serv.Sdds.Shadow.UpHardS</item>
         <item name="serv_shadowUpHardM">@style/Serv.Sdds.Shadow.UpHardM</item>
         <item name="serv_shadowUpHardL">@style/Serv.Sdds.Shadow.UpHardL</item>
+        <!--Spacing-->
+        <item name="serv_spacing0x">@dimen/serv_spacing_0x</item>
+        <item name="serv_spacing1x">@dimen/serv_spacing_1x</item>
+        <item name="serv_spacing2x">@dimen/serv_spacing_2x</item>
+        <item name="serv_spacing3x">@dimen/serv_spacing_3x</item>
+        <item name="serv_spacing4x">@dimen/serv_spacing_4x</item>
+        <item name="serv_spacing6x">@dimen/serv_spacing_6x</item>
+        <item name="serv_spacing8x">@dimen/serv_spacing_8x</item>
+        <item name="serv_spacing10x">@dimen/serv_spacing_10x</item>
+        <item name="serv_spacing12x">@dimen/serv_spacing_12x</item>
+        <item name="serv_spacing16x">@dimen/serv_spacing_16x</item>
+        <item name="serv_spacing20x">@dimen/serv_spacing_20x</item>
+        <item name="serv_spacing24x">@dimen/serv_spacing_24x</item>
+        <item name="serv_spacing32x">@dimen/serv_spacing_32x</item>
+        <item name="serv_spacing40x">@dimen/serv_spacing_40x</item>
+        <item name="serv_spacing60x">@dimen/serv_spacing_60x</item>
     </style>
     <style name="Serv.Sdds.MaterialComponents.DayNight" parent="Serv.Sdds.MaterialComponents.Light"/>
     <style name="Serv.Sdds"/>

@@ -4,8 +4,6 @@ package com.sdds.serv.colorstate
 import android.content.Context
 import android.util.AttributeSet
 import com.sdds.serv.R
-import com.sdds.serv.colorstate.IconButtonColorState
-import com.sdds.serv.colorstate.IconButtonColorStateProvider
 import com.sdds.uikit.colorstate.ColorState
 import com.sdds.uikit.colorstate.ColorStateProvider
 import kotlin.Int
@@ -27,7 +25,6 @@ public enum class IconButtonColorState(
     DARK(intArrayOf(R.attr.serv_iconbutton_state_dark)),
     BLACK(intArrayOf(R.attr.serv_iconbutton_state_black)),
     WHITE(intArrayOf(R.attr.serv_iconbutton_state_white)),
-    ;
 }
 
 /**

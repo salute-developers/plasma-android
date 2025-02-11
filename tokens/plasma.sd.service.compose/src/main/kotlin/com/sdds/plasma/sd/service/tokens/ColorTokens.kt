@@ -3,6 +3,9 @@ package com.sdds.plasma.sd.service.tokens
 
 import androidx.compose.ui.graphics.Color
 
+/**
+ * Токены цвета для темной темы
+ */
 public object DarkColorTokens {
     /**
      * Основной цвет текста
@@ -675,26 +678,6 @@ public object DarkColorTokens {
     public val TextInverseParagraph: Color = Color(0xCC080808)
 
     /**
-     * Инвертированный акцентный цвет
-     */
-    public val TextInverseAccent: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Инвертированный цвет успеха
-     */
-    public val TextInversePositive: Color = Color(0xFF108E25)
-
-    /**
-     * Инвертированный цвет предупреждения
-     */
-    public val TextInverseWarning: Color = Color(0xFFE85702)
-
-    /**
-     * Инвертированный цвет ошибки
-     */
-    public val TextInverseNegative: Color = Color(0xFFF31B30)
-
-    /**
      * Инвертированный основной цвет текста
      */
     public val TextInversePrimaryHover: Color = Color(0x93080808)
@@ -737,32 +720,32 @@ public object DarkColorTokens {
     /**
      * Инвертированный акцентный цвет
      */
-    public val TextInverseAccentHover: Color = Color(0xFFCCCCCC)
+    public val TextInverseAccentHover: Color = Color(0xFF79A7FB)
 
     /**
      * Инвертированный акцентный цвет
      */
-    public val TextInverseAccentActive: Color = Color(0xFFE6E6E6)
+    public val TextInverseAccentActive: Color = Color(0xFF0D5FF8)
 
     /**
      * Инвертированный цвет успеха
      */
-    public val TextInversePositiveHover: Color = Color(0xFF13AA2C)
+    public val TextInversePositiveHover: Color = Color(0xFF1EB83A)
 
     /**
      * Инвертированный цвет успеха
      */
-    public val TextInversePositiveActive: Color = Color(0xFF0D731E)
+    public val TextInversePositiveActive: Color = Color(0xFF15842A)
 
     /**
      * Инвертированный цвет предупреждения
      */
-    public val TextInverseWarningHover: Color = Color(0xFFFD650D)
+    public val TextInverseWarningHover: Color = Color(0xFFFB7223)
 
     /**
      * Инвертированный цвет предупреждения
      */
-    public val TextInverseWarningActive: Color = Color(0xFFCA4B02)
+    public val TextInverseWarningActive: Color = Color(0xFFDC5304)
 
     /**
      * Инвертированный цвет ошибки
@@ -773,6 +756,116 @@ public object DarkColorTokens {
      * Инвертированный цвет ошибки
      */
     public val TextInverseNegativeActive: Color = Color(0xFFE40C22)
+
+    /**
+     * dark text inverse textAccentMinorHover
+     */
+    public val TextInverseAccentMinorHover: Color = Color(0xFFDCE8FE)
+
+    /**
+     * dark text inverse textAccentMinorActive
+     */
+    public val TextInverseAccentMinorActive: Color = Color(0xFF6FA0FB)
+
+    /**
+     * Инвертированный акцентный цвет
+     */
+    public val TextInverseAccent: Color = Color(0xFF2A72F8)
+
+    /**
+     * dark text inverse textAccentMinor
+     */
+    public val TextInverseAccentMinor: Color = Color(0xFF8BB2FC)
+
+    /**
+     * Инвертированный цвет успеха
+     */
+    public val TextInversePositive: Color = Color(0xFF1A9E32)
+
+    /**
+     * Инвертированный цвет предупреждения
+     */
+    public val TextInverseWarning: Color = Color(0xFFFA5F05)
+
+    /**
+     * Инвертированный цвет ошибки
+     */
+    public val TextInverseNegative: Color = Color(0xFFF31B31)
+
+    /**
+     * dark text inverse textInfo
+     */
+    public val TextInverseInfo: Color = Color(0xFF2A72F8)
+
+    /**
+     * dark text inverse textInfoHover
+     */
+    public val TextInverseInfoHover: Color = Color(0xFF79A7FB)
+
+    /**
+     * dark text inverse textInfoActive
+     */
+    public val TextInverseInfoActive: Color = Color(0xFF0D5FF8)
+
+    /**
+     * dark text inverse textPositiveMinor
+     */
+    public val TextInversePositiveMinor: Color = Color(0xFF28D247)
+
+    /**
+     * dark text inverse textPositiveMinorHover
+     */
+    public val TextInversePositiveMinorHover: Color = Color(0xFF3EDA5B)
+
+    /**
+     * dark text inverse textPositiveMinorActive
+     */
+    public val TextInversePositiveMinorActive: Color = Color(0xFF23B83E)
+
+    /**
+     * dark text inverse textWarningMinor
+     */
+    public val TextInverseWarningMinor: Color = Color(0xFFFD9C68)
+
+    /**
+     * dark text inverse textWarningMinorHover
+     */
+    public val TextInverseWarningMinorHover: Color = Color(0xFFFDB086)
+
+    /**
+     * dark text inverse textWarningMinorActive
+     */
+    public val TextInverseWarningMinorActive: Color = Color(0xFFFC884A)
+
+    /**
+     * dark text inverse textNegativeMinor
+     */
+    public val TextInverseNegativeMinor: Color = Color(0xFFFF8F9A)
+
+    /**
+     * dark text inverse textNegativeMinorHover
+     */
+    public val TextInverseNegativeMinorHover: Color = Color(0xFFFFADB6)
+
+    /**
+     * dark text inverse textNegativeMinorActive
+     */
+    public val TextInverseNegativeMinorActive: Color = Color(0xFFFF707E)
+
+    /**
+     * dark text inverse textInfoMinor
+     */
+    public val TextInverseInfoMinor: Color = Color(0xFF8BB2FC)
+
+    /**
+     * dark text inverse textInfoMinorHover
+     */
+    public val TextInverseInfoMinorHover: Color = Color(0xFFDCE8FE)
+
+    /**
+     * dark text inverse textInfoMinorActive
+     */
+    public val TextInverseInfoMinorActive: Color = Color(0xFF6FA0FB)
 
     /**
      * Основной непрозрачный фон поверхности/контрола
@@ -2035,34 +2128,9 @@ public object DarkColorTokens {
     public val SurfaceOnLightTransparentDeepActive: Color = Color(0x94080808)
 
     /**
-     * Инвертированный непрозрачный фон поверхности/контрола по умолчанию
-     */
-    public val SurfaceInverseSolidDefault: Color = Color(0xFF080808)
-
-    /**
      * Инвертированный осн. непрозрачный фон поверхности/контрола
      */
-    public val SurfaceInverseSolidPrimary: Color = Color(0xF5080808)
-
-    /**
-     * Инвертированный осн. непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceInverseSolidPrimaryBrightness: Color = Color(0xF5080808)
-
-    /**
-     * Инвертированный втор. непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceInverseSolidSecondary: Color = Color(0x8F080808)
-
-    /**
-     * Инвертированный трет.непрозрачный фон поверхности/контрола
-     */
-    public val SurfaceInverseSolidTertiary: Color = Color(0x47080808)
-
-    /**
-     * Инвертированный основной фон для карточек
-     */
-    public val SurfaceInverseSolidCard: Color = Color(0xFFF7F7F7)
+    public val SurfaceInverseSolidPrimaryBrightness: Color = Color(0xFFFFFFFF)
 
     /**
      * Инвертированный основной фон для карточек
@@ -2075,54 +2143,24 @@ public object DarkColorTokens {
     public val SurfaceInverseTransparentDefault: Color = Color(0xFF080808)
 
     /**
-     * Инвертированный основной прозрачный фон поверхности/контрола
-     */
-    public val SurfaceInverseTransparentPrimary: Color = Color(0xFFF5F5F5)
-
-    /**
-     * Инвертированный вторичный прозрачный фон поверхности/контрола
-     */
-    public val SurfaceInverseTransparentSecondary: Color = Color(0xFFECECEC)
-
-    /**
-     * Инвертированный третичный прозрачный фон поверхности/контрола
-     */
-    public val SurfaceInverseTransparentTertiary: Color = Color(0xFFDDDDDD)
-
-    /**
-     * Инвертированный прозрачный фон для карточек
-     */
-    public val SurfaceInverseTransparentCard: Color = Color(0xFFF7F7F7)
-
-    /**
      * Инвертированный прозрачный фон для карточек
      */
     public val SurfaceInverseTransparentCardBrightness: Color = Color(0xFFFFFFFF)
 
     /**
-     * Инвертированный акцентный фон поверхности/контрола
+     * dark surface inverse surfacePositive
      */
-    public val SurfaceInverseAccent: Color = Color(0xFFFFFFFF)
+    public val SurfaceInversePositive: Color = Color(0xFF1A9E32)
 
     /**
-     * Инвертированный цвет фона поверхности/контрола успех
+     * dark surface inverse surfaceWarning
      */
-    public val SurfaceInversePositive: Color = Color(0xFF108E25)
+    public val SurfaceInverseWarning: Color = Color(0xFFFA5F05)
 
     /**
-     * Инвертированный цвет фона поверхности/контрола предупреждение
+     * dark surface inverse surfaceNegative
      */
-    public val SurfaceInverseWarning: Color = Color(0xFFE85702)
-
-    /**
-     * Инвертированный цвет фона поверхности/контрола ошибка
-     */
-    public val SurfaceInverseNegative: Color = Color(0xFFF31B30)
-
-    /**
-     * Инвертированный фон поверхности/контрола без заливки
-     */
-    public val SurfaceInverseClear: Color = Color(0x00000000)
+    public val SurfaceInverseNegative: Color = Color(0xFFF31B31)
 
     /**
      * Инвертированный непрозрачный фон поверхности/контрола по умолчанию
@@ -2137,42 +2175,42 @@ public object DarkColorTokens {
     /**
      * Инвертированный осн. непрозрачный фон поверхности/контрола
      */
-    public val SurfaceInverseSolidPrimaryHover: Color = Color(0xFF080808)
+    public val SurfaceInverseSolidPrimaryHover: Color = Color(0xFFFAFAFA)
 
     /**
      * Инвертированный осн. непрозрачный фон поверхности/контрола
      */
-    public val SurfaceInverseSolidPrimaryActive: Color = Color(0xEB080808)
+    public val SurfaceInverseSolidPrimaryActive: Color = Color(0xFFF0F0F0)
 
     /**
      * Инвертированный втор. непрозрачный фон поверхности/контрола
      */
-    public val SurfaceInverseSolidSecondaryHover: Color = Color(0xAD080808)
+    public val SurfaceInverseSolidSecondaryHover: Color = Color(0xFFF7F7F7)
 
     /**
      * Инвертированный втор. непрозрачный фон поверхности/контрола
      */
-    public val SurfaceInverseSolidSecondaryActive: Color = Color(0x80080808)
+    public val SurfaceInverseSolidSecondaryActive: Color = Color(0xFFE8E8E8)
 
     /**
      * Инвертированный трет.непрозрачный фон поверхности/контрола
      */
-    public val SurfaceInverseSolidTertiaryHover: Color = Color(0x66080808)
+    public val SurfaceInverseSolidTertiaryHover: Color = Color(0xFFE8E8E8)
 
     /**
      * Инвертированный трет.непрозрачный фон поверхности/контрола
      */
-    public val SurfaceInverseSolidTertiaryActive: Color = Color(0x38080808)
+    public val SurfaceInverseSolidTertiaryActive: Color = Color(0xFFD9D9D9)
 
     /**
      * Инвертированный основной фон для карточек
      */
-    public val SurfaceInverseSolidCardHover: Color = Color(0xFFFCFCFC)
+    public val SurfaceInverseSolidCardHover: Color = Color(0xFFFFFFFF)
 
     /**
      * Инвертированный основной фон для карточек
      */
-    public val SurfaceInverseSolidCardActive: Color = Color(0xFFF2F2F2)
+    public val SurfaceInverseSolidCardActive: Color = Color(0xFFFFFFFF)
 
     /**
      * Инвертированный прозрачный фон поверхности/контрола по умолчанию
@@ -2187,92 +2225,327 @@ public object DarkColorTokens {
     /**
      * Инвертированный основной прозрачный фон поверхности/контрола
      */
-    public val SurfaceInverseTransparentPrimaryHover: Color = Color(0xFFFAFAFA)
+    public val SurfaceInverseTransparentPrimaryHover: Color = Color(0x12080808)
 
     /**
      * Инвертированный основной прозрачный фон поверхности/контрола
      */
-    public val SurfaceInverseTransparentPrimaryActive: Color = Color(0xFFF0F0F0)
+    public val SurfaceInverseTransparentPrimaryActive: Color = Color(0x03080808)
 
     /**
      * Инвертированный вторичный прозрачный фон поверхности/контрола
      */
-    public val SurfaceInverseTransparentSecondaryHover: Color = Color(0xFFF7F7F7)
+    public val SurfaceInverseTransparentSecondaryHover: Color = Color(0x1F080808)
 
     /**
      * Инвертированный вторичный прозрачный фон поверхности/контрола
      */
-    public val SurfaceInverseTransparentSecondaryActive: Color = Color(0xFFE8E8E8)
+    public val SurfaceInverseTransparentSecondaryActive: Color = Color(0x0A080808)
 
     /**
      * Инвертированный третичный прозрачный фон поверхности/контрола
      */
-    public val SurfaceInverseTransparentTertiaryHover: Color = Color(0xFFE8E8E8)
+    public val SurfaceInverseTransparentTertiaryHover: Color = Color(0x3D080808)
 
     /**
      * Инвертированный третичный прозрачный фон поверхности/контрола
      */
-    public val SurfaceInverseTransparentTertiaryActive: Color = Color(0xFFD9D9D9)
+    public val SurfaceInverseTransparentTertiaryActive: Color = Color(0x0F080808)
 
     /**
      * Инвертированный прозрачный фон для карточек
      */
-    public val SurfaceInverseTransparentCardHover: Color = Color(0xFFFCFCFC)
+    public val SurfaceInverseTransparentCardHover: Color = Color(0xFFFFFFFF)
 
     /**
      * Инвертированный прозрачный фон для карточек
      */
-    public val SurfaceInverseTransparentCardActive: Color = Color(0xFFF2F2F2)
+    public val SurfaceInverseTransparentCardActive: Color = Color(0xFFFFFFFF)
 
     /**
      * Инвертированный акцентный фон поверхности/контрола
      */
-    public val SurfaceInverseAccentHover: Color = Color(0xFFFFFFFF)
+    public val SurfaceInverseAccentHover: Color = Color(0xFF4886F9)
 
     /**
      * Инвертированный акцентный фон поверхности/контрола
      */
-    public val SurfaceInverseAccentActive: Color = Color(0xFFFFFFFF)
+    public val SurfaceInverseAccentActive: Color = Color(0xFF206CF8)
 
     /**
-     * Инвертированный цвет фона поверхности/контрола успех
+     * dark surface inverse surfacePositiveHover
      */
-    public val SurfaceInversePositiveHover: Color = Color(0xFF12A12A)
+    public val SurfaceInversePositiveHover: Color = Color(0xFF1DAF37)
 
     /**
-     * Инвертированный цвет фона поверхности/контрола успех
+     * dark surface inverse surfacePositiveActive
      */
-    public val SurfaceInversePositiveActive: Color = Color(0xFF0F8523)
+    public val SurfaceInversePositiveActive: Color = Color(0xFF18952F)
 
     /**
-     * Инвертированный цвет фона поверхности/контрола предупреждение
+     * dark surface inverse surfaceWarningHover
      */
-    public val SurfaceInverseWarningHover: Color = Color(0xFFFC5E03)
+    public val SurfaceInverseWarningHover: Color = Color(0xFFFB7223)
 
     /**
-     * Инвертированный цвет фона поверхности/контрола предупреждение
+     * dark surface inverse surfaceWarningActive
      */
-    public val SurfaceInverseWarningActive: Color = Color(0xFFDE5302)
+    public val SurfaceInverseWarningActive: Color = Color(0xFFF05B05)
 
     /**
-     * Инвертированный цвет фона поверхности/контрола ошибка
+     * dark surface inverse surfaceNegativeHover
      */
     public val SurfaceInverseNegativeHover: Color = Color(0xFFF5384B)
 
     /**
-     * Инвертированный цвет фона поверхности/контрола ошибка
+     * dark surface inverse surfaceNegativeActive
      */
     public val SurfaceInverseNegativeActive: Color = Color(0xFFF31228)
 
     /**
      * Инвертированный фон поверхности/контрола без заливки
      */
-    public val SurfaceInverseClearHover: Color = Color(0x00000000)
+    public val SurfaceInverseClearHover: Color = Color(0xFFFFFFFF)
 
     /**
      * Инвертированный фон поверхности/контрола без заливки
      */
-    public val SurfaceInverseClearActive: Color = Color(0x00000000)
+    public val SurfaceInverseClearActive: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Инвертированный основной фон для карточек
+     */
+    public val SurfaceInverseSolidCard: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Инвертированный осн. непрозрачный фон поверхности/контрола
+     */
+    public val SurfaceInverseSolidPrimary: Color = Color(0xFFF5F5F5)
+
+    /**
+     * Инвертированный втор. непрозрачный фон поверхности/контрола
+     */
+    public val SurfaceInverseSolidSecondary: Color = Color(0xFFECECEC)
+
+    /**
+     * Инвертированный трет.непрозрачный фон поверхности/контрола
+     */
+    public val SurfaceInverseSolidTertiary: Color = Color(0xFFDDDDDD)
+
+    /**
+     * Инвертированный непрозрачный фон поверхности/контрола по умолчанию
+     */
+    public val SurfaceInverseSolidDefault: Color = Color(0xFF080808)
+
+    /**
+     * Инвертированный прозрачный фон для карточек
+     */
+    public val SurfaceInverseTransparentCard: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Инвертированный основной прозрачный фон поверхности/контрола
+     */
+    public val SurfaceInverseTransparentPrimary: Color = Color(0x08080808)
+
+    /**
+     * Инвертированный вторичный прозрачный фон поверхности/контрола
+     */
+    public val SurfaceInverseTransparentSecondary: Color = Color(0x0F080808)
+
+    /**
+     * Инвертированный третичный прозрачный фон поверхности/контрола
+     */
+    public val SurfaceInverseTransparentTertiary: Color = Color(0x1F080808)
+
+    /**
+     * dark surface inverse surfaceTransparentDeep
+     */
+    public val SurfaceInverseTransparentDeep: Color = Color(0xA3080808)
+
+    /**
+     * dark surface inverse surfaceTransparentDeepHover
+     */
+    public val SurfaceInverseTransparentDeepHover: Color = Color(0xC2080808)
+
+    /**
+     * dark surface inverse surfaceTransparentDeepActive
+     */
+    public val SurfaceInverseTransparentDeepActive: Color = Color(0x94080808)
+
+    /**
+     * Инвертированный фон поверхности/контрола без заливки
+     */
+    public val SurfaceInverseClear: Color = Color(0x00000000)
+
+    /**
+     * Инвертированный акцентный фон поверхности/контрола
+     */
+    public val SurfaceInverseAccent: Color = Color(0xFF2A72F8)
+
+    /**
+     * dark surface inverse surfaceAccentMinor
+     */
+    public val SurfaceInverseAccentMinor: Color = Color(0xFFDEE9FF)
+
+    /**
+     * dark surface inverse surfaceAccentMinorHover
+     */
+    public val SurfaceInverseAccentMinorHover: Color = Color(0xFFEBF1FF)
+
+    /**
+     * dark surface inverse surfaceAccentMinorActive
+     */
+    public val SurfaceInverseAccentMinorActive: Color = Color(0xFFD6E4FF)
+
+    /**
+     * dark surface inverse surfaceTransparentAccent
+     */
+    public val SurfaceInverseTransparentAccent: Color = Color(0x1F2A72F8)
+
+    /**
+     * dark surface inverse surfaceTransparentAccentHover
+     */
+    public val SurfaceInverseTransparentAccentHover: Color = Color(0x3D2A72F8)
+
+    /**
+     * dark surface inverse surfaceTransparentAccentActive
+     */
+    public val SurfaceInverseTransparentAccentActive: Color = Color(0x0F2A72F8)
+
+    /**
+     * dark surface inverse surfaceInfo
+     */
+    public val SurfaceInverseInfo: Color = Color(0xFF2A72F8)
+
+    /**
+     * dark surface inverse surfaceInfoHover
+     */
+    public val SurfaceInverseInfoHover: Color = Color(0xFF4886F9)
+
+    /**
+     * dark surface inverse surfaceInfoActive
+     */
+    public val SurfaceInverseInfoActive: Color = Color(0xFF206CF8)
+
+    /**
+     * dark surface inverse surfacePositiveMinor
+     */
+    public val SurfaceInversePositiveMinor: Color = Color(0xFF9EFAAF)
+
+    /**
+     * dark surface inverse surfacePositiveMinorHover
+     */
+    public val SurfaceInversePositiveMinorHover: Color = Color(0xFFB1FBBF)
+
+    /**
+     * dark surface inverse surfacePositiveMinorActive
+     */
+    public val SurfaceInversePositiveMinorActive: Color = Color(0xFF94F9A7)
+
+    /**
+     * dark surface inverse surfaceWarningMinor
+     */
+    public val SurfaceInverseWarningMinor: Color = Color(0xFFFEE2D2)
+
+    /**
+     * dark surface inverse surfaceWarningMinorHover
+     */
+    public val SurfaceInverseWarningMinorHover: Color = Color(0xFFFEE9DC)
+
+    /**
+     * dark surface inverse surfaceWarningMinorActive
+     */
+    public val SurfaceInverseWarningMinorActive: Color = Color(0xFFFEDCC8)
+
+    /**
+     * dark surface inverse surfaceNegativeMinor
+     */
+    public val SurfaceInverseNegativeMinor: Color = Color(0xFFFFE0E3)
+
+    /**
+     * dark surface inverse surfaceNegativeMinorHover
+     */
+    public val SurfaceInverseNegativeMinorHover: Color = Color(0xFFFFEBED)
+
+    /**
+     * dark surface inverse surfaceNegativeMinorActive
+     */
+    public val SurfaceInverseNegativeMinorActive: Color = Color(0xFFFFD6DA)
+
+    /**
+     * dark surface inverse surfaceInfoMinor
+     */
+    public val SurfaceInverseInfoMinor: Color = Color(0xFFDEE9FF)
+
+    /**
+     * dark surface inverse surfaceInfoMinorHover
+     */
+    public val SurfaceInverseInfoMinorHover: Color = Color(0xFFEBF1FF)
+
+    /**
+     * dark surface inverse surfaceInfoMinorActive
+     */
+    public val SurfaceInverseInfoMinorActive: Color = Color(0xFFD6E4FF)
+
+    /**
+     * dark surface inverse surfaceTransparentPositive
+     */
+    public val SurfaceInverseTransparentPositive: Color = Color(0x1F1A9E32)
+
+    /**
+     * dark surface inverse surfaceTransparentPositiveHover
+     */
+    public val SurfaceInverseTransparentPositiveHover: Color = Color(0x3D1A9E32)
+
+    /**
+     * dark surface inverse surfaceTransparentPositiveActive
+     */
+    public val SurfaceInverseTransparentPositiveActive: Color = Color(0x0F1A9E32)
+
+    /**
+     * dark surface inverse surfaceTransparentWarning
+     */
+    public val SurfaceInverseTransparentWarning: Color = Color(0x1FFA5F05)
+
+    /**
+     * dark surface inverse surfaceTransparentWarningHover
+     */
+    public val SurfaceInverseTransparentWarningHover: Color = Color(0x3DFA5F05)
+
+    /**
+     * dark surface inverse surfaceTransparentWarningActive
+     */
+    public val SurfaceInverseTransparentWarningActive: Color = Color(0x0FFA5F05)
+
+    /**
+     * dark surface inverse surfaceTransparentNegative
+     */
+    public val SurfaceInverseTransparentNegative: Color = Color(0x1FF31B31)
+
+    /**
+     * dark surface inverse surfaceTransparentNegativeHover
+     */
+    public val SurfaceInverseTransparentNegativeHover: Color = Color(0x3DF31B31)
+
+    /**
+     * dark surface inverse surfaceTransparentNegativeActive
+     */
+    public val SurfaceInverseTransparentNegativeActive: Color = Color(0x0FF31B31)
+
+    /**
+     * dark surface inverse surfaceTransparentInfo
+     */
+    public val SurfaceInverseTransparentInfo: Color = Color(0x1F2A72F8)
+
+    /**
+     * dark surface inverse surfaceTransparentInfoHover
+     */
+    public val SurfaceInverseTransparentInfoHover: Color = Color(0x3D2A72F8)
+
+    /**
+     * dark surface inverse surfaceTransparentInfoActive
+     */
+    public val SurfaceInverseTransparentInfoActive: Color = Color(0x0F2A72F8)
 
     /**
      * Основной фон
@@ -2327,11 +2600,6 @@ public object DarkColorTokens {
     /**
      * Инвертированный основной фон
      */
-    public val BackgroundInversePrimary: Color = Color(0xFFFFFFFF)
-
-    /**
-     * Инвертированный основной фон
-     */
     public val BackgroundInversePrimaryBrightness: Color = Color(0xFFFFFFFF)
 
     /**
@@ -2343,6 +2611,11 @@ public object DarkColorTokens {
      * Инвертированный третичный фон
      */
     public val BackgroundInverseTertiary: Color = Color(0xFFFFFFFF)
+
+    /**
+     * Инвертированный основной фон
+     */
+    public val BackgroundInversePrimary: Color = Color(0xFFF9F9F9)
 
     /**
      * Цвет фона паранжи светлый
@@ -2392,17 +2665,17 @@ public object DarkColorTokens {
     /**
      * Инвертированный цвет фона паранжи светлый
      */
-    public val OverlayInverseSoft: Color = Color(0x8F000000)
+    public val OverlayInverseSoft: Color = Color(0x8FF9F9F9)
 
     /**
      * Инвертированный цвет фона паранжи темный
      */
-    public val OverlayInverseHard: Color = Color(0xE6000000)
+    public val OverlayInverseHard: Color = Color(0xF5F9F9F9)
 
     /**
-     * dark outline default outlinePrimary
+     * dark overlay inverse overlayBlur
      */
-    public val OutlineDefaultPrimary: Color = Color(0xFF262626)
+    public val OverlayInverseBlur: Color = Color(0x47F9F9F9)
 
     /**
      * dark outline default outlinePrimaryHover
@@ -2415,11 +2688,6 @@ public object DarkColorTokens {
     public val OutlineDefaultPrimaryActive: Color = Color(0xFF212121)
 
     /**
-     * dark outline default outlineSecondary
-     */
-    public val OutlineDefaultSecondary: Color = Color(0xFF4E4E4E)
-
-    /**
      * dark outline default outlineSecondaryHover
      */
     public val OutlineDefaultSecondaryHover: Color = Color(0xFF595959)
@@ -2430,11 +2698,6 @@ public object DarkColorTokens {
     public val OutlineDefaultSecondaryActive: Color = Color(0xFF4A4A4A)
 
     /**
-     * dark outline default outlineTertiary
-     */
-    public val OutlineDefaultTertiary: Color = Color(0xFF707070)
-
-    /**
      * dark outline default outlineTertiaryHover
      */
     public val OutlineDefaultTertiaryHover: Color = Color(0xFF7A7A7A)
@@ -2443,11 +2706,6 @@ public object DarkColorTokens {
      * dark outline default outlineTertiaryActive
      */
     public val OutlineDefaultTertiaryActive: Color = Color(0xFF6B6B6B)
-
-    /**
-     * dark outline default outlineDefault
-     */
-    public val OutlineDefaultDefault: Color = Color(0xFFF9F9F9)
 
     /**
      * dark outline default outlineDefaultHover
@@ -2755,6 +3013,66 @@ public object DarkColorTokens {
     public val OutlineDefaultInfo: Color = Color(0xFF528EFF)
 
     /**
+     * dark outline default outlineSolidPrimary
+     */
+    public val OutlineDefaultSolidPrimary: Color = Color(0xFF262626)
+
+    /**
+     * dark outline default outlineSolidPrimaryHover
+     */
+    public val OutlineDefaultSolidPrimaryHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * dark outline default outlineSolidPrimaryActive
+     */
+    public val OutlineDefaultSolidPrimaryActive: Color = Color(0xFFADADAD)
+
+    /**
+     * dark outline default outlineSolidSecondary
+     */
+    public val OutlineDefaultSolidSecondary: Color = Color(0xFF4E4E4E)
+
+    /**
+     * dark outline default outlineSolidSecondaryHover
+     */
+    public val OutlineDefaultSolidSecondaryHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * dark outline default outlineSolidSecondaryActive
+     */
+    public val OutlineDefaultSolidSecondaryActive: Color = Color(0xFF8C8C8C)
+
+    /**
+     * dark outline default outlineSolidTertiary
+     */
+    public val OutlineDefaultSolidTertiary: Color = Color(0xFF707070)
+
+    /**
+     * dark outline default outlineSolidTertiaryHover
+     */
+    public val OutlineDefaultSolidTertiaryHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * dark outline default outlineSolidTertiaryActive
+     */
+    public val OutlineDefaultSolidTertiaryActive: Color = Color(0xFF737373)
+
+    /**
+     * dark outline default outlineSolidDefault
+     */
+    public val OutlineDefaultSolidDefault: Color = Color(0xFFF9F9F9)
+
+    /**
+     * dark outline default outlineSolidDefaultHover
+     */
+    public val OutlineDefaultSolidDefaultHover: Color = Color(0xFFC7C7C7)
+
+    /**
+     * dark outline default outlineSolidDefaultActive
+     */
+    public val OutlineDefaultSolidDefaultActive: Color = Color(0xFFE0E0E0)
+
+    /**
      * dark outline onDark outlinePrimaryHover
      */
     public val OutlineOnDarkPrimaryHover: Color = Color(0xFF303030)
@@ -2975,26 +3293,6 @@ public object DarkColorTokens {
     public val OutlineOnDarkTransparentInfoActive: Color = Color(0x383F82FD)
 
     /**
-     * dark outline onDark outlinePrimary
-     */
-    public val OutlineOnDarkPrimary: Color = Color(0xFF262626)
-
-    /**
-     * dark outline onDark outlineSecondary
-     */
-    public val OutlineOnDarkSecondary: Color = Color(0xFF4E4E4E)
-
-    /**
-     * dark outline onDark outlineTertiary
-     */
-    public val OutlineOnDarkTertiary: Color = Color(0xFF707070)
-
-    /**
-     * dark outline onDark outlineDefault
-     */
-    public val OutlineOnDarkDefault: Color = Color(0xFFF9F9F9)
-
-    /**
      * dark outline onDark outlineTransparentPrimary
      */
     public val OutlineOnDarkTransparentPrimary: Color = Color(0x1FFFFFFF)
@@ -3085,6 +3383,66 @@ public object DarkColorTokens {
     public val OutlineOnDarkTransparentInfo: Color = Color(0x473F81FD)
 
     /**
+     * dark outline onDark outlineSolidPrimary
+     */
+    public val OutlineOnDarkSolidPrimary: Color = Color(0xFF262626)
+
+    /**
+     * dark outline onDark outlineSolidPrimaryHover
+     */
+    public val OutlineOnDarkSolidPrimaryHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * dark outline onDark outlineSolidPrimaryActive
+     */
+    public val OutlineOnDarkSolidPrimaryActive: Color = Color(0xFFADADAD)
+
+    /**
+     * dark outline onDark outlineSolidSecondary
+     */
+    public val OutlineOnDarkSolidSecondary: Color = Color(0xFF4E4E4E)
+
+    /**
+     * dark outline onDark outlineSolidSecondaryHover
+     */
+    public val OutlineOnDarkSolidSecondaryHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * dark outline onDark outlineSolidSecondaryActive
+     */
+    public val OutlineOnDarkSolidSecondaryActive: Color = Color(0xFF8C8C8C)
+
+    /**
+     * dark outline onDark outlineSolidTertiary
+     */
+    public val OutlineOnDarkSolidTertiary: Color = Color(0xFF707070)
+
+    /**
+     * dark outline onDark outlineSolidTertiaryHover
+     */
+    public val OutlineOnDarkSolidTertiaryHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * dark outline onDark outlineSolidTertiaryActive
+     */
+    public val OutlineOnDarkSolidTertiaryActive: Color = Color(0xFF737373)
+
+    /**
+     * dark outline onDark outlineSolidDefault
+     */
+    public val OutlineOnDarkSolidDefault: Color = Color(0xFFF9F9F9)
+
+    /**
+     * dark outline onDark outlineSolidDefaultHover
+     */
+    public val OutlineOnDarkSolidDefaultHover: Color = Color(0xFFC7C7C7)
+
+    /**
+     * dark outline onDark outlineSolidDefaultActive
+     */
+    public val OutlineOnDarkSolidDefaultActive: Color = Color(0xFFE0E0E0)
+
+    /**
      * dark outline onLight outlinePrimaryHover
      */
     public val OutlineOnLightPrimaryHover: Color = Color(0xFFE8E8E8)
@@ -3105,11 +3463,6 @@ public object DarkColorTokens {
     public val OutlineOnLightSecondaryActive: Color = Color(0xFF8F8F8F)
 
     /**
-     * dark outline onLight outlineTertiary
-     */
-    public val OutlineOnLightTertiary: Color = Color(0xFF707070)
-
-    /**
      * dark outline onLight outlineTertiaryHover
      */
     public val OutlineOnLightTertiaryHover: Color = Color(0xFF7A7A7A)
@@ -3118,11 +3471,6 @@ public object DarkColorTokens {
      * dark outline onLight outlineTertiaryActive
      */
     public val OutlineOnLightTertiaryActive: Color = Color(0xFF6B6B6B)
-
-    /**
-     * dark outline onLight outlineDefault
-     */
-    public val OutlineOnLightDefault: Color = Color(0xFF080808)
 
     /**
      * dark outline onLight outlineDefaultHover
@@ -3390,16 +3738,6 @@ public object DarkColorTokens {
     public val OutlineOnLightTransparentInfoActive: Color = Color(0x242A72F8)
 
     /**
-     * dark outline onLight outlinePrimary
-     */
-    public val OutlineOnLightPrimary: Color = Color(0xFFDDDDDD)
-
-    /**
-     * dark outline onLight outlineSecondary
-     */
-    public val OutlineOnLightSecondary: Color = Color(0xFF949494)
-
-    /**
      * dark outline onLight outlineInfo
      */
     public val OutlineOnLightInfo: Color = Color(0xFF3F81FD)
@@ -3415,16 +3753,454 @@ public object DarkColorTokens {
     public val OutlineOnLightTransparentInfo: Color = Color(0x332A72F8)
 
     /**
+     * dark outline onLight outlineSolidTertiary
+     */
+    public val OutlineOnLightSolidTertiary: Color = Color(0xFF707070)
+
+    /**
+     * dark outline onLight outlineSolidTertiaryHover
+     */
+    public val OutlineOnLightSolidTertiaryHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * dark outline onLight outlineSolidTertiaryActive
+     */
+    public val OutlineOnLightSolidTertiaryActive: Color = Color(0xFF737373)
+
+    /**
+     * dark outline onLight outlineSolidDefault
+     */
+    public val OutlineOnLightSolidDefault: Color = Color(0xFF080808)
+
+    /**
+     * dark outline onLight outlineSolidDefaultHover
+     */
+    public val OutlineOnLightSolidDefaultHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * dark outline onLight outlineSolidDefaultActive
+     */
+    public val OutlineOnLightSolidDefaultActive: Color = Color(0xFFC7C7C7)
+
+    /**
+     * dark outline onLight outlineSolidPrimary
+     */
+    public val OutlineOnLightSolidPrimary: Color = Color(0xFFDDDDDD)
+
+    /**
+     * dark outline onLight outlineSolidPrimaryHover
+     */
+    public val OutlineOnLightSolidPrimaryHover: Color = Color(0xFFABABAB)
+
+    /**
+     * dark outline onLight outlineSolidPrimaryActive
+     */
+    public val OutlineOnLightSolidPrimaryActive: Color = Color(0xFFC4C4C4)
+
+    /**
+     * dark outline onLight outlineSolidSecondary
+     */
+    public val OutlineOnLightSolidSecondary: Color = Color(0xFF949494)
+
+    /**
+     * dark outline onLight outlineSolidSecondaryHover
+     */
+    public val OutlineOnLightSolidSecondaryHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * dark outline onLight outlineSolidSecondaryActive
+     */
+    public val OutlineOnLightSolidSecondaryActive: Color = Color(0xFF575757)
+
+    /**
      * dark outline inverse outlinePrimaryHover
      */
-    public val OutlineInversePrimaryHover: Color = Color(0xFFCCCCCC)
+    public val OutlineInversePrimaryHover: Color = Color(0xFFABABAB)
 
     /**
      * dark outline inverse outlinePrimaryActive
      */
-    public val OutlineInversePrimaryActive: Color = Color(0xFFE6E6E6)
+    public val OutlineInversePrimaryActive: Color = Color(0xFFC4C4C4)
+
+    /**
+     * dark outline inverse outlineSecondaryHover
+     */
+    public val OutlineInverseSecondaryHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * dark outline inverse outlineSecondaryActive
+     */
+    public val OutlineInverseSecondaryActive: Color = Color(0xFF575757)
+
+    /**
+     * dark outline inverse outlineTertiaryHover
+     */
+    public val OutlineInverseTertiaryHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * dark outline inverse outlineTertiaryActive
+     */
+    public val OutlineInverseTertiaryActive: Color = Color(0xFF737373)
+
+    /**
+     * dark outline inverse outlineDefaultHover
+     */
+    public val OutlineInverseDefaultHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * dark outline inverse outlineDefaultActive
+     */
+    public val OutlineInverseDefaultActive: Color = Color(0xFFC7C7C7)
+
+    /**
+     * dark outline inverse outlineTransparentPrimary
+     */
+    public val OutlineInverseTransparentPrimary: Color = Color(0x33080808)
+
+    /**
+     * dark outline inverse outlineTransparentPrimaryHover
+     */
+    public val OutlineInverseTransparentPrimaryHover: Color = Color(0xFF080808)
+
+    /**
+     * dark outline inverse outlineTransparentPrimaryActive
+     */
+    public val OutlineInverseTransparentPrimaryActive: Color = Color(0x3D080808)
+
+    /**
+     * dark outline inverse outlineTransparentSecondary
+     */
+    public val OutlineInverseTransparentSecondary: Color = Color(0x66080808)
+
+    /**
+     * dark outline inverse outlineTransparentSecondaryHover
+     */
+    public val OutlineInverseTransparentSecondaryHover: Color = Color(0xFF080808)
+
+    /**
+     * dark outline inverse outlineTransparentSecondaryActive
+     */
+    public val OutlineInverseTransparentSecondaryActive: Color = Color(0x7A080808)
+
+    /**
+     * dark outline inverse outlineTransparentTertiary
+     */
+    public val OutlineInverseTransparentTertiary: Color = Color(0x8F080808)
+
+    /**
+     * dark outline inverse outlineTransparentTertiaryHover
+     */
+    public val OutlineInverseTransparentTertiaryHover: Color = Color(0xFF080808)
+
+    /**
+     * dark outline inverse outlineTransparentTertiaryActive
+     */
+    public val OutlineInverseTransparentTertiaryActive: Color = Color(0xAB080808)
+
+    /**
+     * dark outline inverse outlineTransparentClear
+     */
+    public val OutlineInverseTransparentClear: Color = Color(0x00FFFFFF)
+
+    /**
+     * dark outline inverse outlineTransparentClearHover
+     */
+    public val OutlineInverseTransparentClearHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * dark outline inverse outlineTransparentClearActive
+     */
+    public val OutlineInverseTransparentClearActive: Color = Color(0xFFFFFFFF)
+
+    /**
+     * dark outline inverse outlineAccent
+     */
+    public val OutlineInverseAccent: Color = Color(0xFF2A72F8)
+
+    /**
+     * dark outline inverse outlineAccentHover
+     */
+    public val OutlineInverseAccentHover: Color = Color(0xFF79A7FB)
+
+    /**
+     * dark outline inverse outlineAccentActive
+     */
+    public val OutlineInverseAccentActive: Color = Color(0xFF0D5FF8)
+
+    /**
+     * dark outline inverse outlineAccentMinor
+     */
+    public val OutlineInverseAccentMinor: Color = Color(0xFF8BB2FC)
+
+    /**
+     * dark outline inverse outlineAccentMinorHover
+     */
+    public val OutlineInverseAccentMinorHover: Color = Color(0xFFDCE8FE)
+
+    /**
+     * dark outline inverse outlineAccentMinorActive
+     */
+    public val OutlineInverseAccentMinorActive: Color = Color(0xFF6FA0FB)
+
+    /**
+     * dark outline inverse outlineTransparentAccent
+     */
+    public val OutlineInverseTransparentAccent: Color = Color(0x332A72F8)
+
+    /**
+     * dark outline inverse outlineTransparentAccentHover
+     */
+    public val OutlineInverseTransparentAccentHover: Color = Color(0xFF2A72F8)
+
+    /**
+     * dark outline inverse outlineTransparentAccentActive
+     */
+    public val OutlineInverseTransparentAccentActive: Color = Color(0x3D2A72F8)
+
+    /**
+     * dark outline inverse outlinePositive
+     */
+    public val OutlineInversePositive: Color = Color(0xFF1A9E32)
+
+    /**
+     * dark outline inverse outlinePositiveHover
+     */
+    public val OutlineInversePositiveHover: Color = Color(0xFF1EB83A)
+
+    /**
+     * dark outline inverse outlinePositiveActive
+     */
+    public val OutlineInversePositiveActive: Color = Color(0xFF15842A)
+
+    /**
+     * dark outline inverse outlineWarning
+     */
+    public val OutlineInverseWarning: Color = Color(0xFFFA5F05)
+
+    /**
+     * dark outline inverse outlineWarningHover
+     */
+    public val OutlineInverseWarningHover: Color = Color(0xFFFB7223)
+
+    /**
+     * dark outline inverse outlineWarningActive
+     */
+    public val OutlineInverseWarningActive: Color = Color(0xFFDC5304)
+
+    /**
+     * dark outline inverse outlineNegative
+     */
+    public val OutlineInverseNegative: Color = Color(0xFFF31B31)
+
+    /**
+     * dark outline inverse outlineNegativeHover
+     */
+    public val OutlineInverseNegativeHover: Color = Color(0xFFF5384B)
+
+    /**
+     * dark outline inverse outlineNegativeActive
+     */
+    public val OutlineInverseNegativeActive: Color = Color(0xFFE40C22)
+
+    /**
+     * dark outline inverse outlineInfo
+     */
+    public val OutlineInverseInfo: Color = Color(0xFF2A72F8)
+
+    /**
+     * dark outline inverse outlineInfoHover
+     */
+    public val OutlineInverseInfoHover: Color = Color(0xFF79A7FB)
+
+    /**
+     * dark outline inverse outlineInfoActive
+     */
+    public val OutlineInverseInfoActive: Color = Color(0xFF0D5FF8)
+
+    /**
+     * dark outline inverse outlinePositiveMinor
+     */
+    public val OutlineInversePositiveMinor: Color = Color(0xFF28D247)
+
+    /**
+     * dark outline inverse outlinePositiveMinorHover
+     */
+    public val OutlineInversePositiveMinorHover: Color = Color(0xFF3EDA5B)
+
+    /**
+     * dark outline inverse outlinePositiveMinorActive
+     */
+    public val OutlineInversePositiveMinorActive: Color = Color(0xFF23B83E)
+
+    /**
+     * dark outline inverse outlineWarningMinor
+     */
+    public val OutlineInverseWarningMinor: Color = Color(0xFFFD9C68)
+
+    /**
+     * dark outline inverse outlineWarningMinorHover
+     */
+    public val OutlineInverseWarningMinorHover: Color = Color(0xFFFDB086)
+
+    /**
+     * dark outline inverse outlineWarningMinorActive
+     */
+    public val OutlineInverseWarningMinorActive: Color = Color(0xFFFC884A)
+
+    /**
+     * dark outline inverse outlineNegativeMinor
+     */
+    public val OutlineInverseNegativeMinor: Color = Color(0xFFFF8F9A)
+
+    /**
+     * dark outline inverse outlineNegativeMinorHover
+     */
+    public val OutlineInverseNegativeMinorHover: Color = Color(0xFFFFADB6)
+
+    /**
+     * dark outline inverse outlineNegativeMinorActive
+     */
+    public val OutlineInverseNegativeMinorActive: Color = Color(0xFFFF707E)
+
+    /**
+     * dark outline inverse outlineInfoMinor
+     */
+    public val OutlineInverseInfoMinor: Color = Color(0xFF8BB2FC)
+
+    /**
+     * dark outline inverse outlineInfoMinorHover
+     */
+    public val OutlineInverseInfoMinorHover: Color = Color(0xFFDCE8FE)
+
+    /**
+     * dark outline inverse outlineInfoMinorActive
+     */
+    public val OutlineInverseInfoMinorActive: Color = Color(0xFF6FA0FB)
+
+    /**
+     * dark outline inverse outlineTransparentPositive
+     */
+    public val OutlineInverseTransparentPositive: Color = Color(0x331A9E32)
+
+    /**
+     * dark outline inverse outlineTransparentPositiveHover
+     */
+    public val OutlineInverseTransparentPositiveHover: Color = Color(0xFF1A9E32)
+
+    /**
+     * dark outline inverse outlineTransparentPositiveActive
+     */
+    public val OutlineInverseTransparentPositiveActive: Color = Color(0x3D1A9E32)
+
+    /**
+     * dark outline inverse outlineTransparentWarning
+     */
+    public val OutlineInverseTransparentWarning: Color = Color(0x33FA5F05)
+
+    /**
+     * dark outline inverse outlineTransparentWarningHover
+     */
+    public val OutlineInverseTransparentWarningHover: Color = Color(0xFFFA5F05)
+
+    /**
+     * dark outline inverse outlineTransparentWarningActive
+     */
+    public val OutlineInverseTransparentWarningActive: Color = Color(0x3DFA5F05)
+
+    /**
+     * dark outline inverse outlineTransparentNegative
+     */
+    public val OutlineInverseTransparentNegative: Color = Color(0x33F31B31)
+
+    /**
+     * dark outline inverse outlineTransparentNegativeHover
+     */
+    public val OutlineInverseTransparentNegativeHover: Color = Color(0xFFF31B31)
+
+    /**
+     * dark outline inverse outlineTransparentNegativeActive
+     */
+    public val OutlineInverseTransparentNegativeActive: Color = Color(0x3DF31B31)
+
+    /**
+     * dark outline inverse outlineTransparentInfo
+     */
+    public val OutlineInverseTransparentInfo: Color = Color(0x332A72F8)
+
+    /**
+     * dark outline inverse outlineTransparentInfoHover
+     */
+    public val OutlineInverseTransparentInfoHover: Color = Color(0xFF2A72F8)
+
+    /**
+     * dark outline inverse outlineTransparentInfoActive
+     */
+    public val OutlineInverseTransparentInfoActive: Color = Color(0x3D2A72F8)
+
+    /**
+     * dark outline inverse outlineSolidPrimary
+     */
+    public val OutlineInverseSolidPrimary: Color = Color(0xFFDDDDDD)
+
+    /**
+     * dark outline inverse outlineSolidPrimaryHover
+     */
+    public val OutlineInverseSolidPrimaryHover: Color = Color(0xFFABABAB)
+
+    /**
+     * dark outline inverse outlineSolidPrimaryActive
+     */
+    public val OutlineInverseSolidPrimaryActive: Color = Color(0xFFC4C4C4)
+
+    /**
+     * dark outline inverse outlineSolidSecondary
+     */
+    public val OutlineInverseSolidSecondary: Color = Color(0xFF949494)
+
+    /**
+     * dark outline inverse outlineSolidSecondaryHover
+     */
+    public val OutlineInverseSolidSecondaryHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * dark outline inverse outlineSolidSecondaryActive
+     */
+    public val OutlineInverseSolidSecondaryActive: Color = Color(0xFF575757)
+
+    /**
+     * dark outline inverse outlineSolidTertiary
+     */
+    public val OutlineInverseSolidTertiary: Color = Color(0xFF707070)
+
+    /**
+     * dark outline inverse outlineSolidTertiaryHover
+     */
+    public val OutlineInverseSolidTertiaryHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * dark outline inverse outlineSolidTertiaryActive
+     */
+    public val OutlineInverseSolidTertiaryActive: Color = Color(0xFF737373)
+
+    /**
+     * dark outline inverse outlineSolidDefault
+     */
+    public val OutlineInverseSolidDefault: Color = Color(0xFF080808)
+
+    /**
+     * dark outline inverse outlineSolidDefaultHover
+     */
+    public val OutlineInverseSolidDefaultHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * dark outline inverse outlineSolidDefaultActive
+     */
+    public val OutlineInverseSolidDefaultActive: Color = Color(0xFFC7C7C7)
 }
 
+/**
+ * Токены цвета для светлой темы
+ */
 public object LightColorTokens {
     /**
      * Основной цвет текста
@@ -4097,11 +4873,6 @@ public object LightColorTokens {
     public val TextInverseParagraph: Color = Color(0xCCFFFFFF)
 
     /**
-     * Инвертированный акцентный цвет
-     */
-    public val TextInverseAccent: Color = Color(0xFFFFFFFF)
-
-    /**
      * Инвертированный цвет успеха
      */
     public val TextInversePositive: Color = Color(0xFF1A9E32)
@@ -4159,12 +4930,12 @@ public object LightColorTokens {
     /**
      * Инвертированный акцентный цвет
      */
-    public val TextInverseAccentHover: Color = Color(0xFF000000)
+    public val TextInverseAccentHover: Color = Color(0xFF689CFD)
 
     /**
      * Инвертированный акцентный цвет
      */
-    public val TextInverseAccentActive: Color = Color(0xFFCCCCCC)
+    public val TextInverseAccentActive: Color = Color(0xFF1767FD)
 
     /**
      * Инвертированный цвет успеха
@@ -4195,6 +4966,101 @@ public object LightColorTokens {
      * Инвертированный цвет ошибки
      */
     public val TextInverseNegativeActive: Color = Color(0xFFFF001A)
+
+    /**
+     * light text inverse textAccentMinor
+     */
+    public val TextInverseAccentMinor: Color = Color(0xFF1549AB)
+
+    /**
+     * light text inverse textAccentMinorHover
+     */
+    public val TextInverseAccentMinorHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * light text inverse textAccentMinorActive
+     */
+    public val TextInverseAccentMinorActive: Color = Color(0xFF113B88)
+
+    /**
+     * light text inverse textInfoHover
+     */
+    public val TextInverseInfoHover: Color = Color(0xFF689CFD)
+
+    /**
+     * light text inverse textInfoActive
+     */
+    public val TextInverseInfoActive: Color = Color(0xFF1767FD)
+
+    /**
+     * light text inverse textPositiveMinorHover
+     */
+    public val TextInversePositiveMinorHover: Color = Color(0xFF11A72C)
+
+    /**
+     * light text inverse textPositiveMinorActive
+     */
+    public val TextInversePositiveMinorActive: Color = Color(0xFF0D8222)
+
+    /**
+     * light text inverse textWarningMinorHover
+     */
+    public val TextInverseWarningMinorHover: Color = Color(0xFFCD5713)
+
+    /**
+     * light text inverse textWarningMinorActive
+     */
+    public val TextInverseWarningMinorActive: Color = Color(0xFFA84710)
+
+    /**
+     * light text inverse textNegativeMinorHover
+     */
+    public val TextInverseNegativeMinorHover: Color = Color(0xFFC2192A)
+
+    /**
+     * light text inverse textNegativeMinorActive
+     */
+    public val TextInverseNegativeMinorActive: Color = Color(0xFF7A101A)
+
+    /**
+     * light text inverse textInfoMinorHover
+     */
+    public val TextInverseInfoMinorHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * light text inverse textInfoMinorActive
+     */
+    public val TextInverseInfoMinorActive: Color = Color(0xFF113B88)
+
+    /**
+     * Инвертированный акцентный цвет
+     */
+    public val TextInverseAccent: Color = Color(0xFF3F81FD)
+
+    /**
+     * light text inverse textInfo
+     */
+    public val TextInverseInfo: Color = Color(0xFF3F81FD)
+
+    /**
+     * light text inverse textPositiveMinor
+     */
+    public val TextInversePositiveMinor: Color = Color(0xFF095C18)
+
+    /**
+     * light text inverse textWarningMinor
+     */
+    public val TextInverseWarningMinor: Color = Color(0xFF85380C)
+
+    /**
+     * light text inverse textNegativeMinor
+     */
+    public val TextInverseNegativeMinor: Color = Color(0xFF9C1422)
+
+    /**
+     * light text inverse textInfoMinor
+     */
+    public val TextInverseInfoMinor: Color = Color(0xFF1549AB)
 
     /**
      * Непрозрачный фон поверхности/контрола по умолчанию
@@ -5697,6 +6563,186 @@ public object LightColorTokens {
     public val SurfaceInverseClearActive: Color = Color(0x00000000)
 
     /**
+     * light surface inverse surfaceTransparentDeep
+     */
+    public val SurfaceInverseTransparentDeep: Color = Color(0xA3080808)
+
+    /**
+     * light surface inverse surfaceTransparentDeepHover
+     */
+    public val SurfaceInverseTransparentDeepHover: Color = Color(0x8F080808)
+
+    /**
+     * light surface inverse surfaceTransparentDeepActive
+     */
+    public val SurfaceInverseTransparentDeepActive: Color = Color(0xAD080808)
+
+    /**
+     * light surface inverse surfaceAccentMinor
+     */
+    public val SurfaceInverseAccentMinor: Color = Color(0xFFDEE9FF)
+
+    /**
+     * light surface inverse surfaceAccentMinorHover
+     */
+    public val SurfaceInverseAccentMinorHover: Color = Color(0xFFF5F8FF)
+
+    /**
+     * light surface inverse surfaceAccentMinorActive
+     */
+    public val SurfaceInverseAccentMinorActive: Color = Color(0xFFD6E4FF)
+
+    /**
+     * light surface inverse surfaceTransparentAccent
+     */
+    public val SurfaceInverseTransparentAccent: Color = Color(0x1F2A72F8)
+
+    /**
+     * light surface inverse surfaceTransparentAccentHover
+     */
+    public val SurfaceInverseTransparentAccentHover: Color = Color(0x0A2A72F8)
+
+    /**
+     * light surface inverse surfaceTransparentAccentActive
+     */
+    public val SurfaceInverseTransparentAccentActive: Color = Color(0x292A72F8)
+
+    /**
+     * light surface inverse surfaceInfo
+     */
+    public val SurfaceInverseInfo: Color = Color(0xFF2A72F8)
+
+    /**
+     * light surface inverse surfaceInfoHover
+     */
+    public val SurfaceInverseInfoHover: Color = Color(0xFF528DFA)
+
+    /**
+     * light surface inverse surfaceInfoActive
+     */
+    public val SurfaceInverseInfoActive: Color = Color(0xFF1665F8)
+
+    /**
+     * light surface inverse surfacePositiveMinor
+     */
+    public val SurfaceInversePositiveMinor: Color = Color(0xFF9EFAAF)
+
+    /**
+     * light surface inverse surfacePositiveMinorHover
+     */
+    public val SurfaceInversePositiveMinorHover: Color = Color(0xFFB1FBBF)
+
+    /**
+     * light surface inverse surfacePositiveMinorActive
+     */
+    public val SurfaceInversePositiveMinorActive: Color = Color(0xFF8BF99F)
+
+    /**
+     * light surface inverse surfaceWarningMinor
+     */
+    public val SurfaceInverseWarningMinor: Color = Color(0xFFFEE2D2)
+
+    /**
+     * light surface inverse surfaceWarningMinorHover
+     */
+    public val SurfaceInverseWarningMinorHover: Color = Color(0xFFFEEFE6)
+
+    /**
+     * light surface inverse surfaceWarningMinorActive
+     */
+    public val SurfaceInverseWarningMinorActive: Color = Color(0xFFFEDCC8)
+
+    /**
+     * light surface inverse surfaceNegativeMinor
+     */
+    public val SurfaceInverseNegativeMinor: Color = Color(0xFFFFE0E3)
+
+    /**
+     * light surface inverse surfaceNegativeMinorHover
+     */
+    public val SurfaceInverseNegativeMinorHover: Color = Color(0xFFFFF5F6)
+
+    /**
+     * light surface inverse surfaceNegativeMinorActive
+     */
+    public val SurfaceInverseNegativeMinorActive: Color = Color(0xFFFFD6DA)
+
+    /**
+     * light surface inverse surfaceInfoMinor
+     */
+    public val SurfaceInverseInfoMinor: Color = Color(0xFFDEE9FF)
+
+    /**
+     * light surface inverse surfaceInfoMinorHover
+     */
+    public val SurfaceInverseInfoMinorHover: Color = Color(0xFFF5F8FF)
+
+    /**
+     * light surface inverse surfaceInfoMinorActive
+     */
+    public val SurfaceInverseInfoMinorActive: Color = Color(0xFFD6E4FF)
+
+    /**
+     * light surface inverse surfaceTransparentPositive
+     */
+    public val SurfaceInverseTransparentPositive: Color = Color(0x1F1A9E32)
+
+    /**
+     * light surface inverse surfaceTransparentPositiveHover
+     */
+    public val SurfaceInverseTransparentPositiveHover: Color = Color(0x0A1A9E32)
+
+    /**
+     * light surface inverse surfaceTransparentPositiveActive
+     */
+    public val SurfaceInverseTransparentPositiveActive: Color = Color(0x291A9E32)
+
+    /**
+     * light surface inverse surfaceTransparentWarning
+     */
+    public val SurfaceInverseTransparentWarning: Color = Color(0x1FFA5F05)
+
+    /**
+     * light surface inverse surfaceTransparentWarningHover
+     */
+    public val SurfaceInverseTransparentWarningHover: Color = Color(0x0AFA5F05)
+
+    /**
+     * light surface inverse surfaceTransparentWarningActive
+     */
+    public val SurfaceInverseTransparentWarningActive: Color = Color(0x29FA5F05)
+
+    /**
+     * light surface inverse surfaceTransparentNegative
+     */
+    public val SurfaceInverseTransparentNegative: Color = Color(0x1FF31B31)
+
+    /**
+     * light surface inverse surfaceTransparentNegativeHover
+     */
+    public val SurfaceInverseTransparentNegativeHover: Color = Color(0x0AF31B31)
+
+    /**
+     * light surface inverse surfaceTransparentNegativeActive
+     */
+    public val SurfaceInverseTransparentNegativeActive: Color = Color(0x29F31B31)
+
+    /**
+     * light surface inverse surfaceTransparentInfo
+     */
+    public val SurfaceInverseTransparentInfo: Color = Color(0x1F2A72F8)
+
+    /**
+     * light surface inverse surfaceTransparentInfoHover
+     */
+    public val SurfaceInverseTransparentInfoHover: Color = Color(0x0A2A72F8)
+
+    /**
+     * light surface inverse surfaceTransparentInfoActive
+     */
+    public val SurfaceInverseTransparentInfoActive: Color = Color(0x292A72F8)
+
+    /**
      * Основной фон
      */
     public val BackgroundDefaultPrimary: Color = Color(0xFFF9F9F9)
@@ -5749,11 +6795,6 @@ public object LightColorTokens {
     /**
      * Инвертированный основной фон
      */
-    public val BackgroundInversePrimary: Color = Color(0xFF000000)
-
-    /**
-     * Инвертированный основной фон
-     */
     public val BackgroundInversePrimaryBrightness: Color = Color(0xFF0F0F0F)
 
     /**
@@ -5765,6 +6806,11 @@ public object LightColorTokens {
      * Инвертированный третичный фон
      */
     public val BackgroundInverseTertiary: Color = Color(0xFF171717)
+
+    /**
+     * Инвертированный основной фон
+     */
+    public val BackgroundInversePrimary: Color = Color(0xFF080808)
 
     /**
      * Цвет фона паранжи светлый
@@ -5812,14 +6858,19 @@ public object LightColorTokens {
     public val OverlayOnLightBlur: Color = Color(0x47F9F9F9)
 
     /**
-     * Инвертированный цвет фона паранжи светлый
-     */
-    public val OverlayInverseSoft: Color = Color(0x8F000000)
-
-    /**
      * Инвертированный цвет фона паранжи темный
      */
-    public val OverlayInverseHard: Color = Color(0xE6000000)
+    public val OverlayInverseHard: Color = Color(0xF5080808)
+
+    /**
+     * Инвертированный цвет фона паранжи светлый
+     */
+    public val OverlayInverseSoft: Color = Color(0x8F080808)
+
+    /**
+     * light overlay inverse overlayBlur
+     */
+    public val OverlayInverseBlur: Color = Color(0x47080808)
 
     /**
      * light outline default outlineSecondaryHover
@@ -6042,11 +7093,6 @@ public object LightColorTokens {
     public val OutlineDefaultTransparentInfoActive: Color = Color(0x3D2A72F8)
 
     /**
-     * light outline default outlinePrimary
-     */
-    public val OutlineDefaultPrimary: Color = Color(0xFFDDDDDD)
-
-    /**
      * light outline default outlinePrimaryHover
      */
     public val OutlineDefaultPrimaryHover: Color = Color(0xFFEDEDED)
@@ -6055,21 +7101,6 @@ public object LightColorTokens {
      * light outline default outlinePrimaryActive
      */
     public val OutlineDefaultPrimaryActive: Color = Color(0xFFD4D4D4)
-
-    /**
-     * light outline default outlineSecondary
-     */
-    public val OutlineDefaultSecondary: Color = Color(0xFF949494)
-
-    /**
-     * light outline default outlineTertiary
-     */
-    public val OutlineDefaultTertiary: Color = Color(0xFF707070)
-
-    /**
-     * light outline default outlineDefault
-     */
-    public val OutlineDefaultDefault: Color = Color(0xFF080808)
 
     /**
      * light outline default outlineTransparentPrimary
@@ -6175,6 +7206,66 @@ public object LightColorTokens {
      * light outline default outlineTransparentInfo
      */
     public val OutlineDefaultTransparentInfo: Color = Color(0x332A72F8)
+
+    /**
+     * light outline default outlineSolidPrimary
+     */
+    public val OutlineDefaultSolidPrimary: Color = Color(0xFF262626)
+
+    /**
+     * light outline default outlineSolidPrimaryHover
+     */
+    public val OutlineDefaultSolidPrimaryHover: Color = Color(0xFF787878)
+
+    /**
+     * light outline default outlineSolidPrimaryActive
+     */
+    public val OutlineDefaultSolidPrimaryActive: Color = Color(0xFF4F4F4F)
+
+    /**
+     * light outline default outlineSolidSecondary
+     */
+    public val OutlineDefaultSolidSecondary: Color = Color(0xFF4E4E4E)
+
+    /**
+     * light outline default outlineSolidSecondaryHover
+     */
+    public val OutlineDefaultSolidSecondaryHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * light outline default outlineSolidSecondaryActive
+     */
+    public val OutlineDefaultSolidSecondaryActive: Color = Color(0xFF404040)
+
+    /**
+     * light outline default outlineSolidTertiary
+     */
+    public val OutlineDefaultSolidTertiary: Color = Color(0xFF707070)
+
+    /**
+     * light outline default outlineSolidTertiaryHover
+     */
+    public val OutlineDefaultSolidTertiaryHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * light outline default outlineSolidTertiaryActive
+     */
+    public val OutlineDefaultSolidTertiaryActive: Color = Color(0xFF595959)
+
+    /**
+     * light outline default outlineSolidDefault
+     */
+    public val OutlineDefaultSolidDefault: Color = Color(0xFFF9F9F9)
+
+    /**
+     * light outline default outlineSolidDefaultHover
+     */
+    public val OutlineDefaultSolidDefaultHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * light outline default outlineSolidDefaultActive
+     */
+    public val OutlineDefaultSolidDefaultActive: Color = Color(0xFFC7C7C7)
 
     /**
      * light outline onDark outlineSecondaryHover
@@ -6462,11 +7553,6 @@ public object LightColorTokens {
     public val OutlineOnDarkTransparentInfoActive: Color = Color(0x523F82FD)
 
     /**
-     * light outline onDark outlinePrimary
-     */
-    public val OutlineOnDarkPrimary: Color = Color(0xFF262626)
-
-    /**
      * light outline onDark outlinePrimaryHover
      */
     public val OutlineOnDarkPrimaryHover: Color = Color(0xFF3B3B3B)
@@ -6475,21 +7561,6 @@ public object LightColorTokens {
      * light outline onDark outlinePrimaryActive
      */
     public val OutlineOnDarkPrimaryActive: Color = Color(0xFF1C1C1C)
-
-    /**
-     * light outline onDark outlineSecondary
-     */
-    public val OutlineOnDarkSecondary: Color = Color(0xFF4E4E4E)
-
-    /**
-     * light outline onDark outlineTertiary
-     */
-    public val OutlineOnDarkTertiary: Color = Color(0xFF707070)
-
-    /**
-     * light outline onDark outlineDefault
-     */
-    public val OutlineOnDarkDefault: Color = Color(0xFFF9F9F9)
 
     /**
      * light outline onDark outlineInfo
@@ -6505,6 +7576,66 @@ public object LightColorTokens {
      * light outline onDark outlineTransparentInfo
      */
     public val OutlineOnDarkTransparentInfo: Color = Color(0x473F81FD)
+
+    /**
+     * light outline onDark outlineSolidPrimary
+     */
+    public val OutlineOnDarkSolidPrimary: Color = Color(0xFF262626)
+
+    /**
+     * light outline onDark outlineSolidPrimaryHover
+     */
+    public val OutlineOnDarkSolidPrimaryHover: Color = Color(0xFF787878)
+
+    /**
+     * light outline onDark outlineSolidPrimaryActive
+     */
+    public val OutlineOnDarkSolidPrimaryActive: Color = Color(0xFF4F4F4F)
+
+    /**
+     * light outline onDark outlineSolidSecondary
+     */
+    public val OutlineOnDarkSolidSecondary: Color = Color(0xFF4E4E4E)
+
+    /**
+     * light outline onDark outlineSolidSecondaryHover
+     */
+    public val OutlineOnDarkSolidSecondaryHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * light outline onDark outlineSolidSecondaryActive
+     */
+    public val OutlineOnDarkSolidSecondaryActive: Color = Color(0xFF404040)
+
+    /**
+     * light outline onDark outlineSolidTertiary
+     */
+    public val OutlineOnDarkSolidTertiary: Color = Color(0xFF707070)
+
+    /**
+     * light outline onDark outlineSolidTertiaryHover
+     */
+    public val OutlineOnDarkSolidTertiaryHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * light outline onDark outlineSolidTertiaryActive
+     */
+    public val OutlineOnDarkSolidTertiaryActive: Color = Color(0xFF595959)
+
+    /**
+     * light outline onDark outlineSolidDefault
+     */
+    public val OutlineOnDarkSolidDefault: Color = Color(0xFFF9F9F9)
+
+    /**
+     * light outline onDark outlineSolidDefaultHover
+     */
+    public val OutlineOnDarkSolidDefaultHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * light outline onDark outlineSolidDefaultActive
+     */
+    public val OutlineOnDarkSolidDefaultActive: Color = Color(0xFFC7C7C7)
 
     /**
      * light outline onLight outlineSecondaryHover
@@ -6525,11 +7656,6 @@ public object LightColorTokens {
      * light outline onLight outlineTertiaryActive
      */
     public val OutlineOnLightTertiaryActive: Color = Color(0xFF666666)
-
-    /**
-     * light outline onLight outlineDefault
-     */
-    public val OutlineOnLightDefault: Color = Color(0xFF080808)
 
     /**
      * light outline onLight outlineDefaultHover
@@ -6797,11 +7923,6 @@ public object LightColorTokens {
     public val OutlineOnLightTransparentInfoActive: Color = Color(0x3D2A72F8)
 
     /**
-     * light outline onLight outlinePrimary
-     */
-    public val OutlineOnLightPrimary: Color = Color(0xFFDDDDDD)
-
-    /**
      * light outline onLight outlinePrimaryHover
      */
     public val OutlineOnLightPrimaryHover: Color = Color(0xFFEDEDED)
@@ -6810,16 +7931,6 @@ public object LightColorTokens {
      * light outline onLight outlinePrimaryActive
      */
     public val OutlineOnLightPrimaryActive: Color = Color(0xFFD4D4D4)
-
-    /**
-     * light outline onLight outlineSecondary
-     */
-    public val OutlineOnLightSecondary: Color = Color(0xFF949494)
-
-    /**
-     * light outline onLight outlineTertiary
-     */
-    public val OutlineOnLightTertiary: Color = Color(0xFF707070)
 
     /**
      * light outline onLight outlineInfo
@@ -6837,12 +7948,447 @@ public object LightColorTokens {
     public val OutlineOnLightTransparentInfo: Color = Color(0x332A72F8)
 
     /**
+     * light outline onLight outlineSolidTertiary
+     */
+    public val OutlineOnLightSolidTertiary: Color = Color(0xFF707070)
+
+    /**
+     * light outline onLight outlineSolidTertiaryHover
+     */
+    public val OutlineOnLightSolidTertiaryHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * light outline onLight outlineSolidTertiaryActive
+     */
+    public val OutlineOnLightSolidTertiaryActive: Color = Color(0xFF595959)
+
+    /**
+     * light outline onLight outlineSolidDefault
+     */
+    public val OutlineOnLightSolidDefault: Color = Color(0xFF080808)
+
+    /**
+     * light outline onLight outlineSolidDefaultHover
+     */
+    public val OutlineOnLightSolidDefaultHover: Color = Color(0xFF595959)
+
+    /**
+     * light outline onLight outlineSolidDefaultActive
+     */
+    public val OutlineOnLightSolidDefaultActive: Color = Color(0xFF303030)
+
+    /**
+     * light outline onLight outlineSolidPrimary
+     */
+    public val OutlineOnLightSolidPrimary: Color = Color(0xFFDDDDDD)
+
+    /**
+     * light outline onLight outlineSolidPrimaryHover
+     */
+    public val OutlineOnLightSolidPrimaryHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * light outline onLight outlineSolidPrimaryActive
+     */
+    public val OutlineOnLightSolidPrimaryActive: Color = Color(0xFFB3B3B3)
+
+    /**
+     * light outline onLight outlineSolidSecondary
+     */
+    public val OutlineOnLightSolidSecondary: Color = Color(0xFF949494)
+
+    /**
+     * light outline onLight outlineSolidSecondaryHover
+     */
+    public val OutlineOnLightSolidSecondaryHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * light outline onLight outlineSolidSecondaryActive
+     */
+    public val OutlineOnLightSolidSecondaryActive: Color = Color(0xFF757575)
+
+    /**
      * light outline inverse outlinePrimaryHover
      */
-    public val OutlineInversePrimaryHover: Color = Color(0xFF000000)
+    public val OutlineInversePrimaryHover: Color = Color(0xFF787878)
 
     /**
      * light outline inverse outlinePrimaryActive
      */
-    public val OutlineInversePrimaryActive: Color = Color(0xFFCCCCCC)
+    public val OutlineInversePrimaryActive: Color = Color(0xFF4F4F4F)
+
+    /**
+     * light outline inverse outlineSecondaryHover
+     */
+    public val OutlineInverseSecondaryHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * light outline inverse outlineSecondaryActive
+     */
+    public val OutlineInverseSecondaryActive: Color = Color(0xFF404040)
+
+    /**
+     * light outline inverse outlineTertiaryHover
+     */
+    public val OutlineInverseTertiaryHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * light outline inverse outlineTertiaryActive
+     */
+    public val OutlineInverseTertiaryActive: Color = Color(0xFF595959)
+
+    /**
+     * light outline inverse outlineDefaultHover
+     */
+    public val OutlineInverseDefaultHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * light outline inverse outlineDefaultActive
+     */
+    public val OutlineInverseDefaultActive: Color = Color(0xFFC7C7C7)
+
+    /**
+     * light outline inverse outlineTransparentPrimaryHover
+     */
+    public val OutlineInverseTransparentPrimaryHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * light outline inverse outlineTransparentPrimaryActive
+     */
+    public val OutlineInverseTransparentPrimaryActive: Color = Color(0x25FFFFFF)
+
+    /**
+     * light outline inverse outlineTransparentSecondaryHover
+     */
+    public val OutlineInverseTransparentSecondaryHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * light outline inverse outlineTransparentSecondaryActive
+     */
+    public val OutlineInverseTransparentSecondaryActive: Color = Color(0x3DFFFFFF)
+
+    /**
+     * light outline inverse outlineTransparentTertiaryHover
+     */
+    public val OutlineInverseTransparentTertiaryHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * light outline inverse outlineTransparentTertiaryActive
+     */
+    public val OutlineInverseTransparentTertiaryActive: Color = Color(0x7AFFFFFF)
+
+    /**
+     * light outline inverse outlineTransparentClearHover
+     */
+    public val OutlineInverseTransparentClearHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * light outline inverse outlineTransparentClearActive
+     */
+    public val OutlineInverseTransparentClearActive: Color = Color(0xFFFFFFFF)
+
+    /**
+     * light outline inverse outlineAccentHover
+     */
+    public val OutlineInverseAccentHover: Color = Color(0xFF689CFD)
+
+    /**
+     * light outline inverse outlineAccentActive
+     */
+    public val OutlineInverseAccentActive: Color = Color(0xFF1767FD)
+
+    /**
+     * light outline inverse outlineAccentMinorHover
+     */
+    public val OutlineInverseAccentMinorHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * light outline inverse outlineAccentMinorActive
+     */
+    public val OutlineInverseAccentMinorActive: Color = Color(0xFF113B88)
+
+    /**
+     * light outline inverse outlineTransparentAccentHover
+     */
+    public val OutlineInverseTransparentAccentHover: Color = Color(0xFF3F82FD)
+
+    /**
+     * light outline inverse outlineTransparentAccentActive
+     */
+    public val OutlineInverseTransparentAccentActive: Color = Color(0x563F82FD)
+
+    /**
+     * light outline inverse outlinePositiveHover
+     */
+    public val OutlineInversePositiveHover: Color = Color(0xFF2BD44A)
+
+    /**
+     * light outline inverse outlinePositiveActive
+     */
+    public val OutlineInversePositiveActive: Color = Color(0xFF1D9032)
+
+    /**
+     * light outline inverse outlineWarningHover
+     */
+    public val OutlineInverseWarningHover: Color = Color(0xFFFF8B4D)
+
+    /**
+     * light outline inverse outlineWarningActive
+     */
+    public val OutlineInverseWarningActive: Color = Color(0xFFFA5700)
+
+    /**
+     * light outline inverse outlineNegativeHover
+     */
+    public val OutlineInverseNegativeHover: Color = Color(0xFFFF6675)
+
+    /**
+     * light outline inverse outlineNegativeActive
+     */
+    public val OutlineInverseNegativeActive: Color = Color(0xFFFF142C)
+
+    /**
+     * light outline inverse outlineInfoHover
+     */
+    public val OutlineInverseInfoHover: Color = Color(0xFF689CFD)
+
+    /**
+     * light outline inverse outlineInfoActive
+     */
+    public val OutlineInverseInfoActive: Color = Color(0xFF1767FD)
+
+    /**
+     * light outline inverse outlinePositiveMinorHover
+     */
+    public val OutlineInversePositiveMinorHover: Color = Color(0xFF11A72C)
+
+    /**
+     * light outline inverse outlinePositiveMinorActive
+     */
+    public val OutlineInversePositiveMinorActive: Color = Color(0xFF0D8222)
+
+    /**
+     * light outline inverse outlineWarningMinorHover
+     */
+    public val OutlineInverseWarningMinorHover: Color = Color(0xFFCD5713)
+
+    /**
+     * light outline inverse outlineWarningMinorActive
+     */
+    public val OutlineInverseWarningMinorActive: Color = Color(0xFFA84710)
+
+    /**
+     * light outline inverse outlineNegativeMinorHover
+     */
+    public val OutlineInverseNegativeMinorHover: Color = Color(0xFFC2192A)
+
+    /**
+     * light outline inverse outlineNegativeMinorActive
+     */
+    public val OutlineInverseNegativeMinorActive: Color = Color(0xFF7A101A)
+
+    /**
+     * light outline inverse outlineInfoMinorHover
+     */
+    public val OutlineInverseInfoMinorHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * light outline inverse outlineInfoMinorActive
+     */
+    public val OutlineInverseInfoMinorActive: Color = Color(0xFF113B88)
+
+    /**
+     * light outline inverse outlineTransparentPositiveHover
+     */
+    public val OutlineInverseTransparentPositiveHover: Color = Color(0xFF1A9E32)
+
+    /**
+     * light outline inverse outlineTransparentPositiveActive
+     */
+    public val OutlineInverseTransparentPositiveActive: Color = Color(0x561A9E32)
+
+    /**
+     * light outline inverse outlineTransparentWarningHover
+     */
+    public val OutlineInverseTransparentWarningHover: Color = Color(0xFFFA5F05)
+
+    /**
+     * light outline inverse outlineTransparentWarningActive
+     */
+    public val OutlineInverseTransparentWarningActive: Color = Color(0x56FA5F05)
+
+    /**
+     * light outline inverse outlineTransparentNegativeHover
+     */
+    public val OutlineInverseTransparentNegativeHover: Color = Color(0xFFFF293E)
+
+    /**
+     * light outline inverse outlineTransparentNegativeActive
+     */
+    public val OutlineInverseTransparentNegativeActive: Color = Color(0x56FF293E)
+
+    /**
+     * light outline inverse outlineTransparentInfoHover
+     */
+    public val OutlineInverseTransparentInfoHover: Color = Color(0xFF3F82FD)
+
+    /**
+     * light outline inverse outlineTransparentInfoActive
+     */
+    public val OutlineInverseTransparentInfoActive: Color = Color(0x563F82FD)
+
+    /**
+     * light outline inverse outlineTransparentPrimary
+     */
+    public val OutlineInverseTransparentPrimary: Color = Color(0x1FFFFFFF)
+
+    /**
+     * light outline inverse outlineTransparentSecondary
+     */
+    public val OutlineInverseTransparentSecondary: Color = Color(0x33FFFFFF)
+
+    /**
+     * light outline inverse outlineTransparentTertiary
+     */
+    public val OutlineInverseTransparentTertiary: Color = Color(0x66FFFFFF)
+
+    /**
+     * light outline inverse outlineTransparentClear
+     */
+    public val OutlineInverseTransparentClear: Color = Color(0x00FFFFFF)
+
+    /**
+     * light outline inverse outlineAccent
+     */
+    public val OutlineInverseAccent: Color = Color(0xFF3F81FD)
+
+    /**
+     * light outline inverse outlineAccentMinor
+     */
+    public val OutlineInverseAccentMinor: Color = Color(0xFF1549AB)
+
+    /**
+     * light outline inverse outlineTransparentAccent
+     */
+    public val OutlineInverseTransparentAccent: Color = Color(0x473F81FD)
+
+    /**
+     * light outline inverse outlinePositive
+     */
+    public val OutlineInversePositive: Color = Color(0xFF24B23E)
+
+    /**
+     * light outline inverse outlineWarning
+     */
+    public val OutlineInverseWarning: Color = Color(0xFFFF7024)
+
+    /**
+     * light outline inverse outlineNegative
+     */
+    public val OutlineInverseNegative: Color = Color(0xFFFF3D51)
+
+    /**
+     * light outline inverse outlineInfo
+     */
+    public val OutlineInverseInfo: Color = Color(0xFF3F81FD)
+
+    /**
+     * light outline inverse outlinePositiveMinor
+     */
+    public val OutlineInversePositiveMinor: Color = Color(0xFF095C18)
+
+    /**
+     * light outline inverse outlineWarningMinor
+     */
+    public val OutlineInverseWarningMinor: Color = Color(0xFF85380C)
+
+    /**
+     * light outline inverse outlineNegativeMinor
+     */
+    public val OutlineInverseNegativeMinor: Color = Color(0xFF9C1422)
+
+    /**
+     * light outline inverse outlineInfoMinor
+     */
+    public val OutlineInverseInfoMinor: Color = Color(0xFF1549AB)
+
+    /**
+     * light outline inverse outlineTransparentPositive
+     */
+    public val OutlineInverseTransparentPositive: Color = Color(0x471A9E32)
+
+    /**
+     * light outline inverse outlineTransparentWarning
+     */
+    public val OutlineInverseTransparentWarning: Color = Color(0x47FA5F05)
+
+    /**
+     * light outline inverse outlineTransparentNegative
+     */
+    public val OutlineInverseTransparentNegative: Color = Color(0x47FF293E)
+
+    /**
+     * light outline inverse outlineTransparentInfo
+     */
+    public val OutlineInverseTransparentInfo: Color = Color(0x473F81FD)
+
+    /**
+     * light outline inverse outlineSolidPrimary
+     */
+    public val OutlineInverseSolidPrimary: Color = Color(0xFFDDDDDD)
+
+    /**
+     * light outline inverse outlineSolidPrimaryHover
+     */
+    public val OutlineInverseSolidPrimaryHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * light outline inverse outlineSolidPrimaryActive
+     */
+    public val OutlineInverseSolidPrimaryActive: Color = Color(0xFFB3B3B3)
+
+    /**
+     * light outline inverse outlineSolidSecondary
+     */
+    public val OutlineInverseSolidSecondary: Color = Color(0xFF949494)
+
+    /**
+     * light outline inverse outlineSolidSecondaryHover
+     */
+    public val OutlineInverseSolidSecondaryHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * light outline inverse outlineSolidSecondaryActive
+     */
+    public val OutlineInverseSolidSecondaryActive: Color = Color(0xFF757575)
+
+    /**
+     * light outline inverse outlineSolidTertiary
+     */
+    public val OutlineInverseSolidTertiary: Color = Color(0xFF707070)
+
+    /**
+     * light outline inverse outlineSolidTertiaryHover
+     */
+    public val OutlineInverseSolidTertiaryHover: Color = Color(0xFFFFFFFF)
+
+    /**
+     * light outline inverse outlineSolidTertiaryActive
+     */
+    public val OutlineInverseSolidTertiaryActive: Color = Color(0xFF595959)
+
+    /**
+     * light outline inverse outlineSolidDefault
+     */
+    public val OutlineInverseSolidDefault: Color = Color(0xFF080808)
+
+    /**
+     * light outline inverse outlineSolidDefaultHover
+     */
+    public val OutlineInverseSolidDefaultHover: Color = Color(0xFF595959)
+
+    /**
+     * light outline inverse outlineSolidDefaultActive
+     */
+    public val OutlineInverseSolidDefaultActive: Color = Color(0xFF303030)
 }

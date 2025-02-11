@@ -1,4 +1,9 @@
 // AUTO-GENERATED. DO NOT MODIFY this file.
+@file:Suppress(
+    "UndocumentedPublicClass",
+    "UndocumentedPublicProperty",
+)
+
 package com.sdds.stylessalute.styles.button.link
 
 import androidx.compose.runtime.Composable
@@ -6,26 +11,13 @@ import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.LinkButton
 import com.sdds.compose.uikit.LinkButtonStyleBuilder
-import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.linkButtonBuilder
-import com.sdds.compose.uikit.multiplyAlpha
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
-import com.sdds.stylessalute.styles.button.link.WrapperLinkButton
-import com.sdds.stylessalute.styles.button.link.WrapperLinkButtonAccentViewTerminate
-import com.sdds.stylessalute.styles.button.link.WrapperLinkButtonDefaultViewTerminate
-import com.sdds.stylessalute.styles.button.link.WrapperLinkButtonL
-import com.sdds.stylessalute.styles.button.link.WrapperLinkButtonM
-import com.sdds.stylessalute.styles.button.link.WrapperLinkButtonNegativeViewTerminate
-import com.sdds.stylessalute.styles.button.link.WrapperLinkButtonPositiveViewTerminate
-import com.sdds.stylessalute.styles.button.link.WrapperLinkButtonS
-import com.sdds.stylessalute.styles.button.link.WrapperLinkButtonSecondaryViewTerminate
-import com.sdds.stylessalute.styles.button.link.WrapperLinkButtonView
-import com.sdds.stylessalute.styles.button.link.WrapperLinkButtonWarningViewTerminate
-import com.sdds.stylessalute.styles.button.link.WrapperLinkButtonXs
 import com.sdds.stylessalute.theme.StylesSaluteTheme
+import kotlin.Suppress
 import kotlin.jvm.JvmInline
 import kotlin.jvm.JvmName
 
@@ -86,176 +78,268 @@ public value class WrapperLinkButtonXs(
 public val WrapperLinkButtonView.Default: WrapperLinkButtonDefaultViewTerminate
     @Composable
     get() = builder
-    .colors {
-    spinnerColor(StylesSaluteTheme.colors.textDefaultPrimary.asInteractive(setOf(InteractiveState.Pressed)
-            to StylesSaluteTheme.colors.textDefaultPrimaryActive, setOf(InteractiveState.Hovered) to
-            StylesSaluteTheme.colors.textDefaultPrimaryHover))
-    iconColor(StylesSaluteTheme.colors.textDefaultPrimary.asInteractive(setOf(InteractiveState.Pressed)
-            to StylesSaluteTheme.colors.textDefaultPrimaryActive, setOf(InteractiveState.Hovered) to
-            StylesSaluteTheme.colors.textDefaultPrimaryHover))
-    labelColor(StylesSaluteTheme.colors.textDefaultPrimary.asInteractive(setOf(InteractiveState.Pressed)
-            to StylesSaluteTheme.colors.textDefaultPrimaryActive, setOf(InteractiveState.Hovered) to
-            StylesSaluteTheme.colors.textDefaultPrimaryHover))
-    }
-    .wrap(::WrapperLinkButtonDefaultViewTerminate)
+        .colors {
+            spinnerColor(
+                StylesSaluteTheme.colors.textDefaultPrimary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to StylesSaluteTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to StylesSaluteTheme.colors.textDefaultPrimaryHover,
+                ),
+            )
+            iconColor(
+                StylesSaluteTheme.colors.textDefaultPrimary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to StylesSaluteTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to StylesSaluteTheme.colors.textDefaultPrimaryHover,
+                ),
+            )
+            labelColor(
+                StylesSaluteTheme.colors.textDefaultPrimary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to StylesSaluteTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to StylesSaluteTheme.colors.textDefaultPrimaryHover,
+                ),
+            )
+        }
+        .wrap(::WrapperLinkButtonDefaultViewTerminate)
 
 public val WrapperLinkButtonView.Secondary: WrapperLinkButtonSecondaryViewTerminate
     @Composable
     get() = builder
-    .colors {
-    spinnerColor(StylesSaluteTheme.colors.textDefaultSecondary.asInteractive(setOf(InteractiveState.Pressed)
-            to StylesSaluteTheme.colors.textDefaultSecondaryActive, setOf(InteractiveState.Hovered)
-            to StylesSaluteTheme.colors.textDefaultSecondaryHover))
-    iconColor(StylesSaluteTheme.colors.textDefaultSecondary.asInteractive(setOf(InteractiveState.Pressed)
-            to StylesSaluteTheme.colors.textDefaultSecondaryActive, setOf(InteractiveState.Hovered)
-            to StylesSaluteTheme.colors.textDefaultSecondaryHover))
-    labelColor(StylesSaluteTheme.colors.textDefaultSecondary.asInteractive(setOf(InteractiveState.Pressed)
-            to StylesSaluteTheme.colors.textDefaultSecondaryActive, setOf(InteractiveState.Hovered)
-            to StylesSaluteTheme.colors.textDefaultSecondaryHover))
-    }
-    .wrap(::WrapperLinkButtonSecondaryViewTerminate)
+        .colors {
+            spinnerColor(
+                StylesSaluteTheme.colors.textDefaultSecondary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to StylesSaluteTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to StylesSaluteTheme.colors.textDefaultSecondaryHover,
+                ),
+            )
+            iconColor(
+                StylesSaluteTheme.colors.textDefaultSecondary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to StylesSaluteTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to StylesSaluteTheme.colors.textDefaultSecondaryHover,
+                ),
+            )
+            labelColor(
+                StylesSaluteTheme.colors.textDefaultSecondary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to StylesSaluteTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to StylesSaluteTheme.colors.textDefaultSecondaryHover,
+                ),
+            )
+        }
+        .wrap(::WrapperLinkButtonSecondaryViewTerminate)
 
 public val WrapperLinkButtonView.Accent: WrapperLinkButtonAccentViewTerminate
     @Composable
     get() = builder
-    .colors {
-    spinnerColor(StylesSaluteTheme.colors.textDefaultAccentMain.asInteractive(setOf(InteractiveState.Pressed)
-            to StylesSaluteTheme.colors.textDefaultAccentMainActive, setOf(InteractiveState.Hovered)
-            to StylesSaluteTheme.colors.textDefaultAccentMainHover))
-    iconColor(StylesSaluteTheme.colors.textDefaultAccentMain.asInteractive(setOf(InteractiveState.Pressed)
-            to StylesSaluteTheme.colors.textDefaultAccentMainActive, setOf(InteractiveState.Hovered)
-            to StylesSaluteTheme.colors.textDefaultAccentMainHover))
-    labelColor(StylesSaluteTheme.colors.textDefaultAccentMain.asInteractive(setOf(InteractiveState.Pressed)
-            to StylesSaluteTheme.colors.textDefaultAccentMainActive, setOf(InteractiveState.Hovered)
-            to StylesSaluteTheme.colors.textDefaultAccentMainHover))
-    }
-    .wrap(::WrapperLinkButtonAccentViewTerminate)
+        .colors {
+            spinnerColor(
+                StylesSaluteTheme.colors.textDefaultAccentMain.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to StylesSaluteTheme.colors.textDefaultAccentMainActive,
+                    setOf(InteractiveState.Hovered)
+                        to StylesSaluteTheme.colors.textDefaultAccentMainHover,
+                ),
+            )
+            iconColor(
+                StylesSaluteTheme.colors.textDefaultAccentMain.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to StylesSaluteTheme.colors.textDefaultAccentMainActive,
+                    setOf(InteractiveState.Hovered)
+                        to StylesSaluteTheme.colors.textDefaultAccentMainHover,
+                ),
+            )
+            labelColor(
+                StylesSaluteTheme.colors.textDefaultAccentMain.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to StylesSaluteTheme.colors.textDefaultAccentMainActive,
+                    setOf(InteractiveState.Hovered)
+                        to StylesSaluteTheme.colors.textDefaultAccentMainHover,
+                ),
+            )
+        }
+        .wrap(::WrapperLinkButtonAccentViewTerminate)
 
 public val WrapperLinkButtonView.Positive: WrapperLinkButtonPositiveViewTerminate
     @Composable
     get() = builder
-    .colors {
-    spinnerColor(StylesSaluteTheme.colors.textDefaultPositive.asInteractive(setOf(InteractiveState.Pressed)
-            to StylesSaluteTheme.colors.textDefaultPositiveActive, setOf(InteractiveState.Hovered)
-            to StylesSaluteTheme.colors.textDefaultPositiveHover))
-    iconColor(StylesSaluteTheme.colors.textDefaultPositive.asInteractive(setOf(InteractiveState.Pressed)
-            to StylesSaluteTheme.colors.textDefaultPositiveActive, setOf(InteractiveState.Hovered)
-            to StylesSaluteTheme.colors.textDefaultPositiveHover))
-    labelColor(StylesSaluteTheme.colors.textDefaultPositive.asInteractive(setOf(InteractiveState.Pressed)
-            to StylesSaluteTheme.colors.textDefaultPositiveActive, setOf(InteractiveState.Hovered)
-            to StylesSaluteTheme.colors.textDefaultPositiveHover))
-    }
-    .wrap(::WrapperLinkButtonPositiveViewTerminate)
+        .colors {
+            spinnerColor(
+                StylesSaluteTheme.colors.textDefaultPositive.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to StylesSaluteTheme.colors.textDefaultPositiveActive,
+                    setOf(InteractiveState.Hovered)
+                        to StylesSaluteTheme.colors.textDefaultPositiveHover,
+                ),
+            )
+            iconColor(
+                StylesSaluteTheme.colors.textDefaultPositive.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to StylesSaluteTheme.colors.textDefaultPositiveActive,
+                    setOf(InteractiveState.Hovered)
+                        to StylesSaluteTheme.colors.textDefaultPositiveHover,
+                ),
+            )
+            labelColor(
+                StylesSaluteTheme.colors.textDefaultPositive.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to StylesSaluteTheme.colors.textDefaultPositiveActive,
+                    setOf(InteractiveState.Hovered)
+                        to StylesSaluteTheme.colors.textDefaultPositiveHover,
+                ),
+            )
+        }
+        .wrap(::WrapperLinkButtonPositiveViewTerminate)
 
 public val WrapperLinkButtonView.Negative: WrapperLinkButtonNegativeViewTerminate
     @Composable
     get() = builder
-    .colors {
-    spinnerColor(StylesSaluteTheme.colors.textDefaultNegative.asInteractive(setOf(InteractiveState.Pressed)
-            to StylesSaluteTheme.colors.textDefaultNegativeActive, setOf(InteractiveState.Hovered)
-            to StylesSaluteTheme.colors.textDefaultNegativeHover))
-    iconColor(StylesSaluteTheme.colors.textDefaultNegative.asInteractive(setOf(InteractiveState.Pressed)
-            to StylesSaluteTheme.colors.textDefaultNegativeActive, setOf(InteractiveState.Hovered)
-            to StylesSaluteTheme.colors.textDefaultNegativeHover))
-    labelColor(StylesSaluteTheme.colors.textDefaultNegative.asInteractive(setOf(InteractiveState.Pressed)
-            to StylesSaluteTheme.colors.textDefaultNegativeActive, setOf(InteractiveState.Hovered)
-            to StylesSaluteTheme.colors.textDefaultNegativeHover))
-    }
-    .wrap(::WrapperLinkButtonNegativeViewTerminate)
+        .colors {
+            spinnerColor(
+                StylesSaluteTheme.colors.textDefaultNegative.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to StylesSaluteTheme.colors.textDefaultNegativeActive,
+                    setOf(InteractiveState.Hovered)
+                        to StylesSaluteTheme.colors.textDefaultNegativeHover,
+                ),
+            )
+            iconColor(
+                StylesSaluteTheme.colors.textDefaultNegative.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to StylesSaluteTheme.colors.textDefaultNegativeActive,
+                    setOf(InteractiveState.Hovered)
+                        to StylesSaluteTheme.colors.textDefaultNegativeHover,
+                ),
+            )
+            labelColor(
+                StylesSaluteTheme.colors.textDefaultNegative.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to StylesSaluteTheme.colors.textDefaultNegativeActive,
+                    setOf(InteractiveState.Hovered)
+                        to StylesSaluteTheme.colors.textDefaultNegativeHover,
+                ),
+            )
+        }
+        .wrap(::WrapperLinkButtonNegativeViewTerminate)
 
 public val WrapperLinkButtonView.Warning: WrapperLinkButtonWarningViewTerminate
     @Composable
     get() = builder
-    .colors {
-    spinnerColor(StylesSaluteTheme.colors.textDefaultWarning.asInteractive(setOf(InteractiveState.Pressed)
-            to StylesSaluteTheme.colors.textDefaultWarningActive, setOf(InteractiveState.Hovered) to
-            StylesSaluteTheme.colors.textDefaultWarningHover))
-    iconColor(StylesSaluteTheme.colors.textDefaultWarning.asInteractive(setOf(InteractiveState.Pressed)
-            to StylesSaluteTheme.colors.textDefaultWarningActive, setOf(InteractiveState.Hovered) to
-            StylesSaluteTheme.colors.textDefaultWarningHover))
-    labelColor(StylesSaluteTheme.colors.textDefaultWarning.asInteractive(setOf(InteractiveState.Pressed)
-            to StylesSaluteTheme.colors.textDefaultWarningActive, setOf(InteractiveState.Hovered) to
-            StylesSaluteTheme.colors.textDefaultWarningHover))
-    }
-    .wrap(::WrapperLinkButtonWarningViewTerminate)
+        .colors {
+            spinnerColor(
+                StylesSaluteTheme.colors.textDefaultWarning.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to StylesSaluteTheme.colors.textDefaultWarningActive,
+                    setOf(InteractiveState.Hovered)
+                        to StylesSaluteTheme.colors.textDefaultWarningHover,
+                ),
+            )
+            iconColor(
+                StylesSaluteTheme.colors.textDefaultWarning.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to StylesSaluteTheme.colors.textDefaultWarningActive,
+                    setOf(InteractiveState.Hovered)
+                        to StylesSaluteTheme.colors.textDefaultWarningHover,
+                ),
+            )
+            labelColor(
+                StylesSaluteTheme.colors.textDefaultWarning.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to StylesSaluteTheme.colors.textDefaultWarningActive,
+                    setOf(InteractiveState.Hovered)
+                        to StylesSaluteTheme.colors.textDefaultWarningHover,
+                ),
+            )
+        }
+        .wrap(::WrapperLinkButtonWarningViewTerminate)
 
 private val LinkButtonStyleBuilder.invariantProps: LinkButtonStyleBuilder
     @Composable
     get() = this
-    .colors {
-    backgroundColor(StylesSaluteTheme.colors.surfaceDefaultClear.asInteractive())
-    }
-    .loadingAlpha(0.06f)
-    .disableAlpha(0.4f)
+        .colors {
+            backgroundColor(
+                StylesSaluteTheme.colors.surfaceDefaultClear.asInteractive(),
+            )
+        }
+        .loadingAlpha(0.06f)
+        .disableAlpha(0.4f)
 
 public val LinkButton.L: WrapperLinkButtonL
     @Composable
     @JvmName("WrapperLinkButtonL")
     get() = ButtonStyle.linkButtonBuilder(this)
-    .invariantProps
-    .labelStyle(StylesSaluteTheme.typography.bodyLBold)
-    .dimensions {
-    height(56.0.dp)
-    paddingStart(0.0.dp)
-    paddingEnd(0.0.dp)
-    minWidth(50.0.dp)
-    iconSize(24.0.dp)
-    spinnerSize(22.0.dp)
-    spinnerStrokeWidth(2.0.dp)
-    iconMargin(8.0.dp)
-    }
-    .wrap(::WrapperLinkButtonL)
+        .invariantProps
+        .labelStyle(StylesSaluteTheme.typography.bodyLBold)
+        .dimensions {
+            height(56.0.dp)
+            paddingStart(0.0.dp)
+            paddingEnd(0.0.dp)
+            minWidth(50.0.dp)
+            iconSize(24.0.dp)
+            spinnerSize(22.0.dp)
+            spinnerStrokeWidth(2.0.dp)
+            iconMargin(8.0.dp)
+        }
+        .wrap(::WrapperLinkButtonL)
 
 public val LinkButton.M: WrapperLinkButtonM
     @Composable
     @JvmName("WrapperLinkButtonM")
     get() = ButtonStyle.linkButtonBuilder(this)
-    .invariantProps
-    .labelStyle(StylesSaluteTheme.typography.bodyMBold)
-    .dimensions {
-    height(48.0.dp)
-    paddingStart(0.0.dp)
-    paddingEnd(0.0.dp)
-    minWidth(44.0.dp)
-    iconSize(24.0.dp)
-    spinnerSize(22.0.dp)
-    spinnerStrokeWidth(2.0.dp)
-    iconMargin(6.0.dp)
-    }
-    .wrap(::WrapperLinkButtonM)
+        .invariantProps
+        .labelStyle(StylesSaluteTheme.typography.bodyMBold)
+        .dimensions {
+            height(48.0.dp)
+            paddingStart(0.0.dp)
+            paddingEnd(0.0.dp)
+            minWidth(44.0.dp)
+            iconSize(24.0.dp)
+            spinnerSize(22.0.dp)
+            spinnerStrokeWidth(2.0.dp)
+            iconMargin(6.0.dp)
+        }
+        .wrap(::WrapperLinkButtonM)
 
 public val LinkButton.S: WrapperLinkButtonS
     @Composable
     @JvmName("WrapperLinkButtonS")
     get() = ButtonStyle.linkButtonBuilder(this)
-    .invariantProps
-    .labelStyle(StylesSaluteTheme.typography.bodySBold)
-    .dimensions {
-    height(40.0.dp)
-    paddingStart(0.0.dp)
-    paddingEnd(0.0.dp)
-    minWidth(39.0.dp)
-    iconSize(24.0.dp)
-    spinnerSize(22.0.dp)
-    spinnerStrokeWidth(2.0.dp)
-    iconMargin(4.0.dp)
-    }
-    .wrap(::WrapperLinkButtonS)
+        .invariantProps
+        .labelStyle(StylesSaluteTheme.typography.bodySBold)
+        .dimensions {
+            height(40.0.dp)
+            paddingStart(0.0.dp)
+            paddingEnd(0.0.dp)
+            minWidth(39.0.dp)
+            iconSize(24.0.dp)
+            spinnerSize(22.0.dp)
+            spinnerStrokeWidth(2.0.dp)
+            iconMargin(4.0.dp)
+        }
+        .wrap(::WrapperLinkButtonS)
 
 public val LinkButton.Xs: WrapperLinkButtonXs
     @Composable
     @JvmName("WrapperLinkButtonXs")
     get() = ButtonStyle.linkButtonBuilder(this)
-    .invariantProps
-    .labelStyle(StylesSaluteTheme.typography.bodyXsBold)
-    .dimensions {
-    height(32.0.dp)
-    paddingStart(0.0.dp)
-    paddingEnd(0.0.dp)
-    minWidth(33.0.dp)
-    iconSize(16.0.dp)
-    spinnerSize(16.0.dp)
-    spinnerStrokeWidth(1.0.dp)
-    iconMargin(4.0.dp)
-    }
-    .wrap(::WrapperLinkButtonXs)
+        .invariantProps
+        .labelStyle(StylesSaluteTheme.typography.bodyXsBold)
+        .dimensions {
+            height(32.0.dp)
+            paddingStart(0.0.dp)
+            paddingEnd(0.0.dp)
+            minWidth(33.0.dp)
+            iconSize(16.0.dp)
+            spinnerSize(16.0.dp)
+            spinnerStrokeWidth(1.0.dp)
+            iconMargin(4.0.dp)
+        }
+        .wrap(::WrapperLinkButtonXs)

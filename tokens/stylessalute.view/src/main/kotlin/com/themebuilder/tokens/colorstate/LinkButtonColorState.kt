@@ -6,8 +6,6 @@ import android.util.AttributeSet
 import com.sdds.stylessalute.R
 import com.sdds.uikit.colorstate.ColorState
 import com.sdds.uikit.colorstate.ColorStateProvider
-import com.themebuilder.tokens.colorstate.LinkButtonColorState
-import com.themebuilder.tokens.colorstate.LinkButtonColorStateProvider
 import kotlin.Int
 import kotlin.IntArray
 
@@ -23,7 +21,6 @@ public enum class LinkButtonColorState(
     POSITIVE(intArrayOf(R.attr.salute_linkbutton_state_positive)),
     NEGATIVE(intArrayOf(R.attr.salute_linkbutton_state_negative)),
     WARNING(intArrayOf(R.attr.salute_linkbutton_state_warning)),
-    ;
 }
 
 /**

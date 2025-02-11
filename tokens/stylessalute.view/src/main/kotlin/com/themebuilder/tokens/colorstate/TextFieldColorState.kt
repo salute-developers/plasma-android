@@ -6,8 +6,6 @@ import android.util.AttributeSet
 import com.sdds.stylessalute.R
 import com.sdds.uikit.colorstate.ColorState
 import com.sdds.uikit.colorstate.ColorStateProvider
-import com.themebuilder.tokens.colorstate.TextFieldColorState
-import com.themebuilder.tokens.colorstate.TextFieldColorStateProvider
 import kotlin.Int
 import kotlin.IntArray
 
@@ -21,7 +19,6 @@ public enum class TextFieldColorState(
     SUCCESS(intArrayOf(R.attr.salute_textfield_state_success)),
     WARNING(intArrayOf(R.attr.salute_textfield_state_warning)),
     ERROR(intArrayOf(R.attr.salute_textfield_state_error)),
-    ;
 }
 
 /**
