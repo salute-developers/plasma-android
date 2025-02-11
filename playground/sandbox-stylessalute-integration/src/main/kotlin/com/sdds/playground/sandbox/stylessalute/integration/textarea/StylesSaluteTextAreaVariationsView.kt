@@ -4,7 +4,6 @@ import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
 import com.sdds.uikit.colorstate.ColorState
 import com.stylessalute.colorstate.TextAreaColorState
 
-@Suppress("MaxLineLength")
 internal object StylesSaluteTextAreaVariationsView : ViewStyleProvider<String>() {
     override val variations: Map<String, Int>
         get() = mapOf(

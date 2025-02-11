@@ -4,7 +4,6 @@ import com.plasma.sd.service.colorstate.TextAreaColorState
 import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
 import com.sdds.uikit.colorstate.ColorState
 
-@Suppress("MaxLineLength")
 internal object PlasmaSdServiceTextAreaVariationsView : ViewStyleProvider<String>() {
     override val variations: Map<String, Int>
         get() = mapOf(
