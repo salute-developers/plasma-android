@@ -1,5 +1,5 @@
 // AUTO-GENERATED. DO NOT MODIFY this file.
-package com.stylessalute.colorstate
+package com.sdds.stylessalute.colorstate
 
 import android.content.Context
 import android.util.AttributeSet

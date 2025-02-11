@@ -6,7 +6,7 @@
         <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroup.Dense</item>
     </style>
     <style name="Plasma.SdService.Components.TextField" parent="Sdds.Components.TextField">
-        <item name="sd_colorStateProvider">com.plasma.sd.service.colorstate.TextFieldColorStateProvider</item>
+        <item name="sd_colorStateProvider">com.sdds.plasma.sd.service.colorstate.TextFieldColorStateProvider</item>
         <item name="sd_disabledAlpha">0.4</item>
         <item name="sd_counterPlacement">outer</item>
         <item name="sd_captionPlacement">outer</item>

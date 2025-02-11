@@ -2,8 +2,8 @@ package com.sdds.playground.sandbox.stylessalute.integration.textfield
 
 import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
 import com.sdds.playground.sandbox.stylessalute.integration.s
+import com.sdds.stylessalute.colorstate.TextFieldColorState
 import com.sdds.uikit.colorstate.ColorState
-import com.stylessalute.colorstate.TextFieldColorState
 
 internal object StylesSaluteTextFieldVariationsView : ViewStyleProvider<String>() {
 

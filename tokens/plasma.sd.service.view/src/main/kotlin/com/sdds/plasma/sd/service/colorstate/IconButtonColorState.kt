@@ -1,5 +1,5 @@
 // AUTO-GENERATED. DO NOT MODIFY this file.
-package com.plasma.sd.service.colorstate
+package com.sdds.plasma.sd.service.colorstate
 
 import android.content.Context
 import android.util.AttributeSet

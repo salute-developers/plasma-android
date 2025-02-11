@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="Salute.StylesSalute.Components.SegmentItem" parent="Sdds.Components.SegmentItem">
-        <item name="sd_colorStateProvider">com.sdds.salute.colorstate.SegmentItemColorStateProvider</item>
+        <item name="sd_colorStateProvider">com.sdds.stylessalute.colorstate.SegmentItemColorStateProvider</item>
         <item name="backgroundTint">@color/salute_segment_item_bg_color</item>
         <item name="android:textColor">@color/salute_segment_item_text_color</item>
         <item name="sd_valueTextColor">@color/salute_segment_item_value_color</item>

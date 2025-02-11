@@ -1,6 +1,6 @@
 package com.sdds.playground.sandbox.plasma.sd.service.integration.textarea
 
-import com.plasma.sd.service.colorstate.TextAreaColorState
+import com.sdds.plasma.sd.service.colorstate.TextAreaColorState
 import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
 import com.sdds.playground.sandbox.plasma.sd.service.integration.s
 import com.sdds.uikit.colorstate.ColorState

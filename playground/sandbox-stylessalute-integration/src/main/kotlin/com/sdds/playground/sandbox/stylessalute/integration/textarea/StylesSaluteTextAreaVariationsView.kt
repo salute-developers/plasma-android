@@ -2,8 +2,8 @@ package com.sdds.playground.sandbox.stylessalute.integration.textarea
 
 import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
 import com.sdds.playground.sandbox.stylessalute.integration.s
+import com.sdds.stylessalute.colorstate.TextAreaColorState
 import com.sdds.uikit.colorstate.ColorState
-import com.stylessalute.colorstate.TextAreaColorState
 
 internal object StylesSaluteTextAreaVariationsView : ViewStyleProvider<String>() {
     override val variations: Map<String, Int> = mapOf(

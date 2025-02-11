@@ -6,7 +6,7 @@
         <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroup.Dense</item>
     </style>
     <style name="Salute.StylesSalute.Components.TextArea" parent="Sdds.Components.TextArea">
-        <item name="sd_colorStateProvider">com.stylessalute.colorstate.TextAreaColorStateProvider</item>
+        <item name="sd_colorStateProvider">com.sdds.stylessalute.colorstate.TextAreaColorStateProvider</item>
         <item name="sd_scrollBarThickness">@dimen/salute_text_area_scrollbar_thickness</item>
         <item name="sd_scrollBarPaddingTop">@dimen/salute_text_area_scrollbar_padding_top</item>
         <item name="sd_scrollBarPaddingEnd">@dimen/salute_text_area_scrollbar_padding_end</item>

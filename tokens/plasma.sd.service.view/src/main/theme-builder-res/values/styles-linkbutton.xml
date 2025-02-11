@@ -3,7 +3,7 @@
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <resources>
     <style name="Plasma.SdService.Components.LinkButton" parent="Sdds.Components.LinkButton">
-        <item name="sd_colorStateProvider">com.plasma.sd.service.colorstate.LinkButtonColorStateProvider</item>
+        <item name="sd_colorStateProvider">com.sdds.plasma.sd.service.colorstate.LinkButtonColorStateProvider</item>
         <item name="sd_disabledAlpha">0.4</item>
         <item name="backgroundTint">@color/plasma_link_button_bg_color</item>
         <item name="android:textColor">@color/plasma_link_button_text_color</item>

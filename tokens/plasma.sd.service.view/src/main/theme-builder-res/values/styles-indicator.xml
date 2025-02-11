@@ -3,7 +3,7 @@
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <resources>
     <style name="Plasma.SdService.Components.Indicator" parent="Sdds.Components.Indicator">
-        <item name="sd_colorStateProvider">com.plasma.sd.service.colorstate.IndicatorColorStateProvider</item>
+        <item name="sd_colorStateProvider">com.sdds.plasma.sd.service.colorstate.IndicatorColorStateProvider</item>
         <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
         <item name="backgroundTint">@color/plasma_indicator_bg_color</item>
     </style>
