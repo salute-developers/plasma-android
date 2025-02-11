@@ -1,67 +1,29 @@
 package com.sdds.playground.sandbox.progress.compose
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.sdds.playground.sandbox.core.compose.PropertiesOwner
+import androidx.lifecycle.ViewModelProvider
+import com.sdds.compose.uikit.ProgressBarStyle
+import com.sdds.playground.sandbox.Theme
+import com.sdds.playground.sandbox.core.compose.ComponentViewModel
 import com.sdds.playground.sandbox.core.compose.Property
-import com.sdds.playground.sandbox.core.compose.enumProperty
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.SharingStarted
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.mapLatest
-import kotlinx.coroutines.flow.stateIn
+import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 
 /**
  * ViewModel компонента Progress
  */
-internal class ProgressViewModel : ViewModel(), PropertiesOwner {
-
-    private val _progressUiState = MutableStateFlow(ProgressUiState())
-
-    /**
-     * Состояние компонента
-     */
-    val progressUiState: StateFlow<ProgressUiState>
-        get() = _progressUiState.asStateFlow()
-
-    /**
-     * @see PropertiesOwner.properties
-     */
-    @OptIn(ExperimentalCoroutinesApi::class)
-    override val properties: StateFlow<List<Property<*>>> =
-        _progressUiState
-            .mapLatest { it.toProps() }
-            .stateIn(viewModelScope, SharingStarted.Lazily, emptyList())
-
-    /**
-     * @see PropertiesOwner.resetToDefault
-     */
-    override fun resetToDefault() {
-        _progressUiState.value = ProgressUiState()
-    }
-
-    private fun updateStyle(style: Style) {
-        _progressUiState.value = _progressUiState.value.copy(
-            style = style,
-        )
-    }
+internal class ProgressViewModel(
+    defaultState: ProgressUiState,
+    private val theme: Theme.ThemeInfoCompose,
+) : ComponentViewModel<ProgressUiState, ProgressBarStyle>(defaultState) {
 
     private fun updateProgress(progress: Float) {
-        _progressUiState.value = _progressUiState.value.copy(
+        internalUiState.value = internalUiState.value.copy(
             progress = progress.coerceIn(0f, 1f),
         )
     }
 
-    private fun ProgressUiState.toProps(): List<Property<*>> {
+    override fun ProgressUiState.toProps(): List<Property<*>> {
         return listOf(
-            enumProperty(
-                name = "style",
-                value = style,
-                onApply = { updateStyle(it) },
-            ),
-
             Property.IntProperty(
                 name = "progress",
                 value = (progress * MAX_PROGRESS).toInt(),
@@ -70,7 +32,22 @@ internal class ProgressViewModel : ViewModel(), PropertiesOwner {
         )
     }
 
+    override fun getStyleProvider(): ComposeStyleProvider<String, ProgressBarStyle> {
+        return theme.stylesProvider.progress
+    }
+
     private companion object {
         const val MAX_PROGRESS = 100
+    }
+}
+
+internal class ProgressViewModelFactory(
+    private val defaultState: ProgressUiState,
+    private val theme: Theme.ThemeInfoCompose,
+) : ViewModelProvider.Factory {
+
+    @Suppress("UNCHECKED_CAST")
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        return ProgressViewModel(defaultState, theme) as T
     }
 }

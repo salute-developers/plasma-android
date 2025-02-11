@@ -20,6 +20,7 @@ themeBuilder {
         ?: throw GradleException("sdds serv version must be specified")
     themeSource(name = "stylesSalute", version = themeVersion, alias = "StylesSalute")
     autoGenerate(false)
+    ktPackage("com.sdds.stylessalute")
     mode(THEME)
     outputLocation(SRC)
     view {

@@ -8,29 +8,37 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.sdds.compose.uikit.RadioBox
 import com.sdds.compose.uikit.RadioBoxGroup
 import com.sdds.playground.sandbox.SandboxTheme
+import com.sdds.playground.sandbox.Theme
 import com.sdds.playground.sandbox.core.compose.ComponentScaffold
 
 /**
  * Экран с RadioBoxGroup
  */
 @Composable
-internal fun RadioBoxGroupScreen() {
-    val radioBoxGroupViewModel: RadioBoxGroupParametersViewModel =
-        viewModel(RadioBoxGroupParametersViewModel::class.java)
-    val radioBoxGroupState by radioBoxGroupViewModel.radioBoxGroupUiState.collectAsState()
+internal fun RadioBoxGroupScreen(theme: Theme.ThemeInfoCompose = Theme.composeDefault) {
+    val radioBoxGroupViewModel: RadioBoxGroupViewModel =
+        viewModel(
+            factory = RadioBoxGroupViewModelFactory(RadioBoxGroupUiState(), theme),
+            key = theme.toString(),
+        )
+    val radioBoxGroupState by radioBoxGroupViewModel.uiState.collectAsState()
 
     ComponentScaffold(
         component = {
-            RadioBoxGroup(
-                style = radioBoxGroupState.radioBoxGroupStyle(),
-            ) {
-                radioBoxGroupState.items.map { itemData ->
-                    RadioBox(
-                        checked = radioBoxGroupViewModel.isChecked(itemData.id),
-                        label = itemData.label,
-                        description = itemData.description,
-                        onClick = { radioBoxGroupViewModel.updateCurrentItem(itemData.id) },
-                    )
+            theme.themeWrapper {
+                RadioBoxGroup(
+                    style = radioBoxGroupViewModel
+                        .getStyleProvider()
+                        .style(radioBoxGroupState.variant),
+                ) {
+                    radioBoxGroupState.items.map { itemData ->
+                        RadioBox(
+                            checked = radioBoxGroupViewModel.isChecked(itemData.id),
+                            label = itemData.label,
+                            description = itemData.description,
+                            onClick = { radioBoxGroupViewModel.updateCurrentItem(itemData.id) },
+                        )
+                    }
                 }
             }
         },

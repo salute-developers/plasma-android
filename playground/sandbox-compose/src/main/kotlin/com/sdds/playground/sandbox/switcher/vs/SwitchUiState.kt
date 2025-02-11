@@ -2,6 +2,7 @@ package com.sdds.playground.sandbox.switcher.vs
 
 import android.os.Parcelable
 import androidx.annotation.StyleRes
+import com.sdds.playground.sandbox.core.vs.UiState
 import com.sdds.serv.R
 import kotlinx.parcelize.Parcelize
 
@@ -16,12 +17,16 @@ import kotlinx.parcelize.Parcelize
  */
 @Parcelize
 internal data class SwitchUiState(
-    val variant: SwitchVariant = SwitchVariant.SwitchL,
+    override val variant: String = "",
     val active: Boolean = false,
     val label: String? = "Label",
     val description: String? = "Description",
     val enabled: Boolean = true,
-) : Parcelable
+) : Parcelable, UiState {
+    override fun updateVariant(variant: String): UiState {
+        return copy(variant = variant)
+    }
+}
 
 /**
  * Стили вариаций компонента Switch

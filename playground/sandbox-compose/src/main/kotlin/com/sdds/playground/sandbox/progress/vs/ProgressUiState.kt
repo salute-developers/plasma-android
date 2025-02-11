@@ -2,6 +2,7 @@ package com.sdds.playground.sandbox.progress.vs
 
 import android.os.Parcelable
 import androidx.annotation.StyleRes
+import com.sdds.playground.sandbox.core.vs.UiState
 import com.sdds.serv.R
 import kotlinx.parcelize.Parcelize
 
@@ -12,9 +13,13 @@ import kotlinx.parcelize.Parcelize
  */
 @Parcelize
 internal data class ProgressUiState(
-    val variant: ProgressVariant = ProgressVariant.Default,
+    override val variant: String = "",
     val progress: Float = 0.5f,
-) : Parcelable
+) : UiState, Parcelable {
+    override fun updateVariant(variant: String): UiState {
+        return copy(variant = variant)
+    }
+}
 
 /**
  * Стили компонента ProgressBar

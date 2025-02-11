@@ -8,27 +8,34 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.sdds.compose.uikit.IconButton
 import com.sdds.playground.sandbox.SandboxTheme
+import com.sdds.playground.sandbox.Theme
 import com.sdds.playground.sandbox.core.compose.ComponentScaffold
 
 /**
  * Экран с IconButton
  */
 @Composable
-internal fun IconButtonScreen() {
-    val buttonViewModel: ButtonParametersViewModel = viewModel(
-        factory = ButtonParametersViewModelFactory(ButtonType.Icon),
-        key = "iconButton",
+internal fun IconButtonScreen(
+    theme: Theme.ThemeInfoCompose = Theme.SddsServ.compose,
+) {
+    val buttonViewModel: IconButtonViewModel = viewModel(
+        factory = IconButtonViewModelFactory(ButtonUiState(), theme),
+        key = theme.toString(),
     )
-    val buttonState by buttonViewModel.buttonState.collectAsState()
+    val buttonState by buttonViewModel.uiState.collectAsState()
     ComponentScaffold(
         component = {
-            IconButton(
-                icon = painterResource(buttonState.icon.iconId),
-                onClick = { },
-                style = buttonState.iconButtonStyle(),
-                enabled = buttonState.enabled,
-                loading = buttonState.loading,
-            )
+            theme.themeWrapper {
+                IconButton(
+                    icon = painterResource(buttonState.icon.iconId),
+                    onClick = { },
+                    style = buttonViewModel
+                        .getStyleProvider()
+                        .style(buttonState.variant),
+                    enabled = buttonState.enabled,
+                    loading = buttonState.loading,
+                )
+            }
         },
         propertiesOwner = buttonViewModel,
     )

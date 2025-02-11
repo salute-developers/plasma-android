@@ -7,28 +7,36 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.sdds.compose.uikit.RadioBox
 import com.sdds.playground.sandbox.SandboxTheme
+import com.sdds.playground.sandbox.Theme
 import com.sdds.playground.sandbox.core.compose.ComponentScaffold
 
 /**
  * Экран с [RadioBox]
  */
 @Composable
-internal fun RadioBoxScreen() {
-    val radioboxViewModel: RadioBoxParametersViewModel = viewModel(RadioBoxParametersViewModel::class.java)
-    val radioboxState by radioboxViewModel.radioBoxState.collectAsState()
+internal fun RadioBoxScreen(theme: Theme.ThemeInfoCompose = Theme.composeDefault) {
+    val radioBoxViewModel: RadioBoxViewModel = viewModel(
+        factory = RadioBoxViewModelFactory(RadioBoxUiState(), theme),
+        key = theme.toString(),
+    )
+    val radioBoxState by radioBoxViewModel.uiState.collectAsState()
 
     ComponentScaffold(
         component = {
-            RadioBox(
-                style = radioboxState.radioBoxStyle(),
-                checked = radioboxState.checked,
-                onClick = {},
-                label = radioboxState.label,
-                description = radioboxState.description,
-                enabled = radioboxState.enabled,
-            )
+            theme.themeWrapper {
+                RadioBox(
+                    style = radioBoxViewModel
+                        .getStyleProvider()
+                        .style(radioBoxState.variant),
+                    checked = radioBoxState.checked,
+                    onClick = {},
+                    label = radioBoxState.label,
+                    description = radioBoxState.description,
+                    enabled = radioBoxState.enabled,
+                )
+            }
         },
-        propertiesOwner = radioboxViewModel,
+        propertiesOwner = radioBoxViewModel,
     )
 }
 
