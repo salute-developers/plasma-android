@@ -16,6 +16,7 @@ import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
 import androidx.annotation.StyleRes
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.core.view.children
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import com.sdds.uikit.colorstate.ColorState
@@ -563,9 +564,14 @@ open class TextField @JvmOverloads constructor(
     }
 
     override fun setEnabled(enabled: Boolean) {
+        children.forEach {
+            it.isEnabled = enabled
+            viewAlphaHelper.updateAlphaByEnabledState(it)
+        }
+        _indicator?.let {
+            viewAlphaHelper.updateDrawableAlpha(it, enabled)
+        }
         super.setEnabled(enabled)
-        _decorationBox.isEnabled = enabled
-        viewAlphaHelper.updateAlphaByEnabledState(this)
     }
 
     override fun getBaseline(): Int {
