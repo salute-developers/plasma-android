@@ -257,7 +257,6 @@ internal abstract class ComponentFragment<State : UiState, Component : View> :
         VERTICAL,
         HORIZONTAL,
         NONE,
-        ;
     }
 
     companion object {

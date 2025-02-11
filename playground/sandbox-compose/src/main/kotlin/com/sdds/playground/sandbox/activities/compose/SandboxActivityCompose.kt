@@ -193,7 +193,6 @@ private fun SandboxContainer() {
                 .background(SddsServTheme.colors.backgroundDefaultPrimary)
                 .fillMaxSize(),
         ) {
-
             ModalBottomSheetLayout(
                 sheetContent = { ThemePickerContent(currentTheme, scope, themePickerSheetState) },
                 sheetState = themePickerSheetState,

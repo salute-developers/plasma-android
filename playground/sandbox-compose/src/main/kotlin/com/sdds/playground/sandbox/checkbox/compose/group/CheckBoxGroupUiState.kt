@@ -15,7 +15,7 @@ internal data class CheckBoxGroupUiState(
     val rootItem: CheckBoxGroupItem? = ROOT_ITEM,
     val items: List<CheckBoxGroupItem> = ITEMS,
     val enabled: Boolean = true,
-): UiState {
+) : UiState {
     override fun updateVariant(variant: String): UiState {
         return copy(variant = variant)
     }

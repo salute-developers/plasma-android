@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.mapLatest
 import kotlinx.coroutines.flow.stateIn
 
-internal abstract class ComponentViewModel<State: UiState, S: Style>(
+internal abstract class ComponentViewModel<State : UiState, S : Style>(
     private val defaultState: State,
 ) : ViewModel(), PropertiesOwner {
 
