@@ -2,7 +2,6 @@ package com.sdds.playground.sandbox.stylessalute.integration.button.basic
 
 import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
 
-@Suppress("MaxLineLength")
 internal object StylesSaluteBasicButtonVariationsView : ViewStyleProvider<String>() {
 
     override val variations: Map<String, Int>

@@ -2,7 +2,6 @@ package com.sdds.playground.sandbox.sdds.serv.integration.avatar
 
 import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
 
-@Suppress("MaxLineLength")
 internal object SddsServAvatarVariationsView : ViewStyleProvider<String>() {
     override val variations: Map<String, Int>
         get() = mapOf(

@@ -2,7 +2,6 @@ package com.sdds.playground.sandbox.plasma.sd.service.integration.switcher
 
 import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
 
-@Suppress("MaxLineLength")
 internal object PlasmaSdServiceSwitchVariationsView : ViewStyleProvider<String>() {
     override val variations: Map<String, Int>
         get() = mapOf(
