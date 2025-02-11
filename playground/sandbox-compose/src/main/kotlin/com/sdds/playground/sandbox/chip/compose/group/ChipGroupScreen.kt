@@ -14,57 +14,61 @@ import com.sdds.compose.uikit.ChipGroup
 import com.sdds.compose.uikit.Icon
 import com.sdds.icons.R
 import com.sdds.playground.sandbox.SandboxTheme
-import com.sdds.playground.sandbox.chip.compose.chipStyleBuilder
+import com.sdds.playground.sandbox.Theme
 import com.sdds.playground.sandbox.core.compose.ComponentScaffold
 import com.sdds.serv.styles.chip.Accent
+import com.sdds.serv.styles.chip.M
 import com.sdds.serv.styles.chip.Secondary
 
 /**
  * Экран с [ChipGroup]
  */
 @Composable
-internal fun ChipGroupScreen() {
-    val chipGroupViewModel: ChipGroupParametersViewModel =
-        viewModel(ChipGroupParametersViewModel::class.java)
-    val chipGroupState by chipGroupViewModel.chipGroupState.collectAsState()
+internal fun ChipGroupScreen(theme: Theme.ThemeInfoCompose = Theme.composeDefault) {
+    val chipGroupViewModel: ChipGroupViewModel =
+        viewModel(
+            factory = ChipGroupViewModelFactory(ChipGroupUiState(), theme),
+            key = theme.toString(),
+        )
+    val chipGroupState by chipGroupViewModel.uiState.collectAsState()
 
     ComponentScaffold(
         component = {
-            ChipGroup(
-                style = chipGroupState.chipGroupStyle(),
-                overflowMode = if (chipGroupState.shouldWrap) {
-                    ChipGroup.OverflowMode.Wrap
-                } else {
-                    ChipGroup.OverflowMode.Scrollable
-                },
-            ) {
-                chipGroupState.items.forEach {
-                    var isSelected by remember { mutableStateOf(false) }
-                    Chip(
-                        isSelected = isSelected,
-                        onSelectedChange = { value -> isSelected = value },
-                        label = it,
-                        style = chipGroupState.size.chipStyleBuilder()
-                            .apply {
-                                if (isSelected) {
-                                    Accent
-                                } else {
-                                    Secondary
+            theme.themeWrapper {
+                ChipGroup(
+                    style = chipGroupViewModel
+                        .getStyleProvider()
+                        .style(chipGroupState.variant),
+                    overflowMode = if (chipGroupState.shouldWrap) {
+                        ChipGroup.OverflowMode.Wrap
+                    } else {
+                        ChipGroup.OverflowMode.Scrollable
+                    },
+                ) {
+                    chipGroupState.items.forEach {
+                        var isSelected by remember { mutableStateOf(false) }
+                        Chip(
+                            isSelected = isSelected,
+                            onSelectedChange = { value -> isSelected = value },
+                            label = it,
+                            style = if (isSelected) {
+                                Chip.M.Accent.style()
+                            } else {
+                                Chip.M.Secondary.style()
+                            },
+                            endContent = if (isSelected) {
+                                {
+                                    Icon(
+                                        painter = painterResource(id = R.drawable.ic_close_24),
+                                        contentDescription = "",
+                                    )
                                 }
-                            }
-                            .style(),
-                        endContent = if (isSelected) {
-                            {
-                                Icon(
-                                    painter = painterResource(id = R.drawable.ic_close_24),
-                                    contentDescription = "",
-                                )
-                            }
-                        } else {
-                            null
-                        },
-                        enabled = chipGroupState.enabled,
-                    )
+                            } else {
+                                null
+                            },
+                            enabled = chipGroupState.enabled,
+                        )
+                    }
                 }
             }
         },

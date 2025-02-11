@@ -2,45 +2,29 @@ package com.sdds.playground.sandbox.checkbox.compose.group
 
 import androidx.compose.ui.state.ToggleableState
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.sdds.playground.sandbox.checkbox.compose.Size
+import androidx.lifecycle.ViewModelProvider
+import com.sdds.compose.uikit.CheckBoxGroupStyle
+import com.sdds.playground.sandbox.Theme
 import com.sdds.playground.sandbox.checkbox.compose.group.CheckBoxGroupUiState.Companion.ROOT_ITEM
-import com.sdds.playground.sandbox.core.compose.PropertiesOwner
+import com.sdds.playground.sandbox.core.compose.ComponentViewModel
 import com.sdds.playground.sandbox.core.compose.Property
-import com.sdds.playground.sandbox.core.compose.enumProperty
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.SharingStarted
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.mapLatest
-import kotlinx.coroutines.flow.stateIn
+import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 
 /**
  * ViewModel для экранов с компонентом CheckBoxGroup
  */
-internal class CheckBoxGroupParametersViewModel : ViewModel(), PropertiesOwner {
-    private val _checkboxGroupState = MutableStateFlow(CheckBoxGroupUiState())
+internal class CheckBoxGroupViewModel(
+    defaultState: CheckBoxGroupUiState,
+    private val theme: Theme.ThemeInfoCompose,
+) : ComponentViewModel<CheckBoxGroupUiState, CheckBoxGroupStyle>(defaultState) {
 
-    /**
-     * Состояние checkBoxGroup
-     */
-    val checkboxGroupState: StateFlow<CheckBoxGroupUiState>
-        get() = _checkboxGroupState.asStateFlow()
-
-    @OptIn(ExperimentalCoroutinesApi::class)
-    override val properties: StateFlow<List<Property<*>>> =
-        _checkboxGroupState
-            .mapLatest { state -> state.toProps() }
-            .stateIn(viewModelScope, SharingStarted.Lazily, emptyList())
-
-    override fun resetToDefault() {
-        _checkboxGroupState.value = CheckBoxGroupUiState()
+    override fun getStyleProvider(): ComposeStyleProvider<String, CheckBoxGroupStyle> {
+        return theme.stylesProvider.checkBoxGroup
     }
 
     fun checkBoxClicked(id: Int) {
-        _checkboxGroupState.value = _checkboxGroupState.value.copy(
-            items = _checkboxGroupState.value.items.mapIndexed { i, item ->
+        internalUiState.value = internalUiState.value.copy(
+            items = internalUiState.value.items.mapIndexed { i, item ->
                 if (i == id) {
                     item.copy(state = item.state.toggle())
                 } else {
@@ -48,20 +32,20 @@ internal class CheckBoxGroupParametersViewModel : ViewModel(), PropertiesOwner {
                 }
             },
         )
-        _checkboxGroupState.value = _checkboxGroupState.value.copy(
-            rootItem = _checkboxGroupState.value.rootItem?.copy(
-                state = _checkboxGroupState.value.getParentState(),
+        internalUiState.value = internalUiState.value.copy(
+            rootItem = internalUiState.value.rootItem?.copy(
+                state = internalUiState.value.getParentState(),
             ),
         )
     }
 
     fun rootCheckBoxClicked() {
-        val newState = _checkboxGroupState.value.rootItem?.state!!.toggle()
-        _checkboxGroupState.value = _checkboxGroupState.value.copy(
-            rootItem = _checkboxGroupState.value.rootItem?.copy(
+        val newState = internalUiState.value.rootItem?.state!!.toggle()
+        internalUiState.value = internalUiState.value.copy(
+            rootItem = internalUiState.value.rootItem?.copy(
                 state = newState,
             ),
-            items = _checkboxGroupState.value.items.map {
+            items = internalUiState.value.items.map {
                 it.copy(state = newState)
             },
         )
@@ -84,47 +68,37 @@ internal class CheckBoxGroupParametersViewModel : ViewModel(), PropertiesOwner {
 
     private fun updateRootState(hasRoot: Boolean) {
         val rootItem = if (hasRoot) ROOT_ITEM else null
-        _checkboxGroupState.value = _checkboxGroupState.value.copy(rootItem = rootItem)
-    }
-
-    private fun updateSize(size: Size) {
-        _checkboxGroupState.value = _checkboxGroupState.value.copy(size = size)
+        internalUiState.value = internalUiState.value.copy(rootItem = rootItem)
     }
 
     private fun updateLabel(text: String) {
-        _checkboxGroupState.value = _checkboxGroupState.value.copy(
-            items = _checkboxGroupState.value.items.map { item ->
+        internalUiState.value = internalUiState.value.copy(
+            items = internalUiState.value.items.map { item ->
                 item.copy(label = text.takeIf { it.isNotBlank() })
             },
-            rootItem = _checkboxGroupState.value.rootItem?.copy(
+            rootItem = internalUiState.value.rootItem?.copy(
                 label = text.takeIf { it.isNotBlank() },
             ),
         )
     }
 
     private fun updateDescription(text: String) {
-        _checkboxGroupState.value = _checkboxGroupState.value.copy(
-            items = _checkboxGroupState.value.items.map { item ->
+        internalUiState.value = internalUiState.value.copy(
+            items = internalUiState.value.items.map { item ->
                 item.copy(description = text.takeIf { it.isNotBlank() })
             },
-            rootItem = _checkboxGroupState.value.rootItem?.copy(
+            rootItem = internalUiState.value.rootItem?.copy(
                 description = text.takeIf { it.isNotBlank() },
             ),
         )
     }
 
     private fun updateEnabledState(enabled: Boolean) {
-        _checkboxGroupState.value = _checkboxGroupState.value.copy(enabled = enabled)
+        internalUiState.value = internalUiState.value.copy(enabled = enabled)
     }
 
-    private fun CheckBoxGroupUiState.toProps(): List<Property<*>> {
+    override fun CheckBoxGroupUiState.toProps(): List<Property<*>> {
         return listOfNotNull(
-            enumProperty(
-                name = "size",
-                value = size,
-                onApply = { updateSize(it) },
-            ),
-
             Property.StringProperty(
                 name = "label",
                 value = items.first().label ?: "Empty",
@@ -149,5 +123,16 @@ internal class CheckBoxGroupParametersViewModel : ViewModel(), PropertiesOwner {
                 onApply = { updateRootState(it) },
             ),
         )
+    }
+}
+
+internal class CheckBoxGroupViewModelFactory(
+    private val defaultState: CheckBoxGroupUiState,
+    private val theme: Theme.ThemeInfoCompose,
+) : ViewModelProvider.Factory {
+
+    @Suppress("UNCHECKED_CAST")
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        return CheckBoxGroupViewModel(defaultState, theme) as T
     }
 }

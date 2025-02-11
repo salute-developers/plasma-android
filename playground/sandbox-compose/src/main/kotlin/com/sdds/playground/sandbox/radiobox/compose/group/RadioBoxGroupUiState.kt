@@ -1,23 +1,21 @@
 package com.sdds.playground.sandbox.radiobox.compose.group
 
-import androidx.compose.runtime.Composable
-import com.sdds.compose.uikit.RadioBoxGroup
-import com.sdds.compose.uikit.RadioBoxGroupStyle
-import com.sdds.playground.sandbox.radiobox.compose.Size
-import com.sdds.serv.styles.radiobox.group.M
-import com.sdds.serv.styles.radiobox.group.S
+import com.sdds.playground.sandbox.core.compose.UiState
 
 /**
  * Состояния компонента RadioBoxGroup
- * @property size размер элементов
  * @property items элементы группы
  * @property current текущий выбранный элемент
  */
 internal data class RadioBoxGroupUiState(
-    val size: Size = Size.M,
+    override val variant: String = "",
     val items: List<RadioBoxGroupItem> = ITEMS,
     val current: Any? = items.first().id,
-) {
+) : UiState {
+
+    override fun updateVariant(variant: String): UiState {
+        return copy(variant = variant)
+    }
 
     private companion object {
         val ITEMS = listOf(
@@ -26,13 +24,6 @@ internal data class RadioBoxGroupUiState(
         )
     }
 }
-
-@Composable
-internal fun RadioBoxGroupUiState.radioBoxGroupStyle(): RadioBoxGroupStyle =
-    when (size) {
-        Size.M -> RadioBoxGroup.M.style()
-        Size.S -> RadioBoxGroup.S.style()
-    }
 
 internal data class RadioBoxGroupItem(
     val id: Int,
