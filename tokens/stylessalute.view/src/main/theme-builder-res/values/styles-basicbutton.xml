@@ -3,7 +3,7 @@
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <resources>
     <style name="Salute.StylesSalute.Components.BasicButton" parent="Sdds.Components.Button">
-        <item name="sd_colorStateProvider">com.themebuilder.tokens.colorstate.ButtonColorStateProvider</item>
+        <item name="sd_colorStateProvider">com.stylessalute.colorstate.ButtonColorStateProvider</item>
         <item name="sd_disabledAlpha">0.4</item>
         <item name="backgroundTint">@color/salute_basic_button_bg_color</item>
         <item name="android:textColor">@color/salute_basic_button_text_color</item>

@@ -3,7 +3,7 @@
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <resources>
     <style name="Salute.StylesSalute.Components.IconButton" parent="Sdds.Components.IconButton">
-        <item name="sd_colorStateProvider">com.themebuilder.tokens.colorstate.IconButtonColorStateProvider</item>
+        <item name="sd_colorStateProvider">com.stylessalute.colorstate.IconButtonColorStateProvider</item>
         <item name="sd_disabledAlpha">0.4</item>
         <item name="backgroundTint">@color/salute_icon_button_bg_color</item>
         <item name="sd_spinnerTint">@color/salute_icon_button_spinner_tint</item>
