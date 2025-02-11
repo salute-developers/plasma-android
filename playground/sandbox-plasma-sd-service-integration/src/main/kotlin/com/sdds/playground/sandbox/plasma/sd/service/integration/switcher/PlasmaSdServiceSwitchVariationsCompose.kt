@@ -10,8 +10,8 @@ import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 
 internal object PlasmaSdServiceSwitchVariationsCompose :
     ComposeStyleProvider<String, SwitchStyle>() {
-    override val variations: Map<String, @Composable () -> SwitchStyle>
-        get() = mapOf(
+    override val variations: Map<String, @Composable () -> SwitchStyle> =
+        mapOf(
             "L" to { Switch.L.style() },
             "M" to { Switch.M.style() },
             "S" to { Switch.S.style() },

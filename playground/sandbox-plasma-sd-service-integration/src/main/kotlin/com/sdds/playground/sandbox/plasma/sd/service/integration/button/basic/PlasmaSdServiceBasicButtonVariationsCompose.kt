@@ -4,7 +4,6 @@ import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.BasicButton
 import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.style.style
-import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 import com.sdds.plasma.sd.service.styles.button.basic.Accent
 import com.sdds.plasma.sd.service.styles.button.basic.Black
 import com.sdds.plasma.sd.service.styles.button.basic.Clear
@@ -19,11 +18,12 @@ import com.sdds.plasma.sd.service.styles.button.basic.Secondary
 import com.sdds.plasma.sd.service.styles.button.basic.Warning
 import com.sdds.plasma.sd.service.styles.button.basic.White
 import com.sdds.plasma.sd.service.styles.button.basic.Xs
+import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 
 internal object PlasmaSdServiceBasicButtonVariationsCompose : ComposeStyleProvider<String, ButtonStyle>() {
 
-    override val variations: Map<String, @Composable () -> ButtonStyle>
-        get() = mapOf(
+    override val variations: Map<String, @Composable () -> ButtonStyle> =
+        mapOf(
             "LDefault" to { BasicButton.L.Default.style() },
             "MDefault" to { BasicButton.M.Default.style() },
             "SDefault" to { BasicButton.S.Default.style() },

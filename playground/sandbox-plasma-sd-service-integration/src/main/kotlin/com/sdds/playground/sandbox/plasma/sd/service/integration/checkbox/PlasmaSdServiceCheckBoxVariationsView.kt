@@ -1,11 +1,12 @@
 package com.sdds.playground.sandbox.plasma.sd.service.integration.checkbox
 
 import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
+import com.sdds.playground.sandbox.plasma.sd.service.integration.s
 
 internal object PlasmaSdServiceCheckBoxVariationsView : ViewStyleProvider<String>() {
-    override val variations: Map<String, Int>
-        get() = mapOf(
-            "M" to com.sdds.plasma.sd.service.R.style.Plasma_SdService_ComponentOverlays_CheckBoxM,
-            "S" to com.sdds.plasma.sd.service.R.style.Plasma_SdService_ComponentOverlays_CheckBoxS,
+    override val variations: Map<String, Int> =
+        mapOf(
+            "M" to s.Plasma_SdService_ComponentOverlays_CheckBoxM,
+            "S" to s.Plasma_SdService_ComponentOverlays_CheckBoxS,
         )
 }

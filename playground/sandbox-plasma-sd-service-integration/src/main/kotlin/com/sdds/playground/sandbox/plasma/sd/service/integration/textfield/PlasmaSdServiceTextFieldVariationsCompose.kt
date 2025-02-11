@@ -4,7 +4,6 @@ import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.TextField
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.style.style
-import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 import com.sdds.plasma.sd.service.styles.textfield.Default
 import com.sdds.plasma.sd.service.styles.textfield.Error
 import com.sdds.plasma.sd.service.styles.textfield.InnerLabel
@@ -17,6 +16,7 @@ import com.sdds.plasma.sd.service.styles.textfield.S
 import com.sdds.plasma.sd.service.styles.textfield.Success
 import com.sdds.plasma.sd.service.styles.textfield.Warning
 import com.sdds.plasma.sd.service.styles.textfield.Xs
+import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 
 internal object PlasmaSdServiceTextFieldVariationsCompose : ComposeStyleProvider<String, TextFieldStyle>() {
     override val variations: Map<String, @Composable () -> TextFieldStyle>

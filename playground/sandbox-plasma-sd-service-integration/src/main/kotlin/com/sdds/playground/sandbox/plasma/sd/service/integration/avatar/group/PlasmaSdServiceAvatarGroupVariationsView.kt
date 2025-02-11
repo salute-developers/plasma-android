@@ -1,10 +1,11 @@
 package com.sdds.playground.sandbox.plasma.sd.service.integration.avatar.group
 
 import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
+import com.sdds.playground.sandbox.plasma.sd.service.integration.s
 
 internal object PlasmaSdServiceAvatarGroupVariationsView : ViewStyleProvider<String>() {
-    override val variations: Map<String, Int>
-        get() = mapOf(
-            "S" to com.sdds.plasma.sd.service.R.style.Plasma_SdService_ComponentOverlays_AvatarS,
+    override val variations: Map<String, Int> =
+        mapOf(
+            "S" to s.Plasma_SdService_ComponentOverlays_AvatarS,
         )
 }

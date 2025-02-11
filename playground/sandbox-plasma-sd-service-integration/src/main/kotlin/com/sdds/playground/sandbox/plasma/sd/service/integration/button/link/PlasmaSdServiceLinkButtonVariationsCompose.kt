@@ -4,7 +4,6 @@ import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.LinkButton
 import com.sdds.compose.uikit.style.style
-import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 import com.sdds.plasma.sd.service.styles.button.link.Accent
 import com.sdds.plasma.sd.service.styles.button.link.Default
 import com.sdds.plasma.sd.service.styles.button.link.L
@@ -15,11 +14,12 @@ import com.sdds.plasma.sd.service.styles.button.link.S
 import com.sdds.plasma.sd.service.styles.button.link.Secondary
 import com.sdds.plasma.sd.service.styles.button.link.Warning
 import com.sdds.plasma.sd.service.styles.button.link.Xs
+import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 
 internal object PlasmaSdServiceLinkButtonVariationsCompose : ComposeStyleProvider<String, ButtonStyle>() {
 
-    override val variations: Map<String, @Composable () -> ButtonStyle>
-        get() = mapOf(
+    override val variations: Map<String, @Composable () -> ButtonStyle> =
+        mapOf(
             "LDefault" to { LinkButton.L.Default.style() },
             "MDefault" to { LinkButton.M.Default.style() },
             "SDefault" to { LinkButton.S.Default.style() },

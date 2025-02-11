@@ -3,7 +3,6 @@ package com.sdds.playground.sandbox.plasma.sd.service.integration.chip
 import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.Chip
 import com.sdds.compose.uikit.ChipStyle
-import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 import com.sdds.plasma.sd.service.styles.chip.Accent
 import com.sdds.plasma.sd.service.styles.chip.Default
 import com.sdds.plasma.sd.service.styles.chip.L
@@ -12,11 +11,12 @@ import com.sdds.plasma.sd.service.styles.chip.Pilled
 import com.sdds.plasma.sd.service.styles.chip.S
 import com.sdds.plasma.sd.service.styles.chip.Secondary
 import com.sdds.plasma.sd.service.styles.chip.Xs
+import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 
 internal object PlasmaSdServiceChipVariationsCompose : ComposeStyleProvider<String, ChipStyle>() {
 
-    override val variations: Map<String, @Composable () -> ChipStyle>
-        get() = mapOf(
+    override val variations: Map<String, @Composable () -> ChipStyle> =
+        mapOf(
             "LDefault" to { Chip.L.Default.style() },
             "MDefault" to { Chip.M.Default.style() },
             "SDefault" to { Chip.S.Default.style() },

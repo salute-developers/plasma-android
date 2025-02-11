@@ -4,7 +4,6 @@ import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.style.style
-import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 import com.sdds.plasma.sd.service.styles.button.icon.Accent
 import com.sdds.plasma.sd.service.styles.button.icon.Default
 import com.sdds.plasma.sd.service.styles.button.icon.L
@@ -16,11 +15,12 @@ import com.sdds.plasma.sd.service.styles.button.icon.S
 import com.sdds.plasma.sd.service.styles.button.icon.Secondary
 import com.sdds.plasma.sd.service.styles.button.icon.Warning
 import com.sdds.plasma.sd.service.styles.button.icon.Xs
+import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 
 internal object PlasmaSdServiceIconButtonVariationsCompose : ComposeStyleProvider<String, ButtonStyle>() {
 
-    override val variations: Map<String, @Composable () -> ButtonStyle>
-        get() = mapOf(
+    override val variations: Map<String, @Composable () -> ButtonStyle> =
+        mapOf(
             "LDefault" to { IconButton.L.Default.style() },
             "LPilledDefault" to { IconButton.L.Pilled.Default.style() },
             "MDefault" to { IconButton.M.Default.style() },

@@ -4,7 +4,6 @@ import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.TextAreaClear
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.style.style
-import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 import com.sdds.plasma.sd.service.styles.textarea.clear.Default
 import com.sdds.plasma.sd.service.styles.textarea.clear.Error
 import com.sdds.plasma.sd.service.styles.textarea.clear.InnerLabel
@@ -16,11 +15,12 @@ import com.sdds.plasma.sd.service.styles.textarea.clear.RequiredStart
 import com.sdds.plasma.sd.service.styles.textarea.clear.S
 import com.sdds.plasma.sd.service.styles.textarea.clear.Warning
 import com.sdds.plasma.sd.service.styles.textarea.clear.Xs
+import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 
 internal object PlasmaSdServiceTextAreaClearVariationsCompose : ComposeStyleProvider<String, TextFieldStyle>() {
 
-    override val variations: Map<String, @Composable () -> TextFieldStyle>
-        get() = mapOf(
+    override val variations: Map<String, @Composable () -> TextFieldStyle> =
+        mapOf(
             "LDefault" to { TextAreaClear.L.Default.style() },
             "LRequiredStartDefault" to { TextAreaClear.L.RequiredStart.Default.style() },
             "LRequiredEndDefault" to { TextAreaClear.L.RequiredEnd.Default.style() },
