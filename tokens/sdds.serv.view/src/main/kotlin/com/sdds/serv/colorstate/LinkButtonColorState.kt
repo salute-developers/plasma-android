@@ -4,8 +4,6 @@ package com.sdds.serv.colorstate
 import android.content.Context
 import android.util.AttributeSet
 import com.sdds.serv.R
-import com.sdds.serv.colorstate.LinkButtonColorState
-import com.sdds.serv.colorstate.LinkButtonColorStateProvider
 import com.sdds.uikit.colorstate.ColorState
 import com.sdds.uikit.colorstate.ColorStateProvider
 import kotlin.Int
@@ -23,7 +21,6 @@ public enum class LinkButtonColorState(
     POSITIVE(intArrayOf(R.attr.serv_linkbutton_state_positive)),
     NEGATIVE(intArrayOf(R.attr.serv_linkbutton_state_negative)),
     WARNING(intArrayOf(R.attr.serv_linkbutton_state_warning)),
-    ;
 }
 
 /**

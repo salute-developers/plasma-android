@@ -581,12 +581,8 @@
     <attr format="reference|color" name="plasma_outlineDefaultNegativeTransparentActive"/>
     <attr format="reference|color" name="plasma_outlineDefaultTransparentInfoHover"/>
     <attr format="reference|color" name="plasma_outlineDefaultTransparentInfoActive"/>
-    <attr format="reference|color" name="plasma_outlineDefaultPrimary"/>
     <attr format="reference|color" name="plasma_outlineDefaultPrimaryHover"/>
     <attr format="reference|color" name="plasma_outlineDefaultPrimaryActive"/>
-    <attr format="reference|color" name="plasma_outlineDefaultSecondary"/>
-    <attr format="reference|color" name="plasma_outlineDefaultTertiary"/>
-    <attr format="reference|color" name="plasma_outlineDefaultDefault"/>
     <attr format="reference|color" name="plasma_outlineDefaultTransparentPrimary"/>
     <attr format="reference|color" name="plasma_outlineDefaultTransparentSecondary"/>
     <attr format="reference|color" name="plasma_outlineDefaultTransparentTertiary"/>
@@ -608,6 +604,18 @@
     <attr format="reference|color" name="plasma_outlineDefaultInfo"/>
     <attr format="reference|color" name="plasma_outlineDefaultInfoMinor"/>
     <attr format="reference|color" name="plasma_outlineDefaultTransparentInfo"/>
+    <attr format="reference|color" name="plasma_outlineDefaultSolidPrimary"/>
+    <attr format="reference|color" name="plasma_outlineDefaultSolidPrimaryHover"/>
+    <attr format="reference|color" name="plasma_outlineDefaultSolidPrimaryActive"/>
+    <attr format="reference|color" name="plasma_outlineDefaultSolidSecondary"/>
+    <attr format="reference|color" name="plasma_outlineDefaultSolidSecondaryHover"/>
+    <attr format="reference|color" name="plasma_outlineDefaultSolidSecondaryActive"/>
+    <attr format="reference|color" name="plasma_outlineDefaultSolidTertiary"/>
+    <attr format="reference|color" name="plasma_outlineDefaultSolidTertiaryHover"/>
+    <attr format="reference|color" name="plasma_outlineDefaultSolidTertiaryActive"/>
+    <attr format="reference|color" name="plasma_outlineDefaultSolidDefault"/>
+    <attr format="reference|color" name="plasma_outlineDefaultSolidDefaultHover"/>
+    <attr format="reference|color" name="plasma_outlineDefaultSolidDefaultActive"/>
     <attr format="reference|color" name="plasma_outlineOnDarkSecondaryHover"/>
     <attr format="reference|color" name="plasma_outlineOnDarkSecondaryActive"/>
     <attr format="reference|color" name="plasma_outlineOnDarkTertiaryHover"/>
@@ -665,20 +673,27 @@
     <attr format="reference|color" name="plasma_outlineOnDarkNegativeTransparentActive"/>
     <attr format="reference|color" name="plasma_outlineOnDarkTransparentInfoHover"/>
     <attr format="reference|color" name="plasma_outlineOnDarkTransparentInfoActive"/>
-    <attr format="reference|color" name="plasma_outlineOnDarkPrimary"/>
     <attr format="reference|color" name="plasma_outlineOnDarkPrimaryHover"/>
     <attr format="reference|color" name="plasma_outlineOnDarkPrimaryActive"/>
-    <attr format="reference|color" name="plasma_outlineOnDarkSecondary"/>
-    <attr format="reference|color" name="plasma_outlineOnDarkTertiary"/>
-    <attr format="reference|color" name="plasma_outlineOnDarkDefault"/>
     <attr format="reference|color" name="plasma_outlineOnDarkInfo"/>
     <attr format="reference|color" name="plasma_outlineOnDarkInfoMinor"/>
     <attr format="reference|color" name="plasma_outlineOnDarkTransparentInfo"/>
+    <attr format="reference|color" name="plasma_outlineOnDarkSolidPrimary"/>
+    <attr format="reference|color" name="plasma_outlineOnDarkSolidPrimaryHover"/>
+    <attr format="reference|color" name="plasma_outlineOnDarkSolidPrimaryActive"/>
+    <attr format="reference|color" name="plasma_outlineOnDarkSolidSecondary"/>
+    <attr format="reference|color" name="plasma_outlineOnDarkSolidSecondaryHover"/>
+    <attr format="reference|color" name="plasma_outlineOnDarkSolidSecondaryActive"/>
+    <attr format="reference|color" name="plasma_outlineOnDarkSolidTertiary"/>
+    <attr format="reference|color" name="plasma_outlineOnDarkSolidTertiaryHover"/>
+    <attr format="reference|color" name="plasma_outlineOnDarkSolidTertiaryActive"/>
+    <attr format="reference|color" name="plasma_outlineOnDarkSolidDefault"/>
+    <attr format="reference|color" name="plasma_outlineOnDarkSolidDefaultHover"/>
+    <attr format="reference|color" name="plasma_outlineOnDarkSolidDefaultActive"/>
     <attr format="reference|color" name="plasma_outlineOnLightSecondaryHover"/>
     <attr format="reference|color" name="plasma_outlineOnLightSecondaryActive"/>
     <attr format="reference|color" name="plasma_outlineOnLightTertiaryHover"/>
     <attr format="reference|color" name="plasma_outlineOnLightTertiaryActive"/>
-    <attr format="reference|color" name="plasma_outlineOnLightDefault"/>
     <attr format="reference|color" name="plasma_outlineOnLightDefaultHover"/>
     <attr format="reference|color" name="plasma_outlineOnLightDefaultActive"/>
     <attr format="reference|color" name="plasma_outlineOnLightTransparentPrimary"/>
@@ -732,14 +747,23 @@
     <attr format="reference|color" name="plasma_outlineOnLightNegativeTransparentActive"/>
     <attr format="reference|color" name="plasma_outlineOnLightTransparentInfoHover"/>
     <attr format="reference|color" name="plasma_outlineOnLightTransparentInfoActive"/>
-    <attr format="reference|color" name="plasma_outlineOnLightPrimary"/>
     <attr format="reference|color" name="plasma_outlineOnLightPrimaryHover"/>
     <attr format="reference|color" name="plasma_outlineOnLightPrimaryActive"/>
-    <attr format="reference|color" name="plasma_outlineOnLightSecondary"/>
-    <attr format="reference|color" name="plasma_outlineOnLightTertiary"/>
     <attr format="reference|color" name="plasma_outlineOnLightInfo"/>
     <attr format="reference|color" name="plasma_outlineOnLightInfoMinor"/>
     <attr format="reference|color" name="plasma_outlineOnLightTransparentInfo"/>
+    <attr format="reference|color" name="plasma_outlineOnLightSolidTertiary"/>
+    <attr format="reference|color" name="plasma_outlineOnLightSolidTertiaryHover"/>
+    <attr format="reference|color" name="plasma_outlineOnLightSolidTertiaryActive"/>
+    <attr format="reference|color" name="plasma_outlineOnLightSolidDefault"/>
+    <attr format="reference|color" name="plasma_outlineOnLightSolidDefaultHover"/>
+    <attr format="reference|color" name="plasma_outlineOnLightSolidDefaultActive"/>
+    <attr format="reference|color" name="plasma_outlineOnLightSolidPrimary"/>
+    <attr format="reference|color" name="plasma_outlineOnLightSolidPrimaryHover"/>
+    <attr format="reference|color" name="plasma_outlineOnLightSolidPrimaryActive"/>
+    <attr format="reference|color" name="plasma_outlineOnLightSolidSecondary"/>
+    <attr format="reference|color" name="plasma_outlineOnLightSolidSecondaryHover"/>
+    <attr format="reference|color" name="plasma_outlineOnLightSolidSecondaryActive"/>
     <attr format="reference|color" name="plasma_outlineInversePrimaryHover"/>
     <attr format="reference|color" name="plasma_outlineInversePrimaryActive"/>
     <attr format="reference|color" name="plasma_outlineInverseSecondaryHover"/>
@@ -786,10 +810,6 @@
     <attr format="reference|color" name="plasma_outlineInverseTransparentNegativeActive"/>
     <attr format="reference|color" name="plasma_outlineInverseTransparentInfoHover"/>
     <attr format="reference|color" name="plasma_outlineInverseTransparentInfoActive"/>
-    <attr format="reference|color" name="plasma_outlineInversePrimary"/>
-    <attr format="reference|color" name="plasma_outlineInverseSecondary"/>
-    <attr format="reference|color" name="plasma_outlineInverseTertiary"/>
-    <attr format="reference|color" name="plasma_outlineInverseDefault"/>
     <attr format="reference|color" name="plasma_outlineInverseTransparentPrimary"/>
     <attr format="reference|color" name="plasma_outlineInverseTransparentSecondary"/>
     <attr format="reference|color" name="plasma_outlineInverseTransparentTertiary"/>
@@ -809,4 +829,16 @@
     <attr format="reference|color" name="plasma_outlineInverseTransparentWarning"/>
     <attr format="reference|color" name="plasma_outlineInverseTransparentNegative"/>
     <attr format="reference|color" name="plasma_outlineInverseTransparentInfo"/>
+    <attr format="reference|color" name="plasma_outlineInverseSolidPrimary"/>
+    <attr format="reference|color" name="plasma_outlineInverseSolidPrimaryHover"/>
+    <attr format="reference|color" name="plasma_outlineInverseSolidPrimaryActive"/>
+    <attr format="reference|color" name="plasma_outlineInverseSolidSecondary"/>
+    <attr format="reference|color" name="plasma_outlineInverseSolidSecondaryHover"/>
+    <attr format="reference|color" name="plasma_outlineInverseSolidSecondaryActive"/>
+    <attr format="reference|color" name="plasma_outlineInverseSolidTertiary"/>
+    <attr format="reference|color" name="plasma_outlineInverseSolidTertiaryHover"/>
+    <attr format="reference|color" name="plasma_outlineInverseSolidTertiaryActive"/>
+    <attr format="reference|color" name="plasma_outlineInverseSolidDefault"/>
+    <attr format="reference|color" name="plasma_outlineInverseSolidDefaultHover"/>
+    <attr format="reference|color" name="plasma_outlineInverseSolidDefaultActive"/>
 </resources>

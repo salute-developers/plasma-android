@@ -6,8 +6,6 @@ import android.util.AttributeSet
 import com.sdds.plasma.sd.service.R
 import com.sdds.uikit.colorstate.ColorState
 import com.sdds.uikit.colorstate.ColorStateProvider
-import com.themebuilder.tokens.colorstate.ButtonColorState
-import com.themebuilder.tokens.colorstate.ButtonColorStateProvider
 import kotlin.Int
 import kotlin.IntArray
 
@@ -27,7 +25,6 @@ public enum class ButtonColorState(
     DARK(intArrayOf(R.attr.plasma_button_state_dark)),
     BLACK(intArrayOf(R.attr.plasma_button_state_black)),
     WHITE(intArrayOf(R.attr.plasma_button_state_white)),
-    ;
 }
 
 /**

@@ -17,8 +17,6 @@ import com.sdds.compose.uikit.AvatarStyleBuilder
 import com.sdds.compose.uikit.floatPx
 import com.sdds.stylessalute.theme.StylesSaluteTheme
 
-
-
 /**
  * Стиль [Avatar] размера XXL
  */

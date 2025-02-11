@@ -4,13 +4,10 @@ package com.sdds.stylessalute.theme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.ProvidableCompositionLocal
-import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.staticCompositionLocalOf
-import androidx.compose.runtime.structuralEqualityPolicy
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.sdds.stylessalute.theme.StylesSaluteTypography
 import com.sdds.stylessalute.tokens.TypographyLargeTokens
 import com.sdds.stylessalute.tokens.TypographyMediumTokens
 import com.sdds.stylessalute.tokens.TypographySmallTokens
@@ -20,44 +17,148 @@ import com.sdds.stylessalute.tokens.TypographySmallTokens
  */
 @Immutable
 public data class StylesSaluteTypography internal constructor(
+    /**
+     * typography l display-l
+     */
     public val displayLNormal: TextStyle = TextStyle.Default,
+    /**
+     * typography l display-l-bold
+     */
     public val displayLBold: TextStyle = TextStyle.Default,
+    /**
+     * typography l display-m
+     */
     public val displayMNormal: TextStyle = TextStyle.Default,
+    /**
+     * typography l display-m-bold
+     */
     public val displayMBold: TextStyle = TextStyle.Default,
+    /**
+     * typography l display-s
+     */
     public val displaySNormal: TextStyle = TextStyle.Default,
+    /**
+     * typography l display-s-bold
+     */
     public val displaySBold: TextStyle = TextStyle.Default,
+    /**
+     * typography l header-h1
+     */
     public val headerH1Normal: TextStyle = TextStyle.Default,
+    /**
+     * typography l header-h1-bold
+     */
     public val headerH1Bold: TextStyle = TextStyle.Default,
+    /**
+     * typography l header-h2
+     */
     public val headerH2Normal: TextStyle = TextStyle.Default,
+    /**
+     * typography l header-h2-bold
+     */
     public val headerH2Bold: TextStyle = TextStyle.Default,
+    /**
+     * typography l header-h3
+     */
     public val headerH3Normal: TextStyle = TextStyle.Default,
+    /**
+     * typography l header-h3-bold
+     */
     public val headerH3Bold: TextStyle = TextStyle.Default,
+    /**
+     * typography l header-h4
+     */
     public val headerH4Normal: TextStyle = TextStyle.Default,
+    /**
+     * typography l header-h4-bold
+     */
     public val headerH4Bold: TextStyle = TextStyle.Default,
+    /**
+     * typography l header-h5
+     */
     public val headerH5Normal: TextStyle = TextStyle.Default,
+    /**
+     * typography l header-h5-bold
+     */
     public val headerH5Bold: TextStyle = TextStyle.Default,
+    /**
+     * typography l body-l
+     */
     public val bodyLNormal: TextStyle = TextStyle.Default,
+    /**
+     * typography l body-l-bold
+     */
     public val bodyLBold: TextStyle = TextStyle.Default,
+    /**
+     * typography l body-m
+     */
     public val bodyMNormal: TextStyle = TextStyle.Default,
+    /**
+     * typography l body-m-bold
+     */
     public val bodyMBold: TextStyle = TextStyle.Default,
+    /**
+     * typography l body-s
+     */
     public val bodySNormal: TextStyle = TextStyle.Default,
+    /**
+     * typography l body-s-bold
+     */
     public val bodySBold: TextStyle = TextStyle.Default,
+    /**
+     * typography l body-xs
+     */
     public val bodyXsNormal: TextStyle = TextStyle.Default,
+    /**
+     * typography l body-xs-bold
+     */
     public val bodyXsBold: TextStyle = TextStyle.Default,
+    /**
+     * typography l body-xxs
+     */
     public val bodyXxsNormal: TextStyle = TextStyle.Default,
+    /**
+     * typography l body-xxs-bold
+     */
     public val bodyXxsBold: TextStyle = TextStyle.Default,
+    /**
+     * typography l text-l
+     */
     public val textLNormal: TextStyle = TextStyle.Default,
+    /**
+     * typography l text-l-bold
+     */
     public val textLBold: TextStyle = TextStyle.Default,
+    /**
+     * typography l text-m
+     */
     public val textMNormal: TextStyle = TextStyle.Default,
+    /**
+     * typography l text-m-bold
+     */
     public val textMBold: TextStyle = TextStyle.Default,
+    /**
+     * typography l text-s
+     */
     public val textSNormal: TextStyle = TextStyle.Default,
+    /**
+     * typography l text-s-bold
+     */
     public val textSBold: TextStyle = TextStyle.Default,
+    /**
+     * typography l text-xs
+     */
     public val textXsNormal: TextStyle = TextStyle.Default,
+    /**
+     * typography l text-xs-bold
+     */
     public val textXsBold: TextStyle = TextStyle.Default,
 )
 
 internal val LocalStylesSaluteTypography: ProvidableCompositionLocal<StylesSaluteTypography> =
-        staticCompositionLocalOf { StylesSaluteTypography() }
+    staticCompositionLocalOf {
+        StylesSaluteTypography()
+    }
 
 /**
  * Возвращает [StylesSaluteTypography] для WindowSizeClass.Compact
@@ -184,11 +285,13 @@ public fun largeStylesSaluteTypography(): StylesSaluteTypography = StylesSaluteT
  * изменяется при изменении ширины окна.
  */
 @Composable
-public fun dynamicStylesSaluteTypography(): StylesSaluteTypography = when
-        (collectWindowSizeInfoAsState().value.widthClass) {
-    WindowSizeClass.Expanded -> largeStylesSaluteTypography()
-    WindowSizeClass.Medium -> mediumStylesSaluteTypography()
-    WindowSizeClass.Compact -> smallStylesSaluteTypography()
+public fun dynamicStylesSaluteTypography(): StylesSaluteTypography {
+    val widthClass = collectWindowSizeInfoAsState().value.widthClass
+    return when (widthClass) {
+        WindowSizeClass.Expanded -> largeStylesSaluteTypography()
+        WindowSizeClass.Medium -> mediumStylesSaluteTypography()
+        WindowSizeClass.Compact -> smallStylesSaluteTypography()
+    }
 }
 
 /**

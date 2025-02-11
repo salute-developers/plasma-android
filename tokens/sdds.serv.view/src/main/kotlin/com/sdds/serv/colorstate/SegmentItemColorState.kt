@@ -9,13 +9,12 @@ import com.sdds.uikit.colorstate.ColorStateProvider
 /**
  * Реализация [ColorState] для компонента SegmentItem
  */
-public enum class SegmentItemColorState (
+public enum class SegmentItemColorState(
     public override val attrs: IntArray,
 ) : ColorState {
     DEFAULT(intArrayOf(R.attr.serv_segmentItem_state_default)),
     SECONDARY(intArrayOf(R.attr.serv_segmentItem_state_secondary)),
     PRIMARY(intArrayOf(R.attr.serv_segmentItem_state_primary)),
-    ;
 }
 
 /**

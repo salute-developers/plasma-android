@@ -9,7 +9,8 @@ import com.sdds.uikit.colorstate.ColorStateProvider
 /**
  * Реализация [ColorState] для компонента Counter
  */
-public enum class CounterColorState (public override val attrs: IntArray,
+public enum class CounterColorState(
+    public override val attrs: IntArray,
 ) : ColorState {
     DEFAULT(intArrayOf(R.attr.serv_counter_state_default)),
     ACCENT(intArrayOf(R.attr.serv_counter_state_accent)),
@@ -18,7 +19,6 @@ public enum class CounterColorState (public override val attrs: IntArray,
     WARNING(intArrayOf(R.attr.serv_counter_state_warning)),
     BLACK(intArrayOf(R.attr.serv_counter_state_black)),
     WHITE(intArrayOf(R.attr.serv_counter_state_white)),
-    ;
 }
 
 /**

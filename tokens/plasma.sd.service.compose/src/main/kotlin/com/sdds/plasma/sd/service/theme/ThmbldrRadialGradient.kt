@@ -35,7 +35,7 @@ internal data class ThmbldrRadialGradient(
             radius = max(size.width, size.height) * radius / 2,
             colors = colors,
             colorStops = stops,
-            tileMode = tileMode
+            tileMode = tileMode,
         )
     }
 }

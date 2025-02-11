@@ -76,16 +76,20 @@ internal data class ButtonUiState(
 internal fun ButtonUiState.basicButtonStyle(): ButtonStyle {
     return when (variant) {
         ButtonVariant.ButtonL,
-        ButtonVariant.ButtonLPilled -> BasicButton.L
+        ButtonVariant.ButtonLPilled,
+        -> BasicButton.L
 
         ButtonVariant.ButtonM,
-        ButtonVariant.ButtonMPilled -> BasicButton.M
+        ButtonVariant.ButtonMPilled,
+        -> BasicButton.M
 
         ButtonVariant.ButtonS,
-        ButtonVariant.ButtonSPilled -> BasicButton.S
+        ButtonVariant.ButtonSPilled,
+        -> BasicButton.S
 
         ButtonVariant.ButtonXS,
-        ButtonVariant.ButtonXSPilled -> BasicButton.Xs
+        ButtonVariant.ButtonXSPilled,
+        -> BasicButton.Xs
     }
         .applyState(state)
 }
@@ -109,16 +113,20 @@ internal fun ButtonUiState.iconButtonStyle(): ButtonStyle {
 internal fun ButtonUiState.linkButtonStyle(): ButtonStyle {
     return when (variant) {
         ButtonVariant.ButtonL,
-        ButtonVariant.ButtonLPilled -> LinkButton.L
+        ButtonVariant.ButtonLPilled,
+        -> LinkButton.L
 
         ButtonVariant.ButtonM,
-        ButtonVariant.ButtonMPilled -> LinkButton.M
+        ButtonVariant.ButtonMPilled,
+        -> LinkButton.M
 
         ButtonVariant.ButtonS,
-        ButtonVariant.ButtonSPilled -> LinkButton.S
+        ButtonVariant.ButtonSPilled,
+        -> LinkButton.S
 
         ButtonVariant.ButtonXS,
-        ButtonVariant.ButtonXSPilled -> LinkButton.Xs
+        ButtonVariant.ButtonXSPilled,
+        -> LinkButton.Xs
     }
         .applyState(state)
 }

@@ -1,11 +1,13 @@
 // AUTO-GENERATED. DO NOT MODIFY this file.
 package com.sdds.serv.tokens
 
-import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
+/**
+ * Токены теней
+ */
 public object ShadowTokens {
     /**
      * shadow down soft s

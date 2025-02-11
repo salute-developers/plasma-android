@@ -1,4 +1,9 @@
 // AUTO-GENERATED. DO NOT MODIFY this file.
+@file:Suppress(
+    "UndocumentedPublicClass",
+    "UndocumentedPublicProperty",
+)
+
 package com.sdds.stylessalute.styles.textfield.clear
 
 import androidx.compose.runtime.Composable
@@ -9,7 +14,6 @@ import com.sdds.compose.uikit.TextField
 import com.sdds.compose.uikit.TextFieldClear
 import com.sdds.compose.uikit.TextFieldClearStyleBuilder
 import com.sdds.compose.uikit.TextFieldStyle
-import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.multiplyAlpha
@@ -22,46 +26,8 @@ import com.sdds.stylessalute.styles.chip.S
 import com.sdds.stylessalute.styles.chip.Secondary
 import com.sdds.stylessalute.styles.chip.Xs
 import com.sdds.stylessalute.styles.chip.group.Dense
-import com.sdds.stylessalute.styles.textfield.clear.WrapperTextFieldClear
-import com.sdds.stylessalute.styles.textfield.clear.WrapperTextFieldClearDefaultViewTerminate
-import com.sdds.stylessalute.styles.textfield.clear.WrapperTextFieldClearErrorViewTerminate
-import com.sdds.stylessalute.styles.textfield.clear.WrapperTextFieldClearL
-import com.sdds.stylessalute.styles.textfield.clear.WrapperTextFieldClearLInnerLabel
-import com.sdds.stylessalute.styles.textfield.clear.WrapperTextFieldClearLInnerLabelRequiredEnd
-import com.sdds.stylessalute.styles.textfield.clear.WrapperTextFieldClearLInnerLabelRequiredStart
-import com.sdds.stylessalute.styles.textfield.clear.WrapperTextFieldClearLOuterLabel
-import com.sdds.stylessalute.styles.textfield.clear.WrapperTextFieldClearLOuterLabelRequiredEnd
-import com.sdds.stylessalute.styles.textfield.clear.WrapperTextFieldClearLOuterLabelRequiredStart
-import com.sdds.stylessalute.styles.textfield.clear.WrapperTextFieldClearLRequiredEnd
-import com.sdds.stylessalute.styles.textfield.clear.WrapperTextFieldClearLRequiredStart
-import com.sdds.stylessalute.styles.textfield.clear.WrapperTextFieldClearM
-import com.sdds.stylessalute.styles.textfield.clear.WrapperTextFieldClearMInnerLabel
-import com.sdds.stylessalute.styles.textfield.clear.WrapperTextFieldClearMInnerLabelRequiredEnd
-import com.sdds.stylessalute.styles.textfield.clear.WrapperTextFieldClearMInnerLabelRequiredStart
-import com.sdds.stylessalute.styles.textfield.clear.WrapperTextFieldClearMOuterLabel
-import com.sdds.stylessalute.styles.textfield.clear.WrapperTextFieldClearMOuterLabelRequiredEnd
-import com.sdds.stylessalute.styles.textfield.clear.WrapperTextFieldClearMOuterLabelRequiredStart
-import com.sdds.stylessalute.styles.textfield.clear.WrapperTextFieldClearMRequiredEnd
-import com.sdds.stylessalute.styles.textfield.clear.WrapperTextFieldClearMRequiredStart
-import com.sdds.stylessalute.styles.textfield.clear.WrapperTextFieldClearS
-import com.sdds.stylessalute.styles.textfield.clear.WrapperTextFieldClearSInnerLabel
-import com.sdds.stylessalute.styles.textfield.clear.WrapperTextFieldClearSInnerLabelRequiredEnd
-import com.sdds.stylessalute.styles.textfield.clear.WrapperTextFieldClearSInnerLabelRequiredStart
-import com.sdds.stylessalute.styles.textfield.clear.WrapperTextFieldClearSOuterLabel
-import com.sdds.stylessalute.styles.textfield.clear.WrapperTextFieldClearSOuterLabelRequiredEnd
-import com.sdds.stylessalute.styles.textfield.clear.WrapperTextFieldClearSOuterLabelRequiredStart
-import com.sdds.stylessalute.styles.textfield.clear.WrapperTextFieldClearSRequiredEnd
-import com.sdds.stylessalute.styles.textfield.clear.WrapperTextFieldClearSRequiredStart
-import com.sdds.stylessalute.styles.textfield.clear.WrapperTextFieldClearSuccessViewTerminate
-import com.sdds.stylessalute.styles.textfield.clear.WrapperTextFieldClearView
-import com.sdds.stylessalute.styles.textfield.clear.WrapperTextFieldClearWarningViewTerminate
-import com.sdds.stylessalute.styles.textfield.clear.WrapperTextFieldClearXs
-import com.sdds.stylessalute.styles.textfield.clear.WrapperTextFieldClearXsOuterLabel
-import com.sdds.stylessalute.styles.textfield.clear.WrapperTextFieldClearXsOuterLabelRequiredEnd
-import com.sdds.stylessalute.styles.textfield.clear.WrapperTextFieldClearXsOuterLabelRequiredStart
-import com.sdds.stylessalute.styles.textfield.clear.WrapperTextFieldClearXsRequiredEnd
-import com.sdds.stylessalute.styles.textfield.clear.WrapperTextFieldClearXsRequiredStart
 import com.sdds.stylessalute.theme.StylesSaluteTheme
+import kotlin.Suppress
 import kotlin.jvm.JvmInline
 import kotlin.jvm.JvmName
 
@@ -257,606 +223,719 @@ public value class WrapperTextFieldClearLInnerLabelRequiredEnd(
 public val WrapperTextFieldClearView.Default: WrapperTextFieldClearDefaultViewTerminate
     @Composable
     get() = builder
-    .colors {
-    valueColor(StylesSaluteTheme.colors.textDefaultPrimary.asInteractive())
-    placeholderColor(StylesSaluteTheme.colors.textDefaultSecondary.asInteractive(setOf(InteractiveState.Activated)
-            to StylesSaluteTheme.colors.textDefaultTertiary))
-    startContentColor(StylesSaluteTheme.colors.textDefaultSecondary.asInteractive())
-    captionColor(StylesSaluteTheme.colors.textDefaultSecondary.asInteractive())
-    dividerColor(StylesSaluteTheme.colors.surfaceDefaultTransparentTertiary.asInteractive(setOf(InteractiveState.Activated)
-            to StylesSaluteTheme.colors.surfaceDefaultAccentMain))
-    }
-    .wrap(::WrapperTextFieldClearDefaultViewTerminate)
+        .colors {
+            valueColor(
+                StylesSaluteTheme.colors.textDefaultPrimary.asInteractive(),
+            )
+            placeholderColor(
+                StylesSaluteTheme.colors.textDefaultSecondary.asInteractive(
+                    setOf(InteractiveState.Activated)
+                        to StylesSaluteTheme.colors.textDefaultTertiary,
+                ),
+            )
+            startContentColor(
+                StylesSaluteTheme.colors.textDefaultSecondary.asInteractive(),
+            )
+            captionColor(
+                StylesSaluteTheme.colors.textDefaultSecondary.asInteractive(),
+            )
+            dividerColor(
+                StylesSaluteTheme.colors.surfaceDefaultTransparentTertiary.asInteractive(
+                    setOf(InteractiveState.Activated)
+                        to StylesSaluteTheme.colors.surfaceDefaultAccentMain,
+                ),
+            )
+        }
+        .wrap(::WrapperTextFieldClearDefaultViewTerminate)
 
 public val WrapperTextFieldClearView.Success: WrapperTextFieldClearSuccessViewTerminate
     @Composable
     get() = builder
-    .colors {
-    valueColor(StylesSaluteTheme.colors.textDefaultPositive.asInteractive(setOf(InteractiveState.Activated)
-            to StylesSaluteTheme.colors.textDefaultPrimary))
-    placeholderColor(StylesSaluteTheme.colors.textDefaultPositive.asInteractive(setOf(InteractiveState.Activated)
-            to StylesSaluteTheme.colors.textDefaultTertiary))
-    startContentColor(StylesSaluteTheme.colors.textDefaultPositive.asInteractive(setOf(InteractiveState.Activated)
-            to StylesSaluteTheme.colors.textDefaultSecondary))
-    captionColor(StylesSaluteTheme.colors.textDefaultPositive.asInteractive(setOf(InteractiveState.Activated)
-            to StylesSaluteTheme.colors.textDefaultSecondary))
-    dividerColor(StylesSaluteTheme.colors.surfaceDefaultPositive.asInteractive(setOf(InteractiveState.Activated)
-            to StylesSaluteTheme.colors.surfaceDefaultAccentMain))
-    }
-    .wrap(::WrapperTextFieldClearSuccessViewTerminate)
+        .colors {
+            valueColor(
+                StylesSaluteTheme.colors.textDefaultPositive.asInteractive(
+                    setOf(InteractiveState.Activated)
+                        to StylesSaluteTheme.colors.textDefaultPrimary,
+                ),
+            )
+            placeholderColor(
+                StylesSaluteTheme.colors.textDefaultPositive.asInteractive(
+                    setOf(InteractiveState.Activated)
+                        to StylesSaluteTheme.colors.textDefaultTertiary,
+                ),
+            )
+            startContentColor(
+                StylesSaluteTheme.colors.textDefaultPositive.asInteractive(
+                    setOf(InteractiveState.Activated)
+                        to StylesSaluteTheme.colors.textDefaultSecondary,
+                ),
+            )
+            captionColor(
+                StylesSaluteTheme.colors.textDefaultPositive.asInteractive(
+                    setOf(InteractiveState.Activated)
+                        to StylesSaluteTheme.colors.textDefaultSecondary,
+                ),
+            )
+            dividerColor(
+                StylesSaluteTheme.colors.surfaceDefaultPositive.asInteractive(
+                    setOf(InteractiveState.Activated)
+                        to StylesSaluteTheme.colors.surfaceDefaultAccentMain,
+                ),
+            )
+        }
+        .wrap(::WrapperTextFieldClearSuccessViewTerminate)
 
 public val WrapperTextFieldClearView.Warning: WrapperTextFieldClearWarningViewTerminate
     @Composable
     get() = builder
-    .colors {
-    valueColor(StylesSaluteTheme.colors.textDefaultWarning.asInteractive(setOf(InteractiveState.Activated)
-            to StylesSaluteTheme.colors.textDefaultPrimary))
-    placeholderColor(StylesSaluteTheme.colors.textDefaultWarning.asInteractive(setOf(InteractiveState.Activated)
-            to StylesSaluteTheme.colors.textDefaultTertiary))
-    startContentColor(StylesSaluteTheme.colors.textDefaultWarning.asInteractive(setOf(InteractiveState.Activated)
-            to StylesSaluteTheme.colors.textDefaultSecondary))
-    captionColor(StylesSaluteTheme.colors.textDefaultWarning.asInteractive(setOf(InteractiveState.Activated)
-            to StylesSaluteTheme.colors.textDefaultSecondary))
-    dividerColor(StylesSaluteTheme.colors.surfaceDefaultWarning.asInteractive(setOf(InteractiveState.Activated)
-            to StylesSaluteTheme.colors.surfaceDefaultAccentMain))
-    }
-    .wrap(::WrapperTextFieldClearWarningViewTerminate)
+        .colors {
+            valueColor(
+                StylesSaluteTheme.colors.textDefaultWarning.asInteractive(
+                    setOf(InteractiveState.Activated)
+                        to StylesSaluteTheme.colors.textDefaultPrimary,
+                ),
+            )
+            placeholderColor(
+                StylesSaluteTheme.colors.textDefaultWarning.asInteractive(
+                    setOf(InteractiveState.Activated)
+                        to StylesSaluteTheme.colors.textDefaultTertiary,
+                ),
+            )
+            startContentColor(
+                StylesSaluteTheme.colors.textDefaultWarning.asInteractive(
+                    setOf(InteractiveState.Activated)
+                        to StylesSaluteTheme.colors.textDefaultSecondary,
+                ),
+            )
+            captionColor(
+                StylesSaluteTheme.colors.textDefaultWarning.asInteractive(
+                    setOf(InteractiveState.Activated)
+                        to StylesSaluteTheme.colors.textDefaultSecondary,
+                ),
+            )
+            dividerColor(
+                StylesSaluteTheme.colors.surfaceDefaultWarning.asInteractive(
+                    setOf(InteractiveState.Activated)
+                        to StylesSaluteTheme.colors.surfaceDefaultAccentMain,
+                ),
+            )
+        }
+        .wrap(::WrapperTextFieldClearWarningViewTerminate)
 
 public val WrapperTextFieldClearView.Error: WrapperTextFieldClearErrorViewTerminate
     @Composable
     get() = builder
-    .colors {
-    valueColor(StylesSaluteTheme.colors.textDefaultNegative.asInteractive(setOf(InteractiveState.Activated)
-            to StylesSaluteTheme.colors.textDefaultPrimary))
-    placeholderColor(StylesSaluteTheme.colors.textDefaultNegative.asInteractive(setOf(InteractiveState.Activated)
-            to StylesSaluteTheme.colors.textDefaultTertiary))
-    startContentColor(StylesSaluteTheme.colors.textDefaultNegative.asInteractive(setOf(InteractiveState.Activated)
-            to StylesSaluteTheme.colors.textDefaultSecondary))
-    captionColor(StylesSaluteTheme.colors.textDefaultNegative.asInteractive(setOf(InteractiveState.Activated)
-            to StylesSaluteTheme.colors.textDefaultSecondary))
-    dividerColor(StylesSaluteTheme.colors.surfaceDefaultNegative.asInteractive(setOf(InteractiveState.Activated)
-            to StylesSaluteTheme.colors.surfaceDefaultAccentMain))
-    }
-    .wrap(::WrapperTextFieldClearErrorViewTerminate)
+        .colors {
+            valueColor(
+                StylesSaluteTheme.colors.textDefaultNegative.asInteractive(
+                    setOf(InteractiveState.Activated)
+                        to StylesSaluteTheme.colors.textDefaultPrimary,
+                ),
+            )
+            placeholderColor(
+                StylesSaluteTheme.colors.textDefaultNegative.asInteractive(
+                    setOf(InteractiveState.Activated)
+                        to StylesSaluteTheme.colors.textDefaultTertiary,
+                ),
+            )
+            startContentColor(
+                StylesSaluteTheme.colors.textDefaultNegative.asInteractive(
+                    setOf(InteractiveState.Activated)
+                        to StylesSaluteTheme.colors.textDefaultSecondary,
+                ),
+            )
+            captionColor(
+                StylesSaluteTheme.colors.textDefaultNegative.asInteractive(
+                    setOf(InteractiveState.Activated)
+                        to StylesSaluteTheme.colors.textDefaultSecondary,
+                ),
+            )
+            dividerColor(
+                StylesSaluteTheme.colors.surfaceDefaultNegative.asInteractive(
+                    setOf(InteractiveState.Activated)
+                        to StylesSaluteTheme.colors.surfaceDefaultAccentMain,
+                ),
+            )
+        }
+        .wrap(::WrapperTextFieldClearErrorViewTerminate)
 
 private val TextFieldClearStyleBuilder.invariantProps: TextFieldClearStyleBuilder
     @Composable
     get() = this
-    .dimensions {
-    boxPaddingStart(0.0.dp)
-    boxPaddingEnd(0.0.dp)
-    optionalPadding(4.0.dp)
-    helperTextPadding(4.0.dp)
-    chipsPadding(6.0.dp)
-    }
-    .captionStyle(StylesSaluteTheme.typography.bodyXsNormal)
-    .counterStyle(StylesSaluteTheme.typography.bodyXsNormal)
-    .chipGroupStyle(ChipGroup.Dense.style())
-    .colors {
-    optionalColor(StylesSaluteTheme.colors.textDefaultTertiary.asInteractive())
-    valueColorReadOnly(StylesSaluteTheme.colors.textDefaultPrimary.asInteractive())
-    placeholderColorReadOnly(StylesSaluteTheme.colors.textDefaultSecondary.asInteractive())
-    indicatorColor(StylesSaluteTheme.colors.surfaceDefaultNegative.asInteractive())
-    startContentColorReadOnly(StylesSaluteTheme.colors.textDefaultSecondary.asInteractive())
-    endContentColor(StylesSaluteTheme.colors.textDefaultSecondary.asInteractive(setOf(InteractiveState.Pressed)
-            to StylesSaluteTheme.colors.textDefaultSecondaryActive, setOf(InteractiveState.Hovered)
-            to StylesSaluteTheme.colors.textDefaultSecondaryHover))
-    endContentColorReadOnly(StylesSaluteTheme.colors.textDefaultSecondary.multiplyAlpha(0.4f).asInteractive())
-    captionColorReadOnly(StylesSaluteTheme.colors.textDefaultSecondary.asInteractive())
-    counterColor(StylesSaluteTheme.colors.textDefaultSecondary.asInteractive())
-    cursorColor(StylesSaluteTheme.colors.textDefaultAccentMain.asInteractive())
-    dividerColorReadOnly(StylesSaluteTheme.colors.surfaceDefaultTransparentPrimary.asInteractive())
-    }
+        .dimensions {
+            boxPaddingStart(0.0.dp)
+            boxPaddingEnd(0.0.dp)
+            optionalPadding(4.0.dp)
+            helperTextPadding(4.0.dp)
+            chipsPadding(6.0.dp)
+        }
+        .captionStyle(StylesSaluteTheme.typography.bodyXsNormal)
+        .counterStyle(StylesSaluteTheme.typography.bodyXsNormal)
+        .chipGroupStyle(ChipGroup.Dense.style())
+        .colors {
+            optionalColor(
+                StylesSaluteTheme.colors.textDefaultTertiary.asInteractive(),
+            )
+            valueColorReadOnly(
+                StylesSaluteTheme.colors.textDefaultPrimary.asInteractive(),
+            )
+            placeholderColorReadOnly(
+                StylesSaluteTheme.colors.textDefaultSecondary.asInteractive(),
+            )
+            indicatorColor(
+                StylesSaluteTheme.colors.surfaceDefaultNegative.asInteractive(),
+            )
+            startContentColorReadOnly(
+                StylesSaluteTheme.colors.textDefaultSecondary.asInteractive(),
+            )
+            endContentColor(
+                StylesSaluteTheme.colors.textDefaultSecondary.asInteractive(
+                    setOf(InteractiveState.Pressed)
+                        to StylesSaluteTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to StylesSaluteTheme.colors.textDefaultSecondaryHover,
+                ),
+            )
+            endContentColorReadOnly(
+                StylesSaluteTheme.colors.textDefaultSecondary.multiplyAlpha(0.4f).asInteractive(),
+            )
+            captionColorReadOnly(
+                StylesSaluteTheme.colors.textDefaultSecondary.asInteractive(),
+            )
+            counterColor(
+                StylesSaluteTheme.colors.textDefaultSecondary.asInteractive(),
+            )
+            cursorColor(
+                StylesSaluteTheme.colors.textDefaultAccentMain.asInteractive(),
+            )
+            dividerColorReadOnly(
+                StylesSaluteTheme.colors.surfaceDefaultTransparentPrimary.asInteractive(),
+            )
+        }
 
 public val TextFieldClear.Xs: WrapperTextFieldClearXs
     @Composable
     @JvmName("WrapperTextFieldClearXs")
     get() = TextFieldStyle.textFieldClearBuilder(this)
-    .invariantProps
-    .dimensions {
-    boxPaddingTop(8.0.dp)
-    boxPaddingBottom(8.0.dp)
-    boxMinHeight(32.0.dp)
-    alignmentLineHeight(32.0.dp)
-    startContentPadding(4.0.dp)
-    endContentPadding(4.0.dp)
-    startContentSize(16.0.dp)
-    endContentSize(16.0.dp)
-    }
-    .valueStyle(StylesSaluteTheme.typography.bodyXsNormal)
-    .placeholderStyle(StylesSaluteTheme.typography.bodyXsNormal)
-    .chipStyle(EmbeddedChip.Xs.Secondary.style())
-    .labelPlacement(TextField.LabelPlacement.None)
-    .wrap(::WrapperTextFieldClearXs)
+        .invariantProps
+        .dimensions {
+            boxPaddingTop(8.0.dp)
+            boxPaddingBottom(8.0.dp)
+            boxMinHeight(32.0.dp)
+            alignmentLineHeight(32.0.dp)
+            startContentPadding(4.0.dp)
+            endContentPadding(4.0.dp)
+            startContentSize(16.0.dp)
+            endContentSize(16.0.dp)
+        }
+        .valueStyle(StylesSaluteTheme.typography.bodyXsNormal)
+        .placeholderStyle(StylesSaluteTheme.typography.bodyXsNormal)
+        .chipStyle(EmbeddedChip.Xs.Secondary.style())
+        .labelPlacement(TextField.LabelPlacement.None)
+        .wrap(::WrapperTextFieldClearXs)
 
 public val WrapperTextFieldClearXs.RequiredStart: WrapperTextFieldClearXsRequiredStart
     @Composable
     @JvmName("WrapperTextFieldClearXsRequiredStart")
     get() = builder
-    .dimensions {
-    indicatorDimensions {
-    horizontalPadding(4.0.dp)
-    verticalPadding(13.0.dp)
-    indicatorSize(6.0.dp)
-    }
-    }
-    .fieldType(TextField.FieldType.RequiredStart)
-    .wrap(::WrapperTextFieldClearXsRequiredStart)
+        .dimensions {
+            indicatorDimensions {
+                horizontalPadding(4.0.dp)
+                verticalPadding(13.0.dp)
+                indicatorSize(6.0.dp)
+            }
+        }
+        .fieldType(TextField.FieldType.RequiredStart)
+        .wrap(::WrapperTextFieldClearXsRequiredStart)
 
 public val WrapperTextFieldClearXs.RequiredEnd: WrapperTextFieldClearXsRequiredEnd
     @Composable
     @JvmName("WrapperTextFieldClearXsRequiredEnd")
     get() = builder
-    .dimensions {
-    indicatorDimensions {
-    horizontalPadding(4.0.dp)
-    verticalPadding(13.0.dp)
-    indicatorSize(6.0.dp)
-    }
-    }
-    .fieldType(TextField.FieldType.RequiredEnd)
-    .wrap(::WrapperTextFieldClearXsRequiredEnd)
+        .dimensions {
+            indicatorDimensions {
+                horizontalPadding(4.0.dp)
+                verticalPadding(13.0.dp)
+                indicatorSize(6.0.dp)
+            }
+        }
+        .fieldType(TextField.FieldType.RequiredEnd)
+        .wrap(::WrapperTextFieldClearXsRequiredEnd)
 
 public val WrapperTextFieldClearXs.OuterLabel: WrapperTextFieldClearXsOuterLabel
     @Composable
     @JvmName("WrapperTextFieldClearXsOuterLabel")
     get() = builder
-    .dimensions {
-    boxPaddingTop(8.0.dp)
-    boxPaddingBottom(8.0.dp)
-    labelPadding(2.0.dp)
-    }
-    .labelStyle(StylesSaluteTheme.typography.bodyXsNormal)
-    .optionalStyle(StylesSaluteTheme.typography.bodyXsNormal)
-    .labelPlacement(TextField.LabelPlacement.Outer)
-    .colors {
-    labelColor(StylesSaluteTheme.colors.textDefaultPrimary.asInteractive())
-    }
-    .wrap(::WrapperTextFieldClearXsOuterLabel)
+        .dimensions {
+            boxPaddingTop(8.0.dp)
+            boxPaddingBottom(8.0.dp)
+            labelPadding(2.0.dp)
+        }
+        .labelStyle(StylesSaluteTheme.typography.bodyXsNormal)
+        .optionalStyle(StylesSaluteTheme.typography.bodyXsNormal)
+        .labelPlacement(TextField.LabelPlacement.Outer)
+        .colors {
+            labelColor(
+                StylesSaluteTheme.colors.textDefaultPrimary.asInteractive(),
+            )
+        }
+        .wrap(::WrapperTextFieldClearXsOuterLabel)
 
 public val WrapperTextFieldClearXsOuterLabel.RequiredStart:
-        WrapperTextFieldClearXsOuterLabelRequiredStart
+    WrapperTextFieldClearXsOuterLabelRequiredStart
     @Composable
     @JvmName("WrapperTextFieldClearXsOuterLabelRequiredStart")
     get() = builder
-    .dimensions {
-    indicatorDimensions {
-    horizontalPadding(4.0.dp)
-    verticalPadding(4.0.dp)
-    indicatorSize(6.0.dp)
-    }
-    }
-    .fieldType(TextField.FieldType.RequiredStart)
-    .wrap(::WrapperTextFieldClearXsOuterLabelRequiredStart)
+        .dimensions {
+            indicatorDimensions {
+                horizontalPadding(4.0.dp)
+                verticalPadding(4.0.dp)
+                indicatorSize(6.0.dp)
+            }
+        }
+        .fieldType(TextField.FieldType.RequiredStart)
+        .wrap(::WrapperTextFieldClearXsOuterLabelRequiredStart)
 
 public val WrapperTextFieldClearXsOuterLabel.RequiredEnd:
-        WrapperTextFieldClearXsOuterLabelRequiredEnd
+    WrapperTextFieldClearXsOuterLabelRequiredEnd
     @Composable
     @JvmName("WrapperTextFieldClearXsOuterLabelRequiredEnd")
     get() = builder
-    .dimensions {
-    indicatorDimensions {
-    horizontalPadding(4.0.dp)
-    verticalPadding(2.0.dp)
-    indicatorSize(6.0.dp)
-    }
-    }
-    .fieldType(TextField.FieldType.RequiredEnd)
-    .wrap(::WrapperTextFieldClearXsOuterLabelRequiredEnd)
+        .dimensions {
+            indicatorDimensions {
+                horizontalPadding(4.0.dp)
+                verticalPadding(2.0.dp)
+                indicatorSize(6.0.dp)
+            }
+        }
+        .fieldType(TextField.FieldType.RequiredEnd)
+        .wrap(::WrapperTextFieldClearXsOuterLabelRequiredEnd)
 
 public val TextFieldClear.S: WrapperTextFieldClearS
     @Composable
     @JvmName("WrapperTextFieldClearS")
     get() = TextFieldStyle.textFieldClearBuilder(this)
-    .invariantProps
-    .dimensions {
-    boxPaddingTop(8.0.dp)
-    boxPaddingBottom(8.0.dp)
-    boxMinHeight(40.0.dp)
-    alignmentLineHeight(40.0.dp)
-    startContentPadding(4.0.dp)
-    endContentPadding(6.0.dp)
-    startContentSize(24.0.dp)
-    endContentSize(24.0.dp)
-    }
-    .valueStyle(StylesSaluteTheme.typography.bodySNormal)
-    .placeholderStyle(StylesSaluteTheme.typography.bodySNormal)
-    .chipStyle(EmbeddedChip.S.Secondary.style())
-    .labelPlacement(TextField.LabelPlacement.None)
-    .wrap(::WrapperTextFieldClearS)
+        .invariantProps
+        .dimensions {
+            boxPaddingTop(8.0.dp)
+            boxPaddingBottom(8.0.dp)
+            boxMinHeight(40.0.dp)
+            alignmentLineHeight(40.0.dp)
+            startContentPadding(4.0.dp)
+            endContentPadding(6.0.dp)
+            startContentSize(24.0.dp)
+            endContentSize(24.0.dp)
+        }
+        .valueStyle(StylesSaluteTheme.typography.bodySNormal)
+        .placeholderStyle(StylesSaluteTheme.typography.bodySNormal)
+        .chipStyle(EmbeddedChip.S.Secondary.style())
+        .labelPlacement(TextField.LabelPlacement.None)
+        .wrap(::WrapperTextFieldClearS)
 
 public val WrapperTextFieldClearS.RequiredStart: WrapperTextFieldClearSRequiredStart
     @Composable
     @JvmName("WrapperTextFieldClearSRequiredStart")
     get() = builder
-    .dimensions {
-    indicatorDimensions {
-    horizontalPadding(6.0.dp)
-    verticalPadding(17.0.dp)
-    indicatorSize(6.0.dp)
-    }
-    }
-    .fieldType(TextField.FieldType.RequiredStart)
-    .wrap(::WrapperTextFieldClearSRequiredStart)
+        .dimensions {
+            indicatorDimensions {
+                horizontalPadding(6.0.dp)
+                verticalPadding(17.0.dp)
+                indicatorSize(6.0.dp)
+            }
+        }
+        .fieldType(TextField.FieldType.RequiredStart)
+        .wrap(::WrapperTextFieldClearSRequiredStart)
 
 public val WrapperTextFieldClearS.RequiredEnd: WrapperTextFieldClearSRequiredEnd
     @Composable
     @JvmName("WrapperTextFieldClearSRequiredEnd")
     get() = builder
-    .dimensions {
-    indicatorDimensions {
-    horizontalPadding(6.0.dp)
-    verticalPadding(17.0.dp)
-    indicatorSize(6.0.dp)
-    }
-    }
-    .fieldType(TextField.FieldType.RequiredEnd)
-    .wrap(::WrapperTextFieldClearSRequiredEnd)
+        .dimensions {
+            indicatorDimensions {
+                horizontalPadding(6.0.dp)
+                verticalPadding(17.0.dp)
+                indicatorSize(6.0.dp)
+            }
+        }
+        .fieldType(TextField.FieldType.RequiredEnd)
+        .wrap(::WrapperTextFieldClearSRequiredEnd)
 
 public val WrapperTextFieldClearS.OuterLabel: WrapperTextFieldClearSOuterLabel
     @Composable
     @JvmName("WrapperTextFieldClearSOuterLabel")
     get() = builder
-    .dimensions {
-    labelPadding(4.0.dp)
-    }
-    .labelStyle(StylesSaluteTheme.typography.bodySNormal)
-    .optionalStyle(StylesSaluteTheme.typography.bodySNormal)
-    .labelPlacement(TextField.LabelPlacement.Outer)
-    .colors {
-    labelColor(StylesSaluteTheme.colors.textDefaultPrimary.asInteractive())
-    }
-    .wrap(::WrapperTextFieldClearSOuterLabel)
+        .dimensions {
+            labelPadding(4.0.dp)
+        }
+        .labelStyle(StylesSaluteTheme.typography.bodySNormal)
+        .optionalStyle(StylesSaluteTheme.typography.bodySNormal)
+        .labelPlacement(TextField.LabelPlacement.Outer)
+        .colors {
+            labelColor(
+                StylesSaluteTheme.colors.textDefaultPrimary.asInteractive(),
+            )
+        }
+        .wrap(::WrapperTextFieldClearSOuterLabel)
 
 public val WrapperTextFieldClearSOuterLabel.RequiredStart:
-        WrapperTextFieldClearSOuterLabelRequiredStart
+    WrapperTextFieldClearSOuterLabelRequiredStart
     @Composable
     @JvmName("WrapperTextFieldClearSOuterLabelRequiredStart")
     get() = builder
-    .dimensions {
-    indicatorDimensions {
-    horizontalPadding(4.0.dp)
-    verticalPadding(6.0.dp)
-    indicatorSize(6.0.dp)
-    }
-    }
-    .fieldType(TextField.FieldType.RequiredStart)
-    .wrap(::WrapperTextFieldClearSOuterLabelRequiredStart)
+        .dimensions {
+            indicatorDimensions {
+                horizontalPadding(4.0.dp)
+                verticalPadding(6.0.dp)
+                indicatorSize(6.0.dp)
+            }
+        }
+        .fieldType(TextField.FieldType.RequiredStart)
+        .wrap(::WrapperTextFieldClearSOuterLabelRequiredStart)
 
 public val WrapperTextFieldClearSOuterLabel.RequiredEnd: WrapperTextFieldClearSOuterLabelRequiredEnd
     @Composable
     @JvmName("WrapperTextFieldClearSOuterLabelRequiredEnd")
     get() = builder
-    .dimensions {
-    indicatorDimensions {
-    horizontalPadding(4.0.dp)
-    verticalPadding(4.0.dp)
-    indicatorSize(6.0.dp)
-    }
-    }
-    .fieldType(TextField.FieldType.RequiredEnd)
-    .wrap(::WrapperTextFieldClearSOuterLabelRequiredEnd)
+        .dimensions {
+            indicatorDimensions {
+                horizontalPadding(4.0.dp)
+                verticalPadding(4.0.dp)
+                indicatorSize(6.0.dp)
+            }
+        }
+        .fieldType(TextField.FieldType.RequiredEnd)
+        .wrap(::WrapperTextFieldClearSOuterLabelRequiredEnd)
 
 public val WrapperTextFieldClearS.InnerLabel: WrapperTextFieldClearSInnerLabel
     @Composable
     @JvmName("WrapperTextFieldClearSInnerLabel")
     get() = builder
-    .dimensions {
-    boxPaddingTop(4.0.dp)
-    boxPaddingBottom(4.0.dp)
-    labelPadding(0.0.dp)
-    }
-    .labelStyle(StylesSaluteTheme.typography.bodyXsNormal)
-    .optionalStyle(StylesSaluteTheme.typography.bodyXsNormal)
-    .labelPlacement(TextField.LabelPlacement.Inner)
-    .colors {
-    labelColor(StylesSaluteTheme.colors.textDefaultSecondary.asInteractive())
-    }
-    .wrap(::WrapperTextFieldClearSInnerLabel)
+        .dimensions {
+            boxPaddingTop(4.0.dp)
+            boxPaddingBottom(4.0.dp)
+            labelPadding(0.0.dp)
+        }
+        .labelStyle(StylesSaluteTheme.typography.bodyXsNormal)
+        .optionalStyle(StylesSaluteTheme.typography.bodyXsNormal)
+        .labelPlacement(TextField.LabelPlacement.Inner)
+        .colors {
+            labelColor(
+                StylesSaluteTheme.colors.textDefaultSecondary.asInteractive(),
+            )
+        }
+        .wrap(::WrapperTextFieldClearSInnerLabel)
 
 public val WrapperTextFieldClearSInnerLabel.RequiredStart:
-        WrapperTextFieldClearSInnerLabelRequiredStart
+    WrapperTextFieldClearSInnerLabelRequiredStart
     @Composable
     @JvmName("WrapperTextFieldClearSInnerLabelRequiredStart")
     get() = builder
-    .dimensions {
-    indicatorDimensions {
-    horizontalPadding(6.0.dp)
-    verticalPadding(17.0.dp)
-    indicatorSize(6.0.dp)
-    }
-    }
-    .fieldType(TextField.FieldType.RequiredStart)
-    .wrap(::WrapperTextFieldClearSInnerLabelRequiredStart)
+        .dimensions {
+            indicatorDimensions {
+                horizontalPadding(6.0.dp)
+                verticalPadding(17.0.dp)
+                indicatorSize(6.0.dp)
+            }
+        }
+        .fieldType(TextField.FieldType.RequiredStart)
+        .wrap(::WrapperTextFieldClearSInnerLabelRequiredStart)
 
 public val WrapperTextFieldClearSInnerLabel.RequiredEnd: WrapperTextFieldClearSInnerLabelRequiredEnd
     @Composable
     @JvmName("WrapperTextFieldClearSInnerLabelRequiredEnd")
     get() = builder
-    .dimensions {
-    indicatorDimensions {
-    horizontalPadding(6.0.dp)
-    verticalPadding(17.0.dp)
-    indicatorSize(6.0.dp)
-    }
-    }
-    .fieldType(TextField.FieldType.RequiredEnd)
-    .wrap(::WrapperTextFieldClearSInnerLabelRequiredEnd)
+        .dimensions {
+            indicatorDimensions {
+                horizontalPadding(6.0.dp)
+                verticalPadding(17.0.dp)
+                indicatorSize(6.0.dp)
+            }
+        }
+        .fieldType(TextField.FieldType.RequiredEnd)
+        .wrap(::WrapperTextFieldClearSInnerLabelRequiredEnd)
 
 public val TextFieldClear.M: WrapperTextFieldClearM
     @Composable
     @JvmName("WrapperTextFieldClearM")
     get() = TextFieldStyle.textFieldClearBuilder(this)
-    .invariantProps
-    .dimensions {
-    boxPaddingTop(12.0.dp)
-    boxPaddingBottom(12.0.dp)
-    boxMinHeight(48.0.dp)
-    alignmentLineHeight(48.0.dp)
-    startContentPadding(6.0.dp)
-    endContentPadding(8.0.dp)
-    startContentSize(24.0.dp)
-    endContentSize(24.0.dp)
-    }
-    .valueStyle(StylesSaluteTheme.typography.bodyMNormal)
-    .placeholderStyle(StylesSaluteTheme.typography.bodyMNormal)
-    .chipStyle(EmbeddedChip.M.Secondary.style())
-    .labelPlacement(TextField.LabelPlacement.None)
-    .wrap(::WrapperTextFieldClearM)
+        .invariantProps
+        .dimensions {
+            boxPaddingTop(12.0.dp)
+            boxPaddingBottom(12.0.dp)
+            boxMinHeight(48.0.dp)
+            alignmentLineHeight(48.0.dp)
+            startContentPadding(6.0.dp)
+            endContentPadding(8.0.dp)
+            startContentSize(24.0.dp)
+            endContentSize(24.0.dp)
+        }
+        .valueStyle(StylesSaluteTheme.typography.bodyMNormal)
+        .placeholderStyle(StylesSaluteTheme.typography.bodyMNormal)
+        .chipStyle(EmbeddedChip.M.Secondary.style())
+        .labelPlacement(TextField.LabelPlacement.None)
+        .wrap(::WrapperTextFieldClearM)
 
 public val WrapperTextFieldClearM.RequiredStart: WrapperTextFieldClearMRequiredStart
     @Composable
     @JvmName("WrapperTextFieldClearMRequiredStart")
     get() = builder
-    .dimensions {
-    indicatorDimensions {
-    horizontalPadding(6.0.dp)
-    verticalPadding(20.0.dp)
-    indicatorSize(8.0.dp)
-    }
-    }
-    .fieldType(TextField.FieldType.RequiredStart)
-    .wrap(::WrapperTextFieldClearMRequiredStart)
+        .dimensions {
+            indicatorDimensions {
+                horizontalPadding(6.0.dp)
+                verticalPadding(20.0.dp)
+                indicatorSize(8.0.dp)
+            }
+        }
+        .fieldType(TextField.FieldType.RequiredStart)
+        .wrap(::WrapperTextFieldClearMRequiredStart)
 
 public val WrapperTextFieldClearM.RequiredEnd: WrapperTextFieldClearMRequiredEnd
     @Composable
     @JvmName("WrapperTextFieldClearMRequiredEnd")
     get() = builder
-    .dimensions {
-    indicatorDimensions {
-    horizontalPadding(6.0.dp)
-    verticalPadding(20.0.dp)
-    indicatorSize(8.0.dp)
-    }
-    }
-    .fieldType(TextField.FieldType.RequiredEnd)
-    .wrap(::WrapperTextFieldClearMRequiredEnd)
+        .dimensions {
+            indicatorDimensions {
+                horizontalPadding(6.0.dp)
+                verticalPadding(20.0.dp)
+                indicatorSize(8.0.dp)
+            }
+        }
+        .fieldType(TextField.FieldType.RequiredEnd)
+        .wrap(::WrapperTextFieldClearMRequiredEnd)
 
 public val WrapperTextFieldClearM.OuterLabel: WrapperTextFieldClearMOuterLabel
     @Composable
     @JvmName("WrapperTextFieldClearMOuterLabel")
     get() = builder
-    .dimensions {
-    labelPadding(4.0.dp)
-    }
-    .labelStyle(StylesSaluteTheme.typography.bodyMNormal)
-    .optionalStyle(StylesSaluteTheme.typography.bodyMNormal)
-    .labelPlacement(TextField.LabelPlacement.Outer)
-    .colors {
-    labelColor(StylesSaluteTheme.colors.textDefaultPrimary.asInteractive())
-    }
-    .wrap(::WrapperTextFieldClearMOuterLabel)
+        .dimensions {
+            labelPadding(4.0.dp)
+        }
+        .labelStyle(StylesSaluteTheme.typography.bodyMNormal)
+        .optionalStyle(StylesSaluteTheme.typography.bodyMNormal)
+        .labelPlacement(TextField.LabelPlacement.Outer)
+        .colors {
+            labelColor(
+                StylesSaluteTheme.colors.textDefaultPrimary.asInteractive(),
+            )
+        }
+        .wrap(::WrapperTextFieldClearMOuterLabel)
 
 public val WrapperTextFieldClearMOuterLabel.RequiredStart:
-        WrapperTextFieldClearMOuterLabelRequiredStart
+    WrapperTextFieldClearMOuterLabelRequiredStart
     @Composable
     @JvmName("WrapperTextFieldClearMOuterLabelRequiredStart")
     get() = builder
-    .dimensions {
-    indicatorDimensions {
-    horizontalPadding(6.0.dp)
-    verticalPadding(7.0.dp)
-    indicatorSize(6.0.dp)
-    }
-    }
-    .fieldType(TextField.FieldType.RequiredStart)
-    .wrap(::WrapperTextFieldClearMOuterLabelRequiredStart)
+        .dimensions {
+            indicatorDimensions {
+                horizontalPadding(6.0.dp)
+                verticalPadding(7.0.dp)
+                indicatorSize(6.0.dp)
+            }
+        }
+        .fieldType(TextField.FieldType.RequiredStart)
+        .wrap(::WrapperTextFieldClearMOuterLabelRequiredStart)
 
 public val WrapperTextFieldClearMOuterLabel.RequiredEnd: WrapperTextFieldClearMOuterLabelRequiredEnd
     @Composable
     @JvmName("WrapperTextFieldClearMOuterLabelRequiredEnd")
     get() = builder
-    .dimensions {
-    indicatorDimensions {
-    horizontalPadding(4.0.dp)
-    verticalPadding(4.0.dp)
-    indicatorSize(6.0.dp)
-    }
-    }
-    .fieldType(TextField.FieldType.RequiredEnd)
-    .wrap(::WrapperTextFieldClearMOuterLabelRequiredEnd)
+        .dimensions {
+            indicatorDimensions {
+                horizontalPadding(4.0.dp)
+                verticalPadding(4.0.dp)
+                indicatorSize(6.0.dp)
+            }
+        }
+        .fieldType(TextField.FieldType.RequiredEnd)
+        .wrap(::WrapperTextFieldClearMOuterLabelRequiredEnd)
 
 public val WrapperTextFieldClearM.InnerLabel: WrapperTextFieldClearMInnerLabel
     @Composable
     @JvmName("WrapperTextFieldClearMInnerLabel")
     get() = builder
-    .dimensions {
-    boxPaddingTop(6.0.dp)
-    boxPaddingBottom(6.0.dp)
-    labelPadding(2.0.dp)
-    }
-    .labelStyle(StylesSaluteTheme.typography.bodyXsNormal)
-    .optionalStyle(StylesSaluteTheme.typography.bodyXsNormal)
-    .labelPlacement(TextField.LabelPlacement.Inner)
-    .colors {
-    labelColor(StylesSaluteTheme.colors.textDefaultSecondary.asInteractive())
-    }
-    .wrap(::WrapperTextFieldClearMInnerLabel)
+        .dimensions {
+            boxPaddingTop(6.0.dp)
+            boxPaddingBottom(6.0.dp)
+            labelPadding(2.0.dp)
+        }
+        .labelStyle(StylesSaluteTheme.typography.bodyXsNormal)
+        .optionalStyle(StylesSaluteTheme.typography.bodyXsNormal)
+        .labelPlacement(TextField.LabelPlacement.Inner)
+        .colors {
+            labelColor(
+                StylesSaluteTheme.colors.textDefaultSecondary.asInteractive(),
+            )
+        }
+        .wrap(::WrapperTextFieldClearMInnerLabel)
 
 public val WrapperTextFieldClearMInnerLabel.RequiredStart:
-        WrapperTextFieldClearMInnerLabelRequiredStart
+    WrapperTextFieldClearMInnerLabelRequiredStart
     @Composable
     @JvmName("WrapperTextFieldClearMInnerLabelRequiredStart")
     get() = builder
-    .dimensions {
-    indicatorDimensions {
-    horizontalPadding(6.0.dp)
-    verticalPadding(20.0.dp)
-    indicatorSize(8.0.dp)
-    }
-    }
-    .fieldType(TextField.FieldType.RequiredStart)
-    .wrap(::WrapperTextFieldClearMInnerLabelRequiredStart)
+        .dimensions {
+            indicatorDimensions {
+                horizontalPadding(6.0.dp)
+                verticalPadding(20.0.dp)
+                indicatorSize(8.0.dp)
+            }
+        }
+        .fieldType(TextField.FieldType.RequiredStart)
+        .wrap(::WrapperTextFieldClearMInnerLabelRequiredStart)
 
 public val WrapperTextFieldClearMInnerLabel.RequiredEnd: WrapperTextFieldClearMInnerLabelRequiredEnd
     @Composable
     @JvmName("WrapperTextFieldClearMInnerLabelRequiredEnd")
     get() = builder
-    .dimensions {
-    indicatorDimensions {
-    horizontalPadding(6.0.dp)
-    verticalPadding(20.0.dp)
-    indicatorSize(8.0.dp)
-    }
-    }
-    .fieldType(TextField.FieldType.RequiredEnd)
-    .wrap(::WrapperTextFieldClearMInnerLabelRequiredEnd)
+        .dimensions {
+            indicatorDimensions {
+                horizontalPadding(6.0.dp)
+                verticalPadding(20.0.dp)
+                indicatorSize(8.0.dp)
+            }
+        }
+        .fieldType(TextField.FieldType.RequiredEnd)
+        .wrap(::WrapperTextFieldClearMInnerLabelRequiredEnd)
 
 public val TextFieldClear.L: WrapperTextFieldClearL
     @Composable
     @JvmName("WrapperTextFieldClearL")
     get() = TextFieldStyle.textFieldClearBuilder(this)
-    .invariantProps
-    .dimensions {
-    boxPaddingTop(16.0.dp)
-    boxPaddingBottom(16.0.dp)
-    boxMinHeight(56.0.dp)
-    alignmentLineHeight(56.0.dp)
-    startContentPadding(8.0.dp)
-    endContentPadding(10.0.dp)
-    startContentSize(24.0.dp)
-    endContentSize(24.0.dp)
-    }
-    .valueStyle(StylesSaluteTheme.typography.bodyLNormal)
-    .placeholderStyle(StylesSaluteTheme.typography.bodyLNormal)
-    .chipStyle(EmbeddedChip.L.Secondary.style())
-    .labelPlacement(TextField.LabelPlacement.None)
-    .wrap(::WrapperTextFieldClearL)
+        .invariantProps
+        .dimensions {
+            boxPaddingTop(16.0.dp)
+            boxPaddingBottom(16.0.dp)
+            boxMinHeight(56.0.dp)
+            alignmentLineHeight(56.0.dp)
+            startContentPadding(8.0.dp)
+            endContentPadding(10.0.dp)
+            startContentSize(24.0.dp)
+            endContentSize(24.0.dp)
+        }
+        .valueStyle(StylesSaluteTheme.typography.bodyLNormal)
+        .placeholderStyle(StylesSaluteTheme.typography.bodyLNormal)
+        .chipStyle(EmbeddedChip.L.Secondary.style())
+        .labelPlacement(TextField.LabelPlacement.None)
+        .wrap(::WrapperTextFieldClearL)
 
 public val WrapperTextFieldClearL.RequiredStart: WrapperTextFieldClearLRequiredStart
     @Composable
     @JvmName("WrapperTextFieldClearLRequiredStart")
     get() = builder
-    .dimensions {
-    indicatorDimensions {
-    horizontalPadding(6.0.dp)
-    verticalPadding(24.0.dp)
-    indicatorSize(8.0.dp)
-    }
-    }
-    .fieldType(TextField.FieldType.RequiredStart)
-    .wrap(::WrapperTextFieldClearLRequiredStart)
+        .dimensions {
+            indicatorDimensions {
+                horizontalPadding(6.0.dp)
+                verticalPadding(24.0.dp)
+                indicatorSize(8.0.dp)
+            }
+        }
+        .fieldType(TextField.FieldType.RequiredStart)
+        .wrap(::WrapperTextFieldClearLRequiredStart)
 
 public val WrapperTextFieldClearL.RequiredEnd: WrapperTextFieldClearLRequiredEnd
     @Composable
     @JvmName("WrapperTextFieldClearLRequiredEnd")
     get() = builder
-    .dimensions {
-    indicatorDimensions {
-    horizontalPadding(6.0.dp)
-    verticalPadding(24.0.dp)
-    indicatorSize(8.0.dp)
-    }
-    }
-    .fieldType(TextField.FieldType.RequiredEnd)
-    .wrap(::WrapperTextFieldClearLRequiredEnd)
+        .dimensions {
+            indicatorDimensions {
+                horizontalPadding(6.0.dp)
+                verticalPadding(24.0.dp)
+                indicatorSize(8.0.dp)
+            }
+        }
+        .fieldType(TextField.FieldType.RequiredEnd)
+        .wrap(::WrapperTextFieldClearLRequiredEnd)
 
 public val WrapperTextFieldClearL.OuterLabel: WrapperTextFieldClearLOuterLabel
     @Composable
     @JvmName("WrapperTextFieldClearLOuterLabel")
     get() = builder
-    .dimensions {
-    labelPadding(4.0.dp)
-    }
-    .labelStyle(StylesSaluteTheme.typography.bodyLNormal)
-    .optionalStyle(StylesSaluteTheme.typography.bodyLNormal)
-    .labelPlacement(TextField.LabelPlacement.Outer)
-    .colors {
-    labelColor(StylesSaluteTheme.colors.textDefaultPrimary.asInteractive())
-    }
-    .wrap(::WrapperTextFieldClearLOuterLabel)
+        .dimensions {
+            labelPadding(4.0.dp)
+        }
+        .labelStyle(StylesSaluteTheme.typography.bodyLNormal)
+        .optionalStyle(StylesSaluteTheme.typography.bodyLNormal)
+        .labelPlacement(TextField.LabelPlacement.Outer)
+        .colors {
+            labelColor(
+                StylesSaluteTheme.colors.textDefaultPrimary.asInteractive(),
+            )
+        }
+        .wrap(::WrapperTextFieldClearLOuterLabel)
 
 public val WrapperTextFieldClearLOuterLabel.RequiredStart:
-        WrapperTextFieldClearLOuterLabelRequiredStart
+    WrapperTextFieldClearLOuterLabelRequiredStart
     @Composable
     @JvmName("WrapperTextFieldClearLOuterLabelRequiredStart")
     get() = builder
-    .dimensions {
-    indicatorDimensions {
-    horizontalPadding(6.0.dp)
-    verticalPadding(8.0.dp)
-    indicatorSize(6.0.dp)
-    }
-    }
-    .fieldType(TextField.FieldType.RequiredStart)
-    .wrap(::WrapperTextFieldClearLOuterLabelRequiredStart)
+        .dimensions {
+            indicatorDimensions {
+                horizontalPadding(6.0.dp)
+                verticalPadding(8.0.dp)
+                indicatorSize(6.0.dp)
+            }
+        }
+        .fieldType(TextField.FieldType.RequiredStart)
+        .wrap(::WrapperTextFieldClearLOuterLabelRequiredStart)
 
 public val WrapperTextFieldClearLOuterLabel.RequiredEnd: WrapperTextFieldClearLOuterLabelRequiredEnd
     @Composable
     @JvmName("WrapperTextFieldClearLOuterLabelRequiredEnd")
     get() = builder
-    .dimensions {
-    indicatorDimensions {
-    horizontalPadding(4.0.dp)
-    verticalPadding(4.0.dp)
-    indicatorSize(6.0.dp)
-    }
-    }
-    .fieldType(TextField.FieldType.RequiredEnd)
-    .wrap(::WrapperTextFieldClearLOuterLabelRequiredEnd)
+        .dimensions {
+            indicatorDimensions {
+                horizontalPadding(4.0.dp)
+                verticalPadding(4.0.dp)
+                indicatorSize(6.0.dp)
+            }
+        }
+        .fieldType(TextField.FieldType.RequiredEnd)
+        .wrap(::WrapperTextFieldClearLOuterLabelRequiredEnd)
 
 public val WrapperTextFieldClearL.InnerLabel: WrapperTextFieldClearLInnerLabel
     @Composable
     @JvmName("WrapperTextFieldClearLInnerLabel")
     get() = builder
-    .dimensions {
-    boxPaddingTop(9.0.dp)
-    boxPaddingBottom(9.0.dp)
-    labelPadding(2.0.dp)
-    }
-    .labelStyle(StylesSaluteTheme.typography.bodyXsNormal)
-    .optionalStyle(StylesSaluteTheme.typography.bodyXsNormal)
-    .labelPlacement(TextField.LabelPlacement.Inner)
-    .colors {
-    labelColor(StylesSaluteTheme.colors.textDefaultSecondary.asInteractive())
-    }
-    .wrap(::WrapperTextFieldClearLInnerLabel)
+        .dimensions {
+            boxPaddingTop(9.0.dp)
+            boxPaddingBottom(9.0.dp)
+            labelPadding(2.0.dp)
+        }
+        .labelStyle(StylesSaluteTheme.typography.bodyXsNormal)
+        .optionalStyle(StylesSaluteTheme.typography.bodyXsNormal)
+        .labelPlacement(TextField.LabelPlacement.Inner)
+        .colors {
+            labelColor(
+                StylesSaluteTheme.colors.textDefaultSecondary.asInteractive(),
+            )
+        }
+        .wrap(::WrapperTextFieldClearLInnerLabel)
 
 public val WrapperTextFieldClearLInnerLabel.RequiredStart:
-        WrapperTextFieldClearLInnerLabelRequiredStart
+    WrapperTextFieldClearLInnerLabelRequiredStart
     @Composable
     @JvmName("WrapperTextFieldClearLInnerLabelRequiredStart")
     get() = builder
-    .dimensions {
-    indicatorDimensions {
-    horizontalPadding(6.0.dp)
-    verticalPadding(24.0.dp)
-    indicatorSize(8.0.dp)
-    }
-    }
-    .fieldType(TextField.FieldType.RequiredStart)
-    .wrap(::WrapperTextFieldClearLInnerLabelRequiredStart)
+        .dimensions {
+            indicatorDimensions {
+                horizontalPadding(6.0.dp)
+                verticalPadding(24.0.dp)
+                indicatorSize(8.0.dp)
+            }
+        }
+        .fieldType(TextField.FieldType.RequiredStart)
+        .wrap(::WrapperTextFieldClearLInnerLabelRequiredStart)
 
 public val WrapperTextFieldClearLInnerLabel.RequiredEnd: WrapperTextFieldClearLInnerLabelRequiredEnd
     @Composable
     @JvmName("WrapperTextFieldClearLInnerLabelRequiredEnd")
     get() = builder
-    .dimensions {
-    indicatorDimensions {
-    horizontalPadding(6.0.dp)
-    verticalPadding(24.0.dp)
-    indicatorSize(8.0.dp)
-    }
-    }
-    .fieldType(TextField.FieldType.RequiredEnd)
-    .wrap(::WrapperTextFieldClearLInnerLabelRequiredEnd)
+        .dimensions {
+            indicatorDimensions {
+                horizontalPadding(6.0.dp)
+                verticalPadding(24.0.dp)
+                indicatorSize(8.0.dp)
+            }
+        }
+        .fieldType(TextField.FieldType.RequiredEnd)
+        .wrap(::WrapperTextFieldClearLInnerLabelRequiredEnd)

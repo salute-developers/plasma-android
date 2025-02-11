@@ -3,6 +3,9 @@ package com.sdds.stylessalute.tokens
 
 import androidx.compose.ui.graphics.Color
 
+/**
+ * Токены цвета для темной темы
+ */
 public object DarkColorTokens {
     /**
      * Основной цвет текста
@@ -6900,6 +6903,9 @@ public object DarkColorTokens {
     public val OutlineInverseTransparentAccentBrandActive: Color = Color(0x3D3F82FD)
 }
 
+/**
+ * Токены цвета для светлой темы
+ */
 public object LightColorTokens {
     /**
      * Основной цвет текста

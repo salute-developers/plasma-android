@@ -17,7 +17,6 @@ import com.sdds.plasma.sd.service.styles.textarea.OuterLabel
 import com.sdds.plasma.sd.service.styles.textarea.RequiredEnd
 import com.sdds.plasma.sd.service.styles.textarea.RequiredStart
 import com.sdds.plasma.sd.service.styles.textarea.S
-import com.sdds.plasma.sd.service.styles.textarea.Success
 import com.sdds.plasma.sd.service.styles.textarea.Warning
 import com.sdds.plasma.sd.service.styles.textarea.WrapperTextAreaView
 import com.sdds.plasma.sd.service.styles.textarea.Xs
@@ -30,7 +29,6 @@ import com.sdds.plasma.sd.service.styles.textarea.clear.OuterLabel
 import com.sdds.plasma.sd.service.styles.textarea.clear.RequiredEnd
 import com.sdds.plasma.sd.service.styles.textarea.clear.RequiredStart
 import com.sdds.plasma.sd.service.styles.textarea.clear.S
-import com.sdds.plasma.sd.service.styles.textarea.clear.Success
 import com.sdds.plasma.sd.service.styles.textarea.clear.Warning
 import com.sdds.plasma.sd.service.styles.textarea.clear.WrapperTextAreaClearView
 import com.sdds.plasma.sd.service.styles.textarea.clear.Xs
@@ -125,6 +123,7 @@ internal fun TextFieldUiState.textFieldStyle(): TextFieldStyle {
     }
 }
 
+@Suppress("CyclomaticComplexMethod")
 @Composable
 private fun TextFieldUiState.textFieldWrapperView(): WrapperTextFieldView {
     return when (variant) {
@@ -158,6 +157,7 @@ private fun TextFieldUiState.textFieldWrapperView(): WrapperTextFieldView {
     }
 }
 
+@Suppress("CyclomaticComplexMethod")
 @Composable
 private fun TextFieldUiState.textAreaWrapperView(): WrapperTextAreaView {
     return when (variant) {
@@ -191,6 +191,7 @@ private fun TextFieldUiState.textAreaWrapperView(): WrapperTextAreaView {
     }
 }
 
+@Suppress("CyclomaticComplexMethod")
 @Composable
 private fun TextFieldUiState.textFieldClearWrapperView(): WrapperTextFieldClearView {
     return when (variant) {
@@ -224,6 +225,7 @@ private fun TextFieldUiState.textFieldClearWrapperView(): WrapperTextFieldClearV
     }
 }
 
+@Suppress("CyclomaticComplexMethod")
 @Composable
 private fun TextFieldUiState.textAreaClearWrapperView(): WrapperTextAreaClearView {
     return when (variant) {
@@ -273,7 +275,7 @@ private fun WrapperTextAreaView.applyState(state: State): TextFieldStyle {
         State.Default -> Default
         State.Error -> Error
         State.Warning -> Warning
-        State.Success -> Success
+        State.Success -> Default
     }.style()
 }
 
@@ -293,6 +295,6 @@ private fun WrapperTextAreaClearView.applyState(state: State): TextFieldStyle {
         State.Default -> Default
         State.Error -> Error
         State.Warning -> Warning
-        State.Success -> Success
+        State.Success -> Default
     }.style()
 }

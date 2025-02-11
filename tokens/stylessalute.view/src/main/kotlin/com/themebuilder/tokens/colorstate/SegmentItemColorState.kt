@@ -3,21 +3,18 @@ package com.themebuilder.tokens.colorstate
 import android.content.Context
 import android.util.AttributeSet
 import com.sdds.stylessalute.R
-
 import com.sdds.uikit.colorstate.ColorState
 import com.sdds.uikit.colorstate.ColorStateProvider
-
 
 /**
  * Реализация [ColorState] для компонента SegmentItem
  */
-public enum class SegmentItemColorState (
+public enum class SegmentItemColorState(
     public override val attrs: IntArray,
 ) : ColorState {
     DEFAULT(intArrayOf(R.attr.salute_segmentItem_state_default)),
     SECONDARY(intArrayOf(R.attr.salute_segmentItem_state_secondary)),
     PRIMARY(intArrayOf(R.attr.salute_segmentItem_state_primary)),
-    ;
 }
 
 /**

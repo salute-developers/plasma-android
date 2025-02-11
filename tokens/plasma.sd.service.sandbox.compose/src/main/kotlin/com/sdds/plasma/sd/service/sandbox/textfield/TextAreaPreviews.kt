@@ -29,7 +29,6 @@ import com.sdds.plasma.sd.service.styles.textarea.OuterLabel
 import com.sdds.plasma.sd.service.styles.textarea.RequiredEnd
 import com.sdds.plasma.sd.service.styles.textarea.RequiredStart
 import com.sdds.plasma.sd.service.styles.textarea.S
-import com.sdds.plasma.sd.service.styles.textarea.Success
 import com.sdds.plasma.sd.service.styles.textarea.Warning
 import com.sdds.plasma.sd.service.styles.textarea.Xs
 
@@ -44,34 +43,6 @@ internal fun SandboxTextAreaPreviewLDefaultInnerLeft() {
             placeholderText = "Placeholder",
             value = value,
             style = TextArea.L.InnerLabel.RequiredStart.Default.style(),
-            labelText = "Label",
-            optionalText = "Optional",
-            captionText = "Caption",
-            counterText = "Counter",
-            onValueChange = {},
-            readOnly = false,
-            enabled = true,
-            endContent = {
-                Icon(
-                    painter = painterResource(id = R.drawable.ic_shazam_24),
-                    contentDescription = "",
-                )
-            },
-        )
-    }
-}
-
-@Composable
-@Preview(showBackground = true)
-internal fun SandboxTextAreaPreviewMSuccessOuterOptional() {
-    SandboxTheme {
-        var value by remember { mutableStateOf(TextFieldValue("")) }
-
-        TextField(
-            modifier = Modifier.fillMaxWidth(),
-            placeholderText = "Placeholder",
-            value = value,
-            style = TextArea.M.OuterLabel.Success.style(),
             labelText = "Label",
             optionalText = "Optional",
             captionText = "Caption",
@@ -149,7 +120,7 @@ internal fun SandboxTextAreaPreviewLReadOnly() {
                 modifier = Modifier.fillMaxWidth(),
                 placeholderText = "",
                 value = value,
-                style = TextArea.L.OuterLabel.RequiredStart.Success.style(),
+                style = TextArea.L.OuterLabel.RequiredStart.Default.style(),
                 labelText = "Label",
                 optionalText = "Optional",
                 captionText = "",
@@ -211,34 +182,6 @@ internal fun SandboxTextAreaPreviewSDefaultInnerRight() {
             endContent = {
                 Icon(
                     painter = painterResource(id = R.drawable.ic_shazam_24),
-                    contentDescription = "",
-                )
-            },
-        )
-    }
-}
-
-@Composable
-@Preview(showBackground = true)
-internal fun SandboxTextAreaPreviewXSSuccessOuterOptional() {
-    SandboxTheme {
-        var value by remember { mutableStateOf(TextFieldValue("Value")) }
-
-        TextField(
-            modifier = Modifier.fillMaxWidth(),
-            placeholderText = "Placeholder",
-            value = value,
-            style = TextArea.Xs.OuterLabel.Success.style(),
-            labelText = "Label",
-            optionalText = "Optional",
-            captionText = "Caption",
-            counterText = "Counter",
-            onValueChange = {},
-            readOnly = false,
-            enabled = true,
-            endContent = {
-                Icon(
-                    painter = painterResource(id = R.drawable.ic_shazam_16),
                     contentDescription = "",
                 )
             },
@@ -326,54 +269,6 @@ internal fun SandboxTextAreaPreviewSWarningInnerRightFocused() {
 
 @Composable
 @Preview(showBackground = true)
-internal fun SandboxTextAreaPreviewMSuccessInnerOptionalChips() {
-    SandboxTheme {
-        var value by remember { mutableStateOf(TextFieldValue("")) }
-
-        TextField(
-            modifier = Modifier.fillMaxWidth(),
-            placeholderText = "Placeholder",
-            value = value,
-            style = TextArea.M.InnerLabel.Success.style(),
-            labelText = "Label",
-            optionalText = "Optional",
-            captionText = "Caption",
-            counterText = "Counter",
-            onValueChange = {},
-            readOnly = false,
-            enabled = true,
-            endContent = {
-                Icon(
-                    painter = painterResource(id = R.drawable.ic_shazam_24),
-                    contentDescription = "",
-                )
-            },
-            chipsContent = {
-                Chip(
-                    label = "Chip",
-                    endContent = {
-                        Icon(
-                            painter = painterResource(id = R.drawable.ic_close_24),
-                            contentDescription = "",
-                        )
-                    },
-                )
-                Chip(
-                    label = "Chip",
-                    endContent = {
-                        Icon(
-                            painter = painterResource(id = R.drawable.ic_close_24),
-                            contentDescription = "",
-                        )
-                    },
-                )
-            },
-        )
-    }
-}
-
-@Composable
-@Preview(showBackground = true)
 internal fun SandboxTextAreaPreviewSDefaultOuterRightChips() {
     SandboxTheme {
         var value by remember { mutableStateOf(TextFieldValue("")) }
@@ -422,13 +317,13 @@ internal fun SandboxTextAreaPreviewSLongText() {
             mutableStateOf(
                 TextFieldValue(
                     "O Captain! my Captain! our fearful trip is done,\n" +
-                            "The ship has weather’d every rack, the prize we sought is won,\n" +
-                            "The port is near, the bells I hear, the people all exulting,\n" +
-                            "While follow eyes the steady keel, the vessel grim and daring;\n" +
-                            "But O heart! heart! heart!\n" +
-                            "O the bleeding drops of red,\n" +
-                            "Where on the deck my Captain lies,\n" +
-                            "                                  Fallen cold and dead.",
+                        "The ship has weather’d every rack, the prize we sought is won,\n" +
+                        "The port is near, the bells I hear, the people all exulting,\n" +
+                        "While follow eyes the steady keel, the vessel grim and daring;\n" +
+                        "But O heart! heart! heart!\n" +
+                        "O the bleeding drops of red,\n" +
+                        "Where on the deck my Captain lies,\n" +
+                        "                                  Fallen cold and dead.",
                 ),
             )
         }

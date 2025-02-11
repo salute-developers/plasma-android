@@ -6,8 +6,6 @@ import android.util.AttributeSet
 import com.sdds.plasma.sd.service.R
 import com.sdds.uikit.colorstate.ColorState
 import com.sdds.uikit.colorstate.ColorStateProvider
-import com.themebuilder.tokens.colorstate.TextAreaColorState
-import com.themebuilder.tokens.colorstate.TextAreaColorStateProvider
 import kotlin.Int
 import kotlin.IntArray
 
@@ -20,7 +18,6 @@ public enum class TextAreaColorState(
     DEFAULT(intArrayOf(R.attr.plasma_textarea_state_default)),
     WARNING(intArrayOf(R.attr.plasma_textarea_state_warning)),
     ERROR(intArrayOf(R.attr.plasma_textarea_state_error)),
-    ;
 }
 
 /**

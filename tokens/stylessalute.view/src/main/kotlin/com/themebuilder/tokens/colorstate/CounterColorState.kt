@@ -3,14 +3,14 @@ package com.themebuilder.tokens.colorstate
 import android.content.Context
 import android.util.AttributeSet
 import com.sdds.stylessalute.R
-
 import com.sdds.uikit.colorstate.ColorState
 import com.sdds.uikit.colorstate.ColorStateProvider
 
 /**
  * Реализация [ColorState] для компонента Counter
  */
-public enum class CounterColorState (public override val attrs: IntArray,
+public enum class CounterColorState(
+    public override val attrs: IntArray,
 ) : ColorState {
     DEFAULT(intArrayOf(R.attr.salute_counter_state_default)),
     ACCENT(intArrayOf(R.attr.salute_counter_state_accent)),
@@ -19,7 +19,6 @@ public enum class CounterColorState (public override val attrs: IntArray,
     WARNING(intArrayOf(R.attr.salute_counter_state_warning)),
     BLACK(intArrayOf(R.attr.salute_counter_state_black)),
     WHITE(intArrayOf(R.attr.salute_counter_state_white)),
-    ;
 }
 
 /**

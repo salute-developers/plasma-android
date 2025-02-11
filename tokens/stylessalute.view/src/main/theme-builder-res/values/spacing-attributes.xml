@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <!--Spacing-->
+    <attr format="reference" name="salute_spacing0x"/>
+    <attr format="reference" name="salute_spacing1x"/>
+    <attr format="reference" name="salute_spacing2x"/>
+    <attr format="reference" name="salute_spacing3x"/>
+    <attr format="reference" name="salute_spacing4x"/>
+    <attr format="reference" name="salute_spacing6x"/>
+    <attr format="reference" name="salute_spacing8x"/>
+    <attr format="reference" name="salute_spacing10x"/>
+    <attr format="reference" name="salute_spacing12x"/>
+    <attr format="reference" name="salute_spacing16x"/>
+    <attr format="reference" name="salute_spacing20x"/>
+    <attr format="reference" name="salute_spacing24x"/>
+    <attr format="reference" name="salute_spacing32x"/>
+    <attr format="reference" name="salute_spacing40x"/>
+    <attr format="reference" name="salute_spacing60x"/>
+</resources>
