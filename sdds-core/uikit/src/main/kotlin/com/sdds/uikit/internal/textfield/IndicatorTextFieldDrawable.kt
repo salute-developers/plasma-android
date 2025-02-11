@@ -87,7 +87,9 @@ internal class IndicatorTextFieldDrawable(
         Gravity.apply(_gravity, size, size, _gravityBounds, _gravityBounds)
     }
 
-    override fun setAlpha(alpha: Int) = Unit
+    override fun setAlpha(alpha: Int) {
+        _badgePaint.alpha = alpha
+    }
 
     override fun setColorFilter(colorFilter: ColorFilter?) {
         _badgePaint.colorFilter = colorFilter
