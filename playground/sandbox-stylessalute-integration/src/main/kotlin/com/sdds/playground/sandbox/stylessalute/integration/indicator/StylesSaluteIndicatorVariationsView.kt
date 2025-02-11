@@ -2,6 +2,7 @@ package com.sdds.playground.sandbox.stylessalute.integration.indicator
 
 import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
 
+@Suppress("MaxLineLength")
 internal object StylesSaluteIndicatorVariationsView : ViewStyleProvider<String>() {
     override val variations: Map<String, Int>
         get() = mapOf(

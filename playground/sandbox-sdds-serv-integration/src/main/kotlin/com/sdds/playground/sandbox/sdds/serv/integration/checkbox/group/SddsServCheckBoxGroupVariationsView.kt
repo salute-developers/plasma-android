@@ -2,6 +2,7 @@ package com.sdds.playground.sandbox.sdds.serv.integration.checkbox.group
 
 import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
 
+@Suppress("MaxLineLength")
 internal object SddsServCheckBoxGroupVariationsView : ViewStyleProvider<String>() {
     override val variations: Map<String, Int>
         get() = mapOf(
