@@ -12,9 +12,9 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
 /**
- * [ViewModel] компонента [TextField]
+ * [ViewModel] компонента [TextArea]
  */
-internal class TextFieldViewModel(
+internal class TextAreaViewModel(
     defaultState: TextFieldUiState,
 ) : ComponentViewModel<TextFieldUiState>(defaultState) {
 
@@ -48,7 +48,7 @@ internal class TextFieldViewModel(
     }
 
     override fun getStyleProvider(stylesProvider: StylesProviderView): ViewStyleProvider<String> {
-        return stylesProvider.textField
+        return stylesProvider.textArea
     }
 
     /**
@@ -152,6 +152,10 @@ internal class TextFieldViewModel(
                 value = captionText,
             ),
             Property.StringProperty(
+                name = TextFieldPropertyName.Counter.value,
+                value = counterText,
+            ),
+            Property.StringProperty(
                 name = TextFieldPropertyName.Placeholder.value,
                 value = placeholderText,
             ),
@@ -204,12 +208,12 @@ internal class TextFieldViewModel(
 /**
  * Фабрика для [TextFieldViewModel]
  */
-internal class TextFieldViewModelFactory(
+internal class TextAreaViewModelFactory(
     private val defaultState: TextFieldUiState,
 ) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return TextFieldViewModel(defaultState) as T
+        return TextAreaViewModel(defaultState) as T
     }
 }

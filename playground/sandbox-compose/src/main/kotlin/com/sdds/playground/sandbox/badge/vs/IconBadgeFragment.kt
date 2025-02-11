@@ -1,50 +1,29 @@
 package com.sdds.playground.sandbox.badge.vs
 
-import android.os.Bundle
 import android.view.ContextThemeWrapper
-import android.view.View
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import com.sdds.icons.R
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.playground.sandbox.core.vs.PropertiesOwner
 import com.sdds.uikit.IconBadge
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.onEach
 
 /**
  * Фрагмент с компонентом IconBadge
  */
-internal class IconBadgeFragment : ComponentFragment() {
-    private val badgeParametersViewModel by viewModels<BadgeParametersViewModel> {
-        BadgeParametersViewModelFactory(
-            type = BadgeType.IconBadge,
-            defaultState = getState { BadgeUiState(IconBadgeVariant.IconBadgeLDefault) },
+internal class IconBadgeFragment : ComponentFragment<BadgeUiState, IconBadge>() {
+    override val componentViewModel by viewModels<IconBadgeParametersViewModel> {
+        IconBadgeParametersViewModelFactory(
+            defaultState = getState { BadgeUiState() },
         )
     }
-    private var currentVariant: BadgesVariant = IconBadgeVariant.IconBadgeLDefault
-    private var _iconBadge: IconBadge? = null
 
-    override val componentLayout: View
-        get() = IconBadge(ContextThemeWrapper(requireContext(), currentVariant.styleRes))
+    override fun getComponent(contextWrapper: ContextThemeWrapper): IconBadge {
+        return IconBadge(contextWrapper)
             .apply { id = com.sdds.playground.sandbox.R.id.icon_badge }
-            .also { _iconBadge = it }
+    }
 
-    override val propertiesOwner: PropertiesOwner
-        get() = badgeParametersViewModel
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        badgeParametersViewModel.badgeState
-            .onEach { state ->
-                if (currentVariant != state.variant) {
-                    currentVariant = state.variant
-                    dispatchComponentStyleChanged()
-                }
-                _iconBadge?.apply {
-                    setDrawableStartRes(R.drawable.ic_plasma_24)
-                }
-            }
-            .launchIn(viewLifecycleOwner.lifecycleScope)
+    override fun onComponentUpdate(component: IconBadge?, state: BadgeUiState) {
+        component?.apply {
+            setDrawableStartRes(R.drawable.ic_plasma_24)
+        }
     }
 }

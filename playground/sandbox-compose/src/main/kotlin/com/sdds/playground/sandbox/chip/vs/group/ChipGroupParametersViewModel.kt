@@ -1,23 +1,27 @@
-package com.sdds.playground.sandbox.chip.vs
+package com.sdds.playground.sandbox.chip.vs.group
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.sdds.playground.sandbox.chip.vs.CheckedState
+import com.sdds.playground.sandbox.chip.vs.ChipUiState
+import com.sdds.playground.sandbox.chip.vs.GravityMode
 import com.sdds.playground.sandbox.core.integration.StylesProviderView
 import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
 import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
+import com.sdds.playground.sandbox.core.vs.enumProperty
 import com.sdds.uikit.ChipGroup
 
 /**
  * ViewModel для экранов с компонентом Chip
  * @param defaultState состояние по-умолчанию
  */
-internal class ChipParametersViewModel(
+internal class ChipGroupParametersViewModel(
     defaultState: ChipUiState,
 ) : ComponentViewModel<ChipUiState>(defaultState) {
 
     override fun getStyleProvider(stylesProvider: StylesProviderView): ViewStyleProvider<String> {
-        return stylesProvider.chip
+        return stylesProvider.chipGroup
     }
 
     @Suppress("CyclomaticComplexMethod", "ReturnCount")
@@ -29,7 +33,6 @@ internal class ChipParametersViewModel(
             ChipPropertyName.Label -> updateLabel(value?.toString().orEmpty())
             ChipPropertyName.ContentLeft -> updateStartIcon(value as Boolean)
             ChipPropertyName.HasClose -> updateEndIcon(value as Boolean)
-            ChipPropertyName.Enabled -> updateEnabledState(value as Boolean)
             ChipPropertyName.Wrapped -> updateWrapped(value as Boolean)
             ChipPropertyName.Quantity -> updateQuantity(value?.toString()?.toInt() ?: 0)
             ChipPropertyName.GravityMode -> updateGravity(GravityMode.valueOf(value?.toString() ?: return))
@@ -45,10 +48,6 @@ internal class ChipParametersViewModel(
 
     private fun updateLabel(text: String) {
         internalUiState.value = internalUiState.value.copy(label = text)
-    }
-
-    private fun updateEnabledState(enabled: Boolean) {
-        internalUiState.value = internalUiState.value.copy(enabled = enabled)
     }
 
     private fun updateStartIcon(hasIcon: Boolean) {
@@ -97,8 +96,28 @@ internal class ChipParametersViewModel(
             ),
 
             Property.BooleanProperty(
-                name = ChipPropertyName.Enabled.value,
-                value = enabled,
+                name = ChipPropertyName.Wrapped.value,
+                value = isWrapped,
+            ),
+
+            enumProperty(
+                name = ChipPropertyName.GravityMode.value,
+                value = gravityMode,
+            ),
+
+            Property.IntProperty(
+                name = ChipPropertyName.Quantity.value,
+                value = quantity,
+            ),
+
+            enumProperty(
+                name = ChipPropertyName.CheckedState.value,
+                value = checkedState,
+            ),
+
+            enumProperty(
+                name = ChipPropertyName.SelectionMode.value,
+                value = selectionMode,
             ),
         )
     }
@@ -107,7 +126,6 @@ internal class ChipParametersViewModel(
         Label("Label"),
         ContentLeft("ContentLeft"),
         HasClose("hasClose"),
-        Enabled("Enabled"),
         GapMode("Gap"),
         Wrapped("isWrapped"),
         Quantity("Quantity"),
@@ -118,17 +136,15 @@ internal class ChipParametersViewModel(
 }
 
 /**
- * Фабрика [ChipParametersViewModel]
- * @param groupMode режим группы чипов
+ * Фабрика [ChipGroupParametersViewModel]
  * @param defaultState состояние по-умолчанию
  */
-internal class ChipParametersViewModelFactory(
-    private val groupMode: Boolean = false,
+internal class ChipGroupParametersViewModelFactory(
     private val defaultState: ChipUiState,
 ) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return ChipParametersViewModel(defaultState) as T
+        return ChipGroupParametersViewModel(defaultState) as T
     }
 }

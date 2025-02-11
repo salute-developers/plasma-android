@@ -1,4 +1,4 @@
-package com.sdds.playground.sandbox.segment.vs
+package com.sdds.playground.sandbox.segment.vs.group
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -6,15 +6,19 @@ import com.sdds.playground.sandbox.core.integration.StylesProviderView
 import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
 import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
+import com.sdds.playground.sandbox.core.vs.enumProperty
+import com.sdds.playground.sandbox.segment.vs.SegmentItemIcon
+import com.sdds.playground.sandbox.segment.vs.SegmentOrientation
+import com.sdds.playground.sandbox.segment.vs.SegmentUiState
 
-internal class SegmentItemViewModel(
+internal class SegmentViewModel(
     defaultState: SegmentUiState,
 ) : ComponentViewModel<SegmentUiState>(defaultState) {
 
     private val _propsMap = PropertyName.values().associateBy { name -> name.value }
 
     override fun getStyleProvider(stylesProvider: StylesProviderView): ViewStyleProvider<String> {
-        return stylesProvider.segmentItem
+        return stylesProvider.segment
     }
 
     @Suppress("CyclomaticComplexMethod")
@@ -28,6 +32,7 @@ internal class SegmentItemViewModel(
         var counter = currentState.counter
         var icon = currentState.icon
         internalUiState.value = when (propertyName) {
+            PropertyName.Amount -> currentState.copy(amount = valueString.toInt())
             PropertyName.Icon -> currentState.copy(
                 icon = when {
                     valueString == SegmentItemIcon.Start::class.simpleName -> SegmentItemIcon.Start
@@ -35,11 +40,9 @@ internal class SegmentItemViewModel(
                         counter = false
                         SegmentItemIcon.End
                     }
-
                     valueString == SegmentItemIcon.End::class.simpleName && !counter -> {
                         SegmentItemIcon.End
                     }
-
                     else -> SegmentItemIcon.No
                 },
                 counter = counter,
@@ -48,7 +51,6 @@ internal class SegmentItemViewModel(
             PropertyName.Label -> currentState.copy(segmentItemLabel = valueString)
             PropertyName.Value -> currentState.copy(segmentItemValue = valueString)
             PropertyName.Enabled -> currentState.copy(enabled = valueString.toBoolean())
-            PropertyName.Checked -> currentState.copy(checked = valueString.toBoolean())
             PropertyName.Stretch -> {
                 if (currentState.orientation == SegmentOrientation.HORIZONTAL) {
                     stretch = valueString.toBoolean()
@@ -57,9 +59,7 @@ internal class SegmentItemViewModel(
             }
 
             PropertyName.Orientation -> {
-                if (SegmentOrientation.valueOf(valueString) == SegmentOrientation.VERTICAL) {
-                    stretch = false
-                }
+                if (SegmentOrientation.valueOf(valueString) == SegmentOrientation.VERTICAL) stretch = false
                 currentState.copy(
                     orientation = SegmentOrientation.valueOf(valueString),
                     stretch = stretch,
@@ -82,6 +82,11 @@ internal class SegmentItemViewModel(
 
     override fun SegmentUiState.toProps(): List<Property<*>> {
         return listOfNotNull(
+            Property.IntProperty(
+                name = PropertyName.Amount.value,
+                value = amount,
+            ),
+
             Property.SingleChoiceProperty(
                 name = PropertyName.Icon.value,
                 value = icon::class.simpleName.orEmpty(),
@@ -104,8 +109,12 @@ internal class SegmentItemViewModel(
                 value = enabled,
             ),
             Property.BooleanProperty(
-                name = PropertyName.Checked.value,
-                value = checked,
+                name = PropertyName.Stretch.value,
+                value = stretch,
+            ),
+            enumProperty(
+                name = PropertyName.Orientation.value,
+                value = orientation,
             ),
             Property.BooleanProperty(
                 name = PropertyName.Counter.value,
@@ -119,11 +128,11 @@ internal class SegmentItemViewModel(
     }
 
     private enum class PropertyName(val value: String) {
+        Amount("amount"),
         Icon("icon"),
         Label("label"),
         Value("value"),
         Enabled("enabled"),
-        Checked("checked"),
         Stretch("stretch"),
         Orientation("orientation"),
         Counter("counter"),
@@ -131,13 +140,13 @@ internal class SegmentItemViewModel(
     }
 }
 
-internal class SegmentItemViewModelFactory(
+internal class SegmentViewModelFactory(
     private val defaultState: SegmentUiState,
 ) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return SegmentItemViewModel(
+        return SegmentViewModel(
             defaultState = defaultState,
         ) as T
     }

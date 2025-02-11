@@ -39,8 +39,9 @@ internal open class EditorFragment<T : Any> : BottomSheetDialogFragment() {
      * Сохраняет введенное в редактор значение [any] и закрывает редактор
      */
     protected fun confirm(any: T?) {
+        val confirmKey = arguments?.getString(ARG_CONFIRM_RESULT_KEY) ?: CONFIRM_RESULT_KEY
         requireActivity().supportFragmentManager.setFragmentResult(
-            CONFIRM_RESULT_KEY,
+            confirmKey,
             bundleOf(CONFIRM_VALUE to any),
         )
         dismiss()
@@ -62,6 +63,7 @@ internal open class EditorFragment<T : Any> : BottomSheetDialogFragment() {
         const val CONFIRM_VALUE = "EditorFragment_confirmResult"
         const val ARG_PROPERTY_NAME = "EditorFragment_propertyName"
         const val ARG_PROPERTY_CURRENT_VALUE = "EditorFragment_propertyCurrentValue"
+        const val ARG_CONFIRM_RESULT_KEY = "EditorFragment_argConfirmResult"
 
         /**
          * Возвращает редактор текста
@@ -78,12 +80,15 @@ internal open class EditorFragment<T : Any> : BottomSheetDialogFragment() {
          * @param propertyName название свойства
          * @param currentValue значение свойства
          * @param choices множество значений свойства
+         * @param confirmKey опциональный ключ, по которому будет записан результат выбора.
+         * Если [confirmKey] == null, то результат будет записан по ключу [CONFIRM_RESULT_KEY]
          */
         fun choiceEditor(
             propertyName: String,
             currentValue: String,
             choices: List<String>,
-        ): EditorFragment<String> = ChoiceEditorFragment.newInstance(propertyName, currentValue, choices)
+            confirmKey: String? = null,
+        ): EditorFragment<String> = ChoiceEditorFragment.newInstance(propertyName, currentValue, choices, confirmKey)
     }
 }
 
@@ -163,12 +168,14 @@ internal class ChoiceEditorFragment : EditorFragment<String>() {
             propertyName: String,
             currentValue: String,
             choices: List<String>,
+            confirmKey: String? = null,
         ): ChoiceEditorFragment {
             return ChoiceEditorFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PROPERTY_NAME, propertyName)
                     putString(ARG_PROPERTY_CURRENT_VALUE, currentValue)
                     putStringArrayList(ARG_CHOICES, ArrayList(choices))
+                    confirmKey?.let { putString(ARG_CONFIRM_RESULT_KEY, it) }
                 }
             }
         }

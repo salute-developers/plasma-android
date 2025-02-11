@@ -3,6 +3,7 @@ package com.sdds.playground.sandbox.chip.vs
 import android.os.Parcelable
 import android.view.Gravity
 import androidx.annotation.StyleRes
+import com.sdds.playground.sandbox.core.vs.UiState
 import com.sdds.serv.R
 import com.sdds.uikit.ChipGroup
 import com.sdds.uikit.viewstate.ViewState
@@ -24,18 +25,21 @@ import kotlinx.parcelize.Parcelize
  */
 @Parcelize
 internal data class ChipUiState(
-    val variant: ChipVariant = ChipVariant.ChipLDefault,
+    override val variant: String = "",
     val label: String = "Label",
     val contentLeft: Boolean = true,
     val hasClose: Boolean = true,
     val enabled: Boolean = true,
-    val gapMode: GapMode = GapMode.Wide,
     val isWrapped: Boolean = false,
     val quantity: Int = 3,
     val gravityMode: GravityMode = GravityMode.Start,
     val checkedState: CheckedState = CheckedState.Accent,
     val selectionMode: ChipGroup.SelectionMode = ChipGroup.SelectionMode.Single,
-) : Parcelable
+) : Parcelable, UiState {
+    override fun updateVariant(variant: String): UiState {
+        return copy(variant = variant)
+    }
+}
 
 /**
  * Состояния выбранного Chip
@@ -54,38 +58,6 @@ internal enum class CheckedState(val viewState: ViewState) : Parcelable {
 internal enum class GravityMode(val gravity: Int) : Parcelable {
     Start(Gravity.START or Gravity.CENTER_VERTICAL),
     End(Gravity.END or Gravity.CENTER_VERTICAL),
-}
-
-/**
- * Варианты компонента Chip
- * @property styleRes ресурс стиля
- */
-@Parcelize
-internal enum class ChipVariant(@StyleRes val styleRes: Int) : Parcelable {
-    ChipLDefault(R.style.Serv_Sdds_ComponentOverlays_ChipLDefault),
-    ChipLSecondary(R.style.Serv_Sdds_ComponentOverlays_ChipLSecondary),
-    ChipLAccent(R.style.Serv_Sdds_ComponentOverlays_ChipLAccent),
-    ChipLPilledDefault(R.style.Serv_Sdds_ComponentOverlays_ChipLPilledDefault),
-    ChipLPilledSecondary(R.style.Serv_Sdds_ComponentOverlays_ChipLPilledSecondary),
-    ChipLPilledAccent(R.style.Serv_Sdds_ComponentOverlays_ChipLPilledAccent),
-    ChipMDefault(R.style.Serv_Sdds_ComponentOverlays_ChipMDefault),
-    ChipMSecondary(R.style.Serv_Sdds_ComponentOverlays_ChipMSecondary),
-    ChipMAccent(R.style.Serv_Sdds_ComponentOverlays_ChipMAccent),
-    ChipMPilledDefault(R.style.Serv_Sdds_ComponentOverlays_ChipMPilledDefault),
-    ChipMPilledSecondary(R.style.Serv_Sdds_ComponentOverlays_ChipMPilledSecondary),
-    ChipMPilledAccent(R.style.Serv_Sdds_ComponentOverlays_ChipMPilledAccent),
-    ChipSDefault(R.style.Serv_Sdds_ComponentOverlays_ChipSDefault),
-    ChipSSecondary(R.style.Serv_Sdds_ComponentOverlays_ChipSSecondary),
-    ChipSAccent(R.style.Serv_Sdds_ComponentOverlays_ChipSAccent),
-    ChipSPilledDefault(R.style.Serv_Sdds_ComponentOverlays_ChipSPilledDefault),
-    ChipSPilledSecondary(R.style.Serv_Sdds_ComponentOverlays_ChipSPilledSecondary),
-    ChipSPilledAccent(R.style.Serv_Sdds_ComponentOverlays_ChipSPilledAccent),
-    ChipXSDefault(R.style.Serv_Sdds_ComponentOverlays_ChipXSDefault),
-    ChipXSSecondary(R.style.Serv_Sdds_ComponentOverlays_ChipXSSecondary),
-    ChipXSAccent(R.style.Serv_Sdds_ComponentOverlays_ChipXSAccent),
-    ChipXSPilledDefault(R.style.Serv_Sdds_ComponentOverlays_ChipXSPilledDefault),
-    ChipXSPilledSecondary(R.style.Serv_Sdds_ComponentOverlays_ChipXSPilledSecondary),
-    ChipXSPilledAccent(R.style.Serv_Sdds_ComponentOverlays_ChipXSPilledAccent),
 }
 
 /**

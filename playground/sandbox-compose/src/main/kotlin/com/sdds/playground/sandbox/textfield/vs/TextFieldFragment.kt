@@ -1,140 +1,96 @@
 package com.sdds.playground.sandbox.textfield.vs
 
-import android.os.Bundle
 import android.view.ContextThemeWrapper
 import android.view.KeyEvent
-import android.view.View
 import android.widget.Toast
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.playground.sandbox.core.vs.PropertiesOwner
-import com.sdds.uikit.TextArea
+import com.sdds.playground.sandbox.core.vs.stylesProvider
 import com.sdds.uikit.TextField
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.onEach
 import com.sdds.icons.R as Icons
 
 /**
  * Фрагмент с компонентом TextField
  * @author Малышев Александр on 19.08.2024
  */
-internal open class TextFieldFragment : ComponentFragment() {
+internal class TextFieldFragment : ComponentFragment<TextFieldUiState, TextField>() {
 
-    private val textFieldViewModel by viewModels<TextFieldViewModel> {
-        TextFieldViewModelFactory(
-            mode = mode,
-            defaultState = getState { TextFieldUiState(currentVariant) },
-        )
+    override val componentViewModel by viewModels<TextFieldViewModel> {
+        TextFieldViewModelFactory(getState { TextFieldUiState() })
     }
 
     private val adapter: ChipAdapter by lazy {
         ChipAdapter().apply {
-            onDeleteChip { textFieldViewModel.deleteChip(it) }
+            onDeleteChip { componentViewModel.deleteChip(it) }
         }
     }
 
-    protected open val mode: TextFieldViewModel.Mode
-        get() = TextFieldViewModel.Mode.TextField
-
-    override val componentLayout: TextField
-        get() = when (mode) {
-            TextFieldViewModel.Mode.TextField -> TextField(
-                ContextThemeWrapper(
-                    requireContext(),
-                    currentVariant.styleRes,
-                ),
-            )
-
-            TextFieldViewModel.Mode.TextArea -> TextArea(ContextThemeWrapper(requireContext(), currentVariant.styleRes))
-        }
-            .also { textField = it }
+    override fun getComponent(contextWrapper: ContextThemeWrapper): TextField {
+        return TextField(contextWrapper)
             .apply {
                 chipAdapter = adapter
                 addChipsHandler()
             }
             .apply { id = R.id.textField }
-
-    override val propertiesOwner: PropertiesOwner
-        get() = textFieldViewModel
-
-    private var currentVariant: FieldVariant = when (mode) {
-        TextFieldViewModel.Mode.TextField -> TextFieldVariant.TextFieldMOuterLabel
-        TextFieldViewModel.Mode.TextArea -> TextAreaVariant.TextAreaMOuterLabel
     }
 
-    private var textField: TextField? = null
-    private var shouldDeleteChip: Boolean = false
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        textFieldViewModel.textFieldUiState
-            .onEach { state ->
-                if (currentVariant != state.variant) {
-                    currentVariant = state.variant
-                    dispatchComponentStyleChanged()
-                }
-                textField?.apply {
-                    colorState = when (mode) {
-                        TextFieldViewModel.Mode.TextField -> state.state.asTextFieldState()
-                        TextFieldViewModel.Mode.TextArea -> state.state.asTextAreaState()
-                    }
-                    label = state.labelText
-                    placeholder = state.placeholderText
-                    state.valueText?.let { this.value = it }
-                    caption = state.captionText
-                    counter = state.counterText.takeIf { mode == TextFieldViewModel.Mode.TextArea }
-                    prefixText = state.prefix
-                    suffixText = state.suffix
-                    if (state.icon) {
-                        setIcon(Icons.drawable.ic_scribble_diagonal_24)
-                    } else {
-                        setIcon(null)
-                    }
-                    if (state.action) {
-                        setAction(Icons.drawable.ic_shazam_24)
-                    } else {
-                        setAction(null)
-                    }
-                    setActionClickListener {
-                        Toast.makeText(requireContext(), "action clicked", Toast.LENGTH_SHORT).show()
-                    }
-                    isEnabled = state.enabled
-                    isReadOnly = state.readOnly
-                }
+    override fun onComponentUpdate(component: TextField?, state: TextFieldUiState) {
+        component?.apply {
+            val stylesProvider = componentViewModel.stylesProvider
+            val textFieldStyles = stylesProvider.textField
+            colorState = textFieldStyles.colorState(state.colorVariant)
+            label = state.labelText
+            placeholder = state.placeholderText
+            state.valueText?.let { this.value = it }
+            caption = state.captionText
+            prefixText = state.prefix
+            suffixText = state.suffix
+            if (state.icon) {
+                setIcon(Icons.drawable.ic_scribble_diagonal_24)
+            } else {
+                setIcon(null)
             }
-            .launchIn(viewLifecycleOwner.lifecycleScope)
-
-        textFieldViewModel.chips
-            .onEach { adapter.updateState(it) }
-            .launchIn(viewLifecycleOwner.lifecycleScope)
+            if (state.action) {
+                setAction(Icons.drawable.ic_shazam_24)
+            } else {
+                setAction(null)
+            }
+            setActionClickListener {
+                Toast.makeText(requireContext(), "action clicked", Toast.LENGTH_SHORT)
+                    .show()
+            }
+            isEnabled = state.enabled
+            isReadOnly = state.readOnly
+        }
     }
+
+    private var shouldDeleteChip: Boolean = false
 
     override fun onDestroyView() {
         super.onDestroyView()
-        textField?.chipAdapter = adapter
-        textField = null
+        componentRef?.chipAdapter = adapter
     }
 
     private fun TextField.addChipsHandler() {
         editText.doAfterTextChanged {
             val editable = it ?: return@doAfterTextChanged
-            shouldDeleteChip = if (editable.isNotBlank() && editable[editable.length - 1].isWhitespace()) {
-                val currentValue = editable.toString().trim()
-                textFieldViewModel.addChip(currentValue)
-                true
-            } else {
-                editable.isEmpty()
-            }
+            shouldDeleteChip =
+                if (editable.isNotBlank() && editable[editable.length - 1].isWhitespace()) {
+                    val currentValue = editable.toString().trim()
+                    componentViewModel.addChip(currentValue)
+                    true
+                } else {
+                    editable.isEmpty()
+                }
         }
         editText.setOnKeyListener { _, keyCode, _ ->
             when (keyCode) {
                 KeyEvent.KEYCODE_DEL -> {
                     val chipsCount = chipAdapter?.getCount() ?: 0
                     if (!value.isNullOrEmpty() || chipsCount == 0 || !shouldDeleteChip) return@setOnKeyListener false
-                    val chipToDelete = textFieldViewModel.deleteChip(chipsCount - 1)
+                    val chipToDelete = componentViewModel.deleteChip(chipsCount - 1)
                     editText.append(chipToDelete?.text)
                     chipToDelete != null
                 }

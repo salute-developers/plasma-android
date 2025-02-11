@@ -1,8 +1,7 @@
 package com.sdds.playground.sandbox.avatar.vs
 
 import android.os.Parcelable
-import androidx.annotation.StyleRes
-import com.sdds.serv.R
+import com.sdds.playground.sandbox.core.vs.UiState
 import com.sdds.uikit.Avatar
 import kotlinx.parcelize.Parcelize
 
@@ -20,23 +19,16 @@ internal const val AVATAR_REMOTE_URL = "https://cdn.costumewall.com/wp-content/u
  */
 @Parcelize
 internal data class AvatarUiState(
-    val variant: AvatarVariant = AvatarVariant.AvatarXXL,
+    override val variant: String = "",
     val status: Avatar.Status = Avatar.Status.ACTIVE,
     val exampleMode: ExampleMode = ExampleMode.Local,
     val fullName: String? = "Michael Scott",
     val actionEnabled: Boolean = false,
     val threshold: Int = 3,
-) : Parcelable
-
-/**
- * Стили вариаций компонента
- * @property styleRes ресурс стиля
- */
-internal enum class AvatarVariant(@StyleRes val styleRes: Int) {
-    AvatarXXL(R.style.Serv_Sdds_ComponentOverlays_AvatarXXL),
-    AvatarL(R.style.Serv_Sdds_ComponentOverlays_AvatarL),
-    AvatarM(R.style.Serv_Sdds_ComponentOverlays_AvatarM),
-    AvatarS(R.style.Serv_Sdds_ComponentOverlays_AvatarS),
+) : Parcelable, UiState {
+    override fun updateVariant(variant: String): UiState {
+        return copy(variant = variant)
+    }
 }
 
 /**
