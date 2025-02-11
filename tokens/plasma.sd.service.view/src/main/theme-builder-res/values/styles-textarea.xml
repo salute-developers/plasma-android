@@ -6,7 +6,7 @@
         <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroup.Dense</item>
     </style>
     <style name="Plasma.SdService.Components.TextArea" parent="Sdds.Components.TextArea">
-        <item name="sd_colorStateProvider">com.themebuilder.tokens.colorstate.TextAreaColorStateProvider</item>
+        <item name="sd_colorStateProvider">com.plasma.sd.service.colorstate.TextAreaColorStateProvider</item>
         <item name="sd_scrollBarThickness">@dimen/plasma_text_area_scrollbar_thickness</item>
         <item name="sd_scrollBarPaddingTop">@dimen/plasma_text_area_scrollbar_padding_top</item>
         <item name="sd_scrollBarPaddingEnd">@dimen/plasma_text_area_scrollbar_padding_end</item>

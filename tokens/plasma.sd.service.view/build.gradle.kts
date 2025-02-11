@@ -25,6 +25,7 @@ themeBuilder {
         }
         setupShapeAppearance(sddsShape())
     }
+    ktPackage("com.plasma.sd.service")
     autoGenerate(false)
     mode(ThemeBuilderMode.THEME)
     outputLocation(OutputLocation.SRC)
