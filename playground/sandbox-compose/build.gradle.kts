@@ -36,7 +36,7 @@ android {
 
 dependencies {
     implementation(libs.sdds.icons)
-    implementation("tokens:sdds.serv.compose")
+    implementation("tokens:sdds.serv.view")
     implementation("tokens:sdds.serv.compose")
     implementation("playground:sandbox-sdds-serv-integration")
 
