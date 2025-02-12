@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.asStateFlow
  * Позволяет изменять тему.
  */
 internal object ViewSystemThemeState {
-    private val _theme = MutableStateFlow(Theme.SddsServ)
+    private val _theme = MutableStateFlow(Theme.viewDefault)
 
     val theme: StateFlow<Theme>
         get() = _theme.asStateFlow()

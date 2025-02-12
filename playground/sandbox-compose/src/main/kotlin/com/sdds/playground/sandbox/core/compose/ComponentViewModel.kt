@@ -24,8 +24,18 @@ internal abstract class ComponentViewModel<State : UiState, S : Style>(
     @OptIn(ExperimentalCoroutinesApi::class)
     final override val properties: StateFlow<List<Property<*>>>
         get() = internalUiState
-            .mapLatest { state -> variantProperty(state) + state.toProps() }
+            .mapLatest { state ->
+                updateUiStateWithDefaultVariant()
+                variantProperty(state) + state.toProps()
+            }
             .stateIn(viewModelScope, SharingStarted.Lazily, emptyList())
+
+    @Suppress("UNCHECKED_CAST")
+    private fun updateUiStateWithDefaultVariant() {
+        if (internalUiState.value.variant.isNotEmpty()) return
+        internalUiState.value =
+            internalUiState.value.updateVariant(getStyleProvider().defaultVariant) as State
+    }
 
     @Suppress("UNCHECKED_CAST")
     private fun variantProperty(state: State): List<Property.SingleChoiceProperty> {

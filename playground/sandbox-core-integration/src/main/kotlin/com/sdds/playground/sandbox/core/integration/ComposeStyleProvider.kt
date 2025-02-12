@@ -15,7 +15,10 @@ abstract class ComposeStyleProvider<K : Any, S : Style> {
     val variants: List<K>
         get() = variations.keys.toList()
 
-    private val defaultVariant: K
+    /**
+     * Дефолтная вариация
+     */
+    val defaultVariant: K
         get() = variations.entries.first().key
 
     /**

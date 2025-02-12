@@ -61,7 +61,7 @@ internal enum class Theme(
     )
 
     internal companion object {
-        val viewDefault = SddsServ.view
+        val viewDefault = SddsServ
         val composeDefault = SddsServ.compose
     }
 }

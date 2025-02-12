@@ -22,10 +22,16 @@ abstract class ViewStyleProvider<K : Any> {
     val colorVariants: List<K>
         get() = colorVariations.keys.toList()
 
-    private val defaultVariant: K
+    /**
+     * Дефолтная вариация
+     */
+    val defaultVariant: K
         get() = variations.entries.first().key
 
-    private val defaultColorVariant: K
+    /**
+     * Дефолтная вариация цвета
+     */
+    val defaultColorVariant: K
         get() = colorVariations.entries.first().key
 
     /**

@@ -52,14 +52,11 @@ internal abstract class ComponentViewModel<State : UiState>(
             }
             .stateIn(viewModelScope, SharingStarted.Lazily, emptyList())
 
-    /**
-     * Провайдер стилей из текущей темы
-     */
-
     private fun variantProperties(state: State, theme: Theme): List<Property.SingleChoiceProperty> {
         val styleProvider = getStyleProvider(theme.view.stylesProvider)
         val variantProperties = mutableListOf<Property.SingleChoiceProperty>()
         if (styleProvider.variants.isNotEmpty()) {
+            updateUiStateWithDefaultVariant(theme)
             variantProperties.add(
                 Property.SingleChoiceProperty(
                     VARIANT_PROPERTY_NAME,
@@ -69,6 +66,7 @@ internal abstract class ComponentViewModel<State : UiState>(
             )
         }
         if (styleProvider.colorVariants.isNotEmpty()) {
+            updateUiStateWithDefaultColorVariant(theme)
             variantProperties.add(
                 Property.SingleChoiceProperty(
                     COLOR_VARIANT_PROPERTY_NAME,
@@ -78,6 +76,24 @@ internal abstract class ComponentViewModel<State : UiState>(
             )
         }
         return variantProperties
+    }
+
+    @Suppress("UNCHECKED_CAST")
+    private fun updateUiStateWithDefaultVariant(theme: Theme) {
+        if (internalUiState.value.variant.isNotEmpty()) return
+        internalUiState.value =
+            internalUiState.value.updateVariant(
+                getStyleProvider(theme.view.stylesProvider).defaultVariant,
+            ) as State
+    }
+
+    @Suppress("UNCHECKED_CAST")
+    private fun updateUiStateWithDefaultColorVariant(theme: Theme) {
+        if (internalUiState.value.colorVariant.isNotEmpty()) return
+        internalUiState.value =
+            internalUiState.value.updateColorVariant(
+                getStyleProvider(theme.view.stylesProvider).defaultColorVariant,
+            ) as State
     }
 
     abstract fun getStyleProvider(stylesProvider: StylesProviderView): ViewStyleProvider<String>
