@@ -49,7 +49,7 @@ internal abstract class ComponentFragment<State : UiState, Component : View> :
     private val contextThemeWrapper: ContextThemeWrapper
         get() {
             val styles = componentViewModel.getStyleProvider(componentViewModel.stylesProvider)
-            return ContextThemeWrapper(requireContext(), styles.styleRes(currentVariant))
+            return ContextThemeWrapper(componentContainer?.context, styles.styleRes(currentVariant))
         }
 
     private fun getComponentLayout(): View =
