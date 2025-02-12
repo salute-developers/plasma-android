@@ -1,4 +1,4 @@
-package com.sdds.testing.vs
+package com.sdds.testing
 
 import com.github.takahirom.roborazzi.ExperimentalRoborazziApi
 import com.github.takahirom.roborazzi.RoborazziOptions

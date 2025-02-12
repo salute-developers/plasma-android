@@ -1,4 +1,4 @@
-package com.sdds.testing.vs
+package com.sdds.testing
 
 /**
  * Версия sdk для тестов

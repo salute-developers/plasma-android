@@ -1,4 +1,4 @@
-package com.sdds.testing.vs
+package com.sdds.testing
 
 import android.app.Activity
 import android.content.Context
@@ -18,8 +18,10 @@ fun component(
     viewMatcherFactory: ((View) -> Matcher<View>)? = null,
     factory: (Context) -> View,
 ) {
-    val activity = Robolectric.buildActivity(Activity::class.java).setup().get()
+    val controller = Robolectric.buildActivity(Activity::class.java)
+    val activity = controller.get()
     activity.setTheme(theme)
+    controller.setup()
     val view = factory(activity)
     val lp = view.layoutParams ?: ViewGroup.LayoutParams(
         ViewGroup.LayoutParams.WRAP_CONTENT,

@@ -20,6 +20,9 @@ android {
             isIncludeAndroidResources = true
         }
     }
+    tasks.withType<Test> {
+        maxHeapSize = "4096m"
+    }
 }
 
 themeBuilder {
@@ -49,6 +52,7 @@ dependencies {
     testImplementation(libs.test.roborazzi)
     testImplementation(libs.test.roborazzi.rule)
     testImplementation(libs.base.test.unit.robolectric)
+    testImplementation(libs.test.roborazzi)
     testImplementation(libs.base.test.ui.compose.jUnit4)
     testImplementation(libs.test.roborazzi.compose)
     testImplementation("sdds-core:testing")
