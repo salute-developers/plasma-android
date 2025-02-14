@@ -49,6 +49,7 @@ dependencies {
     implementation("playground:sandbox-stylessalute-integration")
 
     implementation("playground:sandbox-core-integration")
+    implementation("sdds-core:testing")
     implementation(libs.sdds.uikit.compose)
     implementation(libs.sdds.uikit)
 

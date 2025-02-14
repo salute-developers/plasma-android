@@ -7,6 +7,8 @@ import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
 import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.PropertiesOwner
 import com.sdds.playground.sandbox.core.vs.Property
+import com.sdds.testing.vs.button.ButtonIcon
+import com.sdds.testing.vs.button.ButtonUiState
 
 /**
  * ViewModel для экранов с компонентом LinkButton
@@ -16,7 +18,7 @@ internal class LinkButtonViewModel(
 ) : ComponentViewModel<ButtonUiState>(defaultState) {
 
     override fun getStyleProvider(stylesProvider: StylesProviderView): ViewStyleProvider<String> {
-        return stylesProvider.basicButton
+        return stylesProvider.linkButton
     }
 
     /**

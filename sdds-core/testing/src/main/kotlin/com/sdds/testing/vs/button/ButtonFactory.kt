@@ -1,28 +1,22 @@
 package com.sdds.testing.vs.button
 
 import android.content.Context
-import android.graphics.drawable.Drawable
-import android.view.ContextThemeWrapper
 import android.view.ViewGroup
+import com.sdds.testing.R
+import com.sdds.testing.vs.styleWrapper
 import com.sdds.uikit.Button
+import com.sdds.uikit.IconButton
+import com.sdds.uikit.LinkButton
 
 /**
- * Фабрика для создания кнопки
+ * Фабрика [Button]
  */
 fun basicButton(
     context: Context,
-    buttonId: Int = 0,
-    buttonStyle: Int = 0,
-    label: String = "Label",
-    value: String? = null,
-    isEnabled: Boolean = true,
-    isLoading: Boolean = false,
-    fixedSize: Boolean = false,
-    spacing: Button.Spacing = Button.Spacing.Packed,
-    icon: Drawable? = null,
-    iconPosition: Button.IconPosition = Button.IconPosition.TextStart,
+    style: Int? = null,
+    state: ButtonUiState? = null,
 ): Button {
-    val lp = if (fixedSize) {
+    val lp = if (state?.fixedSize == true) {
         ViewGroup.LayoutParams(
             context.resources.getDimensionPixelSize(com.sdds.uikit.R.dimen.sdds_spacer_108x),
             ViewGroup.LayoutParams.WRAP_CONTENT,
@@ -30,18 +24,73 @@ fun basicButton(
     } else {
         null
     }
-    return Button(ContextThemeWrapper(context, buttonStyle)).apply {
-        this.text = label
-        this.value = value
-        this.isEnabled = isEnabled
-        this.isLoading = isLoading
-        this.spacing = spacing
-        this.icon = icon
-        this.id = buttonId
-        this.iconPosition = iconPosition
-        this.iconPadding = iconPadding
-        if (lp != null) {
-            this.layoutParams = lp
+    return Button(context.styleWrapper(style))
+        .applyState(state)
+        .apply {
+            id = R.id.basic_button
+            if (lp != null) {
+                layoutParams = lp
+            }
         }
+}
+
+/**
+ * Фабрика [IconButton]
+ */
+fun iconButton(
+    context: Context,
+    style: Int? = null,
+    state: ButtonUiState? = null,
+): IconButton {
+    return IconButton(context.styleWrapper(style))
+        .apply {
+            id = R.id.icon_button
+        }
+        .applyState(state)
+}
+
+/**
+ * Фабрика [LinkButton]
+ */
+fun linkButton(
+    context: Context,
+    style: Int? = null,
+    state: ButtonUiState? = null,
+): LinkButton {
+    return LinkButton(context.styleWrapper(style))
+        .apply {
+            id = R.id.link_button
+        }
+        .applyState(state)
+}
+
+/**
+ * Применяет [ButtonUiState] к [Button]
+ */
+fun <B : Button> B.applyState(state: ButtonUiState?): B = apply {
+    state ?: return@apply
+    text = state.buttonLabel
+    value = state.buttonValue
+    isLoading = state.loading
+    isEnabled = state.enabled
+    spacing = state.spacing
+    if (state.icon != ButtonIcon.No) {
+        setIconResource(state.icon.iconId)
+    } else {
+        icon = null
     }
+    iconPosition = when (state.icon) {
+        ButtonIcon.End -> Button.IconPosition.TextEnd
+        else -> Button.IconPosition.TextStart
+    }
+}
+
+/**
+ * Применяет [ButtonUiState] к [IconButton]
+ */
+fun IconButton.applyState(state: ButtonUiState?): IconButton = apply {
+    state ?: return@apply
+    isLoading = state.loading
+    isEnabled = state.enabled
+    setIconResource(com.sdds.icons.R.drawable.ic_plasma_24)
 }

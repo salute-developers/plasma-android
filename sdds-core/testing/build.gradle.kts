@@ -1,11 +1,15 @@
 plugins {
     id("convention.android-lib")
+    id("kotlin-parcelize")
 }
 
 group = "sdds-core"
 
 android {
     namespace = "com.sdds.testing"
+    buildFeatures {
+        viewBinding = true
+    }
     testOptions {
         unitTests {
             isIncludeAndroidResources = true
@@ -14,10 +18,12 @@ android {
 }
 
 dependencies {
-    implementation(libs.sdds.icons)
+    implementation(project(":uikit"))
+    implementation(project(":icons"))
+    implementation(project(":uikit-compose"))
+    implementation(libs.base.glide)
     implementation(libs.base.androidX.core)
     implementation(libs.base.androidX.appcompat)
-    testImplementation(libs.base.test.unit.jUnit)
     implementation(libs.base.test.unit.jUnit)
     implementation(libs.test.roborazzi)
     implementation(libs.test.roborazzi.rule)
@@ -26,5 +32,4 @@ dependencies {
     implementation(libs.test.roborazzi.compose)
     implementation(libs.base.androidX.compose.uiTooling.preview)
     implementation(libs.base.androidX.compose.foundation)
-    implementation(project(":uikit"))
 }

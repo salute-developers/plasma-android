@@ -6,6 +6,7 @@ import com.sdds.playground.sandbox.core.integration.StylesProviderView
 import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
 import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
+import com.sdds.testing.vs.badge.BadgeUiState
 
 /**
  * ViewModel для экранов с компонентом Badge и IconBadge

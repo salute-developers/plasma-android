@@ -2,7 +2,7 @@
 <resources>
 
     <style name="Plasma.SdService.Components.RadioBox" parent="Sdds.Components.RadioBox">
-        <item name="sd_buttonBorderColor">@color/color_checkable_border</item>
+        <item name="sd_buttonBorderColor">@color/plasma_color_checkable_border</item>
         <item name="sd_buttonBoxColor">?plasma_surfaceDefaultAccent</item>
         <item name="sd_buttonMarkColor">?plasma_textOnDarkPrimary</item>
         <item name="android:textColor">?plasma_textDefaultPrimary</item>
