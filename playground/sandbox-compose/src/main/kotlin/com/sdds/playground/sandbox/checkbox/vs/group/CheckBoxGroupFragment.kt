@@ -5,10 +5,10 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.fragment.app.viewModels
 import com.sdds.playground.sandbox.R
-import com.sdds.playground.sandbox.checkbox.vs.CheckBoxUiState
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.playground.sandbox.core.vs.stylesProvider
-import com.sdds.uikit.CheckBox
+import com.sdds.testing.vs.checkbox.CheckBoxUiState
+import com.sdds.testing.vs.checkbox.applyState
+import com.sdds.testing.vs.checkbox.checkBoxGroup
 import com.sdds.uikit.CheckBoxGroup
 
 /**
@@ -28,26 +28,10 @@ internal class CheckBoxGroupFragment : ComponentFragment<CheckBoxUiState, CheckB
         )
 
     override fun getComponent(contextWrapper: ContextThemeWrapper): CheckBoxGroup {
-        return CheckBoxGroup(contextWrapper)
-            .apply { id = R.id.checkBox_group }
+        return checkBoxGroup(contextWrapper)
     }
 
     override fun onComponentUpdate(component: CheckBoxGroup?, state: CheckBoxUiState) {
-        component?.populate(state)
-    }
-
-    private fun CheckBoxGroup.populate(state: CheckBoxUiState) {
-        removeAllViews()
-        val theme = ContextThemeWrapper(context, componentViewModel.stylesProvider.checkBox.styleRes(state.variant))
-        repeat(3) {
-            val checkBox = CheckBox(theme)
-                .apply {
-                    text = state.label
-                    description = state.description
-                    isEnabled = state.enabled
-                    id = it
-                }
-            addView(checkBox)
-        }
+        component?.applyState(state)
     }
 }

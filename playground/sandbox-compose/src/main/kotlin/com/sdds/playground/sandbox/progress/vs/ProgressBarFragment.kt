@@ -6,6 +6,9 @@ import android.widget.FrameLayout
 import androidx.fragment.app.viewModels
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
+import com.sdds.testing.vs.progress.ProgressUiState
+import com.sdds.testing.vs.progress.applyState
+import com.sdds.testing.vs.progress.progressBar
 import com.sdds.uikit.ProgressBar
 
 /**
@@ -26,13 +29,10 @@ internal class ProgressBarFragment : ComponentFragment<ProgressUiState, Progress
     }
 
     override fun getComponent(contextWrapper: ContextThemeWrapper): ProgressBar {
-        return ProgressBar(contextWrapper)
-            .apply { id = R.id.progressBar }
+        return progressBar(contextWrapper)
     }
 
     override fun onComponentUpdate(component: ProgressBar?, state: ProgressUiState) {
-        component?.apply {
-            setProgress(state.progress, true)
-        }
+        component?.applyState(state)
     }
 }

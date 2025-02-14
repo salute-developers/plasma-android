@@ -6,6 +6,7 @@ import com.sdds.playground.sandbox.core.integration.StylesProviderView
 import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
 import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
+import com.sdds.testing.vs.progress.ProgressUiState
 
 /**
  * ViewModel компонента ProgressBar

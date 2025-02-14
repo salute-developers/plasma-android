@@ -21,6 +21,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.Theme
 import com.sdds.playground.sandbox.databinding.FragmentComponentScaffoldBinding
+import com.sdds.testing.vs.UiState
 import com.sdds.uikit.FrameLayout
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -145,6 +146,7 @@ internal abstract class ComponentFragment<State : UiState, Component : View> :
 
     private fun dispatchThemeChanged(theme: Theme) {
         _binding?.apply {
+            componentContainer?.removeAllViews()
             componentCanvas.removeAllViews()
             componentCanvas.addView(
                 createComponentContainer(theme.view.themeRes),

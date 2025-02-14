@@ -2,8 +2,10 @@ package com.sdds.playground.sandbox.buttons.vs
 
 import android.view.ContextThemeWrapper
 import androidx.fragment.app.viewModels
-import com.sdds.icons.R
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
+import com.sdds.testing.vs.button.ButtonUiState
+import com.sdds.testing.vs.button.applyState
+import com.sdds.testing.vs.button.iconButton
 import com.sdds.uikit.IconButton
 
 /**
@@ -19,15 +21,10 @@ internal class IconButtonFragment : ComponentFragment<ButtonUiState, IconButton>
     }
 
     override fun getComponent(contextWrapper: ContextThemeWrapper): IconButton {
-        return IconButton(contextWrapper)
-            .apply { id = com.sdds.playground.sandbox.R.id.icon_button }
+        return iconButton(contextWrapper)
     }
 
     override fun onComponentUpdate(component: IconButton?, state: ButtonUiState) {
-        component?.apply {
-            isLoading = state.loading
-            isEnabled = state.enabled
-            setIconResource(R.drawable.ic_plasma_24)
-        }
+        component?.applyState(state)
     }
 }

@@ -6,7 +6,7 @@
         <item name="sd_textColorStart">#0D8523</item>
         <item name="sd_textColorEnd">#0DA8AB</item>
 
-        <item name="sd_statusColor">@color/color_avatar_status</item>
+        <item name="sd_statusColor">@color/serv_color_avatar_status</item>
         <item name="sd_actionScrimColor">?serv_overlayOnDarkSoft</item>
         <item name="sd_actionTint">?serv_textOnDarkPrimary</item>
     </style>
