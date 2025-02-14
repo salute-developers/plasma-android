@@ -8,6 +8,8 @@ import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.PropertiesOwner
 import com.sdds.playground.sandbox.core.vs.Property
 import com.sdds.playground.sandbox.core.vs.enumProperty
+import com.sdds.testing.vs.button.ButtonIcon
+import com.sdds.testing.vs.button.ButtonUiState
 import com.sdds.uikit.Button
 
 /**
@@ -44,6 +46,7 @@ internal class BasicButtonViewModel(
             PropertyName.Spacing -> updateSpacing(Button.Spacing.valueOf(valueString))
             PropertyName.Loading -> updateLoadingState(valueString.toBoolean())
             PropertyName.Enabled -> updateEnabledState(valueString.toBoolean())
+            PropertyName.FixedSize -> updateFixedSize(valueString.toBoolean())
             null -> {}
         }
     }
@@ -81,6 +84,12 @@ internal class BasicButtonViewModel(
     private fun updateLoadingState(loading: Boolean) {
         internalUiState.value = internalUiState.value.copy(
             loading = loading,
+        )
+    }
+
+    private fun updateFixedSize(fixedSize: Boolean) {
+        internalUiState.value = internalUiState.value.copy(
+            fixedSize = fixedSize,
         )
     }
 
@@ -126,6 +135,7 @@ internal class BasicButtonViewModel(
         Spacing("spacing"),
         Loading("loading"),
         Enabled("enabled"),
+        FixedSize("fixedSize"),
     }
 }
 

@@ -21,4 +21,5 @@
     <item type="id" name="avatar_group"/>
     <item type="id" name="segment"/>
     <item type="id" name="segment_item"/>
+    <item type="id" name="test_component_container"/>
 </resources>

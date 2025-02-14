@@ -1,75 +1,71 @@
 package com.sdds.testing.vs.radiobox
 
 import android.content.Context
-import android.view.ContextThemeWrapper
+import android.view.ViewGroup
+import android.widget.FrameLayout
+import com.sdds.testing.R
+import com.sdds.testing.vs.styleWrapper
 import com.sdds.uikit.RadioBox
 import com.sdds.uikit.RadioBoxGroup
 
 /**
- * Фабрика для создания RadioBox
+ * Фабрика для создания [RadioBox]
  */
-fun radioBoxFactory(
+fun radioBox(
     context: Context,
-    radioBoxStyle: Int = 0,
-    label: String = "Label",
-    description: String = "Description",
-    isChecked: Boolean = true,
-    isEnabled: Boolean = true,
-    radioBoxId: Int = 0,
+    style: Int? = null,
+    state: RadioBoxUiState? = null,
 ): RadioBox {
-    return RadioBox(ContextThemeWrapper(context, radioBoxStyle)).apply {
-        this.text = label
-        this.description = description
-        this.isChecked = isChecked
-        this.isEnabled = isEnabled
-        this.id = radioBoxId
-    }
+    return RadioBox(context.styleWrapper(style))
+        .apply {
+            id = R.id.radioBox
+        }
+        .applyState(state)
 }
 
-private var radioBox: RadioBox? = null
-private var radioBoxGroup: RadioBoxGroup? = null
-
 /**
- * Фабрика для создания RadioBoxGroup
+ * Фабрика для создания [RadioBoxGroup]
  */
 fun radioBoxGroup(
     context: Context,
-    radioBoxGroupStyle: Int = 0,
-    label: String = "Label",
-    description: String = "Description",
-    checked: Boolean = false,
-    isEnabled: Boolean = true,
-    radioBoxGroupId: Int = 0,
+    style: Int? = null,
+    state: RadioBoxUiState? = null,
 ): RadioBoxGroup {
-    return RadioBoxGroup(ContextThemeWrapper(context, radioBoxGroupStyle)).apply {
-        this.isEnabled = isEnabled
-        this.id = radioBoxGroupId
-        populate(label, description, checked, isEnabled, radioBoxGroupStyle)
-    }
+    return RadioBoxGroup(context.styleWrapper(style))
+        .apply {
+            id = R.id.radioBox_group
+            layoutParams = FrameLayout.LayoutParams(
+                resources.getDimensionPixelSize(com.sdds.uikit.R.dimen.sdds_spacer_80x),
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+            )
+        }
+        .applyState(state)
 }
 
 /**
- * Создание RadioBoxGroup
+ * Применяет [RadioBoxUiState] к [RadioBox]
  */
-fun RadioBoxGroup.populate(
-    label: String = "Label",
-    description: String = "Description",
-    checked: Boolean = true,
-    isEnabled: Boolean = true,
-    radioBoxGroupStyle: Int = 0,
-) {
+fun RadioBox.applyState(state: RadioBoxUiState?): RadioBox = apply {
+    state ?: return@apply
+    text = state.label
+    isChecked = state.checked
+    description = state.description
+    isEnabled = state.enabled
+}
+
+/**
+ * Применяет [RadioBoxUiState] к [RadioBoxGroup]
+ */
+fun RadioBoxGroup.applyState(state: RadioBoxUiState?): RadioBoxGroup = apply {
+    state ?: return@apply
+    isEnabled = state.enabled
     removeAllViews()
     repeat(3) {
         addView(
-            radioBoxFactory(
-                context = context,
-                label = label,
-                description = description,
-                isChecked = checked,
-                isEnabled = isEnabled,
-                radioBoxStyle = radioBoxGroupStyle,
-                radioBoxId = it,
-            ),
+            radioBox(
+                context,
+                state = state,
+            ).apply { id = it },
         )
     }
 }

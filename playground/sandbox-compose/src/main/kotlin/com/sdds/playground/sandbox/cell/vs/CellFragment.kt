@@ -1,14 +1,15 @@
 package com.sdds.playground.sandbox.cell.vs
 
 import android.view.ContextThemeWrapper
-import android.view.LayoutInflater
 import android.view.ViewGroup.LayoutParams
 import android.widget.FrameLayout
-import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.playground.sandbox.databinding.LayoutComponentCellBinding
+import com.sdds.testing.databinding.LayoutComponentCellBinding
+import com.sdds.testing.vs.cell.CellUiState
+import com.sdds.testing.vs.cell.applyState
+import com.sdds.testing.vs.cell.cellLayoutBinding
 import com.sdds.uikit.CellLayout
 
 /**
@@ -28,54 +29,20 @@ internal class CellFragment : ComponentFragment<CellUiState, CellLayout>() {
         )
     }
 
+    private var cellLayout: LayoutComponentCellBinding? = null
+
     override fun getComponent(contextWrapper: ContextThemeWrapper): CellLayout {
-        return LayoutComponentCellBinding.inflate(
-            LayoutInflater.from(contextWrapper),
-        )
+        return cellLayoutBinding(contextWrapper)
             .also { cellLayout = it }.root
             .apply { id = R.id.cell }
     }
 
     override fun onComponentUpdate(component: CellLayout?, state: CellUiState) {
-        cellLayout?.update(state)
+        cellLayout?.applyState(state)
     }
-
-    private var cellLayout: LayoutComponentCellBinding? = null
 
     override fun onDestroyView() {
         super.onDestroyView()
         cellLayout = null
-    }
-
-    private fun LayoutComponentCellBinding.update(state: CellUiState) {
-        componentCellStartAvatar.isVisible = state.startContent == CellContent.AVATAR
-        componentCellStartSwitch.isVisible = state.startContent == CellContent.SWITCH
-        componentCellStartRadioBox.isVisible = state.startContent == CellContent.RADIOBOX
-        componentCellStartCheckBox.isVisible = state.startContent == CellContent.CHECKBOX
-        componentCellStartIconButton.isVisible = state.startContent == CellContent.ICON
-
-        componentCellEndAvatar.isVisible = state.endContent == CellContent.AVATAR
-        componentCellEndSwitch.isVisible = state.endContent == CellContent.SWITCH
-        componentCellEndRadioBox.isVisible = state.endContent == CellContent.RADIOBOX
-        componentCellEndCheckBox.isVisible = state.endContent == CellContent.CHECKBOX
-        componentCellEndIconButton.isVisible = state.endContent == CellContent.ICON
-
-        componentCellLabel.apply {
-            text = state.label
-            isVisible = state.label.isNotBlank()
-        }
-
-        componentCellTitle.apply {
-            text = state.title
-            isVisible = state.title.isNotBlank()
-        }
-
-        componentCellSubtitle.apply {
-            text = state.subtitle
-            isVisible = state.subtitle.isNotBlank()
-        }
-
-        root.disclosureEnabled = state.hasDisclosure
-        root.disclosureText = state.disclosureText
     }
 }

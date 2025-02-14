@@ -1,43 +1,29 @@
 package com.sdds.testing.vs.progress
 
 import android.content.Context
-import android.view.ContextThemeWrapper
 import com.sdds.testing.R
-import com.sdds.testing.component
+import com.sdds.testing.vs.styleWrapper
 import com.sdds.uikit.ProgressBar
 
 /**
- * Фабрика для создания ProgressBar
+ * Фабрика для создания [ProgressBar]
  */
-fun progress(
+fun progressBar(
     context: Context,
-    progressId: Int = R.id.progressBar,
-    progress: Float = 0f,
-    maxProgress: Float = 1f,
-    minProgress: Float = 0f,
-    progressStyle: Int = 0,
+    style: Int? = null,
+    state: ProgressUiState? = null,
 ): ProgressBar {
-    return ProgressBar(ContextThemeWrapper(context, progressStyle))
+    return ProgressBar(context.styleWrapper(style))
         .apply {
-            this.progress = progress
-            this.maxProgress = maxProgress
-            this.minProgress = minProgress
-            id = progressId
+            id = R.id.progressBar
         }
+        .applyState(state)
 }
 
 /**
- * Тест кейс для ProgressBar
+ * Применяет [ProgressUiState] к [ProgressBar]
  */
-fun progressBarDefault() {
-    component(com.sdds.serv.R.style.Serv_Sdds_ComponentOverlays_ProgressBarDefault) { context ->
-        progress(
-            context = context,
-            progress = 0.5f,
-            maxProgress = 1f,
-            minProgress = 0f,
-            progressStyle = com.sdds.serv.R.style.Serv_Sdds_ComponentOverlays_ProgressBarDefault,
-            progressId = 1,
-        )
-    }
+fun ProgressBar.applyState(state: ProgressUiState?): ProgressBar = apply {
+    state ?: return@apply
+    setProgress(state.progress, state.animateProgress)
 }

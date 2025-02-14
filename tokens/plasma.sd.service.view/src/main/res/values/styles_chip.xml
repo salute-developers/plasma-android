@@ -2,10 +2,10 @@
 <resources>
 
     <style name="Plasma.SdService.Components.Chip" parent="Sdds.Components.Chip">
-        <item name="android:backgroundTint">@color/bg_color_chip</item>
-        <item name="android:textColor">@color/text_color_chip</item>
-        <item name="sd_drawableStartTint">@color/text_color_chip</item>
-        <item name="sd_drawableEndTint">@color/drawable_color_chip</item>
+        <item name="android:backgroundTint">@color/plasma_bg_color_chip</item>
+        <item name="android:textColor">@color/plasma_text_color_chip</item>
+        <item name="sd_drawableStartTint">@color/plasma_text_color_chip</item>
+        <item name="sd_drawableEndTint">@color/plasma_drawable_color_chip</item>
         <item name="sd_viewState">primary</item>
     </style>
 
@@ -263,5 +263,101 @@
 
     <style name="Plasma.SdService.Components.ChipGroup.Dense.EmbeddedXS.Accent">
         <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipEmbeddedXSAccent</item>
+    </style>
+    
+    <style name="Plasma.SdService.Components.ChipGroup.Dense.L">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipLDefault</item>
+    </style>
+
+    <style name="Plasma.SdService.Components.ChipGroup.Dense.L.Secondary">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipLSecondary</item>
+    </style>
+
+    <style name="Plasma.SdService.Components.ChipGroup.Dense.L.Accent">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipLAccent</item>
+    </style>
+
+    <style name="Plasma.SdService.Components.ChipGroup.Dense.M">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipMDefault</item>
+    </style>
+
+    <style name="Plasma.SdService.Components.ChipGroup.Dense.M.Secondary">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipMSecondary</item>
+    </style>
+
+    <style name="Plasma.SdService.Components.ChipGroup.Dense.M.Accent">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipMAccent</item>
+    </style>
+
+    <style name="Plasma.SdService.Components.ChipGroup.Dense.S">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipSDefault</item>
+    </style>
+
+    <style name="Plasma.SdService.Components.ChipGroup.Dense.S.Secondary">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipSSecondary</item>
+    </style>
+
+    <style name="Plasma.SdService.Components.ChipGroup.Dense.S.Accent">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipSAccent</item>
+    </style>
+
+    <style name="Plasma.SdService.Components.ChipGroup.Dense.XS">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipXSDefault</item>
+    </style>
+
+    <style name="Plasma.SdService.Components.ChipGroup.Dense.XS.Secondary">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipXSSecondary</item>
+    </style>
+
+    <style name="Plasma.SdService.Components.ChipGroup.Dense.XS.Accent">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipXSAccent</item>
+    </style>
+
+    <style name="Plasma.SdService.Components.ChipGroup.Wide.L">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipLDefault</item>
+    </style>
+
+    <style name="Plasma.SdService.Components.ChipGroup.Wide.L.Secondary">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipLSecondary</item>
+    </style>
+
+    <style name="Plasma.SdService.Components.ChipGroup.Wide.L.Accent">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipLAccent</item>
+    </style>
+
+    <style name="Plasma.SdService.Components.ChipGroup.Wide.M">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipMDefault</item>
+    </style>
+
+    <style name="Plasma.SdService.Components.ChipGroup.Wide.M.Secondary">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipMSecondary</item>
+    </style>
+
+    <style name="Plasma.SdService.Components.ChipGroup.Wide.M.Accent">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipMAccent</item>
+    </style>
+
+    <style name="Plasma.SdService.Components.ChipGroup.Wide.S">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipSDefault</item>
+    </style>
+
+    <style name="Plasma.SdService.Components.ChipGroup.Wide.S.Secondary">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipSSecondary</item>
+    </style>
+
+    <style name="Plasma.SdService.Components.ChipGroup.Wide.S.Accent">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipSAccent</item>
+    </style>
+
+    <style name="Plasma.SdService.Components.ChipGroup.Wide.XS">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipXSDefault</item>
+    </style>
+
+    <style name="Plasma.SdService.Components.ChipGroup.Wide.XS.Secondary">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipXSSecondary</item>
+    </style>
+
+    <style name="Plasma.SdService.Components.ChipGroup.Wide.XS.Accent">
+        <item name="sd_chipStyleOverlay">@style/Plasma.SdService.ComponentOverlays.ChipXSAccent</item>
     </style>
 </resources>
