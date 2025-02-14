@@ -2,11 +2,11 @@ package com.sdds.playground.sandbox.checkbox.vs.group
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.sdds.playground.sandbox.checkbox.vs.CheckBoxUiState
 import com.sdds.playground.sandbox.core.integration.StylesProviderView
 import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
 import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
+import com.sdds.testing.vs.checkbox.CheckBoxUiState
 
 /**
  * ViewModel для экранов с компонентом CheckBox

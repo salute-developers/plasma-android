@@ -7,6 +7,8 @@ import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
 import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
 import com.sdds.playground.sandbox.core.vs.enumProperty
+import com.sdds.testing.vs.avatar.AvatarUiState
+import com.sdds.testing.vs.avatar.ExampleMode
 import com.sdds.uikit.Avatar
 
 /**

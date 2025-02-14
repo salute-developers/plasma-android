@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="Serv.Sdds.Components.Switch" parent="Sdds.Components.Switch">
-        <item name="sd_buttonTrackColor">@color/bg_color_switch_track</item>
+        <item name="sd_buttonTrackColor">@color/serv_bg_color_switch_track</item>
         <item name="android:textColor">?serv_textDefaultPrimary</item>
         <item name="sd_descriptionTextColor">?serv_textDefaultSecondary</item>
     </style>
