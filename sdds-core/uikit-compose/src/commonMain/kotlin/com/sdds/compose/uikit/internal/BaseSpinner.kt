@@ -19,7 +19,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.drawscope.withTransform
-import androidx.compose.ui.tooling.preview.Preview
+// import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.LocalTint
@@ -75,11 +75,11 @@ internal fun BaseSpinner(
 /**
  * Preview [BaseSpinner]
  */
-@Composable
-@Preview
-fun BaseSpinnerPreview() {
-    BaseSpinner(tint = Color.White, strokeWidth = 4.dp, modifier = Modifier.size(32.dp))
-}
+// @Composable
+// @Preview
+// fun BaseSpinnerPreview() {
+//     BaseSpinner(tint = Color.White, strokeWidth = 4.dp, modifier = Modifier.size(32.dp))
+// }
 
 internal val StrokeWidth = 4.dp
 private val DefaultSizeModifier = Modifier.defaultMinSize(24.dp)

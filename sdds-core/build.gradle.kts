@@ -8,6 +8,8 @@ plugins {
     alias(libs.plugins.android.cache.fix) apply false
     alias(libs.plugins.paparazzi) apply false
     alias(libs.plugins.gradlePluginPublish) apply false
+    alias(libs.plugins.kotlinMultiplatform) apply false
+    alias(libs.plugins.jetbrainsCompose) apply false
 }
 
 buildscript {

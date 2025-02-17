@@ -17,6 +17,7 @@ dependencies {
     implementation(libs.base.gradle.spotless)
     implementation(libs.base.gradle.nexusPublish)
     implementation(libs.base.dokka.graddle)
+    implementation(libs.base.gradle.compose)
     implementation(libs.base.dokka)
 
     implementation(files(libs.javaClass.superclass.protectionDomain.codeSource.location))
