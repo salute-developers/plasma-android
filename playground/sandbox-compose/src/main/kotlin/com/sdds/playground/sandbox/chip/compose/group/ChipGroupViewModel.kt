@@ -3,6 +3,7 @@ package com.sdds.playground.sandbox.chip.compose.group
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.compose.uikit.ChipGroupStyle
+import com.sdds.compose.uikit.ChipStyle
 import com.sdds.playground.sandbox.Theme
 import com.sdds.playground.sandbox.core.compose.ComponentViewModel
 import com.sdds.playground.sandbox.core.compose.Property
@@ -15,6 +16,10 @@ internal class ChipGroupViewModel(
 
     override fun getStyleProvider(): ComposeStyleProvider<String, ChipGroupStyle> {
         return theme.stylesProvider.chipGroup
+    }
+
+    fun getChipStyleProvider(): ComposeStyleProvider<String, ChipStyle> {
+        return theme.stylesProvider.chip
     }
 
     private fun updateQuantity(quantity: Int, label: String) {

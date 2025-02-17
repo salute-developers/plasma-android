@@ -11,14 +11,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.sdds.compose.uikit.Chip
 import com.sdds.compose.uikit.ChipGroup
+import com.sdds.compose.uikit.ChipStyle
 import com.sdds.compose.uikit.Icon
 import com.sdds.icons.R
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.Theme
 import com.sdds.playground.sandbox.core.compose.ComponentScaffold
-import com.sdds.serv.styles.chip.Accent
-import com.sdds.serv.styles.chip.M
-import com.sdds.serv.styles.chip.Secondary
+import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 
 /**
  * Экран с [ChipGroup]
@@ -51,11 +50,10 @@ internal fun ChipGroupScreen(theme: Theme.ThemeInfoCompose = Theme.composeDefaul
                             isSelected = isSelected,
                             onSelectedChange = { value -> isSelected = value },
                             label = it,
-                            style = if (isSelected) {
-                                Chip.M.Accent.style()
-                            } else {
-                                Chip.M.Secondary.style()
-                            },
+                            style = getChipStyle(
+                                isSelected = isSelected,
+                                styleProvider = chipGroupViewModel.getChipStyleProvider(),
+                            ),
                             endContent = if (isSelected) {
                                 {
                                     Icon(
@@ -74,6 +72,18 @@ internal fun ChipGroupScreen(theme: Theme.ThemeInfoCompose = Theme.composeDefaul
         },
         propertiesOwner = chipGroupViewModel,
     )
+}
+
+@Composable
+private fun getChipStyle(
+    isSelected: Boolean,
+    styleProvider: ComposeStyleProvider<String, ChipStyle>,
+): ChipStyle {
+    return if (isSelected) {
+        styleProvider.style(key = "MAccent")
+    } else {
+        styleProvider.style(key = "MSecondary")
+    }
 }
 
 /**
