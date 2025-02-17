@@ -6,6 +6,7 @@ import androidx.compose.runtime.Stable
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.structuralEqualityPolicy
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -17,11 +18,12 @@ import com.sdds.compose.uikit.style.StyleBuilder
 /**
  * CompositionLocal c [CellStyle] для компонента [Cell]
  */
-val LocalCellStyle = compositionLocalOf(structuralEqualityPolicy()) { CellStyle.builder().style() }
+val LocalCellStyle = compositionLocalOf(structuralEqualityPolicy()) { CellStyle.cellBuilder().style() }
 
 /**
  * Стиль компонента [Cell]
  */
+@Stable
 interface CellStyle : Style {
 
     /**
@@ -43,6 +45,11 @@ interface CellStyle : Style {
      * Cтиль текста disclosure
      */
     val disclosureTextStyle: TextStyle
+
+    /**
+     * Иконка disclosure
+     */
+    val disclosureIcon: Painter?
 
     /**
      * Цвета компонента
@@ -79,14 +86,11 @@ interface CellStyle : Style {
      */
     val switchStyle: SwitchStyle
 
-    companion object {
-
-        /**
-         * Возвращает экземпляр [CellStyleBuilder]
-         */
-        fun builder(): CellStyleBuilder = DefaultCellStyle.Builder()
-    }
+    companion object
 }
+
+fun CellStyle.Companion.cellBuilder(receiver: Any? = null): CellStyleBuilder =
+    DefaultCellStyle.Builder()
 
 @Immutable
 private data class DefaultCellStyle(
@@ -94,6 +98,7 @@ private data class DefaultCellStyle(
     override val titleStyle: TextStyle,
     override val subtitleStyle: TextStyle,
     override val disclosureTextStyle: TextStyle,
+    override val disclosureIcon: Painter?,
     override val colors: CellColors,
     override val dimensions: CellDimensions,
     override val avatarStyle: AvatarStyle,
@@ -107,6 +112,7 @@ private data class DefaultCellStyle(
         private var titleStyle: TextStyle? = null
         private var subtitleStyle: TextStyle? = null
         private var disclosureStyle: TextStyle? = null
+        private var disclosureIcon: Painter? = null
         private var colorsBuilder: CellColorsBuilder = CellColors.builder()
         private var dimensionsBuilder: CellDimensionsBuilder = CellDimensions.builder()
         private var avatarStyle: AvatarStyle? = null
@@ -127,8 +133,12 @@ private data class DefaultCellStyle(
             this.subtitleStyle = subtitleStyle
         }
 
-        override fun disclosureStyle(disclosureStyle: TextStyle) = apply {
+        override fun disclosureTextStyle(disclosureStyle: TextStyle) = apply {
             this.disclosureStyle = disclosureStyle
+        }
+
+        override fun disclosureIcon(disclosureIcon: Painter) = apply {
+            this.disclosureIcon = disclosureIcon
         }
 
         @Composable
@@ -167,6 +177,7 @@ private data class DefaultCellStyle(
                 titleStyle = titleStyle ?: TextStyle.Default,
                 subtitleStyle = subtitleStyle ?: TextStyle.Default,
                 disclosureTextStyle = disclosureStyle ?: TextStyle.Default,
+                disclosureIcon = disclosureIcon,
                 colors = colorsBuilder.build(),
                 dimensions = dimensionsBuilder.build(),
                 avatarStyle = avatarStyle ?: AvatarStyle.builder().style(),
@@ -182,7 +193,6 @@ private data class DefaultCellStyle(
 /**
  * Билдер стиля [CellStyle]
  */
-@Stable
 interface CellStyleBuilder : StyleBuilder<CellStyle> {
 
     /**
@@ -203,7 +213,12 @@ interface CellStyleBuilder : StyleBuilder<CellStyle> {
     /**
      * Устанавливает стиль текста disclosure
      */
-    fun disclosureStyle(disclosureStyle: TextStyle): CellStyleBuilder
+    fun disclosureTextStyle(disclosureStyle: TextStyle): CellStyleBuilder
+
+    /**
+     * Устанавливает иконку disclosure
+     */
+    fun disclosureIcon(disclosureIcon: Painter): CellStyleBuilder
 
     /**
      * Устанавливает цвета компонента при помощи [builder]
@@ -246,6 +261,7 @@ interface CellStyleBuilder : StyleBuilder<CellStyle> {
 /**
  * Размеры и отступы компонента [Cell]
  */
+@Stable
 interface CellDimensions {
 
     /**
@@ -317,6 +333,7 @@ private class DefaultCellDimensions(
 /**
  * Цвета компонента [Cell]
  */
+@Stable
 interface CellColors {
 
     /**
