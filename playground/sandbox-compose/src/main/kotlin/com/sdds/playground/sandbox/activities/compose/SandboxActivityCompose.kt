@@ -46,6 +46,7 @@ import com.sdds.playground.sandbox.avatar.compose.AvatarScreen
 import com.sdds.playground.sandbox.buttons.compose.BasicButtonScreen
 import com.sdds.playground.sandbox.buttons.compose.IconButtonScreen
 import com.sdds.playground.sandbox.buttons.compose.LinkButtonScreen
+import com.sdds.playground.sandbox.cell.compose.CellScreen
 import com.sdds.playground.sandbox.checkbox.compose.CheckBoxScreen
 import com.sdds.playground.sandbox.checkbox.compose.group.CheckBoxGroupScreen
 import com.sdds.playground.sandbox.chip.compose.ChipScreen
@@ -83,6 +84,7 @@ private sealed class MenuItem(val title: String, val screen: @Composable () -> U
     object Avatar : MenuItem("Avatar", { AvatarScreen() })
     object AvatarGroup : MenuItem("AvatarGroup", { AvatarGroupScreen() })
     object Buttons : MenuItem("BasicButton", { BasicButtonScreen() })
+    object Cell : MenuItem("Cell", { CellScreen() })
     object IconButtons : MenuItem("IconButton", { IconButtonScreen() })
     object LinkButtons : MenuItem("LinkButton", { LinkButtonScreen() })
     object CheckBox : MenuItem("CheckBox", { CheckBoxScreen() })
@@ -100,6 +102,7 @@ private val menuItems = listOf(
     MenuItem.Avatar,
     MenuItem.AvatarGroup,
     MenuItem.Buttons,
+    MenuItem.Cell,
     MenuItem.IconButtons,
     MenuItem.LinkButtons,
     MenuItem.CheckBox,

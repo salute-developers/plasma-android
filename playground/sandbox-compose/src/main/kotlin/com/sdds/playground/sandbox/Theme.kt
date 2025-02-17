@@ -14,6 +14,7 @@ import androidx.core.view.WindowCompat
 import com.sdds.compose.uikit.Avatar
 import com.sdds.compose.uikit.AvatarGroup
 import com.sdds.compose.uikit.BasicButton
+import com.sdds.compose.uikit.Cell
 import com.sdds.compose.uikit.CheckBox
 import com.sdds.compose.uikit.CheckBoxGroup
 import com.sdds.compose.uikit.Chip
@@ -21,6 +22,7 @@ import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.LocalAvatarGroupStyle
 import com.sdds.compose.uikit.LocalAvatarStyle
 import com.sdds.compose.uikit.LocalButtonStyle
+import com.sdds.compose.uikit.LocalCellStyle
 import com.sdds.compose.uikit.LocalCheckBoxGroupStyle
 import com.sdds.compose.uikit.LocalCheckBoxStyle
 import com.sdds.compose.uikit.LocalChipStyle
@@ -44,6 +46,7 @@ import com.sdds.serv.styles.button.basic.Default
 import com.sdds.serv.styles.button.basic.M
 import com.sdds.serv.styles.button.icon.Default
 import com.sdds.serv.styles.button.icon.M
+import com.sdds.serv.styles.cell.M
 import com.sdds.serv.styles.checkbox.M
 import com.sdds.serv.styles.checkbox.group.M
 import com.sdds.serv.styles.chip.Default
@@ -51,7 +54,7 @@ import com.sdds.serv.styles.chip.M
 import com.sdds.serv.styles.progress.Default
 import com.sdds.serv.styles.radiobox.M
 import com.sdds.serv.styles.radiobox.group.M
-import com.sdds.serv.styles.switch.M
+import com.sdds.serv.styles.switcher.M
 import com.sdds.serv.styles.textfield.Default
 import com.sdds.serv.styles.textfield.M
 import com.sdds.serv.styles.textfield.OuterLabel
@@ -113,6 +116,7 @@ fun SandboxTheme(
                 LocalAvatarGroupStyle provides AvatarGroup.S.style(),
                 LocalChipStyle provides Chip.M.Default.style(),
                 LocalTextFieldStyle provides TextField.M.OuterLabel.Default.style(),
+                LocalCellStyle provides Cell.M.style(),
                 content = content,
             )
         },
