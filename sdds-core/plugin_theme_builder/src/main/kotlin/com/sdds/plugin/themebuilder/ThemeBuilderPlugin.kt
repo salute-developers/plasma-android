@@ -115,6 +115,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
                 textFieldClearConfigFile.set(getComponentConfigFile(ComponentConfig.TEXT_FIELD_CLEAR.fileName))
                 textAreaConfigFile.set(getComponentConfigFile(ComponentConfig.TEXT_AREA.fileName))
                 textAreaClearConfigFile.set(getComponentConfigFile(ComponentConfig.TEXT_AREA_CLEAR.fileName))
+                cellConfigFile.set(getComponentConfigFile(ComponentConfig.CELL.fileName))
                 indicatorConfigFile.set(getComponentConfigFile(ComponentConfig.INDICATOR.fileName))
                 outputDirPath.set(extension.outputLocation.getSourcePath())
                 outputResDirPath.set(extension.outputLocation.getResourcePath())
@@ -356,6 +357,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
         TEXT_FIELD_CLEAR("text_field_clear_config.json", "fetchTextFieldClearConfig"),
         TEXT_AREA("text_area_config.json", "fetchTextAreaConfig"),
         TEXT_AREA_CLEAR("text_area_clear_config.json", "fetchTextAreaClearConfig"),
+        CELL("cell_config.json", "fetchCellConfig"),
         INDICATOR("indicator_config.json", "fetchIndicatorConfig"),
     }
 

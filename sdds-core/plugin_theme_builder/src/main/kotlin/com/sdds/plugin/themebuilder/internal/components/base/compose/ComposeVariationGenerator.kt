@@ -9,6 +9,7 @@ import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.ColorState
 import com.sdds.plugin.themebuilder.internal.components.base.Config
 import com.sdds.plugin.themebuilder.internal.components.base.Dimension
+import com.sdds.plugin.themebuilder.internal.components.base.Icon
 import com.sdds.plugin.themebuilder.internal.components.base.PropertyOwner
 import com.sdds.plugin.themebuilder.internal.components.base.Shape
 import com.sdds.plugin.themebuilder.internal.components.base.Typography
@@ -121,6 +122,11 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
         return ".$styleName($themeClassName.typography.${typography.value.toKtAttrName()})"
     }
 
+    protected fun getIcon(iconName: String, icon: Icon): String {
+        val resourceRef = "ic_${icon.value.replace('.', '_')}"
+        return ".$iconName(painterResource(com.sdds.icons.R.drawable.$resourceRef))"
+    }
+
     private fun getDimension(
         dimenName: String,
         dimenValue: Float,
@@ -137,6 +143,26 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
         } else {
             "${dimenValue * dimensionsConfig.multiplier}.dp"
         }
+    }
+
+    protected fun String.getComponentStyle(
+        ktFileBuilder: KtFileBuilder,
+        stylesPackage: String,
+    ): String {
+        val styleRefParts = split(".")
+        val objectName = styleRefParts.first().toCamelCase()
+        val extensions = styleRefParts.subList(1, styleRefParts.size).map { it.toCamelCase() }
+        ktFileBuilder.addImport(ClassName("com.sdds.compose.uikit", listOf(objectName)))
+        extensions.forEach {
+            ktFileBuilder.addImport(
+                ClassName(
+                    packageName = stylesPackage,
+                    simpleNames = listOf(it),
+                ),
+            )
+        }
+        return styleRefParts
+            .joinToString(separator = ".") { it.toCamelCase() }
     }
 
     protected fun StringBuilder.appendDimension(
@@ -412,7 +438,7 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
         )
         addImport(
             packageName = "com.sdds.compose.uikit.style",
-            names = listOf("wrap"),
+            names = listOf("wrap", "style"),
         )
         addImport(
             packageName = "androidx.compose.runtime",
@@ -421,6 +447,10 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
         addImport(
             packageName = "androidx.compose.ui.unit",
             names = listOf("dp"),
+        )
+        addImport(
+            packageName = "androidx.compose.ui.res",
+            names = listOf("painterResource"),
         )
         if (dimensionsConfig.fromResources) {
             addImport(KtFileBuilder.TypeLocalDensity)
