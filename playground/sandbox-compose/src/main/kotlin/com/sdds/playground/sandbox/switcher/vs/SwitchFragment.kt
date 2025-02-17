@@ -6,6 +6,9 @@ import android.widget.FrameLayout
 import androidx.fragment.app.viewModels
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
+import com.sdds.testing.vs.switcher.SwitchUiState
+import com.sdds.testing.vs.switcher.applyState
+import com.sdds.testing.vs.switcher.switch
 import com.sdds.uikit.Switch
 
 /**
@@ -26,19 +29,13 @@ internal class SwitchFragment : ComponentFragment<SwitchUiState, Switch>() {
     }
 
     override fun getComponent(contextWrapper: ContextThemeWrapper): Switch {
-        return Switch(contextWrapper)
-            .apply { id = R.id.switcher }
+        return switch(contextWrapper)
             .apply {
                 setOnClickListener { componentViewModel.updateActive(isChecked) }
             }
     }
 
     override fun onComponentUpdate(component: Switch?, state: SwitchUiState) {
-        component?.apply {
-            text = state.label
-            description = state.description
-            isEnabled = state.enabled
-            isChecked = state.active
-        }
+        component?.applyState(state)
     }
 }

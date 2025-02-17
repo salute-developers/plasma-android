@@ -7,6 +7,7 @@ import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
 import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.PropertiesOwner
 import com.sdds.playground.sandbox.core.vs.Property
+import com.sdds.testing.vs.button.ButtonUiState
 
 /**
  * ViewModel для экрана с компонентом IconButton

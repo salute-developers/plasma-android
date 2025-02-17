@@ -2,8 +2,10 @@ package com.sdds.playground.sandbox.counter.vs
 
 import android.view.ContextThemeWrapper
 import androidx.fragment.app.viewModels
-import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
+import com.sdds.testing.vs.counter.CounterUiState
+import com.sdds.testing.vs.counter.applyState
+import com.sdds.testing.vs.counter.counter
 import com.sdds.uikit.Counter
 
 /**
@@ -16,14 +18,10 @@ internal class CounterFragment : ComponentFragment<CounterUiState, Counter>() {
     }
 
     override fun getComponent(contextWrapper: ContextThemeWrapper): Counter {
-        return Counter(contextWrapper)
-            .apply { id = R.id.counter }
+        return counter(contextWrapper)
     }
 
     override fun onComponentUpdate(component: Counter?, state: CounterUiState) {
-        component?.apply {
-            text = state.count
-            isEnabled = state.enabled
-        }
+        component?.applyState(state)
     }
 }

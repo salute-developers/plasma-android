@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="Salute.StylesSalute.Components.Switch" parent="Sdds.Components.Switch">
-        <item name="sd_buttonTrackColor">@color/bg_color_switch_track</item>
+        <item name="sd_buttonTrackColor">@color/salute_bg_color_switch_track</item>
         <item name="android:textColor">?salute_textDefaultPrimary</item>
         <item name="sd_descriptionTextColor">?salute_textDefaultSecondary</item>
     </style>

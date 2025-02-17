@@ -2,10 +2,10 @@
 <resources>
 
     <style name="Salute.StylesSalute.Components.Cell" parent="Sdds.Components.Cell">
-        <item name="sd_labelColor">@color/color_cell_text</item>
-        <item name="sd_titleColor">@color/color_cell_text</item>
-        <item name="sd_subtitleColor">@color/color_cell_text</item>
-        <item name="sd_disclosureColor">@color/color_cell_text</item>
+        <item name="sd_labelColor">@color/salute_color_cell_text</item>
+        <item name="sd_titleColor">@color/salute_color_cell_text</item>
+        <item name="sd_subtitleColor">@color/salute_color_cell_text</item>
+        <item name="sd_disclosureColor">@color/salute_color_cell_text</item>
         <item name="android:descendantFocusability">beforeDescendants</item>
         <item name="sd_forceDuplicateParentState">true</item>
     </style>
@@ -59,58 +59,58 @@
     <style name="Salute.StylesSalute.Components.CellContent.IconButton" parent="Salute.StylesSalute.Components.IconButton" />
 
     <style name="Salute.StylesSalute.Components.CellContent.IconButton.L" parent="Salute.StylesSalute.Components.IconButton.L.Clear" >
-        <item name="sd_iconTint">@color/color_cell_text</item>
+        <item name="sd_iconTint">@color/salute_color_cell_text</item>
     </style>
 
     <style name="Salute.StylesSalute.Components.CellContent.IconButton.M" parent="Salute.StylesSalute.Components.IconButton.M.Clear">
-        <item name="sd_iconTint">@color/color_cell_text</item>
+        <item name="sd_iconTint">@color/salute_color_cell_text</item>
     </style>
 
     <style name="Salute.StylesSalute.Components.CellContent.IconButton.S" parent="Salute.StylesSalute.Components.IconButton.S.Clear" >
-        <item name="sd_iconTint">@color/color_cell_text</item>
+        <item name="sd_iconTint">@color/salute_color_cell_text</item>
     </style>
 
     <style name="Salute.StylesSalute.Components.CellContent.IconButton.XS" parent="Salute.StylesSalute.Components.IconButton.Xs.Clear" >
-        <item name="sd_iconTint">@color/color_cell_text</item>
+        <item name="sd_iconTint">@color/salute_color_cell_text</item>
     </style>
 
     <style name="Salute.StylesSalute.Components.CellContent.Switch" parent="Salute.StylesSalute.Components.Switch">
-        <item name="sd_buttonTrackColor">@color/bg_cell_switch_track</item>
+        <item name="sd_buttonTrackColor">@color/salute_bg_cell_switch_track</item>
         <item name="android:drawablePadding">0dp</item>
     </style>
 
     <style name="Salute.StylesSalute.Components.CellContent.CheckBox" parent="Salute.StylesSalute.Components.CheckBox">
-        <item name="sd_buttonBorderColor">@color/color_cell_checkable_border</item>
+        <item name="sd_buttonBorderColor">@color/salute_color_cell_checkable_border</item>
         <item name="sd_focusBorderEnabled">false</item>
         <item name="android:drawablePadding">0dp</item>
     </style>
 
     <style name="Salute.StylesSalute.Components.CellContent.CheckBox.M" parent="Salute.StylesSalute.Components.CheckBox.M">
-        <item name="sd_buttonBorderColor">@color/color_cell_checkable_border</item>
+        <item name="sd_buttonBorderColor">@color/salute_color_cell_checkable_border</item>
         <item name="sd_focusBorderEnabled">false</item>
         <item name="android:drawablePadding">0dp</item>
     </style>
 
     <style name="Salute.StylesSalute.Components.CellContent.CheckBox.S" parent="Salute.StylesSalute.Components.CheckBox.S">
-        <item name="sd_buttonBorderColor">@color/color_cell_checkable_border</item>
+        <item name="sd_buttonBorderColor">@color/salute_color_cell_checkable_border</item>
         <item name="sd_focusBorderEnabled">false</item>
         <item name="android:drawablePadding">0dp</item>
     </style>
 
     <style name="Salute.StylesSalute.Components.CellContent.RadioBox" parent="Salute.StylesSalute.Components.RadioBox">
-        <item name="sd_buttonBorderColor">@color/color_cell_checkable_border</item>
+        <item name="sd_buttonBorderColor">@color/salute_color_cell_checkable_border</item>
         <item name="sd_focusBorderEnabled">false</item>
         <item name="android:drawablePadding">0dp</item>
     </style>
 
     <style name="Salute.StylesSalute.Components.CellContent.RadioBox.M" parent="Salute.StylesSalute.Components.RadioBox.M">
-        <item name="sd_buttonBorderColor">@color/color_cell_checkable_border</item>
+        <item name="sd_buttonBorderColor">@color/salute_color_cell_checkable_border</item>
         <item name="sd_focusBorderEnabled">false</item>
         <item name="android:drawablePadding">0dp</item>
     </style>
 
     <style name="Salute.StylesSalute.Components.CellContent.RadioBox.S" parent="Salute.StylesSalute.Components.RadioBox.S">
-        <item name="sd_buttonBorderColor">@color/color_cell_checkable_border</item>
+        <item name="sd_buttonBorderColor">@color/salute_color_cell_checkable_border</item>
         <item name="sd_focusBorderEnabled">false</item>
         <item name="android:drawablePadding">0dp</item>
     </style>

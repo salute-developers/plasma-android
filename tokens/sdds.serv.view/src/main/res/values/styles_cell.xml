@@ -2,10 +2,10 @@
 <resources>
 
     <style name="Serv.Sdds.Components.Cell" parent="Sdds.Components.Cell">
-        <item name="sd_labelColor">@color/color_cell_text</item>
-        <item name="sd_titleColor">@color/color_cell_text</item>
-        <item name="sd_subtitleColor">@color/color_cell_text</item>
-        <item name="sd_disclosureColor">@color/color_cell_text</item>
+        <item name="sd_labelColor">@color/serv_color_cell_text</item>
+        <item name="sd_titleColor">@color/serv_color_cell_text</item>
+        <item name="sd_subtitleColor">@color/serv_color_cell_text</item>
+        <item name="sd_disclosureColor">@color/serv_color_cell_text</item>
         <item name="android:descendantFocusability">beforeDescendants</item>
         <item name="sd_forceDuplicateParentState">true</item>
     </style>
@@ -59,58 +59,58 @@
     <style name="Serv.Sdds.Components.CellContent.IconButton" parent="Serv.Sdds.Components.IconButton" />
 
     <style name="Serv.Sdds.Components.CellContent.IconButton.L" parent="Serv.Sdds.Components.IconButton.L.Clear" >
-        <item name="sd_iconTint">@color/color_cell_text</item>
+        <item name="sd_iconTint">@color/serv_color_cell_text</item>
     </style>
 
     <style name="Serv.Sdds.Components.CellContent.IconButton.M" parent="Serv.Sdds.Components.IconButton.M.Clear">
-        <item name="sd_iconTint">@color/color_cell_text</item>
+        <item name="sd_iconTint">@color/serv_color_cell_text</item>
     </style>
 
     <style name="Serv.Sdds.Components.CellContent.IconButton.S" parent="Serv.Sdds.Components.IconButton.S.Clear" >
-        <item name="sd_iconTint">@color/color_cell_text</item>
+        <item name="sd_iconTint">@color/serv_color_cell_text</item>
     </style>
 
     <style name="Serv.Sdds.Components.CellContent.IconButton.XS" parent="Serv.Sdds.Components.IconButton.Xs.Clear" >
-        <item name="sd_iconTint">@color/color_cell_text</item>
+        <item name="sd_iconTint">@color/serv_color_cell_text</item>
     </style>
 
     <style name="Serv.Sdds.Components.CellContent.Switch" parent="Serv.Sdds.Components.Switch">
-        <item name="sd_buttonTrackColor">@color/bg_cell_switch_track</item>
+        <item name="sd_buttonTrackColor">@color/serv_bg_cell_switch_track</item>
         <item name="android:drawablePadding">0dp</item>
     </style>
 
     <style name="Serv.Sdds.Components.CellContent.CheckBox" parent="Serv.Sdds.Components.CheckBox">
-        <item name="sd_buttonBorderColor">@color/color_cell_checkable_border</item>
+        <item name="sd_buttonBorderColor">@color/serv_color_cell_checkable_border</item>
         <item name="sd_focusBorderEnabled">false</item>
         <item name="android:drawablePadding">0dp</item>
     </style>
 
     <style name="Serv.Sdds.Components.CellContent.CheckBox.M" parent="Serv.Sdds.Components.CheckBox.M">
-        <item name="sd_buttonBorderColor">@color/color_cell_checkable_border</item>
+        <item name="sd_buttonBorderColor">@color/serv_color_cell_checkable_border</item>
         <item name="sd_focusBorderEnabled">false</item>
         <item name="android:drawablePadding">0dp</item>
     </style>
 
     <style name="Serv.Sdds.Components.CellContent.CheckBox.S" parent="Serv.Sdds.Components.CheckBox.S">
-        <item name="sd_buttonBorderColor">@color/color_cell_checkable_border</item>
+        <item name="sd_buttonBorderColor">@color/serv_color_cell_checkable_border</item>
         <item name="sd_focusBorderEnabled">false</item>
         <item name="android:drawablePadding">0dp</item>
     </style>
 
     <style name="Serv.Sdds.Components.CellContent.RadioBox" parent="Serv.Sdds.Components.RadioBox">
-        <item name="sd_buttonBorderColor">@color/color_cell_checkable_border</item>
+        <item name="sd_buttonBorderColor">@color/serv_color_cell_checkable_border</item>
         <item name="sd_focusBorderEnabled">false</item>
         <item name="android:drawablePadding">0dp</item>
     </style>
 
     <style name="Serv.Sdds.Components.CellContent.RadioBox.M" parent="Serv.Sdds.Components.RadioBox.M">
-        <item name="sd_buttonBorderColor">@color/color_cell_checkable_border</item>
+        <item name="sd_buttonBorderColor">@color/serv_color_cell_checkable_border</item>
         <item name="sd_focusBorderEnabled">false</item>
         <item name="android:drawablePadding">0dp</item>
     </style>
 
     <style name="Serv.Sdds.Components.CellContent.RadioBox.S" parent="Serv.Sdds.Components.RadioBox.S">
-        <item name="sd_buttonBorderColor">@color/color_cell_checkable_border</item>
+        <item name="sd_buttonBorderColor">@color/serv_color_cell_checkable_border</item>
         <item name="sd_focusBorderEnabled">false</item>
         <item name="android:drawablePadding">0dp</item>
     </style>

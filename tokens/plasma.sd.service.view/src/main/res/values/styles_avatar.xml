@@ -6,7 +6,7 @@
         <item name="sd_textColorStart">#3E79F0</item>
         <item name="sd_textColorEnd">#27C6E5</item>
 
-        <item name="sd_statusColor">@color/color_avatar_status</item>
+        <item name="sd_statusColor">@color/plasma_color_avatar_status</item>
         <item name="sd_actionScrimColor">?plasma_overlayOnDarkSoft</item>
         <item name="sd_actionTint">?plasma_textOnDarkPrimary</item>
     </style>

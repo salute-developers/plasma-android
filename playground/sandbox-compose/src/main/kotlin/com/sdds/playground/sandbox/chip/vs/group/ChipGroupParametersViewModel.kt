@@ -2,14 +2,14 @@ package com.sdds.playground.sandbox.chip.vs.group
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.sdds.playground.sandbox.chip.vs.CheckedState
-import com.sdds.playground.sandbox.chip.vs.ChipUiState
-import com.sdds.playground.sandbox.chip.vs.GravityMode
 import com.sdds.playground.sandbox.core.integration.StylesProviderView
 import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
 import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
 import com.sdds.playground.sandbox.core.vs.enumProperty
+import com.sdds.testing.vs.chip.CheckedState
+import com.sdds.testing.vs.chip.ChipUiState
+import com.sdds.testing.vs.chip.GravityMode
 import com.sdds.uikit.ChipGroup
 
 /**

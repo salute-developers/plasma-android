@@ -198,11 +198,6 @@ internal class StatefulEditText @JvmOverloads constructor(
         updatePrefixSuffixDrawable()
     }
 
-    override fun onDetachedFromWindow() {
-        super.onDetachedFromWindow()
-        _previousFilters = null
-    }
-
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         minWidth = if (singleLine() && !placeholder.isNullOrEmpty()) {
             compoundPaddingStart + compoundPaddingEnd + paint.measureText(placeholder?.toString().orEmpty()).toInt()

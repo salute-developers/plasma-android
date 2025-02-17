@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="Plasma.SdService.Components.Switch" parent="Sdds.Components.Switch">
-        <item name="sd_buttonTrackColor">@color/bg_color_switch_track</item>
+        <item name="sd_buttonTrackColor">@color/plasma_bg_color_switch_track</item>
         <item name="android:textColor">?plasma_textDefaultPrimary</item>
         <item name="sd_descriptionTextColor">?plasma_textDefaultSecondary</item>
     </style>

@@ -7,6 +7,8 @@ import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
 import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
 import com.sdds.playground.sandbox.core.vs.enumProperty
+import com.sdds.testing.vs.cell.CellContent
+import com.sdds.testing.vs.cell.CellUiState
 
 /**
  * ViewModel компонента Cell

@@ -2,8 +2,10 @@ package com.sdds.playground.sandbox.badge.vs
 
 import android.view.ContextThemeWrapper
 import androidx.fragment.app.viewModels
-import com.sdds.icons.R
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
+import com.sdds.testing.vs.badge.BadgeUiState
+import com.sdds.testing.vs.badge.applyState
+import com.sdds.testing.vs.badge.badge
 import com.sdds.uikit.Badge
 
 /**
@@ -18,24 +20,10 @@ internal class BadgeFragment : ComponentFragment<BadgeUiState, Badge>() {
     }
 
     override fun getComponent(contextWrapper: ContextThemeWrapper): Badge {
-        return Badge(contextWrapper)
-            .apply { id = com.sdds.playground.sandbox.R.id.badge }
+        return badge(contextWrapper)
     }
 
     override fun onComponentUpdate(component: Badge?, state: BadgeUiState) {
-        component?.apply {
-            text = state.label
-            if (state.contentLeft) {
-                setDrawableStartRes(R.drawable.ic_plasma_24)
-            } else {
-                drawableStart = null
-            }
-
-            if (state.contentRight) {
-                setDrawableEndRes(R.drawable.ic_plasma_24)
-            } else {
-                drawableEnd = null
-            }
-        }
+        component?.applyState(state)
     }
 }
