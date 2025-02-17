@@ -30,6 +30,7 @@ internal fun BaseCell(
     style: CellStyle,
     gravity: Cell.Gravity = Cell.Gravity.Center,
     disclosureContent: (@Composable RowScope.() -> Unit)? = null,
+    disclosureEnabled: Boolean = false,
     startContent: (@Composable RowScope.() -> Unit)? = null,
     centerContent: (@Composable ColumnScope.() -> Unit)? = null,
     endContent: (@Composable RowScope.() -> Unit)? = null,
@@ -46,7 +47,7 @@ internal fun BaseCell(
             modifier = modifier,
             verticalAlignment = gravity.toVerticalAlignment(),
         ) {
-            startContent?.let { it() }
+            startContent?.let { startContent() }
             centerContent?.let {
                 Column(
                     modifier = Modifier
@@ -57,11 +58,11 @@ internal fun BaseCell(
                         ),
                     horizontalAlignment = Alignment.Start,
                 ) {
-                    it()
+                    centerContent()
                 }
             }
-            endContent?.let { it() }
-            disclosureContent?.let { it() }
+            endContent?.let { endContent() }
+            if (disclosureEnabled && disclosureContent != null) { disclosureContent() }
         }
     }
 }
@@ -84,14 +85,14 @@ internal fun ColumnScope.CellCenterContent(
 ) {
     val colors = style.colors
     StyledText(
-        text = title,
-        textStyle = style.titleStyle,
-        textColor = colors.titleColor.colorForInteraction(interactionSource),
-    )
-    StyledText(
         text = label,
         textStyle = style.labelStyle,
         textColor = colors.labelColor.colorForInteraction(interactionSource),
+    )
+    StyledText(
+        text = title,
+        textStyle = style.titleStyle,
+        textColor = colors.titleColor.colorForInteraction(interactionSource),
     )
     StyledText(
         text = subtitle,

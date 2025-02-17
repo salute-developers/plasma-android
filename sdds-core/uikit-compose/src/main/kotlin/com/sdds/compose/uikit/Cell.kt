@@ -22,6 +22,7 @@ import com.sdds.compose.uikit.internal.cell.StyledText
  * @param title тайтл
  * @param label лэйбл
  * @param subtitle сабтайтл
+ * @param disclosureEnabled Включает/выключает отображение disclosure (Текст + иконка)
  * @param disclosureText текст disclosure
  * @param disclosureIcon иконка disclosure
  * @param startContent контент в начале
@@ -36,6 +37,7 @@ fun Cell(
     title: AnnotatedString = AnnotatedString(""),
     subtitle: AnnotatedString = AnnotatedString(""),
     label: AnnotatedString = AnnotatedString(""),
+    disclosureEnabled: Boolean = false,
     disclosureIcon: Painter? = null,
     disclosureText: AnnotatedString = AnnotatedString(""),
     startContent: (@Composable RowScope.() -> Unit)? = null,
@@ -57,6 +59,7 @@ fun Cell(
         },
         startContent = startContent,
         endContent = endContent,
+        disclosureEnabled = disclosureEnabled,
         disclosureContent = {
             StyledText(
                 text = disclosureText,
@@ -65,7 +68,7 @@ fun Cell(
                     interactionSource,
                 ),
             )
-            disclosureIcon?.let {
+            (disclosureIcon ?: style.disclosureIcon)?.let {
                 Icon(
                     painter = it,
                     contentDescription = "",
@@ -85,6 +88,7 @@ fun Cell(
  * @param modifier модификатор
  * @param style стиль компонента
  * @param gravity режим выравнивания контента по вертикали
+ * @param disclosureEnabled Включает/выключает отображение disclosure (Текст + иконка)
  * @param disclosureContent контент disclosure
  * @param centerContent контент в центре
  * @param startContent контент в начале
@@ -97,6 +101,7 @@ fun Cell(
     modifier: Modifier = Modifier,
     style: CellStyle,
     gravity: Cell.Gravity = Cell.Gravity.Center,
+    disclosureEnabled: Boolean = false,
     disclosureContent: (@Composable RowScope.() -> Unit)? = null,
     startContent: (@Composable RowScope.() -> Unit)? = null,
     centerContent: (@Composable ColumnScope.() -> Unit)? = null,
@@ -107,6 +112,7 @@ fun Cell(
         modifier = modifier,
         style = style,
         gravity = gravity,
+        disclosureEnabled = disclosureEnabled,
         disclosureContent = disclosureContent,
         startContent = startContent,
         centerContent = centerContent,

@@ -9,6 +9,7 @@ import com.sdds.plugin.themebuilder.internal.components.button.compose.ButtonCom
 import com.sdds.plugin.themebuilder.internal.components.button.view.BasicButtonStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.components.button.view.IconButtonStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.components.button.view.LinkButtonStyleGeneratorView
+import com.sdds.plugin.themebuilder.internal.components.cell.compose.CellComposeVariationGenerator
 import com.sdds.plugin.themebuilder.internal.components.indicator.view.IndicatorStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.components.textfield.compose.TextFieldComposeVariationGenerator
 import com.sdds.plugin.themebuilder.internal.components.textfield.view.ViewTextAreaStyleGenerator
@@ -151,6 +152,24 @@ internal class ComponentStyleGeneratorFactory(
             componentName = "text_area_clear",
             componentPackage = "textarea.clear",
         )
+
+    fun createCellStyleGeneratorCompose() = CellComposeVariationGenerator(
+        themeClassName = "${themeName.snakeToCamelCase()}Theme",
+        themePackage = packageResolver.getPackage(TargetPackage.THEME),
+        dimensionsConfig = dimensionsConfig,
+        dimensAggregator = dimensAggregator,
+        resourceReferenceProvider = resourceReferenceProvider,
+        namespace = namespace,
+        ktFileBuilderFactory = ktFileBuilderFactory,
+        componentPackage = "${packageResolver.getPackage(TargetPackage.STYLES)}.cell",
+        componentName = "cell",
+        outputLocation = KtFileBuilder.OutputLocation.Directory(outputDir),
+        avatarStylesPackage = "${packageResolver.getPackage(TargetPackage.STYLES)}.avatar",
+        iconButtonStylesPackage = "${packageResolver.getPackage(TargetPackage.STYLES)}.button.icon",
+        checkBoxStylesPackage = "${packageResolver.getPackage(TargetPackage.STYLES)}.checkbox",
+        radioBoxStylesPackage = "${packageResolver.getPackage(TargetPackage.STYLES)}.radiobox",
+        switchStylesPackage = "${packageResolver.getPackage(TargetPackage.STYLES)}.switcher",
+    )
 
     private fun createBaseTextFieldStyleGeneratorCompose(
         componentName: String,
