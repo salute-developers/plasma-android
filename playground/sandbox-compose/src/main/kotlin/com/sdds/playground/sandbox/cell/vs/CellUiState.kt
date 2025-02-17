@@ -1,7 +1,7 @@
 package com.sdds.playground.sandbox.cell.vs
 
 import android.os.Parcelable
-import com.sdds.serv.R
+import com.sdds.playground.sandbox.core.vs.UiState
 import kotlinx.parcelize.Parcelize
 
 /**
@@ -10,7 +10,7 @@ import kotlinx.parcelize.Parcelize
  */
 @Parcelize
 internal data class CellUiState(
-    val variant: CellVariant = CellVariant.CellM,
+    override val variant: String = "",
     val label: String = "Label",
     val title: String = "Title",
     val subtitle: String = "Subtitle",
@@ -18,7 +18,11 @@ internal data class CellUiState(
     val disclosureText: String = "",
     val startContent: CellContent = CellContent.AVATAR,
     val endContent: CellContent = CellContent.NONE,
-) : Parcelable
+) : Parcelable, UiState {
+    override fun updateVariant(variant: String): UiState {
+        return copy(variant = variant)
+    }
+}
 
 /**
  * Тип контента для песочницы компонента Cell
@@ -31,16 +35,4 @@ internal enum class CellContent : Parcelable {
     SWITCH,
     CHECKBOX,
     RADIOBOX,
-}
-
-/**
- * Стили компонента Cell
- * @property styleRes идентификатор ресурса стиля
- */
-@Parcelize
-internal enum class CellVariant(val styleRes: Int) : Parcelable {
-    CellL(R.style.Serv_Sdds_ComponentOverlays_CellL),
-    CellM(R.style.Serv_Sdds_ComponentOverlays_CellM),
-    CellS(R.style.Serv_Sdds_ComponentOverlays_CellS),
-    CellXS(R.style.Serv_Sdds_ComponentOverlays_CellXS),
 }

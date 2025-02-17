@@ -1,17 +1,11 @@
 package com.sdds.playground.sandbox.avatar.compose
 
-import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.Avatar
-import com.sdds.compose.uikit.AvatarStyle
-import com.sdds.serv.styles.avatar.L
-import com.sdds.serv.styles.avatar.M
-import com.sdds.serv.styles.avatar.S
-import com.sdds.serv.styles.avatar.Xxl
+import com.sdds.playground.sandbox.core.compose.UiState
 
 /**
  * Состояние [Avatar]
  *
- * @property size размер [Size]
  * @property status статус [Avatar.Status]
  * @property exampleMode режим отображения аватара
  * @property placeholder текст-заглушка
@@ -19,13 +13,17 @@ import com.sdds.serv.styles.avatar.Xxl
  * @property threshold максимальное кол-во отображаемых [Avatar]
  */
 internal data class AvatarUiState(
-    val size: Size = Size.XXL,
+    override val variant: String = "",
     val status: Avatar.Status = Avatar.Status.Active,
     val exampleMode: ExampleMode = ExampleMode.Local,
     val placeholder: Avatar.Placeholder? = Avatar.Placeholder.Name("Michael Scott"),
     val actionEnabled: Boolean = false,
     val threshold: Int = DEFAULT_THRESHOLD,
-)
+) : UiState {
+    override fun updateVariant(variant: String): UiState {
+        return copy(variant = variant)
+    }
+}
 
 /**
  * Режим отображения аватара.
@@ -47,21 +45,5 @@ internal enum class ExampleMode {
      */
     Placeholder,
 }
-
-/**
- * Размер компонента
- */
-internal enum class Size {
-    XXL, L, M, S,
-}
-
-@Composable
-internal fun AvatarUiState.avatarStyle(): AvatarStyle =
-    when (size) {
-        Size.XXL -> Avatar.Xxl.style()
-        Size.L -> Avatar.L.style()
-        Size.M -> Avatar.M.style()
-        Size.S -> Avatar.S.style()
-    }
 
 private const val DEFAULT_THRESHOLD = 3

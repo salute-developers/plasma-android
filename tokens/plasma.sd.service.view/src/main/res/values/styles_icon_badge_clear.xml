@@ -3,7 +3,7 @@
     <style name="Plasma.SdService.Components.IconBadgeClear" parent="Sdds.Components.IconBadge">
         <item name="android:backgroundTint">?plasma_surfaceDefaultClear</item>
         <item name="sd_drawableStartTint">@color/plasma_icon_badge_transparent_text_color</item>
-        <item name="sd_colorStateProvider">com.sdds.plasma.colorstate.IconBadgeColorStateProvider</item>
+        <item name="sd_colorStateProvider">com.sdds.plasma.sd.service.colorstate.IconBadgeColorStateProvider</item>
     </style>
 
     <style name="Plasma.SdService.Components.IconBadgeClear.L">

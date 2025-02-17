@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Plasma.SdService.ComponentOverlays.SwitchL">
+        <item name="sd_switchStyle">@style/Plasma.SdService.Components.Switch.L</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.SwitchM">
+        <item name="sd_switchStyle">@style/Plasma.SdService.Components.Switch.M</item>
+    </style>
+
+    <style name="Plasma.SdService.ComponentOverlays.SwitchS">
+        <item name="sd_switchStyle">@style/Plasma.SdService.Components.Switch.S</item>
+    </style>
+</resources>

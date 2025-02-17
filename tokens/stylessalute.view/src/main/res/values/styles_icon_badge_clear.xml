@@ -3,7 +3,7 @@
     <style name="Salute.StylesSalute.Components.IconBadgeClear" parent="Sdds.Components.IconBadge">
         <item name="android:backgroundTint">?salute_surfaceDefaultClear</item>
         <item name="sd_drawableStartTint">@color/salute_icon_badge_transparent_text_color</item>
-        <item name="sd_colorStateProvider">com.sdds.salute.colorstate.IconBadgeColorStateProvider</item>
+        <item name="sd_colorStateProvider">com.sdds.stylessalute.colorstate.IconBadgeColorStateProvider</item>
     </style>
 
     <style name="Salute.StylesSalute.Components.IconBadgeClear.L">

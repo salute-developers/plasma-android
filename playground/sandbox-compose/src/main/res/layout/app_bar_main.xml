@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".activities.vs.SandboxActivity">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -14,14 +15,24 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize">
 
-            <com.sdds.uikit.Button
-                android:id="@+id/bHome"
-                style="@style/Serv.Sdds.Components.BasicButton.M.Clear"
+            <com.sdds.uikit.IconButton
+                android:id="@+id/bSettings"
+                style="@style/Serv.Sdds.Components.IconButton.M.Clear"
+                app:sd_icon="@drawable/ic_settings_fill_24"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:layout_marginEnd="10dp"
                 android:text="@string/main_screen" />
+
+            <com.sdds.uikit.IconButton
+                android:id="@+id/bHome"
+                style="@style/Serv.Sdds.Components.IconButton.M.Clear"
+                app:sd_icon="@drawable/ic_backward_fill_24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginEnd="10dp" />
 
         </com.google.android.material.appbar.MaterialToolbar>
 

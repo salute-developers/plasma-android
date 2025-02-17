@@ -2,6 +2,7 @@ package com.sdds.playground.sandbox.checkbox.vs
 
 import android.os.Parcelable
 import androidx.annotation.StyleRes
+import com.sdds.playground.sandbox.core.vs.UiState
 import com.sdds.serv.R
 import com.sdds.uikit.CheckBox
 import kotlinx.parcelize.Parcelize
@@ -16,12 +17,16 @@ import kotlinx.parcelize.Parcelize
  */
 @Parcelize
 internal data class CheckBoxUiState(
-    val variant: CheckBoxVariant = CheckBoxVariant.CheckBoxM,
+    override val variant: String = "",
     val state: CheckBox.ToggleableState = CheckBox.ToggleableState.INDETERMINATE,
     val label: String? = "Label",
     val description: String? = "Description",
     val enabled: Boolean = true,
-) : Parcelable
+) : UiState, Parcelable {
+    override fun updateVariant(variant: String): UiState {
+        return copy(variant = variant)
+    }
+}
 
 /**
  * Стили вариаций компонента [CheckBox]

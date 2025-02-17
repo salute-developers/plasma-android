@@ -2,13 +2,14 @@ package com.sdds.playground.sandbox.segment.vs
 
 import android.os.Parcelable
 import androidx.annotation.StyleRes
+import com.sdds.playground.sandbox.core.vs.UiState
 import com.sdds.serv.R
 import com.sdds.uikit.Segment
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
 internal data class SegmentUiState(
-    val variant: Variant,
+    override val variant: String = "",
     val amount: Int = 2,
     val icon: SegmentItemIcon = SegmentItemIcon.No,
     val segmentItemLabel: String = "Label",
@@ -19,7 +20,11 @@ internal data class SegmentUiState(
     val orientation: SegmentOrientation = SegmentOrientation.HORIZONTAL,
     val counter: Boolean = false,
     val count: String = "1",
-) : Parcelable
+) : Parcelable, UiState {
+    override fun updateVariant(variant: String): UiState {
+        return copy(variant = variant)
+    }
+}
 
 /**
  * Стили для SegmentItem и Segment

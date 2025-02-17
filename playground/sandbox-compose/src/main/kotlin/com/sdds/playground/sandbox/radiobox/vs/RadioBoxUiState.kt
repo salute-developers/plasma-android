@@ -2,6 +2,7 @@ package com.sdds.playground.sandbox.radiobox.vs
 
 import android.os.Parcelable
 import androidx.annotation.StyleRes
+import com.sdds.playground.sandbox.core.vs.UiState
 import com.sdds.serv.R
 import kotlinx.parcelize.Parcelize
 
@@ -15,12 +16,16 @@ import kotlinx.parcelize.Parcelize
  */
 @Parcelize
 internal data class RadioBoxUiState(
-    val variant: RadioBoxVariant = RadioBoxVariant.RadioBoxM,
+    override val variant: String = "",
     val checked: Boolean = false,
     val label: String? = "Label",
     val description: String? = "Description",
     val enabled: Boolean = true,
-) : Parcelable
+) : Parcelable, UiState {
+    override fun updateVariant(variant: String): UiState {
+        return copy(variant = variant)
+    }
+}
 
 /**
  * Стили вариаций компонента RadioBox

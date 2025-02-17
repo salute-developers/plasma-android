@@ -22,4 +22,8 @@ includeBuild("../tokens")
 include(
     ":sandbox-compose",
     ":theme-builder",
+    ":sandbox-core-integration",
+    ":sandbox-sdds-serv-integration",
+    ":sandbox-plasma-sd-service-integration",
+    ":sandbox-stylessalute-integration",
 )

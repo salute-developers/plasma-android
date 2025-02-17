@@ -5,7 +5,7 @@
         <item name="android:textColor">@color/salute_badge_transparent_text_color</item>
         <item name="sd_drawableStartTint">@color/salute_badge_transparent_text_color</item>
         <item name="sd_drawableEndTint">@color/salute_badge_transparent_text_color</item>
-        <item name="sd_colorStateProvider">com.sdds.salute.colorstate.BadgeColorStateProvider</item>
+        <item name="sd_colorStateProvider">com.sdds.stylessalute.colorstate.BadgeColorStateProvider</item>
     </style>
 
     <style name="Salute.StylesSalute.Components.BadgeTransparent.L">

@@ -1,0 +1,126 @@
+package com.sdds.playground.sandbox.plasma.sd.service.integration.textarea.clear
+
+import androidx.compose.runtime.Composable
+import com.sdds.compose.uikit.TextAreaClear
+import com.sdds.compose.uikit.TextFieldStyle
+import com.sdds.compose.uikit.style.style
+import com.sdds.plasma.sd.service.styles.textarea.clear.Default
+import com.sdds.plasma.sd.service.styles.textarea.clear.Error
+import com.sdds.plasma.sd.service.styles.textarea.clear.InnerLabel
+import com.sdds.plasma.sd.service.styles.textarea.clear.L
+import com.sdds.plasma.sd.service.styles.textarea.clear.M
+import com.sdds.plasma.sd.service.styles.textarea.clear.OuterLabel
+import com.sdds.plasma.sd.service.styles.textarea.clear.RequiredEnd
+import com.sdds.plasma.sd.service.styles.textarea.clear.RequiredStart
+import com.sdds.plasma.sd.service.styles.textarea.clear.S
+import com.sdds.plasma.sd.service.styles.textarea.clear.Warning
+import com.sdds.plasma.sd.service.styles.textarea.clear.Xs
+import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
+
+internal object PlasmaSdServiceTextAreaClearVariationsCompose : ComposeStyleProvider<String, TextFieldStyle>() {
+
+    override val variations: Map<String, @Composable () -> TextFieldStyle> =
+        mapOf(
+            "LDefault" to { TextAreaClear.L.Default.style() },
+            "LRequiredStartDefault" to { TextAreaClear.L.RequiredStart.Default.style() },
+            "LRequiredEndDefault" to { TextAreaClear.L.RequiredEnd.Default.style() },
+            "LOuterLabelDefault" to { TextAreaClear.L.OuterLabel.Default.style() },
+            "LOuterLabelRequiredStartDefault" to { TextAreaClear.L.OuterLabel.RequiredStart.Default.style() },
+            "LOuterLabelRequiredEndDefault" to { TextAreaClear.L.OuterLabel.RequiredEnd.Default.style() },
+            "LInnerLabelDefault" to { TextAreaClear.L.InnerLabel.Default.style() },
+            "LInnerLabelRequiredStartDefault" to { TextAreaClear.L.InnerLabel.RequiredStart.Default.style() },
+            "LInnerLabelRequiredEndDefault" to { TextAreaClear.L.InnerLabel.RequiredEnd.Default.style() },
+            "MDefault" to { TextAreaClear.M.Default.style() },
+            "MRequiredStartDefault" to { TextAreaClear.M.RequiredStart.Default.style() },
+            "MRequiredEndDefault" to { TextAreaClear.M.RequiredEnd.Default.style() },
+            "MOuterLabelDefault" to { TextAreaClear.M.OuterLabel.Default.style() },
+            "MOuterLabelRequiredStartDefault" to { TextAreaClear.M.OuterLabel.RequiredStart.Default.style() },
+            "MOuterLabelRequiredEndDefault" to { TextAreaClear.M.OuterLabel.RequiredEnd.Default.style() },
+            "MInnerLabelDefault" to { TextAreaClear.M.InnerLabel.Default.style() },
+            "MInnerLabelRequiredStartDefault" to { TextAreaClear.M.InnerLabel.RequiredStart.Default.style() },
+            "MInnerLabelRequiredEndDefault" to { TextAreaClear.M.InnerLabel.RequiredEnd.Default.style() },
+            "SDefault" to { TextAreaClear.S.Default.style() },
+            "SRequiredStartDefault" to { TextAreaClear.S.RequiredStart.Default.style() },
+            "SRequiredEndDefault" to { TextAreaClear.S.RequiredEnd.Default.style() },
+            "SOuterLabelDefault" to { TextAreaClear.S.OuterLabel.Default.style() },
+            "SOuterLabelRequiredStartDefault" to { TextAreaClear.S.OuterLabel.RequiredStart.Default.style() },
+            "SOuterLabelRequiredEndDefault" to { TextAreaClear.S.OuterLabel.RequiredEnd.Default.style() },
+            "SInnerLabelDefault" to { TextAreaClear.S.InnerLabel.Default.style() },
+            "SInnerLabelRequiredStartDefault" to { TextAreaClear.S.InnerLabel.RequiredStart.Default.style() },
+            "SInnerLabelRequiredEndDefault" to { TextAreaClear.S.InnerLabel.RequiredEnd.Default.style() },
+            "XSDefault" to { TextAreaClear.Xs.Default.style() },
+            "XSRequiredStartDefault" to { TextAreaClear.Xs.RequiredStart.Default.style() },
+            "XSRequiredEndDefault" to { TextAreaClear.Xs.RequiredEnd.Default.style() },
+            "XSOuterLabelDefault" to { TextAreaClear.Xs.OuterLabel.Default.style() },
+            "XSOuterLabelRequiredStartDefault" to { TextAreaClear.Xs.OuterLabel.RequiredStart.Default.style() },
+            "XSOuterLabelRequiredEndDefault" to { TextAreaClear.Xs.OuterLabel.RequiredEnd.Default.style() },
+
+            "LWarning" to { TextAreaClear.L.Warning.style() },
+            "LRequiredStartWarning" to { TextAreaClear.L.RequiredStart.Warning.style() },
+            "LRequiredEndWarning" to { TextAreaClear.L.RequiredEnd.Warning.style() },
+            "LOuterLabelWarning" to { TextAreaClear.L.OuterLabel.Warning.style() },
+            "LOuterLabelRequiredStartWarning" to { TextAreaClear.L.OuterLabel.RequiredStart.Warning.style() },
+            "LOuterLabelRequiredEndWarning" to { TextAreaClear.L.OuterLabel.RequiredEnd.Warning.style() },
+            "LInnerLabelWarning" to { TextAreaClear.L.InnerLabel.Warning.style() },
+            "LInnerLabelRequiredStartWarning" to { TextAreaClear.L.InnerLabel.RequiredStart.Warning.style() },
+            "LInnerLabelRequiredEndWarning" to { TextAreaClear.L.InnerLabel.RequiredEnd.Warning.style() },
+            "MWarning" to { TextAreaClear.M.Warning.style() },
+            "MRequiredStartWarning" to { TextAreaClear.M.RequiredStart.Warning.style() },
+            "MRequiredEndWarning" to { TextAreaClear.M.RequiredEnd.Warning.style() },
+            "MOuterLabelWarning" to { TextAreaClear.M.OuterLabel.Warning.style() },
+            "MOuterLabelRequiredStartWarning" to { TextAreaClear.M.OuterLabel.RequiredStart.Warning.style() },
+            "MOuterLabelRequiredEndWarning" to { TextAreaClear.M.OuterLabel.RequiredEnd.Warning.style() },
+            "MInnerLabelWarning" to { TextAreaClear.M.InnerLabel.Warning.style() },
+            "MInnerLabelRequiredStartWarning" to { TextAreaClear.M.InnerLabel.RequiredStart.Warning.style() },
+            "MInnerLabelRequiredEndWarning" to { TextAreaClear.M.InnerLabel.RequiredEnd.Warning.style() },
+            "SWarning" to { TextAreaClear.S.Warning.style() },
+            "SRequiredStartWarning" to { TextAreaClear.S.RequiredStart.Warning.style() },
+            "SRequiredEndWarning" to { TextAreaClear.S.RequiredEnd.Warning.style() },
+            "SOuterLabelWarning" to { TextAreaClear.S.OuterLabel.Warning.style() },
+            "SOuterLabelRequiredStartWarning" to { TextAreaClear.S.OuterLabel.RequiredStart.Warning.style() },
+            "SOuterLabelRequiredEndWarning" to { TextAreaClear.S.OuterLabel.RequiredEnd.Warning.style() },
+            "SInnerLabelWarning" to { TextAreaClear.S.InnerLabel.Warning.style() },
+            "SInnerLabelRequiredStartWarning" to { TextAreaClear.S.InnerLabel.RequiredStart.Warning.style() },
+            "SInnerLabelRequiredEndWarning" to { TextAreaClear.S.InnerLabel.RequiredEnd.Warning.style() },
+            "XSWarning" to { TextAreaClear.Xs.Warning.style() },
+            "XSRequiredStartWarning" to { TextAreaClear.Xs.RequiredStart.Warning.style() },
+            "XSRequiredEndWarning" to { TextAreaClear.Xs.RequiredEnd.Warning.style() },
+            "XSOuterLabelWarning" to { TextAreaClear.Xs.OuterLabel.Warning.style() },
+            "XSOuterLabelRequiredStartWarning" to { TextAreaClear.Xs.OuterLabel.RequiredStart.Warning.style() },
+            "XSOuterLabelRequiredEndWarning" to { TextAreaClear.Xs.OuterLabel.RequiredEnd.Warning.style() },
+
+            "LError" to { TextAreaClear.L.Error.style() },
+            "LRequiredStartError" to { TextAreaClear.L.RequiredStart.Error.style() },
+            "LRequiredEndError" to { TextAreaClear.L.RequiredEnd.Error.style() },
+            "LOuterLabelError" to { TextAreaClear.L.OuterLabel.Error.style() },
+            "LOuterLabelRequiredStartError" to { TextAreaClear.L.OuterLabel.RequiredStart.Error.style() },
+            "LOuterLabelRequiredEndError" to { TextAreaClear.L.OuterLabel.RequiredEnd.Error.style() },
+            "LInnerLabelError" to { TextAreaClear.L.InnerLabel.Error.style() },
+            "LInnerLabelRequiredStartError" to { TextAreaClear.L.InnerLabel.RequiredStart.Error.style() },
+            "LInnerLabelRequiredEndError" to { TextAreaClear.L.InnerLabel.RequiredEnd.Error.style() },
+            "MError" to { TextAreaClear.M.Error.style() },
+            "MRequiredStartError" to { TextAreaClear.M.RequiredStart.Error.style() },
+            "MRequiredEndError" to { TextAreaClear.M.RequiredEnd.Error.style() },
+            "MOuterLabelError" to { TextAreaClear.M.OuterLabel.Error.style() },
+            "MOuterLabelRequiredStartError" to { TextAreaClear.M.OuterLabel.RequiredStart.Error.style() },
+            "MOuterLabelRequiredEndError" to { TextAreaClear.M.OuterLabel.RequiredEnd.Error.style() },
+            "MInnerLabelError" to { TextAreaClear.M.InnerLabel.Error.style() },
+            "MInnerLabelRequiredStartError" to { TextAreaClear.M.InnerLabel.RequiredStart.Error.style() },
+            "MInnerLabelRequiredEndError" to { TextAreaClear.M.InnerLabel.RequiredEnd.Error.style() },
+            "SError" to { TextAreaClear.S.Error.style() },
+            "SRequiredStartError" to { TextAreaClear.S.RequiredStart.Error.style() },
+            "SRequiredEndError" to { TextAreaClear.S.RequiredEnd.Error.style() },
+            "SOuterLabelError" to { TextAreaClear.S.OuterLabel.Error.style() },
+            "SOuterLabelRequiredStartError" to { TextAreaClear.S.OuterLabel.RequiredStart.Error.style() },
+            "SOuterLabelRequiredEndError" to { TextAreaClear.S.OuterLabel.RequiredEnd.Error.style() },
+            "SInnerLabelError" to { TextAreaClear.S.InnerLabel.Error.style() },
+            "SInnerLabelRequiredStartError" to { TextAreaClear.S.InnerLabel.RequiredStart.Error.style() },
+            "SInnerLabelRequiredEndError" to { TextAreaClear.S.InnerLabel.RequiredEnd.Error.style() },
+            "XSError" to { TextAreaClear.Xs.Error.style() },
+            "XSRequiredStartError" to { TextAreaClear.Xs.RequiredStart.Error.style() },
+            "XSRequiredEndError" to { TextAreaClear.Xs.RequiredEnd.Error.style() },
+            "XSOuterLabelError" to { TextAreaClear.Xs.OuterLabel.Error.style() },
+            "XSOuterLabelRequiredStartError" to { TextAreaClear.Xs.OuterLabel.RequiredStart.Error.style() },
+            "XSOuterLabelRequiredEndError" to { TextAreaClear.Xs.OuterLabel.RequiredEnd.Error.style() },
+        )
+}
