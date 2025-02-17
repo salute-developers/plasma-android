@@ -32,6 +32,8 @@ internal data class CellProperties(
     val switchStyle: ComponentStyle? = null,
     val disclosureIcon: Icon? = null,
 ) : PropertyOwner {
+
+    @Suppress("CyclomaticComplexMethod")
     override fun merge(parent: PropertyOwner): PropertyOwner {
         val otherProps = parent as? CellProperties ?: return this
         return copy(

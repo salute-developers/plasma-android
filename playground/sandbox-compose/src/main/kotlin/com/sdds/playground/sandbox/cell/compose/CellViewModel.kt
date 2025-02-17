@@ -38,9 +38,7 @@ internal class CellViewModel : ViewModel(), PropertiesOwner {
             enumProperty(
                 name = "size",
                 value = size,
-                onApply = {
-                    _cellState.value = _cellState.value.copy(size = it)
-                },
+                onApply = { _cellState.value = _cellState.value.copy(size = it) },
             ),
             Property.StringProperty(
                 name = "label",

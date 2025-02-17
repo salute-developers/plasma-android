@@ -89,6 +89,9 @@ interface CellStyle : Style {
     companion object
 }
 
+/**
+ * Возвращает экземпляр [CellStyleBuilder]
+ */
 fun CellStyle.Companion.cellBuilder(receiver: Any? = null): CellStyleBuilder =
     DefaultCellStyle.Builder()
 
