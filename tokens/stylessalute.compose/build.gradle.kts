@@ -28,5 +28,6 @@ themeBuilder {
 
 dependencies {
     implementation(libs.sdds.uikit.compose)
+    implementation(libs.sdds.icons)
     implementation(libs.base.androidX.compose.foundation)
 }
