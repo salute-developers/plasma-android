@@ -3,16 +3,39 @@ import com.sdds.plugin.themebuilder.ThemeBuilderMode.THEME
 
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    id("convention.android-lib")
-    id("convention.compose")
+    id("convention.kmp-lib")
     id("convention.maven-publish")
     id("convention.auto-bump")
     id(libs.plugins.themebuilder.get().pluginId)
+    alias(libs.plugins.jetbrainsCompose)
 }
 
 android {
     namespace = "com.sdds.serv.compose"
     resourcePrefix = "serv_cmp"
+    sourceSets {
+        named("main") {
+            res.srcDirs("resources")
+        }
+    }
+}
+
+kotlin {
+    jvm("desktop") {
+        sourceSets {
+            named("desktopMain") {
+                resources.srcDirs("resources")
+            }
+        }
+    }
+    sourceSets {
+        commonMain.configure {
+            dependencies {
+                implementation(compose.foundation)
+                implementation(libs.sdds.uikit.compose)
+            }
+        }
+    }
 }
 
 themeBuilder {
@@ -24,9 +47,4 @@ themeBuilder {
     mode(THEME)
     autoGenerate(false)
     outputLocation(SRC)
-}
-
-dependencies {
-    implementation(libs.sdds.uikit.compose)
-    implementation(libs.base.androidX.compose.foundation)
 }

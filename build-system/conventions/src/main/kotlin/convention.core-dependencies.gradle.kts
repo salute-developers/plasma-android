@@ -13,10 +13,10 @@ subprojects {
             }
             println("requested module ${moduleSelector.module}")
             when (moduleSelector.module) {
-                "sdds-uikit-compose" -> useTarget(
-                    "sdds-core:uikit-compose:*",
-                    "we work with the unreleased development version"
-                )
+                // "sdds-uikit-compose" -> useTarget(
+                //     "sdds-core:uikit-compose:*",
+                //     "we work with the unreleased development version"
+                // )
 
                 "sdds-uikit" -> useTarget(
                     "sdds-core:uikit:*",

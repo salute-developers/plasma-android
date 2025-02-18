@@ -22,46 +22,37 @@ android {
             }
         }
     }
-    publishing {
-        singleVariant("release") {
-            withSourcesJar()
-            withJavadocJar()
-        }
-    }
 }
 
 publishing {
-    publications {
-        register<MavenPublication>("release") {
-            afterEvaluate { from(components["release"]) }
-            groupId = "io.github.salute-developers"
-            artifactId = nexusArtifactId
-            version = versionInfo.fullName
-            val siteUrl = findPropertyOrDefault("nexus.websiteUrl", "").toString()
-            val gitUrl = findPropertyOrDefault("nexus.gitUrl", "").toString()
+    publications.withType<MavenPublication> {
+        groupId = "io.github.salute-developers"
+        afterEvaluate { artifactId = nexusArtifactId() }
+        version = versionInfo.name
+        val siteUrl = findPropertyOrDefault("nexus.websiteUrl", "").toString()
+        val gitUrl = findPropertyOrDefault("nexus.gitUrl", "").toString()
 
-            pom {
-                name.set(artifactId)
-                description.set(findPropertyOrDefault("nexus.description", "").toString())
+        pom {
+            name.set(artifactId)
+            description.set(findPropertyOrDefault("nexus.description", "").toString())
+            url.set(siteUrl)
+            scm {
+                connection.set(gitUrl)
+                developerConnection.set(gitUrl)
                 url.set(siteUrl)
-                scm {
-                    connection.set(gitUrl)
-                    developerConnection.set(gitUrl)
-                    url.set(siteUrl)
+            }
+            licenses {
+                license {
+                    name.set("MIT License")
+                    url.set("https://opensource.org/licenses/mit-license.php")
                 }
-                licenses {
-                    license {
-                        name.set("MIT License")
-                        url.set("https://opensource.org/licenses/mit-license.php")
-                    }
-                }
+            }
 
-                developers {
-                    developer {
-                        id.set("Salute Android Team")
-                        name.set("Salute Android Team")
-                        email.set("salutedevs@gmail.com")
-                    }
+            developers {
+                developer {
+                    id.set("Salute Android Team")
+                    name.set("Salute Android Team")
+                    email.set("salutedevs@gmail.com")
                 }
             }
         }
@@ -80,7 +71,7 @@ signing {
         System.getenv("OSS_SIGNING_KEY"),
         System.getenv("OSS_SIGNING_PASSWORD"),
     )
-    sign(publishing.publications["release"])
+    sign(publishing.publications)
 
 }
 
@@ -108,4 +99,16 @@ tasks.register<MavenPublishTask>("mavenPublish") {
     publicationName.set(distributionName)
     artifact.set(File("${project.buildDir}/distributions/$distributionName.zip"))
     dependsOn(tasks.first { it.name == "generateDistributionZip" })
+}
+
+fun MavenPublication.nexusArtifactId(): String {
+    println("picking artifact id for $name")
+    val isMultiplatformLib = project.plugins.hasPlugin("org.jetbrains.kotlin.multiplatform")
+    return when {
+        !isMultiplatformLib -> nexusArtifactId
+        name.contains("android") -> "$nexusArtifactId-android"
+        name.contains("desktop") -> "$nexusArtifactId-desktop"
+        name.contains("kotlinMultiplatform") -> nexusArtifactId
+        else -> throw GradleException("Unsupported publication target $name")
+    }
 }

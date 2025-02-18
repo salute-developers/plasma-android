@@ -1,7 +1,2081 @@
+public final class com/sdds/compose/uikit/AdjustmentCornerSize : androidx/compose/foundation/shape/CornerSize, androidx/compose/ui/platform/InspectableValue {
+	public static final field $stable I
+	public fun <init> (Landroidx/compose/foundation/shape/CornerSize;F)V
+	public final fun copy (Landroidx/compose/foundation/shape/CornerSize;F)Lcom/sdds/compose/uikit/AdjustmentCornerSize;
+	public static synthetic fun copy$default (Lcom/sdds/compose/uikit/AdjustmentCornerSize;Landroidx/compose/foundation/shape/CornerSize;FILjava/lang/Object;)Lcom/sdds/compose/uikit/AdjustmentCornerSize;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toPx-TmRCtEA (JLandroidx/compose/ui/unit/Density;)F
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/sdds/compose/uikit/AdjustmentCornerSizeKt {
+	public static final fun adjustBy (Landroidx/compose/foundation/shape/CornerBasedShape;F)Landroidx/compose/foundation/shape/CornerBasedShape;
+	public static final fun adjustBy (Landroidx/compose/foundation/shape/CornerBasedShape;FFFF)Landroidx/compose/foundation/shape/CornerBasedShape;
+	public static synthetic fun adjustBy$default (Landroidx/compose/foundation/shape/CornerBasedShape;FFFFILjava/lang/Object;)Landroidx/compose/foundation/shape/CornerBasedShape;
+	public static final fun adjustBy-dBely2E (Landroidx/compose/foundation/shape/CornerBasedShape;FFFFLandroidx/compose/runtime/Composer;II)Landroidx/compose/foundation/shape/CornerBasedShape;
+	public static final fun adjustBy-ziNgDLE (Landroidx/compose/foundation/shape/CornerBasedShape;FLandroidx/compose/runtime/Composer;I)Landroidx/compose/foundation/shape/CornerBasedShape;
+}
+
+public final class com/sdds/compose/uikit/Avatar {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/sdds/compose/uikit/Avatar;
+}
+
+public abstract class com/sdds/compose/uikit/Avatar$Placeholder {
+	public static final field $stable I
+}
+
+public final class com/sdds/compose/uikit/Avatar$Placeholder$Name : com/sdds/compose/uikit/Avatar$Placeholder {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lcom/sdds/compose/uikit/Avatar$Placeholder$Name;
+	public static synthetic fun copy$default (Lcom/sdds/compose/uikit/Avatar$Placeholder$Name;Ljava/lang/String;ILjava/lang/Object;)Lcom/sdds/compose/uikit/Avatar$Placeholder$Name;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getFullName ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/sdds/compose/uikit/Avatar$Placeholder$Text : com/sdds/compose/uikit/Avatar$Placeholder {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lcom/sdds/compose/uikit/Avatar$Placeholder$Text;
+	public static synthetic fun copy$default (Lcom/sdds/compose/uikit/Avatar$Placeholder$Text;Ljava/lang/String;ILjava/lang/Object;)Lcom/sdds/compose/uikit/Avatar$Placeholder$Text;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/sdds/compose/uikit/Avatar$Status : java/lang/Enum {
+	public static final field Active Lcom/sdds/compose/uikit/Avatar$Status;
+	public static final field Inactive Lcom/sdds/compose/uikit/Avatar$Status;
+	public static final field None Lcom/sdds/compose/uikit/Avatar$Status;
+	public static fun valueOf (Ljava/lang/String;)Lcom/sdds/compose/uikit/Avatar$Status;
+	public static fun values ()[Lcom/sdds/compose/uikit/Avatar$Status;
+}
+
+public abstract interface class com/sdds/compose/uikit/AvatarColors {
+	public static final field Companion Lcom/sdds/compose/uikit/AvatarColors$Companion;
+	public abstract fun getActionColor-0d7_KjU ()J
+	public abstract fun getActionScrimColor-0d7_KjU ()J
+	public abstract fun getTextColor ()Landroidx/compose/ui/graphics/Brush;
+	public abstract fun statusColor (Lcom/sdds/compose/uikit/Avatar$Status;Landroidx/compose/runtime/Composer;I)Landroidx/compose/runtime/State;
+}
+
+public final class com/sdds/compose/uikit/AvatarColors$Companion {
+	public final fun builder ()Lcom/sdds/compose/uikit/AvatarColorsBuilder;
+}
+
+public abstract interface class com/sdds/compose/uikit/AvatarColorsBuilder {
+	public abstract fun actionColor-8_81llA (J)Lcom/sdds/compose/uikit/AvatarColorsBuilder;
+	public abstract fun actionScrimColor-8_81llA (J)Lcom/sdds/compose/uikit/AvatarColorsBuilder;
+	public abstract fun activeStatusColor-8_81llA (J)Lcom/sdds/compose/uikit/AvatarColorsBuilder;
+	public abstract fun build ()Lcom/sdds/compose/uikit/AvatarColors;
+	public abstract fun inactiveStatusColor-8_81llA (J)Lcom/sdds/compose/uikit/AvatarColorsBuilder;
+	public abstract fun textColor (Landroidx/compose/ui/graphics/Brush;)Lcom/sdds/compose/uikit/AvatarColorsBuilder;
+	public abstract fun textColor-8_81llA (J)Lcom/sdds/compose/uikit/AvatarColorsBuilder;
+}
+
+public final class com/sdds/compose/uikit/AvatarColorsBuilder$DefaultImpls {
+	public static fun textColor-8_81llA (Lcom/sdds/compose/uikit/AvatarColorsBuilder;J)Lcom/sdds/compose/uikit/AvatarColorsBuilder;
+}
+
+public final class com/sdds/compose/uikit/AvatarDimensions {
+	public synthetic fun <init> (FJLandroidx/compose/ui/geometry/Size;Landroidx/compose/ui/unit/Dp;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (FJLandroidx/compose/ui/geometry/Size;Landroidx/compose/ui/unit/Dp;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-D9Ej5fM ()F
+	public final fun component2-F1C5BW0 ()J
+	public final fun component3-VsRJwc0 ()Landroidx/compose/ui/geometry/Size;
+	public final fun component4-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun copy-sDJH1Sw (FJLandroidx/compose/ui/geometry/Size;Landroidx/compose/ui/unit/Dp;)Lcom/sdds/compose/uikit/AvatarDimensions;
+	public static synthetic fun copy-sDJH1Sw$default (Lcom/sdds/compose/uikit/AvatarDimensions;FJLandroidx/compose/ui/geometry/Size;Landroidx/compose/ui/unit/Dp;ILjava/lang/Object;)Lcom/sdds/compose/uikit/AvatarDimensions;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActionSize-VsRJwc0 ()Landroidx/compose/ui/geometry/Size;
+	public final fun getSize-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun getStatusOffset-F1C5BW0 ()J
+	public final fun getStatusSize-D9Ej5fM ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/sdds/compose/uikit/AvatarGroup {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/sdds/compose/uikit/AvatarGroup;
+}
+
+public final class com/sdds/compose/uikit/AvatarGroupDimensions {
+	public synthetic fun <init> (FFILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (FFLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-D9Ej5fM ()F
+	public final fun component2-D9Ej5fM ()F
+	public final fun copy-YgX7TsA (FF)Lcom/sdds/compose/uikit/AvatarGroupDimensions;
+	public static synthetic fun copy-YgX7TsA$default (Lcom/sdds/compose/uikit/AvatarGroupDimensions;FFILjava/lang/Object;)Lcom/sdds/compose/uikit/AvatarGroupDimensions;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getItemOffset-D9Ej5fM ()F
+	public final fun getItemSpacing-D9Ej5fM ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/sdds/compose/uikit/AvatarGroupItemScope {
+}
+
+public final class com/sdds/compose/uikit/AvatarGroupKt {
+	public static final fun AvatarCounter (Lcom/sdds/compose/uikit/AvatarGroupItemScope;ILandroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
+	public static final fun AvatarGroup (Landroidx/compose/ui/Modifier;Lcom/sdds/compose/uikit/AvatarGroupStyle;ILkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;II)V
+}
+
+public abstract interface class com/sdds/compose/uikit/AvatarGroupScope {
+	public abstract fun avatar (Lkotlin/jvm/functions/Function3;)V
+	public abstract fun avatars (ILkotlin/jvm/functions/Function4;)V
+	public abstract fun counter (Lkotlin/jvm/functions/Function4;)V
+}
+
+public abstract interface class com/sdds/compose/uikit/AvatarGroupStyle : com/sdds/compose/uikit/style/Style {
+	public static final field Companion Lcom/sdds/compose/uikit/AvatarGroupStyle$Companion;
+	public abstract fun getAvatarStyle ()Lcom/sdds/compose/uikit/AvatarStyle;
+	public abstract fun getDimensions ()Lcom/sdds/compose/uikit/AvatarGroupDimensions;
+}
+
+public final class com/sdds/compose/uikit/AvatarGroupStyle$Companion {
+	public final fun builder ()Lcom/sdds/compose/uikit/AvatarGroupStyleBuilder;
+}
+
+public abstract interface class com/sdds/compose/uikit/AvatarGroupStyleBuilder : com/sdds/compose/uikit/style/StyleBuilder {
+	public abstract fun avatarStyle (Lcom/sdds/compose/uikit/AvatarStyle;)Lcom/sdds/compose/uikit/AvatarGroupStyleBuilder;
+	public abstract fun dimensions (Lcom/sdds/compose/uikit/AvatarGroupDimensions;)Lcom/sdds/compose/uikit/AvatarGroupStyleBuilder;
+}
+
+public final class com/sdds/compose/uikit/AvatarGroupStyleBuilder$DefaultImpls {
+	public static fun getReceiver (Lcom/sdds/compose/uikit/AvatarGroupStyleBuilder;)Ljava/lang/Object;
+}
+
+public final class com/sdds/compose/uikit/AvatarGroupStyleKt {
+	public static final fun getLocalAvatarGroupStyle ()Landroidx/compose/runtime/ProvidableCompositionLocal;
+}
+
+public final class com/sdds/compose/uikit/AvatarKt {
+	public static final fun Avatar (Landroidx/compose/ui/Modifier;Landroidx/compose/ui/graphics/painter/Painter;Lcom/sdds/compose/uikit/AvatarStyle;Lcom/sdds/compose/uikit/Avatar$Status;Landroidx/compose/ui/graphics/painter/Painter;ZLcom/sdds/compose/uikit/Avatar$Placeholder;Ljava/lang/String;Landroidx/compose/ui/layout/ContentScale;Landroidx/compose/runtime/Composer;II)V
+	public static final fun Avatar (Landroidx/compose/ui/graphics/vector/ImageVector;Landroidx/compose/ui/Modifier;Lcom/sdds/compose/uikit/AvatarStyle;Lcom/sdds/compose/uikit/Avatar$Status;Landroidx/compose/ui/graphics/painter/Painter;ZLcom/sdds/compose/uikit/Avatar$Placeholder;Ljava/lang/String;Landroidx/compose/ui/layout/ContentScale;Landroidx/compose/runtime/Composer;II)V
+	public static final fun Avatar-3HmZ8SU (Landroidx/compose/ui/graphics/ImageBitmap;Landroidx/compose/ui/Modifier;Lcom/sdds/compose/uikit/AvatarStyle;Lcom/sdds/compose/uikit/Avatar$Status;Landroidx/compose/ui/graphics/painter/Painter;ZLcom/sdds/compose/uikit/Avatar$Placeholder;Ljava/lang/String;Landroidx/compose/ui/layout/ContentScale;ILandroidx/compose/runtime/Composer;II)V
+	public static final fun avatar (Landroidx/compose/ui/Modifier;Lcom/sdds/compose/uikit/AvatarStyle;Lcom/sdds/compose/uikit/Avatar$Status;Landroidx/compose/ui/graphics/painter/Painter;ZLcom/sdds/compose/uikit/Avatar$Placeholder;Landroidx/compose/runtime/Composer;II)Landroidx/compose/ui/Modifier;
+}
+
+public abstract interface class com/sdds/compose/uikit/AvatarStyle : com/sdds/compose/uikit/style/Style {
+	public static final field Companion Lcom/sdds/compose/uikit/AvatarStyle$Companion;
+	public abstract fun getColors ()Lcom/sdds/compose/uikit/AvatarColors;
+	public abstract fun getDimensions ()Lcom/sdds/compose/uikit/AvatarDimensions;
+	public abstract fun getShape ()Landroidx/compose/ui/graphics/Shape;
+	public abstract fun getTextStyle ()Landroidx/compose/ui/text/TextStyle;
+}
+
+public final class com/sdds/compose/uikit/AvatarStyle$Companion {
+	public final fun builder ()Lcom/sdds/compose/uikit/AvatarStyleBuilder;
+}
+
+public abstract interface class com/sdds/compose/uikit/AvatarStyleBuilder : com/sdds/compose/uikit/style/StyleBuilder {
+	public abstract fun colors (Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;I)Lcom/sdds/compose/uikit/AvatarStyleBuilder;
+	public abstract fun dimensions (Lcom/sdds/compose/uikit/AvatarDimensions;)Lcom/sdds/compose/uikit/AvatarStyleBuilder;
+	public abstract fun shape (Landroidx/compose/ui/graphics/Shape;)Lcom/sdds/compose/uikit/AvatarStyleBuilder;
+	public abstract fun textStyle (Landroidx/compose/ui/text/TextStyle;)Lcom/sdds/compose/uikit/AvatarStyleBuilder;
+}
+
+public final class com/sdds/compose/uikit/AvatarStyleBuilder$DefaultImpls {
+	public static fun getReceiver (Lcom/sdds/compose/uikit/AvatarStyleBuilder;)Ljava/lang/Object;
+}
+
+public final class com/sdds/compose/uikit/AvatarStyleKt {
+	public static final fun getLocalAvatarStyle ()Landroidx/compose/runtime/ProvidableCompositionLocal;
+}
+
+public final class com/sdds/compose/uikit/BasicButton {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/sdds/compose/uikit/BasicButton;
+}
+
+public abstract interface class com/sdds/compose/uikit/BasicButtonColorsBuilder {
+	public static final field Companion Lcom/sdds/compose/uikit/BasicButtonColorsBuilder$Companion;
+	public abstract fun backgroundColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/BasicButtonColorsBuilder;
+	public abstract fun backgroundColor-8_81llA (J)Lcom/sdds/compose/uikit/BasicButtonColorsBuilder;
+	public abstract fun build ()Lcom/sdds/compose/uikit/ButtonColors;
+	public abstract fun contentColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/BasicButtonColorsBuilder;
+	public abstract fun contentColor-8_81llA (J)Lcom/sdds/compose/uikit/BasicButtonColorsBuilder;
+	public abstract fun iconColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/BasicButtonColorsBuilder;
+	public abstract fun iconColor-8_81llA (J)Lcom/sdds/compose/uikit/BasicButtonColorsBuilder;
+	public abstract fun labelColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/BasicButtonColorsBuilder;
+	public abstract fun labelColor-8_81llA (J)Lcom/sdds/compose/uikit/BasicButtonColorsBuilder;
+	public abstract fun spinnerColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/BasicButtonColorsBuilder;
+	public abstract fun spinnerColor-8_81llA (J)Lcom/sdds/compose/uikit/BasicButtonColorsBuilder;
+	public abstract fun valueColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/BasicButtonColorsBuilder;
+	public abstract fun valueColor-8_81llA (J)Lcom/sdds/compose/uikit/BasicButtonColorsBuilder;
+}
+
+public final class com/sdds/compose/uikit/BasicButtonColorsBuilder$Companion {
+	public final fun builder ()Lcom/sdds/compose/uikit/BasicButtonColorsBuilder;
+}
+
+public final class com/sdds/compose/uikit/BasicButtonColorsBuilder$DefaultImpls {
+	public static fun backgroundColor-8_81llA (Lcom/sdds/compose/uikit/BasicButtonColorsBuilder;J)Lcom/sdds/compose/uikit/BasicButtonColorsBuilder;
+	public static fun contentColor-8_81llA (Lcom/sdds/compose/uikit/BasicButtonColorsBuilder;J)Lcom/sdds/compose/uikit/BasicButtonColorsBuilder;
+	public static fun iconColor-8_81llA (Lcom/sdds/compose/uikit/BasicButtonColorsBuilder;J)Lcom/sdds/compose/uikit/BasicButtonColorsBuilder;
+	public static fun labelColor-8_81llA (Lcom/sdds/compose/uikit/BasicButtonColorsBuilder;J)Lcom/sdds/compose/uikit/BasicButtonColorsBuilder;
+	public static fun spinnerColor-8_81llA (Lcom/sdds/compose/uikit/BasicButtonColorsBuilder;J)Lcom/sdds/compose/uikit/BasicButtonColorsBuilder;
+	public static fun valueColor-8_81llA (Lcom/sdds/compose/uikit/BasicButtonColorsBuilder;J)Lcom/sdds/compose/uikit/BasicButtonColorsBuilder;
+}
+
+public abstract interface class com/sdds/compose/uikit/BasicButtonDimensionsBuilder {
+	public static final field Companion Lcom/sdds/compose/uikit/BasicButtonDimensionsBuilder$Companion;
+	public abstract fun build ()Lcom/sdds/compose/uikit/Button$Dimensions;
+	public abstract fun height-0680j_4 (F)Lcom/sdds/compose/uikit/BasicButtonDimensionsBuilder;
+	public abstract fun iconMargin-0680j_4 (F)Lcom/sdds/compose/uikit/BasicButtonDimensionsBuilder;
+	public abstract fun iconSize-0680j_4 (F)Lcom/sdds/compose/uikit/BasicButtonDimensionsBuilder;
+	public abstract fun minWidth-0680j_4 (F)Lcom/sdds/compose/uikit/BasicButtonDimensionsBuilder;
+	public abstract fun paddingEnd-0680j_4 (F)Lcom/sdds/compose/uikit/BasicButtonDimensionsBuilder;
+	public abstract fun paddingStart-0680j_4 (F)Lcom/sdds/compose/uikit/BasicButtonDimensionsBuilder;
+	public abstract fun spinnerSize-0680j_4 (F)Lcom/sdds/compose/uikit/BasicButtonDimensionsBuilder;
+	public abstract fun spinnerStrokeWidth-0680j_4 (F)Lcom/sdds/compose/uikit/BasicButtonDimensionsBuilder;
+	public abstract fun valueMargin-0680j_4 (F)Lcom/sdds/compose/uikit/BasicButtonDimensionsBuilder;
+}
+
+public final class com/sdds/compose/uikit/BasicButtonDimensionsBuilder$Companion {
+	public final fun builder ()Lcom/sdds/compose/uikit/BasicButtonDimensionsBuilder;
+}
+
+public abstract interface class com/sdds/compose/uikit/BasicButtonStyleBuilder : com/sdds/compose/uikit/style/StyleBuilder {
+	public abstract fun colors (Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;I)Lcom/sdds/compose/uikit/BasicButtonStyleBuilder;
+	public abstract fun dimensions (Lcom/sdds/compose/uikit/Button$Dimensions;)Lcom/sdds/compose/uikit/BasicButtonStyleBuilder;
+	public abstract fun dimensions (Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;I)Lcom/sdds/compose/uikit/BasicButtonStyleBuilder;
+	public abstract fun disableAlpha (F)Lcom/sdds/compose/uikit/BasicButtonStyleBuilder;
+	public abstract fun labelStyle (Landroidx/compose/ui/text/TextStyle;)Lcom/sdds/compose/uikit/BasicButtonStyleBuilder;
+	public abstract fun loadingAlpha (F)Lcom/sdds/compose/uikit/BasicButtonStyleBuilder;
+	public abstract fun shape (Landroidx/compose/foundation/shape/CornerBasedShape;)Lcom/sdds/compose/uikit/BasicButtonStyleBuilder;
+	public abstract fun valueStyle (Landroidx/compose/ui/text/TextStyle;)Lcom/sdds/compose/uikit/BasicButtonStyleBuilder;
+}
+
+public final class com/sdds/compose/uikit/BasicButtonStyleBuilder$DefaultImpls {
+	public static fun getReceiver (Lcom/sdds/compose/uikit/BasicButtonStyleBuilder;)Ljava/lang/Object;
+}
+
+public final class com/sdds/compose/uikit/BasicButtonStyleBuilderKt {
+	public static final fun basicButtonBuilder (Lcom/sdds/compose/uikit/ButtonStyle$Companion;Ljava/lang/Object;)Lcom/sdds/compose/uikit/BasicButtonStyleBuilder;
+	public static synthetic fun basicButtonBuilder$default (Lcom/sdds/compose/uikit/ButtonStyle$Companion;Ljava/lang/Object;ILjava/lang/Object;)Lcom/sdds/compose/uikit/BasicButtonStyleBuilder;
+	public static final fun getLocalButtonStyle ()Landroidx/compose/runtime/ProvidableCompositionLocal;
+}
+
 public final class com/sdds/compose/uikit/BuildConfig {
 	public static final field BUILD_TYPE Ljava/lang/String;
 	public static final field DEBUG Z
 	public static final field LIBRARY_PACKAGE_NAME Ljava/lang/String;
 	public fun <init> ()V
+}
+
+public final class com/sdds/compose/uikit/Button {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/sdds/compose/uikit/Button;
+}
+
+public final class com/sdds/compose/uikit/Button$Dimensions {
+	public synthetic fun <init> (FFFFFFFFFILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (FFFFFFFFFLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-D9Ej5fM ()F
+	public final fun component2-D9Ej5fM ()F
+	public final fun component3-D9Ej5fM ()F
+	public final fun component4-D9Ej5fM ()F
+	public final fun component5-D9Ej5fM ()F
+	public final fun component6-D9Ej5fM ()F
+	public final fun component7-D9Ej5fM ()F
+	public final fun component8-D9Ej5fM ()F
+	public final fun component9-D9Ej5fM ()F
+	public final fun copy-rcZgCMo (FFFFFFFFF)Lcom/sdds/compose/uikit/Button$Dimensions;
+	public static synthetic fun copy-rcZgCMo$default (Lcom/sdds/compose/uikit/Button$Dimensions;FFFFFFFFFILjava/lang/Object;)Lcom/sdds/compose/uikit/Button$Dimensions;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getHeight-D9Ej5fM ()F
+	public final fun getIconMargin-D9Ej5fM ()F
+	public final fun getIconSize-D9Ej5fM ()F
+	public final fun getMinWidth-D9Ej5fM ()F
+	public final fun getPaddingEnd-D9Ej5fM ()F
+	public final fun getPaddingStart-D9Ej5fM ()F
+	public final fun getSpinnerSize-D9Ej5fM ()F
+	public final fun getSpinnerStrokeWidth-D9Ej5fM ()F
+	public final fun getValueMargin-D9Ej5fM ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/sdds/compose/uikit/Button$Dimensions$PaddingValues {
+	public synthetic fun <init> (FFILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (FFLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (FLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-D9Ej5fM ()F
+	public final fun component2-D9Ej5fM ()F
+	public final fun copy-YgX7TsA (FF)Lcom/sdds/compose/uikit/Button$Dimensions$PaddingValues;
+	public static synthetic fun copy-YgX7TsA$default (Lcom/sdds/compose/uikit/Button$Dimensions$PaddingValues;FFILjava/lang/Object;)Lcom/sdds/compose/uikit/Button$Dimensions$PaddingValues;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getEnd-D9Ej5fM ()F
+	public final fun getStart-D9Ej5fM ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/sdds/compose/uikit/Button$Icons {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Landroidx/compose/ui/graphics/painter/Painter;Landroidx/compose/ui/graphics/painter/Painter;)V
+	public synthetic fun <init> (Landroidx/compose/ui/graphics/painter/Painter;Landroidx/compose/ui/graphics/painter/Painter;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Landroidx/compose/ui/graphics/painter/Painter;
+	public final fun component2 ()Landroidx/compose/ui/graphics/painter/Painter;
+	public final fun copy (Landroidx/compose/ui/graphics/painter/Painter;Landroidx/compose/ui/graphics/painter/Painter;)Lcom/sdds/compose/uikit/Button$Icons;
+	public static synthetic fun copy$default (Lcom/sdds/compose/uikit/Button$Icons;Landroidx/compose/ui/graphics/painter/Painter;Landroidx/compose/ui/graphics/painter/Painter;ILjava/lang/Object;)Lcom/sdds/compose/uikit/Button$Icons;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getEnd ()Landroidx/compose/ui/graphics/painter/Painter;
+	public final fun getStart ()Landroidx/compose/ui/graphics/painter/Painter;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/sdds/compose/uikit/Button$Spacing : java/lang/Enum {
+	public static final field Packed Lcom/sdds/compose/uikit/Button$Spacing;
+	public static final field SpaceBetween Lcom/sdds/compose/uikit/Button$Spacing;
+	public static fun valueOf (Ljava/lang/String;)Lcom/sdds/compose/uikit/Button$Spacing;
+	public static fun values ()[Lcom/sdds/compose/uikit/Button$Spacing;
+}
+
+public abstract interface class com/sdds/compose/uikit/ButtonColors {
+	public abstract fun getBackgroundColor ()Lcom/sdds/compose/uikit/interactions/InteractiveColor;
+	public abstract fun getIconColor ()Lcom/sdds/compose/uikit/interactions/InteractiveColor;
+	public abstract fun getLabelColor ()Lcom/sdds/compose/uikit/interactions/InteractiveColor;
+	public abstract fun getSpinnerColor ()Lcom/sdds/compose/uikit/interactions/InteractiveColor;
+	public abstract fun getValueColor ()Lcom/sdds/compose/uikit/interactions/InteractiveColor;
+}
+
+public final class com/sdds/compose/uikit/ButtonKt {
+	public static final fun Button (Ljava/lang/String;Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;Ljava/lang/String;Lcom/sdds/compose/uikit/ButtonStyle;Lcom/sdds/compose/uikit/Button$Spacing;Lcom/sdds/compose/uikit/Button$Icons;ZZLandroidx/compose/foundation/Indication;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;III)V
+	public static final fun IconButton (Landroidx/compose/ui/graphics/painter/Painter;Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;Lcom/sdds/compose/uikit/ButtonStyle;ZZLandroidx/compose/foundation/Indication;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;II)V
+}
+
+public abstract interface class com/sdds/compose/uikit/ButtonStyle : com/sdds/compose/uikit/style/Style {
+	public static final field Companion Lcom/sdds/compose/uikit/ButtonStyle$Companion;
+	public abstract fun getColors ()Lcom/sdds/compose/uikit/ButtonColors;
+	public abstract fun getDimensions ()Lcom/sdds/compose/uikit/Button$Dimensions;
+	public abstract fun getDisableAlpha ()F
+	public abstract fun getLabelStyle ()Landroidx/compose/ui/text/TextStyle;
+	public abstract fun getLoadingAlpha ()F
+	public abstract fun getShape ()Landroidx/compose/foundation/shape/CornerBasedShape;
+	public abstract fun getValueStyle ()Landroidx/compose/ui/text/TextStyle;
+}
+
+public final class com/sdds/compose/uikit/ButtonStyle$Companion {
+}
+
+public final class com/sdds/compose/uikit/CheckBox {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/sdds/compose/uikit/CheckBox;
+}
+
+public abstract interface class com/sdds/compose/uikit/CheckBoxColors {
+	public static final field Companion Lcom/sdds/compose/uikit/CheckBoxColors$Companion;
+	public abstract fun controlBorderColor (ZZLandroidx/compose/runtime/Composer;I)Landroidx/compose/runtime/State;
+	public abstract fun getBaseColor-0d7_KjU ()J
+	public abstract fun getCheckedColor-0d7_KjU ()J
+	public abstract fun getDescriptionColor-0d7_KjU ()J
+	public abstract fun getFocusedColor-0d7_KjU ()J
+	public abstract fun getIdleColor-0d7_KjU ()J
+	public abstract fun getLabelColor-0d7_KjU ()J
+}
+
+public final class com/sdds/compose/uikit/CheckBoxColors$Companion {
+	public final fun builder ()Lcom/sdds/compose/uikit/CheckBoxColorsBuilder;
+}
+
+public abstract interface class com/sdds/compose/uikit/CheckBoxColorsBuilder {
+	public abstract fun baseColor-8_81llA (J)Lcom/sdds/compose/uikit/CheckBoxColorsBuilder;
+	public abstract fun build ()Lcom/sdds/compose/uikit/CheckBoxColors;
+	public abstract fun checkedColor-8_81llA (J)Lcom/sdds/compose/uikit/CheckBoxColorsBuilder;
+	public abstract fun descriptionColor-8_81llA (J)Lcom/sdds/compose/uikit/CheckBoxColorsBuilder;
+	public abstract fun focusedColor-8_81llA (J)Lcom/sdds/compose/uikit/CheckBoxColorsBuilder;
+	public abstract fun idleColor-8_81llA (J)Lcom/sdds/compose/uikit/CheckBoxColorsBuilder;
+	public abstract fun labelColor-8_81llA (J)Lcom/sdds/compose/uikit/CheckBoxColorsBuilder;
+}
+
+public final class com/sdds/compose/uikit/CheckBoxDimensions {
+	public synthetic fun <init> (FFFFFFFILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (FFFFFFFLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-D9Ej5fM ()F
+	public final fun component2-D9Ej5fM ()F
+	public final fun component3-D9Ej5fM ()F
+	public final fun component4-D9Ej5fM ()F
+	public final fun component5-D9Ej5fM ()F
+	public final fun component6-D9Ej5fM ()F
+	public final fun component7-D9Ej5fM ()F
+	public final fun copy-oRJhP44 (FFFFFFF)Lcom/sdds/compose/uikit/CheckBoxDimensions;
+	public static synthetic fun copy-oRJhP44$default (Lcom/sdds/compose/uikit/CheckBoxDimensions;FFFFFFFILjava/lang/Object;)Lcom/sdds/compose/uikit/CheckBoxDimensions;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCheckedStrokeWidth-D9Ej5fM ()F
+	public final fun getControlRadius-D9Ej5fM ()F
+	public final fun getControlSize-D9Ej5fM ()F
+	public final fun getHorizontalSpacing-D9Ej5fM ()F
+	public final fun getInnerCheckBoxPadding-D9Ej5fM ()F
+	public final fun getStrokeWidth-D9Ej5fM ()F
+	public final fun getVerticalSpacing-D9Ej5fM ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/sdds/compose/uikit/CheckBoxGroup {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/sdds/compose/uikit/CheckBoxGroup;
+}
+
+public final class com/sdds/compose/uikit/CheckBoxGroupKt {
+	public static final fun CheckBoxGroup (Landroidx/compose/ui/Modifier;Lcom/sdds/compose/uikit/CheckBoxGroupStyle;Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;II)V
+}
+
+public abstract interface class com/sdds/compose/uikit/CheckBoxGroupStyle : com/sdds/compose/uikit/style/Style {
+	public static final field Companion Lcom/sdds/compose/uikit/CheckBoxGroupStyle$Companion;
+	public abstract fun getCheckBoxStyle ()Lcom/sdds/compose/uikit/CheckBoxStyle;
+	public abstract fun getStartIndent-D9Ej5fM ()F
+	public abstract fun getVerticalArrangement ()Landroidx/compose/foundation/layout/Arrangement$Vertical;
+}
+
+public final class com/sdds/compose/uikit/CheckBoxGroupStyle$Companion {
+	public final fun builder ()Lcom/sdds/compose/uikit/CheckBoxGroupStyleBuilder;
+}
+
+public abstract interface class com/sdds/compose/uikit/CheckBoxGroupStyleBuilder : com/sdds/compose/uikit/style/StyleBuilder {
+	public abstract fun checkBoxStyle (Lcom/sdds/compose/uikit/CheckBoxStyle;)Lcom/sdds/compose/uikit/CheckBoxGroupStyleBuilder;
+	public abstract fun startIndent-0680j_4 (F)Lcom/sdds/compose/uikit/CheckBoxGroupStyleBuilder;
+	public abstract fun verticalArrangement (Landroidx/compose/foundation/layout/Arrangement$Vertical;)Lcom/sdds/compose/uikit/CheckBoxGroupStyleBuilder;
+}
+
+public final class com/sdds/compose/uikit/CheckBoxGroupStyleBuilder$DefaultImpls {
+	public static fun getReceiver (Lcom/sdds/compose/uikit/CheckBoxGroupStyleBuilder;)Ljava/lang/Object;
+}
+
+public final class com/sdds/compose/uikit/CheckBoxGroupStyleKt {
+	public static final fun getLocalCheckBoxGroupStyle ()Landroidx/compose/runtime/ProvidableCompositionLocal;
+}
+
+public final class com/sdds/compose/uikit/CheckBoxKt {
+	public static final fun CheckBox (Landroidx/compose/ui/state/ToggleableState;Landroidx/compose/ui/Modifier;Lcom/sdds/compose/uikit/CheckBoxStyle;Lkotlin/jvm/functions/Function0;ZLjava/lang/String;Ljava/lang/String;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;II)V
+	public static final fun CheckBox (ZLandroidx/compose/ui/Modifier;Lcom/sdds/compose/uikit/CheckBoxStyle;Lkotlin/jvm/functions/Function1;ZLjava/lang/String;Ljava/lang/String;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;II)V
+}
+
+public abstract interface class com/sdds/compose/uikit/CheckBoxStyle : com/sdds/compose/uikit/style/Style {
+	public static final field Companion Lcom/sdds/compose/uikit/CheckBoxStyle$Companion;
+	public abstract fun getAnimationDuration ()I
+	public abstract fun getColors ()Lcom/sdds/compose/uikit/CheckBoxColors;
+	public abstract fun getDescriptionStyle ()Landroidx/compose/ui/text/TextStyle;
+	public abstract fun getDimensions ()Lcom/sdds/compose/uikit/CheckBoxDimensions;
+	public abstract fun getLabelStyle ()Landroidx/compose/ui/text/TextStyle;
+}
+
+public final class com/sdds/compose/uikit/CheckBoxStyle$Companion {
+	public final fun builder ()Lcom/sdds/compose/uikit/CheckBoxStyleBuilder;
+}
+
+public abstract interface class com/sdds/compose/uikit/CheckBoxStyleBuilder : com/sdds/compose/uikit/style/StyleBuilder {
+	public abstract fun animationDuration (I)Lcom/sdds/compose/uikit/CheckBoxStyleBuilder;
+	public abstract fun colors (Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;I)Lcom/sdds/compose/uikit/CheckBoxStyleBuilder;
+	public abstract fun descriptionStyle (Landroidx/compose/ui/text/TextStyle;)Lcom/sdds/compose/uikit/CheckBoxStyleBuilder;
+	public abstract fun dimensions (Lcom/sdds/compose/uikit/CheckBoxDimensions;)Lcom/sdds/compose/uikit/CheckBoxStyleBuilder;
+	public abstract fun labelStyle (Landroidx/compose/ui/text/TextStyle;)Lcom/sdds/compose/uikit/CheckBoxStyleBuilder;
+}
+
+public final class com/sdds/compose/uikit/CheckBoxStyleBuilder$DefaultImpls {
+	public static fun getReceiver (Lcom/sdds/compose/uikit/CheckBoxStyleBuilder;)Ljava/lang/Object;
+}
+
+public final class com/sdds/compose/uikit/CheckBoxStyleKt {
+	public static final fun getLocalCheckBoxStyle ()Landroidx/compose/runtime/ProvidableCompositionLocal;
+}
+
+public abstract interface class com/sdds/compose/uikit/CheckboxGroupItemScope {
+}
+
+public abstract interface class com/sdds/compose/uikit/CheckboxGroupScope {
+	public abstract fun checkbox (Lkotlin/jvm/functions/Function3;)V
+	public abstract fun checkboxes (Lkotlin/jvm/functions/Function3;)V
+	public abstract fun rootCheckbox (Lkotlin/jvm/functions/Function3;)V
+}
+
+public final class com/sdds/compose/uikit/Chip {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/sdds/compose/uikit/Chip;
+}
+
+public final class com/sdds/compose/uikit/Chip$Dimensions {
+	public synthetic fun <init> (FFFFFFFILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (FFFFFFFLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-D9Ej5fM ()F
+	public final fun component2-D9Ej5fM ()F
+	public final fun component3-D9Ej5fM ()F
+	public final fun component4-D9Ej5fM ()F
+	public final fun component5-D9Ej5fM ()F
+	public final fun component6-D9Ej5fM ()F
+	public final fun component7-D9Ej5fM ()F
+	public final fun copy-oRJhP44 (FFFFFFF)Lcom/sdds/compose/uikit/Chip$Dimensions;
+	public static synthetic fun copy-oRJhP44$default (Lcom/sdds/compose/uikit/Chip$Dimensions;FFFFFFFILjava/lang/Object;)Lcom/sdds/compose/uikit/Chip$Dimensions;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getEndContentMargin-D9Ej5fM ()F
+	public final fun getEndContentSize-D9Ej5fM ()F
+	public final fun getEndPadding-D9Ej5fM ()F
+	public final fun getHeight-D9Ej5fM ()F
+	public final fun getStartContentMargin-D9Ej5fM ()F
+	public final fun getStartContentSize-D9Ej5fM ()F
+	public final fun getStartPadding-D9Ej5fM ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/sdds/compose/uikit/ChipColors {
+	public static final field Companion Lcom/sdds/compose/uikit/ChipColors$Companion;
+	public abstract fun getBackgroundColor ()Lcom/sdds/compose/uikit/interactions/InteractiveColor;
+	public abstract fun getContentColor ()Lcom/sdds/compose/uikit/interactions/InteractiveColor;
+	public abstract fun getEndContentColor ()Lcom/sdds/compose/uikit/interactions/InteractiveColor;
+	public abstract fun getLabelColor ()Lcom/sdds/compose/uikit/interactions/InteractiveColor;
+	public abstract fun getStartContentColor ()Lcom/sdds/compose/uikit/interactions/InteractiveColor;
+}
+
+public final class com/sdds/compose/uikit/ChipColors$Companion {
+	public final fun builder ()Lcom/sdds/compose/uikit/ChipColorsBuilder;
+}
+
+public abstract interface class com/sdds/compose/uikit/ChipColorsBuilder {
+	public abstract fun backgroundColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/ChipColorsBuilder;
+	public abstract fun backgroundColor-8_81llA (J)Lcom/sdds/compose/uikit/ChipColorsBuilder;
+	public abstract fun build ()Lcom/sdds/compose/uikit/ChipColors;
+	public abstract fun contentColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/ChipColorsBuilder;
+	public abstract fun contentColor-8_81llA (J)Lcom/sdds/compose/uikit/ChipColorsBuilder;
+	public abstract fun endContentColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/ChipColorsBuilder;
+	public abstract fun endContentColor-8_81llA (J)Lcom/sdds/compose/uikit/ChipColorsBuilder;
+	public abstract fun labelColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/ChipColorsBuilder;
+	public abstract fun labelColor-8_81llA (J)Lcom/sdds/compose/uikit/ChipColorsBuilder;
+	public abstract fun startContentColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/ChipColorsBuilder;
+	public abstract fun startContentColor-8_81llA (J)Lcom/sdds/compose/uikit/ChipColorsBuilder;
+}
+
+public final class com/sdds/compose/uikit/ChipColorsBuilder$DefaultImpls {
+	public static fun backgroundColor-8_81llA (Lcom/sdds/compose/uikit/ChipColorsBuilder;J)Lcom/sdds/compose/uikit/ChipColorsBuilder;
+	public static fun contentColor-8_81llA (Lcom/sdds/compose/uikit/ChipColorsBuilder;J)Lcom/sdds/compose/uikit/ChipColorsBuilder;
+	public static fun endContentColor-8_81llA (Lcom/sdds/compose/uikit/ChipColorsBuilder;J)Lcom/sdds/compose/uikit/ChipColorsBuilder;
+	public static fun labelColor-8_81llA (Lcom/sdds/compose/uikit/ChipColorsBuilder;J)Lcom/sdds/compose/uikit/ChipColorsBuilder;
+	public static fun startContentColor-8_81llA (Lcom/sdds/compose/uikit/ChipColorsBuilder;J)Lcom/sdds/compose/uikit/ChipColorsBuilder;
+}
+
+public final class com/sdds/compose/uikit/ChipGroup {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/sdds/compose/uikit/ChipGroup;
+}
+
+public final class com/sdds/compose/uikit/ChipGroup$OverflowMode : java/lang/Enum {
+	public static final field Scrollable Lcom/sdds/compose/uikit/ChipGroup$OverflowMode;
+	public static final field Unlimited Lcom/sdds/compose/uikit/ChipGroup$OverflowMode;
+	public static final field Wrap Lcom/sdds/compose/uikit/ChipGroup$OverflowMode;
+	public static fun valueOf (Ljava/lang/String;)Lcom/sdds/compose/uikit/ChipGroup$OverflowMode;
+	public static fun values ()[Lcom/sdds/compose/uikit/ChipGroup$OverflowMode;
+}
+
+public final class com/sdds/compose/uikit/ChipGroupDimensions {
+	public synthetic fun <init> (FFILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (FFLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-D9Ej5fM ()F
+	public final fun component2-D9Ej5fM ()F
+	public final fun copy-YgX7TsA (FF)Lcom/sdds/compose/uikit/ChipGroupDimensions;
+	public static synthetic fun copy-YgX7TsA$default (Lcom/sdds/compose/uikit/ChipGroupDimensions;FFILjava/lang/Object;)Lcom/sdds/compose/uikit/ChipGroupDimensions;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getHorizontalSpacing-D9Ej5fM ()F
+	public final fun getVerticalSpacing-D9Ej5fM ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/sdds/compose/uikit/ChipGroupKt {
+	public static final fun ChipGroup (Landroidx/compose/ui/Modifier;Lcom/sdds/compose/uikit/ChipGroupStyle;Lcom/sdds/compose/uikit/ChipGroup$OverflowMode;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
+}
+
+public abstract interface class com/sdds/compose/uikit/ChipGroupStyle : com/sdds/compose/uikit/style/Style {
+	public static final field Companion Lcom/sdds/compose/uikit/ChipGroupStyle$Companion;
+	public abstract fun getDimensions ()Lcom/sdds/compose/uikit/ChipGroupDimensions;
+}
+
+public final class com/sdds/compose/uikit/ChipGroupStyle$Companion {
+	public final fun builder ()Lcom/sdds/compose/uikit/ChipGroupStyleBuilder;
+}
+
+public abstract interface class com/sdds/compose/uikit/ChipGroupStyleBuilder : com/sdds/compose/uikit/style/StyleBuilder {
+	public abstract fun dimensions (Lcom/sdds/compose/uikit/ChipGroupDimensions;)Lcom/sdds/compose/uikit/ChipGroupStyleBuilder;
+}
+
+public final class com/sdds/compose/uikit/ChipGroupStyleBuilder$DefaultImpls {
+	public static fun getReceiver (Lcom/sdds/compose/uikit/ChipGroupStyleBuilder;)Ljava/lang/Object;
+}
+
+public final class com/sdds/compose/uikit/ChipGroupStyleKt {
+	public static final fun getLocalChipGroupStyle ()Landroidx/compose/runtime/ProvidableCompositionLocal;
+}
+
+public final class com/sdds/compose/uikit/ChipKt {
+	public static final fun Chip (Landroidx/compose/ui/Modifier;Lcom/sdds/compose/uikit/ChipStyle;Lkotlin/jvm/functions/Function0;Ljava/lang/String;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;ZLandroidx/compose/foundation/Indication;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;II)V
+	public static final fun Chip (Landroidx/compose/ui/Modifier;Lcom/sdds/compose/uikit/ChipStyle;ZLkotlin/jvm/functions/Function1;Ljava/lang/String;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;ZLandroidx/compose/foundation/Indication;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;II)V
+}
+
+public abstract interface class com/sdds/compose/uikit/ChipStyle : com/sdds/compose/uikit/style/Style {
+	public static final field Companion Lcom/sdds/compose/uikit/ChipStyle$Companion;
+	public abstract fun getColors ()Lcom/sdds/compose/uikit/ChipColors;
+	public abstract fun getDimensions ()Lcom/sdds/compose/uikit/Chip$Dimensions;
+	public abstract fun getDisableAlpha ()F
+	public abstract fun getLabelStyle ()Landroidx/compose/ui/text/TextStyle;
+	public abstract fun getShape ()Landroidx/compose/foundation/shape/CornerBasedShape;
+}
+
+public final class com/sdds/compose/uikit/ChipStyle$Companion {
+	public final fun builder ()Lcom/sdds/compose/uikit/ChipStyleBuilder;
+}
+
+public abstract interface class com/sdds/compose/uikit/ChipStyleBuilder : com/sdds/compose/uikit/style/StyleBuilder {
+	public abstract fun colors (Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;I)Lcom/sdds/compose/uikit/ChipStyleBuilder;
+	public abstract fun dimensions (Lcom/sdds/compose/uikit/Chip$Dimensions;)Lcom/sdds/compose/uikit/ChipStyleBuilder;
+	public abstract fun disableAlpha (F)Lcom/sdds/compose/uikit/ChipStyleBuilder;
+	public abstract fun labelStyle (Landroidx/compose/ui/text/TextStyle;)Lcom/sdds/compose/uikit/ChipStyleBuilder;
+	public abstract fun shape (Landroidx/compose/foundation/shape/CornerBasedShape;)Lcom/sdds/compose/uikit/ChipStyleBuilder;
+}
+
+public final class com/sdds/compose/uikit/ChipStyleBuilder$DefaultImpls {
+	public static fun getReceiver (Lcom/sdds/compose/uikit/ChipStyleBuilder;)Ljava/lang/Object;
+}
+
+public final class com/sdds/compose/uikit/ChipStyleKt {
+	public static final fun getLocalChipStyle ()Landroidx/compose/runtime/ProvidableCompositionLocal;
+}
+
+public final class com/sdds/compose/uikit/EmbeddedChip {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/sdds/compose/uikit/EmbeddedChip;
+}
+
+public final class com/sdds/compose/uikit/IconButton {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/sdds/compose/uikit/IconButton;
+}
+
+public abstract interface class com/sdds/compose/uikit/IconButtonColorsBuilder {
+	public static final field Companion Lcom/sdds/compose/uikit/IconButtonColorsBuilder$Companion;
+	public abstract fun backgroundColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/IconButtonColorsBuilder;
+	public abstract fun backgroundColor-8_81llA (J)Lcom/sdds/compose/uikit/IconButtonColorsBuilder;
+	public abstract fun build ()Lcom/sdds/compose/uikit/ButtonColors;
+	public abstract fun contentColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/IconButtonColorsBuilder;
+	public abstract fun contentColor-8_81llA (J)Lcom/sdds/compose/uikit/IconButtonColorsBuilder;
+	public abstract fun iconColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/IconButtonColorsBuilder;
+	public abstract fun iconColor-8_81llA (J)Lcom/sdds/compose/uikit/IconButtonColorsBuilder;
+	public abstract fun spinnerColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/IconButtonColorsBuilder;
+	public abstract fun spinnerColor-8_81llA (J)Lcom/sdds/compose/uikit/IconButtonColorsBuilder;
+}
+
+public final class com/sdds/compose/uikit/IconButtonColorsBuilder$Companion {
+	public final fun builder ()Lcom/sdds/compose/uikit/IconButtonColorsBuilder;
+}
+
+public final class com/sdds/compose/uikit/IconButtonColorsBuilder$DefaultImpls {
+	public static fun backgroundColor-8_81llA (Lcom/sdds/compose/uikit/IconButtonColorsBuilder;J)Lcom/sdds/compose/uikit/IconButtonColorsBuilder;
+	public static fun contentColor-8_81llA (Lcom/sdds/compose/uikit/IconButtonColorsBuilder;J)Lcom/sdds/compose/uikit/IconButtonColorsBuilder;
+	public static fun iconColor-8_81llA (Lcom/sdds/compose/uikit/IconButtonColorsBuilder;J)Lcom/sdds/compose/uikit/IconButtonColorsBuilder;
+	public static fun spinnerColor-8_81llA (Lcom/sdds/compose/uikit/IconButtonColorsBuilder;J)Lcom/sdds/compose/uikit/IconButtonColorsBuilder;
+}
+
+public abstract interface class com/sdds/compose/uikit/IconButtonDimensionsBuilder {
+	public static final field Companion Lcom/sdds/compose/uikit/IconButtonDimensionsBuilder$Companion;
+	public abstract fun build ()Lcom/sdds/compose/uikit/Button$Dimensions;
+	public abstract fun height-0680j_4 (F)Lcom/sdds/compose/uikit/IconButtonDimensionsBuilder;
+	public abstract fun iconSize-0680j_4 (F)Lcom/sdds/compose/uikit/IconButtonDimensionsBuilder;
+	public abstract fun minWidth-0680j_4 (F)Lcom/sdds/compose/uikit/IconButtonDimensionsBuilder;
+	public abstract fun paddingEnd-0680j_4 (F)Lcom/sdds/compose/uikit/IconButtonDimensionsBuilder;
+	public abstract fun paddingStart-0680j_4 (F)Lcom/sdds/compose/uikit/IconButtonDimensionsBuilder;
+	public abstract fun spinnerSize-0680j_4 (F)Lcom/sdds/compose/uikit/IconButtonDimensionsBuilder;
+	public abstract fun spinnerStrokeWidth-0680j_4 (F)Lcom/sdds/compose/uikit/IconButtonDimensionsBuilder;
+}
+
+public final class com/sdds/compose/uikit/IconButtonDimensionsBuilder$Companion {
+	public final fun builder ()Lcom/sdds/compose/uikit/IconButtonDimensionsBuilder;
+}
+
+public abstract interface class com/sdds/compose/uikit/IconButtonStyleBuilder : com/sdds/compose/uikit/style/StyleBuilder {
+	public abstract fun colors (Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;I)Lcom/sdds/compose/uikit/IconButtonStyleBuilder;
+	public abstract fun dimensions (Lcom/sdds/compose/uikit/Button$Dimensions;)Lcom/sdds/compose/uikit/IconButtonStyleBuilder;
+	public abstract fun dimensions (Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;I)Lcom/sdds/compose/uikit/IconButtonStyleBuilder;
+	public abstract fun disableAlpha (F)Lcom/sdds/compose/uikit/IconButtonStyleBuilder;
+	public abstract fun loadingAlpha (F)Lcom/sdds/compose/uikit/IconButtonStyleBuilder;
+	public abstract fun shape (Landroidx/compose/foundation/shape/CornerBasedShape;)Lcom/sdds/compose/uikit/IconButtonStyleBuilder;
+}
+
+public final class com/sdds/compose/uikit/IconButtonStyleBuilder$DefaultImpls {
+	public static fun getReceiver (Lcom/sdds/compose/uikit/IconButtonStyleBuilder;)Ljava/lang/Object;
+}
+
+public final class com/sdds/compose/uikit/IconButtonStyleBuilderKt {
+	public static final fun getLocalIconButtonStyle ()Landroidx/compose/runtime/ProvidableCompositionLocal;
+	public static final fun iconButtonBuilder (Lcom/sdds/compose/uikit/ButtonStyle$Companion;Ljava/lang/Object;)Lcom/sdds/compose/uikit/IconButtonStyleBuilder;
+	public static synthetic fun iconButtonBuilder$default (Lcom/sdds/compose/uikit/ButtonStyle$Companion;Ljava/lang/Object;ILjava/lang/Object;)Lcom/sdds/compose/uikit/IconButtonStyleBuilder;
+}
+
+public final class com/sdds/compose/uikit/IconKt {
+	public static final fun Icon-ww6aTOc (Landroidx/compose/ui/graphics/ImageBitmap;Ljava/lang/String;Landroidx/compose/ui/Modifier;JLandroidx/compose/runtime/Composer;II)V
+	public static final fun Icon-ww6aTOc (Landroidx/compose/ui/graphics/painter/Painter;Ljava/lang/String;Landroidx/compose/ui/Modifier;JLandroidx/compose/runtime/Composer;II)V
+	public static final fun Icon-ww6aTOc (Landroidx/compose/ui/graphics/vector/ImageVector;Ljava/lang/String;Landroidx/compose/ui/Modifier;JLandroidx/compose/runtime/Composer;II)V
+	public static final fun getLocalTint ()Landroidx/compose/runtime/ProvidableCompositionLocal;
+}
+
+public final class com/sdds/compose/uikit/ImageKt {
+	public static final fun Image (Landroidx/compose/ui/graphics/painter/Painter;Ljava/lang/String;Landroidx/compose/ui/Modifier;Landroidx/compose/ui/Alignment;Landroidx/compose/ui/layout/ContentScale;FLandroidx/compose/ui/graphics/ColorFilter;Landroidx/compose/runtime/Composer;II)V
+	public static final fun Image (Landroidx/compose/ui/graphics/vector/ImageVector;Ljava/lang/String;Landroidx/compose/ui/Modifier;Landroidx/compose/ui/Alignment;Landroidx/compose/ui/layout/ContentScale;FLandroidx/compose/ui/graphics/ColorFilter;Landroidx/compose/runtime/Composer;II)V
+	public static final fun Image-5h-nEew (Landroidx/compose/ui/graphics/ImageBitmap;Ljava/lang/String;Landroidx/compose/ui/Modifier;Landroidx/compose/ui/Alignment;Landroidx/compose/ui/layout/ContentScale;FLandroidx/compose/ui/graphics/ColorFilter;ILandroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/sdds/compose/uikit/LinkButton {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/sdds/compose/uikit/LinkButton;
+}
+
+public abstract interface class com/sdds/compose/uikit/LinkButtonColorsBuilder {
+	public static final field Companion Lcom/sdds/compose/uikit/LinkButtonColorsBuilder$Companion;
+	public abstract fun backgroundColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/LinkButtonColorsBuilder;
+	public abstract fun backgroundColor-8_81llA (J)Lcom/sdds/compose/uikit/LinkButtonColorsBuilder;
+	public abstract fun build ()Lcom/sdds/compose/uikit/ButtonColors;
+	public abstract fun contentColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/LinkButtonColorsBuilder;
+	public abstract fun contentColor-8_81llA (J)Lcom/sdds/compose/uikit/LinkButtonColorsBuilder;
+	public abstract fun iconColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/LinkButtonColorsBuilder;
+	public abstract fun iconColor-8_81llA (J)Lcom/sdds/compose/uikit/LinkButtonColorsBuilder;
+	public abstract fun labelColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/LinkButtonColorsBuilder;
+	public abstract fun labelColor-8_81llA (J)Lcom/sdds/compose/uikit/LinkButtonColorsBuilder;
+	public abstract fun spinnerColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/LinkButtonColorsBuilder;
+	public abstract fun spinnerColor-8_81llA (J)Lcom/sdds/compose/uikit/LinkButtonColorsBuilder;
+	public abstract fun valueColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/LinkButtonColorsBuilder;
+	public abstract fun valueColor-8_81llA (J)Lcom/sdds/compose/uikit/LinkButtonColorsBuilder;
+}
+
+public final class com/sdds/compose/uikit/LinkButtonColorsBuilder$Companion {
+	public final fun builder ()Lcom/sdds/compose/uikit/LinkButtonColorsBuilder;
+}
+
+public final class com/sdds/compose/uikit/LinkButtonColorsBuilder$DefaultImpls {
+	public static fun backgroundColor-8_81llA (Lcom/sdds/compose/uikit/LinkButtonColorsBuilder;J)Lcom/sdds/compose/uikit/LinkButtonColorsBuilder;
+	public static fun contentColor-8_81llA (Lcom/sdds/compose/uikit/LinkButtonColorsBuilder;J)Lcom/sdds/compose/uikit/LinkButtonColorsBuilder;
+	public static fun iconColor-8_81llA (Lcom/sdds/compose/uikit/LinkButtonColorsBuilder;J)Lcom/sdds/compose/uikit/LinkButtonColorsBuilder;
+	public static fun labelColor-8_81llA (Lcom/sdds/compose/uikit/LinkButtonColorsBuilder;J)Lcom/sdds/compose/uikit/LinkButtonColorsBuilder;
+	public static fun spinnerColor-8_81llA (Lcom/sdds/compose/uikit/LinkButtonColorsBuilder;J)Lcom/sdds/compose/uikit/LinkButtonColorsBuilder;
+	public static fun valueColor-8_81llA (Lcom/sdds/compose/uikit/LinkButtonColorsBuilder;J)Lcom/sdds/compose/uikit/LinkButtonColorsBuilder;
+}
+
+public abstract interface class com/sdds/compose/uikit/LinkButtonDimensionsBuilder {
+	public static final field Companion Lcom/sdds/compose/uikit/LinkButtonDimensionsBuilder$Companion;
+	public abstract fun build ()Lcom/sdds/compose/uikit/Button$Dimensions;
+	public abstract fun height-0680j_4 (F)Lcom/sdds/compose/uikit/LinkButtonDimensionsBuilder;
+	public abstract fun iconMargin-0680j_4 (F)Lcom/sdds/compose/uikit/LinkButtonDimensionsBuilder;
+	public abstract fun iconSize-0680j_4 (F)Lcom/sdds/compose/uikit/LinkButtonDimensionsBuilder;
+	public abstract fun minWidth-0680j_4 (F)Lcom/sdds/compose/uikit/LinkButtonDimensionsBuilder;
+	public abstract fun paddingEnd-0680j_4 (F)Lcom/sdds/compose/uikit/LinkButtonDimensionsBuilder;
+	public abstract fun paddingStart-0680j_4 (F)Lcom/sdds/compose/uikit/LinkButtonDimensionsBuilder;
+	public abstract fun spinnerSize-0680j_4 (F)Lcom/sdds/compose/uikit/LinkButtonDimensionsBuilder;
+	public abstract fun spinnerStrokeWidth-0680j_4 (F)Lcom/sdds/compose/uikit/LinkButtonDimensionsBuilder;
+}
+
+public final class com/sdds/compose/uikit/LinkButtonDimensionsBuilder$Companion {
+	public final fun builder ()Lcom/sdds/compose/uikit/LinkButtonDimensionsBuilder;
+}
+
+public abstract interface class com/sdds/compose/uikit/LinkButtonStyleBuilder : com/sdds/compose/uikit/style/StyleBuilder {
+	public abstract fun colors (Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;I)Lcom/sdds/compose/uikit/LinkButtonStyleBuilder;
+	public abstract fun dimensions (Lcom/sdds/compose/uikit/Button$Dimensions;)Lcom/sdds/compose/uikit/LinkButtonStyleBuilder;
+	public abstract fun dimensions (Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;I)Lcom/sdds/compose/uikit/LinkButtonStyleBuilder;
+	public abstract fun disableAlpha (F)Lcom/sdds/compose/uikit/LinkButtonStyleBuilder;
+	public abstract fun labelStyle (Landroidx/compose/ui/text/TextStyle;)Lcom/sdds/compose/uikit/LinkButtonStyleBuilder;
+	public abstract fun loadingAlpha (F)Lcom/sdds/compose/uikit/LinkButtonStyleBuilder;
+	public abstract fun shape (Landroidx/compose/foundation/shape/CornerBasedShape;)Lcom/sdds/compose/uikit/LinkButtonStyleBuilder;
+	public abstract fun valueStyle (Landroidx/compose/ui/text/TextStyle;)Lcom/sdds/compose/uikit/LinkButtonStyleBuilder;
+}
+
+public final class com/sdds/compose/uikit/LinkButtonStyleBuilder$DefaultImpls {
+	public static fun getReceiver (Lcom/sdds/compose/uikit/LinkButtonStyleBuilder;)Ljava/lang/Object;
+}
+
+public final class com/sdds/compose/uikit/LinkButtonStyleBuilderKt {
+	public static final fun getLocalLinkButtonStyle ()Landroidx/compose/runtime/ProvidableCompositionLocal;
+	public static final fun linkButtonBuilder (Lcom/sdds/compose/uikit/ButtonStyle$Companion;Ljava/lang/Object;)Lcom/sdds/compose/uikit/LinkButtonStyleBuilder;
+	public static synthetic fun linkButtonBuilder$default (Lcom/sdds/compose/uikit/ButtonStyle$Companion;Ljava/lang/Object;ILjava/lang/Object;)Lcom/sdds/compose/uikit/LinkButtonStyleBuilder;
+}
+
+public final class com/sdds/compose/uikit/ProgressBar {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/sdds/compose/uikit/ProgressBar;
+}
+
+public abstract interface class com/sdds/compose/uikit/ProgressBarColors {
+	public static final field Companion Lcom/sdds/compose/uikit/ProgressBarColors$Companion;
+	public abstract fun getBackgroundColor ()Landroidx/compose/ui/graphics/Brush;
+	public abstract fun getIndicatorColor ()Ljava/util/List;
+}
+
+public final class com/sdds/compose/uikit/ProgressBarColors$Companion {
+	public final fun builder ()Lcom/sdds/compose/uikit/ProgressBarColorsBuilder;
+}
+
+public abstract interface class com/sdds/compose/uikit/ProgressBarColorsBuilder {
+	public abstract fun backgroundColor (Landroidx/compose/ui/graphics/Brush;)Lcom/sdds/compose/uikit/ProgressBarColorsBuilder;
+	public abstract fun backgroundColor-8_81llA (J)Lcom/sdds/compose/uikit/ProgressBarColorsBuilder;
+	public abstract fun build ()Lcom/sdds/compose/uikit/ProgressBarColors;
+	public abstract fun indicatorColor (Landroidx/compose/ui/graphics/Brush;)Lcom/sdds/compose/uikit/ProgressBarColorsBuilder;
+	public abstract fun indicatorColor (Ljava/util/List;)Lcom/sdds/compose/uikit/ProgressBarColorsBuilder;
+	public abstract fun indicatorColor-8_81llA (J)Lcom/sdds/compose/uikit/ProgressBarColorsBuilder;
+}
+
+public final class com/sdds/compose/uikit/ProgressBarDimensions {
+	public synthetic fun <init> (FFFFILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (FFFFLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-D9Ej5fM ()F
+	public final fun component2-D9Ej5fM ()F
+	public final fun component3-D9Ej5fM ()F
+	public final fun component4-D9Ej5fM ()F
+	public final fun copy-a9UjIt4 (FFFF)Lcom/sdds/compose/uikit/ProgressBarDimensions;
+	public static synthetic fun copy-a9UjIt4$default (Lcom/sdds/compose/uikit/ProgressBarDimensions;FFFFILjava/lang/Object;)Lcom/sdds/compose/uikit/ProgressBarDimensions;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBackgroundCornerRadius-D9Ej5fM ()F
+	public final fun getBackgroundHeight-D9Ej5fM ()F
+	public final fun getIndicatorCornerRadius-D9Ej5fM ()F
+	public final fun getIndicatorHeight-D9Ej5fM ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/sdds/compose/uikit/ProgressBarKt {
+	public static final fun ProgressBar (FLandroidx/compose/ui/Modifier;Lcom/sdds/compose/uikit/ProgressBarStyle;Landroidx/compose/runtime/Composer;II)V
+}
+
+public abstract interface class com/sdds/compose/uikit/ProgressBarStyle : com/sdds/compose/uikit/style/Style {
+	public static final field Companion Lcom/sdds/compose/uikit/ProgressBarStyle$Companion;
+	public abstract fun getColors ()Lcom/sdds/compose/uikit/ProgressBarColors;
+	public abstract fun getDimensions ()Lcom/sdds/compose/uikit/ProgressBarDimensions;
+}
+
+public final class com/sdds/compose/uikit/ProgressBarStyle$Companion {
+	public final fun builder ()Lcom/sdds/compose/uikit/ProgressBarStyleBuilder;
+}
+
+public abstract interface class com/sdds/compose/uikit/ProgressBarStyleBuilder : com/sdds/compose/uikit/style/StyleBuilder {
+	public abstract fun colors (Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;I)Lcom/sdds/compose/uikit/ProgressBarStyleBuilder;
+	public abstract fun dimensions (Lcom/sdds/compose/uikit/ProgressBarDimensions;)Lcom/sdds/compose/uikit/ProgressBarStyleBuilder;
+}
+
+public final class com/sdds/compose/uikit/ProgressBarStyleBuilder$DefaultImpls {
+	public static fun getReceiver (Lcom/sdds/compose/uikit/ProgressBarStyleBuilder;)Ljava/lang/Object;
+}
+
+public final class com/sdds/compose/uikit/ProgressBarStyleKt {
+	public static final fun getLocalProgressBarStyle ()Landroidx/compose/runtime/ProvidableCompositionLocal;
+}
+
+public final class com/sdds/compose/uikit/RadioBox {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/sdds/compose/uikit/RadioBox;
+}
+
+public abstract interface class com/sdds/compose/uikit/RadioBoxColors {
+	public static final field Companion Lcom/sdds/compose/uikit/RadioBoxColors$Companion;
+	public abstract fun controlBorderColor (ZZLandroidx/compose/runtime/Composer;I)Landroidx/compose/runtime/State;
+	public abstract fun getBaseColor-0d7_KjU ()J
+	public abstract fun getCheckedColor-0d7_KjU ()J
+	public abstract fun getDescriptionColor-0d7_KjU ()J
+	public abstract fun getFocusedColor-0d7_KjU ()J
+	public abstract fun getIdleColor-0d7_KjU ()J
+	public abstract fun getLabelColor-0d7_KjU ()J
+}
+
+public final class com/sdds/compose/uikit/RadioBoxColors$Companion {
+	public final fun builder ()Lcom/sdds/compose/uikit/RadioBoxColorsBuilder;
+}
+
+public abstract interface class com/sdds/compose/uikit/RadioBoxColorsBuilder {
+	public abstract fun baseColor-8_81llA (J)Lcom/sdds/compose/uikit/RadioBoxColorsBuilder;
+	public abstract fun build ()Lcom/sdds/compose/uikit/RadioBoxColors;
+	public abstract fun checkedColor-8_81llA (J)Lcom/sdds/compose/uikit/RadioBoxColorsBuilder;
+	public abstract fun descriptionColor-8_81llA (J)Lcom/sdds/compose/uikit/RadioBoxColorsBuilder;
+	public abstract fun focusedColor-8_81llA (J)Lcom/sdds/compose/uikit/RadioBoxColorsBuilder;
+	public abstract fun idleColor-8_81llA (J)Lcom/sdds/compose/uikit/RadioBoxColorsBuilder;
+	public abstract fun labelColor-8_81llA (J)Lcom/sdds/compose/uikit/RadioBoxColorsBuilder;
+}
+
+public final class com/sdds/compose/uikit/RadioBoxDimensions {
+	public synthetic fun <init> (FFFFFFFILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (FFFFFFFLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-D9Ej5fM ()F
+	public final fun component2-D9Ej5fM ()F
+	public final fun component3-D9Ej5fM ()F
+	public final fun component4-D9Ej5fM ()F
+	public final fun component5-D9Ej5fM ()F
+	public final fun component6-D9Ej5fM ()F
+	public final fun component7-D9Ej5fM ()F
+	public final fun copy-oRJhP44 (FFFFFFF)Lcom/sdds/compose/uikit/RadioBoxDimensions;
+	public static synthetic fun copy-oRJhP44$default (Lcom/sdds/compose/uikit/RadioBoxDimensions;FFFFFFFILjava/lang/Object;)Lcom/sdds/compose/uikit/RadioBoxDimensions;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCheckedPadding-D9Ej5fM ()F
+	public final fun getCheckedStrokeWidth-D9Ej5fM ()F
+	public final fun getControlSize-D9Ej5fM ()F
+	public final fun getHorizontalSpacing-D9Ej5fM ()F
+	public final fun getInnerDiameter-D9Ej5fM ()F
+	public final fun getStrokeWidth-D9Ej5fM ()F
+	public final fun getVerticalSpacing-D9Ej5fM ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/sdds/compose/uikit/RadioBoxGroup {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/sdds/compose/uikit/RadioBoxGroup;
+}
+
+public abstract interface class com/sdds/compose/uikit/RadioBoxGroupItemScope {
+}
+
+public abstract interface class com/sdds/compose/uikit/RadioBoxGroupScope {
+	public abstract fun radioBoxItem (Ljava/lang/Object;Lkotlin/jvm/functions/Function4;Landroidx/compose/runtime/Composer;I)V
+}
+
+public abstract interface class com/sdds/compose/uikit/RadioBoxGroupStyle : com/sdds/compose/uikit/style/Style {
+	public static final field Companion Lcom/sdds/compose/uikit/RadioBoxGroupStyle$Companion;
+	public abstract fun getRadioBoxStyle ()Lcom/sdds/compose/uikit/RadioBoxStyle;
+	public abstract fun getVerticalArrangement ()Landroidx/compose/foundation/layout/Arrangement$Vertical;
+}
+
+public final class com/sdds/compose/uikit/RadioBoxGroupStyle$Companion {
+	public final fun builder ()Lcom/sdds/compose/uikit/RadioBoxGroupStyleBuilder;
+}
+
+public abstract interface class com/sdds/compose/uikit/RadioBoxGroupStyleBuilder : com/sdds/compose/uikit/style/StyleBuilder {
+	public abstract fun radioBoxStyle (Lcom/sdds/compose/uikit/RadioBoxStyle;)Lcom/sdds/compose/uikit/RadioBoxGroupStyleBuilder;
+	public abstract fun verticalArrangement (Landroidx/compose/foundation/layout/Arrangement$Vertical;)Lcom/sdds/compose/uikit/RadioBoxGroupStyleBuilder;
+}
+
+public final class com/sdds/compose/uikit/RadioBoxGroupStyleBuilder$DefaultImpls {
+	public static fun getReceiver (Lcom/sdds/compose/uikit/RadioBoxGroupStyleBuilder;)Ljava/lang/Object;
+}
+
+public final class com/sdds/compose/uikit/RadioBoxGroupStyleKt {
+	public static final fun getLocalRadioBoxGroupStyle ()Landroidx/compose/runtime/ProvidableCompositionLocal;
+}
+
+public final class com/sdds/compose/uikit/RadioBoxKt {
+	public static final fun RadioBox (ZLandroidx/compose/ui/Modifier;Lcom/sdds/compose/uikit/RadioBoxStyle;Lkotlin/jvm/functions/Function0;Ljava/lang/String;Ljava/lang/String;ZLandroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;II)V
+	public static final fun RadioBoxGroup (Landroidx/compose/ui/Modifier;Lcom/sdds/compose/uikit/RadioBoxGroupStyle;Landroidx/compose/foundation/layout/Arrangement$Vertical;Landroidx/compose/ui/Alignment$Horizontal;Ljava/lang/Object;Lkotlin/jvm/functions/Function4;Landroidx/compose/runtime/Composer;II)V
+	public static final fun RadioBoxGroup (Landroidx/compose/ui/Modifier;Lcom/sdds/compose/uikit/RadioBoxGroupStyle;Landroidx/compose/foundation/layout/Arrangement$Vertical;Landroidx/compose/ui/Alignment$Horizontal;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
+	public static final fun isChecked (Lcom/sdds/compose/uikit/RadioBoxGroupItemScope;Landroidx/compose/runtime/MutableState;Ljava/lang/Object;)Z
+	public static final fun updateSelection (Lcom/sdds/compose/uikit/RadioBoxGroupItemScope;Landroidx/compose/runtime/MutableState;Ljava/lang/Object;)V
+}
+
+public abstract interface class com/sdds/compose/uikit/RadioBoxStyle : com/sdds/compose/uikit/style/Style {
+	public static final field Companion Lcom/sdds/compose/uikit/RadioBoxStyle$Companion;
+	public abstract fun getAnimationDuration ()I
+	public abstract fun getColors ()Lcom/sdds/compose/uikit/RadioBoxColors;
+	public abstract fun getDescriptionStyle ()Landroidx/compose/ui/text/TextStyle;
+	public abstract fun getDimensions ()Lcom/sdds/compose/uikit/RadioBoxDimensions;
+	public abstract fun getLabelStyle ()Landroidx/compose/ui/text/TextStyle;
+}
+
+public final class com/sdds/compose/uikit/RadioBoxStyle$Companion {
+	public final fun builder ()Lcom/sdds/compose/uikit/RadioBoxStyleBuilder;
+}
+
+public abstract interface class com/sdds/compose/uikit/RadioBoxStyleBuilder : com/sdds/compose/uikit/style/StyleBuilder {
+	public abstract fun animationDuration (I)Lcom/sdds/compose/uikit/RadioBoxStyleBuilder;
+	public abstract fun colors (Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;I)Lcom/sdds/compose/uikit/RadioBoxStyleBuilder;
+	public abstract fun descriptionStyle (Landroidx/compose/ui/text/TextStyle;)Lcom/sdds/compose/uikit/RadioBoxStyleBuilder;
+	public abstract fun dimensions (Lcom/sdds/compose/uikit/RadioBoxDimensions;)Lcom/sdds/compose/uikit/RadioBoxStyleBuilder;
+	public abstract fun labelStyle (Landroidx/compose/ui/text/TextStyle;)Lcom/sdds/compose/uikit/RadioBoxStyleBuilder;
+}
+
+public final class com/sdds/compose/uikit/RadioBoxStyleBuilder$DefaultImpls {
+	public static fun getReceiver (Lcom/sdds/compose/uikit/RadioBoxStyleBuilder;)Ljava/lang/Object;
+}
+
+public final class com/sdds/compose/uikit/RadioBoxStyleKt {
+	public static final fun getLocalRadioBoxStyle ()Landroidx/compose/runtime/ProvidableCompositionLocal;
+}
+
+public final class com/sdds/compose/uikit/ScrollBar {
+	public synthetic fun <init> (FLcom/sdds/compose/uikit/interactions/InteractiveColor;Lcom/sdds/compose/uikit/interactions/InteractiveColor;Ljava/lang/Float;Landroidx/compose/animation/core/AnimationSpec;Landroidx/compose/foundation/layout/PaddingValues;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (FLcom/sdds/compose/uikit/interactions/InteractiveColor;Lcom/sdds/compose/uikit/interactions/InteractiveColor;Ljava/lang/Float;Landroidx/compose/animation/core/AnimationSpec;Landroidx/compose/foundation/layout/PaddingValues;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-D9Ej5fM ()F
+	public final fun component2 ()Lcom/sdds/compose/uikit/interactions/InteractiveColor;
+	public final fun component3 ()Lcom/sdds/compose/uikit/interactions/InteractiveColor;
+	public final fun component4 ()Ljava/lang/Float;
+	public final fun component5 ()Landroidx/compose/animation/core/AnimationSpec;
+	public final fun component6 ()Landroidx/compose/foundation/layout/PaddingValues;
+	public final fun copy-Kz89ssw (FLcom/sdds/compose/uikit/interactions/InteractiveColor;Lcom/sdds/compose/uikit/interactions/InteractiveColor;Ljava/lang/Float;Landroidx/compose/animation/core/AnimationSpec;Landroidx/compose/foundation/layout/PaddingValues;)Lcom/sdds/compose/uikit/ScrollBar;
+	public static synthetic fun copy-Kz89ssw$default (Lcom/sdds/compose/uikit/ScrollBar;FLcom/sdds/compose/uikit/interactions/InteractiveColor;Lcom/sdds/compose/uikit/interactions/InteractiveColor;Ljava/lang/Float;Landroidx/compose/animation/core/AnimationSpec;Landroidx/compose/foundation/layout/PaddingValues;ILjava/lang/Object;)Lcom/sdds/compose/uikit/ScrollBar;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAlpha ()Ljava/lang/Float;
+	public final fun getAlphaAnimationSpec ()Landroidx/compose/animation/core/AnimationSpec;
+	public final fun getBackgroundColor ()Lcom/sdds/compose/uikit/interactions/InteractiveColor;
+	public final fun getIndicatorColor ()Lcom/sdds/compose/uikit/interactions/InteractiveColor;
+	public final fun getIndicatorThickness-D9Ej5fM ()F
+	public final fun getPadding ()Landroidx/compose/foundation/layout/PaddingValues;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/sdds/compose/uikit/ScrollBarKt {
+	public static final fun scrollbar-IRUPcdc (Landroidx/compose/ui/Modifier;Landroidx/compose/foundation/ScrollState;Landroidx/compose/foundation/gestures/Orientation;FJJFLandroidx/compose/animation/core/AnimationSpec;Landroidx/compose/foundation/layout/PaddingValues;)Landroidx/compose/ui/Modifier;
+	public static synthetic fun scrollbar-IRUPcdc$default (Landroidx/compose/ui/Modifier;Landroidx/compose/foundation/ScrollState;Landroidx/compose/foundation/gestures/Orientation;FJJFLandroidx/compose/animation/core/AnimationSpec;Landroidx/compose/foundation/layout/PaddingValues;ILjava/lang/Object;)Landroidx/compose/ui/Modifier;
+}
+
+public final class com/sdds/compose/uikit/Switch {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/sdds/compose/uikit/Switch;
+}
+
+public abstract interface class com/sdds/compose/uikit/SwitchColors {
+	public static final field Companion Lcom/sdds/compose/uikit/SwitchColors$Companion;
+	public abstract fun getActiveTrackColor-0d7_KjU ()J
+	public abstract fun getDescriptionColor-0d7_KjU ()J
+	public abstract fun getInactiveTrackColor-0d7_KjU ()J
+	public abstract fun getLabelColor-0d7_KjU ()J
+	public abstract fun getThumbColor-0d7_KjU ()J
+	public abstract fun trackColor (ZZLandroidx/compose/foundation/interaction/InteractionSource;Landroidx/compose/runtime/Composer;I)Landroidx/compose/runtime/State;
+}
+
+public final class com/sdds/compose/uikit/SwitchColors$Companion {
+	public final fun builder ()Lcom/sdds/compose/uikit/SwitchColorsBuilder;
+}
+
+public abstract interface class com/sdds/compose/uikit/SwitchColorsBuilder {
+	public abstract fun activeTrackColor-8_81llA (J)Lcom/sdds/compose/uikit/SwitchColorsBuilder;
+	public abstract fun build ()Lcom/sdds/compose/uikit/SwitchColors;
+	public abstract fun descriptionColor-8_81llA (J)Lcom/sdds/compose/uikit/SwitchColorsBuilder;
+	public abstract fun inactiveTrackColor-8_81llA (J)Lcom/sdds/compose/uikit/SwitchColorsBuilder;
+	public abstract fun labelColor-8_81llA (J)Lcom/sdds/compose/uikit/SwitchColorsBuilder;
+	public abstract fun thumbColor-8_81llA (J)Lcom/sdds/compose/uikit/SwitchColorsBuilder;
+}
+
+public final class com/sdds/compose/uikit/SwitchDimensions {
+	public synthetic fun <init> (FFFFFFFILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (FFFFFFFLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-D9Ej5fM ()F
+	public final fun component2-D9Ej5fM ()F
+	public final fun component3-D9Ej5fM ()F
+	public final fun component4-D9Ej5fM ()F
+	public final fun component5-D9Ej5fM ()F
+	public final fun component6-D9Ej5fM ()F
+	public final fun component7-D9Ej5fM ()F
+	public final fun copy-oRJhP44 (FFFFFFF)Lcom/sdds/compose/uikit/SwitchDimensions;
+	public static synthetic fun copy-oRJhP44$default (Lcom/sdds/compose/uikit/SwitchDimensions;FFFFFFFILjava/lang/Object;)Lcom/sdds/compose/uikit/SwitchDimensions;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getHorizontalSpacing-D9Ej5fM ()F
+	public final fun getThumbDiameter-D9Ej5fM ()F
+	public final fun getToggleHeight-D9Ej5fM ()F
+	public final fun getTogglePadding-D9Ej5fM ()F
+	public final fun getToggleWidth-D9Ej5fM ()F
+	public final fun getTrackCornerRadius-D9Ej5fM ()F
+	public final fun getVerticalSpacing-D9Ej5fM ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/sdds/compose/uikit/SwitchKt {
+	public static final fun Switch (ZLandroidx/compose/ui/Modifier;Lkotlin/jvm/functions/Function1;Ljava/lang/String;Ljava/lang/String;Lcom/sdds/compose/uikit/SwitchStyle;Lcom/sdds/compose/uikit/SwitchDimensions;Lcom/sdds/compose/uikit/SwitchColors;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;IIIZLandroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;III)V
+}
+
+public abstract interface class com/sdds/compose/uikit/SwitchStyle : com/sdds/compose/uikit/style/Style {
+	public static final field Companion Lcom/sdds/compose/uikit/SwitchStyle$Companion;
+	public abstract fun getAnimationDurationMillis ()I
+	public abstract fun getColors ()Lcom/sdds/compose/uikit/SwitchColors;
+	public abstract fun getDescriptionStyle ()Landroidx/compose/ui/text/TextStyle;
+	public abstract fun getDimensions ()Lcom/sdds/compose/uikit/SwitchDimensions;
+	public abstract fun getLabelStyle ()Landroidx/compose/ui/text/TextStyle;
+}
+
+public final class com/sdds/compose/uikit/SwitchStyle$Companion {
+	public final fun builder ()Lcom/sdds/compose/uikit/SwitchStyleBuilder;
+}
+
+public abstract interface class com/sdds/compose/uikit/SwitchStyleBuilder : com/sdds/compose/uikit/style/StyleBuilder {
+	public abstract fun animationDuration (I)Lcom/sdds/compose/uikit/SwitchStyleBuilder;
+	public abstract fun colors (Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;I)Lcom/sdds/compose/uikit/SwitchStyleBuilder;
+	public abstract fun descriptionStyle (Landroidx/compose/ui/text/TextStyle;)Lcom/sdds/compose/uikit/SwitchStyleBuilder;
+	public abstract fun dimensions (Lcom/sdds/compose/uikit/SwitchDimensions;)Lcom/sdds/compose/uikit/SwitchStyleBuilder;
+	public abstract fun labelStyle (Landroidx/compose/ui/text/TextStyle;)Lcom/sdds/compose/uikit/SwitchStyleBuilder;
+}
+
+public final class com/sdds/compose/uikit/SwitchStyleBuilder$DefaultImpls {
+	public static fun getReceiver (Lcom/sdds/compose/uikit/SwitchStyleBuilder;)Ljava/lang/Object;
+}
+
+public final class com/sdds/compose/uikit/SwitchStyleKt {
+	public static final fun getLocalSwitchStyle ()Landroidx/compose/runtime/ProvidableCompositionLocal;
+}
+
+public final class com/sdds/compose/uikit/TextArea {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/sdds/compose/uikit/TextArea;
+}
+
+public final class com/sdds/compose/uikit/TextAreaClear {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/sdds/compose/uikit/TextAreaClear;
+}
+
+public abstract interface class com/sdds/compose/uikit/TextAreaClearColorsBuilder {
+	public static final field Companion Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder$Companion;
+	public abstract fun build ()Lcom/sdds/compose/uikit/TextFieldColors;
+	public abstract fun captionColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public abstract fun captionColor-8_81llA (J)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public abstract fun captionColorReadOnly (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public abstract fun captionColorReadOnly-8_81llA (J)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public abstract fun counterColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public abstract fun counterColor-8_81llA (J)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public abstract fun counterColorReadOnly (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public abstract fun counterColorReadOnly-8_81llA (J)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public abstract fun cursorColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public abstract fun cursorColor-8_81llA (J)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public abstract fun cursorColorReadOnly (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public abstract fun cursorColorReadOnly-8_81llA (J)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public abstract fun disabledAlpha (F)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public abstract fun dividerColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public abstract fun dividerColor-8_81llA (J)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public abstract fun dividerColorReadOnly (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public abstract fun dividerColorReadOnly-8_81llA (J)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public abstract fun endContentColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public abstract fun endContentColor-8_81llA (J)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public abstract fun endContentColorReadOnly (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public abstract fun endContentColorReadOnly-8_81llA (J)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public abstract fun indicatorColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public abstract fun indicatorColor-8_81llA (J)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public abstract fun indicatorColorReadOnly (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public abstract fun indicatorColorReadOnly-8_81llA (J)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public abstract fun labelColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public abstract fun labelColor-8_81llA (J)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public abstract fun labelColorReadOnly (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public abstract fun labelColorReadOnly-8_81llA (J)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public abstract fun optionalColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public abstract fun optionalColor-8_81llA (J)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public abstract fun optionalColorReadOnly (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public abstract fun optionalColorReadOnly-8_81llA (J)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public abstract fun placeholderColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public abstract fun placeholderColor-8_81llA (J)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public abstract fun placeholderColorReadOnly (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public abstract fun placeholderColorReadOnly-8_81llA (J)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public abstract fun startContentColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public abstract fun startContentColor-8_81llA (J)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public abstract fun startContentColorReadOnly (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public abstract fun startContentColorReadOnly-8_81llA (J)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public abstract fun valueColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public abstract fun valueColor-8_81llA (J)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public abstract fun valueColorReadOnly (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public abstract fun valueColorReadOnly-8_81llA (J)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+}
+
+public final class com/sdds/compose/uikit/TextAreaClearColorsBuilder$Companion {
+	public final fun builder ()Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+}
+
+public final class com/sdds/compose/uikit/TextAreaClearColorsBuilder$DefaultImpls {
+	public static fun captionColor-8_81llA (Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;J)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public static fun captionColorReadOnly-8_81llA (Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;J)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public static fun counterColor-8_81llA (Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;J)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public static fun counterColorReadOnly-8_81llA (Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;J)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public static fun cursorColor-8_81llA (Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;J)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public static fun cursorColorReadOnly-8_81llA (Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;J)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public static fun dividerColor-8_81llA (Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;J)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public static fun dividerColorReadOnly-8_81llA (Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;J)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public static fun endContentColor-8_81llA (Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;J)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public static fun endContentColorReadOnly-8_81llA (Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;J)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public static fun indicatorColor-8_81llA (Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;J)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public static fun indicatorColorReadOnly-8_81llA (Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;J)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public static fun labelColor-8_81llA (Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;J)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public static fun labelColorReadOnly-8_81llA (Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;J)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public static fun optionalColor-8_81llA (Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;J)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public static fun optionalColorReadOnly-8_81llA (Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;J)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public static fun placeholderColor-8_81llA (Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;J)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public static fun placeholderColorReadOnly-8_81llA (Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;J)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public static fun startContentColor-8_81llA (Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;J)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public static fun startContentColorReadOnly-8_81llA (Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;J)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public static fun valueColor-8_81llA (Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;J)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+	public static fun valueColorReadOnly-8_81llA (Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;J)Lcom/sdds/compose/uikit/TextAreaClearColorsBuilder;
+}
+
+public abstract interface class com/sdds/compose/uikit/TextAreaClearDimensionsBuilder {
+	public static final field Companion Lcom/sdds/compose/uikit/TextAreaClearDimensionsBuilder$Companion;
+	public abstract fun alignmentLineHeight-0680j_4 (F)Lcom/sdds/compose/uikit/TextAreaClearDimensionsBuilder;
+	public abstract fun boxMinHeight-0680j_4 (F)Lcom/sdds/compose/uikit/TextAreaClearDimensionsBuilder;
+	public abstract fun boxPaddingBottom-0680j_4 (F)Lcom/sdds/compose/uikit/TextAreaClearDimensionsBuilder;
+	public abstract fun boxPaddingEnd-0680j_4 (F)Lcom/sdds/compose/uikit/TextAreaClearDimensionsBuilder;
+	public abstract fun boxPaddingStart-0680j_4 (F)Lcom/sdds/compose/uikit/TextAreaClearDimensionsBuilder;
+	public abstract fun boxPaddingTop-0680j_4 (F)Lcom/sdds/compose/uikit/TextAreaClearDimensionsBuilder;
+	public abstract fun build ()Lcom/sdds/compose/uikit/TextField$Dimensions;
+	public abstract fun chipsPadding-0680j_4 (F)Lcom/sdds/compose/uikit/TextAreaClearDimensionsBuilder;
+	public abstract fun dividerThickness-0680j_4 (F)Lcom/sdds/compose/uikit/TextAreaClearDimensionsBuilder;
+	public abstract fun endContentPadding-0680j_4 (F)Lcom/sdds/compose/uikit/TextAreaClearDimensionsBuilder;
+	public abstract fun endContentSize-0680j_4 (F)Lcom/sdds/compose/uikit/TextAreaClearDimensionsBuilder;
+	public abstract fun helperTextPadding-0680j_4 (F)Lcom/sdds/compose/uikit/TextAreaClearDimensionsBuilder;
+	public abstract fun indicatorDimensions (Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;I)Lcom/sdds/compose/uikit/TextAreaClearDimensionsBuilder;
+	public abstract fun labelPadding-0680j_4 (F)Lcom/sdds/compose/uikit/TextAreaClearDimensionsBuilder;
+	public abstract fun optionalPadding-0680j_4 (F)Lcom/sdds/compose/uikit/TextAreaClearDimensionsBuilder;
+	public abstract fun startContentPadding-0680j_4 (F)Lcom/sdds/compose/uikit/TextAreaClearDimensionsBuilder;
+	public abstract fun startContentSize-0680j_4 (F)Lcom/sdds/compose/uikit/TextAreaClearDimensionsBuilder;
+}
+
+public final class com/sdds/compose/uikit/TextAreaClearDimensionsBuilder$Companion {
+	public final fun builder ()Lcom/sdds/compose/uikit/TextAreaClearDimensionsBuilder;
+}
+
+public abstract interface class com/sdds/compose/uikit/TextAreaClearIndicatorDimensionsBuilder {
+	public static final field Companion Lcom/sdds/compose/uikit/TextAreaClearIndicatorDimensionsBuilder$Companion;
+	public abstract fun build ()Lcom/sdds/compose/uikit/TextField$Dimensions$IndicatorDimensions;
+	public abstract fun horizontalPadding-0680j_4 (F)Lcom/sdds/compose/uikit/TextAreaClearIndicatorDimensionsBuilder;
+	public abstract fun indicatorSize-0680j_4 (F)Lcom/sdds/compose/uikit/TextAreaClearIndicatorDimensionsBuilder;
+	public abstract fun verticalPadding-0680j_4 (F)Lcom/sdds/compose/uikit/TextAreaClearIndicatorDimensionsBuilder;
+}
+
+public final class com/sdds/compose/uikit/TextAreaClearIndicatorDimensionsBuilder$Companion {
+	public final fun builder ()Lcom/sdds/compose/uikit/TextAreaClearIndicatorDimensionsBuilder;
+}
+
+public abstract interface class com/sdds/compose/uikit/TextAreaClearStyleBuilder : com/sdds/compose/uikit/style/StyleBuilder {
+	public abstract fun captionStyle (Landroidx/compose/ui/text/TextStyle;)Lcom/sdds/compose/uikit/TextAreaClearStyleBuilder;
+	public abstract fun chipGroupStyle (Lcom/sdds/compose/uikit/ChipGroupStyle;)Lcom/sdds/compose/uikit/TextAreaClearStyleBuilder;
+	public abstract fun chipStyle (Lcom/sdds/compose/uikit/ChipStyle;)Lcom/sdds/compose/uikit/TextAreaClearStyleBuilder;
+	public abstract fun colors (Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;I)Lcom/sdds/compose/uikit/TextAreaClearStyleBuilder;
+	public abstract fun counterStyle (Landroidx/compose/ui/text/TextStyle;)Lcom/sdds/compose/uikit/TextAreaClearStyleBuilder;
+	public abstract fun dimensions (Lcom/sdds/compose/uikit/TextField$Dimensions;Landroidx/compose/runtime/Composer;I)Lcom/sdds/compose/uikit/TextAreaClearStyleBuilder;
+	public abstract fun dimensions (Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;I)Lcom/sdds/compose/uikit/TextAreaClearStyleBuilder;
+	public abstract fun fieldType (Lcom/sdds/compose/uikit/TextField$FieldType;)Lcom/sdds/compose/uikit/TextAreaClearStyleBuilder;
+	public abstract fun hasDivider (Z)Lcom/sdds/compose/uikit/TextAreaClearStyleBuilder;
+	public abstract fun labelPlacement (Lcom/sdds/compose/uikit/TextField$LabelPlacement;)Lcom/sdds/compose/uikit/TextAreaClearStyleBuilder;
+	public abstract fun labelStyle (Landroidx/compose/ui/text/TextStyle;)Lcom/sdds/compose/uikit/TextAreaClearStyleBuilder;
+	public abstract fun optionalStyle (Landroidx/compose/ui/text/TextStyle;)Lcom/sdds/compose/uikit/TextAreaClearStyleBuilder;
+	public abstract fun placeholderStyle (Landroidx/compose/ui/text/TextStyle;)Lcom/sdds/compose/uikit/TextAreaClearStyleBuilder;
+	public abstract fun shape (Landroidx/compose/foundation/shape/CornerBasedShape;)Lcom/sdds/compose/uikit/TextAreaClearStyleBuilder;
+	public abstract fun valueStyle (Landroidx/compose/ui/text/TextStyle;)Lcom/sdds/compose/uikit/TextAreaClearStyleBuilder;
+}
+
+public final class com/sdds/compose/uikit/TextAreaClearStyleBuilder$DefaultImpls {
+	public static fun getReceiver (Lcom/sdds/compose/uikit/TextAreaClearStyleBuilder;)Ljava/lang/Object;
+}
+
+public final class com/sdds/compose/uikit/TextAreaClearStyleBuilderKt {
+	public static final fun getLocalTextAreaClearStyle ()Landroidx/compose/runtime/ProvidableCompositionLocal;
+	public static final fun textAreaClearBuilder (Lcom/sdds/compose/uikit/TextFieldStyle$Companion;Ljava/lang/Object;)Lcom/sdds/compose/uikit/TextAreaClearStyleBuilder;
+	public static synthetic fun textAreaClearBuilder$default (Lcom/sdds/compose/uikit/TextFieldStyle$Companion;Ljava/lang/Object;ILjava/lang/Object;)Lcom/sdds/compose/uikit/TextAreaClearStyleBuilder;
+}
+
+public abstract interface class com/sdds/compose/uikit/TextAreaColorsBuilder {
+	public static final field Companion Lcom/sdds/compose/uikit/TextAreaColorsBuilder$Companion;
+	public abstract fun backgroundColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public abstract fun backgroundColor-8_81llA (J)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public abstract fun backgroundColorReadOnly (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public abstract fun backgroundColorReadOnly-8_81llA (J)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public abstract fun build ()Lcom/sdds/compose/uikit/TextFieldColors;
+	public abstract fun captionColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public abstract fun captionColor-8_81llA (J)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public abstract fun captionColorReadOnly (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public abstract fun captionColorReadOnly-8_81llA (J)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public abstract fun counterColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public abstract fun counterColor-8_81llA (J)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public abstract fun counterColorReadOnly (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public abstract fun counterColorReadOnly-8_81llA (J)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public abstract fun cursorColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public abstract fun cursorColor-8_81llA (J)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public abstract fun cursorColorReadOnly (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public abstract fun cursorColorReadOnly-8_81llA (J)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public abstract fun disabledAlpha (F)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public abstract fun endContentColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public abstract fun endContentColor-8_81llA (J)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public abstract fun endContentColorReadOnly (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public abstract fun endContentColorReadOnly-8_81llA (J)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public abstract fun indicatorColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public abstract fun indicatorColor-8_81llA (J)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public abstract fun indicatorColorReadOnly (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public abstract fun indicatorColorReadOnly-8_81llA (J)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public abstract fun labelColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public abstract fun labelColor-8_81llA (J)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public abstract fun labelColorReadOnly (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public abstract fun labelColorReadOnly-8_81llA (J)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public abstract fun optionalColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public abstract fun optionalColor-8_81llA (J)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public abstract fun optionalColorReadOnly (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public abstract fun optionalColorReadOnly-8_81llA (J)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public abstract fun placeholderColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public abstract fun placeholderColor-8_81llA (J)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public abstract fun placeholderColorReadOnly (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public abstract fun placeholderColorReadOnly-8_81llA (J)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public abstract fun startContentColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public abstract fun startContentColor-8_81llA (J)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public abstract fun startContentColorReadOnly (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public abstract fun startContentColorReadOnly-8_81llA (J)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public abstract fun valueColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public abstract fun valueColor-8_81llA (J)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public abstract fun valueColorReadOnly (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public abstract fun valueColorReadOnly-8_81llA (J)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+}
+
+public final class com/sdds/compose/uikit/TextAreaColorsBuilder$Companion {
+	public final fun builder ()Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+}
+
+public final class com/sdds/compose/uikit/TextAreaColorsBuilder$DefaultImpls {
+	public static fun backgroundColor-8_81llA (Lcom/sdds/compose/uikit/TextAreaColorsBuilder;J)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public static fun backgroundColorReadOnly-8_81llA (Lcom/sdds/compose/uikit/TextAreaColorsBuilder;J)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public static fun captionColor-8_81llA (Lcom/sdds/compose/uikit/TextAreaColorsBuilder;J)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public static fun captionColorReadOnly-8_81llA (Lcom/sdds/compose/uikit/TextAreaColorsBuilder;J)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public static fun counterColor-8_81llA (Lcom/sdds/compose/uikit/TextAreaColorsBuilder;J)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public static fun counterColorReadOnly-8_81llA (Lcom/sdds/compose/uikit/TextAreaColorsBuilder;J)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public static fun cursorColor-8_81llA (Lcom/sdds/compose/uikit/TextAreaColorsBuilder;J)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public static fun cursorColorReadOnly-8_81llA (Lcom/sdds/compose/uikit/TextAreaColorsBuilder;J)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public static fun endContentColor-8_81llA (Lcom/sdds/compose/uikit/TextAreaColorsBuilder;J)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public static fun endContentColorReadOnly-8_81llA (Lcom/sdds/compose/uikit/TextAreaColorsBuilder;J)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public static fun indicatorColor-8_81llA (Lcom/sdds/compose/uikit/TextAreaColorsBuilder;J)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public static fun indicatorColorReadOnly-8_81llA (Lcom/sdds/compose/uikit/TextAreaColorsBuilder;J)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public static fun labelColor-8_81llA (Lcom/sdds/compose/uikit/TextAreaColorsBuilder;J)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public static fun labelColorReadOnly-8_81llA (Lcom/sdds/compose/uikit/TextAreaColorsBuilder;J)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public static fun optionalColor-8_81llA (Lcom/sdds/compose/uikit/TextAreaColorsBuilder;J)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public static fun optionalColorReadOnly-8_81llA (Lcom/sdds/compose/uikit/TextAreaColorsBuilder;J)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public static fun placeholderColor-8_81llA (Lcom/sdds/compose/uikit/TextAreaColorsBuilder;J)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public static fun placeholderColorReadOnly-8_81llA (Lcom/sdds/compose/uikit/TextAreaColorsBuilder;J)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public static fun startContentColor-8_81llA (Lcom/sdds/compose/uikit/TextAreaColorsBuilder;J)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public static fun startContentColorReadOnly-8_81llA (Lcom/sdds/compose/uikit/TextAreaColorsBuilder;J)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public static fun valueColor-8_81llA (Lcom/sdds/compose/uikit/TextAreaColorsBuilder;J)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+	public static fun valueColorReadOnly-8_81llA (Lcom/sdds/compose/uikit/TextAreaColorsBuilder;J)Lcom/sdds/compose/uikit/TextAreaColorsBuilder;
+}
+
+public abstract interface class com/sdds/compose/uikit/TextAreaDimensionsBuilder {
+	public static final field Companion Lcom/sdds/compose/uikit/TextAreaDimensionsBuilder$Companion;
+	public abstract fun alignmentLineHeight-0680j_4 (F)Lcom/sdds/compose/uikit/TextAreaDimensionsBuilder;
+	public abstract fun boxMinHeight-0680j_4 (F)Lcom/sdds/compose/uikit/TextAreaDimensionsBuilder;
+	public abstract fun boxPaddingBottom-0680j_4 (F)Lcom/sdds/compose/uikit/TextAreaDimensionsBuilder;
+	public abstract fun boxPaddingEnd-0680j_4 (F)Lcom/sdds/compose/uikit/TextAreaDimensionsBuilder;
+	public abstract fun boxPaddingStart-0680j_4 (F)Lcom/sdds/compose/uikit/TextAreaDimensionsBuilder;
+	public abstract fun boxPaddingTop-0680j_4 (F)Lcom/sdds/compose/uikit/TextAreaDimensionsBuilder;
+	public abstract fun build ()Lcom/sdds/compose/uikit/TextField$Dimensions;
+	public abstract fun chipsPadding-0680j_4 (F)Lcom/sdds/compose/uikit/TextAreaDimensionsBuilder;
+	public abstract fun endContentPadding-0680j_4 (F)Lcom/sdds/compose/uikit/TextAreaDimensionsBuilder;
+	public abstract fun endContentSize-0680j_4 (F)Lcom/sdds/compose/uikit/TextAreaDimensionsBuilder;
+	public abstract fun helperTextPadding-0680j_4 (F)Lcom/sdds/compose/uikit/TextAreaDimensionsBuilder;
+	public abstract fun indicatorDimensions (Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;I)Lcom/sdds/compose/uikit/TextAreaDimensionsBuilder;
+	public abstract fun labelPadding-0680j_4 (F)Lcom/sdds/compose/uikit/TextAreaDimensionsBuilder;
+	public abstract fun optionalPadding-0680j_4 (F)Lcom/sdds/compose/uikit/TextAreaDimensionsBuilder;
+	public abstract fun startContentPadding-0680j_4 (F)Lcom/sdds/compose/uikit/TextAreaDimensionsBuilder;
+	public abstract fun startContentSize-0680j_4 (F)Lcom/sdds/compose/uikit/TextAreaDimensionsBuilder;
+}
+
+public final class com/sdds/compose/uikit/TextAreaDimensionsBuilder$Companion {
+	public final fun builder ()Lcom/sdds/compose/uikit/TextAreaDimensionsBuilder;
+}
+
+public abstract interface class com/sdds/compose/uikit/TextAreaIndicatorDimensionsBuilder {
+	public static final field Companion Lcom/sdds/compose/uikit/TextAreaIndicatorDimensionsBuilder$Companion;
+	public abstract fun build ()Lcom/sdds/compose/uikit/TextField$Dimensions$IndicatorDimensions;
+	public abstract fun horizontalPadding-0680j_4 (F)Lcom/sdds/compose/uikit/TextAreaIndicatorDimensionsBuilder;
+	public abstract fun indicatorSize-0680j_4 (F)Lcom/sdds/compose/uikit/TextAreaIndicatorDimensionsBuilder;
+	public abstract fun verticalPadding-0680j_4 (F)Lcom/sdds/compose/uikit/TextAreaIndicatorDimensionsBuilder;
+}
+
+public final class com/sdds/compose/uikit/TextAreaIndicatorDimensionsBuilder$Companion {
+	public final fun builder ()Lcom/sdds/compose/uikit/TextAreaIndicatorDimensionsBuilder;
+}
+
+public abstract interface class com/sdds/compose/uikit/TextAreaScrollBarBuilder {
+	public static final field Companion Lcom/sdds/compose/uikit/TextAreaScrollBarBuilder$Companion;
+	public abstract fun build ()Lcom/sdds/compose/uikit/ScrollBar;
+	public abstract fun scrollBarPaddingBottom-0680j_4 (F)Lcom/sdds/compose/uikit/TextAreaScrollBarBuilder;
+	public abstract fun scrollBarPaddingEnd-0680j_4 (F)Lcom/sdds/compose/uikit/TextAreaScrollBarBuilder;
+	public abstract fun scrollBarPaddingTop-0680j_4 (F)Lcom/sdds/compose/uikit/TextAreaScrollBarBuilder;
+	public abstract fun scrollBarThickness-0680j_4 (F)Lcom/sdds/compose/uikit/TextAreaScrollBarBuilder;
+	public abstract fun scrollBarThumbColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextAreaScrollBarBuilder;
+	public abstract fun scrollBarTrackColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextAreaScrollBarBuilder;
+}
+
+public final class com/sdds/compose/uikit/TextAreaScrollBarBuilder$Companion {
+	public final fun builder ()Lcom/sdds/compose/uikit/TextAreaScrollBarBuilder;
+}
+
+public abstract interface class com/sdds/compose/uikit/TextAreaStyleBuilder : com/sdds/compose/uikit/style/StyleBuilder {
+	public abstract fun captionStyle (Landroidx/compose/ui/text/TextStyle;)Lcom/sdds/compose/uikit/TextAreaStyleBuilder;
+	public abstract fun chipGroupStyle (Lcom/sdds/compose/uikit/ChipGroupStyle;)Lcom/sdds/compose/uikit/TextAreaStyleBuilder;
+	public abstract fun chipStyle (Lcom/sdds/compose/uikit/ChipStyle;)Lcom/sdds/compose/uikit/TextAreaStyleBuilder;
+	public abstract fun colors (Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;I)Lcom/sdds/compose/uikit/TextAreaStyleBuilder;
+	public abstract fun counterStyle (Landroidx/compose/ui/text/TextStyle;)Lcom/sdds/compose/uikit/TextAreaStyleBuilder;
+	public abstract fun dimensions (Lcom/sdds/compose/uikit/TextField$Dimensions;Landroidx/compose/runtime/Composer;I)Lcom/sdds/compose/uikit/TextAreaStyleBuilder;
+	public abstract fun dimensions (Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;I)Lcom/sdds/compose/uikit/TextAreaStyleBuilder;
+	public abstract fun fieldType (Lcom/sdds/compose/uikit/TextField$FieldType;)Lcom/sdds/compose/uikit/TextAreaStyleBuilder;
+	public abstract fun labelPlacement (Lcom/sdds/compose/uikit/TextField$LabelPlacement;)Lcom/sdds/compose/uikit/TextAreaStyleBuilder;
+	public abstract fun labelStyle (Landroidx/compose/ui/text/TextStyle;)Lcom/sdds/compose/uikit/TextAreaStyleBuilder;
+	public abstract fun optionalStyle (Landroidx/compose/ui/text/TextStyle;)Lcom/sdds/compose/uikit/TextAreaStyleBuilder;
+	public abstract fun placeholderStyle (Landroidx/compose/ui/text/TextStyle;)Lcom/sdds/compose/uikit/TextAreaStyleBuilder;
+	public abstract fun scrollBar (Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;I)Lcom/sdds/compose/uikit/TextAreaStyleBuilder;
+	public abstract fun shape (Landroidx/compose/foundation/shape/CornerBasedShape;)Lcom/sdds/compose/uikit/TextAreaStyleBuilder;
+	public abstract fun valueStyle (Landroidx/compose/ui/text/TextStyle;)Lcom/sdds/compose/uikit/TextAreaStyleBuilder;
+}
+
+public final class com/sdds/compose/uikit/TextAreaStyleBuilder$DefaultImpls {
+	public static fun getReceiver (Lcom/sdds/compose/uikit/TextAreaStyleBuilder;)Ljava/lang/Object;
+}
+
+public final class com/sdds/compose/uikit/TextAreaStyleBuilderKt {
+	public static final fun getLocalTextAreaStyle ()Landroidx/compose/runtime/ProvidableCompositionLocal;
+	public static final fun textAreaBuilder (Lcom/sdds/compose/uikit/TextFieldStyle$Companion;Ljava/lang/Object;)Lcom/sdds/compose/uikit/TextAreaStyleBuilder;
+	public static synthetic fun textAreaBuilder$default (Lcom/sdds/compose/uikit/TextFieldStyle$Companion;Ljava/lang/Object;ILjava/lang/Object;)Lcom/sdds/compose/uikit/TextAreaStyleBuilder;
+}
+
+public final class com/sdds/compose/uikit/TextField {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/sdds/compose/uikit/TextField;
+}
+
+public final class com/sdds/compose/uikit/TextField$Animation {
+	public fun <init> ()V
+	public fun <init> (III)V
+	public synthetic fun <init> (IIIILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()I
+	public final fun component2 ()I
+	public final fun component3 ()I
+	public final fun copy (III)Lcom/sdds/compose/uikit/TextField$Animation;
+	public static synthetic fun copy$default (Lcom/sdds/compose/uikit/TextField$Animation;IIIILjava/lang/Object;)Lcom/sdds/compose/uikit/TextField$Animation;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAnimationDuration ()I
+	public final fun getPlaceholderAnimationDelayOrDuration ()I
+	public final fun getPlaceholderAnimationDuration ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/sdds/compose/uikit/TextField$Dimensions {
+	public synthetic fun <init> (FFFFFFFFFFFFFFLcom/sdds/compose/uikit/TextField$Dimensions$IndicatorDimensions;FILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (FFFFFFFFFFFFFFLcom/sdds/compose/uikit/TextField$Dimensions$IndicatorDimensions;FLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-D9Ej5fM ()F
+	public final fun component10-D9Ej5fM ()F
+	public final fun component11-D9Ej5fM ()F
+	public final fun component12-D9Ej5fM ()F
+	public final fun component13-D9Ej5fM ()F
+	public final fun component14-D9Ej5fM ()F
+	public final fun component15 ()Lcom/sdds/compose/uikit/TextField$Dimensions$IndicatorDimensions;
+	public final fun component16-D9Ej5fM ()F
+	public final fun component2-D9Ej5fM ()F
+	public final fun component3-D9Ej5fM ()F
+	public final fun component4-D9Ej5fM ()F
+	public final fun component5-D9Ej5fM ()F
+	public final fun component6-D9Ej5fM ()F
+	public final fun component7-D9Ej5fM ()F
+	public final fun component8-D9Ej5fM ()F
+	public final fun component9-D9Ej5fM ()F
+	public final fun copy-GBZ_gpk (FFFFFFFFFFFFFFLcom/sdds/compose/uikit/TextField$Dimensions$IndicatorDimensions;F)Lcom/sdds/compose/uikit/TextField$Dimensions;
+	public static synthetic fun copy-GBZ_gpk$default (Lcom/sdds/compose/uikit/TextField$Dimensions;FFFFFFFFFFFFFFLcom/sdds/compose/uikit/TextField$Dimensions$IndicatorDimensions;FILjava/lang/Object;)Lcom/sdds/compose/uikit/TextField$Dimensions;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAlignmentLineHeight-D9Ej5fM ()F
+	public final fun getBoxMinHeight-D9Ej5fM ()F
+	public final fun getBoxPaddingBottom-D9Ej5fM ()F
+	public final fun getBoxPaddingEnd-D9Ej5fM ()F
+	public final fun getBoxPaddingStart-D9Ej5fM ()F
+	public final fun getBoxPaddingTop-D9Ej5fM ()F
+	public final fun getChipsPadding-D9Ej5fM ()F
+	public final fun getDividerThickness-D9Ej5fM ()F
+	public final fun getEndContentPadding-D9Ej5fM ()F
+	public final fun getEndContentSize-D9Ej5fM ()F
+	public final fun getHelperTextPadding-D9Ej5fM ()F
+	public final fun getIndicatorDimensions ()Lcom/sdds/compose/uikit/TextField$Dimensions$IndicatorDimensions;
+	public final fun getLabelPadding-D9Ej5fM ()F
+	public final fun getOptionalPadding-D9Ej5fM ()F
+	public final fun getStartContentPadding-D9Ej5fM ()F
+	public final fun getStartContentSize-D9Ej5fM ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/sdds/compose/uikit/TextField$Dimensions$IndicatorDimensions {
+	public synthetic fun <init> (FFFILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (FFFLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-D9Ej5fM ()F
+	public final fun component2-D9Ej5fM ()F
+	public final fun component3-D9Ej5fM ()F
+	public final fun copy-2z7ARbQ (FFF)Lcom/sdds/compose/uikit/TextField$Dimensions$IndicatorDimensions;
+	public static synthetic fun copy-2z7ARbQ$default (Lcom/sdds/compose/uikit/TextField$Dimensions$IndicatorDimensions;FFFILjava/lang/Object;)Lcom/sdds/compose/uikit/TextField$Dimensions$IndicatorDimensions;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getHorizontalPadding-D9Ej5fM ()F
+	public final fun getIndicatorSize-D9Ej5fM ()F
+	public final fun getVerticalPadding-D9Ej5fM ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/sdds/compose/uikit/TextField$FieldAppearance : java/lang/Enum {
+	public static final field Clear Lcom/sdds/compose/uikit/TextField$FieldAppearance;
+	public static final field Solid Lcom/sdds/compose/uikit/TextField$FieldAppearance;
+	public static fun valueOf (Ljava/lang/String;)Lcom/sdds/compose/uikit/TextField$FieldAppearance;
+	public static fun values ()[Lcom/sdds/compose/uikit/TextField$FieldAppearance;
+}
+
+public final class com/sdds/compose/uikit/TextField$FieldType : java/lang/Enum {
+	public static final field Optional Lcom/sdds/compose/uikit/TextField$FieldType;
+	public static final field RequiredEnd Lcom/sdds/compose/uikit/TextField$FieldType;
+	public static final field RequiredStart Lcom/sdds/compose/uikit/TextField$FieldType;
+	public static fun valueOf (Ljava/lang/String;)Lcom/sdds/compose/uikit/TextField$FieldType;
+	public static fun values ()[Lcom/sdds/compose/uikit/TextField$FieldType;
+}
+
+public final class com/sdds/compose/uikit/TextField$HelperTextPlacement : java/lang/Enum {
+	public static final field Inner Lcom/sdds/compose/uikit/TextField$HelperTextPlacement;
+	public static final field Outer Lcom/sdds/compose/uikit/TextField$HelperTextPlacement;
+	public static fun valueOf (Ljava/lang/String;)Lcom/sdds/compose/uikit/TextField$HelperTextPlacement;
+	public static fun values ()[Lcom/sdds/compose/uikit/TextField$HelperTextPlacement;
+}
+
+public final class com/sdds/compose/uikit/TextField$LabelPlacement : java/lang/Enum {
+	public static final field Inner Lcom/sdds/compose/uikit/TextField$LabelPlacement;
+	public static final field None Lcom/sdds/compose/uikit/TextField$LabelPlacement;
+	public static final field Outer Lcom/sdds/compose/uikit/TextField$LabelPlacement;
+	public static fun valueOf (Ljava/lang/String;)Lcom/sdds/compose/uikit/TextField$LabelPlacement;
+	public static fun values ()[Lcom/sdds/compose/uikit/TextField$LabelPlacement;
+}
+
+public final class com/sdds/compose/uikit/TextFieldClear {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/sdds/compose/uikit/TextFieldClear;
+}
+
+public abstract interface class com/sdds/compose/uikit/TextFieldClearColorsBuilder {
+	public static final field Companion Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder$Companion;
+	public abstract fun build ()Lcom/sdds/compose/uikit/TextFieldColors;
+	public abstract fun captionColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public abstract fun captionColor-8_81llA (J)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public abstract fun captionColorReadOnly (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public abstract fun captionColorReadOnly-8_81llA (J)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public abstract fun counterColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public abstract fun counterColor-8_81llA (J)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public abstract fun counterColorReadOnly (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public abstract fun counterColorReadOnly-8_81llA (J)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public abstract fun cursorColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public abstract fun cursorColor-8_81llA (J)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public abstract fun cursorColorReadOnly (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public abstract fun cursorColorReadOnly-8_81llA (J)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public abstract fun disabledAlpha (F)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public abstract fun dividerColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public abstract fun dividerColor-8_81llA (J)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public abstract fun dividerColorReadOnly (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public abstract fun dividerColorReadOnly-8_81llA (J)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public abstract fun endContentColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public abstract fun endContentColor-8_81llA (J)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public abstract fun endContentColorReadOnly (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public abstract fun endContentColorReadOnly-8_81llA (J)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public abstract fun indicatorColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public abstract fun indicatorColor-8_81llA (J)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public abstract fun indicatorColorReadOnly (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public abstract fun indicatorColorReadOnly-8_81llA (J)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public abstract fun labelColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public abstract fun labelColor-8_81llA (J)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public abstract fun labelColorReadOnly (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public abstract fun labelColorReadOnly-8_81llA (J)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public abstract fun optionalColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public abstract fun optionalColor-8_81llA (J)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public abstract fun optionalColorReadOnly (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public abstract fun optionalColorReadOnly-8_81llA (J)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public abstract fun placeholderColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public abstract fun placeholderColor-8_81llA (J)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public abstract fun placeholderColorReadOnly (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public abstract fun placeholderColorReadOnly-8_81llA (J)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public abstract fun startContentColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public abstract fun startContentColor-8_81llA (J)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public abstract fun startContentColorReadOnly (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public abstract fun startContentColorReadOnly-8_81llA (J)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public abstract fun valueColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public abstract fun valueColor-8_81llA (J)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public abstract fun valueColorReadOnly (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public abstract fun valueColorReadOnly-8_81llA (J)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+}
+
+public final class com/sdds/compose/uikit/TextFieldClearColorsBuilder$Companion {
+	public final fun builder ()Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+}
+
+public final class com/sdds/compose/uikit/TextFieldClearColorsBuilder$DefaultImpls {
+	public static fun captionColor-8_81llA (Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;J)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public static fun captionColorReadOnly-8_81llA (Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;J)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public static fun counterColor-8_81llA (Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;J)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public static fun counterColorReadOnly-8_81llA (Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;J)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public static fun cursorColor-8_81llA (Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;J)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public static fun cursorColorReadOnly-8_81llA (Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;J)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public static fun dividerColor-8_81llA (Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;J)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public static fun dividerColorReadOnly-8_81llA (Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;J)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public static fun endContentColor-8_81llA (Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;J)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public static fun endContentColorReadOnly-8_81llA (Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;J)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public static fun indicatorColor-8_81llA (Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;J)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public static fun indicatorColorReadOnly-8_81llA (Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;J)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public static fun labelColor-8_81llA (Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;J)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public static fun labelColorReadOnly-8_81llA (Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;J)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public static fun optionalColor-8_81llA (Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;J)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public static fun optionalColorReadOnly-8_81llA (Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;J)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public static fun placeholderColor-8_81llA (Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;J)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public static fun placeholderColorReadOnly-8_81llA (Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;J)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public static fun startContentColor-8_81llA (Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;J)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public static fun startContentColorReadOnly-8_81llA (Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;J)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public static fun valueColor-8_81llA (Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;J)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+	public static fun valueColorReadOnly-8_81llA (Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;J)Lcom/sdds/compose/uikit/TextFieldClearColorsBuilder;
+}
+
+public abstract interface class com/sdds/compose/uikit/TextFieldClearDimensionsBuilder {
+	public static final field Companion Lcom/sdds/compose/uikit/TextFieldClearDimensionsBuilder$Companion;
+	public abstract fun alignmentLineHeight-0680j_4 (F)Lcom/sdds/compose/uikit/TextFieldClearDimensionsBuilder;
+	public abstract fun boxMinHeight-0680j_4 (F)Lcom/sdds/compose/uikit/TextFieldClearDimensionsBuilder;
+	public abstract fun boxPaddingBottom-0680j_4 (F)Lcom/sdds/compose/uikit/TextFieldClearDimensionsBuilder;
+	public abstract fun boxPaddingEnd-0680j_4 (F)Lcom/sdds/compose/uikit/TextFieldClearDimensionsBuilder;
+	public abstract fun boxPaddingStart-0680j_4 (F)Lcom/sdds/compose/uikit/TextFieldClearDimensionsBuilder;
+	public abstract fun boxPaddingTop-0680j_4 (F)Lcom/sdds/compose/uikit/TextFieldClearDimensionsBuilder;
+	public abstract fun build ()Lcom/sdds/compose/uikit/TextField$Dimensions;
+	public abstract fun chipsPadding-0680j_4 (F)Lcom/sdds/compose/uikit/TextFieldClearDimensionsBuilder;
+	public abstract fun dividerThickness-0680j_4 (F)Lcom/sdds/compose/uikit/TextFieldClearDimensionsBuilder;
+	public abstract fun endContentPadding-0680j_4 (F)Lcom/sdds/compose/uikit/TextFieldClearDimensionsBuilder;
+	public abstract fun endContentSize-0680j_4 (F)Lcom/sdds/compose/uikit/TextFieldClearDimensionsBuilder;
+	public abstract fun helperTextPadding-0680j_4 (F)Lcom/sdds/compose/uikit/TextFieldClearDimensionsBuilder;
+	public abstract fun indicatorDimensions (Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;I)Lcom/sdds/compose/uikit/TextFieldClearDimensionsBuilder;
+	public abstract fun labelPadding-0680j_4 (F)Lcom/sdds/compose/uikit/TextFieldClearDimensionsBuilder;
+	public abstract fun optionalPadding-0680j_4 (F)Lcom/sdds/compose/uikit/TextFieldClearDimensionsBuilder;
+	public abstract fun startContentPadding-0680j_4 (F)Lcom/sdds/compose/uikit/TextFieldClearDimensionsBuilder;
+	public abstract fun startContentSize-0680j_4 (F)Lcom/sdds/compose/uikit/TextFieldClearDimensionsBuilder;
+}
+
+public final class com/sdds/compose/uikit/TextFieldClearDimensionsBuilder$Companion {
+	public final fun builder ()Lcom/sdds/compose/uikit/TextFieldClearDimensionsBuilder;
+}
+
+public abstract interface class com/sdds/compose/uikit/TextFieldClearIndicatorDimensionsBuilder {
+	public static final field Companion Lcom/sdds/compose/uikit/TextFieldClearIndicatorDimensionsBuilder$Companion;
+	public abstract fun build ()Lcom/sdds/compose/uikit/TextField$Dimensions$IndicatorDimensions;
+	public abstract fun horizontalPadding-0680j_4 (F)Lcom/sdds/compose/uikit/TextFieldClearIndicatorDimensionsBuilder;
+	public abstract fun indicatorSize-0680j_4 (F)Lcom/sdds/compose/uikit/TextFieldClearIndicatorDimensionsBuilder;
+	public abstract fun verticalPadding-0680j_4 (F)Lcom/sdds/compose/uikit/TextFieldClearIndicatorDimensionsBuilder;
+}
+
+public final class com/sdds/compose/uikit/TextFieldClearIndicatorDimensionsBuilder$Companion {
+	public final fun builder ()Lcom/sdds/compose/uikit/TextFieldClearIndicatorDimensionsBuilder;
+}
+
+public abstract interface class com/sdds/compose/uikit/TextFieldClearStyleBuilder : com/sdds/compose/uikit/style/StyleBuilder {
+	public abstract fun captionStyle (Landroidx/compose/ui/text/TextStyle;)Lcom/sdds/compose/uikit/TextFieldClearStyleBuilder;
+	public abstract fun chipGroupStyle (Lcom/sdds/compose/uikit/ChipGroupStyle;)Lcom/sdds/compose/uikit/TextFieldClearStyleBuilder;
+	public abstract fun chipStyle (Lcom/sdds/compose/uikit/ChipStyle;)Lcom/sdds/compose/uikit/TextFieldClearStyleBuilder;
+	public abstract fun colors (Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;I)Lcom/sdds/compose/uikit/TextFieldClearStyleBuilder;
+	public abstract fun counterStyle (Landroidx/compose/ui/text/TextStyle;)Lcom/sdds/compose/uikit/TextFieldClearStyleBuilder;
+	public abstract fun dimensions (Lcom/sdds/compose/uikit/TextField$Dimensions;Landroidx/compose/runtime/Composer;I)Lcom/sdds/compose/uikit/TextFieldClearStyleBuilder;
+	public abstract fun dimensions (Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;I)Lcom/sdds/compose/uikit/TextFieldClearStyleBuilder;
+	public abstract fun fieldType (Lcom/sdds/compose/uikit/TextField$FieldType;)Lcom/sdds/compose/uikit/TextFieldClearStyleBuilder;
+	public abstract fun hasDivider (Z)Lcom/sdds/compose/uikit/TextFieldClearStyleBuilder;
+	public abstract fun labelPlacement (Lcom/sdds/compose/uikit/TextField$LabelPlacement;)Lcom/sdds/compose/uikit/TextFieldClearStyleBuilder;
+	public abstract fun labelStyle (Landroidx/compose/ui/text/TextStyle;)Lcom/sdds/compose/uikit/TextFieldClearStyleBuilder;
+	public abstract fun optionalStyle (Landroidx/compose/ui/text/TextStyle;)Lcom/sdds/compose/uikit/TextFieldClearStyleBuilder;
+	public abstract fun placeholderStyle (Landroidx/compose/ui/text/TextStyle;)Lcom/sdds/compose/uikit/TextFieldClearStyleBuilder;
+	public abstract fun valueStyle (Landroidx/compose/ui/text/TextStyle;)Lcom/sdds/compose/uikit/TextFieldClearStyleBuilder;
+}
+
+public final class com/sdds/compose/uikit/TextFieldClearStyleBuilder$DefaultImpls {
+	public static fun getReceiver (Lcom/sdds/compose/uikit/TextFieldClearStyleBuilder;)Ljava/lang/Object;
+}
+
+public final class com/sdds/compose/uikit/TextFieldClearStyleBuilderKt {
+	public static final fun getLocalTextFieldClearStyle ()Landroidx/compose/runtime/ProvidableCompositionLocal;
+	public static final fun textFieldClearBuilder (Lcom/sdds/compose/uikit/TextFieldStyle$Companion;Ljava/lang/Object;)Lcom/sdds/compose/uikit/TextFieldClearStyleBuilder;
+	public static synthetic fun textFieldClearBuilder$default (Lcom/sdds/compose/uikit/TextFieldStyle$Companion;Ljava/lang/Object;ILjava/lang/Object;)Lcom/sdds/compose/uikit/TextFieldClearStyleBuilder;
+}
+
+public abstract interface class com/sdds/compose/uikit/TextFieldColors {
+	public abstract fun backgroundColor (Z)Lcom/sdds/compose/uikit/interactions/InteractiveColor;
+	public abstract fun captionColor (Z)Lcom/sdds/compose/uikit/interactions/InteractiveColor;
+	public abstract fun counterColor (Z)Lcom/sdds/compose/uikit/interactions/InteractiveColor;
+	public abstract fun cursorColor (Z)Lcom/sdds/compose/uikit/interactions/InteractiveColor;
+	public abstract fun dividerColor (Z)Lcom/sdds/compose/uikit/interactions/InteractiveColor;
+	public abstract fun endContentColor (Z)Lcom/sdds/compose/uikit/interactions/InteractiveColor;
+	public abstract fun getDisabledAlpha ()F
+	public abstract fun indicatorColor (Z)Lcom/sdds/compose/uikit/interactions/InteractiveColor;
+	public abstract fun labelColor (Z)Lcom/sdds/compose/uikit/interactions/InteractiveColor;
+	public abstract fun optionalColor (Z)Lcom/sdds/compose/uikit/interactions/InteractiveColor;
+	public abstract fun placeholderColor (Z)Lcom/sdds/compose/uikit/interactions/InteractiveColor;
+	public abstract fun startContentColor (Z)Lcom/sdds/compose/uikit/interactions/InteractiveColor;
+	public abstract fun valueColor (Z)Lcom/sdds/compose/uikit/interactions/InteractiveColor;
+}
+
+public abstract interface class com/sdds/compose/uikit/TextFieldColorsBuilder {
+	public static final field Companion Lcom/sdds/compose/uikit/TextFieldColorsBuilder$Companion;
+	public abstract fun backgroundColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public abstract fun backgroundColor-8_81llA (J)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public abstract fun backgroundColorReadOnly (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public abstract fun backgroundColorReadOnly-8_81llA (J)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public abstract fun build ()Lcom/sdds/compose/uikit/TextFieldColors;
+	public abstract fun captionColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public abstract fun captionColor-8_81llA (J)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public abstract fun captionColorReadOnly (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public abstract fun captionColorReadOnly-8_81llA (J)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public abstract fun counterColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public abstract fun counterColor-8_81llA (J)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public abstract fun counterColorReadOnly (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public abstract fun counterColorReadOnly-8_81llA (J)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public abstract fun cursorColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public abstract fun cursorColor-8_81llA (J)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public abstract fun cursorColorReadOnly (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public abstract fun cursorColorReadOnly-8_81llA (J)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public abstract fun disabledAlpha (F)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public abstract fun endContentColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public abstract fun endContentColor-8_81llA (J)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public abstract fun endContentColorReadOnly (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public abstract fun endContentColorReadOnly-8_81llA (J)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public abstract fun indicatorColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public abstract fun indicatorColor-8_81llA (J)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public abstract fun indicatorColorReadOnly (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public abstract fun indicatorColorReadOnly-8_81llA (J)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public abstract fun labelColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public abstract fun labelColor-8_81llA (J)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public abstract fun labelColorReadOnly (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public abstract fun labelColorReadOnly-8_81llA (J)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public abstract fun optionalColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public abstract fun optionalColor-8_81llA (J)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public abstract fun optionalColorReadOnly (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public abstract fun optionalColorReadOnly-8_81llA (J)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public abstract fun placeholderColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public abstract fun placeholderColor-8_81llA (J)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public abstract fun placeholderColorReadOnly (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public abstract fun placeholderColorReadOnly-8_81llA (J)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public abstract fun startContentColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public abstract fun startContentColor-8_81llA (J)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public abstract fun startContentColorReadOnly (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public abstract fun startContentColorReadOnly-8_81llA (J)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public abstract fun valueColor (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public abstract fun valueColor-8_81llA (J)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public abstract fun valueColorReadOnly (Lcom/sdds/compose/uikit/interactions/InteractiveColor;)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public abstract fun valueColorReadOnly-8_81llA (J)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+}
+
+public final class com/sdds/compose/uikit/TextFieldColorsBuilder$Companion {
+	public final fun builder ()Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+}
+
+public final class com/sdds/compose/uikit/TextFieldColorsBuilder$DefaultImpls {
+	public static fun backgroundColor-8_81llA (Lcom/sdds/compose/uikit/TextFieldColorsBuilder;J)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public static fun backgroundColorReadOnly-8_81llA (Lcom/sdds/compose/uikit/TextFieldColorsBuilder;J)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public static fun captionColor-8_81llA (Lcom/sdds/compose/uikit/TextFieldColorsBuilder;J)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public static fun captionColorReadOnly-8_81llA (Lcom/sdds/compose/uikit/TextFieldColorsBuilder;J)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public static fun counterColor-8_81llA (Lcom/sdds/compose/uikit/TextFieldColorsBuilder;J)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public static fun counterColorReadOnly-8_81llA (Lcom/sdds/compose/uikit/TextFieldColorsBuilder;J)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public static fun cursorColor-8_81llA (Lcom/sdds/compose/uikit/TextFieldColorsBuilder;J)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public static fun cursorColorReadOnly-8_81llA (Lcom/sdds/compose/uikit/TextFieldColorsBuilder;J)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public static fun endContentColor-8_81llA (Lcom/sdds/compose/uikit/TextFieldColorsBuilder;J)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public static fun endContentColorReadOnly-8_81llA (Lcom/sdds/compose/uikit/TextFieldColorsBuilder;J)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public static fun indicatorColor-8_81llA (Lcom/sdds/compose/uikit/TextFieldColorsBuilder;J)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public static fun indicatorColorReadOnly-8_81llA (Lcom/sdds/compose/uikit/TextFieldColorsBuilder;J)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public static fun labelColor-8_81llA (Lcom/sdds/compose/uikit/TextFieldColorsBuilder;J)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public static fun labelColorReadOnly-8_81llA (Lcom/sdds/compose/uikit/TextFieldColorsBuilder;J)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public static fun optionalColor-8_81llA (Lcom/sdds/compose/uikit/TextFieldColorsBuilder;J)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public static fun optionalColorReadOnly-8_81llA (Lcom/sdds/compose/uikit/TextFieldColorsBuilder;J)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public static fun placeholderColor-8_81llA (Lcom/sdds/compose/uikit/TextFieldColorsBuilder;J)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public static fun placeholderColorReadOnly-8_81llA (Lcom/sdds/compose/uikit/TextFieldColorsBuilder;J)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public static fun startContentColor-8_81llA (Lcom/sdds/compose/uikit/TextFieldColorsBuilder;J)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public static fun startContentColorReadOnly-8_81llA (Lcom/sdds/compose/uikit/TextFieldColorsBuilder;J)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public static fun valueColor-8_81llA (Lcom/sdds/compose/uikit/TextFieldColorsBuilder;J)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+	public static fun valueColorReadOnly-8_81llA (Lcom/sdds/compose/uikit/TextFieldColorsBuilder;J)Lcom/sdds/compose/uikit/TextFieldColorsBuilder;
+}
+
+public abstract interface class com/sdds/compose/uikit/TextFieldDimensionsBuilder {
+	public static final field Companion Lcom/sdds/compose/uikit/TextFieldDimensionsBuilder$Companion;
+	public abstract fun alignmentLineHeight-0680j_4 (F)Lcom/sdds/compose/uikit/TextFieldDimensionsBuilder;
+	public abstract fun boxMinHeight-0680j_4 (F)Lcom/sdds/compose/uikit/TextFieldDimensionsBuilder;
+	public abstract fun boxPaddingBottom-0680j_4 (F)Lcom/sdds/compose/uikit/TextFieldDimensionsBuilder;
+	public abstract fun boxPaddingEnd-0680j_4 (F)Lcom/sdds/compose/uikit/TextFieldDimensionsBuilder;
+	public abstract fun boxPaddingStart-0680j_4 (F)Lcom/sdds/compose/uikit/TextFieldDimensionsBuilder;
+	public abstract fun boxPaddingTop-0680j_4 (F)Lcom/sdds/compose/uikit/TextFieldDimensionsBuilder;
+	public abstract fun build ()Lcom/sdds/compose/uikit/TextField$Dimensions;
+	public abstract fun chipsPadding-0680j_4 (F)Lcom/sdds/compose/uikit/TextFieldDimensionsBuilder;
+	public abstract fun endContentPadding-0680j_4 (F)Lcom/sdds/compose/uikit/TextFieldDimensionsBuilder;
+	public abstract fun endContentSize-0680j_4 (F)Lcom/sdds/compose/uikit/TextFieldDimensionsBuilder;
+	public abstract fun helperTextPadding-0680j_4 (F)Lcom/sdds/compose/uikit/TextFieldDimensionsBuilder;
+	public abstract fun indicatorDimensions (Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;I)Lcom/sdds/compose/uikit/TextFieldDimensionsBuilder;
+	public abstract fun labelPadding-0680j_4 (F)Lcom/sdds/compose/uikit/TextFieldDimensionsBuilder;
+	public abstract fun optionalPadding-0680j_4 (F)Lcom/sdds/compose/uikit/TextFieldDimensionsBuilder;
+	public abstract fun startContentPadding-0680j_4 (F)Lcom/sdds/compose/uikit/TextFieldDimensionsBuilder;
+	public abstract fun startContentSize-0680j_4 (F)Lcom/sdds/compose/uikit/TextFieldDimensionsBuilder;
+}
+
+public final class com/sdds/compose/uikit/TextFieldDimensionsBuilder$Companion {
+	public final fun builder ()Lcom/sdds/compose/uikit/TextFieldDimensionsBuilder;
+}
+
+public abstract interface class com/sdds/compose/uikit/TextFieldIndicatorDimensionsBuilder {
+	public static final field Companion Lcom/sdds/compose/uikit/TextFieldIndicatorDimensionsBuilder$Companion;
+	public abstract fun build ()Lcom/sdds/compose/uikit/TextField$Dimensions$IndicatorDimensions;
+	public abstract fun horizontalPadding-0680j_4 (F)Lcom/sdds/compose/uikit/TextFieldIndicatorDimensionsBuilder;
+	public abstract fun indicatorSize-0680j_4 (F)Lcom/sdds/compose/uikit/TextFieldIndicatorDimensionsBuilder;
+	public abstract fun verticalPadding-0680j_4 (F)Lcom/sdds/compose/uikit/TextFieldIndicatorDimensionsBuilder;
+}
+
+public final class com/sdds/compose/uikit/TextFieldIndicatorDimensionsBuilder$Companion {
+	public final fun builder ()Lcom/sdds/compose/uikit/TextFieldIndicatorDimensionsBuilder;
+}
+
+public final class com/sdds/compose/uikit/TextFieldKt {
+	public static final fun TextField (Landroidx/compose/ui/text/input/TextFieldValue;Lkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;Lcom/sdds/compose/uikit/TextFieldStyle;ZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lcom/sdds/compose/uikit/TextField$Animation;Landroidx/compose/foundation/text/KeyboardOptions;Landroidx/compose/foundation/text/KeyboardActions;Landroidx/compose/ui/text/input/VisualTransformation;Lcom/sdds/compose/uikit/internal/focusselector/FocusSelectorMode;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;IIII)V
+	public static final fun TextField (Ljava/lang/String;Lkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;Lcom/sdds/compose/uikit/TextFieldStyle;ZZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;Lcom/sdds/compose/uikit/TextField$Animation;Landroidx/compose/foundation/text/KeyboardOptions;Landroidx/compose/foundation/text/KeyboardActions;Landroidx/compose/ui/text/input/VisualTransformation;Lcom/sdds/compose/uikit/internal/focusselector/FocusSelectorMode;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/runtime/Composer;IIII)V
+	public static final fun prefixSuffixTransformation (Ljava/lang/String;Ljava/lang/String;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;)Landroidx/compose/ui/text/input/VisualTransformation;
+	public static synthetic fun prefixSuffixTransformation$default (Ljava/lang/String;Ljava/lang/String;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;ILjava/lang/Object;)Landroidx/compose/ui/text/input/VisualTransformation;
+}
+
+public abstract interface class com/sdds/compose/uikit/TextFieldStyle : com/sdds/compose/uikit/style/Style {
+	public static final field Companion Lcom/sdds/compose/uikit/TextFieldStyle$Companion;
+	public abstract fun getCaptionStyle ()Landroidx/compose/ui/text/TextStyle;
+	public abstract fun getChipGroupStyle ()Lcom/sdds/compose/uikit/ChipGroupStyle;
+	public abstract fun getChipStyle ()Lcom/sdds/compose/uikit/ChipStyle;
+	public abstract fun getColors ()Lcom/sdds/compose/uikit/TextFieldColors;
+	public abstract fun getCounterStyle ()Landroidx/compose/ui/text/TextStyle;
+	public abstract fun getDimensions ()Lcom/sdds/compose/uikit/TextField$Dimensions;
+	public abstract fun getFieldAppearance ()Lcom/sdds/compose/uikit/TextField$FieldAppearance;
+	public abstract fun getFieldType ()Lcom/sdds/compose/uikit/TextField$FieldType;
+	public abstract fun getHasDivider ()Z
+	public abstract fun getHelperTextPlacement ()Lcom/sdds/compose/uikit/TextField$HelperTextPlacement;
+	public abstract fun getLabelPlacement ()Lcom/sdds/compose/uikit/TextField$LabelPlacement;
+	public abstract fun getLabelStyle ()Landroidx/compose/ui/text/TextStyle;
+	public abstract fun getOptionalStyle ()Landroidx/compose/ui/text/TextStyle;
+	public abstract fun getPlaceholderStyle ()Landroidx/compose/ui/text/TextStyle;
+	public abstract fun getScrollBar ()Lcom/sdds/compose/uikit/ScrollBar;
+	public abstract fun getShape ()Landroidx/compose/foundation/shape/CornerBasedShape;
+	public abstract fun getSingleLine ()Z
+	public abstract fun getValueStyle ()Landroidx/compose/ui/text/TextStyle;
+}
+
+public final class com/sdds/compose/uikit/TextFieldStyle$Companion {
+}
+
+public abstract interface class com/sdds/compose/uikit/TextFieldStyleBuilder : com/sdds/compose/uikit/style/StyleBuilder {
+	public abstract fun captionStyle (Landroidx/compose/ui/text/TextStyle;)Lcom/sdds/compose/uikit/TextFieldStyleBuilder;
+	public abstract fun chipGroupStyle (Lcom/sdds/compose/uikit/ChipGroupStyle;)Lcom/sdds/compose/uikit/TextFieldStyleBuilder;
+	public abstract fun chipStyle (Lcom/sdds/compose/uikit/ChipStyle;)Lcom/sdds/compose/uikit/TextFieldStyleBuilder;
+	public abstract fun colors (Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;I)Lcom/sdds/compose/uikit/TextFieldStyleBuilder;
+	public abstract fun counterStyle (Landroidx/compose/ui/text/TextStyle;)Lcom/sdds/compose/uikit/TextFieldStyleBuilder;
+	public abstract fun dimensions (Lcom/sdds/compose/uikit/TextField$Dimensions;Landroidx/compose/runtime/Composer;I)Lcom/sdds/compose/uikit/TextFieldStyleBuilder;
+	public abstract fun dimensions (Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;I)Lcom/sdds/compose/uikit/TextFieldStyleBuilder;
+	public abstract fun fieldType (Lcom/sdds/compose/uikit/TextField$FieldType;)Lcom/sdds/compose/uikit/TextFieldStyleBuilder;
+	public abstract fun labelPlacement (Lcom/sdds/compose/uikit/TextField$LabelPlacement;)Lcom/sdds/compose/uikit/TextFieldStyleBuilder;
+	public abstract fun labelStyle (Landroidx/compose/ui/text/TextStyle;)Lcom/sdds/compose/uikit/TextFieldStyleBuilder;
+	public abstract fun optionalStyle (Landroidx/compose/ui/text/TextStyle;)Lcom/sdds/compose/uikit/TextFieldStyleBuilder;
+	public abstract fun placeholderStyle (Landroidx/compose/ui/text/TextStyle;)Lcom/sdds/compose/uikit/TextFieldStyleBuilder;
+	public abstract fun shape (Landroidx/compose/foundation/shape/CornerBasedShape;)Lcom/sdds/compose/uikit/TextFieldStyleBuilder;
+	public abstract fun valueStyle (Landroidx/compose/ui/text/TextStyle;)Lcom/sdds/compose/uikit/TextFieldStyleBuilder;
+}
+
+public final class com/sdds/compose/uikit/TextFieldStyleBuilder$DefaultImpls {
+	public static fun getReceiver (Lcom/sdds/compose/uikit/TextFieldStyleBuilder;)Ljava/lang/Object;
+}
+
+public final class com/sdds/compose/uikit/TextFieldStyleBuilderKt {
+	public static final fun getLocalTextFieldStyle ()Landroidx/compose/runtime/ProvidableCompositionLocal;
+	public static final fun textFieldBuilder (Lcom/sdds/compose/uikit/TextFieldStyle$Companion;Ljava/lang/Object;)Lcom/sdds/compose/uikit/TextFieldStyleBuilder;
+	public static synthetic fun textFieldBuilder$default (Lcom/sdds/compose/uikit/TextFieldStyle$Companion;Ljava/lang/Object;ILjava/lang/Object;)Lcom/sdds/compose/uikit/TextFieldStyleBuilder;
+}
+
+public final class com/sdds/compose/uikit/TextKt {
+	public static final fun ProvideTextStyle (Landroidx/compose/ui/text/TextStyle;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;I)V
+	public static final fun Text-4YKlhWE (Landroidx/compose/ui/text/AnnotatedString;Landroidx/compose/ui/Modifier;Landroidx/compose/ui/text/TextStyle;Lkotlin/jvm/functions/Function1;IZILjava/util/Map;Landroidx/compose/runtime/Composer;II)V
+	public static final fun Text-BpD7jsM (Ljava/lang/String;Landroidx/compose/ui/Modifier;Landroidx/compose/ui/text/TextStyle;Lkotlin/jvm/functions/Function1;IZILandroidx/compose/runtime/Composer;II)V
+	public static final fun getLocalTextStyle ()Landroidx/compose/runtime/ProvidableCompositionLocal;
+}
+
+public final class com/sdds/compose/uikit/UtilsKt {
+	public static final fun getDp (ILandroidx/compose/runtime/Composer;I)F
+	public static final fun getFloatPx (FLandroidx/compose/runtime/Composer;I)F
+	public static final fun getPx (FLandroidx/compose/runtime/Composer;I)I
+	public static final fun multiplyAlpha-DxMtmZc (JF)J
+}
+
+public final class com/sdds/compose/uikit/WindowSizeClass : java/lang/Enum {
+	public static final field Compact Lcom/sdds/compose/uikit/WindowSizeClass;
+	public static final field Expanded Lcom/sdds/compose/uikit/WindowSizeClass;
+	public static final field Medium Lcom/sdds/compose/uikit/WindowSizeClass;
+	public static fun valueOf (Ljava/lang/String;)Lcom/sdds/compose/uikit/WindowSizeClass;
+	public static fun values ()[Lcom/sdds/compose/uikit/WindowSizeClass;
+}
+
+public final class com/sdds/compose/uikit/WindowSizeInfo {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Lcom/sdds/compose/uikit/WindowSizeClass;Lcom/sdds/compose/uikit/WindowSizeClass;)V
+	public synthetic fun <init> (Lcom/sdds/compose/uikit/WindowSizeClass;Lcom/sdds/compose/uikit/WindowSizeClass;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lcom/sdds/compose/uikit/WindowSizeClass;
+	public final fun component2 ()Lcom/sdds/compose/uikit/WindowSizeClass;
+	public final fun copy (Lcom/sdds/compose/uikit/WindowSizeClass;Lcom/sdds/compose/uikit/WindowSizeClass;)Lcom/sdds/compose/uikit/WindowSizeInfo;
+	public static synthetic fun copy$default (Lcom/sdds/compose/uikit/WindowSizeInfo;Lcom/sdds/compose/uikit/WindowSizeClass;Lcom/sdds/compose/uikit/WindowSizeClass;ILjava/lang/Object;)Lcom/sdds/compose/uikit/WindowSizeInfo;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getHeightClass ()Lcom/sdds/compose/uikit/WindowSizeClass;
+	public final fun getWidthClass ()Lcom/sdds/compose/uikit/WindowSizeClass;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/sdds/compose/uikit/WindowSizeKt {
+	public static final fun collectWindowSizeInfoAsState (Landroidx/compose/runtime/Composer;I)Landroidx/compose/runtime/State;
+	public static final fun heightBreakPoint (Lcom/sdds/compose/uikit/WindowSizeClass;)F
+	public static final fun widthBreakPoint (Lcom/sdds/compose/uikit/WindowSizeClass;)F
+}
+
+public abstract interface class com/sdds/compose/uikit/interactions/ActivateInteraction : androidx/compose/foundation/interaction/Interaction {
+}
+
+public final class com/sdds/compose/uikit/interactions/ActivateInteraction$Activate : com/sdds/compose/uikit/interactions/ActivateInteraction {
+	public static final field $stable I
+	public fun <init> ()V
+}
+
+public final class com/sdds/compose/uikit/interactions/ActivateInteraction$Deactivate : com/sdds/compose/uikit/interactions/ActivateInteraction {
+	public static final field $stable I
+	public fun <init> (Lcom/sdds/compose/uikit/interactions/ActivateInteraction$Activate;)V
+	public final fun getActivate ()Lcom/sdds/compose/uikit/interactions/ActivateInteraction$Activate;
+}
+
+public final class com/sdds/compose/uikit/interactions/ActivateInteractionKt {
+	public static final fun collectIsActivatedAsState (Landroidx/compose/foundation/interaction/InteractionSource;Landroidx/compose/runtime/Composer;I)Landroidx/compose/runtime/State;
+}
+
+public abstract interface class com/sdds/compose/uikit/interactions/InteractiveColor {
+	public abstract fun colorForInteraction-XeAY9LY (Landroidx/compose/foundation/interaction/InteractionSource;Landroidx/compose/runtime/Composer;I)J
+	public abstract fun colorForInteractionAsState (Landroidx/compose/foundation/interaction/InteractionSource;Landroidx/compose/runtime/Composer;I)Landroidx/compose/runtime/State;
+}
+
+public final class com/sdds/compose/uikit/interactions/InteractiveColorKt {
+	public static final fun asInteractive-DxMtmZc (J[Lkotlin/Pair;)Lcom/sdds/compose/uikit/interactions/InteractiveColor;
+	public static final fun asInteractive-t635Npw (JJJJJ)Lcom/sdds/compose/uikit/interactions/InteractiveColor;
+	public static synthetic fun asInteractive-t635Npw$default (JJJJJILjava/lang/Object;)Lcom/sdds/compose/uikit/interactions/InteractiveColor;
+}
+
+public final class com/sdds/compose/uikit/interactions/InteractiveState : java/lang/Enum {
+	public static final field Activated Lcom/sdds/compose/uikit/interactions/InteractiveState;
+	public static final field Focused Lcom/sdds/compose/uikit/interactions/InteractiveState;
+	public static final field Hovered Lcom/sdds/compose/uikit/interactions/InteractiveState;
+	public static final field Pressed Lcom/sdds/compose/uikit/interactions/InteractiveState;
+	public static fun valueOf (Ljava/lang/String;)Lcom/sdds/compose/uikit/interactions/InteractiveState;
+	public static fun values ()[Lcom/sdds/compose/uikit/interactions/InteractiveState;
+}
+
+public final class com/sdds/compose/uikit/internal/BaseSpinnerKt {
+	public static final fun BaseSpinnerPreview (Landroidx/compose/runtime/Composer;I)V
+}
+
+public abstract interface class com/sdds/compose/uikit/internal/common/FlowRowScope {
+}
+
+public final class com/sdds/compose/uikit/internal/focusselector/FocusSelectorKt {
+	public static final fun applyFocusSelector (Landroidx/compose/ui/Modifier;Lcom/sdds/compose/uikit/internal/focusselector/FocusSelectorMode;Landroidx/compose/foundation/shape/CornerBasedShape;Lkotlin/jvm/functions/Function0;)Landroidx/compose/ui/Modifier;
+	public static synthetic fun applyFocusSelector$default (Landroidx/compose/ui/Modifier;Lcom/sdds/compose/uikit/internal/focusselector/FocusSelectorMode;Landroidx/compose/foundation/shape/CornerBasedShape;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Landroidx/compose/ui/Modifier;
+}
+
+public abstract class com/sdds/compose/uikit/internal/focusselector/FocusSelectorMode {
+	public static final field DEFAULT_SCALE_FACTOR F
+	public static final field DEFAULT_STROKE_PADDING I
+	public static final field DEFAULT_STROKE_WIDTH I
+}
+
+public final class com/sdds/compose/uikit/internal/focusselector/FocusSelectorMode$Border : com/sdds/compose/uikit/internal/focusselector/FocusSelectorMode {
+	public static final field $stable I
+	public synthetic fun <init> (Landroidx/compose/foundation/BorderStroke;FILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Landroidx/compose/foundation/BorderStroke;FLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Landroidx/compose/foundation/BorderStroke;
+	public final fun component2-D9Ej5fM ()F
+	public final fun copy-3ABfNKs (Landroidx/compose/foundation/BorderStroke;F)Lcom/sdds/compose/uikit/internal/focusselector/FocusSelectorMode$Border;
+	public static synthetic fun copy-3ABfNKs$default (Lcom/sdds/compose/uikit/internal/focusselector/FocusSelectorMode$Border;Landroidx/compose/foundation/BorderStroke;FILjava/lang/Object;)Lcom/sdds/compose/uikit/internal/focusselector/FocusSelectorMode$Border;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBorderStroke ()Landroidx/compose/foundation/BorderStroke;
+	public final fun getStrokePadding-D9Ej5fM ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/sdds/compose/uikit/internal/focusselector/FocusSelectorMode$None : com/sdds/compose/uikit/internal/focusselector/FocusSelectorMode {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/sdds/compose/uikit/internal/focusselector/FocusSelectorMode$None;
+}
+
+public final class com/sdds/compose/uikit/internal/focusselector/FocusSelectorMode$Scale : com/sdds/compose/uikit/internal/focusselector/FocusSelectorMode {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (F)V
+	public synthetic fun <init> (FILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()F
+	public final fun copy (F)Lcom/sdds/compose/uikit/internal/focusselector/FocusSelectorMode$Scale;
+	public static synthetic fun copy$default (Lcom/sdds/compose/uikit/internal/focusselector/FocusSelectorMode$Scale;FILjava/lang/Object;)Lcom/sdds/compose/uikit/internal/focusselector/FocusSelectorMode$Scale;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getScale ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/sdds/compose/uikit/internal/focusselector/FocusSelectorModeKt {
+	public static final fun getLocalFocusSelectorMode ()Landroidx/compose/runtime/ProvidableCompositionLocal;
+}
+
+public final class com/sdds/compose/uikit/shadow/ShadowAppearance {
+	public static final synthetic fun box-impl (Ljava/util/List;)Lcom/sdds/compose/uikit/shadow/ShadowAppearance;
+	public static fun constructor-impl (Ljava/util/List;)Ljava/util/List;
+	public static synthetic fun constructor-impl$default (Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)Ljava/util/List;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ljava/util/List;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ljava/util/List;Ljava/util/List;)Z
+	public static final fun getFallbackLayer-impl (Ljava/util/List;)Lcom/sdds/compose/uikit/shadow/ShadowLayer;
+	public final fun getLayers ()Ljava/util/List;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ljava/util/List;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ljava/util/List;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ljava/util/List;
+}
+
+public final class com/sdds/compose/uikit/shadow/ShadowLayer {
+	public synthetic fun <init> (JJFFLandroidx/compose/ui/unit/Dp;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (JJFFLandroidx/compose/ui/unit/Dp;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-0d7_KjU ()J
+	public final fun component2-RKDOV3M ()J
+	public final fun component3-D9Ej5fM ()F
+	public final fun component4-D9Ej5fM ()F
+	public final fun component5-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun copy-1DwUtzg (JJFFLandroidx/compose/ui/unit/Dp;)Lcom/sdds/compose/uikit/shadow/ShadowLayer;
+	public static synthetic fun copy-1DwUtzg$default (Lcom/sdds/compose/uikit/shadow/ShadowLayer;JJFFLandroidx/compose/ui/unit/Dp;ILjava/lang/Object;)Lcom/sdds/compose/uikit/shadow/ShadowLayer;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBlurRadius-D9Ej5fM ()F
+	public final fun getColor-0d7_KjU ()J
+	public final fun getFallbackElevation-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun getOffset-RKDOV3M ()J
+	public final fun getSpreadRadius-D9Ej5fM ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/sdds/compose/uikit/shadow/ShadowsKt {
+	public static final fun shadow-aoo73HY (Landroidx/compose/ui/Modifier;Ljava/util/List;Landroidx/compose/ui/graphics/Shape;)Landroidx/compose/ui/Modifier;
+	public static synthetic fun shadow-aoo73HY$default (Landroidx/compose/ui/Modifier;Ljava/util/List;Landroidx/compose/ui/graphics/Shape;ILjava/lang/Object;)Landroidx/compose/ui/Modifier;
+}
+
+public abstract interface class com/sdds/compose/uikit/style/BuilderWrapper {
+	public abstract fun getBuilder ()Lcom/sdds/compose/uikit/style/StyleBuilder;
+}
+
+public abstract interface class com/sdds/compose/uikit/style/Style {
+}
+
+public abstract interface class com/sdds/compose/uikit/style/StyleBuilder {
+	public abstract fun getReceiver ()Ljava/lang/Object;
+	public abstract fun style ()Lcom/sdds/compose/uikit/style/Style;
+}
+
+public final class com/sdds/compose/uikit/style/StyleBuilder$DefaultImpls {
+	public static fun getReceiver (Lcom/sdds/compose/uikit/style/StyleBuilder;)Ljava/lang/Object;
+}
+
+public final class com/sdds/compose/uikit/style/StyleKt {
+	public static final fun applyExclude (Lcom/sdds/compose/uikit/style/StyleBuilder;Ljava/lang/Object;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;I)Lcom/sdds/compose/uikit/style/StyleBuilder;
+	public static final fun applyFor (Lcom/sdds/compose/uikit/style/StyleBuilder;Ljava/lang/Object;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;I)Lcom/sdds/compose/uikit/style/StyleBuilder;
+	public static final fun modify (Lcom/sdds/compose/uikit/style/BuilderWrapper;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;I)Lcom/sdds/compose/uikit/style/BuilderWrapper;
+	public static final fun style (Lcom/sdds/compose/uikit/style/BuilderWrapper;)Lcom/sdds/compose/uikit/style/Style;
+	public static final fun wrap (Lcom/sdds/compose/uikit/style/BuilderWrapper;Lkotlin/jvm/functions/Function1;)Lcom/sdds/compose/uikit/style/BuilderWrapper;
+	public static final fun wrap (Lcom/sdds/compose/uikit/style/StyleBuilder;Lkotlin/jvm/functions/Function1;)Lcom/sdds/compose/uikit/style/BuilderWrapper;
 }
 
