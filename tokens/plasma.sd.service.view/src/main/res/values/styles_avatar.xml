@@ -9,6 +9,8 @@
         <item name="sd_statusColor">@color/plasma_color_avatar_status</item>
         <item name="sd_actionScrimColor">?plasma_overlayOnDarkSoft</item>
         <item name="sd_actionTint">?plasma_textOnDarkPrimary</item>
+        <item name="android:background">?plasma_surfaceDefaultAccentGradient</item>
+        <item name="sd_backgroundAlpha">0.2</item>
     </style>
 
     <style name="Plasma.SdService.Components.Avatar.XXL">

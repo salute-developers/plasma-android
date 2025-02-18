@@ -104,5 +104,7 @@ val AvatarGroup.S: AvatarGroupStyleBuilder
 private fun AvatarColorsBuilder.defaultColors(): AvatarColorsBuilder = apply {
     activeStatusColor(StylesSaluteTheme.colors.surfaceDefaultPositive)
     inactiveStatusColor(StylesSaluteTheme.colors.surfaceOnLightSolidTertiary)
-    textColor(StylesSaluteTheme.gradients.textDefaultAccentGradient.first())
+    textColor(StylesSaluteTheme.gradients.textDefaultGradientMain.first())
+    backgroundAlpha(0.2f)
+    backgroundColor(StylesSaluteTheme.gradients.surfaceDefaultGradientMain)
 }

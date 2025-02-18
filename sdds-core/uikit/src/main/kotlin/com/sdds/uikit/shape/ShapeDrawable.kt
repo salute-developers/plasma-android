@@ -55,6 +55,8 @@ open class ShapeDrawable() : Drawable(), Shapeable {
     private val drawStroke: Boolean
         get() = _strokeWidth > 0 && _strokePaint.color != Color.TRANSPARENT
 
+    private var _overriddenAlpha: Int? = null
+
     init {
         initPaint()
     }
@@ -184,6 +186,12 @@ open class ShapeDrawable() : Drawable(), Shapeable {
     }
 
     override fun setAlpha(alpha: Int) {
+        _overriddenAlpha = alpha
+        reapplyAlpha()
+    }
+
+    private fun reapplyAlpha() {
+        val alpha = _overriddenAlpha ?: return
         _shapePaint.alpha = alpha
         _strokePaint.alpha = alpha
     }
@@ -209,6 +217,7 @@ open class ShapeDrawable() : Drawable(), Shapeable {
         if (_shaderFactory != null) {
             _shapePaint.color = -1
             _shapePaint.shader = _shaderFactory?.resize(_drawingBounds.width(), _drawingBounds.height())
+            reapplyAlpha()
         }
     }
 
@@ -218,6 +227,7 @@ open class ShapeDrawable() : Drawable(), Shapeable {
             _shapeTint = tint
             if (_shaderFactory == null) {
                 _shapePaint.color = tint.colorForState(state)
+                reapplyAlpha()
                 invalidateSelf()
             }
         }
@@ -255,6 +265,7 @@ open class ShapeDrawable() : Drawable(), Shapeable {
             }
         }
         if (stateChanged) {
+            reapplyAlpha()
             invalidateSelf()
         }
         return super.onStateChange(state) || stateChanged
