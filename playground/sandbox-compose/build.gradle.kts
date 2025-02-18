@@ -49,7 +49,9 @@ dependencies {
     implementation("playground:sandbox-stylessalute-integration")
 
     implementation("playground:sandbox-core-integration")
-    implementation("sdds-core:testing")
+    implementation("sdds-core:testing") {
+        exclude("org.robolectric", "robolectric")
+    }
     implementation(libs.sdds.uikit.compose)
     implementation(libs.sdds.uikit)
 
