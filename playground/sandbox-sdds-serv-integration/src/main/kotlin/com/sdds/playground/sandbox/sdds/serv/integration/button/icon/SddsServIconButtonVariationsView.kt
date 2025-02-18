@@ -14,6 +14,7 @@ internal object SddsServIconButtonVariationsView : ViewStyleProvider<String>() {
             "SPilledDefault" to s.Serv_Sdds_ComponentOverlays_IconButtonSPilledDefault,
             "XsDefault" to s.Serv_Sdds_ComponentOverlays_IconButtonXsDefault,
             "XsPilledDefault" to s.Serv_Sdds_ComponentOverlays_IconButtonXsPilledDefault,
+
             "LSecondary" to s.Serv_Sdds_ComponentOverlays_IconButtonLSecondary,
             "LPilledSecondary" to s.Serv_Sdds_ComponentOverlays_IconButtonLPilledSecondary,
             "MSecondary" to s.Serv_Sdds_ComponentOverlays_IconButtonMSecondary,
@@ -22,6 +23,7 @@ internal object SddsServIconButtonVariationsView : ViewStyleProvider<String>() {
             "SPilledSecondary" to s.Serv_Sdds_ComponentOverlays_IconButtonSPilledSecondary,
             "XsSecondary" to s.Serv_Sdds_ComponentOverlays_IconButtonXsSecondary,
             "XsPilledSecondary" to s.Serv_Sdds_ComponentOverlays_IconButtonXsPilledSecondary,
+
             "LAccent" to s.Serv_Sdds_ComponentOverlays_IconButtonLAccent,
             "LPilledAccent" to s.Serv_Sdds_ComponentOverlays_IconButtonLPilledAccent,
             "MAccent" to s.Serv_Sdds_ComponentOverlays_IconButtonMAccent,
@@ -30,6 +32,7 @@ internal object SddsServIconButtonVariationsView : ViewStyleProvider<String>() {
             "SPilledAccent" to s.Serv_Sdds_ComponentOverlays_IconButtonSPilledAccent,
             "XsAccent" to s.Serv_Sdds_ComponentOverlays_IconButtonXsPilledAccent,
             "XsPilledAccent" to s.Serv_Sdds_ComponentOverlays_IconButtonXsAccent,
+
             "LPositive" to s.Serv_Sdds_ComponentOverlays_IconButtonLPositive,
             "LPilledPositive" to s.Serv_Sdds_ComponentOverlays_IconButtonLPilledPositive,
             "MPositive" to s.Serv_Sdds_ComponentOverlays_IconButtonMPositive,
@@ -38,6 +41,7 @@ internal object SddsServIconButtonVariationsView : ViewStyleProvider<String>() {
             "SPilledPositive" to s.Serv_Sdds_ComponentOverlays_IconButtonSPilledPositive,
             "XsPositive" to s.Serv_Sdds_ComponentOverlays_IconButtonXsPositive,
             "XsPilledPositive" to s.Serv_Sdds_ComponentOverlays_IconButtonXsPilledPositive,
+
             "LNegative" to s.Serv_Sdds_ComponentOverlays_IconButtonLNegative,
             "LPilledNegative" to s.Serv_Sdds_ComponentOverlays_IconButtonLPilledNegative,
             "MNegative" to s.Serv_Sdds_ComponentOverlays_IconButtonMNegative,
@@ -46,6 +50,7 @@ internal object SddsServIconButtonVariationsView : ViewStyleProvider<String>() {
             "SPilledNegative" to s.Serv_Sdds_ComponentOverlays_IconButtonSPilledNegative,
             "XsNegative" to s.Serv_Sdds_ComponentOverlays_IconButtonXsNegative,
             "XsPilledNegative" to s.Serv_Sdds_ComponentOverlays_IconButtonXsPilledNegative,
+
             "LWarning" to s.Serv_Sdds_ComponentOverlays_IconButtonLWarning,
             "LPilledWarning" to s.Serv_Sdds_ComponentOverlays_IconButtonLPilledWarning,
             "MWarning" to s.Serv_Sdds_ComponentOverlays_IconButtonMWarning,
@@ -54,5 +59,41 @@ internal object SddsServIconButtonVariationsView : ViewStyleProvider<String>() {
             "SPilledWarning" to s.Serv_Sdds_ComponentOverlays_IconButtonSPilledWarning,
             "XsWarning" to s.Serv_Sdds_ComponentOverlays_IconButtonXsWarning,
             "XsPilledWarning" to s.Serv_Sdds_ComponentOverlays_IconButtonXsPilledWarning,
+
+            "LClear" to s.Serv_Sdds_ComponentOverlays_IconButtonLClear,
+            "LPilledClear" to s.Serv_Sdds_ComponentOverlays_IconButtonLPilledClear,
+            "MClear" to s.Serv_Sdds_ComponentOverlays_IconButtonMClear,
+            "MPilledClear" to s.Serv_Sdds_ComponentOverlays_IconButtonMPilledClear,
+            "SClear" to s.Serv_Sdds_ComponentOverlays_IconButtonSClear,
+            "SPilledClear" to s.Serv_Sdds_ComponentOverlays_IconButtonSPilledClear,
+            "XsClear" to s.Serv_Sdds_ComponentOverlays_IconButtonXsClear,
+            "XsPilledClear" to s.Serv_Sdds_ComponentOverlays_IconButtonXsPilledClear,
+
+            "LDark" to s.Serv_Sdds_ComponentOverlays_IconButtonLDark,
+            "LPilledDark" to s.Serv_Sdds_ComponentOverlays_IconButtonLPilledDark,
+            "MDark" to s.Serv_Sdds_ComponentOverlays_IconButtonMDark,
+            "MPilledDark" to s.Serv_Sdds_ComponentOverlays_IconButtonMPilledDark,
+            "SDark" to s.Serv_Sdds_ComponentOverlays_IconButtonSDark,
+            "SPilledDark" to s.Serv_Sdds_ComponentOverlays_IconButtonSPilledDark,
+            "XsDark" to s.Serv_Sdds_ComponentOverlays_IconButtonXsDark,
+            "XsPilledDark" to s.Serv_Sdds_ComponentOverlays_IconButtonXsPilledDark,
+
+            "LBlack" to s.Serv_Sdds_ComponentOverlays_IconButtonLBlack,
+            "LPilledBlack" to s.Serv_Sdds_ComponentOverlays_IconButtonLPilledBlack,
+            "MBlack" to s.Serv_Sdds_ComponentOverlays_IconButtonMBlack,
+            "MPilledBlack" to s.Serv_Sdds_ComponentOverlays_IconButtonMPilledBlack,
+            "SBlack" to s.Serv_Sdds_ComponentOverlays_IconButtonSBlack,
+            "SPilledBlack" to s.Serv_Sdds_ComponentOverlays_IconButtonSPilledBlack,
+            "XsBlack" to s.Serv_Sdds_ComponentOverlays_IconButtonXsBlack,
+            "XsPilledBlack" to s.Serv_Sdds_ComponentOverlays_IconButtonXsPilledBlack,
+
+            "LWhite" to s.Serv_Sdds_ComponentOverlays_IconButtonLWhite,
+            "LPilledWhite" to s.Serv_Sdds_ComponentOverlays_IconButtonLPilledWhite,
+            "MWhite" to s.Serv_Sdds_ComponentOverlays_IconButtonMWhite,
+            "MPilledWhite" to s.Serv_Sdds_ComponentOverlays_IconButtonMPilledWhite,
+            "SWhite" to s.Serv_Sdds_ComponentOverlays_IconButtonSWhite,
+            "SPilledWhite" to s.Serv_Sdds_ComponentOverlays_IconButtonSPilledWhite,
+            "XsWhite" to s.Serv_Sdds_ComponentOverlays_IconButtonXsWhite,
+            "XsPilledWhite" to s.Serv_Sdds_ComponentOverlays_IconButtonXsPilledWhite,
         )
 }

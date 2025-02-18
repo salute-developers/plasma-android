@@ -13,6 +13,7 @@ internal object StylesSaluteIconButtonVariationsView : ViewStyleProvider<String>
         "SPilledDefault" to s.Salute_StylesSalute_ComponentOverlays_IconButtonSPilledDefault,
         "XsDefault" to s.Salute_StylesSalute_ComponentOverlays_IconButtonXsDefault,
         "XsPilledDefault" to s.Salute_StylesSalute_ComponentOverlays_IconButtonXsPilledDefault,
+
         "LSecondary" to s.Salute_StylesSalute_ComponentOverlays_IconButtonLSecondary,
         "LPilledSecondary" to s.Salute_StylesSalute_ComponentOverlays_IconButtonLPilledSecondary,
         "MSecondary" to s.Salute_StylesSalute_ComponentOverlays_IconButtonMSecondary,
@@ -21,6 +22,7 @@ internal object StylesSaluteIconButtonVariationsView : ViewStyleProvider<String>
         "SPilledSecondary" to s.Salute_StylesSalute_ComponentOverlays_IconButtonSPilledSecondary,
         "XsSecondary" to s.Salute_StylesSalute_ComponentOverlays_IconButtonXsSecondary,
         "XsPilledSecondary" to s.Salute_StylesSalute_ComponentOverlays_IconButtonXsPilledSecondary,
+
         "LAccent" to s.Salute_StylesSalute_ComponentOverlays_IconButtonLAccent,
         "LPilledAccent" to s.Salute_StylesSalute_ComponentOverlays_IconButtonLPilledAccent,
         "MAccent" to s.Salute_StylesSalute_ComponentOverlays_IconButtonMAccent,
@@ -29,6 +31,7 @@ internal object StylesSaluteIconButtonVariationsView : ViewStyleProvider<String>
         "SPilledAccent" to s.Salute_StylesSalute_ComponentOverlays_IconButtonSPilledAccent,
         "XsAccent" to s.Salute_StylesSalute_ComponentOverlays_IconButtonXsPilledAccent,
         "XsPilledAccent" to s.Salute_StylesSalute_ComponentOverlays_IconButtonXsAccent,
+
         "LPositive" to s.Salute_StylesSalute_ComponentOverlays_IconButtonLPositive,
         "LPilledPositive" to s.Salute_StylesSalute_ComponentOverlays_IconButtonLPilledPositive,
         "MPositive" to s.Salute_StylesSalute_ComponentOverlays_IconButtonMPositive,
@@ -37,6 +40,7 @@ internal object StylesSaluteIconButtonVariationsView : ViewStyleProvider<String>
         "SPilledPositive" to s.Salute_StylesSalute_ComponentOverlays_IconButtonSPilledPositive,
         "XsPositive" to s.Salute_StylesSalute_ComponentOverlays_IconButtonXsPositive,
         "XsPilledPositive" to s.Salute_StylesSalute_ComponentOverlays_IconButtonXsPilledPositive,
+
         "LNegative" to s.Salute_StylesSalute_ComponentOverlays_IconButtonLNegative,
         "LPilledNegative" to s.Salute_StylesSalute_ComponentOverlays_IconButtonLPilledNegative,
         "MNegative" to s.Salute_StylesSalute_ComponentOverlays_IconButtonMNegative,
@@ -45,6 +49,7 @@ internal object StylesSaluteIconButtonVariationsView : ViewStyleProvider<String>
         "SPilledNegative" to s.Salute_StylesSalute_ComponentOverlays_IconButtonSPilledNegative,
         "XsNegative" to s.Salute_StylesSalute_ComponentOverlays_IconButtonXsNegative,
         "XsPilledNegative" to s.Salute_StylesSalute_ComponentOverlays_IconButtonXsPilledNegative,
+
         "LWarning" to s.Salute_StylesSalute_ComponentOverlays_IconButtonLWarning,
         "LPilledWarning" to s.Salute_StylesSalute_ComponentOverlays_IconButtonLPilledWarning,
         "MWarning" to s.Salute_StylesSalute_ComponentOverlays_IconButtonMWarning,
@@ -53,5 +58,41 @@ internal object StylesSaluteIconButtonVariationsView : ViewStyleProvider<String>
         "SPilledWarning" to s.Salute_StylesSalute_ComponentOverlays_IconButtonSPilledWarning,
         "XsWarning" to s.Salute_StylesSalute_ComponentOverlays_IconButtonXsWarning,
         "XsPilledWarning" to s.Salute_StylesSalute_ComponentOverlays_IconButtonXsPilledWarning,
+
+        "LClear" to s.Salute_StylesSalute_ComponentOverlays_IconButtonLClear,
+        "LPilledClear" to s.Salute_StylesSalute_ComponentOverlays_IconButtonLPilledClear,
+        "MClear" to s.Salute_StylesSalute_ComponentOverlays_IconButtonMClear,
+        "MPilledClear" to s.Salute_StylesSalute_ComponentOverlays_IconButtonMPilledClear,
+        "SClear" to s.Salute_StylesSalute_ComponentOverlays_IconButtonSClear,
+        "SPilledClear" to s.Salute_StylesSalute_ComponentOverlays_IconButtonSPilledClear,
+        "XsClear" to s.Salute_StylesSalute_ComponentOverlays_IconButtonXsClear,
+        "XsPilledClear" to s.Salute_StylesSalute_ComponentOverlays_IconButtonXsPilledClear,
+
+        "LDark" to s.Salute_StylesSalute_ComponentOverlays_IconButtonLDark,
+        "LPilledDark" to s.Salute_StylesSalute_ComponentOverlays_IconButtonLPilledDark,
+        "MDark" to s.Salute_StylesSalute_ComponentOverlays_IconButtonMDark,
+        "MPilledDark" to s.Salute_StylesSalute_ComponentOverlays_IconButtonMPilledDark,
+        "SDark" to s.Salute_StylesSalute_ComponentOverlays_IconButtonSDark,
+        "SPilledDark" to s.Salute_StylesSalute_ComponentOverlays_IconButtonSPilledDark,
+        "XsDark" to s.Salute_StylesSalute_ComponentOverlays_IconButtonXsDark,
+        "XsPilledDark" to s.Salute_StylesSalute_ComponentOverlays_IconButtonXsPilledDark,
+
+        "LBlack" to s.Salute_StylesSalute_ComponentOverlays_IconButtonLBlack,
+        "LPilledBlack" to s.Salute_StylesSalute_ComponentOverlays_IconButtonLPilledBlack,
+        "MBlack" to s.Salute_StylesSalute_ComponentOverlays_IconButtonMBlack,
+        "MPilledBlack" to s.Salute_StylesSalute_ComponentOverlays_IconButtonMPilledBlack,
+        "SBlack" to s.Salute_StylesSalute_ComponentOverlays_IconButtonSBlack,
+        "SPilledBlack" to s.Salute_StylesSalute_ComponentOverlays_IconButtonSPilledBlack,
+        "XsBlack" to s.Salute_StylesSalute_ComponentOverlays_IconButtonXsBlack,
+        "XsPilledBlack" to s.Salute_StylesSalute_ComponentOverlays_IconButtonXsPilledBlack,
+
+        "LWhite" to s.Salute_StylesSalute_ComponentOverlays_IconButtonLWhite,
+        "LPilledWhite" to s.Salute_StylesSalute_ComponentOverlays_IconButtonLPilledWhite,
+        "MWhite" to s.Salute_StylesSalute_ComponentOverlays_IconButtonMWhite,
+        "MPilledWhite" to s.Salute_StylesSalute_ComponentOverlays_IconButtonMPilledWhite,
+        "SWhite" to s.Salute_StylesSalute_ComponentOverlays_IconButtonSWhite,
+        "SPilledWhite" to s.Salute_StylesSalute_ComponentOverlays_IconButtonSPilledWhite,
+        "XsWhite" to s.Salute_StylesSalute_ComponentOverlays_IconButtonXsWhite,
+        "XsPilledWhite" to s.Salute_StylesSalute_ComponentOverlays_IconButtonXsPilledWhite,
     )
 }

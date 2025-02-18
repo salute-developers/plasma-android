@@ -6,6 +6,9 @@ import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 import com.sdds.stylessalute.styles.button.icon.Accent
+import com.sdds.stylessalute.styles.button.icon.Black
+import com.sdds.stylessalute.styles.button.icon.Clear
+import com.sdds.stylessalute.styles.button.icon.Dark
 import com.sdds.stylessalute.styles.button.icon.Default
 import com.sdds.stylessalute.styles.button.icon.L
 import com.sdds.stylessalute.styles.button.icon.M
@@ -15,6 +18,7 @@ import com.sdds.stylessalute.styles.button.icon.Positive
 import com.sdds.stylessalute.styles.button.icon.S
 import com.sdds.stylessalute.styles.button.icon.Secondary
 import com.sdds.stylessalute.styles.button.icon.Warning
+import com.sdds.stylessalute.styles.button.icon.White
 import com.sdds.stylessalute.styles.button.icon.Xs
 
 internal object StylesSaluteIconButtonVariationsCompose :
@@ -74,5 +78,41 @@ internal object StylesSaluteIconButtonVariationsCompose :
         "SPilledWarning" to { IconButton.S.Pilled.Warning.style() },
         "XSWarning" to { IconButton.Xs.Warning.style() },
         "XSPilledWarning" to { IconButton.Xs.Pilled.Warning.style() },
+
+        "LClear" to { IconButton.L.Clear.style() },
+        "LPilledClear" to { IconButton.L.Pilled.Clear.style() },
+        "MClear" to { IconButton.M.Clear.style() },
+        "MPilledClear" to { IconButton.M.Pilled.Clear.style() },
+        "SClear" to { IconButton.S.Clear.style() },
+        "SPilledClear" to { IconButton.S.Pilled.Clear.style() },
+        "XSClear" to { IconButton.Xs.Clear.style() },
+        "XSPilledClear" to { IconButton.Xs.Pilled.Clear.style() },
+
+        "LDark" to { IconButton.L.Dark.style() },
+        "LPilledDark" to { IconButton.L.Pilled.Dark.style() },
+        "MDark" to { IconButton.M.Dark.style() },
+        "MPilledDark" to { IconButton.M.Pilled.Dark.style() },
+        "SDark" to { IconButton.S.Dark.style() },
+        "SPilledDark" to { IconButton.S.Pilled.Dark.style() },
+        "XSDark" to { IconButton.Xs.Dark.style() },
+        "XSPilledDark" to { IconButton.Xs.Pilled.Dark.style() },
+
+        "LBlack" to { IconButton.L.Black.style() },
+        "LPilledBlack" to { IconButton.L.Pilled.Black.style() },
+        "MBlack" to { IconButton.M.Black.style() },
+        "MPilledBlack" to { IconButton.M.Pilled.Black.style() },
+        "SBlack" to { IconButton.S.Black.style() },
+        "SPilledBlack" to { IconButton.S.Pilled.Black.style() },
+        "XSBlack" to { IconButton.Xs.Black.style() },
+        "XSPilledBlack" to { IconButton.Xs.Pilled.Black.style() },
+
+        "LWhite" to { IconButton.L.White.style() },
+        "LPilledWhite" to { IconButton.L.Pilled.White.style() },
+        "MWhite" to { IconButton.M.White.style() },
+        "MPilledWhite" to { IconButton.M.Pilled.White.style() },
+        "SWhite" to { IconButton.S.White.style() },
+        "SPilledWhite" to { IconButton.S.Pilled.White.style() },
+        "XSWhite" to { IconButton.Xs.White.style() },
+        "XSPilledWhite" to { IconButton.Xs.Pilled.White.style() },
     )
 }
