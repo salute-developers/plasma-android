@@ -1,6 +1,5 @@
 // AUTO-GENERATED. DO NOT MODIFY this file.
 @file:Suppress("ObjectPropertyNaming")
-
 package com.sdds.serv.tokens
 
 import androidx.compose.ui.text.font.Font
@@ -13,11 +12,11 @@ import kotlin.Suppress
 /**
  * Токены шрифтов
  */
-public object FontTokens {
+public actual object FontTokens {
     /**
      * fontFamily display
      */
-    public val display: FontFamily = FontFamily(
+    public actual val display: FontFamily = FontFamily(
         Font(R.font.s_b_sans_display_light, FontWeight(300), FontStyle.Normal),
         Font(R.font.s_b_sans_display_thin, FontWeight(100), FontStyle.Normal),
         Font(R.font.s_b_sans_display_bold, FontWeight(700), FontStyle.Normal),
@@ -29,7 +28,7 @@ public object FontTokens {
     /**
      * fontFamily header
      */
-    public val `header`: FontFamily = FontFamily(
+    public actual val `header`: FontFamily = FontFamily(
         Font(R.font.s_b_sans_display_light, FontWeight(300), FontStyle.Normal),
         Font(R.font.s_b_sans_display_thin, FontWeight(100), FontStyle.Normal),
         Font(R.font.s_b_sans_display_bold, FontWeight(700), FontStyle.Normal),
@@ -41,7 +40,7 @@ public object FontTokens {
     /**
      * fontFamily text
      */
-    public val text: FontFamily = FontFamily(
+    public actual val text: FontFamily = FontFamily(
         Font(R.font.s_b_sans_text_light, FontWeight(300), FontStyle.Normal),
         Font(R.font.s_b_sans_text_italic, FontWeight(400), FontStyle.Italic),
         Font(R.font.s_b_sans_text_semibold_italic, FontWeight(600), FontStyle.Italic),
@@ -57,7 +56,7 @@ public object FontTokens {
     /**
      * fontFamily body
      */
-    public val body: FontFamily = FontFamily(
+    public actual val body: FontFamily = FontFamily(
         Font(R.font.s_b_sans_text_light, FontWeight(300), FontStyle.Normal),
         Font(R.font.s_b_sans_text_italic, FontWeight(400), FontStyle.Italic),
         Font(R.font.s_b_sans_text_semibold_italic, FontWeight(600), FontStyle.Italic),

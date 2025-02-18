@@ -10300,3154 +10300,3154 @@ public fun lightSddsServColors(overrideColors: ColorOverrideScope.() -> Unit = {
     overrideColors.invoke(colorOverrideScope)
     val overwrite = colorOverrideScope.overrideMap
     val initial = mutableMapOf<String, Color>()
-    initial.add("textDefaultPrimaryHover", LightColorTokens.TextDefaultPrimaryHover, overwrite)
-    initial.add("textDefaultPrimaryActive", LightColorTokens.TextDefaultPrimaryActive, overwrite)
-    initial.add("textDefaultPrimary", LightColorTokens.TextDefaultPrimary, overwrite)
+    initial.add("textDefaultPrimaryHover", com.sdds.serv.tokens.LightColorTokens.TextDefaultPrimaryHover, overwrite)
+    initial.add("textDefaultPrimaryActive", com.sdds.serv.tokens.LightColorTokens.TextDefaultPrimaryActive, overwrite)
+    initial.add("textDefaultPrimary", com.sdds.serv.tokens.LightColorTokens.TextDefaultPrimary, overwrite)
     initial.add(
         "textDefaultPrimaryBrightness",
-        LightColorTokens.TextDefaultPrimaryBrightness,
+        com.sdds.serv.tokens.LightColorTokens.TextDefaultPrimaryBrightness,
         overwrite,
     )
-    initial.add("textDefaultSecondaryHover", LightColorTokens.TextDefaultSecondaryHover, overwrite)
+    initial.add("textDefaultSecondaryHover", com.sdds.serv.tokens.LightColorTokens.TextDefaultSecondaryHover, overwrite)
     initial.add(
         "textDefaultSecondaryActive",
-        LightColorTokens.TextDefaultSecondaryActive,
+        com.sdds.serv.tokens.LightColorTokens.TextDefaultSecondaryActive,
         overwrite,
     )
-    initial.add("textDefaultSecondary", LightColorTokens.TextDefaultSecondary, overwrite)
-    initial.add("textDefaultTertiaryHover", LightColorTokens.TextDefaultTertiaryHover, overwrite)
-    initial.add("textDefaultTertiaryActive", LightColorTokens.TextDefaultTertiaryActive, overwrite)
-    initial.add("textDefaultTertiary", LightColorTokens.TextDefaultTertiary, overwrite)
-    initial.add("textDefaultParagraphHover", LightColorTokens.TextDefaultParagraphHover, overwrite)
+    initial.add("textDefaultSecondary", com.sdds.serv.tokens.LightColorTokens.TextDefaultSecondary, overwrite)
+    initial.add("textDefaultTertiaryHover", com.sdds.serv.tokens.LightColorTokens.TextDefaultTertiaryHover, overwrite)
+    initial.add("textDefaultTertiaryActive", com.sdds.serv.tokens.LightColorTokens.TextDefaultTertiaryActive, overwrite)
+    initial.add("textDefaultTertiary", com.sdds.serv.tokens.LightColorTokens.TextDefaultTertiary, overwrite)
+    initial.add("textDefaultParagraphHover", com.sdds.serv.tokens.LightColorTokens.TextDefaultParagraphHover, overwrite)
     initial.add(
         "textDefaultParagraphActive",
-        LightColorTokens.TextDefaultParagraphActive,
+        com.sdds.serv.tokens.LightColorTokens.TextDefaultParagraphActive,
         overwrite,
     )
-    initial.add("textDefaultParagraph", LightColorTokens.TextDefaultParagraph, overwrite)
-    initial.add("textDefaultAccentHover", LightColorTokens.TextDefaultAccentHover, overwrite)
-    initial.add("textDefaultAccentActive", LightColorTokens.TextDefaultAccentActive, overwrite)
-    initial.add("textDefaultAccent", LightColorTokens.TextDefaultAccent, overwrite)
+    initial.add("textDefaultParagraph", com.sdds.serv.tokens.LightColorTokens.TextDefaultParagraph, overwrite)
+    initial.add("textDefaultAccentHover", com.sdds.serv.tokens.LightColorTokens.TextDefaultAccentHover, overwrite)
+    initial.add("textDefaultAccentActive", com.sdds.serv.tokens.LightColorTokens.TextDefaultAccentActive, overwrite)
+    initial.add("textDefaultAccent", com.sdds.serv.tokens.LightColorTokens.TextDefaultAccent, overwrite)
     initial.add(
         "textDefaultAccentMinorHover",
-        LightColorTokens.TextDefaultAccentMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.TextDefaultAccentMinorHover,
         overwrite,
     )
     initial.add(
         "textDefaultAccentMinorActive",
-        LightColorTokens.TextDefaultAccentMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.TextDefaultAccentMinorActive,
         overwrite,
     )
-    initial.add("textDefaultPromoHover", LightColorTokens.TextDefaultPromoHover, overwrite)
-    initial.add("textDefaultPromoActive", LightColorTokens.TextDefaultPromoActive, overwrite)
-    initial.add("textDefaultPromo", LightColorTokens.TextDefaultPromo, overwrite)
+    initial.add("textDefaultPromoHover", com.sdds.serv.tokens.LightColorTokens.TextDefaultPromoHover, overwrite)
+    initial.add("textDefaultPromoActive", com.sdds.serv.tokens.LightColorTokens.TextDefaultPromoActive, overwrite)
+    initial.add("textDefaultPromo", com.sdds.serv.tokens.LightColorTokens.TextDefaultPromo, overwrite)
     initial.add(
         "textDefaultPromoMinorHover",
-        LightColorTokens.TextDefaultPromoMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.TextDefaultPromoMinorHover,
         overwrite,
     )
     initial.add(
         "textDefaultPromoMinorActive",
-        LightColorTokens.TextDefaultPromoMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.TextDefaultPromoMinorActive,
         overwrite,
     )
-    initial.add("textDefaultPromoMinor", LightColorTokens.TextDefaultPromoMinor, overwrite)
-    initial.add("textDefaultPositiveHover", LightColorTokens.TextDefaultPositiveHover, overwrite)
-    initial.add("textDefaultPositiveActive", LightColorTokens.TextDefaultPositiveActive, overwrite)
-    initial.add("textDefaultPositive", LightColorTokens.TextDefaultPositive, overwrite)
-    initial.add("textDefaultWarningHover", LightColorTokens.TextDefaultWarningHover, overwrite)
-    initial.add("textDefaultWarningActive", LightColorTokens.TextDefaultWarningActive, overwrite)
-    initial.add("textDefaultWarning", LightColorTokens.TextDefaultWarning, overwrite)
-    initial.add("textDefaultNegativeHover", LightColorTokens.TextDefaultNegativeHover, overwrite)
-    initial.add("textDefaultNegativeActive", LightColorTokens.TextDefaultNegativeActive, overwrite)
-    initial.add("textDefaultNegative", LightColorTokens.TextDefaultNegative, overwrite)
-    initial.add("textDefaultInfoHover", LightColorTokens.TextDefaultInfoHover, overwrite)
-    initial.add("textDefaultInfoActive", LightColorTokens.TextDefaultInfoActive, overwrite)
+    initial.add("textDefaultPromoMinor", com.sdds.serv.tokens.LightColorTokens.TextDefaultPromoMinor, overwrite)
+    initial.add("textDefaultPositiveHover", com.sdds.serv.tokens.LightColorTokens.TextDefaultPositiveHover, overwrite)
+    initial.add("textDefaultPositiveActive", com.sdds.serv.tokens.LightColorTokens.TextDefaultPositiveActive, overwrite)
+    initial.add("textDefaultPositive", com.sdds.serv.tokens.LightColorTokens.TextDefaultPositive, overwrite)
+    initial.add("textDefaultWarningHover", com.sdds.serv.tokens.LightColorTokens.TextDefaultWarningHover, overwrite)
+    initial.add("textDefaultWarningActive", com.sdds.serv.tokens.LightColorTokens.TextDefaultWarningActive, overwrite)
+    initial.add("textDefaultWarning", com.sdds.serv.tokens.LightColorTokens.TextDefaultWarning, overwrite)
+    initial.add("textDefaultNegativeHover", com.sdds.serv.tokens.LightColorTokens.TextDefaultNegativeHover, overwrite)
+    initial.add("textDefaultNegativeActive", com.sdds.serv.tokens.LightColorTokens.TextDefaultNegativeActive, overwrite)
+    initial.add("textDefaultNegative", com.sdds.serv.tokens.LightColorTokens.TextDefaultNegative, overwrite)
+    initial.add("textDefaultInfoHover", com.sdds.serv.tokens.LightColorTokens.TextDefaultInfoHover, overwrite)
+    initial.add("textDefaultInfoActive", com.sdds.serv.tokens.LightColorTokens.TextDefaultInfoActive, overwrite)
     initial.add(
         "textDefaultPositiveMinorHover",
-        LightColorTokens.TextDefaultPositiveMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.TextDefaultPositiveMinorHover,
         overwrite,
     )
     initial.add(
         "textDefaultPositiveMinorActive",
-        LightColorTokens.TextDefaultPositiveMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.TextDefaultPositiveMinorActive,
         overwrite,
     )
     initial.add(
         "textDefaultWarningMinorHover",
-        LightColorTokens.TextDefaultWarningMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.TextDefaultWarningMinorHover,
         overwrite,
     )
     initial.add(
         "textDefaultWarningMinorActive",
-        LightColorTokens.TextDefaultWarningMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.TextDefaultWarningMinorActive,
         overwrite,
     )
     initial.add(
         "textDefaultNegativeMinorHover",
-        LightColorTokens.TextDefaultNegativeMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.TextDefaultNegativeMinorHover,
         overwrite,
     )
     initial.add(
         "textDefaultNegativeMinorActive",
-        LightColorTokens.TextDefaultNegativeMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.TextDefaultNegativeMinorActive,
         overwrite,
     )
-    initial.add("textDefaultInfoMinorHover", LightColorTokens.TextDefaultInfoMinorHover, overwrite)
+    initial.add("textDefaultInfoMinorHover", com.sdds.serv.tokens.LightColorTokens.TextDefaultInfoMinorHover, overwrite)
     initial.add(
         "textDefaultInfoMinorActive",
-        LightColorTokens.TextDefaultInfoMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.TextDefaultInfoMinorActive,
         overwrite,
     )
-    initial.add("textDefaultAccentMinor", LightColorTokens.TextDefaultAccentMinor, overwrite)
-    initial.add("textDefaultInfo", LightColorTokens.TextDefaultInfo, overwrite)
-    initial.add("textDefaultPositiveMinor", LightColorTokens.TextDefaultPositiveMinor, overwrite)
-    initial.add("textDefaultWarningMinor", LightColorTokens.TextDefaultWarningMinor, overwrite)
-    initial.add("textDefaultNegativeMinor", LightColorTokens.TextDefaultNegativeMinor, overwrite)
-    initial.add("textDefaultInfoMinor", LightColorTokens.TextDefaultInfoMinor, overwrite)
-    initial.add("textOnDarkPrimaryHover", LightColorTokens.TextOnDarkPrimaryHover, overwrite)
-    initial.add("textOnDarkPrimaryActive", LightColorTokens.TextOnDarkPrimaryActive, overwrite)
-    initial.add("textOnDarkPrimary", LightColorTokens.TextOnDarkPrimary, overwrite)
+    initial.add("textDefaultAccentMinor", com.sdds.serv.tokens.LightColorTokens.TextDefaultAccentMinor, overwrite)
+    initial.add("textDefaultInfo", com.sdds.serv.tokens.LightColorTokens.TextDefaultInfo, overwrite)
+    initial.add("textDefaultPositiveMinor", com.sdds.serv.tokens.LightColorTokens.TextDefaultPositiveMinor, overwrite)
+    initial.add("textDefaultWarningMinor", com.sdds.serv.tokens.LightColorTokens.TextDefaultWarningMinor, overwrite)
+    initial.add("textDefaultNegativeMinor", com.sdds.serv.tokens.LightColorTokens.TextDefaultNegativeMinor, overwrite)
+    initial.add("textDefaultInfoMinor", com.sdds.serv.tokens.LightColorTokens.TextDefaultInfoMinor, overwrite)
+    initial.add("textOnDarkPrimaryHover", com.sdds.serv.tokens.LightColorTokens.TextOnDarkPrimaryHover, overwrite)
+    initial.add("textOnDarkPrimaryActive", com.sdds.serv.tokens.LightColorTokens.TextOnDarkPrimaryActive, overwrite)
+    initial.add("textOnDarkPrimary", com.sdds.serv.tokens.LightColorTokens.TextOnDarkPrimary, overwrite)
     initial.add(
         "textOnDarkPrimaryBrightness",
-        LightColorTokens.TextOnDarkPrimaryBrightness,
+        com.sdds.serv.tokens.LightColorTokens.TextOnDarkPrimaryBrightness,
         overwrite,
     )
-    initial.add("textOnDarkSecondaryHover", LightColorTokens.TextOnDarkSecondaryHover, overwrite)
-    initial.add("textOnDarkSecondaryActive", LightColorTokens.TextOnDarkSecondaryActive, overwrite)
-    initial.add("textOnDarkSecondary", LightColorTokens.TextOnDarkSecondary, overwrite)
-    initial.add("textOnDarkTertiaryHover", LightColorTokens.TextOnDarkTertiaryHover, overwrite)
-    initial.add("textOnDarkTertiaryActive", LightColorTokens.TextOnDarkTertiaryActive, overwrite)
-    initial.add("textOnDarkTertiary", LightColorTokens.TextOnDarkTertiary, overwrite)
-    initial.add("textOnDarkParagraphHover", LightColorTokens.TextOnDarkParagraphHover, overwrite)
-    initial.add("textOnDarkParagraphActive", LightColorTokens.TextOnDarkParagraphActive, overwrite)
-    initial.add("textOnDarkParagraph", LightColorTokens.TextOnDarkParagraph, overwrite)
-    initial.add("textOnDarkAccentHover", LightColorTokens.TextOnDarkAccentHover, overwrite)
-    initial.add("textOnDarkAccentActive", LightColorTokens.TextOnDarkAccentActive, overwrite)
-    initial.add("textOnDarkAccent", LightColorTokens.TextOnDarkAccent, overwrite)
+    initial.add("textOnDarkSecondaryHover", com.sdds.serv.tokens.LightColorTokens.TextOnDarkSecondaryHover, overwrite)
+    initial.add("textOnDarkSecondaryActive", com.sdds.serv.tokens.LightColorTokens.TextOnDarkSecondaryActive, overwrite)
+    initial.add("textOnDarkSecondary", com.sdds.serv.tokens.LightColorTokens.TextOnDarkSecondary, overwrite)
+    initial.add("textOnDarkTertiaryHover", com.sdds.serv.tokens.LightColorTokens.TextOnDarkTertiaryHover, overwrite)
+    initial.add("textOnDarkTertiaryActive", com.sdds.serv.tokens.LightColorTokens.TextOnDarkTertiaryActive, overwrite)
+    initial.add("textOnDarkTertiary", com.sdds.serv.tokens.LightColorTokens.TextOnDarkTertiary, overwrite)
+    initial.add("textOnDarkParagraphHover", com.sdds.serv.tokens.LightColorTokens.TextOnDarkParagraphHover, overwrite)
+    initial.add("textOnDarkParagraphActive", com.sdds.serv.tokens.LightColorTokens.TextOnDarkParagraphActive, overwrite)
+    initial.add("textOnDarkParagraph", com.sdds.serv.tokens.LightColorTokens.TextOnDarkParagraph, overwrite)
+    initial.add("textOnDarkAccentHover", com.sdds.serv.tokens.LightColorTokens.TextOnDarkAccentHover, overwrite)
+    initial.add("textOnDarkAccentActive", com.sdds.serv.tokens.LightColorTokens.TextOnDarkAccentActive, overwrite)
+    initial.add("textOnDarkAccent", com.sdds.serv.tokens.LightColorTokens.TextOnDarkAccent, overwrite)
     initial.add(
         "textOnDarkAccentMinorHover",
-        LightColorTokens.TextOnDarkAccentMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.TextOnDarkAccentMinorHover,
         overwrite,
     )
     initial.add(
         "textOnDarkAccentMinorActive",
-        LightColorTokens.TextOnDarkAccentMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.TextOnDarkAccentMinorActive,
         overwrite,
     )
-    initial.add("textOnDarkPromoHover", LightColorTokens.TextOnDarkPromoHover, overwrite)
-    initial.add("textOnDarkPromoActive", LightColorTokens.TextOnDarkPromoActive, overwrite)
-    initial.add("textOnDarkPromo", LightColorTokens.TextOnDarkPromo, overwrite)
-    initial.add("textOnDarkPromoMinorHover", LightColorTokens.TextOnDarkPromoMinorHover, overwrite)
+    initial.add("textOnDarkPromoHover", com.sdds.serv.tokens.LightColorTokens.TextOnDarkPromoHover, overwrite)
+    initial.add("textOnDarkPromoActive", com.sdds.serv.tokens.LightColorTokens.TextOnDarkPromoActive, overwrite)
+    initial.add("textOnDarkPromo", com.sdds.serv.tokens.LightColorTokens.TextOnDarkPromo, overwrite)
+    initial.add("textOnDarkPromoMinorHover", com.sdds.serv.tokens.LightColorTokens.TextOnDarkPromoMinorHover, overwrite)
     initial.add(
         "textOnDarkPromoMinorActive",
-        LightColorTokens.TextOnDarkPromoMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.TextOnDarkPromoMinorActive,
         overwrite,
     )
-    initial.add("textOnDarkPromoMinor", LightColorTokens.TextOnDarkPromoMinor, overwrite)
-    initial.add("textOnDarkPositiveHover", LightColorTokens.TextOnDarkPositiveHover, overwrite)
-    initial.add("textOnDarkPositiveActive", LightColorTokens.TextOnDarkPositiveActive, overwrite)
-    initial.add("textOnDarkPositive", LightColorTokens.TextOnDarkPositive, overwrite)
-    initial.add("textOnDarkWarningHover", LightColorTokens.TextOnDarkWarningHover, overwrite)
-    initial.add("textOnDarkWarningActive", LightColorTokens.TextOnDarkWarningActive, overwrite)
-    initial.add("textOnDarkWarning", LightColorTokens.TextOnDarkWarning, overwrite)
-    initial.add("textOnDarkNegativeHover", LightColorTokens.TextOnDarkNegativeHover, overwrite)
-    initial.add("textOnDarkNegativeActive", LightColorTokens.TextOnDarkNegativeActive, overwrite)
-    initial.add("textOnDarkNegative", LightColorTokens.TextOnDarkNegative, overwrite)
-    initial.add("textOnDarkInfoHover", LightColorTokens.TextOnDarkInfoHover, overwrite)
-    initial.add("textOnDarkInfoActive", LightColorTokens.TextOnDarkInfoActive, overwrite)
+    initial.add("textOnDarkPromoMinor", com.sdds.serv.tokens.LightColorTokens.TextOnDarkPromoMinor, overwrite)
+    initial.add("textOnDarkPositiveHover", com.sdds.serv.tokens.LightColorTokens.TextOnDarkPositiveHover, overwrite)
+    initial.add("textOnDarkPositiveActive", com.sdds.serv.tokens.LightColorTokens.TextOnDarkPositiveActive, overwrite)
+    initial.add("textOnDarkPositive", com.sdds.serv.tokens.LightColorTokens.TextOnDarkPositive, overwrite)
+    initial.add("textOnDarkWarningHover", com.sdds.serv.tokens.LightColorTokens.TextOnDarkWarningHover, overwrite)
+    initial.add("textOnDarkWarningActive", com.sdds.serv.tokens.LightColorTokens.TextOnDarkWarningActive, overwrite)
+    initial.add("textOnDarkWarning", com.sdds.serv.tokens.LightColorTokens.TextOnDarkWarning, overwrite)
+    initial.add("textOnDarkNegativeHover", com.sdds.serv.tokens.LightColorTokens.TextOnDarkNegativeHover, overwrite)
+    initial.add("textOnDarkNegativeActive", com.sdds.serv.tokens.LightColorTokens.TextOnDarkNegativeActive, overwrite)
+    initial.add("textOnDarkNegative", com.sdds.serv.tokens.LightColorTokens.TextOnDarkNegative, overwrite)
+    initial.add("textOnDarkInfoHover", com.sdds.serv.tokens.LightColorTokens.TextOnDarkInfoHover, overwrite)
+    initial.add("textOnDarkInfoActive", com.sdds.serv.tokens.LightColorTokens.TextOnDarkInfoActive, overwrite)
     initial.add(
         "textOnDarkPositiveMinorHover",
-        LightColorTokens.TextOnDarkPositiveMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.TextOnDarkPositiveMinorHover,
         overwrite,
     )
     initial.add(
         "textOnDarkPositiveMinorActive",
-        LightColorTokens.TextOnDarkPositiveMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.TextOnDarkPositiveMinorActive,
         overwrite,
     )
     initial.add(
         "textOnDarkWarningMinorHover",
-        LightColorTokens.TextOnDarkWarningMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.TextOnDarkWarningMinorHover,
         overwrite,
     )
     initial.add(
         "textOnDarkWarningMinorActive",
-        LightColorTokens.TextOnDarkWarningMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.TextOnDarkWarningMinorActive,
         overwrite,
     )
     initial.add(
         "textOnDarkNegativeMinorHover",
-        LightColorTokens.TextOnDarkNegativeMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.TextOnDarkNegativeMinorHover,
         overwrite,
     )
     initial.add(
         "textOnDarkNegativeMinorActive",
-        LightColorTokens.TextOnDarkNegativeMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.TextOnDarkNegativeMinorActive,
         overwrite,
     )
-    initial.add("textOnDarkInfoMinorHover", LightColorTokens.TextOnDarkInfoMinorHover, overwrite)
-    initial.add("textOnDarkInfoMinorActive", LightColorTokens.TextOnDarkInfoMinorActive, overwrite)
-    initial.add("textOnDarkAccentMinor", LightColorTokens.TextOnDarkAccentMinor, overwrite)
-    initial.add("textOnDarkInfo", LightColorTokens.TextOnDarkInfo, overwrite)
-    initial.add("textOnDarkPositiveMinor", LightColorTokens.TextOnDarkPositiveMinor, overwrite)
-    initial.add("textOnDarkWarningMinor", LightColorTokens.TextOnDarkWarningMinor, overwrite)
-    initial.add("textOnDarkNegativeMinor", LightColorTokens.TextOnDarkNegativeMinor, overwrite)
-    initial.add("textOnDarkInfoMinor", LightColorTokens.TextOnDarkInfoMinor, overwrite)
-    initial.add("textOnLightPrimaryHover", LightColorTokens.TextOnLightPrimaryHover, overwrite)
-    initial.add("textOnLightPrimaryActive", LightColorTokens.TextOnLightPrimaryActive, overwrite)
-    initial.add("textOnLightPrimary", LightColorTokens.TextOnLightPrimary, overwrite)
+    initial.add("textOnDarkInfoMinorHover", com.sdds.serv.tokens.LightColorTokens.TextOnDarkInfoMinorHover, overwrite)
+    initial.add("textOnDarkInfoMinorActive", com.sdds.serv.tokens.LightColorTokens.TextOnDarkInfoMinorActive, overwrite)
+    initial.add("textOnDarkAccentMinor", com.sdds.serv.tokens.LightColorTokens.TextOnDarkAccentMinor, overwrite)
+    initial.add("textOnDarkInfo", com.sdds.serv.tokens.LightColorTokens.TextOnDarkInfo, overwrite)
+    initial.add("textOnDarkPositiveMinor", com.sdds.serv.tokens.LightColorTokens.TextOnDarkPositiveMinor, overwrite)
+    initial.add("textOnDarkWarningMinor", com.sdds.serv.tokens.LightColorTokens.TextOnDarkWarningMinor, overwrite)
+    initial.add("textOnDarkNegativeMinor", com.sdds.serv.tokens.LightColorTokens.TextOnDarkNegativeMinor, overwrite)
+    initial.add("textOnDarkInfoMinor", com.sdds.serv.tokens.LightColorTokens.TextOnDarkInfoMinor, overwrite)
+    initial.add("textOnLightPrimaryHover", com.sdds.serv.tokens.LightColorTokens.TextOnLightPrimaryHover, overwrite)
+    initial.add("textOnLightPrimaryActive", com.sdds.serv.tokens.LightColorTokens.TextOnLightPrimaryActive, overwrite)
+    initial.add("textOnLightPrimary", com.sdds.serv.tokens.LightColorTokens.TextOnLightPrimary, overwrite)
     initial.add(
         "textOnLightPrimaryBrightness",
-        LightColorTokens.TextOnLightPrimaryBrightness,
+        com.sdds.serv.tokens.LightColorTokens.TextOnLightPrimaryBrightness,
         overwrite,
     )
-    initial.add("textOnLightSecondaryHover", LightColorTokens.TextOnLightSecondaryHover, overwrite)
+    initial.add("textOnLightSecondaryHover", com.sdds.serv.tokens.LightColorTokens.TextOnLightSecondaryHover, overwrite)
     initial.add(
         "textOnLightSecondaryActive",
-        LightColorTokens.TextOnLightSecondaryActive,
+        com.sdds.serv.tokens.LightColorTokens.TextOnLightSecondaryActive,
         overwrite,
     )
-    initial.add("textOnLightSecondary", LightColorTokens.TextOnLightSecondary, overwrite)
-    initial.add("textOnLightTertiaryHover", LightColorTokens.TextOnLightTertiaryHover, overwrite)
-    initial.add("textOnLightTertiaryActive", LightColorTokens.TextOnLightTertiaryActive, overwrite)
-    initial.add("textOnLightTertiary", LightColorTokens.TextOnLightTertiary, overwrite)
-    initial.add("textOnLightParagraphHover", LightColorTokens.TextOnLightParagraphHover, overwrite)
+    initial.add("textOnLightSecondary", com.sdds.serv.tokens.LightColorTokens.TextOnLightSecondary, overwrite)
+    initial.add("textOnLightTertiaryHover", com.sdds.serv.tokens.LightColorTokens.TextOnLightTertiaryHover, overwrite)
+    initial.add("textOnLightTertiaryActive", com.sdds.serv.tokens.LightColorTokens.TextOnLightTertiaryActive, overwrite)
+    initial.add("textOnLightTertiary", com.sdds.serv.tokens.LightColorTokens.TextOnLightTertiary, overwrite)
+    initial.add("textOnLightParagraphHover", com.sdds.serv.tokens.LightColorTokens.TextOnLightParagraphHover, overwrite)
     initial.add(
         "textOnLightParagraphActive",
-        LightColorTokens.TextOnLightParagraphActive,
+        com.sdds.serv.tokens.LightColorTokens.TextOnLightParagraphActive,
         overwrite,
     )
-    initial.add("textOnLightParagraph", LightColorTokens.TextOnLightParagraph, overwrite)
-    initial.add("textOnLightAccentHover", LightColorTokens.TextOnLightAccentHover, overwrite)
-    initial.add("textOnLightAccentActive", LightColorTokens.TextOnLightAccentActive, overwrite)
-    initial.add("textOnLightAccent", LightColorTokens.TextOnLightAccent, overwrite)
+    initial.add("textOnLightParagraph", com.sdds.serv.tokens.LightColorTokens.TextOnLightParagraph, overwrite)
+    initial.add("textOnLightAccentHover", com.sdds.serv.tokens.LightColorTokens.TextOnLightAccentHover, overwrite)
+    initial.add("textOnLightAccentActive", com.sdds.serv.tokens.LightColorTokens.TextOnLightAccentActive, overwrite)
+    initial.add("textOnLightAccent", com.sdds.serv.tokens.LightColorTokens.TextOnLightAccent, overwrite)
     initial.add(
         "textOnLightAccentMinorHover",
-        LightColorTokens.TextOnLightAccentMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.TextOnLightAccentMinorHover,
         overwrite,
     )
     initial.add(
         "textOnLightAccentMinorActive",
-        LightColorTokens.TextOnLightAccentMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.TextOnLightAccentMinorActive,
         overwrite,
     )
-    initial.add("textOnLightPromoHover", LightColorTokens.TextOnLightPromoHover, overwrite)
-    initial.add("textOnLightPromoActive", LightColorTokens.TextOnLightPromoActive, overwrite)
-    initial.add("textOnLightPromo", LightColorTokens.TextOnLightPromo, overwrite)
+    initial.add("textOnLightPromoHover", com.sdds.serv.tokens.LightColorTokens.TextOnLightPromoHover, overwrite)
+    initial.add("textOnLightPromoActive", com.sdds.serv.tokens.LightColorTokens.TextOnLightPromoActive, overwrite)
+    initial.add("textOnLightPromo", com.sdds.serv.tokens.LightColorTokens.TextOnLightPromo, overwrite)
     initial.add(
         "textOnLightPromoMinorHover",
-        LightColorTokens.TextOnLightPromoMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.TextOnLightPromoMinorHover,
         overwrite,
     )
     initial.add(
         "textOnLightPromoMinorActive",
-        LightColorTokens.TextOnLightPromoMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.TextOnLightPromoMinorActive,
         overwrite,
     )
-    initial.add("textOnLightPromoMinor", LightColorTokens.TextOnLightPromoMinor, overwrite)
-    initial.add("textOnLightPositiveHover", LightColorTokens.TextOnLightPositiveHover, overwrite)
-    initial.add("textOnLightPositiveActive", LightColorTokens.TextOnLightPositiveActive, overwrite)
-    initial.add("textOnLightPositive", LightColorTokens.TextOnLightPositive, overwrite)
-    initial.add("textOnLightWarningHover", LightColorTokens.TextOnLightWarningHover, overwrite)
-    initial.add("textOnLightWarningActive", LightColorTokens.TextOnLightWarningActive, overwrite)
-    initial.add("textOnLightWarning", LightColorTokens.TextOnLightWarning, overwrite)
-    initial.add("textOnLightNegativeHover", LightColorTokens.TextOnLightNegativeHover, overwrite)
-    initial.add("textOnLightNegativeActive", LightColorTokens.TextOnLightNegativeActive, overwrite)
-    initial.add("textOnLightNegative", LightColorTokens.TextOnLightNegative, overwrite)
-    initial.add("textOnLightInfoHover", LightColorTokens.TextOnLightInfoHover, overwrite)
-    initial.add("textOnLightInfoActive", LightColorTokens.TextOnLightInfoActive, overwrite)
+    initial.add("textOnLightPromoMinor", com.sdds.serv.tokens.LightColorTokens.TextOnLightPromoMinor, overwrite)
+    initial.add("textOnLightPositiveHover", com.sdds.serv.tokens.LightColorTokens.TextOnLightPositiveHover, overwrite)
+    initial.add("textOnLightPositiveActive", com.sdds.serv.tokens.LightColorTokens.TextOnLightPositiveActive, overwrite)
+    initial.add("textOnLightPositive", com.sdds.serv.tokens.LightColorTokens.TextOnLightPositive, overwrite)
+    initial.add("textOnLightWarningHover", com.sdds.serv.tokens.LightColorTokens.TextOnLightWarningHover, overwrite)
+    initial.add("textOnLightWarningActive", com.sdds.serv.tokens.LightColorTokens.TextOnLightWarningActive, overwrite)
+    initial.add("textOnLightWarning", com.sdds.serv.tokens.LightColorTokens.TextOnLightWarning, overwrite)
+    initial.add("textOnLightNegativeHover", com.sdds.serv.tokens.LightColorTokens.TextOnLightNegativeHover, overwrite)
+    initial.add("textOnLightNegativeActive", com.sdds.serv.tokens.LightColorTokens.TextOnLightNegativeActive, overwrite)
+    initial.add("textOnLightNegative", com.sdds.serv.tokens.LightColorTokens.TextOnLightNegative, overwrite)
+    initial.add("textOnLightInfoHover", com.sdds.serv.tokens.LightColorTokens.TextOnLightInfoHover, overwrite)
+    initial.add("textOnLightInfoActive", com.sdds.serv.tokens.LightColorTokens.TextOnLightInfoActive, overwrite)
     initial.add(
         "textOnLightPositiveMinorHover",
-        LightColorTokens.TextOnLightPositiveMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.TextOnLightPositiveMinorHover,
         overwrite,
     )
     initial.add(
         "textOnLightPositiveMinorActive",
-        LightColorTokens.TextOnLightPositiveMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.TextOnLightPositiveMinorActive,
         overwrite,
     )
     initial.add(
         "textOnLightWarningMinorHover",
-        LightColorTokens.TextOnLightWarningMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.TextOnLightWarningMinorHover,
         overwrite,
     )
     initial.add(
         "textOnLightWarningMinorActive",
-        LightColorTokens.TextOnLightWarningMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.TextOnLightWarningMinorActive,
         overwrite,
     )
     initial.add(
         "textOnLightNegativeMinorHover",
-        LightColorTokens.TextOnLightNegativeMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.TextOnLightNegativeMinorHover,
         overwrite,
     )
     initial.add(
         "textOnLightNegativeMinorActive",
-        LightColorTokens.TextOnLightNegativeMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.TextOnLightNegativeMinorActive,
         overwrite,
     )
-    initial.add("textOnLightInfoMinorHover", LightColorTokens.TextOnLightInfoMinorHover, overwrite)
+    initial.add("textOnLightInfoMinorHover", com.sdds.serv.tokens.LightColorTokens.TextOnLightInfoMinorHover, overwrite)
     initial.add(
         "textOnLightInfoMinorActive",
-        LightColorTokens.TextOnLightInfoMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.TextOnLightInfoMinorActive,
         overwrite,
     )
-    initial.add("textOnLightInfo", LightColorTokens.TextOnLightInfo, overwrite)
-    initial.add("textOnLightWarningMinor", LightColorTokens.TextOnLightWarningMinor, overwrite)
-    initial.add("textOnLightPositiveMinor", LightColorTokens.TextOnLightPositiveMinor, overwrite)
-    initial.add("textOnLightAccentMinor", LightColorTokens.TextOnLightAccentMinor, overwrite)
-    initial.add("textOnLightNegativeMinor", LightColorTokens.TextOnLightNegativeMinor, overwrite)
-    initial.add("textOnLightInfoMinor", LightColorTokens.TextOnLightInfoMinor, overwrite)
-    initial.add("textInversePrimaryHover", LightColorTokens.TextInversePrimaryHover, overwrite)
-    initial.add("textInversePrimaryActive", LightColorTokens.TextInversePrimaryActive, overwrite)
-    initial.add("textInversePrimary", LightColorTokens.TextInversePrimary, overwrite)
+    initial.add("textOnLightInfo", com.sdds.serv.tokens.LightColorTokens.TextOnLightInfo, overwrite)
+    initial.add("textOnLightWarningMinor", com.sdds.serv.tokens.LightColorTokens.TextOnLightWarningMinor, overwrite)
+    initial.add("textOnLightPositiveMinor", com.sdds.serv.tokens.LightColorTokens.TextOnLightPositiveMinor, overwrite)
+    initial.add("textOnLightAccentMinor", com.sdds.serv.tokens.LightColorTokens.TextOnLightAccentMinor, overwrite)
+    initial.add("textOnLightNegativeMinor", com.sdds.serv.tokens.LightColorTokens.TextOnLightNegativeMinor, overwrite)
+    initial.add("textOnLightInfoMinor", com.sdds.serv.tokens.LightColorTokens.TextOnLightInfoMinor, overwrite)
+    initial.add("textInversePrimaryHover", com.sdds.serv.tokens.LightColorTokens.TextInversePrimaryHover, overwrite)
+    initial.add("textInversePrimaryActive", com.sdds.serv.tokens.LightColorTokens.TextInversePrimaryActive, overwrite)
+    initial.add("textInversePrimary", com.sdds.serv.tokens.LightColorTokens.TextInversePrimary, overwrite)
     initial.add(
         "textInversePrimaryBrightness",
-        LightColorTokens.TextInversePrimaryBrightness,
+        com.sdds.serv.tokens.LightColorTokens.TextInversePrimaryBrightness,
         overwrite,
     )
-    initial.add("textInverseSecondaryHover", LightColorTokens.TextInverseSecondaryHover, overwrite)
+    initial.add("textInverseSecondaryHover", com.sdds.serv.tokens.LightColorTokens.TextInverseSecondaryHover, overwrite)
     initial.add(
         "textInverseSecondaryActive",
-        LightColorTokens.TextInverseSecondaryActive,
+        com.sdds.serv.tokens.LightColorTokens.TextInverseSecondaryActive,
         overwrite,
     )
-    initial.add("textInverseSecondary", LightColorTokens.TextInverseSecondary, overwrite)
-    initial.add("textInverseTertiaryHover", LightColorTokens.TextInverseTertiaryHover, overwrite)
-    initial.add("textInverseTertiaryActive", LightColorTokens.TextInverseTertiaryActive, overwrite)
-    initial.add("textInverseTertiary", LightColorTokens.TextInverseTertiary, overwrite)
-    initial.add("textInverseParagraphHover", LightColorTokens.TextInverseParagraphHover, overwrite)
+    initial.add("textInverseSecondary", com.sdds.serv.tokens.LightColorTokens.TextInverseSecondary, overwrite)
+    initial.add("textInverseTertiaryHover", com.sdds.serv.tokens.LightColorTokens.TextInverseTertiaryHover, overwrite)
+    initial.add("textInverseTertiaryActive", com.sdds.serv.tokens.LightColorTokens.TextInverseTertiaryActive, overwrite)
+    initial.add("textInverseTertiary", com.sdds.serv.tokens.LightColorTokens.TextInverseTertiary, overwrite)
+    initial.add("textInverseParagraphHover", com.sdds.serv.tokens.LightColorTokens.TextInverseParagraphHover, overwrite)
     initial.add(
         "textInverseParagraphActive",
-        LightColorTokens.TextInverseParagraphActive,
+        com.sdds.serv.tokens.LightColorTokens.TextInverseParagraphActive,
         overwrite,
     )
-    initial.add("textInverseParagraph", LightColorTokens.TextInverseParagraph, overwrite)
-    initial.add("textInverseAccentHover", LightColorTokens.TextInverseAccentHover, overwrite)
-    initial.add("textInverseAccentActive", LightColorTokens.TextInverseAccentActive, overwrite)
-    initial.add("textInverseAccent", LightColorTokens.TextInverseAccent, overwrite)
+    initial.add("textInverseParagraph", com.sdds.serv.tokens.LightColorTokens.TextInverseParagraph, overwrite)
+    initial.add("textInverseAccentHover", com.sdds.serv.tokens.LightColorTokens.TextInverseAccentHover, overwrite)
+    initial.add("textInverseAccentActive", com.sdds.serv.tokens.LightColorTokens.TextInverseAccentActive, overwrite)
+    initial.add("textInverseAccent", com.sdds.serv.tokens.LightColorTokens.TextInverseAccent, overwrite)
     initial.add(
         "textInverseAccentMinorHover",
-        LightColorTokens.TextInverseAccentMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.TextInverseAccentMinorHover,
         overwrite,
     )
     initial.add(
         "textInverseAccentMinorActive",
-        LightColorTokens.TextInverseAccentMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.TextInverseAccentMinorActive,
         overwrite,
     )
-    initial.add("textInversePromoHover", LightColorTokens.TextInversePromoHover, overwrite)
-    initial.add("textInversePromoActive", LightColorTokens.TextInversePromoActive, overwrite)
-    initial.add("textInversePromo", LightColorTokens.TextInversePromo, overwrite)
+    initial.add("textInversePromoHover", com.sdds.serv.tokens.LightColorTokens.TextInversePromoHover, overwrite)
+    initial.add("textInversePromoActive", com.sdds.serv.tokens.LightColorTokens.TextInversePromoActive, overwrite)
+    initial.add("textInversePromo", com.sdds.serv.tokens.LightColorTokens.TextInversePromo, overwrite)
     initial.add(
         "textInversePromoMinorHover",
-        LightColorTokens.TextInversePromoMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.TextInversePromoMinorHover,
         overwrite,
     )
     initial.add(
         "textInversePromoMinorActive",
-        LightColorTokens.TextInversePromoMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.TextInversePromoMinorActive,
         overwrite,
     )
-    initial.add("textInversePromoMinor", LightColorTokens.TextInversePromoMinor, overwrite)
-    initial.add("textInversePositiveHover", LightColorTokens.TextInversePositiveHover, overwrite)
-    initial.add("textInversePositiveActive", LightColorTokens.TextInversePositiveActive, overwrite)
-    initial.add("textInversePositive", LightColorTokens.TextInversePositive, overwrite)
-    initial.add("textInverseWarningHover", LightColorTokens.TextInverseWarningHover, overwrite)
-    initial.add("textInverseWarningActive", LightColorTokens.TextInverseWarningActive, overwrite)
-    initial.add("textInverseWarning", LightColorTokens.TextInverseWarning, overwrite)
-    initial.add("textInverseNegativeHover", LightColorTokens.TextInverseNegativeHover, overwrite)
-    initial.add("textInverseNegativeActive", LightColorTokens.TextInverseNegativeActive, overwrite)
-    initial.add("textInverseNegative", LightColorTokens.TextInverseNegative, overwrite)
-    initial.add("textInverseInfoHover", LightColorTokens.TextInverseInfoHover, overwrite)
-    initial.add("textInverseInfoActive", LightColorTokens.TextInverseInfoActive, overwrite)
+    initial.add("textInversePromoMinor", com.sdds.serv.tokens.LightColorTokens.TextInversePromoMinor, overwrite)
+    initial.add("textInversePositiveHover", com.sdds.serv.tokens.LightColorTokens.TextInversePositiveHover, overwrite)
+    initial.add("textInversePositiveActive", com.sdds.serv.tokens.LightColorTokens.TextInversePositiveActive, overwrite)
+    initial.add("textInversePositive", com.sdds.serv.tokens.LightColorTokens.TextInversePositive, overwrite)
+    initial.add("textInverseWarningHover", com.sdds.serv.tokens.LightColorTokens.TextInverseWarningHover, overwrite)
+    initial.add("textInverseWarningActive", com.sdds.serv.tokens.LightColorTokens.TextInverseWarningActive, overwrite)
+    initial.add("textInverseWarning", com.sdds.serv.tokens.LightColorTokens.TextInverseWarning, overwrite)
+    initial.add("textInverseNegativeHover", com.sdds.serv.tokens.LightColorTokens.TextInverseNegativeHover, overwrite)
+    initial.add("textInverseNegativeActive", com.sdds.serv.tokens.LightColorTokens.TextInverseNegativeActive, overwrite)
+    initial.add("textInverseNegative", com.sdds.serv.tokens.LightColorTokens.TextInverseNegative, overwrite)
+    initial.add("textInverseInfoHover", com.sdds.serv.tokens.LightColorTokens.TextInverseInfoHover, overwrite)
+    initial.add("textInverseInfoActive", com.sdds.serv.tokens.LightColorTokens.TextInverseInfoActive, overwrite)
     initial.add(
         "textInversePositiveMinorHover",
-        LightColorTokens.TextInversePositiveMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.TextInversePositiveMinorHover,
         overwrite,
     )
     initial.add(
         "textInversePositiveMinorActive",
-        LightColorTokens.TextInversePositiveMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.TextInversePositiveMinorActive,
         overwrite,
     )
     initial.add(
         "textInverseWarningMinorHover",
-        LightColorTokens.TextInverseWarningMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.TextInverseWarningMinorHover,
         overwrite,
     )
     initial.add(
         "textInverseWarningMinorActive",
-        LightColorTokens.TextInverseWarningMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.TextInverseWarningMinorActive,
         overwrite,
     )
     initial.add(
         "textInverseNegativeMinorHover",
-        LightColorTokens.TextInverseNegativeMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.TextInverseNegativeMinorHover,
         overwrite,
     )
     initial.add(
         "textInverseNegativeMinorActive",
-        LightColorTokens.TextInverseNegativeMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.TextInverseNegativeMinorActive,
         overwrite,
     )
-    initial.add("textInverseInfoMinorHover", LightColorTokens.TextInverseInfoMinorHover, overwrite)
+    initial.add("textInverseInfoMinorHover", com.sdds.serv.tokens.LightColorTokens.TextInverseInfoMinorHover, overwrite)
     initial.add(
         "textInverseInfoMinorActive",
-        LightColorTokens.TextInverseInfoMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.TextInverseInfoMinorActive,
         overwrite,
     )
-    initial.add("textInverseAccentMinor", LightColorTokens.TextInverseAccentMinor, overwrite)
-    initial.add("textInverseInfo", LightColorTokens.TextInverseInfo, overwrite)
-    initial.add("textInversePositiveMinor", LightColorTokens.TextInversePositiveMinor, overwrite)
-    initial.add("textInverseWarningMinor", LightColorTokens.TextInverseWarningMinor, overwrite)
-    initial.add("textInverseNegativeMinor", LightColorTokens.TextInverseNegativeMinor, overwrite)
-    initial.add("textInverseInfoMinor", LightColorTokens.TextInverseInfoMinor, overwrite)
+    initial.add("textInverseAccentMinor", com.sdds.serv.tokens.LightColorTokens.TextInverseAccentMinor, overwrite)
+    initial.add("textInverseInfo", com.sdds.serv.tokens.LightColorTokens.TextInverseInfo, overwrite)
+    initial.add("textInversePositiveMinor", com.sdds.serv.tokens.LightColorTokens.TextInversePositiveMinor, overwrite)
+    initial.add("textInverseWarningMinor", com.sdds.serv.tokens.LightColorTokens.TextInverseWarningMinor, overwrite)
+    initial.add("textInverseNegativeMinor", com.sdds.serv.tokens.LightColorTokens.TextInverseNegativeMinor, overwrite)
+    initial.add("textInverseInfoMinor", com.sdds.serv.tokens.LightColorTokens.TextInverseInfoMinor, overwrite)
     initial.add(
         "surfaceDefaultSolidPrimaryHover",
-        LightColorTokens.SurfaceDefaultSolidPrimaryHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultSolidPrimaryHover,
         overwrite,
     )
     initial.add(
         "surfaceDefaultSolidPrimaryActive",
-        LightColorTokens.SurfaceDefaultSolidPrimaryActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultSolidPrimaryActive,
         overwrite,
     )
     initial.add(
         "surfaceDefaultSolidPrimary",
-        LightColorTokens.SurfaceDefaultSolidPrimary,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultSolidPrimary,
         overwrite,
     )
     initial.add(
         "surfaceDefaultSolidPrimaryBrightness",
-        LightColorTokens.SurfaceDefaultSolidPrimaryBrightness,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultSolidPrimaryBrightness,
         overwrite,
     )
     initial.add(
         "surfaceDefaultSolidSecondaryHover",
-        LightColorTokens.SurfaceDefaultSolidSecondaryHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultSolidSecondaryHover,
         overwrite,
     )
     initial.add(
         "surfaceDefaultSolidSecondaryActive",
-        LightColorTokens.SurfaceDefaultSolidSecondaryActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultSolidSecondaryActive,
         overwrite,
     )
     initial.add(
         "surfaceDefaultSolidSecondary",
-        LightColorTokens.SurfaceDefaultSolidSecondary,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultSolidSecondary,
         overwrite,
     )
     initial.add(
         "surfaceDefaultSolidTertiaryHover",
-        LightColorTokens.SurfaceDefaultSolidTertiaryHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultSolidTertiaryHover,
         overwrite,
     )
     initial.add(
         "surfaceDefaultSolidTertiaryActive",
-        LightColorTokens.SurfaceDefaultSolidTertiaryActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultSolidTertiaryActive,
         overwrite,
     )
     initial.add(
         "surfaceDefaultSolidTertiary",
-        LightColorTokens.SurfaceDefaultSolidTertiary,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultSolidTertiary,
         overwrite,
     )
     initial.add(
         "surfaceDefaultSolidCardHover",
-        LightColorTokens.SurfaceDefaultSolidCardHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultSolidCardHover,
         overwrite,
     )
     initial.add(
         "surfaceDefaultSolidCardActive",
-        LightColorTokens.SurfaceDefaultSolidCardActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultSolidCardActive,
         overwrite,
     )
-    initial.add("surfaceDefaultSolidCard", LightColorTokens.SurfaceDefaultSolidCard, overwrite)
+    initial.add("surfaceDefaultSolidCard", com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultSolidCard, overwrite)
     initial.add(
         "surfaceDefaultSolidCardBrightness",
-        LightColorTokens.SurfaceDefaultSolidCardBrightness,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultSolidCardBrightness,
         overwrite,
     )
     initial.add(
         "surfaceDefaultSolidDefaultHover",
-        LightColorTokens.SurfaceDefaultSolidDefaultHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultSolidDefaultHover,
         overwrite,
     )
     initial.add(
         "surfaceDefaultSolidDefaultActive",
-        LightColorTokens.SurfaceDefaultSolidDefaultActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultSolidDefaultActive,
         overwrite,
     )
     initial.add(
         "surfaceDefaultSolidDefault",
-        LightColorTokens.SurfaceDefaultSolidDefault,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultSolidDefault,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentPrimaryHover",
-        LightColorTokens.SurfaceDefaultTransparentPrimaryHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultTransparentPrimaryHover,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentPrimaryActive",
-        LightColorTokens.SurfaceDefaultTransparentPrimaryActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultTransparentPrimaryActive,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentSecondaryHover",
-        LightColorTokens.SurfaceDefaultTransparentSecondaryHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultTransparentSecondaryHover,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentSecondaryActive",
-        LightColorTokens.SurfaceDefaultTransparentSecondaryActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultTransparentSecondaryActive,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentSecondary",
-        LightColorTokens.SurfaceDefaultTransparentSecondary,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultTransparentSecondary,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentTertiaryHover",
-        LightColorTokens.SurfaceDefaultTransparentTertiaryHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultTransparentTertiaryHover,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentTertiaryActive",
-        LightColorTokens.SurfaceDefaultTransparentTertiaryActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultTransparentTertiaryActive,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentTertiary",
-        LightColorTokens.SurfaceDefaultTransparentTertiary,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultTransparentTertiary,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentDeepHover",
-        LightColorTokens.SurfaceDefaultTransparentDeepHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultTransparentDeepHover,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentDeepActive",
-        LightColorTokens.SurfaceDefaultTransparentDeepActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultTransparentDeepActive,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentDeep",
-        LightColorTokens.SurfaceDefaultTransparentDeep,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultTransparentDeep,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentCardHover",
-        LightColorTokens.SurfaceDefaultTransparentCardHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultTransparentCardHover,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentCardActive",
-        LightColorTokens.SurfaceDefaultTransparentCardActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultTransparentCardActive,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentCard",
-        LightColorTokens.SurfaceDefaultTransparentCard,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultTransparentCard,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentCardBrightness",
-        LightColorTokens.SurfaceDefaultTransparentCardBrightness,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultTransparentCardBrightness,
         overwrite,
     )
-    initial.add("surfaceDefaultClearHover", LightColorTokens.SurfaceDefaultClearHover, overwrite)
-    initial.add("surfaceDefaultClearActive", LightColorTokens.SurfaceDefaultClearActive, overwrite)
-    initial.add("surfaceDefaultClear", LightColorTokens.SurfaceDefaultClear, overwrite)
-    initial.add("surfaceDefaultAccentHover", LightColorTokens.SurfaceDefaultAccentHover, overwrite)
+    initial.add("surfaceDefaultClearHover", com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultClearHover, overwrite)
+    initial.add("surfaceDefaultClearActive", com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultClearActive, overwrite)
+    initial.add("surfaceDefaultClear", com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultClear, overwrite)
+    initial.add("surfaceDefaultAccentHover", com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultAccentHover, overwrite)
     initial.add(
         "surfaceDefaultAccentActive",
-        LightColorTokens.SurfaceDefaultAccentActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultAccentActive,
         overwrite,
     )
-    initial.add("surfaceDefaultAccent", LightColorTokens.SurfaceDefaultAccent, overwrite)
+    initial.add("surfaceDefaultAccent", com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultAccent, overwrite)
     initial.add(
         "surfaceDefaultAccentMinorHover",
-        LightColorTokens.SurfaceDefaultAccentMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultAccentMinorHover,
         overwrite,
     )
     initial.add(
         "surfaceDefaultAccentMinorActive",
-        LightColorTokens.SurfaceDefaultAccentMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultAccentMinorActive,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentAccentHover",
-        LightColorTokens.SurfaceDefaultTransparentAccentHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultTransparentAccentHover,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentAccentActive",
-        LightColorTokens.SurfaceDefaultTransparentAccentActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultTransparentAccentActive,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentAccent",
-        LightColorTokens.SurfaceDefaultTransparentAccent,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultTransparentAccent,
         overwrite,
     )
-    initial.add("surfaceDefaultPromoHover", LightColorTokens.SurfaceDefaultPromoHover, overwrite)
-    initial.add("surfaceDefaultPromoActive", LightColorTokens.SurfaceDefaultPromoActive, overwrite)
-    initial.add("surfaceDefaultPromo", LightColorTokens.SurfaceDefaultPromo, overwrite)
+    initial.add("surfaceDefaultPromoHover", com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultPromoHover, overwrite)
+    initial.add("surfaceDefaultPromoActive", com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultPromoActive, overwrite)
+    initial.add("surfaceDefaultPromo", com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultPromo, overwrite)
     initial.add(
         "surfaceDefaultPromoMinorHover",
-        LightColorTokens.SurfaceDefaultPromoMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultPromoMinorHover,
         overwrite,
     )
     initial.add(
         "surfaceDefaultPromoMinorActive",
-        LightColorTokens.SurfaceDefaultPromoMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultPromoMinorActive,
         overwrite,
     )
-    initial.add("surfaceDefaultPromoMinor", LightColorTokens.SurfaceDefaultPromoMinor, overwrite)
+    initial.add("surfaceDefaultPromoMinor", com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultPromoMinor, overwrite)
     initial.add(
         "surfaceDefaultTransparentPromoHover",
-        LightColorTokens.SurfaceDefaultTransparentPromoHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultTransparentPromoHover,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentPromoActive",
-        LightColorTokens.SurfaceDefaultTransparentPromoActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultTransparentPromoActive,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentPromo",
-        LightColorTokens.SurfaceDefaultTransparentPromo,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultTransparentPromo,
         overwrite,
     )
     initial.add(
         "surfaceDefaultPositiveHover",
-        LightColorTokens.SurfaceDefaultPositiveHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultPositiveHover,
         overwrite,
     )
     initial.add(
         "surfaceDefaultPositiveActive",
-        LightColorTokens.SurfaceDefaultPositiveActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultPositiveActive,
         overwrite,
     )
-    initial.add("surfaceDefaultPositive", LightColorTokens.SurfaceDefaultPositive, overwrite)
+    initial.add("surfaceDefaultPositive", com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultPositive, overwrite)
     initial.add(
         "surfaceDefaultWarningHover",
-        LightColorTokens.SurfaceDefaultWarningHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultWarningHover,
         overwrite,
     )
     initial.add(
         "surfaceDefaultWarningActive",
-        LightColorTokens.SurfaceDefaultWarningActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultWarningActive,
         overwrite,
     )
-    initial.add("surfaceDefaultWarning", LightColorTokens.SurfaceDefaultWarning, overwrite)
+    initial.add("surfaceDefaultWarning", com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultWarning, overwrite)
     initial.add(
         "surfaceDefaultNegativeHover",
-        LightColorTokens.SurfaceDefaultNegativeHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultNegativeHover,
         overwrite,
     )
     initial.add(
         "surfaceDefaultNegativeActive",
-        LightColorTokens.SurfaceDefaultNegativeActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultNegativeActive,
         overwrite,
     )
-    initial.add("surfaceDefaultNegative", LightColorTokens.SurfaceDefaultNegative, overwrite)
-    initial.add("surfaceDefaultInfoHover", LightColorTokens.SurfaceDefaultInfoHover, overwrite)
-    initial.add("surfaceDefaultInfoActive", LightColorTokens.SurfaceDefaultInfoActive, overwrite)
+    initial.add("surfaceDefaultNegative", com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultNegative, overwrite)
+    initial.add("surfaceDefaultInfoHover", com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultInfoHover, overwrite)
+    initial.add("surfaceDefaultInfoActive", com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultInfoActive, overwrite)
     initial.add(
         "surfaceDefaultPositiveMinorHover",
-        LightColorTokens.SurfaceDefaultPositiveMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultPositiveMinorHover,
         overwrite,
     )
     initial.add(
         "surfaceDefaultPositiveMinorActive",
-        LightColorTokens.SurfaceDefaultPositiveMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultPositiveMinorActive,
         overwrite,
     )
     initial.add(
         "surfaceDefaultWarningMinorHover",
-        LightColorTokens.SurfaceDefaultWarningMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultWarningMinorHover,
         overwrite,
     )
     initial.add(
         "surfaceDefaultWarningMinorActive",
-        LightColorTokens.SurfaceDefaultWarningMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultWarningMinorActive,
         overwrite,
     )
     initial.add(
         "surfaceDefaultNegativeMinorHover",
-        LightColorTokens.SurfaceDefaultNegativeMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultNegativeMinorHover,
         overwrite,
     )
     initial.add(
         "surfaceDefaultNegativeMinorActive",
-        LightColorTokens.SurfaceDefaultNegativeMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultNegativeMinorActive,
         overwrite,
     )
     initial.add(
         "surfaceDefaultInfoMinorHover",
-        LightColorTokens.SurfaceDefaultInfoMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultInfoMinorHover,
         overwrite,
     )
     initial.add(
         "surfaceDefaultInfoMinorActive",
-        LightColorTokens.SurfaceDefaultInfoMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultInfoMinorActive,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentPositiveHover",
-        LightColorTokens.SurfaceDefaultTransparentPositiveHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultTransparentPositiveHover,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentPositiveActive",
-        LightColorTokens.SurfaceDefaultTransparentPositiveActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultTransparentPositiveActive,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentWarningHover",
-        LightColorTokens.SurfaceDefaultTransparentWarningHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultTransparentWarningHover,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentWarningActive",
-        LightColorTokens.SurfaceDefaultTransparentWarningActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultTransparentWarningActive,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentNegativeHover",
-        LightColorTokens.SurfaceDefaultTransparentNegativeHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultTransparentNegativeHover,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentNegativeActive",
-        LightColorTokens.SurfaceDefaultTransparentNegativeActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultTransparentNegativeActive,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentInfoHover",
-        LightColorTokens.SurfaceDefaultTransparentInfoHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultTransparentInfoHover,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentInfoActive",
-        LightColorTokens.SurfaceDefaultTransparentInfoActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultTransparentInfoActive,
         overwrite,
     )
-    initial.add("surfaceDefaultAccentMinor", LightColorTokens.SurfaceDefaultAccentMinor, overwrite)
-    initial.add("surfaceDefaultInfo", LightColorTokens.SurfaceDefaultInfo, overwrite)
+    initial.add("surfaceDefaultAccentMinor", com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultAccentMinor, overwrite)
+    initial.add("surfaceDefaultInfo", com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultInfo, overwrite)
     initial.add(
         "surfaceDefaultPositiveMinor",
-        LightColorTokens.SurfaceDefaultPositiveMinor,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultPositiveMinor,
         overwrite,
     )
     initial.add(
         "surfaceDefaultWarningMinor",
-        LightColorTokens.SurfaceDefaultWarningMinor,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultWarningMinor,
         overwrite,
     )
     initial.add(
         "surfaceDefaultNegativeMinor",
-        LightColorTokens.SurfaceDefaultNegativeMinor,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultNegativeMinor,
         overwrite,
     )
-    initial.add("surfaceDefaultInfoMinor", LightColorTokens.SurfaceDefaultInfoMinor, overwrite)
+    initial.add("surfaceDefaultInfoMinor", com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultInfoMinor, overwrite)
     initial.add(
         "surfaceDefaultTransparentPositive",
-        LightColorTokens.SurfaceDefaultTransparentPositive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultTransparentPositive,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentWarning",
-        LightColorTokens.SurfaceDefaultTransparentWarning,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultTransparentWarning,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentNegative",
-        LightColorTokens.SurfaceDefaultTransparentNegative,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultTransparentNegative,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentInfo",
-        LightColorTokens.SurfaceDefaultTransparentInfo,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultTransparentInfo,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentPrimary",
-        LightColorTokens.SurfaceDefaultTransparentPrimary,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceDefaultTransparentPrimary,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkSolidPrimaryHover",
-        LightColorTokens.SurfaceOnDarkSolidPrimaryHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkSolidPrimaryHover,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkSolidPrimaryActive",
-        LightColorTokens.SurfaceOnDarkSolidPrimaryActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkSolidPrimaryActive,
         overwrite,
     )
-    initial.add("surfaceOnDarkSolidPrimary", LightColorTokens.SurfaceOnDarkSolidPrimary, overwrite)
+    initial.add("surfaceOnDarkSolidPrimary", com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkSolidPrimary, overwrite)
     initial.add(
         "surfaceOnDarkSolidPrimaryBrightness",
-        LightColorTokens.SurfaceOnDarkSolidPrimaryBrightness,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkSolidPrimaryBrightness,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkSolidSecondaryHover",
-        LightColorTokens.SurfaceOnDarkSolidSecondaryHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkSolidSecondaryHover,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkSolidSecondaryActive",
-        LightColorTokens.SurfaceOnDarkSolidSecondaryActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkSolidSecondaryActive,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkSolidSecondary",
-        LightColorTokens.SurfaceOnDarkSolidSecondary,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkSolidSecondary,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkSolidTertiaryHover",
-        LightColorTokens.SurfaceOnDarkSolidTertiaryHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkSolidTertiaryHover,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkSolidTertiaryActive",
-        LightColorTokens.SurfaceOnDarkSolidTertiaryActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkSolidTertiaryActive,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkSolidTertiary",
-        LightColorTokens.SurfaceOnDarkSolidTertiary,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkSolidTertiary,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkSolidCardHover",
-        LightColorTokens.SurfaceOnDarkSolidCardHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkSolidCardHover,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkSolidCardActive",
-        LightColorTokens.SurfaceOnDarkSolidCardActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkSolidCardActive,
         overwrite,
     )
-    initial.add("surfaceOnDarkSolidCard", LightColorTokens.SurfaceOnDarkSolidCard, overwrite)
+    initial.add("surfaceOnDarkSolidCard", com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkSolidCard, overwrite)
     initial.add(
         "surfaceOnDarkSolidCardBrightness",
-        LightColorTokens.SurfaceOnDarkSolidCardBrightness,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkSolidCardBrightness,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkSolidDefaultHover",
-        LightColorTokens.SurfaceOnDarkSolidDefaultHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkSolidDefaultHover,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkSolidDefaultActive",
-        LightColorTokens.SurfaceOnDarkSolidDefaultActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkSolidDefaultActive,
         overwrite,
     )
-    initial.add("surfaceOnDarkSolidDefault", LightColorTokens.SurfaceOnDarkSolidDefault, overwrite)
+    initial.add("surfaceOnDarkSolidDefault", com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkSolidDefault, overwrite)
     initial.add(
         "surfaceOnDarkTransparentPrimaryHover",
-        LightColorTokens.SurfaceOnDarkTransparentPrimaryHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkTransparentPrimaryHover,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentPrimaryActive",
-        LightColorTokens.SurfaceOnDarkTransparentPrimaryActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkTransparentPrimaryActive,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentPrimary",
-        LightColorTokens.SurfaceOnDarkTransparentPrimary,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkTransparentPrimary,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentSecondaryHover",
-        LightColorTokens.SurfaceOnDarkTransparentSecondaryHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkTransparentSecondaryHover,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentSecondaryActive",
-        LightColorTokens.SurfaceOnDarkTransparentSecondaryActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkTransparentSecondaryActive,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentSecondary",
-        LightColorTokens.SurfaceOnDarkTransparentSecondary,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkTransparentSecondary,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentTertiaryHover",
-        LightColorTokens.SurfaceOnDarkTransparentTertiaryHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkTransparentTertiaryHover,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentTertiaryActive",
-        LightColorTokens.SurfaceOnDarkTransparentTertiaryActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkTransparentTertiaryActive,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentTertiary",
-        LightColorTokens.SurfaceOnDarkTransparentTertiary,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkTransparentTertiary,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentDeepHover",
-        LightColorTokens.SurfaceOnDarkTransparentDeepHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkTransparentDeepHover,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentDeepActive",
-        LightColorTokens.SurfaceOnDarkTransparentDeepActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkTransparentDeepActive,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentDeep",
-        LightColorTokens.SurfaceOnDarkTransparentDeep,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkTransparentDeep,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentCardHover",
-        LightColorTokens.SurfaceOnDarkTransparentCardHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkTransparentCardHover,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentCardActive",
-        LightColorTokens.SurfaceOnDarkTransparentCardActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkTransparentCardActive,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentCard",
-        LightColorTokens.SurfaceOnDarkTransparentCard,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkTransparentCard,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentCardBrightness",
-        LightColorTokens.SurfaceOnDarkTransparentCardBrightness,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkTransparentCardBrightness,
         overwrite,
     )
-    initial.add("surfaceOnDarkClearHover", LightColorTokens.SurfaceOnDarkClearHover, overwrite)
-    initial.add("surfaceOnDarkClearActive", LightColorTokens.SurfaceOnDarkClearActive, overwrite)
-    initial.add("surfaceOnDarkClear", LightColorTokens.SurfaceOnDarkClear, overwrite)
-    initial.add("surfaceOnDarkAccentHover", LightColorTokens.SurfaceOnDarkAccentHover, overwrite)
-    initial.add("surfaceOnDarkAccentActive", LightColorTokens.SurfaceOnDarkAccentActive, overwrite)
-    initial.add("surfaceOnDarkAccent", LightColorTokens.SurfaceOnDarkAccent, overwrite)
+    initial.add("surfaceOnDarkClearHover", com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkClearHover, overwrite)
+    initial.add("surfaceOnDarkClearActive", com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkClearActive, overwrite)
+    initial.add("surfaceOnDarkClear", com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkClear, overwrite)
+    initial.add("surfaceOnDarkAccentHover", com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkAccentHover, overwrite)
+    initial.add("surfaceOnDarkAccentActive", com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkAccentActive, overwrite)
+    initial.add("surfaceOnDarkAccent", com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkAccent, overwrite)
     initial.add(
         "surfaceOnDarkAccentMinorHover",
-        LightColorTokens.SurfaceOnDarkAccentMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkAccentMinorHover,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkAccentMinorActive",
-        LightColorTokens.SurfaceOnDarkAccentMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkAccentMinorActive,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentAccentHover",
-        LightColorTokens.SurfaceOnDarkTransparentAccentHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkTransparentAccentHover,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentAccentActive",
-        LightColorTokens.SurfaceOnDarkTransparentAccentActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkTransparentAccentActive,
         overwrite,
     )
-    initial.add("surfaceOnDarkPromoHover", LightColorTokens.SurfaceOnDarkPromoHover, overwrite)
-    initial.add("surfaceOnDarkPromoActive", LightColorTokens.SurfaceOnDarkPromoActive, overwrite)
-    initial.add("surfaceOnDarkPromo", LightColorTokens.SurfaceOnDarkPromo, overwrite)
+    initial.add("surfaceOnDarkPromoHover", com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkPromoHover, overwrite)
+    initial.add("surfaceOnDarkPromoActive", com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkPromoActive, overwrite)
+    initial.add("surfaceOnDarkPromo", com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkPromo, overwrite)
     initial.add(
         "surfaceOnDarkPromoMinorHover",
-        LightColorTokens.SurfaceOnDarkPromoMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkPromoMinorHover,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkPromoMinorActive",
-        LightColorTokens.SurfaceOnDarkPromoMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkPromoMinorActive,
         overwrite,
     )
-    initial.add("surfaceOnDarkPromoMinor", LightColorTokens.SurfaceOnDarkPromoMinor, overwrite)
+    initial.add("surfaceOnDarkPromoMinor", com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkPromoMinor, overwrite)
     initial.add(
         "surfaceOnDarkTransparentPromoHover",
-        LightColorTokens.SurfaceOnDarkTransparentPromoHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkTransparentPromoHover,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentPromoActive",
-        LightColorTokens.SurfaceOnDarkTransparentPromoActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkTransparentPromoActive,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentPromo",
-        LightColorTokens.SurfaceOnDarkTransparentPromo,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkTransparentPromo,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkPositiveHover",
-        LightColorTokens.SurfaceOnDarkPositiveHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkPositiveHover,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkPositiveActive",
-        LightColorTokens.SurfaceOnDarkPositiveActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkPositiveActive,
         overwrite,
     )
-    initial.add("surfaceOnDarkPositive", LightColorTokens.SurfaceOnDarkPositive, overwrite)
-    initial.add("surfaceOnDarkWarningHover", LightColorTokens.SurfaceOnDarkWarningHover, overwrite)
+    initial.add("surfaceOnDarkPositive", com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkPositive, overwrite)
+    initial.add("surfaceOnDarkWarningHover", com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkWarningHover, overwrite)
     initial.add(
         "surfaceOnDarkWarningActive",
-        LightColorTokens.SurfaceOnDarkWarningActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkWarningActive,
         overwrite,
     )
-    initial.add("surfaceOnDarkWarning", LightColorTokens.SurfaceOnDarkWarning, overwrite)
+    initial.add("surfaceOnDarkWarning", com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkWarning, overwrite)
     initial.add(
         "surfaceOnDarkNegativeHover",
-        LightColorTokens.SurfaceOnDarkNegativeHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkNegativeHover,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkNegativeActive",
-        LightColorTokens.SurfaceOnDarkNegativeActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkNegativeActive,
         overwrite,
     )
-    initial.add("surfaceOnDarkNegative", LightColorTokens.SurfaceOnDarkNegative, overwrite)
-    initial.add("surfaceOnDarkInfoHover", LightColorTokens.SurfaceOnDarkInfoHover, overwrite)
-    initial.add("surfaceOnDarkInfoActive", LightColorTokens.SurfaceOnDarkInfoActive, overwrite)
+    initial.add("surfaceOnDarkNegative", com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkNegative, overwrite)
+    initial.add("surfaceOnDarkInfoHover", com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkInfoHover, overwrite)
+    initial.add("surfaceOnDarkInfoActive", com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkInfoActive, overwrite)
     initial.add(
         "surfaceOnDarkPositiveMinorHover",
-        LightColorTokens.SurfaceOnDarkPositiveMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkPositiveMinorHover,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkPositiveMinorActive",
-        LightColorTokens.SurfaceOnDarkPositiveMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkPositiveMinorActive,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkWarningMinorHover",
-        LightColorTokens.SurfaceOnDarkWarningMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkWarningMinorHover,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkWarningMinorActive",
-        LightColorTokens.SurfaceOnDarkWarningMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkWarningMinorActive,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkNegativeMinorHover",
-        LightColorTokens.SurfaceOnDarkNegativeMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkNegativeMinorHover,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkNegativeMinorActive",
-        LightColorTokens.SurfaceOnDarkNegativeMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkNegativeMinorActive,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkInfoMinorHover",
-        LightColorTokens.SurfaceOnDarkInfoMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkInfoMinorHover,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkInfoMinorActive",
-        LightColorTokens.SurfaceOnDarkInfoMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkInfoMinorActive,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentPositiveHover",
-        LightColorTokens.SurfaceOnDarkTransparentPositiveHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkTransparentPositiveHover,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentPositiveActive",
-        LightColorTokens.SurfaceOnDarkTransparentPositiveActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkTransparentPositiveActive,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentWarningHover",
-        LightColorTokens.SurfaceOnDarkTransparentWarningHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkTransparentWarningHover,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentWarningActive",
-        LightColorTokens.SurfaceOnDarkTransparentWarningActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkTransparentWarningActive,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentNegativeHover",
-        LightColorTokens.SurfaceOnDarkTransparentNegativeHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkTransparentNegativeHover,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentNegativeActive",
-        LightColorTokens.SurfaceOnDarkTransparentNegativeActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkTransparentNegativeActive,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentInfoHover",
-        LightColorTokens.SurfaceOnDarkTransparentInfoHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkTransparentInfoHover,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentInfoActive",
-        LightColorTokens.SurfaceOnDarkTransparentInfoActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkTransparentInfoActive,
         overwrite,
     )
-    initial.add("surfaceOnDarkAccentMinor", LightColorTokens.SurfaceOnDarkAccentMinor, overwrite)
+    initial.add("surfaceOnDarkAccentMinor", com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkAccentMinor, overwrite)
     initial.add(
         "surfaceOnDarkTransparentAccent",
-        LightColorTokens.SurfaceOnDarkTransparentAccent,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkTransparentAccent,
         overwrite,
     )
-    initial.add("surfaceOnDarkInfo", LightColorTokens.SurfaceOnDarkInfo, overwrite)
+    initial.add("surfaceOnDarkInfo", com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkInfo, overwrite)
     initial.add(
         "surfaceOnDarkPositiveMinor",
-        LightColorTokens.SurfaceOnDarkPositiveMinor,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkPositiveMinor,
         overwrite,
     )
-    initial.add("surfaceOnDarkWarningMinor", LightColorTokens.SurfaceOnDarkWarningMinor, overwrite)
+    initial.add("surfaceOnDarkWarningMinor", com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkWarningMinor, overwrite)
     initial.add(
         "surfaceOnDarkNegativeMinor",
-        LightColorTokens.SurfaceOnDarkNegativeMinor,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkNegativeMinor,
         overwrite,
     )
-    initial.add("surfaceOnDarkInfoMinor", LightColorTokens.SurfaceOnDarkInfoMinor, overwrite)
+    initial.add("surfaceOnDarkInfoMinor", com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkInfoMinor, overwrite)
     initial.add(
         "surfaceOnDarkTransparentPositive",
-        LightColorTokens.SurfaceOnDarkTransparentPositive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkTransparentPositive,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentWarning",
-        LightColorTokens.SurfaceOnDarkTransparentWarning,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkTransparentWarning,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentNegative",
-        LightColorTokens.SurfaceOnDarkTransparentNegative,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkTransparentNegative,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentInfo",
-        LightColorTokens.SurfaceOnDarkTransparentInfo,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnDarkTransparentInfo,
         overwrite,
     )
     initial.add(
         "surfaceOnLightSolidPrimaryHover",
-        LightColorTokens.SurfaceOnLightSolidPrimaryHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightSolidPrimaryHover,
         overwrite,
     )
     initial.add(
         "surfaceOnLightSolidPrimaryActive",
-        LightColorTokens.SurfaceOnLightSolidPrimaryActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightSolidPrimaryActive,
         overwrite,
     )
     initial.add(
         "surfaceOnLightSolidPrimary",
-        LightColorTokens.SurfaceOnLightSolidPrimary,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightSolidPrimary,
         overwrite,
     )
     initial.add(
         "surfaceOnLightSolidPrimaryBrightness",
-        LightColorTokens.SurfaceOnLightSolidPrimaryBrightness,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightSolidPrimaryBrightness,
         overwrite,
     )
     initial.add(
         "surfaceOnLightSolidSecondaryHover",
-        LightColorTokens.SurfaceOnLightSolidSecondaryHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightSolidSecondaryHover,
         overwrite,
     )
     initial.add(
         "surfaceOnLightSolidSecondaryActive",
-        LightColorTokens.SurfaceOnLightSolidSecondaryActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightSolidSecondaryActive,
         overwrite,
     )
     initial.add(
         "surfaceOnLightSolidSecondary",
-        LightColorTokens.SurfaceOnLightSolidSecondary,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightSolidSecondary,
         overwrite,
     )
     initial.add(
         "surfaceOnLightSolidTertiaryHover",
-        LightColorTokens.SurfaceOnLightSolidTertiaryHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightSolidTertiaryHover,
         overwrite,
     )
     initial.add(
         "surfaceOnLightSolidTertiaryActive",
-        LightColorTokens.SurfaceOnLightSolidTertiaryActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightSolidTertiaryActive,
         overwrite,
     )
     initial.add(
         "surfaceOnLightSolidTertiary",
-        LightColorTokens.SurfaceOnLightSolidTertiary,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightSolidTertiary,
         overwrite,
     )
     initial.add(
         "surfaceOnLightSolidCardHover",
-        LightColorTokens.SurfaceOnLightSolidCardHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightSolidCardHover,
         overwrite,
     )
     initial.add(
         "surfaceOnLightSolidCardActive",
-        LightColorTokens.SurfaceOnLightSolidCardActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightSolidCardActive,
         overwrite,
     )
-    initial.add("surfaceOnLightSolidCard", LightColorTokens.SurfaceOnLightSolidCard, overwrite)
+    initial.add("surfaceOnLightSolidCard", com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightSolidCard, overwrite)
     initial.add(
         "surfaceOnLightSolidCardBrightness",
-        LightColorTokens.SurfaceOnLightSolidCardBrightness,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightSolidCardBrightness,
         overwrite,
     )
     initial.add(
         "surfaceOnLightSolidDefaultHover",
-        LightColorTokens.SurfaceOnLightSolidDefaultHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightSolidDefaultHover,
         overwrite,
     )
     initial.add(
         "surfaceOnLightSolidDefaultActive",
-        LightColorTokens.SurfaceOnLightSolidDefaultActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightSolidDefaultActive,
         overwrite,
     )
     initial.add(
         "surfaceOnLightSolidDefault",
-        LightColorTokens.SurfaceOnLightSolidDefault,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightSolidDefault,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentPrimaryHover",
-        LightColorTokens.SurfaceOnLightTransparentPrimaryHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightTransparentPrimaryHover,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentPrimaryActive",
-        LightColorTokens.SurfaceOnLightTransparentPrimaryActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightTransparentPrimaryActive,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentSecondaryHover",
-        LightColorTokens.SurfaceOnLightTransparentSecondaryHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightTransparentSecondaryHover,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentSecondaryActive",
-        LightColorTokens.SurfaceOnLightTransparentSecondaryActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightTransparentSecondaryActive,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentSecondary",
-        LightColorTokens.SurfaceOnLightTransparentSecondary,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightTransparentSecondary,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentTertiaryHover",
-        LightColorTokens.SurfaceOnLightTransparentTertiaryHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightTransparentTertiaryHover,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentTertiaryActive",
-        LightColorTokens.SurfaceOnLightTransparentTertiaryActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightTransparentTertiaryActive,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentTertiary",
-        LightColorTokens.SurfaceOnLightTransparentTertiary,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightTransparentTertiary,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentDeepHover",
-        LightColorTokens.SurfaceOnLightTransparentDeepHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightTransparentDeepHover,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentDeepActive",
-        LightColorTokens.SurfaceOnLightTransparentDeepActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightTransparentDeepActive,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentDeep",
-        LightColorTokens.SurfaceOnLightTransparentDeep,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightTransparentDeep,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentCardHover",
-        LightColorTokens.SurfaceOnLightTransparentCardHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightTransparentCardHover,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentCardActive",
-        LightColorTokens.SurfaceOnLightTransparentCardActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightTransparentCardActive,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentCard",
-        LightColorTokens.SurfaceOnLightTransparentCard,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightTransparentCard,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentCardBrightness",
-        LightColorTokens.SurfaceOnLightTransparentCardBrightness,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightTransparentCardBrightness,
         overwrite,
     )
-    initial.add("surfaceOnLightClearHover", LightColorTokens.SurfaceOnLightClearHover, overwrite)
-    initial.add("surfaceOnLightClearActive", LightColorTokens.SurfaceOnLightClearActive, overwrite)
-    initial.add("surfaceOnLightClear", LightColorTokens.SurfaceOnLightClear, overwrite)
-    initial.add("surfaceOnLightAccentHover", LightColorTokens.SurfaceOnLightAccentHover, overwrite)
+    initial.add("surfaceOnLightClearHover", com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightClearHover, overwrite)
+    initial.add("surfaceOnLightClearActive", com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightClearActive, overwrite)
+    initial.add("surfaceOnLightClear", com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightClear, overwrite)
+    initial.add("surfaceOnLightAccentHover", com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightAccentHover, overwrite)
     initial.add(
         "surfaceOnLightAccentActive",
-        LightColorTokens.SurfaceOnLightAccentActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightAccentActive,
         overwrite,
     )
-    initial.add("surfaceOnLightAccent", LightColorTokens.SurfaceOnLightAccent, overwrite)
+    initial.add("surfaceOnLightAccent", com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightAccent, overwrite)
     initial.add(
         "surfaceOnLightAccentMinorHover",
-        LightColorTokens.SurfaceOnLightAccentMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightAccentMinorHover,
         overwrite,
     )
     initial.add(
         "surfaceOnLightAccentMinorActive",
-        LightColorTokens.SurfaceOnLightAccentMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightAccentMinorActive,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentAccentHover",
-        LightColorTokens.SurfaceOnLightTransparentAccentHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightTransparentAccentHover,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentAccentActive",
-        LightColorTokens.SurfaceOnLightTransparentAccentActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightTransparentAccentActive,
         overwrite,
     )
-    initial.add("surfaceOnLightPromoHover", LightColorTokens.SurfaceOnLightPromoHover, overwrite)
-    initial.add("surfaceOnLightPromoActive", LightColorTokens.SurfaceOnLightPromoActive, overwrite)
-    initial.add("surfaceOnLightPromo", LightColorTokens.SurfaceOnLightPromo, overwrite)
+    initial.add("surfaceOnLightPromoHover", com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightPromoHover, overwrite)
+    initial.add("surfaceOnLightPromoActive", com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightPromoActive, overwrite)
+    initial.add("surfaceOnLightPromo", com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightPromo, overwrite)
     initial.add(
         "surfaceOnLightPromoMinorHover",
-        LightColorTokens.SurfaceOnLightPromoMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightPromoMinorHover,
         overwrite,
     )
     initial.add(
         "surfaceOnLightPromoMinorActive",
-        LightColorTokens.SurfaceOnLightPromoMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightPromoMinorActive,
         overwrite,
     )
-    initial.add("surfaceOnLightPromoMinor", LightColorTokens.SurfaceOnLightPromoMinor, overwrite)
+    initial.add("surfaceOnLightPromoMinor", com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightPromoMinor, overwrite)
     initial.add(
         "surfaceOnLightTransparentPromoHover",
-        LightColorTokens.SurfaceOnLightTransparentPromoHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightTransparentPromoHover,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentPromoActive",
-        LightColorTokens.SurfaceOnLightTransparentPromoActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightTransparentPromoActive,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentPromo",
-        LightColorTokens.SurfaceOnLightTransparentPromo,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightTransparentPromo,
         overwrite,
     )
     initial.add(
         "surfaceOnLightPositiveHover",
-        LightColorTokens.SurfaceOnLightPositiveHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightPositiveHover,
         overwrite,
     )
     initial.add(
         "surfaceOnLightPositiveActive",
-        LightColorTokens.SurfaceOnLightPositiveActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightPositiveActive,
         overwrite,
     )
-    initial.add("surfaceOnLightPositive", LightColorTokens.SurfaceOnLightPositive, overwrite)
+    initial.add("surfaceOnLightPositive", com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightPositive, overwrite)
     initial.add(
         "surfaceOnLightWarningHover",
-        LightColorTokens.SurfaceOnLightWarningHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightWarningHover,
         overwrite,
     )
     initial.add(
         "surfaceOnLightWarningActive",
-        LightColorTokens.SurfaceOnLightWarningActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightWarningActive,
         overwrite,
     )
-    initial.add("surfaceOnLightWarning", LightColorTokens.SurfaceOnLightWarning, overwrite)
+    initial.add("surfaceOnLightWarning", com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightWarning, overwrite)
     initial.add(
         "surfaceOnLightNegativeHover",
-        LightColorTokens.SurfaceOnLightNegativeHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightNegativeHover,
         overwrite,
     )
     initial.add(
         "surfaceOnLightNegativeActive",
-        LightColorTokens.SurfaceOnLightNegativeActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightNegativeActive,
         overwrite,
     )
-    initial.add("surfaceOnLightNegative", LightColorTokens.SurfaceOnLightNegative, overwrite)
-    initial.add("surfaceOnLightInfoHover", LightColorTokens.SurfaceOnLightInfoHover, overwrite)
-    initial.add("surfaceOnLightInfoActive", LightColorTokens.SurfaceOnLightInfoActive, overwrite)
+    initial.add("surfaceOnLightNegative", com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightNegative, overwrite)
+    initial.add("surfaceOnLightInfoHover", com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightInfoHover, overwrite)
+    initial.add("surfaceOnLightInfoActive", com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightInfoActive, overwrite)
     initial.add(
         "surfaceOnLightPositiveMinorHover",
-        LightColorTokens.SurfaceOnLightPositiveMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightPositiveMinorHover,
         overwrite,
     )
     initial.add(
         "surfaceOnLightPositiveMinorActive",
-        LightColorTokens.SurfaceOnLightPositiveMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightPositiveMinorActive,
         overwrite,
     )
     initial.add(
         "surfaceOnLightWarningMinorHover",
-        LightColorTokens.SurfaceOnLightWarningMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightWarningMinorHover,
         overwrite,
     )
     initial.add(
         "surfaceOnLightWarningMinorActive",
-        LightColorTokens.SurfaceOnLightWarningMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightWarningMinorActive,
         overwrite,
     )
     initial.add(
         "surfaceOnLightNegativeMinorHover",
-        LightColorTokens.SurfaceOnLightNegativeMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightNegativeMinorHover,
         overwrite,
     )
     initial.add(
         "surfaceOnLightNegativeMinorActive",
-        LightColorTokens.SurfaceOnLightNegativeMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightNegativeMinorActive,
         overwrite,
     )
     initial.add(
         "surfaceOnLightInfoMinorHover",
-        LightColorTokens.SurfaceOnLightInfoMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightInfoMinorHover,
         overwrite,
     )
     initial.add(
         "surfaceOnLightInfoMinorActive",
-        LightColorTokens.SurfaceOnLightInfoMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightInfoMinorActive,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentPositiveHover",
-        LightColorTokens.SurfaceOnLightTransparentPositiveHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightTransparentPositiveHover,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentPositiveActive",
-        LightColorTokens.SurfaceOnLightTransparentPositiveActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightTransparentPositiveActive,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentWarningHover",
-        LightColorTokens.SurfaceOnLightTransparentWarningHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightTransparentWarningHover,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentWarningActive",
-        LightColorTokens.SurfaceOnLightTransparentWarningActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightTransparentWarningActive,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentNegativeHover",
-        LightColorTokens.SurfaceOnLightTransparentNegativeHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightTransparentNegativeHover,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentNegativeActive",
-        LightColorTokens.SurfaceOnLightTransparentNegativeActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightTransparentNegativeActive,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentInfoHover",
-        LightColorTokens.SurfaceOnLightTransparentInfoHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightTransparentInfoHover,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentInfoActive",
-        LightColorTokens.SurfaceOnLightTransparentInfoActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightTransparentInfoActive,
         overwrite,
     )
-    initial.add("surfaceOnLightAccentMinor", LightColorTokens.SurfaceOnLightAccentMinor, overwrite)
+    initial.add("surfaceOnLightAccentMinor", com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightAccentMinor, overwrite)
     initial.add(
         "surfaceOnLightTransparentAccent",
-        LightColorTokens.SurfaceOnLightTransparentAccent,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightTransparentAccent,
         overwrite,
     )
-    initial.add("surfaceOnLightInfo", LightColorTokens.SurfaceOnLightInfo, overwrite)
+    initial.add("surfaceOnLightInfo", com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightInfo, overwrite)
     initial.add(
         "surfaceOnLightWarningMinor",
-        LightColorTokens.SurfaceOnLightWarningMinor,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightWarningMinor,
         overwrite,
     )
     initial.add(
         "surfaceOnLightPositiveMinor",
-        LightColorTokens.SurfaceOnLightPositiveMinor,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightPositiveMinor,
         overwrite,
     )
-    initial.add("surfaceOnLightInfoMinor", LightColorTokens.SurfaceOnLightInfoMinor, overwrite)
+    initial.add("surfaceOnLightInfoMinor", com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightInfoMinor, overwrite)
     initial.add(
         "surfaceOnLightNegativeMinor",
-        LightColorTokens.SurfaceOnLightNegativeMinor,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightNegativeMinor,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentPositive",
-        LightColorTokens.SurfaceOnLightTransparentPositive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightTransparentPositive,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentWarning",
-        LightColorTokens.SurfaceOnLightTransparentWarning,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightTransparentWarning,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentNegative",
-        LightColorTokens.SurfaceOnLightTransparentNegative,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightTransparentNegative,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentInfo",
-        LightColorTokens.SurfaceOnLightTransparentInfo,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightTransparentInfo,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentPrimary",
-        LightColorTokens.SurfaceOnLightTransparentPrimary,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceOnLightTransparentPrimary,
         overwrite,
     )
     initial.add(
         "surfaceInverseSolidPrimaryHover",
-        LightColorTokens.SurfaceInverseSolidPrimaryHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseSolidPrimaryHover,
         overwrite,
     )
     initial.add(
         "surfaceInverseSolidPrimaryActive",
-        LightColorTokens.SurfaceInverseSolidPrimaryActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseSolidPrimaryActive,
         overwrite,
     )
     initial.add(
         "surfaceInverseSolidPrimary",
-        LightColorTokens.SurfaceInverseSolidPrimary,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseSolidPrimary,
         overwrite,
     )
     initial.add(
         "surfaceInverseSolidPrimaryBrightness",
-        LightColorTokens.SurfaceInverseSolidPrimaryBrightness,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseSolidPrimaryBrightness,
         overwrite,
     )
     initial.add(
         "surfaceInverseSolidSecondaryHover",
-        LightColorTokens.SurfaceInverseSolidSecondaryHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseSolidSecondaryHover,
         overwrite,
     )
     initial.add(
         "surfaceInverseSolidSecondaryActive",
-        LightColorTokens.SurfaceInverseSolidSecondaryActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseSolidSecondaryActive,
         overwrite,
     )
     initial.add(
         "surfaceInverseSolidSecondary",
-        LightColorTokens.SurfaceInverseSolidSecondary,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseSolidSecondary,
         overwrite,
     )
     initial.add(
         "surfaceInverseSolidTertiaryHover",
-        LightColorTokens.SurfaceInverseSolidTertiaryHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseSolidTertiaryHover,
         overwrite,
     )
     initial.add(
         "surfaceInverseSolidTertiaryActive",
-        LightColorTokens.SurfaceInverseSolidTertiaryActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseSolidTertiaryActive,
         overwrite,
     )
     initial.add(
         "surfaceInverseSolidTertiary",
-        LightColorTokens.SurfaceInverseSolidTertiary,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseSolidTertiary,
         overwrite,
     )
     initial.add(
         "surfaceInverseSolidCardHover",
-        LightColorTokens.SurfaceInverseSolidCardHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseSolidCardHover,
         overwrite,
     )
     initial.add(
         "surfaceInverseSolidCardActive",
-        LightColorTokens.SurfaceInverseSolidCardActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseSolidCardActive,
         overwrite,
     )
-    initial.add("surfaceInverseSolidCard", LightColorTokens.SurfaceInverseSolidCard, overwrite)
+    initial.add("surfaceInverseSolidCard", com.sdds.serv.tokens.LightColorTokens.SurfaceInverseSolidCard, overwrite)
     initial.add(
         "surfaceInverseSolidCardBrightness",
-        LightColorTokens.SurfaceInverseSolidCardBrightness,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseSolidCardBrightness,
         overwrite,
     )
     initial.add(
         "surfaceInverseSolidDefaultHover",
-        LightColorTokens.SurfaceInverseSolidDefaultHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseSolidDefaultHover,
         overwrite,
     )
     initial.add(
         "surfaceInverseSolidDefaultActive",
-        LightColorTokens.SurfaceInverseSolidDefaultActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseSolidDefaultActive,
         overwrite,
     )
     initial.add(
         "surfaceInverseSolidDefault",
-        LightColorTokens.SurfaceInverseSolidDefault,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseSolidDefault,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentPrimaryHover",
-        LightColorTokens.SurfaceInverseTransparentPrimaryHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseTransparentPrimaryHover,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentPrimaryActive",
-        LightColorTokens.SurfaceInverseTransparentPrimaryActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseTransparentPrimaryActive,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentPrimary",
-        LightColorTokens.SurfaceInverseTransparentPrimary,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseTransparentPrimary,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentSecondaryHover",
-        LightColorTokens.SurfaceInverseTransparentSecondaryHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseTransparentSecondaryHover,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentSecondaryActive",
-        LightColorTokens.SurfaceInverseTransparentSecondaryActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseTransparentSecondaryActive,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentSecondary",
-        LightColorTokens.SurfaceInverseTransparentSecondary,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseTransparentSecondary,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentTertiaryHover",
-        LightColorTokens.SurfaceInverseTransparentTertiaryHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseTransparentTertiaryHover,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentTertiaryActive",
-        LightColorTokens.SurfaceInverseTransparentTertiaryActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseTransparentTertiaryActive,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentTertiary",
-        LightColorTokens.SurfaceInverseTransparentTertiary,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseTransparentTertiary,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentDeepHover",
-        LightColorTokens.SurfaceInverseTransparentDeepHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseTransparentDeepHover,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentDeepActive",
-        LightColorTokens.SurfaceInverseTransparentDeepActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseTransparentDeepActive,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentDeep",
-        LightColorTokens.SurfaceInverseTransparentDeep,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseTransparentDeep,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentCardHover",
-        LightColorTokens.SurfaceInverseTransparentCardHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseTransparentCardHover,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentCardActive",
-        LightColorTokens.SurfaceInverseTransparentCardActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseTransparentCardActive,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentCard",
-        LightColorTokens.SurfaceInverseTransparentCard,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseTransparentCard,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentCardBrightness",
-        LightColorTokens.SurfaceInverseTransparentCardBrightness,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseTransparentCardBrightness,
         overwrite,
     )
-    initial.add("surfaceInverseClearHover", LightColorTokens.SurfaceInverseClearHover, overwrite)
-    initial.add("surfaceInverseClearActive", LightColorTokens.SurfaceInverseClearActive, overwrite)
-    initial.add("surfaceInverseClear", LightColorTokens.SurfaceInverseClear, overwrite)
-    initial.add("surfaceInverseAccentHover", LightColorTokens.SurfaceInverseAccentHover, overwrite)
+    initial.add("surfaceInverseClearHover", com.sdds.serv.tokens.LightColorTokens.SurfaceInverseClearHover, overwrite)
+    initial.add("surfaceInverseClearActive", com.sdds.serv.tokens.LightColorTokens.SurfaceInverseClearActive, overwrite)
+    initial.add("surfaceInverseClear", com.sdds.serv.tokens.LightColorTokens.SurfaceInverseClear, overwrite)
+    initial.add("surfaceInverseAccentHover", com.sdds.serv.tokens.LightColorTokens.SurfaceInverseAccentHover, overwrite)
     initial.add(
         "surfaceInverseAccentActive",
-        LightColorTokens.SurfaceInverseAccentActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseAccentActive,
         overwrite,
     )
-    initial.add("surfaceInverseAccent", LightColorTokens.SurfaceInverseAccent, overwrite)
+    initial.add("surfaceInverseAccent", com.sdds.serv.tokens.LightColorTokens.SurfaceInverseAccent, overwrite)
     initial.add(
         "surfaceInverseAccentMinorHover",
-        LightColorTokens.SurfaceInverseAccentMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseAccentMinorHover,
         overwrite,
     )
     initial.add(
         "surfaceInverseAccentMinorActive",
-        LightColorTokens.SurfaceInverseAccentMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseAccentMinorActive,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentAccentHover",
-        LightColorTokens.SurfaceInverseTransparentAccentHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseTransparentAccentHover,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentAccentActive",
-        LightColorTokens.SurfaceInverseTransparentAccentActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseTransparentAccentActive,
         overwrite,
     )
-    initial.add("surfaceInversePromoHover", LightColorTokens.SurfaceInversePromoHover, overwrite)
-    initial.add("surfaceInversePromoActive", LightColorTokens.SurfaceInversePromoActive, overwrite)
-    initial.add("surfaceInversePromo", LightColorTokens.SurfaceInversePromo, overwrite)
+    initial.add("surfaceInversePromoHover", com.sdds.serv.tokens.LightColorTokens.SurfaceInversePromoHover, overwrite)
+    initial.add("surfaceInversePromoActive", com.sdds.serv.tokens.LightColorTokens.SurfaceInversePromoActive, overwrite)
+    initial.add("surfaceInversePromo", com.sdds.serv.tokens.LightColorTokens.SurfaceInversePromo, overwrite)
     initial.add(
         "surfaceInversePromoMinorHover",
-        LightColorTokens.SurfaceInversePromoMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInversePromoMinorHover,
         overwrite,
     )
     initial.add(
         "surfaceInversePromoMinorActive",
-        LightColorTokens.SurfaceInversePromoMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInversePromoMinorActive,
         overwrite,
     )
-    initial.add("surfaceInversePromoMinor", LightColorTokens.SurfaceInversePromoMinor, overwrite)
+    initial.add("surfaceInversePromoMinor", com.sdds.serv.tokens.LightColorTokens.SurfaceInversePromoMinor, overwrite)
     initial.add(
         "surfaceInverseTransparentPromoHover",
-        LightColorTokens.SurfaceInverseTransparentPromoHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseTransparentPromoHover,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentPromoActive",
-        LightColorTokens.SurfaceInverseTransparentPromoActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseTransparentPromoActive,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentPromo",
-        LightColorTokens.SurfaceInverseTransparentPromo,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseTransparentPromo,
         overwrite,
     )
     initial.add(
         "surfaceInversePositiveHover",
-        LightColorTokens.SurfaceInversePositiveHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInversePositiveHover,
         overwrite,
     )
     initial.add(
         "surfaceInversePositiveActive",
-        LightColorTokens.SurfaceInversePositiveActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInversePositiveActive,
         overwrite,
     )
-    initial.add("surfaceInversePositive", LightColorTokens.SurfaceInversePositive, overwrite)
+    initial.add("surfaceInversePositive", com.sdds.serv.tokens.LightColorTokens.SurfaceInversePositive, overwrite)
     initial.add(
         "surfaceInverseWarningHover",
-        LightColorTokens.SurfaceInverseWarningHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseWarningHover,
         overwrite,
     )
     initial.add(
         "surfaceInverseWarningActive",
-        LightColorTokens.SurfaceInverseWarningActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseWarningActive,
         overwrite,
     )
-    initial.add("surfaceInverseWarning", LightColorTokens.SurfaceInverseWarning, overwrite)
+    initial.add("surfaceInverseWarning", com.sdds.serv.tokens.LightColorTokens.SurfaceInverseWarning, overwrite)
     initial.add(
         "surfaceInverseNegativeHover",
-        LightColorTokens.SurfaceInverseNegativeHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseNegativeHover,
         overwrite,
     )
     initial.add(
         "surfaceInverseNegativeActive",
-        LightColorTokens.SurfaceInverseNegativeActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseNegativeActive,
         overwrite,
     )
-    initial.add("surfaceInverseNegative", LightColorTokens.SurfaceInverseNegative, overwrite)
-    initial.add("surfaceInverseInfoHover", LightColorTokens.SurfaceInverseInfoHover, overwrite)
-    initial.add("surfaceInverseInfoActive", LightColorTokens.SurfaceInverseInfoActive, overwrite)
+    initial.add("surfaceInverseNegative", com.sdds.serv.tokens.LightColorTokens.SurfaceInverseNegative, overwrite)
+    initial.add("surfaceInverseInfoHover", com.sdds.serv.tokens.LightColorTokens.SurfaceInverseInfoHover, overwrite)
+    initial.add("surfaceInverseInfoActive", com.sdds.serv.tokens.LightColorTokens.SurfaceInverseInfoActive, overwrite)
     initial.add(
         "surfaceInversePositiveMinorHover",
-        LightColorTokens.SurfaceInversePositiveMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInversePositiveMinorHover,
         overwrite,
     )
     initial.add(
         "surfaceInversePositiveMinorActive",
-        LightColorTokens.SurfaceInversePositiveMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInversePositiveMinorActive,
         overwrite,
     )
     initial.add(
         "surfaceInverseWarningMinorHover",
-        LightColorTokens.SurfaceInverseWarningMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseWarningMinorHover,
         overwrite,
     )
     initial.add(
         "surfaceInverseWarningMinorActive",
-        LightColorTokens.SurfaceInverseWarningMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseWarningMinorActive,
         overwrite,
     )
     initial.add(
         "surfaceInverseNegativeMinorHover",
-        LightColorTokens.SurfaceInverseNegativeMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseNegativeMinorHover,
         overwrite,
     )
     initial.add(
         "surfaceInverseNegativeMinorActive",
-        LightColorTokens.SurfaceInverseNegativeMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseNegativeMinorActive,
         overwrite,
     )
     initial.add(
         "surfaceInverseInfoMinorHover",
-        LightColorTokens.SurfaceInverseInfoMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseInfoMinorHover,
         overwrite,
     )
     initial.add(
         "surfaceInverseInfoMinorActive",
-        LightColorTokens.SurfaceInverseInfoMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseInfoMinorActive,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentPositiveHover",
-        LightColorTokens.SurfaceInverseTransparentPositiveHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseTransparentPositiveHover,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentPositiveActive",
-        LightColorTokens.SurfaceInverseTransparentPositiveActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseTransparentPositiveActive,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentWarningHover",
-        LightColorTokens.SurfaceInverseTransparentWarningHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseTransparentWarningHover,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentWarningActive",
-        LightColorTokens.SurfaceInverseTransparentWarningActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseTransparentWarningActive,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentNegativeHover",
-        LightColorTokens.SurfaceInverseTransparentNegativeHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseTransparentNegativeHover,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentNegativeActive",
-        LightColorTokens.SurfaceInverseTransparentNegativeActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseTransparentNegativeActive,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentInfoHover",
-        LightColorTokens.SurfaceInverseTransparentInfoHover,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseTransparentInfoHover,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentInfoActive",
-        LightColorTokens.SurfaceInverseTransparentInfoActive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseTransparentInfoActive,
         overwrite,
     )
-    initial.add("surfaceInverseAccentMinor", LightColorTokens.SurfaceInverseAccentMinor, overwrite)
+    initial.add("surfaceInverseAccentMinor", com.sdds.serv.tokens.LightColorTokens.SurfaceInverseAccentMinor, overwrite)
     initial.add(
         "surfaceInverseTransparentAccent",
-        LightColorTokens.SurfaceInverseTransparentAccent,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseTransparentAccent,
         overwrite,
     )
-    initial.add("surfaceInverseInfo", LightColorTokens.SurfaceInverseInfo, overwrite)
+    initial.add("surfaceInverseInfo", com.sdds.serv.tokens.LightColorTokens.SurfaceInverseInfo, overwrite)
     initial.add(
         "surfaceInversePositiveMinor",
-        LightColorTokens.SurfaceInversePositiveMinor,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInversePositiveMinor,
         overwrite,
     )
     initial.add(
         "surfaceInverseWarningMinor",
-        LightColorTokens.SurfaceInverseWarningMinor,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseWarningMinor,
         overwrite,
     )
     initial.add(
         "surfaceInverseNegativeMinor",
-        LightColorTokens.SurfaceInverseNegativeMinor,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseNegativeMinor,
         overwrite,
     )
-    initial.add("surfaceInverseInfoMinor", LightColorTokens.SurfaceInverseInfoMinor, overwrite)
+    initial.add("surfaceInverseInfoMinor", com.sdds.serv.tokens.LightColorTokens.SurfaceInverseInfoMinor, overwrite)
     initial.add(
         "surfaceInverseTransparentPositive",
-        LightColorTokens.SurfaceInverseTransparentPositive,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseTransparentPositive,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentWarning",
-        LightColorTokens.SurfaceInverseTransparentWarning,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseTransparentWarning,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentNegative",
-        LightColorTokens.SurfaceInverseTransparentNegative,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseTransparentNegative,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentInfo",
-        LightColorTokens.SurfaceInverseTransparentInfo,
+        com.sdds.serv.tokens.LightColorTokens.SurfaceInverseTransparentInfo,
         overwrite,
     )
-    initial.add("backgroundDefaultPrimary", LightColorTokens.BackgroundDefaultPrimary, overwrite)
+    initial.add("backgroundDefaultPrimary", com.sdds.serv.tokens.LightColorTokens.BackgroundDefaultPrimary, overwrite)
     initial.add(
         "backgroundDefaultPrimaryBrightness",
-        LightColorTokens.BackgroundDefaultPrimaryBrightness,
+        com.sdds.serv.tokens.LightColorTokens.BackgroundDefaultPrimaryBrightness,
         overwrite,
     )
     initial.add(
         "backgroundDefaultSecondary",
-        LightColorTokens.BackgroundDefaultSecondary,
+        com.sdds.serv.tokens.LightColorTokens.BackgroundDefaultSecondary,
         overwrite,
     )
-    initial.add("backgroundDefaultTertiary", LightColorTokens.BackgroundDefaultTertiary, overwrite)
-    initial.add("backgroundDarkPrimary", LightColorTokens.BackgroundDarkPrimary, overwrite)
-    initial.add("backgroundDarkSecondary", LightColorTokens.BackgroundDarkSecondary, overwrite)
-    initial.add("backgroundDarkTertiary", LightColorTokens.BackgroundDarkTertiary, overwrite)
-    initial.add("backgroundLightPrimary", LightColorTokens.BackgroundLightPrimary, overwrite)
-    initial.add("backgroundLightSecondary", LightColorTokens.BackgroundLightSecondary, overwrite)
-    initial.add("backgroundLightTertiary", LightColorTokens.BackgroundLightTertiary, overwrite)
-    initial.add("backgroundInversePrimary", LightColorTokens.BackgroundInversePrimary, overwrite)
+    initial.add("backgroundDefaultTertiary", com.sdds.serv.tokens.LightColorTokens.BackgroundDefaultTertiary, overwrite)
+    initial.add("backgroundDarkPrimary", com.sdds.serv.tokens.LightColorTokens.BackgroundDarkPrimary, overwrite)
+    initial.add("backgroundDarkSecondary", com.sdds.serv.tokens.LightColorTokens.BackgroundDarkSecondary, overwrite)
+    initial.add("backgroundDarkTertiary", com.sdds.serv.tokens.LightColorTokens.BackgroundDarkTertiary, overwrite)
+    initial.add("backgroundLightPrimary", com.sdds.serv.tokens.LightColorTokens.BackgroundLightPrimary, overwrite)
+    initial.add("backgroundLightSecondary", com.sdds.serv.tokens.LightColorTokens.BackgroundLightSecondary, overwrite)
+    initial.add("backgroundLightTertiary", com.sdds.serv.tokens.LightColorTokens.BackgroundLightTertiary, overwrite)
+    initial.add("backgroundInversePrimary", com.sdds.serv.tokens.LightColorTokens.BackgroundInversePrimary, overwrite)
     initial.add(
         "backgroundInversePrimaryBrightness",
-        LightColorTokens.BackgroundInversePrimaryBrightness,
+        com.sdds.serv.tokens.LightColorTokens.BackgroundInversePrimaryBrightness,
         overwrite,
     )
     initial.add(
         "backgroundInverseSecondary",
-        LightColorTokens.BackgroundInverseSecondary,
+        com.sdds.serv.tokens.LightColorTokens.BackgroundInverseSecondary,
         overwrite,
     )
-    initial.add("backgroundInverseTertiary", LightColorTokens.BackgroundInverseTertiary, overwrite)
-    initial.add("overlayDefaultSoft", LightColorTokens.OverlayDefaultSoft, overwrite)
-    initial.add("overlayDefaultHard", LightColorTokens.OverlayDefaultHard, overwrite)
-    initial.add("overlayDefaultBlur", LightColorTokens.OverlayDefaultBlur, overwrite)
-    initial.add("overlayOnDarkSoft", LightColorTokens.OverlayOnDarkSoft, overwrite)
-    initial.add("overlayOnDarkHard", LightColorTokens.OverlayOnDarkHard, overwrite)
-    initial.add("overlayOnDarkBlur", LightColorTokens.OverlayOnDarkBlur, overwrite)
-    initial.add("overlayOnLightSoft", LightColorTokens.OverlayOnLightSoft, overwrite)
-    initial.add("overlayOnLightHard", LightColorTokens.OverlayOnLightHard, overwrite)
-    initial.add("overlayOnLightBlur", LightColorTokens.OverlayOnLightBlur, overwrite)
-    initial.add("overlayInverseSoft", LightColorTokens.OverlayInverseSoft, overwrite)
-    initial.add("overlayInverseHard", LightColorTokens.OverlayInverseHard, overwrite)
-    initial.add("overlayInverseBlur", LightColorTokens.OverlayInverseBlur, overwrite)
+    initial.add("backgroundInverseTertiary", com.sdds.serv.tokens.LightColorTokens.BackgroundInverseTertiary, overwrite)
+    initial.add("overlayDefaultSoft", com.sdds.serv.tokens.LightColorTokens.OverlayDefaultSoft, overwrite)
+    initial.add("overlayDefaultHard", com.sdds.serv.tokens.LightColorTokens.OverlayDefaultHard, overwrite)
+    initial.add("overlayDefaultBlur", com.sdds.serv.tokens.LightColorTokens.OverlayDefaultBlur, overwrite)
+    initial.add("overlayOnDarkSoft", com.sdds.serv.tokens.LightColorTokens.OverlayOnDarkSoft, overwrite)
+    initial.add("overlayOnDarkHard", com.sdds.serv.tokens.LightColorTokens.OverlayOnDarkHard, overwrite)
+    initial.add("overlayOnDarkBlur", com.sdds.serv.tokens.LightColorTokens.OverlayOnDarkBlur, overwrite)
+    initial.add("overlayOnLightSoft", com.sdds.serv.tokens.LightColorTokens.OverlayOnLightSoft, overwrite)
+    initial.add("overlayOnLightHard", com.sdds.serv.tokens.LightColorTokens.OverlayOnLightHard, overwrite)
+    initial.add("overlayOnLightBlur", com.sdds.serv.tokens.LightColorTokens.OverlayOnLightBlur, overwrite)
+    initial.add("overlayInverseSoft", com.sdds.serv.tokens.LightColorTokens.OverlayInverseSoft, overwrite)
+    initial.add("overlayInverseHard", com.sdds.serv.tokens.LightColorTokens.OverlayInverseHard, overwrite)
+    initial.add("overlayInverseBlur", com.sdds.serv.tokens.LightColorTokens.OverlayInverseBlur, overwrite)
     initial.add(
         "outlineDefaultSolidPrimaryHover",
-        LightColorTokens.OutlineDefaultSolidPrimaryHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultSolidPrimaryHover,
         overwrite,
     )
     initial.add(
         "outlineDefaultSolidPrimaryActive",
-        LightColorTokens.OutlineDefaultSolidPrimaryActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultSolidPrimaryActive,
         overwrite,
     )
     initial.add(
         "outlineDefaultSolidSecondaryHover",
-        LightColorTokens.OutlineDefaultSolidSecondaryHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultSolidSecondaryHover,
         overwrite,
     )
     initial.add(
         "outlineDefaultSolidSecondaryActive",
-        LightColorTokens.OutlineDefaultSolidSecondaryActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultSolidSecondaryActive,
         overwrite,
     )
     initial.add(
         "outlineDefaultSolidTertiaryHover",
-        LightColorTokens.OutlineDefaultSolidTertiaryHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultSolidTertiaryHover,
         overwrite,
     )
     initial.add(
         "outlineDefaultSolidTertiaryActive",
-        LightColorTokens.OutlineDefaultSolidTertiaryActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultSolidTertiaryActive,
         overwrite,
     )
     initial.add(
         "outlineDefaultTransparentDefaultHover",
-        LightColorTokens.OutlineDefaultTransparentDefaultHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultTransparentDefaultHover,
         overwrite,
     )
     initial.add(
         "outlineDefaultTransparentDefaultActive",
-        LightColorTokens.OutlineDefaultTransparentDefaultActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultTransparentDefaultActive,
         overwrite,
     )
     initial.add(
         "outlineDefaultTransparentDefault",
-        LightColorTokens.OutlineDefaultTransparentDefault,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultTransparentDefault,
         overwrite,
     )
     initial.add(
         "outlineDefaultTransparentPrimaryHover",
-        LightColorTokens.OutlineDefaultTransparentPrimaryHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultTransparentPrimaryHover,
         overwrite,
     )
     initial.add(
         "outlineDefaultTransparentPrimaryActive",
-        LightColorTokens.OutlineDefaultTransparentPrimaryActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultTransparentPrimaryActive,
         overwrite,
     )
     initial.add(
         "outlineDefaultTransparentSecondaryHover",
-        LightColorTokens.OutlineDefaultTransparentSecondaryHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultTransparentSecondaryHover,
         overwrite,
     )
     initial.add(
         "outlineDefaultTransparentSecondaryActive",
-        LightColorTokens.OutlineDefaultTransparentSecondaryActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultTransparentSecondaryActive,
         overwrite,
     )
     initial.add(
         "outlineDefaultTransparentTertiaryHover",
-        LightColorTokens.OutlineDefaultTransparentTertiaryHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultTransparentTertiaryHover,
         overwrite,
     )
     initial.add(
         "outlineDefaultTransparentTertiaryActive",
-        LightColorTokens.OutlineDefaultTransparentTertiaryActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultTransparentTertiaryActive,
         overwrite,
     )
-    initial.add("outlineDefaultClearHover", LightColorTokens.OutlineDefaultClearHover, overwrite)
-    initial.add("outlineDefaultClearActive", LightColorTokens.OutlineDefaultClearActive, overwrite)
-    initial.add("outlineDefaultAccentHover", LightColorTokens.OutlineDefaultAccentHover, overwrite)
+    initial.add("outlineDefaultClearHover", com.sdds.serv.tokens.LightColorTokens.OutlineDefaultClearHover, overwrite)
+    initial.add("outlineDefaultClearActive", com.sdds.serv.tokens.LightColorTokens.OutlineDefaultClearActive, overwrite)
+    initial.add("outlineDefaultAccentHover", com.sdds.serv.tokens.LightColorTokens.OutlineDefaultAccentHover, overwrite)
     initial.add(
         "outlineDefaultAccentActive",
-        LightColorTokens.OutlineDefaultAccentActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultAccentActive,
         overwrite,
     )
     initial.add(
         "outlineDefaultAccentMinorHover",
-        LightColorTokens.OutlineDefaultAccentMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultAccentMinorHover,
         overwrite,
     )
     initial.add(
         "outlineDefaultAccentMinorActive",
-        LightColorTokens.OutlineDefaultAccentMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultAccentMinorActive,
         overwrite,
     )
     initial.add(
         "outlineDefaultTransparentAccentHover",
-        LightColorTokens.OutlineDefaultTransparentAccentHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultTransparentAccentHover,
         overwrite,
     )
     initial.add(
         "outlineDefaultTransparentAccentActive",
-        LightColorTokens.OutlineDefaultTransparentAccentActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultTransparentAccentActive,
         overwrite,
     )
-    initial.add("outlineDefaultPromoHover", LightColorTokens.OutlineDefaultPromoHover, overwrite)
-    initial.add("outlineDefaultPromoActive", LightColorTokens.OutlineDefaultPromoActive, overwrite)
-    initial.add("outlineDefaultPromo", LightColorTokens.OutlineDefaultPromo, overwrite)
+    initial.add("outlineDefaultPromoHover", com.sdds.serv.tokens.LightColorTokens.OutlineDefaultPromoHover, overwrite)
+    initial.add("outlineDefaultPromoActive", com.sdds.serv.tokens.LightColorTokens.OutlineDefaultPromoActive, overwrite)
+    initial.add("outlineDefaultPromo", com.sdds.serv.tokens.LightColorTokens.OutlineDefaultPromo, overwrite)
     initial.add(
         "outlineDefaultPromoMinorHover",
-        LightColorTokens.OutlineDefaultPromoMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultPromoMinorHover,
         overwrite,
     )
     initial.add(
         "outlineDefaultPromoMinorActive",
-        LightColorTokens.OutlineDefaultPromoMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultPromoMinorActive,
         overwrite,
     )
-    initial.add("outlineDefaultPromoMinor", LightColorTokens.OutlineDefaultPromoMinor, overwrite)
+    initial.add("outlineDefaultPromoMinor", com.sdds.serv.tokens.LightColorTokens.OutlineDefaultPromoMinor, overwrite)
     initial.add(
         "outlineDefaultPositiveHover",
-        LightColorTokens.OutlineDefaultPositiveHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultPositiveHover,
         overwrite,
     )
     initial.add(
         "outlineDefaultPositiveActive",
-        LightColorTokens.OutlineDefaultPositiveActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultPositiveActive,
         overwrite,
     )
     initial.add(
         "outlineDefaultWarningHover",
-        LightColorTokens.OutlineDefaultWarningHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultWarningHover,
         overwrite,
     )
     initial.add(
         "outlineDefaultWarningActive",
-        LightColorTokens.OutlineDefaultWarningActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultWarningActive,
         overwrite,
     )
     initial.add(
         "outlineDefaultNegativeHover",
-        LightColorTokens.OutlineDefaultNegativeHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultNegativeHover,
         overwrite,
     )
     initial.add(
         "outlineDefaultNegativeActive",
-        LightColorTokens.OutlineDefaultNegativeActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultNegativeActive,
         overwrite,
     )
-    initial.add("outlineDefaultInfoHover", LightColorTokens.OutlineDefaultInfoHover, overwrite)
-    initial.add("outlineDefaultInfoActive", LightColorTokens.OutlineDefaultInfoActive, overwrite)
+    initial.add("outlineDefaultInfoHover", com.sdds.serv.tokens.LightColorTokens.OutlineDefaultInfoHover, overwrite)
+    initial.add("outlineDefaultInfoActive", com.sdds.serv.tokens.LightColorTokens.OutlineDefaultInfoActive, overwrite)
     initial.add(
         "outlineDefaultPositiveMinorHover",
-        LightColorTokens.OutlineDefaultPositiveMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultPositiveMinorHover,
         overwrite,
     )
     initial.add(
         "outlineDefaultPositiveMinorActive",
-        LightColorTokens.OutlineDefaultPositiveMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultPositiveMinorActive,
         overwrite,
     )
     initial.add(
         "outlineDefaultWarningMinorHover",
-        LightColorTokens.OutlineDefaultWarningMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultWarningMinorHover,
         overwrite,
     )
     initial.add(
         "outlineDefaultWarningMinorActive",
-        LightColorTokens.OutlineDefaultWarningMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultWarningMinorActive,
         overwrite,
     )
     initial.add(
         "outlineDefaultNegativeMinorHover",
-        LightColorTokens.OutlineDefaultNegativeMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultNegativeMinorHover,
         overwrite,
     )
     initial.add(
         "outlineDefaultNegativeMinorActive",
-        LightColorTokens.OutlineDefaultNegativeMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultNegativeMinorActive,
         overwrite,
     )
     initial.add(
         "outlineDefaultInfoMinorHover",
-        LightColorTokens.OutlineDefaultInfoMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultInfoMinorHover,
         overwrite,
     )
     initial.add(
         "outlineDefaultInfoMinorActive",
-        LightColorTokens.OutlineDefaultInfoMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultInfoMinorActive,
         overwrite,
     )
     initial.add(
         "outlineDefaultTransparentPositiveHover",
-        LightColorTokens.OutlineDefaultTransparentPositiveHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultTransparentPositiveHover,
         overwrite,
     )
     initial.add(
         "outlineDefaultTransparentPositiveActive",
-        LightColorTokens.OutlineDefaultTransparentPositiveActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultTransparentPositiveActive,
         overwrite,
     )
     initial.add(
         "outlineDefaultTransparentWarningHover",
-        LightColorTokens.OutlineDefaultTransparentWarningHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultTransparentWarningHover,
         overwrite,
     )
     initial.add(
         "outlineDefaultTransparentWarningActive",
-        LightColorTokens.OutlineDefaultTransparentWarningActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultTransparentWarningActive,
         overwrite,
     )
     initial.add(
         "outlineDefaultTransparentNegativeHover",
-        LightColorTokens.OutlineDefaultTransparentNegativeHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultTransparentNegativeHover,
         overwrite,
     )
     initial.add(
         "outlineDefaultTransparentNegativeActive",
-        LightColorTokens.OutlineDefaultTransparentNegativeActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultTransparentNegativeActive,
         overwrite,
     )
     initial.add(
         "outlineDefaultTransparentInfoHover",
-        LightColorTokens.OutlineDefaultTransparentInfoHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultTransparentInfoHover,
         overwrite,
     )
     initial.add(
         "outlineDefaultTransparentInfoActive",
-        LightColorTokens.OutlineDefaultTransparentInfoActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultTransparentInfoActive,
         overwrite,
     )
-    initial.add("outlineDefaultClear", LightColorTokens.OutlineDefaultClear, overwrite)
+    initial.add("outlineDefaultClear", com.sdds.serv.tokens.LightColorTokens.OutlineDefaultClear, overwrite)
     initial.add(
         "outlineDefaultSolidPrimary",
-        LightColorTokens.OutlineDefaultSolidPrimary,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultSolidPrimary,
         overwrite,
     )
     initial.add(
         "outlineDefaultSolidTertiary",
-        LightColorTokens.OutlineDefaultSolidTertiary,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultSolidTertiary,
         overwrite,
     )
-    initial.add("outlineDefaultAccent", LightColorTokens.OutlineDefaultAccent, overwrite)
-    initial.add("outlineDefaultAccentMinor", LightColorTokens.OutlineDefaultAccentMinor, overwrite)
+    initial.add("outlineDefaultAccent", com.sdds.serv.tokens.LightColorTokens.OutlineDefaultAccent, overwrite)
+    initial.add("outlineDefaultAccentMinor", com.sdds.serv.tokens.LightColorTokens.OutlineDefaultAccentMinor, overwrite)
     initial.add(
         "outlineDefaultTransparentAccent",
-        LightColorTokens.OutlineDefaultTransparentAccent,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultTransparentAccent,
         overwrite,
     )
-    initial.add("outlineDefaultWarning", LightColorTokens.OutlineDefaultWarning, overwrite)
-    initial.add("outlineDefaultPositive", LightColorTokens.OutlineDefaultPositive, overwrite)
+    initial.add("outlineDefaultWarning", com.sdds.serv.tokens.LightColorTokens.OutlineDefaultWarning, overwrite)
+    initial.add("outlineDefaultPositive", com.sdds.serv.tokens.LightColorTokens.OutlineDefaultPositive, overwrite)
     initial.add(
         "outlineDefaultTransparentPositive",
-        LightColorTokens.OutlineDefaultTransparentPositive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultTransparentPositive,
         overwrite,
     )
-    initial.add("outlineDefaultNegative", LightColorTokens.OutlineDefaultNegative, overwrite)
-    initial.add("outlineDefaultInfo", LightColorTokens.OutlineDefaultInfo, overwrite)
+    initial.add("outlineDefaultNegative", com.sdds.serv.tokens.LightColorTokens.OutlineDefaultNegative, overwrite)
+    initial.add("outlineDefaultInfo", com.sdds.serv.tokens.LightColorTokens.OutlineDefaultInfo, overwrite)
     initial.add(
         "outlineDefaultPositiveMinor",
-        LightColorTokens.OutlineDefaultPositiveMinor,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultPositiveMinor,
         overwrite,
     )
     initial.add(
         "outlineDefaultWarningMinor",
-        LightColorTokens.OutlineDefaultWarningMinor,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultWarningMinor,
         overwrite,
     )
     initial.add(
         "outlineDefaultNegativeMinor",
-        LightColorTokens.OutlineDefaultNegativeMinor,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultNegativeMinor,
         overwrite,
     )
-    initial.add("outlineDefaultInfoMinor", LightColorTokens.OutlineDefaultInfoMinor, overwrite)
+    initial.add("outlineDefaultInfoMinor", com.sdds.serv.tokens.LightColorTokens.OutlineDefaultInfoMinor, overwrite)
     initial.add(
         "outlineDefaultTransparentWarning",
-        LightColorTokens.OutlineDefaultTransparentWarning,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultTransparentWarning,
         overwrite,
     )
     initial.add(
         "outlineDefaultTransparentNegative",
-        LightColorTokens.OutlineDefaultTransparentNegative,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultTransparentNegative,
         overwrite,
     )
     initial.add(
         "outlineDefaultTransparentInfo",
-        LightColorTokens.OutlineDefaultTransparentInfo,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultTransparentInfo,
         overwrite,
     )
     initial.add(
         "outlineDefaultTransparentPrimary",
-        LightColorTokens.OutlineDefaultTransparentPrimary,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultTransparentPrimary,
         overwrite,
     )
     initial.add(
         "outlineDefaultTransparentSecondary",
-        LightColorTokens.OutlineDefaultTransparentSecondary,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultTransparentSecondary,
         overwrite,
     )
     initial.add(
         "outlineDefaultTransparentTertiary",
-        LightColorTokens.OutlineDefaultTransparentTertiary,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultTransparentTertiary,
         overwrite,
     )
     initial.add(
         "outlineDefaultSolidSecondary",
-        LightColorTokens.OutlineDefaultSolidSecondary,
+        com.sdds.serv.tokens.LightColorTokens.OutlineDefaultSolidSecondary,
         overwrite,
     )
     initial.add(
         "outlineOnDarkSolidPrimaryHover",
-        LightColorTokens.OutlineOnDarkSolidPrimaryHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkSolidPrimaryHover,
         overwrite,
     )
     initial.add(
         "outlineOnDarkSolidPrimaryActive",
-        LightColorTokens.OutlineOnDarkSolidPrimaryActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkSolidPrimaryActive,
         overwrite,
     )
     initial.add(
         "outlineOnDarkSolidSecondaryHover",
-        LightColorTokens.OutlineOnDarkSolidSecondaryHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkSolidSecondaryHover,
         overwrite,
     )
     initial.add(
         "outlineOnDarkSolidSecondaryActive",
-        LightColorTokens.OutlineOnDarkSolidSecondaryActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkSolidSecondaryActive,
         overwrite,
     )
     initial.add(
         "outlineOnDarkSolidTertiaryHover",
-        LightColorTokens.OutlineOnDarkSolidTertiaryHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkSolidTertiaryHover,
         overwrite,
     )
     initial.add(
         "outlineOnDarkSolidTertiaryActive",
-        LightColorTokens.OutlineOnDarkSolidTertiaryActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkSolidTertiaryActive,
         overwrite,
     )
     initial.add(
         "outlineOnDarkTransparentDefaultHover",
-        LightColorTokens.OutlineOnDarkTransparentDefaultHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkTransparentDefaultHover,
         overwrite,
     )
     initial.add(
         "outlineOnDarkTransparentDefaultActive",
-        LightColorTokens.OutlineOnDarkTransparentDefaultActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkTransparentDefaultActive,
         overwrite,
     )
     initial.add(
         "outlineOnDarkTransparentDefault",
-        LightColorTokens.OutlineOnDarkTransparentDefault,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkTransparentDefault,
         overwrite,
     )
     initial.add(
         "outlineOnDarkTransparentPrimaryHover",
-        LightColorTokens.OutlineOnDarkTransparentPrimaryHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkTransparentPrimaryHover,
         overwrite,
     )
     initial.add(
         "outlineOnDarkTransparentPrimaryActive",
-        LightColorTokens.OutlineOnDarkTransparentPrimaryActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkTransparentPrimaryActive,
         overwrite,
     )
     initial.add(
         "outlineOnDarkTransparentSecondaryHover",
-        LightColorTokens.OutlineOnDarkTransparentSecondaryHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkTransparentSecondaryHover,
         overwrite,
     )
     initial.add(
         "outlineOnDarkTransparentSecondaryActive",
-        LightColorTokens.OutlineOnDarkTransparentSecondaryActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkTransparentSecondaryActive,
         overwrite,
     )
     initial.add(
         "outlineOnDarkTransparentTertiaryHover",
-        LightColorTokens.OutlineOnDarkTransparentTertiaryHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkTransparentTertiaryHover,
         overwrite,
     )
     initial.add(
         "outlineOnDarkTransparentTertiaryActive",
-        LightColorTokens.OutlineOnDarkTransparentTertiaryActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkTransparentTertiaryActive,
         overwrite,
     )
-    initial.add("outlineOnDarkClearHover", LightColorTokens.OutlineOnDarkClearHover, overwrite)
-    initial.add("outlineOnDarkClearActive", LightColorTokens.OutlineOnDarkClearActive, overwrite)
-    initial.add("outlineOnDarkAccentHover", LightColorTokens.OutlineOnDarkAccentHover, overwrite)
-    initial.add("outlineOnDarkAccentActive", LightColorTokens.OutlineOnDarkAccentActive, overwrite)
+    initial.add("outlineOnDarkClearHover", com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkClearHover, overwrite)
+    initial.add("outlineOnDarkClearActive", com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkClearActive, overwrite)
+    initial.add("outlineOnDarkAccentHover", com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkAccentHover, overwrite)
+    initial.add("outlineOnDarkAccentActive", com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkAccentActive, overwrite)
     initial.add(
         "outlineOnDarkAccentMinorHover",
-        LightColorTokens.OutlineOnDarkAccentMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkAccentMinorHover,
         overwrite,
     )
     initial.add(
         "outlineOnDarkAccentMinorActive",
-        LightColorTokens.OutlineOnDarkAccentMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkAccentMinorActive,
         overwrite,
     )
     initial.add(
         "outlineOnDarkTransparentAccentHover",
-        LightColorTokens.OutlineOnDarkTransparentAccentHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkTransparentAccentHover,
         overwrite,
     )
     initial.add(
         "outlineOnDarkTransparentAccentActive",
-        LightColorTokens.OutlineOnDarkTransparentAccentActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkTransparentAccentActive,
         overwrite,
     )
-    initial.add("outlineOnDarkPromoHover", LightColorTokens.OutlineOnDarkPromoHover, overwrite)
-    initial.add("outlineOnDarkPromoActive", LightColorTokens.OutlineOnDarkPromoActive, overwrite)
-    initial.add("outlineOnDarkPromo", LightColorTokens.OutlineOnDarkPromo, overwrite)
+    initial.add("outlineOnDarkPromoHover", com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkPromoHover, overwrite)
+    initial.add("outlineOnDarkPromoActive", com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkPromoActive, overwrite)
+    initial.add("outlineOnDarkPromo", com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkPromo, overwrite)
     initial.add(
         "outlineOnDarkPromoMinorHover",
-        LightColorTokens.OutlineOnDarkPromoMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkPromoMinorHover,
         overwrite,
     )
     initial.add(
         "outlineOnDarkPromoMinorActive",
-        LightColorTokens.OutlineOnDarkPromoMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkPromoMinorActive,
         overwrite,
     )
-    initial.add("outlineOnDarkPromoMinor", LightColorTokens.OutlineOnDarkPromoMinor, overwrite)
+    initial.add("outlineOnDarkPromoMinor", com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkPromoMinor, overwrite)
     initial.add(
         "outlineOnDarkPositiveHover",
-        LightColorTokens.OutlineOnDarkPositiveHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkPositiveHover,
         overwrite,
     )
     initial.add(
         "outlineOnDarkPositiveActive",
-        LightColorTokens.OutlineOnDarkPositiveActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkPositiveActive,
         overwrite,
     )
-    initial.add("outlineOnDarkWarningHover", LightColorTokens.OutlineOnDarkWarningHover, overwrite)
+    initial.add("outlineOnDarkWarningHover", com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkWarningHover, overwrite)
     initial.add(
         "outlineOnDarkWarningActive",
-        LightColorTokens.OutlineOnDarkWarningActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkWarningActive,
         overwrite,
     )
     initial.add(
         "outlineOnDarkNegativeHover",
-        LightColorTokens.OutlineOnDarkNegativeHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkNegativeHover,
         overwrite,
     )
     initial.add(
         "outlineOnDarkNegativeActive",
-        LightColorTokens.OutlineOnDarkNegativeActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkNegativeActive,
         overwrite,
     )
-    initial.add("outlineOnDarkInfoHover", LightColorTokens.OutlineOnDarkInfoHover, overwrite)
-    initial.add("outlineOnDarkInfoActive", LightColorTokens.OutlineOnDarkInfoActive, overwrite)
+    initial.add("outlineOnDarkInfoHover", com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkInfoHover, overwrite)
+    initial.add("outlineOnDarkInfoActive", com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkInfoActive, overwrite)
     initial.add(
         "outlineOnDarkPositiveMinorHover",
-        LightColorTokens.OutlineOnDarkPositiveMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkPositiveMinorHover,
         overwrite,
     )
     initial.add(
         "outlineOnDarkPositiveMinorActive",
-        LightColorTokens.OutlineOnDarkPositiveMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkPositiveMinorActive,
         overwrite,
     )
     initial.add(
         "outlineOnDarkWarningMinorHover",
-        LightColorTokens.OutlineOnDarkWarningMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkWarningMinorHover,
         overwrite,
     )
     initial.add(
         "outlineOnDarkWarningMinorActive",
-        LightColorTokens.OutlineOnDarkWarningMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkWarningMinorActive,
         overwrite,
     )
     initial.add(
         "outlineOnDarkNegativeMinorHover",
-        LightColorTokens.OutlineOnDarkNegativeMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkNegativeMinorHover,
         overwrite,
     )
     initial.add(
         "outlineOnDarkNegativeMinorActive",
-        LightColorTokens.OutlineOnDarkNegativeMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkNegativeMinorActive,
         overwrite,
     )
     initial.add(
         "outlineOnDarkInfoMinorHover",
-        LightColorTokens.OutlineOnDarkInfoMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkInfoMinorHover,
         overwrite,
     )
     initial.add(
         "outlineOnDarkInfoMinorActive",
-        LightColorTokens.OutlineOnDarkInfoMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkInfoMinorActive,
         overwrite,
     )
     initial.add(
         "outlineOnDarkTransparentPositiveHover",
-        LightColorTokens.OutlineOnDarkTransparentPositiveHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkTransparentPositiveHover,
         overwrite,
     )
     initial.add(
         "outlineOnDarkTransparentPositiveActive",
-        LightColorTokens.OutlineOnDarkTransparentPositiveActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkTransparentPositiveActive,
         overwrite,
     )
     initial.add(
         "outlineOnDarkTransparentWarningHover",
-        LightColorTokens.OutlineOnDarkTransparentWarningHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkTransparentWarningHover,
         overwrite,
     )
     initial.add(
         "outlineOnDarkTransparentWarningActive",
-        LightColorTokens.OutlineOnDarkTransparentWarningActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkTransparentWarningActive,
         overwrite,
     )
     initial.add(
         "outlineOnDarkTransparentNegativeHover",
-        LightColorTokens.OutlineOnDarkTransparentNegativeHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkTransparentNegativeHover,
         overwrite,
     )
     initial.add(
         "outlineOnDarkTransparentNegativeActive",
-        LightColorTokens.OutlineOnDarkTransparentNegativeActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkTransparentNegativeActive,
         overwrite,
     )
     initial.add(
         "outlineOnDarkTransparentInfoHover",
-        LightColorTokens.OutlineOnDarkTransparentInfoHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkTransparentInfoHover,
         overwrite,
     )
     initial.add(
         "outlineOnDarkTransparentInfoActive",
-        LightColorTokens.OutlineOnDarkTransparentInfoActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkTransparentInfoActive,
         overwrite,
     )
-    initial.add("outlineOnDarkClear", LightColorTokens.OutlineOnDarkClear, overwrite)
-    initial.add("outlineOnDarkSolidPrimary", LightColorTokens.OutlineOnDarkSolidPrimary, overwrite)
-    initial.add("outlineOnDarkAccent", LightColorTokens.OutlineOnDarkAccent, overwrite)
-    initial.add("outlineOnDarkAccentMinor", LightColorTokens.OutlineOnDarkAccentMinor, overwrite)
+    initial.add("outlineOnDarkClear", com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkClear, overwrite)
+    initial.add("outlineOnDarkSolidPrimary", com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkSolidPrimary, overwrite)
+    initial.add("outlineOnDarkAccent", com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkAccent, overwrite)
+    initial.add("outlineOnDarkAccentMinor", com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkAccentMinor, overwrite)
     initial.add(
         "outlineOnDarkTransparentAccent",
-        LightColorTokens.OutlineOnDarkTransparentAccent,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkTransparentAccent,
         overwrite,
     )
     initial.add(
         "outlineOnDarkTransparentPositive",
-        LightColorTokens.OutlineOnDarkTransparentPositive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkTransparentPositive,
         overwrite,
     )
-    initial.add("outlineOnDarkPositive", LightColorTokens.OutlineOnDarkPositive, overwrite)
-    initial.add("outlineOnDarkWarning", LightColorTokens.OutlineOnDarkWarning, overwrite)
-    initial.add("outlineOnDarkNegative", LightColorTokens.OutlineOnDarkNegative, overwrite)
-    initial.add("outlineOnDarkInfo", LightColorTokens.OutlineOnDarkInfo, overwrite)
+    initial.add("outlineOnDarkPositive", com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkPositive, overwrite)
+    initial.add("outlineOnDarkWarning", com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkWarning, overwrite)
+    initial.add("outlineOnDarkNegative", com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkNegative, overwrite)
+    initial.add("outlineOnDarkInfo", com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkInfo, overwrite)
     initial.add(
         "outlineOnDarkPositiveMinor",
-        LightColorTokens.OutlineOnDarkPositiveMinor,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkPositiveMinor,
         overwrite,
     )
-    initial.add("outlineOnDarkWarningMinor", LightColorTokens.OutlineOnDarkWarningMinor, overwrite)
+    initial.add("outlineOnDarkWarningMinor", com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkWarningMinor, overwrite)
     initial.add(
         "outlineOnDarkNegativeMinor",
-        LightColorTokens.OutlineOnDarkNegativeMinor,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkNegativeMinor,
         overwrite,
     )
-    initial.add("outlineOnDarkInfoMinor", LightColorTokens.OutlineOnDarkInfoMinor, overwrite)
+    initial.add("outlineOnDarkInfoMinor", com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkInfoMinor, overwrite)
     initial.add(
         "outlineOnDarkTransparentWarning",
-        LightColorTokens.OutlineOnDarkTransparentWarning,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkTransparentWarning,
         overwrite,
     )
     initial.add(
         "outlineOnDarkTransparentNegative",
-        LightColorTokens.OutlineOnDarkTransparentNegative,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkTransparentNegative,
         overwrite,
     )
     initial.add(
         "outlineOnDarkTransparentInfo",
-        LightColorTokens.OutlineOnDarkTransparentInfo,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkTransparentInfo,
         overwrite,
     )
     initial.add(
         "outlineOnDarkTransparentPrimary",
-        LightColorTokens.OutlineOnDarkTransparentPrimary,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkTransparentPrimary,
         overwrite,
     )
     initial.add(
         "outlineOnDarkTransparentSecondary",
-        LightColorTokens.OutlineOnDarkTransparentSecondary,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkTransparentSecondary,
         overwrite,
     )
     initial.add(
         "outlineOnDarkTransparentTertiary",
-        LightColorTokens.OutlineOnDarkTransparentTertiary,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkTransparentTertiary,
         overwrite,
     )
     initial.add(
         "outlineOnDarkSolidSecondary",
-        LightColorTokens.OutlineOnDarkSolidSecondary,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkSolidSecondary,
         overwrite,
     )
     initial.add(
         "outlineOnDarkSolidTertiary",
-        LightColorTokens.OutlineOnDarkSolidTertiary,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnDarkSolidTertiary,
         overwrite,
     )
     initial.add(
         "outlineOnLightSolidPrimaryHover",
-        LightColorTokens.OutlineOnLightSolidPrimaryHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightSolidPrimaryHover,
         overwrite,
     )
     initial.add(
         "outlineOnLightSolidPrimaryActive",
-        LightColorTokens.OutlineOnLightSolidPrimaryActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightSolidPrimaryActive,
         overwrite,
     )
     initial.add(
         "outlineOnLightSolidSecondaryHover",
-        LightColorTokens.OutlineOnLightSolidSecondaryHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightSolidSecondaryHover,
         overwrite,
     )
     initial.add(
         "outlineOnLightSolidSecondaryActive",
-        LightColorTokens.OutlineOnLightSolidSecondaryActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightSolidSecondaryActive,
         overwrite,
     )
     initial.add(
         "outlineOnLightSolidTertiaryHover",
-        LightColorTokens.OutlineOnLightSolidTertiaryHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightSolidTertiaryHover,
         overwrite,
     )
     initial.add(
         "outlineOnLightSolidTertiaryActive",
-        LightColorTokens.OutlineOnLightSolidTertiaryActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightSolidTertiaryActive,
         overwrite,
     )
     initial.add(
         "outlineOnLightTransparentDefaultHover",
-        LightColorTokens.OutlineOnLightTransparentDefaultHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightTransparentDefaultHover,
         overwrite,
     )
     initial.add(
         "outlineOnLightTransparentDefaultActive",
-        LightColorTokens.OutlineOnLightTransparentDefaultActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightTransparentDefaultActive,
         overwrite,
     )
     initial.add(
         "outlineOnLightTransparentDefault",
-        LightColorTokens.OutlineOnLightTransparentDefault,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightTransparentDefault,
         overwrite,
     )
     initial.add(
         "outlineOnLightTransparentPrimaryHover",
-        LightColorTokens.OutlineOnLightTransparentPrimaryHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightTransparentPrimaryHover,
         overwrite,
     )
     initial.add(
         "outlineOnLightTransparentPrimaryActive",
-        LightColorTokens.OutlineOnLightTransparentPrimaryActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightTransparentPrimaryActive,
         overwrite,
     )
     initial.add(
         "outlineOnLightTransparentSecondaryHover",
-        LightColorTokens.OutlineOnLightTransparentSecondaryHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightTransparentSecondaryHover,
         overwrite,
     )
     initial.add(
         "outlineOnLightTransparentSecondaryActive",
-        LightColorTokens.OutlineOnLightTransparentSecondaryActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightTransparentSecondaryActive,
         overwrite,
     )
     initial.add(
         "outlineOnLightTransparentTertiaryHover",
-        LightColorTokens.OutlineOnLightTransparentTertiaryHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightTransparentTertiaryHover,
         overwrite,
     )
     initial.add(
         "outlineOnLightTransparentTertiaryActive",
-        LightColorTokens.OutlineOnLightTransparentTertiaryActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightTransparentTertiaryActive,
         overwrite,
     )
-    initial.add("outlineOnLightClearHover", LightColorTokens.OutlineOnLightClearHover, overwrite)
-    initial.add("outlineOnLightClearActive", LightColorTokens.OutlineOnLightClearActive, overwrite)
-    initial.add("outlineOnLightAccentHover", LightColorTokens.OutlineOnLightAccentHover, overwrite)
+    initial.add("outlineOnLightClearHover", com.sdds.serv.tokens.LightColorTokens.OutlineOnLightClearHover, overwrite)
+    initial.add("outlineOnLightClearActive", com.sdds.serv.tokens.LightColorTokens.OutlineOnLightClearActive, overwrite)
+    initial.add("outlineOnLightAccentHover", com.sdds.serv.tokens.LightColorTokens.OutlineOnLightAccentHover, overwrite)
     initial.add(
         "outlineOnLightAccentActive",
-        LightColorTokens.OutlineOnLightAccentActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightAccentActive,
         overwrite,
     )
     initial.add(
         "outlineOnLightAccentMinorHover",
-        LightColorTokens.OutlineOnLightAccentMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightAccentMinorHover,
         overwrite,
     )
     initial.add(
         "outlineOnLightAccentMinorActive",
-        LightColorTokens.OutlineOnLightAccentMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightAccentMinorActive,
         overwrite,
     )
     initial.add(
         "outlineOnLightTransparentAccentHover",
-        LightColorTokens.OutlineOnLightTransparentAccentHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightTransparentAccentHover,
         overwrite,
     )
     initial.add(
         "outlineOnLightTransparentAccentActive",
-        LightColorTokens.OutlineOnLightTransparentAccentActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightTransparentAccentActive,
         overwrite,
     )
-    initial.add("outlineOnLightPromoHover", LightColorTokens.OutlineOnLightPromoHover, overwrite)
-    initial.add("outlineOnLightPromoActive", LightColorTokens.OutlineOnLightPromoActive, overwrite)
-    initial.add("outlineOnLightPromo", LightColorTokens.OutlineOnLightPromo, overwrite)
+    initial.add("outlineOnLightPromoHover", com.sdds.serv.tokens.LightColorTokens.OutlineOnLightPromoHover, overwrite)
+    initial.add("outlineOnLightPromoActive", com.sdds.serv.tokens.LightColorTokens.OutlineOnLightPromoActive, overwrite)
+    initial.add("outlineOnLightPromo", com.sdds.serv.tokens.LightColorTokens.OutlineOnLightPromo, overwrite)
     initial.add(
         "outlineOnLightPromoMinorHover",
-        LightColorTokens.OutlineOnLightPromoMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightPromoMinorHover,
         overwrite,
     )
     initial.add(
         "outlineOnLightPromoMinorActive",
-        LightColorTokens.OutlineOnLightPromoMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightPromoMinorActive,
         overwrite,
     )
-    initial.add("outlineOnLightPromoMinor", LightColorTokens.OutlineOnLightPromoMinor, overwrite)
+    initial.add("outlineOnLightPromoMinor", com.sdds.serv.tokens.LightColorTokens.OutlineOnLightPromoMinor, overwrite)
     initial.add(
         "outlineOnLightPositiveHover",
-        LightColorTokens.OutlineOnLightPositiveHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightPositiveHover,
         overwrite,
     )
     initial.add(
         "outlineOnLightPositiveActive",
-        LightColorTokens.OutlineOnLightPositiveActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightPositiveActive,
         overwrite,
     )
     initial.add(
         "outlineOnLightWarningHover",
-        LightColorTokens.OutlineOnLightWarningHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightWarningHover,
         overwrite,
     )
     initial.add(
         "outlineOnLightWarningActive",
-        LightColorTokens.OutlineOnLightWarningActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightWarningActive,
         overwrite,
     )
     initial.add(
         "outlineOnLightNegativeHover",
-        LightColorTokens.OutlineOnLightNegativeHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightNegativeHover,
         overwrite,
     )
     initial.add(
         "outlineOnLightNegativeActive",
-        LightColorTokens.OutlineOnLightNegativeActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightNegativeActive,
         overwrite,
     )
-    initial.add("outlineOnLightInfoHover", LightColorTokens.OutlineOnLightInfoHover, overwrite)
-    initial.add("outlineOnLightInfoActive", LightColorTokens.OutlineOnLightInfoActive, overwrite)
+    initial.add("outlineOnLightInfoHover", com.sdds.serv.tokens.LightColorTokens.OutlineOnLightInfoHover, overwrite)
+    initial.add("outlineOnLightInfoActive", com.sdds.serv.tokens.LightColorTokens.OutlineOnLightInfoActive, overwrite)
     initial.add(
         "outlineOnLightPositiveMinorHover",
-        LightColorTokens.OutlineOnLightPositiveMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightPositiveMinorHover,
         overwrite,
     )
     initial.add(
         "outlineOnLightPositiveMinorActive",
-        LightColorTokens.OutlineOnLightPositiveMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightPositiveMinorActive,
         overwrite,
     )
     initial.add(
         "outlineOnLightWarningMinorHover",
-        LightColorTokens.OutlineOnLightWarningMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightWarningMinorHover,
         overwrite,
     )
     initial.add(
         "outlineOnLightWarningMinorActive",
-        LightColorTokens.OutlineOnLightWarningMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightWarningMinorActive,
         overwrite,
     )
     initial.add(
         "outlineOnLightNegativeMinorHover",
-        LightColorTokens.OutlineOnLightNegativeMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightNegativeMinorHover,
         overwrite,
     )
     initial.add(
         "outlineOnLightNegativeMinorActive",
-        LightColorTokens.OutlineOnLightNegativeMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightNegativeMinorActive,
         overwrite,
     )
     initial.add(
         "outlineOnLightInfoMinorHover",
-        LightColorTokens.OutlineOnLightInfoMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightInfoMinorHover,
         overwrite,
     )
     initial.add(
         "outlineOnLightInfoMinorActive",
-        LightColorTokens.OutlineOnLightInfoMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightInfoMinorActive,
         overwrite,
     )
     initial.add(
         "outlineOnLightTransparentPositiveHover",
-        LightColorTokens.OutlineOnLightTransparentPositiveHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightTransparentPositiveHover,
         overwrite,
     )
     initial.add(
         "outlineOnLightTransparentPositiveActive",
-        LightColorTokens.OutlineOnLightTransparentPositiveActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightTransparentPositiveActive,
         overwrite,
     )
     initial.add(
         "outlineOnLightTransparentWarningHover",
-        LightColorTokens.OutlineOnLightTransparentWarningHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightTransparentWarningHover,
         overwrite,
     )
     initial.add(
         "outlineOnLightTransparentWarningActive",
-        LightColorTokens.OutlineOnLightTransparentWarningActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightTransparentWarningActive,
         overwrite,
     )
     initial.add(
         "outlineOnLightTransparentNegativeHover",
-        LightColorTokens.OutlineOnLightTransparentNegativeHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightTransparentNegativeHover,
         overwrite,
     )
     initial.add(
         "outlineOnLightTransparentNegativeActive",
-        LightColorTokens.OutlineOnLightTransparentNegativeActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightTransparentNegativeActive,
         overwrite,
     )
     initial.add(
         "outlineOnLightTransparentInfoHover",
-        LightColorTokens.OutlineOnLightTransparentInfoHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightTransparentInfoHover,
         overwrite,
     )
     initial.add(
         "outlineOnLightTransparentInfoActive",
-        LightColorTokens.OutlineOnLightTransparentInfoActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightTransparentInfoActive,
         overwrite,
     )
-    initial.add("outlineOnLightClear", LightColorTokens.OutlineOnLightClear, overwrite)
+    initial.add("outlineOnLightClear", com.sdds.serv.tokens.LightColorTokens.OutlineOnLightClear, overwrite)
     initial.add(
         "outlineOnLightTransparentAccent",
-        LightColorTokens.OutlineOnLightTransparentAccent,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightTransparentAccent,
         overwrite,
     )
-    initial.add("outlineOnLightPositive", LightColorTokens.OutlineOnLightPositive, overwrite)
+    initial.add("outlineOnLightPositive", com.sdds.serv.tokens.LightColorTokens.OutlineOnLightPositive, overwrite)
     initial.add(
         "outlineOnLightTransparentPositive",
-        LightColorTokens.OutlineOnLightTransparentPositive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightTransparentPositive,
         overwrite,
     )
     initial.add(
         "outlineOnLightTransparentWarning",
-        LightColorTokens.OutlineOnLightTransparentWarning,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightTransparentWarning,
         overwrite,
     )
     initial.add(
         "outlineOnLightTransparentNegative",
-        LightColorTokens.OutlineOnLightTransparentNegative,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightTransparentNegative,
         overwrite,
     )
     initial.add(
         "outlineOnLightTransparentInfo",
-        LightColorTokens.OutlineOnLightTransparentInfo,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightTransparentInfo,
         overwrite,
     )
     initial.add(
         "outlineOnLightSolidPrimary",
-        LightColorTokens.OutlineOnLightSolidPrimary,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightSolidPrimary,
         overwrite,
     )
     initial.add(
         "outlineOnLightSolidTertiary",
-        LightColorTokens.OutlineOnLightSolidTertiary,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightSolidTertiary,
         overwrite,
     )
-    initial.add("outlineOnLightAccent", LightColorTokens.OutlineOnLightAccent, overwrite)
-    initial.add("outlineOnLightAccentMinor", LightColorTokens.OutlineOnLightAccentMinor, overwrite)
-    initial.add("outlineOnLightWarning", LightColorTokens.OutlineOnLightWarning, overwrite)
-    initial.add("outlineOnLightNegative", LightColorTokens.OutlineOnLightNegative, overwrite)
-    initial.add("outlineOnLightInfo", LightColorTokens.OutlineOnLightInfo, overwrite)
+    initial.add("outlineOnLightAccent", com.sdds.serv.tokens.LightColorTokens.OutlineOnLightAccent, overwrite)
+    initial.add("outlineOnLightAccentMinor", com.sdds.serv.tokens.LightColorTokens.OutlineOnLightAccentMinor, overwrite)
+    initial.add("outlineOnLightWarning", com.sdds.serv.tokens.LightColorTokens.OutlineOnLightWarning, overwrite)
+    initial.add("outlineOnLightNegative", com.sdds.serv.tokens.LightColorTokens.OutlineOnLightNegative, overwrite)
+    initial.add("outlineOnLightInfo", com.sdds.serv.tokens.LightColorTokens.OutlineOnLightInfo, overwrite)
     initial.add(
         "outlineOnLightPositiveMinor",
-        LightColorTokens.OutlineOnLightPositiveMinor,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightPositiveMinor,
         overwrite,
     )
     initial.add(
         "outlineOnLightWarningMinor",
-        LightColorTokens.OutlineOnLightWarningMinor,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightWarningMinor,
         overwrite,
     )
     initial.add(
         "outlineOnLightNegativeMinor",
-        LightColorTokens.OutlineOnLightNegativeMinor,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightNegativeMinor,
         overwrite,
     )
-    initial.add("outlineOnLightInfoMinor", LightColorTokens.OutlineOnLightInfoMinor, overwrite)
+    initial.add("outlineOnLightInfoMinor", com.sdds.serv.tokens.LightColorTokens.OutlineOnLightInfoMinor, overwrite)
     initial.add(
         "outlineOnLightTransparentPrimary",
-        LightColorTokens.OutlineOnLightTransparentPrimary,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightTransparentPrimary,
         overwrite,
     )
     initial.add(
         "outlineOnLightTransparentSecondary",
-        LightColorTokens.OutlineOnLightTransparentSecondary,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightTransparentSecondary,
         overwrite,
     )
     initial.add(
         "outlineOnLightTransparentTertiary",
-        LightColorTokens.OutlineOnLightTransparentTertiary,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightTransparentTertiary,
         overwrite,
     )
     initial.add(
         "outlineOnLightSolidSecondary",
-        LightColorTokens.OutlineOnLightSolidSecondary,
+        com.sdds.serv.tokens.LightColorTokens.OutlineOnLightSolidSecondary,
         overwrite,
     )
     initial.add(
         "outlineInverseSolidPrimaryHover",
-        LightColorTokens.OutlineInverseSolidPrimaryHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInverseSolidPrimaryHover,
         overwrite,
     )
     initial.add(
         "outlineInverseSolidPrimaryActive",
-        LightColorTokens.OutlineInverseSolidPrimaryActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInverseSolidPrimaryActive,
         overwrite,
     )
     initial.add(
         "outlineInverseSolidSecondaryHover",
-        LightColorTokens.OutlineInverseSolidSecondaryHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInverseSolidSecondaryHover,
         overwrite,
     )
     initial.add(
         "outlineInverseSolidSecondaryActive",
-        LightColorTokens.OutlineInverseSolidSecondaryActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInverseSolidSecondaryActive,
         overwrite,
     )
     initial.add(
         "outlineInverseSolidTertiaryHover",
-        LightColorTokens.OutlineInverseSolidTertiaryHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInverseSolidTertiaryHover,
         overwrite,
     )
     initial.add(
         "outlineInverseSolidTertiaryActive",
-        LightColorTokens.OutlineInverseSolidTertiaryActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInverseSolidTertiaryActive,
         overwrite,
     )
     initial.add(
         "outlineInverseTransparentDefaultHover",
-        LightColorTokens.OutlineInverseTransparentDefaultHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInverseTransparentDefaultHover,
         overwrite,
     )
     initial.add(
         "outlineInverseTransparentDefaultActive",
-        LightColorTokens.OutlineInverseTransparentDefaultActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInverseTransparentDefaultActive,
         overwrite,
     )
     initial.add(
         "outlineInverseTransparentDefault",
-        LightColorTokens.OutlineInverseTransparentDefault,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInverseTransparentDefault,
         overwrite,
     )
     initial.add(
         "outlineInverseTransparentPrimaryHover",
-        LightColorTokens.OutlineInverseTransparentPrimaryHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInverseTransparentPrimaryHover,
         overwrite,
     )
     initial.add(
         "outlineInverseTransparentPrimaryActive",
-        LightColorTokens.OutlineInverseTransparentPrimaryActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInverseTransparentPrimaryActive,
         overwrite,
     )
     initial.add(
         "outlineInverseTransparentSecondaryHover",
-        LightColorTokens.OutlineInverseTransparentSecondaryHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInverseTransparentSecondaryHover,
         overwrite,
     )
     initial.add(
         "outlineInverseTransparentSecondaryActive",
-        LightColorTokens.OutlineInverseTransparentSecondaryActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInverseTransparentSecondaryActive,
         overwrite,
     )
     initial.add(
         "outlineInverseTransparentTertiaryHover",
-        LightColorTokens.OutlineInverseTransparentTertiaryHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInverseTransparentTertiaryHover,
         overwrite,
     )
     initial.add(
         "outlineInverseTransparentTertiaryActive",
-        LightColorTokens.OutlineInverseTransparentTertiaryActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInverseTransparentTertiaryActive,
         overwrite,
     )
-    initial.add("outlineInverseClearHover", LightColorTokens.OutlineInverseClearHover, overwrite)
-    initial.add("outlineInverseClearActive", LightColorTokens.OutlineInverseClearActive, overwrite)
-    initial.add("outlineInverseAccentHover", LightColorTokens.OutlineInverseAccentHover, overwrite)
+    initial.add("outlineInverseClearHover", com.sdds.serv.tokens.LightColorTokens.OutlineInverseClearHover, overwrite)
+    initial.add("outlineInverseClearActive", com.sdds.serv.tokens.LightColorTokens.OutlineInverseClearActive, overwrite)
+    initial.add("outlineInverseAccentHover", com.sdds.serv.tokens.LightColorTokens.OutlineInverseAccentHover, overwrite)
     initial.add(
         "outlineInverseAccentActive",
-        LightColorTokens.OutlineInverseAccentActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInverseAccentActive,
         overwrite,
     )
     initial.add(
         "outlineInverseAccentMinorHover",
-        LightColorTokens.OutlineInverseAccentMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInverseAccentMinorHover,
         overwrite,
     )
     initial.add(
         "outlineInverseAccentMinorActive",
-        LightColorTokens.OutlineInverseAccentMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInverseAccentMinorActive,
         overwrite,
     )
     initial.add(
         "outlineInverseTransparentAccentHover",
-        LightColorTokens.OutlineInverseTransparentAccentHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInverseTransparentAccentHover,
         overwrite,
     )
     initial.add(
         "outlineInverseTransparentAccentActive",
-        LightColorTokens.OutlineInverseTransparentAccentActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInverseTransparentAccentActive,
         overwrite,
     )
-    initial.add("outlineInversePromoHover", LightColorTokens.OutlineInversePromoHover, overwrite)
-    initial.add("outlineInversePromoActive", LightColorTokens.OutlineInversePromoActive, overwrite)
-    initial.add("outlineInversePromo", LightColorTokens.OutlineInversePromo, overwrite)
+    initial.add("outlineInversePromoHover", com.sdds.serv.tokens.LightColorTokens.OutlineInversePromoHover, overwrite)
+    initial.add("outlineInversePromoActive", com.sdds.serv.tokens.LightColorTokens.OutlineInversePromoActive, overwrite)
+    initial.add("outlineInversePromo", com.sdds.serv.tokens.LightColorTokens.OutlineInversePromo, overwrite)
     initial.add(
         "outlineInversePromoMinorHover",
-        LightColorTokens.OutlineInversePromoMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInversePromoMinorHover,
         overwrite,
     )
     initial.add(
         "outlineInversePromoMinorActive",
-        LightColorTokens.OutlineInversePromoMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInversePromoMinorActive,
         overwrite,
     )
-    initial.add("outlineInversePromoMinor", LightColorTokens.OutlineInversePromoMinor, overwrite)
+    initial.add("outlineInversePromoMinor", com.sdds.serv.tokens.LightColorTokens.OutlineInversePromoMinor, overwrite)
     initial.add(
         "outlineInversePositiveHover",
-        LightColorTokens.OutlineInversePositiveHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInversePositiveHover,
         overwrite,
     )
     initial.add(
         "outlineInversePositiveActive",
-        LightColorTokens.OutlineInversePositiveActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInversePositiveActive,
         overwrite,
     )
     initial.add(
         "outlineInverseWarningHover",
-        LightColorTokens.OutlineInverseWarningHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInverseWarningHover,
         overwrite,
     )
     initial.add(
         "outlineInverseWarningActive",
-        LightColorTokens.OutlineInverseWarningActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInverseWarningActive,
         overwrite,
     )
     initial.add(
         "outlineInverseNegativeHover",
-        LightColorTokens.OutlineInverseNegativeHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInverseNegativeHover,
         overwrite,
     )
     initial.add(
         "outlineInverseNegativeActive",
-        LightColorTokens.OutlineInverseNegativeActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInverseNegativeActive,
         overwrite,
     )
-    initial.add("outlineInverseInfoHover", LightColorTokens.OutlineInverseInfoHover, overwrite)
-    initial.add("outlineInverseInfoActive", LightColorTokens.OutlineInverseInfoActive, overwrite)
+    initial.add("outlineInverseInfoHover", com.sdds.serv.tokens.LightColorTokens.OutlineInverseInfoHover, overwrite)
+    initial.add("outlineInverseInfoActive", com.sdds.serv.tokens.LightColorTokens.OutlineInverseInfoActive, overwrite)
     initial.add(
         "outlineInversePositiveMinorHover",
-        LightColorTokens.OutlineInversePositiveMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInversePositiveMinorHover,
         overwrite,
     )
     initial.add(
         "outlineInversePositiveMinorActive",
-        LightColorTokens.OutlineInversePositiveMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInversePositiveMinorActive,
         overwrite,
     )
     initial.add(
         "outlineInverseWarningMinorHover",
-        LightColorTokens.OutlineInverseWarningMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInverseWarningMinorHover,
         overwrite,
     )
     initial.add(
         "outlineInverseWarningMinorActive",
-        LightColorTokens.OutlineInverseWarningMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInverseWarningMinorActive,
         overwrite,
     )
     initial.add(
         "outlineInverseNegativeMinorHover",
-        LightColorTokens.OutlineInverseNegativeMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInverseNegativeMinorHover,
         overwrite,
     )
     initial.add(
         "outlineInverseNegativeMinorActive",
-        LightColorTokens.OutlineInverseNegativeMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInverseNegativeMinorActive,
         overwrite,
     )
     initial.add(
         "outlineInverseInfoMinorHover",
-        LightColorTokens.OutlineInverseInfoMinorHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInverseInfoMinorHover,
         overwrite,
     )
     initial.add(
         "outlineInverseInfoMinorActive",
-        LightColorTokens.OutlineInverseInfoMinorActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInverseInfoMinorActive,
         overwrite,
     )
     initial.add(
         "outlineInverseTransparentPositiveHover",
-        LightColorTokens.OutlineInverseTransparentPositiveHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInverseTransparentPositiveHover,
         overwrite,
     )
     initial.add(
         "outlineInverseTransparentPositiveActive",
-        LightColorTokens.OutlineInverseTransparentPositiveActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInverseTransparentPositiveActive,
         overwrite,
     )
     initial.add(
         "outlineInverseTransparentWarningHover",
-        LightColorTokens.OutlineInverseTransparentWarningHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInverseTransparentWarningHover,
         overwrite,
     )
     initial.add(
         "outlineInverseTransparentWarningActive",
-        LightColorTokens.OutlineInverseTransparentWarningActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInverseTransparentWarningActive,
         overwrite,
     )
     initial.add(
         "outlineInverseTransparentNegativeHover",
-        LightColorTokens.OutlineInverseTransparentNegativeHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInverseTransparentNegativeHover,
         overwrite,
     )
     initial.add(
         "outlineInverseTransparentNegativeActive",
-        LightColorTokens.OutlineInverseTransparentNegativeActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInverseTransparentNegativeActive,
         overwrite,
     )
     initial.add(
         "outlineInverseTransparentInfoHover",
-        LightColorTokens.OutlineInverseTransparentInfoHover,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInverseTransparentInfoHover,
         overwrite,
     )
     initial.add(
         "outlineInverseTransparentInfoActive",
-        LightColorTokens.OutlineInverseTransparentInfoActive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInverseTransparentInfoActive,
         overwrite,
     )
-    initial.add("outlineInverseClear", LightColorTokens.OutlineInverseClear, overwrite)
+    initial.add("outlineInverseClear", com.sdds.serv.tokens.LightColorTokens.OutlineInverseClear, overwrite)
     initial.add(
         "outlineInverseTransparentAccent",
-        LightColorTokens.OutlineInverseTransparentAccent,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInverseTransparentAccent,
         overwrite,
     )
     initial.add(
         "outlineInverseTransparentPositive",
-        LightColorTokens.OutlineInverseTransparentPositive,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInverseTransparentPositive,
         overwrite,
     )
     initial.add(
         "outlineInverseTransparentWarning",
-        LightColorTokens.OutlineInverseTransparentWarning,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInverseTransparentWarning,
         overwrite,
     )
     initial.add(
         "outlineInverseTransparentNegative",
-        LightColorTokens.OutlineInverseTransparentNegative,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInverseTransparentNegative,
         overwrite,
     )
     initial.add(
         "outlineInverseTransparentInfo",
-        LightColorTokens.OutlineInverseTransparentInfo,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInverseTransparentInfo,
         overwrite,
     )
     initial.add(
         "outlineInverseSolidPrimary",
-        LightColorTokens.OutlineInverseSolidPrimary,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInverseSolidPrimary,
         overwrite,
     )
-    initial.add("outlineInverseAccent", LightColorTokens.OutlineInverseAccent, overwrite)
-    initial.add("outlineInverseAccentMinor", LightColorTokens.OutlineInverseAccentMinor, overwrite)
-    initial.add("outlineInversePositive", LightColorTokens.OutlineInversePositive, overwrite)
-    initial.add("outlineInverseWarning", LightColorTokens.OutlineInverseWarning, overwrite)
-    initial.add("outlineInverseNegative", LightColorTokens.OutlineInverseNegative, overwrite)
-    initial.add("outlineInverseInfo", LightColorTokens.OutlineInverseInfo, overwrite)
+    initial.add("outlineInverseAccent", com.sdds.serv.tokens.LightColorTokens.OutlineInverseAccent, overwrite)
+    initial.add("outlineInverseAccentMinor", com.sdds.serv.tokens.LightColorTokens.OutlineInverseAccentMinor, overwrite)
+    initial.add("outlineInversePositive", com.sdds.serv.tokens.LightColorTokens.OutlineInversePositive, overwrite)
+    initial.add("outlineInverseWarning", com.sdds.serv.tokens.LightColorTokens.OutlineInverseWarning, overwrite)
+    initial.add("outlineInverseNegative", com.sdds.serv.tokens.LightColorTokens.OutlineInverseNegative, overwrite)
+    initial.add("outlineInverseInfo", com.sdds.serv.tokens.LightColorTokens.OutlineInverseInfo, overwrite)
     initial.add(
         "outlineInversePositiveMinor",
-        LightColorTokens.OutlineInversePositiveMinor,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInversePositiveMinor,
         overwrite,
     )
     initial.add(
         "outlineInverseWarningMinor",
-        LightColorTokens.OutlineInverseWarningMinor,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInverseWarningMinor,
         overwrite,
     )
     initial.add(
         "outlineInverseNegativeMinor",
-        LightColorTokens.OutlineInverseNegativeMinor,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInverseNegativeMinor,
         overwrite,
     )
-    initial.add("outlineInverseInfoMinor", LightColorTokens.OutlineInverseInfoMinor, overwrite)
+    initial.add("outlineInverseInfoMinor", com.sdds.serv.tokens.LightColorTokens.OutlineInverseInfoMinor, overwrite)
     initial.add(
         "outlineInverseTransparentPrimary",
-        LightColorTokens.OutlineInverseTransparentPrimary,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInverseTransparentPrimary,
         overwrite,
     )
     initial.add(
         "outlineInverseTransparentSecondary",
-        LightColorTokens.OutlineInverseTransparentSecondary,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInverseTransparentSecondary,
         overwrite,
     )
     initial.add(
         "outlineInverseTransparentTertiary",
-        LightColorTokens.OutlineInverseTransparentTertiary,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInverseTransparentTertiary,
         overwrite,
     )
     initial.add(
         "outlineInverseSolidSecondary",
-        LightColorTokens.OutlineInverseSolidSecondary,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInverseSolidSecondary,
         overwrite,
     )
     initial.add(
         "outlineInverseSolidTertiary",
-        LightColorTokens.OutlineInverseSolidTertiary,
+        com.sdds.serv.tokens.LightColorTokens.OutlineInverseSolidTertiary,
         overwrite,
     )
     return SddsServColors(initial)
@@ -13462,2934 +13462,2934 @@ public fun darkSddsServColors(overrideColors: ColorOverrideScope.() -> Unit = {}
     overrideColors.invoke(colorOverrideScope)
     val overwrite = colorOverrideScope.overrideMap
     val initial = mutableMapOf<String, Color>()
-    initial.add("textDefaultPrimaryHover", DarkColorTokens.TextDefaultPrimaryHover, overwrite)
-    initial.add("textDefaultPrimaryActive", DarkColorTokens.TextDefaultPrimaryActive, overwrite)
-    initial.add("textDefaultPrimary", DarkColorTokens.TextDefaultPrimary, overwrite)
+    initial.add("textDefaultPrimaryHover", com.sdds.serv.tokens.DarkColorTokens.TextDefaultPrimaryHover, overwrite)
+    initial.add("textDefaultPrimaryActive", com.sdds.serv.tokens.DarkColorTokens.TextDefaultPrimaryActive, overwrite)
+    initial.add("textDefaultPrimary", com.sdds.serv.tokens.DarkColorTokens.TextDefaultPrimary, overwrite)
     initial.add(
         "textDefaultPrimaryBrightness",
-        DarkColorTokens.TextDefaultPrimaryBrightness,
+        com.sdds.serv.tokens.DarkColorTokens.TextDefaultPrimaryBrightness,
         overwrite,
     )
-    initial.add("textDefaultSecondaryHover", DarkColorTokens.TextDefaultSecondaryHover, overwrite)
-    initial.add("textDefaultSecondaryActive", DarkColorTokens.TextDefaultSecondaryActive, overwrite)
-    initial.add("textDefaultSecondary", DarkColorTokens.TextDefaultSecondary, overwrite)
-    initial.add("textDefaultTertiaryHover", DarkColorTokens.TextDefaultTertiaryHover, overwrite)
-    initial.add("textDefaultTertiaryActive", DarkColorTokens.TextDefaultTertiaryActive, overwrite)
-    initial.add("textDefaultTertiary", DarkColorTokens.TextDefaultTertiary, overwrite)
-    initial.add("textDefaultParagraphHover", DarkColorTokens.TextDefaultParagraphHover, overwrite)
-    initial.add("textDefaultParagraphActive", DarkColorTokens.TextDefaultParagraphActive, overwrite)
-    initial.add("textDefaultParagraph", DarkColorTokens.TextDefaultParagraph, overwrite)
-    initial.add("textDefaultAccentHover", DarkColorTokens.TextDefaultAccentHover, overwrite)
-    initial.add("textDefaultAccentActive", DarkColorTokens.TextDefaultAccentActive, overwrite)
-    initial.add("textDefaultAccent", DarkColorTokens.TextDefaultAccent, overwrite)
+    initial.add("textDefaultSecondaryHover", com.sdds.serv.tokens.DarkColorTokens.TextDefaultSecondaryHover, overwrite)
+    initial.add("textDefaultSecondaryActive", com.sdds.serv.tokens.DarkColorTokens.TextDefaultSecondaryActive, overwrite)
+    initial.add("textDefaultSecondary", com.sdds.serv.tokens.DarkColorTokens.TextDefaultSecondary, overwrite)
+    initial.add("textDefaultTertiaryHover", com.sdds.serv.tokens.DarkColorTokens.TextDefaultTertiaryHover, overwrite)
+    initial.add("textDefaultTertiaryActive", com.sdds.serv.tokens.DarkColorTokens.TextDefaultTertiaryActive, overwrite)
+    initial.add("textDefaultTertiary", com.sdds.serv.tokens.DarkColorTokens.TextDefaultTertiary, overwrite)
+    initial.add("textDefaultParagraphHover", com.sdds.serv.tokens.DarkColorTokens.TextDefaultParagraphHover, overwrite)
+    initial.add("textDefaultParagraphActive", com.sdds.serv.tokens.DarkColorTokens.TextDefaultParagraphActive, overwrite)
+    initial.add("textDefaultParagraph", com.sdds.serv.tokens.DarkColorTokens.TextDefaultParagraph, overwrite)
+    initial.add("textDefaultAccentHover", com.sdds.serv.tokens.DarkColorTokens.TextDefaultAccentHover, overwrite)
+    initial.add("textDefaultAccentActive", com.sdds.serv.tokens.DarkColorTokens.TextDefaultAccentActive, overwrite)
+    initial.add("textDefaultAccent", com.sdds.serv.tokens.DarkColorTokens.TextDefaultAccent, overwrite)
     initial.add(
         "textDefaultAccentMinorHover",
-        DarkColorTokens.TextDefaultAccentMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.TextDefaultAccentMinorHover,
         overwrite,
     )
     initial.add(
         "textDefaultAccentMinorActive",
-        DarkColorTokens.TextDefaultAccentMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.TextDefaultAccentMinorActive,
         overwrite,
     )
-    initial.add("textDefaultPromoHover", DarkColorTokens.TextDefaultPromoHover, overwrite)
-    initial.add("textDefaultPromoActive", DarkColorTokens.TextDefaultPromoActive, overwrite)
-    initial.add("textDefaultPromo", DarkColorTokens.TextDefaultPromo, overwrite)
-    initial.add("textDefaultPromoMinorHover", DarkColorTokens.TextDefaultPromoMinorHover, overwrite)
+    initial.add("textDefaultPromoHover", com.sdds.serv.tokens.DarkColorTokens.TextDefaultPromoHover, overwrite)
+    initial.add("textDefaultPromoActive", com.sdds.serv.tokens.DarkColorTokens.TextDefaultPromoActive, overwrite)
+    initial.add("textDefaultPromo", com.sdds.serv.tokens.DarkColorTokens.TextDefaultPromo, overwrite)
+    initial.add("textDefaultPromoMinorHover", com.sdds.serv.tokens.DarkColorTokens.TextDefaultPromoMinorHover, overwrite)
     initial.add(
         "textDefaultPromoMinorActive",
-        DarkColorTokens.TextDefaultPromoMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.TextDefaultPromoMinorActive,
         overwrite,
     )
-    initial.add("textDefaultPromoMinor", DarkColorTokens.TextDefaultPromoMinor, overwrite)
-    initial.add("textDefaultPositiveHover", DarkColorTokens.TextDefaultPositiveHover, overwrite)
-    initial.add("textDefaultPositiveActive", DarkColorTokens.TextDefaultPositiveActive, overwrite)
-    initial.add("textDefaultPositive", DarkColorTokens.TextDefaultPositive, overwrite)
-    initial.add("textDefaultWarningHover", DarkColorTokens.TextDefaultWarningHover, overwrite)
-    initial.add("textDefaultWarningActive", DarkColorTokens.TextDefaultWarningActive, overwrite)
-    initial.add("textDefaultWarning", DarkColorTokens.TextDefaultWarning, overwrite)
-    initial.add("textDefaultNegativeHover", DarkColorTokens.TextDefaultNegativeHover, overwrite)
-    initial.add("textDefaultNegativeActive", DarkColorTokens.TextDefaultNegativeActive, overwrite)
-    initial.add("textDefaultNegative", DarkColorTokens.TextDefaultNegative, overwrite)
-    initial.add("textDefaultInfoHover", DarkColorTokens.TextDefaultInfoHover, overwrite)
-    initial.add("textDefaultInfoActive", DarkColorTokens.TextDefaultInfoActive, overwrite)
+    initial.add("textDefaultPromoMinor", com.sdds.serv.tokens.DarkColorTokens.TextDefaultPromoMinor, overwrite)
+    initial.add("textDefaultPositiveHover", com.sdds.serv.tokens.DarkColorTokens.TextDefaultPositiveHover, overwrite)
+    initial.add("textDefaultPositiveActive", com.sdds.serv.tokens.DarkColorTokens.TextDefaultPositiveActive, overwrite)
+    initial.add("textDefaultPositive", com.sdds.serv.tokens.DarkColorTokens.TextDefaultPositive, overwrite)
+    initial.add("textDefaultWarningHover", com.sdds.serv.tokens.DarkColorTokens.TextDefaultWarningHover, overwrite)
+    initial.add("textDefaultWarningActive", com.sdds.serv.tokens.DarkColorTokens.TextDefaultWarningActive, overwrite)
+    initial.add("textDefaultWarning", com.sdds.serv.tokens.DarkColorTokens.TextDefaultWarning, overwrite)
+    initial.add("textDefaultNegativeHover", com.sdds.serv.tokens.DarkColorTokens.TextDefaultNegativeHover, overwrite)
+    initial.add("textDefaultNegativeActive", com.sdds.serv.tokens.DarkColorTokens.TextDefaultNegativeActive, overwrite)
+    initial.add("textDefaultNegative", com.sdds.serv.tokens.DarkColorTokens.TextDefaultNegative, overwrite)
+    initial.add("textDefaultInfoHover", com.sdds.serv.tokens.DarkColorTokens.TextDefaultInfoHover, overwrite)
+    initial.add("textDefaultInfoActive", com.sdds.serv.tokens.DarkColorTokens.TextDefaultInfoActive, overwrite)
     initial.add(
         "textDefaultPositiveMinorHover",
-        DarkColorTokens.TextDefaultPositiveMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.TextDefaultPositiveMinorHover,
         overwrite,
     )
     initial.add(
         "textDefaultPositiveMinorActive",
-        DarkColorTokens.TextDefaultPositiveMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.TextDefaultPositiveMinorActive,
         overwrite,
     )
     initial.add(
         "textDefaultWarningMinorHover",
-        DarkColorTokens.TextDefaultWarningMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.TextDefaultWarningMinorHover,
         overwrite,
     )
     initial.add(
         "textDefaultWarningMinorActive",
-        DarkColorTokens.TextDefaultWarningMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.TextDefaultWarningMinorActive,
         overwrite,
     )
     initial.add(
         "textDefaultNegativeMinorHover",
-        DarkColorTokens.TextDefaultNegativeMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.TextDefaultNegativeMinorHover,
         overwrite,
     )
     initial.add(
         "textDefaultNegativeMinorActive",
-        DarkColorTokens.TextDefaultNegativeMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.TextDefaultNegativeMinorActive,
         overwrite,
     )
-    initial.add("textDefaultInfoMinorHover", DarkColorTokens.TextDefaultInfoMinorHover, overwrite)
-    initial.add("textDefaultInfoMinorActive", DarkColorTokens.TextDefaultInfoMinorActive, overwrite)
-    initial.add("textDefaultAccentMinor", DarkColorTokens.TextDefaultAccentMinor, overwrite)
-    initial.add("textDefaultInfo", DarkColorTokens.TextDefaultInfo, overwrite)
-    initial.add("textDefaultPositiveMinor", DarkColorTokens.TextDefaultPositiveMinor, overwrite)
-    initial.add("textDefaultWarningMinor", DarkColorTokens.TextDefaultWarningMinor, overwrite)
-    initial.add("textDefaultNegativeMinor", DarkColorTokens.TextDefaultNegativeMinor, overwrite)
-    initial.add("textDefaultInfoMinor", DarkColorTokens.TextDefaultInfoMinor, overwrite)
-    initial.add("textOnDarkPrimaryHover", DarkColorTokens.TextOnDarkPrimaryHover, overwrite)
-    initial.add("textOnDarkPrimaryActive", DarkColorTokens.TextOnDarkPrimaryActive, overwrite)
-    initial.add("textOnDarkPrimary", DarkColorTokens.TextOnDarkPrimary, overwrite)
+    initial.add("textDefaultInfoMinorHover", com.sdds.serv.tokens.DarkColorTokens.TextDefaultInfoMinorHover, overwrite)
+    initial.add("textDefaultInfoMinorActive", com.sdds.serv.tokens.DarkColorTokens.TextDefaultInfoMinorActive, overwrite)
+    initial.add("textDefaultAccentMinor", com.sdds.serv.tokens.DarkColorTokens.TextDefaultAccentMinor, overwrite)
+    initial.add("textDefaultInfo", com.sdds.serv.tokens.DarkColorTokens.TextDefaultInfo, overwrite)
+    initial.add("textDefaultPositiveMinor", com.sdds.serv.tokens.DarkColorTokens.TextDefaultPositiveMinor, overwrite)
+    initial.add("textDefaultWarningMinor", com.sdds.serv.tokens.DarkColorTokens.TextDefaultWarningMinor, overwrite)
+    initial.add("textDefaultNegativeMinor", com.sdds.serv.tokens.DarkColorTokens.TextDefaultNegativeMinor, overwrite)
+    initial.add("textDefaultInfoMinor", com.sdds.serv.tokens.DarkColorTokens.TextDefaultInfoMinor, overwrite)
+    initial.add("textOnDarkPrimaryHover", com.sdds.serv.tokens.DarkColorTokens.TextOnDarkPrimaryHover, overwrite)
+    initial.add("textOnDarkPrimaryActive", com.sdds.serv.tokens.DarkColorTokens.TextOnDarkPrimaryActive, overwrite)
+    initial.add("textOnDarkPrimary", com.sdds.serv.tokens.DarkColorTokens.TextOnDarkPrimary, overwrite)
     initial.add(
         "textOnDarkPrimaryBrightness",
-        DarkColorTokens.TextOnDarkPrimaryBrightness,
+        com.sdds.serv.tokens.DarkColorTokens.TextOnDarkPrimaryBrightness,
         overwrite,
     )
-    initial.add("textOnDarkSecondaryHover", DarkColorTokens.TextOnDarkSecondaryHover, overwrite)
-    initial.add("textOnDarkSecondaryActive", DarkColorTokens.TextOnDarkSecondaryActive, overwrite)
-    initial.add("textOnDarkSecondary", DarkColorTokens.TextOnDarkSecondary, overwrite)
-    initial.add("textOnDarkTertiaryHover", DarkColorTokens.TextOnDarkTertiaryHover, overwrite)
-    initial.add("textOnDarkTertiaryActive", DarkColorTokens.TextOnDarkTertiaryActive, overwrite)
-    initial.add("textOnDarkTertiary", DarkColorTokens.TextOnDarkTertiary, overwrite)
-    initial.add("textOnDarkParagraphHover", DarkColorTokens.TextOnDarkParagraphHover, overwrite)
-    initial.add("textOnDarkParagraphActive", DarkColorTokens.TextOnDarkParagraphActive, overwrite)
-    initial.add("textOnDarkParagraph", DarkColorTokens.TextOnDarkParagraph, overwrite)
-    initial.add("textOnDarkAccentHover", DarkColorTokens.TextOnDarkAccentHover, overwrite)
-    initial.add("textOnDarkAccentActive", DarkColorTokens.TextOnDarkAccentActive, overwrite)
-    initial.add("textOnDarkAccent", DarkColorTokens.TextOnDarkAccent, overwrite)
-    initial.add("textOnDarkAccentMinorHover", DarkColorTokens.TextOnDarkAccentMinorHover, overwrite)
+    initial.add("textOnDarkSecondaryHover", com.sdds.serv.tokens.DarkColorTokens.TextOnDarkSecondaryHover, overwrite)
+    initial.add("textOnDarkSecondaryActive", com.sdds.serv.tokens.DarkColorTokens.TextOnDarkSecondaryActive, overwrite)
+    initial.add("textOnDarkSecondary", com.sdds.serv.tokens.DarkColorTokens.TextOnDarkSecondary, overwrite)
+    initial.add("textOnDarkTertiaryHover", com.sdds.serv.tokens.DarkColorTokens.TextOnDarkTertiaryHover, overwrite)
+    initial.add("textOnDarkTertiaryActive", com.sdds.serv.tokens.DarkColorTokens.TextOnDarkTertiaryActive, overwrite)
+    initial.add("textOnDarkTertiary", com.sdds.serv.tokens.DarkColorTokens.TextOnDarkTertiary, overwrite)
+    initial.add("textOnDarkParagraphHover", com.sdds.serv.tokens.DarkColorTokens.TextOnDarkParagraphHover, overwrite)
+    initial.add("textOnDarkParagraphActive", com.sdds.serv.tokens.DarkColorTokens.TextOnDarkParagraphActive, overwrite)
+    initial.add("textOnDarkParagraph", com.sdds.serv.tokens.DarkColorTokens.TextOnDarkParagraph, overwrite)
+    initial.add("textOnDarkAccentHover", com.sdds.serv.tokens.DarkColorTokens.TextOnDarkAccentHover, overwrite)
+    initial.add("textOnDarkAccentActive", com.sdds.serv.tokens.DarkColorTokens.TextOnDarkAccentActive, overwrite)
+    initial.add("textOnDarkAccent", com.sdds.serv.tokens.DarkColorTokens.TextOnDarkAccent, overwrite)
+    initial.add("textOnDarkAccentMinorHover", com.sdds.serv.tokens.DarkColorTokens.TextOnDarkAccentMinorHover, overwrite)
     initial.add(
         "textOnDarkAccentMinorActive",
-        DarkColorTokens.TextOnDarkAccentMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.TextOnDarkAccentMinorActive,
         overwrite,
     )
-    initial.add("textOnDarkPromoHover", DarkColorTokens.TextOnDarkPromoHover, overwrite)
-    initial.add("textOnDarkPromoActive", DarkColorTokens.TextOnDarkPromoActive, overwrite)
-    initial.add("textOnDarkPromo", DarkColorTokens.TextOnDarkPromo, overwrite)
-    initial.add("textOnDarkPromoMinorHover", DarkColorTokens.TextOnDarkPromoMinorHover, overwrite)
-    initial.add("textOnDarkPromoMinorActive", DarkColorTokens.TextOnDarkPromoMinorActive, overwrite)
-    initial.add("textOnDarkPromoMinor", DarkColorTokens.TextOnDarkPromoMinor, overwrite)
-    initial.add("textOnDarkPositiveHover", DarkColorTokens.TextOnDarkPositiveHover, overwrite)
-    initial.add("textOnDarkPositiveActive", DarkColorTokens.TextOnDarkPositiveActive, overwrite)
-    initial.add("textOnDarkPositive", DarkColorTokens.TextOnDarkPositive, overwrite)
-    initial.add("textOnDarkWarningHover", DarkColorTokens.TextOnDarkWarningHover, overwrite)
-    initial.add("textOnDarkWarningActive", DarkColorTokens.TextOnDarkWarningActive, overwrite)
-    initial.add("textOnDarkWarning", DarkColorTokens.TextOnDarkWarning, overwrite)
-    initial.add("textOnDarkNegativeHover", DarkColorTokens.TextOnDarkNegativeHover, overwrite)
-    initial.add("textOnDarkNegativeActive", DarkColorTokens.TextOnDarkNegativeActive, overwrite)
-    initial.add("textOnDarkNegative", DarkColorTokens.TextOnDarkNegative, overwrite)
-    initial.add("textOnDarkInfoHover", DarkColorTokens.TextOnDarkInfoHover, overwrite)
-    initial.add("textOnDarkInfoActive", DarkColorTokens.TextOnDarkInfoActive, overwrite)
+    initial.add("textOnDarkPromoHover", com.sdds.serv.tokens.DarkColorTokens.TextOnDarkPromoHover, overwrite)
+    initial.add("textOnDarkPromoActive", com.sdds.serv.tokens.DarkColorTokens.TextOnDarkPromoActive, overwrite)
+    initial.add("textOnDarkPromo", com.sdds.serv.tokens.DarkColorTokens.TextOnDarkPromo, overwrite)
+    initial.add("textOnDarkPromoMinorHover", com.sdds.serv.tokens.DarkColorTokens.TextOnDarkPromoMinorHover, overwrite)
+    initial.add("textOnDarkPromoMinorActive", com.sdds.serv.tokens.DarkColorTokens.TextOnDarkPromoMinorActive, overwrite)
+    initial.add("textOnDarkPromoMinor", com.sdds.serv.tokens.DarkColorTokens.TextOnDarkPromoMinor, overwrite)
+    initial.add("textOnDarkPositiveHover", com.sdds.serv.tokens.DarkColorTokens.TextOnDarkPositiveHover, overwrite)
+    initial.add("textOnDarkPositiveActive", com.sdds.serv.tokens.DarkColorTokens.TextOnDarkPositiveActive, overwrite)
+    initial.add("textOnDarkPositive", com.sdds.serv.tokens.DarkColorTokens.TextOnDarkPositive, overwrite)
+    initial.add("textOnDarkWarningHover", com.sdds.serv.tokens.DarkColorTokens.TextOnDarkWarningHover, overwrite)
+    initial.add("textOnDarkWarningActive", com.sdds.serv.tokens.DarkColorTokens.TextOnDarkWarningActive, overwrite)
+    initial.add("textOnDarkWarning", com.sdds.serv.tokens.DarkColorTokens.TextOnDarkWarning, overwrite)
+    initial.add("textOnDarkNegativeHover", com.sdds.serv.tokens.DarkColorTokens.TextOnDarkNegativeHover, overwrite)
+    initial.add("textOnDarkNegativeActive", com.sdds.serv.tokens.DarkColorTokens.TextOnDarkNegativeActive, overwrite)
+    initial.add("textOnDarkNegative", com.sdds.serv.tokens.DarkColorTokens.TextOnDarkNegative, overwrite)
+    initial.add("textOnDarkInfoHover", com.sdds.serv.tokens.DarkColorTokens.TextOnDarkInfoHover, overwrite)
+    initial.add("textOnDarkInfoActive", com.sdds.serv.tokens.DarkColorTokens.TextOnDarkInfoActive, overwrite)
     initial.add(
         "textOnDarkPositiveMinorHover",
-        DarkColorTokens.TextOnDarkPositiveMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.TextOnDarkPositiveMinorHover,
         overwrite,
     )
     initial.add(
         "textOnDarkPositiveMinorActive",
-        DarkColorTokens.TextOnDarkPositiveMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.TextOnDarkPositiveMinorActive,
         overwrite,
     )
     initial.add(
         "textOnDarkWarningMinorHover",
-        DarkColorTokens.TextOnDarkWarningMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.TextOnDarkWarningMinorHover,
         overwrite,
     )
     initial.add(
         "textOnDarkWarningMinorActive",
-        DarkColorTokens.TextOnDarkWarningMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.TextOnDarkWarningMinorActive,
         overwrite,
     )
     initial.add(
         "textOnDarkNegativeMinorHover",
-        DarkColorTokens.TextOnDarkNegativeMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.TextOnDarkNegativeMinorHover,
         overwrite,
     )
     initial.add(
         "textOnDarkNegativeMinorActive",
-        DarkColorTokens.TextOnDarkNegativeMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.TextOnDarkNegativeMinorActive,
         overwrite,
     )
-    initial.add("textOnDarkInfoMinorHover", DarkColorTokens.TextOnDarkInfoMinorHover, overwrite)
-    initial.add("textOnDarkInfoMinorActive", DarkColorTokens.TextOnDarkInfoMinorActive, overwrite)
-    initial.add("textOnDarkAccentMinor", DarkColorTokens.TextOnDarkAccentMinor, overwrite)
-    initial.add("textOnDarkInfo", DarkColorTokens.TextOnDarkInfo, overwrite)
-    initial.add("textOnDarkPositiveMinor", DarkColorTokens.TextOnDarkPositiveMinor, overwrite)
-    initial.add("textOnDarkWarningMinor", DarkColorTokens.TextOnDarkWarningMinor, overwrite)
-    initial.add("textOnDarkNegativeMinor", DarkColorTokens.TextOnDarkNegativeMinor, overwrite)
-    initial.add("textOnDarkInfoMinor", DarkColorTokens.TextOnDarkInfoMinor, overwrite)
-    initial.add("textOnLightPrimaryHover", DarkColorTokens.TextOnLightPrimaryHover, overwrite)
-    initial.add("textOnLightPrimaryActive", DarkColorTokens.TextOnLightPrimaryActive, overwrite)
-    initial.add("textOnLightPrimary", DarkColorTokens.TextOnLightPrimary, overwrite)
+    initial.add("textOnDarkInfoMinorHover", com.sdds.serv.tokens.DarkColorTokens.TextOnDarkInfoMinorHover, overwrite)
+    initial.add("textOnDarkInfoMinorActive", com.sdds.serv.tokens.DarkColorTokens.TextOnDarkInfoMinorActive, overwrite)
+    initial.add("textOnDarkAccentMinor", com.sdds.serv.tokens.DarkColorTokens.TextOnDarkAccentMinor, overwrite)
+    initial.add("textOnDarkInfo", com.sdds.serv.tokens.DarkColorTokens.TextOnDarkInfo, overwrite)
+    initial.add("textOnDarkPositiveMinor", com.sdds.serv.tokens.DarkColorTokens.TextOnDarkPositiveMinor, overwrite)
+    initial.add("textOnDarkWarningMinor", com.sdds.serv.tokens.DarkColorTokens.TextOnDarkWarningMinor, overwrite)
+    initial.add("textOnDarkNegativeMinor", com.sdds.serv.tokens.DarkColorTokens.TextOnDarkNegativeMinor, overwrite)
+    initial.add("textOnDarkInfoMinor", com.sdds.serv.tokens.DarkColorTokens.TextOnDarkInfoMinor, overwrite)
+    initial.add("textOnLightPrimaryHover", com.sdds.serv.tokens.DarkColorTokens.TextOnLightPrimaryHover, overwrite)
+    initial.add("textOnLightPrimaryActive", com.sdds.serv.tokens.DarkColorTokens.TextOnLightPrimaryActive, overwrite)
+    initial.add("textOnLightPrimary", com.sdds.serv.tokens.DarkColorTokens.TextOnLightPrimary, overwrite)
     initial.add(
         "textOnLightPrimaryBrightness",
-        DarkColorTokens.TextOnLightPrimaryBrightness,
+        com.sdds.serv.tokens.DarkColorTokens.TextOnLightPrimaryBrightness,
         overwrite,
     )
-    initial.add("textOnLightSecondaryHover", DarkColorTokens.TextOnLightSecondaryHover, overwrite)
-    initial.add("textOnLightSecondaryActive", DarkColorTokens.TextOnLightSecondaryActive, overwrite)
-    initial.add("textOnLightSecondary", DarkColorTokens.TextOnLightSecondary, overwrite)
-    initial.add("textOnLightTertiaryHover", DarkColorTokens.TextOnLightTertiaryHover, overwrite)
-    initial.add("textOnLightTertiaryActive", DarkColorTokens.TextOnLightTertiaryActive, overwrite)
-    initial.add("textOnLightTertiary", DarkColorTokens.TextOnLightTertiary, overwrite)
-    initial.add("textOnLightParagraphHover", DarkColorTokens.TextOnLightParagraphHover, overwrite)
-    initial.add("textOnLightParagraphActive", DarkColorTokens.TextOnLightParagraphActive, overwrite)
-    initial.add("textOnLightParagraph", DarkColorTokens.TextOnLightParagraph, overwrite)
-    initial.add("textOnLightAccentHover", DarkColorTokens.TextOnLightAccentHover, overwrite)
-    initial.add("textOnLightAccentActive", DarkColorTokens.TextOnLightAccentActive, overwrite)
-    initial.add("textOnLightAccent", DarkColorTokens.TextOnLightAccent, overwrite)
+    initial.add("textOnLightSecondaryHover", com.sdds.serv.tokens.DarkColorTokens.TextOnLightSecondaryHover, overwrite)
+    initial.add("textOnLightSecondaryActive", com.sdds.serv.tokens.DarkColorTokens.TextOnLightSecondaryActive, overwrite)
+    initial.add("textOnLightSecondary", com.sdds.serv.tokens.DarkColorTokens.TextOnLightSecondary, overwrite)
+    initial.add("textOnLightTertiaryHover", com.sdds.serv.tokens.DarkColorTokens.TextOnLightTertiaryHover, overwrite)
+    initial.add("textOnLightTertiaryActive", com.sdds.serv.tokens.DarkColorTokens.TextOnLightTertiaryActive, overwrite)
+    initial.add("textOnLightTertiary", com.sdds.serv.tokens.DarkColorTokens.TextOnLightTertiary, overwrite)
+    initial.add("textOnLightParagraphHover", com.sdds.serv.tokens.DarkColorTokens.TextOnLightParagraphHover, overwrite)
+    initial.add("textOnLightParagraphActive", com.sdds.serv.tokens.DarkColorTokens.TextOnLightParagraphActive, overwrite)
+    initial.add("textOnLightParagraph", com.sdds.serv.tokens.DarkColorTokens.TextOnLightParagraph, overwrite)
+    initial.add("textOnLightAccentHover", com.sdds.serv.tokens.DarkColorTokens.TextOnLightAccentHover, overwrite)
+    initial.add("textOnLightAccentActive", com.sdds.serv.tokens.DarkColorTokens.TextOnLightAccentActive, overwrite)
+    initial.add("textOnLightAccent", com.sdds.serv.tokens.DarkColorTokens.TextOnLightAccent, overwrite)
     initial.add(
         "textOnLightAccentMinorHover",
-        DarkColorTokens.TextOnLightAccentMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.TextOnLightAccentMinorHover,
         overwrite,
     )
     initial.add(
         "textOnLightAccentMinorActive",
-        DarkColorTokens.TextOnLightAccentMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.TextOnLightAccentMinorActive,
         overwrite,
     )
-    initial.add("textOnLightPromoHover", DarkColorTokens.TextOnLightPromoHover, overwrite)
-    initial.add("textOnLightPromoActive", DarkColorTokens.TextOnLightPromoActive, overwrite)
-    initial.add("textOnLightPromo", DarkColorTokens.TextOnLightPromo, overwrite)
-    initial.add("textOnLightPromoMinorHover", DarkColorTokens.TextOnLightPromoMinorHover, overwrite)
+    initial.add("textOnLightPromoHover", com.sdds.serv.tokens.DarkColorTokens.TextOnLightPromoHover, overwrite)
+    initial.add("textOnLightPromoActive", com.sdds.serv.tokens.DarkColorTokens.TextOnLightPromoActive, overwrite)
+    initial.add("textOnLightPromo", com.sdds.serv.tokens.DarkColorTokens.TextOnLightPromo, overwrite)
+    initial.add("textOnLightPromoMinorHover", com.sdds.serv.tokens.DarkColorTokens.TextOnLightPromoMinorHover, overwrite)
     initial.add(
         "textOnLightPromoMinorActive",
-        DarkColorTokens.TextOnLightPromoMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.TextOnLightPromoMinorActive,
         overwrite,
     )
-    initial.add("textOnLightPromoMinor", DarkColorTokens.TextOnLightPromoMinor, overwrite)
-    initial.add("textOnLightPositiveHover", DarkColorTokens.TextOnLightPositiveHover, overwrite)
-    initial.add("textOnLightPositiveActive", DarkColorTokens.TextOnLightPositiveActive, overwrite)
-    initial.add("textOnLightPositive", DarkColorTokens.TextOnLightPositive, overwrite)
-    initial.add("textOnLightWarningHover", DarkColorTokens.TextOnLightWarningHover, overwrite)
-    initial.add("textOnLightWarningActive", DarkColorTokens.TextOnLightWarningActive, overwrite)
-    initial.add("textOnLightWarning", DarkColorTokens.TextOnLightWarning, overwrite)
-    initial.add("textOnLightNegativeHover", DarkColorTokens.TextOnLightNegativeHover, overwrite)
-    initial.add("textOnLightNegativeActive", DarkColorTokens.TextOnLightNegativeActive, overwrite)
-    initial.add("textOnLightNegative", DarkColorTokens.TextOnLightNegative, overwrite)
-    initial.add("textOnLightInfoHover", DarkColorTokens.TextOnLightInfoHover, overwrite)
-    initial.add("textOnLightInfoActive", DarkColorTokens.TextOnLightInfoActive, overwrite)
+    initial.add("textOnLightPromoMinor", com.sdds.serv.tokens.DarkColorTokens.TextOnLightPromoMinor, overwrite)
+    initial.add("textOnLightPositiveHover", com.sdds.serv.tokens.DarkColorTokens.TextOnLightPositiveHover, overwrite)
+    initial.add("textOnLightPositiveActive", com.sdds.serv.tokens.DarkColorTokens.TextOnLightPositiveActive, overwrite)
+    initial.add("textOnLightPositive", com.sdds.serv.tokens.DarkColorTokens.TextOnLightPositive, overwrite)
+    initial.add("textOnLightWarningHover", com.sdds.serv.tokens.DarkColorTokens.TextOnLightWarningHover, overwrite)
+    initial.add("textOnLightWarningActive", com.sdds.serv.tokens.DarkColorTokens.TextOnLightWarningActive, overwrite)
+    initial.add("textOnLightWarning", com.sdds.serv.tokens.DarkColorTokens.TextOnLightWarning, overwrite)
+    initial.add("textOnLightNegativeHover", com.sdds.serv.tokens.DarkColorTokens.TextOnLightNegativeHover, overwrite)
+    initial.add("textOnLightNegativeActive", com.sdds.serv.tokens.DarkColorTokens.TextOnLightNegativeActive, overwrite)
+    initial.add("textOnLightNegative", com.sdds.serv.tokens.DarkColorTokens.TextOnLightNegative, overwrite)
+    initial.add("textOnLightInfoHover", com.sdds.serv.tokens.DarkColorTokens.TextOnLightInfoHover, overwrite)
+    initial.add("textOnLightInfoActive", com.sdds.serv.tokens.DarkColorTokens.TextOnLightInfoActive, overwrite)
     initial.add(
         "textOnLightPositiveMinorHover",
-        DarkColorTokens.TextOnLightPositiveMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.TextOnLightPositiveMinorHover,
         overwrite,
     )
     initial.add(
         "textOnLightPositiveMinorActive",
-        DarkColorTokens.TextOnLightPositiveMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.TextOnLightPositiveMinorActive,
         overwrite,
     )
     initial.add(
         "textOnLightWarningMinorHover",
-        DarkColorTokens.TextOnLightWarningMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.TextOnLightWarningMinorHover,
         overwrite,
     )
     initial.add(
         "textOnLightWarningMinorActive",
-        DarkColorTokens.TextOnLightWarningMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.TextOnLightWarningMinorActive,
         overwrite,
     )
     initial.add(
         "textOnLightNegativeMinorHover",
-        DarkColorTokens.TextOnLightNegativeMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.TextOnLightNegativeMinorHover,
         overwrite,
     )
     initial.add(
         "textOnLightNegativeMinorActive",
-        DarkColorTokens.TextOnLightNegativeMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.TextOnLightNegativeMinorActive,
         overwrite,
     )
-    initial.add("textOnLightInfoMinorHover", DarkColorTokens.TextOnLightInfoMinorHover, overwrite)
-    initial.add("textOnLightInfoMinorActive", DarkColorTokens.TextOnLightInfoMinorActive, overwrite)
-    initial.add("textOnLightInfo", DarkColorTokens.TextOnLightInfo, overwrite)
-    initial.add("textOnLightWarningMinor", DarkColorTokens.TextOnLightWarningMinor, overwrite)
-    initial.add("textOnLightPositiveMinor", DarkColorTokens.TextOnLightPositiveMinor, overwrite)
-    initial.add("textOnLightAccentMinor", DarkColorTokens.TextOnLightAccentMinor, overwrite)
-    initial.add("textOnLightNegativeMinor", DarkColorTokens.TextOnLightNegativeMinor, overwrite)
-    initial.add("textOnLightInfoMinor", DarkColorTokens.TextOnLightInfoMinor, overwrite)
-    initial.add("textInversePrimaryHover", DarkColorTokens.TextInversePrimaryHover, overwrite)
-    initial.add("textInversePrimaryActive", DarkColorTokens.TextInversePrimaryActive, overwrite)
-    initial.add("textInversePrimary", DarkColorTokens.TextInversePrimary, overwrite)
+    initial.add("textOnLightInfoMinorHover", com.sdds.serv.tokens.DarkColorTokens.TextOnLightInfoMinorHover, overwrite)
+    initial.add("textOnLightInfoMinorActive", com.sdds.serv.tokens.DarkColorTokens.TextOnLightInfoMinorActive, overwrite)
+    initial.add("textOnLightInfo", com.sdds.serv.tokens.DarkColorTokens.TextOnLightInfo, overwrite)
+    initial.add("textOnLightWarningMinor", com.sdds.serv.tokens.DarkColorTokens.TextOnLightWarningMinor, overwrite)
+    initial.add("textOnLightPositiveMinor", com.sdds.serv.tokens.DarkColorTokens.TextOnLightPositiveMinor, overwrite)
+    initial.add("textOnLightAccentMinor", com.sdds.serv.tokens.DarkColorTokens.TextOnLightAccentMinor, overwrite)
+    initial.add("textOnLightNegativeMinor", com.sdds.serv.tokens.DarkColorTokens.TextOnLightNegativeMinor, overwrite)
+    initial.add("textOnLightInfoMinor", com.sdds.serv.tokens.DarkColorTokens.TextOnLightInfoMinor, overwrite)
+    initial.add("textInversePrimaryHover", com.sdds.serv.tokens.DarkColorTokens.TextInversePrimaryHover, overwrite)
+    initial.add("textInversePrimaryActive", com.sdds.serv.tokens.DarkColorTokens.TextInversePrimaryActive, overwrite)
+    initial.add("textInversePrimary", com.sdds.serv.tokens.DarkColorTokens.TextInversePrimary, overwrite)
     initial.add(
         "textInversePrimaryBrightness",
-        DarkColorTokens.TextInversePrimaryBrightness,
+        com.sdds.serv.tokens.DarkColorTokens.TextInversePrimaryBrightness,
         overwrite,
     )
-    initial.add("textInverseSecondaryHover", DarkColorTokens.TextInverseSecondaryHover, overwrite)
-    initial.add("textInverseSecondaryActive", DarkColorTokens.TextInverseSecondaryActive, overwrite)
-    initial.add("textInverseSecondary", DarkColorTokens.TextInverseSecondary, overwrite)
-    initial.add("textInverseTertiaryHover", DarkColorTokens.TextInverseTertiaryHover, overwrite)
-    initial.add("textInverseTertiaryActive", DarkColorTokens.TextInverseTertiaryActive, overwrite)
-    initial.add("textInverseTertiary", DarkColorTokens.TextInverseTertiary, overwrite)
-    initial.add("textInverseParagraphHover", DarkColorTokens.TextInverseParagraphHover, overwrite)
-    initial.add("textInverseParagraphActive", DarkColorTokens.TextInverseParagraphActive, overwrite)
-    initial.add("textInverseParagraph", DarkColorTokens.TextInverseParagraph, overwrite)
-    initial.add("textInverseAccentHover", DarkColorTokens.TextInverseAccentHover, overwrite)
-    initial.add("textInverseAccentActive", DarkColorTokens.TextInverseAccentActive, overwrite)
-    initial.add("textInverseAccent", DarkColorTokens.TextInverseAccent, overwrite)
+    initial.add("textInverseSecondaryHover", com.sdds.serv.tokens.DarkColorTokens.TextInverseSecondaryHover, overwrite)
+    initial.add("textInverseSecondaryActive", com.sdds.serv.tokens.DarkColorTokens.TextInverseSecondaryActive, overwrite)
+    initial.add("textInverseSecondary", com.sdds.serv.tokens.DarkColorTokens.TextInverseSecondary, overwrite)
+    initial.add("textInverseTertiaryHover", com.sdds.serv.tokens.DarkColorTokens.TextInverseTertiaryHover, overwrite)
+    initial.add("textInverseTertiaryActive", com.sdds.serv.tokens.DarkColorTokens.TextInverseTertiaryActive, overwrite)
+    initial.add("textInverseTertiary", com.sdds.serv.tokens.DarkColorTokens.TextInverseTertiary, overwrite)
+    initial.add("textInverseParagraphHover", com.sdds.serv.tokens.DarkColorTokens.TextInverseParagraphHover, overwrite)
+    initial.add("textInverseParagraphActive", com.sdds.serv.tokens.DarkColorTokens.TextInverseParagraphActive, overwrite)
+    initial.add("textInverseParagraph", com.sdds.serv.tokens.DarkColorTokens.TextInverseParagraph, overwrite)
+    initial.add("textInverseAccentHover", com.sdds.serv.tokens.DarkColorTokens.TextInverseAccentHover, overwrite)
+    initial.add("textInverseAccentActive", com.sdds.serv.tokens.DarkColorTokens.TextInverseAccentActive, overwrite)
+    initial.add("textInverseAccent", com.sdds.serv.tokens.DarkColorTokens.TextInverseAccent, overwrite)
     initial.add(
         "textInverseAccentMinorHover",
-        DarkColorTokens.TextInverseAccentMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.TextInverseAccentMinorHover,
         overwrite,
     )
     initial.add(
         "textInverseAccentMinorActive",
-        DarkColorTokens.TextInverseAccentMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.TextInverseAccentMinorActive,
         overwrite,
     )
-    initial.add("textInversePromoHover", DarkColorTokens.TextInversePromoHover, overwrite)
-    initial.add("textInversePromoActive", DarkColorTokens.TextInversePromoActive, overwrite)
-    initial.add("textInversePromo", DarkColorTokens.TextInversePromo, overwrite)
-    initial.add("textInversePromoMinorHover", DarkColorTokens.TextInversePromoMinorHover, overwrite)
+    initial.add("textInversePromoHover", com.sdds.serv.tokens.DarkColorTokens.TextInversePromoHover, overwrite)
+    initial.add("textInversePromoActive", com.sdds.serv.tokens.DarkColorTokens.TextInversePromoActive, overwrite)
+    initial.add("textInversePromo", com.sdds.serv.tokens.DarkColorTokens.TextInversePromo, overwrite)
+    initial.add("textInversePromoMinorHover", com.sdds.serv.tokens.DarkColorTokens.TextInversePromoMinorHover, overwrite)
     initial.add(
         "textInversePromoMinorActive",
-        DarkColorTokens.TextInversePromoMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.TextInversePromoMinorActive,
         overwrite,
     )
-    initial.add("textInversePromoMinor", DarkColorTokens.TextInversePromoMinor, overwrite)
-    initial.add("textInversePositiveHover", DarkColorTokens.TextInversePositiveHover, overwrite)
-    initial.add("textInversePositiveActive", DarkColorTokens.TextInversePositiveActive, overwrite)
-    initial.add("textInversePositive", DarkColorTokens.TextInversePositive, overwrite)
-    initial.add("textInverseWarningHover", DarkColorTokens.TextInverseWarningHover, overwrite)
-    initial.add("textInverseWarningActive", DarkColorTokens.TextInverseWarningActive, overwrite)
-    initial.add("textInverseWarning", DarkColorTokens.TextInverseWarning, overwrite)
-    initial.add("textInverseNegativeHover", DarkColorTokens.TextInverseNegativeHover, overwrite)
-    initial.add("textInverseNegativeActive", DarkColorTokens.TextInverseNegativeActive, overwrite)
-    initial.add("textInverseNegative", DarkColorTokens.TextInverseNegative, overwrite)
-    initial.add("textInverseInfoHover", DarkColorTokens.TextInverseInfoHover, overwrite)
-    initial.add("textInverseInfoActive", DarkColorTokens.TextInverseInfoActive, overwrite)
+    initial.add("textInversePromoMinor", com.sdds.serv.tokens.DarkColorTokens.TextInversePromoMinor, overwrite)
+    initial.add("textInversePositiveHover", com.sdds.serv.tokens.DarkColorTokens.TextInversePositiveHover, overwrite)
+    initial.add("textInversePositiveActive", com.sdds.serv.tokens.DarkColorTokens.TextInversePositiveActive, overwrite)
+    initial.add("textInversePositive", com.sdds.serv.tokens.DarkColorTokens.TextInversePositive, overwrite)
+    initial.add("textInverseWarningHover", com.sdds.serv.tokens.DarkColorTokens.TextInverseWarningHover, overwrite)
+    initial.add("textInverseWarningActive", com.sdds.serv.tokens.DarkColorTokens.TextInverseWarningActive, overwrite)
+    initial.add("textInverseWarning", com.sdds.serv.tokens.DarkColorTokens.TextInverseWarning, overwrite)
+    initial.add("textInverseNegativeHover", com.sdds.serv.tokens.DarkColorTokens.TextInverseNegativeHover, overwrite)
+    initial.add("textInverseNegativeActive", com.sdds.serv.tokens.DarkColorTokens.TextInverseNegativeActive, overwrite)
+    initial.add("textInverseNegative", com.sdds.serv.tokens.DarkColorTokens.TextInverseNegative, overwrite)
+    initial.add("textInverseInfoHover", com.sdds.serv.tokens.DarkColorTokens.TextInverseInfoHover, overwrite)
+    initial.add("textInverseInfoActive", com.sdds.serv.tokens.DarkColorTokens.TextInverseInfoActive, overwrite)
     initial.add(
         "textInversePositiveMinorHover",
-        DarkColorTokens.TextInversePositiveMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.TextInversePositiveMinorHover,
         overwrite,
     )
     initial.add(
         "textInversePositiveMinorActive",
-        DarkColorTokens.TextInversePositiveMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.TextInversePositiveMinorActive,
         overwrite,
     )
     initial.add(
         "textInverseWarningMinorHover",
-        DarkColorTokens.TextInverseWarningMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.TextInverseWarningMinorHover,
         overwrite,
     )
     initial.add(
         "textInverseWarningMinorActive",
-        DarkColorTokens.TextInverseWarningMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.TextInverseWarningMinorActive,
         overwrite,
     )
     initial.add(
         "textInverseNegativeMinorHover",
-        DarkColorTokens.TextInverseNegativeMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.TextInverseNegativeMinorHover,
         overwrite,
     )
     initial.add(
         "textInverseNegativeMinorActive",
-        DarkColorTokens.TextInverseNegativeMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.TextInverseNegativeMinorActive,
         overwrite,
     )
-    initial.add("textInverseInfoMinorHover", DarkColorTokens.TextInverseInfoMinorHover, overwrite)
-    initial.add("textInverseInfoMinorActive", DarkColorTokens.TextInverseInfoMinorActive, overwrite)
-    initial.add("textInverseAccentMinor", DarkColorTokens.TextInverseAccentMinor, overwrite)
-    initial.add("textInverseInfo", DarkColorTokens.TextInverseInfo, overwrite)
-    initial.add("textInversePositiveMinor", DarkColorTokens.TextInversePositiveMinor, overwrite)
-    initial.add("textInverseWarningMinor", DarkColorTokens.TextInverseWarningMinor, overwrite)
-    initial.add("textInverseNegativeMinor", DarkColorTokens.TextInverseNegativeMinor, overwrite)
-    initial.add("textInverseInfoMinor", DarkColorTokens.TextInverseInfoMinor, overwrite)
+    initial.add("textInverseInfoMinorHover", com.sdds.serv.tokens.DarkColorTokens.TextInverseInfoMinorHover, overwrite)
+    initial.add("textInverseInfoMinorActive", com.sdds.serv.tokens.DarkColorTokens.TextInverseInfoMinorActive, overwrite)
+    initial.add("textInverseAccentMinor", com.sdds.serv.tokens.DarkColorTokens.TextInverseAccentMinor, overwrite)
+    initial.add("textInverseInfo", com.sdds.serv.tokens.DarkColorTokens.TextInverseInfo, overwrite)
+    initial.add("textInversePositiveMinor", com.sdds.serv.tokens.DarkColorTokens.TextInversePositiveMinor, overwrite)
+    initial.add("textInverseWarningMinor", com.sdds.serv.tokens.DarkColorTokens.TextInverseWarningMinor, overwrite)
+    initial.add("textInverseNegativeMinor", com.sdds.serv.tokens.DarkColorTokens.TextInverseNegativeMinor, overwrite)
+    initial.add("textInverseInfoMinor", com.sdds.serv.tokens.DarkColorTokens.TextInverseInfoMinor, overwrite)
     initial.add(
         "surfaceDefaultSolidPrimaryHover",
-        DarkColorTokens.SurfaceDefaultSolidPrimaryHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultSolidPrimaryHover,
         overwrite,
     )
     initial.add(
         "surfaceDefaultSolidPrimaryActive",
-        DarkColorTokens.SurfaceDefaultSolidPrimaryActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultSolidPrimaryActive,
         overwrite,
     )
-    initial.add("surfaceDefaultSolidPrimary", DarkColorTokens.SurfaceDefaultSolidPrimary, overwrite)
+    initial.add("surfaceDefaultSolidPrimary", com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultSolidPrimary, overwrite)
     initial.add(
         "surfaceDefaultSolidPrimaryBrightness",
-        DarkColorTokens.SurfaceDefaultSolidPrimaryBrightness,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultSolidPrimaryBrightness,
         overwrite,
     )
     initial.add(
         "surfaceDefaultSolidSecondaryHover",
-        DarkColorTokens.SurfaceDefaultSolidSecondaryHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultSolidSecondaryHover,
         overwrite,
     )
     initial.add(
         "surfaceDefaultSolidSecondaryActive",
-        DarkColorTokens.SurfaceDefaultSolidSecondaryActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultSolidSecondaryActive,
         overwrite,
     )
     initial.add(
         "surfaceDefaultSolidSecondary",
-        DarkColorTokens.SurfaceDefaultSolidSecondary,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultSolidSecondary,
         overwrite,
     )
     initial.add(
         "surfaceDefaultSolidTertiaryHover",
-        DarkColorTokens.SurfaceDefaultSolidTertiaryHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultSolidTertiaryHover,
         overwrite,
     )
     initial.add(
         "surfaceDefaultSolidTertiaryActive",
-        DarkColorTokens.SurfaceDefaultSolidTertiaryActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultSolidTertiaryActive,
         overwrite,
     )
     initial.add(
         "surfaceDefaultSolidTertiary",
-        DarkColorTokens.SurfaceDefaultSolidTertiary,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultSolidTertiary,
         overwrite,
     )
     initial.add(
         "surfaceDefaultSolidCardHover",
-        DarkColorTokens.SurfaceDefaultSolidCardHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultSolidCardHover,
         overwrite,
     )
     initial.add(
         "surfaceDefaultSolidCardActive",
-        DarkColorTokens.SurfaceDefaultSolidCardActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultSolidCardActive,
         overwrite,
     )
-    initial.add("surfaceDefaultSolidCard", DarkColorTokens.SurfaceDefaultSolidCard, overwrite)
+    initial.add("surfaceDefaultSolidCard", com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultSolidCard, overwrite)
     initial.add(
         "surfaceDefaultSolidCardBrightness",
-        DarkColorTokens.SurfaceDefaultSolidCardBrightness,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultSolidCardBrightness,
         overwrite,
     )
     initial.add(
         "surfaceDefaultSolidDefaultHover",
-        DarkColorTokens.SurfaceDefaultSolidDefaultHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultSolidDefaultHover,
         overwrite,
     )
     initial.add(
         "surfaceDefaultSolidDefaultActive",
-        DarkColorTokens.SurfaceDefaultSolidDefaultActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultSolidDefaultActive,
         overwrite,
     )
-    initial.add("surfaceDefaultSolidDefault", DarkColorTokens.SurfaceDefaultSolidDefault, overwrite)
+    initial.add("surfaceDefaultSolidDefault", com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultSolidDefault, overwrite)
     initial.add(
         "surfaceDefaultTransparentPrimaryHover",
-        DarkColorTokens.SurfaceDefaultTransparentPrimaryHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultTransparentPrimaryHover,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentPrimaryActive",
-        DarkColorTokens.SurfaceDefaultTransparentPrimaryActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultTransparentPrimaryActive,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentSecondaryHover",
-        DarkColorTokens.SurfaceDefaultTransparentSecondaryHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultTransparentSecondaryHover,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentSecondaryActive",
-        DarkColorTokens.SurfaceDefaultTransparentSecondaryActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultTransparentSecondaryActive,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentSecondary",
-        DarkColorTokens.SurfaceDefaultTransparentSecondary,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultTransparentSecondary,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentTertiaryHover",
-        DarkColorTokens.SurfaceDefaultTransparentTertiaryHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultTransparentTertiaryHover,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentTertiaryActive",
-        DarkColorTokens.SurfaceDefaultTransparentTertiaryActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultTransparentTertiaryActive,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentTertiary",
-        DarkColorTokens.SurfaceDefaultTransparentTertiary,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultTransparentTertiary,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentDeepHover",
-        DarkColorTokens.SurfaceDefaultTransparentDeepHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultTransparentDeepHover,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentDeepActive",
-        DarkColorTokens.SurfaceDefaultTransparentDeepActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultTransparentDeepActive,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentDeep",
-        DarkColorTokens.SurfaceDefaultTransparentDeep,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultTransparentDeep,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentCardHover",
-        DarkColorTokens.SurfaceDefaultTransparentCardHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultTransparentCardHover,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentCardActive",
-        DarkColorTokens.SurfaceDefaultTransparentCardActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultTransparentCardActive,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentCard",
-        DarkColorTokens.SurfaceDefaultTransparentCard,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultTransparentCard,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentCardBrightness",
-        DarkColorTokens.SurfaceDefaultTransparentCardBrightness,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultTransparentCardBrightness,
         overwrite,
     )
-    initial.add("surfaceDefaultClearHover", DarkColorTokens.SurfaceDefaultClearHover, overwrite)
-    initial.add("surfaceDefaultClearActive", DarkColorTokens.SurfaceDefaultClearActive, overwrite)
-    initial.add("surfaceDefaultClear", DarkColorTokens.SurfaceDefaultClear, overwrite)
-    initial.add("surfaceDefaultAccentHover", DarkColorTokens.SurfaceDefaultAccentHover, overwrite)
-    initial.add("surfaceDefaultAccentActive", DarkColorTokens.SurfaceDefaultAccentActive, overwrite)
-    initial.add("surfaceDefaultAccent", DarkColorTokens.SurfaceDefaultAccent, overwrite)
+    initial.add("surfaceDefaultClearHover", com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultClearHover, overwrite)
+    initial.add("surfaceDefaultClearActive", com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultClearActive, overwrite)
+    initial.add("surfaceDefaultClear", com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultClear, overwrite)
+    initial.add("surfaceDefaultAccentHover", com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultAccentHover, overwrite)
+    initial.add("surfaceDefaultAccentActive", com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultAccentActive, overwrite)
+    initial.add("surfaceDefaultAccent", com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultAccent, overwrite)
     initial.add(
         "surfaceDefaultAccentMinorHover",
-        DarkColorTokens.SurfaceDefaultAccentMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultAccentMinorHover,
         overwrite,
     )
     initial.add(
         "surfaceDefaultAccentMinorActive",
-        DarkColorTokens.SurfaceDefaultAccentMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultAccentMinorActive,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentAccentHover",
-        DarkColorTokens.SurfaceDefaultTransparentAccentHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultTransparentAccentHover,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentAccentActive",
-        DarkColorTokens.SurfaceDefaultTransparentAccentActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultTransparentAccentActive,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentAccent",
-        DarkColorTokens.SurfaceDefaultTransparentAccent,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultTransparentAccent,
         overwrite,
     )
-    initial.add("surfaceDefaultPromoHover", DarkColorTokens.SurfaceDefaultPromoHover, overwrite)
-    initial.add("surfaceDefaultPromoActive", DarkColorTokens.SurfaceDefaultPromoActive, overwrite)
-    initial.add("surfaceDefaultPromo", DarkColorTokens.SurfaceDefaultPromo, overwrite)
+    initial.add("surfaceDefaultPromoHover", com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultPromoHover, overwrite)
+    initial.add("surfaceDefaultPromoActive", com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultPromoActive, overwrite)
+    initial.add("surfaceDefaultPromo", com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultPromo, overwrite)
     initial.add(
         "surfaceDefaultPromoMinorHover",
-        DarkColorTokens.SurfaceDefaultPromoMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultPromoMinorHover,
         overwrite,
     )
     initial.add(
         "surfaceDefaultPromoMinorActive",
-        DarkColorTokens.SurfaceDefaultPromoMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultPromoMinorActive,
         overwrite,
     )
-    initial.add("surfaceDefaultPromoMinor", DarkColorTokens.SurfaceDefaultPromoMinor, overwrite)
+    initial.add("surfaceDefaultPromoMinor", com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultPromoMinor, overwrite)
     initial.add(
         "surfaceDefaultTransparentPromoHover",
-        DarkColorTokens.SurfaceDefaultTransparentPromoHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultTransparentPromoHover,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentPromoActive",
-        DarkColorTokens.SurfaceDefaultTransparentPromoActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultTransparentPromoActive,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentPromo",
-        DarkColorTokens.SurfaceDefaultTransparentPromo,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultTransparentPromo,
         overwrite,
     )
     initial.add(
         "surfaceDefaultPositiveHover",
-        DarkColorTokens.SurfaceDefaultPositiveHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultPositiveHover,
         overwrite,
     )
     initial.add(
         "surfaceDefaultPositiveActive",
-        DarkColorTokens.SurfaceDefaultPositiveActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultPositiveActive,
         overwrite,
     )
-    initial.add("surfaceDefaultPositive", DarkColorTokens.SurfaceDefaultPositive, overwrite)
-    initial.add("surfaceDefaultWarningHover", DarkColorTokens.SurfaceDefaultWarningHover, overwrite)
+    initial.add("surfaceDefaultPositive", com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultPositive, overwrite)
+    initial.add("surfaceDefaultWarningHover", com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultWarningHover, overwrite)
     initial.add(
         "surfaceDefaultWarningActive",
-        DarkColorTokens.SurfaceDefaultWarningActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultWarningActive,
         overwrite,
     )
-    initial.add("surfaceDefaultWarning", DarkColorTokens.SurfaceDefaultWarning, overwrite)
+    initial.add("surfaceDefaultWarning", com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultWarning, overwrite)
     initial.add(
         "surfaceDefaultNegativeHover",
-        DarkColorTokens.SurfaceDefaultNegativeHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultNegativeHover,
         overwrite,
     )
     initial.add(
         "surfaceDefaultNegativeActive",
-        DarkColorTokens.SurfaceDefaultNegativeActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultNegativeActive,
         overwrite,
     )
-    initial.add("surfaceDefaultNegative", DarkColorTokens.SurfaceDefaultNegative, overwrite)
-    initial.add("surfaceDefaultInfoHover", DarkColorTokens.SurfaceDefaultInfoHover, overwrite)
-    initial.add("surfaceDefaultInfoActive", DarkColorTokens.SurfaceDefaultInfoActive, overwrite)
+    initial.add("surfaceDefaultNegative", com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultNegative, overwrite)
+    initial.add("surfaceDefaultInfoHover", com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultInfoHover, overwrite)
+    initial.add("surfaceDefaultInfoActive", com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultInfoActive, overwrite)
     initial.add(
         "surfaceDefaultPositiveMinorHover",
-        DarkColorTokens.SurfaceDefaultPositiveMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultPositiveMinorHover,
         overwrite,
     )
     initial.add(
         "surfaceDefaultPositiveMinorActive",
-        DarkColorTokens.SurfaceDefaultPositiveMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultPositiveMinorActive,
         overwrite,
     )
     initial.add(
         "surfaceDefaultWarningMinorHover",
-        DarkColorTokens.SurfaceDefaultWarningMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultWarningMinorHover,
         overwrite,
     )
     initial.add(
         "surfaceDefaultWarningMinorActive",
-        DarkColorTokens.SurfaceDefaultWarningMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultWarningMinorActive,
         overwrite,
     )
     initial.add(
         "surfaceDefaultNegativeMinorHover",
-        DarkColorTokens.SurfaceDefaultNegativeMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultNegativeMinorHover,
         overwrite,
     )
     initial.add(
         "surfaceDefaultNegativeMinorActive",
-        DarkColorTokens.SurfaceDefaultNegativeMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultNegativeMinorActive,
         overwrite,
     )
     initial.add(
         "surfaceDefaultInfoMinorHover",
-        DarkColorTokens.SurfaceDefaultInfoMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultInfoMinorHover,
         overwrite,
     )
     initial.add(
         "surfaceDefaultInfoMinorActive",
-        DarkColorTokens.SurfaceDefaultInfoMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultInfoMinorActive,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentPositiveHover",
-        DarkColorTokens.SurfaceDefaultTransparentPositiveHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultTransparentPositiveHover,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentPositiveActive",
-        DarkColorTokens.SurfaceDefaultTransparentPositiveActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultTransparentPositiveActive,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentWarningHover",
-        DarkColorTokens.SurfaceDefaultTransparentWarningHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultTransparentWarningHover,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentWarningActive",
-        DarkColorTokens.SurfaceDefaultTransparentWarningActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultTransparentWarningActive,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentNegativeHover",
-        DarkColorTokens.SurfaceDefaultTransparentNegativeHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultTransparentNegativeHover,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentNegativeActive",
-        DarkColorTokens.SurfaceDefaultTransparentNegativeActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultTransparentNegativeActive,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentInfoHover",
-        DarkColorTokens.SurfaceDefaultTransparentInfoHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultTransparentInfoHover,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentInfoActive",
-        DarkColorTokens.SurfaceDefaultTransparentInfoActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultTransparentInfoActive,
         overwrite,
     )
-    initial.add("surfaceDefaultAccentMinor", DarkColorTokens.SurfaceDefaultAccentMinor, overwrite)
-    initial.add("surfaceDefaultInfo", DarkColorTokens.SurfaceDefaultInfo, overwrite)
+    initial.add("surfaceDefaultAccentMinor", com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultAccentMinor, overwrite)
+    initial.add("surfaceDefaultInfo", com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultInfo, overwrite)
     initial.add(
         "surfaceDefaultPositiveMinor",
-        DarkColorTokens.SurfaceDefaultPositiveMinor,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultPositiveMinor,
         overwrite,
     )
-    initial.add("surfaceDefaultWarningMinor", DarkColorTokens.SurfaceDefaultWarningMinor, overwrite)
+    initial.add("surfaceDefaultWarningMinor", com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultWarningMinor, overwrite)
     initial.add(
         "surfaceDefaultNegativeMinor",
-        DarkColorTokens.SurfaceDefaultNegativeMinor,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultNegativeMinor,
         overwrite,
     )
-    initial.add("surfaceDefaultInfoMinor", DarkColorTokens.SurfaceDefaultInfoMinor, overwrite)
+    initial.add("surfaceDefaultInfoMinor", com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultInfoMinor, overwrite)
     initial.add(
         "surfaceDefaultTransparentPositive",
-        DarkColorTokens.SurfaceDefaultTransparentPositive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultTransparentPositive,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentWarning",
-        DarkColorTokens.SurfaceDefaultTransparentWarning,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultTransparentWarning,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentNegative",
-        DarkColorTokens.SurfaceDefaultTransparentNegative,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultTransparentNegative,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentInfo",
-        DarkColorTokens.SurfaceDefaultTransparentInfo,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultTransparentInfo,
         overwrite,
     )
     initial.add(
         "surfaceDefaultTransparentPrimary",
-        DarkColorTokens.SurfaceDefaultTransparentPrimary,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceDefaultTransparentPrimary,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkSolidPrimaryHover",
-        DarkColorTokens.SurfaceOnDarkSolidPrimaryHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkSolidPrimaryHover,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkSolidPrimaryActive",
-        DarkColorTokens.SurfaceOnDarkSolidPrimaryActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkSolidPrimaryActive,
         overwrite,
     )
-    initial.add("surfaceOnDarkSolidPrimary", DarkColorTokens.SurfaceOnDarkSolidPrimary, overwrite)
+    initial.add("surfaceOnDarkSolidPrimary", com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkSolidPrimary, overwrite)
     initial.add(
         "surfaceOnDarkSolidPrimaryBrightness",
-        DarkColorTokens.SurfaceOnDarkSolidPrimaryBrightness,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkSolidPrimaryBrightness,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkSolidSecondaryHover",
-        DarkColorTokens.SurfaceOnDarkSolidSecondaryHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkSolidSecondaryHover,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkSolidSecondaryActive",
-        DarkColorTokens.SurfaceOnDarkSolidSecondaryActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkSolidSecondaryActive,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkSolidSecondary",
-        DarkColorTokens.SurfaceOnDarkSolidSecondary,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkSolidSecondary,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkSolidTertiaryHover",
-        DarkColorTokens.SurfaceOnDarkSolidTertiaryHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkSolidTertiaryHover,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkSolidTertiaryActive",
-        DarkColorTokens.SurfaceOnDarkSolidTertiaryActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkSolidTertiaryActive,
         overwrite,
     )
-    initial.add("surfaceOnDarkSolidTertiary", DarkColorTokens.SurfaceOnDarkSolidTertiary, overwrite)
+    initial.add("surfaceOnDarkSolidTertiary", com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkSolidTertiary, overwrite)
     initial.add(
         "surfaceOnDarkSolidCardHover",
-        DarkColorTokens.SurfaceOnDarkSolidCardHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkSolidCardHover,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkSolidCardActive",
-        DarkColorTokens.SurfaceOnDarkSolidCardActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkSolidCardActive,
         overwrite,
     )
-    initial.add("surfaceOnDarkSolidCard", DarkColorTokens.SurfaceOnDarkSolidCard, overwrite)
+    initial.add("surfaceOnDarkSolidCard", com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkSolidCard, overwrite)
     initial.add(
         "surfaceOnDarkSolidCardBrightness",
-        DarkColorTokens.SurfaceOnDarkSolidCardBrightness,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkSolidCardBrightness,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkSolidDefaultHover",
-        DarkColorTokens.SurfaceOnDarkSolidDefaultHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkSolidDefaultHover,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkSolidDefaultActive",
-        DarkColorTokens.SurfaceOnDarkSolidDefaultActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkSolidDefaultActive,
         overwrite,
     )
-    initial.add("surfaceOnDarkSolidDefault", DarkColorTokens.SurfaceOnDarkSolidDefault, overwrite)
+    initial.add("surfaceOnDarkSolidDefault", com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkSolidDefault, overwrite)
     initial.add(
         "surfaceOnDarkTransparentPrimaryHover",
-        DarkColorTokens.SurfaceOnDarkTransparentPrimaryHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkTransparentPrimaryHover,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentPrimaryActive",
-        DarkColorTokens.SurfaceOnDarkTransparentPrimaryActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkTransparentPrimaryActive,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentPrimary",
-        DarkColorTokens.SurfaceOnDarkTransparentPrimary,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkTransparentPrimary,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentSecondaryHover",
-        DarkColorTokens.SurfaceOnDarkTransparentSecondaryHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkTransparentSecondaryHover,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentSecondaryActive",
-        DarkColorTokens.SurfaceOnDarkTransparentSecondaryActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkTransparentSecondaryActive,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentSecondary",
-        DarkColorTokens.SurfaceOnDarkTransparentSecondary,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkTransparentSecondary,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentTertiaryHover",
-        DarkColorTokens.SurfaceOnDarkTransparentTertiaryHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkTransparentTertiaryHover,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentTertiaryActive",
-        DarkColorTokens.SurfaceOnDarkTransparentTertiaryActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkTransparentTertiaryActive,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentTertiary",
-        DarkColorTokens.SurfaceOnDarkTransparentTertiary,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkTransparentTertiary,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentDeepHover",
-        DarkColorTokens.SurfaceOnDarkTransparentDeepHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkTransparentDeepHover,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentDeepActive",
-        DarkColorTokens.SurfaceOnDarkTransparentDeepActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkTransparentDeepActive,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentDeep",
-        DarkColorTokens.SurfaceOnDarkTransparentDeep,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkTransparentDeep,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentCardHover",
-        DarkColorTokens.SurfaceOnDarkTransparentCardHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkTransparentCardHover,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentCardActive",
-        DarkColorTokens.SurfaceOnDarkTransparentCardActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkTransparentCardActive,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentCard",
-        DarkColorTokens.SurfaceOnDarkTransparentCard,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkTransparentCard,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentCardBrightness",
-        DarkColorTokens.SurfaceOnDarkTransparentCardBrightness,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkTransparentCardBrightness,
         overwrite,
     )
-    initial.add("surfaceOnDarkClearHover", DarkColorTokens.SurfaceOnDarkClearHover, overwrite)
-    initial.add("surfaceOnDarkClearActive", DarkColorTokens.SurfaceOnDarkClearActive, overwrite)
-    initial.add("surfaceOnDarkClear", DarkColorTokens.SurfaceOnDarkClear, overwrite)
-    initial.add("surfaceOnDarkAccentHover", DarkColorTokens.SurfaceOnDarkAccentHover, overwrite)
-    initial.add("surfaceOnDarkAccentActive", DarkColorTokens.SurfaceOnDarkAccentActive, overwrite)
-    initial.add("surfaceOnDarkAccent", DarkColorTokens.SurfaceOnDarkAccent, overwrite)
+    initial.add("surfaceOnDarkClearHover", com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkClearHover, overwrite)
+    initial.add("surfaceOnDarkClearActive", com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkClearActive, overwrite)
+    initial.add("surfaceOnDarkClear", com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkClear, overwrite)
+    initial.add("surfaceOnDarkAccentHover", com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkAccentHover, overwrite)
+    initial.add("surfaceOnDarkAccentActive", com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkAccentActive, overwrite)
+    initial.add("surfaceOnDarkAccent", com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkAccent, overwrite)
     initial.add(
         "surfaceOnDarkAccentMinorHover",
-        DarkColorTokens.SurfaceOnDarkAccentMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkAccentMinorHover,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkAccentMinorActive",
-        DarkColorTokens.SurfaceOnDarkAccentMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkAccentMinorActive,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentAccentHover",
-        DarkColorTokens.SurfaceOnDarkTransparentAccentHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkTransparentAccentHover,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentAccentActive",
-        DarkColorTokens.SurfaceOnDarkTransparentAccentActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkTransparentAccentActive,
         overwrite,
     )
-    initial.add("surfaceOnDarkPromoHover", DarkColorTokens.SurfaceOnDarkPromoHover, overwrite)
-    initial.add("surfaceOnDarkPromoActive", DarkColorTokens.SurfaceOnDarkPromoActive, overwrite)
-    initial.add("surfaceOnDarkPromo", DarkColorTokens.SurfaceOnDarkPromo, overwrite)
+    initial.add("surfaceOnDarkPromoHover", com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkPromoHover, overwrite)
+    initial.add("surfaceOnDarkPromoActive", com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkPromoActive, overwrite)
+    initial.add("surfaceOnDarkPromo", com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkPromo, overwrite)
     initial.add(
         "surfaceOnDarkPromoMinorHover",
-        DarkColorTokens.SurfaceOnDarkPromoMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkPromoMinorHover,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkPromoMinorActive",
-        DarkColorTokens.SurfaceOnDarkPromoMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkPromoMinorActive,
         overwrite,
     )
-    initial.add("surfaceOnDarkPromoMinor", DarkColorTokens.SurfaceOnDarkPromoMinor, overwrite)
+    initial.add("surfaceOnDarkPromoMinor", com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkPromoMinor, overwrite)
     initial.add(
         "surfaceOnDarkTransparentPromoHover",
-        DarkColorTokens.SurfaceOnDarkTransparentPromoHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkTransparentPromoHover,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentPromoActive",
-        DarkColorTokens.SurfaceOnDarkTransparentPromoActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkTransparentPromoActive,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentPromo",
-        DarkColorTokens.SurfaceOnDarkTransparentPromo,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkTransparentPromo,
         overwrite,
     )
-    initial.add("surfaceOnDarkPositiveHover", DarkColorTokens.SurfaceOnDarkPositiveHover, overwrite)
+    initial.add("surfaceOnDarkPositiveHover", com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkPositiveHover, overwrite)
     initial.add(
         "surfaceOnDarkPositiveActive",
-        DarkColorTokens.SurfaceOnDarkPositiveActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkPositiveActive,
         overwrite,
     )
-    initial.add("surfaceOnDarkPositive", DarkColorTokens.SurfaceOnDarkPositive, overwrite)
-    initial.add("surfaceOnDarkWarningHover", DarkColorTokens.SurfaceOnDarkWarningHover, overwrite)
-    initial.add("surfaceOnDarkWarningActive", DarkColorTokens.SurfaceOnDarkWarningActive, overwrite)
-    initial.add("surfaceOnDarkWarning", DarkColorTokens.SurfaceOnDarkWarning, overwrite)
-    initial.add("surfaceOnDarkNegativeHover", DarkColorTokens.SurfaceOnDarkNegativeHover, overwrite)
+    initial.add("surfaceOnDarkPositive", com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkPositive, overwrite)
+    initial.add("surfaceOnDarkWarningHover", com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkWarningHover, overwrite)
+    initial.add("surfaceOnDarkWarningActive", com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkWarningActive, overwrite)
+    initial.add("surfaceOnDarkWarning", com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkWarning, overwrite)
+    initial.add("surfaceOnDarkNegativeHover", com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkNegativeHover, overwrite)
     initial.add(
         "surfaceOnDarkNegativeActive",
-        DarkColorTokens.SurfaceOnDarkNegativeActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkNegativeActive,
         overwrite,
     )
-    initial.add("surfaceOnDarkNegative", DarkColorTokens.SurfaceOnDarkNegative, overwrite)
-    initial.add("surfaceOnDarkInfoHover", DarkColorTokens.SurfaceOnDarkInfoHover, overwrite)
-    initial.add("surfaceOnDarkInfoActive", DarkColorTokens.SurfaceOnDarkInfoActive, overwrite)
+    initial.add("surfaceOnDarkNegative", com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkNegative, overwrite)
+    initial.add("surfaceOnDarkInfoHover", com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkInfoHover, overwrite)
+    initial.add("surfaceOnDarkInfoActive", com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkInfoActive, overwrite)
     initial.add(
         "surfaceOnDarkPositiveMinorHover",
-        DarkColorTokens.SurfaceOnDarkPositiveMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkPositiveMinorHover,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkPositiveMinorActive",
-        DarkColorTokens.SurfaceOnDarkPositiveMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkPositiveMinorActive,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkWarningMinorHover",
-        DarkColorTokens.SurfaceOnDarkWarningMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkWarningMinorHover,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkWarningMinorActive",
-        DarkColorTokens.SurfaceOnDarkWarningMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkWarningMinorActive,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkNegativeMinorHover",
-        DarkColorTokens.SurfaceOnDarkNegativeMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkNegativeMinorHover,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkNegativeMinorActive",
-        DarkColorTokens.SurfaceOnDarkNegativeMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkNegativeMinorActive,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkInfoMinorHover",
-        DarkColorTokens.SurfaceOnDarkInfoMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkInfoMinorHover,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkInfoMinorActive",
-        DarkColorTokens.SurfaceOnDarkInfoMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkInfoMinorActive,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentPositiveHover",
-        DarkColorTokens.SurfaceOnDarkTransparentPositiveHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkTransparentPositiveHover,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentPositiveActive",
-        DarkColorTokens.SurfaceOnDarkTransparentPositiveActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkTransparentPositiveActive,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentWarningHover",
-        DarkColorTokens.SurfaceOnDarkTransparentWarningHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkTransparentWarningHover,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentWarningActive",
-        DarkColorTokens.SurfaceOnDarkTransparentWarningActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkTransparentWarningActive,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentNegativeHover",
-        DarkColorTokens.SurfaceOnDarkTransparentNegativeHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkTransparentNegativeHover,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentNegativeActive",
-        DarkColorTokens.SurfaceOnDarkTransparentNegativeActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkTransparentNegativeActive,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentInfoHover",
-        DarkColorTokens.SurfaceOnDarkTransparentInfoHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkTransparentInfoHover,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentInfoActive",
-        DarkColorTokens.SurfaceOnDarkTransparentInfoActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkTransparentInfoActive,
         overwrite,
     )
-    initial.add("surfaceOnDarkAccentMinor", DarkColorTokens.SurfaceOnDarkAccentMinor, overwrite)
+    initial.add("surfaceOnDarkAccentMinor", com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkAccentMinor, overwrite)
     initial.add(
         "surfaceOnDarkTransparentAccent",
-        DarkColorTokens.SurfaceOnDarkTransparentAccent,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkTransparentAccent,
         overwrite,
     )
-    initial.add("surfaceOnDarkInfo", DarkColorTokens.SurfaceOnDarkInfo, overwrite)
-    initial.add("surfaceOnDarkPositiveMinor", DarkColorTokens.SurfaceOnDarkPositiveMinor, overwrite)
-    initial.add("surfaceOnDarkWarningMinor", DarkColorTokens.SurfaceOnDarkWarningMinor, overwrite)
-    initial.add("surfaceOnDarkNegativeMinor", DarkColorTokens.SurfaceOnDarkNegativeMinor, overwrite)
-    initial.add("surfaceOnDarkInfoMinor", DarkColorTokens.SurfaceOnDarkInfoMinor, overwrite)
+    initial.add("surfaceOnDarkInfo", com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkInfo, overwrite)
+    initial.add("surfaceOnDarkPositiveMinor", com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkPositiveMinor, overwrite)
+    initial.add("surfaceOnDarkWarningMinor", com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkWarningMinor, overwrite)
+    initial.add("surfaceOnDarkNegativeMinor", com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkNegativeMinor, overwrite)
+    initial.add("surfaceOnDarkInfoMinor", com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkInfoMinor, overwrite)
     initial.add(
         "surfaceOnDarkTransparentPositive",
-        DarkColorTokens.SurfaceOnDarkTransparentPositive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkTransparentPositive,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentWarning",
-        DarkColorTokens.SurfaceOnDarkTransparentWarning,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkTransparentWarning,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentNegative",
-        DarkColorTokens.SurfaceOnDarkTransparentNegative,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkTransparentNegative,
         overwrite,
     )
     initial.add(
         "surfaceOnDarkTransparentInfo",
-        DarkColorTokens.SurfaceOnDarkTransparentInfo,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnDarkTransparentInfo,
         overwrite,
     )
     initial.add(
         "surfaceOnLightSolidPrimaryHover",
-        DarkColorTokens.SurfaceOnLightSolidPrimaryHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightSolidPrimaryHover,
         overwrite,
     )
     initial.add(
         "surfaceOnLightSolidPrimaryActive",
-        DarkColorTokens.SurfaceOnLightSolidPrimaryActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightSolidPrimaryActive,
         overwrite,
     )
-    initial.add("surfaceOnLightSolidPrimary", DarkColorTokens.SurfaceOnLightSolidPrimary, overwrite)
+    initial.add("surfaceOnLightSolidPrimary", com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightSolidPrimary, overwrite)
     initial.add(
         "surfaceOnLightSolidPrimaryBrightness",
-        DarkColorTokens.SurfaceOnLightSolidPrimaryBrightness,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightSolidPrimaryBrightness,
         overwrite,
     )
     initial.add(
         "surfaceOnLightSolidSecondaryHover",
-        DarkColorTokens.SurfaceOnLightSolidSecondaryHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightSolidSecondaryHover,
         overwrite,
     )
     initial.add(
         "surfaceOnLightSolidSecondaryActive",
-        DarkColorTokens.SurfaceOnLightSolidSecondaryActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightSolidSecondaryActive,
         overwrite,
     )
     initial.add(
         "surfaceOnLightSolidSecondary",
-        DarkColorTokens.SurfaceOnLightSolidSecondary,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightSolidSecondary,
         overwrite,
     )
     initial.add(
         "surfaceOnLightSolidTertiaryHover",
-        DarkColorTokens.SurfaceOnLightSolidTertiaryHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightSolidTertiaryHover,
         overwrite,
     )
     initial.add(
         "surfaceOnLightSolidTertiaryActive",
-        DarkColorTokens.SurfaceOnLightSolidTertiaryActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightSolidTertiaryActive,
         overwrite,
     )
     initial.add(
         "surfaceOnLightSolidTertiary",
-        DarkColorTokens.SurfaceOnLightSolidTertiary,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightSolidTertiary,
         overwrite,
     )
     initial.add(
         "surfaceOnLightSolidCardHover",
-        DarkColorTokens.SurfaceOnLightSolidCardHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightSolidCardHover,
         overwrite,
     )
     initial.add(
         "surfaceOnLightSolidCardActive",
-        DarkColorTokens.SurfaceOnLightSolidCardActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightSolidCardActive,
         overwrite,
     )
-    initial.add("surfaceOnLightSolidCard", DarkColorTokens.SurfaceOnLightSolidCard, overwrite)
+    initial.add("surfaceOnLightSolidCard", com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightSolidCard, overwrite)
     initial.add(
         "surfaceOnLightSolidCardBrightness",
-        DarkColorTokens.SurfaceOnLightSolidCardBrightness,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightSolidCardBrightness,
         overwrite,
     )
     initial.add(
         "surfaceOnLightSolidDefaultHover",
-        DarkColorTokens.SurfaceOnLightSolidDefaultHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightSolidDefaultHover,
         overwrite,
     )
     initial.add(
         "surfaceOnLightSolidDefaultActive",
-        DarkColorTokens.SurfaceOnLightSolidDefaultActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightSolidDefaultActive,
         overwrite,
     )
-    initial.add("surfaceOnLightSolidDefault", DarkColorTokens.SurfaceOnLightSolidDefault, overwrite)
+    initial.add("surfaceOnLightSolidDefault", com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightSolidDefault, overwrite)
     initial.add(
         "surfaceOnLightTransparentPrimaryHover",
-        DarkColorTokens.SurfaceOnLightTransparentPrimaryHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightTransparentPrimaryHover,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentPrimaryActive",
-        DarkColorTokens.SurfaceOnLightTransparentPrimaryActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightTransparentPrimaryActive,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentSecondaryHover",
-        DarkColorTokens.SurfaceOnLightTransparentSecondaryHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightTransparentSecondaryHover,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentSecondaryActive",
-        DarkColorTokens.SurfaceOnLightTransparentSecondaryActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightTransparentSecondaryActive,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentSecondary",
-        DarkColorTokens.SurfaceOnLightTransparentSecondary,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightTransparentSecondary,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentTertiaryHover",
-        DarkColorTokens.SurfaceOnLightTransparentTertiaryHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightTransparentTertiaryHover,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentTertiaryActive",
-        DarkColorTokens.SurfaceOnLightTransparentTertiaryActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightTransparentTertiaryActive,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentTertiary",
-        DarkColorTokens.SurfaceOnLightTransparentTertiary,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightTransparentTertiary,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentDeepHover",
-        DarkColorTokens.SurfaceOnLightTransparentDeepHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightTransparentDeepHover,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentDeepActive",
-        DarkColorTokens.SurfaceOnLightTransparentDeepActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightTransparentDeepActive,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentDeep",
-        DarkColorTokens.SurfaceOnLightTransparentDeep,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightTransparentDeep,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentCardHover",
-        DarkColorTokens.SurfaceOnLightTransparentCardHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightTransparentCardHover,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentCardActive",
-        DarkColorTokens.SurfaceOnLightTransparentCardActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightTransparentCardActive,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentCard",
-        DarkColorTokens.SurfaceOnLightTransparentCard,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightTransparentCard,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentCardBrightness",
-        DarkColorTokens.SurfaceOnLightTransparentCardBrightness,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightTransparentCardBrightness,
         overwrite,
     )
-    initial.add("surfaceOnLightClearHover", DarkColorTokens.SurfaceOnLightClearHover, overwrite)
-    initial.add("surfaceOnLightClearActive", DarkColorTokens.SurfaceOnLightClearActive, overwrite)
-    initial.add("surfaceOnLightClear", DarkColorTokens.SurfaceOnLightClear, overwrite)
-    initial.add("surfaceOnLightAccentHover", DarkColorTokens.SurfaceOnLightAccentHover, overwrite)
-    initial.add("surfaceOnLightAccentActive", DarkColorTokens.SurfaceOnLightAccentActive, overwrite)
-    initial.add("surfaceOnLightAccent", DarkColorTokens.SurfaceOnLightAccent, overwrite)
+    initial.add("surfaceOnLightClearHover", com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightClearHover, overwrite)
+    initial.add("surfaceOnLightClearActive", com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightClearActive, overwrite)
+    initial.add("surfaceOnLightClear", com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightClear, overwrite)
+    initial.add("surfaceOnLightAccentHover", com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightAccentHover, overwrite)
+    initial.add("surfaceOnLightAccentActive", com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightAccentActive, overwrite)
+    initial.add("surfaceOnLightAccent", com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightAccent, overwrite)
     initial.add(
         "surfaceOnLightAccentMinorHover",
-        DarkColorTokens.SurfaceOnLightAccentMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightAccentMinorHover,
         overwrite,
     )
     initial.add(
         "surfaceOnLightAccentMinorActive",
-        DarkColorTokens.SurfaceOnLightAccentMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightAccentMinorActive,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentAccentHover",
-        DarkColorTokens.SurfaceOnLightTransparentAccentHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightTransparentAccentHover,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentAccentActive",
-        DarkColorTokens.SurfaceOnLightTransparentAccentActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightTransparentAccentActive,
         overwrite,
     )
-    initial.add("surfaceOnLightPromoHover", DarkColorTokens.SurfaceOnLightPromoHover, overwrite)
-    initial.add("surfaceOnLightPromoActive", DarkColorTokens.SurfaceOnLightPromoActive, overwrite)
-    initial.add("surfaceOnLightPromo", DarkColorTokens.SurfaceOnLightPromo, overwrite)
+    initial.add("surfaceOnLightPromoHover", com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightPromoHover, overwrite)
+    initial.add("surfaceOnLightPromoActive", com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightPromoActive, overwrite)
+    initial.add("surfaceOnLightPromo", com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightPromo, overwrite)
     initial.add(
         "surfaceOnLightPromoMinorHover",
-        DarkColorTokens.SurfaceOnLightPromoMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightPromoMinorHover,
         overwrite,
     )
     initial.add(
         "surfaceOnLightPromoMinorActive",
-        DarkColorTokens.SurfaceOnLightPromoMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightPromoMinorActive,
         overwrite,
     )
-    initial.add("surfaceOnLightPromoMinor", DarkColorTokens.SurfaceOnLightPromoMinor, overwrite)
+    initial.add("surfaceOnLightPromoMinor", com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightPromoMinor, overwrite)
     initial.add(
         "surfaceOnLightTransparentPromoHover",
-        DarkColorTokens.SurfaceOnLightTransparentPromoHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightTransparentPromoHover,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentPromoActive",
-        DarkColorTokens.SurfaceOnLightTransparentPromoActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightTransparentPromoActive,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentPromo",
-        DarkColorTokens.SurfaceOnLightTransparentPromo,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightTransparentPromo,
         overwrite,
     )
     initial.add(
         "surfaceOnLightPositiveHover",
-        DarkColorTokens.SurfaceOnLightPositiveHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightPositiveHover,
         overwrite,
     )
     initial.add(
         "surfaceOnLightPositiveActive",
-        DarkColorTokens.SurfaceOnLightPositiveActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightPositiveActive,
         overwrite,
     )
-    initial.add("surfaceOnLightPositive", DarkColorTokens.SurfaceOnLightPositive, overwrite)
-    initial.add("surfaceOnLightWarningHover", DarkColorTokens.SurfaceOnLightWarningHover, overwrite)
+    initial.add("surfaceOnLightPositive", com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightPositive, overwrite)
+    initial.add("surfaceOnLightWarningHover", com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightWarningHover, overwrite)
     initial.add(
         "surfaceOnLightWarningActive",
-        DarkColorTokens.SurfaceOnLightWarningActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightWarningActive,
         overwrite,
     )
-    initial.add("surfaceOnLightWarning", DarkColorTokens.SurfaceOnLightWarning, overwrite)
+    initial.add("surfaceOnLightWarning", com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightWarning, overwrite)
     initial.add(
         "surfaceOnLightNegativeHover",
-        DarkColorTokens.SurfaceOnLightNegativeHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightNegativeHover,
         overwrite,
     )
     initial.add(
         "surfaceOnLightNegativeActive",
-        DarkColorTokens.SurfaceOnLightNegativeActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightNegativeActive,
         overwrite,
     )
-    initial.add("surfaceOnLightNegative", DarkColorTokens.SurfaceOnLightNegative, overwrite)
-    initial.add("surfaceOnLightInfoHover", DarkColorTokens.SurfaceOnLightInfoHover, overwrite)
-    initial.add("surfaceOnLightInfoActive", DarkColorTokens.SurfaceOnLightInfoActive, overwrite)
+    initial.add("surfaceOnLightNegative", com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightNegative, overwrite)
+    initial.add("surfaceOnLightInfoHover", com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightInfoHover, overwrite)
+    initial.add("surfaceOnLightInfoActive", com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightInfoActive, overwrite)
     initial.add(
         "surfaceOnLightPositiveMinorHover",
-        DarkColorTokens.SurfaceOnLightPositiveMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightPositiveMinorHover,
         overwrite,
     )
     initial.add(
         "surfaceOnLightPositiveMinorActive",
-        DarkColorTokens.SurfaceOnLightPositiveMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightPositiveMinorActive,
         overwrite,
     )
     initial.add(
         "surfaceOnLightWarningMinorHover",
-        DarkColorTokens.SurfaceOnLightWarningMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightWarningMinorHover,
         overwrite,
     )
     initial.add(
         "surfaceOnLightWarningMinorActive",
-        DarkColorTokens.SurfaceOnLightWarningMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightWarningMinorActive,
         overwrite,
     )
     initial.add(
         "surfaceOnLightNegativeMinorHover",
-        DarkColorTokens.SurfaceOnLightNegativeMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightNegativeMinorHover,
         overwrite,
     )
     initial.add(
         "surfaceOnLightNegativeMinorActive",
-        DarkColorTokens.SurfaceOnLightNegativeMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightNegativeMinorActive,
         overwrite,
     )
     initial.add(
         "surfaceOnLightInfoMinorHover",
-        DarkColorTokens.SurfaceOnLightInfoMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightInfoMinorHover,
         overwrite,
     )
     initial.add(
         "surfaceOnLightInfoMinorActive",
-        DarkColorTokens.SurfaceOnLightInfoMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightInfoMinorActive,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentPositiveHover",
-        DarkColorTokens.SurfaceOnLightTransparentPositiveHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightTransparentPositiveHover,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentPositiveActive",
-        DarkColorTokens.SurfaceOnLightTransparentPositiveActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightTransparentPositiveActive,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentWarningHover",
-        DarkColorTokens.SurfaceOnLightTransparentWarningHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightTransparentWarningHover,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentWarningActive",
-        DarkColorTokens.SurfaceOnLightTransparentWarningActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightTransparentWarningActive,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentNegativeHover",
-        DarkColorTokens.SurfaceOnLightTransparentNegativeHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightTransparentNegativeHover,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentNegativeActive",
-        DarkColorTokens.SurfaceOnLightTransparentNegativeActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightTransparentNegativeActive,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentInfoHover",
-        DarkColorTokens.SurfaceOnLightTransparentInfoHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightTransparentInfoHover,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentInfoActive",
-        DarkColorTokens.SurfaceOnLightTransparentInfoActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightTransparentInfoActive,
         overwrite,
     )
-    initial.add("surfaceOnLightAccentMinor", DarkColorTokens.SurfaceOnLightAccentMinor, overwrite)
+    initial.add("surfaceOnLightAccentMinor", com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightAccentMinor, overwrite)
     initial.add(
         "surfaceOnLightTransparentAccent",
-        DarkColorTokens.SurfaceOnLightTransparentAccent,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightTransparentAccent,
         overwrite,
     )
-    initial.add("surfaceOnLightInfo", DarkColorTokens.SurfaceOnLightInfo, overwrite)
-    initial.add("surfaceOnLightWarningMinor", DarkColorTokens.SurfaceOnLightWarningMinor, overwrite)
+    initial.add("surfaceOnLightInfo", com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightInfo, overwrite)
+    initial.add("surfaceOnLightWarningMinor", com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightWarningMinor, overwrite)
     initial.add(
         "surfaceOnLightPositiveMinor",
-        DarkColorTokens.SurfaceOnLightPositiveMinor,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightPositiveMinor,
         overwrite,
     )
-    initial.add("surfaceOnLightInfoMinor", DarkColorTokens.SurfaceOnLightInfoMinor, overwrite)
+    initial.add("surfaceOnLightInfoMinor", com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightInfoMinor, overwrite)
     initial.add(
         "surfaceOnLightNegativeMinor",
-        DarkColorTokens.SurfaceOnLightNegativeMinor,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightNegativeMinor,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentPositive",
-        DarkColorTokens.SurfaceOnLightTransparentPositive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightTransparentPositive,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentWarning",
-        DarkColorTokens.SurfaceOnLightTransparentWarning,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightTransparentWarning,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentNegative",
-        DarkColorTokens.SurfaceOnLightTransparentNegative,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightTransparentNegative,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentInfo",
-        DarkColorTokens.SurfaceOnLightTransparentInfo,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightTransparentInfo,
         overwrite,
     )
     initial.add(
         "surfaceOnLightTransparentPrimary",
-        DarkColorTokens.SurfaceOnLightTransparentPrimary,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceOnLightTransparentPrimary,
         overwrite,
     )
     initial.add(
         "surfaceInverseSolidPrimaryHover",
-        DarkColorTokens.SurfaceInverseSolidPrimaryHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseSolidPrimaryHover,
         overwrite,
     )
     initial.add(
         "surfaceInverseSolidPrimaryActive",
-        DarkColorTokens.SurfaceInverseSolidPrimaryActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseSolidPrimaryActive,
         overwrite,
     )
-    initial.add("surfaceInverseSolidPrimary", DarkColorTokens.SurfaceInverseSolidPrimary, overwrite)
+    initial.add("surfaceInverseSolidPrimary", com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseSolidPrimary, overwrite)
     initial.add(
         "surfaceInverseSolidPrimaryBrightness",
-        DarkColorTokens.SurfaceInverseSolidPrimaryBrightness,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseSolidPrimaryBrightness,
         overwrite,
     )
     initial.add(
         "surfaceInverseSolidSecondaryHover",
-        DarkColorTokens.SurfaceInverseSolidSecondaryHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseSolidSecondaryHover,
         overwrite,
     )
     initial.add(
         "surfaceInverseSolidSecondaryActive",
-        DarkColorTokens.SurfaceInverseSolidSecondaryActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseSolidSecondaryActive,
         overwrite,
     )
     initial.add(
         "surfaceInverseSolidSecondary",
-        DarkColorTokens.SurfaceInverseSolidSecondary,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseSolidSecondary,
         overwrite,
     )
     initial.add(
         "surfaceInverseSolidTertiaryHover",
-        DarkColorTokens.SurfaceInverseSolidTertiaryHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseSolidTertiaryHover,
         overwrite,
     )
     initial.add(
         "surfaceInverseSolidTertiaryActive",
-        DarkColorTokens.SurfaceInverseSolidTertiaryActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseSolidTertiaryActive,
         overwrite,
     )
     initial.add(
         "surfaceInverseSolidTertiary",
-        DarkColorTokens.SurfaceInverseSolidTertiary,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseSolidTertiary,
         overwrite,
     )
     initial.add(
         "surfaceInverseSolidCardHover",
-        DarkColorTokens.SurfaceInverseSolidCardHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseSolidCardHover,
         overwrite,
     )
     initial.add(
         "surfaceInverseSolidCardActive",
-        DarkColorTokens.SurfaceInverseSolidCardActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseSolidCardActive,
         overwrite,
     )
-    initial.add("surfaceInverseSolidCard", DarkColorTokens.SurfaceInverseSolidCard, overwrite)
+    initial.add("surfaceInverseSolidCard", com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseSolidCard, overwrite)
     initial.add(
         "surfaceInverseSolidCardBrightness",
-        DarkColorTokens.SurfaceInverseSolidCardBrightness,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseSolidCardBrightness,
         overwrite,
     )
     initial.add(
         "surfaceInverseSolidDefaultHover",
-        DarkColorTokens.SurfaceInverseSolidDefaultHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseSolidDefaultHover,
         overwrite,
     )
     initial.add(
         "surfaceInverseSolidDefaultActive",
-        DarkColorTokens.SurfaceInverseSolidDefaultActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseSolidDefaultActive,
         overwrite,
     )
-    initial.add("surfaceInverseSolidDefault", DarkColorTokens.SurfaceInverseSolidDefault, overwrite)
+    initial.add("surfaceInverseSolidDefault", com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseSolidDefault, overwrite)
     initial.add(
         "surfaceInverseTransparentPrimaryHover",
-        DarkColorTokens.SurfaceInverseTransparentPrimaryHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseTransparentPrimaryHover,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentPrimaryActive",
-        DarkColorTokens.SurfaceInverseTransparentPrimaryActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseTransparentPrimaryActive,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentPrimary",
-        DarkColorTokens.SurfaceInverseTransparentPrimary,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseTransparentPrimary,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentSecondaryHover",
-        DarkColorTokens.SurfaceInverseTransparentSecondaryHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseTransparentSecondaryHover,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentSecondaryActive",
-        DarkColorTokens.SurfaceInverseTransparentSecondaryActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseTransparentSecondaryActive,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentSecondary",
-        DarkColorTokens.SurfaceInverseTransparentSecondary,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseTransparentSecondary,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentTertiaryHover",
-        DarkColorTokens.SurfaceInverseTransparentTertiaryHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseTransparentTertiaryHover,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentTertiaryActive",
-        DarkColorTokens.SurfaceInverseTransparentTertiaryActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseTransparentTertiaryActive,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentTertiary",
-        DarkColorTokens.SurfaceInverseTransparentTertiary,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseTransparentTertiary,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentDeepHover",
-        DarkColorTokens.SurfaceInverseTransparentDeepHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseTransparentDeepHover,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentDeepActive",
-        DarkColorTokens.SurfaceInverseTransparentDeepActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseTransparentDeepActive,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentDeep",
-        DarkColorTokens.SurfaceInverseTransparentDeep,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseTransparentDeep,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentCardHover",
-        DarkColorTokens.SurfaceInverseTransparentCardHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseTransparentCardHover,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentCardActive",
-        DarkColorTokens.SurfaceInverseTransparentCardActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseTransparentCardActive,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentCard",
-        DarkColorTokens.SurfaceInverseTransparentCard,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseTransparentCard,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentCardBrightness",
-        DarkColorTokens.SurfaceInverseTransparentCardBrightness,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseTransparentCardBrightness,
         overwrite,
     )
-    initial.add("surfaceInverseClearHover", DarkColorTokens.SurfaceInverseClearHover, overwrite)
-    initial.add("surfaceInverseClearActive", DarkColorTokens.SurfaceInverseClearActive, overwrite)
-    initial.add("surfaceInverseClear", DarkColorTokens.SurfaceInverseClear, overwrite)
-    initial.add("surfaceInverseAccentHover", DarkColorTokens.SurfaceInverseAccentHover, overwrite)
-    initial.add("surfaceInverseAccentActive", DarkColorTokens.SurfaceInverseAccentActive, overwrite)
-    initial.add("surfaceInverseAccent", DarkColorTokens.SurfaceInverseAccent, overwrite)
+    initial.add("surfaceInverseClearHover", com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseClearHover, overwrite)
+    initial.add("surfaceInverseClearActive", com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseClearActive, overwrite)
+    initial.add("surfaceInverseClear", com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseClear, overwrite)
+    initial.add("surfaceInverseAccentHover", com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseAccentHover, overwrite)
+    initial.add("surfaceInverseAccentActive", com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseAccentActive, overwrite)
+    initial.add("surfaceInverseAccent", com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseAccent, overwrite)
     initial.add(
         "surfaceInverseAccentMinorHover",
-        DarkColorTokens.SurfaceInverseAccentMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseAccentMinorHover,
         overwrite,
     )
     initial.add(
         "surfaceInverseAccentMinorActive",
-        DarkColorTokens.SurfaceInverseAccentMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseAccentMinorActive,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentAccentHover",
-        DarkColorTokens.SurfaceInverseTransparentAccentHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseTransparentAccentHover,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentAccentActive",
-        DarkColorTokens.SurfaceInverseTransparentAccentActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseTransparentAccentActive,
         overwrite,
     )
-    initial.add("surfaceInversePromoHover", DarkColorTokens.SurfaceInversePromoHover, overwrite)
-    initial.add("surfaceInversePromoActive", DarkColorTokens.SurfaceInversePromoActive, overwrite)
-    initial.add("surfaceInversePromo", DarkColorTokens.SurfaceInversePromo, overwrite)
+    initial.add("surfaceInversePromoHover", com.sdds.serv.tokens.DarkColorTokens.SurfaceInversePromoHover, overwrite)
+    initial.add("surfaceInversePromoActive", com.sdds.serv.tokens.DarkColorTokens.SurfaceInversePromoActive, overwrite)
+    initial.add("surfaceInversePromo", com.sdds.serv.tokens.DarkColorTokens.SurfaceInversePromo, overwrite)
     initial.add(
         "surfaceInversePromoMinorHover",
-        DarkColorTokens.SurfaceInversePromoMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInversePromoMinorHover,
         overwrite,
     )
     initial.add(
         "surfaceInversePromoMinorActive",
-        DarkColorTokens.SurfaceInversePromoMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInversePromoMinorActive,
         overwrite,
     )
-    initial.add("surfaceInversePromoMinor", DarkColorTokens.SurfaceInversePromoMinor, overwrite)
+    initial.add("surfaceInversePromoMinor", com.sdds.serv.tokens.DarkColorTokens.SurfaceInversePromoMinor, overwrite)
     initial.add(
         "surfaceInverseTransparentPromoHover",
-        DarkColorTokens.SurfaceInverseTransparentPromoHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseTransparentPromoHover,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentPromoActive",
-        DarkColorTokens.SurfaceInverseTransparentPromoActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseTransparentPromoActive,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentPromo",
-        DarkColorTokens.SurfaceInverseTransparentPromo,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseTransparentPromo,
         overwrite,
     )
     initial.add(
         "surfaceInversePositiveHover",
-        DarkColorTokens.SurfaceInversePositiveHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInversePositiveHover,
         overwrite,
     )
     initial.add(
         "surfaceInversePositiveActive",
-        DarkColorTokens.SurfaceInversePositiveActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInversePositiveActive,
         overwrite,
     )
-    initial.add("surfaceInversePositive", DarkColorTokens.SurfaceInversePositive, overwrite)
-    initial.add("surfaceInverseWarningHover", DarkColorTokens.SurfaceInverseWarningHover, overwrite)
+    initial.add("surfaceInversePositive", com.sdds.serv.tokens.DarkColorTokens.SurfaceInversePositive, overwrite)
+    initial.add("surfaceInverseWarningHover", com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseWarningHover, overwrite)
     initial.add(
         "surfaceInverseWarningActive",
-        DarkColorTokens.SurfaceInverseWarningActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseWarningActive,
         overwrite,
     )
-    initial.add("surfaceInverseWarning", DarkColorTokens.SurfaceInverseWarning, overwrite)
+    initial.add("surfaceInverseWarning", com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseWarning, overwrite)
     initial.add(
         "surfaceInverseNegativeHover",
-        DarkColorTokens.SurfaceInverseNegativeHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseNegativeHover,
         overwrite,
     )
     initial.add(
         "surfaceInverseNegativeActive",
-        DarkColorTokens.SurfaceInverseNegativeActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseNegativeActive,
         overwrite,
     )
-    initial.add("surfaceInverseNegative", DarkColorTokens.SurfaceInverseNegative, overwrite)
-    initial.add("surfaceInverseInfoHover", DarkColorTokens.SurfaceInverseInfoHover, overwrite)
-    initial.add("surfaceInverseInfoActive", DarkColorTokens.SurfaceInverseInfoActive, overwrite)
+    initial.add("surfaceInverseNegative", com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseNegative, overwrite)
+    initial.add("surfaceInverseInfoHover", com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseInfoHover, overwrite)
+    initial.add("surfaceInverseInfoActive", com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseInfoActive, overwrite)
     initial.add(
         "surfaceInversePositiveMinorHover",
-        DarkColorTokens.SurfaceInversePositiveMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInversePositiveMinorHover,
         overwrite,
     )
     initial.add(
         "surfaceInversePositiveMinorActive",
-        DarkColorTokens.SurfaceInversePositiveMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInversePositiveMinorActive,
         overwrite,
     )
     initial.add(
         "surfaceInverseWarningMinorHover",
-        DarkColorTokens.SurfaceInverseWarningMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseWarningMinorHover,
         overwrite,
     )
     initial.add(
         "surfaceInverseWarningMinorActive",
-        DarkColorTokens.SurfaceInverseWarningMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseWarningMinorActive,
         overwrite,
     )
     initial.add(
         "surfaceInverseNegativeMinorHover",
-        DarkColorTokens.SurfaceInverseNegativeMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseNegativeMinorHover,
         overwrite,
     )
     initial.add(
         "surfaceInverseNegativeMinorActive",
-        DarkColorTokens.SurfaceInverseNegativeMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseNegativeMinorActive,
         overwrite,
     )
     initial.add(
         "surfaceInverseInfoMinorHover",
-        DarkColorTokens.SurfaceInverseInfoMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseInfoMinorHover,
         overwrite,
     )
     initial.add(
         "surfaceInverseInfoMinorActive",
-        DarkColorTokens.SurfaceInverseInfoMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseInfoMinorActive,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentPositiveHover",
-        DarkColorTokens.SurfaceInverseTransparentPositiveHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseTransparentPositiveHover,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentPositiveActive",
-        DarkColorTokens.SurfaceInverseTransparentPositiveActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseTransparentPositiveActive,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentWarningHover",
-        DarkColorTokens.SurfaceInverseTransparentWarningHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseTransparentWarningHover,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentWarningActive",
-        DarkColorTokens.SurfaceInverseTransparentWarningActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseTransparentWarningActive,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentNegativeHover",
-        DarkColorTokens.SurfaceInverseTransparentNegativeHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseTransparentNegativeHover,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentNegativeActive",
-        DarkColorTokens.SurfaceInverseTransparentNegativeActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseTransparentNegativeActive,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentInfoHover",
-        DarkColorTokens.SurfaceInverseTransparentInfoHover,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseTransparentInfoHover,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentInfoActive",
-        DarkColorTokens.SurfaceInverseTransparentInfoActive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseTransparentInfoActive,
         overwrite,
     )
-    initial.add("surfaceInverseAccentMinor", DarkColorTokens.SurfaceInverseAccentMinor, overwrite)
+    initial.add("surfaceInverseAccentMinor", com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseAccentMinor, overwrite)
     initial.add(
         "surfaceInverseTransparentAccent",
-        DarkColorTokens.SurfaceInverseTransparentAccent,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseTransparentAccent,
         overwrite,
     )
-    initial.add("surfaceInverseInfo", DarkColorTokens.SurfaceInverseInfo, overwrite)
+    initial.add("surfaceInverseInfo", com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseInfo, overwrite)
     initial.add(
         "surfaceInversePositiveMinor",
-        DarkColorTokens.SurfaceInversePositiveMinor,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInversePositiveMinor,
         overwrite,
     )
-    initial.add("surfaceInverseWarningMinor", DarkColorTokens.SurfaceInverseWarningMinor, overwrite)
+    initial.add("surfaceInverseWarningMinor", com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseWarningMinor, overwrite)
     initial.add(
         "surfaceInverseNegativeMinor",
-        DarkColorTokens.SurfaceInverseNegativeMinor,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseNegativeMinor,
         overwrite,
     )
-    initial.add("surfaceInverseInfoMinor", DarkColorTokens.SurfaceInverseInfoMinor, overwrite)
+    initial.add("surfaceInverseInfoMinor", com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseInfoMinor, overwrite)
     initial.add(
         "surfaceInverseTransparentPositive",
-        DarkColorTokens.SurfaceInverseTransparentPositive,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseTransparentPositive,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentWarning",
-        DarkColorTokens.SurfaceInverseTransparentWarning,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseTransparentWarning,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentNegative",
-        DarkColorTokens.SurfaceInverseTransparentNegative,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseTransparentNegative,
         overwrite,
     )
     initial.add(
         "surfaceInverseTransparentInfo",
-        DarkColorTokens.SurfaceInverseTransparentInfo,
+        com.sdds.serv.tokens.DarkColorTokens.SurfaceInverseTransparentInfo,
         overwrite,
     )
-    initial.add("backgroundDefaultPrimary", DarkColorTokens.BackgroundDefaultPrimary, overwrite)
+    initial.add("backgroundDefaultPrimary", com.sdds.serv.tokens.DarkColorTokens.BackgroundDefaultPrimary, overwrite)
     initial.add(
         "backgroundDefaultPrimaryBrightness",
-        DarkColorTokens.BackgroundDefaultPrimaryBrightness,
+        com.sdds.serv.tokens.DarkColorTokens.BackgroundDefaultPrimaryBrightness,
         overwrite,
     )
-    initial.add("backgroundDefaultSecondary", DarkColorTokens.BackgroundDefaultSecondary, overwrite)
-    initial.add("backgroundDefaultTertiary", DarkColorTokens.BackgroundDefaultTertiary, overwrite)
-    initial.add("backgroundDarkPrimary", DarkColorTokens.BackgroundDarkPrimary, overwrite)
-    initial.add("backgroundDarkSecondary", DarkColorTokens.BackgroundDarkSecondary, overwrite)
-    initial.add("backgroundDarkTertiary", DarkColorTokens.BackgroundDarkTertiary, overwrite)
-    initial.add("backgroundLightPrimary", DarkColorTokens.BackgroundLightPrimary, overwrite)
-    initial.add("backgroundLightSecondary", DarkColorTokens.BackgroundLightSecondary, overwrite)
-    initial.add("backgroundLightTertiary", DarkColorTokens.BackgroundLightTertiary, overwrite)
-    initial.add("backgroundInversePrimary", DarkColorTokens.BackgroundInversePrimary, overwrite)
+    initial.add("backgroundDefaultSecondary", com.sdds.serv.tokens.DarkColorTokens.BackgroundDefaultSecondary, overwrite)
+    initial.add("backgroundDefaultTertiary", com.sdds.serv.tokens.DarkColorTokens.BackgroundDefaultTertiary, overwrite)
+    initial.add("backgroundDarkPrimary", com.sdds.serv.tokens.DarkColorTokens.BackgroundDarkPrimary, overwrite)
+    initial.add("backgroundDarkSecondary", com.sdds.serv.tokens.DarkColorTokens.BackgroundDarkSecondary, overwrite)
+    initial.add("backgroundDarkTertiary", com.sdds.serv.tokens.DarkColorTokens.BackgroundDarkTertiary, overwrite)
+    initial.add("backgroundLightPrimary", com.sdds.serv.tokens.DarkColorTokens.BackgroundLightPrimary, overwrite)
+    initial.add("backgroundLightSecondary", com.sdds.serv.tokens.DarkColorTokens.BackgroundLightSecondary, overwrite)
+    initial.add("backgroundLightTertiary", com.sdds.serv.tokens.DarkColorTokens.BackgroundLightTertiary, overwrite)
+    initial.add("backgroundInversePrimary", com.sdds.serv.tokens.DarkColorTokens.BackgroundInversePrimary, overwrite)
     initial.add(
         "backgroundInversePrimaryBrightness",
-        DarkColorTokens.BackgroundInversePrimaryBrightness,
+        com.sdds.serv.tokens.DarkColorTokens.BackgroundInversePrimaryBrightness,
         overwrite,
     )
-    initial.add("backgroundInverseSecondary", DarkColorTokens.BackgroundInverseSecondary, overwrite)
-    initial.add("backgroundInverseTertiary", DarkColorTokens.BackgroundInverseTertiary, overwrite)
-    initial.add("overlayDefaultSoft", DarkColorTokens.OverlayDefaultSoft, overwrite)
-    initial.add("overlayDefaultHard", DarkColorTokens.OverlayDefaultHard, overwrite)
-    initial.add("overlayDefaultBlur", DarkColorTokens.OverlayDefaultBlur, overwrite)
-    initial.add("overlayOnDarkSoft", DarkColorTokens.OverlayOnDarkSoft, overwrite)
-    initial.add("overlayOnDarkHard", DarkColorTokens.OverlayOnDarkHard, overwrite)
-    initial.add("overlayOnDarkBlur", DarkColorTokens.OverlayOnDarkBlur, overwrite)
-    initial.add("overlayOnLightSoft", DarkColorTokens.OverlayOnLightSoft, overwrite)
-    initial.add("overlayOnLightHard", DarkColorTokens.OverlayOnLightHard, overwrite)
-    initial.add("overlayOnLightBlur", DarkColorTokens.OverlayOnLightBlur, overwrite)
-    initial.add("overlayInverseSoft", DarkColorTokens.OverlayInverseSoft, overwrite)
-    initial.add("overlayInverseHard", DarkColorTokens.OverlayInverseHard, overwrite)
-    initial.add("overlayInverseBlur", DarkColorTokens.OverlayInverseBlur, overwrite)
+    initial.add("backgroundInverseSecondary", com.sdds.serv.tokens.DarkColorTokens.BackgroundInverseSecondary, overwrite)
+    initial.add("backgroundInverseTertiary", com.sdds.serv.tokens.DarkColorTokens.BackgroundInverseTertiary, overwrite)
+    initial.add("overlayDefaultSoft", com.sdds.serv.tokens.DarkColorTokens.OverlayDefaultSoft, overwrite)
+    initial.add("overlayDefaultHard", com.sdds.serv.tokens.DarkColorTokens.OverlayDefaultHard, overwrite)
+    initial.add("overlayDefaultBlur", com.sdds.serv.tokens.DarkColorTokens.OverlayDefaultBlur, overwrite)
+    initial.add("overlayOnDarkSoft", com.sdds.serv.tokens.DarkColorTokens.OverlayOnDarkSoft, overwrite)
+    initial.add("overlayOnDarkHard", com.sdds.serv.tokens.DarkColorTokens.OverlayOnDarkHard, overwrite)
+    initial.add("overlayOnDarkBlur", com.sdds.serv.tokens.DarkColorTokens.OverlayOnDarkBlur, overwrite)
+    initial.add("overlayOnLightSoft", com.sdds.serv.tokens.DarkColorTokens.OverlayOnLightSoft, overwrite)
+    initial.add("overlayOnLightHard", com.sdds.serv.tokens.DarkColorTokens.OverlayOnLightHard, overwrite)
+    initial.add("overlayOnLightBlur", com.sdds.serv.tokens.DarkColorTokens.OverlayOnLightBlur, overwrite)
+    initial.add("overlayInverseSoft", com.sdds.serv.tokens.DarkColorTokens.OverlayInverseSoft, overwrite)
+    initial.add("overlayInverseHard", com.sdds.serv.tokens.DarkColorTokens.OverlayInverseHard, overwrite)
+    initial.add("overlayInverseBlur", com.sdds.serv.tokens.DarkColorTokens.OverlayInverseBlur, overwrite)
     initial.add(
         "outlineDefaultSolidPrimaryHover",
-        DarkColorTokens.OutlineDefaultSolidPrimaryHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultSolidPrimaryHover,
         overwrite,
     )
     initial.add(
         "outlineDefaultSolidPrimaryActive",
-        DarkColorTokens.OutlineDefaultSolidPrimaryActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultSolidPrimaryActive,
         overwrite,
     )
     initial.add(
         "outlineDefaultSolidSecondaryHover",
-        DarkColorTokens.OutlineDefaultSolidSecondaryHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultSolidSecondaryHover,
         overwrite,
     )
     initial.add(
         "outlineDefaultSolidSecondaryActive",
-        DarkColorTokens.OutlineDefaultSolidSecondaryActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultSolidSecondaryActive,
         overwrite,
     )
     initial.add(
         "outlineDefaultSolidTertiaryHover",
-        DarkColorTokens.OutlineDefaultSolidTertiaryHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultSolidTertiaryHover,
         overwrite,
     )
     initial.add(
         "outlineDefaultSolidTertiaryActive",
-        DarkColorTokens.OutlineDefaultSolidTertiaryActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultSolidTertiaryActive,
         overwrite,
     )
     initial.add(
         "outlineDefaultTransparentDefaultHover",
-        DarkColorTokens.OutlineDefaultTransparentDefaultHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultTransparentDefaultHover,
         overwrite,
     )
     initial.add(
         "outlineDefaultTransparentDefaultActive",
-        DarkColorTokens.OutlineDefaultTransparentDefaultActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultTransparentDefaultActive,
         overwrite,
     )
     initial.add(
         "outlineDefaultTransparentDefault",
-        DarkColorTokens.OutlineDefaultTransparentDefault,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultTransparentDefault,
         overwrite,
     )
     initial.add(
         "outlineDefaultTransparentPrimaryHover",
-        DarkColorTokens.OutlineDefaultTransparentPrimaryHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultTransparentPrimaryHover,
         overwrite,
     )
     initial.add(
         "outlineDefaultTransparentPrimaryActive",
-        DarkColorTokens.OutlineDefaultTransparentPrimaryActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultTransparentPrimaryActive,
         overwrite,
     )
     initial.add(
         "outlineDefaultTransparentSecondaryHover",
-        DarkColorTokens.OutlineDefaultTransparentSecondaryHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultTransparentSecondaryHover,
         overwrite,
     )
     initial.add(
         "outlineDefaultTransparentSecondaryActive",
-        DarkColorTokens.OutlineDefaultTransparentSecondaryActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultTransparentSecondaryActive,
         overwrite,
     )
     initial.add(
         "outlineDefaultTransparentTertiaryHover",
-        DarkColorTokens.OutlineDefaultTransparentTertiaryHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultTransparentTertiaryHover,
         overwrite,
     )
     initial.add(
         "outlineDefaultTransparentTertiaryActive",
-        DarkColorTokens.OutlineDefaultTransparentTertiaryActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultTransparentTertiaryActive,
         overwrite,
     )
-    initial.add("outlineDefaultClearHover", DarkColorTokens.OutlineDefaultClearHover, overwrite)
-    initial.add("outlineDefaultClearActive", DarkColorTokens.OutlineDefaultClearActive, overwrite)
-    initial.add("outlineDefaultAccentHover", DarkColorTokens.OutlineDefaultAccentHover, overwrite)
-    initial.add("outlineDefaultAccentActive", DarkColorTokens.OutlineDefaultAccentActive, overwrite)
+    initial.add("outlineDefaultClearHover", com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultClearHover, overwrite)
+    initial.add("outlineDefaultClearActive", com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultClearActive, overwrite)
+    initial.add("outlineDefaultAccentHover", com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultAccentHover, overwrite)
+    initial.add("outlineDefaultAccentActive", com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultAccentActive, overwrite)
     initial.add(
         "outlineDefaultAccentMinorHover",
-        DarkColorTokens.OutlineDefaultAccentMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultAccentMinorHover,
         overwrite,
     )
     initial.add(
         "outlineDefaultAccentMinorActive",
-        DarkColorTokens.OutlineDefaultAccentMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultAccentMinorActive,
         overwrite,
     )
     initial.add(
         "outlineDefaultTransparentAccentHover",
-        DarkColorTokens.OutlineDefaultTransparentAccentHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultTransparentAccentHover,
         overwrite,
     )
     initial.add(
         "outlineDefaultTransparentAccentActive",
-        DarkColorTokens.OutlineDefaultTransparentAccentActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultTransparentAccentActive,
         overwrite,
     )
-    initial.add("outlineDefaultPromoHover", DarkColorTokens.OutlineDefaultPromoHover, overwrite)
-    initial.add("outlineDefaultPromoActive", DarkColorTokens.OutlineDefaultPromoActive, overwrite)
-    initial.add("outlineDefaultPromo", DarkColorTokens.OutlineDefaultPromo, overwrite)
+    initial.add("outlineDefaultPromoHover", com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultPromoHover, overwrite)
+    initial.add("outlineDefaultPromoActive", com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultPromoActive, overwrite)
+    initial.add("outlineDefaultPromo", com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultPromo, overwrite)
     initial.add(
         "outlineDefaultPromoMinorHover",
-        DarkColorTokens.OutlineDefaultPromoMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultPromoMinorHover,
         overwrite,
     )
     initial.add(
         "outlineDefaultPromoMinorActive",
-        DarkColorTokens.OutlineDefaultPromoMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultPromoMinorActive,
         overwrite,
     )
-    initial.add("outlineDefaultPromoMinor", DarkColorTokens.OutlineDefaultPromoMinor, overwrite)
+    initial.add("outlineDefaultPromoMinor", com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultPromoMinor, overwrite)
     initial.add(
         "outlineDefaultPositiveHover",
-        DarkColorTokens.OutlineDefaultPositiveHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultPositiveHover,
         overwrite,
     )
     initial.add(
         "outlineDefaultPositiveActive",
-        DarkColorTokens.OutlineDefaultPositiveActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultPositiveActive,
         overwrite,
     )
-    initial.add("outlineDefaultWarningHover", DarkColorTokens.OutlineDefaultWarningHover, overwrite)
+    initial.add("outlineDefaultWarningHover", com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultWarningHover, overwrite)
     initial.add(
         "outlineDefaultWarningActive",
-        DarkColorTokens.OutlineDefaultWarningActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultWarningActive,
         overwrite,
     )
     initial.add(
         "outlineDefaultNegativeHover",
-        DarkColorTokens.OutlineDefaultNegativeHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultNegativeHover,
         overwrite,
     )
     initial.add(
         "outlineDefaultNegativeActive",
-        DarkColorTokens.OutlineDefaultNegativeActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultNegativeActive,
         overwrite,
     )
-    initial.add("outlineDefaultInfoHover", DarkColorTokens.OutlineDefaultInfoHover, overwrite)
-    initial.add("outlineDefaultInfoActive", DarkColorTokens.OutlineDefaultInfoActive, overwrite)
+    initial.add("outlineDefaultInfoHover", com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultInfoHover, overwrite)
+    initial.add("outlineDefaultInfoActive", com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultInfoActive, overwrite)
     initial.add(
         "outlineDefaultPositiveMinorHover",
-        DarkColorTokens.OutlineDefaultPositiveMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultPositiveMinorHover,
         overwrite,
     )
     initial.add(
         "outlineDefaultPositiveMinorActive",
-        DarkColorTokens.OutlineDefaultPositiveMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultPositiveMinorActive,
         overwrite,
     )
     initial.add(
         "outlineDefaultWarningMinorHover",
-        DarkColorTokens.OutlineDefaultWarningMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultWarningMinorHover,
         overwrite,
     )
     initial.add(
         "outlineDefaultWarningMinorActive",
-        DarkColorTokens.OutlineDefaultWarningMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultWarningMinorActive,
         overwrite,
     )
     initial.add(
         "outlineDefaultNegativeMinorHover",
-        DarkColorTokens.OutlineDefaultNegativeMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultNegativeMinorHover,
         overwrite,
     )
     initial.add(
         "outlineDefaultNegativeMinorActive",
-        DarkColorTokens.OutlineDefaultNegativeMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultNegativeMinorActive,
         overwrite,
     )
     initial.add(
         "outlineDefaultInfoMinorHover",
-        DarkColorTokens.OutlineDefaultInfoMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultInfoMinorHover,
         overwrite,
     )
     initial.add(
         "outlineDefaultInfoMinorActive",
-        DarkColorTokens.OutlineDefaultInfoMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultInfoMinorActive,
         overwrite,
     )
     initial.add(
         "outlineDefaultTransparentPositiveHover",
-        DarkColorTokens.OutlineDefaultTransparentPositiveHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultTransparentPositiveHover,
         overwrite,
     )
     initial.add(
         "outlineDefaultTransparentPositiveActive",
-        DarkColorTokens.OutlineDefaultTransparentPositiveActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultTransparentPositiveActive,
         overwrite,
     )
     initial.add(
         "outlineDefaultTransparentWarningHover",
-        DarkColorTokens.OutlineDefaultTransparentWarningHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultTransparentWarningHover,
         overwrite,
     )
     initial.add(
         "outlineDefaultTransparentWarningActive",
-        DarkColorTokens.OutlineDefaultTransparentWarningActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultTransparentWarningActive,
         overwrite,
     )
     initial.add(
         "outlineDefaultTransparentNegativeHover",
-        DarkColorTokens.OutlineDefaultTransparentNegativeHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultTransparentNegativeHover,
         overwrite,
     )
     initial.add(
         "outlineDefaultTransparentNegativeActive",
-        DarkColorTokens.OutlineDefaultTransparentNegativeActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultTransparentNegativeActive,
         overwrite,
     )
     initial.add(
         "outlineDefaultTransparentInfoHover",
-        DarkColorTokens.OutlineDefaultTransparentInfoHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultTransparentInfoHover,
         overwrite,
     )
     initial.add(
         "outlineDefaultTransparentInfoActive",
-        DarkColorTokens.OutlineDefaultTransparentInfoActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultTransparentInfoActive,
         overwrite,
     )
-    initial.add("outlineDefaultClear", DarkColorTokens.OutlineDefaultClear, overwrite)
-    initial.add("outlineDefaultSolidPrimary", DarkColorTokens.OutlineDefaultSolidPrimary, overwrite)
+    initial.add("outlineDefaultClear", com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultClear, overwrite)
+    initial.add("outlineDefaultSolidPrimary", com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultSolidPrimary, overwrite)
     initial.add(
         "outlineDefaultSolidTertiary",
-        DarkColorTokens.OutlineDefaultSolidTertiary,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultSolidTertiary,
         overwrite,
     )
-    initial.add("outlineDefaultAccent", DarkColorTokens.OutlineDefaultAccent, overwrite)
-    initial.add("outlineDefaultAccentMinor", DarkColorTokens.OutlineDefaultAccentMinor, overwrite)
+    initial.add("outlineDefaultAccent", com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultAccent, overwrite)
+    initial.add("outlineDefaultAccentMinor", com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultAccentMinor, overwrite)
     initial.add(
         "outlineDefaultTransparentAccent",
-        DarkColorTokens.OutlineDefaultTransparentAccent,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultTransparentAccent,
         overwrite,
     )
-    initial.add("outlineDefaultWarning", DarkColorTokens.OutlineDefaultWarning, overwrite)
-    initial.add("outlineDefaultPositive", DarkColorTokens.OutlineDefaultPositive, overwrite)
+    initial.add("outlineDefaultWarning", com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultWarning, overwrite)
+    initial.add("outlineDefaultPositive", com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultPositive, overwrite)
     initial.add(
         "outlineDefaultTransparentPositive",
-        DarkColorTokens.OutlineDefaultTransparentPositive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultTransparentPositive,
         overwrite,
     )
-    initial.add("outlineDefaultNegative", DarkColorTokens.OutlineDefaultNegative, overwrite)
-    initial.add("outlineDefaultInfo", DarkColorTokens.OutlineDefaultInfo, overwrite)
+    initial.add("outlineDefaultNegative", com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultNegative, overwrite)
+    initial.add("outlineDefaultInfo", com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultInfo, overwrite)
     initial.add(
         "outlineDefaultPositiveMinor",
-        DarkColorTokens.OutlineDefaultPositiveMinor,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultPositiveMinor,
         overwrite,
     )
-    initial.add("outlineDefaultWarningMinor", DarkColorTokens.OutlineDefaultWarningMinor, overwrite)
+    initial.add("outlineDefaultWarningMinor", com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultWarningMinor, overwrite)
     initial.add(
         "outlineDefaultNegativeMinor",
-        DarkColorTokens.OutlineDefaultNegativeMinor,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultNegativeMinor,
         overwrite,
     )
-    initial.add("outlineDefaultInfoMinor", DarkColorTokens.OutlineDefaultInfoMinor, overwrite)
+    initial.add("outlineDefaultInfoMinor", com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultInfoMinor, overwrite)
     initial.add(
         "outlineDefaultTransparentWarning",
-        DarkColorTokens.OutlineDefaultTransparentWarning,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultTransparentWarning,
         overwrite,
     )
     initial.add(
         "outlineDefaultTransparentNegative",
-        DarkColorTokens.OutlineDefaultTransparentNegative,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultTransparentNegative,
         overwrite,
     )
     initial.add(
         "outlineDefaultTransparentInfo",
-        DarkColorTokens.OutlineDefaultTransparentInfo,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultTransparentInfo,
         overwrite,
     )
     initial.add(
         "outlineDefaultTransparentPrimary",
-        DarkColorTokens.OutlineDefaultTransparentPrimary,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultTransparentPrimary,
         overwrite,
     )
     initial.add(
         "outlineDefaultTransparentSecondary",
-        DarkColorTokens.OutlineDefaultTransparentSecondary,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultTransparentSecondary,
         overwrite,
     )
     initial.add(
         "outlineDefaultTransparentTertiary",
-        DarkColorTokens.OutlineDefaultTransparentTertiary,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultTransparentTertiary,
         overwrite,
     )
     initial.add(
         "outlineDefaultSolidSecondary",
-        DarkColorTokens.OutlineDefaultSolidSecondary,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineDefaultSolidSecondary,
         overwrite,
     )
     initial.add(
         "outlineOnDarkSolidPrimaryHover",
-        DarkColorTokens.OutlineOnDarkSolidPrimaryHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkSolidPrimaryHover,
         overwrite,
     )
     initial.add(
         "outlineOnDarkSolidPrimaryActive",
-        DarkColorTokens.OutlineOnDarkSolidPrimaryActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkSolidPrimaryActive,
         overwrite,
     )
     initial.add(
         "outlineOnDarkSolidSecondaryHover",
-        DarkColorTokens.OutlineOnDarkSolidSecondaryHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkSolidSecondaryHover,
         overwrite,
     )
     initial.add(
         "outlineOnDarkSolidSecondaryActive",
-        DarkColorTokens.OutlineOnDarkSolidSecondaryActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkSolidSecondaryActive,
         overwrite,
     )
     initial.add(
         "outlineOnDarkSolidTertiaryHover",
-        DarkColorTokens.OutlineOnDarkSolidTertiaryHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkSolidTertiaryHover,
         overwrite,
     )
     initial.add(
         "outlineOnDarkSolidTertiaryActive",
-        DarkColorTokens.OutlineOnDarkSolidTertiaryActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkSolidTertiaryActive,
         overwrite,
     )
     initial.add(
         "outlineOnDarkTransparentDefaultHover",
-        DarkColorTokens.OutlineOnDarkTransparentDefaultHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkTransparentDefaultHover,
         overwrite,
     )
     initial.add(
         "outlineOnDarkTransparentDefaultActive",
-        DarkColorTokens.OutlineOnDarkTransparentDefaultActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkTransparentDefaultActive,
         overwrite,
     )
     initial.add(
         "outlineOnDarkTransparentDefault",
-        DarkColorTokens.OutlineOnDarkTransparentDefault,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkTransparentDefault,
         overwrite,
     )
     initial.add(
         "outlineOnDarkTransparentPrimaryHover",
-        DarkColorTokens.OutlineOnDarkTransparentPrimaryHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkTransparentPrimaryHover,
         overwrite,
     )
     initial.add(
         "outlineOnDarkTransparentPrimaryActive",
-        DarkColorTokens.OutlineOnDarkTransparentPrimaryActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkTransparentPrimaryActive,
         overwrite,
     )
     initial.add(
         "outlineOnDarkTransparentSecondaryHover",
-        DarkColorTokens.OutlineOnDarkTransparentSecondaryHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkTransparentSecondaryHover,
         overwrite,
     )
     initial.add(
         "outlineOnDarkTransparentSecondaryActive",
-        DarkColorTokens.OutlineOnDarkTransparentSecondaryActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkTransparentSecondaryActive,
         overwrite,
     )
     initial.add(
         "outlineOnDarkTransparentTertiaryHover",
-        DarkColorTokens.OutlineOnDarkTransparentTertiaryHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkTransparentTertiaryHover,
         overwrite,
     )
     initial.add(
         "outlineOnDarkTransparentTertiaryActive",
-        DarkColorTokens.OutlineOnDarkTransparentTertiaryActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkTransparentTertiaryActive,
         overwrite,
     )
-    initial.add("outlineOnDarkClearHover", DarkColorTokens.OutlineOnDarkClearHover, overwrite)
-    initial.add("outlineOnDarkClearActive", DarkColorTokens.OutlineOnDarkClearActive, overwrite)
-    initial.add("outlineOnDarkAccentHover", DarkColorTokens.OutlineOnDarkAccentHover, overwrite)
-    initial.add("outlineOnDarkAccentActive", DarkColorTokens.OutlineOnDarkAccentActive, overwrite)
+    initial.add("outlineOnDarkClearHover", com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkClearHover, overwrite)
+    initial.add("outlineOnDarkClearActive", com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkClearActive, overwrite)
+    initial.add("outlineOnDarkAccentHover", com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkAccentHover, overwrite)
+    initial.add("outlineOnDarkAccentActive", com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkAccentActive, overwrite)
     initial.add(
         "outlineOnDarkAccentMinorHover",
-        DarkColorTokens.OutlineOnDarkAccentMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkAccentMinorHover,
         overwrite,
     )
     initial.add(
         "outlineOnDarkAccentMinorActive",
-        DarkColorTokens.OutlineOnDarkAccentMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkAccentMinorActive,
         overwrite,
     )
     initial.add(
         "outlineOnDarkTransparentAccentHover",
-        DarkColorTokens.OutlineOnDarkTransparentAccentHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkTransparentAccentHover,
         overwrite,
     )
     initial.add(
         "outlineOnDarkTransparentAccentActive",
-        DarkColorTokens.OutlineOnDarkTransparentAccentActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkTransparentAccentActive,
         overwrite,
     )
-    initial.add("outlineOnDarkPromoHover", DarkColorTokens.OutlineOnDarkPromoHover, overwrite)
-    initial.add("outlineOnDarkPromoActive", DarkColorTokens.OutlineOnDarkPromoActive, overwrite)
-    initial.add("outlineOnDarkPromo", DarkColorTokens.OutlineOnDarkPromo, overwrite)
+    initial.add("outlineOnDarkPromoHover", com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkPromoHover, overwrite)
+    initial.add("outlineOnDarkPromoActive", com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkPromoActive, overwrite)
+    initial.add("outlineOnDarkPromo", com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkPromo, overwrite)
     initial.add(
         "outlineOnDarkPromoMinorHover",
-        DarkColorTokens.OutlineOnDarkPromoMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkPromoMinorHover,
         overwrite,
     )
     initial.add(
         "outlineOnDarkPromoMinorActive",
-        DarkColorTokens.OutlineOnDarkPromoMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkPromoMinorActive,
         overwrite,
     )
-    initial.add("outlineOnDarkPromoMinor", DarkColorTokens.OutlineOnDarkPromoMinor, overwrite)
-    initial.add("outlineOnDarkPositiveHover", DarkColorTokens.OutlineOnDarkPositiveHover, overwrite)
+    initial.add("outlineOnDarkPromoMinor", com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkPromoMinor, overwrite)
+    initial.add("outlineOnDarkPositiveHover", com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkPositiveHover, overwrite)
     initial.add(
         "outlineOnDarkPositiveActive",
-        DarkColorTokens.OutlineOnDarkPositiveActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkPositiveActive,
         overwrite,
     )
-    initial.add("outlineOnDarkWarningHover", DarkColorTokens.OutlineOnDarkWarningHover, overwrite)
-    initial.add("outlineOnDarkWarningActive", DarkColorTokens.OutlineOnDarkWarningActive, overwrite)
-    initial.add("outlineOnDarkNegativeHover", DarkColorTokens.OutlineOnDarkNegativeHover, overwrite)
+    initial.add("outlineOnDarkWarningHover", com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkWarningHover, overwrite)
+    initial.add("outlineOnDarkWarningActive", com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkWarningActive, overwrite)
+    initial.add("outlineOnDarkNegativeHover", com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkNegativeHover, overwrite)
     initial.add(
         "outlineOnDarkNegativeActive",
-        DarkColorTokens.OutlineOnDarkNegativeActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkNegativeActive,
         overwrite,
     )
-    initial.add("outlineOnDarkInfoHover", DarkColorTokens.OutlineOnDarkInfoHover, overwrite)
-    initial.add("outlineOnDarkInfoActive", DarkColorTokens.OutlineOnDarkInfoActive, overwrite)
+    initial.add("outlineOnDarkInfoHover", com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkInfoHover, overwrite)
+    initial.add("outlineOnDarkInfoActive", com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkInfoActive, overwrite)
     initial.add(
         "outlineOnDarkPositiveMinorHover",
-        DarkColorTokens.OutlineOnDarkPositiveMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkPositiveMinorHover,
         overwrite,
     )
     initial.add(
         "outlineOnDarkPositiveMinorActive",
-        DarkColorTokens.OutlineOnDarkPositiveMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkPositiveMinorActive,
         overwrite,
     )
     initial.add(
         "outlineOnDarkWarningMinorHover",
-        DarkColorTokens.OutlineOnDarkWarningMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkWarningMinorHover,
         overwrite,
     )
     initial.add(
         "outlineOnDarkWarningMinorActive",
-        DarkColorTokens.OutlineOnDarkWarningMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkWarningMinorActive,
         overwrite,
     )
     initial.add(
         "outlineOnDarkNegativeMinorHover",
-        DarkColorTokens.OutlineOnDarkNegativeMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkNegativeMinorHover,
         overwrite,
     )
     initial.add(
         "outlineOnDarkNegativeMinorActive",
-        DarkColorTokens.OutlineOnDarkNegativeMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkNegativeMinorActive,
         overwrite,
     )
     initial.add(
         "outlineOnDarkInfoMinorHover",
-        DarkColorTokens.OutlineOnDarkInfoMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkInfoMinorHover,
         overwrite,
     )
     initial.add(
         "outlineOnDarkInfoMinorActive",
-        DarkColorTokens.OutlineOnDarkInfoMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkInfoMinorActive,
         overwrite,
     )
     initial.add(
         "outlineOnDarkTransparentPositiveHover",
-        DarkColorTokens.OutlineOnDarkTransparentPositiveHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkTransparentPositiveHover,
         overwrite,
     )
     initial.add(
         "outlineOnDarkTransparentPositiveActive",
-        DarkColorTokens.OutlineOnDarkTransparentPositiveActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkTransparentPositiveActive,
         overwrite,
     )
     initial.add(
         "outlineOnDarkTransparentWarningHover",
-        DarkColorTokens.OutlineOnDarkTransparentWarningHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkTransparentWarningHover,
         overwrite,
     )
     initial.add(
         "outlineOnDarkTransparentWarningActive",
-        DarkColorTokens.OutlineOnDarkTransparentWarningActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkTransparentWarningActive,
         overwrite,
     )
     initial.add(
         "outlineOnDarkTransparentNegativeHover",
-        DarkColorTokens.OutlineOnDarkTransparentNegativeHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkTransparentNegativeHover,
         overwrite,
     )
     initial.add(
         "outlineOnDarkTransparentNegativeActive",
-        DarkColorTokens.OutlineOnDarkTransparentNegativeActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkTransparentNegativeActive,
         overwrite,
     )
     initial.add(
         "outlineOnDarkTransparentInfoHover",
-        DarkColorTokens.OutlineOnDarkTransparentInfoHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkTransparentInfoHover,
         overwrite,
     )
     initial.add(
         "outlineOnDarkTransparentInfoActive",
-        DarkColorTokens.OutlineOnDarkTransparentInfoActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkTransparentInfoActive,
         overwrite,
     )
-    initial.add("outlineOnDarkClear", DarkColorTokens.OutlineOnDarkClear, overwrite)
-    initial.add("outlineOnDarkSolidPrimary", DarkColorTokens.OutlineOnDarkSolidPrimary, overwrite)
-    initial.add("outlineOnDarkAccent", DarkColorTokens.OutlineOnDarkAccent, overwrite)
-    initial.add("outlineOnDarkAccentMinor", DarkColorTokens.OutlineOnDarkAccentMinor, overwrite)
+    initial.add("outlineOnDarkClear", com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkClear, overwrite)
+    initial.add("outlineOnDarkSolidPrimary", com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkSolidPrimary, overwrite)
+    initial.add("outlineOnDarkAccent", com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkAccent, overwrite)
+    initial.add("outlineOnDarkAccentMinor", com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkAccentMinor, overwrite)
     initial.add(
         "outlineOnDarkTransparentAccent",
-        DarkColorTokens.OutlineOnDarkTransparentAccent,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkTransparentAccent,
         overwrite,
     )
     initial.add(
         "outlineOnDarkTransparentPositive",
-        DarkColorTokens.OutlineOnDarkTransparentPositive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkTransparentPositive,
         overwrite,
     )
-    initial.add("outlineOnDarkPositive", DarkColorTokens.OutlineOnDarkPositive, overwrite)
-    initial.add("outlineOnDarkWarning", DarkColorTokens.OutlineOnDarkWarning, overwrite)
-    initial.add("outlineOnDarkNegative", DarkColorTokens.OutlineOnDarkNegative, overwrite)
-    initial.add("outlineOnDarkInfo", DarkColorTokens.OutlineOnDarkInfo, overwrite)
-    initial.add("outlineOnDarkPositiveMinor", DarkColorTokens.OutlineOnDarkPositiveMinor, overwrite)
-    initial.add("outlineOnDarkWarningMinor", DarkColorTokens.OutlineOnDarkWarningMinor, overwrite)
-    initial.add("outlineOnDarkNegativeMinor", DarkColorTokens.OutlineOnDarkNegativeMinor, overwrite)
-    initial.add("outlineOnDarkInfoMinor", DarkColorTokens.OutlineOnDarkInfoMinor, overwrite)
+    initial.add("outlineOnDarkPositive", com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkPositive, overwrite)
+    initial.add("outlineOnDarkWarning", com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkWarning, overwrite)
+    initial.add("outlineOnDarkNegative", com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkNegative, overwrite)
+    initial.add("outlineOnDarkInfo", com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkInfo, overwrite)
+    initial.add("outlineOnDarkPositiveMinor", com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkPositiveMinor, overwrite)
+    initial.add("outlineOnDarkWarningMinor", com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkWarningMinor, overwrite)
+    initial.add("outlineOnDarkNegativeMinor", com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkNegativeMinor, overwrite)
+    initial.add("outlineOnDarkInfoMinor", com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkInfoMinor, overwrite)
     initial.add(
         "outlineOnDarkTransparentWarning",
-        DarkColorTokens.OutlineOnDarkTransparentWarning,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkTransparentWarning,
         overwrite,
     )
     initial.add(
         "outlineOnDarkTransparentNegative",
-        DarkColorTokens.OutlineOnDarkTransparentNegative,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkTransparentNegative,
         overwrite,
     )
     initial.add(
         "outlineOnDarkTransparentInfo",
-        DarkColorTokens.OutlineOnDarkTransparentInfo,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkTransparentInfo,
         overwrite,
     )
     initial.add(
         "outlineOnDarkTransparentPrimary",
-        DarkColorTokens.OutlineOnDarkTransparentPrimary,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkTransparentPrimary,
         overwrite,
     )
     initial.add(
         "outlineOnDarkTransparentSecondary",
-        DarkColorTokens.OutlineOnDarkTransparentSecondary,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkTransparentSecondary,
         overwrite,
     )
     initial.add(
         "outlineOnDarkTransparentTertiary",
-        DarkColorTokens.OutlineOnDarkTransparentTertiary,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkTransparentTertiary,
         overwrite,
     )
     initial.add(
         "outlineOnDarkSolidSecondary",
-        DarkColorTokens.OutlineOnDarkSolidSecondary,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkSolidSecondary,
         overwrite,
     )
-    initial.add("outlineOnDarkSolidTertiary", DarkColorTokens.OutlineOnDarkSolidTertiary, overwrite)
+    initial.add("outlineOnDarkSolidTertiary", com.sdds.serv.tokens.DarkColorTokens.OutlineOnDarkSolidTertiary, overwrite)
     initial.add(
         "outlineOnLightSolidPrimaryHover",
-        DarkColorTokens.OutlineOnLightSolidPrimaryHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightSolidPrimaryHover,
         overwrite,
     )
     initial.add(
         "outlineOnLightSolidPrimaryActive",
-        DarkColorTokens.OutlineOnLightSolidPrimaryActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightSolidPrimaryActive,
         overwrite,
     )
     initial.add(
         "outlineOnLightSolidSecondaryHover",
-        DarkColorTokens.OutlineOnLightSolidSecondaryHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightSolidSecondaryHover,
         overwrite,
     )
     initial.add(
         "outlineOnLightSolidSecondaryActive",
-        DarkColorTokens.OutlineOnLightSolidSecondaryActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightSolidSecondaryActive,
         overwrite,
     )
     initial.add(
         "outlineOnLightSolidTertiaryHover",
-        DarkColorTokens.OutlineOnLightSolidTertiaryHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightSolidTertiaryHover,
         overwrite,
     )
     initial.add(
         "outlineOnLightSolidTertiaryActive",
-        DarkColorTokens.OutlineOnLightSolidTertiaryActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightSolidTertiaryActive,
         overwrite,
     )
     initial.add(
         "outlineOnLightTransparentDefaultHover",
-        DarkColorTokens.OutlineOnLightTransparentDefaultHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightTransparentDefaultHover,
         overwrite,
     )
     initial.add(
         "outlineOnLightTransparentDefaultActive",
-        DarkColorTokens.OutlineOnLightTransparentDefaultActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightTransparentDefaultActive,
         overwrite,
     )
     initial.add(
         "outlineOnLightTransparentDefault",
-        DarkColorTokens.OutlineOnLightTransparentDefault,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightTransparentDefault,
         overwrite,
     )
     initial.add(
         "outlineOnLightTransparentPrimaryHover",
-        DarkColorTokens.OutlineOnLightTransparentPrimaryHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightTransparentPrimaryHover,
         overwrite,
     )
     initial.add(
         "outlineOnLightTransparentPrimaryActive",
-        DarkColorTokens.OutlineOnLightTransparentPrimaryActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightTransparentPrimaryActive,
         overwrite,
     )
     initial.add(
         "outlineOnLightTransparentSecondaryHover",
-        DarkColorTokens.OutlineOnLightTransparentSecondaryHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightTransparentSecondaryHover,
         overwrite,
     )
     initial.add(
         "outlineOnLightTransparentSecondaryActive",
-        DarkColorTokens.OutlineOnLightTransparentSecondaryActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightTransparentSecondaryActive,
         overwrite,
     )
     initial.add(
         "outlineOnLightTransparentTertiaryHover",
-        DarkColorTokens.OutlineOnLightTransparentTertiaryHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightTransparentTertiaryHover,
         overwrite,
     )
     initial.add(
         "outlineOnLightTransparentTertiaryActive",
-        DarkColorTokens.OutlineOnLightTransparentTertiaryActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightTransparentTertiaryActive,
         overwrite,
     )
-    initial.add("outlineOnLightClearHover", DarkColorTokens.OutlineOnLightClearHover, overwrite)
-    initial.add("outlineOnLightClearActive", DarkColorTokens.OutlineOnLightClearActive, overwrite)
-    initial.add("outlineOnLightAccentHover", DarkColorTokens.OutlineOnLightAccentHover, overwrite)
-    initial.add("outlineOnLightAccentActive", DarkColorTokens.OutlineOnLightAccentActive, overwrite)
+    initial.add("outlineOnLightClearHover", com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightClearHover, overwrite)
+    initial.add("outlineOnLightClearActive", com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightClearActive, overwrite)
+    initial.add("outlineOnLightAccentHover", com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightAccentHover, overwrite)
+    initial.add("outlineOnLightAccentActive", com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightAccentActive, overwrite)
     initial.add(
         "outlineOnLightAccentMinorHover",
-        DarkColorTokens.OutlineOnLightAccentMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightAccentMinorHover,
         overwrite,
     )
     initial.add(
         "outlineOnLightAccentMinorActive",
-        DarkColorTokens.OutlineOnLightAccentMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightAccentMinorActive,
         overwrite,
     )
     initial.add(
         "outlineOnLightTransparentAccentHover",
-        DarkColorTokens.OutlineOnLightTransparentAccentHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightTransparentAccentHover,
         overwrite,
     )
     initial.add(
         "outlineOnLightTransparentAccentActive",
-        DarkColorTokens.OutlineOnLightTransparentAccentActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightTransparentAccentActive,
         overwrite,
     )
-    initial.add("outlineOnLightPromoHover", DarkColorTokens.OutlineOnLightPromoHover, overwrite)
-    initial.add("outlineOnLightPromoActive", DarkColorTokens.OutlineOnLightPromoActive, overwrite)
-    initial.add("outlineOnLightPromo", DarkColorTokens.OutlineOnLightPromo, overwrite)
+    initial.add("outlineOnLightPromoHover", com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightPromoHover, overwrite)
+    initial.add("outlineOnLightPromoActive", com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightPromoActive, overwrite)
+    initial.add("outlineOnLightPromo", com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightPromo, overwrite)
     initial.add(
         "outlineOnLightPromoMinorHover",
-        DarkColorTokens.OutlineOnLightPromoMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightPromoMinorHover,
         overwrite,
     )
     initial.add(
         "outlineOnLightPromoMinorActive",
-        DarkColorTokens.OutlineOnLightPromoMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightPromoMinorActive,
         overwrite,
     )
-    initial.add("outlineOnLightPromoMinor", DarkColorTokens.OutlineOnLightPromoMinor, overwrite)
+    initial.add("outlineOnLightPromoMinor", com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightPromoMinor, overwrite)
     initial.add(
         "outlineOnLightPositiveHover",
-        DarkColorTokens.OutlineOnLightPositiveHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightPositiveHover,
         overwrite,
     )
     initial.add(
         "outlineOnLightPositiveActive",
-        DarkColorTokens.OutlineOnLightPositiveActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightPositiveActive,
         overwrite,
     )
-    initial.add("outlineOnLightWarningHover", DarkColorTokens.OutlineOnLightWarningHover, overwrite)
+    initial.add("outlineOnLightWarningHover", com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightWarningHover, overwrite)
     initial.add(
         "outlineOnLightWarningActive",
-        DarkColorTokens.OutlineOnLightWarningActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightWarningActive,
         overwrite,
     )
     initial.add(
         "outlineOnLightNegativeHover",
-        DarkColorTokens.OutlineOnLightNegativeHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightNegativeHover,
         overwrite,
     )
     initial.add(
         "outlineOnLightNegativeActive",
-        DarkColorTokens.OutlineOnLightNegativeActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightNegativeActive,
         overwrite,
     )
-    initial.add("outlineOnLightInfoHover", DarkColorTokens.OutlineOnLightInfoHover, overwrite)
-    initial.add("outlineOnLightInfoActive", DarkColorTokens.OutlineOnLightInfoActive, overwrite)
+    initial.add("outlineOnLightInfoHover", com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightInfoHover, overwrite)
+    initial.add("outlineOnLightInfoActive", com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightInfoActive, overwrite)
     initial.add(
         "outlineOnLightPositiveMinorHover",
-        DarkColorTokens.OutlineOnLightPositiveMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightPositiveMinorHover,
         overwrite,
     )
     initial.add(
         "outlineOnLightPositiveMinorActive",
-        DarkColorTokens.OutlineOnLightPositiveMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightPositiveMinorActive,
         overwrite,
     )
     initial.add(
         "outlineOnLightWarningMinorHover",
-        DarkColorTokens.OutlineOnLightWarningMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightWarningMinorHover,
         overwrite,
     )
     initial.add(
         "outlineOnLightWarningMinorActive",
-        DarkColorTokens.OutlineOnLightWarningMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightWarningMinorActive,
         overwrite,
     )
     initial.add(
         "outlineOnLightNegativeMinorHover",
-        DarkColorTokens.OutlineOnLightNegativeMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightNegativeMinorHover,
         overwrite,
     )
     initial.add(
         "outlineOnLightNegativeMinorActive",
-        DarkColorTokens.OutlineOnLightNegativeMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightNegativeMinorActive,
         overwrite,
     )
     initial.add(
         "outlineOnLightInfoMinorHover",
-        DarkColorTokens.OutlineOnLightInfoMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightInfoMinorHover,
         overwrite,
     )
     initial.add(
         "outlineOnLightInfoMinorActive",
-        DarkColorTokens.OutlineOnLightInfoMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightInfoMinorActive,
         overwrite,
     )
     initial.add(
         "outlineOnLightTransparentPositiveHover",
-        DarkColorTokens.OutlineOnLightTransparentPositiveHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightTransparentPositiveHover,
         overwrite,
     )
     initial.add(
         "outlineOnLightTransparentPositiveActive",
-        DarkColorTokens.OutlineOnLightTransparentPositiveActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightTransparentPositiveActive,
         overwrite,
     )
     initial.add(
         "outlineOnLightTransparentWarningHover",
-        DarkColorTokens.OutlineOnLightTransparentWarningHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightTransparentWarningHover,
         overwrite,
     )
     initial.add(
         "outlineOnLightTransparentWarningActive",
-        DarkColorTokens.OutlineOnLightTransparentWarningActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightTransparentWarningActive,
         overwrite,
     )
     initial.add(
         "outlineOnLightTransparentNegativeHover",
-        DarkColorTokens.OutlineOnLightTransparentNegativeHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightTransparentNegativeHover,
         overwrite,
     )
     initial.add(
         "outlineOnLightTransparentNegativeActive",
-        DarkColorTokens.OutlineOnLightTransparentNegativeActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightTransparentNegativeActive,
         overwrite,
     )
     initial.add(
         "outlineOnLightTransparentInfoHover",
-        DarkColorTokens.OutlineOnLightTransparentInfoHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightTransparentInfoHover,
         overwrite,
     )
     initial.add(
         "outlineOnLightTransparentInfoActive",
-        DarkColorTokens.OutlineOnLightTransparentInfoActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightTransparentInfoActive,
         overwrite,
     )
-    initial.add("outlineOnLightClear", DarkColorTokens.OutlineOnLightClear, overwrite)
+    initial.add("outlineOnLightClear", com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightClear, overwrite)
     initial.add(
         "outlineOnLightTransparentAccent",
-        DarkColorTokens.OutlineOnLightTransparentAccent,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightTransparentAccent,
         overwrite,
     )
-    initial.add("outlineOnLightPositive", DarkColorTokens.OutlineOnLightPositive, overwrite)
+    initial.add("outlineOnLightPositive", com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightPositive, overwrite)
     initial.add(
         "outlineOnLightTransparentPositive",
-        DarkColorTokens.OutlineOnLightTransparentPositive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightTransparentPositive,
         overwrite,
     )
     initial.add(
         "outlineOnLightTransparentWarning",
-        DarkColorTokens.OutlineOnLightTransparentWarning,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightTransparentWarning,
         overwrite,
     )
     initial.add(
         "outlineOnLightTransparentNegative",
-        DarkColorTokens.OutlineOnLightTransparentNegative,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightTransparentNegative,
         overwrite,
     )
     initial.add(
         "outlineOnLightTransparentInfo",
-        DarkColorTokens.OutlineOnLightTransparentInfo,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightTransparentInfo,
         overwrite,
     )
-    initial.add("outlineOnLightSolidPrimary", DarkColorTokens.OutlineOnLightSolidPrimary, overwrite)
+    initial.add("outlineOnLightSolidPrimary", com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightSolidPrimary, overwrite)
     initial.add(
         "outlineOnLightSolidTertiary",
-        DarkColorTokens.OutlineOnLightSolidTertiary,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightSolidTertiary,
         overwrite,
     )
-    initial.add("outlineOnLightAccent", DarkColorTokens.OutlineOnLightAccent, overwrite)
-    initial.add("outlineOnLightAccentMinor", DarkColorTokens.OutlineOnLightAccentMinor, overwrite)
-    initial.add("outlineOnLightWarning", DarkColorTokens.OutlineOnLightWarning, overwrite)
-    initial.add("outlineOnLightNegative", DarkColorTokens.OutlineOnLightNegative, overwrite)
-    initial.add("outlineOnLightInfo", DarkColorTokens.OutlineOnLightInfo, overwrite)
+    initial.add("outlineOnLightAccent", com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightAccent, overwrite)
+    initial.add("outlineOnLightAccentMinor", com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightAccentMinor, overwrite)
+    initial.add("outlineOnLightWarning", com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightWarning, overwrite)
+    initial.add("outlineOnLightNegative", com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightNegative, overwrite)
+    initial.add("outlineOnLightInfo", com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightInfo, overwrite)
     initial.add(
         "outlineOnLightPositiveMinor",
-        DarkColorTokens.OutlineOnLightPositiveMinor,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightPositiveMinor,
         overwrite,
     )
-    initial.add("outlineOnLightWarningMinor", DarkColorTokens.OutlineOnLightWarningMinor, overwrite)
+    initial.add("outlineOnLightWarningMinor", com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightWarningMinor, overwrite)
     initial.add(
         "outlineOnLightNegativeMinor",
-        DarkColorTokens.OutlineOnLightNegativeMinor,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightNegativeMinor,
         overwrite,
     )
-    initial.add("outlineOnLightInfoMinor", DarkColorTokens.OutlineOnLightInfoMinor, overwrite)
+    initial.add("outlineOnLightInfoMinor", com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightInfoMinor, overwrite)
     initial.add(
         "outlineOnLightTransparentPrimary",
-        DarkColorTokens.OutlineOnLightTransparentPrimary,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightTransparentPrimary,
         overwrite,
     )
     initial.add(
         "outlineOnLightTransparentSecondary",
-        DarkColorTokens.OutlineOnLightTransparentSecondary,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightTransparentSecondary,
         overwrite,
     )
     initial.add(
         "outlineOnLightTransparentTertiary",
-        DarkColorTokens.OutlineOnLightTransparentTertiary,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightTransparentTertiary,
         overwrite,
     )
     initial.add(
         "outlineOnLightSolidSecondary",
-        DarkColorTokens.OutlineOnLightSolidSecondary,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineOnLightSolidSecondary,
         overwrite,
     )
     initial.add(
         "outlineInverseSolidPrimaryHover",
-        DarkColorTokens.OutlineInverseSolidPrimaryHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineInverseSolidPrimaryHover,
         overwrite,
     )
     initial.add(
         "outlineInverseSolidPrimaryActive",
-        DarkColorTokens.OutlineInverseSolidPrimaryActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineInverseSolidPrimaryActive,
         overwrite,
     )
     initial.add(
         "outlineInverseSolidSecondaryHover",
-        DarkColorTokens.OutlineInverseSolidSecondaryHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineInverseSolidSecondaryHover,
         overwrite,
     )
     initial.add(
         "outlineInverseSolidSecondaryActive",
-        DarkColorTokens.OutlineInverseSolidSecondaryActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineInverseSolidSecondaryActive,
         overwrite,
     )
     initial.add(
         "outlineInverseSolidTertiaryHover",
-        DarkColorTokens.OutlineInverseSolidTertiaryHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineInverseSolidTertiaryHover,
         overwrite,
     )
     initial.add(
         "outlineInverseSolidTertiaryActive",
-        DarkColorTokens.OutlineInverseSolidTertiaryActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineInverseSolidTertiaryActive,
         overwrite,
     )
     initial.add(
         "outlineInverseTransparentDefaultHover",
-        DarkColorTokens.OutlineInverseTransparentDefaultHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineInverseTransparentDefaultHover,
         overwrite,
     )
     initial.add(
         "outlineInverseTransparentDefaultActive",
-        DarkColorTokens.OutlineInverseTransparentDefaultActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineInverseTransparentDefaultActive,
         overwrite,
     )
     initial.add(
         "outlineInverseTransparentDefault",
-        DarkColorTokens.OutlineInverseTransparentDefault,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineInverseTransparentDefault,
         overwrite,
     )
     initial.add(
         "outlineInverseTransparentPrimaryHover",
-        DarkColorTokens.OutlineInverseTransparentPrimaryHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineInverseTransparentPrimaryHover,
         overwrite,
     )
     initial.add(
         "outlineInverseTransparentPrimaryActive",
-        DarkColorTokens.OutlineInverseTransparentPrimaryActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineInverseTransparentPrimaryActive,
         overwrite,
     )
     initial.add(
         "outlineInverseTransparentSecondaryHover",
-        DarkColorTokens.OutlineInverseTransparentSecondaryHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineInverseTransparentSecondaryHover,
         overwrite,
     )
     initial.add(
         "outlineInverseTransparentSecondaryActive",
-        DarkColorTokens.OutlineInverseTransparentSecondaryActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineInverseTransparentSecondaryActive,
         overwrite,
     )
     initial.add(
         "outlineInverseTransparentTertiaryHover",
-        DarkColorTokens.OutlineInverseTransparentTertiaryHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineInverseTransparentTertiaryHover,
         overwrite,
     )
     initial.add(
         "outlineInverseTransparentTertiaryActive",
-        DarkColorTokens.OutlineInverseTransparentTertiaryActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineInverseTransparentTertiaryActive,
         overwrite,
     )
-    initial.add("outlineInverseClearHover", DarkColorTokens.OutlineInverseClearHover, overwrite)
-    initial.add("outlineInverseClearActive", DarkColorTokens.OutlineInverseClearActive, overwrite)
-    initial.add("outlineInverseAccentHover", DarkColorTokens.OutlineInverseAccentHover, overwrite)
-    initial.add("outlineInverseAccentActive", DarkColorTokens.OutlineInverseAccentActive, overwrite)
+    initial.add("outlineInverseClearHover", com.sdds.serv.tokens.DarkColorTokens.OutlineInverseClearHover, overwrite)
+    initial.add("outlineInverseClearActive", com.sdds.serv.tokens.DarkColorTokens.OutlineInverseClearActive, overwrite)
+    initial.add("outlineInverseAccentHover", com.sdds.serv.tokens.DarkColorTokens.OutlineInverseAccentHover, overwrite)
+    initial.add("outlineInverseAccentActive", com.sdds.serv.tokens.DarkColorTokens.OutlineInverseAccentActive, overwrite)
     initial.add(
         "outlineInverseAccentMinorHover",
-        DarkColorTokens.OutlineInverseAccentMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineInverseAccentMinorHover,
         overwrite,
     )
     initial.add(
         "outlineInverseAccentMinorActive",
-        DarkColorTokens.OutlineInverseAccentMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineInverseAccentMinorActive,
         overwrite,
     )
     initial.add(
         "outlineInverseTransparentAccentHover",
-        DarkColorTokens.OutlineInverseTransparentAccentHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineInverseTransparentAccentHover,
         overwrite,
     )
     initial.add(
         "outlineInverseTransparentAccentActive",
-        DarkColorTokens.OutlineInverseTransparentAccentActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineInverseTransparentAccentActive,
         overwrite,
     )
-    initial.add("outlineInversePromoHover", DarkColorTokens.OutlineInversePromoHover, overwrite)
-    initial.add("outlineInversePromoActive", DarkColorTokens.OutlineInversePromoActive, overwrite)
-    initial.add("outlineInversePromo", DarkColorTokens.OutlineInversePromo, overwrite)
+    initial.add("outlineInversePromoHover", com.sdds.serv.tokens.DarkColorTokens.OutlineInversePromoHover, overwrite)
+    initial.add("outlineInversePromoActive", com.sdds.serv.tokens.DarkColorTokens.OutlineInversePromoActive, overwrite)
+    initial.add("outlineInversePromo", com.sdds.serv.tokens.DarkColorTokens.OutlineInversePromo, overwrite)
     initial.add(
         "outlineInversePromoMinorHover",
-        DarkColorTokens.OutlineInversePromoMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineInversePromoMinorHover,
         overwrite,
     )
     initial.add(
         "outlineInversePromoMinorActive",
-        DarkColorTokens.OutlineInversePromoMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineInversePromoMinorActive,
         overwrite,
     )
-    initial.add("outlineInversePromoMinor", DarkColorTokens.OutlineInversePromoMinor, overwrite)
+    initial.add("outlineInversePromoMinor", com.sdds.serv.tokens.DarkColorTokens.OutlineInversePromoMinor, overwrite)
     initial.add(
         "outlineInversePositiveHover",
-        DarkColorTokens.OutlineInversePositiveHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineInversePositiveHover,
         overwrite,
     )
     initial.add(
         "outlineInversePositiveActive",
-        DarkColorTokens.OutlineInversePositiveActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineInversePositiveActive,
         overwrite,
     )
-    initial.add("outlineInverseWarningHover", DarkColorTokens.OutlineInverseWarningHover, overwrite)
+    initial.add("outlineInverseWarningHover", com.sdds.serv.tokens.DarkColorTokens.OutlineInverseWarningHover, overwrite)
     initial.add(
         "outlineInverseWarningActive",
-        DarkColorTokens.OutlineInverseWarningActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineInverseWarningActive,
         overwrite,
     )
     initial.add(
         "outlineInverseNegativeHover",
-        DarkColorTokens.OutlineInverseNegativeHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineInverseNegativeHover,
         overwrite,
     )
     initial.add(
         "outlineInverseNegativeActive",
-        DarkColorTokens.OutlineInverseNegativeActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineInverseNegativeActive,
         overwrite,
     )
-    initial.add("outlineInverseInfoHover", DarkColorTokens.OutlineInverseInfoHover, overwrite)
-    initial.add("outlineInverseInfoActive", DarkColorTokens.OutlineInverseInfoActive, overwrite)
+    initial.add("outlineInverseInfoHover", com.sdds.serv.tokens.DarkColorTokens.OutlineInverseInfoHover, overwrite)
+    initial.add("outlineInverseInfoActive", com.sdds.serv.tokens.DarkColorTokens.OutlineInverseInfoActive, overwrite)
     initial.add(
         "outlineInversePositiveMinorHover",
-        DarkColorTokens.OutlineInversePositiveMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineInversePositiveMinorHover,
         overwrite,
     )
     initial.add(
         "outlineInversePositiveMinorActive",
-        DarkColorTokens.OutlineInversePositiveMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineInversePositiveMinorActive,
         overwrite,
     )
     initial.add(
         "outlineInverseWarningMinorHover",
-        DarkColorTokens.OutlineInverseWarningMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineInverseWarningMinorHover,
         overwrite,
     )
     initial.add(
         "outlineInverseWarningMinorActive",
-        DarkColorTokens.OutlineInverseWarningMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineInverseWarningMinorActive,
         overwrite,
     )
     initial.add(
         "outlineInverseNegativeMinorHover",
-        DarkColorTokens.OutlineInverseNegativeMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineInverseNegativeMinorHover,
         overwrite,
     )
     initial.add(
         "outlineInverseNegativeMinorActive",
-        DarkColorTokens.OutlineInverseNegativeMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineInverseNegativeMinorActive,
         overwrite,
     )
     initial.add(
         "outlineInverseInfoMinorHover",
-        DarkColorTokens.OutlineInverseInfoMinorHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineInverseInfoMinorHover,
         overwrite,
     )
     initial.add(
         "outlineInverseInfoMinorActive",
-        DarkColorTokens.OutlineInverseInfoMinorActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineInverseInfoMinorActive,
         overwrite,
     )
     initial.add(
         "outlineInverseTransparentPositiveHover",
-        DarkColorTokens.OutlineInverseTransparentPositiveHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineInverseTransparentPositiveHover,
         overwrite,
     )
     initial.add(
         "outlineInverseTransparentPositiveActive",
-        DarkColorTokens.OutlineInverseTransparentPositiveActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineInverseTransparentPositiveActive,
         overwrite,
     )
     initial.add(
         "outlineInverseTransparentWarningHover",
-        DarkColorTokens.OutlineInverseTransparentWarningHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineInverseTransparentWarningHover,
         overwrite,
     )
     initial.add(
         "outlineInverseTransparentWarningActive",
-        DarkColorTokens.OutlineInverseTransparentWarningActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineInverseTransparentWarningActive,
         overwrite,
     )
     initial.add(
         "outlineInverseTransparentNegativeHover",
-        DarkColorTokens.OutlineInverseTransparentNegativeHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineInverseTransparentNegativeHover,
         overwrite,
     )
     initial.add(
         "outlineInverseTransparentNegativeActive",
-        DarkColorTokens.OutlineInverseTransparentNegativeActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineInverseTransparentNegativeActive,
         overwrite,
     )
     initial.add(
         "outlineInverseTransparentInfoHover",
-        DarkColorTokens.OutlineInverseTransparentInfoHover,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineInverseTransparentInfoHover,
         overwrite,
     )
     initial.add(
         "outlineInverseTransparentInfoActive",
-        DarkColorTokens.OutlineInverseTransparentInfoActive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineInverseTransparentInfoActive,
         overwrite,
     )
-    initial.add("outlineInverseClear", DarkColorTokens.OutlineInverseClear, overwrite)
+    initial.add("outlineInverseClear", com.sdds.serv.tokens.DarkColorTokens.OutlineInverseClear, overwrite)
     initial.add(
         "outlineInverseTransparentAccent",
-        DarkColorTokens.OutlineInverseTransparentAccent,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineInverseTransparentAccent,
         overwrite,
     )
     initial.add(
         "outlineInverseTransparentPositive",
-        DarkColorTokens.OutlineInverseTransparentPositive,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineInverseTransparentPositive,
         overwrite,
     )
     initial.add(
         "outlineInverseTransparentWarning",
-        DarkColorTokens.OutlineInverseTransparentWarning,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineInverseTransparentWarning,
         overwrite,
     )
     initial.add(
         "outlineInverseTransparentNegative",
-        DarkColorTokens.OutlineInverseTransparentNegative,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineInverseTransparentNegative,
         overwrite,
     )
     initial.add(
         "outlineInverseTransparentInfo",
-        DarkColorTokens.OutlineInverseTransparentInfo,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineInverseTransparentInfo,
         overwrite,
     )
-    initial.add("outlineInverseSolidPrimary", DarkColorTokens.OutlineInverseSolidPrimary, overwrite)
-    initial.add("outlineInverseAccent", DarkColorTokens.OutlineInverseAccent, overwrite)
-    initial.add("outlineInverseAccentMinor", DarkColorTokens.OutlineInverseAccentMinor, overwrite)
-    initial.add("outlineInversePositive", DarkColorTokens.OutlineInversePositive, overwrite)
-    initial.add("outlineInverseWarning", DarkColorTokens.OutlineInverseWarning, overwrite)
-    initial.add("outlineInverseNegative", DarkColorTokens.OutlineInverseNegative, overwrite)
-    initial.add("outlineInverseInfo", DarkColorTokens.OutlineInverseInfo, overwrite)
+    initial.add("outlineInverseSolidPrimary", com.sdds.serv.tokens.DarkColorTokens.OutlineInverseSolidPrimary, overwrite)
+    initial.add("outlineInverseAccent", com.sdds.serv.tokens.DarkColorTokens.OutlineInverseAccent, overwrite)
+    initial.add("outlineInverseAccentMinor", com.sdds.serv.tokens.DarkColorTokens.OutlineInverseAccentMinor, overwrite)
+    initial.add("outlineInversePositive", com.sdds.serv.tokens.DarkColorTokens.OutlineInversePositive, overwrite)
+    initial.add("outlineInverseWarning", com.sdds.serv.tokens.DarkColorTokens.OutlineInverseWarning, overwrite)
+    initial.add("outlineInverseNegative", com.sdds.serv.tokens.DarkColorTokens.OutlineInverseNegative, overwrite)
+    initial.add("outlineInverseInfo", com.sdds.serv.tokens.DarkColorTokens.OutlineInverseInfo, overwrite)
     initial.add(
         "outlineInversePositiveMinor",
-        DarkColorTokens.OutlineInversePositiveMinor,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineInversePositiveMinor,
         overwrite,
     )
-    initial.add("outlineInverseWarningMinor", DarkColorTokens.OutlineInverseWarningMinor, overwrite)
+    initial.add("outlineInverseWarningMinor", com.sdds.serv.tokens.DarkColorTokens.OutlineInverseWarningMinor, overwrite)
     initial.add(
         "outlineInverseNegativeMinor",
-        DarkColorTokens.OutlineInverseNegativeMinor,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineInverseNegativeMinor,
         overwrite,
     )
-    initial.add("outlineInverseInfoMinor", DarkColorTokens.OutlineInverseInfoMinor, overwrite)
+    initial.add("outlineInverseInfoMinor", com.sdds.serv.tokens.DarkColorTokens.OutlineInverseInfoMinor, overwrite)
     initial.add(
         "outlineInverseTransparentPrimary",
-        DarkColorTokens.OutlineInverseTransparentPrimary,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineInverseTransparentPrimary,
         overwrite,
     )
     initial.add(
         "outlineInverseTransparentSecondary",
-        DarkColorTokens.OutlineInverseTransparentSecondary,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineInverseTransparentSecondary,
         overwrite,
     )
     initial.add(
         "outlineInverseTransparentTertiary",
-        DarkColorTokens.OutlineInverseTransparentTertiary,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineInverseTransparentTertiary,
         overwrite,
     )
     initial.add(
         "outlineInverseSolidSecondary",
-        DarkColorTokens.OutlineInverseSolidSecondary,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineInverseSolidSecondary,
         overwrite,
     )
     initial.add(
         "outlineInverseSolidTertiary",
-        DarkColorTokens.OutlineInverseSolidTertiary,
+        com.sdds.serv.tokens.DarkColorTokens.OutlineInverseSolidTertiary,
         overwrite,
     )
     return SddsServColors(initial)

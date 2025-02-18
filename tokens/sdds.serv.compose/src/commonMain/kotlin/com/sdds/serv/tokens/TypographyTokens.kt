@@ -1357,5 +1357,7 @@ private object TextStyleDefault {
         trim = LineHeightStyle.Trim.None,
     )
 
-    public val platformStyle: PlatformTextStyle = PlatformTextStyle(includeFontPadding = false)
+    public val platformStyle: PlatformTextStyle = getDefaultPlatformTextStyle()
 }
+
+internal expect fun getDefaultPlatformTextStyle(): PlatformTextStyle
