@@ -1,6 +1,7 @@
 plugins {
     id("convention.android-lib")
     id("kotlin-parcelize")
+    id("convention.compose")
 }
 
 group = "sdds-core"

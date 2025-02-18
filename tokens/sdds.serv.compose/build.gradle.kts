@@ -8,11 +8,20 @@ plugins {
     id("convention.maven-publish")
     id("convention.auto-bump")
     id(libs.plugins.themebuilder.get().pluginId)
+    alias(libs.plugins.roborazzi)
 }
 
 android {
     namespace = "com.sdds.serv.compose"
     resourcePrefix = "serv_cmp"
+    testOptions {
+        unitTests {
+            isIncludeAndroidResources = true
+        }
+    }
+    tasks.withType<Test> {
+        maxHeapSize = "4096m"
+    }
 }
 
 themeBuilder {
@@ -29,4 +38,12 @@ themeBuilder {
 dependencies {
     implementation(libs.sdds.uikit.compose)
     implementation(libs.base.androidX.compose.foundation)
+    testImplementation(libs.base.test.unit.jUnit)
+    testImplementation(libs.test.roborazzi)
+    testImplementation(libs.test.roborazzi.rule)
+    testImplementation(libs.base.test.unit.robolectric)
+    testImplementation(libs.test.roborazzi)
+    testImplementation(libs.base.test.ui.compose.jUnit4)
+    testImplementation(libs.test.roborazzi.compose)
+    testImplementation("sdds-core:testing")
 }
