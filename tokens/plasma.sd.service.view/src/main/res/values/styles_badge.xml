@@ -5,7 +5,7 @@
         <item name="android:textColor">@color/plasma_badge_text_color</item>
         <item name="sd_drawableStartTint">@color/plasma_badge_text_color</item>
         <item name="sd_drawableEndTint">@color/plasma_badge_text_color</item>
-        <item name="sd_colorStateProvider">com.sdds.plasma.colorstate.BadgeColorStateProvider</item>
+        <item name="sd_colorStateProvider">com.sdds.plasma.sd.service.colorstate.BadgeColorStateProvider</item>
     </style>
 
     <style name="Plasma.SdService.Components.Badge.L">

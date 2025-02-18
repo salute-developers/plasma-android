@@ -8,45 +8,55 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.sdds.compose.uikit.CheckBox
 import com.sdds.compose.uikit.CheckBoxGroup
 import com.sdds.playground.sandbox.SandboxTheme
+import com.sdds.playground.sandbox.Theme
 import com.sdds.playground.sandbox.core.compose.ComponentScaffold
 
 /**
  * Экран с [CheckBoxGroup]
  */
 @Composable
-internal fun CheckBoxGroupScreen() {
-    val checkboxGroupViewModel: CheckBoxGroupParametersViewModel =
-        viewModel(CheckBoxGroupParametersViewModel::class.java)
-    val checkboxGroupState by checkboxGroupViewModel.checkboxGroupState.collectAsState()
+internal fun CheckBoxGroupScreen(theme: Theme.ThemeInfoCompose = Theme.composeDefault) {
+    val checkboxGroupViewModel: CheckBoxGroupViewModel =
+        viewModel(
+            factory = CheckBoxGroupViewModelFactory(CheckBoxGroupUiState(), theme),
+            key = theme.toString(),
+        )
+    val checkboxGroupState by checkboxGroupViewModel.uiState.collectAsState()
 
     ComponentScaffold(
         component = {
-            CheckBoxGroup(style = checkboxGroupState.checkBoxGroupStyle()) {
-                checkboxGroupState.rootItem?.let {
-                    rootCheckbox {
-                        CheckBox(
-                            state = it.state,
-                            enabled = checkboxGroupState.enabled,
-                            label = it.label,
-                            description = it.description,
-                            onClick = {
-                                checkboxGroupViewModel.rootCheckBoxClicked()
-                            },
-                        )
+            theme.themeWrapper {
+                CheckBoxGroup(
+                    style = checkboxGroupViewModel
+                        .getStyleProvider()
+                        .style(checkboxGroupState.variant),
+                ) {
+                    checkboxGroupState.rootItem?.let {
+                        rootCheckbox {
+                            CheckBox(
+                                state = it.state,
+                                enabled = checkboxGroupState.enabled,
+                                label = it.label,
+                                description = it.description,
+                                onClick = {
+                                    checkboxGroupViewModel.rootCheckBoxClicked()
+                                },
+                            )
+                        }
                     }
-                }
 
-                checkboxGroupState.items.forEachIndexed { index, item ->
-                    checkbox {
-                        CheckBox(
-                            state = item.state,
-                            enabled = checkboxGroupState.enabled,
-                            label = item.label,
-                            description = item.description,
-                            onClick = {
-                                checkboxGroupViewModel.checkBoxClicked(index)
-                            },
-                        )
+                    checkboxGroupState.items.forEachIndexed { index, item ->
+                        checkbox {
+                            CheckBox(
+                                state = item.state,
+                                enabled = checkboxGroupState.enabled,
+                                label = item.label,
+                                description = item.description,
+                                onClick = {
+                                    checkboxGroupViewModel.checkBoxClicked(index)
+                                },
+                            )
+                        }
                     }
                 }
             }

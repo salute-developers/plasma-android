@@ -1,29 +1,23 @@
 package com.sdds.playground.sandbox.cell.vs
 
-import android.os.Bundle
 import android.view.ContextThemeWrapper
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup.LayoutParams
 import android.widget.FrameLayout
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.playground.sandbox.core.vs.PropertiesOwner
 import com.sdds.playground.sandbox.databinding.LayoutComponentCellBinding
 import com.sdds.uikit.CellLayout
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.onEach
 
 /**
  * Фрагмент с компонентом CellLayout
  * @author Малышев Александр on 14.10.2024
  */
-internal class CellFragment : ComponentFragment() {
+internal class CellFragment : ComponentFragment<CellUiState, CellLayout>() {
 
-    private val cellParametersViewModel by viewModels<CellParametersViewModel> {
+    override val componentViewModel by viewModels<CellParametersViewModel> {
         CellParametersViewModelFactory(getState { CellUiState() })
     }
 
@@ -34,31 +28,19 @@ internal class CellFragment : ComponentFragment() {
         )
     }
 
-    override val componentLayout: CellLayout
-        get() = LayoutComponentCellBinding.inflate(
-            LayoutInflater.from(ContextThemeWrapper(requireContext(), currentVariant.styleRes)),
+    override fun getComponent(contextWrapper: ContextThemeWrapper): CellLayout {
+        return LayoutComponentCellBinding.inflate(
+            LayoutInflater.from(contextWrapper),
         )
             .also { cellLayout = it }.root
             .apply { id = R.id.cell }
-
-    override val propertiesOwner: PropertiesOwner
-        get() = cellParametersViewModel
-
-    private var currentVariant: CellVariant = CellVariant.CellM
-    private var cellLayout: LayoutComponentCellBinding? = null
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        cellParametersViewModel.cellUiState
-            .onEach { state ->
-                if (currentVariant != state.variant) {
-                    currentVariant = state.variant
-                    dispatchComponentStyleChanged()
-                }
-                cellLayout?.update(state)
-            }
-            .launchIn(viewLifecycleOwner.lifecycleScope)
     }
+
+    override fun onComponentUpdate(component: CellLayout?, state: CellUiState) {
+        cellLayout?.update(state)
+    }
+
+    private var cellLayout: LayoutComponentCellBinding? = null
 
     override fun onDestroyView() {
         super.onDestroyView()

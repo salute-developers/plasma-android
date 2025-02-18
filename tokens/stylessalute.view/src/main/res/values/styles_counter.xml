@@ -2,7 +2,7 @@
 <resources>
 
     <style name="Salute.StylesSalute.Components.Counter" parent="Sdds.Components.Counter">
-        <item name="sd_colorStateProvider">com.sdds.serv.colorstate.CounterColorStateProvider</item>
+        <item name="sd_colorStateProvider">com.sdds.stylessalute.colorstate.CounterColorStateProvider</item>
         <item name="android:backgroundTint">@color/salute_counter_bg_color</item>
         <item name="android:textColor">@color/salute_counter_text_color</item>
         <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>

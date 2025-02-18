@@ -2,141 +2,104 @@ package com.sdds.playground.sandbox.textfield.compose
 
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.sdds.playground.sandbox.core.compose.PropertiesOwner
+import androidx.lifecycle.ViewModelProvider
+import com.sdds.compose.uikit.TextFieldStyle
+import com.sdds.playground.sandbox.Theme
+import com.sdds.playground.sandbox.core.compose.ComponentViewModel
 import com.sdds.playground.sandbox.core.compose.Property
-import com.sdds.playground.sandbox.core.compose.enumProperty
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.SharingStarted
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.mapLatest
-import kotlinx.coroutines.flow.stateIn
+import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 
-internal class TextFieldViewModel : ViewModel(), PropertiesOwner {
+internal open class TextFieldViewModel(
+    defaultState: TextFieldUiState,
+    private val theme: Theme.ThemeInfoCompose,
+    private val textFieldType: TextFieldType,
+) : ComponentViewModel<TextFieldUiState, TextFieldStyle>(defaultState) {
 
-    private val _textFieldUiState = MutableStateFlow(TextFieldUiState())
-
-    val textFieldUiState: StateFlow<TextFieldUiState>
-        get() = _textFieldUiState.asStateFlow()
-
-    @OptIn(ExperimentalCoroutinesApi::class)
-    override val properties: StateFlow<List<Property<*>>> =
-        _textFieldUiState
-            .mapLatest { state -> state.toProps() }
-            .stateIn(viewModelScope, SharingStarted.Lazily, emptyList())
-
-    override fun resetToDefault() {
-        _textFieldUiState.value = TextFieldUiState()
+    override fun getStyleProvider(): ComposeStyleProvider<String, TextFieldStyle> {
+        return when (textFieldType) {
+            TextFieldType.TextField -> theme.stylesProvider.textField
+            TextFieldType.TextFieldClear -> theme.stylesProvider.textFieldClear
+            TextFieldType.TextArea -> theme.stylesProvider.textArea
+            TextFieldType.TextAreaClear -> theme.stylesProvider.textAreaClear
+        }
     }
 
     fun onValueChange(textFieldValue: TextFieldValue) {
-        _textFieldUiState.value = _textFieldUiState.value.copy(
+        internalUiState.value = internalUiState.value.copy(
             textFieldValue = textFieldValue,
         )
     }
 
     private fun updateLabel(text: String) {
-        _textFieldUiState.value = _textFieldUiState.value.copy(
+        internalUiState.value = internalUiState.value.copy(
             labelText = text,
         )
     }
 
     private fun updateOptionalText(text: String) {
-        _textFieldUiState.value = _textFieldUiState.value.copy(
+        internalUiState.value = internalUiState.value.copy(
             optionalText = text,
         )
     }
 
     private fun updateCaption(text: String) {
-        _textFieldUiState.value = _textFieldUiState.value.copy(
+        internalUiState.value = internalUiState.value.copy(
             captionText = text,
         )
     }
 
     private fun updateCounter(text: String) {
-        _textFieldUiState.value = _textFieldUiState.value.copy(
+        internalUiState.value = internalUiState.value.copy(
             counterText = text,
         )
     }
 
     private fun updatePlaceholder(text: String) {
-        _textFieldUiState.value = _textFieldUiState.value.copy(
+        internalUiState.value = internalUiState.value.copy(
             placeholderText = text,
         )
     }
 
-    private fun updateVariant(variant: TextFieldVariant) {
-        _textFieldUiState.value = _textFieldUiState.value.copy(
-            variant = variant,
-        )
-    }
-
-    private fun updateState(state: State) {
-        _textFieldUiState.value = _textFieldUiState.value.copy(
-            state = state,
-        )
-    }
-
     private fun updateEnabledState(enabled: Boolean) {
-        _textFieldUiState.value = _textFieldUiState.value.copy(
+        internalUiState.value = internalUiState.value.copy(
             enabled = enabled,
         )
     }
 
     private fun updateReadOnlyState(readonly: Boolean) {
-        _textFieldUiState.value = _textFieldUiState.value.copy(
+        internalUiState.value = internalUiState.value.copy(
             readOnly = readonly,
         )
     }
 
     private fun updateStartIcon(hasIcon: Boolean) {
-        _textFieldUiState.value = _textFieldUiState.value.copy(
+        internalUiState.value = internalUiState.value.copy(
             hasStartIcon = hasIcon,
         )
     }
 
     private fun updateEndIcon(hasIcon: Boolean) {
-        _textFieldUiState.value = _textFieldUiState.value.copy(
+        internalUiState.value = internalUiState.value.copy(
             hasEndIcon = hasIcon,
         )
     }
 
     private fun updateChipsCount(count: Int) {
         if (count < 0) return
-        _textFieldUiState.value = _textFieldUiState.value.copy(chips = List(count) { "chip $it" })
-    }
-
-    private fun updateSingleLine(singleLine: Boolean) {
-        _textFieldUiState.value = _textFieldUiState.value.copy(singleLine = singleLine)
+        internalUiState.value = internalUiState.value.copy(chips = List(count) { "chip $it" })
     }
 
     private fun updatePrefix(prefix: String) {
-        _textFieldUiState.value = _textFieldUiState.value.copy(prefix = prefix)
+        internalUiState.value = internalUiState.value.copy(prefix = prefix)
     }
 
     private fun updateSuffix(suffix: String) {
-        _textFieldUiState.value = _textFieldUiState.value.copy(suffix = suffix)
-    }
-
-    private fun updateClear(isClear: Boolean) {
-        _textFieldUiState.value = _textFieldUiState.value.copy(isClear = isClear)
+        internalUiState.value = internalUiState.value.copy(suffix = suffix)
     }
 
     @Suppress("LongMethod")
-    private fun TextFieldUiState.toProps(): List<Property<*>> {
+    override fun TextFieldUiState.toProps(): List<Property<*>> {
         return listOfNotNull(
-            Property.BooleanProperty(
-                name = "singleLine",
-                value = singleLine,
-                onApply = { updateSingleLine(it) },
-            ),
-            Property.BooleanProperty(
-                name = "isClear",
-                value = isClear,
-                onApply = { updateClear(it) },
-            ),
             Property.StringProperty(
                 name = "label",
                 value = labelText,
@@ -161,16 +124,6 @@ internal class TextFieldViewModel : ViewModel(), PropertiesOwner {
                 name = "placeholder",
                 value = placeholderText,
                 onApply = { updatePlaceholder(it) },
-            ),
-            enumProperty(
-                name = "variant",
-                value = variant,
-                onApply = { updateVariant(it) },
-            ),
-            enumProperty(
-                name = "state",
-                value = state,
-                onApply = { updateState(it) },
             ),
             Property.BooleanProperty(
                 name = "start icon",
@@ -211,15 +164,27 @@ internal class TextFieldViewModel : ViewModel(), PropertiesOwner {
     }
 
     fun onBackspacePressed() {
-        if (_textFieldUiState.value.chips.isEmpty()) return
-        _textFieldUiState.value = _textFieldUiState.value.copy(
-            chips = _textFieldUiState.value.chips.dropLast(1),
+        if (internalUiState.value.chips.isEmpty()) return
+        internalUiState.value = internalUiState.value.copy(
+            chips = internalUiState.value.chips.dropLast(1),
         )
     }
 
     fun onChipClosePressed(chipToRemove: String) {
-        _textFieldUiState.value = _textFieldUiState.value.copy(
-            chips = _textFieldUiState.value.chips.filterNot { it == chipToRemove },
+        internalUiState.value = internalUiState.value.copy(
+            chips = internalUiState.value.chips.filterNot { it == chipToRemove },
         )
+    }
+}
+
+internal class TextFieldViewModelFactory(
+    private val defaultState: TextFieldUiState,
+    private val theme: Theme.ThemeInfoCompose,
+    private val textFieldType: TextFieldType,
+) : ViewModelProvider.Factory {
+
+    @Suppress("UNCHECKED_CAST")
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        return TextFieldViewModel(defaultState, theme, textFieldType) as T
     }
 }

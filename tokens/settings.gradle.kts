@@ -20,7 +20,6 @@ includeBuild("../build-system")
 includeBuild("../sdds-core")
 include(
     ":plasma.sd.service.compose",
-    ":plasma.sd.service.sandbox.compose",
     ":plasma.sd.service.view",
     ":sdds.serv.compose",
     ":sdds.serv.view",
