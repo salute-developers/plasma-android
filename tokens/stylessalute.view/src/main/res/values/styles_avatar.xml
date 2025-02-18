@@ -9,6 +9,8 @@
         <item name="sd_statusColor">@color/salute_color_avatar_status</item>
         <item name="sd_actionScrimColor">?salute_overlayOnDarkSoft</item>
         <item name="sd_actionTint">?salute_textOnDarkPrimary</item>
+        <item name="android:background">?salute_surfaceDefaultGradientMain</item>
+        <item name="sd_backgroundAlpha">0.2</item>
     </style>
 
     <style name="Salute.StylesSalute.Components.Avatar.XXL">

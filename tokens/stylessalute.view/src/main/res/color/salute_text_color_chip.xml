@@ -21,7 +21,7 @@
     <item android:color="?salute_textOnDarkPrimaryHover" android:state_hovered="true" app:sd_state_negative="true" />
     <item android:color="?salute_textOnDarkPrimary" app:sd_state_negative="true" />
 
-    <item android:color="?salute_textOnDarkPrimaryActive" android:state_pressed="true" />
-    <item android:color="?salute_textOnDarkPrimaryHover" android:state_hovered="true" />
-    <item android:color="?salute_textOnDarkPrimary" />
+    <item android:color="?salute_textInversePrimaryActive" android:state_pressed="true" />
+    <item android:color="?salute_textInversePrimaryHover" android:state_hovered="true" />
+    <item android:color="?salute_textInversePrimary" />
 </selector>
