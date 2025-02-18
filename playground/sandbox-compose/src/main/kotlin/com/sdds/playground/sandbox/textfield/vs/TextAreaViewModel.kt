@@ -8,10 +8,6 @@ import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
 import com.sdds.testing.vs.textfield.ExampleChipData
 import com.sdds.testing.vs.textfield.TextFieldUiState
-import com.sdds.uikit.TextField
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
 
 /**
  * [ViewModel] компонента [TextArea]
@@ -19,14 +15,6 @@ import kotlinx.coroutines.flow.asStateFlow
 internal class TextAreaViewModel(
     defaultState: TextFieldUiState,
 ) : ComponentViewModel<TextFieldUiState>(defaultState) {
-
-    private val _chips = MutableStateFlow(defaultState.chipData)
-
-    /**
-     * Данные для чипов компонента [TextField]
-     */
-    val chips: StateFlow<List<ExampleChipData>>
-        get() = _chips.asStateFlow()
 
     @Suppress("CyclomaticComplexMethod")
     override fun updateProperty(name: String, value: Any?) {
@@ -57,11 +45,12 @@ internal class TextAreaViewModel(
      * Удаляем чип по индексу
      */
     fun deleteChip(index: Int): ExampleChipData? {
-        if (index < 0 || index >= chips.value.size) return null
-        val chipsList = _chips.value.toMutableList()
+        val chips = internalUiState.value.chipData
+        if (index < 0 || index >= chips.size) return null
+        val chipsList = chips.toMutableList()
         val chip = chipsList[index]
         chipsList.removeAt(index)
-        _chips.value = chipsList
+        internalUiState.value = internalUiState.value.copy(chipData = chipsList)
         return chip
     }
 
@@ -70,9 +59,9 @@ internal class TextAreaViewModel(
      */
     fun addChip(text: String): Boolean {
         if (text.isEmpty() || !internalUiState.value.hasChips) return false
-        val chipsList = _chips.value.toMutableList()
+        val chipsList = internalUiState.value.chipData.toMutableList()
         chipsList.add(ExampleChipData(text))
-        _chips.value = chipsList
+        internalUiState.value = internalUiState.value.copy(chipData = chipsList)
         return true
     }
 

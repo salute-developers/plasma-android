@@ -34,6 +34,7 @@
         <attr name="android:textColor"/>
         <attr name="sd_textColorStart" format="color" />
         <attr name="sd_textColorEnd" format="color" />
+        <attr name="sd_backgroundAlpha" format="float" />
     </declare-styleable>
 
     <declare-styleable name="AvatarGroup" tools:ignore="ResourceName">
