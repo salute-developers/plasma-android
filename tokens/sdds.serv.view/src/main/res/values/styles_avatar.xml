@@ -19,7 +19,7 @@
         <item name="android:minWidth">88dp</item>
         <item name="android:minHeight">88dp</item>
         <item name="sd_statusSize">12dp</item>
-        <item name="sd_statusOffsetX">7dp</item>
+        <item name="sd_statusOffsetX">1dp</item>
         <item name="sd_statusOffsetY">7dp</item>
         <item name="sd_actionSize">36dp</item>
 
@@ -32,7 +32,7 @@
         <item name="android:minWidth">48dp</item>
         <item name="android:minHeight">48dp</item>
         <item name="sd_statusSize">8dp</item>
-        <item name="sd_statusOffsetX">3dp</item>
+        <item name="sd_statusOffsetX">1dp</item>
         <item name="sd_statusOffsetY">3dp</item>
         <item name="sd_actionSize">24dp</item>
 
@@ -45,7 +45,7 @@
         <item name="android:minWidth">36dp</item>
         <item name="android:minHeight">36dp</item>
         <item name="sd_statusSize">8dp</item>
-        <item name="sd_statusOffsetX">2dp</item>
+        <item name="sd_statusOffsetX">0dp</item>
         <item name="sd_statusOffsetY">2dp</item>
         <item name="sd_actionSize">24dp</item>
 
