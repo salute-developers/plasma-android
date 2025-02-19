@@ -113,6 +113,7 @@ fun SandboxTheme(
                 LocalAvatarGroupStyle provides AvatarGroup.S.style(),
                 LocalChipStyle provides Chip.M.Default.style(),
                 LocalTextFieldStyle provides TextField.M.OuterLabel.Default.style(),
+                LocalCellStyle provides Cell.M.style(),
                 content = content,
             )
         },

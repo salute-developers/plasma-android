@@ -105,3 +105,8 @@ internal data class ColorState(
     val value: String,
     val alpha: Float? = null,
 )
+
+@Serializable
+internal data class Icon(
+    val value: String,
+)
