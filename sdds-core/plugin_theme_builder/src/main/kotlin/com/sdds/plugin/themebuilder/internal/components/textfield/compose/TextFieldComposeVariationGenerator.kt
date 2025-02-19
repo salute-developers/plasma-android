@@ -259,26 +259,6 @@ internal class TextFieldComposeVariationGenerator(
         }
     }
 
-    private fun String.getComponentStyle(
-        ktFileBuilder: KtFileBuilder,
-        stylesPackage: String,
-    ): String {
-        val styleRefParts = split(".")
-        val objectName = styleRefParts.first().toCamelCase()
-        val extensions = styleRefParts.subList(1, styleRefParts.size).map { it.toCamelCase() }
-        ktFileBuilder.addImport(ClassName("com.sdds.compose.uikit", listOf(objectName)))
-        extensions.forEach {
-            ktFileBuilder.addImport(
-                ClassName(
-                    packageName = stylesPackage,
-                    simpleNames = listOf(it),
-                ),
-            )
-        }
-        return styleRefParts
-            .joinToString(separator = ".") { it.toCamelCase() }
-    }
-
     private fun shapeCall(props: TextFieldProperties, variationId: String): String? {
         return props.shape?.let {
             getShape(it, variationId)

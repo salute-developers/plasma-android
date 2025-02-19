@@ -38,7 +38,6 @@ import com.sdds.compose.uikit.TextField
 import com.sdds.compose.uikit.internal.focusselector.FocusSelectorMode
 import com.sdds.compose.uikit.internal.focusselector.LocalFocusSelectorMode
 import com.sdds.compose.uikit.style.style
-import com.sdds.plasma.sd.service.styles.M
 import com.sdds.plasma.sd.service.styles.avatar.M
 import com.sdds.plasma.sd.service.styles.avatar.S
 import com.sdds.plasma.sd.service.styles.button.basic.Default
@@ -52,6 +51,7 @@ import com.sdds.plasma.sd.service.styles.chip.M
 import com.sdds.plasma.sd.service.styles.progress.Default
 import com.sdds.plasma.sd.service.styles.radiobox.M
 import com.sdds.plasma.sd.service.styles.radiobox.group.M
+import com.sdds.plasma.sd.service.styles.switcher.M
 import com.sdds.plasma.sd.service.styles.textfield.Default
 import com.sdds.plasma.sd.service.styles.textfield.M
 import com.sdds.plasma.sd.service.styles.textfield.OuterLabel
