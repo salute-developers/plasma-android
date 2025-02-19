@@ -91,6 +91,16 @@ interface TextFieldClearStyleBuilder : StyleBuilder<TextFieldStyle> {
     fun placeholderStyle(placeholderStyle: TextStyle): TextFieldClearStyleBuilder
 
     /**
+     * Устанавливает стиль префикса [prefixStyle]
+     */
+    fun prefixStyle(prefixStyle: TextStyle): TextFieldClearStyleBuilder
+
+    /**
+     * Устанавливает стиль суффикса [suffixStyle]
+     */
+    fun suffixStyle(suffixStyle: TextStyle): TextFieldClearStyleBuilder
+
+    /**
      * Устанавливает наличие разделителя [hasDivider]
      */
     fun hasDivider(hasDivider: Boolean): TextFieldClearStyleBuilder
@@ -357,6 +367,50 @@ interface TextFieldClearColorsBuilder {
      * Устанавливает цвет индикатора
      */
     fun indicatorColorReadOnly(indicatorColorReadOnly: InteractiveColor): TextFieldClearColorsBuilder
+
+    /**
+     * Устанавливает цвет префикса
+     */
+    fun prefixColor(prefixColor: Color): TextFieldClearColorsBuilder =
+        prefixColor(prefixColor.asInteractive())
+
+    /**
+     * Устанавливает цвет префикса
+     */
+    fun prefixColor(prefixColor: InteractiveColor): TextFieldClearColorsBuilder
+
+    /**
+     * Устанавливает цвет суффикса
+     */
+    fun suffixColor(suffixColor: Color): TextFieldClearColorsBuilder =
+        suffixColor(suffixColor.asInteractive())
+
+    /**
+     * Устанавливает цвет суффикса
+     */
+    fun suffixColor(suffixColor: InteractiveColor): TextFieldClearColorsBuilder
+
+    /**
+     * Устанавливает цвет префикса
+     */
+    fun prefixColorReadOnly(prefixColorReadOnly: Color): TextFieldClearColorsBuilder =
+        prefixColorReadOnly(prefixColorReadOnly.asInteractive())
+
+    /**
+     * Устанавливает цвет префикса
+     */
+    fun prefixColorReadOnly(prefixColorReadOnly: InteractiveColor): TextFieldClearColorsBuilder
+
+    /**
+     * Устанавливает цвет суффикса
+     */
+    fun suffixColorReadOnly(suffixColorReadOnly: Color): TextFieldClearColorsBuilder =
+        suffixColorReadOnly(suffixColorReadOnly.asInteractive())
+
+    /**
+     * Устанавливает цвет суффикса
+     */
+    fun suffixColorReadOnly(suffixColorReadOnly: InteractiveColor): TextFieldClearColorsBuilder
 
     /**
      * Вернет экземпляр [TextFieldColors]
@@ -659,6 +713,8 @@ private class DefaultTextFieldClearStyle(
     override val chipStyle: ChipStyle,
     override val labelStyle: TextStyle,
     override val optionalStyle: TextStyle,
+    override val prefixStyle: TextStyle,
+    override val suffixStyle: TextStyle,
 ) : TextFieldStyle {
 
     class Builder(override val receiver: Any?) : TextFieldClearStyleBuilder {
@@ -676,6 +732,8 @@ private class DefaultTextFieldClearStyle(
         private var captionStyle: TextStyle? = null
         private var counterStyle: TextStyle? = null
         private var placeholderStyle: TextStyle? = null
+        private var prefixStyle: TextStyle? = null
+        private var suffixStyle: TextStyle? = null
         private var hasDivider: Boolean? = null
         private var chipGroupStyle: ChipGroupStyle? = null
         private var chipStyle: ChipStyle? = null
@@ -749,6 +807,14 @@ private class DefaultTextFieldClearStyle(
             this.placeholderStyle = placeholderStyle
         }
 
+        override fun prefixStyle(prefixStyle: TextStyle) = apply {
+            this.prefixStyle = prefixStyle
+        }
+
+        override fun suffixStyle(suffixStyle: TextStyle) = apply {
+            this.suffixStyle = suffixStyle
+        }
+
         override fun hasDivider(hasDivider: Boolean) = apply {
             this.hasDivider = hasDivider
         }
@@ -779,6 +845,8 @@ private class DefaultTextFieldClearStyle(
                 captionStyle = captionStyle ?: TextStyle.Default,
                 counterStyle = counterStyle ?: TextStyle.Default,
                 placeholderStyle = placeholderStyle ?: TextStyle.Default,
+                prefixStyle = prefixStyle ?: TextStyle.Default,
+                suffixStyle = suffixStyle ?: TextStyle.Default,
                 hasDivider = hasDivider ?: true,
                 chipGroupStyle = chipGroupStyle ?: ChipGroupStyle.builder().style(),
                 chipStyle = chipStyle ?: ChipStyle.builder().style(),
@@ -812,6 +880,10 @@ private class DefaultTextFieldClearColors(
     private val placeholderColorReadOnly: InteractiveColor,
     private val dividerColor: InteractiveColor,
     private val dividerColorReadOnly: InteractiveColor,
+    private val prefixColor: InteractiveColor,
+    private val prefixColorReadOnly: InteractiveColor,
+    private val suffixColor: InteractiveColor,
+    private val suffixColorReadOnly: InteractiveColor,
 ) : TextFieldColors {
     override fun cursorColor(isReadOnly: Boolean): InteractiveColor {
         return if (isReadOnly) cursorColorReadOnly else cursorColor
@@ -859,6 +931,14 @@ private class DefaultTextFieldClearColors(
 
     override fun backgroundColor(isReadOnly: Boolean): InteractiveColor = DUMMY_COLOR
 
+    override fun prefixColor(isReadOnly: Boolean): InteractiveColor {
+        return if (isReadOnly) prefixColorReadOnly else prefixColor
+    }
+
+    override fun suffixColor(isReadOnly: Boolean): InteractiveColor {
+        return if (isReadOnly) suffixColorReadOnly else suffixColor
+    }
+
     class Builder : TextFieldClearColorsBuilder {
         private var disabledAlpha: Float? = null
         private var cursorColor: InteractiveColor? = null
@@ -883,6 +963,10 @@ private class DefaultTextFieldClearColors(
         private var indicatorColorReadOnly: InteractiveColor? = null
         private var dividerColor: InteractiveColor? = null
         private var dividerColorReadOnly: InteractiveColor? = null
+        private var prefixColor: InteractiveColor? = null
+        private var prefixColorReadOnly: InteractiveColor? = null
+        private var suffixColor: InteractiveColor? = null
+        private var suffixColorReadOnly: InteractiveColor? = null
 
         override fun disabledAlpha(disabledAlpha: Float) = apply {
             this.disabledAlpha = disabledAlpha
@@ -976,6 +1060,22 @@ private class DefaultTextFieldClearColors(
             this.indicatorColorReadOnly = indicatorColorReadOnly
         }
 
+        override fun prefixColor(prefixColor: InteractiveColor) = apply {
+            this.prefixColor = prefixColor
+        }
+
+        override fun suffixColor(suffixColor: InteractiveColor) = apply {
+            this.suffixColor = suffixColor
+        }
+
+        override fun prefixColorReadOnly(prefixColorReadOnly: InteractiveColor) = apply {
+            this.prefixColorReadOnly = prefixColorReadOnly
+        }
+
+        override fun suffixColorReadOnly(suffixColorReadOnly: InteractiveColor) = apply {
+            this.suffixColorReadOnly = suffixColorReadOnly
+        }
+
         @Suppress("CyclomaticComplexMethod")
         override fun build(): TextFieldColors {
             return DefaultTextFieldClearColors(
@@ -1004,6 +1104,10 @@ private class DefaultTextFieldClearColors(
                 indicatorColorReadOnly = indicatorColorReadOnly ?: indicatorColor ?: Color.Red.asInteractive(),
                 dividerColor = dividerColor ?: Color.Gray.asInteractive(),
                 dividerColorReadOnly = dividerColorReadOnly ?: dividerColor ?: Color.Gray.asInteractive(),
+                prefixColor = prefixColor ?: Color.Black.asInteractive(),
+                prefixColorReadOnly = prefixColorReadOnly ?: prefixColor ?: Color.Black.asInteractive(),
+                suffixColor = suffixColor ?: Color.Black.asInteractive(),
+                suffixColorReadOnly = suffixColorReadOnly ?: suffixColor ?: Color.Black.asInteractive(),
             )
         }
     }

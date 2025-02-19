@@ -100,7 +100,13 @@ internal data class TextFieldProperties(
 
     // suffix, prefix
     val suffixPadding: Dimension? = null,
+    val suffixStyle: Typography? = null,
+    val suffixColor: Color? = null,
+    val suffixColorReadOnly: Color? = null,
     val prefixPadding: Dimension? = null,
+    val prefixStyle: Typography? = null,
+    val prefixColor: Color? = null,
+    val prefixColorReadOnly: Color? = null,
 
     // scrollBar (text area only)
     val scrollBarThickness: Dimension? = null,
@@ -174,7 +180,13 @@ internal data class TextFieldProperties(
             cursorColor = cursorColor ?: otherProps.cursorColor,
             cursorColorReadOnly = cursorColorReadOnly ?: otherProps.cursorColorReadOnly,
             prefixPadding = prefixPadding ?: otherProps.prefixPadding,
+            prefixStyle = prefixStyle ?: otherProps.prefixStyle,
+            prefixColor = prefixColor ?: otherProps.prefixColor,
+            prefixColorReadOnly = prefixColorReadOnly ?: otherProps.prefixColorReadOnly,
             suffixPadding = suffixPadding ?: otherProps.suffixPadding,
+            suffixStyle = suffixStyle ?: otherProps.suffixStyle,
+            suffixColor = suffixColor ?: otherProps.suffixColor,
+            suffixColorReadOnly = suffixColorReadOnly ?: otherProps.suffixColorReadOnly,
             scrollBarThickness = scrollBarThickness ?: otherProps.scrollBarThickness,
             scrollBarPaddingTop = scrollBarPaddingTop ?: otherProps.scrollBarPaddingTop,
             scrollBarPaddingBottom = scrollBarPaddingBottom ?: otherProps.scrollBarPaddingBottom,

@@ -51,6 +51,8 @@ internal class TextFieldComposeVariationGenerator(
             captionStyleCall(props),
             labelStyleCall(props),
             valueStyleCall(props),
+            prefixStyleCall(props),
+            suffixStyleCall(props),
             placeholderStyleCall(props),
             counterStyleCall(props),
             optionalStyleCall(props),
@@ -141,7 +143,11 @@ internal class TextFieldComposeVariationGenerator(
             cursorColor != null ||
             cursorColorReadOnly != null ||
             dividerColor != null ||
-            dividerColorReadOnly != null
+            dividerColorReadOnly != null ||
+            prefixColor != null ||
+            suffixColor != null ||
+            prefixColorReadOnly != null ||
+            suffixColorReadOnly != null
     }
 
     @Suppress("LongMethod", "CyclomaticComplexMethod")
@@ -220,6 +226,18 @@ internal class TextFieldComposeVariationGenerator(
                 }
                 props.dividerColorReadOnly?.let {
                     appendLine(getColor("dividerColorReadOnly", it))
+                }
+                props.prefixColor?.let {
+                    appendLine(getColor("prefixColor", it))
+                }
+                props.suffixColor?.let {
+                    appendLine(getColor("suffixColor", it))
+                }
+                props.prefixColorReadOnly?.let {
+                    appendLine(getColor("prefixColorReadOnly", it))
+                }
+                props.suffixColorReadOnly?.let {
+                    appendLine(getColor("suffixColorReadOnly", it))
                 }
                 append("}")
             }
@@ -386,6 +404,18 @@ internal class TextFieldComposeVariationGenerator(
     private fun valueStyleCall(props: TextFieldProperties): String? {
         return props.valueStyle?.let {
             getTypography("valueStyle", it)
+        }
+    }
+
+    private fun prefixStyleCall(props: TextFieldProperties): String? {
+        return props.prefixStyle?.let {
+            getTypography("prefixStyle", it)
+        }
+    }
+
+    private fun suffixStyleCall(props: TextFieldProperties): String? {
+        return props.suffixStyle?.let {
+            getTypography("suffixStyle", it)
         }
     }
 
