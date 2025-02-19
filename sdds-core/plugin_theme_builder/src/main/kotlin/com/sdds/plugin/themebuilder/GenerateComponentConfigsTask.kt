@@ -3,6 +3,7 @@ package com.sdds.plugin.themebuilder
 import com.sdds.plugin.themebuilder.internal.PackageResolver
 import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.components.button.ButtonConfig
+import com.sdds.plugin.themebuilder.internal.components.counter.CounterConfig
 import com.sdds.plugin.themebuilder.internal.components.indicator.IndicatorConfig
 import com.sdds.plugin.themebuilder.internal.components.textfield.TextFieldConfig
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
@@ -72,6 +73,12 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
      */
     @get:InputFile
     abstract val indicatorConfigFile: RegularFileProperty
+
+    /**
+     * Файл с конфигом Counter
+     */
+    @get:InputFile
+    abstract val counterConfigFile: RegularFileProperty
 
     /**
      * Путь для сохранения kt-файлов токенов
@@ -181,6 +188,10 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
         componentStyleGeneratorFactory.createIndicatorStyleGeneratorView()
     }
 
+    private val counterStyleGeneratorView by unsafeLazy {
+        componentStyleGeneratorFactory.createCounterStyleGeneratorView()
+    }
+
     private val linkButtonStyleGeneratorCompose by unsafeLazy {
         componentStyleGeneratorFactory.createLinkButtonStyleGeneratorCompose()
     }
@@ -227,6 +238,12 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
 
     private val indicatorConfig: IndicatorConfig by unsafeLazy {
         indicatorConfigFile.get()
+            .asFile
+            .decode(Serializer.componentConfig)
+    }
+
+    private val counterConfig: CounterConfig by unsafeLazy {
+        counterConfigFile.get()
             .asFile
             .decode(Serializer.componentConfig)
     }
@@ -292,5 +309,6 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
         linkButtonStyleGeneratorView.generate(linkButtonConfig)
         textFieldStyleGeneratorView.generate(textFieldConfig)
         textAreaStyleGeneratorView.generate(textAreaConfig)
+        counterStyleGeneratorView.generate(counterConfig)
     }
 }

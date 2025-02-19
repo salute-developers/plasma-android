@@ -116,6 +116,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
                 textAreaConfigFile.set(getComponentConfigFile(ComponentConfig.TEXT_AREA.fileName))
                 textAreaClearConfigFile.set(getComponentConfigFile(ComponentConfig.TEXT_AREA_CLEAR.fileName))
                 indicatorConfigFile.set(getComponentConfigFile(ComponentConfig.INDICATOR.fileName))
+                counterConfigFile.set(getComponentConfigFile(ComponentConfig.COUNTER.fileName))
                 outputDirPath.set(extension.outputLocation.getSourcePath())
                 outputResDirPath.set(extension.outputLocation.getResourcePath())
                 packageName.set(extension.ktPackage ?: DEFAULT_KT_PACKAGE)
@@ -357,6 +358,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
         TEXT_AREA("text_area_config.json", "fetchTextAreaConfig"),
         TEXT_AREA_CLEAR("text_area_clear_config.json", "fetchTextAreaClearConfig"),
         INDICATOR("indicator_config.json", "fetchIndicatorConfig"),
+        COUNTER("counter_config.json", "fetchCounterConfig"),
     }
 
     private companion object {

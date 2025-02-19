@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.Counter" parent="Sdds.Components.Counter">
+        <item name="sd_colorStateProvider">com.sdds.serv.colorstate.CounterColorStateProvider</item>
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="android:backgroundTint">@color/serv_counter_bg_color</item>
+        <item name="android:textColor">@color/serv_counter_text_color</item>
+    </style>
+    <style name="Serv.Sdds.Components.Counter.L">
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodySNormal</item>
+        <item name="android:minHeight">@dimen/serv_counter_l_min_height</item>
+        <item name="android:minWidth">@dimen/serv_counter_l_min_width</item>
+        <item name="android:paddingLeft">@dimen/serv_counter_l_padding_left</item>
+        <item name="android:paddingRight">@dimen/serv_counter_l_padding_right</item>
+        <item name="android:paddingTop">@dimen/serv_counter_l_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_counter_l_padding_bottom</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.CounterL">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.L</item>
+    </style>
+    <style name="Serv.Sdds.Components.Counter.L.Default">
+        <item name="serv_counterColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.CounterLDefault">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.L.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.Counter.L.Accent">
+        <item name="serv_counterColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.CounterLAccent">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.L.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.Counter.L.Positive">
+        <item name="serv_counterColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.CounterLPositive">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.L.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.Counter.L.Warning">
+        <item name="serv_counterColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.CounterLWarning">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.L.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.Counter.L.Negative">
+        <item name="serv_counterColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.CounterLNegative">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.L.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.Counter.L.Black">
+        <item name="serv_counterColors">state_black</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.CounterLBlack">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.L.Black</item>
+    </style>
+    <style name="Serv.Sdds.Components.Counter.L.White">
+        <item name="serv_counterColors">state_white</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.CounterLWhite">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.L.White</item>
+    </style>
+    <style name="Serv.Sdds.Components.Counter.M">
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyXsNormal</item>
+        <item name="android:minHeight">@dimen/serv_counter_m_min_height</item>
+        <item name="android:minWidth">@dimen/serv_counter_m_min_width</item>
+        <item name="android:paddingLeft">@dimen/serv_counter_m_padding_left</item>
+        <item name="android:paddingRight">@dimen/serv_counter_m_padding_right</item>
+        <item name="android:paddingTop">@dimen/serv_counter_m_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_counter_m_padding_bottom</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.CounterM">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.M</item>
+    </style>
+    <style name="Serv.Sdds.Components.Counter.M.Default">
+        <item name="serv_counterColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.CounterMDefault">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.M.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.Counter.M.Accent">
+        <item name="serv_counterColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.CounterMAccent">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.M.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.Counter.M.Positive">
+        <item name="serv_counterColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.CounterMPositive">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.M.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.Counter.M.Warning">
+        <item name="serv_counterColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.CounterMWarning">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.M.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.Counter.M.Negative">
+        <item name="serv_counterColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.CounterMNegative">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.M.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.Counter.M.Black">
+        <item name="serv_counterColors">state_black</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.CounterMBlack">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.M.Black</item>
+    </style>
+    <style name="Serv.Sdds.Components.Counter.M.White">
+        <item name="serv_counterColors">state_white</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.CounterMWhite">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.M.White</item>
+    </style>
+    <style name="Serv.Sdds.Components.Counter.S">
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyXxsNormal</item>
+        <item name="android:minHeight">@dimen/serv_counter_s_min_height</item>
+        <item name="android:minWidth">@dimen/serv_counter_s_min_width</item>
+        <item name="android:paddingLeft">@dimen/serv_counter_s_padding_left</item>
+        <item name="android:paddingRight">@dimen/serv_counter_s_padding_right</item>
+        <item name="android:paddingTop">@dimen/serv_counter_s_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_counter_s_padding_bottom</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.CounterS">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.S</item>
+    </style>
+    <style name="Serv.Sdds.Components.Counter.S.Default">
+        <item name="serv_counterColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.CounterSDefault">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.S.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.Counter.S.Accent">
+        <item name="serv_counterColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.CounterSAccent">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.S.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.Counter.S.Positive">
+        <item name="serv_counterColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.CounterSPositive">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.S.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.Counter.S.Warning">
+        <item name="serv_counterColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.CounterSWarning">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.S.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.Counter.S.Negative">
+        <item name="serv_counterColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.CounterSNegative">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.S.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.Counter.S.Black">
+        <item name="serv_counterColors">state_black</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.CounterSBlack">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.S.Black</item>
+    </style>
+    <style name="Serv.Sdds.Components.Counter.S.White">
+        <item name="serv_counterColors">state_white</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.CounterSWhite">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.S.White</item>
+    </style>
+    <style name="Serv.Sdds.Components.Counter.Xs">
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyXxsNormal</item>
+        <item name="android:minHeight">@dimen/serv_counter_xs_min_height</item>
+        <item name="android:minWidth">@dimen/serv_counter_xs_min_width</item>
+        <item name="android:paddingLeft">@dimen/serv_counter_xs_padding_left</item>
+        <item name="android:paddingRight">@dimen/serv_counter_xs_padding_right</item>
+        <item name="android:paddingTop">@dimen/serv_counter_xs_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_counter_xs_padding_bottom</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.CounterXs">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.Xs</item>
+    </style>
+    <style name="Serv.Sdds.Components.Counter.Xs.Default">
+        <item name="serv_counterColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.CounterXsDefault">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.Xs.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.Counter.Xs.Accent">
+        <item name="serv_counterColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.CounterXsAccent">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.Xs.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.Counter.Xs.Positive">
+        <item name="serv_counterColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.CounterXsPositive">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.Xs.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.Counter.Xs.Warning">
+        <item name="serv_counterColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.CounterXsWarning">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.Xs.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.Counter.Xs.Negative">
+        <item name="serv_counterColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.CounterXsNegative">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.Xs.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.Counter.Xs.Black">
+        <item name="serv_counterColors">state_black</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.CounterXsBlack">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.Xs.Black</item>
+    </style>
+    <style name="Serv.Sdds.Components.Counter.Xs.White">
+        <item name="serv_counterColors">state_white</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.CounterXsWhite">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.Xs.White</item>
+    </style>
+    <style name="Serv.Sdds.Components.Counter.Xxs">
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyXxsNormal</item>
+        <item name="android:minHeight">@dimen/serv_counter_xxs_min_height</item>
+        <item name="android:minWidth">@dimen/serv_counter_xxs_min_width</item>
+        <item name="android:paddingLeft">@dimen/serv_counter_xxs_padding_left</item>
+        <item name="android:paddingRight">@dimen/serv_counter_xxs_padding_right</item>
+        <item name="android:paddingTop">@dimen/serv_counter_xxs_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_counter_xxs_padding_bottom</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.CounterXxs">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.Xxs</item>
+    </style>
+    <style name="Serv.Sdds.Components.Counter.Xxs.Default">
+        <item name="serv_counterColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.CounterXxsDefault">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.Xxs.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.Counter.Xxs.Accent">
+        <item name="serv_counterColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.CounterXxsAccent">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.Xxs.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.Counter.Xxs.Positive">
+        <item name="serv_counterColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.CounterXxsPositive">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.Xxs.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.Counter.Xxs.Warning">
+        <item name="serv_counterColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.CounterXxsWarning">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.Xxs.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.Counter.Xxs.Negative">
+        <item name="serv_counterColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.CounterXxsNegative">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.Xxs.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.Counter.Xxs.Black">
+        <item name="serv_counterColors">state_black</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.CounterXxsBlack">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.Xxs.Black</item>
+    </style>
+    <style name="Serv.Sdds.Components.Counter.Xxs.White">
+        <item name="serv_counterColors">state_white</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.CounterXxsWhite">
+        <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.Xxs.White</item>
+    </style>
+</resources>
