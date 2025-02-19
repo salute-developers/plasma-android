@@ -116,6 +116,14 @@ class ThemeBuilderPlugin : Plugin<Project> {
                 textAreaConfigFile.set(getComponentConfigFile(ComponentConfig.TEXT_AREA.fileName))
                 textAreaClearConfigFile.set(getComponentConfigFile(ComponentConfig.TEXT_AREA_CLEAR.fileName))
                 indicatorConfigFile.set(getComponentConfigFile(ComponentConfig.INDICATOR.fileName))
+                badgeConfigFile.set(getComponentConfigFile(ComponentConfig.BADGE_SOLID.fileName))
+                badgeClearConfigFile.set(getComponentConfigFile(ComponentConfig.BADGE_CLEAR.fileName))
+                badgeTransparentConfigFile.set(getComponentConfigFile(ComponentConfig.BADGE_TRANSPARENT.fileName))
+                iconBadgeConfigFile.set(getComponentConfigFile(ComponentConfig.ICON_BADGE_SOLID.fileName))
+                iconBadgeClearConfigFile.set(getComponentConfigFile(ComponentConfig.ICON_BADGE_CLEAR.fileName))
+                iconBadgeTransparentConfigFile.set(
+                    getComponentConfigFile(ComponentConfig.ICON_BADGE_TRANSPARENT.fileName),
+                )
                 outputDirPath.set(extension.outputLocation.getSourcePath())
                 outputResDirPath.set(extension.outputLocation.getResourcePath())
                 packageName.set(extension.ktPackage ?: DEFAULT_KT_PACKAGE)
@@ -176,7 +184,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
                 if (source.remoteName.isEmpty() || source.version.isEmpty()) {
                     throw GradleException(
                         "Theme name and version should not be empty: " +
-                            "name=${source.remoteName} version=${source.version}",
+                                "name=${source.remoteName} version=${source.version}",
                     )
                 }
                 "$BASE_THEME_URL${source.remoteName}/${source.version}.zip"
@@ -357,6 +365,15 @@ class ThemeBuilderPlugin : Plugin<Project> {
         TEXT_AREA("text_area_config.json", "fetchTextAreaConfig"),
         TEXT_AREA_CLEAR("text_area_clear_config.json", "fetchTextAreaClearConfig"),
         INDICATOR("indicator_config.json", "fetchIndicatorConfig"),
+        BADGE_SOLID("badge_solid_config.json", "fetchBadgeConfig"),
+        BADGE_CLEAR("badge_clear_config.json", "fetchBadgeClearConfig"),
+        BADGE_TRANSPARENT("badge_transparent_config.json", "fetchBadgeTransparentConfig"),
+        ICON_BADGE_SOLID("icon_badge_solid_config.json", "fetchIconBadgeConfig"),
+        ICON_BADGE_CLEAR("icon_badge_clear_config.json", "fetchIconBadgeClearConfig"),
+        ICON_BADGE_TRANSPARENT(
+            "icon_badge_transparent_config.json",
+            "fetchIconBadgeTransparentConfig"
+        ),
     }
 
     private companion object {
