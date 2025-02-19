@@ -19,7 +19,7 @@
 
     <style name="Salute.StylesSalute.Components.ProgressBar.GradientAccent">
         <item name="android:progressTint">@null</item>
-        <item name="android:progressDrawable">?salute_surfaceDefaultAccentGradient</item>
+        <item name="android:progressDrawable">?salute_surfaceDefaultGradientMain</item>
     </style>
 
     <style name="Salute.StylesSalute.Components.ProgressBar.Positive">

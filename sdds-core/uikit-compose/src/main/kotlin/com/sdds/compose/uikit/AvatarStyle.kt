@@ -114,6 +114,18 @@ interface AvatarColors {
     val textColor: Brush
 
     /**
+     * Цвет фона
+     */
+    val backgroundColor: List<Brush>
+        get() = emptyList()
+
+    /**
+     * Прозрачность фона
+     */
+    val backgroundAlpha: Float
+        get() = 1f
+
+    /**
      * Возвращает цвет статуса [status]
      * @see Avatar.Status
      */
@@ -171,6 +183,30 @@ interface AvatarColorsBuilder {
      * @see AvatarColors.textColor
      */
     fun textColor(textColor: Brush): AvatarColorsBuilder
+
+    /**
+     * Устанавливает цвет фона [backgroundColor]
+     * @see AvatarColors.backgroundColor
+     */
+    fun backgroundColor(backgroundColor: Color): AvatarColorsBuilder = this
+
+    /**
+     * Устанавливает цвет фона [backgroundColor]
+     * @see AvatarColors.backgroundColor
+     */
+    fun backgroundColor(backgroundColor: Brush): AvatarColorsBuilder = this
+
+    /**
+     * Устанавливает цвет фона [backgroundColor]
+     * @see AvatarColors.backgroundColor
+     */
+    fun backgroundColor(backgroundColor: List<Brush>): AvatarColorsBuilder = this
+
+    /**
+     * Устанавливает прозрачность фона [alpha]
+     * @see AvatarColors.backgroundAlpha
+     */
+    fun backgroundAlpha(alpha: Float): AvatarColorsBuilder = this
 
     /**
      * Создает экземпляр [AvatarColors]
@@ -245,6 +281,8 @@ private data class DefaultAvatarColors(
     override val actionColor: Color,
     override val actionScrimColor: Color,
     override val textColor: Brush,
+    override val backgroundColor: List<Brush>,
+    override val backgroundAlpha: Float,
 ) : AvatarColors {
 
     @Composable
@@ -264,6 +302,24 @@ private data class DefaultAvatarColors(
         private var actionColor: Color? = null
         private var actionScrimColor: Color? = null
         private var textColor: Brush? = null
+        private var backgroundColor: List<Brush>? = null
+        private var backgroundAlpha: Float? = null
+
+        override fun backgroundColor(backgroundColor: Color): AvatarColorsBuilder = apply {
+            backgroundColor(SolidColor(backgroundColor))
+        }
+
+        override fun backgroundColor(backgroundColor: Brush): AvatarColorsBuilder = apply {
+            backgroundColor(listOf(backgroundColor))
+        }
+
+        override fun backgroundColor(backgroundColor: List<Brush>): AvatarColorsBuilder = apply {
+            this.backgroundColor = backgroundColor
+        }
+
+        override fun backgroundAlpha(alpha: Float): AvatarColorsBuilder = apply {
+            this.backgroundAlpha = alpha
+        }
 
         override fun activeStatusColor(activeStatusColor: Color) = apply {
             this.activeStatusColor = activeStatusColor
@@ -292,6 +348,8 @@ private data class DefaultAvatarColors(
                 actionColor = actionColor ?: Color.White,
                 actionScrimColor = actionScrimColor ?: AvatarDefaults.DefaultScrimColor,
                 textColor = textColor ?: AvatarDefaults.defaultBrush,
+                backgroundColor = backgroundColor ?: AvatarDefaults.defaultBackground,
+                backgroundAlpha = backgroundAlpha ?: AvatarDefaults.BackgroundOpacity,
             )
     }
 }

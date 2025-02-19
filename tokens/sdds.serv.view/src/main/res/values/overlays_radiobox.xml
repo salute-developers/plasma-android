@@ -11,9 +11,11 @@
 
     <style name="Serv.Sdds.ComponentOverlays.RadioBoxGroupM">
         <item name="sd_radioBoxGroupStyle">@style/Serv.Sdds.Components.RadioBoxGroup.M</item>
+        <item name="android:radioButtonStyle">@style/Serv.Sdds.Components.RadioBox.M</item>
     </style>
 
     <style name="Serv.Sdds.ComponentOverlays.RadioBoxGroupS">
         <item name="sd_radioBoxGroupStyle">@style/Serv.Sdds.Components.RadioBoxGroup.S</item>
+        <item name="android:radioButtonStyle">@style/Serv.Sdds.Components.RadioBox.S</item>
     </style>
 </resources>

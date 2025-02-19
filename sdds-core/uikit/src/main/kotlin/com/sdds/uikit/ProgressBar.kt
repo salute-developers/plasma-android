@@ -7,6 +7,7 @@ import android.graphics.PixelFormat
 import android.graphics.Rect
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.DrawableWrapper
+import android.graphics.drawable.LayerDrawable
 import android.util.AttributeSet
 import android.util.Log
 import android.view.View
@@ -20,6 +21,7 @@ import com.sdds.uikit.internal.base.wrapWithInset
 import com.sdds.uikit.shape.ShapeDrawable
 import com.sdds.uikit.shape.ShapeModel
 import kotlin.math.min
+import kotlin.math.roundToInt
 
 /**
  * Индикатор прогресса от [minProgress] до [maxProgress].
@@ -235,8 +237,8 @@ open class ProgressBar @JvmOverloads constructor(
         _maxHeight = typedArray.getDimensionPixelSize(R.styleable.ProgressBar_android_maxHeight, 0)
         val shapeModel = ShapeModel.create(context, attrs, defStyleAttr, defStyleRes)
 
-        val background = (typedArray.getDrawable(R.styleable.ProgressBar_android_background) as? ShapeDrawable)
-            ?.apply { setShapeModel(shapeModel) }
+        val background = typedArray.getDrawable(R.styleable.ProgressBar_android_background)
+            ?.maybeShapeable(shapeModel)
             ?: ShapeDrawable(shapeModel)
         _backgroundDrawable = background
             .wrapLine(this)
@@ -248,10 +250,9 @@ open class ProgressBar @JvmOverloads constructor(
             )
         _backgroundDrawable.setTintList(typedArray.getColorStateList(R.styleable.ProgressBar_backgroundTint))
 
-        val progressDrawable =
-            (typedArray.getDrawable(R.styleable.ProgressBar_android_progressDrawable) as? ShapeDrawable)
-                ?.apply { setShapeModel(shapeModel) }
-                ?: ShapeDrawable(shapeModel)
+        val progressDrawable = typedArray.getDrawable(R.styleable.ProgressBar_android_progressDrawable)
+            ?.maybeShapeable(shapeModel)
+            ?: ShapeDrawable(shapeModel)
         _progressDrawable = progressDrawable.wrapLine(this)
         _progressDrawable.setTintList(typedArray.getColorStateList(R.styleable.ProgressBar_android_progressTint))
         typedArray.recycle()
@@ -275,7 +276,7 @@ open class ProgressBar @JvmOverloads constructor(
         fun onProgressChanged(progress: Float)
     }
 
-    private class LineDrawable(private val shapeDrawable: ShapeDrawable) : DrawableWrapper(shapeDrawable) {
+    private class LineDrawable(private val shapeDrawable: Drawable) : DrawableWrapper(shapeDrawable) {
 
         private var _skipDraw: Boolean = false
         private var _fraction: Float = MAX_PROGRESS
@@ -303,7 +304,7 @@ open class ProgressBar @JvmOverloads constructor(
             val width = bounds.width() * _fraction
             val height = bounds.height().toFloat()
             _skipDraw = width == 0f
-            shapeDrawable.resizeShape(width, height)
+            shapeDrawable.resize(width, height)
         }
     }
 
@@ -321,9 +322,39 @@ open class ProgressBar @JvmOverloads constructor(
         const val MAX_PROGRESS = 1f
         const val MIN_PROGRESS = 0f
 
-        fun ShapeDrawable.wrapLine(callback: Drawable.Callback): LineDrawable =
+        fun Drawable.wrapLine(callback: Drawable.Callback): LineDrawable =
             LineDrawable(this).apply {
                 this.callback = callback
             }
+
+        fun Drawable.maybeShapeable(shapeModel: ShapeModel): Drawable {
+            when (this) {
+                is ShapeDrawable -> setShapeModel(shapeModel)
+                is LayerDrawable -> repeat(numberOfLayers) {
+                    getDrawable(it).maybeShapeable(shapeModel)
+                }
+                else -> Unit
+            }
+            return this
+        }
+
+        fun Drawable.resize(width: Float, height: Float) {
+            when (this) {
+                // Пытаемся изменять размер формы, чтобы не пересоздавать shader
+                is ShapeDrawable -> resizeShape(width, height)
+                is LayerDrawable -> repeat(numberOfLayers) {
+                    // внутри LayerDrawable могут быть ShapeDrawable с shader
+                    getDrawable(it).resize(width, height)
+                }
+                else -> {
+                    setBounds(
+                        bounds.left,
+                        bounds.top,
+                        bounds.left + width.roundToInt(),
+                        bounds.top + height.roundToInt(),
+                    )
+                }
+            }
+        }
     }
 }

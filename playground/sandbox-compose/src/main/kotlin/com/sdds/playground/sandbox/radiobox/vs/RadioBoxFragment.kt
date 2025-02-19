@@ -2,8 +2,10 @@ package com.sdds.playground.sandbox.radiobox.vs
 
 import android.view.ContextThemeWrapper
 import androidx.fragment.app.viewModels
-import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
+import com.sdds.testing.vs.radiobox.RadioBoxUiState
+import com.sdds.testing.vs.radiobox.applyState
+import com.sdds.testing.vs.radiobox.radioBox
 import com.sdds.uikit.RadioBox
 
 /**
@@ -17,16 +19,10 @@ internal class RadioBoxFragment : ComponentFragment<RadioBoxUiState, RadioBox>()
     }
 
     override fun getComponent(contextWrapper: ContextThemeWrapper): RadioBox {
-        return RadioBox(contextWrapper)
-            .apply { id = R.id.radioBox }
+        return radioBox(contextWrapper)
     }
 
     override fun onComponentUpdate(component: RadioBox?, state: RadioBoxUiState) {
-        component?.apply {
-            text = state.label
-            isChecked = state.checked
-            description = state.description
-            isEnabled = state.enabled
-        }
+        component?.applyState(state)
     }
 }

@@ -2,10 +2,10 @@
 <resources>
 
     <style name="Plasma.SdService.Components.EmbeddedChip" parent="Sdds.Components.Chip">
-        <item name="android:backgroundTint">@color/bg_color_chip</item>
-        <item name="android:textColor">@color/text_color_chip</item>
-        <item name="sd_drawableStartTint">@color/text_color_chip</item>
-        <item name="sd_drawableEndTint">@color/drawable_color_chip</item>
+        <item name="android:backgroundTint">@color/plasma_bg_color_chip</item>
+        <item name="android:textColor">@color/plasma_text_color_chip</item>
+        <item name="sd_drawableStartTint">@color/plasma_text_color_chip</item>
+        <item name="sd_drawableEndTint">@color/plasma_drawable_color_chip</item>
         <item name="sd_viewState">primary</item>
     </style>
 

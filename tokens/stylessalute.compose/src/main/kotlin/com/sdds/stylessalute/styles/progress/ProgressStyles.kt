@@ -46,7 +46,7 @@ val ProgressBar.GradientAccent: ProgressBarStyleBuilder
     @Composable
     get() = ProgressBarStyle.builder()
         .colors {
-            indicatorColor(StylesSaluteTheme.gradients.surfaceDefaultAccentGradient)
+            indicatorColor(StylesSaluteTheme.gradients.surfaceDefaultGradientMain)
             backgroundColor(StylesSaluteTheme.colors.surfaceDefaultTransparentSecondary)
         }
 

@@ -22,5 +22,7 @@ internal object AvatarDefaults {
         end = Offset(Float.POSITIVE_INFINITY, 0f),
     )
 
+    val defaultBackground: List<Brush> = listOf(defaultBrush)
+
     val DefaultScrimColor = Color(0x8F080808)
 }

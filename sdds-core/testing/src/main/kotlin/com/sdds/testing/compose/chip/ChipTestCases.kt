@@ -1,0 +1,95 @@
+package com.sdds.testing.compose.chip
+
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.res.painterResource
+import com.sdds.compose.uikit.Chip
+import com.sdds.compose.uikit.ChipStyle
+import com.sdds.compose.uikit.Icon
+import com.sdds.icons.R
+
+/**
+ * Тест кейсы для Chip, ChipGroup
+ */
+
+/**
+ * PLASMA-T1442
+ */
+@Composable
+fun ChipSizeLDefault(style: ChipStyle) {
+    Chip(
+        style = style,
+        label = "Label",
+        onClick = {},
+        endContent = {
+            Icon(
+                painter = painterResource(id = R.drawable.ic_close_24),
+                contentDescription = null,
+            )
+        },
+        enabled = true,
+    )
+}
+
+/**
+ * PLASMA-T1443
+ */
+@Composable
+fun ChipSizeMSecondaryPilled(style: ChipStyle) {
+    Chip(
+        style = style,
+        label = "Label",
+        onClick = {},
+        enabled = true,
+    )
+}
+
+/**
+ * PLASMA-T1446
+ */
+@Composable
+fun ChipSizeSAccentDisabled(style: ChipStyle) {
+    Chip(
+        style = style,
+        label = "Label",
+        onClick = {},
+        enabled = false,
+    )
+}
+
+/**
+ * PLASMA-T1447
+ */
+@Composable
+fun ChipSizeXSContentLeft(style: ChipStyle) {
+    Chip(
+        style = style,
+        label = "Label",
+        onClick = {},
+        startContent = {
+            Icon(
+                painter = painterResource(id = R.drawable.ic_plasma_16),
+                contentDescription = null,
+            )
+        },
+        enabled = true,
+    )
+}
+
+/**
+ * PLASMA-T1654
+ */
+@Composable
+fun ChipDisabled(style: ChipStyle) {
+    Chip(
+        style = style,
+        label = "Label",
+        onClick = {},
+        endContent = {
+            Icon(
+                painter = painterResource(id = R.drawable.ic_close_24),
+                contentDescription = null,
+            )
+        },
+        enabled = false,
+    )
+}

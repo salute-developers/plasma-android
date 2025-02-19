@@ -16,4 +16,8 @@
     <style name="Serv.Sdds.ComponentOverlays.AvatarS">
         <item name="sd_avatarStyle">@style/Serv.Sdds.Components.Avatar.S</item>
     </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.AvatarGroup">
+        <item name="sd_avatarGroupStyle">@style/Serv.Sdds.Components.AvatarGroup</item>
+    </style>
 </resources>

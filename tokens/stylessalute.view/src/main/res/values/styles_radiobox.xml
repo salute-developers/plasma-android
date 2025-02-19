@@ -2,7 +2,7 @@
 <resources>
 
     <style name="Salute.StylesSalute.Components.RadioBox" parent="Sdds.Components.RadioBox">
-        <item name="sd_buttonBorderColor">@color/color_checkable_border</item>
+        <item name="sd_buttonBorderColor">@color/salute_color_checkable_border</item>
         <item name="sd_buttonBoxColor">?salute_surfaceDefaultAccent</item>
         <item name="sd_buttonMarkColor">?salute_textOnDarkPrimary</item>
         <item name="android:textColor">?salute_textDefaultPrimary</item>

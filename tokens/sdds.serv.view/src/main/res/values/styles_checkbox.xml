@@ -2,7 +2,7 @@
 <resources>
 
     <style name="Serv.Sdds.Components.CheckBox" parent="Sdds.Components.CheckBox">
-        <item name="sd_buttonBorderColor">@color/color_checkable_border</item>
+        <item name="sd_buttonBorderColor">@color/serv_color_checkable_border</item>
         <item name="sd_buttonBoxColor">?serv_surfaceDefaultAccent</item>
         <item name="sd_buttonMarkColor">#fff</item>
         <item name="android:textColor">?serv_textDefaultPrimary</item>

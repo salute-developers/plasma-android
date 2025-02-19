@@ -64,6 +64,7 @@ open class Avatar @JvmOverloads constructor(
         isAntiAlias = true,
         style = Paint.Style.FILL,
     )
+    private var _backgroundAlpha: Float = 1f
 
     private var _statusSize: Float = 0f
     private var _statusOffsetX: Float = 0f
@@ -123,6 +124,7 @@ open class Avatar @JvmOverloads constructor(
 
     init {
         obtainAttributes(context, attrs, defStyleAttr)
+        updateBackgroundAlpha()
     }
 
     /**
@@ -191,7 +193,9 @@ open class Avatar @JvmOverloads constructor(
         if (_textAppearanceId != styleId) {
             _textAppearanceId = styleId
             _fontCallback?.cancel()
-            _fontCallback = _textPaint.applyTextAppearance(context, styleId)
+            _fontCallback = _textPaint.applyTextAppearance(context, styleId) {
+                invalidate()
+            }
         }
     }
 
@@ -381,6 +385,18 @@ open class Avatar @JvmOverloads constructor(
         return super.verifyDrawable(dr) || _actionDrawable == dr || _actionScrimDrawable == dr || _actionOverlay == dr
     }
 
+    override fun setBackground(background: Drawable?) {
+        super.setBackground(background)
+        updateBackgroundAlpha()
+    }
+
+    private fun updateBackgroundAlpha() {
+        background?.apply {
+            alpha = (_backgroundAlpha * MAX_ALPHA_INT).roundToInt()
+            invalidateSelf()
+        }
+    }
+
     private fun drawInitials(canvas: Canvas, initials: CharSequence?) {
         if (initials == null) return
         val count = canvas.save()
@@ -436,10 +452,13 @@ open class Avatar @JvmOverloads constructor(
         _textColorStart = typedArray.getColor(R.styleable.Avatar_sd_textColorStart, 0)
         _textColorEnd = typedArray.getColor(R.styleable.Avatar_sd_textColorEnd, 0)
         setTextColor(typedArray.getColorStateList(R.styleable.Avatar_android_textColor))
+
+        _backgroundAlpha = typedArray.getFloat(R.styleable.Avatar_sd_backgroundAlpha, 1f)
         typedArray.recycle()
     }
 
     private companion object {
+        const val MAX_ALPHA_INT = 255
         val ScrimColor = Color.argb((255 * 0.56f).roundToInt(), 8, 8, 8)
 
         val CharSequence.initials

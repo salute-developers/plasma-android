@@ -103,4 +103,6 @@ private fun AvatarColorsBuilder.defaultColors(): AvatarColorsBuilder = apply {
     activeStatusColor(PlasmaSdServiceTheme.colors.surfaceDefaultPositive)
     inactiveStatusColor(PlasmaSdServiceTheme.colors.surfaceOnLightSolidTertiary)
     textColor(PlasmaSdServiceTheme.gradients.textDefaultAccentGradient.first())
+    backgroundColor(PlasmaSdServiceTheme.gradients.surfaceDefaultAccentGradient)
+    backgroundAlpha(0.2f)
 }

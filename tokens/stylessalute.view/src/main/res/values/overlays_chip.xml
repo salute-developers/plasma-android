@@ -156,4 +156,134 @@
     <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupDense">
         <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroup.Dense</item>
     </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupDenseL">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroup.Dense.L</item>
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.L</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupDenseLSecondary">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroup.Dense.L.Secondary</item>
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.L.Secondary</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupDenseLPilledSecondary">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroup.Dense</item>
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.L.Pilled.Secondary</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupDenseLAccent">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroup.Dense.L.Accent</item>
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.L.Accent</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupDenseM">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroup.Dense.M</item>
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.M</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupDenseMSecondary">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroup.Dense.M.Secondary</item>
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.M.Secondary</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupDenseMAccent">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroup.Dense.M.Accent</item>
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.M.Accent</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupDenseS">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroup.Dense.S</item>
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.S</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupDenseSSecondary">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroup.Dense.S.Secondary</item>
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.S.Secondary</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupDenseSAccent">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroup.Dense.S.Accent</item>
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.S.Accent</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupDenseXS">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroup.Dense.XS</item>
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.XS</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupDenseXSSecondary">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroup.Dense.XS.Secondary</item>
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.XS.Secondary</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupDenseXSAccent">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroup.Dense.XS.Accent</item>
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.XS.Accent</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupWideL">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroup.Wide.L</item>
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.L</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupWideLSecondary">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroup.Wide.L.Secondary</item>
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.L.Secondary</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupWideLAccent">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroup.Wide.L.Accent</item>
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.L.Accent</item>
+
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupWideM">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroup.Wide.M</item>
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.M</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupWideMSecondary">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroup.Wide.M.Secondary</item>
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.M.Secondary</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupWideMAccent">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroup.Wide.M.Accent</item>
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.M.Accent</item>
+
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupWideS">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroup.Wide.S</item>
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.S</item>
+
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupWideSSecondary">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroup.Wide.S.Secondary</item>
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.S.Secondary</item>
+
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupWideSAccent">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroup.Wide.S.Accent</item>
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.S.Accent</item>
+
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupWideXS">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroup.Wide.XS</item>
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.XS</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupWideXSSecondary">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroup.Wide.XS.Secondary</item>
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.XS.Secondary</item>
+    </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.ChipGroupWideXSAccent">
+        <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroup.Wide.XS.Accent</item>
+        <item name="sd_chipStyle">@style/Salute.StylesSalute.Components.Chip.XS.Accent</item>
+    </style>
 </resources>

@@ -2,8 +2,10 @@ package com.sdds.playground.sandbox.checkbox.vs
 
 import android.view.ContextThemeWrapper
 import androidx.fragment.app.viewModels
-import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
+import com.sdds.testing.vs.checkbox.CheckBoxUiState
+import com.sdds.testing.vs.checkbox.applyState
+import com.sdds.testing.vs.checkbox.checkBox
 import com.sdds.uikit.CheckBox
 
 /**
@@ -17,16 +19,10 @@ internal class CheckBoxFragment : ComponentFragment<CheckBoxUiState, CheckBox>()
     }
 
     override fun getComponent(contextWrapper: ContextThemeWrapper): CheckBox {
-        return CheckBox(contextWrapper)
-            .apply { id = R.id.checkBox }
+        return checkBox(contextWrapper)
     }
 
     override fun onComponentUpdate(component: CheckBox?, state: CheckBoxUiState) {
-        component?.apply {
-            text = state.label
-            toggleState = state.state
-            description = state.description
-            isEnabled = state.enabled
-        }
+        component?.applyState(state)
     }
 }

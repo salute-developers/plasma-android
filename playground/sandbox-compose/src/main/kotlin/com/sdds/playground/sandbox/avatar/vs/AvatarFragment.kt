@@ -2,9 +2,10 @@ package com.sdds.playground.sandbox.avatar.vs
 
 import android.view.ContextThemeWrapper
 import androidx.fragment.app.viewModels
-import com.bumptech.glide.Glide
-import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
+import com.sdds.testing.vs.avatar.AvatarUiState
+import com.sdds.testing.vs.avatar.applyState
+import com.sdds.testing.vs.avatar.avatar
 import com.sdds.uikit.Avatar
 
 /**
@@ -21,28 +22,10 @@ internal class AvatarFragment : ComponentFragment<AvatarUiState, Avatar>() {
     }
 
     override fun getComponent(contextWrapper: ContextThemeWrapper): Avatar {
-        return Avatar(contextWrapper)
-            .apply { id = R.id.avatar }
+        return avatar(contextWrapper)
     }
 
     override fun onComponentUpdate(component: Avatar?, state: AvatarUiState) {
-        component?.apply {
-            when (state.exampleMode) {
-                ExampleMode.Local -> setImageResource(R.drawable.il_avatar_test)
-                ExampleMode.Remote -> {
-                    Glide.with(this@AvatarFragment)
-                        .load(AVATAR_REMOTE_URL)
-                        .into(this)
-                }
-
-                ExampleMode.Placeholder -> {
-                    setImageDrawable(null)
-                }
-            }
-            setInitials(state.fullName)
-            status = state.status
-            setActionResource(com.sdds.icons.R.drawable.ic_sber_36)
-            actionEnabled = state.actionEnabled
-        }
+        component?.applyState(state)
     }
 }
