@@ -1,3 +1,4 @@
+// AUTO-GENERATED. DO NOT MODIFY this file.
 package com.themebuilder.tokens.colorstate
 
 import android.content.Context
@@ -5,6 +6,8 @@ import android.util.AttributeSet
 import com.sdds.plasma.sd.service.R
 import com.sdds.uikit.colorstate.ColorState
 import com.sdds.uikit.colorstate.ColorStateProvider
+import kotlin.Int
+import kotlin.IntArray
 
 /**
  * Реализация [ColorState] для компонента Counter
@@ -15,8 +18,8 @@ public enum class CounterColorState(
     DEFAULT(intArrayOf(R.attr.plasma_counter_state_default)),
     ACCENT(intArrayOf(R.attr.plasma_counter_state_accent)),
     POSITIVE(intArrayOf(R.attr.plasma_counter_state_positive)),
-    NEGATIVE(intArrayOf(R.attr.plasma_counter_state_negative)),
     WARNING(intArrayOf(R.attr.plasma_counter_state_warning)),
+    NEGATIVE(intArrayOf(R.attr.plasma_counter_state_negative)),
     BLACK(intArrayOf(R.attr.plasma_counter_state_black)),
     WHITE(intArrayOf(R.attr.plasma_counter_state_white)),
 }

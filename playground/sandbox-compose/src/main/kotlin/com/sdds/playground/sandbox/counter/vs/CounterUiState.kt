@@ -13,7 +13,7 @@ import kotlinx.parcelize.Parcelize
  */
 @Parcelize
 internal data class CounterUiState(
-    val variant: CounterVariant = CounterVariant.CounterLDefault,
+    val variant: CounterVariant = CounterVariant.CounterLAccent,
     val count: String = "1",
     val enabled: Boolean = true,
 ) : Parcelable
