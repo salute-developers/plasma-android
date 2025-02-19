@@ -369,6 +369,12 @@ private val TextAreaClearStyleBuilder.invariantProps: TextAreaClearStyleBuilder
             dividerColorReadOnly(
                 PlasmaSdServiceTheme.colors.surfaceDefaultTransparentPrimary.asInteractive(),
             )
+            prefixColor(
+                PlasmaSdServiceTheme.colors.textDefaultTertiary.asInteractive(),
+            )
+            suffixColor(
+                PlasmaSdServiceTheme.colors.textDefaultTertiary.asInteractive(),
+            )
         }
 
 public val TextAreaClear.Xs: WrapperTextAreaClearXs
@@ -387,6 +393,8 @@ public val TextAreaClear.Xs: WrapperTextAreaClearXs
             endContentSize(16.0.dp)
         }
         .valueStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
+        .prefixStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
+        .suffixStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
         .placeholderStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
         .chipStyle(EmbeddedChip.Xs.Secondary.style())
         .labelPlacement(TextField.LabelPlacement.None)
@@ -484,6 +492,8 @@ public val TextAreaClear.S: WrapperTextAreaClearS
             endContentSize(24.0.dp)
         }
         .valueStyle(PlasmaSdServiceTheme.typography.bodySNormal)
+        .prefixStyle(PlasmaSdServiceTheme.typography.bodySNormal)
+        .suffixStyle(PlasmaSdServiceTheme.typography.bodySNormal)
         .placeholderStyle(PlasmaSdServiceTheme.typography.bodySNormal)
         .chipStyle(EmbeddedChip.S.Secondary.style())
         .labelPlacement(TextField.LabelPlacement.None)
@@ -627,6 +637,8 @@ public val TextAreaClear.M: WrapperTextAreaClearM
             endContentSize(24.0.dp)
         }
         .valueStyle(PlasmaSdServiceTheme.typography.bodyMNormal)
+        .prefixStyle(PlasmaSdServiceTheme.typography.bodyMNormal)
+        .suffixStyle(PlasmaSdServiceTheme.typography.bodyMNormal)
         .placeholderStyle(PlasmaSdServiceTheme.typography.bodyMNormal)
         .chipStyle(EmbeddedChip.M.Secondary.style())
         .labelPlacement(TextField.LabelPlacement.None)
@@ -770,6 +782,8 @@ public val TextAreaClear.L: WrapperTextAreaClearL
             endContentSize(24.0.dp)
         }
         .valueStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
+        .prefixStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
+        .suffixStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
         .placeholderStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
         .chipStyle(EmbeddedChip.L.Secondary.style())
         .labelPlacement(TextField.LabelPlacement.None)
