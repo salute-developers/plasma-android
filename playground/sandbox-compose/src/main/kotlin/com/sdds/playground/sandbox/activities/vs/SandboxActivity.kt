@@ -3,7 +3,6 @@ package com.sdds.playground.sandbox.activities.vs
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
@@ -18,7 +17,10 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
 import com.sdds.playground.sandbox.MainSandboxActivity
 import com.sdds.playground.sandbox.R
+import com.sdds.playground.sandbox.Theme
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
+import com.sdds.playground.sandbox.core.vs.EditorFragment
+import com.sdds.playground.sandbox.core.vs.ViewSystemThemeState
 import com.sdds.playground.sandbox.databinding.MainActivityBinding
 
 /**
@@ -49,8 +51,28 @@ class SandboxActivity : AppCompatActivity() {
             val bundle = extra.getBundle(ComponentFragment.DESTINATION_MESSAGE_ARG)
             navController.navigate(destinationId, bundle)
         }
-        findViewById<TextView>(R.id.bHome).setOnClickListener {
+        binding.appBarMain.bHome.setOnClickListener {
             toMainScreen()
+        }
+        setupThemePicker()
+    }
+
+    private fun setupThemePicker() {
+        binding.appBarMain.bSettings.setOnClickListener {
+            EditorFragment.choiceEditor(
+                propertyName = "Theme",
+                currentValue = ViewSystemThemeState.theme.value.name,
+                choices = Theme.values().map(Theme::name),
+                confirmKey = THEME_PICKER_RESULT_KEY,
+            ).show(supportFragmentManager, "ThemePicker")
+        }
+        supportFragmentManager.setFragmentResultListener(
+            THEME_PICKER_RESULT_KEY,
+            this,
+        ) { requestKey, bundle ->
+            if (requestKey != THEME_PICKER_RESULT_KEY) return@setFragmentResultListener
+            val newValue = bundle.getString(EditorFragment.CONFIRM_VALUE).orEmpty()
+            ViewSystemThemeState.setTheme(Theme.valueOf(newValue))
         }
     }
 
@@ -77,6 +99,7 @@ class SandboxActivity : AppCompatActivity() {
          * Идентификатор начального экрана
          */
         const val DESTINATION_ID_ARG = "DESTINATION_ID_ARG"
+        private const val THEME_PICKER_RESULT_KEY = "THEME_PICKER_RESULT_KEY"
         private val navigationSet = setOf(
             R.id.nav_basic_button,
             R.id.nav_badge,

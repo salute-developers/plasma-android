@@ -8,6 +8,8 @@ plugins {
     id(libs.plugins.themebuilder.get().pluginId)
     id("convention.maven-publish")
     id("convention.auto-bump")
+    id("convention.testing")
+    alias(libs.plugins.roborazzi)
 }
 
 android {
@@ -25,6 +27,7 @@ themeBuilder {
         }
         setupShapeAppearance(sddsShape())
     }
+    ktPackage("com.sdds.plasma.sd.service")
     autoGenerate(false)
     mode(ThemeBuilderMode.THEME)
     outputLocation(OutputLocation.SRC)

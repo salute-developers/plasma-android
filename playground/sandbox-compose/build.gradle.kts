@@ -36,8 +36,22 @@ android {
 
 dependencies {
     implementation(libs.sdds.icons)
-    implementation("tokens:sdds.serv.compose")
     implementation("tokens:sdds.serv.view")
+    implementation("tokens:sdds.serv.compose")
+    implementation("playground:sandbox-sdds-serv-integration")
+
+    implementation("tokens:plasma.sd.service.view")
+    implementation("tokens:plasma.sd.service.compose")
+    implementation("playground:sandbox-plasma-sd-service-integration")
+
+    implementation("tokens:stylessalute.view")
+    implementation("tokens:stylessalute.compose")
+    implementation("playground:sandbox-stylessalute-integration")
+
+    implementation("playground:sandbox-core-integration")
+    implementation("sdds-core:testing") {
+        exclude("org.robolectric", "robolectric")
+    }
     implementation(libs.sdds.uikit.compose)
     implementation(libs.sdds.uikit)
 

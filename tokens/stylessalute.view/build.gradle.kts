@@ -8,7 +8,8 @@ plugins {
     id(libs.plugins.themebuilder.get().pluginId)
     id("convention.maven-publish")
     id("convention.auto-bump")
-}
+    id("convention.testing")
+    alias(libs.plugins.roborazzi)}
 
 android {
     namespace = "com.sdds.stylessalute"
@@ -20,6 +21,7 @@ themeBuilder {
         ?: throw GradleException("sdds serv version must be specified")
     themeSource(name = "stylesSalute", version = themeVersion, alias = "StylesSalute")
     autoGenerate(false)
+    ktPackage("com.sdds.stylessalute")
     mode(THEME)
     outputLocation(SRC)
     view {

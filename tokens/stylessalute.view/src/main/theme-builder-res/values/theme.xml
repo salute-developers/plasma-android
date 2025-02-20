@@ -1722,6 +1722,9 @@
         <item name="sd_fsStrokeWidth">@dimen/sdds_spacer_0_5x</item>
         <item name="sd_fsStrokeInset">@dimen/sdds_spacer_1x</item>
         <item name="sd_fsShapeAdjustment">@dimen/sdds_spacer_1x</item>
+        <item name="colorAccent">?salute_textDefaultAccent</item>
+        <item name="colorControlHighlight">@android:color/transparent</item>
+        <item name="sd_shapeAppearanceCircle">@style/Sdds.Shape.Round.Circle</item>
 
         <item name="android:buttonStyle">@style/Salute.StylesSalute.Components.BasicButton.M</item>
         <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.M</item>
@@ -3493,6 +3496,9 @@
         <item name="sd_fsStrokeWidth">@dimen/sdds_spacer_0_5x</item>
         <item name="sd_fsStrokeInset">@dimen/sdds_spacer_1x</item>
         <item name="sd_fsShapeAdjustment">@dimen/sdds_spacer_1x</item>
+        <item name="colorAccent">?salute_textDefaultAccent</item>
+        <item name="colorControlHighlight">@android:color/transparent</item>
+        <item name="sd_shapeAppearanceCircle">@style/Sdds.Shape.Round.Circle</item>
 
         <item name="android:buttonStyle">@style/Salute.StylesSalute.Components.BasicButton.M</item>
         <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.M</item>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="Plasma.SdService.Components.SegmentItem" parent="Sdds.Components.SegmentItem">
-        <item name="sd_colorStateProvider">com.sdds.plasma.colorstate.SegmentItemColorStateProvider</item>
+        <item name="sd_colorStateProvider">com.sdds.plasma.sd.service.colorstate.SegmentItemColorStateProvider</item>
         <item name="backgroundTint">@color/plasma_segment_item_bg_color</item>
         <item name="android:textColor">@color/plasma_segment_item_text_color</item>
         <item name="sd_valueTextColor">@color/plasma_segment_item_value_color</item>

@@ -22,5 +22,6 @@ include(
     ":icons",
     ":plugin_theme_builder",
     ":uikit",
-    ":uikit-compose"
+    ":uikit-compose",
+    ":testing"
 )

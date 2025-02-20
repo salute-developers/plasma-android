@@ -1,64 +1,31 @@
 package com.sdds.playground.sandbox.segment.vs
 
-import android.os.Bundle
 import android.view.ContextThemeWrapper
-import android.view.View
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.playground.sandbox.core.vs.PropertiesOwner
-import com.sdds.uikit.Button
+import com.sdds.testing.vs.segement.SegmentUiState
+import com.sdds.testing.vs.segement.applyState
+import com.sdds.testing.vs.segement.segmentItem
 import com.sdds.uikit.SegmentItem
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.onEach
 
-internal class SegmentItemFragment : ComponentFragment() {
+internal class SegmentItemFragment : ComponentFragment<SegmentUiState, SegmentItem>() {
 
-    private val segmentItemViewModel by viewModels<SegmentParametersViewModel> {
-        SegmentParametersViewModelFactory(
-            defaultState = getState { SegmentUiState(SegmentItemVariant.SegmentItemLDefault) },
+    override val componentViewModel by viewModels<SegmentItemViewModel> {
+        SegmentItemViewModelFactory(
+            defaultState = getState { SegmentUiState() },
         )
     }
-    private var _currentVariant: Variant = SegmentItemVariant.SegmentItemLDefault
-    private var _segmentItem: SegmentItem? = null
 
-    override val componentLayout: SegmentItem
-        get() = SegmentItem(ContextThemeWrapper(requireContext(), _currentVariant.styleRes))
-            .apply { id = com.sdds.playground.sandbox.R.id.segment_item }
-            .also { _segmentItem = it }
-
-    override val propertiesOwner: PropertiesOwner
-        get() = segmentItemViewModel
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        segmentItemViewModel.segmentItemState
-            .onEach { state ->
-                if (_currentVariant != state.variant) {
-                    _currentVariant = state.variant
-                    dispatchComponentStyleChanged()
-                }
-                _segmentItem?.apply {
-                    setOnCheckedChangedListener { _, isChecked ->
-                        segmentItemViewModel.updateProperty("checked", isChecked)
-                    }
-                    text = state.segmentItemLabel
-                    value = state.segmentItemValue
-                    isEnabled = state.enabled
-                    if (state.icon != SegmentItemIcon.No) {
-                        setIconResource(state.icon.iconId)
-                    } else {
-                        icon = null
-                    }
-                    isChecked = state.checked
-                    iconPosition = when (state.icon) {
-                        SegmentItemIcon.End -> Button.IconPosition.TextEnd
-                        else -> Button.IconPosition.TextStart
-                    }
-                    counterText = state.count
-                    isCounterEnabled = state.counter
+    override fun getComponent(contextWrapper: ContextThemeWrapper): SegmentItem {
+        return segmentItem(contextWrapper)
+            .apply {
+                setOnCheckedChangedListener { _, isChecked ->
+                    componentViewModel.updateProperty("checked", isChecked)
                 }
             }
-            .launchIn(viewLifecycleOwner.lifecycleScope)
+    }
+
+    override fun onComponentUpdate(component: SegmentItem?, state: SegmentUiState) {
+        component?.applyState(state)
     }
 }

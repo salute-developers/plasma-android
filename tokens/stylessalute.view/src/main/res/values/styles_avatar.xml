@@ -6,9 +6,11 @@
         <item name="sd_textColorStart">#0D8523</item>
         <item name="sd_textColorEnd">#0DA8AB</item>
 
-        <item name="sd_statusColor">@color/color_avatar_status</item>
+        <item name="sd_statusColor">@color/salute_color_avatar_status</item>
         <item name="sd_actionScrimColor">?salute_overlayOnDarkSoft</item>
         <item name="sd_actionTint">?salute_textOnDarkPrimary</item>
+        <item name="android:background">?salute_surfaceDefaultGradientMain</item>
+        <item name="sd_backgroundAlpha">0.2</item>
     </style>
 
     <style name="Salute.StylesSalute.Components.Avatar.XXL">
@@ -17,7 +19,7 @@
         <item name="android:minWidth">88dp</item>
         <item name="android:minHeight">88dp</item>
         <item name="sd_statusSize">12dp</item>
-        <item name="sd_statusOffsetX">7dp</item>
+        <item name="sd_statusOffsetX">1dp</item>
         <item name="sd_statusOffsetY">7dp</item>
         <item name="sd_actionSize">36dp</item>
 
@@ -30,7 +32,7 @@
         <item name="android:minWidth">48dp</item>
         <item name="android:minHeight">48dp</item>
         <item name="sd_statusSize">8dp</item>
-        <item name="sd_statusOffsetX">3dp</item>
+        <item name="sd_statusOffsetX">1dp</item>
         <item name="sd_statusOffsetY">3dp</item>
         <item name="sd_actionSize">24dp</item>
 
@@ -43,7 +45,7 @@
         <item name="android:minWidth">36dp</item>
         <item name="android:minHeight">36dp</item>
         <item name="sd_statusSize">8dp</item>
-        <item name="sd_statusOffsetX">2dp</item>
+        <item name="sd_statusOffsetX">0dp</item>
         <item name="sd_statusOffsetY">2dp</item>
         <item name="sd_actionSize">24dp</item>
 
@@ -60,7 +62,7 @@
         <item name="sd_statusOffsetY">0dp</item>
         <item name="sd_actionSize">16dp</item>
 
-        <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.BodyXxsNormal</item>
+        <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.BodyXxsBold</item>
     </style>
 
     <style name="Salute.StylesSalute.Components.AvatarGroup" parent="Sdds.Components.AvatarGroup">
