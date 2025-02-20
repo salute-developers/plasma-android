@@ -411,6 +411,12 @@ private val TextFieldClearStyleBuilder.invariantProps: TextFieldClearStyleBuilde
             dividerColorReadOnly(
                 SddsServTheme.colors.surfaceDefaultTransparentPrimary.asInteractive(),
             )
+            prefixColor(
+                SddsServTheme.colors.textDefaultTertiary.asInteractive(),
+            )
+            suffixColor(
+                SddsServTheme.colors.textDefaultTertiary.asInteractive(),
+            )
         }
 
 public val TextFieldClear.Xs: WrapperTextFieldClearXs
@@ -429,6 +435,8 @@ public val TextFieldClear.Xs: WrapperTextFieldClearXs
             endContentSize(16.0.dp)
         }
         .valueStyle(SddsServTheme.typography.bodyXsNormal)
+        .prefixStyle(SddsServTheme.typography.bodyXsNormal)
+        .suffixStyle(SddsServTheme.typography.bodyXsNormal)
         .placeholderStyle(SddsServTheme.typography.bodyXsNormal)
         .chipStyle(EmbeddedChip.Xs.Secondary.style())
         .labelPlacement(TextField.LabelPlacement.None)
@@ -527,6 +535,8 @@ public val TextFieldClear.S: WrapperTextFieldClearS
             endContentSize(24.0.dp)
         }
         .valueStyle(SddsServTheme.typography.bodySNormal)
+        .prefixStyle(SddsServTheme.typography.bodySNormal)
+        .suffixStyle(SddsServTheme.typography.bodySNormal)
         .placeholderStyle(SddsServTheme.typography.bodySNormal)
         .chipStyle(EmbeddedChip.S.Secondary.style())
         .labelPlacement(TextField.LabelPlacement.None)
@@ -670,6 +680,8 @@ public val TextFieldClear.M: WrapperTextFieldClearM
             endContentSize(24.0.dp)
         }
         .valueStyle(SddsServTheme.typography.bodyMNormal)
+        .prefixStyle(SddsServTheme.typography.bodyMNormal)
+        .suffixStyle(SddsServTheme.typography.bodyMNormal)
         .placeholderStyle(SddsServTheme.typography.bodyMNormal)
         .chipStyle(EmbeddedChip.M.Secondary.style())
         .labelPlacement(TextField.LabelPlacement.None)
@@ -813,6 +825,8 @@ public val TextFieldClear.L: WrapperTextFieldClearL
             endContentSize(24.0.dp)
         }
         .valueStyle(SddsServTheme.typography.bodyLNormal)
+        .prefixStyle(SddsServTheme.typography.bodyLNormal)
+        .suffixStyle(SddsServTheme.typography.bodyLNormal)
         .placeholderStyle(SddsServTheme.typography.bodyLNormal)
         .chipStyle(EmbeddedChip.L.Secondary.style())
         .labelPlacement(TextField.LabelPlacement.None)

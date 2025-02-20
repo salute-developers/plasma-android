@@ -91,6 +91,16 @@ interface TextFieldStyle : Style {
     val placeholderStyle: TextStyle
 
     /**
+     * Стиль префикса
+     */
+    val prefixStyle: TextStyle
+
+    /**
+     * Стиль суффикса
+     */
+    val suffixStyle: TextStyle
+
+    /**
      * Однострочный или многострочный режим
      */
     val singleLine: Boolean
@@ -183,4 +193,14 @@ interface TextFieldColors {
      * Цвет бэкграунда
      */
     fun backgroundColor(isReadOnly: Boolean): InteractiveColor
+
+    /**
+     * Цвет префикса
+     */
+    fun prefixColor(isReadOnly: Boolean): InteractiveColor
+
+    /**
+     * Цвет суффикса
+     */
+    fun suffixColor(isReadOnly: Boolean): InteractiveColor
 }

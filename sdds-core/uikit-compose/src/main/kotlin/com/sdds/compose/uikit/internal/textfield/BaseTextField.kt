@@ -161,6 +161,14 @@ internal fun BaseTextField(
         color = colors.placeholderColor(readOnly),
         interactionSource = interactionSource,
     )
+    val prefixStyle = style.prefixStyle.applyColor(
+        color = colors.prefixColor(readOnly),
+        interactionSource = interactionSource,
+    )
+    val suffixStyle = style.suffixStyle.applyColor(
+        color = colors.suffixColor(readOnly),
+        interactionSource = interactionSource,
+    )
     val singleLine = style.singleLine
     val enabledAlpha = 1f
     val disabledAlpha = colors.disabledAlpha
@@ -171,11 +179,17 @@ internal fun BaseTextField(
     val finalOptionalText =
         if (labelPlacement == LabelPlacement.None) "" else optionalText
 
-    val innerVisualTransformation = remember(prefix, suffix, visualTransformation) {
+    val innerVisualTransformation = remember(
+        prefix,
+        suffix,
+        visualTransformation,
+        prefixStyle,
+        suffixStyle,
+    ) {
         if (prefix.isNullOrEmpty() && suffix.isNullOrEmpty()) {
             visualTransformation
         } else {
-            prefixSuffixTransformation(prefix, suffix, placeholderStyle, placeholderStyle)
+            prefixSuffixTransformation(prefix, suffix, prefixStyle, suffixStyle)
         }
     }
     var isComponentFocused by remember { mutableStateOf(false) }

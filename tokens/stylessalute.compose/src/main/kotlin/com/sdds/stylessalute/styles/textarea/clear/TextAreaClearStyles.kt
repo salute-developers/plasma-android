@@ -369,6 +369,12 @@ private val TextAreaClearStyleBuilder.invariantProps: TextAreaClearStyleBuilder
             dividerColorReadOnly(
                 StylesSaluteTheme.colors.surfaceDefaultTransparentPrimary.asInteractive(),
             )
+            prefixColor(
+                StylesSaluteTheme.colors.textDefaultTertiary.asInteractive(),
+            )
+            suffixColor(
+                StylesSaluteTheme.colors.textDefaultTertiary.asInteractive(),
+            )
         }
 
 public val TextAreaClear.Xs: WrapperTextAreaClearXs
@@ -387,6 +393,8 @@ public val TextAreaClear.Xs: WrapperTextAreaClearXs
             endContentSize(16.0.dp)
         }
         .valueStyle(StylesSaluteTheme.typography.bodyXsNormal)
+        .prefixStyle(StylesSaluteTheme.typography.bodyXsNormal)
+        .suffixStyle(StylesSaluteTheme.typography.bodyXsNormal)
         .placeholderStyle(StylesSaluteTheme.typography.bodyXsNormal)
         .chipStyle(EmbeddedChip.Xs.Secondary.style())
         .labelPlacement(TextField.LabelPlacement.None)
@@ -484,6 +492,8 @@ public val TextAreaClear.S: WrapperTextAreaClearS
             endContentSize(24.0.dp)
         }
         .valueStyle(StylesSaluteTheme.typography.bodySNormal)
+        .prefixStyle(StylesSaluteTheme.typography.bodySNormal)
+        .suffixStyle(StylesSaluteTheme.typography.bodySNormal)
         .placeholderStyle(StylesSaluteTheme.typography.bodySNormal)
         .chipStyle(EmbeddedChip.S.Secondary.style())
         .labelPlacement(TextField.LabelPlacement.None)
@@ -627,6 +637,8 @@ public val TextAreaClear.M: WrapperTextAreaClearM
             endContentSize(24.0.dp)
         }
         .valueStyle(StylesSaluteTheme.typography.bodyMNormal)
+        .prefixStyle(StylesSaluteTheme.typography.bodyMNormal)
+        .suffixStyle(StylesSaluteTheme.typography.bodyMNormal)
         .placeholderStyle(StylesSaluteTheme.typography.bodyMNormal)
         .chipStyle(EmbeddedChip.M.Secondary.style())
         .labelPlacement(TextField.LabelPlacement.None)
@@ -770,6 +782,8 @@ public val TextAreaClear.L: WrapperTextAreaClearL
             endContentSize(24.0.dp)
         }
         .valueStyle(StylesSaluteTheme.typography.bodyLNormal)
+        .prefixStyle(StylesSaluteTheme.typography.bodyLNormal)
+        .suffixStyle(StylesSaluteTheme.typography.bodyLNormal)
         .placeholderStyle(StylesSaluteTheme.typography.bodyLNormal)
         .chipStyle(EmbeddedChip.L.Secondary.style())
         .labelPlacement(TextField.LabelPlacement.None)
