@@ -942,6 +942,7 @@
         <item name="sd_fsStrokeInset">@dimen/sdds_spacer_1x</item>
         <item name="sd_fsShapeAdjustment">@dimen/sdds_spacer_1x</item>
         <item name="colorAccent">?plasma_textDefaultAccent</item>
+        <item name="sd_shapeAppearanceCircle">@style/Sdds.Shape.Round.Circle</item>
 
         <item name="android:buttonStyle">@style/Plasma.SdService.Components.BasicButton.M</item>
         <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.M</item>
@@ -1934,6 +1935,8 @@
         <item name="sd_fsStrokeInset">@dimen/sdds_spacer_1x</item>
         <item name="sd_fsShapeAdjustment">@dimen/sdds_spacer_1x</item>
         <item name="colorAccent">?plasma_textDefaultAccent</item>
+        <item name="colorControlHighlight">@android:color/transparent</item>
+        <item name="sd_shapeAppearanceCircle">@style/Sdds.Shape.Round.Circle</item>
 
         <item name="android:buttonStyle">@style/Plasma.SdService.Components.BasicButton.M</item>
         <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.M</item>

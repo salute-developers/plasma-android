@@ -5,11 +5,7 @@ import com.sdds.testing.vs.ComponentScope
 import com.sdds.testing.vs.component
 import org.hamcrest.Matcher
 
-/**
- *
- * @author Малышев Александр on 13.02.2025
- */
-fun themedComponent(
+internal fun themedComponent(
     viewMatcherFactory: ((View) -> Matcher<View>)? = null,
     action: ((View) -> Unit)? = null,
     factory: ComponentScope.() -> View,

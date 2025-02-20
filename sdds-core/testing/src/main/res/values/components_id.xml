@@ -22,4 +22,6 @@
     <item type="id" name="segment"/>
     <item type="id" name="segment_item"/>
     <item type="id" name="test_component_container"/>
+    <item type="id" name="test_vertical_scroll"/>
+    <item type="id" name="test_horizontal_scroll"/>
 </resources>

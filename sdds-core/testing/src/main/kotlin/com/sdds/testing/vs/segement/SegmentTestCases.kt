@@ -54,19 +54,21 @@ abstract class SegmentTestCases(mode: String) : RoborazziConfig(mode) {
         )
 
     fun ComponentScope.segmentSizeMPilled(style: Int): Segment =
-        segment(
-            context,
-            style,
-            SegmentUiState(
-                amount = 3,
-                icon = SegmentItemIcon.Start,
-                segmentItemLabel = "Label",
-                segmentItemValue = "Value",
-                enabled = true,
-                stretch = false,
-                orientation = SegmentOrientation.HORIZONTAL,
-            ),
-        )
+        horizontalScroll {
+            segment(
+                context,
+                style,
+                SegmentUiState(
+                    amount = 3,
+                    icon = SegmentItemIcon.Start,
+                    segmentItemLabel = "Label",
+                    segmentItemValue = "Value",
+                    enabled = true,
+                    stretch = false,
+                    orientation = SegmentOrientation.HORIZONTAL,
+                ),
+            )
+        }
 
     fun ComponentScope.segmentSizeS(style: Int): Segment =
         segment(
@@ -129,36 +131,40 @@ abstract class SegmentTestCases(mode: String) : RoborazziConfig(mode) {
         )
 
     fun ComponentScope.segmentSizeSStretch(style: Int): Segment =
-        segment(
-            context,
-            style,
-            SegmentUiState(
-                amount = 3,
-                icon = SegmentItemIcon.No,
-                segmentItemLabel = "Label",
-                segmentItemValue = "",
-                enabled = true,
-                stretch = true,
-                orientation = SegmentOrientation.HORIZONTAL,
-            ),
-        )
+        fillWidth {
+            segment(
+                context,
+                style,
+                SegmentUiState(
+                    amount = 3,
+                    icon = SegmentItemIcon.No,
+                    segmentItemLabel = "Label",
+                    segmentItemValue = "",
+                    enabled = true,
+                    stretch = true,
+                    orientation = SegmentOrientation.HORIZONTAL,
+                ),
+            )
+        }
 
     fun ComponentScope.segmentSizeLCounter(style: Int): Segment =
-        segment(
-            context,
-            style,
-            SegmentUiState(
-                amount = 3,
-                icon = SegmentItemIcon.Start,
-                segmentItemLabel = "Label",
-                segmentItemValue = "",
-                enabled = true,
-                stretch = false,
-                counter = true,
-                count = "123",
-                orientation = SegmentOrientation.HORIZONTAL,
-            ),
-        )
+        horizontalScroll {
+            segment(
+                context,
+                style,
+                SegmentUiState(
+                    amount = 3,
+                    icon = SegmentItemIcon.Start,
+                    segmentItemLabel = "Label",
+                    segmentItemValue = "",
+                    enabled = true,
+                    stretch = false,
+                    counter = true,
+                    count = "123",
+                    orientation = SegmentOrientation.HORIZONTAL,
+                ),
+            )
+        }
 
     fun ComponentScope.segmentItemSizeLPrimary(style: Int): SegmentItem =
         segmentItem(
