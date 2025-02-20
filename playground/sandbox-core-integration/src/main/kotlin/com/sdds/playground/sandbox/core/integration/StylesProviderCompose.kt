@@ -3,6 +3,7 @@ package com.sdds.playground.sandbox.core.integration
 import com.sdds.compose.uikit.AvatarGroupStyle
 import com.sdds.compose.uikit.AvatarStyle
 import com.sdds.compose.uikit.ButtonStyle
+import com.sdds.compose.uikit.CellStyle
 import com.sdds.compose.uikit.CheckBoxGroupStyle
 import com.sdds.compose.uikit.CheckBoxStyle
 import com.sdds.compose.uikit.ChipGroupStyle
@@ -43,4 +44,5 @@ interface StylesProviderCompose {
     val switch: ComposeStyleProvider<String, SwitchStyle>
 
     val progress: ComposeStyleProvider<String, ProgressBarStyle>
+    val cell: ComposeStyleProvider<String, CellStyle>
 }

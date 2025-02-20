@@ -3,6 +3,7 @@ package com.sdds.playground.sandbox.stylessalute.integration
 import com.sdds.compose.uikit.AvatarGroupStyle
 import com.sdds.compose.uikit.AvatarStyle
 import com.sdds.compose.uikit.ButtonStyle
+import com.sdds.compose.uikit.CellStyle
 import com.sdds.compose.uikit.CheckBoxGroupStyle
 import com.sdds.compose.uikit.CheckBoxStyle
 import com.sdds.compose.uikit.ChipGroupStyle
@@ -19,6 +20,7 @@ import com.sdds.playground.sandbox.stylessalute.integration.avatar.group.StylesS
 import com.sdds.playground.sandbox.stylessalute.integration.button.basic.StylesSaluteBasicButtonVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.button.icon.StylesSaluteIconButtonVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.button.link.StylesSaluteLinkButtonVariationsCompose
+import com.sdds.playground.sandbox.stylessalute.integration.cell.compose.StylesSaluteCellVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.checkbox.StylesSaluteCheckBoxVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.checkbox.group.StylesSaluteCheckBoxGroupVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.chip.StylesSaluteChipVariationsCompose
@@ -71,4 +73,6 @@ object StylesSaluteComposeStylesProvider : StylesProviderCompose {
         get() = StylesSaluteSwitchVariationsCompose
     override val progress: ComposeStyleProvider<String, ProgressBarStyle>
         get() = StylesSaluteProgressVariationsCompose
+    override val cell: ComposeStyleProvider<String, CellStyle>
+        get() = StylesSaluteCellVariationsCompose
 }
