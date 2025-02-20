@@ -1,94 +1,85 @@
 package com.sdds.playground.sandbox.cell.compose
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.sdds.playground.sandbox.core.compose.PropertiesOwner
+import androidx.lifecycle.ViewModelProvider
+import com.sdds.compose.uikit.CellStyle
+import com.sdds.playground.sandbox.Theme
+import com.sdds.playground.sandbox.core.compose.ComponentViewModel
 import com.sdds.playground.sandbox.core.compose.Property
 import com.sdds.playground.sandbox.core.compose.enumProperty
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.SharingStarted
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.mapLatest
-import kotlinx.coroutines.flow.stateIn
+import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 
-internal class CellViewModel : ViewModel(), PropertiesOwner {
+internal class CellViewModel(
+    defaultState: CellUiState,
+    private val theme: Theme.ThemeInfoCompose,
+) : ComponentViewModel<CellUiState, CellStyle>(defaultState) {
 
-    private val _cellState = MutableStateFlow(CellUiState())
-
-    /**
-     * Состояние cell
-     */
-    val cellState: StateFlow<CellUiState>
-        get() = _cellState.asStateFlow()
-
-    @OptIn(ExperimentalCoroutinesApi::class)
-    override val properties: StateFlow<List<Property<*>>> =
-        _cellState
-            .mapLatest { state -> state.toProps() }
-            .stateIn(viewModelScope, SharingStarted.Lazily, emptyList())
-
-    override fun resetToDefault() {
-        _cellState.value = CellUiState()
+    override fun getStyleProvider(): ComposeStyleProvider<String, CellStyle> {
+        return theme.stylesProvider.cell
     }
 
-    private fun CellUiState.toProps(): List<Property<*>> {
+    override fun CellUiState.toProps(): List<Property<*>> {
         return listOfNotNull(
-            enumProperty(
-                name = "size",
-                value = size,
-                onApply = { _cellState.value = _cellState.value.copy(size = it) },
-            ),
             Property.StringProperty(
                 name = "label",
                 value = label,
                 onApply = {
-                    _cellState.value = _cellState.value.copy(label = it)
+                    internalUiState.value = internalUiState.value.copy(label = it)
                 },
             ),
             Property.StringProperty(
                 name = "title",
                 value = title,
                 onApply = {
-                    _cellState.value = _cellState.value.copy(title = it)
+                    internalUiState.value = internalUiState.value.copy(title = it)
                 },
             ),
             Property.StringProperty(
                 name = "subtitle",
                 value = subtitle,
                 onApply = {
-                    _cellState.value = _cellState.value.copy(subtitle = it)
+                    internalUiState.value = internalUiState.value.copy(subtitle = it)
                 },
             ),
             Property.StringProperty(
                 name = "disclosureText",
                 value = disclosureText,
                 onApply = {
-                    _cellState.value = _cellState.value.copy(disclosureText = it)
+                    internalUiState.value = internalUiState.value.copy(disclosureText = it)
                 },
             ),
             Property.BooleanProperty(
                 name = "hasDisclosure",
                 value = hasDisclosure,
                 onApply = {
-                    _cellState.value = _cellState.value.copy(hasDisclosure = it)
+                    internalUiState.value = internalUiState.value.copy(hasDisclosure = it)
                 },
             ),
             enumProperty(
                 name = "startContent",
                 value = startContent,
                 onApply = {
-                    _cellState.value = _cellState.value.copy(startContent = it)
+                    internalUiState.value = internalUiState.value.copy(startContent = it)
                 },
             ),
             enumProperty(
                 name = "endContent",
                 value = endContent,
                 onApply = {
-                    _cellState.value = _cellState.value.copy(endContent = it)
+                    internalUiState.value = internalUiState.value.copy(endContent = it)
                 },
             ),
         )
+    }
+}
+
+internal class CellViewModelFactory(
+    private val defaultState: CellUiState,
+    private val theme: Theme.ThemeInfoCompose,
+) : ViewModelProvider.Factory {
+
+    @Suppress("UNCHECKED_CAST")
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        return CellViewModel(defaultState, theme) as T
     }
 }

@@ -1,4 +1,4 @@
-package com.sdds.playground.sandbox.sdds.serv.integration.cell
+package com.sdds.playground.sandbox.sdds.serv.integration.cell.vs
 
 import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
 import com.sdds.playground.sandbox.sdds.serv.integration.s

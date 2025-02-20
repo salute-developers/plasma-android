@@ -107,7 +107,7 @@ private sealed class MenuItem(
     object Buttons : MenuItem("BasicButton", { BasicButtonScreen(it) })
     object IconButtons : MenuItem("IconButton", { IconButtonScreen(it) })
     object LinkButtons : MenuItem("LinkButton", { LinkButtonScreen(it) })
-    object Cell : MenuItem("Cell", { CellScreen() })
+    object Cell : MenuItem("Cell", { CellScreen(it) })
     object CheckBox : MenuItem("CheckBox", { CheckBoxScreen(it) })
     object CheckBoxGroup : MenuItem("CheckBoxGroup", { CheckBoxGroupScreen(it) })
     object RadioBox : MenuItem("RadioBox", { RadioBoxScreen(it) })

@@ -9,7 +9,7 @@ import com.sdds.playground.sandbox.sdds.serv.integration.badge.icon.SddsServIcon
 import com.sdds.playground.sandbox.sdds.serv.integration.button.basic.SddsServBasicButtonVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.button.icon.SddsServIconButtonVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.button.link.SddsServLinkButtonVariationsView
-import com.sdds.playground.sandbox.sdds.serv.integration.cell.SddsServCellVariationsView
+import com.sdds.playground.sandbox.sdds.serv.integration.cell.vs.SddsServCellVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.checkbox.SddsServCheckBoxVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.checkbox.group.SddsServCheckBoxGroupVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.chip.SddsServChipVariationsView

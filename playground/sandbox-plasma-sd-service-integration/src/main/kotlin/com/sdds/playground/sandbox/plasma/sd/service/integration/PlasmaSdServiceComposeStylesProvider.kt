@@ -3,6 +3,7 @@ package com.sdds.playground.sandbox.plasma.sd.service.integration
 import com.sdds.compose.uikit.AvatarGroupStyle
 import com.sdds.compose.uikit.AvatarStyle
 import com.sdds.compose.uikit.ButtonStyle
+import com.sdds.compose.uikit.CellStyle
 import com.sdds.compose.uikit.CheckBoxGroupStyle
 import com.sdds.compose.uikit.CheckBoxStyle
 import com.sdds.compose.uikit.ChipGroupStyle
@@ -19,6 +20,7 @@ import com.sdds.playground.sandbox.plasma.sd.service.integration.avatar.group.Pl
 import com.sdds.playground.sandbox.plasma.sd.service.integration.button.basic.PlasmaSdServiceBasicButtonVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.button.icon.PlasmaSdServiceIconButtonVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.button.link.PlasmaSdServiceLinkButtonVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.cell.compose.PlasmaSdServiceCellVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.checkbox.PlasmaSdServiceCheckBoxVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.checkbox.group.PlasmaSdServiceCheckBoxGroupVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.chip.PlasmaSdServiceChipVariationsCompose
@@ -71,4 +73,6 @@ object PlasmaSdServiceComposeStylesProvider : StylesProviderCompose {
         get() = PlasmaSdServiceSwitchVariationsCompose
     override val progress: ComposeStyleProvider<String, ProgressBarStyle>
         get() = PlasmaSdServiceProgressVariationsCompose
+    override val cell: ComposeStyleProvider<String, CellStyle>
+        get() = PlasmaSdServiceCellVariationsCompose
 }

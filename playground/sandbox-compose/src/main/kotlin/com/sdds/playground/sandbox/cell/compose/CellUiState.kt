@@ -1,16 +1,9 @@
 package com.sdds.playground.sandbox.cell.compose
 
-import androidx.compose.runtime.Composable
-import com.sdds.compose.uikit.Cell
-import com.sdds.compose.uikit.CellStyle
-import com.sdds.compose.uikit.style.style
-import com.sdds.serv.styles.cell.L
-import com.sdds.serv.styles.cell.M
-import com.sdds.serv.styles.cell.S
-import com.sdds.serv.styles.cell.Xs
+import com.sdds.playground.sandbox.core.compose.UiState
 
 internal data class CellUiState(
-    val size: Size = Size.M,
+    override val variant: String = "",
     val label: String = "Label",
     val title: String = "Title",
     val subtitle: String = "Subtitle",
@@ -18,10 +11,10 @@ internal data class CellUiState(
     val disclosureText: String = "",
     val startContent: CellContent = CellContent.AVATAR,
     val endContent: CellContent = CellContent.NONE,
-)
-
-internal enum class Size {
-    L, M, S, XS,
+) : UiState {
+    override fun updateVariant(variant: String): UiState {
+        return copy(variant = variant)
+    }
 }
 
 internal enum class CellContent {
@@ -31,14 +24,4 @@ internal enum class CellContent {
     SWITCH,
     CHECKBOX,
     RADIOBOX,
-}
-
-@Composable
-internal fun CellUiState.cellStyle(): CellStyle {
-    return when (size) {
-        Size.L -> Cell.L.style()
-        Size.M -> Cell.M.style()
-        Size.S -> Cell.S.style()
-        Size.XS -> Cell.Xs.style()
-    }
 }
