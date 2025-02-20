@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
@@ -52,6 +53,7 @@ internal fun BaseCell(
                 Column(
                     modifier = Modifier
                         .weight(1f, fill = false)
+                        .fillMaxWidth()
                         .padding(
                             start = style.dimensions.contentPaddingStart,
                             end = style.dimensions.contentPaddingEnd,
