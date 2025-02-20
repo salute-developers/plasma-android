@@ -62,7 +62,7 @@
         <item name="sd_statusOffsetY">0dp</item>
         <item name="sd_actionSize">12dp</item>
 
-        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyXxsNormal</item>
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyXxsBold</item>
     </style>
 
     <style name="Plasma.SdService.Components.AvatarGroup" parent="Sdds.Components.AvatarGroup">

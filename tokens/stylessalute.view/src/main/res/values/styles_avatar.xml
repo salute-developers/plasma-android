@@ -62,7 +62,7 @@
         <item name="sd_statusOffsetY">0dp</item>
         <item name="sd_actionSize">16dp</item>
 
-        <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.BodyXxsNormal</item>
+        <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.BodyXxsBold</item>
     </style>
 
     <style name="Salute.StylesSalute.Components.AvatarGroup" parent="Sdds.Components.AvatarGroup">

@@ -8,6 +8,8 @@ plugins {
     id(libs.plugins.themebuilder.get().pluginId)
     id("convention.maven-publish")
     id("convention.auto-bump")
+    id("convention.testing")
+    alias(libs.plugins.roborazzi)
 }
 
 android {

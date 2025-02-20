@@ -1,11 +1,14 @@
 package com.sdds.testing.vs
 
-import android.app.Activity
 import android.content.Context
 import android.view.ContextThemeWrapper
 import android.view.View
 import android.view.ViewGroup
 import android.view.ViewGroup.MarginLayoutParams
+import android.widget.FrameLayout.LayoutParams
+import android.widget.HorizontalScrollView
+import android.widget.ScrollView
+import androidx.activity.ComponentActivity
 import androidx.annotation.StyleRes
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.matcher.ViewMatchers
@@ -30,10 +33,35 @@ interface ComponentScope {
      * Добавляет отступы вокруг компонента.
      * Нужно для случаев, когда компонент может рисовать что-то за своими границами.
      */
-    fun margins(
+    fun <V : View> margins(
         value: Int = context.resources.getDimensionPixelSize(com.sdds.uikit.R.dimen.sdds_spacer_10x),
-        content: Context.() -> View,
-    ): View
+        content: Context.() -> V,
+    ): V
+
+    /**
+     * Растягивает компонент на всю возможную ширину.
+     */
+    fun <V : View> fillWidth(content: Context.() -> V): V
+
+    /**
+     * Растягивает компонент на всю возможную высоту.
+     */
+    fun <V : View> fillHeight(content: Context.() -> V): V
+
+    /**
+     * Растягивает компонент на всю возможную ширину и высоту.
+     */
+    fun <V : View> fillSize(content: Context.() -> V): V
+
+    /**
+     * Оборачивает компонент в вертикальный скролл
+     */
+    fun <V : View> verticalScroll(content: Context.() -> V): V
+
+    /**
+     * Оборачивает компонент в горизонтальный скролл
+     */
+    fun <V : View> horizontalScroll(content: Context.() -> V): V
 }
 
 /**
@@ -46,7 +74,7 @@ fun component(
     action: ((View) -> Unit)? = null,
     factory: ComponentScope.() -> View,
 ) {
-    val controller = Robolectric.buildActivity(Activity::class.java)
+    val controller = Robolectric.buildActivity(ComponentActivity::class.java)
     val activity = controller.get()
     val componentScope = ComponentScopeImpl(activity)
     activity.setTheme(theme)
@@ -61,19 +89,16 @@ fun component(
         clipChildren = false
         clipToPadding = false
     }
-    val view = componentScope.factory()
-    val lp = view.layoutParams ?: ViewGroup.LayoutParams(
-        ViewGroup.LayoutParams.WRAP_CONTENT,
-        ViewGroup.LayoutParams.WRAP_CONTENT,
-    )
+    var view = componentScope.factory()
+    if (componentScope.hasHorizontalScroll) {
+        view = view.horizontalScrollable()
+    }
+    if (componentScope.hasVerticalScroll) {
+        view = view.verticalScrollable()
+    }
+    val lp = view.layoutParams ?: componentScope.defaultLayoutParams()
     container.addView(view, lp)
-    activity.setContentView(
-        container,
-        ViewGroup.LayoutParams(
-            ViewGroup.LayoutParams.WRAP_CONTENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT,
-        ),
-    )
+    activity.setContentView(container, componentScope.defaultLayoutParams())
     action?.invoke(view)
     val matcher: Matcher<View> = viewMatcherFactory?.invoke(view)
         ?: ViewMatchers.withId(if (componentScope.hasMargins) container.id else view.id)
@@ -87,11 +112,52 @@ fun component(
 fun Context.styleWrapper(@StyleRes style: Int? = null): Context =
     style?.let { ContextThemeWrapper(this, it) } ?: this
 
+private fun View.horizontalScrollable(): HorizontalScrollView {
+    return HorizontalScrollView(context).apply {
+        isHorizontalScrollBarEnabled = false
+        clipChildren = false
+        id = R.id.test_horizontal_scroll
+        val params = this@horizontalScrollable.layoutParams ?: LayoutParams(
+            ViewGroup.LayoutParams.WRAP_CONTENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT,
+        )
+        addView(
+            this@horizontalScrollable,
+            params,
+        )
+    }
+}
+
+private fun View.verticalScrollable(): ScrollView {
+    return ScrollView(context).apply {
+        isVerticalScrollBarEnabled = false
+        clipChildren = false
+        id = R.id.test_horizontal_scroll
+        val params = this@verticalScrollable.layoutParams ?: LayoutParams(
+            LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT,
+        )
+        addView(
+            this@verticalScrollable,
+            params,
+        )
+    }
+}
+
+private fun ComponentScopeImpl.defaultLayoutParams(): ViewGroup.LayoutParams =
+    ViewGroup.LayoutParams(
+        if (fillWidth) ViewGroup.LayoutParams.MATCH_PARENT else ViewGroup.LayoutParams.WRAP_CONTENT,
+        if (fillHeight) ViewGroup.LayoutParams.MATCH_PARENT else ViewGroup.LayoutParams.WRAP_CONTENT,
+    )
+
 private class ComponentScopeImpl(override val context: Context) : ComponentScope {
 
     var hasMargins: Boolean = false
+    var fillWidth: Boolean = false
+    var fillHeight: Boolean = false
+    var hasVerticalScroll: Boolean = false
+    var hasHorizontalScroll: Boolean = false
 
-    override fun margins(value: Int, content: Context.() -> View): View {
+    override fun <V : View> margins(value: Int, content: Context.() -> V): V {
         hasMargins = true
         return context.content().apply {
             val lp = layoutParams as? MarginLayoutParams
@@ -99,5 +165,31 @@ private class ComponentScopeImpl(override val context: Context) : ComponentScope
             lp.setMargins(value, value, value, value)
             layoutParams = lp
         }
+    }
+
+    override fun <V : View> fillWidth(content: Context.() -> V): V {
+        fillWidth = true
+        return context.content()
+    }
+
+    override fun <V : View> fillHeight(content: Context.() -> V): V {
+        fillHeight = true
+        return context.content()
+    }
+
+    override fun <V : View> fillSize(content: Context.() -> V): V {
+        fillWidth = true
+        fillHeight = true
+        return context.content()
+    }
+
+    override fun <V : View> verticalScroll(content: Context.() -> V): V {
+        hasVerticalScroll = true
+        return context.content()
+    }
+
+    override fun <V : View> horizontalScroll(content: Context.() -> V): V {
+        hasHorizontalScroll = true
+        return context.content()
     }
 }

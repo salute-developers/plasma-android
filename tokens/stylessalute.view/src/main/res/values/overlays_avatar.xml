@@ -16,4 +16,8 @@
     <style name="Salute.StylesSalute.ComponentOverlays.AvatarS">
         <item name="sd_avatarStyle">@style/Salute.StylesSalute.Components.Avatar.S</item>
     </style>
+
+    <style name="Salute.StylesSalute.ComponentOverlays.AvatarGroup">
+        <item name="sd_avatarGroupStyle">@style/Salute.StylesSalute.Components.AvatarGroup</item>
+    </style>
 </resources>

@@ -237,7 +237,13 @@ open class ShapeDrawable() : Drawable(), Shapeable {
         return _shaderFactory == null && (_shapeTint != null || _strokeTint != null)
     }
 
-    override fun getOpacity(): Int = PixelFormat.OPAQUE
+    @Deprecated("Deprecated in Java")
+    override fun getOpacity(): Int =
+        when (_overriddenAlpha) {
+            255 -> PixelFormat.OPAQUE
+            in 1..254 -> PixelFormat.TRANSLUCENT
+            else -> PixelFormat.TRANSPARENT
+        }
 
     override fun getOutline(outline: Outline) {
         if (_shapeModel.cornerFamily == ShapeModel.CornerFamily.ROUNDED) {

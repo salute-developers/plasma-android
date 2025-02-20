@@ -25,5 +25,4 @@ include(
     ":sdds.serv.view",
     ":stylessalute.compose",
     ":stylessalute.view",
-    ":testing"
 )

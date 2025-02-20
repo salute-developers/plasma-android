@@ -82,21 +82,23 @@ abstract class ChipTestCases(mode: String) : RoborazziConfig(mode) {
         )
 
     fun ComponentScope.chipGroupLDefault(style: Int): ChipGroup =
-        chipGroup(
-            context,
-            style,
-            ChipUiState(
-                label = "Label",
-                contentLeft = false,
-                hasClose = false,
-                enabled = true,
-                isWrapped = false,
-                quantity = 5,
-                gravityMode = GravityMode.Start,
-                checkedState = CheckedState.Accent,
-                selectionMode = ChipGroup.SelectionMode.Single,
-            ),
-        )
+        horizontalScroll {
+            chipGroup(
+                context,
+                style,
+                ChipUiState(
+                    label = "Label",
+                    contentLeft = false,
+                    hasClose = false,
+                    enabled = true,
+                    isWrapped = false,
+                    quantity = 5,
+                    gravityMode = GravityMode.Start,
+                    checkedState = CheckedState.Accent,
+                    selectionMode = ChipGroup.SelectionMode.Single,
+                ),
+            )
+        }
 
     fun ComponentScope.chipGroupMSecondary(style: Int): ChipGroup =
         chipGroup(
@@ -116,72 +118,80 @@ abstract class ChipTestCases(mode: String) : RoborazziConfig(mode) {
         )
 
     fun ComponentScope.chipGroupSAccent(style: Int): ChipGroup =
-        chipGroup(
-            context,
-            style,
-            ChipUiState(
-                label = "Label",
-                contentLeft = false,
-                hasClose = false,
-                enabled = true,
-                isWrapped = false,
-                quantity = 5,
-                gravityMode = GravityMode.Start,
-                checkedState = CheckedState.Accent,
-                selectionMode = ChipGroup.SelectionMode.Single,
-            ),
-        )
+        horizontalScroll {
+            chipGroup(
+                context,
+                style,
+                ChipUiState(
+                    label = "Label",
+                    contentLeft = false,
+                    hasClose = false,
+                    enabled = true,
+                    isWrapped = false,
+                    quantity = 5,
+                    gravityMode = GravityMode.Start,
+                    checkedState = CheckedState.Accent,
+                    selectionMode = ChipGroup.SelectionMode.Single,
+                ),
+            )
+        }
 
     fun ComponentScope.chipGroupXSDefault(style: Int): ChipGroup =
-        chipGroup(
-            context,
-            style,
-            ChipUiState(
-                label = "Label",
-                contentLeft = false,
-                hasClose = false,
-                enabled = true,
-                isWrapped = false,
-                quantity = 5,
-                gravityMode = GravityMode.Start,
-                checkedState = CheckedState.Accent,
-                selectionMode = ChipGroup.SelectionMode.Single,
-            ),
-        )
+        horizontalScroll {
+            chipGroup(
+                context,
+                style,
+                ChipUiState(
+                    label = "Label",
+                    contentLeft = false,
+                    hasClose = false,
+                    enabled = true,
+                    isWrapped = false,
+                    quantity = 5,
+                    gravityMode = GravityMode.Start,
+                    checkedState = CheckedState.Accent,
+                    selectionMode = ChipGroup.SelectionMode.Single,
+                ),
+            )
+        }
 
     fun ComponentScope.chipGroupLPilledSecondaryCheckedStateAccent(style: Int): ChipGroup =
-        chipGroup(
-            context,
-            style,
-            ChipUiState(
-                label = "Label",
-                contentLeft = true,
-                hasClose = true,
-                enabled = true,
-                isWrapped = false,
-                quantity = 5,
-                gravityMode = GravityMode.Start,
-                checkedState = CheckedState.Accent,
-                selectionMode = ChipGroup.SelectionMode.Single,
-            ),
-        )
+        horizontalScroll {
+            chipGroup(
+                context,
+                style,
+                ChipUiState(
+                    label = "Label",
+                    contentLeft = true,
+                    hasClose = true,
+                    enabled = true,
+                    isWrapped = false,
+                    quantity = 5,
+                    gravityMode = GravityMode.Start,
+                    checkedState = CheckedState.Accent,
+                    selectionMode = ChipGroup.SelectionMode.Single,
+                ),
+            )
+        }
 
     fun ComponentScope.chipGroupMAccentCheckedStateSecondary(style: Int): ChipGroup =
-        chipGroup(
-            context,
-            style,
-            ChipUiState(
-                label = "Label",
-                contentLeft = false,
-                hasClose = true,
-                enabled = true,
-                isWrapped = false,
-                quantity = 5,
-                gravityMode = GravityMode.Start,
-                checkedState = CheckedState.Secondary,
-                selectionMode = ChipGroup.SelectionMode.Single,
-            ),
-        )
+        horizontalScroll {
+            chipGroup(
+                context,
+                style,
+                ChipUiState(
+                    label = "Label",
+                    contentLeft = false,
+                    hasClose = true,
+                    enabled = true,
+                    isWrapped = false,
+                    quantity = 5,
+                    gravityMode = GravityMode.Start,
+                    checkedState = CheckedState.Secondary,
+                    selectionMode = ChipGroup.SelectionMode.Single,
+                ),
+            )
+        }
 
     fun ComponentScope.chipGroupLSecondaryCheckedStateDefaultMultiple(style: Int): ChipGroup =
         chipGroup(
