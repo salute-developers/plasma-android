@@ -8,6 +8,7 @@ import com.sdds.compose.uikit.CheckBoxGroupStyle
 import com.sdds.compose.uikit.CheckBoxStyle
 import com.sdds.compose.uikit.ChipGroupStyle
 import com.sdds.compose.uikit.ChipStyle
+import com.sdds.compose.uikit.IndicatorStyle
 import com.sdds.compose.uikit.ProgressBarStyle
 import com.sdds.compose.uikit.RadioBoxGroupStyle
 import com.sdds.compose.uikit.RadioBoxStyle
@@ -45,4 +46,5 @@ interface StylesProviderCompose {
 
     val progress: ComposeStyleProvider<String, ProgressBarStyle>
     val cell: ComposeStyleProvider<String, CellStyle>
+    val indicator: ComposeStyleProvider<String, IndicatorStyle>
 }

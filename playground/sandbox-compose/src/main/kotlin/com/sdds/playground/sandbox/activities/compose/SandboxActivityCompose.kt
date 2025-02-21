@@ -66,6 +66,7 @@ import com.sdds.playground.sandbox.chip.compose.ChipScreen
 import com.sdds.playground.sandbox.chip.compose.group.ChipGroupScreen
 import com.sdds.playground.sandbox.core.compose.PropertyEditor
 import com.sdds.playground.sandbox.core.compose.enumProperty
+import com.sdds.playground.sandbox.indicator.compose.IndicatorScreen
 import com.sdds.playground.sandbox.progress.compose.ProgressScreen
 import com.sdds.playground.sandbox.radiobox.compose.RadioBoxScreen
 import com.sdds.playground.sandbox.radiobox.compose.group.RadioBoxGroupScreen
@@ -124,6 +125,7 @@ private sealed class MenuItem(
 
     object Chip : MenuItem("Chip", { ChipScreen(it) })
     object ChipGroup : MenuItem("ChipGroup", { ChipGroupScreen(it) })
+    object Indicator : MenuItem("Indicator", { IndicatorScreen(it) })
 }
 
 private val menuItems = listOf(
@@ -145,6 +147,7 @@ private val menuItems = listOf(
     MenuItem.TextAreaClear,
     MenuItem.Chip,
     MenuItem.ChipGroup,
+    MenuItem.Indicator,
 )
 
 @OptIn(ExperimentalMaterialApi::class)

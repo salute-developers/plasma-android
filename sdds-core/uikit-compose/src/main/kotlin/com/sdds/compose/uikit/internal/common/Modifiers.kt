@@ -29,6 +29,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.IndicatorMode
 
 /**
  * Модификатор, позволяющий дизэйблить Composable (менять альфу и игнорировать ввод).
@@ -210,20 +211,4 @@ internal fun Modifier.drawIndicator(
             )
         }
     }
-}
-
-/**
- * Режим размещения indicator относительно границ composable
- */
-internal enum class IndicatorMode {
-
-    /**
-     * Размещение внутри границ
-     */
-    Inner,
-
-    /**
-     * Размещение снаружи границ
-     */
-    Outer,
 }

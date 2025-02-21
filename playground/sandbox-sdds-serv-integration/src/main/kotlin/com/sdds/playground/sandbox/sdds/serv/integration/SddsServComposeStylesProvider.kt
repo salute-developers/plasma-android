@@ -8,6 +8,7 @@ import com.sdds.compose.uikit.CheckBoxGroupStyle
 import com.sdds.compose.uikit.CheckBoxStyle
 import com.sdds.compose.uikit.ChipGroupStyle
 import com.sdds.compose.uikit.ChipStyle
+import com.sdds.compose.uikit.IndicatorStyle
 import com.sdds.compose.uikit.ProgressBarStyle
 import com.sdds.compose.uikit.RadioBoxGroupStyle
 import com.sdds.compose.uikit.RadioBoxStyle
@@ -25,6 +26,7 @@ import com.sdds.playground.sandbox.sdds.serv.integration.checkbox.SddsServCheckB
 import com.sdds.playground.sandbox.sdds.serv.integration.checkbox.group.SddsServCheckBoxGroupVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.chip.SddsServChipVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.chip.group.SddsServChipGroupVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.indicator.compose.SddsServIndicatorVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.progress.SddsServProgressVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.radiobox.SddsServRadioBoxVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.radiobox.group.SddsServRadioBoxGroupVariationsCompose
@@ -75,4 +77,6 @@ object SddsServComposeStylesProvider : StylesProviderCompose {
         get() = SddsServProgressVariationsCompose
     override val cell: ComposeStyleProvider<String, CellStyle>
         get() = SddsServCellVariationsCompose
+    override val indicator: ComposeStyleProvider<String, IndicatorStyle>
+        get() = SddsServIndicatorVariationsCompose
 }

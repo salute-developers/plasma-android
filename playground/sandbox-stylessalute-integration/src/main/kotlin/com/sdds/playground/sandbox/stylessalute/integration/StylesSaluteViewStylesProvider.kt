@@ -15,7 +15,7 @@ import com.sdds.playground.sandbox.stylessalute.integration.checkbox.group.Style
 import com.sdds.playground.sandbox.stylessalute.integration.chip.StylesSaluteChipVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.chip.group.StylesSaluteChipGroupVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.counter.StylesSaluteCounterVariationsView
-import com.sdds.playground.sandbox.stylessalute.integration.indicator.StylesSaluteIndicatorVariationsView
+import com.sdds.playground.sandbox.stylessalute.integration.indicator.vs.StylesSaluteIndicatorVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.progress.StylesSaluteProgressBarVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.radiobox.StylesSaluteRadioBoxVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.radiobox.group.StylesSaluteRadioBoxGroupVariationsView

@@ -15,7 +15,7 @@ import com.sdds.playground.sandbox.sdds.serv.integration.checkbox.group.SddsServ
 import com.sdds.playground.sandbox.sdds.serv.integration.chip.SddsServChipVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.chip.group.SddsServChipGroupVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.counter.SddsServCounterVariationsView
-import com.sdds.playground.sandbox.sdds.serv.integration.indicator.SddsServIndicatorVariationsView
+import com.sdds.playground.sandbox.sdds.serv.integration.indicator.vs.SddsServIndicatorVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.progress.SddsServProgressBarVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.radiobox.SddsServRadioBoxVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.radiobox.group.SddsServRadioBoxGroupVariationsView

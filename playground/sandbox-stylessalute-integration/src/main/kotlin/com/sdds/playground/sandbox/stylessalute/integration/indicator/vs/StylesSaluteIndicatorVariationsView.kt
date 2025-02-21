@@ -1,4 +1,4 @@
-package com.sdds.playground.sandbox.stylessalute.integration.indicator
+package com.sdds.playground.sandbox.stylessalute.integration.indicator.vs
 
 import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
 import com.sdds.playground.sandbox.stylessalute.integration.s

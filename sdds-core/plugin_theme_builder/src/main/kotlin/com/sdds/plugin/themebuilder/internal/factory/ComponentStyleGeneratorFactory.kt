@@ -10,6 +10,7 @@ import com.sdds.plugin.themebuilder.internal.components.button.view.BasicButtonS
 import com.sdds.plugin.themebuilder.internal.components.button.view.IconButtonStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.components.button.view.LinkButtonStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.components.cell.compose.CellComposeVariationGenerator
+import com.sdds.plugin.themebuilder.internal.components.indicator.compose.IndicatorComposeVariationGenerator
 import com.sdds.plugin.themebuilder.internal.components.indicator.view.IndicatorStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.components.textfield.compose.TextFieldComposeVariationGenerator
 import com.sdds.plugin.themebuilder.internal.components.textfield.view.ViewTextAreaStyleGenerator
@@ -188,6 +189,20 @@ internal class ComponentStyleGeneratorFactory(
         componentName = componentName,
         outputLocation = KtFileBuilder.OutputLocation.Directory(outputDir),
     )
+
+    fun createIndicatorStyleGeneratorCompose() =
+        IndicatorComposeVariationGenerator(
+            themeClassName = "${themeName.snakeToCamelCase()}Theme",
+            themePackage = packageResolver.getPackage(TargetPackage.THEME),
+            dimensionsConfig = dimensionsConfig,
+            dimensAggregator = dimensAggregator,
+            resourceReferenceProvider = resourceReferenceProvider,
+            namespace = namespace,
+            ktFileBuilderFactory = ktFileBuilderFactory,
+            componentPackage = "${packageResolver.getPackage(TargetPackage.STYLES)}.indicator",
+            componentName = "indicator",
+            outputLocation = KtFileBuilder.OutputLocation.Directory(outputDir),
+        )
 
     fun createBasicButtonStyleGeneratorCompose() =
         createBaseButtonStyleGeneratorCompose(
