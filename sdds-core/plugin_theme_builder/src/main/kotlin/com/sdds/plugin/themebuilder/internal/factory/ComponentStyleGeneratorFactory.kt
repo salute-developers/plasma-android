@@ -10,6 +10,7 @@ import com.sdds.plugin.themebuilder.internal.components.button.view.BasicButtonS
 import com.sdds.plugin.themebuilder.internal.components.button.view.IconButtonStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.components.button.view.LinkButtonStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.components.cell.compose.CellComposeVariationGenerator
+import com.sdds.plugin.themebuilder.internal.components.counter.view.CounterStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.components.indicator.compose.IndicatorComposeVariationGenerator
 import com.sdds.plugin.themebuilder.internal.components.indicator.view.IndicatorStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.components.textfield.compose.TextFieldComposeVariationGenerator
@@ -44,6 +45,8 @@ internal class ComponentStyleGeneratorFactory(
     private val outputResDir: File by unsafeLazy {
         projectDir.get().dir(outputResDirPath).asFile
     }
+
+    private val themeClassName = "${themeName.snakeToCamelCase()}Theme"
 
     private val mViewColorStateGeneratorFactory by unsafeLazy {
         ViewColorStateGeneratorFactory(
@@ -88,6 +91,17 @@ internal class ComponentStyleGeneratorFactory(
 
     fun createIndicatorStyleGeneratorView(): IndicatorStyleGeneratorView =
         IndicatorStyleGeneratorView(
+            xmlBuilderFactory = xmlBuilderFactory,
+            resourceReferenceProvider = resourceReferenceProvider,
+            dimensAggregator = dimensAggregator,
+            outputResDir = outputResDir,
+            resourcePrefix = resourcePrefixConfig.resourcePrefix,
+            viewColorStateGeneratorFactory = mViewColorStateGeneratorFactory,
+            colorStateListGeneratorFactory = colorStateListGeneratorFactory,
+        )
+
+    fun createCounterStyleGeneratorView(): CounterStyleGeneratorView =
+        CounterStyleGeneratorView(
             xmlBuilderFactory = xmlBuilderFactory,
             resourceReferenceProvider = resourceReferenceProvider,
             dimensAggregator = dimensAggregator,
@@ -155,7 +169,7 @@ internal class ComponentStyleGeneratorFactory(
         )
 
     fun createCellStyleGeneratorCompose() = CellComposeVariationGenerator(
-        themeClassName = "${themeName.snakeToCamelCase()}Theme",
+        themeClassName = themeClassName,
         themePackage = packageResolver.getPackage(TargetPackage.THEME),
         dimensionsConfig = dimensionsConfig,
         dimensAggregator = dimensAggregator,
@@ -176,7 +190,7 @@ internal class ComponentStyleGeneratorFactory(
         componentName: String,
         componentPackage: String,
     ) = TextFieldComposeVariationGenerator(
-        themeClassName = "${themeName.snakeToCamelCase()}Theme",
+        themeClassName = themeClassName,
         themePackage = packageResolver.getPackage(TargetPackage.THEME),
         chipStylesPackage = "${packageResolver.getPackage(TargetPackage.STYLES)}.chip",
         chipGroupStylesPackage = "${packageResolver.getPackage(TargetPackage.STYLES)}.chip.group",
@@ -226,7 +240,7 @@ internal class ComponentStyleGeneratorFactory(
         componentName: String,
         componentPackage: String,
     ) = ButtonComposeVariationGenerator(
-        themeClassName = "${themeName.snakeToCamelCase()}Theme",
+        themeClassName = themeClassName,
         themePackage = packageResolver.getPackage(TargetPackage.THEME),
         dimensionsConfig = dimensionsConfig,
         dimensAggregator = dimensAggregator,

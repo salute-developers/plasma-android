@@ -1,3 +1,4 @@
+// AUTO-GENERATED. DO NOT MODIFY this file.
 package com.sdds.serv.colorstate
 
 import android.content.Context
@@ -17,8 +18,8 @@ public enum class CounterColorState(
     DEFAULT(intArrayOf(R.attr.serv_counter_state_default)),
     ACCENT(intArrayOf(R.attr.serv_counter_state_accent)),
     POSITIVE(intArrayOf(R.attr.serv_counter_state_positive)),
-    NEGATIVE(intArrayOf(R.attr.serv_counter_state_negative)),
     WARNING(intArrayOf(R.attr.serv_counter_state_warning)),
+    NEGATIVE(intArrayOf(R.attr.serv_counter_state_negative)),
     BLACK(intArrayOf(R.attr.serv_counter_state_black)),
     WHITE(intArrayOf(R.attr.serv_counter_state_white)),
 }
