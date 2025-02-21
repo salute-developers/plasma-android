@@ -43,6 +43,7 @@ import androidx.compose.ui.layout.MeasureScope
 import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
@@ -73,7 +74,6 @@ import com.sdds.compose.uikit.internal.focusselector.LocalFocusSelectorMode
 import com.sdds.compose.uikit.internal.focusselector.applyFocusSelector
 import com.sdds.compose.uikit.internal.heightOrZero
 import com.sdds.compose.uikit.internal.widthOrZero
-import com.sdds.compose.uikit.prefixSuffixTransformation
 import com.sdds.compose.uikit.scrollbar
 
 /**
@@ -179,19 +179,26 @@ internal fun BaseTextField(
     val finalOptionalText =
         if (labelPlacement == LabelPlacement.None) "" else optionalText
 
-    val innerVisualTransformation = remember(
-        prefix,
-        suffix,
-        visualTransformation,
-        prefixStyle,
-        suffixStyle,
-    ) {
-        if (prefix.isNullOrEmpty() && suffix.isNullOrEmpty()) {
-            visualTransformation
-        } else {
-            prefixSuffixTransformation(prefix, suffix, prefixStyle, suffixStyle)
-        }
+    val valuePrefixSuffixTransformation = rememberPrefixSuffixTransformation(
+        prefix = prefix,
+        suffix = suffix,
+        prefixTextStyle = prefixStyle,
+        suffixTextStyle = suffixStyle,
+        transparent = value.text.isEmpty(),
+    )
+    val valueTransformation = if (prefix.isNullOrEmpty() && suffix.isNullOrEmpty()) {
+        visualTransformation
+    } else {
+        valuePrefixSuffixTransformation
     }
+    val placeholderPrefixSuffixTransformation = rememberPrefixSuffixTransformation(
+        prefix = prefix,
+        suffix = suffix,
+        prefixTextStyle = prefixStyle,
+        suffixTextStyle = suffixStyle,
+        transparent = value.text.isNotEmpty(),
+    )
+
     var isComponentFocused by remember { mutableStateOf(false) }
 
     /**
@@ -245,7 +252,7 @@ internal fun BaseTextField(
         keyboardOptions = keyboardOptions,
         keyboardActions = keyboardActions,
         singleLine = singleLine,
-        visualTransformation = innerVisualTransformation,
+        visualTransformation = valueTransformation,
         interactionSource = innerInteractionSource,
         cursorBrush = SolidColor(
             colors.cursorColor(readOnly).colorForInteraction(interactionSource),
@@ -331,7 +338,7 @@ internal fun BaseTextField(
                             ),
                         value = value.text,
                         innerTextField = it,
-                        visualTransformation = innerVisualTransformation,
+                        visualTransformation = visualTransformation,
                         interactionSource = innerInteractionSource,
                         innerLabel = innerLabel(
                             label = finalLabelText,
@@ -352,7 +359,11 @@ internal fun BaseTextField(
                             innerOptionalStyle = optionalStyle,
                             hasChips = chipsContent != null,
                         ),
-                        placeholder = placeholder(placeholderText, placeholderStyle),
+                        placeholder = placeholder(
+                            placeholderText,
+                            placeholderStyle,
+                            placeholderPrefixSuffixTransformation,
+                        ),
                         startIcon = icon(
                             startContent,
                             colors
@@ -648,11 +659,13 @@ private fun outerLabelIndicatorAlignment(fieldType: FieldType): Alignment {
 private fun placeholder(
     placeholder: String?,
     textStyle: TextStyle,
+    visualTransformation: VisualTransformation,
 ): @Composable (() -> Unit)? {
-    if (placeholder == null) return null
+    if (placeholder.isNullOrEmpty()) return null
     return {
+        val annotatedPlaceholder = visualTransformation.filter(AnnotatedString(placeholder)).text
         Text(
-            text = placeholder,
+            text = annotatedPlaceholder,
             style = textStyle,
         )
     }
