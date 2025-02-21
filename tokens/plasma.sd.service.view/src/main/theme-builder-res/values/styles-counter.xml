@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Plasma.SdService.Components.Counter" parent="Sdds.Components.Counter">
+        <item name="sd_colorStateProvider">com.sdds.plasma.sd.service.colorstate.CounterColorStateProvider</item>
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="android:backgroundTint">@color/plasma_counter_bg_color</item>
+        <item name="android:textColor">@color/plasma_counter_text_color</item>
+    </style>
+    <style name="Plasma.SdService.Components.Counter.L">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodySNormal</item>
+        <item name="android:minHeight">@dimen/plasma_counter_l_min_height</item>
+        <item name="android:minWidth">@dimen/plasma_counter_l_min_width</item>
+        <item name="android:paddingLeft">@dimen/plasma_counter_l_padding_left</item>
+        <item name="android:paddingRight">@dimen/plasma_counter_l_padding_right</item>
+        <item name="android:paddingTop">@dimen/plasma_counter_l_padding_top</item>
+        <item name="android:paddingBottom">@dimen/plasma_counter_l_padding_bottom</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CounterL">
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.Counter.L</item>
+    </style>
+    <style name="Plasma.SdService.Components.Counter.L.Default">
+        <item name="plasma_counterColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CounterLDefault">
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.Counter.L.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.Counter.L.Accent">
+        <item name="plasma_counterColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CounterLAccent">
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.Counter.L.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.Counter.L.Positive">
+        <item name="plasma_counterColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CounterLPositive">
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.Counter.L.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.Counter.L.Warning">
+        <item name="plasma_counterColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CounterLWarning">
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.Counter.L.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.Counter.L.Negative">
+        <item name="plasma_counterColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CounterLNegative">
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.Counter.L.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.Counter.L.Black">
+        <item name="plasma_counterColors">state_black</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CounterLBlack">
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.Counter.L.Black</item>
+    </style>
+    <style name="Plasma.SdService.Components.Counter.L.White">
+        <item name="plasma_counterColors">state_white</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CounterLWhite">
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.Counter.L.White</item>
+    </style>
+    <style name="Plasma.SdService.Components.Counter.M">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyXsNormal</item>
+        <item name="android:minHeight">@dimen/plasma_counter_m_min_height</item>
+        <item name="android:minWidth">@dimen/plasma_counter_m_min_width</item>
+        <item name="android:paddingLeft">@dimen/plasma_counter_m_padding_left</item>
+        <item name="android:paddingRight">@dimen/plasma_counter_m_padding_right</item>
+        <item name="android:paddingTop">@dimen/plasma_counter_m_padding_top</item>
+        <item name="android:paddingBottom">@dimen/plasma_counter_m_padding_bottom</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CounterM">
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.Counter.M</item>
+    </style>
+    <style name="Plasma.SdService.Components.Counter.M.Default">
+        <item name="plasma_counterColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CounterMDefault">
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.Counter.M.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.Counter.M.Accent">
+        <item name="plasma_counterColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CounterMAccent">
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.Counter.M.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.Counter.M.Positive">
+        <item name="plasma_counterColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CounterMPositive">
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.Counter.M.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.Counter.M.Warning">
+        <item name="plasma_counterColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CounterMWarning">
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.Counter.M.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.Counter.M.Negative">
+        <item name="plasma_counterColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CounterMNegative">
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.Counter.M.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.Counter.M.Black">
+        <item name="plasma_counterColors">state_black</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CounterMBlack">
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.Counter.M.Black</item>
+    </style>
+    <style name="Plasma.SdService.Components.Counter.M.White">
+        <item name="plasma_counterColors">state_white</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CounterMWhite">
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.Counter.M.White</item>
+    </style>
+    <style name="Plasma.SdService.Components.Counter.S">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyXxsNormal</item>
+        <item name="android:minHeight">@dimen/plasma_counter_s_min_height</item>
+        <item name="android:minWidth">@dimen/plasma_counter_s_min_width</item>
+        <item name="android:paddingLeft">@dimen/plasma_counter_s_padding_left</item>
+        <item name="android:paddingRight">@dimen/plasma_counter_s_padding_right</item>
+        <item name="android:paddingTop">@dimen/plasma_counter_s_padding_top</item>
+        <item name="android:paddingBottom">@dimen/plasma_counter_s_padding_bottom</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CounterS">
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.Counter.S</item>
+    </style>
+    <style name="Plasma.SdService.Components.Counter.S.Default">
+        <item name="plasma_counterColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CounterSDefault">
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.Counter.S.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.Counter.S.Accent">
+        <item name="plasma_counterColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CounterSAccent">
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.Counter.S.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.Counter.S.Positive">
+        <item name="plasma_counterColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CounterSPositive">
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.Counter.S.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.Counter.S.Warning">
+        <item name="plasma_counterColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CounterSWarning">
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.Counter.S.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.Counter.S.Negative">
+        <item name="plasma_counterColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CounterSNegative">
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.Counter.S.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.Counter.S.Black">
+        <item name="plasma_counterColors">state_black</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CounterSBlack">
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.Counter.S.Black</item>
+    </style>
+    <style name="Plasma.SdService.Components.Counter.S.White">
+        <item name="plasma_counterColors">state_white</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CounterSWhite">
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.Counter.S.White</item>
+    </style>
+    <style name="Plasma.SdService.Components.Counter.Xs">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyXxsNormal</item>
+        <item name="android:minHeight">@dimen/plasma_counter_xs_min_height</item>
+        <item name="android:minWidth">@dimen/plasma_counter_xs_min_width</item>
+        <item name="android:paddingLeft">@dimen/plasma_counter_xs_padding_left</item>
+        <item name="android:paddingRight">@dimen/plasma_counter_xs_padding_right</item>
+        <item name="android:paddingTop">@dimen/plasma_counter_xs_padding_top</item>
+        <item name="android:paddingBottom">@dimen/plasma_counter_xs_padding_bottom</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CounterXs">
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.Counter.Xs</item>
+    </style>
+    <style name="Plasma.SdService.Components.Counter.Xs.Default">
+        <item name="plasma_counterColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CounterXsDefault">
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.Counter.Xs.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.Counter.Xs.Accent">
+        <item name="plasma_counterColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CounterXsAccent">
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.Counter.Xs.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.Counter.Xs.Positive">
+        <item name="plasma_counterColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CounterXsPositive">
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.Counter.Xs.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.Counter.Xs.Warning">
+        <item name="plasma_counterColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CounterXsWarning">
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.Counter.Xs.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.Counter.Xs.Negative">
+        <item name="plasma_counterColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CounterXsNegative">
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.Counter.Xs.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.Counter.Xs.Black">
+        <item name="plasma_counterColors">state_black</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CounterXsBlack">
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.Counter.Xs.Black</item>
+    </style>
+    <style name="Plasma.SdService.Components.Counter.Xs.White">
+        <item name="plasma_counterColors">state_white</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CounterXsWhite">
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.Counter.Xs.White</item>
+    </style>
+    <style name="Plasma.SdService.Components.Counter.Xxs">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyXxsNormal</item>
+        <item name="android:minHeight">@dimen/plasma_counter_xxs_min_height</item>
+        <item name="android:minWidth">@dimen/plasma_counter_xxs_min_width</item>
+        <item name="android:paddingLeft">@dimen/plasma_counter_xxs_padding_left</item>
+        <item name="android:paddingRight">@dimen/plasma_counter_xxs_padding_right</item>
+        <item name="android:paddingTop">@dimen/plasma_counter_xxs_padding_top</item>
+        <item name="android:paddingBottom">@dimen/plasma_counter_xxs_padding_bottom</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CounterXxs">
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.Counter.Xxs</item>
+    </style>
+    <style name="Plasma.SdService.Components.Counter.Xxs.Default">
+        <item name="plasma_counterColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CounterXxsDefault">
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.Counter.Xxs.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.Counter.Xxs.Accent">
+        <item name="plasma_counterColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CounterXxsAccent">
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.Counter.Xxs.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.Counter.Xxs.Positive">
+        <item name="plasma_counterColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CounterXxsPositive">
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.Counter.Xxs.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.Counter.Xxs.Warning">
+        <item name="plasma_counterColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CounterXxsWarning">
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.Counter.Xxs.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.Counter.Xxs.Negative">
+        <item name="plasma_counterColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CounterXxsNegative">
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.Counter.Xxs.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.Counter.Xxs.Black">
+        <item name="plasma_counterColors">state_black</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CounterXxsBlack">
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.Counter.Xxs.Black</item>
+    </style>
+    <style name="Plasma.SdService.Components.Counter.Xxs.White">
+        <item name="plasma_counterColors">state_white</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CounterXxsWhite">
+        <item name="sd_counterStyle">@style/Plasma.SdService.Components.Counter.Xxs.White</item>
+    </style>
+</resources>
