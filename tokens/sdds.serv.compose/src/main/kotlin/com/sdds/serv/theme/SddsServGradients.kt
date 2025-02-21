@@ -6699,12 +6699,7 @@ internal fun linearGradient(
     colors: List<Color>,
     positions: FloatArray,
     angle: Float,
-): ShaderBrush = ThmbldrLinearGradient(
-    colors,
-    positions.toList(),
-    angleInDegrees = angle,
-    useAsCssAngle = true,
-)
+): ShaderBrush = ThmbldrLinearGradient(colors, positions.toList(), angle)
 
 internal fun radialGradient(
     colors: List<Color>,

@@ -23,22 +23,16 @@ import kotlin.math.sqrt
  * @param stops точки остановки цвета
  * @param tileMode определяет поведение на границах градиента
  * @param angleInDegrees угол в градусах
- * @param useAsCssAngle меняет режим отрисовки на
  */
 @Immutable
 internal class ThmbldrLinearGradient constructor(
     private val colors: List<Color>,
     private val stops: List<Float>? = null,
     angleInDegrees: Float = 0f,
-    useAsCssAngle: Boolean = false,
     private val tileMode: TileMode = TileMode.Clamp,
 ) : ShaderBrush() {
 
-    private val normalizedAngle: Float = if (useAsCssAngle) {
-        ((90 - angleInDegrees) % 360 + 360) % 360
-    } else {
-        (angleInDegrees % 360 + 360) % 360
-    }
+    private val normalizedAngle: Float = (angleInDegrees % 360 + 360) % 360
     private val angleInRadians: Float = Math.toRadians(normalizedAngle.toDouble()).toFloat()
 
     override fun createShader(size: Size): Shader {
