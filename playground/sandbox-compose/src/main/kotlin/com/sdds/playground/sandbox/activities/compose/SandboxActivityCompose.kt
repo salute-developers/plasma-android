@@ -56,6 +56,8 @@ import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.Theme
 import com.sdds.playground.sandbox.avatar.compose.AvatarScreen
 import com.sdds.playground.sandbox.avatar.compose.group.AvatarGroupScreen
+import com.sdds.playground.sandbox.badge.compose.BadgeScreen
+import com.sdds.playground.sandbox.badge.compose.IconBadgeScreen
 import com.sdds.playground.sandbox.buttons.compose.BasicButtonScreen
 import com.sdds.playground.sandbox.buttons.compose.IconButtonScreen
 import com.sdds.playground.sandbox.buttons.compose.LinkButtonScreen
@@ -106,6 +108,8 @@ private sealed class MenuItem(
     object Avatar : MenuItem("Avatar", { AvatarScreen(it) })
     object AvatarGroup : MenuItem("AvatarGroup", { AvatarGroupScreen(it) })
     object Buttons : MenuItem("BasicButton", { BasicButtonScreen(it) })
+    object Badge : MenuItem("Badge", { BadgeScreen(it) })
+    object IconBadge : MenuItem("IconBadge", { IconBadgeScreen(it) })
     object IconButtons : MenuItem("IconButton", { IconButtonScreen(it) })
     object LinkButtons : MenuItem("LinkButton", { LinkButtonScreen(it) })
     object Cell : MenuItem("Cell", { CellScreen(it) })
@@ -132,6 +136,8 @@ private val menuItems = listOf(
     MenuItem.Avatar,
     MenuItem.AvatarGroup,
     MenuItem.Buttons,
+    MenuItem.Badge,
+    MenuItem.IconBadge,
     MenuItem.Cell,
     MenuItem.IconButtons,
     MenuItem.LinkButtons,

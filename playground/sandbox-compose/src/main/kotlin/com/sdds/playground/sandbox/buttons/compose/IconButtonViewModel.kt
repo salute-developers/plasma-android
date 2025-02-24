@@ -10,7 +10,7 @@ import com.sdds.playground.sandbox.core.compose.Property
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 
 /**
- * ViewModel для экранов с компонентом BasicButton и IconButton
+ * ViewModel для экранов с компонентом IconButton
  */
 internal class IconButtonViewModel(
     defaultState: ButtonUiState,

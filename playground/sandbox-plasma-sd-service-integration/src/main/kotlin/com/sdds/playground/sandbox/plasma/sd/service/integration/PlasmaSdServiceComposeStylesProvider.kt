@@ -2,6 +2,7 @@ package com.sdds.playground.sandbox.plasma.sd.service.integration
 
 import com.sdds.compose.uikit.AvatarGroupStyle
 import com.sdds.compose.uikit.AvatarStyle
+import com.sdds.compose.uikit.BadgeStyle
 import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.CellStyle
 import com.sdds.compose.uikit.CheckBoxGroupStyle
@@ -18,6 +19,12 @@ import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 import com.sdds.playground.sandbox.core.integration.StylesProviderCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.avatar.PlasmaSdServiceAvatarVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.avatar.group.PlasmaSdServiceAvatarGroupVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.badge.PlasmaSdServiceBadgeClearVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.badge.PlasmaSdServiceBadgeSolidVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.badge.PlasmaSdServiceBadgeTransparentVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.badge.icon.PlasmaSdServiceIconBadgeClearVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.badge.icon.PlasmaSdServiceIconBadgeSolidVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.badge.icon.PlasmaSdServiceIconBadgeTransparentVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.button.basic.PlasmaSdServiceBasicButtonVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.button.icon.PlasmaSdServiceIconButtonVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.button.link.PlasmaSdServiceLinkButtonVariationsCompose
@@ -79,4 +86,16 @@ object PlasmaSdServiceComposeStylesProvider : StylesProviderCompose {
         get() = PlasmaSdServiceCellVariationsCompose
     override val indicator: ComposeStyleProvider<String, IndicatorStyle>
         get() = PlasmaSdServiceIndicatorVariationsCompose
+    override val badgeSolid: ComposeStyleProvider<String, BadgeStyle>
+        get() = PlasmaSdServiceBadgeSolidVariationsCompose
+    override val badgeClear: ComposeStyleProvider<String, BadgeStyle>
+        get() = PlasmaSdServiceBadgeClearVariationsCompose
+    override val badgeTransparent: ComposeStyleProvider<String, BadgeStyle>
+        get() = PlasmaSdServiceBadgeTransparentVariationsCompose
+    override val iconBadgeSolid: ComposeStyleProvider<String, BadgeStyle>
+        get() = PlasmaSdServiceIconBadgeSolidVariationsCompose
+    override val iconBadgeClear: ComposeStyleProvider<String, BadgeStyle>
+        get() = PlasmaSdServiceIconBadgeClearVariationsCompose
+    override val iconBadgeTransparent: ComposeStyleProvider<String, BadgeStyle>
+        get() = PlasmaSdServiceIconBadgeTransparentVariationsCompose
 }
