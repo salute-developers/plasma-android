@@ -7,7 +7,7 @@ import com.sdds.compose.uikit.RadioBoxColorsBuilder
 import com.sdds.compose.uikit.RadioBoxDimensions
 import com.sdds.compose.uikit.RadioBoxStyle
 import com.sdds.compose.uikit.RadioBoxStyleBuilder
-import com.sdkit.star.designsystem.R
+import com.sdkit.star.designsystem.compose.R
 import com.sdkit.star.designsystem.theme.StarDsTheme
 
 /**

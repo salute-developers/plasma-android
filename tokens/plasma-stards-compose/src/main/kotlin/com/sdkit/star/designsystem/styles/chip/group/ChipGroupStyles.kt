@@ -6,7 +6,7 @@ import com.sdds.compose.uikit.ChipGroup
 import com.sdds.compose.uikit.ChipGroupDimensions
 import com.sdds.compose.uikit.ChipGroupStyle
 import com.sdds.compose.uikit.ChipGroupStyleBuilder
-import com.sdkit.star.designsystem.R
+import com.sdkit.star.designsystem.compose.R
 
 /**
  * Стиль [ChipGroup] с большими отступами

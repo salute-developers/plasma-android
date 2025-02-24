@@ -7,7 +7,7 @@ import com.sdds.compose.uikit.CheckBox
 import com.sdds.compose.uikit.CheckBoxGroup
 import com.sdds.compose.uikit.CheckBoxGroupStyle
 import com.sdds.compose.uikit.CheckBoxGroupStyleBuilder
-import com.sdkit.star.designsystem.R
+import com.sdkit.star.designsystem.compose.R
 import com.sdkit.star.designsystem.styles.checkbox.M
 import com.sdkit.star.designsystem.styles.checkbox.S
 

@@ -12,7 +12,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.LineHeightStyle
 import androidx.compose.ui.unit.sp
-import com.sdkit.star.designsystem.R
+import com.sdkit.star.designsystem.compose.R
 import kotlin.Suppress
 
 /**

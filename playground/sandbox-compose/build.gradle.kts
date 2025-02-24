@@ -48,6 +48,10 @@ dependencies {
     implementation("tokens:stylessalute.compose")
     implementation("playground:sandbox-stylessalute-integration")
 
+    implementation("tokens:plasma-stards-view")
+    implementation("tokens:plasma-stards-compose")
+    implementation("playground:sandbox-plasma-stards-integration")
+
     implementation("playground:sandbox-core-integration")
     implementation("sdds-core:testing") {
         exclude("org.robolectric", "robolectric")

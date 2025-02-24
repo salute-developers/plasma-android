@@ -7,6 +7,9 @@ import com.sdds.playground.sandbox.core.integration.StylesProviderView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.PlasmaSdServiceComposeStylesProvider
 import com.sdds.playground.sandbox.plasma.sd.service.integration.PlasmaSdServiceThemeWrapper
 import com.sdds.playground.sandbox.plasma.sd.service.integration.PlasmaSdServiceViewStylesProvider
+import com.sdds.playground.sandbox.plasma.stards.integration.StarDsComposeStylesProvider
+import com.sdds.playground.sandbox.plasma.stards.integration.StarDsThemeWrapper
+import com.sdds.playground.sandbox.plasma.stards.integration.StarDsViewStylesProvider
 import com.sdds.playground.sandbox.sdds.serv.integration.SddsServComposeStylesProvider
 import com.sdds.playground.sandbox.sdds.serv.integration.SddsServThemeWrapper
 import com.sdds.playground.sandbox.sdds.serv.integration.SddsServViewStylesProvider
@@ -36,6 +39,16 @@ internal enum class Theme(
         view = ThemeInfoView(
             stylesProvider = PlasmaSdServiceViewStylesProvider,
             themeRes = com.sdds.plasma.sd.service.R.style.Plasma_SdService_MaterialComponents_DayNight,
+        ),
+    ),
+    PlasmaStarDs(
+        compose = ThemeInfoCompose(
+            stylesProvider = StarDsComposeStylesProvider,
+            themeWrapper = { StarDsThemeWrapper(it) },
+        ),
+        view = ThemeInfoView(
+            stylesProvider = StarDsViewStylesProvider,
+            themeRes = com.sdkit.star.designsystem.R.style.Sdkit_AppTheme,
         ),
     ),
     StylesSalute(

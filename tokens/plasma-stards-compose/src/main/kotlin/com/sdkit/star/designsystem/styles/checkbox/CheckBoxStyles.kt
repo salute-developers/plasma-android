@@ -7,7 +7,7 @@ import com.sdds.compose.uikit.CheckBoxColorsBuilder
 import com.sdds.compose.uikit.CheckBoxDimensions
 import com.sdds.compose.uikit.CheckBoxStyle
 import com.sdds.compose.uikit.CheckBoxStyleBuilder
-import com.sdkit.star.designsystem.R
+import com.sdkit.star.designsystem.compose.R
 import com.sdkit.star.designsystem.theme.StarDsTheme
 
 /**

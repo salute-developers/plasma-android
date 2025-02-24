@@ -6,7 +6,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.ui.res.dimensionResource
-import com.sdkit.star.designsystem.R
+import com.sdkit.star.designsystem.compose.R
 
 /**
  * Токены скруглений

@@ -14,7 +14,7 @@ plugins {
 }
 
 android {
-    namespace = "com.sdkit.star.designsystem"
+    namespace = "com.sdkit.star.designsystem.compose"
     resourcePrefix = "sdkit_cmp"
 }
 

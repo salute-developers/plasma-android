@@ -6,7 +6,7 @@ import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.unit.Dp
-import com.sdkit.star.designsystem.R
+import com.sdkit.star.designsystem.compose.R
 
 /**
  * Токены теней
