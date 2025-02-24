@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Sdkit.StarDs.Components.ProgressBar" parent="Sdds.Components.ProgressBar">
+        <item name="backgroundTint">?sdkit_surfaceDefaultTransparentSecondary</item>
+    </style>
+
+    <style name="Sdkit.StarDs.Components.ProgressBar.Default">
+        <item name="android:progressTint">?sdkit_surfaceDefaultSolidDefault</item>
+    </style>
+
+    <style name="Sdkit.StarDs.Components.ProgressBar.Secondary">
+        <item name="android:progressTint">?sdkit_surfaceDefaultSolidTertiary</item>
+    </style>
+
+    <style name="Sdkit.StarDs.Components.ProgressBar.Accent">
+        <item name="android:progressTint">?sdkit_surfaceDefaultAccent</item>
+    </style>
+
+    <style name="Sdkit.StarDs.Components.ProgressBar.GradientAccent">
+        <item name="android:progressTint">@null</item>
+        <item name="android:progressDrawable">?sdkit_surfaceDefaultGradientMain</item>
+    </style>
+
+    <style name="Sdkit.StarDs.Components.ProgressBar.Positive">
+        <item name="android:progressTint">?sdkit_surfaceDefaultPositive</item>
+    </style>
+
+    <style name="Sdkit.StarDs.Components.ProgressBar.Warning">
+        <item name="android:progressTint">?sdkit_surfaceDefaultWarning</item>
+    </style>
+
+    <style name="Sdkit.StarDs.Components.ProgressBar.Negative">
+        <item name="android:progressTint">?sdkit_surfaceDefaultNegative</item>
+    </style>
+</resources>

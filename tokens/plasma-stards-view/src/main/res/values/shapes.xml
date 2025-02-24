@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Region Shapes -->
+
+    <style name="Sdkit.StarDs.Shape.Round.Circle">
+        <item name="cornerSize">50%</item>
+        <item name="sd_cornerSize">50%</item>
+    </style>
+    <!-- End of Shapes Region -->
+</resources>

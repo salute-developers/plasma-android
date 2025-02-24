@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Sdkit.StarDs.MaterialComponents.NoActionBar.DayNight" parent="Sdkit.StarDs.MaterialComponents.NoActionBar"/>
+    <style name="Sdkit.StarDs.MaterialComponents.Dialog.DayNight" parent="Sdkit.StarDs.MaterialComponents.Dialog"/>
+</resources>

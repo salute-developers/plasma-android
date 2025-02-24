@@ -89,8 +89,10 @@ internal abstract class ViewComponentStyleGenerator<T : ComponentConfig>(
                     colorAttribute(property.attribute, property.colorFileName(variationName))
                 }
             }
-            colorStateAttributesGenerator.colorStateProviderInfo.run {
-                valueAttribute(colorStateViewAttr, classCanonicalName)
+            if (stateListGenerators.isNotEmpty()) {
+                colorStateAttributesGenerator.colorStateProviderInfo.run {
+                    valueAttribute(colorStateViewAttr, classCanonicalName)
+                }
             }
             content()
         }

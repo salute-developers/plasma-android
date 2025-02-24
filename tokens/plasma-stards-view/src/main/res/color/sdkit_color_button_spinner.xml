@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:color="?sdkit_textInversePrimary" android:state_focused="true" />
+    <item android:color="?sdkit_textOnDarkPrimary" app:sd_state_accent="true" />
+    <item android:color="?sdkit_textOnDarkPrimary" app:sd_state_positive="true" />
+    <item android:color="?sdkit_textOnDarkPrimary" app:sd_state_warning="true" />
+    <item android:color="?sdkit_textOnDarkPrimary" app:sd_state_negative="true" />
+    <item android:color="?sdkit_textDefaultPrimary" />
+</selector>

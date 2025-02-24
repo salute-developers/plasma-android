@@ -82,7 +82,11 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
             fileName = ktFileName,
             fullPackageName = componentPackage,
         ).also {
-            it.addSuppressAnnotation("UndocumentedPublicClass", "UndocumentedPublicProperty")
+            it.addSuppressAnnotation(
+                "UndocumentedPublicClass",
+                "UndocumentedPublicProperty",
+                "ktlint:standard:max-line-length",
+            )
         }
     }
 
