@@ -4,7 +4,6 @@ import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
-import androidx.compose.runtime.Stable
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
@@ -40,7 +39,6 @@ fun BadgeStyle.Companion.iconBadgeTransparentBuilder(receiver: Any? = null): Ico
 /**
  * Builder стиля Badge с иконкой.
  */
-@Stable
 interface IconBadgeStyleBuilder : StyleBuilder<BadgeStyle> {
 
     /**
@@ -245,7 +243,6 @@ private class DefaultIconBadgeColors(
     }
 }
 
-@Stable
 private class IconBadgeStyleBuilderImpl(receiver: Any?) : IconBadgeStyleBuilder {
     private var shape: CornerBasedShape? = null
     private var colorsBuilder: IconBadgeColorsBuilder = IconBadgeColorsBuilder.builder()

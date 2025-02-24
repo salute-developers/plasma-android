@@ -4,7 +4,6 @@ import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
-import androidx.compose.runtime.Stable
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
@@ -40,7 +39,6 @@ fun BadgeStyle.Companion.badgeTransparentBuilder(receiver: Any? = null): BadgeSt
 /**
  * Builder стиля [BadgeSolid]
  */
-@Stable
 interface BadgeStyleBuilder : StyleBuilder<BadgeStyle> {
 
     /**
@@ -73,7 +71,6 @@ interface BadgeStyleBuilder : StyleBuilder<BadgeStyle> {
 /**
  * Builder для [BadgeDimensions].
  */
-@Stable
 interface BadgeDimensionsBuilder {
 
     /**
@@ -127,7 +124,6 @@ interface BadgeDimensionsBuilder {
 /**
  * Builder для [BadgeColors].
  */
-@Stable
 interface BadgeColorsBuilder {
 
     /**
@@ -219,7 +215,7 @@ interface BadgeColorsBuilder {
     }
 }
 
-@Stable
+@Immutable
 private class DefaultBadgeStyle(
     override val dimensions: BadgeDimensions,
     override val colors: BadgeColors,
@@ -338,7 +334,6 @@ private class DefaultBadgeColors(
     }
 }
 
-@Stable
 private class BadgeStyleBuilderImpl(receiver: Any?) : BadgeStyleBuilder {
     private var shape: CornerBasedShape? = null
     private var colorsBuilder: BadgeColorsBuilder = BadgeColorsBuilder.builder()

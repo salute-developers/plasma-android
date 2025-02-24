@@ -9,7 +9,6 @@ import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.Immutable
-import androidx.compose.runtime.Stable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -315,7 +314,7 @@ internal object BaseIconText {
      * @property startContentColor цвет контента в начале компонента
      * @property endContentColor цвет контента в конце компонента
      */
-    @Stable
+    @Immutable
     data class Colors(
         val contentColor: InteractiveColor,
         val backgroundColor: InteractiveColor,

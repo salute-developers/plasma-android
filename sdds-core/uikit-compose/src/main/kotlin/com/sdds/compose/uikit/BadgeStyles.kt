@@ -1,7 +1,7 @@
 package com.sdds.compose.uikit
 
 import androidx.compose.foundation.shape.CornerBasedShape
-import androidx.compose.runtime.Stable
+import androidx.compose.runtime.Immutable
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import com.sdds.compose.uikit.interactions.InteractiveColor
@@ -10,7 +10,7 @@ import com.sdds.compose.uikit.style.Style
 /**
  * Стиль Badge
  */
-@Stable
+@Immutable
 interface BadgeStyle : Style {
 
     /**
@@ -49,7 +49,7 @@ interface BadgeStyle : Style {
  * Размеры и отступы, которые используются внутри Badge.
  *
  */
-@Stable
+@Immutable
 interface BadgeDimensions {
 
     /**
@@ -91,7 +91,7 @@ interface BadgeDimensions {
 /**
  * Цвета компонента
  */
-@Stable
+@Immutable
 interface BadgeColors {
 
     /**
