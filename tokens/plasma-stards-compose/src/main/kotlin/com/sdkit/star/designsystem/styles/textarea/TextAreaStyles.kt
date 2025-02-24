@@ -23,7 +23,7 @@ import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.compose.uikit.textAreaBuilder
-import com.sdkit.star.designsystem.R
+import com.sdkit.star.designsystem.compose.R
 import com.sdkit.star.designsystem.styles.chip.M
 import com.sdkit.star.designsystem.styles.chip.S
 import com.sdkit.star.designsystem.styles.chip.Secondary

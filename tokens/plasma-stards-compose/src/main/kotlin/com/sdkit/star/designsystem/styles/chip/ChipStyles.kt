@@ -11,7 +11,7 @@ import com.sdds.compose.uikit.EmbeddedChip
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
-import com.sdkit.star.designsystem.R
+import com.sdkit.star.designsystem.compose.R
 import com.sdkit.star.designsystem.theme.StarDsTheme
 
 /**

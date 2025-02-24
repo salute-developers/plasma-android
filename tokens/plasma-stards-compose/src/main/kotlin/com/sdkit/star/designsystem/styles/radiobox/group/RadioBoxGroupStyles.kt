@@ -8,7 +8,7 @@ import com.sdds.compose.uikit.RadioBox
 import com.sdds.compose.uikit.RadioBoxGroup
 import com.sdds.compose.uikit.RadioBoxGroupStyle
 import com.sdds.compose.uikit.RadioBoxGroupStyleBuilder
-import com.sdkit.star.designsystem.R
+import com.sdkit.star.designsystem.compose.R
 import com.sdkit.star.designsystem.styles.radiobox.M
 import com.sdkit.star.designsystem.styles.radiobox.S
 

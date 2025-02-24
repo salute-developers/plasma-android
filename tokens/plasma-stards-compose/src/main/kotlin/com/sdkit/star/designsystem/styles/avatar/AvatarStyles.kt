@@ -14,7 +14,7 @@ import com.sdds.compose.uikit.AvatarGroupStyleBuilder
 import com.sdds.compose.uikit.AvatarStyle
 import com.sdds.compose.uikit.AvatarStyleBuilder
 import com.sdds.compose.uikit.floatPx
-import com.sdkit.star.designsystem.R
+import com.sdkit.star.designsystem.compose.R
 import com.sdkit.star.designsystem.theme.StarDsTheme
 
 /**

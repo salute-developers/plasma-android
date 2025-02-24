@@ -7,7 +7,7 @@ import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
-import com.sdkit.star.designsystem.R
+import com.sdkit.star.designsystem.compose.R
 import kotlin.Suppress
 
 /**

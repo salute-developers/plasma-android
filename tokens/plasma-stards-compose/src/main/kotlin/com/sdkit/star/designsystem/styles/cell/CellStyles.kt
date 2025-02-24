@@ -23,7 +23,7 @@ import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
-import com.sdkit.star.designsystem.R
+import com.sdkit.star.designsystem.compose.R
 import com.sdkit.star.designsystem.styles.avatar.L
 import com.sdkit.star.designsystem.styles.avatar.M
 import com.sdkit.star.designsystem.styles.avatar.S
