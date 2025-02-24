@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="sdkit_switch_width">88dp</dimen> <!-- 44dp -->
+    <dimen name="sdkit_switch_height">56dp</dimen> <!-- 28dp -->
+    <dimen name="sdkit_switch_track_cr">28dp</dimen> <!-- 14dp -->
+    <dimen name="sdkit_switch_thumb_size">48dp</dimen> <!-- 24dp -->
+    <dimen name="sdkit_switch_drawable_padding">12dp</dimen> <!-- 6dp -->
+
+    <style name="Sdkit.StarDs.Components.Switch" parent="Sdds.Components.Switch">
+        <item name="sd_buttonTrackColor">@color/sdkit_bg_color_switch_track</item>
+        <item name="android:textColor">?sdkit_textDefaultPrimary</item>
+        <item name="sd_descriptionTextColor">?sdkit_textDefaultSecondary</item>
+        <item name="sd_switchWidth">@dimen/sdkit_switch_width</item>
+        <item name="sd_switchHeight">@dimen/sdkit_switch_height</item>
+        <item name="android:drawablePadding">@dimen/sdkit_switch_drawable_padding</item>
+        <item name="sd_trackCornerRadius">@dimen/sdkit_switch_track_cr</item>
+        <item name="sd_thumbSize">@dimen/sdkit_switch_thumb_size</item>
+
+    </style>
+
+    <style name="Sdkit.StarDs.Components.Switch.L">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodyLNormal</item>
+        <item name="sd_descriptionTextAppearance">@style/Sdkit.StarDs.TextAppearance.BodyMNormal</item>
+    </style>
+
+    <style name="Sdkit.StarDs.Components.Switch.M">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodyMNormal</item>
+        <item name="sd_descriptionTextAppearance">@style/Sdkit.StarDs.TextAppearance.BodySNormal</item>
+    </style>
+
+    <style name="Sdkit.StarDs.Components.Switch.S">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodySNormal</item>
+        <item name="sd_descriptionTextAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXsNormal</item>
+    </style>
+
+</resources>

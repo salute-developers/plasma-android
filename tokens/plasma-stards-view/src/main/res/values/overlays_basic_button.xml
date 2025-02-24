@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--deprecated ReplaceWith @style/Sdkit.StarDs.ComponentOverlays.BasicButtonXs -->
+    <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonXS" parent="Sdkit.StarDs.ComponentOverlays.BasicButtonXs">
+        <item name="android:buttonStyle">@style/Sdkit.StarDs.Components.BasicButton.XS</item>
+    </style>
+</resources>

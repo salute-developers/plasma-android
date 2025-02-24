@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Sdkit.StarDs.ComponentOverlays.CheckBoxM">
+        <item name="android:checkboxStyle">@style/Sdkit.StarDs.Components.CheckBox.M</item>
+    </style>
+
+    <style name="Sdkit.StarDs.ComponentOverlays.CheckBoxS">
+        <item name="android:checkboxStyle">@style/Sdkit.StarDs.Components.CheckBox.S</item>
+    </style>
+
+    <style name="Sdkit.StarDs.ComponentOverlays.CheckBoxGroupM">
+        <item name="sd_checkBoxGroupStyle">@style/Sdkit.StarDs.Components.CheckBoxGroup.M</item>
+    </style>
+
+    <style name="Sdkit.StarDs.ComponentOverlays.CheckBoxGroupS">
+        <item name="sd_checkBoxGroupStyle">@style/Sdkit.StarDs.Components.CheckBoxGroup.S</item>
+    </style>
+</resources>

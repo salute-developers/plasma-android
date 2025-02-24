@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Sdkit.StarDs.Components.BasicButton" parent="Sdds.Components.Button">
+        <item name="sd_disabledAlpha">0.4</item>
+        <item name="backgroundTint">@color/sdkit_basic_button_bg_color</item>
+        <item name="android:textColor">@color/sdkit_basic_button_text_color</item>
+        <item name="sd_valueTextColor">@color/sdkit_basic_button_value_color</item>
+        <item name="sd_spinnerTint">@color/sdkit_basic_button_spinner_tint</item>
+        <item name="sd_iconTint">@color/sdkit_basic_button_icon_tint</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BasicButton.L">
+        <item name="android:minHeight">@dimen/sdkit_basic_button_l_min_height</item>
+        <item name="android:minWidth">@dimen/sdkit_basic_button_l_min_width</item>
+        <item name="android:paddingStart">@dimen/sdkit_basic_button_l_padding_start</item>
+        <item name="android:paddingEnd">@dimen/sdkit_basic_button_l_padding_end</item>
+        <item name="sd_iconSize">@dimen/sdkit_basic_button_l_icon_size</item>
+        <item name="sd_spinnerSize">@dimen/sdkit_basic_button_l_spinner_size</item>
+        <item name="sd_spinnerStrokeWidth">@dimen/sdkit_basic_button_l_spinner_stroke_width</item>
+        <item name="sd_iconPadding">@dimen/sdkit_basic_button_l_icon_padding</item>
+        <item name="sd_valuePadding">@dimen/sdkit_basic_button_l_value_padding</item>
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundL</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/sdkit_basic_button_l_shape_adjustment</item>
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodyLBold</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonL">
+        <item name="android:buttonStyle">@style/Sdkit.StarDs.Components.BasicButton.L</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BasicButton.M">
+        <item name="android:minHeight">@dimen/sdkit_basic_button_m_min_height</item>
+        <item name="android:minWidth">@dimen/sdkit_basic_button_m_min_width</item>
+        <item name="android:paddingStart">@dimen/sdkit_basic_button_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/sdkit_basic_button_m_padding_end</item>
+        <item name="sd_iconSize">@dimen/sdkit_basic_button_m_icon_size</item>
+        <item name="sd_spinnerSize">@dimen/sdkit_basic_button_m_spinner_size</item>
+        <item name="sd_spinnerStrokeWidth">@dimen/sdkit_basic_button_m_spinner_stroke_width</item>
+        <item name="sd_iconPadding">@dimen/sdkit_basic_button_m_icon_padding</item>
+        <item name="sd_valuePadding">@dimen/sdkit_basic_button_m_value_padding</item>
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundM</item>
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodyMBold</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonM">
+        <item name="android:buttonStyle">@style/Sdkit.StarDs.Components.BasicButton.M</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BasicButton.S">
+        <item name="android:minHeight">@dimen/sdkit_basic_button_s_min_height</item>
+        <item name="android:minWidth">@dimen/sdkit_basic_button_s_min_width</item>
+        <item name="android:paddingStart">@dimen/sdkit_basic_button_s_padding_start</item>
+        <item name="android:paddingEnd">@dimen/sdkit_basic_button_s_padding_end</item>
+        <item name="sd_iconSize">@dimen/sdkit_basic_button_s_icon_size</item>
+        <item name="sd_spinnerSize">@dimen/sdkit_basic_button_s_spinner_size</item>
+        <item name="sd_spinnerStrokeWidth">@dimen/sdkit_basic_button_s_spinner_stroke_width</item>
+        <item name="sd_iconPadding">@dimen/sdkit_basic_button_s_icon_padding</item>
+        <item name="sd_valuePadding">@dimen/sdkit_basic_button_s_value_padding</item>
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundM</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/sdkit_basic_button_s_shape_adjustment</item>
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodySBold</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonS">
+        <item name="android:buttonStyle">@style/Sdkit.StarDs.Components.BasicButton.S</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.BasicButton.Xs">
+        <item name="android:minHeight">@dimen/sdkit_basic_button_xs_min_height</item>
+        <item name="android:minWidth">@dimen/sdkit_basic_button_xs_min_width</item>
+        <item name="android:paddingStart">@dimen/sdkit_basic_button_xs_padding_start</item>
+        <item name="android:paddingEnd">@dimen/sdkit_basic_button_xs_padding_end</item>
+        <item name="sd_iconSize">@dimen/sdkit_basic_button_xs_icon_size</item>
+        <item name="sd_spinnerSize">@dimen/sdkit_basic_button_xs_spinner_size</item>
+        <item name="sd_spinnerStrokeWidth">@dimen/sdkit_basic_button_xs_spinner_stroke_width</item>
+        <item name="sd_iconPadding">@dimen/sdkit_basic_button_xs_icon_padding</item>
+        <item name="sd_valuePadding">@dimen/sdkit_basic_button_xs_value_padding</item>
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundS</item>
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXsBold</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.BasicButtonXs">
+        <item name="android:buttonStyle">@style/Sdkit.StarDs.Components.BasicButton.Xs</item>
+    </style>
+</resources>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:color="?sdkit_surfaceDefaultSolidDefault" app:sdkit_indicator_state_default="true"/>
+    <item android:color="?sdkit_surfaceDefaultAccentMain" app:sdkit_indicator_state_accent="true"/>
+    <item android:color="?sdkit_surfaceDefaultSolidTertiary" app:sdkit_indicator_state_inactive="true"/>
+    <item android:color="?sdkit_surfaceDefaultPositive" app:sdkit_indicator_state_positive="true"/>
+    <item android:color="?sdkit_surfaceDefaultWarning" app:sdkit_indicator_state_warning="true"/>
+    <item android:color="?sdkit_surfaceDefaultNegative" app:sdkit_indicator_state_negative="true"/>
+    <item android:color="?sdkit_surfaceOnLightTransparentDeep" app:sdkit_indicator_state_dark="true"/>
+    <item android:color="?sdkit_surfaceOnLightSolidDefault" app:sdkit_indicator_state_black="true"/>
+    <item android:color="?sdkit_surfaceOnDarkSolidDefault" app:sdkit_indicator_state_white="true"/>
+</selector>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <!--Typography-->
+    <attr format="reference" name="sdkit_typographyDisplayLNormal"/>
+    <attr format="reference" name="sdkit_typographyDisplayLBold"/>
+    <attr format="reference" name="sdkit_typographyDisplayMNormal"/>
+    <attr format="reference" name="sdkit_typographyDisplayMBold"/>
+    <attr format="reference" name="sdkit_typographyDisplaySNormal"/>
+    <attr format="reference" name="sdkit_typographyDisplaySBold"/>
+    <attr format="reference" name="sdkit_typographyHeaderH1Normal"/>
+    <attr format="reference" name="sdkit_typographyHeaderH1Bold"/>
+    <attr format="reference" name="sdkit_typographyHeaderH2Normal"/>
+    <attr format="reference" name="sdkit_typographyHeaderH2Bold"/>
+    <attr format="reference" name="sdkit_typographyHeaderH3Normal"/>
+    <attr format="reference" name="sdkit_typographyHeaderH3Bold"/>
+    <attr format="reference" name="sdkit_typographyHeaderH4Normal"/>
+    <attr format="reference" name="sdkit_typographyHeaderH4Bold"/>
+    <attr format="reference" name="sdkit_typographyHeaderH5Normal"/>
+    <attr format="reference" name="sdkit_typographyHeaderH5Bold"/>
+    <attr format="reference" name="sdkit_typographyBodyLNormal"/>
+    <attr format="reference" name="sdkit_typographyBodyLBold"/>
+    <attr format="reference" name="sdkit_typographyBodyMNormal"/>
+    <attr format="reference" name="sdkit_typographyBodyMBold"/>
+    <attr format="reference" name="sdkit_typographyBodySNormal"/>
+    <attr format="reference" name="sdkit_typographyBodySBold"/>
+    <attr format="reference" name="sdkit_typographyBodyXsNormal"/>
+    <attr format="reference" name="sdkit_typographyBodyXsBold"/>
+    <attr format="reference" name="sdkit_typographyBodyXxsNormal"/>
+    <attr format="reference" name="sdkit_typographyBodyXxsBold"/>
+    <attr format="reference" name="sdkit_typographyTextLNormal"/>
+    <attr format="reference" name="sdkit_typographyTextLBold"/>
+    <attr format="reference" name="sdkit_typographyTextMNormal"/>
+    <attr format="reference" name="sdkit_typographyTextMBold"/>
+    <attr format="reference" name="sdkit_typographyTextSNormal"/>
+    <attr format="reference" name="sdkit_typographyTextSBold"/>
+    <attr format="reference" name="sdkit_typographyTextXsNormal"/>
+    <attr format="reference" name="sdkit_typographyTextXsBold"/>
+</resources>

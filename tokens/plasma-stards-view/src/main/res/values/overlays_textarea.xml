@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--deprecated ReplaceWith @style/Sdkit.StarDs.ComponentOverlays.TextAreaXs -->
+    <style name="Sdkit.StarDs.ComponentOverlays.TextAreaXS" parent="Sdkit.StarDs.ComponentOverlays.TextAreaXs"/>
+
+    <!--deprecated ReplaceWith @style/Sdkit.StarDs.ComponentOverlays.TextAreaXsOuterLabel -->
+    <style name="Sdkit.StarDs.ComponentOverlays.TextAreaXSOuterLabel" parent="Sdkit.StarDs.ComponentOverlays.TextAreaXsOuterLabel"/>
+</resources>

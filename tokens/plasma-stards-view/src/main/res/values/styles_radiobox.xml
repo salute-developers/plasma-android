@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="sdkit_radiobox_m_button_mark_size">20dp</dimen> <!-- 10dp -->
+    <dimen name="sdkit_radiobox_m_button_size">48dp</dimen> <!-- 24dp -->
+    <dimen name="sdkit_radiobox_m_drawable_padding">20dp</dimen> <!-- 10dp -->
+    <dimen name="sdkit_radiobox_m_button_padding">2dp</dimen> <!-- 1dp -->
+
+    <dimen name="sdkit_radiobox_s_button_mark_size">16dp</dimen> <!-- 8dp -->
+    <dimen name="sdkit_radiobox_s_button_size">32dp</dimen> <!-- 16dp -->
+    <dimen name="sdkit_radiobox_s_drawable_padding">16dp</dimen> <!-- 8dp -->
+    <dimen name="sdkit_radiobox_s_button_padding">0dp</dimen> <!-- 0dp -->
+
+    <dimen name="sdkit_radiobox_group_m_item_spacing">24dp</dimen>  <!-- 12dp -->
+    <dimen name="sdkit_radiobox_group_s_item_spacing">20dp</dimen>  <!-- 10dp -->
+
+    <style name="Sdkit.StarDs.Components.RadioBox" parent="Sdds.Components.RadioBox">
+        <item name="sd_buttonBorderColor">@color/sdkit_color_checkable_border</item>
+        <item name="sd_buttonBoxColor">?sdkit_surfaceDefaultAccent</item>
+        <item name="sd_buttonMarkColor">?sdkit_textOnDarkPrimary</item>
+        <item name="android:textColor">?sdkit_textDefaultPrimary</item>
+        <item name="sd_descriptionTextColor">?sdkit_textDefaultSecondary</item>
+    </style>
+
+    <style name="Sdkit.StarDs.Components.RadioBox.M">
+        <item name="sd_buttonMarkSize">@dimen/sdkit_radiobox_m_button_mark_size</item>
+        <item name="sd_buttonSize">@dimen/sdkit_radiobox_m_button_size</item>
+        <item name="android:drawablePadding">@dimen/sdkit_radiobox_m_drawable_padding</item>
+        <item name="sd_buttonPadding">@dimen/sdkit_radiobox_m_button_padding</item>
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodySNormal</item>
+        <item name="sd_descriptionTextAppearance">@style/Sdkit.StarDs.TextAppearance.BodySNormal</item>
+    </style>
+
+    <style name="Sdkit.StarDs.Components.RadioBox.S">
+        <item name="sd_buttonSize">@dimen/sdkit_radiobox_s_button_size</item>
+        <item name="sd_buttonMarkSize">@dimen/sdkit_radiobox_s_button_mark_size</item>
+        <item name="sd_buttonPadding">@dimen/sdkit_radiobox_s_button_padding</item>
+        <item name="android:drawablePadding">@dimen/sdkit_radiobox_s_drawable_padding</item>
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXsNormal</item>
+        <item name="sd_descriptionTextAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXsNormal</item>
+    </style>
+
+    <style name="Sdkit.StarDs.Components.RadioBoxGroup" parent="Sdds.Components.RadioBoxGroup"/>
+
+    <style name="Sdkit.StarDs.Components.RadioBoxGroup.M">
+        <item name="sd_itemSpacing">@dimen/sdkit_radiobox_group_m_item_spacing</item>
+    </style>
+
+    <style name="Sdkit.StarDs.Components.RadioBoxGroup.S">
+        <item name="sd_itemSpacing">@dimen/sdkit_radiobox_group_s_item_spacing</item>
+    </style>
+</resources>

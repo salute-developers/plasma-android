@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Sdkit.StarDs.Components.Indicator" parent="Sdds.Components.Indicator">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="backgroundTint">@color/sdkit_indicator_bg_color</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Indicator.L">
+        <item name="android:maxHeight">@dimen/sdkit_indicator_l_max_height</item>
+        <item name="android:maxWidth">@dimen/sdkit_indicator_l_max_width</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.IndicatorL">
+        <item name="sd_indicatorStyle">@style/Sdkit.StarDs.Components.Indicator.L</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Indicator.L.Default">
+        <item name="sdkit_indicatorColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.IndicatorLDefault">
+        <item name="sd_indicatorStyle">@style/Sdkit.StarDs.Components.Indicator.L.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Indicator.L.Accent">
+        <item name="sdkit_indicatorColors">state_accent</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.IndicatorLAccent">
+        <item name="sd_indicatorStyle">@style/Sdkit.StarDs.Components.Indicator.L.Accent</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Indicator.L.Inactive">
+        <item name="sdkit_indicatorColors">state_inactive</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.IndicatorLInactive">
+        <item name="sd_indicatorStyle">@style/Sdkit.StarDs.Components.Indicator.L.Inactive</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Indicator.L.Positive">
+        <item name="sdkit_indicatorColors">state_positive</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.IndicatorLPositive">
+        <item name="sd_indicatorStyle">@style/Sdkit.StarDs.Components.Indicator.L.Positive</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Indicator.L.Warning">
+        <item name="sdkit_indicatorColors">state_warning</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.IndicatorLWarning">
+        <item name="sd_indicatorStyle">@style/Sdkit.StarDs.Components.Indicator.L.Warning</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Indicator.L.Negative">
+        <item name="sdkit_indicatorColors">state_negative</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.IndicatorLNegative">
+        <item name="sd_indicatorStyle">@style/Sdkit.StarDs.Components.Indicator.L.Negative</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Indicator.L.Dark">
+        <item name="sdkit_indicatorColors">state_dark</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.IndicatorLDark">
+        <item name="sd_indicatorStyle">@style/Sdkit.StarDs.Components.Indicator.L.Dark</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Indicator.L.Black">
+        <item name="sdkit_indicatorColors">state_black</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.IndicatorLBlack">
+        <item name="sd_indicatorStyle">@style/Sdkit.StarDs.Components.Indicator.L.Black</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Indicator.L.White">
+        <item name="sdkit_indicatorColors">state_white</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.IndicatorLWhite">
+        <item name="sd_indicatorStyle">@style/Sdkit.StarDs.Components.Indicator.L.White</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Indicator.M">
+        <item name="android:maxHeight">@dimen/sdkit_indicator_m_max_height</item>
+        <item name="android:maxWidth">@dimen/sdkit_indicator_m_max_width</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.IndicatorM">
+        <item name="sd_indicatorStyle">@style/Sdkit.StarDs.Components.Indicator.M</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Indicator.M.Default">
+        <item name="sdkit_indicatorColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.IndicatorMDefault">
+        <item name="sd_indicatorStyle">@style/Sdkit.StarDs.Components.Indicator.M.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Indicator.M.Accent">
+        <item name="sdkit_indicatorColors">state_accent</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.IndicatorMAccent">
+        <item name="sd_indicatorStyle">@style/Sdkit.StarDs.Components.Indicator.M.Accent</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Indicator.M.Inactive">
+        <item name="sdkit_indicatorColors">state_inactive</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.IndicatorMInactive">
+        <item name="sd_indicatorStyle">@style/Sdkit.StarDs.Components.Indicator.M.Inactive</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Indicator.M.Positive">
+        <item name="sdkit_indicatorColors">state_positive</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.IndicatorMPositive">
+        <item name="sd_indicatorStyle">@style/Sdkit.StarDs.Components.Indicator.M.Positive</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Indicator.M.Warning">
+        <item name="sdkit_indicatorColors">state_warning</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.IndicatorMWarning">
+        <item name="sd_indicatorStyle">@style/Sdkit.StarDs.Components.Indicator.M.Warning</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Indicator.M.Negative">
+        <item name="sdkit_indicatorColors">state_negative</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.IndicatorMNegative">
+        <item name="sd_indicatorStyle">@style/Sdkit.StarDs.Components.Indicator.M.Negative</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Indicator.M.Dark">
+        <item name="sdkit_indicatorColors">state_dark</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.IndicatorMDark">
+        <item name="sd_indicatorStyle">@style/Sdkit.StarDs.Components.Indicator.M.Dark</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Indicator.M.Black">
+        <item name="sdkit_indicatorColors">state_black</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.IndicatorMBlack">
+        <item name="sd_indicatorStyle">@style/Sdkit.StarDs.Components.Indicator.M.Black</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Indicator.M.White">
+        <item name="sdkit_indicatorColors">state_white</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.IndicatorMWhite">
+        <item name="sd_indicatorStyle">@style/Sdkit.StarDs.Components.Indicator.M.White</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Indicator.S">
+        <item name="android:maxHeight">@dimen/sdkit_indicator_s_max_height</item>
+        <item name="android:maxWidth">@dimen/sdkit_indicator_s_max_width</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.IndicatorS">
+        <item name="sd_indicatorStyle">@style/Sdkit.StarDs.Components.Indicator.S</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Indicator.S.Default">
+        <item name="sdkit_indicatorColors">state_default</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.IndicatorSDefault">
+        <item name="sd_indicatorStyle">@style/Sdkit.StarDs.Components.Indicator.S.Default</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Indicator.S.Accent">
+        <item name="sdkit_indicatorColors">state_accent</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.IndicatorSAccent">
+        <item name="sd_indicatorStyle">@style/Sdkit.StarDs.Components.Indicator.S.Accent</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Indicator.S.Inactive">
+        <item name="sdkit_indicatorColors">state_inactive</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.IndicatorSInactive">
+        <item name="sd_indicatorStyle">@style/Sdkit.StarDs.Components.Indicator.S.Inactive</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Indicator.S.Positive">
+        <item name="sdkit_indicatorColors">state_positive</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.IndicatorSPositive">
+        <item name="sd_indicatorStyle">@style/Sdkit.StarDs.Components.Indicator.S.Positive</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Indicator.S.Warning">
+        <item name="sdkit_indicatorColors">state_warning</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.IndicatorSWarning">
+        <item name="sd_indicatorStyle">@style/Sdkit.StarDs.Components.Indicator.S.Warning</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Indicator.S.Negative">
+        <item name="sdkit_indicatorColors">state_negative</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.IndicatorSNegative">
+        <item name="sd_indicatorStyle">@style/Sdkit.StarDs.Components.Indicator.S.Negative</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Indicator.S.Dark">
+        <item name="sdkit_indicatorColors">state_dark</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.IndicatorSDark">
+        <item name="sd_indicatorStyle">@style/Sdkit.StarDs.Components.Indicator.S.Dark</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Indicator.S.Black">
+        <item name="sdkit_indicatorColors">state_black</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.IndicatorSBlack">
+        <item name="sd_indicatorStyle">@style/Sdkit.StarDs.Components.Indicator.S.Black</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.Indicator.S.White">
+        <item name="sdkit_indicatorColors">state_white</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.IndicatorSWhite">
+        <item name="sd_indicatorStyle">@style/Sdkit.StarDs.Components.Indicator.S.White</item>
+    </style>
+</resources>
