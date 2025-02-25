@@ -186,6 +186,7 @@ internal fun BaseTextField(
         suffixTextStyle = suffixStyle,
         transparent = value.text.isEmpty(),
     )
+    // TODO: https://github.com/salute-developers/plasma-android/issues/284
     val valueTransformation = if (prefix.isNullOrEmpty() && suffix.isNullOrEmpty()) {
         visualTransformation
     } else {

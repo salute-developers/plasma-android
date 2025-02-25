@@ -12,6 +12,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.Dp
@@ -21,6 +22,7 @@ import com.sdds.compose.uikit.TextField.LabelPlacement
 import com.sdds.compose.uikit.internal.focusselector.FocusSelectorMode
 import com.sdds.compose.uikit.internal.focusselector.LocalFocusSelectorMode
 import com.sdds.compose.uikit.internal.textfield.BaseTextField
+import com.sdds.compose.uikit.internal.textfield.PrefixSuffixTransformation
 
 /**
  * Поле ввода текста.
@@ -366,3 +368,24 @@ object TextArea
  * Вспомогательный объект для описания API и стиля компонента
  */
 object TextAreaClear
+
+/**
+ * Вернет [VisualTransformation], которая добавит префикс [prefix] и/или суффикс [suffix].
+ * Отступ до основного текста будет иметь ширину пробела в соответствующем текстовом стиле.
+ *
+ * @param prefix значение префикса
+ * @param suffix значение суффикса
+ * @param prefixTextStyle стиль [prefix]
+ * @param suffixTextStyle стиль [suffix]
+ */
+@Deprecated("Для внутреннего использования")
+fun prefixSuffixTransformation(
+    prefix: String? = null,
+    suffix: String? = null,
+    prefixTextStyle: TextStyle = TextStyle(),
+    suffixTextStyle: TextStyle = TextStyle(),
+): VisualTransformation = if (prefix.isNullOrEmpty() && suffix.isNullOrEmpty()) {
+    VisualTransformation.None
+} else {
+    PrefixSuffixTransformation(prefix.orEmpty(), suffix.orEmpty(), prefixTextStyle, suffixTextStyle)
+}
