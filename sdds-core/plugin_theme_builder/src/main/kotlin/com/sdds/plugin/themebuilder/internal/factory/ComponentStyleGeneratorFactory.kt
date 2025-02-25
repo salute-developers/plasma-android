@@ -5,6 +5,7 @@ import com.sdds.plugin.themebuilder.ResourcePrefixConfig
 import com.sdds.plugin.themebuilder.internal.PackageResolver
 import com.sdds.plugin.themebuilder.internal.TargetPackage
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
+import com.sdds.plugin.themebuilder.internal.components.badge.compose.BadgeComposeVariationGenerator
 import com.sdds.plugin.themebuilder.internal.components.button.compose.ButtonComposeVariationGenerator
 import com.sdds.plugin.themebuilder.internal.components.button.view.BasicButtonStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.components.button.view.IconButtonStyleGeneratorView
@@ -251,6 +252,70 @@ internal class ComponentStyleGeneratorFactory(
         componentName = componentName,
         outputLocation = KtFileBuilder.OutputLocation.Directory(outputDir),
     )
+
+    fun createBadgeStyleGeneratorCompose() =
+        createBadgeStyleGeneratorCompose(
+            componentName = "badge_solid",
+        )
+
+    fun createBadgeClearStyleGeneratorCompose() =
+        createBadgeStyleGeneratorCompose(
+            componentName = "badge_clear",
+        )
+
+    fun createBadgeTransparentStyleGeneratorCompose() =
+        createBadgeStyleGeneratorCompose(
+            componentName = "badge_transparent",
+        )
+
+    private fun createBadgeStyleGeneratorCompose(
+        componentName: String,
+    ) =
+        BadgeComposeVariationGenerator(
+            themeClassName = "${themeName.snakeToCamelCase()}Theme",
+            themePackage = packageResolver.getPackage(TargetPackage.THEME),
+            dimensionsConfig = dimensionsConfig,
+            dimensAggregator = dimensAggregator,
+            resourceReferenceProvider = resourceReferenceProvider,
+            namespace = namespace,
+            ktFileBuilderFactory = ktFileBuilderFactory,
+            componentPackage = "${packageResolver.getPackage(TargetPackage.STYLES)}.badge",
+            componentName = componentName,
+            outputLocation = KtFileBuilder.OutputLocation.Directory(outputDir),
+            styleBuilderName = "BadgeStyleBuilder",
+        )
+
+    fun createIconBadgeStyleGeneratorCompose() =
+        createIconBadgeStyleGeneratorCompose(
+            componentName = "icon_badge_solid",
+        )
+
+    fun createIconBadgeClearStyleGeneratorCompose() =
+        createIconBadgeStyleGeneratorCompose(
+            componentName = "icon_badge_clear",
+        )
+
+    fun createIconBadgeTransparentStyleGeneratorCompose() =
+        createIconBadgeStyleGeneratorCompose(
+            componentName = "icon_badge_transparent",
+        )
+
+    private fun createIconBadgeStyleGeneratorCompose(
+        componentName: String,
+    ) =
+        BadgeComposeVariationGenerator(
+            themeClassName = "${themeName.snakeToCamelCase()}Theme",
+            themePackage = packageResolver.getPackage(TargetPackage.THEME),
+            dimensionsConfig = dimensionsConfig,
+            dimensAggregator = dimensAggregator,
+            resourceReferenceProvider = resourceReferenceProvider,
+            namespace = namespace,
+            ktFileBuilderFactory = ktFileBuilderFactory,
+            componentPackage = "${packageResolver.getPackage(TargetPackage.STYLES)}.badge.icon",
+            componentName = componentName,
+            outputLocation = KtFileBuilder.OutputLocation.Directory(outputDir),
+            styleBuilderName = "IconBadgeStyleBuilder",
+        )
 
     fun createDimensionGenerator(): DimenTokenGenerator = DimenTokenGenerator(
         outputResDir = outputResDir,

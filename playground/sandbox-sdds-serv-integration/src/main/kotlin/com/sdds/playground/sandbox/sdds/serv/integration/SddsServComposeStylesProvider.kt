@@ -2,6 +2,7 @@ package com.sdds.playground.sandbox.sdds.serv.integration
 
 import com.sdds.compose.uikit.AvatarGroupStyle
 import com.sdds.compose.uikit.AvatarStyle
+import com.sdds.compose.uikit.BadgeStyle
 import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.CellStyle
 import com.sdds.compose.uikit.CheckBoxGroupStyle
@@ -18,6 +19,12 @@ import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 import com.sdds.playground.sandbox.core.integration.StylesProviderCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.avatar.SddsServAvatarVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.avatar.group.SddsServAvatarGroupVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.badge.SddsServBadgeClearVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.badge.SddsServBadgeSolidVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.badge.SddsServBadgeTransparentVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.badge.icon.SddsServIconBadgeClearVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.badge.icon.SddsServIconBadgeSolidVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.badge.icon.SddsServIconBadgeTransparentVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.button.basic.SddsServBasicButtonVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.button.icon.SddsServIconButtonVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.button.link.SddsServLinkButtonVariationsCompose
@@ -79,4 +86,16 @@ object SddsServComposeStylesProvider : StylesProviderCompose {
         get() = SddsServCellVariationsCompose
     override val indicator: ComposeStyleProvider<String, IndicatorStyle>
         get() = SddsServIndicatorVariationsCompose
+    override val badgeSolid: ComposeStyleProvider<String, BadgeStyle>
+        get() = SddsServBadgeSolidVariationsCompose
+    override val badgeClear: ComposeStyleProvider<String, BadgeStyle>
+        get() = SddsServBadgeClearVariationsCompose
+    override val badgeTransparent: ComposeStyleProvider<String, BadgeStyle>
+        get() = SddsServBadgeTransparentVariationsCompose
+    override val iconBadgeSolid: ComposeStyleProvider<String, BadgeStyle>
+        get() = SddsServIconBadgeSolidVariationsCompose
+    override val iconBadgeClear: ComposeStyleProvider<String, BadgeStyle>
+        get() = SddsServIconBadgeClearVariationsCompose
+    override val iconBadgeTransparent: ComposeStyleProvider<String, BadgeStyle>
+        get() = SddsServIconBadgeTransparentVariationsCompose
 }
