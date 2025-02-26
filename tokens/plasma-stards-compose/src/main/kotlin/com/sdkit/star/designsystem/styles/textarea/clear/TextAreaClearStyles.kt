@@ -216,7 +216,10 @@ private val TextAreaClearStyleBuilder.invariantProps: TextAreaClearStyleBuilder
                 StarDsTheme.colors.textDefaultSecondary.asInteractive(),
             )
             counterColor(
-                StarDsTheme.colors.textDefaultSecondary.asInteractive(),
+                StarDsTheme.colors.textDefaultSecondary.asInteractive(
+                    setOf(InteractiveState.Focused)
+                        to StarDsTheme.colors.textDefaultPrimary,
+                ),
             )
             cursorColor(
                 StarDsTheme.colors.textDefaultAccentMain.asInteractive(),
@@ -230,13 +233,13 @@ private val TextAreaClearStyleBuilder.invariantProps: TextAreaClearStyleBuilder
             prefixColor(
                 StarDsTheme.colors.textDefaultTertiary.asInteractive(
                     setOf(InteractiveState.Focused)
-                        to StarDsTheme.colors.textInverseTertiary,
+                        to StarDsTheme.colors.textDefaultPrimary,
                 ),
             )
             suffixColor(
                 StarDsTheme.colors.textDefaultTertiary.asInteractive(
                     setOf(InteractiveState.Focused)
-                        to StarDsTheme.colors.textInverseTertiary,
+                        to StarDsTheme.colors.textDefaultPrimary,
                 ),
             )
         }
@@ -337,7 +340,16 @@ public val WrapperTextAreaClearS.InnerLabel: WrapperTextAreaClearSInnerLabel
         .labelPlacement(TextField.LabelPlacement.Inner)
         .colors {
             labelColor(
-                StarDsTheme.colors.textDefaultSecondary.asInteractive(),
+                StarDsTheme.colors.textDefaultSecondary.asInteractive(
+                    setOf(InteractiveState.Focused)
+                        to StarDsTheme.colors.textDefaultPrimary,
+                ),
+            )
+            optionalColor(
+                StarDsTheme.colors.textDefaultTertiary.asInteractive(
+                    setOf(InteractiveState.Focused)
+                        to StarDsTheme.colors.textDefaultPrimary,
+                ),
             )
         }
         .wrap(::WrapperTextAreaClearSInnerLabel)
@@ -396,7 +408,16 @@ public val WrapperTextAreaClearM.InnerLabel: WrapperTextAreaClearMInnerLabel
         .labelPlacement(TextField.LabelPlacement.Inner)
         .colors {
             labelColor(
-                StarDsTheme.colors.textDefaultSecondary.asInteractive(),
+                StarDsTheme.colors.textDefaultSecondary.asInteractive(
+                    setOf(InteractiveState.Focused)
+                        to StarDsTheme.colors.textDefaultPrimary,
+                ),
+            )
+            optionalColor(
+                StarDsTheme.colors.textDefaultTertiary.asInteractive(
+                    setOf(InteractiveState.Focused)
+                        to StarDsTheme.colors.textDefaultPrimary,
+                ),
             )
         }
         .wrap(::WrapperTextAreaClearMInnerLabel)
@@ -455,7 +476,16 @@ public val WrapperTextAreaClearL.InnerLabel: WrapperTextAreaClearLInnerLabel
         .labelPlacement(TextField.LabelPlacement.Inner)
         .colors {
             labelColor(
-                StarDsTheme.colors.textDefaultSecondary.asInteractive(),
+                StarDsTheme.colors.textDefaultSecondary.asInteractive(
+                    setOf(InteractiveState.Focused)
+                        to StarDsTheme.colors.textDefaultPrimary,
+                ),
+            )
+            optionalColor(
+                StarDsTheme.colors.textDefaultTertiary.asInteractive(
+                    setOf(InteractiveState.Focused)
+                        to StarDsTheme.colors.textDefaultPrimary,
+                ),
             )
         }
         .wrap(::WrapperTextAreaClearLInnerLabel)

@@ -15,7 +15,7 @@ import com.sdds.playground.sandbox.core.compose.ComponentScaffold
 
 @Composable
 internal fun IconBadgeScreen(
-    theme: Theme.ThemeInfoCompose = Theme.SddsServ.compose,
+    theme: Theme.ThemeInfoCompose = Theme.composeDefault,
 ) {
     val iconBadgeViewModel: IconBadgeParametersViewModel = viewModel(
         factory = IconBadgeParametersViewModelFactory(BadgeUiState(), theme),

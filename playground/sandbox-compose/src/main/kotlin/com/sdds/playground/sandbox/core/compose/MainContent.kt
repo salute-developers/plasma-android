@@ -61,7 +61,6 @@ internal fun MainContent() {
         backgroundColor = Color.Transparent,
         drawerBackgroundColor = sandboxStyle.drawerBackgroundColor,
         drawerElevation = 0.dp,
-        drawerScrimColor = Color.Transparent,
         drawerShape = CustomNavShape,
         drawerGesturesEnabled = true,
         drawerContent = {

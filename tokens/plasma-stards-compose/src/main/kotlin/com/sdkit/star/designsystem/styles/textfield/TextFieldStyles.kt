@@ -139,10 +139,7 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
         .chipGroupStyle(ChipGroup.Dense.style())
         .colors {
             optionalColor(
-                StarDsTheme.colors.textDefaultTertiary.asInteractive(
-                    setOf(InteractiveState.Focused)
-                        to StarDsTheme.colors.textOnLightTertiary,
-                ),
+                StarDsTheme.colors.textDefaultTertiary.asInteractive(),
             )
             valueColor(
                 StarDsTheme.colors.textDefaultPrimary.asInteractive(
@@ -321,6 +318,12 @@ public val WrapperTextFieldS.InnerLabel: WrapperTextFieldSInnerLabel
                         to StarDsTheme.colors.textOnLightSecondary,
                 ),
             )
+            optionalColor(
+                StarDsTheme.colors.textDefaultTertiary.asInteractive(
+                    setOf(InteractiveState.Focused)
+                        to StarDsTheme.colors.textOnLightTertiary,
+                ),
+            )
         }
         .wrap(::WrapperTextFieldSInnerLabel)
 
@@ -384,6 +387,12 @@ public val WrapperTextFieldM.InnerLabel: WrapperTextFieldMInnerLabel
                 StarDsTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Focused)
                         to StarDsTheme.colors.textOnLightSecondary,
+                ),
+            )
+            optionalColor(
+                StarDsTheme.colors.textDefaultTertiary.asInteractive(
+                    setOf(InteractiveState.Focused)
+                        to StarDsTheme.colors.textOnLightTertiary,
                 ),
             )
         }

@@ -2,6 +2,7 @@ package com.sdds.playground.sandbox.plasma.stards.integration
 
 import com.sdds.compose.uikit.AvatarGroupStyle
 import com.sdds.compose.uikit.AvatarStyle
+import com.sdds.compose.uikit.BadgeStyle
 import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.CellStyle
 import com.sdds.compose.uikit.CheckBoxGroupStyle
@@ -18,6 +19,12 @@ import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 import com.sdds.playground.sandbox.core.integration.StylesProviderCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.avatar.StarDsAvatarVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.avatar.group.StarDsAvatarGroupVariationsCompose
+import com.sdds.playground.sandbox.plasma.stards.integration.badge.StarDsBadgeClearVariationsCompose
+import com.sdds.playground.sandbox.plasma.stards.integration.badge.StarDsBadgeSolidVariationsCompose
+import com.sdds.playground.sandbox.plasma.stards.integration.badge.StarDsBadgeTransparentVariationsCompose
+import com.sdds.playground.sandbox.plasma.stards.integration.badge.icon.StarDsIconBadgeClearVariationsCompose
+import com.sdds.playground.sandbox.plasma.stards.integration.badge.icon.StarDsIconBadgeSolidVariationsCompose
+import com.sdds.playground.sandbox.plasma.stards.integration.badge.icon.StarDsIconBadgeTransparentVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.button.basic.StarDsBasicButtonVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.button.icon.StarDsIconButtonVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.button.link.StarDsLinkButtonVariationsCompose
@@ -79,4 +86,16 @@ object StarDsComposeStylesProvider : StylesProviderCompose {
         get() = StarDsCellVariationsCompose
     override val indicator: ComposeStyleProvider<String, IndicatorStyle>
         get() = StarDsIndicatorVariationsCompose
+    override val badgeSolid: ComposeStyleProvider<String, BadgeStyle>
+        get() = StarDsBadgeSolidVariationsCompose
+    override val badgeClear: ComposeStyleProvider<String, BadgeStyle>
+        get() = StarDsBadgeClearVariationsCompose
+    override val badgeTransparent: ComposeStyleProvider<String, BadgeStyle>
+        get() = StarDsBadgeTransparentVariationsCompose
+    override val iconBadgeSolid: ComposeStyleProvider<String, BadgeStyle>
+        get() = StarDsIconBadgeSolidVariationsCompose
+    override val iconBadgeClear: ComposeStyleProvider<String, BadgeStyle>
+        get() = StarDsIconBadgeClearVariationsCompose
+    override val iconBadgeTransparent: ComposeStyleProvider<String, BadgeStyle>
+        get() = StarDsIconBadgeTransparentVariationsCompose
 }
