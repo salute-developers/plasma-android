@@ -52,4 +52,5 @@ dependencies {
     implementation(libs.sdds.uikit)
     implementation(libs.base.androidX.core)
     implementation(libs.base.androidX.appcompat)
+    implementation(libs.base.android.material)
 }

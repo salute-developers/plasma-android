@@ -1,0 +1,33 @@
+<resources>
+    <style name="Theme.Sandbox" parent="Sdkit.AppTheme">
+        <item name="colorPrimary">?sdkit_surfaceDefaultSolidPrimary</item>
+        <item name="colorPrimaryVariant">?sdkit_surfaceDefaultSolidSecondary</item>
+        <item name="colorOnPrimary">?sdkit_textDefaultPrimary</item>
+        <item name="colorSurface">?sdkit_surfaceDefaultSolidCard</item>
+        <item name="colorOnSurface">?sdkit_textDefaultPrimary</item>
+        <item name="colorAccent">?sdkit_textDefaultAccent</item>
+        <item name="colorControlActivated">?sdkit_textDefaultAccent</item>
+        <item name="colorControlHighlight">@android:color/transparent</item>
+
+        <item name="android:colorBackground">?sdkit_backgroundDefaultPrimary</item>
+
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
+
+        <item name="toolbarNavigationButtonStyle">@style/Toolbar.Button.Navigation.Tinted</item>
+        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+        <item name="android:toolbarStyle">@style/Theme.Sandbox.Components.Toolbar</item>
+        <item name="toolbarStyle">@style/Theme.Sandbox.Components.Toolbar</item>
+        <item name="bottomSheetDialogTheme">@style/Theme.Sandbox.ComponentOverlays.BottomSheetDialog</item>
+        <item name="android:dialogTheme">@style/Theme.Sandbox.EditorDialog</item>
+        <item name="dialogTheme">@style/Theme.Sandbox.EditorDialog</item>
+    </style>
+
+    <style name="Theme.Sandbox.EditorDialog" parent="ThemeOverlay.MaterialComponents.Dialog">
+        <item name="android:windowMinWidthMajor">40%</item>
+        <item name="android:windowMinWidthMinor">40%</item>
+        <item name="android:windowBackground">@null</item>
+    </style>
+
+</resources>

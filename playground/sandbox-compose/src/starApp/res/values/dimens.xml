@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="sandbox_confirm_button_margin_top">@dimen/sdkit_spacing_8x</dimen>
+    <dimen name="sandbox_editor_choice_list_margin_top">@dimen/sdkit_spacing_8x</dimen>
+    <dimen name="sandbox_editor_paddings">@dimen/sdkit_spacing_8x</dimen>
+    <dimen name="sandbox_property_paddings">@dimen/sdkit_spacing_8x</dimen>
+    <dimen name="sandbox_property_label_margin">@dimen/sdkit_spacing_4x</dimen>
+    <dimen name="sandbox_property_reset_margin">@dimen/sdkit_spacing_4x</dimen>
+    <dimen name="sandbox_property_height">112dp</dimen>
+    <dimen name="sandbox_component_scaffold_paddings">@dimen/sdkit_spacing_8x</dimen>
+    <dimen name="sandbox_component_canvas_height">460dp</dimen>
+    <dimen name="sandbox_property_list_margin_top">@dimen/sdkit_spacing_8x</dimen>
+    <dimen name="sandbox_toolbar_button_margin">@dimen/sdkit_spacing_6x</dimen>
+</resources>
