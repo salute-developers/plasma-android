@@ -144,10 +144,7 @@ private val TextAreaStyleBuilder.invariantProps: TextAreaStyleBuilder
         .chipGroupStyle(ChipGroup.Dense.style())
         .colors {
             optionalColor(
-                StarDsTheme.colors.textDefaultTertiary.asInteractive(
-                    setOf(InteractiveState.Focused)
-                        to StarDsTheme.colors.textOnLightTertiary,
-                ),
+                StarDsTheme.colors.textDefaultTertiary.asInteractive(),
             )
             valueColor(
                 StarDsTheme.colors.textDefaultPrimary.asInteractive(
@@ -338,7 +335,16 @@ public val WrapperTextAreaS.InnerLabel: WrapperTextAreaSInnerLabel
         .labelPlacement(TextField.LabelPlacement.Inner)
         .colors {
             labelColor(
-                StarDsTheme.colors.textDefaultSecondary.asInteractive(),
+                StarDsTheme.colors.textDefaultSecondary.asInteractive(
+                    setOf(InteractiveState.Focused)
+                        to StarDsTheme.colors.textOnLightSecondary,
+                ),
+            )
+            optionalColor(
+                StarDsTheme.colors.textDefaultTertiary.asInteractive(
+                    setOf(InteractiveState.Focused)
+                        to StarDsTheme.colors.textOnLightTertiary,
+                ),
             )
         }
         .wrap(::WrapperTextAreaSInnerLabel)
@@ -401,7 +407,16 @@ public val WrapperTextAreaM.InnerLabel: WrapperTextAreaMInnerLabel
         .labelPlacement(TextField.LabelPlacement.Inner)
         .colors {
             labelColor(
-                StarDsTheme.colors.textDefaultSecondary.asInteractive(),
+                StarDsTheme.colors.textDefaultSecondary.asInteractive(
+                    setOf(InteractiveState.Focused)
+                        to StarDsTheme.colors.textOnLightSecondary,
+                ),
+            )
+            optionalColor(
+                StarDsTheme.colors.textDefaultTertiary.asInteractive(
+                    setOf(InteractiveState.Focused)
+                        to StarDsTheme.colors.textOnLightTertiary,
+                ),
             )
         }
         .wrap(::WrapperTextAreaMInnerLabel)

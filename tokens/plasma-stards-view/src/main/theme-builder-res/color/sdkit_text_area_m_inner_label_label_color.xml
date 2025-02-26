@@ -2,5 +2,6 @@
 
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:color="?sdkit_textOnLightSecondary" android:state_activated="false" android:state_focused="true"/>
     <item android:color="?sdkit_textDefaultSecondary"/>
 </selector>
