@@ -4,93 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.updatePadding
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.sdds.playground.sandbox.R
+import com.sdds.playground.sandbox.core.vs.EditorFragment.Companion.CONFIRM_RESULT_KEY
 import com.sdds.playground.sandbox.databinding.FragmentEditorChoiceBinding
 import com.sdds.playground.sandbox.databinding.FragmentEditorTextBinding
 import com.sdds.uikit.RadioBox
-
-/**
- * Базовый фрагмент редактора параметров компонентов
- * @author Малышев Александр on 05.08.2024
- */
-internal open class EditorFragment<T : Any> : BottomSheetDialogFragment() {
-
-    /**
-     * Название свойства
-     */
-    protected val propertyName: String by lazy {
-        arguments?.getString(ARG_PROPERTY_NAME).orEmpty()
-    }
-
-    /**
-     * Значение свойства
-     */
-    protected val currentValue: String by lazy {
-        arguments?.getString(ARG_PROPERTY_CURRENT_VALUE).orEmpty()
-    }
-
-    /**
-     * Сохраняет введенное в редактор значение [any] и закрывает редактор
-     */
-    protected fun confirm(any: T?) {
-        val confirmKey = arguments?.getString(ARG_CONFIRM_RESULT_KEY) ?: CONFIRM_RESULT_KEY
-        requireActivity().supportFragmentManager.setFragmentResult(
-            confirmKey,
-            bundleOf(CONFIRM_VALUE to any),
-        )
-        dismiss()
-    }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return super.onCreateView(inflater, container, savedInstanceState)?.apply {
-            ViewCompat.setOnApplyWindowInsetsListener(this) { v, insets ->
-                v.updatePadding(
-                    bottom = v.paddingBottom + insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom,
-                )
-                insets
-            }
-        }
-    }
-
-    companion object {
-        const val CONFIRM_RESULT_KEY = "EditorFragment_confirmResult"
-        const val CONFIRM_VALUE = "EditorFragment_confirmResult"
-        const val ARG_PROPERTY_NAME = "EditorFragment_propertyName"
-        const val ARG_PROPERTY_CURRENT_VALUE = "EditorFragment_propertyCurrentValue"
-        const val ARG_CONFIRM_RESULT_KEY = "EditorFragment_argConfirmResult"
-
-        /**
-         * Возвращает редактор текста
-         * @param propertyName название свойства
-         * @param currentValue значение свойства
-         */
-        fun textEditor(
-            propertyName: String,
-            currentValue: String,
-        ): EditorFragment<String> = TextEditorFragment.newInstance(propertyName, currentValue)
-
-        /**
-         * Возвращает редактор с выбором значения из некоторого множества значений одного свойства
-         * @param propertyName название свойства
-         * @param currentValue значение свойства
-         * @param choices множество значений свойства
-         * @param confirmKey опциональный ключ, по которому будет записан результат выбора.
-         * Если [confirmKey] == null, то результат будет записан по ключу [CONFIRM_RESULT_KEY]
-         */
-        fun choiceEditor(
-            propertyName: String,
-            currentValue: String,
-            choices: List<String>,
-            confirmKey: String? = null,
-        ): EditorFragment<String> = ChoiceEditorFragment.newInstance(propertyName, currentValue, choices, confirmKey)
-    }
-}
 
 /**
  * Редактор текстовых свойств компонентов
@@ -235,3 +154,28 @@ private class ChoiceAdapter : RecyclerView.Adapter<ChoiceAdapter.ChoiceHolder>()
         }
     }
 }
+
+/**
+ * Возвращает редактор текста
+ * @param propertyName название свойства
+ * @param currentValue значение свойства
+ */
+internal fun EditorFragment.Companion.textEditor(
+    propertyName: String,
+    currentValue: String,
+): EditorFragment<String> = TextEditorFragment.newInstance(propertyName, currentValue)
+
+/**
+ * Возвращает редактор с выбором значения из некоторого множества значений одного свойства
+ * @param propertyName название свойства
+ * @param currentValue значение свойства
+ * @param choices множество значений свойства
+ * @param confirmKey опциональный ключ, по которому будет записан результат выбора.
+ * Если [confirmKey] == null, то результат будет записан по ключу [CONFIRM_RESULT_KEY]
+ */
+internal fun EditorFragment.Companion.choiceEditor(
+    propertyName: String,
+    currentValue: String,
+    choices: List<String>,
+    confirmKey: String? = null,
+): EditorFragment<String> = ChoiceEditorFragment.newInstance(propertyName, currentValue, choices, confirmKey)

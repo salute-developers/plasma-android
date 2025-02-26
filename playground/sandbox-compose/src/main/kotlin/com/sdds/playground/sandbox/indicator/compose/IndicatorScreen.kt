@@ -8,7 +8,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.sdds.compose.uikit.Indicator
-import com.sdds.compose.uikit.indicator
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.Theme
 import com.sdds.playground.sandbox.core.compose.ComponentScaffold
