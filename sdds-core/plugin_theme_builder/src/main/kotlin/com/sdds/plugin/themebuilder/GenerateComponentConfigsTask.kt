@@ -7,6 +7,7 @@ import com.sdds.plugin.themebuilder.internal.components.button.ButtonConfig
 import com.sdds.plugin.themebuilder.internal.components.cell.CellConfig
 import com.sdds.plugin.themebuilder.internal.components.counter.CounterConfig
 import com.sdds.plugin.themebuilder.internal.components.indicator.IndicatorConfig
+import com.sdds.plugin.themebuilder.internal.components.segment.item.SegmentItemConfig
 import com.sdds.plugin.themebuilder.internal.components.textfield.TextFieldConfig
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.ComponentStyleGeneratorFactory
@@ -123,6 +124,12 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
      */
     @get:InputFile
     abstract val iconBadgeTransparentConfigFile: RegularFileProperty
+
+    /**
+     * Файл с конфигом SegmentItem
+     */
+    @get:InputFile
+    abstract val segmentItemConfigFile: RegularFileProperty
 
     /**
      * Путь для сохранения kt-файлов токенов
@@ -304,6 +311,10 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
         componentStyleGeneratorFactory.createCounterStyleGeneratorCompose()
     }
 
+    private val segmentItemGeneratorCompose by unsafeLazy {
+        componentStyleGeneratorFactory.createSegmentItemStyleGeneratorCompose()
+    }
+
     private val basicButtonConfig: ButtonConfig by unsafeLazy {
         basicButtonConfigFile.get()
             .asFile
@@ -400,6 +411,12 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
             .decode(Serializer.componentConfig)
     }
 
+    private val segmentItemConfig: SegmentItemConfig by unsafeLazy {
+        segmentItemConfigFile.get()
+            .asFile
+            .decode(Serializer.componentConfig)
+    }
+
     @TaskAction
     fun generate() {
         when (target.get()) {
@@ -429,6 +446,7 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
         iconBadgeStyleGeneratorCompose.generate(iconBadgeConfig)
         iconBadgeClearStyleGeneratorCompose.generate(iconBadgeClearConfig)
         iconBadgeTransparentStyleGeneratorCompose.generate(iconBadgeTransparentConfig)
+        segmentItemGeneratorCompose.generate(segmentItemConfig)
         cellStyleGeneratorCompose.generate(cellConfig)
         counterStyleGeneratorCompose.generate(counterConfig)
     }
