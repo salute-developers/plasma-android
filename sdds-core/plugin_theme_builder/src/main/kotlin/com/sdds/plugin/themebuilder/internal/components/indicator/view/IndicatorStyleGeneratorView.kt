@@ -77,6 +77,7 @@ internal open class IndicatorStyleGeneratorView(
             is ColorValue.ViewValue -> colorValue.colors.forEach { (colorStateName, color) ->
                 addToStateList(colorProperty, color, variation, colorStateName)
             }
+            else -> Unit
         }
 
         colorAttribute(colorProperty, variation)
