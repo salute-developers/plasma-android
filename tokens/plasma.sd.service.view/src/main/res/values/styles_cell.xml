@@ -14,10 +14,10 @@
         <item name="sd_contentStartPadding">8dp</item>
         <item name="sd_contentEndPadding">8dp</item>
         <item name="sd_labelAppearance">@style/Plasma.SdService.TextAppearance.BodyMNormal</item>
-        <item name="sd_titleAppearance">@style/Plasma.SdService.TextAppearance.BodyLBold</item>
+        <item name="sd_titleAppearance">@style/Plasma.SdService.TextAppearance.BodyLNormal</item>
         <item name="sd_subtitleAppearance">@style/Plasma.SdService.TextAppearance.BodyMNormal</item>
         <item name="sd_disclosureTextAppearance">@style/Plasma.SdService.TextAppearance.BodyMNormal</item>
-        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_16</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_24</item>
         <item name="android:theme">@style/Plasma.SdService.ComponentOverlays.CellL</item>
     </style>
 
@@ -25,10 +25,10 @@
         <item name="sd_contentStartPadding">6dp</item>
         <item name="sd_contentEndPadding">6dp</item>
         <item name="sd_labelAppearance">@style/Plasma.SdService.TextAppearance.BodySNormal</item>
-        <item name="sd_titleAppearance">@style/Plasma.SdService.TextAppearance.BodyMBold</item>
+        <item name="sd_titleAppearance">@style/Plasma.SdService.TextAppearance.BodyMNormal</item>
         <item name="sd_subtitleAppearance">@style/Plasma.SdService.TextAppearance.BodySNormal</item>
         <item name="sd_disclosureTextAppearance">@style/Plasma.SdService.TextAppearance.BodySNormal</item>
-        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_16</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_24</item>
         <item name="android:theme">@style/Plasma.SdService.ComponentOverlays.CellM</item>
     </style>
 
@@ -36,7 +36,7 @@
         <item name="sd_contentStartPadding">6dp</item>
         <item name="sd_contentEndPadding">6dp</item>
         <item name="sd_labelAppearance">@style/Plasma.SdService.TextAppearance.BodyXsNormal</item>
-        <item name="sd_titleAppearance">@style/Plasma.SdService.TextAppearance.BodySBold</item>
+        <item name="sd_titleAppearance">@style/Plasma.SdService.TextAppearance.BodySNormal</item>
         <item name="sd_subtitleAppearance">@style/Plasma.SdService.TextAppearance.BodyXsNormal</item>
         <item name="sd_disclosureTextAppearance">@style/Plasma.SdService.TextAppearance.BodyXsNormal</item>
         <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_16</item>
@@ -47,7 +47,7 @@
         <item name="sd_contentStartPadding">4dp</item>
         <item name="sd_contentEndPadding">4dp</item>
         <item name="sd_labelAppearance">@style/Plasma.SdService.TextAppearance.BodyXsNormal</item>
-        <item name="sd_titleAppearance">@style/Plasma.SdService.TextAppearance.BodyXsBold</item>
+        <item name="sd_titleAppearance">@style/Plasma.SdService.TextAppearance.BodyXsNormal</item>
         <item name="sd_subtitleAppearance">@style/Plasma.SdService.TextAppearance.BodyXsNormal</item>
         <item name="sd_disclosureTextAppearance">@style/Plasma.SdService.TextAppearance.BodyXsNormal</item>
         <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_16</item>
