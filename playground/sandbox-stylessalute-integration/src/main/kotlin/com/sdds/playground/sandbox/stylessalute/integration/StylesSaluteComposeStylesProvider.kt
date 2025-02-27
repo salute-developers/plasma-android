@@ -14,6 +14,7 @@ import com.sdds.compose.uikit.IndicatorStyle
 import com.sdds.compose.uikit.ProgressBarStyle
 import com.sdds.compose.uikit.RadioBoxGroupStyle
 import com.sdds.compose.uikit.RadioBoxStyle
+import com.sdds.compose.uikit.SegmentItemStyle
 import com.sdds.compose.uikit.SwitchStyle
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
@@ -39,6 +40,7 @@ import com.sdds.playground.sandbox.stylessalute.integration.indicator.compose.St
 import com.sdds.playground.sandbox.stylessalute.integration.progress.StylesSaluteProgressVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.radiobox.StylesSaluteRadioBoxVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.radiobox.group.StylesSaluteRadioBoxGroupVariationsCompose
+import com.sdds.playground.sandbox.stylessalute.integration.segment.item.StylesSaluteSegmentItemVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.switcher.StylesSaluteSwitchVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.textarea.StylesSaluteTextAreaVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.textarea.clear.StylesSaluteTextAreaClearVariationsCompose
@@ -102,4 +104,6 @@ object StylesSaluteComposeStylesProvider : StylesProviderCompose {
         get() = StylesSaluteIconBadgeTransparentVariationsCompose
     override val counter: ComposeStyleProvider<String, CounterStyle>
         get() = StylesSaluteCounterVariationsCompose
+    override val segmentItem: ComposeStyleProvider<String, SegmentItemStyle>
+        get() = StylesSaluteSegmentItemVariationsCompose
 }

@@ -14,6 +14,7 @@ import com.sdds.compose.uikit.IndicatorStyle
 import com.sdds.compose.uikit.ProgressBarStyle
 import com.sdds.compose.uikit.RadioBoxGroupStyle
 import com.sdds.compose.uikit.RadioBoxStyle
+import com.sdds.compose.uikit.SegmentItemStyle
 import com.sdds.compose.uikit.SwitchStyle
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
@@ -39,6 +40,7 @@ import com.sdds.playground.sandbox.sdds.serv.integration.indicator.compose.SddsS
 import com.sdds.playground.sandbox.sdds.serv.integration.progress.SddsServProgressVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.radiobox.SddsServRadioBoxVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.radiobox.group.SddsServRadioBoxGroupVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.segment.item.SddsServSegmentItemVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.switcher.SddsServSwitchVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.textarea.SddsServTextAreaVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.textarea.clear.SddsServTextAreaClearVariationsCompose
@@ -90,6 +92,8 @@ object SddsServComposeStylesProvider : StylesProviderCompose {
         get() = SddsServIndicatorVariationsCompose
     override val counter: ComposeStyleProvider<String, CounterStyle>
         get() = SddsServCounterVariationsCompose
+    override val segmentItem: ComposeStyleProvider<String, SegmentItemStyle>
+        get() = SddsServSegmentItemVariationsCompose
     override val badgeSolid: ComposeStyleProvider<String, BadgeStyle>
         get() = SddsServBadgeSolidVariationsCompose
     override val badgeClear: ComposeStyleProvider<String, BadgeStyle>
