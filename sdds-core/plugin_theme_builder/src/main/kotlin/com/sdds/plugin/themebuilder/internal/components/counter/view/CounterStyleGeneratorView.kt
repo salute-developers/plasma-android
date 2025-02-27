@@ -82,6 +82,7 @@ internal open class CounterStyleGeneratorView(
             is ColorValue.ViewValue -> colorValue.colors.forEach { (colorStateName, color) ->
                 addToStateList(colorProperty, color, variation, colorStateName)
             }
+            else -> Unit
         }
 
         colorAttribute(colorProperty, variation)
