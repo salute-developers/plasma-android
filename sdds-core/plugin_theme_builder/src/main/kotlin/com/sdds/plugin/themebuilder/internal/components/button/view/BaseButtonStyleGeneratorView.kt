@@ -127,6 +127,7 @@ internal abstract class BaseButtonStyleGeneratorView(
                     LoadingAttrs,
                 )
             }
+            else -> Unit
         }
 
         when (colorValue) {
@@ -154,6 +155,7 @@ internal abstract class BaseButtonStyleGeneratorView(
                 }
                 addToStateList(colorProperty, color, variation, colorStateName)
             }
+            else -> Unit
         }
 
         colorAttribute(colorProperty, variation)

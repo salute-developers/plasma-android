@@ -213,6 +213,7 @@ internal open class ViewTextFieldStyleGenerator(
             is ColorValue.ViewValue -> readonlyValue.colors.forEach { (colorStateName, color) ->
                 addToStateList(colorProperty, color, variation, colorStateName, ReadOnlyAttrs)
             }
+            else -> Unit
         }
 
         when (colorValue) {
@@ -222,6 +223,7 @@ internal open class ViewTextFieldStyleGenerator(
             is ColorValue.ViewValue -> colorValue.colors.forEach { (colorStateName, color) ->
                 addToStateList(colorProperty, color, variation, colorStateName)
             }
+            else -> Unit
         }
 
         colorAttribute(colorProperty, variation)

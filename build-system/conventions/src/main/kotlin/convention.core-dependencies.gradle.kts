@@ -9,6 +9,7 @@ subprojects {
         resolutionStrategy.dependencySubstitution.all {
             val moduleSelector = requested as? ModuleComponentSelector
             if (moduleSelector == null || moduleSelector.group != "io.github.salute-developers") {
+                @Suppress("LABEL_NAME_CLASH")
                 return@all
             }
             println("requested module ${moduleSelector.module}")

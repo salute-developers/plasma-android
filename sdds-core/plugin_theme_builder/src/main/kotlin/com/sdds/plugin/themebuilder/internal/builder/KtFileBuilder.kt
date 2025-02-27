@@ -15,7 +15,6 @@ import com.squareup.kotlinpoet.TypeName
 import com.squareup.kotlinpoet.TypeSpec
 import com.squareup.kotlinpoet.asClassName
 import com.squareup.kotlinpoet.asTypeName
-import org.gradle.kotlin.dsl.support.appendReproducibleNewLine
 import java.io.ByteArrayOutputStream
 import java.io.File
 import kotlin.reflect.KClass
@@ -715,11 +714,11 @@ internal class KtFileBuilder(
             return buildString {
                 append(constructorName)
                 if (initializers.size > 1) {
-                    appendReproducibleNewLine("(")
+                    appendLine("(")
                     initializers.forEach {
                         append(DEFAULT_FILE_INDENT)
                         append(it)
-                        appendReproducibleNewLine(",")
+                        appendLine(",")
                     }
                 } else {
                     append("(")
@@ -735,11 +734,11 @@ internal class KtFileBuilder(
             return buildString {
                 append(funName)
                 if (parameters.size > 1) {
-                    appendReproducibleNewLine("(")
+                    appendLine("(")
                     parameters.forEach {
                         append(DEFAULT_FILE_INDENT)
                         append(it)
-                        appendReproducibleNewLine(",")
+                        appendLine(",")
                     }
                 } else {
                     append("(")
