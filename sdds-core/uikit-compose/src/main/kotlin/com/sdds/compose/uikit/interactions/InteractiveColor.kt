@@ -47,8 +47,9 @@ fun Color.asInteractive(
     hovered: Color = this,
     pressed: Color = this,
     activated: Color = this,
+    selected: Color = this,
 ): InteractiveColor {
-    return SimpleInteractiveColor(this, focused, hovered, pressed, activated)
+    return SimpleInteractiveColor(this, focused, hovered, pressed, activated, selected)
 }
 
 /**
@@ -85,6 +86,11 @@ enum class InteractiveState {
      * Состояние цвета в активном состоянии
      */
     Activated,
+
+    /**
+     * Состояние цвета в выбранном состоянии
+     */
+    Selected,
 }
 
 @Immutable
@@ -94,6 +100,7 @@ private data class SimpleInteractiveColor(
     val hovered: Color = default,
     val pressed: Color = default,
     val activated: Color = default,
+    val selected: Color = default,
 ) : InteractiveColor {
 
     @Composable
@@ -102,11 +109,13 @@ private data class SimpleInteractiveColor(
         val isHovered by interactionSource.collectIsHoveredAsState()
         val isFocused by interactionSource.collectIsFocusedAsState()
         val isActivated by interactionSource.collectIsActivatedAsState()
+        val isSelected by interactionSource.collectIsSelectedAsState()
         return when {
             isPressed -> pressed
             isHovered -> hovered
             isFocused -> focused
             isActivated -> activated
+            isSelected -> selected
             else -> default
         }
     }
@@ -129,12 +138,20 @@ private data class ColorStateList(
         val isHovered by interactionSource.collectIsHoveredAsState()
         val isFocused by interactionSource.collectIsFocusedAsState()
         val isActivated by interactionSource.collectIsActivatedAsState()
-        val stateSet = remember(isPressed, isFocused, isHovered, isActivated) {
+        val isSelected by interactionSource.collectIsSelectedAsState()
+        val stateSet = remember(
+            isPressed,
+            isFocused,
+            isHovered,
+            isActivated,
+            isSelected,
+        ) {
             HashSet<InteractiveState>().apply {
                 if (isPressed) add(InteractiveState.Pressed)
                 if (isFocused) add(InteractiveState.Focused)
                 if (isHovered) add(InteractiveState.Hovered)
                 if (isActivated) add(InteractiveState.Activated)
+                if (isSelected) add(InteractiveState.Selected)
             }
         }
         return colorStates[stateSet]
@@ -142,6 +159,7 @@ private data class ColorStateList(
             ?: colorStates.getSingleState(stateSet, InteractiveState.Focused)
             ?: colorStates.getSingleState(stateSet, InteractiveState.Hovered)
             ?: colorStates.getSingleState(stateSet, InteractiveState.Activated)
+            ?: colorStates.getSingleState(stateSet, InteractiveState.Selected)
             ?: default
     }
 
