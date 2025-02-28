@@ -44,7 +44,7 @@ fun SegmentItem(
     value: String? = null,
     startIcon: Painter? = null,
     endIcon: Painter? = null,
-    counter: Int? = null,
+    counter: String? = null,
     enabled: Boolean = true,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
@@ -71,7 +71,7 @@ fun SegmentItem(
         } else {
             null
         },
-        endContent = if (endIcon == null && counter == null) {
+        endContent = if (endIcon == null && counter.isNullOrEmpty()) {
             null
         } else {
             @Composable {
@@ -89,7 +89,7 @@ fun SegmentItem(
                 }
                 counter?.let {
                     Counter(
-                        count = AnnotatedString(counter.toString()),
+                        count = AnnotatedString(counter),
                         style = style.counterStyle,
                     )
                 }
