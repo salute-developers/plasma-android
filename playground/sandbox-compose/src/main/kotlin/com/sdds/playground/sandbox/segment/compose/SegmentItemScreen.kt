@@ -1,6 +1,5 @@
 package com.sdds.playground.sandbox.segment.compose
 
-import android.util.Log
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -36,10 +35,7 @@ internal fun SegmentItemScreen(theme: Theme.ThemeInfoCompose = Theme.composeDefa
                 var isSelected by remember { mutableStateOf(false) }
                 SegmentItem(
                     isSelected = isSelected,
-                    onSelectedChange = {
-                        Log.e("testtag", "onSelectedChange: selected=$it ")
-                        isSelected = it
-                    },
+                    onSelectedChange = { isSelected = it },
                     style = segmentItemViewModel
                         .getStyleProvider()
                         .style(uiState.variant),
@@ -70,7 +66,7 @@ private fun startContent(
                 )
 
                 SegmentItemContent.COUNTER -> Counter(count = AnnotatedString(count))
-                SegmentItemContent.NONE -> {}
+                else -> {}
             }
         }
     } else {
@@ -92,7 +88,7 @@ private fun endContent(
                 )
 
                 SegmentItemContent.COUNTER -> Counter(count = AnnotatedString(count))
-                SegmentItemContent.NONE -> {}
+                else -> {}
             }
         }
     } else {
