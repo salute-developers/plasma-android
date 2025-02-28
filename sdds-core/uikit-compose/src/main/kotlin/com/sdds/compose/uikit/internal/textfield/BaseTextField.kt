@@ -50,6 +50,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.offset
+import com.sdds.compose.uikit.IndicatorMode
 import com.sdds.compose.uikit.LocalTextFieldStyle
 import com.sdds.compose.uikit.LocalTint
 import com.sdds.compose.uikit.Text
@@ -63,7 +64,6 @@ import com.sdds.compose.uikit.TextFieldColors
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.activatable
-import com.sdds.compose.uikit.internal.common.IndicatorMode
 import com.sdds.compose.uikit.internal.common.drawIndicator
 import com.sdds.compose.uikit.internal.common.enable
 import com.sdds.compose.uikit.internal.focusselector.FocusSelectorMode
@@ -161,6 +161,14 @@ internal fun BaseTextField(
         color = colors.placeholderColor(readOnly),
         interactionSource = interactionSource,
     )
+    val prefixStyle = style.prefixStyle.applyColor(
+        color = colors.prefixColor(readOnly),
+        interactionSource = interactionSource,
+    )
+    val suffixStyle = style.suffixStyle.applyColor(
+        color = colors.suffixColor(readOnly),
+        interactionSource = interactionSource,
+    )
     val singleLine = style.singleLine
     val enabledAlpha = 1f
     val disabledAlpha = colors.disabledAlpha
@@ -171,11 +179,17 @@ internal fun BaseTextField(
     val finalOptionalText =
         if (labelPlacement == LabelPlacement.None) "" else optionalText
 
-    val innerVisualTransformation = remember(prefix, suffix, visualTransformation) {
+    val innerVisualTransformation = remember(
+        prefix,
+        suffix,
+        visualTransformation,
+        prefixStyle,
+        suffixStyle,
+    ) {
         if (prefix.isNullOrEmpty() && suffix.isNullOrEmpty()) {
             visualTransformation
         } else {
-            prefixSuffixTransformation(prefix, suffix, placeholderStyle, placeholderStyle)
+            prefixSuffixTransformation(prefix, suffix, prefixStyle, suffixStyle)
         }
     }
     var isComponentFocused by remember { mutableStateOf(false) }

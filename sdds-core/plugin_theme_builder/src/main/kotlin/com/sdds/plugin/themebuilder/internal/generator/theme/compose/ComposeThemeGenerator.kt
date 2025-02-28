@@ -141,9 +141,14 @@ internal class ComposeThemeGenerator(
             appendLine()
             textSelectionHandleColor?.let {
                 appendLine(
-                    "val textSelectionColors = remember { " +
-                        "TextSelectionColors(handleColor = rememberColors.$it, " +
-                        "backgroundColor = rememberColors.$it.copy(0.3f)) }",
+                    """
+                    |val textSelectionColors = remember {
+                    |    TextSelectionColors(
+                    |        handleColor = rememberColors.$it,
+                    |        backgroundColor = rememberColors.$it.copy(0.3f)
+                    |    )
+                    |}
+                    """.trimMargin(),
                 )
                 appendLine()
             }
@@ -162,9 +167,14 @@ internal class ComposeThemeGenerator(
             }
             if (textStyle != null && textStyleColor != null) {
                 compositionLocalProviderFunParametersList.add(
-                    "content = { " +
-                        "ProvideTextStyle(value = typography.$textStyle.copy(" +
-                        "color = rememberColors.$textStyleColor), content = content,) }",
+                    """
+                        |content = {
+                        |    ProvideTextStyle(
+                        |        value = typography.$textStyle.copy(color = rememberColors.$textStyleColor),
+                        |        content = content,
+                        |    )
+                        |}
+                    """.trimMargin(),
                 )
             } else {
                 compositionLocalProviderFunParametersList.add(
@@ -183,12 +193,13 @@ internal class ComposeThemeGenerator(
     private fun addThemeObject() {
         with(themeKtFileBuilder) {
             rootObject(name = themeClassName).apply {
-                appendThemeProperty("colors", colorAttributesClassType)
-                appendThemeProperty("gradients", gradientAttributesClassType)
-                appendThemeProperty("shapes", shapeAttributesClassType)
-                appendThemeProperty("shadows", shadowAttributesClassType)
-                appendThemeProperty("spacing", spacingAttributesClassType)
-                appendThemeProperty("typography", typographyAttributesClassType)
+                addKdoc("Аттрибуты темы $themeClassName")
+                appendThemeProperty("colors", colorAttributesClassType, COLORS_PROPERTY_DESC)
+                appendThemeProperty("gradients", gradientAttributesClassType, GRADIENTS_PROPERTY_DESC)
+                appendThemeProperty("shapes", shapeAttributesClassType, SHAPES_PROPERTY_DESC)
+                appendThemeProperty("shadows", shadowAttributesClassType, SHADOWS_PROPERTY_DESC)
+                appendThemeProperty("spacing", spacingAttributesClassType, SPACING_PROPERTY_DESC)
+                appendThemeProperty("typography", typographyAttributesClassType, TYPO_PROPERTY_DESC)
             }
         }
     }
@@ -196,10 +207,12 @@ internal class ComposeThemeGenerator(
     private fun TypeSpec.Builder.appendThemeProperty(
         name: String,
         attrClassType: ClassName,
+        description: String,
     ) = with(themeKtFileBuilder) {
         appendProperty(
             name = name,
             typeName = attrClassType,
+            description = description,
             propGetter = KtFileBuilder.Getter.Annotated(
                 annotations = listOf(
                     Annotation(KtFileBuilder.TypeAnnotationComposable),
@@ -242,5 +255,14 @@ internal class ComposeThemeGenerator(
             it == "bodyMNormal"
         }
         textStyle = bodyMediumNormal ?: return
+    }
+
+    private companion object {
+        const val COLORS_PROPERTY_DESC = "Аттрибуты цвета"
+        const val GRADIENTS_PROPERTY_DESC = "Аттрибуты градиентов"
+        const val SHAPES_PROPERTY_DESC = "Аттрибуты форм"
+        const val SHADOWS_PROPERTY_DESC = "Аттрибуты теней"
+        const val SPACING_PROPERTY_DESC = "Аттрибуты отступов"
+        const val TYPO_PROPERTY_DESC = "Аттрибуты типографики"
     }
 }

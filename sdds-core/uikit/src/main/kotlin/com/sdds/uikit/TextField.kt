@@ -16,6 +16,7 @@ import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
 import androidx.annotation.StyleRes
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.core.view.children
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import com.sdds.uikit.colorstate.ColorState
@@ -25,7 +26,7 @@ import com.sdds.uikit.internal.base.fullHeight
 import com.sdds.uikit.internal.base.fullWidth
 import com.sdds.uikit.internal.base.unsafeLazy
 import com.sdds.uikit.internal.textfield.DecoratedFieldBox
-import com.sdds.uikit.internal.textfield.IndicatorDrawable
+import com.sdds.uikit.internal.textfield.IndicatorTextFieldDrawable
 import com.sdds.uikit.internal.textfield.StatefulEditText
 import com.sdds.uikit.internal.textfield.TextFieldTextView
 
@@ -124,7 +125,7 @@ open class TextField @JvmOverloads constructor(
 
     private val viewAlphaHelper = ViewAlphaHelper(context, attrs, defStyleAttr)
 
-    private var _indicator: IndicatorDrawable? = null
+    private var _indicator: IndicatorTextFieldDrawable? = null
 
     private var _helperTextPadding: Int = 0
     private var _labelPadding: Int = 0
@@ -563,9 +564,14 @@ open class TextField @JvmOverloads constructor(
     }
 
     override fun setEnabled(enabled: Boolean) {
+        children.forEach {
+            it.isEnabled = enabled
+            viewAlphaHelper.updateAlphaByEnabledState(it)
+        }
+        _indicator?.let {
+            viewAlphaHelper.updateDrawableAlpha(it, enabled)
+        }
         super.setEnabled(enabled)
-        _decorationBox.isEnabled = enabled
-        viewAlphaHelper.updateAlphaByEnabledState(this)
     }
 
     override fun getBaseline(): Int {
@@ -665,8 +671,8 @@ open class TextField @JvmOverloads constructor(
         when (labelPlacement) {
             HelperTextPlacement.Outer -> {
                 _indicator?.applyMode(
-                    IndicatorDrawable.AlignmentMode.Outside,
-                    IndicatorDrawable.AlignmentMode.Inside,
+                    IndicatorTextFieldDrawable.AlignmentMode.Outside,
+                    IndicatorTextFieldDrawable.AlignmentMode.Inside,
                     gravity,
                 )
                 _indicator?.setBounds(
@@ -679,8 +685,8 @@ open class TextField @JvmOverloads constructor(
 
             else -> {
                 _indicator?.applyMode(
-                    IndicatorDrawable.AlignmentMode.Inside,
-                    IndicatorDrawable.AlignmentMode.Inside,
+                    IndicatorTextFieldDrawable.AlignmentMode.Inside,
+                    IndicatorTextFieldDrawable.AlignmentMode.Inside,
                     gravity,
                 )
                 _indicator?.setBounds(
@@ -852,7 +858,7 @@ open class TextField @JvmOverloads constructor(
 
         _helperTextPadding = typedArray.getDimensionPixelOffset(R.styleable.TextField_sd_helperTextPadding, 0)
         _requirementMode = typedArray.getRequirementMode(R.styleable.TextField_sd_requirementMode)
-        _indicator = IndicatorDrawable(
+        _indicator = IndicatorTextFieldDrawable(
             size = typedArray.getDimensionPixelSize(R.styleable.TextField_sd_indicatorSize, 0),
             verticalOffset = typedArray.getDimensionPixelSize(R.styleable.TextField_sd_indicatorOffsetY, 0),
             horizontalOffset = typedArray.getDimensionPixelSize(R.styleable.TextField_sd_indicatorOffsetX, 0),

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!--region shadow down soft s-->
+    <style name="Plasma.SdService.ShadowLayer"/>
+    <style name="Plasma.SdService.ShadowLayer.DownSoftSLayer1">
+        <item name="sd_shadowColor">@color/plasma_shadow_down_soft_s_layer_1_color</item>
+        <item name="sd_shadowOffsetX">@dimen/plasma_shadow_down_soft_s_layer_1_offset_x</item>
+        <item name="sd_shadowOffsetY">@dimen/plasma_shadow_down_soft_s_layer_1_offset_y</item>
+        <item name="sd_shadowSpreadRadius">@dimen/plasma_shadow_down_soft_s_layer_1_spread</item>
+        <item name="sd_shadowBlurRadius">@dimen/plasma_shadow_down_soft_s_layer_1_blur</item>
+        <item name="sd_shadowFallbackElevation">@dimen/plasma_shadow_down_soft_s_layer_1_elevation</item>
+    </style>
+    <style name="Plasma.SdService.ShadowLayer.DownSoftSLayer2">
+        <item name="sd_shadowColor">@color/plasma_shadow_down_soft_s_layer_2_color</item>
+        <item name="sd_shadowOffsetX">@dimen/plasma_shadow_down_soft_s_layer_2_offset_x</item>
+        <item name="sd_shadowOffsetY">@dimen/plasma_shadow_down_soft_s_layer_2_offset_y</item>
+        <item name="sd_shadowSpreadRadius">@dimen/plasma_shadow_down_soft_s_layer_2_spread</item>
+        <item name="sd_shadowBlurRadius">@dimen/plasma_shadow_down_soft_s_layer_2_blur</item>
+    </style>
+    <style name="Plasma.SdService.Shadow"/>
+    <integer-array name="plasma_shadow_down_soft_s_layers">
+        <item>@style/Plasma.SdService.ShadowLayer.DownSoftSLayer1</item>
+        <item>@style/Plasma.SdService.ShadowLayer.DownSoftSLayer2</item>
+    </integer-array>
+    <style name="Plasma.SdService.Shadow.DownSoftS">
+        <item name="sd_shadowLayers">@array/plasma_shadow_down_soft_s_layers</item>
+    </style>
+    <!--endregion shadow down soft s-->
+    <!--region shadow down soft m-->
+    <style name="Plasma.SdService.Shadow.DownSoftM">
+        <item name="sd_shadowColor">@color/plasma_shadow_down_soft_m_color</item>
+        <item name="sd_shadowOffsetX">@dimen/plasma_shadow_down_soft_m_offset_x</item>
+        <item name="sd_shadowOffsetY">@dimen/plasma_shadow_down_soft_m_offset_y</item>
+        <item name="sd_shadowSpreadRadius">@dimen/plasma_shadow_down_soft_m_spread</item>
+        <item name="sd_shadowBlurRadius">@dimen/plasma_shadow_down_soft_m_blur</item>
+        <item name="sd_shadowFallbackElevation">@dimen/plasma_shadow_down_soft_m_elevation</item>
+    </style>
+    <!--endregion shadow down soft m-->
+    <!--region shadow down soft l-->
+    <style name="Plasma.SdService.Shadow.DownSoftL">
+        <item name="sd_shadowColor">@color/plasma_shadow_down_soft_l_color</item>
+        <item name="sd_shadowOffsetX">@dimen/plasma_shadow_down_soft_l_offset_x</item>
+        <item name="sd_shadowOffsetY">@dimen/plasma_shadow_down_soft_l_offset_y</item>
+        <item name="sd_shadowSpreadRadius">@dimen/plasma_shadow_down_soft_l_spread</item>
+        <item name="sd_shadowBlurRadius">@dimen/plasma_shadow_down_soft_l_blur</item>
+        <item name="sd_shadowFallbackElevation">@dimen/plasma_shadow_down_soft_l_elevation</item>
+    </style>
+    <!--endregion shadow down soft l-->
+    <!--region shadow down hard s-->
+    <style name="Plasma.SdService.ShadowLayer.DownHardSLayer1">
+        <item name="sd_shadowColor">@color/plasma_shadow_down_hard_s_layer_1_color</item>
+        <item name="sd_shadowOffsetX">@dimen/plasma_shadow_down_hard_s_layer_1_offset_x</item>
+        <item name="sd_shadowOffsetY">@dimen/plasma_shadow_down_hard_s_layer_1_offset_y</item>
+        <item name="sd_shadowSpreadRadius">@dimen/plasma_shadow_down_hard_s_layer_1_spread</item>
+        <item name="sd_shadowBlurRadius">@dimen/plasma_shadow_down_hard_s_layer_1_blur</item>
+        <item name="sd_shadowFallbackElevation">@dimen/plasma_shadow_down_hard_s_layer_1_elevation</item>
+    </style>
+    <style name="Plasma.SdService.ShadowLayer.DownHardSLayer2">
+        <item name="sd_shadowColor">@color/plasma_shadow_down_hard_s_layer_2_color</item>
+        <item name="sd_shadowOffsetX">@dimen/plasma_shadow_down_hard_s_layer_2_offset_x</item>
+        <item name="sd_shadowOffsetY">@dimen/plasma_shadow_down_hard_s_layer_2_offset_y</item>
+        <item name="sd_shadowSpreadRadius">@dimen/plasma_shadow_down_hard_s_layer_2_spread</item>
+        <item name="sd_shadowBlurRadius">@dimen/plasma_shadow_down_hard_s_layer_2_blur</item>
+    </style>
+    <integer-array name="plasma_shadow_down_hard_s_layers">
+        <item>@style/Plasma.SdService.ShadowLayer.DownHardSLayer1</item>
+        <item>@style/Plasma.SdService.ShadowLayer.DownHardSLayer2</item>
+    </integer-array>
+    <style name="Plasma.SdService.Shadow.DownHardS">
+        <item name="sd_shadowLayers">@array/plasma_shadow_down_hard_s_layers</item>
+    </style>
+    <!--endregion shadow down hard s-->
+    <!--region shadow down hard m-->
+    <style name="Plasma.SdService.Shadow.DownHardM">
+        <item name="sd_shadowColor">@color/plasma_shadow_down_hard_m_color</item>
+        <item name="sd_shadowOffsetX">@dimen/plasma_shadow_down_hard_m_offset_x</item>
+        <item name="sd_shadowOffsetY">@dimen/plasma_shadow_down_hard_m_offset_y</item>
+        <item name="sd_shadowSpreadRadius">@dimen/plasma_shadow_down_hard_m_spread</item>
+        <item name="sd_shadowBlurRadius">@dimen/plasma_shadow_down_hard_m_blur</item>
+        <item name="sd_shadowFallbackElevation">@dimen/plasma_shadow_down_hard_m_elevation</item>
+    </style>
+    <!--endregion shadow down hard m-->
+    <!--region shadow down hard l-->
+    <style name="Plasma.SdService.Shadow.DownHardL">
+        <item name="sd_shadowColor">@color/plasma_shadow_down_hard_l_color</item>
+        <item name="sd_shadowOffsetX">@dimen/plasma_shadow_down_hard_l_offset_x</item>
+        <item name="sd_shadowOffsetY">@dimen/plasma_shadow_down_hard_l_offset_y</item>
+        <item name="sd_shadowSpreadRadius">@dimen/plasma_shadow_down_hard_l_spread</item>
+        <item name="sd_shadowBlurRadius">@dimen/plasma_shadow_down_hard_l_blur</item>
+        <item name="sd_shadowFallbackElevation">@dimen/plasma_shadow_down_hard_l_elevation</item>
+    </style>
+    <!--endregion shadow down hard l-->
+    <!--region shadow up soft s-->
+    <style name="Plasma.SdService.ShadowLayer.UpSoftSLayer1">
+        <item name="sd_shadowColor">@color/plasma_shadow_up_soft_s_layer_1_color</item>
+        <item name="sd_shadowOffsetX">@dimen/plasma_shadow_up_soft_s_layer_1_offset_x</item>
+        <item name="sd_shadowOffsetY">@dimen/plasma_shadow_up_soft_s_layer_1_offset_y</item>
+        <item name="sd_shadowSpreadRadius">@dimen/plasma_shadow_up_soft_s_layer_1_spread</item>
+        <item name="sd_shadowBlurRadius">@dimen/plasma_shadow_up_soft_s_layer_1_blur</item>
+    </style>
+    <style name="Plasma.SdService.ShadowLayer.UpSoftSLayer2">
+        <item name="sd_shadowColor">@color/plasma_shadow_up_soft_s_layer_2_color</item>
+        <item name="sd_shadowOffsetX">@dimen/plasma_shadow_up_soft_s_layer_2_offset_x</item>
+        <item name="sd_shadowOffsetY">@dimen/plasma_shadow_up_soft_s_layer_2_offset_y</item>
+        <item name="sd_shadowSpreadRadius">@dimen/plasma_shadow_up_soft_s_layer_2_spread</item>
+        <item name="sd_shadowBlurRadius">@dimen/plasma_shadow_up_soft_s_layer_2_blur</item>
+    </style>
+    <integer-array name="plasma_shadow_up_soft_s_layers">
+        <item>@style/Plasma.SdService.ShadowLayer.UpSoftSLayer1</item>
+        <item>@style/Plasma.SdService.ShadowLayer.UpSoftSLayer2</item>
+    </integer-array>
+    <style name="Plasma.SdService.Shadow.UpSoftS">
+        <item name="sd_shadowLayers">@array/plasma_shadow_up_soft_s_layers</item>
+    </style>
+    <!--endregion shadow up soft s-->
+    <!--region shadow up soft m-->
+    <style name="Plasma.SdService.Shadow.UpSoftM">
+        <item name="sd_shadowColor">@color/plasma_shadow_up_soft_m_color</item>
+        <item name="sd_shadowOffsetX">@dimen/plasma_shadow_up_soft_m_offset_x</item>
+        <item name="sd_shadowOffsetY">@dimen/plasma_shadow_up_soft_m_offset_y</item>
+        <item name="sd_shadowSpreadRadius">@dimen/plasma_shadow_up_soft_m_spread</item>
+        <item name="sd_shadowBlurRadius">@dimen/plasma_shadow_up_soft_m_blur</item>
+    </style>
+    <!--endregion shadow up soft m-->
+    <!--region shadow up soft l-->
+    <style name="Plasma.SdService.Shadow.UpSoftL">
+        <item name="sd_shadowColor">@color/plasma_shadow_up_soft_l_color</item>
+        <item name="sd_shadowOffsetX">@dimen/plasma_shadow_up_soft_l_offset_x</item>
+        <item name="sd_shadowOffsetY">@dimen/plasma_shadow_up_soft_l_offset_y</item>
+        <item name="sd_shadowSpreadRadius">@dimen/plasma_shadow_up_soft_l_spread</item>
+        <item name="sd_shadowBlurRadius">@dimen/plasma_shadow_up_soft_l_blur</item>
+    </style>
+    <!--endregion shadow up soft l-->
+    <!--region shadow up hard s-->
+    <style name="Plasma.SdService.ShadowLayer.UpHardSLayer1">
+        <item name="sd_shadowColor">@color/plasma_shadow_up_hard_s_layer_1_color</item>
+        <item name="sd_shadowOffsetX">@dimen/plasma_shadow_up_hard_s_layer_1_offset_x</item>
+        <item name="sd_shadowOffsetY">@dimen/plasma_shadow_up_hard_s_layer_1_offset_y</item>
+        <item name="sd_shadowSpreadRadius">@dimen/plasma_shadow_up_hard_s_layer_1_spread</item>
+        <item name="sd_shadowBlurRadius">@dimen/plasma_shadow_up_hard_s_layer_1_blur</item>
+    </style>
+    <style name="Plasma.SdService.ShadowLayer.UpHardSLayer2">
+        <item name="sd_shadowColor">@color/plasma_shadow_up_hard_s_layer_2_color</item>
+        <item name="sd_shadowOffsetX">@dimen/plasma_shadow_up_hard_s_layer_2_offset_x</item>
+        <item name="sd_shadowOffsetY">@dimen/plasma_shadow_up_hard_s_layer_2_offset_y</item>
+        <item name="sd_shadowSpreadRadius">@dimen/plasma_shadow_up_hard_s_layer_2_spread</item>
+        <item name="sd_shadowBlurRadius">@dimen/plasma_shadow_up_hard_s_layer_2_blur</item>
+    </style>
+    <integer-array name="plasma_shadow_up_hard_s_layers">
+        <item>@style/Plasma.SdService.ShadowLayer.UpHardSLayer1</item>
+        <item>@style/Plasma.SdService.ShadowLayer.UpHardSLayer2</item>
+    </integer-array>
+    <style name="Plasma.SdService.Shadow.UpHardS">
+        <item name="sd_shadowLayers">@array/plasma_shadow_up_hard_s_layers</item>
+    </style>
+    <!--endregion shadow up hard s-->
+    <!--region shadow up hard m-->
+    <style name="Plasma.SdService.Shadow.UpHardM">
+        <item name="sd_shadowColor">@color/plasma_shadow_up_hard_m_color</item>
+        <item name="sd_shadowOffsetX">@dimen/plasma_shadow_up_hard_m_offset_x</item>
+        <item name="sd_shadowOffsetY">@dimen/plasma_shadow_up_hard_m_offset_y</item>
+        <item name="sd_shadowSpreadRadius">@dimen/plasma_shadow_up_hard_m_spread</item>
+        <item name="sd_shadowBlurRadius">@dimen/plasma_shadow_up_hard_m_blur</item>
+    </style>
+    <!--endregion shadow up hard m-->
+    <!--region shadow up hard l-->
+    <style name="Plasma.SdService.Shadow.UpHardL">
+        <item name="sd_shadowColor">@color/plasma_shadow_up_hard_l_color</item>
+        <item name="sd_shadowOffsetX">@dimen/plasma_shadow_up_hard_l_offset_x</item>
+        <item name="sd_shadowOffsetY">@dimen/plasma_shadow_up_hard_l_offset_y</item>
+        <item name="sd_shadowSpreadRadius">@dimen/plasma_shadow_up_hard_l_spread</item>
+        <item name="sd_shadowBlurRadius">@dimen/plasma_shadow_up_hard_l_blur</item>
+    </style>
+    <!--endregion shadow up hard l-->
+</resources>

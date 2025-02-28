@@ -33,7 +33,7 @@ import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.Dp
-import com.sdds.compose.uikit.internal.AvatarDefaults
+import com.sdds.compose.uikit.internal.common.background
 
 /**
  * Компонент [Avatar] предназначен для отрисовки пользовательских аватаров.
@@ -239,7 +239,7 @@ fun Modifier.avatar(
 
     statusModifier
         .clip(style.shape)
-        .background(AvatarDefaults.defaultBrush, alpha = AvatarDefaults.BackgroundOpacity)
+        .background(style.colors.backgroundColor, alpha = style.colors.backgroundAlpha)
         .then(this)
         .then(sizeModifier)
         .then(placeholderModifier)

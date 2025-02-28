@@ -2,6 +2,7 @@
 package com.sdds.playground.themebuilder.theme
 
 import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.ProvidableCompositionLocal
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -14,6 +15,7 @@ import com.sdds.playground.themebuilder.theme.ThemeColors
 import com.sdds.playground.themebuilder.tokens.DarkColorTokens
 import com.sdds.playground.themebuilder.tokens.LightColorTokens
 import kotlin.String
+import kotlin.Suppress
 import kotlin.Unit
 import kotlin.collections.Map
 import kotlin.collections.MutableMap
@@ -25,11 +27,9 @@ import kotlin.collections.MutableMap
 public class ThemeColors(
     private val colors: Map<String, Color>,
 ) {
-    public var textPrimary: Color by mutableStateOf(colors["textPrimary"]!!,
-            structuralEqualityPolicy())
+    public var textPrimary: Color by colors.obtain("textPrimary")
 
-    public var textTertiary: Color by mutableStateOf(colors["textTertiary"]!!,
-            structuralEqualityPolicy())
+    public var textTertiary: Color by colors.obtain("textTertiary")
 
     /**
      * Возвращает копию [ThemeColors]. Предоставляет возможность переопределять цвета.
@@ -40,16 +40,13 @@ public class ThemeColors(
         val overrideMap = colorOverrideScope.overrideMap
         return ThemeColors(colors.mapValues { overrideMap[it.key] ?: it.value })
     }
-
-    public override fun toString() =
-            "${this::class.simpleName}(textPrimary=$textPrimary, textTertiary=$textTertiary)"
 }
 
 /**
  * Скоуп переопределения цветов
  */
 public class ColorOverrideScope {
-    private val _overrideMap: MutableMap<String, Color> = mutableMapOf<String, Color>()
+    private val _overrideMap: MutableMap<String, Color> = mutableMapOf()
 
     internal val overrideMap: Map<String, Color>
         get() = _overrideMap.toMap()
@@ -58,14 +55,19 @@ public class ColorOverrideScope {
 
     public val textTertiary: String = "textTertiary"
 
+    /**
+     * Переопределяет аттрибут цвета.
+     */
     public infix fun String.overrideBy(color: Color): Unit {
         _overrideMap[this] = color
     }
 }
 
 internal val LocalThemeColors: ProvidableCompositionLocal<ThemeColors> = staticCompositionLocalOf {
-        lightThemeColors() }
+            lightThemeColors()
+        }
 
+@Suppress("LongMethod")
 internal fun ThemeColors.updateColorsFrom(other: ThemeColors): Unit {
     textPrimary = other.textPrimary
     textTertiary = other.textTertiary
@@ -82,6 +84,7 @@ private fun MutableMap<String, Color>.add(
 /**
  * Цвета [ThemeColors] для светлой темы
  */
+@Suppress("LongMethod")
 public fun lightThemeColors(overrideColors: ColorOverrideScope.() -> Unit = {}): ThemeColors {
     val colorOverrideScope = ColorOverrideScope()
     overrideColors.invoke(colorOverrideScope)
@@ -95,6 +98,7 @@ public fun lightThemeColors(overrideColors: ColorOverrideScope.() -> Unit = {}):
 /**
  * Цвета [ThemeColors] для темной темы
  */
+@Suppress("LongMethod")
 public fun darkThemeColors(overrideColors: ColorOverrideScope.() -> Unit = {}): ThemeColors {
     val colorOverrideScope = ColorOverrideScope()
     overrideColors.invoke(colorOverrideScope)
@@ -104,3 +108,6 @@ public fun darkThemeColors(overrideColors: ColorOverrideScope.() -> Unit = {}): 
     initial.add("textTertiary", DarkColorTokens.TextTertiary, overwrite)
     return ThemeColors(initial)
 }
+
+private fun Map<String, Color>.obtain(name: String): MutableState<Color> =
+        mutableStateOf(get(name)!!, structuralEqualityPolicy())

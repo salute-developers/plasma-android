@@ -17,8 +17,6 @@ import com.sdds.compose.uikit.AvatarStyleBuilder
 import com.sdds.compose.uikit.floatPx
 import com.sdds.serv.theme.SddsServTheme
 
-
-
 /**
  * Стиль [Avatar] размера XXL
  */

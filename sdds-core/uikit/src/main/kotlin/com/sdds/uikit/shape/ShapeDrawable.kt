@@ -55,6 +55,8 @@ open class ShapeDrawable() : Drawable(), Shapeable {
     private val drawStroke: Boolean
         get() = _strokeWidth > 0 && _strokePaint.color != Color.TRANSPARENT
 
+    private var _overriddenAlpha: Int? = null
+
     init {
         initPaint()
     }
@@ -184,6 +186,12 @@ open class ShapeDrawable() : Drawable(), Shapeable {
     }
 
     override fun setAlpha(alpha: Int) {
+        _overriddenAlpha = alpha
+        reapplyAlpha()
+    }
+
+    private fun reapplyAlpha() {
+        val alpha = _overriddenAlpha ?: return
         _shapePaint.alpha = alpha
         _strokePaint.alpha = alpha
     }
@@ -209,6 +217,7 @@ open class ShapeDrawable() : Drawable(), Shapeable {
         if (_shaderFactory != null) {
             _shapePaint.color = -1
             _shapePaint.shader = _shaderFactory?.resize(_drawingBounds.width(), _drawingBounds.height())
+            reapplyAlpha()
         }
     }
 
@@ -218,6 +227,7 @@ open class ShapeDrawable() : Drawable(), Shapeable {
             _shapeTint = tint
             if (_shaderFactory == null) {
                 _shapePaint.color = tint.colorForState(state)
+                reapplyAlpha()
                 invalidateSelf()
             }
         }
@@ -227,7 +237,13 @@ open class ShapeDrawable() : Drawable(), Shapeable {
         return _shaderFactory == null && (_shapeTint != null || _strokeTint != null)
     }
 
-    override fun getOpacity(): Int = PixelFormat.OPAQUE
+    @Deprecated("Deprecated in Java")
+    override fun getOpacity(): Int =
+        when (_overriddenAlpha) {
+            255 -> PixelFormat.OPAQUE
+            in 1..254 -> PixelFormat.TRANSLUCENT
+            else -> PixelFormat.TRANSPARENT
+        }
 
     override fun getOutline(outline: Outline) {
         if (_shapeModel.cornerFamily == ShapeModel.CornerFamily.ROUNDED) {
@@ -255,6 +271,7 @@ open class ShapeDrawable() : Drawable(), Shapeable {
             }
         }
         if (stateChanged) {
+            reapplyAlpha()
             invalidateSelf()
         }
         return super.onStateChange(state) || stateChanged

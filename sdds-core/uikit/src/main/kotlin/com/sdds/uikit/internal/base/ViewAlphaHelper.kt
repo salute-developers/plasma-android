@@ -1,6 +1,7 @@
 package com.sdds.uikit.internal.base
 
 import android.content.Context
+import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.View
 import com.sdds.uikit.R
@@ -33,7 +34,18 @@ internal class ViewAlphaHelper(
      */
     fun updateAlphaByEnabledState(view: View) {
         if (initialAlpha == disabledAlpha) return
-        view.alpha = if (view.isEnabled) initialAlpha else disabledAlpha
+        view.alpha = getAlphaByState(view.isEnabled)
+    }
+
+    /**
+     * Изменяет прозрачность [drawable] в зависимости от состояния [isEnabled]
+     */
+    fun updateDrawableAlpha(drawable: Drawable, isEnabled: Boolean) {
+        drawable.alpha = (getAlphaByState(isEnabled) * 255).toInt()
+    }
+
+    private fun getAlphaByState(isEnabled: Boolean): Float {
+        return if (isEnabled) initialAlpha else disabledAlpha
     }
 
     private companion object {

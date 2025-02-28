@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Plasma.SdService.Components.Switch" parent="Sdds.Components.Switch">
+        <item name="sd_buttonTrackColor">@color/plasma_bg_color_switch_track</item>
+        <item name="android:textColor">?plasma_textDefaultPrimary</item>
+        <item name="sd_descriptionTextColor">?plasma_textDefaultSecondary</item>
+    </style>
+
+    <style name="Plasma.SdService.Components.Switch.L">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyLNormal</item>
+        <item name="sd_descriptionTextAppearance">@style/Plasma.SdService.TextAppearance.BodyMNormal</item>
+    </style>
+
+    <style name="Plasma.SdService.Components.Switch.M">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyMNormal</item>
+        <item name="sd_descriptionTextAppearance">@style/Plasma.SdService.TextAppearance.BodySNormal</item>
+    </style>
+
+    <style name="Plasma.SdService.Components.Switch.S">
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodySNormal</item>
+        <item name="sd_descriptionTextAppearance">@style/Plasma.SdService.TextAppearance.BodyXsNormal</item>
+    </style>
+
+</resources>

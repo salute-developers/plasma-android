@@ -6,45 +6,81 @@ import kotlin.Float
 import kotlin.FloatArray
 import kotlin.collections.List
 
+/**
+ * Токены градиента для темной темы
+ */
 public object DarkGradientTokens {
     /**
      * Акцентный sweep градиент поверхности
      */
     public object InverseSurfaceAccent {
+        /**
+         * Цвета градиента
+         */
         public val colors: List<Color> = listOf(Color(0xFF000000), Color(0xFFffffff))
 
+        /**
+         * Точки остановки цветов градиента
+         */
         public val positions: FloatArray = floatArrayOf(0.0f, 0.7f)
 
-        public val centerX: Float = 0.5f
+        public const val centerX: Float = 0.5f
 
-        public val centerY: Float = 0.5f
+        public const val centerY: Float = 0.5f
     }
 }
 
+/**
+ * Токены градиента для светлой темы
+ */
 public object LightGradientTokens {
     /**
      * Третичный линейный градиент поверхности
      */
     public object OnDarkSurfaceTertiary {
+        /**
+         * Цвета градиента
+         */
         public val colors: List<Color> = listOf(Color(0xFF000000), Color(0xFFffffff))
 
+        /**
+         * Точки остановки цветов градиента
+         */
         public val positions: FloatArray = floatArrayOf(0.0f, 0.7f)
 
-        public val angle: Float = 90.0f
+        /**
+         * Угол градиента
+         */
+        public const val angle: Float = 90.0f
     }
 
     /**
      * Вторичный радиальный градиент поверхности
      */
     public object OnDarkSurfaceSecondary {
+        /**
+         * Цвета градиента
+         */
         public val colors: List<Color> = listOf(Color(0xFF000000), Color(0xFFffffff))
 
+        /**
+         * Точки остановки цветов градиента
+         */
         public val positions: FloatArray = floatArrayOf(0.0f, 0.7f)
 
-        public val radius: Float = 0.8f
+        /**
+         * Радиус градиента
+         */
+        public const val radius: Float = 0.8f
 
-        public val centerX: Float = 0.5f
+        /**
+         * Координата центра по оси X
+         */
+        public const val centerX: Float = 0.5f
 
-        public val centerY: Float = 0.5f
+        /**
+         * Координата центра по оси Y
+         */
+        public const val centerY: Float = 0.5f
     }
 }

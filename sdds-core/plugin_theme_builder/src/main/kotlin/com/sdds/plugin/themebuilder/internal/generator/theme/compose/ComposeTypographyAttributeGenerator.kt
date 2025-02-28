@@ -128,7 +128,11 @@ internal class ComposeTypographyAttributeGenerator(
             name = "Local$typographyClassName",
             typeName = KtFileBuilder.TypeProvidableCompositionLocal,
             parameterizedType = typographyClassType,
-            initializer = "staticCompositionLocalOf { $typographyClassName() }",
+            initializer = """
+                staticCompositionLocalOf·{
+                    $typographyClassName()
+                }
+            """.trimIndent(),
             modifiers = listOf(Modifier.INTERNAL),
         )
     }
@@ -139,11 +143,14 @@ internal class ComposeTypographyAttributeGenerator(
             annotations = listOf(KtFileBuilder.TypeAnnotationComposable),
             returnType = typographyClassType,
             body = listOf(
-                "return when (collectWindowSizeInfoAsState().value.widthClass) {\n",
-                "${KtFileBuilder.DEFAULT_FILE_INDENT}WindowSizeClass.Expanded -> large$typographyClassName()\n",
-                "${KtFileBuilder.DEFAULT_FILE_INDENT}WindowSizeClass.Medium -> medium$typographyClassName()\n",
-                "${KtFileBuilder.DEFAULT_FILE_INDENT}WindowSizeClass.Compact -> small$typographyClassName()\n",
-                "}",
+                """
+                    |val widthClass = collectWindowSizeInfoAsState().value.widthClass
+                    |return when (widthClass) {
+                    |    ${KtFileBuilder.DEFAULT_FILE_INDENT}WindowSizeClass.Expanded -> large$typographyClassName()
+                    |    ${KtFileBuilder.DEFAULT_FILE_INDENT}WindowSizeClass.Medium -> medium$typographyClassName()
+                    |    ${KtFileBuilder.DEFAULT_FILE_INDENT}WindowSizeClass.Compact -> small$typographyClassName()
+                    |}
+                """.trimMargin(),
             ),
             description = "Возвращает разные [$typographyClassName] в зависимости от ширины окна. " +
                 "Значение динамически изменяется при изменении ширины окна.",
@@ -179,6 +186,7 @@ internal class ComposeTypographyAttributeGenerator(
                                 type = KtFileBuilder.TypeTextStyle,
                                 defValue = "TextStyle.Default",
                                 asProperty = true,
+                                description = tokenData?.description(it),
                             )
                         },
                     modifiers = listOf(Modifier.INTERNAL),
@@ -242,7 +250,7 @@ internal class ComposeTypographyAttributeGenerator(
 
     private fun findTypographyTokenRef(attributeName: String, screenClass: ScreenClass): String? {
         val safeTokenData = tokenData ?: return null
-        return when (screenClass) {
+        val info = when (screenClass) {
             ScreenClass.SMALL -> safeTokenData.small[attributeName]
                 ?: safeTokenData.medium[attributeName]
                 ?: safeTokenData.large[attributeName]
@@ -255,6 +263,7 @@ internal class ComposeTypographyAttributeGenerator(
                 ?: safeTokenData.small[attributeName]
                 ?: safeTokenData.large[attributeName]
         }
+        return info?.tokenRef
     }
 
     private companion object {

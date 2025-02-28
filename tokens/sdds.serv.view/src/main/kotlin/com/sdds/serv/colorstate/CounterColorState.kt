@@ -1,3 +1,4 @@
+// AUTO-GENERATED. DO NOT MODIFY this file.
 package com.sdds.serv.colorstate
 
 import android.content.Context
@@ -5,20 +6,22 @@ import android.util.AttributeSet
 import com.sdds.serv.R
 import com.sdds.uikit.colorstate.ColorState
 import com.sdds.uikit.colorstate.ColorStateProvider
+import kotlin.Int
+import kotlin.IntArray
 
 /**
  * Реализация [ColorState] для компонента Counter
  */
-public enum class CounterColorState (public override val attrs: IntArray,
+public enum class CounterColorState(
+    public override val attrs: IntArray,
 ) : ColorState {
     DEFAULT(intArrayOf(R.attr.serv_counter_state_default)),
     ACCENT(intArrayOf(R.attr.serv_counter_state_accent)),
     POSITIVE(intArrayOf(R.attr.serv_counter_state_positive)),
-    NEGATIVE(intArrayOf(R.attr.serv_counter_state_negative)),
     WARNING(intArrayOf(R.attr.serv_counter_state_warning)),
+    NEGATIVE(intArrayOf(R.attr.serv_counter_state_negative)),
     BLACK(intArrayOf(R.attr.serv_counter_state_black)),
     WHITE(intArrayOf(R.attr.serv_counter_state_white)),
-    ;
 }
 
 /**

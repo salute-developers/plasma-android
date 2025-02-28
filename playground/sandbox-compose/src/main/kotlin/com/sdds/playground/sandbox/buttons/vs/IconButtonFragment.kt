@@ -1,56 +1,30 @@
 package com.sdds.playground.sandbox.buttons.vs
 
-import android.os.Bundle
 import android.view.ContextThemeWrapper
-import android.view.View
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
-import com.sdds.icons.R
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.playground.sandbox.core.vs.PropertiesOwner
-import com.sdds.uikit.Button
+import com.sdds.testing.vs.button.ButtonUiState
+import com.sdds.testing.vs.button.applyState
+import com.sdds.testing.vs.button.iconButton
 import com.sdds.uikit.IconButton
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.onEach
 
 /**
  * Фрагмент с компонентом IconButton
  * @author Малышев Александр on 31.07.2024
  */
-internal class IconButtonFragment : ComponentFragment() {
+internal class IconButtonFragment : ComponentFragment<ButtonUiState, IconButton>() {
 
-    private val buttonViewModel by viewModels<ButtonParametersViewModel> {
-        ButtonParametersViewModelFactory(
-            type = ButtonType.Icon,
-            defaultState = getState { ButtonUiState(IconButtonVariant.IconButtonLDefault) },
+    override val componentViewModel by viewModels<IconButtonViewModel> {
+        IconButtonViewModelFactory(
+            defaultState = getState { ButtonUiState() },
         )
     }
 
-    override val componentLayout: Button
-        get() = IconButton(ContextThemeWrapper(requireContext(), currentVariant.styleRes))
-            .apply { id = com.sdds.playground.sandbox.R.id.icon_button }
-            .also { button = it }
+    override fun getComponent(contextWrapper: ContextThemeWrapper): IconButton {
+        return iconButton(contextWrapper)
+    }
 
-    override val propertiesOwner: PropertiesOwner
-        get() = buttonViewModel
-
-    private var currentVariant: ButtonVariant = IconButtonVariant.IconButtonLDefault
-    private var button: Button? = null
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        buttonViewModel.buttonState
-            .onEach { state ->
-                if (currentVariant != state.variant) {
-                    currentVariant = state.variant
-                    dispatchComponentStyleChanged()
-                }
-                button?.apply {
-                    isLoading = state.loading
-                    isEnabled = state.enabled
-                    setIconResource(R.drawable.ic_plasma_24)
-                }
-            }
-            .launchIn(viewLifecycleOwner.lifecycleScope)
+    override fun onComponentUpdate(component: IconButton?, state: ButtonUiState) {
+        component?.applyState(state)
     }
 }

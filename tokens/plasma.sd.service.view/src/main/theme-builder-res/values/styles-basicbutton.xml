@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Plasma.SdService.Components.BasicButton" parent="Sdds.Components.Button">
+        <item name="sd_colorStateProvider">com.sdds.plasma.sd.service.colorstate.ButtonColorStateProvider</item>
+        <item name="sd_disabledAlpha">0.4</item>
+        <item name="backgroundTint">@color/plasma_basic_button_bg_color</item>
+        <item name="android:textColor">@color/plasma_basic_button_text_color</item>
+        <item name="sd_valueTextColor">@color/plasma_basic_button_value_color</item>
+        <item name="sd_spinnerTint">@color/plasma_basic_button_spinner_tint</item>
+        <item name="sd_iconTint">@color/plasma_basic_button_icon_tint</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButton.L">
+        <item name="android:minHeight">@dimen/plasma_basic_button_l_min_height</item>
+        <item name="android:minWidth">@dimen/plasma_basic_button_l_min_width</item>
+        <item name="android:paddingStart">@dimen/plasma_basic_button_l_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_basic_button_l_padding_end</item>
+        <item name="sd_iconSize">@dimen/plasma_basic_button_l_icon_size</item>
+        <item name="sd_spinnerSize">@dimen/plasma_basic_button_l_spinner_size</item>
+        <item name="sd_spinnerStrokeWidth">@dimen/plasma_basic_button_l_spinner_stroke_width</item>
+        <item name="sd_iconPadding">@dimen/plasma_basic_button_l_icon_padding</item>
+        <item name="sd_valuePadding">@dimen/plasma_basic_button_l_value_padding</item>
+        <item name="sd_shapeAppearance">?plasma_shapeRoundL</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/plasma_basic_button_l_shape_adjustment</item>
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyLBold</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonL">
+        <item name="android:buttonStyle">@style/Plasma.SdService.Components.BasicButton.L</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButton.L.Default">
+        <item name="plasma_buttonColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonLDefault">
+        <item name="android:buttonStyle">@style/Plasma.SdService.Components.BasicButton.L.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButton.L.Secondary">
+        <item name="plasma_buttonColors">state_secondary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonLSecondary">
+        <item name="android:buttonStyle">@style/Plasma.SdService.Components.BasicButton.L.Secondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButton.L.Accent">
+        <item name="plasma_buttonColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonLAccent">
+        <item name="android:buttonStyle">@style/Plasma.SdService.Components.BasicButton.L.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButton.L.Positive">
+        <item name="plasma_buttonColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonLPositive">
+        <item name="android:buttonStyle">@style/Plasma.SdService.Components.BasicButton.L.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButton.L.Negative">
+        <item name="plasma_buttonColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonLNegative">
+        <item name="android:buttonStyle">@style/Plasma.SdService.Components.BasicButton.L.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButton.L.Warning">
+        <item name="plasma_buttonColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonLWarning">
+        <item name="android:buttonStyle">@style/Plasma.SdService.Components.BasicButton.L.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButton.L.Clear">
+        <item name="plasma_buttonColors">state_clear</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonLClear">
+        <item name="android:buttonStyle">@style/Plasma.SdService.Components.BasicButton.L.Clear</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButton.L.Dark">
+        <item name="plasma_buttonColors">state_dark</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonLDark">
+        <item name="android:buttonStyle">@style/Plasma.SdService.Components.BasicButton.L.Dark</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButton.L.Black">
+        <item name="plasma_buttonColors">state_black</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonLBlack">
+        <item name="android:buttonStyle">@style/Plasma.SdService.Components.BasicButton.L.Black</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButton.L.White">
+        <item name="plasma_buttonColors">state_white</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonLWhite">
+        <item name="android:buttonStyle">@style/Plasma.SdService.Components.BasicButton.L.White</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButton.M">
+        <item name="android:minHeight">@dimen/plasma_basic_button_m_min_height</item>
+        <item name="android:minWidth">@dimen/plasma_basic_button_m_min_width</item>
+        <item name="android:paddingStart">@dimen/plasma_basic_button_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_basic_button_m_padding_end</item>
+        <item name="sd_iconSize">@dimen/plasma_basic_button_m_icon_size</item>
+        <item name="sd_spinnerSize">@dimen/plasma_basic_button_m_spinner_size</item>
+        <item name="sd_spinnerStrokeWidth">@dimen/plasma_basic_button_m_spinner_stroke_width</item>
+        <item name="sd_iconPadding">@dimen/plasma_basic_button_m_icon_padding</item>
+        <item name="sd_valuePadding">@dimen/plasma_basic_button_m_value_padding</item>
+        <item name="sd_shapeAppearance">?plasma_shapeRoundM</item>
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyMBold</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonM">
+        <item name="android:buttonStyle">@style/Plasma.SdService.Components.BasicButton.M</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButton.M.Default">
+        <item name="plasma_buttonColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonMDefault">
+        <item name="android:buttonStyle">@style/Plasma.SdService.Components.BasicButton.M.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButton.M.Secondary">
+        <item name="plasma_buttonColors">state_secondary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonMSecondary">
+        <item name="android:buttonStyle">@style/Plasma.SdService.Components.BasicButton.M.Secondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButton.M.Accent">
+        <item name="plasma_buttonColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonMAccent">
+        <item name="android:buttonStyle">@style/Plasma.SdService.Components.BasicButton.M.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButton.M.Positive">
+        <item name="plasma_buttonColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonMPositive">
+        <item name="android:buttonStyle">@style/Plasma.SdService.Components.BasicButton.M.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButton.M.Negative">
+        <item name="plasma_buttonColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonMNegative">
+        <item name="android:buttonStyle">@style/Plasma.SdService.Components.BasicButton.M.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButton.M.Warning">
+        <item name="plasma_buttonColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonMWarning">
+        <item name="android:buttonStyle">@style/Plasma.SdService.Components.BasicButton.M.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButton.M.Clear">
+        <item name="plasma_buttonColors">state_clear</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonMClear">
+        <item name="android:buttonStyle">@style/Plasma.SdService.Components.BasicButton.M.Clear</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButton.M.Dark">
+        <item name="plasma_buttonColors">state_dark</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonMDark">
+        <item name="android:buttonStyle">@style/Plasma.SdService.Components.BasicButton.M.Dark</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButton.M.Black">
+        <item name="plasma_buttonColors">state_black</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonMBlack">
+        <item name="android:buttonStyle">@style/Plasma.SdService.Components.BasicButton.M.Black</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButton.M.White">
+        <item name="plasma_buttonColors">state_white</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonMWhite">
+        <item name="android:buttonStyle">@style/Plasma.SdService.Components.BasicButton.M.White</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButton.S">
+        <item name="android:minHeight">@dimen/plasma_basic_button_s_min_height</item>
+        <item name="android:minWidth">@dimen/plasma_basic_button_s_min_width</item>
+        <item name="android:paddingStart">@dimen/plasma_basic_button_s_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_basic_button_s_padding_end</item>
+        <item name="sd_iconSize">@dimen/plasma_basic_button_s_icon_size</item>
+        <item name="sd_spinnerSize">@dimen/plasma_basic_button_s_spinner_size</item>
+        <item name="sd_spinnerStrokeWidth">@dimen/plasma_basic_button_s_spinner_stroke_width</item>
+        <item name="sd_iconPadding">@dimen/plasma_basic_button_s_icon_padding</item>
+        <item name="sd_valuePadding">@dimen/plasma_basic_button_s_value_padding</item>
+        <item name="sd_shapeAppearance">?plasma_shapeRoundM</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/plasma_basic_button_s_shape_adjustment</item>
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodySBold</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonS">
+        <item name="android:buttonStyle">@style/Plasma.SdService.Components.BasicButton.S</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButton.S.Default">
+        <item name="plasma_buttonColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonSDefault">
+        <item name="android:buttonStyle">@style/Plasma.SdService.Components.BasicButton.S.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButton.S.Secondary">
+        <item name="plasma_buttonColors">state_secondary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonSSecondary">
+        <item name="android:buttonStyle">@style/Plasma.SdService.Components.BasicButton.S.Secondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButton.S.Accent">
+        <item name="plasma_buttonColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonSAccent">
+        <item name="android:buttonStyle">@style/Plasma.SdService.Components.BasicButton.S.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButton.S.Positive">
+        <item name="plasma_buttonColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonSPositive">
+        <item name="android:buttonStyle">@style/Plasma.SdService.Components.BasicButton.S.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButton.S.Negative">
+        <item name="plasma_buttonColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonSNegative">
+        <item name="android:buttonStyle">@style/Plasma.SdService.Components.BasicButton.S.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButton.S.Warning">
+        <item name="plasma_buttonColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonSWarning">
+        <item name="android:buttonStyle">@style/Plasma.SdService.Components.BasicButton.S.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButton.S.Clear">
+        <item name="plasma_buttonColors">state_clear</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonSClear">
+        <item name="android:buttonStyle">@style/Plasma.SdService.Components.BasicButton.S.Clear</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButton.S.Dark">
+        <item name="plasma_buttonColors">state_dark</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonSDark">
+        <item name="android:buttonStyle">@style/Plasma.SdService.Components.BasicButton.S.Dark</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButton.S.Black">
+        <item name="plasma_buttonColors">state_black</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonSBlack">
+        <item name="android:buttonStyle">@style/Plasma.SdService.Components.BasicButton.S.Black</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButton.S.White">
+        <item name="plasma_buttonColors">state_white</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonSWhite">
+        <item name="android:buttonStyle">@style/Plasma.SdService.Components.BasicButton.S.White</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButton.Xs">
+        <item name="android:minHeight">@dimen/plasma_basic_button_xs_min_height</item>
+        <item name="android:minWidth">@dimen/plasma_basic_button_xs_min_width</item>
+        <item name="android:paddingStart">@dimen/plasma_basic_button_xs_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_basic_button_xs_padding_end</item>
+        <item name="sd_iconSize">@dimen/plasma_basic_button_xs_icon_size</item>
+        <item name="sd_spinnerSize">@dimen/plasma_basic_button_xs_spinner_size</item>
+        <item name="sd_spinnerStrokeWidth">@dimen/plasma_basic_button_xs_spinner_stroke_width</item>
+        <item name="sd_iconPadding">@dimen/plasma_basic_button_xs_icon_padding</item>
+        <item name="sd_valuePadding">@dimen/plasma_basic_button_xs_value_padding</item>
+        <item name="sd_shapeAppearance">?plasma_shapeRoundS</item>
+        <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodyXsBold</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonXs">
+        <item name="android:buttonStyle">@style/Plasma.SdService.Components.BasicButton.Xs</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButton.Xs.Default">
+        <item name="plasma_buttonColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonXsDefault">
+        <item name="android:buttonStyle">@style/Plasma.SdService.Components.BasicButton.Xs.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButton.Xs.Secondary">
+        <item name="plasma_buttonColors">state_secondary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonXsSecondary">
+        <item name="android:buttonStyle">@style/Plasma.SdService.Components.BasicButton.Xs.Secondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButton.Xs.Accent">
+        <item name="plasma_buttonColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonXsAccent">
+        <item name="android:buttonStyle">@style/Plasma.SdService.Components.BasicButton.Xs.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButton.Xs.Positive">
+        <item name="plasma_buttonColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonXsPositive">
+        <item name="android:buttonStyle">@style/Plasma.SdService.Components.BasicButton.Xs.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButton.Xs.Negative">
+        <item name="plasma_buttonColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonXsNegative">
+        <item name="android:buttonStyle">@style/Plasma.SdService.Components.BasicButton.Xs.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButton.Xs.Warning">
+        <item name="plasma_buttonColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonXsWarning">
+        <item name="android:buttonStyle">@style/Plasma.SdService.Components.BasicButton.Xs.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButton.Xs.Clear">
+        <item name="plasma_buttonColors">state_clear</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonXsClear">
+        <item name="android:buttonStyle">@style/Plasma.SdService.Components.BasicButton.Xs.Clear</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButton.Xs.Dark">
+        <item name="plasma_buttonColors">state_dark</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonXsDark">
+        <item name="android:buttonStyle">@style/Plasma.SdService.Components.BasicButton.Xs.Dark</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButton.Xs.Black">
+        <item name="plasma_buttonColors">state_black</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonXsBlack">
+        <item name="android:buttonStyle">@style/Plasma.SdService.Components.BasicButton.Xs.Black</item>
+    </style>
+    <style name="Plasma.SdService.Components.BasicButton.Xs.White">
+        <item name="plasma_buttonColors">state_white</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.BasicButtonXsWhite">
+        <item name="android:buttonStyle">@style/Plasma.SdService.Components.BasicButton.Xs.White</item>
+    </style>
+</resources>

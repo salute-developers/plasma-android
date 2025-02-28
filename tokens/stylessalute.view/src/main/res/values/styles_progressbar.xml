@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Salute.StylesSalute.Components.ProgressBar" parent="Sdds.Components.ProgressBar">
+        <item name="backgroundTint">?salute_surfaceDefaultTransparentSecondary</item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.ProgressBar.Default">
+        <item name="android:progressTint">?salute_surfaceDefaultSolidDefault</item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.ProgressBar.Secondary">
+        <item name="android:progressTint">?salute_surfaceDefaultSolidTertiary</item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.ProgressBar.Accent">
+        <item name="android:progressTint">?salute_surfaceDefaultAccent</item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.ProgressBar.GradientAccent">
+        <item name="android:progressTint">@null</item>
+        <item name="android:progressDrawable">?salute_surfaceDefaultGradientMain</item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.ProgressBar.Positive">
+        <item name="android:progressTint">?salute_surfaceDefaultPositive</item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.ProgressBar.Warning">
+        <item name="android:progressTint">?salute_surfaceDefaultWarning</item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.ProgressBar.Negative">
+        <item name="android:progressTint">?salute_surfaceDefaultNegative</item>
+    </style>
+</resources>

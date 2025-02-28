@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <attr format="reference" name="salute_shadowDownSoftS"/>
+    <attr format="reference" name="salute_shadowDownSoftM"/>
+    <attr format="reference" name="salute_shadowDownSoftL"/>
+    <attr format="reference" name="salute_shadowDownHardS"/>
+    <attr format="reference" name="salute_shadowDownHardM"/>
+    <attr format="reference" name="salute_shadowDownHardL"/>
+    <attr format="reference" name="salute_shadowUpSoftS"/>
+    <attr format="reference" name="salute_shadowUpSoftM"/>
+    <attr format="reference" name="salute_shadowUpSoftL"/>
+    <attr format="reference" name="salute_shadowUpHardS"/>
+    <attr format="reference" name="salute_shadowUpHardM"/>
+    <attr format="reference" name="salute_shadowUpHardL"/>
+</resources>

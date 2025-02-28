@@ -9,6 +9,10 @@ import com.sdds.plugin.themebuilder.internal.components.button.compose.ButtonCom
 import com.sdds.plugin.themebuilder.internal.components.button.view.BasicButtonStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.components.button.view.IconButtonStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.components.button.view.LinkButtonStyleGeneratorView
+import com.sdds.plugin.themebuilder.internal.components.cell.compose.CellComposeVariationGenerator
+import com.sdds.plugin.themebuilder.internal.components.counter.view.CounterStyleGeneratorView
+import com.sdds.plugin.themebuilder.internal.components.indicator.compose.IndicatorComposeVariationGenerator
+import com.sdds.plugin.themebuilder.internal.components.indicator.view.IndicatorStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.components.textfield.compose.TextFieldComposeVariationGenerator
 import com.sdds.plugin.themebuilder.internal.components.textfield.view.ViewTextAreaStyleGenerator
 import com.sdds.plugin.themebuilder.internal.components.textfield.view.ViewTextFieldStyleGenerator
@@ -41,6 +45,8 @@ internal class ComponentStyleGeneratorFactory(
     private val outputResDir: File by unsafeLazy {
         projectDir.get().dir(outputResDirPath).asFile
     }
+
+    private val themeClassName = "${themeName.snakeToCamelCase()}Theme"
 
     private val mViewColorStateGeneratorFactory by unsafeLazy {
         ViewColorStateGeneratorFactory(
@@ -79,6 +85,28 @@ internal class ComponentStyleGeneratorFactory(
             dimensAggregator = dimensAggregator,
             outputResDir = outputResDir,
             attrPrefix = resourcePrefixConfig.resourcePrefix,
+            viewColorStateGeneratorFactory = mViewColorStateGeneratorFactory,
+            colorStateListGeneratorFactory = colorStateListGeneratorFactory,
+        )
+
+    fun createIndicatorStyleGeneratorView(): IndicatorStyleGeneratorView =
+        IndicatorStyleGeneratorView(
+            xmlBuilderFactory = xmlBuilderFactory,
+            resourceReferenceProvider = resourceReferenceProvider,
+            dimensAggregator = dimensAggregator,
+            outputResDir = outputResDir,
+            resourcePrefix = resourcePrefixConfig.resourcePrefix,
+            viewColorStateGeneratorFactory = mViewColorStateGeneratorFactory,
+            colorStateListGeneratorFactory = colorStateListGeneratorFactory,
+        )
+
+    fun createCounterStyleGeneratorView(): CounterStyleGeneratorView =
+        CounterStyleGeneratorView(
+            xmlBuilderFactory = xmlBuilderFactory,
+            resourceReferenceProvider = resourceReferenceProvider,
+            dimensAggregator = dimensAggregator,
+            outputResDir = outputResDir,
+            resourcePrefix = resourcePrefixConfig.resourcePrefix,
             viewColorStateGeneratorFactory = mViewColorStateGeneratorFactory,
             colorStateListGeneratorFactory = colorStateListGeneratorFactory,
         )
@@ -140,11 +168,29 @@ internal class ComponentStyleGeneratorFactory(
             componentPackage = "textarea.clear",
         )
 
+    fun createCellStyleGeneratorCompose() = CellComposeVariationGenerator(
+        themeClassName = themeClassName,
+        themePackage = packageResolver.getPackage(TargetPackage.THEME),
+        dimensionsConfig = dimensionsConfig,
+        dimensAggregator = dimensAggregator,
+        resourceReferenceProvider = resourceReferenceProvider,
+        namespace = namespace,
+        ktFileBuilderFactory = ktFileBuilderFactory,
+        componentPackage = "${packageResolver.getPackage(TargetPackage.STYLES)}.cell",
+        componentName = "cell",
+        outputLocation = KtFileBuilder.OutputLocation.Directory(outputDir),
+        avatarStylesPackage = "${packageResolver.getPackage(TargetPackage.STYLES)}.avatar",
+        iconButtonStylesPackage = "${packageResolver.getPackage(TargetPackage.STYLES)}.button.icon",
+        checkBoxStylesPackage = "${packageResolver.getPackage(TargetPackage.STYLES)}.checkbox",
+        radioBoxStylesPackage = "${packageResolver.getPackage(TargetPackage.STYLES)}.radiobox",
+        switchStylesPackage = "${packageResolver.getPackage(TargetPackage.STYLES)}.switcher",
+    )
+
     private fun createBaseTextFieldStyleGeneratorCompose(
         componentName: String,
         componentPackage: String,
     ) = TextFieldComposeVariationGenerator(
-        themeClassName = "${themeName.snakeToCamelCase()}Theme",
+        themeClassName = themeClassName,
         themePackage = packageResolver.getPackage(TargetPackage.THEME),
         chipStylesPackage = "${packageResolver.getPackage(TargetPackage.STYLES)}.chip",
         chipGroupStylesPackage = "${packageResolver.getPackage(TargetPackage.STYLES)}.chip.group",
@@ -157,6 +203,20 @@ internal class ComponentStyleGeneratorFactory(
         componentName = componentName,
         outputLocation = KtFileBuilder.OutputLocation.Directory(outputDir),
     )
+
+    fun createIndicatorStyleGeneratorCompose() =
+        IndicatorComposeVariationGenerator(
+            themeClassName = "${themeName.snakeToCamelCase()}Theme",
+            themePackage = packageResolver.getPackage(TargetPackage.THEME),
+            dimensionsConfig = dimensionsConfig,
+            dimensAggregator = dimensAggregator,
+            resourceReferenceProvider = resourceReferenceProvider,
+            namespace = namespace,
+            ktFileBuilderFactory = ktFileBuilderFactory,
+            componentPackage = "${packageResolver.getPackage(TargetPackage.STYLES)}.indicator",
+            componentName = "indicator",
+            outputLocation = KtFileBuilder.OutputLocation.Directory(outputDir),
+        )
 
     fun createBasicButtonStyleGeneratorCompose() =
         createBaseButtonStyleGeneratorCompose(
@@ -180,7 +240,7 @@ internal class ComponentStyleGeneratorFactory(
         componentName: String,
         componentPackage: String,
     ) = ButtonComposeVariationGenerator(
-        themeClassName = "${themeName.snakeToCamelCase()}Theme",
+        themeClassName = themeClassName,
         themePackage = packageResolver.getPackage(TargetPackage.THEME),
         dimensionsConfig = dimensionsConfig,
         dimensAggregator = dimensAggregator,

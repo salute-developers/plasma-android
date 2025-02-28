@@ -1,27 +1,24 @@
 package com.sdds.playground.sandbox.progress.vs
 
-import android.os.Bundle
 import android.view.ContextThemeWrapper
-import android.view.View
 import android.view.ViewGroup.LayoutParams
 import android.widget.FrameLayout
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.playground.sandbox.core.vs.PropertiesOwner
+import com.sdds.testing.vs.progress.ProgressUiState
+import com.sdds.testing.vs.progress.applyState
+import com.sdds.testing.vs.progress.progressBar
 import com.sdds.uikit.ProgressBar
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.onEach
 
 /**
  * Фрагмент с компонентом ProgressBar
  * @author Малышев Александр on 19.08.2024
  */
-internal class ProgressBarFragment : ComponentFragment() {
+internal class ProgressBarFragment : ComponentFragment<ProgressUiState, ProgressBar>() {
 
-    private val progressBarParametersViewModel by viewModels<ProgressBarParametersViewModel> {
-        ProgressBarParametersViewModelFactory(getState { ProgressUiState() })
+    override val componentViewModel by viewModels<ProgressBarViewModel> {
+        ProgressBarViewModelFactory(getState { ProgressUiState() })
     }
 
     override val defaultLayoutParams: FrameLayout.LayoutParams by lazy {
@@ -31,29 +28,11 @@ internal class ProgressBarFragment : ComponentFragment() {
         )
     }
 
-    override val componentLayout: ProgressBar
-        get() = ProgressBar(ContextThemeWrapper(requireContext(), currentVariant.styleRes))
-            .apply { id = R.id.progressBar }
-            .also { progressBar = it }
+    override fun getComponent(contextWrapper: ContextThemeWrapper): ProgressBar {
+        return progressBar(contextWrapper)
+    }
 
-    override val propertiesOwner: PropertiesOwner
-        get() = progressBarParametersViewModel
-
-    private var currentVariant: ProgressVariant = ProgressVariant.Default
-    private var progressBar: ProgressBar? = null
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        progressBarParametersViewModel.progressUiState
-            .onEach { state ->
-                if (currentVariant != state.variant) {
-                    currentVariant = state.variant
-                    dispatchComponentStyleChanged()
-                }
-                progressBar?.apply {
-                    setProgress(state.progress, true)
-                }
-            }
-            .launchIn(viewLifecycleOwner.lifecycleScope)
+    override fun onComponentUpdate(component: ProgressBar?, state: ProgressUiState) {
+        component?.applyState(state)
     }
 }

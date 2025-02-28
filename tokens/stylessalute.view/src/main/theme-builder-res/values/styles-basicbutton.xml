@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Salute.StylesSalute.Components.BasicButton" parent="Sdds.Components.Button">
+        <item name="sd_colorStateProvider">com.sdds.stylessalute.colorstate.ButtonColorStateProvider</item>
+        <item name="sd_disabledAlpha">0.4</item>
+        <item name="backgroundTint">@color/salute_basic_button_bg_color</item>
+        <item name="android:textColor">@color/salute_basic_button_text_color</item>
+        <item name="sd_valueTextColor">@color/salute_basic_button_value_color</item>
+        <item name="sd_spinnerTint">@color/salute_basic_button_spinner_tint</item>
+        <item name="sd_iconTint">@color/salute_basic_button_icon_tint</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.BasicButton.L">
+        <item name="android:minHeight">@dimen/salute_basic_button_l_min_height</item>
+        <item name="android:minWidth">@dimen/salute_basic_button_l_min_width</item>
+        <item name="android:paddingStart">@dimen/salute_basic_button_l_padding_start</item>
+        <item name="android:paddingEnd">@dimen/salute_basic_button_l_padding_end</item>
+        <item name="sd_iconSize">@dimen/salute_basic_button_l_icon_size</item>
+        <item name="sd_spinnerSize">@dimen/salute_basic_button_l_spinner_size</item>
+        <item name="sd_spinnerStrokeWidth">@dimen/salute_basic_button_l_spinner_stroke_width</item>
+        <item name="sd_iconPadding">@dimen/salute_basic_button_l_icon_padding</item>
+        <item name="sd_valuePadding">@dimen/salute_basic_button_l_value_padding</item>
+        <item name="sd_shapeAppearance">?salute_shapeRoundL</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/salute_basic_button_l_shape_adjustment</item>
+        <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.BodyLBold</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.BasicButtonL">
+        <item name="android:buttonStyle">@style/Salute.StylesSalute.Components.BasicButton.L</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.BasicButton.L.Default">
+        <item name="salute_buttonColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.BasicButtonLDefault">
+        <item name="android:buttonStyle">@style/Salute.StylesSalute.Components.BasicButton.L.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.BasicButton.L.Secondary">
+        <item name="salute_buttonColors">state_secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.BasicButtonLSecondary">
+        <item name="android:buttonStyle">@style/Salute.StylesSalute.Components.BasicButton.L.Secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.BasicButton.L.Accent">
+        <item name="salute_buttonColors">state_accent</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.BasicButtonLAccent">
+        <item name="android:buttonStyle">@style/Salute.StylesSalute.Components.BasicButton.L.Accent</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.BasicButton.L.Positive">
+        <item name="salute_buttonColors">state_positive</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.BasicButtonLPositive">
+        <item name="android:buttonStyle">@style/Salute.StylesSalute.Components.BasicButton.L.Positive</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.BasicButton.L.Negative">
+        <item name="salute_buttonColors">state_negative</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.BasicButtonLNegative">
+        <item name="android:buttonStyle">@style/Salute.StylesSalute.Components.BasicButton.L.Negative</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.BasicButton.L.Warning">
+        <item name="salute_buttonColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.BasicButtonLWarning">
+        <item name="android:buttonStyle">@style/Salute.StylesSalute.Components.BasicButton.L.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.BasicButton.L.Clear">
+        <item name="salute_buttonColors">state_clear</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.BasicButtonLClear">
+        <item name="android:buttonStyle">@style/Salute.StylesSalute.Components.BasicButton.L.Clear</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.BasicButton.L.Dark">
+        <item name="salute_buttonColors">state_dark</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.BasicButtonLDark">
+        <item name="android:buttonStyle">@style/Salute.StylesSalute.Components.BasicButton.L.Dark</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.BasicButton.L.Black">
+        <item name="salute_buttonColors">state_black</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.BasicButtonLBlack">
+        <item name="android:buttonStyle">@style/Salute.StylesSalute.Components.BasicButton.L.Black</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.BasicButton.L.White">
+        <item name="salute_buttonColors">state_white</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.BasicButtonLWhite">
+        <item name="android:buttonStyle">@style/Salute.StylesSalute.Components.BasicButton.L.White</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.BasicButton.M">
+        <item name="android:minHeight">@dimen/salute_basic_button_m_min_height</item>
+        <item name="android:minWidth">@dimen/salute_basic_button_m_min_width</item>
+        <item name="android:paddingStart">@dimen/salute_basic_button_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/salute_basic_button_m_padding_end</item>
+        <item name="sd_iconSize">@dimen/salute_basic_button_m_icon_size</item>
+        <item name="sd_spinnerSize">@dimen/salute_basic_button_m_spinner_size</item>
+        <item name="sd_spinnerStrokeWidth">@dimen/salute_basic_button_m_spinner_stroke_width</item>
+        <item name="sd_iconPadding">@dimen/salute_basic_button_m_icon_padding</item>
+        <item name="sd_valuePadding">@dimen/salute_basic_button_m_value_padding</item>
+        <item name="sd_shapeAppearance">?salute_shapeRoundM</item>
+        <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.BodyMBold</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.BasicButtonM">
+        <item name="android:buttonStyle">@style/Salute.StylesSalute.Components.BasicButton.M</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.BasicButton.M.Default">
+        <item name="salute_buttonColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.BasicButtonMDefault">
+        <item name="android:buttonStyle">@style/Salute.StylesSalute.Components.BasicButton.M.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.BasicButton.M.Secondary">
+        <item name="salute_buttonColors">state_secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.BasicButtonMSecondary">
+        <item name="android:buttonStyle">@style/Salute.StylesSalute.Components.BasicButton.M.Secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.BasicButton.M.Accent">
+        <item name="salute_buttonColors">state_accent</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.BasicButtonMAccent">
+        <item name="android:buttonStyle">@style/Salute.StylesSalute.Components.BasicButton.M.Accent</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.BasicButton.M.Positive">
+        <item name="salute_buttonColors">state_positive</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.BasicButtonMPositive">
+        <item name="android:buttonStyle">@style/Salute.StylesSalute.Components.BasicButton.M.Positive</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.BasicButton.M.Negative">
+        <item name="salute_buttonColors">state_negative</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.BasicButtonMNegative">
+        <item name="android:buttonStyle">@style/Salute.StylesSalute.Components.BasicButton.M.Negative</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.BasicButton.M.Warning">
+        <item name="salute_buttonColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.BasicButtonMWarning">
+        <item name="android:buttonStyle">@style/Salute.StylesSalute.Components.BasicButton.M.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.BasicButton.M.Clear">
+        <item name="salute_buttonColors">state_clear</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.BasicButtonMClear">
+        <item name="android:buttonStyle">@style/Salute.StylesSalute.Components.BasicButton.M.Clear</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.BasicButton.M.Dark">
+        <item name="salute_buttonColors">state_dark</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.BasicButtonMDark">
+        <item name="android:buttonStyle">@style/Salute.StylesSalute.Components.BasicButton.M.Dark</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.BasicButton.M.Black">
+        <item name="salute_buttonColors">state_black</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.BasicButtonMBlack">
+        <item name="android:buttonStyle">@style/Salute.StylesSalute.Components.BasicButton.M.Black</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.BasicButton.M.White">
+        <item name="salute_buttonColors">state_white</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.BasicButtonMWhite">
+        <item name="android:buttonStyle">@style/Salute.StylesSalute.Components.BasicButton.M.White</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.BasicButton.S">
+        <item name="android:minHeight">@dimen/salute_basic_button_s_min_height</item>
+        <item name="android:minWidth">@dimen/salute_basic_button_s_min_width</item>
+        <item name="android:paddingStart">@dimen/salute_basic_button_s_padding_start</item>
+        <item name="android:paddingEnd">@dimen/salute_basic_button_s_padding_end</item>
+        <item name="sd_iconSize">@dimen/salute_basic_button_s_icon_size</item>
+        <item name="sd_spinnerSize">@dimen/salute_basic_button_s_spinner_size</item>
+        <item name="sd_spinnerStrokeWidth">@dimen/salute_basic_button_s_spinner_stroke_width</item>
+        <item name="sd_iconPadding">@dimen/salute_basic_button_s_icon_padding</item>
+        <item name="sd_valuePadding">@dimen/salute_basic_button_s_value_padding</item>
+        <item name="sd_shapeAppearance">?salute_shapeRoundM</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/salute_basic_button_s_shape_adjustment</item>
+        <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.BodySBold</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.BasicButtonS">
+        <item name="android:buttonStyle">@style/Salute.StylesSalute.Components.BasicButton.S</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.BasicButton.S.Default">
+        <item name="salute_buttonColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.BasicButtonSDefault">
+        <item name="android:buttonStyle">@style/Salute.StylesSalute.Components.BasicButton.S.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.BasicButton.S.Secondary">
+        <item name="salute_buttonColors">state_secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.BasicButtonSSecondary">
+        <item name="android:buttonStyle">@style/Salute.StylesSalute.Components.BasicButton.S.Secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.BasicButton.S.Accent">
+        <item name="salute_buttonColors">state_accent</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.BasicButtonSAccent">
+        <item name="android:buttonStyle">@style/Salute.StylesSalute.Components.BasicButton.S.Accent</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.BasicButton.S.Positive">
+        <item name="salute_buttonColors">state_positive</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.BasicButtonSPositive">
+        <item name="android:buttonStyle">@style/Salute.StylesSalute.Components.BasicButton.S.Positive</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.BasicButton.S.Negative">
+        <item name="salute_buttonColors">state_negative</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.BasicButtonSNegative">
+        <item name="android:buttonStyle">@style/Salute.StylesSalute.Components.BasicButton.S.Negative</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.BasicButton.S.Warning">
+        <item name="salute_buttonColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.BasicButtonSWarning">
+        <item name="android:buttonStyle">@style/Salute.StylesSalute.Components.BasicButton.S.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.BasicButton.S.Clear">
+        <item name="salute_buttonColors">state_clear</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.BasicButtonSClear">
+        <item name="android:buttonStyle">@style/Salute.StylesSalute.Components.BasicButton.S.Clear</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.BasicButton.S.Dark">
+        <item name="salute_buttonColors">state_dark</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.BasicButtonSDark">
+        <item name="android:buttonStyle">@style/Salute.StylesSalute.Components.BasicButton.S.Dark</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.BasicButton.S.Black">
+        <item name="salute_buttonColors">state_black</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.BasicButtonSBlack">
+        <item name="android:buttonStyle">@style/Salute.StylesSalute.Components.BasicButton.S.Black</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.BasicButton.S.White">
+        <item name="salute_buttonColors">state_white</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.BasicButtonSWhite">
+        <item name="android:buttonStyle">@style/Salute.StylesSalute.Components.BasicButton.S.White</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.BasicButton.Xs">
+        <item name="android:minHeight">@dimen/salute_basic_button_xs_min_height</item>
+        <item name="android:minWidth">@dimen/salute_basic_button_xs_min_width</item>
+        <item name="android:paddingStart">@dimen/salute_basic_button_xs_padding_start</item>
+        <item name="android:paddingEnd">@dimen/salute_basic_button_xs_padding_end</item>
+        <item name="sd_iconSize">@dimen/salute_basic_button_xs_icon_size</item>
+        <item name="sd_spinnerSize">@dimen/salute_basic_button_xs_spinner_size</item>
+        <item name="sd_spinnerStrokeWidth">@dimen/salute_basic_button_xs_spinner_stroke_width</item>
+        <item name="sd_iconPadding">@dimen/salute_basic_button_xs_icon_padding</item>
+        <item name="sd_valuePadding">@dimen/salute_basic_button_xs_value_padding</item>
+        <item name="sd_shapeAppearance">?salute_shapeRoundS</item>
+        <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.BodyXsBold</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.BasicButtonXs">
+        <item name="android:buttonStyle">@style/Salute.StylesSalute.Components.BasicButton.Xs</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.BasicButton.Xs.Default">
+        <item name="salute_buttonColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.BasicButtonXsDefault">
+        <item name="android:buttonStyle">@style/Salute.StylesSalute.Components.BasicButton.Xs.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.BasicButton.Xs.Secondary">
+        <item name="salute_buttonColors">state_secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.BasicButtonXsSecondary">
+        <item name="android:buttonStyle">@style/Salute.StylesSalute.Components.BasicButton.Xs.Secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.BasicButton.Xs.Accent">
+        <item name="salute_buttonColors">state_accent</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.BasicButtonXsAccent">
+        <item name="android:buttonStyle">@style/Salute.StylesSalute.Components.BasicButton.Xs.Accent</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.BasicButton.Xs.Positive">
+        <item name="salute_buttonColors">state_positive</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.BasicButtonXsPositive">
+        <item name="android:buttonStyle">@style/Salute.StylesSalute.Components.BasicButton.Xs.Positive</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.BasicButton.Xs.Negative">
+        <item name="salute_buttonColors">state_negative</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.BasicButtonXsNegative">
+        <item name="android:buttonStyle">@style/Salute.StylesSalute.Components.BasicButton.Xs.Negative</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.BasicButton.Xs.Warning">
+        <item name="salute_buttonColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.BasicButtonXsWarning">
+        <item name="android:buttonStyle">@style/Salute.StylesSalute.Components.BasicButton.Xs.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.BasicButton.Xs.Clear">
+        <item name="salute_buttonColors">state_clear</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.BasicButtonXsClear">
+        <item name="android:buttonStyle">@style/Salute.StylesSalute.Components.BasicButton.Xs.Clear</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.BasicButton.Xs.Dark">
+        <item name="salute_buttonColors">state_dark</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.BasicButtonXsDark">
+        <item name="android:buttonStyle">@style/Salute.StylesSalute.Components.BasicButton.Xs.Dark</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.BasicButton.Xs.Black">
+        <item name="salute_buttonColors">state_black</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.BasicButtonXsBlack">
+        <item name="android:buttonStyle">@style/Salute.StylesSalute.Components.BasicButton.Xs.Black</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.BasicButton.Xs.White">
+        <item name="salute_buttonColors">state_white</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.BasicButtonXsWhite">
+        <item name="android:buttonStyle">@style/Salute.StylesSalute.Components.BasicButton.Xs.White</item>
+    </style>
+</resources>

@@ -16,9 +16,11 @@ internal data class ShapeTokenResult(
      *
      * @property attrName название атрибута токена
      * @property tokenRefName ссылка на сгенерированный токен цвета
+     * @property description описание токена
      */
     internal data class TokenData(
         val attrName: String,
         val tokenRefName: String,
+        val description: String = "",
     )
 }

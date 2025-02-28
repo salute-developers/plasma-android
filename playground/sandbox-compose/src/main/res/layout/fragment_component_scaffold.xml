@@ -22,13 +22,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <com.sdds.uikit.FrameLayout
-            android:id="@+id/component_container"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:focusable="false"
-            android:clipChildren="false"/>
-
     </com.sdds.uikit.FrameLayout>
 
     <com.sdds.uikit.LinearLayout

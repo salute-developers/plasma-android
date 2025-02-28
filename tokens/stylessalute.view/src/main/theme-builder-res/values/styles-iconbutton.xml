@@ -1,0 +1,570 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Salute.StylesSalute.Components.IconButton" parent="Sdds.Components.IconButton">
+        <item name="sd_colorStateProvider">com.sdds.stylessalute.colorstate.IconButtonColorStateProvider</item>
+        <item name="sd_disabledAlpha">0.4</item>
+        <item name="backgroundTint">@color/salute_icon_button_bg_color</item>
+        <item name="sd_spinnerTint">@color/salute_icon_button_spinner_tint</item>
+        <item name="sd_iconTint">@color/salute_icon_button_icon_tint</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.L">
+        <item name="android:minHeight">@dimen/salute_icon_button_l_min_height</item>
+        <item name="android:minWidth">@dimen/salute_icon_button_l_min_width</item>
+        <item name="android:paddingStart">@dimen/salute_icon_button_l_padding_start</item>
+        <item name="android:paddingEnd">@dimen/salute_icon_button_l_padding_end</item>
+        <item name="sd_iconSize">@dimen/salute_icon_button_l_icon_size</item>
+        <item name="sd_spinnerSize">@dimen/salute_icon_button_l_spinner_size</item>
+        <item name="sd_spinnerStrokeWidth">@dimen/salute_icon_button_l_spinner_stroke_width</item>
+        <item name="sd_shapeAppearance">?salute_shapeRoundL</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/salute_icon_button_l_shape_adjustment</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonL">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.L</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.L.Default">
+        <item name="salute_iconbuttonColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonLDefault">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.L.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.L.Secondary">
+        <item name="salute_iconbuttonColors">state_secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonLSecondary">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.L.Secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.L.Accent">
+        <item name="salute_iconbuttonColors">state_accent</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonLAccent">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.L.Accent</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.L.Positive">
+        <item name="salute_iconbuttonColors">state_positive</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonLPositive">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.L.Positive</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.L.Negative">
+        <item name="salute_iconbuttonColors">state_negative</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonLNegative">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.L.Negative</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.L.Warning">
+        <item name="salute_iconbuttonColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonLWarning">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.L.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.L.Clear">
+        <item name="salute_iconbuttonColors">state_clear</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonLClear">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.L.Clear</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.L.Dark">
+        <item name="salute_iconbuttonColors">state_dark</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonLDark">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.L.Dark</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.L.Black">
+        <item name="salute_iconbuttonColors">state_black</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonLBlack">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.L.Black</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.L.White">
+        <item name="salute_iconbuttonColors">state_white</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonLWhite">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.L.White</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.L.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonLPilled">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.L.Pilled</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.L.Pilled.Default">
+        <item name="salute_iconbuttonColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonLPilledDefault">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.L.Pilled.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.L.Pilled.Secondary">
+        <item name="salute_iconbuttonColors">state_secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonLPilledSecondary">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.L.Pilled.Secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.L.Pilled.Accent">
+        <item name="salute_iconbuttonColors">state_accent</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonLPilledAccent">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.L.Pilled.Accent</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.L.Pilled.Positive">
+        <item name="salute_iconbuttonColors">state_positive</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonLPilledPositive">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.L.Pilled.Positive</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.L.Pilled.Negative">
+        <item name="salute_iconbuttonColors">state_negative</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonLPilledNegative">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.L.Pilled.Negative</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.L.Pilled.Warning">
+        <item name="salute_iconbuttonColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonLPilledWarning">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.L.Pilled.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.L.Pilled.Clear">
+        <item name="salute_iconbuttonColors">state_clear</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonLPilledClear">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.L.Pilled.Clear</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.L.Pilled.Dark">
+        <item name="salute_iconbuttonColors">state_dark</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonLPilledDark">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.L.Pilled.Dark</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.L.Pilled.Black">
+        <item name="salute_iconbuttonColors">state_black</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonLPilledBlack">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.L.Pilled.Black</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.L.Pilled.White">
+        <item name="salute_iconbuttonColors">state_white</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonLPilledWhite">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.L.Pilled.White</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.M">
+        <item name="android:minHeight">@dimen/salute_icon_button_m_min_height</item>
+        <item name="android:minWidth">@dimen/salute_icon_button_m_min_width</item>
+        <item name="android:paddingStart">@dimen/salute_icon_button_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/salute_icon_button_m_padding_end</item>
+        <item name="sd_iconSize">@dimen/salute_icon_button_m_icon_size</item>
+        <item name="sd_spinnerSize">@dimen/salute_icon_button_m_spinner_size</item>
+        <item name="sd_spinnerStrokeWidth">@dimen/salute_icon_button_m_spinner_stroke_width</item>
+        <item name="sd_shapeAppearance">?salute_shapeRoundM</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonM">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.M</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.M.Default">
+        <item name="salute_iconbuttonColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonMDefault">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.M.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.M.Secondary">
+        <item name="salute_iconbuttonColors">state_secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonMSecondary">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.M.Secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.M.Accent">
+        <item name="salute_iconbuttonColors">state_accent</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonMAccent">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.M.Accent</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.M.Positive">
+        <item name="salute_iconbuttonColors">state_positive</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonMPositive">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.M.Positive</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.M.Negative">
+        <item name="salute_iconbuttonColors">state_negative</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonMNegative">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.M.Negative</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.M.Warning">
+        <item name="salute_iconbuttonColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonMWarning">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.M.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.M.Clear">
+        <item name="salute_iconbuttonColors">state_clear</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonMClear">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.M.Clear</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.M.Dark">
+        <item name="salute_iconbuttonColors">state_dark</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonMDark">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.M.Dark</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.M.Black">
+        <item name="salute_iconbuttonColors">state_black</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonMBlack">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.M.Black</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.M.White">
+        <item name="salute_iconbuttonColors">state_white</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonMWhite">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.M.White</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.M.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonMPilled">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.M.Pilled</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.M.Pilled.Default">
+        <item name="salute_iconbuttonColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonMPilledDefault">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.M.Pilled.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.M.Pilled.Secondary">
+        <item name="salute_iconbuttonColors">state_secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonMPilledSecondary">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.M.Pilled.Secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.M.Pilled.Accent">
+        <item name="salute_iconbuttonColors">state_accent</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonMPilledAccent">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.M.Pilled.Accent</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.M.Pilled.Positive">
+        <item name="salute_iconbuttonColors">state_positive</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonMPilledPositive">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.M.Pilled.Positive</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.M.Pilled.Negative">
+        <item name="salute_iconbuttonColors">state_negative</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonMPilledNegative">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.M.Pilled.Negative</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.M.Pilled.Warning">
+        <item name="salute_iconbuttonColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonMPilledWarning">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.M.Pilled.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.M.Pilled.Clear">
+        <item name="salute_iconbuttonColors">state_clear</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonMPilledClear">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.M.Pilled.Clear</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.M.Pilled.Dark">
+        <item name="salute_iconbuttonColors">state_dark</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonMPilledDark">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.M.Pilled.Dark</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.M.Pilled.Black">
+        <item name="salute_iconbuttonColors">state_black</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonMPilledBlack">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.M.Pilled.Black</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.M.Pilled.White">
+        <item name="salute_iconbuttonColors">state_white</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonMPilledWhite">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.M.Pilled.White</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.S">
+        <item name="android:minHeight">@dimen/salute_icon_button_s_min_height</item>
+        <item name="android:minWidth">@dimen/salute_icon_button_s_min_width</item>
+        <item name="android:paddingStart">@dimen/salute_icon_button_s_padding_start</item>
+        <item name="android:paddingEnd">@dimen/salute_icon_button_s_padding_end</item>
+        <item name="sd_iconSize">@dimen/salute_icon_button_s_icon_size</item>
+        <item name="sd_spinnerSize">@dimen/salute_icon_button_s_spinner_size</item>
+        <item name="sd_spinnerStrokeWidth">@dimen/salute_icon_button_s_spinner_stroke_width</item>
+        <item name="sd_shapeAppearance">?salute_shapeRoundM</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/salute_icon_button_s_shape_adjustment</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonS">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.S</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.S.Default">
+        <item name="salute_iconbuttonColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonSDefault">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.S.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.S.Secondary">
+        <item name="salute_iconbuttonColors">state_secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonSSecondary">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.S.Secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.S.Accent">
+        <item name="salute_iconbuttonColors">state_accent</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonSAccent">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.S.Accent</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.S.Positive">
+        <item name="salute_iconbuttonColors">state_positive</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonSPositive">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.S.Positive</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.S.Negative">
+        <item name="salute_iconbuttonColors">state_negative</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonSNegative">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.S.Negative</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.S.Warning">
+        <item name="salute_iconbuttonColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonSWarning">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.S.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.S.Clear">
+        <item name="salute_iconbuttonColors">state_clear</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonSClear">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.S.Clear</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.S.Dark">
+        <item name="salute_iconbuttonColors">state_dark</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonSDark">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.S.Dark</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.S.Black">
+        <item name="salute_iconbuttonColors">state_black</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonSBlack">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.S.Black</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.S.White">
+        <item name="salute_iconbuttonColors">state_white</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonSWhite">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.S.White</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.S.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonSPilled">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.S.Pilled</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.S.Pilled.Default">
+        <item name="salute_iconbuttonColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonSPilledDefault">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.S.Pilled.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.S.Pilled.Secondary">
+        <item name="salute_iconbuttonColors">state_secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonSPilledSecondary">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.S.Pilled.Secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.S.Pilled.Accent">
+        <item name="salute_iconbuttonColors">state_accent</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonSPilledAccent">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.S.Pilled.Accent</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.S.Pilled.Positive">
+        <item name="salute_iconbuttonColors">state_positive</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonSPilledPositive">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.S.Pilled.Positive</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.S.Pilled.Negative">
+        <item name="salute_iconbuttonColors">state_negative</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonSPilledNegative">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.S.Pilled.Negative</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.S.Pilled.Warning">
+        <item name="salute_iconbuttonColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonSPilledWarning">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.S.Pilled.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.S.Pilled.Clear">
+        <item name="salute_iconbuttonColors">state_clear</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonSPilledClear">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.S.Pilled.Clear</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.S.Pilled.Dark">
+        <item name="salute_iconbuttonColors">state_dark</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonSPilledDark">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.S.Pilled.Dark</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.S.Pilled.Black">
+        <item name="salute_iconbuttonColors">state_black</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonSPilledBlack">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.S.Pilled.Black</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.S.Pilled.White">
+        <item name="salute_iconbuttonColors">state_white</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonSPilledWhite">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.S.Pilled.White</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.Xs">
+        <item name="android:minHeight">@dimen/salute_icon_button_xs_min_height</item>
+        <item name="android:minWidth">@dimen/salute_icon_button_xs_min_width</item>
+        <item name="android:paddingStart">@dimen/salute_icon_button_xs_padding_start</item>
+        <item name="android:paddingEnd">@dimen/salute_icon_button_xs_padding_end</item>
+        <item name="sd_iconSize">@dimen/salute_icon_button_xs_icon_size</item>
+        <item name="sd_spinnerSize">@dimen/salute_icon_button_xs_spinner_size</item>
+        <item name="sd_spinnerStrokeWidth">@dimen/salute_icon_button_xs_spinner_stroke_width</item>
+        <item name="sd_shapeAppearance">?salute_shapeRoundS</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonXs">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.Xs</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.Xs.Default">
+        <item name="salute_iconbuttonColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonXsDefault">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.Xs.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.Xs.Secondary">
+        <item name="salute_iconbuttonColors">state_secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonXsSecondary">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.Xs.Secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.Xs.Accent">
+        <item name="salute_iconbuttonColors">state_accent</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonXsAccent">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.Xs.Accent</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.Xs.Positive">
+        <item name="salute_iconbuttonColors">state_positive</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonXsPositive">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.Xs.Positive</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.Xs.Negative">
+        <item name="salute_iconbuttonColors">state_negative</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonXsNegative">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.Xs.Negative</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.Xs.Warning">
+        <item name="salute_iconbuttonColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonXsWarning">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.Xs.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.Xs.Clear">
+        <item name="salute_iconbuttonColors">state_clear</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonXsClear">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.Xs.Clear</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.Xs.Dark">
+        <item name="salute_iconbuttonColors">state_dark</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonXsDark">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.Xs.Dark</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.Xs.Black">
+        <item name="salute_iconbuttonColors">state_black</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonXsBlack">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.Xs.Black</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.Xs.White">
+        <item name="salute_iconbuttonColors">state_white</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonXsWhite">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.Xs.White</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.Xs.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonXsPilled">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.Xs.Pilled</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.Xs.Pilled.Default">
+        <item name="salute_iconbuttonColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonXsPilledDefault">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.Xs.Pilled.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.Xs.Pilled.Secondary">
+        <item name="salute_iconbuttonColors">state_secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonXsPilledSecondary">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.Xs.Pilled.Secondary</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.Xs.Pilled.Accent">
+        <item name="salute_iconbuttonColors">state_accent</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonXsPilledAccent">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.Xs.Pilled.Accent</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.Xs.Pilled.Positive">
+        <item name="salute_iconbuttonColors">state_positive</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonXsPilledPositive">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.Xs.Pilled.Positive</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.Xs.Pilled.Negative">
+        <item name="salute_iconbuttonColors">state_negative</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonXsPilledNegative">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.Xs.Pilled.Negative</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.Xs.Pilled.Warning">
+        <item name="salute_iconbuttonColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonXsPilledWarning">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.Xs.Pilled.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.Xs.Pilled.Clear">
+        <item name="salute_iconbuttonColors">state_clear</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonXsPilledClear">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.Xs.Pilled.Clear</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.Xs.Pilled.Dark">
+        <item name="salute_iconbuttonColors">state_dark</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonXsPilledDark">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.Xs.Pilled.Dark</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.Xs.Pilled.Black">
+        <item name="salute_iconbuttonColors">state_black</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonXsPilledBlack">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.Xs.Pilled.Black</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.IconButton.Xs.Pilled.White">
+        <item name="salute_iconbuttonColors">state_white</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IconButtonXsPilledWhite">
+        <item name="sd_iconButtonStyle">@style/Salute.StylesSalute.Components.IconButton.Xs.Pilled.White</item>
+    </style>
+</resources>

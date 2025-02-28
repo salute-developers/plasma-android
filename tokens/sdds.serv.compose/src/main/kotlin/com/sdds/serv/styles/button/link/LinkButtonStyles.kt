@@ -1,4 +1,9 @@
 // AUTO-GENERATED. DO NOT MODIFY this file.
+@file:Suppress(
+    "UndocumentedPublicClass",
+    "UndocumentedPublicProperty",
+)
+
 package com.sdds.serv.styles.button.link
 
 import androidx.compose.runtime.Composable
@@ -12,6 +17,9 @@ import com.sdds.compose.uikit.linkButtonBuilder
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.serv.theme.SddsServTheme
+import kotlin.Suppress
+import kotlin.jvm.JvmInline
+import kotlin.jvm.JvmName
 
 public interface WrapperLinkButton : BuilderWrapper<ButtonStyle, LinkButtonStyleBuilder>
 
@@ -74,26 +82,26 @@ public val WrapperLinkButtonView.Default: WrapperLinkButtonDefaultViewTerminate
             spinnerColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textDefaultPrimaryHover
-                )
+                        to SddsServTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textDefaultPrimaryHover,
+                ),
             )
             iconColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textDefaultPrimaryHover
-                )
+                        to SddsServTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textDefaultPrimaryHover,
+                ),
             )
             labelColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textDefaultPrimaryHover
-                )
+                        to SddsServTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textDefaultPrimaryHover,
+                ),
             )
         }
         .wrap(::WrapperLinkButtonDefaultViewTerminate)
@@ -105,26 +113,26 @@ public val WrapperLinkButtonView.Secondary: WrapperLinkButtonSecondaryViewTermin
             spinnerColor(
                 SddsServTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textDefaultSecondaryActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textDefaultSecondaryHover
-                )
+                        to SddsServTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textDefaultSecondaryHover,
+                ),
             )
             iconColor(
                 SddsServTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textDefaultSecondaryActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textDefaultSecondaryHover
-                )
+                        to SddsServTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textDefaultSecondaryHover,
+                ),
             )
             labelColor(
                 SddsServTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textDefaultSecondaryActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textDefaultSecondaryHover
-                )
+                        to SddsServTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textDefaultSecondaryHover,
+                ),
             )
         }
         .wrap(::WrapperLinkButtonSecondaryViewTerminate)
@@ -136,26 +144,26 @@ public val WrapperLinkButtonView.Accent: WrapperLinkButtonAccentViewTerminate
             spinnerColor(
                 SddsServTheme.colors.textDefaultAccent.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textDefaultAccentActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textDefaultAccentHover
-                )
+                        to SddsServTheme.colors.textDefaultAccentActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textDefaultAccentHover,
+                ),
             )
             iconColor(
                 SddsServTheme.colors.textDefaultAccent.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textDefaultAccentActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textDefaultAccentHover
-                )
+                        to SddsServTheme.colors.textDefaultAccentActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textDefaultAccentHover,
+                ),
             )
             labelColor(
                 SddsServTheme.colors.textDefaultAccent.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textDefaultAccentActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textDefaultAccentHover
-                )
+                        to SddsServTheme.colors.textDefaultAccentActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textDefaultAccentHover,
+                ),
             )
         }
         .wrap(::WrapperLinkButtonAccentViewTerminate)
@@ -167,26 +175,26 @@ public val WrapperLinkButtonView.Positive: WrapperLinkButtonPositiveViewTerminat
             spinnerColor(
                 SddsServTheme.colors.textDefaultPositive.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textDefaultPositiveActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textDefaultPositiveHover
-                )
+                        to SddsServTheme.colors.textDefaultPositiveActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textDefaultPositiveHover,
+                ),
             )
             iconColor(
                 SddsServTheme.colors.textDefaultPositive.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textDefaultPositiveActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textDefaultPositiveHover
-                )
+                        to SddsServTheme.colors.textDefaultPositiveActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textDefaultPositiveHover,
+                ),
             )
             labelColor(
                 SddsServTheme.colors.textDefaultPositive.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textDefaultPositiveActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textDefaultPositiveHover
-                )
+                        to SddsServTheme.colors.textDefaultPositiveActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textDefaultPositiveHover,
+                ),
             )
         }
         .wrap(::WrapperLinkButtonPositiveViewTerminate)
@@ -198,26 +206,26 @@ public val WrapperLinkButtonView.Negative: WrapperLinkButtonNegativeViewTerminat
             spinnerColor(
                 SddsServTheme.colors.textDefaultNegative.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textDefaultNegativeActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textDefaultNegativeHover
-                )
+                        to SddsServTheme.colors.textDefaultNegativeActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textDefaultNegativeHover,
+                ),
             )
             iconColor(
                 SddsServTheme.colors.textDefaultNegative.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textDefaultNegativeActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textDefaultNegativeHover
-                )
+                        to SddsServTheme.colors.textDefaultNegativeActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textDefaultNegativeHover,
+                ),
             )
             labelColor(
                 SddsServTheme.colors.textDefaultNegative.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textDefaultNegativeActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textDefaultNegativeHover
-                )
+                        to SddsServTheme.colors.textDefaultNegativeActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textDefaultNegativeHover,
+                ),
             )
         }
         .wrap(::WrapperLinkButtonNegativeViewTerminate)
@@ -229,26 +237,26 @@ public val WrapperLinkButtonView.Warning: WrapperLinkButtonWarningViewTerminate
             spinnerColor(
                 SddsServTheme.colors.textDefaultWarning.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textDefaultWarningActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textDefaultWarningHover
-                )
+                        to SddsServTheme.colors.textDefaultWarningActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textDefaultWarningHover,
+                ),
             )
             iconColor(
                 SddsServTheme.colors.textDefaultWarning.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textDefaultWarningActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textDefaultWarningHover
-                )
+                        to SddsServTheme.colors.textDefaultWarningActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textDefaultWarningHover,
+                ),
             )
             labelColor(
                 SddsServTheme.colors.textDefaultWarning.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textDefaultWarningActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textDefaultWarningHover
-                )
+                        to SddsServTheme.colors.textDefaultWarningActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textDefaultWarningHover,
+                ),
             )
         }
         .wrap(::WrapperLinkButtonWarningViewTerminate)
@@ -257,7 +265,9 @@ private val LinkButtonStyleBuilder.invariantProps: LinkButtonStyleBuilder
     @Composable
     get() = this
         .colors {
-            backgroundColor(SddsServTheme.colors.surfaceDefaultClear.asInteractive())
+            backgroundColor(
+                SddsServTheme.colors.surfaceDefaultClear.asInteractive(),
+            )
         }
         .loadingAlpha(0.06f)
         .disableAlpha(0.4f)

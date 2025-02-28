@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <declare-styleable name="SaluteCounterColorState">
+        <attr format="boolean" name="salute_counter_state_default"/>
+        <attr format="boolean" name="salute_counter_state_accent"/>
+        <attr format="boolean" name="salute_counter_state_positive"/>
+        <attr format="boolean" name="salute_counter_state_warning"/>
+        <attr format="boolean" name="salute_counter_state_negative"/>
+        <attr format="boolean" name="salute_counter_state_black"/>
+        <attr format="boolean" name="salute_counter_state_white"/>
+    </declare-styleable>
+    <declare-styleable name="Counter" tools:ignore="ResourceName">
+        <attr format="enum" name="salute_counterColors">
+            <enum name="state_default" value="0"/>
+            <enum name="state_accent" value="1"/>
+            <enum name="state_positive" value="2"/>
+            <enum name="state_warning" value="3"/>
+            <enum name="state_negative" value="4"/>
+            <enum name="state_black" value="5"/>
+            <enum name="state_white" value="6"/>
+        </attr>
+    </declare-styleable>
+</resources>

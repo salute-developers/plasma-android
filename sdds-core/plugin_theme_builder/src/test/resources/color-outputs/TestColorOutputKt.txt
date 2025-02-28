@@ -3,6 +3,9 @@ package com.test.tokens
 
 import androidx.compose.ui.graphics.Color
 
+/**
+ * Токены цвета для темной темы
+ */
 public object DarkColorTokens {
     /**
      * Прозрачная акцентная поверхность

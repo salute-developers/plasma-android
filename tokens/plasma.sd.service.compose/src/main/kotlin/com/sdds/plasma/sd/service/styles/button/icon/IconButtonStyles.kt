@@ -1,4 +1,9 @@
 // AUTO-GENERATED. DO NOT MODIFY this file.
+@file:Suppress(
+    "UndocumentedPublicClass",
+    "UndocumentedPublicProperty",
+)
+
 package com.sdds.plasma.sd.service.styles.button.icon
 
 import androidx.compose.foundation.shape.CircleShape
@@ -14,6 +19,9 @@ import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.plasma.sd.service.theme.PlasmaSdServiceTheme
+import kotlin.Suppress
+import kotlin.jvm.JvmInline
+import kotlin.jvm.JvmName
 
 public interface WrapperIconButton : BuilderWrapper<ButtonStyle, IconButtonStyleBuilder>
 
@@ -116,26 +124,26 @@ public val WrapperIconButtonView.Default: WrapperIconButtonDefaultViewTerminate
             spinnerColor(
                 PlasmaSdServiceTheme.colors.textInversePrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
+                        to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
                     setOf(InteractiveState.Hovered)
-                            to PlasmaSdServiceTheme.colors.textInversePrimaryHover
-                )
+                        to PlasmaSdServiceTheme.colors.textInversePrimaryHover,
+                ),
             )
             iconColor(
                 PlasmaSdServiceTheme.colors.textInversePrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
+                        to PlasmaSdServiceTheme.colors.textInversePrimaryActive,
                     setOf(InteractiveState.Hovered)
-                            to PlasmaSdServiceTheme.colors.textInversePrimaryHover
-                )
+                        to PlasmaSdServiceTheme.colors.textInversePrimaryHover,
+                ),
             )
             backgroundColor(
                 PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefault.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultActive,
-                    setOf(InteractiveState.Hovered) to
-                            PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultHover
-                )
+                        to PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaSdServiceTheme.colors.surfaceDefaultSolidDefaultHover,
+                ),
             )
         }
         .wrap(::WrapperIconButtonDefaultViewTerminate)
@@ -147,26 +155,26 @@ public val WrapperIconButtonView.Secondary: WrapperIconButtonSecondaryViewTermin
             spinnerColor(
                 PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
+                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
                     setOf(InteractiveState.Hovered)
-                            to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover
-                )
+                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
+                ),
             )
             iconColor(
                 PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
+                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
                     setOf(InteractiveState.Hovered)
-                            to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover
-                )
+                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
+                ),
             )
             backgroundColor(
                 PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondaryActive,
-                    setOf(InteractiveState.Hovered) to
-                            PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondaryHover
-                )
+                        to PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondaryHover,
+                ),
             )
         }
         .wrap(::WrapperIconButtonSecondaryViewTerminate)
@@ -178,26 +186,26 @@ public val WrapperIconButtonView.Accent: WrapperIconButtonAccentViewTerminate
             spinnerColor(
                 PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
                     setOf(InteractiveState.Hovered)
-                            to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover
-                )
+                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                ),
             )
             iconColor(
                 PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
                     setOf(InteractiveState.Hovered)
-                            to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover
-                )
+                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                ),
             )
             backgroundColor(
                 PlasmaSdServiceTheme.colors.surfaceDefaultAccent.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to PlasmaSdServiceTheme.colors.surfaceDefaultAccentActive,
-                    setOf(InteractiveState.Hovered) to
-                            PlasmaSdServiceTheme.colors.surfaceDefaultAccentHover
-                )
+                        to PlasmaSdServiceTheme.colors.surfaceDefaultAccentActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaSdServiceTheme.colors.surfaceDefaultAccentHover,
+                ),
             )
         }
         .wrap(::WrapperIconButtonAccentViewTerminate)
@@ -209,26 +217,26 @@ public val WrapperIconButtonView.Positive: WrapperIconButtonPositiveViewTerminat
             spinnerColor(
                 PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
                     setOf(InteractiveState.Hovered)
-                            to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover
-                )
+                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                ),
             )
             iconColor(
                 PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
                     setOf(InteractiveState.Hovered)
-                            to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover
-                )
+                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                ),
             )
             backgroundColor(
                 PlasmaSdServiceTheme.colors.surfaceDefaultPositive.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to PlasmaSdServiceTheme.colors.surfaceDefaultPositiveActive,
-                    setOf(InteractiveState.Hovered) to
-                            PlasmaSdServiceTheme.colors.surfaceDefaultPositiveHover
-                )
+                        to PlasmaSdServiceTheme.colors.surfaceDefaultPositiveActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaSdServiceTheme.colors.surfaceDefaultPositiveHover,
+                ),
             )
         }
         .wrap(::WrapperIconButtonPositiveViewTerminate)
@@ -240,26 +248,26 @@ public val WrapperIconButtonView.Negative: WrapperIconButtonNegativeViewTerminat
             spinnerColor(
                 PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
                     setOf(InteractiveState.Hovered)
-                            to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover
-                )
+                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                ),
             )
             iconColor(
                 PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
                     setOf(InteractiveState.Hovered)
-                            to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover
-                )
+                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                ),
             )
             backgroundColor(
                 PlasmaSdServiceTheme.colors.surfaceDefaultNegative.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to PlasmaSdServiceTheme.colors.surfaceDefaultNegativeActive,
-                    setOf(InteractiveState.Hovered) to
-                            PlasmaSdServiceTheme.colors.surfaceDefaultNegativeHover
-                )
+                        to PlasmaSdServiceTheme.colors.surfaceDefaultNegativeActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaSdServiceTheme.colors.surfaceDefaultNegativeHover,
+                ),
             )
         }
         .wrap(::WrapperIconButtonNegativeViewTerminate)
@@ -271,26 +279,26 @@ public val WrapperIconButtonView.Warning: WrapperIconButtonWarningViewTerminate
             spinnerColor(
                 PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
                     setOf(InteractiveState.Hovered)
-                            to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover
-                )
+                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                ),
             )
             iconColor(
                 PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
                     setOf(InteractiveState.Hovered)
-                            to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover
-                )
+                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                ),
             )
             backgroundColor(
                 PlasmaSdServiceTheme.colors.surfaceDefaultWarning.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to PlasmaSdServiceTheme.colors.surfaceDefaultWarningActive,
-                    setOf(InteractiveState.Hovered) to
-                            PlasmaSdServiceTheme.colors.surfaceDefaultWarningHover
-                )
+                        to PlasmaSdServiceTheme.colors.surfaceDefaultWarningActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaSdServiceTheme.colors.surfaceDefaultWarningHover,
+                ),
             )
         }
         .wrap(::WrapperIconButtonWarningViewTerminate)
@@ -302,26 +310,26 @@ public val WrapperIconButtonView.Clear: WrapperIconButtonClearViewTerminate
             spinnerColor(
                 PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
+                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
                     setOf(InteractiveState.Hovered)
-                            to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover
-                )
+                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
+                ),
             )
             iconColor(
                 PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
+                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryActive,
                     setOf(InteractiveState.Hovered)
-                            to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover
-                )
+                        to PlasmaSdServiceTheme.colors.textDefaultPrimaryHover,
+                ),
             )
             backgroundColor(
                 PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to PlasmaSdServiceTheme.colors.surfaceDefaultClearActive,
-                    setOf(InteractiveState.Hovered) to
-                            PlasmaSdServiceTheme.colors.surfaceDefaultClearHover
-                )
+                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
+                ),
             )
         }
         .wrap(::WrapperIconButtonClearViewTerminate)
@@ -333,26 +341,26 @@ public val WrapperIconButtonView.Dark: WrapperIconButtonDarkViewTerminate
             spinnerColor(
                 PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
                     setOf(InteractiveState.Hovered)
-                            to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover
-                )
+                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                ),
             )
             iconColor(
                 PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
                     setOf(InteractiveState.Hovered)
-                            to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover
-                )
+                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                ),
             )
             backgroundColor(
                 PlasmaSdServiceTheme.colors.surfaceOnLightTransparentDeep.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to PlasmaSdServiceTheme.colors.surfaceOnLightTransparentDeepActive,
-                    setOf(InteractiveState.Hovered) to
-                            PlasmaSdServiceTheme.colors.surfaceOnLightTransparentDeepHover
-                )
+                        to PlasmaSdServiceTheme.colors.surfaceOnLightTransparentDeepActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaSdServiceTheme.colors.surfaceOnLightTransparentDeepHover,
+                ),
             )
         }
         .wrap(::WrapperIconButtonDarkViewTerminate)
@@ -364,26 +372,26 @@ public val WrapperIconButtonView.Black: WrapperIconButtonBlackViewTerminate
             spinnerColor(
                 PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
                     setOf(InteractiveState.Hovered)
-                            to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover
-                )
+                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                ),
             )
             iconColor(
                 PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
+                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryActive,
                     setOf(InteractiveState.Hovered)
-                            to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover
-                )
+                        to PlasmaSdServiceTheme.colors.textOnDarkPrimaryHover,
+                ),
             )
             backgroundColor(
                 PlasmaSdServiceTheme.colors.surfaceOnLightSolidDefault.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to PlasmaSdServiceTheme.colors.surfaceOnLightSolidDefaultActive,
-                    setOf(InteractiveState.Hovered) to
-                            PlasmaSdServiceTheme.colors.surfaceOnLightSolidDefaultHover
-                )
+                        to PlasmaSdServiceTheme.colors.surfaceOnLightSolidDefaultActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaSdServiceTheme.colors.surfaceOnLightSolidDefaultHover,
+                ),
             )
         }
         .wrap(::WrapperIconButtonBlackViewTerminate)
@@ -395,26 +403,26 @@ public val WrapperIconButtonView.White: WrapperIconButtonWhiteViewTerminate
             spinnerColor(
                 PlasmaSdServiceTheme.colors.textOnLightPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to PlasmaSdServiceTheme.colors.textOnLightPrimaryActive,
+                        to PlasmaSdServiceTheme.colors.textOnLightPrimaryActive,
                     setOf(InteractiveState.Hovered)
-                            to PlasmaSdServiceTheme.colors.textOnLightPrimaryHover
-                )
+                        to PlasmaSdServiceTheme.colors.textOnLightPrimaryHover,
+                ),
             )
             iconColor(
                 PlasmaSdServiceTheme.colors.textOnLightPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to PlasmaSdServiceTheme.colors.textOnLightPrimaryActive,
+                        to PlasmaSdServiceTheme.colors.textOnLightPrimaryActive,
                     setOf(InteractiveState.Hovered)
-                            to PlasmaSdServiceTheme.colors.textOnLightPrimaryHover
-                )
+                        to PlasmaSdServiceTheme.colors.textOnLightPrimaryHover,
+                ),
             )
             backgroundColor(
                 PlasmaSdServiceTheme.colors.surfaceOnDarkSolidDefault.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to PlasmaSdServiceTheme.colors.surfaceOnDarkSolidDefaultActive,
-                    setOf(InteractiveState.Hovered) to
-                            PlasmaSdServiceTheme.colors.surfaceOnDarkSolidDefaultHover
-                )
+                        to PlasmaSdServiceTheme.colors.surfaceOnDarkSolidDefaultActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaSdServiceTheme.colors.surfaceOnDarkSolidDefaultHover,
+                ),
             )
         }
         .wrap(::WrapperIconButtonWhiteViewTerminate)

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <!--Spacing-->
+    <attr format="reference" name="plasma_spacing0x"/>
+    <attr format="reference" name="plasma_spacing1x"/>
+    <attr format="reference" name="plasma_spacing2x"/>
+    <attr format="reference" name="plasma_spacing3x"/>
+    <attr format="reference" name="plasma_spacing4x"/>
+    <attr format="reference" name="plasma_spacing6x"/>
+    <attr format="reference" name="plasma_spacing8x"/>
+    <attr format="reference" name="plasma_spacing10x"/>
+    <attr format="reference" name="plasma_spacing12x"/>
+    <attr format="reference" name="plasma_spacing16x"/>
+    <attr format="reference" name="plasma_spacing20x"/>
+    <attr format="reference" name="plasma_spacing24x"/>
+    <attr format="reference" name="plasma_spacing32x"/>
+    <attr format="reference" name="plasma_spacing40x"/>
+    <attr format="reference" name="plasma_spacing60x"/>
+</resources>

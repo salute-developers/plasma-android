@@ -4,6 +4,7 @@ import com.sdds.plugin.themebuilder.DimensionsConfig
 import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Annotation
+import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Modifier
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder.Companion.DEFAULT_ROOT_ATTRIBUTES
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder.ElementName
@@ -15,6 +16,7 @@ import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.fonts.FontsAggregator
 import com.sdds.plugin.themebuilder.internal.generator.data.TypographyTokenResult
+import com.sdds.plugin.themebuilder.internal.generator.data.TypographyTokenResult.TypographyInfo
 import com.sdds.plugin.themebuilder.internal.token.TypographyToken
 import com.sdds.plugin.themebuilder.internal.token.TypographyToken.ScreenClass
 import com.sdds.plugin.themebuilder.internal.token.TypographyTokenValue
@@ -72,16 +74,25 @@ internal class TypographyTokenGenerator(
         ktFileBuilderFactory.create("TypographyTokens")
             .apply { this.addSuppressAnnotation("DEPRECATION") }
     }
-    private val largeBuilder by unsafeLazy { ktFileBuilder.rootObject(TYPOGRAPHY_LARGE_TOKENS_NAME) }
-    private val mediumBuilder by unsafeLazy { ktFileBuilder.rootObject(TYPOGRAPHY_MEDIUM_TOKENS_NAME) }
-    private val smallBuilder by unsafeLazy { ktFileBuilder.rootObject(TYPOGRAPHY_SMALL_TOKENS_NAME) }
+    private val largeBuilder by unsafeLazy {
+        ktFileBuilder.rootObject(TYPOGRAPHY_LARGE_TOKENS_NAME, TYPOGRAPHY_LARGE_TOKENS_DESC)
+    }
+    private val mediumBuilder by unsafeLazy {
+        ktFileBuilder.rootObject(TYPOGRAPHY_MEDIUM_TOKENS_NAME, TYPOGRAPHY_MEDIUM_TOKENS_DESC)
+    }
+    private val smallBuilder by unsafeLazy {
+        ktFileBuilder.rootObject(TYPOGRAPHY_SMALL_TOKENS_NAME, TYPOGRAPHY_SMALL_TOKENS_DESC)
+    }
+    private val defaultValuesBuilder by unsafeLazy {
+        ktFileBuilder.rootObject(DEFAULTS_NAME, modifiers = PrivateModifier)
+    }
     private var needDeclareStyle: Boolean = true
 
-    private val composeSmallTokenDataCollector = mutableMapOf<String, String>()
-    private val composeMediumTokenDataCollector = mutableMapOf<String, String>()
-    private val composeLargeTokenDataCollector = mutableMapOf<String, String>()
+    private val composeSmallTokenDataCollector = mutableMapOf<String, TypographyInfo>()
+    private val composeMediumTokenDataCollector = mutableMapOf<String, TypographyInfo>()
+    private val composeLargeTokenDataCollector = mutableMapOf<String, TypographyInfo>()
 
-    private val viewTokenDataCollector = mutableMapOf<String, String>()
+    private val viewTokenDataCollector = mutableMapOf<String, TypographyInfo>()
 
     private val viewSmallTokens = mutableMapOf<String, TypographyToken>()
     private val viewMediumTokens = mutableMapOf<String, TypographyToken>()
@@ -133,6 +144,7 @@ internal class TypographyTokenGenerator(
             ktFileBuilder.addImport(KtFileBuilder.TypeDimensionResource)
             ktFileBuilder.addImport(rFileImport)
         }
+        addDefaults()
         ktFileBuilder.build(outputLocation)
     }
 
@@ -168,7 +180,7 @@ internal class TypographyTokenGenerator(
                     tokenValue,
                 )
                 val tokenRef = "$TYPOGRAPHY_SMALL_TOKENS_NAME.${token.ktName}"
-                composeSmallTokenDataCollector[attrName] = tokenRef
+                composeSmallTokenDataCollector[attrName] = TypographyInfo(tokenRef, token.description)
             }
 
             ScreenClass.LARGE -> {
@@ -178,7 +190,7 @@ internal class TypographyTokenGenerator(
                     tokenValue,
                 )
                 val tokenRef = "$TYPOGRAPHY_LARGE_TOKENS_NAME.${token.ktName}"
-                composeLargeTokenDataCollector[attrName] = tokenRef
+                composeLargeTokenDataCollector[attrName] = TypographyInfo(tokenRef, token.description)
             }
 
             else -> {
@@ -188,7 +200,7 @@ internal class TypographyTokenGenerator(
                     tokenValue,
                 )
                 val tokenRef = "$TYPOGRAPHY_MEDIUM_TOKENS_NAME.${token.ktName}"
-                composeMediumTokenDataCollector[attrName] = tokenRef
+                composeMediumTokenDataCollector[attrName] = TypographyInfo(tokenRef, token.description)
             }
         }
         return true
@@ -230,7 +242,7 @@ internal class TypographyTokenGenerator(
             }
             val attrName = TypographyToken.getViewAttrName(token.name)
             val tokenRef = resourceReferenceProvider.style(typographyName)
-            viewTokenDataCollector[attrName] = tokenRef
+            viewTokenDataCollector[attrName] = TypographyInfo(tokenRef, token.description)
         }
         builder.appendComment(token.description)
         builder.appendTypographyToken(token, tokenValue, textAppearanceName)
@@ -253,6 +265,25 @@ internal class TypographyTokenGenerator(
                 ?: viewSmallTokens[tokenName]
                 ?: viewLargeTokens[tokenName]
         }
+    }
+
+    private fun addDefaults() = with(ktFileBuilder) {
+        defaultValuesBuilder.appendProperty(
+            name = DEFAULTS_LINE_STYLE_NAME,
+            typeName = KtFileBuilder.TypeLineHeightStyle,
+            initializer = """
+                |LineHeightStyle(
+                |   alignment = LineHeightStyle.Alignment.Center,
+                |   trim = LineHeightStyle.Trim.None,
+                |)
+            """.trimMargin(),
+        )
+
+        defaultValuesBuilder.appendProperty(
+            name = DEFAULTS_PLATFORM_STYLE_NAME,
+            typeName = KtFileBuilder.TypePlatformTextStyle,
+            initializer = "PlatformTextStyle(includeFontPadding = false)",
+        )
     }
 
     @Suppress("LongMethod")
@@ -370,11 +401,8 @@ internal class TypographyTokenGenerator(
             "lineHeight = $lineHeightInitializer",
             "letterSpacing = $letterSpacing",
             "fontFamily = FontTokens.${tokenValue.fontFamilyRef.split('.').last()}",
-            "lineHeightStyle = LineHeightStyle(" +
-                "alignment = LineHeightStyle.Alignment.Center, " +
-                "trim = LineHeightStyle.Trim.None" +
-                ")",
-            "platformStyle = PlatformTextStyle(includeFontPadding = false)",
+            "lineHeightStyle = $DEFAULTS_NAME.$DEFAULTS_LINE_STYLE_NAME",
+            "platformStyle = $DEFAULTS_NAME.$DEFAULTS_PLATFORM_STYLE_NAME",
         ).trimIndent()
 
         if (fromResources) {
@@ -399,9 +427,16 @@ internal class TypographyTokenGenerator(
     }
 
     companion object {
+        internal const val DEFAULTS_NAME = "TextStyleDefault"
+        internal const val DEFAULTS_PLATFORM_STYLE_NAME = "platformStyle"
+        internal const val DEFAULTS_LINE_STYLE_NAME = "lineHeightStyle"
         internal const val TYPOGRAPHY_SMALL_TOKENS_NAME = "TypographySmallTokens"
+        internal const val TYPOGRAPHY_SMALL_TOKENS_DESC = "Токены типографии для ScreenClass.SMALL"
         internal const val TYPOGRAPHY_MEDIUM_TOKENS_NAME = "TypographyMediumTokens"
+        internal const val TYPOGRAPHY_MEDIUM_TOKENS_DESC = "Токены типографии для ScreenClass.MEDIUM"
         internal const val TYPOGRAPHY_LARGE_TOKENS_NAME = "TypographyLargeTokens"
+        internal const val TYPOGRAPHY_LARGE_TOKENS_DESC = "Токены типографии для ScreenClass.LARGE"
+        internal val PrivateModifier = listOf(Modifier.PRIVATE)
 
         private fun ScreenClass.qualifier(dimensionsConfig: DimensionsConfig): String {
             val breakpoints = dimensionsConfig.breakPoints

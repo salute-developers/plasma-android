@@ -51,6 +51,8 @@ internal class TextFieldComposeVariationGenerator(
             captionStyleCall(props),
             labelStyleCall(props),
             valueStyleCall(props),
+            prefixStyleCall(props),
+            suffixStyleCall(props),
             placeholderStyleCall(props),
             counterStyleCall(props),
             optionalStyleCall(props),
@@ -141,7 +143,11 @@ internal class TextFieldComposeVariationGenerator(
             cursorColor != null ||
             cursorColorReadOnly != null ||
             dividerColor != null ||
-            dividerColorReadOnly != null
+            dividerColorReadOnly != null ||
+            prefixColor != null ||
+            suffixColor != null ||
+            prefixColorReadOnly != null ||
+            suffixColorReadOnly != null
     }
 
     @Suppress("LongMethod", "CyclomaticComplexMethod")
@@ -221,6 +227,18 @@ internal class TextFieldComposeVariationGenerator(
                 props.dividerColorReadOnly?.let {
                     appendLine(getColor("dividerColorReadOnly", it))
                 }
+                props.prefixColor?.let {
+                    appendLine(getColor("prefixColor", it))
+                }
+                props.suffixColor?.let {
+                    appendLine(getColor("suffixColor", it))
+                }
+                props.prefixColorReadOnly?.let {
+                    appendLine(getColor("prefixColorReadOnly", it))
+                }
+                props.suffixColorReadOnly?.let {
+                    appendLine(getColor("suffixColorReadOnly", it))
+                }
                 append("}")
             }
         } else {
@@ -257,26 +275,6 @@ internal class TextFieldComposeVariationGenerator(
         return props.chipStyle?.let {
             ".chipStyle(${it.value.getComponentStyle(ktFileBuilder, chipStylesPackage)}.style())"
         }
-    }
-
-    private fun String.getComponentStyle(
-        ktFileBuilder: KtFileBuilder,
-        stylesPackage: String,
-    ): String {
-        val styleRefParts = split(".")
-        val objectName = styleRefParts.first().toCamelCase()
-        val extensions = styleRefParts.subList(1, styleRefParts.size).map { it.toCamelCase() }
-        ktFileBuilder.addImport(ClassName("com.sdds.compose.uikit", listOf(objectName)))
-        extensions.forEach {
-            ktFileBuilder.addImport(
-                ClassName(
-                    packageName = stylesPackage,
-                    simpleNames = listOf(it),
-                ),
-            )
-        }
-        return styleRefParts
-            .joinToString(separator = ".") { it.toCamelCase() }
     }
 
     private fun shapeCall(props: TextFieldProperties, variationId: String): String? {
@@ -386,6 +384,18 @@ internal class TextFieldComposeVariationGenerator(
     private fun valueStyleCall(props: TextFieldProperties): String? {
         return props.valueStyle?.let {
             getTypography("valueStyle", it)
+        }
+    }
+
+    private fun prefixStyleCall(props: TextFieldProperties): String? {
+        return props.prefixStyle?.let {
+            getTypography("prefixStyle", it)
+        }
+    }
+
+    private fun suffixStyleCall(props: TextFieldProperties): String? {
+        return props.suffixStyle?.let {
+            getTypography("suffixStyle", it)
         }
     }
 

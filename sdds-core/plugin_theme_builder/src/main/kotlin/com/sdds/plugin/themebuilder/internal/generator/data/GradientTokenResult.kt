@@ -57,12 +57,20 @@ internal data class GradientTokenResult(
         val light: Map<String, List<Gradient>>,
         val dark: Map<String, List<Gradient>>,
     ) {
+
+        /**
+         * Возвращает описание токена градиента
+         */
+        fun description(gradient: String): String =
+            (light[gradient] ?: dark[gradient])?.firstOrNull()?.description.orEmpty()
+
         /**
          * Параметры градиента
          */
         internal data class Gradient(
             val tokenRefs: List<String>,
             val gradientType: GradientType,
+            val description: String = "",
         )
 
         /**

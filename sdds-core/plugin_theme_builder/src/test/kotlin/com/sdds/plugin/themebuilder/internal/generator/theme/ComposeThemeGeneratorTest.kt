@@ -3,8 +3,9 @@ package com.sdds.plugin.themebuilder.internal.generator.theme
 import com.sdds.plugin.themebuilder.internal.PackageResolver
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
-import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult
+import com.sdds.plugin.themebuilder.internal.generator.data.ColorTokenResult.TokenData
 import com.sdds.plugin.themebuilder.internal.generator.data.TypographyTokenResult
+import com.sdds.plugin.themebuilder.internal.generator.data.TypographyTokenResult.TypographyInfo
 import com.sdds.plugin.themebuilder.internal.generator.theme.compose.ComposeThemeGenerator
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider
 import com.sdds.plugin.themebuilder.internal.utils.getResourceAsText
@@ -71,7 +72,7 @@ class ComposeThemeGeneratorTest {
             KtFileBuilder.OutputLocation.Stream(outputKt),
             themeName = "Test",
         )
-        underTest.setColorTokenData(ColorTokenResult.TokenData(emptyMap(), emptyMap()))
+        underTest.setColorTokenData(TokenData(emptyMap(), emptyMap()))
         underTest.setTypographyTokenData(
             TypographyTokenResult.ComposeTokenData(
                 emptyMap(),
@@ -88,22 +89,22 @@ class ComposeThemeGeneratorTest {
     }
 
     private companion object {
-        val colorAttrsWithDefaultColors = ColorTokenResult.TokenData(
+        val colorAttrsWithDefaultColors = TokenData(
             light = mapOf(
-                "textPrimary" to "TextPrimary",
-                "textDefaultAccent" to "TextDefaultAccent",
+                "textPrimary" to TokenData.ColorInfo("TextPrimary"),
+                "textDefaultAccent" to TokenData.ColorInfo("TextDefaultAccent"),
             ),
             dark = mapOf(
-                "textPrimary" to "TextPrimary",
-                "textDefaultAccent" to "TextDefaultAccent",
+                "textPrimary" to TokenData.ColorInfo("TextPrimary"),
+                "textDefaultAccent" to TokenData.ColorInfo("TextDefaultAccent"),
             ),
         )
 
         val typographyAttrs = TypographyTokenResult.ComposeTokenData(
             small = emptyMap(),
             medium = mapOf(
-                "headerH3Bold" to "TypographyMediumTokens.HeaderH3Bold",
-                "bodyMNormal" to "TypographyMediumTokens.BodyMNormal",
+                "headerH3Bold" to TypographyInfo("TypographyMediumTokens.HeaderH3Bold"),
+                "bodyMNormal" to TypographyInfo("TypographyMediumTokens.BodyMNormal"),
             ),
             large = emptyMap(),
         )

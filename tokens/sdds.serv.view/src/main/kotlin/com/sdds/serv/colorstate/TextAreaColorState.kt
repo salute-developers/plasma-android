@@ -4,8 +4,6 @@ package com.sdds.serv.colorstate
 import android.content.Context
 import android.util.AttributeSet
 import com.sdds.serv.R
-import com.sdds.serv.colorstate.TextAreaColorState
-import com.sdds.serv.colorstate.TextAreaColorStateProvider
 import com.sdds.uikit.colorstate.ColorState
 import com.sdds.uikit.colorstate.ColorStateProvider
 import kotlin.Int
@@ -18,10 +16,8 @@ public enum class TextAreaColorState(
     public override val attrs: IntArray,
 ) : ColorState {
     DEFAULT(intArrayOf(R.attr.serv_textarea_state_default)),
-    SUCCESS(intArrayOf(R.attr.serv_textarea_state_success)),
     WARNING(intArrayOf(R.attr.serv_textarea_state_warning)),
     ERROR(intArrayOf(R.attr.serv_textarea_state_error)),
-    ;
 }
 
 /**

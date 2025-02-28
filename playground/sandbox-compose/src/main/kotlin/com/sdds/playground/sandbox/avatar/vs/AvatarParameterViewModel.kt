@@ -2,45 +2,28 @@ package com.sdds.playground.sandbox.avatar.vs
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewModelScope
-import com.sdds.playground.sandbox.core.vs.PropertiesOwner
+import com.sdds.playground.sandbox.core.integration.StylesProviderView
+import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
+import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
 import com.sdds.playground.sandbox.core.vs.enumProperty
+import com.sdds.testing.vs.avatar.AvatarUiState
+import com.sdds.testing.vs.avatar.ExampleMode
 import com.sdds.uikit.Avatar
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.SharingStarted
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.mapLatest
-import kotlinx.coroutines.flow.stateIn
 
 /**
  * ViewModel для экранов с компонентом [Avatar]
  */
 internal class AvatarParameterViewModel(
     private val groupMode: Boolean = false,
-    private val defaultState: AvatarUiState,
-) : ViewModel(), PropertiesOwner {
-
-    private val _avatarUiState = MutableStateFlow(defaultState)
-
-    /**
-     * Состояние [Avatar]
-     */
-    val avatarUiState: StateFlow<AvatarUiState>
-        get() = _avatarUiState.asStateFlow()
-
-    @OptIn(ExperimentalCoroutinesApi::class)
-    override val properties: StateFlow<List<Property<*>>> =
-        _avatarUiState
-            .mapLatest { state -> state.toProps() }
-            .stateIn(viewModelScope, SharingStarted.Lazily, emptyList())
+    defaultState: AvatarUiState,
+) : ComponentViewModel<AvatarUiState>(defaultState) {
 
     override fun updateProperty(name: String, value: Any?) {
+        super.updateProperty(name, value)
+
         val pName = AvatarPropertyName.values().find { it.value == name }
         when (pName) {
-            AvatarPropertyName.Variant -> updateVariant(AvatarVariant.valueOf(value?.toString() ?: return))
             AvatarPropertyName.ExampleMode -> updateDisplayType(ExampleMode.valueOf(value?.toString() ?: return))
             AvatarPropertyName.Status -> updateStatus(Avatar.Status.valueOf(value?.toString() ?: return))
             AvatarPropertyName.Placeholder -> updatePlaceholder(value?.toString())
@@ -50,47 +33,33 @@ internal class AvatarParameterViewModel(
         }
     }
 
-    override fun resetToDefault() {
-        _avatarUiState.value = AvatarUiState()
-    }
-
     private fun updateDisplayType(type: ExampleMode) {
-        _avatarUiState.value = _avatarUiState.value.copy(exampleMode = type)
-    }
-
-    private fun updateVariant(variant: AvatarVariant) {
-        _avatarUiState.value = _avatarUiState.value.copy(variant = variant)
+        internalUiState.value = internalUiState.value.copy(exampleMode = type)
     }
 
     private fun updateStatus(status: Avatar.Status) {
-        _avatarUiState.value = _avatarUiState.value.copy(status = status)
+        internalUiState.value = internalUiState.value.copy(status = status)
     }
 
     private fun updatePlaceholder(text: String?) {
-        _avatarUiState.value = _avatarUiState.value.copy(fullName = text)
+        internalUiState.value = internalUiState.value.copy(fullName = text)
     }
 
     private fun updateActionEnabledState(enabled: Boolean) {
-        _avatarUiState.value = _avatarUiState.value.copy(actionEnabled = enabled)
+        internalUiState.value = internalUiState.value.copy(actionEnabled = enabled)
     }
 
     private fun updateThreshold(threshold: Int) {
-        _avatarUiState.value = _avatarUiState.value.copy(threshold = threshold)
+        internalUiState.value = internalUiState.value.copy(threshold = threshold)
     }
 
-    private fun AvatarUiState.toProps(): List<Property<*>> {
+    override fun AvatarUiState.toProps(): List<Property<*>> {
         return mutableListOf<Property<*>>().apply {
             if (!groupMode) {
                 add(
                     enumProperty(
                         name = AvatarPropertyName.ExampleMode.value,
                         value = exampleMode,
-                    ),
-                )
-                add(
-                    enumProperty(
-                        name = AvatarPropertyName.Variant.value,
-                        value = variant,
                     ),
                 )
                 add(
@@ -126,12 +95,15 @@ internal class AvatarParameterViewModel(
     }
 
     private enum class AvatarPropertyName(val value: String) {
-        Variant("variant"),
         ExampleMode("example mode"),
         Status("status"),
         Placeholder("placeholder"),
         ActionEnabled("action enabled"),
         Threshold("threshold"),
+    }
+
+    override fun getStyleProvider(stylesProvider: StylesProviderView): ViewStyleProvider<String> {
+        return if (groupMode) stylesProvider.avatarGroup else stylesProvider.avatar
     }
 }
 

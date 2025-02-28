@@ -85,12 +85,12 @@ class ComposeColorAttributeGeneratorTest {
     private companion object {
         val inputData = ColorTokenResult.TokenData(
             light = mapOf(
-                "textPrimary" to "TextPrimary",
-                "textTertiary" to "TextTertiary",
+                "textPrimary" to ColorTokenResult.TokenData.ColorInfo("TextPrimary"),
+                "textTertiary" to ColorTokenResult.TokenData.ColorInfo("TextTertiary"),
             ),
             dark = mapOf(
-                "textPrimary" to "TextPrimary",
-                "textTertiary" to "TextTertiary",
+                "textPrimary" to ColorTokenResult.TokenData.ColorInfo("TextPrimary"),
+                "textTertiary" to ColorTokenResult.TokenData.ColorInfo("TextTertiary"),
             ),
         )
     }

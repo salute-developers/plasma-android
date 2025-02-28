@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Salute.StylesSalute.Components.CheckBox" parent="Sdds.Components.CheckBox">
+        <item name="sd_buttonBorderColor">@color/salute_color_checkable_border</item>
+        <item name="sd_buttonBoxColor">?salute_surfaceDefaultAccent</item>
+        <item name="sd_buttonMarkColor">#fff</item>
+        <item name="android:textColor">?salute_textDefaultPrimary</item>
+        <item name="sd_descriptionTextColor">?salute_textDefaultSecondary</item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.CheckBox.M">
+        <item name="sd_buttonSize">24dp</item>
+        <item name="sd_boxCornerRadius">6dp</item>
+        <item name="sd_buttonPadding">2dp</item>
+        <item name="sd_descriptionPadding">2dp</item>
+        <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.BodyMNormal</item>
+        <item name="sd_descriptionTextAppearance">@style/Salute.StylesSalute.TextAppearance.BodySNormal</item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.CheckBox.S">
+        <item name="sd_buttonSize">16dp</item>
+        <item name="sd_buttonPadding">1dp</item>
+        <item name="sd_boxCornerRadius">4dp</item>
+        <item name="android:drawablePadding">8dp</item>
+        <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.BodySNormal</item>
+        <item name="sd_descriptionTextAppearance">@style/Salute.StylesSalute.TextAppearance.BodyXsNormal</item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.CheckBoxGroup" parent="Sdds.Components.CheckBoxGroup">
+        <item name="sd_hasMain">true</item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.CheckBoxGroup.M">
+        <item name="sd_itemOffset">36dp</item>
+        <item name="sd_itemSpacing">12dp</item>
+        <item name="android:theme">@style/Salute.StylesSalute.ComponentOverlays.CheckBoxM</item>
+    </style>
+
+    <style name="Salute.StylesSalute.Components.CheckBoxGroup.S">
+        <item name="sd_itemOffset">24dp</item>
+        <item name="sd_itemSpacing">10dp</item>
+        <item name="android:theme">@style/Salute.StylesSalute.ComponentOverlays.CheckBoxS</item>
+    </style>
+</resources>

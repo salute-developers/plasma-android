@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Salute.StylesSalute.Components.Indicator" parent="Sdds.Components.Indicator">
+        <item name="sd_colorStateProvider">com.sdds.stylessalute.colorstate.IndicatorColorStateProvider</item>
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="backgroundTint">@color/salute_indicator_bg_color</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Indicator.L">
+        <item name="android:maxHeight">@dimen/salute_indicator_l_max_height</item>
+        <item name="android:maxWidth">@dimen/salute_indicator_l_max_width</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IndicatorL">
+        <item name="sd_indicatorStyle">@style/Salute.StylesSalute.Components.Indicator.L</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Indicator.L.Default">
+        <item name="salute_indicatorColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IndicatorLDefault">
+        <item name="sd_indicatorStyle">@style/Salute.StylesSalute.Components.Indicator.L.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Indicator.L.Accent">
+        <item name="salute_indicatorColors">state_accent</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IndicatorLAccent">
+        <item name="sd_indicatorStyle">@style/Salute.StylesSalute.Components.Indicator.L.Accent</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Indicator.L.Inactive">
+        <item name="salute_indicatorColors">state_inactive</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IndicatorLInactive">
+        <item name="sd_indicatorStyle">@style/Salute.StylesSalute.Components.Indicator.L.Inactive</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Indicator.L.Positive">
+        <item name="salute_indicatorColors">state_positive</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IndicatorLPositive">
+        <item name="sd_indicatorStyle">@style/Salute.StylesSalute.Components.Indicator.L.Positive</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Indicator.L.Warning">
+        <item name="salute_indicatorColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IndicatorLWarning">
+        <item name="sd_indicatorStyle">@style/Salute.StylesSalute.Components.Indicator.L.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Indicator.L.Negative">
+        <item name="salute_indicatorColors">state_negative</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IndicatorLNegative">
+        <item name="sd_indicatorStyle">@style/Salute.StylesSalute.Components.Indicator.L.Negative</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Indicator.L.Dark">
+        <item name="salute_indicatorColors">state_dark</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IndicatorLDark">
+        <item name="sd_indicatorStyle">@style/Salute.StylesSalute.Components.Indicator.L.Dark</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Indicator.L.Black">
+        <item name="salute_indicatorColors">state_black</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IndicatorLBlack">
+        <item name="sd_indicatorStyle">@style/Salute.StylesSalute.Components.Indicator.L.Black</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Indicator.L.White">
+        <item name="salute_indicatorColors">state_white</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IndicatorLWhite">
+        <item name="sd_indicatorStyle">@style/Salute.StylesSalute.Components.Indicator.L.White</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Indicator.M">
+        <item name="android:maxHeight">@dimen/salute_indicator_m_max_height</item>
+        <item name="android:maxWidth">@dimen/salute_indicator_m_max_width</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IndicatorM">
+        <item name="sd_indicatorStyle">@style/Salute.StylesSalute.Components.Indicator.M</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Indicator.M.Default">
+        <item name="salute_indicatorColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IndicatorMDefault">
+        <item name="sd_indicatorStyle">@style/Salute.StylesSalute.Components.Indicator.M.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Indicator.M.Accent">
+        <item name="salute_indicatorColors">state_accent</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IndicatorMAccent">
+        <item name="sd_indicatorStyle">@style/Salute.StylesSalute.Components.Indicator.M.Accent</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Indicator.M.Inactive">
+        <item name="salute_indicatorColors">state_inactive</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IndicatorMInactive">
+        <item name="sd_indicatorStyle">@style/Salute.StylesSalute.Components.Indicator.M.Inactive</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Indicator.M.Positive">
+        <item name="salute_indicatorColors">state_positive</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IndicatorMPositive">
+        <item name="sd_indicatorStyle">@style/Salute.StylesSalute.Components.Indicator.M.Positive</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Indicator.M.Warning">
+        <item name="salute_indicatorColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IndicatorMWarning">
+        <item name="sd_indicatorStyle">@style/Salute.StylesSalute.Components.Indicator.M.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Indicator.M.Negative">
+        <item name="salute_indicatorColors">state_negative</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IndicatorMNegative">
+        <item name="sd_indicatorStyle">@style/Salute.StylesSalute.Components.Indicator.M.Negative</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Indicator.M.Dark">
+        <item name="salute_indicatorColors">state_dark</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IndicatorMDark">
+        <item name="sd_indicatorStyle">@style/Salute.StylesSalute.Components.Indicator.M.Dark</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Indicator.M.Black">
+        <item name="salute_indicatorColors">state_black</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IndicatorMBlack">
+        <item name="sd_indicatorStyle">@style/Salute.StylesSalute.Components.Indicator.M.Black</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Indicator.M.White">
+        <item name="salute_indicatorColors">state_white</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IndicatorMWhite">
+        <item name="sd_indicatorStyle">@style/Salute.StylesSalute.Components.Indicator.M.White</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Indicator.S">
+        <item name="android:maxHeight">@dimen/salute_indicator_s_max_height</item>
+        <item name="android:maxWidth">@dimen/salute_indicator_s_max_width</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IndicatorS">
+        <item name="sd_indicatorStyle">@style/Salute.StylesSalute.Components.Indicator.S</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Indicator.S.Default">
+        <item name="salute_indicatorColors">state_default</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IndicatorSDefault">
+        <item name="sd_indicatorStyle">@style/Salute.StylesSalute.Components.Indicator.S.Default</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Indicator.S.Accent">
+        <item name="salute_indicatorColors">state_accent</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IndicatorSAccent">
+        <item name="sd_indicatorStyle">@style/Salute.StylesSalute.Components.Indicator.S.Accent</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Indicator.S.Inactive">
+        <item name="salute_indicatorColors">state_inactive</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IndicatorSInactive">
+        <item name="sd_indicatorStyle">@style/Salute.StylesSalute.Components.Indicator.S.Inactive</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Indicator.S.Positive">
+        <item name="salute_indicatorColors">state_positive</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IndicatorSPositive">
+        <item name="sd_indicatorStyle">@style/Salute.StylesSalute.Components.Indicator.S.Positive</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Indicator.S.Warning">
+        <item name="salute_indicatorColors">state_warning</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IndicatorSWarning">
+        <item name="sd_indicatorStyle">@style/Salute.StylesSalute.Components.Indicator.S.Warning</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Indicator.S.Negative">
+        <item name="salute_indicatorColors">state_negative</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IndicatorSNegative">
+        <item name="sd_indicatorStyle">@style/Salute.StylesSalute.Components.Indicator.S.Negative</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Indicator.S.Dark">
+        <item name="salute_indicatorColors">state_dark</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IndicatorSDark">
+        <item name="sd_indicatorStyle">@style/Salute.StylesSalute.Components.Indicator.S.Dark</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Indicator.S.Black">
+        <item name="salute_indicatorColors">state_black</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IndicatorSBlack">
+        <item name="sd_indicatorStyle">@style/Salute.StylesSalute.Components.Indicator.S.Black</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Indicator.S.White">
+        <item name="salute_indicatorColors">state_white</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.IndicatorSWhite">
+        <item name="sd_indicatorStyle">@style/Salute.StylesSalute.Components.Indicator.S.White</item>
+    </style>
+</resources>

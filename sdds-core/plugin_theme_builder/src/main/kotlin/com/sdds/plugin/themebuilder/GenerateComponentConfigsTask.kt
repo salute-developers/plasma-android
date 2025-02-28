@@ -3,6 +3,9 @@ package com.sdds.plugin.themebuilder
 import com.sdds.plugin.themebuilder.internal.PackageResolver
 import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.components.button.ButtonConfig
+import com.sdds.plugin.themebuilder.internal.components.cell.CellConfig
+import com.sdds.plugin.themebuilder.internal.components.counter.CounterConfig
+import com.sdds.plugin.themebuilder.internal.components.indicator.IndicatorConfig
 import com.sdds.plugin.themebuilder.internal.components.textfield.TextFieldConfig
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.ComponentStyleGeneratorFactory
@@ -65,6 +68,24 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
      */
     @get:InputFile
     abstract val textAreaClearConfigFile: RegularFileProperty
+
+    /**
+     * Файл с конфигом Cell
+     */
+    @get:InputFile
+    abstract val cellConfigFile: RegularFileProperty
+
+    /**
+     * Файл с конфигом Indicator
+     */
+    @get:InputFile
+    abstract val indicatorConfigFile: RegularFileProperty
+
+    /**
+     * Файл с конфигом Counter
+     */
+    @get:InputFile
+    abstract val counterConfigFile: RegularFileProperty
 
     /**
      * Путь для сохранения kt-файлов токенов
@@ -170,6 +191,18 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
         componentStyleGeneratorFactory.createIconButtonStyleGeneratorView()
     }
 
+    private val indicatorStyleGeneratorView by unsafeLazy {
+        componentStyleGeneratorFactory.createIndicatorStyleGeneratorView()
+    }
+
+    private val indicatorStyleGeneratorCompose by unsafeLazy {
+        componentStyleGeneratorFactory.createIndicatorStyleGeneratorCompose()
+    }
+
+    private val counterStyleGeneratorView by unsafeLazy {
+        componentStyleGeneratorFactory.createCounterStyleGeneratorView()
+    }
+
     private val linkButtonStyleGeneratorCompose by unsafeLazy {
         componentStyleGeneratorFactory.createLinkButtonStyleGeneratorCompose()
     }
@@ -202,6 +235,10 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
         componentStyleGeneratorFactory.createTextAreaClearStyleGeneratorCompose()
     }
 
+    private val cellStyleGeneratorCompose by unsafeLazy {
+        componentStyleGeneratorFactory.createCellStyleGeneratorCompose()
+    }
+
     private val basicButtonConfig: ButtonConfig by unsafeLazy {
         basicButtonConfigFile.get()
             .asFile
@@ -210,6 +247,18 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
 
     private val iconButtonConfig: ButtonConfig by unsafeLazy {
         iconButtonConfigFile.get()
+            .asFile
+            .decode(Serializer.componentConfig)
+    }
+
+    private val indicatorConfig: IndicatorConfig by unsafeLazy {
+        indicatorConfigFile.get()
+            .asFile
+            .decode(Serializer.componentConfig)
+    }
+
+    private val counterConfig: CounterConfig by unsafeLazy {
+        counterConfigFile.get()
             .asFile
             .decode(Serializer.componentConfig)
     }
@@ -244,6 +293,12 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
             .decode(Serializer.componentConfig)
     }
 
+    private val cellConfig: CellConfig by unsafeLazy {
+        cellConfigFile.get()
+            .asFile
+            .decode(Serializer.componentConfig)
+    }
+
     @TaskAction
     fun generate() {
         when (target.get()) {
@@ -261,18 +316,22 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
     private fun generateComposeConfigs() {
         basicButtonStyleGeneratorCompose.generate(basicButtonConfig)
         iconButtonStyleGeneratorCompose.generate(iconButtonConfig)
+        indicatorStyleGeneratorCompose.generate(indicatorConfig)
         linkButtonStyleGeneratorCompose.generate(linkButtonConfig)
         textFieldStyleGeneratorCompose.generate(textFieldConfig)
         textFieldClearStyleGeneratorCompose.generate(textFieldClearConfig)
         textAreaStyleGeneratorCompose.generate(textAreaConfig)
         textAreaClearStyleGeneratorCompose.generate(textAreaClearConfig)
+        cellStyleGeneratorCompose.generate(cellConfig)
     }
 
     private fun generateViewsConfigs() {
         basicButtonStyleGeneratorView.generate(basicButtonConfig)
         iconButtonStyleGeneratorView.generate(iconButtonConfig)
+        indicatorStyleGeneratorView.generate(indicatorConfig)
         linkButtonStyleGeneratorView.generate(linkButtonConfig)
         textFieldStyleGeneratorView.generate(textFieldConfig)
         textAreaStyleGeneratorView.generate(textAreaConfig)
+        counterStyleGeneratorView.generate(counterConfig)
     }
 }

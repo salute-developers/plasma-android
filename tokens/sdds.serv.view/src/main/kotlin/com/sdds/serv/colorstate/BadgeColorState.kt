@@ -5,11 +5,14 @@ import android.util.AttributeSet
 import com.sdds.serv.R
 import com.sdds.uikit.colorstate.ColorState
 import com.sdds.uikit.colorstate.ColorStateProvider
+import kotlin.Int
+import kotlin.IntArray
 
 /**
  * Реализация [ColorState] для компонента Badge
  */
-public enum class BadgeColorState( public override val attrs: IntArray,
+public enum class BadgeColorState(
+    public override val attrs: IntArray,
 ) : ColorState {
     DEFAULT(intArrayOf(R.attr.serv_badge_state_default)),
     ACCENT(intArrayOf(R.attr.serv_badge_state_accent)),

@@ -1,4 +1,9 @@
 // AUTO-GENERATED. DO NOT MODIFY this file.
+@file:Suppress(
+    "UndocumentedPublicClass",
+    "UndocumentedPublicProperty",
+)
+
 package com.sdds.serv.styles.button.basic
 
 import androidx.compose.runtime.Composable
@@ -13,6 +18,9 @@ import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.serv.theme.SddsServTheme
+import kotlin.Suppress
+import kotlin.jvm.JvmInline
+import kotlin.jvm.JvmName
 
 public interface WrapperBasicButton : BuilderWrapper<ButtonStyle, BasicButtonStyleBuilder>
 
@@ -95,42 +103,42 @@ public val WrapperBasicButtonView.Default: WrapperBasicButtonDefaultViewTerminat
             spinnerColor(
                 SddsServTheme.colors.textInversePrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textInversePrimaryActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textInversePrimaryHover
-                )
+                        to SddsServTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textInversePrimaryHover,
+                ),
             )
             iconColor(
                 SddsServTheme.colors.textInversePrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textInversePrimaryActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textInversePrimaryHover
-                )
+                        to SddsServTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textInversePrimaryHover,
+                ),
             )
             labelColor(
                 SddsServTheme.colors.textInversePrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textInversePrimaryActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textInversePrimaryHover
-                )
+                        to SddsServTheme.colors.textInversePrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textInversePrimaryHover,
+                ),
             )
             valueColor(
                 SddsServTheme.colors.textInverseSecondary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textInverseSecondaryActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textInverseSecondaryHover
-                )
+                        to SddsServTheme.colors.textInverseSecondaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textInverseSecondaryHover,
+                ),
             )
             backgroundColor(
                 SddsServTheme.colors.surfaceDefaultSolidDefault.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.surfaceDefaultSolidDefaultActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.surfaceDefaultSolidDefaultHover
-                )
+                        to SddsServTheme.colors.surfaceDefaultSolidDefaultActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.surfaceDefaultSolidDefaultHover,
+                ),
             )
         }
         .loadingAlpha(0.0f)
@@ -143,42 +151,42 @@ public val WrapperBasicButtonView.Secondary: WrapperBasicButtonSecondaryViewTerm
             spinnerColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textDefaultPrimaryHover
-                )
+                        to SddsServTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textDefaultPrimaryHover,
+                ),
             )
             iconColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textDefaultPrimaryHover
-                )
+                        to SddsServTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textDefaultPrimaryHover,
+                ),
             )
             labelColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textDefaultPrimaryHover
-                )
+                        to SddsServTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textDefaultPrimaryHover,
+                ),
             )
             valueColor(
                 SddsServTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textDefaultSecondaryActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textDefaultSecondaryHover
-                )
+                        to SddsServTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textDefaultSecondaryHover,
+                ),
             )
             backgroundColor(
                 SddsServTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.surfaceDefaultTransparentSecondaryActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.surfaceDefaultTransparentSecondaryHover
-                )
+                        to SddsServTheme.colors.surfaceDefaultTransparentSecondaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.surfaceDefaultTransparentSecondaryHover,
+                ),
             )
         }
         .loadingAlpha(0.0f)
@@ -191,42 +199,42 @@ public val WrapperBasicButtonView.Accent: WrapperBasicButtonAccentViewTerminate
             spinnerColor(
                 SddsServTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textOnDarkPrimaryHover
-                )
+                        to SddsServTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textOnDarkPrimaryHover,
+                ),
             )
             iconColor(
                 SddsServTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textOnDarkPrimaryHover
-                )
+                        to SddsServTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textOnDarkPrimaryHover,
+                ),
             )
             labelColor(
                 SddsServTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textOnDarkPrimaryHover
-                )
+                        to SddsServTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textOnDarkPrimaryHover,
+                ),
             )
             valueColor(
                 SddsServTheme.colors.textOnDarkSecondary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textOnDarkSecondaryActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textOnDarkSecondaryHover
-                )
+                        to SddsServTheme.colors.textOnDarkSecondaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textOnDarkSecondaryHover,
+                ),
             )
             backgroundColor(
                 SddsServTheme.colors.surfaceDefaultAccent.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.surfaceDefaultAccentActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.surfaceDefaultAccentHover
-                )
+                        to SddsServTheme.colors.surfaceDefaultAccentActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.surfaceDefaultAccentHover,
+                ),
             )
         }
         .loadingAlpha(0.0f)
@@ -239,42 +247,42 @@ public val WrapperBasicButtonView.Positive: WrapperBasicButtonPositiveViewTermin
             spinnerColor(
                 SddsServTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textOnDarkPrimaryHover
-                )
+                        to SddsServTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textOnDarkPrimaryHover,
+                ),
             )
             iconColor(
                 SddsServTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textOnDarkPrimaryHover
-                )
+                        to SddsServTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textOnDarkPrimaryHover,
+                ),
             )
             labelColor(
                 SddsServTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textOnDarkPrimaryHover
-                )
+                        to SddsServTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textOnDarkPrimaryHover,
+                ),
             )
             valueColor(
                 SddsServTheme.colors.textOnDarkSecondary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textOnDarkSecondaryActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textOnDarkSecondaryHover
-                )
+                        to SddsServTheme.colors.textOnDarkSecondaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textOnDarkSecondaryHover,
+                ),
             )
             backgroundColor(
                 SddsServTheme.colors.surfaceDefaultPositive.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.surfaceDefaultPositiveActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.surfaceDefaultPositiveHover
-                )
+                        to SddsServTheme.colors.surfaceDefaultPositiveActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.surfaceDefaultPositiveHover,
+                ),
             )
         }
         .loadingAlpha(0.0f)
@@ -287,42 +295,42 @@ public val WrapperBasicButtonView.Negative: WrapperBasicButtonNegativeViewTermin
             spinnerColor(
                 SddsServTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textOnDarkPrimaryHover
-                )
+                        to SddsServTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textOnDarkPrimaryHover,
+                ),
             )
             iconColor(
                 SddsServTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textOnDarkPrimaryHover
-                )
+                        to SddsServTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textOnDarkPrimaryHover,
+                ),
             )
             labelColor(
                 SddsServTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textOnDarkPrimaryHover
-                )
+                        to SddsServTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textOnDarkPrimaryHover,
+                ),
             )
             valueColor(
                 SddsServTheme.colors.textOnDarkSecondary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textOnDarkSecondaryActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textOnDarkSecondaryHover
-                )
+                        to SddsServTheme.colors.textOnDarkSecondaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textOnDarkSecondaryHover,
+                ),
             )
             backgroundColor(
                 SddsServTheme.colors.surfaceDefaultNegative.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.surfaceDefaultNegativeActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.surfaceDefaultNegativeHover
-                )
+                        to SddsServTheme.colors.surfaceDefaultNegativeActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.surfaceDefaultNegativeHover,
+                ),
             )
         }
         .loadingAlpha(0.0f)
@@ -335,42 +343,42 @@ public val WrapperBasicButtonView.Warning: WrapperBasicButtonWarningViewTerminat
             spinnerColor(
                 SddsServTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textOnDarkPrimaryHover
-                )
+                        to SddsServTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textOnDarkPrimaryHover,
+                ),
             )
             iconColor(
                 SddsServTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textOnDarkPrimaryHover
-                )
+                        to SddsServTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textOnDarkPrimaryHover,
+                ),
             )
             labelColor(
                 SddsServTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textOnDarkPrimaryHover
-                )
+                        to SddsServTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textOnDarkPrimaryHover,
+                ),
             )
             valueColor(
                 SddsServTheme.colors.textOnDarkSecondary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textOnDarkSecondaryActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textOnDarkSecondaryHover
-                )
+                        to SddsServTheme.colors.textOnDarkSecondaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textOnDarkSecondaryHover,
+                ),
             )
             backgroundColor(
                 SddsServTheme.colors.surfaceDefaultWarning.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.surfaceDefaultWarningActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.surfaceDefaultWarningHover
-                )
+                        to SddsServTheme.colors.surfaceDefaultWarningActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.surfaceDefaultWarningHover,
+                ),
             )
         }
         .loadingAlpha(0.0f)
@@ -383,42 +391,42 @@ public val WrapperBasicButtonView.Clear: WrapperBasicButtonClearViewTerminate
             spinnerColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textDefaultPrimaryHover
-                )
+                        to SddsServTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textDefaultPrimaryHover,
+                ),
             )
             iconColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textDefaultPrimaryHover
-                )
+                        to SddsServTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textDefaultPrimaryHover,
+                ),
             )
             labelColor(
                 SddsServTheme.colors.textDefaultPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textDefaultPrimaryActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textDefaultPrimaryHover
-                )
+                        to SddsServTheme.colors.textDefaultPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textDefaultPrimaryHover,
+                ),
             )
             valueColor(
                 SddsServTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textDefaultSecondaryActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textDefaultSecondaryHover
-                )
+                        to SddsServTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textDefaultSecondaryHover,
+                ),
             )
             backgroundColor(
                 SddsServTheme.colors.surfaceDefaultClear.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.surfaceDefaultClearActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.surfaceDefaultClearHover
-                )
+                        to SddsServTheme.colors.surfaceDefaultClearActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.surfaceDefaultClearHover,
+                ),
             )
         }
         .loadingAlpha(0.06f)
@@ -431,42 +439,42 @@ public val WrapperBasicButtonView.Dark: WrapperBasicButtonDarkViewTerminate
             spinnerColor(
                 SddsServTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textOnDarkPrimaryHover
-                )
+                        to SddsServTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textOnDarkPrimaryHover,
+                ),
             )
             iconColor(
                 SddsServTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textOnDarkPrimaryHover
-                )
+                        to SddsServTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textOnDarkPrimaryHover,
+                ),
             )
             labelColor(
                 SddsServTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textOnDarkPrimaryHover
-                )
+                        to SddsServTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textOnDarkPrimaryHover,
+                ),
             )
             valueColor(
                 SddsServTheme.colors.textOnDarkSecondary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textOnDarkSecondaryActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textOnDarkSecondaryHover
-                )
+                        to SddsServTheme.colors.textOnDarkSecondaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textOnDarkSecondaryHover,
+                ),
             )
             backgroundColor(
                 SddsServTheme.colors.surfaceOnLightTransparentDeep.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.surfaceOnLightTransparentDeepActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.surfaceOnLightTransparentDeepHover
-                )
+                        to SddsServTheme.colors.surfaceOnLightTransparentDeepActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.surfaceOnLightTransparentDeepHover,
+                ),
             )
         }
         .loadingAlpha(0.0f)
@@ -479,42 +487,42 @@ public val WrapperBasicButtonView.Black: WrapperBasicButtonBlackViewTerminate
             spinnerColor(
                 SddsServTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textOnDarkPrimaryHover
-                )
+                        to SddsServTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textOnDarkPrimaryHover,
+                ),
             )
             iconColor(
                 SddsServTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textOnDarkPrimaryHover
-                )
+                        to SddsServTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textOnDarkPrimaryHover,
+                ),
             )
             labelColor(
                 SddsServTheme.colors.textOnDarkPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textOnDarkPrimaryActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textOnDarkPrimaryHover
-                )
+                        to SddsServTheme.colors.textOnDarkPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textOnDarkPrimaryHover,
+                ),
             )
             valueColor(
                 SddsServTheme.colors.textOnDarkSecondary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textOnDarkSecondaryActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textOnDarkSecondaryHover
-                )
+                        to SddsServTheme.colors.textOnDarkSecondaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textOnDarkSecondaryHover,
+                ),
             )
             backgroundColor(
                 SddsServTheme.colors.surfaceOnLightSolidDefault.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.surfaceOnLightSolidDefaultActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.surfaceOnLightSolidDefaultHover
-                )
+                        to SddsServTheme.colors.surfaceOnLightSolidDefaultActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.surfaceOnLightSolidDefaultHover,
+                ),
             )
         }
         .loadingAlpha(0.0f)
@@ -527,42 +535,42 @@ public val WrapperBasicButtonView.White: WrapperBasicButtonWhiteViewTerminate
             spinnerColor(
                 SddsServTheme.colors.textOnLightPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textOnLightPrimaryActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textOnLightPrimaryHover
-                )
+                        to SddsServTheme.colors.textOnLightPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textOnLightPrimaryHover,
+                ),
             )
             iconColor(
                 SddsServTheme.colors.textOnLightPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textOnLightPrimaryActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textOnLightPrimaryHover
-                )
+                        to SddsServTheme.colors.textOnLightPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textOnLightPrimaryHover,
+                ),
             )
             labelColor(
                 SddsServTheme.colors.textOnLightPrimary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textOnLightPrimaryActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textOnLightPrimaryHover
-                )
+                        to SddsServTheme.colors.textOnLightPrimaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textOnLightPrimaryHover,
+                ),
             )
             valueColor(
                 SddsServTheme.colors.textOnLightSecondary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textOnLightSecondaryActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textOnLightSecondaryHover
-                )
+                        to SddsServTheme.colors.textOnLightSecondaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textOnLightSecondaryHover,
+                ),
             )
             backgroundColor(
                 SddsServTheme.colors.surfaceOnDarkSolidDefault.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.surfaceOnDarkSolidDefaultActive,
+                        to SddsServTheme.colors.surfaceOnDarkSolidDefaultActive,
                     setOf(InteractiveState.Hovered)
-                            to SddsServTheme.colors.surfaceOnDarkSolidDefaultHover
-                )
+                        to SddsServTheme.colors.surfaceOnDarkSolidDefaultHover,
+                ),
             )
         }
         .loadingAlpha(0.0f)

@@ -40,7 +40,8 @@ class ThemeBuilderPlugin : Plugin<Project> {
                 dependOnPreBuild = extension.autoGenerate,
             )
 
-            val fetchComponentConfigsTasks = registerFetchComponentConfigs(extension, componentJsons)
+            val fetchComponentConfigsTasks =
+                registerFetchComponentConfigs(extension, componentJsons)
             registerGenerateComponentConfigsTask(extension, fetchComponentConfigsTasks)
         }
     }
@@ -104,27 +105,31 @@ class ThemeBuilderPlugin : Plugin<Project> {
         extension: ThemeBuilderExtension,
         fetchComponentConfigsTasks: List<TaskProvider<FetchFileTask>>,
     ) {
-        val task = project.tasks.register<GenerateComponentConfigsTask>("generateComponentConfigs") {
-            group = TASK_GROUP
-            basicButtonConfigFile.set(getComponentConfigFile(ComponentConfig.BASIC_BUTTON.fileName))
-            iconButtonConfigFile.set(getComponentConfigFile(ComponentConfig.ICON_BUTTON.fileName))
-            linkButtonConfigFile.set(getComponentConfigFile(ComponentConfig.LINK_BUTTON.fileName))
-            textFieldConfigFile.set(getComponentConfigFile(ComponentConfig.TEXT_FIELD.fileName))
-            textFieldClearConfigFile.set(getComponentConfigFile(ComponentConfig.TEXT_FIELD_CLEAR.fileName))
-            textAreaConfigFile.set(getComponentConfigFile(ComponentConfig.TEXT_AREA.fileName))
-            textAreaClearConfigFile.set(getComponentConfigFile(ComponentConfig.TEXT_AREA_CLEAR.fileName))
-            outputDirPath.set(extension.outputLocation.getSourcePath())
-            outputResDirPath.set(extension.outputLocation.getResourcePath())
-            packageName.set(extension.ktPackage ?: DEFAULT_KT_PACKAGE)
-            val projectDirProperty = objects.directoryProperty()
-                .apply { set(layout.projectDirectory) }
-            projectDir.set(projectDirProperty)
-            dimensionsConfig.set(extension.dimensionsConfig)
-            resourcesPrefixConfig.set(getResourcePrefixConfig(extension))
-            namespace.set(getProjectNameSpace())
-            themeName.set(getThemeSource(extension).themeName)
-            target.set(extension.target)
-        }
+        val task =
+            project.tasks.register<GenerateComponentConfigsTask>("generateComponentConfigs") {
+                group = TASK_GROUP
+                basicButtonConfigFile.set(getComponentConfigFile(ComponentConfig.BASIC_BUTTON.fileName))
+                iconButtonConfigFile.set(getComponentConfigFile(ComponentConfig.ICON_BUTTON.fileName))
+                linkButtonConfigFile.set(getComponentConfigFile(ComponentConfig.LINK_BUTTON.fileName))
+                textFieldConfigFile.set(getComponentConfigFile(ComponentConfig.TEXT_FIELD.fileName))
+                textFieldClearConfigFile.set(getComponentConfigFile(ComponentConfig.TEXT_FIELD_CLEAR.fileName))
+                textAreaConfigFile.set(getComponentConfigFile(ComponentConfig.TEXT_AREA.fileName))
+                textAreaClearConfigFile.set(getComponentConfigFile(ComponentConfig.TEXT_AREA_CLEAR.fileName))
+                cellConfigFile.set(getComponentConfigFile(ComponentConfig.CELL.fileName))
+                indicatorConfigFile.set(getComponentConfigFile(ComponentConfig.INDICATOR.fileName))
+                counterConfigFile.set(getComponentConfigFile(ComponentConfig.COUNTER.fileName))
+                outputDirPath.set(extension.outputLocation.getSourcePath())
+                outputResDirPath.set(extension.outputLocation.getResourcePath())
+                packageName.set(extension.ktPackage ?: DEFAULT_KT_PACKAGE)
+                val projectDirProperty = objects.directoryProperty()
+                    .apply { set(layout.projectDirectory) }
+                projectDir.set(projectDirProperty)
+                dimensionsConfig.set(extension.dimensionsConfig)
+                resourcesPrefixConfig.set(getResourcePrefixConfig(extension))
+                namespace.set(getProjectNameSpace())
+                themeName.set(getThemeSource(extension).themeName)
+                target.set(extension.target)
+            }
         fetchComponentConfigsTasks.forEach { task.dependsOn(it) }
     }
 
@@ -353,6 +358,9 @@ class ThemeBuilderPlugin : Plugin<Project> {
         TEXT_FIELD_CLEAR("text_field_clear_config.json", "fetchTextFieldClearConfig"),
         TEXT_AREA("text_area_config.json", "fetchTextAreaConfig"),
         TEXT_AREA_CLEAR("text_area_clear_config.json", "fetchTextAreaClearConfig"),
+        CELL("cell_config.json", "fetchCellConfig"),
+        INDICATOR("indicator_config.json", "fetchIndicatorConfig"),
+        COUNTER("counter_config.json", "fetchCounterConfig"),
     }
 
     private companion object {
@@ -370,6 +378,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
 
         const val BASE_THEME_URL =
             "https://github.com/salute-developers/theme-converter/raw/main/themes/"
+
         const val BASE_COMPONENT_CONFIG_URL =
             "https://github.com/salute-developers/theme-converter/raw/main/components/"
     }

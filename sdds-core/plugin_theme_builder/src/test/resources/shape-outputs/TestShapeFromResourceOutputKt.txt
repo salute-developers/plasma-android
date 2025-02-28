@@ -9,6 +9,9 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.unit.dp
 import com.test.R
 
+/**
+ * Токены скруглений
+ */
 public object RoundShapeTokens {
     /**
      * Форма со скругленными углами размером XS

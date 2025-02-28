@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Plasma.SdService.Components.Indicator" parent="Sdds.Components.Indicator">
+        <item name="sd_colorStateProvider">com.sdds.plasma.sd.service.colorstate.IndicatorColorStateProvider</item>
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="backgroundTint">@color/plasma_indicator_bg_color</item>
+    </style>
+    <style name="Plasma.SdService.Components.Indicator.L">
+        <item name="android:maxHeight">@dimen/plasma_indicator_l_max_height</item>
+        <item name="android:maxWidth">@dimen/plasma_indicator_l_max_width</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IndicatorL">
+        <item name="sd_indicatorStyle">@style/Plasma.SdService.Components.Indicator.L</item>
+    </style>
+    <style name="Plasma.SdService.Components.Indicator.L.Default">
+        <item name="plasma_indicatorColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IndicatorLDefault">
+        <item name="sd_indicatorStyle">@style/Plasma.SdService.Components.Indicator.L.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.Indicator.L.Accent">
+        <item name="plasma_indicatorColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IndicatorLAccent">
+        <item name="sd_indicatorStyle">@style/Plasma.SdService.Components.Indicator.L.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.Indicator.L.Inactive">
+        <item name="plasma_indicatorColors">state_inactive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IndicatorLInactive">
+        <item name="sd_indicatorStyle">@style/Plasma.SdService.Components.Indicator.L.Inactive</item>
+    </style>
+    <style name="Plasma.SdService.Components.Indicator.L.Positive">
+        <item name="plasma_indicatorColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IndicatorLPositive">
+        <item name="sd_indicatorStyle">@style/Plasma.SdService.Components.Indicator.L.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.Indicator.L.Warning">
+        <item name="plasma_indicatorColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IndicatorLWarning">
+        <item name="sd_indicatorStyle">@style/Plasma.SdService.Components.Indicator.L.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.Indicator.L.Negative">
+        <item name="plasma_indicatorColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IndicatorLNegative">
+        <item name="sd_indicatorStyle">@style/Plasma.SdService.Components.Indicator.L.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.Indicator.L.Dark">
+        <item name="plasma_indicatorColors">state_dark</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IndicatorLDark">
+        <item name="sd_indicatorStyle">@style/Plasma.SdService.Components.Indicator.L.Dark</item>
+    </style>
+    <style name="Plasma.SdService.Components.Indicator.L.Black">
+        <item name="plasma_indicatorColors">state_black</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IndicatorLBlack">
+        <item name="sd_indicatorStyle">@style/Plasma.SdService.Components.Indicator.L.Black</item>
+    </style>
+    <style name="Plasma.SdService.Components.Indicator.L.White">
+        <item name="plasma_indicatorColors">state_white</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IndicatorLWhite">
+        <item name="sd_indicatorStyle">@style/Plasma.SdService.Components.Indicator.L.White</item>
+    </style>
+    <style name="Plasma.SdService.Components.Indicator.M">
+        <item name="android:maxHeight">@dimen/plasma_indicator_m_max_height</item>
+        <item name="android:maxWidth">@dimen/plasma_indicator_m_max_width</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IndicatorM">
+        <item name="sd_indicatorStyle">@style/Plasma.SdService.Components.Indicator.M</item>
+    </style>
+    <style name="Plasma.SdService.Components.Indicator.M.Default">
+        <item name="plasma_indicatorColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IndicatorMDefault">
+        <item name="sd_indicatorStyle">@style/Plasma.SdService.Components.Indicator.M.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.Indicator.M.Accent">
+        <item name="plasma_indicatorColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IndicatorMAccent">
+        <item name="sd_indicatorStyle">@style/Plasma.SdService.Components.Indicator.M.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.Indicator.M.Inactive">
+        <item name="plasma_indicatorColors">state_inactive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IndicatorMInactive">
+        <item name="sd_indicatorStyle">@style/Plasma.SdService.Components.Indicator.M.Inactive</item>
+    </style>
+    <style name="Plasma.SdService.Components.Indicator.M.Positive">
+        <item name="plasma_indicatorColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IndicatorMPositive">
+        <item name="sd_indicatorStyle">@style/Plasma.SdService.Components.Indicator.M.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.Indicator.M.Warning">
+        <item name="plasma_indicatorColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IndicatorMWarning">
+        <item name="sd_indicatorStyle">@style/Plasma.SdService.Components.Indicator.M.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.Indicator.M.Negative">
+        <item name="plasma_indicatorColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IndicatorMNegative">
+        <item name="sd_indicatorStyle">@style/Plasma.SdService.Components.Indicator.M.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.Indicator.M.Dark">
+        <item name="plasma_indicatorColors">state_dark</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IndicatorMDark">
+        <item name="sd_indicatorStyle">@style/Plasma.SdService.Components.Indicator.M.Dark</item>
+    </style>
+    <style name="Plasma.SdService.Components.Indicator.M.Black">
+        <item name="plasma_indicatorColors">state_black</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IndicatorMBlack">
+        <item name="sd_indicatorStyle">@style/Plasma.SdService.Components.Indicator.M.Black</item>
+    </style>
+    <style name="Plasma.SdService.Components.Indicator.M.White">
+        <item name="plasma_indicatorColors">state_white</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IndicatorMWhite">
+        <item name="sd_indicatorStyle">@style/Plasma.SdService.Components.Indicator.M.White</item>
+    </style>
+    <style name="Plasma.SdService.Components.Indicator.S">
+        <item name="android:maxHeight">@dimen/plasma_indicator_s_max_height</item>
+        <item name="android:maxWidth">@dimen/plasma_indicator_s_max_width</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IndicatorS">
+        <item name="sd_indicatorStyle">@style/Plasma.SdService.Components.Indicator.S</item>
+    </style>
+    <style name="Plasma.SdService.Components.Indicator.S.Default">
+        <item name="plasma_indicatorColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IndicatorSDefault">
+        <item name="sd_indicatorStyle">@style/Plasma.SdService.Components.Indicator.S.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.Indicator.S.Accent">
+        <item name="plasma_indicatorColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IndicatorSAccent">
+        <item name="sd_indicatorStyle">@style/Plasma.SdService.Components.Indicator.S.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.Indicator.S.Inactive">
+        <item name="plasma_indicatorColors">state_inactive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IndicatorSInactive">
+        <item name="sd_indicatorStyle">@style/Plasma.SdService.Components.Indicator.S.Inactive</item>
+    </style>
+    <style name="Plasma.SdService.Components.Indicator.S.Positive">
+        <item name="plasma_indicatorColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IndicatorSPositive">
+        <item name="sd_indicatorStyle">@style/Plasma.SdService.Components.Indicator.S.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.Indicator.S.Warning">
+        <item name="plasma_indicatorColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IndicatorSWarning">
+        <item name="sd_indicatorStyle">@style/Plasma.SdService.Components.Indicator.S.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.Indicator.S.Negative">
+        <item name="plasma_indicatorColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IndicatorSNegative">
+        <item name="sd_indicatorStyle">@style/Plasma.SdService.Components.Indicator.S.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.Indicator.S.Dark">
+        <item name="plasma_indicatorColors">state_dark</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IndicatorSDark">
+        <item name="sd_indicatorStyle">@style/Plasma.SdService.Components.Indicator.S.Dark</item>
+    </style>
+    <style name="Plasma.SdService.Components.Indicator.S.Black">
+        <item name="plasma_indicatorColors">state_black</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IndicatorSBlack">
+        <item name="sd_indicatorStyle">@style/Plasma.SdService.Components.Indicator.S.Black</item>
+    </style>
+    <style name="Plasma.SdService.Components.Indicator.S.White">
+        <item name="plasma_indicatorColors">state_white</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IndicatorSWhite">
+        <item name="sd_indicatorStyle">@style/Plasma.SdService.Components.Indicator.S.White</item>
+    </style>
+</resources>

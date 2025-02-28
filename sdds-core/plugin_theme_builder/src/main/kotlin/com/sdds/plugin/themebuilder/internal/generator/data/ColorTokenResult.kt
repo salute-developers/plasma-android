@@ -18,9 +18,20 @@ internal data class ColorTokenResult(
      * @property dark словарь название атрибута цвета - ссылка на токен цвета для темной темы
      */
     internal data class TokenData(
-        val light: Map<String, String>,
-        val dark: Map<String, String>,
-    )
+        val light: Map<String, ColorInfo>,
+        val dark: Map<String, ColorInfo>,
+    ) {
+        /**
+         * Возвращает описание токена градиента
+         */
+        fun description(color: String): String =
+            (light[color] ?: dark[color])?.description.orEmpty()
+
+        internal data class ColorInfo(
+            val colorRef: String,
+            val description: String = "",
+        )
+    }
 }
 
 internal fun ColorTokenResult.TokenData.mergedLightAndDark(): Set<String> {

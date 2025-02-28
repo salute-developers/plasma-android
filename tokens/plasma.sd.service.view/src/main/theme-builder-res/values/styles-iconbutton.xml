@@ -1,0 +1,570 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Plasma.SdService.Components.IconButton" parent="Sdds.Components.IconButton">
+        <item name="sd_colorStateProvider">com.sdds.plasma.sd.service.colorstate.IconButtonColorStateProvider</item>
+        <item name="sd_disabledAlpha">0.4</item>
+        <item name="backgroundTint">@color/plasma_icon_button_bg_color</item>
+        <item name="sd_spinnerTint">@color/plasma_icon_button_spinner_tint</item>
+        <item name="sd_iconTint">@color/plasma_icon_button_icon_tint</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.L">
+        <item name="android:minHeight">@dimen/plasma_icon_button_l_min_height</item>
+        <item name="android:minWidth">@dimen/plasma_icon_button_l_min_width</item>
+        <item name="android:paddingStart">@dimen/plasma_icon_button_l_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_icon_button_l_padding_end</item>
+        <item name="sd_iconSize">@dimen/plasma_icon_button_l_icon_size</item>
+        <item name="sd_spinnerSize">@dimen/plasma_icon_button_l_spinner_size</item>
+        <item name="sd_spinnerStrokeWidth">@dimen/plasma_icon_button_l_spinner_stroke_width</item>
+        <item name="sd_shapeAppearance">?plasma_shapeRoundL</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/plasma_icon_button_l_shape_adjustment</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonL">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.L</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.L.Default">
+        <item name="plasma_iconbuttonColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonLDefault">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.L.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.L.Secondary">
+        <item name="plasma_iconbuttonColors">state_secondary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonLSecondary">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.L.Secondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.L.Accent">
+        <item name="plasma_iconbuttonColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonLAccent">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.L.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.L.Positive">
+        <item name="plasma_iconbuttonColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonLPositive">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.L.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.L.Negative">
+        <item name="plasma_iconbuttonColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonLNegative">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.L.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.L.Warning">
+        <item name="plasma_iconbuttonColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonLWarning">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.L.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.L.Clear">
+        <item name="plasma_iconbuttonColors">state_clear</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonLClear">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.L.Clear</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.L.Dark">
+        <item name="plasma_iconbuttonColors">state_dark</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonLDark">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.L.Dark</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.L.Black">
+        <item name="plasma_iconbuttonColors">state_black</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonLBlack">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.L.Black</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.L.White">
+        <item name="plasma_iconbuttonColors">state_white</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonLWhite">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.L.White</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.L.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonLPilled">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.L.Pilled</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.L.Pilled.Default">
+        <item name="plasma_iconbuttonColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonLPilledDefault">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.L.Pilled.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.L.Pilled.Secondary">
+        <item name="plasma_iconbuttonColors">state_secondary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonLPilledSecondary">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.L.Pilled.Secondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.L.Pilled.Accent">
+        <item name="plasma_iconbuttonColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonLPilledAccent">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.L.Pilled.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.L.Pilled.Positive">
+        <item name="plasma_iconbuttonColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonLPilledPositive">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.L.Pilled.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.L.Pilled.Negative">
+        <item name="plasma_iconbuttonColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonLPilledNegative">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.L.Pilled.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.L.Pilled.Warning">
+        <item name="plasma_iconbuttonColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonLPilledWarning">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.L.Pilled.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.L.Pilled.Clear">
+        <item name="plasma_iconbuttonColors">state_clear</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonLPilledClear">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.L.Pilled.Clear</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.L.Pilled.Dark">
+        <item name="plasma_iconbuttonColors">state_dark</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonLPilledDark">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.L.Pilled.Dark</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.L.Pilled.Black">
+        <item name="plasma_iconbuttonColors">state_black</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonLPilledBlack">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.L.Pilled.Black</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.L.Pilled.White">
+        <item name="plasma_iconbuttonColors">state_white</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonLPilledWhite">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.L.Pilled.White</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.M">
+        <item name="android:minHeight">@dimen/plasma_icon_button_m_min_height</item>
+        <item name="android:minWidth">@dimen/plasma_icon_button_m_min_width</item>
+        <item name="android:paddingStart">@dimen/plasma_icon_button_m_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_icon_button_m_padding_end</item>
+        <item name="sd_iconSize">@dimen/plasma_icon_button_m_icon_size</item>
+        <item name="sd_spinnerSize">@dimen/plasma_icon_button_m_spinner_size</item>
+        <item name="sd_spinnerStrokeWidth">@dimen/plasma_icon_button_m_spinner_stroke_width</item>
+        <item name="sd_shapeAppearance">?plasma_shapeRoundM</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonM">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.M</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.M.Default">
+        <item name="plasma_iconbuttonColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonMDefault">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.M.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.M.Secondary">
+        <item name="plasma_iconbuttonColors">state_secondary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonMSecondary">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.M.Secondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.M.Accent">
+        <item name="plasma_iconbuttonColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonMAccent">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.M.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.M.Positive">
+        <item name="plasma_iconbuttonColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonMPositive">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.M.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.M.Negative">
+        <item name="plasma_iconbuttonColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonMNegative">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.M.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.M.Warning">
+        <item name="plasma_iconbuttonColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonMWarning">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.M.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.M.Clear">
+        <item name="plasma_iconbuttonColors">state_clear</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonMClear">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.M.Clear</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.M.Dark">
+        <item name="plasma_iconbuttonColors">state_dark</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonMDark">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.M.Dark</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.M.Black">
+        <item name="plasma_iconbuttonColors">state_black</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonMBlack">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.M.Black</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.M.White">
+        <item name="plasma_iconbuttonColors">state_white</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonMWhite">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.M.White</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.M.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonMPilled">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.M.Pilled</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.M.Pilled.Default">
+        <item name="plasma_iconbuttonColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonMPilledDefault">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.M.Pilled.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.M.Pilled.Secondary">
+        <item name="plasma_iconbuttonColors">state_secondary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonMPilledSecondary">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.M.Pilled.Secondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.M.Pilled.Accent">
+        <item name="plasma_iconbuttonColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonMPilledAccent">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.M.Pilled.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.M.Pilled.Positive">
+        <item name="plasma_iconbuttonColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonMPilledPositive">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.M.Pilled.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.M.Pilled.Negative">
+        <item name="plasma_iconbuttonColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonMPilledNegative">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.M.Pilled.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.M.Pilled.Warning">
+        <item name="plasma_iconbuttonColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonMPilledWarning">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.M.Pilled.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.M.Pilled.Clear">
+        <item name="plasma_iconbuttonColors">state_clear</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonMPilledClear">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.M.Pilled.Clear</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.M.Pilled.Dark">
+        <item name="plasma_iconbuttonColors">state_dark</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonMPilledDark">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.M.Pilled.Dark</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.M.Pilled.Black">
+        <item name="plasma_iconbuttonColors">state_black</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonMPilledBlack">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.M.Pilled.Black</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.M.Pilled.White">
+        <item name="plasma_iconbuttonColors">state_white</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonMPilledWhite">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.M.Pilled.White</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.S">
+        <item name="android:minHeight">@dimen/plasma_icon_button_s_min_height</item>
+        <item name="android:minWidth">@dimen/plasma_icon_button_s_min_width</item>
+        <item name="android:paddingStart">@dimen/plasma_icon_button_s_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_icon_button_s_padding_end</item>
+        <item name="sd_iconSize">@dimen/plasma_icon_button_s_icon_size</item>
+        <item name="sd_spinnerSize">@dimen/plasma_icon_button_s_spinner_size</item>
+        <item name="sd_spinnerStrokeWidth">@dimen/plasma_icon_button_s_spinner_stroke_width</item>
+        <item name="sd_shapeAppearance">?plasma_shapeRoundM</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/plasma_icon_button_s_shape_adjustment</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonS">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.S</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.S.Default">
+        <item name="plasma_iconbuttonColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonSDefault">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.S.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.S.Secondary">
+        <item name="plasma_iconbuttonColors">state_secondary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonSSecondary">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.S.Secondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.S.Accent">
+        <item name="plasma_iconbuttonColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonSAccent">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.S.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.S.Positive">
+        <item name="plasma_iconbuttonColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonSPositive">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.S.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.S.Negative">
+        <item name="plasma_iconbuttonColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonSNegative">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.S.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.S.Warning">
+        <item name="plasma_iconbuttonColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonSWarning">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.S.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.S.Clear">
+        <item name="plasma_iconbuttonColors">state_clear</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonSClear">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.S.Clear</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.S.Dark">
+        <item name="plasma_iconbuttonColors">state_dark</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonSDark">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.S.Dark</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.S.Black">
+        <item name="plasma_iconbuttonColors">state_black</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonSBlack">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.S.Black</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.S.White">
+        <item name="plasma_iconbuttonColors">state_white</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonSWhite">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.S.White</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.S.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonSPilled">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.S.Pilled</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.S.Pilled.Default">
+        <item name="plasma_iconbuttonColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonSPilledDefault">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.S.Pilled.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.S.Pilled.Secondary">
+        <item name="plasma_iconbuttonColors">state_secondary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonSPilledSecondary">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.S.Pilled.Secondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.S.Pilled.Accent">
+        <item name="plasma_iconbuttonColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonSPilledAccent">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.S.Pilled.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.S.Pilled.Positive">
+        <item name="plasma_iconbuttonColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonSPilledPositive">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.S.Pilled.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.S.Pilled.Negative">
+        <item name="plasma_iconbuttonColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonSPilledNegative">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.S.Pilled.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.S.Pilled.Warning">
+        <item name="plasma_iconbuttonColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonSPilledWarning">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.S.Pilled.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.S.Pilled.Clear">
+        <item name="plasma_iconbuttonColors">state_clear</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonSPilledClear">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.S.Pilled.Clear</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.S.Pilled.Dark">
+        <item name="plasma_iconbuttonColors">state_dark</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonSPilledDark">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.S.Pilled.Dark</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.S.Pilled.Black">
+        <item name="plasma_iconbuttonColors">state_black</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonSPilledBlack">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.S.Pilled.Black</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.S.Pilled.White">
+        <item name="plasma_iconbuttonColors">state_white</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonSPilledWhite">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.S.Pilled.White</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.Xs">
+        <item name="android:minHeight">@dimen/plasma_icon_button_xs_min_height</item>
+        <item name="android:minWidth">@dimen/plasma_icon_button_xs_min_width</item>
+        <item name="android:paddingStart">@dimen/plasma_icon_button_xs_padding_start</item>
+        <item name="android:paddingEnd">@dimen/plasma_icon_button_xs_padding_end</item>
+        <item name="sd_iconSize">@dimen/plasma_icon_button_xs_icon_size</item>
+        <item name="sd_spinnerSize">@dimen/plasma_icon_button_xs_spinner_size</item>
+        <item name="sd_spinnerStrokeWidth">@dimen/plasma_icon_button_xs_spinner_stroke_width</item>
+        <item name="sd_shapeAppearance">?plasma_shapeRoundS</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonXs">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.Xs</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.Xs.Default">
+        <item name="plasma_iconbuttonColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonXsDefault">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.Xs.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.Xs.Secondary">
+        <item name="plasma_iconbuttonColors">state_secondary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonXsSecondary">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.Xs.Secondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.Xs.Accent">
+        <item name="plasma_iconbuttonColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonXsAccent">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.Xs.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.Xs.Positive">
+        <item name="plasma_iconbuttonColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonXsPositive">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.Xs.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.Xs.Negative">
+        <item name="plasma_iconbuttonColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonXsNegative">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.Xs.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.Xs.Warning">
+        <item name="plasma_iconbuttonColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonXsWarning">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.Xs.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.Xs.Clear">
+        <item name="plasma_iconbuttonColors">state_clear</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonXsClear">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.Xs.Clear</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.Xs.Dark">
+        <item name="plasma_iconbuttonColors">state_dark</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonXsDark">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.Xs.Dark</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.Xs.Black">
+        <item name="plasma_iconbuttonColors">state_black</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonXsBlack">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.Xs.Black</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.Xs.White">
+        <item name="plasma_iconbuttonColors">state_white</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonXsWhite">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.Xs.White</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.Xs.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonXsPilled">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.Xs.Pilled</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.Xs.Pilled.Default">
+        <item name="plasma_iconbuttonColors">state_default</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonXsPilledDefault">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.Xs.Pilled.Default</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.Xs.Pilled.Secondary">
+        <item name="plasma_iconbuttonColors">state_secondary</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonXsPilledSecondary">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.Xs.Pilled.Secondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.Xs.Pilled.Accent">
+        <item name="plasma_iconbuttonColors">state_accent</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonXsPilledAccent">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.Xs.Pilled.Accent</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.Xs.Pilled.Positive">
+        <item name="plasma_iconbuttonColors">state_positive</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonXsPilledPositive">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.Xs.Pilled.Positive</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.Xs.Pilled.Negative">
+        <item name="plasma_iconbuttonColors">state_negative</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonXsPilledNegative">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.Xs.Pilled.Negative</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.Xs.Pilled.Warning">
+        <item name="plasma_iconbuttonColors">state_warning</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonXsPilledWarning">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.Xs.Pilled.Warning</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.Xs.Pilled.Clear">
+        <item name="plasma_iconbuttonColors">state_clear</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonXsPilledClear">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.Xs.Pilled.Clear</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.Xs.Pilled.Dark">
+        <item name="plasma_iconbuttonColors">state_dark</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonXsPilledDark">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.Xs.Pilled.Dark</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.Xs.Pilled.Black">
+        <item name="plasma_iconbuttonColors">state_black</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonXsPilledBlack">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.Xs.Pilled.Black</item>
+    </style>
+    <style name="Plasma.SdService.Components.IconButton.Xs.Pilled.White">
+        <item name="plasma_iconbuttonColors">state_white</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.IconButtonXsPilledWhite">
+        <item name="sd_iconButtonStyle">@style/Plasma.SdService.Components.IconButton.Xs.Pilled.White</item>
+    </style>
+</resources>

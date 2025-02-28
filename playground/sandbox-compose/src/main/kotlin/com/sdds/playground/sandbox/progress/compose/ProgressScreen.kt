@@ -10,23 +10,31 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.sdds.compose.uikit.ProgressBar
 import com.sdds.playground.sandbox.SandboxTheme
+import com.sdds.playground.sandbox.Theme
 import com.sdds.playground.sandbox.core.compose.ComponentScaffold
 
 /**
  * Экран с компонентом [ProgressBar]
  */
 @Composable
-internal fun ProgressScreen() {
-    val progressViewModel: ProgressViewModel = viewModel()
-    val progressUiState by progressViewModel.progressUiState.collectAsState()
+internal fun ProgressScreen(theme: Theme.ThemeInfoCompose = Theme.composeDefault) {
+    val progressViewModel: ProgressViewModel = viewModel(
+        factory = ProgressViewModelFactory(defaultState = ProgressUiState(), theme = theme),
+        key = theme.toString(),
+    )
+    val progressUiState by progressViewModel.uiState.collectAsState()
 
     ComponentScaffold(
         component = {
-            ProgressBar(
-                progress = progressUiState.progress,
-                modifier = Modifier.width(240.dp),
-                style = progressUiState.progressStyle(),
-            )
+            theme.themeWrapper {
+                ProgressBar(
+                    progress = progressUiState.progress,
+                    modifier = Modifier.width(240.dp),
+                    style = progressViewModel
+                        .getStyleProvider()
+                        .style(progressUiState.variant),
+                )
+            }
         },
         propertiesOwner = progressViewModel,
     )

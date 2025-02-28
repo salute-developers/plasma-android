@@ -9,24 +9,32 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.sdds.compose.uikit.Chip
 import com.sdds.compose.uikit.Icon
 import com.sdds.playground.sandbox.SandboxTheme
+import com.sdds.playground.sandbox.Theme
 import com.sdds.playground.sandbox.core.compose.ComponentScaffold
 
 @Composable
-internal fun ChipScreen() {
-    val chipViewModel: ChipParametersViewModel =
-        viewModel(ChipParametersViewModel::class.java)
-    val chipUiState by chipViewModel.chipState.collectAsState()
+internal fun ChipScreen(theme: Theme.ThemeInfoCompose = Theme.composeDefault) {
+    val chipViewModel: ChipViewModel =
+        viewModel(
+            factory = ChipViewModelFactory(ChipUiState(), theme),
+            key = theme.toString(),
+        )
+    val chipUiState by chipViewModel.uiState.collectAsState()
 
     ComponentScaffold(
         component = {
-            Chip(
-                onClick = getOnClick(chipUiState.isClickable),
-                style = chipUiState.chipStyle(),
-                label = chipUiState.label,
-                enabled = chipUiState.enabled,
-                startContent = startContent(chipUiState.hasStartIcon),
-                endContent = endContent(chipUiState.hasEndIcon),
-            )
+            theme.themeWrapper {
+                Chip(
+                    onClick = getOnClick(chipUiState.isClickable),
+                    style = chipViewModel
+                        .getStyleProvider()
+                        .style(chipUiState.variant),
+                    label = chipUiState.label,
+                    enabled = chipUiState.enabled,
+                    startContent = startContent(chipUiState.hasStartIcon),
+                    endContent = endContent(chipUiState.hasEndIcon),
+                )
+            }
         },
         propertiesOwner = chipViewModel,
     )

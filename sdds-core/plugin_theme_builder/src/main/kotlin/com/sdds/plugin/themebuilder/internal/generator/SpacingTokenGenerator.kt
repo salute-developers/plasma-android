@@ -43,7 +43,7 @@ internal class SpacingTokenGenerator(
 ) : TokenGenerator<SpacingToken, SpacingTokenResult>(target) {
 
     private val ktFileBuilder by unsafeLazy { ktFileBuilderFactory.create(SPACING_TOKENS_NAME) }
-    private val rootSpacings by unsafeLazy { ktFileBuilder.rootObject(SPACING_TOKENS_NAME) }
+    private val rootSpacings by unsafeLazy { ktFileBuilder.rootObject(SPACING_TOKENS_NAME, SPACING_TOKENS_DESC) }
     private val rFileImport = ClassName(namespace, "R")
 
     private val composeTokenDataCollector =
@@ -89,6 +89,7 @@ internal class SpacingTokenGenerator(
             SpacingTokenResult.TokenData(
                 attrName = SpacingToken.getAttrName(token.name),
                 tokenRefName = resourceReferenceProvider.dimen(dimenValue),
+                description = token.description,
             ),
         )
         return true
@@ -115,6 +116,7 @@ internal class SpacingTokenGenerator(
             SpacingTokenResult.TokenData(
                 attrName = decapitalizedName,
                 tokenRefName = decapitalizedName,
+                description = token.description,
             ),
         )
         return@with true
@@ -162,5 +164,6 @@ internal class SpacingTokenGenerator(
 
     companion object {
         internal const val SPACING_TOKENS_NAME = "SpacingTokens"
+        internal const val SPACING_TOKENS_DESC = "Токены отступов"
     }
 }

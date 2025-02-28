@@ -382,6 +382,7 @@ internal class DecoratedFieldBox(
 
     override fun setEnabled(enabled: Boolean) {
         super.setEnabled(enabled)
+        children.forEach { it.isEnabled = enabled }
         chipGroup.isEnabled = enabled
     }
 

@@ -7,7 +7,9 @@ plugins {
     id("convention.compose")
     id("convention.maven-publish")
     id("convention.auto-bump")
+    id("convention.testing-compose")
     id(libs.plugins.themebuilder.get().pluginId)
+    alias(libs.plugins.roborazzi)
 }
 
 android {
@@ -29,5 +31,6 @@ themeBuilder {
 
 dependencies {
     implementation(libs.sdds.uikit.compose)
+    implementation(libs.sdds.icons)
     implementation(libs.base.androidX.compose.foundation)
 }

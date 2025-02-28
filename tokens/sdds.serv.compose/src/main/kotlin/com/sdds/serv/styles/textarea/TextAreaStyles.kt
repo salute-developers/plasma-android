@@ -1,4 +1,9 @@
 // AUTO-GENERATED. DO NOT MODIFY this file.
+@file:Suppress(
+    "UndocumentedPublicClass",
+    "UndocumentedPublicProperty",
+)
+
 package com.sdds.serv.styles.textarea
 
 import androidx.compose.runtime.Composable
@@ -23,6 +28,9 @@ import com.sdds.serv.styles.chip.Secondary
 import com.sdds.serv.styles.chip.Xs
 import com.sdds.serv.styles.chip.group.Dense
 import com.sdds.serv.theme.SddsServTheme
+import kotlin.Suppress
+import kotlin.jvm.JvmInline
+import kotlin.jvm.JvmName
 
 public interface WrapperTextArea : BuilderWrapper<TextFieldStyle, TextAreaStyleBuilder>
 
@@ -30,11 +38,6 @@ public interface WrapperTextAreaView : WrapperTextArea
 
 @JvmInline
 public value class WrapperTextAreaDefaultViewTerminate(
-    public override val builder: TextAreaStyleBuilder,
-) : WrapperTextArea
-
-@JvmInline
-public value class WrapperTextAreaSuccessViewTerminate(
     public override val builder: TextAreaStyleBuilder,
 ) : WrapperTextArea
 
@@ -217,34 +220,17 @@ public val WrapperTextAreaView.Default: WrapperTextAreaDefaultViewTerminate
     @Composable
     get() = builder
         .colors {
-            captionColor(SddsServTheme.colors.textDefaultSecondary.asInteractive())
+            captionColor(
+                SddsServTheme.colors.textDefaultSecondary.asInteractive(),
+            )
             backgroundColor(
                 SddsServTheme.colors.surfaceDefaultTransparentPrimary.asInteractive(
                     setOf(InteractiveState.Activated)
-                            to SddsServTheme.colors.surfaceDefaultTransparentSecondary
-                )
+                        to SddsServTheme.colors.surfaceDefaultTransparentSecondary,
+                ),
             )
         }
         .wrap(::WrapperTextAreaDefaultViewTerminate)
-
-public val WrapperTextAreaView.Success: WrapperTextAreaSuccessViewTerminate
-    @Composable
-    get() = builder
-        .colors {
-            captionColor(
-                SddsServTheme.colors.textDefaultPositive.asInteractive(
-                    setOf(InteractiveState.Activated)
-                            to SddsServTheme.colors.textDefaultSecondary
-                )
-            )
-            backgroundColor(
-                SddsServTheme.colors.surfaceDefaultTransparentPositive.asInteractive(
-                    setOf(InteractiveState.Activated)
-                            to SddsServTheme.colors.surfaceDefaultTransparentSecondary
-                )
-            )
-        }
-        .wrap(::WrapperTextAreaSuccessViewTerminate)
 
 public val WrapperTextAreaView.Warning: WrapperTextAreaWarningViewTerminate
     @Composable
@@ -253,14 +239,14 @@ public val WrapperTextAreaView.Warning: WrapperTextAreaWarningViewTerminate
             captionColor(
                 SddsServTheme.colors.textDefaultWarning.asInteractive(
                     setOf(InteractiveState.Activated)
-                            to SddsServTheme.colors.textDefaultSecondary
-                )
+                        to SddsServTheme.colors.textDefaultSecondary,
+                ),
             )
             backgroundColor(
                 SddsServTheme.colors.surfaceDefaultTransparentWarning.asInteractive(
                     setOf(InteractiveState.Activated)
-                            to SddsServTheme.colors.surfaceDefaultTransparentSecondary
-                )
+                        to SddsServTheme.colors.surfaceDefaultTransparentSecondary,
+                ),
             )
         }
         .wrap(::WrapperTextAreaWarningViewTerminate)
@@ -272,14 +258,14 @@ public val WrapperTextAreaView.Error: WrapperTextAreaErrorViewTerminate
             captionColor(
                 SddsServTheme.colors.textDefaultNegative.asInteractive(
                     setOf(InteractiveState.Activated)
-                            to SddsServTheme.colors.textDefaultSecondary
-                )
+                        to SddsServTheme.colors.textDefaultSecondary,
+                ),
             )
             backgroundColor(
                 SddsServTheme.colors.surfaceDefaultTransparentNegative.asInteractive(
                     setOf(InteractiveState.Activated)
-                            to SddsServTheme.colors.surfaceDefaultTransparentSecondary
-                )
+                        to SddsServTheme.colors.surfaceDefaultTransparentSecondary,
+                ),
             )
         }
         .wrap(::WrapperTextAreaErrorViewTerminate)
@@ -295,43 +281,65 @@ private val TextAreaStyleBuilder.invariantProps: TextAreaStyleBuilder
         .counterStyle(SddsServTheme.typography.bodyXsNormal)
         .chipGroupStyle(ChipGroup.Dense.style())
         .colors {
-            optionalColor(SddsServTheme.colors.textDefaultTertiary.asInteractive())
-            valueColor(SddsServTheme.colors.textDefaultPrimary.asInteractive())
+            optionalColor(
+                SddsServTheme.colors.textDefaultTertiary.asInteractive(),
+            )
+            valueColor(
+                SddsServTheme.colors.textDefaultPrimary.asInteractive(),
+            )
             placeholderColor(
                 SddsServTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Activated)
-                            to SddsServTheme.colors.textDefaultTertiary
-                )
+                        to SddsServTheme.colors.textDefaultTertiary,
+                ),
             )
-            indicatorColor(SddsServTheme.colors.surfaceDefaultNegative.asInteractive())
-            startContentColor(SddsServTheme.colors.textDefaultSecondary.asInteractive())
+            indicatorColor(
+                SddsServTheme.colors.surfaceDefaultNegative.asInteractive(),
+            )
+            startContentColor(
+                SddsServTheme.colors.textDefaultSecondary.asInteractive(),
+            )
             endContentColor(
                 SddsServTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textDefaultSecondaryActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textDefaultSecondaryHover
-                )
+                        to SddsServTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textDefaultSecondaryHover,
+                ),
             )
             endContentColorReadOnly(
-                SddsServTheme.colors.textDefaultSecondary.multiplyAlpha(0.4f).asInteractive()
+                SddsServTheme.colors.textDefaultSecondary.multiplyAlpha(0.4f).asInteractive(),
             )
-            captionColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
-            counterColor(SddsServTheme.colors.textDefaultSecondary.asInteractive())
+            captionColorReadOnly(
+                SddsServTheme.colors.textDefaultSecondary.asInteractive(),
+            )
+            counterColor(
+                SddsServTheme.colors.textDefaultSecondary.asInteractive(),
+            )
             backgroundColorReadOnly(
-                SddsServTheme.colors.surfaceDefaultSolidPrimary.multiplyAlpha(
-                    0.4f
-                ).asInteractive()
+                SddsServTheme.colors.surfaceDefaultSolidPrimary.multiplyAlpha(0.4f).asInteractive(),
             )
-            cursorColor(SddsServTheme.colors.textDefaultAccent.asInteractive())
+            cursorColor(
+                SddsServTheme.colors.textDefaultAccent.asInteractive(),
+            )
+            prefixColor(
+                SddsServTheme.colors.textDefaultTertiary.asInteractive(),
+            )
+            suffixColor(
+                SddsServTheme.colors.textDefaultTertiary.asInteractive(),
+            )
         }
         .scrollBar {
             scrollBarThickness(2.0.dp)
             scrollBarPaddingTop(18.0.dp)
             scrollBarPaddingBottom(36.0.dp)
             scrollBarPaddingEnd(2.0.dp)
-            scrollBarTrackColor(SddsServTheme.colors.surfaceDefaultTransparentPrimary.asInteractive())
-            scrollBarThumbColor(SddsServTheme.colors.surfaceDefaultTransparentTertiary.asInteractive())
+            scrollBarTrackColor(
+                SddsServTheme.colors.surfaceDefaultTransparentPrimary.asInteractive(),
+            )
+            scrollBarThumbColor(
+                SddsServTheme.colors.surfaceDefaultTransparentTertiary.asInteractive(),
+            )
         }
 
 public val TextArea.Xs: WrapperTextAreaXs
@@ -354,6 +362,8 @@ public val TextArea.Xs: WrapperTextAreaXs
             endContentSize(16.0.dp)
         }
         .valueStyle(SddsServTheme.typography.bodyXsNormal)
+        .prefixStyle(SddsServTheme.typography.bodyXsNormal)
+        .suffixStyle(SddsServTheme.typography.bodyXsNormal)
         .placeholderStyle(SddsServTheme.typography.bodyXsNormal)
         .chipStyle(EmbeddedChip.Xs.Secondary.style())
         .labelPlacement(TextField.LabelPlacement.None)
@@ -396,7 +406,9 @@ public val WrapperTextAreaXs.OuterLabel: WrapperTextAreaXsOuterLabel
         .optionalStyle(SddsServTheme.typography.bodyXsNormal)
         .labelPlacement(TextField.LabelPlacement.Outer)
         .colors {
-            labelColor(SddsServTheme.colors.textDefaultPrimary.asInteractive())
+            labelColor(
+                SddsServTheme.colors.textDefaultPrimary.asInteractive(),
+            )
         }
         .wrap(::WrapperTextAreaXsOuterLabel)
 
@@ -448,6 +460,8 @@ public val TextArea.S: WrapperTextAreaS
             endContentSize(24.0.dp)
         }
         .valueStyle(SddsServTheme.typography.bodySNormal)
+        .prefixStyle(SddsServTheme.typography.bodySNormal)
+        .suffixStyle(SddsServTheme.typography.bodySNormal)
         .placeholderStyle(SddsServTheme.typography.bodySNormal)
         .chipStyle(EmbeddedChip.S.Secondary.style())
         .labelPlacement(TextField.LabelPlacement.None)
@@ -488,7 +502,9 @@ public val WrapperTextAreaS.OuterLabel: WrapperTextAreaSOuterLabel
         .optionalStyle(SddsServTheme.typography.bodySNormal)
         .labelPlacement(TextField.LabelPlacement.Outer)
         .colors {
-            labelColor(SddsServTheme.colors.textDefaultPrimary.asInteractive())
+            labelColor(
+                SddsServTheme.colors.textDefaultPrimary.asInteractive(),
+            )
         }
         .wrap(::WrapperTextAreaSOuterLabel)
 
@@ -533,7 +549,9 @@ public val WrapperTextAreaS.InnerLabel: WrapperTextAreaSInnerLabel
         .optionalStyle(SddsServTheme.typography.bodyXsNormal)
         .labelPlacement(TextField.LabelPlacement.Inner)
         .colors {
-            labelColor(SddsServTheme.colors.textDefaultSecondary.asInteractive())
+            labelColor(
+                SddsServTheme.colors.textDefaultSecondary.asInteractive(),
+            )
         }
         .wrap(::WrapperTextAreaSInnerLabel)
 
@@ -581,6 +599,8 @@ public val TextArea.M: WrapperTextAreaM
             endContentSize(24.0.dp)
         }
         .valueStyle(SddsServTheme.typography.bodyMNormal)
+        .prefixStyle(SddsServTheme.typography.bodyMNormal)
+        .suffixStyle(SddsServTheme.typography.bodyMNormal)
         .placeholderStyle(SddsServTheme.typography.bodyMNormal)
         .chipStyle(EmbeddedChip.M.Secondary.style())
         .labelPlacement(TextField.LabelPlacement.None)
@@ -621,7 +641,9 @@ public val WrapperTextAreaM.OuterLabel: WrapperTextAreaMOuterLabel
         .optionalStyle(SddsServTheme.typography.bodyMNormal)
         .labelPlacement(TextField.LabelPlacement.Outer)
         .colors {
-            labelColor(SddsServTheme.colors.textDefaultPrimary.asInteractive())
+            labelColor(
+                SddsServTheme.colors.textDefaultPrimary.asInteractive(),
+            )
         }
         .wrap(::WrapperTextAreaMOuterLabel)
 
@@ -666,7 +688,9 @@ public val WrapperTextAreaM.InnerLabel: WrapperTextAreaMInnerLabel
         .optionalStyle(SddsServTheme.typography.bodyXsNormal)
         .labelPlacement(TextField.LabelPlacement.Inner)
         .colors {
-            labelColor(SddsServTheme.colors.textDefaultSecondary.asInteractive())
+            labelColor(
+                SddsServTheme.colors.textDefaultSecondary.asInteractive(),
+            )
         }
         .wrap(::WrapperTextAreaMInnerLabel)
 
@@ -714,6 +738,8 @@ public val TextArea.L: WrapperTextAreaL
             endContentSize(24.0.dp)
         }
         .valueStyle(SddsServTheme.typography.bodyLNormal)
+        .prefixStyle(SddsServTheme.typography.bodyLNormal)
+        .suffixStyle(SddsServTheme.typography.bodyLNormal)
         .placeholderStyle(SddsServTheme.typography.bodyLNormal)
         .chipStyle(EmbeddedChip.L.Secondary.style())
         .labelPlacement(TextField.LabelPlacement.None)
@@ -754,7 +780,9 @@ public val WrapperTextAreaL.OuterLabel: WrapperTextAreaLOuterLabel
         .optionalStyle(SddsServTheme.typography.bodyLNormal)
         .labelPlacement(TextField.LabelPlacement.Outer)
         .colors {
-            labelColor(SddsServTheme.colors.textDefaultPrimary.asInteractive())
+            labelColor(
+                SddsServTheme.colors.textDefaultPrimary.asInteractive(),
+            )
         }
         .wrap(::WrapperTextAreaLOuterLabel)
 
@@ -799,7 +827,9 @@ public val WrapperTextAreaL.InnerLabel: WrapperTextAreaLInnerLabel
         .optionalStyle(SddsServTheme.typography.bodyXsNormal)
         .labelPlacement(TextField.LabelPlacement.Inner)
         .colors {
-            labelColor(SddsServTheme.colors.textDefaultSecondary.asInteractive())
+            labelColor(
+                SddsServTheme.colors.textDefaultSecondary.asInteractive(),
+            )
         }
         .wrap(::WrapperTextAreaLInnerLabel)
 

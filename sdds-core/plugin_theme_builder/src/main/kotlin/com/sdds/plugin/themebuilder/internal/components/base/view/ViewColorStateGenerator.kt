@@ -3,6 +3,7 @@ package com.sdds.plugin.themebuilder.internal.components.base.view
 import com.sdds.plugin.themebuilder.internal.PackageResolver
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Companion.nullable
+import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder.Modifier
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder.ElementFormat
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder.ElementName
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
@@ -104,13 +105,13 @@ internal class ViewColorStateGenerator(
     private fun createColorStateClass() = with(ktFileBuilder) {
         rootClass(
             name = colorStateInfo.classSimpleName,
-            modifiers = listOf(KtFileBuilder.Modifier.ENUM),
+            modifiers = listOf(Modifier.ENUM),
             primaryConstructor = KtFileBuilder.Constructor.Primary(
                 parameters = listOf(
                     KtFileBuilder.FunParameter(
                         name = "attrs",
                         asProperty = true,
-                        modifiers = listOf(KtFileBuilder.Modifier.OVERRIDE),
+                        modifiers = listOf(Modifier.OVERRIDE),
                         type = KtFileBuilder.TypeIntArray,
                     ),
                 ),
@@ -130,12 +131,12 @@ internal class ViewColorStateGenerator(
     private fun createColorStateProviderClass() = with(ktFileBuilder) {
         rootClass(
             name = "${colorStateInfo.classSimpleName}Provider",
-            modifiers = listOf(KtFileBuilder.Modifier.INTERNAL),
+            modifiers = listOf(Modifier.INTERNAL),
             description = "Реализация [ColorStateProvider] для ${colorStateInfo.classSimpleName}",
             superInterface = KtFileBuilder.TypeColorStateProvider,
         ).appendFun(
             name = "obtain",
-            modifiers = listOf(KtFileBuilder.Modifier.OVERRIDE),
+            modifiers = listOf(Modifier.OVERRIDE),
             params = listOf(
                 KtFileBuilder.FunParameter("context", type = KtFileBuilder.TypeContext),
                 KtFileBuilder.FunParameter("attrs", type = KtFileBuilder.TypeAttributeSet.nullable()),

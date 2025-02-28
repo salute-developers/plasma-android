@@ -8,35 +8,42 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.sdds.compose.uikit.Button
 import com.sdds.playground.sandbox.SandboxTheme
+import com.sdds.playground.sandbox.Theme
 import com.sdds.playground.sandbox.core.compose.ComponentScaffold
 
 /**
  * Экран со [Button]
  */
 @Composable
-internal fun BasicButtonScreen() {
-    val buttonViewModel: ButtonParametersViewModel = viewModel(
-        factory = ButtonParametersViewModelFactory(ButtonType.Basic),
-        key = "basicButton",
+internal fun BasicButtonScreen(
+    theme: Theme.ThemeInfoCompose = Theme.SddsServ.compose,
+) {
+    val buttonViewModel: ButtonViewModel = viewModel(
+        factory = ButtonViewModelFactory(ButtonUiState(), theme),
+        key = theme.toString(),
     )
-    val buttonState by buttonViewModel.buttonState.collectAsState()
+    val buttonState by buttonViewModel.uiState.collectAsState()
 
     ComponentScaffold(
         component = {
-            Button(
-                label = buttonState.buttonLabel,
-                value = buttonState.buttonValue,
-                style = buttonState.basicButtonStyle(),
-                enabled = buttonState.enabled,
-                loading = buttonState.loading,
-                spacing = buttonState.spacing,
-                icons = when (val icon = buttonState.icon) {
-                    ButtonIcon.End -> Button.Icons(end = painterResource(id = icon.iconId))
-                    ButtonIcon.No -> null
-                    ButtonIcon.Start -> Button.Icons(start = painterResource(id = icon.iconId))
-                },
-                onClick = {},
-            )
+            theme.themeWrapper {
+                Button(
+                    label = buttonState.buttonLabel,
+                    value = buttonState.buttonValue,
+                    style = buttonViewModel
+                        .getStyleProvider()
+                        .style(buttonState.variant),
+                    enabled = buttonState.enabled,
+                    loading = buttonState.loading,
+                    spacing = buttonState.spacing,
+                    icons = when (val icon = buttonState.icon) {
+                        ButtonIcon.End -> Button.Icons(end = painterResource(id = icon.iconId))
+                        ButtonIcon.No -> null
+                        ButtonIcon.Start -> Button.Icons(start = painterResource(id = icon.iconId))
+                    },
+                    onClick = {},
+                )
+            }
         },
         propertiesOwner = buttonViewModel,
     )

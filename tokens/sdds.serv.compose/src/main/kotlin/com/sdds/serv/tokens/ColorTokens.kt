@@ -3,6 +3,9 @@ package com.sdds.serv.tokens
 
 import androidx.compose.ui.graphics.Color
 
+/**
+ * Токены цвета для темной темы
+ */
 public object DarkColorTokens {
     /**
      * Основной цвет текста
@@ -4415,6 +4418,9 @@ public object DarkColorTokens {
     public val OutlineInverseSolidSecondary: Color = Color(0xFFB3B3B3)
 }
 
+/**
+ * Токены цвета для светлой темы
+ */
 public object LightColorTokens {
     /**
      * Основной цвет текста

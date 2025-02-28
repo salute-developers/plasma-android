@@ -1,4 +1,9 @@
 // AUTO-GENERATED. DO NOT MODIFY this file.
+@file:Suppress(
+    "UndocumentedPublicClass",
+    "UndocumentedPublicProperty",
+)
+
 package com.sdds.plasma.sd.service.styles.textarea.clear
 
 import androidx.compose.runtime.Composable
@@ -22,6 +27,9 @@ import com.sdds.plasma.sd.service.styles.chip.Secondary
 import com.sdds.plasma.sd.service.styles.chip.Xs
 import com.sdds.plasma.sd.service.styles.chip.group.Dense
 import com.sdds.plasma.sd.service.theme.PlasmaSdServiceTheme
+import kotlin.Suppress
+import kotlin.jvm.JvmInline
+import kotlin.jvm.JvmName
 
 public interface WrapperTextAreaClear : BuilderWrapper<TextFieldStyle, TextAreaClearStyleBuilder>
 
@@ -29,11 +37,6 @@ public interface WrapperTextAreaClearView : WrapperTextAreaClear
 
 @JvmInline
 public value class WrapperTextAreaClearDefaultViewTerminate(
-    public override val builder: TextAreaClearStyleBuilder,
-) : WrapperTextAreaClear
-
-@JvmInline
-public value class WrapperTextAreaClearSuccessViewTerminate(
     public override val builder: TextAreaClearStyleBuilder,
 ) : WrapperTextAreaClear
 
@@ -216,60 +219,29 @@ public val WrapperTextAreaClearView.Default: WrapperTextAreaClearDefaultViewTerm
     @Composable
     get() = builder
         .colors {
-            valueColor(PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive())
+            valueColor(
+                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(),
+            )
             placeholderColor(
                 PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Activated)
-                            to PlasmaSdServiceTheme.colors.textDefaultTertiary
-                )
+                        to PlasmaSdServiceTheme.colors.textDefaultTertiary,
+                ),
             )
-            startContentColor(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
-            captionColor(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
+            startContentColor(
+                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(),
+            )
+            captionColor(
+                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(),
+            )
             dividerColor(
                 PlasmaSdServiceTheme.colors.surfaceDefaultTransparentTertiary.asInteractive(
                     setOf(InteractiveState.Activated)
-                            to PlasmaSdServiceTheme.colors.surfaceDefaultAccent
-                )
+                        to PlasmaSdServiceTheme.colors.surfaceDefaultAccent,
+                ),
             )
         }
         .wrap(::WrapperTextAreaClearDefaultViewTerminate)
-
-public val WrapperTextAreaClearView.Success: WrapperTextAreaClearSuccessViewTerminate
-    @Composable
-    get() = builder
-        .colors {
-            valueColor(
-                PlasmaSdServiceTheme.colors.textDefaultPositive.asInteractive(
-                    setOf(InteractiveState.Activated)
-                            to PlasmaSdServiceTheme.colors.textDefaultPrimary
-                )
-            )
-            placeholderColor(
-                PlasmaSdServiceTheme.colors.textDefaultPositive.asInteractive(
-                    setOf(InteractiveState.Activated)
-                            to PlasmaSdServiceTheme.colors.textDefaultTertiary
-                )
-            )
-            startContentColor(
-                PlasmaSdServiceTheme.colors.textDefaultPositive.asInteractive(
-                    setOf(InteractiveState.Activated)
-                            to PlasmaSdServiceTheme.colors.textDefaultSecondary
-                )
-            )
-            captionColor(
-                PlasmaSdServiceTheme.colors.textDefaultPositive.asInteractive(
-                    setOf(InteractiveState.Activated)
-                            to PlasmaSdServiceTheme.colors.textDefaultSecondary
-                )
-            )
-            dividerColor(
-                PlasmaSdServiceTheme.colors.surfaceDefaultPositive.asInteractive(
-                    setOf(InteractiveState.Activated)
-                            to PlasmaSdServiceTheme.colors.surfaceDefaultAccent
-                )
-            )
-        }
-        .wrap(::WrapperTextAreaClearSuccessViewTerminate)
 
 public val WrapperTextAreaClearView.Warning: WrapperTextAreaClearWarningViewTerminate
     @Composable
@@ -278,32 +250,32 @@ public val WrapperTextAreaClearView.Warning: WrapperTextAreaClearWarningViewTerm
             valueColor(
                 PlasmaSdServiceTheme.colors.textDefaultWarning.asInteractive(
                     setOf(InteractiveState.Activated)
-                            to PlasmaSdServiceTheme.colors.textDefaultPrimary
-                )
+                        to PlasmaSdServiceTheme.colors.textDefaultPrimary,
+                ),
             )
             placeholderColor(
                 PlasmaSdServiceTheme.colors.textDefaultWarning.asInteractive(
                     setOf(InteractiveState.Activated)
-                            to PlasmaSdServiceTheme.colors.textDefaultTertiary
-                )
+                        to PlasmaSdServiceTheme.colors.textDefaultTertiary,
+                ),
             )
             startContentColor(
                 PlasmaSdServiceTheme.colors.textDefaultWarning.asInteractive(
                     setOf(InteractiveState.Activated)
-                            to PlasmaSdServiceTheme.colors.textDefaultSecondary
-                )
+                        to PlasmaSdServiceTheme.colors.textDefaultSecondary,
+                ),
             )
             captionColor(
                 PlasmaSdServiceTheme.colors.textDefaultWarning.asInteractive(
                     setOf(InteractiveState.Activated)
-                            to PlasmaSdServiceTheme.colors.textDefaultSecondary
-                )
+                        to PlasmaSdServiceTheme.colors.textDefaultSecondary,
+                ),
             )
             dividerColor(
                 PlasmaSdServiceTheme.colors.surfaceDefaultWarning.asInteractive(
                     setOf(InteractiveState.Activated)
-                            to PlasmaSdServiceTheme.colors.surfaceDefaultAccent
-                )
+                        to PlasmaSdServiceTheme.colors.surfaceDefaultAccent,
+                ),
             )
         }
         .wrap(::WrapperTextAreaClearWarningViewTerminate)
@@ -315,32 +287,32 @@ public val WrapperTextAreaClearView.Error: WrapperTextAreaClearErrorViewTerminat
             valueColor(
                 PlasmaSdServiceTheme.colors.textDefaultNegative.asInteractive(
                     setOf(InteractiveState.Activated)
-                            to PlasmaSdServiceTheme.colors.textDefaultPrimary
-                )
+                        to PlasmaSdServiceTheme.colors.textDefaultPrimary,
+                ),
             )
             placeholderColor(
                 PlasmaSdServiceTheme.colors.textDefaultNegative.asInteractive(
                     setOf(InteractiveState.Activated)
-                            to PlasmaSdServiceTheme.colors.textDefaultTertiary
-                )
+                        to PlasmaSdServiceTheme.colors.textDefaultTertiary,
+                ),
             )
             startContentColor(
                 PlasmaSdServiceTheme.colors.textDefaultNegative.asInteractive(
                     setOf(InteractiveState.Activated)
-                            to PlasmaSdServiceTheme.colors.textDefaultSecondary
-                )
+                        to PlasmaSdServiceTheme.colors.textDefaultSecondary,
+                ),
             )
             captionColor(
                 PlasmaSdServiceTheme.colors.textDefaultNegative.asInteractive(
                     setOf(InteractiveState.Activated)
-                            to PlasmaSdServiceTheme.colors.textDefaultSecondary
-                )
+                        to PlasmaSdServiceTheme.colors.textDefaultSecondary,
+                ),
             )
             dividerColor(
                 PlasmaSdServiceTheme.colors.surfaceDefaultNegative.asInteractive(
                     setOf(InteractiveState.Activated)
-                            to PlasmaSdServiceTheme.colors.surfaceDefaultAccent
-                )
+                        to PlasmaSdServiceTheme.colors.surfaceDefaultAccent,
+                ),
             )
         }
         .wrap(::WrapperTextAreaClearErrorViewTerminate)
@@ -359,28 +331,50 @@ private val TextAreaClearStyleBuilder.invariantProps: TextAreaClearStyleBuilder
         .counterStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
         .chipGroupStyle(ChipGroup.Dense.style())
         .colors {
-            optionalColor(PlasmaSdServiceTheme.colors.textDefaultTertiary.asInteractive())
-            valueColorReadOnly(PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive())
-            placeholderColorReadOnly(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
-            indicatorColor(PlasmaSdServiceTheme.colors.surfaceDefaultNegative.asInteractive())
-            startContentColorReadOnly(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
+            optionalColor(
+                PlasmaSdServiceTheme.colors.textDefaultTertiary.asInteractive(),
+            )
+            valueColorReadOnly(
+                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(),
+            )
+            placeholderColorReadOnly(
+                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(),
+            )
+            indicatorColor(
+                PlasmaSdServiceTheme.colors.surfaceDefaultNegative.asInteractive(),
+            )
+            startContentColorReadOnly(
+                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(),
+            )
             endContentColor(
                 PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to PlasmaSdServiceTheme.colors.textDefaultSecondaryActive,
-                    setOf(InteractiveState.Hovered) to
-                            PlasmaSdServiceTheme.colors.textDefaultSecondaryHover
-                )
+                        to PlasmaSdServiceTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to PlasmaSdServiceTheme.colors.textDefaultSecondaryHover,
+                ),
             )
             endContentColorReadOnly(
-                PlasmaSdServiceTheme.colors.textDefaultSecondary.multiplyAlpha(
-                    0.4f
-                ).asInteractive()
+                PlasmaSdServiceTheme.colors.textDefaultSecondary.multiplyAlpha(0.4f).asInteractive(),
             )
-            captionColorReadOnly(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
-            counterColor(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
-            cursorColor(PlasmaSdServiceTheme.colors.textDefaultAccent.asInteractive())
-            dividerColorReadOnly(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentPrimary.asInteractive())
+            captionColorReadOnly(
+                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(),
+            )
+            counterColor(
+                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(),
+            )
+            cursorColor(
+                PlasmaSdServiceTheme.colors.textDefaultAccent.asInteractive(),
+            )
+            dividerColorReadOnly(
+                PlasmaSdServiceTheme.colors.surfaceDefaultTransparentPrimary.asInteractive(),
+            )
+            prefixColor(
+                PlasmaSdServiceTheme.colors.textDefaultTertiary.asInteractive(),
+            )
+            suffixColor(
+                PlasmaSdServiceTheme.colors.textDefaultTertiary.asInteractive(),
+            )
         }
 
 public val TextAreaClear.Xs: WrapperTextAreaClearXs
@@ -399,6 +393,8 @@ public val TextAreaClear.Xs: WrapperTextAreaClearXs
             endContentSize(16.0.dp)
         }
         .valueStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
+        .prefixStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
+        .suffixStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
         .placeholderStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
         .chipStyle(EmbeddedChip.Xs.Secondary.style())
         .labelPlacement(TextField.LabelPlacement.None)
@@ -445,12 +441,14 @@ public val WrapperTextAreaClearXs.OuterLabel: WrapperTextAreaClearXsOuterLabel
         .optionalStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
         .labelPlacement(TextField.LabelPlacement.Outer)
         .colors {
-            labelColor(PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive())
+            labelColor(
+                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(),
+            )
         }
         .wrap(::WrapperTextAreaClearXsOuterLabel)
 
 public val WrapperTextAreaClearXsOuterLabel.RequiredStart:
-        WrapperTextAreaClearXsOuterLabelRequiredStart
+    WrapperTextAreaClearXsOuterLabelRequiredStart
     @Composable
     @JvmName("WrapperTextAreaClearXsOuterLabelRequiredStart")
     get() = builder
@@ -494,6 +492,8 @@ public val TextAreaClear.S: WrapperTextAreaClearS
             endContentSize(24.0.dp)
         }
         .valueStyle(PlasmaSdServiceTheme.typography.bodySNormal)
+        .prefixStyle(PlasmaSdServiceTheme.typography.bodySNormal)
+        .suffixStyle(PlasmaSdServiceTheme.typography.bodySNormal)
         .placeholderStyle(PlasmaSdServiceTheme.typography.bodySNormal)
         .chipStyle(EmbeddedChip.S.Secondary.style())
         .labelPlacement(TextField.LabelPlacement.None)
@@ -538,12 +538,14 @@ public val WrapperTextAreaClearS.OuterLabel: WrapperTextAreaClearSOuterLabel
         .optionalStyle(PlasmaSdServiceTheme.typography.bodySNormal)
         .labelPlacement(TextField.LabelPlacement.Outer)
         .colors {
-            labelColor(PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive())
+            labelColor(
+                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(),
+            )
         }
         .wrap(::WrapperTextAreaClearSOuterLabel)
 
 public val WrapperTextAreaClearSOuterLabel.RequiredStart:
-        WrapperTextAreaClearSOuterLabelRequiredStart
+    WrapperTextAreaClearSOuterLabelRequiredStart
     @Composable
     @JvmName("WrapperTextAreaClearSOuterLabelRequiredStart")
     get() = builder
@@ -584,12 +586,14 @@ public val WrapperTextAreaClearS.InnerLabel: WrapperTextAreaClearSInnerLabel
         .optionalStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
         .labelPlacement(TextField.LabelPlacement.Inner)
         .colors {
-            labelColor(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
+            labelColor(
+                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(),
+            )
         }
         .wrap(::WrapperTextAreaClearSInnerLabel)
 
 public val WrapperTextAreaClearSInnerLabel.RequiredStart:
-        WrapperTextAreaClearSInnerLabelRequiredStart
+    WrapperTextAreaClearSInnerLabelRequiredStart
     @Composable
     @JvmName("WrapperTextAreaClearSInnerLabelRequiredStart")
     get() = builder
@@ -633,6 +637,8 @@ public val TextAreaClear.M: WrapperTextAreaClearM
             endContentSize(24.0.dp)
         }
         .valueStyle(PlasmaSdServiceTheme.typography.bodyMNormal)
+        .prefixStyle(PlasmaSdServiceTheme.typography.bodyMNormal)
+        .suffixStyle(PlasmaSdServiceTheme.typography.bodyMNormal)
         .placeholderStyle(PlasmaSdServiceTheme.typography.bodyMNormal)
         .chipStyle(EmbeddedChip.M.Secondary.style())
         .labelPlacement(TextField.LabelPlacement.None)
@@ -677,12 +683,14 @@ public val WrapperTextAreaClearM.OuterLabel: WrapperTextAreaClearMOuterLabel
         .optionalStyle(PlasmaSdServiceTheme.typography.bodyMNormal)
         .labelPlacement(TextField.LabelPlacement.Outer)
         .colors {
-            labelColor(PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive())
+            labelColor(
+                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(),
+            )
         }
         .wrap(::WrapperTextAreaClearMOuterLabel)
 
 public val WrapperTextAreaClearMOuterLabel.RequiredStart:
-        WrapperTextAreaClearMOuterLabelRequiredStart
+    WrapperTextAreaClearMOuterLabelRequiredStart
     @Composable
     @JvmName("WrapperTextAreaClearMOuterLabelRequiredStart")
     get() = builder
@@ -723,12 +731,14 @@ public val WrapperTextAreaClearM.InnerLabel: WrapperTextAreaClearMInnerLabel
         .optionalStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
         .labelPlacement(TextField.LabelPlacement.Inner)
         .colors {
-            labelColor(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
+            labelColor(
+                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(),
+            )
         }
         .wrap(::WrapperTextAreaClearMInnerLabel)
 
 public val WrapperTextAreaClearMInnerLabel.RequiredStart:
-        WrapperTextAreaClearMInnerLabelRequiredStart
+    WrapperTextAreaClearMInnerLabelRequiredStart
     @Composable
     @JvmName("WrapperTextAreaClearMInnerLabelRequiredStart")
     get() = builder
@@ -772,6 +782,8 @@ public val TextAreaClear.L: WrapperTextAreaClearL
             endContentSize(24.0.dp)
         }
         .valueStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
+        .prefixStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
+        .suffixStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
         .placeholderStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
         .chipStyle(EmbeddedChip.L.Secondary.style())
         .labelPlacement(TextField.LabelPlacement.None)
@@ -816,12 +828,14 @@ public val WrapperTextAreaClearL.OuterLabel: WrapperTextAreaClearLOuterLabel
         .optionalStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
         .labelPlacement(TextField.LabelPlacement.Outer)
         .colors {
-            labelColor(PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive())
+            labelColor(
+                PlasmaSdServiceTheme.colors.textDefaultPrimary.asInteractive(),
+            )
         }
         .wrap(::WrapperTextAreaClearLOuterLabel)
 
 public val WrapperTextAreaClearLOuterLabel.RequiredStart:
-        WrapperTextAreaClearLOuterLabelRequiredStart
+    WrapperTextAreaClearLOuterLabelRequiredStart
     @Composable
     @JvmName("WrapperTextAreaClearLOuterLabelRequiredStart")
     get() = builder
@@ -862,12 +876,14 @@ public val WrapperTextAreaClearL.InnerLabel: WrapperTextAreaClearLInnerLabel
         .optionalStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
         .labelPlacement(TextField.LabelPlacement.Inner)
         .colors {
-            labelColor(PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive())
+            labelColor(
+                PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(),
+            )
         }
         .wrap(::WrapperTextAreaClearLInnerLabel)
 
 public val WrapperTextAreaClearLInnerLabel.RequiredStart:
-        WrapperTextAreaClearLInnerLabelRequiredStart
+    WrapperTextAreaClearLInnerLabelRequiredStart
     @Composable
     @JvmName("WrapperTextAreaClearLInnerLabelRequiredStart")
     get() = builder

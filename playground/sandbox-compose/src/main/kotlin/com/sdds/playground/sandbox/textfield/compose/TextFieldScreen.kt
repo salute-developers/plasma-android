@@ -25,63 +25,79 @@ import com.sdds.compose.uikit.Chip
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.Switch
 import com.sdds.compose.uikit.TextField
+import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.internal.focusselector.FocusSelectorMode
 import com.sdds.compose.uikit.internal.focusselector.LocalFocusSelectorMode
 import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.SandboxTheme
+import com.sdds.playground.sandbox.Theme
 import com.sdds.playground.sandbox.core.compose.ComponentScaffold
+import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 import com.sdds.serv.styles.button.basic.Default
 import com.sdds.serv.styles.button.basic.Xs
 
 /**
  * Экран с компонентом [TextField]
  */
+@Suppress("LongMethod")
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
-internal fun TextFieldScreen() {
-    val textFieldViewModel: TextFieldViewModel = viewModel()
-    val textFieldUiState by textFieldViewModel.textFieldUiState.collectAsState()
+internal fun TextFieldScreen(
+    theme: Theme.ThemeInfoCompose = Theme.SddsServ.compose,
+    textFieldType: TextFieldType = TextFieldType.TextField,
+) {
+    val textFieldViewModel: TextFieldViewModel = viewModel(
+        factory = TextFieldViewModelFactory(
+            defaultState = TextFieldUiState(),
+            theme = theme,
+            textFieldType = textFieldType,
+        ),
+        key = theme.toString() + textFieldType.name,
+    )
+    val textFieldUiState by textFieldViewModel.uiState.collectAsState()
     ComponentScaffold(
         component = {
             val focusManager = LocalFocusManager.current
-            val style = textFieldUiState.textFieldStyle()
             var isFocusSelectorOn by remember { mutableStateOf(false) }
-            TextField(
-                value = textFieldUiState.textFieldValue,
-                onValueChange = {
-                    textFieldViewModel.onValueChange(it)
-                },
-                modifier = Modifier
-                    .onKeyEvent {
-                        if (it.key == Key.Backspace) {
-                            textFieldViewModel.onBackspacePressed()
-                        }
-                        return@onKeyEvent false
+            theme.themeWrapper {
+                TextField(
+                    value = textFieldUiState.textFieldValue,
+                    onValueChange = {
+                        textFieldViewModel.onValueChange(it)
                     },
-                style = style,
-                enabled = textFieldUiState.enabled,
-                readOnly = textFieldUiState.readOnly,
-                placeholderText = textFieldUiState.placeholderText,
-                prefix = textFieldUiState.prefix,
-                suffix = textFieldUiState.suffix,
-                labelText = textFieldUiState.labelText,
-                optionalText = textFieldUiState.optionalText,
-                captionText = textFieldUiState.captionText,
-                counterText = textFieldUiState.counterText,
-                startContent = textFieldUiState.hasStartIcon.getExampleIcon(Icon.Start),
-                endContent = textFieldUiState.hasEndIcon.getExampleIcon(Icon.End),
-                chipsContent = textFieldUiState.chips.toChipContent(
-                    onChipClosePressed = {
-                        textFieldViewModel.onChipClosePressed(it)
+                    modifier = Modifier
+                        .onKeyEvent {
+                            if (it.key == Key.Backspace) {
+                                textFieldViewModel.onBackspacePressed()
+                            }
+                            return@onKeyEvent false
+                        },
+                    style = styleProvider(theme, textFieldType)
+                        .style(textFieldUiState.variant),
+                    enabled = textFieldUiState.enabled,
+                    readOnly = textFieldUiState.readOnly,
+                    placeholderText = textFieldUiState.placeholderText,
+                    prefix = textFieldUiState.prefix,
+                    suffix = textFieldUiState.suffix,
+                    labelText = textFieldUiState.labelText,
+                    optionalText = textFieldUiState.optionalText,
+                    captionText = textFieldUiState.captionText,
+                    counterText = textFieldUiState.counterText,
+                    startContent = textFieldUiState.hasStartIcon.getExampleIcon(Icon.Start),
+                    endContent = textFieldUiState.hasEndIcon.getExampleIcon(Icon.End),
+                    chipsContent = textFieldUiState.chips.toChipContent(
+                        onChipClosePressed = {
+                            textFieldViewModel.onChipClosePressed(it)
+                        },
+                    ),
+                    focusSelectorMode = if (isFocusSelectorOn) {
+                        LocalFocusSelectorMode.current
+                    } else {
+                        FocusSelectorMode.None
                     },
-                ),
-                focusSelectorMode = if (isFocusSelectorOn) {
-                    LocalFocusSelectorMode.current
-                } else {
-                    FocusSelectorMode.None
-                },
-            )
+                )
+            }
 
             Switch(
                 active = isFocusSelectorOn,
@@ -100,6 +116,24 @@ internal fun TextFieldScreen() {
         propertiesOwner = textFieldViewModel,
     )
 }
+
+internal enum class TextFieldType {
+    TextField,
+    TextFieldClear,
+    TextArea,
+    TextAreaClear,
+}
+
+private fun styleProvider(
+    theme: Theme.ThemeInfoCompose,
+    textFieldType: TextFieldType,
+): ComposeStyleProvider<String, TextFieldStyle> =
+    when (textFieldType) {
+        TextFieldType.TextField -> theme.stylesProvider.textField
+        TextFieldType.TextFieldClear -> theme.stylesProvider.textFieldClear
+        TextFieldType.TextArea -> theme.stylesProvider.textArea
+        TextFieldType.TextAreaClear -> theme.stylesProvider.textAreaClear
+    }
 
 private fun List<String>.toChipContent(
     onChipClosePressed: (String) -> Unit,

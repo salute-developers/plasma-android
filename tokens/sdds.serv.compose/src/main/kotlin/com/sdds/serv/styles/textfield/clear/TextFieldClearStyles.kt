@@ -1,4 +1,9 @@
 // AUTO-GENERATED. DO NOT MODIFY this file.
+@file:Suppress(
+    "UndocumentedPublicClass",
+    "UndocumentedPublicProperty",
+)
+
 package com.sdds.serv.styles.textfield.clear
 
 import androidx.compose.runtime.Composable
@@ -22,6 +27,9 @@ import com.sdds.serv.styles.chip.Secondary
 import com.sdds.serv.styles.chip.Xs
 import com.sdds.serv.styles.chip.group.Dense
 import com.sdds.serv.theme.SddsServTheme
+import kotlin.Suppress
+import kotlin.jvm.JvmInline
+import kotlin.jvm.JvmName
 
 public interface WrapperTextFieldClear : BuilderWrapper<TextFieldStyle, TextFieldClearStyleBuilder>
 
@@ -216,20 +224,26 @@ public val WrapperTextFieldClearView.Default: WrapperTextFieldClearDefaultViewTe
     @Composable
     get() = builder
         .colors {
-            valueColor(SddsServTheme.colors.textDefaultPrimary.asInteractive())
+            valueColor(
+                SddsServTheme.colors.textDefaultPrimary.asInteractive(),
+            )
             placeholderColor(
                 SddsServTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Activated)
-                            to SddsServTheme.colors.textDefaultTertiary
-                )
+                        to SddsServTheme.colors.textDefaultTertiary,
+                ),
             )
-            startContentColor(SddsServTheme.colors.textDefaultSecondary.asInteractive())
-            captionColor(SddsServTheme.colors.textDefaultSecondary.asInteractive())
+            startContentColor(
+                SddsServTheme.colors.textDefaultSecondary.asInteractive(),
+            )
+            captionColor(
+                SddsServTheme.colors.textDefaultSecondary.asInteractive(),
+            )
             dividerColor(
                 SddsServTheme.colors.surfaceDefaultTransparentTertiary.asInteractive(
                     setOf(InteractiveState.Activated)
-                            to SddsServTheme.colors.surfaceDefaultAccent
-                )
+                        to SddsServTheme.colors.surfaceDefaultAccent,
+                ),
             )
         }
         .wrap(::WrapperTextFieldClearDefaultViewTerminate)
@@ -241,32 +255,32 @@ public val WrapperTextFieldClearView.Success: WrapperTextFieldClearSuccessViewTe
             valueColor(
                 SddsServTheme.colors.textDefaultPositive.asInteractive(
                     setOf(InteractiveState.Activated)
-                            to SddsServTheme.colors.textDefaultPrimary
-                )
+                        to SddsServTheme.colors.textDefaultPrimary,
+                ),
             )
             placeholderColor(
                 SddsServTheme.colors.textDefaultPositive.asInteractive(
                     setOf(InteractiveState.Activated)
-                            to SddsServTheme.colors.textDefaultTertiary
-                )
+                        to SddsServTheme.colors.textDefaultTertiary,
+                ),
             )
             startContentColor(
                 SddsServTheme.colors.textDefaultPositive.asInteractive(
                     setOf(InteractiveState.Activated)
-                            to SddsServTheme.colors.textDefaultSecondary
-                )
+                        to SddsServTheme.colors.textDefaultSecondary,
+                ),
             )
             captionColor(
                 SddsServTheme.colors.textDefaultPositive.asInteractive(
                     setOf(InteractiveState.Activated)
-                            to SddsServTheme.colors.textDefaultSecondary
-                )
+                        to SddsServTheme.colors.textDefaultSecondary,
+                ),
             )
             dividerColor(
                 SddsServTheme.colors.surfaceDefaultPositive.asInteractive(
                     setOf(InteractiveState.Activated)
-                            to SddsServTheme.colors.surfaceDefaultAccent
-                )
+                        to SddsServTheme.colors.surfaceDefaultAccent,
+                ),
             )
         }
         .wrap(::WrapperTextFieldClearSuccessViewTerminate)
@@ -278,32 +292,32 @@ public val WrapperTextFieldClearView.Warning: WrapperTextFieldClearWarningViewTe
             valueColor(
                 SddsServTheme.colors.textDefaultWarning.asInteractive(
                     setOf(InteractiveState.Activated)
-                            to SddsServTheme.colors.textDefaultPrimary
-                )
+                        to SddsServTheme.colors.textDefaultPrimary,
+                ),
             )
             placeholderColor(
                 SddsServTheme.colors.textDefaultWarning.asInteractive(
                     setOf(InteractiveState.Activated)
-                            to SddsServTheme.colors.textDefaultTertiary
-                )
+                        to SddsServTheme.colors.textDefaultTertiary,
+                ),
             )
             startContentColor(
                 SddsServTheme.colors.textDefaultWarning.asInteractive(
                     setOf(InteractiveState.Activated)
-                            to SddsServTheme.colors.textDefaultSecondary
-                )
+                        to SddsServTheme.colors.textDefaultSecondary,
+                ),
             )
             captionColor(
                 SddsServTheme.colors.textDefaultWarning.asInteractive(
                     setOf(InteractiveState.Activated)
-                            to SddsServTheme.colors.textDefaultSecondary
-                )
+                        to SddsServTheme.colors.textDefaultSecondary,
+                ),
             )
             dividerColor(
                 SddsServTheme.colors.surfaceDefaultWarning.asInteractive(
                     setOf(InteractiveState.Activated)
-                            to SddsServTheme.colors.surfaceDefaultAccent
-                )
+                        to SddsServTheme.colors.surfaceDefaultAccent,
+                ),
             )
         }
         .wrap(::WrapperTextFieldClearWarningViewTerminate)
@@ -315,32 +329,32 @@ public val WrapperTextFieldClearView.Error: WrapperTextFieldClearErrorViewTermin
             valueColor(
                 SddsServTheme.colors.textDefaultNegative.asInteractive(
                     setOf(InteractiveState.Activated)
-                            to SddsServTheme.colors.textDefaultPrimary
-                )
+                        to SddsServTheme.colors.textDefaultPrimary,
+                ),
             )
             placeholderColor(
                 SddsServTheme.colors.textDefaultNegative.asInteractive(
                     setOf(InteractiveState.Activated)
-                            to SddsServTheme.colors.textDefaultTertiary
-                )
+                        to SddsServTheme.colors.textDefaultTertiary,
+                ),
             )
             startContentColor(
                 SddsServTheme.colors.textDefaultNegative.asInteractive(
                     setOf(InteractiveState.Activated)
-                            to SddsServTheme.colors.textDefaultSecondary
-                )
+                        to SddsServTheme.colors.textDefaultSecondary,
+                ),
             )
             captionColor(
                 SddsServTheme.colors.textDefaultNegative.asInteractive(
                     setOf(InteractiveState.Activated)
-                            to SddsServTheme.colors.textDefaultSecondary
-                )
+                        to SddsServTheme.colors.textDefaultSecondary,
+                ),
             )
             dividerColor(
                 SddsServTheme.colors.surfaceDefaultNegative.asInteractive(
                     setOf(InteractiveState.Activated)
-                            to SddsServTheme.colors.surfaceDefaultAccent
-                )
+                        to SddsServTheme.colors.surfaceDefaultAccent,
+                ),
             )
         }
         .wrap(::WrapperTextFieldClearErrorViewTerminate)
@@ -359,26 +373,50 @@ private val TextFieldClearStyleBuilder.invariantProps: TextFieldClearStyleBuilde
         .counterStyle(SddsServTheme.typography.bodyXsNormal)
         .chipGroupStyle(ChipGroup.Dense.style())
         .colors {
-            optionalColor(SddsServTheme.colors.textDefaultTertiary.asInteractive())
-            valueColorReadOnly(SddsServTheme.colors.textDefaultPrimary.asInteractive())
-            placeholderColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
-            indicatorColor(SddsServTheme.colors.surfaceDefaultNegative.asInteractive())
-            startContentColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
+            optionalColor(
+                SddsServTheme.colors.textDefaultTertiary.asInteractive(),
+            )
+            valueColorReadOnly(
+                SddsServTheme.colors.textDefaultPrimary.asInteractive(),
+            )
+            placeholderColorReadOnly(
+                SddsServTheme.colors.textDefaultSecondary.asInteractive(),
+            )
+            indicatorColor(
+                SddsServTheme.colors.surfaceDefaultNegative.asInteractive(),
+            )
+            startContentColorReadOnly(
+                SddsServTheme.colors.textDefaultSecondary.asInteractive(),
+            )
             endContentColor(
                 SddsServTheme.colors.textDefaultSecondary.asInteractive(
                     setOf(InteractiveState.Pressed)
-                            to SddsServTheme.colors.textDefaultSecondaryActive,
-                    setOf(InteractiveState.Hovered) to
-                            SddsServTheme.colors.textDefaultSecondaryHover
-                )
+                        to SddsServTheme.colors.textDefaultSecondaryActive,
+                    setOf(InteractiveState.Hovered)
+                        to SddsServTheme.colors.textDefaultSecondaryHover,
+                ),
             )
             endContentColorReadOnly(
-                SddsServTheme.colors.textDefaultSecondary.multiplyAlpha(0.4f).asInteractive()
+                SddsServTheme.colors.textDefaultSecondary.multiplyAlpha(0.4f).asInteractive(),
             )
-            captionColorReadOnly(SddsServTheme.colors.textDefaultSecondary.asInteractive())
-            counterColor(SddsServTheme.colors.textDefaultSecondary.asInteractive())
-            cursorColor(SddsServTheme.colors.textDefaultAccent.asInteractive())
-            dividerColorReadOnly(SddsServTheme.colors.surfaceDefaultTransparentPrimary.asInteractive())
+            captionColorReadOnly(
+                SddsServTheme.colors.textDefaultSecondary.asInteractive(),
+            )
+            counterColor(
+                SddsServTheme.colors.textDefaultSecondary.asInteractive(),
+            )
+            cursorColor(
+                SddsServTheme.colors.textDefaultAccent.asInteractive(),
+            )
+            dividerColorReadOnly(
+                SddsServTheme.colors.surfaceDefaultTransparentPrimary.asInteractive(),
+            )
+            prefixColor(
+                SddsServTheme.colors.textDefaultTertiary.asInteractive(),
+            )
+            suffixColor(
+                SddsServTheme.colors.textDefaultTertiary.asInteractive(),
+            )
         }
 
 public val TextFieldClear.Xs: WrapperTextFieldClearXs
@@ -397,6 +435,8 @@ public val TextFieldClear.Xs: WrapperTextFieldClearXs
             endContentSize(16.0.dp)
         }
         .valueStyle(SddsServTheme.typography.bodyXsNormal)
+        .prefixStyle(SddsServTheme.typography.bodyXsNormal)
+        .suffixStyle(SddsServTheme.typography.bodyXsNormal)
         .placeholderStyle(SddsServTheme.typography.bodyXsNormal)
         .chipStyle(EmbeddedChip.Xs.Secondary.style())
         .labelPlacement(TextField.LabelPlacement.None)
@@ -443,12 +483,14 @@ public val WrapperTextFieldClearXs.OuterLabel: WrapperTextFieldClearXsOuterLabel
         .optionalStyle(SddsServTheme.typography.bodyXsNormal)
         .labelPlacement(TextField.LabelPlacement.Outer)
         .colors {
-            labelColor(SddsServTheme.colors.textDefaultPrimary.asInteractive())
+            labelColor(
+                SddsServTheme.colors.textDefaultPrimary.asInteractive(),
+            )
         }
         .wrap(::WrapperTextFieldClearXsOuterLabel)
 
 public val WrapperTextFieldClearXsOuterLabel.RequiredStart:
-        WrapperTextFieldClearXsOuterLabelRequiredStart
+    WrapperTextFieldClearXsOuterLabelRequiredStart
     @Composable
     @JvmName("WrapperTextFieldClearXsOuterLabelRequiredStart")
     get() = builder
@@ -463,7 +505,7 @@ public val WrapperTextFieldClearXsOuterLabel.RequiredStart:
         .wrap(::WrapperTextFieldClearXsOuterLabelRequiredStart)
 
 public val WrapperTextFieldClearXsOuterLabel.RequiredEnd:
-        WrapperTextFieldClearXsOuterLabelRequiredEnd
+    WrapperTextFieldClearXsOuterLabelRequiredEnd
     @Composable
     @JvmName("WrapperTextFieldClearXsOuterLabelRequiredEnd")
     get() = builder
@@ -493,6 +535,8 @@ public val TextFieldClear.S: WrapperTextFieldClearS
             endContentSize(24.0.dp)
         }
         .valueStyle(SddsServTheme.typography.bodySNormal)
+        .prefixStyle(SddsServTheme.typography.bodySNormal)
+        .suffixStyle(SddsServTheme.typography.bodySNormal)
         .placeholderStyle(SddsServTheme.typography.bodySNormal)
         .chipStyle(EmbeddedChip.S.Secondary.style())
         .labelPlacement(TextField.LabelPlacement.None)
@@ -537,12 +581,14 @@ public val WrapperTextFieldClearS.OuterLabel: WrapperTextFieldClearSOuterLabel
         .optionalStyle(SddsServTheme.typography.bodySNormal)
         .labelPlacement(TextField.LabelPlacement.Outer)
         .colors {
-            labelColor(SddsServTheme.colors.textDefaultPrimary.asInteractive())
+            labelColor(
+                SddsServTheme.colors.textDefaultPrimary.asInteractive(),
+            )
         }
         .wrap(::WrapperTextFieldClearSOuterLabel)
 
 public val WrapperTextFieldClearSOuterLabel.RequiredStart:
-        WrapperTextFieldClearSOuterLabelRequiredStart
+    WrapperTextFieldClearSOuterLabelRequiredStart
     @Composable
     @JvmName("WrapperTextFieldClearSOuterLabelRequiredStart")
     get() = builder
@@ -583,12 +629,14 @@ public val WrapperTextFieldClearS.InnerLabel: WrapperTextFieldClearSInnerLabel
         .optionalStyle(SddsServTheme.typography.bodyXsNormal)
         .labelPlacement(TextField.LabelPlacement.Inner)
         .colors {
-            labelColor(SddsServTheme.colors.textDefaultSecondary.asInteractive())
+            labelColor(
+                SddsServTheme.colors.textDefaultSecondary.asInteractive(),
+            )
         }
         .wrap(::WrapperTextFieldClearSInnerLabel)
 
 public val WrapperTextFieldClearSInnerLabel.RequiredStart:
-        WrapperTextFieldClearSInnerLabelRequiredStart
+    WrapperTextFieldClearSInnerLabelRequiredStart
     @Composable
     @JvmName("WrapperTextFieldClearSInnerLabelRequiredStart")
     get() = builder
@@ -632,6 +680,8 @@ public val TextFieldClear.M: WrapperTextFieldClearM
             endContentSize(24.0.dp)
         }
         .valueStyle(SddsServTheme.typography.bodyMNormal)
+        .prefixStyle(SddsServTheme.typography.bodyMNormal)
+        .suffixStyle(SddsServTheme.typography.bodyMNormal)
         .placeholderStyle(SddsServTheme.typography.bodyMNormal)
         .chipStyle(EmbeddedChip.M.Secondary.style())
         .labelPlacement(TextField.LabelPlacement.None)
@@ -676,12 +726,14 @@ public val WrapperTextFieldClearM.OuterLabel: WrapperTextFieldClearMOuterLabel
         .optionalStyle(SddsServTheme.typography.bodyMNormal)
         .labelPlacement(TextField.LabelPlacement.Outer)
         .colors {
-            labelColor(SddsServTheme.colors.textDefaultPrimary.asInteractive())
+            labelColor(
+                SddsServTheme.colors.textDefaultPrimary.asInteractive(),
+            )
         }
         .wrap(::WrapperTextFieldClearMOuterLabel)
 
 public val WrapperTextFieldClearMOuterLabel.RequiredStart:
-        WrapperTextFieldClearMOuterLabelRequiredStart
+    WrapperTextFieldClearMOuterLabelRequiredStart
     @Composable
     @JvmName("WrapperTextFieldClearMOuterLabelRequiredStart")
     get() = builder
@@ -722,12 +774,14 @@ public val WrapperTextFieldClearM.InnerLabel: WrapperTextFieldClearMInnerLabel
         .optionalStyle(SddsServTheme.typography.bodyXsNormal)
         .labelPlacement(TextField.LabelPlacement.Inner)
         .colors {
-            labelColor(SddsServTheme.colors.textDefaultSecondary.asInteractive())
+            labelColor(
+                SddsServTheme.colors.textDefaultSecondary.asInteractive(),
+            )
         }
         .wrap(::WrapperTextFieldClearMInnerLabel)
 
 public val WrapperTextFieldClearMInnerLabel.RequiredStart:
-        WrapperTextFieldClearMInnerLabelRequiredStart
+    WrapperTextFieldClearMInnerLabelRequiredStart
     @Composable
     @JvmName("WrapperTextFieldClearMInnerLabelRequiredStart")
     get() = builder
@@ -771,6 +825,8 @@ public val TextFieldClear.L: WrapperTextFieldClearL
             endContentSize(24.0.dp)
         }
         .valueStyle(SddsServTheme.typography.bodyLNormal)
+        .prefixStyle(SddsServTheme.typography.bodyLNormal)
+        .suffixStyle(SddsServTheme.typography.bodyLNormal)
         .placeholderStyle(SddsServTheme.typography.bodyLNormal)
         .chipStyle(EmbeddedChip.L.Secondary.style())
         .labelPlacement(TextField.LabelPlacement.None)
@@ -815,12 +871,14 @@ public val WrapperTextFieldClearL.OuterLabel: WrapperTextFieldClearLOuterLabel
         .optionalStyle(SddsServTheme.typography.bodyLNormal)
         .labelPlacement(TextField.LabelPlacement.Outer)
         .colors {
-            labelColor(SddsServTheme.colors.textDefaultPrimary.asInteractive())
+            labelColor(
+                SddsServTheme.colors.textDefaultPrimary.asInteractive(),
+            )
         }
         .wrap(::WrapperTextFieldClearLOuterLabel)
 
 public val WrapperTextFieldClearLOuterLabel.RequiredStart:
-        WrapperTextFieldClearLOuterLabelRequiredStart
+    WrapperTextFieldClearLOuterLabelRequiredStart
     @Composable
     @JvmName("WrapperTextFieldClearLOuterLabelRequiredStart")
     get() = builder
@@ -861,12 +919,14 @@ public val WrapperTextFieldClearL.InnerLabel: WrapperTextFieldClearLInnerLabel
         .optionalStyle(SddsServTheme.typography.bodyXsNormal)
         .labelPlacement(TextField.LabelPlacement.Inner)
         .colors {
-            labelColor(SddsServTheme.colors.textDefaultSecondary.asInteractive())
+            labelColor(
+                SddsServTheme.colors.textDefaultSecondary.asInteractive(),
+            )
         }
         .wrap(::WrapperTextFieldClearLInnerLabel)
 
 public val WrapperTextFieldClearLInnerLabel.RequiredStart:
-        WrapperTextFieldClearLInnerLabelRequiredStart
+    WrapperTextFieldClearLInnerLabelRequiredStart
     @Composable
     @JvmName("WrapperTextFieldClearLInnerLabelRequiredStart")
     get() = builder

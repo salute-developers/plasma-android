@@ -29,7 +29,6 @@ import com.sdds.serv.styles.textarea.OuterLabel
 import com.sdds.serv.styles.textarea.RequiredEnd
 import com.sdds.serv.styles.textarea.RequiredStart
 import com.sdds.serv.styles.textarea.S
-import com.sdds.serv.styles.textarea.Success
 import com.sdds.serv.styles.textarea.Warning
 import com.sdds.serv.styles.textarea.Xs
 
@@ -63,7 +62,7 @@ internal fun SandboxTextAreaPreviewLDefaultInnerLeft() {
 
 @Composable
 @Preview(showBackground = true)
-internal fun SandboxTextAreaPreviewMSuccessOuterOptional() {
+internal fun SandboxTextAreaPreviewMDefaultOuterOptional() {
     SandboxTheme {
         var value by remember { mutableStateOf(TextFieldValue("")) }
 
@@ -71,7 +70,7 @@ internal fun SandboxTextAreaPreviewMSuccessOuterOptional() {
             modifier = Modifier.fillMaxWidth(),
             placeholderText = "Placeholder",
             value = value,
-            style = TextArea.M.OuterLabel.Success.style(),
+            style = TextArea.M.OuterLabel.Default.style(),
             labelText = "Label",
             optionalText = "Optional",
             captionText = "Caption",
@@ -143,17 +142,17 @@ internal fun SandboxTextAreaPreviewXsErrorInnerOptional() {
 @Preview(showBackground = true)
 internal fun SandboxTextAreaPreviewLReadOnly() {
     SandboxTheme {
-        var value by remember { mutableStateOf(TextFieldValue("")) }
+        var value by remember { mutableStateOf(TextFieldValue("Value")) }
         Box(modifier = Modifier.padding(start = 20.dp)) {
             TextField(
                 modifier = Modifier.fillMaxWidth(),
                 placeholderText = "",
                 value = value,
-                style = TextArea.L.OuterLabel.RequiredStart.Success.style(),
+                style = TextArea.L.OuterLabel.RequiredStart.Default.style(),
                 labelText = "Label",
                 optionalText = "Optional",
-                captionText = "",
-                counterText = "",
+                captionText = "Caption",
+                counterText = "Counter",
                 onValueChange = { value = it },
                 readOnly = true,
                 enabled = true,
@@ -220,7 +219,7 @@ internal fun SandboxTextAreaPreviewSDefaultInnerRight() {
 
 @Composable
 @Preview(showBackground = true)
-internal fun SandboxTextAreaPreviewXSSuccessOuterOptional() {
+internal fun SandboxTextAreaPreviewXSDefaultOuterOptional() {
     SandboxTheme {
         var value by remember { mutableStateOf(TextFieldValue("Value")) }
 
@@ -228,7 +227,7 @@ internal fun SandboxTextAreaPreviewXSSuccessOuterOptional() {
             modifier = Modifier.fillMaxWidth(),
             placeholderText = "Placeholder",
             value = value,
-            style = TextArea.Xs.OuterLabel.Success.style(),
+            style = TextArea.Xs.OuterLabel.Default.style(),
             labelText = "Label",
             optionalText = "Optional",
             captionText = "Caption",
@@ -326,7 +325,7 @@ internal fun SandboxTextAreaPreviewSWarningInnerRightFocused() {
 
 @Composable
 @Preview(showBackground = true)
-internal fun SandboxTextAreaPreviewMSuccessInnerOptionalChips() {
+internal fun SandboxTextAreaPreviewMInnerOptionalChips() {
     SandboxTheme {
         var value by remember { mutableStateOf(TextFieldValue("")) }
 
@@ -334,7 +333,7 @@ internal fun SandboxTextAreaPreviewMSuccessInnerOptionalChips() {
             modifier = Modifier.fillMaxWidth(),
             placeholderText = "Placeholder",
             value = value,
-            style = TextArea.M.Success.style(),
+            style = TextArea.M.Default.style(),
             labelText = "Label",
             optionalText = "Optional",
             captionText = "Caption",

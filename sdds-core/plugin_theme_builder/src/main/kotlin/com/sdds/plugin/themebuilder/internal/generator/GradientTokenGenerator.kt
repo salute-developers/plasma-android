@@ -30,6 +30,7 @@ import com.sdds.plugin.themebuilder.internal.validator.LinearGradientTokenValida
 import com.sdds.plugin.themebuilder.internal.validator.RadialGradientTokenValidator
 import com.sdds.plugin.themebuilder.internal.validator.SweepGradientTokenValidator
 import com.squareup.kotlinpoet.TypeSpec
+import com.squareup.kotlinpoet.asTypeName
 import java.io.File
 import java.util.Locale
 
@@ -53,8 +54,12 @@ internal class GradientTokenGenerator(
 ) : TokenGenerator<GradientToken, GradientTokenResult>(target) {
 
     private val composeKtFileBuilder by unsafeLazy { ktFileBuilderFactory.create("GradientTokens") }
-    private val composeLightBuilder by unsafeLazy { composeKtFileBuilder.rootObject(LIGHT_GRADIENT_TOKENS_NAME) }
-    private val composeDarkBuilder by unsafeLazy { composeKtFileBuilder.rootObject(DARK_GRADIENT_TOKENS_NAME) }
+    private val composeLightBuilder by unsafeLazy {
+        composeKtFileBuilder.rootObject(LIGHT_GRADIENT_TOKENS_NAME, LIGHT_GRADIENT_TOKENS_DESC)
+    }
+    private val composeDarkBuilder by unsafeLazy {
+        composeKtFileBuilder.rootObject(DARK_GRADIENT_TOKENS_NAME, DARK_GRADIENT_TOKENS_DESC)
+    }
     private val xmlParametersDocumentBuilder by unsafeLazy {
         xmlBuilderFactory.create(DEFAULT_ROOT_ATTRIBUTES)
     }
@@ -232,7 +237,7 @@ internal class GradientTokenGenerator(
         token: GradientToken,
     ) {
         tokenValues.mapIndexed { index, gradient ->
-            appendObject("Layer$index") {
+            appendObject("Layer$index", "Cлой $index") {
                 appendGradientLayer(gradient, token, index)
             }
         }
@@ -481,7 +486,13 @@ internal class GradientTokenGenerator(
             tokenValue.colors.resolveColors(HexFormat.INT_HEX, baseTokenName)
         with(composeKtFileBuilder) {
             appendBaseGradient(resolvedColors, tokenValue.locations)
-            appendProperty(ANGLE_KT_PROPERTY_NAME, Float::class, "${tokenValue.angle}f")
+            appendProperty(
+                name = ANGLE_KT_PROPERTY_NAME,
+                typeName = Float::class.asTypeName(),
+                initializer = "${tokenValue.angle}f",
+                modifiers = listOf(KtFileBuilder.Modifier.CONST),
+                description = ANGLE_KT_PROPERTY_DESC,
+            )
         }
         return ComposeTokenData.Gradient(
             tokenRefs = listOf(
@@ -490,6 +501,7 @@ internal class GradientTokenGenerator(
                 "$baseTokenName.$layerRef$ANGLE_KT_PROPERTY_NAME",
             ),
             gradientType = ComposeTokenData.GradientType.LINEAR,
+            description = token.description,
         )
     }
 
@@ -504,8 +516,18 @@ internal class GradientTokenGenerator(
             tokenValue.colors.resolveColors(HexFormat.INT_HEX, baseTokenName)
         with(composeKtFileBuilder) {
             appendBaseGradient(resolvedColors, tokenValue.locations)
-            appendProperty(CENTER_X_KT_PROPERTY_NAME, Float::class, "${tokenValue.centerX}f")
-            appendProperty(CENTER_Y_KT_PROPERTY_NAME, Float::class, "${tokenValue.centerY}f")
+            appendProperty(
+                name = CENTER_X_KT_PROPERTY_NAME,
+                typeName = Float::class.asTypeName(),
+                initializer = "${tokenValue.centerX}f",
+                modifiers = ConstModifier,
+            )
+            appendProperty(
+                name = CENTER_Y_KT_PROPERTY_NAME,
+                typeName = Float::class.asTypeName(),
+                initializer = "${tokenValue.centerY}f",
+                modifiers = ConstModifier,
+            )
         }
         return ComposeTokenData.Gradient(
             tokenRefs = listOf(
@@ -515,6 +537,7 @@ internal class GradientTokenGenerator(
                 "$baseTokenName.$layerRef$CENTER_Y_KT_PROPERTY_NAME",
             ),
             gradientType = ComposeTokenData.GradientType.SWEEP,
+            description = token.description,
         )
     }
 
@@ -529,9 +552,27 @@ internal class GradientTokenGenerator(
             tokenValue.colors.resolveColors(HexFormat.INT_HEX, baseTokenName)
         with(composeKtFileBuilder) {
             appendBaseGradient(resolvedColors, tokenValue.locations)
-            appendProperty(RADIUS_KT_PROPERTY_NAME, Float::class, "${tokenValue.radius}f")
-            appendProperty(CENTER_X_KT_PROPERTY_NAME, Float::class, "${tokenValue.centerX}f")
-            appendProperty(CENTER_Y_KT_PROPERTY_NAME, Float::class, "${tokenValue.centerY}f")
+            appendProperty(
+                name = RADIUS_KT_PROPERTY_NAME,
+                typeName = Float::class.asTypeName(),
+                initializer = "${tokenValue.radius}f",
+                modifiers = ConstModifier,
+                description = RADIUS_KT_PROPERTY_DESC,
+            )
+            appendProperty(
+                name = CENTER_X_KT_PROPERTY_NAME,
+                typeName = Float::class.asTypeName(),
+                initializer = "${tokenValue.centerX}f",
+                modifiers = ConstModifier,
+                description = CENTER_X_KT_PROPERTY_DESC,
+            )
+            appendProperty(
+                name = CENTER_Y_KT_PROPERTY_NAME,
+                typeName = Float::class.asTypeName(),
+                initializer = "${tokenValue.centerY}f",
+                modifiers = ConstModifier,
+                description = CENTER_Y_KT_PROPERTY_DESC,
+            )
         }
         return ComposeTokenData.Gradient(
             tokenRefs = listOf(
@@ -542,6 +583,7 @@ internal class GradientTokenGenerator(
                 "$baseTokenName.$layerRef$CENTER_Y_KT_PROPERTY_NAME",
             ),
             gradientType = ComposeTokenData.GradientType.RADIAL,
+            description = token.description,
         )
     }
 
@@ -558,6 +600,7 @@ internal class GradientTokenGenerator(
                 name = BACKGROUND_PROPERTY_NAME,
                 typeName = KtFileBuilder.TypeColor,
                 initializer = "Color($resolvedColor)",
+                description = BACKGROUND_PROPERTY_DESC,
             )
         }
         return ComposeTokenData.Gradient(
@@ -565,6 +608,7 @@ internal class GradientTokenGenerator(
                 "$baseTokenName.$layerRef$BACKGROUND_PROPERTY_NAME",
             ),
             gradientType = ComposeTokenData.GradientType.BACKGROUND,
+            description = token.description,
         )
     }
 
@@ -588,11 +632,13 @@ internal class GradientTokenGenerator(
             COLORS_KT_PROPERTY_NAME,
             KtFileBuilder.TypeListOfColors,
             "listOf($colorParams)",
+            description = COLORS_KT_PROPERTY_DESC,
         )
         appendProperty(
             POSITIONS_KT_PROPERTY_NAME,
             FloatArray::class,
             "floatArrayOf($positionParams)",
+            description = POSITIONS_KT_PROPERTY_DESC,
         )
     }
 
@@ -628,15 +674,25 @@ internal class GradientTokenGenerator(
     )
 
     companion object {
+        val ConstModifier = listOf(KtFileBuilder.Modifier.CONST)
         private const val COLORS_KT_PROPERTY_NAME = "colors"
+        private const val COLORS_KT_PROPERTY_DESC = "Цвета градиента"
         private const val POSITIONS_KT_PROPERTY_NAME = "positions"
+        private const val POSITIONS_KT_PROPERTY_DESC = "Точки остановки цветов градиента"
         private const val ANGLE_KT_PROPERTY_NAME = "angle"
+        private const val ANGLE_KT_PROPERTY_DESC = "Угол градиента"
         private const val RADIUS_KT_PROPERTY_NAME = "radius"
+        private const val RADIUS_KT_PROPERTY_DESC = "Радиус градиента"
         private const val CENTER_X_KT_PROPERTY_NAME = "centerX"
+        private const val CENTER_X_KT_PROPERTY_DESC = "Координата центра по оси X"
         private const val CENTER_Y_KT_PROPERTY_NAME = "centerY"
+        private const val CENTER_Y_KT_PROPERTY_DESC = "Координата центра по оси Y"
         private const val BACKGROUND_PROPERTY_NAME = "background"
+        private const val BACKGROUND_PROPERTY_DESC = "Фон градиента"
 
         internal const val LIGHT_GRADIENT_TOKENS_NAME = "LightGradientTokens"
+        internal const val LIGHT_GRADIENT_TOKENS_DESC = "Токены градиента для светлой темы"
         internal const val DARK_GRADIENT_TOKENS_NAME = "DarkGradientTokens"
+        internal const val DARK_GRADIENT_TOKENS_DESC = "Токены градиента для темной темы"
     }
 }

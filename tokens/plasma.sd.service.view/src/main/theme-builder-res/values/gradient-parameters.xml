@@ -1,0 +1,1794 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!--region Акцентный цвет с градиентом-->
+    <color name="plasma_dark_text_default_accent_gradient_color_0">#FF5E94FF</color>
+    <color name="plasma_dark_text_default_accent_gradient_color_1">#FF43DBFA</color>
+    <integer-array name="plasma_dark_text_default_accent_gradient_colors">
+        <item>@color/plasma_dark_text_default_accent_gradient_color_0</item>
+        <item>@color/plasma_dark_text_default_accent_gradient_color_1</item>
+    </integer-array>
+    <string name="plasma_dark_text_default_accent_gradient_angle">89.83</string>
+    <string-array name="plasma_dark_text_default_accent_gradient_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Акцентный цвет с градиентом-->
+    <!--region Акцентный цвет с градиентом-->
+    <color name="plasma_dark_text_default_accent_gradient_hover_color_0">#FFFFFFFF</color>
+    <color name="plasma_dark_text_default_accent_gradient_hover_color_1">#FF000000</color>
+    <integer-array name="plasma_dark_text_default_accent_gradient_hover_colors">
+        <item>@color/plasma_dark_text_default_accent_gradient_hover_color_0</item>
+        <item>@color/plasma_dark_text_default_accent_gradient_hover_color_1</item>
+    </integer-array>
+    <string name="plasma_dark_text_default_accent_gradient_hover_angle">90.0</string>
+    <string-array name="plasma_dark_text_default_accent_gradient_hover_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Акцентный цвет с градиентом-->
+    <!--region Акцентный цвет с градиентом-->
+    <color name="plasma_dark_text_default_accent_gradient_active_color_0">#FFFFFFFF</color>
+    <color name="plasma_dark_text_default_accent_gradient_active_color_1">#FF000000</color>
+    <integer-array name="plasma_dark_text_default_accent_gradient_active_colors">
+        <item>@color/plasma_dark_text_default_accent_gradient_active_color_0</item>
+        <item>@color/plasma_dark_text_default_accent_gradient_active_color_1</item>
+    </integer-array>
+    <string name="plasma_dark_text_default_accent_gradient_active_angle">90.0</string>
+    <string-array name="plasma_dark_text_default_accent_gradient_active_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Акцентный цвет с градиентом-->
+    <!--region Акцентный цвет с градиентом на темном фоне-->
+    <color name="plasma_dark_text_on_dark_accent_gradient_color_0">#FF5E94FF</color>
+    <color name="plasma_dark_text_on_dark_accent_gradient_color_1">#FF43DBFA</color>
+    <integer-array name="plasma_dark_text_on_dark_accent_gradient_colors">
+        <item>@color/plasma_dark_text_on_dark_accent_gradient_color_0</item>
+        <item>@color/plasma_dark_text_on_dark_accent_gradient_color_1</item>
+    </integer-array>
+    <string name="plasma_dark_text_on_dark_accent_gradient_angle">89.83</string>
+    <string-array name="plasma_dark_text_on_dark_accent_gradient_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Акцентный цвет с градиентом на темном фоне-->
+    <!--region Акцентный цвет с градиентом на темном фоне-->
+    <color name="plasma_dark_text_on_dark_accent_gradient_hover_color_0">#FFFFFFFF</color>
+    <color name="plasma_dark_text_on_dark_accent_gradient_hover_color_1">#FF000000</color>
+    <integer-array name="plasma_dark_text_on_dark_accent_gradient_hover_colors">
+        <item>@color/plasma_dark_text_on_dark_accent_gradient_hover_color_0</item>
+        <item>@color/plasma_dark_text_on_dark_accent_gradient_hover_color_1</item>
+    </integer-array>
+    <string name="plasma_dark_text_on_dark_accent_gradient_hover_angle">90.0</string>
+    <string-array name="plasma_dark_text_on_dark_accent_gradient_hover_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Акцентный цвет с градиентом на темном фоне-->
+    <!--region Акцентный цвет с градиентом на темном фоне-->
+    <color name="plasma_dark_text_on_dark_accent_gradient_active_color_0">#FFFFFFFF</color>
+    <color name="plasma_dark_text_on_dark_accent_gradient_active_color_1">#FF000000</color>
+    <integer-array name="plasma_dark_text_on_dark_accent_gradient_active_colors">
+        <item>@color/plasma_dark_text_on_dark_accent_gradient_active_color_0</item>
+        <item>@color/plasma_dark_text_on_dark_accent_gradient_active_color_1</item>
+    </integer-array>
+    <string name="plasma_dark_text_on_dark_accent_gradient_active_angle">90.0</string>
+    <string-array name="plasma_dark_text_on_dark_accent_gradient_active_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Акцентный цвет с градиентом на темном фоне-->
+    <!--region Акцентный цвет с градиентом на светлом фоне-->
+    <color name="plasma_dark_text_on_light_accent_gradient_color_0">#FF3E79F0</color>
+    <color name="plasma_dark_text_on_light_accent_gradient_color_1">#FF27C6E5</color>
+    <integer-array name="plasma_dark_text_on_light_accent_gradient_colors">
+        <item>@color/plasma_dark_text_on_light_accent_gradient_color_0</item>
+        <item>@color/plasma_dark_text_on_light_accent_gradient_color_1</item>
+    </integer-array>
+    <string name="plasma_dark_text_on_light_accent_gradient_angle">93.97</string>
+    <string-array name="plasma_dark_text_on_light_accent_gradient_positions">
+        <item>0.0649</item>
+        <item>0.9351</item>
+    </string-array>
+    <!--endregion Акцентный цвет с градиентом на светлом фоне-->
+    <!--region Акцентный цвет с градиентом на светлом фоне-->
+    <color name="plasma_dark_text_on_light_accent_gradient_hover_color_0">#FFFFFFFF</color>
+    <color name="plasma_dark_text_on_light_accent_gradient_hover_color_1">#FF000000</color>
+    <integer-array name="plasma_dark_text_on_light_accent_gradient_hover_colors">
+        <item>@color/plasma_dark_text_on_light_accent_gradient_hover_color_0</item>
+        <item>@color/plasma_dark_text_on_light_accent_gradient_hover_color_1</item>
+    </integer-array>
+    <string name="plasma_dark_text_on_light_accent_gradient_hover_angle">90.0</string>
+    <string-array name="plasma_dark_text_on_light_accent_gradient_hover_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Акцентный цвет с градиентом на светлом фоне-->
+    <!--region Акцентный цвет с градиентом на светлом фоне-->
+    <color name="plasma_dark_text_on_light_accent_gradient_active_color_0">#FFFFFFFF</color>
+    <color name="plasma_dark_text_on_light_accent_gradient_active_color_1">#FF000000</color>
+    <integer-array name="plasma_dark_text_on_light_accent_gradient_active_colors">
+        <item>@color/plasma_dark_text_on_light_accent_gradient_active_color_0</item>
+        <item>@color/plasma_dark_text_on_light_accent_gradient_active_color_1</item>
+    </integer-array>
+    <string name="plasma_dark_text_on_light_accent_gradient_active_angle">90.0</string>
+    <string-array name="plasma_dark_text_on_light_accent_gradient_active_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Акцентный цвет с градиентом на светлом фоне-->
+    <!--region Инвертированный акцентный цвет с градиентом-->
+    <color name="plasma_dark_text_inverse_accent_gradient_hover_color_0">#FFFFFFFF</color>
+    <color name="plasma_dark_text_inverse_accent_gradient_hover_color_1">#FF000000</color>
+    <integer-array name="plasma_dark_text_inverse_accent_gradient_hover_colors">
+        <item>@color/plasma_dark_text_inverse_accent_gradient_hover_color_0</item>
+        <item>@color/plasma_dark_text_inverse_accent_gradient_hover_color_1</item>
+    </integer-array>
+    <string name="plasma_dark_text_inverse_accent_gradient_hover_angle">90.0</string>
+    <string-array name="plasma_dark_text_inverse_accent_gradient_hover_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Инвертированный акцентный цвет с градиентом-->
+    <!--region Инвертированный акцентный цвет с градиентом-->
+    <color name="plasma_dark_text_inverse_accent_gradient_active_color_0">#FFFFFFFF</color>
+    <color name="plasma_dark_text_inverse_accent_gradient_active_color_1">#FF000000</color>
+    <integer-array name="plasma_dark_text_inverse_accent_gradient_active_colors">
+        <item>@color/plasma_dark_text_inverse_accent_gradient_active_color_0</item>
+        <item>@color/plasma_dark_text_inverse_accent_gradient_active_color_1</item>
+    </integer-array>
+    <string name="plasma_dark_text_inverse_accent_gradient_active_angle">90.0</string>
+    <string-array name="plasma_dark_text_inverse_accent_gradient_active_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Инвертированный акцентный цвет с градиентом-->
+    <!--region Инвертированный акцентный цвет с градиентом-->
+    <color name="plasma_dark_text_inverse_accent_gradient_color_0">#FF3E79F0</color>
+    <color name="plasma_dark_text_inverse_accent_gradient_color_1">#FF27C6E5</color>
+    <integer-array name="plasma_dark_text_inverse_accent_gradient_colors">
+        <item>@color/plasma_dark_text_inverse_accent_gradient_color_0</item>
+        <item>@color/plasma_dark_text_inverse_accent_gradient_color_1</item>
+    </integer-array>
+    <string name="plasma_dark_text_inverse_accent_gradient_angle">4.57</string>
+    <string-array name="plasma_dark_text_inverse_accent_gradient_positions">
+        <item>0.06</item>
+        <item>0.94</item>
+    </string-array>
+    <!--endregion Инвертированный акцентный цвет с градиентом-->
+    <!--region Акцентный фон поверхности/контрола с градиентом, Слой 0-->
+    <color name="plasma_dark_surface_default_accent_gradient_layer_0_color_0">#FF3E79F0</color>
+    <color name="plasma_dark_surface_default_accent_gradient_layer_0_color_1">#FF27C6E5</color>
+    <integer-array name="plasma_dark_surface_default_accent_gradient_layer_0_colors">
+        <item>@color/plasma_dark_surface_default_accent_gradient_layer_0_color_0</item>
+        <item>@color/plasma_dark_surface_default_accent_gradient_layer_0_color_1</item>
+    </integer-array>
+    <string name="plasma_dark_surface_default_accent_gradient_layer_0_angle">93.97</string>
+    <string-array name="plasma_dark_surface_default_accent_gradient_layer_0_positions">
+        <item>0.0649</item>
+        <item>0.9351</item>
+    </string-array>
+    <!--endregion Акцентный фон поверхности/контрола с градиентом, Слой 0-->
+    <!--region Акцентный фон поверхности/контрола с градиентом, Слой 1-->
+    <color name="plasma_dark_surface_default_accent_gradient_layer_1_color_0">#FF5E94FF</color>
+    <color name="plasma_dark_surface_default_accent_gradient_layer_1_color_1">#FF43DBFA</color>
+    <integer-array name="plasma_dark_surface_default_accent_gradient_layer_1_colors">
+        <item>@color/plasma_dark_surface_default_accent_gradient_layer_1_color_0</item>
+        <item>@color/plasma_dark_surface_default_accent_gradient_layer_1_color_1</item>
+    </integer-array>
+    <string name="plasma_dark_surface_default_accent_gradient_layer_1_angle">89.83</string>
+    <string-array name="plasma_dark_surface_default_accent_gradient_layer_1_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Акцентный фон поверхности/контрола с градиентом, Слой 1-->
+    <!--region Акцентный фон поверхности/контрола с градиентом-->
+    <color name="plasma_dark_surface_default_accent_gradient_hover_color_0">#FFFFFFFF</color>
+    <color name="plasma_dark_surface_default_accent_gradient_hover_color_1">#FF000000</color>
+    <integer-array name="plasma_dark_surface_default_accent_gradient_hover_colors">
+        <item>@color/plasma_dark_surface_default_accent_gradient_hover_color_0</item>
+        <item>@color/plasma_dark_surface_default_accent_gradient_hover_color_1</item>
+    </integer-array>
+    <string name="plasma_dark_surface_default_accent_gradient_hover_angle">90.0</string>
+    <string-array name="plasma_dark_surface_default_accent_gradient_hover_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Акцентный фон поверхности/контрола с градиентом-->
+    <!--region Акцентный фон поверхности/контрола с градиентом-->
+    <color name="plasma_dark_surface_default_accent_gradient_active_color_0">#FFFFFFFF</color>
+    <color name="plasma_dark_surface_default_accent_gradient_active_color_1">#FF000000</color>
+    <integer-array name="plasma_dark_surface_default_accent_gradient_active_colors">
+        <item>@color/plasma_dark_surface_default_accent_gradient_active_color_0</item>
+        <item>@color/plasma_dark_surface_default_accent_gradient_active_color_1</item>
+    </integer-array>
+    <string name="plasma_dark_surface_default_accent_gradient_active_angle">90.0</string>
+    <string-array name="plasma_dark_surface_default_accent_gradient_active_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Акцентный фон поверхности/контрола с градиентом-->
+    <!--region Фон для скелетона-->
+    <color name="plasma_dark_surface_default_skeleton_gradient_color_0">#17FFFFFF</color>
+    <color name="plasma_dark_surface_default_skeleton_gradient_color_1">#14FFFFFF</color>
+    <color name="plasma_dark_surface_default_skeleton_gradient_color_2">#0DFFFFFF</color>
+    <color name="plasma_dark_surface_default_skeleton_gradient_color_3">#03FFFFFF</color>
+    <color name="plasma_dark_surface_default_skeleton_gradient_color_4">#0DFFFFFF</color>
+    <color name="plasma_dark_surface_default_skeleton_gradient_color_5">#14FFFFFF</color>
+    <color name="plasma_dark_surface_default_skeleton_gradient_color_6">#17FFFFFF</color>
+    <color name="plasma_dark_surface_default_skeleton_gradient_color_7">#14FFFFFF</color>
+    <color name="plasma_dark_surface_default_skeleton_gradient_color_8">#0DFFFFFF</color>
+    <color name="plasma_dark_surface_default_skeleton_gradient_color_9">#03FFFFFF</color>
+    <color name="plasma_dark_surface_default_skeleton_gradient_color_10">#0DFFFFFF</color>
+    <color name="plasma_dark_surface_default_skeleton_gradient_color_11">#14FFFFFF</color>
+    <color name="plasma_dark_surface_default_skeleton_gradient_color_12">#17FFFFFF</color>
+    <integer-array name="plasma_dark_surface_default_skeleton_gradient_colors">
+        <item>@color/plasma_dark_surface_default_skeleton_gradient_color_0</item>
+        <item>@color/plasma_dark_surface_default_skeleton_gradient_color_1</item>
+        <item>@color/plasma_dark_surface_default_skeleton_gradient_color_2</item>
+        <item>@color/plasma_dark_surface_default_skeleton_gradient_color_3</item>
+        <item>@color/plasma_dark_surface_default_skeleton_gradient_color_4</item>
+        <item>@color/plasma_dark_surface_default_skeleton_gradient_color_5</item>
+        <item>@color/plasma_dark_surface_default_skeleton_gradient_color_6</item>
+        <item>@color/plasma_dark_surface_default_skeleton_gradient_color_7</item>
+        <item>@color/plasma_dark_surface_default_skeleton_gradient_color_8</item>
+        <item>@color/plasma_dark_surface_default_skeleton_gradient_color_9</item>
+        <item>@color/plasma_dark_surface_default_skeleton_gradient_color_10</item>
+        <item>@color/plasma_dark_surface_default_skeleton_gradient_color_11</item>
+        <item>@color/plasma_dark_surface_default_skeleton_gradient_color_12</item>
+    </integer-array>
+    <string name="plasma_dark_surface_default_skeleton_gradient_angle">90.0</string>
+    <string-array name="plasma_dark_surface_default_skeleton_gradient_positions">
+        <item>0.0</item>
+        <item>0.0625</item>
+        <item>0.125</item>
+        <item>0.25</item>
+        <item>0.375</item>
+        <item>0.4375</item>
+        <item>0.5</item>
+        <item>0.5625</item>
+        <item>0.625</item>
+        <item>0.75</item>
+        <item>0.875</item>
+        <item>0.9375</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Фон для скелетона-->
+    <!--region Фон для скелетона-->
+    <color name="plasma_dark_surface_default_skeleton_gradient_hover_color_0">#FFFFFFFF</color>
+    <color name="plasma_dark_surface_default_skeleton_gradient_hover_color_1">#FF000000</color>
+    <integer-array name="plasma_dark_surface_default_skeleton_gradient_hover_colors">
+        <item>@color/plasma_dark_surface_default_skeleton_gradient_hover_color_0</item>
+        <item>@color/plasma_dark_surface_default_skeleton_gradient_hover_color_1</item>
+    </integer-array>
+    <string name="plasma_dark_surface_default_skeleton_gradient_hover_angle">90.0</string>
+    <string-array name="plasma_dark_surface_default_skeleton_gradient_hover_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Фон для скелетона-->
+    <!--region Фон для скелетона-->
+    <color name="plasma_dark_surface_default_skeleton_gradient_active_color_0">#FFFFFFFF</color>
+    <color name="plasma_dark_surface_default_skeleton_gradient_active_color_1">#FF000000</color>
+    <integer-array name="plasma_dark_surface_default_skeleton_gradient_active_colors">
+        <item>@color/plasma_dark_surface_default_skeleton_gradient_active_color_0</item>
+        <item>@color/plasma_dark_surface_default_skeleton_gradient_active_color_1</item>
+    </integer-array>
+    <string name="plasma_dark_surface_default_skeleton_gradient_active_angle">90.0</string>
+    <string-array name="plasma_dark_surface_default_skeleton_gradient_active_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Фон для скелетона-->
+    <!--region Яркий фон для скелетона-->
+    <color name="plasma_dark_surface_default_skeleton_deep_gradient_color_0">#5CFFFFFF</color>
+    <color name="plasma_dark_surface_default_skeleton_deep_gradient_color_1">#52FFFFFF</color>
+    <color name="plasma_dark_surface_default_skeleton_deep_gradient_color_2">#33FFFFFF</color>
+    <color name="plasma_dark_surface_default_skeleton_deep_gradient_color_3">#0AFFFFFF</color>
+    <color name="plasma_dark_surface_default_skeleton_deep_gradient_color_4">#33FFFFFF</color>
+    <color name="plasma_dark_surface_default_skeleton_deep_gradient_color_5">#52FFFFFF</color>
+    <color name="plasma_dark_surface_default_skeleton_deep_gradient_color_6">#5CFFFFFF</color>
+    <color name="plasma_dark_surface_default_skeleton_deep_gradient_color_7">#14FFFFFF</color>
+    <color name="plasma_dark_surface_default_skeleton_deep_gradient_color_8">#33FFFFFF</color>
+    <color name="plasma_dark_surface_default_skeleton_deep_gradient_color_9">#0AFFFFFF</color>
+    <color name="plasma_dark_surface_default_skeleton_deep_gradient_color_10">#33FFFFFF</color>
+    <color name="plasma_dark_surface_default_skeleton_deep_gradient_color_11">#52FFFFFF</color>
+    <color name="plasma_dark_surface_default_skeleton_deep_gradient_color_12">#5CFFFFFF</color>
+    <integer-array name="plasma_dark_surface_default_skeleton_deep_gradient_colors">
+        <item>@color/plasma_dark_surface_default_skeleton_deep_gradient_color_0</item>
+        <item>@color/plasma_dark_surface_default_skeleton_deep_gradient_color_1</item>
+        <item>@color/plasma_dark_surface_default_skeleton_deep_gradient_color_2</item>
+        <item>@color/plasma_dark_surface_default_skeleton_deep_gradient_color_3</item>
+        <item>@color/plasma_dark_surface_default_skeleton_deep_gradient_color_4</item>
+        <item>@color/plasma_dark_surface_default_skeleton_deep_gradient_color_5</item>
+        <item>@color/plasma_dark_surface_default_skeleton_deep_gradient_color_6</item>
+        <item>@color/plasma_dark_surface_default_skeleton_deep_gradient_color_7</item>
+        <item>@color/plasma_dark_surface_default_skeleton_deep_gradient_color_8</item>
+        <item>@color/plasma_dark_surface_default_skeleton_deep_gradient_color_9</item>
+        <item>@color/plasma_dark_surface_default_skeleton_deep_gradient_color_10</item>
+        <item>@color/plasma_dark_surface_default_skeleton_deep_gradient_color_11</item>
+        <item>@color/plasma_dark_surface_default_skeleton_deep_gradient_color_12</item>
+    </integer-array>
+    <string name="plasma_dark_surface_default_skeleton_deep_gradient_angle">90.0</string>
+    <string-array name="plasma_dark_surface_default_skeleton_deep_gradient_positions">
+        <item>0.0</item>
+        <item>0.0625</item>
+        <item>0.125</item>
+        <item>0.25</item>
+        <item>0.375</item>
+        <item>0.4375</item>
+        <item>0.5</item>
+        <item>0.5625</item>
+        <item>0.625</item>
+        <item>0.75</item>
+        <item>0.875</item>
+        <item>0.9375</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Яркий фон для скелетона-->
+    <!--region Яркий фон для скелетона-->
+    <color name="plasma_dark_surface_default_skeleton_deep_gradient_hover_color_0">#FFFFFFFF</color>
+    <color name="plasma_dark_surface_default_skeleton_deep_gradient_hover_color_1">#FF000000</color>
+    <integer-array name="plasma_dark_surface_default_skeleton_deep_gradient_hover_colors">
+        <item>@color/plasma_dark_surface_default_skeleton_deep_gradient_hover_color_0</item>
+        <item>@color/plasma_dark_surface_default_skeleton_deep_gradient_hover_color_1</item>
+    </integer-array>
+    <string name="plasma_dark_surface_default_skeleton_deep_gradient_hover_angle">90.0</string>
+    <string-array name="plasma_dark_surface_default_skeleton_deep_gradient_hover_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Яркий фон для скелетона-->
+    <!--region Яркий фон для скелетона-->
+    <color name="plasma_dark_surface_default_skeleton_deep_gradient_active_color_0">#FFFFFFFF</color>
+    <color name="plasma_dark_surface_default_skeleton_deep_gradient_active_color_1">#FF000000</color>
+    <integer-array name="plasma_dark_surface_default_skeleton_deep_gradient_active_colors">
+        <item>@color/plasma_dark_surface_default_skeleton_deep_gradient_active_color_0</item>
+        <item>@color/plasma_dark_surface_default_skeleton_deep_gradient_active_color_1</item>
+    </integer-array>
+    <string name="plasma_dark_surface_default_skeleton_deep_gradient_active_angle">90.0</string>
+    <string-array name="plasma_dark_surface_default_skeleton_deep_gradient_active_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Яркий фон для скелетона-->
+    <!--region Акцентный фон поверхн./контрола с градиентом на темном фоне-->
+    <color name="plasma_dark_surface_on_dark_accent_gradient_color_0">#FF3E79F0</color>
+    <color name="plasma_dark_surface_on_dark_accent_gradient_color_1">#FF27C6E5</color>
+    <integer-array name="plasma_dark_surface_on_dark_accent_gradient_colors">
+        <item>@color/plasma_dark_surface_on_dark_accent_gradient_color_0</item>
+        <item>@color/plasma_dark_surface_on_dark_accent_gradient_color_1</item>
+    </integer-array>
+    <string name="plasma_dark_surface_on_dark_accent_gradient_angle">93.97</string>
+    <string-array name="plasma_dark_surface_on_dark_accent_gradient_positions">
+        <item>0.0649</item>
+        <item>0.9351</item>
+    </string-array>
+    <!--endregion Акцентный фон поверхн./контрола с градиентом на темном фоне-->
+    <!--region Акцентный фон поверхн./контрола с градиентом на темном фоне-->
+    <color name="plasma_dark_surface_on_dark_accent_gradient_hover_color_0">#FFFFFFFF</color>
+    <color name="plasma_dark_surface_on_dark_accent_gradient_hover_color_1">#FF000000</color>
+    <integer-array name="plasma_dark_surface_on_dark_accent_gradient_hover_colors">
+        <item>@color/plasma_dark_surface_on_dark_accent_gradient_hover_color_0</item>
+        <item>@color/plasma_dark_surface_on_dark_accent_gradient_hover_color_1</item>
+    </integer-array>
+    <string name="plasma_dark_surface_on_dark_accent_gradient_hover_angle">90.0</string>
+    <string-array name="plasma_dark_surface_on_dark_accent_gradient_hover_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Акцентный фон поверхн./контрола с градиентом на темном фоне-->
+    <!--region Акцентный фон поверхн./контрола с градиентом на темном фоне-->
+    <color name="plasma_dark_surface_on_dark_accent_gradient_active_color_0">#FFFFFFFF</color>
+    <color name="plasma_dark_surface_on_dark_accent_gradient_active_color_1">#FF000000</color>
+    <integer-array name="plasma_dark_surface_on_dark_accent_gradient_active_colors">
+        <item>@color/plasma_dark_surface_on_dark_accent_gradient_active_color_0</item>
+        <item>@color/plasma_dark_surface_on_dark_accent_gradient_active_color_1</item>
+    </integer-array>
+    <string name="plasma_dark_surface_on_dark_accent_gradient_active_angle">90.0</string>
+    <string-array name="plasma_dark_surface_on_dark_accent_gradient_active_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Акцентный фон поверхн./контрола с градиентом на темном фоне-->
+    <!--region Фон для скелетона-->
+    <color name="plasma_dark_surface_on_dark_skeleton_gradient_color_0">#17FFFFFF</color>
+    <color name="plasma_dark_surface_on_dark_skeleton_gradient_color_1">#14FFFFFF</color>
+    <color name="plasma_dark_surface_on_dark_skeleton_gradient_color_2">#0DFFFFFF</color>
+    <color name="plasma_dark_surface_on_dark_skeleton_gradient_color_3">#03FFFFFF</color>
+    <color name="plasma_dark_surface_on_dark_skeleton_gradient_color_4">#0DFFFFFF</color>
+    <color name="plasma_dark_surface_on_dark_skeleton_gradient_color_5">#14FFFFFF</color>
+    <color name="plasma_dark_surface_on_dark_skeleton_gradient_color_6">#17FFFFFF</color>
+    <color name="plasma_dark_surface_on_dark_skeleton_gradient_color_7">#14FFFFFF</color>
+    <color name="plasma_dark_surface_on_dark_skeleton_gradient_color_8">#0DFFFFFF</color>
+    <color name="plasma_dark_surface_on_dark_skeleton_gradient_color_9">#03FFFFFF</color>
+    <color name="plasma_dark_surface_on_dark_skeleton_gradient_color_10">#0DFFFFFF</color>
+    <color name="plasma_dark_surface_on_dark_skeleton_gradient_color_11">#14FFFFFF</color>
+    <color name="plasma_dark_surface_on_dark_skeleton_gradient_color_12">#17FFFFFF</color>
+    <integer-array name="plasma_dark_surface_on_dark_skeleton_gradient_colors">
+        <item>@color/plasma_dark_surface_on_dark_skeleton_gradient_color_0</item>
+        <item>@color/plasma_dark_surface_on_dark_skeleton_gradient_color_1</item>
+        <item>@color/plasma_dark_surface_on_dark_skeleton_gradient_color_2</item>
+        <item>@color/plasma_dark_surface_on_dark_skeleton_gradient_color_3</item>
+        <item>@color/plasma_dark_surface_on_dark_skeleton_gradient_color_4</item>
+        <item>@color/plasma_dark_surface_on_dark_skeleton_gradient_color_5</item>
+        <item>@color/plasma_dark_surface_on_dark_skeleton_gradient_color_6</item>
+        <item>@color/plasma_dark_surface_on_dark_skeleton_gradient_color_7</item>
+        <item>@color/plasma_dark_surface_on_dark_skeleton_gradient_color_8</item>
+        <item>@color/plasma_dark_surface_on_dark_skeleton_gradient_color_9</item>
+        <item>@color/plasma_dark_surface_on_dark_skeleton_gradient_color_10</item>
+        <item>@color/plasma_dark_surface_on_dark_skeleton_gradient_color_11</item>
+        <item>@color/plasma_dark_surface_on_dark_skeleton_gradient_color_12</item>
+    </integer-array>
+    <string name="plasma_dark_surface_on_dark_skeleton_gradient_angle">90.0</string>
+    <string-array name="plasma_dark_surface_on_dark_skeleton_gradient_positions">
+        <item>0.0</item>
+        <item>0.0625</item>
+        <item>0.125</item>
+        <item>0.25</item>
+        <item>0.375</item>
+        <item>0.4375</item>
+        <item>0.5</item>
+        <item>0.5625</item>
+        <item>0.625</item>
+        <item>0.75</item>
+        <item>0.875</item>
+        <item>0.9375</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Фон для скелетона-->
+    <!--region Фон для скелетона-->
+    <color name="plasma_dark_surface_on_dark_skeleton_gradient_hover_color_0">#FFFFFFFF</color>
+    <color name="plasma_dark_surface_on_dark_skeleton_gradient_hover_color_1">#FF000000</color>
+    <integer-array name="plasma_dark_surface_on_dark_skeleton_gradient_hover_colors">
+        <item>@color/plasma_dark_surface_on_dark_skeleton_gradient_hover_color_0</item>
+        <item>@color/plasma_dark_surface_on_dark_skeleton_gradient_hover_color_1</item>
+    </integer-array>
+    <string name="plasma_dark_surface_on_dark_skeleton_gradient_hover_angle">90.0</string>
+    <string-array name="plasma_dark_surface_on_dark_skeleton_gradient_hover_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Фон для скелетона-->
+    <!--region Фон для скелетона-->
+    <color name="plasma_dark_surface_on_dark_skeleton_gradient_active_color_0">#FFFFFFFF</color>
+    <color name="plasma_dark_surface_on_dark_skeleton_gradient_active_color_1">#FF000000</color>
+    <integer-array name="plasma_dark_surface_on_dark_skeleton_gradient_active_colors">
+        <item>@color/plasma_dark_surface_on_dark_skeleton_gradient_active_color_0</item>
+        <item>@color/plasma_dark_surface_on_dark_skeleton_gradient_active_color_1</item>
+    </integer-array>
+    <string name="plasma_dark_surface_on_dark_skeleton_gradient_active_angle">90.0</string>
+    <string-array name="plasma_dark_surface_on_dark_skeleton_gradient_active_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Фон для скелетона-->
+    <!--region Яркий фон для скелетона-->
+    <color name="plasma_dark_surface_on_dark_skeleton_deep_gradient_color_0">#5CFFFFFF</color>
+    <color name="plasma_dark_surface_on_dark_skeleton_deep_gradient_color_1">#52FFFFFF</color>
+    <color name="plasma_dark_surface_on_dark_skeleton_deep_gradient_color_2">#33FFFFFF</color>
+    <color name="plasma_dark_surface_on_dark_skeleton_deep_gradient_color_3">#0AFFFFFF</color>
+    <color name="plasma_dark_surface_on_dark_skeleton_deep_gradient_color_4">#33FFFFFF</color>
+    <color name="plasma_dark_surface_on_dark_skeleton_deep_gradient_color_5">#52FFFFFF</color>
+    <color name="plasma_dark_surface_on_dark_skeleton_deep_gradient_color_6">#5CFFFFFF</color>
+    <color name="plasma_dark_surface_on_dark_skeleton_deep_gradient_color_7">#14FFFFFF</color>
+    <color name="plasma_dark_surface_on_dark_skeleton_deep_gradient_color_8">#33FFFFFF</color>
+    <color name="plasma_dark_surface_on_dark_skeleton_deep_gradient_color_9">#0AFFFFFF</color>
+    <color name="plasma_dark_surface_on_dark_skeleton_deep_gradient_color_10">#33FFFFFF</color>
+    <color name="plasma_dark_surface_on_dark_skeleton_deep_gradient_color_11">#52FFFFFF</color>
+    <color name="plasma_dark_surface_on_dark_skeleton_deep_gradient_color_12">#5CFFFFFF</color>
+    <integer-array name="plasma_dark_surface_on_dark_skeleton_deep_gradient_colors">
+        <item>@color/plasma_dark_surface_on_dark_skeleton_deep_gradient_color_0</item>
+        <item>@color/plasma_dark_surface_on_dark_skeleton_deep_gradient_color_1</item>
+        <item>@color/plasma_dark_surface_on_dark_skeleton_deep_gradient_color_2</item>
+        <item>@color/plasma_dark_surface_on_dark_skeleton_deep_gradient_color_3</item>
+        <item>@color/plasma_dark_surface_on_dark_skeleton_deep_gradient_color_4</item>
+        <item>@color/plasma_dark_surface_on_dark_skeleton_deep_gradient_color_5</item>
+        <item>@color/plasma_dark_surface_on_dark_skeleton_deep_gradient_color_6</item>
+        <item>@color/plasma_dark_surface_on_dark_skeleton_deep_gradient_color_7</item>
+        <item>@color/plasma_dark_surface_on_dark_skeleton_deep_gradient_color_8</item>
+        <item>@color/plasma_dark_surface_on_dark_skeleton_deep_gradient_color_9</item>
+        <item>@color/plasma_dark_surface_on_dark_skeleton_deep_gradient_color_10</item>
+        <item>@color/plasma_dark_surface_on_dark_skeleton_deep_gradient_color_11</item>
+        <item>@color/plasma_dark_surface_on_dark_skeleton_deep_gradient_color_12</item>
+    </integer-array>
+    <string name="plasma_dark_surface_on_dark_skeleton_deep_gradient_angle">90.0</string>
+    <string-array name="plasma_dark_surface_on_dark_skeleton_deep_gradient_positions">
+        <item>0.0</item>
+        <item>0.0625</item>
+        <item>0.125</item>
+        <item>0.25</item>
+        <item>0.375</item>
+        <item>0.4375</item>
+        <item>0.5</item>
+        <item>0.5625</item>
+        <item>0.625</item>
+        <item>0.75</item>
+        <item>0.875</item>
+        <item>0.9375</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Яркий фон для скелетона-->
+    <!--region Яркий фон для скелетона-->
+    <color name="plasma_dark_surface_on_dark_skeleton_deep_gradient_hover_color_0">#FFFFFFFF</color>
+    <color name="plasma_dark_surface_on_dark_skeleton_deep_gradient_hover_color_1">#FF000000</color>
+    <integer-array name="plasma_dark_surface_on_dark_skeleton_deep_gradient_hover_colors">
+        <item>@color/plasma_dark_surface_on_dark_skeleton_deep_gradient_hover_color_0</item>
+        <item>@color/plasma_dark_surface_on_dark_skeleton_deep_gradient_hover_color_1</item>
+    </integer-array>
+    <string name="plasma_dark_surface_on_dark_skeleton_deep_gradient_hover_angle">90.0</string>
+    <string-array name="plasma_dark_surface_on_dark_skeleton_deep_gradient_hover_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Яркий фон для скелетона-->
+    <!--region Яркий фон для скелетона-->
+    <color name="plasma_dark_surface_on_dark_skeleton_deep_gradient_active_color_0">#FFFFFFFF</color>
+    <color name="plasma_dark_surface_on_dark_skeleton_deep_gradient_active_color_1">#FF000000</color>
+    <integer-array name="plasma_dark_surface_on_dark_skeleton_deep_gradient_active_colors">
+        <item>@color/plasma_dark_surface_on_dark_skeleton_deep_gradient_active_color_0</item>
+        <item>@color/plasma_dark_surface_on_dark_skeleton_deep_gradient_active_color_1</item>
+    </integer-array>
+    <string name="plasma_dark_surface_on_dark_skeleton_deep_gradient_active_angle">90.0</string>
+    <string-array name="plasma_dark_surface_on_dark_skeleton_deep_gradient_active_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Яркий фон для скелетона-->
+    <!--region Акцент. фон поверхн./контрола с градиентом на светлом фоне-->
+    <color name="plasma_dark_surface_on_light_accent_gradient_color_0">#FF3E79F0</color>
+    <color name="plasma_dark_surface_on_light_accent_gradient_color_1">#FF27C6E5</color>
+    <integer-array name="plasma_dark_surface_on_light_accent_gradient_colors">
+        <item>@color/plasma_dark_surface_on_light_accent_gradient_color_0</item>
+        <item>@color/plasma_dark_surface_on_light_accent_gradient_color_1</item>
+    </integer-array>
+    <string name="plasma_dark_surface_on_light_accent_gradient_angle">93.97</string>
+    <string-array name="plasma_dark_surface_on_light_accent_gradient_positions">
+        <item>0.0649</item>
+        <item>0.9351</item>
+    </string-array>
+    <!--endregion Акцент. фон поверхн./контрола с градиентом на светлом фоне-->
+    <!--region Акцент. фон поверхн./контрола с градиентом на светлом фоне-->
+    <color name="plasma_dark_surface_on_light_accent_gradient_hover_color_0">#FFFFFFFF</color>
+    <color name="plasma_dark_surface_on_light_accent_gradient_hover_color_1">#FF000000</color>
+    <integer-array name="plasma_dark_surface_on_light_accent_gradient_hover_colors">
+        <item>@color/plasma_dark_surface_on_light_accent_gradient_hover_color_0</item>
+        <item>@color/plasma_dark_surface_on_light_accent_gradient_hover_color_1</item>
+    </integer-array>
+    <string name="plasma_dark_surface_on_light_accent_gradient_hover_angle">90.0</string>
+    <string-array name="plasma_dark_surface_on_light_accent_gradient_hover_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Акцент. фон поверхн./контрола с градиентом на светлом фоне-->
+    <!--region Акцент. фон поверхн./контрола с градиентом на светлом фоне-->
+    <color name="plasma_dark_surface_on_light_accent_gradient_active_color_0">#FFFFFFFF</color>
+    <color name="plasma_dark_surface_on_light_accent_gradient_active_color_1">#FF000000</color>
+    <integer-array name="plasma_dark_surface_on_light_accent_gradient_active_colors">
+        <item>@color/plasma_dark_surface_on_light_accent_gradient_active_color_0</item>
+        <item>@color/plasma_dark_surface_on_light_accent_gradient_active_color_1</item>
+    </integer-array>
+    <string name="plasma_dark_surface_on_light_accent_gradient_active_angle">90.0</string>
+    <string-array name="plasma_dark_surface_on_light_accent_gradient_active_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Акцент. фон поверхн./контрола с градиентом на светлом фоне-->
+    <!--region Фон для скелетона-->
+    <color name="plasma_dark_surface_on_light_skeleton_gradient_color_0">#17080808</color>
+    <color name="plasma_dark_surface_on_light_skeleton_gradient_color_1">#14080808</color>
+    <color name="plasma_dark_surface_on_light_skeleton_gradient_color_2">#0D080808</color>
+    <color name="plasma_dark_surface_on_light_skeleton_gradient_color_3">#03080808</color>
+    <color name="plasma_dark_surface_on_light_skeleton_gradient_color_4">#0D080808</color>
+    <color name="plasma_dark_surface_on_light_skeleton_gradient_color_5">#14080808</color>
+    <color name="plasma_dark_surface_on_light_skeleton_gradient_color_6">#17080808</color>
+    <color name="plasma_dark_surface_on_light_skeleton_gradient_color_7">#14080808</color>
+    <color name="plasma_dark_surface_on_light_skeleton_gradient_color_8">#0D080808</color>
+    <color name="plasma_dark_surface_on_light_skeleton_gradient_color_9">#03080808</color>
+    <color name="plasma_dark_surface_on_light_skeleton_gradient_color_10">#0D080808</color>
+    <color name="plasma_dark_surface_on_light_skeleton_gradient_color_11">#14080808</color>
+    <color name="plasma_dark_surface_on_light_skeleton_gradient_color_12">#17080808</color>
+    <integer-array name="plasma_dark_surface_on_light_skeleton_gradient_colors">
+        <item>@color/plasma_dark_surface_on_light_skeleton_gradient_color_0</item>
+        <item>@color/plasma_dark_surface_on_light_skeleton_gradient_color_1</item>
+        <item>@color/plasma_dark_surface_on_light_skeleton_gradient_color_2</item>
+        <item>@color/plasma_dark_surface_on_light_skeleton_gradient_color_3</item>
+        <item>@color/plasma_dark_surface_on_light_skeleton_gradient_color_4</item>
+        <item>@color/plasma_dark_surface_on_light_skeleton_gradient_color_5</item>
+        <item>@color/plasma_dark_surface_on_light_skeleton_gradient_color_6</item>
+        <item>@color/plasma_dark_surface_on_light_skeleton_gradient_color_7</item>
+        <item>@color/plasma_dark_surface_on_light_skeleton_gradient_color_8</item>
+        <item>@color/plasma_dark_surface_on_light_skeleton_gradient_color_9</item>
+        <item>@color/plasma_dark_surface_on_light_skeleton_gradient_color_10</item>
+        <item>@color/plasma_dark_surface_on_light_skeleton_gradient_color_11</item>
+        <item>@color/plasma_dark_surface_on_light_skeleton_gradient_color_12</item>
+    </integer-array>
+    <string name="plasma_dark_surface_on_light_skeleton_gradient_angle">90.0</string>
+    <string-array name="plasma_dark_surface_on_light_skeleton_gradient_positions">
+        <item>0.0</item>
+        <item>0.0625</item>
+        <item>0.125</item>
+        <item>0.25</item>
+        <item>0.375</item>
+        <item>0.4375</item>
+        <item>0.5</item>
+        <item>0.5625</item>
+        <item>0.625</item>
+        <item>0.75</item>
+        <item>0.875</item>
+        <item>0.9375</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Фон для скелетона-->
+    <!--region Фон для скелетона-->
+    <color name="plasma_dark_surface_on_light_skeleton_gradient_hover_color_0">#FFFFFFFF</color>
+    <color name="plasma_dark_surface_on_light_skeleton_gradient_hover_color_1">#FF000000</color>
+    <integer-array name="plasma_dark_surface_on_light_skeleton_gradient_hover_colors">
+        <item>@color/plasma_dark_surface_on_light_skeleton_gradient_hover_color_0</item>
+        <item>@color/plasma_dark_surface_on_light_skeleton_gradient_hover_color_1</item>
+    </integer-array>
+    <string name="plasma_dark_surface_on_light_skeleton_gradient_hover_angle">90.0</string>
+    <string-array name="plasma_dark_surface_on_light_skeleton_gradient_hover_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Фон для скелетона-->
+    <!--region Фон для скелетона-->
+    <color name="plasma_dark_surface_on_light_skeleton_gradient_active_color_0">#FFFFFFFF</color>
+    <color name="plasma_dark_surface_on_light_skeleton_gradient_active_color_1">#FF000000</color>
+    <integer-array name="plasma_dark_surface_on_light_skeleton_gradient_active_colors">
+        <item>@color/plasma_dark_surface_on_light_skeleton_gradient_active_color_0</item>
+        <item>@color/plasma_dark_surface_on_light_skeleton_gradient_active_color_1</item>
+    </integer-array>
+    <string name="plasma_dark_surface_on_light_skeleton_gradient_active_angle">90.0</string>
+    <string-array name="plasma_dark_surface_on_light_skeleton_gradient_active_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Фон для скелетона-->
+    <!--region Яркий фон для скелетона-->
+    <color name="plasma_dark_surface_on_light_skeleton_deep_gradient_color_0">#5C080808</color>
+    <color name="plasma_dark_surface_on_light_skeleton_deep_gradient_color_1">#52080808</color>
+    <color name="plasma_dark_surface_on_light_skeleton_deep_gradient_color_2">#33080808</color>
+    <color name="plasma_dark_surface_on_light_skeleton_deep_gradient_color_3">#0A080808</color>
+    <color name="plasma_dark_surface_on_light_skeleton_deep_gradient_color_4">#33080808</color>
+    <color name="plasma_dark_surface_on_light_skeleton_deep_gradient_color_5">#52080808</color>
+    <color name="plasma_dark_surface_on_light_skeleton_deep_gradient_color_6">#5C080808</color>
+    <color name="plasma_dark_surface_on_light_skeleton_deep_gradient_color_7">#14080808</color>
+    <color name="plasma_dark_surface_on_light_skeleton_deep_gradient_color_8">#33080808</color>
+    <color name="plasma_dark_surface_on_light_skeleton_deep_gradient_color_9">#0A080808</color>
+    <color name="plasma_dark_surface_on_light_skeleton_deep_gradient_color_10">#33080808</color>
+    <color name="plasma_dark_surface_on_light_skeleton_deep_gradient_color_11">#52080808</color>
+    <color name="plasma_dark_surface_on_light_skeleton_deep_gradient_color_12">#5C080808</color>
+    <integer-array name="plasma_dark_surface_on_light_skeleton_deep_gradient_colors">
+        <item>@color/plasma_dark_surface_on_light_skeleton_deep_gradient_color_0</item>
+        <item>@color/plasma_dark_surface_on_light_skeleton_deep_gradient_color_1</item>
+        <item>@color/plasma_dark_surface_on_light_skeleton_deep_gradient_color_2</item>
+        <item>@color/plasma_dark_surface_on_light_skeleton_deep_gradient_color_3</item>
+        <item>@color/plasma_dark_surface_on_light_skeleton_deep_gradient_color_4</item>
+        <item>@color/plasma_dark_surface_on_light_skeleton_deep_gradient_color_5</item>
+        <item>@color/plasma_dark_surface_on_light_skeleton_deep_gradient_color_6</item>
+        <item>@color/plasma_dark_surface_on_light_skeleton_deep_gradient_color_7</item>
+        <item>@color/plasma_dark_surface_on_light_skeleton_deep_gradient_color_8</item>
+        <item>@color/plasma_dark_surface_on_light_skeleton_deep_gradient_color_9</item>
+        <item>@color/plasma_dark_surface_on_light_skeleton_deep_gradient_color_10</item>
+        <item>@color/plasma_dark_surface_on_light_skeleton_deep_gradient_color_11</item>
+        <item>@color/plasma_dark_surface_on_light_skeleton_deep_gradient_color_12</item>
+    </integer-array>
+    <string name="plasma_dark_surface_on_light_skeleton_deep_gradient_angle">90.0</string>
+    <string-array name="plasma_dark_surface_on_light_skeleton_deep_gradient_positions">
+        <item>0.0</item>
+        <item>0.0625</item>
+        <item>0.125</item>
+        <item>0.25</item>
+        <item>0.375</item>
+        <item>0.4375</item>
+        <item>0.5</item>
+        <item>0.5625</item>
+        <item>0.625</item>
+        <item>0.75</item>
+        <item>0.875</item>
+        <item>0.9375</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Яркий фон для скелетона-->
+    <!--region Яркий фон для скелетона-->
+    <color name="plasma_dark_surface_on_light_skeleton_deep_gradient_hover_color_0">#FFFFFFFF</color>
+    <color name="plasma_dark_surface_on_light_skeleton_deep_gradient_hover_color_1">#FF000000</color>
+    <integer-array name="plasma_dark_surface_on_light_skeleton_deep_gradient_hover_colors">
+        <item>@color/plasma_dark_surface_on_light_skeleton_deep_gradient_hover_color_0</item>
+        <item>@color/plasma_dark_surface_on_light_skeleton_deep_gradient_hover_color_1</item>
+    </integer-array>
+    <string name="plasma_dark_surface_on_light_skeleton_deep_gradient_hover_angle">90.0</string>
+    <string-array name="plasma_dark_surface_on_light_skeleton_deep_gradient_hover_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Яркий фон для скелетона-->
+    <!--region Яркий фон для скелетона-->
+    <color name="plasma_dark_surface_on_light_skeleton_deep_gradient_active_color_0">#FFFFFFFF</color>
+    <color name="plasma_dark_surface_on_light_skeleton_deep_gradient_active_color_1">#FF000000</color>
+    <integer-array name="plasma_dark_surface_on_light_skeleton_deep_gradient_active_colors">
+        <item>@color/plasma_dark_surface_on_light_skeleton_deep_gradient_active_color_0</item>
+        <item>@color/plasma_dark_surface_on_light_skeleton_deep_gradient_active_color_1</item>
+    </integer-array>
+    <string name="plasma_dark_surface_on_light_skeleton_deep_gradient_active_angle">90.0</string>
+    <string-array name="plasma_dark_surface_on_light_skeleton_deep_gradient_active_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Яркий фон для скелетона-->
+    <!--region Инвертированный акцентный фон поверхности/контрола с градиентом-->
+    <color name="plasma_dark_surface_inverse_accent_gradient_hover_color_0">#FFFFFFFF</color>
+    <color name="plasma_dark_surface_inverse_accent_gradient_hover_color_1">#FF000000</color>
+    <integer-array name="plasma_dark_surface_inverse_accent_gradient_hover_colors">
+        <item>@color/plasma_dark_surface_inverse_accent_gradient_hover_color_0</item>
+        <item>@color/plasma_dark_surface_inverse_accent_gradient_hover_color_1</item>
+    </integer-array>
+    <string name="plasma_dark_surface_inverse_accent_gradient_hover_angle">90.0</string>
+    <string-array name="plasma_dark_surface_inverse_accent_gradient_hover_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Инвертированный акцентный фон поверхности/контрола с градиентом-->
+    <!--region Инвертированный акцентный фон поверхности/контрола с градиентом-->
+    <color name="plasma_dark_surface_inverse_accent_gradient_active_color_0">#FFFFFFFF</color>
+    <color name="plasma_dark_surface_inverse_accent_gradient_active_color_1">#FF000000</color>
+    <integer-array name="plasma_dark_surface_inverse_accent_gradient_active_colors">
+        <item>@color/plasma_dark_surface_inverse_accent_gradient_active_color_0</item>
+        <item>@color/plasma_dark_surface_inverse_accent_gradient_active_color_1</item>
+    </integer-array>
+    <string name="plasma_dark_surface_inverse_accent_gradient_active_angle">90.0</string>
+    <string-array name="plasma_dark_surface_inverse_accent_gradient_active_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Инвертированный акцентный фон поверхности/контрола с градиентом-->
+    <!--region Инвертированный акцентный фон поверхности/контрола с градиентом-->
+    <color name="plasma_dark_surface_inverse_accent_gradient_color_0">#FF3E79F0</color>
+    <color name="plasma_dark_surface_inverse_accent_gradient_color_1">#FF27C6E5</color>
+    <integer-array name="plasma_dark_surface_inverse_accent_gradient_colors">
+        <item>@color/plasma_dark_surface_inverse_accent_gradient_color_0</item>
+        <item>@color/plasma_dark_surface_inverse_accent_gradient_color_1</item>
+    </integer-array>
+    <string name="plasma_dark_surface_inverse_accent_gradient_angle">4.57</string>
+    <string-array name="plasma_dark_surface_inverse_accent_gradient_positions">
+        <item>0.06</item>
+        <item>0.94</item>
+    </string-array>
+    <!--endregion Инвертированный акцентный фон поверхности/контрола с градиентом-->
+    <!--region Фон для скелетона-->
+    <color name="plasma_dark_surface_inverse_skeleton_gradient_color_0">#17080808</color>
+    <color name="plasma_dark_surface_inverse_skeleton_gradient_color_1">#14080808</color>
+    <color name="plasma_dark_surface_inverse_skeleton_gradient_color_2">#0D080808</color>
+    <color name="plasma_dark_surface_inverse_skeleton_gradient_color_3">#03080808</color>
+    <color name="plasma_dark_surface_inverse_skeleton_gradient_color_4">#0D080808</color>
+    <color name="plasma_dark_surface_inverse_skeleton_gradient_color_5">#14080808</color>
+    <color name="plasma_dark_surface_inverse_skeleton_gradient_color_6">#17080808</color>
+    <color name="plasma_dark_surface_inverse_skeleton_gradient_color_7">#14080808</color>
+    <color name="plasma_dark_surface_inverse_skeleton_gradient_color_8">#0D080808</color>
+    <color name="plasma_dark_surface_inverse_skeleton_gradient_color_9">#03080808</color>
+    <color name="plasma_dark_surface_inverse_skeleton_gradient_color_10">#0D080808</color>
+    <color name="plasma_dark_surface_inverse_skeleton_gradient_color_11">#14080808</color>
+    <color name="plasma_dark_surface_inverse_skeleton_gradient_color_12">#17080808</color>
+    <integer-array name="plasma_dark_surface_inverse_skeleton_gradient_colors">
+        <item>@color/plasma_dark_surface_inverse_skeleton_gradient_color_0</item>
+        <item>@color/plasma_dark_surface_inverse_skeleton_gradient_color_1</item>
+        <item>@color/plasma_dark_surface_inverse_skeleton_gradient_color_2</item>
+        <item>@color/plasma_dark_surface_inverse_skeleton_gradient_color_3</item>
+        <item>@color/plasma_dark_surface_inverse_skeleton_gradient_color_4</item>
+        <item>@color/plasma_dark_surface_inverse_skeleton_gradient_color_5</item>
+        <item>@color/plasma_dark_surface_inverse_skeleton_gradient_color_6</item>
+        <item>@color/plasma_dark_surface_inverse_skeleton_gradient_color_7</item>
+        <item>@color/plasma_dark_surface_inverse_skeleton_gradient_color_8</item>
+        <item>@color/plasma_dark_surface_inverse_skeleton_gradient_color_9</item>
+        <item>@color/plasma_dark_surface_inverse_skeleton_gradient_color_10</item>
+        <item>@color/plasma_dark_surface_inverse_skeleton_gradient_color_11</item>
+        <item>@color/plasma_dark_surface_inverse_skeleton_gradient_color_12</item>
+    </integer-array>
+    <string name="plasma_dark_surface_inverse_skeleton_gradient_angle">90.0</string>
+    <string-array name="plasma_dark_surface_inverse_skeleton_gradient_positions">
+        <item>0.0</item>
+        <item>0.0625</item>
+        <item>0.125</item>
+        <item>0.25</item>
+        <item>0.375</item>
+        <item>0.4375</item>
+        <item>0.5</item>
+        <item>0.5625</item>
+        <item>0.625</item>
+        <item>0.75</item>
+        <item>0.875</item>
+        <item>0.9375</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Фон для скелетона-->
+    <!--region Фон для скелетона-->
+    <color name="plasma_dark_surface_inverse_skeleton_gradient_hover_color_0">#FFFFFFFF</color>
+    <color name="plasma_dark_surface_inverse_skeleton_gradient_hover_color_1">#FF000000</color>
+    <integer-array name="plasma_dark_surface_inverse_skeleton_gradient_hover_colors">
+        <item>@color/plasma_dark_surface_inverse_skeleton_gradient_hover_color_0</item>
+        <item>@color/plasma_dark_surface_inverse_skeleton_gradient_hover_color_1</item>
+    </integer-array>
+    <string name="plasma_dark_surface_inverse_skeleton_gradient_hover_angle">90.0</string>
+    <string-array name="plasma_dark_surface_inverse_skeleton_gradient_hover_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Фон для скелетона-->
+    <!--region Фон для скелетона-->
+    <color name="plasma_dark_surface_inverse_skeleton_gradient_active_color_0">#FFFFFFFF</color>
+    <color name="plasma_dark_surface_inverse_skeleton_gradient_active_color_1">#FF000000</color>
+    <integer-array name="plasma_dark_surface_inverse_skeleton_gradient_active_colors">
+        <item>@color/plasma_dark_surface_inverse_skeleton_gradient_active_color_0</item>
+        <item>@color/plasma_dark_surface_inverse_skeleton_gradient_active_color_1</item>
+    </integer-array>
+    <string name="plasma_dark_surface_inverse_skeleton_gradient_active_angle">90.0</string>
+    <string-array name="plasma_dark_surface_inverse_skeleton_gradient_active_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Фон для скелетона-->
+    <!--region Яркий фон для скелетона-->
+    <color name="plasma_dark_surface_inverse_skeleton_deep_gradient_color_0">#5C080808</color>
+    <color name="plasma_dark_surface_inverse_skeleton_deep_gradient_color_1">#52080808</color>
+    <color name="plasma_dark_surface_inverse_skeleton_deep_gradient_color_2">#33080808</color>
+    <color name="plasma_dark_surface_inverse_skeleton_deep_gradient_color_3">#0A080808</color>
+    <color name="plasma_dark_surface_inverse_skeleton_deep_gradient_color_4">#33080808</color>
+    <color name="plasma_dark_surface_inverse_skeleton_deep_gradient_color_5">#52080808</color>
+    <color name="plasma_dark_surface_inverse_skeleton_deep_gradient_color_6">#5C080808</color>
+    <color name="plasma_dark_surface_inverse_skeleton_deep_gradient_color_7">#14080808</color>
+    <color name="plasma_dark_surface_inverse_skeleton_deep_gradient_color_8">#33080808</color>
+    <color name="plasma_dark_surface_inverse_skeleton_deep_gradient_color_9">#0A080808</color>
+    <color name="plasma_dark_surface_inverse_skeleton_deep_gradient_color_10">#33080808</color>
+    <color name="plasma_dark_surface_inverse_skeleton_deep_gradient_color_11">#52080808</color>
+    <color name="plasma_dark_surface_inverse_skeleton_deep_gradient_color_12">#5C080808</color>
+    <integer-array name="plasma_dark_surface_inverse_skeleton_deep_gradient_colors">
+        <item>@color/plasma_dark_surface_inverse_skeleton_deep_gradient_color_0</item>
+        <item>@color/plasma_dark_surface_inverse_skeleton_deep_gradient_color_1</item>
+        <item>@color/plasma_dark_surface_inverse_skeleton_deep_gradient_color_2</item>
+        <item>@color/plasma_dark_surface_inverse_skeleton_deep_gradient_color_3</item>
+        <item>@color/plasma_dark_surface_inverse_skeleton_deep_gradient_color_4</item>
+        <item>@color/plasma_dark_surface_inverse_skeleton_deep_gradient_color_5</item>
+        <item>@color/plasma_dark_surface_inverse_skeleton_deep_gradient_color_6</item>
+        <item>@color/plasma_dark_surface_inverse_skeleton_deep_gradient_color_7</item>
+        <item>@color/plasma_dark_surface_inverse_skeleton_deep_gradient_color_8</item>
+        <item>@color/plasma_dark_surface_inverse_skeleton_deep_gradient_color_9</item>
+        <item>@color/plasma_dark_surface_inverse_skeleton_deep_gradient_color_10</item>
+        <item>@color/plasma_dark_surface_inverse_skeleton_deep_gradient_color_11</item>
+        <item>@color/plasma_dark_surface_inverse_skeleton_deep_gradient_color_12</item>
+    </integer-array>
+    <string name="plasma_dark_surface_inverse_skeleton_deep_gradient_angle">90.0</string>
+    <string-array name="plasma_dark_surface_inverse_skeleton_deep_gradient_positions">
+        <item>0.0</item>
+        <item>0.0625</item>
+        <item>0.125</item>
+        <item>0.25</item>
+        <item>0.375</item>
+        <item>0.4375</item>
+        <item>0.5</item>
+        <item>0.5625</item>
+        <item>0.625</item>
+        <item>0.75</item>
+        <item>0.875</item>
+        <item>0.9375</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Яркий фон для скелетона-->
+    <!--region Яркий фон для скелетона-->
+    <color name="plasma_dark_surface_inverse_skeleton_deep_gradient_hover_color_0">#FFFFFFFF</color>
+    <color name="plasma_dark_surface_inverse_skeleton_deep_gradient_hover_color_1">#FF000000</color>
+    <integer-array name="plasma_dark_surface_inverse_skeleton_deep_gradient_hover_colors">
+        <item>@color/plasma_dark_surface_inverse_skeleton_deep_gradient_hover_color_0</item>
+        <item>@color/plasma_dark_surface_inverse_skeleton_deep_gradient_hover_color_1</item>
+    </integer-array>
+    <string name="plasma_dark_surface_inverse_skeleton_deep_gradient_hover_angle">90.0</string>
+    <string-array name="plasma_dark_surface_inverse_skeleton_deep_gradient_hover_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Яркий фон для скелетона-->
+    <!--region Яркий фон для скелетона-->
+    <color name="plasma_dark_surface_inverse_skeleton_deep_gradient_active_color_0">#FFFFFFFF</color>
+    <color name="plasma_dark_surface_inverse_skeleton_deep_gradient_active_color_1">#FF000000</color>
+    <integer-array name="plasma_dark_surface_inverse_skeleton_deep_gradient_active_colors">
+        <item>@color/plasma_dark_surface_inverse_skeleton_deep_gradient_active_color_0</item>
+        <item>@color/plasma_dark_surface_inverse_skeleton_deep_gradient_active_color_1</item>
+    </integer-array>
+    <string name="plasma_dark_surface_inverse_skeleton_deep_gradient_active_angle">90.0</string>
+    <string-array name="plasma_dark_surface_inverse_skeleton_deep_gradient_active_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Яркий фон для скелетона-->
+    <!--region Акцентный цвет с градиентом-->
+    <color name="plasma_light_text_default_accent_gradient_color_0">#FF3E79F0</color>
+    <color name="plasma_light_text_default_accent_gradient_color_1">#FF27C6E5</color>
+    <integer-array name="plasma_light_text_default_accent_gradient_colors">
+        <item>@color/plasma_light_text_default_accent_gradient_color_0</item>
+        <item>@color/plasma_light_text_default_accent_gradient_color_1</item>
+    </integer-array>
+    <string name="plasma_light_text_default_accent_gradient_angle">93.97</string>
+    <string-array name="plasma_light_text_default_accent_gradient_positions">
+        <item>0.0649</item>
+        <item>0.9351</item>
+    </string-array>
+    <!--endregion Акцентный цвет с градиентом-->
+    <!--region Акцентный цвет с градиентом-->
+    <color name="plasma_light_text_default_accent_gradient_hover_color_0">#FFFFFFFF</color>
+    <color name="plasma_light_text_default_accent_gradient_hover_color_1">#FF000000</color>
+    <integer-array name="plasma_light_text_default_accent_gradient_hover_colors">
+        <item>@color/plasma_light_text_default_accent_gradient_hover_color_0</item>
+        <item>@color/plasma_light_text_default_accent_gradient_hover_color_1</item>
+    </integer-array>
+    <string name="plasma_light_text_default_accent_gradient_hover_angle">90.0</string>
+    <string-array name="plasma_light_text_default_accent_gradient_hover_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Акцентный цвет с градиентом-->
+    <!--region Акцентный цвет с градиентом-->
+    <color name="plasma_light_text_default_accent_gradient_active_color_0">#FFFFFFFF</color>
+    <color name="plasma_light_text_default_accent_gradient_active_color_1">#FF000000</color>
+    <integer-array name="plasma_light_text_default_accent_gradient_active_colors">
+        <item>@color/plasma_light_text_default_accent_gradient_active_color_0</item>
+        <item>@color/plasma_light_text_default_accent_gradient_active_color_1</item>
+    </integer-array>
+    <string name="plasma_light_text_default_accent_gradient_active_angle">90.0</string>
+    <string-array name="plasma_light_text_default_accent_gradient_active_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Акцентный цвет с градиентом-->
+    <!--region Акцентный цвет с градиентом на темном фоне-->
+    <color name="plasma_light_text_on_dark_accent_gradient_color_0">#FF5E94FF</color>
+    <color name="plasma_light_text_on_dark_accent_gradient_color_1">#FF43DBFA</color>
+    <integer-array name="plasma_light_text_on_dark_accent_gradient_colors">
+        <item>@color/plasma_light_text_on_dark_accent_gradient_color_0</item>
+        <item>@color/plasma_light_text_on_dark_accent_gradient_color_1</item>
+    </integer-array>
+    <string name="plasma_light_text_on_dark_accent_gradient_angle">89.83</string>
+    <string-array name="plasma_light_text_on_dark_accent_gradient_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Акцентный цвет с градиентом на темном фоне-->
+    <!--region Акцентный цвет с градиентом на темном фоне-->
+    <color name="plasma_light_text_on_dark_accent_gradient_hover_color_0">#FFFFFFFF</color>
+    <color name="plasma_light_text_on_dark_accent_gradient_hover_color_1">#FF000000</color>
+    <integer-array name="plasma_light_text_on_dark_accent_gradient_hover_colors">
+        <item>@color/plasma_light_text_on_dark_accent_gradient_hover_color_0</item>
+        <item>@color/plasma_light_text_on_dark_accent_gradient_hover_color_1</item>
+    </integer-array>
+    <string name="plasma_light_text_on_dark_accent_gradient_hover_angle">90.0</string>
+    <string-array name="plasma_light_text_on_dark_accent_gradient_hover_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Акцентный цвет с градиентом на темном фоне-->
+    <!--region Акцентный цвет с градиентом на темном фоне-->
+    <color name="plasma_light_text_on_dark_accent_gradient_active_color_0">#FFFFFFFF</color>
+    <color name="plasma_light_text_on_dark_accent_gradient_active_color_1">#FF000000</color>
+    <integer-array name="plasma_light_text_on_dark_accent_gradient_active_colors">
+        <item>@color/plasma_light_text_on_dark_accent_gradient_active_color_0</item>
+        <item>@color/plasma_light_text_on_dark_accent_gradient_active_color_1</item>
+    </integer-array>
+    <string name="plasma_light_text_on_dark_accent_gradient_active_angle">90.0</string>
+    <string-array name="plasma_light_text_on_dark_accent_gradient_active_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Акцентный цвет с градиентом на темном фоне-->
+    <!--region Акцентный цвет с градиентом на светлом фоне-->
+    <color name="plasma_light_text_on_light_accent_gradient_color_0">#FF3E79F0</color>
+    <color name="plasma_light_text_on_light_accent_gradient_color_1">#FF27C6E5</color>
+    <integer-array name="plasma_light_text_on_light_accent_gradient_colors">
+        <item>@color/plasma_light_text_on_light_accent_gradient_color_0</item>
+        <item>@color/plasma_light_text_on_light_accent_gradient_color_1</item>
+    </integer-array>
+    <string name="plasma_light_text_on_light_accent_gradient_angle">93.97</string>
+    <string-array name="plasma_light_text_on_light_accent_gradient_positions">
+        <item>0.0649</item>
+        <item>0.9351</item>
+    </string-array>
+    <!--endregion Акцентный цвет с градиентом на светлом фоне-->
+    <!--region Акцентный цвет с градиентом на светлом фоне-->
+    <color name="plasma_light_text_on_light_accent_gradient_hover_color_0">#FFFFFFFF</color>
+    <color name="plasma_light_text_on_light_accent_gradient_hover_color_1">#FF000000</color>
+    <integer-array name="plasma_light_text_on_light_accent_gradient_hover_colors">
+        <item>@color/plasma_light_text_on_light_accent_gradient_hover_color_0</item>
+        <item>@color/plasma_light_text_on_light_accent_gradient_hover_color_1</item>
+    </integer-array>
+    <string name="plasma_light_text_on_light_accent_gradient_hover_angle">90.0</string>
+    <string-array name="plasma_light_text_on_light_accent_gradient_hover_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Акцентный цвет с градиентом на светлом фоне-->
+    <!--region Акцентный цвет с градиентом на светлом фоне-->
+    <color name="plasma_light_text_on_light_accent_gradient_active_color_0">#FFFFFFFF</color>
+    <color name="plasma_light_text_on_light_accent_gradient_active_color_1">#FF000000</color>
+    <integer-array name="plasma_light_text_on_light_accent_gradient_active_colors">
+        <item>@color/plasma_light_text_on_light_accent_gradient_active_color_0</item>
+        <item>@color/plasma_light_text_on_light_accent_gradient_active_color_1</item>
+    </integer-array>
+    <string name="plasma_light_text_on_light_accent_gradient_active_angle">90.0</string>
+    <string-array name="plasma_light_text_on_light_accent_gradient_active_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Акцентный цвет с градиентом на светлом фоне-->
+    <!--region Инвертированный акцентный цвет с градиентом-->
+    <color name="plasma_light_text_inverse_accent_gradient_hover_color_0">#FFFFFFFF</color>
+    <color name="plasma_light_text_inverse_accent_gradient_hover_color_1">#FF000000</color>
+    <integer-array name="plasma_light_text_inverse_accent_gradient_hover_colors">
+        <item>@color/plasma_light_text_inverse_accent_gradient_hover_color_0</item>
+        <item>@color/plasma_light_text_inverse_accent_gradient_hover_color_1</item>
+    </integer-array>
+    <string name="plasma_light_text_inverse_accent_gradient_hover_angle">90.0</string>
+    <string-array name="plasma_light_text_inverse_accent_gradient_hover_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Инвертированный акцентный цвет с градиентом-->
+    <!--region Инвертированный акцентный цвет с градиентом-->
+    <color name="plasma_light_text_inverse_accent_gradient_active_color_0">#FFFFFFFF</color>
+    <color name="plasma_light_text_inverse_accent_gradient_active_color_1">#FF000000</color>
+    <integer-array name="plasma_light_text_inverse_accent_gradient_active_colors">
+        <item>@color/plasma_light_text_inverse_accent_gradient_active_color_0</item>
+        <item>@color/plasma_light_text_inverse_accent_gradient_active_color_1</item>
+    </integer-array>
+    <string name="plasma_light_text_inverse_accent_gradient_active_angle">90.0</string>
+    <string-array name="plasma_light_text_inverse_accent_gradient_active_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Инвертированный акцентный цвет с градиентом-->
+    <!--region Инвертированный акцентный цвет с градиентом-->
+    <color name="plasma_light_text_inverse_accent_gradient_color_0">#FF5E94FF</color>
+    <color name="plasma_light_text_inverse_accent_gradient_color_1">#FF43DBFA</color>
+    <integer-array name="plasma_light_text_inverse_accent_gradient_colors">
+        <item>@color/plasma_light_text_inverse_accent_gradient_color_0</item>
+        <item>@color/plasma_light_text_inverse_accent_gradient_color_1</item>
+    </integer-array>
+    <string name="plasma_light_text_inverse_accent_gradient_angle">0.0</string>
+    <string-array name="plasma_light_text_inverse_accent_gradient_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Инвертированный акцентный цвет с градиентом-->
+    <!--region Акцентный фон поверхности/контрола с градиентом-->
+    <color name="plasma_light_surface_default_accent_gradient_color_0">#FF3E79F0</color>
+    <color name="plasma_light_surface_default_accent_gradient_color_1">#FF27C6E5</color>
+    <integer-array name="plasma_light_surface_default_accent_gradient_colors">
+        <item>@color/plasma_light_surface_default_accent_gradient_color_0</item>
+        <item>@color/plasma_light_surface_default_accent_gradient_color_1</item>
+    </integer-array>
+    <string name="plasma_light_surface_default_accent_gradient_angle">93.97</string>
+    <string-array name="plasma_light_surface_default_accent_gradient_positions">
+        <item>0.0649</item>
+        <item>0.9351</item>
+    </string-array>
+    <!--endregion Акцентный фон поверхности/контрола с градиентом-->
+    <!--region Акцентный фон поверхности/контрола с градиентом-->
+    <color name="plasma_light_surface_default_accent_gradient_hover_color_0">#FFFFFFFF</color>
+    <color name="plasma_light_surface_default_accent_gradient_hover_color_1">#FF000000</color>
+    <integer-array name="plasma_light_surface_default_accent_gradient_hover_colors">
+        <item>@color/plasma_light_surface_default_accent_gradient_hover_color_0</item>
+        <item>@color/plasma_light_surface_default_accent_gradient_hover_color_1</item>
+    </integer-array>
+    <string name="plasma_light_surface_default_accent_gradient_hover_angle">90.0</string>
+    <string-array name="plasma_light_surface_default_accent_gradient_hover_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Акцентный фон поверхности/контрола с градиентом-->
+    <!--region Акцентный фон поверхности/контрола с градиентом-->
+    <color name="plasma_light_surface_default_accent_gradient_active_color_0">#FFFFFFFF</color>
+    <color name="plasma_light_surface_default_accent_gradient_active_color_1">#FF000000</color>
+    <integer-array name="plasma_light_surface_default_accent_gradient_active_colors">
+        <item>@color/plasma_light_surface_default_accent_gradient_active_color_0</item>
+        <item>@color/plasma_light_surface_default_accent_gradient_active_color_1</item>
+    </integer-array>
+    <string name="plasma_light_surface_default_accent_gradient_active_angle">90.0</string>
+    <string-array name="plasma_light_surface_default_accent_gradient_active_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Акцентный фон поверхности/контрола с градиентом-->
+    <!--region Фон для скелетона-->
+    <color name="plasma_light_surface_default_skeleton_gradient_color_0">#17080808</color>
+    <color name="plasma_light_surface_default_skeleton_gradient_color_1">#14080808</color>
+    <color name="plasma_light_surface_default_skeleton_gradient_color_2">#0D080808</color>
+    <color name="plasma_light_surface_default_skeleton_gradient_color_3">#03080808</color>
+    <color name="plasma_light_surface_default_skeleton_gradient_color_4">#0D080808</color>
+    <color name="plasma_light_surface_default_skeleton_gradient_color_5">#14080808</color>
+    <color name="plasma_light_surface_default_skeleton_gradient_color_6">#17080808</color>
+    <color name="plasma_light_surface_default_skeleton_gradient_color_7">#14080808</color>
+    <color name="plasma_light_surface_default_skeleton_gradient_color_8">#0D080808</color>
+    <color name="plasma_light_surface_default_skeleton_gradient_color_9">#03080808</color>
+    <color name="plasma_light_surface_default_skeleton_gradient_color_10">#0D080808</color>
+    <color name="plasma_light_surface_default_skeleton_gradient_color_11">#14080808</color>
+    <color name="plasma_light_surface_default_skeleton_gradient_color_12">#17080808</color>
+    <integer-array name="plasma_light_surface_default_skeleton_gradient_colors">
+        <item>@color/plasma_light_surface_default_skeleton_gradient_color_0</item>
+        <item>@color/plasma_light_surface_default_skeleton_gradient_color_1</item>
+        <item>@color/plasma_light_surface_default_skeleton_gradient_color_2</item>
+        <item>@color/plasma_light_surface_default_skeleton_gradient_color_3</item>
+        <item>@color/plasma_light_surface_default_skeleton_gradient_color_4</item>
+        <item>@color/plasma_light_surface_default_skeleton_gradient_color_5</item>
+        <item>@color/plasma_light_surface_default_skeleton_gradient_color_6</item>
+        <item>@color/plasma_light_surface_default_skeleton_gradient_color_7</item>
+        <item>@color/plasma_light_surface_default_skeleton_gradient_color_8</item>
+        <item>@color/plasma_light_surface_default_skeleton_gradient_color_9</item>
+        <item>@color/plasma_light_surface_default_skeleton_gradient_color_10</item>
+        <item>@color/plasma_light_surface_default_skeleton_gradient_color_11</item>
+        <item>@color/plasma_light_surface_default_skeleton_gradient_color_12</item>
+    </integer-array>
+    <string name="plasma_light_surface_default_skeleton_gradient_angle">90.0</string>
+    <string-array name="plasma_light_surface_default_skeleton_gradient_positions">
+        <item>0.0</item>
+        <item>0.0625</item>
+        <item>0.125</item>
+        <item>0.25</item>
+        <item>0.375</item>
+        <item>0.4375</item>
+        <item>0.5</item>
+        <item>0.5625</item>
+        <item>0.625</item>
+        <item>0.75</item>
+        <item>0.875</item>
+        <item>0.9375</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Фон для скелетона-->
+    <!--region Фон для скелетона-->
+    <color name="plasma_light_surface_default_skeleton_gradient_hover_color_0">#FFFFFFFF</color>
+    <color name="plasma_light_surface_default_skeleton_gradient_hover_color_1">#FF000000</color>
+    <integer-array name="plasma_light_surface_default_skeleton_gradient_hover_colors">
+        <item>@color/plasma_light_surface_default_skeleton_gradient_hover_color_0</item>
+        <item>@color/plasma_light_surface_default_skeleton_gradient_hover_color_1</item>
+    </integer-array>
+    <string name="plasma_light_surface_default_skeleton_gradient_hover_angle">90.0</string>
+    <string-array name="plasma_light_surface_default_skeleton_gradient_hover_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Фон для скелетона-->
+    <!--region Фон для скелетона-->
+    <color name="plasma_light_surface_default_skeleton_gradient_active_color_0">#FFFFFFFF</color>
+    <color name="plasma_light_surface_default_skeleton_gradient_active_color_1">#FF000000</color>
+    <integer-array name="plasma_light_surface_default_skeleton_gradient_active_colors">
+        <item>@color/plasma_light_surface_default_skeleton_gradient_active_color_0</item>
+        <item>@color/plasma_light_surface_default_skeleton_gradient_active_color_1</item>
+    </integer-array>
+    <string name="plasma_light_surface_default_skeleton_gradient_active_angle">90.0</string>
+    <string-array name="plasma_light_surface_default_skeleton_gradient_active_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Фон для скелетона-->
+    <!--region Яркий фон для скелетона-->
+    <color name="plasma_light_surface_default_skeleton_deep_gradient_color_0">#5C080808</color>
+    <color name="plasma_light_surface_default_skeleton_deep_gradient_color_1">#52080808</color>
+    <color name="plasma_light_surface_default_skeleton_deep_gradient_color_2">#33080808</color>
+    <color name="plasma_light_surface_default_skeleton_deep_gradient_color_3">#0A080808</color>
+    <color name="plasma_light_surface_default_skeleton_deep_gradient_color_4">#33080808</color>
+    <color name="plasma_light_surface_default_skeleton_deep_gradient_color_5">#52080808</color>
+    <color name="plasma_light_surface_default_skeleton_deep_gradient_color_6">#5C080808</color>
+    <color name="plasma_light_surface_default_skeleton_deep_gradient_color_7">#14080808</color>
+    <color name="plasma_light_surface_default_skeleton_deep_gradient_color_8">#33080808</color>
+    <color name="plasma_light_surface_default_skeleton_deep_gradient_color_9">#0A080808</color>
+    <color name="plasma_light_surface_default_skeleton_deep_gradient_color_10">#33080808</color>
+    <color name="plasma_light_surface_default_skeleton_deep_gradient_color_11">#52080808</color>
+    <color name="plasma_light_surface_default_skeleton_deep_gradient_color_12">#5C080808</color>
+    <integer-array name="plasma_light_surface_default_skeleton_deep_gradient_colors">
+        <item>@color/plasma_light_surface_default_skeleton_deep_gradient_color_0</item>
+        <item>@color/plasma_light_surface_default_skeleton_deep_gradient_color_1</item>
+        <item>@color/plasma_light_surface_default_skeleton_deep_gradient_color_2</item>
+        <item>@color/plasma_light_surface_default_skeleton_deep_gradient_color_3</item>
+        <item>@color/plasma_light_surface_default_skeleton_deep_gradient_color_4</item>
+        <item>@color/plasma_light_surface_default_skeleton_deep_gradient_color_5</item>
+        <item>@color/plasma_light_surface_default_skeleton_deep_gradient_color_6</item>
+        <item>@color/plasma_light_surface_default_skeleton_deep_gradient_color_7</item>
+        <item>@color/plasma_light_surface_default_skeleton_deep_gradient_color_8</item>
+        <item>@color/plasma_light_surface_default_skeleton_deep_gradient_color_9</item>
+        <item>@color/plasma_light_surface_default_skeleton_deep_gradient_color_10</item>
+        <item>@color/plasma_light_surface_default_skeleton_deep_gradient_color_11</item>
+        <item>@color/plasma_light_surface_default_skeleton_deep_gradient_color_12</item>
+    </integer-array>
+    <string name="plasma_light_surface_default_skeleton_deep_gradient_angle">90.0</string>
+    <string-array name="plasma_light_surface_default_skeleton_deep_gradient_positions">
+        <item>0.0</item>
+        <item>0.0625</item>
+        <item>0.125</item>
+        <item>0.25</item>
+        <item>0.375</item>
+        <item>0.4375</item>
+        <item>0.5</item>
+        <item>0.5625</item>
+        <item>0.625</item>
+        <item>0.75</item>
+        <item>0.875</item>
+        <item>0.9375</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Яркий фон для скелетона-->
+    <!--region Яркий фон для скелетона-->
+    <color name="plasma_light_surface_default_skeleton_deep_gradient_hover_color_0">#FFFFFFFF</color>
+    <color name="plasma_light_surface_default_skeleton_deep_gradient_hover_color_1">#FF000000</color>
+    <integer-array name="plasma_light_surface_default_skeleton_deep_gradient_hover_colors">
+        <item>@color/plasma_light_surface_default_skeleton_deep_gradient_hover_color_0</item>
+        <item>@color/plasma_light_surface_default_skeleton_deep_gradient_hover_color_1</item>
+    </integer-array>
+    <string name="plasma_light_surface_default_skeleton_deep_gradient_hover_angle">90.0</string>
+    <string-array name="plasma_light_surface_default_skeleton_deep_gradient_hover_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Яркий фон для скелетона-->
+    <!--region Яркий фон для скелетона-->
+    <color name="plasma_light_surface_default_skeleton_deep_gradient_active_color_0">#FFFFFFFF</color>
+    <color name="plasma_light_surface_default_skeleton_deep_gradient_active_color_1">#FF000000</color>
+    <integer-array name="plasma_light_surface_default_skeleton_deep_gradient_active_colors">
+        <item>@color/plasma_light_surface_default_skeleton_deep_gradient_active_color_0</item>
+        <item>@color/plasma_light_surface_default_skeleton_deep_gradient_active_color_1</item>
+    </integer-array>
+    <string name="plasma_light_surface_default_skeleton_deep_gradient_active_angle">90.0</string>
+    <string-array name="plasma_light_surface_default_skeleton_deep_gradient_active_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Яркий фон для скелетона-->
+    <!--region Акц. фон поверхности/контрола с градиентом на темном фоне-->
+    <color name="plasma_light_surface_on_dark_accent_gradient_color_0">#FF3E79F0</color>
+    <color name="plasma_light_surface_on_dark_accent_gradient_color_1">#FF27C6E5</color>
+    <integer-array name="plasma_light_surface_on_dark_accent_gradient_colors">
+        <item>@color/plasma_light_surface_on_dark_accent_gradient_color_0</item>
+        <item>@color/plasma_light_surface_on_dark_accent_gradient_color_1</item>
+    </integer-array>
+    <string name="plasma_light_surface_on_dark_accent_gradient_angle">93.97</string>
+    <string-array name="plasma_light_surface_on_dark_accent_gradient_positions">
+        <item>0.0649</item>
+        <item>0.9351</item>
+    </string-array>
+    <!--endregion Акц. фон поверхности/контрола с градиентом на темном фоне-->
+    <!--region Акц. фон поверхности/контрола с градиентом на темном фоне-->
+    <color name="plasma_light_surface_on_dark_accent_gradient_hover_color_0">#FFFFFFFF</color>
+    <color name="plasma_light_surface_on_dark_accent_gradient_hover_color_1">#FF000000</color>
+    <integer-array name="plasma_light_surface_on_dark_accent_gradient_hover_colors">
+        <item>@color/plasma_light_surface_on_dark_accent_gradient_hover_color_0</item>
+        <item>@color/plasma_light_surface_on_dark_accent_gradient_hover_color_1</item>
+    </integer-array>
+    <string name="plasma_light_surface_on_dark_accent_gradient_hover_angle">90.0</string>
+    <string-array name="plasma_light_surface_on_dark_accent_gradient_hover_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Акц. фон поверхности/контрола с градиентом на темном фоне-->
+    <!--region Акц. фон поверхности/контрола с градиентом на темном фоне-->
+    <color name="plasma_light_surface_on_dark_accent_gradient_active_color_0">#FFFFFFFF</color>
+    <color name="plasma_light_surface_on_dark_accent_gradient_active_color_1">#FF000000</color>
+    <integer-array name="plasma_light_surface_on_dark_accent_gradient_active_colors">
+        <item>@color/plasma_light_surface_on_dark_accent_gradient_active_color_0</item>
+        <item>@color/plasma_light_surface_on_dark_accent_gradient_active_color_1</item>
+    </integer-array>
+    <string name="plasma_light_surface_on_dark_accent_gradient_active_angle">90.0</string>
+    <string-array name="plasma_light_surface_on_dark_accent_gradient_active_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Акц. фон поверхности/контрола с градиентом на темном фоне-->
+    <!--region Фон для скелетона-->
+    <color name="plasma_light_surface_on_dark_skeleton_gradient_color_0">#17FFFFFF</color>
+    <color name="plasma_light_surface_on_dark_skeleton_gradient_color_1">#14FFFFFF</color>
+    <color name="plasma_light_surface_on_dark_skeleton_gradient_color_2">#0DFFFFFF</color>
+    <color name="plasma_light_surface_on_dark_skeleton_gradient_color_3">#03FFFFFF</color>
+    <color name="plasma_light_surface_on_dark_skeleton_gradient_color_4">#0DFFFFFF</color>
+    <color name="plasma_light_surface_on_dark_skeleton_gradient_color_5">#14FFFFFF</color>
+    <color name="plasma_light_surface_on_dark_skeleton_gradient_color_6">#17FFFFFF</color>
+    <color name="plasma_light_surface_on_dark_skeleton_gradient_color_7">#14FFFFFF</color>
+    <color name="plasma_light_surface_on_dark_skeleton_gradient_color_8">#0DFFFFFF</color>
+    <color name="plasma_light_surface_on_dark_skeleton_gradient_color_9">#03FFFFFF</color>
+    <color name="plasma_light_surface_on_dark_skeleton_gradient_color_10">#0DFFFFFF</color>
+    <color name="plasma_light_surface_on_dark_skeleton_gradient_color_11">#14FFFFFF</color>
+    <color name="plasma_light_surface_on_dark_skeleton_gradient_color_12">#17FFFFFF</color>
+    <integer-array name="plasma_light_surface_on_dark_skeleton_gradient_colors">
+        <item>@color/plasma_light_surface_on_dark_skeleton_gradient_color_0</item>
+        <item>@color/plasma_light_surface_on_dark_skeleton_gradient_color_1</item>
+        <item>@color/plasma_light_surface_on_dark_skeleton_gradient_color_2</item>
+        <item>@color/plasma_light_surface_on_dark_skeleton_gradient_color_3</item>
+        <item>@color/plasma_light_surface_on_dark_skeleton_gradient_color_4</item>
+        <item>@color/plasma_light_surface_on_dark_skeleton_gradient_color_5</item>
+        <item>@color/plasma_light_surface_on_dark_skeleton_gradient_color_6</item>
+        <item>@color/plasma_light_surface_on_dark_skeleton_gradient_color_7</item>
+        <item>@color/plasma_light_surface_on_dark_skeleton_gradient_color_8</item>
+        <item>@color/plasma_light_surface_on_dark_skeleton_gradient_color_9</item>
+        <item>@color/plasma_light_surface_on_dark_skeleton_gradient_color_10</item>
+        <item>@color/plasma_light_surface_on_dark_skeleton_gradient_color_11</item>
+        <item>@color/plasma_light_surface_on_dark_skeleton_gradient_color_12</item>
+    </integer-array>
+    <string name="plasma_light_surface_on_dark_skeleton_gradient_angle">90.0</string>
+    <string-array name="plasma_light_surface_on_dark_skeleton_gradient_positions">
+        <item>0.0</item>
+        <item>0.0625</item>
+        <item>0.125</item>
+        <item>0.25</item>
+        <item>0.375</item>
+        <item>0.4375</item>
+        <item>0.5</item>
+        <item>0.5625</item>
+        <item>0.625</item>
+        <item>0.75</item>
+        <item>0.875</item>
+        <item>0.9375</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Фон для скелетона-->
+    <!--region Фон для скелетона-->
+    <color name="plasma_light_surface_on_dark_skeleton_gradient_hover_color_0">#FFFFFFFF</color>
+    <color name="plasma_light_surface_on_dark_skeleton_gradient_hover_color_1">#FF000000</color>
+    <integer-array name="plasma_light_surface_on_dark_skeleton_gradient_hover_colors">
+        <item>@color/plasma_light_surface_on_dark_skeleton_gradient_hover_color_0</item>
+        <item>@color/plasma_light_surface_on_dark_skeleton_gradient_hover_color_1</item>
+    </integer-array>
+    <string name="plasma_light_surface_on_dark_skeleton_gradient_hover_angle">90.0</string>
+    <string-array name="plasma_light_surface_on_dark_skeleton_gradient_hover_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Фон для скелетона-->
+    <!--region Фон для скелетона-->
+    <color name="plasma_light_surface_on_dark_skeleton_gradient_active_color_0">#FFFFFFFF</color>
+    <color name="plasma_light_surface_on_dark_skeleton_gradient_active_color_1">#FF000000</color>
+    <integer-array name="plasma_light_surface_on_dark_skeleton_gradient_active_colors">
+        <item>@color/plasma_light_surface_on_dark_skeleton_gradient_active_color_0</item>
+        <item>@color/plasma_light_surface_on_dark_skeleton_gradient_active_color_1</item>
+    </integer-array>
+    <string name="plasma_light_surface_on_dark_skeleton_gradient_active_angle">90.0</string>
+    <string-array name="plasma_light_surface_on_dark_skeleton_gradient_active_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Фон для скелетона-->
+    <!--region Яркий фон для скелетона-->
+    <color name="plasma_light_surface_on_dark_skeleton_deep_gradient_color_0">#5CFFFFFF</color>
+    <color name="plasma_light_surface_on_dark_skeleton_deep_gradient_color_1">#52FFFFFF</color>
+    <color name="plasma_light_surface_on_dark_skeleton_deep_gradient_color_2">#33FFFFFF</color>
+    <color name="plasma_light_surface_on_dark_skeleton_deep_gradient_color_3">#0AFFFFFF</color>
+    <color name="plasma_light_surface_on_dark_skeleton_deep_gradient_color_4">#33FFFFFF</color>
+    <color name="plasma_light_surface_on_dark_skeleton_deep_gradient_color_5">#52FFFFFF</color>
+    <color name="plasma_light_surface_on_dark_skeleton_deep_gradient_color_6">#5CFFFFFF</color>
+    <color name="plasma_light_surface_on_dark_skeleton_deep_gradient_color_7">#14FFFFFF</color>
+    <color name="plasma_light_surface_on_dark_skeleton_deep_gradient_color_8">#33FFFFFF</color>
+    <color name="plasma_light_surface_on_dark_skeleton_deep_gradient_color_9">#0AFFFFFF</color>
+    <color name="plasma_light_surface_on_dark_skeleton_deep_gradient_color_10">#33FFFFFF</color>
+    <color name="plasma_light_surface_on_dark_skeleton_deep_gradient_color_11">#52FFFFFF</color>
+    <color name="plasma_light_surface_on_dark_skeleton_deep_gradient_color_12">#5CFFFFFF</color>
+    <integer-array name="plasma_light_surface_on_dark_skeleton_deep_gradient_colors">
+        <item>@color/plasma_light_surface_on_dark_skeleton_deep_gradient_color_0</item>
+        <item>@color/plasma_light_surface_on_dark_skeleton_deep_gradient_color_1</item>
+        <item>@color/plasma_light_surface_on_dark_skeleton_deep_gradient_color_2</item>
+        <item>@color/plasma_light_surface_on_dark_skeleton_deep_gradient_color_3</item>
+        <item>@color/plasma_light_surface_on_dark_skeleton_deep_gradient_color_4</item>
+        <item>@color/plasma_light_surface_on_dark_skeleton_deep_gradient_color_5</item>
+        <item>@color/plasma_light_surface_on_dark_skeleton_deep_gradient_color_6</item>
+        <item>@color/plasma_light_surface_on_dark_skeleton_deep_gradient_color_7</item>
+        <item>@color/plasma_light_surface_on_dark_skeleton_deep_gradient_color_8</item>
+        <item>@color/plasma_light_surface_on_dark_skeleton_deep_gradient_color_9</item>
+        <item>@color/plasma_light_surface_on_dark_skeleton_deep_gradient_color_10</item>
+        <item>@color/plasma_light_surface_on_dark_skeleton_deep_gradient_color_11</item>
+        <item>@color/plasma_light_surface_on_dark_skeleton_deep_gradient_color_12</item>
+    </integer-array>
+    <string name="plasma_light_surface_on_dark_skeleton_deep_gradient_angle">90.0</string>
+    <string-array name="plasma_light_surface_on_dark_skeleton_deep_gradient_positions">
+        <item>0.0</item>
+        <item>0.0625</item>
+        <item>0.125</item>
+        <item>0.25</item>
+        <item>0.375</item>
+        <item>0.4375</item>
+        <item>0.5</item>
+        <item>0.5625</item>
+        <item>0.625</item>
+        <item>0.75</item>
+        <item>0.875</item>
+        <item>0.9375</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Яркий фон для скелетона-->
+    <!--region Яркий фон для скелетона-->
+    <color name="plasma_light_surface_on_dark_skeleton_deep_gradient_hover_color_0">#FFFFFFFF</color>
+    <color name="plasma_light_surface_on_dark_skeleton_deep_gradient_hover_color_1">#FF000000</color>
+    <integer-array name="plasma_light_surface_on_dark_skeleton_deep_gradient_hover_colors">
+        <item>@color/plasma_light_surface_on_dark_skeleton_deep_gradient_hover_color_0</item>
+        <item>@color/plasma_light_surface_on_dark_skeleton_deep_gradient_hover_color_1</item>
+    </integer-array>
+    <string name="plasma_light_surface_on_dark_skeleton_deep_gradient_hover_angle">90.0</string>
+    <string-array name="plasma_light_surface_on_dark_skeleton_deep_gradient_hover_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Яркий фон для скелетона-->
+    <!--region Яркий фон для скелетона-->
+    <color name="plasma_light_surface_on_dark_skeleton_deep_gradient_active_color_0">#FFFFFFFF</color>
+    <color name="plasma_light_surface_on_dark_skeleton_deep_gradient_active_color_1">#FF000000</color>
+    <integer-array name="plasma_light_surface_on_dark_skeleton_deep_gradient_active_colors">
+        <item>@color/plasma_light_surface_on_dark_skeleton_deep_gradient_active_color_0</item>
+        <item>@color/plasma_light_surface_on_dark_skeleton_deep_gradient_active_color_1</item>
+    </integer-array>
+    <string name="plasma_light_surface_on_dark_skeleton_deep_gradient_active_angle">90.0</string>
+    <string-array name="plasma_light_surface_on_dark_skeleton_deep_gradient_active_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Яркий фон для скелетона-->
+    <!--region Акц. фон поверхности/контрола с градиентом на светлом фоне-->
+    <color name="plasma_light_surface_on_light_accent_gradient_color_0">#FF3E79F0</color>
+    <color name="plasma_light_surface_on_light_accent_gradient_color_1">#FF27C6E5</color>
+    <integer-array name="plasma_light_surface_on_light_accent_gradient_colors">
+        <item>@color/plasma_light_surface_on_light_accent_gradient_color_0</item>
+        <item>@color/plasma_light_surface_on_light_accent_gradient_color_1</item>
+    </integer-array>
+    <string name="plasma_light_surface_on_light_accent_gradient_angle">93.97</string>
+    <string-array name="plasma_light_surface_on_light_accent_gradient_positions">
+        <item>0.0649</item>
+        <item>0.9351</item>
+    </string-array>
+    <!--endregion Акц. фон поверхности/контрола с градиентом на светлом фоне-->
+    <!--region Акц. фон поверхности/контрола с градиентом на светлом фоне-->
+    <color name="plasma_light_surface_on_light_accent_gradient_hover_color_0">#FFFFFFFF</color>
+    <color name="plasma_light_surface_on_light_accent_gradient_hover_color_1">#FF000000</color>
+    <integer-array name="plasma_light_surface_on_light_accent_gradient_hover_colors">
+        <item>@color/plasma_light_surface_on_light_accent_gradient_hover_color_0</item>
+        <item>@color/plasma_light_surface_on_light_accent_gradient_hover_color_1</item>
+    </integer-array>
+    <string name="plasma_light_surface_on_light_accent_gradient_hover_angle">90.0</string>
+    <string-array name="plasma_light_surface_on_light_accent_gradient_hover_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Акц. фон поверхности/контрола с градиентом на светлом фоне-->
+    <!--region Акц. фон поверхности/контрола с градиентом на светлом фоне-->
+    <color name="plasma_light_surface_on_light_accent_gradient_active_color_0">#FFFFFFFF</color>
+    <color name="plasma_light_surface_on_light_accent_gradient_active_color_1">#FF000000</color>
+    <integer-array name="plasma_light_surface_on_light_accent_gradient_active_colors">
+        <item>@color/plasma_light_surface_on_light_accent_gradient_active_color_0</item>
+        <item>@color/plasma_light_surface_on_light_accent_gradient_active_color_1</item>
+    </integer-array>
+    <string name="plasma_light_surface_on_light_accent_gradient_active_angle">90.0</string>
+    <string-array name="plasma_light_surface_on_light_accent_gradient_active_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Акц. фон поверхности/контрола с градиентом на светлом фоне-->
+    <!--region Фон для скелетона-->
+    <color name="plasma_light_surface_on_light_skeleton_gradient_color_0">#17080808</color>
+    <color name="plasma_light_surface_on_light_skeleton_gradient_color_1">#14080808</color>
+    <color name="plasma_light_surface_on_light_skeleton_gradient_color_2">#0D080808</color>
+    <color name="plasma_light_surface_on_light_skeleton_gradient_color_3">#03080808</color>
+    <color name="plasma_light_surface_on_light_skeleton_gradient_color_4">#0D080808</color>
+    <color name="plasma_light_surface_on_light_skeleton_gradient_color_5">#14080808</color>
+    <color name="plasma_light_surface_on_light_skeleton_gradient_color_6">#17080808</color>
+    <color name="plasma_light_surface_on_light_skeleton_gradient_color_7">#14080808</color>
+    <color name="plasma_light_surface_on_light_skeleton_gradient_color_8">#0D080808</color>
+    <color name="plasma_light_surface_on_light_skeleton_gradient_color_9">#03080808</color>
+    <color name="plasma_light_surface_on_light_skeleton_gradient_color_10">#0D080808</color>
+    <color name="plasma_light_surface_on_light_skeleton_gradient_color_11">#14080808</color>
+    <color name="plasma_light_surface_on_light_skeleton_gradient_color_12">#17080808</color>
+    <integer-array name="plasma_light_surface_on_light_skeleton_gradient_colors">
+        <item>@color/plasma_light_surface_on_light_skeleton_gradient_color_0</item>
+        <item>@color/plasma_light_surface_on_light_skeleton_gradient_color_1</item>
+        <item>@color/plasma_light_surface_on_light_skeleton_gradient_color_2</item>
+        <item>@color/plasma_light_surface_on_light_skeleton_gradient_color_3</item>
+        <item>@color/plasma_light_surface_on_light_skeleton_gradient_color_4</item>
+        <item>@color/plasma_light_surface_on_light_skeleton_gradient_color_5</item>
+        <item>@color/plasma_light_surface_on_light_skeleton_gradient_color_6</item>
+        <item>@color/plasma_light_surface_on_light_skeleton_gradient_color_7</item>
+        <item>@color/plasma_light_surface_on_light_skeleton_gradient_color_8</item>
+        <item>@color/plasma_light_surface_on_light_skeleton_gradient_color_9</item>
+        <item>@color/plasma_light_surface_on_light_skeleton_gradient_color_10</item>
+        <item>@color/plasma_light_surface_on_light_skeleton_gradient_color_11</item>
+        <item>@color/plasma_light_surface_on_light_skeleton_gradient_color_12</item>
+    </integer-array>
+    <string name="plasma_light_surface_on_light_skeleton_gradient_angle">90.0</string>
+    <string-array name="plasma_light_surface_on_light_skeleton_gradient_positions">
+        <item>0.0</item>
+        <item>0.0625</item>
+        <item>0.125</item>
+        <item>0.25</item>
+        <item>0.375</item>
+        <item>0.4375</item>
+        <item>0.5</item>
+        <item>0.5625</item>
+        <item>0.625</item>
+        <item>0.75</item>
+        <item>0.875</item>
+        <item>0.9375</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Фон для скелетона-->
+    <!--region Фон для скелетона-->
+    <color name="plasma_light_surface_on_light_skeleton_gradient_hover_color_0">#FFFFFFFF</color>
+    <color name="plasma_light_surface_on_light_skeleton_gradient_hover_color_1">#FF000000</color>
+    <integer-array name="plasma_light_surface_on_light_skeleton_gradient_hover_colors">
+        <item>@color/plasma_light_surface_on_light_skeleton_gradient_hover_color_0</item>
+        <item>@color/plasma_light_surface_on_light_skeleton_gradient_hover_color_1</item>
+    </integer-array>
+    <string name="plasma_light_surface_on_light_skeleton_gradient_hover_angle">90.0</string>
+    <string-array name="plasma_light_surface_on_light_skeleton_gradient_hover_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Фон для скелетона-->
+    <!--region Фон для скелетона-->
+    <color name="plasma_light_surface_on_light_skeleton_gradient_active_color_0">#FFFFFFFF</color>
+    <color name="plasma_light_surface_on_light_skeleton_gradient_active_color_1">#FF000000</color>
+    <integer-array name="plasma_light_surface_on_light_skeleton_gradient_active_colors">
+        <item>@color/plasma_light_surface_on_light_skeleton_gradient_active_color_0</item>
+        <item>@color/plasma_light_surface_on_light_skeleton_gradient_active_color_1</item>
+    </integer-array>
+    <string name="plasma_light_surface_on_light_skeleton_gradient_active_angle">90.0</string>
+    <string-array name="plasma_light_surface_on_light_skeleton_gradient_active_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Фон для скелетона-->
+    <!--region Яркий фон для скелетона-->
+    <color name="plasma_light_surface_on_light_skeleton_deep_gradient_color_0">#5C080808</color>
+    <color name="plasma_light_surface_on_light_skeleton_deep_gradient_color_1">#52080808</color>
+    <color name="plasma_light_surface_on_light_skeleton_deep_gradient_color_2">#33080808</color>
+    <color name="plasma_light_surface_on_light_skeleton_deep_gradient_color_3">#0A080808</color>
+    <color name="plasma_light_surface_on_light_skeleton_deep_gradient_color_4">#33080808</color>
+    <color name="plasma_light_surface_on_light_skeleton_deep_gradient_color_5">#52080808</color>
+    <color name="plasma_light_surface_on_light_skeleton_deep_gradient_color_6">#5C080808</color>
+    <color name="plasma_light_surface_on_light_skeleton_deep_gradient_color_7">#14080808</color>
+    <color name="plasma_light_surface_on_light_skeleton_deep_gradient_color_8">#33080808</color>
+    <color name="plasma_light_surface_on_light_skeleton_deep_gradient_color_9">#0A080808</color>
+    <color name="plasma_light_surface_on_light_skeleton_deep_gradient_color_10">#33080808</color>
+    <color name="plasma_light_surface_on_light_skeleton_deep_gradient_color_11">#52080808</color>
+    <color name="plasma_light_surface_on_light_skeleton_deep_gradient_color_12">#5C080808</color>
+    <integer-array name="plasma_light_surface_on_light_skeleton_deep_gradient_colors">
+        <item>@color/plasma_light_surface_on_light_skeleton_deep_gradient_color_0</item>
+        <item>@color/plasma_light_surface_on_light_skeleton_deep_gradient_color_1</item>
+        <item>@color/plasma_light_surface_on_light_skeleton_deep_gradient_color_2</item>
+        <item>@color/plasma_light_surface_on_light_skeleton_deep_gradient_color_3</item>
+        <item>@color/plasma_light_surface_on_light_skeleton_deep_gradient_color_4</item>
+        <item>@color/plasma_light_surface_on_light_skeleton_deep_gradient_color_5</item>
+        <item>@color/plasma_light_surface_on_light_skeleton_deep_gradient_color_6</item>
+        <item>@color/plasma_light_surface_on_light_skeleton_deep_gradient_color_7</item>
+        <item>@color/plasma_light_surface_on_light_skeleton_deep_gradient_color_8</item>
+        <item>@color/plasma_light_surface_on_light_skeleton_deep_gradient_color_9</item>
+        <item>@color/plasma_light_surface_on_light_skeleton_deep_gradient_color_10</item>
+        <item>@color/plasma_light_surface_on_light_skeleton_deep_gradient_color_11</item>
+        <item>@color/plasma_light_surface_on_light_skeleton_deep_gradient_color_12</item>
+    </integer-array>
+    <string name="plasma_light_surface_on_light_skeleton_deep_gradient_angle">90.0</string>
+    <string-array name="plasma_light_surface_on_light_skeleton_deep_gradient_positions">
+        <item>0.0</item>
+        <item>0.0625</item>
+        <item>0.125</item>
+        <item>0.25</item>
+        <item>0.375</item>
+        <item>0.4375</item>
+        <item>0.5</item>
+        <item>0.5625</item>
+        <item>0.625</item>
+        <item>0.75</item>
+        <item>0.875</item>
+        <item>0.9375</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Яркий фон для скелетона-->
+    <!--region Яркий фон для скелетона-->
+    <color name="plasma_light_surface_on_light_skeleton_deep_gradient_hover_color_0">#FFFFFFFF</color>
+    <color name="plasma_light_surface_on_light_skeleton_deep_gradient_hover_color_1">#FF000000</color>
+    <integer-array name="plasma_light_surface_on_light_skeleton_deep_gradient_hover_colors">
+        <item>@color/plasma_light_surface_on_light_skeleton_deep_gradient_hover_color_0</item>
+        <item>@color/plasma_light_surface_on_light_skeleton_deep_gradient_hover_color_1</item>
+    </integer-array>
+    <string name="plasma_light_surface_on_light_skeleton_deep_gradient_hover_angle">90.0</string>
+    <string-array name="plasma_light_surface_on_light_skeleton_deep_gradient_hover_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Яркий фон для скелетона-->
+    <!--region Яркий фон для скелетона-->
+    <color name="plasma_light_surface_on_light_skeleton_deep_gradient_active_color_0">#FFFFFFFF</color>
+    <color name="plasma_light_surface_on_light_skeleton_deep_gradient_active_color_1">#FF000000</color>
+    <integer-array name="plasma_light_surface_on_light_skeleton_deep_gradient_active_colors">
+        <item>@color/plasma_light_surface_on_light_skeleton_deep_gradient_active_color_0</item>
+        <item>@color/plasma_light_surface_on_light_skeleton_deep_gradient_active_color_1</item>
+    </integer-array>
+    <string name="plasma_light_surface_on_light_skeleton_deep_gradient_active_angle">90.0</string>
+    <string-array name="plasma_light_surface_on_light_skeleton_deep_gradient_active_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Яркий фон для скелетона-->
+    <!--region Инвертированный акцентный фон поверхности/контрола с градиентом-->
+    <color name="plasma_light_surface_inverse_accent_gradient_color_0">#FF000000</color>
+    <color name="plasma_light_surface_inverse_accent_gradient_color_1">#FFFFFFFF</color>
+    <integer-array name="plasma_light_surface_inverse_accent_gradient_colors">
+        <item>@color/plasma_light_surface_inverse_accent_gradient_color_0</item>
+        <item>@color/plasma_light_surface_inverse_accent_gradient_color_1</item>
+    </integer-array>
+    <string name="plasma_light_surface_inverse_accent_gradient_angle">135.0</string>
+    <string-array name="plasma_light_surface_inverse_accent_gradient_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Инвертированный акцентный фон поверхности/контрола с градиентом-->
+    <!--region Инвертированный акцентный фон поверхности/контрола с градиентом-->
+    <color name="plasma_light_surface_inverse_accent_gradient_hover_color_0">#FFFFFFFF</color>
+    <color name="plasma_light_surface_inverse_accent_gradient_hover_color_1">#FF000000</color>
+    <integer-array name="plasma_light_surface_inverse_accent_gradient_hover_colors">
+        <item>@color/plasma_light_surface_inverse_accent_gradient_hover_color_0</item>
+        <item>@color/plasma_light_surface_inverse_accent_gradient_hover_color_1</item>
+    </integer-array>
+    <string name="plasma_light_surface_inverse_accent_gradient_hover_angle">90.0</string>
+    <string-array name="plasma_light_surface_inverse_accent_gradient_hover_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Инвертированный акцентный фон поверхности/контрола с градиентом-->
+    <!--region Инвертированный акцентный фон поверхности/контрола с градиентом-->
+    <color name="plasma_light_surface_inverse_accent_gradient_active_color_0">#FFFFFFFF</color>
+    <color name="plasma_light_surface_inverse_accent_gradient_active_color_1">#FF000000</color>
+    <integer-array name="plasma_light_surface_inverse_accent_gradient_active_colors">
+        <item>@color/plasma_light_surface_inverse_accent_gradient_active_color_0</item>
+        <item>@color/plasma_light_surface_inverse_accent_gradient_active_color_1</item>
+    </integer-array>
+    <string name="plasma_light_surface_inverse_accent_gradient_active_angle">90.0</string>
+    <string-array name="plasma_light_surface_inverse_accent_gradient_active_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Инвертированный акцентный фон поверхности/контрола с градиентом-->
+    <!--region Фон для скелетона-->
+    <color name="plasma_light_surface_inverse_skeleton_gradient_color_0">#17FFFFFF</color>
+    <color name="plasma_light_surface_inverse_skeleton_gradient_color_1">#14FFFFFF</color>
+    <color name="plasma_light_surface_inverse_skeleton_gradient_color_2">#0DFFFFFF</color>
+    <color name="plasma_light_surface_inverse_skeleton_gradient_color_3">#03FFFFFF</color>
+    <color name="plasma_light_surface_inverse_skeleton_gradient_color_4">#0DFFFFFF</color>
+    <color name="plasma_light_surface_inverse_skeleton_gradient_color_5">#14FFFFFF</color>
+    <color name="plasma_light_surface_inverse_skeleton_gradient_color_6">#17FFFFFF</color>
+    <color name="plasma_light_surface_inverse_skeleton_gradient_color_7">#14FFFFFF</color>
+    <color name="plasma_light_surface_inverse_skeleton_gradient_color_8">#0DFFFFFF</color>
+    <color name="plasma_light_surface_inverse_skeleton_gradient_color_9">#03FFFFFF</color>
+    <color name="plasma_light_surface_inverse_skeleton_gradient_color_10">#0DFFFFFF</color>
+    <color name="plasma_light_surface_inverse_skeleton_gradient_color_11">#14FFFFFF</color>
+    <color name="plasma_light_surface_inverse_skeleton_gradient_color_12">#17FFFFFF</color>
+    <integer-array name="plasma_light_surface_inverse_skeleton_gradient_colors">
+        <item>@color/plasma_light_surface_inverse_skeleton_gradient_color_0</item>
+        <item>@color/plasma_light_surface_inverse_skeleton_gradient_color_1</item>
+        <item>@color/plasma_light_surface_inverse_skeleton_gradient_color_2</item>
+        <item>@color/plasma_light_surface_inverse_skeleton_gradient_color_3</item>
+        <item>@color/plasma_light_surface_inverse_skeleton_gradient_color_4</item>
+        <item>@color/plasma_light_surface_inverse_skeleton_gradient_color_5</item>
+        <item>@color/plasma_light_surface_inverse_skeleton_gradient_color_6</item>
+        <item>@color/plasma_light_surface_inverse_skeleton_gradient_color_7</item>
+        <item>@color/plasma_light_surface_inverse_skeleton_gradient_color_8</item>
+        <item>@color/plasma_light_surface_inverse_skeleton_gradient_color_9</item>
+        <item>@color/plasma_light_surface_inverse_skeleton_gradient_color_10</item>
+        <item>@color/plasma_light_surface_inverse_skeleton_gradient_color_11</item>
+        <item>@color/plasma_light_surface_inverse_skeleton_gradient_color_12</item>
+    </integer-array>
+    <string name="plasma_light_surface_inverse_skeleton_gradient_angle">90.0</string>
+    <string-array name="plasma_light_surface_inverse_skeleton_gradient_positions">
+        <item>0.0</item>
+        <item>0.0625</item>
+        <item>0.125</item>
+        <item>0.25</item>
+        <item>0.375</item>
+        <item>0.4375</item>
+        <item>0.5</item>
+        <item>0.5625</item>
+        <item>0.625</item>
+        <item>0.75</item>
+        <item>0.875</item>
+        <item>0.9375</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Фон для скелетона-->
+    <!--region Фон для скелетона-->
+    <color name="plasma_light_surface_inverse_skeleton_gradient_hover_color_0">#FFFFFFFF</color>
+    <color name="plasma_light_surface_inverse_skeleton_gradient_hover_color_1">#FF000000</color>
+    <integer-array name="plasma_light_surface_inverse_skeleton_gradient_hover_colors">
+        <item>@color/plasma_light_surface_inverse_skeleton_gradient_hover_color_0</item>
+        <item>@color/plasma_light_surface_inverse_skeleton_gradient_hover_color_1</item>
+    </integer-array>
+    <string name="plasma_light_surface_inverse_skeleton_gradient_hover_angle">90.0</string>
+    <string-array name="plasma_light_surface_inverse_skeleton_gradient_hover_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Фон для скелетона-->
+    <!--region Фон для скелетона-->
+    <color name="plasma_light_surface_inverse_skeleton_gradient_active_color_0">#FFFFFFFF</color>
+    <color name="plasma_light_surface_inverse_skeleton_gradient_active_color_1">#FF000000</color>
+    <integer-array name="plasma_light_surface_inverse_skeleton_gradient_active_colors">
+        <item>@color/plasma_light_surface_inverse_skeleton_gradient_active_color_0</item>
+        <item>@color/plasma_light_surface_inverse_skeleton_gradient_active_color_1</item>
+    </integer-array>
+    <string name="plasma_light_surface_inverse_skeleton_gradient_active_angle">90.0</string>
+    <string-array name="plasma_light_surface_inverse_skeleton_gradient_active_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Фон для скелетона-->
+    <!--region Яркий фон для скелетона-->
+    <color name="plasma_light_surface_inverse_skeleton_deep_gradient_color_0">#5CFFFFFF</color>
+    <color name="plasma_light_surface_inverse_skeleton_deep_gradient_color_1">#52FFFFFF</color>
+    <color name="plasma_light_surface_inverse_skeleton_deep_gradient_color_2">#33FFFFFF</color>
+    <color name="plasma_light_surface_inverse_skeleton_deep_gradient_color_3">#0AFFFFFF</color>
+    <color name="plasma_light_surface_inverse_skeleton_deep_gradient_color_4">#33FFFFFF</color>
+    <color name="plasma_light_surface_inverse_skeleton_deep_gradient_color_5">#52FFFFFF</color>
+    <color name="plasma_light_surface_inverse_skeleton_deep_gradient_color_6">#5CFFFFFF</color>
+    <color name="plasma_light_surface_inverse_skeleton_deep_gradient_color_7">#14FFFFFF</color>
+    <color name="plasma_light_surface_inverse_skeleton_deep_gradient_color_8">#33FFFFFF</color>
+    <color name="plasma_light_surface_inverse_skeleton_deep_gradient_color_9">#0AFFFFFF</color>
+    <color name="plasma_light_surface_inverse_skeleton_deep_gradient_color_10">#33FFFFFF</color>
+    <color name="plasma_light_surface_inverse_skeleton_deep_gradient_color_11">#52FFFFFF</color>
+    <color name="plasma_light_surface_inverse_skeleton_deep_gradient_color_12">#5CFFFFFF</color>
+    <integer-array name="plasma_light_surface_inverse_skeleton_deep_gradient_colors">
+        <item>@color/plasma_light_surface_inverse_skeleton_deep_gradient_color_0</item>
+        <item>@color/plasma_light_surface_inverse_skeleton_deep_gradient_color_1</item>
+        <item>@color/plasma_light_surface_inverse_skeleton_deep_gradient_color_2</item>
+        <item>@color/plasma_light_surface_inverse_skeleton_deep_gradient_color_3</item>
+        <item>@color/plasma_light_surface_inverse_skeleton_deep_gradient_color_4</item>
+        <item>@color/plasma_light_surface_inverse_skeleton_deep_gradient_color_5</item>
+        <item>@color/plasma_light_surface_inverse_skeleton_deep_gradient_color_6</item>
+        <item>@color/plasma_light_surface_inverse_skeleton_deep_gradient_color_7</item>
+        <item>@color/plasma_light_surface_inverse_skeleton_deep_gradient_color_8</item>
+        <item>@color/plasma_light_surface_inverse_skeleton_deep_gradient_color_9</item>
+        <item>@color/plasma_light_surface_inverse_skeleton_deep_gradient_color_10</item>
+        <item>@color/plasma_light_surface_inverse_skeleton_deep_gradient_color_11</item>
+        <item>@color/plasma_light_surface_inverse_skeleton_deep_gradient_color_12</item>
+    </integer-array>
+    <string name="plasma_light_surface_inverse_skeleton_deep_gradient_angle">90.0</string>
+    <string-array name="plasma_light_surface_inverse_skeleton_deep_gradient_positions">
+        <item>0.0</item>
+        <item>0.0625</item>
+        <item>0.125</item>
+        <item>0.25</item>
+        <item>0.375</item>
+        <item>0.4375</item>
+        <item>0.5</item>
+        <item>0.5625</item>
+        <item>0.625</item>
+        <item>0.75</item>
+        <item>0.875</item>
+        <item>0.9375</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Яркий фон для скелетона-->
+    <!--region Яркий фон для скелетона-->
+    <color name="plasma_light_surface_inverse_skeleton_deep_gradient_hover_color_0">#FFFFFFFF</color>
+    <color name="plasma_light_surface_inverse_skeleton_deep_gradient_hover_color_1">#FF000000</color>
+    <integer-array name="plasma_light_surface_inverse_skeleton_deep_gradient_hover_colors">
+        <item>@color/plasma_light_surface_inverse_skeleton_deep_gradient_hover_color_0</item>
+        <item>@color/plasma_light_surface_inverse_skeleton_deep_gradient_hover_color_1</item>
+    </integer-array>
+    <string name="plasma_light_surface_inverse_skeleton_deep_gradient_hover_angle">90.0</string>
+    <string-array name="plasma_light_surface_inverse_skeleton_deep_gradient_hover_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Яркий фон для скелетона-->
+    <!--region Яркий фон для скелетона-->
+    <color name="plasma_light_surface_inverse_skeleton_deep_gradient_active_color_0">#FFFFFFFF</color>
+    <color name="plasma_light_surface_inverse_skeleton_deep_gradient_active_color_1">#FF000000</color>
+    <integer-array name="plasma_light_surface_inverse_skeleton_deep_gradient_active_colors">
+        <item>@color/plasma_light_surface_inverse_skeleton_deep_gradient_active_color_0</item>
+        <item>@color/plasma_light_surface_inverse_skeleton_deep_gradient_active_color_1</item>
+    </integer-array>
+    <string name="plasma_light_surface_inverse_skeleton_deep_gradient_active_angle">90.0</string>
+    <string-array name="plasma_light_surface_inverse_skeleton_deep_gradient_active_positions">
+        <item>0.0</item>
+        <item>1.0</item>
+    </string-array>
+    <!--endregion Яркий фон для скелетона-->
+</resources>
