@@ -6,6 +6,7 @@
         <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
         <item name="android:backgroundTint">@color/sdkit_counter_bg_color</item>
         <item name="android:textColor">@color/sdkit_counter_text_color</item>
+        <item name="sd_colorStateProvider">com.sdkit.star.designsystem.colorstate.CounterColorStateProvider</item>
     </style>
     <style name="Sdkit.StarDs.Components.Counter.L">
         <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodySNormal</item>

@@ -40,7 +40,7 @@
     <dimen name="sdkit_cmp_checkbox_s_control_radius">8dp</dimen> <!-- 4dp -->
     <dimen name="sdkit_cmp_checkbox_s_control_padding">4dp</dimen> <!-- 2dp -->
     <dimen name="sdkit_cmp_checkbox_s_vertical_spacing">4dp</dimen> <!-- 2dp -->
-    <dimen name="sdkit_cmp_checkbox_s_horizontal_spacing">24dp</dimen> <!-- 12dp -->
+    <dimen name="sdkit_cmp_checkbox_s_horizontal_spacing">16dp</dimen> <!-- 8dp -->
 
     <dimen name="sdkit_cmp_checkbox_group_m_start_indent">72dp</dimen> <!-- 36dp -->
     <dimen name="sdkit_cmp_checkbox_group_m_item_spacing">24dp</dimen> <!-- 12dp -->
@@ -80,6 +80,39 @@
     <dimen name="sdkit_cmp_chip_xs_end_content_margin">4dp</dimen> <!-- 2dp -->
     <dimen name="sdkit_cmp_chip_xs_content_size">32dp</dimen> <!-- 16dp -->
     <dimen name="sdkit_cmp_chip_xs_embedded_shape_adjustment">-4dp</dimen> <!-- -2dp -->
+
+    <dimen name="sdkit_cmp_embd_chip_l_min_height">88dp</dimen> <!-- 44dp -->
+    <dimen name="sdkit_cmp_embd_chip_l_padding_start">32dp</dimen> <!-- 16dp -->
+    <dimen name="sdkit_cmp_embd_chip_l_padding_end">32dp</dimen> <!-- 16dp -->
+    <dimen name="sdkit_cmp_embd_chip_l_start_content_margin">16dp</dimen> <!-- 8dp -->
+    <dimen name="sdkit_cmp_embd_chip_l_end_content_margin">16dp</dimen> <!-- 8dp -->
+    <dimen name="sdkit_cmp_embd_chip_l_content_size">48dp</dimen> <!-- 24dp -->
+
+    <dimen name="sdkit_cmp_embd_chip_m_min_height">80dp</dimen> <!-- 40dp -->
+    <dimen name="sdkit_cmp_embd_chip_m_embedded_min_height">72dp</dimen> <!-- 36dp -->
+    <dimen name="sdkit_cmp_embd_chip_m_padding_start">28dp</dimen> <!-- 14dp -->
+    <dimen name="sdkit_cmp_embd_chip_m_padding_end">28dp</dimen> <!-- 14dp -->
+    <dimen name="sdkit_cmp_embd_chip_m_start_content_margin">12dp</dimen> <!-- 6dp -->
+    <dimen name="sdkit_cmp_embd_chip_m_end_content_margin">12dp</dimen> <!-- 6dp -->
+    <dimen name="sdkit_cmp_embd_chip_m_content_size">48dp</dimen> <!-- 24dp -->
+    <dimen name="sdkit_cmp_embd_chip_m_shape_adjustment">-4dp</dimen> <!-- -2dp -->
+
+    <dimen name="sdkit_cmp_embd_chip_s_min_height">64dp</dimen> <!-- 32dp -->
+    <dimen name="sdkit_cmp_embd_chip_s_embedded_min_height">56dp</dimen> <!-- 28dp -->
+    <dimen name="sdkit_cmp_embd_chip_s_padding_start">24dp</dimen> <!-- 12dp -->
+    <dimen name="sdkit_cmp_embd_chip_s_padding_end">24dp</dimen> <!-- 12dp -->
+    <dimen name="sdkit_cmp_embd_chip_s_start_content_margin">8dp</dimen> <!-- 4dp -->
+    <dimen name="sdkit_cmp_embd_chip_s_end_content_margin">8dp</dimen> <!-- 4dp -->
+    <dimen name="sdkit_cmp_embd_chip_s_content_size">32dp</dimen> <!-- 16dp -->
+
+    <dimen name="sdkit_cmp_embd_chip_xs_min_height">48dp</dimen> <!-- 24dp -->
+    <dimen name="sdkit_cmp_embd_chip_xs_embedded_min_height">40dp</dimen> <!-- 20dp -->
+    <dimen name="sdkit_cmp_embd_chip_xs_padding_start">20dp</dimen> <!-- 10dp -->
+    <dimen name="sdkit_cmp_embd_chip_xs_padding_end">20dp</dimen> <!-- 10dp -->
+    <dimen name="sdkit_cmp_embd_chip_xs_start_content_margin">4dp</dimen> <!-- 2dp -->
+    <dimen name="sdkit_cmp_embd_chip_xs_end_content_margin">4dp</dimen> <!-- 2dp -->
+    <dimen name="sdkit_cmp_embd_chip_xs_content_size">32dp</dimen> <!-- 16dp -->
+    <dimen name="sdkit_cmp_embd_chip_xs_embedded_shape_adjustment">-4dp</dimen> <!-- -2dp -->
 
     <dimen name="sdkit_cmp_chip_group_wide_horizontal_spacing">16dp</dimen> <!-- 8dp -->
     <dimen name="sdkit_cmp_chip_group_wide_vertical_spacing">16dp</dimen> <!-- 8dp -->

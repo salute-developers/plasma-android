@@ -28,6 +28,7 @@
         <item name="sd_boxTint">@color/sdkit_text_area_bg_color</item>
         <item name="sd_scrollBarTrackColor">@color/sdkit_text_area_scroll_track_color</item>
         <item name="sd_scrollBarThumbColor">@color/sdkit_text_area_scroll_thumb_color</item>
+        <item name="sd_colorStateProvider">com.sdkit.star.designsystem.colorstate.TextAreaColorStateProvider</item>
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.TextAreaXsChips">
         <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroup.Dense</item>

@@ -23,6 +23,7 @@
         <item name="sd_counterColor">@color/sdkit_text_field_counter_color</item>
         <item name="sd_placeholderColor">@color/sdkit_text_field_placeholder_color</item>
         <item name="sd_boxTint">@color/sdkit_text_field_bg_color</item>
+        <item name="sd_colorStateProvider">com.sdkit.star.designsystem.colorstate.TextFieldColorStateProvider</item>
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.TextFieldXsChips">
         <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroup.Dense</item>

@@ -10,7 +10,6 @@ package com.sdkit.star.designsystem.styles.textarea
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.dimensionResource
 import com.sdds.compose.uikit.ChipGroup
-import com.sdds.compose.uikit.EmbeddedChip
 import com.sdds.compose.uikit.TextArea
 import com.sdds.compose.uikit.TextAreaStyleBuilder
 import com.sdds.compose.uikit.TextField
@@ -24,10 +23,6 @@ import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.compose.uikit.textAreaBuilder
 import com.sdkit.star.designsystem.compose.R
-import com.sdkit.star.designsystem.styles.chip.M
-import com.sdkit.star.designsystem.styles.chip.S
-import com.sdkit.star.designsystem.styles.chip.Secondary
-import com.sdkit.star.designsystem.styles.chip.Xs
 import com.sdkit.star.designsystem.styles.chip.group.Dense
 import com.sdkit.star.designsystem.theme.StarDsTheme
 import kotlin.Suppress
@@ -249,7 +244,6 @@ public val TextArea.Xs: WrapperTextAreaXs
         .prefixStyle(StarDsTheme.typography.bodyXsNormal)
         .suffixStyle(StarDsTheme.typography.bodyXsNormal)
         .placeholderStyle(StarDsTheme.typography.bodyXsNormal)
-        .chipStyle(EmbeddedChip.Xs.Secondary.style())
         .labelPlacement(TextField.LabelPlacement.None)
         .wrap(::WrapperTextAreaXs)
 
@@ -300,7 +294,6 @@ public val TextArea.S: WrapperTextAreaS
         .prefixStyle(StarDsTheme.typography.bodySNormal)
         .suffixStyle(StarDsTheme.typography.bodySNormal)
         .placeholderStyle(StarDsTheme.typography.bodySNormal)
-        .chipStyle(EmbeddedChip.S.Secondary.style())
         .labelPlacement(TextField.LabelPlacement.None)
         .wrap(::WrapperTextAreaS)
 
@@ -372,7 +365,6 @@ public val TextArea.M: WrapperTextAreaM
         .prefixStyle(StarDsTheme.typography.bodyMNormal)
         .suffixStyle(StarDsTheme.typography.bodyMNormal)
         .placeholderStyle(StarDsTheme.typography.bodyMNormal)
-        .chipStyle(EmbeddedChip.M.Secondary.style())
         .labelPlacement(TextField.LabelPlacement.None)
         .wrap(::WrapperTextAreaM)
 

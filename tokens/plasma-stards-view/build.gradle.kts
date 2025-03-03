@@ -24,6 +24,7 @@ themeBuilder {
         url(themeUrl)
         name("StarDs")
     }
+    componentsSource("https://github.com/salute-developers/theme-converter/raw/main/components/plasma_stards")
     view {
         themeParents {
             materialComponentsTheme("NoActionBar")

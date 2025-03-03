@@ -7,7 +7,11 @@
         <item name="itemShapeFillColor">@color/bg_property_item</item>
     </style>
 
-    <style name="Theme.Sandbox.Components.Toolbar" parent="Widget.MaterialComponents.Toolbar.Primary">
+    <style name="Theme.Sandbox.Components.Toolbar" parent="Widget.MaterialComponents.Toolbar">
+        <item name="background">@null</item>
+        <item name="android:background">@null</item>
+        <item name="android:elevation">0dp</item>
+        <item name="elevation">0dp</item>
         <item name="titleTextColor">?serv_textDefaultPrimary</item>
         <item name="popupTheme">@style/Theme.Sandbox.ComponentOverlays.PopupOverlay</item>
     </style>
@@ -70,7 +74,7 @@
     </style>
 
     <style name="Theme.Sandbox.Components.PropertyConfirmButton" parent="@style/Serv.Sdds.Components.BasicButton.M.Default"/>
-    
+
     <style name="Theme.Sandbox.Components.PropertyChoiceTitle" parent="@style/Serv.Sdds.Typography.BodyLBold">
         <item name="android:textColor">?serv_textDefaultPrimary</item>
     </style>
