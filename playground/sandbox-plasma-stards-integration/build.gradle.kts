@@ -9,7 +9,7 @@ android {
 }
 
 dependencies {
-    implementation("playground:sandbox-core-integration")
+    implementation(project(":sandbox-core-integration"))
     implementation("tokens:plasma-stards-compose")
     implementation("tokens:plasma-stards-view")
     implementation(libs.sdds.uikit.compose)

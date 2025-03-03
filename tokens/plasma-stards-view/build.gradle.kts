@@ -1,6 +1,7 @@
 import com.sdds.plugin.themebuilder.OutputLocation
 import com.sdds.plugin.themebuilder.ShapeAppearanceConfig.Companion.sddsShape
 import com.sdds.plugin.themebuilder.ThemeBuilderMode
+import utils.themeUrl
 
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
@@ -20,12 +21,9 @@ android {
 
 themeBuilder {
     themeSource {
-        val themeUrl = properties["theme-url"]?.toString()
-            ?: throw GradleException("theme-url must be specified for ThemeBuilder to work")
         url(themeUrl)
         name("StarDs")
     }
-    componentsSource("file:///Users/20959665/Projects/theme-converter/components/plasma_stards")
     view {
         themeParents {
             materialComponentsTheme("NoActionBar")
