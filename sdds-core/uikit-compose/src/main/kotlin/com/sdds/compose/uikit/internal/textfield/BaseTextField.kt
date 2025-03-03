@@ -662,9 +662,11 @@ private fun placeholder(
     textStyle: TextStyle,
     visualTransformation: VisualTransformation,
 ): @Composable (() -> Unit)? {
-    if (placeholder.isNullOrEmpty()) return null
+    if (placeholder.isNullOrEmpty() && visualTransformation == VisualTransformation.None) return null
     return {
-        val annotatedPlaceholder = visualTransformation.filter(AnnotatedString(placeholder)).text
+        val annotatedPlaceholder = visualTransformation
+            .filter(AnnotatedString(placeholder.orEmpty()))
+            .text
         Text(
             text = annotatedPlaceholder,
             style = textStyle,
