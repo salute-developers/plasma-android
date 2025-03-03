@@ -70,6 +70,7 @@
         <item name="sd_labelAppearance">@style/Sdkit.StarDs.TextAppearance.BodyLBold</item>
         <item name="sd_labelColor">?sdkit_textDefaultPrimary</item>
         <item name="sd_labelPadding">?sdkit_spacing8x</item>
+        <item name="sdkit_textfieldColors">state_default</item>
     </style>
 
     <style name="Theme.Sandbox.Components.PropertyConfirmButton" parent="@style/Sdkit.StarDs.Components.BasicButton.M"/>

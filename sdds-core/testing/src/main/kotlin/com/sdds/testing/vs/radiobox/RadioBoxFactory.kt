@@ -60,6 +60,7 @@ fun RadioBoxGroup.applyState(state: RadioBoxUiState?): RadioBoxGroup = apply {
     state ?: return@apply
     isEnabled = state.enabled
     removeAllViews()
+    clearCheck()
     repeat(3) {
         addView(
             radioBox(

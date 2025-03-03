@@ -84,17 +84,12 @@ internal abstract class ViewComponentStyleGenerator<T : ComponentConfig>(
      */
     protected fun XmlResourcesDocumentBuilder.baseStyle(content: Element.() -> Unit = {}) {
         appendStyleWithCompositePrefix(baseStyleName, componentParent) {
-            stateListGenerators.forEach { (variationName, stateLists) ->
-                stateLists.forEach { (property, _) ->
-                    colorAttribute(property.attribute, property.colorFileName(variationName))
-                }
-            }
-            if (stateListGenerators.isNotEmpty()) {
+            content()
+            if (colorStateAttributesGenerator.hasColorStates) {
                 colorStateAttributesGenerator.colorStateProviderInfo.run {
                     valueAttribute(colorStateViewAttr, classCanonicalName)
                 }
             }
-            content()
         }
     }
 

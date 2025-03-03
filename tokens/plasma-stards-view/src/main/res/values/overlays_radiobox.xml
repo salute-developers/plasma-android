@@ -11,9 +11,11 @@
 
     <style name="Sdkit.StarDs.ComponentOverlays.RadioBoxGroupM">
         <item name="sd_radioBoxGroupStyle">@style/Sdkit.StarDs.Components.RadioBoxGroup.M</item>
+        <item name="android:radioButtonStyle">@style/Sdkit.StarDs.Components.RadioBox.M</item>
     </style>
 
     <style name="Sdkit.StarDs.ComponentOverlays.RadioBoxGroupS">
         <item name="sd_radioBoxGroupStyle">@style/Sdkit.StarDs.Components.RadioBoxGroup.S</item>
+        <item name="android:radioButtonStyle">@style/Sdkit.StarDs.Components.RadioBox.S</item>
     </style>
 </resources>

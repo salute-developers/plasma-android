@@ -3,13 +3,10 @@ package com.sdkit.star.designsystem.styles.chip
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.dimensionResource
-import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.Chip
 import com.sdds.compose.uikit.ChipStyle
 import com.sdds.compose.uikit.ChipStyleBuilder
-import com.sdds.compose.uikit.EmbeddedChip
 import com.sdds.compose.uikit.adjustBy
-import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdkit.star.designsystem.compose.R
 import com.sdkit.star.designsystem.theme.StarDsTheme
@@ -95,86 +92,6 @@ val Chip.Xs: ChipStyleBuilder
         )
 
 /**
- * Стиль [EmbeddedChip] размера L
- */
-val EmbeddedChip.L: ChipStyleBuilder
-    @Composable
-    get() = ChipStyle.builder()
-        .labelStyle(StarDsTheme.typography.bodyLNormal)
-        .shape(StarDsTheme.shapes.roundS)
-        .dimensions(
-            Chip.Dimensions(
-                height = 44.dp,
-                startContentSize = 24.dp,
-                endContentSize = 24.dp,
-                startContentMargin = 8.dp,
-                endContentMargin = 10.dp,
-                startPadding = 16.dp,
-                endPadding = 12.dp,
-            ),
-        )
-
-/**
- * Стиль [EmbeddedChip] размера M
- */
-val EmbeddedChip.M: ChipStyleBuilder
-    @Composable
-    get() = ChipStyle.builder()
-        .labelStyle(StarDsTheme.typography.bodyMNormal)
-        .shape(StarDsTheme.shapes.roundXs)
-        .dimensions(
-            Chip.Dimensions(
-                height = 36.dp,
-                startContentSize = 24.dp,
-                endContentSize = 24.dp,
-                startContentMargin = 6.dp,
-                endContentMargin = 8.dp,
-                startPadding = 14.dp,
-                endPadding = 10.dp,
-            ),
-        )
-
-/**
- * Стиль [EmbeddedChip] размера S
- */
-val EmbeddedChip.S: ChipStyleBuilder
-    @Composable
-    get() = ChipStyle.builder()
-        .labelStyle(StarDsTheme.typography.bodySNormal)
-        .shape(StarDsTheme.shapes.roundXxs)
-        .dimensions(
-            Chip.Dimensions(
-                height = 28.dp,
-                startContentSize = 16.dp,
-                endContentSize = 16.dp,
-                startContentMargin = 4.dp,
-                endContentMargin = 6.dp,
-                startPadding = 12.dp,
-                endPadding = 8.dp,
-            ),
-        )
-
-/**
- * Стиль [EmbeddedChip] размера Xs
- */
-val EmbeddedChip.Xs: ChipStyleBuilder
-    @Composable
-    get() = ChipStyle.builder()
-        .labelStyle(StarDsTheme.typography.bodyXsNormal)
-        .shape(StarDsTheme.shapes.roundXxs.adjustBy(all = (-2).dp))
-        .dimensions(
-            Chip.Dimensions(
-                height = 20.dp,
-                startContentSize = 12.dp,
-                endContentSize = 12.dp,
-                startContentMargin = 4.dp,
-                endContentMargin = 4.dp,
-                startPadding = 8.dp,
-                endPadding = 4.dp,
-            ),
-        )
-
-/**
  * Вариация [Chip] со скругленными на 50% углами (figma: Pilled)
  */
 val ChipStyleBuilder.Pilled: ChipStyleBuilder
@@ -187,71 +104,18 @@ val ChipStyleBuilder.Default: ChipStyleBuilder
     @Composable
     get() = this.colors {
         contentColor(
-            StarDsTheme.colors.textDefaultPrimary.asInteractive(
-                setOf(InteractiveState.Pressed) to StarDsTheme.colors.textDefaultPrimaryActive,
-                setOf(
-                    InteractiveState.Focused,
-                    InteractiveState.Pressed,
-                ) to StarDsTheme.colors.textInversePrimaryActive,
-                setOf(InteractiveState.Focused) to StarDsTheme.colors.textInversePrimary,
+            StarDsTheme.colors.textInversePrimary.asInteractive(
+                pressed = StarDsTheme.colors.textInversePrimaryActive,
             ),
         )
         backgroundColor(
-            StarDsTheme.colors.surfaceDefaultTransparentSecondary.asInteractive(
-                setOf(InteractiveState.Pressed) to StarDsTheme.colors.surfaceDefaultTransparentSecondaryActive,
-                setOf(
-                    InteractiveState.Focused,
-                    InteractiveState.Pressed,
-                ) to StarDsTheme.colors.surfaceDefaultSolidDefaultActive,
-                setOf(InteractiveState.Focused) to StarDsTheme.colors.surfaceDefaultSolidDefault,
+            StarDsTheme.colors.surfaceDefaultSolidDefault.asInteractive(
+                pressed = StarDsTheme.colors.surfaceDefaultSolidDefaultActive,
             ),
         )
         endContentColor(
-            StarDsTheme.colors.textDefaultSecondary.asInteractive(
-                setOf(InteractiveState.Pressed) to StarDsTheme.colors.textDefaultSecondaryActive,
-                setOf(
-                    InteractiveState.Focused,
-                    InteractiveState.Pressed,
-                ) to StarDsTheme.colors.textInverseSecondaryActive,
-                setOf(InteractiveState.Focused) to StarDsTheme.colors.textInverseSecondary,
-            ),
-        )
-    }
-
-/**
- * Вариация [Chip] цвета Accent
- */
-val ChipStyleBuilder.Accent: ChipStyleBuilder
-    @Composable
-    get() = this.colors {
-        contentColor(
-            StarDsTheme.colors.textOnDarkPrimary.asInteractive(
-                setOf(InteractiveState.Pressed) to StarDsTheme.colors.textOnDarkPrimaryActive,
-                setOf(
-                    InteractiveState.Focused,
-                    InteractiveState.Pressed,
-                ) to StarDsTheme.colors.textInversePrimaryActive,
-                setOf(InteractiveState.Focused) to StarDsTheme.colors.textInversePrimary,
-            ),
-        )
-        backgroundColor(
-            StarDsTheme.colors.surfaceDefaultAccent.asInteractive(
-                setOf(InteractiveState.Pressed) to StarDsTheme.colors.surfaceDefaultAccentActive,
-                setOf(
-                    InteractiveState.Focused,
-                    InteractiveState.Pressed,
-                ) to StarDsTheme.colors.surfaceDefaultSolidDefaultActive,
-                setOf(InteractiveState.Focused) to StarDsTheme.colors.surfaceDefaultSolidDefault,
-            ),
-        )
-        endContentColor(
-            StarDsTheme.colors.textOnDarkSecondary.asInteractive(
-                setOf(InteractiveState.Pressed) to StarDsTheme.colors.textOnDarkSecondaryActive,
-                setOf(
-                    InteractiveState.Focused,
-                    InteractiveState.Pressed,
-                ) to StarDsTheme.colors.textInverseSecondaryActive,
-                setOf(InteractiveState.Focused) to StarDsTheme.colors.textInverseSecondary,
+            StarDsTheme.colors.textInverseSecondary.asInteractive(
+                pressed = StarDsTheme.colors.textInverseSecondaryActive,
             ),
         )
     }
@@ -275,6 +139,98 @@ val ChipStyleBuilder.Secondary: ChipStyleBuilder
         endContentColor(
             StarDsTheme.colors.textDefaultSecondary.asInteractive(
                 pressed = StarDsTheme.colors.textDefaultSecondaryActive,
+            ),
+        )
+    }
+
+/**
+ * Вариация [Chip] цвета Accent
+ */
+val ChipStyleBuilder.Accent: ChipStyleBuilder
+    @Composable
+    get() = this.colors {
+        contentColor(
+            StarDsTheme.colors.textOnDarkPrimary.asInteractive(
+                pressed = StarDsTheme.colors.textOnDarkPrimaryActive,
+            ),
+        )
+        backgroundColor(
+            StarDsTheme.colors.surfaceDefaultAccent.asInteractive(
+                pressed = StarDsTheme.colors.surfaceDefaultAccentActive,
+            ),
+        )
+        endContentColor(
+            StarDsTheme.colors.textOnDarkSecondary.asInteractive(
+                pressed = StarDsTheme.colors.textOnDarkSecondaryActive,
+            ),
+        )
+    }
+
+/**
+ * Вариация [Chip] цвета Positive
+ */
+val ChipStyleBuilder.Positive: ChipStyleBuilder
+    @Composable
+    get() = this.colors {
+        contentColor(
+            StarDsTheme.colors.textOnDarkPrimary.asInteractive(
+                pressed = StarDsTheme.colors.textOnDarkPrimaryActive,
+            ),
+        )
+        backgroundColor(
+            StarDsTheme.colors.surfaceDefaultPositive.asInteractive(
+                pressed = StarDsTheme.colors.surfaceDefaultPositiveActive,
+            ),
+        )
+        endContentColor(
+            StarDsTheme.colors.textOnDarkSecondary.asInteractive(
+                pressed = StarDsTheme.colors.textOnDarkSecondaryActive,
+            ),
+        )
+    }
+
+/**
+ * Вариация [Chip] цвета Warning
+ */
+val ChipStyleBuilder.Warning: ChipStyleBuilder
+    @Composable
+    get() = this.colors {
+        contentColor(
+            StarDsTheme.colors.textOnDarkPrimary.asInteractive(
+                pressed = StarDsTheme.colors.textOnDarkPrimaryActive,
+            ),
+        )
+        backgroundColor(
+            StarDsTheme.colors.surfaceDefaultWarning.asInteractive(
+                pressed = StarDsTheme.colors.surfaceDefaultWarningActive,
+            ),
+        )
+        endContentColor(
+            StarDsTheme.colors.textOnDarkSecondary.asInteractive(
+                pressed = StarDsTheme.colors.textOnDarkSecondaryActive,
+            ),
+        )
+    }
+
+/**
+ * Вариация [Chip] цвета Negative
+ */
+val ChipStyleBuilder.Negative: ChipStyleBuilder
+    @Composable
+    get() = this.colors {
+        contentColor(
+            StarDsTheme.colors.textOnDarkPrimary.asInteractive(
+                pressed = StarDsTheme.colors.textOnDarkPrimaryActive,
+            ),
+        )
+        backgroundColor(
+            StarDsTheme.colors.surfaceDefaultNegative.asInteractive(
+                pressed = StarDsTheme.colors.surfaceDefaultNegativeActive,
+            ),
+        )
+        endContentColor(
+            StarDsTheme.colors.textOnDarkSecondary.asInteractive(
+                pressed = StarDsTheme.colors.textOnDarkSecondaryActive,
             ),
         )
     }

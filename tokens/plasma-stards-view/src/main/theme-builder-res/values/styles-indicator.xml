@@ -5,6 +5,7 @@
     <style name="Sdkit.StarDs.Components.Indicator" parent="Sdds.Components.Indicator">
         <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
         <item name="backgroundTint">@color/sdkit_indicator_bg_color</item>
+        <item name="sd_colorStateProvider">com.sdkit.star.designsystem.colorstate.IndicatorColorStateProvider</item>
     </style>
     <style name="Sdkit.StarDs.Components.Indicator.L">
         <item name="android:maxHeight">@dimen/sdkit_indicator_l_max_height</item>

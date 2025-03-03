@@ -10,7 +10,6 @@ package com.sdkit.star.designsystem.styles.textfield.clear
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.dimensionResource
 import com.sdds.compose.uikit.ChipGroup
-import com.sdds.compose.uikit.EmbeddedChip
 import com.sdds.compose.uikit.TextField
 import com.sdds.compose.uikit.TextFieldClear
 import com.sdds.compose.uikit.TextFieldClearStyleBuilder
@@ -23,11 +22,6 @@ import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.compose.uikit.textFieldClearBuilder
 import com.sdkit.star.designsystem.compose.R
-import com.sdkit.star.designsystem.styles.chip.L
-import com.sdkit.star.designsystem.styles.chip.M
-import com.sdkit.star.designsystem.styles.chip.S
-import com.sdkit.star.designsystem.styles.chip.Secondary
-import com.sdkit.star.designsystem.styles.chip.Xs
 import com.sdkit.star.designsystem.styles.chip.group.Dense
 import com.sdkit.star.designsystem.theme.StarDsTheme
 import kotlin.Suppress
@@ -260,7 +254,6 @@ public val TextFieldClear.Xs: WrapperTextFieldClearXs
         .prefixStyle(StarDsTheme.typography.bodyXsNormal)
         .suffixStyle(StarDsTheme.typography.bodyXsNormal)
         .placeholderStyle(StarDsTheme.typography.bodyXsNormal)
-        .chipStyle(EmbeddedChip.Xs.Secondary.style())
         .labelPlacement(TextField.LabelPlacement.None)
         .wrap(::WrapperTextFieldClearXs)
 
@@ -302,7 +295,6 @@ public val TextFieldClear.S: WrapperTextFieldClearS
         .prefixStyle(StarDsTheme.typography.bodySNormal)
         .suffixStyle(StarDsTheme.typography.bodySNormal)
         .placeholderStyle(StarDsTheme.typography.bodySNormal)
-        .chipStyle(EmbeddedChip.S.Secondary.style())
         .labelPlacement(TextField.LabelPlacement.None)
         .wrap(::WrapperTextFieldClearS)
 
@@ -370,7 +362,6 @@ public val TextFieldClear.M: WrapperTextFieldClearM
         .prefixStyle(StarDsTheme.typography.bodyMNormal)
         .suffixStyle(StarDsTheme.typography.bodyMNormal)
         .placeholderStyle(StarDsTheme.typography.bodyMNormal)
-        .chipStyle(EmbeddedChip.M.Secondary.style())
         .labelPlacement(TextField.LabelPlacement.None)
         .wrap(::WrapperTextFieldClearM)
 
@@ -438,7 +429,6 @@ public val TextFieldClear.L: WrapperTextFieldClearL
         .prefixStyle(StarDsTheme.typography.bodyLNormal)
         .suffixStyle(StarDsTheme.typography.bodyLNormal)
         .placeholderStyle(StarDsTheme.typography.bodyLNormal)
-        .chipStyle(EmbeddedChip.L.Secondary.style())
         .labelPlacement(TextField.LabelPlacement.None)
         .wrap(::WrapperTextFieldClearL)
 

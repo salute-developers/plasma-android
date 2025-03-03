@@ -25,7 +25,7 @@ themeBuilder {
         url(themeUrl)
         name("StarDs")
     }
-    componentsSource("file:///Users/20959665/Projects/theme-converter/components/plasma_stards")
+    componentsSource("https://github.com/salute-developers/theme-converter/raw/main/components/plasma_stards")
     compose()
     ktPackage("com.sdkit.star.designsystem")
     resourcesPrefix(prefix = "sdkit_cmp")
