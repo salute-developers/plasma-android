@@ -1,4 +1,4 @@
-name: 'Publish Sandbox-Compose Release'
+name: 'Assemble StarDS Sandbox Release'
 
 on:
   workflow_dispatch:
@@ -6,16 +6,13 @@ on:
       versionName:
         description: 'Version Name'
         required: true
-  push:
-    tags:
-      - "sdds-sandbox-compose-v[0-9]+.[0-9]+.[0-9]+"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head-ref }}
   cancel-in-progress: true
 
 jobs:
-  publish_and_release_apk:
+  assemble_release_apk:
     name: Build release artifacts
     runs-on: ubuntu-latest
 
@@ -34,29 +31,12 @@ jobs:
         env:
           KEY_STORE_FILE: "keystore.jks"
           RELEASE_STORE_PASSWORD: ${{ secrets.RELEASE_STORE_PASSWORD }}
-          RELEASE_KEY_ALIAS: ${{ secrets.SANDBOX_CMP_RELEASE_KEY_ALIAS }}
-          RELEASE_KEY_PASSWORD: ${{ secrets.SANDBOX_CMP_RELEASE_KEY_PASSWORD }}
-        run: ./gradlew :playground:sandbox-compose:assembleAppRelease
+          STAR_RELEASE_KEY_ALIAS: ${{ secrets.STAR_RELEASE_KEY_ALIAS }}
+          STAR_RELEASE_KEY_PASSWORD: ${{ secrets.STAR_RELEASE_KEY_PASSWORD }}
+        run: ./gradlew :playground:sandbox-compose:assembleStarAppRelease
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: sandbox-compose-release
           path: playground/sandbox-compose/build/outputs/apk/release/*.apk
-
-      - name: Create or Update Release
-        uses: ncipollo/release-action@v1
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          tag: ${{ github.ref_name }}
-          draft: true
-          allowUpdates: true
-          omitBody: true
-          artifacts: playground/sandbox-compose/build/outputs/apk/release/*.apk
-
-      - name: Distribute to testers
-        env:
-          TESTFAIRY_API_KEY: ${{ secrets.TESTFAIRY_API_KEY }}
-        run: sh .github/scripts/testfairy-uploader.sh playground/sandbox-compose/build/outputs/apk/release/*.apk
-
-

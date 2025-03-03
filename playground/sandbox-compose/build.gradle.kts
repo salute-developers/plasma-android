@@ -70,7 +70,7 @@ android {
             if (System.getenv("KEY_STORE_FILE") != null) {
                 productFlavors.getByName("app").signingConfig = signingConfigs.getByName("appRelease")
             }
-            if (System.getenv("STAR_KEY_STORE_FILE") != null) {
+            if (System.getenv("KEY_STORE_FILE") != null) {
                 productFlavors.getByName("starApp").signingConfig = signingConfigs.getByName("starAppRelease")
             }
             isMinifyEnabled = false
@@ -92,21 +92,21 @@ dependencies {
     implementation(libs.sdds.icons)
     implementation("tokens:sdds.serv.view")
     implementation("tokens:sdds.serv.compose")
-    implementation("playground:sandbox-sdds-serv-integration")
+    implementation(project(":sandbox-sdds-serv-integration"))
 
     implementation("tokens:plasma.sd.service.view")
     implementation("tokens:plasma.sd.service.compose")
-    implementation("playground:sandbox-plasma-sd-service-integration")
+    implementation(project(":sandbox-plasma-sd-service-integration"))
 
     implementation("tokens:stylessalute.view")
     implementation("tokens:stylessalute.compose")
-    implementation("playground:sandbox-stylessalute-integration")
+    implementation(project(":sandbox-stylessalute-integration"))
 
     "starAppImplementation"("tokens:plasma-stards-view")
     "starAppImplementation"("tokens:plasma-stards-compose")
-    "starAppImplementation"("playground:sandbox-plasma-stards-integration")
+    "starAppImplementation"(project(":sandbox-plasma-stards-integration"))
 
-    implementation("playground:sandbox-core-integration")
+    implementation(project(":sandbox-core-integration"))
     implementation("sdds-core:testing") {
         exclude("org.robolectric", "robolectric")
     }

@@ -1,6 +1,7 @@
 import com.sdds.plugin.themebuilder.OutputLocation.SRC
 import com.sdds.plugin.themebuilder.ShapeAppearanceConfig.Companion.sddsShape
 import com.sdds.plugin.themebuilder.ThemeBuilderMode.THEME
+import utils.themeVersion
 
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
@@ -18,8 +19,6 @@ android {
 }
 
 themeBuilder {
-    val themeVersion = project.property("theme-version")?.toString()
-        ?: throw GradleException("star design service version must be specified")
     themeSource(name = "sdds_serv", version = themeVersion, alias = "Sdds")
     view{
         themeParents {

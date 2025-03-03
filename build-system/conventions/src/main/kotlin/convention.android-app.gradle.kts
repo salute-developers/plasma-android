@@ -16,13 +16,6 @@ android {
         compileSdk = versions.global.compileSdk.get().toInt()
 
         defaultConfig {
-            applicationVariants.all {
-                outputs.all {
-                    val output = this as BaseVariantOutputImpl
-                    output.outputFileName = output.outputFileName
-                        .replace(".apk", "-${vInfo.fullArtifactName}.apk")
-                }
-            }
             minSdk = versions.global.minSdk.get().toInt()
             targetSdk = versions.global.targetSdk.get().toInt()
             testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
