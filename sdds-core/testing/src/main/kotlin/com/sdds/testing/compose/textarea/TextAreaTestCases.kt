@@ -133,7 +133,7 @@ fun TextAreaLReadOnly(style: TextFieldStyle) {
     Box(modifier = Modifier.padding(start = 20.dp)) {
         TextField(
             modifier = Modifier.fillMaxWidth(),
-            placeholderText = "",
+            placeholderText = "Placeholder",
             value = value,
             style = style,
             labelText = "Label",

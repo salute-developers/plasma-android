@@ -425,7 +425,7 @@ fun LinkButtonSizeSWarning(linkButtonStyle: ButtonStyle) {
  * PLASMA-T1472
  */
 @Composable
-fun LinkButtonSizeXSAccent(linkButtonStyle: ButtonStyle) {
+fun LinkButtonSizeXSNegative(linkButtonStyle: ButtonStyle) {
     Button(
         style = linkButtonStyle,
         label = "Label",
