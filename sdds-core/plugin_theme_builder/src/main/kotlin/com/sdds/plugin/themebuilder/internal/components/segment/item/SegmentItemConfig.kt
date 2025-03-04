@@ -10,6 +10,7 @@ import com.sdds.plugin.themebuilder.internal.components.base.PropertyOwner
 import com.sdds.plugin.themebuilder.internal.components.base.Shape
 import com.sdds.plugin.themebuilder.internal.components.base.Typography
 import com.sdds.plugin.themebuilder.internal.components.base.ViewVariation
+import com.sdds.plugin.themebuilder.internal.components.counter.CounterProperties
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -35,7 +36,7 @@ internal data class SegmentItemProperties(
     val startContentColor: Color? = null,
     val endContentColor: Color? = null,
 
-    val counterStyle: ComponentStyle? = null,
+    val counterStyle: ComponentStyle<CounterProperties>? = null,
 ) : PropertyOwner {
 
     @Suppress("CyclomaticComplexMethod")

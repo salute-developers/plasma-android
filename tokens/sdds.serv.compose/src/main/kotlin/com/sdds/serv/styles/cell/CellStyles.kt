@@ -42,23 +42,38 @@ import kotlin.Suppress
 import kotlin.jvm.JvmInline
 import kotlin.jvm.JvmName
 
+/**
+ * Базовый интерфейс для всех врапперов этого стиля
+ */
 public interface WrapperCell : BuilderWrapper<CellStyle, CellStyleBuilder>
 
+/**
+ * Враппер для вариации L
+ */
 @JvmInline
 public value class WrapperCellL(
     public override val builder: CellStyleBuilder,
 ) : WrapperCell
 
+/**
+ * Враппер для вариации M
+ */
 @JvmInline
 public value class WrapperCellM(
     public override val builder: CellStyleBuilder,
 ) : WrapperCell
 
+/**
+ * Враппер для вариации S
+ */
 @JvmInline
 public value class WrapperCellS(
     public override val builder: CellStyleBuilder,
 ) : WrapperCell
 
+/**
+ * Враппер для вариации Xs
+ */
 @JvmInline
 public value class WrapperCellXs(
     public override val builder: CellStyleBuilder,

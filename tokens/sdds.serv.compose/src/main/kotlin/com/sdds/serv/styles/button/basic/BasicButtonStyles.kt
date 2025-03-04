@@ -22,91 +22,76 @@ import kotlin.Suppress
 import kotlin.jvm.JvmInline
 import kotlin.jvm.JvmName
 
+/**
+ * Базовый интерфейс для всех врапперов этого стиля
+ */
 public interface WrapperBasicButton : BuilderWrapper<ButtonStyle, BasicButtonStyleBuilder>
 
+/**
+ * Интерфейс, который реализуют все врапперы вариаций корневого уровня
+ * и врапперы их подвариаций.
+ * Является ресивером для extension-функций view,
+ * применимых к этим врапперам.
+ */
 public interface WrapperBasicButtonView : WrapperBasicButton
 
+/**
+ * Терминальный враппер
+ */
 @JvmInline
-public value class WrapperBasicButtonDefaultViewTerminate(
+public value class WrapperBasicButtonTerminate(
     public override val builder: BasicButtonStyleBuilder,
 ) : WrapperBasicButton
 
-@JvmInline
-public value class WrapperBasicButtonSecondaryViewTerminate(
-    public override val builder: BasicButtonStyleBuilder,
-) : WrapperBasicButton
-
-@JvmInline
-public value class WrapperBasicButtonAccentViewTerminate(
-    public override val builder: BasicButtonStyleBuilder,
-) : WrapperBasicButton
-
-@JvmInline
-public value class WrapperBasicButtonPositiveViewTerminate(
-    public override val builder: BasicButtonStyleBuilder,
-) : WrapperBasicButton
-
-@JvmInline
-public value class WrapperBasicButtonNegativeViewTerminate(
-    public override val builder: BasicButtonStyleBuilder,
-) : WrapperBasicButton
-
-@JvmInline
-public value class WrapperBasicButtonWarningViewTerminate(
-    public override val builder: BasicButtonStyleBuilder,
-) : WrapperBasicButton
-
-@JvmInline
-public value class WrapperBasicButtonClearViewTerminate(
-    public override val builder: BasicButtonStyleBuilder,
-) : WrapperBasicButton
-
-@JvmInline
-public value class WrapperBasicButtonDarkViewTerminate(
-    public override val builder: BasicButtonStyleBuilder,
-) : WrapperBasicButton
-
-@JvmInline
-public value class WrapperBasicButtonBlackViewTerminate(
-    public override val builder: BasicButtonStyleBuilder,
-) : WrapperBasicButton
-
-@JvmInline
-public value class WrapperBasicButtonWhiteViewTerminate(
-    public override val builder: BasicButtonStyleBuilder,
-) : WrapperBasicButton
-
+/**
+ * Враппер для вариации Xl
+ */
 @JvmInline
 public value class WrapperBasicButtonXl(
     public override val builder: BasicButtonStyleBuilder,
 ) : WrapperBasicButtonView
 
+/**
+ * Враппер для вариации L
+ */
 @JvmInline
 public value class WrapperBasicButtonL(
     public override val builder: BasicButtonStyleBuilder,
 ) : WrapperBasicButtonView
 
+/**
+ * Враппер для вариации M
+ */
 @JvmInline
 public value class WrapperBasicButtonM(
     public override val builder: BasicButtonStyleBuilder,
 ) : WrapperBasicButtonView
 
+/**
+ * Враппер для вариации S
+ */
 @JvmInline
 public value class WrapperBasicButtonS(
     public override val builder: BasicButtonStyleBuilder,
 ) : WrapperBasicButtonView
 
+/**
+ * Враппер для вариации Xs
+ */
 @JvmInline
 public value class WrapperBasicButtonXs(
     public override val builder: BasicButtonStyleBuilder,
 ) : WrapperBasicButtonView
 
+/**
+ * Враппер для вариации Xxs
+ */
 @JvmInline
 public value class WrapperBasicButtonXxs(
     public override val builder: BasicButtonStyleBuilder,
 ) : WrapperBasicButtonView
 
-public val WrapperBasicButtonView.Default: WrapperBasicButtonDefaultViewTerminate
+public val WrapperBasicButtonView.Default: WrapperBasicButtonTerminate
     @Composable
     get() = builder
         .colors {
@@ -152,9 +137,9 @@ public val WrapperBasicButtonView.Default: WrapperBasicButtonDefaultViewTerminat
             )
         }
         .loadingAlpha(0.0f)
-        .wrap(::WrapperBasicButtonDefaultViewTerminate)
+        .wrap(::WrapperBasicButtonTerminate)
 
-public val WrapperBasicButtonView.Secondary: WrapperBasicButtonSecondaryViewTerminate
+public val WrapperBasicButtonView.Secondary: WrapperBasicButtonTerminate
     @Composable
     get() = builder
         .colors {
@@ -200,9 +185,9 @@ public val WrapperBasicButtonView.Secondary: WrapperBasicButtonSecondaryViewTerm
             )
         }
         .loadingAlpha(0.0f)
-        .wrap(::WrapperBasicButtonSecondaryViewTerminate)
+        .wrap(::WrapperBasicButtonTerminate)
 
-public val WrapperBasicButtonView.Accent: WrapperBasicButtonAccentViewTerminate
+public val WrapperBasicButtonView.Accent: WrapperBasicButtonTerminate
     @Composable
     get() = builder
         .colors {
@@ -248,9 +233,9 @@ public val WrapperBasicButtonView.Accent: WrapperBasicButtonAccentViewTerminate
             )
         }
         .loadingAlpha(0.0f)
-        .wrap(::WrapperBasicButtonAccentViewTerminate)
+        .wrap(::WrapperBasicButtonTerminate)
 
-public val WrapperBasicButtonView.Positive: WrapperBasicButtonPositiveViewTerminate
+public val WrapperBasicButtonView.Positive: WrapperBasicButtonTerminate
     @Composable
     get() = builder
         .colors {
@@ -296,9 +281,9 @@ public val WrapperBasicButtonView.Positive: WrapperBasicButtonPositiveViewTermin
             )
         }
         .loadingAlpha(0.0f)
-        .wrap(::WrapperBasicButtonPositiveViewTerminate)
+        .wrap(::WrapperBasicButtonTerminate)
 
-public val WrapperBasicButtonView.Negative: WrapperBasicButtonNegativeViewTerminate
+public val WrapperBasicButtonView.Negative: WrapperBasicButtonTerminate
     @Composable
     get() = builder
         .colors {
@@ -344,9 +329,9 @@ public val WrapperBasicButtonView.Negative: WrapperBasicButtonNegativeViewTermin
             )
         }
         .loadingAlpha(0.0f)
-        .wrap(::WrapperBasicButtonNegativeViewTerminate)
+        .wrap(::WrapperBasicButtonTerminate)
 
-public val WrapperBasicButtonView.Warning: WrapperBasicButtonWarningViewTerminate
+public val WrapperBasicButtonView.Warning: WrapperBasicButtonTerminate
     @Composable
     get() = builder
         .colors {
@@ -392,9 +377,9 @@ public val WrapperBasicButtonView.Warning: WrapperBasicButtonWarningViewTerminat
             )
         }
         .loadingAlpha(0.0f)
-        .wrap(::WrapperBasicButtonWarningViewTerminate)
+        .wrap(::WrapperBasicButtonTerminate)
 
-public val WrapperBasicButtonView.Clear: WrapperBasicButtonClearViewTerminate
+public val WrapperBasicButtonView.Clear: WrapperBasicButtonTerminate
     @Composable
     get() = builder
         .colors {
@@ -440,9 +425,9 @@ public val WrapperBasicButtonView.Clear: WrapperBasicButtonClearViewTerminate
             )
         }
         .loadingAlpha(0.06f)
-        .wrap(::WrapperBasicButtonClearViewTerminate)
+        .wrap(::WrapperBasicButtonTerminate)
 
-public val WrapperBasicButtonView.Dark: WrapperBasicButtonDarkViewTerminate
+public val WrapperBasicButtonView.Dark: WrapperBasicButtonTerminate
     @Composable
     get() = builder
         .colors {
@@ -488,9 +473,9 @@ public val WrapperBasicButtonView.Dark: WrapperBasicButtonDarkViewTerminate
             )
         }
         .loadingAlpha(0.0f)
-        .wrap(::WrapperBasicButtonDarkViewTerminate)
+        .wrap(::WrapperBasicButtonTerminate)
 
-public val WrapperBasicButtonView.Black: WrapperBasicButtonBlackViewTerminate
+public val WrapperBasicButtonView.Black: WrapperBasicButtonTerminate
     @Composable
     get() = builder
         .colors {
@@ -536,9 +521,9 @@ public val WrapperBasicButtonView.Black: WrapperBasicButtonBlackViewTerminate
             )
         }
         .loadingAlpha(0.0f)
-        .wrap(::WrapperBasicButtonBlackViewTerminate)
+        .wrap(::WrapperBasicButtonTerminate)
 
-public val WrapperBasicButtonView.White: WrapperBasicButtonWhiteViewTerminate
+public val WrapperBasicButtonView.White: WrapperBasicButtonTerminate
     @Composable
     get() = builder
         .colors {
@@ -584,7 +569,7 @@ public val WrapperBasicButtonView.White: WrapperBasicButtonWhiteViewTerminate
             )
         }
         .loadingAlpha(0.0f)
-        .wrap(::WrapperBasicButtonWhiteViewTerminate)
+        .wrap(::WrapperBasicButtonTerminate)
 
 private val BasicButtonStyleBuilder.invariantProps: BasicButtonStyleBuilder
     @Composable

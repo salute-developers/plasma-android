@@ -172,7 +172,7 @@ internal val PropertyValue<*>?.isNullOrInherited: Boolean
 internal fun VariationNode<*>.camelCaseName(separator: String = "."): String =
     this.id.split(".").joinToString(separator = separator) { it.techToCamelCase() }
 
-internal fun ComponentStyle.camelCaseValue(): String =
+internal fun ComponentStyle<*>.camelCaseValue(): String =
     this.value.split(".").joinToString(separator = ".") { it.techToCamelCase() }
 
 internal fun VariationNode<*>.snakeCaseName(separator: String = "."): String =
