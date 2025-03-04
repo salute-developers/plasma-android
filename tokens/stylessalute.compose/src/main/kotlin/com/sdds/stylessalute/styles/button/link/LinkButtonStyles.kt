@@ -21,61 +21,60 @@ import kotlin.Suppress
 import kotlin.jvm.JvmInline
 import kotlin.jvm.JvmName
 
+/**
+ * Базовый интерфейс для всех врапперов этого стиля
+ */
 public interface WrapperLinkButton : BuilderWrapper<ButtonStyle, LinkButtonStyleBuilder>
 
+/**
+ * Интерфейс, который реализуют все врапперы вариаций корневого уровня
+ * и врапперы их подвариаций.
+ * Является ресивером для extension-функций view,
+ * применимых к этим врапперам.
+ */
 public interface WrapperLinkButtonView : WrapperLinkButton
 
+/**
+ * Терминальный враппер
+ */
 @JvmInline
-public value class WrapperLinkButtonDefaultViewTerminate(
+public value class WrapperLinkButtonTerminate(
     public override val builder: LinkButtonStyleBuilder,
 ) : WrapperLinkButton
 
-@JvmInline
-public value class WrapperLinkButtonSecondaryViewTerminate(
-    public override val builder: LinkButtonStyleBuilder,
-) : WrapperLinkButton
-
-@JvmInline
-public value class WrapperLinkButtonAccentViewTerminate(
-    public override val builder: LinkButtonStyleBuilder,
-) : WrapperLinkButton
-
-@JvmInline
-public value class WrapperLinkButtonPositiveViewTerminate(
-    public override val builder: LinkButtonStyleBuilder,
-) : WrapperLinkButton
-
-@JvmInline
-public value class WrapperLinkButtonNegativeViewTerminate(
-    public override val builder: LinkButtonStyleBuilder,
-) : WrapperLinkButton
-
-@JvmInline
-public value class WrapperLinkButtonWarningViewTerminate(
-    public override val builder: LinkButtonStyleBuilder,
-) : WrapperLinkButton
-
+/**
+ * Враппер для вариации L
+ */
 @JvmInline
 public value class WrapperLinkButtonL(
     public override val builder: LinkButtonStyleBuilder,
 ) : WrapperLinkButtonView
 
+/**
+ * Враппер для вариации M
+ */
 @JvmInline
 public value class WrapperLinkButtonM(
     public override val builder: LinkButtonStyleBuilder,
 ) : WrapperLinkButtonView
 
+/**
+ * Враппер для вариации S
+ */
 @JvmInline
 public value class WrapperLinkButtonS(
     public override val builder: LinkButtonStyleBuilder,
 ) : WrapperLinkButtonView
 
+/**
+ * Враппер для вариации Xs
+ */
 @JvmInline
 public value class WrapperLinkButtonXs(
     public override val builder: LinkButtonStyleBuilder,
 ) : WrapperLinkButtonView
 
-public val WrapperLinkButtonView.Default: WrapperLinkButtonDefaultViewTerminate
+public val WrapperLinkButtonView.Default: WrapperLinkButtonTerminate
     @Composable
     get() = builder
         .colors {
@@ -104,9 +103,9 @@ public val WrapperLinkButtonView.Default: WrapperLinkButtonDefaultViewTerminate
                 ),
             )
         }
-        .wrap(::WrapperLinkButtonDefaultViewTerminate)
+        .wrap(::WrapperLinkButtonTerminate)
 
-public val WrapperLinkButtonView.Secondary: WrapperLinkButtonSecondaryViewTerminate
+public val WrapperLinkButtonView.Secondary: WrapperLinkButtonTerminate
     @Composable
     get() = builder
         .colors {
@@ -135,9 +134,9 @@ public val WrapperLinkButtonView.Secondary: WrapperLinkButtonSecondaryViewTermin
                 ),
             )
         }
-        .wrap(::WrapperLinkButtonSecondaryViewTerminate)
+        .wrap(::WrapperLinkButtonTerminate)
 
-public val WrapperLinkButtonView.Accent: WrapperLinkButtonAccentViewTerminate
+public val WrapperLinkButtonView.Accent: WrapperLinkButtonTerminate
     @Composable
     get() = builder
         .colors {
@@ -166,9 +165,9 @@ public val WrapperLinkButtonView.Accent: WrapperLinkButtonAccentViewTerminate
                 ),
             )
         }
-        .wrap(::WrapperLinkButtonAccentViewTerminate)
+        .wrap(::WrapperLinkButtonTerminate)
 
-public val WrapperLinkButtonView.Positive: WrapperLinkButtonPositiveViewTerminate
+public val WrapperLinkButtonView.Positive: WrapperLinkButtonTerminate
     @Composable
     get() = builder
         .colors {
@@ -197,9 +196,9 @@ public val WrapperLinkButtonView.Positive: WrapperLinkButtonPositiveViewTerminat
                 ),
             )
         }
-        .wrap(::WrapperLinkButtonPositiveViewTerminate)
+        .wrap(::WrapperLinkButtonTerminate)
 
-public val WrapperLinkButtonView.Negative: WrapperLinkButtonNegativeViewTerminate
+public val WrapperLinkButtonView.Negative: WrapperLinkButtonTerminate
     @Composable
     get() = builder
         .colors {
@@ -228,9 +227,9 @@ public val WrapperLinkButtonView.Negative: WrapperLinkButtonNegativeViewTerminat
                 ),
             )
         }
-        .wrap(::WrapperLinkButtonNegativeViewTerminate)
+        .wrap(::WrapperLinkButtonTerminate)
 
-public val WrapperLinkButtonView.Warning: WrapperLinkButtonWarningViewTerminate
+public val WrapperLinkButtonView.Warning: WrapperLinkButtonTerminate
     @Composable
     get() = builder
         .colors {
@@ -259,7 +258,7 @@ public val WrapperLinkButtonView.Warning: WrapperLinkButtonWarningViewTerminate
                 ),
             )
         }
-        .wrap(::WrapperLinkButtonWarningViewTerminate)
+        .wrap(::WrapperLinkButtonTerminate)
 
 private val LinkButtonStyleBuilder.invariantProps: LinkButtonStyleBuilder
     @Composable

@@ -29,61 +29,92 @@ import kotlin.Suppress
 import kotlin.jvm.JvmInline
 import kotlin.jvm.JvmName
 
+/**
+ * Базовый интерфейс для всех врапперов этого стиля
+ */
 public interface WrapperSegmentItem : BuilderWrapper<SegmentItemStyle, SegmentItemStyleBuilder>
 
+/**
+ * Интерфейс, который реализуют все врапперы вариаций корневого уровня
+ * и врапперы их подвариаций.
+ * Является ресивером для extension-функций view,
+ * применимых к этим врапперам.
+ */
 public interface WrapperSegmentItemView : WrapperSegmentItem
 
+/**
+ * Терминальный враппер
+ */
 @JvmInline
-public value class WrapperSegmentItemPrimaryViewTerminate(
+public value class WrapperSegmentItemTerminate(
     public override val builder: SegmentItemStyleBuilder,
 ) : WrapperSegmentItem
 
-@JvmInline
-public value class WrapperSegmentItemSecondaryViewTerminate(
-    public override val builder: SegmentItemStyleBuilder,
-) : WrapperSegmentItem
-
+/**
+ * Враппер для вариации L
+ */
 @JvmInline
 public value class WrapperSegmentItemL(
     public override val builder: SegmentItemStyleBuilder,
 ) : WrapperSegmentItemView
 
+/**
+ * Враппер для вариации LPilled
+ */
 @JvmInline
 public value class WrapperSegmentItemLPilled(
     public override val builder: SegmentItemStyleBuilder,
 ) : WrapperSegmentItemView
 
+/**
+ * Враппер для вариации M
+ */
 @JvmInline
 public value class WrapperSegmentItemM(
     public override val builder: SegmentItemStyleBuilder,
 ) : WrapperSegmentItemView
 
+/**
+ * Враппер для вариации MPilled
+ */
 @JvmInline
 public value class WrapperSegmentItemMPilled(
     public override val builder: SegmentItemStyleBuilder,
 ) : WrapperSegmentItemView
 
+/**
+ * Враппер для вариации S
+ */
 @JvmInline
 public value class WrapperSegmentItemS(
     public override val builder: SegmentItemStyleBuilder,
 ) : WrapperSegmentItemView
 
+/**
+ * Враппер для вариации SPilled
+ */
 @JvmInline
 public value class WrapperSegmentItemSPilled(
     public override val builder: SegmentItemStyleBuilder,
 ) : WrapperSegmentItemView
 
+/**
+ * Враппер для вариации Xs
+ */
 @JvmInline
 public value class WrapperSegmentItemXs(
     public override val builder: SegmentItemStyleBuilder,
 ) : WrapperSegmentItemView
 
+/**
+ * Враппер для вариации XsPilled
+ */
 @JvmInline
 public value class WrapperSegmentItemXsPilled(
     public override val builder: SegmentItemStyleBuilder,
 ) : WrapperSegmentItemView
 
-public val WrapperSegmentItemView.Primary: WrapperSegmentItemPrimaryViewTerminate
+public val WrapperSegmentItemView.Primary: WrapperSegmentItemTerminate
     @Composable
     get() = builder
         .colors {
@@ -178,9 +209,9 @@ public val WrapperSegmentItemView.Primary: WrapperSegmentItemPrimaryViewTerminat
                 ),
             )
         }
-        .wrap(::WrapperSegmentItemPrimaryViewTerminate)
+        .wrap(::WrapperSegmentItemTerminate)
 
-public val WrapperSegmentItemView.Secondary: WrapperSegmentItemSecondaryViewTerminate
+public val WrapperSegmentItemView.Secondary: WrapperSegmentItemTerminate
     @Composable
     get() = builder
         .colors {
@@ -266,7 +297,7 @@ public val WrapperSegmentItemView.Secondary: WrapperSegmentItemSecondaryViewTerm
                 ),
             )
         }
-        .wrap(::WrapperSegmentItemSecondaryViewTerminate)
+        .wrap(::WrapperSegmentItemTerminate)
 
 private val SegmentItemStyleBuilder.invariantProps: SegmentItemStyleBuilder
     @Composable
