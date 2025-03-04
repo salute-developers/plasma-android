@@ -23,101 +23,92 @@ import kotlin.Suppress
 import kotlin.jvm.JvmInline
 import kotlin.jvm.JvmName
 
+/**
+ * Базовый интерфейс для всех врапперов этого стиля
+ */
 public interface WrapperIconButton : BuilderWrapper<ButtonStyle, IconButtonStyleBuilder>
 
+/**
+ * Интерфейс, который реализуют все врапперы вариаций корневого уровня
+ * и врапперы их подвариаций.
+ * Является ресивером для extension-функций view,
+ * применимых к этим врапперам.
+ */
 public interface WrapperIconButtonView : WrapperIconButton
 
+/**
+ * Терминальный враппер
+ */
 @JvmInline
-public value class WrapperIconButtonDefaultViewTerminate(
+public value class WrapperIconButtonTerminate(
     public override val builder: IconButtonStyleBuilder,
 ) : WrapperIconButton
 
-@JvmInline
-public value class WrapperIconButtonSecondaryViewTerminate(
-    public override val builder: IconButtonStyleBuilder,
-) : WrapperIconButton
-
-@JvmInline
-public value class WrapperIconButtonAccentViewTerminate(
-    public override val builder: IconButtonStyleBuilder,
-) : WrapperIconButton
-
-@JvmInline
-public value class WrapperIconButtonPositiveViewTerminate(
-    public override val builder: IconButtonStyleBuilder,
-) : WrapperIconButton
-
-@JvmInline
-public value class WrapperIconButtonNegativeViewTerminate(
-    public override val builder: IconButtonStyleBuilder,
-) : WrapperIconButton
-
-@JvmInline
-public value class WrapperIconButtonWarningViewTerminate(
-    public override val builder: IconButtonStyleBuilder,
-) : WrapperIconButton
-
-@JvmInline
-public value class WrapperIconButtonClearViewTerminate(
-    public override val builder: IconButtonStyleBuilder,
-) : WrapperIconButton
-
-@JvmInline
-public value class WrapperIconButtonDarkViewTerminate(
-    public override val builder: IconButtonStyleBuilder,
-) : WrapperIconButton
-
-@JvmInline
-public value class WrapperIconButtonBlackViewTerminate(
-    public override val builder: IconButtonStyleBuilder,
-) : WrapperIconButton
-
-@JvmInline
-public value class WrapperIconButtonWhiteViewTerminate(
-    public override val builder: IconButtonStyleBuilder,
-) : WrapperIconButton
-
+/**
+ * Враппер для вариации L
+ */
 @JvmInline
 public value class WrapperIconButtonL(
     public override val builder: IconButtonStyleBuilder,
 ) : WrapperIconButtonView
 
+/**
+ * Враппер для вариации LPilled
+ */
 @JvmInline
 public value class WrapperIconButtonLPilled(
     public override val builder: IconButtonStyleBuilder,
 ) : WrapperIconButtonView
 
+/**
+ * Враппер для вариации M
+ */
 @JvmInline
 public value class WrapperIconButtonM(
     public override val builder: IconButtonStyleBuilder,
 ) : WrapperIconButtonView
 
+/**
+ * Враппер для вариации MPilled
+ */
 @JvmInline
 public value class WrapperIconButtonMPilled(
     public override val builder: IconButtonStyleBuilder,
 ) : WrapperIconButtonView
 
+/**
+ * Враппер для вариации S
+ */
 @JvmInline
 public value class WrapperIconButtonS(
     public override val builder: IconButtonStyleBuilder,
 ) : WrapperIconButtonView
 
+/**
+ * Враппер для вариации SPilled
+ */
 @JvmInline
 public value class WrapperIconButtonSPilled(
     public override val builder: IconButtonStyleBuilder,
 ) : WrapperIconButtonView
 
+/**
+ * Враппер для вариации Xs
+ */
 @JvmInline
 public value class WrapperIconButtonXs(
     public override val builder: IconButtonStyleBuilder,
 ) : WrapperIconButtonView
 
+/**
+ * Враппер для вариации XsPilled
+ */
 @JvmInline
 public value class WrapperIconButtonXsPilled(
     public override val builder: IconButtonStyleBuilder,
 ) : WrapperIconButtonView
 
-public val WrapperIconButtonView.Default: WrapperIconButtonDefaultViewTerminate
+public val WrapperIconButtonView.Default: WrapperIconButtonTerminate
     @Composable
     get() = builder
         .colors {
@@ -146,9 +137,9 @@ public val WrapperIconButtonView.Default: WrapperIconButtonDefaultViewTerminate
                 ),
             )
         }
-        .wrap(::WrapperIconButtonDefaultViewTerminate)
+        .wrap(::WrapperIconButtonTerminate)
 
-public val WrapperIconButtonView.Secondary: WrapperIconButtonSecondaryViewTerminate
+public val WrapperIconButtonView.Secondary: WrapperIconButtonTerminate
     @Composable
     get() = builder
         .colors {
@@ -177,9 +168,9 @@ public val WrapperIconButtonView.Secondary: WrapperIconButtonSecondaryViewTermin
                 ),
             )
         }
-        .wrap(::WrapperIconButtonSecondaryViewTerminate)
+        .wrap(::WrapperIconButtonTerminate)
 
-public val WrapperIconButtonView.Accent: WrapperIconButtonAccentViewTerminate
+public val WrapperIconButtonView.Accent: WrapperIconButtonTerminate
     @Composable
     get() = builder
         .colors {
@@ -208,9 +199,9 @@ public val WrapperIconButtonView.Accent: WrapperIconButtonAccentViewTerminate
                 ),
             )
         }
-        .wrap(::WrapperIconButtonAccentViewTerminate)
+        .wrap(::WrapperIconButtonTerminate)
 
-public val WrapperIconButtonView.Positive: WrapperIconButtonPositiveViewTerminate
+public val WrapperIconButtonView.Positive: WrapperIconButtonTerminate
     @Composable
     get() = builder
         .colors {
@@ -239,9 +230,9 @@ public val WrapperIconButtonView.Positive: WrapperIconButtonPositiveViewTerminat
                 ),
             )
         }
-        .wrap(::WrapperIconButtonPositiveViewTerminate)
+        .wrap(::WrapperIconButtonTerminate)
 
-public val WrapperIconButtonView.Negative: WrapperIconButtonNegativeViewTerminate
+public val WrapperIconButtonView.Negative: WrapperIconButtonTerminate
     @Composable
     get() = builder
         .colors {
@@ -270,9 +261,9 @@ public val WrapperIconButtonView.Negative: WrapperIconButtonNegativeViewTerminat
                 ),
             )
         }
-        .wrap(::WrapperIconButtonNegativeViewTerminate)
+        .wrap(::WrapperIconButtonTerminate)
 
-public val WrapperIconButtonView.Warning: WrapperIconButtonWarningViewTerminate
+public val WrapperIconButtonView.Warning: WrapperIconButtonTerminate
     @Composable
     get() = builder
         .colors {
@@ -301,9 +292,9 @@ public val WrapperIconButtonView.Warning: WrapperIconButtonWarningViewTerminate
                 ),
             )
         }
-        .wrap(::WrapperIconButtonWarningViewTerminate)
+        .wrap(::WrapperIconButtonTerminate)
 
-public val WrapperIconButtonView.Clear: WrapperIconButtonClearViewTerminate
+public val WrapperIconButtonView.Clear: WrapperIconButtonTerminate
     @Composable
     get() = builder
         .colors {
@@ -332,9 +323,9 @@ public val WrapperIconButtonView.Clear: WrapperIconButtonClearViewTerminate
                 ),
             )
         }
-        .wrap(::WrapperIconButtonClearViewTerminate)
+        .wrap(::WrapperIconButtonTerminate)
 
-public val WrapperIconButtonView.Dark: WrapperIconButtonDarkViewTerminate
+public val WrapperIconButtonView.Dark: WrapperIconButtonTerminate
     @Composable
     get() = builder
         .colors {
@@ -363,9 +354,9 @@ public val WrapperIconButtonView.Dark: WrapperIconButtonDarkViewTerminate
                 ),
             )
         }
-        .wrap(::WrapperIconButtonDarkViewTerminate)
+        .wrap(::WrapperIconButtonTerminate)
 
-public val WrapperIconButtonView.Black: WrapperIconButtonBlackViewTerminate
+public val WrapperIconButtonView.Black: WrapperIconButtonTerminate
     @Composable
     get() = builder
         .colors {
@@ -394,9 +385,9 @@ public val WrapperIconButtonView.Black: WrapperIconButtonBlackViewTerminate
                 ),
             )
         }
-        .wrap(::WrapperIconButtonBlackViewTerminate)
+        .wrap(::WrapperIconButtonTerminate)
 
-public val WrapperIconButtonView.White: WrapperIconButtonWhiteViewTerminate
+public val WrapperIconButtonView.White: WrapperIconButtonTerminate
     @Composable
     get() = builder
         .colors {
@@ -425,7 +416,7 @@ public val WrapperIconButtonView.White: WrapperIconButtonWhiteViewTerminate
                 ),
             )
         }
-        .wrap(::WrapperIconButtonWhiteViewTerminate)
+        .wrap(::WrapperIconButtonTerminate)
 
 private val IconButtonStyleBuilder.invariantProps: IconButtonStyleBuilder
     @Composable

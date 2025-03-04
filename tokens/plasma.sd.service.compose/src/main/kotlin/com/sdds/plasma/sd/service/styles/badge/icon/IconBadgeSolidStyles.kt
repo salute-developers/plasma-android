@@ -22,86 +22,92 @@ import kotlin.Suppress
 import kotlin.jvm.JvmInline
 import kotlin.jvm.JvmName
 
+/**
+ * Базовый интерфейс для всех врапперов этого стиля
+ */
 public interface WrapperIconBadgeSolid : BuilderWrapper<BadgeStyle, IconBadgeStyleBuilder>
 
+/**
+ * Интерфейс, который реализуют все врапперы вариаций корневого уровня
+ * и врапперы их подвариаций.
+ * Является ресивером для extension-функций view,
+ * применимых к этим врапперам.
+ */
 public interface WrapperIconBadgeSolidView : WrapperIconBadgeSolid
 
+/**
+ * Терминальный враппер
+ */
 @JvmInline
-public value class WrapperIconBadgeSolidDefaultViewTerminate(
+public value class WrapperIconBadgeSolidTerminate(
     public override val builder: IconBadgeStyleBuilder,
 ) : WrapperIconBadgeSolid
 
-@JvmInline
-public value class WrapperIconBadgeSolidAccentViewTerminate(
-    public override val builder: IconBadgeStyleBuilder,
-) : WrapperIconBadgeSolid
-
-@JvmInline
-public value class WrapperIconBadgeSolidNegativeViewTerminate(
-    public override val builder: IconBadgeStyleBuilder,
-) : WrapperIconBadgeSolid
-
-@JvmInline
-public value class WrapperIconBadgeSolidPositiveViewTerminate(
-    public override val builder: IconBadgeStyleBuilder,
-) : WrapperIconBadgeSolid
-
-@JvmInline
-public value class WrapperIconBadgeSolidWarningViewTerminate(
-    public override val builder: IconBadgeStyleBuilder,
-) : WrapperIconBadgeSolid
-
-@JvmInline
-public value class WrapperIconBadgeSolidDarkViewTerminate(
-    public override val builder: IconBadgeStyleBuilder,
-) : WrapperIconBadgeSolid
-
-@JvmInline
-public value class WrapperIconBadgeSolidLightViewTerminate(
-    public override val builder: IconBadgeStyleBuilder,
-) : WrapperIconBadgeSolid
-
+/**
+ * Враппер для вариации L
+ */
 @JvmInline
 public value class WrapperIconBadgeSolidL(
     public override val builder: IconBadgeStyleBuilder,
 ) : WrapperIconBadgeSolidView
 
+/**
+ * Враппер для вариации LPilled
+ */
 @JvmInline
 public value class WrapperIconBadgeSolidLPilled(
     public override val builder: IconBadgeStyleBuilder,
 ) : WrapperIconBadgeSolidView
 
+/**
+ * Враппер для вариации M
+ */
 @JvmInline
 public value class WrapperIconBadgeSolidM(
     public override val builder: IconBadgeStyleBuilder,
 ) : WrapperIconBadgeSolidView
 
+/**
+ * Враппер для вариации MPilled
+ */
 @JvmInline
 public value class WrapperIconBadgeSolidMPilled(
     public override val builder: IconBadgeStyleBuilder,
 ) : WrapperIconBadgeSolidView
 
+/**
+ * Враппер для вариации S
+ */
 @JvmInline
 public value class WrapperIconBadgeSolidS(
     public override val builder: IconBadgeStyleBuilder,
 ) : WrapperIconBadgeSolidView
 
+/**
+ * Враппер для вариации SPilled
+ */
 @JvmInline
 public value class WrapperIconBadgeSolidSPilled(
     public override val builder: IconBadgeStyleBuilder,
 ) : WrapperIconBadgeSolidView
 
+/**
+ * Враппер для вариации Xs
+ */
 @JvmInline
 public value class WrapperIconBadgeSolidXs(
     public override val builder: IconBadgeStyleBuilder,
 ) : WrapperIconBadgeSolidView
 
+/**
+ * Враппер для вариации XsPilled
+ */
 @JvmInline
 public value class WrapperIconBadgeSolidXsPilled(
     public override val builder: IconBadgeStyleBuilder,
 ) : WrapperIconBadgeSolidView
 
-public val WrapperIconBadgeSolidView.Default: WrapperIconBadgeSolidDefaultViewTerminate
+public val WrapperIconBadgeSolidView.Default: WrapperIconBadgeSolidTerminate
     @Composable
     get() = builder
         .colors {
@@ -112,9 +118,9 @@ public val WrapperIconBadgeSolidView.Default: WrapperIconBadgeSolidDefaultViewTe
                 PlasmaSdServiceTheme.colors.textInversePrimary.asInteractive(),
             )
         }
-        .wrap(::WrapperIconBadgeSolidDefaultViewTerminate)
+        .wrap(::WrapperIconBadgeSolidTerminate)
 
-public val WrapperIconBadgeSolidView.Accent: WrapperIconBadgeSolidAccentViewTerminate
+public val WrapperIconBadgeSolidView.Accent: WrapperIconBadgeSolidTerminate
     @Composable
     get() = builder
         .colors {
@@ -125,9 +131,9 @@ public val WrapperIconBadgeSolidView.Accent: WrapperIconBadgeSolidAccentViewTerm
                 PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(),
             )
         }
-        .wrap(::WrapperIconBadgeSolidAccentViewTerminate)
+        .wrap(::WrapperIconBadgeSolidTerminate)
 
-public val WrapperIconBadgeSolidView.Negative: WrapperIconBadgeSolidNegativeViewTerminate
+public val WrapperIconBadgeSolidView.Negative: WrapperIconBadgeSolidTerminate
     @Composable
     get() = builder
         .colors {
@@ -138,9 +144,9 @@ public val WrapperIconBadgeSolidView.Negative: WrapperIconBadgeSolidNegativeView
                 PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(),
             )
         }
-        .wrap(::WrapperIconBadgeSolidNegativeViewTerminate)
+        .wrap(::WrapperIconBadgeSolidTerminate)
 
-public val WrapperIconBadgeSolidView.Positive: WrapperIconBadgeSolidPositiveViewTerminate
+public val WrapperIconBadgeSolidView.Positive: WrapperIconBadgeSolidTerminate
     @Composable
     get() = builder
         .colors {
@@ -151,9 +157,9 @@ public val WrapperIconBadgeSolidView.Positive: WrapperIconBadgeSolidPositiveView
                 PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(),
             )
         }
-        .wrap(::WrapperIconBadgeSolidPositiveViewTerminate)
+        .wrap(::WrapperIconBadgeSolidTerminate)
 
-public val WrapperIconBadgeSolidView.Warning: WrapperIconBadgeSolidWarningViewTerminate
+public val WrapperIconBadgeSolidView.Warning: WrapperIconBadgeSolidTerminate
     @Composable
     get() = builder
         .colors {
@@ -164,9 +170,9 @@ public val WrapperIconBadgeSolidView.Warning: WrapperIconBadgeSolidWarningViewTe
                 PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(),
             )
         }
-        .wrap(::WrapperIconBadgeSolidWarningViewTerminate)
+        .wrap(::WrapperIconBadgeSolidTerminate)
 
-public val WrapperIconBadgeSolidView.Dark: WrapperIconBadgeSolidDarkViewTerminate
+public val WrapperIconBadgeSolidView.Dark: WrapperIconBadgeSolidTerminate
     @Composable
     get() = builder
         .colors {
@@ -177,9 +183,9 @@ public val WrapperIconBadgeSolidView.Dark: WrapperIconBadgeSolidDarkViewTerminat
                 PlasmaSdServiceTheme.colors.textOnDarkPrimary.asInteractive(),
             )
         }
-        .wrap(::WrapperIconBadgeSolidDarkViewTerminate)
+        .wrap(::WrapperIconBadgeSolidTerminate)
 
-public val WrapperIconBadgeSolidView.Light: WrapperIconBadgeSolidLightViewTerminate
+public val WrapperIconBadgeSolidView.Light: WrapperIconBadgeSolidTerminate
     @Composable
     get() = builder
         .colors {
@@ -190,7 +196,7 @@ public val WrapperIconBadgeSolidView.Light: WrapperIconBadgeSolidLightViewTermin
                 PlasmaSdServiceTheme.colors.textOnLightPrimary.asInteractive(),
             )
         }
-        .wrap(::WrapperIconBadgeSolidLightViewTerminate)
+        .wrap(::WrapperIconBadgeSolidTerminate)
 
 private val IconBadgeStyleBuilder.invariantProps: IconBadgeStyleBuilder
     @Composable

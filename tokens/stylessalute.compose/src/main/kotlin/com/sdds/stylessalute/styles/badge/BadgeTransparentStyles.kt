@@ -21,86 +21,92 @@ import kotlin.Suppress
 import kotlin.jvm.JvmInline
 import kotlin.jvm.JvmName
 
+/**
+ * Базовый интерфейс для всех врапперов этого стиля
+ */
 public interface WrapperBadgeTransparent : BuilderWrapper<BadgeStyle, BadgeStyleBuilder>
 
+/**
+ * Интерфейс, который реализуют все врапперы вариаций корневого уровня
+ * и врапперы их подвариаций.
+ * Является ресивером для extension-функций view,
+ * применимых к этим врапперам.
+ */
 public interface WrapperBadgeTransparentView : WrapperBadgeTransparent
 
+/**
+ * Терминальный враппер
+ */
 @JvmInline
-public value class WrapperBadgeTransparentDefaultViewTerminate(
+public value class WrapperBadgeTransparentTerminate(
     public override val builder: BadgeStyleBuilder,
 ) : WrapperBadgeTransparent
 
-@JvmInline
-public value class WrapperBadgeTransparentAccentViewTerminate(
-    public override val builder: BadgeStyleBuilder,
-) : WrapperBadgeTransparent
-
-@JvmInline
-public value class WrapperBadgeTransparentNegativeViewTerminate(
-    public override val builder: BadgeStyleBuilder,
-) : WrapperBadgeTransparent
-
-@JvmInline
-public value class WrapperBadgeTransparentPositiveViewTerminate(
-    public override val builder: BadgeStyleBuilder,
-) : WrapperBadgeTransparent
-
-@JvmInline
-public value class WrapperBadgeTransparentWarningViewTerminate(
-    public override val builder: BadgeStyleBuilder,
-) : WrapperBadgeTransparent
-
-@JvmInline
-public value class WrapperBadgeTransparentDarkViewTerminate(
-    public override val builder: BadgeStyleBuilder,
-) : WrapperBadgeTransparent
-
-@JvmInline
-public value class WrapperBadgeTransparentLightViewTerminate(
-    public override val builder: BadgeStyleBuilder,
-) : WrapperBadgeTransparent
-
+/**
+ * Враппер для вариации L
+ */
 @JvmInline
 public value class WrapperBadgeTransparentL(
     public override val builder: BadgeStyleBuilder,
 ) : WrapperBadgeTransparentView
 
+/**
+ * Враппер для вариации LPilled
+ */
 @JvmInline
 public value class WrapperBadgeTransparentLPilled(
     public override val builder: BadgeStyleBuilder,
 ) : WrapperBadgeTransparentView
 
+/**
+ * Враппер для вариации M
+ */
 @JvmInline
 public value class WrapperBadgeTransparentM(
     public override val builder: BadgeStyleBuilder,
 ) : WrapperBadgeTransparentView
 
+/**
+ * Враппер для вариации MPilled
+ */
 @JvmInline
 public value class WrapperBadgeTransparentMPilled(
     public override val builder: BadgeStyleBuilder,
 ) : WrapperBadgeTransparentView
 
+/**
+ * Враппер для вариации S
+ */
 @JvmInline
 public value class WrapperBadgeTransparentS(
     public override val builder: BadgeStyleBuilder,
 ) : WrapperBadgeTransparentView
 
+/**
+ * Враппер для вариации SPilled
+ */
 @JvmInline
 public value class WrapperBadgeTransparentSPilled(
     public override val builder: BadgeStyleBuilder,
 ) : WrapperBadgeTransparentView
 
+/**
+ * Враппер для вариации Xs
+ */
 @JvmInline
 public value class WrapperBadgeTransparentXs(
     public override val builder: BadgeStyleBuilder,
 ) : WrapperBadgeTransparentView
 
+/**
+ * Враппер для вариации XsPilled
+ */
 @JvmInline
 public value class WrapperBadgeTransparentXsPilled(
     public override val builder: BadgeStyleBuilder,
 ) : WrapperBadgeTransparentView
 
-public val WrapperBadgeTransparentView.Default: WrapperBadgeTransparentDefaultViewTerminate
+public val WrapperBadgeTransparentView.Default: WrapperBadgeTransparentTerminate
     @Composable
     get() = builder
         .colors {
@@ -117,9 +123,9 @@ public val WrapperBadgeTransparentView.Default: WrapperBadgeTransparentDefaultVi
                 StylesSaluteTheme.colors.textDefaultPrimary.asInteractive(),
             )
         }
-        .wrap(::WrapperBadgeTransparentDefaultViewTerminate)
+        .wrap(::WrapperBadgeTransparentTerminate)
 
-public val WrapperBadgeTransparentView.Accent: WrapperBadgeTransparentAccentViewTerminate
+public val WrapperBadgeTransparentView.Accent: WrapperBadgeTransparentTerminate
     @Composable
     get() = builder
         .colors {
@@ -136,9 +142,9 @@ public val WrapperBadgeTransparentView.Accent: WrapperBadgeTransparentAccentView
                 StylesSaluteTheme.colors.textDefaultAccentMain.asInteractive(),
             )
         }
-        .wrap(::WrapperBadgeTransparentAccentViewTerminate)
+        .wrap(::WrapperBadgeTransparentTerminate)
 
-public val WrapperBadgeTransparentView.Negative: WrapperBadgeTransparentNegativeViewTerminate
+public val WrapperBadgeTransparentView.Negative: WrapperBadgeTransparentTerminate
     @Composable
     get() = builder
         .colors {
@@ -155,9 +161,9 @@ public val WrapperBadgeTransparentView.Negative: WrapperBadgeTransparentNegative
                 StylesSaluteTheme.colors.textDefaultNegative.asInteractive(),
             )
         }
-        .wrap(::WrapperBadgeTransparentNegativeViewTerminate)
+        .wrap(::WrapperBadgeTransparentTerminate)
 
-public val WrapperBadgeTransparentView.Positive: WrapperBadgeTransparentPositiveViewTerminate
+public val WrapperBadgeTransparentView.Positive: WrapperBadgeTransparentTerminate
     @Composable
     get() = builder
         .colors {
@@ -174,9 +180,9 @@ public val WrapperBadgeTransparentView.Positive: WrapperBadgeTransparentPositive
                 StylesSaluteTheme.colors.textDefaultPositive.asInteractive(),
             )
         }
-        .wrap(::WrapperBadgeTransparentPositiveViewTerminate)
+        .wrap(::WrapperBadgeTransparentTerminate)
 
-public val WrapperBadgeTransparentView.Warning: WrapperBadgeTransparentWarningViewTerminate
+public val WrapperBadgeTransparentView.Warning: WrapperBadgeTransparentTerminate
     @Composable
     get() = builder
         .colors {
@@ -193,9 +199,9 @@ public val WrapperBadgeTransparentView.Warning: WrapperBadgeTransparentWarningVi
                 StylesSaluteTheme.colors.textDefaultWarning.asInteractive(),
             )
         }
-        .wrap(::WrapperBadgeTransparentWarningViewTerminate)
+        .wrap(::WrapperBadgeTransparentTerminate)
 
-public val WrapperBadgeTransparentView.Dark: WrapperBadgeTransparentDarkViewTerminate
+public val WrapperBadgeTransparentView.Dark: WrapperBadgeTransparentTerminate
     @Composable
     get() = builder
         .colors {
@@ -212,9 +218,9 @@ public val WrapperBadgeTransparentView.Dark: WrapperBadgeTransparentDarkViewTerm
                 StylesSaluteTheme.colors.textOnDarkPrimary.asInteractive(),
             )
         }
-        .wrap(::WrapperBadgeTransparentDarkViewTerminate)
+        .wrap(::WrapperBadgeTransparentTerminate)
 
-public val WrapperBadgeTransparentView.Light: WrapperBadgeTransparentLightViewTerminate
+public val WrapperBadgeTransparentView.Light: WrapperBadgeTransparentTerminate
     @Composable
     get() = builder
         .colors {
@@ -231,7 +237,7 @@ public val WrapperBadgeTransparentView.Light: WrapperBadgeTransparentLightViewTe
                 StylesSaluteTheme.colors.textOnDarkPrimary.asInteractive(),
             )
         }
-        .wrap(::WrapperBadgeTransparentLightViewTerminate)
+        .wrap(::WrapperBadgeTransparentTerminate)
 
 private val BadgeStyleBuilder.invariantProps: BadgeStyleBuilder
     @Composable
