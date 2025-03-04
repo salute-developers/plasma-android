@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.sdds.compose.uikit.CheckBoxGroupStyle
 import com.sdds.playground.sandbox.Theme
 import com.sdds.playground.sandbox.checkbox.compose.group.CheckBoxGroupUiState.Companion.ROOT_ITEM
+import com.sdds.playground.sandbox.checkbox.compose.toggle
 import com.sdds.playground.sandbox.core.compose.ComponentViewModel
 import com.sdds.playground.sandbox.core.compose.Property
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
@@ -57,14 +58,6 @@ internal class CheckBoxGroupViewModel(
             this.items.all { it.state == ToggleableState.Off } -> ToggleableState.Off
             else -> ToggleableState.Indeterminate
         }
-
-    private fun ToggleableState.toggle(): ToggleableState {
-        return if (this == ToggleableState.Off || this == ToggleableState.Indeterminate) {
-            ToggleableState.On
-        } else {
-            ToggleableState.Off
-        }
-    }
 
     private fun updateRootState(hasRoot: Boolean) {
         val rootItem = if (hasRoot) ROOT_ITEM else null
