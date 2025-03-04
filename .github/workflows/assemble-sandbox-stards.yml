@@ -30,6 +30,7 @@ jobs:
       - name: Build Release APK
         env:
           KEY_STORE_FILE: "keystore.jks"
+          STAR_APP_ID: ${{ secrets.STAR_APP_ID }}
           RELEASE_STORE_PASSWORD: ${{ secrets.RELEASE_STORE_PASSWORD }}
           STAR_RELEASE_KEY_ALIAS: ${{ secrets.STAR_RELEASE_KEY_ALIAS }}
           STAR_RELEASE_KEY_PASSWORD: ${{ secrets.STAR_RELEASE_KEY_PASSWORD }}
