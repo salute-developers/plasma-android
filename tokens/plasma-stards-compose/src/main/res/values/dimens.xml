@@ -51,8 +51,8 @@
     <dimen name="sdkit_cmp_chip_l_min_height">96dp</dimen> <!-- 48dp -->
     <dimen name="sdkit_cmp_chip_l_padding_start">32dp</dimen> <!-- 16dp -->
     <dimen name="sdkit_cmp_chip_l_padding_end">32dp</dimen> <!-- 16dp -->
-    <dimen name="sdkit_cmp_chip_l_start_content_margin">32dp</dimen> <!-- 16dp -->
-    <dimen name="sdkit_cmp_chip_l_end_content_margin">32dp</dimen> <!-- 16dp -->
+    <dimen name="sdkit_cmp_chip_l_start_content_margin">8dp</dimen> <!-- 8dp -->
+    <dimen name="sdkit_cmp_chip_l_end_content_margin">8dp</dimen> <!-- 8dp -->
     <dimen name="sdkit_cmp_chip_l_content_size">48dp</dimen> <!-- 24dp -->
 
     <dimen name="sdkit_cmp_chip_m_min_height">80dp</dimen> <!-- 40dp -->
