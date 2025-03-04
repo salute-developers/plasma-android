@@ -56,14 +56,13 @@ internal fun SegmentItemScreen(theme: Theme.ThemeInfoCompose = Theme.composeDefa
     )
 }
 
-@Composable
 private fun startContent(
     contentType: SegmentItemContent,
     count: String,
     interactionSource: MutableInteractionSource,
 ): (@Composable () -> Unit)? {
     return if (contentType != SegmentItemContent.NONE) {
-        {
+        @Composable {
             when (contentType) {
                 SegmentItemContent.ICON -> Icon(
                     painter = painterResource(id = R.drawable.ic_scribble_diagonal_24),
@@ -83,14 +82,13 @@ private fun startContent(
     }
 }
 
-@Composable
 private fun endContent(
     contentType: SegmentItemContent,
     count: String,
     interactionSource: MutableInteractionSource,
 ): (@Composable () -> Unit)? {
     return if (contentType != SegmentItemContent.NONE) {
-        {
+        @Composable {
             when (contentType) {
                 SegmentItemContent.ICON -> Icon(
                     painter = painterResource(id = R.drawable.ic_scribble_diagonal_24),
