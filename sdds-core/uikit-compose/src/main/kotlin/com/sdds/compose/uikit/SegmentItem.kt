@@ -91,6 +91,7 @@ fun SegmentItem(
                     Counter(
                         count = AnnotatedString(counter),
                         style = style.counterStyle,
+                        interactionSource = interactionSource,
                     )
                 }
             }

@@ -27,11 +27,11 @@ internal fun SegmentItemScreen(theme: Theme.ThemeInfoCompose = Theme.composeDefa
             key = theme.toString(),
         )
     val uiState by segmentItemViewModel.uiState.collectAsState()
-    val interactionSource = remember { MutableInteractionSource() }
 
     ComponentScaffold(
         component = {
             theme.themeWrapper {
+                val interactionSource = remember { MutableInteractionSource() }
                 var isSelected by remember { mutableStateOf(false) }
                 SegmentItem(
                     isSelected = isSelected,
@@ -41,8 +41,12 @@ internal fun SegmentItemScreen(theme: Theme.ThemeInfoCompose = Theme.composeDefa
                         .style(uiState.variant),
                     label = uiState.label,
                     value = uiState.value,
-                    startContent = startContent(uiState.startContent, uiState.count),
-                    endContent = endContent(uiState.endContent, uiState.count),
+                    startContent = startContent(
+                        uiState.startContent,
+                        uiState.count,
+                        interactionSource,
+                    ),
+                    endContent = endContent(uiState.endContent, uiState.count, interactionSource),
                     enabled = uiState.enabled,
                     interactionSource = interactionSource,
                 )
@@ -56,6 +60,7 @@ internal fun SegmentItemScreen(theme: Theme.ThemeInfoCompose = Theme.composeDefa
 private fun startContent(
     contentType: SegmentItemContent,
     count: String,
+    interactionSource: MutableInteractionSource,
 ): (@Composable () -> Unit)? {
     return if (contentType != SegmentItemContent.NONE) {
         {
@@ -65,7 +70,11 @@ private fun startContent(
                     contentDescription = "",
                 )
 
-                SegmentItemContent.COUNTER -> Counter(count = AnnotatedString(count))
+                SegmentItemContent.COUNTER -> Counter(
+                    count = AnnotatedString(count),
+                    interactionSource = interactionSource,
+                )
+
                 else -> {}
             }
         }
@@ -78,6 +87,7 @@ private fun startContent(
 private fun endContent(
     contentType: SegmentItemContent,
     count: String,
+    interactionSource: MutableInteractionSource,
 ): (@Composable () -> Unit)? {
     return if (contentType != SegmentItemContent.NONE) {
         {
@@ -87,7 +97,11 @@ private fun endContent(
                     contentDescription = "",
                 )
 
-                SegmentItemContent.COUNTER -> Counter(count = AnnotatedString(count))
+                SegmentItemContent.COUNTER -> Counter(
+                    count = AnnotatedString(count),
+                    interactionSource = interactionSource,
+                )
+
                 else -> {}
             }
         }
