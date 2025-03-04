@@ -11,7 +11,7 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.text.AnnotatedString
 import com.sdds.compose.uikit.internal.cell.BaseCell
 import com.sdds.compose.uikit.internal.cell.CellCenterContent
-import com.sdds.compose.uikit.internal.cell.StyledText
+import com.sdds.compose.uikit.internal.common.StyledText
 
 /**
  * Компонент Cell.

@@ -300,6 +300,10 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
         componentStyleGeneratorFactory.createCellStyleGeneratorCompose()
     }
 
+    private val counterStyleGeneratorCompose by unsafeLazy {
+        componentStyleGeneratorFactory.createCounterStyleGeneratorCompose()
+    }
+
     private val basicButtonConfig: ButtonConfig by unsafeLazy {
         basicButtonConfigFile.get()
             .asFile
@@ -426,6 +430,7 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
         iconBadgeClearStyleGeneratorCompose.generate(iconBadgeClearConfig)
         iconBadgeTransparentStyleGeneratorCompose.generate(iconBadgeTransparentConfig)
         cellStyleGeneratorCompose.generate(cellConfig)
+        counterStyleGeneratorCompose.generate(counterConfig)
     }
 
     private fun generateViewsConfigs() {

@@ -9,6 +9,7 @@ import com.sdds.compose.uikit.CheckBoxGroupStyle
 import com.sdds.compose.uikit.CheckBoxStyle
 import com.sdds.compose.uikit.ChipGroupStyle
 import com.sdds.compose.uikit.ChipStyle
+import com.sdds.compose.uikit.CounterStyle
 import com.sdds.compose.uikit.IndicatorStyle
 import com.sdds.compose.uikit.ProgressBarStyle
 import com.sdds.compose.uikit.RadioBoxGroupStyle
@@ -33,6 +34,7 @@ import com.sdds.playground.sandbox.stylessalute.integration.checkbox.StylesSalut
 import com.sdds.playground.sandbox.stylessalute.integration.checkbox.group.StylesSaluteCheckBoxGroupVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.chip.StylesSaluteChipVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.chip.group.StylesSaluteChipGroupVariationsCompose
+import com.sdds.playground.sandbox.stylessalute.integration.counter.StylesSaluteCounterVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.indicator.compose.StylesSaluteIndicatorVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.progress.StylesSaluteProgressVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.radiobox.StylesSaluteRadioBoxVariationsCompose
@@ -98,4 +100,6 @@ object StylesSaluteComposeStylesProvider : StylesProviderCompose {
         get() = StylesSaluteIconBadgeClearVariationsCompose
     override val iconBadgeTransparent: ComposeStyleProvider<String, BadgeStyle>
         get() = StylesSaluteIconBadgeTransparentVariationsCompose
+    override val counter: ComposeStyleProvider<String, CounterStyle>
+        get() = StylesSaluteCounterVariationsCompose
 }
