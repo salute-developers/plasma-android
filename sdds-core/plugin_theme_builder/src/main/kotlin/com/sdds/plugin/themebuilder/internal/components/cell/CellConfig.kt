@@ -10,6 +10,7 @@ import com.sdds.plugin.themebuilder.internal.components.base.Icon
 import com.sdds.plugin.themebuilder.internal.components.base.PropertyOwner
 import com.sdds.plugin.themebuilder.internal.components.base.Typography
 import com.sdds.plugin.themebuilder.internal.components.base.ViewVariation
+import com.sdds.plugin.themebuilder.internal.components.button.ButtonProperties
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -25,11 +26,11 @@ internal data class CellProperties(
     val titleStyle: Typography? = null,
     val subtitleStyle: Typography? = null,
     val disclosureTextStyle: Typography? = null,
-    val avatarStyle: ComponentStyle? = null,
-    val iconButtonStyle: ComponentStyle? = null,
-    val checkBoxStyle: ComponentStyle? = null,
-    val radioBoxStyle: ComponentStyle? = null,
-    val switchStyle: ComponentStyle? = null,
+    val avatarStyle: ComponentStyle<*>? = null,
+    val iconButtonStyle: ComponentStyle<ButtonProperties>? = null,
+    val checkBoxStyle: ComponentStyle<*>? = null,
+    val radioBoxStyle: ComponentStyle<*>? = null,
+    val switchStyle: ComponentStyle<*>? = null,
     val disclosureIcon: Icon? = null,
 ) : PropertyOwner {
 
