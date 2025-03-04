@@ -3,6 +3,7 @@ package com.sdds.plugin.themebuilder.internal.components.segment.item
 import com.sdds.plugin.themebuilder.DimensionsConfig
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.components.base.compose.ComposeVariationGenerator
+import com.sdds.plugin.themebuilder.internal.components.counter.CounterProperties
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
@@ -31,6 +32,10 @@ internal class SegmentItemComposeVariationGenerator(
     outputLocation = outputLocation,
     componentName = componentName,
 ) {
+    override fun KtFileBuilder.onAddImports() {
+        addImport("com.sdds.compose.uikit.style", listOf("modify"))
+    }
+
     override fun propsToBuilderCalls(
         props: SegmentItemProperties,
         ktFileBuilder: KtFileBuilder,
@@ -68,14 +73,38 @@ internal class SegmentItemComposeVariationGenerator(
         props: SegmentItemProperties,
         ktFileBuilder: KtFileBuilder,
     ): String? {
-        return props.counterStyle?.let {
+        return props.counterStyle?.let { counterStyle ->
+            val componentProps = counterStyle.props?.let { ".modify { ${counterColorsCall(it)} }" }.orEmpty()
             ".counterStyle(${
-                it.value.getComponentStyle(
+                counterStyle.value.getComponentStyle(
                     ktFileBuilder,
                     counterStylesPackage,
                 )
-            }.style())"
+            }$componentProps.style())"
         }
+    }
+
+    // TODO: https://github.com/salute-developers/plasma-android/issues/298
+    private fun counterColorsCall(props: CounterProperties): String? {
+        return if (props.hasCounterColors()) {
+            buildString {
+                appendLine("colors {")
+                props.backgroundColor?.let {
+                    appendLine(getColor("backgroundColor", it))
+                }
+                props.textColor?.let {
+                    appendLine(getColor("textColor", it))
+                }
+                append("}")
+            }
+        } else {
+            null
+        }
+    }
+
+    // TODO: https://github.com/salute-developers/plasma-android/issues/298
+    private fun CounterProperties.hasCounterColors(): Boolean {
+        return backgroundColor != null || textColor != null
     }
 
     private fun colorsCall(props: SegmentItemProperties): String? {

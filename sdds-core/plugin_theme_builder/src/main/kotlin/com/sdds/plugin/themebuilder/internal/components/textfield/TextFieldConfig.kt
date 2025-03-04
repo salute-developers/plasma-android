@@ -28,8 +28,8 @@ internal data class TextFieldProperties(
     val alignmentMinHeight: Dimension? = null,
 
     // chips
-    val chipGroupStyle: ComponentStyle? = null,
-    val chipStyle: ComponentStyle? = null,
+    val chipGroupStyle: ComponentStyle<*>? = null,
+    val chipStyle: ComponentStyle<*>? = null,
     val chipsPadding: Dimension? = null,
 
     // label
