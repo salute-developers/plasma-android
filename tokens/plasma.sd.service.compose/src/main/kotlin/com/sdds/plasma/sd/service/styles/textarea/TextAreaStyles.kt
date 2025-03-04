@@ -19,6 +19,7 @@ import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.multiplyAlpha
 import com.sdds.compose.uikit.style.BuilderWrapper
+import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.compose.uikit.textAreaBuilder
 import com.sdds.plasma.sd.service.styles.chip.L
@@ -32,191 +33,292 @@ import kotlin.Suppress
 import kotlin.jvm.JvmInline
 import kotlin.jvm.JvmName
 
+/**
+ * Базовый интерфейс для всех врапперов этого стиля
+ */
 public interface WrapperTextArea : BuilderWrapper<TextFieldStyle, TextAreaStyleBuilder>
 
+/**
+ * Интерфейс, который реализуют все врапперы вариаций корневого уровня
+ * и врапперы их подвариаций.
+ * Является ресивером для extension-функций view,
+ * применимых к этим врапперам.
+ */
 public interface WrapperTextAreaView : WrapperTextArea
 
+/**
+ * Терминальный враппер
+ */
 @JvmInline
-public value class WrapperTextAreaDefaultViewTerminate(
+public value class WrapperTextAreaTerminate(
     public override val builder: TextAreaStyleBuilder,
 ) : WrapperTextArea
 
-@JvmInline
-public value class WrapperTextAreaWarningViewTerminate(
-    public override val builder: TextAreaStyleBuilder,
-) : WrapperTextArea
-
-@JvmInline
-public value class WrapperTextAreaErrorViewTerminate(
-    public override val builder: TextAreaStyleBuilder,
-) : WrapperTextArea
-
+/**
+ * Враппер для вариации Xs
+ */
 @JvmInline
 public value class WrapperTextAreaXs(
     public override val builder: TextAreaStyleBuilder,
 ) : WrapperTextAreaView
 
+/**
+ * Враппер для вариации XsRequiredStart
+ */
 @JvmInline
 public value class WrapperTextAreaXsRequiredStart(
     public override val builder: TextAreaStyleBuilder,
 ) : WrapperTextAreaView
 
+/**
+ * Враппер для вариации XsRequiredEnd
+ */
 @JvmInline
 public value class WrapperTextAreaXsRequiredEnd(
     public override val builder: TextAreaStyleBuilder,
 ) : WrapperTextAreaView
 
+/**
+ * Враппер для вариации XsOuterLabel
+ */
 @JvmInline
 public value class WrapperTextAreaXsOuterLabel(
     public override val builder: TextAreaStyleBuilder,
 ) : WrapperTextAreaView
 
+/**
+ * Враппер для вариации XsOuterLabelRequiredStart
+ */
 @JvmInline
 public value class WrapperTextAreaXsOuterLabelRequiredStart(
     public override val builder: TextAreaStyleBuilder,
 ) : WrapperTextAreaView
 
+/**
+ * Враппер для вариации XsOuterLabelRequiredEnd
+ */
 @JvmInline
 public value class WrapperTextAreaXsOuterLabelRequiredEnd(
     public override val builder: TextAreaStyleBuilder,
 ) : WrapperTextAreaView
 
+/**
+ * Враппер для вариации S
+ */
 @JvmInline
 public value class WrapperTextAreaS(
     public override val builder: TextAreaStyleBuilder,
 ) : WrapperTextAreaView
 
+/**
+ * Враппер для вариации SRequiredStart
+ */
 @JvmInline
 public value class WrapperTextAreaSRequiredStart(
     public override val builder: TextAreaStyleBuilder,
 ) : WrapperTextAreaView
 
+/**
+ * Враппер для вариации SRequiredEnd
+ */
 @JvmInline
 public value class WrapperTextAreaSRequiredEnd(
     public override val builder: TextAreaStyleBuilder,
 ) : WrapperTextAreaView
 
+/**
+ * Враппер для вариации SOuterLabel
+ */
 @JvmInline
 public value class WrapperTextAreaSOuterLabel(
     public override val builder: TextAreaStyleBuilder,
 ) : WrapperTextAreaView
 
+/**
+ * Враппер для вариации SOuterLabelRequiredStart
+ */
 @JvmInline
 public value class WrapperTextAreaSOuterLabelRequiredStart(
     public override val builder: TextAreaStyleBuilder,
 ) : WrapperTextAreaView
 
+/**
+ * Враппер для вариации SOuterLabelRequiredEnd
+ */
 @JvmInline
 public value class WrapperTextAreaSOuterLabelRequiredEnd(
     public override val builder: TextAreaStyleBuilder,
 ) : WrapperTextAreaView
 
+/**
+ * Враппер для вариации SInnerLabel
+ */
 @JvmInline
 public value class WrapperTextAreaSInnerLabel(
     public override val builder: TextAreaStyleBuilder,
 ) : WrapperTextAreaView
 
+/**
+ * Враппер для вариации SInnerLabelRequiredStart
+ */
 @JvmInline
 public value class WrapperTextAreaSInnerLabelRequiredStart(
     public override val builder: TextAreaStyleBuilder,
 ) : WrapperTextAreaView
 
+/**
+ * Враппер для вариации SInnerLabelRequiredEnd
+ */
 @JvmInline
 public value class WrapperTextAreaSInnerLabelRequiredEnd(
     public override val builder: TextAreaStyleBuilder,
 ) : WrapperTextAreaView
 
+/**
+ * Враппер для вариации M
+ */
 @JvmInline
 public value class WrapperTextAreaM(
     public override val builder: TextAreaStyleBuilder,
 ) : WrapperTextAreaView
 
+/**
+ * Враппер для вариации MRequiredStart
+ */
 @JvmInline
 public value class WrapperTextAreaMRequiredStart(
     public override val builder: TextAreaStyleBuilder,
 ) : WrapperTextAreaView
 
+/**
+ * Враппер для вариации MRequiredEnd
+ */
 @JvmInline
 public value class WrapperTextAreaMRequiredEnd(
     public override val builder: TextAreaStyleBuilder,
 ) : WrapperTextAreaView
 
+/**
+ * Враппер для вариации MOuterLabel
+ */
 @JvmInline
 public value class WrapperTextAreaMOuterLabel(
     public override val builder: TextAreaStyleBuilder,
 ) : WrapperTextAreaView
 
+/**
+ * Враппер для вариации MOuterLabelRequiredStart
+ */
 @JvmInline
 public value class WrapperTextAreaMOuterLabelRequiredStart(
     public override val builder: TextAreaStyleBuilder,
 ) : WrapperTextAreaView
 
+/**
+ * Враппер для вариации MOuterLabelRequiredEnd
+ */
 @JvmInline
 public value class WrapperTextAreaMOuterLabelRequiredEnd(
     public override val builder: TextAreaStyleBuilder,
 ) : WrapperTextAreaView
 
+/**
+ * Враппер для вариации MInnerLabel
+ */
 @JvmInline
 public value class WrapperTextAreaMInnerLabel(
     public override val builder: TextAreaStyleBuilder,
 ) : WrapperTextAreaView
 
+/**
+ * Враппер для вариации MInnerLabelRequiredStart
+ */
 @JvmInline
 public value class WrapperTextAreaMInnerLabelRequiredStart(
     public override val builder: TextAreaStyleBuilder,
 ) : WrapperTextAreaView
 
+/**
+ * Враппер для вариации MInnerLabelRequiredEnd
+ */
 @JvmInline
 public value class WrapperTextAreaMInnerLabelRequiredEnd(
     public override val builder: TextAreaStyleBuilder,
 ) : WrapperTextAreaView
 
+/**
+ * Враппер для вариации L
+ */
 @JvmInline
 public value class WrapperTextAreaL(
     public override val builder: TextAreaStyleBuilder,
 ) : WrapperTextAreaView
 
+/**
+ * Враппер для вариации LRequiredStart
+ */
 @JvmInline
 public value class WrapperTextAreaLRequiredStart(
     public override val builder: TextAreaStyleBuilder,
 ) : WrapperTextAreaView
 
+/**
+ * Враппер для вариации LRequiredEnd
+ */
 @JvmInline
 public value class WrapperTextAreaLRequiredEnd(
     public override val builder: TextAreaStyleBuilder,
 ) : WrapperTextAreaView
 
+/**
+ * Враппер для вариации LOuterLabel
+ */
 @JvmInline
 public value class WrapperTextAreaLOuterLabel(
     public override val builder: TextAreaStyleBuilder,
 ) : WrapperTextAreaView
 
+/**
+ * Враппер для вариации LOuterLabelRequiredStart
+ */
 @JvmInline
 public value class WrapperTextAreaLOuterLabelRequiredStart(
     public override val builder: TextAreaStyleBuilder,
 ) : WrapperTextAreaView
 
+/**
+ * Враппер для вариации LOuterLabelRequiredEnd
+ */
 @JvmInline
 public value class WrapperTextAreaLOuterLabelRequiredEnd(
     public override val builder: TextAreaStyleBuilder,
 ) : WrapperTextAreaView
 
+/**
+ * Враппер для вариации LInnerLabel
+ */
 @JvmInline
 public value class WrapperTextAreaLInnerLabel(
     public override val builder: TextAreaStyleBuilder,
 ) : WrapperTextAreaView
 
+/**
+ * Враппер для вариации LInnerLabelRequiredStart
+ */
 @JvmInline
 public value class WrapperTextAreaLInnerLabelRequiredStart(
     public override val builder: TextAreaStyleBuilder,
 ) : WrapperTextAreaView
 
+/**
+ * Враппер для вариации LInnerLabelRequiredEnd
+ */
 @JvmInline
 public value class WrapperTextAreaLInnerLabelRequiredEnd(
     public override val builder: TextAreaStyleBuilder,
 ) : WrapperTextAreaView
 
-public val WrapperTextAreaView.Default: WrapperTextAreaDefaultViewTerminate
+public val WrapperTextAreaView.Default: WrapperTextAreaTerminate
     @Composable
     get() = builder
         .colors {
@@ -230,9 +332,9 @@ public val WrapperTextAreaView.Default: WrapperTextAreaDefaultViewTerminate
                 ),
             )
         }
-        .wrap(::WrapperTextAreaDefaultViewTerminate)
+        .wrap(::WrapperTextAreaTerminate)
 
-public val WrapperTextAreaView.Warning: WrapperTextAreaWarningViewTerminate
+public val WrapperTextAreaView.Warning: WrapperTextAreaTerminate
     @Composable
     get() = builder
         .colors {
@@ -249,9 +351,9 @@ public val WrapperTextAreaView.Warning: WrapperTextAreaWarningViewTerminate
                 ),
             )
         }
-        .wrap(::WrapperTextAreaWarningViewTerminate)
+        .wrap(::WrapperTextAreaTerminate)
 
-public val WrapperTextAreaView.Error: WrapperTextAreaErrorViewTerminate
+public val WrapperTextAreaView.Error: WrapperTextAreaTerminate
     @Composable
     get() = builder
         .colors {
@@ -268,7 +370,7 @@ public val WrapperTextAreaView.Error: WrapperTextAreaErrorViewTerminate
                 ),
             )
         }
-        .wrap(::WrapperTextAreaErrorViewTerminate)
+        .wrap(::WrapperTextAreaTerminate)
 
 private val TextAreaStyleBuilder.invariantProps: TextAreaStyleBuilder
     @Composable
