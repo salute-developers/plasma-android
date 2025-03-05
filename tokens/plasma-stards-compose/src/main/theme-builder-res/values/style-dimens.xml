@@ -374,4 +374,24 @@
     <dimen name="sdkit_cmp_cell_content_padding_end_s">12.0dp</dimen>
     <dimen name="sdkit_cmp_cell_content_padding_start_xs">12.0dp</dimen>
     <dimen name="sdkit_cmp_cell_content_padding_end_xs">12.0dp</dimen>
+    <dimen name="sdkit_cmp_counter_minHeight_l">56.0dp</dimen>
+    <dimen name="sdkit_cmp_counter_minWidth_l">56.0dp</dimen>
+    <dimen name="sdkit_cmp_counter_paddingStart_l">20.0dp</dimen>
+    <dimen name="sdkit_cmp_counter_paddingEnd_l">20.0dp</dimen>
+    <dimen name="sdkit_cmp_counter_minHeight_m">48.0dp</dimen>
+    <dimen name="sdkit_cmp_counter_minWidth_m">48.0dp</dimen>
+    <dimen name="sdkit_cmp_counter_paddingStart_m">16.0dp</dimen>
+    <dimen name="sdkit_cmp_counter_paddingEnd_m">16.0dp</dimen>
+    <dimen name="sdkit_cmp_counter_minHeight_s">40.0dp</dimen>
+    <dimen name="sdkit_cmp_counter_minWidth_s">40.0dp</dimen>
+    <dimen name="sdkit_cmp_counter_paddingStart_s">12.0dp</dimen>
+    <dimen name="sdkit_cmp_counter_paddingEnd_s">12.0dp</dimen>
+    <dimen name="sdkit_cmp_counter_minHeight_xs">32.0dp</dimen>
+    <dimen name="sdkit_cmp_counter_minWidth_xs">32.0dp</dimen>
+    <dimen name="sdkit_cmp_counter_paddingStart_xs">8.0dp</dimen>
+    <dimen name="sdkit_cmp_counter_paddingEnd_xs">8.0dp</dimen>
+    <dimen name="sdkit_cmp_counter_minHeight_xxs">24.0dp</dimen>
+    <dimen name="sdkit_cmp_counter_minWidth_xxs">24.0dp</dimen>
+    <dimen name="sdkit_cmp_counter_paddingStart_xxs">4.0dp</dimen>
+    <dimen name="sdkit_cmp_counter_paddingEnd_xxs">4.0dp</dimen>
 </resources>
