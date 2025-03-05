@@ -9,6 +9,7 @@ import com.sdds.compose.uikit.CheckBoxGroupStyle
 import com.sdds.compose.uikit.CheckBoxStyle
 import com.sdds.compose.uikit.ChipGroupStyle
 import com.sdds.compose.uikit.ChipStyle
+import com.sdds.compose.uikit.CounterStyle
 import com.sdds.compose.uikit.IndicatorStyle
 import com.sdds.compose.uikit.ProgressBarStyle
 import com.sdds.compose.uikit.RadioBoxGroupStyle
@@ -33,6 +34,7 @@ import com.sdds.playground.sandbox.plasma.stards.integration.checkbox.StarDsChec
 import com.sdds.playground.sandbox.plasma.stards.integration.checkbox.group.StarDsCheckBoxGroupVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.chip.StarDsChipVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.chip.group.StarDsChipGroupVariationsCompose
+import com.sdds.playground.sandbox.plasma.stards.integration.counter.StarDsCounterVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.indicator.StarDsIndicatorVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.progress.StarDsProgressVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.radiobox.StarDsRadioBoxVariationsCompose
@@ -98,4 +100,6 @@ object StarDsComposeStylesProvider : StylesProviderCompose {
         get() = StarDsIconBadgeClearVariationsCompose
     override val iconBadgeTransparent: ComposeStyleProvider<String, BadgeStyle>
         get() = StarDsIconBadgeTransparentVariationsCompose
+    override val counter: ComposeStyleProvider<String, CounterStyle>
+        get() = StarDsCounterVariationsCompose
 }
