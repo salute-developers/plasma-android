@@ -6,6 +6,7 @@ internal data class SegmentItemUiState(
     override val variant: String = "",
     val label: String = "Label",
     val value: String = "",
+    val selected: Boolean = true,
     val startContent: SegmentItemContent = SegmentItemContent.NONE,
     val endContent: SegmentItemContent = SegmentItemContent.COUNTER,
     val enabled: Boolean = true,
