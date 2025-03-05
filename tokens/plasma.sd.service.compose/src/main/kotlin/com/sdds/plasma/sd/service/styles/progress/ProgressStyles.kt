@@ -82,3 +82,14 @@ val ProgressBar.Negative: ProgressBarStyleBuilder
             indicatorColor(PlasmaSdServiceTheme.colors.surfaceDefaultNegative)
             backgroundColor(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondary)
         }
+
+/**
+ * Стиль [ProgressBar] цвета Negative
+ */
+val ProgressBar.Info: ProgressBarStyleBuilder
+    @Composable
+    get() = ProgressBarStyle.builder()
+        .colors {
+            indicatorColor(PlasmaSdServiceTheme.colors.surfaceDefaultInfo)
+            backgroundColor(PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondary)
+        }
