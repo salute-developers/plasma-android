@@ -24,23 +24,38 @@ import kotlin.Suppress
 import kotlin.jvm.JvmInline
 import kotlin.jvm.JvmName
 
+/**
+ * Базовый интерфейс для всех оберток этого стиля
+ */
 public interface WrapperBasicButton : BuilderWrapper<ButtonStyle, BasicButtonStyleBuilder>
 
+/**
+ * Обертка для вариации L
+ */
 @JvmInline
 public value class WrapperBasicButtonL(
     public override val builder: BasicButtonStyleBuilder,
 ) : WrapperBasicButton
 
+/**
+ * Обертка для вариации M
+ */
 @JvmInline
 public value class WrapperBasicButtonM(
     public override val builder: BasicButtonStyleBuilder,
 ) : WrapperBasicButton
 
+/**
+ * Обертка для вариации S
+ */
 @JvmInline
 public value class WrapperBasicButtonS(
     public override val builder: BasicButtonStyleBuilder,
 ) : WrapperBasicButton
 
+/**
+ * Обертка для вариации Xs
+ */
 @JvmInline
 public value class WrapperBasicButtonXs(
     public override val builder: BasicButtonStyleBuilder,
