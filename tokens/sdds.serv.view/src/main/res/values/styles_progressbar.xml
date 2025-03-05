@@ -33,4 +33,8 @@
     <style name="Serv.Sdds.Components.ProgressBar.Negative">
         <item name="android:progressTint">?serv_surfaceDefaultNegative</item>
     </style>
+
+    <style name="Serv.Sdds.Components.ProgressBar.Info">
+        <item name="android:progressTint">?serv_surfaceDefaultInfo</item>
+    </style>
 </resources>
