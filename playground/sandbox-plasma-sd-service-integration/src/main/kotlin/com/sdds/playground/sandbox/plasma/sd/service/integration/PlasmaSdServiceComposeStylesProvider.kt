@@ -9,6 +9,7 @@ import com.sdds.compose.uikit.CheckBoxGroupStyle
 import com.sdds.compose.uikit.CheckBoxStyle
 import com.sdds.compose.uikit.ChipGroupStyle
 import com.sdds.compose.uikit.ChipStyle
+import com.sdds.compose.uikit.CounterStyle
 import com.sdds.compose.uikit.IndicatorStyle
 import com.sdds.compose.uikit.ProgressBarStyle
 import com.sdds.compose.uikit.RadioBoxGroupStyle
@@ -33,6 +34,7 @@ import com.sdds.playground.sandbox.plasma.sd.service.integration.checkbox.Plasma
 import com.sdds.playground.sandbox.plasma.sd.service.integration.checkbox.group.PlasmaSdServiceCheckBoxGroupVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.chip.PlasmaSdServiceChipVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.chip.group.PlasmaSdServiceChipGroupVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.counter.PlasmaSdServiceCounterVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.indicator.compose.PlasmaSdServiceIndicatorVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.progress.PlasmaSdServiceProgressVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.radiobox.PlasmaSdServiceRadioBoxVariationsCompose
@@ -98,4 +100,6 @@ object PlasmaSdServiceComposeStylesProvider : StylesProviderCompose {
         get() = PlasmaSdServiceIconBadgeClearVariationsCompose
     override val iconBadgeTransparent: ComposeStyleProvider<String, BadgeStyle>
         get() = PlasmaSdServiceIconBadgeTransparentVariationsCompose
+    override val counter: ComposeStyleProvider<String, CounterStyle>
+        get() = PlasmaSdServiceCounterVariationsCompose
 }

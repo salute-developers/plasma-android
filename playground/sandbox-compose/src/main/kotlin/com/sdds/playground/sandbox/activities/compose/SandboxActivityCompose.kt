@@ -68,6 +68,7 @@ import com.sdds.playground.sandbox.chip.compose.ChipScreen
 import com.sdds.playground.sandbox.chip.compose.group.ChipGroupScreen
 import com.sdds.playground.sandbox.core.compose.PropertyEditor
 import com.sdds.playground.sandbox.core.compose.enumProperty
+import com.sdds.playground.sandbox.counter.compose.CounterScreen
 import com.sdds.playground.sandbox.indicator.compose.IndicatorScreen
 import com.sdds.playground.sandbox.progress.compose.ProgressScreen
 import com.sdds.playground.sandbox.radiobox.compose.RadioBoxScreen
@@ -130,30 +131,32 @@ private sealed class MenuItem(
     object Chip : MenuItem("Chip", { ChipScreen(it) })
     object ChipGroup : MenuItem("ChipGroup", { ChipGroupScreen(it) })
     object Indicator : MenuItem("Indicator", { IndicatorScreen(it) })
+    object Counter : MenuItem("Counter", { CounterScreen(it) })
 }
 
 private val menuItems = listOf(
     MenuItem.Avatar,
     MenuItem.AvatarGroup,
-    MenuItem.Buttons,
     MenuItem.Badge,
-    MenuItem.IconBadge,
+    MenuItem.Buttons,
     MenuItem.Cell,
-    MenuItem.IconButtons,
-    MenuItem.LinkButtons,
     MenuItem.CheckBox,
     MenuItem.CheckBoxGroup,
+    MenuItem.Chip,
+    MenuItem.ChipGroup,
+    MenuItem.Counter,
+    MenuItem.IconBadge,
+    MenuItem.IconButtons,
+    MenuItem.Indicator,
+    MenuItem.LinkButtons,
+    MenuItem.Progress,
     MenuItem.RadioBox,
     MenuItem.RadioBoxGroup,
     MenuItem.Switch,
-    MenuItem.Progress,
     MenuItem.TextField,
     MenuItem.TextFieldClear,
     MenuItem.TextArea,
     MenuItem.TextAreaClear,
-    MenuItem.Chip,
-    MenuItem.ChipGroup,
-    MenuItem.Indicator,
 )
 
 @OptIn(ExperimentalMaterialApi::class)
