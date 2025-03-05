@@ -688,3 +688,73 @@ fun TextFieldClearMErrorInnerRequiredLeft(style: TextFieldStyle) {
         )
     }
 }
+
+/**
+ * PLASMA-T1920
+ */
+@Composable
+fun TextFieldLSuffixPrefixCyrillic(style: TextFieldStyle) {
+    var value by remember { mutableStateOf(TextFieldValue("Value")) }
+    Box(modifier = Modifier.padding(start = 20.dp)) {
+        TextField(
+            value = value,
+            style = style,
+            captionText = "Сaption",
+            labelText = "Label",
+            optionalText = "optional",
+            placeholderText = "Placeholder",
+            prefix = "префикс",
+            suffix = "суффикс",
+            onValueChange = { value = it },
+            enabled = true,
+            readOnly = false,
+            startContent = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_scribble_diagonal_24),
+                    contentDescription = "",
+                )
+            },
+            endContent = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_shazam_24),
+                    contentDescription = "",
+                )
+            },
+        )
+    }
+}
+
+/**
+ * PLASMA-T1891
+ */
+@Composable
+fun TextFieldLDisabledOuterLeft(style: TextFieldStyle) {
+    var value by remember { mutableStateOf(TextFieldValue("Value")) }
+    Box(modifier = Modifier.padding(start = 20.dp)) {
+        TextField(
+            value = value,
+            style = style,
+            captionText = "Сaption",
+            labelText = "Label",
+            optionalText = "optional",
+            placeholderText = "Placeholder",
+            prefix = "",
+            suffix = "",
+            onValueChange = { value = it },
+            enabled = false,
+            readOnly = false,
+            startContent = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_scribble_diagonal_24),
+                    contentDescription = "",
+                )
+            },
+            endContent = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_shazam_24),
+                    contentDescription = "",
+                )
+            },
+        )
+    }
+}

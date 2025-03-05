@@ -171,9 +171,51 @@ class ViewSystemButtonScreenshotTest(
     }
 
     @Test
-    override fun testLinkButtonLAccent() {
+    override fun testLinkButtonLDefault() {
         themedComponent {
-            linkButtonLAccent(R.style.Serv_Sdds_ComponentOverlays_LinkButtonLAccent)
+            linkButtonLDefault(R.style.Serv_Sdds_ComponentOverlays_LinkButtonLDefault)
+        }
+    }
+
+    @Test
+    override fun testLinkButtonIsLoading() {
+        themedComponent {
+            linkButtonIsLoading(R.style.Serv_Sdds_ComponentOverlays_LinkButtonLDefault)
+        }
+    }
+
+    @Test
+    override fun testLinkButtonLSecondary() {
+        themedComponent {
+            linkButtonLSecondary(R.style.Serv_Sdds_ComponentOverlays_LinkButtonLSecondary)
+        }
+    }
+
+    @Test
+    override fun testLinkButtonMAccent() {
+        themedComponent {
+            linkButtonMAccent(R.style.Serv_Sdds_ComponentOverlays_LinkButtonMAccent)
+        }
+    }
+
+    @Test
+    override fun testLinkButtonDisabled() {
+        themedComponent {
+            linkButtonDisabled(R.style.Serv_Sdds_ComponentOverlays_LinkButtonLDefault)
+        }
+    }
+
+    @Test
+    override fun testLinkButtonSWarning() {
+        themedComponent {
+            linkButtonSWarning(R.style.Serv_Sdds_ComponentOverlays_LinkButtonSWarning)
+        }
+    }
+
+    @Test
+    override fun testLinkButtonXsNegative() {
+        themedComponent {
+            linkButtonXsNegative(R.style.Serv_Sdds_ComponentOverlays_LinkButtonXsNegative)
         }
     }
 }

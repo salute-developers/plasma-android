@@ -36,6 +36,7 @@ import com.sdds.serv.styles.button.link.Accent
 import com.sdds.serv.styles.button.link.Default
 import com.sdds.serv.styles.button.link.L
 import com.sdds.serv.styles.button.link.M
+import com.sdds.serv.styles.button.link.Negative
 import com.sdds.serv.styles.button.link.S
 import com.sdds.serv.styles.button.link.Secondary
 import com.sdds.serv.styles.button.link.Warning
@@ -69,7 +70,7 @@ import com.sdds.testing.compose.button.LinkButtonSizeLIsLoading
 import com.sdds.testing.compose.button.LinkButtonSizeLSecondary
 import com.sdds.testing.compose.button.LinkButtonSizeMAccent
 import com.sdds.testing.compose.button.LinkButtonSizeSWarning
-import com.sdds.testing.compose.button.LinkButtonSizeXSAccent
+import com.sdds.testing.compose.button.LinkButtonSizeXSNegative
 import com.sdds.testing.vs.SDK_NUMBER
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -284,9 +285,9 @@ class ComposeButtonScreenshotTest(
     }
 
     @Test
-    fun testLinkButtonSizeXSAccent() {
+    fun testLinkButtonSizeXSNegative() {
         composeTestRule.content {
-            LinkButtonSizeXSAccent(linkButtonStyle = LinkButton.Xs.Accent.style())
+            LinkButtonSizeXSNegative(linkButtonStyle = LinkButton.Xs.Negative.style())
         }
     }
 }
