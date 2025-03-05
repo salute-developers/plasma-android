@@ -9,6 +9,145 @@
         <item name="sd_spinnerTint">@color/serv_icon_button_spinner_tint</item>
         <item name="sd_iconTint">@color/serv_icon_button_icon_tint</item>
     </style>
+    <style name="Serv.Sdds.Components.IconButton.Xl">
+        <item name="android:minHeight">@dimen/serv_icon_button_xl_min_height</item>
+        <item name="android:minWidth">@dimen/serv_icon_button_xl_min_width</item>
+        <item name="android:paddingStart">@dimen/serv_icon_button_xl_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_icon_button_xl_padding_end</item>
+        <item name="sd_iconSize">@dimen/serv_icon_button_xl_icon_size</item>
+        <item name="sd_spinnerSize">@dimen/serv_icon_button_xl_spinner_size</item>
+        <item name="sd_spinnerStrokeWidth">@dimen/serv_icon_button_xl_spinner_stroke_width</item>
+        <item name="sd_shapeAppearance">?serv_shapeRoundL</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonXl">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.IconButton.Xl</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButton.Xl.Default">
+        <item name="serv_iconbuttonColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonXlDefault">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.IconButton.Xl.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButton.Xl.Secondary">
+        <item name="serv_iconbuttonColors">state_secondary</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonXlSecondary">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.IconButton.Xl.Secondary</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButton.Xl.Accent">
+        <item name="serv_iconbuttonColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonXlAccent">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.IconButton.Xl.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButton.Xl.Positive">
+        <item name="serv_iconbuttonColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonXlPositive">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.IconButton.Xl.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButton.Xl.Negative">
+        <item name="serv_iconbuttonColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonXlNegative">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.IconButton.Xl.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButton.Xl.Warning">
+        <item name="serv_iconbuttonColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonXlWarning">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.IconButton.Xl.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButton.Xl.Clear">
+        <item name="serv_iconbuttonColors">state_clear</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonXlClear">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.IconButton.Xl.Clear</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButton.Xl.Dark">
+        <item name="serv_iconbuttonColors">state_dark</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonXlDark">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.IconButton.Xl.Dark</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButton.Xl.Black">
+        <item name="serv_iconbuttonColors">state_black</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonXlBlack">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.IconButton.Xl.Black</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButton.Xl.White">
+        <item name="serv_iconbuttonColors">state_white</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonXlWhite">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.IconButton.Xl.White</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButton.Xl.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonXlPilled">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.IconButton.Xl.Pilled</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButton.Xl.Pilled.Default">
+        <item name="serv_iconbuttonColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonXlPilledDefault">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.IconButton.Xl.Pilled.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButton.Xl.Pilled.Secondary">
+        <item name="serv_iconbuttonColors">state_secondary</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonXlPilledSecondary">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.IconButton.Xl.Pilled.Secondary</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButton.Xl.Pilled.Accent">
+        <item name="serv_iconbuttonColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonXlPilledAccent">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.IconButton.Xl.Pilled.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButton.Xl.Pilled.Positive">
+        <item name="serv_iconbuttonColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonXlPilledPositive">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.IconButton.Xl.Pilled.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButton.Xl.Pilled.Negative">
+        <item name="serv_iconbuttonColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonXlPilledNegative">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.IconButton.Xl.Pilled.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButton.Xl.Pilled.Warning">
+        <item name="serv_iconbuttonColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonXlPilledWarning">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.IconButton.Xl.Pilled.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButton.Xl.Pilled.Clear">
+        <item name="serv_iconbuttonColors">state_clear</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonXlPilledClear">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.IconButton.Xl.Pilled.Clear</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButton.Xl.Pilled.Dark">
+        <item name="serv_iconbuttonColors">state_dark</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonXlPilledDark">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.IconButton.Xl.Pilled.Dark</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButton.Xl.Pilled.Black">
+        <item name="serv_iconbuttonColors">state_black</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonXlPilledBlack">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.IconButton.Xl.Pilled.Black</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButton.Xl.Pilled.White">
+        <item name="serv_iconbuttonColors">state_white</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonXlPilledWhite">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.IconButton.Xl.Pilled.White</item>
+    </style>
     <style name="Serv.Sdds.Components.IconButton.L">
         <item name="android:minHeight">@dimen/serv_icon_button_l_min_height</item>
         <item name="android:minWidth">@dimen/serv_icon_button_l_min_width</item>
@@ -566,5 +705,144 @@
     </style>
     <style name="Serv.Sdds.ComponentOverlays.IconButtonXsPilledWhite">
         <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.IconButton.Xs.Pilled.White</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButton.Xxs">
+        <item name="android:minHeight">@dimen/serv_icon_button_xxs_min_height</item>
+        <item name="android:minWidth">@dimen/serv_icon_button_xxs_min_width</item>
+        <item name="android:paddingStart">@dimen/serv_icon_button_xxs_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_icon_button_xxs_padding_end</item>
+        <item name="sd_iconSize">@dimen/serv_icon_button_xxs_icon_size</item>
+        <item name="sd_spinnerSize">@dimen/serv_icon_button_xxs_spinner_size</item>
+        <item name="sd_spinnerStrokeWidth">@dimen/serv_icon_button_xxs_spinner_stroke_width</item>
+        <item name="sd_shapeAppearance">?serv_shapeRoundS</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonXxs">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.IconButton.Xxs</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButton.Xxs.Default">
+        <item name="serv_iconbuttonColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonXxsDefault">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.IconButton.Xxs.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButton.Xxs.Secondary">
+        <item name="serv_iconbuttonColors">state_secondary</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonXxsSecondary">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.IconButton.Xxs.Secondary</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButton.Xxs.Accent">
+        <item name="serv_iconbuttonColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonXxsAccent">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.IconButton.Xxs.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButton.Xxs.Positive">
+        <item name="serv_iconbuttonColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonXxsPositive">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.IconButton.Xxs.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButton.Xxs.Negative">
+        <item name="serv_iconbuttonColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonXxsNegative">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.IconButton.Xxs.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButton.Xxs.Warning">
+        <item name="serv_iconbuttonColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonXxsWarning">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.IconButton.Xxs.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButton.Xxs.Clear">
+        <item name="serv_iconbuttonColors">state_clear</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonXxsClear">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.IconButton.Xxs.Clear</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButton.Xxs.Dark">
+        <item name="serv_iconbuttonColors">state_dark</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonXxsDark">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.IconButton.Xxs.Dark</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButton.Xxs.Black">
+        <item name="serv_iconbuttonColors">state_black</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonXxsBlack">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.IconButton.Xxs.Black</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButton.Xxs.White">
+        <item name="serv_iconbuttonColors">state_white</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonXxsWhite">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.IconButton.Xxs.White</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButton.Xxs.Pilled">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonXxsPilled">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.IconButton.Xxs.Pilled</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButton.Xxs.Pilled.Default">
+        <item name="serv_iconbuttonColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonXxsPilledDefault">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.IconButton.Xxs.Pilled.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButton.Xxs.Pilled.Secondary">
+        <item name="serv_iconbuttonColors">state_secondary</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonXxsPilledSecondary">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.IconButton.Xxs.Pilled.Secondary</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButton.Xxs.Pilled.Accent">
+        <item name="serv_iconbuttonColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonXxsPilledAccent">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.IconButton.Xxs.Pilled.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButton.Xxs.Pilled.Positive">
+        <item name="serv_iconbuttonColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonXxsPilledPositive">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.IconButton.Xxs.Pilled.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButton.Xxs.Pilled.Negative">
+        <item name="serv_iconbuttonColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonXxsPilledNegative">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.IconButton.Xxs.Pilled.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButton.Xxs.Pilled.Warning">
+        <item name="serv_iconbuttonColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonXxsPilledWarning">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.IconButton.Xxs.Pilled.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButton.Xxs.Pilled.Clear">
+        <item name="serv_iconbuttonColors">state_clear</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonXxsPilledClear">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.IconButton.Xxs.Pilled.Clear</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButton.Xxs.Pilled.Dark">
+        <item name="serv_iconbuttonColors">state_dark</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonXxsPilledDark">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.IconButton.Xxs.Pilled.Dark</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButton.Xxs.Pilled.Black">
+        <item name="serv_iconbuttonColors">state_black</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonXxsPilledBlack">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.IconButton.Xxs.Pilled.Black</item>
+    </style>
+    <style name="Serv.Sdds.Components.IconButton.Xxs.Pilled.White">
+        <item name="serv_iconbuttonColors">state_white</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.IconButtonXxsPilledWhite">
+        <item name="sd_iconButtonStyle">@style/Serv.Sdds.Components.IconButton.Xxs.Pilled.White</item>
     </style>
 </resources>

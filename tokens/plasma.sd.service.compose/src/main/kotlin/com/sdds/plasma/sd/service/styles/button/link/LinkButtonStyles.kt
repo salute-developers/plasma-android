@@ -56,6 +56,11 @@ public value class WrapperLinkButtonWarningViewTerminate(
 ) : WrapperLinkButton
 
 @JvmInline
+public value class WrapperLinkButtonXl(
+    public override val builder: LinkButtonStyleBuilder,
+) : WrapperLinkButtonView
+
+@JvmInline
 public value class WrapperLinkButtonL(
     public override val builder: LinkButtonStyleBuilder,
 ) : WrapperLinkButtonView
@@ -72,6 +77,11 @@ public value class WrapperLinkButtonS(
 
 @JvmInline
 public value class WrapperLinkButtonXs(
+    public override val builder: LinkButtonStyleBuilder,
+) : WrapperLinkButtonView
+
+@JvmInline
+public value class WrapperLinkButtonXxs(
     public override val builder: LinkButtonStyleBuilder,
 ) : WrapperLinkButtonView
 
@@ -272,6 +282,24 @@ private val LinkButtonStyleBuilder.invariantProps: LinkButtonStyleBuilder
         .loadingAlpha(0.06f)
         .disableAlpha(0.4f)
 
+public val LinkButton.Xl: WrapperLinkButtonXl
+    @Composable
+    @JvmName("WrapperLinkButtonXl")
+    get() = ButtonStyle.linkButtonBuilder(this)
+        .invariantProps
+        .labelStyle(PlasmaSdServiceTheme.typography.bodyLBold)
+        .dimensions {
+            height(64.0.dp)
+            paddingStart(0.0.dp)
+            paddingEnd(0.0.dp)
+            minWidth(50.0.dp)
+            iconSize(24.0.dp)
+            spinnerSize(24.0.dp)
+            spinnerStrokeWidth(2.0.dp)
+            iconMargin(8.0.dp)
+        }
+        .wrap(::WrapperLinkButtonXl)
+
 public val LinkButton.L: WrapperLinkButtonL
     @Composable
     @JvmName("WrapperLinkButtonL")
@@ -343,3 +371,21 @@ public val LinkButton.Xs: WrapperLinkButtonXs
             iconMargin(4.0.dp)
         }
         .wrap(::WrapperLinkButtonXs)
+
+public val LinkButton.Xxs: WrapperLinkButtonXxs
+    @Composable
+    @JvmName("WrapperLinkButtonXxs")
+    get() = ButtonStyle.linkButtonBuilder(this)
+        .invariantProps
+        .labelStyle(PlasmaSdServiceTheme.typography.bodyXsBold)
+        .dimensions {
+            height(24.0.dp)
+            paddingStart(0.0.dp)
+            paddingEnd(0.0.dp)
+            minWidth(33.0.dp)
+            iconSize(12.0.dp)
+            spinnerSize(12.0.dp)
+            spinnerStrokeWidth(1.0.dp)
+            iconMargin(4.0.dp)
+        }
+        .wrap(::WrapperLinkButtonXxs)
