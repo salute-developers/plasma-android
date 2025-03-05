@@ -28,76 +28,116 @@ import kotlin.Suppress
 import kotlin.jvm.JvmInline
 import kotlin.jvm.JvmName
 
+/**
+ * Базовый интерфейс для всех оберток этого стиля
+ */
 public interface WrapperTextFieldClear : BuilderWrapper<TextFieldStyle, TextFieldClearStyleBuilder>
 
+/**
+ * Интерфейс, который реализуют все обертки вариаций корневого уровня
+ * и обертки их подвариаций.
+ * Является ресивером для extension-функций view,
+ * применимых к этим оберткам.
+ */
 public interface WrapperTextFieldClearView : WrapperTextFieldClear
 
+/**
+ * Терминальная обертка
+ */
 @JvmInline
-public value class WrapperTextFieldClearDefaultViewTerminate(
+public value class WrapperTextFieldClearTerminate(
     public override val builder: TextFieldClearStyleBuilder,
 ) : WrapperTextFieldClear
 
-@JvmInline
-public value class WrapperTextFieldClearErrorViewTerminate(
-    public override val builder: TextFieldClearStyleBuilder,
-) : WrapperTextFieldClear
-
+/**
+ * Обертка для вариации Xs
+ */
 @JvmInline
 public value class WrapperTextFieldClearXs(
     public override val builder: TextFieldClearStyleBuilder,
 ) : WrapperTextFieldClearView
 
+/**
+ * Обертка для вариации XsOuterLabel
+ */
 @JvmInline
 public value class WrapperTextFieldClearXsOuterLabel(
     public override val builder: TextFieldClearStyleBuilder,
 ) : WrapperTextFieldClearView
 
+/**
+ * Обертка для вариации S
+ */
 @JvmInline
 public value class WrapperTextFieldClearS(
     public override val builder: TextFieldClearStyleBuilder,
 ) : WrapperTextFieldClearView
 
+/**
+ * Обертка для вариации SOuterLabel
+ */
 @JvmInline
 public value class WrapperTextFieldClearSOuterLabel(
     public override val builder: TextFieldClearStyleBuilder,
 ) : WrapperTextFieldClearView
 
+/**
+ * Обертка для вариации SInnerLabel
+ */
 @JvmInline
 public value class WrapperTextFieldClearSInnerLabel(
     public override val builder: TextFieldClearStyleBuilder,
 ) : WrapperTextFieldClearView
 
+/**
+ * Обертка для вариации M
+ */
 @JvmInline
 public value class WrapperTextFieldClearM(
     public override val builder: TextFieldClearStyleBuilder,
 ) : WrapperTextFieldClearView
 
+/**
+ * Обертка для вариации MOuterLabel
+ */
 @JvmInline
 public value class WrapperTextFieldClearMOuterLabel(
     public override val builder: TextFieldClearStyleBuilder,
 ) : WrapperTextFieldClearView
 
+/**
+ * Обертка для вариации MInnerLabel
+ */
 @JvmInline
 public value class WrapperTextFieldClearMInnerLabel(
     public override val builder: TextFieldClearStyleBuilder,
 ) : WrapperTextFieldClearView
 
+/**
+ * Обертка для вариации L
+ */
 @JvmInline
 public value class WrapperTextFieldClearL(
     public override val builder: TextFieldClearStyleBuilder,
 ) : WrapperTextFieldClearView
 
+/**
+ * Обертка для вариации LOuterLabel
+ */
 @JvmInline
 public value class WrapperTextFieldClearLOuterLabel(
     public override val builder: TextFieldClearStyleBuilder,
 ) : WrapperTextFieldClearView
 
+/**
+ * Обертка для вариации LInnerLabel
+ */
 @JvmInline
 public value class WrapperTextFieldClearLInnerLabel(
     public override val builder: TextFieldClearStyleBuilder,
 ) : WrapperTextFieldClearView
 
-public val WrapperTextFieldClearView.Default: WrapperTextFieldClearDefaultViewTerminate
+public val WrapperTextFieldClearView.Default: WrapperTextFieldClearTerminate
     @Composable
     get() = builder
         .colors {
@@ -123,9 +163,9 @@ public val WrapperTextFieldClearView.Default: WrapperTextFieldClearDefaultViewTe
                 ),
             )
         }
-        .wrap(::WrapperTextFieldClearDefaultViewTerminate)
+        .wrap(::WrapperTextFieldClearTerminate)
 
-public val WrapperTextFieldClearView.Error: WrapperTextFieldClearErrorViewTerminate
+public val WrapperTextFieldClearView.Error: WrapperTextFieldClearTerminate
     @Composable
     get() = builder
         .colors {
@@ -162,7 +202,7 @@ public val WrapperTextFieldClearView.Error: WrapperTextFieldClearErrorViewTermin
                 ),
             )
         }
-        .wrap(::WrapperTextFieldClearErrorViewTerminate)
+        .wrap(::WrapperTextFieldClearTerminate)
 
 private val TextFieldClearStyleBuilder.invariantProps: TextFieldClearStyleBuilder
     @Composable
