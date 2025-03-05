@@ -20,6 +20,13 @@ internal class SegmentItemViewModel(
 
     override fun SegmentItemUiState.toProps(): List<Property<*>> {
         return listOfNotNull(
+            Property.BooleanProperty(
+                name = "selected",
+                value = selected,
+                onApply = {
+                    internalUiState.value = internalUiState.value.copy(selected = it)
+                },
+            ),
             Property.StringProperty(
                 name = "label",
                 value = label,
