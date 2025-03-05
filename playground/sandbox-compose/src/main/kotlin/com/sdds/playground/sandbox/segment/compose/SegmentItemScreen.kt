@@ -1,5 +1,6 @@
 package com.sdds.playground.sandbox.segment.compose
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -7,6 +8,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.tooling.preview.Preview
@@ -14,6 +16,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.sdds.compose.uikit.Counter
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.SegmentItem
+import com.sdds.compose.uikit.interactions.selection
 import com.sdds.icons.R
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.Theme
@@ -32,21 +35,33 @@ internal fun SegmentItemScreen(theme: Theme.ThemeInfoCompose = Theme.composeDefa
         component = {
             theme.themeWrapper {
                 val interactionSource = remember { MutableInteractionSource() }
-                var isSelected by remember { mutableStateOf(false) }
+                var isSelected by remember { mutableStateOf(true) }
                 SegmentItem(
+                    modifier = Modifier
+                        .clickable(
+                            interactionSource = interactionSource,
+                            indication = null,
+                        ) { isSelected = !isSelected },
                     isSelected = isSelected,
-                    onSelectedChange = { isSelected = it },
                     style = segmentItemViewModel
                         .getStyleProvider()
                         .style(uiState.variant),
                     label = uiState.label,
                     value = uiState.value,
-                    startContent = startContent(
-                        uiState.startContent,
-                        uiState.count,
-                        interactionSource,
+                    startContent = content(
+                        enabled = uiState.enabled,
+                        count = uiState.count,
+                        contentType = uiState.startContent,
+                        isSelected = isSelected,
+                        interactionSource = interactionSource,
                     ),
-                    endContent = endContent(uiState.endContent, uiState.count, interactionSource),
+                    endContent = content(
+                        enabled = uiState.enabled,
+                        count = uiState.count,
+                        contentType = uiState.endContent,
+                        isSelected = isSelected,
+                        interactionSource = interactionSource,
+                    ),
                     enabled = uiState.enabled,
                     interactionSource = interactionSource,
                 )
@@ -56,9 +71,11 @@ internal fun SegmentItemScreen(theme: Theme.ThemeInfoCompose = Theme.composeDefa
     )
 }
 
-private fun startContent(
-    contentType: SegmentItemContent,
+private fun content(
+    enabled: Boolean,
     count: String,
+    contentType: SegmentItemContent,
+    isSelected: Boolean,
     interactionSource: MutableInteractionSource,
 ): (@Composable () -> Unit)? {
     return if (contentType != SegmentItemContent.NONE) {
@@ -70,32 +87,11 @@ private fun startContent(
                 )
 
                 SegmentItemContent.COUNTER -> Counter(
-                    count = AnnotatedString(count),
-                    interactionSource = interactionSource,
-                )
-
-                else -> {}
-            }
-        }
-    } else {
-        null
-    }
-}
-
-private fun endContent(
-    contentType: SegmentItemContent,
-    count: String,
-    interactionSource: MutableInteractionSource,
-): (@Composable () -> Unit)? {
-    return if (contentType != SegmentItemContent.NONE) {
-        @Composable {
-            when (contentType) {
-                SegmentItemContent.ICON -> Icon(
-                    painter = painterResource(id = R.drawable.ic_scribble_diagonal_24),
-                    contentDescription = "",
-                )
-
-                SegmentItemContent.COUNTER -> Counter(
+                    modifier = Modifier.selection(
+                        selected = isSelected,
+                        enabled = enabled,
+                        interactionSource = interactionSource,
+                    ),
                     count = AnnotatedString(count),
                     interactionSource = interactionSource,
                 )

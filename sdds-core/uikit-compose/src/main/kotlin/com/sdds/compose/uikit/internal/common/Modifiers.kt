@@ -4,6 +4,7 @@ import androidx.compose.foundation.Indication
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.focusable
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Stable
@@ -29,7 +30,6 @@ import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.IndicatorMode
-import com.sdds.compose.uikit.interactions.selectable
 
 /**
  * Модификатор, позволяющий дизэйблить Composable (менять альфу и игнорировать ввод).
@@ -135,13 +135,13 @@ internal fun Modifier.surface(
     interactionSource: MutableInteractionSource,
 ): Modifier {
     val toggleableOrFocusableModifier = onValueChange?.let {
-        Modifier.selectable(
-            selected = value,
+        Modifier.toggleable(
+            value = value,
             interactionSource = interactionSource,
             indication = indication,
             enabled = enabled,
             role = role,
-            onSelectedChanged = onValueChange,
+            onValueChange = onValueChange,
         )
     } ?: Modifier.focusable(enabled, interactionSource)
 

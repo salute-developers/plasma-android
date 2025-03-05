@@ -1,24 +1,19 @@
 package com.sdds.compose.uikit.interactions
 
-import androidx.compose.foundation.Indication
 import androidx.compose.foundation.interaction.Interaction
 import androidx.compose.foundation.interaction.InteractionSource
 import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.selection.toggleable
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.State
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
 import androidx.compose.ui.platform.debugInspectorInfo
-import androidx.compose.ui.semantics.Role
 import kotlinx.coroutines.launch
 
 /**
@@ -59,38 +54,29 @@ fun InteractionSource.collectIsSelectedAsState(): State<Boolean> {
 }
 
 /**
- * Модификатор, позволяющий компоненту быть выбираемым,
- * т.е. уметь отправлять ивенты [SelectInteraction] в предоставленный [interactionSource].
- * Компонент, к которому применили этот модификатор, становится toggleable.
+ * Модификатор, позволяющий компоненту отправлять ивенты [SelectInteraction]
+ * в предоставленный [interactionSource].
+ * Используется в тех компонентах, чьи цвета [InteractiveColor] имеют selected состояние.
  *
  * @param selected выбран ли компонент
  * @param enabled включен или выключен компонент
- * @param indication объект [Indication]
- * @param role роль [Role]
  * @param interactionSource источник взаимодействий
- * @param onSelectedChanged слушатель событий select
  */
 @Suppress("LongMethod")
-internal fun Modifier.selectable(
+fun Modifier.selection(
     selected: Boolean,
     enabled: Boolean = true,
-    indication: Indication? = null,
-    role: Role? = null,
     interactionSource: MutableInteractionSource,
-    onSelectedChanged: (selected: Boolean) -> Unit = {},
 ) = composed(
     inspectorInfo = debugInspectorInfo {
-        name = "selectable"
+        name = "selection"
         properties["selected"] = selected
         properties["enabled"] = enabled
-        properties["indication"] = indication
-        properties["role"] = role
         properties["interactionSource"] = interactionSource
     },
 ) {
     val scope = rememberCoroutineScope()
     val selectInteraction = remember { mutableStateOf<SelectInteraction.Select?>(null) }
-    var isSelected by remember { mutableStateOf(selected) }
     DisposableEffect(interactionSource) {
         onDispose {
             selectInteraction.tryDeselect(interactionSource)
@@ -104,18 +90,9 @@ internal fun Modifier.selectable(
         }
         onDispose { }
     }
-
     if (enabled) {
-        this.toggleable(
-            enabled = true,
-            value = isSelected,
-            role = role,
-            indication = indication,
-            interactionSource = interactionSource,
-        ) { selected ->
-            onSelectedChanged.invoke(selected)
-            isSelected = selected
-            if (isSelected) {
+        LaunchedEffect(interactionSource, selected) {
+            if (selected) {
                 scope.launch {
                     selectInteraction.deselect(interactionSource)
                     selectInteraction.select(interactionSource)
@@ -126,9 +103,8 @@ internal fun Modifier.selectable(
                 }
             }
         }
-    } else {
-        this
     }
+    this
 }
 
 private fun MutableState<SelectInteraction.Select?>.tryDeselect(

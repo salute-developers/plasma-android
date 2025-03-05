@@ -1,5 +1,6 @@
 package com.sdds.compose.uikit
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -13,12 +14,11 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.painter.Painter
-import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.AnnotatedString
+import com.sdds.compose.uikit.interactions.selection
 import com.sdds.compose.uikit.internal.ButtonText
-import com.sdds.compose.uikit.internal.common.surface
 
 /**
  * Компонент SegmentItem
@@ -27,7 +27,6 @@ import com.sdds.compose.uikit.internal.common.surface
  * @param modifier модификатор
  * @param style стиль компонента
  * @param isSelected выбран ли компонент
- * @param onSelectedChange колбэк выбора компонента
  * @param startIcon иконка в начале
  * @param endIcon иконка в конце
  * @param counter значение счетчика
@@ -40,7 +39,6 @@ fun SegmentItem(
     modifier: Modifier = Modifier,
     style: SegmentItemStyle = LocalSegmentItemStyle.current,
     isSelected: Boolean = false,
-    onSelectedChange: (Boolean) -> Unit = {},
     value: String? = null,
     startIcon: Painter? = null,
     endIcon: Painter? = null,
@@ -53,7 +51,6 @@ fun SegmentItem(
         modifier = modifier,
         isSelected = isSelected,
         style = style,
-        onSelectedChange = onSelectedChange,
         value = value,
         startContent = if (startIcon != null) {
             @Composable {
@@ -89,6 +86,12 @@ fun SegmentItem(
                 }
                 counter?.let {
                     Counter(
+                        modifier = Modifier
+                            .selection(
+                                selected = isSelected,
+                                enabled = enabled,
+                                interactionSource = interactionSource,
+                            ),
                         count = AnnotatedString(counter),
                         style = style.counterStyle,
                         interactionSource = interactionSource,
@@ -108,7 +111,6 @@ fun SegmentItem(
  * @param modifier модификатор
  * @param style стиль компонента
  * @param isSelected выбран ли компонент
- * @param onSelectedChange колбэк выбора компонента
  * @param startContent контент в начале
  * @param endContent контент в конце
  * @param enabled включен ли компонент
@@ -120,7 +122,6 @@ fun SegmentItem(
     modifier: Modifier = Modifier,
     isSelected: Boolean = false,
     style: SegmentItemStyle = LocalSegmentItemStyle.current,
-    onSelectedChange: ((Boolean) -> Unit)? = null,
     value: String? = null,
     startContent: (@Composable () -> Unit)? = null,
     endContent: (@Composable () -> Unit)? = null,
@@ -138,15 +139,15 @@ fun SegmentItem(
                 minHeight = style.dimensions.minHeight,
                 minWidth = style.dimensions.minWidth,
             )
-            .surface(
-                value = isSelected,
-                shape = style.shape,
-                backgroundColor = { SolidColor(backgroundColor) },
-                alpha = { if (enabled) 1f else style.disabledAlpha },
-                role = Role.RadioButton,
-                onValueChange = onSelectedChange,
+            .selection(
+                selected = isSelected,
                 enabled = enabled,
                 interactionSource = interactionSource,
+            )
+            .graphicsLayer { this.alpha = if (enabled) 1f else style.disabledAlpha }
+            .background(
+                color = backgroundColor,
+                shape = style.shape,
             )
             .padding(
                 start = style.dimensions.paddingStart,
