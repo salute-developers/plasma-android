@@ -1,13 +1,10 @@
 package com.sdds.playground.sandbox.segment.compose
 
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.AnnotatedString
@@ -35,14 +32,9 @@ internal fun SegmentItemScreen(theme: Theme.ThemeInfoCompose = Theme.composeDefa
         component = {
             theme.themeWrapper {
                 val interactionSource = remember { MutableInteractionSource() }
-                var isSelected by remember { mutableStateOf(true) }
                 SegmentItem(
-                    modifier = Modifier
-                        .clickable(
-                            interactionSource = interactionSource,
-                            indication = null,
-                        ) { isSelected = !isSelected },
-                    isSelected = isSelected,
+                    modifier = Modifier,
+                    isSelected = uiState.selected,
                     style = segmentItemViewModel
                         .getStyleProvider()
                         .style(uiState.variant),
@@ -52,14 +44,14 @@ internal fun SegmentItemScreen(theme: Theme.ThemeInfoCompose = Theme.composeDefa
                         enabled = uiState.enabled,
                         count = uiState.count,
                         contentType = uiState.startContent,
-                        isSelected = isSelected,
+                        isSelected = uiState.selected,
                         interactionSource = interactionSource,
                     ),
                     endContent = content(
                         enabled = uiState.enabled,
                         count = uiState.count,
                         contentType = uiState.endContent,
-                        isSelected = isSelected,
+                        isSelected = uiState.selected,
                         interactionSource = interactionSource,
                     ),
                     enabled = uiState.enabled,

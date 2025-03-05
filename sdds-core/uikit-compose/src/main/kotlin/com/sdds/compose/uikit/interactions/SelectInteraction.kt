@@ -93,12 +93,12 @@ fun Modifier.selection(
     if (enabled) {
         LaunchedEffect(interactionSource, selected) {
             if (selected) {
-                scope.launch {
+                launch {
                     selectInteraction.deselect(interactionSource)
                     selectInteraction.select(interactionSource)
                 }
             } else {
-                scope.launch {
+                launch {
                     selectInteraction.deselect(interactionSource)
                 }
             }
