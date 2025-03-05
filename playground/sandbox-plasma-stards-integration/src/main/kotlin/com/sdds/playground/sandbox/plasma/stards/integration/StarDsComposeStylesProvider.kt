@@ -14,6 +14,7 @@ import com.sdds.compose.uikit.IndicatorStyle
 import com.sdds.compose.uikit.ProgressBarStyle
 import com.sdds.compose.uikit.RadioBoxGroupStyle
 import com.sdds.compose.uikit.RadioBoxStyle
+import com.sdds.compose.uikit.SegmentItemStyle
 import com.sdds.compose.uikit.SwitchStyle
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
@@ -39,6 +40,7 @@ import com.sdds.playground.sandbox.plasma.stards.integration.indicator.StarDsInd
 import com.sdds.playground.sandbox.plasma.stards.integration.progress.StarDsProgressVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.radiobox.StarDsRadioBoxVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.radiobox.group.StarDsRadioBoxGroupVariationsCompose
+import com.sdds.playground.sandbox.plasma.stards.integration.segment.item.StarDsSegmentItemVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.switcher.StarDsSwitchVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.textarea.StarDsTextAreaVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.textarea.clear.StarDsTextAreaClearVariationsCompose
@@ -102,4 +104,6 @@ object StarDsComposeStylesProvider : StylesProviderCompose {
         get() = StarDsIconBadgeTransparentVariationsCompose
     override val counter: ComposeStyleProvider<String, CounterStyle>
         get() = StarDsCounterVariationsCompose
+    override val segmentItem: ComposeStyleProvider<String, SegmentItemStyle>
+        get() = StarDsSegmentItemVariationsCompose
 }

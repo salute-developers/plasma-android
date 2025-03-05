@@ -24,71 +24,68 @@ import kotlin.Suppress
 import kotlin.jvm.JvmInline
 import kotlin.jvm.JvmName
 
+/**
+ * Базовый интерфейс для всех оберток этого стиля
+ */
 public interface WrapperCounter : BuilderWrapper<CounterStyle, CounterStyleBuilder>
 
+/**
+ * Интерфейс, который реализуют все обертки вариаций корневого уровня
+ * и обертки их подвариаций.
+ * Является ресивером для extension-функций view,
+ * применимых к этим оберткам.
+ */
 public interface WrapperCounterView : WrapperCounter
 
+/**
+ * Терминальная обертка
+ */
 @JvmInline
-public value class WrapperCounterDefaultViewTerminate(
+public value class WrapperCounterTerminate(
     public override val builder: CounterStyleBuilder,
 ) : WrapperCounter
 
-@JvmInline
-public value class WrapperCounterAccentViewTerminate(
-    public override val builder: CounterStyleBuilder,
-) : WrapperCounter
-
-@JvmInline
-public value class WrapperCounterPositiveViewTerminate(
-    public override val builder: CounterStyleBuilder,
-) : WrapperCounter
-
-@JvmInline
-public value class WrapperCounterWarningViewTerminate(
-    public override val builder: CounterStyleBuilder,
-) : WrapperCounter
-
-@JvmInline
-public value class WrapperCounterNegativeViewTerminate(
-    public override val builder: CounterStyleBuilder,
-) : WrapperCounter
-
-@JvmInline
-public value class WrapperCounterBlackViewTerminate(
-    public override val builder: CounterStyleBuilder,
-) : WrapperCounter
-
-@JvmInline
-public value class WrapperCounterWhiteViewTerminate(
-    public override val builder: CounterStyleBuilder,
-) : WrapperCounter
-
+/**
+ * Обертка для вариации L
+ */
 @JvmInline
 public value class WrapperCounterL(
     public override val builder: CounterStyleBuilder,
 ) : WrapperCounterView
 
+/**
+ * Обертка для вариации M
+ */
 @JvmInline
 public value class WrapperCounterM(
     public override val builder: CounterStyleBuilder,
 ) : WrapperCounterView
 
+/**
+ * Обертка для вариации S
+ */
 @JvmInline
 public value class WrapperCounterS(
     public override val builder: CounterStyleBuilder,
 ) : WrapperCounterView
 
+/**
+ * Обертка для вариации Xs
+ */
 @JvmInline
 public value class WrapperCounterXs(
     public override val builder: CounterStyleBuilder,
 ) : WrapperCounterView
 
+/**
+ * Обертка для вариации Xxs
+ */
 @JvmInline
 public value class WrapperCounterXxs(
     public override val builder: CounterStyleBuilder,
 ) : WrapperCounterView
 
-public val WrapperCounterView.Default: WrapperCounterDefaultViewTerminate
+public val WrapperCounterView.Default: WrapperCounterTerminate
     @Composable
     get() = builder
         .colors {
@@ -109,9 +106,9 @@ public val WrapperCounterView.Default: WrapperCounterDefaultViewTerminate
                 ),
             )
         }
-        .wrap(::WrapperCounterDefaultViewTerminate)
+        .wrap(::WrapperCounterTerminate)
 
-public val WrapperCounterView.Accent: WrapperCounterAccentViewTerminate
+public val WrapperCounterView.Accent: WrapperCounterTerminate
     @Composable
     get() = builder
         .colors {
@@ -132,9 +129,9 @@ public val WrapperCounterView.Accent: WrapperCounterAccentViewTerminate
                 ),
             )
         }
-        .wrap(::WrapperCounterAccentViewTerminate)
+        .wrap(::WrapperCounterTerminate)
 
-public val WrapperCounterView.Positive: WrapperCounterPositiveViewTerminate
+public val WrapperCounterView.Positive: WrapperCounterTerminate
     @Composable
     get() = builder
         .colors {
@@ -155,9 +152,9 @@ public val WrapperCounterView.Positive: WrapperCounterPositiveViewTerminate
                 ),
             )
         }
-        .wrap(::WrapperCounterPositiveViewTerminate)
+        .wrap(::WrapperCounterTerminate)
 
-public val WrapperCounterView.Warning: WrapperCounterWarningViewTerminate
+public val WrapperCounterView.Warning: WrapperCounterTerminate
     @Composable
     get() = builder
         .colors {
@@ -178,9 +175,9 @@ public val WrapperCounterView.Warning: WrapperCounterWarningViewTerminate
                 ),
             )
         }
-        .wrap(::WrapperCounterWarningViewTerminate)
+        .wrap(::WrapperCounterTerminate)
 
-public val WrapperCounterView.Negative: WrapperCounterNegativeViewTerminate
+public val WrapperCounterView.Negative: WrapperCounterTerminate
     @Composable
     get() = builder
         .colors {
@@ -201,9 +198,9 @@ public val WrapperCounterView.Negative: WrapperCounterNegativeViewTerminate
                 ),
             )
         }
-        .wrap(::WrapperCounterNegativeViewTerminate)
+        .wrap(::WrapperCounterTerminate)
 
-public val WrapperCounterView.Black: WrapperCounterBlackViewTerminate
+public val WrapperCounterView.Black: WrapperCounterTerminate
     @Composable
     get() = builder
         .colors {
@@ -224,9 +221,9 @@ public val WrapperCounterView.Black: WrapperCounterBlackViewTerminate
                 ),
             )
         }
-        .wrap(::WrapperCounterBlackViewTerminate)
+        .wrap(::WrapperCounterTerminate)
 
-public val WrapperCounterView.White: WrapperCounterWhiteViewTerminate
+public val WrapperCounterView.White: WrapperCounterTerminate
     @Composable
     get() = builder
         .colors {
@@ -247,7 +244,7 @@ public val WrapperCounterView.White: WrapperCounterWhiteViewTerminate
                 ),
             )
         }
-        .wrap(::WrapperCounterWhiteViewTerminate)
+        .wrap(::WrapperCounterTerminate)
 
 private val CounterStyleBuilder.invariantProps: CounterStyleBuilder
     @Composable
