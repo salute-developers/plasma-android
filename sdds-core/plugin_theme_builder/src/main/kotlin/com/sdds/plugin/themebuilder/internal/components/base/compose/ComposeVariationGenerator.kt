@@ -227,17 +227,17 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
             newViewExtensionReceiverName = "Wrapper${variation.id.toCamelCase()}View"
             val description = if (variation.parent == null) {
                 """
-                    Интерфейс, который реализуют все врапперы вариаций корневого уровня 
-                    и врапперы их подвариаций. 
+                    Интерфейс, который реализуют все обертки вариаций корневого уровня 
+                    и обертки их подвариаций. 
                     Является ресивером для extension-функций view, 
-                    применимых к этим врапперам.
+                    применимых к этим оберткам.
                 """
             } else {
                 """
-                    Интерфейс, который реализуют все врапперы вариации ${variation.name}
-                    и врапперы ее подвариаций.
+                    Интерфейс, который реализуют все обертки вариации ${variation.name}
+                    и обертки ее подвариаций.
                     Является ресивером для extension-функций view,
-                    применимых к этим врапперам.
+                    применимых к этим оберткам.
                 """
             }.trimIndent()
             addVariationWrapperInterface(
@@ -319,7 +319,7 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
             )
             val outType = getOrGenerateViewWrapper(
                 wrapperSuffix = "${camelComponentName}Terminate",
-                description = "Терминальный враппер",
+                description = "Терминальная обертка",
             )
             appendRootVal(
                 name = extensionName,
@@ -363,7 +363,7 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
             outType = getOrGenerateWrapper(
                 wrapperSuffix = "$camelComponentName$variationName",
                 superTypeName = wrapperSuperTypeName,
-                description = "Враппер для вариации $variationName",
+                description = "Обертка для вариации $variationName",
             )
             receiverType = componentRootObjectType
             extensionBody = buildString {
@@ -377,12 +377,12 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
             receiverType =
                 getOrGenerateWrapper(
                     wrapperSuffix = "$camelComponentName$parentName",
-                    description = "Враппер для вариации $parentName",
+                    description = "Обертка для вариации $parentName",
                 )
             outType = getOrGenerateWrapper(
                 wrapperSuffix = "$camelComponentName$parentName$variationName",
                 superTypeName = wrapperSuperTypeName,
-                description = "Враппер для вариации $parentName$variationName",
+                description = "Обертка для вариации $parentName$variationName",
             )
             extensionBody = buildString {
                 appendLine("return $builderRef")
@@ -528,7 +528,7 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
             name = baseWrapperInterfaceName,
             superInterface = getInternalClassType("BuilderWrapper", "com.sdds.compose.uikit.style")
                 .parameterizedBy(styleType, styleBuilderType),
-            description = "Базовый интерфейс для всех врапперов этого стиля",
+            description = "Базовый интерфейс для всех оберток этого стиля",
         )
     }
 }
