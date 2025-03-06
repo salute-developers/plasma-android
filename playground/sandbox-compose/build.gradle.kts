@@ -1,3 +1,4 @@
+import com.android.build.gradle.tasks.MapSourceSetPathsTask
 import com.android.build.gradle.tasks.MergeResources
 import ru.sberdevices.starplugin.stardimens.GenerateStarDimensTask
 import ru.sberdevices.starplugin.stardimens.StarDimensGeneratorPluginExtension
@@ -85,6 +86,10 @@ configure<StarDimensGeneratorPluginExtension> {
 }
 
 tasks.withType<MergeResources>().configureEach {
+    dependsOn(tasks.withType<GenerateStarDimensTask>())
+}
+
+tasks.withType<MapSourceSetPathsTask>().configureEach {
     dependsOn(tasks.withType<GenerateStarDimensTask>())
 }
 
