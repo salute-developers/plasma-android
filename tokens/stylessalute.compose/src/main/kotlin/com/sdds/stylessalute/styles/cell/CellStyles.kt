@@ -2,6 +2,7 @@
 @file:Suppress(
     "UndocumentedPublicClass",
     "UndocumentedPublicProperty",
+    "ktlint:standard:max-line-length",
 )
 
 package com.sdds.stylessalute.styles.cell
@@ -43,12 +44,12 @@ import kotlin.jvm.JvmInline
 import kotlin.jvm.JvmName
 
 /**
- * Базовый интерфейс для всех врапперов этого стиля
+ * Базовый интерфейс для всех оберток этого стиля
  */
 public interface WrapperCell : BuilderWrapper<CellStyle, CellStyleBuilder>
 
 /**
- * Враппер для вариации L
+ * Обертка для вариации L
  */
 @JvmInline
 public value class WrapperCellL(
@@ -56,7 +57,7 @@ public value class WrapperCellL(
 ) : WrapperCell
 
 /**
- * Враппер для вариации M
+ * Обертка для вариации M
  */
 @JvmInline
 public value class WrapperCellM(
@@ -64,7 +65,7 @@ public value class WrapperCellM(
 ) : WrapperCell
 
 /**
- * Враппер для вариации S
+ * Обертка для вариации S
  */
 @JvmInline
 public value class WrapperCellS(
@@ -72,7 +73,7 @@ public value class WrapperCellS(
 ) : WrapperCell
 
 /**
- * Враппер для вариации Xs
+ * Обертка для вариации Xs
  */
 @JvmInline
 public value class WrapperCellXs(
