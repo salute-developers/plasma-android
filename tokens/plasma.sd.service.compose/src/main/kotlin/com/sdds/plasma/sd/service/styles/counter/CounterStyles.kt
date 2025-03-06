@@ -24,20 +24,20 @@ import kotlin.jvm.JvmInline
 import kotlin.jvm.JvmName
 
 /**
- * Базовый интерфейс для всех врапперов этого стиля
+ * Базовый интерфейс для всех оберток этого стиля
  */
 public interface WrapperCounter : BuilderWrapper<CounterStyle, CounterStyleBuilder>
 
 /**
- * Интерфейс, который реализуют все врапперы вариаций корневого уровня
- * и врапперы их подвариаций.
+ * Интерфейс, который реализуют все обертки вариаций корневого уровня
+ * и обертки их подвариаций.
  * Является ресивером для extension-функций view,
- * применимых к этим врапперам.
+ * применимых к этим оберткам.
  */
 public interface WrapperCounterView : WrapperCounter
 
 /**
- * Терминальный враппер
+ * Терминальная обертка
  */
 @JvmInline
 public value class WrapperCounterTerminate(
@@ -45,7 +45,7 @@ public value class WrapperCounterTerminate(
 ) : WrapperCounter
 
 /**
- * Враппер для вариации L
+ * Обертка для вариации L
  */
 @JvmInline
 public value class WrapperCounterL(
@@ -53,7 +53,7 @@ public value class WrapperCounterL(
 ) : WrapperCounterView
 
 /**
- * Враппер для вариации M
+ * Обертка для вариации M
  */
 @JvmInline
 public value class WrapperCounterM(
@@ -61,7 +61,7 @@ public value class WrapperCounterM(
 ) : WrapperCounterView
 
 /**
- * Враппер для вариации S
+ * Обертка для вариации S
  */
 @JvmInline
 public value class WrapperCounterS(
@@ -69,7 +69,7 @@ public value class WrapperCounterS(
 ) : WrapperCounterView
 
 /**
- * Враппер для вариации Xs
+ * Обертка для вариации Xs
  */
 @JvmInline
 public value class WrapperCounterXs(
@@ -77,7 +77,7 @@ public value class WrapperCounterXs(
 ) : WrapperCounterView
 
 /**
- * Враппер для вариации Xxs
+ * Обертка для вариации Xxs
  */
 @JvmInline
 public value class WrapperCounterXxs(

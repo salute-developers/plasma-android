@@ -2,6 +2,7 @@
 @file:Suppress(
     "UndocumentedPublicClass",
     "UndocumentedPublicProperty",
+    "ktlint:standard:max-line-length",
 )
 
 package com.sdds.serv.styles.textarea.clear
@@ -33,20 +34,20 @@ import kotlin.jvm.JvmInline
 import kotlin.jvm.JvmName
 
 /**
- * Базовый интерфейс для всех врапперов этого стиля
+ * Базовый интерфейс для всех оберток этого стиля
  */
 public interface WrapperTextAreaClear : BuilderWrapper<TextFieldStyle, TextAreaClearStyleBuilder>
 
 /**
- * Интерфейс, который реализуют все врапперы вариаций корневого уровня
- * и врапперы их подвариаций.
+ * Интерфейс, который реализуют все обертки вариаций корневого уровня
+ * и обертки их подвариаций.
  * Является ресивером для extension-функций view,
- * применимых к этим врапперам.
+ * применимых к этим оберткам.
  */
 public interface WrapperTextAreaClearView : WrapperTextAreaClear
 
 /**
- * Терминальный враппер
+ * Терминальная обертка
  */
 @JvmInline
 public value class WrapperTextAreaClearTerminate(
@@ -54,7 +55,7 @@ public value class WrapperTextAreaClearTerminate(
 ) : WrapperTextAreaClear
 
 /**
- * Враппер для вариации Xs
+ * Обертка для вариации Xs
  */
 @JvmInline
 public value class WrapperTextAreaClearXs(
@@ -62,7 +63,7 @@ public value class WrapperTextAreaClearXs(
 ) : WrapperTextAreaClearView
 
 /**
- * Враппер для вариации XsRequiredStart
+ * Обертка для вариации XsRequiredStart
  */
 @JvmInline
 public value class WrapperTextAreaClearXsRequiredStart(
@@ -70,7 +71,7 @@ public value class WrapperTextAreaClearXsRequiredStart(
 ) : WrapperTextAreaClearView
 
 /**
- * Враппер для вариации XsRequiredEnd
+ * Обертка для вариации XsRequiredEnd
  */
 @JvmInline
 public value class WrapperTextAreaClearXsRequiredEnd(
@@ -78,7 +79,7 @@ public value class WrapperTextAreaClearXsRequiredEnd(
 ) : WrapperTextAreaClearView
 
 /**
- * Враппер для вариации XsOuterLabel
+ * Обертка для вариации XsOuterLabel
  */
 @JvmInline
 public value class WrapperTextAreaClearXsOuterLabel(
@@ -86,7 +87,7 @@ public value class WrapperTextAreaClearXsOuterLabel(
 ) : WrapperTextAreaClearView
 
 /**
- * Враппер для вариации XsOuterLabelRequiredStart
+ * Обертка для вариации XsOuterLabelRequiredStart
  */
 @JvmInline
 public value class WrapperTextAreaClearXsOuterLabelRequiredStart(
@@ -94,7 +95,7 @@ public value class WrapperTextAreaClearXsOuterLabelRequiredStart(
 ) : WrapperTextAreaClearView
 
 /**
- * Враппер для вариации XsOuterLabelRequiredEnd
+ * Обертка для вариации XsOuterLabelRequiredEnd
  */
 @JvmInline
 public value class WrapperTextAreaClearXsOuterLabelRequiredEnd(
@@ -102,7 +103,7 @@ public value class WrapperTextAreaClearXsOuterLabelRequiredEnd(
 ) : WrapperTextAreaClearView
 
 /**
- * Враппер для вариации S
+ * Обертка для вариации S
  */
 @JvmInline
 public value class WrapperTextAreaClearS(
@@ -110,7 +111,7 @@ public value class WrapperTextAreaClearS(
 ) : WrapperTextAreaClearView
 
 /**
- * Враппер для вариации SRequiredStart
+ * Обертка для вариации SRequiredStart
  */
 @JvmInline
 public value class WrapperTextAreaClearSRequiredStart(
@@ -118,7 +119,7 @@ public value class WrapperTextAreaClearSRequiredStart(
 ) : WrapperTextAreaClearView
 
 /**
- * Враппер для вариации SRequiredEnd
+ * Обертка для вариации SRequiredEnd
  */
 @JvmInline
 public value class WrapperTextAreaClearSRequiredEnd(
@@ -126,7 +127,7 @@ public value class WrapperTextAreaClearSRequiredEnd(
 ) : WrapperTextAreaClearView
 
 /**
- * Враппер для вариации SOuterLabel
+ * Обертка для вариации SOuterLabel
  */
 @JvmInline
 public value class WrapperTextAreaClearSOuterLabel(
@@ -134,7 +135,7 @@ public value class WrapperTextAreaClearSOuterLabel(
 ) : WrapperTextAreaClearView
 
 /**
- * Враппер для вариации SOuterLabelRequiredStart
+ * Обертка для вариации SOuterLabelRequiredStart
  */
 @JvmInline
 public value class WrapperTextAreaClearSOuterLabelRequiredStart(
@@ -142,7 +143,7 @@ public value class WrapperTextAreaClearSOuterLabelRequiredStart(
 ) : WrapperTextAreaClearView
 
 /**
- * Враппер для вариации SOuterLabelRequiredEnd
+ * Обертка для вариации SOuterLabelRequiredEnd
  */
 @JvmInline
 public value class WrapperTextAreaClearSOuterLabelRequiredEnd(
@@ -150,7 +151,7 @@ public value class WrapperTextAreaClearSOuterLabelRequiredEnd(
 ) : WrapperTextAreaClearView
 
 /**
- * Враппер для вариации SInnerLabel
+ * Обертка для вариации SInnerLabel
  */
 @JvmInline
 public value class WrapperTextAreaClearSInnerLabel(
@@ -158,7 +159,7 @@ public value class WrapperTextAreaClearSInnerLabel(
 ) : WrapperTextAreaClearView
 
 /**
- * Враппер для вариации SInnerLabelRequiredStart
+ * Обертка для вариации SInnerLabelRequiredStart
  */
 @JvmInline
 public value class WrapperTextAreaClearSInnerLabelRequiredStart(
@@ -166,7 +167,7 @@ public value class WrapperTextAreaClearSInnerLabelRequiredStart(
 ) : WrapperTextAreaClearView
 
 /**
- * Враппер для вариации SInnerLabelRequiredEnd
+ * Обертка для вариации SInnerLabelRequiredEnd
  */
 @JvmInline
 public value class WrapperTextAreaClearSInnerLabelRequiredEnd(
@@ -174,7 +175,7 @@ public value class WrapperTextAreaClearSInnerLabelRequiredEnd(
 ) : WrapperTextAreaClearView
 
 /**
- * Враппер для вариации M
+ * Обертка для вариации M
  */
 @JvmInline
 public value class WrapperTextAreaClearM(
@@ -182,7 +183,7 @@ public value class WrapperTextAreaClearM(
 ) : WrapperTextAreaClearView
 
 /**
- * Враппер для вариации MRequiredStart
+ * Обертка для вариации MRequiredStart
  */
 @JvmInline
 public value class WrapperTextAreaClearMRequiredStart(
@@ -190,7 +191,7 @@ public value class WrapperTextAreaClearMRequiredStart(
 ) : WrapperTextAreaClearView
 
 /**
- * Враппер для вариации MRequiredEnd
+ * Обертка для вариации MRequiredEnd
  */
 @JvmInline
 public value class WrapperTextAreaClearMRequiredEnd(
@@ -198,7 +199,7 @@ public value class WrapperTextAreaClearMRequiredEnd(
 ) : WrapperTextAreaClearView
 
 /**
- * Враппер для вариации MOuterLabel
+ * Обертка для вариации MOuterLabel
  */
 @JvmInline
 public value class WrapperTextAreaClearMOuterLabel(
@@ -206,7 +207,7 @@ public value class WrapperTextAreaClearMOuterLabel(
 ) : WrapperTextAreaClearView
 
 /**
- * Враппер для вариации MOuterLabelRequiredStart
+ * Обертка для вариации MOuterLabelRequiredStart
  */
 @JvmInline
 public value class WrapperTextAreaClearMOuterLabelRequiredStart(
@@ -214,7 +215,7 @@ public value class WrapperTextAreaClearMOuterLabelRequiredStart(
 ) : WrapperTextAreaClearView
 
 /**
- * Враппер для вариации MOuterLabelRequiredEnd
+ * Обертка для вариации MOuterLabelRequiredEnd
  */
 @JvmInline
 public value class WrapperTextAreaClearMOuterLabelRequiredEnd(
@@ -222,7 +223,7 @@ public value class WrapperTextAreaClearMOuterLabelRequiredEnd(
 ) : WrapperTextAreaClearView
 
 /**
- * Враппер для вариации MInnerLabel
+ * Обертка для вариации MInnerLabel
  */
 @JvmInline
 public value class WrapperTextAreaClearMInnerLabel(
@@ -230,7 +231,7 @@ public value class WrapperTextAreaClearMInnerLabel(
 ) : WrapperTextAreaClearView
 
 /**
- * Враппер для вариации MInnerLabelRequiredStart
+ * Обертка для вариации MInnerLabelRequiredStart
  */
 @JvmInline
 public value class WrapperTextAreaClearMInnerLabelRequiredStart(
@@ -238,7 +239,7 @@ public value class WrapperTextAreaClearMInnerLabelRequiredStart(
 ) : WrapperTextAreaClearView
 
 /**
- * Враппер для вариации MInnerLabelRequiredEnd
+ * Обертка для вариации MInnerLabelRequiredEnd
  */
 @JvmInline
 public value class WrapperTextAreaClearMInnerLabelRequiredEnd(
@@ -246,7 +247,7 @@ public value class WrapperTextAreaClearMInnerLabelRequiredEnd(
 ) : WrapperTextAreaClearView
 
 /**
- * Враппер для вариации L
+ * Обертка для вариации L
  */
 @JvmInline
 public value class WrapperTextAreaClearL(
@@ -254,7 +255,7 @@ public value class WrapperTextAreaClearL(
 ) : WrapperTextAreaClearView
 
 /**
- * Враппер для вариации LRequiredStart
+ * Обертка для вариации LRequiredStart
  */
 @JvmInline
 public value class WrapperTextAreaClearLRequiredStart(
@@ -262,7 +263,7 @@ public value class WrapperTextAreaClearLRequiredStart(
 ) : WrapperTextAreaClearView
 
 /**
- * Враппер для вариации LRequiredEnd
+ * Обертка для вариации LRequiredEnd
  */
 @JvmInline
 public value class WrapperTextAreaClearLRequiredEnd(
@@ -270,7 +271,7 @@ public value class WrapperTextAreaClearLRequiredEnd(
 ) : WrapperTextAreaClearView
 
 /**
- * Враппер для вариации LOuterLabel
+ * Обертка для вариации LOuterLabel
  */
 @JvmInline
 public value class WrapperTextAreaClearLOuterLabel(
@@ -278,7 +279,7 @@ public value class WrapperTextAreaClearLOuterLabel(
 ) : WrapperTextAreaClearView
 
 /**
- * Враппер для вариации LOuterLabelRequiredStart
+ * Обертка для вариации LOuterLabelRequiredStart
  */
 @JvmInline
 public value class WrapperTextAreaClearLOuterLabelRequiredStart(
@@ -286,7 +287,7 @@ public value class WrapperTextAreaClearLOuterLabelRequiredStart(
 ) : WrapperTextAreaClearView
 
 /**
- * Враппер для вариации LOuterLabelRequiredEnd
+ * Обертка для вариации LOuterLabelRequiredEnd
  */
 @JvmInline
 public value class WrapperTextAreaClearLOuterLabelRequiredEnd(
@@ -294,7 +295,7 @@ public value class WrapperTextAreaClearLOuterLabelRequiredEnd(
 ) : WrapperTextAreaClearView
 
 /**
- * Враппер для вариации LInnerLabel
+ * Обертка для вариации LInnerLabel
  */
 @JvmInline
 public value class WrapperTextAreaClearLInnerLabel(
@@ -302,7 +303,7 @@ public value class WrapperTextAreaClearLInnerLabel(
 ) : WrapperTextAreaClearView
 
 /**
- * Враппер для вариации LInnerLabelRequiredStart
+ * Обертка для вариации LInnerLabelRequiredStart
  */
 @JvmInline
 public value class WrapperTextAreaClearLInnerLabelRequiredStart(
@@ -310,10 +311,82 @@ public value class WrapperTextAreaClearLInnerLabelRequiredStart(
 ) : WrapperTextAreaClearView
 
 /**
- * Враппер для вариации LInnerLabelRequiredEnd
+ * Обертка для вариации LInnerLabelRequiredEnd
  */
 @JvmInline
 public value class WrapperTextAreaClearLInnerLabelRequiredEnd(
+    public override val builder: TextAreaClearStyleBuilder,
+) : WrapperTextAreaClearView
+
+/**
+ * Обертка для вариации Xl
+ */
+@JvmInline
+public value class WrapperTextAreaClearXl(
+    public override val builder: TextAreaClearStyleBuilder,
+) : WrapperTextAreaClearView
+
+/**
+ * Обертка для вариации XlRequiredStart
+ */
+@JvmInline
+public value class WrapperTextAreaClearXlRequiredStart(
+    public override val builder: TextAreaClearStyleBuilder,
+) : WrapperTextAreaClearView
+
+/**
+ * Обертка для вариации XlRequiredEnd
+ */
+@JvmInline
+public value class WrapperTextAreaClearXlRequiredEnd(
+    public override val builder: TextAreaClearStyleBuilder,
+) : WrapperTextAreaClearView
+
+/**
+ * Обертка для вариации XlOuterLabel
+ */
+@JvmInline
+public value class WrapperTextAreaClearXlOuterLabel(
+    public override val builder: TextAreaClearStyleBuilder,
+) : WrapperTextAreaClearView
+
+/**
+ * Обертка для вариации XlOuterLabelRequiredStart
+ */
+@JvmInline
+public value class WrapperTextAreaClearXlOuterLabelRequiredStart(
+    public override val builder: TextAreaClearStyleBuilder,
+) : WrapperTextAreaClearView
+
+/**
+ * Обертка для вариации XlOuterLabelRequiredEnd
+ */
+@JvmInline
+public value class WrapperTextAreaClearXlOuterLabelRequiredEnd(
+    public override val builder: TextAreaClearStyleBuilder,
+) : WrapperTextAreaClearView
+
+/**
+ * Обертка для вариации XlInnerLabel
+ */
+@JvmInline
+public value class WrapperTextAreaClearXlInnerLabel(
+    public override val builder: TextAreaClearStyleBuilder,
+) : WrapperTextAreaClearView
+
+/**
+ * Обертка для вариации XlInnerLabelRequiredStart
+ */
+@JvmInline
+public value class WrapperTextAreaClearXlInnerLabelRequiredStart(
+    public override val builder: TextAreaClearStyleBuilder,
+) : WrapperTextAreaClearView
+
+/**
+ * Обертка для вариации XlInnerLabelRequiredEnd
+ */
+@JvmInline
+public value class WrapperTextAreaClearXlInnerLabelRequiredEnd(
     public override val builder: TextAreaClearStyleBuilder,
 ) : WrapperTextAreaClearView
 
@@ -1012,3 +1085,148 @@ public val WrapperTextAreaClearLInnerLabel.RequiredEnd: WrapperTextAreaClearLInn
         }
         .fieldType(TextField.FieldType.RequiredEnd)
         .wrap(::WrapperTextAreaClearLInnerLabelRequiredEnd)
+
+public val TextAreaClear.Xl: WrapperTextAreaClearXl
+    @Composable
+    @JvmName("WrapperTextAreaClearXl")
+    get() = TextFieldStyle.textAreaClearBuilder(this)
+        .invariantProps
+        .dimensions {
+            boxPaddingTop(21.0.dp)
+            boxPaddingBottom(21.0.dp)
+            boxMinHeight(64.0.dp)
+            alignmentLineHeight(64.0.dp)
+            startContentPadding(8.0.dp)
+            endContentPadding(10.0.dp)
+            startContentSize(24.0.dp)
+            endContentSize(24.0.dp)
+        }
+        .valueStyle(SddsServTheme.typography.bodyLNormal)
+        .prefixStyle(SddsServTheme.typography.bodyLNormal)
+        .suffixStyle(SddsServTheme.typography.bodyLNormal)
+        .placeholderStyle(SddsServTheme.typography.bodyLNormal)
+        .chipStyle(EmbeddedChip.L.Secondary.style())
+        .labelPlacement(TextField.LabelPlacement.None)
+        .wrap(::WrapperTextAreaClearXl)
+
+public val WrapperTextAreaClearXl.RequiredStart: WrapperTextAreaClearXlRequiredStart
+    @Composable
+    @JvmName("WrapperTextAreaClearXlRequiredStart")
+    get() = builder
+        .dimensions {
+            indicatorDimensions {
+                horizontalPadding(6.0.dp)
+                verticalPadding(28.0.dp)
+                indicatorSize(8.0.dp)
+            }
+        }
+        .fieldType(TextField.FieldType.RequiredStart)
+        .wrap(::WrapperTextAreaClearXlRequiredStart)
+
+public val WrapperTextAreaClearXl.RequiredEnd: WrapperTextAreaClearXlRequiredEnd
+    @Composable
+    @JvmName("WrapperTextAreaClearXlRequiredEnd")
+    get() = builder
+        .dimensions {
+            indicatorDimensions {
+                horizontalPadding(6.0.dp)
+                verticalPadding(28.0.dp)
+                indicatorSize(8.0.dp)
+            }
+        }
+        .fieldType(TextField.FieldType.RequiredEnd)
+        .wrap(::WrapperTextAreaClearXlRequiredEnd)
+
+public val WrapperTextAreaClearXl.OuterLabel: WrapperTextAreaClearXlOuterLabel
+    @Composable
+    @JvmName("WrapperTextAreaClearXlOuterLabel")
+    get() = builder
+        .dimensions {
+            labelPadding(4.0.dp)
+        }
+        .labelStyle(SddsServTheme.typography.bodyLNormal)
+        .optionalStyle(SddsServTheme.typography.bodyLNormal)
+        .labelPlacement(TextField.LabelPlacement.Outer)
+        .colors {
+            labelColor(
+                SddsServTheme.colors.textDefaultPrimary.asInteractive(),
+            )
+        }
+        .wrap(::WrapperTextAreaClearXlOuterLabel)
+
+public val WrapperTextAreaClearXlOuterLabel.RequiredStart:
+    WrapperTextAreaClearXlOuterLabelRequiredStart
+    @Composable
+    @JvmName("WrapperTextAreaClearXlOuterLabelRequiredStart")
+    get() = builder
+        .dimensions {
+            indicatorDimensions {
+                horizontalPadding(6.0.dp)
+                verticalPadding(8.0.dp)
+                indicatorSize(6.0.dp)
+            }
+        }
+        .fieldType(TextField.FieldType.RequiredStart)
+        .wrap(::WrapperTextAreaClearXlOuterLabelRequiredStart)
+
+public val WrapperTextAreaClearXlOuterLabel.RequiredEnd: WrapperTextAreaClearXlOuterLabelRequiredEnd
+    @Composable
+    @JvmName("WrapperTextAreaClearXlOuterLabelRequiredEnd")
+    get() = builder
+        .dimensions {
+            indicatorDimensions {
+                horizontalPadding(4.0.dp)
+                verticalPadding(4.0.dp)
+                indicatorSize(6.0.dp)
+            }
+        }
+        .fieldType(TextField.FieldType.RequiredEnd)
+        .wrap(::WrapperTextAreaClearXlOuterLabelRequiredEnd)
+
+public val WrapperTextAreaClearXl.InnerLabel: WrapperTextAreaClearXlInnerLabel
+    @Composable
+    @JvmName("WrapperTextAreaClearXlInnerLabel")
+    get() = builder
+        .dimensions {
+            boxPaddingTop(9.0.dp)
+            boxPaddingBottom(9.0.dp)
+            labelPadding(2.0.dp)
+        }
+        .labelStyle(SddsServTheme.typography.bodyXsNormal)
+        .optionalStyle(SddsServTheme.typography.bodyXsNormal)
+        .labelPlacement(TextField.LabelPlacement.Inner)
+        .colors {
+            labelColor(
+                SddsServTheme.colors.textDefaultSecondary.asInteractive(),
+            )
+        }
+        .wrap(::WrapperTextAreaClearXlInnerLabel)
+
+public val WrapperTextAreaClearXlInnerLabel.RequiredStart:
+    WrapperTextAreaClearXlInnerLabelRequiredStart
+    @Composable
+    @JvmName("WrapperTextAreaClearXlInnerLabelRequiredStart")
+    get() = builder
+        .dimensions {
+            indicatorDimensions {
+                horizontalPadding(6.0.dp)
+                verticalPadding(28.0.dp)
+                indicatorSize(8.0.dp)
+            }
+        }
+        .fieldType(TextField.FieldType.RequiredStart)
+        .wrap(::WrapperTextAreaClearXlInnerLabelRequiredStart)
+
+public val WrapperTextAreaClearXlInnerLabel.RequiredEnd: WrapperTextAreaClearXlInnerLabelRequiredEnd
+    @Composable
+    @JvmName("WrapperTextAreaClearXlInnerLabelRequiredEnd")
+    get() = builder
+        .dimensions {
+            indicatorDimensions {
+                horizontalPadding(6.0.dp)
+                verticalPadding(28.0.dp)
+                indicatorSize(8.0.dp)
+            }
+        }
+        .fieldType(TextField.FieldType.RequiredEnd)
+        .wrap(::WrapperTextAreaClearXlInnerLabelRequiredEnd)

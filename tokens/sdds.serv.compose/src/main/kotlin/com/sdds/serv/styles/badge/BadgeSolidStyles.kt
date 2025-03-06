@@ -23,20 +23,20 @@ import kotlin.jvm.JvmInline
 import kotlin.jvm.JvmName
 
 /**
- * Базовый интерфейс для всех врапперов этого стиля
+ * Базовый интерфейс для всех оберток этого стиля
  */
 public interface WrapperBadgeSolid : BuilderWrapper<BadgeStyle, BadgeStyleBuilder>
 
 /**
- * Интерфейс, который реализуют все врапперы вариаций корневого уровня
- * и врапперы их подвариаций.
+ * Интерфейс, который реализуют все обертки вариаций корневого уровня
+ * и обертки их подвариаций.
  * Является ресивером для extension-функций view,
- * применимых к этим врапперам.
+ * применимых к этим оберткам.
  */
 public interface WrapperBadgeSolidView : WrapperBadgeSolid
 
 /**
- * Терминальный враппер
+ * Терминальная обертка
  */
 @JvmInline
 public value class WrapperBadgeSolidTerminate(
@@ -44,7 +44,7 @@ public value class WrapperBadgeSolidTerminate(
 ) : WrapperBadgeSolid
 
 /**
- * Враппер для вариации L
+ * Обертка для вариации L
  */
 @JvmInline
 public value class WrapperBadgeSolidL(
@@ -52,7 +52,7 @@ public value class WrapperBadgeSolidL(
 ) : WrapperBadgeSolidView
 
 /**
- * Враппер для вариации LPilled
+ * Обертка для вариации LPilled
  */
 @JvmInline
 public value class WrapperBadgeSolidLPilled(
@@ -60,7 +60,7 @@ public value class WrapperBadgeSolidLPilled(
 ) : WrapperBadgeSolidView
 
 /**
- * Враппер для вариации M
+ * Обертка для вариации M
  */
 @JvmInline
 public value class WrapperBadgeSolidM(
@@ -68,7 +68,7 @@ public value class WrapperBadgeSolidM(
 ) : WrapperBadgeSolidView
 
 /**
- * Враппер для вариации MPilled
+ * Обертка для вариации MPilled
  */
 @JvmInline
 public value class WrapperBadgeSolidMPilled(
@@ -76,7 +76,7 @@ public value class WrapperBadgeSolidMPilled(
 ) : WrapperBadgeSolidView
 
 /**
- * Враппер для вариации S
+ * Обертка для вариации S
  */
 @JvmInline
 public value class WrapperBadgeSolidS(
@@ -84,7 +84,7 @@ public value class WrapperBadgeSolidS(
 ) : WrapperBadgeSolidView
 
 /**
- * Враппер для вариации SPilled
+ * Обертка для вариации SPilled
  */
 @JvmInline
 public value class WrapperBadgeSolidSPilled(
@@ -92,7 +92,7 @@ public value class WrapperBadgeSolidSPilled(
 ) : WrapperBadgeSolidView
 
 /**
- * Враппер для вариации Xs
+ * Обертка для вариации Xs
  */
 @JvmInline
 public value class WrapperBadgeSolidXs(
@@ -100,7 +100,7 @@ public value class WrapperBadgeSolidXs(
 ) : WrapperBadgeSolidView
 
 /**
- * Враппер для вариации XsPilled
+ * Обертка для вариации XsPilled
  */
 @JvmInline
 public value class WrapperBadgeSolidXsPilled(

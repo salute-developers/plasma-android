@@ -2,6 +2,7 @@
 @file:Suppress(
     "UndocumentedPublicClass",
     "UndocumentedPublicProperty",
+    "ktlint:standard:max-line-length",
 )
 
 package com.sdds.stylessalute.styles.badge
@@ -22,20 +23,20 @@ import kotlin.jvm.JvmInline
 import kotlin.jvm.JvmName
 
 /**
- * Базовый интерфейс для всех врапперов этого стиля
+ * Базовый интерфейс для всех оберток этого стиля
  */
 public interface WrapperBadgeTransparent : BuilderWrapper<BadgeStyle, BadgeStyleBuilder>
 
 /**
- * Интерфейс, который реализуют все врапперы вариаций корневого уровня
- * и врапперы их подвариаций.
+ * Интерфейс, который реализуют все обертки вариаций корневого уровня
+ * и обертки их подвариаций.
  * Является ресивером для extension-функций view,
- * применимых к этим врапперам.
+ * применимых к этим оберткам.
  */
 public interface WrapperBadgeTransparentView : WrapperBadgeTransparent
 
 /**
- * Терминальный враппер
+ * Терминальная обертка
  */
 @JvmInline
 public value class WrapperBadgeTransparentTerminate(
@@ -43,7 +44,7 @@ public value class WrapperBadgeTransparentTerminate(
 ) : WrapperBadgeTransparent
 
 /**
- * Враппер для вариации L
+ * Обертка для вариации L
  */
 @JvmInline
 public value class WrapperBadgeTransparentL(
@@ -51,7 +52,7 @@ public value class WrapperBadgeTransparentL(
 ) : WrapperBadgeTransparentView
 
 /**
- * Враппер для вариации LPilled
+ * Обертка для вариации LPilled
  */
 @JvmInline
 public value class WrapperBadgeTransparentLPilled(
@@ -59,7 +60,7 @@ public value class WrapperBadgeTransparentLPilled(
 ) : WrapperBadgeTransparentView
 
 /**
- * Враппер для вариации M
+ * Обертка для вариации M
  */
 @JvmInline
 public value class WrapperBadgeTransparentM(
@@ -67,7 +68,7 @@ public value class WrapperBadgeTransparentM(
 ) : WrapperBadgeTransparentView
 
 /**
- * Враппер для вариации MPilled
+ * Обертка для вариации MPilled
  */
 @JvmInline
 public value class WrapperBadgeTransparentMPilled(
@@ -75,7 +76,7 @@ public value class WrapperBadgeTransparentMPilled(
 ) : WrapperBadgeTransparentView
 
 /**
- * Враппер для вариации S
+ * Обертка для вариации S
  */
 @JvmInline
 public value class WrapperBadgeTransparentS(
@@ -83,7 +84,7 @@ public value class WrapperBadgeTransparentS(
 ) : WrapperBadgeTransparentView
 
 /**
- * Враппер для вариации SPilled
+ * Обертка для вариации SPilled
  */
 @JvmInline
 public value class WrapperBadgeTransparentSPilled(
@@ -91,7 +92,7 @@ public value class WrapperBadgeTransparentSPilled(
 ) : WrapperBadgeTransparentView
 
 /**
- * Враппер для вариации Xs
+ * Обертка для вариации Xs
  */
 @JvmInline
 public value class WrapperBadgeTransparentXs(
@@ -99,7 +100,7 @@ public value class WrapperBadgeTransparentXs(
 ) : WrapperBadgeTransparentView
 
 /**
- * Враппер для вариации XsPilled
+ * Обертка для вариации XsPilled
  */
 @JvmInline
 public value class WrapperBadgeTransparentXsPilled(
