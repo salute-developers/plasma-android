@@ -160,22 +160,32 @@ private class IconTextMeasurePolicy : MeasurePolicy {
         val textPlaceable = textMeasurable?.measure(textConstraints)
         val textContentWidth = textPlaceable.widthOrZero()
         val textContentHeight = textPlaceable.heightOrZero()
-
-        val textVerticalPosition =
-            Alignment.CenterVertically.align(textContentHeight, constraints.maxHeight)
-        val startVerticalPosition =
-            Alignment.CenterVertically.align(startContentHeight, constraints.maxHeight)
-        val endVerticalPosition =
-            Alignment.CenterVertically.align(endContentHeight, constraints.maxHeight)
         val desiredWidth = startContentWidth + textContentWidth + endContentWidth
+        val desireHeight = maxOf(startContentHeight, textContentHeight, endContentHeight)
+        val finalHeight = constraints.constrainHeight(desireHeight)
 
         return layout(
             width = constraints.constrainWidth(desiredWidth),
-            height = constraints.constrainHeight(constraints.maxHeight),
+            height = finalHeight,
         ) {
-            startPlaceable?.placeRelative(0, startVerticalPosition)
-            textPlaceable?.placeRelative(startContentWidth, textVerticalPosition)
-            endPlaceable?.placeRelative(startContentWidth + textContentWidth, endVerticalPosition)
+            startPlaceable?.let {
+                it.placeRelative(
+                    0,
+                    Alignment.CenterVertically.align(it.height, finalHeight),
+                )
+            }
+            textPlaceable?.let {
+                it.placeRelative(
+                    startContentWidth,
+                    Alignment.CenterVertically.align(it.height, finalHeight),
+                )
+            }
+            endPlaceable?.let {
+                it.placeRelative(
+                    startContentWidth + textContentWidth,
+                    Alignment.CenterVertically.align(it.height, finalHeight),
+                )
+            }
         }
     }
 }
