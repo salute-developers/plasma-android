@@ -1,9 +1,5 @@
 @file:Suppress("DSL_SCOPE_VIOLATION")
 
-import org.jetbrains.kotlin.incremental.mkdirsOrThrow
-import utils.getBranchName
-import utils.isMainBranch
-
 plugins {
     id("convention.root-project")
     id("convention.core-dependencies")
@@ -208,7 +204,7 @@ internal abstract class GenerateThemeModulesTask @Inject constructor() : Default
     }
 
     private fun createModuleDir(moduleDirPath: String) {
-        File(moduleDirPath).also { it.mkdirsOrThrow() }
+        File(moduleDirPath).also { it.mkdirs() }
     }
 }
 

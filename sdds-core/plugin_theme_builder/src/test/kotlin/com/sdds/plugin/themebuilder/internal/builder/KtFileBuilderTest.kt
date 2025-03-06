@@ -63,7 +63,7 @@ class KtFileBuilderTest {
         every { FileSpec.builder(TEST_PACKAGE, TEST_CLASS) } returns mockResultFileSpec
 
         underTest.rootObject("RootA")
-        underTest.build(mockk(relaxed = true))
+        underTest.build(mockk<KtFileBuilder.OutputLocation.Directory>(relaxed = true))
 
         verify {
             TypeSpec.objectBuilder("RootA")
@@ -113,7 +113,7 @@ class KtFileBuilderTest {
             ),
             superType = superType,
         )
-        underTest.build(mockk(relaxed = true))
+        underTest.build(mockk<KtFileBuilder.OutputLocation.Directory>(relaxed = true))
 
         verify {
             TypeSpec.classBuilder("RootA")
@@ -157,7 +157,7 @@ class KtFileBuilderTest {
             parameterizedType = parameterizedType,
             initializer = "initializer",
         )
-        underTest.build(mockk(relaxed = true))
+        underTest.build(mockk<KtFileBuilder.OutputLocation.Directory>(relaxed = true))
 
         verify {
             PropertySpec.builder("testProperty", propertyType.parameterizedBy(parameterizedType))
@@ -199,7 +199,7 @@ class KtFileBuilderTest {
             returnType = testReturnType,
             annotations = listOf(KtFileBuilder.TypeAnnotationComposable),
         )
-        underTest.build(mockk(relaxed = true))
+        underTest.build(mockk<KtFileBuilder.OutputLocation.Directory>(relaxed = true))
 
         verify {
             FunSpec.builder("testFun")
