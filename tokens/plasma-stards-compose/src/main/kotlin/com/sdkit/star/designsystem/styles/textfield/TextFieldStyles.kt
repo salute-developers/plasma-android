@@ -28,61 +28,92 @@ import kotlin.Suppress
 import kotlin.jvm.JvmInline
 import kotlin.jvm.JvmName
 
+/**
+ * Базовый интерфейс для всех оберток этого стиля
+ */
 public interface WrapperTextField : BuilderWrapper<TextFieldStyle, TextFieldStyleBuilder>
 
+/**
+ * Интерфейс, который реализуют все обертки вариаций корневого уровня
+ * и обертки их подвариаций.
+ * Является ресивером для extension-функций view,
+ * применимых к этим оберткам.
+ */
 public interface WrapperTextFieldView : WrapperTextField
 
+/**
+ * Терминальная обертка
+ */
 @JvmInline
-public value class WrapperTextFieldDefaultViewTerminate(
+public value class WrapperTextFieldTerminate(
     public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextField
 
-@JvmInline
-public value class WrapperTextFieldErrorViewTerminate(
-    public override val builder: TextFieldStyleBuilder,
-) : WrapperTextField
-
+/**
+ * Обертка для вариации Xs
+ */
 @JvmInline
 public value class WrapperTextFieldXs(
     public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextFieldView
 
+/**
+ * Обертка для вариации XsOuterLabel
+ */
 @JvmInline
 public value class WrapperTextFieldXsOuterLabel(
     public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextFieldView
 
+/**
+ * Обертка для вариации S
+ */
 @JvmInline
 public value class WrapperTextFieldS(
     public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextFieldView
 
+/**
+ * Обертка для вариации SOuterLabel
+ */
 @JvmInline
 public value class WrapperTextFieldSOuterLabel(
     public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextFieldView
 
+/**
+ * Обертка для вариации SInnerLabel
+ */
 @JvmInline
 public value class WrapperTextFieldSInnerLabel(
     public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextFieldView
 
+/**
+ * Обертка для вариации M
+ */
 @JvmInline
 public value class WrapperTextFieldM(
     public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextFieldView
 
+/**
+ * Обертка для вариации MOuterLabel
+ */
 @JvmInline
 public value class WrapperTextFieldMOuterLabel(
     public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextFieldView
 
+/**
+ * Обертка для вариации MInnerLabel
+ */
 @JvmInline
 public value class WrapperTextFieldMInnerLabel(
     public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextFieldView
 
-public val WrapperTextFieldView.Default: WrapperTextFieldDefaultViewTerminate
+public val WrapperTextFieldView.Default: WrapperTextFieldTerminate
     @Composable
     get() = builder
         .colors {
@@ -98,9 +129,9 @@ public val WrapperTextFieldView.Default: WrapperTextFieldDefaultViewTerminate
                 ),
             )
         }
-        .wrap(::WrapperTextFieldDefaultViewTerminate)
+        .wrap(::WrapperTextFieldTerminate)
 
-public val WrapperTextFieldView.Error: WrapperTextFieldErrorViewTerminate
+public val WrapperTextFieldView.Error: WrapperTextFieldTerminate
     @Composable
     get() = builder
         .colors {
@@ -119,7 +150,7 @@ public val WrapperTextFieldView.Error: WrapperTextFieldErrorViewTerminate
                 ),
             )
         }
-        .wrap(::WrapperTextFieldErrorViewTerminate)
+        .wrap(::WrapperTextFieldTerminate)
 
 private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
     @Composable

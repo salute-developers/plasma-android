@@ -28,76 +28,116 @@ import kotlin.Suppress
 import kotlin.jvm.JvmInline
 import kotlin.jvm.JvmName
 
+/**
+ * Базовый интерфейс для всех оберток этого стиля
+ */
 public interface WrapperTextAreaClear : BuilderWrapper<TextFieldStyle, TextAreaClearStyleBuilder>
 
+/**
+ * Интерфейс, который реализуют все обертки вариаций корневого уровня
+ * и обертки их подвариаций.
+ * Является ресивером для extension-функций view,
+ * применимых к этим оберткам.
+ */
 public interface WrapperTextAreaClearView : WrapperTextAreaClear
 
+/**
+ * Терминальная обертка
+ */
 @JvmInline
-public value class WrapperTextAreaClearDefaultViewTerminate(
+public value class WrapperTextAreaClearTerminate(
     public override val builder: TextAreaClearStyleBuilder,
 ) : WrapperTextAreaClear
 
-@JvmInline
-public value class WrapperTextAreaClearErrorViewTerminate(
-    public override val builder: TextAreaClearStyleBuilder,
-) : WrapperTextAreaClear
-
+/**
+ * Обертка для вариации Xs
+ */
 @JvmInline
 public value class WrapperTextAreaClearXs(
     public override val builder: TextAreaClearStyleBuilder,
 ) : WrapperTextAreaClearView
 
+/**
+ * Обертка для вариации XsOuterLabel
+ */
 @JvmInline
 public value class WrapperTextAreaClearXsOuterLabel(
     public override val builder: TextAreaClearStyleBuilder,
 ) : WrapperTextAreaClearView
 
+/**
+ * Обертка для вариации S
+ */
 @JvmInline
 public value class WrapperTextAreaClearS(
     public override val builder: TextAreaClearStyleBuilder,
 ) : WrapperTextAreaClearView
 
+/**
+ * Обертка для вариации SOuterLabel
+ */
 @JvmInline
 public value class WrapperTextAreaClearSOuterLabel(
     public override val builder: TextAreaClearStyleBuilder,
 ) : WrapperTextAreaClearView
 
+/**
+ * Обертка для вариации SInnerLabel
+ */
 @JvmInline
 public value class WrapperTextAreaClearSInnerLabel(
     public override val builder: TextAreaClearStyleBuilder,
 ) : WrapperTextAreaClearView
 
+/**
+ * Обертка для вариации M
+ */
 @JvmInline
 public value class WrapperTextAreaClearM(
     public override val builder: TextAreaClearStyleBuilder,
 ) : WrapperTextAreaClearView
 
+/**
+ * Обертка для вариации MOuterLabel
+ */
 @JvmInline
 public value class WrapperTextAreaClearMOuterLabel(
     public override val builder: TextAreaClearStyleBuilder,
 ) : WrapperTextAreaClearView
 
+/**
+ * Обертка для вариации MInnerLabel
+ */
 @JvmInline
 public value class WrapperTextAreaClearMInnerLabel(
     public override val builder: TextAreaClearStyleBuilder,
 ) : WrapperTextAreaClearView
 
+/**
+ * Обертка для вариации L
+ */
 @JvmInline
 public value class WrapperTextAreaClearL(
     public override val builder: TextAreaClearStyleBuilder,
 ) : WrapperTextAreaClearView
 
+/**
+ * Обертка для вариации LOuterLabel
+ */
 @JvmInline
 public value class WrapperTextAreaClearLOuterLabel(
     public override val builder: TextAreaClearStyleBuilder,
 ) : WrapperTextAreaClearView
 
+/**
+ * Обертка для вариации LInnerLabel
+ */
 @JvmInline
 public value class WrapperTextAreaClearLInnerLabel(
     public override val builder: TextAreaClearStyleBuilder,
 ) : WrapperTextAreaClearView
 
-public val WrapperTextAreaClearView.Default: WrapperTextAreaClearDefaultViewTerminate
+public val WrapperTextAreaClearView.Default: WrapperTextAreaClearTerminate
     @Composable
     get() = builder
         .colors {
@@ -123,9 +163,9 @@ public val WrapperTextAreaClearView.Default: WrapperTextAreaClearDefaultViewTerm
                 ),
             )
         }
-        .wrap(::WrapperTextAreaClearDefaultViewTerminate)
+        .wrap(::WrapperTextAreaClearTerminate)
 
-public val WrapperTextAreaClearView.Error: WrapperTextAreaClearErrorViewTerminate
+public val WrapperTextAreaClearView.Error: WrapperTextAreaClearTerminate
     @Composable
     get() = builder
         .colors {
@@ -162,7 +202,7 @@ public val WrapperTextAreaClearView.Error: WrapperTextAreaClearErrorViewTerminat
                 ),
             )
         }
-        .wrap(::WrapperTextAreaClearErrorViewTerminate)
+        .wrap(::WrapperTextAreaClearTerminate)
 
 private val TextAreaClearStyleBuilder.invariantProps: TextAreaClearStyleBuilder
     @Composable

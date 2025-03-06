@@ -14,6 +14,7 @@ import com.sdds.compose.uikit.IndicatorStyle
 import com.sdds.compose.uikit.ProgressBarStyle
 import com.sdds.compose.uikit.RadioBoxGroupStyle
 import com.sdds.compose.uikit.RadioBoxStyle
+import com.sdds.compose.uikit.SegmentItemStyle
 import com.sdds.compose.uikit.SwitchStyle
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
@@ -39,6 +40,7 @@ import com.sdds.playground.sandbox.plasma.sd.service.integration.indicator.compo
 import com.sdds.playground.sandbox.plasma.sd.service.integration.progress.PlasmaSdServiceProgressVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.radiobox.PlasmaSdServiceRadioBoxVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.radiobox.group.PlasmaSdServiceRadioBoxGroupVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.segment.item.PlasmaSdServiceSegmentItemVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.switcher.PlasmaSdServiceSwitchVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.textarea.PlasmaSdServiceTextAreaVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.textarea.clear.PlasmaSdServiceTextAreaClearVariationsCompose
@@ -102,4 +104,6 @@ object PlasmaSdServiceComposeStylesProvider : StylesProviderCompose {
         get() = PlasmaSdServiceIconBadgeTransparentVariationsCompose
     override val counter: ComposeStyleProvider<String, CounterStyle>
         get() = PlasmaSdServiceCounterVariationsCompose
+    override val segmentItem: ComposeStyleProvider<String, SegmentItemStyle>
+        get() = PlasmaSdServiceSegmentItemVariationsCompose
 }
