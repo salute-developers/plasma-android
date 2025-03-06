@@ -17,6 +17,7 @@ import com.sdds.compose.uikit.Chip
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.TextField
 import com.sdds.compose.uikit.TextFieldStyle
+import com.sdds.compose.uikit.internal.focusselector.FocusSelectorMode
 import com.sdds.icons.R
 
 /**
@@ -39,6 +40,7 @@ fun TextAreaLDefaultInnerLeft(style: TextFieldStyle) {
         counterText = "Counter",
         onValueChange = {},
         readOnly = false,
+        focusSelectorMode = FocusSelectorMode.None,
         enabled = true,
         endContent = {
             Icon(
@@ -66,6 +68,7 @@ fun TextAreaMDefaultOuterOptional(style: TextFieldStyle) {
         counterText = "Counter",
         onValueChange = {},
         readOnly = false,
+        focusSelectorMode = FocusSelectorMode.None,
         enabled = true,
         endContent = {
             Icon(
@@ -93,6 +96,7 @@ fun TextAreaSWarningInnerRight(style: TextFieldStyle) {
         counterText = "Counter",
         onValueChange = {},
         readOnly = false,
+        focusSelectorMode = FocusSelectorMode.None,
         enabled = true,
     )
 }
@@ -114,6 +118,7 @@ fun TextAreaXsErrorInnerOptional(style: TextFieldStyle) {
         counterText = "Counter",
         onValueChange = {},
         readOnly = false,
+        focusSelectorMode = FocusSelectorMode.None,
         enabled = true,
         endContent = {
             Icon(
@@ -142,6 +147,7 @@ fun TextAreaLReadOnly(style: TextFieldStyle) {
             counterText = "Counter",
             onValueChange = { value = it },
             readOnly = true,
+            focusSelectorMode = FocusSelectorMode.None,
             enabled = true,
             endContent = {
                 Icon(
@@ -170,6 +176,7 @@ fun TextAreaMWarningInnerOptional(style: TextFieldStyle) {
         counterText = "Counter",
         onValueChange = {},
         readOnly = false,
+        focusSelectorMode = FocusSelectorMode.None,
         enabled = true,
     )
 }
@@ -191,6 +198,7 @@ fun TextAreaSDefaultInnerRight(style: TextFieldStyle) {
         counterText = "Counter",
         onValueChange = {},
         readOnly = false,
+        focusSelectorMode = FocusSelectorMode.None,
         enabled = true,
         endContent = {
             Icon(
@@ -218,6 +226,7 @@ fun TextAreaXSDefaultOuterOptional(style: TextFieldStyle) {
         counterText = "Counter",
         onValueChange = {},
         readOnly = false,
+        focusSelectorMode = FocusSelectorMode.None,
         enabled = true,
         endContent = {
             Icon(
@@ -245,6 +254,7 @@ fun TextAreaLDisabled(style: TextFieldStyle) {
         counterText = "",
         onValueChange = {},
         readOnly = false,
+        focusSelectorMode = FocusSelectorMode.None,
         enabled = false,
         endContent = {
             Icon(
@@ -272,6 +282,7 @@ fun TextAreaMErrorOuterOptional(style: TextFieldStyle) {
         counterText = "Counter",
         onValueChange = {},
         readOnly = false,
+        focusSelectorMode = FocusSelectorMode.None,
         enabled = true,
     )
 }
@@ -293,6 +304,7 @@ fun TextAreaSWarningInnerRightFocused(style: TextFieldStyle) {
         counterText = "Counter",
         onValueChange = {},
         readOnly = false,
+        focusSelectorMode = FocusSelectorMode.None,
         enabled = true,
         endContent = {
             Icon(
@@ -320,6 +332,7 @@ fun TextAreaMInnerOptionalChips(style: TextFieldStyle) {
         counterText = "Counter",
         onValueChange = {},
         readOnly = false,
+        focusSelectorMode = FocusSelectorMode.None,
         enabled = true,
         endContent = {
             Icon(
@@ -367,6 +380,7 @@ fun TextAreaSDefaultOuterRightChips(style: TextFieldStyle) {
         counterText = "Counter",
         onValueChange = {},
         readOnly = false,
+        focusSelectorMode = FocusSelectorMode.None,
         enabled = true,
         chipsContent = {
             Chip(
@@ -421,6 +435,7 @@ fun TextAreaSLongText(style: TextFieldStyle) {
         counterText = "Counter",
         onValueChange = { value = it },
         readOnly = false,
+        focusSelectorMode = FocusSelectorMode.None,
         enabled = true,
         endContent = {
             Icon(
@@ -448,6 +463,7 @@ fun TextAreaLDefaultTBTA(style: TextFieldStyle) {
         counterText = "Counter",
         onValueChange = {},
         readOnly = false,
+        focusSelectorMode = FocusSelectorMode.None,
         enabled = true,
         prefix = "TB1!",
         suffix = "TA2@",
@@ -477,6 +493,7 @@ fun TextAreaClearLErrorInnerOptional(style: TextFieldStyle) {
             placeholderText = "Placeholder",
             onValueChange = { value = it },
             readOnly = false,
+            focusSelectorMode = FocusSelectorMode.None,
             enabled = true,
             endContent = {
                 Icon(
@@ -505,6 +522,7 @@ fun TextAreaClearMWarningRequiredStartInner(style: TextFieldStyle) {
             placeholderText = "",
             onValueChange = { value = it },
             readOnly = false,
+            focusSelectorMode = FocusSelectorMode.None,
             enabled = true,
             endContent = {
                 Icon(
@@ -533,6 +551,7 @@ fun TextAreaClearSDefaultOuterOptional(style: TextFieldStyle) {
             placeholderText = "Placeholder",
             onValueChange = { value = it },
             readOnly = false,
+            focusSelectorMode = FocusSelectorMode.None,
             enabled = true,
         )
     }
@@ -555,6 +574,7 @@ fun TextAreaClearXsDefaultOuterRequireEndFocused(style: TextFieldStyle) {
             placeholderText = "Placeholder",
             onValueChange = { value = it },
             readOnly = false,
+            focusSelectorMode = FocusSelectorMode.None,
             enabled = true,
             endContent = {
                 Icon(
@@ -584,6 +604,7 @@ fun TextAreaClearLDefaultChipsInnerRequiredEnd(style: TextFieldStyle) {
             counterText = "Counter",
             onValueChange = {},
             readOnly = false,
+            focusSelectorMode = FocusSelectorMode.None,
             enabled = true,
             endContent = {
                 Icon(
@@ -632,6 +653,7 @@ fun TextAreaClearMErrorInnerRequiredStart(style: TextFieldStyle) {
             placeholderText = "",
             onValueChange = { value = it },
             readOnly = false,
+            focusSelectorMode = FocusSelectorMode.None,
             enabled = true,
             endContent = {
                 Icon(
