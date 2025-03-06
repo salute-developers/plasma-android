@@ -15,6 +15,7 @@ import com.sdds.plugin.themebuilder.internal.components.counter.compose.CounterC
 import com.sdds.plugin.themebuilder.internal.components.counter.view.CounterStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.components.indicator.compose.IndicatorComposeVariationGenerator
 import com.sdds.plugin.themebuilder.internal.components.indicator.view.IndicatorStyleGeneratorView
+import com.sdds.plugin.themebuilder.internal.components.segment.SegmentComposeVariationGenerator
 import com.sdds.plugin.themebuilder.internal.components.segment.item.SegmentItemComposeVariationGenerator
 import com.sdds.plugin.themebuilder.internal.components.textfield.compose.TextFieldComposeVariationGenerator
 import com.sdds.plugin.themebuilder.internal.components.textfield.view.ViewTextAreaStyleGenerator
@@ -345,6 +346,20 @@ internal class ComponentStyleGeneratorFactory(
         componentName = "segment_item",
         outputLocation = KtFileBuilder.OutputLocation.Directory(outputDir),
         counterStylesPackage = "${packageResolver.getPackage(TargetPackage.STYLES)}.counter",
+    )
+
+    fun createSegmentStyleGeneratorCompose() = SegmentComposeVariationGenerator(
+        themeClassName = themeClassName,
+        themePackage = packageResolver.getPackage(TargetPackage.THEME),
+        dimensionsConfig = dimensionsConfig,
+        dimensAggregator = dimensAggregator,
+        resourceReferenceProvider = resourceReferenceProvider,
+        namespace = namespace,
+        ktFileBuilderFactory = ktFileBuilderFactory,
+        componentPackage = "${packageResolver.getPackage(TargetPackage.STYLES)}.segment",
+        componentName = "segment",
+        outputLocation = KtFileBuilder.OutputLocation.Directory(outputDir),
+        segmentItemStylesPackage = "${packageResolver.getPackage(TargetPackage.STYLES)}.segment.item",
     )
 
     fun createDimensionGenerator(): DimenTokenGenerator = DimenTokenGenerator(

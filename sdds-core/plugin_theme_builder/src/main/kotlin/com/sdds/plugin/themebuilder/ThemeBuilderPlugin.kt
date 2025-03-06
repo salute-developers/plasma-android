@@ -129,6 +129,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
                 segmentItemConfigFile.set(
                     getComponentConfigFile(ComponentConfig.SEGMENT_ITEM.fileName),
                 )
+                segmentConfigFile.set(getComponentConfigFile(ComponentConfig.SEGMENT.fileName))
                 outputDirPath.set(extension.outputLocation.getSourcePath())
                 outputResDirPath.set(extension.outputLocation.getResourcePath())
                 packageName.set(extension.ktPackage ?: DEFAULT_KT_PACKAGE)
@@ -382,6 +383,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
         ),
         COUNTER("counter_config.json", "fetchCounterConfig"),
         SEGMENT_ITEM("segment_item_config.json", "fetchSegmentItemConfig"),
+        SEGMENT("segment_config.json", "fetchSegmentConfig"),
     }
 
     private companion object {
