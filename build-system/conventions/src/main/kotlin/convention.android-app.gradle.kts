@@ -8,6 +8,7 @@ plugins {
     kotlin("android")
     id("convention.detekt")
     id("convention.spotless")
+    id("convention.kotlin-java-version-sync")
 }
 
 android {
