@@ -87,6 +87,7 @@ internal abstract class BaseButtonStyleGeneratorView(
         props.labelStyle?.let { typographyAttribute("android:textAppearance", it.value) }
     }
 
+    @Suppress("LongMethod", "CyclomaticComplexMethod")
     protected fun Element.addColorProperties(
         colorProperty: ButtonColorProperty,
         variation: String,
