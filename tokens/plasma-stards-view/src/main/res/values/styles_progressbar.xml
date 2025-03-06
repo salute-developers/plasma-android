@@ -33,4 +33,8 @@
     <style name="Sdkit.StarDs.Components.ProgressBar.Negative">
         <item name="android:progressTint">?sdkit_surfaceDefaultNegative</item>
     </style>
+
+    <style name="Sdkit.StarDs.Components.ProgressBar.Info">
+        <item name="android:progressTint">?sdkit_surfaceDefaultInfo</item>
+    </style>
 </resources>

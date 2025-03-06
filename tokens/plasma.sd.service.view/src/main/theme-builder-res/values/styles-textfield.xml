@@ -6,7 +6,6 @@
         <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroup.Dense</item>
     </style>
     <style name="Plasma.SdService.Components.TextField" parent="Sdds.Components.TextField">
-        <item name="sd_colorStateProvider">com.sdds.plasma.sd.service.colorstate.TextFieldColorStateProvider</item>
         <item name="sd_disabledAlpha">0.4</item>
         <item name="sd_counterPlacement">outer</item>
         <item name="sd_captionPlacement">outer</item>
@@ -24,6 +23,7 @@
         <item name="sd_counterColor">@color/plasma_text_field_counter_color</item>
         <item name="sd_placeholderColor">@color/plasma_text_field_placeholder_color</item>
         <item name="sd_boxTint">@color/plasma_text_field_bg_color</item>
+        <item name="sd_colorStateProvider">com.sdds.plasma.sd.service.colorstate.TextFieldColorStateProvider</item>
     </style>
     <style name="Plasma.SdService.ComponentOverlays.TextFieldXsChips">
         <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroup.Dense</item>
@@ -367,5 +367,96 @@
     </style>
     <style name="Plasma.SdService.ComponentOverlays.TextFieldLInnerLabelRequiredEnd">
         <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.L.InnerLabel.RequiredEnd</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXlChips">
+        <item name="sd_chipGroupStyle">@style/Plasma.SdService.Components.ChipGroup.Dense</item>
+        <item name="sd_chipStyle">@style/Plasma.SdService.Components.EmbeddedChip.L.Secondary</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xl">
+        <item name="sd_requirementMode">optional</item>
+        <item name="sd_shapeAppearance">?plasma_shapeRoundL</item>
+        <item name="sd_labelPlacement">none</item>
+        <item name="sd_boxPaddingStart">@dimen/plasma_text_field_xl_box_padding_start</item>
+        <item name="sd_boxPaddingEnd">@dimen/plasma_text_field_xl_box_padding_end</item>
+        <item name="sd_boxPaddingTop">@dimen/plasma_text_field_xl_box_padding_top</item>
+        <item name="sd_boxPaddingBottom">@dimen/plasma_text_field_xl_box_padding_bottom</item>
+        <item name="sd_iconPadding">@dimen/plasma_text_field_xl_icon_padding</item>
+        <item name="sd_actionPadding">@dimen/plasma_text_field_xl_action_padding</item>
+        <item name="sd_boxMinHeight">@dimen/plasma_text_field_xl_box_min_height</item>
+        <item name="sd_alignmentLineHeight">@dimen/plasma_text_field_xl_alignment_height</item>
+        <item name="sd_iconSize">@dimen/plasma_text_field_xl_icon_size</item>
+        <item name="sd_actionSize">@dimen/plasma_text_field_xl_action_size</item>
+        <item name="sd_valueAppearance">@style/Plasma.SdService.TextAppearance.BodyLNormal</item>
+        <item name="sd_placeholderAppearance">@style/Plasma.SdService.TextAppearance.BodyLNormal</item>
+        <item name="sd_chipGroupStyleOverlay">@style/Plasma.SdService.ComponentOverlays.TextFieldXlChips</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXl">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xl</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xl.RequiredStart">
+        <item name="sd_requirementMode">start</item>
+        <item name="sd_indicatorSize">@dimen/plasma_text_field_xl_required_start_indicator_size</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXlRequiredStart">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xl.RequiredStart</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xl.RequiredEnd">
+        <item name="sd_requirementMode">end</item>
+        <item name="sd_indicatorSize">@dimen/plasma_text_field_xl_required_end_indicator_size</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXlRequiredEnd">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xl.RequiredEnd</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xl.OuterLabel">
+        <item name="sd_labelPlacement">outer</item>
+        <item name="sd_labelPadding">@dimen/plasma_text_field_xl_outer_label_label_padding</item>
+        <item name="sd_labelAppearance">@style/Plasma.SdService.TextAppearance.BodyLNormal</item>
+        <item name="sd_labelColor">@color/plasma_text_field_xl_outer_label_label_color</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXlOuterLabel">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xl.OuterLabel</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xl.OuterLabel.RequiredStart">
+        <item name="sd_requirementMode">start</item>
+        <item name="sd_indicatorSize">@dimen/plasma_text_field_xl_outer_label_required_start_indicator_size</item>
+        <item name="sd_indicatorOffsetX">@dimen/plasma_text_field_xl_outer_label_required_start_indicator_offset_x</item>
+        <item name="sd_indicatorOffsetY">@dimen/plasma_text_field_xl_outer_label_required_start_indicator_offset_y</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXlOuterLabelRequiredStart">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xl.OuterLabel.RequiredStart</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xl.OuterLabel.RequiredEnd">
+        <item name="sd_requirementMode">end</item>
+        <item name="sd_indicatorSize">@dimen/plasma_text_field_xl_outer_label_required_end_indicator_size</item>
+        <item name="sd_indicatorOffsetX">@dimen/plasma_text_field_xl_outer_label_required_end_indicator_offset_x</item>
+        <item name="sd_indicatorOffsetY">@dimen/plasma_text_field_xl_outer_label_required_end_indicator_offset_y</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXlOuterLabelRequiredEnd">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xl.OuterLabel.RequiredEnd</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xl.InnerLabel">
+        <item name="sd_labelPlacement">inner</item>
+        <item name="sd_boxPaddingTop">@dimen/plasma_text_field_xl_inner_label_box_padding_top</item>
+        <item name="sd_boxPaddingBottom">@dimen/plasma_text_field_xl_inner_label_box_padding_bottom</item>
+        <item name="sd_labelPadding">@dimen/plasma_text_field_xl_inner_label_label_padding</item>
+        <item name="sd_labelAppearance">@style/Plasma.SdService.TextAppearance.BodyXsNormal</item>
+        <item name="sd_labelColor">@color/plasma_text_field_xl_inner_label_label_color</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXlInnerLabel">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xl.InnerLabel</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xl.InnerLabel.RequiredStart">
+        <item name="sd_requirementMode">start</item>
+        <item name="sd_indicatorSize">@dimen/plasma_text_field_xl_inner_label_required_start_indicator_size</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXlInnerLabelRequiredStart">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xl.InnerLabel.RequiredStart</item>
+    </style>
+    <style name="Plasma.SdService.Components.TextField.Xl.InnerLabel.RequiredEnd">
+        <item name="sd_requirementMode">end</item>
+        <item name="sd_indicatorSize">@dimen/plasma_text_field_xl_inner_label_required_end_indicator_size</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.TextFieldXlInnerLabelRequiredEnd">
+        <item name="sd_textFieldStyle">@style/Plasma.SdService.Components.TextField.Xl.InnerLabel.RequiredEnd</item>
     </style>
 </resources>

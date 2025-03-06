@@ -7,6 +7,7 @@ import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 import com.sdkit.star.designsystem.styles.progressbar.Accent
 import com.sdkit.star.designsystem.styles.progressbar.Default
 import com.sdkit.star.designsystem.styles.progressbar.GradientAccent
+import com.sdkit.star.designsystem.styles.progressbar.Info
 import com.sdkit.star.designsystem.styles.progressbar.Negative
 import com.sdkit.star.designsystem.styles.progressbar.Positive
 import com.sdkit.star.designsystem.styles.progressbar.Secondary
@@ -22,5 +23,6 @@ internal object StarDsProgressVariationsCompose : ComposeStyleProvider<String, P
             "Positive" to { ProgressBar.Positive.style() },
             "Warning" to { ProgressBar.Warning.style() },
             "Negative" to { ProgressBar.Negative.style() },
+            "Info" to { ProgressBar.Info.style() },
         )
 }

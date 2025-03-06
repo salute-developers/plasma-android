@@ -13,5 +13,6 @@ internal object StarDsProgressBarVariationsView : ViewStyleProvider<String>() {
             "Positive" to s.Sdkit_StarDs_ComponentOverlays_ProgressBarPositive,
             "Warning" to s.Sdkit_StarDs_ComponentOverlays_ProgressBarWarning,
             "Negative" to s.Sdkit_StarDs_ComponentOverlays_ProgressBarNegative,
+            "Info" to s.Sdkit_StarDs_ComponentOverlays_ProgressBarInfo,
         )
 }
