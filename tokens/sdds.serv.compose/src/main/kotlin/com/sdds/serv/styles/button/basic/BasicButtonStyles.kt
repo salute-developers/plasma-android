@@ -24,20 +24,20 @@ import kotlin.jvm.JvmInline
 import kotlin.jvm.JvmName
 
 /**
- * Базовый интерфейс для всех врапперов этого стиля
+ * Базовый интерфейс для всех оберток этого стиля
  */
 public interface WrapperBasicButton : BuilderWrapper<ButtonStyle, BasicButtonStyleBuilder>
 
 /**
- * Интерфейс, который реализуют все врапперы вариаций корневого уровня
- * и врапперы их подвариаций.
+ * Интерфейс, который реализуют все обертки вариаций корневого уровня
+ * и обертки их подвариаций.
  * Является ресивером для extension-функций view,
- * применимых к этим врапперам.
+ * применимых к этим оберткам.
  */
 public interface WrapperBasicButtonView : WrapperBasicButton
 
 /**
- * Терминальный враппер
+ * Терминальная обертка
  */
 @JvmInline
 public value class WrapperBasicButtonTerminate(
@@ -45,7 +45,7 @@ public value class WrapperBasicButtonTerminate(
 ) : WrapperBasicButton
 
 /**
- * Враппер для вариации Xl
+ * Обертка для вариации Xl
  */
 @JvmInline
 public value class WrapperBasicButtonXl(
@@ -53,7 +53,7 @@ public value class WrapperBasicButtonXl(
 ) : WrapperBasicButtonView
 
 /**
- * Враппер для вариации L
+ * Обертка для вариации L
  */
 @JvmInline
 public value class WrapperBasicButtonL(
@@ -61,7 +61,7 @@ public value class WrapperBasicButtonL(
 ) : WrapperBasicButtonView
 
 /**
- * Враппер для вариации M
+ * Обертка для вариации M
  */
 @JvmInline
 public value class WrapperBasicButtonM(
@@ -69,7 +69,7 @@ public value class WrapperBasicButtonM(
 ) : WrapperBasicButtonView
 
 /**
- * Враппер для вариации S
+ * Обертка для вариации S
  */
 @JvmInline
 public value class WrapperBasicButtonS(
@@ -77,7 +77,7 @@ public value class WrapperBasicButtonS(
 ) : WrapperBasicButtonView
 
 /**
- * Враппер для вариации Xs
+ * Обертка для вариации Xs
  */
 @JvmInline
 public value class WrapperBasicButtonXs(
@@ -85,7 +85,7 @@ public value class WrapperBasicButtonXs(
 ) : WrapperBasicButtonView
 
 /**
- * Враппер для вариации Xxs
+ * Обертка для вариации Xxs
  */
 @JvmInline
 public value class WrapperBasicButtonXxs(

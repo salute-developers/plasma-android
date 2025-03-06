@@ -2,6 +2,7 @@
 @file:Suppress(
     "UndocumentedPublicClass",
     "UndocumentedPublicProperty",
+    "ktlint:standard:max-line-length",
 )
 
 package com.sdds.stylessalute.styles.button.icon
@@ -24,20 +25,20 @@ import kotlin.jvm.JvmInline
 import kotlin.jvm.JvmName
 
 /**
- * Базовый интерфейс для всех врапперов этого стиля
+ * Базовый интерфейс для всех оберток этого стиля
  */
 public interface WrapperIconButton : BuilderWrapper<ButtonStyle, IconButtonStyleBuilder>
 
 /**
- * Интерфейс, который реализуют все врапперы вариаций корневого уровня
- * и врапперы их подвариаций.
+ * Интерфейс, который реализуют все обертки вариаций корневого уровня
+ * и обертки их подвариаций.
  * Является ресивером для extension-функций view,
- * применимых к этим врапперам.
+ * применимых к этим оберткам.
  */
 public interface WrapperIconButtonView : WrapperIconButton
 
 /**
- * Терминальный враппер
+ * Терминальная обертка
  */
 @JvmInline
 public value class WrapperIconButtonTerminate(
@@ -45,7 +46,7 @@ public value class WrapperIconButtonTerminate(
 ) : WrapperIconButton
 
 /**
- * Враппер для вариации L
+ * Обертка для вариации L
  */
 @JvmInline
 public value class WrapperIconButtonL(
@@ -53,7 +54,7 @@ public value class WrapperIconButtonL(
 ) : WrapperIconButtonView
 
 /**
- * Враппер для вариации LPilled
+ * Обертка для вариации LPilled
  */
 @JvmInline
 public value class WrapperIconButtonLPilled(
@@ -61,7 +62,7 @@ public value class WrapperIconButtonLPilled(
 ) : WrapperIconButtonView
 
 /**
- * Враппер для вариации M
+ * Обертка для вариации M
  */
 @JvmInline
 public value class WrapperIconButtonM(
@@ -69,7 +70,7 @@ public value class WrapperIconButtonM(
 ) : WrapperIconButtonView
 
 /**
- * Враппер для вариации MPilled
+ * Обертка для вариации MPilled
  */
 @JvmInline
 public value class WrapperIconButtonMPilled(
@@ -77,7 +78,7 @@ public value class WrapperIconButtonMPilled(
 ) : WrapperIconButtonView
 
 /**
- * Враппер для вариации S
+ * Обертка для вариации S
  */
 @JvmInline
 public value class WrapperIconButtonS(
@@ -85,7 +86,7 @@ public value class WrapperIconButtonS(
 ) : WrapperIconButtonView
 
 /**
- * Враппер для вариации SPilled
+ * Обертка для вариации SPilled
  */
 @JvmInline
 public value class WrapperIconButtonSPilled(
@@ -93,7 +94,7 @@ public value class WrapperIconButtonSPilled(
 ) : WrapperIconButtonView
 
 /**
- * Враппер для вариации Xs
+ * Обертка для вариации Xs
  */
 @JvmInline
 public value class WrapperIconButtonXs(
@@ -101,7 +102,7 @@ public value class WrapperIconButtonXs(
 ) : WrapperIconButtonView
 
 /**
- * Враппер для вариации XsPilled
+ * Обертка для вариации XsPilled
  */
 @JvmInline
 public value class WrapperIconButtonXsPilled(

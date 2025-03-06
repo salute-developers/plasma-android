@@ -2,6 +2,7 @@
 @file:Suppress(
     "UndocumentedPublicClass",
     "UndocumentedPublicProperty",
+    "ktlint:standard:max-line-length",
 )
 
 package com.sdds.stylessalute.styles.segment.item
@@ -30,20 +31,20 @@ import kotlin.jvm.JvmInline
 import kotlin.jvm.JvmName
 
 /**
- * Базовый интерфейс для всех врапперов этого стиля
+ * Базовый интерфейс для всех оберток этого стиля
  */
 public interface WrapperSegmentItem : BuilderWrapper<SegmentItemStyle, SegmentItemStyleBuilder>
 
 /**
- * Интерфейс, который реализуют все врапперы вариаций корневого уровня
- * и врапперы их подвариаций.
+ * Интерфейс, который реализуют все обертки вариаций корневого уровня
+ * и обертки их подвариаций.
  * Является ресивером для extension-функций view,
- * применимых к этим врапперам.
+ * применимых к этим оберткам.
  */
 public interface WrapperSegmentItemView : WrapperSegmentItem
 
 /**
- * Терминальный враппер
+ * Терминальная обертка
  */
 @JvmInline
 public value class WrapperSegmentItemTerminate(
@@ -51,7 +52,7 @@ public value class WrapperSegmentItemTerminate(
 ) : WrapperSegmentItem
 
 /**
- * Враппер для вариации L
+ * Обертка для вариации L
  */
 @JvmInline
 public value class WrapperSegmentItemL(
@@ -59,7 +60,7 @@ public value class WrapperSegmentItemL(
 ) : WrapperSegmentItemView
 
 /**
- * Враппер для вариации LPilled
+ * Обертка для вариации LPilled
  */
 @JvmInline
 public value class WrapperSegmentItemLPilled(
@@ -67,7 +68,7 @@ public value class WrapperSegmentItemLPilled(
 ) : WrapperSegmentItemView
 
 /**
- * Враппер для вариации M
+ * Обертка для вариации M
  */
 @JvmInline
 public value class WrapperSegmentItemM(
@@ -75,7 +76,7 @@ public value class WrapperSegmentItemM(
 ) : WrapperSegmentItemView
 
 /**
- * Враппер для вариации MPilled
+ * Обертка для вариации MPilled
  */
 @JvmInline
 public value class WrapperSegmentItemMPilled(
@@ -83,7 +84,7 @@ public value class WrapperSegmentItemMPilled(
 ) : WrapperSegmentItemView
 
 /**
- * Враппер для вариации S
+ * Обертка для вариации S
  */
 @JvmInline
 public value class WrapperSegmentItemS(
@@ -91,7 +92,7 @@ public value class WrapperSegmentItemS(
 ) : WrapperSegmentItemView
 
 /**
- * Враппер для вариации SPilled
+ * Обертка для вариации SPilled
  */
 @JvmInline
 public value class WrapperSegmentItemSPilled(
@@ -99,7 +100,7 @@ public value class WrapperSegmentItemSPilled(
 ) : WrapperSegmentItemView
 
 /**
- * Враппер для вариации Xs
+ * Обертка для вариации Xs
  */
 @JvmInline
 public value class WrapperSegmentItemXs(
@@ -107,7 +108,7 @@ public value class WrapperSegmentItemXs(
 ) : WrapperSegmentItemView
 
 /**
- * Враппер для вариации XsPilled
+ * Обертка для вариации XsPilled
  */
 @JvmInline
 public value class WrapperSegmentItemXsPilled(
@@ -238,17 +239,17 @@ public val WrapperSegmentItemView.Secondary: WrapperSegmentItemTerminate
                     setOf(InteractiveState.Hovered)
                         to StylesSaluteTheme.colors.textDefaultSecondaryHover,
                     setOf(InteractiveState.Selected)
-                        to StylesSaluteTheme.colors.textInverseSecondary,
+                        to StylesSaluteTheme.colors.textDefaultSecondary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
                     )
-                        to StylesSaluteTheme.colors.textInverseSecondaryActive,
+                        to StylesSaluteTheme.colors.textDefaultSecondaryActive,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
                     )
-                        to StylesSaluteTheme.colors.textInverseSecondaryHover,
+                        to StylesSaluteTheme.colors.textDefaultSecondaryHover,
                 ),
             )
             backgroundColor(

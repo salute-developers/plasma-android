@@ -23,20 +23,20 @@ import kotlin.jvm.JvmInline
 import kotlin.jvm.JvmName
 
 /**
- * Базовый интерфейс для всех врапперов этого стиля
+ * Базовый интерфейс для всех оберток этого стиля
  */
 public interface WrapperLinkButton : BuilderWrapper<ButtonStyle, LinkButtonStyleBuilder>
 
 /**
- * Интерфейс, который реализуют все врапперы вариаций корневого уровня
- * и врапперы их подвариаций.
+ * Интерфейс, который реализуют все обертки вариаций корневого уровня
+ * и обертки их подвариаций.
  * Является ресивером для extension-функций view,
- * применимых к этим врапперам.
+ * применимых к этим оберткам.
  */
 public interface WrapperLinkButtonView : WrapperLinkButton
 
 /**
- * Терминальный враппер
+ * Терминальная обертка
  */
 @JvmInline
 public value class WrapperLinkButtonTerminate(
@@ -44,7 +44,7 @@ public value class WrapperLinkButtonTerminate(
 ) : WrapperLinkButton
 
 /**
- * Враппер для вариации Xl
+ * Обертка для вариации Xl
  */
 @JvmInline
 public value class WrapperLinkButtonXl(
@@ -52,7 +52,7 @@ public value class WrapperLinkButtonXl(
 ) : WrapperLinkButtonView
 
 /**
- * Враппер для вариации L
+ * Обертка для вариации L
  */
 @JvmInline
 public value class WrapperLinkButtonL(
@@ -60,7 +60,7 @@ public value class WrapperLinkButtonL(
 ) : WrapperLinkButtonView
 
 /**
- * Враппер для вариации M
+ * Обертка для вариации M
  */
 @JvmInline
 public value class WrapperLinkButtonM(
@@ -68,7 +68,7 @@ public value class WrapperLinkButtonM(
 ) : WrapperLinkButtonView
 
 /**
- * Враппер для вариации S
+ * Обертка для вариации S
  */
 @JvmInline
 public value class WrapperLinkButtonS(
@@ -76,7 +76,7 @@ public value class WrapperLinkButtonS(
 ) : WrapperLinkButtonView
 
 /**
- * Враппер для вариации Xs
+ * Обертка для вариации Xs
  */
 @JvmInline
 public value class WrapperLinkButtonXs(
@@ -84,7 +84,7 @@ public value class WrapperLinkButtonXs(
 ) : WrapperLinkButtonView
 
 /**
- * Враппер для вариации Xxs
+ * Обертка для вариации Xxs
  */
 @JvmInline
 public value class WrapperLinkButtonXxs(
