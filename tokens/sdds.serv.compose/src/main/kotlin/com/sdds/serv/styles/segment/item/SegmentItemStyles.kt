@@ -2,6 +2,7 @@
 @file:Suppress(
     "UndocumentedPublicClass",
     "UndocumentedPublicProperty",
+    "ktlint:standard:max-line-length",
 )
 
 package com.sdds.serv.styles.segment.item
@@ -31,20 +32,20 @@ import kotlin.jvm.JvmInline
 import kotlin.jvm.JvmName
 
 /**
- * Базовый интерфейс для всех врапперов этого стиля
+ * Базовый интерфейс для всех оберток этого стиля
  */
 public interface WrapperSegmentItem : BuilderWrapper<SegmentItemStyle, SegmentItemStyleBuilder>
 
 /**
- * Интерфейс, который реализуют все врапперы вариаций корневого уровня
- * и врапперы их подвариаций.
+ * Интерфейс, который реализуют все обертки вариаций корневого уровня
+ * и обертки их подвариаций.
  * Является ресивером для extension-функций view,
- * применимых к этим врапперам.
+ * применимых к этим оберткам.
  */
 public interface WrapperSegmentItemView : WrapperSegmentItem
 
 /**
- * Терминальный враппер
+ * Терминальная обертка
  */
 @JvmInline
 public value class WrapperSegmentItemTerminate(
@@ -52,15 +53,15 @@ public value class WrapperSegmentItemTerminate(
 ) : WrapperSegmentItem
 
 /**
- * Интерфейс, который реализуют все врапперы вариации xl
- * и врапперы ее подвариаций.
+ * Интерфейс, который реализуют все обертки вариации xl
+ * и обертки ее подвариаций.
  * Является ресивером для extension-функций view,
- * применимых к этим врапперам.
+ * применимых к этим оберткам.
  */
 public interface WrapperXlView : WrapperSegmentItemView
 
 /**
- * Враппер для вариации Xl
+ * Обертка для вариации Xl
  */
 @JvmInline
 public value class WrapperSegmentItemXl(
@@ -68,7 +69,7 @@ public value class WrapperSegmentItemXl(
 ) : WrapperXlView
 
 /**
- * Враппер для вариации XlPilled
+ * Обертка для вариации XlPilled
  */
 @JvmInline
 public value class WrapperSegmentItemXlPilled(
@@ -76,15 +77,15 @@ public value class WrapperSegmentItemXlPilled(
 ) : WrapperXlView
 
 /**
- * Интерфейс, который реализуют все врапперы вариации l
- * и врапперы ее подвариаций.
+ * Интерфейс, который реализуют все обертки вариации l
+ * и обертки ее подвариаций.
  * Является ресивером для extension-функций view,
- * применимых к этим врапперам.
+ * применимых к этим оберткам.
  */
 public interface WrapperLView : WrapperSegmentItemView
 
 /**
- * Враппер для вариации L
+ * Обертка для вариации L
  */
 @JvmInline
 public value class WrapperSegmentItemL(
@@ -92,7 +93,7 @@ public value class WrapperSegmentItemL(
 ) : WrapperLView
 
 /**
- * Враппер для вариации LPilled
+ * Обертка для вариации LPilled
  */
 @JvmInline
 public value class WrapperSegmentItemLPilled(
@@ -100,15 +101,15 @@ public value class WrapperSegmentItemLPilled(
 ) : WrapperLView
 
 /**
- * Интерфейс, который реализуют все врапперы вариации m
- * и врапперы ее подвариаций.
+ * Интерфейс, который реализуют все обертки вариации m
+ * и обертки ее подвариаций.
  * Является ресивером для extension-функций view,
- * применимых к этим врапперам.
+ * применимых к этим оберткам.
  */
 public interface WrapperMView : WrapperSegmentItemView
 
 /**
- * Враппер для вариации M
+ * Обертка для вариации M
  */
 @JvmInline
 public value class WrapperSegmentItemM(
@@ -116,7 +117,7 @@ public value class WrapperSegmentItemM(
 ) : WrapperMView
 
 /**
- * Враппер для вариации MPilled
+ * Обертка для вариации MPilled
  */
 @JvmInline
 public value class WrapperSegmentItemMPilled(
@@ -124,15 +125,15 @@ public value class WrapperSegmentItemMPilled(
 ) : WrapperMView
 
 /**
- * Интерфейс, который реализуют все врапперы вариации s
- * и врапперы ее подвариаций.
+ * Интерфейс, который реализуют все обертки вариации s
+ * и обертки ее подвариаций.
  * Является ресивером для extension-функций view,
- * применимых к этим врапперам.
+ * применимых к этим оберткам.
  */
 public interface WrapperSView : WrapperSegmentItemView
 
 /**
- * Враппер для вариации S
+ * Обертка для вариации S
  */
 @JvmInline
 public value class WrapperSegmentItemS(
@@ -140,7 +141,7 @@ public value class WrapperSegmentItemS(
 ) : WrapperSView
 
 /**
- * Враппер для вариации SPilled
+ * Обертка для вариации SPilled
  */
 @JvmInline
 public value class WrapperSegmentItemSPilled(
@@ -148,15 +149,15 @@ public value class WrapperSegmentItemSPilled(
 ) : WrapperSView
 
 /**
- * Интерфейс, который реализуют все врапперы вариации xs
- * и врапперы ее подвариаций.
+ * Интерфейс, который реализуют все обертки вариации xs
+ * и обертки ее подвариаций.
  * Является ресивером для extension-функций view,
- * применимых к этим врапперам.
+ * применимых к этим оберткам.
  */
 public interface WrapperXsView : WrapperSegmentItemView
 
 /**
- * Враппер для вариации Xs
+ * Обертка для вариации Xs
  */
 @JvmInline
 public value class WrapperSegmentItemXs(
@@ -164,7 +165,7 @@ public value class WrapperSegmentItemXs(
 ) : WrapperXsView
 
 /**
- * Враппер для вариации XsPilled
+ * Обертка для вариации XsPilled
  */
 @JvmInline
 public value class WrapperSegmentItemXsPilled(
@@ -295,17 +296,17 @@ public val WrapperSegmentItemView.Secondary: WrapperSegmentItemTerminate
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultSecondaryHover,
                     setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textInverseSecondary,
+                        to SddsServTheme.colors.textDefaultSecondary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
                     )
-                        to SddsServTheme.colors.textInverseSecondaryActive,
+                        to SddsServTheme.colors.textDefaultSecondaryActive,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
                     )
-                        to SddsServTheme.colors.textInverseSecondaryHover,
+                        to SddsServTheme.colors.textDefaultSecondaryHover,
                 ),
             )
             backgroundColor(
@@ -702,17 +703,17 @@ public val WrapperXlView.Secondary: WrapperSegmentItemTerminate
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultSecondaryHover,
                     setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textInverseSecondary,
+                        to SddsServTheme.colors.textDefaultSecondary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
                     )
-                        to SddsServTheme.colors.textInverseSecondaryActive,
+                        to SddsServTheme.colors.textDefaultSecondaryActive,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
                     )
-                        to SddsServTheme.colors.textInverseSecondaryHover,
+                        to SddsServTheme.colors.textDefaultSecondaryHover,
                 ),
             )
             backgroundColor(
@@ -1040,17 +1041,17 @@ public val WrapperLView.Secondary: WrapperSegmentItemTerminate
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultSecondaryHover,
                     setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textInverseSecondary,
+                        to SddsServTheme.colors.textDefaultSecondary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
                     )
-                        to SddsServTheme.colors.textInverseSecondaryActive,
+                        to SddsServTheme.colors.textDefaultSecondaryActive,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
                     )
-                        to SddsServTheme.colors.textInverseSecondaryHover,
+                        to SddsServTheme.colors.textDefaultSecondaryHover,
                 ),
             )
             backgroundColor(
@@ -1378,17 +1379,17 @@ public val WrapperMView.Secondary: WrapperSegmentItemTerminate
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultSecondaryHover,
                     setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textInverseSecondary,
+                        to SddsServTheme.colors.textDefaultSecondary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
                     )
-                        to SddsServTheme.colors.textInverseSecondaryActive,
+                        to SddsServTheme.colors.textDefaultSecondaryActive,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
                     )
-                        to SddsServTheme.colors.textInverseSecondaryHover,
+                        to SddsServTheme.colors.textDefaultSecondaryHover,
                 ),
             )
             backgroundColor(
@@ -1716,17 +1717,17 @@ public val WrapperSView.Secondary: WrapperSegmentItemTerminate
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultSecondaryHover,
                     setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textInverseSecondary,
+                        to SddsServTheme.colors.textDefaultSecondary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
                     )
-                        to SddsServTheme.colors.textInverseSecondaryActive,
+                        to SddsServTheme.colors.textDefaultSecondaryActive,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
                     )
-                        to SddsServTheme.colors.textInverseSecondaryHover,
+                        to SddsServTheme.colors.textDefaultSecondaryHover,
                 ),
             )
             backgroundColor(
@@ -2054,17 +2055,17 @@ public val WrapperXsView.Secondary: WrapperSegmentItemTerminate
                     setOf(InteractiveState.Hovered)
                         to SddsServTheme.colors.textDefaultSecondaryHover,
                     setOf(InteractiveState.Selected)
-                        to SddsServTheme.colors.textInverseSecondary,
+                        to SddsServTheme.colors.textDefaultSecondary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
                     )
-                        to SddsServTheme.colors.textInverseSecondaryActive,
+                        to SddsServTheme.colors.textDefaultSecondaryActive,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
                     )
-                        to SddsServTheme.colors.textInverseSecondaryHover,
+                        to SddsServTheme.colors.textDefaultSecondaryHover,
                 ),
             )
             backgroundColor(

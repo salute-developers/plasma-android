@@ -23,20 +23,20 @@ import kotlin.jvm.JvmInline
 import kotlin.jvm.JvmName
 
 /**
- * Базовый интерфейс для всех врапперов этого стиля
+ * Базовый интерфейс для всех оберток этого стиля
  */
 public interface WrapperBadgeClear : BuilderWrapper<BadgeStyle, BadgeStyleBuilder>
 
 /**
- * Интерфейс, который реализуют все врапперы вариаций корневого уровня
- * и врапперы их подвариаций.
+ * Интерфейс, который реализуют все обертки вариаций корневого уровня
+ * и обертки их подвариаций.
  * Является ресивером для extension-функций view,
- * применимых к этим врапперам.
+ * применимых к этим оберткам.
  */
 public interface WrapperBadgeClearView : WrapperBadgeClear
 
 /**
- * Терминальный враппер
+ * Терминальная обертка
  */
 @JvmInline
 public value class WrapperBadgeClearTerminate(
@@ -44,7 +44,7 @@ public value class WrapperBadgeClearTerminate(
 ) : WrapperBadgeClear
 
 /**
- * Враппер для вариации L
+ * Обертка для вариации L
  */
 @JvmInline
 public value class WrapperBadgeClearL(
@@ -52,7 +52,7 @@ public value class WrapperBadgeClearL(
 ) : WrapperBadgeClearView
 
 /**
- * Враппер для вариации LPilled
+ * Обертка для вариации LPilled
  */
 @JvmInline
 public value class WrapperBadgeClearLPilled(
@@ -60,7 +60,7 @@ public value class WrapperBadgeClearLPilled(
 ) : WrapperBadgeClearView
 
 /**
- * Враппер для вариации M
+ * Обертка для вариации M
  */
 @JvmInline
 public value class WrapperBadgeClearM(
@@ -68,7 +68,7 @@ public value class WrapperBadgeClearM(
 ) : WrapperBadgeClearView
 
 /**
- * Враппер для вариации MPilled
+ * Обертка для вариации MPilled
  */
 @JvmInline
 public value class WrapperBadgeClearMPilled(
@@ -76,7 +76,7 @@ public value class WrapperBadgeClearMPilled(
 ) : WrapperBadgeClearView
 
 /**
- * Враппер для вариации S
+ * Обертка для вариации S
  */
 @JvmInline
 public value class WrapperBadgeClearS(
@@ -84,7 +84,7 @@ public value class WrapperBadgeClearS(
 ) : WrapperBadgeClearView
 
 /**
- * Враппер для вариации SPilled
+ * Обертка для вариации SPilled
  */
 @JvmInline
 public value class WrapperBadgeClearSPilled(
@@ -92,7 +92,7 @@ public value class WrapperBadgeClearSPilled(
 ) : WrapperBadgeClearView
 
 /**
- * Враппер для вариации Xs
+ * Обертка для вариации Xs
  */
 @JvmInline
 public value class WrapperBadgeClearXs(
@@ -100,7 +100,7 @@ public value class WrapperBadgeClearXs(
 ) : WrapperBadgeClearView
 
 /**
- * Враппер для вариации XsPilled
+ * Обертка для вариации XsPilled
  */
 @JvmInline
 public value class WrapperBadgeClearXsPilled(

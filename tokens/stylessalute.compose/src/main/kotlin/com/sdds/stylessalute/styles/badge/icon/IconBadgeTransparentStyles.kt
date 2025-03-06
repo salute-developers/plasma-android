@@ -2,6 +2,7 @@
 @file:Suppress(
     "UndocumentedPublicClass",
     "UndocumentedPublicProperty",
+    "ktlint:standard:max-line-length",
 )
 
 package com.sdds.stylessalute.styles.badge.icon
@@ -22,20 +23,20 @@ import kotlin.jvm.JvmInline
 import kotlin.jvm.JvmName
 
 /**
- * Базовый интерфейс для всех врапперов этого стиля
+ * Базовый интерфейс для всех оберток этого стиля
  */
 public interface WrapperIconBadgeTransparent : BuilderWrapper<BadgeStyle, IconBadgeStyleBuilder>
 
 /**
- * Интерфейс, который реализуют все врапперы вариаций корневого уровня
- * и врапперы их подвариаций.
+ * Интерфейс, который реализуют все обертки вариаций корневого уровня
+ * и обертки их подвариаций.
  * Является ресивером для extension-функций view,
- * применимых к этим врапперам.
+ * применимых к этим оберткам.
  */
 public interface WrapperIconBadgeTransparentView : WrapperIconBadgeTransparent
 
 /**
- * Терминальный враппер
+ * Терминальная обертка
  */
 @JvmInline
 public value class WrapperIconBadgeTransparentTerminate(
@@ -43,7 +44,7 @@ public value class WrapperIconBadgeTransparentTerminate(
 ) : WrapperIconBadgeTransparent
 
 /**
- * Враппер для вариации L
+ * Обертка для вариации L
  */
 @JvmInline
 public value class WrapperIconBadgeTransparentL(
@@ -51,7 +52,7 @@ public value class WrapperIconBadgeTransparentL(
 ) : WrapperIconBadgeTransparentView
 
 /**
- * Враппер для вариации LPilled
+ * Обертка для вариации LPilled
  */
 @JvmInline
 public value class WrapperIconBadgeTransparentLPilled(
@@ -59,7 +60,7 @@ public value class WrapperIconBadgeTransparentLPilled(
 ) : WrapperIconBadgeTransparentView
 
 /**
- * Враппер для вариации M
+ * Обертка для вариации M
  */
 @JvmInline
 public value class WrapperIconBadgeTransparentM(
@@ -67,7 +68,7 @@ public value class WrapperIconBadgeTransparentM(
 ) : WrapperIconBadgeTransparentView
 
 /**
- * Враппер для вариации MPilled
+ * Обертка для вариации MPilled
  */
 @JvmInline
 public value class WrapperIconBadgeTransparentMPilled(
@@ -75,7 +76,7 @@ public value class WrapperIconBadgeTransparentMPilled(
 ) : WrapperIconBadgeTransparentView
 
 /**
- * Враппер для вариации S
+ * Обертка для вариации S
  */
 @JvmInline
 public value class WrapperIconBadgeTransparentS(
@@ -83,7 +84,7 @@ public value class WrapperIconBadgeTransparentS(
 ) : WrapperIconBadgeTransparentView
 
 /**
- * Враппер для вариации SPilled
+ * Обертка для вариации SPilled
  */
 @JvmInline
 public value class WrapperIconBadgeTransparentSPilled(
@@ -91,7 +92,7 @@ public value class WrapperIconBadgeTransparentSPilled(
 ) : WrapperIconBadgeTransparentView
 
 /**
- * Враппер для вариации Xs
+ * Обертка для вариации Xs
  */
 @JvmInline
 public value class WrapperIconBadgeTransparentXs(
@@ -99,7 +100,7 @@ public value class WrapperIconBadgeTransparentXs(
 ) : WrapperIconBadgeTransparentView
 
 /**
- * Враппер для вариации XsPilled
+ * Обертка для вариации XsPilled
  */
 @JvmInline
 public value class WrapperIconBadgeTransparentXsPilled(

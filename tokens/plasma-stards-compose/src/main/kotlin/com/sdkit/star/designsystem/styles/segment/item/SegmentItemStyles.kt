@@ -159,17 +159,17 @@ public val WrapperSegmentItemView.Primary: WrapperSegmentItemTerminate
                     setOf(InteractiveState.Hovered)
                         to StarDsTheme.colors.textDefaultSecondaryHover,
                     setOf(InteractiveState.Selected)
-                        to StarDsTheme.colors.textInverseSecondary,
+                        to StarDsTheme.colors.textDefaultSecondary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
                     )
-                        to StarDsTheme.colors.textInverseSecondaryActive,
+                        to StarDsTheme.colors.textDefaultSecondaryActive,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
                     )
-                        to StarDsTheme.colors.textInverseSecondaryHover,
+                        to StarDsTheme.colors.textDefaultSecondaryHover,
                 ),
             )
             backgroundColor(
