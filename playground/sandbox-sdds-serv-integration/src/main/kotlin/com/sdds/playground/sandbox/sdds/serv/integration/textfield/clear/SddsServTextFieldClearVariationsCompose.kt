@@ -16,12 +16,22 @@ import com.sdds.serv.styles.textfield.clear.RequiredStart
 import com.sdds.serv.styles.textfield.clear.S
 import com.sdds.serv.styles.textfield.clear.Success
 import com.sdds.serv.styles.textfield.clear.Warning
+import com.sdds.serv.styles.textfield.clear.Xl
 import com.sdds.serv.styles.textfield.clear.Xs
 
 internal object SddsServTextFieldClearVariationsCompose : ComposeStyleProvider<String, TextFieldStyle>() {
 
     override val variations: Map<String, @Composable () -> TextFieldStyle> =
         mapOf(
+            "XLDefault" to { TextFieldClear.Xl.Default.style() },
+            "XLRequiredStartDefault" to { TextFieldClear.Xl.RequiredStart.Default.style() },
+            "XLRequiredEndDefault" to { TextFieldClear.Xl.RequiredEnd.Default.style() },
+            "XLOuterLabelDefault" to { TextFieldClear.Xl.OuterLabel.Default.style() },
+            "XLOuterLabelRequiredStartDefault" to { TextFieldClear.Xl.OuterLabel.RequiredStart.Default.style() },
+            "XLOuterLabelRequiredEndDefault" to { TextFieldClear.Xl.OuterLabel.RequiredEnd.Default.style() },
+            "XLInnerLabelDefault" to { TextFieldClear.Xl.InnerLabel.Default.style() },
+            "XLInnerLabelRequiredStartDefault" to { TextFieldClear.Xl.InnerLabel.RequiredStart.Default.style() },
+            "XLInnerLabelRequiredEndDefault" to { TextFieldClear.Xl.InnerLabel.RequiredEnd.Default.style() },
             "LDefault" to { TextFieldClear.L.Default.style() },
             "LRequiredStartDefault" to { TextFieldClear.L.RequiredStart.Default.style() },
             "LRequiredEndDefault" to { TextFieldClear.L.RequiredEnd.Default.style() },
@@ -56,6 +66,15 @@ internal object SddsServTextFieldClearVariationsCompose : ComposeStyleProvider<S
             "XSOuterLabelRequiredStartDefault" to { TextFieldClear.Xs.OuterLabel.RequiredStart.Default.style() },
             "XSOuterLabelRequiredEndDefault" to { TextFieldClear.Xs.OuterLabel.RequiredEnd.Default.style() },
 
+            "XLWarning" to { TextFieldClear.Xl.Warning.style() },
+            "XLRequiredStartWarning" to { TextFieldClear.Xl.RequiredStart.Warning.style() },
+            "XLRequiredEndWarning" to { TextFieldClear.Xl.RequiredEnd.Warning.style() },
+            "XLOuterLabelWarning" to { TextFieldClear.Xl.OuterLabel.Warning.style() },
+            "XLOuterLabelRequiredStartWarning" to { TextFieldClear.Xl.OuterLabel.RequiredStart.Warning.style() },
+            "XLOuterLabelRequiredEndWarning" to { TextFieldClear.Xl.OuterLabel.RequiredEnd.Warning.style() },
+            "XLInnerLabelWarning" to { TextFieldClear.Xl.InnerLabel.Warning.style() },
+            "XLInnerLabelRequiredStartWarning" to { TextFieldClear.Xl.InnerLabel.RequiredStart.Warning.style() },
+            "XLInnerLabelRequiredEndWarning" to { TextFieldClear.Xl.InnerLabel.RequiredEnd.Warning.style() },
             "LWarning" to { TextFieldClear.L.Warning.style() },
             "LRequiredStartWarning" to { TextFieldClear.L.RequiredStart.Warning.style() },
             "LRequiredEndWarning" to { TextFieldClear.L.RequiredEnd.Warning.style() },
@@ -90,6 +109,15 @@ internal object SddsServTextFieldClearVariationsCompose : ComposeStyleProvider<S
             "XSOuterLabelRequiredStartWarning" to { TextFieldClear.Xs.OuterLabel.RequiredStart.Warning.style() },
             "XSOuterLabelRequiredEndWarning" to { TextFieldClear.Xs.OuterLabel.RequiredEnd.Warning.style() },
 
+            "XLError" to { TextFieldClear.Xl.Error.style() },
+            "XLRequiredStartError" to { TextFieldClear.Xl.RequiredStart.Error.style() },
+            "XLRequiredEndError" to { TextFieldClear.Xl.RequiredEnd.Error.style() },
+            "XLOuterLabelError" to { TextFieldClear.Xl.OuterLabel.Error.style() },
+            "XLOuterLabelRequiredStartError" to { TextFieldClear.Xl.OuterLabel.RequiredStart.Error.style() },
+            "XLOuterLabelRequiredEndError" to { TextFieldClear.Xl.OuterLabel.RequiredEnd.Error.style() },
+            "XLInnerLabelError" to { TextFieldClear.Xl.InnerLabel.Error.style() },
+            "XLInnerLabelRequiredStartError" to { TextFieldClear.Xl.InnerLabel.RequiredStart.Error.style() },
+            "XLInnerLabelRequiredEndError" to { TextFieldClear.Xl.InnerLabel.RequiredEnd.Error.style() },
             "LError" to { TextFieldClear.L.Error.style() },
             "LRequiredStartError" to { TextFieldClear.L.RequiredStart.Error.style() },
             "LRequiredEndError" to { TextFieldClear.L.RequiredEnd.Error.style() },
@@ -124,6 +152,15 @@ internal object SddsServTextFieldClearVariationsCompose : ComposeStyleProvider<S
             "XSOuterLabelRequiredStartError" to { TextFieldClear.Xs.OuterLabel.RequiredStart.Error.style() },
             "XSOuterLabelRequiredEndError" to { TextFieldClear.Xs.OuterLabel.RequiredEnd.Error.style() },
 
+            "XLSuccess" to { TextFieldClear.Xl.Success.style() },
+            "XLRequiredStartSuccess" to { TextFieldClear.Xl.RequiredStart.Success.style() },
+            "XLRequiredEndSuccess" to { TextFieldClear.Xl.RequiredEnd.Success.style() },
+            "XLOuterLabelSuccess" to { TextFieldClear.Xl.OuterLabel.Success.style() },
+            "XLOuterLabelRequiredStartSuccess" to { TextFieldClear.Xl.OuterLabel.RequiredStart.Success.style() },
+            "XLOuterLabelRequiredEndSuccess" to { TextFieldClear.Xl.OuterLabel.RequiredEnd.Success.style() },
+            "XLInnerLabelSuccess" to { TextFieldClear.Xl.InnerLabel.Success.style() },
+            "XLInnerLabelRequiredStartSuccess" to { TextFieldClear.Xl.InnerLabel.RequiredStart.Success.style() },
+            "XLInnerLabelRequiredEndSuccess" to { TextFieldClear.Xl.InnerLabel.RequiredEnd.Success.style() },
             "LSuccess" to { TextFieldClear.L.Success.style() },
             "LRequiredStartSuccess" to { TextFieldClear.L.RequiredStart.Success.style() },
             "LRequiredEndSuccess" to { TextFieldClear.L.RequiredEnd.Success.style() },

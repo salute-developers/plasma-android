@@ -6,7 +6,6 @@
         <item name="sd_chipGroupStyle">@style/Serv.Sdds.Components.ChipGroup.Dense</item>
     </style>
     <style name="Serv.Sdds.Components.TextField" parent="Sdds.Components.TextField">
-        <item name="sd_colorStateProvider">com.sdds.serv.colorstate.TextFieldColorStateProvider</item>
         <item name="sd_disabledAlpha">0.4</item>
         <item name="sd_counterPlacement">outer</item>
         <item name="sd_captionPlacement">outer</item>
@@ -24,6 +23,7 @@
         <item name="sd_counterColor">@color/serv_text_field_counter_color</item>
         <item name="sd_placeholderColor">@color/serv_text_field_placeholder_color</item>
         <item name="sd_boxTint">@color/serv_text_field_bg_color</item>
+        <item name="sd_colorStateProvider">com.sdds.serv.colorstate.TextFieldColorStateProvider</item>
     </style>
     <style name="Serv.Sdds.ComponentOverlays.TextFieldXsChips">
         <item name="sd_chipGroupStyle">@style/Serv.Sdds.Components.ChipGroup.Dense</item>
@@ -367,5 +367,96 @@
     </style>
     <style name="Serv.Sdds.ComponentOverlays.TextFieldLInnerLabelRequiredEnd">
         <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.L.InnerLabel.RequiredEnd</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXlChips">
+        <item name="sd_chipGroupStyle">@style/Serv.Sdds.Components.ChipGroup.Dense</item>
+        <item name="sd_chipStyle">@style/Serv.Sdds.Components.EmbeddedChip.L.Secondary</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xl">
+        <item name="sd_requirementMode">optional</item>
+        <item name="sd_shapeAppearance">?serv_shapeRoundL</item>
+        <item name="sd_labelPlacement">none</item>
+        <item name="sd_boxPaddingStart">@dimen/serv_text_field_xl_box_padding_start</item>
+        <item name="sd_boxPaddingEnd">@dimen/serv_text_field_xl_box_padding_end</item>
+        <item name="sd_boxPaddingTop">@dimen/serv_text_field_xl_box_padding_top</item>
+        <item name="sd_boxPaddingBottom">@dimen/serv_text_field_xl_box_padding_bottom</item>
+        <item name="sd_iconPadding">@dimen/serv_text_field_xl_icon_padding</item>
+        <item name="sd_actionPadding">@dimen/serv_text_field_xl_action_padding</item>
+        <item name="sd_boxMinHeight">@dimen/serv_text_field_xl_box_min_height</item>
+        <item name="sd_alignmentLineHeight">@dimen/serv_text_field_xl_alignment_height</item>
+        <item name="sd_iconSize">@dimen/serv_text_field_xl_icon_size</item>
+        <item name="sd_actionSize">@dimen/serv_text_field_xl_action_size</item>
+        <item name="sd_valueAppearance">@style/Serv.Sdds.TextAppearance.BodyLNormal</item>
+        <item name="sd_placeholderAppearance">@style/Serv.Sdds.TextAppearance.BodyLNormal</item>
+        <item name="sd_chipGroupStyleOverlay">@style/Serv.Sdds.ComponentOverlays.TextFieldXlChips</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXl">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xl</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xl.RequiredStart">
+        <item name="sd_requirementMode">start</item>
+        <item name="sd_indicatorSize">@dimen/serv_text_field_xl_required_start_indicator_size</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXlRequiredStart">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xl.RequiredStart</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xl.RequiredEnd">
+        <item name="sd_requirementMode">end</item>
+        <item name="sd_indicatorSize">@dimen/serv_text_field_xl_required_end_indicator_size</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXlRequiredEnd">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xl.RequiredEnd</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xl.OuterLabel">
+        <item name="sd_labelPlacement">outer</item>
+        <item name="sd_labelPadding">@dimen/serv_text_field_xl_outer_label_label_padding</item>
+        <item name="sd_labelAppearance">@style/Serv.Sdds.TextAppearance.BodyLNormal</item>
+        <item name="sd_labelColor">@color/serv_text_field_xl_outer_label_label_color</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXlOuterLabel">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xl.OuterLabel</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xl.OuterLabel.RequiredStart">
+        <item name="sd_requirementMode">start</item>
+        <item name="sd_indicatorSize">@dimen/serv_text_field_xl_outer_label_required_start_indicator_size</item>
+        <item name="sd_indicatorOffsetX">@dimen/serv_text_field_xl_outer_label_required_start_indicator_offset_x</item>
+        <item name="sd_indicatorOffsetY">@dimen/serv_text_field_xl_outer_label_required_start_indicator_offset_y</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXlOuterLabelRequiredStart">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xl.OuterLabel.RequiredStart</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xl.OuterLabel.RequiredEnd">
+        <item name="sd_requirementMode">end</item>
+        <item name="sd_indicatorSize">@dimen/serv_text_field_xl_outer_label_required_end_indicator_size</item>
+        <item name="sd_indicatorOffsetX">@dimen/serv_text_field_xl_outer_label_required_end_indicator_offset_x</item>
+        <item name="sd_indicatorOffsetY">@dimen/serv_text_field_xl_outer_label_required_end_indicator_offset_y</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXlOuterLabelRequiredEnd">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xl.OuterLabel.RequiredEnd</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xl.InnerLabel">
+        <item name="sd_labelPlacement">inner</item>
+        <item name="sd_boxPaddingTop">@dimen/serv_text_field_xl_inner_label_box_padding_top</item>
+        <item name="sd_boxPaddingBottom">@dimen/serv_text_field_xl_inner_label_box_padding_bottom</item>
+        <item name="sd_labelPadding">@dimen/serv_text_field_xl_inner_label_label_padding</item>
+        <item name="sd_labelAppearance">@style/Serv.Sdds.TextAppearance.BodyXsNormal</item>
+        <item name="sd_labelColor">@color/serv_text_field_xl_inner_label_label_color</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXlInnerLabel">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xl.InnerLabel</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xl.InnerLabel.RequiredStart">
+        <item name="sd_requirementMode">start</item>
+        <item name="sd_indicatorSize">@dimen/serv_text_field_xl_inner_label_required_start_indicator_size</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXlInnerLabelRequiredStart">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xl.InnerLabel.RequiredStart</item>
+    </style>
+    <style name="Serv.Sdds.Components.TextField.Xl.InnerLabel.RequiredEnd">
+        <item name="sd_requirementMode">end</item>
+        <item name="sd_indicatorSize">@dimen/serv_text_field_xl_inner_label_required_end_indicator_size</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.TextFieldXlInnerLabelRequiredEnd">
+        <item name="sd_textFieldStyle">@style/Serv.Sdds.Components.TextField.Xl.InnerLabel.RequiredEnd</item>
     </style>
 </resources>

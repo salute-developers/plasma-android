@@ -15,6 +15,15 @@ internal object SddsServTextFieldVariationsView : ViewStyleProvider<String>() {
     )
 
     override val variations: Map<String, Int> = mapOf(
+        "XL" to s.Serv_Sdds_ComponentOverlays_TextFieldXl,
+        "XLRequiredStart" to s.Serv_Sdds_ComponentOverlays_TextFieldXlRequiredStart,
+        "XLRequiredEnd" to s.Serv_Sdds_ComponentOverlays_TextFieldXlRequiredEnd,
+        "XLOuterLabel" to s.Serv_Sdds_ComponentOverlays_TextFieldXlOuterLabel,
+        "XLOuterLabelRequiredStart" to s.Serv_Sdds_ComponentOverlays_TextFieldXlOuterLabelRequiredStart,
+        "XLOuterLabelRequiredEnd" to s.Serv_Sdds_ComponentOverlays_TextFieldXlOuterLabelRequiredEnd,
+        "XLInnerLabel" to s.Serv_Sdds_ComponentOverlays_TextFieldXlInnerLabel,
+        "XLInnerLabelRequiredStart" to s.Serv_Sdds_ComponentOverlays_TextFieldXlInnerLabelRequiredStart,
+        "XLInnerLabelRequiredEnd" to s.Serv_Sdds_ComponentOverlays_TextFieldXlInnerLabelRequiredEnd,
         "L" to s.Serv_Sdds_ComponentOverlays_TextFieldL,
         "LRequiredStart" to s.Serv_Sdds_ComponentOverlays_TextFieldLRequiredStart,
         "LRequiredEnd" to s.Serv_Sdds_ComponentOverlays_TextFieldLRequiredEnd,

@@ -3,13 +3,13 @@
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <resources>
     <style name="Plasma.SdService.Components.BasicButton" parent="Sdds.Components.Button">
-        <item name="sd_colorStateProvider">com.sdds.plasma.sd.service.colorstate.ButtonColorStateProvider</item>
         <item name="sd_disabledAlpha">0.4</item>
         <item name="backgroundTint">@color/plasma_basic_button_bg_color</item>
         <item name="android:textColor">@color/plasma_basic_button_text_color</item>
         <item name="sd_valueTextColor">@color/plasma_basic_button_value_color</item>
         <item name="sd_spinnerTint">@color/plasma_basic_button_spinner_tint</item>
         <item name="sd_iconTint">@color/plasma_basic_button_icon_tint</item>
+        <item name="sd_colorStateProvider">com.sdds.plasma.sd.service.colorstate.ButtonColorStateProvider</item>
     </style>
     <style name="Plasma.SdService.Components.BasicButton.Xl">
         <item name="android:minHeight">@dimen/plasma_basic_button_xl_min_height</item>

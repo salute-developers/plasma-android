@@ -28,4 +28,8 @@
     <style name="Sdkit.StarDs.ComponentOverlays.ProgressBarNegative">
         <item name="android:progressBarStyle">@style/Sdkit.StarDs.Components.ProgressBar.Negative</item>
     </style>
+
+    <style name="Sdkit.StarDs.ComponentOverlays.ProgressBarInfo">
+        <item name="android:progressBarStyle">@style/Sdkit.StarDs.Components.ProgressBar.Info</item>
+    </style>
 </resources>
