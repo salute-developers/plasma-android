@@ -20,10 +20,8 @@ import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 import com.sdds.playground.sandbox.core.integration.StylesProviderCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.avatar.StarDsAvatarVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.avatar.group.StarDsAvatarGroupVariationsCompose
-import com.sdds.playground.sandbox.plasma.stards.integration.badge.StarDsBadgeClearVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.badge.StarDsBadgeSolidVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.badge.StarDsBadgeTransparentVariationsCompose
-import com.sdds.playground.sandbox.plasma.stards.integration.badge.icon.StarDsIconBadgeClearVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.badge.icon.StarDsIconBadgeSolidVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.badge.icon.StarDsIconBadgeTransparentVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.button.basic.StarDsBasicButtonVariationsCompose

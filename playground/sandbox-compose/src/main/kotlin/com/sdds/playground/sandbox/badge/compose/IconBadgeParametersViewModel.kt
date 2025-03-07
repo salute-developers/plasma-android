@@ -8,14 +8,15 @@ import com.sdds.playground.sandbox.core.compose.ComponentViewModel
 import com.sdds.playground.sandbox.core.compose.Property
 import com.sdds.playground.sandbox.core.compose.enumProperty
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
+import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 
 /**
  * ViewModel для экранов с компонентом IconBadge
  */
 internal class IconBadgeParametersViewModel(
     defaultState: BadgeUiState,
-    private val theme: Theme.ThemeInfoCompose,
-) : ComponentViewModel<BadgeUiState, BadgeStyle>(defaultState) {
+    componentKey: ComponentKey,
+) : ComponentViewModel<BadgeUiState, BadgeStyle>(defaultState, componentKey) {
 
     private fun updateView(view: BadgeType) {
         internalUiState.value = internalUiState.value.copy(type = view)
@@ -30,14 +31,6 @@ internal class IconBadgeParametersViewModel(
             ),
         )
     }
-
-    override fun getStyleProvider(): ComposeStyleProvider<String, BadgeStyle> {
-        return when (internalUiState.value.type) {
-            BadgeType.Solid -> theme.stylesProvider.iconBadgeSolid
-            BadgeType.Clear -> theme.stylesProvider.iconBadgeClear
-            BadgeType.Transparent -> theme.stylesProvider.iconBadgeTransparent
-        }
-    }
 }
 
 /**
@@ -45,11 +38,11 @@ internal class IconBadgeParametersViewModel(
  */
 internal class IconBadgeParametersViewModelFactory(
     private val defaultState: BadgeUiState,
-    private val theme: Theme.ThemeInfoCompose,
+    private val componentKey: ComponentKey,
 ) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return IconBadgeParametersViewModel(defaultState, theme) as T
+        return IconBadgeParametersViewModel(defaultState, componentKey) as T
     }
 }

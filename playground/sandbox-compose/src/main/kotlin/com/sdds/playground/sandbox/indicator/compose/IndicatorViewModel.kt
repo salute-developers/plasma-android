@@ -7,18 +7,15 @@ import com.sdds.playground.sandbox.Theme
 import com.sdds.playground.sandbox.core.compose.ComponentViewModel
 import com.sdds.playground.sandbox.core.compose.Property
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
+import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 
 /**
  * ViewModel компонента Indicator
  */
 internal class IndicatorViewModel(
     defaultState: IndicatorUiState,
-    private val theme: Theme.ThemeInfoCompose,
-) : ComponentViewModel<IndicatorUiState, IndicatorStyle>(defaultState) {
-
-    override fun getStyleProvider(): ComposeStyleProvider<String, IndicatorStyle> {
-        return theme.stylesProvider.indicator
-    }
+    componentKey: ComponentKey,
+) : ComponentViewModel<IndicatorUiState, IndicatorStyle>(defaultState, componentKey) {
 
     override fun IndicatorUiState.toProps(): List<Property<*>> {
         return emptyList()
@@ -27,11 +24,11 @@ internal class IndicatorViewModel(
 
 internal class IndicatorViewModelFactory(
     private val defaultState: IndicatorUiState,
-    private val theme: Theme.ThemeInfoCompose,
+    private val componentKey: ComponentKey,
 ) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return IndicatorViewModel(defaultState, theme) as T
+        return IndicatorViewModel(defaultState, componentKey) as T
     }
 }

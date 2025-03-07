@@ -4,8 +4,9 @@ import androidx.annotation.CallSuper
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sdds.playground.sandbox.Theme
-import com.sdds.playground.sandbox.core.integration.StylesProviderView
+import com.sdds.playground.sandbox.core.ThemeManager
 import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
+import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.testing.vs.UiState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -16,6 +17,8 @@ import kotlinx.coroutines.flow.stateIn
 
 internal abstract class ComponentViewModel<State : UiState>(
     private val defaultState: State,
+    private val componentKey: ComponentKey,
+    private val themeManager: ThemeManager = ThemeManager,
 ) : ViewModel(), PropertiesOwner {
 
     protected val internalUiState = MutableStateFlow(defaultState)
@@ -24,7 +27,7 @@ internal abstract class ComponentViewModel<State : UiState>(
      * Тема
      */
     val theme: StateFlow<Theme>
-        get() = ViewSystemThemeState.theme
+        get() = themeManager.currentTheme
 
     /**
      * Cостояние компонента
@@ -48,16 +51,16 @@ internal abstract class ComponentViewModel<State : UiState>(
 
     final override val properties: StateFlow<List<Property<*>>>
         get() = internalUiState
-            .combine(theme) { state, theme ->
-                variantProperties(state, theme) + state.toProps()
+            .combine(theme) { state, _ ->
+                variantProperties(state) + state.toProps()
             }
             .stateIn(viewModelScope, SharingStarted.Lazily, emptyList())
 
-    private fun variantProperties(state: State, theme: Theme): List<Property.SingleChoiceProperty> {
-        val styleProvider = getStyleProvider(theme.view.stylesProvider)
+    private fun variantProperties(state: State): List<Property.SingleChoiceProperty> {
+        val styleProvider = getStyleProvider()
         val variantProperties = mutableListOf<Property.SingleChoiceProperty>()
         if (styleProvider.variants.isNotEmpty()) {
-            updateUiStateWithDefaultVariant(theme)
+            updateUiStateWithDefaultVariant()
             variantProperties.add(
                 Property.SingleChoiceProperty(
                     VARIANT_PROPERTY_NAME,
@@ -67,7 +70,7 @@ internal abstract class ComponentViewModel<State : UiState>(
             )
         }
         if (styleProvider.colorVariants.isNotEmpty()) {
-            updateUiStateWithDefaultColorVariant(theme)
+            updateUiStateWithDefaultColorVariant()
             variantProperties.add(
                 Property.SingleChoiceProperty(
                     COLOR_VARIANT_PROPERTY_NAME,
@@ -80,29 +83,31 @@ internal abstract class ComponentViewModel<State : UiState>(
     }
 
     @Suppress("UNCHECKED_CAST")
-    private fun updateUiStateWithDefaultVariant(theme: Theme) {
+    private fun updateUiStateWithDefaultVariant() {
         val variant = internalUiState.value.variant
         if (variant.isNotEmpty() &&
-            getStyleProvider(theme.view.stylesProvider).variants.contains(variant)
+            getStyleProvider().variants.contains(variant)
         ) {
             return
         }
         internalUiState.value =
             internalUiState.value.updateVariant(
-                getStyleProvider(theme.view.stylesProvider).defaultVariant,
+                getStyleProvider().defaultVariant,
             ) as State
     }
 
     @Suppress("UNCHECKED_CAST")
-    private fun updateUiStateWithDefaultColorVariant(theme: Theme) {
+    private fun updateUiStateWithDefaultColorVariant() {
         if (internalUiState.value.colorVariant.isNotEmpty()) return
         internalUiState.value =
             internalUiState.value.updateColorVariant(
-                getStyleProvider(theme.view.stylesProvider).defaultColorVariant,
+                getStyleProvider().defaultColorVariant,
             ) as State
     }
 
-    abstract fun getStyleProvider(stylesProvider: StylesProviderView): ViewStyleProvider<String>
+    open fun getStyleProvider(): ViewStyleProvider<String> {
+        return theme.value.view.components.get<String>(componentKey).styleProvider
+    }
 
     abstract fun State.toProps(): List<Property<*>>
 
@@ -115,6 +120,3 @@ internal abstract class ComponentViewModel<State : UiState>(
         const val COLOR_VARIANT_PROPERTY_NAME = "view"
     }
 }
-
-internal val ComponentViewModel<*>.stylesProvider: StylesProviderView
-    get() = theme.value.view.stylesProvider

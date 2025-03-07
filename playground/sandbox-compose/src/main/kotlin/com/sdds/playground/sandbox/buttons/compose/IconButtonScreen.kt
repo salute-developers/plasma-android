@@ -10,34 +10,30 @@ import com.sdds.compose.uikit.IconButton
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.Theme
 import com.sdds.playground.sandbox.core.compose.ComponentScaffold
+import com.sdds.playground.sandbox.core.compose.NewComponentScaffold
+import com.sdds.playground.sandbox.core.integration.component.ComponentKey
+import com.sdds.playground.sandbox.core.integration.component.CoreComponent
 
 /**
  * Экран с IconButton
  */
 @Composable
-internal fun IconButtonScreen(
-    theme: Theme.ThemeInfoCompose = Theme.composeDefault,
-) {
-    val buttonViewModel: IconButtonViewModel = viewModel(
-        factory = IconButtonViewModelFactory(ButtonUiState(), theme),
-        key = theme.toString(),
-    )
-    val buttonState by buttonViewModel.uiState.collectAsState()
-    ComponentScaffold(
-        component = {
-            theme.themeWrapper {
-                IconButton(
-                    icon = painterResource(buttonState.icon.iconId),
-                    onClick = { },
-                    style = buttonViewModel
-                        .getStyleProvider()
-                        .style(buttonState.variant),
-                    enabled = buttonState.enabled,
-                    loading = buttonState.loading,
-                )
-            }
+internal fun IconButtonScreen(componentKey: ComponentKey = ComponentKey.IconButton) {
+    NewComponentScaffold(
+        key = componentKey,
+        viewModel = viewModel<IconButtonViewModel>(
+            factory = IconButtonViewModelFactory(ButtonUiState(), componentKey),
+            key = componentKey.toString(),
+        ),
+        component = { buttonState, style ->
+            IconButton(
+                icon = painterResource(buttonState.icon.iconId),
+                onClick = { },
+                style = style,
+                enabled = buttonState.enabled,
+                loading = buttonState.loading,
+            )
         },
-        propertiesOwner = buttonViewModel,
     )
 }
 

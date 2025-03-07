@@ -12,29 +12,25 @@ import com.sdds.icons.R
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.Theme
 import com.sdds.playground.sandbox.core.compose.ComponentScaffold
+import com.sdds.playground.sandbox.core.compose.NewComponentScaffold
+import com.sdds.playground.sandbox.core.integration.component.ComponentKey
+import com.sdds.playground.sandbox.core.integration.component.CoreComponent
 
 @Composable
-internal fun IconBadgeScreen(
-    theme: Theme.ThemeInfoCompose = Theme.composeDefault,
-) {
-    val iconBadgeViewModel: IconBadgeParametersViewModel = viewModel(
-        factory = IconBadgeParametersViewModelFactory(BadgeUiState(), theme),
-        key = theme.toString(),
-    )
-    val badgeUiState by iconBadgeViewModel.uiState.collectAsState()
+internal fun IconBadgeScreen(componentKey: ComponentKey = ComponentKey.IconBadge) {
 
-    ComponentScaffold(
-        component = {
-            theme.themeWrapper {
-                IconBadge(
-                    style = iconBadgeViewModel
-                        .getStyleProvider()
-                        .style(badgeUiState.variant),
-                    content = startContent(badgeUiState.contentLeft),
-                )
-            }
+    NewComponentScaffold(
+        key = componentKey,
+        viewModel = viewModel<IconBadgeParametersViewModel>(
+            factory = IconBadgeParametersViewModelFactory(BadgeUiState(), componentKey),
+            key = componentKey.toString(),
+        ),
+        component = { badgeUiState, style ->
+            IconBadge(
+                style = style,
+                content = startContent(badgeUiState.contentLeft),
+            )
         },
-        propertiesOwner = iconBadgeViewModel,
     )
 }
 

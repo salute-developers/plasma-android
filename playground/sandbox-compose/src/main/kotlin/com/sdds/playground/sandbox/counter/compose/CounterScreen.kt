@@ -9,32 +9,28 @@ import com.sdds.compose.uikit.Counter
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.Theme
 import com.sdds.playground.sandbox.core.compose.ComponentScaffold
+import com.sdds.playground.sandbox.core.compose.NewComponentScaffold
+import com.sdds.playground.sandbox.core.integration.component.ComponentKey
+import com.sdds.playground.sandbox.core.integration.component.CoreComponent
 
 /**
  * Экран с [Counter]
  */
 @Composable
-internal fun CounterScreen(
-    theme: Theme.ThemeInfoCompose = Theme.composeDefault,
-) {
-    val counterViewModel: CounterParametersViewModel = viewModel(
-        factory = CounterParametersViewModelFactory(CounterUiState(), theme),
-        key = theme.toString(),
-    )
-    val counterUiState by counterViewModel.uiState.collectAsState()
+internal fun CounterScreen(componentKey: ComponentKey = ComponentKey.Counter) {
 
-    ComponentScaffold(
-        component = {
-            theme.themeWrapper {
-                Counter(
-                    style = counterViewModel
-                        .getStyleProvider()
-                        .style(counterUiState.variant),
-                    count = counterUiState.count,
-                )
-            }
+    NewComponentScaffold(
+        key = componentKey,
+        viewModel = viewModel<CounterParametersViewModel>(
+            factory = CounterParametersViewModelFactory(CounterUiState(), componentKey),
+            key = componentKey.toString(),
+        ),
+        component = { counterUiState, style ->
+            Counter(
+                style = style,
+                count = counterUiState.count,
+            )
         },
-        propertiesOwner = counterViewModel,
     )
 }
 

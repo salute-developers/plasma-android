@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.integration.StylesProviderView
 import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
+import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
 import com.sdds.testing.vs.checkbox.CheckBoxUiState
@@ -13,11 +14,8 @@ import com.sdds.testing.vs.checkbox.CheckBoxUiState
  */
 internal class CheckBoxGroupViewModel(
     defaultState: CheckBoxUiState,
-) : ComponentViewModel<CheckBoxUiState>(defaultState) {
-
-    override fun getStyleProvider(stylesProvider: StylesProviderView): ViewStyleProvider<String> {
-        return stylesProvider.checkBoxGroup
-    }
+    componentKey: ComponentKey,
+) : ComponentViewModel<CheckBoxUiState>(defaultState, componentKey) {
 
     override fun updateProperty(name: String, value: Any?) {
         super.updateProperty(name, value)
@@ -62,10 +60,11 @@ internal class CheckBoxGroupViewModel(
  */
 internal class CheckBoxGroupViewModelFactory(
     private val defaultState: CheckBoxUiState = CheckBoxUiState(),
+    private val componentKey: ComponentKey,
 ) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return CheckBoxGroupViewModel(defaultState) as T
+        return CheckBoxGroupViewModel(defaultState, componentKey) as T
     }
 }

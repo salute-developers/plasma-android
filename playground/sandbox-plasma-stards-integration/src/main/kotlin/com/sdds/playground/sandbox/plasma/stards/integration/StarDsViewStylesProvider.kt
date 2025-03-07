@@ -4,8 +4,6 @@ import com.sdds.playground.sandbox.core.integration.StylesProviderView
 import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
 import com.sdds.playground.sandbox.plasma.stards.integration.avatar.StarDsAvatarVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.avatar.group.StarDsAvatarGroupVariationsView
-import com.sdds.playground.sandbox.plasma.stards.integration.badge.StarDsBadgeVariationsView
-import com.sdds.playground.sandbox.plasma.stards.integration.badge.icon.StarDsIconBadgeVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.button.basic.StarDsBasicButtonVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.button.icon.StarDsIconButtonVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.button.link.StarDsLinkButtonVariationsView

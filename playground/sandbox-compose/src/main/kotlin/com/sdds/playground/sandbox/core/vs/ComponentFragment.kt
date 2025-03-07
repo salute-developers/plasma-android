@@ -16,10 +16,13 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.NavArgs
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.Theme
+import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.databinding.FragmentComponentScaffoldBinding
 import com.sdds.testing.vs.UiState
 import com.sdds.uikit.FrameLayout
@@ -48,7 +51,7 @@ internal abstract class ComponentFragment<State : UiState, Component : View> :
 
     private val contextThemeWrapper: ContextThemeWrapper
         get() {
-            val styles = componentViewModel.getStyleProvider(componentViewModel.stylesProvider)
+            val styles = componentViewModel.getStyleProvider()
             return ContextThemeWrapper(componentContainer?.context, styles.styleRes(currentVariant))
         }
 
@@ -56,6 +59,19 @@ internal abstract class ComponentFragment<State : UiState, Component : View> :
         getComponent(contextThemeWrapper)
             .also { componentRef = it }
 
+//    private val args: ComponentFragmentArgs by navArgs()
+//    protected val componentKey: ComponentKey by lazy {
+//        args.componentKey
+//    }
+    protected val componentKey: ComponentKey by lazy {
+        val key = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            arguments?.getParcelable(COMPONENT_KEY_ARG, ComponentKey::class.java)
+
+        } else {
+            arguments?.getParcelable(COMPONENT_KEY_ARG)
+        }
+        key ?: throw IllegalArgumentException("ComponentKey has to be provided")
+    }
     abstract val componentViewModel: ComponentViewModel<State>
 
     protected open val scrollMode
@@ -257,7 +273,12 @@ internal abstract class ComponentFragment<State : UiState, Component : View> :
         NONE,
     }
 
+    data class ComponentFragmentArgs(
+        val componentKey: ComponentKey
+    ): NavArgs
+
     companion object {
         const val DESTINATION_MESSAGE_ARG = "DestinationMessage"
+        const val COMPONENT_KEY_ARG = "componentKey"
     }
 }

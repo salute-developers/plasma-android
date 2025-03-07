@@ -48,14 +48,15 @@ import kotlinx.coroutines.launch
 @Composable
 internal fun MainContent() {
     val sandboxStyle = LocalSandboxStyle.current
-    val menuItems = remember { MenuItem.all }
+    var currentTheme by remember { mutableStateOf(Theme.values().first()) }
+    val menuItems = remember(currentTheme) { currentTheme.compose.components.getMenuItems() }
     val hasMultipleThemes = remember { Theme.values().size > 1 }
     val drawerState = rememberDrawerState(DrawerValue.Closed)
     val scaffoldState = rememberScaffoldState(drawerState = drawerState)
     val scope = rememberCoroutineScope()
     val themePickerSheetState = rememberModalBottomSheetState(ModalBottomSheetValue.Hidden)
     var currentItem by remember { mutableStateOf(menuItems.first()) }
-    var currentTheme by remember { mutableStateOf(Theme.values().first()) }
+
     Scaffold(
         scaffoldState = scaffoldState,
         backgroundColor = Color.Transparent,
@@ -119,13 +120,20 @@ internal fun MainContent() {
                     sheetShape = sandboxStyle.sheetShape,
                     sheetBackgroundColor = sandboxStyle.sheetBackgroundColor,
                 ) {
-                    currentItem.screen(currentTheme.compose)
+                    Destination(currentItem)
                 }
             } else {
-                currentItem.screen(currentTheme.compose)
+                Destination(currentItem)
             }
         }
     }
+}
+
+@Composable
+private fun Destination(
+    item: MenuItem,
+) {
+    item.destination.composeScreen(item.componentKey)
 }
 
 private fun toMainActivity(context: Context) {

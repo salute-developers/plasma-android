@@ -11,32 +11,29 @@ import com.sdds.compose.uikit.Icon
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.Theme
 import com.sdds.playground.sandbox.core.compose.ComponentScaffold
+import com.sdds.playground.sandbox.core.compose.NewComponentScaffold
+import com.sdds.playground.sandbox.core.integration.component.ComponentKey
+import com.sdds.playground.sandbox.core.integration.component.CoreComponent
 
 @Composable
-internal fun ChipScreen(theme: Theme.ThemeInfoCompose = Theme.composeDefault) {
-    val chipViewModel: ChipViewModel =
-        viewModel(
-            factory = ChipViewModelFactory(ChipUiState(), theme),
-            key = theme.toString(),
-        )
-    val chipUiState by chipViewModel.uiState.collectAsState()
+internal fun ChipScreen(componentKey: ComponentKey = ComponentKey.Chip) {
 
-    ComponentScaffold(
-        component = {
-            theme.themeWrapper {
-                Chip(
-                    onClick = getOnClick(chipUiState.isClickable),
-                    style = chipViewModel
-                        .getStyleProvider()
-                        .style(chipUiState.variant),
-                    label = chipUiState.label,
-                    enabled = chipUiState.enabled,
-                    startContent = startContent(chipUiState.hasStartIcon),
-                    endContent = endContent(chipUiState.hasEndIcon),
-                )
-            }
+    NewComponentScaffold(
+        key = componentKey,
+        viewModel = viewModel<ChipViewModel>(
+            factory = ChipViewModelFactory(ChipUiState(), componentKey),
+            key = componentKey.toString(),
+        ),
+        component = { chipUiState, style ->
+            Chip(
+                onClick = getOnClick(chipUiState.isClickable),
+                style = style,
+                label = chipUiState.label,
+                enabled = chipUiState.enabled,
+                startContent = startContent(chipUiState.hasStartIcon),
+                endContent = endContent(chipUiState.hasEndIcon),
+            )
         },
-        propertiesOwner = chipViewModel,
     )
 }
 

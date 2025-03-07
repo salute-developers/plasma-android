@@ -17,7 +17,10 @@ import com.sdds.uikit.ChipGroup
 internal class ChipGroupFragment : ComponentFragment<ChipUiState, ChipGroup>() {
 
     override val componentViewModel by viewModels<ChipGroupParametersViewModel> {
-        ChipGroupParametersViewModelFactory(getState { ChipUiState() })
+        ChipGroupParametersViewModelFactory(
+            defaultState = getState { ChipUiState() },
+            componentKey = componentKey,
+        )
     }
 
     override val scrollMode: ScrollMode

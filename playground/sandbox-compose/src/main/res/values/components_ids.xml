@@ -23,4 +23,5 @@
     <item type="id" name="segment_item"/>
 
     <item type="id" name="component_container_id"/>
+    <item type="id" name="screen_container_id"/>
 </resources>

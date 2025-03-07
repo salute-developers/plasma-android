@@ -11,36 +11,34 @@ import com.sdds.compose.uikit.Switch
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.Theme
 import com.sdds.playground.sandbox.core.compose.ComponentScaffold
+import com.sdds.playground.sandbox.core.compose.NewComponentScaffold
+import com.sdds.playground.sandbox.core.integration.component.ComponentKey
+import com.sdds.playground.sandbox.core.integration.component.CoreComponent
 
 /**
  * Экран с [Switch]
  */
 @Composable
-internal fun SwitchScreen(theme: Theme.ThemeInfoCompose = Theme.composeDefault) {
+internal fun SwitchScreen(componentKey: ComponentKey = ComponentKey.Switch) {
     val switchViewModel: SwitchViewModel =
         viewModel(
-            factory = SwitchViewModelFactory(SwitchUiState(), theme),
-            key = theme.toString(),
+            factory = SwitchViewModelFactory(SwitchUiState(), componentKey),
+            key = componentKey.toString(),
         )
-    val switchState by switchViewModel.uiState.collectAsState()
-
-    ComponentScaffold(
-        component = {
-            theme.themeWrapper {
-                Switch(
-                    active = switchState.active,
-                    label = switchState.label,
-                    style = switchViewModel
-                        .getStyleProvider()
-                        .style(switchState.variant),
-                    description = switchState.description,
-                    enabled = switchState.enabled,
-                    modifier = Modifier.fillMaxWidth(),
-                    onActiveChanged = { switchViewModel.updateActive(it) },
-                )
-            }
+    NewComponentScaffold(
+        key = componentKey,
+        viewModel = switchViewModel,
+        component = { switchState, style ->
+            Switch(
+                active = switchState.active,
+                label = switchState.label,
+                style = style,
+                description = switchState.description,
+                enabled = switchState.enabled,
+                modifier = Modifier.fillMaxWidth(),
+                onActiveChanged = { switchViewModel.updateActive(it) },
+            )
         },
-        propertiesOwner = switchViewModel,
     )
 }
 

@@ -9,34 +9,31 @@ import com.sdds.compose.uikit.RadioBox
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.Theme
 import com.sdds.playground.sandbox.core.compose.ComponentScaffold
+import com.sdds.playground.sandbox.core.compose.NewComponentScaffold
+import com.sdds.playground.sandbox.core.integration.component.ComponentKey
+import com.sdds.playground.sandbox.core.integration.component.CoreComponent
 
 /**
  * Экран с [RadioBox]
  */
 @Composable
-internal fun RadioBoxScreen(theme: Theme.ThemeInfoCompose = Theme.composeDefault) {
-    val radioBoxViewModel: RadioBoxViewModel = viewModel(
-        factory = RadioBoxViewModelFactory(RadioBoxUiState(), theme),
-        key = theme.toString(),
-    )
-    val radioBoxState by radioBoxViewModel.uiState.collectAsState()
-
-    ComponentScaffold(
-        component = {
-            theme.themeWrapper {
-                RadioBox(
-                    style = radioBoxViewModel
-                        .getStyleProvider()
-                        .style(radioBoxState.variant),
-                    checked = radioBoxState.checked,
-                    onClick = {},
-                    label = radioBoxState.label,
-                    description = radioBoxState.description,
-                    enabled = radioBoxState.enabled,
-                )
-            }
+internal fun RadioBoxScreen(componentKey: ComponentKey = ComponentKey.RadioBox) {
+    NewComponentScaffold(
+        key = componentKey,
+        viewModel = viewModel<RadioBoxViewModel>(
+            factory = RadioBoxViewModelFactory(RadioBoxUiState(), componentKey),
+            key = componentKey.toString(),
+        ),
+        component = { radioBoxState, style ->
+            RadioBox(
+                style = style,
+                checked = radioBoxState.checked,
+                onClick = {},
+                label = radioBoxState.label,
+                description = radioBoxState.description,
+                enabled = radioBoxState.enabled,
+            )
         },
-        propertiesOwner = radioBoxViewModel,
     )
 }
 

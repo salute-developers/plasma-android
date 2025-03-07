@@ -15,7 +15,10 @@ import com.sdds.uikit.Chip
 internal class ChipFragment : ComponentFragment<ChipUiState, Chip>() {
 
     override val componentViewModel by viewModels<ChipParametersViewModel> {
-        ChipParametersViewModelFactory(false, getState { ChipUiState() })
+        ChipParametersViewModelFactory(
+            defaultState = getState { ChipUiState() },
+            componentKey = componentKey,
+        )
     }
 
     override fun getComponent(contextWrapper: ContextThemeWrapper): Chip {

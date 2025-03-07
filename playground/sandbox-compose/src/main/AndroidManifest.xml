@@ -26,6 +26,7 @@
         <activity
             android:name=".activities.compose.SandboxActivityCompose"
             android:exported="false"
+            android:theme="@style/Theme.Sandbox.NoActionBar"
             android:windowSoftInputMode="adjustNothing"
             android:launchMode="singleTop">
         </activity>

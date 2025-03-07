@@ -30,7 +30,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.style.Style
 import com.sdds.playground.sandbox.R
+import com.sdds.playground.sandbox.core.ThemeManager
+import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.serv.theme.SddsServTheme
 import kotlinx.coroutines.launch
 
@@ -97,6 +100,82 @@ internal fun ComponentScaffold(
                     uiScope.launch { sheetState.show() }
                 },
                 onReset = { propertiesOwner.resetToDefault() },
+            )
+        }
+    }
+}
+
+/**
+ * Макет для экрана с компонентом с таблицей изменяемых параметров компонента.
+ * @param component Composable компонента
+ * @param propertiesOwner делегат-владелец свойств
+ */
+@OptIn(ExperimentalMaterialApi::class)
+@Composable
+internal fun <State: UiState, S : Style> NewComponentScaffold(
+    key: ComponentKey,
+    viewModel: ComponentViewModel<State, S>,
+    component: @Composable BoxScope.(State, S) -> Unit,
+) {
+    val sheetState = rememberModalBottomSheetState(ModalBottomSheetValue.Hidden)
+    val uiScope = rememberCoroutineScope()
+    var currentProperty: Property<*>? by remember { mutableStateOf(null) }
+    val properties by viewModel.properties.collectAsState()
+
+    ModalBottomSheetLayout(
+        sheetState = sheetState,
+        sheetContent = {
+            Column(Modifier.padding(dimensionResource(R.dimen.sandbox_editor_paddings))) {
+                PropertyEditor(
+                    property = currentProperty,
+                    onConfirm = {
+                        uiScope.launch { sheetState.hide() }
+                    },
+                )
+                Spacer(modifier = Modifier.imePadding().navigationBarsPadding())
+            }
+        },
+        sheetShape = SddsServTheme.shapes.roundS.copy(
+            bottomStart = CornerSize(0.dp),
+            bottomEnd = CornerSize(0.dp),
+        ),
+        sheetBackgroundColor = SddsServTheme.colors.surfaceDefaultSolidCard,
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(all = 16.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(16.dp),
+        ) {
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .requiredHeight(230.dp)
+                    .clip(SddsServTheme.shapes.roundM)
+                    .border(1.dp, SddsServTheme.colors.surfaceDefaultSolidTertiary, SddsServTheme.shapes.roundM)
+                    .background(SddsServTheme.colors.surfaceDefaultSolidCard)
+                    .padding(16.dp),
+
+                contentAlignment = Alignment.Center,
+            ) {
+                val currentTheme by ThemeManager.currentTheme.collectAsState()
+                currentTheme.compose.themeWrapper {
+                    val uiState by viewModel.uiState.collectAsState()
+                    component(
+                        uiState,
+                        currentTheme.compose.components.get<String, S>(key).styleProvider.style(uiState.variant),
+                    )
+                }
+            }
+
+            PropertiesList(
+                properties = properties,
+                onSelect = {
+                    currentProperty = it
+                    uiScope.launch { sheetState.show() }
+                },
+                onReset = { viewModel.resetToDefault() },
             )
         }
     }

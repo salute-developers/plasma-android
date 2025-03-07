@@ -8,15 +8,12 @@ import com.sdds.playground.sandbox.core.compose.ComponentViewModel
 import com.sdds.playground.sandbox.core.compose.Property
 import com.sdds.playground.sandbox.core.compose.enumProperty
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
+import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 
 internal class CellViewModel(
     defaultState: CellUiState,
-    private val theme: Theme.ThemeInfoCompose,
-) : ComponentViewModel<CellUiState, CellStyle>(defaultState) {
-
-    override fun getStyleProvider(): ComposeStyleProvider<String, CellStyle> {
-        return theme.stylesProvider.cell
-    }
+    componentKey: ComponentKey,
+) : ComponentViewModel<CellUiState, CellStyle>(defaultState, componentKey) {
 
     override fun CellUiState.toProps(): List<Property<*>> {
         return listOfNotNull(
@@ -75,11 +72,11 @@ internal class CellViewModel(
 
 internal class CellViewModelFactory(
     private val defaultState: CellUiState,
-    private val theme: Theme.ThemeInfoCompose,
+    private val componentKey: ComponentKey,
 ) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return CellViewModel(defaultState, theme) as T
+        return CellViewModel(defaultState, componentKey) as T
     }
 }

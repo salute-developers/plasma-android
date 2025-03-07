@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.playground.sandbox.core.integration.StylesProviderView
 import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
+import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
 import com.sdds.playground.sandbox.core.vs.enumProperty
@@ -18,11 +19,8 @@ import com.sdds.uikit.ChipGroup
  */
 internal class ChipGroupParametersViewModel(
     defaultState: ChipUiState,
-) : ComponentViewModel<ChipUiState>(defaultState) {
-
-    override fun getStyleProvider(stylesProvider: StylesProviderView): ViewStyleProvider<String> {
-        return stylesProvider.chipGroup
-    }
+    componentKey: ComponentKey,
+) : ComponentViewModel<ChipUiState>(defaultState, componentKey) {
 
     @Suppress("CyclomaticComplexMethod", "ReturnCount")
     override fun updateProperty(name: String, value: Any?) {
@@ -141,10 +139,11 @@ internal class ChipGroupParametersViewModel(
  */
 internal class ChipGroupParametersViewModelFactory(
     private val defaultState: ChipUiState,
+    private val componentKey: ComponentKey,
 ) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return ChipGroupParametersViewModel(defaultState) as T
+        return ChipGroupParametersViewModel(defaultState, componentKey) as T
     }
 }

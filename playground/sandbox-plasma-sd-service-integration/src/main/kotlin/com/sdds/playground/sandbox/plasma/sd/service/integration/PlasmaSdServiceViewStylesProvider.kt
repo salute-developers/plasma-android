@@ -4,8 +4,8 @@ import com.sdds.playground.sandbox.core.integration.StylesProviderView
 import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
 import com.sdds.playground.sandbox.plasma.sd.service.integration.avatar.PlasmaSdServiceAvatarVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.avatar.group.PlasmaSdServiceAvatarGroupVariationsView
-import com.sdds.playground.sandbox.plasma.sd.service.integration.badge.PlasmaSdServiceBadgeVariationsView
-import com.sdds.playground.sandbox.plasma.sd.service.integration.badge.icon.PlasmaSdServiceIconBadgeVariationsView
+import com.sdds.playground.sandbox.plasma.sd.service.integration.badge.PlasmaSdServiceBadgeClearVariationsView
+import com.sdds.playground.sandbox.plasma.sd.service.integration.badge.icon.PlasmaSdServiceIconBadgeSolidVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.button.basic.PlasmaSdServiceBasicButtonVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.button.icon.PlasmaSdServiceIconButtonVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.button.link.PlasmaSdServiceLinkButtonVariationsView
@@ -60,9 +60,9 @@ object PlasmaSdServiceViewStylesProvider : StylesProviderView {
     override val progress: ViewStyleProvider<String>
         get() = PlasmaSdServiceProgressBarVariationsView
     override val badge: ViewStyleProvider<String>
-        get() = PlasmaSdServiceBadgeVariationsView
+        get() = PlasmaSdServiceBadgeClearVariationsView
     override val iconBadge: ViewStyleProvider<String>
-        get() = PlasmaSdServiceIconBadgeVariationsView
+        get() = PlasmaSdServiceIconBadgeSolidVariationsView
     override val cell: ViewStyleProvider<String>
         get() = PlasmaSdServiceCellVariationsView
     override val counter: ViewStyleProvider<String>

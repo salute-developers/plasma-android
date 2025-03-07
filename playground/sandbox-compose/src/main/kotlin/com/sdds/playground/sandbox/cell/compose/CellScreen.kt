@@ -26,42 +26,39 @@ import com.sdds.compose.uikit.internal.focusselector.applyFocusSelector
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.Theme
 import com.sdds.playground.sandbox.core.compose.ComponentScaffold
+import com.sdds.playground.sandbox.core.compose.NewComponentScaffold
+import com.sdds.playground.sandbox.core.integration.component.ComponentKey
+import com.sdds.playground.sandbox.core.integration.component.CoreComponent
 
 @Composable
-internal fun CellScreen(theme: Theme.ThemeInfoCompose = Theme.composeDefault) {
-    val cellViewModel: CellViewModel =
-        viewModel(
-            factory = CellViewModelFactory(CellUiState(), theme),
-            key = theme.toString(),
-        )
-    val uiState by cellViewModel.uiState.collectAsState()
+internal fun CellScreen(componentKey: ComponentKey = ComponentKey.Cell) {
 
-    ComponentScaffold(
-        component = {
-            theme.themeWrapper {
-                val interactionSource = remember { MutableInteractionSource() }
-                val isFocused = interactionSource.collectIsFocusedAsState()
-                Cell(
-                    modifier = Modifier
-                        .focusable(interactionSource = interactionSource)
-                        .applyFocusSelector(
-                            focusSelectorMode = LocalFocusSelectorMode.current,
-                        ) { isFocused.value },
-                    style = cellViewModel
-                        .getStyleProvider()
-                        .style(uiState.variant),
-                    title = AnnotatedString(uiState.title),
-                    subtitle = AnnotatedString(uiState.subtitle),
-                    label = AnnotatedString(uiState.label),
-                    disclosureEnabled = uiState.hasDisclosure,
-                    disclosureText = AnnotatedString(uiState.disclosureText),
-                    startContent = cellContent(contentType = uiState.startContent),
-                    endContent = cellContent(contentType = uiState.endContent),
-                    interactionSource = interactionSource,
-                )
-            }
+    NewComponentScaffold(
+        key = componentKey,
+        viewModel = viewModel<CellViewModel>(
+            factory = CellViewModelFactory(CellUiState(), componentKey),
+            key = componentKey.toString(),
+        ),
+        component = { uiState, style ->
+            val interactionSource = remember { MutableInteractionSource() }
+            val isFocused = interactionSource.collectIsFocusedAsState()
+            Cell(
+                modifier = Modifier
+                    .focusable(interactionSource = interactionSource)
+                    .applyFocusSelector(
+                        focusSelectorMode = LocalFocusSelectorMode.current,
+                    ) { isFocused.value },
+                style = style,
+                title = AnnotatedString(uiState.title),
+                subtitle = AnnotatedString(uiState.subtitle),
+                label = AnnotatedString(uiState.label),
+                disclosureEnabled = uiState.hasDisclosure,
+                disclosureText = AnnotatedString(uiState.disclosureText),
+                startContent = cellContent(contentType = uiState.startContent),
+                endContent = cellContent(contentType = uiState.endContent),
+                interactionSource = interactionSource,
+            )
         },
-        propertiesOwner = cellViewModel,
     )
 }
 

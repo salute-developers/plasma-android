@@ -17,74 +17,56 @@ import com.sdds.icons.R
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.Theme
 import com.sdds.playground.sandbox.core.compose.ComponentScaffold
+import com.sdds.playground.sandbox.core.compose.NewComponentScaffold
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
+import com.sdds.playground.sandbox.core.integration.component.ComponentKey
+import com.sdds.playground.sandbox.core.integration.component.CoreComponent
 
 /**
  * Экран с [ChipGroup]
  */
 @Composable
-internal fun ChipGroupScreen(theme: Theme.ThemeInfoCompose = Theme.composeDefault) {
-    val chipGroupViewModel: ChipGroupViewModel =
-        viewModel(
-            factory = ChipGroupViewModelFactory(ChipGroupUiState(), theme),
-            key = theme.toString(),
-        )
-    val chipGroupState by chipGroupViewModel.uiState.collectAsState()
-
-    ComponentScaffold(
-        component = {
-            theme.themeWrapper {
-                ChipGroup(
-                    style = chipGroupViewModel
-                        .getStyleProvider()
-                        .style(chipGroupState.variant),
-                    overflowMode = if (chipGroupState.shouldWrap) {
-                        ChipGroup.OverflowMode.Wrap
-                    } else {
-                        ChipGroup.OverflowMode.Scrollable
-                    },
-                ) {
-                    chipGroupState.items.forEach {
-                        var isSelected by remember { mutableStateOf(false) }
-                        Chip(
-                            isSelected = isSelected,
-                            onSelectedChange = { value -> isSelected = value },
-                            label = it,
-                            style = getChipStyle(
-                                isSelected = isSelected,
-                                styleProvider = chipGroupViewModel.getChipStyleProvider(),
-                            ),
-                            endContent = if (isSelected) {
-                                {
-                                    Icon(
-                                        painter = painterResource(id = R.drawable.ic_close_24),
-                                        contentDescription = "",
-                                    )
-                                }
-                            } else {
-                                null
-                            },
-                            enabled = chipGroupState.enabled,
-                        )
-                    }
+internal fun ChipGroupScreen(componentKey: ComponentKey = ComponentKey.ChipGroup) {
+    NewComponentScaffold(
+        key = componentKey,
+        viewModel = viewModel<ChipGroupViewModel>(
+            factory = ChipGroupViewModelFactory(ChipGroupUiState(), componentKey),
+            key = componentKey.toString(),
+        ),
+        component = { chipGroupState, style ->
+            ChipGroup(
+                style = style,
+                overflowMode = if (chipGroupState.shouldWrap) {
+                    ChipGroup.OverflowMode.Wrap
+                } else {
+                    ChipGroup.OverflowMode.Scrollable
+                },
+            ) {
+                chipGroupState.items.forEach {
+                    var isSelected by remember { mutableStateOf(false) }
+                    // TODO https://github.com/salute-developers/plasma-android/issues/306
+                    Chip(
+                        isSelected = isSelected,
+                        onSelectedChange = { value -> isSelected = value },
+                        label = it,
+                        endContent = if (isSelected) {
+                            {
+                                Icon(
+                                    painter = painterResource(id = R.drawable.ic_close_24),
+                                    contentDescription = "",
+                                )
+                            }
+                        } else {
+                            null
+                        },
+                        enabled = chipGroupState.enabled,
+                    )
                 }
             }
         },
-        propertiesOwner = chipGroupViewModel,
     )
 }
 
-@Composable
-private fun getChipStyle(
-    isSelected: Boolean,
-    styleProvider: ComposeStyleProvider<String, ChipStyle>,
-): ChipStyle {
-    return if (isSelected) {
-        styleProvider.style(key = "MAccent")
-    } else {
-        styleProvider.style(key = "MSecondary")
-    }
-}
 
 /**
  * Превью [ChipGroupScreen]

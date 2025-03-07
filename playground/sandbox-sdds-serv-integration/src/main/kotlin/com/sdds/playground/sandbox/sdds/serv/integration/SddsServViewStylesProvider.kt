@@ -4,8 +4,8 @@ import com.sdds.playground.sandbox.core.integration.StylesProviderView
 import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
 import com.sdds.playground.sandbox.sdds.serv.integration.avatar.SddsServAvatarVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.avatar.group.SddsServAvatarGroupVariationsView
-import com.sdds.playground.sandbox.sdds.serv.integration.badge.SddsServBadgeVariationsView
-import com.sdds.playground.sandbox.sdds.serv.integration.badge.icon.SddsServIconBadgeVariationsView
+import com.sdds.playground.sandbox.sdds.serv.integration.badge.SddsServBadgeSolidVariationsView
+import com.sdds.playground.sandbox.sdds.serv.integration.badge.icon.SddsServIconBadgeSolidVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.button.basic.SddsServBasicButtonVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.button.icon.SddsServIconButtonVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.button.link.SddsServLinkButtonVariationsView
@@ -60,9 +60,9 @@ object SddsServViewStylesProvider : StylesProviderView {
     override val progress: ViewStyleProvider<String>
         get() = SddsServProgressBarVariationsView
     override val badge: ViewStyleProvider<String>
-        get() = SddsServBadgeVariationsView
+        get() = SddsServBadgeSolidVariationsView
     override val iconBadge: ViewStyleProvider<String>
-        get() = SddsServIconBadgeVariationsView
+        get() = SddsServIconBadgeSolidVariationsView
     override val cell: ViewStyleProvider<String>
         get() = SddsServCellVariationsView
     override val counter: ViewStyleProvider<String>
