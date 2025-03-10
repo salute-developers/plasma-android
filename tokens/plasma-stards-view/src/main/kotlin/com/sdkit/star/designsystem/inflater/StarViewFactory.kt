@@ -14,7 +14,6 @@ import com.google.android.material.switchmaterial.SwitchMaterial
 import com.sdds.uikit.RadioBoxGroup
 import com.sdkit.star.designsystem.StarConstraintLayout
 import com.sdkit.star.designsystem.StarLinearLayout
-import com.sdkit.star.designsystem.StarView
 
 /**
  * Фабрика [View] из дизайн-системы
@@ -38,7 +37,7 @@ internal class StarViewFactory {
             LinearLayout::class.simpleName,
             -> StarLinearLayout(context, attrs)
             RadioGroup::class.simpleName -> RadioBoxGroup(context, attrs)
-            View::class.simpleName -> StarView(context, attrs)
+            View::class.simpleName -> com.sdds.uikit.View(context, attrs)
             SwitchCompat::class.qualifiedName,
             Switch::class.simpleName,
             SwitchMaterial::class.qualifiedName,
