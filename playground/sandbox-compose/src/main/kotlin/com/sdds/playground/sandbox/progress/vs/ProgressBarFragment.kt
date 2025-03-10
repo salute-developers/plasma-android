@@ -18,7 +18,10 @@ import com.sdds.uikit.ProgressBar
 internal class ProgressBarFragment : ComponentFragment<ProgressUiState, ProgressBar>() {
 
     override val componentViewModel by viewModels<ProgressBarViewModel> {
-        ProgressBarViewModelFactory(getState { ProgressUiState() })
+        ProgressBarViewModelFactory(
+            defaultState = getState { ProgressUiState() },
+            componentKey = componentKey,
+        )
     }
 
     override val defaultLayoutParams: FrameLayout.LayoutParams by lazy {

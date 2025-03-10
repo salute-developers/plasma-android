@@ -12,7 +12,6 @@ import com.sdds.playground.sandbox.core.compose.UiState
  */
 internal data class BadgeUiState(
     override val variant: String = "",
-    val type: BadgeType = BadgeType.Solid,
     val label: String = "Label",
     val contentLeft: Boolean = true,
     val contentRight: Boolean = false,
@@ -20,13 +19,4 @@ internal data class BadgeUiState(
     override fun updateVariant(variant: String): UiState {
         return copy(variant = variant)
     }
-}
-
-/**
- * Вариации стилей отображения Badge
- */
-internal enum class BadgeType {
-    Solid,
-    Clear,
-    Transparent,
 }

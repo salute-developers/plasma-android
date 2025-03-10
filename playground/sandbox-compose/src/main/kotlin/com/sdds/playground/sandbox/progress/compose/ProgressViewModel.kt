@@ -3,18 +3,17 @@ package com.sdds.playground.sandbox.progress.compose
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.compose.uikit.ProgressBarStyle
-import com.sdds.playground.sandbox.Theme
 import com.sdds.playground.sandbox.core.compose.ComponentViewModel
 import com.sdds.playground.sandbox.core.compose.Property
-import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
+import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 
 /**
  * ViewModel компонента Progress
  */
 internal class ProgressViewModel(
     defaultState: ProgressUiState,
-    private val theme: Theme.ThemeInfoCompose,
-) : ComponentViewModel<ProgressUiState, ProgressBarStyle>(defaultState) {
+    componentKey: ComponentKey,
+) : ComponentViewModel<ProgressUiState, ProgressBarStyle>(defaultState, componentKey) {
 
     private fun updateProgress(progress: Float) {
         internalUiState.value = internalUiState.value.copy(
@@ -32,10 +31,6 @@ internal class ProgressViewModel(
         )
     }
 
-    override fun getStyleProvider(): ComposeStyleProvider<String, ProgressBarStyle> {
-        return theme.stylesProvider.progress
-    }
-
     private companion object {
         const val MAX_PROGRESS = 100
     }
@@ -43,11 +38,11 @@ internal class ProgressViewModel(
 
 internal class ProgressViewModelFactory(
     private val defaultState: ProgressUiState,
-    private val theme: Theme.ThemeInfoCompose,
+    private val componentKey: ComponentKey,
 ) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return ProgressViewModel(defaultState, theme) as T
+        return ProgressViewModel(defaultState, componentKey) as T
     }
 }

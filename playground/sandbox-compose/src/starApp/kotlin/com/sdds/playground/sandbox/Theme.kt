@@ -2,11 +2,11 @@ package com.sdds.playground.sandbox
 
 import androidx.annotation.StyleRes
 import androidx.compose.runtime.Composable
-import com.sdds.playground.sandbox.core.integration.StylesProviderCompose
-import com.sdds.playground.sandbox.core.integration.StylesProviderView
-import com.sdds.playground.sandbox.plasma.stards.integration.StarDsComposeStylesProvider
+import com.sdds.playground.sandbox.core.integration.component.ComponentsProviderCompose
+import com.sdds.playground.sandbox.core.integration.component.ComponentsProviderView
+import com.sdds.playground.sandbox.plasma.stards.integration.StarDsComposeComponents
 import com.sdds.playground.sandbox.plasma.stards.integration.StarDsThemeWrapper
-import com.sdds.playground.sandbox.plasma.stards.integration.StarDsViewStylesProvider
+import com.sdds.playground.sandbox.plasma.stards.integration.StarDsViewComponents
 
 internal enum class Theme(
     val compose: ThemeInfoCompose,
@@ -14,28 +14,27 @@ internal enum class Theme(
 ) {
     PlasmaStarDs(
         compose = ThemeInfoCompose(
-            stylesProvider = StarDsComposeStylesProvider,
+            components = StarDsComposeComponents,
             themeWrapper = { StarDsThemeWrapper(it) },
         ),
         view = ThemeInfoView(
-            stylesProvider = StarDsViewStylesProvider,
+            components = StarDsViewComponents,
             themeRes = com.sdkit.star.designsystem.R.style.Sdkit_AppTheme,
         ),
     ),
     ;
 
     internal class ThemeInfoCompose(
-        val stylesProvider: StylesProviderCompose,
+        val components: ComponentsProviderCompose,
         val themeWrapper: @Composable (@Composable () -> Unit) -> Unit,
     )
 
     internal class ThemeInfoView(
-        val stylesProvider: StylesProviderView,
+        val components: ComponentsProviderView,
         @StyleRes val themeRes: Int,
     )
 
     internal companion object {
-        val viewDefault = PlasmaStarDs
-        val composeDefault = PlasmaStarDs.compose
+        val Default = PlasmaStarDs
     }
 }

@@ -1,8 +1,6 @@
 package com.sdds.playground.sandbox.badge.compose
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -10,36 +8,28 @@ import com.sdds.compose.uikit.Badge
 import com.sdds.compose.uikit.Icon
 import com.sdds.icons.R
 import com.sdds.playground.sandbox.SandboxTheme
-import com.sdds.playground.sandbox.Theme
 import com.sdds.playground.sandbox.core.compose.ComponentScaffold
+import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 
 /**
  * Экран с [Badge]
  */
 @Composable
-internal fun BadgeScreen(
-    theme: Theme.ThemeInfoCompose = Theme.composeDefault,
-) {
-    val badgeViewModel: BadgeParametersViewModel = viewModel(
-        factory = BadgeParametersViewModelFactory(BadgeUiState(), theme),
-        key = theme.toString(),
-    )
-    val badgeUiState by badgeViewModel.uiState.collectAsState()
-
+internal fun BadgeScreen(componentKey: ComponentKey = ComponentKey.Badge) {
     ComponentScaffold(
-        component = {
-            theme.themeWrapper {
-                Badge(
-                    style = badgeViewModel
-                        .getStyleProvider()
-                        .style(badgeUiState.variant),
-                    label = badgeUiState.label,
-                    startContent = startContent(badgeUiState.contentLeft),
-                    endContent = endContent(badgeUiState.contentRight),
-                )
-            }
+        key = componentKey,
+        viewModel = viewModel<BadgeParametersViewModel>(
+            factory = BadgeParametersViewModelFactory(BadgeUiState(), componentKey),
+            key = componentKey.toString(),
+        ),
+        component = { badgeUiState, badgeStyle ->
+            Badge(
+                style = badgeStyle,
+                label = badgeUiState.label,
+                startContent = startContent(badgeUiState.contentLeft),
+                endContent = endContent(badgeUiState.contentRight),
+            )
         },
-        propertiesOwner = badgeViewModel,
     )
 }
 

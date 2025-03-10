@@ -2,6 +2,8 @@ package com.sdds.playground.sandbox.core.compose
 
 import android.content.Context
 import android.content.Intent
+import androidx.compose.animation.EnterTransition
+import androidx.compose.animation.ExitTransition
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -15,8 +17,8 @@ import androidx.compose.material.rememberDrawerState
 import androidx.compose.material.rememberModalBottomSheetState
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
@@ -33,10 +35,15 @@ import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.sdds.compose.uikit.IconButton
 import com.sdds.icons.R
 import com.sdds.playground.sandbox.MainSandboxActivity
 import com.sdds.playground.sandbox.Theme
+import com.sdds.playground.sandbox.core.ThemeManager
 import kotlinx.coroutines.launch
 
 /**
@@ -46,16 +53,18 @@ import kotlinx.coroutines.launch
 @OptIn(ExperimentalMaterialApi::class)
 @Suppress("LongMethod")
 @Composable
-internal fun MainContent() {
+internal fun MainContent(themeManager: ThemeManager = ThemeManager) {
     val sandboxStyle = LocalSandboxStyle.current
-    val menuItems = remember { MenuItem.all }
+    val currentTheme by themeManager.currentTheme.collectAsState()
+    val menuItems = remember(currentTheme) { currentTheme.compose.components.getMenuItems() }
     val hasMultipleThemes = remember { Theme.values().size > 1 }
     val drawerState = rememberDrawerState(DrawerValue.Closed)
     val scaffoldState = rememberScaffoldState(drawerState = drawerState)
     val scope = rememberCoroutineScope()
     val themePickerSheetState = rememberModalBottomSheetState(ModalBottomSheetValue.Hidden)
-    var currentItem by remember { mutableStateOf(menuItems.first()) }
-    var currentTheme by remember { mutableStateOf(Theme.values().first()) }
+    val navController = rememberNavController()
+    val currentBackStackEntry by navController.currentBackStackEntryFlow.collectAsState(initial = null)
+    val currentTitle = menuItems.find { it.route == currentBackStackEntry?.destination?.route }?.title.orEmpty()
     Scaffold(
         scaffoldState = scaffoldState,
         backgroundColor = Color.Transparent,
@@ -71,7 +80,15 @@ internal fun MainContent() {
                 onSelect = {
                     scope.launch {
                         drawerState.close()
-                        currentItem = it
+                        navController.navigate(it.route) {
+                            currentBackStackEntry?.destination?.route?.let { prevRoute ->
+                                popUpTo(prevRoute) {
+                                    inclusive = true
+                                }
+                            }
+                            launchSingleTop = true
+                            restoreState = true
+                        }
                     }
                 },
             )
@@ -79,7 +96,7 @@ internal fun MainContent() {
         topBar = {
             val context = LocalContext.current
             TopBar(
-                title = currentItem.title,
+                title = currentTitle,
                 onNavigationClick = { scope.launch { drawerState.open() } },
                 actions = {
                     IconButton(
@@ -107,7 +124,7 @@ internal fun MainContent() {
                     sheetContent = {
                         ThemePicker(
                             currentTheme,
-                            onApply = { currentTheme = it },
+                            onApply = { themeManager.updateTheme(it) },
                             onConfirm = {
                                 scope.launch {
                                     themePickerSheetState.hide()
@@ -119,10 +136,26 @@ internal fun MainContent() {
                     sheetShape = sandboxStyle.sheetShape,
                     sheetBackgroundColor = sandboxStyle.sheetBackgroundColor,
                 ) {
-                    currentItem.screen(currentTheme.compose)
+                    NavigationGraph(navController, menuItems)
                 }
             } else {
-                currentItem.screen(currentTheme.compose)
+                NavigationGraph(navController, menuItems)
+            }
+        }
+    }
+}
+
+@Composable
+internal fun NavigationGraph(navController: NavHostController, menuItems: List<MenuItem>) {
+    NavHost(
+        navController = navController,
+        startDestination = menuItems.first().route,
+        enterTransition = { EnterTransition.None },
+        exitTransition = { ExitTransition.None },
+    ) {
+        menuItems.forEach { item ->
+            composable(item.route) {
+                item.destination.composeScreen(item.componentKey)
             }
         }
     }

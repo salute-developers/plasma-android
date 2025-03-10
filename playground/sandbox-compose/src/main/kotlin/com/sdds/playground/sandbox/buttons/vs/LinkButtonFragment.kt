@@ -17,6 +17,7 @@ internal class LinkButtonFragment : ComponentFragment<ButtonUiState, LinkButton>
     override val componentViewModel by viewModels<LinkButtonViewModel> {
         LinkButtonViewModelFactory(
             defaultState = getState { ButtonUiState() },
+            componentKey = componentKey,
         )
     }
 

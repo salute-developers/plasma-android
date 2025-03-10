@@ -13,6 +13,7 @@ internal class SegmentItemFragment : ComponentFragment<SegmentUiState, SegmentIt
     override val componentViewModel by viewModels<SegmentItemViewModel> {
         SegmentItemViewModelFactory(
             defaultState = getState { SegmentUiState() },
+            componentKey = componentKey,
         )
     }
 

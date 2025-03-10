@@ -22,6 +22,7 @@ internal class BasicButtonFragment : ComponentFragment<ButtonUiState, Button>() 
     override val componentViewModel by viewModels<BasicButtonViewModel> {
         BasicButtonViewModelFactory(
             defaultState = getState { ButtonUiState() },
+            componentKey = componentKey,
         )
     }
 

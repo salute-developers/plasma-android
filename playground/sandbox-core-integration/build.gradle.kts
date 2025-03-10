@@ -2,6 +2,8 @@
 plugins {
     id("convention.android-lib")
     id("convention.compose")
+    id("kotlin-parcelize")
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -16,4 +18,5 @@ dependencies {
     implementation(libs.base.androidX.appcompat)
     implementation(libs.base.androidX.compose.foundation)
     implementation(libs.base.android.material)
+    implementation(libs.base.kotlin.serialization.json)
 }

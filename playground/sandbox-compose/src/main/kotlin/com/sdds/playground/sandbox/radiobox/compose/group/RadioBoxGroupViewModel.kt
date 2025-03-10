@@ -3,23 +3,18 @@ package com.sdds.playground.sandbox.radiobox.compose.group
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.compose.uikit.RadioBoxGroupStyle
-import com.sdds.playground.sandbox.Theme
 import com.sdds.playground.sandbox.core.compose.ComponentViewModel
 import com.sdds.playground.sandbox.core.compose.PropertiesOwner
 import com.sdds.playground.sandbox.core.compose.Property
-import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
+import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 
 /**
  * ViewModel для экранов с компонентом RadioBox
  */
 internal class RadioBoxGroupViewModel(
     defaultState: RadioBoxGroupUiState,
-    private val theme: Theme.ThemeInfoCompose,
-) : ComponentViewModel<RadioBoxGroupUiState, RadioBoxGroupStyle>(defaultState), PropertiesOwner {
-
-    override fun getStyleProvider(): ComposeStyleProvider<String, RadioBoxGroupStyle> {
-        return theme.stylesProvider.radioBoxGroup
-    }
+    componentKey: ComponentKey,
+) : ComponentViewModel<RadioBoxGroupUiState, RadioBoxGroupStyle>(defaultState, componentKey), PropertiesOwner {
 
     /**
      * Обновляет текущий выбранный элемент
@@ -76,11 +71,11 @@ internal class RadioBoxGroupViewModel(
 
 internal class RadioBoxGroupViewModelFactory(
     private val defaultState: RadioBoxGroupUiState,
-    private val theme: Theme.ThemeInfoCompose,
+    private val componentKey: ComponentKey,
 ) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return RadioBoxGroupViewModel(defaultState, theme) as T
+        return RadioBoxGroupViewModel(defaultState, componentKey) as T
     }
 }

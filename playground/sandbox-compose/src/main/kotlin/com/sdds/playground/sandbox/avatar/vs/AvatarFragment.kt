@@ -14,10 +14,10 @@ import com.sdds.uikit.Avatar
  */
 internal class AvatarFragment : ComponentFragment<AvatarUiState, Avatar>() {
 
-    override val componentViewModel by viewModels<AvatarParameterViewModel> {
-        AvatarParameterViewModelFactory(
-            groupMode = false,
+    override val componentViewModel by viewModels<AvatarViewModel> {
+        AvatarViewModelFactory(
             defaultState = getState { AvatarUiState() },
+            componentKey = componentKey,
         )
     }
 

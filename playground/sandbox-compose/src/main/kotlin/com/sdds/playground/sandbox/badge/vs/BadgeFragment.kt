@@ -16,6 +16,7 @@ internal class BadgeFragment : ComponentFragment<BadgeUiState, Badge>() {
     override val componentViewModel by viewModels<BadgeParametersViewModel> {
         BadgeParametersViewModelFactory(
             defaultState = getState { BadgeUiState() },
+            componentKey = componentKey,
         )
     }
 

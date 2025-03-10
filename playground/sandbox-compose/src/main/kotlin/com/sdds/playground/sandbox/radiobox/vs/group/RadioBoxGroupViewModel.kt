@@ -2,8 +2,7 @@ package com.sdds.playground.sandbox.radiobox.vs.group
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.sdds.playground.sandbox.core.integration.StylesProviderView
-import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
+import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
 import com.sdds.testing.vs.radiobox.RadioBoxUiState
@@ -13,7 +12,8 @@ import com.sdds.testing.vs.radiobox.RadioBoxUiState
  */
 internal class RadioBoxGroupViewModel(
     defaultState: RadioBoxUiState,
-) : ComponentViewModel<RadioBoxUiState>(defaultState) {
+    componentKey: ComponentKey,
+) : ComponentViewModel<RadioBoxUiState>(defaultState, componentKey) {
 
     override fun updateProperty(name: String, value: Any?) {
         super.updateProperty(name, value)
@@ -23,10 +23,6 @@ internal class RadioBoxGroupViewModel(
             RadioBoxPropertyName.Description -> updateDescription(value?.toString().orEmpty())
             else -> Unit
         }
-    }
-
-    override fun getStyleProvider(stylesProvider: StylesProviderView): ViewStyleProvider<String> {
-        return stylesProvider.radioBoxGroup
     }
 
     private fun updateLabel(text: String) {
@@ -63,10 +59,11 @@ internal class RadioBoxGroupViewModel(
  */
 internal class RadioBoxGroupViewModelFactory(
     private val defaultState: RadioBoxUiState,
+    private val componentKey: ComponentKey,
 ) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return RadioBoxGroupViewModel(defaultState) as T
+        return RadioBoxGroupViewModel(defaultState, componentKey) as T
     }
 }

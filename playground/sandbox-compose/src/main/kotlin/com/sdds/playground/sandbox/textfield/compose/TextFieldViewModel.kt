@@ -4,25 +4,14 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.compose.uikit.TextFieldStyle
-import com.sdds.playground.sandbox.Theme
 import com.sdds.playground.sandbox.core.compose.ComponentViewModel
 import com.sdds.playground.sandbox.core.compose.Property
-import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
+import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 
 internal open class TextFieldViewModel(
     defaultState: TextFieldUiState,
-    private val theme: Theme.ThemeInfoCompose,
-    private val textFieldType: TextFieldType,
-) : ComponentViewModel<TextFieldUiState, TextFieldStyle>(defaultState) {
-
-    override fun getStyleProvider(): ComposeStyleProvider<String, TextFieldStyle> {
-        return when (textFieldType) {
-            TextFieldType.TextField -> theme.stylesProvider.textField
-            TextFieldType.TextFieldClear -> theme.stylesProvider.textFieldClear
-            TextFieldType.TextArea -> theme.stylesProvider.textArea
-            TextFieldType.TextAreaClear -> theme.stylesProvider.textAreaClear
-        }
-    }
+    componentKey: ComponentKey,
+) : ComponentViewModel<TextFieldUiState, TextFieldStyle>(defaultState, componentKey) {
 
     fun onValueChange(textFieldValue: TextFieldValue) {
         internalUiState.value = internalUiState.value.copy(
@@ -179,12 +168,11 @@ internal open class TextFieldViewModel(
 
 internal class TextFieldViewModelFactory(
     private val defaultState: TextFieldUiState,
-    private val theme: Theme.ThemeInfoCompose,
-    private val textFieldType: TextFieldType,
+    private val componentKey: ComponentKey,
 ) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return TextFieldViewModel(defaultState, theme, textFieldType) as T
+        return TextFieldViewModel(defaultState, componentKey) as T
     }
 }
