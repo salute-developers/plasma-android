@@ -2,8 +2,7 @@ package com.sdds.playground.sandbox.switcher.vs
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.sdds.playground.sandbox.core.integration.StylesProviderView
-import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
+import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
 import com.sdds.testing.vs.switcher.SwitchUiState
@@ -13,11 +12,8 @@ import com.sdds.testing.vs.switcher.SwitchUiState
  */
 internal class SwitchViewModel(
     defaultState: SwitchUiState,
-) : ComponentViewModel<SwitchUiState>(defaultState) {
-
-    override fun getStyleProvider(stylesProvider: StylesProviderView): ViewStyleProvider<String> {
-        return stylesProvider.switch
-    }
+    componentKey: ComponentKey,
+) : ComponentViewModel<SwitchUiState>(defaultState, componentKey) {
 
     override fun updateProperty(name: String, value: Any?) {
         super.updateProperty(name, value)
@@ -89,9 +85,10 @@ internal class SwitchViewModel(
  */
 internal class SwitchViewModelFactory(
     private val defaultState: SwitchUiState,
+    private val componentKey: ComponentKey,
 ) : ViewModelProvider.Factory {
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return SwitchViewModel(defaultState) as T
+        return SwitchViewModel(defaultState, componentKey) as T
     }
 }

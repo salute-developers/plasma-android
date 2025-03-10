@@ -2,17 +2,17 @@ package com.sdds.playground.sandbox
 
 import androidx.annotation.StyleRes
 import androidx.compose.runtime.Composable
-import com.sdds.playground.sandbox.core.integration.StylesProviderCompose
-import com.sdds.playground.sandbox.core.integration.StylesProviderView
-import com.sdds.playground.sandbox.plasma.sd.service.integration.PlasmaSdServiceComposeStylesProvider
+import com.sdds.playground.sandbox.core.integration.component.ComponentsProviderCompose
+import com.sdds.playground.sandbox.core.integration.component.ComponentsProviderView
+import com.sdds.playground.sandbox.plasma.sd.service.integration.PlasmaSdServiceComposeComponents
 import com.sdds.playground.sandbox.plasma.sd.service.integration.PlasmaSdServiceThemeWrapper
-import com.sdds.playground.sandbox.plasma.sd.service.integration.PlasmaSdServiceViewStylesProvider
-import com.sdds.playground.sandbox.sdds.serv.integration.SddsServComposeStylesProvider
+import com.sdds.playground.sandbox.plasma.sd.service.integration.PlasmaSdServiceViewComponents
+import com.sdds.playground.sandbox.sdds.serv.integration.SddsServComposeComponents
 import com.sdds.playground.sandbox.sdds.serv.integration.SddsServThemeWrapper
-import com.sdds.playground.sandbox.sdds.serv.integration.SddsServViewStylesProvider
-import com.sdds.playground.sandbox.stylessalute.integration.StylesSaluteComposeStylesProvider
+import com.sdds.playground.sandbox.sdds.serv.integration.SddsServViewComponents
+import com.sdds.playground.sandbox.stylessalute.integration.StylesSaluteComposeComponents
 import com.sdds.playground.sandbox.stylessalute.integration.StylesSaluteThemeWrapper
-import com.sdds.playground.sandbox.stylessalute.integration.StylesSaluteViewStylesProvider
+import com.sdds.playground.sandbox.stylessalute.integration.StylesSaluteViewComponents
 
 internal enum class Theme(
     val compose: ThemeInfoCompose,
@@ -20,48 +20,47 @@ internal enum class Theme(
 ) {
     SddsServ(
         compose = ThemeInfoCompose(
-            stylesProvider = SddsServComposeStylesProvider,
+            components = SddsServComposeComponents,
             themeWrapper = { SddsServThemeWrapper(it) },
         ),
         view = ThemeInfoView(
-            stylesProvider = SddsServViewStylesProvider,
+            components = SddsServViewComponents,
             themeRes = com.sdds.serv.R.style.Serv_Sdds_MaterialComponents_DayNight,
         ),
     ),
     PlasmaSdService(
         compose = ThemeInfoCompose(
-            stylesProvider = PlasmaSdServiceComposeStylesProvider,
+            components = PlasmaSdServiceComposeComponents,
             themeWrapper = { PlasmaSdServiceThemeWrapper(it) },
         ),
         view = ThemeInfoView(
-            stylesProvider = PlasmaSdServiceViewStylesProvider,
+            components = PlasmaSdServiceViewComponents,
             themeRes = com.sdds.plasma.sd.service.R.style.Plasma_SdService_MaterialComponents_DayNight,
         ),
     ),
     StylesSalute(
         compose = ThemeInfoCompose(
-            stylesProvider = StylesSaluteComposeStylesProvider,
+            components = StylesSaluteComposeComponents,
             themeWrapper = { StylesSaluteThemeWrapper(it) },
         ),
         view = ThemeInfoView(
-            stylesProvider = StylesSaluteViewStylesProvider,
+            components = StylesSaluteViewComponents,
             themeRes = com.sdds.stylessalute.R.style.Salute_StylesSalute_MaterialComponents_DayNight,
         ),
     ),
     ;
 
     internal class ThemeInfoCompose(
-        val stylesProvider: StylesProviderCompose,
+        val components: ComponentsProviderCompose,
         val themeWrapper: @Composable (@Composable () -> Unit) -> Unit,
     )
 
     internal class ThemeInfoView(
-        val stylesProvider: StylesProviderView,
+        val components: ComponentsProviderView,
         @StyleRes val themeRes: Int,
     )
 
     internal companion object {
-        val viewDefault = SddsServ
-        val composeDefault = SddsServ.compose
+        val Default = SddsServ
     }
 }

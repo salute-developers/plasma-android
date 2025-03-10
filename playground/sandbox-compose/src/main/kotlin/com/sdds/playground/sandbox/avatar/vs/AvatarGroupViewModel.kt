@@ -2,22 +2,21 @@ package com.sdds.playground.sandbox.avatar.vs
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.sdds.playground.sandbox.core.integration.StylesProviderView
-import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
+import androidx.lifecycle.viewmodel.CreationExtras
+import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
-import com.sdds.playground.sandbox.core.vs.enumProperty
 import com.sdds.testing.vs.avatar.AvatarUiState
 import com.sdds.testing.vs.avatar.ExampleMode
 import com.sdds.uikit.Avatar
 
 /**
- * ViewModel для экранов с компонентом [Avatar]
+ * ViewModel для экранов с компонентом [AvatarGroup]
  */
-internal class AvatarParameterViewModel(
-    private val groupMode: Boolean = false,
+internal class AvatarGroupViewModel(
     defaultState: AvatarUiState,
-) : ComponentViewModel<AvatarUiState>(defaultState) {
+    componentKey: ComponentKey,
+) : ComponentViewModel<AvatarUiState>(defaultState, componentKey) {
 
     override fun updateProperty(name: String, value: Any?) {
         super.updateProperty(name, value)
@@ -55,42 +54,18 @@ internal class AvatarParameterViewModel(
 
     override fun AvatarUiState.toProps(): List<Property<*>> {
         return mutableListOf<Property<*>>().apply {
-            if (!groupMode) {
-                add(
-                    enumProperty(
-                        name = AvatarPropertyName.ExampleMode.value,
-                        value = exampleMode,
-                    ),
-                )
-                add(
-                    enumProperty(
-                        name = AvatarPropertyName.Status.value,
-                        value = status,
-                    ),
-                )
-                add(
-                    Property.BooleanProperty(
-                        name = AvatarPropertyName.ActionEnabled.value,
-                        value = actionEnabled,
-                    ),
-                )
-            }
-
             add(
                 Property.StringProperty(
                     name = AvatarPropertyName.Placeholder.value,
                     value = fullName.orEmpty(),
                 ),
             )
-
-            if (groupMode) {
-                add(
-                    Property.IntProperty(
-                        name = AvatarPropertyName.Threshold.value,
-                        value = threshold,
-                    ),
-                )
-            }
+            add(
+                Property.IntProperty(
+                    name = AvatarPropertyName.Threshold.value,
+                    value = threshold,
+                ),
+            )
         }
     }
 
@@ -101,23 +76,18 @@ internal class AvatarParameterViewModel(
         ActionEnabled("action enabled"),
         Threshold("threshold"),
     }
-
-    override fun getStyleProvider(stylesProvider: StylesProviderView): ViewStyleProvider<String> {
-        return if (groupMode) stylesProvider.avatarGroup else stylesProvider.avatar
-    }
 }
 
 /**
- * Фабрика [AvatarParameterViewModel]
- * @param groupMode режим группы аватаров
+ * Фабрика [AvatarGroupViewModel]
  */
-internal class AvatarParameterViewModelFactory(
-    private val groupMode: Boolean = false,
+internal class AvatarGroupViewModelFactory(
     private val defaultState: AvatarUiState,
+    private val componentKey: ComponentKey,
 ) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
-    override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return AvatarParameterViewModel(groupMode = groupMode, defaultState = defaultState) as T
+    override fun <T : ViewModel> create(modelClass: Class<T>, extras: CreationExtras): T {
+        return AvatarGroupViewModel(defaultState = defaultState, componentKey = componentKey) as T
     }
 }

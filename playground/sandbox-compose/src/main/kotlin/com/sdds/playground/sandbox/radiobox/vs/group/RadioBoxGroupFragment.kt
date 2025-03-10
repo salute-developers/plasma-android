@@ -18,7 +18,10 @@ import com.sdds.uikit.RadioBoxGroup
 internal class RadioBoxGroupFragment : ComponentFragment<RadioBoxUiState, RadioBoxGroup>() {
 
     override val componentViewModel by viewModels<RadioBoxGroupViewModel> {
-        RadioBoxGroupViewModelFactory(getState { RadioBoxUiState() })
+        RadioBoxGroupViewModelFactory(
+            defaultState = getState { RadioBoxUiState() },
+            componentKey = componentKey,
+        )
     }
 
     override val defaultLayoutParams: FrameLayout.LayoutParams

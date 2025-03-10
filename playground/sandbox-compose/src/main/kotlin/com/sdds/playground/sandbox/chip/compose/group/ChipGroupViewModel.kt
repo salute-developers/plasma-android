@@ -3,24 +3,14 @@ package com.sdds.playground.sandbox.chip.compose.group
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.compose.uikit.ChipGroupStyle
-import com.sdds.compose.uikit.ChipStyle
-import com.sdds.playground.sandbox.Theme
 import com.sdds.playground.sandbox.core.compose.ComponentViewModel
 import com.sdds.playground.sandbox.core.compose.Property
-import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
+import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 
 internal class ChipGroupViewModel(
     defaultState: ChipGroupUiState,
-    private val theme: Theme.ThemeInfoCompose,
-) : ComponentViewModel<ChipGroupUiState, ChipGroupStyle>(defaultState) {
-
-    override fun getStyleProvider(): ComposeStyleProvider<String, ChipGroupStyle> {
-        return theme.stylesProvider.chipGroup
-    }
-
-    fun getChipStyleProvider(): ComposeStyleProvider<String, ChipStyle> {
-        return theme.stylesProvider.chip
-    }
+    componentKey: ComponentKey,
+) : ComponentViewModel<ChipGroupUiState, ChipGroupStyle>(defaultState, componentKey) {
 
     private fun updateQuantity(quantity: Int, label: String) {
         if (quantity !in 2..10) return
@@ -74,11 +64,11 @@ internal class ChipGroupViewModel(
 
 internal class ChipGroupViewModelFactory(
     private val defaultState: ChipGroupUiState,
-    private val theme: Theme.ThemeInfoCompose,
+    private val componentKey: ComponentKey,
 ) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return ChipGroupViewModel(defaultState, theme) as T
+        return ChipGroupViewModel(defaultState, componentKey) as T
     }
 }

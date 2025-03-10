@@ -3,22 +3,17 @@ package com.sdds.playground.sandbox.counter.compose
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.compose.uikit.CounterStyle
-import com.sdds.playground.sandbox.Theme
 import com.sdds.playground.sandbox.core.compose.ComponentViewModel
 import com.sdds.playground.sandbox.core.compose.Property
-import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
+import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 
 /**
  * ViewModel для экранов с компонентом Counter
  */
 internal class CounterParametersViewModel(
     defaultState: CounterUiState,
-    private val theme: Theme.ThemeInfoCompose,
-) : ComponentViewModel<CounterUiState, CounterStyle>(defaultState) {
-
-    override fun getStyleProvider(): ComposeStyleProvider<String, CounterStyle> {
-        return theme.stylesProvider.counter
-    }
+    componentKey: ComponentKey,
+) : ComponentViewModel<CounterUiState, CounterStyle>(defaultState, componentKey) {
 
     private fun updateCount(text: String) {
         internalUiState.value = internalUiState.value.copy(count = text)
@@ -40,11 +35,11 @@ internal class CounterParametersViewModel(
  */
 internal class CounterParametersViewModelFactory(
     private val defaultState: CounterUiState,
-    private val theme: Theme.ThemeInfoCompose,
+    private val componentKey: ComponentKey,
 ) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return CounterParametersViewModel(defaultState, theme) as T
+        return CounterParametersViewModel(defaultState, componentKey) as T
     }
 }

@@ -18,7 +18,10 @@ import com.sdds.uikit.CheckBoxGroup
 internal class CheckBoxGroupFragment : ComponentFragment<CheckBoxUiState, CheckBoxGroup>() {
 
     override val componentViewModel by viewModels<CheckBoxGroupViewModel> {
-        CheckBoxGroupViewModelFactory(getState { CheckBoxUiState() })
+        CheckBoxGroupViewModelFactory(
+            defaultState = getState { CheckBoxUiState() },
+            componentKey = componentKey,
+        )
     }
 
     override val defaultLayoutParams: FrameLayout.LayoutParams

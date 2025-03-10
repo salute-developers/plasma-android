@@ -4,24 +4,19 @@ import androidx.compose.ui.state.ToggleableState
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.compose.uikit.CheckBoxGroupStyle
-import com.sdds.playground.sandbox.Theme
 import com.sdds.playground.sandbox.checkbox.compose.group.CheckBoxGroupUiState.Companion.ROOT_ITEM
 import com.sdds.playground.sandbox.checkbox.compose.toggle
 import com.sdds.playground.sandbox.core.compose.ComponentViewModel
 import com.sdds.playground.sandbox.core.compose.Property
-import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
+import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 
 /**
  * ViewModel для экранов с компонентом CheckBoxGroup
  */
 internal class CheckBoxGroupViewModel(
     defaultState: CheckBoxGroupUiState,
-    private val theme: Theme.ThemeInfoCompose,
-) : ComponentViewModel<CheckBoxGroupUiState, CheckBoxGroupStyle>(defaultState) {
-
-    override fun getStyleProvider(): ComposeStyleProvider<String, CheckBoxGroupStyle> {
-        return theme.stylesProvider.checkBoxGroup
-    }
+    componentKey: ComponentKey,
+) : ComponentViewModel<CheckBoxGroupUiState, CheckBoxGroupStyle>(defaultState, componentKey) {
 
     fun checkBoxClicked(id: Int) {
         internalUiState.value = internalUiState.value.copy(
@@ -121,11 +116,11 @@ internal class CheckBoxGroupViewModel(
 
 internal class CheckBoxGroupViewModelFactory(
     private val defaultState: CheckBoxGroupUiState,
-    private val theme: Theme.ThemeInfoCompose,
+    private val componentKey: ComponentKey,
 ) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return CheckBoxGroupViewModel(defaultState, theme) as T
+        return CheckBoxGroupViewModel(defaultState, componentKey) as T
     }
 }

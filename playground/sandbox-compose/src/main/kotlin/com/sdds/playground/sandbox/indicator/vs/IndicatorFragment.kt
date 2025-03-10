@@ -13,7 +13,10 @@ import com.sdds.uikit.Indicator
 internal class IndicatorFragment : ComponentFragment<IndicatorUiState, Indicator>() {
 
     override val componentViewModel by viewModels<IndicatorParametersViewModel> {
-        IndicatorParametersViewModelFactory(getState { IndicatorUiState() })
+        IndicatorParametersViewModelFactory(
+            defaultState = getState { IndicatorUiState() },
+            componentKey = componentKey,
+        )
     }
 
     override fun getComponent(contextWrapper: ContextThemeWrapper): Indicator {

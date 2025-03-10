@@ -2,8 +2,7 @@ package com.sdds.playground.sandbox.cell.vs
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.sdds.playground.sandbox.core.integration.StylesProviderView
-import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
+import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
 import com.sdds.playground.sandbox.core.vs.enumProperty
@@ -16,11 +15,8 @@ import com.sdds.testing.vs.cell.CellUiState
  */
 internal class CellParametersViewModel(
     defaultState: CellUiState,
-) : ComponentViewModel<CellUiState>(defaultState) {
-
-    override fun getStyleProvider(stylesProvider: StylesProviderView): ViewStyleProvider<String> {
-        return stylesProvider.cell
-    }
+    componentKey: ComponentKey,
+) : ComponentViewModel<CellUiState>(defaultState, componentKey) {
 
     override fun updateProperty(name: String, value: Any?) {
         super.updateProperty(name, value)
@@ -95,10 +91,11 @@ internal class CellParametersViewModel(
  */
 internal class CellParametersViewModelFactory(
     private val defaultState: CellUiState,
+    private val componentKey: ComponentKey,
 ) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return CellParametersViewModel(defaultState) as T
+        return CellParametersViewModel(defaultState, componentKey) as T
     }
 }

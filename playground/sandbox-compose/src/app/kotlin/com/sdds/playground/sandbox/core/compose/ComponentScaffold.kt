@@ -30,7 +30,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.style.Style
 import com.sdds.playground.sandbox.R
+import com.sdds.playground.sandbox.core.ThemeManager
+import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.serv.theme.SddsServTheme
 import kotlinx.coroutines.launch
 
@@ -41,14 +44,16 @@ import kotlinx.coroutines.launch
  */
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-internal fun ComponentScaffold(
-    component: @Composable BoxScope.() -> Unit,
-    propertiesOwner: PropertiesOwner,
+internal fun <State : UiState, S : Style> ComponentScaffold(
+    key: ComponentKey,
+    viewModel: ComponentViewModel<State, S>,
+    themeManager: ThemeManager = ThemeManager,
+    component: @Composable BoxScope.(State, S) -> Unit,
 ) {
     val sheetState = rememberModalBottomSheetState(ModalBottomSheetValue.Hidden)
     val uiScope = rememberCoroutineScope()
     var currentProperty: Property<*>? by remember { mutableStateOf(null) }
-    val properties by propertiesOwner.properties.collectAsState()
+    val properties by viewModel.properties.collectAsState()
 
     ModalBottomSheetLayout(
         sheetState = sheetState,
@@ -87,7 +92,14 @@ internal fun ComponentScaffold(
 
                 contentAlignment = Alignment.Center,
             ) {
-                component()
+                val currentTheme by themeManager.currentTheme.collectAsState()
+                currentTheme.compose.themeWrapper {
+                    val uiState by viewModel.uiState.collectAsState()
+                    component(
+                        uiState,
+                        currentTheme.compose.components.get<String, S>(key).styleProvider.style(uiState.variant),
+                    )
+                }
             }
 
             PropertiesList(
@@ -96,7 +108,7 @@ internal fun ComponentScaffold(
                     currentProperty = it
                     uiScope.launch { sheetState.show() }
                 },
-                onReset = { propertiesOwner.resetToDefault() },
+                onReset = { viewModel.resetToDefault() },
             )
         }
     }

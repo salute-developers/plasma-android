@@ -25,8 +25,11 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogWindowProvider
+import com.sdds.compose.uikit.style.Style
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.SandboxTheme
+import com.sdds.playground.sandbox.core.ThemeManager
+import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdkit.star.designsystem.theme.StarDsTheme
 
 /**
@@ -35,13 +38,15 @@ import com.sdkit.star.designsystem.theme.StarDsTheme
  * @param propertiesOwner делегат-владелец свойств
  */
 @Composable
-internal fun ComponentScaffold(
-    component: @Composable BoxScope.() -> Unit,
-    propertiesOwner: PropertiesOwner,
+internal fun <State : UiState, S : Style> ComponentScaffold(
+    key: ComponentKey,
+    viewModel: ComponentViewModel<State, S>,
+    themeManager: ThemeManager = ThemeManager,
+    component: @Composable BoxScope.(State, S) -> Unit,
 ) {
     var currentProperty: Property<*>? by remember { mutableStateOf(null) }
-    val properties by propertiesOwner.properties.collectAsState()
     var openDialog by remember { mutableStateOf(false) }
+    val properties by viewModel.properties.collectAsState()
 
     Row(
         modifier = Modifier
@@ -65,7 +70,14 @@ internal fun ComponentScaffold(
 
             contentAlignment = Alignment.Center,
         ) {
-            component()
+            val currentTheme by themeManager.currentTheme.collectAsState()
+            currentTheme.compose.themeWrapper {
+                val uiState by viewModel.uiState.collectAsState()
+                component(
+                    uiState,
+                    currentTheme.compose.components.get<String, S>(key).styleProvider.style(uiState.variant),
+                )
+            }
         }
 
         PropertiesList(
@@ -76,7 +88,7 @@ internal fun ComponentScaffold(
                 currentProperty = it
                 openDialog = true
             },
-            onReset = { propertiesOwner.resetToDefault() },
+            onReset = { viewModel.resetToDefault() },
         )
     }
 

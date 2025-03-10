@@ -10,6 +10,7 @@ plugins {
     id("kotlin-parcelize")
     alias(libs.plugins.roborazzi)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.serialization)
     id("star-dimens-generator")
 }
 
@@ -133,8 +134,10 @@ dependencies {
     implementation(libs.base.androidX.lifecycle.viewmodel)
     implementation(libs.base.androidX.navigation.fragment)
     implementation(libs.base.androidX.navigation.ui)
+    implementation(libs.base.androidX.navigation.compose)
     implementation(libs.base.androidX.activity.ktx)
     implementation(libs.base.glide)
+    implementation(libs.base.kotlin.serialization.json)
 
     // Preview support
     implementation(libs.base.androidX.compose.uiTooling.preview)
