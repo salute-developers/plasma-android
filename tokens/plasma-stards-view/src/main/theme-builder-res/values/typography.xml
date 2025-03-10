@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Sdkit.StarDs.Typography"/>
+    <!--typography s display-l-->
+    <style name="Sdkit.StarDs.Typography.DisplayLNormal">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.DisplayLNormal</item>
+    </style>
+    <!--typography s display-l-bold-->
+    <style name="Sdkit.StarDs.Typography.DisplayLBold">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.DisplayLBold</item>
+    </style>
+    <!--typography s display-m-->
+    <style name="Sdkit.StarDs.Typography.DisplayMNormal">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.DisplayMNormal</item>
+    </style>
+    <!--typography s display-m-bold-->
+    <style name="Sdkit.StarDs.Typography.DisplayMBold">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.DisplayMBold</item>
+    </style>
+    <!--typography s display-s-->
+    <style name="Sdkit.StarDs.Typography.DisplaySNormal">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.DisplaySNormal</item>
+    </style>
+    <!--typography s display-s-bold-->
+    <style name="Sdkit.StarDs.Typography.DisplaySBold">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.DisplaySBold</item>
+    </style>
+    <!--typography s header-h1-->
+    <style name="Sdkit.StarDs.Typography.HeaderH1Normal">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.HeaderH1Normal</item>
+    </style>
+    <!--typography s header-h1-bold-->
+    <style name="Sdkit.StarDs.Typography.HeaderH1Bold">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.HeaderH1Bold</item>
+    </style>
+    <!--typography s header-h2-->
+    <style name="Sdkit.StarDs.Typography.HeaderH2Normal">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.HeaderH2Normal</item>
+    </style>
+    <!--typography s header-h2-bold-->
+    <style name="Sdkit.StarDs.Typography.HeaderH2Bold">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.HeaderH2Bold</item>
+    </style>
+    <!--typography s header-h3-->
+    <style name="Sdkit.StarDs.Typography.HeaderH3Normal">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.HeaderH3Normal</item>
+    </style>
+    <!--typography s header-h3-bold-->
+    <style name="Sdkit.StarDs.Typography.HeaderH3Bold">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.HeaderH3Bold</item>
+    </style>
+    <!--typography s header-h4-->
+    <style name="Sdkit.StarDs.Typography.HeaderH4Normal">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.HeaderH4Normal</item>
+    </style>
+    <!--typography s header-h4-bold-->
+    <style name="Sdkit.StarDs.Typography.HeaderH4Bold">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.HeaderH4Bold</item>
+    </style>
+    <!--typography s header-h5-->
+    <style name="Sdkit.StarDs.Typography.HeaderH5Normal">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.HeaderH5Normal</item>
+    </style>
+    <!--typography s header-h5-bold-->
+    <style name="Sdkit.StarDs.Typography.HeaderH5Bold">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.HeaderH5Bold</item>
+    </style>
+    <!--typography s body-l-->
+    <style name="Sdkit.StarDs.Typography.BodyLNormal">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodyLNormal</item>
+    </style>
+    <!--typography s body-l-bold-->
+    <style name="Sdkit.StarDs.Typography.BodyLBold">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodyLBold</item>
+    </style>
+    <!--typography s body-m-->
+    <style name="Sdkit.StarDs.Typography.BodyMNormal">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodyMNormal</item>
+    </style>
+    <!--typography s body-m-bold-->
+    <style name="Sdkit.StarDs.Typography.BodyMBold">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodyMBold</item>
+    </style>
+    <!--typography s body-s-->
+    <style name="Sdkit.StarDs.Typography.BodySNormal">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodySNormal</item>
+    </style>
+    <!--typography s body-s-bold-->
+    <style name="Sdkit.StarDs.Typography.BodySBold">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodySBold</item>
+    </style>
+    <!--typography s body-xs-->
+    <style name="Sdkit.StarDs.Typography.BodyXsNormal">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXsNormal</item>
+    </style>
+    <!--typography s body-xs-bold-->
+    <style name="Sdkit.StarDs.Typography.BodyXsBold">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXsBold</item>
+    </style>
+    <!--typography s body-xxs-->
+    <style name="Sdkit.StarDs.Typography.BodyXxsNormal">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXxsNormal</item>
+    </style>
+    <!--typography s body-xxs-bold-->
+    <style name="Sdkit.StarDs.Typography.BodyXxsBold">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXxsBold</item>
+    </style>
+    <!--typography s text-l-->
+    <style name="Sdkit.StarDs.Typography.TextLNormal">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.TextLNormal</item>
+    </style>
+    <!--typography s text-l-bold-->
+    <style name="Sdkit.StarDs.Typography.TextLBold">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.TextLBold</item>
+    </style>
+    <!--typography s text-m-->
+    <style name="Sdkit.StarDs.Typography.TextMNormal">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.TextMNormal</item>
+    </style>
+    <!--typography s text-m-bold-->
+    <style name="Sdkit.StarDs.Typography.TextMBold">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.TextMBold</item>
+    </style>
+    <!--typography s text-s-->
+    <style name="Sdkit.StarDs.Typography.TextSNormal">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.TextSNormal</item>
+    </style>
+    <!--typography s text-s-bold-->
+    <style name="Sdkit.StarDs.Typography.TextSBold">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.TextSBold</item>
+    </style>
+    <!--typography s text-xs-->
+    <style name="Sdkit.StarDs.Typography.TextXsNormal">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.TextXsNormal</item>
+    </style>
+    <!--typography s text-xs-bold-->
+    <style name="Sdkit.StarDs.Typography.TextXsBold">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.TextXsBold</item>
+    </style>
+</resources>

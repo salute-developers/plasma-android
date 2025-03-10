@@ -1,6 +1,7 @@
 import com.sdds.plugin.themebuilder.OutputLocation.SRC
 import com.sdds.plugin.themebuilder.ShapeAppearanceConfig.Companion.sddsShape
 import com.sdds.plugin.themebuilder.ThemeBuilderMode.THEME
+import utils.themeVersion
 
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
@@ -17,8 +18,6 @@ android {
 }
 
 themeBuilder {
-    val themeVersion = project.property("theme-version")?.toString()
-        ?: throw GradleException("sdds serv version must be specified")
     themeSource(name = "stylesSalute", version = themeVersion, alias = "StylesSalute")
     autoGenerate(false)
     ktPackage("com.sdds.stylessalute")

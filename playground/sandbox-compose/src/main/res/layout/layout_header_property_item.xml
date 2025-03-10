@@ -1,40 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.sdds.uikit.CellLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Theme.Sandbox.Components.PropertyHeader"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/sdds_spacer_28x"
-    android:paddingHorizontal="@dimen/sdds_spacer_8x"
-    android:background="?serv_surfaceDefaultSolidSecondary">
+    android:layout_height="@dimen/sandbox_property_height"
+    android:paddingHorizontal="@dimen/sandbox_property_paddings">
 
     <com.sdds.uikit.TextView
-        style="@style/Serv.Sdds.Typography.BodyMBold"
+        style="@style/Theme.Sandbox.Components.PropertyItemLabel"
         android:id="@+id/property_name_header"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/sdds_spacer_4x"
+        android:layout_marginEnd="@dimen/sandbox_property_label_margin"
         android:ellipsize="end"
         android:maxLines="1"
         android:text="@string/sandbox_properties_header_name"
-        android:textColor="?serv_textDefaultPrimary"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/property_value_header"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_cellContent="center"/>
 
     <com.sdds.uikit.TextView
-        style="@style/Serv.Sdds.Typography.BodyMBold"
+        style="@style/Theme.Sandbox.Components.PropertyItemLabel"
         android:id="@+id/property_value_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ellipsize="end"
         android:maxLines="1"
         android:text="@string/sandbox_properties_header_value"
-        android:textColor="?serv_textDefaultPrimary"
-        android:drawableEnd="@drawable/ic_reset_outline_16"
-        android:drawableTint="?serv_textDefaultPrimary"
-        android:drawablePadding="@dimen/sdds_spacer_4x"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_cellContent="end" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <com.sdds.uikit.Button
+        style="@style/Theme.Sandbox.Components.ResetButton"
+        android:id="@+id/property_value_reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/sandbox_property_reset_margin"
+        app:sd_icon="@drawable/ic_reset_outline_24"
+        app:layout_cellContent="end" />
+
+</com.sdds.uikit.CellLayout>

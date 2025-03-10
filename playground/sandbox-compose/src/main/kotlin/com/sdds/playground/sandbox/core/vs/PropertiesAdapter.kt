@@ -150,7 +150,7 @@ private class PropertiesDiffUtilCallback(
     }
 
     override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-        return old[oldItemPosition].value == new[newItemPosition].value
+        return old[oldItemPosition] == new[newItemPosition]
     }
 }
 

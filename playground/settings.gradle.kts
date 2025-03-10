@@ -26,4 +26,5 @@ include(
     ":sandbox-sdds-serv-integration",
     ":sandbox-plasma-sd-service-integration",
     ":sandbox-stylessalute-integration",
+    ":sandbox-plasma-stards-integration",
 )

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <!--Shapes-->
+    <attr format="reference" name="sdkit_shapeRoundXxs"/>
+    <attr format="reference" name="sdkit_shapeRoundXs"/>
+    <attr format="reference" name="sdkit_shapeRoundS"/>
+    <attr format="reference" name="sdkit_shapeRoundM"/>
+    <attr format="reference" name="sdkit_shapeRoundL"/>
+    <attr format="reference" name="sdkit_shapeRoundXl"/>
+    <attr format="reference" name="sdkit_shapeRoundXxl"/>
+</resources>

@@ -13,5 +13,6 @@ internal object SddsServProgressBarVariationsView : ViewStyleProvider<String>() 
             "Positive" to s.Serv_Sdds_ComponentOverlays_ProgressBarPositive,
             "Warning" to s.Serv_Sdds_ComponentOverlays_ProgressBarWarning,
             "Negative" to s.Serv_Sdds_ComponentOverlays_ProgressBarNegative,
+            "Info" to s.Serv_Sdds_ComponentOverlays_ProgressBarInfo,
         )
 }

@@ -6,6 +6,8 @@ import com.sdds.playground.sandbox.plasma.sd.service.integration.s
 internal object PlasmaSdServiceIconButtonVariationsView : ViewStyleProvider<String>() {
     override val variations: Map<String, Int> =
         mapOf(
+            "XLDefault" to s.Plasma_SdService_ComponentOverlays_IconButtonXlDefault,
+            "XLPilledDefault" to s.Plasma_SdService_ComponentOverlays_IconButtonXlPilledDefault,
             "LDefault" to s.Plasma_SdService_ComponentOverlays_IconButtonLDefault,
             "LPilledDefault" to s.Plasma_SdService_ComponentOverlays_IconButtonLPilledDefault,
             "MDefault" to s.Plasma_SdService_ComponentOverlays_IconButtonMDefault,
@@ -14,7 +16,11 @@ internal object PlasmaSdServiceIconButtonVariationsView : ViewStyleProvider<Stri
             "SPilledDefault" to s.Plasma_SdService_ComponentOverlays_IconButtonSPilledDefault,
             "XsDefault" to s.Plasma_SdService_ComponentOverlays_IconButtonXsDefault,
             "XsPilledDefault" to s.Plasma_SdService_ComponentOverlays_IconButtonXsPilledDefault,
+            "XXsDefault" to s.Plasma_SdService_ComponentOverlays_IconButtonXxsDefault,
+            "XXsPilledDefault" to s.Plasma_SdService_ComponentOverlays_IconButtonXxsPilledDefault,
 
+            "XLSecondary" to s.Plasma_SdService_ComponentOverlays_IconButtonXlSecondary,
+            "XLPilledSecondary" to s.Plasma_SdService_ComponentOverlays_IconButtonXlPilledSecondary,
             "LSecondary" to s.Plasma_SdService_ComponentOverlays_IconButtonLSecondary,
             "LPilledSecondary" to s.Plasma_SdService_ComponentOverlays_IconButtonLPilledSecondary,
             "MSecondary" to s.Plasma_SdService_ComponentOverlays_IconButtonMSecondary,
@@ -23,7 +29,11 @@ internal object PlasmaSdServiceIconButtonVariationsView : ViewStyleProvider<Stri
             "SPilledSecondary" to s.Plasma_SdService_ComponentOverlays_IconButtonSPilledSecondary,
             "XsSecondary" to s.Plasma_SdService_ComponentOverlays_IconButtonXsSecondary,
             "XsPilledSecondary" to s.Plasma_SdService_ComponentOverlays_IconButtonXsPilledSecondary,
+            "XxsSecondary" to s.Plasma_SdService_ComponentOverlays_IconButtonXxsSecondary,
+            "XxsPilledSecondary" to s.Plasma_SdService_ComponentOverlays_IconButtonXxsPilledSecondary,
 
+            "XLAccent" to s.Plasma_SdService_ComponentOverlays_IconButtonXlAccent,
+            "XLPilledAccent" to s.Plasma_SdService_ComponentOverlays_IconButtonXlPilledAccent,
             "LAccent" to s.Plasma_SdService_ComponentOverlays_IconButtonLAccent,
             "LPilledAccent" to s.Plasma_SdService_ComponentOverlays_IconButtonLPilledAccent,
             "MAccent" to s.Plasma_SdService_ComponentOverlays_IconButtonMAccent,
@@ -32,7 +42,11 @@ internal object PlasmaSdServiceIconButtonVariationsView : ViewStyleProvider<Stri
             "SPilledAccent" to s.Plasma_SdService_ComponentOverlays_IconButtonSPilledAccent,
             "XsAccent" to s.Plasma_SdService_ComponentOverlays_IconButtonXsPilledAccent,
             "XsPilledAccent" to s.Plasma_SdService_ComponentOverlays_IconButtonXsAccent,
+            "XxsAccent" to s.Plasma_SdService_ComponentOverlays_IconButtonXxsPilledAccent,
+            "XxsPilledAccent" to s.Plasma_SdService_ComponentOverlays_IconButtonXxsAccent,
 
+            "XLPositive" to s.Plasma_SdService_ComponentOverlays_IconButtonXlPositive,
+            "XLPilledPositive" to s.Plasma_SdService_ComponentOverlays_IconButtonXlPilledPositive,
             "LPositive" to s.Plasma_SdService_ComponentOverlays_IconButtonLPositive,
             "LPilledPositive" to s.Plasma_SdService_ComponentOverlays_IconButtonLPilledPositive,
             "MPositive" to s.Plasma_SdService_ComponentOverlays_IconButtonMPositive,
@@ -41,7 +55,11 @@ internal object PlasmaSdServiceIconButtonVariationsView : ViewStyleProvider<Stri
             "SPilledPositive" to s.Plasma_SdService_ComponentOverlays_IconButtonSPilledPositive,
             "XsPositive" to s.Plasma_SdService_ComponentOverlays_IconButtonXsPositive,
             "XsPilledPositive" to s.Plasma_SdService_ComponentOverlays_IconButtonXsPilledPositive,
+            "XxsPositive" to s.Plasma_SdService_ComponentOverlays_IconButtonXxsPositive,
+            "XxsPilledPositive" to s.Plasma_SdService_ComponentOverlays_IconButtonXxsPilledPositive,
 
+            "XLNegative" to s.Plasma_SdService_ComponentOverlays_IconButtonXlNegative,
+            "XLPilledNegative" to s.Plasma_SdService_ComponentOverlays_IconButtonXlPilledNegative,
             "LNegative" to s.Plasma_SdService_ComponentOverlays_IconButtonLNegative,
             "LPilledNegative" to s.Plasma_SdService_ComponentOverlays_IconButtonLPilledNegative,
             "MNegative" to s.Plasma_SdService_ComponentOverlays_IconButtonMNegative,
@@ -50,7 +68,11 @@ internal object PlasmaSdServiceIconButtonVariationsView : ViewStyleProvider<Stri
             "SPilledNegative" to s.Plasma_SdService_ComponentOverlays_IconButtonSPilledNegative,
             "XsNegative" to s.Plasma_SdService_ComponentOverlays_IconButtonXsNegative,
             "XsPilledNegative" to s.Plasma_SdService_ComponentOverlays_IconButtonXsPilledNegative,
+            "XxsNegative" to s.Plasma_SdService_ComponentOverlays_IconButtonXxsNegative,
+            "XxsPilledNegative" to s.Plasma_SdService_ComponentOverlays_IconButtonXxsPilledNegative,
 
+            "XLWarning" to s.Plasma_SdService_ComponentOverlays_IconButtonXlWarning,
+            "XLPilledWarning" to s.Plasma_SdService_ComponentOverlays_IconButtonXlPilledWarning,
             "LWarning" to s.Plasma_SdService_ComponentOverlays_IconButtonLWarning,
             "LPilledWarning" to s.Plasma_SdService_ComponentOverlays_IconButtonLPilledWarning,
             "MWarning" to s.Plasma_SdService_ComponentOverlays_IconButtonMWarning,
@@ -59,7 +81,11 @@ internal object PlasmaSdServiceIconButtonVariationsView : ViewStyleProvider<Stri
             "SPilledWarning" to s.Plasma_SdService_ComponentOverlays_IconButtonSPilledWarning,
             "XsWarning" to s.Plasma_SdService_ComponentOverlays_IconButtonXsWarning,
             "XsPilledWarning" to s.Plasma_SdService_ComponentOverlays_IconButtonXsPilledWarning,
+            "XxsWarning" to s.Plasma_SdService_ComponentOverlays_IconButtonXxsWarning,
+            "XxsPilledWarning" to s.Plasma_SdService_ComponentOverlays_IconButtonXxsPilledWarning,
 
+            "XLClear" to s.Plasma_SdService_ComponentOverlays_IconButtonXlClear,
+            "XLPilledClear" to s.Plasma_SdService_ComponentOverlays_IconButtonXlPilledClear,
             "LClear" to s.Plasma_SdService_ComponentOverlays_IconButtonLClear,
             "LPilledClear" to s.Plasma_SdService_ComponentOverlays_IconButtonLPilledClear,
             "MClear" to s.Plasma_SdService_ComponentOverlays_IconButtonMClear,
@@ -68,7 +94,11 @@ internal object PlasmaSdServiceIconButtonVariationsView : ViewStyleProvider<Stri
             "SPilledClear" to s.Plasma_SdService_ComponentOverlays_IconButtonSPilledClear,
             "XsClear" to s.Plasma_SdService_ComponentOverlays_IconButtonXsClear,
             "XsPilledClear" to s.Plasma_SdService_ComponentOverlays_IconButtonXsPilledClear,
+            "XxsClear" to s.Plasma_SdService_ComponentOverlays_IconButtonXxsClear,
+            "XxsPilledClear" to s.Plasma_SdService_ComponentOverlays_IconButtonXxsPilledClear,
 
+            "XLDark" to s.Plasma_SdService_ComponentOverlays_IconButtonXlDark,
+            "XLPilledDark" to s.Plasma_SdService_ComponentOverlays_IconButtonXlPilledDark,
             "LDark" to s.Plasma_SdService_ComponentOverlays_IconButtonLDark,
             "LPilledDark" to s.Plasma_SdService_ComponentOverlays_IconButtonLPilledDark,
             "MDark" to s.Plasma_SdService_ComponentOverlays_IconButtonMDark,
@@ -77,7 +107,11 @@ internal object PlasmaSdServiceIconButtonVariationsView : ViewStyleProvider<Stri
             "SPilledDark" to s.Plasma_SdService_ComponentOverlays_IconButtonSPilledDark,
             "XsDark" to s.Plasma_SdService_ComponentOverlays_IconButtonXsDark,
             "XsPilledDark" to s.Plasma_SdService_ComponentOverlays_IconButtonXsPilledDark,
+            "XxsDark" to s.Plasma_SdService_ComponentOverlays_IconButtonXxsDark,
+            "XxsPilledDark" to s.Plasma_SdService_ComponentOverlays_IconButtonXxsPilledDark,
 
+            "XLBlack" to s.Plasma_SdService_ComponentOverlays_IconButtonXlBlack,
+            "XLPilledBlack" to s.Plasma_SdService_ComponentOverlays_IconButtonXlPilledBlack,
             "LBlack" to s.Plasma_SdService_ComponentOverlays_IconButtonLBlack,
             "LPilledBlack" to s.Plasma_SdService_ComponentOverlays_IconButtonLPilledBlack,
             "MBlack" to s.Plasma_SdService_ComponentOverlays_IconButtonMBlack,
@@ -86,7 +120,11 @@ internal object PlasmaSdServiceIconButtonVariationsView : ViewStyleProvider<Stri
             "SPilledBlack" to s.Plasma_SdService_ComponentOverlays_IconButtonSPilledBlack,
             "XsBlack" to s.Plasma_SdService_ComponentOverlays_IconButtonXsBlack,
             "XsPilledBlack" to s.Plasma_SdService_ComponentOverlays_IconButtonXsPilledBlack,
+            "XxsBlack" to s.Plasma_SdService_ComponentOverlays_IconButtonXxsBlack,
+            "XxsPilledBlack" to s.Plasma_SdService_ComponentOverlays_IconButtonXxsPilledBlack,
 
+            "XLWhite" to s.Plasma_SdService_ComponentOverlays_IconButtonXlWhite,
+            "XLPilledWhite" to s.Plasma_SdService_ComponentOverlays_IconButtonXlPilledWhite,
             "LWhite" to s.Plasma_SdService_ComponentOverlays_IconButtonLWhite,
             "LPilledWhite" to s.Plasma_SdService_ComponentOverlays_IconButtonLPilledWhite,
             "MWhite" to s.Plasma_SdService_ComponentOverlays_IconButtonMWhite,
@@ -95,5 +133,7 @@ internal object PlasmaSdServiceIconButtonVariationsView : ViewStyleProvider<Stri
             "SPilledWhite" to s.Plasma_SdService_ComponentOverlays_IconButtonSPilledWhite,
             "XsWhite" to s.Plasma_SdService_ComponentOverlays_IconButtonXsWhite,
             "XsPilledWhite" to s.Plasma_SdService_ComponentOverlays_IconButtonXsPilledWhite,
+            "XxsWhite" to s.Plasma_SdService_ComponentOverlays_IconButtonXxsWhite,
+            "XxsPilledWhite" to s.Plasma_SdService_ComponentOverlays_IconButtonXxsPilledWhite,
         )
 }

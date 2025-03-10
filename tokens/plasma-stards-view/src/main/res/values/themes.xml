@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Sdkit.AppTheme" parent="Sdkit.StarDs.MaterialComponents.NoActionBar">
+        <item name="viewInflaterClass">com.sdkit.star.designsystem.inflater.StarLayoutInflater</item>
+
+        <item name="colorPrimary">?sdkit_surfaceDefaultSolidDefault</item>
+        <item name="colorSurface">?sdkit_surfaceDefaultSolidPrimary</item>
+        <item name="colorError">?sdkit_surfaceDefaultNegative</item>
+        <item name="colorOnError">?sdkit_textDefaultPrimary</item>
+        <item name="android:colorBackground">?sdkit_backgroundDefaultPrimary</item>
+        <item name="colorAccent">?sdkit_surfaceDefaultAccent</item>
+        <item name="colorOnSurface">?sdkit_textOnDarkPrimary</item>
+        <item name="colorOnPrimary">?sdkit_textOnLightPrimary</item>
+        <item name="rippleColor">?sdkit_surfaceDefaultTransparentSecondary</item>
+
+        <item name="android:buttonStyle">@style/Sdkit.StarDs.Components.BasicButton.M</item>
+        <item name="android:checkboxStyle">@style/Sdkit.StarDs.Components.CheckBox.M</item>
+        <item name="android:radioButtonStyle">@style/Sdkit.StarDs.Components.RadioBox.M</item>
+        <item name="android:textViewStyle">?sdkit_typographyBodyMBold</item>
+        <item name="switchStyle">@style/Sdkit.StarDs.Components.Switch.M</item>
+        <item name="android:switchStyle">@style/Sdkit.StarDs.Components.Switch.M</item>
+        <item name="android:progressBarStyle">@style/Sdkit.StarDs.Components.ProgressBar.Default</item>
+        <item name="sd_avatarStyle">@style/Sdkit.StarDs.Components.Avatar.M</item>
+        <item name="sd_avatarGroupStyle">@style/Sdkit.StarDs.Components.AvatarGroup</item>
+        <item name="sd_checkBoxGroupStyle">@style/Sdkit.StarDs.Components.CheckBoxGroup.M</item>
+        <item name="sd_radioBoxGroupStyle">@style/Sdkit.StarDs.Components.RadioBoxGroup.M</item>
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.M</item>
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroup.Wide</item>
+        <item name="sd_textFieldStyle">@style/Sdkit.StarDs.Components.TextField.M</item>
+        <item name="sd_cellStyle">@style/Sdkit.StarDs.Components.Cell.M</item>
+        <item name="sd_disabledAlpha">0.4</item>
+        <item name="sd_shapeAppearanceCircle">@style/Sdkit.StarDs.Shape.Round.Circle</item>
+        <item name="sd_fsMode">scale</item>
+    </style>
+
+    <style name="Sdkit.AppTheme.Dialog" parent="Sdkit.StarDs.MaterialComponents.Dialog">
+        <item name="viewInflaterClass">com.sdkit.star.designsystem.inflater.StarLayoutInflater</item>
+
+        <item name="colorPrimary">?sdkit_surfaceDefaultSolidDefault</item>
+        <item name="colorSurface">?sdkit_surfaceDefaultSolidPrimary</item>
+        <item name="colorError">?sdkit_surfaceDefaultNegative</item>
+        <item name="colorOnError">?sdkit_textDefaultPrimary</item>
+        <item name="android:colorBackground">?sdkit_backgroundDefaultPrimary</item>
+        <item name="colorAccent">?sdkit_surfaceDefaultAccent</item>
+        <item name="colorOnSurface">?sdkit_textOnDarkPrimary</item>
+        <item name="colorOnPrimary">?sdkit_textOnLightPrimary</item>
+        <item name="rippleColor">?sdkit_surfaceDefaultTransparentSecondary</item>
+
+        <item name="android:buttonStyle">@style/Sdkit.StarDs.Components.BasicButton.M</item>
+        <item name="android:checkboxStyle">@style/Sdkit.StarDs.Components.CheckBox.M</item>
+        <item name="android:radioButtonStyle">@style/Sdkit.StarDs.Components.RadioBox.M</item>
+        <item name="android:textViewStyle">?sdkit_typographyBodyMBold</item>
+        <item name="switchStyle">@style/Sdkit.StarDs.Components.Switch.M</item>
+        <item name="android:switchStyle">@style/Sdkit.StarDs.Components.Switch.M</item>
+        <item name="android:progressBarStyle">@style/Sdkit.StarDs.Components.ProgressBar.Default</item>
+        <item name="sd_avatarStyle">@style/Sdkit.StarDs.Components.Avatar.M</item>
+        <item name="sd_avatarGroupStyle">@style/Sdkit.StarDs.Components.AvatarGroup</item>
+        <item name="sd_checkBoxGroupStyle">@style/Sdkit.StarDs.Components.CheckBoxGroup.M</item>
+        <item name="sd_radioBoxGroupStyle">@style/Sdkit.StarDs.Components.RadioBoxGroup.M</item>
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.Chip.M</item>
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroup.Wide</item>
+        <item name="sd_textFieldStyle">@style/Sdkit.StarDs.Components.TextField.M</item>
+
+        <item name="sd_disabledAlpha">0.4</item>
+        <item name="sd_shapeAppearanceCircle">@style/Sdkit.StarDs.Shape.Round.Circle</item>
+        <item name="sd_fsMode">scale</item>
+    </style>
+</resources>

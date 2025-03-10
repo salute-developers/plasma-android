@@ -82,3 +82,14 @@ val ProgressBar.Negative: ProgressBarStyleBuilder
             indicatorColor(SddsServTheme.colors.surfaceDefaultNegative)
             backgroundColor(SddsServTheme.colors.surfaceDefaultTransparentSecondary)
         }
+
+/**
+ * Стиль [ProgressBar] цвета Negative
+ */
+val ProgressBar.Info: ProgressBarStyleBuilder
+    @Composable
+    get() = ProgressBarStyle.builder()
+        .colors {
+            indicatorColor(SddsServTheme.colors.surfaceDefaultInfo)
+            backgroundColor(SddsServTheme.colors.surfaceDefaultTransparentSecondary)
+        }

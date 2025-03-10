@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Sdkit.StarDs.ComponentOverlays.SwitchL">
+        <item name="sd_switchStyle">@style/Sdkit.StarDs.Components.Switch.L</item>
+    </style>
+
+    <style name="Sdkit.StarDs.ComponentOverlays.SwitchM">
+        <item name="sd_switchStyle">@style/Sdkit.StarDs.Components.Switch.M</item>
+    </style>
+
+    <style name="Sdkit.StarDs.ComponentOverlays.SwitchS">
+        <item name="sd_switchStyle">@style/Sdkit.StarDs.Components.Switch.S</item>
+    </style>
+</resources>

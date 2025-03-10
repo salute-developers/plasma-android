@@ -6,6 +6,7 @@ import com.sdds.compose.uikit.ProgressBarStyle
 import com.sdds.plasma.sd.service.styles.progress.Accent
 import com.sdds.plasma.sd.service.styles.progress.Default
 import com.sdds.plasma.sd.service.styles.progress.GradientAccent
+import com.sdds.plasma.sd.service.styles.progress.Info
 import com.sdds.plasma.sd.service.styles.progress.Negative
 import com.sdds.plasma.sd.service.styles.progress.Positive
 import com.sdds.plasma.sd.service.styles.progress.Secondary
@@ -23,5 +24,6 @@ internal object PlasmaSdServiceProgressVariationsCompose :
             "Positive" to { ProgressBar.Positive.style() },
             "Warning" to { ProgressBar.Warning.style() },
             "Negative" to { ProgressBar.Negative.style() },
+            "Info" to { ProgressBar.Info.style() },
         )
 }

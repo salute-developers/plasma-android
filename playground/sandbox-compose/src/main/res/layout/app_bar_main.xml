@@ -8,26 +8,28 @@
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:elevation="0dp"
+        android:background="@null">
 
         <com.google.android.material.appbar.MaterialToolbar
+            style="@style/Theme.Sandbox.Components.Toolbar"
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize">
 
             <com.sdds.uikit.IconButton
                 android:id="@+id/bSettings"
-                style="@style/Serv.Sdds.Components.IconButton.M.Clear"
+                style="@style/Theme.Sandbox.Components.ToolbarButton"
                 app:sd_icon="@drawable/ic_settings_fill_24"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
-                android:layout_marginEnd="10dp"
-                android:text="@string/main_screen" />
+                android:layout_marginEnd="10dp" />
 
             <com.sdds.uikit.IconButton
                 android:id="@+id/bHome"
-                style="@style/Serv.Sdds.Components.IconButton.M.Clear"
+                style="@style/Theme.Sandbox.Components.ToolbarButton"
                 app:sd_icon="@drawable/ic_backward_fill_24"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

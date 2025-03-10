@@ -249,7 +249,7 @@ interface BasicButtonDimensionsBuilder {
 
     companion object {
         /**
-         * Вернет экземпляр билдера [TextFieldDimensionsBuilder]
+         * Вернет экземпляр билдера [BasicButtonDimensionsBuilder]
          */
         fun builder(): BasicButtonDimensionsBuilder = DefaultBasicButtonDimensionsBuilder()
     }

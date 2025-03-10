@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Sdkit.StarDs.ComponentOverlays.AvatarXXL">
+        <item name="sd_avatarStyle">@style/Sdkit.StarDs.Components.Avatar.XXL</item>
+    </style>
+
+    <style name="Sdkit.StarDs.ComponentOverlays.AvatarL">
+        <item name="sd_avatarStyle">@style/Sdkit.StarDs.Components.Avatar.L</item>
+    </style>
+
+    <style name="Sdkit.StarDs.ComponentOverlays.AvatarM">
+        <item name="sd_avatarStyle">@style/Sdkit.StarDs.Components.Avatar.M</item>
+    </style>
+
+    <style name="Sdkit.StarDs.ComponentOverlays.AvatarS">
+        <item name="sd_avatarStyle">@style/Sdkit.StarDs.Components.Avatar.S</item>
+    </style>
+</resources>

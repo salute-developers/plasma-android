@@ -33,6 +33,7 @@ internal fun CheckBoxScreen(theme: Theme.ThemeInfoCompose = Theme.composeDefault
                     label = checkboxState.label,
                     description = checkboxState.description,
                     enabled = checkboxState.enabled,
+                    onClick = { checkboxViewModel.updateState(checkboxState.state.toggle()) },
                 )
             }
         },

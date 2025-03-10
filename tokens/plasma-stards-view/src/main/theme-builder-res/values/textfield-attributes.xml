@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <declare-styleable name="SdkitTextFieldColorState">
+        <attr format="boolean" name="sdkit_textfield_state_default"/>
+        <attr format="boolean" name="sdkit_textfield_state_error"/>
+    </declare-styleable>
+    <declare-styleable name="TextField" tools:ignore="ResourceName">
+        <attr format="enum" name="sdkit_textfieldColors">
+            <enum name="state_default" value="0"/>
+            <enum name="state_error" value="1"/>
+        </attr>
+    </declare-styleable>
+</resources>

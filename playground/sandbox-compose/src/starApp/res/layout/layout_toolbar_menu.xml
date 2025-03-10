@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.sdds.uikit.IconButton
+        android:id="@+id/bHome"
+        style="@style/Theme.Sandbox.Components.ToolbarButton"
+        app:sd_icon="@drawable/ic_backward_fill_24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginEnd="10dp" />
+
+    <com.sdds.uikit.IconButton
+        android:id="@+id/bSettings"
+        style="@style/Theme.Sandbox.Components.ToolbarButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:visibility="gone"/>
+
+</merge>

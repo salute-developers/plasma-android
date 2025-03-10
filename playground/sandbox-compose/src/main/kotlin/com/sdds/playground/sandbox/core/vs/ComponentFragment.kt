@@ -94,7 +94,7 @@ internal abstract class ComponentFragment<State : UiState, Component : View> :
                 ),
             )
             propertiesAdapter.setInteractionListener(this@ComponentFragment)
-            header.propertyValueHeader.setOnClickListener { componentViewModel.resetToDefault() }
+            header.propertyValueReset.setOnClickListener { componentViewModel.resetToDefault() }
         }
         requireActivity().supportFragmentManager.setFragmentResultListener(
             EditorFragment.CONFIRM_RESULT_KEY,

@@ -3,8 +3,8 @@
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <resources>
     <style name="Thmbldr.TestTheme.Components.IconButton" parent="Sdds.Components.IconButton">
-        <item name="sd_colorStateProvider">com.test.colorstate.IconButtonColorStateProvider</item>
         <item name="sd_iconTint">@color/thmbldr_icon_button_icon_tint</item>
+        <item name="sd_colorStateProvider">com.test.colorstate.IconButtonColorStateProvider</item>
     </style>
     <style name="Thmbldr.TestTheme.Components.IconButton.L">
         <item name="android:minHeight">@dimen/thmbldr_icon_button_l_min_height</item>

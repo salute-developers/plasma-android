@@ -14,14 +14,12 @@
         android:layout_height="match_parent" />
 
     <com.google.android.material.navigation.NavigationView
+        style="@style/Theme.Sandbox.Components.NavigationView"
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="false"
-        app:itemIconTint="?serv_textDefaultPrimary"
-        app:itemTextColor="?serv_textDefaultPrimary"
-        app:itemShapeFillColor="?serv_surfaceDefaultTransparentSecondary"
         app:menu="@menu/activity_main_drawer" />
 
 </androidx.drawerlayout.widget.DrawerLayout>

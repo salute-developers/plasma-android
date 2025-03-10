@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.isVisible
 import androidx.core.view.updatePadding
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
@@ -21,6 +22,7 @@ import com.sdds.playground.sandbox.Theme
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
 import com.sdds.playground.sandbox.core.vs.EditorFragment
 import com.sdds.playground.sandbox.core.vs.ViewSystemThemeState
+import com.sdds.playground.sandbox.core.vs.choiceEditor
 import com.sdds.playground.sandbox.databinding.MainActivityBinding
 
 /**
@@ -58,21 +60,27 @@ class SandboxActivity : AppCompatActivity() {
     }
 
     private fun setupThemePicker() {
-        binding.appBarMain.bSettings.setOnClickListener {
-            EditorFragment.choiceEditor(
-                propertyName = "Theme",
-                currentValue = ViewSystemThemeState.theme.value.name,
-                choices = Theme.values().map(Theme::name),
-                confirmKey = THEME_PICKER_RESULT_KEY,
-            ).show(supportFragmentManager, "ThemePicker")
-        }
-        supportFragmentManager.setFragmentResultListener(
-            THEME_PICKER_RESULT_KEY,
-            this,
-        ) { requestKey, bundle ->
-            if (requestKey != THEME_PICKER_RESULT_KEY) return@setFragmentResultListener
-            val newValue = bundle.getString(EditorFragment.CONFIRM_VALUE).orEmpty()
-            ViewSystemThemeState.setTheme(Theme.valueOf(newValue))
+        val themes = Theme.values()
+        binding.appBarMain.bSettings.apply {
+            isVisible = themes.size > 1
+            if (isVisible) {
+                setOnClickListener {
+                    EditorFragment.choiceEditor(
+                        propertyName = "Theme",
+                        currentValue = ViewSystemThemeState.theme.value.name,
+                        choices = Theme.values().map(Theme::name),
+                        confirmKey = THEME_PICKER_RESULT_KEY,
+                    ).show(supportFragmentManager, "ThemePicker")
+                }
+                supportFragmentManager.setFragmentResultListener(
+                    THEME_PICKER_RESULT_KEY,
+                    this@SandboxActivity,
+                ) { requestKey, bundle ->
+                    if (requestKey != THEME_PICKER_RESULT_KEY) return@setFragmentResultListener
+                    val newValue = bundle.getString(EditorFragment.CONFIRM_VALUE).orEmpty()
+                    ViewSystemThemeState.setTheme(Theme.valueOf(newValue))
+                }
+            }
         }
     }
 

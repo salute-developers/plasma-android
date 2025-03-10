@@ -25,4 +25,6 @@ include(
     ":sdds.serv.view",
     ":stylessalute.compose",
     ":stylessalute.view",
+    ":plasma-stards-view",
+    ":plasma-stards-compose",
 )

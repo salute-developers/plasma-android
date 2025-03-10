@@ -3,10 +3,10 @@
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <resources>
     <style name="Serv.Sdds.Components.Counter" parent="Sdds.Components.Counter">
-        <item name="sd_colorStateProvider">com.sdds.serv.colorstate.CounterColorStateProvider</item>
         <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
         <item name="android:backgroundTint">@color/serv_counter_bg_color</item>
         <item name="android:textColor">@color/serv_counter_text_color</item>
+        <item name="sd_colorStateProvider">com.sdds.serv.colorstate.CounterColorStateProvider</item>
     </style>
     <style name="Serv.Sdds.Components.Counter.L">
         <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodySNormal</item>

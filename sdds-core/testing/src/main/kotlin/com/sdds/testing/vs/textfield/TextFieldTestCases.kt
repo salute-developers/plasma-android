@@ -42,6 +42,9 @@ abstract class TextFieldTestCases(mode: String) : RoborazziConfig(mode) {
 
     abstract fun testTextFieldLSuffixPrefix()
 
+    abstract fun testTextFieldTBTACyrillic()
+    abstract fun testTextFieldLDisabledOuterLabelStart()
+
     fun ComponentScope.textFieldLDefaultInnerLeft(style: Int, colorState: ColorState): TextField =
         textField(
             context,
@@ -209,9 +212,9 @@ abstract class TextFieldTestCases(mode: String) : RoborazziConfig(mode) {
             colorState,
             TextFieldUiState(
                 labelText = "Label",
-                valueText = "",
+                valueText = "Value",
                 placeholderText = "Placeholder",
-                captionText = "",
+                captionText = "Caption",
                 icon = true,
                 action = true,
                 enabled = false,
@@ -347,6 +350,46 @@ abstract class TextFieldTestCases(mode: String) : RoborazziConfig(mode) {
                 hasChips = false,
                 prefix = "TB Prefix",
                 suffix = "TA Suffix",
+            ),
+        )
+
+    fun ComponentScope.textFieldTBTACyrillic(style: Int, colorState: ColorState): TextField =
+        textField(
+            context,
+            style,
+            colorState,
+            TextFieldUiState(
+                labelText = "Label",
+                valueText = "Value",
+                placeholderText = "",
+                captionText = "Caption",
+                icon = true,
+                action = true,
+                enabled = true,
+                readOnly = false,
+                hasChips = false,
+                prefix = "префикс",
+                suffix = "суффикс",
+            ),
+        )
+
+    fun ComponentScope.textFieldLDisabledOuterLabelStart(style: Int, colorState: ColorState): TextField =
+        textField(
+            context,
+            style,
+            colorState,
+            TextFieldUiState(
+                labelText = "Label",
+                valueText = "Value",
+                placeholderText = "Placeholder",
+                captionText = "Caption",
+                icon = true,
+                action = true,
+                enabled = false,
+                readOnly = false,
+                prefix = "",
+                suffix = "",
+                hasChips = false,
             ),
         )
 }

@@ -7,6 +7,15 @@ import com.sdds.uikit.colorstate.ColorState
 
 internal object SddsServTextAreaVariationsView : ViewStyleProvider<String>() {
     override val variations: Map<String, Int> = mapOf(
+        "XL" to s.Serv_Sdds_ComponentOverlays_TextAreaXl,
+        "XLRequiredStart" to s.Serv_Sdds_ComponentOverlays_TextAreaXlRequiredStart,
+        "XLRequiredEnd" to s.Serv_Sdds_ComponentOverlays_TextAreaXlRequiredEnd,
+        "XLOuterLabel" to s.Serv_Sdds_ComponentOverlays_TextAreaXlOuterLabel,
+        "XLOuterLabelRequiredStart" to s.Serv_Sdds_ComponentOverlays_TextAreaXlOuterLabelRequiredStart,
+        "XLOuterLabelRequiredEnd" to s.Serv_Sdds_ComponentOverlays_TextAreaXlOuterLabelRequiredEnd,
+        "XLInnerLabel" to s.Serv_Sdds_ComponentOverlays_TextAreaXlInnerLabel,
+        "XLInnerLabelRequiredStart" to s.Serv_Sdds_ComponentOverlays_TextAreaXlInnerLabelRequiredStart,
+        "XLInnerLabelRequiredEnd" to s.Serv_Sdds_ComponentOverlays_TextAreaXlInnerLabelRequiredEnd,
         "L" to s.Serv_Sdds_ComponentOverlays_TextAreaL,
         "LRequiredStart" to s.Serv_Sdds_ComponentOverlays_TextAreaLRequiredStart,
         "LRequiredEnd" to s.Serv_Sdds_ComponentOverlays_TextAreaLRequiredEnd,

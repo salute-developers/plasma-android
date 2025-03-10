@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:color="@android:color/transparent" app:sd_state_loading="true" />
+
+    <item android:color="?sdkit_textInverseSecondaryActive" android:state_focused="true" android:state_pressed="true" />
+    <item android:color="?sdkit_textInverseSecondaryHover" android:state_focused="true" android:state_hovered="true" />
+    <item android:color="?sdkit_textInverseSecondary" android:state_focused="true" />
+
+    <item android:color="?sdkit_textOnDarkSecondaryActive" android:state_pressed="true" app:sd_state_accent="true" />
+    <item android:color="?sdkit_textOnDarkSecondaryHover" android:state_hovered="true" app:sd_state_accent="true" />
+    <item android:color="?sdkit_textOnDarkSecondary" app:sd_state_accent="true" />
+
+    <item android:color="?sdkit_textOnDarkSecondaryActive" android:state_pressed="true" app:sd_state_positive="true" />
+    <item android:color="?sdkit_textOnDarkSecondaryHover" android:state_hovered="true" app:sd_state_positive="true" />
+    <item android:color="?sdkit_textOnDarkSecondary" app:sd_state_positive="true" />
+
+    <item android:color="?sdkit_textOnDarkSecondaryActive" android:state_pressed="true" app:sd_state_warning="true" />
+    <item android:color="?sdkit_textOnDarkSecondaryHover" android:state_hovered="true" app:sd_state_warning="true" />
+    <item android:color="?sdkit_textOnDarkSecondary" app:sd_state_warning="true" />
+
+    <item android:color="?sdkit_textOnDarkSecondaryActive" android:state_pressed="true" app:sd_state_negative="true" />
+    <item android:color="?sdkit_textOnDarkSecondaryHover" android:state_hovered="true" app:sd_state_negative="true" />
+    <item android:color="?sdkit_textOnDarkSecondary" app:sd_state_negative="true" />
+
+    <item android:color="?sdkit_textDefaultSecondaryActive" android:state_pressed="true" />
+    <item android:color="?sdkit_textDefaultSecondaryHover" android:state_hovered="true" />
+    <item android:color="?sdkit_textDefaultSecondary" />
+
+</selector>

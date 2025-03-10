@@ -31,5 +31,6 @@ buildscript {
         classpath(libs.base.gradle.spotless)
         classpath(libs.base.gradle.paparazzi)
         classpath(libs.base.gradle.cacheFix)
+        classpath(files("../build-system/libs/star-dimens.jar"))
     }
 }

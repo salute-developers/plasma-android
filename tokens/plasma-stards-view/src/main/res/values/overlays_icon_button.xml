@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--deprecated ReplaceWith @style/Sdkit.StarDs.ComponentOverlays.IconButtonXs  -->
+    <style name="Sdkit.StarDs.ComponentOverlays.IconButtonXS" parent="Sdkit.StarDs.ComponentOverlays.IconButtonXs" />
+
+    <!--deprecated ReplaceWith @style/Sdkit.StarDs.ComponentOverlays.IconButtonXsPilled  -->
+    <style name="Sdkit.StarDs.ComponentOverlays.IconButtonXSPilled" parent="Sdkit.StarDs.ComponentOverlays.IconButtonXsPilled" />
+</resources>

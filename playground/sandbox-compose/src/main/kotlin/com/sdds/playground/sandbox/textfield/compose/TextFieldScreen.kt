@@ -31,6 +31,7 @@ import com.sdds.compose.uikit.internal.focusselector.LocalFocusSelectorMode
 import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.SandboxTheme
+import com.sdds.playground.sandbox.TextFieldFocusSelectorModeSwitch
 import com.sdds.playground.sandbox.Theme
 import com.sdds.playground.sandbox.core.compose.ComponentScaffold
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
@@ -44,7 +45,7 @@ import com.sdds.serv.styles.button.basic.Xs
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
 internal fun TextFieldScreen(
-    theme: Theme.ThemeInfoCompose = Theme.SddsServ.compose,
+    theme: Theme.ThemeInfoCompose = Theme.composeDefault,
     textFieldType: TextFieldType = TextFieldType.TextField,
 ) {
     val textFieldViewModel: TextFieldViewModel = viewModel(
@@ -59,7 +60,7 @@ internal fun TextFieldScreen(
     ComponentScaffold(
         component = {
             val focusManager = LocalFocusManager.current
-            var isFocusSelectorOn by remember { mutableStateOf(false) }
+            var isFocusSelectorOn by remember { mutableStateOf(!TextFieldFocusSelectorModeSwitch) }
             theme.themeWrapper {
                 TextField(
                     value = textFieldUiState.textFieldValue,
@@ -99,19 +100,20 @@ internal fun TextFieldScreen(
                 )
             }
 
-            Switch(
-                active = isFocusSelectorOn,
-                label = stringResource(R.string.sandbox_enable_focus_selector),
-                modifier = Modifier.align(Alignment.BottomStart),
-                onActiveChanged = { isFocusSelectorOn = it },
-            )
-
-            Button(
-                style = BasicButton.Xs.Default.style(),
-                label = stringResource(R.string.sandbox_clear_focus),
-                modifier = Modifier.align(Alignment.BottomEnd),
-                onClick = { focusManager.clearFocus(true) },
-            )
+            if (TextFieldFocusSelectorModeSwitch) {
+                Switch(
+                    active = isFocusSelectorOn,
+                    label = stringResource(R.string.sandbox_enable_focus_selector),
+                    modifier = Modifier.align(Alignment.BottomStart),
+                    onActiveChanged = { isFocusSelectorOn = it },
+                )
+                Button(
+                    style = BasicButton.Xs.Default.style(),
+                    label = stringResource(R.string.sandbox_clear_focus),
+                    modifier = Modifier.align(Alignment.BottomEnd),
+                    onClick = { focusManager.clearFocus(true) },
+                )
+            }
         },
         propertiesOwner = textFieldViewModel,
     )

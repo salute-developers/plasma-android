@@ -172,12 +172,33 @@ class ViewSystemTextFieldScreenshotTest(
     override fun testTextFieldLSuffixPrefix() {
         themedComponent {
             margins {
-                textFieldLInputText(
+                textFieldLSuffixPrefix(
                     R.style.Salute_StylesSalute_ComponentOverlays_TextFieldLOuterLabelRequiredStart,
                     TextFieldColorState.DEFAULT,
                 )
             }
         }
-        // TODO capture container
+    }
+
+    @Test
+    override fun testTextFieldTBTACyrillic() {
+        themedComponent {
+            textFieldTBTACyrillic(
+                R.style.Salute_StylesSalute_ComponentOverlays_TextFieldLOuterLabelRequiredStart,
+                TextFieldColorState.DEFAULT,
+            )
+        }
+    }
+
+    @Test
+    override fun testTextFieldLDisabledOuterLabelStart() {
+        themedComponent {
+            margins {
+                textFieldLDisabledOuterLabelStart(
+                    R.style.Salute_StylesSalute_ComponentOverlays_TextFieldLOuterLabelRequiredStart,
+                    TextFieldColorState.DEFAULT,
+                )
+            }
+        }
     }
 }

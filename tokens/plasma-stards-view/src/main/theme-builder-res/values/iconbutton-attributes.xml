@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <declare-styleable name="SdkitIconButtonColorState">
+        <attr format="boolean" name="sdkit_iconbutton_state_default"/>
+        <attr format="boolean" name="sdkit_iconbutton_state_secondary"/>
+        <attr format="boolean" name="sdkit_iconbutton_state_accent"/>
+        <attr format="boolean" name="sdkit_iconbutton_state_positive"/>
+        <attr format="boolean" name="sdkit_iconbutton_state_negative"/>
+        <attr format="boolean" name="sdkit_iconbutton_state_warning"/>
+        <attr format="boolean" name="sdkit_iconbutton_state_clear"/>
+        <attr format="boolean" name="sdkit_iconbutton_state_dark"/>
+        <attr format="boolean" name="sdkit_iconbutton_state_black"/>
+        <attr format="boolean" name="sdkit_iconbutton_state_white"/>
+    </declare-styleable>
+    <declare-styleable name="IconButton" tools:ignore="ResourceName">
+        <attr format="enum" name="sdkit_iconbuttonColors">
+            <enum name="state_default" value="0"/>
+            <enum name="state_secondary" value="1"/>
+            <enum name="state_accent" value="2"/>
+            <enum name="state_positive" value="3"/>
+            <enum name="state_negative" value="4"/>
+            <enum name="state_warning" value="5"/>
+            <enum name="state_clear" value="6"/>
+            <enum name="state_dark" value="7"/>
+            <enum name="state_black" value="8"/>
+            <enum name="state_white" value="9"/>
+        </attr>
+    </declare-styleable>
+</resources>

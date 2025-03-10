@@ -1,0 +1,43 @@
+name: 'Assemble StarDS Sandbox Release'
+
+on:
+  workflow_dispatch:
+    inputs:
+      versionName:
+        description: 'Version Name'
+        required: true
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head-ref }}
+  cancel-in-progress: true
+
+jobs:
+  assemble_release_apk:
+    name: Build release artifacts
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Prepare environment
+        uses: ./.github/actions/prepare-android-env
+
+      - name: Decrypt Keystore
+        run: |
+          echo "${{ secrets.KEY_STORE_FILE }}" | base64 -d -i > playground/sandbox-compose/keystore.jks
+
+      - name: Build Release APK
+        env:
+          KEY_STORE_FILE: "keystore.jks"
+          STAR_APP_ID: ${{ secrets.STAR_APP_ID }}
+          RELEASE_STORE_PASSWORD: ${{ secrets.RELEASE_STORE_PASSWORD }}
+          STAR_RELEASE_KEY_ALIAS: ${{ secrets.STAR_RELEASE_KEY_ALIAS }}
+          STAR_RELEASE_KEY_PASSWORD: ${{ secrets.STAR_RELEASE_KEY_PASSWORD }}
+        run: ./gradlew :playground:sandbox-compose:assembleStarAppRelease
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: sandbox-compose-release
+          path: playground/sandbox-compose/build/outputs/apk/release/*.apk

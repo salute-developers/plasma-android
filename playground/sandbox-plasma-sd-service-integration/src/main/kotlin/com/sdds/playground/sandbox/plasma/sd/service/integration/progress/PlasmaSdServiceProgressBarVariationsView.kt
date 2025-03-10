@@ -13,5 +13,6 @@ internal object PlasmaSdServiceProgressBarVariationsView : ViewStyleProvider<Str
             "Positive" to s.Plasma_SdService_ComponentOverlays_ProgressBarPositive,
             "Warning" to s.Plasma_SdService_ComponentOverlays_ProgressBarWarning,
             "Negative" to s.Plasma_SdService_ComponentOverlays_ProgressBarNegative,
+            "Info" to s.Plasma_SdService_ComponentOverlays_ProgressBarInfo,
         )
 }

@@ -61,7 +61,11 @@ internal class FocusSelectorDelegate : HasFocusSelector {
         )
         try {
             mode = FocusSelectorMode.fromAttr(attr)
-            if (!mode.isEnabled() || !view.isFocusable) return
+            val duplicateParentStateEnabled = attr.getBoolean(
+                R.styleable.SdFocusSelector_sd_fsDuplicateParentState,
+                false,
+            )
+            if (!mode.isEnabled() || !view.canBeFocusable(duplicateParentStateEnabled)) return
             if (mode == FocusSelectorMode.SCALE) {
                 val factor = attr.getFloat(
                     R.styleable.SdFocusSelector_sd_fsScaleFactor,
@@ -105,6 +109,10 @@ internal class FocusSelectorDelegate : HasFocusSelector {
         if (mode == FocusSelectorMode.SCALE) {
             scaleAnimationHelper?.animatePressedState(view, isPressed)
         }
+    }
+
+    private fun View.canBeFocusable(duplicateStateEnabled: Boolean): Boolean {
+        return isFocusable || (duplicateStateEnabled && isDuplicateParentStateEnabled)
     }
 
     private fun View.tryApplyStrokeSelector(

@@ -17,6 +17,15 @@ internal object PlasmaSdServiceTextFieldVariationsView : ViewStyleProvider<Strin
 
     override val variations: Map<String, Int> =
         mapOf(
+            "XL" to s.Plasma_SdService_ComponentOverlays_TextFieldXl,
+            "XLRequiredStart" to s.Plasma_SdService_ComponentOverlays_TextFieldXlRequiredStart,
+            "XLRequiredEnd" to s.Plasma_SdService_ComponentOverlays_TextFieldXlRequiredEnd,
+            "XLOuterLabel" to s.Plasma_SdService_ComponentOverlays_TextFieldXlOuterLabel,
+            "XLOuterLabelRequiredStart" to s.Plasma_SdService_ComponentOverlays_TextFieldXlOuterLabelRequiredStart,
+            "XLOuterLabelRequiredEnd" to s.Plasma_SdService_ComponentOverlays_TextFieldXlOuterLabelRequiredEnd,
+            "XLInnerLabel" to s.Plasma_SdService_ComponentOverlays_TextFieldXlInnerLabel,
+            "XLInnerLabelRequiredStart" to s.Plasma_SdService_ComponentOverlays_TextFieldXlInnerLabelRequiredStart,
+            "XLInnerLabelRequiredEnd" to s.Plasma_SdService_ComponentOverlays_TextFieldXlInnerLabelRequiredEnd,
             "L" to s.Plasma_SdService_ComponentOverlays_TextFieldL,
             "LRequiredStart" to s.Plasma_SdService_ComponentOverlays_TextFieldLRequiredStart,
             "LRequiredEnd" to s.Plasma_SdService_ComponentOverlays_TextFieldLRequiredEnd,

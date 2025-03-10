@@ -378,6 +378,7 @@ object TextAreaClear
  * @param prefixTextStyle стиль [prefix]
  * @param suffixTextStyle стиль [suffix]
  */
+@Deprecated("Для внутреннего использования")
 fun prefixSuffixTransformation(
     prefix: String? = null,
     suffix: String? = null,

@@ -3,9 +3,9 @@
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <resources>
     <style name="Serv.Sdds.Components.Indicator" parent="Sdds.Components.Indicator">
-        <item name="sd_colorStateProvider">com.sdds.serv.colorstate.IndicatorColorStateProvider</item>
         <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
         <item name="backgroundTint">@color/serv_indicator_bg_color</item>
+        <item name="sd_colorStateProvider">com.sdds.serv.colorstate.IndicatorColorStateProvider</item>
     </style>
     <style name="Serv.Sdds.Components.Indicator.L">
         <item name="android:maxHeight">@dimen/serv_indicator_l_max_height</item>

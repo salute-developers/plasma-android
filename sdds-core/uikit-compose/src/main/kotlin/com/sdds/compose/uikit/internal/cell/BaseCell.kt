@@ -13,9 +13,7 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.AnnotatedString
-import androidx.compose.ui.text.TextStyle
 import com.sdds.compose.uikit.Cell
 import com.sdds.compose.uikit.CellStyle
 import com.sdds.compose.uikit.LocalAvatarStyle
@@ -23,7 +21,7 @@ import com.sdds.compose.uikit.LocalCheckBoxStyle
 import com.sdds.compose.uikit.LocalIconButtonStyle
 import com.sdds.compose.uikit.LocalRadioBoxStyle
 import com.sdds.compose.uikit.LocalSwitchStyle
-import com.sdds.compose.uikit.Text
+import com.sdds.compose.uikit.internal.common.StyledText
 
 @Composable
 internal fun BaseCell(
@@ -101,16 +99,4 @@ internal fun ColumnScope.CellCenterContent(
         textStyle = style.subtitleStyle,
         textColor = colors.subtitleColor.colorForInteraction(interactionSource),
     )
-}
-
-@Composable
-internal fun StyledText(
-    modifier: Modifier = Modifier,
-    text: AnnotatedString,
-    textStyle: TextStyle,
-    textColor: Color,
-) {
-    if (text.isEmpty()) return
-    val finalStyle = textStyle.copy(color = textColor)
-    Text(modifier = modifier, text = text, style = finalStyle)
 }

@@ -16,7 +16,7 @@ import com.sdds.playground.sandbox.core.compose.ComponentScaffold
  */
 @Composable
 internal fun LinkButtonScreen(
-    theme: Theme.ThemeInfoCompose = Theme.SddsServ.compose,
+    theme: Theme.ThemeInfoCompose = Theme.composeDefault,
 ) {
     val buttonViewModel: LinkButtonViewModel = viewModel(
         factory = LinkButtonViewModelFactory(ButtonUiState(), theme),

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/sandbox_component_scaffold_paddings"
+    android:clipToPadding="false"
+    android:clipChildren="false">
+
+    <com.sdds.uikit.FrameLayout
+        style="@style/Theme.Sandbox.Components.ComponentCanvas"
+        android:id="@+id/component_canvas"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/sandbox_component_canvas_height"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/scaffoldGuidline"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/scaffoldGuidline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.45"/>
+
+    <com.sdds.uikit.LinearLayout
+        style="@style/Theme.Sandbox.Components.PropertiesList"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/sandbox_property_list_margin_top"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/scaffoldGuidline"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <include
+            android:id="@+id/header"
+            layout="@layout/layout_header_property_item" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/properties_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:scrollbars="none"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+    </com.sdds.uikit.LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

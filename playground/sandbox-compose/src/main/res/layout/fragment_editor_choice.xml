@@ -2,17 +2,17 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Theme.Sandbox.Components.EditorDialogContainer"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
-    android:padding="@dimen/sdds_spacer_8x">
+    android:padding="@dimen/sandbox_editor_paddings">
 
     <com.sdds.uikit.TextView
-        style="@style/Serv.Sdds.Typography.BodyLBold"
+        style="@style/Theme.Sandbox.Components.PropertyChoiceTitle"
         android:id="@+id/choice_editor_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:textColor="?serv_textDefaultPrimary"
         tools:text="@string/sandbox_editor_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:orientation="vertical"
-        android:layout_marginTop="@dimen/sdds_spacer_8x"
+        android:layout_marginTop="@dimen/sandbox_editor_choice_list_margin_top"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--deprecated ReplaceWith @style/Sdkit.StarDs.Components.TextField.Xs -->
+    <style name="Sdkit.StarDs.Components.TextField.XS" parent="Sdkit.StarDs.Components.TextField.Xs"/>
+
+    <!--deprecated ReplaceWith @style/Sdkit.StarDs.Components.TextField.Xs.OuterLabel -->
+    <style name="Sdkit.StarDs.Components.TextField.XS.OuterLabel" parent="Sdkit.StarDs.Components.TextField.Xs.OuterLabel"/>
+
+</resources>

@@ -81,7 +81,12 @@ internal abstract class ComponentViewModel<State : UiState>(
 
     @Suppress("UNCHECKED_CAST")
     private fun updateUiStateWithDefaultVariant(theme: Theme) {
-        if (internalUiState.value.variant.isNotEmpty()) return
+        val variant = internalUiState.value.variant
+        if (variant.isNotEmpty() &&
+            getStyleProvider(theme.view.stylesProvider).variants.contains(variant)
+        ) {
+            return
+        }
         internalUiState.value =
             internalUiState.value.updateVariant(
                 getStyleProvider(theme.view.stylesProvider).defaultVariant,

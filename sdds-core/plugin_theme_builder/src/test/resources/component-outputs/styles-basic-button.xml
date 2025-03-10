@@ -3,8 +3,8 @@
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <resources>
     <style name="Thmbldr.TestTheme.Components.BasicButton" parent="Sdds.Components.Button">
-        <item name="sd_colorStateProvider">com.test.colorstate.ButtonColorStateProvider</item>
         <item name="android:textColor">@color/thmbldr_basic_button_text_color</item>
+        <item name="sd_colorStateProvider">com.test.colorstate.ButtonColorStateProvider</item>
     </style>
     <style name="Thmbldr.TestTheme.Components.BasicButton.L">
         <item name="android:minHeight">@dimen/thmbldr_basic_button_l_min_height</item>

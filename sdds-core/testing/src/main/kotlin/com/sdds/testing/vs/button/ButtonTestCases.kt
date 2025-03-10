@@ -53,8 +53,13 @@ abstract class ButtonTestCases(mode: String) : RoborazziConfig(mode) {
     abstract fun testIconButtonXSNegative()
 
     abstract fun testIconButtonLWhite()
-
-    abstract fun testLinkButtonLAccent()
+    abstract fun testLinkButtonLDefault()
+    abstract fun testLinkButtonIsLoading()
+    abstract fun testLinkButtonLSecondary()
+    abstract fun testLinkButtonMAccent()
+    abstract fun testLinkButtonDisabled()
+    abstract fun testLinkButtonSWarning()
+    abstract fun testLinkButtonXsNegative()
 
     fun ComponentScope.buttonSizeLDefault(style: Int): Button =
         basicButton(
@@ -315,7 +320,79 @@ abstract class ButtonTestCases(mode: String) : RoborazziConfig(mode) {
             ),
         )
 
-    fun ComponentScope.linkButtonLAccent(style: Int): LinkButton =
+    fun ComponentScope.linkButtonLDefault(style: Int): LinkButton =
+        linkButton(
+            context,
+            style,
+            ButtonUiState(
+                icon = ButtonIcon.No,
+                buttonLabel = "Label",
+                loading = false,
+                enabled = true,
+            ),
+        )
+
+    fun ComponentScope.linkButtonIsLoading(style: Int): LinkButton =
+        linkButton(
+            context,
+            style,
+            ButtonUiState(
+                icon = ButtonIcon.No,
+                buttonLabel = "Label",
+                loading = true,
+                enabled = true,
+            ),
+        )
+
+    fun ComponentScope.linkButtonLSecondary(style: Int): LinkButton =
+        linkButton(
+            context,
+            style,
+            ButtonUiState(
+                icon = ButtonIcon.No,
+                buttonLabel = "Label",
+                loading = false,
+                enabled = true,
+            ),
+        )
+
+    fun ComponentScope.linkButtonMAccent(style: Int): LinkButton =
+        linkButton(
+            context,
+            style,
+            ButtonUiState(
+                icon = ButtonIcon.Start,
+                buttonLabel = "Label",
+                loading = false,
+                enabled = true,
+            ),
+        )
+
+    fun ComponentScope.linkButtonDisabled(style: Int): LinkButton =
+        linkButton(
+            context,
+            style,
+            ButtonUiState(
+                icon = ButtonIcon.No,
+                buttonLabel = "Label",
+                loading = false,
+                enabled = false,
+            ),
+        )
+
+    fun ComponentScope.linkButtonSWarning(style: Int): LinkButton =
+        linkButton(
+            context,
+            style,
+            ButtonUiState(
+                icon = ButtonIcon.End,
+                buttonLabel = "Label",
+                loading = false,
+                enabled = true,
+            ),
+        )
+
+    fun ComponentScope.linkButtonXsNegative(style: Int): LinkButton =
         linkButton(
             context,
             style,

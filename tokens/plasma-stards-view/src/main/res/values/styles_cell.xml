@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <style name="Sdkit.StarDs.Components.Cell" parent="Sdds.Components.Cell">
+        <item name="sd_labelColor">@color/sdkit_color_cell_text</item>
+        <item name="sd_titleColor">@color/sdkit_color_cell_text</item>
+        <item name="sd_subtitleColor">@color/sdkit_color_cell_text</item>
+        <item name="sd_disclosureColor">@color/sdkit_color_cell_text</item>
+        <item name="android:descendantFocusability">beforeDescendants</item>
+        <item name="sd_forceDuplicateParentState">true</item>
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundM</item>
+        <item name="android:focusable">true</item>
+        <item name="android:backgroundTint">@color/sdkit_bg_focusable_cell</item>
+    </style>
+
+    <style name="Sdkit.StarDs.Components.Cell.L">
+        <item name="sd_contentStartPadding">8dp</item>
+        <item name="sd_contentEndPadding">8dp</item>
+        <item name="sd_labelAppearance">@style/Sdkit.StarDs.TextAppearance.BodyMNormal</item>
+        <item name="sd_titleAppearance">@style/Sdkit.StarDs.TextAppearance.BodyLNormal</item>
+        <item name="sd_subtitleAppearance">@style/Sdkit.StarDs.TextAppearance.BodyMNormal</item>
+        <item name="sd_disclosureTextAppearance">@style/Sdkit.StarDs.TextAppearance.BodyMNormal</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_24</item>
+        <item name="android:theme">@style/Sdkit.StarDs.ComponentOverlays.CellL</item>
+    </style>
+
+    <style name="Sdkit.StarDs.Components.Cell.M">
+        <item name="sd_contentStartPadding">6dp</item>
+        <item name="sd_contentEndPadding">6dp</item>
+        <item name="sd_labelAppearance">@style/Sdkit.StarDs.TextAppearance.BodySNormal</item>
+        <item name="sd_titleAppearance">@style/Sdkit.StarDs.TextAppearance.BodyMNormal</item>
+        <item name="sd_subtitleAppearance">@style/Sdkit.StarDs.TextAppearance.BodySNormal</item>
+        <item name="sd_disclosureTextAppearance">@style/Sdkit.StarDs.TextAppearance.BodySNormal</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_24</item>
+        <item name="android:theme">@style/Sdkit.StarDs.ComponentOverlays.CellM</item>
+    </style>
+
+    <style name="Sdkit.StarDs.Components.Cell.S">
+        <item name="sd_contentStartPadding">6dp</item>
+        <item name="sd_contentEndPadding">6dp</item>
+        <item name="sd_labelAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXsNormal</item>
+        <item name="sd_titleAppearance">@style/Sdkit.StarDs.TextAppearance.BodySNormal</item>
+        <item name="sd_subtitleAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXsNormal</item>
+        <item name="sd_disclosureTextAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXsNormal</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_16</item>
+        <item name="android:theme">@style/Sdkit.StarDs.ComponentOverlays.CellS</item>
+    </style>
+
+    <style name="Sdkit.StarDs.Components.Cell.XS">
+        <item name="sd_contentStartPadding">4dp</item>
+        <item name="sd_contentEndPadding">4dp</item>
+        <item name="sd_labelAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXsNormal</item>
+        <item name="sd_titleAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXsNormal</item>
+        <item name="sd_subtitleAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXsNormal</item>
+        <item name="sd_disclosureTextAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXsNormal</item>
+        <item name="sd_disclosureIcon">@drawable/ic_disclosure_right_outline_16</item>
+        <item name="android:theme">@style/Sdkit.StarDs.ComponentOverlays.CellXS</item>
+    </style>
+
+    <style name="Sdkit.StarDs.Components.CellContent" />
+
+    <style name="Sdkit.StarDs.Components.CellContent.IconButton" parent="Sdkit.StarDs.Components.IconButton" />
+
+    <style name="Sdkit.StarDs.Components.CellContent.IconButton.L" parent="Sdkit.StarDs.Components.IconButton.L" >
+        <item name="sd_iconTint">@color/sdkit_color_cell_text</item>
+        <item name="backgroundTint">@null</item>
+    </style>
+
+    <style name="Sdkit.StarDs.Components.CellContent.IconButton.M" parent="Sdkit.StarDs.Components.IconButton.M">
+        <item name="sd_iconTint">@color/sdkit_color_cell_text</item>
+        <item name="backgroundTint">@null</item>
+    </style>
+
+    <style name="Sdkit.StarDs.Components.CellContent.IconButton.S" parent="Sdkit.StarDs.Components.IconButton.S" >
+        <item name="sd_iconTint">@color/sdkit_color_cell_text</item>
+        <item name="backgroundTint">@null</item>
+    </style>
+
+    <style name="Sdkit.StarDs.Components.CellContent.IconButton.XS" parent="Sdkit.StarDs.Components.IconButton.XS" >
+        <item name="sd_iconTint">@color/sdkit_color_cell_text</item>
+        <item name="backgroundTint">@null</item>
+    </style>
+
+    <style name="Sdkit.StarDs.Components.CellContent.Switch" parent="Sdkit.StarDs.Components.Switch">
+        <item name="sd_buttonTrackColor">@color/sdkit_bg_cell_switch_track</item>
+        <item name="android:drawablePadding">0dp</item>
+    </style>
+
+    <style name="Sdkit.StarDs.Components.CellContent.CheckBox" parent="Sdkit.StarDs.Components.CheckBox">
+        <item name="sd_buttonBorderColor">@color/sdkit_color_cell_checkable_border</item>
+        <item name="sd_focusBorderEnabled">false</item>
+        <item name="android:drawablePadding">0dp</item>
+    </style>
+
+    <style name="Sdkit.StarDs.Components.CellContent.CheckBox.M" parent="Sdkit.StarDs.Components.CheckBox.M">
+        <item name="sd_buttonBorderColor">@color/sdkit_color_cell_checkable_border</item>
+        <item name="sd_focusBorderEnabled">false</item>
+        <item name="android:drawablePadding">0dp</item>
+    </style>
+
+    <style name="Sdkit.StarDs.Components.CellContent.CheckBox.S" parent="Sdkit.StarDs.Components.CheckBox.S">
+        <item name="sd_buttonBorderColor">@color/sdkit_color_cell_checkable_border</item>
+        <item name="sd_focusBorderEnabled">false</item>
+        <item name="android:drawablePadding">0dp</item>
+    </style>
+
+    <style name="Sdkit.StarDs.Components.CellContent.RadioBox" parent="Sdkit.StarDs.Components.RadioBox">
+        <item name="sd_buttonBorderColor">@color/sdkit_color_cell_checkable_border</item>
+        <item name="sd_focusBorderEnabled">false</item>
+        <item name="android:drawablePadding">0dp</item>
+    </style>
+
+    <style name="Sdkit.StarDs.Components.CellContent.RadioBox.M" parent="Sdkit.StarDs.Components.RadioBox.M">
+        <item name="sd_buttonBorderColor">@color/sdkit_color_cell_checkable_border</item>
+        <item name="sd_focusBorderEnabled">false</item>
+        <item name="android:drawablePadding">0dp</item>
+    </style>
+
+    <style name="Sdkit.StarDs.Components.CellContent.RadioBox.S" parent="Sdkit.StarDs.Components.RadioBox.S">
+        <item name="sd_buttonBorderColor">@color/sdkit_color_cell_checkable_border</item>
+        <item name="sd_focusBorderEnabled">false</item>
+        <item name="android:drawablePadding">0dp</item>
+    </style>
+
+</resources>

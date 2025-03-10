@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--deprecated ReplaceWith @style/Sdkit.StarDs.Components.IconButton.Xs -->
+    <style name="Sdkit.StarDs.Components.IconButton.XS" parent="Sdkit.StarDs.Components.IconButton.Xs"/>
+
+    <!--deprecated ReplaceWith @style/Sdkit.StarDs.Components.IconButton.Xs.Pilled -->
+    <style name="Sdkit.StarDs.Components.IconButton.XS.Pilled" parent="Sdkit.StarDs.Components.IconButton.Xs.Pilled"/>
+</resources>

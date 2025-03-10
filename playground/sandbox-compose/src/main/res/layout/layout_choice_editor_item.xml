@@ -3,5 +3,5 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingVertical="@dimen/sdds_spacer_8x"
+    android:paddingVertical="@dimen/sandbox_property_paddings"
     android:text="Label" />

@@ -2,12 +2,14 @@ package com.sdds.playground.sandbox.stylessalute.integration
 
 import com.sdds.compose.uikit.AvatarGroupStyle
 import com.sdds.compose.uikit.AvatarStyle
+import com.sdds.compose.uikit.BadgeStyle
 import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.CellStyle
 import com.sdds.compose.uikit.CheckBoxGroupStyle
 import com.sdds.compose.uikit.CheckBoxStyle
 import com.sdds.compose.uikit.ChipGroupStyle
 import com.sdds.compose.uikit.ChipStyle
+import com.sdds.compose.uikit.CounterStyle
 import com.sdds.compose.uikit.IndicatorStyle
 import com.sdds.compose.uikit.ProgressBarStyle
 import com.sdds.compose.uikit.RadioBoxGroupStyle
@@ -18,6 +20,12 @@ import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 import com.sdds.playground.sandbox.core.integration.StylesProviderCompose
 import com.sdds.playground.sandbox.stylessalute.integration.avatar.StylesSaluteAvatarVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.avatar.group.StylesSaluteAvatarGroupVariationsCompose
+import com.sdds.playground.sandbox.stylessalute.integration.badge.StylesSaluteBadgeClearVariationsCompose
+import com.sdds.playground.sandbox.stylessalute.integration.badge.StylesSaluteBadgeSolidVariationsCompose
+import com.sdds.playground.sandbox.stylessalute.integration.badge.StylesSaluteBadgeTransparentVariationsCompose
+import com.sdds.playground.sandbox.stylessalute.integration.badge.icon.StylesSaluteIconBadgeClearVariationsCompose
+import com.sdds.playground.sandbox.stylessalute.integration.badge.icon.StylesSaluteIconBadgeSolidVariationsCompose
+import com.sdds.playground.sandbox.stylessalute.integration.badge.icon.StylesSaluteIconBadgeTransparentVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.button.basic.StylesSaluteBasicButtonVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.button.icon.StylesSaluteIconButtonVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.button.link.StylesSaluteLinkButtonVariationsCompose
@@ -26,6 +34,7 @@ import com.sdds.playground.sandbox.stylessalute.integration.checkbox.StylesSalut
 import com.sdds.playground.sandbox.stylessalute.integration.checkbox.group.StylesSaluteCheckBoxGroupVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.chip.StylesSaluteChipVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.chip.group.StylesSaluteChipGroupVariationsCompose
+import com.sdds.playground.sandbox.stylessalute.integration.counter.StylesSaluteCounterVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.indicator.compose.StylesSaluteIndicatorVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.progress.StylesSaluteProgressVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.radiobox.StylesSaluteRadioBoxVariationsCompose
@@ -79,4 +88,18 @@ object StylesSaluteComposeStylesProvider : StylesProviderCompose {
         get() = StylesSaluteCellVariationsCompose
     override val indicator: ComposeStyleProvider<String, IndicatorStyle>
         get() = StylesSaluteIndicatorVariationsCompose
+    override val badgeSolid: ComposeStyleProvider<String, BadgeStyle>
+        get() = StylesSaluteBadgeSolidVariationsCompose
+    override val badgeClear: ComposeStyleProvider<String, BadgeStyle>
+        get() = StylesSaluteBadgeClearVariationsCompose
+    override val badgeTransparent: ComposeStyleProvider<String, BadgeStyle>
+        get() = StylesSaluteBadgeTransparentVariationsCompose
+    override val iconBadgeSolid: ComposeStyleProvider<String, BadgeStyle>
+        get() = StylesSaluteIconBadgeSolidVariationsCompose
+    override val iconBadgeClear: ComposeStyleProvider<String, BadgeStyle>
+        get() = StylesSaluteIconBadgeClearVariationsCompose
+    override val iconBadgeTransparent: ComposeStyleProvider<String, BadgeStyle>
+        get() = StylesSaluteIconBadgeTransparentVariationsCompose
+    override val counter: ComposeStyleProvider<String, CounterStyle>
+        get() = StylesSaluteCounterVariationsCompose
 }

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:color="?sdkit_textInverseSecondary" app:sd_state_readonly="true" android:state_activated="true" />
+    <item android:color="?sdkit_textDefaultSecondary" app:sd_state_readonly="true" />
+    <item android:color="?sdkit_textInversePrimary" android:state_activated="true" />
+    <item android:color="?sdkit_textDefaultPrimary" />
+</selector>

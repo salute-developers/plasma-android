@@ -2,6 +2,7 @@
 @file:Suppress(
     "UndocumentedPublicClass",
     "UndocumentedPublicProperty",
+    "ktlint:standard:max-line-length",
 )
 
 package com.sdds.serv.styles.textarea
@@ -213,6 +214,51 @@ public value class WrapperTextAreaLInnerLabelRequiredStart(
 
 @JvmInline
 public value class WrapperTextAreaLInnerLabelRequiredEnd(
+    public override val builder: TextAreaStyleBuilder,
+) : WrapperTextAreaView
+
+@JvmInline
+public value class WrapperTextAreaXl(
+    public override val builder: TextAreaStyleBuilder,
+) : WrapperTextAreaView
+
+@JvmInline
+public value class WrapperTextAreaXlRequiredStart(
+    public override val builder: TextAreaStyleBuilder,
+) : WrapperTextAreaView
+
+@JvmInline
+public value class WrapperTextAreaXlRequiredEnd(
+    public override val builder: TextAreaStyleBuilder,
+) : WrapperTextAreaView
+
+@JvmInline
+public value class WrapperTextAreaXlOuterLabel(
+    public override val builder: TextAreaStyleBuilder,
+) : WrapperTextAreaView
+
+@JvmInline
+public value class WrapperTextAreaXlOuterLabelRequiredStart(
+    public override val builder: TextAreaStyleBuilder,
+) : WrapperTextAreaView
+
+@JvmInline
+public value class WrapperTextAreaXlOuterLabelRequiredEnd(
+    public override val builder: TextAreaStyleBuilder,
+) : WrapperTextAreaView
+
+@JvmInline
+public value class WrapperTextAreaXlInnerLabel(
+    public override val builder: TextAreaStyleBuilder,
+) : WrapperTextAreaView
+
+@JvmInline
+public value class WrapperTextAreaXlInnerLabelRequiredStart(
+    public override val builder: TextAreaStyleBuilder,
+) : WrapperTextAreaView
+
+@JvmInline
+public value class WrapperTextAreaXlInnerLabelRequiredEnd(
     public override val builder: TextAreaStyleBuilder,
 ) : WrapperTextAreaView
 
@@ -856,3 +902,142 @@ public val WrapperTextAreaLInnerLabel.RequiredEnd: WrapperTextAreaLInnerLabelReq
         }
         .fieldType(TextField.FieldType.RequiredEnd)
         .wrap(::WrapperTextAreaLInnerLabelRequiredEnd)
+
+public val TextArea.Xl: WrapperTextAreaXl
+    @Composable
+    @JvmName("WrapperTextAreaXl")
+    get() = TextFieldStyle.textAreaBuilder(this)
+        .invariantProps
+        .shape(SddsServTheme.shapes.roundL)
+        .dimensions {
+            boxPaddingStart(20.0.dp)
+            boxPaddingEnd(18.0.dp)
+            boxPaddingTop(12.0.dp)
+            boxPaddingBottom(12.0.dp)
+            boxMinHeight(56.0.dp)
+            alignmentLineHeight(56.0.dp)
+            helperTextPadding(12.0.dp)
+            startContentPadding(8.0.dp)
+            endContentPadding(10.0.dp)
+            startContentSize(24.0.dp)
+            endContentSize(24.0.dp)
+        }
+        .valueStyle(SddsServTheme.typography.bodyLNormal)
+        .prefixStyle(SddsServTheme.typography.bodyLNormal)
+        .suffixStyle(SddsServTheme.typography.bodyLNormal)
+        .placeholderStyle(SddsServTheme.typography.bodyLNormal)
+        .chipStyle(EmbeddedChip.L.Secondary.style())
+        .labelPlacement(TextField.LabelPlacement.None)
+        .wrap(::WrapperTextAreaXl)
+
+public val WrapperTextAreaXl.RequiredStart: WrapperTextAreaXlRequiredStart
+    @Composable
+    @JvmName("WrapperTextAreaXlRequiredStart")
+    get() = builder
+        .dimensions {
+            indicatorDimensions {
+                indicatorSize(8.0.dp)
+            }
+        }
+        .fieldType(TextField.FieldType.RequiredStart)
+        .wrap(::WrapperTextAreaXlRequiredStart)
+
+public val WrapperTextAreaXl.RequiredEnd: WrapperTextAreaXlRequiredEnd
+    @Composable
+    @JvmName("WrapperTextAreaXlRequiredEnd")
+    get() = builder
+        .dimensions {
+            indicatorDimensions {
+                indicatorSize(8.0.dp)
+            }
+        }
+        .fieldType(TextField.FieldType.RequiredEnd)
+        .wrap(::WrapperTextAreaXlRequiredEnd)
+
+public val WrapperTextAreaXl.OuterLabel: WrapperTextAreaXlOuterLabel
+    @Composable
+    @JvmName("WrapperTextAreaXlOuterLabel")
+    get() = builder
+        .dimensions {
+            labelPadding(12.0.dp)
+        }
+        .labelStyle(SddsServTheme.typography.bodyLNormal)
+        .optionalStyle(SddsServTheme.typography.bodyLNormal)
+        .labelPlacement(TextField.LabelPlacement.Outer)
+        .colors {
+            labelColor(
+                SddsServTheme.colors.textDefaultPrimary.asInteractive(),
+            )
+        }
+        .wrap(::WrapperTextAreaXlOuterLabel)
+
+public val WrapperTextAreaXlOuterLabel.RequiredStart: WrapperTextAreaXlOuterLabelRequiredStart
+    @Composable
+    @JvmName("WrapperTextAreaXlOuterLabelRequiredStart")
+    get() = builder
+        .dimensions {
+            indicatorDimensions {
+                horizontalPadding(6.0.dp)
+                verticalPadding(8.0.dp)
+                indicatorSize(6.0.dp)
+            }
+        }
+        .fieldType(TextField.FieldType.RequiredStart)
+        .wrap(::WrapperTextAreaXlOuterLabelRequiredStart)
+
+public val WrapperTextAreaXlOuterLabel.RequiredEnd: WrapperTextAreaXlOuterLabelRequiredEnd
+    @Composable
+    @JvmName("WrapperTextAreaXlOuterLabelRequiredEnd")
+    get() = builder
+        .dimensions {
+            indicatorDimensions {
+                horizontalPadding(4.0.dp)
+                verticalPadding(4.0.dp)
+                indicatorSize(6.0.dp)
+            }
+        }
+        .fieldType(TextField.FieldType.RequiredEnd)
+        .wrap(::WrapperTextAreaXlOuterLabelRequiredEnd)
+
+public val WrapperTextAreaXl.InnerLabel: WrapperTextAreaXlInnerLabel
+    @Composable
+    @JvmName("WrapperTextAreaXlInnerLabel")
+    get() = builder
+        .dimensions {
+            boxPaddingTop(12.0.dp)
+            boxPaddingBottom(12.0.dp)
+            labelPadding(2.0.dp)
+        }
+        .labelStyle(SddsServTheme.typography.bodyXsNormal)
+        .optionalStyle(SddsServTheme.typography.bodyXsNormal)
+        .labelPlacement(TextField.LabelPlacement.Inner)
+        .colors {
+            labelColor(
+                SddsServTheme.colors.textDefaultSecondary.asInteractive(),
+            )
+        }
+        .wrap(::WrapperTextAreaXlInnerLabel)
+
+public val WrapperTextAreaXlInnerLabel.RequiredStart: WrapperTextAreaXlInnerLabelRequiredStart
+    @Composable
+    @JvmName("WrapperTextAreaXlInnerLabelRequiredStart")
+    get() = builder
+        .dimensions {
+            indicatorDimensions {
+                indicatorSize(8.0.dp)
+            }
+        }
+        .fieldType(TextField.FieldType.RequiredStart)
+        .wrap(::WrapperTextAreaXlInnerLabelRequiredStart)
+
+public val WrapperTextAreaXlInnerLabel.RequiredEnd: WrapperTextAreaXlInnerLabelRequiredEnd
+    @Composable
+    @JvmName("WrapperTextAreaXlInnerLabelRequiredEnd")
+    get() = builder
+        .dimensions {
+            indicatorDimensions {
+                indicatorSize(8.0.dp)
+            }
+        }
+        .fieldType(TextField.FieldType.RequiredEnd)
+        .wrap(::WrapperTextAreaXlInnerLabelRequiredEnd)

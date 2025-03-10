@@ -40,9 +40,11 @@ import com.sdds.testing.compose.textfield.TextFieldClearSDefaultOuterOptional
 import com.sdds.testing.compose.textfield.TextFieldClearXSSuccessOuterRequiredRightFocused
 import com.sdds.testing.compose.textfield.TextFieldLDefaultInnerLeft
 import com.sdds.testing.compose.textfield.TextFieldLDisabled
+import com.sdds.testing.compose.textfield.TextFieldLDisabledOuterLeft
 import com.sdds.testing.compose.textfield.TextFieldLInputText
 import com.sdds.testing.compose.textfield.TextFieldLSuccessRequiredLeftOuter
 import com.sdds.testing.compose.textfield.TextFieldLSuffixPrefix
+import com.sdds.testing.compose.textfield.TextFieldLSuffixPrefixCyrillic
 import com.sdds.testing.compose.textfield.TextFieldMErrorOuterLabelOptional
 import com.sdds.testing.compose.textfield.TextFieldMSuccessInnerLabelChips
 import com.sdds.testing.compose.textfield.TextFieldMSuccessOuterLabel
@@ -224,6 +226,20 @@ class ComposeTextFieldScreenshotTest(
     fun testTextFieldClearMErrorInnerRequiredLeft() {
         composeTestRule.content {
             TextFieldClearMErrorInnerRequiredLeft(style = TextFieldClear.M.InnerLabel.RequiredStart.Error.style())
+        }
+    }
+
+    @Test
+    fun testTextFieldLSuffixPrefixCyrillic() {
+        composeTestRule.content {
+            TextFieldLSuffixPrefixCyrillic(style = TextField.L.OuterLabel.RequiredStart.Default.style())
+        }
+    }
+
+    @Test
+    fun testTextFieldLDisabledOuterLeft() {
+        composeTestRule.content {
+            TextFieldLDisabledOuterLeft(style = TextField.L.OuterLabel.RequiredStart.Default.style())
         }
     }
 }

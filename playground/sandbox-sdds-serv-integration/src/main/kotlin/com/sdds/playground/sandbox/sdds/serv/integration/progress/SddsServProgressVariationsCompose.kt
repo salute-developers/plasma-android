@@ -7,6 +7,7 @@ import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 import com.sdds.serv.styles.progress.Accent
 import com.sdds.serv.styles.progress.Default
 import com.sdds.serv.styles.progress.GradientAccent
+import com.sdds.serv.styles.progress.Info
 import com.sdds.serv.styles.progress.Negative
 import com.sdds.serv.styles.progress.Positive
 import com.sdds.serv.styles.progress.Secondary
@@ -23,5 +24,6 @@ internal object SddsServProgressVariationsCompose :
             "Positive" to { ProgressBar.Positive.style() },
             "Warning" to { ProgressBar.Warning.style() },
             "Negative" to { ProgressBar.Negative.style() },
+            "Info" to { ProgressBar.Info.style() },
         )
 }

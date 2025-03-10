@@ -10,7 +10,6 @@
 
     <com.sdds.uikit.Button
         android:id="@+id/bCompose"
-        style="@style/Serv.Sdds.Components.BasicButton.L.Clear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="236dp"
@@ -21,7 +20,6 @@
 
     <com.sdds.uikit.Button
         android:id="@+id/bView"
-        style="@style/Serv.Sdds.Components.BasicButton.L.Clear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/view_system"

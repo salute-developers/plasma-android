@@ -22,3 +22,11 @@ internal data class CheckBoxUiState(
         return copy(variant = variant)
     }
 }
+
+internal fun ToggleableState.toggle(): ToggleableState {
+    return if (this == ToggleableState.Off || this == ToggleableState.Indeterminate) {
+        ToggleableState.On
+    } else {
+        ToggleableState.Off
+    }
+}

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:color="?sdkit_textInversePrimaryActive" android:state_pressed="true" app:sdkit_counter_state_default="true"/>
+    <item android:color="?sdkit_textInversePrimaryHover" android:state_hovered="true" app:sdkit_counter_state_default="true"/>
+    <item android:color="?sdkit_textInversePrimary" app:sdkit_counter_state_default="true"/>
+    <item android:color="?sdkit_textOnDarkPrimaryActive" android:state_pressed="true" app:sdkit_counter_state_accent="true"/>
+    <item android:color="?sdkit_textOnDarkPrimaryHover" android:state_hovered="true" app:sdkit_counter_state_accent="true"/>
+    <item android:color="?sdkit_textOnDarkPrimary" app:sdkit_counter_state_accent="true"/>
+    <item android:color="?sdkit_textOnDarkPrimaryActive" android:state_pressed="true" app:sdkit_counter_state_positive="true"/>
+    <item android:color="?sdkit_textOnDarkPrimaryHover" android:state_hovered="true" app:sdkit_counter_state_positive="true"/>
+    <item android:color="?sdkit_textOnDarkPrimary" app:sdkit_counter_state_positive="true"/>
+    <item android:color="?sdkit_textOnDarkPrimaryActive" android:state_pressed="true" app:sdkit_counter_state_warning="true"/>
+    <item android:color="?sdkit_textOnDarkPrimaryHover" android:state_hovered="true" app:sdkit_counter_state_warning="true"/>
+    <item android:color="?sdkit_textOnDarkPrimary" app:sdkit_counter_state_warning="true"/>
+    <item android:color="?sdkit_textOnDarkPrimaryActive" android:state_pressed="true" app:sdkit_counter_state_negative="true"/>
+    <item android:color="?sdkit_textOnDarkPrimaryHover" android:state_hovered="true" app:sdkit_counter_state_negative="true"/>
+    <item android:color="?sdkit_textOnDarkPrimary" app:sdkit_counter_state_negative="true"/>
+    <item android:color="?sdkit_textOnDarkPrimaryActive" android:state_pressed="true" app:sdkit_counter_state_black="true"/>
+    <item android:color="?sdkit_textOnDarkPrimaryHover" android:state_hovered="true" app:sdkit_counter_state_black="true"/>
+    <item android:color="?sdkit_textOnDarkPrimary" app:sdkit_counter_state_black="true"/>
+    <item android:color="?sdkit_textOnLightPrimaryActive" android:state_pressed="true" app:sdkit_counter_state_white="true"/>
+    <item android:color="?sdkit_textOnLightPrimaryHover" android:state_hovered="true" app:sdkit_counter_state_white="true"/>
+    <item android:color="?sdkit_textOnLightPrimary" app:sdkit_counter_state_white="true"/>
+</selector>
