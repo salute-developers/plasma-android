@@ -3,22 +3,17 @@ package com.sdds.playground.sandbox.chip.compose
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.compose.uikit.ChipStyle
-import com.sdds.playground.sandbox.Theme
 import com.sdds.playground.sandbox.core.compose.ComponentViewModel
 import com.sdds.playground.sandbox.core.compose.Property
-import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
+import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 
 /**
  * ViewModel для экранов с компонентом Chip
  */
 internal class ChipViewModel(
     defaultState: ChipUiState,
-    private val theme: Theme.ThemeInfoCompose,
-) : ComponentViewModel<ChipUiState, ChipStyle>(defaultState) {
-
-    override fun getStyleProvider(): ComposeStyleProvider<String, ChipStyle> {
-        return theme.stylesProvider.chip
-    }
+    componentKey: ComponentKey,
+) : ComponentViewModel<ChipUiState, ChipStyle>(defaultState, componentKey) {
 
     private fun updateLabel(text: String) {
         internalUiState.value = internalUiState.value.copy(label = text)
@@ -77,11 +72,11 @@ internal class ChipViewModel(
 
 internal class ChipViewModelFactory(
     private val defaultState: ChipUiState,
-    private val theme: Theme.ThemeInfoCompose,
+    private val componentKey: ComponentKey,
 ) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return ChipViewModel(defaultState, theme) as T
+        return ChipViewModel(defaultState, componentKey) as T
     }
 }

@@ -3,34 +3,20 @@ package com.sdds.playground.sandbox.badge.compose
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.compose.uikit.BadgeStyle
-import com.sdds.playground.sandbox.Theme
 import com.sdds.playground.sandbox.core.compose.ComponentViewModel
 import com.sdds.playground.sandbox.core.compose.Property
-import com.sdds.playground.sandbox.core.compose.enumProperty
-import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
+import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 
 /**
  * ViewModel для экранов с компонентом Badge
  */
 internal class BadgeParametersViewModel(
     defaultState: BadgeUiState,
-    private val theme: Theme.ThemeInfoCompose,
-) : ComponentViewModel<BadgeUiState, BadgeStyle>(defaultState) {
-
-    override fun getStyleProvider(): ComposeStyleProvider<String, BadgeStyle> {
-        return when (internalUiState.value.type) {
-            BadgeType.Solid -> theme.stylesProvider.badgeSolid
-            BadgeType.Clear -> theme.stylesProvider.badgeClear
-            BadgeType.Transparent -> theme.stylesProvider.badgeTransparent
-        }
-    }
+    componentKey: ComponentKey,
+) : ComponentViewModel<BadgeUiState, BadgeStyle>(defaultState, componentKey) {
 
     private fun updateLabel(text: String) {
         internalUiState.value = internalUiState.value.copy(label = text)
-    }
-
-    private fun updateView(view: BadgeType) {
-        internalUiState.value = internalUiState.value.copy(type = view)
     }
 
     private fun updateContentLeft(contentLeft: Boolean) {
@@ -43,12 +29,6 @@ internal class BadgeParametersViewModel(
 
     override fun BadgeUiState.toProps(): List<Property<*>> {
         return listOfNotNull(
-            enumProperty(
-                name = "type",
-                value = type,
-                onApply = { updateView(it) },
-            ),
-
             Property.StringProperty(
                 name = "label",
                 value = label,
@@ -76,11 +56,11 @@ internal class BadgeParametersViewModel(
  */
 internal class BadgeParametersViewModelFactory(
     private val defaultState: BadgeUiState,
-    private val theme: Theme.ThemeInfoCompose,
+    private val componentKey: ComponentKey,
 ) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return BadgeParametersViewModel(defaultState, theme) as T
+        return BadgeParametersViewModel(defaultState, componentKey) as T
     }
 }

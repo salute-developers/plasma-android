@@ -15,7 +15,10 @@ import com.sdds.uikit.CheckBox
 internal class CheckBoxFragment : ComponentFragment<CheckBoxUiState, CheckBox>() {
 
     override val componentViewModel by viewModels<CheckBoxParametersViewModel> {
-        CheckBoxParametersViewModelFactory(getState { CheckBoxUiState() })
+        CheckBoxParametersViewModelFactory(
+            defaultState = getState { CheckBoxUiState() },
+            componentKey = componentKey,
+        )
     }
 
     override fun getComponent(contextWrapper: ContextThemeWrapper): CheckBox {

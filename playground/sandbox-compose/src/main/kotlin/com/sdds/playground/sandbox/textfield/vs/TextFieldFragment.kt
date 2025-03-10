@@ -5,7 +5,6 @@ import android.view.KeyEvent
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.viewModels
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
-import com.sdds.playground.sandbox.core.vs.stylesProvider
 import com.sdds.testing.vs.textfield.TextFieldUiState
 import com.sdds.testing.vs.textfield.applyState
 import com.sdds.testing.vs.textfield.textField
@@ -18,7 +17,10 @@ import com.sdds.uikit.TextField
 internal class TextFieldFragment : ComponentFragment<TextFieldUiState, TextField>() {
 
     override val componentViewModel by viewModels<TextFieldViewModel> {
-        TextFieldViewModelFactory(getState { TextFieldUiState() })
+        TextFieldViewModelFactory(
+            defaultState = getState { TextFieldUiState() },
+            componentKey = componentKey,
+        )
     }
 
     override fun getComponent(contextWrapper: ContextThemeWrapper): TextField {
@@ -29,7 +31,7 @@ internal class TextFieldFragment : ComponentFragment<TextFieldUiState, TextField
     }
 
     override fun onComponentUpdate(component: TextField?, state: TextFieldUiState) {
-        component?.applyState(state, componentViewModel.stylesProvider.textField.colorState(state.colorVariant))
+        component?.applyState(state, componentViewModel.getStyleProvider().colorState(state.colorVariant))
     }
 
     private var shouldDeleteChip: Boolean = false

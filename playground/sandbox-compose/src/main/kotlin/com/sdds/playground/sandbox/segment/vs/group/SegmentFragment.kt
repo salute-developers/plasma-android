@@ -17,6 +17,7 @@ internal class SegmentFragment : ComponentFragment<SegmentUiState, Segment>() {
     override val componentViewModel by viewModels<SegmentViewModel> {
         SegmentViewModelFactory(
             defaultState = getState { SegmentUiState() },
+            componentKey = componentKey,
         )
     }
     private var _currentOrientation: SegmentOrientation = SegmentOrientation.HORIZONTAL

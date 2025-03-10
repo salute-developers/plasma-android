@@ -3,22 +3,17 @@ package com.sdds.playground.sandbox.switcher.compose
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.compose.uikit.SwitchStyle
-import com.sdds.playground.sandbox.Theme
 import com.sdds.playground.sandbox.core.compose.ComponentViewModel
 import com.sdds.playground.sandbox.core.compose.Property
-import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
+import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 
 /**
  * ViewModel для экранов с компонентом Switch
  */
 internal class SwitchViewModel(
     defaultState: SwitchUiState,
-    private val theme: Theme.ThemeInfoCompose,
-) : ComponentViewModel<SwitchUiState, SwitchStyle>(defaultState) {
-
-    override fun getStyleProvider(): ComposeStyleProvider<String, SwitchStyle> {
-        return theme.stylesProvider.switch
-    }
+    componentKey: ComponentKey,
+) : ComponentViewModel<SwitchUiState, SwitchStyle>(defaultState, componentKey) {
 
     fun updateActive(active: Boolean) {
         internalUiState.value = internalUiState.value.copy(active = active)
@@ -67,11 +62,11 @@ internal class SwitchViewModel(
 
 internal class SwitchViewModelFactory(
     private val defaultState: SwitchUiState,
-    private val theme: Theme.ThemeInfoCompose,
+    private val componentKey: ComponentKey,
 ) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return SwitchViewModel(defaultState, theme) as T
+        return SwitchViewModel(defaultState, componentKey) as T
     }
 }

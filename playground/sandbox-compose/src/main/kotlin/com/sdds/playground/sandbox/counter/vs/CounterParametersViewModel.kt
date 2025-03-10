@@ -2,8 +2,7 @@ package com.sdds.playground.sandbox.counter.vs
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.sdds.playground.sandbox.core.integration.StylesProviderView
-import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
+import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
 import com.sdds.testing.vs.counter.CounterUiState
@@ -13,8 +12,9 @@ import com.sdds.testing.vs.counter.CounterUiState
  * @param defaultState состояние по-умолчанию
  */
 internal class CounterParametersViewModel(
-    private val defaultState: CounterUiState,
-) : ComponentViewModel<CounterUiState>(defaultState) {
+    defaultState: CounterUiState,
+    componentKey: ComponentKey,
+) : ComponentViewModel<CounterUiState>(defaultState, componentKey) {
 
     private val _propsMap = CounterPropertyName.values().associateBy { name -> name.value }
 
@@ -30,12 +30,9 @@ internal class CounterParametersViewModel(
             } else {
                 currentState
             }
+
             CounterPropertyName.Enabled -> currentState.copy(enabled = valueString.toBoolean())
         }
-    }
-
-    override fun getStyleProvider(stylesProvider: StylesProviderView): ViewStyleProvider<String> {
-        return stylesProvider.counter
     }
 
     override fun CounterUiState.toProps(): List<Property<*>> {
@@ -63,10 +60,11 @@ internal class CounterParametersViewModel(
  */
 internal class CounterParametersViewModelFactory(
     private val defaultState: CounterUiState,
+    private val componentKey: ComponentKey,
 ) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return CounterParametersViewModel(defaultState = defaultState) as T
+        return CounterParametersViewModel(defaultState = defaultState, componentKey = componentKey) as T
     }
 }

@@ -14,7 +14,10 @@ import com.sdds.uikit.Counter
 internal class CounterFragment : ComponentFragment<CounterUiState, Counter>() {
 
     override val componentViewModel by viewModels<CounterParametersViewModel> {
-        CounterParametersViewModelFactory(defaultState = getState { CounterUiState() })
+        CounterParametersViewModelFactory(
+            defaultState = getState { CounterUiState() },
+            componentKey = componentKey,
+        )
     }
 
     override fun getComponent(contextWrapper: ContextThemeWrapper): Counter {

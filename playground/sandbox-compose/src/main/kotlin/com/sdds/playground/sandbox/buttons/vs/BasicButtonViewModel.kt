@@ -2,8 +2,7 @@ package com.sdds.playground.sandbox.buttons.vs
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.sdds.playground.sandbox.core.integration.StylesProviderView
-import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
+import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.PropertiesOwner
 import com.sdds.playground.sandbox.core.vs.Property
@@ -17,11 +16,8 @@ import com.sdds.uikit.Button
  */
 internal class BasicButtonViewModel(
     defaultState: ButtonUiState,
-) : ComponentViewModel<ButtonUiState>(defaultState) {
-
-    override fun getStyleProvider(stylesProvider: StylesProviderView): ViewStyleProvider<String> {
-        return stylesProvider.basicButton
-    }
+    componentKey: ComponentKey,
+) : ComponentViewModel<ButtonUiState>(defaultState, componentKey) {
 
     /**
      * @see PropertiesOwner.updateProperty
@@ -144,10 +140,11 @@ internal class BasicButtonViewModel(
  */
 internal class BasicButtonViewModelFactory(
     private val defaultState: ButtonUiState,
+    private val componentKey: ComponentKey,
 ) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return BasicButtonViewModel(defaultState) as T
+        return BasicButtonViewModel(defaultState, componentKey) as T
     }
 }
