@@ -14,6 +14,7 @@
     <attr name="sd_fsStrokeInset" format="dimension" />
     <attr name="sd_fsShapeAppearance" format="reference" />
     <attr name="sd_fsShapeAdjustment" format="dimension" />
+    <attr name="sd_fsDuplicateParentState" format="boolean"/>
 
     <attr name="sd_shapeAppearance" format="reference" />
     <attr name="sd_shaderAppearance" format="reference" />
@@ -106,6 +107,7 @@
         <attr name="sd_fsStrokeWidth" />
         <attr name="sd_fsStrokeInset" />
         <attr name="sd_fsShapeAppearance" />
+        <attr name="sd_fsDuplicateParentState" />
     </declare-styleable>
 
     <declare-styleable name="SdViewState">
