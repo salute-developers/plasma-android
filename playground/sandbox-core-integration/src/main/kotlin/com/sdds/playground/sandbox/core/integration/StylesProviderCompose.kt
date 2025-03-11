@@ -14,6 +14,7 @@ import com.sdds.compose.uikit.IndicatorStyle
 import com.sdds.compose.uikit.ProgressBarStyle
 import com.sdds.compose.uikit.RadioBoxGroupStyle
 import com.sdds.compose.uikit.RadioBoxStyle
+import com.sdds.compose.uikit.SegmentItemStyle
 import com.sdds.compose.uikit.SwitchStyle
 import com.sdds.compose.uikit.TextFieldStyle
 
@@ -59,4 +60,6 @@ interface StylesProviderCompose {
     val iconBadgeTransparent: ComposeStyleProvider<String, BadgeStyle>
 
     val counter: ComposeStyleProvider<String, CounterStyle>
+
+    val segmentItem: ComposeStyleProvider<String, SegmentItemStyle>
 }

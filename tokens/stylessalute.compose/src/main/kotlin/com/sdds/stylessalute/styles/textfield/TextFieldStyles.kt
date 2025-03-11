@@ -2,6 +2,7 @@
 @file:Suppress(
     "UndocumentedPublicClass",
     "UndocumentedPublicProperty",
+    "ktlint:standard:max-line-length",
 )
 
 package com.sdds.stylessalute.styles.textfield
@@ -18,6 +19,7 @@ import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.multiplyAlpha
 import com.sdds.compose.uikit.style.BuilderWrapper
+import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.compose.uikit.textFieldBuilder
 import com.sdds.stylessalute.styles.chip.L
@@ -31,196 +33,292 @@ import kotlin.Suppress
 import kotlin.jvm.JvmInline
 import kotlin.jvm.JvmName
 
+/**
+ * Базовый интерфейс для всех оберток этого стиля
+ */
 public interface WrapperTextField : BuilderWrapper<TextFieldStyle, TextFieldStyleBuilder>
 
+/**
+ * Интерфейс, который реализуют все обертки вариаций корневого уровня
+ * и обертки их подвариаций.
+ * Является ресивером для extension-функций view,
+ * применимых к этим оберткам.
+ */
 public interface WrapperTextFieldView : WrapperTextField
 
+/**
+ * Терминальная обертка
+ */
 @JvmInline
-public value class WrapperTextFieldDefaultViewTerminate(
+public value class WrapperTextFieldTerminate(
     public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextField
 
-@JvmInline
-public value class WrapperTextFieldSuccessViewTerminate(
-    public override val builder: TextFieldStyleBuilder,
-) : WrapperTextField
-
-@JvmInline
-public value class WrapperTextFieldWarningViewTerminate(
-    public override val builder: TextFieldStyleBuilder,
-) : WrapperTextField
-
-@JvmInline
-public value class WrapperTextFieldErrorViewTerminate(
-    public override val builder: TextFieldStyleBuilder,
-) : WrapperTextField
-
+/**
+ * Обертка для вариации Xs
+ */
 @JvmInline
 public value class WrapperTextFieldXs(
     public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextFieldView
 
+/**
+ * Обертка для вариации XsRequiredStart
+ */
 @JvmInline
 public value class WrapperTextFieldXsRequiredStart(
     public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextFieldView
 
+/**
+ * Обертка для вариации XsRequiredEnd
+ */
 @JvmInline
 public value class WrapperTextFieldXsRequiredEnd(
     public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextFieldView
 
+/**
+ * Обертка для вариации XsOuterLabel
+ */
 @JvmInline
 public value class WrapperTextFieldXsOuterLabel(
     public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextFieldView
 
+/**
+ * Обертка для вариации XsOuterLabelRequiredStart
+ */
 @JvmInline
 public value class WrapperTextFieldXsOuterLabelRequiredStart(
     public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextFieldView
 
+/**
+ * Обертка для вариации XsOuterLabelRequiredEnd
+ */
 @JvmInline
 public value class WrapperTextFieldXsOuterLabelRequiredEnd(
     public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextFieldView
 
+/**
+ * Обертка для вариации S
+ */
 @JvmInline
 public value class WrapperTextFieldS(
     public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextFieldView
 
+/**
+ * Обертка для вариации SRequiredStart
+ */
 @JvmInline
 public value class WrapperTextFieldSRequiredStart(
     public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextFieldView
 
+/**
+ * Обертка для вариации SRequiredEnd
+ */
 @JvmInline
 public value class WrapperTextFieldSRequiredEnd(
     public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextFieldView
 
+/**
+ * Обертка для вариации SOuterLabel
+ */
 @JvmInline
 public value class WrapperTextFieldSOuterLabel(
     public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextFieldView
 
+/**
+ * Обертка для вариации SOuterLabelRequiredStart
+ */
 @JvmInline
 public value class WrapperTextFieldSOuterLabelRequiredStart(
     public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextFieldView
 
+/**
+ * Обертка для вариации SOuterLabelRequiredEnd
+ */
 @JvmInline
 public value class WrapperTextFieldSOuterLabelRequiredEnd(
     public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextFieldView
 
+/**
+ * Обертка для вариации SInnerLabel
+ */
 @JvmInline
 public value class WrapperTextFieldSInnerLabel(
     public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextFieldView
 
+/**
+ * Обертка для вариации SInnerLabelRequiredStart
+ */
 @JvmInline
 public value class WrapperTextFieldSInnerLabelRequiredStart(
     public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextFieldView
 
+/**
+ * Обертка для вариации SInnerLabelRequiredEnd
+ */
 @JvmInline
 public value class WrapperTextFieldSInnerLabelRequiredEnd(
     public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextFieldView
 
+/**
+ * Обертка для вариации M
+ */
 @JvmInline
 public value class WrapperTextFieldM(
     public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextFieldView
 
+/**
+ * Обертка для вариации MRequiredStart
+ */
 @JvmInline
 public value class WrapperTextFieldMRequiredStart(
     public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextFieldView
 
+/**
+ * Обертка для вариации MRequiredEnd
+ */
 @JvmInline
 public value class WrapperTextFieldMRequiredEnd(
     public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextFieldView
 
+/**
+ * Обертка для вариации MOuterLabel
+ */
 @JvmInline
 public value class WrapperTextFieldMOuterLabel(
     public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextFieldView
 
+/**
+ * Обертка для вариации MOuterLabelRequiredStart
+ */
 @JvmInline
 public value class WrapperTextFieldMOuterLabelRequiredStart(
     public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextFieldView
 
+/**
+ * Обертка для вариации MOuterLabelRequiredEnd
+ */
 @JvmInline
 public value class WrapperTextFieldMOuterLabelRequiredEnd(
     public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextFieldView
 
+/**
+ * Обертка для вариации MInnerLabel
+ */
 @JvmInline
 public value class WrapperTextFieldMInnerLabel(
     public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextFieldView
 
+/**
+ * Обертка для вариации MInnerLabelRequiredStart
+ */
 @JvmInline
 public value class WrapperTextFieldMInnerLabelRequiredStart(
     public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextFieldView
 
+/**
+ * Обертка для вариации MInnerLabelRequiredEnd
+ */
 @JvmInline
 public value class WrapperTextFieldMInnerLabelRequiredEnd(
     public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextFieldView
 
+/**
+ * Обертка для вариации L
+ */
 @JvmInline
 public value class WrapperTextFieldL(
     public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextFieldView
 
+/**
+ * Обертка для вариации LRequiredStart
+ */
 @JvmInline
 public value class WrapperTextFieldLRequiredStart(
     public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextFieldView
 
+/**
+ * Обертка для вариации LRequiredEnd
+ */
 @JvmInline
 public value class WrapperTextFieldLRequiredEnd(
     public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextFieldView
 
+/**
+ * Обертка для вариации LOuterLabel
+ */
 @JvmInline
 public value class WrapperTextFieldLOuterLabel(
     public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextFieldView
 
+/**
+ * Обертка для вариации LOuterLabelRequiredStart
+ */
 @JvmInline
 public value class WrapperTextFieldLOuterLabelRequiredStart(
     public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextFieldView
 
+/**
+ * Обертка для вариации LOuterLabelRequiredEnd
+ */
 @JvmInline
 public value class WrapperTextFieldLOuterLabelRequiredEnd(
     public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextFieldView
 
+/**
+ * Обертка для вариации LInnerLabel
+ */
 @JvmInline
 public value class WrapperTextFieldLInnerLabel(
     public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextFieldView
 
+/**
+ * Обертка для вариации LInnerLabelRequiredStart
+ */
 @JvmInline
 public value class WrapperTextFieldLInnerLabelRequiredStart(
     public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextFieldView
 
+/**
+ * Обертка для вариации LInnerLabelRequiredEnd
+ */
 @JvmInline
 public value class WrapperTextFieldLInnerLabelRequiredEnd(
     public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextFieldView
 
-public val WrapperTextFieldView.Default: WrapperTextFieldDefaultViewTerminate
+public val WrapperTextFieldView.Default: WrapperTextFieldTerminate
     @Composable
     get() = builder
         .colors {
@@ -234,9 +332,9 @@ public val WrapperTextFieldView.Default: WrapperTextFieldDefaultViewTerminate
                 ),
             )
         }
-        .wrap(::WrapperTextFieldDefaultViewTerminate)
+        .wrap(::WrapperTextFieldTerminate)
 
-public val WrapperTextFieldView.Success: WrapperTextFieldSuccessViewTerminate
+public val WrapperTextFieldView.Success: WrapperTextFieldTerminate
     @Composable
     get() = builder
         .colors {
@@ -253,9 +351,9 @@ public val WrapperTextFieldView.Success: WrapperTextFieldSuccessViewTerminate
                 ),
             )
         }
-        .wrap(::WrapperTextFieldSuccessViewTerminate)
+        .wrap(::WrapperTextFieldTerminate)
 
-public val WrapperTextFieldView.Warning: WrapperTextFieldWarningViewTerminate
+public val WrapperTextFieldView.Warning: WrapperTextFieldTerminate
     @Composable
     get() = builder
         .colors {
@@ -272,9 +370,9 @@ public val WrapperTextFieldView.Warning: WrapperTextFieldWarningViewTerminate
                 ),
             )
         }
-        .wrap(::WrapperTextFieldWarningViewTerminate)
+        .wrap(::WrapperTextFieldTerminate)
 
-public val WrapperTextFieldView.Error: WrapperTextFieldErrorViewTerminate
+public val WrapperTextFieldView.Error: WrapperTextFieldTerminate
     @Composable
     get() = builder
         .colors {
@@ -291,7 +389,7 @@ public val WrapperTextFieldView.Error: WrapperTextFieldErrorViewTerminate
                 ),
             )
         }
-        .wrap(::WrapperTextFieldErrorViewTerminate)
+        .wrap(::WrapperTextFieldTerminate)
 
 private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
     @Composable

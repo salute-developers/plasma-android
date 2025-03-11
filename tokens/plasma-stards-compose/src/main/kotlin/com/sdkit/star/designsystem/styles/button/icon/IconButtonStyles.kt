@@ -25,43 +25,70 @@ import kotlin.Suppress
 import kotlin.jvm.JvmInline
 import kotlin.jvm.JvmName
 
+/**
+ * Базовый интерфейс для всех оберток этого стиля
+ */
 public interface WrapperIconButton : BuilderWrapper<ButtonStyle, IconButtonStyleBuilder>
 
+/**
+ * Обертка для вариации L
+ */
 @JvmInline
 public value class WrapperIconButtonL(
     public override val builder: IconButtonStyleBuilder,
 ) : WrapperIconButton
 
+/**
+ * Обертка для вариации LPilled
+ */
 @JvmInline
 public value class WrapperIconButtonLPilled(
     public override val builder: IconButtonStyleBuilder,
 ) : WrapperIconButton
 
+/**
+ * Обертка для вариации M
+ */
 @JvmInline
 public value class WrapperIconButtonM(
     public override val builder: IconButtonStyleBuilder,
 ) : WrapperIconButton
 
+/**
+ * Обертка для вариации MPilled
+ */
 @JvmInline
 public value class WrapperIconButtonMPilled(
     public override val builder: IconButtonStyleBuilder,
 ) : WrapperIconButton
 
+/**
+ * Обертка для вариации S
+ */
 @JvmInline
 public value class WrapperIconButtonS(
     public override val builder: IconButtonStyleBuilder,
 ) : WrapperIconButton
 
+/**
+ * Обертка для вариации SPilled
+ */
 @JvmInline
 public value class WrapperIconButtonSPilled(
     public override val builder: IconButtonStyleBuilder,
 ) : WrapperIconButton
 
+/**
+ * Обертка для вариации Xs
+ */
 @JvmInline
 public value class WrapperIconButtonXs(
     public override val builder: IconButtonStyleBuilder,
 ) : WrapperIconButton
 
+/**
+ * Обертка для вариации XsPilled
+ */
 @JvmInline
 public value class WrapperIconButtonXsPilled(
     public override val builder: IconButtonStyleBuilder,

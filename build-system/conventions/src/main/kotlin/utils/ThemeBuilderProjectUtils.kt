@@ -8,7 +8,7 @@ import org.gradle.api.Project
  */
 val Project.themeVersion: String
     get() = property("theme-version")?.toString()
-        ?: throw GradleException("sdds serv version must be specified")
+        ?: throw GradleException("theme version must be specified")
 
 /**
  * Возвращает адрес темы или выбрасывает исключение, если адрес не указан

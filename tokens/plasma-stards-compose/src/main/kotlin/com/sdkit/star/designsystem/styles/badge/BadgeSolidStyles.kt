@@ -23,86 +23,92 @@ import kotlin.Suppress
 import kotlin.jvm.JvmInline
 import kotlin.jvm.JvmName
 
+/**
+ * Базовый интерфейс для всех оберток этого стиля
+ */
 public interface WrapperBadgeSolid : BuilderWrapper<BadgeStyle, BadgeStyleBuilder>
 
+/**
+ * Интерфейс, который реализуют все обертки вариаций корневого уровня
+ * и обертки их подвариаций.
+ * Является ресивером для extension-функций view,
+ * применимых к этим оберткам.
+ */
 public interface WrapperBadgeSolidView : WrapperBadgeSolid
 
+/**
+ * Терминальная обертка
+ */
 @JvmInline
-public value class WrapperBadgeSolidDefaultViewTerminate(
+public value class WrapperBadgeSolidTerminate(
     public override val builder: BadgeStyleBuilder,
 ) : WrapperBadgeSolid
 
-@JvmInline
-public value class WrapperBadgeSolidAccentViewTerminate(
-    public override val builder: BadgeStyleBuilder,
-) : WrapperBadgeSolid
-
-@JvmInline
-public value class WrapperBadgeSolidNegativeViewTerminate(
-    public override val builder: BadgeStyleBuilder,
-) : WrapperBadgeSolid
-
-@JvmInline
-public value class WrapperBadgeSolidPositiveViewTerminate(
-    public override val builder: BadgeStyleBuilder,
-) : WrapperBadgeSolid
-
-@JvmInline
-public value class WrapperBadgeSolidWarningViewTerminate(
-    public override val builder: BadgeStyleBuilder,
-) : WrapperBadgeSolid
-
-@JvmInline
-public value class WrapperBadgeSolidDarkViewTerminate(
-    public override val builder: BadgeStyleBuilder,
-) : WrapperBadgeSolid
-
-@JvmInline
-public value class WrapperBadgeSolidLightViewTerminate(
-    public override val builder: BadgeStyleBuilder,
-) : WrapperBadgeSolid
-
+/**
+ * Обертка для вариации L
+ */
 @JvmInline
 public value class WrapperBadgeSolidL(
     public override val builder: BadgeStyleBuilder,
 ) : WrapperBadgeSolidView
 
+/**
+ * Обертка для вариации LPilled
+ */
 @JvmInline
 public value class WrapperBadgeSolidLPilled(
     public override val builder: BadgeStyleBuilder,
 ) : WrapperBadgeSolidView
 
+/**
+ * Обертка для вариации M
+ */
 @JvmInline
 public value class WrapperBadgeSolidM(
     public override val builder: BadgeStyleBuilder,
 ) : WrapperBadgeSolidView
 
+/**
+ * Обертка для вариации MPilled
+ */
 @JvmInline
 public value class WrapperBadgeSolidMPilled(
     public override val builder: BadgeStyleBuilder,
 ) : WrapperBadgeSolidView
 
+/**
+ * Обертка для вариации S
+ */
 @JvmInline
 public value class WrapperBadgeSolidS(
     public override val builder: BadgeStyleBuilder,
 ) : WrapperBadgeSolidView
 
+/**
+ * Обертка для вариации SPilled
+ */
 @JvmInline
 public value class WrapperBadgeSolidSPilled(
     public override val builder: BadgeStyleBuilder,
 ) : WrapperBadgeSolidView
 
+/**
+ * Обертка для вариации Xs
+ */
 @JvmInline
 public value class WrapperBadgeSolidXs(
     public override val builder: BadgeStyleBuilder,
 ) : WrapperBadgeSolidView
 
+/**
+ * Обертка для вариации XsPilled
+ */
 @JvmInline
 public value class WrapperBadgeSolidXsPilled(
     public override val builder: BadgeStyleBuilder,
 ) : WrapperBadgeSolidView
 
-public val WrapperBadgeSolidView.Default: WrapperBadgeSolidDefaultViewTerminate
+public val WrapperBadgeSolidView.Default: WrapperBadgeSolidTerminate
     @Composable
     get() = builder
         .colors {
@@ -119,9 +125,9 @@ public val WrapperBadgeSolidView.Default: WrapperBadgeSolidDefaultViewTerminate
                 StarDsTheme.colors.textInversePrimary.asInteractive(),
             )
         }
-        .wrap(::WrapperBadgeSolidDefaultViewTerminate)
+        .wrap(::WrapperBadgeSolidTerminate)
 
-public val WrapperBadgeSolidView.Accent: WrapperBadgeSolidAccentViewTerminate
+public val WrapperBadgeSolidView.Accent: WrapperBadgeSolidTerminate
     @Composable
     get() = builder
         .colors {
@@ -138,9 +144,9 @@ public val WrapperBadgeSolidView.Accent: WrapperBadgeSolidAccentViewTerminate
                 StarDsTheme.colors.textOnDarkPrimary.asInteractive(),
             )
         }
-        .wrap(::WrapperBadgeSolidAccentViewTerminate)
+        .wrap(::WrapperBadgeSolidTerminate)
 
-public val WrapperBadgeSolidView.Negative: WrapperBadgeSolidNegativeViewTerminate
+public val WrapperBadgeSolidView.Negative: WrapperBadgeSolidTerminate
     @Composable
     get() = builder
         .colors {
@@ -157,9 +163,9 @@ public val WrapperBadgeSolidView.Negative: WrapperBadgeSolidNegativeViewTerminat
                 StarDsTheme.colors.textOnDarkPrimary.asInteractive(),
             )
         }
-        .wrap(::WrapperBadgeSolidNegativeViewTerminate)
+        .wrap(::WrapperBadgeSolidTerminate)
 
-public val WrapperBadgeSolidView.Positive: WrapperBadgeSolidPositiveViewTerminate
+public val WrapperBadgeSolidView.Positive: WrapperBadgeSolidTerminate
     @Composable
     get() = builder
         .colors {
@@ -176,9 +182,9 @@ public val WrapperBadgeSolidView.Positive: WrapperBadgeSolidPositiveViewTerminat
                 StarDsTheme.colors.textOnDarkPrimary.asInteractive(),
             )
         }
-        .wrap(::WrapperBadgeSolidPositiveViewTerminate)
+        .wrap(::WrapperBadgeSolidTerminate)
 
-public val WrapperBadgeSolidView.Warning: WrapperBadgeSolidWarningViewTerminate
+public val WrapperBadgeSolidView.Warning: WrapperBadgeSolidTerminate
     @Composable
     get() = builder
         .colors {
@@ -195,9 +201,9 @@ public val WrapperBadgeSolidView.Warning: WrapperBadgeSolidWarningViewTerminate
                 StarDsTheme.colors.textOnDarkPrimary.asInteractive(),
             )
         }
-        .wrap(::WrapperBadgeSolidWarningViewTerminate)
+        .wrap(::WrapperBadgeSolidTerminate)
 
-public val WrapperBadgeSolidView.Dark: WrapperBadgeSolidDarkViewTerminate
+public val WrapperBadgeSolidView.Dark: WrapperBadgeSolidTerminate
     @Composable
     get() = builder
         .colors {
@@ -214,9 +220,9 @@ public val WrapperBadgeSolidView.Dark: WrapperBadgeSolidDarkViewTerminate
                 StarDsTheme.colors.textOnDarkPrimary.asInteractive(),
             )
         }
-        .wrap(::WrapperBadgeSolidDarkViewTerminate)
+        .wrap(::WrapperBadgeSolidTerminate)
 
-public val WrapperBadgeSolidView.Light: WrapperBadgeSolidLightViewTerminate
+public val WrapperBadgeSolidView.Light: WrapperBadgeSolidTerminate
     @Composable
     get() = builder
         .colors {
@@ -233,7 +239,7 @@ public val WrapperBadgeSolidView.Light: WrapperBadgeSolidLightViewTerminate
                 StarDsTheme.colors.textOnLightPrimary.asInteractive(),
             )
         }
-        .wrap(::WrapperBadgeSolidLightViewTerminate)
+        .wrap(::WrapperBadgeSolidTerminate)
 
 private val BadgeStyleBuilder.invariantProps: BadgeStyleBuilder
     @Composable
