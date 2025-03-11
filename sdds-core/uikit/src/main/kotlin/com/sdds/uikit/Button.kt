@@ -15,6 +15,7 @@ import android.text.style.CharacterStyle
 import android.text.style.ReplacementSpan
 import android.text.style.UpdateAppearance
 import android.util.AttributeSet
+import android.view.Gravity
 import android.view.SoundEffectConstants
 import android.widget.Checkable
 import androidx.annotation.ColorInt
@@ -659,23 +660,24 @@ open class Button @JvmOverloads constructor(
         if (hasIconChanged) resetCompoundDrawables()
     }
 
+    @Suppress("CyclomaticComplexMethod")
     private fun updateIconPosition(buttonWidth: Int) {
         if (icon == null || layout == null) {
             return
         }
-        if (isIconStart() || isIconEnd()) {
-            _iconTop = 0
-            var newIconLeft = (buttonWidth - getContentWidth()) / 2
-            newIconLeft = newIconLeft.coerceAtLeast(0)
-
-            // Меняем значение левой границы только если isLayoutRTL() или iconGravity = textEnd, но не в обоих случаях
-            if (isLayoutRTL() != (iconPosition == IconPosition.TextEnd)) {
-                newIconLeft = -newIconLeft
-            }
-            if (_iconLeft != newIconLeft) {
-                _iconLeft = newIconLeft
-                updateIcon(false)
-            }
+        _iconTop = 0
+        val hGravity = Gravity.getAbsoluteGravity(gravity, layoutDirection) and Gravity.HORIZONTAL_GRAVITY_MASK
+        val newIconLeft = when {
+            hGravity == Gravity.RIGHT && isIconStart() -> buttonWidth - getContentWidth()
+            hGravity == Gravity.RIGHT && isIconEnd() -> 0
+            hGravity == Gravity.CENTER_HORIZONTAL && isIconStart() -> (buttonWidth - getContentWidth()) / 2
+            hGravity == Gravity.CENTER_HORIZONTAL && isIconEnd() -> -(buttonWidth - getContentWidth()) / 2
+            hGravity == Gravity.LEFT && isIconEnd() -> -(buttonWidth - getContentWidth())
+            else -> 0
+        }
+        if (_iconLeft != newIconLeft) {
+            _iconLeft = newIconLeft
+            updateIcon(false)
         }
     }
 
