@@ -2,8 +2,7 @@ package com.sdds.playground.sandbox.progress.vs
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.sdds.playground.sandbox.core.integration.StylesProviderView
-import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
+import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
 import com.sdds.testing.vs.progress.ProgressUiState
@@ -13,11 +12,8 @@ import com.sdds.testing.vs.progress.ProgressUiState
  */
 internal class ProgressBarViewModel(
     defaultState: ProgressUiState,
-) : ComponentViewModel<ProgressUiState>(defaultState) {
-
-    override fun getStyleProvider(stylesProvider: StylesProviderView): ViewStyleProvider<String> {
-        return stylesProvider.progress
-    }
+    componentKey: ComponentKey,
+) : ComponentViewModel<ProgressUiState>(defaultState, componentKey) {
 
     override fun updateProperty(name: String, value: Any?) {
         super.updateProperty(name, value)
@@ -58,10 +54,11 @@ internal class ProgressBarViewModel(
 
 internal class ProgressBarViewModelFactory(
     private val defaultState: ProgressUiState = ProgressUiState(),
+    private val componentKey: ComponentKey,
 ) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return ProgressBarViewModel(defaultState) as T
+        return ProgressBarViewModel(defaultState, componentKey) as T
     }
 }

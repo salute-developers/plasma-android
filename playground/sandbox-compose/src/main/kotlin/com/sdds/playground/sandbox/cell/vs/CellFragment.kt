@@ -19,7 +19,10 @@ import com.sdds.uikit.CellLayout
 internal class CellFragment : ComponentFragment<CellUiState, CellLayout>() {
 
     override val componentViewModel by viewModels<CellParametersViewModel> {
-        CellParametersViewModelFactory(getState { CellUiState() })
+        CellParametersViewModelFactory(
+            defaultState = getState { CellUiState() },
+            componentKey = componentKey,
+        )
     }
 
     override val defaultLayoutParams: FrameLayout.LayoutParams by lazy {

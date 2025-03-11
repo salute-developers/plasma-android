@@ -3,7 +3,10 @@ package com.sdds.playground.sandbox.core.compose
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sdds.compose.uikit.style.Style
+import com.sdds.playground.sandbox.core.ThemeManager
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
+import com.sdds.playground.sandbox.core.integration.component.ComponentKey
+import com.sdds.playground.sandbox.core.integration.component.CoreComponent
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -14,6 +17,8 @@ import kotlinx.coroutines.flow.stateIn
 
 internal abstract class ComponentViewModel<State : UiState, S : Style>(
     private val defaultState: State,
+    private val componentKey: ComponentKey = ComponentKey("", CoreComponent.CELL),
+    private val themeManager: ThemeManager = ThemeManager,
 ) : ViewModel(), PropertiesOwner {
 
     protected val internalUiState = MutableStateFlow(defaultState)
@@ -60,7 +65,9 @@ internal abstract class ComponentViewModel<State : UiState, S : Style>(
         return variantProperties
     }
 
-    abstract fun getStyleProvider(): ComposeStyleProvider<String, S>
+    open fun getStyleProvider(): ComposeStyleProvider<String, S> {
+        return themeManager.currentTheme.value.compose.components.get<String, S>(componentKey).styleProvider
+    }
 
     abstract fun State.toProps(): List<Property<*>>
 

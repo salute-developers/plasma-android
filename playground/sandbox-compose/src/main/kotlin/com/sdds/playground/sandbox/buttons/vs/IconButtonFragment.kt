@@ -17,6 +17,7 @@ internal class IconButtonFragment : ComponentFragment<ButtonUiState, IconButton>
     override val componentViewModel by viewModels<IconButtonViewModel> {
         IconButtonViewModelFactory(
             defaultState = getState { ButtonUiState() },
+            componentKey = componentKey,
         )
     }
 

@@ -1,48 +1,40 @@
 package com.sdds.playground.sandbox.radiobox.compose.group
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.sdds.compose.uikit.RadioBox
 import com.sdds.compose.uikit.RadioBoxGroup
 import com.sdds.playground.sandbox.SandboxTheme
-import com.sdds.playground.sandbox.Theme
 import com.sdds.playground.sandbox.core.compose.ComponentScaffold
+import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 
 /**
  * Экран с RadioBoxGroup
  */
 @Composable
-internal fun RadioBoxGroupScreen(theme: Theme.ThemeInfoCompose = Theme.composeDefault) {
+internal fun RadioBoxGroupScreen(componentKey: ComponentKey = ComponentKey.RadioBoxGroup) {
     val radioBoxGroupViewModel: RadioBoxGroupViewModel =
         viewModel(
-            factory = RadioBoxGroupViewModelFactory(RadioBoxGroupUiState(), theme),
-            key = theme.toString(),
+            factory = RadioBoxGroupViewModelFactory(RadioBoxGroupUiState(), componentKey),
+            key = componentKey.toString(),
         )
-    val radioBoxGroupState by radioBoxGroupViewModel.uiState.collectAsState()
 
     ComponentScaffold(
-        component = {
-            theme.themeWrapper {
-                RadioBoxGroup(
-                    style = radioBoxGroupViewModel
-                        .getStyleProvider()
-                        .style(radioBoxGroupState.variant),
-                ) {
-                    radioBoxGroupState.items.map { itemData ->
-                        RadioBox(
-                            checked = radioBoxGroupViewModel.isChecked(itemData.id),
-                            label = itemData.label,
-                            description = itemData.description,
-                            onClick = { radioBoxGroupViewModel.updateCurrentItem(itemData.id) },
-                        )
-                    }
+        key = componentKey,
+        viewModel = radioBoxGroupViewModel,
+        component = { radioBoxGroupState, style ->
+            RadioBoxGroup(style = style) {
+                radioBoxGroupState.items.map { itemData ->
+                    RadioBox(
+                        checked = radioBoxGroupViewModel.isChecked(itemData.id),
+                        label = itemData.label,
+                        description = itemData.description,
+                        onClick = { radioBoxGroupViewModel.updateCurrentItem(itemData.id) },
+                    )
                 }
             }
         },
-        propertiesOwner = radioBoxGroupViewModel,
     )
 }
 

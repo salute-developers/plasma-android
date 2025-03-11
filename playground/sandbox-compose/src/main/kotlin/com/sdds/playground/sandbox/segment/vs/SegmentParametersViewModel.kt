@@ -2,8 +2,7 @@ package com.sdds.playground.sandbox.segment.vs
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.sdds.playground.sandbox.core.integration.StylesProviderView
-import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
+import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
 import com.sdds.testing.vs.segement.SegmentItemIcon
@@ -12,13 +11,10 @@ import com.sdds.testing.vs.segement.SegmentUiState
 
 internal class SegmentItemViewModel(
     defaultState: SegmentUiState,
-) : ComponentViewModel<SegmentUiState>(defaultState) {
+    componentKey: ComponentKey,
+) : ComponentViewModel<SegmentUiState>(defaultState, componentKey) {
 
     private val _propsMap = PropertyName.values().associateBy { name -> name.value }
-
-    override fun getStyleProvider(stylesProvider: StylesProviderView): ViewStyleProvider<String> {
-        return stylesProvider.segmentItem
-    }
 
     @Suppress("CyclomaticComplexMethod")
     override fun updateProperty(name: String, value: Any?) {
@@ -136,12 +132,14 @@ internal class SegmentItemViewModel(
 
 internal class SegmentItemViewModelFactory(
     private val defaultState: SegmentUiState,
+    private val componentKey: ComponentKey,
 ) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return SegmentItemViewModel(
             defaultState = defaultState,
+            componentKey = componentKey,
         ) as T
     }
 }
