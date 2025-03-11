@@ -16,6 +16,7 @@ import com.sdds.playground.sandbox.chip.compose.group.ChipGroupScreen
 import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.integration.component.ComponentsProviderCompose
 import com.sdds.playground.sandbox.core.integration.component.CoreComponent
+import com.sdds.playground.sandbox.counter.compose.CounterScreen
 import com.sdds.playground.sandbox.indicator.compose.IndicatorScreen
 import com.sdds.playground.sandbox.progress.compose.ProgressScreen
 import com.sdds.playground.sandbox.radiobox.compose.RadioBoxScreen
@@ -67,6 +68,7 @@ internal sealed class ComponentScreen(
     object Chip : ComponentScreen({ ChipScreen(it) })
     object ChipGroup : ComponentScreen({ ChipGroupScreen(it) })
     object Indicator : ComponentScreen({ IndicatorScreen(it) })
+    object Counter : ComponentScreen({ CounterScreen(it) })
 
     object Empty : ComponentScreen({})
 }
@@ -87,6 +89,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.CHIP -> ComponentScreen.Chip
         CoreComponent.CHIP_GROUP -> ComponentScreen.ChipGroup
         CoreComponent.INDICATOR -> ComponentScreen.Indicator
+        CoreComponent.COUNTER -> ComponentScreen.Counter
         CoreComponent.PROGRESS -> ComponentScreen.Progress
         CoreComponent.RADIOBOX -> ComponentScreen.RadioBox
         CoreComponent.RADIOBOX_GROUP -> ComponentScreen.RadioBoxGroup

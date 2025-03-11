@@ -175,6 +175,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.SEGMENT_ITEM -> ComponentScreen.SegmentItem
     }
 }
+
 @Suppress("CyclomaticComplexMethod")
 private fun ComponentKey.routeId(): Int {
     return when (this.core) {

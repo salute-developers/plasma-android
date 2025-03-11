@@ -90,6 +90,7 @@ interface Component {
      * Уникальный ключ компонента
      */
     val key: ComponentKey
+
     /**
      * Название компонента
      */
@@ -140,7 +141,7 @@ data class ComponentKey(
         val RadioBox = ComponentKey("RadioBox", CoreComponent.RADIOBOX)
         val RadioBoxGroup = ComponentKey("RadioBoxGroup", CoreComponent.RADIOBOX_GROUP)
 
-        val Segment = ComponentKey("Segment", CoreComponent.RADIOBOX)
+        val Segment = ComponentKey("Segment", CoreComponent.SEGMENT)
         val SegmentItem = ComponentKey("SegmentItem", CoreComponent.SEGMENT_ITEM)
 
         val Switch = ComponentKey("Switch", CoreComponent.SWITCH)
