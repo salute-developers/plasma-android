@@ -2,6 +2,7 @@
 @file:Suppress(
     "UndocumentedPublicClass",
     "UndocumentedPublicProperty",
+    "ktlint:standard:max-line-length",
 )
 
 package com.sdds.serv.styles.button.basic
@@ -77,6 +78,11 @@ public value class WrapperBasicButtonWhiteViewTerminate(
 ) : WrapperBasicButton
 
 @JvmInline
+public value class WrapperBasicButtonXl(
+    public override val builder: BasicButtonStyleBuilder,
+) : WrapperBasicButtonView
+
+@JvmInline
 public value class WrapperBasicButtonL(
     public override val builder: BasicButtonStyleBuilder,
 ) : WrapperBasicButtonView
@@ -93,6 +99,11 @@ public value class WrapperBasicButtonS(
 
 @JvmInline
 public value class WrapperBasicButtonXs(
+    public override val builder: BasicButtonStyleBuilder,
+) : WrapperBasicButtonView
+
+@JvmInline
+public value class WrapperBasicButtonXxs(
     public override val builder: BasicButtonStyleBuilder,
 ) : WrapperBasicButtonView
 
@@ -581,6 +592,27 @@ private val BasicButtonStyleBuilder.invariantProps: BasicButtonStyleBuilder
     get() = this
         .disableAlpha(0.4f)
 
+public val BasicButton.Xl: WrapperBasicButtonXl
+    @Composable
+    @JvmName("WrapperBasicButtonXl")
+    get() = ButtonStyle.basicButtonBuilder(this)
+        .invariantProps
+        .shape(SddsServTheme.shapes.roundL)
+        .labelStyle(SddsServTheme.typography.bodyLBold)
+        .valueStyle(SddsServTheme.typography.bodyLBold)
+        .dimensions {
+            height(64.0.dp)
+            paddingStart(28.0.dp)
+            paddingEnd(28.0.dp)
+            minWidth(106.0.dp)
+            iconSize(24.0.dp)
+            spinnerSize(24.0.dp)
+            spinnerStrokeWidth(2.0.dp)
+            iconMargin(8.0.dp)
+            valueMargin(4.0.dp)
+        }
+        .wrap(::WrapperBasicButtonXl)
+
 public val BasicButton.L: WrapperBasicButtonL
     @Composable
     @JvmName("WrapperBasicButtonL")
@@ -664,3 +696,24 @@ public val BasicButton.Xs: WrapperBasicButtonXs
             valueMargin(2.0.dp)
         }
         .wrap(::WrapperBasicButtonXs)
+
+public val BasicButton.Xxs: WrapperBasicButtonXxs
+    @Composable
+    @JvmName("WrapperBasicButtonXxs")
+    get() = ButtonStyle.basicButtonBuilder(this)
+        .invariantProps
+        .shape(SddsServTheme.shapes.roundXs)
+        .labelStyle(SddsServTheme.typography.bodyXsBold)
+        .valueStyle(SddsServTheme.typography.bodyXsBold)
+        .dimensions {
+            height(24.0.dp)
+            paddingStart(10.0.dp)
+            paddingEnd(10.0.dp)
+            minWidth(53.0.dp)
+            iconSize(12.0.dp)
+            spinnerSize(12.0.dp)
+            spinnerStrokeWidth(1.0.dp)
+            iconMargin(4.0.dp)
+            valueMargin(2.0.dp)
+        }
+        .wrap(::WrapperBasicButtonXxs)

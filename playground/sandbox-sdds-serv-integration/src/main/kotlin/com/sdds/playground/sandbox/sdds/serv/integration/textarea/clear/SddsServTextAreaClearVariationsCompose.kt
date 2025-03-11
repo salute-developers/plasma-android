@@ -15,12 +15,22 @@ import com.sdds.serv.styles.textarea.clear.RequiredEnd
 import com.sdds.serv.styles.textarea.clear.RequiredStart
 import com.sdds.serv.styles.textarea.clear.S
 import com.sdds.serv.styles.textarea.clear.Warning
+import com.sdds.serv.styles.textarea.clear.Xl
 import com.sdds.serv.styles.textarea.clear.Xs
 
 internal object SddsServTextAreaClearVariationsCompose : ComposeStyleProvider<String, TextFieldStyle>() {
 
     override val variations: Map<String, @Composable () -> TextFieldStyle> =
         mapOf(
+            "XLDefault" to { TextAreaClear.Xl.Default.style() },
+            "XLRequiredStartDefault" to { TextAreaClear.Xl.RequiredStart.Default.style() },
+            "XLRequiredEndDefault" to { TextAreaClear.Xl.RequiredEnd.Default.style() },
+            "XLOuterLabelDefault" to { TextAreaClear.Xl.OuterLabel.Default.style() },
+            "XLOuterLabelRequiredStartDefault" to { TextAreaClear.Xl.OuterLabel.RequiredStart.Default.style() },
+            "XLOuterLabelRequiredEndDefault" to { TextAreaClear.Xl.OuterLabel.RequiredEnd.Default.style() },
+            "XLInnerLabelDefault" to { TextAreaClear.Xl.InnerLabel.Default.style() },
+            "XLInnerLabelRequiredStartDefault" to { TextAreaClear.Xl.InnerLabel.RequiredStart.Default.style() },
+            "XLInnerLabelRequiredEndDefault" to { TextAreaClear.Xl.InnerLabel.RequiredEnd.Default.style() },
             "LDefault" to { TextAreaClear.L.Default.style() },
             "LRequiredStartDefault" to { TextAreaClear.L.RequiredStart.Default.style() },
             "LRequiredEndDefault" to { TextAreaClear.L.RequiredEnd.Default.style() },
@@ -55,6 +65,15 @@ internal object SddsServTextAreaClearVariationsCompose : ComposeStyleProvider<St
             "XSOuterLabelRequiredStartDefault" to { TextAreaClear.Xs.OuterLabel.RequiredStart.Default.style() },
             "XSOuterLabelRequiredEndDefault" to { TextAreaClear.Xs.OuterLabel.RequiredEnd.Default.style() },
 
+            "XLWarning" to { TextAreaClear.Xl.Warning.style() },
+            "XLRequiredStartWarning" to { TextAreaClear.Xl.RequiredStart.Warning.style() },
+            "XLRequiredEndWarning" to { TextAreaClear.Xl.RequiredEnd.Warning.style() },
+            "XLOuterLabelWarning" to { TextAreaClear.Xl.OuterLabel.Warning.style() },
+            "XLOuterLabelRequiredStartWarning" to { TextAreaClear.Xl.OuterLabel.RequiredStart.Warning.style() },
+            "XLOuterLabelRequiredEndWarning" to { TextAreaClear.Xl.OuterLabel.RequiredEnd.Warning.style() },
+            "XLInnerLabelWarning" to { TextAreaClear.Xl.InnerLabel.Warning.style() },
+            "XLInnerLabelRequiredStartWarning" to { TextAreaClear.Xl.InnerLabel.RequiredStart.Warning.style() },
+            "XLInnerLabelRequiredEndWarning" to { TextAreaClear.Xl.InnerLabel.RequiredEnd.Warning.style() },
             "LWarning" to { TextAreaClear.L.Warning.style() },
             "LRequiredStartWarning" to { TextAreaClear.L.RequiredStart.Warning.style() },
             "LRequiredEndWarning" to { TextAreaClear.L.RequiredEnd.Warning.style() },
@@ -89,6 +108,15 @@ internal object SddsServTextAreaClearVariationsCompose : ComposeStyleProvider<St
             "XSOuterLabelRequiredStartWarning" to { TextAreaClear.Xs.OuterLabel.RequiredStart.Warning.style() },
             "XSOuterLabelRequiredEndWarning" to { TextAreaClear.Xs.OuterLabel.RequiredEnd.Warning.style() },
 
+            "XLError" to { TextAreaClear.Xl.Error.style() },
+            "XLRequiredStartError" to { TextAreaClear.Xl.RequiredStart.Error.style() },
+            "XLRequiredEndError" to { TextAreaClear.Xl.RequiredEnd.Error.style() },
+            "XLOuterLabelError" to { TextAreaClear.Xl.OuterLabel.Error.style() },
+            "XLOuterLabelRequiredStartError" to { TextAreaClear.Xl.OuterLabel.RequiredStart.Error.style() },
+            "XLOuterLabelRequiredEndError" to { TextAreaClear.Xl.OuterLabel.RequiredEnd.Error.style() },
+            "XLInnerLabelError" to { TextAreaClear.Xl.InnerLabel.Error.style() },
+            "XLInnerLabelRequiredStartError" to { TextAreaClear.Xl.InnerLabel.RequiredStart.Error.style() },
+            "XLInnerLabelRequiredEndError" to { TextAreaClear.Xl.InnerLabel.RequiredEnd.Error.style() },
             "LError" to { TextAreaClear.L.Error.style() },
             "LRequiredStartError" to { TextAreaClear.L.RequiredStart.Error.style() },
             "LRequiredEndError" to { TextAreaClear.L.RequiredEnd.Error.style() },

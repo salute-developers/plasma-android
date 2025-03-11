@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Sdkit.StarDs.ComponentOverlays.RadioBoxM">
+        <item name="android:radioButtonStyle">@style/Sdkit.StarDs.Components.RadioBox.M</item>
+    </style>
+
+    <style name="Sdkit.StarDs.ComponentOverlays.RadioBoxS">
+        <item name="android:radioButtonStyle">@style/Sdkit.StarDs.Components.RadioBox.S</item>
+    </style>
+
+    <style name="Sdkit.StarDs.ComponentOverlays.RadioBoxGroupM">
+        <item name="sd_radioBoxGroupStyle">@style/Sdkit.StarDs.Components.RadioBoxGroup.M</item>
+        <item name="android:radioButtonStyle">@style/Sdkit.StarDs.Components.RadioBox.M</item>
+    </style>
+
+    <style name="Sdkit.StarDs.ComponentOverlays.RadioBoxGroupS">
+        <item name="sd_radioBoxGroupStyle">@style/Sdkit.StarDs.Components.RadioBoxGroup.S</item>
+        <item name="android:radioButtonStyle">@style/Sdkit.StarDs.Components.RadioBox.S</item>
+    </style>
+</resources>

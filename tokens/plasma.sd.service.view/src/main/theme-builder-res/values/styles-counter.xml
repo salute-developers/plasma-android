@@ -3,10 +3,10 @@
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <resources>
     <style name="Plasma.SdService.Components.Counter" parent="Sdds.Components.Counter">
-        <item name="sd_colorStateProvider">com.sdds.plasma.sd.service.colorstate.CounterColorStateProvider</item>
         <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
         <item name="android:backgroundTint">@color/plasma_counter_bg_color</item>
         <item name="android:textColor">@color/plasma_counter_text_color</item>
+        <item name="sd_colorStateProvider">com.sdds.plasma.sd.service.colorstate.CounterColorStateProvider</item>
     </style>
     <style name="Plasma.SdService.Components.Counter.L">
         <item name="android:textAppearance">@style/Plasma.SdService.TextAppearance.BodySNormal</item>

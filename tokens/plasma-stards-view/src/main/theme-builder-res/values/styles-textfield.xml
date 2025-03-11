@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Sdkit.StarDs.ComponentOverlays.TextFieldChips">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroup.Dense</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.TextField" parent="Sdds.Components.TextField">
+        <item name="sd_disabledAlpha">0.4</item>
+        <item name="sd_counterPlacement">outer</item>
+        <item name="sd_captionPlacement">outer</item>
+        <item name="sd_helperTextPadding">@dimen/sdkit_text_field_helper_padding</item>
+        <item name="sd_chipsPadding">@dimen/sdkit_text_field_chips_padding</item>
+        <item name="sd_captionAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXsNormal</item>
+        <item name="sd_counterAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXsNormal</item>
+        <item name="sd_prefixTextPadding">@dimen/sdkit_text_field_prefix_padding</item>
+        <item name="sd_suffixTextPadding">@dimen/sdkit_text_field_suffix_padding</item>
+        <item name="sd_chipGroupStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.TextFieldChips</item>
+        <item name="sd_valueColor">@color/sdkit_text_field_value_color</item>
+        <item name="sd_captionColor">@color/sdkit_text_field_caption_color</item>
+        <item name="sd_iconTint">@color/sdkit_text_field_icon_color</item>
+        <item name="sd_actionTint">@color/sdkit_text_field_action_color</item>
+        <item name="sd_counterColor">@color/sdkit_text_field_counter_color</item>
+        <item name="sd_placeholderColor">@color/sdkit_text_field_placeholder_color</item>
+        <item name="sd_boxTint">@color/sdkit_text_field_bg_color</item>
+        <item name="sd_colorStateProvider">com.sdkit.star.designsystem.colorstate.TextFieldColorStateProvider</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.TextFieldXsChips">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroup.Dense</item>
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.EmbeddedChip.Xs.Secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.TextField.Xs">
+        <item name="sd_requirementMode">optional</item>
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundS</item>
+        <item name="sd_labelPlacement">none</item>
+        <item name="sd_boxPaddingStart">@dimen/sdkit_text_field_xs_box_padding_start</item>
+        <item name="sd_boxPaddingEnd">@dimen/sdkit_text_field_xs_box_padding_end</item>
+        <item name="sd_boxPaddingTop">@dimen/sdkit_text_field_xs_box_padding_top</item>
+        <item name="sd_boxPaddingBottom">@dimen/sdkit_text_field_xs_box_padding_bottom</item>
+        <item name="sd_iconPadding">@dimen/sdkit_text_field_xs_icon_padding</item>
+        <item name="sd_actionPadding">@dimen/sdkit_text_field_xs_action_padding</item>
+        <item name="sd_boxMinHeight">@dimen/sdkit_text_field_xs_box_min_height</item>
+        <item name="sd_alignmentLineHeight">@dimen/sdkit_text_field_xs_alignment_height</item>
+        <item name="sd_iconSize">@dimen/sdkit_text_field_xs_icon_size</item>
+        <item name="sd_actionSize">@dimen/sdkit_text_field_xs_action_size</item>
+        <item name="sd_valueAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXsNormal</item>
+        <item name="sd_placeholderAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXsNormal</item>
+        <item name="sd_chipGroupStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.TextFieldXsChips</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.TextFieldXs">
+        <item name="sd_textFieldStyle">@style/Sdkit.StarDs.Components.TextField.Xs</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.TextField.Xs.OuterLabel">
+        <item name="sd_labelPlacement">outer</item>
+        <item name="sd_boxPaddingTop">@dimen/sdkit_text_field_xs_outer_label_box_padding_top</item>
+        <item name="sd_boxPaddingBottom">@dimen/sdkit_text_field_xs_outer_label_box_padding_bottom</item>
+        <item name="sd_labelPadding">@dimen/sdkit_text_field_xs_outer_label_label_padding</item>
+        <item name="sd_labelAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXsNormal</item>
+        <item name="sd_labelColor">@color/sdkit_text_field_xs_outer_label_label_color</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.TextFieldXsOuterLabel">
+        <item name="sd_textFieldStyle">@style/Sdkit.StarDs.Components.TextField.Xs.OuterLabel</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.TextFieldSChips">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroup.Dense</item>
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.EmbeddedChip.S.Secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.TextField.S">
+        <item name="sd_requirementMode">optional</item>
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundM</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/sdkit_text_field_s_shape_adjustment</item>
+        <item name="sd_labelPlacement">none</item>
+        <item name="sd_boxPaddingStart">@dimen/sdkit_text_field_s_box_padding_start</item>
+        <item name="sd_boxPaddingEnd">@dimen/sdkit_text_field_s_box_padding_end</item>
+        <item name="sd_boxPaddingTop">@dimen/sdkit_text_field_s_box_padding_top</item>
+        <item name="sd_boxPaddingBottom">@dimen/sdkit_text_field_s_box_padding_bottom</item>
+        <item name="sd_iconPadding">@dimen/sdkit_text_field_s_icon_padding</item>
+        <item name="sd_actionPadding">@dimen/sdkit_text_field_s_action_padding</item>
+        <item name="sd_boxMinHeight">@dimen/sdkit_text_field_s_box_min_height</item>
+        <item name="sd_alignmentLineHeight">@dimen/sdkit_text_field_s_alignment_height</item>
+        <item name="sd_iconSize">@dimen/sdkit_text_field_s_icon_size</item>
+        <item name="sd_actionSize">@dimen/sdkit_text_field_s_action_size</item>
+        <item name="sd_valueAppearance">@style/Sdkit.StarDs.TextAppearance.BodySNormal</item>
+        <item name="sd_placeholderAppearance">@style/Sdkit.StarDs.TextAppearance.BodySNormal</item>
+        <item name="sd_chipGroupStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.TextFieldSChips</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.TextFieldS">
+        <item name="sd_textFieldStyle">@style/Sdkit.StarDs.Components.TextField.S</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.TextField.S.OuterLabel">
+        <item name="sd_labelPlacement">outer</item>
+        <item name="sd_labelPadding">@dimen/sdkit_text_field_s_outer_label_label_padding</item>
+        <item name="sd_labelAppearance">@style/Sdkit.StarDs.TextAppearance.BodySNormal</item>
+        <item name="sd_labelColor">@color/sdkit_text_field_s_outer_label_label_color</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.TextFieldSOuterLabel">
+        <item name="sd_textFieldStyle">@style/Sdkit.StarDs.Components.TextField.S.OuterLabel</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.TextField.S.InnerLabel">
+        <item name="sd_labelPlacement">inner</item>
+        <item name="sd_boxPaddingTop">@dimen/sdkit_text_field_s_inner_label_box_padding_top</item>
+        <item name="sd_boxPaddingBottom">@dimen/sdkit_text_field_s_inner_label_box_padding_bottom</item>
+        <item name="sd_labelPadding">@dimen/sdkit_text_field_s_inner_label_label_padding</item>
+        <item name="sd_labelAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXsNormal</item>
+        <item name="sd_labelColor">@color/sdkit_text_field_s_inner_label_label_color</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.TextFieldSInnerLabel">
+        <item name="sd_textFieldStyle">@style/Sdkit.StarDs.Components.TextField.S.InnerLabel</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.TextFieldMChips">
+        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroup.Dense</item>
+        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.EmbeddedChip.M.Secondary</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.TextField.M">
+        <item name="sd_requirementMode">optional</item>
+        <item name="sd_shapeAppearance">?sdkit_shapeRoundM</item>
+        <item name="sd_labelPlacement">none</item>
+        <item name="sd_boxPaddingStart">@dimen/sdkit_text_field_m_box_padding_start</item>
+        <item name="sd_boxPaddingEnd">@dimen/sdkit_text_field_m_box_padding_end</item>
+        <item name="sd_boxPaddingTop">@dimen/sdkit_text_field_m_box_padding_top</item>
+        <item name="sd_boxPaddingBottom">@dimen/sdkit_text_field_m_box_padding_bottom</item>
+        <item name="sd_iconPadding">@dimen/sdkit_text_field_m_icon_padding</item>
+        <item name="sd_actionPadding">@dimen/sdkit_text_field_m_action_padding</item>
+        <item name="sd_boxMinHeight">@dimen/sdkit_text_field_m_box_min_height</item>
+        <item name="sd_alignmentLineHeight">@dimen/sdkit_text_field_m_alignment_height</item>
+        <item name="sd_iconSize">@dimen/sdkit_text_field_m_icon_size</item>
+        <item name="sd_actionSize">@dimen/sdkit_text_field_m_action_size</item>
+        <item name="sd_valueAppearance">@style/Sdkit.StarDs.TextAppearance.BodyMNormal</item>
+        <item name="sd_placeholderAppearance">@style/Sdkit.StarDs.TextAppearance.BodyMNormal</item>
+        <item name="sd_chipGroupStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.TextFieldMChips</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.TextFieldM">
+        <item name="sd_textFieldStyle">@style/Sdkit.StarDs.Components.TextField.M</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.TextField.M.OuterLabel">
+        <item name="sd_labelPlacement">outer</item>
+        <item name="sd_labelPadding">@dimen/sdkit_text_field_m_outer_label_label_padding</item>
+        <item name="sd_labelAppearance">@style/Sdkit.StarDs.TextAppearance.BodyMNormal</item>
+        <item name="sd_labelColor">@color/sdkit_text_field_m_outer_label_label_color</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.TextFieldMOuterLabel">
+        <item name="sd_textFieldStyle">@style/Sdkit.StarDs.Components.TextField.M.OuterLabel</item>
+    </style>
+    <style name="Sdkit.StarDs.Components.TextField.M.InnerLabel">
+        <item name="sd_labelPlacement">inner</item>
+        <item name="sd_boxPaddingTop">@dimen/sdkit_text_field_m_inner_label_box_padding_top</item>
+        <item name="sd_boxPaddingBottom">@dimen/sdkit_text_field_m_inner_label_box_padding_bottom</item>
+        <item name="sd_labelPadding">@dimen/sdkit_text_field_m_inner_label_label_padding</item>
+        <item name="sd_labelAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXsNormal</item>
+        <item name="sd_labelColor">@color/sdkit_text_field_m_inner_label_label_color</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.TextFieldMInnerLabel">
+        <item name="sd_textFieldStyle">@style/Sdkit.StarDs.Components.TextField.M.InnerLabel</item>
+    </style>
+</resources>

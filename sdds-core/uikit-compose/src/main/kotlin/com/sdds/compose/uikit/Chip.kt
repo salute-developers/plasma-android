@@ -3,37 +3,19 @@ package com.sdds.compose.uikit
 import androidx.compose.foundation.Indication
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsFocusedAsState
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.requiredSize
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.SolidColor
-import androidx.compose.ui.layout.Layout
-import androidx.compose.ui.layout.Measurable
-import androidx.compose.ui.layout.MeasurePolicy
-import androidx.compose.ui.layout.MeasureResult
-import androidx.compose.ui.layout.MeasureScope
-import androidx.compose.ui.layout.Placeable
-import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.semantics.Role
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.Dp
-import androidx.compose.ui.unit.constrainHeight
-import androidx.compose.ui.unit.constrainWidth
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.internal.common.surface
 import com.sdds.compose.uikit.internal.focusselector.LocalFocusSelectorMode
 import com.sdds.compose.uikit.internal.focusselector.applyFocusSelector
+import com.sdds.compose.uikit.internal.icontext.BaseIconText
 
 /**
  * Компонент Chip с поддержкой кликабельности
@@ -60,14 +42,12 @@ fun Chip(
     indication: Indication? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
-    val measurePolicy = remember { ChipMeasurePolicy() }
-    val dimensions = remember(style) { style.dimensions }
-    val colors = remember(style) { style.colors }
-    val backgroundColor = colors.backgroundColor.colorForInteractionAsState(interactionSource)
     val isFocused = interactionSource.collectIsFocusedAsState()
-    Layout(
+    val labelStyle = style.labelStyle
+    val dimensionsSet = style.dimensions.toDimensionsSet()
+    val colorsSet = style.colors.toColorsSet()
+    BaseIconText(
         modifier = modifier
-            .height(dimensions.height)
             .applyFocusSelector(
                 focusSelectorMode = LocalFocusSelectorMode.current,
                 originalShape = style.shape,
@@ -75,30 +55,19 @@ fun Chip(
             .surface(
                 shape = style.shape,
                 onClick = onClick,
-                backgroundColor = { SolidColor(backgroundColor.value) },
                 indication = indication,
                 enabled = enabled,
                 alpha = { if (it) ENABLED_CHIP_ALPHA else style.disableAlpha },
                 role = Role.Button,
                 interactionSource = interactionSource,
-            )
-            .padding(start = dimensions.startPadding, end = dimensions.endPadding),
-        measurePolicy = measurePolicy,
-        content = {
-            val startContentColor = colors.startContentColor.colorForInteraction(interactionSource)
-            val endContentColor = colors.endContentColor.colorForInteraction(interactionSource)
-            val labelColor = colors.labelColor.colorForInteraction(interactionSource)
-            ChipContent(
-                startContent = startContent,
-                endContent = endContent,
-                label = label,
-                labelStyle = style.labelStyle,
-                dimensions = dimensions,
-                labelColor = labelColor,
-                startContentColor = startContentColor,
-                endContentColor = endContentColor,
-            )
-        },
+            ),
+        shape = style.shape,
+        dimensionsSet = dimensionsSet,
+        colorsSet = colorsSet,
+        labelContent = label,
+        labelStyle = labelStyle,
+        startContent = startContent,
+        endContent = endContent,
     )
 }
 
@@ -129,45 +98,33 @@ fun Chip(
     indication: Indication? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
-    val measurePolicy = remember { ChipMeasurePolicy() }
-    val dimensions = remember(style) { style.dimensions }
-    val colors = remember(style) { style.colors }
-    val backgroundColor = colors.backgroundColor.colorForInteractionAsState(interactionSource)
     val isFocused = interactionSource.collectIsFocusedAsState()
-    Layout(
+    val labelStyle = style.labelStyle
+    val dimensionsSet = style.dimensions.toDimensionsSet()
+    val colorsSet = style.colors.toColorsSet()
+    BaseIconText(
         modifier = modifier
-            .height(dimensions.height)
             .applyFocusSelector(
                 focusSelectorMode = LocalFocusSelectorMode.current,
                 originalShape = style.shape,
             ) { isFocused.value }
             .surface(
+                shape = style.shape,
                 value = isSelected,
                 onValueChange = onSelectedChange,
-                shape = style.shape,
                 indication = indication,
-                backgroundColor = { SolidColor(backgroundColor.value) },
-                alpha = { if (it) ENABLED_CHIP_ALPHA else style.disableAlpha },
                 enabled = enabled,
+                alpha = { if (it) ENABLED_CHIP_ALPHA else style.disableAlpha },
+                role = Role.Button,
                 interactionSource = interactionSource,
-            )
-            .padding(start = dimensions.startPadding, end = dimensions.endPadding),
-        measurePolicy = measurePolicy,
-        content = {
-            val startContentColor = colors.startContentColor.colorForInteraction(interactionSource)
-            val endContentColor = colors.endContentColor.colorForInteraction(interactionSource)
-            val labelColor = colors.labelColor.colorForInteraction(interactionSource)
-            ChipContent(
-                startContent = startContent,
-                endContent = endContent,
-                label = label,
-                labelStyle = style.labelStyle,
-                labelColor = labelColor,
-                dimensions = dimensions,
-                startContentColor = startContentColor,
-                endContentColor = endContentColor,
-            )
-        },
+            ),
+        shape = style.shape,
+        dimensionsSet = dimensionsSet,
+        colorsSet = colorsSet,
+        labelContent = label,
+        labelStyle = labelStyle,
+        startContent = startContent,
+        endContent = endContent,
     )
 }
 
@@ -203,115 +160,26 @@ object Chip {
  */
 object EmbeddedChip
 
-@Composable
-private fun ChipContent(
-    startContent: (@Composable () -> Unit)?,
-    endContent: (@Composable () -> Unit)?,
-    startContentColor: Color,
-    endContentColor: Color,
-    labelColor: Color,
-    label: String,
-    labelStyle: TextStyle,
-    dimensions: Chip.Dimensions,
-) {
-    startContent?.let {
-        CompositionLocalProvider(
-            LocalTint provides startContentColor,
-        ) {
-            Box(
-                modifier = Modifier
-                    .layoutId(START_CONTENT)
-                    .padding(end = dimensions.startContentMargin)
-                    .requiredSize(dimensions.startContentSize),
-            ) {
-                startContent()
-            }
-        }
-    }
-    if (label.isNotEmpty()) {
-        Text(
-            modifier = Modifier.layoutId(TEXT_CONTENT),
-            text = label,
-            style = labelStyle.copy(color = labelColor),
-            maxLines = 1,
-            overflow = TextOverflow.Ellipsis,
-        )
-    }
-    endContent?.let {
-        CompositionLocalProvider(
-            LocalTint provides endContentColor,
-        ) {
-            Box(
-                modifier = Modifier
-                    .layoutId(END_CONTENT)
-                    .padding(start = dimensions.endContentMargin)
-                    .requiredSize(dimensions.endContentSize),
-            ) {
-                endContent()
-            }
-        }
-    }
+internal fun Chip.Dimensions.toDimensionsSet(): BaseIconText.Dimensions {
+    return BaseIconText.Dimensions(
+        height = this.height,
+        endContentSize = this.endContentSize,
+        startContentSize = this.startContentSize,
+        endContentMargin = this.endContentMargin,
+        startContentMargin = this.startContentMargin,
+        endPadding = this.endPadding,
+        startPadding = this.startPadding,
+    )
 }
 
-private class ChipMeasurePolicy : MeasurePolicy {
-    override fun MeasureScope.measure(
-        measurables: List<Measurable>,
-        constraints: Constraints,
-    ): MeasureResult {
-        val looseConstraints = constraints.copy(minHeight = 0, minWidth = 0)
-
-        val startMeasurable = measurables.find { it.layoutId == START_CONTENT }
-        val endMeasurable = measurables.find { it.layoutId == END_CONTENT }
-        val textMeasurable = measurables.find { it.layoutId == TEXT_CONTENT }
-
-        val startPlaceable = startMeasurable?.measure(looseConstraints)
-        val endPlaceable = endMeasurable?.measure(looseConstraints)
-
-        val startContentWidth = startPlaceable.widthOrZero()
-        val startContentHeight = startPlaceable.heightOrZero()
-        val endContentWidth = endPlaceable.widthOrZero()
-        val endContentHeight = endPlaceable.heightOrZero()
-
-        val textConstraints =
-            if (looseConstraints.hasBoundedWidth || looseConstraints.hasFixedWidth) {
-                looseConstraints.copy(
-                    maxWidth = constraints.maxWidth - startContentWidth - endContentWidth,
-                )
-            } else {
-                looseConstraints
-            }
-        val textPlaceable = textMeasurable?.measure(textConstraints)
-        val textContentWidth = textPlaceable.widthOrZero()
-        val textContentHeight = textPlaceable.heightOrZero()
-
-        val textVerticalPosition =
-            Alignment.CenterVertically.align(textContentHeight, constraints.maxHeight)
-        val startVerticalPosition =
-            Alignment.CenterVertically.align(startContentHeight, constraints.maxHeight)
-        val endVerticalPosition =
-            Alignment.CenterVertically.align(endContentHeight, constraints.maxHeight)
-        val desiredWidth = startContentWidth + textContentWidth + endContentWidth
-
-        return layout(
-            width = constraints.constrainWidth(desiredWidth),
-            height = constraints.constrainHeight(constraints.maxHeight),
-        ) {
-            startPlaceable?.placeRelative(0, startVerticalPosition)
-            textPlaceable?.placeRelative(startContentWidth, textVerticalPosition)
-            endPlaceable?.placeRelative(startContentWidth + textContentWidth, endVerticalPosition)
-        }
-    }
-}
-
-private fun Placeable?.widthOrZero(): Int {
-    return this?.measuredWidth ?: 0
-}
-
-private fun Placeable?.heightOrZero(): Int {
-    return this?.measuredHeight ?: 0
+internal fun ChipColors.toColorsSet(): BaseIconText.Colors {
+    return BaseIconText.Colors(
+        backgroundColor = this.backgroundColor,
+        contentColor = this.contentColor,
+        labelColor = this.labelColor,
+        startContentColor = this.startContentColor,
+        endContentColor = this.endContentColor,
+    )
 }
 
 private const val ENABLED_CHIP_ALPHA = 1f
-private const val START_CONTENT = "StartChipContent"
-private const val END_CONTENT = "EndChipContent"
-private const val TEXT_CONTENT = "TextChipContent"

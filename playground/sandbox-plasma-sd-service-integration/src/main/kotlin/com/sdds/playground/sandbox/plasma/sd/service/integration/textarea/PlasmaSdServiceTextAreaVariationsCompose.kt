@@ -14,6 +14,7 @@ import com.sdds.plasma.sd.service.styles.textarea.RequiredEnd
 import com.sdds.plasma.sd.service.styles.textarea.RequiredStart
 import com.sdds.plasma.sd.service.styles.textarea.S
 import com.sdds.plasma.sd.service.styles.textarea.Warning
+import com.sdds.plasma.sd.service.styles.textarea.Xl
 import com.sdds.plasma.sd.service.styles.textarea.Xs
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 
@@ -21,6 +22,15 @@ internal object PlasmaSdServiceTextAreaVariationsCompose : ComposeStyleProvider<
 
     override val variations: Map<String, @Composable () -> TextFieldStyle> =
         mapOf(
+            "XLDefault" to { TextArea.Xl.Default.style() },
+            "XLRequiredStartDefault" to { TextArea.Xl.RequiredStart.Default.style() },
+            "XLRequiredEndDefault" to { TextArea.Xl.RequiredEnd.Default.style() },
+            "XLOuterLabelDefault" to { TextArea.Xl.OuterLabel.Default.style() },
+            "XLOuterLabelRequiredStartDefault" to { TextArea.Xl.OuterLabel.RequiredStart.Default.style() },
+            "XLOuterLabelRequiredEndDefault" to { TextArea.Xl.OuterLabel.RequiredEnd.Default.style() },
+            "XLInnerLabelDefault" to { TextArea.Xl.InnerLabel.Default.style() },
+            "XLInnerLabelRequiredStartDefault" to { TextArea.Xl.InnerLabel.RequiredStart.Default.style() },
+            "XLInnerLabelRequiredEndDefault" to { TextArea.Xl.InnerLabel.RequiredEnd.Default.style() },
             "LDefault" to { TextArea.L.Default.style() },
             "LRequiredStartDefault" to { TextArea.L.RequiredStart.Default.style() },
             "LRequiredEndDefault" to { TextArea.L.RequiredEnd.Default.style() },
@@ -55,6 +65,15 @@ internal object PlasmaSdServiceTextAreaVariationsCompose : ComposeStyleProvider<
             "XSOuterLabelRequiredStartDefault" to { TextArea.Xs.OuterLabel.RequiredStart.Default.style() },
             "XSOuterLabelRequiredEndDefault" to { TextArea.Xs.OuterLabel.RequiredEnd.Default.style() },
 
+            "XLWarning" to { TextArea.Xl.Warning.style() },
+            "XLRequiredStartWarning" to { TextArea.Xl.RequiredStart.Warning.style() },
+            "XLRequiredEndWarning" to { TextArea.Xl.RequiredEnd.Warning.style() },
+            "XLOuterLabelWarning" to { TextArea.Xl.OuterLabel.Warning.style() },
+            "XLOuterLabelRequiredStartWarning" to { TextArea.Xl.OuterLabel.RequiredStart.Warning.style() },
+            "XLOuterLabelRequiredEndWarning" to { TextArea.Xl.OuterLabel.RequiredEnd.Warning.style() },
+            "XLInnerLabelWarning" to { TextArea.Xl.InnerLabel.Warning.style() },
+            "XLInnerLabelRequiredStartWarning" to { TextArea.Xl.InnerLabel.RequiredStart.Warning.style() },
+            "XLInnerLabelRequiredEndWarning" to { TextArea.Xl.InnerLabel.RequiredEnd.Warning.style() },
             "LWarning" to { TextArea.L.Warning.style() },
             "LRequiredStartWarning" to { TextArea.L.RequiredStart.Warning.style() },
             "LRequiredEndWarning" to { TextArea.L.RequiredEnd.Warning.style() },
@@ -89,6 +108,15 @@ internal object PlasmaSdServiceTextAreaVariationsCompose : ComposeStyleProvider<
             "XSOuterLabelRequiredStartWarning" to { TextArea.Xs.OuterLabel.RequiredStart.Warning.style() },
             "XSOuterLabelRequiredEndWarning" to { TextArea.Xs.OuterLabel.RequiredEnd.Warning.style() },
 
+            "XLError" to { TextArea.Xl.Error.style() },
+            "XLRequiredStartError" to { TextArea.Xl.RequiredStart.Error.style() },
+            "XLRequiredEndError" to { TextArea.Xl.RequiredEnd.Error.style() },
+            "XLOuterLabelError" to { TextArea.Xl.OuterLabel.Error.style() },
+            "XLOuterLabelRequiredStartError" to { TextArea.Xl.OuterLabel.RequiredStart.Error.style() },
+            "XLOuterLabelRequiredEndError" to { TextArea.Xl.OuterLabel.RequiredEnd.Error.style() },
+            "XLInnerLabelError" to { TextArea.Xl.InnerLabel.Error.style() },
+            "XLInnerLabelRequiredStartError" to { TextArea.Xl.InnerLabel.RequiredStart.Error.style() },
+            "XLInnerLabelRequiredEndError" to { TextArea.Xl.InnerLabel.RequiredEnd.Error.style() },
             "LError" to { TextArea.L.Error.style() },
             "LRequiredStartError" to { TextArea.L.RequiredStart.Error.style() },
             "LRequiredEndError" to { TextArea.L.RequiredEnd.Error.style() },

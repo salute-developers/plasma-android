@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <attr format="reference" name="sdkit_shadowDownSoftS"/>
+    <attr format="reference" name="sdkit_shadowDownSoftM"/>
+    <attr format="reference" name="sdkit_shadowDownSoftL"/>
+    <attr format="reference" name="sdkit_shadowDownHardS"/>
+    <attr format="reference" name="sdkit_shadowDownHardM"/>
+    <attr format="reference" name="sdkit_shadowDownHardL"/>
+    <attr format="reference" name="sdkit_shadowUpSoftS"/>
+    <attr format="reference" name="sdkit_shadowUpSoftM"/>
+    <attr format="reference" name="sdkit_shadowUpSoftL"/>
+    <attr format="reference" name="sdkit_shadowUpHardS"/>
+    <attr format="reference" name="sdkit_shadowUpHardM"/>
+    <attr format="reference" name="sdkit_shadowUpHardL"/>
+</resources>

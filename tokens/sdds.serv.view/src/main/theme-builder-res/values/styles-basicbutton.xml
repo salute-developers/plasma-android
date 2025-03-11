@@ -3,13 +3,89 @@
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <resources>
     <style name="Serv.Sdds.Components.BasicButton" parent="Sdds.Components.Button">
-        <item name="sd_colorStateProvider">com.sdds.serv.colorstate.ButtonColorStateProvider</item>
         <item name="sd_disabledAlpha">0.4</item>
         <item name="backgroundTint">@color/serv_basic_button_bg_color</item>
         <item name="android:textColor">@color/serv_basic_button_text_color</item>
         <item name="sd_valueTextColor">@color/serv_basic_button_value_color</item>
         <item name="sd_spinnerTint">@color/serv_basic_button_spinner_tint</item>
         <item name="sd_iconTint">@color/serv_basic_button_icon_tint</item>
+        <item name="sd_colorStateProvider">com.sdds.serv.colorstate.ButtonColorStateProvider</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButton.Xl">
+        <item name="android:minHeight">@dimen/serv_basic_button_xl_min_height</item>
+        <item name="android:minWidth">@dimen/serv_basic_button_xl_min_width</item>
+        <item name="android:paddingStart">@dimen/serv_basic_button_xl_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_basic_button_xl_padding_end</item>
+        <item name="sd_iconSize">@dimen/serv_basic_button_xl_icon_size</item>
+        <item name="sd_spinnerSize">@dimen/serv_basic_button_xl_spinner_size</item>
+        <item name="sd_spinnerStrokeWidth">@dimen/serv_basic_button_xl_spinner_stroke_width</item>
+        <item name="sd_iconPadding">@dimen/serv_basic_button_xl_icon_padding</item>
+        <item name="sd_valuePadding">@dimen/serv_basic_button_xl_value_padding</item>
+        <item name="sd_shapeAppearance">?serv_shapeRoundL</item>
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyLBold</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonXl">
+        <item name="android:buttonStyle">@style/Serv.Sdds.Components.BasicButton.Xl</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButton.Xl.Default">
+        <item name="serv_buttonColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonXlDefault">
+        <item name="android:buttonStyle">@style/Serv.Sdds.Components.BasicButton.Xl.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButton.Xl.Secondary">
+        <item name="serv_buttonColors">state_secondary</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonXlSecondary">
+        <item name="android:buttonStyle">@style/Serv.Sdds.Components.BasicButton.Xl.Secondary</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButton.Xl.Accent">
+        <item name="serv_buttonColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonXlAccent">
+        <item name="android:buttonStyle">@style/Serv.Sdds.Components.BasicButton.Xl.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButton.Xl.Positive">
+        <item name="serv_buttonColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonXlPositive">
+        <item name="android:buttonStyle">@style/Serv.Sdds.Components.BasicButton.Xl.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButton.Xl.Negative">
+        <item name="serv_buttonColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonXlNegative">
+        <item name="android:buttonStyle">@style/Serv.Sdds.Components.BasicButton.Xl.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButton.Xl.Warning">
+        <item name="serv_buttonColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonXlWarning">
+        <item name="android:buttonStyle">@style/Serv.Sdds.Components.BasicButton.Xl.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButton.Xl.Clear">
+        <item name="serv_buttonColors">state_clear</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonXlClear">
+        <item name="android:buttonStyle">@style/Serv.Sdds.Components.BasicButton.Xl.Clear</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButton.Xl.Dark">
+        <item name="serv_buttonColors">state_dark</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonXlDark">
+        <item name="android:buttonStyle">@style/Serv.Sdds.Components.BasicButton.Xl.Dark</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButton.Xl.Black">
+        <item name="serv_buttonColors">state_black</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonXlBlack">
+        <item name="android:buttonStyle">@style/Serv.Sdds.Components.BasicButton.Xl.Black</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButton.Xl.White">
+        <item name="serv_buttonColors">state_white</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonXlWhite">
+        <item name="android:buttonStyle">@style/Serv.Sdds.Components.BasicButton.Xl.White</item>
     </style>
     <style name="Serv.Sdds.Components.BasicButton.L">
         <item name="android:minHeight">@dimen/serv_basic_button_l_min_height</item>
@@ -316,5 +392,81 @@
     </style>
     <style name="Serv.Sdds.ComponentOverlays.BasicButtonXsWhite">
         <item name="android:buttonStyle">@style/Serv.Sdds.Components.BasicButton.Xs.White</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButton.Xxs">
+        <item name="android:minHeight">@dimen/serv_basic_button_xxs_min_height</item>
+        <item name="android:minWidth">@dimen/serv_basic_button_xxs_min_width</item>
+        <item name="android:paddingStart">@dimen/serv_basic_button_xxs_padding_start</item>
+        <item name="android:paddingEnd">@dimen/serv_basic_button_xxs_padding_end</item>
+        <item name="sd_iconSize">@dimen/serv_basic_button_xxs_icon_size</item>
+        <item name="sd_spinnerSize">@dimen/serv_basic_button_xxs_spinner_size</item>
+        <item name="sd_spinnerStrokeWidth">@dimen/serv_basic_button_xxs_spinner_stroke_width</item>
+        <item name="sd_iconPadding">@dimen/serv_basic_button_xxs_icon_padding</item>
+        <item name="sd_valuePadding">@dimen/serv_basic_button_xxs_value_padding</item>
+        <item name="sd_shapeAppearance">?serv_shapeRoundXs</item>
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyXsBold</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonXxs">
+        <item name="android:buttonStyle">@style/Serv.Sdds.Components.BasicButton.Xxs</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButton.Xxs.Default">
+        <item name="serv_buttonColors">state_default</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonXxsDefault">
+        <item name="android:buttonStyle">@style/Serv.Sdds.Components.BasicButton.Xxs.Default</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButton.Xxs.Secondary">
+        <item name="serv_buttonColors">state_secondary</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonXxsSecondary">
+        <item name="android:buttonStyle">@style/Serv.Sdds.Components.BasicButton.Xxs.Secondary</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButton.Xxs.Accent">
+        <item name="serv_buttonColors">state_accent</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonXxsAccent">
+        <item name="android:buttonStyle">@style/Serv.Sdds.Components.BasicButton.Xxs.Accent</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButton.Xxs.Positive">
+        <item name="serv_buttonColors">state_positive</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonXxsPositive">
+        <item name="android:buttonStyle">@style/Serv.Sdds.Components.BasicButton.Xxs.Positive</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButton.Xxs.Negative">
+        <item name="serv_buttonColors">state_negative</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonXxsNegative">
+        <item name="android:buttonStyle">@style/Serv.Sdds.Components.BasicButton.Xxs.Negative</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButton.Xxs.Warning">
+        <item name="serv_buttonColors">state_warning</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonXxsWarning">
+        <item name="android:buttonStyle">@style/Serv.Sdds.Components.BasicButton.Xxs.Warning</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButton.Xxs.Clear">
+        <item name="serv_buttonColors">state_clear</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonXxsClear">
+        <item name="android:buttonStyle">@style/Serv.Sdds.Components.BasicButton.Xxs.Clear</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButton.Xxs.Dark">
+        <item name="serv_buttonColors">state_dark</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonXxsDark">
+        <item name="android:buttonStyle">@style/Serv.Sdds.Components.BasicButton.Xxs.Dark</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButton.Xxs.Black">
+        <item name="serv_buttonColors">state_black</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonXxsBlack">
+        <item name="android:buttonStyle">@style/Serv.Sdds.Components.BasicButton.Xxs.Black</item>
+    </style>
+    <style name="Serv.Sdds.Components.BasicButton.Xxs.White">
+        <item name="serv_buttonColors">state_white</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.BasicButtonXxsWhite">
+        <item name="android:buttonStyle">@style/Serv.Sdds.Components.BasicButton.Xxs.White</item>
     </style>
 </resources>

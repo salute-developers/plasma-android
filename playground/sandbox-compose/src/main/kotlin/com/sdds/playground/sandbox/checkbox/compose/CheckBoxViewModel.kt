@@ -19,7 +19,7 @@ internal class CheckBoxViewModel(
     private val theme: Theme.ThemeInfoCompose,
 ) : ComponentViewModel<CheckBoxUiState, CheckBoxStyle>(defaultState), PropertiesOwner {
 
-    private fun updateState(state: ToggleableState) {
+    fun updateState(state: ToggleableState) {
         internalUiState.value = internalUiState.value.copy(state = state)
     }
 

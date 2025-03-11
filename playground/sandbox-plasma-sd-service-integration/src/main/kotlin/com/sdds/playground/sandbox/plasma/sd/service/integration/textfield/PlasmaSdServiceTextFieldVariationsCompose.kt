@@ -15,12 +15,23 @@ import com.sdds.plasma.sd.service.styles.textfield.RequiredStart
 import com.sdds.plasma.sd.service.styles.textfield.S
 import com.sdds.plasma.sd.service.styles.textfield.Success
 import com.sdds.plasma.sd.service.styles.textfield.Warning
+import com.sdds.plasma.sd.service.styles.textfield.Xl
 import com.sdds.plasma.sd.service.styles.textfield.Xs
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 
 internal object PlasmaSdServiceTextFieldVariationsCompose : ComposeStyleProvider<String, TextFieldStyle>() {
     override val variations: Map<String, @Composable () -> TextFieldStyle>
         get() = mapOf<String, @Composable () -> TextFieldStyle>(
+            "XLDefault" to ({ TextField.Xl.Default.style() }),
+            "XLRequiredStartDefault" to ({ TextField.Xl.RequiredStart.Default.style() }),
+            "XLRequiredEndDefault" to ({ TextField.Xl.RequiredEnd.Default.style() }),
+            "XLOuterLabelDefault" to ({ TextField.Xl.OuterLabel.Default.style() }),
+            "XLOuterLabelRequiredStartDefault" to ({ TextField.Xl.OuterLabel.RequiredStart.Default.style() }),
+            "XLOuterLabelRequiredEndDefault" to ({ TextField.Xl.OuterLabel.RequiredEnd.Default.style() }),
+            "XLInnerLabelDefault" to ({ TextField.Xl.InnerLabel.Default.style() }),
+            "XLInnerLabelRequiredStartDefault" to ({ TextField.Xl.InnerLabel.RequiredStart.Default.style() }),
+            "XLInnerLabelRequiredEndDefault" to ({ TextField.Xl.InnerLabel.RequiredEnd.Default.style() }),
+            "LDefault" to ({ TextField.L.Default.style() }),
             "LDefault" to ({ TextField.L.Default.style() }),
             "LRequiredStartDefault" to ({ TextField.L.RequiredStart.Default.style() }),
             "LRequiredEndDefault" to ({ TextField.L.RequiredEnd.Default.style() }),
@@ -55,6 +66,16 @@ internal object PlasmaSdServiceTextFieldVariationsCompose : ComposeStyleProvider
             "XSOuterLabelRequiredStartDefault" to ({ TextField.Xs.OuterLabel.RequiredStart.Default.style() }),
             "XSOuterLabelRequiredEndDefault" to ({ TextField.Xs.OuterLabel.RequiredEnd.Default.style() }),
 
+            "XLWarning" to ({ TextField.Xl.Warning.style() }),
+            "XLRequiredStartWarning" to ({ TextField.Xl.RequiredStart.Warning.style() }),
+            "XLRequiredEndWarning" to ({ TextField.Xl.RequiredEnd.Warning.style() }),
+            "XLOuterLabelWarning" to ({ TextField.Xl.OuterLabel.Warning.style() }),
+            "XLOuterLabelRequiredStartWarning" to ({ TextField.Xl.OuterLabel.RequiredStart.Warning.style() }),
+            "XLOuterLabelRequiredEndWarning" to ({ TextField.Xl.OuterLabel.RequiredEnd.Warning.style() }),
+            "XLInnerLabelWarning" to ({ TextField.Xl.InnerLabel.Warning.style() }),
+            "XLInnerLabelRequiredStartWarning" to ({ TextField.Xl.InnerLabel.RequiredStart.Warning.style() }),
+            "XLInnerLabelRequiredEndWarning" to ({ TextField.Xl.InnerLabel.RequiredEnd.Warning.style() }),
+            "LWarning" to ({ TextField.L.Warning.style() }),
             "LWarning" to ({ TextField.L.Warning.style() }),
             "LRequiredStartWarning" to ({ TextField.L.RequiredStart.Warning.style() }),
             "LRequiredEndWarning" to ({ TextField.L.RequiredEnd.Warning.style() }),
@@ -89,6 +110,15 @@ internal object PlasmaSdServiceTextFieldVariationsCompose : ComposeStyleProvider
             "XSOuterLabelRequiredStartWarning" to ({ TextField.Xs.OuterLabel.RequiredStart.Warning.style() }),
             "XSOuterLabelRequiredEndWarning" to ({ TextField.Xs.OuterLabel.RequiredEnd.Warning.style() }),
 
+            "XLError" to ({ TextField.Xl.Error.style() }),
+            "XLRequiredStartError" to ({ TextField.Xl.RequiredStart.Error.style() }),
+            "XLRequiredEndError" to ({ TextField.Xl.RequiredEnd.Error.style() }),
+            "XLOuterLabelError" to ({ TextField.Xl.OuterLabel.Error.style() }),
+            "XLOuterLabelRequiredStartError" to ({ TextField.Xl.OuterLabel.RequiredStart.Error.style() }),
+            "XLOuterLabelRequiredEndError" to ({ TextField.Xl.OuterLabel.RequiredEnd.Error.style() }),
+            "XLInnerLabelError" to ({ TextField.Xl.InnerLabel.Error.style() }),
+            "XLInnerLabelRequiredStartError" to ({ TextField.Xl.InnerLabel.RequiredStart.Error.style() }),
+            "XLInnerLabelRequiredEndError" to ({ TextField.Xl.InnerLabel.RequiredEnd.Error.style() }),
             "LError" to ({ TextField.L.Error.style() }),
             "LRequiredStartError" to ({ TextField.L.RequiredStart.Error.style() }),
             "LRequiredEndError" to ({ TextField.L.RequiredEnd.Error.style() }),
@@ -123,6 +153,15 @@ internal object PlasmaSdServiceTextFieldVariationsCompose : ComposeStyleProvider
             "XSOuterLabelRequiredStartError" to ({ TextField.Xs.OuterLabel.RequiredStart.Error.style() }),
             "XSOuterLabelRequiredEndError" to ({ TextField.Xs.OuterLabel.RequiredEnd.Error.style() }),
 
+            "XLSuccess" to ({ TextField.Xl.Success.style() }),
+            "XLRequiredStartSuccess" to ({ TextField.Xl.RequiredStart.Success.style() }),
+            "XLRequiredEndSuccess" to ({ TextField.Xl.RequiredEnd.Success.style() }),
+            "XLOuterLabelSuccess" to ({ TextField.Xl.OuterLabel.Success.style() }),
+            "XLOuterLabelRequiredStartSuccess" to ({ TextField.Xl.OuterLabel.RequiredStart.Success.style() }),
+            "XLOuterLabelRequiredEndSuccess" to ({ TextField.Xl.OuterLabel.RequiredEnd.Success.style() }),
+            "XLInnerLabelSuccess" to ({ TextField.Xl.InnerLabel.Success.style() }),
+            "XLInnerLabelRequiredStartSuccess" to ({ TextField.Xl.InnerLabel.RequiredStart.Success.style() }),
+            "XLInnerLabelRequiredEndSuccess" to ({ TextField.Xl.InnerLabel.RequiredEnd.Success.style() }),
             "LSuccess" to ({ TextField.L.Success.style() }),
             "LRequiredStartSuccess" to ({ TextField.L.RequiredStart.Success.style() }),
             "LRequiredEndSuccess" to ({ TextField.L.RequiredEnd.Success.style() }),

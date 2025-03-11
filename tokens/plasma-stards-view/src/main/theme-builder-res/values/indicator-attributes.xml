@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <declare-styleable name="SdkitIndicatorColorState">
+        <attr format="boolean" name="sdkit_indicator_state_default"/>
+        <attr format="boolean" name="sdkit_indicator_state_accent"/>
+        <attr format="boolean" name="sdkit_indicator_state_inactive"/>
+        <attr format="boolean" name="sdkit_indicator_state_positive"/>
+        <attr format="boolean" name="sdkit_indicator_state_warning"/>
+        <attr format="boolean" name="sdkit_indicator_state_negative"/>
+        <attr format="boolean" name="sdkit_indicator_state_dark"/>
+        <attr format="boolean" name="sdkit_indicator_state_black"/>
+        <attr format="boolean" name="sdkit_indicator_state_white"/>
+    </declare-styleable>
+    <declare-styleable name="Indicator" tools:ignore="ResourceName">
+        <attr format="enum" name="sdkit_indicatorColors">
+            <enum name="state_default" value="0"/>
+            <enum name="state_accent" value="1"/>
+            <enum name="state_inactive" value="2"/>
+            <enum name="state_positive" value="3"/>
+            <enum name="state_warning" value="4"/>
+            <enum name="state_negative" value="5"/>
+            <enum name="state_dark" value="6"/>
+            <enum name="state_black" value="7"/>
+            <enum name="state_white" value="8"/>
+        </attr>
+    </declare-styleable>
+</resources>

@@ -172,12 +172,33 @@ class ViewSystemTextFieldScreenshotTest(
     override fun testTextFieldLSuffixPrefix() {
         themedComponent {
             margins {
-                textFieldLInputText(
+                textFieldLSuffixPrefix(
                     R.style.Plasma_SdService_ComponentOverlays_TextFieldLOuterLabelRequiredStart,
                     TextFieldColorState.DEFAULT,
                 )
             }
         }
-        // TODO capture container
+    }
+
+    @Test
+    override fun testTextFieldTBTACyrillic() {
+        themedComponent {
+            textFieldTBTACyrillic(
+                R.style.Plasma_SdService_ComponentOverlays_TextFieldLOuterLabelRequiredStart,
+                TextFieldColorState.DEFAULT,
+            )
+        }
+    }
+
+    @Test
+    override fun testTextFieldLDisabledOuterLabelStart() {
+        themedComponent {
+            margins {
+                textFieldLDisabledOuterLabelStart(
+                    R.style.Plasma_SdService_ComponentOverlays_TextFieldLOuterLabelRequiredStart,
+                    TextFieldColorState.DEFAULT,
+                )
+            }
+        }
     }
 }

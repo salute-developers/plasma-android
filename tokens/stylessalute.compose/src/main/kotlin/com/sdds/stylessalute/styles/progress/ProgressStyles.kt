@@ -82,14 +82,3 @@ val ProgressBar.Negative: ProgressBarStyleBuilder
             indicatorColor(StylesSaluteTheme.colors.surfaceDefaultNegative)
             backgroundColor(StylesSaluteTheme.colors.surfaceDefaultTransparentSecondary)
         }
-
-/**
- * Стиль [ProgressBar] цвета Info
- */
-val ProgressBar.Info: ProgressBarStyleBuilder
-    @Composable
-    get() = ProgressBarStyle.builder()
-        .colors {
-            indicatorColor(StylesSaluteTheme.colors.surfaceDefaultInfo)
-            backgroundColor(StylesSaluteTheme.colors.surfaceDefaultTransparentSecondary)
-        }

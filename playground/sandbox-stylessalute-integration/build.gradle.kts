@@ -9,7 +9,7 @@ android {
 }
 
 dependencies {
-    implementation("playground:sandbox-core-integration")
+    implementation(project(":sandbox-core-integration"))
     implementation("tokens:stylessalute.compose")
     implementation("tokens:stylessalute.view")
     implementation(libs.sdds.uikit.compose)

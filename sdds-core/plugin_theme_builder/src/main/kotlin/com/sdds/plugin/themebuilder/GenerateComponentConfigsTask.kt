@@ -2,6 +2,7 @@ package com.sdds.plugin.themebuilder
 
 import com.sdds.plugin.themebuilder.internal.PackageResolver
 import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
+import com.sdds.plugin.themebuilder.internal.components.badge.BadgeConfig
 import com.sdds.plugin.themebuilder.internal.components.button.ButtonConfig
 import com.sdds.plugin.themebuilder.internal.components.cell.CellConfig
 import com.sdds.plugin.themebuilder.internal.components.counter.CounterConfig
@@ -86,6 +87,42 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
      */
     @get:InputFile
     abstract val counterConfigFile: RegularFileProperty
+
+    /**
+     * Файл с конфигом Badge
+     */
+    @get:InputFile
+    abstract val badgeConfigFile: RegularFileProperty
+
+    /**
+     * Файл с конфигом BadgeClear
+     */
+    @get:InputFile
+    abstract val badgeClearConfigFile: RegularFileProperty
+
+    /**
+     * Файл с конфигом BadgeTransparent
+     */
+    @get:InputFile
+    abstract val badgeTransparentConfigFile: RegularFileProperty
+
+    /**
+     * Файл с конфигом IconBadge
+     */
+    @get:InputFile
+    abstract val iconBadgeConfigFile: RegularFileProperty
+
+    /**
+     * Файл с конфигом IconBadgeClear
+     */
+    @get:InputFile
+    abstract val iconBadgeClearConfigFile: RegularFileProperty
+
+    /**
+     * Файл с конфигом IconBadgeTransparent
+     */
+    @get:InputFile
+    abstract val iconBadgeTransparentConfigFile: RegularFileProperty
 
     /**
      * Путь для сохранения kt-файлов токенов
@@ -235,8 +272,36 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
         componentStyleGeneratorFactory.createTextAreaClearStyleGeneratorCompose()
     }
 
+    private val badgeStyleGeneratorCompose by unsafeLazy {
+        componentStyleGeneratorFactory.createBadgeStyleGeneratorCompose()
+    }
+
+    private val badgeClearStyleGeneratorCompose by unsafeLazy {
+        componentStyleGeneratorFactory.createBadgeClearStyleGeneratorCompose()
+    }
+
+    private val badgeTransparentStyleGeneratorCompose by unsafeLazy {
+        componentStyleGeneratorFactory.createBadgeTransparentStyleGeneratorCompose()
+    }
+
+    private val iconBadgeStyleGeneratorCompose by unsafeLazy {
+        componentStyleGeneratorFactory.createIconBadgeStyleGeneratorCompose()
+    }
+
+    private val iconBadgeClearStyleGeneratorCompose by unsafeLazy {
+        componentStyleGeneratorFactory.createIconBadgeClearStyleGeneratorCompose()
+    }
+
+    private val iconBadgeTransparentStyleGeneratorCompose by unsafeLazy {
+        componentStyleGeneratorFactory.createIconBadgeTransparentStyleGeneratorCompose()
+    }
+
     private val cellStyleGeneratorCompose by unsafeLazy {
         componentStyleGeneratorFactory.createCellStyleGeneratorCompose()
+    }
+
+    private val counterStyleGeneratorCompose by unsafeLazy {
+        componentStyleGeneratorFactory.createCounterStyleGeneratorCompose()
     }
 
     private val basicButtonConfig: ButtonConfig by unsafeLazy {
@@ -299,6 +364,42 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
             .decode(Serializer.componentConfig)
     }
 
+    private val badgeConfig: BadgeConfig by unsafeLazy {
+        badgeConfigFile.get()
+            .asFile
+            .decode(Serializer.componentConfig)
+    }
+
+    private val badgeClearConfig: BadgeConfig by unsafeLazy {
+        badgeClearConfigFile.get()
+            .asFile
+            .decode(Serializer.componentConfig)
+    }
+
+    private val badgeTransparentConfig: BadgeConfig by unsafeLazy {
+        badgeTransparentConfigFile.get()
+            .asFile
+            .decode(Serializer.componentConfig)
+    }
+
+    private val iconBadgeConfig: BadgeConfig by unsafeLazy {
+        iconBadgeConfigFile.get()
+            .asFile
+            .decode(Serializer.componentConfig)
+    }
+
+    private val iconBadgeClearConfig: BadgeConfig by unsafeLazy {
+        iconBadgeClearConfigFile.get()
+            .asFile
+            .decode(Serializer.componentConfig)
+    }
+
+    private val iconBadgeTransparentConfig: BadgeConfig by unsafeLazy {
+        iconBadgeTransparentConfigFile.get()
+            .asFile
+            .decode(Serializer.componentConfig)
+    }
+
     @TaskAction
     fun generate() {
         when (target.get()) {
@@ -322,7 +423,14 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
         textFieldClearStyleGeneratorCompose.generate(textFieldClearConfig)
         textAreaStyleGeneratorCompose.generate(textAreaConfig)
         textAreaClearStyleGeneratorCompose.generate(textAreaClearConfig)
+        badgeStyleGeneratorCompose.generate(badgeConfig)
+        badgeClearStyleGeneratorCompose.generate(badgeClearConfig)
+        badgeTransparentStyleGeneratorCompose.generate(badgeTransparentConfig)
+        iconBadgeStyleGeneratorCompose.generate(iconBadgeConfig)
+        iconBadgeClearStyleGeneratorCompose.generate(iconBadgeClearConfig)
+        iconBadgeTransparentStyleGeneratorCompose.generate(iconBadgeTransparentConfig)
         cellStyleGeneratorCompose.generate(cellConfig)
+        counterStyleGeneratorCompose.generate(counterConfig)
     }
 
     private fun generateViewsConfigs() {

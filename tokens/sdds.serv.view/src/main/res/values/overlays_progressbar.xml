@@ -28,4 +28,8 @@
     <style name="Serv.Sdds.ComponentOverlays.ProgressBarNegative">
         <item name="android:progressBarStyle">@style/Serv.Sdds.Components.ProgressBar.Negative</item>
     </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.ProgressBarInfo">
+        <item name="android:progressBarStyle">@style/Serv.Sdds.Components.ProgressBar.Info</item>
+    </style>
 </resources>

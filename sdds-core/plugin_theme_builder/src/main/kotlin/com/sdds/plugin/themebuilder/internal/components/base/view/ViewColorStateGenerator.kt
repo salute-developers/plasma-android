@@ -73,6 +73,12 @@ internal class ViewColorStateGenerator(
     }
 
     /**
+     * Возвращает true, если есть хотя бы один ColorState
+     */
+    val hasColorStates: Boolean
+        get() = colorStateAttributes.isNotEmpty()
+
+    /**
      * Регистрирует новый ColorState
      */
     fun registerColorState(name: String): ColorStateAttribute {
@@ -93,7 +99,7 @@ internal class ViewColorStateGenerator(
     }
 
     override fun generate() {
-        if (colorStateAttributes.isEmpty()) return
+        if (!hasColorStates) return
         createColorStateAttrsSet()
         createColorStateViewAttr()
         createColorStateClass()

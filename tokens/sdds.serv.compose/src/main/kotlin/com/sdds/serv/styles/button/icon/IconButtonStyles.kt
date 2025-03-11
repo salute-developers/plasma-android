@@ -2,6 +2,7 @@
 @file:Suppress(
     "UndocumentedPublicClass",
     "UndocumentedPublicProperty",
+    "ktlint:standard:max-line-length",
 )
 
 package com.sdds.serv.styles.button.icon
@@ -78,6 +79,16 @@ public value class WrapperIconButtonWhiteViewTerminate(
 ) : WrapperIconButton
 
 @JvmInline
+public value class WrapperIconButtonXl(
+    public override val builder: IconButtonStyleBuilder,
+) : WrapperIconButtonView
+
+@JvmInline
+public value class WrapperIconButtonXlPilled(
+    public override val builder: IconButtonStyleBuilder,
+) : WrapperIconButtonView
+
+@JvmInline
 public value class WrapperIconButtonL(
     public override val builder: IconButtonStyleBuilder,
 ) : WrapperIconButtonView
@@ -114,6 +125,16 @@ public value class WrapperIconButtonXs(
 
 @JvmInline
 public value class WrapperIconButtonXsPilled(
+    public override val builder: IconButtonStyleBuilder,
+) : WrapperIconButtonView
+
+@JvmInline
+public value class WrapperIconButtonXxs(
+    public override val builder: IconButtonStyleBuilder,
+) : WrapperIconButtonView
+
+@JvmInline
+public value class WrapperIconButtonXxsPilled(
     public override val builder: IconButtonStyleBuilder,
 ) : WrapperIconButtonView
 
@@ -433,6 +454,30 @@ private val IconButtonStyleBuilder.invariantProps: IconButtonStyleBuilder
         .loadingAlpha(0.0f)
         .disableAlpha(0.4f)
 
+public val IconButton.Xl: WrapperIconButtonXl
+    @Composable
+    @JvmName("WrapperIconButtonXl")
+    get() = ButtonStyle.iconButtonBuilder(this)
+        .invariantProps
+        .shape(SddsServTheme.shapes.roundL)
+        .dimensions {
+            height(64.0.dp)
+            paddingStart(20.0.dp)
+            paddingEnd(20.0.dp)
+            minWidth(64.0.dp)
+            iconSize(24.0.dp)
+            spinnerSize(24.0.dp)
+            spinnerStrokeWidth(2.0.dp)
+        }
+        .wrap(::WrapperIconButtonXl)
+
+public val WrapperIconButtonXl.Pilled: WrapperIconButtonXlPilled
+    @Composable
+    @JvmName("WrapperIconButtonXlPilled")
+    get() = builder
+        .shape(CircleShape)
+        .wrap(::WrapperIconButtonXlPilled)
+
 public val IconButton.L: WrapperIconButtonL
     @Composable
     @JvmName("WrapperIconButtonL")
@@ -528,3 +573,27 @@ public val WrapperIconButtonXs.Pilled: WrapperIconButtonXsPilled
     get() = builder
         .shape(CircleShape)
         .wrap(::WrapperIconButtonXsPilled)
+
+public val IconButton.Xxs: WrapperIconButtonXxs
+    @Composable
+    @JvmName("WrapperIconButtonXxs")
+    get() = ButtonStyle.iconButtonBuilder(this)
+        .invariantProps
+        .shape(SddsServTheme.shapes.roundS)
+        .dimensions {
+            height(24.0.dp)
+            paddingStart(6.0.dp)
+            paddingEnd(6.0.dp)
+            minWidth(24.0.dp)
+            iconSize(12.0.dp)
+            spinnerSize(12.0.dp)
+            spinnerStrokeWidth(1.0.dp)
+        }
+        .wrap(::WrapperIconButtonXxs)
+
+public val WrapperIconButtonXxs.Pilled: WrapperIconButtonXxsPilled
+    @Composable
+    @JvmName("WrapperIconButtonXxsPilled")
+    get() = builder
+        .shape(CircleShape)
+        .wrap(::WrapperIconButtonXxsPilled)

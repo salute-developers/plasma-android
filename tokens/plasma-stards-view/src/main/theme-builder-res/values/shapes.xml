@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Sdkit.StarDs.Shape"/>
+    <style name="Sdkit.StarDs.Shape.Round">
+        <item name="cornerFamily">rounded</item>
+        <item name="sd_cornerFamily">rounded</item>
+    </style>
+    <!--borderRadius xxs-->
+    <style name="Sdkit.StarDs.Shape.Round.Xxs">
+        <item name="cornerSize">@dimen/sdkit_round_xxs_corner_size</item>
+        <item name="sd_cornerSize">@dimen/sdkit_round_xxs_corner_size</item>
+    </style>
+    <!--borderRadius xs-->
+    <style name="Sdkit.StarDs.Shape.Round.Xs">
+        <item name="cornerSize">@dimen/sdkit_round_xs_corner_size</item>
+        <item name="sd_cornerSize">@dimen/sdkit_round_xs_corner_size</item>
+    </style>
+    <!--borderRadius s-->
+    <style name="Sdkit.StarDs.Shape.Round.S">
+        <item name="cornerSize">@dimen/sdkit_round_s_corner_size</item>
+        <item name="sd_cornerSize">@dimen/sdkit_round_s_corner_size</item>
+    </style>
+    <!--borderRadius m-->
+    <style name="Sdkit.StarDs.Shape.Round.M">
+        <item name="cornerSize">@dimen/sdkit_round_m_corner_size</item>
+        <item name="sd_cornerSize">@dimen/sdkit_round_m_corner_size</item>
+    </style>
+    <!--borderRadius l-->
+    <style name="Sdkit.StarDs.Shape.Round.L">
+        <item name="cornerSize">@dimen/sdkit_round_l_corner_size</item>
+        <item name="sd_cornerSize">@dimen/sdkit_round_l_corner_size</item>
+    </style>
+    <!--borderRadius xl-->
+    <style name="Sdkit.StarDs.Shape.Round.Xl">
+        <item name="cornerSize">@dimen/sdkit_round_xl_corner_size</item>
+        <item name="sd_cornerSize">@dimen/sdkit_round_xl_corner_size</item>
+    </style>
+    <!--borderRadius xxl-->
+    <style name="Sdkit.StarDs.Shape.Round.Xxl">
+        <item name="cornerSize">@dimen/sdkit_round_xxl_corner_size</item>
+        <item name="sd_cornerSize">@dimen/sdkit_round_xxl_corner_size</item>
+    </style>
+</resources>

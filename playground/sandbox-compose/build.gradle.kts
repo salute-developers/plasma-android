@@ -1,3 +1,7 @@
+import com.android.build.gradle.tasks.MergeResources
+import ru.sberdevices.starplugin.stardimens.GenerateStarDimensTask
+import ru.sberdevices.starplugin.stardimens.StarDimensGeneratorPluginExtension
+
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     id("convention.android-app")
@@ -5,6 +9,7 @@ plugins {
     id("kotlin-parcelize")
     alias(libs.plugins.roborazzi)
     alias(libs.plugins.kotlin.android)
+    id("star-dimens-generator")
 }
 
 android {
@@ -14,9 +19,6 @@ android {
         viewBinding = true
     }
 
-    defaultConfig {
-        applicationId = "com.sdds.playground.sandbox.compose"
-    }
     testOptions {
         unitTests.isIncludeAndroidResources = true
     }
@@ -32,23 +34,79 @@ android {
             "-P",
             "plugin:androidx.compose.compiler.plugins.kotlin:reportsDestination="  + project.buildDir.absolutePath + "/compose_metrics")
     }
+
+    flavorDimensions += "target"
+    productFlavors {
+        create("app") {
+            applicationId = "com.sdds.playground.sandbox.compose"
+        }
+        create("starApp") {
+            applicationId = System.getenv("STAR_APP_ID") ?: "com.sdds.playground.sandbox.stards"
+        }
+    }
+
+    signingConfigs {
+        create("appRelease") {
+            if (System.getenv("KEY_STORE_FILE") != null) {
+                storeFile = file(System.getenv("KEY_STORE_FILE"))
+                storePassword = System.getenv("RELEASE_STORE_PASSWORD")
+                keyAlias = System.getenv("RELEASE_KEY_ALIAS")
+                keyPassword = System.getenv("RELEASE_KEY_PASSWORD")
+            }
+        }
+
+        create("starAppRelease") {
+            if (System.getenv("KEY_STORE_FILE") != null) {
+                storeFile = file(System.getenv("KEY_STORE_FILE"))
+                storePassword = System.getenv("RELEASE_STORE_PASSWORD")
+                keyAlias = System.getenv("STAR_RELEASE_KEY_ALIAS")
+                keyPassword = System.getenv("STAR_RELEASE_KEY_PASSWORD")
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            if (System.getenv("KEY_STORE_FILE") != null) {
+                productFlavors.getByName("app").signingConfig = signingConfigs.getByName("appRelease")
+            }
+            if (System.getenv("KEY_STORE_FILE") != null) {
+                productFlavors.getByName("starApp").signingConfig = signingConfigs.getByName("starAppRelease")
+            }
+            isMinifyEnabled = false
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+        }
+    }
+}
+
+configure<StarDimensGeneratorPluginExtension> {
+    flavorsSupport(true)
+    excludeFlavor("app")
+}
+
+tasks.withType<MergeResources>().configureEach {
+    dependsOn(tasks.withType<GenerateStarDimensTask>())
 }
 
 dependencies {
     implementation(libs.sdds.icons)
     implementation("tokens:sdds.serv.view")
     implementation("tokens:sdds.serv.compose")
-    implementation("playground:sandbox-sdds-serv-integration")
+    implementation(project(":sandbox-sdds-serv-integration"))
 
     implementation("tokens:plasma.sd.service.view")
     implementation("tokens:plasma.sd.service.compose")
-    implementation("playground:sandbox-plasma-sd-service-integration")
+    implementation(project(":sandbox-plasma-sd-service-integration"))
 
     implementation("tokens:stylessalute.view")
     implementation("tokens:stylessalute.compose")
-    implementation("playground:sandbox-stylessalute-integration")
+    implementation(project(":sandbox-stylessalute-integration"))
 
-    implementation("playground:sandbox-core-integration")
+    "starAppImplementation"("tokens:plasma-stards-view")
+    "starAppImplementation"("tokens:plasma-stards-compose")
+    "starAppImplementation"(project(":sandbox-plasma-stards-integration"))
+
+    implementation(project(":sandbox-core-integration"))
     implementation("sdds-core:testing") {
         exclude("org.robolectric", "robolectric")
     }

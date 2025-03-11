@@ -36,7 +36,7 @@ jobs:
           RELEASE_STORE_PASSWORD: ${{ secrets.RELEASE_STORE_PASSWORD }}
           RELEASE_KEY_ALIAS: ${{ secrets.SANDBOX_CMP_RELEASE_KEY_ALIAS }}
           RELEASE_KEY_PASSWORD: ${{ secrets.SANDBOX_CMP_RELEASE_KEY_PASSWORD }}
-        run: ./gradlew :playground:sandbox-compose:assembleRelease
+        run: ./gradlew :playground:sandbox-compose:assembleAppRelease
 
       - name: Upload APK
         uses: actions/upload-artifact@v4

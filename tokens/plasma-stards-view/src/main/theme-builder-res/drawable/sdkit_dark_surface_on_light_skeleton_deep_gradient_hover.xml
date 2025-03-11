@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<drawable xmlns:app="http://schemas.android.com/apk/res-auto" app:sd_shaderAppearance="@style/Sdkit.StarDs.Gradient.DarkSurfaceOnLightSkeletonDeepGradientHover" class="com.sdds.uikit.shape.ShapeDrawable">
+    <!--Drawable for dark_surface_on_light_skeleton_deep_gradient_hover-->
+</drawable>

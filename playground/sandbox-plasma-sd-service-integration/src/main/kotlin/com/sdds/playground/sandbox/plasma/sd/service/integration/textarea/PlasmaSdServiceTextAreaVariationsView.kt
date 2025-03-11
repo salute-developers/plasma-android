@@ -8,6 +8,15 @@ import com.sdds.uikit.colorstate.ColorState
 internal object PlasmaSdServiceTextAreaVariationsView : ViewStyleProvider<String>() {
     override val variations: Map<String, Int> =
         mapOf(
+            "XL" to s.Plasma_SdService_ComponentOverlays_TextAreaXl,
+            "XLRequiredStart" to s.Plasma_SdService_ComponentOverlays_TextAreaXlRequiredStart,
+            "XLRequiredEnd" to s.Plasma_SdService_ComponentOverlays_TextAreaXlRequiredEnd,
+            "XLOuterLabel" to s.Plasma_SdService_ComponentOverlays_TextAreaXlOuterLabel,
+            "XLOuterLabelRequiredStart" to s.Plasma_SdService_ComponentOverlays_TextAreaXlOuterLabelRequiredStart,
+            "XLOuterLabelRequiredEnd" to s.Plasma_SdService_ComponentOverlays_TextAreaXlOuterLabelRequiredEnd,
+            "XLInnerLabel" to s.Plasma_SdService_ComponentOverlays_TextAreaXlInnerLabel,
+            "XLInnerLabelRequiredStart" to s.Plasma_SdService_ComponentOverlays_TextAreaXlInnerLabelRequiredStart,
+            "XLInnerLabelRequiredEnd" to s.Plasma_SdService_ComponentOverlays_TextAreaXlInnerLabelRequiredEnd,
             "L" to s.Plasma_SdService_ComponentOverlays_TextAreaL,
             "LRequiredStart" to s.Plasma_SdService_ComponentOverlays_TextAreaLRequiredStart,
             "LRequiredEnd" to s.Plasma_SdService_ComponentOverlays_TextAreaLRequiredEnd,

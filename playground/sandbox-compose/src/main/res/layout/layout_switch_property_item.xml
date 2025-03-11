@@ -2,18 +2,18 @@
 <com.sdds.uikit.CellLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    style="@style/Theme.Sandbox.PropertyItem"
+    style="@style/Theme.Sandbox.Components.PropertyItem"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/sdds_spacer_28x"
+    android:layout_height="@dimen/sandbox_property_height"
     xmlns:tools="http://schemas.android.com/tools"
-    android:paddingHorizontal="@dimen/sdds_spacer_8x">
+    android:paddingHorizontal="@dimen/sandbox_property_paddings">
 
     <com.sdds.uikit.TextView
-        style="@style/Theme.Sandbox.PropertyItemLabel"
+        style="@style/Theme.Sandbox.Components.PropertyItemLabel"
         android:id="@+id/property_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/sdds_spacer_4x"
+        android:layout_marginEnd="@dimen/sandbox_property_label_margin"
         android:ellipsize="end"
         android:maxLines="1"
         tools:text="Property name"
@@ -24,6 +24,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.sdds.uikit.Switch
+        style="@style/Theme.Sandbox.Components.PropertyItemSwitch"
         android:id="@+id/property_switch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
