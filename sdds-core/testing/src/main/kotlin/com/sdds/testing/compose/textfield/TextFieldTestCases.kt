@@ -782,3 +782,112 @@ fun TextFieldLDisabledOuterLeft(style: TextFieldStyle) {
         )
     }
 }
+
+/**
+ * PLASMA-T1933
+ */
+@Composable
+fun TextFieldClearLErrorTBTA(style: TextFieldStyle) {
+    var value by remember { mutableStateOf(TextFieldValue("")) }
+    Box(
+        modifier = Modifier.fillMaxWidth(),
+        contentAlignment = Alignment.Center,
+    ) {
+        TextField(
+            value = value,
+            style = style,
+            captionText = "Сaption",
+            labelText = "Label",
+            optionalText = "optional",
+            placeholderText = "Placeholder",
+            prefix = "TB",
+            suffix = "TA",
+            onValueChange = { value = it },
+            readOnly = false,
+            enabled = true,
+            focusSelectorMode = FocusSelectorMode.None,
+            startContent = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_scribble_diagonal_24),
+                    contentDescription = "",
+                )
+            },
+            endContent = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_shazam_24),
+                    contentDescription = "",
+                )
+            },
+        )
+    }
+}
+
+/**
+ * PLASMA-T1920
+ */
+@Composable
+fun TextFieldLSuffixPrefixNoValue(style: TextFieldStyle) {
+    var value by remember { mutableStateOf(TextFieldValue("")) }
+    Box(modifier = Modifier.padding(start = 20.dp)) {
+        TextField(
+            value = value,
+            style = style,
+            captionText = "Сaption",
+            labelText = "Label",
+            optionalText = "optional",
+            placeholderText = "Placeholder",
+            prefix = "TB",
+            suffix = "TA",
+            onValueChange = { value = it },
+            enabled = true,
+            readOnly = false,
+            focusSelectorMode = FocusSelectorMode.None,
+            startContent = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_scribble_diagonal_24),
+                    contentDescription = "",
+                )
+            },
+            endContent = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_shazam_24),
+                    contentDescription = "",
+                )
+            },
+        )
+    }
+}
+
+/**
+ * PLASMA-T1920
+ */
+@Composable
+fun TextFieldXlDefault(style: TextFieldStyle) {
+    var value by remember { mutableStateOf(TextFieldValue("Value")) }
+    Box(modifier = Modifier.padding(start = 20.dp)) {
+        TextField(
+            value = value,
+            style = style,
+            captionText = "Сaption",
+            labelText = "Label",
+            optionalText = "optional",
+            placeholderText = "Placeholder",
+            onValueChange = { value = it },
+            enabled = true,
+            readOnly = false,
+            focusSelectorMode = FocusSelectorMode.None,
+            startContent = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_scribble_diagonal_24),
+                    contentDescription = "",
+                )
+            },
+            endContent = {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_shazam_24),
+                    contentDescription = "",
+                )
+            },
+        )
+    }
+}

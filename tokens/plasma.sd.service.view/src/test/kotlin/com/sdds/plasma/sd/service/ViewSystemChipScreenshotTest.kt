@@ -34,9 +34,16 @@ class ViewSystemChipScreenshotTest(
     }
 
     @Test
-    override fun testChipSDisabled() {
+    override fun testChipSAccent() {
         themedComponent {
-            chipSDisabled(R.style.Plasma_SdService_ComponentOverlays_ChipSAccent)
+            chipSAccent(R.style.Plasma_SdService_ComponentOverlays_ChipSAccent)
+        }
+    }
+
+    @Test
+    override fun testChipDisabled() {
+        themedComponent {
+            chipDisabled((R.style.Plasma_SdService_ComponentOverlays_ChipLDefault))
         }
     }
 
