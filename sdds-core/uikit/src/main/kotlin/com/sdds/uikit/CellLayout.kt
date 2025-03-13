@@ -46,11 +46,14 @@ open class CellLayout @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.sd_cellStyle,
     defStyleRes: Int = R.style.Sdds_Components_Cell,
-) : ViewGroup(context, attrs, defStyleAttr, defStyleRes), Shapeable, HasFocusSelector by FocusSelectorDelegate() {
+) : ViewGroup(context, attrs, defStyleAttr, defStyleRes),
+    Shapeable,
+    HasFocusSelector by FocusSelectorDelegate() {
 
     private val _shaper = shapeable(attrs, defStyleAttr)
     private val _startContentBounds: Rect = Rect()
     private val _endContentBounds: Rect = Rect()
+    private val _disclosureBounds: Rect = Rect()
     private val _centerContentBounds: Rect = Rect()
     private val _cellBounds: Rect = Rect()
 
@@ -70,9 +73,11 @@ open class CellLayout @JvmOverloads constructor(
     private var _disclosureIcon: Drawable? = null
     private var _disclosureView: View? = null
     private var _disclosureEnabled: Boolean = false
+    private var _disclosurePadding: Int = 0
     private var _forceDuplicateParentState: Boolean = false
     private var _contentStartPaddingEnabled = false
     private var _contentEndPaddingEnabled = false
+    private var _disclosurePaddingEnabled = false
 
     /**
      * Выравнивание дочерних элементов относительно строки, в которой они находятся.
@@ -131,22 +136,31 @@ open class CellLayout @JvmOverloads constructor(
 
     init {
         setWillNotDraw(!DEBUG)
-        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.CellLayout, defStyleAttr, defStyleRes)
+        val typedArray =
+            context.obtainStyledAttributes(attrs, R.styleable.CellLayout, defStyleAttr, defStyleRes)
         _gravity = typedArray.getInt(R.styleable.CellLayout_android_gravity, Gravity.TOP)
-        _contentStartPadding = typedArray.getDimensionPixelSize(R.styleable.CellLayout_sd_contentStartPadding, 0)
-        _contentEndPadding = typedArray.getDimensionPixelSize(R.styleable.CellLayout_sd_contentEndPadding, 0)
+        _contentStartPadding =
+            typedArray.getDimensionPixelSize(R.styleable.CellLayout_sd_contentStartPadding, 0)
+        _contentEndPadding =
+            typedArray.getDimensionPixelSize(R.styleable.CellLayout_sd_contentEndPadding, 0)
         _labelAppearance = typedArray.getResourceId(R.styleable.CellLayout_sd_labelAppearance, 0)
         _labelColor = typedArray.getColorStateList(R.styleable.CellLayout_sd_labelColor)
         _titleAppearance = typedArray.getResourceId(R.styleable.CellLayout_sd_titleAppearance, 0)
         _titleColor = typedArray.getColorStateList(R.styleable.CellLayout_sd_titleColor)
-        _subtitleAppearance = typedArray.getResourceId(R.styleable.CellLayout_sd_subtitleAppearance, 0)
+        _subtitleAppearance =
+            typedArray.getResourceId(R.styleable.CellLayout_sd_subtitleAppearance, 0)
         _subtitleColor = typedArray.getColorStateList(R.styleable.CellLayout_sd_subtitleColor)
-        _disclosureTextAppearance = typedArray.getResourceId(R.styleable.CellLayout_sd_disclosureTextAppearance, 0)
+        _disclosureTextAppearance =
+            typedArray.getResourceId(R.styleable.CellLayout_sd_disclosureTextAppearance, 0)
         _disclosureColor = typedArray.getColorStateList(R.styleable.CellLayout_sd_disclosureColor)
         _disclosureIcon = typedArray.getDrawable(R.styleable.CellLayout_sd_disclosureIcon)
         _disclosureText = typedArray.getString(R.styleable.CellLayout_sd_disclosureText)
-        _disclosureEnabled = typedArray.getBoolean(R.styleable.CellLayout_sd_disclosureEnabled, false)
-        _forceDuplicateParentState = typedArray.getBoolean(R.styleable.CellLayout_sd_forceDuplicateParentState, false)
+        _disclosureEnabled =
+            typedArray.getBoolean(R.styleable.CellLayout_sd_disclosureEnabled, false)
+        _disclosurePadding =
+            typedArray.getDimensionPixelSize(R.styleable.CellLayout_sd_disclosurePadding, 0)
+        _forceDuplicateParentState =
+            typedArray.getBoolean(R.styleable.CellLayout_sd_forceDuplicateParentState, false)
         typedArray.recycle()
         clipToOutline = context.isClippedToOutline(attrs, defStyleAttr, defStyleRes)
         @Suppress("LeakingThis")
@@ -190,6 +204,7 @@ open class CellLayout @JvmOverloads constructor(
             canvas.drawRect(_startContentBounds, DebugPaint.configure(color = Color.RED))
             canvas.drawRect(_centerContentBounds, DebugPaint.configure(color = Color.YELLOW))
             canvas.drawRect(_endContentBounds, DebugPaint.configure(color = Color.GREEN))
+            canvas.drawRect(_disclosureBounds, DebugPaint.configure(color = Color.BLUE))
             canvas.drawRect(_cellBounds, DebugPaint.configure(color = Color.MAGENTA))
         }
     }
@@ -199,15 +214,17 @@ open class CellLayout @JvmOverloads constructor(
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
         val widthMode = MeasureSpec.getMode(widthMeasureSpec)
         val heightMode = MeasureSpec.getMode(heightMeasureSpec)
-
+        _contentEndPaddingEnabled = false
+        _contentStartPaddingEnabled = false
+        _disclosurePaddingEnabled = false
         val specWidth = MeasureSpec.getSize(widthMeasureSpec)
         val specHeight = MeasureSpec.getSize(heightMeasureSpec)
-
         _startContentBounds.setEmpty()
         _endContentBounds.setEmpty()
+        _disclosureBounds.setEmpty()
         _centerContentBounds.setEmpty()
 
-        var totalWidth = paddingStart + paddingEnd
+        var totalWidth = 0
         var totalHeight = 0
 
         for (index in 0 until childCount) {
@@ -230,12 +247,24 @@ open class CellLayout @JvmOverloads constructor(
                         bottom = maxOf(bottom, totalChildHeight)
                     }
                 }
-                END, DISCLOSURE -> {
+
+                END -> {
                     if (!_contentEndPaddingEnabled) {
                         _contentEndPaddingEnabled = true
                         totalWidth += _contentEndPadding
                     }
                     _endContentBounds.apply {
+                        right += totalChildWidth
+                        bottom = maxOf(bottom, totalChildHeight)
+                    }
+                }
+
+                DISCLOSURE -> {
+                    if (!_disclosurePaddingEnabled) {
+                        _disclosurePaddingEnabled = true
+                        totalWidth += _disclosurePadding
+                    }
+                    _disclosureBounds.apply {
                         right += totalChildWidth
                         bottom = maxOf(bottom, totalChildHeight)
                     }
@@ -262,12 +291,12 @@ open class CellLayout @JvmOverloads constructor(
                 right = maxOf(right, totalChildWidth)
             }
         }
-
         totalWidth += _centerContentBounds.width()
         totalHeight += maxOf(
             _startContentBounds.height(),
             _centerContentBounds.height(),
             _endContentBounds.height(),
+            _disclosureBounds.height(),
         )
         totalHeight += paddingTop + paddingBottom
 
@@ -301,6 +330,7 @@ open class CellLayout @JvmOverloads constructor(
 
         var startContentChildLeft = _startContentBounds.left
         var endContentChildLeft = _endContentBounds.left
+        var disclosureChildLeft = _disclosureBounds.left
         var centerContentChildTop = _centerContentBounds.top
 
         for (index in 0 until childCount) {
@@ -342,12 +372,13 @@ open class CellLayout @JvmOverloads constructor(
                 }
 
                 DISCLOSURE -> {
-                    childLeft = _endContentBounds.right - totalChildWidth + lp.leftMargin
+                    childLeft = disclosureChildLeft + lp.leftMargin
                     childTop = when (verticalGravity) {
-                        Gravity.BOTTOM -> _endContentBounds.bottom - totalChildHeight
-                        Gravity.CENTER_VERTICAL -> _endContentBounds.centerY() - totalChildHeight / 2
-                        else -> _endContentBounds.top + lp.topMargin
+                        Gravity.BOTTOM -> _disclosureBounds.bottom - totalChildHeight
+                        Gravity.CENTER_VERTICAL -> _disclosureBounds.centerY() - totalChildHeight / 2
+                        else -> _disclosureBounds.top + lp.topMargin
                     }
+                    disclosureChildLeft += totalChildWidth
                 }
 
                 else -> {
@@ -391,34 +422,44 @@ open class CellLayout @JvmOverloads constructor(
 
     private fun alignContentBounds() {
         val verticalGravity = _gravity and Gravity.VERTICAL_GRAVITY_MASK
-        Gravity.apply(
-            Gravity.END or verticalGravity,
-            _endContentBounds.width(),
-            _endContentBounds.height(),
-            _cellBounds,
-            _endContentBounds,
-            layoutDirection,
-        )
+        var currentXStart = _cellBounds.left
+        var currentXEnd = _cellBounds.right
+        if (!_startContentBounds.isEmpty) {
+            applyGravity(Gravity.START or verticalGravity, _startContentBounds)
+            currentXStart =
+                _startContentBounds.right + (
+                    _contentStartPadding.takeIf { _contentStartPaddingEnabled }
+                        ?: 0
+                    )
+        }
+        if (!_centerContentBounds.isEmpty) {
+            applyGravity(Gravity.START or verticalGravity, _centerContentBounds)
+            _centerContentBounds.offsetTo(currentXStart, _centerContentBounds.top)
+        }
+        if (!_disclosureBounds.isEmpty) {
+            applyGravity(Gravity.END or verticalGravity, _disclosureBounds)
+            currentXEnd = _disclosureBounds.left - (_disclosurePadding.takeIf { _disclosurePaddingEnabled } ?: 0)
+        }
+        if (!_endContentBounds.isEmpty) {
+            applyGravity(Gravity.END or verticalGravity, _endContentBounds)
+            currentXEnd -= _endContentBounds.width()
+            _endContentBounds.offsetTo(currentXEnd, _endContentBounds.top)
+        }
+    }
 
+    private fun applyGravity(
+        gravity: Int,
+        bounds: Rect,
+        container: Rect = _cellBounds,
+        direction: Int = layoutDirection,
+    ) {
         Gravity.apply(
-            Gravity.START or verticalGravity,
-            _startContentBounds.width(),
-            _startContentBounds.height(),
-            _cellBounds,
-            _startContentBounds,
-            layoutDirection,
-        )
-        Gravity.apply(
-            Gravity.START or verticalGravity,
-            _centerContentBounds.width(),
-            _centerContentBounds.height(),
-            _cellBounds,
-            _centerContentBounds,
-            layoutDirection,
-        )
-        _centerContentBounds.offsetTo(
-            _startContentBounds.right + (_contentStartPadding.takeIf { _contentStartPaddingEnabled } ?: 0),
-            _centerContentBounds.top,
+            gravity,
+            bounds.width(),
+            bounds.height(),
+            container,
+            bounds,
+            direction,
         )
     }
 
@@ -457,7 +498,12 @@ open class CellLayout @JvmOverloads constructor(
                     setTextAppearance(_disclosureTextAppearance)
                     _disclosureColor?.let(::setTextColor)
                     if (compoundDrawablesRelative.all { it == null }) {
-                        setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, _disclosureIcon, null)
+                        setCompoundDrawablesRelativeWithIntrinsicBounds(
+                            null,
+                            null,
+                            _disclosureIcon,
+                            null,
+                        )
                     }
                     TextViewCompat.setCompoundDrawableTintList(this, _disclosureColor)
                     state = ViewState.SECONDARY
@@ -484,7 +530,12 @@ open class CellLayout @JvmOverloads constructor(
             view.apply {
                 if (this is TextView) {
                     text = _disclosureText
-                    setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, _disclosureIcon, null)
+                    setCompoundDrawablesRelativeWithIntrinsicBounds(
+                        null,
+                        null,
+                        _disclosureIcon,
+                        null,
+                    )
                     gravity = Gravity.CENTER_VERTICAL
                 }
                 isVisible = disclosureEnabled
@@ -497,7 +548,6 @@ open class CellLayout @JvmOverloads constructor(
                         ViewGroup.LayoutParams.WRAP_CONTENT,
                     ).apply {
                         cellContent = DISCLOSURE
-                        marginStart = _contentEndPadding
                     },
                 )
             }
@@ -527,9 +577,13 @@ open class CellLayout @JvmOverloads constructor(
 
         constructor(c: Context, attrs: AttributeSet?) : super(c, attrs) {
             val typedArray = c.obtainStyledAttributes(attrs, R.styleable.CellLayout_Layout)
-            this.cellContent = typedArray.getInt(R.styleable.CellLayout_Layout_layout_cellContent, 0)
-                .let { CellContent.values().getOrElse(it) { START } }
-            this.gravity = typedArray.getInt(R.styleable.CellLayout_Layout_android_layout_gravity, Gravity.CENTER)
+            this.cellContent =
+                typedArray.getInt(R.styleable.CellLayout_Layout_layout_cellContent, 0)
+                    .let { CellContent.values().getOrElse(it) { START } }
+            this.gravity = typedArray.getInt(
+                R.styleable.CellLayout_Layout_android_layout_gravity,
+                Gravity.CENTER,
+            )
             this.forceDuplicateParentState = typedArray.getBoolean(
                 R.styleable.CellLayout_Layout_sd_layout_forceDuplicateParentState,
                 true,
