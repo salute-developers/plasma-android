@@ -1,5 +1,6 @@
 package com.sdds.playground.sandbox.stylessalute.integration
 
+import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
 import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.integration.component.ComponentsProviderView
 import com.sdds.playground.sandbox.core.integration.component.CoreComponent
@@ -106,6 +107,10 @@ object StylesSaluteViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.Counter,
                 StylesSaluteCounterVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.Flow,
+                ViewStyleProvider.Empty,
             ),
             ViewComponent(
                 ComponentKey.Indicator,

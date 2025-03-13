@@ -40,6 +40,7 @@ import androidx.core.widget.addTextChangedListener
 import com.google.android.material.internal.DescendantOffsetUtils
 import com.sdds.uikit.CellLayout
 import com.sdds.uikit.ChipGroup
+import com.sdds.uikit.FlowLayout
 import com.sdds.uikit.ImageView
 import com.sdds.uikit.R
 import com.sdds.uikit.colorstate.ColorState
@@ -767,7 +768,7 @@ internal class DecoratedFieldBox(
             backgroundTintList = ColorStateList.valueOf(Color.TRANSPARENT)
             isHorizontalScrollBarEnabled = false
             isVerticalScrollBarEnabled = false
-            chipGroup.gravity = Gravity.START or Gravity.CENTER_VERTICAL
+            chipGroup.alignment = FlowLayout.ALIGNMENT_CENTER
             addView(chipGroup, LayoutParams(WRAP_CONTENT, WRAP_CONTENT))
             chipGroup.repopulate()
         }
@@ -981,8 +982,8 @@ internal class DecoratedFieldBox(
             }
         }
 
-        override fun calculateRowHeight(child: View, layoutParams: LayoutParams): Int {
-            val rowHeight = super.calculateRowHeight(child, layoutParams)
+        override fun calculateLineCrossAxisSize(child: View, layoutParams: LayoutParams): Int {
+            val rowHeight = super.calculateLineCrossAxisSize(child, layoutParams)
             return if (child == editText && _minTextRowHeight > 0) {
                 val offset = (_minTextRowHeight - getValueFirstLineHeight()) / 2
                 rowHeight + offset

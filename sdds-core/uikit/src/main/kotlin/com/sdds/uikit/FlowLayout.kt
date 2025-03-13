@@ -8,6 +8,9 @@ import android.graphics.Rect
 import android.util.AttributeSet
 import android.view.Gravity
 import android.view.View
+import android.view.View.MeasureSpec.AT_MOST
+import android.view.View.MeasureSpec.EXACTLY
+import android.view.View.MeasureSpec.UNSPECIFIED
 import android.view.ViewDebug
 import android.view.ViewGroup
 import androidx.core.view.isGone
@@ -29,26 +32,32 @@ import com.sdds.uikit.shape.shapeable
 open class FlowLayout @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
-    defStyleAttr: Int = 0,
-    defStyleRes: Int = 0,
+    defStyleAttr: Int = R.attr.sd_flowLayoutStyle,
+    defStyleRes: Int = R.style.Sdds_Components_FlowLayout,
 ) : ViewGroup(context, attrs, defStyleAttr, defStyleRes), Shapeable, HasFocusSelector by FocusSelectorDelegate() {
 
     private val _shapeable: Shapeable = shapeable(attrs, defStyleAttr)
     private val _flowManager: FlowLayoutManager
-    private var _horizontalSpacing: Int
-    private var _verticalSpacing: Int
+    private var _mainAxisGap: Int
+    private var _crossAxisGap: Int
     private var _gravity: Int
     private var isFinite: Boolean = false
+    private var _orientation: Int = ORIENTATION_HORIZONTAL
+    private var _arrangement: Int = ARRANGEMENT_START
+    private var _alignment: Int = ALIGNMENT_START
+    private var _itemsPerLine: Int = Int.MAX_VALUE
 
     /**
      * Выравнивание дочерних элементов относительно строки, в которой они находятся.
      * @see Gravity
      */
+    @Deprecated("Use arrangement", ReplaceWith("arrangement"))
     open var gravity: Int
         get() = _gravity
         set(value) {
             if (_gravity != value) {
                 _gravity = value
+                _arrangement = gravityToArrangement(value, layoutDirection)
                 requestLayout()
             }
         }
@@ -59,15 +68,77 @@ open class FlowLayout @JvmOverloads constructor(
     override val shape: ShapeModel?
         get() = _shapeable.shape
 
+    /**
+     * Расположение элементов относительно выбранной ориентации
+     */
+    open var arrangement: Int
+        get() = _arrangement
+        set(value) {
+            if (_arrangement != value) {
+                _arrangement = value
+                invalidate()
+                requestLayout()
+            }
+        }
+
+    /**
+     * Выравнивание элементов внутри строк по вертикали при горизонтальной ориентации,
+     * или внутри столбцов по горизонтали при вертикальной.
+     */
+    open var alignment: Int
+        get() = _alignment
+        set(value) {
+            if (_alignment != value) {
+                _alignment = value
+                invalidate()
+                requestLayout()
+            }
+        }
+
+    /**
+     * Ориентация. Может быть [ORIENTATION_VERTICAL] или [ORIENTATION_HORIZONTAL]
+     */
+    open var orientation: Int
+        get() = _orientation
+        set(value) {
+            if (_orientation != value) {
+                _orientation = value
+                invalidate()
+                requestLayout()
+            }
+        }
+
+    /**
+     * Кол-во элементов в строке/столбце
+     */
+    open var itemsPerLine: Int
+        get() = _itemsPerLine
+        set(value) {
+            if (_itemsPerLine != value) {
+                _itemsPerLine = value
+                invalidate()
+                requestLayout()
+            }
+        }
+
     init {
         if (DEBUG_BOUNDS) {
             setWillNotDraw(false)
         }
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.FlowLayout, defStyleAttr, defStyleRes)
-        _horizontalSpacing = typedArray.getDimensionPixelSize(R.styleable.FlowLayout_sd_gap, 0)
-        _verticalSpacing = typedArray.getDimensionPixelSize(R.styleable.FlowLayout_sd_lineSpacing, 0)
+        val gap = typedArray.getDimensionPixelSize(R.styleable.FlowLayout_sd_gap, 0)
+        val lineSpacing = typedArray.getDimensionPixelSize(R.styleable.FlowLayout_sd_lineSpacing, 0)
+        _mainAxisGap = typedArray.getDimensionPixelSize(R.styleable.FlowLayout_sd_mainAxisGap, gap)
+        _crossAxisGap = typedArray.getDimensionPixelSize(R.styleable.FlowLayout_sd_crossAxisGap, lineSpacing)
         _gravity = typedArray.getInt(R.styleable.FlowLayout_android_gravity, Gravity.TOP or Gravity.START)
-        _flowManager = FlowLayoutManager(_horizontalSpacing, _verticalSpacing)
+        _orientation = typedArray.getInt(R.styleable.FlowLayout_android_orientation, ORIENTATION_HORIZONTAL)
+        _arrangement = typedArray.getInt(
+            R.styleable.FlowLayout_sd_arrangement,
+            gravityToArrangement(_gravity, layoutDirection),
+        )
+        _alignment = typedArray.getInt(R.styleable.FlowLayout_sd_alignment, ALIGNMENT_START)
+        _itemsPerLine = typedArray.getInt(R.styleable.FlowLayout_sd_itemsPerLine, Int.MAX_VALUE)
+        _flowManager = FlowLayoutManager()
         typedArray.recycle()
         clipToOutline = context.isClippedToOutline(attrs, defStyleAttr, defStyleRes)
         @Suppress("LeakingThis")
@@ -95,6 +166,7 @@ open class FlowLayout @JvmOverloads constructor(
         if (DEBUG_BOUNDS) _flowManager.drawDebug(canvas)
     }
 
+    @Suppress("CyclomaticComplexMethod")
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
 
@@ -104,19 +176,24 @@ open class FlowLayout @JvmOverloads constructor(
         val specWidth = MeasureSpec.getSize(widthMeasureSpec)
         val specHeight = MeasureSpec.getSize(heightMeasureSpec)
 
-        val availableWidth = if (widthMode != MeasureSpec.UNSPECIFIED) {
-            specWidth - paddingStart - paddingEnd
-        } else {
-            INFINITE_SIZE
+        val mainAxisSize = when {
+            _orientation == ORIENTATION_HORIZONTAL && widthMode != UNSPECIFIED -> specWidth - paddingStart - paddingEnd
+            _orientation == ORIENTATION_VERTICAL && heightMode != UNSPECIFIED -> specHeight - paddingTop - paddingBottom
+            else -> INFINITE_SIZE
         }
-        isFinite = availableWidth != INFINITE_SIZE
+        isFinite = mainAxisSize != INFINITE_SIZE
 
-        var totalWidth = 0
-        var totalHeight = paddingTop + paddingBottom
+        val horizontalPadding = paddingStart + paddingEnd
+        val verticalPadding = paddingTop + paddingBottom
+        var mainAxisTotal = 0
+        var crossAxisTotal = when (_orientation) {
+            ORIENTATION_VERTICAL -> horizontalPadding
+            else -> verticalPadding
+        }
 
         _flowManager.boundsList.clear()
         _flowManager.reset()
-        _flowManager.maximumRowWidth = 0
+        _flowManager.maxMainAxisSize = 0
         _flowManager.offsetBounds(paddingStart, paddingTop)
 
         for (index in 0 until childCount) {
@@ -125,38 +202,50 @@ open class FlowLayout @JvmOverloads constructor(
 
             onMeasureChild(child, widthMeasureSpec, heightMeasureSpec)
             // Если строка не может вместить еще одного ребенка
-            if (!_flowManager.canHold(child, availableWidth)) {
-                // То обновляем ширину контейнера, если она меньше, чем размер текущей строки
-                totalWidth = maxOf(totalWidth, _flowManager.width)
+            if (!_flowManager.canHold(child, mainAxisSize)) {
+                // То обновляем размер контейнера, если она меньше, чем размер текущей строки
+                mainAxisTotal = maxOf(mainAxisTotal, _flowManager.mainAxisSize)
                 // Увеличиваем высоту контейнера на высоту текущей строки
-                totalHeight += _flowManager.height + _verticalSpacing
+                crossAxisTotal += _flowManager.crossAxisSize + _crossAxisGap
                 // И переходим на следующую строку
                 _flowManager.next()
             }
             // Увеличивает границы текущей строки на ширину и высоту текущего ребенка
-            _flowManager.updateBounds(child)
+            _flowManager.hold(child)
         }
 
         // Не забываем про последнюю строку
-        totalWidth = maxOf(totalWidth, _flowManager.width) + paddingStart + paddingEnd
-        totalHeight += _flowManager.height
+        mainAxisTotal = maxOf(mainAxisTotal, _flowManager.mainAxisSize)
+//        // Учитываем внутренние отступы
+        mainAxisTotal += when (_orientation) {
+            ORIENTATION_VERTICAL -> verticalPadding
+            else -> horizontalPadding
+        }
+        crossAxisTotal += _flowManager.crossAxisSize
 
         // Выбираем конечные размеры согласно требованиям родителя
-        val desiredWidth = when (widthMode) {
-            MeasureSpec.EXACTLY -> specWidth
-            MeasureSpec.AT_MOST -> minOf(totalWidth, specWidth)
-            else -> totalWidth
+        val desiredWidth = when {
+            widthMode == EXACTLY -> specWidth
+            widthMode == AT_MOST && _orientation == ORIENTATION_HORIZONTAL -> minOf(mainAxisTotal, specWidth)
+            widthMode == AT_MOST && _orientation == ORIENTATION_VERTICAL -> minOf(crossAxisTotal, specWidth)
+            _orientation == ORIENTATION_HORIZONTAL -> mainAxisTotal
+            else -> crossAxisTotal
         }
-        val desiredHeight = when (heightMode) {
-            MeasureSpec.EXACTLY -> specHeight
-            MeasureSpec.AT_MOST -> minOf(totalHeight, specHeight)
-            else -> totalHeight
+        val desiredHeight = when {
+            heightMode == EXACTLY -> specHeight
+            heightMode == AT_MOST && _orientation == ORIENTATION_HORIZONTAL -> minOf(crossAxisTotal, specHeight)
+            heightMode == AT_MOST && _orientation == ORIENTATION_VERTICAL -> minOf(mainAxisTotal, specHeight)
+            _orientation == ORIENTATION_HORIZONTAL -> crossAxisTotal
+            else -> mainAxisTotal
         }
         setMeasuredDimension(maxOf(minimumWidth, desiredWidth), maxOf(minimumHeight, desiredHeight))
     }
 
     override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
-        val availableWidth = measuredWidth - paddingStart - paddingEnd
+        val mainAxisSize = when {
+            _orientation == ORIENTATION_HORIZONTAL -> measuredWidth - paddingStart - paddingEnd
+            else -> measuredHeight - paddingTop - paddingBottom
+        }
 
         _flowManager.reset()
         _flowManager.offsetBounds(paddingStart, paddingTop)
@@ -166,36 +255,36 @@ open class FlowLayout @JvmOverloads constructor(
             if (child.isGone) continue
 
             // Если строка не может вместить еще одного ребенка
-            if (!_flowManager.canHold(child, availableWidth)) {
+            if (!_flowManager.canHold(child, mainAxisSize)) {
                 // То размещаем всех текущих детей в строке и обновляем позицию
-                _flowManager.layout(_gravity, availableWidth)
+                _flowManager.layout(mainAxisSize)
                 _flowManager.next()
             }
             _flowManager.hold(child)
         }
         // Размещаем оставшихся детей из последней строки
-        _flowManager.layout(_gravity, availableWidth)
+        _flowManager.layout(mainAxisSize)
         // Сбрасываем менеджер
         _flowManager.reset()
     }
 
     protected open fun onMeasureChild(child: View, widthMeasureSpec: Int, heightMeasureSpec: Int) {
         val lp = child.layoutParams as LayoutParams
-        val occupy = lp.occupy
+        val occupy = lp.occupy && isFinite
         val widthMode = MeasureSpec.getMode(widthMeasureSpec)
         val heightMode = MeasureSpec.getMode(heightMeasureSpec)
         val specWidth = MeasureSpec.getSize(widthMeasureSpec)
         val specHeight = MeasureSpec.getSize(heightMeasureSpec)
 
-        val childWidthSpec = if (occupy && isFinite) {
+        val childWidthSpec = if (_orientation == ORIENTATION_HORIZONTAL && occupy) {
             val currentFlowWidth = if (_flowManager.wasOccupied) 0 else _flowManager.width
-            MeasureSpec.makeMeasureSpec(specWidth - currentFlowWidth - _horizontalSpacing, widthMode)
+            MeasureSpec.makeMeasureSpec(specWidth - currentFlowWidth - getMainAxisGap(), widthMode)
         } else {
             widthMeasureSpec
         }
-        val childHeightSpec = if (heightMode != MeasureSpec.UNSPECIFIED) {
-            val currentFlowHeight = _flowManager.height
-            MeasureSpec.makeMeasureSpec(specHeight - currentFlowHeight, heightMode)
+        val childHeightSpec = if (_orientation == ORIENTATION_VERTICAL && occupy) {
+            val currentFlowHeight = if (_flowManager.wasOccupied) 0 else _flowManager.height
+            MeasureSpec.makeMeasureSpec(specHeight - currentFlowHeight - getMainAxisGap(), heightMode)
         } else {
             heightMeasureSpec
         }
@@ -225,8 +314,18 @@ open class FlowLayout @JvmOverloads constructor(
         return LayoutParams(p)
     }
 
-    internal open fun calculateRowHeight(child: View, layoutParams: LayoutParams): Int {
-        return child.measuredHeight + layoutParams.topMargin + layoutParams.bottomMargin
+    internal open fun calculateLineCrossAxisSize(child: View, layoutParams: LayoutParams): Int {
+        return when (_orientation) {
+            ORIENTATION_VERTICAL -> child.measuredWidth + layoutParams.rightMargin + layoutParams.leftMargin
+            else -> child.measuredHeight + layoutParams.topMargin + layoutParams.bottomMargin
+        }
+    }
+
+    private fun getMainAxisGap(): Int {
+        if (arrangement == ARRANGEMENT_SPACE_BETWEEN || arrangement == ARRANGEMENT_SPACE_AROUND) {
+            return 0
+        }
+        return _mainAxisGap
     }
 
     /**
@@ -257,7 +356,22 @@ open class FlowLayout @JvmOverloads constructor(
                 ViewDebug.IntToString(from = Gravity.FILL, to = "FILL"),
             ],
         )
+        @Deprecated("Use alignment", replaceWith = ReplaceWith("alignment"))
         var gravity: Int = -1
+
+        /**
+         * Выравнивание элементов внутри строк по вертикали при горизонтальной ориентации,
+         * или внутри столбцов по горизонтали при вертикальной.
+         */
+        @ViewDebug.ExportedProperty(
+            category = "layout",
+            mapping = [
+                ViewDebug.IntToString(from = ALIGNMENT_START, to = "START"),
+                ViewDebug.IntToString(from = ALIGNMENT_CENTER, to = "CENTER"),
+                ViewDebug.IntToString(from = ALIGNMENT_END, to = "END"),
+            ],
+        )
+        var alignment: Int = ALIGNMENT_START
 
         /**
          * Если true, [View] занимает все оставшееся место в строке, а последующие [View] будут располагаться на новой
@@ -267,6 +381,8 @@ open class FlowLayout @JvmOverloads constructor(
         constructor(c: Context, attrs: AttributeSet?) : super(c, attrs) {
             val typedArray = c.obtainStyledAttributes(attrs, R.styleable.FlowLayout_Layout)
             this.gravity = typedArray.getInt(R.styleable.FlowLayout_Layout_android_layout_gravity, -1)
+            this.alignment =
+                typedArray.getInt(R.styleable.FlowLayout_Layout_sd_layout_alignment, gravityToAlignment(gravity))
             this.occupy = typedArray.getBoolean(R.styleable.FlowLayout_Layout_sd_layout_occupy, false)
             typedArray.recycle()
         }
@@ -276,48 +392,43 @@ open class FlowLayout @JvmOverloads constructor(
         constructor(source: ViewGroup.LayoutParams?) : super(source)
     }
 
-    private inner class FlowLayoutManager(
-        private val horizontalSpace: Int,
-        private val verticalSpace: Int,
-    ) {
+    private inner class FlowLayoutManager {
         private val children: MutableList<View> = mutableListOf()
         private val bounds: Rect = Rect()
         private var offsetLeft: Int = 0
         private var offsetTop: Int = 0
+        private val tempBounds: Rect = Rect()
         var wasOccupied: Boolean = false
             private set
         var boundsList = mutableListOf<Rect>()
 
-        var maximumRowWidth: Int = 0
+        var maxMainAxisSize: Int = 0
         var rowsCount: Int = MIN_ROW_COUNT
             private set
 
         val width: Int get() = bounds.width()
         val height: Int get() = bounds.height()
 
-        fun canHold(child: View, maximumWidth: Int): Boolean =
-            !wasOccupied && (width + child.widthWithSpace() <= maximumWidth)
+        val mainAxisSize: Int
+            get() = when (orientation) {
+                ORIENTATION_HORIZONTAL -> width
+                else -> height
+            }
+        val crossAxisSize: Int
+            get() = when (orientation) {
+                ORIENTATION_HORIZONTAL -> height
+                else -> width
+            }
+
+        fun canHold(child: View, maxMainAxisSize: Int): Boolean {
+            val enoughSpace = (mainAxisSize + child.mainAxisSizeWithGap() <= maxMainAxisSize)
+            return !wasOccupied && children.size < _itemsPerLine && enoughSpace
+        }
 
         fun offsetBounds(left: Int, top: Int) {
             offsetLeft = left
             offsetTop = top
             bounds.offsetTo(offsetLeft, offsetTop)
-        }
-
-        fun updateBounds(child: View) {
-            val lp = child.layoutParams as LayoutParams
-            val widthWithSpacing = child.widthWithSpace() + lp.leftMargin + lp.rightMargin
-            val newWidth = bounds.width() + widthWithSpacing
-
-            wasOccupied = wasOccupied || lp.occupy
-
-            bounds.left = offsetLeft
-            bounds.right = bounds.left + newWidth
-            maximumRowWidth = maxOf(bounds.width(), maximumRowWidth)
-            bounds.bottom = maxOf(bounds.bottom, bounds.top + calculateRowHeight(child, lp))
-            boundsList.getOrElse(rowsCount - 1) {
-                Rect().also { boundsList.add(it) }
-            }.apply { set(bounds) }
         }
 
         fun hold(child: View) {
@@ -329,51 +440,34 @@ open class FlowLayout @JvmOverloads constructor(
             boundsList.forEach { canvas.drawRect(it, DebugPaint) }
         }
 
-        fun layout(gravity: Int, maximumWidth: Int) {
-            val isFinite = maximumWidth != INFINITE_SIZE
-            var boundsLeft = bounds.left
-            var boundsRight = bounds.left + if (isFinite) maximumWidth else maximumRowWidth
-
-            children.forEach { child ->
-                val lp = child.layoutParams as LayoutParams
-                var childGravity = lp.gravity
-
-                if (childGravity < 0) {
-                    childGravity = gravity
-                }
-
-                val childTop = when (childGravity and Gravity.VERTICAL_GRAVITY_MASK) {
-                    Gravity.BOTTOM -> bounds.bottom - child.measuredHeight - lp.bottomMargin
-                    Gravity.CENTER_VERTICAL -> {
-                        bounds.centerY() - (child.measuredHeight) / 2 + lp.topMargin - lp.bottomMargin
-                    }
-                    else -> bounds.top + lp.topMargin
-                }
-
-                val horizontalGravity = Gravity.getAbsoluteGravity(
-                    childGravity and Gravity.RELATIVE_HORIZONTAL_GRAVITY_MASK,
-                    layoutDirection,
+        fun layout(maxSize: Int) {
+            val isFinite = maxSize != INFINITE_SIZE
+            val emptySpace = if (isFinite) {
+                arrangeRowBounds(
+                    availableSize = maxSize,
+                    containerBounds = tempBounds,
+                    rowBounds = bounds,
                 )
+            } else {
+                0
+            }
 
-                val childLeft: Int
-                when {
-                    horizontalGravity == Gravity.RIGHT && isFinite -> {
-                        childLeft = boundsRight - child.measuredWidth - lp.rightMargin
-                        boundsRight = childLeft - horizontalSpace - lp.leftMargin
-                    }
+            var axisOffset = 0
+            children.forEachIndexed { index, child ->
+                alignChildBounds(child, tempBounds, bounds)
 
-                    else -> {
-                        childLeft = boundsLeft + lp.leftMargin
-                        boundsLeft = childLeft + child.measuredWidth + lp.rightMargin + horizontalSpace
-                    }
+                axisOffset = if (orientation == ORIENTATION_HORIZONTAL) {
+                    arrangeChildBoundsHorizontally(index, child, tempBounds, bounds, axisOffset, emptySpace)
+                } else {
+                    arrangeChildBoundsVertically(index, child, tempBounds, bounds, axisOffset, emptySpace)
                 }
 
                 onLayoutChild(
                     child,
-                    childLeft,
-                    childTop,
-                    childLeft + child.measuredWidth,
-                    childTop + child.measuredHeight,
+                    tempBounds.left,
+                    tempBounds.top,
+                    tempBounds.left + child.measuredWidth,
+                    tempBounds.top + child.measuredHeight,
                     bounds,
                 )
             }
@@ -383,27 +477,269 @@ open class FlowLayout @JvmOverloads constructor(
             children.clear()
             wasOccupied = false
             rowsCount++
-            bounds.top = bounds.bottom + verticalSpace
-            bounds.left = offsetLeft
-            bounds.right = offsetLeft
-            bounds.bottom = bounds.top
+            when (_orientation) {
+                ORIENTATION_VERTICAL -> {
+                    bounds.top = offsetTop
+                    bounds.left = bounds.right + _crossAxisGap
+                    bounds.right = bounds.left
+                    bounds.bottom = bounds.top
+                }
+
+                else -> {
+                    bounds.top = bounds.bottom + _crossAxisGap
+                    bounds.left = offsetLeft
+                    bounds.right = offsetLeft
+                    bounds.bottom = bounds.top
+                }
+            }
         }
 
         fun reset() {
             children.clear()
             bounds.setEmpty()
+            tempBounds.setEmpty()
             rowsCount = MIN_ROW_COUNT
         }
 
-        private fun View.widthWithSpace(): Int {
-            return measuredWidth + (if (bounds.width() == 0) 0 else horizontalSpace)
+        private fun updateBounds(child: View) {
+            val lp = child.layoutParams as LayoutParams
+            val childMainAxisMargins = if (orientation == ORIENTATION_HORIZONTAL) {
+                lp.leftMargin + lp.rightMargin
+            } else {
+                lp.topMargin + lp.bottomMargin
+            }
+            val childMainAxisSizeWithGap = child.mainAxisSizeWithGap() + childMainAxisMargins
+            val newMainAxisSize = mainAxisSize + childMainAxisSizeWithGap
+
+            wasOccupied = wasOccupied || lp.occupy
+            bounds.expandMainAxis(newMainAxisSize)
+            bounds.expandCrossAxis(calculateLineCrossAxisSize(child, lp))
+            maxMainAxisSize = maxOf(mainAxisSize, maxMainAxisSize)
+
+            updateBoundsList()
+        }
+
+        private fun View.mainAxisSizeWithGap(): Int {
+            return when (_orientation) {
+                ORIENTATION_VERTICAL -> measuredHeight
+                else -> measuredWidth
+            } + (if (mainAxisSize == 0) 0 else getMainAxisGap())
+        }
+
+        private fun Int.getArrangementGravity(): Int {
+            return when (this) {
+                ARRANGEMENT_CENTER ->
+                    if (_orientation == ORIENTATION_HORIZONTAL) Gravity.CENTER_HORIZONTAL else Gravity.CENTER_VERTICAL
+                ARRANGEMENT_END ->
+                    if (_orientation == ORIENTATION_HORIZONTAL) Gravity.END else Gravity.BOTTOM
+                else ->
+                    if (_orientation == ORIENTATION_HORIZONTAL) Gravity.START else Gravity.TOP
+            }
+        }
+
+        private fun Int.getAlignmentGravity(): Int {
+            return when (this) {
+                ALIGNMENT_CENTER ->
+                    if (_orientation == ORIENTATION_HORIZONTAL) Gravity.CENTER_VERTICAL else Gravity.CENTER_HORIZONTAL
+                ALIGNMENT_END ->
+                    if (_orientation == ORIENTATION_HORIZONTAL) Gravity.BOTTOM else Gravity.END
+                else ->
+                    if (_orientation == ORIENTATION_HORIZONTAL) Gravity.TOP else Gravity.START
+            }
+        }
+
+        private fun updateBoundsList() {
+            boundsList.getOrElse(rowsCount - 1) {
+                Rect().also { boundsList.add(it) }
+            }.apply { set(bounds) }
+        }
+
+        private fun Rect.expandMainAxis(amount: Int) {
+            if (orientation == ORIENTATION_HORIZONTAL) {
+                right = left + amount
+            } else {
+                bottom = top + amount
+            }
+        }
+
+        private fun Rect.expandCrossAxis(amount: Int) {
+            if (orientation == ORIENTATION_HORIZONTAL) {
+                bottom = maxOf(bottom, top + amount)
+            } else {
+                right = maxOf(right, left + amount)
+            }
+        }
+
+        private fun arrangeRowBounds(availableSize: Int, containerBounds: Rect, rowBounds: Rect): Int {
+            containerBounds.set(rowBounds)
+            containerBounds.expandMainAxis(availableSize)
+
+            var emptySpace = 0
+            val arrangementGravity = arrangement.getArrangementGravity()
+            Gravity.apply(
+                arrangementGravity,
+                rowBounds.width(),
+                rowBounds.height(),
+                containerBounds,
+                rowBounds,
+                layoutDirection,
+            )
+            if (_arrangement == ARRANGEMENT_SPACE_BETWEEN || _arrangement == ARRANGEMENT_SPACE_AROUND) {
+                emptySpace = availableSize - mainAxisSize
+                rowBounds.expandMainAxis(availableSize)
+            }
+            updateBoundsList()
+            return emptySpace
+        }
+
+        private fun getArrangementSpacing(childIndex: Int, emptySpace: Int): Int {
+            return when {
+                arrangement == ARRANGEMENT_SPACE_BETWEEN && isFinite && children.size > 1 && childIndex != 0 ->
+                    (emptySpace / (children.size - 1))
+                arrangement == ARRANGEMENT_SPACE_AROUND && isFinite && children.size > 1 ->
+                    (emptySpace / (children.size + 1))
+                else -> 0
+            }
+        }
+
+        private fun arrangeChildBoundsHorizontally(
+            childIndex: Int,
+            child: View,
+            childBounds: Rect,
+            rowBounds: Rect,
+            offset: Int,
+            emptySpace: Int,
+        ): Int {
+            val lp = child.layoutParams as LayoutParams
+            val arrangementSpacing = getArrangementSpacing(childIndex, emptySpace)
+            childBounds.left = rowBounds.left + offset + lp.leftMargin + arrangementSpacing
+            childBounds.right = childBounds.left + child.measuredWidth + lp.rightMargin + getMainAxisGap()
+            return childBounds.right - rowBounds.left
+        }
+
+        private fun arrangeChildBoundsVertically(
+            childIndex: Int,
+            child: View,
+            childBounds: Rect,
+            rowBounds: Rect,
+            offset: Int,
+            emptySpace: Int,
+        ): Int {
+            val lp = child.layoutParams as LayoutParams
+            val arrangementSpacing = getArrangementSpacing(childIndex, emptySpace)
+            childBounds.top = rowBounds.top + offset + lp.topMargin + arrangementSpacing
+            childBounds.bottom = childBounds.top + child.measuredHeight + lp.bottomMargin + getMainAxisGap()
+            return childBounds.bottom - rowBounds.top
+        }
+
+        private fun alignChildBounds(child: View, childBounds: Rect, rowBounds: Rect) {
+            val lp = child.layoutParams as LayoutParams
+            var childAlignment = lp.alignment
+
+            if (childAlignment < 0) {
+                childAlignment = alignment
+            }
+
+            val alignmentGravity = childAlignment.getAlignmentGravity()
+
+            Gravity.apply(
+                alignmentGravity,
+                child.measuredWidth + lp.leftMargin + lp.rightMargin,
+                child.measuredHeight + lp.topMargin + lp.bottomMargin,
+                rowBounds,
+                childBounds,
+                layoutDirection,
+            )
+            childBounds.offset(lp.leftMargin, lp.topMargin)
         }
     }
 
-    private companion object {
-        const val INFINITE_SIZE = Int.MAX_VALUE
-        const val DEBUG_BOUNDS = false
-        const val MIN_ROW_COUNT = 1
-        val DebugPaint = Paint().configure(color = Color.MAGENTA, strokeWidth = 3f, style = Paint.Style.STROKE)
+    companion object {
+        /**
+         * Расположение в начале
+         * @see FlowLayout.arrangement
+         */
+        const val ARRANGEMENT_START = 0
+
+        /**
+         * Расположение в середине
+         * @see FlowLayout.arrangement
+         */
+        const val ARRANGEMENT_CENTER = 1
+
+        /**
+         * Расположение в конце
+         * @see FlowLayout.arrangement
+         */
+        const val ARRANGEMENT_END = 2
+
+        /**
+         * Расположение с равными отступами между элементами
+         * @see FlowLayout.arrangement
+         */
+        const val ARRANGEMENT_SPACE_BETWEEN = 3
+
+        /**
+         * Расположение с равными отступами вокруг элементов
+         * @see FlowLayout.arrangement
+         */
+        const val ARRANGEMENT_SPACE_AROUND = 4
+
+        /**
+         * Выравнивание в начале
+         * @see FlowLayout.alignment
+         */
+        const val ALIGNMENT_START = 0
+
+        /**
+         * Выравнивание в середине
+         * @see FlowLayout.alignment
+         */
+        const val ALIGNMENT_CENTER = 1
+
+        /**
+         * Выравнивание в конце
+         * @see FlowLayout.alignment
+         */
+        const val ALIGNMENT_END = 2
+
+        /**
+         * Горизонтальная ориентация
+         * @see FlowLayout.orientation
+         */
+        const val ORIENTATION_HORIZONTAL = 0
+
+        /**
+         * Вертикальная ориентация
+         * @see FlowLayout.orientation
+         */
+        const val ORIENTATION_VERTICAL = 1
+
+        private const val INFINITE_SIZE = Int.MAX_VALUE
+        private const val DEBUG_BOUNDS = false
+        private const val MIN_ROW_COUNT = 1
+        private val DebugPaint = Paint().configure(color = Color.MAGENTA, strokeWidth = 3f, style = Paint.Style.STROKE)
+
+        private fun gravityToAlignment(gravity: Int): Int {
+            if (gravity < 0) return gravity
+            return when (gravity) {
+                Gravity.CENTER_HORIZONTAL, Gravity.CENTER_VERTICAL, Gravity.CENTER -> ALIGNMENT_CENTER
+                Gravity.END, Gravity.RIGHT, Gravity.BOTTOM -> ALIGNMENT_END
+                else -> ALIGNMENT_START
+            }
+        }
+
+        private fun gravityToArrangement(gravity: Int, layoutDirection: Int): Int {
+            if (gravity < 0) return gravity
+            val absHorizontalGravity = Gravity.getAbsoluteGravity(
+                gravity and Gravity.HORIZONTAL_GRAVITY_MASK,
+                layoutDirection,
+            )
+            return when (absHorizontalGravity) {
+                Gravity.CENTER_HORIZONTAL, Gravity.CENTER -> ARRANGEMENT_CENTER
+                Gravity.END, Gravity.RIGHT -> ARRANGEMENT_END
+                else -> ARRANGEMENT_START
+            }
+        }
     }
 }

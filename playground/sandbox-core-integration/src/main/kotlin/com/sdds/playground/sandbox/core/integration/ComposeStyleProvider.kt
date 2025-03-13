@@ -28,4 +28,20 @@ abstract class ComposeStyleProvider<K : Any, S : Style> {
     fun style(key: K): S = variations[key]?.invoke()
         ?: variations[defaultVariant]?.invoke()
         ?: throw IllegalStateException("Style $key not found")
+
+    companion object {
+        /**
+         * Пустой провайдер стиля
+         */
+        val Empty = object : ComposeStyleProvider<String, EmptyStyle>() {
+            override val variations: Map<String, @Composable () -> EmptyStyle> = mapOf(
+                "Default" to { EmptyStyle },
+            )
+        }
+    }
 }
+
+/**
+ * Пустой стиль
+ */
+object EmptyStyle : Style

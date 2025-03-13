@@ -136,6 +136,7 @@ data class ComponentKey(
 
         val Counter = ComponentKey("Counter", CoreComponent.COUNTER)
         val Indicator = ComponentKey("Indicator", CoreComponent.INDICATOR)
+        val Flow = ComponentKey("Flow", CoreComponent.FLOW)
         val ProgressBar = ComponentKey("ProgressBar", CoreComponent.PROGRESS)
 
         val RadioBox = ComponentKey("RadioBox", CoreComponent.RADIOBOX)
@@ -174,6 +175,8 @@ enum class CoreComponent {
     CHIP_GROUP,
 
     COUNTER,
+
+    FLOW,
 
     INDICATOR,
 
