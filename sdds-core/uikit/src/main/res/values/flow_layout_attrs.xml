@@ -3,10 +3,32 @@
 
     <item name="sd_outerFlow" type="id"/>
 
+    <attr name="sd_flowLayoutStyle" format="reference"/>
+
     <declare-styleable name="FlowLayout" tools:ignore="ResourceName">
+        <!-- deprecated  ReplaceWith sd_mainAxisGap -->
         <attr name="sd_gap" format="dimension" />
+        <!-- deprecated ReplaceWith sd_crossAxisGap -->
         <attr name="sd_lineSpacing" format="dimension" />
+
+        <attr name="sd_mainAxisGap" format="dimension" />
+        <attr name="sd_crossAxisGap" format="dimension" />
         <attr name="android:gravity"/>
+        <attr name="android:orientation"/>
+        <attr name="sd_alignment" format="enum">
+            <enum name="start" value="0"/>
+            <enum name="center" value="1"/>
+            <enum name="end" value="2"/>
+        </attr>
+
+        <attr name="sd_arrangement" format="enum">
+            <enum name="start" value="0"/>
+            <enum name="center" value="1"/>
+            <enum name="end" value="2"/>
+            <enum name="space_between" value="3"/>
+            <enum name="space_around" value="4"/>
+        </attr>
+        <attr name="sd_itemsPerLine" format="integer"/>
 
         <attr name="sd_shapeAppearance"/>
         <attr name="sd_shapeAppearanceAdjustment"/>
@@ -26,6 +48,11 @@
 
     <declare-styleable name="FlowLayout_Layout" tools:ignore="ResourceName">
         <attr name="android:layout_gravity"/>
+        <attr name="sd_layout_alignment" format="enum">
+            <enum name="start" value="0"/>
+            <enum name="center" value="1"/>
+            <enum name="end" value="2"/>
+        </attr>
         <attr name="sd_layout_occupy" format="boolean" />
     </declare-styleable>
 </resources>

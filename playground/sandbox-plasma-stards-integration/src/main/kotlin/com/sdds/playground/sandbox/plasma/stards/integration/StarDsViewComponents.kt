@@ -1,5 +1,6 @@
 package com.sdds.playground.sandbox.plasma.stards.integration
 
+import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
 import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.integration.component.ComponentsProviderView
 import com.sdds.playground.sandbox.core.integration.component.ViewComponent
@@ -75,6 +76,10 @@ object StarDsViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.Counter,
                 StarDsCounterVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.Flow,
+                ViewStyleProvider.Empty,
             ),
             ViewComponent(
                 ComponentKey.Indicator,

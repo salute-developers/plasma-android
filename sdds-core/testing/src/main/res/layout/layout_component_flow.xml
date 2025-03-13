@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.sdds.uikit.FlowLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.sdds.uikit.View
+        android:layout_width="80dp"
+        android:layout_height="28dp"
+        android:backgroundTint="?testingShapeTint"
+        app:sd_shapeAppearance="?testingShape"/>
+
+    <com.sdds.uikit.View
+        android:layout_width="175dp"
+        android:layout_height="48dp"
+        android:backgroundTint="?testingShapeTint"
+        app:sd_shapeAppearance="?testingShape"/>
+
+    <com.sdds.uikit.View
+        android:layout_width="57dp"
+        android:layout_height="20dp"
+        android:backgroundTint="?testingShapeTint"
+        app:sd_shapeAppearance="?testingShape"/>
+
+    <com.sdds.uikit.View
+        android:layout_width="124dp"
+        android:layout_height="68dp"
+        android:backgroundTint="?testingShapeTint"
+        app:sd_shapeAppearance="?testingShape"/>
+
+    <com.sdds.uikit.View
+        android:layout_width="60dp"
+        android:layout_height="48dp"
+        android:backgroundTint="?testingShapeTint"
+        app:sd_shapeAppearance="?testingShape"/>
+
+    <com.sdds.uikit.View
+        android:layout_width="76dp"
+        android:layout_height="28dp"
+        android:backgroundTint="?testingShapeTint"
+        app:sd_shapeAppearance="?testingShape"/>
+
+</com.sdds.uikit.FlowLayout>

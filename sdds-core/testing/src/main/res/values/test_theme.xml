@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TestTheme" parent="Sdds.Theme.DayNight">
+        <item name="testingShapeTint">#000</item>
+        <item name="testingShape">@style/Testing.Shape.Round</item>
+    </style>
+</resources>

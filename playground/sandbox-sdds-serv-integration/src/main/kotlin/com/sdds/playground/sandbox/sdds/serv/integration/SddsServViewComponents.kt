@@ -1,5 +1,6 @@
 package com.sdds.playground.sandbox.sdds.serv.integration
 
+import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
 import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.integration.component.ComponentsProviderView
 import com.sdds.playground.sandbox.core.integration.component.CoreComponent
@@ -110,6 +111,10 @@ object SddsServViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.Indicator,
                 SddsServIndicatorVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.Flow,
+                ViewStyleProvider.Empty,
             ),
             ViewComponent(
                 ComponentKey.ProgressBar,

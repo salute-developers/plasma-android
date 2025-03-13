@@ -59,7 +59,7 @@ fun Chip.applyState(state: ChipUiState?): Chip = apply {
  */
 fun ChipGroup.applyState(state: ChipUiState?): ChipGroup = apply {
     state ?: return@apply
-    gravity = state.gravityMode.gravity
+    arrangement = state.gravityMode.arrangement
     this.state = state.checkedState.viewState
     this.selectionMode = state.selectionMode
     removeAllViews()

@@ -21,6 +21,7 @@ import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.integration.component.ComponentsProviderView
 import com.sdds.playground.sandbox.core.integration.component.CoreComponent
 import com.sdds.playground.sandbox.counter.vs.CounterFragment
+import com.sdds.playground.sandbox.flow.vs.FlowFragment
 import com.sdds.playground.sandbox.indicator.vs.IndicatorFragment
 import com.sdds.playground.sandbox.progress.vs.ProgressBarFragment
 import com.sdds.playground.sandbox.radiobox.vs.RadioBoxFragment
@@ -146,6 +147,10 @@ internal sealed class ComponentScreen(
     object SegmentItem : ComponentScreen(
         { item -> fragment<SegmentItemFragment>(item.route, item.defaultBuilder) },
     )
+
+    object Flow : ComponentScreen(
+        { item -> fragment<FlowFragment>(item.route, item.defaultBuilder) },
+    )
 }
 
 @Suppress("CyclomaticComplexMethod")
@@ -173,6 +178,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.TEXT_AREA -> ComponentScreen.TextArea
         CoreComponent.SEGMENT -> ComponentScreen.Segment
         CoreComponent.SEGMENT_ITEM -> ComponentScreen.SegmentItem
+        CoreComponent.FLOW -> ComponentScreen.Flow
     }
 }
 
@@ -201,5 +207,6 @@ private fun ComponentKey.routeId(): Int {
         CoreComponent.TEXT_AREA -> R.id.nav_textarea
         CoreComponent.SEGMENT -> R.id.nav_segment
         CoreComponent.SEGMENT_ITEM -> R.id.nav_segment_item
+        CoreComponent.FLOW -> R.id.nav_flow
     } + hashCode()
 }

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Sdds.Components.FlowLayout">
+        <item name="sd_mainAxisGap">8dp</item>
+        <item name="sd_crossAxisGap">8dp</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="sd_arrangement">start</item>
+        <item name="sd_alignment">start</item>
+    </style>
+</resources>

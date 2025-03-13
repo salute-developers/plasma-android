@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item type="id" name="nav_avatar"/>
+    <item type="id" name="nav_avatargroup"/>
+    <item type="id" name="nav_basic_button"/>
+    <item type="id" name="nav_badge"/>
+    <item type="id" name="nav_icon_button"/>
+    <item type="id" name="nav_link_button"/>
+    <item type="id" name="nav_icon_badge"/>
+    <item type="id" name="nav_indicator"/>
+    <item type="id" name="nav_cell"/>
+    <item type="id" name="nav_checkbox"/>
+    <item type="id" name="nav_checkbox_group"/>
+    <item type="id" name="nav_chip"/>
+    <item type="id" name="nav_chip_group"/>
+    <item type="id" name="nav_counter"/>
+    <item type="id" name="nav_radiobox"/>
+    <item type="id" name="nav_radiobox_group"/>
+    <item type="id" name="nav_progressbar"/>
+    <item type="id" name="nav_segment"/>
+    <item type="id" name="nav_segment_item"/>
+    <item type="id" name="nav_switch"/>
+    <item type="id" name="nav_textfield"/>
+    <item type="id" name="nav_textarea"/>
+    <item type="id" name="nav_flow"/>
+</resources>

@@ -48,4 +48,15 @@ abstract class ViewStyleProvider<K : Any> {
     fun colorState(key: K): ColorState = colorVariations[key]
         ?: colorVariations[defaultColorVariant]
         ?: throw IllegalStateException("ColorState $key not found")
+
+    companion object {
+        /**
+         * Пустой [ViewStyleProvider]
+         */
+        val Empty = object : ViewStyleProvider<String>() {
+            override val variations: Map<String, Int> = mapOf(
+                "Default" to 0,
+            )
+        }
+    }
 }

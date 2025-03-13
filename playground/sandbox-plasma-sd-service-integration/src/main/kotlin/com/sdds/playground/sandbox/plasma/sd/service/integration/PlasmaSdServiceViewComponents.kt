@@ -1,5 +1,6 @@
 package com.sdds.playground.sandbox.plasma.sd.service.integration
 
+import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
 import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.integration.component.ComponentsProviderView
 import com.sdds.playground.sandbox.core.integration.component.CoreComponent
@@ -106,6 +107,10 @@ object PlasmaSdServiceViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.Counter,
                 PlasmaSdServiceCounterVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.Flow,
+                ViewStyleProvider.Empty,
             ),
             ViewComponent(
                 ComponentKey.Indicator,
