@@ -109,15 +109,15 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
         """.trimIndent()
     }
 
-    protected fun getShape(shape: Shape, variationId: String): String {
+    protected fun getShape(shape: Shape, variationId: String, shapeName: String = "shape"): String {
         return if (ShapeToken.isCircle(shape.value)) {
             ktFileBuilder.addImport(
                 packageName = "androidx.compose.foundation.shape",
                 names = listOf("CircleShape"),
             )
-            ".shape(CircleShape)"
+            ".$shapeName(CircleShape)"
         } else {
-            ".shape($themeClassName.shapes.${shape.value.toKtAttrName()}${
+            ".$shapeName($themeClassName.shapes.${shape.value.toKtAttrName()}${
                 shape.shapeAdjustment(suffix = variationId)
             })"
         }

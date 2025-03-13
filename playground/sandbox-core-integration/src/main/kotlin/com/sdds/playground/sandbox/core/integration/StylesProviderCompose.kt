@@ -4,6 +4,7 @@ import com.sdds.compose.uikit.AvatarGroupStyle
 import com.sdds.compose.uikit.AvatarStyle
 import com.sdds.compose.uikit.BadgeStyle
 import com.sdds.compose.uikit.ButtonStyle
+import com.sdds.compose.uikit.CardStyle
 import com.sdds.compose.uikit.CellStyle
 import com.sdds.compose.uikit.CheckBoxGroupStyle
 import com.sdds.compose.uikit.CheckBoxStyle
@@ -59,4 +60,5 @@ interface StylesProviderCompose {
     val iconBadgeTransparent: ComposeStyleProvider<String, BadgeStyle>
 
     val counter: ComposeStyleProvider<String, CounterStyle>
+    val card: ComposeStyleProvider<String, CardStyle>
 }

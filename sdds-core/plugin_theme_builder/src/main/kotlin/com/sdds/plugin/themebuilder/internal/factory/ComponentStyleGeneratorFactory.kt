@@ -10,6 +10,7 @@ import com.sdds.plugin.themebuilder.internal.components.button.compose.ButtonCom
 import com.sdds.plugin.themebuilder.internal.components.button.view.BasicButtonStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.components.button.view.IconButtonStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.components.button.view.LinkButtonStyleGeneratorView
+import com.sdds.plugin.themebuilder.internal.components.card.compose.CardComposeVariationGenerator
 import com.sdds.plugin.themebuilder.internal.components.cell.compose.CellComposeVariationGenerator
 import com.sdds.plugin.themebuilder.internal.components.counter.compose.CounterComposeVariationGenerator
 import com.sdds.plugin.themebuilder.internal.components.counter.view.CounterStyleGeneratorView
@@ -234,6 +235,29 @@ internal class ComponentStyleGeneratorFactory(
             outputLocation = KtFileBuilder.OutputLocation.Directory(outputDir),
         )
 
+    fun createCardStyleGeneratorCompose() =
+        createCardStyleGeneratorCompose(componentName = "card_solid")
+
+    fun createCardClearStyleGeneratorCompose() =
+        createCardStyleGeneratorCompose(componentName = "card_clear")
+
+    private fun createCardStyleGeneratorCompose(
+        componentName: String,
+    ) =
+        CardComposeVariationGenerator(
+            themeClassName = themeClassName,
+            themePackage = packageResolver.getPackage(TargetPackage.THEME),
+            dimensionsConfig = dimensionsConfig,
+            dimensAggregator = dimensAggregator,
+            resourceReferenceProvider = resourceReferenceProvider,
+            namespace = namespace,
+            ktFileBuilderFactory = ktFileBuilderFactory,
+            componentPackage = "${packageResolver.getPackage(TargetPackage.STYLES)}.card",
+            componentName = componentName,
+            outputLocation = KtFileBuilder.OutputLocation.Directory(outputDir),
+            styleBuilderName = "CardStyleBuilder",
+        )
+
     fun createBasicButtonStyleGeneratorCompose() =
         createBaseButtonStyleGeneratorCompose(
             componentName = "basic_button",
@@ -287,7 +311,7 @@ internal class ComponentStyleGeneratorFactory(
         componentName: String,
     ) =
         BadgeComposeVariationGenerator(
-            themeClassName = "${themeName.snakeToCamelCase()}Theme",
+            themeClassName = themeClassName,
             themePackage = packageResolver.getPackage(TargetPackage.THEME),
             dimensionsConfig = dimensionsConfig,
             dimensAggregator = dimensAggregator,
@@ -319,7 +343,7 @@ internal class ComponentStyleGeneratorFactory(
         componentName: String,
     ) =
         BadgeComposeVariationGenerator(
-            themeClassName = "${themeName.snakeToCamelCase()}Theme",
+            themeClassName = themeClassName,
             themePackage = packageResolver.getPackage(TargetPackage.THEME),
             dimensionsConfig = dimensionsConfig,
             dimensAggregator = dimensAggregator,
