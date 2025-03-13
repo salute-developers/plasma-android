@@ -1,0 +1,94 @@
+// AUTO-GENERATED. DO NOT MODIFY this file.
+@file:Suppress(
+    "UndocumentedPublicClass",
+    "UndocumentedPublicProperty",
+    "ktlint:standard:max-line-length",
+)
+
+package com.sdds.plasma.sd.service.styles.card
+
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.CardSolid
+import com.sdds.compose.uikit.CardStyle
+import com.sdds.compose.uikit.CardStyleBuilder
+import com.sdds.compose.uikit.adjustBy
+import com.sdds.compose.uikit.cardSolidBuilder
+import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.style.BuilderWrapper
+import com.sdds.compose.uikit.style.wrap
+import com.sdds.plasma.sd.service.theme.PlasmaSdServiceTheme
+import kotlin.Suppress
+import kotlin.jvm.JvmInline
+import kotlin.jvm.JvmName
+
+public interface WrapperCardSolid : BuilderWrapper<CardStyle, CardStyleBuilder>
+
+@JvmInline
+public value class WrapperCardSolidL(
+    public override val builder: CardStyleBuilder,
+) : WrapperCardSolid
+
+@JvmInline
+public value class WrapperCardSolidM(
+    public override val builder: CardStyleBuilder,
+) : WrapperCardSolid
+
+@JvmInline
+public value class WrapperCardSolidS(
+    public override val builder: CardStyleBuilder,
+) : WrapperCardSolid
+
+private val CardStyleBuilder.invariantProps: CardStyleBuilder
+    @Composable
+    get() = this
+        .colors {
+            backgroundColor(
+                PlasmaSdServiceTheme.colors.surfaceDefaultSolidCard.asInteractive(),
+            )
+        }
+
+public val CardSolid.L: WrapperCardSolidL
+    @Composable
+    @JvmName("WrapperCardSolidL")
+    get() = CardStyle.cardSolidBuilder(this)
+        .invariantProps
+        .shape(PlasmaSdServiceTheme.shapes.roundL)
+        .contentShape(PlasmaSdServiceTheme.shapes.roundS)
+        .dimensions {
+            paddingTop(12.0.dp)
+            paddingBottom(12.0.dp)
+            paddingStart(12.0.dp)
+            paddingEnd(12.0.dp)
+        }
+        .wrap(::WrapperCardSolidL)
+
+public val CardSolid.M: WrapperCardSolidM
+    @Composable
+    @JvmName("WrapperCardSolidM")
+    get() = CardStyle.cardSolidBuilder(this)
+        .invariantProps
+        .shape(PlasmaSdServiceTheme.shapes.roundL.adjustBy(all = -2.0.dp))
+        .contentShape(PlasmaSdServiceTheme.shapes.roundXs)
+        .dimensions {
+            paddingTop(10.0.dp)
+            paddingBottom(10.0.dp)
+            paddingStart(10.0.dp)
+            paddingEnd(10.0.dp)
+        }
+        .wrap(::WrapperCardSolidM)
+
+public val CardSolid.S: WrapperCardSolidS
+    @Composable
+    @JvmName("WrapperCardSolidS")
+    get() = CardStyle.cardSolidBuilder(this)
+        .invariantProps
+        .shape(PlasmaSdServiceTheme.shapes.roundM)
+        .contentShape(PlasmaSdServiceTheme.shapes.roundXs)
+        .dimensions {
+            paddingTop(8.0.dp)
+            paddingBottom(8.0.dp)
+            paddingStart(8.0.dp)
+            paddingEnd(8.0.dp)
+        }
+        .wrap(::WrapperCardSolidS)

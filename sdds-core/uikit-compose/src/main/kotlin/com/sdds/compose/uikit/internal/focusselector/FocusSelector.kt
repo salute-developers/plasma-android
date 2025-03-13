@@ -35,6 +35,20 @@ fun Modifier.applyFocusSelector(
                 scaleY = focusSelectorMode.scale
             }
 
+        is FocusSelectorMode.BorderAndScale ->
+            Modifier
+                .graphicsLayer {
+                    if (!isFocused()) return@graphicsLayer
+                    scaleX = focusSelectorMode.scaleSettings.scale
+                    scaleY = focusSelectorMode.scaleSettings.scale
+                }
+                .drawBorder(
+                    stroke = focusSelectorMode.borderSettings.borderStroke,
+                    strokePadding = focusSelectorMode.borderSettings.strokePadding,
+                    originalShape = originalShape,
+                    isFocused = isFocused,
+                )
+
         FocusSelectorMode.None -> Modifier
     },
 )

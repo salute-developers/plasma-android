@@ -43,6 +43,20 @@ sealed class FocusSelectorMode {
      */
     data class Scale(val scale: Float = DEFAULT_SCALE_FACTOR) : FocusSelectorMode()
 
+    /**
+     * Селектор, увеличивающий компонент и рисующий обводку вокруг
+     *
+     * @property borderSettings настройки бордера
+     * @see Border
+     *
+     * @property scaleSettings настройки скейла
+     * @see Scale
+     */
+    data class BorderAndScale(
+        val borderSettings: Border = Border(),
+        val scaleSettings: Scale = Scale(),
+    ) : FocusSelectorMode()
+
     internal val FocusSelectorMode.isEnabled: Boolean
         get() = this !is None
 
