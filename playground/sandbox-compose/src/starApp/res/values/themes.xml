@@ -22,6 +22,8 @@
         <item name="bottomSheetDialogTheme">@style/Theme.Sandbox.ComponentOverlays.BottomSheetDialog</item>
         <item name="android:dialogTheme">@style/Theme.Sandbox.EditorDialog</item>
         <item name="dialogTheme">@style/Theme.Sandbox.EditorDialog</item>
+        <item name="testingShape">@style/Sdkit.StarDs.Shape.Round.M</item>
+        <item name="testingShapeTint">?sdkit_surfaceDefaultSolidTertiary</item>
     </style>
 
     <style name="Theme.Sandbox.EditorDialog" parent="ThemeOverlay.MaterialComponents.Dialog">

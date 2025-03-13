@@ -506,7 +506,7 @@ open class CellLayout @JvmOverloads constructor(
     }
 
     /**
-     * Параметры расположения дочерних [View] в [FlowLayout]
+     * Параметры расположения дочерних [View] в [CellLayout]
      */
     class LayoutParams : MarginLayoutParams {
 

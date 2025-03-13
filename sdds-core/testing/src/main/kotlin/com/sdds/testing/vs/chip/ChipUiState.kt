@@ -1,9 +1,9 @@
 package com.sdds.testing.vs.chip
 
 import android.os.Parcelable
-import android.view.Gravity
 import com.sdds.testing.vs.UiState
 import com.sdds.uikit.ChipGroup
+import com.sdds.uikit.FlowLayout
 import com.sdds.uikit.viewstate.ViewState
 import kotlinx.parcelize.Parcelize
 
@@ -51,10 +51,11 @@ enum class CheckedState(val viewState: ViewState) : Parcelable {
 
 /**
  * Горизонтальное выравнивание в группе
- * @property gravity значение выравнивания
+ * @property arrangement значение выравнивания
  */
 @Parcelize
-enum class GravityMode(val gravity: Int) : Parcelable {
-    Start(Gravity.START or Gravity.CENTER_VERTICAL),
-    End(Gravity.END or Gravity.CENTER_VERTICAL),
+enum class GravityMode(val arrangement: Int) : Parcelable {
+    Start(FlowLayout.ARRANGEMENT_START),
+    Center(FlowLayout.ARRANGEMENT_CENTER),
+    End(FlowLayout.ARRANGEMENT_END),
 }
