@@ -17,7 +17,9 @@ import com.sdds.serv.styles.button.basic.S
 import com.sdds.serv.styles.button.basic.Secondary
 import com.sdds.serv.styles.button.basic.Warning
 import com.sdds.serv.styles.button.basic.White
+import com.sdds.serv.styles.button.basic.Xl
 import com.sdds.serv.styles.button.basic.Xs
+import com.sdds.serv.styles.button.basic.Xxs
 import com.sdds.serv.styles.button.icon.Accent
 import com.sdds.serv.styles.button.icon.Clear
 import com.sdds.serv.styles.button.icon.Dark
@@ -31,7 +33,9 @@ import com.sdds.serv.styles.button.icon.S
 import com.sdds.serv.styles.button.icon.Secondary
 import com.sdds.serv.styles.button.icon.Warning
 import com.sdds.serv.styles.button.icon.White
+import com.sdds.serv.styles.button.icon.Xl
 import com.sdds.serv.styles.button.icon.Xs
+import com.sdds.serv.styles.button.icon.Xxs
 import com.sdds.serv.styles.button.link.Accent
 import com.sdds.serv.styles.button.link.Default
 import com.sdds.serv.styles.button.link.L
@@ -40,7 +44,9 @@ import com.sdds.serv.styles.button.link.Negative
 import com.sdds.serv.styles.button.link.S
 import com.sdds.serv.styles.button.link.Secondary
 import com.sdds.serv.styles.button.link.Warning
+import com.sdds.serv.styles.button.link.Xl
 import com.sdds.serv.styles.button.link.Xs
+import com.sdds.serv.styles.button.link.Xxs
 import com.sdds.testing.compose.RoborazziConfigCompose
 import com.sdds.testing.compose.button.ButtonSizeLDefault
 import com.sdds.testing.compose.button.ButtonSizeLDisabled
@@ -53,6 +59,8 @@ import com.sdds.testing.compose.button.ButtonSizeSLongText
 import com.sdds.testing.compose.button.ButtonSizeSWarning
 import com.sdds.testing.compose.button.ButtonSizeXSDark
 import com.sdds.testing.compose.button.ButtonSizeXSNegative
+import com.sdds.testing.compose.button.ButtonSizeXlDefault
+import com.sdds.testing.compose.button.ButtonSizeXxsDefault
 import com.sdds.testing.compose.button.IconButtonIsLoading
 import com.sdds.testing.compose.button.IconButtonLDefault
 import com.sdds.testing.compose.button.IconButtonLDisabled
@@ -63,7 +71,9 @@ import com.sdds.testing.compose.button.IconButtonMClear
 import com.sdds.testing.compose.button.IconButtonSPositive
 import com.sdds.testing.compose.button.IconButtonSWarning
 import com.sdds.testing.compose.button.IconButtonXSNegative
+import com.sdds.testing.compose.button.IconButtonXlDefault
 import com.sdds.testing.compose.button.IconButtonXsDark
+import com.sdds.testing.compose.button.IconButtonXxsDefault
 import com.sdds.testing.compose.button.LinkButtonSizeLDefault
 import com.sdds.testing.compose.button.LinkButtonSizeLDisabled
 import com.sdds.testing.compose.button.LinkButtonSizeLIsLoading
@@ -71,6 +81,8 @@ import com.sdds.testing.compose.button.LinkButtonSizeLSecondary
 import com.sdds.testing.compose.button.LinkButtonSizeMAccent
 import com.sdds.testing.compose.button.LinkButtonSizeSWarning
 import com.sdds.testing.compose.button.LinkButtonSizeXSNegative
+import com.sdds.testing.compose.button.LinkButtonSizeXlDefault
+import com.sdds.testing.compose.button.LinkButtonSizeXxsDefault
 import com.sdds.testing.vs.SDK_NUMBER
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -166,6 +178,20 @@ class ComposeButtonScreenshotTest(
     }
 
     @Test
+    fun testButtonSizeXlDefault() {
+        composeTestRule.content {
+            ButtonSizeXlDefault(style = BasicButton.Xl.Default.style())
+        }
+    }
+
+    @Test
+    fun testButtonSizeXxsDefault() {
+        composeTestRule.content {
+            ButtonSizeXxsDefault(style = BasicButton.Xxs.Default.style())
+        }
+    }
+
+    @Test
     fun testIconButtonLDefault() {
         composeTestRule.content {
             IconButtonLDefault(iconButtonStyle = IconButton.L.Default.style())
@@ -243,6 +269,20 @@ class ComposeButtonScreenshotTest(
     }
 
     @Test
+    fun testIconButtonXlDefault() {
+        composeTestRule.content {
+            IconButtonXlDefault(iconButtonStyle = IconButton.Xl.Default.style())
+        }
+    }
+
+    @Test
+    fun testIconButtonXxsDefault() {
+        composeTestRule.content {
+            IconButtonXxsDefault(iconButtonStyle = IconButton.Xxs.Default.style())
+        }
+    }
+
+    @Test
     fun testLinkButtonSizeLDefault() {
         composeTestRule.content {
             LinkButtonSizeLDefault(linkButtonStyle = LinkButton.L.Default.style())
@@ -288,6 +328,20 @@ class ComposeButtonScreenshotTest(
     fun testLinkButtonSizeXSNegative() {
         composeTestRule.content {
             LinkButtonSizeXSNegative(linkButtonStyle = LinkButton.Xs.Negative.style())
+        }
+    }
+
+    @Test
+    fun testLinkButtonSizeXlDefault() {
+        composeTestRule.content {
+            LinkButtonSizeXlDefault(linkButtonStyle = LinkButton.Xl.Default.style())
+        }
+    }
+
+    @Test
+    fun testLinkButtonSizeXxsDefault() {
+        composeTestRule.content {
+            LinkButtonSizeXxsDefault(linkButtonStyle = LinkButton.Xxs.Default.style())
         }
     }
 }

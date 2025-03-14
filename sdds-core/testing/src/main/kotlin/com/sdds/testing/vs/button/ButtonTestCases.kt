@@ -210,6 +210,19 @@ abstract class ButtonTestCases(mode: String) : RoborazziConfig(mode) {
             ),
         )
 
+    fun ComponentScope.buttonSizeXxsDefault(style: Int): Button =
+        basicButton(
+            context,
+            style,
+            ButtonUiState(
+                icon = ButtonIcon.Start,
+                buttonLabel = "Label",
+                buttonValue = "",
+                enabled = true,
+                loading = false,
+            ),
+        )
+
     fun ComponentScope.iconButtonLDefault(style: Int): IconButton =
         iconButton(
             context,

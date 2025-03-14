@@ -45,6 +45,8 @@ abstract class TextFieldTestCases(mode: String) : RoborazziConfig(mode) {
     abstract fun testTextFieldTBTACyrillic()
     abstract fun testTextFieldLDisabledOuterLabelStart()
 
+    abstract fun testTextFieldSuffixPrefixNoValue()
+
     fun ComponentScope.textFieldLDefaultInnerLeft(style: Int, colorState: ColorState): TextField =
         textField(
             context,
@@ -389,6 +391,45 @@ abstract class TextFieldTestCases(mode: String) : RoborazziConfig(mode) {
                 readOnly = false,
                 prefix = "",
                 suffix = "",
+                hasChips = false,
+            ),
+        )
+
+    fun ComponentScope.textFieldLSuffixPrefixNoValue(style: Int, colorState: ColorState): TextField =
+        textField(
+            context,
+            style,
+            colorState,
+            TextFieldUiState(
+                labelText = "Label",
+                valueText = "",
+                placeholderText = "Placeholder",
+                captionText = "Caption",
+                icon = true,
+                action = true,
+                readOnly = false,
+                prefix = "TB",
+                suffix = "TA",
+                hasChips = false,
+            ),
+        )
+
+    fun ComponentScope.textFieldXlDefault(style: Int, colorState: ColorState): TextField =
+        textField(
+            context,
+            style,
+            colorState,
+            TextFieldUiState(
+                labelText = "Label",
+                valueText = "Value",
+                placeholderText = "Placeholder",
+                captionText = "Caption",
+                prefix = "",
+                suffix = "",
+                icon = true,
+                action = true,
+                readOnly = false,
+                enabled = true,
                 hasChips = false,
             ),
         )

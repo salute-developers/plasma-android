@@ -181,6 +181,35 @@ fun ButtonSizeLWhite(style: ButtonStyle) {
 }
 
 /**
+ * PLASMA-T1936
+ */
+@Composable
+fun ButtonSizeXlDefault(style: ButtonStyle) {
+    Button(
+        style = style,
+        label = "Label",
+        enabled = true,
+        loading = false,
+        onClick = {},
+    )
+}
+
+/**
+ * PLASMA-T1936
+ */
+@Composable
+fun ButtonSizeXxsDefault(style: ButtonStyle) {
+    Button(
+        style = style,
+        icons = Button.Icons(start = painterResource(id = R.drawable.ic_plasma_16)),
+        label = "Label",
+        enabled = true,
+        loading = false,
+        onClick = {},
+    )
+}
+
+/**
  * PLASMA-T1396
  */
 @Composable
@@ -335,6 +364,34 @@ fun IconButtonLWhite(iconButtonStyle: ButtonStyle) {
 }
 
 /**
+ * PLASMA-T1937
+ */
+@Composable
+fun IconButtonXlDefault(iconButtonStyle: ButtonStyle) {
+    IconButton(
+        style = iconButtonStyle,
+        icon = painterResource(id = R.drawable.ic_plasma_24),
+        onClick = {},
+        enabled = true,
+        loading = false,
+    )
+}
+
+/**
+ * PLASMA-T1937
+ */
+@Composable
+fun IconButtonXxsDefault(iconButtonStyle: ButtonStyle) {
+    IconButton(
+        style = iconButtonStyle,
+        icon = painterResource(id = R.drawable.ic_plasma_16),
+        onClick = {},
+        enabled = true,
+        loading = false,
+    )
+}
+
+/**
  * PLASMA-T1466
  */
 @Composable
@@ -428,6 +485,35 @@ fun LinkButtonSizeSWarning(linkButtonStyle: ButtonStyle) {
 fun LinkButtonSizeXSNegative(linkButtonStyle: ButtonStyle) {
     Button(
         style = linkButtonStyle,
+        label = "Label",
+        enabled = true,
+        loading = false,
+        onClick = {},
+    )
+}
+
+/**
+ * PLASMA-T1938
+ */
+@Composable
+fun LinkButtonSizeXlDefault(linkButtonStyle: ButtonStyle) {
+    Button(
+        style = linkButtonStyle,
+        label = "Label",
+        enabled = true,
+        loading = false,
+        onClick = {},
+    )
+}
+
+/**
+ * PLASMA-T1941
+ */
+@Composable
+fun LinkButtonSizeXxsDefault(linkButtonStyle: ButtonStyle) {
+    Button(
+        style = linkButtonStyle,
+        icons = Button.Icons(end = painterResource(id = R.drawable.ic_plasma_16)),
         label = "Label",
         enabled = true,
         loading = false,

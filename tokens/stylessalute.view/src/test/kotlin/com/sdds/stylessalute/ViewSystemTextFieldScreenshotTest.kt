@@ -201,4 +201,14 @@ class ViewSystemTextFieldScreenshotTest(
             }
         }
     }
+
+    @Test
+    override fun testTextFieldSuffixPrefixNoValue() {
+        themedComponent {
+            textFieldLSuffixPrefixNoValue(
+                R.style.Salute_StylesSalute_ComponentOverlays_TextFieldL,
+                TextFieldColorState.DEFAULT,
+            )
+        }
+    }
 }

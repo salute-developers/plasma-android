@@ -177,4 +177,14 @@ class ViewSystemTextAreaScreenshotTest(
             )
         }
     }
+
+    @Test
+    fun testTextAreaXlDefault() {
+        themedComponent {
+            textAreaXlDefault(
+                R.style.Serv_Sdds_ComponentOverlays_TextAreaXl,
+                TextAreaColorState.DEFAULT,
+            )
+        }
+    }
 }

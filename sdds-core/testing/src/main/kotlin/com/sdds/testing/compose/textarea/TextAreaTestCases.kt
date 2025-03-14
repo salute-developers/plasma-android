@@ -24,7 +24,7 @@ import com.sdds.icons.R
  * Тест кейсы для TextArea, TextAreaClear
  */
 /**
- * PLASMA-1580
+ * PLASMA-T1580
  */
 @Composable
 fun TextAreaLDefaultInnerLeft(style: TextFieldStyle) {
@@ -52,7 +52,7 @@ fun TextAreaLDefaultInnerLeft(style: TextFieldStyle) {
 }
 
 /**
- * PLASMA-1918
+ * PLASMA-T1918
  */
 @Composable
 fun TextAreaMDefaultOuterOptional(style: TextFieldStyle) {
@@ -80,7 +80,7 @@ fun TextAreaMDefaultOuterOptional(style: TextFieldStyle) {
 }
 
 /**
- * PLASMA-1582
+ * PLASMA-T1582
  */
 @Composable
 fun TextAreaSWarningInnerRight(style: TextFieldStyle) {
@@ -102,7 +102,7 @@ fun TextAreaSWarningInnerRight(style: TextFieldStyle) {
 }
 
 /**
- * PLASMA-1583
+ * PLASMA-T1583
  */
 @Composable
 fun TextAreaXsErrorInnerOptional(style: TextFieldStyle) {
@@ -130,7 +130,7 @@ fun TextAreaXsErrorInnerOptional(style: TextFieldStyle) {
 }
 
 /**
- * PLASMA-1584
+ * PLASMA-T1584
  */
 @Composable
 fun TextAreaLReadOnly(style: TextFieldStyle) {
@@ -160,7 +160,7 @@ fun TextAreaLReadOnly(style: TextFieldStyle) {
 }
 
 /**
- * PLASMA-1585
+ * PLASMA-T1585
  */
 @Composable
 fun TextAreaMWarningInnerOptional(style: TextFieldStyle) {
@@ -182,7 +182,7 @@ fun TextAreaMWarningInnerOptional(style: TextFieldStyle) {
 }
 
 /**
- * PLASMA-1586
+ * PLASMA-T1586
  */
 @Composable
 fun TextAreaSDefaultInnerRight(style: TextFieldStyle) {
@@ -210,7 +210,7 @@ fun TextAreaSDefaultInnerRight(style: TextFieldStyle) {
 }
 
 /**
- * PLASMA-1919
+ * PLASMA-T1919
  */
 @Composable
 fun TextAreaXSDefaultOuterOptional(style: TextFieldStyle) {
@@ -238,7 +238,7 @@ fun TextAreaXSDefaultOuterOptional(style: TextFieldStyle) {
 }
 
 /**
- * PLASMA-1588
+ * PLASMA-T1588
  */
 @Composable
 fun TextAreaLDisabled(style: TextFieldStyle) {
@@ -266,7 +266,7 @@ fun TextAreaLDisabled(style: TextFieldStyle) {
 }
 
 /**
- * PLASMA-1589
+ * PLASMA-T1589
  */
 @Composable
 fun TextAreaMErrorOuterOptional(style: TextFieldStyle) {
@@ -288,7 +288,7 @@ fun TextAreaMErrorOuterOptional(style: TextFieldStyle) {
 }
 
 /**
- * PLASMA-1590
+ * PLASMA-T1590
  */
 @Composable
 fun TextAreaSWarningInnerRightFocused(style: TextFieldStyle) {
@@ -316,7 +316,7 @@ fun TextAreaSWarningInnerRightFocused(style: TextFieldStyle) {
 }
 
 /**
- * PLASMA-1591
+ * PLASMA-T1591
  */
 @Composable
 fun TextAreaMInnerOptionalChips(style: TextFieldStyle) {
@@ -364,7 +364,7 @@ fun TextAreaMInnerOptionalChips(style: TextFieldStyle) {
 }
 
 /**
- * PLASMA-1592
+ * PLASMA-T1592
  */
 @Composable
 fun TextAreaSDefaultOuterRightChips(style: TextFieldStyle) {
@@ -406,7 +406,7 @@ fun TextAreaSDefaultOuterRightChips(style: TextFieldStyle) {
 }
 
 /**
- * PLASMA-1219
+ * PLASMA-T1219
  */
 @Composable
 fun TextAreaSLongText(style: TextFieldStyle) {
@@ -447,7 +447,7 @@ fun TextAreaSLongText(style: TextFieldStyle) {
 }
 
 /**
- * PLASMA-1617
+ * PLASMA-T1617
  */
 @Composable
 fun TextAreaLDefaultTBTA(style: TextFieldStyle) {
@@ -663,4 +663,32 @@ fun TextAreaClearMErrorInnerRequiredStart(style: TextFieldStyle) {
             },
         )
     }
+}
+
+/**
+ * PLASMA-T1944
+ */
+@Composable
+fun TextAreaXlDefault(style: TextFieldStyle) {
+    var value by remember { mutableStateOf(TextFieldValue("Value")) }
+    TextField(
+        modifier = Modifier.fillMaxWidth(),
+        placeholderText = "Placeholder",
+        value = value,
+        style = style,
+        labelText = "Label",
+        optionalText = "Optional",
+        captionText = "Caption",
+        counterText = "Counter",
+        onValueChange = {},
+        readOnly = false,
+        focusSelectorMode = FocusSelectorMode.None,
+        enabled = true,
+        endContent = {
+            Icon(
+                painter = painterResource(id = R.drawable.ic_shazam_24),
+                contentDescription = "",
+            )
+        },
+    )
 }

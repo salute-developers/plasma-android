@@ -371,4 +371,25 @@ abstract class TextAreaTestCases(mode: String) : RoborazziConfig(mode) {
                 hasChips = false,
             ),
         )
+
+    fun ComponentScope.textAreaXlDefault(style: Int, colorState: ColorState): TextArea =
+        textArea(
+            context,
+            style,
+            colorState,
+            TextFieldUiState(
+                labelText = "Label",
+                valueText = "Value",
+                placeholderText = "Placeholder",
+                captionText = "Caption",
+                counterText = "Counter",
+                prefix = "",
+                suffix = "",
+                icon = false,
+                action = true,
+                enabled = true,
+                readOnly = false,
+                hasChips = false,
+            ),
+        )
 }

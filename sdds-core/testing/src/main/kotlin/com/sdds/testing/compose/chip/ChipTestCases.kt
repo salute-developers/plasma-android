@@ -47,12 +47,12 @@ fun ChipSizeMSecondaryPilled(style: ChipStyle) {
  * PLASMA-T1446
  */
 @Composable
-fun ChipSizeSAccentDisabled(style: ChipStyle) {
+fun ChipSizeSAccent(style: ChipStyle) {
     Chip(
         style = style,
         label = "Label",
         onClick = {},
-        enabled = false,
+        enabled = true,
     )
 }
 

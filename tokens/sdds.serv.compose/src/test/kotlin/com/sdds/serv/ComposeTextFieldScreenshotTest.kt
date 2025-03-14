@@ -18,6 +18,7 @@ import com.sdds.serv.styles.textfield.RequiredStart
 import com.sdds.serv.styles.textfield.S
 import com.sdds.serv.styles.textfield.Success
 import com.sdds.serv.styles.textfield.Warning
+import com.sdds.serv.styles.textfield.Xl
 import com.sdds.serv.styles.textfield.Xs
 import com.sdds.serv.styles.textfield.clear.Default
 import com.sdds.serv.styles.textfield.clear.Error
@@ -30,10 +31,12 @@ import com.sdds.serv.styles.textfield.clear.RequiredStart
 import com.sdds.serv.styles.textfield.clear.S
 import com.sdds.serv.styles.textfield.clear.Success
 import com.sdds.serv.styles.textfield.clear.Warning
+import com.sdds.serv.styles.textfield.clear.Xl
 import com.sdds.serv.styles.textfield.clear.Xs
 import com.sdds.testing.compose.RoborazziConfigCompose
 import com.sdds.testing.compose.textfield.TextFieldClearLDefaultInnerRequiredRight
 import com.sdds.testing.compose.textfield.TextFieldClearLErrorInnerOptional
+import com.sdds.testing.compose.textfield.TextFieldClearLErrorTBTA
 import com.sdds.testing.compose.textfield.TextFieldClearMErrorInnerRequiredLeft
 import com.sdds.testing.compose.textfield.TextFieldClearMWarningInnerRequiredLeft
 import com.sdds.testing.compose.textfield.TextFieldClearSDefaultOuterOptional
@@ -45,6 +48,7 @@ import com.sdds.testing.compose.textfield.TextFieldLInputText
 import com.sdds.testing.compose.textfield.TextFieldLSuccessRequiredLeftOuter
 import com.sdds.testing.compose.textfield.TextFieldLSuffixPrefix
 import com.sdds.testing.compose.textfield.TextFieldLSuffixPrefixCyrillic
+import com.sdds.testing.compose.textfield.TextFieldLSuffixPrefixNoValue
 import com.sdds.testing.compose.textfield.TextFieldMErrorOuterLabelOptional
 import com.sdds.testing.compose.textfield.TextFieldMSuccessInnerLabelChips
 import com.sdds.testing.compose.textfield.TextFieldMSuccessOuterLabel
@@ -55,6 +59,7 @@ import com.sdds.testing.compose.textfield.TextFieldSWarningInnerLabelRightFocuse
 import com.sdds.testing.compose.textfield.TextFieldWarningInnerRight
 import com.sdds.testing.compose.textfield.TextFieldXSErrorInner
 import com.sdds.testing.compose.textfield.TextFieldXSSuccessOuterLabelOptional
+import com.sdds.testing.compose.textfield.TextFieldXlDefault
 import com.sdds.testing.vs.SDK_NUMBER
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -240,6 +245,34 @@ class ComposeTextFieldScreenshotTest(
     fun testTextFieldLDisabledOuterLeft() {
         composeTestRule.content {
             TextFieldLDisabledOuterLeft(style = TextField.L.OuterLabel.RequiredStart.Default.style())
+        }
+    }
+
+    @Test
+    fun testTextFieldClearLErrorTBTA() {
+        composeTestRule.content {
+            TextFieldClearLErrorTBTA(style = TextFieldClear.L.RequiredStart.Error.style())
+        }
+    }
+
+    @Test
+    fun testTextFieldTBTANoValue() {
+        composeTestRule.content {
+            TextFieldLSuffixPrefixNoValue(style = TextField.L.Default.style())
+        }
+    }
+
+    @Test
+    fun testTextFieldXlDefault() {
+        composeTestRule.content {
+            TextFieldXlDefault(style = TextField.Xl.InnerLabel.Default.style())
+        }
+    }
+
+    @Test
+    fun testTextFieldClearXlDefault() {
+        composeTestRule.content {
+            TextFieldXlDefault(style = TextFieldClear.Xl.Default.style())
         }
     }
 }

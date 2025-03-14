@@ -34,6 +34,7 @@ import com.sdds.stylessalute.styles.textfield.clear.Xs
 import com.sdds.testing.compose.RoborazziConfigCompose
 import com.sdds.testing.compose.textfield.TextFieldClearLDefaultInnerRequiredRight
 import com.sdds.testing.compose.textfield.TextFieldClearLErrorInnerOptional
+import com.sdds.testing.compose.textfield.TextFieldClearLErrorTBTA
 import com.sdds.testing.compose.textfield.TextFieldClearMErrorInnerRequiredLeft
 import com.sdds.testing.compose.textfield.TextFieldClearMWarningInnerRequiredLeft
 import com.sdds.testing.compose.textfield.TextFieldClearSDefaultOuterOptional
@@ -45,6 +46,7 @@ import com.sdds.testing.compose.textfield.TextFieldLInputText
 import com.sdds.testing.compose.textfield.TextFieldLSuccessRequiredLeftOuter
 import com.sdds.testing.compose.textfield.TextFieldLSuffixPrefix
 import com.sdds.testing.compose.textfield.TextFieldLSuffixPrefixCyrillic
+import com.sdds.testing.compose.textfield.TextFieldLSuffixPrefixNoValue
 import com.sdds.testing.compose.textfield.TextFieldMErrorOuterLabelOptional
 import com.sdds.testing.compose.textfield.TextFieldMSuccessInnerLabelChips
 import com.sdds.testing.compose.textfield.TextFieldMSuccessOuterLabel
@@ -240,6 +242,20 @@ class ComposeTextFieldScreenshotTest(
     fun testTextFieldLDisabledOuterLeft() {
         composeTestRule.content {
             TextFieldLDisabledOuterLeft(style = TextField.L.OuterLabel.RequiredStart.Default.style())
+        }
+    }
+
+    @Test
+    fun testTextFieldClearLErrorTBTA() {
+        composeTestRule.content {
+            TextFieldClearLErrorTBTA(style = TextFieldClear.L.RequiredStart.Error.style())
+        }
+    }
+
+    @Test
+    fun testTextFieldTBTANoValue() {
+        composeTestRule.content {
+            TextFieldLSuffixPrefixNoValue(style = TextField.L.Default.style())
         }
     }
 }
