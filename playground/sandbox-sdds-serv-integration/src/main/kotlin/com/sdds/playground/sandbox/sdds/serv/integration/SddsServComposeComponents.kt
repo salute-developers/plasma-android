@@ -26,6 +26,7 @@ import com.sdds.playground.sandbox.sdds.serv.integration.indicator.compose.SddsS
 import com.sdds.playground.sandbox.sdds.serv.integration.progress.SddsServProgressVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.radiobox.SddsServRadioBoxVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.radiobox.group.SddsServRadioBoxGroupVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.segment.item.SddsServSegmentItemVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.switcher.SddsServSwitchVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.textarea.SddsServTextAreaVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.textarea.clear.SddsServTextAreaClearVariationsCompose
@@ -143,6 +144,10 @@ object SddsServComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey("TextAreaClear", CoreComponent.TEXT_AREA),
                 SddsServTextAreaClearVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.SegmentItem,
+                SddsServSegmentItemVariationsCompose,
             ),
         ).associateBy { it.key }
 }

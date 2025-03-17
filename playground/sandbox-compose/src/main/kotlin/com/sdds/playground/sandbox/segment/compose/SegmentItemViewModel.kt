@@ -3,20 +3,15 @@ package com.sdds.playground.sandbox.segment.compose
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.compose.uikit.SegmentItemStyle
-import com.sdds.playground.sandbox.Theme
 import com.sdds.playground.sandbox.core.compose.ComponentViewModel
 import com.sdds.playground.sandbox.core.compose.Property
 import com.sdds.playground.sandbox.core.compose.enumProperty
-import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
+import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 
 internal class SegmentItemViewModel(
     defaultState: SegmentItemUiState,
-    private val theme: Theme.ThemeInfoCompose,
-) : ComponentViewModel<SegmentItemUiState, SegmentItemStyle>(defaultState) {
-
-    override fun getStyleProvider(): ComposeStyleProvider<String, SegmentItemStyle> {
-        return theme.stylesProvider.segmentItem
-    }
+    componentKey: ComponentKey,
+) : ComponentViewModel<SegmentItemUiState, SegmentItemStyle>(defaultState, componentKey) {
 
     override fun SegmentItemUiState.toProps(): List<Property<*>> {
         return listOfNotNull(
@@ -75,11 +70,11 @@ internal class SegmentItemViewModel(
 
 internal class SegmentItemViewModelFactory(
     private val defaultState: SegmentItemUiState,
-    private val theme: Theme.ThemeInfoCompose,
+    private val componentKey: ComponentKey,
 ) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return SegmentItemViewModel(defaultState, theme) as T
+        return SegmentItemViewModel(defaultState, componentKey) as T
     }
 }
