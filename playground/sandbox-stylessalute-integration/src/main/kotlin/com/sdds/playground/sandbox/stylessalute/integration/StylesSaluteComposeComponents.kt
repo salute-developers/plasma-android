@@ -26,6 +26,7 @@ import com.sdds.playground.sandbox.stylessalute.integration.indicator.compose.St
 import com.sdds.playground.sandbox.stylessalute.integration.progress.StylesSaluteProgressVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.radiobox.StylesSaluteRadioBoxVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.radiobox.group.StylesSaluteRadioBoxGroupVariationsCompose
+import com.sdds.playground.sandbox.stylessalute.integration.segment.StylesSaluteSegmentVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.segment.item.StylesSaluteSegmentItemVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.switcher.StylesSaluteSwitchVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.textarea.StylesSaluteTextAreaVariationsCompose
@@ -148,6 +149,10 @@ object StylesSaluteComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.SegmentItem,
                 StylesSaluteSegmentItemVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.Segment,
+                StylesSaluteSegmentVariationsCompose,
             ),
         ).associateBy { it.key }
 }

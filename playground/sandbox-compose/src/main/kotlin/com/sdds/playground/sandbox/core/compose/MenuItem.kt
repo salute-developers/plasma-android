@@ -22,6 +22,7 @@ import com.sdds.playground.sandbox.progress.compose.ProgressScreen
 import com.sdds.playground.sandbox.radiobox.compose.RadioBoxScreen
 import com.sdds.playground.sandbox.radiobox.compose.group.RadioBoxGroupScreen
 import com.sdds.playground.sandbox.segment.compose.SegmentItemScreen
+import com.sdds.playground.sandbox.segment.compose.SegmentScreen
 import com.sdds.playground.sandbox.switcher.compose.SwitchScreen
 import com.sdds.playground.sandbox.textfield.compose.TextFieldScreen
 
@@ -71,6 +72,7 @@ internal sealed class ComponentScreen(
     object Indicator : ComponentScreen({ IndicatorScreen(it) })
     object Counter : ComponentScreen({ CounterScreen(it) })
     object SegmentItem : ComponentScreen({ SegmentItemScreen(it) })
+    object Segment : ComponentScreen({ SegmentScreen(it) })
 
     object Empty : ComponentScreen({})
 }
@@ -99,6 +101,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.TEXT_FIELD -> ComponentScreen.TextField
         CoreComponent.TEXT_AREA -> ComponentScreen.TextArea
         CoreComponent.SEGMENT_ITEM -> ComponentScreen.SegmentItem
+        CoreComponent.SEGMENT -> ComponentScreen.Segment
         else -> ComponentScreen.Empty
     }
 }

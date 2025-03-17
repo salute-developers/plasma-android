@@ -110,8 +110,8 @@ internal class SegmentComposeVariationGenerator(
 
     private fun SegmentProperties.hasDimensions(): Boolean {
         return paddingStart != null ||
-                paddingEnd != null ||
-                paddingTop != null ||
-                paddingBottom != null
+            paddingEnd != null ||
+            paddingTop != null ||
+            paddingBottom != null
     }
 }

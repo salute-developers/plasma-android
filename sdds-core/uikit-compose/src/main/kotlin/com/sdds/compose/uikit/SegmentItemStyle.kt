@@ -324,11 +324,16 @@ private class DefaultSegmentItemColors(
 
         override fun build(): SegmentItemColors {
             return DefaultSegmentItemColors(
-                backgroundColor = backgroundColor ?: Color.LightGray.asInteractive(),
-                labelColor = labelColor ?: Color.Black.asInteractive(),
-                valueColor = valueColor ?: Color.Gray.asInteractive(),
-                startContentColor = startContentColor ?: Color.DarkGray.asInteractive(),
-                endContentColor = endContentColor ?: Color.DarkGray.asInteractive(),
+                backgroundColor = backgroundColor
+                    ?: Color.LightGray.asInteractive(selected = Color.Black),
+                labelColor = labelColor
+                    ?: Color.Black.asInteractive(selected = Color.Gray),
+                valueColor = valueColor
+                    ?: Color.Gray.asInteractive(selected = Color.Gray),
+                startContentColor = startContentColor
+                    ?: Color.DarkGray.asInteractive(selected = Color.Gray),
+                endContentColor = endContentColor
+                    ?: Color.DarkGray.asInteractive(selected = Color.Gray),
             )
         }
     }
