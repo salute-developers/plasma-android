@@ -8,37 +8,37 @@
     <com.sdds.uikit.View
         android:layout_width="80dp"
         android:layout_height="28dp"
-        android:backgroundTint="?testingShapeTint"
-        app:sd_shapeAppearance="?testingShape"/>
+        android:backgroundTint="#4D4D4D"
+        app:sd_shapeAppearance="@style/Testing.Shape.Round"/>
 
     <com.sdds.uikit.View
         android:layout_width="175dp"
         android:layout_height="48dp"
-        android:backgroundTint="?testingShapeTint"
-        app:sd_shapeAppearance="?testingShape"/>
+        android:backgroundTint="#4D4D4D"
+        app:sd_shapeAppearance="@style/Testing.Shape.Round"/>
 
     <com.sdds.uikit.View
         android:layout_width="57dp"
         android:layout_height="20dp"
-        android:backgroundTint="?testingShapeTint"
-        app:sd_shapeAppearance="?testingShape"/>
+        android:backgroundTint="#4D4D4D"
+        app:sd_shapeAppearance="@style/Testing.Shape.Round"/>
 
     <com.sdds.uikit.View
         android:layout_width="124dp"
         android:layout_height="68dp"
-        android:backgroundTint="?testingShapeTint"
-        app:sd_shapeAppearance="?testingShape"/>
+        android:backgroundTint="#4D4D4D"
+        app:sd_shapeAppearance="@style/Testing.Shape.Round"/>
 
     <com.sdds.uikit.View
         android:layout_width="60dp"
         android:layout_height="48dp"
-        android:backgroundTint="?testingShapeTint"
-        app:sd_shapeAppearance="?testingShape"/>
+        android:backgroundTint="#4D4D4D"
+        app:sd_shapeAppearance="@style/Testing.Shape.Round"/>
 
     <com.sdds.uikit.View
         android:layout_width="76dp"
         android:layout_height="28dp"
-        android:backgroundTint="?testingShapeTint"
-        app:sd_shapeAppearance="?testingShape"/>
+        android:backgroundTint="#4D4D4D"
+        app:sd_shapeAppearance="@style/Testing.Shape.Round"/>
 
 </com.sdds.uikit.FlowLayout>
