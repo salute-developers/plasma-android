@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.ContextThemeWrapper
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import com.sdds.testing.R
 import com.sdds.testing.databinding.LayoutComponentFlowBinding
 import com.sdds.uikit.FlowLayout
 
@@ -19,6 +20,7 @@ fun flowLayout(
     return flowLayoutBinding(wrapper).root
         .applyState(state)
         .apply {
+            id = R.id.flow
             layoutParams = ViewGroup.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT,
