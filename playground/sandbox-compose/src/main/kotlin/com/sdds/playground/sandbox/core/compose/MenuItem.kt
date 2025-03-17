@@ -70,7 +70,7 @@ internal sealed class ComponentScreen(
     object ChipGroup : ComponentScreen({ ChipGroupScreen(it) })
     object Indicator : ComponentScreen({ IndicatorScreen(it) })
     object Counter : ComponentScreen({ CounterScreen(it) })
-    object SegmentItem: ComponentScreen({ SegmentItemScreen(it) })
+    object SegmentItem : ComponentScreen({ SegmentItemScreen(it) })
 
     object Empty : ComponentScreen({})
 }
@@ -98,6 +98,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.SWITCH -> ComponentScreen.Switch
         CoreComponent.TEXT_FIELD -> ComponentScreen.TextField
         CoreComponent.TEXT_AREA -> ComponentScreen.TextArea
+        CoreComponent.SEGMENT_ITEM -> ComponentScreen.SegmentItem
         else -> ComponentScreen.Empty
     }
 }

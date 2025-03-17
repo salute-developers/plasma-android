@@ -60,12 +60,15 @@ fun InteractionSource.collectIsSelectedAsState(): State<Boolean> {
  *
  * @param selected выбран ли компонент
  * @param enabled включен или выключен компонент
+ * @param deselectOnDisable должен ли компонент сбрасывать [selected]
+ * при переходе в состояние [enabled] == false.
  * @param interactionSource источник взаимодействий
  */
 @Suppress("LongMethod")
 fun Modifier.selection(
     selected: Boolean,
     enabled: Boolean = true,
+    deselectOnDisable: Boolean = false,
     interactionSource: MutableInteractionSource,
 ) = composed(
     inspectorInfo = debugInspectorInfo {
@@ -83,7 +86,7 @@ fun Modifier.selection(
         }
     }
     DisposableEffect(enabled) {
-        if (!enabled) {
+        if (!enabled && deselectOnDisable) {
             scope.launch {
                 selectInteraction.deselect(interactionSource)
             }

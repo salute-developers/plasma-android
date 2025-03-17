@@ -24,6 +24,7 @@ import com.sdds.playground.sandbox.plasma.stards.integration.indicator.StarDsInd
 import com.sdds.playground.sandbox.plasma.stards.integration.progress.StarDsProgressVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.radiobox.StarDsRadioBoxVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.radiobox.group.StarDsRadioBoxGroupVariationsCompose
+import com.sdds.playground.sandbox.plasma.stards.integration.segment.item.StarDsSegmentItemVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.switcher.StarDsSwitchVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.textarea.StarDsTextAreaVariationsCompose
 import com.sdds.playground.sandbox.plasma.stards.integration.textarea.clear.StarDsTextAreaClearVariationsCompose
@@ -133,6 +134,10 @@ object StarDsComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey("TextAreaClear", CoreComponent.TEXT_AREA),
                 StarDsTextAreaClearVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.SegmentItem,
+                StarDsSegmentItemVariationsCompose,
             ),
         ).associateBy { it.key }
 }
