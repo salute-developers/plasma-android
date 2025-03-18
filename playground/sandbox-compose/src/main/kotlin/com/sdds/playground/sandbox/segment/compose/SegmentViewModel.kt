@@ -23,8 +23,16 @@ internal class SegmentViewModel(
         return internalUiState.value.currentSelected == id
     }
 
+    @Suppress("LongMethod")
     override fun SegmentUiState.toProps(): List<Property<*>> {
         return listOfNotNull(
+            Property.IntProperty(
+                name = "amount",
+                value = amount,
+                onApply = {
+                    internalUiState.value = internalUiState.value.copy(amount = it)
+                },
+            ),
             enumProperty(
                 name = "orientation",
                 value = orientation,
@@ -47,17 +55,45 @@ internal class SegmentViewModel(
                 },
             ),
             Property.BooleanProperty(
-                name = "hasIcon",
-                value = hasIcon,
+                name = "enabled",
+                value = enabled,
                 onApply = {
-                    internalUiState.value = internalUiState.value.copy(hasIcon = it)
+                    internalUiState.value = internalUiState.value.copy(enabled = it)
+                },
+            ),
+            Property.StringProperty(
+                name = "label",
+                value = label,
+                onApply = {
+                    internalUiState.value = internalUiState.value.copy(label = it)
+                },
+            ),
+            Property.StringProperty(
+                name = "value",
+                value = value,
+                onApply = {
+                    internalUiState.value = internalUiState.value.copy(value = it)
                 },
             ),
             Property.BooleanProperty(
-                name = "hasCounter",
-                value = hasCounter,
+                name = "startIcon",
+                value = startIcon,
                 onApply = {
-                    internalUiState.value = internalUiState.value.copy(hasCounter = it)
+                    internalUiState.value = internalUiState.value.copy(startIcon = it)
+                },
+            ),
+            enumProperty(
+                name = "endContent",
+                value = endContent,
+                onApply = {
+                    internalUiState.value = internalUiState.value.copy(endContent = it)
+                },
+            ),
+            Property.StringProperty(
+                name = "count",
+                value = count,
+                onApply = {
+                    internalUiState.value = internalUiState.value.copy(count = it)
                 },
             ),
         )
