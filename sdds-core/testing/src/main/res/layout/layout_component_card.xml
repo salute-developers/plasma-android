@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.sdds.uikit.Card xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:sd_mainAxisGap="10dp"
+    app:sd_alignment="center">
+
+    <com.sdds.uikit.CardContent
+        android:id="@+id/card_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.sdds.uikit.ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/il_avatar_for_test"/>
+
+        <com.sdds.uikit.TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textColor="#fff"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="Content"/>
+
+    </com.sdds.uikit.CardContent>
+
+    <com.sdds.uikit.TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#aeaeae"
+        android:text="Title"/>
+</com.sdds.uikit.Card>

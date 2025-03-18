@@ -12,6 +12,7 @@ import com.sdds.playground.sandbox.badge.vs.IconBadgeFragment
 import com.sdds.playground.sandbox.buttons.vs.BasicButtonFragment
 import com.sdds.playground.sandbox.buttons.vs.IconButtonFragment
 import com.sdds.playground.sandbox.buttons.vs.LinkButtonFragment
+import com.sdds.playground.sandbox.card.vs.CardFragment
 import com.sdds.playground.sandbox.cell.vs.CellFragment
 import com.sdds.playground.sandbox.checkbox.vs.CheckBoxFragment
 import com.sdds.playground.sandbox.checkbox.vs.group.CheckBoxGroupFragment
@@ -151,6 +152,10 @@ internal sealed class ComponentScreen(
     object Flow : ComponentScreen(
         { item -> fragment<FlowFragment>(item.route, item.defaultBuilder) },
     )
+
+    object Card : ComponentScreen(
+        { item -> fragment<CardFragment>(item.route, item.defaultBuilder) },
+    )
 }
 
 @Suppress("CyclomaticComplexMethod")
@@ -179,6 +184,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.SEGMENT -> ComponentScreen.Segment
         CoreComponent.SEGMENT_ITEM -> ComponentScreen.SegmentItem
         CoreComponent.FLOW -> ComponentScreen.Flow
+        CoreComponent.CARD -> ComponentScreen.Card
     }
 }
 
@@ -208,5 +214,6 @@ private fun ComponentKey.routeId(): Int {
         CoreComponent.SEGMENT -> R.id.nav_segment
         CoreComponent.SEGMENT_ITEM -> R.id.nav_segment_item
         CoreComponent.FLOW -> R.id.nav_flow
+        CoreComponent.CARD -> R.id.nav_card
     } + hashCode()
 }

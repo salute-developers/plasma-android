@@ -16,6 +16,8 @@ import com.sdds.playground.sandbox.plasma.sd.service.integration.badge.icon.Plas
 import com.sdds.playground.sandbox.plasma.sd.service.integration.button.basic.PlasmaSdServiceBasicButtonVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.button.icon.PlasmaSdServiceIconButtonVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.button.link.PlasmaSdServiceLinkButtonVariationsView
+import com.sdds.playground.sandbox.plasma.sd.service.integration.card.vs.PlasmaSdServiceCardClearVariationsView
+import com.sdds.playground.sandbox.plasma.sd.service.integration.card.vs.PlasmaSdServiceCardSolidVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.cell.vs.PlasmaSdServiceCellVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.checkbox.PlasmaSdServiceCheckBoxVariationsView
 import com.sdds.playground.sandbox.plasma.sd.service.integration.checkbox.group.PlasmaSdServiceCheckBoxGroupVariationsView
@@ -83,6 +85,14 @@ object PlasmaSdServiceViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.LinkButton,
                 PlasmaSdServiceLinkButtonVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("CardSolid", CoreComponent.CARD),
+                PlasmaSdServiceCardSolidVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey("CardClear", CoreComponent.CARD),
+                PlasmaSdServiceCardClearVariationsView,
             ),
             ViewComponent(
                 ComponentKey.Cell,
