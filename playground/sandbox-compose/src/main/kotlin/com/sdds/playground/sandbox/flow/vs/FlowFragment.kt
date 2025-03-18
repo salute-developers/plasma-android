@@ -12,7 +12,7 @@ import com.sdds.uikit.FlowLayout
 
 /**
  * Фрагмент с компонентом FlowLayout
- * @author Малышев Александр on 14.10.2024
+ * @author Малышев Александр on 13.03.2025
  */
 internal class FlowFragment : ComponentFragment<FlowUiState, FlowLayout>() {
 

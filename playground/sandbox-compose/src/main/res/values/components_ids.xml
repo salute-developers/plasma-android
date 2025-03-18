@@ -22,6 +22,7 @@
     <item type="id" name="segment"/>
     <item type="id" name="segment_item"/>
     <item type="id" name="flow"/>
+    <item type="id" name="card"/>
 
     <item type="id" name="component_container_id"/>
 </resources>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Plasma.SdService.Components.CardClearContent" parent="Sdds.Components.CardContent"/>
+    <style name="Plasma.SdService.Components.CardClear" parent="Sdds.Components.Card">
+        <item name="android:backgroundTint">@color/plasma_card_clear_bg_color</item>
+    </style>
+    <style name="Plasma.SdService.Components.CardClearContent.L">
+        <item name="sd_shapeAppearance">?plasma_shapeRoundL</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CardClearContentL">
+        <item name="sd_cardContentStyle">@style/Plasma.SdService.Components.CardClearContent.L</item>
+    </style>
+    <style name="Plasma.SdService.Components.CardClear.L">
+        <item name="sd_shapeAppearance">?plasma_shapeRoundL</item>
+        <item name="android:paddingStart">@dimen/plasma_card_clear_l_padding_start</item>
+        <item name="android:paddingTop">@dimen/plasma_card_clear_l_padding_top</item>
+        <item name="android:paddingEnd">@dimen/plasma_card_clear_l_padding_end</item>
+        <item name="android:paddingBottom">@dimen/plasma_card_clear_l_padding_bottom</item>
+        <item name="android:theme">@style/Plasma.SdService.ComponentOverlays.CardClearContentL</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CardClearL">
+        <item name="sd_cardStyle">@style/Plasma.SdService.Components.CardClear.L</item>
+        <item name="sd_cardContentStyle">@style/Plasma.SdService.Components.CardClearContent.L</item>
+    </style>
+    <style name="Plasma.SdService.Components.CardClearContent.M">
+        <item name="sd_shapeAppearance">?plasma_shapeRoundL</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/plasma_card_clear_m_content_shape_adjustment</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CardClearContentM">
+        <item name="sd_cardContentStyle">@style/Plasma.SdService.Components.CardClearContent.M</item>
+    </style>
+    <style name="Plasma.SdService.Components.CardClear.M">
+        <item name="sd_shapeAppearance">?plasma_shapeRoundL</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/plasma_card_clear_m_shape_adjustment</item>
+        <item name="android:paddingStart">@dimen/plasma_card_clear_m_padding_start</item>
+        <item name="android:paddingTop">@dimen/plasma_card_clear_m_padding_top</item>
+        <item name="android:paddingEnd">@dimen/plasma_card_clear_m_padding_end</item>
+        <item name="android:paddingBottom">@dimen/plasma_card_clear_m_padding_bottom</item>
+        <item name="android:theme">@style/Plasma.SdService.ComponentOverlays.CardClearContentM</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CardClearM">
+        <item name="sd_cardStyle">@style/Plasma.SdService.Components.CardClear.M</item>
+        <item name="sd_cardContentStyle">@style/Plasma.SdService.Components.CardClearContent.M</item>
+    </style>
+    <style name="Plasma.SdService.Components.CardClearContent.S">
+        <item name="sd_shapeAppearance">?plasma_shapeRoundM</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CardClearContentS">
+        <item name="sd_cardContentStyle">@style/Plasma.SdService.Components.CardClearContent.S</item>
+    </style>
+    <style name="Plasma.SdService.Components.CardClear.S">
+        <item name="sd_shapeAppearance">?plasma_shapeRoundM</item>
+        <item name="android:paddingStart">@dimen/plasma_card_clear_s_padding_start</item>
+        <item name="android:paddingTop">@dimen/plasma_card_clear_s_padding_top</item>
+        <item name="android:paddingEnd">@dimen/plasma_card_clear_s_padding_end</item>
+        <item name="android:paddingBottom">@dimen/plasma_card_clear_s_padding_bottom</item>
+        <item name="android:theme">@style/Plasma.SdService.ComponentOverlays.CardClearContentS</item>
+    </style>
+    <style name="Plasma.SdService.ComponentOverlays.CardClearS">
+        <item name="sd_cardStyle">@style/Plasma.SdService.Components.CardClear.S</item>
+        <item name="sd_cardContentStyle">@style/Plasma.SdService.Components.CardClearContent.S</item>
+    </style>
+</resources>
