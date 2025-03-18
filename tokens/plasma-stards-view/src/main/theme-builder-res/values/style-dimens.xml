@@ -204,4 +204,21 @@
     <dimen name="sdkit_counter_xxs_padding_right">4.0dp</dimen>
     <dimen name="sdkit_counter_xxs_padding_top">0.0dp</dimen>
     <dimen name="sdkit_counter_xxs_padding_bottom">0.0dp</dimen>
+    <dimen name="sdkit_card_clear_padding_start">0.0dp</dimen>
+    <dimen name="sdkit_card_clear_padding_top">0.0dp</dimen>
+    <dimen name="sdkit_card_clear_padding_end">0.0dp</dimen>
+    <dimen name="sdkit_card_clear_padding_bottom">0.0dp</dimen>
+    <dimen name="sdkit_card_clear_fs_stroke_inset">0.0dp</dimen>
+    <dimen name="sdkit_card_clear_horizontal_s_content_min_width">360.0dp</dimen>
+    <dimen name="sdkit_card_clear_horizontal_s_content_min_height">212.0dp</dimen>
+    <dimen name="sdkit_card_clear_horizontal_xs_content_min_width">240.0dp</dimen>
+    <dimen name="sdkit_card_clear_horizontal_xs_content_min_height">136.0dp</dimen>
+    <dimen name="sdkit_card_clear_vertical_m_content_min_width">376.0dp</dimen>
+    <dimen name="sdkit_card_clear_vertical_m_content_min_height">572.0dp</dimen>
+    <dimen name="sdkit_card_clear_vertical_s_content_min_width">240.0dp</dimen>
+    <dimen name="sdkit_card_clear_vertical_s_content_min_height">360.0dp</dimen>
+    <dimen name="sdkit_card_clear_square_l_content_min_width">512.0dp</dimen>
+    <dimen name="sdkit_card_clear_square_l_content_min_height">512.0dp</dimen>
+    <dimen name="sdkit_card_clear_square_xs_content_min_width">240.0dp</dimen>
+    <dimen name="sdkit_card_clear_square_xs_content_min_height">240.0dp</dimen>
 </resources>

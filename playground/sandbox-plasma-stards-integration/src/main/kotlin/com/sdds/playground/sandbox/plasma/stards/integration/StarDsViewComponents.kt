@@ -8,7 +8,7 @@ import com.sdds.playground.sandbox.plasma.stards.integration.avatar.StarDsAvatar
 import com.sdds.playground.sandbox.plasma.stards.integration.avatar.group.StarDsAvatarGroupVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.button.basic.StarDsBasicButtonVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.button.icon.StarDsIconButtonVariationsView
-import com.sdds.playground.sandbox.plasma.stards.integration.button.link.StarDsLinkButtonVariationsView
+import com.sdds.playground.sandbox.plasma.stards.integration.card.vs.StarDsCardVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.cell.vs.StarDsCellVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.checkbox.StarDsCheckBoxVariationsView
 import com.sdds.playground.sandbox.plasma.stards.integration.checkbox.group.StarDsCheckBoxGroupVariationsView
@@ -50,8 +50,8 @@ object StarDsViewComponents : ComponentsProviderView {
                 StarDsIconButtonVariationsView,
             ),
             ViewComponent(
-                ComponentKey.LinkButton,
-                StarDsLinkButtonVariationsView,
+                ComponentKey.Card,
+                StarDsCardVariationsView,
             ),
             ViewComponent(
                 ComponentKey.Cell,

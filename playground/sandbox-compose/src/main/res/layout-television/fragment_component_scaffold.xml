@@ -12,7 +12,8 @@
         style="@style/Theme.Sandbox.Components.ComponentCanvas"
         android:id="@+id/component_canvas"
         android:layout_width="0dp"
-        android:layout_height="@dimen/sandbox_component_canvas_height"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toStartOf="@id/scaffoldGuidline"/>
