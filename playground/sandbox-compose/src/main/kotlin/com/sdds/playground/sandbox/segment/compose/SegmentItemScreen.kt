@@ -34,14 +34,12 @@ internal fun SegmentItemScreen(componentKey: ComponentKey = ComponentKey.Segment
                 label = uiState.label,
                 value = uiState.value,
                 startContent = content(
-                    enabled = uiState.enabled,
                     count = uiState.count,
                     contentType = uiState.startContent,
                     isSelected = uiState.selected,
                     interactionSource = interactionSource,
                 ),
                 endContent = content(
-                    enabled = uiState.enabled,
                     count = uiState.count,
                     contentType = uiState.endContent,
                     isSelected = uiState.selected,
@@ -55,7 +53,6 @@ internal fun SegmentItemScreen(componentKey: ComponentKey = ComponentKey.Segment
 }
 
 private fun content(
-    enabled: Boolean,
     count: String,
     contentType: SegmentItemContent,
     isSelected: Boolean,
@@ -72,7 +69,6 @@ private fun content(
                 SegmentItemContent.COUNTER -> Counter(
                     modifier = Modifier.selection(
                         selected = isSelected,
-                        enabled = enabled,
                         interactionSource = interactionSource,
                     ),
                     count = AnnotatedString(count),

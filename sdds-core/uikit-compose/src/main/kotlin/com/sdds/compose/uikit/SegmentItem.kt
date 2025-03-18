@@ -89,7 +89,6 @@ fun SegmentItem(
                         modifier = Modifier
                             .selection(
                                 selected = isSelected,
-                                enabled = enabled,
                                 interactionSource = interactionSource,
                             ),
                         count = AnnotatedString(counter),
@@ -141,7 +140,6 @@ fun SegmentItem(
             )
             .selection(
                 selected = isSelected,
-                enabled = enabled,
                 interactionSource = interactionSource,
             )
             .graphicsLayer { this.alpha = if (enabled) 1f else style.disabledAlpha }
