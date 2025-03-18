@@ -51,7 +51,7 @@ private fun startIcon(hasStartIcon: Boolean): Painter? {
 
 @Composable
 private fun endIcon(contentType: SegmentItemContent): Painter? {
-    return if (contentType == SegmentItemContent.ICON ) {
+    return if (contentType == SegmentItemContent.ICON) {
         painterResource(id = R.drawable.ic_scribble_diagonal_36)
     } else {
         null
