@@ -29,7 +29,7 @@ internal abstract class ViewVariationGenerator<PO : PropertyOwner>(
     outputResDir: File,
     resourcePrefix: String,
     coreComponentName: String,
-    private val styleComponentName: String = coreComponentName,
+    styleComponentName: String = coreComponentName,
     componentParent: String,
     viewColorStateGeneratorFactory: ViewColorStateGeneratorFactory,
     colorStateListGeneratorFactory: ColorStateListGeneratorFactory,
@@ -65,6 +65,13 @@ internal abstract class ViewVariationGenerator<PO : PropertyOwner>(
         variationNode: VariationNode<PO>,
     )
 
+    protected open fun onCreateOverlayStyle(
+        variation: String,
+        rootDocument: XmlResourcesDocumentBuilder,
+        styleElement: Element,
+        variationNode: VariationNode<PO>,
+    ) = Unit
+
     protected open fun createColorStateStyles(
         rootDocument: XmlResourcesDocumentBuilder,
         variationNode: VariationNode<PO>,
@@ -94,7 +101,13 @@ internal abstract class ViewVariationGenerator<PO : PropertyOwner>(
     ) {
         if (variations.isEmpty()) return
         variations.forEach { variationNode ->
-            variationStyle(variationNode.camelCaseName(), withOverlay = true) {
+            variationStyle(
+                variationNode.camelCaseName(),
+                withOverlay = true,
+                overlayContent = {
+                    onCreateOverlayStyle(variationNode.id.techToSnakeCase(), this@createVariations, this, variationNode)
+                },
+            ) {
                 onCreateStyle(variationNode.id.techToSnakeCase(), this@createVariations, this, variationNode)
             }
             createColorStateStyles(this, variationNode)

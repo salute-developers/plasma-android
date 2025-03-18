@@ -4,6 +4,7 @@ import com.sdds.plugin.themebuilder.internal.PackageResolver
 import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.components.badge.BadgeConfig
 import com.sdds.plugin.themebuilder.internal.components.button.ButtonConfig
+import com.sdds.plugin.themebuilder.internal.components.card.CardConfig
 import com.sdds.plugin.themebuilder.internal.components.cell.CellConfig
 import com.sdds.plugin.themebuilder.internal.components.counter.CounterConfig
 import com.sdds.plugin.themebuilder.internal.components.indicator.IndicatorConfig
@@ -137,6 +138,18 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
      */
     @get:InputFile
     abstract val segmentConfigFile: RegularFileProperty
+
+    /**
+     * Файл с конфигом Card
+     */
+    @get:InputFile
+    abstract val cardConfigFile: RegularFileProperty
+
+    /**
+     * Файл с конфигом CardClear
+     */
+    @get:InputFile
+    abstract val cardClearConfigFile: RegularFileProperty
 
     /**
      * Путь для сохранения kt-файлов токенов
@@ -326,6 +339,14 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
         componentStyleGeneratorFactory.createSegmentStyleGeneratorCompose()
     }
 
+    private val cardSolidStyleGeneratorView by unsafeLazy {
+        componentStyleGeneratorFactory.createCardStyleGeneratorView("CardSolid")
+    }
+
+    private val cardClearStyleGeneratorView by unsafeLazy {
+        componentStyleGeneratorFactory.createCardStyleGeneratorView("CardClear")
+    }
+
     private val basicButtonConfig: ButtonConfig by unsafeLazy {
         basicButtonConfigFile.get()
             .asFile
@@ -434,6 +455,18 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
             .decode(Serializer.componentConfig)
     }
 
+    private val cardConfig: CardConfig by unsafeLazy {
+        cardConfigFile.get()
+            .asFile
+            .decode(Serializer.componentConfig)
+    }
+
+    private val cardClearConfig: CardConfig by unsafeLazy {
+        cardClearConfigFile.get()
+            .asFile
+            .decode(Serializer.componentConfig)
+    }
+
     @TaskAction
     fun generate() {
         when (target.get()) {
@@ -477,5 +510,7 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
         textFieldStyleGeneratorView.generate(textFieldConfig)
         textAreaStyleGeneratorView.generate(textAreaConfig)
         counterStyleGeneratorView.generate(counterConfig)
+        cardSolidStyleGeneratorView.generate(cardConfig)
+        cardClearStyleGeneratorView.generate(cardClearConfig)
     }
 }

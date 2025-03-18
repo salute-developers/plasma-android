@@ -25,6 +25,7 @@
         <item name="bottomSheetDialogTheme">@style/Theme.Sandbox.ComponentOverlays.BottomSheetDialog</item>
         <item name="testingShape">@style/Serv.Sdds.Shape.Round.M</item>
         <item name="testingShapeTint">?serv_surfaceDefaultSolidTertiary</item>
+        <item name="sd_fsEnabled">true</item>
 
     </style>
 

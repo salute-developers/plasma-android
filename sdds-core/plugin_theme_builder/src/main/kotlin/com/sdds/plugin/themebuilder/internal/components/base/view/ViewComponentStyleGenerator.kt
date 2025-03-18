@@ -37,7 +37,7 @@ internal abstract class ViewComponentStyleGenerator<T : ComponentConfig>(
     private val outputResDir: File,
     private val resourcePrefix: String,
     private val coreComponentName: String,
-    private val styleComponentName: String = coreComponentName,
+    protected val styleComponentName: String = coreComponentName,
     private val componentParent: String,
     private val viewColorStateGeneratorFactory: ViewColorStateGeneratorFactory,
     private val colorStateListGeneratorFactory: ColorStateListGeneratorFactory,
@@ -47,7 +47,7 @@ internal abstract class ViewComponentStyleGenerator<T : ComponentConfig>(
     private val xmlResourceBuilder by unsafeLazy { xmlBuilderFactory.create() }
     private val dimenPrefix by unsafeLazy { styleComponentName.camelToSnakeCase() }
     private val snakeCaseStyleComponentName by unsafeLazy { styleComponentName.camelToSnakeCase() }
-    private val baseStyleName by unsafeLazy { "Components.${styleComponentName.capitalized()}" }
+    protected val baseStyleName by unsafeLazy { "Components.${styleComponentName.capitalized()}" }
     private val baseOverlayStyleName by unsafeLazy { "ComponentOverlays.${styleComponentName.capitalized()}" }
     private val colorStateAttributesGenerator by unsafeLazy {
         viewColorStateGeneratorFactory.create(coreComponentName)
@@ -100,7 +100,7 @@ internal abstract class ViewComponentStyleGenerator<T : ComponentConfig>(
         name: String,
         content: Element.() -> Unit,
     ) {
-        variationStyle(name, false, content)
+        variationStyle(name, withOverlay = false, content = content)
     }
 
     /**
@@ -110,6 +110,7 @@ internal abstract class ViewComponentStyleGenerator<T : ComponentConfig>(
     protected fun XmlResourcesDocumentBuilder.variationStyle(
         name: String,
         withOverlay: Boolean,
+        overlayContent: (Element.() -> Unit)? = null,
         content: Element.() -> Unit,
     ) {
         val styleName = "$baseStyleName.${name.capitalized()}"
@@ -118,6 +119,7 @@ internal abstract class ViewComponentStyleGenerator<T : ComponentConfig>(
         if (withOverlay) {
             overlayStyle(name) {
                 valueAttribute(defStyleAttr, resourceReferenceProvider.style(styleName))
+                overlayContent?.invoke(this)
             }
         }
     }
@@ -132,6 +134,23 @@ internal abstract class ViewComponentStyleGenerator<T : ComponentConfig>(
     ) {
         val normalizedName = name.techToCamelCase()
         appendStyleWithCompositePrefix("$base$normalizedName", content = content)
+    }
+
+    /**
+     * Добавляет стиль с названием [name], префиксом [base], родителем [parent] и контентом [content]
+     */
+    protected fun XmlResourcesDocumentBuilder.style(
+        name: String,
+        base: String? = baseStyleName,
+        parent: String? = null,
+        content: Element.() -> Unit,
+    ) {
+        val normalizedName = name.capitalized()
+        appendStyleWithCompositePrefix(
+            "${base.orEmpty()}$normalizedName",
+            styleParent = parent,
+            content = content,
+        )
     }
 
     /**

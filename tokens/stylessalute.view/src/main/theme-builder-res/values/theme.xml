@@ -1717,7 +1717,7 @@
         <item name="salute_typographyTextXsBold">@style/Salute.StylesSalute.Typography.TextXsBold</item>
 
         <item name="sd_disabledAlpha">0.4</item>
-        <item name="sd_fsMode">border</item>
+        <item name="sd_fsBorderMode">solid</item>
         <item name="sd_fsMainColor">?salute_surfaceDefaultAccent</item>
         <item name="sd_fsStrokeWidth">@dimen/sdds_spacer_0_5x</item>
         <item name="sd_fsStrokeInset">@dimen/sdds_spacer_1x</item>
@@ -3491,7 +3491,7 @@
         <item name="salute_typographyTextXsBold">@style/Salute.StylesSalute.Typography.TextXsBold</item>
 
         <item name="sd_disabledAlpha">0.4</item>
-        <item name="sd_fsMode">border</item>
+        <item name="sd_fsBorderMode">solid</item>
         <item name="sd_fsMainColor">?salute_surfaceDefaultAccent</item>
         <item name="sd_fsStrokeWidth">@dimen/sdds_spacer_0_5x</item>
         <item name="sd_fsStrokeInset">@dimen/sdds_spacer_1x</item>
