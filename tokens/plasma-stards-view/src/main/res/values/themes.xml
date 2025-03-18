@@ -30,7 +30,14 @@
         <item name="sd_cellStyle">@style/Sdkit.StarDs.Components.Cell.M</item>
         <item name="sd_disabledAlpha">0.4</item>
         <item name="sd_shapeAppearanceCircle">@style/Sdkit.StarDs.Shape.Round.Circle</item>
-        <item name="sd_fsMode">scale</item>
+        <item name="sd_fsScaleEnabled">true</item>
+        <item name="sd_fsScaleFactor">0.05</item>
+        <item name="sd_fsBorderMode">none</item>
+        <item name="sd_fsEnabled">true</item>
+        <item name="sd_fsMainColor">?colorPrimary</item>
+        <item name="sd_fsAdditionalColor">?sdkit_surfaceDefaultTransparentTertiary</item>
+        <item name="sd_fsStrokeInset">@dimen/sdkit_spacer_0_5x</item>
+        <item name="sd_fsStrokeWidth">@dimen/sdkit_spacer_0_5x</item>
     </style>
 
     <style name="Sdkit.AppTheme.Dialog" parent="Sdkit.StarDs.MaterialComponents.Dialog">
@@ -63,6 +70,13 @@
 
         <item name="sd_disabledAlpha">0.4</item>
         <item name="sd_shapeAppearanceCircle">@style/Sdkit.StarDs.Shape.Round.Circle</item>
-        <item name="sd_fsMode">scale</item>
+        <item name="sd_fsScaleEnabled">true</item>
+        <item name="sd_fsScaleFactor">0.05</item>
+        <item name="sd_fsBorderMode">none</item>
+        <item name="sd_fsEnabled">true</item>
+        <item name="sd_fsMainColor">?colorPrimary</item>
+        <item name="sd_fsAdditionalColor">?sdkit_surfaceDefaultTransparentTertiary</item>
+        <item name="sd_fsStrokeInset">@dimen/sdkit_spacer_0_5x</item>
+        <item name="sd_fsStrokeWidth">@dimen/sdkit_spacer_0_5x</item>
     </style>
 </resources>

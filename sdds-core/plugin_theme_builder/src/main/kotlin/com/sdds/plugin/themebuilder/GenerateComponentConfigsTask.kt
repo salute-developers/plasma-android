@@ -347,6 +347,14 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
         componentStyleGeneratorFactory.createSegmentStyleGeneratorCompose()
     }
 
+    private val cardSolidStyleGeneratorView by unsafeLazy {
+        componentStyleGeneratorFactory.createCardStyleGeneratorView("CardSolid")
+    }
+
+    private val cardClearStyleGeneratorView by unsafeLazy {
+        componentStyleGeneratorFactory.createCardStyleGeneratorView("CardClear")
+    }
+
     private val basicButtonConfig: ButtonConfig by unsafeLazy {
         basicButtonConfigFile.get()
             .asFile
@@ -512,5 +520,7 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
         textFieldStyleGeneratorView.generate(textFieldConfig)
         textAreaStyleGeneratorView.generate(textAreaConfig)
         counterStyleGeneratorView.generate(counterConfig)
+        cardSolidStyleGeneratorView.generate(cardConfig)
+        cardClearStyleGeneratorView.generate(cardClearConfig)
     }
 }

@@ -1,6 +1,7 @@
 package com.sdds.uikit.shape
 
 import android.content.Context
+import android.graphics.Path
 import android.graphics.RectF
 import android.graphics.drawable.shapes.RoundRectShape
 import android.graphics.drawable.shapes.Shape
@@ -8,6 +9,7 @@ import android.util.AttributeSet
 import androidx.annotation.StyleRes
 import com.sdds.uikit.R
 import com.sdds.uikit.shape.ShapeModel.Companion.adjust
+import com.sdds.uikit.shape.ShapeModel.CornerFamily
 
 /**
  * Модель, описывающая форму для [ShapeDrawable].
@@ -169,4 +171,29 @@ data class ShapeModel(
             )
         }
     }
+}
+
+/**
+ * Добавляет [ShapeModel] в [path]
+ */
+fun ShapeModel.toPath(bounds: RectF, path: Path) {
+//    if (cornerFamily != CornerFamily.ROUNDED) return
+    val topLeft = cornerSizeTopLeft.getSize(bounds)
+    val topRight = cornerSizeTopRight.getSize(bounds)
+    val bottomRight = cornerSizeBottomRight.getSize(bounds)
+    val bottomLeft = cornerSizeBottomLeft.getSize(bounds)
+    path.addRoundRect(
+        bounds,
+        floatArrayOf(
+            topLeft,
+            topLeft,
+            topRight,
+            topRight,
+            bottomRight,
+            bottomRight,
+            bottomLeft,
+            bottomLeft,
+        ),
+        Path.Direction.CW,
+    )
 }

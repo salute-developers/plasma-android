@@ -48,7 +48,7 @@
     <style name="Theme.Sandbox.Components.PropertyItem">
         <item name="android:backgroundTint">@color/bg_property_item</item>
         <item name="sd_shapeAppearance">?serv_shapeRoundXxs</item>
-        <item name="sd_fsMode">none</item>
+        <item name="sd_fsEnabled">false</item>
     </style>
 
     <style name="Theme.Sandbox.Components.PropertyItemLabel">
