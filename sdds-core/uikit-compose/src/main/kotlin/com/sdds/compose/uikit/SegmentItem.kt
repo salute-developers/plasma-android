@@ -75,10 +75,10 @@ fun SegmentItem(
                 endIcon?.let {
                     Icon(
                         modifier = Modifier
-                            .size(style.dimensions.startContentSize)
+                            .size(style.dimensions.endContentSize)
                             .defaultMinSize(
-                                minHeight = style.dimensions.startContentSize,
-                                minWidth = style.dimensions.startContentSize,
+                                minHeight = style.dimensions.endContentSize,
+                                minWidth = style.dimensions.endContentSize,
                             ),
                         painter = endIcon,
                         contentDescription = "",
