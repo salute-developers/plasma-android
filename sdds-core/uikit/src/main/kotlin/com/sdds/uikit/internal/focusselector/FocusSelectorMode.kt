@@ -6,6 +6,10 @@ import com.sdds.uikit.R
 /**
  * Режим работы селектора фокуса
  */
+@Deprecated(
+    "Use FocusSelectorBorderMode",
+    ReplaceWith("FocusSelectorBorderMode", "com.sdds.uikit.fs.FocusSelectorBorderMode"),
+)
 enum class FocusSelectorMode {
 
     /**
@@ -31,6 +35,7 @@ enum class FocusSelectorMode {
     /**
      * Масштабирование
      */
+    @Deprecated("Use sd_fsScaleEnabled")
     SCALE,
 
     ;
@@ -45,6 +50,13 @@ enum class FocusSelectorMode {
         /**
          * Возвращает true, если селектор фокуса включен
          */
+        @Deprecated(
+            "Use FocusSelectorBorderMode.isBorderEnabled()",
+            ReplaceWith(
+                "FocusSelectorBorderMode.isBorderEnabled()",
+                "com.sdds.uikit.fs.FocusSelectorBorderMode",
+            ),
+        )
         fun FocusSelectorMode.isEnabled(): Boolean = this != NONE
     }
 }

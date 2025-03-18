@@ -12,12 +12,15 @@ import android.graphics.Rect
 import android.graphics.RectF
 import android.graphics.Shader
 import android.graphics.drawable.Drawable
+import android.graphics.drawable.shapes.Shape
 import android.view.View
 import android.view.View.OnScrollChangeListener
 import com.sdds.uikit.R
 import com.sdds.uikit.colorFromAttr
 import com.sdds.uikit.internal.base.configure
 import com.sdds.uikit.shape.ShapeModel
+import com.sdds.uikit.shape.ShapeModel.Companion.adjust
+import com.sdds.uikit.shape.toPath
 
 /**
  * Drawable отрисовывающий контур фокусировки когда state_focused
@@ -32,6 +35,7 @@ internal class SelectorDrawable : Drawable, OnScrollChangeListener {
     private var scrollY: Float = 0f
     private val drawingRect = RectF()
     private var focused = false
+    private var shape: Shape? = null
 
     /*
      * отступ отрисовки селектора (внутрь)
@@ -57,17 +61,16 @@ internal class SelectorDrawable : Drawable, OnScrollChangeListener {
         } else {
             intArrayOf(mainColor)
         }
-        this.shapeModel = shapeModel
+        offset = strokeWidth / 2f + insets
+        this.shapeModel = shapeModel.adjust(-offset)
         borderPaint.strokeWidth = strokeWidth
-        offset = strokeWidth / 2f - insets
     }
 
     override fun draw(canvas: Canvas) {
         if (!focused) return
         canvas.save()
-        canvas.translate(scrollX, scrollY)
-        val cornerSize = shapeModel.cornerSizeTopLeft.getSize(drawingRect)
-        canvas.drawRoundRect(drawingRect, cornerSize, cornerSize, borderPaint)
+        canvas.translate(scrollX + drawingRect.left, scrollY + drawingRect.top)
+        shape?.draw(canvas, borderPaint)
         canvas.restore()
     }
 
@@ -84,14 +87,12 @@ internal class SelectorDrawable : Drawable, OnScrollChangeListener {
     override fun onBoundsChange(bounds: Rect) {
         super.onBoundsChange(bounds)
         drawingRect.set(bounds)
-        drawingRect.left += offset
-        drawingRect.top += offset
-        drawingRect.right -= offset
-        drawingRect.bottom -= offset
+        drawingRect.offset(-offset)
         shapePath.reset()
-        val cornerSize = shapeModel.cornerSizeTopLeft.getSize(drawingRect)
-        shapePath.addRoundRect(drawingRect, cornerSize, cornerSize, Path.Direction.CW)
+        shapeModel.toPath(drawingRect, shapePath)
         shapePath.close()
+        shape = shapeModel.getShape(drawingRect)
+        shape?.resize(drawingRect.width(), drawingRect.height())
         if (colors.size > 1) {
             borderPaint.shader = LinearGradient(
                 0f,
@@ -117,5 +118,14 @@ internal class SelectorDrawable : Drawable, OnScrollChangeListener {
     override fun onScrollChange(v: View?, scrollX: Int, scrollY: Int, oldScrollX: Int, oldScrollY: Int) {
         this.scrollX = scrollX.toFloat()
         this.scrollY = scrollY.toFloat()
+    }
+
+    private companion object {
+        fun RectF.offset(offset: Float) {
+            left += offset
+            top += offset
+            right -= offset
+            bottom -= offset
+        }
     }
 }

@@ -11,6 +11,7 @@ import com.sdds.plugin.themebuilder.internal.components.button.view.BasicButtonS
 import com.sdds.plugin.themebuilder.internal.components.button.view.IconButtonStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.components.button.view.LinkButtonStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.components.card.compose.CardComposeVariationGenerator
+import com.sdds.plugin.themebuilder.internal.components.card.vs.CardStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.components.cell.compose.CellComposeVariationGenerator
 import com.sdds.plugin.themebuilder.internal.components.counter.compose.CounterComposeVariationGenerator
 import com.sdds.plugin.themebuilder.internal.components.counter.view.CounterStyleGeneratorView
@@ -341,6 +342,17 @@ internal class ComponentStyleGeneratorFactory(
         createIconBadgeStyleGeneratorCompose(
             componentName = "icon_badge_transparent",
         )
+
+    fun createCardStyleGeneratorView(styleComponentName: String): CardStyleGeneratorView = CardStyleGeneratorView(
+        xmlBuilderFactory = xmlBuilderFactory,
+        resourceReferenceProvider = resourceReferenceProvider,
+        dimensAggregator = dimensAggregator,
+        outputResDir = outputResDir,
+        styleComponentName = styleComponentName,
+        resourcePrefix = resourcePrefixConfig.resourcePrefix,
+        viewColorStateGeneratorFactory = mViewColorStateGeneratorFactory,
+        colorStateListGeneratorFactory = colorStateListGeneratorFactory,
+    )
 
     private fun createIconBadgeStyleGeneratorCompose(
         componentName: String,

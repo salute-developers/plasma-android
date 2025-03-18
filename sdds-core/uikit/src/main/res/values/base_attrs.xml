@@ -9,12 +9,20 @@
         <enum name="animated_border" value="3" />
         <enum name="scale" value="4" />
     </attr>
+    <attr name="sd_fsBorderMode" format="enum">
+        <enum name="none" value="0" />
+        <enum name="solid" value="1" />
+        <enum name="gradient" value="2" />
+        <enum name="gradient_animated" value="3" />
+    </attr>
+    <attr name="sd_fsScaleEnabled" format="boolean"/>
     <attr name="sd_fsScaleFactor" format="float|fraction" />
     <attr name="sd_fsStrokeWidth" format="dimension" />
     <attr name="sd_fsStrokeInset" format="dimension" />
     <attr name="sd_fsShapeAppearance" format="reference" />
     <attr name="sd_fsShapeAdjustment" format="dimension" />
     <attr name="sd_fsDuplicateParentState" format="boolean"/>
+    <attr name="sd_fsEnabled" format="boolean"/>
 
     <attr name="sd_shapeAppearance" format="reference" />
     <attr name="sd_shaderAppearance" format="reference" />
@@ -102,8 +110,12 @@
         <attr name="sd_fsShapeAdjustment" />
         <attr name="sd_fsAdditionalColor" />
         <attr name="sd_fsMainColor" />
+        <!--@deprecated Use sd_fsBorderMode, sd_fsEnabled and sd_fsScaleEnabled -->
         <attr name="sd_fsMode"/>
+        <attr name="sd_fsBorderMode"/>
+        <attr name="sd_fsEnabled"/>
         <attr name="sd_fsScaleFactor" />
+        <attr name="sd_fsScaleEnabled" />
         <attr name="sd_fsStrokeWidth" />
         <attr name="sd_fsStrokeInset" />
         <attr name="sd_fsShapeAppearance" />

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Sdds.Components.Card">
+        <item name="android:orientation">vertical</item>
+        <item name="sd_crossAxisGap">0dp</item>
+        <item name="sd_mainAxisGap">0dp</item>
+        <item name="sd_alignment">start</item>
+        <item name="sd_arrangement">start</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clipChildren">false</item>
+        <item name="android:clipToPadding">false</item>
+    </style>
+
+    <style name="Sdds.Components.CardContent">
+        <item name="sd_clipToOutline">true</item>
+    </style>
+</resources>

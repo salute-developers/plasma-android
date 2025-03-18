@@ -15,12 +15,15 @@ import android.graphics.RectF
 import android.graphics.Shader
 import android.graphics.drawable.Animatable
 import android.graphics.drawable.Drawable
+import android.graphics.drawable.shapes.Shape
 import android.view.View
 import android.view.View.OnScrollChangeListener
 import android.view.animation.LinearInterpolator
 import com.sdds.uikit.R
 import com.sdds.uikit.colorFromAttr
 import com.sdds.uikit.shape.ShapeModel
+import com.sdds.uikit.shape.ShapeModel.Companion.adjust
+import com.sdds.uikit.shape.toPath
 import kotlin.math.max
 import kotlin.math.min
 
@@ -63,6 +66,7 @@ internal class AnimatedSelectorDrawable : Drawable, Animatable, OnScrollChangeLi
         }
     }
     private var focused = false
+    private var shape: Shape? = null
 
     /**
      * @param context контекст
@@ -79,10 +83,10 @@ internal class AnimatedSelectorDrawable : Drawable, Animatable, OnScrollChangeLi
     ) : super() {
         gradientColors = intArrayOf(mainColor, 0)
         borderPaint.color = additionalColor
-        this.shapeModel = shapeModel
         borderPaint.applyStroke(strokeWidth)
         animationPaint.applyStroke(strokeWidth)
-        offset = strokeWidth / 2f - insets
+        offset = strokeWidth / 2 + insets
+        this.shapeModel = shapeModel.adjust(-offset)
     }
 
     override fun start() {
@@ -99,7 +103,7 @@ internal class AnimatedSelectorDrawable : Drawable, Animatable, OnScrollChangeLi
     override fun draw(canvas: Canvas) {
         if (!focused) return
         canvas.save()
-        canvas.translate(scrollX, scrollY)
+        canvas.translate(scrollX + drawingRect.left, scrollY + drawingRect.top)
         drawShape(canvas, borderPaint)
         animationPaint.shader = shaders[0]
         drawShape(canvas, animationPaint)
@@ -125,11 +129,12 @@ internal class AnimatedSelectorDrawable : Drawable, Animatable, OnScrollChangeLi
     override fun onBoundsChange(bounds: Rect) {
         super.onBoundsChange(bounds)
         drawingRect.set(bounds)
-        drawingRect.offset(offset)
+        drawingRect.offset(-offset)
         shapePath.reset()
-        val cornerSize = shapeModel.cornerSizeTopLeft.getSize(drawingRect)
-        shapePath.addRoundRect(drawingRect, cornerSize, cornerSize, Path.Direction.CW)
+        shapeModel.toPath(drawingRect, shapePath)
         shapePath.close()
+        shape = shapeModel.getShape(drawingRect)
+        shape?.resize(drawingRect.width(), drawingRect.height())
         pathMeasure.setPath(shapePath, true)
         updateLineLength()
         val radius = lineLength / 2
@@ -165,8 +170,7 @@ internal class AnimatedSelectorDrawable : Drawable, Animatable, OnScrollChangeLi
     }
 
     private fun drawShape(canvas: Canvas, paint: Paint) {
-        val cornerSize = shapeModel.cornerSizeTopLeft.getSize(drawingRect)
-        canvas.drawRoundRect(drawingRect, cornerSize, cornerSize, paint)
+        shape?.draw(canvas, paint)
     }
 
     private fun Shader.updateShader(shaderStart: Float) {
