@@ -75,10 +75,10 @@ fun SegmentItem(
                 endIcon?.let {
                     Icon(
                         modifier = Modifier
-                            .size(style.dimensions.startContentSize)
+                            .size(style.dimensions.endContentSize)
                             .defaultMinSize(
-                                minHeight = style.dimensions.startContentSize,
-                                minWidth = style.dimensions.startContentSize,
+                                minHeight = style.dimensions.endContentSize,
+                                minWidth = style.dimensions.endContentSize,
                             ),
                         painter = endIcon,
                         contentDescription = "",
@@ -89,7 +89,6 @@ fun SegmentItem(
                         modifier = Modifier
                             .selection(
                                 selected = isSelected,
-                                enabled = enabled,
                                 interactionSource = interactionSource,
                             ),
                         count = AnnotatedString(counter),
@@ -141,7 +140,6 @@ fun SegmentItem(
             )
             .selection(
                 selected = isSelected,
-                enabled = enabled,
                 interactionSource = interactionSource,
             )
             .graphicsLayer { this.alpha = if (enabled) 1f else style.disabledAlpha }
@@ -210,8 +208,3 @@ private fun EndContent(
         ) { content.invoke() }
     }
 }
-
-/**
- * Вспомогательный объект для описания API и стиля компонента SegmentItem
- */
-object SegmentItem

@@ -1,7 +1,6 @@
 package com.sdds.playground.sandbox.plasma.sd.service.integration.segment.item
 
 import androidx.compose.runtime.Composable
-import com.sdds.compose.uikit.SegmentItem
 import com.sdds.compose.uikit.SegmentItemStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.plasma.sd.service.styles.segment.item.Accent
@@ -11,6 +10,7 @@ import com.sdds.plasma.sd.service.styles.segment.item.Pilled
 import com.sdds.plasma.sd.service.styles.segment.item.Primary
 import com.sdds.plasma.sd.service.styles.segment.item.S
 import com.sdds.plasma.sd.service.styles.segment.item.Secondary
+import com.sdds.plasma.sd.service.styles.segment.item.SegmentItem
 import com.sdds.plasma.sd.service.styles.segment.item.Xl
 import com.sdds.plasma.sd.service.styles.segment.item.Xs
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider

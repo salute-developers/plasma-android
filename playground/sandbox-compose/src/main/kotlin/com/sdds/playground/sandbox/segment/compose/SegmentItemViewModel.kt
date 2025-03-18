@@ -43,18 +43,11 @@ internal class SegmentItemViewModel(
                     internalUiState.value = internalUiState.value.copy(enabled = it)
                 },
             ),
-            Property.StringProperty(
-                name = "count",
-                value = count,
+            Property.BooleanProperty(
+                name = "startIcon",
+                value = startIcon,
                 onApply = {
-                    internalUiState.value = internalUiState.value.copy(count = it)
-                },
-            ),
-            enumProperty(
-                name = "startContent",
-                value = startContent,
-                onApply = {
-                    internalUiState.value = internalUiState.value.copy(startContent = it)
+                    internalUiState.value = internalUiState.value.copy(startIcon = it)
                 },
             ),
             enumProperty(
@@ -62,6 +55,13 @@ internal class SegmentItemViewModel(
                 value = endContent,
                 onApply = {
                     internalUiState.value = internalUiState.value.copy(endContent = it)
+                },
+            ),
+            Property.StringProperty(
+                name = "count",
+                value = count,
+                onApply = {
+                    internalUiState.value = internalUiState.value.copy(count = it)
                 },
             ),
         )

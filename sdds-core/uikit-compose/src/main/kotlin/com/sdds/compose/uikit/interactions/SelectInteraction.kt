@@ -59,22 +59,17 @@ fun InteractionSource.collectIsSelectedAsState(): State<Boolean> {
  * Используется в тех компонентах, чьи цвета [InteractiveColor] имеют selected состояние.
  *
  * @param selected выбран ли компонент
- * @param enabled включен или выключен компонент
- * @param deselectOnDisable должен ли компонент сбрасывать [selected]
  * при переходе в состояние [enabled] == false.
  * @param interactionSource источник взаимодействий
  */
 @Suppress("LongMethod")
 fun Modifier.selection(
     selected: Boolean,
-    enabled: Boolean = true,
-    deselectOnDisable: Boolean = false,
     interactionSource: MutableInteractionSource,
 ) = composed(
     inspectorInfo = debugInspectorInfo {
         name = "selection"
         properties["selected"] = selected
-        properties["enabled"] = enabled
         properties["interactionSource"] = interactionSource
     },
 ) {
@@ -85,25 +80,15 @@ fun Modifier.selection(
             selectInteraction.tryDeselect(interactionSource)
         }
     }
-    DisposableEffect(enabled) {
-        if (!enabled && deselectOnDisable) {
-            scope.launch {
+    LaunchedEffect(interactionSource, selected) {
+        if (selected) {
+            launch {
                 selectInteraction.deselect(interactionSource)
+                selectInteraction.select(interactionSource)
             }
-        }
-        onDispose { }
-    }
-    if (enabled) {
-        LaunchedEffect(interactionSource, selected) {
-            if (selected) {
-                launch {
-                    selectInteraction.deselect(interactionSource)
-                    selectInteraction.select(interactionSource)
-                }
-            } else {
-                launch {
-                    selectInteraction.deselect(interactionSource)
-                }
+        } else {
+            launch {
+                selectInteraction.deselect(interactionSource)
             }
         }
     }
