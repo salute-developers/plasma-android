@@ -39,7 +39,7 @@ class ViewSystemSegmentScreenshotTest(
                     .perform(click())
             },
         ) {
-            segmentSizeMPilled(R.style.Plasma_SdService_ComponentOverlays_SegmentMPrimaryPilled)
+            segmentSizeMPilled(R.style.Plasma_SdService_ComponentOverlays_SegmentMSecondaryPilled)
         }
     }
 

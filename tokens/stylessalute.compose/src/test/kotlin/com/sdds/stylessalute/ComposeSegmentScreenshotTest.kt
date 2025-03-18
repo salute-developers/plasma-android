@@ -1,20 +1,37 @@
 package com.sdds.stylessalute
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
-import com.sdds.compose.uikit.SegmentItem
 import com.sdds.compose.uikit.style.style
+import com.sdds.stylessalute.styles.segment.L
+import com.sdds.stylessalute.styles.segment.M
+import com.sdds.stylessalute.styles.segment.Pilled
+import com.sdds.stylessalute.styles.segment.Primary
+import com.sdds.stylessalute.styles.segment.S
+import com.sdds.stylessalute.styles.segment.Secondary
+import com.sdds.stylessalute.styles.segment.Segment
+import com.sdds.stylessalute.styles.segment.Xs
 import com.sdds.stylessalute.styles.segment.item.L
 import com.sdds.stylessalute.styles.segment.item.M
 import com.sdds.stylessalute.styles.segment.item.Pilled
 import com.sdds.stylessalute.styles.segment.item.Primary
 import com.sdds.stylessalute.styles.segment.item.S
 import com.sdds.stylessalute.styles.segment.item.Secondary
+import com.sdds.stylessalute.styles.segment.item.SegmentItem
 import com.sdds.stylessalute.styles.segment.item.Xs
 import com.sdds.testing.compose.RoborazziConfigCompose
+import com.sdds.testing.compose.segment.SegmentDisabled
+import com.sdds.testing.compose.segment.SegmentItemDisabled
 import com.sdds.testing.compose.segment.SegmentItemSizeLPrimary
 import com.sdds.testing.compose.segment.SegmentItemSizeMSecondaryPilled
 import com.sdds.testing.compose.segment.SegmentItemSizeS
 import com.sdds.testing.compose.segment.SegmentItemSizeXs
+import com.sdds.testing.compose.segment.SegmentSizeL
+import com.sdds.testing.compose.segment.SegmentSizeLCounter
+import com.sdds.testing.compose.segment.SegmentSizeMPilled
+import com.sdds.testing.compose.segment.SegmentSizeOrientationVertical
+import com.sdds.testing.compose.segment.SegmentSizeS
+import com.sdds.testing.compose.segment.SegmentSizeSStretch
+import com.sdds.testing.compose.segment.SegmentSizeXs
 import com.sdds.testing.vs.SDK_NUMBER
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -54,6 +71,69 @@ class ComposeSegmentScreenshotTest(
     fun testSegmentItemSizeXs() {
         composeTestRule.content {
             SegmentItemSizeXs(style = SegmentItem.Xs.Primary.style())
+        }
+    }
+
+    @Test
+    fun testSegmentItemDisabled() {
+        composeTestRule.content {
+            SegmentItemDisabled(style = SegmentItem.L.Primary.style())
+        }
+    }
+
+    @Test
+    fun testSegmentSizeL() {
+        composeTestRule.content {
+            SegmentSizeL(style = Segment.L.Primary.style())
+        }
+    }
+
+    @Test
+    fun testSegmentSizeM() {
+        composeTestRule.content {
+            SegmentSizeMPilled(style = Segment.M.Pilled.Secondary.style())
+        }
+    }
+
+    @Test
+    fun testSegmentSizeS() {
+        composeTestRule.content {
+            SegmentSizeS(style = Segment.S.Primary.style())
+        }
+    }
+
+    @Test
+    fun testSegmentSizeXs() {
+        composeTestRule.content {
+            SegmentSizeXs(style = Segment.Xs.Primary.style())
+        }
+    }
+
+    @Test
+    fun testSegmentOrientationVertical() {
+        composeTestRule.content {
+            SegmentSizeOrientationVertical(style = Segment.L.Primary.style())
+        }
+    }
+
+    @Test
+    fun testSegmentDisabled() {
+        composeTestRule.content {
+            SegmentDisabled(style = Segment.L.Primary.style())
+        }
+    }
+
+    @Test
+    fun testSegmentSizeSStretch() {
+        composeTestRule.content {
+            SegmentSizeSStretch(style = Segment.S.Primary.style())
+        }
+    }
+
+    @Test
+    fun testSegmentSizeLCounter() {
+        composeTestRule.content {
+            SegmentSizeLCounter(style = Segment.L.Primary.style())
         }
     }
 }
