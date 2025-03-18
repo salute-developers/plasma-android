@@ -1,7 +1,6 @@
 package com.sdds.playground.sandbox.plasma.stards.integration.segment
 
 import androidx.compose.runtime.Composable
-import com.sdds.compose.uikit.Segment
 import com.sdds.compose.uikit.SegmentStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
@@ -11,6 +10,7 @@ import com.sdkit.star.designsystem.styles.segment.Pilled
 import com.sdkit.star.designsystem.styles.segment.Primary
 import com.sdkit.star.designsystem.styles.segment.S
 import com.sdkit.star.designsystem.styles.segment.Secondary
+import com.sdkit.star.designsystem.styles.segment.Segment
 import com.sdkit.star.designsystem.styles.segment.Xl
 import com.sdkit.star.designsystem.styles.segment.Xs
 

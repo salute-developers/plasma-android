@@ -10,8 +10,6 @@ package com.sdkit.star.designsystem.styles.segment
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.dimensionResource
-import com.sdds.compose.uikit.Segment
-import com.sdds.compose.uikit.SegmentItem
 import com.sdds.compose.uikit.SegmentStyle
 import com.sdds.compose.uikit.SegmentStyleBuilder
 import com.sdds.compose.uikit.adjustBy
@@ -27,6 +25,7 @@ import com.sdkit.star.designsystem.styles.segment.item.Pilled
 import com.sdkit.star.designsystem.styles.segment.item.Primary
 import com.sdkit.star.designsystem.styles.segment.item.S
 import com.sdkit.star.designsystem.styles.segment.item.Secondary
+import com.sdkit.star.designsystem.styles.segment.item.SegmentItem
 import com.sdkit.star.designsystem.styles.segment.item.Xl
 import com.sdkit.star.designsystem.styles.segment.item.Xs
 import com.sdkit.star.designsystem.theme.StarDsTheme

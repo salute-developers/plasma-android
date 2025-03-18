@@ -147,8 +147,3 @@ private class SegmentScopeImpl : SegmentScope {
         _segmentItems.clear()
     }
 }
-
-/**
- * Вспомогательный объект для описания API и стиля компонента Segment
- */
-object Segment

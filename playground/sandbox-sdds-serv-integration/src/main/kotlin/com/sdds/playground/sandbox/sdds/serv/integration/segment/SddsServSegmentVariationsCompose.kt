@@ -1,7 +1,6 @@
 package com.sdds.playground.sandbox.sdds.serv.integration.segment
 
 import androidx.compose.runtime.Composable
-import com.sdds.compose.uikit.Segment
 import com.sdds.compose.uikit.SegmentStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
@@ -12,6 +11,7 @@ import com.sdds.serv.styles.segment.Pilled
 import com.sdds.serv.styles.segment.Primary
 import com.sdds.serv.styles.segment.S
 import com.sdds.serv.styles.segment.Secondary
+import com.sdds.serv.styles.segment.Segment
 import com.sdds.serv.styles.segment.Xl
 import com.sdds.serv.styles.segment.Xs
 

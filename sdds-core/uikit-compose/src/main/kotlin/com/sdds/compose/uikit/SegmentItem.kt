@@ -210,8 +210,3 @@ private fun EndContent(
         ) { content.invoke() }
     }
 }
-
-/**
- * Вспомогательный объект для описания API и стиля компонента SegmentItem
- */
-object SegmentItem

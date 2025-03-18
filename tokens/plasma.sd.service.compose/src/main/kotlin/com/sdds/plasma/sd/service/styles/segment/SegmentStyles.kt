@@ -10,8 +10,6 @@ package com.sdds.plasma.sd.service.styles.segment
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.uikit.Segment
-import com.sdds.compose.uikit.SegmentItem
 import com.sdds.compose.uikit.SegmentStyle
 import com.sdds.compose.uikit.SegmentStyleBuilder
 import com.sdds.compose.uikit.adjustBy
@@ -27,6 +25,7 @@ import com.sdds.plasma.sd.service.styles.segment.item.Pilled
 import com.sdds.plasma.sd.service.styles.segment.item.Primary
 import com.sdds.plasma.sd.service.styles.segment.item.S
 import com.sdds.plasma.sd.service.styles.segment.item.Secondary
+import com.sdds.plasma.sd.service.styles.segment.item.SegmentItem
 import com.sdds.plasma.sd.service.styles.segment.item.Xl
 import com.sdds.plasma.sd.service.styles.segment.item.Xs
 import com.sdds.plasma.sd.service.theme.PlasmaSdServiceTheme

@@ -1,7 +1,6 @@
 package com.sdds.playground.sandbox.stylessalute.integration.segment
 
 import androidx.compose.runtime.Composable
-import com.sdds.compose.uikit.Segment
 import com.sdds.compose.uikit.SegmentStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
@@ -11,6 +10,7 @@ import com.sdds.stylessalute.styles.segment.Pilled
 import com.sdds.stylessalute.styles.segment.Primary
 import com.sdds.stylessalute.styles.segment.S
 import com.sdds.stylessalute.styles.segment.Secondary
+import com.sdds.stylessalute.styles.segment.Segment
 import com.sdds.stylessalute.styles.segment.Xs
 
 internal object StylesSaluteSegmentVariationsCompose :
