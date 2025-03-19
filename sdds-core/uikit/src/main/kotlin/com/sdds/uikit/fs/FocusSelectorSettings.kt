@@ -2,6 +2,7 @@ package com.sdds.uikit.fs
 
 import android.content.Context
 import android.util.AttributeSet
+import androidx.core.content.res.use
 import com.sdds.uikit.R
 import com.sdds.uikit.internal.focusselector.FocusScaleAnimationHelper
 import com.sdds.uikit.internal.focusselector.FocusSelectorMode
