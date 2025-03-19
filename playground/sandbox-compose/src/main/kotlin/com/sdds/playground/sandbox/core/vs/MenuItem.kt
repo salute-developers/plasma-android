@@ -179,6 +179,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.SEGMENT -> ComponentScreen.Segment
         CoreComponent.SEGMENT_ITEM -> ComponentScreen.SegmentItem
         CoreComponent.FLOW -> ComponentScreen.Flow
+        else -> throw NoSuchElementException("Component not implemented")
     }
 }
 
@@ -208,5 +209,6 @@ private fun ComponentKey.routeId(): Int {
         CoreComponent.SEGMENT -> R.id.nav_segment
         CoreComponent.SEGMENT_ITEM -> R.id.nav_segment_item
         CoreComponent.FLOW -> R.id.nav_flow
+        else -> throw NoSuchElementException("Component not implemented")
     } + hashCode()
 }

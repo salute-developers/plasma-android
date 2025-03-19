@@ -115,6 +115,8 @@ class ThemeBuilderPlugin : Plugin<Project> {
                 textFieldClearConfigFile.set(getComponentConfigFile(ComponentConfig.TEXT_FIELD_CLEAR.fileName))
                 textAreaConfigFile.set(getComponentConfigFile(ComponentConfig.TEXT_AREA.fileName))
                 textAreaClearConfigFile.set(getComponentConfigFile(ComponentConfig.TEXT_AREA_CLEAR.fileName))
+                cardConfigFile.set(getComponentConfigFile(ComponentConfig.CARD_SOLID.fileName))
+                cardClearConfigFile.set(getComponentConfigFile(ComponentConfig.CARD_CLEAR.fileName))
                 cellConfigFile.set(getComponentConfigFile(ComponentConfig.CELL.fileName))
                 indicatorConfigFile.set(getComponentConfigFile(ComponentConfig.INDICATOR.fileName))
                 counterConfigFile.set(getComponentConfigFile(ComponentConfig.COUNTER.fileName))
@@ -382,6 +384,8 @@ class ThemeBuilderPlugin : Plugin<Project> {
             "fetchIconBadgeTransparentConfig",
         ),
         COUNTER("counter_config.json", "fetchCounterConfig"),
+        CARD_SOLID("card_solid_config.json", "fetchCardConfig"),
+        CARD_CLEAR("card_clear_config.json", "fetchCardClearConfig"),
         SEGMENT_ITEM("segment_item_config.json", "fetchSegmentItemConfig"),
         SEGMENT("segment_config.json", "fetchSegmentConfig"),
     }

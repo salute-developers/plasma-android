@@ -45,6 +45,7 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
     private val outputLocation: KtFileBuilder.OutputLocation,
     componentName: String,
     styleBuilderName: String? = null,
+    styleBuilderFactoryMethodName: String? = null,
 ) : ComponentStyleGenerator<Config<PO>> {
 
     private val componentXmlPrefix: String = componentName
@@ -53,7 +54,11 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
     private val generatedWrappers = mutableSetOf<String>()
 
     private val baseWrapperInterfaceName = "Wrapper$camelComponentName"
-    private val styleBuilderFactoryMethodName = "${camelComponentName.decapitalized()}Builder"
+    private val styleBuilderFactoryMethodName = if (styleBuilderFactoryMethodName == null) {
+        "${camelComponentName.decapitalized()}Builder"
+    } else {
+        "${styleBuilderFactoryMethodName.toCamelCase().decapitalized()}Builder"
+    }
 
     private val styleBuilderType: ClassName by unsafeLazy {
         ktFileBuilder.getInternalClassType(
@@ -110,15 +115,15 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
         """.trimIndent()
     }
 
-    protected fun getShape(shape: Shape, variationId: String): String {
+    protected fun getShape(shape: Shape, variationId: String, shapeName: String = "shape"): String {
         return if (ShapeToken.isCircle(shape.value)) {
             ktFileBuilder.addImport(
                 packageName = "androidx.compose.foundation.shape",
                 names = listOf("CircleShape"),
             )
-            ".shape(CircleShape)"
+            ".$shapeName(CircleShape)"
         } else {
-            ".shape($themeClassName.shapes.${shape.value.toKtAttrName()}${
+            ".$shapeName($themeClassName.shapes.${shape.value.toKtAttrName()}${
                 shape.shapeAdjustment(suffix = variationId)
             })"
         }

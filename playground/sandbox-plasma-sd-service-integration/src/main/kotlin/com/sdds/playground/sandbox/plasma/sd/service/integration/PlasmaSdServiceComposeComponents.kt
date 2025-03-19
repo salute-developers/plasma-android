@@ -16,6 +16,8 @@ import com.sdds.playground.sandbox.plasma.sd.service.integration.badge.icon.Plas
 import com.sdds.playground.sandbox.plasma.sd.service.integration.button.basic.PlasmaSdServiceBasicButtonVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.button.icon.PlasmaSdServiceIconButtonVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.button.link.PlasmaSdServiceLinkButtonVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.card.PlasmaSdServiceCardClearVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.card.PlasmaSdServiceCardSolidVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.cell.compose.PlasmaSdServiceCellVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.checkbox.PlasmaSdServiceCheckBoxVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.checkbox.group.PlasmaSdServiceCheckBoxGroupVariationsCompose
@@ -89,6 +91,14 @@ object PlasmaSdServiceComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.Cell,
                 PlasmaSdServiceCellVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("CardSolid", CoreComponent.CARD),
+                PlasmaSdServiceCardSolidVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("CardClear", CoreComponent.CARD),
+                PlasmaSdServiceCardClearVariationsCompose,
             ),
             ComposeComponent(
                 ComponentKey.CheckBox,

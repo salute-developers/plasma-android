@@ -126,6 +126,8 @@ data class ComponentKey(
         val IconButton = ComponentKey("IconButton", CoreComponent.ICON_BUTTON)
         val LinkButton = ComponentKey("LinkButton", CoreComponent.LINK_BUTTON)
 
+        val Card = ComponentKey("Card", CoreComponent.CARD)
+
         val Cell = ComponentKey("Cell", CoreComponent.CELL)
 
         val CheckBox = ComponentKey("CheckBox", CoreComponent.CHECKBOX)
@@ -165,6 +167,8 @@ enum class CoreComponent {
     BASIC_BUTTON,
     ICON_BUTTON,
     LINK_BUTTON,
+
+    CARD,
 
     CELL,
 
