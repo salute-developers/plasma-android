@@ -201,4 +201,24 @@ class ViewSystemTextFieldScreenshotTest(
             }
         }
     }
+
+    @Test
+    override fun testTextFieldSuffixPrefixNoValue() {
+        themedComponent {
+            textFieldLSuffixPrefixNoValue(
+                R.style.Plasma_SdService_ComponentOverlays_TextFieldL,
+                TextFieldColorState.DEFAULT,
+            )
+        }
+    }
+
+    @Test
+    fun testTextFieldXlDefault() {
+        themedComponent {
+            textFieldXlDefault(
+                R.style.Plasma_SdService_ComponentOverlays_TextFieldXlInnerLabel,
+                TextFieldColorState.DEFAULT,
+            )
+        }
+    }
 }

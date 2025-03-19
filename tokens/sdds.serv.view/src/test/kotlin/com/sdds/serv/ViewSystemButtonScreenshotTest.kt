@@ -94,6 +94,20 @@ class ViewSystemButtonScreenshotTest(
     }
 
     @Test
+    fun testButtonSizeXlDefault() {
+        themedComponent {
+            buttonSizeLDefault(R.style.Serv_Sdds_ComponentOverlays_BasicButtonXlDefault)
+        }
+    }
+
+    @Test
+    fun testButtonSizeXxsDefault() {
+        themedComponent {
+            buttonSizeXxsDefault(R.style.Serv_Sdds_ComponentOverlays_BasicButtonXxsDefault)
+        }
+    }
+
+    @Test
     override fun testIconButtonLDefault() {
         themedComponent {
             iconButtonLDefault(R.style.Serv_Sdds_ComponentOverlays_IconButtonLDefault)
@@ -171,6 +185,20 @@ class ViewSystemButtonScreenshotTest(
     }
 
     @Test
+    fun testIconButtonXlDefault() {
+        themedComponent {
+            iconButtonLDefault(R.style.Serv_Sdds_ComponentOverlays_IconButtonXlDefault)
+        }
+    }
+
+    @Test
+    fun testIconButtonXxsDefault() {
+        themedComponent {
+            iconButtonLDefault(R.style.Serv_Sdds_ComponentOverlays_IconButtonXxsDefault)
+        }
+    }
+
+    @Test
     override fun testLinkButtonLDefault() {
         themedComponent {
             linkButtonLDefault(R.style.Serv_Sdds_ComponentOverlays_LinkButtonLDefault)
@@ -216,6 +244,20 @@ class ViewSystemButtonScreenshotTest(
     override fun testLinkButtonXsNegative() {
         themedComponent {
             linkButtonXsNegative(R.style.Serv_Sdds_ComponentOverlays_LinkButtonXsNegative)
+        }
+    }
+
+    @Test
+    fun testLinkButtonXlDefault() {
+        themedComponent {
+            linkButtonLDefault(R.style.Serv_Sdds_ComponentOverlays_LinkButtonXlDefault)
+        }
+    }
+
+    @Test
+    fun testLinkButtonXxsDefault() {
+        themedComponent {
+            linkButtonLDefault(R.style.Serv_Sdds_ComponentOverlays_LinkButtonXxsDefault)
         }
     }
 }

@@ -13,11 +13,14 @@ import com.sdds.uikit.ChipGroup
 abstract class ChipTestCases(mode: String) : RoborazziConfig(mode) {
 
     abstract fun testChipLDefault()
+
     abstract fun testChipMSecondary()
 
-    abstract fun testChipSDisabled()
+    abstract fun testChipSAccent()
 
     abstract fun testChipXsDefault()
+
+    abstract fun testChipDisabled()
 
     abstract fun testChipGroupLDefault()
 
@@ -57,7 +60,7 @@ abstract class ChipTestCases(mode: String) : RoborazziConfig(mode) {
             ),
         )
 
-    fun ComponentScope.chipSDisabled(style: Int): Chip =
+    fun ComponentScope.chipSAccent(style: Int): Chip =
         chip(
             context,
             style,
@@ -65,7 +68,7 @@ abstract class ChipTestCases(mode: String) : RoborazziConfig(mode) {
                 label = "Label",
                 contentLeft = false,
                 hasClose = false,
-                enabled = false,
+                enabled = true,
             ),
         )
 
@@ -78,6 +81,18 @@ abstract class ChipTestCases(mode: String) : RoborazziConfig(mode) {
                 contentLeft = true,
                 hasClose = false,
                 enabled = true,
+            ),
+        )
+
+    fun ComponentScope.chipDisabled(style: Int): Chip =
+        chip(
+            context,
+            style,
+            ChipUiState(
+                label = "Label",
+                contentLeft = false,
+                hasClose = true,
+                enabled = false,
             ),
         )
 
