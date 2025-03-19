@@ -32,6 +32,7 @@ import com.sdds.compose.uikit.LocalIconButtonStyle
 import com.sdds.compose.uikit.LocalProgressBarStyle
 import com.sdds.compose.uikit.LocalRadioBoxGroupStyle
 import com.sdds.compose.uikit.LocalRadioBoxStyle
+import com.sdds.compose.uikit.LocalSegmentItemStyle
 import com.sdds.compose.uikit.LocalSwitchStyle
 import com.sdds.compose.uikit.LocalTextFieldStyle
 import com.sdds.compose.uikit.ProgressBar
@@ -70,6 +71,9 @@ import com.sdds.serv.styles.chip.M
 import com.sdds.serv.styles.progress.Default
 import com.sdds.serv.styles.radiobox.M
 import com.sdds.serv.styles.radiobox.group.M
+import com.sdds.serv.styles.segment.item.M
+import com.sdds.serv.styles.segment.item.Primary
+import com.sdds.serv.styles.segment.item.SegmentItem
 import com.sdds.serv.styles.switcher.M
 import com.sdds.serv.styles.textfield.Default
 import com.sdds.serv.styles.textfield.M
@@ -123,6 +127,7 @@ fun SandboxTheme(
                     borderStroke = BorderStroke(1.dp, colorScheme.surfaceDefaultAccent),
                     strokePadding = 2.dp,
                 ),
+                LocalSegmentItemStyle provides SegmentItem.M.Primary.style(),
                 LocalSwitchStyle provides Switch.M.style(),
                 LocalButtonStyle provides BasicButton.M.Default.style(),
                 LocalIconButtonStyle provides IconButton.M.Default.style(),

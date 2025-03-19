@@ -126,6 +126,10 @@ class ThemeBuilderPlugin : Plugin<Project> {
                 iconBadgeTransparentConfigFile.set(
                     getComponentConfigFile(ComponentConfig.ICON_BADGE_TRANSPARENT.fileName),
                 )
+                segmentItemConfigFile.set(
+                    getComponentConfigFile(ComponentConfig.SEGMENT_ITEM.fileName),
+                )
+                segmentConfigFile.set(getComponentConfigFile(ComponentConfig.SEGMENT.fileName))
                 outputDirPath.set(extension.outputLocation.getSourcePath())
                 outputResDirPath.set(extension.outputLocation.getResourcePath())
                 packageName.set(extension.ktPackage ?: DEFAULT_KT_PACKAGE)
@@ -378,6 +382,8 @@ class ThemeBuilderPlugin : Plugin<Project> {
             "fetchIconBadgeTransparentConfig",
         ),
         COUNTER("counter_config.json", "fetchCounterConfig"),
+        SEGMENT_ITEM("segment_item_config.json", "fetchSegmentItemConfig"),
+        SEGMENT("segment_config.json", "fetchSegmentConfig"),
     }
 
     private companion object {

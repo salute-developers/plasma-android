@@ -2,6 +2,7 @@
 @file:Suppress(
     "UndocumentedPublicClass",
     "UndocumentedPublicProperty",
+    "ktlint:standard:max-line-length",
 )
 
 package com.sdds.stylessalute.styles.badge.icon
@@ -21,86 +22,92 @@ import kotlin.Suppress
 import kotlin.jvm.JvmInline
 import kotlin.jvm.JvmName
 
+/**
+ * Базовый интерфейс для всех оберток этого стиля
+ */
 public interface WrapperIconBadgeClear : BuilderWrapper<BadgeStyle, IconBadgeStyleBuilder>
 
+/**
+ * Интерфейс, который реализуют все обертки вариаций корневого уровня
+ * и обертки их подвариаций.
+ * Является ресивером для extension-функций view,
+ * применимых к этим оберткам.
+ */
 public interface WrapperIconBadgeClearView : WrapperIconBadgeClear
 
+/**
+ * Терминальная обертка
+ */
 @JvmInline
-public value class WrapperIconBadgeClearDefaultViewTerminate(
+public value class WrapperIconBadgeClearTerminate(
     public override val builder: IconBadgeStyleBuilder,
 ) : WrapperIconBadgeClear
 
-@JvmInline
-public value class WrapperIconBadgeClearAccentViewTerminate(
-    public override val builder: IconBadgeStyleBuilder,
-) : WrapperIconBadgeClear
-
-@JvmInline
-public value class WrapperIconBadgeClearNegativeViewTerminate(
-    public override val builder: IconBadgeStyleBuilder,
-) : WrapperIconBadgeClear
-
-@JvmInline
-public value class WrapperIconBadgeClearPositiveViewTerminate(
-    public override val builder: IconBadgeStyleBuilder,
-) : WrapperIconBadgeClear
-
-@JvmInline
-public value class WrapperIconBadgeClearWarningViewTerminate(
-    public override val builder: IconBadgeStyleBuilder,
-) : WrapperIconBadgeClear
-
-@JvmInline
-public value class WrapperIconBadgeClearDarkViewTerminate(
-    public override val builder: IconBadgeStyleBuilder,
-) : WrapperIconBadgeClear
-
-@JvmInline
-public value class WrapperIconBadgeClearLightViewTerminate(
-    public override val builder: IconBadgeStyleBuilder,
-) : WrapperIconBadgeClear
-
+/**
+ * Обертка для вариации L
+ */
 @JvmInline
 public value class WrapperIconBadgeClearL(
     public override val builder: IconBadgeStyleBuilder,
 ) : WrapperIconBadgeClearView
 
+/**
+ * Обертка для вариации LPilled
+ */
 @JvmInline
 public value class WrapperIconBadgeClearLPilled(
     public override val builder: IconBadgeStyleBuilder,
 ) : WrapperIconBadgeClearView
 
+/**
+ * Обертка для вариации M
+ */
 @JvmInline
 public value class WrapperIconBadgeClearM(
     public override val builder: IconBadgeStyleBuilder,
 ) : WrapperIconBadgeClearView
 
+/**
+ * Обертка для вариации MPilled
+ */
 @JvmInline
 public value class WrapperIconBadgeClearMPilled(
     public override val builder: IconBadgeStyleBuilder,
 ) : WrapperIconBadgeClearView
 
+/**
+ * Обертка для вариации S
+ */
 @JvmInline
 public value class WrapperIconBadgeClearS(
     public override val builder: IconBadgeStyleBuilder,
 ) : WrapperIconBadgeClearView
 
+/**
+ * Обертка для вариации SPilled
+ */
 @JvmInline
 public value class WrapperIconBadgeClearSPilled(
     public override val builder: IconBadgeStyleBuilder,
 ) : WrapperIconBadgeClearView
 
+/**
+ * Обертка для вариации Xs
+ */
 @JvmInline
 public value class WrapperIconBadgeClearXs(
     public override val builder: IconBadgeStyleBuilder,
 ) : WrapperIconBadgeClearView
 
+/**
+ * Обертка для вариации XsPilled
+ */
 @JvmInline
 public value class WrapperIconBadgeClearXsPilled(
     public override val builder: IconBadgeStyleBuilder,
 ) : WrapperIconBadgeClearView
 
-public val WrapperIconBadgeClearView.Default: WrapperIconBadgeClearDefaultViewTerminate
+public val WrapperIconBadgeClearView.Default: WrapperIconBadgeClearTerminate
     @Composable
     get() = builder
         .colors {
@@ -108,9 +115,9 @@ public val WrapperIconBadgeClearView.Default: WrapperIconBadgeClearDefaultViewTe
                 StylesSaluteTheme.colors.textDefaultPrimary.asInteractive(),
             )
         }
-        .wrap(::WrapperIconBadgeClearDefaultViewTerminate)
+        .wrap(::WrapperIconBadgeClearTerminate)
 
-public val WrapperIconBadgeClearView.Accent: WrapperIconBadgeClearAccentViewTerminate
+public val WrapperIconBadgeClearView.Accent: WrapperIconBadgeClearTerminate
     @Composable
     get() = builder
         .colors {
@@ -118,9 +125,9 @@ public val WrapperIconBadgeClearView.Accent: WrapperIconBadgeClearAccentViewTerm
                 StylesSaluteTheme.colors.textDefaultAccentMain.asInteractive(),
             )
         }
-        .wrap(::WrapperIconBadgeClearAccentViewTerminate)
+        .wrap(::WrapperIconBadgeClearTerminate)
 
-public val WrapperIconBadgeClearView.Negative: WrapperIconBadgeClearNegativeViewTerminate
+public val WrapperIconBadgeClearView.Negative: WrapperIconBadgeClearTerminate
     @Composable
     get() = builder
         .colors {
@@ -128,9 +135,9 @@ public val WrapperIconBadgeClearView.Negative: WrapperIconBadgeClearNegativeView
                 StylesSaluteTheme.colors.textDefaultNegative.asInteractive(),
             )
         }
-        .wrap(::WrapperIconBadgeClearNegativeViewTerminate)
+        .wrap(::WrapperIconBadgeClearTerminate)
 
-public val WrapperIconBadgeClearView.Positive: WrapperIconBadgeClearPositiveViewTerminate
+public val WrapperIconBadgeClearView.Positive: WrapperIconBadgeClearTerminate
     @Composable
     get() = builder
         .colors {
@@ -138,9 +145,9 @@ public val WrapperIconBadgeClearView.Positive: WrapperIconBadgeClearPositiveView
                 StylesSaluteTheme.colors.textDefaultPositive.asInteractive(),
             )
         }
-        .wrap(::WrapperIconBadgeClearPositiveViewTerminate)
+        .wrap(::WrapperIconBadgeClearTerminate)
 
-public val WrapperIconBadgeClearView.Warning: WrapperIconBadgeClearWarningViewTerminate
+public val WrapperIconBadgeClearView.Warning: WrapperIconBadgeClearTerminate
     @Composable
     get() = builder
         .colors {
@@ -148,9 +155,9 @@ public val WrapperIconBadgeClearView.Warning: WrapperIconBadgeClearWarningViewTe
                 StylesSaluteTheme.colors.textDefaultWarning.asInteractive(),
             )
         }
-        .wrap(::WrapperIconBadgeClearWarningViewTerminate)
+        .wrap(::WrapperIconBadgeClearTerminate)
 
-public val WrapperIconBadgeClearView.Dark: WrapperIconBadgeClearDarkViewTerminate
+public val WrapperIconBadgeClearView.Dark: WrapperIconBadgeClearTerminate
     @Composable
     get() = builder
         .colors {
@@ -158,9 +165,9 @@ public val WrapperIconBadgeClearView.Dark: WrapperIconBadgeClearDarkViewTerminat
                 StylesSaluteTheme.colors.textOnDarkPrimary.asInteractive(),
             )
         }
-        .wrap(::WrapperIconBadgeClearDarkViewTerminate)
+        .wrap(::WrapperIconBadgeClearTerminate)
 
-public val WrapperIconBadgeClearView.Light: WrapperIconBadgeClearLightViewTerminate
+public val WrapperIconBadgeClearView.Light: WrapperIconBadgeClearTerminate
     @Composable
     get() = builder
         .colors {
@@ -168,7 +175,7 @@ public val WrapperIconBadgeClearView.Light: WrapperIconBadgeClearLightViewTermin
                 StylesSaluteTheme.colors.textOnDarkPrimary.asInteractive(),
             )
         }
-        .wrap(::WrapperIconBadgeClearLightViewTerminate)
+        .wrap(::WrapperIconBadgeClearTerminate)
 
 private val IconBadgeStyleBuilder.invariantProps: IconBadgeStyleBuilder
     @Composable

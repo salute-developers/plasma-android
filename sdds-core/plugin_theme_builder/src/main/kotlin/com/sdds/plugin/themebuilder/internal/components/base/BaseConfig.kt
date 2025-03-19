@@ -73,8 +73,9 @@ internal data class Typography(
 )
 
 @Serializable
-internal data class ComponentStyle(
+internal data class ComponentStyle<PO : PropertyOwner>(
     val value: String,
+    val props: PO? = null,
 )
 
 @Serializable

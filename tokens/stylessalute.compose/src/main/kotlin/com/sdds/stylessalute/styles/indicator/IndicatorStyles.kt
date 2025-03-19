@@ -2,6 +2,7 @@
 @file:Suppress(
     "UndocumentedPublicClass",
     "UndocumentedPublicProperty",
+    "ktlint:standard:max-line-length",
 )
 
 package com.sdds.stylessalute.styles.indicator
@@ -21,71 +22,52 @@ import kotlin.Suppress
 import kotlin.jvm.JvmInline
 import kotlin.jvm.JvmName
 
+/**
+ * Базовый интерфейс для всех оберток этого стиля
+ */
 public interface WrapperIndicator : BuilderWrapper<IndicatorStyle, IndicatorStyleBuilder>
 
+/**
+ * Интерфейс, который реализуют все обертки вариаций корневого уровня
+ * и обертки их подвариаций.
+ * Является ресивером для extension-функций view,
+ * применимых к этим оберткам.
+ */
 public interface WrapperIndicatorView : WrapperIndicator
 
+/**
+ * Терминальная обертка
+ */
 @JvmInline
-public value class WrapperIndicatorDefaultViewTerminate(
+public value class WrapperIndicatorTerminate(
     public override val builder: IndicatorStyleBuilder,
 ) : WrapperIndicator
 
-@JvmInline
-public value class WrapperIndicatorAccentViewTerminate(
-    public override val builder: IndicatorStyleBuilder,
-) : WrapperIndicator
-
-@JvmInline
-public value class WrapperIndicatorInactiveViewTerminate(
-    public override val builder: IndicatorStyleBuilder,
-) : WrapperIndicator
-
-@JvmInline
-public value class WrapperIndicatorPositiveViewTerminate(
-    public override val builder: IndicatorStyleBuilder,
-) : WrapperIndicator
-
-@JvmInline
-public value class WrapperIndicatorWarningViewTerminate(
-    public override val builder: IndicatorStyleBuilder,
-) : WrapperIndicator
-
-@JvmInline
-public value class WrapperIndicatorNegativeViewTerminate(
-    public override val builder: IndicatorStyleBuilder,
-) : WrapperIndicator
-
-@JvmInline
-public value class WrapperIndicatorDarkViewTerminate(
-    public override val builder: IndicatorStyleBuilder,
-) : WrapperIndicator
-
-@JvmInline
-public value class WrapperIndicatorBlackViewTerminate(
-    public override val builder: IndicatorStyleBuilder,
-) : WrapperIndicator
-
-@JvmInline
-public value class WrapperIndicatorWhiteViewTerminate(
-    public override val builder: IndicatorStyleBuilder,
-) : WrapperIndicator
-
+/**
+ * Обертка для вариации L
+ */
 @JvmInline
 public value class WrapperIndicatorL(
     public override val builder: IndicatorStyleBuilder,
 ) : WrapperIndicatorView
 
+/**
+ * Обертка для вариации M
+ */
 @JvmInline
 public value class WrapperIndicatorM(
     public override val builder: IndicatorStyleBuilder,
 ) : WrapperIndicatorView
 
+/**
+ * Обертка для вариации S
+ */
 @JvmInline
 public value class WrapperIndicatorS(
     public override val builder: IndicatorStyleBuilder,
 ) : WrapperIndicatorView
 
-public val WrapperIndicatorView.Default: WrapperIndicatorDefaultViewTerminate
+public val WrapperIndicatorView.Default: WrapperIndicatorTerminate
     @Composable
     get() = builder
         .color {
@@ -93,9 +75,9 @@ public val WrapperIndicatorView.Default: WrapperIndicatorDefaultViewTerminate
                 StylesSaluteTheme.colors.surfaceDefaultSolidDefault.asInteractive(),
             )
         }
-        .wrap(::WrapperIndicatorDefaultViewTerminate)
+        .wrap(::WrapperIndicatorTerminate)
 
-public val WrapperIndicatorView.Accent: WrapperIndicatorAccentViewTerminate
+public val WrapperIndicatorView.Accent: WrapperIndicatorTerminate
     @Composable
     get() = builder
         .color {
@@ -103,9 +85,9 @@ public val WrapperIndicatorView.Accent: WrapperIndicatorAccentViewTerminate
                 StylesSaluteTheme.colors.surfaceDefaultAccentMain.asInteractive(),
             )
         }
-        .wrap(::WrapperIndicatorAccentViewTerminate)
+        .wrap(::WrapperIndicatorTerminate)
 
-public val WrapperIndicatorView.Inactive: WrapperIndicatorInactiveViewTerminate
+public val WrapperIndicatorView.Inactive: WrapperIndicatorTerminate
     @Composable
     get() = builder
         .color {
@@ -113,9 +95,9 @@ public val WrapperIndicatorView.Inactive: WrapperIndicatorInactiveViewTerminate
                 StylesSaluteTheme.colors.surfaceDefaultSolidTertiary.asInteractive(),
             )
         }
-        .wrap(::WrapperIndicatorInactiveViewTerminate)
+        .wrap(::WrapperIndicatorTerminate)
 
-public val WrapperIndicatorView.Positive: WrapperIndicatorPositiveViewTerminate
+public val WrapperIndicatorView.Positive: WrapperIndicatorTerminate
     @Composable
     get() = builder
         .color {
@@ -123,9 +105,9 @@ public val WrapperIndicatorView.Positive: WrapperIndicatorPositiveViewTerminate
                 StylesSaluteTheme.colors.surfaceDefaultPositive.asInteractive(),
             )
         }
-        .wrap(::WrapperIndicatorPositiveViewTerminate)
+        .wrap(::WrapperIndicatorTerminate)
 
-public val WrapperIndicatorView.Warning: WrapperIndicatorWarningViewTerminate
+public val WrapperIndicatorView.Warning: WrapperIndicatorTerminate
     @Composable
     get() = builder
         .color {
@@ -133,9 +115,9 @@ public val WrapperIndicatorView.Warning: WrapperIndicatorWarningViewTerminate
                 StylesSaluteTheme.colors.surfaceDefaultWarning.asInteractive(),
             )
         }
-        .wrap(::WrapperIndicatorWarningViewTerminate)
+        .wrap(::WrapperIndicatorTerminate)
 
-public val WrapperIndicatorView.Negative: WrapperIndicatorNegativeViewTerminate
+public val WrapperIndicatorView.Negative: WrapperIndicatorTerminate
     @Composable
     get() = builder
         .color {
@@ -143,9 +125,9 @@ public val WrapperIndicatorView.Negative: WrapperIndicatorNegativeViewTerminate
                 StylesSaluteTheme.colors.surfaceDefaultNegative.asInteractive(),
             )
         }
-        .wrap(::WrapperIndicatorNegativeViewTerminate)
+        .wrap(::WrapperIndicatorTerminate)
 
-public val WrapperIndicatorView.Dark: WrapperIndicatorDarkViewTerminate
+public val WrapperIndicatorView.Dark: WrapperIndicatorTerminate
     @Composable
     get() = builder
         .color {
@@ -153,9 +135,9 @@ public val WrapperIndicatorView.Dark: WrapperIndicatorDarkViewTerminate
                 StylesSaluteTheme.colors.surfaceOnLightTransparentDeep.asInteractive(),
             )
         }
-        .wrap(::WrapperIndicatorDarkViewTerminate)
+        .wrap(::WrapperIndicatorTerminate)
 
-public val WrapperIndicatorView.Black: WrapperIndicatorBlackViewTerminate
+public val WrapperIndicatorView.Black: WrapperIndicatorTerminate
     @Composable
     get() = builder
         .color {
@@ -163,9 +145,9 @@ public val WrapperIndicatorView.Black: WrapperIndicatorBlackViewTerminate
                 StylesSaluteTheme.colors.surfaceOnLightSolidDefault.asInteractive(),
             )
         }
-        .wrap(::WrapperIndicatorBlackViewTerminate)
+        .wrap(::WrapperIndicatorTerminate)
 
-public val WrapperIndicatorView.White: WrapperIndicatorWhiteViewTerminate
+public val WrapperIndicatorView.White: WrapperIndicatorTerminate
     @Composable
     get() = builder
         .color {
@@ -173,7 +155,7 @@ public val WrapperIndicatorView.White: WrapperIndicatorWhiteViewTerminate
                 StylesSaluteTheme.colors.surfaceOnDarkSolidDefault.asInteractive(),
             )
         }
-        .wrap(::WrapperIndicatorWhiteViewTerminate)
+        .wrap(::WrapperIndicatorTerminate)
 
 private val IndicatorStyleBuilder.invariantProps: IndicatorStyleBuilder
     @Composable
