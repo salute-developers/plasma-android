@@ -24,6 +24,7 @@ import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.LocalAvatarGroupStyle
 import com.sdds.compose.uikit.LocalAvatarStyle
 import com.sdds.compose.uikit.LocalButtonStyle
+import com.sdds.compose.uikit.LocalCardStyle
 import com.sdds.compose.uikit.LocalCellStyle
 import com.sdds.compose.uikit.LocalCheckBoxGroupStyle
 import com.sdds.compose.uikit.LocalCheckBoxStyle
@@ -63,6 +64,8 @@ import com.sdds.serv.styles.button.icon.Default
 import com.sdds.serv.styles.button.icon.M
 import com.sdds.serv.styles.button.icon.Pilled
 import com.sdds.serv.styles.button.icon.Xs
+import com.sdds.serv.styles.card.CardSolid
+import com.sdds.serv.styles.card.M
 import com.sdds.serv.styles.cell.M
 import com.sdds.serv.styles.checkbox.M
 import com.sdds.serv.styles.checkbox.group.M
@@ -141,6 +144,7 @@ fun SandboxTheme(
                 LocalChipStyle provides Chip.M.Default.style(),
                 LocalTextFieldStyle provides TextField.M.OuterLabel.Default.style(),
                 LocalCellStyle provides Cell.M.style(),
+                LocalCardStyle provides CardSolid.M.style(),
                 LocalSandboxStyle provides SandboxStyle.create(
                     drawerBackgroundColor = colorScheme.surfaceDefaultSolidSecondary,
                     sheetBackgroundColor = colorScheme.surfaceDefaultSolidCard,
