@@ -2,10 +2,10 @@ package com.sdds.playground.sandbox.sdds.serv.integration.badge
 
 import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.BadgeStyle
-import com.sdds.compose.uikit.BadgeTransparent
 import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 import com.sdds.serv.styles.badge.Accent
+import com.sdds.serv.styles.badge.BadgeTransparent
 import com.sdds.serv.styles.badge.Dark
 import com.sdds.serv.styles.badge.Default
 import com.sdds.serv.styles.badge.L

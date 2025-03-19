@@ -1,14 +1,11 @@
 package com.sdds.plasma.sd.service
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
-import com.sdds.compose.uikit.BadgeClear
-import com.sdds.compose.uikit.BadgeSolid
-import com.sdds.compose.uikit.BadgeTransparent
-import com.sdds.compose.uikit.IconBadgeClear
-import com.sdds.compose.uikit.IconBadgeSolid
-import com.sdds.compose.uikit.IconBadgeTransparent
 import com.sdds.compose.uikit.style.style
 import com.sdds.plasma.sd.service.styles.badge.Accent
+import com.sdds.plasma.sd.service.styles.badge.BadgeClear
+import com.sdds.plasma.sd.service.styles.badge.BadgeSolid
+import com.sdds.plasma.sd.service.styles.badge.BadgeTransparent
 import com.sdds.plasma.sd.service.styles.badge.Dark
 import com.sdds.plasma.sd.service.styles.badge.Default
 import com.sdds.plasma.sd.service.styles.badge.L
@@ -23,6 +20,9 @@ import com.sdds.plasma.sd.service.styles.badge.Xs
 import com.sdds.plasma.sd.service.styles.badge.icon.Accent
 import com.sdds.plasma.sd.service.styles.badge.icon.Dark
 import com.sdds.plasma.sd.service.styles.badge.icon.Default
+import com.sdds.plasma.sd.service.styles.badge.icon.IconBadgeClear
+import com.sdds.plasma.sd.service.styles.badge.icon.IconBadgeSolid
+import com.sdds.plasma.sd.service.styles.badge.icon.IconBadgeTransparent
 import com.sdds.plasma.sd.service.styles.badge.icon.L
 import com.sdds.plasma.sd.service.styles.badge.icon.M
 import com.sdds.plasma.sd.service.styles.badge.icon.Negative

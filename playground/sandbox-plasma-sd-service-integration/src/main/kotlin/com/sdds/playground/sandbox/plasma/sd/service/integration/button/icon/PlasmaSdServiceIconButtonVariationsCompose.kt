@@ -2,13 +2,13 @@ package com.sdds.playground.sandbox.plasma.sd.service.integration.button.icon
 
 import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.ButtonStyle
-import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.style.style
 import com.sdds.plasma.sd.service.styles.button.icon.Accent
 import com.sdds.plasma.sd.service.styles.button.icon.Black
 import com.sdds.plasma.sd.service.styles.button.icon.Clear
 import com.sdds.plasma.sd.service.styles.button.icon.Dark
 import com.sdds.plasma.sd.service.styles.button.icon.Default
+import com.sdds.plasma.sd.service.styles.button.icon.IconButton
 import com.sdds.plasma.sd.service.styles.button.icon.L
 import com.sdds.plasma.sd.service.styles.button.icon.M
 import com.sdds.plasma.sd.service.styles.button.icon.Negative

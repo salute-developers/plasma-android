@@ -1,11 +1,11 @@
 package com.sdds.serv
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
-import com.sdds.compose.uikit.RadioBox
-import com.sdds.compose.uikit.RadioBoxGroup
 import com.sdds.serv.styles.radiobox.M
+import com.sdds.serv.styles.radiobox.RadioBox
 import com.sdds.serv.styles.radiobox.S
 import com.sdds.serv.styles.radiobox.group.M
+import com.sdds.serv.styles.radiobox.group.RadioBoxGroup
 import com.sdds.serv.styles.radiobox.group.S
 import com.sdds.testing.compose.RoborazziConfigCompose
 import com.sdds.testing.compose.radiobox.RadioBoxDisabled

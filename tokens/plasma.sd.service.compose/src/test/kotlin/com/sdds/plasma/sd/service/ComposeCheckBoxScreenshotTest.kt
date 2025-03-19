@@ -1,10 +1,10 @@
 package com.sdds.plasma.sd.service
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
-import com.sdds.compose.uikit.CheckBox
-import com.sdds.compose.uikit.CheckBoxGroup
+import com.sdds.plasma.sd.service.styles.checkbox.CheckBox
 import com.sdds.plasma.sd.service.styles.checkbox.M
 import com.sdds.plasma.sd.service.styles.checkbox.S
+import com.sdds.plasma.sd.service.styles.checkbox.group.CheckBoxGroup
 import com.sdds.plasma.sd.service.styles.checkbox.group.M
 import com.sdds.plasma.sd.service.styles.checkbox.group.S
 import com.sdds.testing.compose.RoborazziConfigCompose

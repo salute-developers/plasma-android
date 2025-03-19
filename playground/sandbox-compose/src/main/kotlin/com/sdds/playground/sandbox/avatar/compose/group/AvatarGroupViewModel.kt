@@ -2,8 +2,8 @@ package com.sdds.playground.sandbox.avatar.compose.group
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.sdds.compose.uikit.Avatar
 import com.sdds.compose.uikit.AvatarGroupStyle
+import com.sdds.compose.uikit.AvatarPlaceholder
 import com.sdds.playground.sandbox.avatar.compose.AvatarUiState
 import com.sdds.playground.sandbox.core.compose.ComponentViewModel
 import com.sdds.playground.sandbox.core.compose.Property
@@ -20,7 +20,7 @@ internal class AvatarGroupViewModel(
     private fun updatePlaceholder(text: String) {
         internalUiState.value = internalUiState.value.copy(
             placeholder = if (text.isNotBlank()) {
-                Avatar.Placeholder.Name(text)
+                AvatarPlaceholder.Name(text)
             } else {
                 null
             },
@@ -47,7 +47,7 @@ internal class AvatarGroupViewModel(
     }
 
     companion object {
-        val Avatar.Placeholder.name get() = (this as? Avatar.Placeholder.Name)?.fullName
+        val AvatarPlaceholder.name get() = (this as? AvatarPlaceholder.Name)?.fullName
     }
 }
 

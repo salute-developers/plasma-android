@@ -2,7 +2,6 @@ package com.sdds.stylessalute.styles.switcher
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.ReadOnlyComposable
-import com.sdds.compose.uikit.Switch
 import com.sdds.compose.uikit.SwitchColorsBuilder
 import com.sdds.compose.uikit.SwitchStyle
 import com.sdds.compose.uikit.SwitchStyleBuilder

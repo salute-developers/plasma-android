@@ -50,11 +50,6 @@ fun CheckBoxGroup(
 }
 
 /**
- * Вспомогательный объект для описания API и стиля компонента [CheckBoxGroup]
- */
-object CheckBoxGroup
-
-/**
  * Cкоуп [CheckBoxGroup]
  */
 interface CheckboxGroupScope {

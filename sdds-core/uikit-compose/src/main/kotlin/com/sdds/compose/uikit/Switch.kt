@@ -93,8 +93,3 @@ fun Switch(
         horizontalSpacing = dimensions.horizontalSpacing,
     )
 }
-
-/**
- * Вспомогательный объект для описания API и стиля компонента
- */
-object Switch

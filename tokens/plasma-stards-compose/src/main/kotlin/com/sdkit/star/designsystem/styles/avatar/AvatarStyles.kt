@@ -4,7 +4,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.res.dimensionResource
-import com.sdds.compose.uikit.Avatar
 import com.sdds.compose.uikit.AvatarColorsBuilder
 import com.sdds.compose.uikit.AvatarDimensions
 import com.sdds.compose.uikit.AvatarGroup
@@ -101,6 +100,11 @@ val Avatar.S: AvatarStyleBuilder
             ),
         )
         .textStyle(StarDsTheme.typography.bodyXxsBold)
+
+/**
+ * Вспомогательный объект для описания API и стиля компонента AvatarGroup
+ */
+public object AvatarGroup
 
 /**
  * Стиль [AvatarGroup] размера S

@@ -2,9 +2,9 @@ package com.sdds.playground.sandbox.plasma.stards.integration.button.icon
 
 import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.ButtonStyle
-import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
+import com.sdkit.star.designsystem.styles.button.icon.IconButton
 import com.sdkit.star.designsystem.styles.button.icon.L
 import com.sdkit.star.designsystem.styles.button.icon.M
 import com.sdkit.star.designsystem.styles.button.icon.Pilled

@@ -48,10 +48,10 @@ interface IconButtonStyleBuilder : StyleBuilder<ButtonStyle> {
     /**
      * Устанавливает размеры и отступы контента кнопки [dimensions]
      * @see ButtonStyle.dimensions
-     * @see Button.Dimensions
+     * @see ButtonDimensions
      */
     @Deprecated("Use dimensions() with builder instead")
-    fun dimensions(dimensions: Button.Dimensions): IconButtonStyleBuilder
+    fun dimensions(dimensions: ButtonDimensions): IconButtonStyleBuilder
 
     /**
      * Устанавливает размеры и отступы компонента [dimensions]
@@ -79,7 +79,6 @@ interface IconButtonColorsBuilder {
 
     /**
      * Устанавливает цвет контента кнопки [contentColor]
-     * @see ButtonColors.contentColor
      * @see InteractiveColor
      */
     fun contentColor(contentColor: InteractiveColor): IconButtonColorsBuilder
@@ -87,7 +86,6 @@ interface IconButtonColorsBuilder {
     /**
      * Устанавливает цвет контента кнопки [contentColor]
      * @see IconButtonColorsBuilder.contentColor
-     * @see ButtonColors.contentColor
      * @see InteractiveColor
      */
     fun contentColor(contentColor: Color): IconButtonColorsBuilder =
@@ -151,7 +149,7 @@ interface IconButtonColorsBuilder {
 }
 
 /**
- * Билдер размеров для [BasicButton]
+ * Билдер размеров для IconButton
  */
 interface IconButtonDimensionsBuilder {
 
@@ -191,9 +189,9 @@ interface IconButtonDimensionsBuilder {
     fun spinnerStrokeWidth(spinnerStrokeWidth: Dp): IconButtonDimensionsBuilder
 
     /**
-     * Возвращает [Button.Dimensions]
+     * Возвращает [ButtonDimensions]
      */
-    fun build(): Button.Dimensions
+    fun build(): ButtonDimensions
 
     companion object {
         /**
@@ -239,8 +237,8 @@ private class DefaultIconButtonDimensionsBuilder : IconButtonDimensionsBuilder {
         this.spinnerStrokeWidth = spinnerStrokeWidth
     }
 
-    override fun build(): Button.Dimensions {
-        return Button.Dimensions(
+    override fun build(): ButtonDimensions {
+        return ButtonDimensions(
             height = height ?: 46.dp,
             paddingStart = paddingStart ?: 0.dp,
             paddingEnd = paddingEnd ?: 0.dp,
@@ -274,7 +272,7 @@ private class IconButtonStyleBuilderImpl(override val receiver: Any?) : IconButt
         }
 
     @Deprecated("Use dimensions() with builder instead")
-    override fun dimensions(dimensions: Button.Dimensions) = apply {
+    override fun dimensions(dimensions: ButtonDimensions) = apply {
         this.dimensionsBuilder.apply {
             height(dimensions.height)
             paddingStart(dimensions.paddingStart)
@@ -318,7 +316,7 @@ private class DefaultIconButtonStyle(
     override val colors: ButtonColors,
     override val labelStyle: TextStyle,
     override val valueStyle: TextStyle,
-    override val dimensions: Button.Dimensions,
+    override val dimensions: ButtonDimensions,
     override val disableAlpha: Float,
     override val loadingAlpha: Float,
 ) : ButtonStyle

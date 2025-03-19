@@ -4,11 +4,10 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.uikit.RadioBox
-import com.sdds.compose.uikit.RadioBoxGroup
 import com.sdds.compose.uikit.RadioBoxGroupStyle
 import com.sdds.compose.uikit.RadioBoxGroupStyleBuilder
 import com.sdds.stylessalute.styles.radiobox.M
+import com.sdds.stylessalute.styles.radiobox.RadioBox
 import com.sdds.stylessalute.styles.radiobox.S
 
 /**

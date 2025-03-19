@@ -4,8 +4,6 @@ import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performTextInput
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
-import com.sdds.compose.uikit.TextField
-import com.sdds.compose.uikit.TextFieldClear
 import com.sdds.compose.uikit.style.style
 import com.sdds.serv.styles.textfield.Default
 import com.sdds.serv.styles.textfield.Error
@@ -17,6 +15,7 @@ import com.sdds.serv.styles.textfield.RequiredEnd
 import com.sdds.serv.styles.textfield.RequiredStart
 import com.sdds.serv.styles.textfield.S
 import com.sdds.serv.styles.textfield.Success
+import com.sdds.serv.styles.textfield.TextField
 import com.sdds.serv.styles.textfield.Warning
 import com.sdds.serv.styles.textfield.Xl
 import com.sdds.serv.styles.textfield.Xs
@@ -30,6 +29,7 @@ import com.sdds.serv.styles.textfield.clear.RequiredEnd
 import com.sdds.serv.styles.textfield.clear.RequiredStart
 import com.sdds.serv.styles.textfield.clear.S
 import com.sdds.serv.styles.textfield.clear.Success
+import com.sdds.serv.styles.textfield.clear.TextFieldClear
 import com.sdds.serv.styles.textfield.clear.Warning
 import com.sdds.serv.styles.textfield.clear.Xl
 import com.sdds.serv.styles.textfield.clear.Xs

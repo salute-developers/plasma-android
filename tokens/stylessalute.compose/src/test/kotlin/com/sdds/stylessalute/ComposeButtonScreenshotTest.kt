@@ -1,11 +1,9 @@
 package com.sdds.stylessalute
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
-import com.sdds.compose.uikit.BasicButton
-import com.sdds.compose.uikit.IconButton
-import com.sdds.compose.uikit.LinkButton
 import com.sdds.compose.uikit.style.style
 import com.sdds.stylessalute.styles.button.basic.Accent
+import com.sdds.stylessalute.styles.button.basic.BasicButton
 import com.sdds.stylessalute.styles.button.basic.Clear
 import com.sdds.stylessalute.styles.button.basic.Dark
 import com.sdds.stylessalute.styles.button.basic.Default
@@ -22,6 +20,7 @@ import com.sdds.stylessalute.styles.button.icon.Accent
 import com.sdds.stylessalute.styles.button.icon.Clear
 import com.sdds.stylessalute.styles.button.icon.Dark
 import com.sdds.stylessalute.styles.button.icon.Default
+import com.sdds.stylessalute.styles.button.icon.IconButton
 import com.sdds.stylessalute.styles.button.icon.L
 import com.sdds.stylessalute.styles.button.icon.M
 import com.sdds.stylessalute.styles.button.icon.Negative
@@ -35,6 +34,7 @@ import com.sdds.stylessalute.styles.button.icon.Xs
 import com.sdds.stylessalute.styles.button.link.Accent
 import com.sdds.stylessalute.styles.button.link.Default
 import com.sdds.stylessalute.styles.button.link.L
+import com.sdds.stylessalute.styles.button.link.LinkButton
 import com.sdds.stylessalute.styles.button.link.M
 import com.sdds.stylessalute.styles.button.link.Negative
 import com.sdds.stylessalute.styles.button.link.S

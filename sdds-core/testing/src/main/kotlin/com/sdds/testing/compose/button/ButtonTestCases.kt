@@ -3,6 +3,8 @@ package com.sdds.testing.compose.button
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.painterResource
 import com.sdds.compose.uikit.Button
+import com.sdds.compose.uikit.ButtonIcons
+import com.sdds.compose.uikit.ButtonSpacing
 import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.IconButton
 import com.sdds.icons.R
@@ -32,7 +34,7 @@ fun ButtonSizeLDefault(style: ButtonStyle) {
 fun ButtonSizeMAccent(style: ButtonStyle) {
     Button(
         style = style,
-        icons = Button.Icons(start = painterResource(id = R.drawable.ic_plasma_24)),
+        icons = ButtonIcons(start = painterResource(id = R.drawable.ic_plasma_24)),
         label = "Label",
         enabled = true,
         loading = false,
@@ -47,7 +49,7 @@ fun ButtonSizeMAccent(style: ButtonStyle) {
 fun ButtonSizeSWarning(style: ButtonStyle) {
     Button(
         style = style,
-        icons = Button.Icons(end = painterResource(id = R.drawable.ic_plasma_24)),
+        icons = ButtonIcons(end = painterResource(id = R.drawable.ic_plasma_24)),
         label = "Label",
         enabled = true,
         loading = false,
@@ -91,7 +93,7 @@ fun ButtonSizeLIsLoading(style: ButtonStyle) {
 fun ButtonSizeLDisabled(style: ButtonStyle) {
     Button(
         style = style,
-        spacing = Button.Spacing.Packed,
+        spacing = ButtonSpacing.Packed,
         label = "Label",
         enabled = false,
         loading = false,
@@ -106,8 +108,8 @@ fun ButtonSizeLDisabled(style: ButtonStyle) {
 fun ButtonSizeLSecondary(style: ButtonStyle) {
     Button(
         style = style,
-        icons = Button.Icons(start = painterResource(id = R.drawable.ic_plasma_24)),
-        spacing = Button.Spacing.Packed,
+        icons = ButtonIcons(start = painterResource(id = R.drawable.ic_plasma_24)),
+        spacing = ButtonSpacing.Packed,
         label = "Label",
         enabled = true,
         loading = false,
@@ -122,8 +124,8 @@ fun ButtonSizeLSecondary(style: ButtonStyle) {
 fun ButtonSizeMSpaceBetween(style: ButtonStyle) {
     Button(
         style = style,
-        icons = Button.Icons(start = painterResource(id = R.drawable.ic_plasma_16)),
-        spacing = Button.Spacing.SpaceBetween,
+        icons = ButtonIcons(start = painterResource(id = R.drawable.ic_plasma_16)),
+        spacing = ButtonSpacing.SpaceBetween,
         label = "Label",
         value = "Value",
         enabled = true,
@@ -139,8 +141,8 @@ fun ButtonSizeMSpaceBetween(style: ButtonStyle) {
 fun ButtonSizeSLongText(style: ButtonStyle) {
     Button(
         style = style,
-        icons = Button.Icons(end = painterResource(id = R.drawable.ic_plasma_16)),
-        spacing = Button.Spacing.Packed,
+        icons = ButtonIcons(end = painterResource(id = R.drawable.ic_plasma_16)),
+        spacing = ButtonSpacing.Packed,
         label = "LabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabel",
         enabled = true,
         loading = false,
@@ -155,8 +157,8 @@ fun ButtonSizeSLongText(style: ButtonStyle) {
 fun ButtonSizeXSNegative(style: ButtonStyle) {
     Button(
         style = style,
-        icons = Button.Icons(end = painterResource(id = R.drawable.ic_plasma_16)),
-        spacing = Button.Spacing.Packed,
+        icons = ButtonIcons(end = painterResource(id = R.drawable.ic_plasma_16)),
+        spacing = ButtonSpacing.Packed,
         label = "Label",
         enabled = true,
         loading = false,
@@ -171,8 +173,8 @@ fun ButtonSizeXSNegative(style: ButtonStyle) {
 fun ButtonSizeLWhite(style: ButtonStyle) {
     Button(
         style = style,
-        icons = Button.Icons(end = painterResource(id = R.drawable.ic_plasma_24)),
-        spacing = Button.Spacing.Packed,
+        icons = ButtonIcons(end = painterResource(id = R.drawable.ic_plasma_24)),
+        spacing = ButtonSpacing.Packed,
         label = "Label",
         enabled = true,
         loading = false,
@@ -201,7 +203,7 @@ fun ButtonSizeXlDefault(style: ButtonStyle) {
 fun ButtonSizeXxsDefault(style: ButtonStyle) {
     Button(
         style = style,
-        icons = Button.Icons(start = painterResource(id = R.drawable.ic_plasma_16)),
+        icons = ButtonIcons(start = painterResource(id = R.drawable.ic_plasma_16)),
         label = "Label",
         enabled = true,
         loading = false,
@@ -440,7 +442,7 @@ fun LinkButtonSizeLSecondary(linkButtonStyle: ButtonStyle) {
 fun LinkButtonSizeMAccent(linkButtonStyle: ButtonStyle) {
     Button(
         style = linkButtonStyle,
-        icons = Button.Icons(start = painterResource(id = R.drawable.ic_plasma_24)),
+        icons = ButtonIcons(start = painterResource(id = R.drawable.ic_plasma_24)),
         label = "Label",
         enabled = true,
         loading = false,
@@ -455,7 +457,7 @@ fun LinkButtonSizeMAccent(linkButtonStyle: ButtonStyle) {
 fun LinkButtonSizeLDisabled(linkButtonStyle: ButtonStyle) {
     Button(
         style = linkButtonStyle,
-        spacing = Button.Spacing.Packed,
+        spacing = ButtonSpacing.Packed,
         label = "Label",
         enabled = false,
         loading = false,
@@ -470,7 +472,7 @@ fun LinkButtonSizeLDisabled(linkButtonStyle: ButtonStyle) {
 fun LinkButtonSizeSWarning(linkButtonStyle: ButtonStyle) {
     Button(
         style = linkButtonStyle,
-        icons = Button.Icons(end = painterResource(id = R.drawable.ic_plasma_24)),
+        icons = ButtonIcons(end = painterResource(id = R.drawable.ic_plasma_24)),
         label = "Label",
         enabled = true,
         loading = false,
@@ -513,7 +515,7 @@ fun LinkButtonSizeXlDefault(linkButtonStyle: ButtonStyle) {
 fun LinkButtonSizeXxsDefault(linkButtonStyle: ButtonStyle) {
     Button(
         style = linkButtonStyle,
-        icons = Button.Icons(end = painterResource(id = R.drawable.ic_plasma_16)),
+        icons = ButtonIcons(end = painterResource(id = R.drawable.ic_plasma_16)),
         label = "Label",
         enabled = true,
         loading = false,

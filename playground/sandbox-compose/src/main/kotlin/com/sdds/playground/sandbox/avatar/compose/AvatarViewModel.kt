@@ -2,7 +2,8 @@ package com.sdds.playground.sandbox.avatar.compose
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.sdds.compose.uikit.Avatar
+import com.sdds.compose.uikit.AvatarPlaceholder
+import com.sdds.compose.uikit.AvatarStatus
 import com.sdds.compose.uikit.AvatarStyle
 import com.sdds.playground.sandbox.core.compose.ComponentViewModel
 import com.sdds.playground.sandbox.core.compose.Property
@@ -21,14 +22,14 @@ internal class AvatarViewModel(
         internalUiState.value = internalUiState.value.copy(exampleMode = type)
     }
 
-    private fun updateStatus(status: Avatar.Status) {
+    private fun updateStatus(status: AvatarStatus) {
         internalUiState.value = internalUiState.value.copy(status = status)
     }
 
     private fun updatePlaceholder(text: String) {
         internalUiState.value = internalUiState.value.copy(
             placeholder = if (text.isNotBlank()) {
-                Avatar.Placeholder.Name(text)
+                AvatarPlaceholder.Name(text)
             } else {
                 null
             },
@@ -66,7 +67,7 @@ internal class AvatarViewModel(
 
     companion object {
 
-        val Avatar.Placeholder.name get() = (this as? Avatar.Placeholder.Name)?.fullName
+        val AvatarPlaceholder.name get() = (this as? AvatarPlaceholder.Name)?.fullName
     }
 }
 

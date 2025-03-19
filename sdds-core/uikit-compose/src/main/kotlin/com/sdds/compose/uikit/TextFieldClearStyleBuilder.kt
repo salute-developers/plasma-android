@@ -42,7 +42,7 @@ interface TextFieldClearStyleBuilder : StyleBuilder<TextFieldStyle> {
      */
     @Deprecated("Use dimensions() with builder instead")
     @Composable
-    fun dimensions(dimensions: TextField.Dimensions): TextFieldClearStyleBuilder
+    fun dimensions(dimensions: TextFieldDimensions): TextFieldClearStyleBuilder
 
     /**
      * Устанавливает цвета компонента при помощи [builder]
@@ -53,12 +53,12 @@ interface TextFieldClearStyleBuilder : StyleBuilder<TextFieldStyle> {
     /**
      * Устанавливает расположение лэйбла [labelPlacement]
      */
-    fun labelPlacement(labelPlacement: TextField.LabelPlacement): TextFieldClearStyleBuilder
+    fun labelPlacement(labelPlacement: TextFieldLabelPlacement): TextFieldClearStyleBuilder
 
     /**
      * Устанавливает тип поля [fieldType]
      */
-    fun fieldType(fieldType: TextField.FieldType): TextFieldClearStyleBuilder
+    fun fieldType(fieldType: TextFieldType): TextFieldClearStyleBuilder
 
     /**
      * Устанавливает стиль лэйбла [labelStyle]
@@ -515,9 +515,9 @@ interface TextFieldClearDimensionsBuilder {
     fun dividerThickness(dividerThickness: Dp): TextFieldClearDimensionsBuilder
 
     /**
-     * Возвращает [TextField.Dimensions]
+     * Возвращает [TextFieldDimensions]
      */
-    fun build(): TextField.Dimensions
+    fun build(): TextFieldDimensions
 
     companion object {
         /**
@@ -548,9 +548,9 @@ interface TextFieldClearIndicatorDimensionsBuilder {
     fun indicatorSize(indicatorSize: Dp): TextFieldClearIndicatorDimensionsBuilder
 
     /**
-     * Возвращает экземпляр [TextField.Dimensions.IndicatorDimensions]
+     * Возвращает экземпляр [TextFieldDimensions.IndicatorDimensions]
      */
-    fun build(): TextField.Dimensions.IndicatorDimensions
+    fun build(): TextFieldDimensions.IndicatorDimensions
 
     companion object {
 
@@ -579,8 +579,8 @@ private class DefaultTextFieldClearIndicatorDimensionsBuilder :
         this.indicatorSize = indicatorSize
     }
 
-    override fun build(): TextField.Dimensions.IndicatorDimensions {
-        return TextField.Dimensions.IndicatorDimensions(
+    override fun build(): TextFieldDimensions.IndicatorDimensions {
+        return TextFieldDimensions.IndicatorDimensions(
             horizontalPadding = horizontalPadding ?: 0.dp,
             verticalPadding = verticalPadding ?: 0.dp,
             indicatorSize = indicatorSize ?: 6.dp,
@@ -671,8 +671,8 @@ private class DefaultTextFieldClearDimensionsBuilder : TextFieldClearDimensionsB
     }
 
     @Suppress("CyclomaticComplexMethod")
-    override fun build(): TextField.Dimensions {
-        return TextField.Dimensions(
+    override fun build(): TextFieldDimensions {
+        return TextFieldDimensions(
             boxPaddingStart = boxPaddingStart ?: 16.dp,
             boxPaddingEnd = boxPaddingEnd ?: 16.dp,
             boxPaddingTop = boxPaddingTop ?: 25.dp,
@@ -695,13 +695,13 @@ private class DefaultTextFieldClearDimensionsBuilder : TextFieldClearDimensionsB
 @Immutable
 @Suppress("LongParameterList")
 private class DefaultTextFieldClearStyle(
-    override val dimensions: TextField.Dimensions,
+    override val dimensions: TextFieldDimensions,
     override val colors: TextFieldColors,
     override val shape: CornerBasedShape,
-    override val fieldType: TextField.FieldType,
-    override val fieldAppearance: TextField.FieldAppearance,
-    override val labelPlacement: TextField.LabelPlacement,
-    override val helperTextPlacement: TextField.HelperTextPlacement,
+    override val fieldType: TextFieldType,
+    override val fieldAppearance: TextFieldAppearance,
+    override val labelPlacement: TextFieldLabelPlacement,
+    override val helperTextPlacement: TextFieldHelperTextPlacement,
     override val scrollBar: ScrollBar?,
     override val valueStyle: TextStyle,
     override val captionStyle: TextStyle,
@@ -724,8 +724,8 @@ private class DefaultTextFieldClearStyle(
         private var dimensionsBuilder: TextFieldClearDimensionsBuilder =
             TextFieldClearDimensionsBuilder.builder()
         private var shape: CornerBasedShape? = null
-        private var labelPlacement: TextField.LabelPlacement? = null
-        private var fieldType: TextField.FieldType? = null
+        private var labelPlacement: TextFieldLabelPlacement? = null
+        private var fieldType: TextFieldType? = null
         private var labelStyle: TextStyle? = null
         private var optionalStyle: TextStyle? = null
         private var valueStyle: TextStyle? = null
@@ -745,7 +745,7 @@ private class DefaultTextFieldClearStyle(
 
         @Deprecated("Use dimensions() with builder instead")
         @Composable
-        override fun dimensions(dimensions: TextField.Dimensions) = apply {
+        override fun dimensions(dimensions: TextFieldDimensions) = apply {
             this.dimensionsBuilder.apply {
                 boxPaddingStart(dimensions.boxPaddingStart)
                 boxPaddingEnd(dimensions.boxPaddingEnd)
@@ -775,11 +775,11 @@ private class DefaultTextFieldClearStyle(
             this.colorsBuilder.builder()
         }
 
-        override fun labelPlacement(labelPlacement: TextField.LabelPlacement) = apply {
+        override fun labelPlacement(labelPlacement: TextFieldLabelPlacement) = apply {
             this.labelPlacement = labelPlacement
         }
 
-        override fun fieldType(fieldType: TextField.FieldType) = apply {
+        override fun fieldType(fieldType: TextFieldType) = apply {
             this.fieldType = fieldType
         }
 
@@ -832,13 +832,13 @@ private class DefaultTextFieldClearStyle(
             return DefaultTextFieldClearStyle(
                 scrollBar = null,
                 singleLine = true,
-                fieldAppearance = TextField.FieldAppearance.Clear,
-                helperTextPlacement = TextField.HelperTextPlacement.Outer,
+                fieldAppearance = TextFieldAppearance.Clear,
+                helperTextPlacement = TextFieldHelperTextPlacement.Outer,
                 dimensions = dimensionsBuilder.build(),
                 colors = colorsBuilder.build(),
                 shape = shape ?: RoundedCornerShape(CornerSize(8.dp)),
-                fieldType = fieldType ?: TextField.FieldType.Optional,
-                labelPlacement = labelPlacement ?: TextField.LabelPlacement.None,
+                fieldType = fieldType ?: TextFieldType.Optional,
+                labelPlacement = labelPlacement ?: TextFieldLabelPlacement.None,
                 labelStyle = labelStyle ?: TextStyle.Default,
                 optionalStyle = optionalStyle ?: TextStyle.Default,
                 valueStyle = valueStyle ?: TextStyle.Default,

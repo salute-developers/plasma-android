@@ -1,7 +1,6 @@
 package com.sdds.playground.sandbox.sdds.serv.integration.textarea.clear
 
 import androidx.compose.runtime.Composable
-import com.sdds.compose.uikit.TextAreaClear
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
@@ -14,6 +13,7 @@ import com.sdds.serv.styles.textarea.clear.OuterLabel
 import com.sdds.serv.styles.textarea.clear.RequiredEnd
 import com.sdds.serv.styles.textarea.clear.RequiredStart
 import com.sdds.serv.styles.textarea.clear.S
+import com.sdds.serv.styles.textarea.clear.TextAreaClear
 import com.sdds.serv.styles.textarea.clear.Warning
 import com.sdds.serv.styles.textarea.clear.Xl
 import com.sdds.serv.styles.textarea.clear.Xs

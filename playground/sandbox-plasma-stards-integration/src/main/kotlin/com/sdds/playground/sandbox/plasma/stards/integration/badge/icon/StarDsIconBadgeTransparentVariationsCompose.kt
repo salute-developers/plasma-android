@@ -2,12 +2,12 @@ package com.sdds.playground.sandbox.plasma.stards.integration.badge.icon
 
 import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.BadgeStyle
-import com.sdds.compose.uikit.IconBadgeTransparent
 import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 import com.sdkit.star.designsystem.styles.badge.icon.Accent
 import com.sdkit.star.designsystem.styles.badge.icon.Dark
 import com.sdkit.star.designsystem.styles.badge.icon.Default
+import com.sdkit.star.designsystem.styles.badge.icon.IconBadgeTransparent
 import com.sdkit.star.designsystem.styles.badge.icon.L
 import com.sdkit.star.designsystem.styles.badge.icon.Light
 import com.sdkit.star.designsystem.styles.badge.icon.M

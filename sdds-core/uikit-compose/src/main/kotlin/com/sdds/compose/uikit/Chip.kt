@@ -5,13 +5,10 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsFocusedAsState
 import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.Role
-import androidx.compose.ui.unit.Dp
-import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.internal.common.surface
 import com.sdds.compose.uikit.internal.focusselector.LocalFocusSelectorMode
 import com.sdds.compose.uikit.internal.focusselector.applyFocusSelector
@@ -128,39 +125,7 @@ fun Chip(
     )
 }
 
-/**
- * Вспомогательный объект для описания API и стиля компонента
- */
-object Chip {
-
-    /**
-     * Размеры и отступы компонента [Chip]
-     * @property height высота компонента
-     * @property startPadding отступ в начале
-     * @property endPadding отступ в конце
-     * @property startContentSize размер контента в начале
-     * @property endContentSize размер контента в конце
-     * @property startContentMargin отступ от контента в начале
-     * @property endContentMargin отступ от контента в конце
-     */
-    @Immutable
-    data class Dimensions(
-        val height: Dp = 48.dp,
-        val startContentSize: Dp = 24.dp,
-        val endContentSize: Dp = 24.dp,
-        val startContentMargin: Dp = 12.dp,
-        val endContentMargin: Dp = 12.dp,
-        val startPadding: Dp = 12.dp,
-        val endPadding: Dp = 12.dp,
-    )
-}
-
-/**
- * Вспомогательный объект для описания API и стиля компонента
- */
-object EmbeddedChip
-
-internal fun Chip.Dimensions.toDimensionsSet(): BaseIconText.Dimensions {
+internal fun ChipDimensions.toDimensionsSet(): BaseIconText.Dimensions {
     return BaseIconText.Dimensions(
         height = this.height,
         endContentSize = this.endContentSize,

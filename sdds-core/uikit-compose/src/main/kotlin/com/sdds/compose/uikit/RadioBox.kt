@@ -189,13 +189,3 @@ fun <T> RadioBoxGroupItemScope.updateSelection(selection: MutableState<T>, key: 
         selection.value = key
     }
 }
-
-/**
- * Вспомогательный объект для описания API и стиля компонента [RadioBoxGroup]
- */
-object RadioBoxGroup
-
-/**
- * Вспомогательный объект для описания API и стиля компонента [RadioBox]
- */
-object RadioBox

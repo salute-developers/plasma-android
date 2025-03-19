@@ -10,7 +10,6 @@ package com.sdds.plasma.sd.service.styles.counter
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.uikit.Counter
 import com.sdds.compose.uikit.CounterStyle
 import com.sdds.compose.uikit.CounterStyleBuilder
 import com.sdds.compose.uikit.counterBuilder

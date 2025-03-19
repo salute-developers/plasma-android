@@ -10,7 +10,6 @@ package com.sdds.stylessalute.styles.button.link
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.ButtonStyle
-import com.sdds.compose.uikit.LinkButton
 import com.sdds.compose.uikit.LinkButtonStyleBuilder
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive

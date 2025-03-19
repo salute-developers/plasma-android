@@ -10,7 +10,6 @@ package com.sdkit.star.designsystem.styles.counter
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.dimensionResource
-import com.sdds.compose.uikit.Counter
 import com.sdds.compose.uikit.CounterStyle
 import com.sdds.compose.uikit.CounterStyleBuilder
 import com.sdds.compose.uikit.counterBuilder

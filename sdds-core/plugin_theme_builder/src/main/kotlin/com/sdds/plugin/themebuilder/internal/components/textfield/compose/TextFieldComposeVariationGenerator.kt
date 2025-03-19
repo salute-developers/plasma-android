@@ -7,7 +7,6 @@ import com.sdds.plugin.themebuilder.internal.components.textfield.TextFieldPrope
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
-import com.squareup.kotlinpoet.ClassName
 
 /**
  * Генератор вариаций TextField на Compose
@@ -66,7 +65,13 @@ internal class TextFieldComposeVariationGenerator(
     }
 
     override fun KtFileBuilder.onAddImports() {
-        addImport(ClassName("com.sdds.compose.uikit", "TextField"))
+        addImport(
+            "com.sdds.compose.uikit",
+            listOf(
+                "TextFieldType",
+                "TextFieldLabelPlacement",
+            ),
+        )
     }
 
     private fun scrollBarCall(props: TextFieldProperties, variationId: String): String? {
@@ -114,7 +119,7 @@ internal class TextFieldComposeVariationGenerator(
                 it.value.equals("requiredEnd", ignoreCase = true) -> "RequiredEnd"
                 else -> null
             }
-            return@let enumValue?.let { ".fieldType(TextField.FieldType.$enumValue)" }
+            return@let enumValue?.let { ".fieldType(TextFieldType.$enumValue)" }
         }
     }
 
@@ -253,7 +258,7 @@ internal class TextFieldComposeVariationGenerator(
                 it.value.equals("outer", ignoreCase = true) -> "Outer"
                 else -> "None"
             }
-            ".labelPlacement(TextField.LabelPlacement.$enumValue)"
+            ".labelPlacement(TextFieldLabelPlacement.$enumValue)"
         }
     }
 

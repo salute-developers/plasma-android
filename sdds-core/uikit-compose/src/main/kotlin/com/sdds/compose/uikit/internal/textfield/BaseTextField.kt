@@ -55,14 +55,14 @@ import com.sdds.compose.uikit.IndicatorMode
 import com.sdds.compose.uikit.LocalTextFieldStyle
 import com.sdds.compose.uikit.LocalTint
 import com.sdds.compose.uikit.Text
-import com.sdds.compose.uikit.TextField
-import com.sdds.compose.uikit.TextField.Animation
-import com.sdds.compose.uikit.TextField.FieldAppearance
-import com.sdds.compose.uikit.TextField.FieldType
-import com.sdds.compose.uikit.TextField.HelperTextPlacement
-import com.sdds.compose.uikit.TextField.LabelPlacement
+import com.sdds.compose.uikit.TextFieldAnimation
+import com.sdds.compose.uikit.TextFieldAppearance
 import com.sdds.compose.uikit.TextFieldColors
+import com.sdds.compose.uikit.TextFieldDimensions
+import com.sdds.compose.uikit.TextFieldHelperTextPlacement
+import com.sdds.compose.uikit.TextFieldLabelPlacement
 import com.sdds.compose.uikit.TextFieldStyle
+import com.sdds.compose.uikit.TextFieldType
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.activatable
 import com.sdds.compose.uikit.internal.common.drawIndicator
@@ -84,7 +84,7 @@ import com.sdds.compose.uikit.scrollbar
  * @param modifier Modifier для дополнительного изменения компонента, по умолчанию пустой
  * @param enabled если false - фокусировка, ввод текста и копирование отключены
  * @param readOnly если false - доступно только для чтения, запись отключена
- * @param placeholderText заглушка если пустое [value] и тип [LabelPlacement.Outer]
+ * @param placeholderText заглушка если пустое [value] и тип [TextFieldLabelPlacement.Outer]
  * @param labelText текст лэйбла
  * @param captionText текст подписи под полем ввода
  * @param counterText текст счетчика под полем ввода
@@ -94,7 +94,7 @@ import com.sdds.compose.uikit.scrollbar
  * @param startContent иконка, которая будет находиться в начале поля ввода
  * @param endContent иконка, которая будет находиться в конце поля ввода
  * @param chipsContent контент с chip-элементами. Chip должны иметь одинаковую высоту.
- * @param animation параметры анимации [Animation]
+ * @param animation параметры анимации [TextFieldAnimation]
  * @param keyboardOptions для настройки клавиатуры, например [KeyboardType] или [ImeAction]
  * @param keyboardActions когда на ввод подается [ImeAction] вызывается соответствующий callback
  * @param visualTransformation фильтр визуального отображения, например [PasswordVisualTransformation].
@@ -122,7 +122,7 @@ internal fun BaseTextField(
     startContent: @Composable (() -> Unit)? = null,
     endContent: @Composable (() -> Unit)? = null,
     chipsContent: @Composable (() -> Unit)? = null,
-    animation: Animation = Animation(),
+    animation: TextFieldAnimation = TextFieldAnimation(),
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
     visualTransformation: VisualTransformation = VisualTransformation.None,
@@ -175,9 +175,9 @@ internal fun BaseTextField(
     val scrollBar = style.scrollBar
 
     val finalLabelText =
-        if (labelPlacement == LabelPlacement.None) "" else labelText
+        if (labelPlacement == TextFieldLabelPlacement.None) "" else labelText
     val finalOptionalText =
-        if (labelPlacement == LabelPlacement.None) "" else optionalText
+        if (labelPlacement == TextFieldLabelPlacement.None) "" else optionalText
 
     val valuePrefixSuffixTransformation = rememberPrefixSuffixTransformation(
         prefix = prefix,
@@ -304,7 +304,7 @@ internal fun BaseTextField(
                                 dimensions,
                                 colors.indicatorColor(readOnly, enabled, interactionSource),
                             )
-                            .clip(if (fieldAppearance == FieldAppearance.Solid) style.shape else RectangleShape)
+                            .clip(if (fieldAppearance == TextFieldAppearance.Solid) style.shape else RectangleShape)
                             .enable(enabled, enabledAlpha, disabledAlpha)
                             .drawFieldAppearance(
                                 fieldAppearance = fieldAppearance,
@@ -387,7 +387,7 @@ internal fun BaseTextField(
                         verticalScrollState = verticalScrollState,
                         horizontalScrollState = horizontalScrollState,
                         singleLine = singleLine,
-                        isClearAppearance = fieldAppearance == FieldAppearance.Clear,
+                        isClearAppearance = fieldAppearance == TextFieldAppearance.Clear,
                         valueTextStyle = valueStyle,
                         innerLabelTextStyle = labelStyle,
                     )
@@ -432,7 +432,7 @@ private fun TextFieldColors.indicatorColor(
 }
 
 private fun Modifier.drawFieldAppearance(
-    fieldAppearance: FieldAppearance,
+    fieldAppearance: TextFieldAppearance,
     hasDivider: Boolean,
     backgroundColor: Color,
     dividerColor: Color,
@@ -440,7 +440,7 @@ private fun Modifier.drawFieldAppearance(
 ): Modifier {
     return this.drawBehind {
         when (fieldAppearance) {
-            FieldAppearance.Clear -> {
+            TextFieldAppearance.Clear -> {
                 if (hasDivider) {
                     drawLine(
                         color = dividerColor,
@@ -452,7 +452,7 @@ private fun Modifier.drawFieldAppearance(
                 }
             }
 
-            FieldAppearance.Solid -> drawRect(backgroundColor)
+            TextFieldAppearance.Solid -> drawRect(backgroundColor)
         }
     }
 }
@@ -505,8 +505,8 @@ private fun icon(
 }
 
 private fun innerOptional(
-    labelPlacement: LabelPlacement,
-    fieldType: FieldType,
+    labelPlacement: TextFieldLabelPlacement,
+    fieldType: TextFieldType,
     optionalText: String?,
     isFocused: @Composable () -> Boolean,
     value: TextFieldValue,
@@ -514,8 +514,8 @@ private fun innerOptional(
     innerOptionalStyle: TextStyle,
     hasChips: Boolean,
 ): (@Composable () -> Unit)? {
-    if (fieldType != FieldType.Optional) return null
-    return if (labelPlacement == LabelPlacement.Inner && !hasChips && !optionalText.isNullOrEmpty()) {
+    if (fieldType != TextFieldType.Optional) return null
+    return if (labelPlacement == TextFieldLabelPlacement.Inner && !hasChips && !optionalText.isNullOrEmpty()) {
         {
             Text(
                 text = optionalText,
@@ -535,14 +535,14 @@ private fun innerOptional(
 
 private fun innerLabel(
     label: String?,
-    labelPlacement: LabelPlacement,
+    labelPlacement: TextFieldLabelPlacement,
     isFocused: @Composable () -> Boolean,
     value: TextFieldValue,
     placeHolderStyle: TextStyle,
     innerLabelStyle: TextStyle,
     hasChips: Boolean,
 ): (@Composable () -> Unit)? {
-    return if (labelPlacement == LabelPlacement.Inner && !hasChips && !label.isNullOrEmpty()) {
+    return if (labelPlacement == TextFieldLabelPlacement.Inner && !hasChips && !label.isNullOrEmpty()) {
         {
             Text(
                 text = label,
@@ -561,11 +561,11 @@ private fun innerLabel(
 }
 
 private fun innerCaption(
-    helperTextPlacement: HelperTextPlacement,
+    helperTextPlacement: TextFieldHelperTextPlacement,
     captionText: String?,
     innerCaptionStyle: TextStyle,
 ): (@Composable () -> Unit)? {
-    return if (helperTextPlacement == HelperTextPlacement.Inner) {
+    return if (helperTextPlacement == TextFieldHelperTextPlacement.Inner) {
         textOrNull(
             text = captionText,
             textStyle = innerCaptionStyle,
@@ -576,11 +576,11 @@ private fun innerCaption(
 }
 
 private fun innerCounter(
-    helperTextPlacement: HelperTextPlacement,
+    helperTextPlacement: TextFieldHelperTextPlacement,
     counterText: String?,
     innerCaptionStyle: TextStyle,
 ): (@Composable () -> Unit)? {
-    return if (helperTextPlacement == HelperTextPlacement.Inner) {
+    return if (helperTextPlacement == TextFieldHelperTextPlacement.Inner) {
         textOrNull(
             text = counterText,
             textStyle = innerCaptionStyle,
@@ -591,13 +591,13 @@ private fun innerCounter(
 }
 
 private fun Modifier.applyFieldIndicator(
-    fieldType: FieldType,
-    labelPlacement: LabelPlacement,
-    fieldAppearance: FieldAppearance,
-    dimensions: TextField.Dimensions,
+    fieldType: TextFieldType,
+    labelPlacement: TextFieldLabelPlacement,
+    fieldAppearance: TextFieldAppearance,
+    dimensions: TextFieldDimensions,
     indicatorColor: Color,
 ): Modifier {
-    if (fieldType == FieldType.Optional || labelPlacement == LabelPlacement.Outer) return this
+    if (fieldType == TextFieldType.Optional || labelPlacement == TextFieldLabelPlacement.Outer) return this
 
     val alignment = fieldIndicatorAlignment(fieldType)
     val horizontalMode = fieldIndicatorHorizontalMode(fieldAppearance)
@@ -613,16 +613,16 @@ private fun Modifier.applyFieldIndicator(
     )
 }
 
-private fun fieldIndicatorAlignment(fieldType: FieldType): Alignment {
+private fun fieldIndicatorAlignment(fieldType: TextFieldType): Alignment {
     return when (fieldType) {
-        FieldType.RequiredStart -> Alignment.TopStart
-        FieldType.RequiredEnd -> Alignment.TopEnd
+        TextFieldType.RequiredStart -> Alignment.TopStart
+        TextFieldType.RequiredEnd -> Alignment.TopEnd
         else -> Alignment.TopStart
     }
 }
 
-private fun fieldIndicatorHorizontalMode(fieldAppearance: FieldAppearance): IndicatorMode {
-    return if (fieldAppearance == FieldAppearance.Solid) {
+private fun fieldIndicatorHorizontalMode(fieldAppearance: TextFieldAppearance): IndicatorMode {
+    return if (fieldAppearance == TextFieldAppearance.Solid) {
         IndicatorMode.Inner
     } else {
         IndicatorMode.Outer
@@ -630,12 +630,12 @@ private fun fieldIndicatorHorizontalMode(fieldAppearance: FieldAppearance): Indi
 }
 
 private fun Modifier.applyLabelIndicator(
-    fieldType: FieldType,
-    labelPlacement: LabelPlacement,
+    fieldType: TextFieldType,
+    labelPlacement: TextFieldLabelPlacement,
     indicatorColor: Color,
-    dimensions: TextField.Dimensions,
+    dimensions: TextFieldDimensions,
 ): Modifier {
-    if (fieldType == FieldType.Optional || labelPlacement != LabelPlacement.Outer) return this
+    if (fieldType == TextFieldType.Optional || labelPlacement != TextFieldLabelPlacement.Outer) return this
     val alignment = outerLabelIndicatorAlignment(fieldType)
 
     return this.drawIndicator(
@@ -649,11 +649,11 @@ private fun Modifier.applyLabelIndicator(
     )
 }
 
-private fun outerLabelIndicatorAlignment(fieldType: FieldType): Alignment {
+private fun outerLabelIndicatorAlignment(fieldType: TextFieldType): Alignment {
     return when (fieldType) {
-        FieldType.RequiredStart -> Alignment.TopStart
-        FieldType.RequiredEnd -> Alignment.TopEnd
-        FieldType.Optional -> Alignment.TopStart
+        TextFieldType.RequiredStart -> Alignment.TopStart
+        TextFieldType.RequiredEnd -> Alignment.TopEnd
+        TextFieldType.Optional -> Alignment.TopStart
     }
 }
 
@@ -695,8 +695,8 @@ private fun textOrNull(
 @Composable
 private fun OuterTopContent(
     modifier: Modifier,
-    labelPlacement: LabelPlacement,
-    fieldType: FieldType,
+    labelPlacement: TextFieldLabelPlacement,
+    fieldType: TextFieldType,
     labelText: String?,
     optionalText: String?,
     labelTextStyle: TextStyle,
@@ -704,8 +704,8 @@ private fun OuterTopContent(
     horizontalSpacing: Dp,
 ) {
     val hasContent =
-        !labelText.isNullOrEmpty() || fieldType == FieldType.Optional && !optionalText.isNullOrEmpty()
-    val shouldShowTopContent = labelPlacement == LabelPlacement.Outer && hasContent
+        !labelText.isNullOrEmpty() || fieldType == TextFieldType.Optional && !optionalText.isNullOrEmpty()
+    val shouldShowTopContent = labelPlacement == TextFieldLabelPlacement.Outer && hasContent
     if (!shouldShowTopContent) return
 
     Row(
@@ -719,7 +719,7 @@ private fun OuterTopContent(
             maxLines = 1,
             overflow = TextOverflow.Ellipsis,
         )
-        if (fieldType == FieldType.Optional) {
+        if (fieldType == TextFieldType.Optional) {
             TextOrEmpty(
                 text = optionalText,
                 textStyle = optionalTextStyle,
@@ -735,10 +735,10 @@ private fun OuterBottomText(
     modifier: Modifier,
     text: String?,
     textStyle: TextStyle,
-    helperTextPlacement: HelperTextPlacement,
+    helperTextPlacement: TextFieldHelperTextPlacement,
 ) {
     val isEmpty = text.isNullOrEmpty()
-    if (helperTextPlacement != HelperTextPlacement.Outer || isEmpty) return
+    if (helperTextPlacement != TextFieldHelperTextPlacement.Outer || isEmpty) return
     Box(modifier = modifier) {
         TextOrEmpty(
             text = text,

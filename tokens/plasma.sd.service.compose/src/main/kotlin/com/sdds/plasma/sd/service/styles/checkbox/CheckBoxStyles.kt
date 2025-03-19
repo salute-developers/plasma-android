@@ -2,7 +2,6 @@ package com.sdds.plasma.sd.service.styles.checkbox
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.uikit.CheckBox
 import com.sdds.compose.uikit.CheckBoxColorsBuilder
 import com.sdds.compose.uikit.CheckBoxDimensions
 import com.sdds.compose.uikit.CheckBoxStyle

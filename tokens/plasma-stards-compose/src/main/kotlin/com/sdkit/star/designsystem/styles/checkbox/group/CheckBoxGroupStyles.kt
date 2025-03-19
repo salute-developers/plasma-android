@@ -3,11 +3,10 @@ package com.sdkit.star.designsystem.styles.checkbox.group
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.dimensionResource
-import com.sdds.compose.uikit.CheckBox
-import com.sdds.compose.uikit.CheckBoxGroup
 import com.sdds.compose.uikit.CheckBoxGroupStyle
 import com.sdds.compose.uikit.CheckBoxGroupStyleBuilder
 import com.sdkit.star.designsystem.compose.R
+import com.sdkit.star.designsystem.styles.checkbox.CheckBox
 import com.sdkit.star.designsystem.styles.checkbox.M
 import com.sdkit.star.designsystem.styles.checkbox.S
 

@@ -1,8 +1,8 @@
 package com.sdds.stylessalute
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
-import com.sdds.compose.uikit.Chip
 import com.sdds.stylessalute.styles.chip.Accent
+import com.sdds.stylessalute.styles.chip.Chip
 import com.sdds.stylessalute.styles.chip.Default
 import com.sdds.stylessalute.styles.chip.L
 import com.sdds.stylessalute.styles.chip.M

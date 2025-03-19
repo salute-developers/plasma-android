@@ -17,8 +17,6 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.uikit.TextField.Animation
-import com.sdds.compose.uikit.TextField.LabelPlacement
 import com.sdds.compose.uikit.internal.focusselector.FocusSelectorMode
 import com.sdds.compose.uikit.internal.focusselector.LocalFocusSelectorMode
 import com.sdds.compose.uikit.internal.textfield.BaseTextField
@@ -33,7 +31,7 @@ import com.sdds.compose.uikit.internal.textfield.PrefixSuffixTransformation
  * @param modifier Modifier для дополнительного изменения компонента, по умолчанию пустой
  * @param enabled если false - фокусировка, ввод текста и копирование отключены
  * @param readOnly если false - доступно только для чтения, запись отключена
- * @param placeholderText заглушка если пустое [value] и тип [LabelPlacement.Outer]
+ * @param placeholderText заглушка если пустое [value] и тип [TextFieldLabelPlacement.Outer]
  * @param labelText текст лэйбла
  * @param captionText текст подписи под полем ввода
  * @param counterText текст счетчика под полем ввода
@@ -43,7 +41,7 @@ import com.sdds.compose.uikit.internal.textfield.PrefixSuffixTransformation
  * @param startContent иконка, которая будет находиться в начале поля ввода
  * @param endContent иконка, которая будет находиться в конце поля ввода
  * @param chipsContent контент с chip-элементами. Chip должны иметь одинаковую высоту.
- * @param animation параметры анимации [Animation]
+ * @param animation параметры анимации [TextFieldAnimation]
  * @param keyboardOptions для настройки клавиатуры, например [KeyboardType] или [ImeAction]
  * @param keyboardActions когда на ввод подается [ImeAction] вызывается соответствующий callback
  * @param visualTransformation фильтр визуального отображения, например [PasswordVisualTransformation].
@@ -72,7 +70,7 @@ fun TextField(
     startContent: @Composable (() -> Unit)? = null,
     endContent: @Composable (() -> Unit)? = null,
     chipsContent: @Composable (() -> Unit)? = null,
-    animation: Animation = Animation(),
+    animation: TextFieldAnimation = TextFieldAnimation(),
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
     visualTransformation: VisualTransformation = VisualTransformation.None,
@@ -114,7 +112,7 @@ fun TextField(
  * @param modifier Modifier для дополнительного изменения компонента, по умолчанию пустой
  * @param enabled если false - фокусировка, ввод текста и копирование отключены
  * @param readOnly если false - доступно только для чтения, запись отключена
- * @param placeholderText заглушка если пустое [value] и тип [LabelPlacement.Outer]
+ * @param placeholderText заглушка если пустое [value] и тип [TextFieldLabelPlacement.Outer]
  * @param labelText текст лэйбла
  * @param captionText текст подписи под полем ввода
  * @param counterText текст счетчика под полем ввода
@@ -124,7 +122,7 @@ fun TextField(
  * @param startContent иконка, которая будет находиться в начале поля ввода
  * @param endContent иконка, которая будет находиться в конце поля ввода
  * @param chipsContent контент с chip-элементами. Chip должны иметь одинаковую высоту.
- * @param animation параметры анимации [Animation]
+ * @param animation параметры анимации [TextFieldAnimation]
  * @param keyboardOptions для настройки клавиатуры, например [KeyboardType] или [ImeAction]
  * @param keyboardActions когда на ввод подается [ImeAction] вызывается соответствующий callback
  * @param visualTransformation фильтр визуального отображения, например [PasswordVisualTransformation].
@@ -153,7 +151,7 @@ fun TextField(
     startContent: @Composable (() -> Unit)? = null,
     endContent: @Composable (() -> Unit)? = null,
     chipsContent: @Composable (() -> Unit)? = null,
-    animation: Animation = Animation(),
+    animation: TextFieldAnimation = TextFieldAnimation(),
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
     visualTransformation: VisualTransformation = VisualTransformation.None,
@@ -207,167 +205,146 @@ fun TextField(
 }
 
 /**
- * Параметры текстового поля
+ * Отступы текстового поля
+ *
+ * @property boxPaddingStart отступ контента в начале
+ * @property boxPaddingEnd отступ контента в конце
+ * @property boxPaddingTop верхний отступ контента с внутренним лэйблом
+ * @property boxPaddingBottom нижний отступ контента с внутренним лэйблом
+ * @property labelPadding нижний отступ внутреннего лэйбла
+ * @property optionalPadding отступ в начале optional текста
+ * @property helperTextPadding верхний отступ внутреннего helper текста (caption/counter)
+ * @property startContentPadding отступ после startContent
+ * @property endContentPadding отступ перед endContent
+ * @property chipsPadding отступ от контейнера с chip-элементами
+ * @property boxMinHeight минимальная высота поля
+ * @property alignmentLineHeight высота первой строки контента
+ * @property startContentSize размер иконки в начале
+ * @property endContentSize размер иконки в конце
+ * @property indicatorDimensions настройки индикатора
+ * @property dividerThickness толщина разделителя в clear режиме
  */
-object TextField {
+@Immutable
+data class TextFieldDimensions(
+    val boxPaddingStart: Dp = 16.dp,
+    val boxPaddingEnd: Dp = 16.dp,
+    val boxPaddingTop: Dp = 25.dp,
+    val boxPaddingBottom: Dp = 9.dp,
+    val labelPadding: Dp = 2.dp,
+    val optionalPadding: Dp = 4.dp,
+    val helperTextPadding: Dp = 4.dp,
+    val startContentPadding: Dp = 6.dp,
+    val endContentPadding: Dp = 6.dp,
+    val chipsPadding: Dp = 6.dp,
+    val boxMinHeight: Dp = 56.dp,
+    val alignmentLineHeight: Dp = 56.dp,
+    val startContentSize: Dp = 24.dp,
+    val endContentSize: Dp = 24.dp,
+    val indicatorDimensions: IndicatorDimensions = IndicatorDimensions(),
+    val dividerThickness: Dp = 1.dp,
+) {
 
     /**
-     * Отступы текстового поля
+     * Настройки индикатора
      *
-     * @property boxPaddingStart отступ контента в начале
-     * @property boxPaddingEnd отступ контента в конце
-     * @property boxPaddingTop верхний отступ контента с внутренним лэйблом
-     * @property boxPaddingBottom нижний отступ контента с внутренним лэйблом
-     * @property labelPadding нижний отступ внутреннего лэйбла
-     * @property optionalPadding отступ в начале optional текста
-     * @property helperTextPadding верхний отступ внутреннего helper текста (caption/counter)
-     * @property startContentPadding отступ после startContent
-     * @property endContentPadding отступ перед endContent
-     * @property chipsPadding отступ от контейнера с chip-элементами
-     * @property boxMinHeight минимальная высота поля
-     * @property alignmentLineHeight высота первой строки контента
-     * @property startContentSize размер иконки в начале
-     * @property endContentSize размер иконки в конце
-     * @property indicatorDimensions настройки индикатора
-     * @property dividerThickness толщина разделителя в clear режиме
+     * @property horizontalPadding горизонтальный отступ индикатора
+     * @property verticalPadding вертикальный отступ индикатора
+     * @property indicatorSize размер внешнего индикатора
      */
     @Immutable
-    data class Dimensions(
-        val boxPaddingStart: Dp = 16.dp,
-        val boxPaddingEnd: Dp = 16.dp,
-        val boxPaddingTop: Dp = 25.dp,
-        val boxPaddingBottom: Dp = 9.dp,
-        val labelPadding: Dp = 2.dp,
-        val optionalPadding: Dp = 4.dp,
-        val helperTextPadding: Dp = 4.dp,
-        val startContentPadding: Dp = 6.dp,
-        val endContentPadding: Dp = 6.dp,
-        val chipsPadding: Dp = 6.dp,
-        val boxMinHeight: Dp = 56.dp,
-        val alignmentLineHeight: Dp = 56.dp,
-        val startContentSize: Dp = 24.dp,
-        val endContentSize: Dp = 24.dp,
-        val indicatorDimensions: IndicatorDimensions = IndicatorDimensions(),
-        val dividerThickness: Dp = 1.dp,
-    ) {
-
-        /**
-         * Настройки индикатора
-         *
-         * @property horizontalPadding горизонтальный отступ индикатора
-         * @property verticalPadding вертикальный отступ индикатора
-         * @property indicatorSize размер внешнего индикатора
-         */
-        @Immutable
-        data class IndicatorDimensions(
-            val horizontalPadding: Dp = 0.dp,
-            val verticalPadding: Dp = 0.dp,
-            val indicatorSize: Dp = 6.dp,
-        )
-    }
-
-    /**
-     * Внешний вид текстового поля
-     */
-    enum class FieldAppearance {
-
-        /**
-         * Текстовое поле с фоном
-         */
-        Solid,
-
-        /**
-         * Текстовое поле без фона
-         */
-        Clear,
-    }
-
-    /**
-     * Типы отображения лейбла
-     */
-    enum class LabelPlacement {
-        /**
-         * Лэйбл снаружи текстового поля
-         */
-        Outer,
-
-        /**
-         * Лэйбл внутри текстового поля
-         */
-        Inner,
-
-        /**
-         * Нет лэйбла
-         */
-        None,
-    }
-
-    /**
-     * Типы отображения вспомогательного текста
-     */
-    enum class HelperTextPlacement {
-        /**
-         * Снаружи текстового поля
-         */
-        Inner,
-
-        /**
-         * Внутри текстового поля
-         */
-        Outer,
-    }
-
-    /**
-     * Тип текстового поля (обязательное или опциональное)
-     */
-    enum class FieldType {
-
-        /**
-         * Опциональный тип поля.
-         * Когда поле имеет данный тип, к label добавляется optionalText.
-         */
-        Optional,
-
-        /**
-         * Обязательный тип поля, индикатор в начале
-         */
-        RequiredStart,
-
-        /**
-         * Обязательный тип поля, индикатор в конце
-         */
-        RequiredEnd,
-    }
-
-    /**
-     * Параметры анимации текстового поля
-     *
-     * @property animationDuration длительность основной анимации
-     * @property placeholderAnimationDelayOrDuration длительность анимации или задержка анимации плэйсхолдера в зависимости от состояния
-     * @property placeholderAnimationDuration длительность анимации плэйсхолдера
-     */
-    @Immutable
-    data class Animation(
-        val animationDuration: Int = 150,
-        val placeholderAnimationDelayOrDuration: Int = 67,
-        val placeholderAnimationDuration: Int = 83,
+    data class IndicatorDimensions(
+        val horizontalPadding: Dp = 0.dp,
+        val verticalPadding: Dp = 0.dp,
+        val indicatorSize: Dp = 6.dp,
     )
 }
 
 /**
- * Вспомогательный объект для описания API и стиля компонента
+ * Внешний вид текстового поля
  */
-object TextFieldClear
+enum class TextFieldAppearance {
+
+    /**
+     * Текстовое поле с фоном
+     */
+    Solid,
+
+    /**
+     * Текстовое поле без фона
+     */
+    Clear,
+}
 
 /**
- * Вспомогательный объект для описания API и стиля компонента
+ * Типы отображения лейбла
  */
-object TextArea
+enum class TextFieldLabelPlacement {
+    /**
+     * Лэйбл снаружи текстового поля
+     */
+    Outer,
+
+    /**
+     * Лэйбл внутри текстового поля
+     */
+    Inner,
+
+    /**
+     * Нет лэйбла
+     */
+    None,
+}
 
 /**
- * Вспомогательный объект для описания API и стиля компонента
+ * Типы отображения вспомогательного текста
  */
-object TextAreaClear
+enum class TextFieldHelperTextPlacement {
+    /**
+     * Снаружи текстового поля
+     */
+    Inner,
+
+    /**
+     * Внутри текстового поля
+     */
+    Outer,
+}
+
+/**
+ * Тип текстового поля (обязательное или опциональное)
+ */
+enum class TextFieldType {
+
+    /**
+     * Опциональный тип поля.
+     * Когда поле имеет данный тип, к label добавляется optionalText.
+     */
+    Optional,
+
+    /**
+     * Обязательный тип поля, индикатор в начале
+     */
+    RequiredStart,
+
+    /**
+     * Обязательный тип поля, индикатор в конце
+     */
+    RequiredEnd,
+}
+
+/**
+ * Параметры анимации текстового поля
+ *
+ * @property animationDuration длительность основной анимации
+ * @property placeholderAnimationDelayOrDuration длительность анимации или задержка анимации плэйсхолдера в зависимости от состояния
+ * @property placeholderAnimationDuration длительность анимации плэйсхолдера
+ */
+@Immutable
+data class TextFieldAnimation(
+    val animationDuration: Int = 150,
+    val placeholderAnimationDelayOrDuration: Int = 67,
+    val placeholderAnimationDuration: Int = 83,
+)
 
 /**
  * Вернет [VisualTransformation], которая добавит префикс [prefix] и/или суффикс [suffix].

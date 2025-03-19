@@ -9,10 +9,8 @@ package com.sdkit.star.designsystem.styles.textfield.clear
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.dimensionResource
-import com.sdds.compose.uikit.ChipGroup
-import com.sdds.compose.uikit.TextField
-import com.sdds.compose.uikit.TextFieldClear
 import com.sdds.compose.uikit.TextFieldClearStyleBuilder
+import com.sdds.compose.uikit.TextFieldLabelPlacement
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
@@ -22,6 +20,7 @@ import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.compose.uikit.textFieldClearBuilder
 import com.sdkit.star.designsystem.compose.R
+import com.sdkit.star.designsystem.styles.chip.group.ChipGroup
 import com.sdkit.star.designsystem.styles.chip.group.Dense
 import com.sdkit.star.designsystem.theme.StarDsTheme
 import kotlin.Suppress
@@ -294,7 +293,7 @@ public val TextFieldClear.Xs: WrapperTextFieldClearXs
         .prefixStyle(StarDsTheme.typography.bodyXsNormal)
         .suffixStyle(StarDsTheme.typography.bodyXsNormal)
         .placeholderStyle(StarDsTheme.typography.bodyXsNormal)
-        .labelPlacement(TextField.LabelPlacement.None)
+        .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextFieldClearXs)
 
 public val WrapperTextFieldClearXs.OuterLabel: WrapperTextFieldClearXsOuterLabel
@@ -308,7 +307,7 @@ public val WrapperTextFieldClearXs.OuterLabel: WrapperTextFieldClearXsOuterLabel
         }
         .labelStyle(StarDsTheme.typography.bodyXsNormal)
         .optionalStyle(StarDsTheme.typography.bodyXsNormal)
-        .labelPlacement(TextField.LabelPlacement.Outer)
+        .labelPlacement(TextFieldLabelPlacement.Outer)
         .colors {
             labelColor(
                 StarDsTheme.colors.textDefaultPrimary.asInteractive(),
@@ -335,7 +334,7 @@ public val TextFieldClear.S: WrapperTextFieldClearS
         .prefixStyle(StarDsTheme.typography.bodySNormal)
         .suffixStyle(StarDsTheme.typography.bodySNormal)
         .placeholderStyle(StarDsTheme.typography.bodySNormal)
-        .labelPlacement(TextField.LabelPlacement.None)
+        .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextFieldClearS)
 
 public val WrapperTextFieldClearS.OuterLabel: WrapperTextFieldClearSOuterLabel
@@ -347,7 +346,7 @@ public val WrapperTextFieldClearS.OuterLabel: WrapperTextFieldClearSOuterLabel
         }
         .labelStyle(StarDsTheme.typography.bodySNormal)
         .optionalStyle(StarDsTheme.typography.bodySNormal)
-        .labelPlacement(TextField.LabelPlacement.Outer)
+        .labelPlacement(TextFieldLabelPlacement.Outer)
         .colors {
             labelColor(
                 StarDsTheme.colors.textDefaultPrimary.asInteractive(),
@@ -366,7 +365,7 @@ public val WrapperTextFieldClearS.InnerLabel: WrapperTextFieldClearSInnerLabel
         }
         .labelStyle(StarDsTheme.typography.bodyXsNormal)
         .optionalStyle(StarDsTheme.typography.bodyXsNormal)
-        .labelPlacement(TextField.LabelPlacement.Inner)
+        .labelPlacement(TextFieldLabelPlacement.Inner)
         .colors {
             labelColor(
                 StarDsTheme.colors.textDefaultSecondary.asInteractive(
@@ -402,7 +401,7 @@ public val TextFieldClear.M: WrapperTextFieldClearM
         .prefixStyle(StarDsTheme.typography.bodyMNormal)
         .suffixStyle(StarDsTheme.typography.bodyMNormal)
         .placeholderStyle(StarDsTheme.typography.bodyMNormal)
-        .labelPlacement(TextField.LabelPlacement.None)
+        .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextFieldClearM)
 
 public val WrapperTextFieldClearM.OuterLabel: WrapperTextFieldClearMOuterLabel
@@ -414,7 +413,7 @@ public val WrapperTextFieldClearM.OuterLabel: WrapperTextFieldClearMOuterLabel
         }
         .labelStyle(StarDsTheme.typography.bodyMNormal)
         .optionalStyle(StarDsTheme.typography.bodyMNormal)
-        .labelPlacement(TextField.LabelPlacement.Outer)
+        .labelPlacement(TextFieldLabelPlacement.Outer)
         .colors {
             labelColor(
                 StarDsTheme.colors.textDefaultPrimary.asInteractive(),
@@ -433,7 +432,7 @@ public val WrapperTextFieldClearM.InnerLabel: WrapperTextFieldClearMInnerLabel
         }
         .labelStyle(StarDsTheme.typography.bodyXsNormal)
         .optionalStyle(StarDsTheme.typography.bodyXsNormal)
-        .labelPlacement(TextField.LabelPlacement.Inner)
+        .labelPlacement(TextFieldLabelPlacement.Inner)
         .colors {
             labelColor(
                 StarDsTheme.colors.textDefaultSecondary.asInteractive(
@@ -469,7 +468,7 @@ public val TextFieldClear.L: WrapperTextFieldClearL
         .prefixStyle(StarDsTheme.typography.bodyLNormal)
         .suffixStyle(StarDsTheme.typography.bodyLNormal)
         .placeholderStyle(StarDsTheme.typography.bodyLNormal)
-        .labelPlacement(TextField.LabelPlacement.None)
+        .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextFieldClearL)
 
 public val WrapperTextFieldClearL.OuterLabel: WrapperTextFieldClearLOuterLabel
@@ -481,7 +480,7 @@ public val WrapperTextFieldClearL.OuterLabel: WrapperTextFieldClearLOuterLabel
         }
         .labelStyle(StarDsTheme.typography.bodyLNormal)
         .optionalStyle(StarDsTheme.typography.bodyLNormal)
-        .labelPlacement(TextField.LabelPlacement.Outer)
+        .labelPlacement(TextFieldLabelPlacement.Outer)
         .colors {
             labelColor(
                 StarDsTheme.colors.textDefaultPrimary.asInteractive(),
@@ -500,7 +499,7 @@ public val WrapperTextFieldClearL.InnerLabel: WrapperTextFieldClearLInnerLabel
         }
         .labelStyle(StarDsTheme.typography.bodyXsNormal)
         .optionalStyle(StarDsTheme.typography.bodyXsNormal)
-        .labelPlacement(TextField.LabelPlacement.Inner)
+        .labelPlacement(TextFieldLabelPlacement.Inner)
         .colors {
             labelColor(
                 StarDsTheme.colors.textDefaultSecondary.asInteractive(

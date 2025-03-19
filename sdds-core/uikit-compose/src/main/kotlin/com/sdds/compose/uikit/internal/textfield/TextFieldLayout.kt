@@ -12,7 +12,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
@@ -42,10 +41,11 @@ import androidx.compose.ui.unit.constrainWidth
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.offset
 import com.sdds.compose.uikit.ChipGroup
+import com.sdds.compose.uikit.ChipGroupOverflowMode
 import com.sdds.compose.uikit.ChipGroupStyle
 import com.sdds.compose.uikit.ChipStyle
 import com.sdds.compose.uikit.LocalChipStyle
-import com.sdds.compose.uikit.TextField
+import com.sdds.compose.uikit.TextFieldDimensions
 import com.sdds.compose.uikit.internal.focusselector.FocusSelectorMode
 import com.sdds.compose.uikit.internal.focusselector.LocalFocusSelectorMode
 import com.sdds.compose.uikit.internal.heightOrZero
@@ -77,7 +77,7 @@ internal fun TextFieldLayout(
     chipStyle: ChipStyle,
     valueTextStyle: TextStyle,
     innerLabelTextStyle: TextStyle,
-    dimensions: TextField.Dimensions,
+    dimensions: TextFieldDimensions,
     animationProgress: Float,
     verticalScrollState: ScrollState?,
     horizontalScrollState: ScrollState?,
@@ -243,7 +243,7 @@ private fun CompositeTextFieldContent(
     chips: @Composable (() -> Unit)?,
     chipGroupStyle: ChipGroupStyle,
     chipStyle: ChipStyle,
-    dimensions: TextField.Dimensions,
+    dimensions: TextFieldDimensions,
     verticalScrollState: ScrollState?,
     horizontalScrollState: ScrollState?,
     singleLine: Boolean,
@@ -298,7 +298,7 @@ private fun TextAreaContent(
     textContent: @Composable (() -> Unit),
     chips: @Composable (() -> Unit)?,
     chipGroupStyle: ChipGroupStyle,
-    dimensions: TextField.Dimensions,
+    dimensions: TextFieldDimensions,
     scrollState: ScrollState?,
     valueTextStyle: TextStyle,
 ) {
@@ -318,7 +318,7 @@ private fun TextAreaContent(
                 val chipsBottomPadding = chipSpacing + (chipHeight - valueHeight) / 2
                 ChipGroup(
                     modifier = Modifier.padding(bottom = chipsBottomPadding),
-                    overflowMode = ChipGroup.OverflowMode.Wrap,
+                    overflowMode = ChipGroupOverflowMode.Wrap,
                     style = chipGroupStyle,
                 ) {
                     chips.invoke()
@@ -345,7 +345,7 @@ private fun TextFieldContent(
     textContent: @Composable (() -> Unit),
     chips: @Composable (() -> Unit)?,
     chipGroupStyle: ChipGroupStyle,
-    dimensions: TextField.Dimensions,
+    dimensions: TextFieldDimensions,
     scrollState: ScrollState?,
 ) {
     Row(
@@ -363,7 +363,7 @@ private fun TextFieldContent(
                     modifier = Modifier
                         .padding(end = dimensions.boxPaddingStart + chipGroupStyle.dimensions.horizontalSpacing),
                     style = chipGroupStyle,
-                    overflowMode = ChipGroup.OverflowMode.Unlimited,
+                    overflowMode = ChipGroupOverflowMode.Unlimited,
                 ) {
                     chips.invoke()
                 }

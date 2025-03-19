@@ -1,12 +1,14 @@
 package com.sdds.playground.sandbox.avatar.compose
 
 import com.sdds.compose.uikit.Avatar
+import com.sdds.compose.uikit.AvatarPlaceholder
+import com.sdds.compose.uikit.AvatarStatus
 import com.sdds.playground.sandbox.core.compose.UiState
 
 /**
  * Состояние [Avatar]
  *
- * @property status статус [Avatar.Status]
+ * @property status статус [AvatarStatus]
  * @property exampleMode режим отображения аватара
  * @property placeholder текст-заглушка
  * @property actionEnabled включен ли action у [Avatar]
@@ -14,9 +16,9 @@ import com.sdds.playground.sandbox.core.compose.UiState
  */
 internal data class AvatarUiState(
     override val variant: String = "",
-    val status: Avatar.Status = Avatar.Status.Active,
+    val status: AvatarStatus = AvatarStatus.Active,
     val exampleMode: ExampleMode = ExampleMode.Local,
-    val placeholder: Avatar.Placeholder? = Avatar.Placeholder.Name("Michael Scott"),
+    val placeholder: AvatarPlaceholder? = AvatarPlaceholder.Name("Michael Scott"),
     val actionEnabled: Boolean = false,
     val threshold: Int = DEFAULT_THRESHOLD,
 ) : UiState {

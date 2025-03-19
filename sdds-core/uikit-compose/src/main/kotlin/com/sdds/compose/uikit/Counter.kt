@@ -125,8 +125,3 @@ fun Counter(
         content?.invoke()
     }
 }
-
-/**
- * Вспомогательный объект для описания API и стиля компонента Counter
- */
-object Counter

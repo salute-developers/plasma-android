@@ -1,8 +1,8 @@
 package com.sdds.plasma.sd.service
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
-import com.sdds.compose.uikit.Chip
 import com.sdds.plasma.sd.service.styles.chip.Accent
+import com.sdds.plasma.sd.service.styles.chip.Chip
 import com.sdds.plasma.sd.service.styles.chip.Default
 import com.sdds.plasma.sd.service.styles.chip.L
 import com.sdds.plasma.sd.service.styles.chip.M

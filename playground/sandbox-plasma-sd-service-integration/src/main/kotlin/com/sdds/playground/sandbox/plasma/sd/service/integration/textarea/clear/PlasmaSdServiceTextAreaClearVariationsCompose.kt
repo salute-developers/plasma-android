@@ -1,7 +1,6 @@
 package com.sdds.playground.sandbox.plasma.sd.service.integration.textarea.clear
 
 import androidx.compose.runtime.Composable
-import com.sdds.compose.uikit.TextAreaClear
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.plasma.sd.service.styles.textarea.clear.Default
@@ -13,6 +12,7 @@ import com.sdds.plasma.sd.service.styles.textarea.clear.OuterLabel
 import com.sdds.plasma.sd.service.styles.textarea.clear.RequiredEnd
 import com.sdds.plasma.sd.service.styles.textarea.clear.RequiredStart
 import com.sdds.plasma.sd.service.styles.textarea.clear.S
+import com.sdds.plasma.sd.service.styles.textarea.clear.TextAreaClear
 import com.sdds.plasma.sd.service.styles.textarea.clear.Warning
 import com.sdds.plasma.sd.service.styles.textarea.clear.Xl
 import com.sdds.plasma.sd.service.styles.textarea.clear.Xs

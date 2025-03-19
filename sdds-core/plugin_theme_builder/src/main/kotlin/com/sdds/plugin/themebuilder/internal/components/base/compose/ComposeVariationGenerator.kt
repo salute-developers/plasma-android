@@ -78,7 +78,6 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
     private val componentRootObjectType: ClassName by unsafeLazy {
         ktFileBuilder.getInternalClassType(
             className = camelComponentName,
-            classPackage = "com.sdds.compose.uikit",
         )
     }
 
@@ -164,7 +163,7 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
         val styleRefParts = split(".")
         val objectName = styleRefParts.first().toCamelCase()
         val extensions = styleRefParts.subList(1, styleRefParts.size).map { it.toCamelCase() }
-        ktFileBuilder.addImport(ClassName("com.sdds.compose.uikit", listOf(objectName)))
+        ktFileBuilder.addImport(ClassName(stylesPackage, listOf(objectName)))
         extensions.forEach {
             ktFileBuilder.addImport(
                 ClassName(
@@ -211,12 +210,27 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
     override fun generate(config: Config<PO>) {
         with(ktFileBuilder) {
             addCommonImports()
+            addRootObject()
             addBaseWrapperInterface()
             val rootVariation = config.asVariationTree(camelComponentName)
             createVariation(
                 variation = rootVariation,
                 isRoot = true,
                 viewExtensionReceiverName = baseWrapperInterfaceName,
+            )
+            build(outputLocation)
+        }
+    }
+
+    private fun addRootObject() {
+        val objectFileBuilder = ktFileBuilderFactory.create(
+            fileName = camelComponentName,
+            fullPackageName = componentPackage,
+        )
+        with(objectFileBuilder) {
+            rootObject(
+                name = camelComponentName,
+                description = "Вспомогательный объект для описания API и стиля компонента $camelComponentName",
             )
             build(outputLocation)
         }

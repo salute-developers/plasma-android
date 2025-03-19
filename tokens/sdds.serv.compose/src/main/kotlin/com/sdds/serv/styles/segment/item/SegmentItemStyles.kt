@@ -10,7 +10,6 @@ package com.sdds.serv.styles.segment.item
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.uikit.Counter
 import com.sdds.compose.uikit.SegmentItemStyle
 import com.sdds.compose.uikit.SegmentItemStyleBuilder
 import com.sdds.compose.uikit.adjustBy
@@ -22,6 +21,7 @@ import com.sdds.compose.uikit.style.modify
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.serv.styles.counter.Accent
+import com.sdds.serv.styles.counter.Counter
 import com.sdds.serv.styles.counter.S
 import com.sdds.serv.styles.counter.Xs
 import com.sdds.serv.styles.counter.Xxs

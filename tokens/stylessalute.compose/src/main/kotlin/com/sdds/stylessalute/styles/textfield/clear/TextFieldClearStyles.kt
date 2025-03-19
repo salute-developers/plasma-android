@@ -9,12 +9,10 @@ package com.sdds.stylessalute.styles.textfield.clear
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.uikit.ChipGroup
-import com.sdds.compose.uikit.EmbeddedChip
-import com.sdds.compose.uikit.TextField
-import com.sdds.compose.uikit.TextFieldClear
 import com.sdds.compose.uikit.TextFieldClearStyleBuilder
+import com.sdds.compose.uikit.TextFieldLabelPlacement
 import com.sdds.compose.uikit.TextFieldStyle
+import com.sdds.compose.uikit.TextFieldType
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.multiplyAlpha
@@ -22,11 +20,13 @@ import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.compose.uikit.textFieldClearBuilder
+import com.sdds.stylessalute.styles.chip.EmbeddedChip
 import com.sdds.stylessalute.styles.chip.L
 import com.sdds.stylessalute.styles.chip.M
 import com.sdds.stylessalute.styles.chip.S
 import com.sdds.stylessalute.styles.chip.Secondary
 import com.sdds.stylessalute.styles.chip.Xs
+import com.sdds.stylessalute.styles.chip.group.ChipGroup
 import com.sdds.stylessalute.styles.chip.group.Dense
 import com.sdds.stylessalute.theme.StylesSaluteTheme
 import kotlin.Suppress
@@ -537,7 +537,7 @@ public val TextFieldClear.Xs: WrapperTextFieldClearXs
         .suffixStyle(StylesSaluteTheme.typography.bodyXsNormal)
         .placeholderStyle(StylesSaluteTheme.typography.bodyXsNormal)
         .chipStyle(EmbeddedChip.Xs.Secondary.style())
-        .labelPlacement(TextField.LabelPlacement.None)
+        .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextFieldClearXs)
 
 public val WrapperTextFieldClearXs.RequiredStart: WrapperTextFieldClearXsRequiredStart
@@ -551,7 +551,7 @@ public val WrapperTextFieldClearXs.RequiredStart: WrapperTextFieldClearXsRequire
                 indicatorSize(6.0.dp)
             }
         }
-        .fieldType(TextField.FieldType.RequiredStart)
+        .fieldType(TextFieldType.RequiredStart)
         .wrap(::WrapperTextFieldClearXsRequiredStart)
 
 public val WrapperTextFieldClearXs.RequiredEnd: WrapperTextFieldClearXsRequiredEnd
@@ -565,7 +565,7 @@ public val WrapperTextFieldClearXs.RequiredEnd: WrapperTextFieldClearXsRequiredE
                 indicatorSize(6.0.dp)
             }
         }
-        .fieldType(TextField.FieldType.RequiredEnd)
+        .fieldType(TextFieldType.RequiredEnd)
         .wrap(::WrapperTextFieldClearXsRequiredEnd)
 
 public val WrapperTextFieldClearXs.OuterLabel: WrapperTextFieldClearXsOuterLabel
@@ -579,7 +579,7 @@ public val WrapperTextFieldClearXs.OuterLabel: WrapperTextFieldClearXsOuterLabel
         }
         .labelStyle(StylesSaluteTheme.typography.bodyXsNormal)
         .optionalStyle(StylesSaluteTheme.typography.bodyXsNormal)
-        .labelPlacement(TextField.LabelPlacement.Outer)
+        .labelPlacement(TextFieldLabelPlacement.Outer)
         .colors {
             labelColor(
                 StylesSaluteTheme.colors.textDefaultPrimary.asInteractive(),
@@ -599,7 +599,7 @@ public val WrapperTextFieldClearXsOuterLabel.RequiredStart:
                 indicatorSize(6.0.dp)
             }
         }
-        .fieldType(TextField.FieldType.RequiredStart)
+        .fieldType(TextFieldType.RequiredStart)
         .wrap(::WrapperTextFieldClearXsOuterLabelRequiredStart)
 
 public val WrapperTextFieldClearXsOuterLabel.RequiredEnd:
@@ -614,7 +614,7 @@ public val WrapperTextFieldClearXsOuterLabel.RequiredEnd:
                 indicatorSize(6.0.dp)
             }
         }
-        .fieldType(TextField.FieldType.RequiredEnd)
+        .fieldType(TextFieldType.RequiredEnd)
         .wrap(::WrapperTextFieldClearXsOuterLabelRequiredEnd)
 
 public val TextFieldClear.S: WrapperTextFieldClearS
@@ -637,7 +637,7 @@ public val TextFieldClear.S: WrapperTextFieldClearS
         .suffixStyle(StylesSaluteTheme.typography.bodySNormal)
         .placeholderStyle(StylesSaluteTheme.typography.bodySNormal)
         .chipStyle(EmbeddedChip.S.Secondary.style())
-        .labelPlacement(TextField.LabelPlacement.None)
+        .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextFieldClearS)
 
 public val WrapperTextFieldClearS.RequiredStart: WrapperTextFieldClearSRequiredStart
@@ -651,7 +651,7 @@ public val WrapperTextFieldClearS.RequiredStart: WrapperTextFieldClearSRequiredS
                 indicatorSize(6.0.dp)
             }
         }
-        .fieldType(TextField.FieldType.RequiredStart)
+        .fieldType(TextFieldType.RequiredStart)
         .wrap(::WrapperTextFieldClearSRequiredStart)
 
 public val WrapperTextFieldClearS.RequiredEnd: WrapperTextFieldClearSRequiredEnd
@@ -665,7 +665,7 @@ public val WrapperTextFieldClearS.RequiredEnd: WrapperTextFieldClearSRequiredEnd
                 indicatorSize(6.0.dp)
             }
         }
-        .fieldType(TextField.FieldType.RequiredEnd)
+        .fieldType(TextFieldType.RequiredEnd)
         .wrap(::WrapperTextFieldClearSRequiredEnd)
 
 public val WrapperTextFieldClearS.OuterLabel: WrapperTextFieldClearSOuterLabel
@@ -677,7 +677,7 @@ public val WrapperTextFieldClearS.OuterLabel: WrapperTextFieldClearSOuterLabel
         }
         .labelStyle(StylesSaluteTheme.typography.bodySNormal)
         .optionalStyle(StylesSaluteTheme.typography.bodySNormal)
-        .labelPlacement(TextField.LabelPlacement.Outer)
+        .labelPlacement(TextFieldLabelPlacement.Outer)
         .colors {
             labelColor(
                 StylesSaluteTheme.colors.textDefaultPrimary.asInteractive(),
@@ -697,7 +697,7 @@ public val WrapperTextFieldClearSOuterLabel.RequiredStart:
                 indicatorSize(6.0.dp)
             }
         }
-        .fieldType(TextField.FieldType.RequiredStart)
+        .fieldType(TextFieldType.RequiredStart)
         .wrap(::WrapperTextFieldClearSOuterLabelRequiredStart)
 
 public val WrapperTextFieldClearSOuterLabel.RequiredEnd: WrapperTextFieldClearSOuterLabelRequiredEnd
@@ -711,7 +711,7 @@ public val WrapperTextFieldClearSOuterLabel.RequiredEnd: WrapperTextFieldClearSO
                 indicatorSize(6.0.dp)
             }
         }
-        .fieldType(TextField.FieldType.RequiredEnd)
+        .fieldType(TextFieldType.RequiredEnd)
         .wrap(::WrapperTextFieldClearSOuterLabelRequiredEnd)
 
 public val WrapperTextFieldClearS.InnerLabel: WrapperTextFieldClearSInnerLabel
@@ -725,7 +725,7 @@ public val WrapperTextFieldClearS.InnerLabel: WrapperTextFieldClearSInnerLabel
         }
         .labelStyle(StylesSaluteTheme.typography.bodyXsNormal)
         .optionalStyle(StylesSaluteTheme.typography.bodyXsNormal)
-        .labelPlacement(TextField.LabelPlacement.Inner)
+        .labelPlacement(TextFieldLabelPlacement.Inner)
         .colors {
             labelColor(
                 StylesSaluteTheme.colors.textDefaultSecondary.asInteractive(),
@@ -745,7 +745,7 @@ public val WrapperTextFieldClearSInnerLabel.RequiredStart:
                 indicatorSize(6.0.dp)
             }
         }
-        .fieldType(TextField.FieldType.RequiredStart)
+        .fieldType(TextFieldType.RequiredStart)
         .wrap(::WrapperTextFieldClearSInnerLabelRequiredStart)
 
 public val WrapperTextFieldClearSInnerLabel.RequiredEnd: WrapperTextFieldClearSInnerLabelRequiredEnd
@@ -759,7 +759,7 @@ public val WrapperTextFieldClearSInnerLabel.RequiredEnd: WrapperTextFieldClearSI
                 indicatorSize(6.0.dp)
             }
         }
-        .fieldType(TextField.FieldType.RequiredEnd)
+        .fieldType(TextFieldType.RequiredEnd)
         .wrap(::WrapperTextFieldClearSInnerLabelRequiredEnd)
 
 public val TextFieldClear.M: WrapperTextFieldClearM
@@ -782,7 +782,7 @@ public val TextFieldClear.M: WrapperTextFieldClearM
         .suffixStyle(StylesSaluteTheme.typography.bodyMNormal)
         .placeholderStyle(StylesSaluteTheme.typography.bodyMNormal)
         .chipStyle(EmbeddedChip.M.Secondary.style())
-        .labelPlacement(TextField.LabelPlacement.None)
+        .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextFieldClearM)
 
 public val WrapperTextFieldClearM.RequiredStart: WrapperTextFieldClearMRequiredStart
@@ -796,7 +796,7 @@ public val WrapperTextFieldClearM.RequiredStart: WrapperTextFieldClearMRequiredS
                 indicatorSize(8.0.dp)
             }
         }
-        .fieldType(TextField.FieldType.RequiredStart)
+        .fieldType(TextFieldType.RequiredStart)
         .wrap(::WrapperTextFieldClearMRequiredStart)
 
 public val WrapperTextFieldClearM.RequiredEnd: WrapperTextFieldClearMRequiredEnd
@@ -810,7 +810,7 @@ public val WrapperTextFieldClearM.RequiredEnd: WrapperTextFieldClearMRequiredEnd
                 indicatorSize(8.0.dp)
             }
         }
-        .fieldType(TextField.FieldType.RequiredEnd)
+        .fieldType(TextFieldType.RequiredEnd)
         .wrap(::WrapperTextFieldClearMRequiredEnd)
 
 public val WrapperTextFieldClearM.OuterLabel: WrapperTextFieldClearMOuterLabel
@@ -822,7 +822,7 @@ public val WrapperTextFieldClearM.OuterLabel: WrapperTextFieldClearMOuterLabel
         }
         .labelStyle(StylesSaluteTheme.typography.bodyMNormal)
         .optionalStyle(StylesSaluteTheme.typography.bodyMNormal)
-        .labelPlacement(TextField.LabelPlacement.Outer)
+        .labelPlacement(TextFieldLabelPlacement.Outer)
         .colors {
             labelColor(
                 StylesSaluteTheme.colors.textDefaultPrimary.asInteractive(),
@@ -842,7 +842,7 @@ public val WrapperTextFieldClearMOuterLabel.RequiredStart:
                 indicatorSize(6.0.dp)
             }
         }
-        .fieldType(TextField.FieldType.RequiredStart)
+        .fieldType(TextFieldType.RequiredStart)
         .wrap(::WrapperTextFieldClearMOuterLabelRequiredStart)
 
 public val WrapperTextFieldClearMOuterLabel.RequiredEnd: WrapperTextFieldClearMOuterLabelRequiredEnd
@@ -856,7 +856,7 @@ public val WrapperTextFieldClearMOuterLabel.RequiredEnd: WrapperTextFieldClearMO
                 indicatorSize(6.0.dp)
             }
         }
-        .fieldType(TextField.FieldType.RequiredEnd)
+        .fieldType(TextFieldType.RequiredEnd)
         .wrap(::WrapperTextFieldClearMOuterLabelRequiredEnd)
 
 public val WrapperTextFieldClearM.InnerLabel: WrapperTextFieldClearMInnerLabel
@@ -870,7 +870,7 @@ public val WrapperTextFieldClearM.InnerLabel: WrapperTextFieldClearMInnerLabel
         }
         .labelStyle(StylesSaluteTheme.typography.bodyXsNormal)
         .optionalStyle(StylesSaluteTheme.typography.bodyXsNormal)
-        .labelPlacement(TextField.LabelPlacement.Inner)
+        .labelPlacement(TextFieldLabelPlacement.Inner)
         .colors {
             labelColor(
                 StylesSaluteTheme.colors.textDefaultSecondary.asInteractive(),
@@ -890,7 +890,7 @@ public val WrapperTextFieldClearMInnerLabel.RequiredStart:
                 indicatorSize(8.0.dp)
             }
         }
-        .fieldType(TextField.FieldType.RequiredStart)
+        .fieldType(TextFieldType.RequiredStart)
         .wrap(::WrapperTextFieldClearMInnerLabelRequiredStart)
 
 public val WrapperTextFieldClearMInnerLabel.RequiredEnd: WrapperTextFieldClearMInnerLabelRequiredEnd
@@ -904,7 +904,7 @@ public val WrapperTextFieldClearMInnerLabel.RequiredEnd: WrapperTextFieldClearMI
                 indicatorSize(8.0.dp)
             }
         }
-        .fieldType(TextField.FieldType.RequiredEnd)
+        .fieldType(TextFieldType.RequiredEnd)
         .wrap(::WrapperTextFieldClearMInnerLabelRequiredEnd)
 
 public val TextFieldClear.L: WrapperTextFieldClearL
@@ -927,7 +927,7 @@ public val TextFieldClear.L: WrapperTextFieldClearL
         .suffixStyle(StylesSaluteTheme.typography.bodyLNormal)
         .placeholderStyle(StylesSaluteTheme.typography.bodyLNormal)
         .chipStyle(EmbeddedChip.L.Secondary.style())
-        .labelPlacement(TextField.LabelPlacement.None)
+        .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextFieldClearL)
 
 public val WrapperTextFieldClearL.RequiredStart: WrapperTextFieldClearLRequiredStart
@@ -941,7 +941,7 @@ public val WrapperTextFieldClearL.RequiredStart: WrapperTextFieldClearLRequiredS
                 indicatorSize(8.0.dp)
             }
         }
-        .fieldType(TextField.FieldType.RequiredStart)
+        .fieldType(TextFieldType.RequiredStart)
         .wrap(::WrapperTextFieldClearLRequiredStart)
 
 public val WrapperTextFieldClearL.RequiredEnd: WrapperTextFieldClearLRequiredEnd
@@ -955,7 +955,7 @@ public val WrapperTextFieldClearL.RequiredEnd: WrapperTextFieldClearLRequiredEnd
                 indicatorSize(8.0.dp)
             }
         }
-        .fieldType(TextField.FieldType.RequiredEnd)
+        .fieldType(TextFieldType.RequiredEnd)
         .wrap(::WrapperTextFieldClearLRequiredEnd)
 
 public val WrapperTextFieldClearL.OuterLabel: WrapperTextFieldClearLOuterLabel
@@ -967,7 +967,7 @@ public val WrapperTextFieldClearL.OuterLabel: WrapperTextFieldClearLOuterLabel
         }
         .labelStyle(StylesSaluteTheme.typography.bodyLNormal)
         .optionalStyle(StylesSaluteTheme.typography.bodyLNormal)
-        .labelPlacement(TextField.LabelPlacement.Outer)
+        .labelPlacement(TextFieldLabelPlacement.Outer)
         .colors {
             labelColor(
                 StylesSaluteTheme.colors.textDefaultPrimary.asInteractive(),
@@ -987,7 +987,7 @@ public val WrapperTextFieldClearLOuterLabel.RequiredStart:
                 indicatorSize(6.0.dp)
             }
         }
-        .fieldType(TextField.FieldType.RequiredStart)
+        .fieldType(TextFieldType.RequiredStart)
         .wrap(::WrapperTextFieldClearLOuterLabelRequiredStart)
 
 public val WrapperTextFieldClearLOuterLabel.RequiredEnd: WrapperTextFieldClearLOuterLabelRequiredEnd
@@ -1001,7 +1001,7 @@ public val WrapperTextFieldClearLOuterLabel.RequiredEnd: WrapperTextFieldClearLO
                 indicatorSize(6.0.dp)
             }
         }
-        .fieldType(TextField.FieldType.RequiredEnd)
+        .fieldType(TextFieldType.RequiredEnd)
         .wrap(::WrapperTextFieldClearLOuterLabelRequiredEnd)
 
 public val WrapperTextFieldClearL.InnerLabel: WrapperTextFieldClearLInnerLabel
@@ -1015,7 +1015,7 @@ public val WrapperTextFieldClearL.InnerLabel: WrapperTextFieldClearLInnerLabel
         }
         .labelStyle(StylesSaluteTheme.typography.bodyXsNormal)
         .optionalStyle(StylesSaluteTheme.typography.bodyXsNormal)
-        .labelPlacement(TextField.LabelPlacement.Inner)
+        .labelPlacement(TextFieldLabelPlacement.Inner)
         .colors {
             labelColor(
                 StylesSaluteTheme.colors.textDefaultSecondary.asInteractive(),
@@ -1035,7 +1035,7 @@ public val WrapperTextFieldClearLInnerLabel.RequiredStart:
                 indicatorSize(8.0.dp)
             }
         }
-        .fieldType(TextField.FieldType.RequiredStart)
+        .fieldType(TextFieldType.RequiredStart)
         .wrap(::WrapperTextFieldClearLInnerLabelRequiredStart)
 
 public val WrapperTextFieldClearLInnerLabel.RequiredEnd: WrapperTextFieldClearLInnerLabelRequiredEnd
@@ -1049,5 +1049,5 @@ public val WrapperTextFieldClearLInnerLabel.RequiredEnd: WrapperTextFieldClearLI
                 indicatorSize(8.0.dp)
             }
         }
-        .fieldType(TextField.FieldType.RequiredEnd)
+        .fieldType(TextFieldType.RequiredEnd)
         .wrap(::WrapperTextFieldClearLInnerLabelRequiredEnd)

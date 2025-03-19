@@ -10,7 +10,6 @@ package com.sdds.plasma.sd.service.styles.segment.item
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.uikit.Counter
 import com.sdds.compose.uikit.SegmentItemStyle
 import com.sdds.compose.uikit.SegmentItemStyleBuilder
 import com.sdds.compose.uikit.adjustBy
@@ -22,6 +21,7 @@ import com.sdds.compose.uikit.style.modify
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.plasma.sd.service.styles.counter.Accent
+import com.sdds.plasma.sd.service.styles.counter.Counter
 import com.sdds.plasma.sd.service.styles.counter.S
 import com.sdds.plasma.sd.service.styles.counter.Xs
 import com.sdds.plasma.sd.service.styles.counter.Xxs

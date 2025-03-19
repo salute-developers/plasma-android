@@ -29,8 +29,3 @@ fun ProgressBar(
         indicatorCornerRadius = style.dimensions.indicatorCornerRadius,
     )
 }
-
-/**
- * Вспомогательный объект для описания API и стиля компонента
- */
-object ProgressBar

@@ -1,10 +1,10 @@
 package com.sdds.stylessalute
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
-import com.sdds.compose.uikit.CheckBox
-import com.sdds.compose.uikit.CheckBoxGroup
+import com.sdds.stylessalute.styles.checkbox.CheckBox
 import com.sdds.stylessalute.styles.checkbox.M
 import com.sdds.stylessalute.styles.checkbox.S
+import com.sdds.stylessalute.styles.checkbox.group.CheckBoxGroup
 import com.sdds.stylessalute.styles.checkbox.group.M
 import com.sdds.stylessalute.styles.checkbox.group.S
 import com.sdds.testing.compose.RoborazziConfigCompose

@@ -11,7 +11,6 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.BadgeStyle
-import com.sdds.compose.uikit.IconBadgeSolid
 import com.sdds.compose.uikit.IconBadgeStyleBuilder
 import com.sdds.compose.uikit.iconBadgeSolidBuilder
 import com.sdds.compose.uikit.interactions.asInteractive

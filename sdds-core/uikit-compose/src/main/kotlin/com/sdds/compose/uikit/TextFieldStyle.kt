@@ -14,9 +14,9 @@ interface TextFieldStyle : Style {
 
     /**
      * Размеры и отступы компонента
-     * @see TextField.Dimensions
+     * @see TextFieldDimensions
      */
-    val dimensions: TextField.Dimensions
+    val dimensions: TextFieldDimensions
 
     /**
      * Цвета компонента
@@ -32,27 +32,27 @@ interface TextFieldStyle : Style {
 
     /**
      * Тип текстового поля
-     * @see TextField.FieldType
+     * @see TextFieldType
      */
-    val fieldType: TextField.FieldType
+    val fieldType: TextFieldType
 
     /**
      * Внешний вид текстового поля
-     * @see TextField.FieldAppearance
+     * @see TextFieldAppearance
      */
-    val fieldAppearance: TextField.FieldAppearance
+    val fieldAppearance: TextFieldAppearance
 
     /**
      * Расположение лэйбла
      * @see
      */
-    val labelPlacement: TextField.LabelPlacement
+    val labelPlacement: TextFieldLabelPlacement
 
     /**
      * Расположение вспомогательного текста
-     * @see TextField.HelperTextPlacement
+     * @see TextFieldHelperTextPlacement
      */
-    val helperTextPlacement: TextField.HelperTextPlacement
+    val helperTextPlacement: TextFieldHelperTextPlacement
 
     /**
      * Настройки вертикального скроллбара

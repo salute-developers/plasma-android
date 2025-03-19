@@ -1,7 +1,6 @@
 package com.sdds.playground.sandbox.sdds.serv.integration.textarea
 
 import androidx.compose.runtime.Composable
-import com.sdds.compose.uikit.TextArea
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
@@ -14,6 +13,7 @@ import com.sdds.serv.styles.textarea.OuterLabel
 import com.sdds.serv.styles.textarea.RequiredEnd
 import com.sdds.serv.styles.textarea.RequiredStart
 import com.sdds.serv.styles.textarea.S
+import com.sdds.serv.styles.textarea.TextArea
 import com.sdds.serv.styles.textarea.Warning
 import com.sdds.serv.styles.textarea.Xl
 import com.sdds.serv.styles.textarea.Xs

@@ -2,7 +2,6 @@ package com.sdkit.star.designsystem.styles.chip.group
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.dimensionResource
-import com.sdds.compose.uikit.ChipGroup
 import com.sdds.compose.uikit.ChipGroupDimensions
 import com.sdds.compose.uikit.ChipGroupStyle
 import com.sdds.compose.uikit.ChipGroupStyleBuilder

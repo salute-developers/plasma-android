@@ -4,8 +4,6 @@ import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performTextInput
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
-import com.sdds.compose.uikit.TextArea
-import com.sdds.compose.uikit.TextAreaClear
 import com.sdds.compose.uikit.style.style
 import com.sdds.plasma.sd.service.styles.textarea.Default
 import com.sdds.plasma.sd.service.styles.textarea.Error
@@ -16,6 +14,7 @@ import com.sdds.plasma.sd.service.styles.textarea.OuterLabel
 import com.sdds.plasma.sd.service.styles.textarea.RequiredEnd
 import com.sdds.plasma.sd.service.styles.textarea.RequiredStart
 import com.sdds.plasma.sd.service.styles.textarea.S
+import com.sdds.plasma.sd.service.styles.textarea.TextArea
 import com.sdds.plasma.sd.service.styles.textarea.Warning
 import com.sdds.plasma.sd.service.styles.textarea.Xl
 import com.sdds.plasma.sd.service.styles.textarea.Xs
@@ -28,6 +27,7 @@ import com.sdds.plasma.sd.service.styles.textarea.clear.OuterLabel
 import com.sdds.plasma.sd.service.styles.textarea.clear.RequiredEnd
 import com.sdds.plasma.sd.service.styles.textarea.clear.RequiredStart
 import com.sdds.plasma.sd.service.styles.textarea.clear.S
+import com.sdds.plasma.sd.service.styles.textarea.clear.TextAreaClear
 import com.sdds.plasma.sd.service.styles.textarea.clear.Warning
 import com.sdds.plasma.sd.service.styles.textarea.clear.Xs
 import com.sdds.testing.compose.RoborazziConfigCompose

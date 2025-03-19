@@ -10,7 +10,6 @@ package com.sdds.serv.styles.indicator
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.uikit.Indicator
 import com.sdds.compose.uikit.IndicatorStyle
 import com.sdds.compose.uikit.IndicatorStyleBuilder
 import com.sdds.compose.uikit.indicatorBuilder

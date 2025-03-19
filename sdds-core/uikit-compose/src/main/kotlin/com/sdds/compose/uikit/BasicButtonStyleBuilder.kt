@@ -66,10 +66,10 @@ interface BasicButtonStyleBuilder : StyleBuilder<ButtonStyle> {
     /**
      * Устанавливает размеры и отступы контента кнопки [dimensions]
      * @see ButtonStyle.dimensions
-     * @see Button.Dimensions
+     * @see ButtonDimensions
      */
     @Deprecated("Use dimensions() with builder instead")
-    fun dimensions(dimensions: Button.Dimensions): BasicButtonStyleBuilder
+    fun dimensions(dimensions: ButtonDimensions): BasicButtonStyleBuilder
 
     /**
      * Устанавливает значение прозрачности выключенной кнопки [disableAlpha]
@@ -91,7 +91,6 @@ interface BasicButtonColorsBuilder {
 
     /**
      * Устанавливает цвет контента кнопки [contentColor]
-     * @see ButtonColors.contentColor
      * @see InteractiveColor
      */
     fun contentColor(contentColor: InteractiveColor): BasicButtonColorsBuilder
@@ -99,7 +98,6 @@ interface BasicButtonColorsBuilder {
     /**
      * Устанавливает цвет контента кнопки [contentColor]
      * @see BasicButtonColorsBuilder.contentColor
-     * @see ButtonColors.contentColor
      * @see InteractiveColor
      */
     fun contentColor(contentColor: Color): BasicButtonColorsBuilder =
@@ -193,7 +191,7 @@ interface BasicButtonColorsBuilder {
 }
 
 /**
- * Билдер размеров для [BasicButton]
+ * Билдер размеров для BasicButton
  */
 interface BasicButtonDimensionsBuilder {
 
@@ -243,9 +241,9 @@ interface BasicButtonDimensionsBuilder {
     fun valueMargin(valueMargin: Dp): BasicButtonDimensionsBuilder
 
     /**
-     * Возвращает [Button.Dimensions]
+     * Возвращает [ButtonDimensions]
      */
-    fun build(): Button.Dimensions
+    fun build(): ButtonDimensions
 
     companion object {
         /**
@@ -301,8 +299,8 @@ private class DefaultBasicButtonDimensionsBuilder : BasicButtonDimensionsBuilder
         this.valueMargin = valueMargin
     }
 
-    override fun build(): Button.Dimensions {
-        return Button.Dimensions(
+    override fun build(): ButtonDimensions {
+        return ButtonDimensions(
             height = height ?: 46.dp,
             paddingStart = paddingStart ?: 0.dp,
             paddingEnd = paddingEnd ?: 0.dp,
@@ -352,7 +350,7 @@ private class BasicButtonStyleBuilderImpl(override val receiver: Any?) : BasicBu
         }
 
     @Deprecated("Use dimensions() with builder instead")
-    override fun dimensions(dimensions: Button.Dimensions) = apply {
+    override fun dimensions(dimensions: ButtonDimensions) = apply {
         this.dimensionsBuilder.apply {
             height(dimensions.height)
             paddingStart(dimensions.paddingStart)
@@ -392,7 +390,7 @@ private class DefaultBasicButtonStyle(
     override val colors: ButtonColors,
     override val labelStyle: TextStyle,
     override val valueStyle: TextStyle,
-    override val dimensions: Button.Dimensions,
+    override val dimensions: ButtonDimensions,
     override val disableAlpha: Float,
     override val loadingAlpha: Float,
 ) : ButtonStyle
