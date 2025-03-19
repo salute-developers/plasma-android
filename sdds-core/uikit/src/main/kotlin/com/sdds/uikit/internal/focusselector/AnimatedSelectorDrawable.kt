@@ -56,11 +56,8 @@ internal class AnimatedSelectorDrawable : Drawable, Animatable, OnScrollChangeLi
             interpolator = LinearInterpolator()
             addUpdateListener {
                 val animValue = it.animatedValue as Float
-                val startFirstLine = (pathMeasure.length / 2) * animValue
-                val startSecondLine = startFirstLine + pathMeasure.length / 2
-
+                val startFirstLine = (pathMeasure.length) * animValue
                 shaders[0]?.updateShader(startFirstLine)
-                shaders[1]?.updateShader(startSecondLine)
                 invalidateSelf()
             }
         }
@@ -85,7 +82,7 @@ internal class AnimatedSelectorDrawable : Drawable, Animatable, OnScrollChangeLi
         borderPaint.color = additionalColor
         borderPaint.applyStroke(strokeWidth)
         animationPaint.applyStroke(strokeWidth)
-        offset = strokeWidth / 2 + insets
+        offset = strokeWidth / 2f + insets
         this.shapeModel = shapeModel.adjust(-offset)
     }
 
@@ -106,8 +103,6 @@ internal class AnimatedSelectorDrawable : Drawable, Animatable, OnScrollChangeLi
         canvas.translate(scrollX + drawingRect.left, scrollY + drawingRect.top)
         drawShape(canvas, borderPaint)
         animationPaint.shader = shaders[0]
-        drawShape(canvas, animationPaint)
-        animationPaint.shader = shaders[1]
         drawShape(canvas, animationPaint)
         canvas.restore()
     }
@@ -144,7 +139,7 @@ internal class AnimatedSelectorDrawable : Drawable, Animatable, OnScrollChangeLi
                 0f,
                 radius,
                 gradientColors,
-                floatArrayOf(0f, radius * 0.15f),
+                floatArrayOf(0f, 0.85f),
                 Shader.TileMode.CLAMP,
             )
         }
@@ -194,7 +189,7 @@ internal class AnimatedSelectorDrawable : Drawable, Animatable, OnScrollChangeLi
 
     private companion object {
         const val ANIMATION_DURATION = 2500L
-        const val LENGTH_COEFFICIENT = 0.1f
+        const val LENGTH_COEFFICIENT = 0.45f
         const val MAX_RATION = 4
 
         fun RectF.offset(offset: Float) {

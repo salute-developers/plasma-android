@@ -2,7 +2,6 @@ package com.sdds.uikit.internal.focusselector
 
 import android.content.Context
 import android.util.AttributeSet
-import android.util.Log
 import android.view.View
 import com.sdds.uikit.R
 import com.sdds.uikit.fs.FocusSelectorBorder
@@ -80,7 +79,6 @@ constructor() : HasFocusSelector {
 
     override fun applySelector(view: View) {
         val settings = this.settings ?: return
-        Log.e("Focus", "applySelector: $settings, view ${view.isDuplicateParentStateEnabled}")
         if (!isEnabled || !view.canBeFocusable(settings.duplicateParentStateEnabled)) return
         if (settings.scaleEnabled) {
             scaleAnimationHelper = FocusScaleAnimationHelper(settings.scaleFactor)
