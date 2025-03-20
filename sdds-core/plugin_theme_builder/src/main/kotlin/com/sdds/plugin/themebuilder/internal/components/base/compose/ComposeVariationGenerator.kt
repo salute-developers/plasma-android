@@ -260,7 +260,7 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
         )
         if (isRoot) {
             val hasChildren = variation.children.isNotEmpty()
-            if (!hasViewVariations && !hasChildren) addDefaultExtensionIfNeed()
+            if (!hasViewVariations && !hasChildren) addDefaultExtension()
             addInvariantPropsVal(builderCalls)
         } else {
             addVariationExtension(
@@ -278,7 +278,7 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
         }
     }
 
-    private fun KtFileBuilder.addDefaultExtensionIfNeed() {
+    private fun KtFileBuilder.addDefaultExtension() {
         val outType = getOrGenerateWrapper(
             wrapperSuffix = "${camelComponentName}Default",
             superTypeName = baseWrapperInterfaceName,
