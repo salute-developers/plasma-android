@@ -82,13 +82,21 @@ internal abstract class ViewComponentStyleGenerator<T : ComponentConfig>(
     /**
      * Добавляет базовый стиль компонента с контентом [content].
      */
-    protected fun XmlResourcesDocumentBuilder.baseStyle(content: Element.() -> Unit = {}) {
+    protected fun XmlResourcesDocumentBuilder.baseStyle(
+        withOverlay: Boolean = false,
+        content: Element.() -> Unit = {},
+    ) {
         appendStyleWithCompositePrefix(baseStyleName, componentParent) {
             content()
             if (colorStateAttributesGenerator.hasColorStates) {
                 colorStateAttributesGenerator.colorStateProviderInfo.run {
                     valueAttribute(colorStateViewAttr, classCanonicalName)
                 }
+            }
+        }
+        if (withOverlay) {
+            overlayStyle("") {
+                valueAttribute(defStyleAttr, resourceReferenceProvider.style(baseStyleName))
             }
         }
     }
