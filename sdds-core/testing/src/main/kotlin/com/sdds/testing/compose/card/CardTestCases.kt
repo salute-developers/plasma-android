@@ -50,7 +50,7 @@ fun CardVertical(style: CardStyle) {
                 style = style,
             ) {
                 Image(
-                    contentScale = ContentScale.FillBounds,
+                    contentScale = ContentScale.Crop,
                     painter = painterResource(id = R.drawable.il_avatar_for_test),
                     contentDescription = "Android",
                 )
@@ -93,7 +93,7 @@ fun CardHorizontal(style: CardStyle) {
                 style = style,
             ) {
                 Image(
-                    contentScale = ContentScale.FillBounds,
+                    contentScale = ContentScale.Crop,
                     painter = painterResource(id = R.drawable.il_avatar_for_test),
                     contentDescription = "Android",
                 )
