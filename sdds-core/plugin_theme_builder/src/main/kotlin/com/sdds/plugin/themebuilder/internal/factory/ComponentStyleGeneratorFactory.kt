@@ -14,6 +14,8 @@ import com.sdds.plugin.themebuilder.internal.components.card.compose.CardCompose
 import com.sdds.plugin.themebuilder.internal.components.cell.compose.CellComposeVariationGenerator
 import com.sdds.plugin.themebuilder.internal.components.counter.compose.CounterComposeVariationGenerator
 import com.sdds.plugin.themebuilder.internal.components.counter.view.CounterStyleGeneratorView
+import com.sdds.plugin.themebuilder.internal.components.divider.compose.DividerComposeVariationGenerator
+import com.sdds.plugin.themebuilder.internal.components.divider.view.DividerStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.components.indicator.compose.IndicatorComposeVariationGenerator
 import com.sdds.plugin.themebuilder.internal.components.indicator.view.IndicatorStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.components.segment.SegmentComposeVariationGenerator
@@ -394,4 +396,29 @@ internal class ComponentStyleGeneratorFactory(
         xmlBuilderFactory = xmlBuilderFactory,
         filePrefix = "style",
     )
+
+    fun createDividerStyleGeneratorView(): DividerStyleGeneratorView =
+        DividerStyleGeneratorView(
+            xmlBuilderFactory = xmlBuilderFactory,
+            resourceReferenceProvider = resourceReferenceProvider,
+            dimensAggregator = dimensAggregator,
+            outputResDir = outputResDir,
+            resourcePrefix = resourcePrefixConfig.resourcePrefix,
+            viewColorStateGeneratorFactory = mViewColorStateGeneratorFactory,
+            colorStateListGeneratorFactory = colorStateListGeneratorFactory,
+        )
+
+    fun createDividerStyleGeneratorCompose() =
+        DividerComposeVariationGenerator(
+            themeClassName = themeClassName,
+            themePackage = packageResolver.getPackage(TargetPackage.THEME),
+            dimensionsConfig = dimensionsConfig,
+            dimensAggregator = dimensAggregator,
+            resourceReferenceProvider = resourceReferenceProvider,
+            namespace = namespace,
+            ktFileBuilderFactory = ktFileBuilderFactory,
+            componentPackage = "${packageResolver.getPackage(TargetPackage.STYLES)}.divider",
+            componentName = "divider",
+            outputLocation = KtFileBuilder.OutputLocation.Directory(outputDir),
+        )
 }

@@ -132,6 +132,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
                     getComponentConfigFile(ComponentConfig.SEGMENT_ITEM.fileName),
                 )
                 segmentConfigFile.set(getComponentConfigFile(ComponentConfig.SEGMENT.fileName))
+                dividerConfigFile.set(getComponentConfigFile(ComponentConfig.DIVIDER.fileName))
                 outputDirPath.set(extension.outputLocation.getSourcePath())
                 outputResDirPath.set(extension.outputLocation.getResourcePath())
                 packageName.set(extension.ktPackage ?: DEFAULT_KT_PACKAGE)
@@ -388,6 +389,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
         CARD_CLEAR("card_clear_config.json", "fetchCardClearConfig"),
         SEGMENT_ITEM("segment_item_config.json", "fetchSegmentItemConfig"),
         SEGMENT("segment_config.json", "fetchSegmentConfig"),
+        DIVIDER("divider_config.json", "fetchDividerConfig"),
     }
 
     private companion object {
