@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Serv.Sdds.Components.Divider" parent="Sdds.Components.Divider">
+        <item name="sd_thickness">@dimen/serv_divider_thickness</item>
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="backgroundTint">@color/serv_divider_bg_color</item>
+    </style>
+    <style name="Serv.Sdds.ComponentOverlays.Divider">
+        <item name="sd_dividerStyle">@style/Serv.Sdds.Components.Divider</item>
+    </style>
+</resources>

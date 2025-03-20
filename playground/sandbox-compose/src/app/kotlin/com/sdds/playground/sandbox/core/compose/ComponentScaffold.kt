@@ -95,10 +95,12 @@ internal fun <State : UiState, S : Style> ComponentScaffold(
                 val currentTheme by themeManager.currentTheme.collectAsState()
                 currentTheme.compose.themeWrapper {
                     val uiState by viewModel.uiState.collectAsState()
-                    component(
-                        uiState,
-                        currentTheme.compose.components.get<String, S>(key).styleProvider.style(uiState.variant),
-                    )
+                    runCatching {
+                        component(
+                            uiState,
+                            currentTheme.compose.components.get<String, S>(key).styleProvider.style(uiState.variant),
+                        )
+                    }
                 }
             }
 

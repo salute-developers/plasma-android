@@ -37,18 +37,18 @@ internal abstract class ComponentViewModel<State : UiState, S : Style>(
 
     @Suppress("UNCHECKED_CAST")
     private fun updateUiStateWithDefaultVariant() {
+        val styleProvider = getStyleProvider() ?: return
         if (internalUiState.value.variant.isNotEmpty() &&
-            getStyleProvider().variants.contains(internalUiState.value.variant)
+            styleProvider.variants.contains(internalUiState.value.variant)
         ) {
             return
         }
-        internalUiState.value =
-            internalUiState.value.updateVariant(getStyleProvider().defaultVariant) as State
+        internalUiState.value = internalUiState.value.updateVariant(styleProvider.defaultVariant) as State
     }
 
     @Suppress("UNCHECKED_CAST")
     private fun variantProperty(state: State): List<Property.SingleChoiceProperty> {
-        val styleProvider = getStyleProvider()
+        val styleProvider = getStyleProvider() ?: return emptyList()
         val variantProperties = mutableListOf<Property.SingleChoiceProperty>()
         if (styleProvider.variants.isNotEmpty()) {
             variantProperties.add(
@@ -65,8 +65,10 @@ internal abstract class ComponentViewModel<State : UiState, S : Style>(
         return variantProperties
     }
 
-    open fun getStyleProvider(): ComposeStyleProvider<String, S> {
-        return themeManager.currentTheme.value.compose.components.get<String, S>(componentKey).styleProvider
+    open fun getStyleProvider(): ComposeStyleProvider<String, S>? {
+        return runCatching {
+            themeManager.currentTheme.value.compose.components.get<String, S>(componentKey).styleProvider
+        }.getOrNull()
     }
 
     abstract fun State.toProps(): List<Property<*>>
