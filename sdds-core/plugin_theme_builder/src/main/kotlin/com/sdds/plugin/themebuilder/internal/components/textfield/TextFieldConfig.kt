@@ -31,6 +31,10 @@ internal data class TextFieldProperties(
     val chipGroupStyle: ComponentStyle<*>? = null,
     val chipStyle: ComponentStyle<*>? = null,
     val chipsPadding: Dimension? = null,
+    val chipsPaddingStart: Dimension? = null,
+    val chipsPaddingEnd: Dimension? = null,
+    val chipsPaddingTop: Dimension? = null,
+    val chipsPaddingBottom: Dimension? = null,
 
     // label
     val labelPlacement: Value? = null,
@@ -61,6 +65,7 @@ internal data class TextFieldProperties(
     val indicatorOffsetY: Dimension? = null,
     val indicatorColor: Color? = null,
     val indicatorColorReadOnly: Color? = null,
+    val indicatorAlignmentMode: Value? = null,
 
     // divider (clear only)
     val dividerColor: Color? = null,
@@ -135,6 +140,10 @@ internal data class TextFieldProperties(
             chipGroupStyle = chipGroupStyle ?: otherProps.chipGroupStyle,
             chipStyle = chipStyle ?: otherProps.chipStyle,
             chipsPadding = chipsPadding ?: otherProps.chipsPadding,
+            chipsPaddingStart = chipsPaddingStart ?: otherProps.chipsPaddingStart,
+            chipsPaddingEnd = chipsPaddingEnd ?: otherProps.chipsPaddingEnd,
+            chipsPaddingTop = chipsPaddingTop ?: otherProps.chipsPaddingTop,
+            chipsPaddingBottom = chipsPaddingBottom ?: otherProps.chipsPaddingBottom,
             labelPlacement = labelPlacement ?: otherProps.labelPlacement,
             labelPadding = labelPadding ?: otherProps.labelPadding,
             labelStyle = labelStyle ?: otherProps.labelStyle,
@@ -153,6 +162,7 @@ internal data class TextFieldProperties(
             indicatorSize = indicatorSize ?: otherProps.indicatorSize,
             indicatorOffsetX = indicatorOffsetX ?: otherProps.indicatorOffsetX,
             indicatorOffsetY = indicatorOffsetY ?: otherProps.indicatorOffsetY,
+            indicatorAlignmentMode = indicatorAlignmentMode ?: otherProps.indicatorAlignmentMode,
             indicatorColor = indicatorColor ?: otherProps.indicatorColor,
             indicatorColorReadOnly = indicatorColorReadOnly ?: otherProps.indicatorColorReadOnly,
             dividerHeight = dividerHeight ?: otherProps.dividerHeight,
