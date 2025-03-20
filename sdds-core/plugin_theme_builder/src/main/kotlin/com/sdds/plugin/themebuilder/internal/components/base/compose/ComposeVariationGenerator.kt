@@ -259,7 +259,12 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
             ktFileBuilder = this,
         )
         if (isRoot) {
-            addInvariantPropsVal(builderCalls)
+            if (variation.value.view.isEmpty() && variation.children.isEmpty()) {
+                variation.addChild(VariationNode("Default", variation.value))
+                addInvariantPropsVal(emptyList())
+            } else {
+                addInvariantPropsVal(builderCalls)
+            }
         } else {
             addVariationExtension(
                 variationNode = variation,
