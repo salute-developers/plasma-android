@@ -1165,6 +1165,9 @@
         <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.M</item>
         <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.M</item>
         <item name="sd_badgeStyle">@style/Serv.Sdds.Components.Badge.M</item>
+        <item name="sd_cardStyle">@style/Serv.Sdds.Components.CardSolid.M</item>
+        <item name="sd_cardContentStyle">@style/Serv.Sdds.Components.CardSolidContent.M</item>
+
         <!--Shadows-->
         <item name="serv_shadowDownSoftS">@style/Serv.Sdds.Shadow.DownSoftS</item>
         <item name="serv_shadowDownSoftM">@style/Serv.Sdds.Shadow.DownSoftM</item>
@@ -2358,6 +2361,8 @@
         <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.M</item>
         <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.M</item>
         <item name="sd_badgeStyle">@style/Serv.Sdds.Components.Badge.M</item>
+        <item name="sd_cardStyle">@style/Serv.Sdds.Components.CardSolid.M</item>
+        <item name="sd_cardContentStyle">@style/Serv.Sdds.Components.CardSolidContent.M</item>
 
         <!--Shadows-->
         <item name="serv_shadowDownSoftS">@style/Serv.Sdds.Shadow.DownSoftS</item>
