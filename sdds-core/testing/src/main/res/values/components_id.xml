@@ -26,4 +26,5 @@
     <item type="id" name="test_vertical_scroll"/>
     <item type="id" name="test_horizontal_scroll"/>
     <item type="id" name="flow"/>
+    <item type="id" name="divider"/>
 </resources>
