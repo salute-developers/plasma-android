@@ -51,8 +51,8 @@ internal sealed class GradientTokenValue : TokenValue
 @Serializable
 @SerialName("radial")
 internal data class RadialGradientTokenValue(
-    val colors: List<String>,
-    val locations: List<Float>,
+    val colors: List<String> = FallbackColors,
+    val locations: List<Float> = FallbackLocations,
     val radius: Float,
     val centerX: Float,
     val centerY: Float,
@@ -67,8 +67,8 @@ internal data class RadialGradientTokenValue(
 @Serializable
 @SerialName("linear")
 internal data class LinearGradientTokenValue(
-    val colors: List<String>,
-    val locations: List<Float>,
+    val colors: List<String> = FallbackColors,
+    val locations: List<Float> = FallbackLocations,
     val angle: Float,
 ) : GradientTokenValue()
 
@@ -92,8 +92,11 @@ internal data class BackgroundGradientTokenValue(
 @Serializable
 @SerialName("angular")
 internal data class SweepGradientTokenValue(
-    val colors: List<String>,
-    val locations: List<Float>,
+    val colors: List<String> = FallbackColors,
+    val locations: List<Float> = FallbackLocations,
     val centerX: Float,
     val centerY: Float,
 ) : GradientTokenValue()
+
+private val FallbackLocations = listOf(0f, 1f)
+private val FallbackColors = listOf("#fff", "#000")

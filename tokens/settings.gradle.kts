@@ -19,6 +19,7 @@ rootProject.name = "tokens"
 includeBuild("../build-system")
 includeBuild("../sdds-core")
 include(
+    ":plasma.giga.compose",
     ":plasma.sd.service.compose",
     ":plasma.sd.service.view",
     ":sdds.serv.compose",
