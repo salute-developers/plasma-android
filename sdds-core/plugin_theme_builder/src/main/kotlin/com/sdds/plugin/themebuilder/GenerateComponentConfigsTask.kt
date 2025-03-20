@@ -7,6 +7,7 @@ import com.sdds.plugin.themebuilder.internal.components.button.ButtonConfig
 import com.sdds.plugin.themebuilder.internal.components.card.CardConfig
 import com.sdds.plugin.themebuilder.internal.components.cell.CellConfig
 import com.sdds.plugin.themebuilder.internal.components.counter.CounterConfig
+import com.sdds.plugin.themebuilder.internal.components.divider.DividerConfig
 import com.sdds.plugin.themebuilder.internal.components.indicator.IndicatorConfig
 import com.sdds.plugin.themebuilder.internal.components.segment.SegmentConfig
 import com.sdds.plugin.themebuilder.internal.components.segment.item.SegmentItemConfig
@@ -150,6 +151,12 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
      */
     @get:InputFile
     abstract val segmentConfigFile: RegularFileProperty
+
+    /**
+     * Файл с конфигом Divider
+     */
+    @get:InputFile
+    abstract val dividerConfigFile: RegularFileProperty
 
     /**
      * Путь для сохранения kt-файлов токенов
@@ -355,6 +362,14 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
         componentStyleGeneratorFactory.createCardStyleGeneratorView("CardClear")
     }
 
+    private val dividerGeneratorCompose by unsafeLazy {
+        componentStyleGeneratorFactory.createDividerStyleGeneratorCompose()
+    }
+
+    private val dividerGeneratorView by unsafeLazy {
+        componentStyleGeneratorFactory.createDividerStyleGeneratorView()
+    }
+
     private val basicButtonConfig: ButtonConfig by unsafeLazy {
         basicButtonConfigFile.get()
             .asFile
@@ -475,6 +490,12 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
             .decode(Serializer.componentConfig)
     }
 
+    private val dividerConfig: DividerConfig by unsafeLazy {
+        dividerConfigFile.get()
+            .asFile
+            .decode(Serializer.componentConfig)
+    }
+
     @TaskAction
     fun generate() {
         when (target.get()) {
@@ -510,6 +531,7 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
         counterStyleGeneratorCompose.generate(counterConfig)
         cardStyleGeneratorCompose.generate(cardConfig)
         cardClearStyleGeneratorCompose.generate(cardClearConfig)
+        dividerGeneratorCompose.generate(dividerConfig)
     }
 
     private fun generateViewsConfigs() {
@@ -522,5 +544,6 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
         counterStyleGeneratorView.generate(counterConfig)
         cardSolidStyleGeneratorView.generate(cardConfig)
         cardClearStyleGeneratorView.generate(cardClearConfig)
+        dividerGeneratorView.generate(dividerConfig)
     }
 }
