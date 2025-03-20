@@ -259,6 +259,8 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
             ktFileBuilder = this,
         )
         if (isRoot) {
+            val hasChildren = variation.children.isNotEmpty()
+            if (!hasViewVariations && !hasChildren) addDefaultExtensionIfNeed()
             addInvariantPropsVal(builderCalls)
         } else {
             addVariationExtension(
@@ -274,6 +276,33 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
                 viewExtensionReceiverName = newViewExtensionReceiverName,
             )
         }
+    }
+
+    private fun KtFileBuilder.addDefaultExtensionIfNeed() {
+        val outType = getOrGenerateWrapper(
+            wrapperSuffix = "${camelComponentName}Default",
+            superTypeName = baseWrapperInterfaceName,
+            description = "Дефолтная обертка.",
+        )
+        appendRootVal(
+            name = DEFAULT_EXTENSION_NAME,
+            typeName = outType,
+            receiver = componentRootObjectType,
+            getter = KtFileBuilder.Getter.Annotated(
+                annotations = listOfNotNull(
+                    Annotation(KtFileBuilder.TypeAnnotationComposable),
+                    Annotation(
+                        annotation = KtFileBuilder.TypeAnnotationJvmName,
+                        parameter = "\"${camelComponentName}Default\"",
+                    ),
+                ),
+                body = buildString {
+                    appendLine("return $componentStyleName.$styleBuilderFactoryMethodName(this)")
+                    appendLine(".invariantProps")
+                    appendLine(".wrap(::${outType.simpleName})")
+                },
+            ),
+        )
     }
 
     private fun KtFileBuilder.addVariationWrapperInterface(
@@ -530,5 +559,9 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
                 .parameterizedBy(styleType, styleBuilderType),
             description = "Базовый интерфейс для всех оберток этого стиля",
         )
+    }
+
+    private companion object {
+        const val DEFAULT_EXTENSION_NAME = "Default"
     }
 }
