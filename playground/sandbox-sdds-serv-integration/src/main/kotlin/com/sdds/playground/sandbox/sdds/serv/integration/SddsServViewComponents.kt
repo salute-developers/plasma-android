@@ -24,6 +24,7 @@ import com.sdds.playground.sandbox.sdds.serv.integration.checkbox.group.SddsServ
 import com.sdds.playground.sandbox.sdds.serv.integration.chip.SddsServChipVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.chip.group.SddsServChipGroupVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.counter.SddsServCounterVariationsView
+import com.sdds.playground.sandbox.sdds.serv.integration.divider.vs.SddsServDividerVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.indicator.vs.SddsServIndicatorVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.progress.SddsServProgressBarVariationsView
 import com.sdds.playground.sandbox.sdds.serv.integration.radiobox.SddsServRadioBoxVariationsView
@@ -117,6 +118,10 @@ object SddsServViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.Counter,
                 SddsServCounterVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.Divider,
+                SddsServDividerVariationsView,
             ),
             ViewComponent(
                 ComponentKey.Indicator,

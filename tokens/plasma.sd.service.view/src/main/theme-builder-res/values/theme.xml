@@ -967,6 +967,7 @@
         <item name="sd_indicatorStyle">@style/Plasma.SdService.Components.Indicator.M</item>
         <item name="sd_cardStyle">@style/Plasma.SdService.Components.CardSolid.M</item>
         <item name="sd_cardContentStyle">@style/Plasma.SdService.Components.CardSolidContent.M</item>
+        <item name="sd_dividerStyle">@style/Plasma.SdService.Components.Divider</item>
 
         <!--Shadows-->
         <item name="plasma_shadowDownSoftS">@style/Plasma.SdService.Shadow.DownSoftS</item>
@@ -1963,6 +1964,7 @@
         <item name="sd_indicatorStyle">@style/Plasma.SdService.Components.Indicator.M</item>
         <item name="sd_cardStyle">@style/Plasma.SdService.Components.CardSolid.M</item>
         <item name="sd_cardContentStyle">@style/Plasma.SdService.Components.CardSolidContent.M</item>
+        <item name="sd_dividerStyle">@style/Plasma.SdService.Components.Divider</item>
 
         <!--Shadows-->
         <item name="plasma_shadowDownSoftS">@style/Plasma.SdService.Shadow.DownSoftS</item>
