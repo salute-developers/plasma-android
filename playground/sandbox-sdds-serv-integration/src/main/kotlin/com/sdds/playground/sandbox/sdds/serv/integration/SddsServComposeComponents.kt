@@ -16,6 +16,8 @@ import com.sdds.playground.sandbox.sdds.serv.integration.badge.icon.SddsServIcon
 import com.sdds.playground.sandbox.sdds.serv.integration.button.basic.SddsServBasicButtonVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.button.icon.SddsServIconButtonVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.button.link.SddsServLinkButtonVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.card.SddsServCardClearVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.card.SddsServCardSolidVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.cell.compose.SddsServCellVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.checkbox.SddsServCheckBoxVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.checkbox.group.SddsServCheckBoxGroupVariationsCompose
@@ -85,6 +87,14 @@ object SddsServComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.LinkButton,
                 SddsServLinkButtonVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("CardClear", CoreComponent.CARD),
+                SddsServCardClearVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("CardSolid", CoreComponent.CARD),
+                SddsServCardSolidVariationsCompose,
             ),
             ComposeComponent(
                 ComponentKey.Cell,

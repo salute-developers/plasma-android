@@ -8,6 +8,7 @@ import com.sdds.playground.sandbox.badge.compose.IconBadgeScreen
 import com.sdds.playground.sandbox.buttons.compose.BasicButtonScreen
 import com.sdds.playground.sandbox.buttons.compose.IconButtonScreen
 import com.sdds.playground.sandbox.buttons.compose.LinkButtonScreen
+import com.sdds.playground.sandbox.card.compose.CardScreen
 import com.sdds.playground.sandbox.cell.compose.CellScreen
 import com.sdds.playground.sandbox.checkbox.compose.CheckBoxScreen
 import com.sdds.playground.sandbox.checkbox.compose.group.CheckBoxGroupScreen
@@ -57,6 +58,7 @@ internal sealed class ComponentScreen(
     object IconBadge : ComponentScreen({ IconBadgeScreen(it) })
     object LinkButtons : ComponentScreen({ LinkButtonScreen(it) })
     object Cell : ComponentScreen({ CellScreen(it) })
+    object Card : ComponentScreen({ CardScreen(it) })
     object CheckBox : ComponentScreen({ CheckBoxScreen(it) })
     object CheckBoxGroup : ComponentScreen({ CheckBoxGroupScreen(it) })
     object RadioBox : ComponentScreen({ RadioBoxScreen(it) })
@@ -87,6 +89,7 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.BASIC_BUTTON -> ComponentScreen.Buttons
         CoreComponent.ICON_BUTTON -> ComponentScreen.IconButtons
         CoreComponent.LINK_BUTTON -> ComponentScreen.LinkButtons
+        CoreComponent.CARD -> ComponentScreen.Card
         CoreComponent.CELL -> ComponentScreen.Cell
         CoreComponent.CHECKBOX -> ComponentScreen.CheckBox
         CoreComponent.CHECKBOX_GROUP -> ComponentScreen.CheckBoxGroup
