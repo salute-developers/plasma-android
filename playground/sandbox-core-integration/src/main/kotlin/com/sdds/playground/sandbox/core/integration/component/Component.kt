@@ -137,6 +137,7 @@ data class ComponentKey(
         val ChipGroup = ComponentKey("ChipGroup", CoreComponent.CHIP_GROUP)
 
         val Counter = ComponentKey("Counter", CoreComponent.COUNTER)
+        val Divider = ComponentKey("Divider", CoreComponent.DIVIDER)
         val Indicator = ComponentKey("Indicator", CoreComponent.INDICATOR)
         val Flow = ComponentKey("Flow", CoreComponent.FLOW)
         val ProgressBar = ComponentKey("ProgressBar", CoreComponent.PROGRESS)
@@ -179,6 +180,8 @@ enum class CoreComponent {
     CHIP_GROUP,
 
     COUNTER,
+
+    DIVIDER,
 
     FLOW,
 
