@@ -51,6 +51,7 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
     private val camelComponentName = componentName.toCamelCase()
     private val ktFileName: String = "${camelComponentName}Styles"
     private val generatedWrappers = mutableSetOf<String>()
+    private var shouldAddInvariantPropsCall = false
 
     private val baseWrapperInterfaceName = "Wrapper$camelComponentName"
     private val styleBuilderFactoryMethodName = "${camelComponentName.decapitalized()}Builder"
@@ -259,7 +260,13 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
             ktFileBuilder = this,
         )
         if (isRoot) {
-            addInvariantPropsVal(builderCalls)
+            if (variation.value.view.isEmpty() && variation.children.isEmpty()) {
+                variation.addChild(VariationNode("Default", variation.value))
+                shouldAddInvariantPropsCall = false
+            } else {
+                addInvariantPropsVal(builderCalls)
+                shouldAddInvariantPropsCall = true
+            }
         } else {
             addVariationExtension(
                 variationNode = variation,
@@ -368,7 +375,7 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
             receiverType = componentRootObjectType
             extensionBody = buildString {
                 appendLine("return $builderRef")
-                appendLine(".invariantProps")
+                if (shouldAddInvariantPropsCall) appendLine(".invariantProps")
                 builderCalls.forEach { appendLine(it) }
                 appendLine(".wrap(::${outType.simpleName})")
             }
