@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Sdds.Components.Divider">
+        <item name="sd_thickness">1dp</item>
+        <item name="backgroundTint">#000000</item>
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+    </style>
+</resources>

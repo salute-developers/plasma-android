@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <attr name="sd_dividerStyle" format="reference" />
+
+    <declare-styleable name="Divider" tools:ignore="ResourceName">
+        <attr name="sd_thickness" format="dimension" />
+        <attr name="android:orientation" format="dimension" />
+        <attr name="sd_shapeAppearance"/>
+        <attr name="android:backgroundTint" />
+        <attr name="backgroundTint" />
+    </declare-styleable>
+</resources>

@@ -24,4 +24,5 @@
     <item type="id" name="nav_textfield"/>
     <item type="id" name="nav_textarea"/>
     <item type="id" name="nav_flow"/>
+    <item type="id" name="nav_divider"/>
 </resources>
