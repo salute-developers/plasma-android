@@ -42,9 +42,7 @@ internal class TextFieldComposeVariationGenerator(
 ) {
     enum class TextFieldType {
         TextField,
-        TextFieldClear,
         TextArea,
-        TextAreaClear,
     }
 
     override val componentStyleName = "TextFieldStyle"
@@ -69,6 +67,8 @@ internal class TextFieldComposeVariationGenerator(
             chipGroupStyleCall(props, ktFileBuilder),
             chipStyleCall(props, ktFileBuilder),
             labelPlacementCall(props),
+            captionPlacementCall(props),
+            counterPlacementCall(props),
             colorsCall(props),
             fieldTypeCall(props),
             scrollBarCall(props, variationId),
@@ -87,10 +87,7 @@ internal class TextFieldComposeVariationGenerator(
         )
     }
 
-    override fun invariantBuilderCalls() = listOf(
-        singleLineCall(),
-        helperTextPlacementCall(),
-    )
+    override fun invariantBuilderCalls() = listOf(singleLineCall())
 
     private fun indicatorAlignmentCall(props: TextFieldProperties): String? {
         return props.indicatorAlignmentMode?.let {
@@ -100,8 +97,8 @@ internal class TextFieldComposeVariationGenerator(
 
     private fun singleLineCall(): String {
         return when (textFieldType) {
-            TextFieldType.TextField, TextFieldType.TextFieldClear -> ".singleLine(true)"
-            TextFieldType.TextArea, TextFieldType.TextAreaClear -> ".singleLine(false)"
+            TextFieldType.TextField -> ".singleLine(true)"
+            TextFieldType.TextArea -> ".singleLine(false)"
         }
     }
 
@@ -293,10 +290,25 @@ internal class TextFieldComposeVariationGenerator(
         }
     }
 
-    private fun helperTextPlacementCall(): String {
-        return when (textFieldType) {
-            TextFieldType.TextArea -> ".helperTextPlacement(TextFieldHelperTextPlacement.Inner)"
-            else -> ".helperTextPlacement(TextFieldHelperTextPlacement.Outer)"
+    private fun captionPlacementCall(props: TextFieldProperties): String? {
+        return props.captionPlacement?.let {
+            val enumValue = when {
+                it.value.equals("inner", ignoreCase = true) -> "Inner"
+                it.value.equals("outer", ignoreCase = true) -> "Outer"
+                else -> return@let null
+            }
+            ".captionPlacement(TextFieldHelperTextPlacement.$enumValue)"
+        }
+    }
+
+    private fun counterPlacementCall(props: TextFieldProperties): String? {
+        return props.counterPlacement?.let {
+            val enumValue = when {
+                it.value.equals("inner", ignoreCase = true) -> "Inner"
+                it.value.equals("outer", ignoreCase = true) -> "Outer"
+                else -> return@let null
+            }
+            ".counterPlacement(TextFieldHelperTextPlacement.$enumValue)"
         }
     }
 

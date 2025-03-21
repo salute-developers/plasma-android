@@ -378,7 +378,6 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
     @Composable
     get() = this
         .singleLine(false)
-        .helperTextPlacement(TextFieldHelperTextPlacement.Inner)
         .dimensions {
             optionalPadding(4.0.dp)
             chipsPadding(6.0.dp)
@@ -386,6 +385,8 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
         .captionStyle(StylesSaluteTheme.typography.bodyXsNormal)
         .counterStyle(StylesSaluteTheme.typography.bodyXsNormal)
         .chipGroupStyle(ChipGroup.Dense.style())
+        .captionPlacement(TextFieldHelperTextPlacement.Inner)
+        .counterPlacement(TextFieldHelperTextPlacement.Inner)
         .colors {
             optionalColor(
                 StylesSaluteTheme.colors.textDefaultTertiary.asInteractive(),

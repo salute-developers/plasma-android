@@ -156,7 +156,6 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
     @Composable
     get() = this
         .singleLine(true)
-        .helperTextPlacement(TextFieldHelperTextPlacement.Outer)
         .dimensions {
             optionalPadding(dimensionResource(R.dimen.sdkit_cmp_text_field_optional_padding_TextField))
             helperTextPadding(dimensionResource(R.dimen.sdkit_cmp_text_field_helper_text_padding_TextField))
@@ -165,6 +164,8 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
         .captionStyle(StarDsTheme.typography.bodyXsNormal)
         .counterStyle(StarDsTheme.typography.bodyXsNormal)
         .chipGroupStyle(ChipGroup.Dense.style())
+        .captionPlacement(TextFieldHelperTextPlacement.Outer)
+        .counterPlacement(TextFieldHelperTextPlacement.Outer)
         .colors {
             optionalColor(
                 StarDsTheme.colors.textDefaultTertiary.asInteractive(),

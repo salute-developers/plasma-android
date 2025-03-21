@@ -497,7 +497,6 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
     @Composable
     get() = this
         .singleLine(false)
-        .helperTextPlacement(TextFieldHelperTextPlacement.Outer)
         .indicatorAlignmentMode(TextFieldIndicatorAlignmentMode.Outside)
         .dimensions {
             boxPaddingStart(0.0.dp)
@@ -511,6 +510,8 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
         .captionStyle(SddsServTheme.typography.bodyXsNormal)
         .counterStyle(SddsServTheme.typography.bodyXsNormal)
         .chipGroupStyle(ChipGroup.Dense.style())
+        .captionPlacement(TextFieldHelperTextPlacement.Outer)
+        .counterPlacement(TextFieldHelperTextPlacement.Outer)
         .colors {
             optionalColor(
                 SddsServTheme.colors.textDefaultTertiary.asInteractive(),

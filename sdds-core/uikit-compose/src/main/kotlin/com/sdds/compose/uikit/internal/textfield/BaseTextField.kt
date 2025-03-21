@@ -134,7 +134,8 @@ internal fun BaseTextField(
     val indicatorAlignmentMode = style.indicatorAlignmentMode
     val fieldType = style.fieldType
     val labelPlacement = style.labelPlacement
-    val helperTextPlacement = style.helperTextPlacement
+    val captionPlacement = style.captionPlacement
+    val counterPlacement = style.counterPlacement
 
     val labelStyle = style.labelStyle.applyColor(
         color = colors.labelColor(readOnly),
@@ -374,8 +375,8 @@ internal fun BaseTextField(
                                 .endContentColor(readOnly)
                                 .colorForInteraction(interactionSource),
                         ),
-                        innerCaption = innerCaption(helperTextPlacement, captionText, captionStyle),
-                        innerCounter = innerCounter(helperTextPlacement, counterText, counterStyle),
+                        innerCaption = innerCaption(captionPlacement, captionText, captionStyle),
+                        innerCounter = innerCounter(counterPlacement, counterText, counterStyle),
                         animation = animation,
                         chips = chipsContent,
                         chipGroupStyle = style.chipGroupStyle,
@@ -396,7 +397,7 @@ internal fun BaseTextField(
                             .enable(enabled, enabledAlpha, disabledAlpha),
                         text = captionText,
                         textStyle = captionStyle,
-                        helperTextPlacement = helperTextPlacement,
+                        helperTextPlacement = captionPlacement,
                     )
                     OuterBottomText(
                         modifier = Modifier
@@ -406,7 +407,7 @@ internal fun BaseTextField(
                             .enable(enabled, enabledAlpha, disabledAlpha),
                         text = counterText,
                         textStyle = counterStyle,
-                        helperTextPlacement = helperTextPlacement,
+                        helperTextPlacement = counterPlacement,
                     )
                 },
             )
@@ -433,14 +434,16 @@ private fun Modifier.drawFieldAppearance(
     dividerThickness: Dp,
 ): Modifier {
     return this.drawBehind {
-        drawRect(backgroundColor)
-        drawLine(
-            color = dividerColor,
-            start = Offset(0f, size.height),
-            end = Offset(size.width, size.height),
-            strokeWidth = dividerThickness.toPx(),
-            cap = StrokeCap.Round,
-        )
+        if (backgroundColor.value != Color.Transparent.value) drawRect(backgroundColor)
+        if (dividerColor.value != Color.Transparent.value && dividerThickness.value != 0f) {
+            drawLine(
+                color = dividerColor,
+                start = Offset(0f, size.height),
+                end = Offset(size.width, size.height),
+                strokeWidth = dividerThickness.toPx(),
+                cap = StrokeCap.Round,
+            )
+        }
     }
 }
 

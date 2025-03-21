@@ -169,14 +169,14 @@ internal class ComponentStyleGeneratorFactory(
         createBaseTextFieldStyleGeneratorCompose(
             componentName = "text_field_clear",
             componentPackage = "textfield.clear",
-            textFieldType = TextFieldType.TextFieldClear,
+            textFieldType = TextFieldType.TextField,
         )
 
     fun createTextAreaClearStyleGeneratorCompose() =
         createBaseTextFieldStyleGeneratorCompose(
             componentName = "text_area_clear",
             componentPackage = "textarea.clear",
-            textFieldType = TextFieldType.TextAreaClear,
+            textFieldType = TextFieldType.TextArea,
         )
 
     fun createCellStyleGeneratorCompose() = CellComposeVariationGenerator(

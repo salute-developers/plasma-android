@@ -49,9 +49,14 @@ interface TextFieldStyleBuilder : StyleBuilder<TextFieldStyle> {
     fun labelPlacement(labelPlacement: TextFieldLabelPlacement): TextFieldStyleBuilder
 
     /**
-     * Устанавливает расположение вспомогательного текста [helperTextPlacement]
+     * Устанавливает расположение текста надписи [captionPlacement]
      */
-    fun helperTextPlacement(helperTextPlacement: TextFieldHelperTextPlacement): TextFieldStyleBuilder
+    fun captionPlacement(captionPlacement: TextFieldHelperTextPlacement): TextFieldStyleBuilder
+
+    /**
+     * Устанавливает расположение текста счетчика [counterPlacement]
+     */
+    fun counterPlacement(counterPlacement: TextFieldHelperTextPlacement): TextFieldStyleBuilder
 
     /**
      * Устанавливает тип поля [fieldType]
@@ -561,7 +566,7 @@ interface TextFieldDimensionsBuilder {
     ): TextFieldDimensionsBuilder
 
     /**
-     * Устанавливает толщину разделителя в clear режиме
+     * Устанавливает толщину разделителя
      */
     fun dividerThickness(dividerThickness: Dp): TextFieldDimensionsBuilder
 
@@ -671,7 +676,8 @@ internal class DefaultTextFieldStyle(
     override val shape: CornerBasedShape,
     override val fieldType: TextFieldType,
     override val labelPlacement: TextFieldLabelPlacement,
-    override val helperTextPlacement: TextFieldHelperTextPlacement,
+    override val captionPlacement: TextFieldHelperTextPlacement,
+    override val counterPlacement: TextFieldHelperTextPlacement,
     override val indicatorAlignmentMode: TextFieldIndicatorAlignmentMode,
     override val scrollBar: ScrollBar?,
     override val valueStyle: TextStyle,
@@ -696,7 +702,8 @@ internal class DefaultTextFieldStyle(
             TextFieldScrollBarBuilder.builder()
         private var shape: CornerBasedShape? = null
         private var labelPlacement: TextFieldLabelPlacement? = null
-        private var helperTextPlacement: TextFieldHelperTextPlacement? = null
+        private var captionPlacement: TextFieldHelperTextPlacement? = null
+        private var counterPlacement: TextFieldHelperTextPlacement? = null
         private var fieldType: TextFieldType? = null
         private var labelStyle: TextStyle? = null
         private var optionalStyle: TextStyle? = null
@@ -756,10 +763,13 @@ internal class DefaultTextFieldStyle(
             this.labelPlacement = labelPlacement
         }
 
-        override fun helperTextPlacement(helperTextPlacement: TextFieldHelperTextPlacement) =
-            apply {
-                this.helperTextPlacement = helperTextPlacement
-            }
+        override fun captionPlacement(captionPlacement: TextFieldHelperTextPlacement) = apply {
+            this.captionPlacement = captionPlacement
+        }
+
+        override fun counterPlacement(counterPlacement: TextFieldHelperTextPlacement) = apply {
+            this.counterPlacement = counterPlacement
+        }
 
         override fun fieldType(fieldType: TextFieldType) = apply {
             this.fieldType = fieldType
@@ -825,7 +835,8 @@ internal class DefaultTextFieldStyle(
             return DefaultTextFieldStyle(
                 scrollBar = scrollBarBuilder.build(),
                 singleLine = singleLine ?: true,
-                helperTextPlacement = helperTextPlacement ?: TextFieldHelperTextPlacement.Outer,
+                captionPlacement = captionPlacement ?: TextFieldHelperTextPlacement.Outer,
+                counterPlacement = counterPlacement ?: TextFieldHelperTextPlacement.Outer,
                 dimensions = dimensionsBuilder.build(),
                 colors = colorsBuilder.build(),
                 shape = shape ?: RoundedCornerShape(CornerSize(0)),

@@ -49,10 +49,16 @@ interface TextFieldStyle : Style {
     val labelPlacement: TextFieldLabelPlacement
 
     /**
-     * Расположение вспомогательного текста
+     * Расположение текста надписи
      * @see TextFieldHelperTextPlacement
      */
-    val helperTextPlacement: TextFieldHelperTextPlacement
+    val captionPlacement: TextFieldHelperTextPlacement
+
+    /**
+     * Расположение текста счетчика
+     * @see TextFieldHelperTextPlacement
+     */
+    val counterPlacement: TextFieldHelperTextPlacement
 
     /**
      * Настройки вертикального скроллбара
