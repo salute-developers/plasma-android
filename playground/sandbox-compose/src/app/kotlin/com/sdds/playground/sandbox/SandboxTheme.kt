@@ -55,6 +55,8 @@ import com.sdds.serv.styles.button.icon.IconButton
 import com.sdds.serv.styles.button.icon.M
 import com.sdds.serv.styles.button.icon.Pilled
 import com.sdds.serv.styles.button.icon.Xs
+import com.sdds.serv.styles.card.CardSolid
+import com.sdds.serv.styles.card.M
 import com.sdds.serv.styles.cell.Cell
 import com.sdds.serv.styles.cell.M
 import com.sdds.serv.styles.checkbox.CheckBox
