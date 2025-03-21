@@ -12,7 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.BadgeStyle
 import com.sdds.compose.uikit.BadgeStyleBuilder
-import com.sdds.compose.uikit.badgeSolidBuilder
+import com.sdds.compose.uikit.badgeBuilder
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
@@ -246,7 +246,7 @@ private val BadgeStyleBuilder.invariantProps: BadgeStyleBuilder
 public val BadgeSolid.L: WrapperBadgeSolidL
     @Composable
     @JvmName("WrapperBadgeSolidL")
-    get() = BadgeStyle.badgeSolidBuilder(this)
+    get() = BadgeStyle.badgeBuilder(this)
         .invariantProps
         .shape(StylesSaluteTheme.shapes.roundS)
         .labelStyle(StylesSaluteTheme.typography.bodySNormal)
@@ -271,7 +271,7 @@ public val WrapperBadgeSolidL.Pilled: WrapperBadgeSolidLPilled
 public val BadgeSolid.M: WrapperBadgeSolidM
     @Composable
     @JvmName("WrapperBadgeSolidM")
-    get() = BadgeStyle.badgeSolidBuilder(this)
+    get() = BadgeStyle.badgeBuilder(this)
         .invariantProps
         .shape(StylesSaluteTheme.shapes.roundXs)
         .labelStyle(StylesSaluteTheme.typography.bodyXsNormal)
@@ -296,7 +296,7 @@ public val WrapperBadgeSolidM.Pilled: WrapperBadgeSolidMPilled
 public val BadgeSolid.S: WrapperBadgeSolidS
     @Composable
     @JvmName("WrapperBadgeSolidS")
-    get() = BadgeStyle.badgeSolidBuilder(this)
+    get() = BadgeStyle.badgeBuilder(this)
         .invariantProps
         .shape(StylesSaluteTheme.shapes.roundXs)
         .labelStyle(StylesSaluteTheme.typography.bodyXxsNormal)
@@ -321,7 +321,7 @@ public val WrapperBadgeSolidS.Pilled: WrapperBadgeSolidSPilled
 public val BadgeSolid.Xs: WrapperBadgeSolidXs
     @Composable
     @JvmName("WrapperBadgeSolidXs")
-    get() = BadgeStyle.badgeSolidBuilder(this)
+    get() = BadgeStyle.badgeBuilder(this)
         .invariantProps
         .shape(StylesSaluteTheme.shapes.roundXxs)
         .labelStyle(StylesSaluteTheme.typography.bodyXxsNormal)

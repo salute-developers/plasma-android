@@ -45,7 +45,7 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
     private val outputLocation: KtFileBuilder.OutputLocation,
     componentName: String,
     styleBuilderName: String? = null,
-    styleBuilderFactoryMethodName: String? = null,
+    private val styleBuilderFactoryFunName: String = "builder",
 ) : ComponentStyleGenerator<Config<PO>> {
 
     private val componentXmlPrefix: String = componentName
@@ -55,11 +55,6 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
     private var shouldAddInvariantPropsCall = false
 
     private val baseWrapperInterfaceName = "Wrapper$camelComponentName"
-    private val styleBuilderFactoryMethodName = if (styleBuilderFactoryMethodName == null) {
-        "${camelComponentName.decapitalized()}Builder"
-    } else {
-        "${styleBuilderFactoryMethodName.toCamelCase().decapitalized()}Builder"
-    }
 
     private val styleBuilderType: ClassName by unsafeLazy {
         ktFileBuilder.getInternalClassType(
@@ -105,6 +100,8 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
     ): List<String>
 
     protected open fun KtFileBuilder.onAddImports() = Unit
+
+    protected open fun invariantBuilderCalls(): List<String> = emptyList()
 
     protected fun getColor(colorName: String, color: Color): String {
         val alphaString = color.alpha?.let { ".multiplyAlpha(${it}f)" }.orEmpty()
@@ -324,6 +321,7 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
                 annotations = listOf(Annotation(KtFileBuilder.TypeAnnotationComposable)),
                 body = buildString {
                     appendLine("return this")
+                    invariantBuilderCalls().forEach { appendLine(it) }
                     body.forEach { appendLine(it) }
                 },
             ),
@@ -385,7 +383,7 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
         val builderRef: String
         val extensionBody: String
         if (isParentRoot) {
-            builderRef = "$componentStyleName.$styleBuilderFactoryMethodName(this)"
+            builderRef = "$componentStyleName.$styleBuilderFactoryFunName(this)"
             outType = getOrGenerateWrapper(
                 wrapperSuffix = "$camelComponentName$variationName",
                 superTypeName = wrapperSuperTypeName,
@@ -509,10 +507,14 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
         onAddImports()
         addImport(
             packageName = "com.sdds.compose.uikit",
-            names = listOf(
+            names = listOfNotNull(
                 "adjustBy",
-                styleBuilderFactoryMethodName,
                 "multiplyAlpha",
+                if (styleBuilderFactoryFunName != DEFAULT_BUILDER_FUN_NAME) {
+                    styleBuilderFactoryFunName
+                } else {
+                    null
+                },
             ),
         )
         addImport(
@@ -556,5 +558,9 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
                 .parameterizedBy(styleType, styleBuilderType),
             description = "Базовый интерфейс для всех оберток этого стиля",
         )
+    }
+
+    private companion object {
+        const val DEFAULT_BUILDER_FUN_NAME = "builder"
     }
 }

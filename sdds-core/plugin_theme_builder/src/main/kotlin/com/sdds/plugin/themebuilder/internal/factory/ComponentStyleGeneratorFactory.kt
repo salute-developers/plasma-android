@@ -20,6 +20,7 @@ import com.sdds.plugin.themebuilder.internal.components.indicator.view.Indicator
 import com.sdds.plugin.themebuilder.internal.components.segment.SegmentComposeVariationGenerator
 import com.sdds.plugin.themebuilder.internal.components.segment.item.SegmentItemComposeVariationGenerator
 import com.sdds.plugin.themebuilder.internal.components.textfield.compose.TextFieldComposeVariationGenerator
+import com.sdds.plugin.themebuilder.internal.components.textfield.compose.TextFieldComposeVariationGenerator.TextFieldType
 import com.sdds.plugin.themebuilder.internal.components.textfield.view.ViewTextAreaStyleGenerator
 import com.sdds.plugin.themebuilder.internal.components.textfield.view.ViewTextFieldStyleGenerator
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
@@ -154,24 +155,28 @@ internal class ComponentStyleGeneratorFactory(
         createBaseTextFieldStyleGeneratorCompose(
             componentName = "text_field",
             componentPackage = "textfield",
+            textFieldType = TextFieldType.TextField,
         )
 
     fun createTextAreaStyleGeneratorCompose() =
         createBaseTextFieldStyleGeneratorCompose(
             componentName = "text_area",
             componentPackage = "textarea",
+            textFieldType = TextFieldType.TextArea,
         )
 
     fun createTextFieldClearStyleGeneratorCompose() =
         createBaseTextFieldStyleGeneratorCompose(
             componentName = "text_field_clear",
             componentPackage = "textfield.clear",
+            textFieldType = TextFieldType.TextFieldClear,
         )
 
     fun createTextAreaClearStyleGeneratorCompose() =
         createBaseTextFieldStyleGeneratorCompose(
             componentName = "text_area_clear",
             componentPackage = "textarea.clear",
+            textFieldType = TextFieldType.TextAreaClear,
         )
 
     fun createCellStyleGeneratorCompose() = CellComposeVariationGenerator(
@@ -195,6 +200,7 @@ internal class ComponentStyleGeneratorFactory(
     private fun createBaseTextFieldStyleGeneratorCompose(
         componentName: String,
         componentPackage: String,
+        textFieldType: TextFieldType,
     ) = TextFieldComposeVariationGenerator(
         themeClassName = themeClassName,
         themePackage = packageResolver.getPackage(TargetPackage.THEME),
@@ -208,6 +214,8 @@ internal class ComponentStyleGeneratorFactory(
         componentPackage = "${packageResolver.getPackage(TargetPackage.STYLES)}.$componentPackage",
         componentName = componentName,
         outputLocation = KtFileBuilder.OutputLocation.Directory(outputDir),
+        textFieldType = textFieldType,
+        styleBuilderName = "TextFieldStyleBuilder",
     )
 
     fun createIndicatorStyleGeneratorCompose() =
@@ -266,23 +274,27 @@ internal class ComponentStyleGeneratorFactory(
         createBaseButtonStyleGeneratorCompose(
             componentName = "basic_button",
             componentPackage = "button.basic",
+            styleBuilderFactoryFunName = "basicButtonBuilder",
         )
 
     fun createLinkButtonStyleGeneratorCompose() =
         createBaseButtonStyleGeneratorCompose(
             componentName = "link_button",
             componentPackage = "button.link",
+            styleBuilderFactoryFunName = "linkButtonBuilder",
         )
 
     fun createIconButtonStyleGeneratorCompose() =
         createBaseButtonStyleGeneratorCompose(
             componentName = "icon_button",
             componentPackage = "button.icon",
+            styleBuilderFactoryFunName = "iconButtonBuilder",
         )
 
     private fun createBaseButtonStyleGeneratorCompose(
         componentName: String,
         componentPackage: String,
+        styleBuilderFactoryFunName: String,
     ) = ButtonComposeVariationGenerator(
         themeClassName = themeClassName,
         themePackage = packageResolver.getPackage(TargetPackage.THEME),
@@ -294,6 +306,7 @@ internal class ComponentStyleGeneratorFactory(
         componentPackage = "${packageResolver.getPackage(TargetPackage.STYLES)}.$componentPackage",
         componentName = componentName,
         outputLocation = KtFileBuilder.OutputLocation.Directory(outputDir),
+        styleBuilderFactoryFunName = styleBuilderFactoryFunName,
     )
 
     fun createBadgeStyleGeneratorCompose() =
@@ -326,6 +339,7 @@ internal class ComponentStyleGeneratorFactory(
             componentName = componentName,
             outputLocation = KtFileBuilder.OutputLocation.Directory(outputDir),
             styleBuilderName = "BadgeStyleBuilder",
+            styleBuilderFactoryFunName = "badgeBuilder",
         )
 
     fun createIconBadgeStyleGeneratorCompose() =
@@ -369,6 +383,7 @@ internal class ComponentStyleGeneratorFactory(
             componentName = componentName,
             outputLocation = KtFileBuilder.OutputLocation.Directory(outputDir),
             styleBuilderName = "IconBadgeStyleBuilder",
+            styleBuilderFactoryFunName = "iconBadgeBuilder",
         )
 
     fun createSegmentItemStyleGeneratorCompose() = SegmentItemComposeVariationGenerator(

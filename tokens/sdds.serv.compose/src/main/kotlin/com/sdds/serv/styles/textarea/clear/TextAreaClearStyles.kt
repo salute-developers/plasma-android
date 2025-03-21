@@ -9,9 +9,11 @@ package com.sdds.serv.styles.textarea.clear
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.uikit.TextAreaClearStyleBuilder
+import com.sdds.compose.uikit.TextFieldHelperTextPlacement
+import com.sdds.compose.uikit.TextFieldIndicatorAlignmentMode
 import com.sdds.compose.uikit.TextFieldLabelPlacement
 import com.sdds.compose.uikit.TextFieldStyle
+import com.sdds.compose.uikit.TextFieldStyleBuilder
 import com.sdds.compose.uikit.TextFieldType
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
@@ -19,7 +21,6 @@ import com.sdds.compose.uikit.multiplyAlpha
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
-import com.sdds.compose.uikit.textAreaClearBuilder
 import com.sdds.serv.styles.chip.EmbeddedChip
 import com.sdds.serv.styles.chip.L
 import com.sdds.serv.styles.chip.M
@@ -36,7 +37,7 @@ import kotlin.jvm.JvmName
 /**
  * Базовый интерфейс для всех оберток этого стиля
  */
-public interface WrapperTextAreaClear : BuilderWrapper<TextFieldStyle, TextAreaClearStyleBuilder>
+public interface WrapperTextAreaClear : BuilderWrapper<TextFieldStyle, TextFieldStyleBuilder>
 
 /**
  * Интерфейс, который реализуют все обертки вариаций корневого уровня
@@ -51,7 +52,7 @@ public interface WrapperTextAreaClearView : WrapperTextAreaClear
  */
 @JvmInline
 public value class WrapperTextAreaClearTerminate(
-    public override val builder: TextAreaClearStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaClear
 
 /**
@@ -59,7 +60,7 @@ public value class WrapperTextAreaClearTerminate(
  */
 @JvmInline
 public value class WrapperTextAreaClearXs(
-    public override val builder: TextAreaClearStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaClearView
 
 /**
@@ -67,7 +68,7 @@ public value class WrapperTextAreaClearXs(
  */
 @JvmInline
 public value class WrapperTextAreaClearXsRequiredStart(
-    public override val builder: TextAreaClearStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaClearView
 
 /**
@@ -75,7 +76,7 @@ public value class WrapperTextAreaClearXsRequiredStart(
  */
 @JvmInline
 public value class WrapperTextAreaClearXsRequiredEnd(
-    public override val builder: TextAreaClearStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaClearView
 
 /**
@@ -83,7 +84,7 @@ public value class WrapperTextAreaClearXsRequiredEnd(
  */
 @JvmInline
 public value class WrapperTextAreaClearXsOuterLabel(
-    public override val builder: TextAreaClearStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaClearView
 
 /**
@@ -91,7 +92,7 @@ public value class WrapperTextAreaClearXsOuterLabel(
  */
 @JvmInline
 public value class WrapperTextAreaClearXsOuterLabelRequiredStart(
-    public override val builder: TextAreaClearStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaClearView
 
 /**
@@ -99,7 +100,7 @@ public value class WrapperTextAreaClearXsOuterLabelRequiredStart(
  */
 @JvmInline
 public value class WrapperTextAreaClearXsOuterLabelRequiredEnd(
-    public override val builder: TextAreaClearStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaClearView
 
 /**
@@ -107,7 +108,7 @@ public value class WrapperTextAreaClearXsOuterLabelRequiredEnd(
  */
 @JvmInline
 public value class WrapperTextAreaClearS(
-    public override val builder: TextAreaClearStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaClearView
 
 /**
@@ -115,7 +116,7 @@ public value class WrapperTextAreaClearS(
  */
 @JvmInline
 public value class WrapperTextAreaClearSRequiredStart(
-    public override val builder: TextAreaClearStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaClearView
 
 /**
@@ -123,7 +124,7 @@ public value class WrapperTextAreaClearSRequiredStart(
  */
 @JvmInline
 public value class WrapperTextAreaClearSRequiredEnd(
-    public override val builder: TextAreaClearStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaClearView
 
 /**
@@ -131,7 +132,7 @@ public value class WrapperTextAreaClearSRequiredEnd(
  */
 @JvmInline
 public value class WrapperTextAreaClearSOuterLabel(
-    public override val builder: TextAreaClearStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaClearView
 
 /**
@@ -139,7 +140,7 @@ public value class WrapperTextAreaClearSOuterLabel(
  */
 @JvmInline
 public value class WrapperTextAreaClearSOuterLabelRequiredStart(
-    public override val builder: TextAreaClearStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaClearView
 
 /**
@@ -147,7 +148,7 @@ public value class WrapperTextAreaClearSOuterLabelRequiredStart(
  */
 @JvmInline
 public value class WrapperTextAreaClearSOuterLabelRequiredEnd(
-    public override val builder: TextAreaClearStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaClearView
 
 /**
@@ -155,7 +156,7 @@ public value class WrapperTextAreaClearSOuterLabelRequiredEnd(
  */
 @JvmInline
 public value class WrapperTextAreaClearSInnerLabel(
-    public override val builder: TextAreaClearStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaClearView
 
 /**
@@ -163,7 +164,7 @@ public value class WrapperTextAreaClearSInnerLabel(
  */
 @JvmInline
 public value class WrapperTextAreaClearSInnerLabelRequiredStart(
-    public override val builder: TextAreaClearStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaClearView
 
 /**
@@ -171,7 +172,7 @@ public value class WrapperTextAreaClearSInnerLabelRequiredStart(
  */
 @JvmInline
 public value class WrapperTextAreaClearSInnerLabelRequiredEnd(
-    public override val builder: TextAreaClearStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaClearView
 
 /**
@@ -179,7 +180,7 @@ public value class WrapperTextAreaClearSInnerLabelRequiredEnd(
  */
 @JvmInline
 public value class WrapperTextAreaClearM(
-    public override val builder: TextAreaClearStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaClearView
 
 /**
@@ -187,7 +188,7 @@ public value class WrapperTextAreaClearM(
  */
 @JvmInline
 public value class WrapperTextAreaClearMRequiredStart(
-    public override val builder: TextAreaClearStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaClearView
 
 /**
@@ -195,7 +196,7 @@ public value class WrapperTextAreaClearMRequiredStart(
  */
 @JvmInline
 public value class WrapperTextAreaClearMRequiredEnd(
-    public override val builder: TextAreaClearStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaClearView
 
 /**
@@ -203,7 +204,7 @@ public value class WrapperTextAreaClearMRequiredEnd(
  */
 @JvmInline
 public value class WrapperTextAreaClearMOuterLabel(
-    public override val builder: TextAreaClearStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaClearView
 
 /**
@@ -211,7 +212,7 @@ public value class WrapperTextAreaClearMOuterLabel(
  */
 @JvmInline
 public value class WrapperTextAreaClearMOuterLabelRequiredStart(
-    public override val builder: TextAreaClearStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaClearView
 
 /**
@@ -219,7 +220,7 @@ public value class WrapperTextAreaClearMOuterLabelRequiredStart(
  */
 @JvmInline
 public value class WrapperTextAreaClearMOuterLabelRequiredEnd(
-    public override val builder: TextAreaClearStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaClearView
 
 /**
@@ -227,7 +228,7 @@ public value class WrapperTextAreaClearMOuterLabelRequiredEnd(
  */
 @JvmInline
 public value class WrapperTextAreaClearMInnerLabel(
-    public override val builder: TextAreaClearStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaClearView
 
 /**
@@ -235,7 +236,7 @@ public value class WrapperTextAreaClearMInnerLabel(
  */
 @JvmInline
 public value class WrapperTextAreaClearMInnerLabelRequiredStart(
-    public override val builder: TextAreaClearStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaClearView
 
 /**
@@ -243,7 +244,7 @@ public value class WrapperTextAreaClearMInnerLabelRequiredStart(
  */
 @JvmInline
 public value class WrapperTextAreaClearMInnerLabelRequiredEnd(
-    public override val builder: TextAreaClearStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaClearView
 
 /**
@@ -251,7 +252,7 @@ public value class WrapperTextAreaClearMInnerLabelRequiredEnd(
  */
 @JvmInline
 public value class WrapperTextAreaClearL(
-    public override val builder: TextAreaClearStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaClearView
 
 /**
@@ -259,7 +260,7 @@ public value class WrapperTextAreaClearL(
  */
 @JvmInline
 public value class WrapperTextAreaClearLRequiredStart(
-    public override val builder: TextAreaClearStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaClearView
 
 /**
@@ -267,7 +268,7 @@ public value class WrapperTextAreaClearLRequiredStart(
  */
 @JvmInline
 public value class WrapperTextAreaClearLRequiredEnd(
-    public override val builder: TextAreaClearStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaClearView
 
 /**
@@ -275,7 +276,7 @@ public value class WrapperTextAreaClearLRequiredEnd(
  */
 @JvmInline
 public value class WrapperTextAreaClearLOuterLabel(
-    public override val builder: TextAreaClearStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaClearView
 
 /**
@@ -283,7 +284,7 @@ public value class WrapperTextAreaClearLOuterLabel(
  */
 @JvmInline
 public value class WrapperTextAreaClearLOuterLabelRequiredStart(
-    public override val builder: TextAreaClearStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaClearView
 
 /**
@@ -291,7 +292,7 @@ public value class WrapperTextAreaClearLOuterLabelRequiredStart(
  */
 @JvmInline
 public value class WrapperTextAreaClearLOuterLabelRequiredEnd(
-    public override val builder: TextAreaClearStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaClearView
 
 /**
@@ -299,7 +300,7 @@ public value class WrapperTextAreaClearLOuterLabelRequiredEnd(
  */
 @JvmInline
 public value class WrapperTextAreaClearLInnerLabel(
-    public override val builder: TextAreaClearStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaClearView
 
 /**
@@ -307,7 +308,7 @@ public value class WrapperTextAreaClearLInnerLabel(
  */
 @JvmInline
 public value class WrapperTextAreaClearLInnerLabelRequiredStart(
-    public override val builder: TextAreaClearStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaClearView
 
 /**
@@ -315,7 +316,7 @@ public value class WrapperTextAreaClearLInnerLabelRequiredStart(
  */
 @JvmInline
 public value class WrapperTextAreaClearLInnerLabelRequiredEnd(
-    public override val builder: TextAreaClearStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaClearView
 
 /**
@@ -323,7 +324,7 @@ public value class WrapperTextAreaClearLInnerLabelRequiredEnd(
  */
 @JvmInline
 public value class WrapperTextAreaClearXl(
-    public override val builder: TextAreaClearStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaClearView
 
 /**
@@ -331,7 +332,7 @@ public value class WrapperTextAreaClearXl(
  */
 @JvmInline
 public value class WrapperTextAreaClearXlRequiredStart(
-    public override val builder: TextAreaClearStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaClearView
 
 /**
@@ -339,7 +340,7 @@ public value class WrapperTextAreaClearXlRequiredStart(
  */
 @JvmInline
 public value class WrapperTextAreaClearXlRequiredEnd(
-    public override val builder: TextAreaClearStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaClearView
 
 /**
@@ -347,7 +348,7 @@ public value class WrapperTextAreaClearXlRequiredEnd(
  */
 @JvmInline
 public value class WrapperTextAreaClearXlOuterLabel(
-    public override val builder: TextAreaClearStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaClearView
 
 /**
@@ -355,7 +356,7 @@ public value class WrapperTextAreaClearXlOuterLabel(
  */
 @JvmInline
 public value class WrapperTextAreaClearXlOuterLabelRequiredStart(
-    public override val builder: TextAreaClearStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaClearView
 
 /**
@@ -363,7 +364,7 @@ public value class WrapperTextAreaClearXlOuterLabelRequiredStart(
  */
 @JvmInline
 public value class WrapperTextAreaClearXlOuterLabelRequiredEnd(
-    public override val builder: TextAreaClearStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaClearView
 
 /**
@@ -371,7 +372,7 @@ public value class WrapperTextAreaClearXlOuterLabelRequiredEnd(
  */
 @JvmInline
 public value class WrapperTextAreaClearXlInnerLabel(
-    public override val builder: TextAreaClearStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaClearView
 
 /**
@@ -379,7 +380,7 @@ public value class WrapperTextAreaClearXlInnerLabel(
  */
 @JvmInline
 public value class WrapperTextAreaClearXlInnerLabelRequiredStart(
-    public override val builder: TextAreaClearStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaClearView
 
 /**
@@ -387,7 +388,7 @@ public value class WrapperTextAreaClearXlInnerLabelRequiredStart(
  */
 @JvmInline
 public value class WrapperTextAreaClearXlInnerLabelRequiredEnd(
-    public override val builder: TextAreaClearStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaClearView
 
 public val WrapperTextAreaClearView.Default: WrapperTextAreaClearTerminate
@@ -492,15 +493,20 @@ public val WrapperTextAreaClearView.Error: WrapperTextAreaClearTerminate
         }
         .wrap(::WrapperTextAreaClearTerminate)
 
-private val TextAreaClearStyleBuilder.invariantProps: TextAreaClearStyleBuilder
+private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
     @Composable
     get() = this
+        .singleLine(false)
+        .helperTextPlacement(TextFieldHelperTextPlacement.Outer)
+        .indicatorAlignmentMode(TextFieldIndicatorAlignmentMode.Outside)
         .dimensions {
             boxPaddingStart(0.0.dp)
             boxPaddingEnd(0.0.dp)
             optionalPadding(4.0.dp)
             helperTextPadding(4.0.dp)
             chipsPadding(6.0.dp)
+            chipsPaddingStart(0.0.dp)
+            chipsPaddingEnd(0.0.dp)
         }
         .captionStyle(SddsServTheme.typography.bodyXsNormal)
         .counterStyle(SddsServTheme.typography.bodyXsNormal)
@@ -555,7 +561,7 @@ private val TextAreaClearStyleBuilder.invariantProps: TextAreaClearStyleBuilder
 public val TextAreaClear.Xs: WrapperTextAreaClearXs
     @Composable
     @JvmName("WrapperTextAreaClearXs")
-    get() = TextFieldStyle.textAreaClearBuilder(this)
+    get() = TextFieldStyle.builder(this)
         .invariantProps
         .dimensions {
             boxPaddingTop(8.0.dp)
@@ -654,7 +660,7 @@ public val WrapperTextAreaClearXsOuterLabel.RequiredEnd: WrapperTextAreaClearXsO
 public val TextAreaClear.S: WrapperTextAreaClearS
     @Composable
     @JvmName("WrapperTextAreaClearS")
-    get() = TextFieldStyle.textAreaClearBuilder(this)
+    get() = TextFieldStyle.builder(this)
         .invariantProps
         .dimensions {
             boxPaddingTop(8.0.dp)
@@ -799,7 +805,7 @@ public val WrapperTextAreaClearSInnerLabel.RequiredEnd: WrapperTextAreaClearSInn
 public val TextAreaClear.M: WrapperTextAreaClearM
     @Composable
     @JvmName("WrapperTextAreaClearM")
-    get() = TextFieldStyle.textAreaClearBuilder(this)
+    get() = TextFieldStyle.builder(this)
         .invariantProps
         .dimensions {
             boxPaddingTop(12.0.dp)
@@ -944,7 +950,7 @@ public val WrapperTextAreaClearMInnerLabel.RequiredEnd: WrapperTextAreaClearMInn
 public val TextAreaClear.L: WrapperTextAreaClearL
     @Composable
     @JvmName("WrapperTextAreaClearL")
-    get() = TextFieldStyle.textAreaClearBuilder(this)
+    get() = TextFieldStyle.builder(this)
         .invariantProps
         .dimensions {
             boxPaddingTop(16.0.dp)
@@ -1089,7 +1095,7 @@ public val WrapperTextAreaClearLInnerLabel.RequiredEnd: WrapperTextAreaClearLInn
 public val TextAreaClear.Xl: WrapperTextAreaClearXl
     @Composable
     @JvmName("WrapperTextAreaClearXl")
-    get() = TextFieldStyle.textAreaClearBuilder(this)
+    get() = TextFieldStyle.builder(this)
         .invariantProps
         .dimensions {
             boxPaddingTop(21.0.dp)

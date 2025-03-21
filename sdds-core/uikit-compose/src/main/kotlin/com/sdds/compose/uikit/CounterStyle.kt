@@ -42,7 +42,12 @@ interface CounterStyle : Style {
      */
     val disableAlpha: Float
 
-    companion object
+    companion object {
+        /**
+         * Возвращает экземпляр [CounterStyleBuilder]
+         */
+        fun builder(receiver: Any? = null): CounterStyleBuilder = CounterStyleBuilderImpl(receiver)
+    }
 }
 
 /**

@@ -12,7 +12,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.dimensionResource
 import com.sdds.compose.uikit.IndicatorStyle
 import com.sdds.compose.uikit.IndicatorStyleBuilder
-import com.sdds.compose.uikit.indicatorBuilder
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
@@ -165,7 +164,7 @@ private val IndicatorStyleBuilder.invariantProps: IndicatorStyleBuilder
 public val Indicator.L: WrapperIndicatorL
     @Composable
     @JvmName("WrapperIndicatorL")
-    get() = IndicatorStyle.indicatorBuilder(this)
+    get() = IndicatorStyle.builder(this)
         .invariantProps
         .dimensions {
             height(dimensionResource(R.dimen.sdkit_cmp_indicator_height_l))
@@ -176,7 +175,7 @@ public val Indicator.L: WrapperIndicatorL
 public val Indicator.M: WrapperIndicatorM
     @Composable
     @JvmName("WrapperIndicatorM")
-    get() = IndicatorStyle.indicatorBuilder(this)
+    get() = IndicatorStyle.builder(this)
         .invariantProps
         .dimensions {
             height(dimensionResource(R.dimen.sdkit_cmp_indicator_height_m))
@@ -187,7 +186,7 @@ public val Indicator.M: WrapperIndicatorM
 public val Indicator.S: WrapperIndicatorS
     @Composable
     @JvmName("WrapperIndicatorS")
-    get() = IndicatorStyle.indicatorBuilder(this)
+    get() = IndicatorStyle.builder(this)
         .invariantProps
         .dimensions {
             height(dimensionResource(R.dimen.sdkit_cmp_indicator_height_s))

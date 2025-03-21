@@ -1,0 +1,212 @@
+{
+    "props": {
+        "backgroundColor": {
+            "type": "color",
+            "default": "surface.default.clear"
+        }
+    },
+    "view": {
+        "default": {
+            "props": {
+                "startContentColor": {
+                    "type": "color",
+                    "default": "text.default.primary"
+                }
+            }
+        },
+        "accent": {
+            "props": {
+                "startContentColor": {
+                    "type": "color",
+                    "default": "text.default.accent"
+                }
+            }
+        },
+        "negative": {
+            "props": {
+                "startContentColor": {
+                    "type": "color",
+                    "default": "text.default.negative"
+                }
+            }
+        },
+        "positive": {
+            "props": {
+                "startContentColor": {
+                    "type": "color",
+                    "default": "text.default.positive"
+                }
+            }
+        },
+        "warning": {
+            "props": {
+                "startContentColor": {
+                    "type": "color",
+                    "default": "text.default.warning"
+                }
+            }
+        },
+        "dark": {
+            "props": {
+                "startContentColor": {
+                    "type": "color",
+                    "default": "text.on-dark.primary"
+                }
+            }
+        },
+        "light": {
+            "props": {
+                "startContentColor": {
+                    "type": "color",
+                    "default": "text.on-dark.primary"
+                }
+            }
+        }
+    },
+    "variations": [
+        {
+            "id": "l",
+            "parent": null,
+            "props": {
+                "shape": {
+                    "type": "shape",
+                    "value": "round.s"
+                },
+                "height": {
+                    "type": "dimension",
+                    "value": 28
+                },
+                "startPadding": {
+                    "type": "dimension",
+                    "value": 6
+                },
+                "endPadding": {
+                    "type": "dimension",
+                    "value": 6
+                },
+                "startContentSize": {
+                    "type": "dimension",
+                    "value": 16
+                }
+            }
+        },
+        {
+            "id": "l.pilled",
+            "parent": "l",
+            "props": {
+                "shape": {
+                    "type": "shape",
+                    "value": "round.circle"
+                }
+            }
+        },
+        {
+            "id": "m",
+            "parent": null,
+            "props": {
+                "shape": {
+                    "type": "shape",
+                    "value": "round.xs"
+                },
+                "height": {
+                    "type": "dimension",
+                    "value": 24
+                },
+                "startPadding": {
+                    "type": "dimension",
+                    "value": 6
+                },
+                "endPadding": {
+                    "type": "dimension",
+                    "value": 6
+                },
+                "startContentSize": {
+                    "type": "dimension",
+                    "value": 12
+                }
+            }
+        },
+        {
+            "id": "m.pilled",
+            "parent": "m",
+            "props": {
+                "shape": {
+                    "type": "shape",
+                    "value": "round.circle"
+                }
+            }
+        },
+        {
+            "id": "s",
+            "parent": null,
+            "props": {
+                "shape": {
+                    "type": "shape",
+                    "value": "round.xs"
+                },
+                "height": {
+                    "type": "dimension",
+                    "value": 20
+                },
+                "startPadding": {
+                    "type": "dimension",
+                    "value": 4
+                },
+                "endPadding": {
+                    "type": "dimension",
+                    "value": 4
+                },
+                "startContentSize": {
+                    "type": "dimension",
+                    "value": 12
+                }
+            }
+        },
+        {
+            "id": "s.pilled",
+            "parent": "s",
+            "props": {
+                "shape": {
+                    "type": "shape",
+                    "value": "round.circle"
+                }
+            }
+        },
+        {
+            "id": "xs",
+            "parent": null,
+            "props": {
+                "shape": {
+                    "type": "shape",
+                    "value": "round.xxs"
+                },
+                "height": {
+                    "type": "dimension",
+                    "value": 16
+                },
+                "startPadding": {
+                    "type": "dimension",
+                    "value": 3
+                },
+                "endPadding": {
+                    "type": "dimension",
+                    "value": 3
+                },
+                "startContentSize": {
+                    "type": "dimension",
+                    "value": 10
+                }
+            }
+        },
+        {
+            "id": "xs.pilled",
+            "parent": "xs",
+            "props": {
+                "shape": {
+                    "type": "shape",
+                    "value": "round.circle"
+                }
+            }
+        }
+    ]
+}

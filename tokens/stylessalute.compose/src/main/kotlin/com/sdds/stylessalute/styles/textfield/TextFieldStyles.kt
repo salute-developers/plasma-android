@@ -20,7 +20,6 @@ import com.sdds.compose.uikit.multiplyAlpha
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
-import com.sdds.compose.uikit.textFieldBuilder
 import com.sdds.stylessalute.styles.chip.EmbeddedChip
 import com.sdds.stylessalute.styles.chip.L
 import com.sdds.stylessalute.styles.chip.M
@@ -322,6 +321,7 @@ public value class WrapperTextFieldLInnerLabelRequiredEnd(
 public val WrapperTextFieldView.Default: WrapperTextFieldTerminate
     @Composable
     get() = builder
+        .singleLine(true)
         .colors {
             captionColor(
                 StylesSaluteTheme.colors.textDefaultSecondary.asInteractive(),
@@ -338,6 +338,7 @@ public val WrapperTextFieldView.Default: WrapperTextFieldTerminate
 public val WrapperTextFieldView.Success: WrapperTextFieldTerminate
     @Composable
     get() = builder
+        .singleLine(true)
         .colors {
             captionColor(
                 StylesSaluteTheme.colors.textDefaultPositive.asInteractive(
@@ -357,6 +358,7 @@ public val WrapperTextFieldView.Success: WrapperTextFieldTerminate
 public val WrapperTextFieldView.Warning: WrapperTextFieldTerminate
     @Composable
     get() = builder
+        .singleLine(true)
         .colors {
             captionColor(
                 StylesSaluteTheme.colors.textDefaultWarning.asInteractive(
@@ -376,6 +378,7 @@ public val WrapperTextFieldView.Warning: WrapperTextFieldTerminate
 public val WrapperTextFieldView.Error: WrapperTextFieldTerminate
     @Composable
     get() = builder
+        .singleLine(true)
         .colors {
             captionColor(
                 StylesSaluteTheme.colors.textDefaultNegative.asInteractive(
@@ -395,6 +398,7 @@ public val WrapperTextFieldView.Error: WrapperTextFieldTerminate
 private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
     @Composable
     get() = this
+        .singleLine(true)
         .dimensions {
             optionalPadding(4.0.dp)
             helperTextPadding(4.0.dp)
@@ -456,8 +460,9 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
 public val TextField.Xs: WrapperTextFieldXs
     @Composable
     @JvmName("WrapperTextFieldXs")
-    get() = TextFieldStyle.textFieldBuilder(this)
+    get() = TextFieldStyle.builder(this)
         .invariantProps
+        .singleLine(true)
         .shape(StylesSaluteTheme.shapes.roundS.adjustBy(all = 0.0.dp))
         .dimensions {
             boxPaddingStart(8.0.dp)
@@ -483,6 +488,7 @@ public val WrapperTextFieldXs.RequiredStart: WrapperTextFieldXsRequiredStart
     @Composable
     @JvmName("WrapperTextFieldXsRequiredStart")
     get() = builder
+        .singleLine(true)
         .dimensions {
             indicatorDimensions {
                 indicatorSize(6.0.dp)
@@ -495,6 +501,7 @@ public val WrapperTextFieldXs.RequiredEnd: WrapperTextFieldXsRequiredEnd
     @Composable
     @JvmName("WrapperTextFieldXsRequiredEnd")
     get() = builder
+        .singleLine(true)
         .dimensions {
             indicatorDimensions {
                 indicatorSize(6.0.dp)
@@ -507,6 +514,7 @@ public val WrapperTextFieldXs.OuterLabel: WrapperTextFieldXsOuterLabel
     @Composable
     @JvmName("WrapperTextFieldXsOuterLabel")
     get() = builder
+        .singleLine(true)
         .dimensions {
             boxPaddingTop(8.0.dp)
             boxPaddingBottom(8.0.dp)
@@ -526,6 +534,7 @@ public val WrapperTextFieldXsOuterLabel.RequiredStart: WrapperTextFieldXsOuterLa
     @Composable
     @JvmName("WrapperTextFieldXsOuterLabelRequiredStart")
     get() = builder
+        .singleLine(true)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(4.0.dp)
@@ -540,6 +549,7 @@ public val WrapperTextFieldXsOuterLabel.RequiredEnd: WrapperTextFieldXsOuterLabe
     @Composable
     @JvmName("WrapperTextFieldXsOuterLabelRequiredEnd")
     get() = builder
+        .singleLine(true)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(4.0.dp)
@@ -553,8 +563,9 @@ public val WrapperTextFieldXsOuterLabel.RequiredEnd: WrapperTextFieldXsOuterLabe
 public val TextField.S: WrapperTextFieldS
     @Composable
     @JvmName("WrapperTextFieldS")
-    get() = TextFieldStyle.textFieldBuilder(this)
+    get() = TextFieldStyle.builder(this)
         .invariantProps
+        .singleLine(true)
         .shape(StylesSaluteTheme.shapes.roundM.adjustBy(all = -2.0.dp))
         .dimensions {
             boxPaddingStart(12.0.dp)
@@ -580,6 +591,7 @@ public val WrapperTextFieldS.RequiredStart: WrapperTextFieldSRequiredStart
     @Composable
     @JvmName("WrapperTextFieldSRequiredStart")
     get() = builder
+        .singleLine(true)
         .dimensions {
             indicatorDimensions {
                 indicatorSize(6.0.dp)
@@ -592,6 +604,7 @@ public val WrapperTextFieldS.RequiredEnd: WrapperTextFieldSRequiredEnd
     @Composable
     @JvmName("WrapperTextFieldSRequiredEnd")
     get() = builder
+        .singleLine(true)
         .dimensions {
             indicatorDimensions {
                 indicatorSize(6.0.dp)
@@ -604,6 +617,7 @@ public val WrapperTextFieldS.OuterLabel: WrapperTextFieldSOuterLabel
     @Composable
     @JvmName("WrapperTextFieldSOuterLabel")
     get() = builder
+        .singleLine(true)
         .dimensions {
             labelPadding(8.0.dp)
         }
@@ -621,6 +635,7 @@ public val WrapperTextFieldSOuterLabel.RequiredStart: WrapperTextFieldSOuterLabe
     @Composable
     @JvmName("WrapperTextFieldSOuterLabelRequiredStart")
     get() = builder
+        .singleLine(true)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(4.0.dp)
@@ -635,6 +650,7 @@ public val WrapperTextFieldSOuterLabel.RequiredEnd: WrapperTextFieldSOuterLabelR
     @Composable
     @JvmName("WrapperTextFieldSOuterLabelRequiredEnd")
     get() = builder
+        .singleLine(true)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(4.0.dp)
@@ -649,6 +665,7 @@ public val WrapperTextFieldS.InnerLabel: WrapperTextFieldSInnerLabel
     @Composable
     @JvmName("WrapperTextFieldSInnerLabel")
     get() = builder
+        .singleLine(true)
         .dimensions {
             boxPaddingTop(4.0.dp)
             boxPaddingBottom(4.0.dp)
@@ -668,6 +685,7 @@ public val WrapperTextFieldSInnerLabel.RequiredStart: WrapperTextFieldSInnerLabe
     @Composable
     @JvmName("WrapperTextFieldSInnerLabelRequiredStart")
     get() = builder
+        .singleLine(true)
         .dimensions {
             indicatorDimensions {
                 indicatorSize(6.0.dp)
@@ -680,6 +698,7 @@ public val WrapperTextFieldSInnerLabel.RequiredEnd: WrapperTextFieldSInnerLabelR
     @Composable
     @JvmName("WrapperTextFieldSInnerLabelRequiredEnd")
     get() = builder
+        .singleLine(true)
         .dimensions {
             indicatorDimensions {
                 indicatorSize(6.0.dp)
@@ -691,8 +710,9 @@ public val WrapperTextFieldSInnerLabel.RequiredEnd: WrapperTextFieldSInnerLabelR
 public val TextField.M: WrapperTextFieldM
     @Composable
     @JvmName("WrapperTextFieldM")
-    get() = TextFieldStyle.textFieldBuilder(this)
+    get() = TextFieldStyle.builder(this)
         .invariantProps
+        .singleLine(true)
         .shape(StylesSaluteTheme.shapes.roundM)
         .dimensions {
             boxPaddingStart(14.0.dp)
@@ -718,6 +738,7 @@ public val WrapperTextFieldM.RequiredStart: WrapperTextFieldMRequiredStart
     @Composable
     @JvmName("WrapperTextFieldMRequiredStart")
     get() = builder
+        .singleLine(true)
         .dimensions {
             indicatorDimensions {
                 indicatorSize(8.0.dp)
@@ -730,6 +751,7 @@ public val WrapperTextFieldM.RequiredEnd: WrapperTextFieldMRequiredEnd
     @Composable
     @JvmName("WrapperTextFieldMRequiredEnd")
     get() = builder
+        .singleLine(true)
         .dimensions {
             indicatorDimensions {
                 indicatorSize(8.0.dp)
@@ -742,6 +764,7 @@ public val WrapperTextFieldM.OuterLabel: WrapperTextFieldMOuterLabel
     @Composable
     @JvmName("WrapperTextFieldMOuterLabel")
     get() = builder
+        .singleLine(true)
         .dimensions {
             labelPadding(10.0.dp)
         }
@@ -759,6 +782,7 @@ public val WrapperTextFieldMOuterLabel.RequiredStart: WrapperTextFieldMOuterLabe
     @Composable
     @JvmName("WrapperTextFieldMOuterLabelRequiredStart")
     get() = builder
+        .singleLine(true)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(6.0.dp)
@@ -773,6 +797,7 @@ public val WrapperTextFieldMOuterLabel.RequiredEnd: WrapperTextFieldMOuterLabelR
     @Composable
     @JvmName("WrapperTextFieldMOuterLabelRequiredEnd")
     get() = builder
+        .singleLine(true)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(4.0.dp)
@@ -787,6 +812,7 @@ public val WrapperTextFieldM.InnerLabel: WrapperTextFieldMInnerLabel
     @Composable
     @JvmName("WrapperTextFieldMInnerLabel")
     get() = builder
+        .singleLine(true)
         .dimensions {
             boxPaddingTop(6.0.dp)
             boxPaddingBottom(6.0.dp)
@@ -806,6 +832,7 @@ public val WrapperTextFieldMInnerLabel.RequiredStart: WrapperTextFieldMInnerLabe
     @Composable
     @JvmName("WrapperTextFieldMInnerLabelRequiredStart")
     get() = builder
+        .singleLine(true)
         .dimensions {
             indicatorDimensions {
                 indicatorSize(8.0.dp)
@@ -818,6 +845,7 @@ public val WrapperTextFieldMInnerLabel.RequiredEnd: WrapperTextFieldMInnerLabelR
     @Composable
     @JvmName("WrapperTextFieldMInnerLabelRequiredEnd")
     get() = builder
+        .singleLine(true)
         .dimensions {
             indicatorDimensions {
                 indicatorSize(8.0.dp)
@@ -829,8 +857,9 @@ public val WrapperTextFieldMInnerLabel.RequiredEnd: WrapperTextFieldMInnerLabelR
 public val TextField.L: WrapperTextFieldL
     @Composable
     @JvmName("WrapperTextFieldL")
-    get() = TextFieldStyle.textFieldBuilder(this)
+    get() = TextFieldStyle.builder(this)
         .invariantProps
+        .singleLine(true)
         .shape(StylesSaluteTheme.shapes.roundM.adjustBy(all = 2.0.dp))
         .dimensions {
             boxPaddingStart(16.0.dp)
@@ -856,6 +885,7 @@ public val WrapperTextFieldL.RequiredStart: WrapperTextFieldLRequiredStart
     @Composable
     @JvmName("WrapperTextFieldLRequiredStart")
     get() = builder
+        .singleLine(true)
         .dimensions {
             indicatorDimensions {
                 indicatorSize(8.0.dp)
@@ -868,6 +898,7 @@ public val WrapperTextFieldL.RequiredEnd: WrapperTextFieldLRequiredEnd
     @Composable
     @JvmName("WrapperTextFieldLRequiredEnd")
     get() = builder
+        .singleLine(true)
         .dimensions {
             indicatorDimensions {
                 indicatorSize(8.0.dp)
@@ -880,6 +911,7 @@ public val WrapperTextFieldL.OuterLabel: WrapperTextFieldLOuterLabel
     @Composable
     @JvmName("WrapperTextFieldLOuterLabel")
     get() = builder
+        .singleLine(true)
         .dimensions {
             labelPadding(12.0.dp)
         }
@@ -897,6 +929,7 @@ public val WrapperTextFieldLOuterLabel.RequiredStart: WrapperTextFieldLOuterLabe
     @Composable
     @JvmName("WrapperTextFieldLOuterLabelRequiredStart")
     get() = builder
+        .singleLine(true)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(6.0.dp)
@@ -911,6 +944,7 @@ public val WrapperTextFieldLOuterLabel.RequiredEnd: WrapperTextFieldLOuterLabelR
     @Composable
     @JvmName("WrapperTextFieldLOuterLabelRequiredEnd")
     get() = builder
+        .singleLine(true)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(4.0.dp)
@@ -925,6 +959,7 @@ public val WrapperTextFieldL.InnerLabel: WrapperTextFieldLInnerLabel
     @Composable
     @JvmName("WrapperTextFieldLInnerLabel")
     get() = builder
+        .singleLine(true)
         .dimensions {
             boxPaddingTop(9.0.dp)
             boxPaddingBottom(9.0.dp)
@@ -944,6 +979,7 @@ public val WrapperTextFieldLInnerLabel.RequiredStart: WrapperTextFieldLInnerLabe
     @Composable
     @JvmName("WrapperTextFieldLInnerLabelRequiredStart")
     get() = builder
+        .singleLine(true)
         .dimensions {
             indicatorDimensions {
                 indicatorSize(8.0.dp)
@@ -956,6 +992,7 @@ public val WrapperTextFieldLInnerLabel.RequiredEnd: WrapperTextFieldLInnerLabelR
     @Composable
     @JvmName("WrapperTextFieldLInnerLabelRequiredEnd")
     get() = builder
+        .singleLine(true)
         .dimensions {
             indicatorDimensions {
                 indicatorSize(8.0.dp)

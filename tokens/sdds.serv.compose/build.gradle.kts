@@ -21,6 +21,7 @@ android {
 themeBuilder {
     themeSource(name = "sdds_serv", version = themeVersion, alias = "SddsServ")
     compose()
+    componentsSource("file://${projectDir.path}/json/sdds_serv")
     ktPackage(ktPackage = "com.sdds.serv")
     mode(THEME)
     autoGenerate(false)

@@ -217,6 +217,10 @@ fun TextField(
  * @property startContentPadding отступ после startContent
  * @property endContentPadding отступ перед endContent
  * @property chipsPadding отступ от контейнера с chip-элементами
+ * @property chipsPaddingStart отступ от контейнера с chip-элементами в начале
+ * @property chipsPaddingEnd отступ от контейнера с chip-элементами в конце
+ * @property chipsPaddingTop отступ от контейнера с chip-элементами сверху
+ * @property chipsPaddingBottom отступ от контейнера с chip-элементами снизу
  * @property boxMinHeight минимальная высота поля
  * @property alignmentLineHeight высота первой строки контента
  * @property startContentSize размер иконки в начале
@@ -236,6 +240,10 @@ data class TextFieldDimensions(
     val startContentPadding: Dp = 6.dp,
     val endContentPadding: Dp = 6.dp,
     val chipsPadding: Dp = 6.dp,
+    val chipsPaddingStart: Dp = chipsPadding,
+    val chipsPaddingEnd: Dp = chipsPadding,
+    val chipsPaddingTop: Dp = chipsPadding,
+    val chipsPaddingBottom: Dp = chipsPadding,
     val boxMinHeight: Dp = 56.dp,
     val alignmentLineHeight: Dp = 56.dp,
     val startContentSize: Dp = 24.dp,
@@ -257,22 +265,6 @@ data class TextFieldDimensions(
         val verticalPadding: Dp = 0.dp,
         val indicatorSize: Dp = 6.dp,
     )
-}
-
-/**
- * Внешний вид текстового поля
- */
-enum class TextFieldAppearance {
-
-    /**
-     * Текстовое поле с фоном
-     */
-    Solid,
-
-    /**
-     * Текстовое поле без фона
-     */
-    Clear,
 }
 
 /**
@@ -308,6 +300,21 @@ enum class TextFieldHelperTextPlacement {
      * Внутри текстового поля
      */
     Outer,
+}
+
+/**
+ * Режим размещения индикатора
+ */
+enum class TextFieldIndicatorAlignmentMode {
+    /**
+     * Индикатор снаружи
+     */
+    Inside,
+
+    /**
+     * Индикатор внутри
+     */
+    Outside,
 }
 
 /**

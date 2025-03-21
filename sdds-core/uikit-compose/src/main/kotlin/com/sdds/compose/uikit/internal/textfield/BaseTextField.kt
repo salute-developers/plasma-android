@@ -32,7 +32,6 @@ import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.focus.focusProperties
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.layout.Layout
@@ -56,10 +55,10 @@ import com.sdds.compose.uikit.LocalTextFieldStyle
 import com.sdds.compose.uikit.LocalTint
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.TextFieldAnimation
-import com.sdds.compose.uikit.TextFieldAppearance
 import com.sdds.compose.uikit.TextFieldColors
 import com.sdds.compose.uikit.TextFieldDimensions
 import com.sdds.compose.uikit.TextFieldHelperTextPlacement
+import com.sdds.compose.uikit.TextFieldIndicatorAlignmentMode
 import com.sdds.compose.uikit.TextFieldLabelPlacement
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.TextFieldType
@@ -132,7 +131,7 @@ internal fun BaseTextField(
     val dimensions = style.dimensions
     val colors = style.colors
 
-    val fieldAppearance = style.fieldAppearance
+    val indicatorAlignmentMode = style.indicatorAlignmentMode
     val fieldType = style.fieldType
     val labelPlacement = style.labelPlacement
     val helperTextPlacement = style.helperTextPlacement
@@ -300,15 +299,13 @@ internal fun BaseTextField(
                             .applyFieldIndicator(
                                 fieldType,
                                 labelPlacement,
-                                fieldAppearance,
+                                indicatorAlignmentMode,
                                 dimensions,
                                 colors.indicatorColor(readOnly, enabled, interactionSource),
                             )
-                            .clip(if (fieldAppearance == TextFieldAppearance.Solid) style.shape else RectangleShape)
+                            .clip(style.shape)
                             .enable(enabled, enabledAlpha, disabledAlpha)
                             .drawFieldAppearance(
-                                fieldAppearance = fieldAppearance,
-                                hasDivider = style.hasDivider,
                                 backgroundColor = colors
                                     .backgroundColor(readOnly)
                                     .colorForInteraction(interactionSource),
@@ -387,7 +384,6 @@ internal fun BaseTextField(
                         verticalScrollState = verticalScrollState,
                         horizontalScrollState = horizontalScrollState,
                         singleLine = singleLine,
-                        isClearAppearance = fieldAppearance == TextFieldAppearance.Clear,
                         valueTextStyle = valueStyle,
                         innerLabelTextStyle = labelStyle,
                     )
@@ -432,28 +428,19 @@ private fun TextFieldColors.indicatorColor(
 }
 
 private fun Modifier.drawFieldAppearance(
-    fieldAppearance: TextFieldAppearance,
-    hasDivider: Boolean,
     backgroundColor: Color,
     dividerColor: Color,
     dividerThickness: Dp,
 ): Modifier {
     return this.drawBehind {
-        when (fieldAppearance) {
-            TextFieldAppearance.Clear -> {
-                if (hasDivider) {
-                    drawLine(
-                        color = dividerColor,
-                        start = Offset(0f, size.height),
-                        end = Offset(size.width, size.height),
-                        strokeWidth = dividerThickness.toPx(),
-                        cap = StrokeCap.Round,
-                    )
-                }
-            }
-
-            TextFieldAppearance.Solid -> drawRect(backgroundColor)
-        }
+        drawRect(backgroundColor)
+        drawLine(
+            color = dividerColor,
+            start = Offset(0f, size.height),
+            end = Offset(size.width, size.height),
+            strokeWidth = dividerThickness.toPx(),
+            cap = StrokeCap.Round,
+        )
     }
 }
 
@@ -593,14 +580,14 @@ private fun innerCounter(
 private fun Modifier.applyFieldIndicator(
     fieldType: TextFieldType,
     labelPlacement: TextFieldLabelPlacement,
-    fieldAppearance: TextFieldAppearance,
+    indicatorAlignmentMode: TextFieldIndicatorAlignmentMode,
     dimensions: TextFieldDimensions,
     indicatorColor: Color,
 ): Modifier {
     if (fieldType == TextFieldType.Optional || labelPlacement == TextFieldLabelPlacement.Outer) return this
 
     val alignment = fieldIndicatorAlignment(fieldType)
-    val horizontalMode = fieldIndicatorHorizontalMode(fieldAppearance)
+    val horizontalMode = fieldIndicatorHorizontalMode(indicatorAlignmentMode)
 
     return this.drawIndicator(
         alignment = alignment,
@@ -621,11 +608,10 @@ private fun fieldIndicatorAlignment(fieldType: TextFieldType): Alignment {
     }
 }
 
-private fun fieldIndicatorHorizontalMode(fieldAppearance: TextFieldAppearance): IndicatorMode {
-    return if (fieldAppearance == TextFieldAppearance.Solid) {
-        IndicatorMode.Inner
-    } else {
-        IndicatorMode.Outer
+private fun fieldIndicatorHorizontalMode(indicatorAlignmentMode: TextFieldIndicatorAlignmentMode): IndicatorMode {
+    return when (indicatorAlignmentMode) {
+        TextFieldIndicatorAlignmentMode.Inside -> IndicatorMode.Inner
+        TextFieldIndicatorAlignmentMode.Outside -> IndicatorMode.Outer
     }
 }
 

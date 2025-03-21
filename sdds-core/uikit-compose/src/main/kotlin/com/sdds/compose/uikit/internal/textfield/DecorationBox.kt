@@ -30,7 +30,6 @@ internal fun DecorationBox(
     modifier: Modifier = Modifier,
     value: String,
     singleLine: Boolean,
-    isClearAppearance: Boolean,
     innerLabel: @Composable (() -> Unit)?,
     innerOptional: @Composable (() -> Unit)?,
     chips: @Composable (() -> Unit)? = null,
@@ -97,7 +96,6 @@ internal fun DecorationBox(
             chipStyle = chipStyle,
             dimensions = dimensions,
             singleLine = singleLine,
-            isClearAppearance = isClearAppearance,
             valueTextStyle = valueTextStyle,
             innerLabelTextStyle = innerLabelTextStyle,
         )

@@ -12,7 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.BadgeStyle
 import com.sdds.compose.uikit.IconBadgeStyleBuilder
-import com.sdds.compose.uikit.iconBadgeSolidBuilder
+import com.sdds.compose.uikit.iconBadgeBuilder
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
@@ -204,7 +204,7 @@ private val IconBadgeStyleBuilder.invariantProps: IconBadgeStyleBuilder
 public val IconBadgeSolid.L: WrapperIconBadgeSolidL
     @Composable
     @JvmName("WrapperIconBadgeSolidL")
-    get() = BadgeStyle.iconBadgeSolidBuilder(this)
+    get() = BadgeStyle.iconBadgeBuilder(this)
         .invariantProps
         .shape(SddsServTheme.shapes.roundS)
         .dimensions {
@@ -225,7 +225,7 @@ public val WrapperIconBadgeSolidL.Pilled: WrapperIconBadgeSolidLPilled
 public val IconBadgeSolid.M: WrapperIconBadgeSolidM
     @Composable
     @JvmName("WrapperIconBadgeSolidM")
-    get() = BadgeStyle.iconBadgeSolidBuilder(this)
+    get() = BadgeStyle.iconBadgeBuilder(this)
         .invariantProps
         .shape(SddsServTheme.shapes.roundXs)
         .dimensions {
@@ -246,7 +246,7 @@ public val WrapperIconBadgeSolidM.Pilled: WrapperIconBadgeSolidMPilled
 public val IconBadgeSolid.S: WrapperIconBadgeSolidS
     @Composable
     @JvmName("WrapperIconBadgeSolidS")
-    get() = BadgeStyle.iconBadgeSolidBuilder(this)
+    get() = BadgeStyle.iconBadgeBuilder(this)
         .invariantProps
         .shape(SddsServTheme.shapes.roundXs)
         .dimensions {
@@ -267,7 +267,7 @@ public val WrapperIconBadgeSolidS.Pilled: WrapperIconBadgeSolidSPilled
 public val IconBadgeSolid.Xs: WrapperIconBadgeSolidXs
     @Composable
     @JvmName("WrapperIconBadgeSolidXs")
-    get() = BadgeStyle.iconBadgeSolidBuilder(this)
+    get() = BadgeStyle.iconBadgeBuilder(this)
         .invariantProps
         .shape(SddsServTheme.shapes.roundXxs)
         .dimensions {

@@ -12,7 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.dimensionResource
 import com.sdds.compose.uikit.BadgeStyle
 import com.sdds.compose.uikit.BadgeStyleBuilder
-import com.sdds.compose.uikit.badgeTransparentBuilder
+import com.sdds.compose.uikit.badgeBuilder
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
@@ -247,7 +247,7 @@ private val BadgeStyleBuilder.invariantProps: BadgeStyleBuilder
 public val BadgeTransparent.L: WrapperBadgeTransparentL
     @Composable
     @JvmName("WrapperBadgeTransparentL")
-    get() = BadgeStyle.badgeTransparentBuilder(this)
+    get() = BadgeStyle.badgeBuilder(this)
         .invariantProps
         .shape(StarDsTheme.shapes.roundS)
         .labelStyle(StarDsTheme.typography.bodySNormal)
@@ -272,7 +272,7 @@ public val WrapperBadgeTransparentL.Pilled: WrapperBadgeTransparentLPilled
 public val BadgeTransparent.M: WrapperBadgeTransparentM
     @Composable
     @JvmName("WrapperBadgeTransparentM")
-    get() = BadgeStyle.badgeTransparentBuilder(this)
+    get() = BadgeStyle.badgeBuilder(this)
         .invariantProps
         .shape(StarDsTheme.shapes.roundXs)
         .labelStyle(StarDsTheme.typography.bodyXsNormal)
@@ -297,7 +297,7 @@ public val WrapperBadgeTransparentM.Pilled: WrapperBadgeTransparentMPilled
 public val BadgeTransparent.S: WrapperBadgeTransparentS
     @Composable
     @JvmName("WrapperBadgeTransparentS")
-    get() = BadgeStyle.badgeTransparentBuilder(this)
+    get() = BadgeStyle.badgeBuilder(this)
         .invariantProps
         .shape(StarDsTheme.shapes.roundXs)
         .labelStyle(StarDsTheme.typography.bodyXxsNormal)
@@ -322,7 +322,7 @@ public val WrapperBadgeTransparentS.Pilled: WrapperBadgeTransparentSPilled
 public val BadgeTransparent.Xs: WrapperBadgeTransparentXs
     @Composable
     @JvmName("WrapperBadgeTransparentXs")
-    get() = BadgeStyle.badgeTransparentBuilder(this)
+    get() = BadgeStyle.badgeBuilder(this)
         .invariantProps
         .shape(StarDsTheme.shapes.roundXxs)
         .labelStyle(StarDsTheme.typography.bodyXxsNormal)

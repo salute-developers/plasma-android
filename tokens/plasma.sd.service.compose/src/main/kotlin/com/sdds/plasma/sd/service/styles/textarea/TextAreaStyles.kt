@@ -9,9 +9,9 @@ package com.sdds.plasma.sd.service.styles.textarea
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.uikit.TextAreaStyleBuilder
 import com.sdds.compose.uikit.TextFieldLabelPlacement
 import com.sdds.compose.uikit.TextFieldStyle
+import com.sdds.compose.uikit.TextFieldStyleBuilder
 import com.sdds.compose.uikit.TextFieldType
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.InteractiveState
@@ -20,7 +20,6 @@ import com.sdds.compose.uikit.multiplyAlpha
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
-import com.sdds.compose.uikit.textAreaBuilder
 import com.sdds.plasma.sd.service.styles.chip.EmbeddedChip
 import com.sdds.plasma.sd.service.styles.chip.L
 import com.sdds.plasma.sd.service.styles.chip.M
@@ -37,7 +36,7 @@ import kotlin.jvm.JvmName
 /**
  * Базовый интерфейс для всех оберток этого стиля
  */
-public interface WrapperTextArea : BuilderWrapper<TextFieldStyle, TextAreaStyleBuilder>
+public interface WrapperTextArea : BuilderWrapper<TextFieldStyle, TextFieldStyleBuilder>
 
 /**
  * Интерфейс, который реализуют все обертки вариаций корневого уровня
@@ -52,7 +51,7 @@ public interface WrapperTextAreaView : WrapperTextArea
  */
 @JvmInline
 public value class WrapperTextAreaTerminate(
-    public override val builder: TextAreaStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextArea
 
 /**
@@ -60,7 +59,7 @@ public value class WrapperTextAreaTerminate(
  */
 @JvmInline
 public value class WrapperTextAreaXs(
-    public override val builder: TextAreaStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaView
 
 /**
@@ -68,7 +67,7 @@ public value class WrapperTextAreaXs(
  */
 @JvmInline
 public value class WrapperTextAreaXsRequiredStart(
-    public override val builder: TextAreaStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaView
 
 /**
@@ -76,7 +75,7 @@ public value class WrapperTextAreaXsRequiredStart(
  */
 @JvmInline
 public value class WrapperTextAreaXsRequiredEnd(
-    public override val builder: TextAreaStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaView
 
 /**
@@ -84,7 +83,7 @@ public value class WrapperTextAreaXsRequiredEnd(
  */
 @JvmInline
 public value class WrapperTextAreaXsOuterLabel(
-    public override val builder: TextAreaStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaView
 
 /**
@@ -92,7 +91,7 @@ public value class WrapperTextAreaXsOuterLabel(
  */
 @JvmInline
 public value class WrapperTextAreaXsOuterLabelRequiredStart(
-    public override val builder: TextAreaStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaView
 
 /**
@@ -100,7 +99,7 @@ public value class WrapperTextAreaXsOuterLabelRequiredStart(
  */
 @JvmInline
 public value class WrapperTextAreaXsOuterLabelRequiredEnd(
-    public override val builder: TextAreaStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaView
 
 /**
@@ -108,7 +107,7 @@ public value class WrapperTextAreaXsOuterLabelRequiredEnd(
  */
 @JvmInline
 public value class WrapperTextAreaS(
-    public override val builder: TextAreaStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaView
 
 /**
@@ -116,7 +115,7 @@ public value class WrapperTextAreaS(
  */
 @JvmInline
 public value class WrapperTextAreaSRequiredStart(
-    public override val builder: TextAreaStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaView
 
 /**
@@ -124,7 +123,7 @@ public value class WrapperTextAreaSRequiredStart(
  */
 @JvmInline
 public value class WrapperTextAreaSRequiredEnd(
-    public override val builder: TextAreaStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaView
 
 /**
@@ -132,7 +131,7 @@ public value class WrapperTextAreaSRequiredEnd(
  */
 @JvmInline
 public value class WrapperTextAreaSOuterLabel(
-    public override val builder: TextAreaStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaView
 
 /**
@@ -140,7 +139,7 @@ public value class WrapperTextAreaSOuterLabel(
  */
 @JvmInline
 public value class WrapperTextAreaSOuterLabelRequiredStart(
-    public override val builder: TextAreaStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaView
 
 /**
@@ -148,7 +147,7 @@ public value class WrapperTextAreaSOuterLabelRequiredStart(
  */
 @JvmInline
 public value class WrapperTextAreaSOuterLabelRequiredEnd(
-    public override val builder: TextAreaStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaView
 
 /**
@@ -156,7 +155,7 @@ public value class WrapperTextAreaSOuterLabelRequiredEnd(
  */
 @JvmInline
 public value class WrapperTextAreaSInnerLabel(
-    public override val builder: TextAreaStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaView
 
 /**
@@ -164,7 +163,7 @@ public value class WrapperTextAreaSInnerLabel(
  */
 @JvmInline
 public value class WrapperTextAreaSInnerLabelRequiredStart(
-    public override val builder: TextAreaStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaView
 
 /**
@@ -172,7 +171,7 @@ public value class WrapperTextAreaSInnerLabelRequiredStart(
  */
 @JvmInline
 public value class WrapperTextAreaSInnerLabelRequiredEnd(
-    public override val builder: TextAreaStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaView
 
 /**
@@ -180,7 +179,7 @@ public value class WrapperTextAreaSInnerLabelRequiredEnd(
  */
 @JvmInline
 public value class WrapperTextAreaM(
-    public override val builder: TextAreaStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaView
 
 /**
@@ -188,7 +187,7 @@ public value class WrapperTextAreaM(
  */
 @JvmInline
 public value class WrapperTextAreaMRequiredStart(
-    public override val builder: TextAreaStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaView
 
 /**
@@ -196,7 +195,7 @@ public value class WrapperTextAreaMRequiredStart(
  */
 @JvmInline
 public value class WrapperTextAreaMRequiredEnd(
-    public override val builder: TextAreaStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaView
 
 /**
@@ -204,7 +203,7 @@ public value class WrapperTextAreaMRequiredEnd(
  */
 @JvmInline
 public value class WrapperTextAreaMOuterLabel(
-    public override val builder: TextAreaStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaView
 
 /**
@@ -212,7 +211,7 @@ public value class WrapperTextAreaMOuterLabel(
  */
 @JvmInline
 public value class WrapperTextAreaMOuterLabelRequiredStart(
-    public override val builder: TextAreaStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaView
 
 /**
@@ -220,7 +219,7 @@ public value class WrapperTextAreaMOuterLabelRequiredStart(
  */
 @JvmInline
 public value class WrapperTextAreaMOuterLabelRequiredEnd(
-    public override val builder: TextAreaStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaView
 
 /**
@@ -228,7 +227,7 @@ public value class WrapperTextAreaMOuterLabelRequiredEnd(
  */
 @JvmInline
 public value class WrapperTextAreaMInnerLabel(
-    public override val builder: TextAreaStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaView
 
 /**
@@ -236,7 +235,7 @@ public value class WrapperTextAreaMInnerLabel(
  */
 @JvmInline
 public value class WrapperTextAreaMInnerLabelRequiredStart(
-    public override val builder: TextAreaStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaView
 
 /**
@@ -244,7 +243,7 @@ public value class WrapperTextAreaMInnerLabelRequiredStart(
  */
 @JvmInline
 public value class WrapperTextAreaMInnerLabelRequiredEnd(
-    public override val builder: TextAreaStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaView
 
 /**
@@ -252,7 +251,7 @@ public value class WrapperTextAreaMInnerLabelRequiredEnd(
  */
 @JvmInline
 public value class WrapperTextAreaL(
-    public override val builder: TextAreaStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaView
 
 /**
@@ -260,7 +259,7 @@ public value class WrapperTextAreaL(
  */
 @JvmInline
 public value class WrapperTextAreaLRequiredStart(
-    public override val builder: TextAreaStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaView
 
 /**
@@ -268,7 +267,7 @@ public value class WrapperTextAreaLRequiredStart(
  */
 @JvmInline
 public value class WrapperTextAreaLRequiredEnd(
-    public override val builder: TextAreaStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaView
 
 /**
@@ -276,7 +275,7 @@ public value class WrapperTextAreaLRequiredEnd(
  */
 @JvmInline
 public value class WrapperTextAreaLOuterLabel(
-    public override val builder: TextAreaStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaView
 
 /**
@@ -284,7 +283,7 @@ public value class WrapperTextAreaLOuterLabel(
  */
 @JvmInline
 public value class WrapperTextAreaLOuterLabelRequiredStart(
-    public override val builder: TextAreaStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaView
 
 /**
@@ -292,7 +291,7 @@ public value class WrapperTextAreaLOuterLabelRequiredStart(
  */
 @JvmInline
 public value class WrapperTextAreaLOuterLabelRequiredEnd(
-    public override val builder: TextAreaStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaView
 
 /**
@@ -300,7 +299,7 @@ public value class WrapperTextAreaLOuterLabelRequiredEnd(
  */
 @JvmInline
 public value class WrapperTextAreaLInnerLabel(
-    public override val builder: TextAreaStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaView
 
 /**
@@ -308,7 +307,7 @@ public value class WrapperTextAreaLInnerLabel(
  */
 @JvmInline
 public value class WrapperTextAreaLInnerLabelRequiredStart(
-    public override val builder: TextAreaStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaView
 
 /**
@@ -316,7 +315,7 @@ public value class WrapperTextAreaLInnerLabelRequiredStart(
  */
 @JvmInline
 public value class WrapperTextAreaLInnerLabelRequiredEnd(
-    public override val builder: TextAreaStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaView
 
 /**
@@ -324,7 +323,7 @@ public value class WrapperTextAreaLInnerLabelRequiredEnd(
  */
 @JvmInline
 public value class WrapperTextAreaXl(
-    public override val builder: TextAreaStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaView
 
 /**
@@ -332,7 +331,7 @@ public value class WrapperTextAreaXl(
  */
 @JvmInline
 public value class WrapperTextAreaXlRequiredStart(
-    public override val builder: TextAreaStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaView
 
 /**
@@ -340,7 +339,7 @@ public value class WrapperTextAreaXlRequiredStart(
  */
 @JvmInline
 public value class WrapperTextAreaXlRequiredEnd(
-    public override val builder: TextAreaStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaView
 
 /**
@@ -348,7 +347,7 @@ public value class WrapperTextAreaXlRequiredEnd(
  */
 @JvmInline
 public value class WrapperTextAreaXlOuterLabel(
-    public override val builder: TextAreaStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaView
 
 /**
@@ -356,7 +355,7 @@ public value class WrapperTextAreaXlOuterLabel(
  */
 @JvmInline
 public value class WrapperTextAreaXlOuterLabelRequiredStart(
-    public override val builder: TextAreaStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaView
 
 /**
@@ -364,7 +363,7 @@ public value class WrapperTextAreaXlOuterLabelRequiredStart(
  */
 @JvmInline
 public value class WrapperTextAreaXlOuterLabelRequiredEnd(
-    public override val builder: TextAreaStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaView
 
 /**
@@ -372,7 +371,7 @@ public value class WrapperTextAreaXlOuterLabelRequiredEnd(
  */
 @JvmInline
 public value class WrapperTextAreaXlInnerLabel(
-    public override val builder: TextAreaStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaView
 
 /**
@@ -380,7 +379,7 @@ public value class WrapperTextAreaXlInnerLabel(
  */
 @JvmInline
 public value class WrapperTextAreaXlInnerLabelRequiredStart(
-    public override val builder: TextAreaStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaView
 
 /**
@@ -388,12 +387,13 @@ public value class WrapperTextAreaXlInnerLabelRequiredStart(
  */
 @JvmInline
 public value class WrapperTextAreaXlInnerLabelRequiredEnd(
-    public override val builder: TextAreaStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaView
 
 public val WrapperTextAreaView.Default: WrapperTextAreaTerminate
     @Composable
     get() = builder
+        .singleLine(false)
         .colors {
             captionColor(
                 PlasmaSdServiceTheme.colors.textDefaultSecondary.asInteractive(),
@@ -410,6 +410,7 @@ public val WrapperTextAreaView.Default: WrapperTextAreaTerminate
 public val WrapperTextAreaView.Warning: WrapperTextAreaTerminate
     @Composable
     get() = builder
+        .singleLine(false)
         .colors {
             captionColor(
                 PlasmaSdServiceTheme.colors.textDefaultWarning.asInteractive(
@@ -429,6 +430,7 @@ public val WrapperTextAreaView.Warning: WrapperTextAreaTerminate
 public val WrapperTextAreaView.Error: WrapperTextAreaTerminate
     @Composable
     get() = builder
+        .singleLine(false)
         .colors {
             captionColor(
                 PlasmaSdServiceTheme.colors.textDefaultNegative.asInteractive(
@@ -445,9 +447,10 @@ public val WrapperTextAreaView.Error: WrapperTextAreaTerminate
         }
         .wrap(::WrapperTextAreaTerminate)
 
-private val TextAreaStyleBuilder.invariantProps: TextAreaStyleBuilder
+private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
     @Composable
     get() = this
+        .singleLine(false)
         .dimensions {
             optionalPadding(4.0.dp)
             chipsPadding(6.0.dp)
@@ -520,8 +523,9 @@ private val TextAreaStyleBuilder.invariantProps: TextAreaStyleBuilder
 public val TextArea.Xs: WrapperTextAreaXs
     @Composable
     @JvmName("WrapperTextAreaXs")
-    get() = TextFieldStyle.textAreaBuilder(this)
+    get() = TextFieldStyle.builder(this)
         .invariantProps
+        .singleLine(false)
         .shape(PlasmaSdServiceTheme.shapes.roundS.adjustBy(all = 0.0.dp))
         .dimensions {
             boxPaddingStart(8.0.dp)
@@ -548,6 +552,7 @@ public val WrapperTextAreaXs.RequiredStart: WrapperTextAreaXsRequiredStart
     @Composable
     @JvmName("WrapperTextAreaXsRequiredStart")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 indicatorSize(6.0.dp)
@@ -560,6 +565,7 @@ public val WrapperTextAreaXs.RequiredEnd: WrapperTextAreaXsRequiredEnd
     @Composable
     @JvmName("WrapperTextAreaXsRequiredEnd")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 indicatorSize(6.0.dp)
@@ -572,6 +578,7 @@ public val WrapperTextAreaXs.OuterLabel: WrapperTextAreaXsOuterLabel
     @Composable
     @JvmName("WrapperTextAreaXsOuterLabel")
     get() = builder
+        .singleLine(false)
         .dimensions {
             boxPaddingTop(8.0.dp)
             boxPaddingBottom(8.0.dp)
@@ -591,6 +598,7 @@ public val WrapperTextAreaXsOuterLabel.RequiredStart: WrapperTextAreaXsOuterLabe
     @Composable
     @JvmName("WrapperTextAreaXsOuterLabelRequiredStart")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(4.0.dp)
@@ -605,6 +613,7 @@ public val WrapperTextAreaXsOuterLabel.RequiredEnd: WrapperTextAreaXsOuterLabelR
     @Composable
     @JvmName("WrapperTextAreaXsOuterLabelRequiredEnd")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(4.0.dp)
@@ -618,8 +627,9 @@ public val WrapperTextAreaXsOuterLabel.RequiredEnd: WrapperTextAreaXsOuterLabelR
 public val TextArea.S: WrapperTextAreaS
     @Composable
     @JvmName("WrapperTextAreaS")
-    get() = TextFieldStyle.textAreaBuilder(this)
+    get() = TextFieldStyle.builder(this)
         .invariantProps
+        .singleLine(false)
         .shape(PlasmaSdServiceTheme.shapes.roundM.adjustBy(all = -2.0.dp))
         .dimensions {
             boxPaddingStart(12.0.dp)
@@ -646,6 +656,7 @@ public val WrapperTextAreaS.RequiredStart: WrapperTextAreaSRequiredStart
     @Composable
     @JvmName("WrapperTextAreaSRequiredStart")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 indicatorSize(6.0.dp)
@@ -658,6 +669,7 @@ public val WrapperTextAreaS.RequiredEnd: WrapperTextAreaSRequiredEnd
     @Composable
     @JvmName("WrapperTextAreaSRequiredEnd")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 indicatorSize(6.0.dp)
@@ -670,6 +682,7 @@ public val WrapperTextAreaS.OuterLabel: WrapperTextAreaSOuterLabel
     @Composable
     @JvmName("WrapperTextAreaSOuterLabel")
     get() = builder
+        .singleLine(false)
         .dimensions {
             labelPadding(8.0.dp)
         }
@@ -687,6 +700,7 @@ public val WrapperTextAreaSOuterLabel.RequiredStart: WrapperTextAreaSOuterLabelR
     @Composable
     @JvmName("WrapperTextAreaSOuterLabelRequiredStart")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(4.0.dp)
@@ -701,6 +715,7 @@ public val WrapperTextAreaSOuterLabel.RequiredEnd: WrapperTextAreaSOuterLabelReq
     @Composable
     @JvmName("WrapperTextAreaSOuterLabelRequiredEnd")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(4.0.dp)
@@ -715,6 +730,7 @@ public val WrapperTextAreaS.InnerLabel: WrapperTextAreaSInnerLabel
     @Composable
     @JvmName("WrapperTextAreaSInnerLabel")
     get() = builder
+        .singleLine(false)
         .dimensions {
             boxPaddingTop(4.0.dp)
             boxPaddingBottom(12.0.dp)
@@ -734,6 +750,7 @@ public val WrapperTextAreaSInnerLabel.RequiredStart: WrapperTextAreaSInnerLabelR
     @Composable
     @JvmName("WrapperTextAreaSInnerLabelRequiredStart")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 indicatorSize(6.0.dp)
@@ -746,6 +763,7 @@ public val WrapperTextAreaSInnerLabel.RequiredEnd: WrapperTextAreaSInnerLabelReq
     @Composable
     @JvmName("WrapperTextAreaSInnerLabelRequiredEnd")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 indicatorSize(6.0.dp)
@@ -757,8 +775,9 @@ public val WrapperTextAreaSInnerLabel.RequiredEnd: WrapperTextAreaSInnerLabelReq
 public val TextArea.M: WrapperTextAreaM
     @Composable
     @JvmName("WrapperTextAreaM")
-    get() = TextFieldStyle.textAreaBuilder(this)
+    get() = TextFieldStyle.builder(this)
         .invariantProps
+        .singleLine(false)
         .shape(PlasmaSdServiceTheme.shapes.roundM)
         .dimensions {
             boxPaddingStart(14.0.dp)
@@ -785,6 +804,7 @@ public val WrapperTextAreaM.RequiredStart: WrapperTextAreaMRequiredStart
     @Composable
     @JvmName("WrapperTextAreaMRequiredStart")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 indicatorSize(8.0.dp)
@@ -797,6 +817,7 @@ public val WrapperTextAreaM.RequiredEnd: WrapperTextAreaMRequiredEnd
     @Composable
     @JvmName("WrapperTextAreaMRequiredEnd")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 indicatorSize(8.0.dp)
@@ -809,6 +830,7 @@ public val WrapperTextAreaM.OuterLabel: WrapperTextAreaMOuterLabel
     @Composable
     @JvmName("WrapperTextAreaMOuterLabel")
     get() = builder
+        .singleLine(false)
         .dimensions {
             labelPadding(10.0.dp)
         }
@@ -826,6 +848,7 @@ public val WrapperTextAreaMOuterLabel.RequiredStart: WrapperTextAreaMOuterLabelR
     @Composable
     @JvmName("WrapperTextAreaMOuterLabelRequiredStart")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(6.0.dp)
@@ -840,6 +863,7 @@ public val WrapperTextAreaMOuterLabel.RequiredEnd: WrapperTextAreaMOuterLabelReq
     @Composable
     @JvmName("WrapperTextAreaMOuterLabelRequiredEnd")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(4.0.dp)
@@ -854,6 +878,7 @@ public val WrapperTextAreaM.InnerLabel: WrapperTextAreaMInnerLabel
     @Composable
     @JvmName("WrapperTextAreaMInnerLabel")
     get() = builder
+        .singleLine(false)
         .dimensions {
             boxPaddingTop(6.0.dp)
             boxPaddingBottom(12.0.dp)
@@ -873,6 +898,7 @@ public val WrapperTextAreaMInnerLabel.RequiredStart: WrapperTextAreaMInnerLabelR
     @Composable
     @JvmName("WrapperTextAreaMInnerLabelRequiredStart")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 indicatorSize(8.0.dp)
@@ -885,6 +911,7 @@ public val WrapperTextAreaMInnerLabel.RequiredEnd: WrapperTextAreaMInnerLabelReq
     @Composable
     @JvmName("WrapperTextAreaMInnerLabelRequiredEnd")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 indicatorSize(8.0.dp)
@@ -896,8 +923,9 @@ public val WrapperTextAreaMInnerLabel.RequiredEnd: WrapperTextAreaMInnerLabelReq
 public val TextArea.L: WrapperTextAreaL
     @Composable
     @JvmName("WrapperTextAreaL")
-    get() = TextFieldStyle.textAreaBuilder(this)
+    get() = TextFieldStyle.builder(this)
         .invariantProps
+        .singleLine(false)
         .shape(PlasmaSdServiceTheme.shapes.roundM.adjustBy(all = 2.0.dp))
         .dimensions {
             boxPaddingStart(16.0.dp)
@@ -924,6 +952,7 @@ public val WrapperTextAreaL.RequiredStart: WrapperTextAreaLRequiredStart
     @Composable
     @JvmName("WrapperTextAreaLRequiredStart")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 indicatorSize(8.0.dp)
@@ -936,6 +965,7 @@ public val WrapperTextAreaL.RequiredEnd: WrapperTextAreaLRequiredEnd
     @Composable
     @JvmName("WrapperTextAreaLRequiredEnd")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 indicatorSize(8.0.dp)
@@ -948,6 +978,7 @@ public val WrapperTextAreaL.OuterLabel: WrapperTextAreaLOuterLabel
     @Composable
     @JvmName("WrapperTextAreaLOuterLabel")
     get() = builder
+        .singleLine(false)
         .dimensions {
             labelPadding(12.0.dp)
         }
@@ -965,6 +996,7 @@ public val WrapperTextAreaLOuterLabel.RequiredStart: WrapperTextAreaLOuterLabelR
     @Composable
     @JvmName("WrapperTextAreaLOuterLabelRequiredStart")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(6.0.dp)
@@ -979,6 +1011,7 @@ public val WrapperTextAreaLOuterLabel.RequiredEnd: WrapperTextAreaLOuterLabelReq
     @Composable
     @JvmName("WrapperTextAreaLOuterLabelRequiredEnd")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(4.0.dp)
@@ -993,6 +1026,7 @@ public val WrapperTextAreaL.InnerLabel: WrapperTextAreaLInnerLabel
     @Composable
     @JvmName("WrapperTextAreaLInnerLabel")
     get() = builder
+        .singleLine(false)
         .dimensions {
             boxPaddingTop(9.0.dp)
             boxPaddingBottom(12.0.dp)
@@ -1012,6 +1046,7 @@ public val WrapperTextAreaLInnerLabel.RequiredStart: WrapperTextAreaLInnerLabelR
     @Composable
     @JvmName("WrapperTextAreaLInnerLabelRequiredStart")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 indicatorSize(8.0.dp)
@@ -1024,6 +1059,7 @@ public val WrapperTextAreaLInnerLabel.RequiredEnd: WrapperTextAreaLInnerLabelReq
     @Composable
     @JvmName("WrapperTextAreaLInnerLabelRequiredEnd")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 indicatorSize(8.0.dp)
@@ -1035,8 +1071,9 @@ public val WrapperTextAreaLInnerLabel.RequiredEnd: WrapperTextAreaLInnerLabelReq
 public val TextArea.Xl: WrapperTextAreaXl
     @Composable
     @JvmName("WrapperTextAreaXl")
-    get() = TextFieldStyle.textAreaBuilder(this)
+    get() = TextFieldStyle.builder(this)
         .invariantProps
+        .singleLine(false)
         .shape(PlasmaSdServiceTheme.shapes.roundL)
         .dimensions {
             boxPaddingStart(20.0.dp)
@@ -1063,6 +1100,7 @@ public val WrapperTextAreaXl.RequiredStart: WrapperTextAreaXlRequiredStart
     @Composable
     @JvmName("WrapperTextAreaXlRequiredStart")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 indicatorSize(8.0.dp)
@@ -1075,6 +1113,7 @@ public val WrapperTextAreaXl.RequiredEnd: WrapperTextAreaXlRequiredEnd
     @Composable
     @JvmName("WrapperTextAreaXlRequiredEnd")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 indicatorSize(8.0.dp)
@@ -1087,6 +1126,7 @@ public val WrapperTextAreaXl.OuterLabel: WrapperTextAreaXlOuterLabel
     @Composable
     @JvmName("WrapperTextAreaXlOuterLabel")
     get() = builder
+        .singleLine(false)
         .dimensions {
             labelPadding(12.0.dp)
         }
@@ -1104,6 +1144,7 @@ public val WrapperTextAreaXlOuterLabel.RequiredStart: WrapperTextAreaXlOuterLabe
     @Composable
     @JvmName("WrapperTextAreaXlOuterLabelRequiredStart")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(6.0.dp)
@@ -1118,6 +1159,7 @@ public val WrapperTextAreaXlOuterLabel.RequiredEnd: WrapperTextAreaXlOuterLabelR
     @Composable
     @JvmName("WrapperTextAreaXlOuterLabelRequiredEnd")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 horizontalPadding(4.0.dp)
@@ -1132,6 +1174,7 @@ public val WrapperTextAreaXl.InnerLabel: WrapperTextAreaXlInnerLabel
     @Composable
     @JvmName("WrapperTextAreaXlInnerLabel")
     get() = builder
+        .singleLine(false)
         .dimensions {
             boxPaddingTop(12.0.dp)
             boxPaddingBottom(12.0.dp)
@@ -1151,6 +1194,7 @@ public val WrapperTextAreaXlInnerLabel.RequiredStart: WrapperTextAreaXlInnerLabe
     @Composable
     @JvmName("WrapperTextAreaXlInnerLabelRequiredStart")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 indicatorSize(8.0.dp)
@@ -1163,6 +1207,7 @@ public val WrapperTextAreaXlInnerLabel.RequiredEnd: WrapperTextAreaXlInnerLabelR
     @Composable
     @JvmName("WrapperTextAreaXlInnerLabelRequiredEnd")
     get() = builder
+        .singleLine(false)
         .dimensions {
             indicatorDimensions {
                 indicatorSize(8.0.dp)

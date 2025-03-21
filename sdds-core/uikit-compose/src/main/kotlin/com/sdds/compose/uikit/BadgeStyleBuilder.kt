@@ -16,24 +16,12 @@ import com.sdds.compose.uikit.style.StyleBuilder
 /**
  * CompositionLocal c [BadgeStyle] для компонента [BadgeSolid]
  */
-val LocalBadgeStyle = compositionLocalOf { BadgeStyle.badgeSolidBuilder().style() }
-
-/**
- * Возвращает экземпляр [BadgeStyleBuilder] для Solid
- */
-fun BadgeStyle.Companion.badgeSolidBuilder(receiver: Any? = null): BadgeStyleBuilder =
-    BadgeStyleBuilderImpl(receiver)
-
-/**
- * Возвращает экземпляр [BadgeStyleBuilder] для Clear
- */
-fun BadgeStyle.Companion.badgeClearBuilder(receiver: Any? = null): BadgeStyleBuilder =
-    BadgeStyleBuilderImpl(receiver)
+val LocalBadgeStyle = compositionLocalOf { BadgeStyle.badgeBuilder().style() }
 
 /**
  * Возвращает экземпляр [BadgeStyleBuilder] для Transparent
  */
-fun BadgeStyle.Companion.badgeTransparentBuilder(receiver: Any? = null): BadgeStyleBuilder =
+fun BadgeStyle.Companion.badgeBuilder(receiver: Any? = null): BadgeStyleBuilder =
     BadgeStyleBuilderImpl(receiver)
 
 /**
@@ -334,7 +322,7 @@ private class DefaultBadgeColors(
     }
 }
 
-private class BadgeStyleBuilderImpl(receiver: Any?) : BadgeStyleBuilder {
+internal class BadgeStyleBuilderImpl(receiver: Any?) : BadgeStyleBuilder {
     private var shape: CornerBasedShape? = null
     private var colorsBuilder: BadgeColorsBuilder = BadgeColorsBuilder.builder()
     private var labelStyle: TextStyle? = null

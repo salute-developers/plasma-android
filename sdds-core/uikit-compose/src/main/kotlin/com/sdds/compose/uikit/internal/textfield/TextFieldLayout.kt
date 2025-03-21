@@ -63,7 +63,6 @@ import kotlin.math.roundToInt
 internal fun TextFieldLayout(
     modifier: Modifier,
     singleLine: Boolean,
-    isClearAppearance: Boolean,
     textField: @Composable () -> Unit,
     innerLabel: @Composable (() -> Unit)?,
     innerOptional: @Composable (() -> Unit)?,
@@ -107,10 +106,10 @@ internal fun TextFieldLayout(
     Layout(
         modifier = modifier
             .padding(
-                start = if (hasChips && !isClearAppearance) dimensions.chipsPadding else dimensions.boxPaddingStart,
+                start = if (hasChips) dimensions.chipsPaddingStart else dimensions.boxPaddingStart,
                 end = dimensions.boxPaddingEnd,
-                top = if (hasChips) dimensions.chipsPadding else dimensions.boxPaddingTop,
-                bottom = if (hasChips) dimensions.chipsPadding else dimensions.boxPaddingBottom,
+                top = if (hasChips) dimensions.chipsPaddingTop else dimensions.boxPaddingTop,
+                bottom = if (hasChips) dimensions.chipsPaddingBottom else dimensions.boxPaddingBottom,
             ),
         content = {
             LabelContent(

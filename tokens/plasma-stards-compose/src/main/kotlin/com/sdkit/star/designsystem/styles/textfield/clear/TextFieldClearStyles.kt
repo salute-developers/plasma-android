@@ -9,17 +9,22 @@ package com.sdkit.star.designsystem.styles.textfield.clear
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.dimensionResource
-import com.sdds.compose.uikit.TextFieldClearStyleBuilder
 import com.sdds.compose.uikit.TextFieldLabelPlacement
 import com.sdds.compose.uikit.TextFieldStyle
+import com.sdds.compose.uikit.TextFieldStyleBuilder
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.multiplyAlpha
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
-import com.sdds.compose.uikit.textFieldClearBuilder
 import com.sdkit.star.designsystem.compose.R
+import com.sdkit.star.designsystem.styles.chip.EmbeddedChip
+import com.sdkit.star.designsystem.styles.chip.L
+import com.sdkit.star.designsystem.styles.chip.M
+import com.sdkit.star.designsystem.styles.chip.S
+import com.sdkit.star.designsystem.styles.chip.Secondary
+import com.sdkit.star.designsystem.styles.chip.Xs
 import com.sdkit.star.designsystem.styles.chip.group.ChipGroup
 import com.sdkit.star.designsystem.styles.chip.group.Dense
 import com.sdkit.star.designsystem.theme.StarDsTheme
@@ -30,7 +35,7 @@ import kotlin.jvm.JvmName
 /**
  * Базовый интерфейс для всех оберток этого стиля
  */
-public interface WrapperTextFieldClear : BuilderWrapper<TextFieldStyle, TextFieldClearStyleBuilder>
+public interface WrapperTextFieldClear : BuilderWrapper<TextFieldStyle, TextFieldStyleBuilder>
 
 /**
  * Интерфейс, который реализуют все обертки вариаций корневого уровня
@@ -45,7 +50,7 @@ public interface WrapperTextFieldClearView : WrapperTextFieldClear
  */
 @JvmInline
 public value class WrapperTextFieldClearTerminate(
-    public override val builder: TextFieldClearStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextFieldClear
 
 /**
@@ -53,7 +58,7 @@ public value class WrapperTextFieldClearTerminate(
  */
 @JvmInline
 public value class WrapperTextFieldClearXs(
-    public override val builder: TextFieldClearStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextFieldClearView
 
 /**
@@ -61,7 +66,7 @@ public value class WrapperTextFieldClearXs(
  */
 @JvmInline
 public value class WrapperTextFieldClearXsOuterLabel(
-    public override val builder: TextFieldClearStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextFieldClearView
 
 /**
@@ -69,7 +74,7 @@ public value class WrapperTextFieldClearXsOuterLabel(
  */
 @JvmInline
 public value class WrapperTextFieldClearS(
-    public override val builder: TextFieldClearStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextFieldClearView
 
 /**
@@ -77,7 +82,7 @@ public value class WrapperTextFieldClearS(
  */
 @JvmInline
 public value class WrapperTextFieldClearSOuterLabel(
-    public override val builder: TextFieldClearStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextFieldClearView
 
 /**
@@ -85,7 +90,7 @@ public value class WrapperTextFieldClearSOuterLabel(
  */
 @JvmInline
 public value class WrapperTextFieldClearSInnerLabel(
-    public override val builder: TextFieldClearStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextFieldClearView
 
 /**
@@ -93,7 +98,7 @@ public value class WrapperTextFieldClearSInnerLabel(
  */
 @JvmInline
 public value class WrapperTextFieldClearM(
-    public override val builder: TextFieldClearStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextFieldClearView
 
 /**
@@ -101,7 +106,7 @@ public value class WrapperTextFieldClearM(
  */
 @JvmInline
 public value class WrapperTextFieldClearMOuterLabel(
-    public override val builder: TextFieldClearStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextFieldClearView
 
 /**
@@ -109,7 +114,7 @@ public value class WrapperTextFieldClearMOuterLabel(
  */
 @JvmInline
 public value class WrapperTextFieldClearMInnerLabel(
-    public override val builder: TextFieldClearStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextFieldClearView
 
 /**
@@ -117,7 +122,7 @@ public value class WrapperTextFieldClearMInnerLabel(
  */
 @JvmInline
 public value class WrapperTextFieldClearL(
-    public override val builder: TextFieldClearStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextFieldClearView
 
 /**
@@ -125,7 +130,7 @@ public value class WrapperTextFieldClearL(
  */
 @JvmInline
 public value class WrapperTextFieldClearLOuterLabel(
-    public override val builder: TextFieldClearStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextFieldClearView
 
 /**
@@ -133,12 +138,13 @@ public value class WrapperTextFieldClearLOuterLabel(
  */
 @JvmInline
 public value class WrapperTextFieldClearLInnerLabel(
-    public override val builder: TextFieldClearStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextFieldClearView
 
 public val WrapperTextFieldClearView.Default: WrapperTextFieldClearTerminate
     @Composable
     get() = builder
+        .singleLine(true)
         .colors {
             valueColor(
                 StarDsTheme.colors.textDefaultPrimary.asInteractive(),
@@ -167,6 +173,7 @@ public val WrapperTextFieldClearView.Default: WrapperTextFieldClearTerminate
 public val WrapperTextFieldClearView.Error: WrapperTextFieldClearTerminate
     @Composable
     get() = builder
+        .singleLine(true)
         .colors {
             valueColor(
                 StarDsTheme.colors.textDefaultNegative.asInteractive(
@@ -203,9 +210,10 @@ public val WrapperTextFieldClearView.Error: WrapperTextFieldClearTerminate
         }
         .wrap(::WrapperTextFieldClearTerminate)
 
-private val TextFieldClearStyleBuilder.invariantProps: TextFieldClearStyleBuilder
+private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
     @Composable
     get() = this
+        .singleLine(true)
         .dimensions {
             boxPaddingStart(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_box_padding_start_TextFieldClear))
             boxPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_box_padding_end_TextFieldClear))
@@ -277,8 +285,9 @@ private val TextFieldClearStyleBuilder.invariantProps: TextFieldClearStyleBuilde
 public val TextFieldClear.Xs: WrapperTextFieldClearXs
     @Composable
     @JvmName("WrapperTextFieldClearXs")
-    get() = TextFieldStyle.textFieldClearBuilder(this)
+    get() = TextFieldStyle.builder(this)
         .invariantProps
+        .singleLine(true)
         .dimensions {
             boxPaddingTop(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_box_padding_top_xs))
             boxPaddingBottom(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_box_padding_bottom_xs))
@@ -300,6 +309,7 @@ public val WrapperTextFieldClearXs.OuterLabel: WrapperTextFieldClearXsOuterLabel
     @Composable
     @JvmName("WrapperTextFieldClearXsOuterLabel")
     get() = builder
+        .singleLine(true)
         .dimensions {
             boxPaddingTop(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_box_padding_top_xs_outer_label))
             boxPaddingBottom(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_box_padding_bottom_xs_outer_label))
@@ -318,8 +328,9 @@ public val WrapperTextFieldClearXs.OuterLabel: WrapperTextFieldClearXsOuterLabel
 public val TextFieldClear.S: WrapperTextFieldClearS
     @Composable
     @JvmName("WrapperTextFieldClearS")
-    get() = TextFieldStyle.textFieldClearBuilder(this)
+    get() = TextFieldStyle.builder(this)
         .invariantProps
+        .singleLine(true)
         .dimensions {
             boxPaddingTop(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_box_padding_top_s))
             boxPaddingBottom(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_box_padding_bottom_s))
@@ -341,6 +352,7 @@ public val WrapperTextFieldClearS.OuterLabel: WrapperTextFieldClearSOuterLabel
     @Composable
     @JvmName("WrapperTextFieldClearSOuterLabel")
     get() = builder
+        .singleLine(true)
         .dimensions {
             labelPadding(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_label_padding_s_outer_label))
         }
@@ -358,6 +370,7 @@ public val WrapperTextFieldClearS.InnerLabel: WrapperTextFieldClearSInnerLabel
     @Composable
     @JvmName("WrapperTextFieldClearSInnerLabel")
     get() = builder
+        .singleLine(true)
         .dimensions {
             boxPaddingTop(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_box_padding_top_s_inner_label))
             boxPaddingBottom(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_box_padding_bottom_s_inner_label))
@@ -385,8 +398,9 @@ public val WrapperTextFieldClearS.InnerLabel: WrapperTextFieldClearSInnerLabel
 public val TextFieldClear.M: WrapperTextFieldClearM
     @Composable
     @JvmName("WrapperTextFieldClearM")
-    get() = TextFieldStyle.textFieldClearBuilder(this)
+    get() = TextFieldStyle.builder(this)
         .invariantProps
+        .singleLine(true)
         .dimensions {
             boxPaddingTop(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_box_padding_top_m))
             boxPaddingBottom(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_box_padding_bottom_m))
@@ -408,6 +422,7 @@ public val WrapperTextFieldClearM.OuterLabel: WrapperTextFieldClearMOuterLabel
     @Composable
     @JvmName("WrapperTextFieldClearMOuterLabel")
     get() = builder
+        .singleLine(true)
         .dimensions {
             labelPadding(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_label_padding_m_outer_label))
         }
@@ -425,6 +440,7 @@ public val WrapperTextFieldClearM.InnerLabel: WrapperTextFieldClearMInnerLabel
     @Composable
     @JvmName("WrapperTextFieldClearMInnerLabel")
     get() = builder
+        .singleLine(true)
         .dimensions {
             boxPaddingTop(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_box_padding_top_m_inner_label))
             boxPaddingBottom(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_box_padding_bottom_m_inner_label))
@@ -452,8 +468,9 @@ public val WrapperTextFieldClearM.InnerLabel: WrapperTextFieldClearMInnerLabel
 public val TextFieldClear.L: WrapperTextFieldClearL
     @Composable
     @JvmName("WrapperTextFieldClearL")
-    get() = TextFieldStyle.textFieldClearBuilder(this)
+    get() = TextFieldStyle.builder(this)
         .invariantProps
+        .singleLine(true)
         .dimensions {
             boxPaddingTop(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_box_padding_top_l))
             boxPaddingBottom(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_box_padding_bottom_l))
@@ -475,6 +492,7 @@ public val WrapperTextFieldClearL.OuterLabel: WrapperTextFieldClearLOuterLabel
     @Composable
     @JvmName("WrapperTextFieldClearLOuterLabel")
     get() = builder
+        .singleLine(true)
         .dimensions {
             labelPadding(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_label_padding_l_outer_label))
         }
@@ -492,6 +510,7 @@ public val WrapperTextFieldClearL.InnerLabel: WrapperTextFieldClearLInnerLabel
     @Composable
     @JvmName("WrapperTextFieldClearLInnerLabel")
     get() = builder
+        .singleLine(true)
         .dimensions {
             boxPaddingTop(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_box_padding_top_l_inner_label))
             boxPaddingBottom(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_box_padding_bottom_l_inner_label))

@@ -1,0 +1,243 @@
+{
+    "view": {},
+    "props": {
+        "labelColor": {
+            "type": "color",
+            "default": "text.default.secondary"
+        },
+        "titleColor": {
+            "type": "color",
+            "default": "text.default.primary"
+        },
+        "subtitleColor": {
+            "type": "color",
+            "default": "text.default.secondary"
+        },
+        "disclosureTextColor": {
+            "type": "color",
+            "default": "text.default.secondary"
+        },
+        "disclosureIconColor": {
+            "type": "color",
+            "default": "text.default.secondary"
+        }
+    },
+    "variations": [
+        {
+            "id": "l",
+            "parent": null,
+            "props": {
+                "contentPaddingStart": {
+                    "type": "dimension",
+                    "value": 8.0
+                },
+                "contentPaddingEnd": {
+                    "type": "dimension",
+                    "value": 8.0
+                },
+                "labelStyle": {
+                    "type": "typography",
+                    "value": "body.m.normal"
+                },
+                "titleStyle": {
+                    "type": "typography",
+                    "value": "body.l.normal"
+                },
+                "subtitleStyle": {
+                    "type": "typography",
+                    "value": "body.m.normal"
+                },
+                "disclosureTextStyle": {
+                    "type": "typography",
+                    "value": "body.m.normal"
+                },
+                "avatarStyle": {
+                    "type": "component_style",
+                    "value": "avatar.l"
+                },
+                "iconButtonStyle": {
+                    "type": "component_style",
+                    "value": "icon-button.l.clear"
+                },
+                "checkBoxStyle": {
+                    "type": "component_style",
+                    "value": "check-box.m"
+                },
+                "radioBoxStyle": {
+                    "type": "component_style",
+                    "value": "radio-box.m"
+                },
+                "switchStyle": {
+                    "type": "component_style",
+                    "value": "switch.l"
+                },
+                "disclosureIcon": {
+                    "type": "icon",
+                    "value": "disclosure.right.outline.24"
+                }
+            }
+        },
+        {
+            "id": "m",
+            "parent": null,
+            "props": {
+                "contentPaddingStart": {
+                    "type": "dimension",
+                    "value": 8.0
+                },
+                "contentPaddingEnd": {
+                    "type": "dimension",
+                    "value": 8.0
+                },
+                "labelStyle": {
+                    "type": "typography",
+                    "value": "body.s.normal"
+                },
+                "titleStyle": {
+                    "type": "typography",
+                    "value": "body.m.normal"
+                },
+                "subtitleStyle": {
+                    "type": "typography",
+                    "value": "body.s.normal"
+                },
+                "disclosureTextStyle": {
+                    "type": "typography",
+                    "value": "body.s.normal"
+                },
+                "avatarStyle": {
+                    "type": "component_style",
+                    "value": "avatar.m"
+                },
+                "iconButtonStyle": {
+                    "type": "component_style",
+                    "value": "icon-button.m.clear"
+                },
+                "checkBoxStyle": {
+                    "type": "component_style",
+                    "value": "check-box.m"
+                },
+                "radioBoxStyle": {
+                    "type": "component_style",
+                    "value": "radio-box.m"
+                },
+                "switchStyle": {
+                    "type": "component_style",
+                    "value": "switch.m"
+                },
+                "disclosureIcon": {
+                    "type": "icon",
+                    "value": "disclosure.right.outline.24"
+                }
+            }
+        },
+        {
+            "id": "s",
+            "parent": null,
+            "props": {
+                "contentPaddingStart": {
+                    "type": "dimension",
+                    "value": 6.0
+                },
+                "contentPaddingEnd": {
+                    "type": "dimension",
+                    "value": 6.0
+                },
+                "labelStyle": {
+                    "type": "typography",
+                    "value": "body.xs.normal"
+                },
+                "titleStyle": {
+                    "type": "typography",
+                    "value": "body.s.normal"
+                },
+                "subtitleStyle": {
+                    "type": "typography",
+                    "value": "body.xs.normal"
+                },
+                "disclosureTextStyle": {
+                    "type": "typography",
+                    "value": "body.xs.normal"
+                },
+                "avatarStyle": {
+                    "type": "component_style",
+                    "value": "avatar.s"
+                },
+                "iconButtonStyle": {
+                    "type": "component_style",
+                    "value": "icon-button.s.clear"
+                },
+                "checkBoxStyle": {
+                    "type": "component_style",
+                    "value": "check-box.s"
+                },
+                "radioBoxStyle": {
+                    "type": "component_style",
+                    "value": "radio-box.s"
+                },
+                "switchStyle": {
+                    "type": "component_style",
+                    "value": "switch.s"
+                },
+                "disclosureIcon": {
+                    "type": "icon",
+                    "value": "disclosure.right.outline.16"
+                }
+            }
+        },
+        {
+            "id": "xs",
+            "parent": null,
+            "props": {
+                "contentPaddingStart": {
+                    "type": "dimension",
+                    "value": 6.0
+                },
+                "contentPaddingEnd": {
+                    "type": "dimension",
+                    "value": 6.0
+                },
+                "labelStyle": {
+                    "type": "typography",
+                    "value": "body.xs.normal"
+                },
+                "titleStyle": {
+                    "type": "typography",
+                    "value": "body.xs.normal"
+                },
+                "subtitleStyle": {
+                    "type": "typography",
+                    "value": "body.xs.normal"
+                },
+                "disclosureTextStyle": {
+                    "type": "typography",
+                    "value": "body.xs.normal"
+                },
+                "avatarStyle": {
+                    "type": "component_style",
+                    "value": "avatar.s"
+                },
+                "iconButtonStyle": {
+                    "type": "component_style",
+                    "value": "icon-button.xs.clear"
+                },
+                "checkBoxStyle": {
+                    "type": "component_style",
+                    "value": "check-box.s"
+                },
+                "radioBoxStyle": {
+                    "type": "component_style",
+                    "value": "radio-box.s"
+                },
+                "switchStyle": {
+                    "type": "component_style",
+                    "value": "switch.s"
+                },
+                "disclosureIcon": {
+                    "type": "icon",
+                    "value": "disclosure.right.outline.16"
+                }
+            }
+        }
+    ]
+}

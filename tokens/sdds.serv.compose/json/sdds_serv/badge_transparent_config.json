@@ -1,0 +1,354 @@
+{
+    "view": {
+        "default": {
+            "props": {
+                "backgroundColor": {
+                    "type": "color",
+                    "default": "surface.default.transparent-secondary"
+                },
+                "endContentColor": {
+                    "type": "color",
+                    "default": "text.default.primary"
+                },
+                "startContentColor": {
+                    "type": "color",
+                    "default": "text.default.primary"
+                },
+                "labelColor": {
+                    "type": "color",
+                    "default": "text.default.primary"
+                }
+            }
+        },
+        "accent": {
+            "props": {
+                "backgroundColor": {
+                    "type": "color",
+                    "default": "surface.default.transparent-accent"
+                },
+                "endContentColor": {
+                    "type": "color",
+                    "default": "text.default.accent"
+                },
+                "startContentColor": {
+                    "type": "color",
+                    "default": "text.default.accent"
+                },
+                "labelColor": {
+                    "type": "color",
+                    "default": "text.default.accent"
+                }
+            }
+        },
+        "negative": {
+            "props": {
+                "backgroundColor": {
+                    "type": "color",
+                    "default": "surface.default.transparent-negative"
+                },
+                "endContentColor": {
+                    "type": "color",
+                    "default": "text.default.negative"
+                },
+                "startContentColor": {
+                    "type": "color",
+                    "default": "text.default.negative"
+                },
+                "labelColor": {
+                    "type": "color",
+                    "default": "text.default.negative"
+                }
+            }
+        },
+        "positive": {
+            "props": {
+                "backgroundColor": {
+                    "type": "color",
+                    "default": "surface.default.transparent-positive"
+                },
+                "endContentColor": {
+                    "type": "color",
+                    "default": "text.default.positive"
+                },
+                "startContentColor": {
+                    "type": "color",
+                    "default": "text.default.positive"
+                },
+                "labelColor": {
+                    "type": "color",
+                    "default": "text.default.positive"
+                }
+            }
+        },
+        "warning": {
+            "props": {
+                "backgroundColor": {
+                    "type": "color",
+                    "default": "surface.default.transparent-warning"
+                },
+                "endContentColor": {
+                    "type": "color",
+                    "default": "text.default.warning"
+                },
+                "startContentColor": {
+                    "type": "color",
+                    "default": "text.default.warning"
+                },
+                "labelColor": {
+                    "type": "color",
+                    "default": "text.default.warning"
+                }
+            }
+        },
+        "dark": {
+            "props": {
+                "backgroundColor": {
+                    "type": "color",
+                    "default": "surface.on-light.transparent-deep"
+                },
+                "endContentColor": {
+                    "type": "color",
+                    "default": "text.on-dark.primary"
+                },
+                "startContentColor": {
+                    "type": "color",
+                    "default": "text.on-dark.primary"
+                },
+                "labelColor": {
+                    "type": "color",
+                    "default": "text.on-dark.primary"
+                }
+            }
+        },
+        "light": {
+            "props": {
+                "backgroundColor": {
+                    "type": "color",
+                    "default": "surface.on-dark.transparent-secondary"
+                },
+                "endContentColor": {
+                    "type": "color",
+                    "default": "text.on-dark.primary"
+                },
+                "startContentColor": {
+                    "type": "color",
+                    "default": "text.on-dark.primary"
+                },
+                "labelColor": {
+                    "type": "color",
+                    "default": "text.on-dark.primary"
+                }
+            }
+        }
+    },
+    "variations": [
+        {
+            "id": "l",
+            "parent": null,
+            "props": {
+                "shape": {
+                    "type": "shape",
+                    "value": "round.s"
+                },
+                "labelStyle": {
+                    "type": "typography",
+                    "value": "body.s.normal"
+                },
+                "height": {
+                    "type": "dimension",
+                    "value": 28
+                },
+                "startPadding": {
+                    "type": "dimension",
+                    "value": 11
+                },
+                "endPadding": {
+                    "type": "dimension",
+                    "value": 11
+                },
+                "startContentSize": {
+                    "type": "dimension",
+                    "value": 16
+                },
+                "startContentMargin": {
+                    "type": "dimension",
+                    "value": 4
+                },
+                "endContentSize": {
+                    "type": "dimension",
+                    "value": 16
+                },
+                "endContentMargin": {
+                    "type": "dimension",
+                    "value": 4
+                }
+            }
+        },
+        {
+            "id": "l.pilled",
+            "parent": "l",
+            "props": {
+                "shape": {
+                    "type": "shape",
+                    "value": "round.circle"
+                }
+            }
+        },
+        {
+            "id": "m",
+            "parent": null,
+            "props": {
+                "shape": {
+                    "type": "shape",
+                    "value": "round.xs"
+                },
+                "labelStyle": {
+                    "type": "typography",
+                    "value": "body.xs.normal"
+                },
+                "height": {
+                    "type": "dimension",
+                    "value": 24
+                },
+                "startPadding": {
+                    "type": "dimension",
+                    "value": 9
+                },
+                "endPadding": {
+                    "type": "dimension",
+                    "value": 9
+                },
+                "startContentSize": {
+                    "type": "dimension",
+                    "value": 12
+                },
+                "startContentMargin": {
+                    "type": "dimension",
+                    "value": 3
+                },
+                "endContentSize": {
+                    "type": "dimension",
+                    "value": 12
+                },
+                "endContentMargin": {
+                    "type": "dimension",
+                    "value": 3
+                }
+            }
+        },
+        {
+            "id": "m.pilled",
+            "parent": "m",
+            "props": {
+                "shape": {
+                    "type": "shape",
+                    "value": "round.circle"
+                }
+            }
+        },
+        {
+            "id": "s",
+            "parent": null,
+            "props": {
+                "shape": {
+                    "type": "shape",
+                    "value": "round.xs"
+                },
+                "labelStyle": {
+                    "type": "typography",
+                    "value": "body.xxs.normal"
+                },
+                "height": {
+                    "type": "dimension",
+                    "value": 20
+                },
+                "startPadding": {
+                    "type": "dimension",
+                    "value": 7
+                },
+                "endPadding": {
+                    "type": "dimension",
+                    "value": 7
+                },
+                "startContentSize": {
+                    "type": "dimension",
+                    "value": 12
+                },
+                "startContentMargin": {
+                    "type": "dimension",
+                    "value": 2
+                },
+                "endContentSize": {
+                    "type": "dimension",
+                    "value": 12
+                },
+                "endContentMargin": {
+                    "type": "dimension",
+                    "value": 2
+                }
+            }
+        },
+        {
+            "id": "s.pilled",
+            "parent": "s",
+            "props": {
+                "shape": {
+                    "type": "shape",
+                    "value": "round.circle"
+                }
+            }
+        },
+        {
+            "id": "xs",
+            "parent": null,
+            "props": {
+                "shape": {
+                    "type": "shape",
+                    "value": "round.xxs"
+                },
+                "labelStyle": {
+                    "type": "typography",
+                    "value": "body.xxs.normal"
+                },
+                "height": {
+                    "type": "dimension",
+                    "value": 16
+                },
+                "startPadding": {
+                    "type": "dimension",
+                    "value": 4
+                },
+                "endPadding": {
+                    "type": "dimension",
+                    "value": 4
+                },
+                "startContentSize": {
+                    "type": "dimension",
+                    "value": 10
+                },
+                "startContentMargin": {
+                    "type": "dimension",
+                    "value": 2
+                },
+                "endContentSize": {
+                    "type": "dimension",
+                    "value": 10
+                },
+                "endContentMargin": {
+                    "type": "dimension",
+                    "value": 2
+                }
+            }
+        },
+        {
+            "id": "xs.pilled",
+            "parent": "xs",
+            "props": {
+                "shape": {
+                    "type": "shape",
+                    "value": "round.circle"
+                }
+            }
+        }
+    ]
+}

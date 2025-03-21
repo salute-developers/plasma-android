@@ -7,11 +7,13 @@ import com.sdds.plugin.themebuilder.internal.components.textfield.TextFieldPrope
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
+import com.sdds.plugin.themebuilder.internal.utils.capitalized
 
 /**
  * Генератор вариаций TextField на Compose
  */
 internal class TextFieldComposeVariationGenerator(
+    private val textFieldType: TextFieldType,
     private val chipStylesPackage: String,
     private val chipGroupStylesPackage: String,
     themeClassName: String,
@@ -24,6 +26,7 @@ internal class TextFieldComposeVariationGenerator(
     componentPackage: String,
     outputLocation: KtFileBuilder.OutputLocation,
     componentName: String,
+    styleBuilderName: String,
 ) : ComposeVariationGenerator<TextFieldProperties>(
     themeClassName = themeClassName,
     themePackage = themePackage,
@@ -35,7 +38,14 @@ internal class TextFieldComposeVariationGenerator(
     componentPackage = componentPackage,
     outputLocation = outputLocation,
     componentName = componentName,
+    styleBuilderName = styleBuilderName,
 ) {
+    enum class TextFieldType {
+        TextField,
+        TextFieldClear,
+        TextArea,
+        TextAreaClear,
+    }
 
     override val componentStyleName = "TextFieldStyle"
 
@@ -46,6 +56,7 @@ internal class TextFieldComposeVariationGenerator(
     ): List<String> {
         return listOfNotNull(
             shapeCall(props, variationId),
+            indicatorAlignmentCall(props),
             dimensionsCall(props, variationId),
             captionStyleCall(props),
             labelStyleCall(props),
@@ -70,12 +81,32 @@ internal class TextFieldComposeVariationGenerator(
             listOf(
                 "TextFieldType",
                 "TextFieldLabelPlacement",
+                "TextFieldHelperTextPlacement",
+                "TextFieldIndicatorAlignmentMode",
             ),
         )
     }
 
+    override fun invariantBuilderCalls() = listOf(
+        singleLineCall(),
+        helperTextPlacementCall(),
+    )
+
+    private fun indicatorAlignmentCall(props: TextFieldProperties): String? {
+        return props.indicatorAlignmentMode?.let {
+            ".indicatorAlignmentMode(TextFieldIndicatorAlignmentMode.${it.value.capitalized()})"
+        }
+    }
+
+    private fun singleLineCall(): String {
+        return when (textFieldType) {
+            TextFieldType.TextField, TextFieldType.TextFieldClear -> ".singleLine(true)"
+            TextFieldType.TextArea, TextFieldType.TextAreaClear -> ".singleLine(false)"
+        }
+    }
+
     private fun scrollBarCall(props: TextFieldProperties, variationId: String): String? {
-        return if (props.hasScrollBar()) {
+        return if (textFieldType == TextFieldType.TextArea && props.hasScrollBar()) {
             buildString {
                 appendLine(".scrollBar {")
                 props.scrollBarThickness?.let {
@@ -262,6 +293,13 @@ internal class TextFieldComposeVariationGenerator(
         }
     }
 
+    private fun helperTextPlacementCall(): String {
+        return when (textFieldType) {
+            TextFieldType.TextArea -> ".helperTextPlacement(TextFieldHelperTextPlacement.Inner)"
+            else -> ".helperTextPlacement(TextFieldHelperTextPlacement.Outer)"
+        }
+    }
+
     private fun chipGroupStyleCall(
         props: TextFieldProperties,
         ktFileBuilder: KtFileBuilder,
@@ -331,6 +369,18 @@ internal class TextFieldComposeVariationGenerator(
                 }
                 props.chipsPadding?.let {
                     appendDimension("chips_padding", it, variationId)
+                }
+                props.chipsPaddingTop?.let {
+                    appendDimension("chips_padding_top", it, variationId)
+                }
+                props.chipsPaddingBottom?.let {
+                    appendDimension("chips_padding_bottom", it, variationId)
+                }
+                props.chipsPaddingStart?.let {
+                    appendDimension("chips_padding_start", it, variationId)
+                }
+                props.chipsPaddingEnd?.let {
+                    appendDimension("chips_padding_end", it, variationId)
                 }
                 props.startContentSize?.let {
                     appendDimension("start_content_size", it, variationId)
@@ -425,6 +475,10 @@ internal class TextFieldComposeVariationGenerator(
             boxMinHeight != null ||
             alignmentMinHeight != null ||
             chipsPadding != null ||
+            chipsPaddingStart != null ||
+            chipsPaddingEnd != null ||
+            chipsPaddingTop != null ||
+            chipsPaddingBottom != null ||
             labelPadding != null ||
             optionalPadding != null ||
             indicatorSize != null ||

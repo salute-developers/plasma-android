@@ -12,7 +12,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.CellStyle
 import com.sdds.compose.uikit.CellStyleBuilder
-import com.sdds.compose.uikit.cellBuilder
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
@@ -103,7 +102,7 @@ private val CellStyleBuilder.invariantProps: CellStyleBuilder
 public val Cell.L: WrapperCellL
     @Composable
     @JvmName("WrapperCellL")
-    get() = CellStyle.cellBuilder(this)
+    get() = CellStyle.builder(this)
         .invariantProps
         .labelStyle(PlasmaSdServiceTheme.typography.bodyMNormal)
         .titleStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
@@ -124,7 +123,7 @@ public val Cell.L: WrapperCellL
 public val Cell.M: WrapperCellM
     @Composable
     @JvmName("WrapperCellM")
-    get() = CellStyle.cellBuilder(this)
+    get() = CellStyle.builder(this)
         .invariantProps
         .labelStyle(PlasmaSdServiceTheme.typography.bodySNormal)
         .titleStyle(PlasmaSdServiceTheme.typography.bodyMNormal)
@@ -145,7 +144,7 @@ public val Cell.M: WrapperCellM
 public val Cell.S: WrapperCellS
     @Composable
     @JvmName("WrapperCellS")
-    get() = CellStyle.cellBuilder(this)
+    get() = CellStyle.builder(this)
         .invariantProps
         .labelStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
         .titleStyle(PlasmaSdServiceTheme.typography.bodySNormal)
@@ -166,7 +165,7 @@ public val Cell.S: WrapperCellS
 public val Cell.Xs: WrapperCellXs
     @Composable
     @JvmName("WrapperCellXs")
-    get() = CellStyle.cellBuilder(this)
+    get() = CellStyle.builder(this)
         .invariantProps
         .labelStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
         .titleStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
