@@ -267,7 +267,6 @@ internal class ComponentStyleGeneratorFactory(
             componentName = componentName,
             outputLocation = KtFileBuilder.OutputLocation.Directory(outputDir),
             styleBuilderName = "CardStyleBuilder",
-            styleBuilderFactoryMethodName = "card",
         )
 
     fun createBasicButtonStyleGeneratorCompose() =

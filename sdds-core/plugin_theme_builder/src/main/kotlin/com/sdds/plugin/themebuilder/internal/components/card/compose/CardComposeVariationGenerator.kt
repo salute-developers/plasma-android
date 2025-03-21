@@ -23,7 +23,6 @@ internal class CardComposeVariationGenerator(
     outputLocation: KtFileBuilder.OutputLocation,
     componentName: String,
     styleBuilderName: String,
-    styleBuilderFactoryMethodName: String,
 ) : ComposeVariationGenerator<CardProperties>(
     themeClassName = themeClassName,
     themePackage = themePackage,
@@ -36,7 +35,6 @@ internal class CardComposeVariationGenerator(
     outputLocation = outputLocation,
     componentName = componentName,
     styleBuilderName = styleBuilderName,
-    styleBuilderFactoryMethodName = styleBuilderFactoryMethodName,
 ) {
     override val componentStyleName = "CardStyle"
 

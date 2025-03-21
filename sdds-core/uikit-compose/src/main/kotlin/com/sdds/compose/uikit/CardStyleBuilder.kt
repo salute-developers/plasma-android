@@ -15,13 +15,7 @@ import com.sdds.compose.uikit.style.StyleBuilder
 /**
  * CompositionLocal с [CardStyle] для компонента [Card]
  */
-val LocalCardStyle = compositionLocalOf { CardStyle.cardBuilder().style() }
-
-/**
- * Возвращает экземпляр [CardStyleBuilder]
- */
-fun CardStyle.Companion.cardBuilder(receiver: Any? = null): CardStyleBuilder =
-    DefaultCardStyleBuilderImpl(receiver)
+val LocalCardStyle = compositionLocalOf { CardStyle.builder().style() }
 
 /**
  * Builder стиля [CardStyle]
@@ -192,7 +186,7 @@ private class DefaultCardStyle(
     override val dimensions: CardDimensions,
 ) : CardStyle
 
-private class DefaultCardStyleBuilderImpl(receiver: Any?) : CardStyleBuilder {
+internal class DefaultCardStyleBuilderImpl(receiver: Any?) : CardStyleBuilder {
     private var colorsBuilder: CardColorsBuilder = CardColorsBuilder.builder()
     private var shape: CornerBasedShape? = null
     private var contentShape: CornerBasedShape? = null
