@@ -158,17 +158,17 @@ public val WrapperSegmentItemView.Primary: WrapperSegmentItemTerminate
                     setOf(InteractiveState.Hovered)
                         to StarDsTheme.colors.textDefaultSecondaryHover,
                     setOf(InteractiveState.Selected)
-                        to StarDsTheme.colors.textDefaultSecondary,
+                        to StarDsTheme.colors.textInverseSecondary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
                     )
-                        to StarDsTheme.colors.textDefaultSecondaryActive,
+                        to StarDsTheme.colors.textInverseSecondaryActive,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
                     )
-                        to StarDsTheme.colors.textDefaultSecondaryHover,
+                        to StarDsTheme.colors.textInverseSecondaryHover,
                 ),
             )
             backgroundColor(
@@ -255,17 +255,17 @@ public val WrapperSegmentItemView.Secondary: WrapperSegmentItemTerminate
                     setOf(InteractiveState.Hovered)
                         to StarDsTheme.colors.textDefaultSecondaryHover,
                     setOf(InteractiveState.Selected)
-                        to StarDsTheme.colors.textInverseSecondary,
+                        to StarDsTheme.colors.textDefaultSecondary,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Pressed,
                     )
-                        to StarDsTheme.colors.textInverseSecondaryActive,
+                        to StarDsTheme.colors.textDefaultSecondaryActive,
                     setOf(
                         InteractiveState.Selected,
                         InteractiveState.Hovered,
                     )
-                        to StarDsTheme.colors.textInverseSecondaryHover,
+                        to StarDsTheme.colors.textDefaultSecondaryHover,
                 ),
             )
             backgroundColor(
