@@ -1,7 +1,9 @@
 package com.sdds.playground.sandbox.segment.compose
 
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
@@ -62,12 +64,13 @@ private fun SegmentScope.SegmentItems(
 ) {
     repeat(uiState.amount) { id ->
         segmentItem {
+            val interactionSource = remember { MutableInteractionSource() }
             SegmentItem(
                 modifier = Modifier
                     .clickable(
                         enabled = uiState.enabled,
                         indication = null,
-                        interactionSource = null,
+                        interactionSource = interactionSource,
                     ) {
                         onClick(id)
                     },
@@ -78,6 +81,7 @@ private fun SegmentScope.SegmentItems(
                 endIcon = endIcon(uiState.endContent),
                 counter = counter(uiState.count, uiState.endContent),
                 enabled = uiState.enabled,
+                interactionSource = interactionSource,
             )
         }
     }
