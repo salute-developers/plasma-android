@@ -2,6 +2,7 @@ package com.sdds.compose.uikit
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.interaction.collectIsFocusedAsState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
@@ -10,6 +11,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -19,6 +21,8 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.text.AnnotatedString
 import com.sdds.compose.uikit.interactions.selection
 import com.sdds.compose.uikit.internal.ButtonText
+import com.sdds.compose.uikit.internal.focusselector.LocalFocusSelectorMode
+import com.sdds.compose.uikit.internal.focusselector.applyFocusSelector
 
 /**
  * Компонент SegmentItem
@@ -132,6 +136,7 @@ fun SegmentItem(
     val valueColor = style.colors.valueColor.colorForInteraction(interactionSource)
     val startContentColor = style.colors.startContentColor.colorForInteraction(interactionSource)
     val endContentColor = style.colors.endContentColor.colorForInteraction(interactionSource)
+    val isFocused by interactionSource.collectIsFocusedAsState()
     Row(
         modifier = modifier
             .defaultMinSize(
@@ -147,6 +152,7 @@ fun SegmentItem(
                 color = backgroundColor,
                 shape = style.shape,
             )
+            .applyFocusSelector(LocalFocusSelectorMode.current, style.shape) { isFocused }
             .padding(
                 start = style.dimensions.paddingStart,
                 end = style.dimensions.paddingEnd,

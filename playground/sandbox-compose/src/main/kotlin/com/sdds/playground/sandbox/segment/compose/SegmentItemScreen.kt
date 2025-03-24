@@ -1,5 +1,6 @@
 package com.sdds.playground.sandbox.segment.compose
 
+import androidx.compose.foundation.focusable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -25,7 +26,7 @@ internal fun SegmentItemScreen(componentKey: ComponentKey = ComponentKey.Segment
         component = { uiState, style ->
             val interactionSource = remember { MutableInteractionSource() }
             SegmentItem(
-                modifier = Modifier,
+                modifier = Modifier.focusable(uiState.enabled, interactionSource),
                 isSelected = uiState.selected,
                 style = style,
                 label = uiState.label,
