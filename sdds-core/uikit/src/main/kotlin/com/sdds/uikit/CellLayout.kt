@@ -224,7 +224,12 @@ open class CellLayout @JvmOverloads constructor(
         _disclosureBounds.setEmpty()
         _centerContentBounds.setEmpty()
 
-        var totalWidth = 0
+        var totalWidth =
+            if (layoutParams.width == ViewGroup.LayoutParams.WRAP_CONTENT) {
+                paddingStart + paddingEnd
+            } else {
+                0
+            }
         var totalHeight = 0
 
         for (index in 0 until childCount) {
@@ -438,7 +443,11 @@ open class CellLayout @JvmOverloads constructor(
         }
         if (!_disclosureBounds.isEmpty) {
             applyGravity(Gravity.END or verticalGravity, _disclosureBounds)
-            currentXEnd = _disclosureBounds.left - (_disclosurePadding.takeIf { _disclosurePaddingEnabled } ?: 0)
+            currentXEnd =
+                _disclosureBounds.left - (
+                    _disclosurePadding.takeIf { _disclosurePaddingEnabled }
+                        ?: 0
+                    )
         }
         if (!_endContentBounds.isEmpty) {
             applyGravity(Gravity.END or verticalGravity, _endContentBounds)
@@ -653,8 +662,9 @@ open class CellLayout @JvmOverloads constructor(
     }
 
     private companion object {
-        const val DEBUG = false
-        val DebugPaint = Paint().configure(style = Paint.Style.STROKE, strokeWidth = 5f, color = Color.MAGENTA)
+        const val DEBUG = true
+        val DebugPaint =
+            Paint().configure(style = Paint.Style.STROKE, strokeWidth = 5f, color = Color.MAGENTA)
 
         fun CellContent.isCenterAlignment(): Boolean =
             this == CENTER || this == LABEL || this == TITLE || this == SUBTITLE
