@@ -299,6 +299,7 @@ open class CellLayout @JvmOverloads constructor(
             _disclosureBounds.height(),
         )
         totalHeight += paddingTop + paddingBottom
+        totalWidth += paddingStart + paddingEnd
 
         // Выбираем конечные размеры согласно требованиям родителя
         val desiredWidth = when (widthMode) {
@@ -438,7 +439,11 @@ open class CellLayout @JvmOverloads constructor(
         }
         if (!_disclosureBounds.isEmpty) {
             applyGravity(Gravity.END or verticalGravity, _disclosureBounds)
-            currentXEnd = _disclosureBounds.left - (_disclosurePadding.takeIf { _disclosurePaddingEnabled } ?: 0)
+            currentXEnd =
+                _disclosureBounds.left - (
+                    _disclosurePadding.takeIf { _disclosurePaddingEnabled }
+                        ?: 0
+                    )
         }
         if (!_endContentBounds.isEmpty) {
             applyGravity(Gravity.END or verticalGravity, _endContentBounds)
@@ -654,7 +659,8 @@ open class CellLayout @JvmOverloads constructor(
 
     private companion object {
         const val DEBUG = false
-        val DebugPaint = Paint().configure(style = Paint.Style.STROKE, strokeWidth = 5f, color = Color.MAGENTA)
+        val DebugPaint =
+            Paint().configure(style = Paint.Style.STROKE, strokeWidth = 5f, color = Color.MAGENTA)
 
         fun CellContent.isCenterAlignment(): Boolean =
             this == CENTER || this == LABEL || this == TITLE || this == SUBTITLE
