@@ -27,8 +27,7 @@ import com.google.android.material.navigation.NavigationView
 import com.sdds.playground.sandbox.MainSandboxActivity
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.Theme
-import com.sdds.playground.sandbox.ThemeContainer.allViewThemes
-import com.sdds.playground.sandbox.ThemeContainer.viewTheme
+import com.sdds.playground.sandbox.allViewThemes
 import com.sdds.playground.sandbox.core.ThemeManager
 import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
@@ -37,6 +36,7 @@ import com.sdds.playground.sandbox.core.vs.MenuItem
 import com.sdds.playground.sandbox.core.vs.choiceEditor
 import com.sdds.playground.sandbox.core.vs.getMenuItems
 import com.sdds.playground.sandbox.databinding.MainActivityBinding
+import com.sdds.playground.sandbox.viewTheme
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 

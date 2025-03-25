@@ -32,7 +32,7 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.style.Style
 import com.sdds.playground.sandbox.R
-import com.sdds.playground.sandbox.ThemeContainer.composeTheme
+import com.sdds.playground.sandbox.composeTheme
 import com.sdds.playground.sandbox.core.ThemeManager
 import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.serv.theme.SddsServTheme

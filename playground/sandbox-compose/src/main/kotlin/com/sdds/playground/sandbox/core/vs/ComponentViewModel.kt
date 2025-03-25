@@ -5,11 +5,11 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sdds.playground.sandbox.Theme
-import com.sdds.playground.sandbox.ThemeContainer.viewTheme
 import com.sdds.playground.sandbox.core.ThemeManager
 import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
 import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.integration.component.CoreComponent
+import com.sdds.playground.sandbox.viewTheme
 import com.sdds.testing.vs.UiState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted

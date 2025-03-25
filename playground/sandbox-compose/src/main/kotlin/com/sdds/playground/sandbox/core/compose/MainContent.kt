@@ -43,7 +43,7 @@ import com.sdds.compose.uikit.IconButton
 import com.sdds.icons.R
 import com.sdds.playground.sandbox.MainSandboxActivity
 import com.sdds.playground.sandbox.Theme
-import com.sdds.playground.sandbox.ThemeContainer.composeTheme
+import com.sdds.playground.sandbox.composeTheme
 import com.sdds.playground.sandbox.core.ThemeManager
 import kotlinx.coroutines.launch
 

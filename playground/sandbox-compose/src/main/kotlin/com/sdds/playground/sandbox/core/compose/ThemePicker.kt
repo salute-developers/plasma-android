@@ -10,7 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.Theme
-import com.sdds.playground.sandbox.ThemeContainer.allComposeThemes
+import com.sdds.playground.sandbox.allComposeThemes
 
 /**
  *
