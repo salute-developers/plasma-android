@@ -10,6 +10,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.sdds.compose.uikit.Chip
 import com.sdds.compose.uikit.ChipGroup
+import com.sdds.compose.uikit.ChipGroupOverflowMode
 import com.sdds.compose.uikit.Icon
 import com.sdds.icons.R
 import com.sdds.playground.sandbox.SandboxTheme
@@ -31,9 +32,9 @@ internal fun ChipGroupScreen(componentKey: ComponentKey = ComponentKey.ChipGroup
             ChipGroup(
                 style = style,
                 overflowMode = if (chipGroupState.shouldWrap) {
-                    ChipGroup.OverflowMode.Wrap
+                    ChipGroupOverflowMode.Wrap
                 } else {
-                    ChipGroup.OverflowMode.Scrollable
+                    ChipGroupOverflowMode.Scrollable
                 },
             ) {
                 chipGroupState.items.forEach {

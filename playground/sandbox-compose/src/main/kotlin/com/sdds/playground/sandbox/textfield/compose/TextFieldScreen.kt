@@ -17,7 +17,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.sdds.compose.uikit.BasicButton
 import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.Chip
 import com.sdds.compose.uikit.Icon
@@ -31,6 +30,7 @@ import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.TextFieldFocusSelectorModeSwitch
 import com.sdds.playground.sandbox.core.compose.ComponentScaffold
 import com.sdds.playground.sandbox.core.integration.component.ComponentKey
+import com.sdds.serv.styles.button.basic.BasicButton
 import com.sdds.serv.styles.button.basic.Default
 import com.sdds.serv.styles.button.basic.Xs
 

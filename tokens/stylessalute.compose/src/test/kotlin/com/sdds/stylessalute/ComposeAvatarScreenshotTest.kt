@@ -1,8 +1,8 @@
 package com.sdds.stylessalute
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
-import com.sdds.compose.uikit.Avatar
-import com.sdds.compose.uikit.AvatarGroup
+import com.sdds.stylessalute.styles.avatar.Avatar
+import com.sdds.stylessalute.styles.avatar.AvatarGroup
 import com.sdds.stylessalute.styles.avatar.M
 import com.sdds.stylessalute.styles.avatar.S
 import com.sdds.stylessalute.styles.avatar.Xxl

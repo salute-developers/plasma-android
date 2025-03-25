@@ -4,8 +4,6 @@ import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performTextInput
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
-import com.sdds.compose.uikit.TextArea
-import com.sdds.compose.uikit.TextAreaClear
 import com.sdds.compose.uikit.style.style
 import com.sdds.stylessalute.styles.textarea.Default
 import com.sdds.stylessalute.styles.textarea.Error
@@ -16,6 +14,7 @@ import com.sdds.stylessalute.styles.textarea.OuterLabel
 import com.sdds.stylessalute.styles.textarea.RequiredEnd
 import com.sdds.stylessalute.styles.textarea.RequiredStart
 import com.sdds.stylessalute.styles.textarea.S
+import com.sdds.stylessalute.styles.textarea.TextArea
 import com.sdds.stylessalute.styles.textarea.Warning
 import com.sdds.stylessalute.styles.textarea.Xs
 import com.sdds.stylessalute.styles.textarea.clear.Default
@@ -27,6 +26,7 @@ import com.sdds.stylessalute.styles.textarea.clear.OuterLabel
 import com.sdds.stylessalute.styles.textarea.clear.RequiredEnd
 import com.sdds.stylessalute.styles.textarea.clear.RequiredStart
 import com.sdds.stylessalute.styles.textarea.clear.S
+import com.sdds.stylessalute.styles.textarea.clear.TextAreaClear
 import com.sdds.stylessalute.styles.textarea.clear.Warning
 import com.sdds.stylessalute.styles.textarea.clear.Xs
 import com.sdds.testing.compose.RoborazziConfigCompose

@@ -127,6 +127,8 @@
     <dimen name="sdkit_cmp_text_field_clear_optional_padding_TextFieldClear">8.0dp</dimen>
     <dimen name="sdkit_cmp_text_field_clear_helper_text_padding_TextFieldClear">8.0dp</dimen>
     <dimen name="sdkit_cmp_text_field_clear_chips_padding_TextFieldClear">12.0dp</dimen>
+    <dimen name="sdkit_cmp_text_field_clear_chips_padding_start_TextFieldClear">0.0dp</dimen>
+    <dimen name="sdkit_cmp_text_field_clear_chips_padding_end_TextFieldClear">0.0dp</dimen>
     <dimen name="sdkit_cmp_text_field_clear_box_padding_top_xs">16.0dp</dimen>
     <dimen name="sdkit_cmp_text_field_clear_box_padding_bottom_xs">16.0dp</dimen>
     <dimen name="sdkit_cmp_text_field_clear_box_min_height_xs">64.0dp</dimen>
@@ -231,6 +233,8 @@
     <dimen name="sdkit_cmp_text_area_clear_optional_padding_TextAreaClear">8.0dp</dimen>
     <dimen name="sdkit_cmp_text_area_clear_helper_text_padding_TextAreaClear">8.0dp</dimen>
     <dimen name="sdkit_cmp_text_area_clear_chips_padding_TextAreaClear">12.0dp</dimen>
+    <dimen name="sdkit_cmp_text_area_clear_chips_padding_start_TextAreaClear">0.0dp</dimen>
+    <dimen name="sdkit_cmp_text_area_clear_chips_padding_end_TextAreaClear">0.0dp</dimen>
     <dimen name="sdkit_cmp_text_area_clear_box_padding_top_xs">16.0dp</dimen>
     <dimen name="sdkit_cmp_text_area_clear_box_padding_bottom_xs">16.0dp</dimen>
     <dimen name="sdkit_cmp_text_area_clear_box_min_height_xs">64.0dp</dimen>

@@ -1,7 +1,6 @@
 package com.sdds.playground.sandbox.stylessalute.integration.textfield.clear
 
 import androidx.compose.runtime.Composable
-import com.sdds.compose.uikit.TextFieldClear
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
@@ -15,6 +14,7 @@ import com.sdds.stylessalute.styles.textfield.clear.RequiredEnd
 import com.sdds.stylessalute.styles.textfield.clear.RequiredStart
 import com.sdds.stylessalute.styles.textfield.clear.S
 import com.sdds.stylessalute.styles.textfield.clear.Success
+import com.sdds.stylessalute.styles.textfield.clear.TextFieldClear
 import com.sdds.stylessalute.styles.textfield.clear.Warning
 import com.sdds.stylessalute.styles.textfield.clear.Xs
 

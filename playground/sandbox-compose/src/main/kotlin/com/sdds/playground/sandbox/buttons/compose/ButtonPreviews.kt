@@ -3,14 +3,15 @@ package com.sdds.playground.sandbox.buttons.compose
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
-import com.sdds.compose.uikit.BasicButton
 import com.sdds.compose.uikit.Button
+import com.sdds.compose.uikit.ButtonIcons
+import com.sdds.compose.uikit.ButtonSpacing
 import com.sdds.compose.uikit.IconButton
-import com.sdds.compose.uikit.LinkButton
 import com.sdds.compose.uikit.style.style
 import com.sdds.icons.R
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.serv.styles.button.basic.Accent
+import com.sdds.serv.styles.button.basic.BasicButton
 import com.sdds.serv.styles.button.basic.Clear
 import com.sdds.serv.styles.button.basic.Dark
 import com.sdds.serv.styles.button.basic.Default
@@ -27,6 +28,7 @@ import com.sdds.serv.styles.button.icon.Accent
 import com.sdds.serv.styles.button.icon.Clear
 import com.sdds.serv.styles.button.icon.Dark
 import com.sdds.serv.styles.button.icon.Default
+import com.sdds.serv.styles.button.icon.IconButton
 import com.sdds.serv.styles.button.icon.L
 import com.sdds.serv.styles.button.icon.M
 import com.sdds.serv.styles.button.icon.Negative
@@ -40,6 +42,7 @@ import com.sdds.serv.styles.button.icon.Xs
 import com.sdds.serv.styles.button.link.Accent
 import com.sdds.serv.styles.button.link.Default
 import com.sdds.serv.styles.button.link.L
+import com.sdds.serv.styles.button.link.LinkButton
 import com.sdds.serv.styles.button.link.M
 import com.sdds.serv.styles.button.link.S
 import com.sdds.serv.styles.button.link.Warning
@@ -68,7 +71,7 @@ internal fun SandboxButtonPreviewSizeMAccent() {
     SandboxTheme {
         Button(
             style = BasicButton.M.Accent.style(),
-            icons = Button.Icons(start = painterResource(id = R.drawable.ic_plasma_24)),
+            icons = ButtonIcons(start = painterResource(id = R.drawable.ic_plasma_24)),
             label = "Label",
             value = "",
             enabled = true,
@@ -84,7 +87,7 @@ internal fun SandboxButtonPreviewSizeSWarning() {
     SandboxTheme {
         Button(
             style = BasicButton.S.Warning.style(),
-            icons = Button.Icons(end = painterResource(id = R.drawable.ic_plasma_24)),
+            icons = ButtonIcons(end = painterResource(id = R.drawable.ic_plasma_24)),
             label = "Label",
             value = "",
             enabled = true,
@@ -130,7 +133,7 @@ internal fun SandboxButtonPreviewSizeLDisabled() {
     SandboxTheme {
         Button(
             style = BasicButton.L.Default.style(),
-            spacing = Button.Spacing.Packed,
+            spacing = ButtonSpacing.Packed,
             label = "Label",
             value = "",
             enabled = false,
@@ -146,8 +149,8 @@ internal fun SandboxButtonPreviewSizeLSecondary() {
     SandboxTheme {
         Button(
             style = BasicButton.L.Secondary.style(),
-            icons = Button.Icons(start = painterResource(id = R.drawable.ic_plasma_24)),
-            spacing = Button.Spacing.Packed,
+            icons = ButtonIcons(start = painterResource(id = R.drawable.ic_plasma_24)),
+            spacing = ButtonSpacing.Packed,
             label = "Label",
             enabled = true,
             loading = false,
@@ -162,8 +165,8 @@ internal fun SandboxButtonPreviewSizeMSpaceBetween() {
     SandboxTheme {
         Button(
             style = BasicButton.M.Clear.style(),
-            icons = Button.Icons(start = painterResource(id = R.drawable.ic_plasma_16)),
-            spacing = Button.Spacing.SpaceBetween,
+            icons = ButtonIcons(start = painterResource(id = R.drawable.ic_plasma_16)),
+            spacing = ButtonSpacing.SpaceBetween,
             label = "Label",
             value = "Value",
             enabled = true,
@@ -179,8 +182,8 @@ internal fun SandboxButtonPreviewSizeSLongText() {
     SandboxTheme {
         Button(
             style = BasicButton.S.Positive.style(),
-            icons = Button.Icons(end = painterResource(id = R.drawable.ic_plasma_16)),
-            spacing = Button.Spacing.Packed,
+            icons = ButtonIcons(end = painterResource(id = R.drawable.ic_plasma_16)),
+            spacing = ButtonSpacing.Packed,
             label = "LabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabel",
             value = "",
             enabled = true,
@@ -196,8 +199,8 @@ internal fun SandboxButtonPreviewSizeXSNegative() {
     SandboxTheme {
         Button(
             style = BasicButton.Xs.Negative.style(),
-            icons = Button.Icons(end = painterResource(id = R.drawable.ic_plasma_16)),
-            spacing = Button.Spacing.Packed,
+            icons = ButtonIcons(end = painterResource(id = R.drawable.ic_plasma_16)),
+            spacing = ButtonSpacing.Packed,
             label = "Label",
             value = "",
             enabled = true,
@@ -213,8 +216,8 @@ internal fun SandboxButtonPreviewSizeLWhite() {
     SandboxTheme {
         Button(
             style = BasicButton.L.White.style(),
-            icons = Button.Icons(end = painterResource(id = R.drawable.ic_plasma_24)),
-            spacing = Button.Spacing.Packed,
+            icons = ButtonIcons(end = painterResource(id = R.drawable.ic_plasma_24)),
+            spacing = ButtonSpacing.Packed,
             label = "Label",
             enabled = true,
             loading = false,
@@ -412,7 +415,7 @@ internal fun SandboxLinkButtonPreviewSizeMAccent() {
     SandboxTheme {
         Button(
             style = LinkButton.M.Accent.style(),
-            icons = Button.Icons(start = painterResource(id = R.drawable.ic_plasma_24)),
+            icons = ButtonIcons(start = painterResource(id = R.drawable.ic_plasma_24)),
             label = "Label",
             value = "",
             enabled = true,
@@ -428,7 +431,7 @@ internal fun SandboxLinkButtonPreviewSizeLDisabled() {
     SandboxTheme {
         Button(
             style = LinkButton.L.Default.style(),
-            spacing = Button.Spacing.Packed,
+            spacing = ButtonSpacing.Packed,
             label = "Label",
             value = "",
             enabled = false,
@@ -444,7 +447,7 @@ internal fun SandboxLinkButtonPreviewSizeSWarning() {
     SandboxTheme {
         Button(
             style = LinkButton.S.Warning.style(),
-            icons = Button.Icons(end = painterResource(id = R.drawable.ic_plasma_24)),
+            icons = ButtonIcons(end = painterResource(id = R.drawable.ic_plasma_24)),
             label = "Label",
             value = "",
             enabled = true,

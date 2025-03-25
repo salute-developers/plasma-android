@@ -1,11 +1,11 @@
 package com.sdds.playground.sandbox.plasma.sd.service.integration.counter
 
 import androidx.compose.runtime.Composable
-import com.sdds.compose.uikit.Counter
 import com.sdds.compose.uikit.CounterStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.plasma.sd.service.styles.counter.Accent
 import com.sdds.plasma.sd.service.styles.counter.Black
+import com.sdds.plasma.sd.service.styles.counter.Counter
 import com.sdds.plasma.sd.service.styles.counter.Default
 import com.sdds.plasma.sd.service.styles.counter.L
 import com.sdds.plasma.sd.service.styles.counter.M

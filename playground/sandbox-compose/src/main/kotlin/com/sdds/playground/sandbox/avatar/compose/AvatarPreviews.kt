@@ -7,8 +7,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.sdds.compose.uikit.Avatar
 import com.sdds.compose.uikit.AvatarCounter
 import com.sdds.compose.uikit.AvatarGroup
+import com.sdds.compose.uikit.AvatarPlaceholder
+import com.sdds.compose.uikit.AvatarStatus
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.SandboxTheme
+import com.sdds.serv.styles.avatar.Avatar
+import com.sdds.serv.styles.avatar.AvatarGroup
 import com.sdds.serv.styles.avatar.M
 import com.sdds.serv.styles.avatar.S
 import com.sdds.serv.styles.avatar.Xxl
@@ -22,10 +26,10 @@ internal fun AvatarPreviewSizeXXL() {
     SandboxTheme {
         Avatar(
             style = Avatar.Xxl.style(),
-            status = Avatar.Status.Active,
+            status = AvatarStatus.Active,
             painter = painterResource(id = R.drawable.il_avatar_test),
             actionEnabled = false,
-            placeholder = Avatar.Placeholder.Name("Michael Scott"),
+            placeholder = AvatarPlaceholder.Name("Michael Scott"),
         )
     }
 }
@@ -36,9 +40,9 @@ internal fun AvatarPreviewSizeM() {
     SandboxTheme {
         Avatar(
             style = Avatar.M.style(),
-            status = Avatar.Status.Active,
+            status = AvatarStatus.Active,
             actionEnabled = false,
-            placeholder = Avatar.Placeholder.Name("Michael Scott"),
+            placeholder = AvatarPlaceholder.Name("Michael Scott"),
         )
     }
 }
@@ -54,9 +58,9 @@ internal fun AvatarGroupPreviewSizeS() {
             avatar {
                 Avatar(
                     style = Avatar.S.style(),
-                    status = Avatar.Status.Active,
+                    status = AvatarStatus.Active,
                     actionEnabled = false,
-                    placeholder = Avatar.Placeholder.Name("Michael Scott"),
+                    placeholder = AvatarPlaceholder.Name("Michael Scott"),
                     painter = painterResource(id = R.drawable.il_avatar_test),
                     contentScale = ContentScale.Fit,
                 )
@@ -64,9 +68,9 @@ internal fun AvatarGroupPreviewSizeS() {
             avatar {
                 Avatar(
                     style = Avatar.S.style(),
-                    status = Avatar.Status.Active,
+                    status = AvatarStatus.Active,
                     actionEnabled = false,
-                    placeholder = Avatar.Placeholder.Name("Michael Scott"),
+                    placeholder = AvatarPlaceholder.Name("Michael Scott"),
                 )
             }
             counter {

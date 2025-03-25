@@ -1,10 +1,10 @@
 package com.sdds.playground.sandbox.plasma.sd.service.integration.button.basic
 
 import androidx.compose.runtime.Composable
-import com.sdds.compose.uikit.BasicButton
 import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.plasma.sd.service.styles.button.basic.Accent
+import com.sdds.plasma.sd.service.styles.button.basic.BasicButton
 import com.sdds.plasma.sd.service.styles.button.basic.Black
 import com.sdds.plasma.sd.service.styles.button.basic.Clear
 import com.sdds.plasma.sd.service.styles.button.basic.Dark

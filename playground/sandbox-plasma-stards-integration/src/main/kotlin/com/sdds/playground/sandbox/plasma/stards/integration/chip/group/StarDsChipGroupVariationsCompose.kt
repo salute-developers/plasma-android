@@ -1,9 +1,9 @@
 package com.sdds.playground.sandbox.plasma.stards.integration.chip.group
 
 import androidx.compose.runtime.Composable
-import com.sdds.compose.uikit.ChipGroup
 import com.sdds.compose.uikit.ChipGroupStyle
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
+import com.sdkit.star.designsystem.styles.chip.group.ChipGroup
 import com.sdkit.star.designsystem.styles.chip.group.Dense
 import com.sdkit.star.designsystem.styles.chip.group.Wide
 

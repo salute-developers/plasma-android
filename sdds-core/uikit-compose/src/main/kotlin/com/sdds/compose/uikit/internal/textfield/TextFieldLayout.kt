@@ -12,7 +12,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
@@ -42,10 +41,11 @@ import androidx.compose.ui.unit.constrainWidth
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.offset
 import com.sdds.compose.uikit.ChipGroup
+import com.sdds.compose.uikit.ChipGroupOverflowMode
 import com.sdds.compose.uikit.ChipGroupStyle
 import com.sdds.compose.uikit.ChipStyle
 import com.sdds.compose.uikit.LocalChipStyle
-import com.sdds.compose.uikit.TextField
+import com.sdds.compose.uikit.TextFieldDimensions
 import com.sdds.compose.uikit.internal.focusselector.FocusSelectorMode
 import com.sdds.compose.uikit.internal.focusselector.LocalFocusSelectorMode
 import com.sdds.compose.uikit.internal.heightOrZero
@@ -63,7 +63,6 @@ import kotlin.math.roundToInt
 internal fun TextFieldLayout(
     modifier: Modifier,
     singleLine: Boolean,
-    isClearAppearance: Boolean,
     textField: @Composable () -> Unit,
     innerLabel: @Composable (() -> Unit)?,
     innerOptional: @Composable (() -> Unit)?,
@@ -77,7 +76,7 @@ internal fun TextFieldLayout(
     chipStyle: ChipStyle,
     valueTextStyle: TextStyle,
     innerLabelTextStyle: TextStyle,
-    dimensions: TextField.Dimensions,
+    dimensions: TextFieldDimensions,
     animationProgress: Float,
     verticalScrollState: ScrollState?,
     horizontalScrollState: ScrollState?,
@@ -107,10 +106,10 @@ internal fun TextFieldLayout(
     Layout(
         modifier = modifier
             .padding(
-                start = if (hasChips && !isClearAppearance) dimensions.chipsPadding else dimensions.boxPaddingStart,
+                start = if (hasChips) dimensions.chipsPaddingStart else dimensions.boxPaddingStart,
                 end = dimensions.boxPaddingEnd,
-                top = if (hasChips) dimensions.chipsPadding else dimensions.boxPaddingTop,
-                bottom = if (hasChips) dimensions.chipsPadding else dimensions.boxPaddingBottom,
+                top = if (hasChips) dimensions.chipsPaddingTop else dimensions.boxPaddingTop,
+                bottom = if (hasChips) dimensions.chipsPaddingBottom else dimensions.boxPaddingBottom,
             ),
         content = {
             LabelContent(
@@ -243,7 +242,7 @@ private fun CompositeTextFieldContent(
     chips: @Composable (() -> Unit)?,
     chipGroupStyle: ChipGroupStyle,
     chipStyle: ChipStyle,
-    dimensions: TextField.Dimensions,
+    dimensions: TextFieldDimensions,
     verticalScrollState: ScrollState?,
     horizontalScrollState: ScrollState?,
     singleLine: Boolean,
@@ -298,7 +297,7 @@ private fun TextAreaContent(
     textContent: @Composable (() -> Unit),
     chips: @Composable (() -> Unit)?,
     chipGroupStyle: ChipGroupStyle,
-    dimensions: TextField.Dimensions,
+    dimensions: TextFieldDimensions,
     scrollState: ScrollState?,
     valueTextStyle: TextStyle,
 ) {
@@ -318,7 +317,7 @@ private fun TextAreaContent(
                 val chipsBottomPadding = chipSpacing + (chipHeight - valueHeight) / 2
                 ChipGroup(
                     modifier = Modifier.padding(bottom = chipsBottomPadding),
-                    overflowMode = ChipGroup.OverflowMode.Wrap,
+                    overflowMode = ChipGroupOverflowMode.Wrap,
                     style = chipGroupStyle,
                 ) {
                     chips.invoke()
@@ -345,7 +344,7 @@ private fun TextFieldContent(
     textContent: @Composable (() -> Unit),
     chips: @Composable (() -> Unit)?,
     chipGroupStyle: ChipGroupStyle,
-    dimensions: TextField.Dimensions,
+    dimensions: TextFieldDimensions,
     scrollState: ScrollState?,
 ) {
     Row(
@@ -363,7 +362,7 @@ private fun TextFieldContent(
                     modifier = Modifier
                         .padding(end = dimensions.boxPaddingStart + chipGroupStyle.dimensions.horizontalSpacing),
                     style = chipGroupStyle,
-                    overflowMode = ChipGroup.OverflowMode.Unlimited,
+                    overflowMode = ChipGroupOverflowMode.Unlimited,
                 ) {
                     chips.invoke()
                 }

@@ -1,10 +1,10 @@
 package com.sdds.playground.sandbox.sdds.serv.integration.radiobox.group
 
 import androidx.compose.runtime.Composable
-import com.sdds.compose.uikit.RadioBoxGroup
 import com.sdds.compose.uikit.RadioBoxGroupStyle
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 import com.sdds.serv.styles.radiobox.group.M
+import com.sdds.serv.styles.radiobox.group.RadioBoxGroup
 import com.sdds.serv.styles.radiobox.group.S
 
 internal object SddsServRadioBoxGroupVariationsCompose :

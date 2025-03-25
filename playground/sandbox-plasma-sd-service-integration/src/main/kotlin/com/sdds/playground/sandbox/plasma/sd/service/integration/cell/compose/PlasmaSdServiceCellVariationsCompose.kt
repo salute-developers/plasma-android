@@ -1,9 +1,9 @@
 package com.sdds.playground.sandbox.plasma.sd.service.integration.cell.compose
 
 import androidx.compose.runtime.Composable
-import com.sdds.compose.uikit.Cell
 import com.sdds.compose.uikit.CellStyle
 import com.sdds.compose.uikit.style.style
+import com.sdds.plasma.sd.service.styles.cell.Cell
 import com.sdds.plasma.sd.service.styles.cell.L
 import com.sdds.plasma.sd.service.styles.cell.M
 import com.sdds.plasma.sd.service.styles.cell.S

@@ -10,34 +10,32 @@ package com.sdds.plasma.sd.service.styles.cell
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.uikit.Avatar
-import com.sdds.compose.uikit.Cell
 import com.sdds.compose.uikit.CellStyle
 import com.sdds.compose.uikit.CellStyleBuilder
-import com.sdds.compose.uikit.CheckBox
-import com.sdds.compose.uikit.IconButton
-import com.sdds.compose.uikit.RadioBox
-import com.sdds.compose.uikit.Switch
-import com.sdds.compose.uikit.cellBuilder
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
+import com.sdds.plasma.sd.service.styles.avatar.Avatar
 import com.sdds.plasma.sd.service.styles.avatar.L
 import com.sdds.plasma.sd.service.styles.avatar.M
 import com.sdds.plasma.sd.service.styles.avatar.S
 import com.sdds.plasma.sd.service.styles.button.icon.Clear
+import com.sdds.plasma.sd.service.styles.button.icon.IconButton
 import com.sdds.plasma.sd.service.styles.button.icon.L
 import com.sdds.plasma.sd.service.styles.button.icon.M
 import com.sdds.plasma.sd.service.styles.button.icon.S
 import com.sdds.plasma.sd.service.styles.button.icon.Xs
+import com.sdds.plasma.sd.service.styles.checkbox.CheckBox
 import com.sdds.plasma.sd.service.styles.checkbox.M
 import com.sdds.plasma.sd.service.styles.checkbox.S
 import com.sdds.plasma.sd.service.styles.radiobox.M
+import com.sdds.plasma.sd.service.styles.radiobox.RadioBox
 import com.sdds.plasma.sd.service.styles.radiobox.S
 import com.sdds.plasma.sd.service.styles.switcher.L
 import com.sdds.plasma.sd.service.styles.switcher.M
 import com.sdds.plasma.sd.service.styles.switcher.S
+import com.sdds.plasma.sd.service.styles.switcher.Switch
 import com.sdds.plasma.sd.service.theme.PlasmaSdServiceTheme
 import kotlin.Suppress
 import kotlin.jvm.JvmInline
@@ -104,7 +102,7 @@ private val CellStyleBuilder.invariantProps: CellStyleBuilder
 public val Cell.L: WrapperCellL
     @Composable
     @JvmName("WrapperCellL")
-    get() = CellStyle.cellBuilder(this)
+    get() = CellStyle.builder(this)
         .invariantProps
         .labelStyle(PlasmaSdServiceTheme.typography.bodyMNormal)
         .titleStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
@@ -125,7 +123,7 @@ public val Cell.L: WrapperCellL
 public val Cell.M: WrapperCellM
     @Composable
     @JvmName("WrapperCellM")
-    get() = CellStyle.cellBuilder(this)
+    get() = CellStyle.builder(this)
         .invariantProps
         .labelStyle(PlasmaSdServiceTheme.typography.bodySNormal)
         .titleStyle(PlasmaSdServiceTheme.typography.bodyMNormal)
@@ -146,7 +144,7 @@ public val Cell.M: WrapperCellM
 public val Cell.S: WrapperCellS
     @Composable
     @JvmName("WrapperCellS")
-    get() = CellStyle.cellBuilder(this)
+    get() = CellStyle.builder(this)
         .invariantProps
         .labelStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
         .titleStyle(PlasmaSdServiceTheme.typography.bodySNormal)
@@ -167,7 +165,7 @@ public val Cell.S: WrapperCellS
 public val Cell.Xs: WrapperCellXs
     @Composable
     @JvmName("WrapperCellXs")
-    get() = CellStyle.cellBuilder(this)
+    get() = CellStyle.builder(this)
         .invariantProps
         .labelStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
         .titleStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)

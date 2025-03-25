@@ -2,7 +2,7 @@ package com.sdds.playground.sandbox.buttons.compose
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.sdds.compose.uikit.Button
+import com.sdds.compose.uikit.ButtonSpacing
 import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.playground.sandbox.core.compose.ComponentViewModel
 import com.sdds.playground.sandbox.core.compose.Property
@@ -35,7 +35,7 @@ internal class ButtonViewModel(
         )
     }
 
-    private fun updateSpacing(spacing: Button.Spacing) {
+    private fun updateSpacing(spacing: ButtonSpacing) {
         internalUiState.value = internalUiState.value.copy(
             spacing = spacing,
         )

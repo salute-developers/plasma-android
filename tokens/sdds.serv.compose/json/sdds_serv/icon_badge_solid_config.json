@@ -1,0 +1,234 @@
+{
+    "view": {
+        "default": {
+            "props": {
+                "backgroundColor": {
+                    "type": "color",
+                    "default": "surface.default.solid-default"
+                },
+                "startContentColor": {
+                    "type": "color",
+                    "default": "text.inverse.primary"
+                }
+            }
+        },
+        "accent": {
+            "props": {
+                "backgroundColor": {
+                    "type": "color",
+                    "default": "surface.default.accent"
+                },
+                "startContentColor": {
+                    "type": "color",
+                    "default": "text.on-dark.primary"
+                }
+            }
+        },
+        "negative": {
+            "props": {
+                "backgroundColor": {
+                    "type": "color",
+                    "default": "surface.default.negative"
+                },
+                "startContentColor": {
+                    "type": "color",
+                    "default": "text.on-dark.primary"
+                }
+            }
+        },
+        "positive": {
+            "props": {
+                "backgroundColor": {
+                    "type": "color",
+                    "default": "surface.default.positive"
+                },
+                "startContentColor": {
+                    "type": "color",
+                    "default": "text.on-dark.primary"
+                }
+            }
+        },
+        "warning": {
+            "props": {
+                "backgroundColor": {
+                    "type": "color",
+                    "default": "surface.default.warning"
+                },
+                "startContentColor": {
+                    "type": "color",
+                    "default": "text.on-dark.primary"
+                }
+            }
+        },
+        "dark": {
+            "props": {
+                "backgroundColor": {
+                    "type": "color",
+                    "default": "surface.on-light.solid-default"
+                },
+                "startContentColor": {
+                    "type": "color",
+                    "default": "text.on-dark.primary"
+                }
+            }
+        },
+        "light": {
+            "props": {
+                "backgroundColor": {
+                    "type": "color",
+                    "default": "surface.on-dark.solid-default"
+                },
+                "startContentColor": {
+                    "type": "color",
+                    "default": "text.on-light.primary"
+                }
+            }
+        }
+    },
+    "variations": [
+        {
+            "id": "l",
+            "parent": null,
+            "props": {
+                "shape": {
+                    "type": "shape",
+                    "value": "round.s"
+                },
+                "height": {
+                    "type": "dimension",
+                    "value": 28
+                },
+                "startPadding": {
+                    "type": "dimension",
+                    "value": 6
+                },
+                "endPadding": {
+                    "type": "dimension",
+                    "value": 6
+                },
+                "startContentSize": {
+                    "type": "dimension",
+                    "value": 16
+                }
+            }
+        },
+        {
+            "id": "l.pilled",
+            "parent": "l",
+            "props": {
+                "shape": {
+                    "type": "shape",
+                    "value": "round.circle"
+                }
+            }
+        },
+        {
+            "id": "m",
+            "parent": null,
+            "props": {
+                "shape": {
+                    "type": "shape",
+                    "value": "round.xs"
+                },
+                "height": {
+                    "type": "dimension",
+                    "value": 24
+                },
+                "startPadding": {
+                    "type": "dimension",
+                    "value": 6
+                },
+                "endPadding": {
+                    "type": "dimension",
+                    "value": 6
+                },
+                "startContentSize": {
+                    "type": "dimension",
+                    "value": 12
+                }
+            }
+        },
+        {
+            "id": "m.pilled",
+            "parent": "m",
+            "props": {
+                "shape": {
+                    "type": "shape",
+                    "value": "round.circle"
+                }
+            }
+        },
+        {
+            "id": "s",
+            "parent": null,
+            "props": {
+                "shape": {
+                    "type": "shape",
+                    "value": "round.xs"
+                },
+                "height": {
+                    "type": "dimension",
+                    "value": 20
+                },
+                "startPadding": {
+                    "type": "dimension",
+                    "value": 4
+                },
+                "endPadding": {
+                    "type": "dimension",
+                    "value": 4
+                },
+                "startContentSize": {
+                    "type": "dimension",
+                    "value": 12
+                }
+            }
+        },
+        {
+            "id": "s.pilled",
+            "parent": "s",
+            "props": {
+                "shape": {
+                    "type": "shape",
+                    "value": "round.circle"
+                }
+            }
+        },
+        {
+            "id": "xs",
+            "parent": null,
+            "props": {
+                "shape": {
+                    "type": "shape",
+                    "value": "round.xxs"
+                },
+                "height": {
+                    "type": "dimension",
+                    "value": 16
+                },
+                "startPadding": {
+                    "type": "dimension",
+                    "value": 3
+                },
+                "endPadding": {
+                    "type": "dimension",
+                    "value": 3
+                },
+                "startContentSize": {
+                    "type": "dimension",
+                    "value": 10
+                }
+            }
+        },
+        {
+            "id": "xs.pilled",
+            "parent": "xs",
+            "props": {
+                "shape": {
+                    "type": "shape",
+                    "value": "round.circle"
+                }
+            }
+        }
+    ]
+}

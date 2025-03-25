@@ -1,7 +1,6 @@
 package com.sdds.playground.sandbox.sdds.serv.integration.indicator.compose
 
 import androidx.compose.runtime.Composable
-import com.sdds.compose.uikit.Indicator
 import com.sdds.compose.uikit.IndicatorStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
@@ -10,6 +9,7 @@ import com.sdds.serv.styles.indicator.Black
 import com.sdds.serv.styles.indicator.Dark
 import com.sdds.serv.styles.indicator.Default
 import com.sdds.serv.styles.indicator.Inactive
+import com.sdds.serv.styles.indicator.Indicator
 import com.sdds.serv.styles.indicator.L
 import com.sdds.serv.styles.indicator.M
 import com.sdds.serv.styles.indicator.Negative

@@ -1,7 +1,6 @@
 package com.sdds.playground.sandbox.plasma.stards.integration.textfield
 
 import androidx.compose.runtime.Composable
-import com.sdds.compose.uikit.TextField
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
@@ -11,6 +10,7 @@ import com.sdkit.star.designsystem.styles.textfield.InnerLabel
 import com.sdkit.star.designsystem.styles.textfield.M
 import com.sdkit.star.designsystem.styles.textfield.OuterLabel
 import com.sdkit.star.designsystem.styles.textfield.S
+import com.sdkit.star.designsystem.styles.textfield.TextField
 import com.sdkit.star.designsystem.styles.textfield.Xs
 
 internal object StarDsTextFieldVariationsCompose : ComposeStyleProvider<String, TextFieldStyle>() {

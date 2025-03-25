@@ -1,11 +1,11 @@
 package com.sdds.playground.sandbox.sdds.serv.integration.button.basic
 
 import androidx.compose.runtime.Composable
-import com.sdds.compose.uikit.BasicButton
 import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 import com.sdds.serv.styles.button.basic.Accent
+import com.sdds.serv.styles.button.basic.BasicButton
 import com.sdds.serv.styles.button.basic.Black
 import com.sdds.serv.styles.button.basic.Clear
 import com.sdds.serv.styles.button.basic.Dark

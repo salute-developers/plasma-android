@@ -10,34 +10,32 @@ package com.sdkit.star.designsystem.styles.cell
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
-import com.sdds.compose.uikit.Avatar
-import com.sdds.compose.uikit.Cell
 import com.sdds.compose.uikit.CellStyle
 import com.sdds.compose.uikit.CellStyleBuilder
-import com.sdds.compose.uikit.CheckBox
-import com.sdds.compose.uikit.IconButton
-import com.sdds.compose.uikit.RadioBox
-import com.sdds.compose.uikit.Switch
-import com.sdds.compose.uikit.cellBuilder
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
 import com.sdkit.star.designsystem.compose.R
+import com.sdkit.star.designsystem.styles.avatar.Avatar
 import com.sdkit.star.designsystem.styles.avatar.L
 import com.sdkit.star.designsystem.styles.avatar.M
 import com.sdkit.star.designsystem.styles.avatar.S
+import com.sdkit.star.designsystem.styles.button.icon.IconButton
 import com.sdkit.star.designsystem.styles.button.icon.L
 import com.sdkit.star.designsystem.styles.button.icon.M
 import com.sdkit.star.designsystem.styles.button.icon.S
 import com.sdkit.star.designsystem.styles.button.icon.Xs
+import com.sdkit.star.designsystem.styles.checkbox.CheckBox
 import com.sdkit.star.designsystem.styles.checkbox.M
 import com.sdkit.star.designsystem.styles.checkbox.S
 import com.sdkit.star.designsystem.styles.radiobox.M
+import com.sdkit.star.designsystem.styles.radiobox.RadioBox
 import com.sdkit.star.designsystem.styles.radiobox.S
 import com.sdkit.star.designsystem.styles.switcher.L
 import com.sdkit.star.designsystem.styles.switcher.M
 import com.sdkit.star.designsystem.styles.switcher.S
+import com.sdkit.star.designsystem.styles.switcher.Switch
 import com.sdkit.star.designsystem.theme.StarDsTheme
 import kotlin.Suppress
 import kotlin.jvm.JvmInline
@@ -104,7 +102,7 @@ private val CellStyleBuilder.invariantProps: CellStyleBuilder
 public val Cell.L: WrapperCellL
     @Composable
     @JvmName("WrapperCellL")
-    get() = CellStyle.cellBuilder(this)
+    get() = CellStyle.builder(this)
         .invariantProps
         .labelStyle(StarDsTheme.typography.bodyMNormal)
         .titleStyle(StarDsTheme.typography.bodyLNormal)
@@ -125,7 +123,7 @@ public val Cell.L: WrapperCellL
 public val Cell.M: WrapperCellM
     @Composable
     @JvmName("WrapperCellM")
-    get() = CellStyle.cellBuilder(this)
+    get() = CellStyle.builder(this)
         .invariantProps
         .labelStyle(StarDsTheme.typography.bodySNormal)
         .titleStyle(StarDsTheme.typography.bodyMNormal)
@@ -146,7 +144,7 @@ public val Cell.M: WrapperCellM
 public val Cell.S: WrapperCellS
     @Composable
     @JvmName("WrapperCellS")
-    get() = CellStyle.cellBuilder(this)
+    get() = CellStyle.builder(this)
         .invariantProps
         .labelStyle(StarDsTheme.typography.bodyXsNormal)
         .titleStyle(StarDsTheme.typography.bodySNormal)
@@ -167,7 +165,7 @@ public val Cell.S: WrapperCellS
 public val Cell.Xs: WrapperCellXs
     @Composable
     @JvmName("WrapperCellXs")
-    get() = CellStyle.cellBuilder(this)
+    get() = CellStyle.builder(this)
         .invariantProps
         .labelStyle(StarDsTheme.typography.bodyXsNormal)
         .titleStyle(StarDsTheme.typography.bodyXsNormal)

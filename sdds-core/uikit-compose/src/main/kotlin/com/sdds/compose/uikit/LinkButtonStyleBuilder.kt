@@ -60,10 +60,10 @@ interface LinkButtonStyleBuilder : StyleBuilder<ButtonStyle> {
     /**
      * Устанавливает размеры и отступы контента кнопки [dimensions]
      * @see ButtonStyle.dimensions
-     * @see Button.Dimensions
+     * @see ButtonDimensions
      */
     @Deprecated("Use dimensions() with builder instead")
-    fun dimensions(dimensions: Button.Dimensions): LinkButtonStyleBuilder
+    fun dimensions(dimensions: ButtonDimensions): LinkButtonStyleBuilder
 
     /**
      * Устанавливает размеры и отступы компонента [dimensions]
@@ -91,7 +91,6 @@ interface LinkButtonColorsBuilder {
 
     /**
      * Устанавливает цвет контента кнопки [contentColor]
-     * @see ButtonColors.contentColor
      * @see InteractiveColor
      */
     fun contentColor(contentColor: InteractiveColor): LinkButtonColorsBuilder
@@ -99,7 +98,6 @@ interface LinkButtonColorsBuilder {
     /**
      * Устанавливает цвет контента кнопки [contentColor]
      * @see LinkButtonColorsBuilder.contentColor
-     * @see ButtonColors.contentColor
      * @see InteractiveColor
      */
     fun contentColor(contentColor: Color): LinkButtonColorsBuilder =
@@ -186,14 +184,14 @@ interface LinkButtonColorsBuilder {
 
     companion object {
         /**
-         * Возвращает экземпляр [ButtonColorsBuilder]
+         * Возвращает экземпляр [LinkButtonColorsBuilder]
          */
         fun builder(): LinkButtonColorsBuilder = DefaultLinkButtonColors.Builder()
     }
 }
 
 /**
- * Билдер размеров для [LinkButton]
+ * Билдер размеров для LinkButton
  */
 interface LinkButtonDimensionsBuilder {
 
@@ -238,9 +236,9 @@ interface LinkButtonDimensionsBuilder {
     fun iconMargin(iconMargin: Dp): LinkButtonDimensionsBuilder
 
     /**
-     * Возвращает [Button.Dimensions]
+     * Возвращает [ButtonDimensions]
      */
-    fun build(): Button.Dimensions
+    fun build(): ButtonDimensions
 
     companion object {
         /**
@@ -291,8 +289,8 @@ private class DefaultLinkButtonDimensionsBuilder : LinkButtonDimensionsBuilder {
         this.iconMargin = iconMargin
     }
 
-    override fun build(): Button.Dimensions {
-        return Button.Dimensions(
+    override fun build(): ButtonDimensions {
+        return ButtonDimensions(
             height = height ?: 46.dp,
             paddingStart = paddingStart ?: 0.dp,
             paddingEnd = paddingEnd ?: 0.dp,
@@ -341,7 +339,7 @@ private class LinkButtonStyleBuilderImpl(override val receiver: Any?) : LinkButt
         }
 
     @Deprecated("Use dimensions() with builder instead")
-    override fun dimensions(dimensions: Button.Dimensions) = apply {
+    override fun dimensions(dimensions: ButtonDimensions) = apply {
         this.dimensionsBuilder.apply {
             height(dimensions.height)
             paddingStart(dimensions.paddingStart)
@@ -380,7 +378,7 @@ private class DefaultLinkButtonStyle(
     override val colors: ButtonColors,
     override val labelStyle: TextStyle,
     override val valueStyle: TextStyle,
-    override val dimensions: Button.Dimensions,
+    override val dimensions: ButtonDimensions,
     override val disableAlpha: Float,
     override val loadingAlpha: Float,
 ) : ButtonStyle

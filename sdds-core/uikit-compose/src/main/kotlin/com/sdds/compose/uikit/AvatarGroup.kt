@@ -117,14 +117,9 @@ fun AvatarGroupItemScope.AvatarCounter(
     Avatar(
         modifier = modifier,
         painter = null,
-        placeholder = Avatar.Placeholder.Text("+$displayCount"),
+        placeholder = AvatarPlaceholder.Text("+$displayCount"),
     )
 }
-
-/**
- * Вспомогательный объект для описания API и стиля компонента [AvatarGroup]
- */
-object AvatarGroup
 
 /**
  * Провайдер доступности статуса аватара

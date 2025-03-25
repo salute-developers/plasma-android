@@ -16,13 +16,7 @@ import com.sdds.compose.uikit.style.StyleBuilder
 /**
  * CompositionLocal c [CounterStyle] для компонента [Counter]
  */
-val LocalCounterStyle = compositionLocalOf { CounterStyle.counterBuilder().style() }
-
-/**
- * Возвращает экземпляр [CounterStyleBuilder]
- */
-fun CounterStyle.Companion.counterBuilder(receiver: Any? = null): CounterStyleBuilder =
-    CounterStyleBuilderImpl(receiver)
+val LocalCounterStyle = compositionLocalOf { CounterStyle.builder().style() }
 
 /**
  * Builder стиля [Counter]
@@ -221,7 +215,7 @@ private class DefaultCounterStyle(
     override val disableAlpha: Float,
 ) : CounterStyle
 
-private class CounterStyleBuilderImpl(receiver: Any?) : CounterStyleBuilder {
+internal class CounterStyleBuilderImpl(receiver: Any?) : CounterStyleBuilder {
 
     private var colorsBuilder: CounterColorsBuilder = CounterColorsBuilder.builder()
     private var dimensionsBuilder: CounterDimensionsBuilder = CounterDimensionsBuilder.builder()

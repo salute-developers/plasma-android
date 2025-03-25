@@ -10,18 +10,17 @@ package com.sdds.serv.styles.segment.item
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.uikit.Counter
 import com.sdds.compose.uikit.SegmentItemStyle
 import com.sdds.compose.uikit.SegmentItemStyleBuilder
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
-import com.sdds.compose.uikit.segmentItemBuilder
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.modify
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
 import com.sdds.serv.styles.counter.Accent
+import com.sdds.serv.styles.counter.Counter
 import com.sdds.serv.styles.counter.S
 import com.sdds.serv.styles.counter.Xs
 import com.sdds.serv.styles.counter.Xxs
@@ -769,7 +768,7 @@ public val WrapperXlView.Secondary: WrapperSegmentItemTerminate
 public val SegmentItem.Xl: WrapperSegmentItemXl
     @Composable
     @JvmName("WrapperSegmentItemXl")
-    get() = SegmentItemStyle.segmentItemBuilder(this)
+    get() = SegmentItemStyle.builder(this)
         .invariantProps
         .shape(SddsServTheme.shapes.roundL.adjustBy(all = 0.0.dp))
         .labelStyle(SddsServTheme.typography.bodyLBold)
@@ -1107,7 +1106,7 @@ public val WrapperLView.Secondary: WrapperSegmentItemTerminate
 public val SegmentItem.L: WrapperSegmentItemL
     @Composable
     @JvmName("WrapperSegmentItemL")
-    get() = SegmentItemStyle.segmentItemBuilder(this)
+    get() = SegmentItemStyle.builder(this)
         .invariantProps
         .shape(SddsServTheme.shapes.roundL.adjustBy(all = -2.0.dp))
         .labelStyle(SddsServTheme.typography.bodyLBold)
@@ -1445,7 +1444,7 @@ public val WrapperMView.Secondary: WrapperSegmentItemTerminate
 public val SegmentItem.M: WrapperSegmentItemM
     @Composable
     @JvmName("WrapperSegmentItemM")
-    get() = SegmentItemStyle.segmentItemBuilder(this)
+    get() = SegmentItemStyle.builder(this)
         .invariantProps
         .shape(SddsServTheme.shapes.roundM.adjustBy(all = 0.0.dp))
         .labelStyle(SddsServTheme.typography.bodyMBold)
@@ -1783,7 +1782,7 @@ public val WrapperSView.Secondary: WrapperSegmentItemTerminate
 public val SegmentItem.S: WrapperSegmentItemS
     @Composable
     @JvmName("WrapperSegmentItemS")
-    get() = SegmentItemStyle.segmentItemBuilder(this)
+    get() = SegmentItemStyle.builder(this)
         .invariantProps
         .shape(SddsServTheme.shapes.roundM.adjustBy(all = -2.0.dp))
         .labelStyle(SddsServTheme.typography.bodySBold)
@@ -2121,7 +2120,7 @@ public val WrapperXsView.Secondary: WrapperSegmentItemTerminate
 public val SegmentItem.Xs: WrapperSegmentItemXs
     @Composable
     @JvmName("WrapperSegmentItemXs")
-    get() = SegmentItemStyle.segmentItemBuilder(this)
+    get() = SegmentItemStyle.builder(this)
         .invariantProps
         .shape(SddsServTheme.shapes.roundS.adjustBy(all = 0.0.dp))
         .labelStyle(SddsServTheme.typography.bodyXsBold)

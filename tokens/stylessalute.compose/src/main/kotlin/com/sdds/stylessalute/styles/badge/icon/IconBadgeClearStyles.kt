@@ -11,9 +11,8 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.BadgeStyle
-import com.sdds.compose.uikit.IconBadgeClear
 import com.sdds.compose.uikit.IconBadgeStyleBuilder
-import com.sdds.compose.uikit.iconBadgeClearBuilder
+import com.sdds.compose.uikit.iconBadgeBuilder
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
@@ -189,7 +188,7 @@ private val IconBadgeStyleBuilder.invariantProps: IconBadgeStyleBuilder
 public val IconBadgeClear.L: WrapperIconBadgeClearL
     @Composable
     @JvmName("WrapperIconBadgeClearL")
-    get() = BadgeStyle.iconBadgeClearBuilder(this)
+    get() = BadgeStyle.iconBadgeBuilder(this)
         .invariantProps
         .shape(StylesSaluteTheme.shapes.roundS)
         .dimensions {
@@ -210,7 +209,7 @@ public val WrapperIconBadgeClearL.Pilled: WrapperIconBadgeClearLPilled
 public val IconBadgeClear.M: WrapperIconBadgeClearM
     @Composable
     @JvmName("WrapperIconBadgeClearM")
-    get() = BadgeStyle.iconBadgeClearBuilder(this)
+    get() = BadgeStyle.iconBadgeBuilder(this)
         .invariantProps
         .shape(StylesSaluteTheme.shapes.roundXs)
         .dimensions {
@@ -231,7 +230,7 @@ public val WrapperIconBadgeClearM.Pilled: WrapperIconBadgeClearMPilled
 public val IconBadgeClear.S: WrapperIconBadgeClearS
     @Composable
     @JvmName("WrapperIconBadgeClearS")
-    get() = BadgeStyle.iconBadgeClearBuilder(this)
+    get() = BadgeStyle.iconBadgeBuilder(this)
         .invariantProps
         .shape(StylesSaluteTheme.shapes.roundXs)
         .dimensions {
@@ -252,7 +251,7 @@ public val WrapperIconBadgeClearS.Pilled: WrapperIconBadgeClearSPilled
 public val IconBadgeClear.Xs: WrapperIconBadgeClearXs
     @Composable
     @JvmName("WrapperIconBadgeClearXs")
-    get() = BadgeStyle.iconBadgeClearBuilder(this)
+    get() = BadgeStyle.iconBadgeBuilder(this)
         .invariantProps
         .shape(StylesSaluteTheme.shapes.roundXxs)
         .dimensions {

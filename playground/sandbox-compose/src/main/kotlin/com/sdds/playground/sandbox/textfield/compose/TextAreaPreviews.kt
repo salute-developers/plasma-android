@@ -15,7 +15,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.Chip
 import com.sdds.compose.uikit.Icon
-import com.sdds.compose.uikit.TextArea
 import com.sdds.compose.uikit.TextField
 import com.sdds.compose.uikit.style.style
 import com.sdds.icons.R
@@ -29,6 +28,7 @@ import com.sdds.serv.styles.textarea.OuterLabel
 import com.sdds.serv.styles.textarea.RequiredEnd
 import com.sdds.serv.styles.textarea.RequiredStart
 import com.sdds.serv.styles.textarea.S
+import com.sdds.serv.styles.textarea.TextArea
 import com.sdds.serv.styles.textarea.Warning
 import com.sdds.serv.styles.textarea.Xs
 

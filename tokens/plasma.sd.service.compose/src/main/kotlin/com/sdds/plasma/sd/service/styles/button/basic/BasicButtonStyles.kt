@@ -9,7 +9,6 @@ package com.sdds.plasma.sd.service.styles.button.basic
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.uikit.BasicButton
 import com.sdds.compose.uikit.BasicButtonStyleBuilder
 import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.adjustBy

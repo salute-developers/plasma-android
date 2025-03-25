@@ -8,6 +8,7 @@ import com.sdds.compose.uikit.Icon
 import com.sdds.icons.R
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.serv.styles.chip.Accent
+import com.sdds.serv.styles.chip.Chip
 import com.sdds.serv.styles.chip.Default
 import com.sdds.serv.styles.chip.L
 import com.sdds.serv.styles.chip.M

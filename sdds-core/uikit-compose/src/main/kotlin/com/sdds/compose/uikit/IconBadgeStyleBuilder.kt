@@ -16,24 +16,12 @@ import com.sdds.compose.uikit.style.StyleBuilder
 /**
  * CompositionLocal c [BadgeStyle] для компонента [IconBadgeSolid]
  */
-val LocalIconBadgeStyle = compositionLocalOf { BadgeStyle.iconBadgeSolidBuilder().style() }
+val LocalIconBadgeStyle = compositionLocalOf { BadgeStyle.iconBadgeBuilder().style() }
 
 /**
  * Возвращает экземпляр [IconBadgeStyleBuilder] для Solid
  */
-fun BadgeStyle.Companion.iconBadgeSolidBuilder(receiver: Any? = null): IconBadgeStyleBuilder =
-    IconBadgeStyleBuilderImpl(receiver)
-
-/**
- * Возвращает экземпляр [IconBadgeStyleBuilder] для Clear
- */
-fun BadgeStyle.Companion.iconBadgeClearBuilder(receiver: Any? = null): IconBadgeStyleBuilder =
-    IconBadgeStyleBuilderImpl(receiver)
-
-/**
- * Возвращает экземпляр [IconBadgeStyleBuilder] для Transparent
- */
-fun BadgeStyle.Companion.iconBadgeTransparentBuilder(receiver: Any? = null): IconBadgeStyleBuilder =
+fun BadgeStyle.Companion.iconBadgeBuilder(receiver: Any? = null): IconBadgeStyleBuilder =
     IconBadgeStyleBuilderImpl(receiver)
 
 /**

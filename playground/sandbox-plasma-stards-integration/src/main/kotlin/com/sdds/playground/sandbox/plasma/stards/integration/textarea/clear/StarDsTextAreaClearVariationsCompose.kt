@@ -1,7 +1,6 @@
 package com.sdds.playground.sandbox.plasma.stards.integration.textarea.clear
 
 import androidx.compose.runtime.Composable
-import com.sdds.compose.uikit.TextAreaClear
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
@@ -12,6 +11,7 @@ import com.sdkit.star.designsystem.styles.textarea.clear.L
 import com.sdkit.star.designsystem.styles.textarea.clear.M
 import com.sdkit.star.designsystem.styles.textarea.clear.OuterLabel
 import com.sdkit.star.designsystem.styles.textarea.clear.S
+import com.sdkit.star.designsystem.styles.textarea.clear.TextAreaClear
 import com.sdkit.star.designsystem.styles.textarea.clear.Xs
 
 internal object StarDsTextAreaClearVariationsCompose : ComposeStyleProvider<String, TextFieldStyle>() {

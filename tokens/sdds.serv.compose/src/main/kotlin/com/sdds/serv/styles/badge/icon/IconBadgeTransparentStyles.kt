@@ -12,8 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.BadgeStyle
 import com.sdds.compose.uikit.IconBadgeStyleBuilder
-import com.sdds.compose.uikit.IconBadgeTransparent
-import com.sdds.compose.uikit.iconBadgeTransparentBuilder
+import com.sdds.compose.uikit.iconBadgeBuilder
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
@@ -205,7 +204,7 @@ private val IconBadgeStyleBuilder.invariantProps: IconBadgeStyleBuilder
 public val IconBadgeTransparent.L: WrapperIconBadgeTransparentL
     @Composable
     @JvmName("WrapperIconBadgeTransparentL")
-    get() = BadgeStyle.iconBadgeTransparentBuilder(this)
+    get() = BadgeStyle.iconBadgeBuilder(this)
         .invariantProps
         .shape(SddsServTheme.shapes.roundS)
         .dimensions {
@@ -226,7 +225,7 @@ public val WrapperIconBadgeTransparentL.Pilled: WrapperIconBadgeTransparentLPill
 public val IconBadgeTransparent.M: WrapperIconBadgeTransparentM
     @Composable
     @JvmName("WrapperIconBadgeTransparentM")
-    get() = BadgeStyle.iconBadgeTransparentBuilder(this)
+    get() = BadgeStyle.iconBadgeBuilder(this)
         .invariantProps
         .shape(SddsServTheme.shapes.roundXs)
         .dimensions {
@@ -247,7 +246,7 @@ public val WrapperIconBadgeTransparentM.Pilled: WrapperIconBadgeTransparentMPill
 public val IconBadgeTransparent.S: WrapperIconBadgeTransparentS
     @Composable
     @JvmName("WrapperIconBadgeTransparentS")
-    get() = BadgeStyle.iconBadgeTransparentBuilder(this)
+    get() = BadgeStyle.iconBadgeBuilder(this)
         .invariantProps
         .shape(SddsServTheme.shapes.roundXs)
         .dimensions {
@@ -268,7 +267,7 @@ public val WrapperIconBadgeTransparentS.Pilled: WrapperIconBadgeTransparentSPill
 public val IconBadgeTransparent.Xs: WrapperIconBadgeTransparentXs
     @Composable
     @JvmName("WrapperIconBadgeTransparentXs")
-    get() = BadgeStyle.iconBadgeTransparentBuilder(this)
+    get() = BadgeStyle.iconBadgeBuilder(this)
         .invariantProps
         .shape(SddsServTheme.shapes.roundXxs)
         .dimensions {

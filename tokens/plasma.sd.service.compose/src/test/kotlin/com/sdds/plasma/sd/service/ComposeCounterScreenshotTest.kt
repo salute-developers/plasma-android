@@ -1,9 +1,9 @@
 package com.sdds.plasma.sd.service
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
-import com.sdds.compose.uikit.Counter
 import com.sdds.compose.uikit.style.style
 import com.sdds.plasma.sd.service.styles.counter.Accent
+import com.sdds.plasma.sd.service.styles.counter.Counter
 import com.sdds.plasma.sd.service.styles.counter.Default
 import com.sdds.plasma.sd.service.styles.counter.L
 import com.sdds.plasma.sd.service.styles.counter.M

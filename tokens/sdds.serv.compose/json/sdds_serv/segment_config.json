@@ -1,0 +1,454 @@
+{
+    "view": {},
+    "props": {
+        "backgroundColor": {
+            "type": "color",
+            "default": "surface.default.transparent-secondary"
+        }
+    },
+    "variations": [
+        {
+            "id": "xl",
+            "parent": null,
+            "view": {
+                "primary": {
+                    "props": {
+                        "segmentItemStyle": {
+                            "type": "component_style",
+                            "value": "segment-item.xl.primary"
+                        }
+                    }
+                },
+                "secondary": {
+                    "props": {
+                        "segmentItemStyle": {
+                            "type": "component_style",
+                            "value": "segment-item.xl.secondary"
+                        }
+                    }
+                },
+                "accent": {
+                    "props": {
+                        "segmentItemStyle": {
+                            "type": "component_style",
+                            "value": "segment-item.xl.accent"
+                        }
+                    }
+                }
+            },
+            "props": {
+                "shape": {
+                    "type": "shape",
+                    "value": "round.xl",
+                    "adjustment": -2
+                },
+                "paddingStart": {
+                    "type": "dimension",
+                    "value": 2
+                },
+                "paddingEnd": {
+                    "type": "dimension",
+                    "value": 2
+                },
+                "paddingTop": {
+                    "type": "dimension",
+                    "value": 2
+                },
+                "paddingBottom": {
+                    "type": "dimension",
+                    "value": 2
+                }
+            }
+        },
+        {
+            "id": "xl.pilled",
+            "parent": "xl",
+            "view": {
+                "primary": {
+                    "props": {
+                        "segmentItemStyle": {
+                            "type": "component_style",
+                            "value": "segment-item.xl.pilled.primary"
+                        }
+                    }
+                },
+                "secondary": {
+                    "props": {
+                        "segmentItemStyle": {
+                            "type": "component_style",
+                            "value": "segment-item.xl.pilled.secondary"
+                        }
+                    }
+                },
+                "accent": {
+                    "props": {
+                        "segmentItemStyle": {
+                            "type": "component_style",
+                            "value": "segment-item.xl.pilled.accent"
+                        }
+                    }
+                }
+            },
+            "props": {
+                "shape": {
+                    "type": "shape",
+                    "value": "round.circle"
+                }
+            }
+        },
+        {
+            "id": "l",
+            "parent": null,
+            "view": {
+                "primary": {
+                    "props": {
+                        "segmentItemStyle": {
+                            "type": "component_style",
+                            "value": "segment-item.l.primary"
+                        }
+                    }
+                },
+                "secondary": {
+                    "props": {
+                        "segmentItemStyle": {
+                            "type": "component_style",
+                            "value": "segment-item.l.secondary"
+                        }
+                    }
+                },
+                "accent": {
+                    "props": {
+                        "segmentItemStyle": {
+                            "type": "component_style",
+                            "value": "segment-item.l.accent"
+                        }
+                    }
+                }
+            },
+            "props": {
+                "shape": {
+                    "type": "shape",
+                    "value": "round.l",
+                    "adjustment": -2
+                },
+                "paddingStart": {
+                    "type": "dimension",
+                    "value": 2
+                },
+                "paddingEnd": {
+                    "type": "dimension",
+                    "value": 2
+                },
+                "paddingTop": {
+                    "type": "dimension",
+                    "value": 2
+                },
+                "paddingBottom": {
+                    "type": "dimension",
+                    "value": 2
+                }
+            }
+        },
+        {
+            "id": "l.pilled",
+            "parent": "l",
+            "view": {
+                "primary": {
+                    "props": {
+                        "segmentItemStyle": {
+                            "type": "component_style",
+                            "value": "segment-item.l.pilled.primary"
+                        }
+                    }
+                },
+                "secondary": {
+                    "props": {
+                        "segmentItemStyle": {
+                            "type": "component_style",
+                            "value": "segment-item.l.pilled.secondary"
+                        }
+                    }
+                },
+                "accent": {
+                    "props": {
+                        "segmentItemStyle": {
+                            "type": "component_style",
+                            "value": "segment-item.l.pilled.accent"
+                        }
+                    }
+                }
+            },
+            "props": {
+                "shape": {
+                    "type": "shape",
+                    "value": "round.circle"
+                }
+            }
+        },
+        {
+            "id": "m",
+            "parent": null,
+            "view": {
+                "primary": {
+                    "props": {
+                        "segmentItemStyle": {
+                            "type": "component_style",
+                            "value": "segment-item.m.primary"
+                        }
+                    }
+                },
+                "secondary": {
+                    "props": {
+                        "segmentItemStyle": {
+                            "type": "component_style",
+                            "value": "segment-item.m.secondary"
+                        }
+                    }
+                },
+                "accent": {
+                    "props": {
+                        "segmentItemStyle": {
+                            "type": "component_style",
+                            "value": "segment-item.m.accent"
+                        }
+                    }
+                }
+            },
+            "props": {
+                "shape": {
+                    "type": "shape",
+                    "value": "round.m"
+                },
+                "paddingStart": {
+                    "type": "dimension",
+                    "value": 2
+                },
+                "paddingEnd": {
+                    "type": "dimension",
+                    "value": 2
+                },
+                "paddingTop": {
+                    "type": "dimension",
+                    "value": 2
+                },
+                "paddingBottom": {
+                    "type": "dimension",
+                    "value": 2
+                }
+            }
+        },
+        {
+            "id": "m.pilled",
+            "parent": "m",
+            "view": {
+                "primary": {
+                    "props": {
+                        "segmentItemStyle": {
+                            "type": "component_style",
+                            "value": "segment-item.m.pilled.primary"
+                        }
+                    }
+                },
+                "secondary": {
+                    "props": {
+                        "segmentItemStyle": {
+                            "type": "component_style",
+                            "value": "segment-item.m.pilled.secondary"
+                        }
+                    }
+                },
+                "accent": {
+                    "props": {
+                        "segmentItemStyle": {
+                            "type": "component_style",
+                            "value": "segment-item.m.pilled.accent"
+                        }
+                    }
+                }
+            },
+            "props": {
+                "shape": {
+                    "type": "shape",
+                    "value": "round.circle"
+                }
+            }
+        },
+        {
+            "id": "s",
+            "parent": null,
+            "view": {
+                "primary": {
+                    "props": {
+                        "segmentItemStyle": {
+                            "type": "component_style",
+                            "value": "segment-item.s.primary"
+                        }
+                    }
+                },
+                "secondary": {
+                    "props": {
+                        "segmentItemStyle": {
+                            "type": "component_style",
+                            "value": "segment-item.s.secondary"
+                        }
+                    }
+                },
+                "accent": {
+                    "props": {
+                        "segmentItemStyle": {
+                            "type": "component_style",
+                            "value": "segment-item.s.accent"
+                        }
+                    }
+                }
+            },
+            "props": {
+                "shape": {
+                    "type": "shape",
+                    "value": "round.m",
+                    "adjustment": -2
+                },
+                "paddingStart": {
+                    "type": "dimension",
+                    "value": 2
+                },
+                "paddingEnd": {
+                    "type": "dimension",
+                    "value": 2
+                },
+                "paddingTop": {
+                    "type": "dimension",
+                    "value": 2
+                },
+                "paddingBottom": {
+                    "type": "dimension",
+                    "value": 2
+                }
+            }
+        },
+        {
+            "id": "s.pilled",
+            "parent": "s",
+            "view": {
+                "primary": {
+                    "props": {
+                        "segmentItemStyle": {
+                            "type": "component_style",
+                            "value": "segment-item.s.pilled.primary"
+                        }
+                    }
+                },
+                "secondary": {
+                    "props": {
+                        "segmentItemStyle": {
+                            "type": "component_style",
+                            "value": "segment-item.s.pilled.secondary"
+                        }
+                    }
+                },
+                "accent": {
+                    "props": {
+                        "segmentItemStyle": {
+                            "type": "component_style",
+                            "value": "segment-item.s.pilled.accent"
+                        }
+                    }
+                }
+            },
+            "props": {
+                "shape": {
+                    "type": "shape",
+                    "value": "round.circle"
+                }
+            }
+        },
+        {
+            "id": "xs",
+            "parent": null,
+            "view": {
+                "primary": {
+                    "props": {
+                        "segmentItemStyle": {
+                            "type": "component_style",
+                            "value": "segment-item.xs.primary"
+                        }
+                    }
+                },
+                "secondary": {
+                    "props": {
+                        "segmentItemStyle": {
+                            "type": "component_style",
+                            "value": "segment-item.xs.secondary"
+                        }
+                    }
+                },
+                "accent": {
+                    "props": {
+                        "segmentItemStyle": {
+                            "type": "component_style",
+                            "value": "segment-item.xs.accent"
+                        }
+                    }
+                }
+            },
+            "props": {
+                "shape": {
+                    "type": "shape",
+                    "value": "round.m"
+                },
+                "paddingStart": {
+                    "type": "dimension",
+                    "value": 2
+                },
+                "paddingEnd": {
+                    "type": "dimension",
+                    "value": 2
+                },
+                "paddingTop": {
+                    "type": "dimension",
+                    "value": 2
+                },
+                "paddingBottom": {
+                    "type": "dimension",
+                    "value": 2
+                }
+            }
+        },
+        {
+            "id": "xs.pilled",
+            "parent": "xs",
+            "view": {
+                "primary": {
+                    "props": {
+                        "segmentItemStyle": {
+                            "type": "component_style",
+                            "value": "segment-item.xs.pilled.primary"
+                        }
+                    }
+                },
+                "secondary": {
+                    "props": {
+                        "segmentItemStyle": {
+                            "type": "component_style",
+                            "value": "segment-item.xs.pilled.secondary"
+                        }
+                    }
+                },
+                "accent": {
+                    "props": {
+                        "segmentItemStyle": {
+                            "type": "component_style",
+                            "value": "segment-item.xs.pilled.accent"
+                        }
+                    }
+                }
+            },
+            "props": {
+                "shape": {
+                    "type": "shape",
+                    "value": "round.circle"
+                }
+            }
+        }
+    ]
+}

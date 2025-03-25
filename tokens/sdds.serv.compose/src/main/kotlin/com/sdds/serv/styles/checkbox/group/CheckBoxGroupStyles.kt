@@ -3,10 +3,9 @@ package com.sdds.serv.styles.checkbox.group
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.uikit.CheckBox
-import com.sdds.compose.uikit.CheckBoxGroup
 import com.sdds.compose.uikit.CheckBoxGroupStyle
 import com.sdds.compose.uikit.CheckBoxGroupStyleBuilder
+import com.sdds.serv.styles.checkbox.CheckBox
 import com.sdds.serv.styles.checkbox.M
 import com.sdds.serv.styles.checkbox.S
 

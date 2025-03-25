@@ -1,11 +1,11 @@
 package com.sdds.playground.sandbox.stylessalute.integration.badge
 
 import androidx.compose.runtime.Composable
-import com.sdds.compose.uikit.BadgeSolid
 import com.sdds.compose.uikit.BadgeStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 import com.sdds.stylessalute.styles.badge.Accent
+import com.sdds.stylessalute.styles.badge.BadgeSolid
 import com.sdds.stylessalute.styles.badge.Dark
 import com.sdds.stylessalute.styles.badge.Default
 import com.sdds.stylessalute.styles.badge.L

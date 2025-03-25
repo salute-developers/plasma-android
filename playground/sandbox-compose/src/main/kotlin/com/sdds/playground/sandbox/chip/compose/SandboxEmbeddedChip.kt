@@ -4,10 +4,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.sdds.compose.uikit.Chip
-import com.sdds.compose.uikit.EmbeddedChip
 import com.sdds.compose.uikit.Icon
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.serv.styles.chip.Default
+import com.sdds.serv.styles.chip.EmbeddedChip
 import com.sdds.serv.styles.chip.M
 
 @Preview(showBackground = true)

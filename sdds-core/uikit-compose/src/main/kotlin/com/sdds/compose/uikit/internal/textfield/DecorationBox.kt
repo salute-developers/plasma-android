@@ -19,7 +19,8 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.VisualTransformation
 import com.sdds.compose.uikit.ChipGroupStyle
 import com.sdds.compose.uikit.ChipStyle
-import com.sdds.compose.uikit.TextField
+import com.sdds.compose.uikit.TextFieldAnimation
+import com.sdds.compose.uikit.TextFieldDimensions
 
 /**
  * Реализация декоратора для многострочного текстового поля.
@@ -29,7 +30,6 @@ internal fun DecorationBox(
     modifier: Modifier = Modifier,
     value: String,
     singleLine: Boolean,
-    isClearAppearance: Boolean,
     innerLabel: @Composable (() -> Unit)?,
     innerOptional: @Composable (() -> Unit)?,
     chips: @Composable (() -> Unit)? = null,
@@ -43,11 +43,11 @@ internal fun DecorationBox(
     innerCounter: @Composable (() -> Unit)? = null,
     valueTextStyle: TextStyle,
     innerLabelTextStyle: TextStyle,
-    dimensions: TextField.Dimensions,
+    dimensions: TextFieldDimensions,
     verticalScrollState: ScrollState?,
     horizontalScrollState: ScrollState?,
     visualTransformation: VisualTransformation,
-    animation: TextField.Animation,
+    animation: TextFieldAnimation,
     interactionSource: InteractionSource,
 ) {
     val transformedText = remember(value, visualTransformation) {
@@ -96,7 +96,6 @@ internal fun DecorationBox(
             chipStyle = chipStyle,
             dimensions = dimensions,
             singleLine = singleLine,
-            isClearAppearance = isClearAppearance,
             valueTextStyle = valueTextStyle,
             innerLabelTextStyle = innerLabelTextStyle,
         )

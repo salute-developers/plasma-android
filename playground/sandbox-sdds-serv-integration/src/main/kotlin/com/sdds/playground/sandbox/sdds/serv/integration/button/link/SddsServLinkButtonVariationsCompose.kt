@@ -2,12 +2,12 @@ package com.sdds.playground.sandbox.sdds.serv.integration.button.link
 
 import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.ButtonStyle
-import com.sdds.compose.uikit.LinkButton
 import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 import com.sdds.serv.styles.button.link.Accent
 import com.sdds.serv.styles.button.link.Default
 import com.sdds.serv.styles.button.link.L
+import com.sdds.serv.styles.button.link.LinkButton
 import com.sdds.serv.styles.button.link.M
 import com.sdds.serv.styles.button.link.Negative
 import com.sdds.serv.styles.button.link.Positive

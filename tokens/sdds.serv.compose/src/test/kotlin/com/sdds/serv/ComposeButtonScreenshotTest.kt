@@ -1,11 +1,9 @@
 package com.sdds.serv
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
-import com.sdds.compose.uikit.BasicButton
-import com.sdds.compose.uikit.IconButton
-import com.sdds.compose.uikit.LinkButton
 import com.sdds.compose.uikit.style.style
 import com.sdds.serv.styles.button.basic.Accent
+import com.sdds.serv.styles.button.basic.BasicButton
 import com.sdds.serv.styles.button.basic.Clear
 import com.sdds.serv.styles.button.basic.Dark
 import com.sdds.serv.styles.button.basic.Default
@@ -24,6 +22,7 @@ import com.sdds.serv.styles.button.icon.Accent
 import com.sdds.serv.styles.button.icon.Clear
 import com.sdds.serv.styles.button.icon.Dark
 import com.sdds.serv.styles.button.icon.Default
+import com.sdds.serv.styles.button.icon.IconButton
 import com.sdds.serv.styles.button.icon.L
 import com.sdds.serv.styles.button.icon.M
 import com.sdds.serv.styles.button.icon.Negative
@@ -39,6 +38,7 @@ import com.sdds.serv.styles.button.icon.Xxs
 import com.sdds.serv.styles.button.link.Accent
 import com.sdds.serv.styles.button.link.Default
 import com.sdds.serv.styles.button.link.L
+import com.sdds.serv.styles.button.link.LinkButton
 import com.sdds.serv.styles.button.link.M
 import com.sdds.serv.styles.button.link.Negative
 import com.sdds.serv.styles.button.link.S

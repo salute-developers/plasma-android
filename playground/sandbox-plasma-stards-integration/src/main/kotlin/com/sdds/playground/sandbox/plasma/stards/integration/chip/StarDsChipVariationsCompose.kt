@@ -1,10 +1,10 @@
 package com.sdds.playground.sandbox.plasma.stards.integration.chip
 
 import androidx.compose.runtime.Composable
-import com.sdds.compose.uikit.Chip
 import com.sdds.compose.uikit.ChipStyle
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 import com.sdkit.star.designsystem.styles.chip.Accent
+import com.sdkit.star.designsystem.styles.chip.Chip
 import com.sdkit.star.designsystem.styles.chip.Default
 import com.sdkit.star.designsystem.styles.chip.L
 import com.sdkit.star.designsystem.styles.chip.M

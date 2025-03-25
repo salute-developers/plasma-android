@@ -7,6 +7,8 @@ import com.sdds.compose.uikit.Avatar
 import com.sdds.compose.uikit.AvatarCounter
 import com.sdds.compose.uikit.AvatarGroup
 import com.sdds.compose.uikit.AvatarGroupStyle
+import com.sdds.compose.uikit.AvatarPlaceholder
+import com.sdds.compose.uikit.AvatarStatus
 import com.sdds.compose.uikit.AvatarStyle
 import com.sdds.testing.R
 
@@ -21,10 +23,10 @@ import com.sdds.testing.R
 fun AvatarSizeXxl(style: AvatarStyle) {
     Avatar(
         style = style,
-        status = Avatar.Status.Active,
+        status = AvatarStatus.Active,
         painter = painterResource(id = R.drawable.il_avatar_for_test),
         actionEnabled = false,
-        placeholder = Avatar.Placeholder.Name("Michael Scott"),
+        placeholder = AvatarPlaceholder.Name("Michael Scott"),
     )
 }
 
@@ -35,9 +37,9 @@ fun AvatarSizeXxl(style: AvatarStyle) {
 fun AvatarSizeM(style: AvatarStyle) {
     Avatar(
         style = style,
-        status = Avatar.Status.Active,
+        status = AvatarStatus.Active,
         actionEnabled = false,
-        placeholder = Avatar.Placeholder.Name("Michael Scott"),
+        placeholder = AvatarPlaceholder.Name("Michael Scott"),
     )
 }
 
@@ -52,18 +54,18 @@ fun AvatarGroupSizeS(style: AvatarGroupStyle) {
     ) {
         avatar {
             Avatar(
-                status = Avatar.Status.Active,
+                status = AvatarStatus.Active,
                 actionEnabled = false,
-                placeholder = Avatar.Placeholder.Name("Michael Scott"),
+                placeholder = AvatarPlaceholder.Name("Michael Scott"),
                 painter = painterResource(id = R.drawable.il_avatar_for_test),
                 contentScale = ContentScale.Fit,
             )
         }
         avatar {
             Avatar(
-                status = Avatar.Status.Active,
+                status = AvatarStatus.Active,
                 actionEnabled = false,
-                placeholder = Avatar.Placeholder.Name("Michael Scott"),
+                placeholder = AvatarPlaceholder.Name("Michael Scott"),
             )
         }
         counter {

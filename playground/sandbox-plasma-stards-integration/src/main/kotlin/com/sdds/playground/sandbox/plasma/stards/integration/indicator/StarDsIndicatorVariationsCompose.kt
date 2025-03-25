@@ -1,7 +1,6 @@
 package com.sdds.playground.sandbox.plasma.stards.integration.indicator
 
 import androidx.compose.runtime.Composable
-import com.sdds.compose.uikit.Indicator
 import com.sdds.compose.uikit.IndicatorStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
@@ -10,6 +9,7 @@ import com.sdkit.star.designsystem.styles.indicator.Black
 import com.sdkit.star.designsystem.styles.indicator.Dark
 import com.sdkit.star.designsystem.styles.indicator.Default
 import com.sdkit.star.designsystem.styles.indicator.Inactive
+import com.sdkit.star.designsystem.styles.indicator.Indicator
 import com.sdkit.star.designsystem.styles.indicator.L
 import com.sdkit.star.designsystem.styles.indicator.M
 import com.sdkit.star.designsystem.styles.indicator.Negative

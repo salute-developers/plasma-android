@@ -1,8 +1,8 @@
 package com.sdds.serv
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
-import com.sdds.compose.uikit.Avatar
-import com.sdds.compose.uikit.AvatarGroup
+import com.sdds.serv.styles.avatar.Avatar
+import com.sdds.serv.styles.avatar.AvatarGroup
 import com.sdds.serv.styles.avatar.M
 import com.sdds.serv.styles.avatar.S
 import com.sdds.serv.styles.avatar.Xxl

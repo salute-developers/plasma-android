@@ -2,12 +2,12 @@ package com.sdds.playground.sandbox.stylessalute.integration.badge.icon
 
 import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.BadgeStyle
-import com.sdds.compose.uikit.IconBadgeTransparent
 import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 import com.sdds.stylessalute.styles.badge.icon.Accent
 import com.sdds.stylessalute.styles.badge.icon.Dark
 import com.sdds.stylessalute.styles.badge.icon.Default
+import com.sdds.stylessalute.styles.badge.icon.IconBadgeTransparent
 import com.sdds.stylessalute.styles.badge.icon.L
 import com.sdds.stylessalute.styles.badge.icon.Light
 import com.sdds.stylessalute.styles.badge.icon.M

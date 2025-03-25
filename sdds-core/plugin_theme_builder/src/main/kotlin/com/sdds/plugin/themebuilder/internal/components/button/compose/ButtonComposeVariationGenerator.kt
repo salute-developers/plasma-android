@@ -22,6 +22,7 @@ internal class ButtonComposeVariationGenerator(
     componentPackage: String,
     outputLocation: KtFileBuilder.OutputLocation,
     componentName: String,
+    styleBuilderFactoryFunName: String,
 ) : ComposeVariationGenerator<ButtonProperties>(
     themeClassName = themeClassName,
     themePackage = themePackage,
@@ -33,6 +34,7 @@ internal class ButtonComposeVariationGenerator(
     componentPackage = componentPackage,
     outputLocation = outputLocation,
     componentName = componentName,
+    styleBuilderFactoryFunName = styleBuilderFactoryFunName,
 ) {
 
     override val componentStyleName = "ButtonStyle"

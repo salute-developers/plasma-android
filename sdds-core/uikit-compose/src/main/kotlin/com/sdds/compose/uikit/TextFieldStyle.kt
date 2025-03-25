@@ -2,9 +2,15 @@ package com.sdds.compose.uikit
 
 import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.runtime.Stable
+import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.text.TextStyle
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.style.Style
+
+/**
+ * CompositionLocal c [TextFieldStyle] для компонента [TextField]
+ */
+val LocalTextFieldStyle = compositionLocalOf { TextFieldStyle.builder().style() }
 
 /**
  * Стиль компонента [TextField]
@@ -14,9 +20,9 @@ interface TextFieldStyle : Style {
 
     /**
      * Размеры и отступы компонента
-     * @see TextField.Dimensions
+     * @see TextFieldDimensions
      */
-    val dimensions: TextField.Dimensions
+    val dimensions: TextFieldDimensions
 
     /**
      * Цвета компонента
@@ -32,27 +38,27 @@ interface TextFieldStyle : Style {
 
     /**
      * Тип текстового поля
-     * @see TextField.FieldType
+     * @see TextFieldType
      */
-    val fieldType: TextField.FieldType
-
-    /**
-     * Внешний вид текстового поля
-     * @see TextField.FieldAppearance
-     */
-    val fieldAppearance: TextField.FieldAppearance
+    val fieldType: TextFieldType
 
     /**
      * Расположение лэйбла
      * @see
      */
-    val labelPlacement: TextField.LabelPlacement
+    val labelPlacement: TextFieldLabelPlacement
 
     /**
-     * Расположение вспомогательного текста
-     * @see TextField.HelperTextPlacement
+     * Расположение текста надписи
+     * @see TextFieldHelperTextPlacement
      */
-    val helperTextPlacement: TextField.HelperTextPlacement
+    val captionPlacement: TextFieldHelperTextPlacement
+
+    /**
+     * Расположение текста счетчика
+     * @see TextFieldHelperTextPlacement
+     */
+    val counterPlacement: TextFieldHelperTextPlacement
 
     /**
      * Настройки вертикального скроллбара
@@ -106,9 +112,9 @@ interface TextFieldStyle : Style {
     val singleLine: Boolean
 
     /**
-     * Есть ли разделитель
+     * Режим размещения индикатора
      */
-    val hasDivider: Boolean
+    val indicatorAlignmentMode: TextFieldIndicatorAlignmentMode
 
     /**
      * Стиль группы чипов
@@ -120,7 +126,15 @@ interface TextFieldStyle : Style {
      */
     val chipStyle: ChipStyle
 
-    companion object
+    companion object {
+
+        /**
+         * Возвращает экземпляр [TextFieldStyleBuilder]
+         */
+        fun builder(receiver: Any? = null): TextFieldStyleBuilder {
+            return DefaultTextFieldStyle.Builder(receiver)
+        }
+    }
 }
 
 /**

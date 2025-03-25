@@ -2,11 +2,11 @@ package com.sdds.playground.sandbox.plasma.sd.service.integration.button.link
 
 import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.ButtonStyle
-import com.sdds.compose.uikit.LinkButton
 import com.sdds.compose.uikit.style.style
 import com.sdds.plasma.sd.service.styles.button.link.Accent
 import com.sdds.plasma.sd.service.styles.button.link.Default
 import com.sdds.plasma.sd.service.styles.button.link.L
+import com.sdds.plasma.sd.service.styles.button.link.LinkButton
 import com.sdds.plasma.sd.service.styles.button.link.M
 import com.sdds.plasma.sd.service.styles.button.link.Negative
 import com.sdds.plasma.sd.service.styles.button.link.Positive

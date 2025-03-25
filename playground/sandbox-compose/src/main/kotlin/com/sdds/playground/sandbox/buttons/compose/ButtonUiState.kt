@@ -1,6 +1,6 @@
 package com.sdds.playground.sandbox.buttons.compose
 
-import com.sdds.compose.uikit.Button
+import com.sdds.compose.uikit.ButtonSpacing
 import com.sdds.playground.sandbox.core.compose.UiState
 import com.sdds.icons.R.drawable as Icons
 
@@ -9,7 +9,7 @@ import com.sdds.icons.R.drawable as Icons
  * @property icon положение и ресурс иконки кнопки [ButtonIcon]
  * @property buttonLabel подпись кнопки
  * @property buttonValue значение кнопки
- * @property spacing способ группировки контента в кнопке [Button.Spacing]
+ * @property spacing способ группировки контента в кнопке [ButtonSpacing]
  * @property enabled включена ли кнопка
  * @property loading индикация загрузки
  */
@@ -18,7 +18,7 @@ internal data class ButtonUiState(
     val icon: ButtonIcon = ButtonIcon.Start,
     val buttonLabel: String = "Label",
     val buttonValue: String? = null,
-    val spacing: Button.Spacing = Button.Spacing.Packed,
+    val spacing: ButtonSpacing = ButtonSpacing.Packed,
     val enabled: Boolean = true,
     val loading: Boolean = false,
 ) : UiState {

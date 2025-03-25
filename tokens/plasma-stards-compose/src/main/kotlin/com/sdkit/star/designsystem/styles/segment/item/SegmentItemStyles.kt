@@ -10,18 +10,17 @@ package com.sdkit.star.designsystem.styles.segment.item
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.dimensionResource
-import com.sdds.compose.uikit.Counter
 import com.sdds.compose.uikit.SegmentItemStyle
 import com.sdds.compose.uikit.SegmentItemStyleBuilder
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
-import com.sdds.compose.uikit.segmentItemBuilder
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
 import com.sdkit.star.designsystem.compose.R
 import com.sdkit.star.designsystem.styles.counter.Accent
+import com.sdkit.star.designsystem.styles.counter.Counter
 import com.sdkit.star.designsystem.styles.counter.S
 import com.sdkit.star.designsystem.styles.counter.Xs
 import com.sdkit.star.designsystem.styles.counter.Xxs
@@ -326,7 +325,7 @@ private val SegmentItemStyleBuilder.invariantProps: SegmentItemStyleBuilder
 public val SegmentItem.Xl: WrapperSegmentItemXl
     @Composable
     @JvmName("WrapperSegmentItemXl")
-    get() = SegmentItemStyle.segmentItemBuilder(this)
+    get() = SegmentItemStyle.builder(this)
         .invariantProps
         .shape(
             StarDsTheme.shapes.roundL.adjustBy(
@@ -363,7 +362,7 @@ public val WrapperSegmentItemXl.Pilled: WrapperSegmentItemXlPilled
 public val SegmentItem.L: WrapperSegmentItemL
     @Composable
     @JvmName("WrapperSegmentItemL")
-    get() = SegmentItemStyle.segmentItemBuilder(this)
+    get() = SegmentItemStyle.builder(this)
         .invariantProps
         .shape(
             StarDsTheme.shapes.roundL.adjustBy(
@@ -400,7 +399,7 @@ public val WrapperSegmentItemL.Pilled: WrapperSegmentItemLPilled
 public val SegmentItem.M: WrapperSegmentItemM
     @Composable
     @JvmName("WrapperSegmentItemM")
-    get() = SegmentItemStyle.segmentItemBuilder(this)
+    get() = SegmentItemStyle.builder(this)
         .invariantProps
         .shape(
             StarDsTheme.shapes.roundM.adjustBy(
@@ -437,7 +436,7 @@ public val WrapperSegmentItemM.Pilled: WrapperSegmentItemMPilled
 public val SegmentItem.S: WrapperSegmentItemS
     @Composable
     @JvmName("WrapperSegmentItemS")
-    get() = SegmentItemStyle.segmentItemBuilder(this)
+    get() = SegmentItemStyle.builder(this)
         .invariantProps
         .shape(
             StarDsTheme.shapes.roundM.adjustBy(
@@ -474,7 +473,7 @@ public val WrapperSegmentItemS.Pilled: WrapperSegmentItemSPilled
 public val SegmentItem.Xs: WrapperSegmentItemXs
     @Composable
     @JvmName("WrapperSegmentItemXs")
-    get() = SegmentItemStyle.segmentItemBuilder(this)
+    get() = SegmentItemStyle.builder(this)
         .invariantProps
         .shape(
             StarDsTheme.shapes.roundS.adjustBy(

@@ -1,12 +1,12 @@
 package com.sdds.plasma.sd.service
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
-import com.sdds.compose.uikit.ProgressBar
 import com.sdds.plasma.sd.service.styles.progress.Accent
 import com.sdds.plasma.sd.service.styles.progress.Default
 import com.sdds.plasma.sd.service.styles.progress.GradientAccent
 import com.sdds.plasma.sd.service.styles.progress.Negative
 import com.sdds.plasma.sd.service.styles.progress.Positive
+import com.sdds.plasma.sd.service.styles.progress.ProgressBar
 import com.sdds.plasma.sd.service.styles.progress.Secondary
 import com.sdds.plasma.sd.service.styles.progress.Warning
 import com.sdds.testing.compose.RoborazziConfigCompose

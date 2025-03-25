@@ -38,9 +38,9 @@ interface ButtonStyle : Style {
 
     /**
      * Размеры и отступы контента кнопки
-     * @see Button.Dimensions
+     * @see ButtonDimensions
      */
-    val dimensions: Button.Dimensions
+    val dimensions: ButtonDimensions
 
     /**
      * Значение прозрачности выключенной кнопки

@@ -18,7 +18,7 @@ import com.sdds.compose.uikit.style.StyleBuilder
  * CompositionLocal c [SegmentStyle] для компонента [Segment]
  */
 val LocalSegmentStyle =
-    compositionLocalOf(structuralEqualityPolicy()) { SegmentStyle.segmentBuilder().style() }
+    compositionLocalOf(structuralEqualityPolicy()) { SegmentStyle.builder().style() }
 
 /**
  * Стиль компонента [Segment]
@@ -46,14 +46,13 @@ interface SegmentStyle : Style {
      */
     val segmentItemStyle: SegmentItemStyle
 
-    companion object
+    companion object {
+        /**
+         * Возвращает экземпляр [SegmentStyleBuilder]
+         */
+        fun builder(receiver: Any? = null): SegmentStyleBuilder = DefaultSegmentStyle.Builder()
+    }
 }
-
-/**
- * Возвращает экземпляр [SegmentStyleBuilder]
- */
-fun SegmentStyle.Companion.segmentBuilder(receiver: Any? = null): SegmentStyleBuilder =
-    DefaultSegmentStyle.Builder()
 
 /**
  * Билдер стиля [SegmentStyle]
@@ -122,7 +121,7 @@ private class DefaultSegmentStyle(
                 shape = shape ?: CircleShape,
                 colors = colorsBuilder.build(),
                 dimensions = dimensionsBuilder.build(),
-                segmentItemStyle = segmentItemStyle ?: SegmentItemStyle.segmentItemBuilder()
+                segmentItemStyle = segmentItemStyle ?: SegmentItemStyle.builder()
                     .style(),
             )
         }

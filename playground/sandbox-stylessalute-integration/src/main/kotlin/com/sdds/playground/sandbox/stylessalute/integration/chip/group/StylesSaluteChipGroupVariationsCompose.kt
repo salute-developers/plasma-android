@@ -1,9 +1,9 @@
 package com.sdds.playground.sandbox.stylessalute.integration.chip.group
 
 import androidx.compose.runtime.Composable
-import com.sdds.compose.uikit.ChipGroup
 import com.sdds.compose.uikit.ChipGroupStyle
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
+import com.sdds.stylessalute.styles.chip.group.ChipGroup
 import com.sdds.stylessalute.styles.chip.group.Dense
 import com.sdds.stylessalute.styles.chip.group.Wide
 

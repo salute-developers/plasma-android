@@ -11,9 +11,6 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
-import com.sdds.compose.uikit.BasicButton
-import com.sdds.compose.uikit.IconButton
-import com.sdds.compose.uikit.Switch
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.core.compose.LocalNavigationViewStyle
@@ -26,11 +23,14 @@ import com.sdds.playground.sandbox.core.compose.PropertiesListStyle
 import com.sdds.playground.sandbox.core.compose.PropertyEditorStyle
 import com.sdds.playground.sandbox.core.compose.SandboxStyle
 import com.sdds.playground.sandbox.core.compose.TopBarStyle
-import com.sdds.serv.styles.switcher.M
+import com.sdkit.star.designsystem.styles.button.basic.BasicButton
 import com.sdkit.star.designsystem.styles.button.basic.M
+import com.sdkit.star.designsystem.styles.button.icon.IconButton
 import com.sdkit.star.designsystem.styles.button.icon.M
 import com.sdkit.star.designsystem.styles.button.icon.Pilled
 import com.sdkit.star.designsystem.styles.button.icon.Xs
+import com.sdkit.star.designsystem.styles.switcher.M
+import com.sdkit.star.designsystem.styles.switcher.Switch
 import com.sdkit.star.designsystem.theme.StarDsTheme
 import com.sdkit.star.designsystem.theme.darkStarDsColors
 import com.sdkit.star.designsystem.theme.darkStarDsGradients

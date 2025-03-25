@@ -1,8 +1,8 @@
 package com.sdds.stylessalute
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
-import com.sdds.compose.uikit.Cell
 import com.sdds.compose.uikit.style.style
+import com.sdds.stylessalute.styles.cell.Cell
 import com.sdds.stylessalute.styles.cell.L
 import com.sdds.stylessalute.styles.cell.M
 import com.sdds.stylessalute.styles.cell.S

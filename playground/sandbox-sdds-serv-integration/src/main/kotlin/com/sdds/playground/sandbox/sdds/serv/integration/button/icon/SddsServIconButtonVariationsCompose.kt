@@ -2,7 +2,6 @@ package com.sdds.playground.sandbox.sdds.serv.integration.button.icon
 
 import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.ButtonStyle
-import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 import com.sdds.serv.styles.button.icon.Accent
@@ -10,6 +9,7 @@ import com.sdds.serv.styles.button.icon.Black
 import com.sdds.serv.styles.button.icon.Clear
 import com.sdds.serv.styles.button.icon.Dark
 import com.sdds.serv.styles.button.icon.Default
+import com.sdds.serv.styles.button.icon.IconButton
 import com.sdds.serv.styles.button.icon.L
 import com.sdds.serv.styles.button.icon.M
 import com.sdds.serv.styles.button.icon.Negative

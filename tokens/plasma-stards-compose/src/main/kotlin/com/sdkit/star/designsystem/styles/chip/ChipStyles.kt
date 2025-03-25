@@ -3,7 +3,6 @@ package com.sdkit.star.designsystem.styles.chip
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.dimensionResource
-import com.sdds.compose.uikit.Chip
 import com.sdds.compose.uikit.ChipStyle
 import com.sdds.compose.uikit.ChipStyleBuilder
 import com.sdds.compose.uikit.adjustBy
@@ -19,17 +18,15 @@ val Chip.L: ChipStyleBuilder
     get() = ChipStyle.builder()
         .labelStyle(StarDsTheme.typography.bodyLNormal)
         .shape(StarDsTheme.shapes.roundM)
-        .dimensions(
-            Chip.Dimensions(
-                height = dimensionResource(id = R.dimen.sdkit_cmp_chip_l_min_height),
-                startContentSize = dimensionResource(id = R.dimen.sdkit_cmp_chip_l_content_size),
-                endContentSize = dimensionResource(id = R.dimen.sdkit_cmp_chip_l_content_size),
-                startContentMargin = dimensionResource(id = R.dimen.sdkit_cmp_chip_l_start_content_margin),
-                endContentMargin = dimensionResource(id = R.dimen.sdkit_cmp_chip_l_end_content_margin),
-                startPadding = dimensionResource(id = R.dimen.sdkit_cmp_chip_l_padding_start),
-                endPadding = dimensionResource(id = R.dimen.sdkit_cmp_chip_l_padding_end),
-            ),
-        )
+        .dimensions {
+            height(dimensionResource(id = R.dimen.sdkit_cmp_chip_l_min_height))
+            startContentSize(dimensionResource(id = R.dimen.sdkit_cmp_chip_l_content_size))
+            endContentSize(dimensionResource(id = R.dimen.sdkit_cmp_chip_l_content_size))
+            startContentMargin(dimensionResource(id = R.dimen.sdkit_cmp_chip_l_start_content_margin))
+            endContentMargin(dimensionResource(id = R.dimen.sdkit_cmp_chip_l_end_content_margin))
+            startPadding(dimensionResource(id = R.dimen.sdkit_cmp_chip_l_padding_start))
+            endPadding(dimensionResource(id = R.dimen.sdkit_cmp_chip_l_padding_end))
+        }
 
 /**
  * Стиль [Chip] размера M
@@ -39,17 +36,15 @@ val Chip.M: ChipStyleBuilder
     get() = ChipStyle.builder()
         .labelStyle(StarDsTheme.typography.bodyMNormal)
         .shape(StarDsTheme.shapes.roundM.adjustBy(dimensionResource(id = R.dimen.sdkit_cmp_chip_m_shape_adjustment)))
-        .dimensions(
-            Chip.Dimensions(
-                height = dimensionResource(id = R.dimen.sdkit_cmp_chip_m_min_height),
-                startContentSize = dimensionResource(id = R.dimen.sdkit_cmp_chip_m_content_size),
-                endContentSize = dimensionResource(id = R.dimen.sdkit_cmp_chip_m_content_size),
-                startContentMargin = dimensionResource(id = R.dimen.sdkit_cmp_chip_m_start_content_margin),
-                endContentMargin = dimensionResource(id = R.dimen.sdkit_cmp_chip_m_end_content_margin),
-                startPadding = dimensionResource(id = R.dimen.sdkit_cmp_chip_m_padding_start),
-                endPadding = dimensionResource(id = R.dimen.sdkit_cmp_chip_m_padding_end),
-            ),
-        )
+        .dimensions {
+            height(dimensionResource(id = R.dimen.sdkit_cmp_chip_m_min_height))
+            startContentSize(dimensionResource(id = R.dimen.sdkit_cmp_chip_m_content_size))
+            endContentSize(dimensionResource(id = R.dimen.sdkit_cmp_chip_m_content_size))
+            startContentMargin(dimensionResource(id = R.dimen.sdkit_cmp_chip_m_start_content_margin))
+            endContentMargin(dimensionResource(id = R.dimen.sdkit_cmp_chip_m_end_content_margin))
+            startPadding(dimensionResource(id = R.dimen.sdkit_cmp_chip_m_padding_start))
+            endPadding(dimensionResource(id = R.dimen.sdkit_cmp_chip_m_padding_end))
+        }
 
 /**
  * Стиль [Chip] размера S
@@ -59,17 +54,15 @@ val Chip.S: ChipStyleBuilder
     get() = ChipStyle.builder()
         .labelStyle(StarDsTheme.typography.bodySNormal)
         .shape(StarDsTheme.shapes.roundS)
-        .dimensions(
-            Chip.Dimensions(
-                height = dimensionResource(id = R.dimen.sdkit_cmp_chip_s_min_height),
-                startContentSize = dimensionResource(id = R.dimen.sdkit_cmp_chip_s_content_size),
-                endContentSize = dimensionResource(id = R.dimen.sdkit_cmp_chip_s_content_size),
-                startContentMargin = dimensionResource(id = R.dimen.sdkit_cmp_chip_s_start_content_margin),
-                endContentMargin = dimensionResource(id = R.dimen.sdkit_cmp_chip_s_end_content_margin),
-                startPadding = dimensionResource(id = R.dimen.sdkit_cmp_chip_s_padding_start),
-                endPadding = dimensionResource(id = R.dimen.sdkit_cmp_chip_s_padding_end),
-            ),
-        )
+        .dimensions {
+            height(dimensionResource(id = R.dimen.sdkit_cmp_chip_s_min_height))
+            startContentSize(dimensionResource(id = R.dimen.sdkit_cmp_chip_s_content_size))
+            endContentSize(dimensionResource(id = R.dimen.sdkit_cmp_chip_s_content_size))
+            startContentMargin(dimensionResource(id = R.dimen.sdkit_cmp_chip_s_start_content_margin))
+            endContentMargin(dimensionResource(id = R.dimen.sdkit_cmp_chip_s_end_content_margin))
+            startPadding(dimensionResource(id = R.dimen.sdkit_cmp_chip_s_padding_start))
+            endPadding(dimensionResource(id = R.dimen.sdkit_cmp_chip_s_padding_end))
+        }
 
 /**
  * Стиль [Chip] размера Xs
@@ -79,17 +72,15 @@ val Chip.Xs: ChipStyleBuilder
     get() = ChipStyle.builder()
         .labelStyle(StarDsTheme.typography.bodyXsNormal)
         .shape(StarDsTheme.shapes.roundXs)
-        .dimensions(
-            Chip.Dimensions(
-                height = dimensionResource(id = R.dimen.sdkit_cmp_chip_xs_min_height),
-                startContentSize = dimensionResource(id = R.dimen.sdkit_cmp_chip_xs_content_size),
-                endContentSize = dimensionResource(id = R.dimen.sdkit_cmp_chip_xs_content_size),
-                startContentMargin = dimensionResource(id = R.dimen.sdkit_cmp_chip_xs_start_content_margin),
-                endContentMargin = dimensionResource(id = R.dimen.sdkit_cmp_chip_xs_end_content_margin),
-                startPadding = dimensionResource(id = R.dimen.sdkit_cmp_chip_xs_padding_start),
-                endPadding = dimensionResource(id = R.dimen.sdkit_cmp_chip_xs_padding_end),
-            ),
-        )
+        .dimensions {
+            height(dimensionResource(id = R.dimen.sdkit_cmp_chip_xs_min_height))
+            startContentSize(dimensionResource(id = R.dimen.sdkit_cmp_chip_xs_content_size))
+            endContentSize(dimensionResource(id = R.dimen.sdkit_cmp_chip_xs_content_size))
+            startContentMargin(dimensionResource(id = R.dimen.sdkit_cmp_chip_xs_start_content_margin))
+            endContentMargin(dimensionResource(id = R.dimen.sdkit_cmp_chip_xs_end_content_margin))
+            startPadding(dimensionResource(id = R.dimen.sdkit_cmp_chip_xs_padding_start))
+            endPadding(dimensionResource(id = R.dimen.sdkit_cmp_chip_xs_padding_end))
+        }
 
 /**
  * Вариация [Chip] со скругленными на 50% углами (figma: Pilled)

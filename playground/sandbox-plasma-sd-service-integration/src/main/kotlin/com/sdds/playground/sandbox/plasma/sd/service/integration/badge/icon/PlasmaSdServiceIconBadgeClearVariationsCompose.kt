@@ -2,11 +2,11 @@ package com.sdds.playground.sandbox.plasma.sd.service.integration.badge.icon
 
 import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.BadgeStyle
-import com.sdds.compose.uikit.IconBadgeClear
 import com.sdds.compose.uikit.style.style
 import com.sdds.plasma.sd.service.styles.badge.icon.Accent
 import com.sdds.plasma.sd.service.styles.badge.icon.Dark
 import com.sdds.plasma.sd.service.styles.badge.icon.Default
+import com.sdds.plasma.sd.service.styles.badge.icon.IconBadgeClear
 import com.sdds.plasma.sd.service.styles.badge.icon.L
 import com.sdds.plasma.sd.service.styles.badge.icon.Light
 import com.sdds.plasma.sd.service.styles.badge.icon.M

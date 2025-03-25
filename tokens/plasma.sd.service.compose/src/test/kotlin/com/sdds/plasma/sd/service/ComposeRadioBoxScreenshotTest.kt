@@ -1,11 +1,11 @@
 package com.sdds.plasma.sd.service
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
-import com.sdds.compose.uikit.RadioBox
-import com.sdds.compose.uikit.RadioBoxGroup
 import com.sdds.plasma.sd.service.styles.radiobox.M
+import com.sdds.plasma.sd.service.styles.radiobox.RadioBox
 import com.sdds.plasma.sd.service.styles.radiobox.S
 import com.sdds.plasma.sd.service.styles.radiobox.group.M
+import com.sdds.plasma.sd.service.styles.radiobox.group.RadioBoxGroup
 import com.sdds.plasma.sd.service.styles.radiobox.group.S
 import com.sdds.testing.compose.RoborazziConfigCompose
 import com.sdds.testing.compose.radiobox.RadioBoxDisabled

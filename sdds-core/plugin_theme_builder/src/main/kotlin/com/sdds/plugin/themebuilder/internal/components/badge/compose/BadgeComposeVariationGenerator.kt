@@ -23,6 +23,7 @@ internal class BadgeComposeVariationGenerator(
     outputLocation: KtFileBuilder.OutputLocation,
     componentName: String,
     styleBuilderName: String,
+    styleBuilderFactoryFunName: String,
 ) : ComposeVariationGenerator<BadgeProperties>(
     themeClassName = themeClassName,
     themePackage = themePackage,
@@ -35,6 +36,7 @@ internal class BadgeComposeVariationGenerator(
     outputLocation = outputLocation,
     componentName = componentName,
     styleBuilderName = styleBuilderName,
+    styleBuilderFactoryFunName = styleBuilderFactoryFunName,
 ) {
     override val componentStyleName = "BadgeStyle"
 

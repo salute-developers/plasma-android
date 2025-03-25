@@ -10,10 +10,8 @@ package com.sdds.serv.styles.counter
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.uikit.Counter
 import com.sdds.compose.uikit.CounterStyle
 import com.sdds.compose.uikit.CounterStyleBuilder
-import com.sdds.compose.uikit.counterBuilder
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.style.BuilderWrapper
@@ -253,7 +251,7 @@ private val CounterStyleBuilder.invariantProps: CounterStyleBuilder
 public val Counter.L: WrapperCounterL
     @Composable
     @JvmName("WrapperCounterL")
-    get() = CounterStyle.counterBuilder(this)
+    get() = CounterStyle.builder(this)
         .invariantProps
         .textStyle(SddsServTheme.typography.bodySNormal)
         .dimensions {
@@ -267,7 +265,7 @@ public val Counter.L: WrapperCounterL
 public val Counter.M: WrapperCounterM
     @Composable
     @JvmName("WrapperCounterM")
-    get() = CounterStyle.counterBuilder(this)
+    get() = CounterStyle.builder(this)
         .invariantProps
         .textStyle(SddsServTheme.typography.bodyXsNormal)
         .dimensions {
@@ -281,7 +279,7 @@ public val Counter.M: WrapperCounterM
 public val Counter.S: WrapperCounterS
     @Composable
     @JvmName("WrapperCounterS")
-    get() = CounterStyle.counterBuilder(this)
+    get() = CounterStyle.builder(this)
         .invariantProps
         .textStyle(SddsServTheme.typography.bodyXxsNormal)
         .dimensions {
@@ -295,7 +293,7 @@ public val Counter.S: WrapperCounterS
 public val Counter.Xs: WrapperCounterXs
     @Composable
     @JvmName("WrapperCounterXs")
-    get() = CounterStyle.counterBuilder(this)
+    get() = CounterStyle.builder(this)
         .invariantProps
         .textStyle(SddsServTheme.typography.bodyXxsNormal)
         .dimensions {
@@ -309,7 +307,7 @@ public val Counter.Xs: WrapperCounterXs
 public val Counter.Xxs: WrapperCounterXxs
     @Composable
     @JvmName("WrapperCounterXxs")
-    get() = CounterStyle.counterBuilder(this)
+    get() = CounterStyle.builder(this)
         .invariantProps
         .textStyle(SddsServTheme.typography.bodyXxsNormal)
         .dimensions {
