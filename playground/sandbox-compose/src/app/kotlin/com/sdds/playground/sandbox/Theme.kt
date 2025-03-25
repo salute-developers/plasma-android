@@ -4,6 +4,8 @@ import androidx.annotation.StyleRes
 import androidx.compose.runtime.Composable
 import com.sdds.playground.sandbox.core.integration.component.ComponentsProviderCompose
 import com.sdds.playground.sandbox.core.integration.component.ComponentsProviderView
+import com.sdds.playground.sandbox.plasma.giga.integration.PlasmaGigaComposeComponents
+import com.sdds.playground.sandbox.plasma.giga.integration.PlasmaGigaThemeWrapper
 import com.sdds.playground.sandbox.plasma.sd.service.integration.PlasmaSdServiceComposeComponents
 import com.sdds.playground.sandbox.plasma.sd.service.integration.PlasmaSdServiceThemeWrapper
 import com.sdds.playground.sandbox.plasma.sd.service.integration.PlasmaSdServiceViewComponents
@@ -42,6 +44,16 @@ internal enum class Theme(
         compose = ThemeInfoCompose(
             components = StylesSaluteComposeComponents,
             themeWrapper = { StylesSaluteThemeWrapper(it) },
+        ),
+        view = ThemeInfoView(
+            components = StylesSaluteViewComponents,
+            themeRes = com.sdds.stylessalute.R.style.Salute_StylesSalute_MaterialComponents_DayNight,
+        ),
+    ),
+    PlasmaGiga(
+        compose = ThemeInfoCompose(
+            components = PlasmaGigaComposeComponents,
+            themeWrapper = { PlasmaGigaThemeWrapper(it) },
         ),
         view = ThemeInfoView(
             components = StylesSaluteViewComponents,
