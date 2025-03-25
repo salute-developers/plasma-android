@@ -6,6 +6,7 @@ import com.sdds.playground.sandbox.core.integration.component.ComponentsProvider
 import com.sdds.playground.sandbox.core.integration.component.ComponentsProviderView
 import com.sdds.playground.sandbox.plasma.giga.integration.PlasmaGigaComposeComponents
 import com.sdds.playground.sandbox.plasma.giga.integration.PlasmaGigaThemeWrapper
+import com.sdds.playground.sandbox.plasma.giga.integration.PlasmaGigaViewComponents
 import com.sdds.playground.sandbox.plasma.sd.service.integration.PlasmaSdServiceComposeComponents
 import com.sdds.playground.sandbox.plasma.sd.service.integration.PlasmaSdServiceThemeWrapper
 import com.sdds.playground.sandbox.plasma.sd.service.integration.PlasmaSdServiceViewComponents
@@ -56,8 +57,8 @@ internal enum class Theme(
             themeWrapper = { PlasmaGigaThemeWrapper(it) },
         ),
         view = ThemeInfoView(
-            components = StylesSaluteViewComponents,
-            themeRes = com.sdds.stylessalute.R.style.Salute_StylesSalute_MaterialComponents_DayNight,
+            components = PlasmaGigaViewComponents,
+            themeRes = 0,
         ),
     ),
     ;
