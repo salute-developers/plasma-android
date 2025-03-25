@@ -10,11 +10,15 @@ import com.sdds.plugin.themebuilder.internal.components.button.compose.ButtonCom
 import com.sdds.plugin.themebuilder.internal.components.button.view.BasicButtonStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.components.button.view.IconButtonStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.components.button.view.LinkButtonStyleGeneratorView
+import com.sdds.plugin.themebuilder.internal.components.card.compose.CardComposeVariationGenerator
+import com.sdds.plugin.themebuilder.internal.components.card.vs.CardStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.components.cell.compose.CellComposeVariationGenerator
 import com.sdds.plugin.themebuilder.internal.components.counter.compose.CounterComposeVariationGenerator
 import com.sdds.plugin.themebuilder.internal.components.counter.view.CounterStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.components.indicator.compose.IndicatorComposeVariationGenerator
 import com.sdds.plugin.themebuilder.internal.components.indicator.view.IndicatorStyleGeneratorView
+import com.sdds.plugin.themebuilder.internal.components.segment.SegmentComposeVariationGenerator
+import com.sdds.plugin.themebuilder.internal.components.segment.item.SegmentItemComposeVariationGenerator
 import com.sdds.plugin.themebuilder.internal.components.textfield.compose.TextFieldComposeVariationGenerator
 import com.sdds.plugin.themebuilder.internal.components.textfield.view.ViewTextAreaStyleGenerator
 import com.sdds.plugin.themebuilder.internal.components.textfield.view.ViewTextFieldStyleGenerator
@@ -234,6 +238,30 @@ internal class ComponentStyleGeneratorFactory(
             outputLocation = KtFileBuilder.OutputLocation.Directory(outputDir),
         )
 
+    fun createCardStyleGeneratorCompose() =
+        createCardStyleGeneratorCompose(componentName = "card_solid")
+
+    fun createCardClearStyleGeneratorCompose() =
+        createCardStyleGeneratorCompose(componentName = "card_clear")
+
+    private fun createCardStyleGeneratorCompose(
+        componentName: String,
+    ) =
+        CardComposeVariationGenerator(
+            themeClassName = themeClassName,
+            themePackage = packageResolver.getPackage(TargetPackage.THEME),
+            dimensionsConfig = dimensionsConfig,
+            dimensAggregator = dimensAggregator,
+            resourceReferenceProvider = resourceReferenceProvider,
+            namespace = namespace,
+            ktFileBuilderFactory = ktFileBuilderFactory,
+            componentPackage = "${packageResolver.getPackage(TargetPackage.STYLES)}.card",
+            componentName = componentName,
+            outputLocation = KtFileBuilder.OutputLocation.Directory(outputDir),
+            styleBuilderName = "CardStyleBuilder",
+            styleBuilderFactoryMethodName = "card",
+        )
+
     fun createBasicButtonStyleGeneratorCompose() =
         createBaseButtonStyleGeneratorCompose(
             componentName = "basic_button",
@@ -287,7 +315,7 @@ internal class ComponentStyleGeneratorFactory(
         componentName: String,
     ) =
         BadgeComposeVariationGenerator(
-            themeClassName = "${themeName.snakeToCamelCase()}Theme",
+            themeClassName = themeClassName,
             themePackage = packageResolver.getPackage(TargetPackage.THEME),
             dimensionsConfig = dimensionsConfig,
             dimensAggregator = dimensAggregator,
@@ -315,11 +343,22 @@ internal class ComponentStyleGeneratorFactory(
             componentName = "icon_badge_transparent",
         )
 
+    fun createCardStyleGeneratorView(styleComponentName: String): CardStyleGeneratorView = CardStyleGeneratorView(
+        xmlBuilderFactory = xmlBuilderFactory,
+        resourceReferenceProvider = resourceReferenceProvider,
+        dimensAggregator = dimensAggregator,
+        outputResDir = outputResDir,
+        styleComponentName = styleComponentName,
+        resourcePrefix = resourcePrefixConfig.resourcePrefix,
+        viewColorStateGeneratorFactory = mViewColorStateGeneratorFactory,
+        colorStateListGeneratorFactory = colorStateListGeneratorFactory,
+    )
+
     private fun createIconBadgeStyleGeneratorCompose(
         componentName: String,
     ) =
         BadgeComposeVariationGenerator(
-            themeClassName = "${themeName.snakeToCamelCase()}Theme",
+            themeClassName = themeClassName,
             themePackage = packageResolver.getPackage(TargetPackage.THEME),
             dimensionsConfig = dimensionsConfig,
             dimensAggregator = dimensAggregator,
@@ -331,6 +370,34 @@ internal class ComponentStyleGeneratorFactory(
             outputLocation = KtFileBuilder.OutputLocation.Directory(outputDir),
             styleBuilderName = "IconBadgeStyleBuilder",
         )
+
+    fun createSegmentItemStyleGeneratorCompose() = SegmentItemComposeVariationGenerator(
+        themeClassName = themeClassName,
+        themePackage = packageResolver.getPackage(TargetPackage.THEME),
+        dimensionsConfig = dimensionsConfig,
+        dimensAggregator = dimensAggregator,
+        resourceReferenceProvider = resourceReferenceProvider,
+        namespace = namespace,
+        ktFileBuilderFactory = ktFileBuilderFactory,
+        componentPackage = "${packageResolver.getPackage(TargetPackage.STYLES)}.segment.item",
+        componentName = "segment_item",
+        outputLocation = KtFileBuilder.OutputLocation.Directory(outputDir),
+        counterStylesPackage = "${packageResolver.getPackage(TargetPackage.STYLES)}.counter",
+    )
+
+    fun createSegmentStyleGeneratorCompose() = SegmentComposeVariationGenerator(
+        themeClassName = themeClassName,
+        themePackage = packageResolver.getPackage(TargetPackage.THEME),
+        dimensionsConfig = dimensionsConfig,
+        dimensAggregator = dimensAggregator,
+        resourceReferenceProvider = resourceReferenceProvider,
+        namespace = namespace,
+        ktFileBuilderFactory = ktFileBuilderFactory,
+        componentPackage = "${packageResolver.getPackage(TargetPackage.STYLES)}.segment",
+        componentName = "segment",
+        outputLocation = KtFileBuilder.OutputLocation.Directory(outputDir),
+        segmentItemStylesPackage = "${packageResolver.getPackage(TargetPackage.STYLES)}.segment.item",
+    )
 
     fun createDimensionGenerator(): DimenTokenGenerator = DimenTokenGenerator(
         outputResDir = outputResDir,

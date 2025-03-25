@@ -2,8 +2,7 @@ package com.sdds.playground.sandbox.textfield.vs
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.sdds.playground.sandbox.core.integration.StylesProviderView
-import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
+import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
 import com.sdds.testing.vs.textfield.ExampleChipData
@@ -15,7 +14,8 @@ import com.sdds.uikit.TextField
  */
 internal class TextFieldViewModel(
     defaultState: TextFieldUiState,
-) : ComponentViewModel<TextFieldUiState>(defaultState) {
+    componentKey: ComponentKey,
+) : ComponentViewModel<TextFieldUiState>(defaultState, componentKey) {
 
     @Suppress("CyclomaticComplexMethod")
     override fun updateProperty(name: String, value: Any?) {
@@ -36,10 +36,6 @@ internal class TextFieldViewModel(
             TextFieldPropertyName.Suffix -> updateSuffix(value?.toString())
             else -> Unit
         }
-    }
-
-    override fun getStyleProvider(stylesProvider: StylesProviderView): ViewStyleProvider<String> {
-        return stylesProvider.textField
     }
 
     /**
@@ -198,10 +194,11 @@ internal class TextFieldViewModel(
  */
 internal class TextFieldViewModelFactory(
     private val defaultState: TextFieldUiState,
+    private val componentKey: ComponentKey,
 ) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return TextFieldViewModel(defaultState) as T
+        return TextFieldViewModel(defaultState, componentKey) as T
     }
 }

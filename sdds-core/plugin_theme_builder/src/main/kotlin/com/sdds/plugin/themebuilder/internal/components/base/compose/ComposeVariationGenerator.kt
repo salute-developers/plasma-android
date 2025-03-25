@@ -45,14 +45,21 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
     private val outputLocation: KtFileBuilder.OutputLocation,
     componentName: String,
     styleBuilderName: String? = null,
+    styleBuilderFactoryMethodName: String? = null,
 ) : ComponentStyleGenerator<Config<PO>> {
 
     private val componentXmlPrefix: String = componentName
     private val camelComponentName = componentName.toCamelCase()
     private val ktFileName: String = "${camelComponentName}Styles"
     private val generatedWrappers = mutableSetOf<String>()
+    private var shouldAddInvariantPropsCall = false
 
-    private val styleBuilderFactoryMethodName = "${camelComponentName.decapitalized()}Builder"
+    private val baseWrapperInterfaceName = "Wrapper$camelComponentName"
+    private val styleBuilderFactoryMethodName = if (styleBuilderFactoryMethodName == null) {
+        "${camelComponentName.decapitalized()}Builder"
+    } else {
+        "${styleBuilderFactoryMethodName.toCamelCase().decapitalized()}Builder"
+    }
 
     private val styleBuilderType: ClassName by unsafeLazy {
         ktFileBuilder.getInternalClassType(
@@ -109,15 +116,15 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
         """.trimIndent()
     }
 
-    protected fun getShape(shape: Shape, variationId: String): String {
+    protected fun getShape(shape: Shape, variationId: String, shapeName: String = "shape"): String {
         return if (ShapeToken.isCircle(shape.value)) {
             ktFileBuilder.addImport(
                 packageName = "androidx.compose.foundation.shape",
                 names = listOf("CircleShape"),
             )
-            ".shape(CircleShape)"
+            ".$shapeName(CircleShape)"
         } else {
-            ".shape($themeClassName.shapes.${shape.value.toKtAttrName()}${
+            ".$shapeName($themeClassName.shapes.${shape.value.toKtAttrName()}${
                 shape.shapeAdjustment(suffix = variationId)
             })"
         }
@@ -190,7 +197,7 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
     private fun String.toKtAttrName(): String =
         toCamelCase().decapitalize(Locale.getDefault())
 
-    protected fun String.toCamelCase(): String {
+    private fun String.toCamelCase(): String {
         val segments = split(".", "-", "_")
         return segments.joinToString("") { it.capitalized() }
     }
@@ -209,7 +216,7 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
             createVariation(
                 variation = rootVariation,
                 isRoot = true,
-                wrapperInterface = "Wrapper$camelComponentName",
+                viewExtensionReceiverName = baseWrapperInterfaceName,
             )
             build(outputLocation)
         }
@@ -218,16 +225,38 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
     private fun KtFileBuilder.createVariation(
         variation: VariationNode<PO>,
         isRoot: Boolean = false,
-        wrapperInterface: String,
+        viewExtensionReceiverName: String,
     ) {
-        val newWrapperInterface: String
         val hasViewVariations = variation.value.view.isNotEmpty()
+        val newViewExtensionReceiverName: String
         if (hasViewVariations) {
-            newWrapperInterface = "Wrapper${variation.id.toCamelCase()}View"
-            addViewInterface(newWrapperInterface, wrapperInterface)
-            addViewExtensions(variation, newWrapperInterface)
+            newViewExtensionReceiverName = "Wrapper${variation.id.toCamelCase()}View"
+            val description = if (variation.parent == null) {
+                """
+                    Интерфейс, который реализуют все обертки вариаций корневого уровня 
+                    и обертки их подвариаций. 
+                    Является ресивером для extension-функций view, 
+                    применимых к этим оберткам.
+                """
+            } else {
+                """
+                    Интерфейс, который реализуют все обертки вариации ${variation.name}
+                    и обертки ее подвариаций.
+                    Является ресивером для extension-функций view,
+                    применимых к этим оберткам.
+                """
+            }.trimIndent()
+            addVariationWrapperInterface(
+                interfaceName = newViewExtensionReceiverName,
+                superTypeName = viewExtensionReceiverName,
+                description = description,
+            )
+            addViewExtensions(
+                variation = variation,
+                receiverName = newViewExtensionReceiverName,
+            )
         } else {
-            newWrapperInterface = wrapperInterface
+            newViewExtensionReceiverName = viewExtensionReceiverName
         }
 
         val builderCalls = propsToBuilderCalls(
@@ -236,30 +265,38 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
             ktFileBuilder = this,
         )
         if (isRoot) {
-            addInvariantPropsVal(builderCalls)
+            if (variation.value.view.isEmpty() && variation.children.isEmpty()) {
+                variation.addChild(VariationNode("Default", variation.value))
+                shouldAddInvariantPropsCall = false
+            } else {
+                addInvariantPropsVal(builderCalls)
+                shouldAddInvariantPropsCall = true
+            }
         } else {
             addVariationExtension(
                 variationNode = variation,
-                wrapperInterfaceName = newWrapperInterface,
                 builderCalls = builderCalls,
+                wrapperSuperTypeName = newViewExtensionReceiverName,
             )
         }
 
         variation.children.forEach {
             createVariation(
                 variation = it,
-                wrapperInterface = newWrapperInterface,
+                viewExtensionReceiverName = newViewExtensionReceiverName,
             )
         }
     }
 
-    private fun KtFileBuilder.addViewInterface(
+    private fun KtFileBuilder.addVariationWrapperInterface(
         interfaceName: String,
-        superInterfaceName: String,
+        superTypeName: String,
+        description: String,
     ) {
         rootInterface(
             name = interfaceName,
-            superInterface = getInternalClassType(superInterfaceName),
+            superInterface = getInternalClassType(superTypeName),
+            description = description,
         )
     }
 
@@ -281,26 +318,35 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
 
     private fun KtFileBuilder.addViewExtensions(
         variation: VariationNode<PO>,
-        newWrapperInterface: String,
+        receiverName: String,
     ) {
-        val receiverType = getInternalClassType(newWrapperInterface)
-        variation.value.view.forEach { viewEntry ->
+        val receiverType = getInternalClassType(receiverName)
+        val mergedViews = variation.mergedViews()
+        mergedViews.forEach { viewEntry ->
             val extensionName = viewEntry.key.capitalized()
             val extensionBody = propsToBuilderCalls(
                 props = viewEntry.value.props,
                 variationId = viewEntry.key,
                 ktFileBuilder = this,
             )
-            val outType = getOrGenerateWrapper(
-                wrapperSuffix = "${variation.name.toCamelCase()}${extensionName}ViewTerminate",
-                superInterfaceName = "Wrapper$camelComponentName",
+            val outType = getOrGenerateViewWrapper(
+                wrapperSuffix = "${camelComponentName}Terminate",
+                description = "Терминальная обертка",
             )
             appendRootVal(
                 name = extensionName,
                 typeName = outType,
                 receiver = receiverType,
                 getter = KtFileBuilder.Getter.Annotated(
-                    annotations = listOf(Annotation(KtFileBuilder.TypeAnnotationComposable)),
+                    annotations = listOfNotNull(
+                        Annotation(KtFileBuilder.TypeAnnotationComposable),
+                        variation.parent?.let {
+                            Annotation(
+                                annotation = KtFileBuilder.TypeAnnotationJvmName,
+                                parameter = "\"${receiverType.simpleName}$extensionName\"",
+                            )
+                        },
+                    ),
                     body = buildString {
                         appendLine("return builder")
                         extensionBody.forEach { appendLine(it) }
@@ -313,7 +359,7 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
 
     private fun KtFileBuilder.addVariationExtension(
         variationNode: VariationNode<PO>,
-        wrapperInterfaceName: String,
+        wrapperSuperTypeName: String,
         builderCalls: List<String>,
     ) {
         val parentName = variationNode.parent?.id?.toCamelCase()
@@ -328,12 +374,13 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
             builderRef = "$componentStyleName.$styleBuilderFactoryMethodName(this)"
             outType = getOrGenerateWrapper(
                 wrapperSuffix = "$camelComponentName$variationName",
-                superInterfaceName = wrapperInterfaceName,
+                superTypeName = wrapperSuperTypeName,
+                description = "Обертка для вариации $variationName",
             )
             receiverType = componentRootObjectType
             extensionBody = buildString {
                 appendLine("return $builderRef")
-                appendLine(".invariantProps")
+                if (shouldAddInvariantPropsCall) appendLine(".invariantProps")
                 builderCalls.forEach { appendLine(it) }
                 appendLine(".wrap(::${outType.simpleName})")
             }
@@ -342,10 +389,12 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
             receiverType =
                 getOrGenerateWrapper(
                     wrapperSuffix = "$camelComponentName$parentName",
+                    description = "Обертка для вариации $parentName",
                 )
             outType = getOrGenerateWrapper(
                 wrapperSuffix = "$camelComponentName$parentName$variationName",
-                superInterfaceName = wrapperInterfaceName,
+                superTypeName = wrapperSuperTypeName,
+                description = "Обертка для вариации $parentName$variationName",
             )
             extensionBody = buildString {
                 appendLine("return $builderRef")
@@ -371,9 +420,19 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
         )
     }
 
+    private fun KtFileBuilder.getOrGenerateViewWrapper(
+        wrapperSuffix: String,
+        description: String,
+    ): ClassName = getOrGenerateWrapper(
+        wrapperSuffix = wrapperSuffix,
+        superTypeName = baseWrapperInterfaceName,
+        description = description,
+    )
+
     private fun KtFileBuilder.getOrGenerateWrapper(
         wrapperSuffix: String,
-        superInterfaceName: String? = null,
+        superTypeName: String? = null,
+        description: String,
     ): ClassName {
         val fullWrapperName = "Wrapper$wrapperSuffix"
         if (!generatedWrappers.contains(fullWrapperName)) {
@@ -381,7 +440,7 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
                 name = fullWrapperName,
                 modifiers = listOf(Modifier.VALUE),
                 annotation = KtFileBuilder.TypeAnnotationJvmInline,
-                superInterface = superInterfaceName?.let { getInternalClassType(it) },
+                superInterface = superTypeName?.let { getInternalClassType(it) },
                 primaryConstructor = KtFileBuilder.Constructor.Primary(
                     parameters = listOf(
                         KtFileBuilder.FunParameter(
@@ -392,6 +451,7 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
                         ),
                     ),
                 ),
+                description = description,
             )
             generatedWrappers.add(fullWrapperName)
         }
@@ -477,9 +537,10 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
 
     private fun KtFileBuilder.addBaseWrapperInterface() {
         rootInterface(
-            name = "Wrapper$camelComponentName",
+            name = baseWrapperInterfaceName,
             superInterface = getInternalClassType("BuilderWrapper", "com.sdds.compose.uikit.style")
                 .parameterizedBy(styleType, styleBuilderType),
+            description = "Базовый интерфейс для всех оберток этого стиля",
         )
     }
 }

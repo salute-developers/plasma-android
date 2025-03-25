@@ -14,7 +14,7 @@ import com.sdds.testing.compose.RoborazziConfigCompose
 import com.sdds.testing.compose.chip.ChipDisabled
 import com.sdds.testing.compose.chip.ChipSizeLDefault
 import com.sdds.testing.compose.chip.ChipSizeMSecondaryPilled
-import com.sdds.testing.compose.chip.ChipSizeSAccentDisabled
+import com.sdds.testing.compose.chip.ChipSizeSAccent
 import com.sdds.testing.compose.chip.ChipSizeXSContentLeft
 import com.sdds.testing.vs.SDK_NUMBER
 import org.junit.Test
@@ -48,9 +48,9 @@ class ComposeChipScreenshotTest(
     }
 
     @Test
-    fun testChipSizeSAccentDisabled() {
+    fun testChipSizeSAccent() {
         composeTestRule.content {
-            ChipSizeSAccentDisabled(style = Chip.S.Accent.style())
+            ChipSizeSAccent(style = Chip.S.Accent.style())
         }
     }
 

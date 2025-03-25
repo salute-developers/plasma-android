@@ -29,61 +29,92 @@ import kotlin.Suppress
 import kotlin.jvm.JvmInline
 import kotlin.jvm.JvmName
 
+/**
+ * Базовый интерфейс для всех оберток этого стиля
+ */
 public interface WrapperTextArea : BuilderWrapper<TextFieldStyle, TextAreaStyleBuilder>
 
+/**
+ * Интерфейс, который реализуют все обертки вариаций корневого уровня
+ * и обертки их подвариаций.
+ * Является ресивером для extension-функций view,
+ * применимых к этим оберткам.
+ */
 public interface WrapperTextAreaView : WrapperTextArea
 
+/**
+ * Терминальная обертка
+ */
 @JvmInline
-public value class WrapperTextAreaDefaultViewTerminate(
+public value class WrapperTextAreaTerminate(
     public override val builder: TextAreaStyleBuilder,
 ) : WrapperTextArea
 
-@JvmInline
-public value class WrapperTextAreaErrorViewTerminate(
-    public override val builder: TextAreaStyleBuilder,
-) : WrapperTextArea
-
+/**
+ * Обертка для вариации Xs
+ */
 @JvmInline
 public value class WrapperTextAreaXs(
     public override val builder: TextAreaStyleBuilder,
 ) : WrapperTextAreaView
 
+/**
+ * Обертка для вариации XsOuterLabel
+ */
 @JvmInline
 public value class WrapperTextAreaXsOuterLabel(
     public override val builder: TextAreaStyleBuilder,
 ) : WrapperTextAreaView
 
+/**
+ * Обертка для вариации S
+ */
 @JvmInline
 public value class WrapperTextAreaS(
     public override val builder: TextAreaStyleBuilder,
 ) : WrapperTextAreaView
 
+/**
+ * Обертка для вариации SOuterLabel
+ */
 @JvmInline
 public value class WrapperTextAreaSOuterLabel(
     public override val builder: TextAreaStyleBuilder,
 ) : WrapperTextAreaView
 
+/**
+ * Обертка для вариации SInnerLabel
+ */
 @JvmInline
 public value class WrapperTextAreaSInnerLabel(
     public override val builder: TextAreaStyleBuilder,
 ) : WrapperTextAreaView
 
+/**
+ * Обертка для вариации M
+ */
 @JvmInline
 public value class WrapperTextAreaM(
     public override val builder: TextAreaStyleBuilder,
 ) : WrapperTextAreaView
 
+/**
+ * Обертка для вариации MOuterLabel
+ */
 @JvmInline
 public value class WrapperTextAreaMOuterLabel(
     public override val builder: TextAreaStyleBuilder,
 ) : WrapperTextAreaView
 
+/**
+ * Обертка для вариации MInnerLabel
+ */
 @JvmInline
 public value class WrapperTextAreaMInnerLabel(
     public override val builder: TextAreaStyleBuilder,
 ) : WrapperTextAreaView
 
-public val WrapperTextAreaView.Default: WrapperTextAreaDefaultViewTerminate
+public val WrapperTextAreaView.Default: WrapperTextAreaTerminate
     @Composable
     get() = builder
         .colors {
@@ -102,9 +133,9 @@ public val WrapperTextAreaView.Default: WrapperTextAreaDefaultViewTerminate
                 ),
             )
         }
-        .wrap(::WrapperTextAreaDefaultViewTerminate)
+        .wrap(::WrapperTextAreaTerminate)
 
-public val WrapperTextAreaView.Error: WrapperTextAreaErrorViewTerminate
+public val WrapperTextAreaView.Error: WrapperTextAreaTerminate
     @Composable
     get() = builder
         .colors {
@@ -125,7 +156,7 @@ public val WrapperTextAreaView.Error: WrapperTextAreaErrorViewTerminate
                 ),
             )
         }
-        .wrap(::WrapperTextAreaErrorViewTerminate)
+        .wrap(::WrapperTextAreaTerminate)
 
 private val TextAreaStyleBuilder.invariantProps: TextAreaStyleBuilder
     @Composable

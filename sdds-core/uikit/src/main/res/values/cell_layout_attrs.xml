@@ -18,6 +18,7 @@
         <attr name="sd_subtitleColor" format="color" />
 
         <attr name="sd_disclosureEnabled" format="boolean" />
+        <attr name="sd_disclosurePadding" format="dimension" />
         <attr name="sd_disclosureText" format="string" />
         <attr name="sd_disclosureTextAppearance" format="reference" />
         <attr name="sd_disclosureColor" format="color" />

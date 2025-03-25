@@ -3,22 +3,17 @@ package com.sdds.playground.sandbox.buttons.compose
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.compose.uikit.ButtonStyle
-import com.sdds.playground.sandbox.Theme
 import com.sdds.playground.sandbox.core.compose.ComponentViewModel
 import com.sdds.playground.sandbox.core.compose.Property
-import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
+import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 
 /**
  * ViewModel для экранов с компонентом LinkButton
  */
 internal class LinkButtonViewModel(
     defaultState: ButtonUiState,
-    private val theme: Theme.ThemeInfoCompose,
-) : ComponentViewModel<ButtonUiState, ButtonStyle>(defaultState) {
-
-    override fun getStyleProvider(): ComposeStyleProvider<String, ButtonStyle> {
-        return theme.stylesProvider.linkButton
-    }
+    componentKey: ComponentKey,
+) : ComponentViewModel<ButtonUiState, ButtonStyle>(defaultState, componentKey) {
 
     private fun updateIcon(icon: ButtonIcon) {
         internalUiState.value = internalUiState.value.copy(
@@ -89,11 +84,11 @@ internal class LinkButtonViewModel(
  */
 internal class LinkButtonViewModelFactory(
     private val defaultState: ButtonUiState,
-    private val theme: Theme.ThemeInfoCompose,
+    private val componentKey: ComponentKey,
 ) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return LinkButtonViewModel(defaultState, theme) as T
+        return LinkButtonViewModel(defaultState, componentKey) as T
     }
 }

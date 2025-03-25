@@ -34,9 +34,9 @@ class ViewSystemChipScreenshotTest(
     }
 
     @Test
-    override fun testChipSDisabled() {
+    override fun testChipSAccent() {
         themedComponent {
-            chipSDisabled(R.style.Serv_Sdds_ComponentOverlays_ChipSAccent)
+            chipSAccent(R.style.Serv_Sdds_ComponentOverlays_ChipSAccent)
         }
     }
 
@@ -44,6 +44,13 @@ class ViewSystemChipScreenshotTest(
     override fun testChipXsDefault() {
         themedComponent {
             chipXsDefault(R.style.Serv_Sdds_ComponentOverlays_ChipXSDefault)
+        }
+    }
+
+    @Test
+    override fun testChipDisabled() {
+        themedComponent {
+            chipDisabled((R.style.Serv_Sdds_ComponentOverlays_ChipLDefault))
         }
     }
 

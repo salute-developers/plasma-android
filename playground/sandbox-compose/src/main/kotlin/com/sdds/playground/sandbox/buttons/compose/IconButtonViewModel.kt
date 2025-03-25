@@ -3,23 +3,18 @@ package com.sdds.playground.sandbox.buttons.compose
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.compose.uikit.ButtonStyle
-import com.sdds.playground.sandbox.Theme
 import com.sdds.playground.sandbox.core.compose.ComponentViewModel
 import com.sdds.playground.sandbox.core.compose.PropertiesOwner
 import com.sdds.playground.sandbox.core.compose.Property
-import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
+import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 
 /**
  * ViewModel для экранов с компонентом IconButton
  */
 internal class IconButtonViewModel(
     defaultState: ButtonUiState,
-    private val theme: Theme.ThemeInfoCompose,
-) : ComponentViewModel<ButtonUiState, ButtonStyle>(defaultState), PropertiesOwner {
-
-    override fun getStyleProvider(): ComposeStyleProvider<String, ButtonStyle> {
-        return theme.stylesProvider.iconButton
-    }
+    componentKey: ComponentKey,
+) : ComponentViewModel<ButtonUiState, ButtonStyle>(defaultState, componentKey), PropertiesOwner {
 
     private fun updateEnabledState(enabled: Boolean) {
         internalUiState.value = internalUiState.value.copy(
@@ -54,11 +49,11 @@ internal class IconButtonViewModel(
  */
 internal class IconButtonViewModelFactory(
     private val defaultState: ButtonUiState,
-    private val theme: Theme.ThemeInfoCompose,
+    private val componentKey: ComponentKey,
 ) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return IconButtonViewModel(defaultState, theme) as T
+        return IconButtonViewModel(defaultState, componentKey) as T
     }
 }

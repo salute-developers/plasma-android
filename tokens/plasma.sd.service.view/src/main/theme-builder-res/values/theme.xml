@@ -936,10 +936,10 @@
         <item name="plasma_typographyTextXsBold">@style/Plasma.SdService.Typography.TextXsBold</item>
 
         <item name="sd_disabledAlpha">0.4</item>
-        <item name="sd_fsMode">border</item>
+        <item name="sd_fsBorderMode">solid</item>
         <item name="sd_fsMainColor">?plasma_surfaceDefaultAccent</item>
         <item name="sd_fsStrokeWidth">@dimen/sdds_spacer_0_5x</item>
-        <item name="sd_fsStrokeInset">@dimen/sdds_spacer_1x</item>
+        <item name="sd_fsStrokeInset">@dimen/sdds_spacer_0_5x</item>
         <item name="sd_fsShapeAdjustment">@dimen/sdds_spacer_1x</item>
         <item name="colorAccent">?plasma_textDefaultAccent</item>
         <item name="colorControlHighlight">@android:color/transparent</item>
@@ -965,6 +965,8 @@
         <item name="sd_counterStyle">@style/Plasma.SdService.Components.Counter.M</item>
         <item name="sd_badgeStyle">@style/Plasma.SdService.Components.Badge.M</item>
         <item name="sd_indicatorStyle">@style/Plasma.SdService.Components.Indicator.M</item>
+        <item name="sd_cardStyle">@style/Plasma.SdService.Components.CardSolid.M</item>
+        <item name="sd_cardContentStyle">@style/Plasma.SdService.Components.CardSolidContent.M</item>
 
         <!--Shadows-->
         <item name="plasma_shadowDownSoftS">@style/Plasma.SdService.Shadow.DownSoftS</item>
@@ -1930,10 +1932,10 @@
         <item name="plasma_typographyTextXsBold">@style/Plasma.SdService.Typography.TextXsBold</item>
 
         <item name="sd_disabledAlpha">0.4</item>
-        <item name="sd_fsMode">border</item>
+        <item name="sd_fsBorderMode">solid</item>
         <item name="sd_fsMainColor">?plasma_surfaceDefaultAccent</item>
         <item name="sd_fsStrokeWidth">@dimen/sdds_spacer_0_5x</item>
-        <item name="sd_fsStrokeInset">@dimen/sdds_spacer_1x</item>
+        <item name="sd_fsStrokeInset">@dimen/sdds_spacer_0_5x</item>
         <item name="sd_fsShapeAdjustment">@dimen/sdds_spacer_1x</item>
         <item name="colorAccent">?plasma_textDefaultAccent</item>
         <item name="colorControlHighlight">@android:color/transparent</item>
@@ -1959,6 +1961,8 @@
         <item name="sd_counterStyle">@style/Plasma.SdService.Components.Counter.M</item>
         <item name="sd_badgeStyle">@style/Plasma.SdService.Components.Badge.M</item>
         <item name="sd_indicatorStyle">@style/Plasma.SdService.Components.Indicator.M</item>
+        <item name="sd_cardStyle">@style/Plasma.SdService.Components.CardSolid.M</item>
+        <item name="sd_cardContentStyle">@style/Plasma.SdService.Components.CardSolidContent.M</item>
 
         <!--Shadows-->
         <item name="plasma_shadowDownSoftS">@style/Plasma.SdService.Shadow.DownSoftS</item>

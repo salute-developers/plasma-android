@@ -3,22 +3,17 @@ package com.sdds.playground.sandbox.radiobox.compose
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.sdds.compose.uikit.RadioBoxStyle
-import com.sdds.playground.sandbox.Theme
 import com.sdds.playground.sandbox.core.compose.ComponentViewModel
 import com.sdds.playground.sandbox.core.compose.Property
-import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
+import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 
 /**
  * ViewModel для экранов с компонентом RadioBox
  */
 internal class RadioBoxViewModel(
     defaultState: RadioBoxUiState,
-    private val theme: Theme.ThemeInfoCompose,
-) : ComponentViewModel<RadioBoxUiState, RadioBoxStyle>(defaultState) {
-
-    override fun getStyleProvider(): ComposeStyleProvider<String, RadioBoxStyle> {
-        return theme.stylesProvider.radioBox
-    }
+    componentKey: ComponentKey,
+) : ComponentViewModel<RadioBoxUiState, RadioBoxStyle>(defaultState, componentKey) {
 
     private fun updateChecked(checked: Boolean) {
         internalUiState.value = internalUiState.value.copy(checked = checked)
@@ -67,11 +62,11 @@ internal class RadioBoxViewModel(
 
 internal class RadioBoxViewModelFactory(
     private val defaultState: RadioBoxUiState,
-    private val theme: Theme.ThemeInfoCompose,
+    private val componentKey: ComponentKey,
 ) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return RadioBoxViewModel(defaultState, theme) as T
+        return RadioBoxViewModel(defaultState, componentKey) as T
     }
 }

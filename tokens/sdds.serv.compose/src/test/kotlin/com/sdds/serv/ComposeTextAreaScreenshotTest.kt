@@ -17,6 +17,7 @@ import com.sdds.serv.styles.textarea.RequiredEnd
 import com.sdds.serv.styles.textarea.RequiredStart
 import com.sdds.serv.styles.textarea.S
 import com.sdds.serv.styles.textarea.Warning
+import com.sdds.serv.styles.textarea.Xl
 import com.sdds.serv.styles.textarea.Xs
 import com.sdds.serv.styles.textarea.clear.Default
 import com.sdds.serv.styles.textarea.clear.Error
@@ -50,6 +51,7 @@ import com.sdds.testing.compose.textarea.TextAreaSLongText
 import com.sdds.testing.compose.textarea.TextAreaSWarningInnerRight
 import com.sdds.testing.compose.textarea.TextAreaSWarningInnerRightFocused
 import com.sdds.testing.compose.textarea.TextAreaXSDefaultOuterOptional
+import com.sdds.testing.compose.textarea.TextAreaXlDefault
 import com.sdds.testing.compose.textarea.TextAreaXsErrorInnerOptional
 import com.sdds.testing.vs.SDK_NUMBER
 import org.junit.Test
@@ -221,6 +223,13 @@ class ComposeTextAreaScreenshotTest(
     fun testTextAreaClearMErrorInnerRequiredStart() {
         composeTestRule.content {
             TextAreaClearMErrorInnerRequiredStart(style = TextAreaClear.M.InnerLabel.RequiredStart.Error.style())
+        }
+    }
+
+    @Test
+    fun testTextAreaXlDefault() {
+        composeTestRule.content {
+            TextAreaXlDefault(style = TextArea.Xl.Default.style())
         }
     }
 }

@@ -177,4 +177,14 @@ class ViewSystemTextAreaScreenshotTest(
             )
         }
     }
+
+    @Test
+    fun testTextAreaXlDefault() {
+        themedComponent {
+            textAreaXlDefault(
+                R.style.Plasma_SdService_ComponentOverlays_TextAreaXl,
+                TextAreaColorState.DEFAULT,
+            )
+        }
+    }
 }

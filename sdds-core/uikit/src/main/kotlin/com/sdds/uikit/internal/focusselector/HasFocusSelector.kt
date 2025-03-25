@@ -3,9 +3,10 @@ package com.sdds.uikit.internal.focusselector
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
-import androidx.annotation.StyleRes
 import com.sdds.uikit.R
-import com.sdds.uikit.internal.focusselector.FocusSelectorMode.Companion.isEnabled
+import com.sdds.uikit.fs.FocusSelectorBorder
+import com.sdds.uikit.fs.FocusSelectorBorder.Mode.Companion.isBorderEnabled
+import com.sdds.uikit.fs.FocusSelectorSettings
 import com.sdds.uikit.shape.ShapeModel
 import com.sdds.uikit.shape.ShapeModel.Companion.adjust
 import com.sdds.uikit.shape.Shapeable
@@ -24,12 +25,20 @@ interface HasFocusSelector {
      * @param attributeSet набор атрибутов для кастомизации селектора
      * @param defStyleAttr атрибут стиля по-умолчанию для [view]
      */
+    @Deprecated("Use applySelector(View)", ReplaceWith("applySelector(view)"))
     fun applySelector(
         view: View,
         context: Context,
         attributeSet: AttributeSet? = null,
         defStyleAttr: Int = 0,
     )
+
+    /**
+     * Устанавливает селектор фокуса для [view]
+     * @param view [View], в который устанавливает селектор
+     */
+    @Suppress("DEPRECATION")
+    fun applySelector(view: View): Unit = applySelector(view, view.context)
 
     /**
      * Обновляет селектор фокуса при изменении состояния [focus] у [view]
@@ -45,68 +54,56 @@ interface HasFocusSelector {
 /**
  * Делегат для управления состоянием селектора фокуса.
  */
-internal class FocusSelectorDelegate : HasFocusSelector {
+internal class FocusSelectorDelegate
+@Deprecated("Use constructor(FocusSelectorSettings) or constructor(Context, AttributeSet, Int)")
+constructor() : HasFocusSelector {
 
     private var scaleAnimationHelper: FocusScaleAnimationHelper? = null
-    private var strokeInsets: Int = 0
-    private var mode: FocusSelectorMode = FocusSelectorMode.GRADIENT_BORDER
-    internal val isEnabled: Boolean get() = mode.isEnabled()
+    var settings: FocusSelectorSettings? = null
+        private set
 
-    override fun applySelector(view: View, context: Context, attributeSet: AttributeSet?, defStyleAttr: Int) {
-        val attr = context.obtainStyledAttributes(
-            attributeSet,
-            R.styleable.SdFocusSelector,
-            defStyleAttr,
-            0,
-        )
-        try {
-            mode = FocusSelectorMode.fromAttr(attr)
-            val duplicateParentStateEnabled = attr.getBoolean(
-                R.styleable.SdFocusSelector_sd_fsDuplicateParentState,
-                false,
-            )
-            if (!mode.isEnabled() || !view.canBeFocusable(duplicateParentStateEnabled)) return
-            if (mode == FocusSelectorMode.SCALE) {
-                val factor = attr.getFloat(
-                    R.styleable.SdFocusSelector_sd_fsScaleFactor,
-                    FocusScaleAnimationHelper.DEFAULT_FACTOR,
-                )
-                scaleAnimationHelper = FocusScaleAnimationHelper(factor)
-            } else {
-                val strokeWidth = attr.getDimension(
-                    R.styleable.SdFocusSelector_sd_fsStrokeWidth,
-                    view.resources.getDimension(R.dimen.sdds_spacer_1x),
-                )
-                val appearance = attr.getResourceId(R.styleable.SdFocusSelector_sd_fsShapeAppearance, 0)
-                strokeInsets = attr.getDimensionPixelSize(R.styleable.SdFocusSelector_sd_fsStrokeInset, 0)
-                val mainColor = attr.getColor(R.styleable.SdFocusSelector_sd_fsMainColor, 0)
-                val additionalColor = attr.getColor(R.styleable.SdFocusSelector_sd_fsAdditionalColor, 0)
-                val adjustment = attr.getDimension(R.styleable.SdFocusSelector_sd_fsShapeAdjustment, 0f)
-                view.tryApplyStrokeSelector(
-                    mode = mode,
-                    appearanceResId = appearance,
-                    shapeAdjustment = adjustment,
-                    strokeWidth = strokeWidth,
-                    mainColor = mainColor,
-                    additionalColor = additionalColor,
-                )
-            }
-        } finally {
-            attr.recycle()
+    internal val isEnabled: Boolean
+        get() = settings?.let {
+            it.isEnabled && (it.border.borderMode.isBorderEnabled() || it.scaleEnabled)
+        } == true
+
+    constructor(settings: FocusSelectorSettings) : this() {
+        this.settings = settings
+    }
+
+    constructor(
+        context: Context,
+        attributeSet: AttributeSet?,
+        defStyleAttr: Int,
+    ) : this(FocusSelectorSettings.fromAttrs(context, attributeSet, defStyleAttr))
+
+    override fun applySelector(view: View) {
+        val settings = this.settings ?: return
+        if (!isEnabled || !view.canBeFocusable(settings.duplicateParentStateEnabled)) return
+        if (settings.scaleEnabled) {
+            scaleAnimationHelper = FocusScaleAnimationHelper(settings.scaleFactor)
         }
+        view.tryApplySelectorBorder(settings)
+    }
+
+    @Deprecated("Use applySelector(View)", replaceWith = ReplaceWith("applySelector(view)"))
+    override fun applySelector(view: View, context: Context, attributeSet: AttributeSet?, defStyleAttr: Int) {
+        this.settings = FocusSelectorSettings.fromAttrs(context, attributeSet, defStyleAttr)
+        applySelector(view)
     }
 
     override fun updateFocusSelector(view: View, focus: Boolean) {
-        if (!mode.isEnabled()) return
-        if (mode == FocusSelectorMode.SCALE) {
+        if (!isEnabled) return
+        if (settings?.scaleEnabled == true) {
             scaleAnimationHelper?.animateFocusChange(view, focus)
-        } else {
+        }
+        if (settings?.border?.borderMode?.isBorderEnabled() == true) {
             view.foreground?.invalidateSelf()
         }
     }
 
     override fun handlePressedChange(view: View, isPressed: Boolean) {
-        if (mode == FocusSelectorMode.SCALE) {
+        if (settings?.scaleEnabled == true) {
             scaleAnimationHelper?.animatePressedState(view, isPressed)
         }
     }
@@ -115,48 +112,50 @@ internal class FocusSelectorDelegate : HasFocusSelector {
         return isFocusable || (duplicateStateEnabled && isDuplicateParentStateEnabled)
     }
 
-    private fun View.tryApplyStrokeSelector(
-        mode: FocusSelectorMode,
-        @StyleRes appearanceResId: Int,
-        shapeAdjustment: Float,
-        strokeWidth: Float,
-        mainColor: Int,
-        additionalColor: Int = 0,
-    ) {
-        if (mode == FocusSelectorMode.SCALE) return
+    private fun View.tryApplySelectorBorder(settings: FocusSelectorSettings) {
+        val border = settings.border
         val defaultShape = ShapeModel.create(
             context,
-            appearanceResId.takeIf { it != 0 } ?: R.style.Sdds_Shape_Round,
+            border.shapeAppearanceResId.takeIf { it != 0 } ?: R.style.Sdds_Shape_Round,
         )
         val appearanceModel = (this as? Shapeable)?.shape ?: defaultShape
-        val adjustedShapeModel = appearanceModel.adjust(shapeAdjustment)
-        foreground = when (mode) {
-            FocusSelectorMode.BORDER -> SelectorDrawable(
+        val adjustedShapeModel = appearanceModel.adjust(border.shapeAdjustment)
+        val strokeWidth: Float
+        val strokeInsets: Int
+        if (settings.scaleEnabled && settings.scaleFactor != 0f) {
+            val scale = 1 + settings.scaleFactor
+            strokeWidth = border.strokeWidth / scale
+            strokeInsets = (border.strokeInsets / scale).toInt()
+        } else {
+            strokeWidth = border.strokeWidth
+            strokeInsets = border.strokeInsets
+        }
+        foreground = when (border.borderMode) {
+            FocusSelectorBorder.Mode.SOLID -> SelectorDrawable(
                 context = context,
                 strokeWidth = strokeWidth,
                 insets = strokeInsets,
                 shapeModel = adjustedShapeModel,
-                mainColor = mainColor,
+                mainColor = border.mainColor,
             )
 
-            FocusSelectorMode.GRADIENT_BORDER -> SelectorDrawable(
+            FocusSelectorBorder.Mode.GRADIENT -> SelectorDrawable(
                 context = context,
                 strokeWidth = strokeWidth,
                 insets = strokeInsets,
                 shapeModel = adjustedShapeModel,
-                mainColor = mainColor,
-                additionalColor = additionalColor,
+                mainColor = border.mainColor,
+                additionalColor = border.additionalColor,
             )
 
-            FocusSelectorMode.ANIMATED_BORDER -> AnimatedSelectorDrawable(
+            FocusSelectorBorder.Mode.GRADIENT_ANIMATED -> AnimatedSelectorDrawable(
                 context = context,
                 strokeWidth = strokeWidth,
                 insets = strokeInsets,
                 shapeModel = adjustedShapeModel,
-                mainColor = mainColor,
-                additionalColor = additionalColor,
+                mainColor = border.mainColor,
+                additionalColor = border.additionalColor,
             )
-
             else -> return
         }
     }

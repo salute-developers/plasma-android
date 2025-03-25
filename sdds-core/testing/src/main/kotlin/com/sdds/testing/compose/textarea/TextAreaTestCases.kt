@@ -17,13 +17,14 @@ import com.sdds.compose.uikit.Chip
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.TextField
 import com.sdds.compose.uikit.TextFieldStyle
+import com.sdds.compose.uikit.internal.focusselector.FocusSelectorMode
 import com.sdds.icons.R
 
 /**
  * Тест кейсы для TextArea, TextAreaClear
  */
 /**
- * PLASMA-1580
+ * PLASMA-T1580
  */
 @Composable
 fun TextAreaLDefaultInnerLeft(style: TextFieldStyle) {
@@ -39,6 +40,7 @@ fun TextAreaLDefaultInnerLeft(style: TextFieldStyle) {
         counterText = "Counter",
         onValueChange = {},
         readOnly = false,
+        focusSelectorMode = FocusSelectorMode.None,
         enabled = true,
         endContent = {
             Icon(
@@ -50,7 +52,7 @@ fun TextAreaLDefaultInnerLeft(style: TextFieldStyle) {
 }
 
 /**
- * PLASMA-1918
+ * PLASMA-T1918
  */
 @Composable
 fun TextAreaMDefaultOuterOptional(style: TextFieldStyle) {
@@ -66,6 +68,7 @@ fun TextAreaMDefaultOuterOptional(style: TextFieldStyle) {
         counterText = "Counter",
         onValueChange = {},
         readOnly = false,
+        focusSelectorMode = FocusSelectorMode.None,
         enabled = true,
         endContent = {
             Icon(
@@ -77,7 +80,7 @@ fun TextAreaMDefaultOuterOptional(style: TextFieldStyle) {
 }
 
 /**
- * PLASMA-1582
+ * PLASMA-T1582
  */
 @Composable
 fun TextAreaSWarningInnerRight(style: TextFieldStyle) {
@@ -93,12 +96,13 @@ fun TextAreaSWarningInnerRight(style: TextFieldStyle) {
         counterText = "Counter",
         onValueChange = {},
         readOnly = false,
+        focusSelectorMode = FocusSelectorMode.None,
         enabled = true,
     )
 }
 
 /**
- * PLASMA-1583
+ * PLASMA-T1583
  */
 @Composable
 fun TextAreaXsErrorInnerOptional(style: TextFieldStyle) {
@@ -114,6 +118,7 @@ fun TextAreaXsErrorInnerOptional(style: TextFieldStyle) {
         counterText = "Counter",
         onValueChange = {},
         readOnly = false,
+        focusSelectorMode = FocusSelectorMode.None,
         enabled = true,
         endContent = {
             Icon(
@@ -125,7 +130,7 @@ fun TextAreaXsErrorInnerOptional(style: TextFieldStyle) {
 }
 
 /**
- * PLASMA-1584
+ * PLASMA-T1584
  */
 @Composable
 fun TextAreaLReadOnly(style: TextFieldStyle) {
@@ -142,6 +147,7 @@ fun TextAreaLReadOnly(style: TextFieldStyle) {
             counterText = "Counter",
             onValueChange = { value = it },
             readOnly = true,
+            focusSelectorMode = FocusSelectorMode.None,
             enabled = true,
             endContent = {
                 Icon(
@@ -154,7 +160,7 @@ fun TextAreaLReadOnly(style: TextFieldStyle) {
 }
 
 /**
- * PLASMA-1585
+ * PLASMA-T1585
  */
 @Composable
 fun TextAreaMWarningInnerOptional(style: TextFieldStyle) {
@@ -170,12 +176,13 @@ fun TextAreaMWarningInnerOptional(style: TextFieldStyle) {
         counterText = "Counter",
         onValueChange = {},
         readOnly = false,
+        focusSelectorMode = FocusSelectorMode.None,
         enabled = true,
     )
 }
 
 /**
- * PLASMA-1586
+ * PLASMA-T1586
  */
 @Composable
 fun TextAreaSDefaultInnerRight(style: TextFieldStyle) {
@@ -191,6 +198,7 @@ fun TextAreaSDefaultInnerRight(style: TextFieldStyle) {
         counterText = "Counter",
         onValueChange = {},
         readOnly = false,
+        focusSelectorMode = FocusSelectorMode.None,
         enabled = true,
         endContent = {
             Icon(
@@ -202,7 +210,7 @@ fun TextAreaSDefaultInnerRight(style: TextFieldStyle) {
 }
 
 /**
- * PLASMA-1919
+ * PLASMA-T1919
  */
 @Composable
 fun TextAreaXSDefaultOuterOptional(style: TextFieldStyle) {
@@ -218,6 +226,7 @@ fun TextAreaXSDefaultOuterOptional(style: TextFieldStyle) {
         counterText = "Counter",
         onValueChange = {},
         readOnly = false,
+        focusSelectorMode = FocusSelectorMode.None,
         enabled = true,
         endContent = {
             Icon(
@@ -229,7 +238,7 @@ fun TextAreaXSDefaultOuterOptional(style: TextFieldStyle) {
 }
 
 /**
- * PLASMA-1588
+ * PLASMA-T1588
  */
 @Composable
 fun TextAreaLDisabled(style: TextFieldStyle) {
@@ -245,6 +254,7 @@ fun TextAreaLDisabled(style: TextFieldStyle) {
         counterText = "",
         onValueChange = {},
         readOnly = false,
+        focusSelectorMode = FocusSelectorMode.None,
         enabled = false,
         endContent = {
             Icon(
@@ -256,7 +266,7 @@ fun TextAreaLDisabled(style: TextFieldStyle) {
 }
 
 /**
- * PLASMA-1589
+ * PLASMA-T1589
  */
 @Composable
 fun TextAreaMErrorOuterOptional(style: TextFieldStyle) {
@@ -272,12 +282,13 @@ fun TextAreaMErrorOuterOptional(style: TextFieldStyle) {
         counterText = "Counter",
         onValueChange = {},
         readOnly = false,
+        focusSelectorMode = FocusSelectorMode.None,
         enabled = true,
     )
 }
 
 /**
- * PLASMA-1590
+ * PLASMA-T1590
  */
 @Composable
 fun TextAreaSWarningInnerRightFocused(style: TextFieldStyle) {
@@ -293,6 +304,7 @@ fun TextAreaSWarningInnerRightFocused(style: TextFieldStyle) {
         counterText = "Counter",
         onValueChange = {},
         readOnly = false,
+        focusSelectorMode = FocusSelectorMode.None,
         enabled = true,
         endContent = {
             Icon(
@@ -304,7 +316,7 @@ fun TextAreaSWarningInnerRightFocused(style: TextFieldStyle) {
 }
 
 /**
- * PLASMA-1591
+ * PLASMA-T1591
  */
 @Composable
 fun TextAreaMInnerOptionalChips(style: TextFieldStyle) {
@@ -320,6 +332,7 @@ fun TextAreaMInnerOptionalChips(style: TextFieldStyle) {
         counterText = "Counter",
         onValueChange = {},
         readOnly = false,
+        focusSelectorMode = FocusSelectorMode.None,
         enabled = true,
         endContent = {
             Icon(
@@ -351,7 +364,7 @@ fun TextAreaMInnerOptionalChips(style: TextFieldStyle) {
 }
 
 /**
- * PLASMA-1592
+ * PLASMA-T1592
  */
 @Composable
 fun TextAreaSDefaultOuterRightChips(style: TextFieldStyle) {
@@ -367,6 +380,7 @@ fun TextAreaSDefaultOuterRightChips(style: TextFieldStyle) {
         counterText = "Counter",
         onValueChange = {},
         readOnly = false,
+        focusSelectorMode = FocusSelectorMode.None,
         enabled = true,
         chipsContent = {
             Chip(
@@ -392,7 +406,7 @@ fun TextAreaSDefaultOuterRightChips(style: TextFieldStyle) {
 }
 
 /**
- * PLASMA-1219
+ * PLASMA-T1219
  */
 @Composable
 fun TextAreaSLongText(style: TextFieldStyle) {
@@ -421,6 +435,7 @@ fun TextAreaSLongText(style: TextFieldStyle) {
         counterText = "Counter",
         onValueChange = { value = it },
         readOnly = false,
+        focusSelectorMode = FocusSelectorMode.None,
         enabled = true,
         endContent = {
             Icon(
@@ -432,7 +447,7 @@ fun TextAreaSLongText(style: TextFieldStyle) {
 }
 
 /**
- * PLASMA-1617
+ * PLASMA-T1617
  */
 @Composable
 fun TextAreaLDefaultTBTA(style: TextFieldStyle) {
@@ -448,6 +463,7 @@ fun TextAreaLDefaultTBTA(style: TextFieldStyle) {
         counterText = "Counter",
         onValueChange = {},
         readOnly = false,
+        focusSelectorMode = FocusSelectorMode.None,
         enabled = true,
         prefix = "TB1!",
         suffix = "TA2@",
@@ -477,6 +493,7 @@ fun TextAreaClearLErrorInnerOptional(style: TextFieldStyle) {
             placeholderText = "Placeholder",
             onValueChange = { value = it },
             readOnly = false,
+            focusSelectorMode = FocusSelectorMode.None,
             enabled = true,
             endContent = {
                 Icon(
@@ -505,6 +522,7 @@ fun TextAreaClearMWarningRequiredStartInner(style: TextFieldStyle) {
             placeholderText = "",
             onValueChange = { value = it },
             readOnly = false,
+            focusSelectorMode = FocusSelectorMode.None,
             enabled = true,
             endContent = {
                 Icon(
@@ -533,6 +551,7 @@ fun TextAreaClearSDefaultOuterOptional(style: TextFieldStyle) {
             placeholderText = "Placeholder",
             onValueChange = { value = it },
             readOnly = false,
+            focusSelectorMode = FocusSelectorMode.None,
             enabled = true,
         )
     }
@@ -555,6 +574,7 @@ fun TextAreaClearXsDefaultOuterRequireEndFocused(style: TextFieldStyle) {
             placeholderText = "Placeholder",
             onValueChange = { value = it },
             readOnly = false,
+            focusSelectorMode = FocusSelectorMode.None,
             enabled = true,
             endContent = {
                 Icon(
@@ -584,6 +604,7 @@ fun TextAreaClearLDefaultChipsInnerRequiredEnd(style: TextFieldStyle) {
             counterText = "Counter",
             onValueChange = {},
             readOnly = false,
+            focusSelectorMode = FocusSelectorMode.None,
             enabled = true,
             endContent = {
                 Icon(
@@ -632,6 +653,7 @@ fun TextAreaClearMErrorInnerRequiredStart(style: TextFieldStyle) {
             placeholderText = "",
             onValueChange = { value = it },
             readOnly = false,
+            focusSelectorMode = FocusSelectorMode.None,
             enabled = true,
             endContent = {
                 Icon(
@@ -641,4 +663,32 @@ fun TextAreaClearMErrorInnerRequiredStart(style: TextFieldStyle) {
             },
         )
     }
+}
+
+/**
+ * PLASMA-T1944
+ */
+@Composable
+fun TextAreaXlDefault(style: TextFieldStyle) {
+    var value by remember { mutableStateOf(TextFieldValue("Value")) }
+    TextField(
+        modifier = Modifier.fillMaxWidth(),
+        placeholderText = "Placeholder",
+        value = value,
+        style = style,
+        labelText = "Label",
+        optionalText = "Optional",
+        captionText = "Caption",
+        counterText = "Counter",
+        onValueChange = {},
+        readOnly = false,
+        focusSelectorMode = FocusSelectorMode.None,
+        enabled = true,
+        endContent = {
+            Icon(
+                painter = painterResource(id = R.drawable.ic_shazam_24),
+                contentDescription = "",
+            )
+        },
+    )
 }

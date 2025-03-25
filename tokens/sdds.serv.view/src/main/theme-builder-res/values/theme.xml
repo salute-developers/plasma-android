@@ -1137,10 +1137,10 @@
         <item name="sd_shapeAppearanceCircle">@style/Sdds.Shape.Round.Circle</item>
 
         <item name="sd_disabledAlpha">0.4</item>
-        <item name="sd_fsMode">border</item>
+        <item name="sd_fsBorderMode">solid</item>
         <item name="sd_fsMainColor">?serv_surfaceDefaultAccent</item>
         <item name="sd_fsStrokeWidth">@dimen/sdds_spacer_0_5x</item>
-        <item name="sd_fsStrokeInset">@dimen/sdds_spacer_1x</item>
+        <item name="sd_fsStrokeInset">@dimen/sdds_spacer_0_5x</item>
         <item name="sd_fsShapeAdjustment">@dimen/sdds_spacer_1x</item>
         <item name="colorAccent">?serv_textDefaultAccent</item>
         <item name="colorControlHighlight">@android:color/transparent</item>
@@ -1165,6 +1165,9 @@
         <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.M</item>
         <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.M</item>
         <item name="sd_badgeStyle">@style/Serv.Sdds.Components.Badge.M</item>
+        <item name="sd_cardStyle">@style/Serv.Sdds.Components.CardSolid.M</item>
+        <item name="sd_cardContentStyle">@style/Serv.Sdds.Components.CardSolidContent.M</item>
+
         <!--Shadows-->
         <item name="serv_shadowDownSoftS">@style/Serv.Sdds.Shadow.DownSoftS</item>
         <item name="serv_shadowDownSoftM">@style/Serv.Sdds.Shadow.DownSoftM</item>
@@ -2330,10 +2333,10 @@
         <item name="sd_shapeAppearanceCircle">@style/Sdds.Shape.Round.Circle</item>
 
         <item name="sd_disabledAlpha">0.4</item>
-        <item name="sd_fsMode">border</item>
+        <item name="sd_fsBorderMode">solid</item>
         <item name="sd_fsMainColor">?serv_surfaceDefaultAccent</item>
         <item name="sd_fsStrokeWidth">@dimen/sdds_spacer_0_5x</item>
-        <item name="sd_fsStrokeInset">@dimen/sdds_spacer_1x</item>
+        <item name="sd_fsStrokeInset">@dimen/sdds_spacer_0_5x</item>
         <item name="sd_fsShapeAdjustment">@dimen/sdds_spacer_1x</item>
         <item name="colorAccent">?serv_textDefaultAccent</item>
         <item name="colorControlHighlight">@android:color/transparent</item>
@@ -2358,6 +2361,8 @@
         <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.M</item>
         <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.M</item>
         <item name="sd_badgeStyle">@style/Serv.Sdds.Components.Badge.M</item>
+        <item name="sd_cardStyle">@style/Serv.Sdds.Components.CardSolid.M</item>
+        <item name="sd_cardContentStyle">@style/Serv.Sdds.Components.CardSolidContent.M</item>
 
         <!--Shadows-->
         <item name="serv_shadowDownSoftS">@style/Serv.Sdds.Shadow.DownSoftS</item>

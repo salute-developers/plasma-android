@@ -1,7 +1,6 @@
 package com.sdds.playground.sandbox.core.compose
 
 import androidx.compose.runtime.Composable
-import com.sdds.playground.sandbox.Theme
 import com.sdds.playground.sandbox.avatar.compose.AvatarScreen
 import com.sdds.playground.sandbox.avatar.compose.group.AvatarGroupScreen
 import com.sdds.playground.sandbox.badge.compose.BadgeScreen
@@ -9,79 +8,103 @@ import com.sdds.playground.sandbox.badge.compose.IconBadgeScreen
 import com.sdds.playground.sandbox.buttons.compose.BasicButtonScreen
 import com.sdds.playground.sandbox.buttons.compose.IconButtonScreen
 import com.sdds.playground.sandbox.buttons.compose.LinkButtonScreen
+import com.sdds.playground.sandbox.card.compose.CardScreen
 import com.sdds.playground.sandbox.cell.compose.CellScreen
 import com.sdds.playground.sandbox.checkbox.compose.CheckBoxScreen
 import com.sdds.playground.sandbox.checkbox.compose.group.CheckBoxGroupScreen
 import com.sdds.playground.sandbox.chip.compose.ChipScreen
 import com.sdds.playground.sandbox.chip.compose.group.ChipGroupScreen
+import com.sdds.playground.sandbox.core.integration.component.ComponentKey
+import com.sdds.playground.sandbox.core.integration.component.ComponentsProviderCompose
+import com.sdds.playground.sandbox.core.integration.component.CoreComponent
 import com.sdds.playground.sandbox.counter.compose.CounterScreen
 import com.sdds.playground.sandbox.indicator.compose.IndicatorScreen
 import com.sdds.playground.sandbox.progress.compose.ProgressScreen
 import com.sdds.playground.sandbox.radiobox.compose.RadioBoxScreen
 import com.sdds.playground.sandbox.radiobox.compose.group.RadioBoxGroupScreen
+import com.sdds.playground.sandbox.segment.compose.SegmentItemScreen
+import com.sdds.playground.sandbox.segment.compose.SegmentScreen
 import com.sdds.playground.sandbox.switcher.compose.SwitchScreen
 import com.sdds.playground.sandbox.textfield.compose.TextFieldScreen
-import com.sdds.playground.sandbox.textfield.compose.TextFieldType
 
 /**
  *
  * @author Малышев Александр on 25.02.2025
  */
-internal sealed class MenuItem(
+internal class MenuItem(
     val title: String,
-    val screen: @Composable (theme: Theme.ThemeInfoCompose) -> Unit,
+    val componentKey: ComponentKey,
+    val destination: ComponentScreen,
 ) {
-    object Avatar : MenuItem("Avatar", { AvatarScreen(it) })
-    object AvatarGroup : MenuItem("AvatarGroup", { AvatarGroupScreen(it) })
-    object Buttons : MenuItem("BasicButton", { BasicButtonScreen(it) })
-    object Badge : MenuItem("Badge", { BadgeScreen(it) })
-    object IconButtons : MenuItem("IconButton", { IconButtonScreen(it) })
-    object IconBadge : MenuItem("IconBadge", { IconBadgeScreen(it) })
-    object LinkButtons : MenuItem("LinkButton", { LinkButtonScreen(it) })
-    object Cell : MenuItem("Cell", { CellScreen(it) })
-    object CheckBox : MenuItem("CheckBox", { CheckBoxScreen(it) })
-    object CheckBoxGroup : MenuItem("CheckBoxGroup", { CheckBoxGroupScreen(it) })
-    object Counter : MenuItem("Counter", { CounterScreen(it) })
-    object RadioBox : MenuItem("RadioBox", { RadioBoxScreen(it) })
-    object RadioBoxGroup : MenuItem("RadioBoxGroup", { RadioBoxGroupScreen(it) })
-    object Switch : MenuItem("Switch", { SwitchScreen(it) })
-    object Progress : MenuItem("Progress", { ProgressScreen(it) })
-    object TextField : MenuItem("TextField", { TextFieldScreen(it, TextFieldType.TextField) })
-    object TextFieldClear :
-        MenuItem("TextFieldClear", { TextFieldScreen(it, TextFieldType.TextFieldClear) })
 
-    object TextArea : MenuItem("TextArea", { TextFieldScreen(it, TextFieldType.TextArea) })
-    object TextAreaClear :
-        MenuItem("TextAreaClear", { TextFieldScreen(it, TextFieldType.TextAreaClear) })
+    val route: String = componentKey.value
+}
 
-    object Chip : MenuItem("Chip", { ChipScreen(it) })
-    object ChipGroup : MenuItem("ChipGroup", { ChipGroupScreen(it) })
-    object Indicator : MenuItem("Indicator", { IndicatorScreen(it) })
+internal fun ComponentsProviderCompose.getMenuItems(): List<MenuItem> {
+    return all.map { (key, value) ->
+        MenuItem(value.name, key, key.core.screen())
+    }
+}
 
-    companion object {
-        val all = listOf(
-            Avatar,
-            AvatarGroup,
-            Badge,
-            Buttons,
-            Cell,
-            CheckBox,
-            CheckBoxGroup,
-            Chip,
-            ChipGroup,
-            Counter,
-            IconBadge,
-            IconButtons,
-            Indicator,
-            LinkButtons,
-            Progress,
-            RadioBox,
-            RadioBoxGroup,
-            Switch,
-            TextField,
-            TextFieldClear,
-            TextArea,
-            TextAreaClear,
-        )
+internal sealed class ComponentScreen(
+    val composeScreen: @Composable (ComponentKey) -> Unit,
+) {
+    object Avatar : ComponentScreen({ AvatarScreen(it) })
+
+    object AvatarGroup : ComponentScreen({ AvatarGroupScreen(it) })
+    object Buttons : ComponentScreen({ BasicButtonScreen(it) })
+    object Badge : ComponentScreen({ BadgeScreen(it) })
+    object IconButtons : ComponentScreen({ IconButtonScreen(it) })
+    object IconBadge : ComponentScreen({ IconBadgeScreen(it) })
+    object LinkButtons : ComponentScreen({ LinkButtonScreen(it) })
+    object Cell : ComponentScreen({ CellScreen(it) })
+    object Card : ComponentScreen({ CardScreen(it) })
+    object CheckBox : ComponentScreen({ CheckBoxScreen(it) })
+    object CheckBoxGroup : ComponentScreen({ CheckBoxGroupScreen(it) })
+    object RadioBox : ComponentScreen({ RadioBoxScreen(it) })
+    object RadioBoxGroup : ComponentScreen({ RadioBoxGroupScreen(it) })
+    object Switch : ComponentScreen({ SwitchScreen(it) })
+    object Progress : ComponentScreen({ ProgressScreen(it) })
+    object TextField : ComponentScreen({ TextFieldScreen(it) })
+
+    object TextArea : ComponentScreen({ TextFieldScreen(it) })
+
+    object Chip : ComponentScreen({ ChipScreen(it) })
+    object ChipGroup : ComponentScreen({ ChipGroupScreen(it) })
+    object Indicator : ComponentScreen({ IndicatorScreen(it) })
+    object Counter : ComponentScreen({ CounterScreen(it) })
+    object SegmentItem : ComponentScreen({ SegmentItemScreen(it) })
+    object Segment : ComponentScreen({ SegmentScreen(it) })
+
+    object Empty : ComponentScreen({})
+}
+
+@Suppress("CyclomaticComplexMethod")
+private fun CoreComponent.screen(): ComponentScreen {
+    return when (this) {
+        CoreComponent.AVATAR -> ComponentScreen.Avatar
+        CoreComponent.AVATAR_GROUP -> ComponentScreen.AvatarGroup
+        CoreComponent.BADGE -> ComponentScreen.Badge
+        CoreComponent.ICON_BADGE -> ComponentScreen.IconBadge
+        CoreComponent.BASIC_BUTTON -> ComponentScreen.Buttons
+        CoreComponent.ICON_BUTTON -> ComponentScreen.IconButtons
+        CoreComponent.LINK_BUTTON -> ComponentScreen.LinkButtons
+        CoreComponent.CARD -> ComponentScreen.Card
+        CoreComponent.CELL -> ComponentScreen.Cell
+        CoreComponent.CHECKBOX -> ComponentScreen.CheckBox
+        CoreComponent.CHECKBOX_GROUP -> ComponentScreen.CheckBoxGroup
+        CoreComponent.CHIP -> ComponentScreen.Chip
+        CoreComponent.CHIP_GROUP -> ComponentScreen.ChipGroup
+        CoreComponent.INDICATOR -> ComponentScreen.Indicator
+        CoreComponent.COUNTER -> ComponentScreen.Counter
+        CoreComponent.PROGRESS -> ComponentScreen.Progress
+        CoreComponent.RADIOBOX -> ComponentScreen.RadioBox
+        CoreComponent.RADIOBOX_GROUP -> ComponentScreen.RadioBoxGroup
+        CoreComponent.SWITCH -> ComponentScreen.Switch
+        CoreComponent.TEXT_FIELD -> ComponentScreen.TextField
+        CoreComponent.TEXT_AREA -> ComponentScreen.TextArea
+        CoreComponent.SEGMENT_ITEM -> ComponentScreen.SegmentItem
+        CoreComponent.SEGMENT -> ComponentScreen.Segment
+        else -> ComponentScreen.Empty
     }
 }

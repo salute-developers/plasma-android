@@ -133,7 +133,7 @@ internal fun RowScope.ButtonText(
     spacing: Button.Spacing,
     value: String?,
 ) {
-    if (value != null) {
+    if (!value.isNullOrEmpty()) {
         Row(
             horizontalArrangement = when (spacing) {
                 Button.Spacing.Packed -> Arrangement.Center

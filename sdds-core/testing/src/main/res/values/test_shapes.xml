@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Testing"/>
+    <style name="Testing.Shape"/>
+    <style name="Testing.Shape.Round">
+        <item name="sd_cornerFamily">rounded</item>
+        <item name="sd_cornerSize">8dp</item>
+    </style>
+</resources>

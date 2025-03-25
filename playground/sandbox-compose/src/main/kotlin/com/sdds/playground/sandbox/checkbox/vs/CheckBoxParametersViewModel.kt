@@ -2,8 +2,7 @@ package com.sdds.playground.sandbox.checkbox.vs
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.sdds.playground.sandbox.core.integration.StylesProviderView
-import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
+import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
 import com.sdds.playground.sandbox.core.vs.enumProperty
@@ -15,11 +14,8 @@ import com.sdds.uikit.CheckBox
  */
 internal class CheckBoxParametersViewModel(
     defaultState: CheckBoxUiState,
-) : ComponentViewModel<CheckBoxUiState>(defaultState) {
-
-    override fun getStyleProvider(stylesProvider: StylesProviderView): ViewStyleProvider<String> {
-        return stylesProvider.checkBox
-    }
+    componentKey: ComponentKey,
+) : ComponentViewModel<CheckBoxUiState>(defaultState, componentKey) {
 
     override fun updateProperty(name: String, value: Any?) {
         super.updateProperty(name, value)
@@ -88,10 +84,11 @@ internal class CheckBoxParametersViewModel(
  */
 internal class CheckBoxParametersViewModelFactory(
     private val defaultState: CheckBoxUiState = CheckBoxUiState(),
+    private val componentKey: ComponentKey,
 ) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return CheckBoxParametersViewModel(defaultState) as T
+        return CheckBoxParametersViewModel(defaultState, componentKey) as T
     }
 }

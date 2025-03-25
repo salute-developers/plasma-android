@@ -39,7 +39,7 @@ class ViewSystemSegmentScreenshotTest(
                     .perform(click())
             },
         ) {
-            segmentSizeMPilled(R.style.Serv_Sdds_ComponentOverlays_SegmentMPrimaryPilled)
+            segmentSizeMPilled(R.style.Serv_Sdds_ComponentOverlays_SegmentMSecondaryPilled)
         }
     }
 

@@ -15,7 +15,10 @@ import com.sdds.uikit.RadioBox
 internal class RadioBoxFragment : ComponentFragment<RadioBoxUiState, RadioBox>() {
 
     override val componentViewModel by viewModels<RadioBoxViewModel> {
-        RadioBoxViewModelFactory(getState { RadioBoxUiState() })
+        RadioBoxViewModelFactory(
+            defaultState = getState { RadioBoxUiState() },
+            componentKey = componentKey,
+        )
     }
 
     override fun getComponent(contextWrapper: ContextThemeWrapper): RadioBox {

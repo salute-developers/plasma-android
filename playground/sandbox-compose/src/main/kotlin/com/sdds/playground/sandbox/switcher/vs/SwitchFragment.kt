@@ -18,7 +18,10 @@ import com.sdds.uikit.Switch
 internal class SwitchFragment : ComponentFragment<SwitchUiState, Switch>() {
 
     override val componentViewModel by viewModels<SwitchViewModel> {
-        SwitchViewModelFactory(getState { SwitchUiState() })
+        SwitchViewModelFactory(
+            defaultState = getState { SwitchUiState() },
+            componentKey = componentKey,
+        )
     }
 
     override val defaultLayoutParams: FrameLayout.LayoutParams by lazy {
