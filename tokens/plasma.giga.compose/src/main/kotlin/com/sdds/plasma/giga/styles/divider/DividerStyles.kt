@@ -5,7 +5,7 @@
     "ktlint:standard:max-line-length",
 )
 
-package com.sdds.serv.styles.divider
+package com.sdds.plasma.giga.styles.divider
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
@@ -15,7 +15,7 @@ import com.sdds.compose.uikit.DividerStyleBuilder
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
-import com.sdds.serv.theme.SddsServTheme
+import com.sdds.plasma.giga.theme.PlasmaGigaTheme
 import kotlin.Suppress
 import kotlin.jvm.JvmInline
 import kotlin.jvm.JvmName
@@ -40,7 +40,7 @@ public val Divider.Default: WrapperDividerDefault
         .shape(CircleShape)
         .color {
             backgroundColor(
-                SddsServTheme.colors.surfaceDefaultTransparentTertiary.asInteractive(),
+                PlasmaGigaTheme.colors.surfaceDefaultTransparentTertiary.asInteractive(),
             )
         }
         .dimensions {
