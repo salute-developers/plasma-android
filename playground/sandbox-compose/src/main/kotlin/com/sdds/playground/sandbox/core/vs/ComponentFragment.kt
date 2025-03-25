@@ -19,6 +19,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.Theme
+import com.sdds.playground.sandbox.ThemeContainer.viewTheme
 import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.databinding.FragmentComponentScaffoldBinding
 import com.sdds.testing.vs.UiState
@@ -160,7 +161,7 @@ internal abstract class ComponentFragment<State : UiState, Component : View> :
             componentContainer?.removeAllViews()
             componentCanvas.removeAllViews()
             componentCanvas.addView(
-                createComponentContainer(theme.view.themeRes),
+                createComponentContainer(viewTheme(theme).themeRes),
                 LayoutParams(MATCH_PARENT, MATCH_PARENT),
             )
         }

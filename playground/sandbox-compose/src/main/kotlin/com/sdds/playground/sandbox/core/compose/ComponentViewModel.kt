@@ -3,6 +3,7 @@ package com.sdds.playground.sandbox.core.compose
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sdds.compose.uikit.style.Style
+import com.sdds.playground.sandbox.ThemeContainer.composeTheme
 import com.sdds.playground.sandbox.core.ThemeManager
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 import com.sdds.playground.sandbox.core.integration.component.ComponentKey
@@ -67,7 +68,8 @@ internal abstract class ComponentViewModel<State : UiState, S : Style>(
 
     open fun getStyleProvider(): ComposeStyleProvider<String, S>? {
         return runCatching {
-            themeManager.currentTheme.value.compose.components.get<String, S>(componentKey).styleProvider
+            val themeInfo = composeTheme(themeManager.currentTheme.value)
+            themeInfo.components.get<String, S>(componentKey).styleProvider
         }.getOrNull()
     }
 

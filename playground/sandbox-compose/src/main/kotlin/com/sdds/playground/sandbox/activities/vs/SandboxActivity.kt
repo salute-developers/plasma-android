@@ -27,6 +27,8 @@ import com.google.android.material.navigation.NavigationView
 import com.sdds.playground.sandbox.MainSandboxActivity
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.Theme
+import com.sdds.playground.sandbox.ThemeContainer.allViewThemes
+import com.sdds.playground.sandbox.ThemeContainer.viewTheme
 import com.sdds.playground.sandbox.core.ThemeManager
 import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.vs.ComponentFragment
@@ -76,7 +78,7 @@ class SandboxActivity : AppCompatActivity() {
     private fun updateNavigation(theme: Theme, navController: NavController) {
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
-        val menuItems = theme.view.components.getMenuItems()
+        val menuItems = viewTheme(theme).components.getMenuItems()
         val startDestination = menuItems.first()
         val graph = navController.createGraph(startDestination = startDestination.id) {
             menuItems.forEach {
@@ -132,15 +134,15 @@ class SandboxActivity : AppCompatActivity() {
     }
 
     private fun setupThemePicker() {
-        val themes = Theme.values()
+        val themes = allViewThemes
         binding.appBarMain.bSettings.apply {
             isVisible = themes.size > 1
             if (isVisible) {
                 setOnClickListener {
                     EditorFragment.choiceEditor(
                         propertyName = "Theme",
-                        currentValue = themeManager.currentTheme.value.name,
-                        choices = Theme.values().map(Theme::name),
+                        currentValue = viewTheme(themeManager.currentTheme.value).theme.name,
+                        choices = allViewThemes.map(Theme::name),
                         confirmKey = THEME_PICKER_RESULT_KEY,
                     ).show(supportFragmentManager, "ThemePicker")
                 }

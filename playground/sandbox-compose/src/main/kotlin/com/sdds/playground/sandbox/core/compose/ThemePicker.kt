@@ -10,6 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.Theme
+import com.sdds.playground.sandbox.ThemeContainer.allComposeThemes
 
 /**
  *
@@ -23,10 +24,14 @@ internal fun ThemePicker(
 ) {
     Column(Modifier.padding(dimensionResource(R.dimen.sandbox_editor_paddings))) {
         PropertyEditor(
-            property = enumProperty(
+            property = Property.SingleChoiceProperty(
                 name = "Theme",
-                value = currentTheme,
-                onApply = onApply,
+                value = currentTheme.name,
+                variants = allComposeThemes.map { it.toString() },
+                onApply = { themeName ->
+                    val theme = allComposeThemes.find { it.name == themeName }
+                    theme?.let(onApply)
+                },
             ),
             onConfirm = onConfirm,
         )

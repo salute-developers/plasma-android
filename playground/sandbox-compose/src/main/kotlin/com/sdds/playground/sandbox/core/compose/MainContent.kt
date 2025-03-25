@@ -43,6 +43,7 @@ import com.sdds.compose.uikit.IconButton
 import com.sdds.icons.R
 import com.sdds.playground.sandbox.MainSandboxActivity
 import com.sdds.playground.sandbox.Theme
+import com.sdds.playground.sandbox.ThemeContainer.composeTheme
 import com.sdds.playground.sandbox.core.ThemeManager
 import kotlinx.coroutines.launch
 
@@ -56,7 +57,8 @@ import kotlinx.coroutines.launch
 internal fun MainContent(themeManager: ThemeManager = ThemeManager) {
     val sandboxStyle = LocalSandboxStyle.current
     val currentTheme by themeManager.currentTheme.collectAsState()
-    val menuItems = remember(currentTheme) { currentTheme.compose.components.getMenuItems() }
+    val themeInfo = composeTheme(currentTheme)
+    val menuItems = remember(currentTheme) { themeInfo.components.getMenuItems() }
     val hasMultipleThemes = remember { Theme.values().size > 1 }
     val drawerState = rememberDrawerState(DrawerValue.Closed)
     val scaffoldState = rememberScaffoldState(drawerState = drawerState)
