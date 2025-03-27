@@ -25,6 +25,7 @@ import org.gradle.kotlin.dsl.register
 class ThemeBuilderPlugin : Plugin<Project> {
     override fun apply(project: Project) {
         val themeZip = project.layout.buildDirectory.file("$THEME_PATH/theme.zip")
+        val componentsZip = project.layout.buildDirectory.file("$COMPONENTS_PATH/components.zip")
         val paletteJson = project.layout.buildDirectory.file("$THEME_PATH/$PALETTE_JSON_NAME")
         val componentJsons = ComponentConfig.values()
             .associateWith { project.layout.buildDirectory.file("$COMPONENTS_PATH/${it.fileName}") }
@@ -40,9 +41,14 @@ class ThemeBuilderPlugin : Plugin<Project> {
                 dependOnPreBuild = extension.autoGenerate,
             )
 
+            // будет удалено после полной поддержки мета-файла компонентов
             val fetchComponentConfigsTasks =
                 registerFetchComponentConfigs(extension, componentJsons)
             registerGenerateComponentConfigsTask(extension, fetchComponentConfigsTasks)
+
+            // регистрация новой таски загрузки архива с конфигами и мета-файлом
+            val fetchComponentsTask = registerFetchAndUnzipComponents(extension, componentsZip)
+            fetchComponentsTask?.let { registerGenerateComponentsTask(extension, it) }
         }
     }
 
@@ -53,6 +59,29 @@ class ThemeBuilderPlugin : Plugin<Project> {
             outputResDirPath.set(extension.outputLocation.getResourcePath())
             packageName.set(extension.ktPackage ?: DEFAULT_KT_PACKAGE)
         }
+    }
+
+    private fun Project.registerFetchAndUnzipComponents(
+        extension: ThemeBuilderExtension,
+        outputZip: Provider<RegularFile>,
+    ): TaskProvider<Copy>? {
+        val source = extension.componentSource
+            ?: run {
+                logger.warn("componentSource not specified")
+                return null
+            }
+        val fetchComponentsTask = registerFileFetcher(
+            taskName = "fetchComponents",
+            url = getComponentsUrl(source),
+            output = outputZip,
+        )
+        val unzipTask = registerUnzip(
+            taskName = "unpackComponentFiles",
+            zipFile = outputZip,
+            outputPath = COMPONENTS_PATH,
+            dependsOnTask = fetchComponentsTask,
+        )
+        return unzipTask
     }
 
     private fun Project.registerFetchAndUnzipTheme(
@@ -67,10 +96,10 @@ class ThemeBuilderPlugin : Plugin<Project> {
             paletteUrl = extension.paletteUrl,
             paletteOutput = paletteOutputJson,
         )
-        val fetchThemeTask = registerThemeFetcher(
+        val fetchThemeTask = registerFileFetcher(
             taskName = "fetchTheme",
-            themeUrl = getThemeUrl(source),
-            themeOutput = themeOutputZip,
+            url = getThemeUrl(source),
+            output = themeOutputZip,
             dependsOnTask = fetchPaletteTask,
         )
         val unzipTask = registerUnzip(
@@ -99,6 +128,17 @@ class ThemeBuilderPlugin : Plugin<Project> {
                 failMessage.set("Can't fetch ${it.fileName}")
             }
         }
+    }
+
+    private fun Project.registerGenerateComponentsTask(
+        extension: ThemeBuilderExtension,
+        fetchComponentsTask: TaskProvider<Copy>,
+    ) {
+        val task = project.tasks.register<GenerateComponentsTask>("generateComponents") {
+            group = TASK_GROUP
+            componentsMetaFile.set(getComponentsMetaFile())
+        }
+        task.dependsOn(fetchComponentsTask)
     }
 
     private fun Project.registerGenerateComponentConfigsTask(
@@ -191,6 +231,14 @@ class ThemeBuilderPlugin : Plugin<Project> {
         extension.themeSource ?: throw GradleException("themeSource must be set")
 
     private fun getThemeUrl(source: ThemeBuilderSource): String {
+        return getSourceUrl(source, BASE_THEME_URL)
+    }
+
+    private fun getComponentsUrl(source: ThemeBuilderSource): String {
+        return getSourceUrl(source, BASE_COMPONENT_CONFIG_URL)
+    }
+
+    private fun getSourceUrl(source: ThemeBuilderSource, baseUrl: String): String {
         return when (source) {
             is ThemeBuilderSource.NameAndVersion -> {
                 if (source.remoteName.isEmpty() || source.version.isEmpty()) {
@@ -199,12 +247,12 @@ class ThemeBuilderPlugin : Plugin<Project> {
                             "name=${source.remoteName} version=${source.version}",
                     )
                 }
-                "$BASE_THEME_URL${source.remoteName}/${source.version}.zip"
+                "$baseUrl${source.remoteName}/${source.version}.zip"
             }
 
             is ThemeBuilderSource.Url -> {
                 if (source.url.isEmpty()) {
-                    throw GradleException("Theme url should not be empty: url=${source.url}")
+                    throw GradleException("Source url should not be empty: url=${source.url}")
                 }
                 source.url
             }
@@ -227,6 +275,10 @@ class ThemeBuilderPlugin : Plugin<Project> {
         return layout.buildDirectory.file("$COMPONENTS_PATH/$fileName")
     }
 
+    private fun Project.getComponentsMetaFile(): Provider<RegularFile> {
+        return layout.buildDirectory.file("$COMPONENTS_PATH/$META_JSON_NAME")
+    }
+
     private fun Project.registerUnzip(
         taskName: String,
         zipFile: Provider<RegularFile>,
@@ -241,18 +293,18 @@ class ThemeBuilderPlugin : Plugin<Project> {
         }
     }
 
-    private fun Project.registerThemeFetcher(
+    private fun Project.registerFileFetcher(
         taskName: String,
-        themeUrl: String,
-        themeOutput: Provider<RegularFile>,
-        dependsOnTask: Any,
+        url: String,
+        output: Provider<RegularFile>,
+        dependsOnTask: Any? = null,
     ): TaskProvider<FetchFileTask> {
         return project.tasks.register<FetchFileTask>(taskName) {
             group = TASK_GROUP
-            url.set(themeUrl)
-            file.set(themeOutput)
-            failMessage.set("Can't fetch theme")
-            dependsOn(dependsOnTask)
+            this.url.set(url)
+            file.set(output)
+            failMessage.set("Can't fetch file")
+            dependsOnTask?.let { dependsOn(it) }
         }
     }
 
