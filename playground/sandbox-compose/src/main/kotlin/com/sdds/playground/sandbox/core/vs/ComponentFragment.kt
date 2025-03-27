@@ -21,6 +21,7 @@ import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.Theme
 import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.databinding.FragmentComponentScaffoldBinding
+import com.sdds.playground.sandbox.viewTheme
 import com.sdds.testing.vs.UiState
 import com.sdds.uikit.Divider
 import com.sdds.uikit.FrameLayout
@@ -160,7 +161,7 @@ internal abstract class ComponentFragment<State : UiState, Component : View> :
             componentContainer?.removeAllViews()
             componentCanvas.removeAllViews()
             componentCanvas.addView(
-                createComponentContainer(theme.view.themeRes),
+                createComponentContainer(viewTheme(theme).themeRes),
                 LayoutParams(MATCH_PARENT, MATCH_PARENT),
             )
         }

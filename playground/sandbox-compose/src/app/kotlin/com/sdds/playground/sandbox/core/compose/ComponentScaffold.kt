@@ -32,6 +32,7 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.style.Style
 import com.sdds.playground.sandbox.R
+import com.sdds.playground.sandbox.composeTheme
 import com.sdds.playground.sandbox.core.ThemeManager
 import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.serv.theme.SddsServTheme
@@ -93,12 +94,13 @@ internal fun <State : UiState, S : Style> ComponentScaffold(
                 contentAlignment = Alignment.Center,
             ) {
                 val currentTheme by themeManager.currentTheme.collectAsState()
-                currentTheme.compose.themeWrapper {
+                val themeInfo = composeTheme(currentTheme)
+                themeInfo.themeWrapper {
                     val uiState by viewModel.uiState.collectAsState()
                     runCatching {
                         component(
                             uiState,
-                            currentTheme.compose.components.get<String, S>(key).styleProvider.style(uiState.variant),
+                            themeInfo.components.get<String, S>(key).styleProvider.style(uiState.variant),
                         )
                     }
                 }

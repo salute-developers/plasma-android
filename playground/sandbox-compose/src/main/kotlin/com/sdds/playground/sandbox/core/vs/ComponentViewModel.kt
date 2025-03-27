@@ -9,6 +9,7 @@ import com.sdds.playground.sandbox.core.ThemeManager
 import com.sdds.playground.sandbox.core.integration.ViewStyleProvider
 import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.integration.component.CoreComponent
+import com.sdds.playground.sandbox.viewTheme
 import com.sdds.testing.vs.UiState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -110,7 +111,7 @@ internal abstract class ComponentViewModel<State : UiState>(
     }
 
     open fun getStyleProvider(): ViewStyleProvider<String> {
-        return theme.value.view.components.get<String>(componentKey).styleProvider
+        return viewTheme(theme.value).components.get<String>(componentKey).styleProvider
     }
 
     abstract fun State.toProps(): List<Property<*>>

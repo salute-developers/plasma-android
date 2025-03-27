@@ -10,10 +10,8 @@ package com.sdds.serv.styles.divider
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.uikit.Divider
 import com.sdds.compose.uikit.DividerStyle
 import com.sdds.compose.uikit.DividerStyleBuilder
-import com.sdds.compose.uikit.dividerBuilder
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.wrap
@@ -38,7 +36,7 @@ public value class WrapperDividerDefault(
 public val Divider.Default: WrapperDividerDefault
     @Composable
     @JvmName("WrapperDividerDefault")
-    get() = DividerStyle.dividerBuilder(this)
+    get() = DividerStyle.builder(this)
         .shape(CircleShape)
         .color {
             backgroundColor(

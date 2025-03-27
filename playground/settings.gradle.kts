@@ -27,4 +27,5 @@ include(
     ":sandbox-plasma-sd-service-integration",
     ":sandbox-stylessalute-integration",
     ":sandbox-plasma-stards-integration",
+    ":sandbox-plasma-giga-integration",
 )

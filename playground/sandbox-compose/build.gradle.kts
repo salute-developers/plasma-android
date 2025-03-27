@@ -108,6 +108,9 @@ dependencies {
     implementation("tokens:stylessalute.compose")
     implementation(project(":sandbox-stylessalute-integration"))
 
+    implementation("tokens:plasma.giga.compose")
+    implementation(project(":sandbox-plasma-giga-integration"))
+
     "starAppImplementation"("tokens:plasma-stards-view")
     "starAppImplementation"("tokens:plasma-stards-compose")
     "starAppImplementation"(project(":sandbox-plasma-stards-integration"))

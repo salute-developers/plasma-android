@@ -16,13 +16,7 @@ import com.sdds.compose.uikit.style.StyleBuilder
 /**
  * CompositionLocal c [DividerStyle] для компонента [Divider]
  */
-val LocalDividerStyle = compositionLocalOf { DividerStyle.dividerBuilder().style() }
-
-/**
- * Возвращает экземпляр [DividerStyleBuilder]
- */
-fun DividerStyle.Companion.dividerBuilder(receiver: Any? = null): DividerStyleBuilder =
-    DividerStyleBuilderImpl(receiver)
+val LocalDividerStyle = compositionLocalOf { DividerStyle.builder().style() }
 
 /**
  * Стиль компонента [Divider]
@@ -47,7 +41,13 @@ interface DividerStyle : Style {
      */
     val dimensions: DividerDimensions
 
-    companion object
+    companion object {
+        /**
+         * Возвращает экземпляр [DividerStyleBuilder]
+         */
+        fun builder(receiver: Any? = null): DividerStyleBuilder =
+            DividerStyleBuilderImpl(receiver)
+    }
 }
 
 /**
