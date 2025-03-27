@@ -17,7 +17,7 @@ internal object StylesSaluteSegmentVariationsView : ViewStyleProvider<String>() 
         "MSecondary" to s.Salute_StylesSalute_ComponentOverlays_SegmentMSecondary,
         "SSecondary" to s.Salute_StylesSalute_ComponentOverlays_SegmentSSecondary,
         "XsSecondary" to s.Salute_StylesSalute_ComponentOverlays_SegmentXsSecondary,
-        "LSecondaryPilled" to s.Salute_StylesSalute_ComponentOverlays_SegmentLSecondary,
+        "LSecondaryPilled" to s.Salute_StylesSalute_ComponentOverlays_SegmentLSecondaryPilled,
         "MSecondaryPilled" to s.Salute_StylesSalute_ComponentOverlays_SegmentMSecondaryPilled,
         "SSecondaryPilled" to s.Salute_StylesSalute_ComponentOverlays_SegmentSSecondaryPilled,
         "XsSecondaryPilled" to s.Salute_StylesSalute_ComponentOverlays_SegmentXsSecondaryPilled,

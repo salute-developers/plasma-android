@@ -18,7 +18,7 @@ internal object SddsServSegmentVariationsView : ViewStyleProvider<String>() {
             "MSecondary" to s.Serv_Sdds_ComponentOverlays_SegmentMSecondary,
             "SSecondary" to s.Serv_Sdds_ComponentOverlays_SegmentSSecondary,
             "XsSecondary" to s.Serv_Sdds_ComponentOverlays_SegmentXsSecondary,
-            "LSecondaryPilled" to s.Serv_Sdds_ComponentOverlays_SegmentLSecondary,
+            "LSecondaryPilled" to s.Serv_Sdds_ComponentOverlays_SegmentLSecondaryPilled,
             "MSecondaryPilled" to s.Serv_Sdds_ComponentOverlays_SegmentMSecondaryPilled,
             "SSecondaryPilled" to s.Serv_Sdds_ComponentOverlays_SegmentSSecondaryPilled,
             "XsSecondaryPilled" to s.Serv_Sdds_ComponentOverlays_SegmentXsSecondaryPilled,
