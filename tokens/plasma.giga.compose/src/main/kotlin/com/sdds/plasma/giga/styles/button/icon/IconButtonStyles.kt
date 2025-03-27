@@ -349,9 +349,9 @@ public val WrapperIconButtonView.Clear: WrapperIconButtonTerminate
             backgroundColor(
                 PlasmaGigaTheme.colors.surfaceDefaultClear.asInteractive(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.surfaceDefaultClearActive,
+                        to PlasmaGigaTheme.colors.surfaceDefaultTransparentSecondaryActive,
                     setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.surfaceDefaultClearHover,
+                        to PlasmaGigaTheme.colors.surfaceDefaultTransparentSecondaryHover,
                 ),
             )
         }
@@ -581,7 +581,7 @@ public val IconButton.Xxs: WrapperIconButtonXxs
     @JvmName("WrapperIconButtonXxs")
     get() = ButtonStyle.iconButtonBuilder(this)
         .invariantProps
-        .shape(PlasmaGigaTheme.shapes.roundS)
+        .shape(PlasmaGigaTheme.shapes.roundXs)
         .dimensions {
             height(24.0.dp)
             paddingStart(6.0.dp)
