@@ -48,6 +48,8 @@ internal abstract class ComponentFragment<State : UiState, Component : View> :
     protected open val defaultLayoutParams: LayoutParams =
         LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)
 
+    protected open val defaultGravity: Int = Gravity.CENTER
+
     private val contextThemeWrapper: ContextThemeWrapper
         get() {
             val style = runCatching {
@@ -170,7 +172,7 @@ internal abstract class ComponentFragment<State : UiState, Component : View> :
     private fun dispatchComponentStyleChanged(layoutParams: LayoutParams = defaultLayoutParams) {
         componentContainer?.apply {
             removeAllViews()
-            layoutParams.gravity = Gravity.CENTER
+            layoutParams.gravity = defaultGravity
             val wrappedComponent = getComponentLayout()
                 .let {
                     when (scrollMode) {

@@ -75,7 +75,8 @@ constructor() : HasFocusSelector {
         context: Context,
         attributeSet: AttributeSet?,
         defStyleAttr: Int,
-    ) : this(FocusSelectorSettings.fromAttrs(context, attributeSet, defStyleAttr))
+        defStyleRes: Int = 0,
+    ) : this(FocusSelectorSettings.fromAttrs(context, attributeSet, defStyleAttr, defStyleRes))
 
     override fun applySelector(view: View) {
         val settings = this.settings ?: return

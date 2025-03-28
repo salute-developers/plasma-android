@@ -2,7 +2,6 @@ package com.sdds.playground.sandbox.activities.vs
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -23,7 +22,6 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
-import com.google.android.material.navigation.NavigationView
 import com.sdds.playground.sandbox.MainSandboxActivity
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.Theme
@@ -37,6 +35,7 @@ import com.sdds.playground.sandbox.core.vs.choiceEditor
 import com.sdds.playground.sandbox.core.vs.getMenuItems
 import com.sdds.playground.sandbox.databinding.MainActivityBinding
 import com.sdds.playground.sandbox.viewTheme
+import com.sdds.uikit.NavigationDrawer
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
@@ -77,7 +76,7 @@ class SandboxActivity : AppCompatActivity() {
 
     private fun updateNavigation(theme: Theme, navController: NavController) {
         val drawerLayout: DrawerLayout = binding.drawerLayout
-        val navView: NavigationView = binding.navView
+        val navView: NavigationDrawer = binding.navView
         val menuItems = viewTheme(theme).components.getMenuItems()
         val startDestination = menuItems.first()
         val graph = navController.createGraph(startDestination = startDestination.id) {
@@ -88,15 +87,14 @@ class SandboxActivity : AppCompatActivity() {
         }
         navController.setGraph(graph, startDestination.componentKeyBundle)
         navView.populateMenu(menuItems, navController)
-        appBarConfiguration = AppBarConfiguration(navView.menu, drawerLayout)
+        appBarConfiguration = AppBarConfiguration(menuItems.map { it.id }.toSet(), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
     }
 
-    private fun NavigationView.populateMenu(items: List<MenuItem>, navController: NavController) {
-        menu.clear()
+    private fun NavigationDrawer.populateMenu(items: List<MenuItem>, navController: NavController) {
         val itemsMap = items.associateBy { it.id }
         setNavigationItemSelectedListener {
-            val item = itemsMap[it.itemId] ?: return@setNavigationItemSelectedListener false
+            val item = itemsMap[it.id] ?: return@setNavigationItemSelectedListener false
             val handled = onNavDestinationSelected(item, navController)
 
             if (handled) {
@@ -108,9 +106,15 @@ class SandboxActivity : AppCompatActivity() {
             }
             handled
         }
-        items.forEach { menuItem ->
-            menu.add(Menu.NONE, menuItem.id, Menu.NONE, menuItem.title)
-        }
+        setItems(
+            items.map { menuItem ->
+                NavigationDrawer.Item.Builder()
+                    .setId(menuItem.id)
+                    .setTitle(menuItem.title)
+                    .build()
+            },
+        )
+        setSelected(navController.graph.startDestinationId)
     }
 
     @Suppress("RestrictedApi")
