@@ -29,11 +29,12 @@
         <item name="sd_textFieldStyle">@style/Sdkit.StarDs.Components.TextField.M</item>
         <item name="sd_iconButtonStyle">@style/Sdkit.StarDs.Components.IconButton.M</item>
         <item name="sd_switchStyle">@style/Sdkit.StarDs.Components.Switch</item>
-        <item name="sd_indicatorStyle">@style/Sdkit.StarDs.Components.Indicator.M</item>
-        <item name="sd_counterStyle">@style/Sdkit.StarDs.Components.Counter.M</item>
+        <item name="sd_indicatorStyle">@style/Sdkit.StarDs.Components.Indicator.M.Default</item>
+        <item name="sd_counterStyle">@style/Sdkit.StarDs.Components.Counter.M.Default</item>
         <item name="sd_cellStyle">@style/Sdkit.StarDs.Components.Cell.M</item>
         <item name="sd_cardStyle">@style/Sdkit.StarDs.Components.Card.Horizontal.Xs</item>
         <item name="sd_cardContentStyle">@style/Sdkit.StarDs.Components.CardContent.Horizontal.Xs</item>
+        <item name="sd_navigationDrawerStyle">@style/Sdkit.StarDs.Components.NavigationDrawer</item>
         <item name="sd_disabledAlpha">0.4</item>
         <item name="sd_shapeAppearanceCircle">@style/Sdkit.StarDs.Shape.Round.Circle</item>
         <item name="sd_fsScaleEnabled">true</item>

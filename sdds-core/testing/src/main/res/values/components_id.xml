@@ -27,4 +27,7 @@
     <item type="id" name="test_horizontal_scroll"/>
     <item type="id" name="flow"/>
     <item type="id" name="divider"/>
+    <item type="id" name="navigation_drawer" />
+    <item type="id" name="navigation_drawer_header" />
+    <item type="id" name="navigation_drawer_footer" />
 </resources>

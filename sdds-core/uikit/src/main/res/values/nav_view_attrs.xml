@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <attr name="sd_navigationDrawerStyle" format="reference" />
+    <attr name="sd_expanded" format="boolean" />
+
+    <declare-styleable name="NavigationDrawer" tools:ignore="ResourceName">
+        <attr name="sd_itemSelectorEnabled" format="boolean" />
+        <attr name="sd_itemSelectorTint" format="color" />
+        <attr name="sd_itemStyle" format="reference" />
+        <attr name="sd_expandedMinWidth" format="dimension"/>
+        <attr name="sd_collapsedItemWidth" format="dimension"/>
+        <attr name="sd_mode" format="enum">
+            <enum name="auto" value="0" />
+            <enum name="expanded" value="1" />
+            <enum name="collapsed" value="2" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="NavigationDrawerItem" tools:ignore="ResourceName">
+        <attr name="sd_iconTint" />
+
+        <attr name="android:textAppearance" />
+        <attr name="android:textColor" />
+
+        <attr name="sd_counterEnabled" />
+        <attr name="sd_expandedCounterStyle" format="reference" />
+        <attr name="sd_collapsedCounterStyle" format="reference"/>
+        <attr name="sd_collapsedCounterOffsetX" format="dimension" />
+        <attr name="sd_collapsedCounterOffsetY" format="dimension" />
+    </declare-styleable>
+</resources>
