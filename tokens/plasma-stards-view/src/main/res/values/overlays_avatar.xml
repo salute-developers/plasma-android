@@ -16,4 +16,8 @@
     <style name="Sdkit.StarDs.ComponentOverlays.AvatarS">
         <item name="sd_avatarStyle">@style/Sdkit.StarDs.Components.Avatar.S</item>
     </style>
+
+    <style name="Sdkit.StarDs.ComponentOverlays.AvatarGroup">
+        <item name="sd_avatarGroupStyle">@style/Sdkit.StarDs.Components.AvatarGroup</item>
+    </style>
 </resources>
