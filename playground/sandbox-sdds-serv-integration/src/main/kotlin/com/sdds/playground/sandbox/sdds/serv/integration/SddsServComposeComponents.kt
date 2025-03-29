@@ -13,6 +13,7 @@ import com.sdds.playground.sandbox.sdds.serv.integration.badge.SddsServBadgeTran
 import com.sdds.playground.sandbox.sdds.serv.integration.badge.icon.SddsServIconBadgeClearVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.badge.icon.SddsServIconBadgeSolidVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.badge.icon.SddsServIconBadgeTransparentVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.bottomsheet.SddsServBottomSheetVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.button.basic.SddsServBasicButtonVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.button.icon.SddsServIconButtonVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.button.link.SddsServLinkButtonVariationsCompose
@@ -76,6 +77,10 @@ object SddsServComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey("IconBadgeTransparent", CoreComponent.ICON_BADGE),
                 SddsServIconBadgeTransparentVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.BottomSheet,
+                SddsServBottomSheetVariationsCompose,
             ),
             ComposeComponent(
                 ComponentKey.BasicButton,

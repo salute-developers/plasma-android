@@ -13,6 +13,7 @@ import com.sdds.playground.sandbox.plasma.sd.service.integration.badge.PlasmaSdS
 import com.sdds.playground.sandbox.plasma.sd.service.integration.badge.icon.PlasmaSdServiceIconBadgeClearVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.badge.icon.PlasmaSdServiceIconBadgeSolidVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.badge.icon.PlasmaSdServiceIconBadgeTransparentVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.bottomsheet.PlasmaSdServiceBottomSheetVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.button.basic.PlasmaSdServiceBasicButtonVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.button.icon.PlasmaSdServiceIconButtonVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.button.link.PlasmaSdServiceLinkButtonVariationsCompose
@@ -80,6 +81,10 @@ object PlasmaSdServiceComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.BasicButton,
                 PlasmaSdServiceBasicButtonVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.BottomSheet,
+                PlasmaSdServiceBottomSheetVariationsCompose,
             ),
             ComposeComponent(
                 ComponentKey.IconButton,

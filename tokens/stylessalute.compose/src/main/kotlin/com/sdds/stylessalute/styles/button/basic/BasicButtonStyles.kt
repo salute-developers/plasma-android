@@ -402,9 +402,9 @@ public val WrapperBasicButtonView.Clear: WrapperBasicButtonTerminate
             backgroundColor(
                 StylesSaluteTheme.colors.surfaceDefaultClear.asInteractive(
                     setOf(InteractiveState.Pressed)
-                        to StylesSaluteTheme.colors.surfaceDefaultClearActive,
+                        to StylesSaluteTheme.colors.surfaceDefaultTransparentSecondaryActive,
                     setOf(InteractiveState.Hovered)
-                        to StylesSaluteTheme.colors.surfaceDefaultClearHover,
+                        to StylesSaluteTheme.colors.surfaceDefaultTransparentSecondaryHover,
                 ),
             )
         }

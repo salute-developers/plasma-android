@@ -349,9 +349,9 @@ public val WrapperIconButtonView.Clear: WrapperIconButtonTerminate
             backgroundColor(
                 PlasmaSdServiceTheme.colors.surfaceDefaultClear.asInteractive(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearActive,
+                        to PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondaryActive,
                     setOf(InteractiveState.Hovered)
-                        to PlasmaSdServiceTheme.colors.surfaceDefaultClearHover,
+                        to PlasmaSdServiceTheme.colors.surfaceDefaultTransparentSecondaryHover,
                 ),
             )
         }

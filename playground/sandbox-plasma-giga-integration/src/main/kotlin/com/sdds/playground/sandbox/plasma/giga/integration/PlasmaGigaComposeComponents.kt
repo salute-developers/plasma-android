@@ -13,6 +13,7 @@ import com.sdds.playground.sandbox.plasma.giga.integration.badge.PlasmaGigaBadge
 import com.sdds.playground.sandbox.plasma.giga.integration.badge.icon.PlasmaGigaIconBadgeClearVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.badge.icon.PlasmaGigaIconBadgeSolidVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.badge.icon.PlasmaGigaIconBadgeTransparentVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.integration.bottomsheet.PlasmaGigaBottomSheetVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.button.basic.PlasmaGigaBasicButtonVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.button.icon.PlasmaGigaIconButtonVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.button.link.PlasmaGigaLinkButtonVariationsCompose
@@ -95,6 +96,10 @@ object PlasmaGigaComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey("CardSolid", CoreComponent.CARD),
                 PlasmaGigaCardSolidVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.BottomSheet,
+                PlasmaGigaBottomSheetVariationsCompose,
             ),
             ComposeComponent(
                 ComponentKey.Cell,

@@ -3,6 +3,7 @@ package com.sdds.plugin.themebuilder
 import com.sdds.plugin.themebuilder.internal.PackageResolver
 import com.sdds.plugin.themebuilder.internal.ThemeBuilderTarget
 import com.sdds.plugin.themebuilder.internal.components.badge.BadgeConfig
+import com.sdds.plugin.themebuilder.internal.components.bottomsheet.BottomSheetConfig
 import com.sdds.plugin.themebuilder.internal.components.button.ButtonConfig
 import com.sdds.plugin.themebuilder.internal.components.card.CardConfig
 import com.sdds.plugin.themebuilder.internal.components.cell.CellConfig
@@ -139,6 +140,12 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
      */
     @get:InputFile
     abstract val iconBadgeTransparentConfigFile: RegularFileProperty
+
+    /**
+     * Файл с конфигом BottomSheet
+     */
+    @get:InputFile
+    abstract val bottomSheetConfigFile: RegularFileProperty
 
     /**
      * Файл с конфигом SegmentItem
@@ -326,6 +333,10 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
         componentStyleGeneratorFactory.createIconBadgeClearStyleGeneratorCompose()
     }
 
+    private val bottomSheetStyleGeneratorCompose by unsafeLazy {
+        componentStyleGeneratorFactory.createBottomSheetStyleGeneratorCompose()
+    }
+
     private val iconBadgeTransparentStyleGeneratorCompose by unsafeLazy {
         componentStyleGeneratorFactory.createIconBadgeTransparentStyleGeneratorCompose()
     }
@@ -478,6 +489,12 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
             .decode(Serializer.componentConfig)
     }
 
+    private val bottomSheetConfig: BottomSheetConfig by unsafeLazy {
+        bottomSheetConfigFile.get()
+            .asFile
+            .decode(Serializer.componentConfig)
+    }
+
     private val segmentItemConfig: SegmentItemConfig by unsafeLazy {
         segmentItemConfigFile.get()
             .asFile
@@ -522,6 +539,7 @@ internal abstract class GenerateComponentConfigsTask : DefaultTask() {
         badgeStyleGeneratorCompose.generate(badgeConfig)
         badgeClearStyleGeneratorCompose.generate(badgeClearConfig)
         badgeTransparentStyleGeneratorCompose.generate(badgeTransparentConfig)
+        bottomSheetStyleGeneratorCompose.generate(bottomSheetConfig)
         iconBadgeStyleGeneratorCompose.generate(iconBadgeConfig)
         iconBadgeClearStyleGeneratorCompose.generate(iconBadgeClearConfig)
         iconBadgeTransparentStyleGeneratorCompose.generate(iconBadgeTransparentConfig)

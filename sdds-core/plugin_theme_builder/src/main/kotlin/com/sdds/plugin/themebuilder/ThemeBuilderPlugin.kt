@@ -128,6 +128,9 @@ class ThemeBuilderPlugin : Plugin<Project> {
                 iconBadgeTransparentConfigFile.set(
                     getComponentConfigFile(ComponentConfig.ICON_BADGE_TRANSPARENT.fileName),
                 )
+                bottomSheetConfigFile.set(
+                    getComponentConfigFile(ComponentConfig.BOTTOM_SHEET.fileName),
+                )
                 segmentItemConfigFile.set(
                     getComponentConfigFile(ComponentConfig.SEGMENT_ITEM.fileName),
                 )
@@ -378,6 +381,7 @@ class ThemeBuilderPlugin : Plugin<Project> {
         BADGE_SOLID("badge_solid_config.json", "fetchBadgeConfig"),
         BADGE_CLEAR("badge_clear_config.json", "fetchBadgeClearConfig"),
         BADGE_TRANSPARENT("badge_transparent_config.json", "fetchBadgeTransparentConfig"),
+        BOTTOM_SHEET("bottom_sheet_config.json", "fetchBottomSheetConfig"),
         ICON_BADGE_SOLID("icon_badge_solid_config.json", "fetchIconBadgeConfig"),
         ICON_BADGE_CLEAR("icon_badge_clear_config.json", "fetchIconBadgeClearConfig"),
         ICON_BADGE_TRANSPARENT(
