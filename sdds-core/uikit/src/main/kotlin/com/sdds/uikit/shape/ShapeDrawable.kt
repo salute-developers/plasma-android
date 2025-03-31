@@ -1,5 +1,6 @@
 package com.sdds.uikit.shape
 
+import android.animation.ValueAnimator
 import android.content.Context
 import android.content.res.ColorStateList
 import android.content.res.Resources
@@ -21,8 +22,11 @@ import android.util.TypedValue
 import androidx.annotation.RequiresApi
 import androidx.core.graphics.withTranslation
 import com.sdds.uikit.R
+import com.sdds.uikit.internal.base.AnimationUtils
+import com.sdds.uikit.internal.base.AnimationUtils.blendColors
 import com.sdds.uikit.internal.base.colorForState
 import com.sdds.uikit.internal.base.configure
+import com.sdds.uikit.internal.base.unsafeLazy
 import com.sdds.uikit.shader.ShaderFactory
 import com.sdds.uikit.shaderFactory
 import com.sdds.uikit.shape.ShapeModel.Companion.adjust
@@ -56,6 +60,15 @@ open class ShapeDrawable() : Drawable(), Shapeable {
         get() = _strokeWidth > 0 && _strokePaint.color != Color.TRANSPARENT
 
     private var _overriddenAlpha: Int? = null
+
+    private var _animationEnabled: Boolean = false
+
+    private val animator by unsafeLazy {
+        ValueAnimator.ofFloat().apply {
+            duration = AnimationUtils.DEFAULT_DURATION
+            interpolator = AnimationUtils.ACCELERATE_DECELERATE_INTERPOLATOR
+        }
+    }
 
     init {
         initPaint()
@@ -96,6 +109,7 @@ open class ShapeDrawable() : Drawable(), Shapeable {
             .adjust(adjustment)
         _strokeTint = typedArray.getColorStateList(R.styleable.SdShape_sd_strokeColor)
         _strokeWidth = typedArray.getDimension(R.styleable.SdShape_sd_strokeWidth, 0f)
+        _animationEnabled = typedArray.getBoolean(R.styleable.SdShape_sd_shapeColorAnimationEnabled, false)
         val hasShadowAppearance = typedArray.hasValue(R.styleable.SdShape_sd_shadowAppearance)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P && hasShadowAppearance) {
             _shadowRenderer.setShadowModel(
@@ -165,6 +179,16 @@ open class ShapeDrawable() : Drawable(), Shapeable {
         if (_strokeTint != tint) {
             _strokeTint = tint
             _strokePaint.color = tint.colorForState(state)
+            invalidateSelf()
+        }
+    }
+
+    /**
+     * Включает/выключает анимацию цвета заливки и границы формы
+     */
+    open fun setColorAnimationEnabled(enabled: Boolean) {
+        if (_animationEnabled != enabled) {
+            _animationEnabled = enabled
             invalidateSelf()
         }
     }
@@ -256,22 +280,23 @@ open class ShapeDrawable() : Drawable(), Shapeable {
     }
 
     override fun onStateChange(state: IntArray): Boolean {
+        animator.cancel()
         val borderColor = _strokeTint.colorForState(state)
         var stateChanged = false
         if (borderColor != _strokePaint.color) {
-            _strokePaint.color = borderColor
             stateChanged = true
         }
 
+        var fillColor: Int? = null
         if (_shaderFactory == null) {
-            val fillColor = _shapeTint.colorForState(state)
+            fillColor = _shapeTint.colorForState(state)
             if (fillColor != _shapePaint.color) {
-                _shapePaint.color = fillColor
                 stateChanged = true
             }
         }
         if (stateChanged) {
             reapplyAlpha()
+            updateColors(borderColor, fillColor)
             invalidateSelf()
         }
         return super.onStateChange(state) || stateChanged
@@ -330,8 +355,33 @@ open class ShapeDrawable() : Drawable(), Shapeable {
         )
         _shapePaint.configure(
             style = Paint.Style.FILL,
+            color = _shapeTint.colorForState(state),
             isAntiAlias = true,
         )
+    }
+
+    private fun updateColors(borderColor: Int, fillColor: Int?) {
+        if (!_animationEnabled) {
+            if (fillColor != null) {
+                _shapePaint.color = fillColor
+            }
+            _strokePaint.color = borderColor
+            return
+        }
+        animator.apply {
+            setFloatValues(0f, 1f)
+            val currentFillColor = _shapePaint.color
+            val currentStrokeColor = _strokePaint.color
+            removeAllUpdateListeners()
+            addUpdateListener {
+                if (fillColor != null) {
+                    _shapePaint.color = blendColors(currentFillColor, fillColor, it.animatedFraction)
+                }
+                _strokePaint.color = blendColors(currentStrokeColor, borderColor, it.animatedFraction)
+                invalidateSelf()
+            }
+            start()
+        }
     }
 
     internal enum class GradientType {

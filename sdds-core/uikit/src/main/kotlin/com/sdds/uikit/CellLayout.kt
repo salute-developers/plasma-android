@@ -48,9 +48,9 @@ open class CellLayout @JvmOverloads constructor(
     defStyleRes: Int = R.style.Sdds_Components_Cell,
 ) : ViewGroup(context, attrs, defStyleAttr, defStyleRes),
     Shapeable,
-    HasFocusSelector by FocusSelectorDelegate() {
+    HasFocusSelector by FocusSelectorDelegate(context, attrs, defStyleAttr, defStyleRes) {
 
-    private val _shaper = shapeable(attrs, defStyleAttr)
+    private val _shaper = shapeable(attrs, defStyleAttr, defStyleRes)
     private val _startContentBounds: Rect = Rect()
     private val _endContentBounds: Rect = Rect()
     private val _disclosureBounds: Rect = Rect()
@@ -163,8 +163,6 @@ open class CellLayout @JvmOverloads constructor(
             typedArray.getBoolean(R.styleable.CellLayout_sd_forceDuplicateParentState, false)
         typedArray.recycle()
         clipToOutline = context.isClippedToOutline(attrs, defStyleAttr, defStyleRes)
-        @Suppress("LeakingThis")
-        applySelector(this, context, attrs, defStyleAttr)
     }
 
     override fun setPressed(pressed: Boolean) {
@@ -238,10 +236,6 @@ open class CellLayout @JvmOverloads constructor(
 
             when (lp.cellContent) {
                 START -> {
-                    if (!_contentStartPaddingEnabled) {
-                        _contentStartPaddingEnabled = true
-                        totalWidth += _contentStartPadding
-                    }
                     _startContentBounds.apply {
                         right += totalChildWidth
                         bottom = maxOf(bottom, totalChildHeight)
@@ -249,10 +243,6 @@ open class CellLayout @JvmOverloads constructor(
                 }
 
                 END -> {
-                    if (!_contentEndPaddingEnabled) {
-                        _contentEndPaddingEnabled = true
-                        totalWidth += _contentEndPadding
-                    }
                     _endContentBounds.apply {
                         right += totalChildWidth
                         bottom = maxOf(bottom, totalChildHeight)
@@ -290,6 +280,20 @@ open class CellLayout @JvmOverloads constructor(
                 bottom += totalChildHeight
                 right = maxOf(right, totalChildWidth)
             }
+        }
+        val applyContentStartPadding = !_contentStartPaddingEnabled &&
+            _startContentBounds.width() > 0 &&
+            (_centerContentBounds.width() > 0 || _endContentBounds.width() > 0)
+        if (applyContentStartPadding) {
+            _contentStartPaddingEnabled = true
+            totalWidth += _contentStartPadding
+        }
+        val applyContentEndPadding = !_contentEndPaddingEnabled &&
+            _endContentBounds.width() > 0 &&
+            (_centerContentBounds.width() > 0 || _startContentBounds.width() > 0)
+        if (applyContentEndPadding) {
+            _contentEndPaddingEnabled = true
+            totalWidth += _contentEndPadding
         }
         totalWidth += _centerContentBounds.width()
         totalHeight += maxOf(

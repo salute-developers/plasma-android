@@ -1,6 +1,8 @@
 package com.sdds.uikit.internal.base
 
 import android.animation.TimeInterpolator
+import android.graphics.Color
+import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.animation.DecelerateInterpolator
 import android.view.animation.LinearInterpolator
 import androidx.annotation.FloatRange
@@ -12,7 +14,9 @@ import androidx.interpolator.view.animation.LinearOutSlowInInterpolator
  * Utility class for animations containing Material interpolators.
  */
 internal object AnimationUtils {
+    const val DEFAULT_DURATION = 200L
     val LINEAR_INTERPOLATOR: TimeInterpolator = LinearInterpolator()
+    val ACCELERATE_DECELERATE_INTERPOLATOR: TimeInterpolator = AccelerateDecelerateInterpolator()
     val FAST_OUT_SLOW_IN_INTERPOLATOR: TimeInterpolator = FastOutSlowInInterpolator()
     val FAST_OUT_LINEAR_IN_INTERPOLATOR: TimeInterpolator = FastOutLinearInInterpolator()
     val LINEAR_OUT_SLOW_IN_INTERPOLATOR: TimeInterpolator = LinearOutSlowInInterpolator()
@@ -51,5 +55,14 @@ internal object AnimationUtils {
                 (fraction - startFraction) / (endFraction - startFraction),
             )
         }
+    }
+
+    fun blendColors(color1: Int, color2: Int, ratio: Float): Int {
+        val inverseRatio = 1f - ratio
+        val a = (Color.alpha(color1) * inverseRatio) + (Color.alpha(color2) * ratio)
+        val r = (Color.red(color1) * inverseRatio) + (Color.red(color2) * ratio)
+        val g = (Color.green(color1) * inverseRatio) + (Color.green(color2) * ratio)
+        val b = (Color.blue(color1) * inverseRatio) + (Color.blue(color2) * ratio)
+        return Color.argb(a.toInt(), r.toInt(), g.toInt(), b.toInt())
     }
 }
