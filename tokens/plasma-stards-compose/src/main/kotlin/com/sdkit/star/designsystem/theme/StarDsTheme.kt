@@ -28,10 +28,8 @@ import com.sdkit.star.designsystem.styles.avatar.Avatar
 import com.sdkit.star.designsystem.styles.avatar.AvatarGroup
 import com.sdkit.star.designsystem.styles.avatar.M
 import com.sdkit.star.designsystem.styles.avatar.S
-import com.sdkit.star.designsystem.styles.button.basic.BasicButton
-import com.sdkit.star.designsystem.styles.button.basic.M
-import com.sdkit.star.designsystem.styles.button.icon.IconButton
-import com.sdkit.star.designsystem.styles.button.icon.M
+import com.sdkit.star.designsystem.styles.basicbutton.BasicButton
+import com.sdkit.star.designsystem.styles.basicbutton.M
 import com.sdkit.star.designsystem.styles.cell.Cell
 import com.sdkit.star.designsystem.styles.cell.M
 import com.sdkit.star.designsystem.styles.checkbox.CheckBox
@@ -41,6 +39,8 @@ import com.sdkit.star.designsystem.styles.checkboxgroup.M
 import com.sdkit.star.designsystem.styles.chip.Chip
 import com.sdkit.star.designsystem.styles.chip.Default
 import com.sdkit.star.designsystem.styles.chip.M
+import com.sdkit.star.designsystem.styles.iconbutton.IconButton
+import com.sdkit.star.designsystem.styles.iconbutton.M
 import com.sdkit.star.designsystem.styles.progressbar.Default
 import com.sdkit.star.designsystem.styles.progressbar.ProgressBar
 import com.sdkit.star.designsystem.styles.radiobox.M
@@ -53,7 +53,6 @@ import com.sdkit.star.designsystem.styles.textfield.Default
 import com.sdkit.star.designsystem.styles.textfield.M
 import com.sdkit.star.designsystem.styles.textfield.OuterLabel
 import com.sdkit.star.designsystem.styles.textfield.TextField
-import kotlin.Unit
 
 /**
  * Аттрибуты темы StarDsTheme
