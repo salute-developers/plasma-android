@@ -22,8 +22,8 @@ internal class NavigationDrawerItemsView(
 
     init {
         adapter = itemsAdapter
-        clipToPadding = false
-        clipChildren = false
+        clipToPadding = true
+        clipChildren = true
         itemAnimator = null
         layoutManager = recyclerLayoutManager
     }

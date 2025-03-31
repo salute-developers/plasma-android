@@ -61,6 +61,11 @@ internal class ItemSelectorDecorator(
 
     @Suppress("RestrictedApi")
     fun moveToView(targetView: View) {
+        if (targetView == recyclerView) {
+            clear()
+            navigationDrawer.invalidate()
+            return
+        }
         val targetShape = (targetView as? Shapeable)?.shape
         if (targetShape != _itemShapeModel && targetShape != null) {
             _itemShapeModel = targetShape

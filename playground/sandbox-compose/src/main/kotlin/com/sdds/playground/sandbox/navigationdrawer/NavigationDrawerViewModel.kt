@@ -32,7 +32,7 @@ internal class NavigationDrawerViewModel(
                 currentState
             }
 
-            PropertyName.Amount -> currentState.copy(amount = valueString.toInt())
+            PropertyName.Amount -> currentState.copy(amount = valueString.toIntOrNull() ?: 0)
             PropertyName.Mode -> currentState.copy(mode = NavigationDrawerMode.valueOf(valueString))
             PropertyName.HasHeader -> currentState.copy(hasHeader = valueString.toBoolean())
             PropertyName.HasFooter -> currentState.copy(hasFooter = valueString.toBoolean())
