@@ -10,6 +10,7 @@ import com.sdds.plugin.themebuilder.ThemeBuilderExtension.Companion.themeBuilder
 import org.gradle.api.GradleException
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.api.file.Directory
 import org.gradle.api.file.RegularFile
 import org.gradle.api.provider.Provider
 import org.gradle.api.tasks.Copy
@@ -136,7 +137,18 @@ class ThemeBuilderPlugin : Plugin<Project> {
     ) {
         val task = project.tasks.register<GenerateComponentsTask>("generateComponents") {
             group = TASK_GROUP
-            componentsMetaFile.set(getComponentsMetaFile())
+            componentsDir.set(getComponentsDir())
+            outputDirPath.set(extension.outputLocation.getSourcePath())
+            outputResDirPath.set(extension.outputLocation.getResourcePath())
+            packageName.set(extension.ktPackage ?: DEFAULT_KT_PACKAGE)
+            val projectDirProperty = objects.directoryProperty()
+                .apply { set(layout.projectDirectory) }
+            projectDir.set(projectDirProperty)
+            dimensionsConfig.set(extension.dimensionsConfig)
+            resourcesPrefixConfig.set(getResourcePrefixConfig(extension))
+            themeName.set(extension.componentSource?.themeName)
+            namespace.set(getProjectNameSpace())
+            target.set(extension.target)
         }
         task.dependsOn(fetchComponentsTask)
     }
@@ -272,8 +284,8 @@ class ThemeBuilderPlugin : Plugin<Project> {
         return layout.buildDirectory.file("$COMPONENTS_PATH/$fileName")
     }
 
-    private fun Project.getComponentsMetaFile(): Provider<RegularFile> {
-        return layout.buildDirectory.file("$COMPONENTS_PATH/$META_JSON_NAME")
+    private fun Project.getComponentsDir(): Provider<Directory> {
+        return layout.buildDirectory.dir(COMPONENTS_PATH)
     }
 
     private fun Project.registerUnzip(

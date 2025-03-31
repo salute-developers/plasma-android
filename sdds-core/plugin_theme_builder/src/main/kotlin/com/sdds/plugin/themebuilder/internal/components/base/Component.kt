@@ -29,4 +29,10 @@ internal data class Component(
     val componentName: String,
     val styleName: String,
     val config: String,
-)
+    val excludePlatforms: List<String> = emptyList(),
+) {
+    val packageName = componentName.replace("-", "")
+
+    val isExcludedForViewSystem: Boolean = excludePlatforms.contains("view-system")
+    val isExcludedForCompose: Boolean = excludePlatforms.contains("compose")
+}
