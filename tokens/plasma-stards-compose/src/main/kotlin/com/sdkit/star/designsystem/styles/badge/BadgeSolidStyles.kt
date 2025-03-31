@@ -252,13 +252,13 @@ public val BadgeSolid.L: WrapperBadgeSolidL
         .shape(StarDsTheme.shapes.roundS)
         .labelStyle(StarDsTheme.typography.bodySNormal)
         .dimensions {
-            height(dimensionResource(R.dimen.sdkit_cmp_badge - solid_height_l))
-            startContentSize(dimensionResource(R.dimen.sdkit_cmp_badge - solid_startContentSize_l))
-            endContentSize(dimensionResource(R.dimen.sdkit_cmp_badge - solid_endContentSize_l))
-            startContentMargin(dimensionResource(R.dimen.sdkit_cmp_badge - solid_startContentMargin_l))
-            endContentMargin(dimensionResource(R.dimen.sdkit_cmp_badge - solid_endContentMargin_l))
-            startPadding(dimensionResource(R.dimen.sdkit_cmp_badge - solid_startPadding_l))
-            endPadding(dimensionResource(R.dimen.sdkit_cmp_badge - solid_endPadding_l))
+            height(dimensionResource(R.dimen.sdkit_cmp_badge_solid_height_l))
+            startContentSize(dimensionResource(R.dimen.sdkit_cmp_badge_solid_startContentSize_l))
+            endContentSize(dimensionResource(R.dimen.sdkit_cmp_badge_solid_endContentSize_l))
+            startContentMargin(dimensionResource(R.dimen.sdkit_cmp_badge_solid_startContentMargin_l))
+            endContentMargin(dimensionResource(R.dimen.sdkit_cmp_badge_solid_endContentMargin_l))
+            startPadding(dimensionResource(R.dimen.sdkit_cmp_badge_solid_startPadding_l))
+            endPadding(dimensionResource(R.dimen.sdkit_cmp_badge_solid_endPadding_l))
         }
         .wrap(::WrapperBadgeSolidL)
 
@@ -277,13 +277,13 @@ public val BadgeSolid.M: WrapperBadgeSolidM
         .shape(StarDsTheme.shapes.roundXs)
         .labelStyle(StarDsTheme.typography.bodyXsNormal)
         .dimensions {
-            height(dimensionResource(R.dimen.sdkit_cmp_badge - solid_height_m))
-            startContentSize(dimensionResource(R.dimen.sdkit_cmp_badge - solid_startContentSize_m))
-            endContentSize(dimensionResource(R.dimen.sdkit_cmp_badge - solid_endContentSize_m))
-            startContentMargin(dimensionResource(R.dimen.sdkit_cmp_badge - solid_startContentMargin_m))
-            endContentMargin(dimensionResource(R.dimen.sdkit_cmp_badge - solid_endContentMargin_m))
-            startPadding(dimensionResource(R.dimen.sdkit_cmp_badge - solid_startPadding_m))
-            endPadding(dimensionResource(R.dimen.sdkit_cmp_badge - solid_endPadding_m))
+            height(dimensionResource(R.dimen.sdkit_cmp_badge_solid_height_m))
+            startContentSize(dimensionResource(R.dimen.sdkit_cmp_badge_solid_startContentSize_m))
+            endContentSize(dimensionResource(R.dimen.sdkit_cmp_badge_solid_endContentSize_m))
+            startContentMargin(dimensionResource(R.dimen.sdkit_cmp_badge_solid_startContentMargin_m))
+            endContentMargin(dimensionResource(R.dimen.sdkit_cmp_badge_solid_endContentMargin_m))
+            startPadding(dimensionResource(R.dimen.sdkit_cmp_badge_solid_startPadding_m))
+            endPadding(dimensionResource(R.dimen.sdkit_cmp_badge_solid_endPadding_m))
         }
         .wrap(::WrapperBadgeSolidM)
 
@@ -302,13 +302,13 @@ public val BadgeSolid.S: WrapperBadgeSolidS
         .shape(StarDsTheme.shapes.roundXs)
         .labelStyle(StarDsTheme.typography.bodyXxsNormal)
         .dimensions {
-            height(dimensionResource(R.dimen.sdkit_cmp_badge - solid_height_s))
-            startContentSize(dimensionResource(R.dimen.sdkit_cmp_badge - solid_startContentSize_s))
-            endContentSize(dimensionResource(R.dimen.sdkit_cmp_badge - solid_endContentSize_s))
-            startContentMargin(dimensionResource(R.dimen.sdkit_cmp_badge - solid_startContentMargin_s))
-            endContentMargin(dimensionResource(R.dimen.sdkit_cmp_badge - solid_endContentMargin_s))
-            startPadding(dimensionResource(R.dimen.sdkit_cmp_badge - solid_startPadding_s))
-            endPadding(dimensionResource(R.dimen.sdkit_cmp_badge - solid_endPadding_s))
+            height(dimensionResource(R.dimen.sdkit_cmp_badge_solid_height_s))
+            startContentSize(dimensionResource(R.dimen.sdkit_cmp_badge_solid_startContentSize_s))
+            endContentSize(dimensionResource(R.dimen.sdkit_cmp_badge_solid_endContentSize_s))
+            startContentMargin(dimensionResource(R.dimen.sdkit_cmp_badge_solid_startContentMargin_s))
+            endContentMargin(dimensionResource(R.dimen.sdkit_cmp_badge_solid_endContentMargin_s))
+            startPadding(dimensionResource(R.dimen.sdkit_cmp_badge_solid_startPadding_s))
+            endPadding(dimensionResource(R.dimen.sdkit_cmp_badge_solid_endPadding_s))
         }
         .wrap(::WrapperBadgeSolidS)
 
@@ -327,13 +327,13 @@ public val BadgeSolid.Xs: WrapperBadgeSolidXs
         .shape(StarDsTheme.shapes.roundXxs)
         .labelStyle(StarDsTheme.typography.bodyXxsNormal)
         .dimensions {
-            height(dimensionResource(R.dimen.sdkit_cmp_badge - solid_height_xs))
-            startContentSize(dimensionResource(R.dimen.sdkit_cmp_badge - solid_startContentSize_xs))
-            endContentSize(dimensionResource(R.dimen.sdkit_cmp_badge - solid_endContentSize_xs))
-            startContentMargin(dimensionResource(R.dimen.sdkit_cmp_badge - solid_startContentMargin_xs))
-            endContentMargin(dimensionResource(R.dimen.sdkit_cmp_badge - solid_endContentMargin_xs))
-            startPadding(dimensionResource(R.dimen.sdkit_cmp_badge - solid_startPadding_xs))
-            endPadding(dimensionResource(R.dimen.sdkit_cmp_badge - solid_endPadding_xs))
+            height(dimensionResource(R.dimen.sdkit_cmp_badge_solid_height_xs))
+            startContentSize(dimensionResource(R.dimen.sdkit_cmp_badge_solid_startContentSize_xs))
+            endContentSize(dimensionResource(R.dimen.sdkit_cmp_badge_solid_endContentSize_xs))
+            startContentMargin(dimensionResource(R.dimen.sdkit_cmp_badge_solid_startContentMargin_xs))
+            endContentMargin(dimensionResource(R.dimen.sdkit_cmp_badge_solid_endContentMargin_xs))
+            startPadding(dimensionResource(R.dimen.sdkit_cmp_badge_solid_startPadding_xs))
+            endPadding(dimensionResource(R.dimen.sdkit_cmp_badge_solid_endPadding_xs))
         }
         .wrap(::WrapperBadgeSolidXs)
 

@@ -8,6 +8,7 @@ import com.sdds.plugin.themebuilder.internal.components.StyleGeneratorDependenci
 import com.sdds.plugin.themebuilder.internal.components.base.Component
 import com.sdds.plugin.themebuilder.internal.serializer.Serializer
 import com.sdds.plugin.themebuilder.internal.utils.decode
+import com.sdds.plugin.themebuilder.internal.utils.techToSnakeCase
 import java.io.File
 
 internal class SegmentItemConfigDelegate : ComponentConfigDelegate<SegmentItemConfig>() {
@@ -34,7 +35,7 @@ internal class SegmentItemConfigDelegate : ComponentConfigDelegate<SegmentItemCo
             namespace = deps.namespace,
             ktFileBuilderFactory = deps.ktFileBuilderFactory,
             componentPackage = "${deps.packageResolver.getPackage(TargetPackage.STYLES)}.${component.packageName}",
-            componentName = component.styleName,
+            componentName = component.styleName.techToSnakeCase(),
             outputLocation = KtFileBuilder.OutputLocation.Directory(deps.outputDir),
             counterStylesPackage = "${deps.packageResolver.getPackage(TargetPackage.STYLES)}.counter",
         )

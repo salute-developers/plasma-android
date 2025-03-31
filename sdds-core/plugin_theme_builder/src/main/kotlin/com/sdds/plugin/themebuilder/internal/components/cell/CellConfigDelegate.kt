@@ -9,6 +9,7 @@ import com.sdds.plugin.themebuilder.internal.components.base.Component
 import com.sdds.plugin.themebuilder.internal.components.cell.compose.CellComposeVariationGenerator
 import com.sdds.plugin.themebuilder.internal.serializer.Serializer
 import com.sdds.plugin.themebuilder.internal.utils.decode
+import com.sdds.plugin.themebuilder.internal.utils.techToSnakeCase
 import java.io.File
 
 internal class CellConfigDelegate : ComponentConfigDelegate<CellConfig>() {
@@ -34,7 +35,7 @@ internal class CellConfigDelegate : ComponentConfigDelegate<CellConfig>() {
             namespace = deps.namespace,
             ktFileBuilderFactory = deps.ktFileBuilderFactory,
             componentPackage = "${deps.packageResolver.getPackage(TargetPackage.STYLES)}.${component.packageName}",
-            componentName = component.styleName,
+            componentName = component.styleName.techToSnakeCase(),
             outputLocation = KtFileBuilder.OutputLocation.Directory(deps.outputDir),
             avatarStylesPackage = "${deps.packageResolver.getPackage(TargetPackage.STYLES)}.avatar",
             iconButtonStylesPackage = "${deps.packageResolver.getPackage(TargetPackage.STYLES)}.iconbutton",

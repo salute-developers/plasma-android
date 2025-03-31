@@ -11,6 +11,7 @@ import com.sdds.plugin.themebuilder.internal.components.card.vs.CardStyleGenerat
 import com.sdds.plugin.themebuilder.internal.serializer.Serializer
 import com.sdds.plugin.themebuilder.internal.utils.decode
 import com.sdds.plugin.themebuilder.internal.utils.techToCamelCase
+import com.sdds.plugin.themebuilder.internal.utils.techToSnakeCase
 import java.io.File
 
 internal class CardConfigDelegate : ComponentConfigDelegate<CardConfig>() {
@@ -47,7 +48,7 @@ internal class CardConfigDelegate : ComponentConfigDelegate<CardConfig>() {
             namespace = deps.namespace,
             ktFileBuilderFactory = deps.ktFileBuilderFactory,
             componentPackage = "${deps.packageResolver.getPackage(TargetPackage.STYLES)}.${component.packageName}",
-            componentName = component.styleName,
+            componentName = component.styleName.techToSnakeCase(),
             outputLocation = KtFileBuilder.OutputLocation.Directory(deps.outputDir),
             styleBuilderName = "CardStyleBuilder",
         )

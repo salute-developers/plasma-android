@@ -126,21 +126,21 @@ public val BasicButton.L: WrapperBasicButtonL
         .shape(
             StarDsTheme.shapes.roundL.adjustBy(
                 all =
-                dimensionResource(R.dimen.sdkit_cmp_basic - button_shapeAdjustment_l),
+                dimensionResource(R.dimen.sdkit_cmp_basic_button_shapeAdjustment_l),
             ),
         )
         .labelStyle(StarDsTheme.typography.bodyLBold)
         .valueStyle(StarDsTheme.typography.bodyLBold)
         .dimensions {
-            height(dimensionResource(R.dimen.sdkit_cmp_basic - button_height_l))
-            paddingStart(dimensionResource(R.dimen.sdkit_cmp_basic - button_padding_start_l))
-            paddingEnd(dimensionResource(R.dimen.sdkit_cmp_basic - button_padding_end_l))
-            minWidth(dimensionResource(R.dimen.sdkit_cmp_basic - button_min_width_l))
-            iconSize(dimensionResource(R.dimen.sdkit_cmp_basic - button_icon_size_l))
-            spinnerSize(dimensionResource(R.dimen.sdkit_cmp_basic - button_spinner_size_l))
-            spinnerStrokeWidth(dimensionResource(R.dimen.sdkit_cmp_basic - button_spinner_stroke_width_l))
-            iconMargin(dimensionResource(R.dimen.sdkit_cmp_basic - button_icon_margin_l))
-            valueMargin(dimensionResource(R.dimen.sdkit_cmp_basic - button_value_margin_l))
+            height(dimensionResource(R.dimen.sdkit_cmp_basic_button_height_l))
+            paddingStart(dimensionResource(R.dimen.sdkit_cmp_basic_button_padding_start_l))
+            paddingEnd(dimensionResource(R.dimen.sdkit_cmp_basic_button_padding_end_l))
+            minWidth(dimensionResource(R.dimen.sdkit_cmp_basic_button_min_width_l))
+            iconSize(dimensionResource(R.dimen.sdkit_cmp_basic_button_icon_size_l))
+            spinnerSize(dimensionResource(R.dimen.sdkit_cmp_basic_button_spinner_size_l))
+            spinnerStrokeWidth(dimensionResource(R.dimen.sdkit_cmp_basic_button_spinner_stroke_width_l))
+            iconMargin(dimensionResource(R.dimen.sdkit_cmp_basic_button_icon_margin_l))
+            valueMargin(dimensionResource(R.dimen.sdkit_cmp_basic_button_value_margin_l))
         }
         .wrap(::WrapperBasicButtonL)
 
@@ -153,15 +153,15 @@ public val BasicButton.M: WrapperBasicButtonM
         .labelStyle(StarDsTheme.typography.bodyMBold)
         .valueStyle(StarDsTheme.typography.bodyMBold)
         .dimensions {
-            height(dimensionResource(R.dimen.sdkit_cmp_basic - button_height_m))
-            paddingStart(dimensionResource(R.dimen.sdkit_cmp_basic - button_padding_start_m))
-            paddingEnd(dimensionResource(R.dimen.sdkit_cmp_basic - button_padding_end_m))
-            minWidth(dimensionResource(R.dimen.sdkit_cmp_basic - button_min_width_m))
-            iconSize(dimensionResource(R.dimen.sdkit_cmp_basic - button_icon_size_m))
-            spinnerSize(dimensionResource(R.dimen.sdkit_cmp_basic - button_spinner_size_m))
-            spinnerStrokeWidth(dimensionResource(R.dimen.sdkit_cmp_basic - button_spinner_stroke_width_m))
-            iconMargin(dimensionResource(R.dimen.sdkit_cmp_basic - button_icon_margin_m))
-            valueMargin(dimensionResource(R.dimen.sdkit_cmp_basic - button_value_margin_m))
+            height(dimensionResource(R.dimen.sdkit_cmp_basic_button_height_m))
+            paddingStart(dimensionResource(R.dimen.sdkit_cmp_basic_button_padding_start_m))
+            paddingEnd(dimensionResource(R.dimen.sdkit_cmp_basic_button_padding_end_m))
+            minWidth(dimensionResource(R.dimen.sdkit_cmp_basic_button_min_width_m))
+            iconSize(dimensionResource(R.dimen.sdkit_cmp_basic_button_icon_size_m))
+            spinnerSize(dimensionResource(R.dimen.sdkit_cmp_basic_button_spinner_size_m))
+            spinnerStrokeWidth(dimensionResource(R.dimen.sdkit_cmp_basic_button_spinner_stroke_width_m))
+            iconMargin(dimensionResource(R.dimen.sdkit_cmp_basic_button_icon_margin_m))
+            valueMargin(dimensionResource(R.dimen.sdkit_cmp_basic_button_value_margin_m))
         }
         .wrap(::WrapperBasicButtonM)
 
@@ -173,21 +173,21 @@ public val BasicButton.S: WrapperBasicButtonS
         .shape(
             StarDsTheme.shapes.roundM.adjustBy(
                 all =
-                dimensionResource(R.dimen.sdkit_cmp_basic - button_shapeAdjustment_s),
+                dimensionResource(R.dimen.sdkit_cmp_basic_button_shapeAdjustment_s),
             ),
         )
         .labelStyle(StarDsTheme.typography.bodySBold)
         .valueStyle(StarDsTheme.typography.bodySBold)
         .dimensions {
-            height(dimensionResource(R.dimen.sdkit_cmp_basic - button_height_s))
-            paddingStart(dimensionResource(R.dimen.sdkit_cmp_basic - button_padding_start_s))
-            paddingEnd(dimensionResource(R.dimen.sdkit_cmp_basic - button_padding_end_s))
-            minWidth(dimensionResource(R.dimen.sdkit_cmp_basic - button_min_width_s))
-            iconSize(dimensionResource(R.dimen.sdkit_cmp_basic - button_icon_size_s))
-            spinnerSize(dimensionResource(R.dimen.sdkit_cmp_basic - button_spinner_size_s))
-            spinnerStrokeWidth(dimensionResource(R.dimen.sdkit_cmp_basic - button_spinner_stroke_width_s))
-            iconMargin(dimensionResource(R.dimen.sdkit_cmp_basic - button_icon_margin_s))
-            valueMargin(dimensionResource(R.dimen.sdkit_cmp_basic - button_value_margin_s))
+            height(dimensionResource(R.dimen.sdkit_cmp_basic_button_height_s))
+            paddingStart(dimensionResource(R.dimen.sdkit_cmp_basic_button_padding_start_s))
+            paddingEnd(dimensionResource(R.dimen.sdkit_cmp_basic_button_padding_end_s))
+            minWidth(dimensionResource(R.dimen.sdkit_cmp_basic_button_min_width_s))
+            iconSize(dimensionResource(R.dimen.sdkit_cmp_basic_button_icon_size_s))
+            spinnerSize(dimensionResource(R.dimen.sdkit_cmp_basic_button_spinner_size_s))
+            spinnerStrokeWidth(dimensionResource(R.dimen.sdkit_cmp_basic_button_spinner_stroke_width_s))
+            iconMargin(dimensionResource(R.dimen.sdkit_cmp_basic_button_icon_margin_s))
+            valueMargin(dimensionResource(R.dimen.sdkit_cmp_basic_button_value_margin_s))
         }
         .wrap(::WrapperBasicButtonS)
 
@@ -200,14 +200,14 @@ public val BasicButton.Xs: WrapperBasicButtonXs
         .labelStyle(StarDsTheme.typography.bodyXsBold)
         .valueStyle(StarDsTheme.typography.bodyXsBold)
         .dimensions {
-            height(dimensionResource(R.dimen.sdkit_cmp_basic - button_height_xs))
-            paddingStart(dimensionResource(R.dimen.sdkit_cmp_basic - button_padding_start_xs))
-            paddingEnd(dimensionResource(R.dimen.sdkit_cmp_basic - button_padding_end_xs))
-            minWidth(dimensionResource(R.dimen.sdkit_cmp_basic - button_min_width_xs))
-            iconSize(dimensionResource(R.dimen.sdkit_cmp_basic - button_icon_size_xs))
-            spinnerSize(dimensionResource(R.dimen.sdkit_cmp_basic - button_spinner_size_xs))
-            spinnerStrokeWidth(dimensionResource(R.dimen.sdkit_cmp_basic - button_spinner_stroke_width_xs))
-            iconMargin(dimensionResource(R.dimen.sdkit_cmp_basic - button_icon_margin_xs))
-            valueMargin(dimensionResource(R.dimen.sdkit_cmp_basic - button_value_margin_xs))
+            height(dimensionResource(R.dimen.sdkit_cmp_basic_button_height_xs))
+            paddingStart(dimensionResource(R.dimen.sdkit_cmp_basic_button_padding_start_xs))
+            paddingEnd(dimensionResource(R.dimen.sdkit_cmp_basic_button_padding_end_xs))
+            minWidth(dimensionResource(R.dimen.sdkit_cmp_basic_button_min_width_xs))
+            iconSize(dimensionResource(R.dimen.sdkit_cmp_basic_button_icon_size_xs))
+            spinnerSize(dimensionResource(R.dimen.sdkit_cmp_basic_button_spinner_size_xs))
+            spinnerStrokeWidth(dimensionResource(R.dimen.sdkit_cmp_basic_button_spinner_stroke_width_xs))
+            iconMargin(dimensionResource(R.dimen.sdkit_cmp_basic_button_icon_margin_xs))
+            valueMargin(dimensionResource(R.dimen.sdkit_cmp_basic_button_value_margin_xs))
         }
         .wrap(::WrapperBasicButtonXs)

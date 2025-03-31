@@ -252,13 +252,13 @@ public val BadgeTransparent.L: WrapperBadgeTransparentL
         .shape(StarDsTheme.shapes.roundS)
         .labelStyle(StarDsTheme.typography.bodySNormal)
         .dimensions {
-            height(dimensionResource(R.dimen.sdkit_cmp_badge.transparent_height_l))
-            startContentSize(dimensionResource(R.dimen.sdkit_cmp_badge.transparent_startContentSize_l))
-            endContentSize(dimensionResource(R.dimen.sdkit_cmp_badge.transparent_endContentSize_l))
-            startContentMargin(dimensionResource(R.dimen.sdkit_cmp_badge.transparent_startContentMargin_l))
-            endContentMargin(dimensionResource(R.dimen.sdkit_cmp_badge.transparent_endContentMargin_l))
-            startPadding(dimensionResource(R.dimen.sdkit_cmp_badge.transparent_startPadding_l))
-            endPadding(dimensionResource(R.dimen.sdkit_cmp_badge.transparent_endPadding_l))
+            height(dimensionResource(R.dimen.sdkit_cmp_badge_transparent_height_l))
+            startContentSize(dimensionResource(R.dimen.sdkit_cmp_badge_transparent_startContentSize_l))
+            endContentSize(dimensionResource(R.dimen.sdkit_cmp_badge_transparent_endContentSize_l))
+            startContentMargin(dimensionResource(R.dimen.sdkit_cmp_badge_transparent_startContentMargin_l))
+            endContentMargin(dimensionResource(R.dimen.sdkit_cmp_badge_transparent_endContentMargin_l))
+            startPadding(dimensionResource(R.dimen.sdkit_cmp_badge_transparent_startPadding_l))
+            endPadding(dimensionResource(R.dimen.sdkit_cmp_badge_transparent_endPadding_l))
         }
         .wrap(::WrapperBadgeTransparentL)
 
@@ -277,13 +277,13 @@ public val BadgeTransparent.M: WrapperBadgeTransparentM
         .shape(StarDsTheme.shapes.roundXs)
         .labelStyle(StarDsTheme.typography.bodyXsNormal)
         .dimensions {
-            height(dimensionResource(R.dimen.sdkit_cmp_badge.transparent_height_m))
-            startContentSize(dimensionResource(R.dimen.sdkit_cmp_badge.transparent_startContentSize_m))
-            endContentSize(dimensionResource(R.dimen.sdkit_cmp_badge.transparent_endContentSize_m))
-            startContentMargin(dimensionResource(R.dimen.sdkit_cmp_badge.transparent_startContentMargin_m))
-            endContentMargin(dimensionResource(R.dimen.sdkit_cmp_badge.transparent_endContentMargin_m))
-            startPadding(dimensionResource(R.dimen.sdkit_cmp_badge.transparent_startPadding_m))
-            endPadding(dimensionResource(R.dimen.sdkit_cmp_badge.transparent_endPadding_m))
+            height(dimensionResource(R.dimen.sdkit_cmp_badge_transparent_height_m))
+            startContentSize(dimensionResource(R.dimen.sdkit_cmp_badge_transparent_startContentSize_m))
+            endContentSize(dimensionResource(R.dimen.sdkit_cmp_badge_transparent_endContentSize_m))
+            startContentMargin(dimensionResource(R.dimen.sdkit_cmp_badge_transparent_startContentMargin_m))
+            endContentMargin(dimensionResource(R.dimen.sdkit_cmp_badge_transparent_endContentMargin_m))
+            startPadding(dimensionResource(R.dimen.sdkit_cmp_badge_transparent_startPadding_m))
+            endPadding(dimensionResource(R.dimen.sdkit_cmp_badge_transparent_endPadding_m))
         }
         .wrap(::WrapperBadgeTransparentM)
 
@@ -302,13 +302,13 @@ public val BadgeTransparent.S: WrapperBadgeTransparentS
         .shape(StarDsTheme.shapes.roundXs)
         .labelStyle(StarDsTheme.typography.bodyXxsNormal)
         .dimensions {
-            height(dimensionResource(R.dimen.sdkit_cmp_badge.transparent_height_s))
-            startContentSize(dimensionResource(R.dimen.sdkit_cmp_badge.transparent_startContentSize_s))
-            endContentSize(dimensionResource(R.dimen.sdkit_cmp_badge.transparent_endContentSize_s))
-            startContentMargin(dimensionResource(R.dimen.sdkit_cmp_badge.transparent_startContentMargin_s))
-            endContentMargin(dimensionResource(R.dimen.sdkit_cmp_badge.transparent_endContentMargin_s))
-            startPadding(dimensionResource(R.dimen.sdkit_cmp_badge.transparent_startPadding_s))
-            endPadding(dimensionResource(R.dimen.sdkit_cmp_badge.transparent_endPadding_s))
+            height(dimensionResource(R.dimen.sdkit_cmp_badge_transparent_height_s))
+            startContentSize(dimensionResource(R.dimen.sdkit_cmp_badge_transparent_startContentSize_s))
+            endContentSize(dimensionResource(R.dimen.sdkit_cmp_badge_transparent_endContentSize_s))
+            startContentMargin(dimensionResource(R.dimen.sdkit_cmp_badge_transparent_startContentMargin_s))
+            endContentMargin(dimensionResource(R.dimen.sdkit_cmp_badge_transparent_endContentMargin_s))
+            startPadding(dimensionResource(R.dimen.sdkit_cmp_badge_transparent_startPadding_s))
+            endPadding(dimensionResource(R.dimen.sdkit_cmp_badge_transparent_endPadding_s))
         }
         .wrap(::WrapperBadgeTransparentS)
 
@@ -327,13 +327,13 @@ public val BadgeTransparent.Xs: WrapperBadgeTransparentXs
         .shape(StarDsTheme.shapes.roundXxs)
         .labelStyle(StarDsTheme.typography.bodyXxsNormal)
         .dimensions {
-            height(dimensionResource(R.dimen.sdkit_cmp_badge.transparent_height_xs))
-            startContentSize(dimensionResource(R.dimen.sdkit_cmp_badge.transparent_startContentSize_xs))
-            endContentSize(dimensionResource(R.dimen.sdkit_cmp_badge.transparent_endContentSize_xs))
-            startContentMargin(dimensionResource(R.dimen.sdkit_cmp_badge.transparent_startContentMargin_xs))
-            endContentMargin(dimensionResource(R.dimen.sdkit_cmp_badge.transparent_endContentMargin_xs))
-            startPadding(dimensionResource(R.dimen.sdkit_cmp_badge.transparent_startPadding_xs))
-            endPadding(dimensionResource(R.dimen.sdkit_cmp_badge.transparent_endPadding_xs))
+            height(dimensionResource(R.dimen.sdkit_cmp_badge_transparent_height_xs))
+            startContentSize(dimensionResource(R.dimen.sdkit_cmp_badge_transparent_startContentSize_xs))
+            endContentSize(dimensionResource(R.dimen.sdkit_cmp_badge_transparent_endContentSize_xs))
+            startContentMargin(dimensionResource(R.dimen.sdkit_cmp_badge_transparent_startContentMargin_xs))
+            endContentMargin(dimensionResource(R.dimen.sdkit_cmp_badge_transparent_endContentMargin_xs))
+            startPadding(dimensionResource(R.dimen.sdkit_cmp_badge_transparent_startPadding_xs))
+            endPadding(dimensionResource(R.dimen.sdkit_cmp_badge_transparent_endPadding_xs))
         }
         .wrap(::WrapperBadgeTransparentXs)
 

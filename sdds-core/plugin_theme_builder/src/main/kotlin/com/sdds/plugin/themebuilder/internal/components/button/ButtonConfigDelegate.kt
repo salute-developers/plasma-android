@@ -14,6 +14,7 @@ import com.sdds.plugin.themebuilder.internal.serializer.Serializer
 import com.sdds.plugin.themebuilder.internal.utils.decapitalized
 import com.sdds.plugin.themebuilder.internal.utils.decode
 import com.sdds.plugin.themebuilder.internal.utils.techToCamelCase
+import com.sdds.plugin.themebuilder.internal.utils.techToSnakeCase
 import java.io.File
 
 internal class ButtonConfigDelegate(
@@ -54,7 +55,7 @@ internal class ButtonConfigDelegate(
             namespace = deps.namespace,
             ktFileBuilderFactory = deps.ktFileBuilderFactory,
             componentPackage = "${deps.packageResolver.getPackage(TargetPackage.STYLES)}.${component.packageName}",
-            componentName = component.styleName,
+            componentName = component.styleName.techToSnakeCase(),
             outputLocation = KtFileBuilder.OutputLocation.Directory(deps.outputDir),
             styleBuilderFactoryFunName = "${component.componentName.techToCamelCase().decapitalized()}Builder",
         )

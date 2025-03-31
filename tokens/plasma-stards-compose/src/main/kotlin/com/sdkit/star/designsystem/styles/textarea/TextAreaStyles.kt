@@ -21,11 +21,6 @@ import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
 import com.sdkit.star.designsystem.compose.R
-import com.sdkit.star.designsystem.styles.chip.EmbeddedChip
-import com.sdkit.star.designsystem.styles.chip.M
-import com.sdkit.star.designsystem.styles.chip.S
-import com.sdkit.star.designsystem.styles.chip.Secondary
-import com.sdkit.star.designsystem.styles.chip.Xs
 import com.sdkit.star.designsystem.styles.chipgroup.ChipGroup
 import com.sdkit.star.designsystem.styles.chipgroup.Dense
 import com.sdkit.star.designsystem.theme.StarDsTheme
@@ -167,8 +162,8 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
     get() = this
         .singleLine(false)
         .dimensions {
-            optionalPadding(dimensionResource(R.dimen.sdkit_cmp_text - area_optional_padding_TextArea))
-            chipsPadding(dimensionResource(R.dimen.sdkit_cmp_text - area_chips_padding_TextArea))
+            optionalPadding(dimensionResource(R.dimen.sdkit_cmp_text_area_optional_padding_TextArea))
+            chipsPadding(dimensionResource(R.dimen.sdkit_cmp_text_area_chips_padding_TextArea))
         }
         .captionStyle(StarDsTheme.typography.bodyXsNormal)
         .counterStyle(StarDsTheme.typography.bodyXsNormal)
@@ -242,10 +237,10 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
             )
         }
         .scrollBar {
-            scrollBarThickness(dimensionResource(R.dimen.sdkit_cmp_text - area_scroll_bar_thickness_TextArea))
-            scrollBarPaddingTop(dimensionResource(R.dimen.sdkit_cmp_text - area_scroll_bar_padding_top_TextArea))
-            scrollBarPaddingBottom(dimensionResource(R.dimen.sdkit_cmp_text - area_scroll_bar_padding_bottom_TextArea))
-            scrollBarPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_text - area_scroll_bar_padding_end_TextArea))
+            scrollBarThickness(dimensionResource(R.dimen.sdkit_cmp_text_area_scroll_bar_thickness_TextArea))
+            scrollBarPaddingTop(dimensionResource(R.dimen.sdkit_cmp_text_area_scroll_bar_padding_top_TextArea))
+            scrollBarPaddingBottom(dimensionResource(R.dimen.sdkit_cmp_text_area_scroll_bar_padding_bottom_TextArea))
+            scrollBarPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_text_area_scroll_bar_padding_end_TextArea))
             scrollBarTrackColor(
                 StarDsTheme.colors.surfaceDefaultTransparentPrimary.asInteractive(),
             )
@@ -262,27 +257,26 @@ public val TextArea.Xs: WrapperTextAreaXs
         .shape(
             StarDsTheme.shapes.roundS.adjustBy(
                 all =
-                dimensionResource(R.dimen.sdkit_cmp_text - area_shapeAdjustment_xs),
+                dimensionResource(R.dimen.sdkit_cmp_text_area_shapeAdjustment_xs),
             ),
         )
         .dimensions {
-            boxPaddingStart(dimensionResource(R.dimen.sdkit_cmp_text - area_box_padding_start_xs))
-            boxPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_text - area_box_padding_end_xs))
-            boxPaddingTop(dimensionResource(R.dimen.sdkit_cmp_text - area_box_padding_top_xs))
-            boxPaddingBottom(dimensionResource(R.dimen.sdkit_cmp_text - area_box_padding_bottom_xs))
-            boxMinHeight(dimensionResource(R.dimen.sdkit_cmp_text - area_box_min_height_xs))
-            alignmentLineHeight(dimensionResource(R.dimen.sdkit_cmp_text - area_alignment_line_height_xs))
-            helperTextPadding(dimensionResource(R.dimen.sdkit_cmp_text - area_helper_text_padding_xs))
-            startContentPadding(dimensionResource(R.dimen.sdkit_cmp_text - area_start_content_padding_xs))
-            endContentPadding(dimensionResource(R.dimen.sdkit_cmp_text - area_end_content_padding_xs))
-            startContentSize(dimensionResource(R.dimen.sdkit_cmp_text - area_start_content_size_xs))
-            endContentSize(dimensionResource(R.dimen.sdkit_cmp_text - area_end_content_size_xs))
+            boxPaddingStart(dimensionResource(R.dimen.sdkit_cmp_text_area_box_padding_start_xs))
+            boxPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_text_area_box_padding_end_xs))
+            boxPaddingTop(dimensionResource(R.dimen.sdkit_cmp_text_area_box_padding_top_xs))
+            boxPaddingBottom(dimensionResource(R.dimen.sdkit_cmp_text_area_box_padding_bottom_xs))
+            boxMinHeight(dimensionResource(R.dimen.sdkit_cmp_text_area_box_min_height_xs))
+            alignmentLineHeight(dimensionResource(R.dimen.sdkit_cmp_text_area_alignment_line_height_xs))
+            helperTextPadding(dimensionResource(R.dimen.sdkit_cmp_text_area_helper_text_padding_xs))
+            startContentPadding(dimensionResource(R.dimen.sdkit_cmp_text_area_start_content_padding_xs))
+            endContentPadding(dimensionResource(R.dimen.sdkit_cmp_text_area_end_content_padding_xs))
+            startContentSize(dimensionResource(R.dimen.sdkit_cmp_text_area_start_content_size_xs))
+            endContentSize(dimensionResource(R.dimen.sdkit_cmp_text_area_end_content_size_xs))
         }
         .valueStyle(StarDsTheme.typography.bodyXsNormal)
         .prefixStyle(StarDsTheme.typography.bodyXsNormal)
         .suffixStyle(StarDsTheme.typography.bodyXsNormal)
         .placeholderStyle(StarDsTheme.typography.bodyXsNormal)
-        .chipStyle(EmbeddedChip.Xs.Secondary.style())
         .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextAreaXs)
 
@@ -291,9 +285,9 @@ public val WrapperTextAreaXs.OuterLabel: WrapperTextAreaXsOuterLabel
     @JvmName("WrapperTextAreaXsOuterLabel")
     get() = builder
         .dimensions {
-            boxPaddingTop(dimensionResource(R.dimen.sdkit_cmp_text - area_box_padding_top_xs_outer_label))
-            boxPaddingBottom(dimensionResource(R.dimen.sdkit_cmp_text - area_box_padding_bottom_xs_outer_label))
-            labelPadding(dimensionResource(R.dimen.sdkit_cmp_text - area_label_padding_xs_outer_label))
+            boxPaddingTop(dimensionResource(R.dimen.sdkit_cmp_text_area_box_padding_top_xs_outer_label))
+            boxPaddingBottom(dimensionResource(R.dimen.sdkit_cmp_text_area_box_padding_bottom_xs_outer_label))
+            labelPadding(dimensionResource(R.dimen.sdkit_cmp_text_area_label_padding_xs_outer_label))
         }
         .labelStyle(StarDsTheme.typography.bodyXsNormal)
         .optionalStyle(StarDsTheme.typography.bodyXsNormal)
@@ -313,27 +307,26 @@ public val TextArea.S: WrapperTextAreaS
         .shape(
             StarDsTheme.shapes.roundM.adjustBy(
                 all =
-                dimensionResource(R.dimen.sdkit_cmp_text - area_shapeAdjustment_s),
+                dimensionResource(R.dimen.sdkit_cmp_text_area_shapeAdjustment_s),
             ),
         )
         .dimensions {
-            boxPaddingStart(dimensionResource(R.dimen.sdkit_cmp_text - area_box_padding_start_s))
-            boxPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_text - area_box_padding_end_s))
-            boxPaddingTop(dimensionResource(R.dimen.sdkit_cmp_text - area_box_padding_top_s))
-            boxPaddingBottom(dimensionResource(R.dimen.sdkit_cmp_text - area_box_padding_bottom_s))
-            boxMinHeight(dimensionResource(R.dimen.sdkit_cmp_text - area_box_min_height_s))
-            alignmentLineHeight(dimensionResource(R.dimen.sdkit_cmp_text - area_alignment_line_height_s))
-            helperTextPadding(dimensionResource(R.dimen.sdkit_cmp_text - area_helper_text_padding_s))
-            startContentPadding(dimensionResource(R.dimen.sdkit_cmp_text - area_start_content_padding_s))
-            endContentPadding(dimensionResource(R.dimen.sdkit_cmp_text - area_end_content_padding_s))
-            startContentSize(dimensionResource(R.dimen.sdkit_cmp_text - area_start_content_size_s))
-            endContentSize(dimensionResource(R.dimen.sdkit_cmp_text - area_end_content_size_s))
+            boxPaddingStart(dimensionResource(R.dimen.sdkit_cmp_text_area_box_padding_start_s))
+            boxPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_text_area_box_padding_end_s))
+            boxPaddingTop(dimensionResource(R.dimen.sdkit_cmp_text_area_box_padding_top_s))
+            boxPaddingBottom(dimensionResource(R.dimen.sdkit_cmp_text_area_box_padding_bottom_s))
+            boxMinHeight(dimensionResource(R.dimen.sdkit_cmp_text_area_box_min_height_s))
+            alignmentLineHeight(dimensionResource(R.dimen.sdkit_cmp_text_area_alignment_line_height_s))
+            helperTextPadding(dimensionResource(R.dimen.sdkit_cmp_text_area_helper_text_padding_s))
+            startContentPadding(dimensionResource(R.dimen.sdkit_cmp_text_area_start_content_padding_s))
+            endContentPadding(dimensionResource(R.dimen.sdkit_cmp_text_area_end_content_padding_s))
+            startContentSize(dimensionResource(R.dimen.sdkit_cmp_text_area_start_content_size_s))
+            endContentSize(dimensionResource(R.dimen.sdkit_cmp_text_area_end_content_size_s))
         }
         .valueStyle(StarDsTheme.typography.bodySNormal)
         .prefixStyle(StarDsTheme.typography.bodySNormal)
         .suffixStyle(StarDsTheme.typography.bodySNormal)
         .placeholderStyle(StarDsTheme.typography.bodySNormal)
-        .chipStyle(EmbeddedChip.S.Secondary.style())
         .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextAreaS)
 
@@ -342,7 +335,7 @@ public val WrapperTextAreaS.OuterLabel: WrapperTextAreaSOuterLabel
     @JvmName("WrapperTextAreaSOuterLabel")
     get() = builder
         .dimensions {
-            labelPadding(dimensionResource(R.dimen.sdkit_cmp_text - area_label_padding_s_outer_label))
+            labelPadding(dimensionResource(R.dimen.sdkit_cmp_text_area_label_padding_s_outer_label))
         }
         .labelStyle(StarDsTheme.typography.bodySNormal)
         .optionalStyle(StarDsTheme.typography.bodySNormal)
@@ -359,9 +352,9 @@ public val WrapperTextAreaS.InnerLabel: WrapperTextAreaSInnerLabel
     @JvmName("WrapperTextAreaSInnerLabel")
     get() = builder
         .dimensions {
-            boxPaddingTop(dimensionResource(R.dimen.sdkit_cmp_text - area_box_padding_top_s_inner_label))
-            boxPaddingBottom(dimensionResource(R.dimen.sdkit_cmp_text - area_box_padding_bottom_s_inner_label))
-            labelPadding(dimensionResource(R.dimen.sdkit_cmp_text - area_label_padding_s_inner_label))
+            boxPaddingTop(dimensionResource(R.dimen.sdkit_cmp_text_area_box_padding_top_s_inner_label))
+            boxPaddingBottom(dimensionResource(R.dimen.sdkit_cmp_text_area_box_padding_bottom_s_inner_label))
+            labelPadding(dimensionResource(R.dimen.sdkit_cmp_text_area_label_padding_s_inner_label))
         }
         .labelStyle(StarDsTheme.typography.bodyXsNormal)
         .optionalStyle(StarDsTheme.typography.bodyXsNormal)
@@ -389,23 +382,22 @@ public val TextArea.M: WrapperTextAreaM
         .invariantProps
         .shape(StarDsTheme.shapes.roundM)
         .dimensions {
-            boxPaddingStart(dimensionResource(R.dimen.sdkit_cmp_text - area_box_padding_start_m))
-            boxPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_text - area_box_padding_end_m))
-            boxPaddingTop(dimensionResource(R.dimen.sdkit_cmp_text - area_box_padding_top_m))
-            boxPaddingBottom(dimensionResource(R.dimen.sdkit_cmp_text - area_box_padding_bottom_m))
-            boxMinHeight(dimensionResource(R.dimen.sdkit_cmp_text - area_box_min_height_m))
-            alignmentLineHeight(dimensionResource(R.dimen.sdkit_cmp_text - area_alignment_line_height_m))
-            helperTextPadding(dimensionResource(R.dimen.sdkit_cmp_text - area_helper_text_padding_m))
-            startContentPadding(dimensionResource(R.dimen.sdkit_cmp_text - area_start_content_padding_m))
-            endContentPadding(dimensionResource(R.dimen.sdkit_cmp_text - area_end_content_padding_m))
-            startContentSize(dimensionResource(R.dimen.sdkit_cmp_text - area_start_content_size_m))
-            endContentSize(dimensionResource(R.dimen.sdkit_cmp_text - area_end_content_size_m))
+            boxPaddingStart(dimensionResource(R.dimen.sdkit_cmp_text_area_box_padding_start_m))
+            boxPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_text_area_box_padding_end_m))
+            boxPaddingTop(dimensionResource(R.dimen.sdkit_cmp_text_area_box_padding_top_m))
+            boxPaddingBottom(dimensionResource(R.dimen.sdkit_cmp_text_area_box_padding_bottom_m))
+            boxMinHeight(dimensionResource(R.dimen.sdkit_cmp_text_area_box_min_height_m))
+            alignmentLineHeight(dimensionResource(R.dimen.sdkit_cmp_text_area_alignment_line_height_m))
+            helperTextPadding(dimensionResource(R.dimen.sdkit_cmp_text_area_helper_text_padding_m))
+            startContentPadding(dimensionResource(R.dimen.sdkit_cmp_text_area_start_content_padding_m))
+            endContentPadding(dimensionResource(R.dimen.sdkit_cmp_text_area_end_content_padding_m))
+            startContentSize(dimensionResource(R.dimen.sdkit_cmp_text_area_start_content_size_m))
+            endContentSize(dimensionResource(R.dimen.sdkit_cmp_text_area_end_content_size_m))
         }
         .valueStyle(StarDsTheme.typography.bodyMNormal)
         .prefixStyle(StarDsTheme.typography.bodyMNormal)
         .suffixStyle(StarDsTheme.typography.bodyMNormal)
         .placeholderStyle(StarDsTheme.typography.bodyMNormal)
-        .chipStyle(EmbeddedChip.M.Secondary.style())
         .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextAreaM)
 
@@ -414,7 +406,7 @@ public val WrapperTextAreaM.OuterLabel: WrapperTextAreaMOuterLabel
     @JvmName("WrapperTextAreaMOuterLabel")
     get() = builder
         .dimensions {
-            labelPadding(dimensionResource(R.dimen.sdkit_cmp_text - area_label_padding_m_outer_label))
+            labelPadding(dimensionResource(R.dimen.sdkit_cmp_text_area_label_padding_m_outer_label))
         }
         .labelStyle(StarDsTheme.typography.bodyMNormal)
         .optionalStyle(StarDsTheme.typography.bodyMNormal)
@@ -431,9 +423,9 @@ public val WrapperTextAreaM.InnerLabel: WrapperTextAreaMInnerLabel
     @JvmName("WrapperTextAreaMInnerLabel")
     get() = builder
         .dimensions {
-            boxPaddingTop(dimensionResource(R.dimen.sdkit_cmp_text - area_box_padding_top_m_inner_label))
-            boxPaddingBottom(dimensionResource(R.dimen.sdkit_cmp_text - area_box_padding_bottom_m_inner_label))
-            labelPadding(dimensionResource(R.dimen.sdkit_cmp_text - area_label_padding_m_inner_label))
+            boxPaddingTop(dimensionResource(R.dimen.sdkit_cmp_text_area_box_padding_top_m_inner_label))
+            boxPaddingBottom(dimensionResource(R.dimen.sdkit_cmp_text_area_box_padding_bottom_m_inner_label))
+            labelPadding(dimensionResource(R.dimen.sdkit_cmp_text_area_label_padding_m_inner_label))
         }
         .labelStyle(StarDsTheme.typography.bodyXsNormal)
         .optionalStyle(StarDsTheme.typography.bodyXsNormal)

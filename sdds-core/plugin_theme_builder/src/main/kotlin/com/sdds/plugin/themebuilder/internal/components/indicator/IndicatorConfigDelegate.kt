@@ -10,6 +10,7 @@ import com.sdds.plugin.themebuilder.internal.components.indicator.compose.Indica
 import com.sdds.plugin.themebuilder.internal.components.indicator.view.IndicatorStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.serializer.Serializer
 import com.sdds.plugin.themebuilder.internal.utils.decode
+import com.sdds.plugin.themebuilder.internal.utils.techToSnakeCase
 import java.io.File
 
 internal class IndicatorConfigDelegate : ComponentConfigDelegate<IndicatorConfig>() {
@@ -45,7 +46,7 @@ internal class IndicatorConfigDelegate : ComponentConfigDelegate<IndicatorConfig
             namespace = deps.namespace,
             ktFileBuilderFactory = deps.ktFileBuilderFactory,
             componentPackage = "${deps.packageResolver.getPackage(TargetPackage.STYLES)}.${component.packageName}",
-            componentName = component.styleName,
+            componentName = component.styleName.techToSnakeCase(),
             outputLocation = KtFileBuilder.OutputLocation.Directory(deps.outputDir),
         )
     }

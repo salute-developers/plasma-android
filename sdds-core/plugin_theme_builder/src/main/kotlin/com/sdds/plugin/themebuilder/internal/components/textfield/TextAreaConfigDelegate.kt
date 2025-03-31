@@ -11,6 +11,7 @@ import com.sdds.plugin.themebuilder.internal.components.textfield.compose.TextFi
 import com.sdds.plugin.themebuilder.internal.components.textfield.view.ViewTextAreaStyleGenerator
 import com.sdds.plugin.themebuilder.internal.serializer.Serializer
 import com.sdds.plugin.themebuilder.internal.utils.decode
+import com.sdds.plugin.themebuilder.internal.utils.techToSnakeCase
 import java.io.File
 
 internal class TextAreaConfigDelegate : ComponentConfigDelegate<TextFieldConfig>() {
@@ -46,7 +47,7 @@ internal class TextAreaConfigDelegate : ComponentConfigDelegate<TextFieldConfig>
             namespace = deps.namespace,
             themePackage = deps.packageResolver.getPackage(TargetPackage.THEME),
             ktFileBuilderFactory = deps.ktFileBuilderFactory,
-            componentName = component.styleName,
+            componentName = component.styleName.techToSnakeCase(),
             componentPackage = "${deps.packageResolver.getPackage(TargetPackage.STYLES)}.${component.packageName}",
             outputLocation = KtFileBuilder.OutputLocation.Directory(deps.outputDir),
             styleBuilderName = "TextFieldStyleBuilder",

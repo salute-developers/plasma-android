@@ -209,10 +209,10 @@ public val IconBadgeSolid.L: WrapperIconBadgeSolidL
         .invariantProps
         .shape(StarDsTheme.shapes.roundS)
         .dimensions {
-            height(dimensionResource(R.dimen.sdkit_cmp_icon - badge - solid_height_l))
-            startContentSize(dimensionResource(R.dimen.sdkit_cmp_icon - badge - solid_startContentSize_l))
-            startPadding(dimensionResource(R.dimen.sdkit_cmp_icon - badge - solid_startPadding_l))
-            endPadding(dimensionResource(R.dimen.sdkit_cmp_icon - badge - solid_endPadding_l))
+            height(dimensionResource(R.dimen.sdkit_cmp_icon_badge_solid_height_l))
+            startContentSize(dimensionResource(R.dimen.sdkit_cmp_icon_badge_solid_startContentSize_l))
+            startPadding(dimensionResource(R.dimen.sdkit_cmp_icon_badge_solid_startPadding_l))
+            endPadding(dimensionResource(R.dimen.sdkit_cmp_icon_badge_solid_endPadding_l))
         }
         .wrap(::WrapperIconBadgeSolidL)
 
@@ -230,10 +230,10 @@ public val IconBadgeSolid.M: WrapperIconBadgeSolidM
         .invariantProps
         .shape(StarDsTheme.shapes.roundXs)
         .dimensions {
-            height(dimensionResource(R.dimen.sdkit_cmp_icon - badge - solid_height_m))
-            startContentSize(dimensionResource(R.dimen.sdkit_cmp_icon - badge - solid_startContentSize_m))
-            startPadding(dimensionResource(R.dimen.sdkit_cmp_icon - badge - solid_startPadding_m))
-            endPadding(dimensionResource(R.dimen.sdkit_cmp_icon - badge - solid_endPadding_m))
+            height(dimensionResource(R.dimen.sdkit_cmp_icon_badge_solid_height_m))
+            startContentSize(dimensionResource(R.dimen.sdkit_cmp_icon_badge_solid_startContentSize_m))
+            startPadding(dimensionResource(R.dimen.sdkit_cmp_icon_badge_solid_startPadding_m))
+            endPadding(dimensionResource(R.dimen.sdkit_cmp_icon_badge_solid_endPadding_m))
         }
         .wrap(::WrapperIconBadgeSolidM)
 
@@ -251,10 +251,10 @@ public val IconBadgeSolid.S: WrapperIconBadgeSolidS
         .invariantProps
         .shape(StarDsTheme.shapes.roundXs)
         .dimensions {
-            height(dimensionResource(R.dimen.sdkit_cmp_icon - badge - solid_height_s))
-            startContentSize(dimensionResource(R.dimen.sdkit_cmp_icon - badge - solid_startContentSize_s))
-            startPadding(dimensionResource(R.dimen.sdkit_cmp_icon - badge - solid_startPadding_s))
-            endPadding(dimensionResource(R.dimen.sdkit_cmp_icon - badge - solid_endPadding_s))
+            height(dimensionResource(R.dimen.sdkit_cmp_icon_badge_solid_height_s))
+            startContentSize(dimensionResource(R.dimen.sdkit_cmp_icon_badge_solid_startContentSize_s))
+            startPadding(dimensionResource(R.dimen.sdkit_cmp_icon_badge_solid_startPadding_s))
+            endPadding(dimensionResource(R.dimen.sdkit_cmp_icon_badge_solid_endPadding_s))
         }
         .wrap(::WrapperIconBadgeSolidS)
 
@@ -272,10 +272,10 @@ public val IconBadgeSolid.Xs: WrapperIconBadgeSolidXs
         .invariantProps
         .shape(StarDsTheme.shapes.roundXxs)
         .dimensions {
-            height(dimensionResource(R.dimen.sdkit_cmp_icon - badge - solid_height_xs))
-            startContentSize(dimensionResource(R.dimen.sdkit_cmp_icon - badge - solid_startContentSize_xs))
-            startPadding(dimensionResource(R.dimen.sdkit_cmp_icon - badge - solid_startPadding_xs))
-            endPadding(dimensionResource(R.dimen.sdkit_cmp_icon - badge - solid_endPadding_xs))
+            height(dimensionResource(R.dimen.sdkit_cmp_icon_badge_solid_height_xs))
+            startContentSize(dimensionResource(R.dimen.sdkit_cmp_icon_badge_solid_startContentSize_xs))
+            startPadding(dimensionResource(R.dimen.sdkit_cmp_icon_badge_solid_startPadding_xs))
+            endPadding(dimensionResource(R.dimen.sdkit_cmp_icon_badge_solid_endPadding_xs))
         }
         .wrap(::WrapperIconBadgeSolidXs)
 

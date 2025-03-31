@@ -20,12 +20,6 @@ import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
 import com.sdkit.star.designsystem.compose.R
-import com.sdkit.star.designsystem.styles.chip.EmbeddedChip
-import com.sdkit.star.designsystem.styles.chip.L
-import com.sdkit.star.designsystem.styles.chip.M
-import com.sdkit.star.designsystem.styles.chip.S
-import com.sdkit.star.designsystem.styles.chip.Secondary
-import com.sdkit.star.designsystem.styles.chip.Xs
 import com.sdkit.star.designsystem.styles.chipgroup.ChipGroup
 import com.sdkit.star.designsystem.styles.chipgroup.Dense
 import com.sdkit.star.designsystem.theme.StarDsTheme
@@ -214,17 +208,13 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
     get() = this
         .singleLine(true)
         .dimensions {
-            boxPaddingStart(dimensionResource(R.dimen.sdkit_cmp_text - field - clear_box_padding_start_TextFieldClear))
-            boxPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_text - field - clear_box_padding_end_TextFieldClear))
-            optionalPadding(dimensionResource(R.dimen.sdkit_cmp_text - field - clear_optional_padding_TextFieldClear))
-            helperTextPadding(
-                dimensionResource(R.dimen.sdkit_cmp_text - field - clear_helper_text_padding_TextFieldClear),
-            )
-            chipsPadding(dimensionResource(R.dimen.sdkit_cmp_text - field - clear_chips_padding_TextFieldClear))
-            chipsPaddingStart(
-                dimensionResource(R.dimen.sdkit_cmp_text - field - clear_chips_padding_start_TextFieldClear),
-            )
-            chipsPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_text - field - clear_chips_padding_end_TextFieldClear))
+            boxPaddingStart(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_box_padding_start_TextFieldClear))
+            boxPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_box_padding_end_TextFieldClear))
+            optionalPadding(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_optional_padding_TextFieldClear))
+            helperTextPadding(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_helper_text_padding_TextFieldClear))
+            chipsPadding(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_chips_padding_TextFieldClear))
+            chipsPaddingStart(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_chips_padding_start_TextFieldClear))
+            chipsPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_chips_padding_end_TextFieldClear))
         }
         .captionStyle(StarDsTheme.typography.bodyXsNormal)
         .counterStyle(StarDsTheme.typography.bodyXsNormal)
@@ -295,20 +285,19 @@ public val TextFieldClear.Xs: WrapperTextFieldClearXs
     get() = TextFieldStyle.builder(this)
         .invariantProps
         .dimensions {
-            boxPaddingTop(dimensionResource(R.dimen.sdkit_cmp_text - field - clear_box_padding_top_xs))
-            boxPaddingBottom(dimensionResource(R.dimen.sdkit_cmp_text - field - clear_box_padding_bottom_xs))
-            boxMinHeight(dimensionResource(R.dimen.sdkit_cmp_text - field - clear_box_min_height_xs))
-            alignmentLineHeight(dimensionResource(R.dimen.sdkit_cmp_text - field - clear_alignment_line_height_xs))
-            startContentPadding(dimensionResource(R.dimen.sdkit_cmp_text - field - clear_start_content_padding_xs))
-            endContentPadding(dimensionResource(R.dimen.sdkit_cmp_text - field - clear_end_content_padding_xs))
-            startContentSize(dimensionResource(R.dimen.sdkit_cmp_text - field - clear_start_content_size_xs))
-            endContentSize(dimensionResource(R.dimen.sdkit_cmp_text - field - clear_end_content_size_xs))
+            boxPaddingTop(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_box_padding_top_xs))
+            boxPaddingBottom(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_box_padding_bottom_xs))
+            boxMinHeight(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_box_min_height_xs))
+            alignmentLineHeight(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_alignment_line_height_xs))
+            startContentPadding(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_start_content_padding_xs))
+            endContentPadding(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_end_content_padding_xs))
+            startContentSize(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_start_content_size_xs))
+            endContentSize(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_end_content_size_xs))
         }
         .valueStyle(StarDsTheme.typography.bodyXsNormal)
         .prefixStyle(StarDsTheme.typography.bodyXsNormal)
         .suffixStyle(StarDsTheme.typography.bodyXsNormal)
         .placeholderStyle(StarDsTheme.typography.bodyXsNormal)
-        .chipStyle(EmbeddedChip.Xs.Secondary.style())
         .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextFieldClearXs)
 
@@ -317,11 +306,9 @@ public val WrapperTextFieldClearXs.OuterLabel: WrapperTextFieldClearXsOuterLabel
     @JvmName("WrapperTextFieldClearXsOuterLabel")
     get() = builder
         .dimensions {
-            boxPaddingTop(dimensionResource(R.dimen.sdkit_cmp_text - field - clear_box_padding_top_xs_outer_label))
-            boxPaddingBottom(
-                dimensionResource(R.dimen.sdkit_cmp_text - field - clear_box_padding_bottom_xs_outer_label),
-            )
-            labelPadding(dimensionResource(R.dimen.sdkit_cmp_text - field - clear_label_padding_xs_outer_label))
+            boxPaddingTop(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_box_padding_top_xs_outer_label))
+            boxPaddingBottom(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_box_padding_bottom_xs_outer_label))
+            labelPadding(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_label_padding_xs_outer_label))
         }
         .labelStyle(StarDsTheme.typography.bodyXsNormal)
         .optionalStyle(StarDsTheme.typography.bodyXsNormal)
@@ -339,20 +326,19 @@ public val TextFieldClear.S: WrapperTextFieldClearS
     get() = TextFieldStyle.builder(this)
         .invariantProps
         .dimensions {
-            boxPaddingTop(dimensionResource(R.dimen.sdkit_cmp_text - field - clear_box_padding_top_s))
-            boxPaddingBottom(dimensionResource(R.dimen.sdkit_cmp_text - field - clear_box_padding_bottom_s))
-            boxMinHeight(dimensionResource(R.dimen.sdkit_cmp_text - field - clear_box_min_height_s))
-            alignmentLineHeight(dimensionResource(R.dimen.sdkit_cmp_text - field - clear_alignment_line_height_s))
-            startContentPadding(dimensionResource(R.dimen.sdkit_cmp_text - field - clear_start_content_padding_s))
-            endContentPadding(dimensionResource(R.dimen.sdkit_cmp_text - field - clear_end_content_padding_s))
-            startContentSize(dimensionResource(R.dimen.sdkit_cmp_text - field - clear_start_content_size_s))
-            endContentSize(dimensionResource(R.dimen.sdkit_cmp_text - field - clear_end_content_size_s))
+            boxPaddingTop(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_box_padding_top_s))
+            boxPaddingBottom(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_box_padding_bottom_s))
+            boxMinHeight(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_box_min_height_s))
+            alignmentLineHeight(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_alignment_line_height_s))
+            startContentPadding(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_start_content_padding_s))
+            endContentPadding(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_end_content_padding_s))
+            startContentSize(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_start_content_size_s))
+            endContentSize(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_end_content_size_s))
         }
         .valueStyle(StarDsTheme.typography.bodySNormal)
         .prefixStyle(StarDsTheme.typography.bodySNormal)
         .suffixStyle(StarDsTheme.typography.bodySNormal)
         .placeholderStyle(StarDsTheme.typography.bodySNormal)
-        .chipStyle(EmbeddedChip.S.Secondary.style())
         .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextFieldClearS)
 
@@ -361,7 +347,7 @@ public val WrapperTextFieldClearS.OuterLabel: WrapperTextFieldClearSOuterLabel
     @JvmName("WrapperTextFieldClearSOuterLabel")
     get() = builder
         .dimensions {
-            labelPadding(dimensionResource(R.dimen.sdkit_cmp_text - field - clear_label_padding_s_outer_label))
+            labelPadding(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_label_padding_s_outer_label))
         }
         .labelStyle(StarDsTheme.typography.bodySNormal)
         .optionalStyle(StarDsTheme.typography.bodySNormal)
@@ -378,9 +364,9 @@ public val WrapperTextFieldClearS.InnerLabel: WrapperTextFieldClearSInnerLabel
     @JvmName("WrapperTextFieldClearSInnerLabel")
     get() = builder
         .dimensions {
-            boxPaddingTop(dimensionResource(R.dimen.sdkit_cmp_text - field - clear_box_padding_top_s_inner_label))
-            boxPaddingBottom(dimensionResource(R.dimen.sdkit_cmp_text - field - clear_box_padding_bottom_s_inner_label))
-            labelPadding(dimensionResource(R.dimen.sdkit_cmp_text - field - clear_label_padding_s_inner_label))
+            boxPaddingTop(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_box_padding_top_s_inner_label))
+            boxPaddingBottom(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_box_padding_bottom_s_inner_label))
+            labelPadding(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_label_padding_s_inner_label))
         }
         .labelStyle(StarDsTheme.typography.bodyXsNormal)
         .optionalStyle(StarDsTheme.typography.bodyXsNormal)
@@ -407,20 +393,19 @@ public val TextFieldClear.M: WrapperTextFieldClearM
     get() = TextFieldStyle.builder(this)
         .invariantProps
         .dimensions {
-            boxPaddingTop(dimensionResource(R.dimen.sdkit_cmp_text - field - clear_box_padding_top_m))
-            boxPaddingBottom(dimensionResource(R.dimen.sdkit_cmp_text - field - clear_box_padding_bottom_m))
-            boxMinHeight(dimensionResource(R.dimen.sdkit_cmp_text - field - clear_box_min_height_m))
-            alignmentLineHeight(dimensionResource(R.dimen.sdkit_cmp_text - field - clear_alignment_line_height_m))
-            startContentPadding(dimensionResource(R.dimen.sdkit_cmp_text - field - clear_start_content_padding_m))
-            endContentPadding(dimensionResource(R.dimen.sdkit_cmp_text - field - clear_end_content_padding_m))
-            startContentSize(dimensionResource(R.dimen.sdkit_cmp_text - field - clear_start_content_size_m))
-            endContentSize(dimensionResource(R.dimen.sdkit_cmp_text - field - clear_end_content_size_m))
+            boxPaddingTop(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_box_padding_top_m))
+            boxPaddingBottom(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_box_padding_bottom_m))
+            boxMinHeight(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_box_min_height_m))
+            alignmentLineHeight(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_alignment_line_height_m))
+            startContentPadding(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_start_content_padding_m))
+            endContentPadding(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_end_content_padding_m))
+            startContentSize(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_start_content_size_m))
+            endContentSize(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_end_content_size_m))
         }
         .valueStyle(StarDsTheme.typography.bodyMNormal)
         .prefixStyle(StarDsTheme.typography.bodyMNormal)
         .suffixStyle(StarDsTheme.typography.bodyMNormal)
         .placeholderStyle(StarDsTheme.typography.bodyMNormal)
-        .chipStyle(EmbeddedChip.M.Secondary.style())
         .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextFieldClearM)
 
@@ -429,7 +414,7 @@ public val WrapperTextFieldClearM.OuterLabel: WrapperTextFieldClearMOuterLabel
     @JvmName("WrapperTextFieldClearMOuterLabel")
     get() = builder
         .dimensions {
-            labelPadding(dimensionResource(R.dimen.sdkit_cmp_text - field - clear_label_padding_m_outer_label))
+            labelPadding(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_label_padding_m_outer_label))
         }
         .labelStyle(StarDsTheme.typography.bodyMNormal)
         .optionalStyle(StarDsTheme.typography.bodyMNormal)
@@ -446,9 +431,9 @@ public val WrapperTextFieldClearM.InnerLabel: WrapperTextFieldClearMInnerLabel
     @JvmName("WrapperTextFieldClearMInnerLabel")
     get() = builder
         .dimensions {
-            boxPaddingTop(dimensionResource(R.dimen.sdkit_cmp_text - field - clear_box_padding_top_m_inner_label))
-            boxPaddingBottom(dimensionResource(R.dimen.sdkit_cmp_text - field - clear_box_padding_bottom_m_inner_label))
-            labelPadding(dimensionResource(R.dimen.sdkit_cmp_text - field - clear_label_padding_m_inner_label))
+            boxPaddingTop(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_box_padding_top_m_inner_label))
+            boxPaddingBottom(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_box_padding_bottom_m_inner_label))
+            labelPadding(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_label_padding_m_inner_label))
         }
         .labelStyle(StarDsTheme.typography.bodyXsNormal)
         .optionalStyle(StarDsTheme.typography.bodyXsNormal)
@@ -475,20 +460,19 @@ public val TextFieldClear.L: WrapperTextFieldClearL
     get() = TextFieldStyle.builder(this)
         .invariantProps
         .dimensions {
-            boxPaddingTop(dimensionResource(R.dimen.sdkit_cmp_text - field - clear_box_padding_top_l))
-            boxPaddingBottom(dimensionResource(R.dimen.sdkit_cmp_text - field - clear_box_padding_bottom_l))
-            boxMinHeight(dimensionResource(R.dimen.sdkit_cmp_text - field - clear_box_min_height_l))
-            alignmentLineHeight(dimensionResource(R.dimen.sdkit_cmp_text - field - clear_alignment_line_height_l))
-            startContentPadding(dimensionResource(R.dimen.sdkit_cmp_text - field - clear_start_content_padding_l))
-            endContentPadding(dimensionResource(R.dimen.sdkit_cmp_text - field - clear_end_content_padding_l))
-            startContentSize(dimensionResource(R.dimen.sdkit_cmp_text - field - clear_start_content_size_l))
-            endContentSize(dimensionResource(R.dimen.sdkit_cmp_text - field - clear_end_content_size_l))
+            boxPaddingTop(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_box_padding_top_l))
+            boxPaddingBottom(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_box_padding_bottom_l))
+            boxMinHeight(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_box_min_height_l))
+            alignmentLineHeight(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_alignment_line_height_l))
+            startContentPadding(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_start_content_padding_l))
+            endContentPadding(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_end_content_padding_l))
+            startContentSize(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_start_content_size_l))
+            endContentSize(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_end_content_size_l))
         }
         .valueStyle(StarDsTheme.typography.bodyLNormal)
         .prefixStyle(StarDsTheme.typography.bodyLNormal)
         .suffixStyle(StarDsTheme.typography.bodyLNormal)
         .placeholderStyle(StarDsTheme.typography.bodyLNormal)
-        .chipStyle(EmbeddedChip.L.Secondary.style())
         .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextFieldClearL)
 
@@ -497,7 +481,7 @@ public val WrapperTextFieldClearL.OuterLabel: WrapperTextFieldClearLOuterLabel
     @JvmName("WrapperTextFieldClearLOuterLabel")
     get() = builder
         .dimensions {
-            labelPadding(dimensionResource(R.dimen.sdkit_cmp_text - field - clear_label_padding_l_outer_label))
+            labelPadding(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_label_padding_l_outer_label))
         }
         .labelStyle(StarDsTheme.typography.bodyLNormal)
         .optionalStyle(StarDsTheme.typography.bodyLNormal)
@@ -514,9 +498,9 @@ public val WrapperTextFieldClearL.InnerLabel: WrapperTextFieldClearLInnerLabel
     @JvmName("WrapperTextFieldClearLInnerLabel")
     get() = builder
         .dimensions {
-            boxPaddingTop(dimensionResource(R.dimen.sdkit_cmp_text - field - clear_box_padding_top_l_inner_label))
-            boxPaddingBottom(dimensionResource(R.dimen.sdkit_cmp_text - field - clear_box_padding_bottom_l_inner_label))
-            labelPadding(dimensionResource(R.dimen.sdkit_cmp_text - field - clear_label_padding_l_inner_label))
+            boxPaddingTop(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_box_padding_top_l_inner_label))
+            boxPaddingBottom(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_box_padding_bottom_l_inner_label))
+            labelPadding(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_label_padding_l_inner_label))
         }
         .labelStyle(StarDsTheme.typography.bodyXsNormal)
         .optionalStyle(StarDsTheme.typography.bodyXsNormal)

@@ -10,6 +10,7 @@ import com.sdds.plugin.themebuilder.internal.components.divider.compose.DividerC
 import com.sdds.plugin.themebuilder.internal.components.divider.view.DividerStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.serializer.Serializer
 import com.sdds.plugin.themebuilder.internal.utils.decode
+import com.sdds.plugin.themebuilder.internal.utils.techToSnakeCase
 import java.io.File
 
 internal class DividerConfigDelegate : ComponentConfigDelegate<DividerConfig>() {
@@ -45,7 +46,7 @@ internal class DividerConfigDelegate : ComponentConfigDelegate<DividerConfig>() 
             namespace = deps.namespace,
             ktFileBuilderFactory = deps.ktFileBuilderFactory,
             componentPackage = "${deps.packageResolver.getPackage(TargetPackage.STYLES)}.${component.packageName}",
-            componentName = component.styleName,
+            componentName = component.styleName.techToSnakeCase(),
             outputLocation = KtFileBuilder.OutputLocation.Directory(deps.outputDir),
         )
     }
