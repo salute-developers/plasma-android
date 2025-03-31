@@ -3,19 +3,19 @@ package com.sdds.playground.sandbox.plasma.giga.integration.textarea.clear
 import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.style.style
-import com.sdds.plasma.giga.styles.textarea.clear.Default
-import com.sdds.plasma.giga.styles.textarea.clear.Error
-import com.sdds.plasma.giga.styles.textarea.clear.InnerLabel
-import com.sdds.plasma.giga.styles.textarea.clear.L
-import com.sdds.plasma.giga.styles.textarea.clear.M
-import com.sdds.plasma.giga.styles.textarea.clear.OuterLabel
-import com.sdds.plasma.giga.styles.textarea.clear.RequiredEnd
-import com.sdds.plasma.giga.styles.textarea.clear.RequiredStart
-import com.sdds.plasma.giga.styles.textarea.clear.S
-import com.sdds.plasma.giga.styles.textarea.clear.TextAreaClear
-import com.sdds.plasma.giga.styles.textarea.clear.Warning
-import com.sdds.plasma.giga.styles.textarea.clear.Xl
-import com.sdds.plasma.giga.styles.textarea.clear.Xs
+import com.sdds.plasma.giga.styles.textarea.Default
+import com.sdds.plasma.giga.styles.textarea.Error
+import com.sdds.plasma.giga.styles.textarea.InnerLabel
+import com.sdds.plasma.giga.styles.textarea.L
+import com.sdds.plasma.giga.styles.textarea.M
+import com.sdds.plasma.giga.styles.textarea.OuterLabel
+import com.sdds.plasma.giga.styles.textarea.RequiredEnd
+import com.sdds.plasma.giga.styles.textarea.RequiredStart
+import com.sdds.plasma.giga.styles.textarea.S
+import com.sdds.plasma.giga.styles.textarea.TextAreaClear
+import com.sdds.plasma.giga.styles.textarea.Warning
+import com.sdds.plasma.giga.styles.textarea.Xl
+import com.sdds.plasma.giga.styles.textarea.Xs
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 
 internal object PlasmaGigaTextAreaClearVariationsCompose : ComposeStyleProvider<String, TextFieldStyle>() {

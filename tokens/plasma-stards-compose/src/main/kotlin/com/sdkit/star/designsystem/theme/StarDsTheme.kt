@@ -36,8 +36,8 @@ import com.sdkit.star.designsystem.styles.cell.Cell
 import com.sdkit.star.designsystem.styles.cell.M
 import com.sdkit.star.designsystem.styles.checkbox.CheckBox
 import com.sdkit.star.designsystem.styles.checkbox.M
-import com.sdkit.star.designsystem.styles.checkbox.group.CheckBoxGroup
-import com.sdkit.star.designsystem.styles.checkbox.group.M
+import com.sdkit.star.designsystem.styles.checkboxgroup.CheckBoxGroup
+import com.sdkit.star.designsystem.styles.checkboxgroup.M
 import com.sdkit.star.designsystem.styles.chip.Chip
 import com.sdkit.star.designsystem.styles.chip.Default
 import com.sdkit.star.designsystem.styles.chip.M
@@ -45,8 +45,8 @@ import com.sdkit.star.designsystem.styles.progressbar.Default
 import com.sdkit.star.designsystem.styles.progressbar.ProgressBar
 import com.sdkit.star.designsystem.styles.radiobox.M
 import com.sdkit.star.designsystem.styles.radiobox.RadioBox
-import com.sdkit.star.designsystem.styles.radiobox.group.M
-import com.sdkit.star.designsystem.styles.radiobox.group.RadioBoxGroup
+import com.sdkit.star.designsystem.styles.radioboxgroup.M
+import com.sdkit.star.designsystem.styles.radioboxgroup.RadioBoxGroup
 import com.sdkit.star.designsystem.styles.switcher.M
 import com.sdkit.star.designsystem.styles.switcher.Switch
 import com.sdkit.star.designsystem.styles.textfield.Default

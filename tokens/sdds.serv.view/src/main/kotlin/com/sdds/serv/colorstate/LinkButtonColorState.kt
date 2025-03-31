@@ -3,6 +3,7 @@ package com.sdds.serv.colorstate
 
 import android.content.Context
 import android.util.AttributeSet
+import androidx.`annotation`.Keep
 import com.sdds.serv.R
 import com.sdds.uikit.colorstate.ColorState
 import com.sdds.uikit.colorstate.ColorStateProvider
@@ -26,6 +27,7 @@ public enum class LinkButtonColorState(
 /**
  * Реализация [ColorStateProvider] для LinkButtonColorState
  */
+@Keep
 internal class LinkButtonColorStateProvider : ColorStateProvider {
     public override fun obtain(
         context: Context,

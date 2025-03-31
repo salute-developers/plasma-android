@@ -28,8 +28,8 @@ import com.sdds.serv.styles.chip.M
 import com.sdds.serv.styles.chip.S
 import com.sdds.serv.styles.chip.Secondary
 import com.sdds.serv.styles.chip.Xs
-import com.sdds.serv.styles.chip.group.ChipGroup
-import com.sdds.serv.styles.chip.group.Dense
+import com.sdds.serv.styles.chipgroup.ChipGroup
+import com.sdds.serv.styles.chipgroup.Dense
 import com.sdds.serv.theme.SddsServTheme
 import kotlin.Suppress
 import kotlin.jvm.JvmInline

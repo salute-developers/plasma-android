@@ -4,22 +4,22 @@ import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
-import com.sdds.stylessalute.styles.button.icon.Accent
-import com.sdds.stylessalute.styles.button.icon.Black
-import com.sdds.stylessalute.styles.button.icon.Clear
-import com.sdds.stylessalute.styles.button.icon.Dark
-import com.sdds.stylessalute.styles.button.icon.Default
-import com.sdds.stylessalute.styles.button.icon.IconButton
-import com.sdds.stylessalute.styles.button.icon.L
-import com.sdds.stylessalute.styles.button.icon.M
-import com.sdds.stylessalute.styles.button.icon.Negative
-import com.sdds.stylessalute.styles.button.icon.Pilled
-import com.sdds.stylessalute.styles.button.icon.Positive
-import com.sdds.stylessalute.styles.button.icon.S
-import com.sdds.stylessalute.styles.button.icon.Secondary
-import com.sdds.stylessalute.styles.button.icon.Warning
-import com.sdds.stylessalute.styles.button.icon.White
-import com.sdds.stylessalute.styles.button.icon.Xs
+import com.sdds.stylessalute.styles.iconbutton.Accent
+import com.sdds.stylessalute.styles.iconbutton.Black
+import com.sdds.stylessalute.styles.iconbutton.Clear
+import com.sdds.stylessalute.styles.iconbutton.Dark
+import com.sdds.stylessalute.styles.iconbutton.Default
+import com.sdds.stylessalute.styles.iconbutton.IconButton
+import com.sdds.stylessalute.styles.iconbutton.L
+import com.sdds.stylessalute.styles.iconbutton.M
+import com.sdds.stylessalute.styles.iconbutton.Negative
+import com.sdds.stylessalute.styles.iconbutton.Pilled
+import com.sdds.stylessalute.styles.iconbutton.Positive
+import com.sdds.stylessalute.styles.iconbutton.S
+import com.sdds.stylessalute.styles.iconbutton.Secondary
+import com.sdds.stylessalute.styles.iconbutton.Warning
+import com.sdds.stylessalute.styles.iconbutton.White
+import com.sdds.stylessalute.styles.iconbutton.Xs
 
 internal object StylesSaluteIconButtonVariationsCompose :
     ComposeStyleProvider<String, ButtonStyle>() {

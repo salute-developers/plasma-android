@@ -4,19 +4,19 @@ import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
-import com.sdds.stylessalute.styles.textfield.clear.Default
-import com.sdds.stylessalute.styles.textfield.clear.Error
-import com.sdds.stylessalute.styles.textfield.clear.InnerLabel
-import com.sdds.stylessalute.styles.textfield.clear.L
-import com.sdds.stylessalute.styles.textfield.clear.M
-import com.sdds.stylessalute.styles.textfield.clear.OuterLabel
-import com.sdds.stylessalute.styles.textfield.clear.RequiredEnd
-import com.sdds.stylessalute.styles.textfield.clear.RequiredStart
-import com.sdds.stylessalute.styles.textfield.clear.S
-import com.sdds.stylessalute.styles.textfield.clear.Success
-import com.sdds.stylessalute.styles.textfield.clear.TextFieldClear
-import com.sdds.stylessalute.styles.textfield.clear.Warning
-import com.sdds.stylessalute.styles.textfield.clear.Xs
+import com.sdds.stylessalute.styles.textfield.Default
+import com.sdds.stylessalute.styles.textfield.Error
+import com.sdds.stylessalute.styles.textfield.InnerLabel
+import com.sdds.stylessalute.styles.textfield.L
+import com.sdds.stylessalute.styles.textfield.M
+import com.sdds.stylessalute.styles.textfield.OuterLabel
+import com.sdds.stylessalute.styles.textfield.RequiredEnd
+import com.sdds.stylessalute.styles.textfield.RequiredStart
+import com.sdds.stylessalute.styles.textfield.S
+import com.sdds.stylessalute.styles.textfield.Success
+import com.sdds.stylessalute.styles.textfield.TextFieldClear
+import com.sdds.stylessalute.styles.textfield.Warning
+import com.sdds.stylessalute.styles.textfield.Xs
 
 internal object StylesSaluteTextFieldClearVariationsCompose :
     ComposeStyleProvider<String, TextFieldStyle>() {

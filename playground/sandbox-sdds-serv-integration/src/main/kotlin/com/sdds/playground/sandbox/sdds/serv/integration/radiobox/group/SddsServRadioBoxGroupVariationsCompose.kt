@@ -3,9 +3,9 @@ package com.sdds.playground.sandbox.sdds.serv.integration.radiobox.group
 import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.RadioBoxGroupStyle
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
-import com.sdds.serv.styles.radiobox.group.M
-import com.sdds.serv.styles.radiobox.group.RadioBoxGroup
-import com.sdds.serv.styles.radiobox.group.S
+import com.sdds.serv.styles.radioboxgroup.M
+import com.sdds.serv.styles.radioboxgroup.RadioBoxGroup
+import com.sdds.serv.styles.radioboxgroup.S
 
 internal object SddsServRadioBoxGroupVariationsCompose :
     ComposeStyleProvider<String, RadioBoxGroupStyle>() {

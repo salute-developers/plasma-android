@@ -1,6 +1,7 @@
 import com.sdds.plugin.themebuilder.OutputLocation
 import com.sdds.plugin.themebuilder.ShapeAppearanceConfig.Companion.sddsShape
 import com.sdds.plugin.themebuilder.ThemeBuilderMode
+import utils.componentsVersion
 import utils.themeUrl
 
 @Suppress("DSL_SCOPE_VIOLATION")
@@ -24,7 +25,7 @@ themeBuilder {
         url(themeUrl)
         name("StarDs")
     }
-    componentsSource("https://github.com/salute-developers/theme-converter/raw/main/components/plasma_stards")
+    componentSource(name = "plasma_stards", componentsVersion, "StarDs")
     view {
         themeParents {
             materialComponentsTheme("NoActionBar")

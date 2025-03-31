@@ -4,19 +4,19 @@ import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
-import com.sdds.serv.styles.button.link.Accent
-import com.sdds.serv.styles.button.link.Default
-import com.sdds.serv.styles.button.link.L
-import com.sdds.serv.styles.button.link.LinkButton
-import com.sdds.serv.styles.button.link.M
-import com.sdds.serv.styles.button.link.Negative
-import com.sdds.serv.styles.button.link.Positive
-import com.sdds.serv.styles.button.link.S
-import com.sdds.serv.styles.button.link.Secondary
-import com.sdds.serv.styles.button.link.Warning
-import com.sdds.serv.styles.button.link.Xl
-import com.sdds.serv.styles.button.link.Xs
-import com.sdds.serv.styles.button.link.Xxs
+import com.sdds.serv.styles.linkbutton.Accent
+import com.sdds.serv.styles.linkbutton.Default
+import com.sdds.serv.styles.linkbutton.L
+import com.sdds.serv.styles.linkbutton.LinkButton
+import com.sdds.serv.styles.linkbutton.M
+import com.sdds.serv.styles.linkbutton.Negative
+import com.sdds.serv.styles.linkbutton.Positive
+import com.sdds.serv.styles.linkbutton.S
+import com.sdds.serv.styles.linkbutton.Secondary
+import com.sdds.serv.styles.linkbutton.Warning
+import com.sdds.serv.styles.linkbutton.Xl
+import com.sdds.serv.styles.linkbutton.Xs
+import com.sdds.serv.styles.linkbutton.Xxs
 
 internal object SddsServLinkButtonVariationsCompose : ComposeStyleProvider<String, ButtonStyle>() {
 
