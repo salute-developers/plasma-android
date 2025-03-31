@@ -33,6 +33,7 @@ internal class ShapeHelper(
     private var shapeModel: ShapeModel? = null
     private var strokeColor: ColorStateList? = null
     private var strokeWidth: Float = 0f
+    private var colorAnimationEnabled: Boolean = false
     private var backgroundOverwritten: Boolean = false
     private var insetLeft: Int = 0
     private var insetTop: Int = 0
@@ -119,6 +120,7 @@ internal class ShapeHelper(
             setShapeModel(shapeModel)
             setStrokeTint(strokeColor)
             setStrokeWidth(strokeWidth)
+            setColorAnimationEnabled(colorAnimationEnabled)
             if (shadowEnabled) setupShadow()
         }
     }
@@ -152,6 +154,8 @@ internal class ShapeHelper(
             currentBackground?.isShapeable() != true
         strokeColor = typedArray.getColorStateList(R.styleable.SdShape_sd_strokeColor)
         strokeWidth = typedArray.getDimension(R.styleable.SdShape_sd_strokeWidth, 0f)
+        colorAnimationEnabled = typedArray.getBoolean(R.styleable.SdShape_sd_shapeColorAnimationEnabled, false)
+
         val shadowAppearance = typedArray.getResourceId(R.styleable.SdShape_sd_shadowAppearance, 0)
         if (shadowAppearance != 0) {
             shadowModel = ShadowModel.obtain(view.context, shadowAppearance)

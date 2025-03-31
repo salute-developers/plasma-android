@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Sdds.Components.NavigationDrawer">
+        <item name="sd_expandedMinWidth">250dp</item>
+        <item name="android:clipToPadding">true</item>
+        <item name="android:clipChildren">true</item>
+        <item name="sd_collapsedItemWidth">48dp</item>
+    </style>
+    <style name="Sdds.Components.NavigationDrawerItem" parent="Sdds.Components.Cell">
+        <item name="sd_counterEnabled">false</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:padding">12dp</item>
+        <item name="sd_contentStartPadding">12dp</item>
+        <item name="sd_contentEndPadding">12dp</item>
+        <item name="sd_collapsedCounterOffsetX">10dp</item>
+        <item name="sd_collapsedCounterOffsetY">-7dp</item>
+        <item name="android:clipToPadding">false</item>
+        <item name="android:clipChildren">false</item>
+    </style>
+</resources>

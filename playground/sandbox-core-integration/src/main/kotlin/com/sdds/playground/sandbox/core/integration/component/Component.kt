@@ -140,6 +140,7 @@ data class ComponentKey(
         val Divider = ComponentKey("Divider", CoreComponent.DIVIDER)
         val Indicator = ComponentKey("Indicator", CoreComponent.INDICATOR)
         val Flow = ComponentKey("Flow", CoreComponent.FLOW)
+        val NavigationDrawer = ComponentKey("NavigationDrawer", CoreComponent.NAVIGATION_DRAWER)
         val ProgressBar = ComponentKey("ProgressBar", CoreComponent.PROGRESS)
 
         val RadioBox = ComponentKey("RadioBox", CoreComponent.RADIOBOX)
@@ -186,6 +187,8 @@ enum class CoreComponent {
     FLOW,
 
     INDICATOR,
+
+    NAVIGATION_DRAWER,
 
     PROGRESS,
 

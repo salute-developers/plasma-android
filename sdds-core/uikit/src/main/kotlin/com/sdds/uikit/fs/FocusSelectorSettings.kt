@@ -39,6 +39,23 @@ data class FocusSelectorSettings(
          * @return Экземпляр [FocusSelectorSettings], содержащий настройки из атрибутов.
          */
         fun fromAttrs(context: Context, attributeSet: AttributeSet?, defStyleAttr: Int): FocusSelectorSettings {
+            return fromAttrs(context, attributeSet, defStyleAttr, 0)
+        }
+
+        /**
+         * Создаёт экземпляр [FocusSelectorSettings] из XML-атрибутов.
+         *
+         * @param context Контекст, используемый для получения атрибутов.
+         * @param attributeSet Набор XML-атрибутов, определяющих параметры селектора фокуса.
+         * @param defStyleAttr Атрибут стиля по умолчанию.
+         * @return Экземпляр [FocusSelectorSettings], содержащий настройки из атрибутов.
+         */
+        fun fromAttrs(
+            context: Context,
+            attributeSet: AttributeSet?,
+            defStyleAttr: Int,
+            defStyleRes: Int,
+        ): FocusSelectorSettings {
             return context.obtainStyledAttributes(
                 attributeSet,
                 R.styleable.SdFocusSelector,
