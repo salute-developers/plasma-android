@@ -3,6 +3,7 @@ package com.sdkit.star.designsystem.colorstate
 
 import android.content.Context
 import android.util.AttributeSet
+import androidx.`annotation`.Keep
 import com.sdds.uikit.colorstate.ColorState
 import com.sdds.uikit.colorstate.ColorStateProvider
 import com.sdkit.star.designsystem.R
@@ -27,6 +28,7 @@ public enum class CounterColorState(
 /**
  * Реализация [ColorStateProvider] для CounterColorState
  */
+@Keep
 internal class CounterColorStateProvider : ColorStateProvider {
     public override fun obtain(
         context: Context,

@@ -10,6 +10,7 @@ import com.sdds.plugin.themebuilder.ThemeBuilderExtension.Companion.themeBuilder
 import org.gradle.api.GradleException
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.api.file.Directory
 import org.gradle.api.file.RegularFile
 import org.gradle.api.provider.Provider
 import org.gradle.api.tasks.Copy
@@ -27,8 +28,6 @@ class ThemeBuilderPlugin : Plugin<Project> {
         val themeZip = project.layout.buildDirectory.file("$THEME_PATH/theme.zip")
         val componentsZip = project.layout.buildDirectory.file("$COMPONENTS_PATH/components.zip")
         val paletteJson = project.layout.buildDirectory.file("$THEME_PATH/$PALETTE_JSON_NAME")
-        val componentJsons = ComponentConfig.values()
-            .associateWith { project.layout.buildDirectory.file("$COMPONENTS_PATH/${it.fileName}") }
         val extension = project.themeBuilderExt()
         project.configureSourceSets()
 
@@ -41,12 +40,6 @@ class ThemeBuilderPlugin : Plugin<Project> {
                 dependOnPreBuild = extension.autoGenerate,
             )
 
-            // будет удалено после полной поддержки мета-файла компонентов
-            val fetchComponentConfigsTasks =
-                registerFetchComponentConfigs(extension, componentJsons)
-            registerGenerateComponentConfigsTask(extension, fetchComponentConfigsTasks)
-
-            // регистрация новой таски загрузки архива с конфигами и мета-файлом
             val fetchComponentsTask = registerFetchAndUnzipComponents(extension, componentsZip)
             fetchComponentsTask?.let { registerGenerateComponentsTask(extension, it) }
         }
@@ -111,84 +104,26 @@ class ThemeBuilderPlugin : Plugin<Project> {
         return unzipTask
     }
 
-    private fun Project.registerFetchComponentConfigs(
-        extension: ThemeBuilderExtension,
-        componentJsons: Map<ComponentConfig, Provider<RegularFile>>,
-    ): List<TaskProvider<FetchFileTask>> {
-        val themeRemoteName = when (val source = getThemeSource(extension)) {
-            is ThemeBuilderSource.NameAndVersion -> source.remoteName
-            is ThemeBuilderSource.Url -> source.themeName
-        }
-        val baseUrl = extension.componentsSource ?: "${BASE_COMPONENT_CONFIG_URL}$themeRemoteName"
-        return ComponentConfig.values().map {
-            project.tasks.register<FetchFileTask>(it.fetchTaskName) {
-                group = TASK_GROUP
-                url.set("$baseUrl/${it.fileName}")
-                file.set(componentJsons[it]!!)
-                failMessage.set("Can't fetch ${it.fileName}")
-            }
-        }
-    }
-
     private fun Project.registerGenerateComponentsTask(
         extension: ThemeBuilderExtension,
         fetchComponentsTask: TaskProvider<Copy>,
     ) {
         val task = project.tasks.register<GenerateComponentsTask>("generateComponents") {
             group = TASK_GROUP
-            componentsMetaFile.set(getComponentsMetaFile())
+            componentsDir.set(getComponentsDir())
+            outputDirPath.set(extension.outputLocation.getSourcePath())
+            outputResDirPath.set(extension.outputLocation.getResourcePath())
+            packageName.set(extension.ktPackage ?: DEFAULT_KT_PACKAGE)
+            val projectDirProperty = objects.directoryProperty()
+                .apply { set(layout.projectDirectory) }
+            projectDir.set(projectDirProperty)
+            dimensionsConfig.set(extension.dimensionsConfig)
+            resourcesPrefixConfig.set(getResourcePrefixConfig(extension))
+            themeName.set(extension.componentSource?.themeName)
+            namespace.set(getProjectNameSpace())
+            target.set(extension.target)
         }
         task.dependsOn(fetchComponentsTask)
-    }
-
-    private fun Project.registerGenerateComponentConfigsTask(
-        extension: ThemeBuilderExtension,
-        fetchComponentConfigsTasks: List<TaskProvider<FetchFileTask>>,
-    ) {
-        val task =
-            project.tasks.register<GenerateComponentConfigsTask>("generateComponentConfigs") {
-                group = TASK_GROUP
-                basicButtonConfigFile.set(getComponentConfigFile(ComponentConfig.BASIC_BUTTON.fileName))
-                iconButtonConfigFile.set(getComponentConfigFile(ComponentConfig.ICON_BUTTON.fileName))
-                linkButtonConfigFile.set(getComponentConfigFile(ComponentConfig.LINK_BUTTON.fileName))
-                textFieldConfigFile.set(getComponentConfigFile(ComponentConfig.TEXT_FIELD.fileName))
-                textFieldClearConfigFile.set(getComponentConfigFile(ComponentConfig.TEXT_FIELD_CLEAR.fileName))
-                textAreaConfigFile.set(getComponentConfigFile(ComponentConfig.TEXT_AREA.fileName))
-                textAreaClearConfigFile.set(getComponentConfigFile(ComponentConfig.TEXT_AREA_CLEAR.fileName))
-                cardConfigFile.set(getComponentConfigFile(ComponentConfig.CARD_SOLID.fileName))
-                cardClearConfigFile.set(getComponentConfigFile(ComponentConfig.CARD_CLEAR.fileName))
-                cellConfigFile.set(getComponentConfigFile(ComponentConfig.CELL.fileName))
-                indicatorConfigFile.set(getComponentConfigFile(ComponentConfig.INDICATOR.fileName))
-                counterConfigFile.set(getComponentConfigFile(ComponentConfig.COUNTER.fileName))
-                badgeConfigFile.set(getComponentConfigFile(ComponentConfig.BADGE_SOLID.fileName))
-                badgeClearConfigFile.set(getComponentConfigFile(ComponentConfig.BADGE_CLEAR.fileName))
-                badgeTransparentConfigFile.set(getComponentConfigFile(ComponentConfig.BADGE_TRANSPARENT.fileName))
-                iconBadgeConfigFile.set(getComponentConfigFile(ComponentConfig.ICON_BADGE_SOLID.fileName))
-                iconBadgeClearConfigFile.set(getComponentConfigFile(ComponentConfig.ICON_BADGE_CLEAR.fileName))
-                iconBadgeTransparentConfigFile.set(
-                    getComponentConfigFile(ComponentConfig.ICON_BADGE_TRANSPARENT.fileName),
-                )
-                bottomSheetConfigFile.set(
-                    getComponentConfigFile(ComponentConfig.BOTTOM_SHEET.fileName),
-                )
-                segmentItemConfigFile.set(
-                    getComponentConfigFile(ComponentConfig.SEGMENT_ITEM.fileName),
-                )
-                segmentConfigFile.set(getComponentConfigFile(ComponentConfig.SEGMENT.fileName))
-                dividerConfigFile.set(getComponentConfigFile(ComponentConfig.DIVIDER.fileName))
-                outputDirPath.set(extension.outputLocation.getSourcePath())
-                outputResDirPath.set(extension.outputLocation.getResourcePath())
-                packageName.set(extension.ktPackage ?: DEFAULT_KT_PACKAGE)
-                val projectDirProperty = objects.directoryProperty()
-                    .apply { set(layout.projectDirectory) }
-                projectDir.set(projectDirProperty)
-                dimensionsConfig.set(extension.dimensionsConfig)
-                resourcesPrefixConfig.set(getResourcePrefixConfig(extension))
-                namespace.set(getProjectNameSpace())
-                themeName.set(getThemeSource(extension).themeName)
-                target.set(extension.target)
-            }
-        fetchComponentConfigsTasks.forEach { task.dependsOn(it) }
     }
 
     private fun Project.registerThemeBuilder(
@@ -275,8 +210,8 @@ class ThemeBuilderPlugin : Plugin<Project> {
         return layout.buildDirectory.file("$COMPONENTS_PATH/$fileName")
     }
 
-    private fun Project.getComponentsMetaFile(): Provider<RegularFile> {
-        return layout.buildDirectory.file("$COMPONENTS_PATH/$META_JSON_NAME")
+    private fun Project.getComponentsDir(): Provider<Directory> {
+        return layout.buildDirectory.dir(COMPONENTS_PATH)
     }
 
     private fun Project.registerUnzip(
@@ -418,34 +353,6 @@ class ThemeBuilderPlugin : Plugin<Project> {
         SPACING("android_spacing.json"),
         GRADIENTS("android_gradient.json"),
         SHAPES("android_shape.json"),
-    }
-
-    private enum class ComponentConfig(val fileName: String, val fetchTaskName: String) {
-        BASIC_BUTTON("basic_button_config.json", "fetchBasicButtonConfig"),
-        ICON_BUTTON("icon_button_config.json", "fetchIconButtonConfig"),
-        LINK_BUTTON("link_button_config.json", "fetchLinkButtonConfig"),
-        TEXT_FIELD("text_field_config.json", "fetchTextFieldConfig"),
-        TEXT_FIELD_CLEAR("text_field_clear_config.json", "fetchTextFieldClearConfig"),
-        TEXT_AREA("text_area_config.json", "fetchTextAreaConfig"),
-        TEXT_AREA_CLEAR("text_area_clear_config.json", "fetchTextAreaClearConfig"),
-        CELL("cell_config.json", "fetchCellConfig"),
-        INDICATOR("indicator_config.json", "fetchIndicatorConfig"),
-        BADGE_SOLID("badge_solid_config.json", "fetchBadgeConfig"),
-        BADGE_CLEAR("badge_clear_config.json", "fetchBadgeClearConfig"),
-        BADGE_TRANSPARENT("badge_transparent_config.json", "fetchBadgeTransparentConfig"),
-        BOTTOM_SHEET("bottom_sheet_config.json", "fetchBottomSheetConfig"),
-        ICON_BADGE_SOLID("icon_badge_solid_config.json", "fetchIconBadgeConfig"),
-        ICON_BADGE_CLEAR("icon_badge_clear_config.json", "fetchIconBadgeClearConfig"),
-        ICON_BADGE_TRANSPARENT(
-            "icon_badge_transparent_config.json",
-            "fetchIconBadgeTransparentConfig",
-        ),
-        COUNTER("counter_config.json", "fetchCounterConfig"),
-        CARD_SOLID("card_solid_config.json", "fetchCardConfig"),
-        CARD_CLEAR("card_clear_config.json", "fetchCardClearConfig"),
-        SEGMENT_ITEM("segment_item_config.json", "fetchSegmentItemConfig"),
-        SEGMENT("segment_config.json", "fetchSegmentConfig"),
-        DIVIDER("divider_config.json", "fetchDividerConfig"),
     }
 
     private companion object {

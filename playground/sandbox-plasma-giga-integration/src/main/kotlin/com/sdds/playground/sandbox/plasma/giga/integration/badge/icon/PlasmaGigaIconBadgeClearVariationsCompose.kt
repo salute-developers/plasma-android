@@ -3,19 +3,19 @@ package com.sdds.playground.sandbox.plasma.giga.integration.badge.icon
 import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.BadgeStyle
 import com.sdds.compose.uikit.style.style
-import com.sdds.plasma.giga.styles.badge.icon.Accent
-import com.sdds.plasma.giga.styles.badge.icon.Dark
-import com.sdds.plasma.giga.styles.badge.icon.Default
-import com.sdds.plasma.giga.styles.badge.icon.IconBadgeClear
-import com.sdds.plasma.giga.styles.badge.icon.L
-import com.sdds.plasma.giga.styles.badge.icon.Light
-import com.sdds.plasma.giga.styles.badge.icon.M
-import com.sdds.plasma.giga.styles.badge.icon.Negative
-import com.sdds.plasma.giga.styles.badge.icon.Pilled
-import com.sdds.plasma.giga.styles.badge.icon.Positive
-import com.sdds.plasma.giga.styles.badge.icon.S
-import com.sdds.plasma.giga.styles.badge.icon.Warning
-import com.sdds.plasma.giga.styles.badge.icon.Xs
+import com.sdds.plasma.giga.styles.iconbadge.Accent
+import com.sdds.plasma.giga.styles.iconbadge.Dark
+import com.sdds.plasma.giga.styles.iconbadge.Default
+import com.sdds.plasma.giga.styles.iconbadge.IconBadgeClear
+import com.sdds.plasma.giga.styles.iconbadge.L
+import com.sdds.plasma.giga.styles.iconbadge.Light
+import com.sdds.plasma.giga.styles.iconbadge.M
+import com.sdds.plasma.giga.styles.iconbadge.Negative
+import com.sdds.plasma.giga.styles.iconbadge.Pilled
+import com.sdds.plasma.giga.styles.iconbadge.Positive
+import com.sdds.plasma.giga.styles.iconbadge.S
+import com.sdds.plasma.giga.styles.iconbadge.Warning
+import com.sdds.plasma.giga.styles.iconbadge.Xs
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 
 internal object PlasmaGigaIconBadgeClearVariationsCompose :

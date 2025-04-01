@@ -3,12 +3,12 @@
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <resources>
     <style name="Salute.StylesSalute.Components.LinkButton" parent="Sdds.Components.LinkButton">
-        <item name="sd_colorStateProvider">com.sdds.stylessalute.colorstate.LinkButtonColorStateProvider</item>
         <item name="sd_disabledAlpha">0.4</item>
         <item name="backgroundTint">@color/salute_link_button_bg_color</item>
         <item name="android:textColor">@color/salute_link_button_text_color</item>
         <item name="sd_spinnerTint">@color/salute_link_button_spinner_tint</item>
         <item name="sd_iconTint">@color/salute_link_button_icon_tint</item>
+        <item name="sd_colorStateProvider">com.sdds.stylessalute.colorstate.LinkButtonColorStateProvider</item>
     </style>
     <style name="Salute.StylesSalute.Components.LinkButton.L">
         <item name="android:minHeight">@dimen/salute_link_button_l_min_height</item>

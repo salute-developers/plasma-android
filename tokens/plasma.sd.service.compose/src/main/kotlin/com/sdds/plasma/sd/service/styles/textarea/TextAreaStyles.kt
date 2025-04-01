@@ -28,8 +28,8 @@ import com.sdds.plasma.sd.service.styles.chip.M
 import com.sdds.plasma.sd.service.styles.chip.S
 import com.sdds.plasma.sd.service.styles.chip.Secondary
 import com.sdds.plasma.sd.service.styles.chip.Xs
-import com.sdds.plasma.sd.service.styles.chip.group.ChipGroup
-import com.sdds.plasma.sd.service.styles.chip.group.Dense
+import com.sdds.plasma.sd.service.styles.chipgroup.ChipGroup
+import com.sdds.plasma.sd.service.styles.chipgroup.Dense
 import com.sdds.plasma.sd.service.theme.PlasmaSdServiceTheme
 import kotlin.Suppress
 import kotlin.jvm.JvmInline

@@ -28,8 +28,8 @@ import com.sdds.plasma.giga.styles.chip.M
 import com.sdds.plasma.giga.styles.chip.S
 import com.sdds.plasma.giga.styles.chip.Secondary
 import com.sdds.plasma.giga.styles.chip.Xs
-import com.sdds.plasma.giga.styles.chip.group.ChipGroup
-import com.sdds.plasma.giga.styles.chip.group.Dense
+import com.sdds.plasma.giga.styles.chipgroup.ChipGroup
+import com.sdds.plasma.giga.styles.chipgroup.Dense
 import com.sdds.plasma.giga.theme.PlasmaGigaTheme
 import kotlin.Suppress
 import kotlin.jvm.JvmInline

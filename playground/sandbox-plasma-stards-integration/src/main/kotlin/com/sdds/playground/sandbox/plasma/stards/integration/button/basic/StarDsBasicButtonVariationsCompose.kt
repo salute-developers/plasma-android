@@ -4,11 +4,11 @@ import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
-import com.sdkit.star.designsystem.styles.button.basic.BasicButton
-import com.sdkit.star.designsystem.styles.button.basic.L
-import com.sdkit.star.designsystem.styles.button.basic.M
-import com.sdkit.star.designsystem.styles.button.basic.S
-import com.sdkit.star.designsystem.styles.button.basic.Xs
+import com.sdkit.star.designsystem.styles.basicbutton.BasicButton
+import com.sdkit.star.designsystem.styles.basicbutton.L
+import com.sdkit.star.designsystem.styles.basicbutton.M
+import com.sdkit.star.designsystem.styles.basicbutton.S
+import com.sdkit.star.designsystem.styles.basicbutton.Xs
 
 internal object StarDsBasicButtonVariationsCompose : ComposeStyleProvider<String, ButtonStyle>() {
 

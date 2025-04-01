@@ -4,9 +4,9 @@ import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.sdds.stylessalute.styles.radiobox.M
 import com.sdds.stylessalute.styles.radiobox.RadioBox
 import com.sdds.stylessalute.styles.radiobox.S
-import com.sdds.stylessalute.styles.radiobox.group.M
-import com.sdds.stylessalute.styles.radiobox.group.RadioBoxGroup
-import com.sdds.stylessalute.styles.radiobox.group.S
+import com.sdds.stylessalute.styles.radioboxgroup.M
+import com.sdds.stylessalute.styles.radioboxgroup.RadioBoxGroup
+import com.sdds.stylessalute.styles.radioboxgroup.S
 import com.sdds.testing.compose.RoborazziConfigCompose
 import com.sdds.testing.compose.radiobox.RadioBoxDisabled
 import com.sdds.testing.compose.radiobox.RadioBoxGroupSizeM

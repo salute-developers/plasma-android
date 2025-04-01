@@ -3,20 +3,20 @@ package com.sdds.playground.sandbox.plasma.sd.service.integration.textfield.clea
 import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.style.style
-import com.sdds.plasma.sd.service.styles.textfield.clear.Default
-import com.sdds.plasma.sd.service.styles.textfield.clear.Error
-import com.sdds.plasma.sd.service.styles.textfield.clear.InnerLabel
-import com.sdds.plasma.sd.service.styles.textfield.clear.L
-import com.sdds.plasma.sd.service.styles.textfield.clear.M
-import com.sdds.plasma.sd.service.styles.textfield.clear.OuterLabel
-import com.sdds.plasma.sd.service.styles.textfield.clear.RequiredEnd
-import com.sdds.plasma.sd.service.styles.textfield.clear.RequiredStart
-import com.sdds.plasma.sd.service.styles.textfield.clear.S
-import com.sdds.plasma.sd.service.styles.textfield.clear.Success
-import com.sdds.plasma.sd.service.styles.textfield.clear.TextFieldClear
-import com.sdds.plasma.sd.service.styles.textfield.clear.Warning
-import com.sdds.plasma.sd.service.styles.textfield.clear.Xl
-import com.sdds.plasma.sd.service.styles.textfield.clear.Xs
+import com.sdds.plasma.sd.service.styles.textfield.Default
+import com.sdds.plasma.sd.service.styles.textfield.Error
+import com.sdds.plasma.sd.service.styles.textfield.InnerLabel
+import com.sdds.plasma.sd.service.styles.textfield.L
+import com.sdds.plasma.sd.service.styles.textfield.M
+import com.sdds.plasma.sd.service.styles.textfield.OuterLabel
+import com.sdds.plasma.sd.service.styles.textfield.RequiredEnd
+import com.sdds.plasma.sd.service.styles.textfield.RequiredStart
+import com.sdds.plasma.sd.service.styles.textfield.S
+import com.sdds.plasma.sd.service.styles.textfield.Success
+import com.sdds.plasma.sd.service.styles.textfield.TextFieldClear
+import com.sdds.plasma.sd.service.styles.textfield.Warning
+import com.sdds.plasma.sd.service.styles.textfield.Xl
+import com.sdds.plasma.sd.service.styles.textfield.Xs
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 
 internal object PlasmaSdServiceTextFieldClearVariationsCompose : ComposeStyleProvider<String, TextFieldStyle>() {

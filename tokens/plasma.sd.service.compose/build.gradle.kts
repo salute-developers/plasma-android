@@ -1,5 +1,7 @@
 import com.sdds.plugin.themebuilder.OutputLocation.SRC
 import com.sdds.plugin.themebuilder.ThemeBuilderMode.THEME
+import utils.componentsVersion
+import utils.themeVersion
 
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
@@ -18,9 +20,8 @@ android {
 }
 
 themeBuilder {
-    val themeVersion = project.property("theme-version")?.toString()
-        ?: throw GradleException("plasma sd service version must be specified")
     themeSource(name = "plasma_b2c", version = themeVersion, alias = "PlasmaSdService")
+    componentSource(name = "plasma_b2c", version = componentsVersion, alias = "PlasmaSdService")
     compose()
     ktPackage(ktPackage = "com.sdds.plasma.sd.service")
     mode(THEME)

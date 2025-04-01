@@ -4,19 +4,19 @@ import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
-import com.sdds.serv.styles.textarea.clear.Default
-import com.sdds.serv.styles.textarea.clear.Error
-import com.sdds.serv.styles.textarea.clear.InnerLabel
-import com.sdds.serv.styles.textarea.clear.L
-import com.sdds.serv.styles.textarea.clear.M
-import com.sdds.serv.styles.textarea.clear.OuterLabel
-import com.sdds.serv.styles.textarea.clear.RequiredEnd
-import com.sdds.serv.styles.textarea.clear.RequiredStart
-import com.sdds.serv.styles.textarea.clear.S
-import com.sdds.serv.styles.textarea.clear.TextAreaClear
-import com.sdds.serv.styles.textarea.clear.Warning
-import com.sdds.serv.styles.textarea.clear.Xl
-import com.sdds.serv.styles.textarea.clear.Xs
+import com.sdds.serv.styles.textarea.Default
+import com.sdds.serv.styles.textarea.Error
+import com.sdds.serv.styles.textarea.InnerLabel
+import com.sdds.serv.styles.textarea.L
+import com.sdds.serv.styles.textarea.M
+import com.sdds.serv.styles.textarea.OuterLabel
+import com.sdds.serv.styles.textarea.RequiredEnd
+import com.sdds.serv.styles.textarea.RequiredStart
+import com.sdds.serv.styles.textarea.S
+import com.sdds.serv.styles.textarea.TextAreaClear
+import com.sdds.serv.styles.textarea.Warning
+import com.sdds.serv.styles.textarea.Xl
+import com.sdds.serv.styles.textarea.Xs
 
 internal object SddsServTextAreaClearVariationsCompose : ComposeStyleProvider<String, TextFieldStyle>() {
 

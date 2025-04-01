@@ -3,6 +3,7 @@ package com.sdds.plasma.sd.service.colorstate
 
 import android.content.Context
 import android.util.AttributeSet
+import androidx.`annotation`.Keep
 import com.sdds.plasma.sd.service.R
 import com.sdds.uikit.colorstate.ColorState
 import com.sdds.uikit.colorstate.ColorStateProvider
@@ -30,6 +31,7 @@ public enum class IconButtonColorState(
 /**
  * Реализация [ColorStateProvider] для IconButtonColorState
  */
+@Keep
 internal class IconButtonColorStateProvider : ColorStateProvider {
     public override fun obtain(
         context: Context,

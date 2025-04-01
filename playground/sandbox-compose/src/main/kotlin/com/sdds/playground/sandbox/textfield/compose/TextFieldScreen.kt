@@ -30,9 +30,9 @@ import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.TextFieldFocusSelectorModeSwitch
 import com.sdds.playground.sandbox.core.compose.ComponentScaffold
 import com.sdds.playground.sandbox.core.integration.component.ComponentKey
-import com.sdds.serv.styles.button.basic.BasicButton
-import com.sdds.serv.styles.button.basic.Default
-import com.sdds.serv.styles.button.basic.Xs
+import com.sdds.serv.styles.basicbutton.BasicButton
+import com.sdds.serv.styles.basicbutton.Default
+import com.sdds.serv.styles.basicbutton.Xs
 
 /**
  * Экран с компонентом [TextField]

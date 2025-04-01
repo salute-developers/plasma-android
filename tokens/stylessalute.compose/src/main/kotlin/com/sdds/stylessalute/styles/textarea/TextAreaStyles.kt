@@ -28,8 +28,8 @@ import com.sdds.stylessalute.styles.chip.M
 import com.sdds.stylessalute.styles.chip.S
 import com.sdds.stylessalute.styles.chip.Secondary
 import com.sdds.stylessalute.styles.chip.Xs
-import com.sdds.stylessalute.styles.chip.group.ChipGroup
-import com.sdds.stylessalute.styles.chip.group.Dense
+import com.sdds.stylessalute.styles.chipgroup.ChipGroup
+import com.sdds.stylessalute.styles.chipgroup.Dense
 import com.sdds.stylessalute.theme.StylesSaluteTheme
 import kotlin.Suppress
 import kotlin.jvm.JvmInline
