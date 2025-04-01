@@ -41,6 +41,6 @@
         <item name="sd_fsBorderMode">none</item>
         <item name="sd_collapsedCounterOffsetX">@dimen/serv_navigation_drawer_item_counter_offset_x</item>
         <item name="sd_collapsedCounterOffsetY">@dimen/serv_navigation_drawer_item_counter_offset_y</item>
-        <item name="sd_shapeColorAnimationEnabled">true</item>
+        <item name="sd_shapeColorAnimationEnabled">false</item>
     </style>
 </resources>
