@@ -122,6 +122,8 @@ data class ComponentKey(
         val Badge = ComponentKey("Badge", CoreComponent.BADGE)
         val IconBadge = ComponentKey("IconBadge", CoreComponent.BADGE)
 
+        val BottomSheet = ComponentKey("BottomSheet", CoreComponent.BOTTOMSHEET)
+
         val BasicButton = ComponentKey("BasicButton", CoreComponent.BASIC_BUTTON)
         val IconButton = ComponentKey("IconButton", CoreComponent.ICON_BUTTON)
         val LinkButton = ComponentKey("LinkButton", CoreComponent.LINK_BUTTON)
@@ -165,6 +167,8 @@ enum class CoreComponent {
 
     BADGE,
     ICON_BADGE,
+
+    BOTTOMSHEET,
 
     BASIC_BUTTON,
     ICON_BUTTON,

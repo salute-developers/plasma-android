@@ -9,19 +9,14 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.DrawerValue
-import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.ModalBottomSheetLayout
-import androidx.compose.material.ModalBottomSheetValue
 import androidx.compose.material.Scaffold
 import androidx.compose.material.rememberDrawerState
-import androidx.compose.material.rememberModalBottomSheetState
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Rect
@@ -40,6 +35,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.sdds.compose.uikit.IconButton
+import com.sdds.compose.uikit.LocalModalBottomSheetStyle
+import com.sdds.compose.uikit.ModalBottomSheet
+import com.sdds.compose.uikit.internal.modal.BottomSheetValue
+import com.sdds.compose.uikit.internal.modal.rememberModalBottomSheetState
 import com.sdds.icons.R
 import com.sdds.playground.sandbox.MainSandboxActivity
 import com.sdds.playground.sandbox.Theme
@@ -51,7 +50,6 @@ import kotlinx.coroutines.launch
  *
  * @author Малышев Александр on 25.02.2025
  */
-@OptIn(ExperimentalMaterialApi::class)
 @Suppress("LongMethod")
 @Composable
 internal fun MainContent(themeManager: ThemeManager = ThemeManager) {
@@ -63,10 +61,11 @@ internal fun MainContent(themeManager: ThemeManager = ThemeManager) {
     val drawerState = rememberDrawerState(DrawerValue.Closed)
     val scaffoldState = rememberScaffoldState(drawerState = drawerState)
     val scope = rememberCoroutineScope()
-    val themePickerSheetState = rememberModalBottomSheetState(ModalBottomSheetValue.Hidden)
+    val themePickerSheetState = rememberModalBottomSheetState(BottomSheetValue.Hidden)
     val navController = rememberNavController()
     val currentBackStackEntry by navController.currentBackStackEntryFlow.collectAsState(initial = null)
-    val currentTitle = menuItems.find { it.route == currentBackStackEntry?.destination?.route }?.title.orEmpty()
+    val currentTitle =
+        menuItems.find { it.route == currentBackStackEntry?.destination?.route }?.title.orEmpty()
     Scaffold(
         scaffoldState = scaffoldState,
         backgroundColor = Color.Transparent,
@@ -121,9 +120,12 @@ internal fun MainContent(themeManager: ThemeManager = ThemeManager) {
                 .padding(paddingValues)
                 .fillMaxSize(),
         ) {
+            NavigationGraph(navController, menuItems)
             if (hasMultipleThemes) {
-                ModalBottomSheetLayout(
-                    sheetContent = {
+                ModalBottomSheet(
+                    style = LocalModalBottomSheetStyle.current,
+                    fitContent = true,
+                    body = {
                         ThemePicker(
                             currentTheme,
                             onApply = { themeManager.updateTheme(it) },
@@ -135,13 +137,7 @@ internal fun MainContent(themeManager: ThemeManager = ThemeManager) {
                         )
                     },
                     sheetState = themePickerSheetState,
-                    sheetShape = sandboxStyle.sheetShape,
-                    sheetBackgroundColor = sandboxStyle.sheetBackgroundColor,
-                ) {
-                    NavigationGraph(navController, menuItems)
-                }
-            } else {
-                NavigationGraph(navController, menuItems)
+                )
             }
         }
     }

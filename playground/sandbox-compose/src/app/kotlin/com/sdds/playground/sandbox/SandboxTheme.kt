@@ -22,6 +22,7 @@ import com.sdds.compose.uikit.LocalCheckBoxGroupStyle
 import com.sdds.compose.uikit.LocalCheckBoxStyle
 import com.sdds.compose.uikit.LocalChipStyle
 import com.sdds.compose.uikit.LocalIconButtonStyle
+import com.sdds.compose.uikit.LocalModalBottomSheetStyle
 import com.sdds.compose.uikit.LocalProgressBarStyle
 import com.sdds.compose.uikit.LocalRadioBoxGroupStyle
 import com.sdds.compose.uikit.LocalRadioBoxStyle
@@ -46,6 +47,8 @@ import com.sdds.serv.styles.avatar.Avatar
 import com.sdds.serv.styles.avatar.AvatarGroup
 import com.sdds.serv.styles.avatar.M
 import com.sdds.serv.styles.avatar.S
+import com.sdds.serv.styles.bottomsheet.Default
+import com.sdds.serv.styles.bottomsheet.ModalBottomSheet
 import com.sdds.serv.styles.button.basic.BasicButton
 import com.sdds.serv.styles.button.basic.Default
 import com.sdds.serv.styles.button.basic.M
@@ -134,6 +137,7 @@ fun SandboxTheme(
                 LocalSwitchStyle provides Switch.M.style(),
                 LocalButtonStyle provides BasicButton.M.Default.style(),
                 LocalIconButtonStyle provides IconButton.M.Default.style(),
+                LocalModalBottomSheetStyle provides ModalBottomSheet.Default.style(),
                 LocalCheckBoxStyle provides CheckBox.M.style(),
                 LocalCheckBoxGroupStyle provides CheckBoxGroup.M.style(),
                 LocalRadioBoxStyle provides RadioBox.M.style(),

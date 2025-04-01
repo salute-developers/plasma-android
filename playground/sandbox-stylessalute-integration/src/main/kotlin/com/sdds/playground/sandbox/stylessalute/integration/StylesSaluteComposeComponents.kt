@@ -13,6 +13,7 @@ import com.sdds.playground.sandbox.stylessalute.integration.badge.StylesSaluteBa
 import com.sdds.playground.sandbox.stylessalute.integration.badge.icon.StylesSaluteIconBadgeClearVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.badge.icon.StylesSaluteIconBadgeSolidVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.badge.icon.StylesSaluteIconBadgeTransparentVariationsCompose
+import com.sdds.playground.sandbox.stylessalute.integration.bottomsheet.StylesSaluteBottomSheetVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.button.basic.StylesSaluteBasicButtonVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.button.icon.StylesSaluteIconButtonVariationsCompose
 import com.sdds.playground.sandbox.stylessalute.integration.button.link.StylesSaluteLinkButtonVariationsCompose
@@ -77,6 +78,10 @@ object StylesSaluteComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.BasicButton,
                 StylesSaluteBasicButtonVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.BottomSheet,
+                StylesSaluteBottomSheetVariationsCompose,
             ),
             ComposeComponent(
                 ComponentKey.IconButton,

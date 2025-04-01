@@ -6,6 +6,7 @@ import com.sdds.plugin.themebuilder.internal.PackageResolver
 import com.sdds.plugin.themebuilder.internal.TargetPackage
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
 import com.sdds.plugin.themebuilder.internal.components.badge.compose.BadgeComposeVariationGenerator
+import com.sdds.plugin.themebuilder.internal.components.bottomsheet.compose.BottomSheetComposeVariationGenerator
 import com.sdds.plugin.themebuilder.internal.components.button.compose.ButtonComposeVariationGenerator
 import com.sdds.plugin.themebuilder.internal.components.button.view.BasicButtonStyleGeneratorView
 import com.sdds.plugin.themebuilder.internal.components.button.view.IconButtonStyleGeneratorView
@@ -414,6 +415,21 @@ internal class ComponentStyleGeneratorFactory(
         outputLocation = KtFileBuilder.OutputLocation.Directory(outputDir),
         segmentItemStylesPackage = "${packageResolver.getPackage(TargetPackage.STYLES)}.segment.item",
     )
+
+    fun createBottomSheetStyleGeneratorCompose() =
+        BottomSheetComposeVariationGenerator(
+            themeClassName = themeClassName,
+            themePackage = packageResolver.getPackage(TargetPackage.THEME),
+            dimensionsConfig = dimensionsConfig,
+            dimensAggregator = dimensAggregator,
+            resourceReferenceProvider = resourceReferenceProvider,
+            namespace = namespace,
+            ktFileBuilderFactory = ktFileBuilderFactory,
+            componentPackage = "${packageResolver.getPackage(TargetPackage.STYLES)}.bottomsheet",
+            componentName = "modal_bottom_sheet",
+            outputLocation = KtFileBuilder.OutputLocation.Directory(outputDir),
+
+        )
 
     fun createDimensionGenerator(): DimenTokenGenerator = DimenTokenGenerator(
         outputResDir = outputResDir,

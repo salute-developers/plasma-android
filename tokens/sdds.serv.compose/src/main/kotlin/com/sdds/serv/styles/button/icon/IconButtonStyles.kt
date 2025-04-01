@@ -349,9 +349,9 @@ public val WrapperIconButtonView.Clear: WrapperIconButtonTerminate
             backgroundColor(
                 SddsServTheme.colors.surfaceDefaultClear.asInteractive(
                     setOf(InteractiveState.Pressed)
-                        to SddsServTheme.colors.surfaceDefaultClearActive,
+                        to SddsServTheme.colors.surfaceDefaultTransparentSecondaryActive,
                     setOf(InteractiveState.Hovered)
-                        to SddsServTheme.colors.surfaceDefaultClearHover,
+                        to SddsServTheme.colors.surfaceDefaultTransparentSecondaryHover,
                 ),
             )
         }
