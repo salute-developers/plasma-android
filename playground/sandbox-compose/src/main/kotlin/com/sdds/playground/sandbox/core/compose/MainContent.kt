@@ -13,10 +13,13 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.rememberDrawerState
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Rect
@@ -66,6 +69,22 @@ internal fun MainContent(themeManager: ThemeManager = ThemeManager) {
     val currentBackStackEntry by navController.currentBackStackEntryFlow.collectAsState(initial = null)
     val currentTitle =
         menuItems.find { it.route == currentBackStackEntry?.destination?.route }?.title.orEmpty()
+    val savedRoute = rememberSaveable { mutableStateOf(menuItems.first().route) }
+    LaunchedEffect(menuItems) {
+        val existingRoute = savedRoute.value.takeIf { route -> menuItems.any { it.route == route } }
+            ?: menuItems.first().route
+        savedRoute.value = existingRoute
+
+        if (navController.currentDestination?.route != existingRoute) {
+            navController.navigate(existingRoute) {
+                popUpTo(navController.graph.startDestinationId) {
+                    inclusive = true
+                }
+                launchSingleTop = true
+                restoreState = true
+            }
+        }
+    }
     Scaffold(
         scaffoldState = scaffoldState,
         backgroundColor = Color.Transparent,
@@ -90,28 +109,19 @@ internal fun MainContent(themeManager: ThemeManager = ThemeManager) {
                             launchSingleTop = true
                             restoreState = true
                         }
+                        savedRoute.value = it.route
                     }
                 },
             )
         },
         topBar = {
             val context = LocalContext.current
-            TopBar(
+            TopBarSection(
                 title = currentTitle,
                 onNavigationClick = { scope.launch { drawerState.open() } },
-                actions = {
-                    IconButton(
-                        onClick = { toMainActivity(context) },
-                        icon = painterResource(id = R.drawable.ic_backward_fill_24),
-                        modifier = Modifier.padding(horizontal = 10.dp),
-                    )
-                    if (hasMultipleThemes) {
-                        IconButton(
-                            icon = painterResource(id = R.drawable.ic_settings_fill_24),
-                            onClick = { scope.launch { themePickerSheetState.show() } },
-                        )
-                    }
-                },
+                onMainClick = { toMainActivity(context) },
+                onThemeClick = { scope.launch { themePickerSheetState.show() } },
+                hasMultipleThemes = hasMultipleThemes,
             )
         },
     ) { paddingValues ->
@@ -157,6 +167,33 @@ internal fun NavigationGraph(navController: NavHostController, menuItems: List<M
             }
         }
     }
+}
+
+@Composable
+private fun TopBarSection(
+    title: String,
+    onNavigationClick: () -> Unit,
+    onMainClick: () -> Unit,
+    onThemeClick: () -> Unit,
+    hasMultipleThemes: Boolean,
+) {
+    TopBar(
+        title = title,
+        onNavigationClick = onNavigationClick,
+        actions = {
+            IconButton(
+                onClick = onMainClick,
+                icon = painterResource(id = R.drawable.ic_backward_fill_24),
+                modifier = Modifier.padding(horizontal = 10.dp),
+            )
+            if (hasMultipleThemes) {
+                IconButton(
+                    icon = painterResource(id = R.drawable.ic_settings_fill_24),
+                    onClick = onThemeClick,
+                )
+            }
+        },
+    )
 }
 
 private fun toMainActivity(context: Context) {
