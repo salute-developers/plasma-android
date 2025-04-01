@@ -114,7 +114,11 @@ class SandboxActivity : AppCompatActivity() {
                     .build()
             },
         )
-        setSelected(navController.graph.startDestinationId)
+        val currentItem = items.find { it.componentKey == lastSelectedKey } ?: items.first()
+        if (currentItem.id != navController.graph.startDestinationId) {
+            onNavDestinationSelected(currentItem, navController)
+        }
+        setSelected(currentItem.id)
     }
 
     @Suppress("RestrictedApi")
