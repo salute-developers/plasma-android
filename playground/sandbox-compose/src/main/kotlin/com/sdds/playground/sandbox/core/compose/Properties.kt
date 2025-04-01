@@ -161,7 +161,7 @@ internal interface PropertiesListStyle {
             shape: Shape = RectangleShape,
             borderWidth: Dp = 1.dp,
             borderColor: Color = Color.LightGray,
-            backgroundColor: Color = Color.Transparent,
+            backgroundColor: Color = Color.Red,
             headerBackgroundColor: Color = Color.LightGray,
             headerHeight: Dp = 56.dp,
             headerPaddings: PaddingValues = PaddingValues(16.dp),
