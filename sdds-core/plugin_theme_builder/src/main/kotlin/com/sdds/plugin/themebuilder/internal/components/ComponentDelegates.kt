@@ -1,6 +1,7 @@
 package com.sdds.plugin.themebuilder.internal.components
 
 import com.sdds.plugin.themebuilder.internal.components.badge.BadgeConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.bottomsheet.BottomSheetConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.button.ButtonConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.button.ButtonConfigDelegate.ButtonType
 import com.sdds.plugin.themebuilder.internal.components.card.CardConfigDelegate
@@ -30,5 +31,6 @@ internal val componentDelegates by unsafeLazy {
         "link-button" to ButtonConfigDelegate(ButtonType.Link),
         "badge" to BadgeConfigDelegate(),
         "icon-badge" to BadgeConfigDelegate(),
+        "bottom-sheet" to BottomSheetConfigDelegate(),
     )
 }
