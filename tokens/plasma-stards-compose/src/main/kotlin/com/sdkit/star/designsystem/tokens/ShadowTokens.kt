@@ -102,6 +102,15 @@ public object ShadowTokens {
         /**
          * shadow down soft s
          */
+        public val fallbackElevation: Dp
+            @Composable
+            @ReadOnlyComposable
+            get() =
+                dimensionResource(R.dimen.sdkit_cmp_shadow_down_soft_s_layer2_fallback_elevation)
+
+        /**
+         * shadow down soft s
+         */
         public val color: Color = Color(0x0A000000)
     }
 
@@ -295,6 +304,15 @@ public object ShadowTokens {
         /**
          * shadow down hard s
          */
+        public val fallbackElevation: Dp
+            @Composable
+            @ReadOnlyComposable
+            get() =
+                dimensionResource(R.dimen.sdkit_cmp_shadow_down_hard_s_layer2_fallback_elevation)
+
+        /**
+         * shadow down hard s
+         */
         public val color: Color = Color(0x14000000)
     }
 
@@ -437,6 +455,14 @@ public object ShadowTokens {
         /**
          * shadow up soft s
          */
+        public val fallbackElevation: Dp
+            @Composable
+            @ReadOnlyComposable
+            get() = dimensionResource(R.dimen.sdkit_cmp_shadow_up_soft_s_layer1_fallback_elevation)
+
+        /**
+         * shadow up soft s
+         */
         public val color: Color = Color(0x14080808)
     }
 
@@ -475,6 +501,14 @@ public object ShadowTokens {
             @Composable
             @ReadOnlyComposable
             get() = dimensionResource(R.dimen.sdkit_cmp_shadow_up_soft_s_layer2_blur_radius)
+
+        /**
+         * shadow up soft s
+         */
+        public val fallbackElevation: Dp
+            @Composable
+            @ReadOnlyComposable
+            get() = dimensionResource(R.dimen.sdkit_cmp_shadow_up_soft_s_layer2_fallback_elevation)
 
         /**
          * shadow up soft s
@@ -521,6 +555,14 @@ public object ShadowTokens {
         /**
          * shadow up soft m
          */
+        public val fallbackElevation: Dp
+            @Composable
+            @ReadOnlyComposable
+            get() = dimensionResource(R.dimen.sdkit_cmp_shadow_up_soft_m_fallback_elevation)
+
+        /**
+         * shadow up soft m
+         */
         public val color: Color = Color(0x14000000)
     }
 
@@ -559,6 +601,14 @@ public object ShadowTokens {
             @Composable
             @ReadOnlyComposable
             get() = dimensionResource(R.dimen.sdkit_cmp_shadow_up_soft_l_blur_radius)
+
+        /**
+         * shadow up soft l
+         */
+        public val fallbackElevation: Dp
+            @Composable
+            @ReadOnlyComposable
+            get() = dimensionResource(R.dimen.sdkit_cmp_shadow_up_soft_l_fallback_elevation)
 
         /**
          * shadow up soft l
@@ -605,6 +655,14 @@ public object ShadowTokens {
         /**
          * shadow up hard s
          */
+        public val fallbackElevation: Dp
+            @Composable
+            @ReadOnlyComposable
+            get() = dimensionResource(R.dimen.sdkit_cmp_shadow_up_hard_s_layer1_fallback_elevation)
+
+        /**
+         * shadow up hard s
+         */
         public val color: Color = Color(0x33080808)
     }
 
@@ -643,6 +701,14 @@ public object ShadowTokens {
             @Composable
             @ReadOnlyComposable
             get() = dimensionResource(R.dimen.sdkit_cmp_shadow_up_hard_s_layer2_blur_radius)
+
+        /**
+         * shadow up hard s
+         */
+        public val fallbackElevation: Dp
+            @Composable
+            @ReadOnlyComposable
+            get() = dimensionResource(R.dimen.sdkit_cmp_shadow_up_hard_s_layer2_fallback_elevation)
 
         /**
          * shadow up hard s
@@ -689,6 +755,14 @@ public object ShadowTokens {
         /**
          * shadow up hard m
          */
+        public val fallbackElevation: Dp
+            @Composable
+            @ReadOnlyComposable
+            get() = dimensionResource(R.dimen.sdkit_cmp_shadow_up_hard_m_fallback_elevation)
+
+        /**
+         * shadow up hard m
+         */
         public val color: Color = Color(0x3D000000)
     }
 
@@ -727,6 +801,14 @@ public object ShadowTokens {
             @Composable
             @ReadOnlyComposable
             get() = dimensionResource(R.dimen.sdkit_cmp_shadow_up_hard_l_blur_radius)
+
+        /**
+         * shadow up hard l
+         */
+        public val fallbackElevation: Dp
+            @Composable
+            @ReadOnlyComposable
+            get() = dimensionResource(R.dimen.sdkit_cmp_shadow_up_hard_l_fallback_elevation)
 
         /**
          * shadow up hard l
