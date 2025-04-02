@@ -1384,6 +1384,42 @@
     <attr format="reference|color" name="salute_outlineInverseTransparentAccentJoy"/>
     <attr format="reference|color" name="salute_outlineInverseTransparentAccentB2E"/>
     <attr format="reference|color" name="salute_outlineInverseTransparentAccentBrand"/>
+    <attr format="reference|color" name="salute_dataDefaultYellow"/>
+    <attr format="reference|color" name="salute_dataDefaultYellowHover"/>
+    <attr format="reference|color" name="salute_dataDefaultYellowActive"/>
+    <attr format="reference|color" name="salute_dataDefaultYellowMinor"/>
+    <attr format="reference|color" name="salute_dataDefaultYellowMinorHover"/>
+    <attr format="reference|color" name="salute_dataDefaultYellowMinorActive"/>
+    <attr format="reference|color" name="salute_dataDefaultYellowTransparent"/>
+    <attr format="reference|color" name="salute_dataDefaultYellowTransparentHover"/>
+    <attr format="reference|color" name="salute_dataDefaultYellowTransparentActive"/>
+    <attr format="reference|color" name="salute_dataOnDarkYellow"/>
+    <attr format="reference|color" name="salute_dataOnDarkYellowHover"/>
+    <attr format="reference|color" name="salute_dataOnDarkYellowActive"/>
+    <attr format="reference|color" name="salute_dataOnDarkYellowMinor"/>
+    <attr format="reference|color" name="salute_dataOnDarkYellowMinorHover"/>
+    <attr format="reference|color" name="salute_dataOnDarkYellowMinorActive"/>
+    <attr format="reference|color" name="salute_dataOnDarkYellowTransparent"/>
+    <attr format="reference|color" name="salute_dataOnDarkYellowTransparentHover"/>
+    <attr format="reference|color" name="salute_dataOnDarkYellowTransparentActive"/>
+    <attr format="reference|color" name="salute_dataOnLightYellow"/>
+    <attr format="reference|color" name="salute_dataOnLightYellowHover"/>
+    <attr format="reference|color" name="salute_dataOnLightYellowActive"/>
+    <attr format="reference|color" name="salute_dataOnLightYellowMinor"/>
+    <attr format="reference|color" name="salute_dataOnLightYellowMinorHover"/>
+    <attr format="reference|color" name="salute_dataOnLightYellowMinorActive"/>
+    <attr format="reference|color" name="salute_dataOnLightYellowTransparent"/>
+    <attr format="reference|color" name="salute_dataOnLightYellowTransparentHover"/>
+    <attr format="reference|color" name="salute_dataOnLightYellowTransparentActive"/>
+    <attr format="reference|color" name="salute_dataInverseYellow"/>
+    <attr format="reference|color" name="salute_dataInverseYellowHover"/>
+    <attr format="reference|color" name="salute_dataInverseYellowActive"/>
+    <attr format="reference|color" name="salute_dataInverseYellowMinor"/>
+    <attr format="reference|color" name="salute_dataInverseYellowMinorHover"/>
+    <attr format="reference|color" name="salute_dataInverseYellowMinorActive"/>
+    <attr format="reference|color" name="salute_dataInverseYellowTransparent"/>
+    <attr format="reference|color" name="salute_dataInverseYellowTransparentHover"/>
+    <attr format="reference|color" name="salute_dataInverseYellowTransparentActive"/>
     <attr format="reference|color" name="salute_surfaceInverseAccentJoy"/>
     <attr format="reference|color" name="salute_surfaceInverseAccentJoyHover"/>
     <attr format="reference|color" name="salute_surfaceInverseAccentJoyActive"/>

@@ -6901,6 +6901,186 @@ public object DarkColorTokens {
      * dark outline inverse outlineTransparentAccentBrandActive
      */
     public val OutlineInverseTransparentAccentBrandActive: Color = Color(0x3D3F82FD)
+
+    /**
+     * Желтый цвет для данных
+     */
+    public val DataDefaultYellow: Color = Color(0xFFF3A912)
+
+    /**
+     * Желтый цвет для данных
+     */
+    public val DataDefaultYellowHover: Color = Color(0xFFF4B22F)
+
+    /**
+     * Желтый цвет для данных
+     */
+    public val DataDefaultYellowActive: Color = Color(0xFFEDA20C)
+
+    /**
+     * Минорный желтый цвет для данных
+     */
+    public val DataDefaultYellowMinor: Color = Color(0xFFA16B00)
+
+    /**
+     * Минорный желтый цвет для данных
+     */
+    public val DataDefaultYellowMinorHover: Color = Color(0xFFB87A00)
+
+    /**
+     * Минорный желтый цвет для данных
+     */
+    public val DataDefaultYellowMinorActive: Color = Color(0xFF996600)
+
+    /**
+     * Прозрачный желтый цвет для данных
+     */
+    public val DataDefaultYellowTransparent: Color = Color(0x8EF3A912)
+
+    /**
+     * Прозрачный желтый цвет для данных
+     */
+    public val DataDefaultYellowTransparentHover: Color = Color(0xADF3A812)
+
+    /**
+     * Прозрачный желтый цвет для данных
+     */
+    public val DataDefaultYellowTransparentActive: Color = Color(0x80F3A812)
+
+    /**
+     * Желтый цвет для данных на темном фоне
+     */
+    public val DataOnDarkYellow: Color = Color(0xFFF3A912)
+
+    /**
+     * Желтый цвет для данных на темном фоне
+     */
+    public val DataOnDarkYellowHover: Color = Color(0xFFF4B22F)
+
+    /**
+     * Желтый цвет для данных на темном фоне
+     */
+    public val DataOnDarkYellowActive: Color = Color(0xFFEDA20C)
+
+    /**
+     * Минорный желтый цвет для данных на темном фоне
+     */
+    public val DataOnDarkYellowMinor: Color = Color(0xFFA16B00)
+
+    /**
+     * Минорный желтый цвет для данных на темном фоне
+     */
+    public val DataOnDarkYellowMinorHover: Color = Color(0xFFB87A00)
+
+    /**
+     * Минорный желтый цвет для данных на темном фоне
+     */
+    public val DataOnDarkYellowMinorActive: Color = Color(0xFF996600)
+
+    /**
+     * Прозрачный желтый цвет для данных на темном фоне
+     */
+    public val DataOnDarkYellowTransparent: Color = Color(0x8EF3A912)
+
+    /**
+     * Прозрачный желтый цвет для данных на темном фоне
+     */
+    public val DataOnDarkYellowTransparentHover: Color = Color(0xADF3A812)
+
+    /**
+     * Прозрачный желтый цвет для данных на темном фоне
+     */
+    public val DataOnDarkYellowTransparentActive: Color = Color(0x80F3A812)
+
+    /**
+     * Желтый цвет для данных на светлом фоне
+     */
+    public val DataOnLightYellow: Color = Color(0xFFF3A912)
+
+    /**
+     * Желтый цвет для данных на светлом фоне
+     */
+    public val DataOnLightYellowHover: Color = Color(0xFFF4B22F)
+
+    /**
+     * Желтый цвет для данных на светлом фоне
+     */
+    public val DataOnLightYellowActive: Color = Color(0xFFEDA20C)
+
+    /**
+     * Минорный желтый цвет для данных на светлом фоне
+     */
+    public val DataOnLightYellowMinor: Color = Color(0xFFFFD37A)
+
+    /**
+     * Минорный желтый цвет для данных на светлом фоне
+     */
+    public val DataOnLightYellowMinorHover: Color = Color(0xFFFFDA8F)
+
+    /**
+     * Минорный желтый цвет для данных на светлом фоне
+     */
+    public val DataOnLightYellowMinorActive: Color = Color(0xFFFFCF70)
+
+    /**
+     * Прозрачный желтый цвет для данных на светлом фоне
+     */
+    public val DataOnLightYellowTransparent: Color = Color(0x8EF3A912)
+
+    /**
+     * Прозрачный желтый цвет для данных на светлом фоне
+     */
+    public val DataOnLightYellowTransparentHover: Color = Color(0xADF3A812)
+
+    /**
+     * Прозрачный желтый цвет для данных на светлом фоне
+     */
+    public val DataOnLightYellowTransparentActive: Color = Color(0x80F3A812)
+
+    /**
+     * Инвертированный желтый цвет для данных
+     */
+    public val DataInverseYellow: Color = Color(0xFFF3A912)
+
+    /**
+     * Инвертированный желтый цвет для данных
+     */
+    public val DataInverseYellowHover: Color = Color(0xFFF4B22F)
+
+    /**
+     * Инвертированный желтый цвет для данных
+     */
+    public val DataInverseYellowActive: Color = Color(0xFFEDA20C)
+
+    /**
+     * Инвертированный минорный желтый цвет для данных
+     */
+    public val DataInverseYellowMinor: Color = Color(0xFFFFD37A)
+
+    /**
+     * Инвертированный минорный желтый цвет для данных
+     */
+    public val DataInverseYellowMinorHover: Color = Color(0xFFFFDA8F)
+
+    /**
+     * Инвертированный минорный желтый цвет для данных
+     */
+    public val DataInverseYellowMinorActive: Color = Color(0xFFFFCF70)
+
+    /**
+     * Инвертированный прозрачный желтый цвет для данных
+     */
+    public val DataInverseYellowTransparent: Color = Color(0x8EF3A912)
+
+    /**
+     * Инвертированный прозрачный желтый цвет для данных
+     */
+    public val DataInverseYellowTransparentHover: Color = Color(0xADF3A812)
+
+    /**
+     * Инвертированный прозрачный желтый цвет для данных
+     */
+    public val DataInverseYellowTransparentActive: Color = Color(0x80F3A812)
 }
 
 /**
@@ -13811,4 +13991,184 @@ public object LightColorTokens {
      * light outline inverse outlineTransparentAccentBrand
      */
     public val OutlineInverseTransparentAccentBrand: Color = Color(0x47528EFF)
+
+    /**
+     * Желтый цвет для данных
+     */
+    public val DataDefaultYellow: Color = Color(0xFFF3A912)
+
+    /**
+     * Желтый цвет для данных
+     */
+    public val DataDefaultYellowHover: Color = Color(0xFFF5B638)
+
+    /**
+     * Желтый цвет для данных
+     */
+    public val DataDefaultYellowActive: Color = Color(0xFFE49C0C)
+
+    /**
+     * Минорный желтый цвет для данных
+     */
+    public val DataDefaultYellowMinor: Color = Color(0xFFFFD37A)
+
+    /**
+     * Минорный желтый цвет для данных
+     */
+    public val DataDefaultYellowMinorHover: Color = Color(0xFFFFDA8F)
+
+    /**
+     * Минорный желтый цвет для данных
+     */
+    public val DataDefaultYellowMinorActive: Color = Color(0xFFFFCC66)
+
+    /**
+     * Прозрачный желтый цвет для данных
+     */
+    public val DataDefaultYellowTransparent: Color = Color(0x8EF3A912)
+
+    /**
+     * Прозрачный желтый цвет для данных
+     */
+    public val DataDefaultYellowTransparentHover: Color = Color(0x7AF3A812)
+
+    /**
+     * Прозрачный желтый цвет для данных
+     */
+    public val DataDefaultYellowTransparentActive: Color = Color(0x99F3A812)
+
+    /**
+     * Желтый цвет для данных на темном фоне
+     */
+    public val DataOnDarkYellow: Color = Color(0xFFF3A912)
+
+    /**
+     * Желтый цвет для данных на темном фоне
+     */
+    public val DataOnDarkYellowHover: Color = Color(0xFFF5B638)
+
+    /**
+     * Желтый цвет для данных на темном фоне
+     */
+    public val DataOnDarkYellowActive: Color = Color(0xFFE49C0C)
+
+    /**
+     * Минорный желтый цвет для данных на темном фоне
+     */
+    public val DataOnDarkYellowMinor: Color = Color(0xFFA16B00)
+
+    /**
+     * Минорный желтый цвет для данных на темном фоне
+     */
+    public val DataOnDarkYellowMinorHover: Color = Color(0xFFB87A00)
+
+    /**
+     * Минорный желтый цвет для данных на темном фоне
+     */
+    public val DataOnDarkYellowMinorActive: Color = Color(0xFF8F5F00)
+
+    /**
+     * Прозрачный желтый цвет для данных на темном фоне
+     */
+    public val DataOnDarkYellowTransparent: Color = Color(0x8EF3A912)
+
+    /**
+     * Прозрачный желтый цвет для данных на темном фоне
+     */
+    public val DataOnDarkYellowTransparentHover: Color = Color(0x7AF3A812)
+
+    /**
+     * Прозрачный желтый цвет для данных на темном фоне
+     */
+    public val DataOnDarkYellowTransparentActive: Color = Color(0x99F3A812)
+
+    /**
+     * Желтый цвет для данных на светлом фоне
+     */
+    public val DataOnLightYellow: Color = Color(0xFFF3A912)
+
+    /**
+     * Желтый цвет для данных на светлом фоне
+     */
+    public val DataOnLightYellowHover: Color = Color(0xFFF5B638)
+
+    /**
+     * Желтый цвет для данных на светлом фоне
+     */
+    public val DataOnLightYellowActive: Color = Color(0xFFE49C0C)
+
+    /**
+     * Минорный желтый цвет для данных на светлом фоне
+     */
+    public val DataOnLightYellowMinor: Color = Color(0xFFFFD37A)
+
+    /**
+     * Минорный желтый цвет для данных на светлом фоне
+     */
+    public val DataOnLightYellowMinorHover: Color = Color(0xFFFFDA8F)
+
+    /**
+     * Минорный желтый цвет для данных на светлом фоне
+     */
+    public val DataOnLightYellowMinorActive: Color = Color(0xFFFFCC66)
+
+    /**
+     * Прозрачный желтый цвет для данных на светлом фоне
+     */
+    public val DataOnLightYellowTransparent: Color = Color(0x8EF3A912)
+
+    /**
+     * Прозрачный желтый цвет для данных на светлом фоне
+     */
+    public val DataOnLightYellowTransparentHover: Color = Color(0x7AF3A812)
+
+    /**
+     * Прозрачный желтый цвет для данных на светлом фоне
+     */
+    public val DataOnLightYellowTransparentActive: Color = Color(0x99F3A812)
+
+    /**
+     * Инвертированный желтый цвет для данных
+     */
+    public val DataInverseYellow: Color = Color(0xFFF3A912)
+
+    /**
+     * Инвертированный желтый цвет для данных
+     */
+    public val DataInverseYellowHover: Color = Color(0xFFF5B638)
+
+    /**
+     * Инвертированный желтый цвет для данных
+     */
+    public val DataInverseYellowActive: Color = Color(0xFFE49C0C)
+
+    /**
+     * Инвертированный минорный желтый цвет для данных
+     */
+    public val DataInverseYellowMinor: Color = Color(0xFFA16B00)
+
+    /**
+     * Инвертированный минорный желтый цвет для данных
+     */
+    public val DataInverseYellowMinorHover: Color = Color(0xFFB87A00)
+
+    /**
+     * Инвертированный минорный желтый цвет для данных
+     */
+    public val DataInverseYellowMinorActive: Color = Color(0xFF8F5F00)
+
+    /**
+     * Инвертированный прозрачный желтый цвет для данных
+     */
+    public val DataInverseYellowTransparent: Color = Color(0x8EF3A912)
+
+    /**
+     * Инвертированный прозрачный желтый цвет для данных
+     */
+    public val DataInverseYellowTransparentHover: Color = Color(0x7AF3A812)
+
+    /**
+     * Инвертированный прозрачный желтый цвет для данных
+     */
+    public val DataInverseYellowTransparentActive: Color = Color(0x99F3A812)
 }
