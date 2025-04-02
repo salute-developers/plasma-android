@@ -3,19 +3,19 @@ package com.sdds.playground.sandbox.plasma.giga.integration.button.link
 import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.style.style
-import com.sdds.plasma.giga.styles.button.link.Accent
-import com.sdds.plasma.giga.styles.button.link.Default
-import com.sdds.plasma.giga.styles.button.link.L
-import com.sdds.plasma.giga.styles.button.link.LinkButton
-import com.sdds.plasma.giga.styles.button.link.M
-import com.sdds.plasma.giga.styles.button.link.Negative
-import com.sdds.plasma.giga.styles.button.link.Positive
-import com.sdds.plasma.giga.styles.button.link.S
-import com.sdds.plasma.giga.styles.button.link.Secondary
-import com.sdds.plasma.giga.styles.button.link.Warning
-import com.sdds.plasma.giga.styles.button.link.Xl
-import com.sdds.plasma.giga.styles.button.link.Xs
-import com.sdds.plasma.giga.styles.button.link.Xxs
+import com.sdds.plasma.giga.styles.linkbutton.Accent
+import com.sdds.plasma.giga.styles.linkbutton.Default
+import com.sdds.plasma.giga.styles.linkbutton.L
+import com.sdds.plasma.giga.styles.linkbutton.LinkButton
+import com.sdds.plasma.giga.styles.linkbutton.M
+import com.sdds.plasma.giga.styles.linkbutton.Negative
+import com.sdds.plasma.giga.styles.linkbutton.Positive
+import com.sdds.plasma.giga.styles.linkbutton.S
+import com.sdds.plasma.giga.styles.linkbutton.Secondary
+import com.sdds.plasma.giga.styles.linkbutton.Warning
+import com.sdds.plasma.giga.styles.linkbutton.Xl
+import com.sdds.plasma.giga.styles.linkbutton.Xs
+import com.sdds.plasma.giga.styles.linkbutton.Xxs
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 
 internal object PlasmaGigaLinkButtonVariationsCompose : ComposeStyleProvider<String, ButtonStyle>() {

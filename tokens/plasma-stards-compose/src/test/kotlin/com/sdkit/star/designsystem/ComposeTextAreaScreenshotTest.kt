@@ -31,15 +31,8 @@ import com.sdkit.star.designsystem.styles.textarea.M
 import com.sdkit.star.designsystem.styles.textarea.OuterLabel
 import com.sdkit.star.designsystem.styles.textarea.S
 import com.sdkit.star.designsystem.styles.textarea.TextArea
+import com.sdkit.star.designsystem.styles.textarea.TextAreaClear
 import com.sdkit.star.designsystem.styles.textarea.Xs
-import com.sdkit.star.designsystem.styles.textarea.clear.Default
-import com.sdkit.star.designsystem.styles.textarea.clear.Error
-import com.sdkit.star.designsystem.styles.textarea.clear.InnerLabel
-import com.sdkit.star.designsystem.styles.textarea.clear.M
-import com.sdkit.star.designsystem.styles.textarea.clear.OuterLabel
-import com.sdkit.star.designsystem.styles.textarea.clear.S
-import com.sdkit.star.designsystem.styles.textarea.clear.TextAreaClear
-import com.sdkit.star.designsystem.styles.textarea.clear.Xs
 import org.junit.Ignore
 import org.junit.Test
 import org.junit.runner.RunWith

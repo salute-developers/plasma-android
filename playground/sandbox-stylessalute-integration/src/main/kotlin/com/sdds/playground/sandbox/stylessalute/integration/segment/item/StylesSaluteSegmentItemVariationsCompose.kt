@@ -4,14 +4,14 @@ import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.SegmentItemStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
-import com.sdds.stylessalute.styles.segment.item.L
-import com.sdds.stylessalute.styles.segment.item.M
-import com.sdds.stylessalute.styles.segment.item.Pilled
-import com.sdds.stylessalute.styles.segment.item.Primary
-import com.sdds.stylessalute.styles.segment.item.S
-import com.sdds.stylessalute.styles.segment.item.Secondary
-import com.sdds.stylessalute.styles.segment.item.SegmentItem
-import com.sdds.stylessalute.styles.segment.item.Xs
+import com.sdds.stylessalute.styles.segmentitem.L
+import com.sdds.stylessalute.styles.segmentitem.M
+import com.sdds.stylessalute.styles.segmentitem.Pilled
+import com.sdds.stylessalute.styles.segmentitem.Primary
+import com.sdds.stylessalute.styles.segmentitem.S
+import com.sdds.stylessalute.styles.segmentitem.Secondary
+import com.sdds.stylessalute.styles.segmentitem.SegmentItem
+import com.sdds.stylessalute.styles.segmentitem.Xs
 
 internal object StylesSaluteSegmentItemVariationsCompose :
     ComposeStyleProvider<String, SegmentItemStyle>() {

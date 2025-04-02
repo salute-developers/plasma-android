@@ -11,6 +11,13 @@ val Project.themeVersion: String
         ?: throw GradleException("theme version must be specified")
 
 /**
+ * Возвращает версию стилей компонентов или выбрасывает исключение, если версия не указана
+ */
+val Project.componentsVersion: String
+    get() = property("components-version")?.toString()
+        ?: throw GradleException("components version must be specified")
+
+/**
  * Возвращает адрес темы или выбрасывает исключение, если адрес не указан
  */
 val Project.themeUrl: String

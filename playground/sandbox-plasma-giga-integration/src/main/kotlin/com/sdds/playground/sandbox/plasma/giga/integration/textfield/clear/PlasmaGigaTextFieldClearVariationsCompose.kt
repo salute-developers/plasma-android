@@ -3,20 +3,20 @@ package com.sdds.playground.sandbox.plasma.giga.integration.textfield.clear
 import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.style.style
-import com.sdds.plasma.giga.styles.textfield.clear.Default
-import com.sdds.plasma.giga.styles.textfield.clear.Error
-import com.sdds.plasma.giga.styles.textfield.clear.InnerLabel
-import com.sdds.plasma.giga.styles.textfield.clear.L
-import com.sdds.plasma.giga.styles.textfield.clear.M
-import com.sdds.plasma.giga.styles.textfield.clear.OuterLabel
-import com.sdds.plasma.giga.styles.textfield.clear.RequiredEnd
-import com.sdds.plasma.giga.styles.textfield.clear.RequiredStart
-import com.sdds.plasma.giga.styles.textfield.clear.S
-import com.sdds.plasma.giga.styles.textfield.clear.Success
-import com.sdds.plasma.giga.styles.textfield.clear.TextFieldClear
-import com.sdds.plasma.giga.styles.textfield.clear.Warning
-import com.sdds.plasma.giga.styles.textfield.clear.Xl
-import com.sdds.plasma.giga.styles.textfield.clear.Xs
+import com.sdds.plasma.giga.styles.textfield.Default
+import com.sdds.plasma.giga.styles.textfield.Error
+import com.sdds.plasma.giga.styles.textfield.InnerLabel
+import com.sdds.plasma.giga.styles.textfield.L
+import com.sdds.plasma.giga.styles.textfield.M
+import com.sdds.plasma.giga.styles.textfield.OuterLabel
+import com.sdds.plasma.giga.styles.textfield.RequiredEnd
+import com.sdds.plasma.giga.styles.textfield.RequiredStart
+import com.sdds.plasma.giga.styles.textfield.S
+import com.sdds.plasma.giga.styles.textfield.Success
+import com.sdds.plasma.giga.styles.textfield.TextFieldClear
+import com.sdds.plasma.giga.styles.textfield.Warning
+import com.sdds.plasma.giga.styles.textfield.Xl
+import com.sdds.plasma.giga.styles.textfield.Xs
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 
 internal object PlasmaGigaTextFieldClearVariationsCompose : ComposeStyleProvider<String, TextFieldStyle>() {

@@ -4,15 +4,15 @@ import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.SegmentItemStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
-import com.sdkit.star.designsystem.styles.segment.item.L
-import com.sdkit.star.designsystem.styles.segment.item.M
-import com.sdkit.star.designsystem.styles.segment.item.Pilled
-import com.sdkit.star.designsystem.styles.segment.item.Primary
-import com.sdkit.star.designsystem.styles.segment.item.S
-import com.sdkit.star.designsystem.styles.segment.item.Secondary
-import com.sdkit.star.designsystem.styles.segment.item.SegmentItem
-import com.sdkit.star.designsystem.styles.segment.item.Xl
-import com.sdkit.star.designsystem.styles.segment.item.Xs
+import com.sdkit.star.designsystem.styles.segmentitem.L
+import com.sdkit.star.designsystem.styles.segmentitem.M
+import com.sdkit.star.designsystem.styles.segmentitem.Pilled
+import com.sdkit.star.designsystem.styles.segmentitem.Primary
+import com.sdkit.star.designsystem.styles.segmentitem.S
+import com.sdkit.star.designsystem.styles.segmentitem.Secondary
+import com.sdkit.star.designsystem.styles.segmentitem.SegmentItem
+import com.sdkit.star.designsystem.styles.segmentitem.Xl
+import com.sdkit.star.designsystem.styles.segmentitem.Xs
 
 internal object StarDsSegmentItemVariationsCompose :
     ComposeStyleProvider<String, SegmentItemStyle>() {

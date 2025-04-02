@@ -6,8 +6,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.sdds.compose.uikit.CheckBox
 import com.sdds.compose.uikit.CheckBoxGroup
 import com.sdds.playground.sandbox.SandboxTheme
-import com.sdds.serv.styles.checkbox.group.CheckBoxGroup
-import com.sdds.serv.styles.checkbox.group.M
+import com.sdds.serv.styles.checkbboxgroup.CheckBoxGroup
+import com.sdds.serv.styles.checkbboxgroup.M
 
 /**
  * Превью [CheckBoxGroup]

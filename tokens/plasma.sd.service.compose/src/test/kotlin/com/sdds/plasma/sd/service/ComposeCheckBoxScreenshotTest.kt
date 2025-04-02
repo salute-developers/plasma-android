@@ -4,9 +4,9 @@ import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.sdds.plasma.sd.service.styles.checkbox.CheckBox
 import com.sdds.plasma.sd.service.styles.checkbox.M
 import com.sdds.plasma.sd.service.styles.checkbox.S
-import com.sdds.plasma.sd.service.styles.checkbox.group.CheckBoxGroup
-import com.sdds.plasma.sd.service.styles.checkbox.group.M
-import com.sdds.plasma.sd.service.styles.checkbox.group.S
+import com.sdds.plasma.sd.service.styles.checkboxgroup.CheckBoxGroup
+import com.sdds.plasma.sd.service.styles.checkboxgroup.M
+import com.sdds.plasma.sd.service.styles.checkboxgroup.S
 import com.sdds.testing.compose.RoborazziConfigCompose
 import com.sdds.testing.compose.checkbox.CheckBoxGroupSizeM
 import com.sdds.testing.compose.checkbox.CheckBoxGroupSizeMDisabled

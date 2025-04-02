@@ -4,23 +4,23 @@ import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
-import com.sdds.serv.styles.button.basic.Accent
-import com.sdds.serv.styles.button.basic.BasicButton
-import com.sdds.serv.styles.button.basic.Black
-import com.sdds.serv.styles.button.basic.Clear
-import com.sdds.serv.styles.button.basic.Dark
-import com.sdds.serv.styles.button.basic.Default
-import com.sdds.serv.styles.button.basic.L
-import com.sdds.serv.styles.button.basic.M
-import com.sdds.serv.styles.button.basic.Negative
-import com.sdds.serv.styles.button.basic.Positive
-import com.sdds.serv.styles.button.basic.S
-import com.sdds.serv.styles.button.basic.Secondary
-import com.sdds.serv.styles.button.basic.Warning
-import com.sdds.serv.styles.button.basic.White
-import com.sdds.serv.styles.button.basic.Xl
-import com.sdds.serv.styles.button.basic.Xs
-import com.sdds.serv.styles.button.basic.Xxs
+import com.sdds.serv.styles.basicbutton.Accent
+import com.sdds.serv.styles.basicbutton.BasicButton
+import com.sdds.serv.styles.basicbutton.Black
+import com.sdds.serv.styles.basicbutton.Clear
+import com.sdds.serv.styles.basicbutton.Dark
+import com.sdds.serv.styles.basicbutton.Default
+import com.sdds.serv.styles.basicbutton.L
+import com.sdds.serv.styles.basicbutton.M
+import com.sdds.serv.styles.basicbutton.Negative
+import com.sdds.serv.styles.basicbutton.Positive
+import com.sdds.serv.styles.basicbutton.S
+import com.sdds.serv.styles.basicbutton.Secondary
+import com.sdds.serv.styles.basicbutton.Warning
+import com.sdds.serv.styles.basicbutton.White
+import com.sdds.serv.styles.basicbutton.Xl
+import com.sdds.serv.styles.basicbutton.Xs
+import com.sdds.serv.styles.basicbutton.Xxs
 
 internal object SddsServBasicButtonVariationsCompose : ComposeStyleProvider<String, ButtonStyle>() {
 

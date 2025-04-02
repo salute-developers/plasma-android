@@ -17,6 +17,7 @@ open class ThemeBuilderExtension {
     internal var viewThemeParents: Set<ViewThemeParent> = emptySet()
     internal var viewShapeAppearanceConfig: Set<ShapeAppearanceConfig> = emptySet()
     internal var themeSource: ThemeBuilderSource? = null
+    internal var componentSource: ThemeBuilderSource? = null
     internal var componentsSource: String? = null
     internal var paletteUrl: String = DEFAULT_PALETTE_URL
     internal var mode: ThemeBuilderMode = ThemeBuilderMode.TOKENS_ONLY
@@ -33,6 +34,40 @@ open class ThemeBuilderExtension {
     )
     fun componentsSource(url: String) {
         this.componentsSource = url
+    }
+
+    /**
+     * Устанавливает источник компонентов по [url]
+     */
+    fun componentSource(url: String) {
+        this.componentSource = ThemeBuilderSource.withUrl(url)
+    }
+
+    /**
+     * Устанавливает источник компонентов по имени [name] и версии [version]
+     */
+    fun componentSource(
+        name: String,
+        version: String = ThemeSourceBuilder.VERSION_LATEST,
+        alias: String = name,
+    ) {
+        componentSource = ThemeBuilderSource.withNameAndVersion(name, version, alias)
+    }
+
+    /**
+     * Конфигурирует источник компонентов
+     */
+    fun componentSource(sourceBuilder: ThemeSourceBuilder.() -> Unit) {
+        val builder = ThemeSourceBuilder().apply(sourceBuilder)
+        val name = builder.name
+        val url = builder.url
+        val version = builder.version
+        val alias = builder.alias
+        componentSource = if (url != null) {
+            ThemeBuilderSource.withUrl(url, name)
+        } else {
+            ThemeBuilderSource.withNameAndVersion(name, version, alias)
+        }
     }
 
     /**

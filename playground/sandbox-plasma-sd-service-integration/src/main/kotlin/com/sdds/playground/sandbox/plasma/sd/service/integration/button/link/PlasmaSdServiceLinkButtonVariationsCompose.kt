@@ -3,19 +3,19 @@ package com.sdds.playground.sandbox.plasma.sd.service.integration.button.link
 import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.style.style
-import com.sdds.plasma.sd.service.styles.button.link.Accent
-import com.sdds.plasma.sd.service.styles.button.link.Default
-import com.sdds.plasma.sd.service.styles.button.link.L
-import com.sdds.plasma.sd.service.styles.button.link.LinkButton
-import com.sdds.plasma.sd.service.styles.button.link.M
-import com.sdds.plasma.sd.service.styles.button.link.Negative
-import com.sdds.plasma.sd.service.styles.button.link.Positive
-import com.sdds.plasma.sd.service.styles.button.link.S
-import com.sdds.plasma.sd.service.styles.button.link.Secondary
-import com.sdds.plasma.sd.service.styles.button.link.Warning
-import com.sdds.plasma.sd.service.styles.button.link.Xl
-import com.sdds.plasma.sd.service.styles.button.link.Xs
-import com.sdds.plasma.sd.service.styles.button.link.Xxs
+import com.sdds.plasma.sd.service.styles.linkbutton.Accent
+import com.sdds.plasma.sd.service.styles.linkbutton.Default
+import com.sdds.plasma.sd.service.styles.linkbutton.L
+import com.sdds.plasma.sd.service.styles.linkbutton.LinkButton
+import com.sdds.plasma.sd.service.styles.linkbutton.M
+import com.sdds.plasma.sd.service.styles.linkbutton.Negative
+import com.sdds.plasma.sd.service.styles.linkbutton.Positive
+import com.sdds.plasma.sd.service.styles.linkbutton.S
+import com.sdds.plasma.sd.service.styles.linkbutton.Secondary
+import com.sdds.plasma.sd.service.styles.linkbutton.Warning
+import com.sdds.plasma.sd.service.styles.linkbutton.Xl
+import com.sdds.plasma.sd.service.styles.linkbutton.Xs
+import com.sdds.plasma.sd.service.styles.linkbutton.Xxs
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 
 internal object PlasmaSdServiceLinkButtonVariationsCompose : ComposeStyleProvider<String, ButtonStyle>() {

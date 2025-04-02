@@ -650,6 +650,7 @@ internal class KtFileBuilder(
         val TypeAnnotationJvmInline = ClassName("kotlin.jvm", listOf("JvmInline"))
         val TypeAnnotationJvmName = ClassName("kotlin.jvm", listOf("JvmName"))
         val TypeAnnotationReadOnlyComposable = ClassName("androidx.compose.runtime", listOf("ReadOnlyComposable"))
+        val TypeAnnotationKeep = ClassName("androidx.annotation", listOf("Keep"))
         val TypeProvidableCompositionLocal =
             ClassName("androidx.compose.runtime", listOf("ProvidableCompositionLocal"))
         val TypeLocalDensity =

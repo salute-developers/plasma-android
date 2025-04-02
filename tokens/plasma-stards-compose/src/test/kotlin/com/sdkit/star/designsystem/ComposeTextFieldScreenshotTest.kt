@@ -33,15 +33,8 @@ import com.sdkit.star.designsystem.styles.textfield.M
 import com.sdkit.star.designsystem.styles.textfield.OuterLabel
 import com.sdkit.star.designsystem.styles.textfield.S
 import com.sdkit.star.designsystem.styles.textfield.TextField
+import com.sdkit.star.designsystem.styles.textfield.TextFieldClear
 import com.sdkit.star.designsystem.styles.textfield.Xs
-import com.sdkit.star.designsystem.styles.textfield.clear.Default
-import com.sdkit.star.designsystem.styles.textfield.clear.Error
-import com.sdkit.star.designsystem.styles.textfield.clear.InnerLabel
-import com.sdkit.star.designsystem.styles.textfield.clear.M
-import com.sdkit.star.designsystem.styles.textfield.clear.OuterLabel
-import com.sdkit.star.designsystem.styles.textfield.clear.S
-import com.sdkit.star.designsystem.styles.textfield.clear.TextFieldClear
-import com.sdkit.star.designsystem.styles.textfield.clear.Xs
 import org.junit.Ignore
 import org.junit.Test
 import org.junit.runner.RunWith

@@ -4,19 +4,19 @@ import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.BadgeStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
-import com.sdds.stylessalute.styles.badge.icon.Accent
-import com.sdds.stylessalute.styles.badge.icon.Dark
-import com.sdds.stylessalute.styles.badge.icon.Default
-import com.sdds.stylessalute.styles.badge.icon.IconBadgeClear
-import com.sdds.stylessalute.styles.badge.icon.L
-import com.sdds.stylessalute.styles.badge.icon.Light
-import com.sdds.stylessalute.styles.badge.icon.M
-import com.sdds.stylessalute.styles.badge.icon.Negative
-import com.sdds.stylessalute.styles.badge.icon.Pilled
-import com.sdds.stylessalute.styles.badge.icon.Positive
-import com.sdds.stylessalute.styles.badge.icon.S
-import com.sdds.stylessalute.styles.badge.icon.Warning
-import com.sdds.stylessalute.styles.badge.icon.Xs
+import com.sdds.stylessalute.styles.iconbadge.Accent
+import com.sdds.stylessalute.styles.iconbadge.Dark
+import com.sdds.stylessalute.styles.iconbadge.Default
+import com.sdds.stylessalute.styles.iconbadge.IconBadgeClear
+import com.sdds.stylessalute.styles.iconbadge.L
+import com.sdds.stylessalute.styles.iconbadge.Light
+import com.sdds.stylessalute.styles.iconbadge.M
+import com.sdds.stylessalute.styles.iconbadge.Negative
+import com.sdds.stylessalute.styles.iconbadge.Pilled
+import com.sdds.stylessalute.styles.iconbadge.Positive
+import com.sdds.stylessalute.styles.iconbadge.S
+import com.sdds.stylessalute.styles.iconbadge.Warning
+import com.sdds.stylessalute.styles.iconbadge.Xs
 
 internal object StylesSaluteIconBadgeClearVariationsCompose :
     ComposeStyleProvider<String, BadgeStyle>() {
