@@ -14,9 +14,9 @@ import com.sdds.testing.vs.SDK_NUMBER
 import com.sdkit.star.designsystem.styles.radiobox.M
 import com.sdkit.star.designsystem.styles.radiobox.RadioBox
 import com.sdkit.star.designsystem.styles.radiobox.S
-import com.sdkit.star.designsystem.styles.radiobox.group.M
-import com.sdkit.star.designsystem.styles.radiobox.group.RadioBoxGroup
-import com.sdkit.star.designsystem.styles.radiobox.group.S
+import com.sdkit.star.designsystem.styles.radioboxgroup.M
+import com.sdkit.star.designsystem.styles.radioboxgroup.RadioBoxGroup
+import com.sdkit.star.designsystem.styles.radioboxgroup.S
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner

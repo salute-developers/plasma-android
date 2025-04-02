@@ -14,9 +14,9 @@ import com.sdds.testing.vs.SDK_NUMBER
 import com.sdkit.star.designsystem.styles.checkbox.CheckBox
 import com.sdkit.star.designsystem.styles.checkbox.M
 import com.sdkit.star.designsystem.styles.checkbox.S
-import com.sdkit.star.designsystem.styles.checkbox.group.CheckBoxGroup
-import com.sdkit.star.designsystem.styles.checkbox.group.M
-import com.sdkit.star.designsystem.styles.checkbox.group.S
+import com.sdkit.star.designsystem.styles.checkboxgroup.CheckBoxGroup
+import com.sdkit.star.designsystem.styles.checkboxgroup.M
+import com.sdkit.star.designsystem.styles.checkboxgroup.S
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
