@@ -4196,6 +4196,186 @@ public object DarkColorTokens {
      * dark outline inverse outlineSolidDefaultActive
      */
     public val OutlineInverseSolidDefaultActive: Color = Color(0xFFC7C7C7)
+
+    /**
+     * Желтый цвет для данных
+     */
+    public val DataDefaultYellow: Color = Color(0xFFF3A912)
+
+    /**
+     * Желтый цвет для данных
+     */
+    public val DataDefaultYellowHover: Color = Color(0xFFF4B22F)
+
+    /**
+     * Желтый цвет для данных
+     */
+    public val DataDefaultYellowActive: Color = Color(0xFFEDA20C)
+
+    /**
+     * Минорный желтый цвет для данных
+     */
+    public val DataDefaultYellowMinor: Color = Color(0xFFA16B00)
+
+    /**
+     * Минорный желтый цвет для данных
+     */
+    public val DataDefaultYellowMinorHover: Color = Color(0xFFB87A00)
+
+    /**
+     * Минорный желтый цвет для данных
+     */
+    public val DataDefaultYellowMinorActive: Color = Color(0xFF996600)
+
+    /**
+     * Прозрачный желтый цвет для данных
+     */
+    public val DataDefaultYellowTransparent: Color = Color(0x8EF3A912)
+
+    /**
+     * Прозрачный желтый цвет для данных
+     */
+    public val DataDefaultYellowTransparentHover: Color = Color(0xADF3A812)
+
+    /**
+     * Прозрачный желтый цвет для данных
+     */
+    public val DataDefaultYellowTransparentActive: Color = Color(0x80F3A812)
+
+    /**
+     * Желтый цвет для данных на темном фоне
+     */
+    public val DataOnDarkYellow: Color = Color(0xFFF3A912)
+
+    /**
+     * Желтый цвет для данных на темном фоне
+     */
+    public val DataOnDarkYellowHover: Color = Color(0xFFF4B22F)
+
+    /**
+     * Желтый цвет для данных на темном фоне
+     */
+    public val DataOnDarkYellowActive: Color = Color(0xFFEDA20C)
+
+    /**
+     * Минорный желтый цвет для данных на темном фоне
+     */
+    public val DataOnDarkYellowMinor: Color = Color(0xFFA16B00)
+
+    /**
+     * Минорный желтый цвет для данных на темном фоне
+     */
+    public val DataOnDarkYellowMinorHover: Color = Color(0xFFB87A00)
+
+    /**
+     * Минорный желтый цвет для данных на темном фоне
+     */
+    public val DataOnDarkYellowMinorActive: Color = Color(0xFF996600)
+
+    /**
+     * Прозрачный желтый цвет для данных на темном фоне
+     */
+    public val DataOnDarkYellowTransparent: Color = Color(0x8EF3A912)
+
+    /**
+     * Прозрачный желтый цвет для данных на темном фоне
+     */
+    public val DataOnDarkYellowTransparentHover: Color = Color(0xADF3A812)
+
+    /**
+     * Прозрачный желтый цвет для данных на темном фоне
+     */
+    public val DataOnDarkYellowTransparentActive: Color = Color(0x80F3A812)
+
+    /**
+     * Желтый цвет для данных на светлом фоне
+     */
+    public val DataOnLightYellow: Color = Color(0xFFF3A912)
+
+    /**
+     * Желтый цвет для данных на светлом фоне
+     */
+    public val DataOnLightYellowHover: Color = Color(0xFFF4B22F)
+
+    /**
+     * Желтый цвет для данных на светлом фоне
+     */
+    public val DataOnLightYellowActive: Color = Color(0xFFEDA20C)
+
+    /**
+     * Минорный желтый цвет для данных на светлом фоне
+     */
+    public val DataOnLightYellowMinor: Color = Color(0xFFFFD37A)
+
+    /**
+     * Минорный желтый цвет для данных на светлом фоне
+     */
+    public val DataOnLightYellowMinorHover: Color = Color(0xFFFFDA8F)
+
+    /**
+     * Минорный желтый цвет для данных на светлом фоне
+     */
+    public val DataOnLightYellowMinorActive: Color = Color(0xFFFFCF70)
+
+    /**
+     * Прозрачный желтый цвет для данных на светлом фоне
+     */
+    public val DataOnLightYellowTransparent: Color = Color(0x8EF3A912)
+
+    /**
+     * Прозрачный желтый цвет для данных на светлом фоне
+     */
+    public val DataOnLightYellowTransparentHover: Color = Color(0xADF3A812)
+
+    /**
+     * Прозрачный желтый цвет для данных на светлом фоне
+     */
+    public val DataOnLightYellowTransparentActive: Color = Color(0x80F3A812)
+
+    /**
+     * Инвертированный желтый цвет для данных
+     */
+    public val DataInverseYellow: Color = Color(0xFFF3A912)
+
+    /**
+     * Инвертированный желтый цвет для данных
+     */
+    public val DataInverseYellowHover: Color = Color(0xFFF4B22F)
+
+    /**
+     * Инвертированный желтый цвет для данных
+     */
+    public val DataInverseYellowActive: Color = Color(0xFFEDA20C)
+
+    /**
+     * Инвертированный минорный желтый цвет для данных
+     */
+    public val DataInverseYellowMinor: Color = Color(0xFFFFD37A)
+
+    /**
+     * Инвертированный минорный желтый цвет для данных
+     */
+    public val DataInverseYellowMinorHover: Color = Color(0xFFFFDA8F)
+
+    /**
+     * Инвертированный минорный желтый цвет для данных
+     */
+    public val DataInverseYellowMinorActive: Color = Color(0xFFFFCF70)
+
+    /**
+     * Инвертированный прозрачный желтый цвет для данных
+     */
+    public val DataInverseYellowTransparent: Color = Color(0x8EF3A912)
+
+    /**
+     * Инвертированный прозрачный желтый цвет для данных
+     */
+    public val DataInverseYellowTransparentHover: Color = Color(0xADF3A812)
+
+    /**
+     * Инвертированный прозрачный желтый цвет для данных
+     */
+    public val DataInverseYellowTransparentActive: Color = Color(0x80F3A812)
 }
 
 /**
@@ -7208,24 +7388,14 @@ public object LightColorTokens {
     public val OutlineDefaultTransparentInfo: Color = Color(0x332A72F8)
 
     /**
-     * light outline default outlineSolidPrimary
-     */
-    public val OutlineDefaultSolidPrimary: Color = Color(0xFF262626)
-
-    /**
      * light outline default outlineSolidPrimaryHover
      */
-    public val OutlineDefaultSolidPrimaryHover: Color = Color(0xFF787878)
+    public val OutlineDefaultSolidPrimaryHover: Color = Color(0xFFFFFFFF)
 
     /**
      * light outline default outlineSolidPrimaryActive
      */
-    public val OutlineDefaultSolidPrimaryActive: Color = Color(0xFF4F4F4F)
-
-    /**
-     * light outline default outlineSolidSecondary
-     */
-    public val OutlineDefaultSolidSecondary: Color = Color(0xFF4E4E4E)
+    public val OutlineDefaultSolidPrimaryActive: Color = Color(0xFFB3B3B3)
 
     /**
      * light outline default outlineSolidSecondaryHover
@@ -7235,12 +7405,7 @@ public object LightColorTokens {
     /**
      * light outline default outlineSolidSecondaryActive
      */
-    public val OutlineDefaultSolidSecondaryActive: Color = Color(0xFF404040)
-
-    /**
-     * light outline default outlineSolidTertiary
-     */
-    public val OutlineDefaultSolidTertiary: Color = Color(0xFF707070)
+    public val OutlineDefaultSolidSecondaryActive: Color = Color(0xFF757575)
 
     /**
      * light outline default outlineSolidTertiaryHover
@@ -7253,19 +7418,34 @@ public object LightColorTokens {
     public val OutlineDefaultSolidTertiaryActive: Color = Color(0xFF595959)
 
     /**
-     * light outline default outlineSolidDefault
-     */
-    public val OutlineDefaultSolidDefault: Color = Color(0xFFF9F9F9)
-
-    /**
      * light outline default outlineSolidDefaultHover
      */
-    public val OutlineDefaultSolidDefaultHover: Color = Color(0xFFFFFFFF)
+    public val OutlineDefaultSolidDefaultHover: Color = Color(0xFF595959)
 
     /**
      * light outline default outlineSolidDefaultActive
      */
-    public val OutlineDefaultSolidDefaultActive: Color = Color(0xFFC7C7C7)
+    public val OutlineDefaultSolidDefaultActive: Color = Color(0xFF303030)
+
+    /**
+     * light outline default outlineSolidPrimary
+     */
+    public val OutlineDefaultSolidPrimary: Color = Color(0xFFDDDDDD)
+
+    /**
+     * light outline default outlineSolidSecondary
+     */
+    public val OutlineDefaultSolidSecondary: Color = Color(0xFF949494)
+
+    /**
+     * light outline default outlineSolidTertiary
+     */
+    public val OutlineDefaultSolidTertiary: Color = Color(0xFF707070)
+
+    /**
+     * light outline default outlineSolidDefault
+     */
+    public val OutlineDefaultSolidDefault: Color = Color(0xFF080808)
 
     /**
      * light outline onDark outlineSecondaryHover
@@ -7948,11 +8128,6 @@ public object LightColorTokens {
     public val OutlineOnLightTransparentInfo: Color = Color(0x332A72F8)
 
     /**
-     * light outline onLight outlineSolidTertiary
-     */
-    public val OutlineOnLightSolidTertiary: Color = Color(0xFF707070)
-
-    /**
      * light outline onLight outlineSolidTertiaryHover
      */
     public val OutlineOnLightSolidTertiaryHover: Color = Color(0xFFFFFFFF)
@@ -7961,11 +8136,6 @@ public object LightColorTokens {
      * light outline onLight outlineSolidTertiaryActive
      */
     public val OutlineOnLightSolidTertiaryActive: Color = Color(0xFF595959)
-
-    /**
-     * light outline onLight outlineSolidDefault
-     */
-    public val OutlineOnLightSolidDefault: Color = Color(0xFF080808)
 
     /**
      * light outline onLight outlineSolidDefaultHover
@@ -7978,11 +8148,6 @@ public object LightColorTokens {
     public val OutlineOnLightSolidDefaultActive: Color = Color(0xFF303030)
 
     /**
-     * light outline onLight outlineSolidPrimary
-     */
-    public val OutlineOnLightSolidPrimary: Color = Color(0xFFDDDDDD)
-
-    /**
      * light outline onLight outlineSolidPrimaryHover
      */
     public val OutlineOnLightSolidPrimaryHover: Color = Color(0xFFFFFFFF)
@@ -7993,11 +8158,6 @@ public object LightColorTokens {
     public val OutlineOnLightSolidPrimaryActive: Color = Color(0xFFB3B3B3)
 
     /**
-     * light outline onLight outlineSolidSecondary
-     */
-    public val OutlineOnLightSolidSecondary: Color = Color(0xFF949494)
-
-    /**
      * light outline onLight outlineSolidSecondaryHover
      */
     public val OutlineOnLightSolidSecondaryHover: Color = Color(0xFFFFFFFF)
@@ -8006,6 +8166,26 @@ public object LightColorTokens {
      * light outline onLight outlineSolidSecondaryActive
      */
     public val OutlineOnLightSolidSecondaryActive: Color = Color(0xFF757575)
+
+    /**
+     * light outline onLight outlineSolidPrimary
+     */
+    public val OutlineOnLightSolidPrimary: Color = Color(0xFFDDDDDD)
+
+    /**
+     * light outline onLight outlineSolidSecondary
+     */
+    public val OutlineOnLightSolidSecondary: Color = Color(0xFF949494)
+
+    /**
+     * light outline onLight outlineSolidTertiary
+     */
+    public val OutlineOnLightSolidTertiary: Color = Color(0xFF707070)
+
+    /**
+     * light outline onLight outlineSolidDefault
+     */
+    public val OutlineOnLightSolidDefault: Color = Color(0xFF080808)
 
     /**
      * light outline inverse outlinePrimaryHover
@@ -8333,24 +8513,14 @@ public object LightColorTokens {
     public val OutlineInverseTransparentInfo: Color = Color(0x473F81FD)
 
     /**
-     * light outline inverse outlineSolidPrimary
-     */
-    public val OutlineInverseSolidPrimary: Color = Color(0xFFDDDDDD)
-
-    /**
      * light outline inverse outlineSolidPrimaryHover
      */
-    public val OutlineInverseSolidPrimaryHover: Color = Color(0xFFFFFFFF)
+    public val OutlineInverseSolidPrimaryHover: Color = Color(0xFF787878)
 
     /**
      * light outline inverse outlineSolidPrimaryActive
      */
-    public val OutlineInverseSolidPrimaryActive: Color = Color(0xFFB3B3B3)
-
-    /**
-     * light outline inverse outlineSolidSecondary
-     */
-    public val OutlineInverseSolidSecondary: Color = Color(0xFF949494)
+    public val OutlineInverseSolidPrimaryActive: Color = Color(0xFF4F4F4F)
 
     /**
      * light outline inverse outlineSolidSecondaryHover
@@ -8360,12 +8530,7 @@ public object LightColorTokens {
     /**
      * light outline inverse outlineSolidSecondaryActive
      */
-    public val OutlineInverseSolidSecondaryActive: Color = Color(0xFF757575)
-
-    /**
-     * light outline inverse outlineSolidTertiary
-     */
-    public val OutlineInverseSolidTertiary: Color = Color(0xFF707070)
+    public val OutlineInverseSolidSecondaryActive: Color = Color(0xFF404040)
 
     /**
      * light outline inverse outlineSolidTertiaryHover
@@ -8378,11 +8543,6 @@ public object LightColorTokens {
     public val OutlineInverseSolidTertiaryActive: Color = Color(0xFF595959)
 
     /**
-     * light outline inverse outlineSolidDefault
-     */
-    public val OutlineInverseSolidDefault: Color = Color(0xFF080808)
-
-    /**
      * light outline inverse outlineSolidDefaultHover
      */
     public val OutlineInverseSolidDefaultHover: Color = Color(0xFF595959)
@@ -8391,4 +8551,204 @@ public object LightColorTokens {
      * light outline inverse outlineSolidDefaultActive
      */
     public val OutlineInverseSolidDefaultActive: Color = Color(0xFF303030)
+
+    /**
+     * light outline inverse outlineSolidPrimary
+     */
+    public val OutlineInverseSolidPrimary: Color = Color(0xFF262626)
+
+    /**
+     * light outline inverse outlineSolidSecondary
+     */
+    public val OutlineInverseSolidSecondary: Color = Color(0xFF4E4E4E)
+
+    /**
+     * light outline inverse outlineSolidTertiary
+     */
+    public val OutlineInverseSolidTertiary: Color = Color(0xFF707070)
+
+    /**
+     * light outline inverse outlineSolidDefault
+     */
+    public val OutlineInverseSolidDefault: Color = Color(0xFF080808)
+
+    /**
+     * Желтый цвет для данных
+     */
+    public val DataDefaultYellow: Color = Color(0xFFF3A912)
+
+    /**
+     * Желтый цвет для данных
+     */
+    public val DataDefaultYellowHover: Color = Color(0xFFF5B638)
+
+    /**
+     * Желтый цвет для данных
+     */
+    public val DataDefaultYellowActive: Color = Color(0xFFE49C0C)
+
+    /**
+     * Минорный желтый цвет для данных
+     */
+    public val DataDefaultYellowMinor: Color = Color(0xFFFFD37A)
+
+    /**
+     * Минорный желтый цвет для данных
+     */
+    public val DataDefaultYellowMinorHover: Color = Color(0xFFFFDA8F)
+
+    /**
+     * Минорный желтый цвет для данных
+     */
+    public val DataDefaultYellowMinorActive: Color = Color(0xFFFFCC66)
+
+    /**
+     * Прозрачный желтый цвет для данных
+     */
+    public val DataDefaultYellowTransparent: Color = Color(0x8EF3A912)
+
+    /**
+     * Прозрачный желтый цвет для данных
+     */
+    public val DataDefaultYellowTransparentHover: Color = Color(0x7AF3A812)
+
+    /**
+     * Прозрачный желтый цвет для данных
+     */
+    public val DataDefaultYellowTransparentActive: Color = Color(0x99F3A812)
+
+    /**
+     * Желтый цвет для данных на темном фоне
+     */
+    public val DataOnDarkYellow: Color = Color(0xFFF3A912)
+
+    /**
+     * Желтый цвет для данных на темном фоне
+     */
+    public val DataOnDarkYellowHover: Color = Color(0xFFF5B638)
+
+    /**
+     * Желтый цвет для данных на темном фоне
+     */
+    public val DataOnDarkYellowActive: Color = Color(0xFFE49C0C)
+
+    /**
+     * Минорный желтый цвет для данных на темном фоне
+     */
+    public val DataOnDarkYellowMinor: Color = Color(0xFFA16B00)
+
+    /**
+     * Минорный желтый цвет для данных на темном фоне
+     */
+    public val DataOnDarkYellowMinorHover: Color = Color(0xFFB87A00)
+
+    /**
+     * Минорный желтый цвет для данных на темном фоне
+     */
+    public val DataOnDarkYellowMinorActive: Color = Color(0xFF8F5F00)
+
+    /**
+     * Прозрачный желтый цвет для данных на темном фоне
+     */
+    public val DataOnDarkYellowTransparent: Color = Color(0x8EF3A912)
+
+    /**
+     * Прозрачный желтый цвет для данных на темном фоне
+     */
+    public val DataOnDarkYellowTransparentHover: Color = Color(0x7AF3A812)
+
+    /**
+     * Прозрачный желтый цвет для данных на темном фоне
+     */
+    public val DataOnDarkYellowTransparentActive: Color = Color(0x99F3A812)
+
+    /**
+     * Желтый цвет для данных на светлом фоне
+     */
+    public val DataOnLightYellow: Color = Color(0xFFF3A912)
+
+    /**
+     * Желтый цвет для данных на светлом фоне
+     */
+    public val DataOnLightYellowHover: Color = Color(0xFFF5B638)
+
+    /**
+     * Желтый цвет для данных на светлом фоне
+     */
+    public val DataOnLightYellowActive: Color = Color(0xFFE49C0C)
+
+    /**
+     * Минорный желтый цвет для данных на светлом фоне
+     */
+    public val DataOnLightYellowMinor: Color = Color(0xFFFFD37A)
+
+    /**
+     * Минорный желтый цвет для данных на светлом фоне
+     */
+    public val DataOnLightYellowMinorHover: Color = Color(0xFFFFDA8F)
+
+    /**
+     * Минорный желтый цвет для данных на светлом фоне
+     */
+    public val DataOnLightYellowMinorActive: Color = Color(0xFFFFCC66)
+
+    /**
+     * Прозрачный желтый цвет для данных на светлом фоне
+     */
+    public val DataOnLightYellowTransparent: Color = Color(0x8EF3A912)
+
+    /**
+     * Прозрачный желтый цвет для данных на светлом фоне
+     */
+    public val DataOnLightYellowTransparentHover: Color = Color(0x7AF3A812)
+
+    /**
+     * Прозрачный желтый цвет для данных на светлом фоне
+     */
+    public val DataOnLightYellowTransparentActive: Color = Color(0x99F3A812)
+
+    /**
+     * Инвертированный желтый цвет для данных
+     */
+    public val DataInverseYellow: Color = Color(0xFFF3A912)
+
+    /**
+     * Инвертированный желтый цвет для данных
+     */
+    public val DataInverseYellowHover: Color = Color(0xFFF5B638)
+
+    /**
+     * Инвертированный желтый цвет для данных
+     */
+    public val DataInverseYellowActive: Color = Color(0xFFE49C0C)
+
+    /**
+     * Инвертированный минорный желтый цвет для данных
+     */
+    public val DataInverseYellowMinor: Color = Color(0xFFA16B00)
+
+    /**
+     * Инвертированный минорный желтый цвет для данных
+     */
+    public val DataInverseYellowMinorHover: Color = Color(0xFFB87A00)
+
+    /**
+     * Инвертированный минорный желтый цвет для данных
+     */
+    public val DataInverseYellowMinorActive: Color = Color(0xFF8F5F00)
+
+    /**
+     * Инвертированный прозрачный желтый цвет для данных
+     */
+    public val DataInverseYellowTransparent: Color = Color(0x8EF3A912)
+
+    /**
+     * Инвертированный прозрачный желтый цвет для данных
+     */
+    public val DataInverseYellowTransparentHover: Color = Color(0x7AF3A812)
+
+    /**
+     * Инвертированный прозрачный желтый цвет для данных
+     */
+    public val DataInverseYellowTransparentActive: Color = Color(0x99F3A812)
 }
