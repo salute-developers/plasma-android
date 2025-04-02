@@ -139,4 +139,72 @@
     <style name="Sdkit.StarDs.Typography.TextXsBold">
         <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.TextXsBold</item>
     </style>
+    <!--typography s display-l-medium-->
+    <style name="Sdkit.StarDs.Typography.DisplayLMedium">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.DisplayLMedium</item>
+    </style>
+    <!--typography s display-m-medium-->
+    <style name="Sdkit.StarDs.Typography.DisplayMMedium">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.DisplayMMedium</item>
+    </style>
+    <!--typography s display-s-medium-->
+    <style name="Sdkit.StarDs.Typography.DisplaySMedium">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.DisplaySMedium</item>
+    </style>
+    <!--typography s header-h1-medium-->
+    <style name="Sdkit.StarDs.Typography.HeaderH1Medium">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.HeaderH1Medium</item>
+    </style>
+    <!--typography s header-h2-medium-->
+    <style name="Sdkit.StarDs.Typography.HeaderH2Medium">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.HeaderH2Medium</item>
+    </style>
+    <!--typography s header-h3-medium-->
+    <style name="Sdkit.StarDs.Typography.HeaderH3Medium">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.HeaderH3Medium</item>
+    </style>
+    <!--typography s header-h4-medium-->
+    <style name="Sdkit.StarDs.Typography.HeaderH4Medium">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.HeaderH4Medium</item>
+    </style>
+    <!--typography s header-h5-medium-->
+    <style name="Sdkit.StarDs.Typography.HeaderH5Medium">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.HeaderH5Medium</item>
+    </style>
+    <!--typography s body-l-medium-->
+    <style name="Sdkit.StarDs.Typography.BodyLMedium">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodyLMedium</item>
+    </style>
+    <!--typography s body-m-medium-->
+    <style name="Sdkit.StarDs.Typography.BodyMMedium">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodyMMedium</item>
+    </style>
+    <!--typography s body-s-medium-->
+    <style name="Sdkit.StarDs.Typography.BodySMedium">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodySMedium</item>
+    </style>
+    <!--typography s body-xs-medium-->
+    <style name="Sdkit.StarDs.Typography.BodyXsMedium">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXsMedium</item>
+    </style>
+    <!--typography s body-xxs-medium-->
+    <style name="Sdkit.StarDs.Typography.BodyXxsMedium">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXxsMedium</item>
+    </style>
+    <!--typography s text-l-medium-->
+    <style name="Sdkit.StarDs.Typography.TextLMedium">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.TextLMedium</item>
+    </style>
+    <!--typography s text-m-medium-->
+    <style name="Sdkit.StarDs.Typography.TextMMedium">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.TextMMedium</item>
+    </style>
+    <!--typography s text-s-medium-->
+    <style name="Sdkit.StarDs.Typography.TextSMedium">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.TextSMedium</item>
+    </style>
+    <!--typography s text-xs-medium-->
+    <style name="Sdkit.StarDs.Typography.TextXsMedium">
+        <item name="android:textAppearance">@style/Sdkit.StarDs.TextAppearance.TextXsMedium</item>
+    </style>
 </resources>

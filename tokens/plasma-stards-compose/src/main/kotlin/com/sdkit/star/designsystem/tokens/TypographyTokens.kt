@@ -683,6 +683,340 @@ public object TypographySmallTokens {
                 platformStyle = TextStyleDefault.platformStyle,
             )
         }
+
+    /**
+     * typography s display-l-medium
+     */
+    public val DisplayLMedium: TextStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = with(LocalDensity.current) {
+            TextStyle(
+                fontWeight = FontWeight(500),
+                fontSize =
+                dimensionResource(R.dimen.sdkit_cmp_screen_s_display_l_medium_text_size).toSp(),
+                lineHeight =
+                dimensionResource(R.dimen.sdkit_cmp_screen_s_display_l_medium_line_height).toSp(),
+                letterSpacing = 0.0.sp,
+                fontFamily = FontTokens.display,
+                lineHeightStyle = TextStyleDefault.lineHeightStyle,
+                platformStyle = TextStyleDefault.platformStyle,
+            )
+        }
+
+    /**
+     * typography s display-m-medium
+     */
+    public val DisplayMMedium: TextStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = with(LocalDensity.current) {
+            TextStyle(
+                fontWeight = FontWeight(500),
+                fontSize =
+                dimensionResource(R.dimen.sdkit_cmp_screen_s_display_m_medium_text_size).toSp(),
+                lineHeight =
+                dimensionResource(R.dimen.sdkit_cmp_screen_s_display_m_medium_line_height).toSp(),
+                letterSpacing = 0.0.sp,
+                fontFamily = FontTokens.display,
+                lineHeightStyle = TextStyleDefault.lineHeightStyle,
+                platformStyle = TextStyleDefault.platformStyle,
+            )
+        }
+
+    /**
+     * typography s display-s-medium
+     */
+    public val DisplaySMedium: TextStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = with(LocalDensity.current) {
+            TextStyle(
+                fontWeight = FontWeight(500),
+                fontSize =
+                dimensionResource(R.dimen.sdkit_cmp_screen_s_display_s_medium_text_size).toSp(),
+                lineHeight =
+                dimensionResource(R.dimen.sdkit_cmp_screen_s_display_s_medium_line_height).toSp(),
+                letterSpacing = 0.0.sp,
+                fontFamily = FontTokens.display,
+                lineHeightStyle = TextStyleDefault.lineHeightStyle,
+                platformStyle = TextStyleDefault.platformStyle,
+            )
+        }
+
+    /**
+     * typography s header-h1-medium
+     */
+    public val HeaderH1Medium: TextStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = with(LocalDensity.current) {
+            TextStyle(
+                fontWeight = FontWeight(500),
+                fontSize =
+                dimensionResource(R.dimen.sdkit_cmp_screen_s_header_h1_medium_text_size).toSp(),
+                lineHeight =
+                dimensionResource(R.dimen.sdkit_cmp_screen_s_header_h1_medium_line_height).toSp(),
+                letterSpacing = 0.0.sp,
+                fontFamily = FontTokens.header,
+                lineHeightStyle = TextStyleDefault.lineHeightStyle,
+                platformStyle = TextStyleDefault.platformStyle,
+            )
+        }
+
+    /**
+     * typography s header-h2-medium
+     */
+    public val HeaderH2Medium: TextStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = with(LocalDensity.current) {
+            TextStyle(
+                fontWeight = FontWeight(500),
+                fontSize =
+                dimensionResource(R.dimen.sdkit_cmp_screen_s_header_h2_medium_text_size).toSp(),
+                lineHeight =
+                dimensionResource(R.dimen.sdkit_cmp_screen_s_header_h2_medium_line_height).toSp(),
+                letterSpacing = 0.0.sp,
+                fontFamily = FontTokens.header,
+                lineHeightStyle = TextStyleDefault.lineHeightStyle,
+                platformStyle = TextStyleDefault.platformStyle,
+            )
+        }
+
+    /**
+     * typography s header-h3-medium
+     */
+    public val HeaderH3Medium: TextStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = with(LocalDensity.current) {
+            TextStyle(
+                fontWeight = FontWeight(500),
+                fontSize =
+                dimensionResource(R.dimen.sdkit_cmp_screen_s_header_h3_medium_text_size).toSp(),
+                lineHeight =
+                dimensionResource(R.dimen.sdkit_cmp_screen_s_header_h3_medium_line_height).toSp(),
+                letterSpacing = 0.0.sp,
+                fontFamily = FontTokens.header,
+                lineHeightStyle = TextStyleDefault.lineHeightStyle,
+                platformStyle = TextStyleDefault.platformStyle,
+            )
+        }
+
+    /**
+     * typography s header-h4-medium
+     */
+    public val HeaderH4Medium: TextStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = with(LocalDensity.current) {
+            TextStyle(
+                fontWeight = FontWeight(500),
+                fontSize =
+                dimensionResource(R.dimen.sdkit_cmp_screen_s_header_h4_medium_text_size).toSp(),
+                lineHeight =
+                dimensionResource(R.dimen.sdkit_cmp_screen_s_header_h4_medium_line_height).toSp(),
+                letterSpacing = 0.0.sp,
+                fontFamily = FontTokens.header,
+                lineHeightStyle = TextStyleDefault.lineHeightStyle,
+                platformStyle = TextStyleDefault.platformStyle,
+            )
+        }
+
+    /**
+     * typography s header-h5-medium
+     */
+    public val HeaderH5Medium: TextStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = with(LocalDensity.current) {
+            TextStyle(
+                fontWeight = FontWeight(500),
+                fontSize =
+                dimensionResource(R.dimen.sdkit_cmp_screen_s_header_h5_medium_text_size).toSp(),
+                lineHeight =
+                dimensionResource(R.dimen.sdkit_cmp_screen_s_header_h5_medium_line_height).toSp(),
+                letterSpacing = 0.0.sp,
+                fontFamily = FontTokens.header,
+                lineHeightStyle = TextStyleDefault.lineHeightStyle,
+                platformStyle = TextStyleDefault.platformStyle,
+            )
+        }
+
+    /**
+     * typography s body-l-medium
+     */
+    public val BodyLMedium: TextStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = with(LocalDensity.current) {
+            TextStyle(
+                fontWeight = FontWeight(500),
+                fontSize = dimensionResource(R.dimen.sdkit_cmp_screen_s_body_l_medium_text_size).toSp(),
+                lineHeight =
+                dimensionResource(R.dimen.sdkit_cmp_screen_s_body_l_medium_line_height).toSp(),
+                letterSpacing = (-0.02).sp,
+                fontFamily = FontTokens.body,
+                lineHeightStyle = TextStyleDefault.lineHeightStyle,
+                platformStyle = TextStyleDefault.platformStyle,
+            )
+        }
+
+    /**
+     * typography s body-m-medium
+     */
+    public val BodyMMedium: TextStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = with(LocalDensity.current) {
+            TextStyle(
+                fontWeight = FontWeight(500),
+                fontSize = dimensionResource(R.dimen.sdkit_cmp_screen_s_body_m_medium_text_size).toSp(),
+                lineHeight =
+                dimensionResource(R.dimen.sdkit_cmp_screen_s_body_m_medium_line_height).toSp(),
+                letterSpacing = (-0.02).sp,
+                fontFamily = FontTokens.body,
+                lineHeightStyle = TextStyleDefault.lineHeightStyle,
+                platformStyle = TextStyleDefault.platformStyle,
+            )
+        }
+
+    /**
+     * typography s body-s-medium
+     */
+    public val BodySMedium: TextStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = with(LocalDensity.current) {
+            TextStyle(
+                fontWeight = FontWeight(500),
+                fontSize = dimensionResource(R.dimen.sdkit_cmp_screen_s_body_s_medium_text_size).toSp(),
+                lineHeight =
+                dimensionResource(R.dimen.sdkit_cmp_screen_s_body_s_medium_line_height).toSp(),
+                letterSpacing = (-0.02).sp,
+                fontFamily = FontTokens.body,
+                lineHeightStyle = TextStyleDefault.lineHeightStyle,
+                platformStyle = TextStyleDefault.platformStyle,
+            )
+        }
+
+    /**
+     * typography s body-xs-medium
+     */
+    public val BodyXsMedium: TextStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = with(LocalDensity.current) {
+            TextStyle(
+                fontWeight = FontWeight(500),
+                fontSize =
+                dimensionResource(R.dimen.sdkit_cmp_screen_s_body_xs_medium_text_size).toSp(),
+                lineHeight =
+                dimensionResource(R.dimen.sdkit_cmp_screen_s_body_xs_medium_line_height).toSp(),
+                letterSpacing = (-0.02).sp,
+                fontFamily = FontTokens.body,
+                lineHeightStyle = TextStyleDefault.lineHeightStyle,
+                platformStyle = TextStyleDefault.platformStyle,
+            )
+        }
+
+    /**
+     * typography s body-xxs-medium
+     */
+    public val BodyXxsMedium: TextStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = with(LocalDensity.current) {
+            TextStyle(
+                fontWeight = FontWeight(500),
+                fontSize =
+                dimensionResource(R.dimen.sdkit_cmp_screen_s_body_xxs_medium_text_size).toSp(),
+                lineHeight =
+                dimensionResource(R.dimen.sdkit_cmp_screen_s_body_xxs_medium_line_height).toSp(),
+                letterSpacing = (-0.02).sp,
+                fontFamily = FontTokens.body,
+                lineHeightStyle = TextStyleDefault.lineHeightStyle,
+                platformStyle = TextStyleDefault.platformStyle,
+            )
+        }
+
+    /**
+     * typography s text-l-medium
+     */
+    public val TextLMedium: TextStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = with(LocalDensity.current) {
+            TextStyle(
+                fontWeight = FontWeight(500),
+                fontSize = dimensionResource(R.dimen.sdkit_cmp_screen_s_text_l_medium_text_size).toSp(),
+                lineHeight =
+                dimensionResource(R.dimen.sdkit_cmp_screen_s_text_l_medium_line_height).toSp(),
+                letterSpacing = (-0.02).sp,
+                fontFamily = FontTokens.text,
+                lineHeightStyle = TextStyleDefault.lineHeightStyle,
+                platformStyle = TextStyleDefault.platformStyle,
+            )
+        }
+
+    /**
+     * typography s text-m-medium
+     */
+    public val TextMMedium: TextStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = with(LocalDensity.current) {
+            TextStyle(
+                fontWeight = FontWeight(500),
+                fontSize = dimensionResource(R.dimen.sdkit_cmp_screen_s_text_m_medium_text_size).toSp(),
+                lineHeight =
+                dimensionResource(R.dimen.sdkit_cmp_screen_s_text_m_medium_line_height).toSp(),
+                letterSpacing = (-0.02).sp,
+                fontFamily = FontTokens.text,
+                lineHeightStyle = TextStyleDefault.lineHeightStyle,
+                platformStyle = TextStyleDefault.platformStyle,
+            )
+        }
+
+    /**
+     * typography s text-s-medium
+     */
+    public val TextSMedium: TextStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = with(LocalDensity.current) {
+            TextStyle(
+                fontWeight = FontWeight(500),
+                fontSize = dimensionResource(R.dimen.sdkit_cmp_screen_s_text_s_medium_text_size).toSp(),
+                lineHeight =
+                dimensionResource(R.dimen.sdkit_cmp_screen_s_text_s_medium_line_height).toSp(),
+                letterSpacing = (-0.02).sp,
+                fontFamily = FontTokens.text,
+                lineHeightStyle = TextStyleDefault.lineHeightStyle,
+                platformStyle = TextStyleDefault.platformStyle,
+            )
+        }
+
+    /**
+     * typography s text-xs-medium
+     */
+    public val TextXsMedium: TextStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = with(LocalDensity.current) {
+            TextStyle(
+                fontWeight = FontWeight(500),
+                fontSize =
+                dimensionResource(R.dimen.sdkit_cmp_screen_s_text_xs_medium_text_size).toSp(),
+                lineHeight =
+                dimensionResource(R.dimen.sdkit_cmp_screen_s_text_xs_medium_line_height).toSp(),
+                letterSpacing = (-0.02).sp,
+                fontFamily = FontTokens.text,
+                lineHeightStyle = TextStyleDefault.lineHeightStyle,
+                platformStyle = TextStyleDefault.platformStyle,
+            )
+        }
 }
 
 /**
@@ -1353,6 +1687,340 @@ public object TypographyMediumTokens {
                 platformStyle = TextStyleDefault.platformStyle,
             )
         }
+
+    /**
+     * typography m display-l-medium
+     */
+    public val DisplayLMedium: TextStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = with(LocalDensity.current) {
+            TextStyle(
+                fontWeight = FontWeight(500),
+                fontSize =
+                dimensionResource(R.dimen.sdkit_cmp_screen_m_display_l_medium_text_size).toSp(),
+                lineHeight =
+                dimensionResource(R.dimen.sdkit_cmp_screen_m_display_l_medium_line_height).toSp(),
+                letterSpacing = 0.0.sp,
+                fontFamily = FontTokens.display,
+                lineHeightStyle = TextStyleDefault.lineHeightStyle,
+                platformStyle = TextStyleDefault.platformStyle,
+            )
+        }
+
+    /**
+     * typography m display-m-medium
+     */
+    public val DisplayMMedium: TextStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = with(LocalDensity.current) {
+            TextStyle(
+                fontWeight = FontWeight(500),
+                fontSize =
+                dimensionResource(R.dimen.sdkit_cmp_screen_m_display_m_medium_text_size).toSp(),
+                lineHeight =
+                dimensionResource(R.dimen.sdkit_cmp_screen_m_display_m_medium_line_height).toSp(),
+                letterSpacing = 0.0.sp,
+                fontFamily = FontTokens.display,
+                lineHeightStyle = TextStyleDefault.lineHeightStyle,
+                platformStyle = TextStyleDefault.platformStyle,
+            )
+        }
+
+    /**
+     * typography m display-s-medium
+     */
+    public val DisplaySMedium: TextStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = with(LocalDensity.current) {
+            TextStyle(
+                fontWeight = FontWeight(500),
+                fontSize =
+                dimensionResource(R.dimen.sdkit_cmp_screen_m_display_s_medium_text_size).toSp(),
+                lineHeight =
+                dimensionResource(R.dimen.sdkit_cmp_screen_m_display_s_medium_line_height).toSp(),
+                letterSpacing = 0.0.sp,
+                fontFamily = FontTokens.display,
+                lineHeightStyle = TextStyleDefault.lineHeightStyle,
+                platformStyle = TextStyleDefault.platformStyle,
+            )
+        }
+
+    /**
+     * typography m header-h1-medium
+     */
+    public val HeaderH1Medium: TextStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = with(LocalDensity.current) {
+            TextStyle(
+                fontWeight = FontWeight(500),
+                fontSize =
+                dimensionResource(R.dimen.sdkit_cmp_screen_m_header_h1_medium_text_size).toSp(),
+                lineHeight =
+                dimensionResource(R.dimen.sdkit_cmp_screen_m_header_h1_medium_line_height).toSp(),
+                letterSpacing = 0.0.sp,
+                fontFamily = FontTokens.header,
+                lineHeightStyle = TextStyleDefault.lineHeightStyle,
+                platformStyle = TextStyleDefault.platformStyle,
+            )
+        }
+
+    /**
+     * typography m header-h2-medium
+     */
+    public val HeaderH2Medium: TextStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = with(LocalDensity.current) {
+            TextStyle(
+                fontWeight = FontWeight(500),
+                fontSize =
+                dimensionResource(R.dimen.sdkit_cmp_screen_m_header_h2_medium_text_size).toSp(),
+                lineHeight =
+                dimensionResource(R.dimen.sdkit_cmp_screen_m_header_h2_medium_line_height).toSp(),
+                letterSpacing = 0.0.sp,
+                fontFamily = FontTokens.header,
+                lineHeightStyle = TextStyleDefault.lineHeightStyle,
+                platformStyle = TextStyleDefault.platformStyle,
+            )
+        }
+
+    /**
+     * typography m header-h3-medium
+     */
+    public val HeaderH3Medium: TextStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = with(LocalDensity.current) {
+            TextStyle(
+                fontWeight = FontWeight(500),
+                fontSize =
+                dimensionResource(R.dimen.sdkit_cmp_screen_m_header_h3_medium_text_size).toSp(),
+                lineHeight =
+                dimensionResource(R.dimen.sdkit_cmp_screen_m_header_h3_medium_line_height).toSp(),
+                letterSpacing = 0.0.sp,
+                fontFamily = FontTokens.header,
+                lineHeightStyle = TextStyleDefault.lineHeightStyle,
+                platformStyle = TextStyleDefault.platformStyle,
+            )
+        }
+
+    /**
+     * typography m header-h4-medium
+     */
+    public val HeaderH4Medium: TextStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = with(LocalDensity.current) {
+            TextStyle(
+                fontWeight = FontWeight(500),
+                fontSize =
+                dimensionResource(R.dimen.sdkit_cmp_screen_m_header_h4_medium_text_size).toSp(),
+                lineHeight =
+                dimensionResource(R.dimen.sdkit_cmp_screen_m_header_h4_medium_line_height).toSp(),
+                letterSpacing = 0.0.sp,
+                fontFamily = FontTokens.header,
+                lineHeightStyle = TextStyleDefault.lineHeightStyle,
+                platformStyle = TextStyleDefault.platformStyle,
+            )
+        }
+
+    /**
+     * typography m header-h5-medium
+     */
+    public val HeaderH5Medium: TextStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = with(LocalDensity.current) {
+            TextStyle(
+                fontWeight = FontWeight(500),
+                fontSize =
+                dimensionResource(R.dimen.sdkit_cmp_screen_m_header_h5_medium_text_size).toSp(),
+                lineHeight =
+                dimensionResource(R.dimen.sdkit_cmp_screen_m_header_h5_medium_line_height).toSp(),
+                letterSpacing = 0.0.sp,
+                fontFamily = FontTokens.header,
+                lineHeightStyle = TextStyleDefault.lineHeightStyle,
+                platformStyle = TextStyleDefault.platformStyle,
+            )
+        }
+
+    /**
+     * typography m body-l-medium
+     */
+    public val BodyLMedium: TextStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = with(LocalDensity.current) {
+            TextStyle(
+                fontWeight = FontWeight(500),
+                fontSize = dimensionResource(R.dimen.sdkit_cmp_screen_m_body_l_medium_text_size).toSp(),
+                lineHeight =
+                dimensionResource(R.dimen.sdkit_cmp_screen_m_body_l_medium_line_height).toSp(),
+                letterSpacing = (-0.02).sp,
+                fontFamily = FontTokens.body,
+                lineHeightStyle = TextStyleDefault.lineHeightStyle,
+                platformStyle = TextStyleDefault.platformStyle,
+            )
+        }
+
+    /**
+     * typography m body-m-medium
+     */
+    public val BodyMMedium: TextStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = with(LocalDensity.current) {
+            TextStyle(
+                fontWeight = FontWeight(500),
+                fontSize = dimensionResource(R.dimen.sdkit_cmp_screen_m_body_m_medium_text_size).toSp(),
+                lineHeight =
+                dimensionResource(R.dimen.sdkit_cmp_screen_m_body_m_medium_line_height).toSp(),
+                letterSpacing = (-0.02).sp,
+                fontFamily = FontTokens.body,
+                lineHeightStyle = TextStyleDefault.lineHeightStyle,
+                platformStyle = TextStyleDefault.platformStyle,
+            )
+        }
+
+    /**
+     * typography m body-s-medium
+     */
+    public val BodySMedium: TextStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = with(LocalDensity.current) {
+            TextStyle(
+                fontWeight = FontWeight(500),
+                fontSize = dimensionResource(R.dimen.sdkit_cmp_screen_m_body_s_medium_text_size).toSp(),
+                lineHeight =
+                dimensionResource(R.dimen.sdkit_cmp_screen_m_body_s_medium_line_height).toSp(),
+                letterSpacing = (-0.02).sp,
+                fontFamily = FontTokens.body,
+                lineHeightStyle = TextStyleDefault.lineHeightStyle,
+                platformStyle = TextStyleDefault.platformStyle,
+            )
+        }
+
+    /**
+     * typography m body-xs-medium
+     */
+    public val BodyXsMedium: TextStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = with(LocalDensity.current) {
+            TextStyle(
+                fontWeight = FontWeight(500),
+                fontSize =
+                dimensionResource(R.dimen.sdkit_cmp_screen_m_body_xs_medium_text_size).toSp(),
+                lineHeight =
+                dimensionResource(R.dimen.sdkit_cmp_screen_m_body_xs_medium_line_height).toSp(),
+                letterSpacing = (-0.02).sp,
+                fontFamily = FontTokens.body,
+                lineHeightStyle = TextStyleDefault.lineHeightStyle,
+                platformStyle = TextStyleDefault.platformStyle,
+            )
+        }
+
+    /**
+     * typography m body-xxs-medium
+     */
+    public val BodyXxsMedium: TextStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = with(LocalDensity.current) {
+            TextStyle(
+                fontWeight = FontWeight(500),
+                fontSize =
+                dimensionResource(R.dimen.sdkit_cmp_screen_m_body_xxs_medium_text_size).toSp(),
+                lineHeight =
+                dimensionResource(R.dimen.sdkit_cmp_screen_m_body_xxs_medium_line_height).toSp(),
+                letterSpacing = (-0.02).sp,
+                fontFamily = FontTokens.body,
+                lineHeightStyle = TextStyleDefault.lineHeightStyle,
+                platformStyle = TextStyleDefault.platformStyle,
+            )
+        }
+
+    /**
+     * typography m text-l-medium
+     */
+    public val TextLMedium: TextStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = with(LocalDensity.current) {
+            TextStyle(
+                fontWeight = FontWeight(500),
+                fontSize = dimensionResource(R.dimen.sdkit_cmp_screen_m_text_l_medium_text_size).toSp(),
+                lineHeight =
+                dimensionResource(R.dimen.sdkit_cmp_screen_m_text_l_medium_line_height).toSp(),
+                letterSpacing = (-0.02).sp,
+                fontFamily = FontTokens.text,
+                lineHeightStyle = TextStyleDefault.lineHeightStyle,
+                platformStyle = TextStyleDefault.platformStyle,
+            )
+        }
+
+    /**
+     * typography m text-m-medium
+     */
+    public val TextMMedium: TextStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = with(LocalDensity.current) {
+            TextStyle(
+                fontWeight = FontWeight(500),
+                fontSize = dimensionResource(R.dimen.sdkit_cmp_screen_m_text_m_medium_text_size).toSp(),
+                lineHeight =
+                dimensionResource(R.dimen.sdkit_cmp_screen_m_text_m_medium_line_height).toSp(),
+                letterSpacing = (-0.02).sp,
+                fontFamily = FontTokens.text,
+                lineHeightStyle = TextStyleDefault.lineHeightStyle,
+                platformStyle = TextStyleDefault.platformStyle,
+            )
+        }
+
+    /**
+     * typography m text-s-medium
+     */
+    public val TextSMedium: TextStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = with(LocalDensity.current) {
+            TextStyle(
+                fontWeight = FontWeight(500),
+                fontSize = dimensionResource(R.dimen.sdkit_cmp_screen_m_text_s_medium_text_size).toSp(),
+                lineHeight =
+                dimensionResource(R.dimen.sdkit_cmp_screen_m_text_s_medium_line_height).toSp(),
+                letterSpacing = (-0.02).sp,
+                fontFamily = FontTokens.text,
+                lineHeightStyle = TextStyleDefault.lineHeightStyle,
+                platformStyle = TextStyleDefault.platformStyle,
+            )
+        }
+
+    /**
+     * typography m text-xs-medium
+     */
+    public val TextXsMedium: TextStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = with(LocalDensity.current) {
+            TextStyle(
+                fontWeight = FontWeight(500),
+                fontSize =
+                dimensionResource(R.dimen.sdkit_cmp_screen_m_text_xs_medium_text_size).toSp(),
+                lineHeight =
+                dimensionResource(R.dimen.sdkit_cmp_screen_m_text_xs_medium_line_height).toSp(),
+                letterSpacing = (-0.02).sp,
+                fontFamily = FontTokens.text,
+                lineHeightStyle = TextStyleDefault.lineHeightStyle,
+                platformStyle = TextStyleDefault.platformStyle,
+            )
+        }
 }
 
 /**
@@ -2017,6 +2685,340 @@ public object TypographyLargeTokens {
                 fontSize = dimensionResource(R.dimen.sdkit_cmp_screen_l_text_xs_bold_text_size).toSp(),
                 lineHeight =
                 dimensionResource(R.dimen.sdkit_cmp_screen_l_text_xs_bold_line_height).toSp(),
+                letterSpacing = (-0.02).sp,
+                fontFamily = FontTokens.text,
+                lineHeightStyle = TextStyleDefault.lineHeightStyle,
+                platformStyle = TextStyleDefault.platformStyle,
+            )
+        }
+
+    /**
+     * typography l display-l-medium
+     */
+    public val DisplayLMedium: TextStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = with(LocalDensity.current) {
+            TextStyle(
+                fontWeight = FontWeight(500),
+                fontSize =
+                dimensionResource(R.dimen.sdkit_cmp_screen_l_display_l_medium_text_size).toSp(),
+                lineHeight =
+                dimensionResource(R.dimen.sdkit_cmp_screen_l_display_l_medium_line_height).toSp(),
+                letterSpacing = 0.0.sp,
+                fontFamily = FontTokens.display,
+                lineHeightStyle = TextStyleDefault.lineHeightStyle,
+                platformStyle = TextStyleDefault.platformStyle,
+            )
+        }
+
+    /**
+     * typography l display-m-medium
+     */
+    public val DisplayMMedium: TextStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = with(LocalDensity.current) {
+            TextStyle(
+                fontWeight = FontWeight(500),
+                fontSize =
+                dimensionResource(R.dimen.sdkit_cmp_screen_l_display_m_medium_text_size).toSp(),
+                lineHeight =
+                dimensionResource(R.dimen.sdkit_cmp_screen_l_display_m_medium_line_height).toSp(),
+                letterSpacing = 0.0.sp,
+                fontFamily = FontTokens.display,
+                lineHeightStyle = TextStyleDefault.lineHeightStyle,
+                platformStyle = TextStyleDefault.platformStyle,
+            )
+        }
+
+    /**
+     * typography l display-s-medium
+     */
+    public val DisplaySMedium: TextStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = with(LocalDensity.current) {
+            TextStyle(
+                fontWeight = FontWeight(500),
+                fontSize =
+                dimensionResource(R.dimen.sdkit_cmp_screen_l_display_s_medium_text_size).toSp(),
+                lineHeight =
+                dimensionResource(R.dimen.sdkit_cmp_screen_l_display_s_medium_line_height).toSp(),
+                letterSpacing = 0.0.sp,
+                fontFamily = FontTokens.display,
+                lineHeightStyle = TextStyleDefault.lineHeightStyle,
+                platformStyle = TextStyleDefault.platformStyle,
+            )
+        }
+
+    /**
+     * typography l header-h1-medium
+     */
+    public val HeaderH1Medium: TextStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = with(LocalDensity.current) {
+            TextStyle(
+                fontWeight = FontWeight(500),
+                fontSize =
+                dimensionResource(R.dimen.sdkit_cmp_screen_l_header_h1_medium_text_size).toSp(),
+                lineHeight =
+                dimensionResource(R.dimen.sdkit_cmp_screen_l_header_h1_medium_line_height).toSp(),
+                letterSpacing = 0.0.sp,
+                fontFamily = FontTokens.header,
+                lineHeightStyle = TextStyleDefault.lineHeightStyle,
+                platformStyle = TextStyleDefault.platformStyle,
+            )
+        }
+
+    /**
+     * typography l header-h2-medium
+     */
+    public val HeaderH2Medium: TextStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = with(LocalDensity.current) {
+            TextStyle(
+                fontWeight = FontWeight(500),
+                fontSize =
+                dimensionResource(R.dimen.sdkit_cmp_screen_l_header_h2_medium_text_size).toSp(),
+                lineHeight =
+                dimensionResource(R.dimen.sdkit_cmp_screen_l_header_h2_medium_line_height).toSp(),
+                letterSpacing = 0.0.sp,
+                fontFamily = FontTokens.header,
+                lineHeightStyle = TextStyleDefault.lineHeightStyle,
+                platformStyle = TextStyleDefault.platformStyle,
+            )
+        }
+
+    /**
+     * typography l header-h3-medium
+     */
+    public val HeaderH3Medium: TextStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = with(LocalDensity.current) {
+            TextStyle(
+                fontWeight = FontWeight(500),
+                fontSize =
+                dimensionResource(R.dimen.sdkit_cmp_screen_l_header_h3_medium_text_size).toSp(),
+                lineHeight =
+                dimensionResource(R.dimen.sdkit_cmp_screen_l_header_h3_medium_line_height).toSp(),
+                letterSpacing = 0.0.sp,
+                fontFamily = FontTokens.header,
+                lineHeightStyle = TextStyleDefault.lineHeightStyle,
+                platformStyle = TextStyleDefault.platformStyle,
+            )
+        }
+
+    /**
+     * typography l header-h4-medium
+     */
+    public val HeaderH4Medium: TextStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = with(LocalDensity.current) {
+            TextStyle(
+                fontWeight = FontWeight(500),
+                fontSize =
+                dimensionResource(R.dimen.sdkit_cmp_screen_l_header_h4_medium_text_size).toSp(),
+                lineHeight =
+                dimensionResource(R.dimen.sdkit_cmp_screen_l_header_h4_medium_line_height).toSp(),
+                letterSpacing = 0.0.sp,
+                fontFamily = FontTokens.header,
+                lineHeightStyle = TextStyleDefault.lineHeightStyle,
+                platformStyle = TextStyleDefault.platformStyle,
+            )
+        }
+
+    /**
+     * typography l header-h5-medium
+     */
+    public val HeaderH5Medium: TextStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = with(LocalDensity.current) {
+            TextStyle(
+                fontWeight = FontWeight(500),
+                fontSize =
+                dimensionResource(R.dimen.sdkit_cmp_screen_l_header_h5_medium_text_size).toSp(),
+                lineHeight =
+                dimensionResource(R.dimen.sdkit_cmp_screen_l_header_h5_medium_line_height).toSp(),
+                letterSpacing = 0.0.sp,
+                fontFamily = FontTokens.header,
+                lineHeightStyle = TextStyleDefault.lineHeightStyle,
+                platformStyle = TextStyleDefault.platformStyle,
+            )
+        }
+
+    /**
+     * typography l body-l-medium
+     */
+    public val BodyLMedium: TextStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = with(LocalDensity.current) {
+            TextStyle(
+                fontWeight = FontWeight(500),
+                fontSize = dimensionResource(R.dimen.sdkit_cmp_screen_l_body_l_medium_text_size).toSp(),
+                lineHeight =
+                dimensionResource(R.dimen.sdkit_cmp_screen_l_body_l_medium_line_height).toSp(),
+                letterSpacing = (-0.02).sp,
+                fontFamily = FontTokens.body,
+                lineHeightStyle = TextStyleDefault.lineHeightStyle,
+                platformStyle = TextStyleDefault.platformStyle,
+            )
+        }
+
+    /**
+     * typography l body-m-medium
+     */
+    public val BodyMMedium: TextStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = with(LocalDensity.current) {
+            TextStyle(
+                fontWeight = FontWeight(500),
+                fontSize = dimensionResource(R.dimen.sdkit_cmp_screen_l_body_m_medium_text_size).toSp(),
+                lineHeight =
+                dimensionResource(R.dimen.sdkit_cmp_screen_l_body_m_medium_line_height).toSp(),
+                letterSpacing = (-0.02).sp,
+                fontFamily = FontTokens.body,
+                lineHeightStyle = TextStyleDefault.lineHeightStyle,
+                platformStyle = TextStyleDefault.platformStyle,
+            )
+        }
+
+    /**
+     * typography l body-s-medium
+     */
+    public val BodySMedium: TextStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = with(LocalDensity.current) {
+            TextStyle(
+                fontWeight = FontWeight(500),
+                fontSize = dimensionResource(R.dimen.sdkit_cmp_screen_l_body_s_medium_text_size).toSp(),
+                lineHeight =
+                dimensionResource(R.dimen.sdkit_cmp_screen_l_body_s_medium_line_height).toSp(),
+                letterSpacing = (-0.02).sp,
+                fontFamily = FontTokens.body,
+                lineHeightStyle = TextStyleDefault.lineHeightStyle,
+                platformStyle = TextStyleDefault.platformStyle,
+            )
+        }
+
+    /**
+     * typography l body-xs-medium
+     */
+    public val BodyXsMedium: TextStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = with(LocalDensity.current) {
+            TextStyle(
+                fontWeight = FontWeight(500),
+                fontSize =
+                dimensionResource(R.dimen.sdkit_cmp_screen_l_body_xs_medium_text_size).toSp(),
+                lineHeight =
+                dimensionResource(R.dimen.sdkit_cmp_screen_l_body_xs_medium_line_height).toSp(),
+                letterSpacing = (-0.02).sp,
+                fontFamily = FontTokens.body,
+                lineHeightStyle = TextStyleDefault.lineHeightStyle,
+                platformStyle = TextStyleDefault.platformStyle,
+            )
+        }
+
+    /**
+     * typography l body-xxs-medium
+     */
+    public val BodyXxsMedium: TextStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = with(LocalDensity.current) {
+            TextStyle(
+                fontWeight = FontWeight(500),
+                fontSize =
+                dimensionResource(R.dimen.sdkit_cmp_screen_l_body_xxs_medium_text_size).toSp(),
+                lineHeight =
+                dimensionResource(R.dimen.sdkit_cmp_screen_l_body_xxs_medium_line_height).toSp(),
+                letterSpacing = (-0.02).sp,
+                fontFamily = FontTokens.body,
+                lineHeightStyle = TextStyleDefault.lineHeightStyle,
+                platformStyle = TextStyleDefault.platformStyle,
+            )
+        }
+
+    /**
+     * typography l text-l-medium
+     */
+    public val TextLMedium: TextStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = with(LocalDensity.current) {
+            TextStyle(
+                fontWeight = FontWeight(500),
+                fontSize = dimensionResource(R.dimen.sdkit_cmp_screen_l_text_l_medium_text_size).toSp(),
+                lineHeight =
+                dimensionResource(R.dimen.sdkit_cmp_screen_l_text_l_medium_line_height).toSp(),
+                letterSpacing = (-0.02).sp,
+                fontFamily = FontTokens.text,
+                lineHeightStyle = TextStyleDefault.lineHeightStyle,
+                platformStyle = TextStyleDefault.platformStyle,
+            )
+        }
+
+    /**
+     * typography l text-m-medium
+     */
+    public val TextMMedium: TextStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = with(LocalDensity.current) {
+            TextStyle(
+                fontWeight = FontWeight(500),
+                fontSize = dimensionResource(R.dimen.sdkit_cmp_screen_l_text_m_medium_text_size).toSp(),
+                lineHeight =
+                dimensionResource(R.dimen.sdkit_cmp_screen_l_text_m_medium_line_height).toSp(),
+                letterSpacing = (-0.02).sp,
+                fontFamily = FontTokens.text,
+                lineHeightStyle = TextStyleDefault.lineHeightStyle,
+                platformStyle = TextStyleDefault.platformStyle,
+            )
+        }
+
+    /**
+     * typography l text-s-medium
+     */
+    public val TextSMedium: TextStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = with(LocalDensity.current) {
+            TextStyle(
+                fontWeight = FontWeight(500),
+                fontSize = dimensionResource(R.dimen.sdkit_cmp_screen_l_text_s_medium_text_size).toSp(),
+                lineHeight =
+                dimensionResource(R.dimen.sdkit_cmp_screen_l_text_s_medium_line_height).toSp(),
+                letterSpacing = (-0.02).sp,
+                fontFamily = FontTokens.text,
+                lineHeightStyle = TextStyleDefault.lineHeightStyle,
+                platformStyle = TextStyleDefault.platformStyle,
+            )
+        }
+
+    /**
+     * typography l text-xs-medium
+     */
+    public val TextXsMedium: TextStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = with(LocalDensity.current) {
+            TextStyle(
+                fontWeight = FontWeight(500),
+                fontSize =
+                dimensionResource(R.dimen.sdkit_cmp_screen_l_text_xs_medium_text_size).toSp(),
+                lineHeight =
+                dimensionResource(R.dimen.sdkit_cmp_screen_l_text_xs_medium_line_height).toSp(),
                 letterSpacing = (-0.02).sp,
                 fontFamily = FontTokens.text,
                 lineHeightStyle = TextStyleDefault.lineHeightStyle,
