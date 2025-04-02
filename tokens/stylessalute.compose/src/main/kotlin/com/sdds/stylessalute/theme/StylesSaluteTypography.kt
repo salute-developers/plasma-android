@@ -153,6 +153,74 @@ public data class StylesSaluteTypography internal constructor(
      * typography l text-xs-bold
      */
     public val textXsBold: TextStyle = TextStyle.Default,
+    /**
+     * typography l display-l-medium
+     */
+    public val displayLMedium: TextStyle = TextStyle.Default,
+    /**
+     * typography l display-m-medium
+     */
+    public val displayMMedium: TextStyle = TextStyle.Default,
+    /**
+     * typography l display-s-medium
+     */
+    public val displaySMedium: TextStyle = TextStyle.Default,
+    /**
+     * typography l header-h1-medium
+     */
+    public val headerH1Medium: TextStyle = TextStyle.Default,
+    /**
+     * typography l header-h2-medium
+     */
+    public val headerH2Medium: TextStyle = TextStyle.Default,
+    /**
+     * typography l header-h3-medium
+     */
+    public val headerH3Medium: TextStyle = TextStyle.Default,
+    /**
+     * typography l header-h4-medium
+     */
+    public val headerH4Medium: TextStyle = TextStyle.Default,
+    /**
+     * typography l header-h5-medium
+     */
+    public val headerH5Medium: TextStyle = TextStyle.Default,
+    /**
+     * typography l body-l-medium
+     */
+    public val bodyLMedium: TextStyle = TextStyle.Default,
+    /**
+     * typography l body-m-medium
+     */
+    public val bodyMMedium: TextStyle = TextStyle.Default,
+    /**
+     * typography l body-s-medium
+     */
+    public val bodySMedium: TextStyle = TextStyle.Default,
+    /**
+     * typography l body-xs-medium
+     */
+    public val bodyXsMedium: TextStyle = TextStyle.Default,
+    /**
+     * typography l body-xxs-medium
+     */
+    public val bodyXxsMedium: TextStyle = TextStyle.Default,
+    /**
+     * typography l text-l-medium
+     */
+    public val textLMedium: TextStyle = TextStyle.Default,
+    /**
+     * typography l text-m-medium
+     */
+    public val textMMedium: TextStyle = TextStyle.Default,
+    /**
+     * typography l text-s-medium
+     */
+    public val textSMedium: TextStyle = TextStyle.Default,
+    /**
+     * typography l text-xs-medium
+     */
+    public val textXsMedium: TextStyle = TextStyle.Default,
 )
 
 internal val LocalStylesSaluteTypography: ProvidableCompositionLocal<StylesSaluteTypography> =
@@ -198,6 +266,23 @@ public fun smallStylesSaluteTypography(): StylesSaluteTypography = StylesSaluteT
     textSBold = TypographySmallTokens.TextSBold,
     textXsNormal = TypographySmallTokens.TextXsNormal,
     textXsBold = TypographySmallTokens.TextXsBold,
+    displayLMedium = TypographySmallTokens.DisplayLMedium,
+    displayMMedium = TypographySmallTokens.DisplayMMedium,
+    displaySMedium = TypographySmallTokens.DisplaySMedium,
+    headerH1Medium = TypographySmallTokens.HeaderH1Medium,
+    headerH2Medium = TypographySmallTokens.HeaderH2Medium,
+    headerH3Medium = TypographySmallTokens.HeaderH3Medium,
+    headerH4Medium = TypographySmallTokens.HeaderH4Medium,
+    headerH5Medium = TypographySmallTokens.HeaderH5Medium,
+    bodyLMedium = TypographySmallTokens.BodyLMedium,
+    bodyMMedium = TypographySmallTokens.BodyMMedium,
+    bodySMedium = TypographySmallTokens.BodySMedium,
+    bodyXsMedium = TypographySmallTokens.BodyXsMedium,
+    bodyXxsMedium = TypographySmallTokens.BodyXxsMedium,
+    textLMedium = TypographySmallTokens.TextLMedium,
+    textMMedium = TypographySmallTokens.TextMMedium,
+    textSMedium = TypographySmallTokens.TextSMedium,
+    textXsMedium = TypographySmallTokens.TextXsMedium,
 )
 
 /**
@@ -238,6 +323,23 @@ public fun mediumStylesSaluteTypography(): StylesSaluteTypography = StylesSalute
     textSBold = TypographyMediumTokens.TextSBold,
     textXsNormal = TypographyMediumTokens.TextXsNormal,
     textXsBold = TypographyMediumTokens.TextXsBold,
+    displayLMedium = TypographyMediumTokens.DisplayLMedium,
+    displayMMedium = TypographyMediumTokens.DisplayMMedium,
+    displaySMedium = TypographyMediumTokens.DisplaySMedium,
+    headerH1Medium = TypographyMediumTokens.HeaderH1Medium,
+    headerH2Medium = TypographyMediumTokens.HeaderH2Medium,
+    headerH3Medium = TypographyMediumTokens.HeaderH3Medium,
+    headerH4Medium = TypographyMediumTokens.HeaderH4Medium,
+    headerH5Medium = TypographyMediumTokens.HeaderH5Medium,
+    bodyLMedium = TypographyMediumTokens.BodyLMedium,
+    bodyMMedium = TypographyMediumTokens.BodyMMedium,
+    bodySMedium = TypographyMediumTokens.BodySMedium,
+    bodyXsMedium = TypographyMediumTokens.BodyXsMedium,
+    bodyXxsMedium = TypographyMediumTokens.BodyXxsMedium,
+    textLMedium = TypographyMediumTokens.TextLMedium,
+    textMMedium = TypographyMediumTokens.TextMMedium,
+    textSMedium = TypographyMediumTokens.TextSMedium,
+    textXsMedium = TypographyMediumTokens.TextXsMedium,
 )
 
 /**
@@ -278,6 +380,23 @@ public fun largeStylesSaluteTypography(): StylesSaluteTypography = StylesSaluteT
     textSBold = TypographyLargeTokens.TextSBold,
     textXsNormal = TypographyLargeTokens.TextXsNormal,
     textXsBold = TypographyLargeTokens.TextXsBold,
+    displayLMedium = TypographyLargeTokens.DisplayLMedium,
+    displayMMedium = TypographyLargeTokens.DisplayMMedium,
+    displaySMedium = TypographyLargeTokens.DisplaySMedium,
+    headerH1Medium = TypographyLargeTokens.HeaderH1Medium,
+    headerH2Medium = TypographyLargeTokens.HeaderH2Medium,
+    headerH3Medium = TypographyLargeTokens.HeaderH3Medium,
+    headerH4Medium = TypographyLargeTokens.HeaderH4Medium,
+    headerH5Medium = TypographyLargeTokens.HeaderH5Medium,
+    bodyLMedium = TypographyLargeTokens.BodyLMedium,
+    bodyMMedium = TypographyLargeTokens.BodyMMedium,
+    bodySMedium = TypographyLargeTokens.BodySMedium,
+    bodyXsMedium = TypographyLargeTokens.BodyXsMedium,
+    bodyXxsMedium = TypographyLargeTokens.BodyXxsMedium,
+    textLMedium = TypographyLargeTokens.TextLMedium,
+    textMMedium = TypographyLargeTokens.TextMMedium,
+    textSMedium = TypographyLargeTokens.TextSMedium,
+    textXsMedium = TypographyLargeTokens.TextXsMedium,
 )
 
 /**

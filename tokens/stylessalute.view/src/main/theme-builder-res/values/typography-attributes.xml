@@ -37,4 +37,21 @@
     <attr format="reference" name="salute_typographyTextSBold"/>
     <attr format="reference" name="salute_typographyTextXsNormal"/>
     <attr format="reference" name="salute_typographyTextXsBold"/>
+    <attr format="reference" name="salute_typographyDisplayLMedium"/>
+    <attr format="reference" name="salute_typographyDisplayMMedium"/>
+    <attr format="reference" name="salute_typographyDisplaySMedium"/>
+    <attr format="reference" name="salute_typographyHeaderH1Medium"/>
+    <attr format="reference" name="salute_typographyHeaderH2Medium"/>
+    <attr format="reference" name="salute_typographyHeaderH3Medium"/>
+    <attr format="reference" name="salute_typographyHeaderH4Medium"/>
+    <attr format="reference" name="salute_typographyHeaderH5Medium"/>
+    <attr format="reference" name="salute_typographyBodyLMedium"/>
+    <attr format="reference" name="salute_typographyBodyMMedium"/>
+    <attr format="reference" name="salute_typographyBodySMedium"/>
+    <attr format="reference" name="salute_typographyBodyXsMedium"/>
+    <attr format="reference" name="salute_typographyBodyXxsMedium"/>
+    <attr format="reference" name="salute_typographyTextLMedium"/>
+    <attr format="reference" name="salute_typographyTextMMedium"/>
+    <attr format="reference" name="salute_typographyTextSMedium"/>
+    <attr format="reference" name="salute_typographyTextXsMedium"/>
 </resources>
