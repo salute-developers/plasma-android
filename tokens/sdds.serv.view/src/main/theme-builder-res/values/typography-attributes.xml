@@ -37,4 +37,21 @@
     <attr format="reference" name="serv_typographyTextSBold"/>
     <attr format="reference" name="serv_typographyTextXsNormal"/>
     <attr format="reference" name="serv_typographyTextXsBold"/>
+    <attr format="reference" name="serv_typographyDisplayLMedium"/>
+    <attr format="reference" name="serv_typographyDisplayMMedium"/>
+    <attr format="reference" name="serv_typographyDisplaySMedium"/>
+    <attr format="reference" name="serv_typographyHeaderH1Medium"/>
+    <attr format="reference" name="serv_typographyHeaderH2Medium"/>
+    <attr format="reference" name="serv_typographyHeaderH3Medium"/>
+    <attr format="reference" name="serv_typographyHeaderH4Medium"/>
+    <attr format="reference" name="serv_typographyHeaderH5Medium"/>
+    <attr format="reference" name="serv_typographyBodyLMedium"/>
+    <attr format="reference" name="serv_typographyBodyMMedium"/>
+    <attr format="reference" name="serv_typographyBodySMedium"/>
+    <attr format="reference" name="serv_typographyBodyXsMedium"/>
+    <attr format="reference" name="serv_typographyBodyXxsMedium"/>
+    <attr format="reference" name="serv_typographyTextLMedium"/>
+    <attr format="reference" name="serv_typographyTextMMedium"/>
+    <attr format="reference" name="serv_typographyTextSMedium"/>
+    <attr format="reference" name="serv_typographyTextXsMedium"/>
 </resources>
