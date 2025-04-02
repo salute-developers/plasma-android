@@ -1,0 +1,6 @@
+package com.sdds.plasma.giga.app.styles.avatar
+
+/**
+ * Вспомогательный объект для описания API и стиля компонента Avatar
+ */
+public object Avatar
