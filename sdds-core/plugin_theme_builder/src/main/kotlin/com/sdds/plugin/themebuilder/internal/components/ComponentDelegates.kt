@@ -1,6 +1,7 @@
 package com.sdds.plugin.themebuilder.internal.components
 
 import com.sdds.plugin.themebuilder.internal.components.avatar.AvatarConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.avatar.group.AvatarGroupConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.badge.BadgeConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.bottomsheet.BottomSheetConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.button.ButtonConfigDelegate
@@ -20,6 +21,7 @@ import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
 internal val componentDelegates by unsafeLazy {
     mapOf<String, ComponentConfigDelegate<*>>(
         "avatar" to AvatarConfigDelegate(),
+        "avatar-group" to AvatarGroupConfigDelegate(),
         "text-field" to TextFieldConfigDelegate(),
         "text-area" to TextAreaConfigDelegate(),
         "segment" to SegmentConfigDelegate(),
