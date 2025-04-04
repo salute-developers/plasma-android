@@ -10,6 +10,7 @@ import android.text.StaticLayout
 import android.text.TextPaint
 import android.text.TextUtils
 import android.util.AttributeSet
+import android.util.LayoutDirection
 import androidx.annotation.DrawableRes
 import androidx.annotation.StyleRes
 import androidx.appcompat.content.res.AppCompatResources
@@ -229,6 +230,48 @@ open class TextDrawable(
     fun setDrawableEndTint(tint: ColorStateList?) {
         _drawableEndTint = tint
         _drawableEnd.applyChild(tint)
+    }
+
+    /**
+     * Устанавливает внутренние отступы
+     * @param paddingLeft отступ слева
+     * @param paddingTop отступ сверху
+     * @param paddingRight отступ справа
+     * @param paddingBottom отступ снизу
+     */
+    fun setPaddingsRelative(
+        paddingStart: Int = 0,
+        paddingTop: Int = 0,
+        paddingEnd: Int = 0,
+        paddingBottom: Int = 0,
+    ) {
+        var invalidate = false
+        val paddingLeft = if (layoutDirection == LayoutDirection.LTR) paddingStart else paddingEnd
+        val paddingRight = if (layoutDirection == LayoutDirection.LTR) paddingEnd else paddingStart
+        if (_paddingLeft != paddingLeft) {
+            _paddingLeft = paddingLeft
+            invalidate = true
+        }
+
+        if (_paddingTop != paddingTop) {
+            _paddingTop = paddingTop
+            invalidate = true
+        }
+
+        if (_paddingRight != paddingRight) {
+            _paddingRight = paddingRight
+            invalidate = true
+        }
+
+        if (_paddingBottom != paddingBottom) {
+            _paddingBottom = paddingBottom
+            invalidate = true
+        }
+
+        if (invalidate) {
+            onBoundsChange(bounds)
+            invalidateSelf()
+        }
     }
 
     /**
