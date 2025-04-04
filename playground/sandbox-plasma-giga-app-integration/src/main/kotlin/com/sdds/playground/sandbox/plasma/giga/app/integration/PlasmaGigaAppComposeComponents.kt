@@ -13,6 +13,7 @@ import com.sdds.playground.sandbox.plasma.giga.app.integration.badge.PlasmaGigaA
 import com.sdds.playground.sandbox.plasma.giga.app.integration.badge.icon.PlasmaGigaAppIconBadgeClearVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.badge.icon.PlasmaGigaAppIconBadgeSolidVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.badge.icon.PlasmaGigaAppIconBadgeTransparentVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.app.integration.bottomsheet.PlasmaGigaAppBottomSheetVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.button.basic.PlasmaGigaAppBasicButtonVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.button.icon.PlasmaGigaAppIconButtonVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.button.link.PlasmaGigaAppLinkButtonVariationsCompose
@@ -24,6 +25,7 @@ import com.sdds.playground.sandbox.plasma.giga.app.integration.checkbox.group.Pl
 import com.sdds.playground.sandbox.plasma.giga.app.integration.chip.PlasmaGigaAppChipVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.chip.group.PlasmaGigaAppChipGroupVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.counter.PlasmaGigaAppCounterVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.app.integration.divider.compose.PlasmaGigaAppDividerVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.indicator.compose.PlasmaGigaAppIndicatorVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.progress.PlasmaGigaAppProgressVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.app.integration.radiobox.PlasmaGigaAppRadioBoxVariationsCompose
@@ -163,6 +165,14 @@ object PlasmaGigaAppComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.Segment,
                 PlasmaGigaAppSegmentVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.BottomSheet,
+                PlasmaGigaAppBottomSheetVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.Divider,
+                PlasmaGigaAppDividerVariationsCompose,
             ),
         ).associateBy { it.key }
 }
