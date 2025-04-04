@@ -559,7 +559,6 @@ open class Avatar @JvmOverloads constructor(
         _statusDrawable?.run {
             bounds = _statusBounds
             draw(canvas)
-            canvas.drawRect(_statusBounds, DebugPaint)
         }
     }
 
@@ -579,7 +578,6 @@ open class Avatar @JvmOverloads constructor(
             )
             badge.bounds = _badgeBounds
             badge.draw(canvas)
-            canvas.drawRect(_badgeBounds, DebugPaint)
         }
         counter.takeIf { counterEnabled }?.let { counter ->
             Gravity.apply(
@@ -592,7 +590,6 @@ open class Avatar @JvmOverloads constructor(
             )
             counter.bounds = _counterBounds
             counter.draw(canvas)
-            canvas.drawRect(_counterBounds, DebugPaint)
         }
     }
 
@@ -699,11 +696,13 @@ open class Avatar @JvmOverloads constructor(
          * или верхнем правом углу (LayoutDirection.RTL)
          */
         const val EXTRA_PLACEMENT_TOP_START = 0
+
         /**
          * Расположение в верхнем правом (LayoutDirection.LTR)
          * или верхнем левом углу (LayoutDirection.RTL)
          */
         const val EXTRA_PLACEMENT_TOP_END = 1
+
         /**
          * Расположение в нижнем левом (LayoutDirection.LTR)
          * или нижнем правом углу (LayoutDirection.RTL)
@@ -718,7 +717,6 @@ open class Avatar @JvmOverloads constructor(
 
         private const val MAX_ALPHA_INT = 255
         private val ScrimColor = Color.argb((255 * 0.56f).roundToInt(), 8, 8, 8)
-        private val DebugPaint = Paint().configure(style = Paint.Style.STROKE, color = Color.MAGENTA)
 
         private val CharSequence.initials
             get() = this
