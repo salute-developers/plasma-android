@@ -90,8 +90,7 @@ internal abstract class GenerateComponentsTask : DefaultTask() {
 
     @TaskAction
     fun generate() {
-        val deps = getGeneratorDependencies(themeName.get())
-        val target = target.get()
+        val deps = getGeneratorDependencies()
         val componentsDir = componentsDir.get()
 
         metaInfo.components.forEach { component ->
@@ -102,12 +101,11 @@ internal abstract class GenerateComponentsTask : DefaultTask() {
             componentDelegate?.generate(
                 file = configFile,
                 deps = deps,
-                target = target,
                 component = component,
             )
         }
 
-        if (target.isViewSystemOrAll || dimensionsConfig.get().fromResources) {
+        if (target.get().isViewSystemOrAll || dimensionsConfig.get().fromResources) {
             deps.dimensGenerator.generate()
         }
     }
@@ -120,7 +118,8 @@ internal abstract class GenerateComponentsTask : DefaultTask() {
             .decode(Serializer.componentConfig)
     }
 
-    private fun getGeneratorDependencies(themeName: String): StyleGeneratorDependencies {
+    private fun getGeneratorDependencies(): StyleGeneratorDependencies {
+        val themeName = themeName.get()
         val packageResolver = PackageResolver(packageName.get())
         val outputDir: File = projectDir.get().dir(outputDirPath.get()).asFile
         val outputResDir: File = projectDir.get().dir(outputResDirPath.get()).asFile
@@ -160,6 +159,7 @@ internal abstract class GenerateComponentsTask : DefaultTask() {
             viewColorStateGeneratorFactory = mViewColorStateGeneratorFactory,
             colorStateListGeneratorFactory = colorStateListGeneratorFactory,
             packageResolver = packageResolver,
+            target = target.get(),
         )
     }
 

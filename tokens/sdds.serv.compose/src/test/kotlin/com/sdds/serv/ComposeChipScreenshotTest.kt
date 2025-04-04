@@ -1,6 +1,7 @@
 package com.sdds.serv
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.sdds.compose.uikit.style.style
 import com.sdds.serv.styles.chip.Accent
 import com.sdds.serv.styles.chip.Chip
 import com.sdds.serv.styles.chip.Default
@@ -43,7 +44,7 @@ class ComposeChipScreenshotTest(
     @Test
     fun testChipSizeMSecondaryPilled() {
         composeTestRule.content {
-            ChipSizeMSecondaryPilled(style = Chip.M.Secondary.Pilled.style())
+            ChipSizeMSecondaryPilled(style = Chip.M.Pilled.Secondary.style())
         }
     }
 

@@ -22,11 +22,10 @@ internal abstract class ComponentConfigDelegate<C : ComponentConfig> : Serializa
     fun generate(
         file: File,
         deps: StyleGeneratorDependencies,
-        target: ThemeBuilderTarget,
         component: Component,
     ) {
         val config: C = parseConfig(file)
-        when (target) {
+        when (deps.target) {
             ThemeBuilderTarget.VIEW_SYSTEM -> generateView(config, deps, component)
             ThemeBuilderTarget.COMPOSE -> generateCompose(config, deps, component)
             ThemeBuilderTarget.ALL -> {
