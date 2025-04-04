@@ -16,6 +16,7 @@ val LocalFocusSelectorMode = compositionLocalOf<FocusSelectorMode> { FocusSelect
  * Режим работы селектора фокуса
  */
 @Immutable
+@Deprecated("FocusSelectorSettings")
 sealed class FocusSelectorMode {
 
     /**
