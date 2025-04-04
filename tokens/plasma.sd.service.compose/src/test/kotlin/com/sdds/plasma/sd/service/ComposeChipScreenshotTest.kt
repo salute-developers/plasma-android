@@ -9,6 +9,7 @@ import com.sdds.plasma.sd.service.styles.chip.M
 import com.sdds.plasma.sd.service.styles.chip.Pilled
 import com.sdds.plasma.sd.service.styles.chip.S
 import com.sdds.plasma.sd.service.styles.chip.Secondary
+import com.sdds.compose.uikit.style.style
 import com.sdds.plasma.sd.service.styles.chip.Xs
 import com.sdds.testing.compose.RoborazziConfigCompose
 import com.sdds.testing.compose.chip.ChipDisabled
@@ -43,7 +44,7 @@ class ComposeChipScreenshotTest(
     @Test
     fun testChipSizeMSecondaryPilled() {
         composeTestRule.content {
-            ChipSizeMSecondaryPilled(style = Chip.M.Secondary.Pilled.style())
+            ChipSizeMSecondaryPilled(style = Chip.M.Pilled.Secondary.style())
         }
     }
 
