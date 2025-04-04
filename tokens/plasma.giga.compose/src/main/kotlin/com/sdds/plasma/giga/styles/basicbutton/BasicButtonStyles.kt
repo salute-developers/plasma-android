@@ -418,9 +418,9 @@ public val WrapperBasicButtonView.Clear: WrapperBasicButtonTerminate
             backgroundColor(
                 PlasmaGigaTheme.colors.surfaceDefaultClear.asInteractive(
                     setOf(InteractiveState.Pressed)
-                        to PlasmaGigaTheme.colors.surfaceDefaultClearActive,
+                        to PlasmaGigaTheme.colors.surfaceDefaultTransparentSecondaryActive,
                     setOf(InteractiveState.Hovered)
-                        to PlasmaGigaTheme.colors.surfaceDefaultClearHover,
+                        to PlasmaGigaTheme.colors.surfaceDefaultTransparentSecondaryHover,
                 ),
             )
         }
