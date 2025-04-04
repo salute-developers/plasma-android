@@ -18,10 +18,17 @@ import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
 import androidx.annotation.StyleRes
 import androidx.core.content.ContextCompat
+import com.sdds.uikit.colorstate.ColorState
+import com.sdds.uikit.colorstate.ColorState.Companion.isDefined
+import com.sdds.uikit.drawable.BadgeDrawable
+import com.sdds.uikit.drawable.CounterDrawable
+import com.sdds.uikit.drawable.IndicatorDrawable
+import com.sdds.uikit.drawable.TextDrawable
 import com.sdds.uikit.internal.base.CancelableFontCallback
 import com.sdds.uikit.internal.base.applyTextAppearance
 import com.sdds.uikit.internal.base.colorForState
 import com.sdds.uikit.internal.base.configure
+import com.sdds.uikit.shader.ShaderFactory
 import java.util.Locale
 import kotlin.math.roundToInt
 
@@ -37,7 +44,8 @@ open class Avatar @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.sd_avatarStyle,
-) : ImageView(context, attrs, defStyleAttr) {
+    defStyleRes: Int = R.style.Sdds_Components_Avatar,
+) : ImageView(context, attrs, defStyleAttr), TextDrawable.Delegate {
 
     /**
      * Статус аватара
@@ -60,17 +68,16 @@ open class Avatar @JvmOverloads constructor(
     }
 
     private val _bounds: Rect = Rect()
-    private val _statusPaint = Paint().configure(
-        isAntiAlias = true,
-        style = Paint.Style.FILL,
-    )
     private var _backgroundAlpha: Float = 1f
 
-    private var _statusSize: Float = 0f
     private var _statusOffsetX: Float = 0f
     private var _statusOffsetY: Float = 0f
     private var _status: Status = Status.NONE
     private var _statusColor: ColorStateList? = null
+    private var _statusDrawable: IndicatorDrawable? = null
+    private var _statusState: ColorState? = null
+    private var _statusStyle: Int = 0
+    private val _statusBounds: Rect = Rect()
 
     private var _actionDrawable: Drawable? = null
     private var _actionScrimDrawable = ColorDrawable(ScrimColor)
@@ -91,11 +98,31 @@ open class Avatar @JvmOverloads constructor(
 
     @ColorInt
     private var _textColorEnd: Int = 0
-    private val _shouldUseGradientText: Boolean get() = _textColorStart != _textColorEnd && _textColor == null
+    private val _shouldUseGradientText: Boolean
+        get() = _textColorShaderFactory != null || (_textColorStart != _textColorEnd && _textColor == null)
     private var _textColorGradient: Shader? = null
+    private var _textColorShaderFactory: ShaderFactory? = null
 
     private val _initialsEnabled: Boolean
         get() = drawable == null && _text != null
+
+    private var _badgeDrawable: BadgeDrawable? = null
+    private val _badgeBounds: Rect = Rect()
+    private var _badgeEnabled: Boolean = false
+    private var _badgePlacement: Int = EXTRA_PLACEMENT_TOP_START
+    private var _badgeState: ColorState? = null
+
+    @StyleRes
+    private var _badgeStyle: Int = 0
+
+    private var _counterDrawable: CounterDrawable? = null
+    private val _counterBounds: Rect = Rect()
+    private var _counterEnabled: Boolean = false
+    private var _counterPlacement: Int = EXTRA_PLACEMENT_TOP_START
+    private var _counterState: ColorState? = null
+
+    @StyleRes
+    private var _counterStyle: Int = 0
 
     /**
      * @see Status
@@ -122,8 +149,87 @@ open class Avatar @JvmOverloads constructor(
             }
         }
 
+    /**
+     * Бейдж компонента [Avatar]
+     * @see [BadgeDrawable]
+     */
+    var badge: BadgeDrawable?
+        get() = _badgeDrawable
+        set(value) {
+            _badgeDrawable = value?.apply {
+                callback = this@Avatar
+                setDelegate(this@Avatar)
+            }
+            invalidate()
+        }
+
+    /**
+     * Включает/выключает [badge]
+     */
+    var badgeEnabled: Boolean
+        get() = _badgeEnabled
+        set(value) {
+            if (_badgeEnabled != value) {
+                _badgeEnabled = value
+                invalidate()
+            }
+        }
+
+    /**
+     * Расположение [badge] в [Avatar].
+     * Может быть [EXTRA_PLACEMENT_TOP_START], [EXTRA_PLACEMENT_TOP_END],
+     * [EXTRA_PLACEMENT_BOTTOM_END] или [EXTRA_PLACEMENT_BOTTOM_START]
+     */
+    var badgePlacement: Int
+        get() = _badgePlacement
+        set(value) {
+            if (_badgePlacement != value) {
+                _badgePlacement = value
+                invalidate()
+            }
+        }
+
+    /**
+     * Счетчик компонента [Avatar]
+     * @see [CounterDrawable]
+     */
+    var counter: CounterDrawable?
+        get() = _counterDrawable
+        set(value) {
+            _counterDrawable = value?.apply {
+                callback = this@Avatar
+                setDelegate(this@Avatar)
+            }
+        }
+
+    /**
+     * Включает/выключает [counter]
+     */
+    var counterEnabled: Boolean
+        get() = _counterEnabled
+        set(value) {
+            if (_counterEnabled != value) {
+                _counterEnabled = value
+                invalidate()
+            }
+        }
+
+    /**
+     * Расположение [counter] в [Avatar].
+     * Может быть [EXTRA_PLACEMENT_TOP_START], [EXTRA_PLACEMENT_TOP_END],
+     * [EXTRA_PLACEMENT_BOTTOM_END] или [EXTRA_PLACEMENT_BOTTOM_START]
+     */
+    var counterPlacement: Int
+        get() = _counterPlacement
+        set(value) {
+            if (_counterPlacement != value) {
+                _counterPlacement = value
+                invalidate()
+            }
+        }
+
     init {
-        obtainAttributes(context, attrs, defStyleAttr)
+        obtainAttributes(context, attrs, defStyleAttr, defStyleRes)
         updateBackgroundAlpha()
     }
 
@@ -134,6 +240,7 @@ open class Avatar @JvmOverloads constructor(
     open fun setStatusColor(color: ColorStateList?) {
         if (_statusColor != color) {
             _statusColor = color
+            _statusDrawable?.setTintList(color)
             invalidate()
         }
     }
@@ -326,21 +433,36 @@ open class Avatar @JvmOverloads constructor(
             )
         }
         _bounds.set(0, 0, measuredWidth, measuredHeight)
+
+        badge.takeIf { badgeEnabled }?.let { badge ->
+            _badgeBounds.set(0, 0, badge.intrinsicWidth, badge.intrinsicHeight)
+        }
+        counter.takeIf { counterEnabled }?.let { counter ->
+            _counterBounds.set(0, 0, counter.intrinsicWidth, counter.intrinsicHeight)
+        }
+        _statusDrawable.takeIf { status != Status.NONE }?.let { status ->
+            _statusBounds.set(0, 0, status.intrinsicWidth, status.intrinsicHeight)
+            _statusBounds.offset(
+                _bounds.width() - _statusBounds.width() - _statusOffsetX.toInt(),
+                _bounds.height() - _statusBounds.height() - _statusOffsetY.toInt(),
+            )
+        }
         _actionOverlay?.bounds = _bounds
     }
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)
         _textColorGradient = if (_shouldUseGradientText) {
-            LinearGradient(
-                0f,
-                _textBounds.height().toFloat(),
-                _textBounds.width().toFloat(),
-                0f,
-                intArrayOf(_textColorStart, _textColorEnd),
-                floatArrayOf(0f, 1f),
-                Shader.TileMode.CLAMP,
-            )
+            _textColorShaderFactory?.resize(_textBounds.width().toFloat(), _textBounds.height().toFloat())
+                ?: LinearGradient(
+                    0f,
+                    _textBounds.height().toFloat(),
+                    _textBounds.width().toFloat(),
+                    0f,
+                    intArrayOf(_textColorStart, _textColorEnd),
+                    floatArrayOf(0f, 1f),
+                    Shader.TileMode.CLAMP,
+                )
         } else {
             null
         }
@@ -352,6 +474,7 @@ open class Avatar @JvmOverloads constructor(
         if (_status != Status.NONE) {
             drawStatus(canvas)
         }
+        drawExtra(canvas)
     }
 
     override fun onDrawBeforeClip(canvas: Canvas) {
@@ -368,26 +491,53 @@ open class Avatar @JvmOverloads constructor(
     override fun onCreateDrawableState(extraSpace: Int): IntArray {
         // ImageView может вызвать onCreateDrawableState до инициализации status
         if (status == null) return super.onCreateDrawableState(extraSpace)
-        val statusSpace = if (status != Status.INACTIVE) 1 else 0
+        val drawableState = super.onCreateDrawableState(extraSpace + 3)
         val statusState = when (status) {
             Status.NONE -> null
             Status.ACTIVE -> R.attr.sd_status_active
             Status.INACTIVE -> R.attr.sd_status_inactive
         }
-        val drawableState = super.onCreateDrawableState(extraSpace + statusSpace)
         if (statusState != null) {
             mergeDrawableStates(drawableState, intArrayOf(statusState))
+        }
+        if (_counterState?.isDefined() == true) {
+            mergeDrawableStates(drawableState, _counterState!!.attrs)
+        }
+        if (_badgeState?.isDefined() == true) {
+            mergeDrawableStates(drawableState, _badgeState!!.attrs)
         }
         return drawableState
     }
 
     override fun verifyDrawable(dr: Drawable): Boolean {
-        return super.verifyDrawable(dr) || _actionDrawable == dr || _actionScrimDrawable == dr || _actionOverlay == dr
+        return super.verifyDrawable(dr) ||
+            _actionDrawable == dr ||
+            _actionScrimDrawable == dr ||
+            _actionOverlay == dr ||
+            badge == dr ||
+            counter == dr ||
+            _statusDrawable == dr
     }
 
     override fun setBackground(background: Drawable?) {
         super.setBackground(background)
         updateBackgroundAlpha()
+    }
+
+    override fun drawableStateChanged() {
+        super.drawableStateChanged()
+        if (_badgeState?.isDefined() == true) {
+            badge?.state = drawableState
+        }
+        if (_counterState?.isDefined() == true) {
+            counter?.state = drawableState
+        }
+        _statusDrawable?.state = drawableState
+    }
+
+    override fun onDrawableSizeChange() {
+        requestLayout()
+        invalidate()
     }
 
     private fun updateBackgroundAlpha() {
@@ -406,19 +556,44 @@ open class Avatar @JvmOverloads constructor(
     }
 
     private fun drawStatus(canvas: Canvas) {
-        _statusPaint.color = _statusColor.colorForState(drawableState)
-        val centerX = _bounds.width() - _statusSize / 2 - _statusOffsetX
-        val centerY = _bounds.height() - _statusSize / 2 - _statusOffsetY
-        canvas.drawCircle(
-            centerX,
-            centerY,
-            _statusSize / 2f,
-            _statusPaint,
-        )
+        _statusDrawable?.run {
+            bounds = _statusBounds
+            draw(canvas)
+            canvas.drawRect(_statusBounds, DebugPaint)
+        }
     }
 
     private fun drawAction(canvas: Canvas) {
         _actionOverlay?.draw(canvas)
+    }
+
+    private fun drawExtra(canvas: Canvas) {
+        badge.takeIf { badgeEnabled }?.let { badge ->
+            Gravity.apply(
+                badgePlacement.gravity,
+                badge.intrinsicWidth,
+                badge.intrinsicHeight,
+                _bounds,
+                _badgeBounds,
+                layoutDirection,
+            )
+            badge.bounds = _badgeBounds
+            badge.draw(canvas)
+            canvas.drawRect(_badgeBounds, DebugPaint)
+        }
+        counter.takeIf { counterEnabled }?.let { counter ->
+            Gravity.apply(
+                counterPlacement.gravity,
+                counter.intrinsicWidth,
+                counter.intrinsicHeight,
+                _bounds,
+                _counterBounds,
+                layoutDirection,
+            )
+            counter.bounds = _counterBounds
+            counter.draw(canvas)
+            canvas.drawRect(_counterBounds, DebugPaint)
+        }
     }
 
     private fun updateTextColor() {
@@ -431,13 +606,14 @@ open class Avatar @JvmOverloads constructor(
         }
     }
 
-    private fun obtainAttributes(context: Context, attrs: AttributeSet?, defStyleAttr: Int) {
-        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.Avatar, defStyleAttr, -1)
+    private fun obtainAttributes(context: Context, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) {
+        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.Avatar, defStyleAttr, defStyleRes)
         _status = Status.values()
             .getOrElse(typedArray.getInt(R.styleable.Avatar_sd_status, 0)) { Status.NONE }
-        _statusSize = typedArray.getDimension(R.styleable.Avatar_sd_statusSize, 0f)
         _statusOffsetX = typedArray.getDimension(R.styleable.Avatar_sd_statusOffsetX, 0f)
         _statusOffsetY = typedArray.getDimension(R.styleable.Avatar_sd_statusOffsetY, 0f)
+        _statusStyle = typedArray.getResourceId(R.styleable.Avatar_sd_statusStyle, R.style.Sdds_Components_Indicator)
+        obtainStatusIndicator(_statusStyle)
         setStatusColor(typedArray.getColorStateList(R.styleable.Avatar_sd_statusColor))
 
         _actionSize = typedArray.getDimensionPixelSize(R.styleable.Avatar_sd_actionSize, 0)
@@ -451,21 +627,112 @@ open class Avatar @JvmOverloads constructor(
         setTextAppearance(typedArray.getResourceId(R.styleable.Avatar_android_textAppearance, 0))
         _textColorStart = typedArray.getColor(R.styleable.Avatar_sd_textColorStart, 0)
         _textColorEnd = typedArray.getColor(R.styleable.Avatar_sd_textColorEnd, 0)
+        _textColorShaderFactory = typedArray.getResourceId(R.styleable.Avatar_sd_textShaderStyle, 0).let {
+            context.shaderFactory(it)
+        }
         setTextColor(typedArray.getColorStateList(R.styleable.Avatar_android_textColor))
 
         _backgroundAlpha = typedArray.getFloat(R.styleable.Avatar_sd_backgroundAlpha, 1f)
+
+        _badgeStyle = typedArray.getResourceId(R.styleable.Avatar_sd_extraBadgeStyle, R.style.Sdds_Components_Badge)
+        badgeEnabled = typedArray.getBoolean(R.styleable.Avatar_sd_extraBadgeEnabled, false)
+        badgePlacement = typedArray.getInt(R.styleable.Avatar_sd_extraBadgePlacement, EXTRA_PLACEMENT_TOP_START)
+        badgeObtainAttributes(_badgeStyle)
+        badge?.apply {
+            text = typedArray.getString(R.styleable.Avatar_sd_extraBadgeText).orEmpty()
+            drawableStart = typedArray.getDrawable(R.styleable.Avatar_sd_extraBadgeIconStart)
+            drawableEnd = typedArray.getDrawable(R.styleable.Avatar_sd_extraBadgeIconEnd)
+        }
+
+        _counterStyle =
+            typedArray.getResourceId(R.styleable.Avatar_sd_extraCounterStyle, R.style.Sdds_Components_Counter)
+        counterEnabled = typedArray.getBoolean(R.styleable.Avatar_sd_extraCounterEnabled, false)
+        counterPlacement = typedArray.getInt(R.styleable.Avatar_sd_extraCounterPlacement, EXTRA_PLACEMENT_TOP_START)
+        counterObtainAttributes(_counterStyle)
+        counter?.apply {
+            text = typedArray.getString(R.styleable.Avatar_sd_extraCounterText).orEmpty()
+        }
+
         typedArray.recycle()
     }
 
-    private companion object {
-        const val MAX_ALPHA_INT = 255
-        val ScrimColor = Color.argb((255 * 0.56f).roundToInt(), 8, 8, 8)
+    @Suppress("CustomViewStyleable")
+    private fun counterObtainAttributes(counterStyle: Int) {
+        val typedArray = context.obtainStyledAttributes(counterStyle, R.styleable.Counter)
+        _counterState = ColorState.obtain(context, null, 0, counterStyle)
+        typedArray.recycle()
+        counter = CounterDrawable(
+            context = context,
+            attrs = null,
+            0,
+            counterStyle,
+        )
+    }
 
-        val CharSequence.initials
+    @Suppress("CustomViewStyleable")
+    private fun badgeObtainAttributes(badgeStyle: Int) {
+        _badgeState = ColorState.obtain(context, null, 0, badgeStyle)
+        badge = BadgeDrawable(
+            context = context,
+            attrs = null,
+            defStyleAttr = 0,
+            defStyleRes = badgeStyle,
+        )
+    }
+
+    @Suppress("CustomViewStyleable")
+    private fun obtainStatusIndicator(statusStyle: Int) {
+        _statusState = ColorState.obtain(context, null, 0, statusStyle)
+        _statusDrawable = IndicatorDrawable(
+            context = context,
+            attrs = null,
+            defStyleAttr = 0,
+            defStyleRes = statusStyle,
+        ).apply {
+            callback = this@Avatar
+        }
+    }
+
+    companion object {
+        /**
+         * Расположение в верхнем левом (LayoutDirection.LTR)
+         * или верхнем правом углу (LayoutDirection.RTL)
+         */
+        const val EXTRA_PLACEMENT_TOP_START = 0
+        /**
+         * Расположение в верхнем правом (LayoutDirection.LTR)
+         * или верхнем левом углу (LayoutDirection.RTL)
+         */
+        const val EXTRA_PLACEMENT_TOP_END = 1
+        /**
+         * Расположение в нижнем левом (LayoutDirection.LTR)
+         * или нижнем правом углу (LayoutDirection.RTL)
+         */
+        const val EXTRA_PLACEMENT_BOTTOM_START = 2
+
+        /**
+         * Расположение в нижнем правом (LayoutDirection.LTR)
+         * или нижнем левом углу (LayoutDirection.RTL)
+         */
+        const val EXTRA_PLACEMENT_BOTTOM_END = 3
+
+        private const val MAX_ALPHA_INT = 255
+        private val ScrimColor = Color.argb((255 * 0.56f).roundToInt(), 8, 8, 8)
+        private val DebugPaint = Paint().configure(style = Paint.Style.STROKE, color = Color.MAGENTA)
+
+        private val CharSequence.initials
             get() = this
                 .split(' ')
                 .mapNotNull { it.firstOrNull()?.toString() }
                 .take(2)
                 .reduce { acc, s -> acc + s }
+
+        private val Int.gravity: Int
+            get() = when (this) {
+                EXTRA_PLACEMENT_TOP_END -> Gravity.TOP or Gravity.END
+                EXTRA_PLACEMENT_BOTTOM_END -> Gravity.BOTTOM or Gravity.START
+                EXTRA_PLACEMENT_BOTTOM_START -> Gravity.BOTTOM or Gravity.END
+                else -> Gravity.TOP or Gravity.START
+            }
     }
 }

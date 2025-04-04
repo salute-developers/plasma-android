@@ -4,7 +4,9 @@ import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.ComponentStyle
 import com.sdds.plugin.themebuilder.internal.components.base.Config
+import com.sdds.plugin.themebuilder.internal.components.base.Gradient
 import com.sdds.plugin.themebuilder.internal.components.base.PropertyOwner
+import com.sdds.plugin.themebuilder.internal.components.base.SolidColor
 import com.sdds.plugin.themebuilder.internal.components.base.VariationNode
 import com.sdds.plugin.themebuilder.internal.components.base.asVariationTree
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
@@ -178,6 +180,15 @@ internal sealed class ColorValue {
 
 internal val ColorValue?.isNullOrInherited: Boolean
     get() = this == null || (this is ColorValue.SimpleValue && this.inherited)
+
+internal val ColorValue.type: ColorStateListGenerator.ColorType
+    get() = when {
+        this is ColorValue.SimpleValue && this.color is SolidColor -> ColorStateListGenerator.ColorType.COLOR
+        this is ColorValue.SimpleValue && this.color is Gradient -> ColorStateListGenerator.ColorType.GRADIENT
+        this is ColorValue.ViewValue && this.colors.all { it.value is SolidColor } ->
+            ColorStateListGenerator.ColorType.COLOR
+        else -> ColorStateListGenerator.ColorType.GRADIENT
+    }
 
 internal val PropertyValue<*>?.isNullOrInherited: Boolean
     get() = this == null || this.inherited

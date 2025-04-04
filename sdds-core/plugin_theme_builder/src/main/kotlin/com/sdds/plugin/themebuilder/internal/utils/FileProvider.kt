@@ -84,8 +84,8 @@ object FileProvider {
     /**
      * XML файл для drawable
      */
-    fun File.drawableXmlFile(name: String): File =
-        File("${drawableDir().path}/$name.xml")
+    fun File.drawableXmlFile(name: String, prefix: String? = null): File =
+        File("${drawableDir().path}/${name.withPrefixIfNeed(prefix)}.xml")
 
     /**
      * XML файл для размеров

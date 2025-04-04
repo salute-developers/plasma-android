@@ -5,8 +5,8 @@
     <attr name="sd_avatarGroupStyle" format="reference" />
 
     <declare-styleable name="SdAvatarStatus">
-        <attr name="sd_status_active" format="boolean"/>
-        <attr name="sd_status_inactive" format="boolean"/>
+        <attr name="sd_status_active" format="boolean" />
+        <attr name="sd_status_inactive" format="boolean" />
     </declare-styleable>
 
     <declare-styleable name="Avatar" tools:ignore="ResourceName">
@@ -21,6 +21,29 @@
         <attr name="sd_statusColor" format="color" />
         <attr name="sd_statusOffsetX" format="dimension" />
         <attr name="sd_statusOffsetY" format="dimension" />
+        <attr name="sd_statusStyle" format="reference" />
+
+        <attr name="sd_extraBadgeStyle" format="reference" />
+        <attr name="sd_extraBadgeEnabled" format="boolean" />
+        <attr name="sd_extraBadgeText" format="string" />
+        <attr name="sd_extraBadgeIconStart" format="reference" />
+        <attr name="sd_extraBadgeIconEnd" format="reference" />
+        <attr name="sd_extraBadgePlacement" format="enum">
+            <enum name="topLeft" value="0" />
+            <enum name="topRight" value="1" />
+            <enum name="bottomRight" value="2" />
+            <enum name="bottomLeft" value="3" />
+        </attr>
+
+        <attr name="sd_extraCounterStyle" format="reference" />
+        <attr name="sd_extraCounterEnabled" format="boolean" />
+        <attr name="sd_extraCounterText" format="string" />
+        <attr name="sd_extraCounterPlacement" format="enum">
+            <enum name="topLeft" value="0" />
+            <enum name="topRight" value="1" />
+            <enum name="bottomRight" value="2" />
+            <enum name="bottomLeft" value="3" />
+        </attr>
 
         <attr name="sd_actionEnabled" format="boolean" />
         <attr name="sd_action" />
@@ -31,7 +54,8 @@
         <attr name="sd_name" format="string" />
         <attr name="sd_text" format="string" />
         <attr name="android:textAppearance" />
-        <attr name="android:textColor"/>
+        <attr name="android:textColor" />
+        <attr name="sd_textShaderStyle" format="reference"/>
         <attr name="sd_textColorStart" format="color" />
         <attr name="sd_textColorEnd" format="color" />
         <attr name="sd_backgroundAlpha" format="float" />
@@ -42,7 +66,7 @@
         <attr name="sd_itemSpacing" format="dimension" />
         <attr name="sd_threshold" format="integer" />
 
-        <attr name="sd_avatarStyleOverlay" format="reference"/>
+        <attr name="sd_avatarStyleOverlay" format="reference" />
         <attr name="sd_counterBackground" format="reference|color" />
         <attr name="sd_counterEnabled" format="boolean" />
         <attr name="sd_counterTextAppearance" format="reference" />

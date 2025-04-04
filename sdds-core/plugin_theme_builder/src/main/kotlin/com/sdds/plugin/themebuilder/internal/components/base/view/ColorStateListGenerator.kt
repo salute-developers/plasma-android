@@ -33,11 +33,13 @@ internal class ColorStateListGenerator(
      * Добавляет цвет из токена [colorTokenName] с состояниями [states] и прозрачностью [alpha] в ColorStateList
      */
     fun addColor(
+        type: ColorType,
         colorTokenName: String,
         states: Set<StateListAttribute> = emptySet(),
         alpha: Float? = null,
     ) {
         val newItem = StateListItem(
+            type,
             "?${resourcePrefix}_${ColorToken.getAttrName(colorTokenName)}",
             states,
             alpha,
@@ -59,7 +61,7 @@ internal class ColorStateListGenerator(
                     elementName = ElementName.ITEM.value,
                     attrs = mutableMapOf<String, String>().apply {
                         stateListItem.alpha?.let { put("android:alpha", it.toString()) }
-                        put("android:color", stateListItem.value)
+                        put(stateListItem.type.attr, stateListItem.value)
 
                         stateListItem.states.forEach {
                             put(it.name, it.value)
@@ -69,11 +71,17 @@ internal class ColorStateListGenerator(
             }
     }
 
-    private data class StateListItem(
+    private class StateListItem(
+        val type: ColorType,
         val value: String,
         val states: Set<StateListAttribute>,
         val alpha: Float? = null,
     )
+
+    enum class ColorType(val attr: String) {
+        COLOR("android:color"),
+        GRADIENT("android:drawable"),
+    }
 }
 
 /**
@@ -102,6 +110,13 @@ internal enum class AndroidState(val key: String, private val attribute: String)
          * Преобразует список строк в множество [AndroidState], если строка является ключом [AndroidState.key]
          */
         fun List<String>.asAndroidStates(): Set<AndroidState> = mapNotNull { fromKeyString(it) }.toSet()
+
+        /**
+         * Искоючает из списка строк - состояний множество [AndroidState]
+         */
+        fun List<String>.excludeAndroidStates(): Set<String> = filter {
+            fromKeyString(it) == null
+        }.toSet()
 
         private fun fromKeyString(key: String): AndroidState? = AndroidState.values().find { it.key == key }
     }
