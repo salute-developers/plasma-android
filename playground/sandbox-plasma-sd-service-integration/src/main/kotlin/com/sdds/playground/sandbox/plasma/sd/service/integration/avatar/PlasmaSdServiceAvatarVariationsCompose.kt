@@ -1,8 +1,8 @@
 package com.sdds.playground.sandbox.plasma.sd.service.integration.avatar
 
 import androidx.compose.runtime.Composable
-import com.sdds.compose.uikit.Avatar
 import com.sdds.compose.uikit.AvatarStyle
+import com.sdds.plasma.sd.service.styles.avatar.Avatar
 import com.sdds.plasma.sd.service.styles.avatar.L
 import com.sdds.plasma.sd.service.styles.avatar.M
 import com.sdds.plasma.sd.service.styles.avatar.S

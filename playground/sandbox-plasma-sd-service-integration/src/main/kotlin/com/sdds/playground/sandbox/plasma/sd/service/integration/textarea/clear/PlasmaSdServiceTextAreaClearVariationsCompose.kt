@@ -1,21 +1,21 @@
 package com.sdds.playground.sandbox.plasma.sd.service.integration.textarea.clear
 
 import androidx.compose.runtime.Composable
-import com.sdds.compose.uikit.TextAreaClear
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.style.style
-import com.sdds.plasma.sd.service.styles.textarea.clear.Default
-import com.sdds.plasma.sd.service.styles.textarea.clear.Error
-import com.sdds.plasma.sd.service.styles.textarea.clear.InnerLabel
-import com.sdds.plasma.sd.service.styles.textarea.clear.L
-import com.sdds.plasma.sd.service.styles.textarea.clear.M
-import com.sdds.plasma.sd.service.styles.textarea.clear.OuterLabel
-import com.sdds.plasma.sd.service.styles.textarea.clear.RequiredEnd
-import com.sdds.plasma.sd.service.styles.textarea.clear.RequiredStart
-import com.sdds.plasma.sd.service.styles.textarea.clear.S
-import com.sdds.plasma.sd.service.styles.textarea.clear.Warning
-import com.sdds.plasma.sd.service.styles.textarea.clear.Xl
-import com.sdds.plasma.sd.service.styles.textarea.clear.Xs
+import com.sdds.plasma.sd.service.styles.textarea.Default
+import com.sdds.plasma.sd.service.styles.textarea.Error
+import com.sdds.plasma.sd.service.styles.textarea.InnerLabel
+import com.sdds.plasma.sd.service.styles.textarea.L
+import com.sdds.plasma.sd.service.styles.textarea.M
+import com.sdds.plasma.sd.service.styles.textarea.OuterLabel
+import com.sdds.plasma.sd.service.styles.textarea.RequiredEnd
+import com.sdds.plasma.sd.service.styles.textarea.RequiredStart
+import com.sdds.plasma.sd.service.styles.textarea.S
+import com.sdds.plasma.sd.service.styles.textarea.TextAreaClear
+import com.sdds.plasma.sd.service.styles.textarea.Warning
+import com.sdds.plasma.sd.service.styles.textarea.Xl
+import com.sdds.plasma.sd.service.styles.textarea.Xs
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 
 internal object PlasmaSdServiceTextAreaClearVariationsCompose : ComposeStyleProvider<String, TextFieldStyle>() {

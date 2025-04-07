@@ -217,4 +217,7 @@ open class SegmentItem @JvmOverloads constructor(
             )
         }
     }
+    override fun toggle() {
+        isChecked = isChecked || isCheckable
+    }
 }

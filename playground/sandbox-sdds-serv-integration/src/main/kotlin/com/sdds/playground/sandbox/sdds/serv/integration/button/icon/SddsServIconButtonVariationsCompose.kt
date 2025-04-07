@@ -2,26 +2,26 @@ package com.sdds.playground.sandbox.sdds.serv.integration.button.icon
 
 import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.ButtonStyle
-import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
-import com.sdds.serv.styles.button.icon.Accent
-import com.sdds.serv.styles.button.icon.Black
-import com.sdds.serv.styles.button.icon.Clear
-import com.sdds.serv.styles.button.icon.Dark
-import com.sdds.serv.styles.button.icon.Default
-import com.sdds.serv.styles.button.icon.L
-import com.sdds.serv.styles.button.icon.M
-import com.sdds.serv.styles.button.icon.Negative
-import com.sdds.serv.styles.button.icon.Pilled
-import com.sdds.serv.styles.button.icon.Positive
-import com.sdds.serv.styles.button.icon.S
-import com.sdds.serv.styles.button.icon.Secondary
-import com.sdds.serv.styles.button.icon.Warning
-import com.sdds.serv.styles.button.icon.White
-import com.sdds.serv.styles.button.icon.Xl
-import com.sdds.serv.styles.button.icon.Xs
-import com.sdds.serv.styles.button.icon.Xxs
+import com.sdds.serv.styles.iconbutton.Accent
+import com.sdds.serv.styles.iconbutton.Black
+import com.sdds.serv.styles.iconbutton.Clear
+import com.sdds.serv.styles.iconbutton.Dark
+import com.sdds.serv.styles.iconbutton.Default
+import com.sdds.serv.styles.iconbutton.IconButton
+import com.sdds.serv.styles.iconbutton.L
+import com.sdds.serv.styles.iconbutton.M
+import com.sdds.serv.styles.iconbutton.Negative
+import com.sdds.serv.styles.iconbutton.Pilled
+import com.sdds.serv.styles.iconbutton.Positive
+import com.sdds.serv.styles.iconbutton.S
+import com.sdds.serv.styles.iconbutton.Secondary
+import com.sdds.serv.styles.iconbutton.Warning
+import com.sdds.serv.styles.iconbutton.White
+import com.sdds.serv.styles.iconbutton.Xl
+import com.sdds.serv.styles.iconbutton.Xs
+import com.sdds.serv.styles.iconbutton.Xxs
 
 internal object SddsServIconButtonVariationsCompose : ComposeStyleProvider<String, ButtonStyle>() {
 

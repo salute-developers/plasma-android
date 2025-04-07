@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="serv_navigation_drawer_item_min_height">48dp</dimen>
+    <dimen name="serv_navigation_drawer_item_content_start_padding">12dp</dimen>
+    <dimen name="serv_navigation_drawer_item_content_end_padding">12dp</dimen>
+    <dimen name="serv_navigation_drawer_item_padding">12dp</dimen>
+    <dimen name="serv_navigation_drawer_item_shape_adjustment">2dp</dimen>
+    <dimen name="serv_navigation_drawer_item_counter_offset_x">10dp</dimen>
+    <dimen name="serv_navigation_drawer_item_counter_offset_y">-7dp</dimen>
+    <dimen name="serv_navigation_drawer_padding_horizontal">8dp</dimen>
+    <dimen name="serv_navigation_drawer_padding_top">24dp</dimen>
+    <dimen name="serv_navigation_drawer_padding_bottom">18dp</dimen>
+    <dimen name="serv_navigation_drawer_shape_adjustment">4dp</dimen>
+    <dimen name="serv_navigation_drawer_shape_stroke_width">1dp</dimen>
+    <dimen name="serv_navigation_drawer_collapsed_item_width">48dp</dimen>
+</resources>

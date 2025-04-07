@@ -1,9 +1,9 @@
 package com.sdds.playground.sandbox.plasma.sd.service.integration.chip
 
 import androidx.compose.runtime.Composable
-import com.sdds.compose.uikit.Chip
 import com.sdds.compose.uikit.ChipStyle
 import com.sdds.plasma.sd.service.styles.chip.Accent
+import com.sdds.plasma.sd.service.styles.chip.Chip
 import com.sdds.plasma.sd.service.styles.chip.Default
 import com.sdds.plasma.sd.service.styles.chip.L
 import com.sdds.plasma.sd.service.styles.chip.M

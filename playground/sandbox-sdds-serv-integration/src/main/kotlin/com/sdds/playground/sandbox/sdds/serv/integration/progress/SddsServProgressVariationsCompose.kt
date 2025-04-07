@@ -1,7 +1,6 @@
 package com.sdds.playground.sandbox.sdds.serv.integration.progress
 
 import androidx.compose.runtime.Composable
-import com.sdds.compose.uikit.ProgressBar
 import com.sdds.compose.uikit.ProgressBarStyle
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 import com.sdds.serv.styles.progress.Accent
@@ -10,6 +9,7 @@ import com.sdds.serv.styles.progress.GradientAccent
 import com.sdds.serv.styles.progress.Info
 import com.sdds.serv.styles.progress.Negative
 import com.sdds.serv.styles.progress.Positive
+import com.sdds.serv.styles.progress.ProgressBar
 import com.sdds.serv.styles.progress.Secondary
 import com.sdds.serv.styles.progress.Warning
 

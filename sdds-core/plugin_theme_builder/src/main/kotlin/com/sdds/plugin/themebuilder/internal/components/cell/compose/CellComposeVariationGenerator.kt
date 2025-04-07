@@ -7,7 +7,6 @@ import com.sdds.plugin.themebuilder.internal.components.cell.CellProperties
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.KtFileBuilderFactory
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
-import com.squareup.kotlinpoet.ClassName
 
 internal class CellComposeVariationGenerator(
     private val avatarStylesPackage: String,
@@ -56,14 +55,6 @@ internal class CellComposeVariationGenerator(
             radioBoxStyleCall(props, ktFileBuilder),
             switchStyleCall(props, ktFileBuilder),
         )
-    }
-
-    override fun KtFileBuilder.onAddImports() {
-        addImport(ClassName("com.sdds.compose.uikit", "Avatar"))
-        addImport(ClassName("com.sdds.compose.uikit", "CheckBox"))
-        addImport(ClassName("com.sdds.compose.uikit", "RadioBox"))
-        addImport(ClassName("com.sdds.compose.uikit", "IconButton"))
-        addImport(ClassName("com.sdds.compose.uikit", "Switch"))
     }
 
     private fun avatarStyleCall(props: CellProperties, ktFileBuilder: KtFileBuilder): String? {

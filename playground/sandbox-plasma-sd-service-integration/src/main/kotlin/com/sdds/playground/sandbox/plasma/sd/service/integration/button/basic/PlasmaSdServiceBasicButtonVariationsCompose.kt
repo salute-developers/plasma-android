@@ -1,25 +1,25 @@
 package com.sdds.playground.sandbox.plasma.sd.service.integration.button.basic
 
 import androidx.compose.runtime.Composable
-import com.sdds.compose.uikit.BasicButton
 import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.style.style
-import com.sdds.plasma.sd.service.styles.button.basic.Accent
-import com.sdds.plasma.sd.service.styles.button.basic.Black
-import com.sdds.plasma.sd.service.styles.button.basic.Clear
-import com.sdds.plasma.sd.service.styles.button.basic.Dark
-import com.sdds.plasma.sd.service.styles.button.basic.Default
-import com.sdds.plasma.sd.service.styles.button.basic.L
-import com.sdds.plasma.sd.service.styles.button.basic.M
-import com.sdds.plasma.sd.service.styles.button.basic.Negative
-import com.sdds.plasma.sd.service.styles.button.basic.Positive
-import com.sdds.plasma.sd.service.styles.button.basic.S
-import com.sdds.plasma.sd.service.styles.button.basic.Secondary
-import com.sdds.plasma.sd.service.styles.button.basic.Warning
-import com.sdds.plasma.sd.service.styles.button.basic.White
-import com.sdds.plasma.sd.service.styles.button.basic.Xl
-import com.sdds.plasma.sd.service.styles.button.basic.Xs
-import com.sdds.plasma.sd.service.styles.button.basic.Xxs
+import com.sdds.plasma.sd.service.styles.basicbutton.Accent
+import com.sdds.plasma.sd.service.styles.basicbutton.BasicButton
+import com.sdds.plasma.sd.service.styles.basicbutton.Black
+import com.sdds.plasma.sd.service.styles.basicbutton.Clear
+import com.sdds.plasma.sd.service.styles.basicbutton.Dark
+import com.sdds.plasma.sd.service.styles.basicbutton.Default
+import com.sdds.plasma.sd.service.styles.basicbutton.L
+import com.sdds.plasma.sd.service.styles.basicbutton.M
+import com.sdds.plasma.sd.service.styles.basicbutton.Negative
+import com.sdds.plasma.sd.service.styles.basicbutton.Positive
+import com.sdds.plasma.sd.service.styles.basicbutton.S
+import com.sdds.plasma.sd.service.styles.basicbutton.Secondary
+import com.sdds.plasma.sd.service.styles.basicbutton.Warning
+import com.sdds.plasma.sd.service.styles.basicbutton.White
+import com.sdds.plasma.sd.service.styles.basicbutton.Xl
+import com.sdds.plasma.sd.service.styles.basicbutton.Xs
+import com.sdds.plasma.sd.service.styles.basicbutton.Xxs
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 
 internal object PlasmaSdServiceBasicButtonVariationsCompose : ComposeStyleProvider<String, ButtonStyle>() {

@@ -1,24 +1,24 @@
 package com.sdds.playground.sandbox.stylessalute.integration.button.basic
 
 import androidx.compose.runtime.Composable
-import com.sdds.compose.uikit.BasicButton
 import com.sdds.compose.uikit.ButtonStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
-import com.sdds.stylessalute.styles.button.basic.Accent
-import com.sdds.stylessalute.styles.button.basic.Black
-import com.sdds.stylessalute.styles.button.basic.Clear
-import com.sdds.stylessalute.styles.button.basic.Dark
-import com.sdds.stylessalute.styles.button.basic.Default
-import com.sdds.stylessalute.styles.button.basic.L
-import com.sdds.stylessalute.styles.button.basic.M
-import com.sdds.stylessalute.styles.button.basic.Negative
-import com.sdds.stylessalute.styles.button.basic.Positive
-import com.sdds.stylessalute.styles.button.basic.S
-import com.sdds.stylessalute.styles.button.basic.Secondary
-import com.sdds.stylessalute.styles.button.basic.Warning
-import com.sdds.stylessalute.styles.button.basic.White
-import com.sdds.stylessalute.styles.button.basic.Xs
+import com.sdds.stylessalute.styles.basicbutton.Accent
+import com.sdds.stylessalute.styles.basicbutton.BasicButton
+import com.sdds.stylessalute.styles.basicbutton.Black
+import com.sdds.stylessalute.styles.basicbutton.Clear
+import com.sdds.stylessalute.styles.basicbutton.Dark
+import com.sdds.stylessalute.styles.basicbutton.Default
+import com.sdds.stylessalute.styles.basicbutton.L
+import com.sdds.stylessalute.styles.basicbutton.M
+import com.sdds.stylessalute.styles.basicbutton.Negative
+import com.sdds.stylessalute.styles.basicbutton.Positive
+import com.sdds.stylessalute.styles.basicbutton.S
+import com.sdds.stylessalute.styles.basicbutton.Secondary
+import com.sdds.stylessalute.styles.basicbutton.Warning
+import com.sdds.stylessalute.styles.basicbutton.White
+import com.sdds.stylessalute.styles.basicbutton.Xs
 
 internal object StylesSaluteBasicButtonVariationsCompose :
     ComposeStyleProvider<String, ButtonStyle>() {

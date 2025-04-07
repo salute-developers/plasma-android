@@ -14,20 +14,19 @@ import com.sdds.compose.uikit.SegmentStyle
 import com.sdds.compose.uikit.SegmentStyleBuilder
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.asInteractive
-import com.sdds.compose.uikit.segmentBuilder
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
 import com.sdkit.star.designsystem.compose.R
-import com.sdkit.star.designsystem.styles.segment.item.L
-import com.sdkit.star.designsystem.styles.segment.item.M
-import com.sdkit.star.designsystem.styles.segment.item.Pilled
-import com.sdkit.star.designsystem.styles.segment.item.Primary
-import com.sdkit.star.designsystem.styles.segment.item.S
-import com.sdkit.star.designsystem.styles.segment.item.Secondary
-import com.sdkit.star.designsystem.styles.segment.item.SegmentItem
-import com.sdkit.star.designsystem.styles.segment.item.Xl
-import com.sdkit.star.designsystem.styles.segment.item.Xs
+import com.sdkit.star.designsystem.styles.segmentitem.L
+import com.sdkit.star.designsystem.styles.segmentitem.M
+import com.sdkit.star.designsystem.styles.segmentitem.Pilled
+import com.sdkit.star.designsystem.styles.segmentitem.Primary
+import com.sdkit.star.designsystem.styles.segmentitem.S
+import com.sdkit.star.designsystem.styles.segmentitem.Secondary
+import com.sdkit.star.designsystem.styles.segmentitem.SegmentItem
+import com.sdkit.star.designsystem.styles.segmentitem.Xl
+import com.sdkit.star.designsystem.styles.segmentitem.Xs
 import com.sdkit.star.designsystem.theme.StarDsTheme
 import kotlin.Suppress
 import kotlin.jvm.JvmInline
@@ -232,7 +231,7 @@ public val WrapperXlView.Secondary: WrapperSegmentTerminate
 public val Segment.Xl: WrapperSegmentXl
     @Composable
     @JvmName("WrapperSegmentXl")
-    get() = SegmentStyle.segmentBuilder(this)
+    get() = SegmentStyle.builder(this)
         .invariantProps
         .shape(
             StarDsTheme.shapes.roundXl.adjustBy(
@@ -286,7 +285,7 @@ public val WrapperLView.Secondary: WrapperSegmentTerminate
 public val Segment.L: WrapperSegmentL
     @Composable
     @JvmName("WrapperSegmentL")
-    get() = SegmentStyle.segmentBuilder(this)
+    get() = SegmentStyle.builder(this)
         .invariantProps
         .shape(
             StarDsTheme.shapes.roundL.adjustBy(
@@ -340,7 +339,7 @@ public val WrapperMView.Secondary: WrapperSegmentTerminate
 public val Segment.M: WrapperSegmentM
     @Composable
     @JvmName("WrapperSegmentM")
-    get() = SegmentStyle.segmentBuilder(this)
+    get() = SegmentStyle.builder(this)
         .invariantProps
         .shape(StarDsTheme.shapes.roundM)
         .dimensions {
@@ -389,7 +388,7 @@ public val WrapperSView.Secondary: WrapperSegmentTerminate
 public val Segment.S: WrapperSegmentS
     @Composable
     @JvmName("WrapperSegmentS")
-    get() = SegmentStyle.segmentBuilder(this)
+    get() = SegmentStyle.builder(this)
         .invariantProps
         .shape(
             StarDsTheme.shapes.roundM.adjustBy(
@@ -443,7 +442,7 @@ public val WrapperXsView.Secondary: WrapperSegmentTerminate
 public val Segment.Xs: WrapperSegmentXs
     @Composable
     @JvmName("WrapperSegmentXs")
-    get() = SegmentStyle.segmentBuilder(this)
+    get() = SegmentStyle.builder(this)
         .invariantProps
         .shape(StarDsTheme.shapes.roundM)
         .dimensions {

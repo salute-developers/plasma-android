@@ -1,10 +1,10 @@
 package com.sdds.playground.sandbox.stylessalute.integration.cell.compose
 
 import androidx.compose.runtime.Composable
-import com.sdds.compose.uikit.Cell
 import com.sdds.compose.uikit.CellStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
+import com.sdds.stylessalute.styles.cell.Cell
 import com.sdds.stylessalute.styles.cell.L
 import com.sdds.stylessalute.styles.cell.M
 import com.sdds.stylessalute.styles.cell.S

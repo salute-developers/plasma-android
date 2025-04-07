@@ -16,13 +16,14 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.Theme
 import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.databinding.FragmentComponentScaffoldBinding
+import com.sdds.playground.sandbox.viewTheme
 import com.sdds.testing.vs.UiState
+import com.sdds.uikit.Divider
 import com.sdds.uikit.FrameLayout
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -46,6 +47,8 @@ internal abstract class ComponentFragment<State : UiState, Component : View> :
 
     protected open val defaultLayoutParams: LayoutParams =
         LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT)
+
+    protected open val defaultGravity: Int = Gravity.CENTER
 
     private val contextThemeWrapper: ContextThemeWrapper
         get() {
@@ -99,8 +102,8 @@ internal abstract class ComponentFragment<State : UiState, Component : View> :
             propertiesRecyclerView.itemAnimator = null
             propertiesRecyclerView.adapter = propertiesAdapter
             propertiesRecyclerView.addItemDecoration(
-                DividerItemDecoration(
-                    context,
+                Divider.recyclerViewDecoration(
+                    requireContext(),
                     RecyclerView.VERTICAL,
                 ),
             )
@@ -160,7 +163,7 @@ internal abstract class ComponentFragment<State : UiState, Component : View> :
             componentContainer?.removeAllViews()
             componentCanvas.removeAllViews()
             componentCanvas.addView(
-                createComponentContainer(theme.view.themeRes),
+                createComponentContainer(viewTheme(theme).themeRes),
                 LayoutParams(MATCH_PARENT, MATCH_PARENT),
             )
         }
@@ -169,7 +172,7 @@ internal abstract class ComponentFragment<State : UiState, Component : View> :
     private fun dispatchComponentStyleChanged(layoutParams: LayoutParams = defaultLayoutParams) {
         componentContainer?.apply {
             removeAllViews()
-            layoutParams.gravity = Gravity.CENTER
+            layoutParams.gravity = defaultGravity
             val wrappedComponent = getComponentLayout()
                 .let {
                     when (scrollMode) {

@@ -1,10 +1,10 @@
 package com.sdds.playground.sandbox.sdds.serv.integration.chip
 
 import androidx.compose.runtime.Composable
-import com.sdds.compose.uikit.Chip
 import com.sdds.compose.uikit.ChipStyle
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 import com.sdds.serv.styles.chip.Accent
+import com.sdds.serv.styles.chip.Chip
 import com.sdds.serv.styles.chip.Default
 import com.sdds.serv.styles.chip.L
 import com.sdds.serv.styles.chip.M

@@ -6,7 +6,6 @@
         <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroup.Dense</item>
     </style>
     <style name="Salute.StylesSalute.Components.TextField" parent="Sdds.Components.TextField">
-        <item name="sd_colorStateProvider">com.sdds.stylessalute.colorstate.TextFieldColorStateProvider</item>
         <item name="sd_disabledAlpha">0.4</item>
         <item name="sd_counterPlacement">outer</item>
         <item name="sd_captionPlacement">outer</item>
@@ -24,6 +23,7 @@
         <item name="sd_counterColor">@color/salute_text_field_counter_color</item>
         <item name="sd_placeholderColor">@color/salute_text_field_placeholder_color</item>
         <item name="sd_boxTint">@color/salute_text_field_bg_color</item>
+        <item name="sd_colorStateProvider">com.sdds.stylessalute.colorstate.TextFieldColorStateProvider</item>
     </style>
     <style name="Salute.StylesSalute.ComponentOverlays.TextFieldXsChips">
         <item name="sd_chipGroupStyle">@style/Salute.StylesSalute.Components.ChipGroup.Dense</item>

@@ -1,11 +1,11 @@
 package com.sdds.playground.sandbox.plasma.stards.integration.badge
 
 import androidx.compose.runtime.Composable
-import com.sdds.compose.uikit.BadgeSolid
 import com.sdds.compose.uikit.BadgeStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 import com.sdkit.star.designsystem.styles.badge.Accent
+import com.sdkit.star.designsystem.styles.badge.BadgeSolid
 import com.sdkit.star.designsystem.styles.badge.Dark
 import com.sdkit.star.designsystem.styles.badge.Default
 import com.sdkit.star.designsystem.styles.badge.L

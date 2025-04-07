@@ -1,8 +1,8 @@
 package com.sdds.playground.sandbox.plasma.sd.service.integration.checkbox
 
 import androidx.compose.runtime.Composable
-import com.sdds.compose.uikit.CheckBox
 import com.sdds.compose.uikit.CheckBoxStyle
+import com.sdds.plasma.sd.service.styles.checkbox.CheckBox
 import com.sdds.plasma.sd.service.styles.checkbox.M
 import com.sdds.plasma.sd.service.styles.checkbox.S
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider

@@ -85,6 +85,11 @@ val Avatar.S: AvatarStyleBuilder
         .textStyle(PlasmaSdServiceTheme.typography.bodyXxsBold)
 
 /**
+ * Вспомогательный объект для описания API и стиля компонента AvatarGroup
+ */
+public object AvatarGroup
+
+/**
  * Стиль [AvatarGroup] размера S
  */
 val AvatarGroup.S: AvatarGroupStyleBuilder

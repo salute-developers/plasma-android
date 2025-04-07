@@ -18,7 +18,6 @@ import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.Chip
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.TextField
-import com.sdds.compose.uikit.TextFieldClear
 import com.sdds.compose.uikit.style.style
 import com.sdds.icons.R
 import com.sdds.playground.sandbox.SandboxTheme
@@ -32,20 +31,10 @@ import com.sdds.serv.styles.textfield.RequiredEnd
 import com.sdds.serv.styles.textfield.RequiredStart
 import com.sdds.serv.styles.textfield.S
 import com.sdds.serv.styles.textfield.Success
+import com.sdds.serv.styles.textfield.TextField
+import com.sdds.serv.styles.textfield.TextFieldClear
 import com.sdds.serv.styles.textfield.Warning
 import com.sdds.serv.styles.textfield.Xs
-import com.sdds.serv.styles.textfield.clear.Default
-import com.sdds.serv.styles.textfield.clear.Error
-import com.sdds.serv.styles.textfield.clear.InnerLabel
-import com.sdds.serv.styles.textfield.clear.L
-import com.sdds.serv.styles.textfield.clear.M
-import com.sdds.serv.styles.textfield.clear.OuterLabel
-import com.sdds.serv.styles.textfield.clear.RequiredEnd
-import com.sdds.serv.styles.textfield.clear.RequiredStart
-import com.sdds.serv.styles.textfield.clear.S
-import com.sdds.serv.styles.textfield.clear.Success
-import com.sdds.serv.styles.textfield.clear.Warning
-import com.sdds.serv.styles.textfield.clear.Xs
 
 /**
  * Превью [TextField]

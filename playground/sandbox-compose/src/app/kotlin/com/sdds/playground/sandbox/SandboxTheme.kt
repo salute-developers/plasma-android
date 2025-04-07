@@ -13,14 +13,6 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
-import com.sdds.compose.uikit.Avatar
-import com.sdds.compose.uikit.AvatarGroup
-import com.sdds.compose.uikit.BasicButton
-import com.sdds.compose.uikit.Cell
-import com.sdds.compose.uikit.CheckBox
-import com.sdds.compose.uikit.CheckBoxGroup
-import com.sdds.compose.uikit.Chip
-import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.LocalAvatarGroupStyle
 import com.sdds.compose.uikit.LocalAvatarStyle
 import com.sdds.compose.uikit.LocalButtonStyle
@@ -30,17 +22,13 @@ import com.sdds.compose.uikit.LocalCheckBoxGroupStyle
 import com.sdds.compose.uikit.LocalCheckBoxStyle
 import com.sdds.compose.uikit.LocalChipStyle
 import com.sdds.compose.uikit.LocalIconButtonStyle
+import com.sdds.compose.uikit.LocalModalBottomSheetStyle
 import com.sdds.compose.uikit.LocalProgressBarStyle
 import com.sdds.compose.uikit.LocalRadioBoxGroupStyle
 import com.sdds.compose.uikit.LocalRadioBoxStyle
 import com.sdds.compose.uikit.LocalSegmentItemStyle
 import com.sdds.compose.uikit.LocalSwitchStyle
 import com.sdds.compose.uikit.LocalTextFieldStyle
-import com.sdds.compose.uikit.ProgressBar
-import com.sdds.compose.uikit.RadioBox
-import com.sdds.compose.uikit.RadioBoxGroup
-import com.sdds.compose.uikit.Switch
-import com.sdds.compose.uikit.TextField
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.internal.focusselector.FocusSelectorMode
 import com.sdds.compose.uikit.internal.focusselector.LocalFocusSelectorMode
@@ -55,32 +43,47 @@ import com.sdds.playground.sandbox.core.compose.PropertiesListStyle
 import com.sdds.playground.sandbox.core.compose.PropertyEditorStyle
 import com.sdds.playground.sandbox.core.compose.SandboxStyle
 import com.sdds.playground.sandbox.core.compose.TopBarStyle
+import com.sdds.serv.styles.avatar.Avatar
+import com.sdds.serv.styles.avatar.AvatarGroup
 import com.sdds.serv.styles.avatar.M
 import com.sdds.serv.styles.avatar.S
-import com.sdds.serv.styles.button.basic.Default
-import com.sdds.serv.styles.button.basic.M
-import com.sdds.serv.styles.button.icon.Clear
-import com.sdds.serv.styles.button.icon.Default
-import com.sdds.serv.styles.button.icon.M
-import com.sdds.serv.styles.button.icon.Pilled
-import com.sdds.serv.styles.button.icon.Xs
+import com.sdds.serv.styles.basicbutton.BasicButton
+import com.sdds.serv.styles.basicbutton.Default
+import com.sdds.serv.styles.basicbutton.M
+import com.sdds.serv.styles.bottomsheet.Default
+import com.sdds.serv.styles.bottomsheet.ModalBottomSheet
 import com.sdds.serv.styles.card.CardSolid
 import com.sdds.serv.styles.card.M
+import com.sdds.serv.styles.cell.Cell
 import com.sdds.serv.styles.cell.M
+import com.sdds.serv.styles.checkbboxgroup.CheckBoxGroup
+import com.sdds.serv.styles.checkbboxgroup.M
+import com.sdds.serv.styles.checkbox.CheckBox
 import com.sdds.serv.styles.checkbox.M
-import com.sdds.serv.styles.checkbox.group.M
+import com.sdds.serv.styles.chip.Chip
 import com.sdds.serv.styles.chip.Default
 import com.sdds.serv.styles.chip.M
+import com.sdds.serv.styles.iconbutton.Clear
+import com.sdds.serv.styles.iconbutton.Default
+import com.sdds.serv.styles.iconbutton.IconButton
+import com.sdds.serv.styles.iconbutton.M
+import com.sdds.serv.styles.iconbutton.Pilled
+import com.sdds.serv.styles.iconbutton.Xs
 import com.sdds.serv.styles.progress.Default
+import com.sdds.serv.styles.progress.ProgressBar
 import com.sdds.serv.styles.radiobox.M
-import com.sdds.serv.styles.radiobox.group.M
-import com.sdds.serv.styles.segment.item.M
-import com.sdds.serv.styles.segment.item.Primary
-import com.sdds.serv.styles.segment.item.SegmentItem
+import com.sdds.serv.styles.radiobox.RadioBox
+import com.sdds.serv.styles.radioboxgroup.M
+import com.sdds.serv.styles.radioboxgroup.RadioBoxGroup
+import com.sdds.serv.styles.segmentitem.M
+import com.sdds.serv.styles.segmentitem.Primary
+import com.sdds.serv.styles.segmentitem.SegmentItem
 import com.sdds.serv.styles.switcher.M
+import com.sdds.serv.styles.switcher.Switch
 import com.sdds.serv.styles.textfield.Default
 import com.sdds.serv.styles.textfield.M
 import com.sdds.serv.styles.textfield.OuterLabel
+import com.sdds.serv.styles.textfield.TextField
 import com.sdds.serv.theme.SddsServTheme
 import com.sdds.serv.theme.darkSddsServColors
 import com.sdds.serv.theme.darkSddsServGradients
@@ -134,6 +137,7 @@ fun SandboxTheme(
                 LocalSwitchStyle provides Switch.M.style(),
                 LocalButtonStyle provides BasicButton.M.Default.style(),
                 LocalIconButtonStyle provides IconButton.M.Default.style(),
+                LocalModalBottomSheetStyle provides ModalBottomSheet.Default.style(),
                 LocalCheckBoxStyle provides CheckBox.M.style(),
                 LocalCheckBoxGroupStyle provides CheckBoxGroup.M.style(),
                 LocalRadioBoxStyle provides RadioBox.M.style(),

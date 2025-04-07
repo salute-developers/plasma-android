@@ -1,18 +1,18 @@
 package com.sdds.playground.sandbox.plasma.stards.integration.textfield.clear
 
 import androidx.compose.runtime.Composable
-import com.sdds.compose.uikit.TextFieldClear
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
-import com.sdkit.star.designsystem.styles.textfield.clear.Default
-import com.sdkit.star.designsystem.styles.textfield.clear.Error
-import com.sdkit.star.designsystem.styles.textfield.clear.InnerLabel
-import com.sdkit.star.designsystem.styles.textfield.clear.L
-import com.sdkit.star.designsystem.styles.textfield.clear.M
-import com.sdkit.star.designsystem.styles.textfield.clear.OuterLabel
-import com.sdkit.star.designsystem.styles.textfield.clear.S
-import com.sdkit.star.designsystem.styles.textfield.clear.Xs
+import com.sdkit.star.designsystem.styles.textfield.Default
+import com.sdkit.star.designsystem.styles.textfield.Error
+import com.sdkit.star.designsystem.styles.textfield.InnerLabel
+import com.sdkit.star.designsystem.styles.textfield.L
+import com.sdkit.star.designsystem.styles.textfield.M
+import com.sdkit.star.designsystem.styles.textfield.OuterLabel
+import com.sdkit.star.designsystem.styles.textfield.S
+import com.sdkit.star.designsystem.styles.textfield.TextFieldClear
+import com.sdkit.star.designsystem.styles.textfield.Xs
 
 internal object StarDsTextFieldClearVariationsCompose : ComposeStyleProvider<String, TextFieldStyle>() {
 

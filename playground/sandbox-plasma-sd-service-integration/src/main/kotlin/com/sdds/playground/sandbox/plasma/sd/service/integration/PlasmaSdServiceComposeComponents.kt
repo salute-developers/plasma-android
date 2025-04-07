@@ -13,6 +13,7 @@ import com.sdds.playground.sandbox.plasma.sd.service.integration.badge.PlasmaSdS
 import com.sdds.playground.sandbox.plasma.sd.service.integration.badge.icon.PlasmaSdServiceIconBadgeClearVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.badge.icon.PlasmaSdServiceIconBadgeSolidVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.badge.icon.PlasmaSdServiceIconBadgeTransparentVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.bottomsheet.PlasmaSdServiceBottomSheetVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.button.basic.PlasmaSdServiceBasicButtonVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.button.icon.PlasmaSdServiceIconButtonVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.button.link.PlasmaSdServiceLinkButtonVariationsCompose
@@ -24,6 +25,7 @@ import com.sdds.playground.sandbox.plasma.sd.service.integration.checkbox.group.
 import com.sdds.playground.sandbox.plasma.sd.service.integration.chip.PlasmaSdServiceChipVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.chip.group.PlasmaSdServiceChipGroupVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.counter.PlasmaSdServiceCounterVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.divider.compose.PlasmaSdServiceDividerVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.indicator.compose.PlasmaSdServiceIndicatorVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.progress.PlasmaSdServiceProgressVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.radiobox.PlasmaSdServiceRadioBoxVariationsCompose
@@ -81,12 +83,20 @@ object PlasmaSdServiceComposeComponents : ComponentsProviderCompose {
                 PlasmaSdServiceBasicButtonVariationsCompose,
             ),
             ComposeComponent(
+                ComponentKey.BottomSheet,
+                PlasmaSdServiceBottomSheetVariationsCompose,
+            ),
+            ComposeComponent(
                 ComponentKey.IconButton,
                 PlasmaSdServiceIconButtonVariationsCompose,
             ),
             ComposeComponent(
                 ComponentKey.LinkButton,
                 PlasmaSdServiceLinkButtonVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.Divider,
+                PlasmaSdServiceDividerVariationsCompose,
             ),
             ComposeComponent(
                 ComponentKey.Cell,

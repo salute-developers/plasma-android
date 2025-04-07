@@ -3,16 +3,16 @@ package com.sdds.playground.sandbox.plasma.sd.service.integration.segment.item
 import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.SegmentItemStyle
 import com.sdds.compose.uikit.style.style
-import com.sdds.plasma.sd.service.styles.segment.item.Accent
-import com.sdds.plasma.sd.service.styles.segment.item.L
-import com.sdds.plasma.sd.service.styles.segment.item.M
-import com.sdds.plasma.sd.service.styles.segment.item.Pilled
-import com.sdds.plasma.sd.service.styles.segment.item.Primary
-import com.sdds.plasma.sd.service.styles.segment.item.S
-import com.sdds.plasma.sd.service.styles.segment.item.Secondary
-import com.sdds.plasma.sd.service.styles.segment.item.SegmentItem
-import com.sdds.plasma.sd.service.styles.segment.item.Xl
-import com.sdds.plasma.sd.service.styles.segment.item.Xs
+import com.sdds.plasma.sd.service.styles.segmentitem.Accent
+import com.sdds.plasma.sd.service.styles.segmentitem.L
+import com.sdds.plasma.sd.service.styles.segmentitem.M
+import com.sdds.plasma.sd.service.styles.segmentitem.Pilled
+import com.sdds.plasma.sd.service.styles.segmentitem.Primary
+import com.sdds.plasma.sd.service.styles.segmentitem.S
+import com.sdds.plasma.sd.service.styles.segmentitem.Secondary
+import com.sdds.plasma.sd.service.styles.segmentitem.SegmentItem
+import com.sdds.plasma.sd.service.styles.segmentitem.Xl
+import com.sdds.plasma.sd.service.styles.segmentitem.Xs
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 
 internal object PlasmaSdServiceSegmentItemVariationsCompose :

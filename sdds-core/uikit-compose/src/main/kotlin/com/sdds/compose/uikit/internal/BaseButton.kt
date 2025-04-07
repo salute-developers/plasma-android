@@ -30,6 +30,8 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.ButtonColors
+import com.sdds.compose.uikit.ButtonDimensions
+import com.sdds.compose.uikit.ButtonSpacing
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.internal.common.surface
@@ -46,7 +48,7 @@ internal fun BaseButton(
     shape: CornerBasedShape,
     colors: ButtonColors,
     loadingAlpha: Float,
-    dimensions: Button.Dimensions,
+    dimensions: ButtonDimensions,
     disabledAlpha: Float,
     enabled: Boolean = true,
     loading: Boolean = false,
@@ -130,16 +132,16 @@ internal fun RowScope.ButtonText(
     valueColor: Color,
     modifier: Modifier = Modifier,
     valueMargin: Dp,
-    spacing: Button.Spacing,
+    spacing: ButtonSpacing,
     value: String?,
 ) {
     if (!value.isNullOrEmpty()) {
         Row(
             horizontalArrangement = when (spacing) {
-                Button.Spacing.Packed -> Arrangement.Center
-                Button.Spacing.SpaceBetween -> Arrangement.SpaceBetween
+                ButtonSpacing.Packed -> Arrangement.Center
+                ButtonSpacing.SpaceBetween -> Arrangement.SpaceBetween
             },
-            modifier = modifier.weight(1f, spacing == Button.Spacing.SpaceBetween),
+            modifier = modifier.weight(1f, spacing == ButtonSpacing.SpaceBetween),
         ) {
             Text(
                 text = label,

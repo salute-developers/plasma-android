@@ -15,8 +15,12 @@ android {
 }
 
 themeBuilder {
-    themeSource{
+    themeSource {
         url("file://${projectDir.path}/json/test_theme.zip")
+        name("sdds_serv")
+    }
+    componentSource {
+        url("file://${projectDir.path}/json/test_components.zip")
         name("sdds_serv")
     }
     view {

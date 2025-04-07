@@ -1,10 +1,10 @@
 package com.sdds.playground.sandbox.plasma.stards.integration.radiobox
 
 import androidx.compose.runtime.Composable
-import com.sdds.compose.uikit.RadioBox
 import com.sdds.compose.uikit.RadioBoxStyle
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 import com.sdkit.star.designsystem.styles.radiobox.M
+import com.sdkit.star.designsystem.styles.radiobox.RadioBox
 import com.sdkit.star.designsystem.styles.radiobox.S
 
 internal object StarDsRadioBoxVariationsCompose : ComposeStyleProvider<String, RadioBoxStyle>() {

@@ -1,8 +1,8 @@
 package com.sdds.plasma.sd.service
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
-import com.sdds.compose.uikit.Avatar
-import com.sdds.compose.uikit.AvatarGroup
+import com.sdds.plasma.sd.service.styles.avatar.Avatar
+import com.sdds.plasma.sd.service.styles.avatar.AvatarGroup
 import com.sdds.plasma.sd.service.styles.avatar.M
 import com.sdds.plasma.sd.service.styles.avatar.S
 import com.sdds.plasma.sd.service.styles.avatar.Xxl

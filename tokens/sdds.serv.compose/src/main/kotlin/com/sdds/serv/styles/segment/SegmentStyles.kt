@@ -14,20 +14,19 @@ import com.sdds.compose.uikit.SegmentStyle
 import com.sdds.compose.uikit.SegmentStyleBuilder
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.asInteractive
-import com.sdds.compose.uikit.segmentBuilder
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
-import com.sdds.serv.styles.segment.item.Accent
-import com.sdds.serv.styles.segment.item.L
-import com.sdds.serv.styles.segment.item.M
-import com.sdds.serv.styles.segment.item.Pilled
-import com.sdds.serv.styles.segment.item.Primary
-import com.sdds.serv.styles.segment.item.S
-import com.sdds.serv.styles.segment.item.Secondary
-import com.sdds.serv.styles.segment.item.SegmentItem
-import com.sdds.serv.styles.segment.item.Xl
-import com.sdds.serv.styles.segment.item.Xs
+import com.sdds.serv.styles.segmentitem.Accent
+import com.sdds.serv.styles.segmentitem.L
+import com.sdds.serv.styles.segmentitem.M
+import com.sdds.serv.styles.segmentitem.Pilled
+import com.sdds.serv.styles.segmentitem.Primary
+import com.sdds.serv.styles.segmentitem.S
+import com.sdds.serv.styles.segmentitem.Secondary
+import com.sdds.serv.styles.segmentitem.SegmentItem
+import com.sdds.serv.styles.segmentitem.Xl
+import com.sdds.serv.styles.segmentitem.Xs
 import com.sdds.serv.theme.SddsServTheme
 import kotlin.Suppress
 import kotlin.jvm.JvmInline
@@ -239,7 +238,7 @@ public val WrapperXlView.Accent: WrapperSegmentTerminate
 public val Segment.Xl: WrapperSegmentXl
     @Composable
     @JvmName("WrapperSegmentXl")
-    get() = SegmentStyle.segmentBuilder(this)
+    get() = SegmentStyle.builder(this)
         .invariantProps
         .shape(SddsServTheme.shapes.roundXl.adjustBy(all = -2.0.dp))
         .dimensions {
@@ -302,7 +301,7 @@ public val WrapperLView.Accent: WrapperSegmentTerminate
 public val Segment.L: WrapperSegmentL
     @Composable
     @JvmName("WrapperSegmentL")
-    get() = SegmentStyle.segmentBuilder(this)
+    get() = SegmentStyle.builder(this)
         .invariantProps
         .shape(SddsServTheme.shapes.roundL.adjustBy(all = -2.0.dp))
         .dimensions {
@@ -365,7 +364,7 @@ public val WrapperMView.Accent: WrapperSegmentTerminate
 public val Segment.M: WrapperSegmentM
     @Composable
     @JvmName("WrapperSegmentM")
-    get() = SegmentStyle.segmentBuilder(this)
+    get() = SegmentStyle.builder(this)
         .invariantProps
         .shape(SddsServTheme.shapes.roundM)
         .dimensions {
@@ -428,7 +427,7 @@ public val WrapperSView.Accent: WrapperSegmentTerminate
 public val Segment.S: WrapperSegmentS
     @Composable
     @JvmName("WrapperSegmentS")
-    get() = SegmentStyle.segmentBuilder(this)
+    get() = SegmentStyle.builder(this)
         .invariantProps
         .shape(SddsServTheme.shapes.roundM.adjustBy(all = -2.0.dp))
         .dimensions {
@@ -491,7 +490,7 @@ public val WrapperXsView.Accent: WrapperSegmentTerminate
 public val Segment.Xs: WrapperSegmentXs
     @Composable
     @JvmName("WrapperSegmentXs")
-    get() = SegmentStyle.segmentBuilder(this)
+    get() = SegmentStyle.builder(this)
         .invariantProps
         .shape(SddsServTheme.shapes.roundM)
         .dimensions {

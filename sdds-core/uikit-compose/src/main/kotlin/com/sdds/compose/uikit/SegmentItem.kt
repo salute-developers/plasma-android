@@ -171,7 +171,7 @@ fun SegmentItem(
             valueTextStyle = style.valueStyle,
             valueColor = valueColor,
             valueMargin = style.dimensions.valueMargin,
-            spacing = Button.Spacing.Packed,
+            spacing = ButtonSpacing.Packed,
         )
         endContent?.let { content ->
             EndContent(style, endContentColor, content)

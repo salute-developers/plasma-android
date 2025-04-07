@@ -9,8 +9,8 @@ package com.sdkit.star.designsystem.styles.textfield
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.dimensionResource
-import com.sdds.compose.uikit.ChipGroup
-import com.sdds.compose.uikit.TextField
+import com.sdds.compose.uikit.TextFieldHelperTextPlacement
+import com.sdds.compose.uikit.TextFieldLabelPlacement
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.TextFieldStyleBuilder
 import com.sdds.compose.uikit.adjustBy
@@ -20,9 +20,9 @@ import com.sdds.compose.uikit.multiplyAlpha
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
-import com.sdds.compose.uikit.textFieldBuilder
 import com.sdkit.star.designsystem.compose.R
-import com.sdkit.star.designsystem.styles.chip.group.Dense
+import com.sdkit.star.designsystem.styles.chipgroup.ChipGroup
+import com.sdkit.star.designsystem.styles.chipgroup.Dense
 import com.sdkit.star.designsystem.theme.StarDsTheme
 import kotlin.Suppress
 import kotlin.jvm.JvmInline
@@ -155,6 +155,7 @@ public val WrapperTextFieldView.Error: WrapperTextFieldTerminate
 private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
     @Composable
     get() = this
+        .singleLine(true)
         .dimensions {
             optionalPadding(dimensionResource(R.dimen.sdkit_cmp_text_field_optional_padding_TextField))
             helperTextPadding(dimensionResource(R.dimen.sdkit_cmp_text_field_helper_text_padding_TextField))
@@ -163,6 +164,8 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
         .captionStyle(StarDsTheme.typography.bodyXsNormal)
         .counterStyle(StarDsTheme.typography.bodyXsNormal)
         .chipGroupStyle(ChipGroup.Dense.style())
+        .captionPlacement(TextFieldHelperTextPlacement.Outer)
+        .counterPlacement(TextFieldHelperTextPlacement.Outer)
         .colors {
             optionalColor(
                 StarDsTheme.colors.textDefaultTertiary.asInteractive(),
@@ -230,7 +233,7 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
 public val TextField.Xs: WrapperTextFieldXs
     @Composable
     @JvmName("WrapperTextFieldXs")
-    get() = TextFieldStyle.textFieldBuilder(this)
+    get() = TextFieldStyle.builder(this)
         .invariantProps
         .shape(
             StarDsTheme.shapes.roundS.adjustBy(
@@ -254,7 +257,7 @@ public val TextField.Xs: WrapperTextFieldXs
         .prefixStyle(StarDsTheme.typography.bodyXsNormal)
         .suffixStyle(StarDsTheme.typography.bodyXsNormal)
         .placeholderStyle(StarDsTheme.typography.bodyXsNormal)
-        .labelPlacement(TextField.LabelPlacement.None)
+        .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextFieldXs)
 
 public val WrapperTextFieldXs.OuterLabel: WrapperTextFieldXsOuterLabel
@@ -268,7 +271,7 @@ public val WrapperTextFieldXs.OuterLabel: WrapperTextFieldXsOuterLabel
         }
         .labelStyle(StarDsTheme.typography.bodyXsNormal)
         .optionalStyle(StarDsTheme.typography.bodyXsNormal)
-        .labelPlacement(TextField.LabelPlacement.Outer)
+        .labelPlacement(TextFieldLabelPlacement.Outer)
         .colors {
             labelColor(
                 StarDsTheme.colors.textDefaultPrimary.asInteractive(),
@@ -279,7 +282,7 @@ public val WrapperTextFieldXs.OuterLabel: WrapperTextFieldXsOuterLabel
 public val TextField.S: WrapperTextFieldS
     @Composable
     @JvmName("WrapperTextFieldS")
-    get() = TextFieldStyle.textFieldBuilder(this)
+    get() = TextFieldStyle.builder(this)
         .invariantProps
         .shape(
             StarDsTheme.shapes.roundM.adjustBy(
@@ -303,7 +306,7 @@ public val TextField.S: WrapperTextFieldS
         .prefixStyle(StarDsTheme.typography.bodySNormal)
         .suffixStyle(StarDsTheme.typography.bodySNormal)
         .placeholderStyle(StarDsTheme.typography.bodySNormal)
-        .labelPlacement(TextField.LabelPlacement.None)
+        .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextFieldS)
 
 public val WrapperTextFieldS.OuterLabel: WrapperTextFieldSOuterLabel
@@ -315,7 +318,7 @@ public val WrapperTextFieldS.OuterLabel: WrapperTextFieldSOuterLabel
         }
         .labelStyle(StarDsTheme.typography.bodySNormal)
         .optionalStyle(StarDsTheme.typography.bodySNormal)
-        .labelPlacement(TextField.LabelPlacement.Outer)
+        .labelPlacement(TextFieldLabelPlacement.Outer)
         .colors {
             labelColor(
                 StarDsTheme.colors.textDefaultPrimary.asInteractive(),
@@ -334,7 +337,7 @@ public val WrapperTextFieldS.InnerLabel: WrapperTextFieldSInnerLabel
         }
         .labelStyle(StarDsTheme.typography.bodyXsNormal)
         .optionalStyle(StarDsTheme.typography.bodyXsNormal)
-        .labelPlacement(TextField.LabelPlacement.Inner)
+        .labelPlacement(TextFieldLabelPlacement.Inner)
         .colors {
             labelColor(
                 StarDsTheme.colors.textDefaultSecondary.asInteractive(
@@ -354,7 +357,7 @@ public val WrapperTextFieldS.InnerLabel: WrapperTextFieldSInnerLabel
 public val TextField.M: WrapperTextFieldM
     @Composable
     @JvmName("WrapperTextFieldM")
-    get() = TextFieldStyle.textFieldBuilder(this)
+    get() = TextFieldStyle.builder(this)
         .invariantProps
         .shape(StarDsTheme.shapes.roundM)
         .dimensions {
@@ -373,7 +376,7 @@ public val TextField.M: WrapperTextFieldM
         .prefixStyle(StarDsTheme.typography.bodyMNormal)
         .suffixStyle(StarDsTheme.typography.bodyMNormal)
         .placeholderStyle(StarDsTheme.typography.bodyMNormal)
-        .labelPlacement(TextField.LabelPlacement.None)
+        .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextFieldM)
 
 public val WrapperTextFieldM.OuterLabel: WrapperTextFieldMOuterLabel
@@ -385,7 +388,7 @@ public val WrapperTextFieldM.OuterLabel: WrapperTextFieldMOuterLabel
         }
         .labelStyle(StarDsTheme.typography.bodyMNormal)
         .optionalStyle(StarDsTheme.typography.bodyMNormal)
-        .labelPlacement(TextField.LabelPlacement.Outer)
+        .labelPlacement(TextFieldLabelPlacement.Outer)
         .colors {
             labelColor(
                 StarDsTheme.colors.textDefaultPrimary.asInteractive(),
@@ -404,7 +407,7 @@ public val WrapperTextFieldM.InnerLabel: WrapperTextFieldMInnerLabel
         }
         .labelStyle(StarDsTheme.typography.bodyXsNormal)
         .optionalStyle(StarDsTheme.typography.bodyXsNormal)
-        .labelPlacement(TextField.LabelPlacement.Inner)
+        .labelPlacement(TextFieldLabelPlacement.Inner)
         .colors {
             labelColor(
                 StarDsTheme.colors.textDefaultSecondary.asInteractive(

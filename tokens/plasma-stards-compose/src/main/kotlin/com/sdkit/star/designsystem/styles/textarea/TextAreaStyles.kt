@@ -9,11 +9,10 @@ package com.sdkit.star.designsystem.styles.textarea
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.dimensionResource
-import com.sdds.compose.uikit.ChipGroup
-import com.sdds.compose.uikit.TextArea
-import com.sdds.compose.uikit.TextAreaStyleBuilder
-import com.sdds.compose.uikit.TextField
+import com.sdds.compose.uikit.TextFieldHelperTextPlacement
+import com.sdds.compose.uikit.TextFieldLabelPlacement
 import com.sdds.compose.uikit.TextFieldStyle
+import com.sdds.compose.uikit.TextFieldStyleBuilder
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.InteractiveState
 import com.sdds.compose.uikit.interactions.asInteractive
@@ -21,9 +20,9 @@ import com.sdds.compose.uikit.multiplyAlpha
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
-import com.sdds.compose.uikit.textAreaBuilder
 import com.sdkit.star.designsystem.compose.R
-import com.sdkit.star.designsystem.styles.chip.group.Dense
+import com.sdkit.star.designsystem.styles.chipgroup.ChipGroup
+import com.sdkit.star.designsystem.styles.chipgroup.Dense
 import com.sdkit.star.designsystem.theme.StarDsTheme
 import kotlin.Suppress
 import kotlin.jvm.JvmInline
@@ -32,7 +31,7 @@ import kotlin.jvm.JvmName
 /**
  * Базовый интерфейс для всех оберток этого стиля
  */
-public interface WrapperTextArea : BuilderWrapper<TextFieldStyle, TextAreaStyleBuilder>
+public interface WrapperTextArea : BuilderWrapper<TextFieldStyle, TextFieldStyleBuilder>
 
 /**
  * Интерфейс, который реализуют все обертки вариаций корневого уровня
@@ -47,7 +46,7 @@ public interface WrapperTextAreaView : WrapperTextArea
  */
 @JvmInline
 public value class WrapperTextAreaTerminate(
-    public override val builder: TextAreaStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextArea
 
 /**
@@ -55,7 +54,7 @@ public value class WrapperTextAreaTerminate(
  */
 @JvmInline
 public value class WrapperTextAreaXs(
-    public override val builder: TextAreaStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaView
 
 /**
@@ -63,7 +62,7 @@ public value class WrapperTextAreaXs(
  */
 @JvmInline
 public value class WrapperTextAreaXsOuterLabel(
-    public override val builder: TextAreaStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaView
 
 /**
@@ -71,7 +70,7 @@ public value class WrapperTextAreaXsOuterLabel(
  */
 @JvmInline
 public value class WrapperTextAreaS(
-    public override val builder: TextAreaStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaView
 
 /**
@@ -79,7 +78,7 @@ public value class WrapperTextAreaS(
  */
 @JvmInline
 public value class WrapperTextAreaSOuterLabel(
-    public override val builder: TextAreaStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaView
 
 /**
@@ -87,7 +86,7 @@ public value class WrapperTextAreaSOuterLabel(
  */
 @JvmInline
 public value class WrapperTextAreaSInnerLabel(
-    public override val builder: TextAreaStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaView
 
 /**
@@ -95,7 +94,7 @@ public value class WrapperTextAreaSInnerLabel(
  */
 @JvmInline
 public value class WrapperTextAreaM(
-    public override val builder: TextAreaStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaView
 
 /**
@@ -103,7 +102,7 @@ public value class WrapperTextAreaM(
  */
 @JvmInline
 public value class WrapperTextAreaMOuterLabel(
-    public override val builder: TextAreaStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaView
 
 /**
@@ -111,7 +110,7 @@ public value class WrapperTextAreaMOuterLabel(
  */
 @JvmInline
 public value class WrapperTextAreaMInnerLabel(
-    public override val builder: TextAreaStyleBuilder,
+    public override val builder: TextFieldStyleBuilder,
 ) : WrapperTextAreaView
 
 public val WrapperTextAreaView.Default: WrapperTextAreaTerminate
@@ -158,9 +157,10 @@ public val WrapperTextAreaView.Error: WrapperTextAreaTerminate
         }
         .wrap(::WrapperTextAreaTerminate)
 
-private val TextAreaStyleBuilder.invariantProps: TextAreaStyleBuilder
+private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
     @Composable
     get() = this
+        .singleLine(false)
         .dimensions {
             optionalPadding(dimensionResource(R.dimen.sdkit_cmp_text_area_optional_padding_TextArea))
             chipsPadding(dimensionResource(R.dimen.sdkit_cmp_text_area_chips_padding_TextArea))
@@ -168,6 +168,8 @@ private val TextAreaStyleBuilder.invariantProps: TextAreaStyleBuilder
         .captionStyle(StarDsTheme.typography.bodyXsNormal)
         .counterStyle(StarDsTheme.typography.bodyXsNormal)
         .chipGroupStyle(ChipGroup.Dense.style())
+        .captionPlacement(TextFieldHelperTextPlacement.Inner)
+        .counterPlacement(TextFieldHelperTextPlacement.Inner)
         .colors {
             optionalColor(
                 StarDsTheme.colors.textDefaultTertiary.asInteractive(),
@@ -250,7 +252,7 @@ private val TextAreaStyleBuilder.invariantProps: TextAreaStyleBuilder
 public val TextArea.Xs: WrapperTextAreaXs
     @Composable
     @JvmName("WrapperTextAreaXs")
-    get() = TextFieldStyle.textAreaBuilder(this)
+    get() = TextFieldStyle.builder(this)
         .invariantProps
         .shape(
             StarDsTheme.shapes.roundS.adjustBy(
@@ -275,7 +277,7 @@ public val TextArea.Xs: WrapperTextAreaXs
         .prefixStyle(StarDsTheme.typography.bodyXsNormal)
         .suffixStyle(StarDsTheme.typography.bodyXsNormal)
         .placeholderStyle(StarDsTheme.typography.bodyXsNormal)
-        .labelPlacement(TextField.LabelPlacement.None)
+        .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextAreaXs)
 
 public val WrapperTextAreaXs.OuterLabel: WrapperTextAreaXsOuterLabel
@@ -289,7 +291,7 @@ public val WrapperTextAreaXs.OuterLabel: WrapperTextAreaXsOuterLabel
         }
         .labelStyle(StarDsTheme.typography.bodyXsNormal)
         .optionalStyle(StarDsTheme.typography.bodyXsNormal)
-        .labelPlacement(TextField.LabelPlacement.Outer)
+        .labelPlacement(TextFieldLabelPlacement.Outer)
         .colors {
             labelColor(
                 StarDsTheme.colors.textDefaultPrimary.asInteractive(),
@@ -300,7 +302,7 @@ public val WrapperTextAreaXs.OuterLabel: WrapperTextAreaXsOuterLabel
 public val TextArea.S: WrapperTextAreaS
     @Composable
     @JvmName("WrapperTextAreaS")
-    get() = TextFieldStyle.textAreaBuilder(this)
+    get() = TextFieldStyle.builder(this)
         .invariantProps
         .shape(
             StarDsTheme.shapes.roundM.adjustBy(
@@ -325,7 +327,7 @@ public val TextArea.S: WrapperTextAreaS
         .prefixStyle(StarDsTheme.typography.bodySNormal)
         .suffixStyle(StarDsTheme.typography.bodySNormal)
         .placeholderStyle(StarDsTheme.typography.bodySNormal)
-        .labelPlacement(TextField.LabelPlacement.None)
+        .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextAreaS)
 
 public val WrapperTextAreaS.OuterLabel: WrapperTextAreaSOuterLabel
@@ -337,7 +339,7 @@ public val WrapperTextAreaS.OuterLabel: WrapperTextAreaSOuterLabel
         }
         .labelStyle(StarDsTheme.typography.bodySNormal)
         .optionalStyle(StarDsTheme.typography.bodySNormal)
-        .labelPlacement(TextField.LabelPlacement.Outer)
+        .labelPlacement(TextFieldLabelPlacement.Outer)
         .colors {
             labelColor(
                 StarDsTheme.colors.textDefaultPrimary.asInteractive(),
@@ -356,7 +358,7 @@ public val WrapperTextAreaS.InnerLabel: WrapperTextAreaSInnerLabel
         }
         .labelStyle(StarDsTheme.typography.bodyXsNormal)
         .optionalStyle(StarDsTheme.typography.bodyXsNormal)
-        .labelPlacement(TextField.LabelPlacement.Inner)
+        .labelPlacement(TextFieldLabelPlacement.Inner)
         .colors {
             labelColor(
                 StarDsTheme.colors.textDefaultSecondary.asInteractive(
@@ -376,7 +378,7 @@ public val WrapperTextAreaS.InnerLabel: WrapperTextAreaSInnerLabel
 public val TextArea.M: WrapperTextAreaM
     @Composable
     @JvmName("WrapperTextAreaM")
-    get() = TextFieldStyle.textAreaBuilder(this)
+    get() = TextFieldStyle.builder(this)
         .invariantProps
         .shape(StarDsTheme.shapes.roundM)
         .dimensions {
@@ -396,7 +398,7 @@ public val TextArea.M: WrapperTextAreaM
         .prefixStyle(StarDsTheme.typography.bodyMNormal)
         .suffixStyle(StarDsTheme.typography.bodyMNormal)
         .placeholderStyle(StarDsTheme.typography.bodyMNormal)
-        .labelPlacement(TextField.LabelPlacement.None)
+        .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextAreaM)
 
 public val WrapperTextAreaM.OuterLabel: WrapperTextAreaMOuterLabel
@@ -408,7 +410,7 @@ public val WrapperTextAreaM.OuterLabel: WrapperTextAreaMOuterLabel
         }
         .labelStyle(StarDsTheme.typography.bodyMNormal)
         .optionalStyle(StarDsTheme.typography.bodyMNormal)
-        .labelPlacement(TextField.LabelPlacement.Outer)
+        .labelPlacement(TextFieldLabelPlacement.Outer)
         .colors {
             labelColor(
                 StarDsTheme.colors.textDefaultPrimary.asInteractive(),
@@ -427,7 +429,7 @@ public val WrapperTextAreaM.InnerLabel: WrapperTextAreaMInnerLabel
         }
         .labelStyle(StarDsTheme.typography.bodyXsNormal)
         .optionalStyle(StarDsTheme.typography.bodyXsNormal)
-        .labelPlacement(TextField.LabelPlacement.Inner)
+        .labelPlacement(TextFieldLabelPlacement.Inner)
         .colors {
             labelColor(
                 StarDsTheme.colors.textDefaultSecondary.asInteractive(

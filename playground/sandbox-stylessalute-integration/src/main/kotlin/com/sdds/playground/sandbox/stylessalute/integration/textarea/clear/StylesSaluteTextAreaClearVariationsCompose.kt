@@ -1,21 +1,21 @@
 package com.sdds.playground.sandbox.stylessalute.integration.textarea.clear
 
 import androidx.compose.runtime.Composable
-import com.sdds.compose.uikit.TextAreaClear
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
-import com.sdds.stylessalute.styles.textarea.clear.Default
-import com.sdds.stylessalute.styles.textarea.clear.Error
-import com.sdds.stylessalute.styles.textarea.clear.InnerLabel
-import com.sdds.stylessalute.styles.textarea.clear.L
-import com.sdds.stylessalute.styles.textarea.clear.M
-import com.sdds.stylessalute.styles.textarea.clear.OuterLabel
-import com.sdds.stylessalute.styles.textarea.clear.RequiredEnd
-import com.sdds.stylessalute.styles.textarea.clear.RequiredStart
-import com.sdds.stylessalute.styles.textarea.clear.S
-import com.sdds.stylessalute.styles.textarea.clear.Warning
-import com.sdds.stylessalute.styles.textarea.clear.Xs
+import com.sdds.stylessalute.styles.textarea.Default
+import com.sdds.stylessalute.styles.textarea.Error
+import com.sdds.stylessalute.styles.textarea.InnerLabel
+import com.sdds.stylessalute.styles.textarea.L
+import com.sdds.stylessalute.styles.textarea.M
+import com.sdds.stylessalute.styles.textarea.OuterLabel
+import com.sdds.stylessalute.styles.textarea.RequiredEnd
+import com.sdds.stylessalute.styles.textarea.RequiredStart
+import com.sdds.stylessalute.styles.textarea.S
+import com.sdds.stylessalute.styles.textarea.TextAreaClear
+import com.sdds.stylessalute.styles.textarea.Warning
+import com.sdds.stylessalute.styles.textarea.Xs
 
 internal object StylesSaluteTextAreaClearVariationsCompose :
     ComposeStyleProvider<String, TextFieldStyle>() {

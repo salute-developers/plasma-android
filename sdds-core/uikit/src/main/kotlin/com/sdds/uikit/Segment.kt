@@ -2,6 +2,8 @@ package com.sdds.uikit
 
 import android.content.Context
 import android.graphics.RectF
+import android.os.Bundle
+import android.os.Parcelable
 import android.util.AttributeSet
 import android.view.ContextThemeWrapper
 import android.view.View
@@ -162,6 +164,26 @@ open class Segment @JvmOverloads constructor(
         if (this.shape != null) adjustShape()
     }
 
+    override fun onSaveInstanceState(): Parcelable? {
+        return Bundle().apply {
+            putParcelable("superState", super.onSaveInstanceState())
+            putInt("checkedId", _checkedItem?.id ?: View.NO_ID)
+        }
+    }
+
+    override fun onRestoreInstanceState(state: Parcelable?) {
+        if (state is Bundle) {
+            val id = state.getInt("checkedId")
+            super.onRestoreInstanceState(state.getParcelable("superState"))
+            if (id != View.NO_ID) {
+                _checkedItem = findViewById(id)
+                _checkedItem?.isChecked = true
+            }
+        } else {
+            super.onRestoreInstanceState(state)
+        }
+    }
+
     override fun addView(child: View?, index: Int, params: ViewGroup.LayoutParams?) {
         if (child !is SegmentItem) return
         val layoutParams = (params as? LayoutParams) ?: LayoutParams(
@@ -174,6 +196,13 @@ open class Segment @JvmOverloads constructor(
                 if (orientation == VERTICAL) ViewGroup.LayoutParams.MATCH_PARENT else layoutParams.width
         }
         super.addView(child, index, layoutParams)
+    }
+
+    override fun setEnabled(enabled: Boolean) {
+        super.setEnabled(enabled)
+        this.children.forEach {
+            it.isEnabled = enabled
+        }
     }
 
     /**

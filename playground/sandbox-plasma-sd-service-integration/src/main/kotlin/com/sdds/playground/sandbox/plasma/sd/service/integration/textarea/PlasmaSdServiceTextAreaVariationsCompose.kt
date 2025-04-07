@@ -1,7 +1,6 @@
 package com.sdds.playground.sandbox.plasma.sd.service.integration.textarea
 
 import androidx.compose.runtime.Composable
-import com.sdds.compose.uikit.TextArea
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.plasma.sd.service.styles.textarea.Default
@@ -13,6 +12,7 @@ import com.sdds.plasma.sd.service.styles.textarea.OuterLabel
 import com.sdds.plasma.sd.service.styles.textarea.RequiredEnd
 import com.sdds.plasma.sd.service.styles.textarea.RequiredStart
 import com.sdds.plasma.sd.service.styles.textarea.S
+import com.sdds.plasma.sd.service.styles.textarea.TextArea
 import com.sdds.plasma.sd.service.styles.textarea.Warning
 import com.sdds.plasma.sd.service.styles.textarea.Xl
 import com.sdds.plasma.sd.service.styles.textarea.Xs

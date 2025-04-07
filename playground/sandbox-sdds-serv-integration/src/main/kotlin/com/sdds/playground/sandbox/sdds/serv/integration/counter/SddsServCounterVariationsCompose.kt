@@ -1,12 +1,12 @@
 package com.sdds.playground.sandbox.sdds.serv.integration.counter
 
 import androidx.compose.runtime.Composable
-import com.sdds.compose.uikit.Counter
 import com.sdds.compose.uikit.CounterStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 import com.sdds.serv.styles.counter.Accent
 import com.sdds.serv.styles.counter.Black
+import com.sdds.serv.styles.counter.Counter
 import com.sdds.serv.styles.counter.Default
 import com.sdds.serv.styles.counter.L
 import com.sdds.serv.styles.counter.M

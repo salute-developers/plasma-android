@@ -18,7 +18,7 @@ internal object PlasmaSdServiceSegmentVariationsView : ViewStyleProvider<String>
             "MSecondary" to s.Plasma_SdService_ComponentOverlays_SegmentMSecondary,
             "SSecondary" to s.Plasma_SdService_ComponentOverlays_SegmentSSecondary,
             "XsSecondary" to s.Plasma_SdService_ComponentOverlays_SegmentXsSecondary,
-            "LSecondaryPilled" to s.Plasma_SdService_ComponentOverlays_SegmentLSecondary,
+            "LSecondaryPilled" to s.Plasma_SdService_ComponentOverlays_SegmentLSecondaryPilled,
             "MSecondaryPilled" to s.Plasma_SdService_ComponentOverlays_SegmentMSecondaryPilled,
             "SSecondaryPilled" to s.Plasma_SdService_ComponentOverlays_SegmentSSecondaryPilled,
             "XsSecondaryPilled" to s.Plasma_SdService_ComponentOverlays_SegmentXsSecondaryPilled,

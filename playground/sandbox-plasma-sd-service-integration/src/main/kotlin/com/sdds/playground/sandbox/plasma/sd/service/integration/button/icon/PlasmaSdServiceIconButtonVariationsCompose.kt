@@ -2,25 +2,25 @@ package com.sdds.playground.sandbox.plasma.sd.service.integration.button.icon
 
 import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.ButtonStyle
-import com.sdds.compose.uikit.IconButton
 import com.sdds.compose.uikit.style.style
-import com.sdds.plasma.sd.service.styles.button.icon.Accent
-import com.sdds.plasma.sd.service.styles.button.icon.Black
-import com.sdds.plasma.sd.service.styles.button.icon.Clear
-import com.sdds.plasma.sd.service.styles.button.icon.Dark
-import com.sdds.plasma.sd.service.styles.button.icon.Default
-import com.sdds.plasma.sd.service.styles.button.icon.L
-import com.sdds.plasma.sd.service.styles.button.icon.M
-import com.sdds.plasma.sd.service.styles.button.icon.Negative
-import com.sdds.plasma.sd.service.styles.button.icon.Pilled
-import com.sdds.plasma.sd.service.styles.button.icon.Positive
-import com.sdds.plasma.sd.service.styles.button.icon.S
-import com.sdds.plasma.sd.service.styles.button.icon.Secondary
-import com.sdds.plasma.sd.service.styles.button.icon.Warning
-import com.sdds.plasma.sd.service.styles.button.icon.White
-import com.sdds.plasma.sd.service.styles.button.icon.Xl
-import com.sdds.plasma.sd.service.styles.button.icon.Xs
-import com.sdds.plasma.sd.service.styles.button.icon.Xxs
+import com.sdds.plasma.sd.service.styles.iconbutton.Accent
+import com.sdds.plasma.sd.service.styles.iconbutton.Black
+import com.sdds.plasma.sd.service.styles.iconbutton.Clear
+import com.sdds.plasma.sd.service.styles.iconbutton.Dark
+import com.sdds.plasma.sd.service.styles.iconbutton.Default
+import com.sdds.plasma.sd.service.styles.iconbutton.IconButton
+import com.sdds.plasma.sd.service.styles.iconbutton.L
+import com.sdds.plasma.sd.service.styles.iconbutton.M
+import com.sdds.plasma.sd.service.styles.iconbutton.Negative
+import com.sdds.plasma.sd.service.styles.iconbutton.Pilled
+import com.sdds.plasma.sd.service.styles.iconbutton.Positive
+import com.sdds.plasma.sd.service.styles.iconbutton.S
+import com.sdds.plasma.sd.service.styles.iconbutton.Secondary
+import com.sdds.plasma.sd.service.styles.iconbutton.Warning
+import com.sdds.plasma.sd.service.styles.iconbutton.White
+import com.sdds.plasma.sd.service.styles.iconbutton.Xl
+import com.sdds.plasma.sd.service.styles.iconbutton.Xs
+import com.sdds.plasma.sd.service.styles.iconbutton.Xxs
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 
 internal object PlasmaSdServiceIconButtonVariationsCompose : ComposeStyleProvider<String, ButtonStyle>() {

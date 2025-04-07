@@ -1,10 +1,10 @@
 package com.sdds.stylessalute
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
-import com.sdds.compose.uikit.Switch
 import com.sdds.stylessalute.styles.switcher.L
 import com.sdds.stylessalute.styles.switcher.M
 import com.sdds.stylessalute.styles.switcher.S
+import com.sdds.stylessalute.styles.switcher.Switch
 import com.sdds.testing.compose.RoborazziConfigCompose
 import com.sdds.testing.compose.switcher.SwitchLOn
 import com.sdds.testing.compose.switcher.SwitchMOff

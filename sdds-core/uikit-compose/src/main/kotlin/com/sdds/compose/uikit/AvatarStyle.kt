@@ -127,10 +127,10 @@ interface AvatarColors {
 
     /**
      * Возвращает цвет статуса [status]
-     * @see Avatar.Status
+     * @see AvatarStatus
      */
     @Composable
-    fun statusColor(status: Avatar.Status): State<Color>
+    fun statusColor(status: AvatarStatus): State<Color>
 
     companion object {
 
@@ -148,13 +148,13 @@ interface AvatarColors {
 interface AvatarColorsBuilder {
 
     /**
-     * Устанавливает цвет [activeStatusColor] для статуса [Avatar.Status.Active]
+     * Устанавливает цвет [activeStatusColor] для статуса [AvatarStatus.Active]
      * @see AvatarColors.statusColor
      */
     fun activeStatusColor(activeStatusColor: Color): AvatarColorsBuilder
 
     /**
-     * Устанавливает цвет [inactiveStatusColor] для статуса [Avatar.Status.Inactive]
+     * Устанавливает цвет [inactiveStatusColor] для статуса [AvatarStatus.Inactive]
      * @see AvatarColors.statusColor
      */
     fun inactiveStatusColor(inactiveStatusColor: Color): AvatarColorsBuilder
@@ -286,11 +286,11 @@ private data class DefaultAvatarColors(
 ) : AvatarColors {
 
     @Composable
-    override fun statusColor(status: Avatar.Status): State<Color> {
+    override fun statusColor(status: AvatarStatus): State<Color> {
         val color = when (status) {
-            Avatar.Status.None -> Color.Transparent
-            Avatar.Status.Active -> activeStatusColor
-            Avatar.Status.Inactive -> inactiveStatusColor
+            AvatarStatus.None -> Color.Transparent
+            AvatarStatus.Active -> activeStatusColor
+            AvatarStatus.Inactive -> inactiveStatusColor
         }
         return rememberUpdatedState(newValue = color)
     }

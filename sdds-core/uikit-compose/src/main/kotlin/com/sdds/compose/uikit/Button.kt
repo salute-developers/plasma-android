@@ -84,8 +84,8 @@ fun Button(
     modifier: Modifier = Modifier,
     value: String? = null,
     style: ButtonStyle = LocalButtonStyle.current,
-    spacing: Button.Spacing = Button.Spacing.Packed,
-    icons: Button.Icons? = null,
+    spacing: ButtonSpacing = ButtonSpacing.Packed,
+    icons: ButtonIcons? = null,
     enabled: Boolean = true,
     loading: Boolean = false,
     indication: Indication? = null,
@@ -97,8 +97,10 @@ fun Button(
         when {
             icons?.start != null && paddingStart > IconPaddingOffset ->
                 paddingStart -= IconPaddingOffset
+
             icons?.end != null && paddingEnd > IconPaddingOffset ->
                 paddingEnd -= IconPaddingOffset
+
             else -> {}
         }
         it.copy(paddingStart = paddingStart, paddingEnd = paddingEnd)
@@ -151,93 +153,57 @@ fun Button(
 }
 
 /**
- * Содержит сущности для конфигурирования кнопки
+ * Размеры и отступы, которые используются внутри кнопки.
+ *
+ * @property height высота кнопки
+ * @property paddingStart отступ кнопки в начале
+ * @property paddingEnd отступ кнопки в конце
+ * @property minWidth минимальная ширина кнопки
+ * @property iconSize размер иконки
+ * @property spinnerSize размер спиннера
+ * @property spinnerStrokeWidth толщина спиннера
+ * @property iconMargin отступ иконки
+ * @property valueMargin отступ доп. текста
  */
-object Button {
+@Immutable
+data class ButtonDimensions(
+    val height: Dp = 48.dp,
+    val paddingStart: Dp = 0.dp,
+    val paddingEnd: Dp = 0.dp,
+    val minWidth: Dp = 84.dp,
+    val iconSize: Dp = 24.dp,
+    val spinnerSize: Dp = 22.dp,
+    val spinnerStrokeWidth: Dp = 2.dp,
+    val iconMargin: Dp = 6.dp,
+    val valueMargin: Dp = 4.dp,
+)
+
+/**
+ * Способы группировки контента в кнопке при помощи отступов.
+ * В основном контролирует отображение текста Label-Value.
+ */
+enum class ButtonSpacing {
 
     /**
-     * Размеры и отступы, которые используются внутри кнопки.
-     *
-     * @property height высота кнопки
-     * @property paddingStart отступ кнопки в начале
-     * @property paddingEnd отступ кнопки в конце
-     * @property minWidth минимальная ширина кнопки
-     * @property iconSize размер иконки
-     * @property spinnerSize размер спиннера
-     * @property spinnerStrokeWidth толщина спиннера
-     * @property iconMargin отступ иконки
-     * @property valueMargin отступ доп. текста
+     * Контент "упакован", отступы будут добавлены снаружи
      */
-    @Immutable
-    data class Dimensions(
-        val height: Dp = 48.dp,
-        val paddingStart: Dp = 0.dp,
-        val paddingEnd: Dp = 0.dp,
-        val minWidth: Dp = 84.dp,
-        val iconSize: Dp = 24.dp,
-        val spinnerSize: Dp = 22.dp,
-        val spinnerStrokeWidth: Dp = 2.dp,
-        val iconMargin: Dp = 6.dp,
-        val valueMargin: Dp = 4.dp,
-    ) {
-
-        /**
-         * Горизонтальные отступы кнопки
-         *
-         * @property start начальный отступ
-         * @property end конечный отступ
-         */
-        @Immutable
-        data class PaddingValues(
-            val start: Dp = 20.dp,
-            val end: Dp = 20.dp,
-        ) {
-            constructor(horizontal: Dp) : this(horizontal, horizontal)
-        }
-    }
+    Packed,
 
     /**
-     * Способы группировки контента в кнопке при помощи отступов.
-     * В основном контролирует отображение текста Label-Value.
+     * Контент отобразится по всей ширине, отступы будут добавлены
+     * между элементами контента
      */
-    enum class Spacing {
-
-        /**
-         * Контент "упакован", отступы будут добавлены снаружи
-         */
-        Packed,
-
-        /**
-         * Контент отобразится по всей ширине, отступы будут добавлены
-         * между элементами контента
-         */
-        SpaceBetween,
-    }
-
-    /**
-     * Иконки кнопки
-     * @property start иконка, которая будет добавлена в начале
-     * @property end иконка, которая будет добавлена в конце
-     */
-    data class Icons(
-        val start: Painter? = null,
-        val end: Painter? = null,
-    )
+    SpaceBetween,
 }
 
 /**
- * Вспомогательный объект для описания API и стиля компонента BasicButton
+ * Иконки кнопки
+ * @property start иконка, которая будет добавлена в начале
+ * @property end иконка, которая будет добавлена в конце
  */
-object BasicButton
-
-/**
- * Вспомогательный объект для описания API и стиля компонента IconButton
- */
-object IconButton
-
-/**
- * Вспомогательный объект для описания API и стиля компонента LinkButton
- */
-object LinkButton
+data class ButtonIcons(
+    val start: Painter? = null,
+    val end: Painter? = null,
+)
 
 private val IconPaddingOffset = 2.dp

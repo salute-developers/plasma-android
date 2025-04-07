@@ -2,20 +2,20 @@ package com.sdds.playground.sandbox.plasma.sd.service.integration.badge.icon
 
 import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.BadgeStyle
-import com.sdds.compose.uikit.IconBadgeClear
 import com.sdds.compose.uikit.style.style
-import com.sdds.plasma.sd.service.styles.badge.icon.Accent
-import com.sdds.plasma.sd.service.styles.badge.icon.Dark
-import com.sdds.plasma.sd.service.styles.badge.icon.Default
-import com.sdds.plasma.sd.service.styles.badge.icon.L
-import com.sdds.plasma.sd.service.styles.badge.icon.Light
-import com.sdds.plasma.sd.service.styles.badge.icon.M
-import com.sdds.plasma.sd.service.styles.badge.icon.Negative
-import com.sdds.plasma.sd.service.styles.badge.icon.Pilled
-import com.sdds.plasma.sd.service.styles.badge.icon.Positive
-import com.sdds.plasma.sd.service.styles.badge.icon.S
-import com.sdds.plasma.sd.service.styles.badge.icon.Warning
-import com.sdds.plasma.sd.service.styles.badge.icon.Xs
+import com.sdds.plasma.sd.service.styles.iconbadge.Accent
+import com.sdds.plasma.sd.service.styles.iconbadge.Dark
+import com.sdds.plasma.sd.service.styles.iconbadge.Default
+import com.sdds.plasma.sd.service.styles.iconbadge.IconBadgeClear
+import com.sdds.plasma.sd.service.styles.iconbadge.L
+import com.sdds.plasma.sd.service.styles.iconbadge.Light
+import com.sdds.plasma.sd.service.styles.iconbadge.M
+import com.sdds.plasma.sd.service.styles.iconbadge.Negative
+import com.sdds.plasma.sd.service.styles.iconbadge.Pilled
+import com.sdds.plasma.sd.service.styles.iconbadge.Positive
+import com.sdds.plasma.sd.service.styles.iconbadge.S
+import com.sdds.plasma.sd.service.styles.iconbadge.Warning
+import com.sdds.plasma.sd.service.styles.iconbadge.Xs
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 
 internal object PlasmaSdServiceIconBadgeClearVariationsCompose :

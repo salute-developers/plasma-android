@@ -1,9 +1,9 @@
 package com.sdds.playground.sandbox.stylessalute.integration.avatar
 
 import androidx.compose.runtime.Composable
-import com.sdds.compose.uikit.Avatar
 import com.sdds.compose.uikit.AvatarStyle
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
+import com.sdds.stylessalute.styles.avatar.Avatar
 import com.sdds.stylessalute.styles.avatar.L
 import com.sdds.stylessalute.styles.avatar.M
 import com.sdds.stylessalute.styles.avatar.S

@@ -1,7 +1,6 @@
 package com.sdds.playground.sandbox.plasma.sd.service.integration.indicator.compose
 
 import androidx.compose.runtime.Composable
-import com.sdds.compose.uikit.Indicator
 import com.sdds.compose.uikit.IndicatorStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.plasma.sd.service.styles.indicator.Accent
@@ -9,6 +8,7 @@ import com.sdds.plasma.sd.service.styles.indicator.Black
 import com.sdds.plasma.sd.service.styles.indicator.Dark
 import com.sdds.plasma.sd.service.styles.indicator.Default
 import com.sdds.plasma.sd.service.styles.indicator.Inactive
+import com.sdds.plasma.sd.service.styles.indicator.Indicator
 import com.sdds.plasma.sd.service.styles.indicator.L
 import com.sdds.plasma.sd.service.styles.indicator.M
 import com.sdds.plasma.sd.service.styles.indicator.Negative

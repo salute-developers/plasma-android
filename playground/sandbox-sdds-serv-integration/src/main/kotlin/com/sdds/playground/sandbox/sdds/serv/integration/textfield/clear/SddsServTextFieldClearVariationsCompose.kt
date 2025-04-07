@@ -1,23 +1,23 @@
 package com.sdds.playground.sandbox.sdds.serv.integration.textfield.clear
 
 import androidx.compose.runtime.Composable
-import com.sdds.compose.uikit.TextFieldClear
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
-import com.sdds.serv.styles.textfield.clear.Default
-import com.sdds.serv.styles.textfield.clear.Error
-import com.sdds.serv.styles.textfield.clear.InnerLabel
-import com.sdds.serv.styles.textfield.clear.L
-import com.sdds.serv.styles.textfield.clear.M
-import com.sdds.serv.styles.textfield.clear.OuterLabel
-import com.sdds.serv.styles.textfield.clear.RequiredEnd
-import com.sdds.serv.styles.textfield.clear.RequiredStart
-import com.sdds.serv.styles.textfield.clear.S
-import com.sdds.serv.styles.textfield.clear.Success
-import com.sdds.serv.styles.textfield.clear.Warning
-import com.sdds.serv.styles.textfield.clear.Xl
-import com.sdds.serv.styles.textfield.clear.Xs
+import com.sdds.serv.styles.textfield.Default
+import com.sdds.serv.styles.textfield.Error
+import com.sdds.serv.styles.textfield.InnerLabel
+import com.sdds.serv.styles.textfield.L
+import com.sdds.serv.styles.textfield.M
+import com.sdds.serv.styles.textfield.OuterLabel
+import com.sdds.serv.styles.textfield.RequiredEnd
+import com.sdds.serv.styles.textfield.RequiredStart
+import com.sdds.serv.styles.textfield.S
+import com.sdds.serv.styles.textfield.Success
+import com.sdds.serv.styles.textfield.TextFieldClear
+import com.sdds.serv.styles.textfield.Warning
+import com.sdds.serv.styles.textfield.Xl
+import com.sdds.serv.styles.textfield.Xs
 
 internal object SddsServTextFieldClearVariationsCompose : ComposeStyleProvider<String, TextFieldStyle>() {
 

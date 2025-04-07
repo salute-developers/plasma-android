@@ -33,7 +33,7 @@ import com.sdds.compose.uikit.internal.common.StyledText
 fun Cell(
     modifier: Modifier = Modifier,
     style: CellStyle,
-    gravity: Cell.Gravity = Cell.Gravity.Center,
+    gravity: CellGravity = CellGravity.Center,
     title: AnnotatedString = AnnotatedString(""),
     subtitle: AnnotatedString = AnnotatedString(""),
     label: AnnotatedString = AnnotatedString(""),
@@ -100,7 +100,7 @@ fun Cell(
 fun Cell(
     modifier: Modifier = Modifier,
     style: CellStyle,
-    gravity: Cell.Gravity = Cell.Gravity.Center,
+    gravity: CellGravity = CellGravity.Center,
     disclosureEnabled: Boolean = false,
     disclosureContent: (@Composable RowScope.() -> Unit)? = null,
     startContent: (@Composable RowScope.() -> Unit)? = null,
@@ -122,27 +122,21 @@ fun Cell(
 }
 
 /**
- * Параметры [Cell]
+ * Выравнивание контента внутри [Cell]
  */
-object Cell {
+enum class CellGravity {
+    /**
+     * Контент выравнивается по верху
+     */
+    Top,
 
     /**
-     * Выравнивание контента внутри [Cell]
+     * Контент выравнивается по середине
      */
-    enum class Gravity {
-        /**
-         * Контент выравнивается по верху
-         */
-        Top,
+    Center,
 
-        /**
-         * Контент выравнивается по середине
-         */
-        Center,
-
-        /**
-         * Контент выравнивается по низу
-         */
-        Bottom,
-    }
+    /**
+     * Контент выравнивается по низу
+     */
+    Bottom,
 }

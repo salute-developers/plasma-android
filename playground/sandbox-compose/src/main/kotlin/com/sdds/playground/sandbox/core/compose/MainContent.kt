@@ -9,19 +9,17 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.DrawerValue
-import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.ModalBottomSheetLayout
-import androidx.compose.material.ModalBottomSheetValue
 import androidx.compose.material.Scaffold
 import androidx.compose.material.rememberDrawerState
-import androidx.compose.material.rememberModalBottomSheetState
 import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Rect
@@ -40,9 +38,14 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.sdds.compose.uikit.IconButton
+import com.sdds.compose.uikit.LocalModalBottomSheetStyle
+import com.sdds.compose.uikit.ModalBottomSheet
+import com.sdds.compose.uikit.internal.modal.BottomSheetValue
+import com.sdds.compose.uikit.internal.modal.rememberModalBottomSheetState
 import com.sdds.icons.R
 import com.sdds.playground.sandbox.MainSandboxActivity
 import com.sdds.playground.sandbox.Theme
+import com.sdds.playground.sandbox.composeTheme
 import com.sdds.playground.sandbox.core.ThemeManager
 import kotlinx.coroutines.launch
 
@@ -50,21 +53,38 @@ import kotlinx.coroutines.launch
  *
  * @author Малышев Александр on 25.02.2025
  */
-@OptIn(ExperimentalMaterialApi::class)
 @Suppress("LongMethod")
 @Composable
 internal fun MainContent(themeManager: ThemeManager = ThemeManager) {
     val sandboxStyle = LocalSandboxStyle.current
     val currentTheme by themeManager.currentTheme.collectAsState()
-    val menuItems = remember(currentTheme) { currentTheme.compose.components.getMenuItems() }
+    val themeInfo = composeTheme(currentTheme)
+    val menuItems = remember(currentTheme) { themeInfo.components.getMenuItems() }
     val hasMultipleThemes = remember { Theme.values().size > 1 }
     val drawerState = rememberDrawerState(DrawerValue.Closed)
     val scaffoldState = rememberScaffoldState(drawerState = drawerState)
     val scope = rememberCoroutineScope()
-    val themePickerSheetState = rememberModalBottomSheetState(ModalBottomSheetValue.Hidden)
+    val themePickerSheetState = rememberModalBottomSheetState(BottomSheetValue.Hidden)
     val navController = rememberNavController()
     val currentBackStackEntry by navController.currentBackStackEntryFlow.collectAsState(initial = null)
-    val currentTitle = menuItems.find { it.route == currentBackStackEntry?.destination?.route }?.title.orEmpty()
+    val currentTitle =
+        menuItems.find { it.route == currentBackStackEntry?.destination?.route }?.title.orEmpty()
+    val savedRoute = rememberSaveable { mutableStateOf(menuItems.first().route) }
+    LaunchedEffect(menuItems) {
+        val existingRoute = savedRoute.value.takeIf { route -> menuItems.any { it.route == route } }
+            ?: menuItems.first().route
+        savedRoute.value = existingRoute
+
+        if (navController.currentDestination?.route != existingRoute) {
+            navController.navigate(existingRoute) {
+                popUpTo(navController.graph.startDestinationId) {
+                    inclusive = true
+                }
+                launchSingleTop = true
+                restoreState = true
+            }
+        }
+    }
     Scaffold(
         scaffoldState = scaffoldState,
         backgroundColor = Color.Transparent,
@@ -89,28 +109,19 @@ internal fun MainContent(themeManager: ThemeManager = ThemeManager) {
                             launchSingleTop = true
                             restoreState = true
                         }
+                        savedRoute.value = it.route
                     }
                 },
             )
         },
         topBar = {
             val context = LocalContext.current
-            TopBar(
+            TopBarSection(
                 title = currentTitle,
                 onNavigationClick = { scope.launch { drawerState.open() } },
-                actions = {
-                    IconButton(
-                        onClick = { toMainActivity(context) },
-                        icon = painterResource(id = R.drawable.ic_backward_fill_24),
-                        modifier = Modifier.padding(horizontal = 10.dp),
-                    )
-                    if (hasMultipleThemes) {
-                        IconButton(
-                            icon = painterResource(id = R.drawable.ic_settings_fill_24),
-                            onClick = { scope.launch { themePickerSheetState.show() } },
-                        )
-                    }
-                },
+                onMainClick = { toMainActivity(context) },
+                onThemeClick = { scope.launch { themePickerSheetState.show() } },
+                hasMultipleThemes = hasMultipleThemes,
             )
         },
     ) { paddingValues ->
@@ -119,9 +130,12 @@ internal fun MainContent(themeManager: ThemeManager = ThemeManager) {
                 .padding(paddingValues)
                 .fillMaxSize(),
         ) {
+            NavigationGraph(navController, menuItems)
             if (hasMultipleThemes) {
-                ModalBottomSheetLayout(
-                    sheetContent = {
+                ModalBottomSheet(
+                    style = LocalModalBottomSheetStyle.current,
+                    fitContent = true,
+                    body = {
                         ThemePicker(
                             currentTheme,
                             onApply = { themeManager.updateTheme(it) },
@@ -133,13 +147,7 @@ internal fun MainContent(themeManager: ThemeManager = ThemeManager) {
                         )
                     },
                     sheetState = themePickerSheetState,
-                    sheetShape = sandboxStyle.sheetShape,
-                    sheetBackgroundColor = sandboxStyle.sheetBackgroundColor,
-                ) {
-                    NavigationGraph(navController, menuItems)
-                }
-            } else {
-                NavigationGraph(navController, menuItems)
+                )
             }
         }
     }
@@ -159,6 +167,33 @@ internal fun NavigationGraph(navController: NavHostController, menuItems: List<M
             }
         }
     }
+}
+
+@Composable
+private fun TopBarSection(
+    title: String,
+    onNavigationClick: () -> Unit,
+    onMainClick: () -> Unit,
+    onThemeClick: () -> Unit,
+    hasMultipleThemes: Boolean,
+) {
+    TopBar(
+        title = title,
+        onNavigationClick = onNavigationClick,
+        actions = {
+            IconButton(
+                onClick = onMainClick,
+                icon = painterResource(id = R.drawable.ic_backward_fill_24),
+                modifier = Modifier.padding(horizontal = 10.dp),
+            )
+            if (hasMultipleThemes) {
+                IconButton(
+                    icon = painterResource(id = R.drawable.ic_settings_fill_24),
+                    onClick = onThemeClick,
+                )
+            }
+        },
+    )
 }
 
 private fun toMainActivity(context: Context) {

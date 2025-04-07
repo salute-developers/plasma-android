@@ -122,33 +122,3 @@ internal fun BadgeColors.toColorsSet(): BaseIconText.Colors {
         endContentColor = this.endContentColor,
     )
 }
-
-/**
- * Вспомогательный объект для описания API и стиля компонента BadgeSolid
- */
-object BadgeSolid
-
-/**
- * Вспомогательный объект для описания API и стиля компонента BadgeClear
- */
-object BadgeClear
-
-/**
- * Вспомогательный объект для описания API и стиля компонента BadgeTransparent
- */
-object BadgeTransparent
-
-/**
- * Вспомогательный объект для описания API и стиля компонента IconBadgeSolid
- */
-object IconBadgeSolid
-
-/**
- * Вспомогательный объект для описания API и стиля компонента IconBadgeClear
- */
-object IconBadgeClear
-
-/**
- * Вспомогательный объект для описания API и стиля компонента IconBadgeTransparent
- */
-object IconBadgeTransparent

@@ -1,6 +1,5 @@
 package com.sdds.compose.uikit
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
@@ -42,7 +41,7 @@ import com.sdds.compose.uikit.internal.common.background
  * @param modifier модификатор
  * @param imageBitmap изображение [ImageBitmap]
  * @param style стиль компонента
- * @param status статус [Avatar.Status]
+ * @param status статус [AvatarStatus]
  * @param action иконка действия [Painter]
  * @param actionEnabled включена ли иконка действия
  * @param placeholder текст-заглушка
@@ -56,15 +55,16 @@ fun Avatar(
     imageBitmap: ImageBitmap,
     modifier: Modifier = Modifier,
     style: AvatarStyle = LocalAvatarStyle.current,
-    status: Avatar.Status = Avatar.Status.None,
+    status: AvatarStatus = AvatarStatus.None,
     action: Painter? = null,
     actionEnabled: Boolean = LocalAvatarGroupActionEnabled.current,
-    placeholder: Avatar.Placeholder? = null,
+    placeholder: AvatarPlaceholder? = null,
     contentDescription: String? = null,
     contentScale: ContentScale = ContentScale.None,
     filterQuality: FilterQuality = FilterQuality.Low,
 ) {
-    val bitmapPainter = remember(imageBitmap) { BitmapPainter(imageBitmap, filterQuality = filterQuality) }
+    val bitmapPainter =
+        remember(imageBitmap) { BitmapPainter(imageBitmap, filterQuality = filterQuality) }
     Avatar(
         modifier = modifier,
         painter = bitmapPainter,
@@ -85,7 +85,7 @@ fun Avatar(
  * @param modifier модификатор
  * @param imageVector изображение [ImageVector]
  * @param style стиль компонента
- * @param status статус [Avatar.Status]
+ * @param status статус [AvatarStatus]
  * @param action иконка действия [Painter]
  * @param actionEnabled включена ли иконка действия
  * @param placeholder текст-заглушка
@@ -98,10 +98,10 @@ fun Avatar(
     imageVector: ImageVector,
     modifier: Modifier = Modifier,
     style: AvatarStyle = LocalAvatarStyle.current,
-    status: Avatar.Status = Avatar.Status.None,
+    status: AvatarStatus = AvatarStatus.None,
     action: Painter? = null,
     actionEnabled: Boolean = LocalAvatarGroupActionEnabled.current,
-    placeholder: Avatar.Placeholder? = null,
+    placeholder: AvatarPlaceholder? = null,
     contentDescription: String? = null,
     contentScale: ContentScale = ContentScale.None,
 ) {
@@ -125,7 +125,7 @@ fun Avatar(
  * @param modifier модификатор
  * @param painter изображение [Painter]
  * @param style стиль компонента
- * @param status статус [Avatar.Status]
+ * @param status статус [AvatarStatus]
  * @param action иконка действия [Painter]
  * @param actionEnabled включена ли иконка действия
  * @param placeholder текст-заглушка
@@ -137,10 +137,10 @@ fun Avatar(
     modifier: Modifier = Modifier,
     painter: Painter? = null,
     style: AvatarStyle = LocalAvatarStyle.current,
-    status: Avatar.Status = Avatar.Status.None,
+    status: AvatarStatus = AvatarStatus.None,
     action: Painter? = null,
     actionEnabled: Boolean = LocalAvatarGroupActionEnabled.current,
-    placeholder: Avatar.Placeholder? = null,
+    placeholder: AvatarPlaceholder? = null,
     contentDescription: String? = null,
     contentScale: ContentScale = ContentScale.None,
 ) {
@@ -182,7 +182,7 @@ fun Avatar(
  * )
  * ```
  * @param style стиль компонента
- * @param status текущий статус [Avatar.Status]
+ * @param status текущий статус [AvatarStatus]
  * @param action иконка действия [Painter]
  * @param actionEnabled включена ли иконка действия
  * @param placeholder текст-заглушка
@@ -192,10 +192,10 @@ fun Avatar(
 @Composable
 fun Modifier.avatar(
     style: AvatarStyle = LocalAvatarStyle.current,
-    status: Avatar.Status = Avatar.Status.None,
+    status: AvatarStatus = AvatarStatus.None,
     action: Painter? = null,
     actionEnabled: Boolean = false,
-    placeholder: Avatar.Placeholder? = null,
+    placeholder: AvatarPlaceholder? = null,
 ): Modifier = composed {
     val dimensions = style.dimensions
     val colors = style.colors
@@ -220,16 +220,17 @@ fun Modifier.avatar(
         Modifier
     }
 
-    val actionModifier = if (action != null && actionEnabled && LocalAvatarGroupActionEnabled.current) {
-        Modifier.action(
-            painter = action,
-            color = { colors.actionColor },
-            scrimColor = { colors.actionScrimColor },
-            size = dimensions.actionSize ?: action.intrinsicSize,
-        )
-    } else {
-        Modifier
-    }
+    val actionModifier =
+        if (action != null && actionEnabled && LocalAvatarGroupActionEnabled.current) {
+            Modifier.action(
+                painter = action,
+                color = { colors.actionColor },
+                scrimColor = { colors.actionScrimColor },
+                size = dimensions.actionSize ?: action.intrinsicSize,
+            )
+        } else {
+            Modifier
+        }
 
     val sizeModifier = if (dimensions.size != null) {
         Modifier.size(dimensions.size)
@@ -247,59 +248,53 @@ fun Modifier.avatar(
 }
 
 /**
- * Параметры компонента [Avatar]
+ * Заглушка для аватара
  */
-object Avatar {
+sealed class AvatarPlaceholder {
 
     /**
-     * Заглушка для аватара
+     * Текстовая заглушка на основе имени.
+     * В этом случае текст-заглушка - это инициалы имени
+     * @property fullName полное имя
      */
-    sealed class Placeholder {
+    data class Name(val fullName: String) : AvatarPlaceholder() {
 
         /**
-         * Текстовая заглушка на основе имени.
-         * В этом случае текст-заглушка - это инициалы имени
-         * @property fullName полное имя
+         * @param firstName имя
+         * @param lastName фамилия
          */
-        data class Name(val fullName: String) : Placeholder() {
-
-            /**
-             * @param firstName имя
-             * @param lastName фамилия
-             */
-            constructor(firstName: String, lastName: String) : this("$firstName $lastName")
-        }
-
-        /**
-         * Обычная текстовая заглушка
-         * @property value текстовое значение заглушки
-         */
-        data class Text(val value: String) : Placeholder()
+        constructor(firstName: String, lastName: String) : this("$firstName $lastName")
     }
 
     /**
-     * Пользовательский статус
+     * Обычная текстовая заглушка
+     * @property value текстовое значение заглушки
      */
-    enum class Status {
-        /**
-         * Статус не отображается
-         */
-        None,
-
-        /**
-         * Активный статус (онлайн, в сети и т.д.)
-         */
-        Active,
-
-        /**
-         * Неактивный статус
-         */
-        Inactive,
-    }
+    data class Text(val value: String) : AvatarPlaceholder()
 }
 
-private val Avatar.Status.isEnabled: Boolean
-    get() = this != Avatar.Status.None
+/**
+ * Пользовательский статус
+ */
+enum class AvatarStatus {
+    /**
+     * Статус не отображается
+     */
+    None,
+
+    /**
+     * Активный статус (онлайн, в сети и т.д.)
+     */
+    Active,
+
+    /**
+     * Неактивный статус
+     */
+    Inactive,
+}
+
+private val AvatarStatus.isEnabled: Boolean
+    get() = this != AvatarStatus.None
 
 private fun Modifier.status(
     size: Dp,
@@ -366,14 +361,14 @@ private fun Modifier.action(
         }
     }
 
-private val Avatar.Placeholder.minimize
+private val AvatarPlaceholder.minimize
     get() = when (this) {
-        is Avatar.Placeholder.Name ->
+        is AvatarPlaceholder.Name ->
             this.fullName
                 .split(' ')
                 .mapNotNull { it.firstOrNull()?.toString() }
                 .take(2)
                 .reduce { acc, s -> acc + s }
 
-        is Avatar.Placeholder.Text -> this.value
+        is AvatarPlaceholder.Text -> this.value
     }

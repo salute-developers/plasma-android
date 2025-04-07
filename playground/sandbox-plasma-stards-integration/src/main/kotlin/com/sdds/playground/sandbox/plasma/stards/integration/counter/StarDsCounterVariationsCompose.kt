@@ -1,12 +1,12 @@
 package com.sdds.playground.sandbox.plasma.stards.integration.counter
 
 import androidx.compose.runtime.Composable
-import com.sdds.compose.uikit.Counter
 import com.sdds.compose.uikit.CounterStyle
 import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 import com.sdkit.star.designsystem.styles.counter.Accent
 import com.sdkit.star.designsystem.styles.counter.Black
+import com.sdkit.star.designsystem.styles.counter.Counter
 import com.sdkit.star.designsystem.styles.counter.Default
 import com.sdkit.star.designsystem.styles.counter.L
 import com.sdkit.star.designsystem.styles.counter.M

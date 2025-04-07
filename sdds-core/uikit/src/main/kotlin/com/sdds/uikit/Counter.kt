@@ -27,7 +27,7 @@ open class Counter @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.sd_counterStyle,
     defStyleRes: Int = R.style.Sdds_Components_Counter,
-) : View(context, attrs, defStyleAttr),
+) : View(context, attrs, defStyleAttr, defStyleRes),
     Shapeable,
     ColorStateHolder,
     TextDrawable.Delegate {
@@ -49,7 +49,7 @@ open class Counter @JvmOverloads constructor(
      * Состояние внешнего вида Counter
      * @see ColorState
      */
-    override var colorState: ColorState? = ColorState.obtain(context, attrs, defStyleAttr)
+    override var colorState: ColorState? = ColorState.obtain(context, attrs, defStyleAttr, defStyleRes)
         set(value) {
             if (field != value) {
                 field = value

@@ -1,5 +1,6 @@
 import com.sdds.plugin.themebuilder.OutputLocation.SRC
 import com.sdds.plugin.themebuilder.ThemeBuilderMode.THEME
+import utils.componentsVersion
 import utils.themeVersion
 
 @Suppress("DSL_SCOPE_VIOLATION")
@@ -20,6 +21,7 @@ android {
 
 themeBuilder {
     themeSource(name = "plasma_giga", version = themeVersion, alias = "PlasmaGiga")
+    componentSource(name = "plasma_giga", version = componentsVersion, alias = "PlasmaGiga")
     compose()
     ktPackage(ktPackage = "com.sdds.plasma.giga")
     mode(THEME)

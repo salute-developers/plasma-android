@@ -1,9 +1,9 @@
 package com.sdds.playground.sandbox
 
-import androidx.annotation.StyleRes
-import androidx.compose.runtime.Composable
-import com.sdds.playground.sandbox.core.integration.component.ComponentsProviderCompose
-import com.sdds.playground.sandbox.core.integration.component.ComponentsProviderView
+import com.sdds.playground.sandbox.plasma.giga.app.integration.PlasmaGigaAppComposeComponents
+import com.sdds.playground.sandbox.plasma.giga.app.integration.PlasmaGigaAppThemeWrapper
+import com.sdds.playground.sandbox.plasma.giga.integration.PlasmaGigaComposeComponents
+import com.sdds.playground.sandbox.plasma.giga.integration.PlasmaGigaThemeWrapper
 import com.sdds.playground.sandbox.plasma.sd.service.integration.PlasmaSdServiceComposeComponents
 import com.sdds.playground.sandbox.plasma.sd.service.integration.PlasmaSdServiceThemeWrapper
 import com.sdds.playground.sandbox.plasma.sd.service.integration.PlasmaSdServiceViewComponents
@@ -14,53 +14,61 @@ import com.sdds.playground.sandbox.stylessalute.integration.StylesSaluteComposeC
 import com.sdds.playground.sandbox.stylessalute.integration.StylesSaluteThemeWrapper
 import com.sdds.playground.sandbox.stylessalute.integration.StylesSaluteViewComponents
 
-internal enum class Theme(
-    val compose: ThemeInfoCompose,
-    val view: ThemeInfoView,
-) {
-    SddsServ(
-        compose = ThemeInfoCompose(
-            components = SddsServComposeComponents,
-            themeWrapper = { SddsServThemeWrapper(it) },
-        ),
-        view = ThemeInfoView(
-            components = SddsServViewComponents,
-            themeRes = com.sdds.serv.R.style.Serv_Sdds_MaterialComponents_DayNight,
-        ),
-    ),
-    PlasmaSdService(
-        compose = ThemeInfoCompose(
-            components = PlasmaSdServiceComposeComponents,
-            themeWrapper = { PlasmaSdServiceThemeWrapper(it) },
-        ),
-        view = ThemeInfoView(
-            components = PlasmaSdServiceViewComponents,
-            themeRes = com.sdds.plasma.sd.service.R.style.Plasma_SdService_MaterialComponents_DayNight,
-        ),
-    ),
-    StylesSalute(
-        compose = ThemeInfoCompose(
-            components = StylesSaluteComposeComponents,
-            themeWrapper = { StylesSaluteThemeWrapper(it) },
-        ),
-        view = ThemeInfoView(
-            components = StylesSaluteViewComponents,
-            themeRes = com.sdds.stylessalute.R.style.Salute_StylesSalute_MaterialComponents_DayNight,
-        ),
-    ),
+internal enum class Theme {
+    SddsServ,
+    PlasmaSdService,
+    StylesSalute,
+    PlasmaGiga,
+    PlasmaGigaApp,
     ;
-
-    internal class ThemeInfoCompose(
-        val components: ComponentsProviderCompose,
-        val themeWrapper: @Composable (@Composable () -> Unit) -> Unit,
-    )
-
-    internal class ThemeInfoView(
-        val components: ComponentsProviderView,
-        @StyleRes val themeRes: Int,
-    )
 
     internal companion object {
         val Default = SddsServ
     }
 }
+
+internal val composeThemes: List<ThemeInfoCompose> = listOf(
+    ThemeInfoCompose(
+        theme = Theme.SddsServ,
+        components = SddsServComposeComponents,
+        themeWrapper = { SddsServThemeWrapper(it) },
+    ),
+    ThemeInfoCompose(
+        theme = Theme.PlasmaSdService,
+        components = PlasmaSdServiceComposeComponents,
+        themeWrapper = { PlasmaSdServiceThemeWrapper(it) },
+    ),
+    ThemeInfoCompose(
+        theme = Theme.StylesSalute,
+        components = StylesSaluteComposeComponents,
+        themeWrapper = { StylesSaluteThemeWrapper(it) },
+    ),
+    ThemeInfoCompose(
+        theme = Theme.PlasmaGiga,
+        components = PlasmaGigaComposeComponents,
+        themeWrapper = { PlasmaGigaThemeWrapper(it) },
+    ),
+    ThemeInfoCompose(
+        theme = Theme.PlasmaGigaApp,
+        components = PlasmaGigaAppComposeComponents,
+        themeWrapper = { PlasmaGigaAppThemeWrapper(it) },
+    ),
+)
+
+internal val viewThemes: List<ThemeInfoView> = listOf(
+    ThemeInfoView(
+        theme = Theme.SddsServ,
+        components = SddsServViewComponents,
+        themeRes = com.sdds.serv.R.style.Serv_Sdds_MaterialComponents_DayNight,
+    ),
+    ThemeInfoView(
+        theme = Theme.PlasmaSdService,
+        components = PlasmaSdServiceViewComponents,
+        themeRes = com.sdds.plasma.sd.service.R.style.Plasma_SdService_MaterialComponents_DayNight,
+    ),
+    ThemeInfoView(
+        theme = Theme.StylesSalute,
+        components = StylesSaluteViewComponents,
+        themeRes = com.sdds.stylessalute.R.style.Salute_StylesSalute_MaterialComponents_DayNight,
+    ),
+)

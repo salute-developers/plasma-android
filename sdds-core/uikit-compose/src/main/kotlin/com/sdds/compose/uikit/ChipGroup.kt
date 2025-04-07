@@ -3,7 +3,7 @@ package com.sdds.compose.uikit
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.ui.Modifier
-import com.sdds.compose.uikit.ChipGroup.OverflowMode.Companion.toFlowRowLayoutMode
+import com.sdds.compose.uikit.ChipGroupOverflowMode.Companion.toFlowRowLayoutMode
 import com.sdds.compose.uikit.internal.common.FlowRowLayout
 import com.sdds.compose.uikit.internal.common.FlowRowScope
 
@@ -12,7 +12,7 @@ import com.sdds.compose.uikit.internal.common.FlowRowScope
  *
  * @param modifier модификатор
  * @param style стиль компонента
- * @param overflowMode режим переполнения контейнера (см. [ChipGroup.OverflowMode])
+ * @param overflowMode режим переполнения контейнера (см. [ChipGroupOverflowMode])
  * @param content контент (элементы группы)
  */
 @Composable
@@ -20,7 +20,7 @@ import com.sdds.compose.uikit.internal.common.FlowRowScope
 fun ChipGroup(
     modifier: Modifier = Modifier,
     style: ChipGroupStyle = LocalChipGroupStyle.current,
-    overflowMode: ChipGroup.OverflowMode = ChipGroup.OverflowMode.Wrap,
+    overflowMode: ChipGroupOverflowMode = ChipGroupOverflowMode.Wrap,
     content: @Composable FlowRowScope.() -> Unit,
 ) {
     FlowRowLayout(
@@ -33,37 +33,31 @@ fun ChipGroup(
 }
 
 /**
- * Параметры [ChipGroup]
+ * Режим переполнения контейнера с чипами
  */
-object ChipGroup {
+enum class ChipGroupOverflowMode {
+    /**
+     * Чипы будут переноситься на другую строку
+     */
+    Wrap,
 
     /**
-     * Режим переполнения контейнера с чипами
+     * Чипы будут добавляться в одну строку без ограничений с возможностью скролла
      */
-    enum class OverflowMode {
-        /**
-         * Чипы будут переноситься на другую строку
-         */
-        Wrap,
+    Scrollable,
 
-        /**
-         * Чипы будут добавляться в одну строку без ограничений с возможностью скролла
-         */
-        Scrollable,
+    /**
+     * Чипы будут добавляться в одну строку без ограничений
+     */
+    Unlimited,
+    ;
 
-        /**
-         * Чипы будут добавляться в одну строку без ограничений
-         */
-        Unlimited,
-        ;
-
-        internal companion object {
-            fun OverflowMode.toFlowRowLayoutMode(): FlowRowLayout.Mode =
-                when (this) {
-                    Wrap -> FlowRowLayout.Mode.Wrap
-                    Scrollable -> FlowRowLayout.Mode.Scrollable
-                    Unlimited -> FlowRowLayout.Mode.Unlimited
-                }
-        }
+    internal companion object {
+        fun ChipGroupOverflowMode.toFlowRowLayoutMode(): FlowRowLayout.Mode =
+            when (this) {
+                Wrap -> FlowRowLayout.Mode.Wrap
+                Scrollable -> FlowRowLayout.Mode.Scrollable
+                Unlimited -> FlowRowLayout.Mode.Unlimited
+            }
     }
 }

@@ -131,11 +131,6 @@ fun Modifier.indicator(
 }
 
 /**
- * Вспомогательный объект для описания API и стиля компонента
- */
-object Indicator
-
-/**
  * Режим размещения indicator относительно границ composable
  */
 enum class IndicatorMode {

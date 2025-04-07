@@ -1,7 +1,6 @@
 package com.sdds.plasma.sd.service.styles.progress
 
 import androidx.compose.runtime.Composable
-import com.sdds.compose.uikit.ProgressBar
 import com.sdds.compose.uikit.ProgressBarStyle
 import com.sdds.compose.uikit.ProgressBarStyleBuilder
 import com.sdds.plasma.sd.service.theme.PlasmaSdServiceTheme

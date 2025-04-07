@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:parentTag="com.sdds.uikit.internal.navigationdrawer.NavigationDrawerItem"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.sdds.uikit.FrameLayout
+        android:id="@+id/navigation_drawer_item_start_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.sdds.uikit.ImageView
+            android:id="@+id/navigation_drawer_item_icon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            tools:src="@android:drawable/ic_menu_add"/>
+
+    </com.sdds.uikit.FrameLayout>
+
+    <com.sdds.uikit.TextView
+        android:id="@+id/navigation_drawer_item_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_cellContent="title"
+        tools:text="Title"/>
+
+</merge>

@@ -19,7 +19,7 @@ import com.sdds.compose.uikit.style.StyleBuilder
  * CompositionLocal c [SegmentItemStyle] для компонента [SegmentItem]
  */
 val LocalSegmentItemStyle =
-    compositionLocalOf(structuralEqualityPolicy()) { SegmentItemStyle.segmentItemBuilder().style() }
+    compositionLocalOf(structuralEqualityPolicy()) { SegmentItemStyle.builder().style() }
 
 /**
  * Стиль компонента [SegmentItem]
@@ -62,14 +62,14 @@ interface SegmentItemStyle : Style {
      */
     val counterStyle: CounterStyle
 
-    companion object
+    companion object {
+        /**
+         * Возвращает экземпляр [SegmentItemStyleBuilder]
+         */
+        fun builder(receiver: Any? = null): SegmentItemStyleBuilder =
+            DefaultSegmentItemStyle.Builder()
+    }
 }
-
-/**
- * Возвращает экземпляр [SegmentItemStyleBuilder]
- */
-fun SegmentItemStyle.Companion.segmentItemBuilder(receiver: Any? = null): SegmentItemStyleBuilder =
-    DefaultSegmentItemStyle.Builder()
 
 /**
  * Билдер стиля [SegmentItemStyle]
@@ -174,7 +174,7 @@ private class DefaultSegmentItemStyle(
                 colors = colorsBuilder.build(),
                 dimensions = dimensionsBuilder.build(),
                 disabledAlpha = disabledAlpha ?: 0.4f,
-                counterStyle = counterStyle ?: CounterStyle.counterBuilder().style(),
+                counterStyle = counterStyle ?: CounterStyle.builder().style(),
             )
         }
     }

@@ -66,6 +66,24 @@ fun SegmentItem.applyState(state: SegmentUiState?): SegmentItem = apply {
     isCounterEnabled = state.counter
 }
 
+private fun SegmentItem.applyStateWithoutChecked(state: SegmentUiState?): SegmentItem = apply {
+    state ?: return@apply
+    text = state.segmentItemLabel
+    value = state.segmentItemValue
+    isEnabled = state.enabled
+    if (state.icon != SegmentItemIcon.No) {
+        setIconResource(state.icon.iconId)
+    } else {
+        icon = null
+    }
+    iconPosition = when (state.icon) {
+        SegmentItemIcon.End -> Button.IconPosition.TextEnd
+        else -> Button.IconPosition.TextStart
+    }
+    counterText = state.count
+    isCounterEnabled = state.counter
+}
+
 /**
  * Применяет [SegmentUiState] к [Segment]
  */
@@ -73,6 +91,7 @@ fun Segment.applyState(state: SegmentUiState?): Segment = apply {
     state ?: return@apply
     orientation = state.orientation.orientationState
     isStretch = state.stretch
+    isEnabled = state.enabled
     (adapter as? SegmentAdapter)?.updateState(state)
 }
 
@@ -99,7 +118,7 @@ private class SegmentAdapter : Segment.Adapter() {
 
     override fun onBindSegmentItem(segmentItemView: SegmentItem, position: Int) {
         segmentItemView
-            .applyState(_state)
+            .applyStateWithoutChecked(_state)
             .apply {
                 id = position
             }

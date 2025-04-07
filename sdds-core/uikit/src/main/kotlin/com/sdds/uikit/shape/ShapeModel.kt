@@ -177,7 +177,7 @@ data class ShapeModel(
  * Добавляет [ShapeModel] в [path]
  */
 fun ShapeModel.toPath(bounds: RectF, path: Path) {
-//    if (cornerFamily != CornerFamily.ROUNDED) return
+    if (cornerFamily != CornerFamily.ROUNDED) return
     val topLeft = cornerSizeTopLeft.getSize(bounds)
     val topRight = cornerSizeTopRight.getSize(bounds)
     val bottomRight = cornerSizeBottomRight.getSize(bounds)

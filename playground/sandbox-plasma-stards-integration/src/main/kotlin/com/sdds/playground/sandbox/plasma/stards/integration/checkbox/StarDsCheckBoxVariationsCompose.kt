@@ -1,9 +1,9 @@
 package com.sdds.playground.sandbox.plasma.stards.integration.checkbox
 
 import androidx.compose.runtime.Composable
-import com.sdds.compose.uikit.CheckBox
 import com.sdds.compose.uikit.CheckBoxStyle
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
+import com.sdkit.star.designsystem.styles.checkbox.CheckBox
 import com.sdkit.star.designsystem.styles.checkbox.M
 import com.sdkit.star.designsystem.styles.checkbox.S
 

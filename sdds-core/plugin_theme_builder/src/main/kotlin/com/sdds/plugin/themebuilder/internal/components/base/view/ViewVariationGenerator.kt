@@ -52,7 +52,7 @@ internal abstract class ViewVariationGenerator<PO : PropertyOwner>(
         config: Config<PO>,
     ): Unit = with(xmlResourcesBuilder) {
         val rootVariation = config.asVariationTree("")
-        baseStyle {
+        baseStyle(withOverlay = rootVariation.children.isEmpty()) {
             onCreateStyle("", xmlResourcesBuilder, this, rootVariation)
         }
         createVariations(rootVariation.children)

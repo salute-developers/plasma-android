@@ -2,21 +2,21 @@ package com.sdds.playground.sandbox.plasma.stards.integration.badge.icon
 
 import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.BadgeStyle
-import com.sdds.compose.uikit.IconBadgeTransparent
 import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
-import com.sdkit.star.designsystem.styles.badge.icon.Accent
-import com.sdkit.star.designsystem.styles.badge.icon.Dark
-import com.sdkit.star.designsystem.styles.badge.icon.Default
-import com.sdkit.star.designsystem.styles.badge.icon.L
-import com.sdkit.star.designsystem.styles.badge.icon.Light
-import com.sdkit.star.designsystem.styles.badge.icon.M
-import com.sdkit.star.designsystem.styles.badge.icon.Negative
-import com.sdkit.star.designsystem.styles.badge.icon.Pilled
-import com.sdkit.star.designsystem.styles.badge.icon.Positive
-import com.sdkit.star.designsystem.styles.badge.icon.S
-import com.sdkit.star.designsystem.styles.badge.icon.Warning
-import com.sdkit.star.designsystem.styles.badge.icon.Xs
+import com.sdkit.star.designsystem.styles.iconbadge.Accent
+import com.sdkit.star.designsystem.styles.iconbadge.Dark
+import com.sdkit.star.designsystem.styles.iconbadge.Default
+import com.sdkit.star.designsystem.styles.iconbadge.IconBadgeTransparent
+import com.sdkit.star.designsystem.styles.iconbadge.L
+import com.sdkit.star.designsystem.styles.iconbadge.Light
+import com.sdkit.star.designsystem.styles.iconbadge.M
+import com.sdkit.star.designsystem.styles.iconbadge.Negative
+import com.sdkit.star.designsystem.styles.iconbadge.Pilled
+import com.sdkit.star.designsystem.styles.iconbadge.Positive
+import com.sdkit.star.designsystem.styles.iconbadge.S
+import com.sdkit.star.designsystem.styles.iconbadge.Warning
+import com.sdkit.star.designsystem.styles.iconbadge.Xs
 
 internal object StarDsIconBadgeTransparentVariationsCompose : ComposeStyleProvider<String, BadgeStyle>() {
     override val variations: Map<String, @Composable () -> BadgeStyle> =

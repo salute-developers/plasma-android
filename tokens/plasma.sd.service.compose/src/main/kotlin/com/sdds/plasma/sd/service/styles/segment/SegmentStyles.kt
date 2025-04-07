@@ -14,20 +14,19 @@ import com.sdds.compose.uikit.SegmentStyle
 import com.sdds.compose.uikit.SegmentStyleBuilder
 import com.sdds.compose.uikit.adjustBy
 import com.sdds.compose.uikit.interactions.asInteractive
-import com.sdds.compose.uikit.segmentBuilder
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
-import com.sdds.plasma.sd.service.styles.segment.item.Accent
-import com.sdds.plasma.sd.service.styles.segment.item.L
-import com.sdds.plasma.sd.service.styles.segment.item.M
-import com.sdds.plasma.sd.service.styles.segment.item.Pilled
-import com.sdds.plasma.sd.service.styles.segment.item.Primary
-import com.sdds.plasma.sd.service.styles.segment.item.S
-import com.sdds.plasma.sd.service.styles.segment.item.Secondary
-import com.sdds.plasma.sd.service.styles.segment.item.SegmentItem
-import com.sdds.plasma.sd.service.styles.segment.item.Xl
-import com.sdds.plasma.sd.service.styles.segment.item.Xs
+import com.sdds.plasma.sd.service.styles.segmentitem.Accent
+import com.sdds.plasma.sd.service.styles.segmentitem.L
+import com.sdds.plasma.sd.service.styles.segmentitem.M
+import com.sdds.plasma.sd.service.styles.segmentitem.Pilled
+import com.sdds.plasma.sd.service.styles.segmentitem.Primary
+import com.sdds.plasma.sd.service.styles.segmentitem.S
+import com.sdds.plasma.sd.service.styles.segmentitem.Secondary
+import com.sdds.plasma.sd.service.styles.segmentitem.SegmentItem
+import com.sdds.plasma.sd.service.styles.segmentitem.Xl
+import com.sdds.plasma.sd.service.styles.segmentitem.Xs
 import com.sdds.plasma.sd.service.theme.PlasmaSdServiceTheme
 import kotlin.Suppress
 import kotlin.jvm.JvmInline
@@ -239,7 +238,7 @@ public val WrapperXlView.Accent: WrapperSegmentTerminate
 public val Segment.Xl: WrapperSegmentXl
     @Composable
     @JvmName("WrapperSegmentXl")
-    get() = SegmentStyle.segmentBuilder(this)
+    get() = SegmentStyle.builder(this)
         .invariantProps
         .shape(PlasmaSdServiceTheme.shapes.roundXl.adjustBy(all = -2.0.dp))
         .dimensions {
@@ -302,7 +301,7 @@ public val WrapperLView.Accent: WrapperSegmentTerminate
 public val Segment.L: WrapperSegmentL
     @Composable
     @JvmName("WrapperSegmentL")
-    get() = SegmentStyle.segmentBuilder(this)
+    get() = SegmentStyle.builder(this)
         .invariantProps
         .shape(PlasmaSdServiceTheme.shapes.roundL.adjustBy(all = -2.0.dp))
         .dimensions {
@@ -365,7 +364,7 @@ public val WrapperMView.Accent: WrapperSegmentTerminate
 public val Segment.M: WrapperSegmentM
     @Composable
     @JvmName("WrapperSegmentM")
-    get() = SegmentStyle.segmentBuilder(this)
+    get() = SegmentStyle.builder(this)
         .invariantProps
         .shape(PlasmaSdServiceTheme.shapes.roundM)
         .dimensions {
@@ -428,7 +427,7 @@ public val WrapperSView.Accent: WrapperSegmentTerminate
 public val Segment.S: WrapperSegmentS
     @Composable
     @JvmName("WrapperSegmentS")
-    get() = SegmentStyle.segmentBuilder(this)
+    get() = SegmentStyle.builder(this)
         .invariantProps
         .shape(PlasmaSdServiceTheme.shapes.roundM.adjustBy(all = -2.0.dp))
         .dimensions {
@@ -491,7 +490,7 @@ public val WrapperXsView.Accent: WrapperSegmentTerminate
 public val Segment.Xs: WrapperSegmentXs
     @Composable
     @JvmName("WrapperSegmentXs")
-    get() = SegmentStyle.segmentBuilder(this)
+    get() = SegmentStyle.builder(this)
         .invariantProps
         .shape(PlasmaSdServiceTheme.shapes.roundM)
         .dimensions {

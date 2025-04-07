@@ -1,8 +1,8 @@
 package com.sdds.serv
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
-import com.sdds.compose.uikit.Chip
 import com.sdds.serv.styles.chip.Accent
+import com.sdds.serv.styles.chip.Chip
 import com.sdds.serv.styles.chip.Default
 import com.sdds.serv.styles.chip.L
 import com.sdds.serv.styles.chip.M

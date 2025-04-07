@@ -1,5 +1,6 @@
 import com.sdds.plugin.themebuilder.OutputLocation
 import com.sdds.plugin.themebuilder.ThemeBuilderMode
+import utils.componentsVersion
 
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
@@ -25,7 +26,7 @@ themeBuilder {
         url(themeUrl)
         name("StarDs")
     }
-    componentsSource("https://github.com/salute-developers/theme-converter/raw/main/components/plasma_stards")
+    componentSource(name = "plasma_stards", componentsVersion, "StarDs")
     compose()
     ktPackage("com.sdkit.star.designsystem")
     resourcesPrefix(prefix = "sdkit_cmp")

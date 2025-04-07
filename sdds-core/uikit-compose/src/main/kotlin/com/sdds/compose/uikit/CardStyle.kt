@@ -36,7 +36,13 @@ interface CardStyle : Style {
      */
     val dimensions: CardDimensions
 
-    companion object
+    companion object {
+        /**
+         * Возвращает экземпляр [CardStyleBuilder]
+         */
+        fun builder(receiver: Any? = null): CardStyleBuilder =
+            DefaultCardStyleBuilderImpl(receiver)
+    }
 }
 
 /**

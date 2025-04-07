@@ -117,8 +117,3 @@ fun CheckBox(
         horizontalSpacing = style.dimensions.horizontalSpacing,
     )
 }
-
-/**
- * Вспомогательный объект для описания API и стиля компонента
- */
-object CheckBox

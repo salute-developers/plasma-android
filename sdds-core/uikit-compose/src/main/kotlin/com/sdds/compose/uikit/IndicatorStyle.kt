@@ -17,13 +17,7 @@ import com.sdds.compose.uikit.style.StyleBuilder
 /**
  * CompositionLocal c [IndicatorStyle] для компонента [Indicator]
  */
-val LocalIndicatorStyle = compositionLocalOf { IndicatorStyle.indicatorBuilder().style() }
-
-/**
- * Возвращает экземпляр [IndicatorStyleBuilder]
- */
-fun IndicatorStyle.Companion.indicatorBuilder(receiver: Any? = null): IndicatorStyleBuilder =
-    IndicatorStyleBuilderImpl(receiver)
+val LocalIndicatorStyle = compositionLocalOf { IndicatorStyle.builder().style() }
 
 /**
  * Стиль компонента [Indicator]
@@ -48,7 +42,12 @@ interface IndicatorStyle : Style {
      */
     val dimensions: IndicatorDimensions
 
-    companion object
+    companion object {
+        /**
+         * Возвращает экземпляр [IndicatorStyleBuilder]
+         */
+        fun builder(receiver: Any? = null): IndicatorStyleBuilder = IndicatorStyleBuilderImpl(receiver)
+    }
 }
 
 /**

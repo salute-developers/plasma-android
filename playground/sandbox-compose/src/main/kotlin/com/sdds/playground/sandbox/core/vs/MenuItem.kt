@@ -22,8 +22,10 @@ import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.integration.component.ComponentsProviderView
 import com.sdds.playground.sandbox.core.integration.component.CoreComponent
 import com.sdds.playground.sandbox.counter.vs.CounterFragment
+import com.sdds.playground.sandbox.divider.vs.DividerFragment
 import com.sdds.playground.sandbox.flow.vs.FlowFragment
 import com.sdds.playground.sandbox.indicator.vs.IndicatorFragment
+import com.sdds.playground.sandbox.navigationdrawer.NavigationDrawerFragment
 import com.sdds.playground.sandbox.progress.vs.ProgressBarFragment
 import com.sdds.playground.sandbox.radiobox.vs.RadioBoxFragment
 import com.sdds.playground.sandbox.radiobox.vs.group.RadioBoxGroupFragment
@@ -156,6 +158,12 @@ internal sealed class ComponentScreen(
     object Card : ComponentScreen(
         { item -> fragment<CardFragment>(item.route, item.defaultBuilder) },
     )
+    object Divider : ComponentScreen(
+        { item -> fragment<DividerFragment>(item.route, item.defaultBuilder) },
+    )
+    object NavigationDrawer : ComponentScreen(
+        { item -> fragment<NavigationDrawerFragment>(item.route, item.defaultBuilder) },
+    )
 }
 
 @Suppress("CyclomaticComplexMethod")
@@ -185,6 +193,8 @@ private fun CoreComponent.screen(): ComponentScreen {
         CoreComponent.SEGMENT_ITEM -> ComponentScreen.SegmentItem
         CoreComponent.FLOW -> ComponentScreen.Flow
         CoreComponent.CARD -> ComponentScreen.Card
+        CoreComponent.DIVIDER -> ComponentScreen.Divider
+        CoreComponent.NAVIGATION_DRAWER -> ComponentScreen.NavigationDrawer
         else -> throw NoSuchElementException("Component not implemented")
     }
 }
@@ -216,6 +226,8 @@ private fun ComponentKey.routeId(): Int {
         CoreComponent.SEGMENT_ITEM -> R.id.nav_segment_item
         CoreComponent.FLOW -> R.id.nav_flow
         CoreComponent.CARD -> R.id.nav_card
+        CoreComponent.DIVIDER -> R.id.nav_divider
+        CoreComponent.NAVIGATION_DRAWER -> R.id.nav_navigation_drawer
         else -> throw NoSuchElementException("Component not implemented")
     } + hashCode()
 }

@@ -13,6 +13,7 @@ import com.sdds.playground.sandbox.sdds.serv.integration.badge.SddsServBadgeTran
 import com.sdds.playground.sandbox.sdds.serv.integration.badge.icon.SddsServIconBadgeClearVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.badge.icon.SddsServIconBadgeSolidVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.badge.icon.SddsServIconBadgeTransparentVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.bottomsheet.SddsServBottomSheetVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.button.basic.SddsServBasicButtonVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.button.icon.SddsServIconButtonVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.button.link.SddsServLinkButtonVariationsCompose
@@ -24,6 +25,7 @@ import com.sdds.playground.sandbox.sdds.serv.integration.checkbox.group.SddsServ
 import com.sdds.playground.sandbox.sdds.serv.integration.chip.SddsServChipVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.chip.group.SddsServChipGroupVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.counter.SddsServCounterVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.divider.compose.SddsServDividerVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.indicator.compose.SddsServIndicatorVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.progress.SddsServProgressVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.radiobox.SddsServRadioBoxVariationsCompose
@@ -77,6 +79,10 @@ object SddsServComposeComponents : ComponentsProviderCompose {
                 SddsServIconBadgeTransparentVariationsCompose,
             ),
             ComposeComponent(
+                ComponentKey.BottomSheet,
+                SddsServBottomSheetVariationsCompose,
+            ),
+            ComposeComponent(
                 ComponentKey.BasicButton,
                 SddsServBasicButtonVariationsCompose,
             ),
@@ -119,6 +125,10 @@ object SddsServComposeComponents : ComponentsProviderCompose {
             ComposeComponent(
                 ComponentKey.Counter,
                 SddsServCounterVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey.Divider,
+                SddsServDividerVariationsCompose,
             ),
             ComposeComponent(
                 ComponentKey.Indicator,

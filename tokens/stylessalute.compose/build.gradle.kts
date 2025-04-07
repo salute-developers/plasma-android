@@ -1,5 +1,6 @@
 import com.sdds.plugin.themebuilder.OutputLocation.SRC
 import com.sdds.plugin.themebuilder.ThemeBuilderMode.THEME
+import utils.componentsVersion
 import utils.themeVersion
 
 @Suppress("DSL_SCOPE_VIOLATION")
@@ -20,6 +21,7 @@ android {
 
 themeBuilder {
     themeSource(name = "stylesSalute", version = themeVersion)
+    componentSource(name = "stylesSalute", version = componentsVersion)
     compose()
     autoGenerate(false)
     ktPackage(ktPackage = "com.sdds.stylessalute")

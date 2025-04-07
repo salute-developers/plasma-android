@@ -138,6 +138,7 @@ internal class ViewColorStateGenerator(
         rootClass(
             name = "${colorStateInfo.classSimpleName}Provider",
             modifiers = listOf(Modifier.INTERNAL),
+            annotation = KtFileBuilder.TypeAnnotationKeep,
             description = "Реализация [ColorStateProvider] для ${colorStateInfo.classSimpleName}",
             superInterface = KtFileBuilder.TypeColorStateProvider,
         ).appendFun(

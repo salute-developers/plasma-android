@@ -25,9 +25,7 @@ internal fun CheckBoxGroupScreen(componentKey: ComponentKey = ComponentKey.Check
         viewModel = checkboxGroupViewModel,
         component = { checkboxGroupState, style ->
             CheckBoxGroup(
-                style = checkboxGroupViewModel
-                    .getStyleProvider()
-                    .style(checkboxGroupState.variant),
+                style = style,
             ) {
                 checkboxGroupState.rootItem?.let {
                     rootCheckbox {

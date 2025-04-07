@@ -18,7 +18,7 @@ import com.sdds.compose.uikit.style.StyleBuilder
 /**
  * CompositionLocal c [CellStyle] для компонента [Cell]
  */
-val LocalCellStyle = compositionLocalOf(structuralEqualityPolicy()) { CellStyle.cellBuilder().style() }
+val LocalCellStyle = compositionLocalOf(structuralEqualityPolicy()) { CellStyle.builder().style() }
 
 /**
  * Стиль компонента [Cell]
@@ -86,14 +86,13 @@ interface CellStyle : Style {
      */
     val switchStyle: SwitchStyle
 
-    companion object
+    companion object {
+        /**
+         * Возвращает экземпляр [CellStyleBuilder]
+         */
+        fun builder(receiver: Any? = null): CellStyleBuilder = DefaultCellStyle.Builder()
+    }
 }
-
-/**
- * Возвращает экземпляр [CellStyleBuilder]
- */
-fun CellStyle.Companion.cellBuilder(receiver: Any? = null): CellStyleBuilder =
-    DefaultCellStyle.Builder()
 
 @Immutable
 private data class DefaultCellStyle(

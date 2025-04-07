@@ -3,6 +3,7 @@ package com.sdds.serv.colorstate
 
 import android.content.Context
 import android.util.AttributeSet
+import androidx.`annotation`.Keep
 import com.sdds.serv.R
 import com.sdds.uikit.colorstate.ColorState
 import com.sdds.uikit.colorstate.ColorStateProvider
@@ -23,6 +24,7 @@ public enum class TextAreaColorState(
 /**
  * Реализация [ColorStateProvider] для TextAreaColorState
  */
+@Keep
 internal class TextAreaColorStateProvider : ColorStateProvider {
     public override fun obtain(
         context: Context,

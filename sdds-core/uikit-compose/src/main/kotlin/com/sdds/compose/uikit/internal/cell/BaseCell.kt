@@ -14,7 +14,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.AnnotatedString
-import com.sdds.compose.uikit.Cell
+import com.sdds.compose.uikit.CellGravity
 import com.sdds.compose.uikit.CellStyle
 import com.sdds.compose.uikit.LocalAvatarStyle
 import com.sdds.compose.uikit.LocalCheckBoxStyle
@@ -27,7 +27,7 @@ import com.sdds.compose.uikit.internal.common.StyledText
 internal fun BaseCell(
     modifier: Modifier = Modifier,
     style: CellStyle,
-    gravity: Cell.Gravity = Cell.Gravity.Center,
+    gravity: CellGravity = CellGravity.Center,
     disclosureContent: (@Composable RowScope.() -> Unit)? = null,
     disclosureEnabled: Boolean = false,
     startContent: (@Composable RowScope.() -> Unit)? = null,
@@ -67,11 +67,11 @@ internal fun BaseCell(
     }
 }
 
-private fun Cell.Gravity.toVerticalAlignment(): Alignment.Vertical {
+private fun CellGravity.toVerticalAlignment(): Alignment.Vertical {
     return when (this) {
-        Cell.Gravity.Top -> Alignment.Top
-        Cell.Gravity.Center -> Alignment.CenterVertically
-        Cell.Gravity.Bottom -> Alignment.Bottom
+        CellGravity.Top -> Alignment.Top
+        CellGravity.Center -> Alignment.CenterVertically
+        CellGravity.Bottom -> Alignment.Bottom
     }
 }
 

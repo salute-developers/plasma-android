@@ -2,7 +2,6 @@ package com.sdds.serv.styles.radiobox
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.uikit.RadioBox
 import com.sdds.compose.uikit.RadioBoxColorsBuilder
 import com.sdds.compose.uikit.RadioBoxDimensions
 import com.sdds.compose.uikit.RadioBoxStyle

@@ -2,7 +2,6 @@ package com.sdkit.star.designsystem.styles.checkbox
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.dimensionResource
-import com.sdds.compose.uikit.CheckBox
 import com.sdds.compose.uikit.CheckBoxColorsBuilder
 import com.sdds.compose.uikit.CheckBoxDimensions
 import com.sdds.compose.uikit.CheckBoxStyle

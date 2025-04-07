@@ -5,6 +5,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.sdds.compose.uikit.Button
+import com.sdds.compose.uikit.ButtonIcons
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.core.compose.ComponentScaffold
 import com.sdds.playground.sandbox.core.integration.component.ComponentKey
@@ -29,9 +30,9 @@ internal fun BasicButtonScreen(componentKey: ComponentKey = ComponentKey.BasicBu
                 loading = buttonState.loading,
                 spacing = buttonState.spacing,
                 icons = when (val icon = buttonState.icon) {
-                    ButtonIcon.End -> Button.Icons(end = painterResource(id = icon.iconId))
+                    ButtonIcon.End -> ButtonIcons(end = painterResource(id = icon.iconId))
                     ButtonIcon.No -> null
-                    ButtonIcon.Start -> Button.Icons(start = painterResource(id = icon.iconId))
+                    ButtonIcon.Start -> ButtonIcons(start = painterResource(id = icon.iconId))
                 },
                 onClick = {},
             )

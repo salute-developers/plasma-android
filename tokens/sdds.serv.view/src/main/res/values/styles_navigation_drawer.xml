@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Serv.Sdds.Components.NavigationDrawer" parent="Sdds.Components.NavigationDrawer">
+        <item name="android:paddingStart">@dimen/serv_navigation_drawer_padding_horizontal</item>
+        <item name="android:paddingEnd">@dimen/serv_navigation_drawer_padding_horizontal</item>
+        <item name="android:paddingTop">@dimen/serv_navigation_drawer_padding_top</item>
+        <item name="android:paddingBottom">@dimen/serv_navigation_drawer_padding_bottom</item>
+        <item name="sd_itemStyle">@style/Serv.Sdds.Components.NavigationDrawerItem</item>
+        <item name="sd_itemSelectorEnabled">true</item>
+        <item name="sd_itemSelectorTint">?serv_surfaceDefaultSolidDefault</item>
+        <item name="sd_shapeAppearance">?serv_shapeRoundL</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/serv_navigation_drawer_shape_adjustment</item>
+        <item name="sd_strokeColor">@color/serv_navigation_drawer_stroke</item>
+        <item name="android:backgroundTint">@color/serv_bg_navigation_drawer</item>
+        <item name="sd_strokeWidth">@dimen/serv_navigation_drawer_shape_stroke_width</item>
+        <item name="sd_shapeColorAnimationEnabled">true</item>
+        <item name="sd_collapsedItemWidth">@dimen/serv_navigation_drawer_collapsed_item_width</item>
+    </style>
+
+    <style name="Serv.Sdds.ComponentOverlays.NavigationDrawer" parent="">
+        <item name="sd_navigationDrawerStyle">@style/Serv.Sdds.Components.NavigationDrawer</item>
+    </style>
+
+    <style name="Serv.Sdds.Components.NavigationDrawerItem" parent="Sdds.Components.NavigationDrawerItem">
+        <item name="android:minHeight">@dimen/serv_navigation_drawer_item_min_height</item>
+        <item name="android:padding">@dimen/serv_navigation_drawer_item_padding</item>
+        <item name="android:textAppearance">@style/Serv.Sdds.TextAppearance.BodyMNormal</item>
+        <item name="sd_contentStartPadding">@dimen/serv_navigation_drawer_item_content_start_padding</item>
+        <item name="sd_contentEndPadding">@dimen/serv_navigation_drawer_item_content_end_padding</item>
+        <item name="sd_expandedCounterStyle">@style/Serv.Sdds.Components.Counter.S.Accent</item>
+        <item name="sd_collapsedCounterStyle">@style/Serv.Sdds.Components.Counter.Xxs.Accent</item>
+        <item name="android:textColor">@color/serv_color_navigation_drawer_item_text</item>
+        <item name="sd_iconTint">@color/serv_color_navigation_drawer_item_text</item>
+        <item name="sd_shapeAppearance">?serv_shapeRoundM</item>
+        <item name="sd_shapeAppearanceAdjustment">@dimen/serv_navigation_drawer_item_shape_adjustment</item>
+        <item name="android:focusable">true</item>
+        <item name="android:backgroundTint">@color/serv_bg_navigation_drawer_item</item>
+        <item name="sd_fsEnabled">false</item>
+        <item name="sd_fsScaleEnabled">false</item>
+        <item name="sd_fsBorderMode">none</item>
+        <item name="sd_collapsedCounterOffsetX">@dimen/serv_navigation_drawer_item_counter_offset_x</item>
+        <item name="sd_collapsedCounterOffsetY">@dimen/serv_navigation_drawer_item_counter_offset_y</item>
+        <item name="sd_shapeColorAnimationEnabled">false</item>
+    </style>
+</resources>
