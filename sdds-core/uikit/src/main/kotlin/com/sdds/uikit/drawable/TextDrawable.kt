@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Canvas
 import android.graphics.Rect
+import android.graphics.Shader
 import android.graphics.drawable.Drawable
 import android.text.Layout
 import android.text.StaticLayout
@@ -18,9 +19,12 @@ import androidx.core.graphics.drawable.DrawableCompat
 import com.sdds.uikit.R
 import com.sdds.uikit.internal.base.CancelableFontCallback
 import com.sdds.uikit.internal.base.applyTextAppearance
-import com.sdds.uikit.internal.base.colorForState
 import com.sdds.uikit.internal.base.configure
+import com.sdds.uikit.shader.ShaderFactory
 import com.sdds.uikit.shape.ShapeDrawable
+import com.sdds.uikit.statelist.ColorValueStateList
+import com.sdds.uikit.statelist.getColorValueStateList
+import com.sdds.uikit.statelist.setColorValue
 import kotlin.math.roundToInt
 
 /**
@@ -72,7 +76,7 @@ open class TextDrawable(
     private var _textLayout: StaticLayout? = null
     private var _textPaddingStart: Int = 0
     private var _textPaddingEnd: Int = 0
-    private var _textColor: ColorStateList? = null
+    private var _textColor: ColorValueStateList? = null
     private val textBounds = Rect()
     private val textPaint = TextPaint().configure(isAntiAlias = true)
     private var _fontCallback: CancelableFontCallback? = null
@@ -168,9 +172,17 @@ open class TextDrawable(
      * @param colors цвета текста
      */
     open fun setTextColor(colors: ColorStateList?) {
+        setTextColor(ColorValueStateList.valueOf(colors))
+    }
+
+    /**
+     * Устанавливает цвета текста
+     * @param colors цвета текста
+     */
+    open fun setTextColor(colors: ColorValueStateList?) {
         if (_textColor != colors) {
             _textColor = colors
-            textPaint.color = colors.colorForState(state)
+            resetTextColor()
             invalidateSelf()
         }
     }
@@ -191,8 +203,8 @@ open class TextDrawable(
         ) {
             onSizeChanged(true)
         }
-        _textColor?.let { textColor ->
-            textPaint.color = textColor.colorForState(state)
+        _textColor?.let { _ ->
+            resetTextColor()
         }
     }
 
@@ -245,33 +257,9 @@ open class TextDrawable(
         paddingEnd: Int = 0,
         paddingBottom: Int = 0,
     ) {
-        var invalidate = false
         val paddingLeft = if (layoutDirection == LayoutDirection.LTR) paddingStart else paddingEnd
         val paddingRight = if (layoutDirection == LayoutDirection.LTR) paddingEnd else paddingStart
-        if (_paddingLeft != paddingLeft) {
-            _paddingLeft = paddingLeft
-            invalidate = true
-        }
-
-        if (_paddingTop != paddingTop) {
-            _paddingTop = paddingTop
-            invalidate = true
-        }
-
-        if (_paddingRight != paddingRight) {
-            _paddingRight = paddingRight
-            invalidate = true
-        }
-
-        if (_paddingBottom != paddingBottom) {
-            _paddingBottom = paddingBottom
-            invalidate = true
-        }
-
-        if (invalidate) {
-            onBoundsChange(bounds)
-            invalidateSelf()
-        }
+        setPaddings(paddingLeft, paddingTop, paddingRight, paddingBottom)
     }
 
     /**
@@ -328,12 +316,7 @@ open class TextDrawable(
     }
 
     override fun onStateChange(state: IntArray): Boolean {
-        val textColor = _textColor.colorForState(state)
-        var stateChanged = false
-        if (textPaint.color != textColor) {
-            textPaint.color = textColor
-            stateChanged = true
-        }
+        var stateChanged = resetTextColor()
         stateChanged = (_drawableStart?.setState(state) == true) || stateChanged
         stateChanged = (_drawableEnd?.setState(state) == true) || stateChanged
         if (stateChanged) {
@@ -347,14 +330,15 @@ open class TextDrawable(
         updateDrawableStartBounds()
         updateDrawableEndBounds()
         updateTextLayout()
+        resetTextColor()
     }
 
     override fun getIntrinsicWidth(): Int {
         return (
             _paddingLeft +
                 _paddingRight +
-                _textPaddingStart +
-                _textPaddingEnd +
+                getTextPaddingStart() +
+                getTextPaddingEnd() +
                 _drawableStart.safeWidth() +
                 _textWidth +
                 _drawableEnd.safeWidth()
@@ -371,15 +355,25 @@ open class TextDrawable(
 
     override fun isStateful(): Boolean {
         return super.isStateful() ||
-            (_textColor?.isStateful == true) ||
+            (_textColor?.isStateful() == true) ||
             (drawableStart?.isStateful == true) ||
             (drawableEnd?.isStateful == true)
+    }
+
+    private fun resetTextColor(): Boolean {
+        return textPaint.setColorValue(_textColor, state, this::createShader)
+    }
+
+    private fun createShader(factory: ShaderFactory): Shader? {
+        if (textBounds.isEmpty) return null
+        return factory.resize(textBounds.width().toFloat(), textBounds.height().toFloat())
     }
 
     private fun onSizeChanged(updateParent: Boolean) {
         updateDrawableStartBounds()
         updateDrawableEndBounds()
         updateTextLayout()
+        resetTextColor()
         if (updateParent) _delegate?.onDrawableSizeChange()
     }
 
@@ -388,6 +382,12 @@ open class TextDrawable(
 
     private fun Drawable?.safeHeight() =
         if (_contentDrawableSize != 0 && this != null) _contentDrawableSize else this?.intrinsicHeight ?: 0
+
+    private fun getTextPaddingStart(): Int =
+        (_textPaddingStart.takeIf { drawableStart != null && _textWidth > 0 } ?: 0)
+
+    private fun getTextPaddingEnd(): Int =
+        (_textPaddingEnd.takeIf { drawableEnd != null && _textWidth > 0 } ?: 0)
 
     private fun updateTextLayout(force: Boolean = false) {
         if (text.isEmpty()) {
@@ -398,8 +398,8 @@ open class TextDrawable(
         // Text bounds
         val width = (
             bounds.width() -
-                _textPaddingStart -
-                _textPaddingEnd -
+                getTextPaddingStart() -
+                getTextPaddingEnd() -
                 _paddingLeft -
                 _paddingRight -
                 contentStartBounds.width() -
@@ -498,7 +498,9 @@ open class TextDrawable(
         text = typedArray.getString(R.styleable.TextDrawable_android_text).orEmpty()
         setTextAppearance(context, typedArray.getResourceId(R.styleable.TextDrawable_android_textAppearance, 0))
         val textColor = typedArray.getColorStateList(R.styleable.TextDrawable_android_textColor)
-        setTextColor(textColor)
+        val sdTextColor = typedArray.getColorValueStateList(context, R.styleable.TextDrawable_sd_textColor)
+            ?: textColor?.let { ColorValueStateList.valueOf(it) }
+        setTextColor(sdTextColor)
         _textPaddingStart = typedArray.getDimensionPixelSize(R.styleable.TextDrawable_sd_textPaddingStart, 0)
         _textPaddingEnd = typedArray.getDimensionPixelSize(R.styleable.TextDrawable_sd_textPaddingEnd, 0)
 

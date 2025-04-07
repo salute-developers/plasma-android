@@ -1246,7 +1246,7 @@
         <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.M</item>
         <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.M</item>
         <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.M</item>
-        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.Badge.M</item>
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeSolid.M</item>
         <item name="sd_cardStyle">@style/Serv.Sdds.Components.CardSolid.M</item>
         <item name="sd_cardContentStyle">@style/Serv.Sdds.Components.CardSolidContent.M</item>
         <item name="sd_dividerStyle">@style/Serv.Sdds.Components.Divider</item>
@@ -2496,7 +2496,7 @@
         <item name="sd_segmentItemStyle">@style/Serv.Sdds.Components.SegmentItem.M</item>
         <item name="sd_segmentStyle">@style/Serv.Sdds.Components.Segment.M</item>
         <item name="sd_counterStyle">@style/Serv.Sdds.Components.Counter.M</item>
-        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.Badge.M</item>
+        <item name="sd_badgeStyle">@style/Serv.Sdds.Components.BadgeSolid.M</item>
         <item name="sd_cardStyle">@style/Serv.Sdds.Components.CardSolid.M</item>
         <item name="sd_cardContentStyle">@style/Serv.Sdds.Components.CardSolidContent.M</item>
         <item name="sd_dividerStyle">@style/Serv.Sdds.Components.Divider</item>

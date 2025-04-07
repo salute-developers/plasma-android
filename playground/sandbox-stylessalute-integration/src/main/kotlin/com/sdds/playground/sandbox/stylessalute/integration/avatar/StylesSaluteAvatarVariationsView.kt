@@ -8,6 +8,6 @@ internal object StylesSaluteAvatarVariationsView : ViewStyleProvider<String>() {
         "S" to s.Salute_StylesSalute_ComponentOverlays_AvatarS,
         "M" to s.Salute_StylesSalute_ComponentOverlays_AvatarM,
         "L" to s.Salute_StylesSalute_ComponentOverlays_AvatarL,
-        "Xxl" to s.Salute_StylesSalute_ComponentOverlays_AvatarXXL,
+        "Xxl" to s.Salute_StylesSalute_ComponentOverlays_AvatarXxl,
     )
 }

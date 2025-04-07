@@ -50,7 +50,7 @@ internal class AvatarGroupStyleGeneratorView(
         val props = variationNode.value.props
         props.itemSpacing?.let { dimenAttribute(variation, "sd_itemSpacing", "item_spacing", it.value) }
         props.itemOffset?.let { dimenAttribute(variation, "sd_itemOffset", "item_offset", it.value) }
-        props.avatarStyle?.let { componentOverlayAttribute("sd_avatarStyleOverlay", it.camelCaseValue()) }
+        props.avatarStyle?.let { componentOverlayAttribute("sd_avatarStyleOverlay", it.camelCaseValue("")) }
     }
 
     private companion object {
