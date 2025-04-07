@@ -20,7 +20,7 @@ class ViewSystemAvatarScreenshotTest(
     @Test
     override fun testAvatarSizeXXL() {
         themedComponent {
-            avatarSizeXXL(R.style.Serv_Sdds_ComponentOverlays_AvatarXXL)
+            avatarSizeXXL(R.style.Serv_Sdds_ComponentOverlays_AvatarXxl)
         }
     }
 
@@ -50,7 +50,7 @@ class ViewSystemAvatarScreenshotTest(
     @Test
     override fun testAvatarGroupSizeS() {
         themedComponent {
-            avatarGroupSizeS(R.style.Serv_Sdds_ComponentOverlays_AvatarGroup)
+            avatarGroupSizeS(R.style.Serv_Sdds_ComponentOverlays_AvatarGroupS)
         }
     }
 }

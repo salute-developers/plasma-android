@@ -7,14 +7,14 @@
     <style name="Sdkit.StarDs.ComponentOverlays.TextFieldXSOuterLabel" parent="Sdkit.StarDs.ComponentOverlays.TextFieldXsOuterLabel"/>
 
     <!--deprecated ReplaceWith @style/Sdkit.StarDs.ComponentOverlays.TextFieldMChips -->
-    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDense.TextFieldEmbeddedL" parent="Sdkit.StarDs.ComponentOverlays.TextFieldMChips"/>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDense.TextFieldEmbeddedL" parent=""/>
 
     <!--deprecated ReplaceWith @style/Sdkit.StarDs.ComponentOverlays.TextFieldMChips -->
-    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDense.TextFieldEmbeddedM" parent="Sdkit.StarDs.ComponentOverlays.TextFieldMChips"/>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDense.TextFieldEmbeddedM" parent=""/>
 
     <!--deprecated ReplaceWith @style/Sdkit.StarDs.ComponentOverlays.TextFieldSChips -->
-    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDense.TextFieldEmbeddedS" parent="Sdkit.StarDs.ComponentOverlays.TextFieldSChips"/>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDense.TextFieldEmbeddedS" parent=""/>
 
     <!--deprecated ReplaceWith @style/Sdkit.StarDs.ComponentOverlays.TextFieldXsChips -->
-    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDense.TextFieldEmbeddedXS" parent="Sdkit.StarDs.ComponentOverlays.TextFieldXsChips"/>
+    <style name="Sdkit.StarDs.ComponentOverlays.ChipGroupDense.TextFieldEmbeddedXS" parent=""/>
 </resources>

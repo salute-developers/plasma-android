@@ -19,6 +19,9 @@ import com.sdds.uikit.internal.focusselector.FocusSelectorDelegate
 import com.sdds.uikit.internal.focusselector.HasFocusSelector
 import com.sdds.uikit.shape.ShapeModel
 import com.sdds.uikit.shape.Shapeable
+import com.sdds.uikit.statelist.ColorValueStateList
+import com.sdds.uikit.statelist.getColorValueStateList
+import com.sdds.uikit.statelist.setBackgroundValueList
 import com.sdds.uikit.viewstate.ViewState
 import com.sdds.uikit.viewstate.ViewState.Companion.isDefined
 import com.sdds.uikit.viewstate.ViewStateHolder
@@ -53,6 +56,7 @@ open class ImageView @JvmOverloads constructor(
     private var _contentPaddingRight: Int = 0
     private var _contentPaddingBottom: Int = 0
     private var boundsPath: Path = Path()
+    private var _backgroundStateList: ColorValueStateList? = null
 
     init {
         setLayerType(LAYER_TYPE_HARDWARE, null)
@@ -401,6 +405,11 @@ open class ImageView @JvmOverloads constructor(
         setLayerType(LAYER_TYPE_HARDWARE, null)
     }
 
+    override fun drawableStateChanged() {
+        super.drawableStateChanged()
+        setBackgroundValueList(_backgroundStateList)
+    }
+
     internal fun getShapePath(): Path = _shapeableImageDelegate?.getShapePath() ?: boundsPath
 
     private fun obtainAttributes(attrs: AttributeSet?, defStyleAttr: Int) {
@@ -443,6 +452,7 @@ open class ImageView @JvmOverloads constructor(
             val strokeColor = typedArray.getColorStateList(R.styleable.ImageView_sd_strokeColor)
             setStrokeColor(strokeColor)
         }
+        _backgroundStateList = typedArray.getColorValueStateList(context, R.styleable.ImageView_sd_background)
         typedArray.recycle()
     }
 

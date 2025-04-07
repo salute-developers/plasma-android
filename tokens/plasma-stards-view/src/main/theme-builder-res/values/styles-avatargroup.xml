@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Sdkit.StarDs.Components.AvatarGroup" parent="Sdds.Components.AvatarGroup"/>
+    <style name="Sdkit.StarDs.Components.AvatarGroup.S">
+        <item name="sd_itemSpacing">@dimen/sdkit_avatar_group_s_item_spacing</item>
+        <item name="sd_itemOffset">@dimen/sdkit_avatar_group_s_item_offset</item>
+        <item name="sd_avatarStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.AvatarS</item>
+    </style>
+    <style name="Sdkit.StarDs.ComponentOverlays.AvatarGroupS">
+        <item name="sd_avatarGroupStyle">@style/Sdkit.StarDs.Components.AvatarGroup.S</item>
+    </style>
+</resources>

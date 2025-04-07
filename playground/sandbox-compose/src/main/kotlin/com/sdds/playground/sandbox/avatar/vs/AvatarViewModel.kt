@@ -6,6 +6,8 @@ import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
 import com.sdds.playground.sandbox.core.vs.enumProperty
+import com.sdds.testing.vs.avatar.AvatarExtra
+import com.sdds.testing.vs.avatar.AvatarExtraPlacement
 import com.sdds.testing.vs.avatar.AvatarUiState
 import com.sdds.testing.vs.avatar.ExampleMode
 import com.sdds.uikit.Avatar
@@ -22,13 +24,19 @@ internal class AvatarViewModel(
         super.updateProperty(name, value)
 
         val pName = AvatarPropertyName.values().find { it.value == name }
+        val valueString = value?.toString() ?: return
         when (pName) {
-            AvatarPropertyName.ExampleMode -> updateDisplayType(ExampleMode.valueOf(value?.toString() ?: return))
-            AvatarPropertyName.Status -> updateStatus(Avatar.Status.valueOf(value?.toString() ?: return))
-            AvatarPropertyName.Placeholder -> updatePlaceholder(value?.toString())
-            AvatarPropertyName.ActionEnabled -> updateActionEnabledState(value as Boolean)
-            AvatarPropertyName.Threshold -> updateThreshold(value?.toString()?.toIntOrNull() ?: 0)
-            else -> Unit
+            AvatarPropertyName.ExampleMode -> updateDisplayType(ExampleMode.valueOf(valueString))
+            AvatarPropertyName.Status -> updateStatus(Avatar.Status.valueOf(valueString))
+            AvatarPropertyName.Placeholder -> updatePlaceholder(valueString)
+            AvatarPropertyName.Threshold -> updateThreshold(valueString.toIntOrNull() ?: 0)
+            AvatarPropertyName.Extra -> updateExtra(AvatarExtra.valueOf(valueString))
+            AvatarPropertyName.ExtraPlacement -> updateExtraPlacement(AvatarExtraPlacement.valueOf(valueString))
+            AvatarPropertyName.BadgeText -> updateBadgeText(valueString)
+            AvatarPropertyName.BadgeContentStart -> updateBadgeContentStart(valueString.toBoolean())
+            AvatarPropertyName.BadgeContentEnd -> updateBadgeContentEnd(valueString.toBoolean())
+            AvatarPropertyName.CounterText -> updateCounterText(valueString)
+            null -> Unit
         }
     }
 
@@ -44,14 +52,35 @@ internal class AvatarViewModel(
         internalUiState.value = internalUiState.value.copy(fullName = text)
     }
 
-    private fun updateActionEnabledState(enabled: Boolean) {
-        internalUiState.value = internalUiState.value.copy(actionEnabled = enabled)
-    }
-
     private fun updateThreshold(threshold: Int) {
         internalUiState.value = internalUiState.value.copy(threshold = threshold)
     }
 
+    private fun updateExtra(extra: AvatarExtra) {
+        internalUiState.value = internalUiState.value.copy(extra = extra)
+    }
+
+    private fun updateExtraPlacement(extraPlacement: AvatarExtraPlacement) {
+        internalUiState.value = internalUiState.value.copy(extraPlacement = extraPlacement)
+    }
+
+    private fun updateBadgeText(badgeText: String) {
+        internalUiState.value = internalUiState.value.copy(badgeText = badgeText)
+    }
+
+    private fun updateBadgeContentStart(enabled: Boolean) {
+        internalUiState.value = internalUiState.value.copy(badgeContentStart = enabled)
+    }
+
+    private fun updateBadgeContentEnd(enabled: Boolean) {
+        internalUiState.value = internalUiState.value.copy(badgeContentEnd = enabled)
+    }
+
+    private fun updateCounterText(counterText: String) {
+        internalUiState.value = internalUiState.value.copy(counterText = counterText)
+    }
+
+    @Suppress("LongMethod")
     override fun AvatarUiState.toProps(): List<Property<*>> {
         return mutableListOf<Property<*>>().apply {
             add(
@@ -67,26 +96,67 @@ internal class AvatarViewModel(
                 ),
             )
             add(
-                Property.BooleanProperty(
-                    name = AvatarPropertyName.ActionEnabled.value,
-                    value = actionEnabled,
-                ),
-            )
-            add(
                 Property.StringProperty(
                     name = AvatarPropertyName.Placeholder.value,
                     value = fullName.orEmpty(),
                 ),
             )
+            add(
+                enumProperty(
+                    name = AvatarPropertyName.Extra.value,
+                    value = extra,
+                ),
+            )
+            if (extra != AvatarExtra.None) {
+                add(
+                    enumProperty(
+                        name = AvatarPropertyName.ExtraPlacement.value,
+                        value = extraPlacement,
+                    ),
+                )
+            }
+            if (extra == AvatarExtra.Badge) {
+                add(
+                    Property.StringProperty(
+                        name = AvatarPropertyName.BadgeText.value,
+                        value = badgeText,
+                    ),
+                )
+                add(
+                    Property.BooleanProperty(
+                        name = AvatarPropertyName.BadgeContentStart.value,
+                        value = badgeContentStart,
+                    ),
+                )
+                add(
+                    Property.BooleanProperty(
+                        name = AvatarPropertyName.BadgeContentEnd.value,
+                        value = badgeContentEnd,
+                    ),
+                )
+            }
+            if (extra == AvatarExtra.Counter) {
+                add(
+                    Property.StringProperty(
+                        name = AvatarPropertyName.CounterText.value,
+                        value = counterText,
+                    ),
+                )
+            }
         }
     }
 
     private enum class AvatarPropertyName(val value: String) {
-        ExampleMode("example mode"),
+        ExampleMode("exampleMode"),
         Status("status"),
         Placeholder("placeholder"),
-        ActionEnabled("action enabled"),
         Threshold("threshold"),
+        Extra("extra"),
+        ExtraPlacement("extraPlacement"),
+        BadgeText("badgeText"),
+        BadgeContentStart("badgeContentStart"),
+        BadgeContentEnd("badgeContentEnd"),
+        CounterText("counterText"),
     }
 }
 

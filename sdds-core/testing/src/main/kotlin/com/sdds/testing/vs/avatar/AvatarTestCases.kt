@@ -26,7 +26,6 @@ abstract class AvatarTestCases(mode: String) : RoborazziConfig(mode) {
                 status = Avatar.Status.ACTIVE,
                 exampleMode = ExampleMode.Local,
                 fullName = "Michael Scott",
-                actionEnabled = false,
             ),
         )
 
@@ -38,7 +37,6 @@ abstract class AvatarTestCases(mode: String) : RoborazziConfig(mode) {
                 status = Avatar.Status.NONE,
                 exampleMode = ExampleMode.Remote,
                 fullName = "Michael Scott",
-                actionEnabled = true,
             ),
         )
 
@@ -50,7 +48,6 @@ abstract class AvatarTestCases(mode: String) : RoborazziConfig(mode) {
                 status = Avatar.Status.ACTIVE,
                 exampleMode = ExampleMode.Placeholder,
                 fullName = "Michael Scott",
-                actionEnabled = false,
             ),
         )
 
@@ -62,7 +59,6 @@ abstract class AvatarTestCases(mode: String) : RoborazziConfig(mode) {
                 status = Avatar.Status.INACTIVE,
                 exampleMode = ExampleMode.Remote,
                 fullName = "Michael Scott",
-                actionEnabled = false,
             ),
         )
 

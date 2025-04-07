@@ -20,8 +20,8 @@
     <item android:color="?plasma_surfaceDefaultWarningActive" android:state_pressed="true" app:plasma_iconbutton_state_warning="true"/>
     <item android:color="?plasma_surfaceDefaultWarningHover" android:state_hovered="true" app:plasma_iconbutton_state_warning="true"/>
     <item android:color="?plasma_surfaceDefaultWarning" app:plasma_iconbutton_state_warning="true"/>
-    <item android:color="?plasma_surfaceDefaultClearActive" android:state_pressed="true" app:plasma_iconbutton_state_clear="true"/>
-    <item android:color="?plasma_surfaceDefaultClearHover" android:state_hovered="true" app:plasma_iconbutton_state_clear="true"/>
+    <item android:color="?plasma_surfaceDefaultTransparentSecondaryActive" android:state_pressed="true" app:plasma_iconbutton_state_clear="true"/>
+    <item android:color="?plasma_surfaceDefaultTransparentSecondaryHover" android:state_hovered="true" app:plasma_iconbutton_state_clear="true"/>
     <item android:color="?plasma_surfaceDefaultClear" app:plasma_iconbutton_state_clear="true"/>
     <item android:color="?plasma_surfaceOnLightTransparentDeepActive" android:state_pressed="true" app:plasma_iconbutton_state_dark="true"/>
     <item android:color="?plasma_surfaceOnLightTransparentDeepHover" android:state_hovered="true" app:plasma_iconbutton_state_dark="true"/>

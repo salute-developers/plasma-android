@@ -21,6 +21,8 @@
         <attr name="android:paddingEnd"/>
         <attr name="android:paddingTop"/>
         <attr name="android:paddingBottom"/>
+        <attr name="android:minWidth"/>
+        <attr name="android:minHeight"/>
 
         <attr name="android:backgroundTint"/>
         <attr name="backgroundTint"/>
