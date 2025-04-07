@@ -141,6 +141,7 @@ internal abstract class GenerateComponentsTask : DefaultTask() {
         val colorStateListGeneratorFactory = ColorStateListGeneratorFactory(
             xmlBuilderFactory = xmlBuilderFactory,
             resourcePrefixConfig = resourcesPrefixConfig.get(),
+            outputResDir = outputResDir,
         )
 
         return StyleGeneratorDependencies(

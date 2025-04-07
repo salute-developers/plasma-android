@@ -1,10 +1,12 @@
 package com.sdds.plugin.themebuilder.internal.components.base.view
 
+import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder.ElementName
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.generator.SimpleBaseGenerator
 import com.sdds.plugin.themebuilder.internal.token.ColorToken
-import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
+import com.sdds.plugin.themebuilder.internal.utils.FileProvider.colorSelectorXmlFile
+import com.sdds.plugin.themebuilder.internal.utils.FileProvider.colorXmlFile
 import java.io.File
 
 /**
@@ -12,21 +14,11 @@ import java.io.File
  * @author Малышев Александр on 03.12.2024
  */
 internal class ColorStateListGenerator(
-    private val outputFile: File,
+    private val outputResDir: File,
+    private val fileName: String,
     private val xmlBuilderFactory: XmlResourcesDocumentBuilderFactory,
     private val resourcePrefix: String,
 ) : SimpleBaseGenerator {
-
-    private val xmlBuilder by unsafeLazy {
-        xmlBuilderFactory.create(
-            rootAttributes = mapOf(
-                "xmlns:app" to "http://schemas.android.com/apk/res-auto",
-                "xmlns:android" to "http://schemas.android.com/apk/res/android",
-            ),
-            rootElement = "selector",
-        )
-    }
-
     private val stateListItems = mutableSetOf<StateListItem>()
 
     /**
@@ -50,18 +42,32 @@ internal class ColorStateListGenerator(
 
     override fun generate() {
         if (stateListItems.isEmpty()) return
-        prepareStateList()
-        xmlBuilder.build(outputFile)
+        val withGradient = stateListItems.any { it.type == ColorType.GRADIENT }
+        val rootElement = if (withGradient) "color-selector" else "selector"
+        val valueAttrName = if (withGradient) "android:value" else "android:color"
+        val xmlBuilder = xmlBuilderFactory.create(
+            rootAttributes = mapOf(
+                "xmlns:app" to "http://schemas.android.com/apk/res-auto",
+                "xmlns:android" to "http://schemas.android.com/apk/res/android",
+            ),
+            rootElement = rootElement,
+        )
+        xmlBuilder.prepareStateList(valueAttrName)
+        if (withGradient) {
+            xmlBuilder.build(outputResDir.colorSelectorXmlFile(fileName, resourcePrefix))
+        } else {
+            xmlBuilder.build(outputResDir.colorXmlFile(fileName, resourcePrefix))
+        }
     }
 
-    private fun prepareStateList() = with(xmlBuilder) {
+    private fun XmlResourcesDocumentBuilder.prepareStateList(valueAttrName: String) {
         stateListItems
             .forEach { stateListItem ->
                 appendBaseElement(
                     elementName = ElementName.ITEM.value,
                     attrs = mutableMapOf<String, String>().apply {
                         stateListItem.alpha?.let { put("android:alpha", it.toString()) }
-                        put(stateListItem.type.attr, stateListItem.value)
+                        put(valueAttrName, stateListItem.value)
 
                         stateListItem.states.forEach {
                             put(it.name, it.value)
@@ -78,9 +84,9 @@ internal class ColorStateListGenerator(
         val alpha: Float? = null,
     )
 
-    enum class ColorType(val attr: String) {
-        COLOR("android:color"),
-        GRADIENT("android:drawable"),
+    enum class ColorType {
+        COLOR,
+        GRADIENT,
     }
 }
 

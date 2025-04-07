@@ -36,6 +36,8 @@
     <attr name="sd_strokeWidth" format="float|fraction|dimension" />
     <attr name="sd_shapeColorAnimationEnabled" format="boolean" />
     <attr name="sd_disabledAlpha" format="float" />
+    <attr name="sd_background" format="color|reference"/>
+    <attr name="sd_textColor" format="color|reference"/>
 
     <declare-styleable name="SdViewStateHolder">
         <attr name="sd_viewState" format="enum">

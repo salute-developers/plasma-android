@@ -13,7 +13,6 @@
         <item name="sd_disabledAlpha">0.4</item>
         <item name="sd_counterPlacement">inner</item>
         <item name="sd_captionPlacement">inner</item>
-        <item name="sd_chipsPadding">@dimen/sdkit_text_area_chips_padding</item>
         <item name="sd_captionAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXsNormal</item>
         <item name="sd_counterAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXsNormal</item>
         <item name="sd_prefixTextPadding">@dimen/sdkit_text_area_prefix_padding</item>
@@ -29,10 +28,6 @@
         <item name="sd_scrollBarTrackColor">@color/sdkit_text_area_scroll_track_color</item>
         <item name="sd_scrollBarThumbColor">@color/sdkit_text_area_scroll_thumb_color</item>
         <item name="sd_colorStateProvider">com.sdkit.star.designsystem.colorstate.TextAreaColorStateProvider</item>
-    </style>
-    <style name="Sdkit.StarDs.ComponentOverlays.TextAreaXsChips">
-        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroup.Dense</item>
-        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.EmbeddedChip.Xs.Secondary</item>
     </style>
     <style name="Sdkit.StarDs.Components.TextArea.Xs">
         <item name="sd_requirementMode">optional</item>
@@ -51,7 +46,6 @@
         <item name="sd_actionSize">@dimen/sdkit_text_area_xs_action_size</item>
         <item name="sd_valueAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXsNormal</item>
         <item name="sd_placeholderAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXsNormal</item>
-        <item name="sd_chipGroupStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.TextFieldXsChips</item>
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.TextAreaXs">
         <item name="sd_textAreaStyle">@style/Sdkit.StarDs.Components.TextArea.Xs</item>
@@ -66,10 +60,6 @@
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.TextAreaXsOuterLabel">
         <item name="sd_textAreaStyle">@style/Sdkit.StarDs.Components.TextArea.Xs.OuterLabel</item>
-    </style>
-    <style name="Sdkit.StarDs.ComponentOverlays.TextAreaSChips">
-        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroup.Dense</item>
-        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.EmbeddedChip.S.Secondary</item>
     </style>
     <style name="Sdkit.StarDs.Components.TextArea.S">
         <item name="sd_requirementMode">optional</item>
@@ -89,7 +79,6 @@
         <item name="sd_actionSize">@dimen/sdkit_text_area_s_action_size</item>
         <item name="sd_valueAppearance">@style/Sdkit.StarDs.TextAppearance.BodySNormal</item>
         <item name="sd_placeholderAppearance">@style/Sdkit.StarDs.TextAppearance.BodySNormal</item>
-        <item name="sd_chipGroupStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.TextFieldSChips</item>
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.TextAreaS">
         <item name="sd_textAreaStyle">@style/Sdkit.StarDs.Components.TextArea.S</item>
@@ -114,10 +103,6 @@
     <style name="Sdkit.StarDs.ComponentOverlays.TextAreaSInnerLabel">
         <item name="sd_textAreaStyle">@style/Sdkit.StarDs.Components.TextArea.S.InnerLabel</item>
     </style>
-    <style name="Sdkit.StarDs.ComponentOverlays.TextAreaMChips">
-        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroup.Dense</item>
-        <item name="sd_chipStyle">@style/Sdkit.StarDs.Components.EmbeddedChip.M.Secondary</item>
-    </style>
     <style name="Sdkit.StarDs.Components.TextArea.M">
         <item name="sd_requirementMode">optional</item>
         <item name="sd_shapeAppearance">?sdkit_shapeRoundM</item>
@@ -135,7 +120,6 @@
         <item name="sd_actionSize">@dimen/sdkit_text_area_m_action_size</item>
         <item name="sd_valueAppearance">@style/Sdkit.StarDs.TextAppearance.BodyMNormal</item>
         <item name="sd_placeholderAppearance">@style/Sdkit.StarDs.TextAppearance.BodyMNormal</item>
-        <item name="sd_chipGroupStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.TextFieldMChips</item>
     </style>
     <style name="Sdkit.StarDs.ComponentOverlays.TextAreaM">
         <item name="sd_textAreaStyle">@style/Sdkit.StarDs.Components.TextArea.M</item>

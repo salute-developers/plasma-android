@@ -9,6 +9,6 @@ internal object SddsServAvatarVariationsView : ViewStyleProvider<String>() {
             "S" to s.Serv_Sdds_ComponentOverlays_AvatarS,
             "M" to s.Serv_Sdds_ComponentOverlays_AvatarM,
             "L" to s.Serv_Sdds_ComponentOverlays_AvatarL,
-            "Xxl" to s.Serv_Sdds_ComponentOverlays_AvatarXXL,
+            "Xxl" to s.Serv_Sdds_ComponentOverlays_AvatarXxl,
         )
 }

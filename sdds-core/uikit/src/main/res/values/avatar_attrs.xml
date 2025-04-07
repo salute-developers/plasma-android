@@ -55,7 +55,7 @@
         <attr name="sd_text" format="string" />
         <attr name="android:textAppearance" />
         <attr name="android:textColor" />
-        <attr name="sd_textShaderStyle" format="reference"/>
+        <attr name="sd_textColor"/>
         <attr name="sd_textColorStart" format="color" />
         <attr name="sd_textColorEnd" format="color" />
         <attr name="sd_backgroundAlpha" format="float" />

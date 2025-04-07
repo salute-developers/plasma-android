@@ -18,9 +18,7 @@ import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.token.ColorToken
 import com.sdds.plugin.themebuilder.internal.token.ShapeToken
 import com.sdds.plugin.themebuilder.internal.token.TypographyToken
-import com.sdds.plugin.themebuilder.internal.utils.FileProvider.colorXmlFile
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.componentStyleXmlFile
-import com.sdds.plugin.themebuilder.internal.utils.FileProvider.drawableXmlFile
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 import com.sdds.plugin.themebuilder.internal.utils.camelToSnakeCase
 import com.sdds.plugin.themebuilder.internal.utils.capitalized
@@ -314,6 +312,21 @@ internal abstract class ViewComponentStyleGenerator<T : ComponentConfig>(
     }
 
     /**
+     * Добавляет атрибут типа xml со значением @xml/[xmlName]
+     */
+    protected fun Element.xmlRefAttribute(
+        attributeName: String,
+        xmlName: String,
+    ) = with(xmlResourceBuilder) {
+        this@xmlRefAttribute.appendElement(
+            elementName = XmlResourcesDocumentBuilder.ElementName.ITEM,
+            tokenName = attributeName,
+            value = resourceReferenceProvider.xml(xmlName),
+            usePrefix = false,
+        )
+    }
+
+    /**
      * Добавляет атрибут типа color со значением @color/[colorName]
      */
     protected fun Element.colorAttribute(
@@ -322,19 +335,27 @@ internal abstract class ViewComponentStyleGenerator<T : ComponentConfig>(
     ) = colorAttribute(colorProperty.attribute, colorProperty.colorFileName(variation))
 
     /**
-     * Добавляет атрибут типа drawable со значением @drawable/[colorName]
+     * Добавляет атрибут типа drawable со значением [name]
      */
     protected fun Element.drawableAttribute(
-        colorProperty: ColorProperty,
-        variation: String? = null,
+        attributeName: String,
+        name: String,
     ) = with(xmlResourceBuilder) {
         this@drawableAttribute.appendElement(
             elementName = XmlResourcesDocumentBuilder.ElementName.ITEM,
-            tokenName = colorProperty.attribute,
-            value = resourceReferenceProvider.drawable(colorProperty.colorFileName(variation)),
+            tokenName = attributeName,
+            value = name,
             usePrefix = false,
         )
     }
+
+    /**
+     * Добавляет атрибут типа ColorValueStateList со значением @xml/[colorName]
+     */
+    protected fun Element.colorValueListAttribute(
+        colorProperty: ColorProperty,
+        variation: String? = null,
+    ) = xmlRefAttribute(colorProperty.attribute, colorProperty.colorFileName(variation))
 
     /**
      * Добавляет атрибут типа dimen
@@ -367,7 +388,7 @@ internal abstract class ViewComponentStyleGenerator<T : ComponentConfig>(
         property: ColorProperty,
         block: ColorStateListGenerator.() -> Unit,
     ) {
-        addToStateList(ColorStateListGenerator.ColorType.COLOR, null, property, block)
+        addToStateList(null, property, block)
     }
 
     /**
@@ -396,7 +417,7 @@ internal abstract class ViewComponentStyleGenerator<T : ComponentConfig>(
             is Gradient -> ColorStateListGenerator.ColorType.GRADIENT
             is SolidColor -> ColorStateListGenerator.ColorType.COLOR
         }
-        addToStateList(colorType, variation, property) {
+        addToStateList(variation, property) {
             color.states?.forEach { colorState ->
                 val androidStates = colorState.state.asAndroidStates()
                 val customStateAttrs = colorState.state.excludeAndroidStates()
@@ -416,7 +437,6 @@ internal abstract class ViewComponentStyleGenerator<T : ComponentConfig>(
     }
 
     private fun addToStateList(
-        type: ColorStateListGenerator.ColorType,
         variationName: String?,
         property: ColorProperty,
         block: ColorStateListGenerator.() -> Unit,
@@ -426,16 +446,7 @@ internal abstract class ViewComponentStyleGenerator<T : ComponentConfig>(
                 stateListGenerators[variationName] = it
             }
         val generator = variationStateLists[property] ?: colorStateListGeneratorFactory.create(
-            when (type) {
-                ColorStateListGenerator.ColorType.COLOR -> outputResDir.colorXmlFile(
-                    fileName = property.colorFileName(variationName?.techToSnakeCase()),
-                    prefix = resourcePrefix,
-                )
-                ColorStateListGenerator.ColorType.GRADIENT -> outputResDir.drawableXmlFile(
-                    name = property.colorFileName(variationName?.techToSnakeCase()),
-                    prefix = resourcePrefix,
-                )
-            },
+            property.colorFileName(variationName?.techToSnakeCase()),
         ).also { variationStateLists[property] = it }
 
         generator.block()

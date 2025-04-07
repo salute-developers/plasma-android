@@ -64,6 +64,15 @@ object FileProvider {
     }
 
     /**
+     * Директория font для шрифтов
+     */
+    fun File.xmlDir(): File {
+        val xmlDir = File("${this.path}/xml")
+        if (!xmlDir.exists()) xmlDir.mkdirs()
+        return xmlDir
+    }
+
+    /**
      * XML файл для токенов цвета
      */
     fun File.colorsXmlFile(): File =
@@ -172,8 +181,14 @@ object FileProvider {
         File("${colorsDir().path}/${fileName.withPrefixIfNeed(prefix)}.xml")
 
     /**
-     * XML файл для стилей LinkButton
+     * XML файл для стилей
      */
     fun File.componentStyleXmlFile(componentName: String): File =
         File("${valuesDir().path}/styles-${componentName.toLowerCase(Locale.getDefault())}.xml")
+
+    /**
+     * XML файл с ColorValueStateList из директории xml
+     */
+    fun File.colorSelectorXmlFile(fileName: String, prefix: String = ""): File =
+        File("${xmlDir().path}/${fileName.withPrefixIfNeed(prefix)}.xml")
 }

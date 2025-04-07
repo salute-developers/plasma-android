@@ -9,6 +9,6 @@ internal object StarDsAvatarVariationsView : ViewStyleProvider<String>() {
             "S" to s.Sdkit_StarDs_ComponentOverlays_AvatarS,
             "M" to s.Sdkit_StarDs_ComponentOverlays_AvatarM,
             "L" to s.Sdkit_StarDs_ComponentOverlays_AvatarL,
-            "Xxl" to s.Sdkit_StarDs_ComponentOverlays_AvatarXXL,
+            "Xxl" to s.Sdkit_StarDs_ComponentOverlays_AvatarXxl,
         )
 }

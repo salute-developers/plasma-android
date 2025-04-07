@@ -4,15 +4,13 @@ import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Canvas
 import android.graphics.Color
-import android.graphics.LinearGradient
 import android.graphics.Paint
 import android.graphics.Rect
-import android.graphics.Shader
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.LayerDrawable
-import android.text.TextPaint
 import android.util.AttributeSet
+import android.util.Log
 import android.view.Gravity
 import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
@@ -24,11 +22,9 @@ import com.sdds.uikit.drawable.BadgeDrawable
 import com.sdds.uikit.drawable.CounterDrawable
 import com.sdds.uikit.drawable.IndicatorDrawable
 import com.sdds.uikit.drawable.TextDrawable
-import com.sdds.uikit.internal.base.CancelableFontCallback
-import com.sdds.uikit.internal.base.applyTextAppearance
-import com.sdds.uikit.internal.base.colorForState
 import com.sdds.uikit.internal.base.configure
-import com.sdds.uikit.shader.ShaderFactory
+import com.sdds.uikit.statelist.ColorValueStateList
+import com.sdds.uikit.statelist.getColorValueStateList
 import java.util.Locale
 import kotlin.math.roundToInt
 
@@ -68,8 +64,6 @@ open class Avatar @JvmOverloads constructor(
     }
 
     private val _bounds: Rect = Rect()
-    private var _backgroundAlpha: Float = 1f
-
     private var _statusOffsetX: Float = 0f
     private var _statusOffsetY: Float = 0f
     private var _status: Status = Status.NONE
@@ -86,25 +80,15 @@ open class Avatar @JvmOverloads constructor(
     private var _actionEnabled: Boolean = false
     private var _actionTint: ColorStateList? = null
 
-    private var _text: CharSequence? = null
-    private var _textAppearanceId: Int = 0
+    private var _textDrawable: TextDrawable = TextDrawable(context).apply {
+        setTintList(null)
+        callback = this@Avatar
+        setDelegate(this@Avatar)
+    }
     private val _textBounds: Rect = Rect()
-    private val _textPaint = TextPaint().configure(isAntiAlias = true)
-    private var _textColor: ColorStateList? = null
-    private var _fontCallback: CancelableFontCallback? = null
-
-    @ColorInt
-    private var _textColorStart: Int = 0
-
-    @ColorInt
-    private var _textColorEnd: Int = 0
-    private val _shouldUseGradientText: Boolean
-        get() = _textColorShaderFactory != null || (_textColorStart != _textColorEnd && _textColor == null)
-    private var _textColorGradient: Shader? = null
-    private var _textColorShaderFactory: ShaderFactory? = null
 
     private val _initialsEnabled: Boolean
-        get() = drawable == null && _text != null
+        get() = drawable == null && _textDrawable.text.isNotEmpty()
 
     private var _badgeDrawable: BadgeDrawable? = null
     private val _badgeBounds: Rect = Rect()
@@ -160,7 +144,20 @@ open class Avatar @JvmOverloads constructor(
                 callback = this@Avatar
                 setDelegate(this@Avatar)
             }
+            requestLayout()
             invalidate()
+        }
+
+    /**
+     * [ColorState] для [badge]
+     */
+    var badgeState: ColorState?
+        get() = _badgeState
+        set(value) {
+            if (_badgeState != value) {
+                _badgeState = value
+                refreshDrawableState()
+            }
         }
 
     /**
@@ -172,6 +169,7 @@ open class Avatar @JvmOverloads constructor(
             if (_badgeEnabled != value) {
                 _badgeEnabled = value
                 invalidate()
+                requestLayout()
             }
         }
 
@@ -186,6 +184,7 @@ open class Avatar @JvmOverloads constructor(
             if (_badgePlacement != value) {
                 _badgePlacement = value
                 invalidate()
+                requestLayout()
             }
         }
 
@@ -199,6 +198,20 @@ open class Avatar @JvmOverloads constructor(
             _counterDrawable = value?.apply {
                 callback = this@Avatar
                 setDelegate(this@Avatar)
+            }
+            invalidate()
+            requestLayout()
+        }
+
+    /**
+     * [ColorState] для [counter]
+     */
+    var counterState: ColorState?
+        get() = _counterState
+        set(value) {
+            if (_counterState != value) {
+                _counterState = value
+                refreshDrawableState()
             }
         }
 
@@ -225,12 +238,12 @@ open class Avatar @JvmOverloads constructor(
             if (_counterPlacement != value) {
                 _counterPlacement = value
                 invalidate()
+                requestLayout()
             }
         }
 
     init {
         obtainAttributes(context, attrs, defStyleAttr, defStyleRes)
-        updateBackgroundAlpha()
     }
 
     /**
@@ -260,10 +273,7 @@ open class Avatar @JvmOverloads constructor(
      */
     open fun setInitials(fullName: String?) {
         val newInitials = fullName?.initials
-        if (_text != newInitials) {
-            _text = newInitials
-            invalidate()
-        }
+        setText(newInitials)
     }
 
     /**
@@ -274,11 +284,7 @@ open class Avatar @JvmOverloads constructor(
      */
     open fun setInitials(firstName: String, lastName: String) {
         val newInitials = "${firstName[0]}${lastName[0]}".uppercase(Locale.getDefault())
-
-        if (_text != newInitials) {
-            _text = newInitials
-            invalidate()
-        }
+        setText(newInitials)
     }
 
     /**
@@ -286,8 +292,8 @@ open class Avatar @JvmOverloads constructor(
      * @param text текст-заглушка
      */
     fun setText(text: String?) {
-        if (_text != text) {
-            _text = text
+        if (_textDrawable.text != text) {
+            _textDrawable.text = text.orEmpty()
             invalidate()
         }
     }
@@ -297,13 +303,7 @@ open class Avatar @JvmOverloads constructor(
      * @param styleId идентификатор стиля текста
      */
     open fun setTextAppearance(@StyleRes styleId: Int) {
-        if (_textAppearanceId != styleId) {
-            _textAppearanceId = styleId
-            _fontCallback?.cancel()
-            _fontCallback = _textPaint.applyTextAppearance(context, styleId) {
-                invalidate()
-            }
-        }
+        _textDrawable.setTextAppearance(context, styleId)
     }
 
     /**
@@ -311,35 +311,31 @@ open class Avatar @JvmOverloads constructor(
      * @param color цвета текста
      */
     open fun setTextColor(color: ColorStateList?) {
-        if (_textColor != color) {
-            _textColor = color
-            updateTextColor()
-            invalidate()
-        }
+        _textDrawable.setTextColor(color)
+    }
+
+    /**
+     * Устанавливает цвета текста.
+     * @param color цвета текста
+     */
+    open fun setTextColor(color: ColorValueStateList?) {
+        _textDrawable.setTextColor(color)
     }
 
     /**
      * Устанавливает начальный цвет градиента текста.
      * @param color начальный цвет градиента текста
      */
+    @Deprecated("Use setTextColor(ColorStateList)")
     open fun setTextColorStart(@ColorInt color: Int) {
-        if (_textColorStart != color) {
-            _textColorStart = color
-            updateTextColor()
-            invalidate()
-        }
     }
 
     /**
      * Устанавливает конечный цвет градиента текста.
      * @param color начальный цвет градиента текста
      */
+    @Deprecated("Use setTextColor(ColorStateList)")
     open fun setTextColorEnd(@ColorInt color: Int) {
-        if (_textColorEnd != color) {
-            _textColorEnd = color
-            updateTextColor()
-            invalidate()
-        }
     }
 
     /**
@@ -425,20 +421,19 @@ open class Avatar @JvmOverloads constructor(
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
-        _text?.let { text ->
-            _textPaint.getTextBounds(text.toString(), 0, text.length, _textBounds)
-            _textBounds.offsetTo(
-                (measuredWidth - _textBounds.width()) / 2,
-                (measuredHeight - _textBounds.height()) / 2,
-            )
-        }
+        _textBounds.set(0, 0, minOf(_textDrawable.intrinsicWidth, measuredWidth), _textDrawable.intrinsicHeight)
+        _textBounds.offsetTo(
+            (measuredWidth - _textBounds.width()) / 2,
+            (measuredHeight - _textBounds.height()) / 2,
+        )
+        Log.e("Avatar", "onMeasure: textBounds $_textBounds, ${_textDrawable.intrinsicHeight}", )
         _bounds.set(0, 0, measuredWidth, measuredHeight)
 
         badge.takeIf { badgeEnabled }?.let { badge ->
-            _badgeBounds.set(0, 0, badge.intrinsicWidth, badge.intrinsicHeight)
+            _badgeBounds.set(0, 0, minOf(badge.intrinsicWidth, measuredWidth), badge.intrinsicHeight)
         }
         counter.takeIf { counterEnabled }?.let { counter ->
-            _counterBounds.set(0, 0, counter.intrinsicWidth, counter.intrinsicHeight)
+            _counterBounds.set(0, 0, minOf(counter.intrinsicWidth, measuredWidth), counter.intrinsicHeight)
         }
         _statusDrawable.takeIf { status != Status.NONE }?.let { status ->
             _statusBounds.set(0, 0, status.intrinsicWidth, status.intrinsicHeight)
@@ -448,25 +443,6 @@ open class Avatar @JvmOverloads constructor(
             )
         }
         _actionOverlay?.bounds = _bounds
-    }
-
-    override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
-        super.onSizeChanged(w, h, oldw, oldh)
-        _textColorGradient = if (_shouldUseGradientText) {
-            _textColorShaderFactory?.resize(_textBounds.width().toFloat(), _textBounds.height().toFloat())
-                ?: LinearGradient(
-                    0f,
-                    _textBounds.height().toFloat(),
-                    _textBounds.width().toFloat(),
-                    0f,
-                    intArrayOf(_textColorStart, _textColorEnd),
-                    floatArrayOf(0f, 1f),
-                    Shader.TileMode.CLAMP,
-                )
-        } else {
-            null
-        }
-        updateTextColor()
     }
 
     override fun onDraw(canvas: Canvas) {
@@ -480,7 +456,7 @@ open class Avatar @JvmOverloads constructor(
     override fun onDrawBeforeClip(canvas: Canvas) {
         super.onDrawBeforeClip(canvas)
         if (_initialsEnabled) {
-            drawInitials(canvas, _text)
+            drawInitials(canvas)
         }
 
         if (actionEnabled) {
@@ -516,12 +492,8 @@ open class Avatar @JvmOverloads constructor(
             _actionOverlay == dr ||
             badge == dr ||
             counter == dr ||
-            _statusDrawable == dr
-    }
-
-    override fun setBackground(background: Drawable?) {
-        super.setBackground(background)
-        updateBackgroundAlpha()
+            _statusDrawable == dr ||
+            _textDrawable == dr
     }
 
     override fun drawableStateChanged() {
@@ -533,26 +505,17 @@ open class Avatar @JvmOverloads constructor(
             counter?.state = drawableState
         }
         _statusDrawable?.state = drawableState
+        _textDrawable.state = drawableState
     }
 
     override fun onDrawableSizeChange() {
+        postInvalidate()
         requestLayout()
-        invalidate()
     }
 
-    private fun updateBackgroundAlpha() {
-        background?.apply {
-            alpha = (_backgroundAlpha * MAX_ALPHA_INT).roundToInt()
-            invalidateSelf()
-        }
-    }
-
-    private fun drawInitials(canvas: Canvas, initials: CharSequence?) {
-        if (initials == null) return
-        val count = canvas.save()
-        canvas.translate(_textBounds.left.toFloat(), _textBounds.bottom.toFloat())
-        canvas.drawText(initials, 0, initials.length, 0f, 0f, _textPaint)
-        canvas.restoreToCount(count)
+    private fun drawInitials(canvas: Canvas) {
+        _textDrawable.bounds = _textBounds
+        _textDrawable.draw(canvas)
     }
 
     private fun drawStatus(canvas: Canvas) {
@@ -570,8 +533,8 @@ open class Avatar @JvmOverloads constructor(
         badge.takeIf { badgeEnabled }?.let { badge ->
             Gravity.apply(
                 badgePlacement.gravity,
-                badge.intrinsicWidth,
-                badge.intrinsicHeight,
+                _badgeBounds.width(),
+                _badgeBounds.height(),
                 _bounds,
                 _badgeBounds,
                 layoutDirection,
@@ -582,24 +545,14 @@ open class Avatar @JvmOverloads constructor(
         counter.takeIf { counterEnabled }?.let { counter ->
             Gravity.apply(
                 counterPlacement.gravity,
-                counter.intrinsicWidth,
-                counter.intrinsicHeight,
+                _counterBounds.width(),
+                _counterBounds.height(),
                 _bounds,
                 _counterBounds,
                 layoutDirection,
             )
             counter.bounds = _counterBounds
             counter.draw(canvas)
-        }
-    }
-
-    private fun updateTextColor() {
-        if (_shouldUseGradientText) {
-            _textPaint.color = Color.BLACK
-            _textPaint.shader = _textColorGradient
-        } else {
-            _textPaint.shader = null
-            _textPaint.color = _textColor.colorForState(drawableState)
         }
     }
 
@@ -619,19 +572,18 @@ open class Avatar @JvmOverloads constructor(
         setActionColor(typedArray.getColorStateList(R.styleable.Avatar_sd_actionTint))
         setActionScrimColor(typedArray.getColorStateList(R.styleable.Avatar_sd_actionScrimColor))
 
-        setText(typedArray.getString(R.styleable.Avatar_sd_text))
-        setInitials(typedArray.getString(R.styleable.Avatar_sd_name))
         setTextAppearance(typedArray.getResourceId(R.styleable.Avatar_android_textAppearance, 0))
-        _textColorStart = typedArray.getColor(R.styleable.Avatar_sd_textColorStart, 0)
-        _textColorEnd = typedArray.getColor(R.styleable.Avatar_sd_textColorEnd, 0)
-        _textColorShaderFactory = typedArray.getResourceId(R.styleable.Avatar_sd_textShaderStyle, 0).let {
-            context.shaderFactory(it)
-        }
-        setTextColor(typedArray.getColorStateList(R.styleable.Avatar_android_textColor))
+        val fallbackTextColor = typedArray.getColorStateList(R.styleable.Avatar_android_textColor)
+        setTextColor(
+            typedArray.getColorValueStateList(context, R.styleable.Avatar_sd_textColor)
+                ?: ColorValueStateList.valueOf(fallbackTextColor),
+        )
+        setInitials(
+            typedArray.getString(R.styleable.Avatar_sd_name)
+                ?: typedArray.getString(R.styleable.Avatar_sd_text),
+        )
 
-        _backgroundAlpha = typedArray.getFloat(R.styleable.Avatar_sd_backgroundAlpha, 1f)
-
-        _badgeStyle = typedArray.getResourceId(R.styleable.Avatar_sd_extraBadgeStyle, R.style.Sdds_Components_Badge)
+        _badgeStyle = typedArray.getResourceId(R.styleable.Avatar_sd_extraBadgeStyle, 0)
         badgeEnabled = typedArray.getBoolean(R.styleable.Avatar_sd_extraBadgeEnabled, false)
         badgePlacement = typedArray.getInt(R.styleable.Avatar_sd_extraBadgePlacement, EXTRA_PLACEMENT_TOP_START)
         badgeObtainAttributes(_badgeStyle)
@@ -642,7 +594,7 @@ open class Avatar @JvmOverloads constructor(
         }
 
         _counterStyle =
-            typedArray.getResourceId(R.styleable.Avatar_sd_extraCounterStyle, R.style.Sdds_Components_Counter)
+            typedArray.getResourceId(R.styleable.Avatar_sd_extraCounterStyle, 0)
         counterEnabled = typedArray.getBoolean(R.styleable.Avatar_sd_extraCounterEnabled, false)
         counterPlacement = typedArray.getInt(R.styleable.Avatar_sd_extraCounterPlacement, EXTRA_PLACEMENT_TOP_START)
         counterObtainAttributes(_counterStyle)
@@ -655,6 +607,7 @@ open class Avatar @JvmOverloads constructor(
 
     @Suppress("CustomViewStyleable")
     private fun counterObtainAttributes(counterStyle: Int) {
+        if (counterStyle == 0) return
         val typedArray = context.obtainStyledAttributes(counterStyle, R.styleable.Counter)
         _counterState = ColorState.obtain(context, null, 0, counterStyle)
         typedArray.recycle()
@@ -668,6 +621,7 @@ open class Avatar @JvmOverloads constructor(
 
     @Suppress("CustomViewStyleable")
     private fun badgeObtainAttributes(badgeStyle: Int) {
+        if (badgeStyle == 0) return
         _badgeState = ColorState.obtain(context, null, 0, badgeStyle)
         badge = BadgeDrawable(
             context = context,
@@ -728,8 +682,8 @@ open class Avatar @JvmOverloads constructor(
         private val Int.gravity: Int
             get() = when (this) {
                 EXTRA_PLACEMENT_TOP_END -> Gravity.TOP or Gravity.END
-                EXTRA_PLACEMENT_BOTTOM_END -> Gravity.BOTTOM or Gravity.START
-                EXTRA_PLACEMENT_BOTTOM_START -> Gravity.BOTTOM or Gravity.END
+                EXTRA_PLACEMENT_BOTTOM_END -> Gravity.BOTTOM or Gravity.END
+                EXTRA_PLACEMENT_BOTTOM_START -> Gravity.BOTTOM or Gravity.START
                 else -> Gravity.TOP or Gravity.START
             }
     }

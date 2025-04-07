@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources>
+    <style name="Salute.StylesSalute.Components.Avatar" parent="Sdds.Components.Avatar">
+        <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
+        <item name="sd_background">@xml/salute_avatar_background</item>
+        <item name="sd_textColor">?salute_textDefaultGradientMain</item>
+        <item name="sd_statusColor">@color/salute_avatar_status_color</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Avatar.Xxl">
+        <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.HeaderH2Bold</item>
+        <item name="android:minWidth">@dimen/salute_avatar_xxl_min_width</item>
+        <item name="android:maxWidth">@dimen/salute_avatar_xxl_max_width</item>
+        <item name="android:minHeight">@dimen/salute_avatar_xxl_min_height</item>
+        <item name="android:maxHeight">@dimen/salute_avatar_xxl_max_height</item>
+        <item name="sd_statusOffsetX">@dimen/salute_avatar_xxl_status_offset_x</item>
+        <item name="sd_statusOffsetY">@dimen/salute_avatar_xxl_status_offset_y</item>
+        <item name="sd_statusStyle">@style/Salute.StylesSalute.Components.Indicator.L</item>
+        <item name="sd_extraBadgeStyle">@style/Salute.StylesSalute.Components.BadgeSolid.L.Pilled.Accent</item>
+        <item name="sd_extraCounterStyle">@style/Salute.StylesSalute.Components.Counter.L.Negative</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.AvatarXxl">
+        <item name="sd_avatarStyle">@style/Salute.StylesSalute.Components.Avatar.Xxl</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Avatar.L">
+        <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.HeaderH4Bold</item>
+        <item name="android:minWidth">@dimen/salute_avatar_l_min_width</item>
+        <item name="android:maxWidth">@dimen/salute_avatar_l_max_width</item>
+        <item name="android:minHeight">@dimen/salute_avatar_l_min_height</item>
+        <item name="android:maxHeight">@dimen/salute_avatar_l_max_height</item>
+        <item name="sd_statusOffsetX">@dimen/salute_avatar_l_status_offset_x</item>
+        <item name="sd_statusOffsetY">@dimen/salute_avatar_l_status_offset_y</item>
+        <item name="sd_statusStyle">@style/Salute.StylesSalute.Components.Indicator.M</item>
+        <item name="sd_extraBadgeStyle">@style/Salute.StylesSalute.Components.BadgeSolid.S.Pilled.Accent</item>
+        <item name="sd_extraCounterStyle">@style/Salute.StylesSalute.Components.Counter.S.Negative</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.AvatarL">
+        <item name="sd_avatarStyle">@style/Salute.StylesSalute.Components.Avatar.L</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Avatar.M">
+        <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.BodySBold</item>
+        <item name="android:minWidth">@dimen/salute_avatar_m_min_width</item>
+        <item name="android:maxWidth">@dimen/salute_avatar_m_max_width</item>
+        <item name="android:minHeight">@dimen/salute_avatar_m_min_height</item>
+        <item name="android:maxHeight">@dimen/salute_avatar_m_max_height</item>
+        <item name="sd_statusOffsetX">@dimen/salute_avatar_m_status_offset_x</item>
+        <item name="sd_statusOffsetY">@dimen/salute_avatar_m_status_offset_y</item>
+        <item name="sd_statusStyle">@style/Salute.StylesSalute.Components.Indicator.M</item>
+        <item name="sd_extraBadgeStyle">@style/Salute.StylesSalute.Components.BadgeSolid.Xs.Pilled.Accent</item>
+        <item name="sd_extraCounterStyle">@style/Salute.StylesSalute.Components.Counter.Xs.Negative</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.AvatarM">
+        <item name="sd_avatarStyle">@style/Salute.StylesSalute.Components.Avatar.M</item>
+    </style>
+    <style name="Salute.StylesSalute.Components.Avatar.S">
+        <item name="android:textAppearance">@style/Salute.StylesSalute.TextAppearance.BodyXxsBold</item>
+        <item name="android:minWidth">@dimen/salute_avatar_s_min_width</item>
+        <item name="android:maxWidth">@dimen/salute_avatar_s_max_width</item>
+        <item name="android:minHeight">@dimen/salute_avatar_s_min_height</item>
+        <item name="android:maxHeight">@dimen/salute_avatar_s_max_height</item>
+        <item name="sd_statusOffsetX">@dimen/salute_avatar_s_status_offset_x</item>
+        <item name="sd_statusOffsetY">@dimen/salute_avatar_s_status_offset_y</item>
+        <item name="sd_statusStyle">@style/Salute.StylesSalute.Components.Indicator.S</item>
+        <item name="sd_extraCounterStyle">@style/Salute.StylesSalute.Components.Counter.Xxs.Negative</item>
+    </style>
+    <style name="Salute.StylesSalute.ComponentOverlays.AvatarS">
+        <item name="sd_avatarStyle">@style/Salute.StylesSalute.Components.Avatar.S</item>
+    </style>
+</resources>

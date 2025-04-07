@@ -9,6 +9,6 @@ internal object PlasmaSdServiceAvatarVariationsView : ViewStyleProvider<String>(
             "S" to s.Plasma_SdService_ComponentOverlays_AvatarS,
             "M" to s.Plasma_SdService_ComponentOverlays_AvatarM,
             "L" to s.Plasma_SdService_ComponentOverlays_AvatarL,
-            "Xxl" to s.Plasma_SdService_ComponentOverlays_AvatarXXL,
+            "Xxl" to s.Plasma_SdService_ComponentOverlays_AvatarXxl,
         )
 }

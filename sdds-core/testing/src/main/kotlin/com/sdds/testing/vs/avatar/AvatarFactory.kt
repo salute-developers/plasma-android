@@ -57,8 +57,24 @@ fun Avatar.applyState(state: AvatarUiState?): Avatar = apply {
     }
     setInitials(state.fullName)
     status = state.status
-    setActionResource(com.sdds.icons.R.drawable.ic_sber_36)
-    actionEnabled = state.actionEnabled
+    badgeEnabled = state.extra == AvatarExtra.Badge
+    counterEnabled = state.extra == AvatarExtra.Counter
+    badgePlacement = state.extraPlacement.raw
+    counterPlacement = state.extraPlacement.raw
+    badge?.apply {
+        text = state.badgeText
+        if (state.badgeContentStart) {
+            setDrawableStartRes(context, com.sdds.icons.R.drawable.ic_plasma_16)
+        } else {
+            drawableStart = null
+        }
+        if (state.badgeContentEnd) {
+            setDrawableEndRes(context, com.sdds.icons.R.drawable.ic_plasma_16)
+        } else {
+            drawableEnd = null
+        }
+    }
+    counter?.text = state.counterText
 }
 
 /**
