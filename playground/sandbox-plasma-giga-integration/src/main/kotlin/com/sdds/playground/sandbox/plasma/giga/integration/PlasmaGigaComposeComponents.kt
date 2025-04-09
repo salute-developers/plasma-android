@@ -23,8 +23,8 @@ import com.sdds.playground.sandbox.plasma.giga.integration.cell.compose.PlasmaGi
 import com.sdds.playground.sandbox.plasma.giga.integration.checkbox.PlasmaGigaCheckBoxVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.checkbox.group.PlasmaGigaCheckBoxGroupVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.chip.PlasmaGigaChipVariationsCompose
-import com.sdds.playground.sandbox.plasma.giga.integration.chip.group.PlasmaGigaChipGroupWideVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.chip.group.PlasmaGigaChipGroupDenseVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.integration.chip.group.PlasmaGigaChipGroupWideVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.chip.group.PlasmaGigaEmbeddedChipGroupDenseVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.chip.group.PlasmaGigaEmbeddedChipGroupWideVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.counter.PlasmaGigaCounterVariationsCompose

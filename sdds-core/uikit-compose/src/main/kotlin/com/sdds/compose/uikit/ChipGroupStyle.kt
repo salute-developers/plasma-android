@@ -32,6 +32,9 @@ interface ChipGroupStyle : Style {
      */
     val chipStyle: ChipStyle
 
+    /**
+     * Альфа в состоянии disabled
+     */
     val disableAlpha: Float
 
     companion object {
@@ -64,20 +67,33 @@ interface ChipGroupStyleBuilder : StyleBuilder<ChipGroupStyle> {
      */
     fun chipStyle(chipStyle: ChipStyle): ChipGroupStyleBuilder
 
+    /**
+     * Устанавливает альфу в состоянии disable [disableAlpha]
+     * @see ChipGroupStyle.disableAlpha
+     */
     fun disableAlpha(disableAlpha: Float): ChipGroupStyleBuilder
 }
 
 /**
  * Размеры и отступы компонента [ChipGroup]
- * @property gap горизонтальный отступ между элементами
- * @property lineSpacing вертикальный отступ между элементами
  */
 @Immutable
 interface ChipGroupDimensions {
+    /**
+     * Горизонтальный отступ между чипами
+     */
     val gap: Dp
+
+    /**
+     * Вертикальный отступ между чипами
+     */
     val lineSpacing: Dp
 
     companion object {
+
+        /**
+         * Возвращает билдер [ChipGroupDimensionsBuilder]
+         */
         fun builder(): ChipGroupDimensionsBuilder = DefaultChipGroupDimensions.Builder()
     }
 }
@@ -109,12 +125,24 @@ private class DefaultChipGroupDimensions(
     }
 }
 
+/**
+ * Билдер размеров для ChipGroup
+ */
 interface ChipGroupDimensionsBuilder {
 
+    /**
+     * Устаналивает горизонтальный отступ между чипами [gap]
+     */
     fun gap(gap: Dp): ChipGroupDimensionsBuilder
 
+    /**
+     * Устаналивает вертикальный отступ между чипами [lineSpacing]
+     */
     fun lineSpacing(lineSpacing: Dp): ChipGroupDimensionsBuilder
 
+    /**
+     * Вернёт экземпляр [ChipGroupDimensions]
+     */
     fun build(): ChipGroupDimensions
 }
 
