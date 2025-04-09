@@ -121,11 +121,6 @@ interface TextFieldStyle : Style {
      */
     val chipGroupStyle: ChipGroupStyle
 
-    /**
-     * Стиль чипов
-     */
-    val chipStyle: ChipStyle
-
     companion object {
 
         /**

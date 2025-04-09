@@ -21,14 +21,12 @@ import com.sdds.compose.uikit.multiplyAlpha
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
-import com.sdds.plasma.giga.styles.chip.EmbeddedChip
-import com.sdds.plasma.giga.styles.chip.L
-import com.sdds.plasma.giga.styles.chip.M
-import com.sdds.plasma.giga.styles.chip.S
-import com.sdds.plasma.giga.styles.chip.Secondary
-import com.sdds.plasma.giga.styles.chip.Xs
-import com.sdds.plasma.giga.styles.chipgroup.ChipGroup
-import com.sdds.plasma.giga.styles.chipgroup.Dense
+import com.sdds.plasma.giga.styles.chipgroup.EmbeddedChipGroupDense
+import com.sdds.plasma.giga.styles.chipgroup.L
+import com.sdds.plasma.giga.styles.chipgroup.M
+import com.sdds.plasma.giga.styles.chipgroup.S
+import com.sdds.plasma.giga.styles.chipgroup.Secondary
+import com.sdds.plasma.giga.styles.chipgroup.Xs
 import com.sdds.plasma.giga.theme.PlasmaGigaTheme
 import kotlin.Suppress
 import kotlin.jvm.JvmInline
@@ -509,7 +507,6 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
         }
         .captionStyle(PlasmaGigaTheme.typography.bodyXsNormal)
         .counterStyle(PlasmaGigaTheme.typography.bodyXsNormal)
-        .chipGroupStyle(ChipGroup.Dense.style())
         .captionPlacement(TextFieldHelperTextPlacement.Outer)
         .counterPlacement(TextFieldHelperTextPlacement.Outer)
         .colors {
@@ -578,7 +575,7 @@ public val TextAreaClear.Xs: WrapperTextAreaClearXs
         .prefixStyle(PlasmaGigaTheme.typography.bodyXsNormal)
         .suffixStyle(PlasmaGigaTheme.typography.bodyXsNormal)
         .placeholderStyle(PlasmaGigaTheme.typography.bodyXsNormal)
-        .chipStyle(EmbeddedChip.Xs.Secondary.style())
+        .chipGroupStyle(EmbeddedChipGroupDense.Xs.Secondary.style())
         .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextAreaClearXs)
 
@@ -677,7 +674,7 @@ public val TextAreaClear.S: WrapperTextAreaClearS
         .prefixStyle(PlasmaGigaTheme.typography.bodySNormal)
         .suffixStyle(PlasmaGigaTheme.typography.bodySNormal)
         .placeholderStyle(PlasmaGigaTheme.typography.bodySNormal)
-        .chipStyle(EmbeddedChip.S.Secondary.style())
+        .chipGroupStyle(EmbeddedChipGroupDense.S.Secondary.style())
         .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextAreaClearS)
 
@@ -822,7 +819,7 @@ public val TextAreaClear.M: WrapperTextAreaClearM
         .prefixStyle(PlasmaGigaTheme.typography.bodyMNormal)
         .suffixStyle(PlasmaGigaTheme.typography.bodyMNormal)
         .placeholderStyle(PlasmaGigaTheme.typography.bodyMNormal)
-        .chipStyle(EmbeddedChip.M.Secondary.style())
+        .chipGroupStyle(EmbeddedChipGroupDense.M.Secondary.style())
         .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextAreaClearM)
 
@@ -967,7 +964,7 @@ public val TextAreaClear.L: WrapperTextAreaClearL
         .prefixStyle(PlasmaGigaTheme.typography.bodyLNormal)
         .suffixStyle(PlasmaGigaTheme.typography.bodyLNormal)
         .placeholderStyle(PlasmaGigaTheme.typography.bodyLNormal)
-        .chipStyle(EmbeddedChip.L.Secondary.style())
+        .chipGroupStyle(EmbeddedChipGroupDense.L.Secondary.style())
         .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextAreaClearL)
 
@@ -1112,7 +1109,7 @@ public val TextAreaClear.Xl: WrapperTextAreaClearXl
         .prefixStyle(PlasmaGigaTheme.typography.bodyLNormal)
         .suffixStyle(PlasmaGigaTheme.typography.bodyLNormal)
         .placeholderStyle(PlasmaGigaTheme.typography.bodyLNormal)
-        .chipStyle(EmbeddedChip.L.Secondary.style())
+        .chipGroupStyle(EmbeddedChipGroupDense.L.Secondary.style())
         .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextAreaClearXl)
 

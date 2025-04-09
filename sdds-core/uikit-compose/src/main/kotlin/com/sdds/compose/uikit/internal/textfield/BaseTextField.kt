@@ -380,7 +380,6 @@ internal fun BaseTextField(
                         animation = animation,
                         chips = chipsContent,
                         chipGroupStyle = style.chipGroupStyle,
-                        chipStyle = style.chipStyle,
                         dimensions = dimensions,
                         verticalScrollState = verticalScrollState,
                         horizontalScrollState = horizontalScrollState,

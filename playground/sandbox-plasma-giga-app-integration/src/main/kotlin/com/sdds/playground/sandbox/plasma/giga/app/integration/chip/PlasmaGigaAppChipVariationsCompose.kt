@@ -52,8 +52,8 @@ internal object PlasmaGigaAppChipVariationsCompose : ComposeStyleProvider<String
             "XsAccentPilled" to { Chip.Xs.Pilled.Accent.style() },
 
             "LNegative" to { Chip.L.Negative.style() },
-            "MNegarive" to { Chip.M.Negative.style() },
-            "SNegarive" to { Chip.S.Negative.style() },
+            "MNegative" to { Chip.M.Negative.style() },
+            "SNegative" to { Chip.S.Negative.style() },
             "XsNegative" to { Chip.Xs.Negative.style() },
 
             "LNegativePilled" to { Chip.L.Pilled.Negative.style() },
@@ -62,8 +62,8 @@ internal object PlasmaGigaAppChipVariationsCompose : ComposeStyleProvider<String
             "XsNegativePilled" to { Chip.Xs.Pilled.Negative.style() },
 
             "LPositive" to { Chip.L.Positive.style() },
-            "MNegarive" to { Chip.M.Positive.style() },
-            "SNegarive" to { Chip.S.Positive.style() },
+            "MNegative" to { Chip.M.Positive.style() },
+            "SNegative" to { Chip.S.Positive.style() },
             "XsPositive" to { Chip.Xs.Positive.style() },
 
             "LPositivePilled" to { Chip.L.Pilled.Positive.style() },
@@ -72,8 +72,8 @@ internal object PlasmaGigaAppChipVariationsCompose : ComposeStyleProvider<String
             "XsPositivePilled" to { Chip.Xs.Pilled.Positive.style() },
 
             "LWarning" to { Chip.L.Warning.style() },
-            "MNegarive" to { Chip.M.Warning.style() },
-            "SNegarive" to { Chip.S.Warning.style() },
+            "MNegative" to { Chip.M.Warning.style() },
+            "SNegative" to { Chip.S.Warning.style() },
             "XsWarning" to { Chip.Xs.Warning.style() },
 
             "LWarningPilled" to { Chip.L.Pilled.Warning.style() },

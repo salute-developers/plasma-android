@@ -14,7 +14,6 @@ import com.sdds.plugin.themebuilder.internal.utils.capitalized
  */
 internal class TextFieldComposeVariationGenerator(
     private val textFieldType: TextFieldType,
-    private val chipStylesPackage: String,
     private val chipGroupStylesPackage: String,
     themeClassName: String,
     themePackage: String,
@@ -65,7 +64,6 @@ internal class TextFieldComposeVariationGenerator(
             counterStyleCall(props),
             optionalStyleCall(props),
             chipGroupStyleCall(props, ktFileBuilder),
-            chipStyleCall(props, ktFileBuilder),
             labelPlacementCall(props),
             captionPlacementCall(props),
             counterPlacementCall(props),
@@ -323,12 +321,6 @@ internal class TextFieldComposeVariationGenerator(
                     chipGroupStylesPackage,
                 )
             }.style())"
-        }
-    }
-
-    private fun chipStyleCall(props: TextFieldProperties, ktFileBuilder: KtFileBuilder): String? {
-        return props.chipStyle?.let {
-            ".chipStyle(${it.value.getComponentStyle(ktFileBuilder, chipStylesPackage)}.style())"
         }
     }
 
