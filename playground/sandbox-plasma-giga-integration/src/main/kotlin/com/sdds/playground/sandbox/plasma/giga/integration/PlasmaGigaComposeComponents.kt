@@ -23,7 +23,10 @@ import com.sdds.playground.sandbox.plasma.giga.integration.cell.compose.PlasmaGi
 import com.sdds.playground.sandbox.plasma.giga.integration.checkbox.PlasmaGigaCheckBoxVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.checkbox.group.PlasmaGigaCheckBoxGroupVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.chip.PlasmaGigaChipVariationsCompose
-import com.sdds.playground.sandbox.plasma.giga.integration.chip.group.PlasmaGigaChipGroupVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.integration.chip.group.PlasmaGigaChipGroupWideVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.integration.chip.group.PlasmaGigaChipGroupDenseVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.integration.chip.group.PlasmaGigaEmbeddedChipGroupDenseVariationsCompose
+import com.sdds.playground.sandbox.plasma.giga.integration.chip.group.PlasmaGigaEmbeddedChipGroupWideVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.counter.PlasmaGigaCounterVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.divider.compose.PlasmaGigaDividerVariationsCompose
 import com.sdds.playground.sandbox.plasma.giga.integration.indicator.compose.PlasmaGigaIndicatorVariationsCompose
@@ -119,8 +122,20 @@ object PlasmaGigaComposeComponents : ComponentsProviderCompose {
                 PlasmaGigaChipVariationsCompose,
             ),
             ComposeComponent(
-                ComponentKey.ChipGroup,
-                PlasmaGigaChipGroupVariationsCompose,
+                ComponentKey("ChipGroupDense", CoreComponent.CHIP_GROUP),
+                PlasmaGigaChipGroupDenseVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("ChipGroupWide", CoreComponent.CHIP_GROUP),
+                PlasmaGigaChipGroupWideVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("EmbeddedChipGroupDense", CoreComponent.CHIP_GROUP),
+                PlasmaGigaEmbeddedChipGroupDenseVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("EmbeddedChipGroupWide", CoreComponent.CHIP_GROUP),
+                PlasmaGigaEmbeddedChipGroupWideVariationsCompose,
             ),
             ComposeComponent(
                 ComponentKey.Counter,

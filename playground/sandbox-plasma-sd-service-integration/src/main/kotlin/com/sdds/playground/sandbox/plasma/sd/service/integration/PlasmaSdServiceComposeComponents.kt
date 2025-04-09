@@ -23,7 +23,10 @@ import com.sdds.playground.sandbox.plasma.sd.service.integration.cell.compose.Pl
 import com.sdds.playground.sandbox.plasma.sd.service.integration.checkbox.PlasmaSdServiceCheckBoxVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.checkbox.group.PlasmaSdServiceCheckBoxGroupVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.chip.PlasmaSdServiceChipVariationsCompose
-import com.sdds.playground.sandbox.plasma.sd.service.integration.chip.group.PlasmaSdServiceChipGroupVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.chip.group.PlasmaSdServiceChipGroupDenseVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.chip.group.PlasmaSdServiceChipGroupWideVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.chip.group.PlasmaSdServiceEmbeddedChipGroupDenseVariationsCompose
+import com.sdds.playground.sandbox.plasma.sd.service.integration.chip.group.PlasmaSdServiceEmbeddedChipGroupWideVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.counter.PlasmaSdServiceCounterVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.divider.compose.PlasmaSdServiceDividerVariationsCompose
 import com.sdds.playground.sandbox.plasma.sd.service.integration.indicator.compose.PlasmaSdServiceIndicatorVariationsCompose
@@ -123,8 +126,20 @@ object PlasmaSdServiceComposeComponents : ComponentsProviderCompose {
                 PlasmaSdServiceChipVariationsCompose,
             ),
             ComposeComponent(
-                ComponentKey.ChipGroup,
-                PlasmaSdServiceChipGroupVariationsCompose,
+                ComponentKey("ChipGroupDense", CoreComponent.CHIP_GROUP),
+                PlasmaSdServiceChipGroupDenseVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("ChipGroupWide", CoreComponent.CHIP_GROUP),
+                PlasmaSdServiceChipGroupWideVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("EmbeddedChipGroupDense", CoreComponent.CHIP_GROUP),
+                PlasmaSdServiceEmbeddedChipGroupDenseVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("EmbeddedChipGroupWide", CoreComponent.CHIP_GROUP),
+                PlasmaSdServiceEmbeddedChipGroupWideVariationsCompose,
             ),
             ComposeComponent(
                 ComponentKey.Counter,

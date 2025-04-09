@@ -23,7 +23,10 @@ import com.sdds.playground.sandbox.sdds.serv.integration.cell.compose.SddsServCe
 import com.sdds.playground.sandbox.sdds.serv.integration.checkbox.SddsServCheckBoxVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.checkbox.group.SddsServCheckBoxGroupVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.chip.SddsServChipVariationsCompose
-import com.sdds.playground.sandbox.sdds.serv.integration.chip.group.SddsServChipGroupVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.chip.group.SddsServChipGroupDenseVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.chip.group.SddsServChipGroupWideVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.chip.group.SddsServEmbeddedChipGroupDenseVariationsCompose
+import com.sdds.playground.sandbox.sdds.serv.integration.chip.group.SddsServEmbeddedChipGroupWideVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.counter.SddsServCounterVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.divider.compose.SddsServDividerVariationsCompose
 import com.sdds.playground.sandbox.sdds.serv.integration.indicator.compose.SddsServIndicatorVariationsCompose
@@ -119,8 +122,20 @@ object SddsServComposeComponents : ComponentsProviderCompose {
                 SddsServChipVariationsCompose,
             ),
             ComposeComponent(
-                ComponentKey.ChipGroup,
-                SddsServChipGroupVariationsCompose,
+                ComponentKey("ChipGroupDense", CoreComponent.CHIP_GROUP),
+                SddsServChipGroupDenseVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("ChipGroupWide", CoreComponent.CHIP_GROUP),
+                SddsServChipGroupWideVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("EmbeddedChipGroupDense", CoreComponent.CHIP_GROUP),
+                SddsServEmbeddedChipGroupDenseVariationsCompose,
+            ),
+            ComposeComponent(
+                ComponentKey("EmbeddedChipGroupWide", CoreComponent.CHIP_GROUP),
+                SddsServEmbeddedChipGroupWideVariationsCompose,
             ),
             ComposeComponent(
                 ComponentKey.Counter,
