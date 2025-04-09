@@ -244,21 +244,7 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
             val variationId = variation.id.toCamelCase()
             val viewWrapperName = if (isRoot) variationId else "$camelComponentName$variationId"
             newViewExtensionReceiverName = "Wrapper${viewWrapperName}View"
-            val description = if (variation.parent == null) {
-                """
-                    Интерфейс, который реализуют все обертки вариаций корневого уровня 
-                    и обертки их подвариаций. 
-                    Является ресивером для extension-функций view, 
-                    применимых к этим оберткам.
-                """
-            } else {
-                """
-                    Интерфейс, который реализуют все обертки вариации ${variation.name}
-                    и обертки ее подвариаций.
-                    Является ресивером для extension-функций view,
-                    применимых к этим оберткам.
-                """
-            }.trimIndent()
+            val description = getInterfaceDescription(variation)
             addVariationWrapperInterface(
                 interfaceName = newViewExtensionReceiverName,
                 superTypeName = viewExtensionReceiverName,
@@ -299,6 +285,24 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
                 viewExtensionReceiverName = newViewExtensionReceiverName,
             )
         }
+    }
+
+    private fun getInterfaceDescription(variation: VariationNode<PO>): String {
+        return if (variation.parent == null) {
+            """
+                    Интерфейс, который реализуют все обертки вариаций корневого уровня 
+                    и обертки их подвариаций. 
+                    Является ресивером для extension-функций view, 
+                    применимых к этим оберткам.
+                """
+        } else {
+            """
+                    Интерфейс, который реализуют все обертки вариации ${variation.name}
+                    и обертки ее подвариаций.
+                    Является ресивером для extension-функций view,
+                    применимых к этим оберткам.
+                """
+        }.trimIndent()
     }
 
     private fun KtFileBuilder.addVariationWrapperInterface(
