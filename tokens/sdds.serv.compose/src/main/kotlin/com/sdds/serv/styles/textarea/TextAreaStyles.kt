@@ -22,14 +22,12 @@ import com.sdds.compose.uikit.multiplyAlpha
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
-import com.sdds.serv.styles.chip.EmbeddedChip
-import com.sdds.serv.styles.chip.L
-import com.sdds.serv.styles.chip.M
-import com.sdds.serv.styles.chip.S
-import com.sdds.serv.styles.chip.Secondary
-import com.sdds.serv.styles.chip.Xs
-import com.sdds.serv.styles.chipgroup.ChipGroup
-import com.sdds.serv.styles.chipgroup.Dense
+import com.sdds.serv.styles.chipgroup.EmbeddedChipGroupDense
+import com.sdds.serv.styles.chipgroup.L
+import com.sdds.serv.styles.chipgroup.M
+import com.sdds.serv.styles.chipgroup.S
+import com.sdds.serv.styles.chipgroup.Secondary
+import com.sdds.serv.styles.chipgroup.Xs
 import com.sdds.serv.theme.SddsServTheme
 import kotlin.Suppress
 import kotlin.jvm.JvmInline
@@ -456,7 +454,6 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
         }
         .captionStyle(SddsServTheme.typography.bodyXsNormal)
         .counterStyle(SddsServTheme.typography.bodyXsNormal)
-        .chipGroupStyle(ChipGroup.Dense.style())
         .captionPlacement(TextFieldHelperTextPlacement.Inner)
         .counterPlacement(TextFieldHelperTextPlacement.Inner)
         .colors {
@@ -544,7 +541,7 @@ public val TextArea.Xs: WrapperTextAreaXs
         .prefixStyle(SddsServTheme.typography.bodyXsNormal)
         .suffixStyle(SddsServTheme.typography.bodyXsNormal)
         .placeholderStyle(SddsServTheme.typography.bodyXsNormal)
-        .chipStyle(EmbeddedChip.Xs.Secondary.style())
+        .chipGroupStyle(EmbeddedChipGroupDense.Xs.Secondary.style())
         .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextAreaXs)
 
@@ -646,7 +643,7 @@ public val TextArea.S: WrapperTextAreaS
         .prefixStyle(SddsServTheme.typography.bodySNormal)
         .suffixStyle(SddsServTheme.typography.bodySNormal)
         .placeholderStyle(SddsServTheme.typography.bodySNormal)
-        .chipStyle(EmbeddedChip.S.Secondary.style())
+        .chipGroupStyle(EmbeddedChipGroupDense.S.Secondary.style())
         .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextAreaS)
 
@@ -791,7 +788,7 @@ public val TextArea.M: WrapperTextAreaM
         .prefixStyle(SddsServTheme.typography.bodyMNormal)
         .suffixStyle(SddsServTheme.typography.bodyMNormal)
         .placeholderStyle(SddsServTheme.typography.bodyMNormal)
-        .chipStyle(EmbeddedChip.M.Secondary.style())
+        .chipGroupStyle(EmbeddedChipGroupDense.M.Secondary.style())
         .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextAreaM)
 
@@ -936,7 +933,7 @@ public val TextArea.L: WrapperTextAreaL
         .prefixStyle(SddsServTheme.typography.bodyLNormal)
         .suffixStyle(SddsServTheme.typography.bodyLNormal)
         .placeholderStyle(SddsServTheme.typography.bodyLNormal)
-        .chipStyle(EmbeddedChip.L.Secondary.style())
+        .chipGroupStyle(EmbeddedChipGroupDense.L.Secondary.style())
         .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextAreaL)
 
@@ -1081,7 +1078,7 @@ public val TextArea.Xl: WrapperTextAreaXl
         .prefixStyle(SddsServTheme.typography.bodyLNormal)
         .suffixStyle(SddsServTheme.typography.bodyLNormal)
         .placeholderStyle(SddsServTheme.typography.bodyLNormal)
-        .chipStyle(EmbeddedChip.L.Secondary.style())
+        .chipGroupStyle(EmbeddedChipGroupDense.L.Secondary.style())
         .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextAreaXl)
 
