@@ -6,11 +6,11 @@ import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 import com.sdds.stylessalute.styles.chipgroup.Accent
 import com.sdds.stylessalute.styles.chipgroup.Default
-import com.sdds.stylessalute.styles.chipgroup.Secondary
 import com.sdds.stylessalute.styles.chipgroup.EmbeddedChipGroupWide
 import com.sdds.stylessalute.styles.chipgroup.L
 import com.sdds.stylessalute.styles.chipgroup.M
 import com.sdds.stylessalute.styles.chipgroup.S
+import com.sdds.stylessalute.styles.chipgroup.Secondary
 import com.sdds.stylessalute.styles.chipgroup.Xs
 
 internal object StylesSaluteEmbeddedChipGroupWideVariationsCompose :
