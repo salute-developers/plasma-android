@@ -195,6 +195,10 @@
     <dimen name="sdkit_cmp_chip_content_end_padding_xs">4.0dp</dimen>
     <dimen name="sdkit_cmp_chip_content_start_size_xs">24.0dp</dimen>
     <dimen name="sdkit_cmp_chip_content_end_size_xs">24.0dp</dimen>
+    <dimen name="sdkit_cmp_chip_group_dense_gap_ChipGroupDense">4.0dp</dimen>
+    <dimen name="sdkit_cmp_chip_group_dense_line_spacing_ChipGroupDense">4.0dp</dimen>
+    <dimen name="sdkit_cmp_chip_group_wide_gap_ChipGroupWide">16.0dp</dimen>
+    <dimen name="sdkit_cmp_chip_group_wide_line_spacing_ChipGroupWide">16.0dp</dimen>
     <dimen name="sdkit_cmp_counter_minHeight_l">56.0dp</dimen>
     <dimen name="sdkit_cmp_counter_minWidth_l">56.0dp</dimen>
     <dimen name="sdkit_cmp_counter_paddingStart_l">20.0dp</dimen>

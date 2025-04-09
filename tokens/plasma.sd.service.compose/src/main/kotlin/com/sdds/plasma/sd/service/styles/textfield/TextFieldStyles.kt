@@ -22,14 +22,12 @@ import com.sdds.compose.uikit.multiplyAlpha
 import com.sdds.compose.uikit.style.BuilderWrapper
 import com.sdds.compose.uikit.style.style
 import com.sdds.compose.uikit.style.wrap
-import com.sdds.plasma.sd.service.styles.chip.EmbeddedChip
-import com.sdds.plasma.sd.service.styles.chip.L
-import com.sdds.plasma.sd.service.styles.chip.M
-import com.sdds.plasma.sd.service.styles.chip.S
-import com.sdds.plasma.sd.service.styles.chip.Secondary
-import com.sdds.plasma.sd.service.styles.chip.Xs
-import com.sdds.plasma.sd.service.styles.chipgroup.ChipGroup
-import com.sdds.plasma.sd.service.styles.chipgroup.Dense
+import com.sdds.plasma.sd.service.styles.chipgroup.EmbeddedChipGroupDense
+import com.sdds.plasma.sd.service.styles.chipgroup.L
+import com.sdds.plasma.sd.service.styles.chipgroup.M
+import com.sdds.plasma.sd.service.styles.chipgroup.S
+import com.sdds.plasma.sd.service.styles.chipgroup.Secondary
+import com.sdds.plasma.sd.service.styles.chipgroup.Xs
 import com.sdds.plasma.sd.service.theme.PlasmaSdServiceTheme
 import kotlin.Suppress
 import kotlin.jvm.JvmInline
@@ -476,7 +474,6 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
         }
         .captionStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
         .counterStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
-        .chipGroupStyle(ChipGroup.Dense.style())
         .captionPlacement(TextFieldHelperTextPlacement.Outer)
         .counterPlacement(TextFieldHelperTextPlacement.Outer)
         .colors {
@@ -551,7 +548,7 @@ public val TextField.Xs: WrapperTextFieldXs
         .prefixStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
         .suffixStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
         .placeholderStyle(PlasmaSdServiceTheme.typography.bodyXsNormal)
-        .chipStyle(EmbeddedChip.Xs.Secondary.style())
+        .chipGroupStyle(EmbeddedChipGroupDense.Xs.Secondary.style())
         .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextFieldXs)
 
@@ -652,7 +649,7 @@ public val TextField.S: WrapperTextFieldS
         .prefixStyle(PlasmaSdServiceTheme.typography.bodySNormal)
         .suffixStyle(PlasmaSdServiceTheme.typography.bodySNormal)
         .placeholderStyle(PlasmaSdServiceTheme.typography.bodySNormal)
-        .chipStyle(EmbeddedChip.S.Secondary.style())
+        .chipGroupStyle(EmbeddedChipGroupDense.S.Secondary.style())
         .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextFieldS)
 
@@ -796,7 +793,7 @@ public val TextField.M: WrapperTextFieldM
         .prefixStyle(PlasmaSdServiceTheme.typography.bodyMNormal)
         .suffixStyle(PlasmaSdServiceTheme.typography.bodyMNormal)
         .placeholderStyle(PlasmaSdServiceTheme.typography.bodyMNormal)
-        .chipStyle(EmbeddedChip.M.Secondary.style())
+        .chipGroupStyle(EmbeddedChipGroupDense.M.Secondary.style())
         .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextFieldM)
 
@@ -940,7 +937,7 @@ public val TextField.L: WrapperTextFieldL
         .prefixStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
         .suffixStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
         .placeholderStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
-        .chipStyle(EmbeddedChip.L.Secondary.style())
+        .chipGroupStyle(EmbeddedChipGroupDense.L.Secondary.style())
         .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextFieldL)
 
@@ -1084,7 +1081,7 @@ public val TextField.Xl: WrapperTextFieldXl
         .prefixStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
         .suffixStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
         .placeholderStyle(PlasmaSdServiceTheme.typography.bodyLNormal)
-        .chipStyle(EmbeddedChip.L.Secondary.style())
+        .chipGroupStyle(EmbeddedChipGroupDense.L.Secondary.style())
         .labelPlacement(TextFieldLabelPlacement.None)
         .wrap(::WrapperTextFieldXl)
 
