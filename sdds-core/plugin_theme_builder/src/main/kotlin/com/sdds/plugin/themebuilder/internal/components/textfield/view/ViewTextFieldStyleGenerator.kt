@@ -163,8 +163,7 @@ internal open class ViewTextFieldStyleGenerator(
         variationNode: VariationNode<TextFieldProperties>,
     ) {
         val chipGroupStyle = getProperty(variationNode) { it.chipGroupStyle }
-        val chipStyle = getProperty(variationNode) { it.chipStyle }
-        if (chipGroupStyle.isNullOrInherited && chipStyle.isNullOrInherited) {
+        if (chipGroupStyle.isNullOrInherited) {
             return
         }
         val overlayStyleName = buildString {
@@ -181,13 +180,6 @@ internal open class ViewTextFieldStyleGenerator(
             chipGroupStyle?.value?.let {
                 componentStyleAttribute(
                     "sd_chipGroupStyle",
-                    it.camelCaseValue(),
-                )
-            }
-
-            chipStyle?.value?.let {
-                componentStyleAttribute(
-                    "sd_chipStyle",
                     it.camelCaseValue(),
                 )
             }
