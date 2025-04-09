@@ -7,7 +7,6 @@
 
 package com.sdds.serv.styles.chip
 
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.ChipStyle
@@ -25,7 +24,7 @@ import kotlin.jvm.JvmName
 /**
  * Базовый интерфейс для всех оберток этого стиля
  */
-public interface WrapperChip : BuilderWrapper<ChipStyle, ChipStyleBuilder>
+public interface WrapperEmbeddedChip : BuilderWrapper<ChipStyle, ChipStyleBuilder>
 
 /**
  * Интерфейс, который реализуют все обертки вариаций корневого уровня
@@ -33,81 +32,49 @@ public interface WrapperChip : BuilderWrapper<ChipStyle, ChipStyleBuilder>
  * Является ресивером для extension-функций view,
  * применимых к этим оберткам.
  */
-public interface WrapperChipView : WrapperChip
+public interface WrapperEmbeddedChipView : WrapperEmbeddedChip
 
 /**
  * Терминальная обертка
  */
 @JvmInline
-public value class WrapperChipTerminate(
+public value class WrapperEmbeddedChipTerminate(
     public override val builder: ChipStyleBuilder,
-) : WrapperChip
+) : WrapperEmbeddedChip
 
 /**
  * Обертка для вариации L
  */
 @JvmInline
-public value class WrapperChipL(
+public value class WrapperEmbeddedChipL(
     public override val builder: ChipStyleBuilder,
-) : WrapperChipView
-
-/**
- * Обертка для вариации LPilled
- */
-@JvmInline
-public value class WrapperChipLPilled(
-    public override val builder: ChipStyleBuilder,
-) : WrapperChipView
+) : WrapperEmbeddedChipView
 
 /**
  * Обертка для вариации M
  */
 @JvmInline
-public value class WrapperChipM(
+public value class WrapperEmbeddedChipM(
     public override val builder: ChipStyleBuilder,
-) : WrapperChipView
-
-/**
- * Обертка для вариации MPilled
- */
-@JvmInline
-public value class WrapperChipMPilled(
-    public override val builder: ChipStyleBuilder,
-) : WrapperChipView
+) : WrapperEmbeddedChipView
 
 /**
  * Обертка для вариации S
  */
 @JvmInline
-public value class WrapperChipS(
+public value class WrapperEmbeddedChipS(
     public override val builder: ChipStyleBuilder,
-) : WrapperChipView
-
-/**
- * Обертка для вариации SPilled
- */
-@JvmInline
-public value class WrapperChipSPilled(
-    public override val builder: ChipStyleBuilder,
-) : WrapperChipView
+) : WrapperEmbeddedChipView
 
 /**
  * Обертка для вариации Xs
  */
 @JvmInline
-public value class WrapperChipXs(
+public value class WrapperEmbeddedChipXs(
     public override val builder: ChipStyleBuilder,
-) : WrapperChipView
+) : WrapperEmbeddedChipView
 
-/**
- * Обертка для вариации XsPilled
- */
-@JvmInline
-public value class WrapperChipXsPilled(
-    public override val builder: ChipStyleBuilder,
-) : WrapperChipView
-
-public val WrapperChipView.Default: WrapperChipTerminate
+public val WrapperEmbeddedChipView.Default: WrapperEmbeddedChipTerminate
     @Composable
     get() = builder
         .colors {
@@ -144,9 +111,9 @@ public val WrapperChipView.Default: WrapperChipTerminate
                 ),
             )
         }
-        .wrap(::WrapperChipTerminate)
+        .wrap(::WrapperEmbeddedChipTerminate)
 
-public val WrapperChipView.Accent: WrapperChipTerminate
+public val WrapperEmbeddedChipView.Accent: WrapperEmbeddedChipTerminate
     @Composable
     get() = builder
         .colors {
@@ -183,9 +150,9 @@ public val WrapperChipView.Accent: WrapperChipTerminate
                 ),
             )
         }
-        .wrap(::WrapperChipTerminate)
+        .wrap(::WrapperEmbeddedChipTerminate)
 
-public val WrapperChipView.Negative: WrapperChipTerminate
+public val WrapperEmbeddedChipView.Negative: WrapperEmbeddedChipTerminate
     @Composable
     get() = builder
         .colors {
@@ -222,9 +189,9 @@ public val WrapperChipView.Negative: WrapperChipTerminate
                 ),
             )
         }
-        .wrap(::WrapperChipTerminate)
+        .wrap(::WrapperEmbeddedChipTerminate)
 
-public val WrapperChipView.Positive: WrapperChipTerminate
+public val WrapperEmbeddedChipView.Positive: WrapperEmbeddedChipTerminate
     @Composable
     get() = builder
         .colors {
@@ -261,9 +228,9 @@ public val WrapperChipView.Positive: WrapperChipTerminate
                 ),
             )
         }
-        .wrap(::WrapperChipTerminate)
+        .wrap(::WrapperEmbeddedChipTerminate)
 
-public val WrapperChipView.Secondary: WrapperChipTerminate
+public val WrapperEmbeddedChipView.Secondary: WrapperEmbeddedChipTerminate
     @Composable
     get() = builder
         .colors {
@@ -300,9 +267,9 @@ public val WrapperChipView.Secondary: WrapperChipTerminate
                 ),
             )
         }
-        .wrap(::WrapperChipTerminate)
+        .wrap(::WrapperEmbeddedChipTerminate)
 
-public val WrapperChipView.Warning: WrapperChipTerminate
+public val WrapperEmbeddedChipView.Warning: WrapperEmbeddedChipTerminate
     @Composable
     get() = builder
         .colors {
@@ -339,109 +306,81 @@ public val WrapperChipView.Warning: WrapperChipTerminate
                 ),
             )
         }
-        .wrap(::WrapperChipTerminate)
+        .wrap(::WrapperEmbeddedChipTerminate)
 
 private val ChipStyleBuilder.invariantProps: ChipStyleBuilder
     @Composable
     get() = this
         .disableAlpha(0.4f)
 
-public val Chip.L: WrapperChipL
+public val EmbeddedChip.L: WrapperEmbeddedChipL
     @Composable
-    @JvmName("WrapperChipL")
+    @JvmName("WrapperEmbeddedChipL")
     get() = ChipStyle.builder(this)
         .invariantProps
-        .shape(SddsServTheme.shapes.roundM)
+        .shape(SddsServTheme.shapes.roundM.adjustBy(all = -4.0.dp))
         .labelStyle(SddsServTheme.typography.bodyLNormal)
         .dimensions {
-            height(48.0.dp)
-            paddingStart(16.0.dp)
-            paddingEnd(16.0.dp)
+            height(44.0.dp)
+            paddingStart(14.0.dp)
+            paddingEnd(12.0.dp)
             contentStartPadding(8.0.dp)
             contentEndPadding(8.0.dp)
             contentStartSize(24.0.dp)
             contentEndSize(24.0.dp)
         }
-        .wrap(::WrapperChipL)
+        .wrap(::WrapperEmbeddedChipL)
 
-public val WrapperChipL.Pilled: WrapperChipLPilled
+public val EmbeddedChip.M: WrapperEmbeddedChipM
     @Composable
-    @JvmName("WrapperChipLPilled")
-    get() = builder
-        .shape(CircleShape)
-        .wrap(::WrapperChipLPilled)
-
-public val Chip.M: WrapperChipM
-    @Composable
-    @JvmName("WrapperChipM")
+    @JvmName("WrapperEmbeddedChipM")
     get() = ChipStyle.builder(this)
         .invariantProps
-        .shape(SddsServTheme.shapes.roundM.adjustBy(all = -2.0.dp))
+        .shape(SddsServTheme.shapes.roundM.adjustBy(all = -6.0.dp))
         .labelStyle(SddsServTheme.typography.bodyMNormal)
         .dimensions {
-            height(40.0.dp)
-            paddingStart(14.0.dp)
-            paddingEnd(14.0.dp)
+            height(36.0.dp)
+            paddingStart(12.0.dp)
+            paddingEnd(10.0.dp)
             contentStartPadding(6.0.dp)
             contentEndPadding(6.0.dp)
             contentStartSize(24.0.dp)
             contentEndSize(24.0.dp)
         }
-        .wrap(::WrapperChipM)
+        .wrap(::WrapperEmbeddedChipM)
 
-public val WrapperChipM.Pilled: WrapperChipMPilled
+public val EmbeddedChip.S: WrapperEmbeddedChipS
     @Composable
-    @JvmName("WrapperChipMPilled")
-    get() = builder
-        .shape(CircleShape)
-        .wrap(::WrapperChipMPilled)
-
-public val Chip.S: WrapperChipS
-    @Composable
-    @JvmName("WrapperChipS")
+    @JvmName("WrapperEmbeddedChipS")
     get() = ChipStyle.builder(this)
         .invariantProps
-        .shape(SddsServTheme.shapes.roundS)
+        .shape(SddsServTheme.shapes.roundM.adjustBy(all = -8.0.dp))
         .labelStyle(SddsServTheme.typography.bodySNormal)
         .dimensions {
-            height(32.0.dp)
-            paddingStart(12.0.dp)
-            paddingEnd(12.0.dp)
+            height(28.0.dp)
+            paddingStart(10.0.dp)
+            paddingEnd(8.0.dp)
             contentStartPadding(4.0.dp)
             contentEndPadding(4.0.dp)
             contentStartSize(16.0.dp)
             contentEndSize(16.0.dp)
         }
-        .wrap(::WrapperChipS)
+        .wrap(::WrapperEmbeddedChipS)
 
-public val WrapperChipS.Pilled: WrapperChipSPilled
+public val EmbeddedChip.Xs: WrapperEmbeddedChipXs
     @Composable
-    @JvmName("WrapperChipSPilled")
-    get() = builder
-        .shape(CircleShape)
-        .wrap(::WrapperChipSPilled)
-
-public val Chip.Xs: WrapperChipXs
-    @Composable
-    @JvmName("WrapperChipXs")
+    @JvmName("WrapperEmbeddedChipXs")
     get() = ChipStyle.builder(this)
         .invariantProps
-        .shape(SddsServTheme.shapes.roundXs)
+        .shape(SddsServTheme.shapes.roundS.adjustBy(all = -6.0.dp))
         .labelStyle(SddsServTheme.typography.bodyXsNormal)
         .dimensions {
-            height(24.0.dp)
-            paddingStart(10.0.dp)
-            paddingEnd(10.0.dp)
+            height(20.0.dp)
+            paddingStart(6.0.dp)
+            paddingEnd(6.0.dp)
             contentStartPadding(2.0.dp)
             contentEndPadding(2.0.dp)
             contentStartSize(12.0.dp)
             contentEndSize(12.0.dp)
         }
-        .wrap(::WrapperChipXs)
-
-public val WrapperChipXs.Pilled: WrapperChipXsPilled
-    @Composable
-    @JvmName("WrapperChipXsPilled")
-    get() = builder
-        .shape(CircleShape)
-        .wrap(::WrapperChipXsPilled)
+        .wrap(::WrapperEmbeddedChipXs)

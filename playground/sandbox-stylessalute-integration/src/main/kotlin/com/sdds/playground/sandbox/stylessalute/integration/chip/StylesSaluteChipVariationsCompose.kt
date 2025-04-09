@@ -2,6 +2,7 @@ package com.sdds.playground.sandbox.stylessalute.integration.chip
 
 import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.ChipStyle
+import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 import com.sdds.stylessalute.styles.chip.Accent
 import com.sdds.stylessalute.styles.chip.Chip
@@ -21,29 +22,29 @@ internal object StylesSaluteChipVariationsCompose : ComposeStyleProvider<String,
         "SDefault" to { Chip.S.Default.style() },
         "XsDefault" to { Chip.Xs.Default.style() },
 
-        "LDefaultPilled" to { Chip.L.Default.Pilled.style() },
-        "MDefaultPilled" to { Chip.M.Default.Pilled.style() },
-        "SDefaultPilled" to { Chip.S.Default.Pilled.style() },
-        "XsDefaultPilled" to { Chip.Xs.Default.Pilled.style() },
+        "LDefaultPilled" to { Chip.L.Pilled.Default.style() },
+        "MDefaultPilled" to { Chip.M.Pilled.Default.style() },
+        "SDefaultPilled" to { Chip.S.Pilled.Default.style() },
+        "XsDefaultPilled" to { Chip.Xs.Pilled.Default.style() },
 
         "LSecondary" to { Chip.L.Secondary.style() },
         "MSecondary" to { Chip.M.Secondary.style() },
         "SSecondary" to { Chip.S.Secondary.style() },
         "XsSecondary" to { Chip.Xs.Secondary.style() },
 
-        "LSecondaryPilled" to { Chip.L.Secondary.Pilled.style() },
-        "MSecondaryPilled" to { Chip.M.Secondary.Pilled.style() },
-        "SSecondaryPilled" to { Chip.S.Secondary.Pilled.style() },
-        "XsSecondaryPilled" to { Chip.Xs.Secondary.Pilled.style() },
+        "LSecondaryPilled" to { Chip.L.Pilled.Secondary.style() },
+        "MSecondaryPilled" to { Chip.M.Pilled.Secondary.style() },
+        "SSecondaryPilled" to { Chip.S.Pilled.Secondary.style() },
+        "XsSecondaryPilled" to { Chip.Xs.Pilled.Secondary.style() },
 
         "LAccent" to { Chip.L.Accent.style() },
         "MAccent" to { Chip.M.Accent.style() },
         "SAccent" to { Chip.S.Accent.style() },
         "XsAccent" to { Chip.Xs.Accent.style() },
 
-        "LAccentPilled" to { Chip.L.Accent.Pilled.style() },
-        "MAccentPilled" to { Chip.M.Accent.Pilled.style() },
-        "SAccentPilled" to { Chip.S.Accent.Pilled.style() },
-        "XsAccentPilled" to { Chip.Xs.Accent.Pilled.style() },
+        "LAccentPilled" to { Chip.L.Pilled.Accent.style() },
+        "MAccentPilled" to { Chip.M.Pilled.Accent.style() },
+        "SAccentPilled" to { Chip.S.Pilled.Accent.style() },
+        "XsAccentPilled" to { Chip.Xs.Pilled.Accent.style() },
     )
 }

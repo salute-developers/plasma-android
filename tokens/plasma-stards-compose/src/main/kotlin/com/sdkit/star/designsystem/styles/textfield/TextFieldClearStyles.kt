@@ -212,9 +212,6 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
             boxPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_box_padding_end_TextFieldClear))
             optionalPadding(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_optional_padding_TextFieldClear))
             helperTextPadding(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_helper_text_padding_TextFieldClear))
-            chipsPadding(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_chips_padding_TextFieldClear))
-            chipsPaddingStart(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_chips_padding_start_TextFieldClear))
-            chipsPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_text_field_clear_chips_padding_end_TextFieldClear))
         }
         .captionStyle(StarDsTheme.typography.bodyXsNormal)
         .counterStyle(StarDsTheme.typography.bodyXsNormal)

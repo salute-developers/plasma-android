@@ -163,7 +163,6 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
         .singleLine(false)
         .dimensions {
             optionalPadding(dimensionResource(R.dimen.sdkit_cmp_text_area_optional_padding_TextArea))
-            chipsPadding(dimensionResource(R.dimen.sdkit_cmp_text_area_chips_padding_TextArea))
         }
         .captionStyle(StarDsTheme.typography.bodyXsNormal)
         .counterStyle(StarDsTheme.typography.bodyXsNormal)
