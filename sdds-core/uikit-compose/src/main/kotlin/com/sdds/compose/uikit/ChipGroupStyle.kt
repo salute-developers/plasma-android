@@ -1,5 +1,6 @@
 package com.sdds.compose.uikit
 
+import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.compositionLocalOf
@@ -25,12 +26,20 @@ interface ChipGroupStyle : Style {
      */
     val dimensions: ChipGroupDimensions
 
+    /**
+     * Стиль чипа
+     * @see ChipStyle
+     */
+    val chipStyle: ChipStyle
+
+    val disableAlpha: Float
+
     companion object {
 
         /**
          * Возвращает экземпляр [ChipGroupStyleBuilder]
          */
-        fun builder(): ChipGroupStyleBuilder = DefaultChipGroupStyle.Builder()
+        fun builder(receiver: Any? = null): ChipGroupStyleBuilder = DefaultChipGroupStyle.Builder()
     }
 }
 
@@ -45,36 +54,101 @@ interface ChipGroupStyleBuilder : StyleBuilder<ChipGroupStyle> {
      * @see ChipGroupStyle.dimensions
      * @see ChipGroupDimensions
      */
-    fun dimensions(dimensions: ChipGroupDimensions): ChipGroupStyleBuilder
+    @Composable
+    fun dimensions(builder: @Composable ChipGroupDimensionsBuilder.() -> Unit): ChipGroupStyleBuilder
+
+    /**
+     * Устанавливает стиль чипа [chipStyle]
+     * @see ChipGroupStyle.chipStyle
+     * @see ChipStyle
+     */
+    fun chipStyle(chipStyle: ChipStyle): ChipGroupStyleBuilder
+
+    fun disableAlpha(disableAlpha: Float): ChipGroupStyleBuilder
 }
 
 /**
  * Размеры и отступы компонента [ChipGroup]
- * @property horizontalSpacing горизонтальный отступ между элементами
- * @property verticalSpacing вертикальный отступ между элементами
+ * @property gap горизонтальный отступ между элементами
+ * @property lineSpacing вертикальный отступ между элементами
  */
 @Immutable
-data class ChipGroupDimensions(
-    val horizontalSpacing: Dp = 2.dp,
-    val verticalSpacing: Dp = 2.dp,
-)
+interface ChipGroupDimensions {
+    val gap: Dp
+    val lineSpacing: Dp
+
+    companion object {
+        fun builder(): ChipGroupDimensionsBuilder = DefaultChipGroupDimensions.Builder()
+    }
+}
+
+@Immutable
+private class DefaultChipGroupDimensions(
+    override val gap: Dp,
+    override val lineSpacing: Dp,
+) : ChipGroupDimensions {
+
+    class Builder : ChipGroupDimensionsBuilder {
+        private var gap: Dp? = null
+        private var lineSpacing: Dp? = null
+
+        override fun gap(gap: Dp) = apply {
+            this.gap = gap
+        }
+
+        override fun lineSpacing(lineSpacing: Dp) = apply {
+            this.lineSpacing = lineSpacing
+        }
+
+        override fun build(): ChipGroupDimensions {
+            return DefaultChipGroupDimensions(
+                gap = gap ?: 2.dp,
+                lineSpacing = lineSpacing ?: 2.dp,
+            )
+        }
+    }
+}
+
+interface ChipGroupDimensionsBuilder {
+
+    fun gap(gap: Dp): ChipGroupDimensionsBuilder
+
+    fun lineSpacing(lineSpacing: Dp): ChipGroupDimensionsBuilder
+
+    fun build(): ChipGroupDimensions
+}
 
 @Immutable
 private data class DefaultChipGroupStyle(
     override val dimensions: ChipGroupDimensions,
+    override val chipStyle: ChipStyle,
+    override val disableAlpha: Float,
 ) : ChipGroupStyle {
 
     class Builder : ChipGroupStyleBuilder {
 
-        private var dimensions: ChipGroupDimensions? = null
+        private var dimensionsBuilder: ChipGroupDimensionsBuilder = ChipGroupDimensions.builder()
+        private var chipStyle: ChipStyle? = null
+        private var disableAlpha: Float? = null
 
-        override fun dimensions(dimensions: ChipGroupDimensions) = apply {
-            this.dimensions = dimensions
+        @Composable
+        override fun dimensions(builder: @Composable (ChipGroupDimensionsBuilder.() -> Unit)) = apply {
+            this.dimensionsBuilder.builder()
+        }
+
+        override fun chipStyle(chipStyle: ChipStyle) = apply {
+            this.chipStyle = chipStyle
+        }
+
+        override fun disableAlpha(disableAlpha: Float) = apply {
+            this.disableAlpha = disableAlpha
         }
 
         override fun style(): ChipGroupStyle =
             DefaultChipGroupStyle(
-                dimensions = dimensions ?: ChipGroupDimensions(),
+                dimensions = dimensionsBuilder.build(),
+                chipStyle = chipStyle ?: ChipStyle.builder().style(),
+                disableAlpha = disableAlpha ?: 0.4f,
             )
     }
 }

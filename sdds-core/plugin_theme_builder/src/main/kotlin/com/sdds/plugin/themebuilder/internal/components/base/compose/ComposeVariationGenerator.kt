@@ -280,7 +280,9 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
         val hasViewVariations = variation.value.view.isNotEmpty()
         val newViewExtensionReceiverName: String
         if (hasViewVariations) {
-            newViewExtensionReceiverName = "Wrapper${variation.id.toCamelCase()}View"
+            val variationId = variation.id.toCamelCase()
+            val viewWrapperName = if (isRoot) variationId else "$camelComponentName$variationId"
+            newViewExtensionReceiverName = "Wrapper${viewWrapperName}View"
             addVariationWrapperInterface(
                 interfaceName = newViewExtensionReceiverName,
                 superTypeName = viewExtensionReceiverName,

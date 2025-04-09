@@ -1,6 +1,7 @@
 package com.sdds.compose.uikit
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.ui.Modifier
 import com.sdds.compose.uikit.ChipGroupOverflowMode.Companion.toFlowRowLayoutMode
@@ -23,13 +24,17 @@ fun ChipGroup(
     overflowMode: ChipGroupOverflowMode = ChipGroupOverflowMode.Wrap,
     content: @Composable FlowRowScope.() -> Unit,
 ) {
-    FlowRowLayout(
-        modifier = modifier,
-        horizontalSpacing = style.dimensions.horizontalSpacing,
-        verticalSpacing = style.dimensions.verticalSpacing,
-        mode = overflowMode.toFlowRowLayoutMode(),
-        content = content,
-    )
+    CompositionLocalProvider(
+        LocalChipStyle provides style.chipStyle,
+    ) {
+        FlowRowLayout(
+            modifier = modifier,
+            horizontalSpacing = style.dimensions.gap,
+            verticalSpacing = style.dimensions.lineSpacing,
+            mode = overflowMode.toFlowRowLayoutMode(),
+            content = content,
+        )
+    }
 }
 
 /**

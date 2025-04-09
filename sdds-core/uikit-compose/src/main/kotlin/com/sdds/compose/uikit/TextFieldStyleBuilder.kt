@@ -123,11 +123,6 @@ interface TextFieldStyleBuilder : StyleBuilder<TextFieldStyle> {
      * Устанавливает стиль группы чипов [chipGroupStyle]
      */
     fun chipGroupStyle(chipGroupStyle: ChipGroupStyle): TextFieldStyleBuilder
-
-    /**
-     * Устанавливает стиль чипов [chipStyle]
-     */
-    fun chipStyle(chipStyle: ChipStyle): TextFieldStyleBuilder
 }
 
 /**
@@ -686,7 +681,6 @@ internal class DefaultTextFieldStyle(
     override val placeholderStyle: TextStyle,
     override val singleLine: Boolean,
     override val chipGroupStyle: ChipGroupStyle,
-    override val chipStyle: ChipStyle,
     override val labelStyle: TextStyle,
     override val optionalStyle: TextStyle,
     override val prefixStyle: TextStyle,
@@ -714,7 +708,6 @@ internal class DefaultTextFieldStyle(
         private var prefixStyle: TextStyle? = null
         private var suffixStyle: TextStyle? = null
         private var chipGroupStyle: ChipGroupStyle? = null
-        private var chipStyle: ChipStyle? = null
         private var singleLine: Boolean? = null
         private var indicatorAlignmentMode: TextFieldIndicatorAlignmentMode? = null
 
@@ -826,10 +819,6 @@ internal class DefaultTextFieldStyle(
             this.chipGroupStyle = chipGroupStyle
         }
 
-        override fun chipStyle(chipStyle: ChipStyle) = apply {
-            this.chipStyle = chipStyle
-        }
-
         @Suppress("CyclomaticComplexMethod")
         override fun style(): TextFieldStyle {
             return DefaultTextFieldStyle(
@@ -853,7 +842,6 @@ internal class DefaultTextFieldStyle(
                 prefixStyle = prefixStyle ?: TextStyle.Default,
                 suffixStyle = suffixStyle ?: TextStyle.Default,
                 chipGroupStyle = chipGroupStyle ?: ChipGroupStyle.builder().style(),
-                chipStyle = chipStyle ?: ChipStyle.builder().style(),
             )
         }
     }

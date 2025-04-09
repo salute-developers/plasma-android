@@ -18,7 +18,6 @@ import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.VisualTransformation
 import com.sdds.compose.uikit.ChipGroupStyle
-import com.sdds.compose.uikit.ChipStyle
 import com.sdds.compose.uikit.TextFieldAnimation
 import com.sdds.compose.uikit.TextFieldDimensions
 
@@ -34,7 +33,6 @@ internal fun DecorationBox(
     innerOptional: @Composable (() -> Unit)?,
     chips: @Composable (() -> Unit)? = null,
     chipGroupStyle: ChipGroupStyle,
-    chipStyle: ChipStyle,
     innerTextField: @Composable () -> Unit,
     placeholder: @Composable (() -> Unit)? = null,
     startIcon: @Composable (() -> Unit)? = null,
@@ -93,7 +91,6 @@ internal fun DecorationBox(
             endIcon = endIcon,
             chips = chips,
             chipGroupStyle = chipGroupStyle,
-            chipStyle = chipStyle,
             dimensions = dimensions,
             singleLine = singleLine,
             valueTextStyle = valueTextStyle,
