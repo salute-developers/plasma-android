@@ -1,9 +1,11 @@
 package com.sdds.compose.uikit.internal.common
 
+import androidx.compose.foundation.background
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.DrawModifier
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Outline
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.Shape
@@ -13,6 +15,7 @@ import androidx.compose.ui.platform.InspectorInfo
 import androidx.compose.ui.platform.InspectorValueInfo
 import androidx.compose.ui.platform.debugInspectorInfo
 import androidx.compose.ui.unit.LayoutDirection
+import com.sdds.compose.uikit.graphics.LayeredShaderBrush
 
 /**
  * Рисует [brushes] в пределах формы [shape], учитывая прозрачность [alpha]
@@ -34,6 +37,20 @@ internal fun Modifier.background(
         },
     ),
 )
+
+/**
+ * Рисует [brush] или [color] в пределах формы [shape], учитывая прозрачность [alpha]
+ */
+internal fun Modifier.background(
+    brush: Brush? = null,
+    color: Color? = null,
+    shape: Shape = RectangleShape,
+    alpha: Float = (brush as? LayeredShaderBrush)?.alpha ?: 1f,
+) = when {
+    brush != null -> this.background(brush, shape, alpha)
+    color != null -> this.background(color, shape)
+    else -> this
+}
 
 private class Background(
     private val brushes: List<Brush>,
