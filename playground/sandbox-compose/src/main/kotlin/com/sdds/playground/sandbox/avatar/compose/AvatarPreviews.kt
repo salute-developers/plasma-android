@@ -9,13 +9,15 @@ import com.sdds.compose.uikit.AvatarCounter
 import com.sdds.compose.uikit.AvatarGroup
 import com.sdds.compose.uikit.AvatarPlaceholder
 import com.sdds.compose.uikit.AvatarStatus
+import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.R
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.serv.styles.avatar.Avatar
-import com.sdds.serv.styles.avatar.AvatarGroup
 import com.sdds.serv.styles.avatar.M
 import com.sdds.serv.styles.avatar.S
 import com.sdds.serv.styles.avatar.Xxl
+import com.sdds.serv.styles.avatargroup.AvatarGroup
+import com.sdds.serv.styles.avatargroup.S
 
 /**
  * Превью [Avatar]
