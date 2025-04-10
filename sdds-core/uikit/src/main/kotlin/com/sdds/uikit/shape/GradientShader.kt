@@ -10,6 +10,7 @@ import kotlin.math.abs
 import kotlin.math.acos
 import kotlin.math.cos
 import kotlin.math.pow
+import kotlin.math.roundToInt
 import kotlin.math.sin
 import kotlin.math.sqrt
 
@@ -65,7 +66,7 @@ sealed class GradientShader : ShaderFactory {
             val start = size.center + Offset(-horizontalOffset, verticalOffset)
             val end = size.center + Offset(horizontalOffset, -verticalOffset)
 
-            return start to end
+            return start.round() to end.round()
         }
 
         private data class Size(
@@ -87,6 +88,9 @@ sealed class GradientShader : ShaderFactory {
             fun Float.inExclusiveRange(from: Float, to: Float): Boolean {
                 return this > from && this < to
             }
+
+            fun Offset.round(): Offset =
+                Offset(x = x.roundToInt().toFloat(), y = y.roundToInt().toFloat())
         }
     }
 
