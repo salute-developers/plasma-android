@@ -1,6 +1,7 @@
 package com.sdds.plugin.themebuilder.internal.components.base
 
 import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
@@ -94,11 +95,102 @@ internal data class Value(
 )
 
 @Serializable
-internal data class Color(
-    val default: String,
-    val alpha: Float? = null,
-    val states: List<ColorState>? = null,
-)
+internal sealed interface Color {
+    val default: String
+    val alpha: Float?
+    val states: List<ColorState>?
+
+    fun copy(
+        default: String = this.default,
+        alpha: Float? = this.alpha,
+        states: List<ColorState>? = this.states,
+    ): Color
+}
+
+@Serializable
+@SerialName("color")
+internal class SolidColor(
+    override val default: String,
+    override val alpha: Float? = null,
+    override val states: List<ColorState>? = null,
+) : Color {
+    override fun copy(default: String, alpha: Float?, states: List<ColorState>?): Color {
+        return SolidColor(default, alpha, states)
+    }
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as SolidColor
+
+        if (default != other.default) return false
+        if (alpha != other.alpha) return false
+        if (states != other.states) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = default.hashCode()
+        result = 31 * result + (alpha?.hashCode() ?: 0)
+        result = 31 * result + (states?.hashCode() ?: 0)
+        return result
+    }
+}
+
+@Serializable
+@SerialName("gradient")
+internal class Gradient(
+    override val default: String,
+    override val alpha: Float? = null,
+    override val states: List<ColorState>? = null,
+) : Color {
+    override fun copy(default: String, alpha: Float?, states: List<ColorState>?): Color {
+        return Gradient(default, alpha, states)
+    }
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as Gradient
+
+        if (default != other.default) return false
+        if (alpha != other.alpha) return false
+        if (states != other.states) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = default.hashCode()
+        result = 31 * result + (alpha?.hashCode() ?: 0)
+        result = 31 * result + (states?.hashCode() ?: 0)
+        return result
+    }
+}
+
+internal fun Color.combine(other: Color?, withState: String): Color {
+    if (other == null) {
+        return this
+    }
+    return this.copy(
+        states = mutableListOf<ColorState>().apply {
+            addAll(
+                other.states?.map {
+                    val stateList = mutableListOf<String>().apply {
+                        addAll(it.state)
+                        add(withState)
+                    }
+                    it.copy(state = stateList)
+                }?.toList().orEmpty(),
+            )
+            add(ColorState(listOf(withState), other.default, other.alpha))
+            states?.let(::addAll)
+        },
+    )
+}
 
 @Serializable
 internal data class ColorState(

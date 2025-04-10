@@ -1,10 +1,12 @@
 package com.sdds.plugin.themebuilder.internal.components.base.view
 
+import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder.ElementName
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.generator.SimpleBaseGenerator
 import com.sdds.plugin.themebuilder.internal.token.ColorToken
-import com.sdds.plugin.themebuilder.internal.utils.unsafeLazy
+import com.sdds.plugin.themebuilder.internal.utils.FileProvider.colorSelectorXmlFile
+import com.sdds.plugin.themebuilder.internal.utils.FileProvider.colorXmlFile
 import java.io.File
 
 /**
@@ -12,32 +14,24 @@ import java.io.File
  * @author Малышев Александр on 03.12.2024
  */
 internal class ColorStateListGenerator(
-    private val outputFile: File,
+    private val outputResDir: File,
+    private val fileName: String,
     private val xmlBuilderFactory: XmlResourcesDocumentBuilderFactory,
     private val resourcePrefix: String,
 ) : SimpleBaseGenerator {
-
-    private val xmlBuilder by unsafeLazy {
-        xmlBuilderFactory.create(
-            rootAttributes = mapOf(
-                "xmlns:app" to "http://schemas.android.com/apk/res-auto",
-                "xmlns:android" to "http://schemas.android.com/apk/res/android",
-            ),
-            rootElement = "selector",
-        )
-    }
-
     private val stateListItems = mutableSetOf<StateListItem>()
 
     /**
      * Добавляет цвет из токена [colorTokenName] с состояниями [states] и прозрачностью [alpha] в ColorStateList
      */
     fun addColor(
+        type: ColorType,
         colorTokenName: String,
         states: Set<StateListAttribute> = emptySet(),
         alpha: Float? = null,
     ) {
         val newItem = StateListItem(
+            type,
             "?${resourcePrefix}_${ColorToken.getAttrName(colorTokenName)}",
             states,
             alpha,
@@ -48,18 +42,32 @@ internal class ColorStateListGenerator(
 
     override fun generate() {
         if (stateListItems.isEmpty()) return
-        prepareStateList()
-        xmlBuilder.build(outputFile)
+        val withGradient = stateListItems.any { it.type == ColorType.GRADIENT }
+        val rootElement = if (withGradient) "color-selector" else "selector"
+        val valueAttrName = if (withGradient) "android:value" else "android:color"
+        val xmlBuilder = xmlBuilderFactory.create(
+            rootAttributes = mapOf(
+                "xmlns:app" to "http://schemas.android.com/apk/res-auto",
+                "xmlns:android" to "http://schemas.android.com/apk/res/android",
+            ),
+            rootElement = rootElement,
+        )
+        xmlBuilder.prepareStateList(valueAttrName)
+        if (withGradient) {
+            xmlBuilder.build(outputResDir.colorSelectorXmlFile(fileName, resourcePrefix))
+        } else {
+            xmlBuilder.build(outputResDir.colorXmlFile(fileName, resourcePrefix))
+        }
     }
 
-    private fun prepareStateList() = with(xmlBuilder) {
+    private fun XmlResourcesDocumentBuilder.prepareStateList(valueAttrName: String) {
         stateListItems
             .forEach { stateListItem ->
                 appendBaseElement(
                     elementName = ElementName.ITEM.value,
                     attrs = mutableMapOf<String, String>().apply {
                         stateListItem.alpha?.let { put("android:alpha", it.toString()) }
-                        put("android:color", stateListItem.value)
+                        put(valueAttrName, stateListItem.value)
 
                         stateListItem.states.forEach {
                             put(it.name, it.value)
@@ -69,11 +77,17 @@ internal class ColorStateListGenerator(
             }
     }
 
-    private data class StateListItem(
+    private class StateListItem(
+        val type: ColorType,
         val value: String,
         val states: Set<StateListAttribute>,
         val alpha: Float? = null,
     )
+
+    enum class ColorType {
+        COLOR,
+        GRADIENT,
+    }
 }
 
 /**
@@ -102,6 +116,13 @@ internal enum class AndroidState(val key: String, private val attribute: String)
          * Преобразует список строк в множество [AndroidState], если строка является ключом [AndroidState.key]
          */
         fun List<String>.asAndroidStates(): Set<AndroidState> = mapNotNull { fromKeyString(it) }.toSet()
+
+        /**
+         * Искоючает из списка строк - состояний множество [AndroidState]
+         */
+        fun List<String>.excludeAndroidStates(): Set<String> = filter {
+            fromKeyString(it) == null
+        }.toSet()
 
         private fun fromKeyString(key: String): AndroidState? = AndroidState.values().find { it.key == key }
     }

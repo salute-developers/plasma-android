@@ -1,5 +1,8 @@
 package com.sdds.plugin.themebuilder.internal.serializer
 
+import com.sdds.plugin.themebuilder.internal.components.base.Color
+import com.sdds.plugin.themebuilder.internal.components.base.Gradient
+import com.sdds.plugin.themebuilder.internal.components.base.SolidColor
 import com.sdds.plugin.themebuilder.internal.token.ColorToken
 import com.sdds.plugin.themebuilder.internal.token.FontToken
 import com.sdds.plugin.themebuilder.internal.token.GradientToken
@@ -52,5 +55,11 @@ object Serializer {
      */
     val componentConfig: Json = Json {
         ignoreUnknownKeys = true
+        serializersModule = SerializersModule {
+            polymorphic(Color::class) {
+                subclass(SolidColor::class)
+                subclass(Gradient::class)
+            }
+        }
     }
 }

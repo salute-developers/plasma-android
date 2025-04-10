@@ -9,9 +9,11 @@ import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.ColorState
 import com.sdds.plugin.themebuilder.internal.components.base.Config
 import com.sdds.plugin.themebuilder.internal.components.base.Dimension
+import com.sdds.plugin.themebuilder.internal.components.base.Gradient
 import com.sdds.plugin.themebuilder.internal.components.base.Icon
 import com.sdds.plugin.themebuilder.internal.components.base.PropertyOwner
 import com.sdds.plugin.themebuilder.internal.components.base.Shape
+import com.sdds.plugin.themebuilder.internal.components.base.SolidColor
 import com.sdds.plugin.themebuilder.internal.components.base.Typography
 import com.sdds.plugin.themebuilder.internal.components.base.VariationNode
 import com.sdds.plugin.themebuilder.internal.components.base.asVariationTree
@@ -93,21 +95,40 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
 
     protected open val componentStyleName: String = "${camelComponentName}Style"
 
-    protected abstract fun propsToBuilderCalls(
+    protected open fun propsToBuilderCalls(
         props: PO,
         ktFileBuilder: KtFileBuilder,
         variationId: String = "",
-    ): List<String>
+    ): List<String> = emptyList()
+
+    protected open fun propsToBuilderCalls(
+        props: PO,
+        ktFileBuilder: KtFileBuilder,
+        variationNode: VariationNode<PO>,
+        variationId: String = "",
+    ): List<String> = propsToBuilderCalls(props, ktFileBuilder, variationNode.id.techToSnakeCase())
 
     protected open fun KtFileBuilder.onAddImports() = Unit
 
     protected open fun invariantBuilderCalls(): List<String> = emptyList()
 
     protected fun getColor(colorName: String, color: Color): String {
-        val alphaString = color.alpha?.let { ".multiplyAlpha(${it}f)" }.orEmpty()
+        val alphaString = when (color) {
+            is Gradient -> color.alpha?.let { ".asLayered(${it}f)" } ?: ".asLayered()"
+            is SolidColor -> color.alpha?.let { ".multiplyAlpha(${it}f)" }.orEmpty()
+        }
+        val tokenGroup = when (color) {
+            is Gradient -> "gradients"
+            is SolidColor -> "colors"
+        }
+        val stateSuffix = when (color) {
+            is Gradient -> color.asStatefulFragment
+            is SolidColor -> color.asInteractiveFragment
+        }
+        val tokenValue = color.default.toKtTokenName()
         return """
             $colorName(
-                $themeClassName.colors.${color.default.toKtTokenName()}$alphaString.${color.asInteractiveFragment}
+                $themeClassName.$tokenGroup.$tokenValue$alphaString.$stateSuffix
             )
         """.trimIndent()
     }
@@ -233,6 +254,24 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
         }
     }
 
+    private fun VariationNode<PO>.getDescription(): String {
+        return if (parent == null) {
+            """
+                Интерфейс, который реализуют все обертки вариаций корневого уровня 
+                и обертки их подвариаций. 
+                Является ресивером для extension-функций view, 
+                применимых к этим оберткам.
+            """
+        } else {
+            """
+                Интерфейс, который реализуют все обертки вариации $name
+                и обертки ее подвариаций.
+                Является ресивером для extension-функций view,
+                применимых к этим оберткам.
+            """
+        }.trimIndent()
+    }
+
     private fun KtFileBuilder.createVariation(
         variation: VariationNode<PO>,
         isRoot: Boolean = false,
@@ -242,25 +281,10 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
         val newViewExtensionReceiverName: String
         if (hasViewVariations) {
             newViewExtensionReceiverName = "Wrapper${variation.id.toCamelCase()}View"
-            val description = if (variation.parent == null) {
-                """
-                    Интерфейс, который реализуют все обертки вариаций корневого уровня 
-                    и обертки их подвариаций. 
-                    Является ресивером для extension-функций view, 
-                    применимых к этим оберткам.
-                """
-            } else {
-                """
-                    Интерфейс, который реализуют все обертки вариации ${variation.name}
-                    и обертки ее подвариаций.
-                    Является ресивером для extension-функций view,
-                    применимых к этим оберткам.
-                """
-            }.trimIndent()
             addVariationWrapperInterface(
                 interfaceName = newViewExtensionReceiverName,
                 superTypeName = viewExtensionReceiverName,
-                description = description,
+                description = variation.getDescription(),
             )
             addViewExtensions(
                 variation = variation,
@@ -269,11 +293,11 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
         } else {
             newViewExtensionReceiverName = viewExtensionReceiverName
         }
-
         val builderCalls = propsToBuilderCalls(
             props = variation.value.props,
-            variationId = variation.id.techToSnakeCase(),
+            variationNode = variation,
             ktFileBuilder = this,
+            variationId = variation.id.techToSnakeCase(),
         )
         if (isRoot) {
             if (variation.value.view.isEmpty() && variation.children.isEmpty()) {
@@ -488,20 +512,35 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
             """.trimIndent()
         }
 
+    private val Color.asStatefulFragment: String
+        get() = if (states.isNullOrEmpty()) {
+            "asStatefulValue()"
+        } else {
+            """asStatefulValue·(
+                ${getAsInteractiveParameters()}
+            )
+            """.trimIndent()
+        }
+
     private fun Color?.getAsInteractiveParameters(): String {
-        return this?.states?.joinToString(separator = ", ") { it.getStateParameter() }.orEmpty()
+        return this?.states?.joinToString(separator = ", ") { it.getStateParameter(this is Gradient) }.orEmpty()
     }
 
-    private fun ColorState.getStateParameter(): String {
+    private fun ColorState.getStateParameter(isGradient: Boolean): String {
         val alphaString = alpha?.let { ".multiplyAlpha(${it}f)" }.orEmpty()
+        val tokenGroupName = if (isGradient) "gradients" else "colors"
         return """
             setOf(${state.toColorStates()})
-                to $themeClassName.colors.${value.toKtAttrName()}$alphaString
+                to $themeClassName.$tokenGroupName.${value.toKtAttrName()}$alphaString
         """.trimIndent()
     }
 
-    private fun List<String>.toColorStates(): String =
-        joinToString { "InteractiveState.${it.capitalize(Locale.getDefault())}" }
+    private fun List<String>.toColorStates(): String {
+        val interactiveStates = asInteractiveStates().joinToString { "InteractiveState.${it.name}" }
+        return interactiveStates + excludeInteractiveStates().joinToString { getCustomState(it) }
+    }
+
+    protected open fun getCustomState(state: String): String = state
 
     private fun KtFileBuilder.addCommonImports() {
         onAddImports()
@@ -519,7 +558,7 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
         )
         addImport(
             packageName = "com.sdds.compose.uikit.style",
-            names = listOf("wrap", "style"),
+            names = listOf("wrap", "style", "modify"),
         )
         addImport(
             packageName = "androidx.compose.runtime",
@@ -533,6 +572,10 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
             packageName = "androidx.compose.ui.res",
             names = listOf("painterResource"),
         )
+        addImport(
+            packageName = "com.sdds.compose.uikit.graphics",
+            names = listOf("asLayered"),
+        )
         if (dimensionsConfig.fromResources) {
             addImport(KtFileBuilder.TypeLocalDensity)
             addImport(KtFileBuilder.TypeDimensionResource)
@@ -544,7 +587,7 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
         )
         addImport(
             packageName = "com.sdds.compose.uikit.interactions",
-            names = listOf("InteractiveState", "asInteractive"),
+            names = listOf("InteractiveState", "asInteractive", "asStatefulValue"),
         )
     }
 
@@ -560,7 +603,42 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
         )
     }
 
+    internal enum class InteractiveState(val key: String) {
+        /**
+         * Состояние цвета в фокусе
+         */
+        Focused("focused"),
+
+        /**
+         * Состояние цвета в нажатом состоянии
+         */
+        Pressed("pressed"),
+
+        /**
+         * Состояние цвета при наведении курсором
+         */
+        Hovered("hovered"),
+
+        /**
+         * Состояние цвета в активном состоянии
+         */
+        Activated("activated"),
+
+        /**
+         * Состояние цвета в выбранном состоянии
+         */
+        Selected("selected"),
+    }
+
     private companion object {
         const val DEFAULT_BUILDER_FUN_NAME = "builder"
+
+        private fun fromKeyString(key: String): InteractiveState? = InteractiveState.values().find { it.key == key }
+
+        fun List<String>.asInteractiveStates(): List<InteractiveState> = this.mapNotNull { fromKeyString(it) }
+
+        fun List<String>.excludeInteractiveStates(): Set<String> = filter {
+            fromKeyString(it) == null
+        }.toSet()
     }
 }
