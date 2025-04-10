@@ -1,10 +1,17 @@
 package com.sdds.compose.uikit
 
+import androidx.compose.foundation.interaction.InteractionSource
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.BoxScope
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.requiredSize
+import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.NonRestartableComposable
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
 import androidx.compose.ui.draw.clip
@@ -13,6 +20,7 @@ import androidx.compose.ui.draw.drawWithContent
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.geometry.center
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.FilterQuality
@@ -24,14 +32,15 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.AnnotatedString
-import androidx.compose.ui.text.ExperimentalTextApi
 import androidx.compose.ui.text.TextMeasurer
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.drawText
 import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Constraints
-import androidx.compose.ui.unit.Dp
+import com.sdds.compose.uikit.interactions.ValueState
+import com.sdds.compose.uikit.interactions.getValue
+import com.sdds.compose.uikit.interactions.getValueAsState
 import com.sdds.compose.uikit.internal.common.background
 
 /**
@@ -144,14 +153,13 @@ fun Avatar(
     contentDescription: String? = null,
     contentScale: ContentScale = ContentScale.None,
 ) {
-    Box(
-        modifier = modifier.avatar(
-            style = style,
-            status = status,
-            action = action,
-            actionEnabled = actionEnabled,
-            placeholder = placeholder,
-        ),
+    Avatar(
+        modifier = modifier,
+        style = style,
+        status = status,
+        action = action,
+        actionEnabled = actionEnabled,
+        placeholder = placeholder,
     ) {
         if (painter != null) {
             Image(
@@ -160,6 +168,57 @@ fun Avatar(
                 contentDescription = contentDescription,
                 contentScale = contentScale,
             )
+        }
+    }
+}
+
+/**
+ * Компонент [Avatar] предназначен для отрисовки пользовательских аватаров.
+ * Умеет отображать статус, текст-заглушку, а также иконку действия.
+ *
+ * @param modifier модификатор
+ * @param painter изображение [Painter]
+ * @param style стиль компонента
+ * @param status статус [AvatarStatus]
+ * @param action иконка действия [Painter]
+ * @param actionEnabled включена ли иконка действия
+ * @param placeholder текст-заглушка
+ * @param extra обвесы аватара
+ * @param interactionSource источник взаимодействий
+ * @param content контент аватара (изображеине)
+ */
+@Composable
+fun Avatar(
+    modifier: Modifier = Modifier,
+    style: AvatarStyle = LocalAvatarStyle.current,
+    status: AvatarStatus = AvatarStatus.None,
+    action: Painter? = null,
+    actionEnabled: Boolean = LocalAvatarGroupActionEnabled.current,
+    placeholder: AvatarPlaceholder? = null,
+    extra: (@Composable BoxScope.() -> Unit)? = null,
+    interactionSource: InteractionSource = remember { MutableInteractionSource() },
+    content: @Composable BoxScope.() -> Unit,
+) {
+    Box(modifier.requiredSize(style.dimensionValues.width, style.dimensionValues.height)) {
+        Box(
+            modifier = Modifier
+                .avatar(
+                    interactionSource = interactionSource,
+                    style = style,
+                    status = status,
+                    action = action,
+                    actionEnabled = actionEnabled,
+                    placeholder = placeholder,
+                ),
+            contentAlignment = Alignment.Center,
+            propagateMinConstraints = false,
+            content = content,
+        )
+        ProvideExtraStyle(
+            style.badgeStyle,
+            style.counterStyle,
+        ) {
+            extra?.invoke(this@Box)
         }
     }
 }
@@ -187,8 +246,8 @@ fun Avatar(
  * @param actionEnabled включена ли иконка действия
  * @param placeholder текст-заглушка
  */
+@Deprecated("Use Modifier.avatar(...) with interactionSource")
 @Suppress("ComposableModifierFactory")
-@OptIn(ExperimentalTextApi::class)
 @Composable
 fun Modifier.avatar(
     style: AvatarStyle = LocalAvatarStyle.current,
@@ -196,25 +255,74 @@ fun Modifier.avatar(
     action: Painter? = null,
     actionEnabled: Boolean = false,
     placeholder: AvatarPlaceholder? = null,
+): Modifier = avatar(
+    interactionSource = remember { MutableInteractionSource() },
+    style = style,
+    status = status,
+    action = action,
+    actionEnabled = actionEnabled,
+    placeholder = placeholder,
+)
+
+/**
+ * Модификатор, который декорирует компонент как аватар.
+ * Его можно использовать в ситуациях, когда [Avatar] использовать не удается.
+ * Например, когда используются собственная или библиотечная реализация: GlideImage() библиотеки Glide Compose
+ * или AsyncImage библиотеки coil.
+ * ```kotlin
+ * AsyncImage(
+ *      modifier = Modifier.avatar(
+ *          shape: Shape = RoundedCornerShape(50),
+ *          statusColor: Color = Color.DarkGray,
+ *          statusSize: Dp = 8.dp,
+ *          statusOffset: Offset = Offset.Zero,
+ *      ),
+ *      model = "https://cdn.example.com/test.png",
+ *      ...
+ * )
+ * ```
+ * @param interactionSource источник взаимодействий
+ * @param style стиль компонента
+ * @param status текущий статус [AvatarStatus]
+ * @param action иконка действия [Painter]
+ * @param actionEnabled включена ли иконка действия
+ * @param placeholder текст-заглушка
+ */
+@Suppress("ComposableModifierFactory")
+@Composable
+fun Modifier.avatar(
+    interactionSource: InteractionSource,
+    style: AvatarStyle = LocalAvatarStyle.current,
+    status: AvatarStatus = AvatarStatus.None,
+    action: Painter? = null,
+    actionEnabled: Boolean = false,
+    placeholder: AvatarPlaceholder? = null,
 ): Modifier = composed {
-    val dimensions = style.dimensions
+    val dimensions = style.dimensionValues
     val colors = style.colors
-    val statusColor = colors.statusColor(status)
+    val stateSet = remember(status) { setOf(status) }
     val statusModifier = if (status.isEnabled && LocalAvatarGroupStatusEnabled.current) {
-        Modifier.status(
-            size = dimensions.statusSize,
-            color = { statusColor.value },
-            offset = dimensions.statusOffset,
+        Modifier.indicator(
+            alignment = Alignment.BottomEnd,
+            style = style.statusStyle ?: LocalIndicatorStyle.current,
+            horizontalPadding = dimensions.statusOffsetX,
+            verticalPadding = dimensions.statusOffsetY,
+            stateSet = stateSet,
         )
     } else {
         Modifier
     }
 
     val placeholderModifier = if (placeholder != null) {
+        val textBrushes = colors.textBrushes?.getValueAsState(interactionSource, stateSet)
+        val textColors = colors.textColors?.takeIf { textBrushes == null }
+            ?.colorForInteractionAsState(interactionSource, stateSet)
         Modifier.placeholder(
             text = placeholder.minimize,
             style = style.textStyle.merge(TextStyle(brush = colors.textColor)),
             textMeasurer = rememberTextMeasurer(),
+            textBrushProvider = { textBrushes?.value },
+            textColorProvider = { textColors?.value },
         )
     } else {
         Modifier
@@ -226,21 +334,23 @@ fun Modifier.avatar(
                 painter = action,
                 color = { colors.actionColor },
                 scrimColor = { colors.actionScrimColor },
-                size = dimensions.actionSize ?: action.intrinsicSize,
+                size = action.intrinsicSize,
             )
         } else {
             Modifier
         }
 
-    val sizeModifier = if (dimensions.size != null) {
-        Modifier.size(dimensions.size)
-    } else {
-        Modifier
-    }
+    val sizeModifier = Modifier
+        .width(dimensions.width)
+        .height(dimensions.height)
+
+    val backgroundBrush = style.colors.backgroundBrushes?.getValue(interactionSource, stateSet)
+    val backgroundColors = style.colors.backgroundColors?.takeIf { backgroundBrush == null }
+        ?.colorForInteraction(interactionSource, stateSet)
 
     statusModifier
         .clip(style.shape)
-        .background(style.colors.backgroundColor, alpha = style.colors.backgroundAlpha)
+        .background(backgroundBrush, backgroundColors)
         .then(this)
         .then(sizeModifier)
         .then(placeholderModifier)
@@ -276,7 +386,7 @@ sealed class AvatarPlaceholder {
 /**
  * Пользовательский статус
  */
-enum class AvatarStatus {
+enum class AvatarStatus : ValueState {
     /**
      * Статус не отображается
      */
@@ -293,35 +403,43 @@ enum class AvatarStatus {
     Inactive,
 }
 
+@Composable
+private fun ProvideExtraStyle(
+    badgeStyle: BadgeStyle?,
+    counterStyle: CounterStyle?,
+    content: @Composable () -> Unit,
+) {
+    if (badgeStyle != null || counterStyle != null) {
+        CompositionLocalProvider(
+            LocalBadgeStyle provides (badgeStyle ?: LocalBadgeStyle.current),
+            LocalCounterStyle provides (counterStyle ?: LocalCounterStyle.current),
+            content = content,
+        )
+    } else {
+        content()
+    }
+}
+
 private val AvatarStatus.isEnabled: Boolean
     get() = this != AvatarStatus.None
 
-private fun Modifier.status(
-    size: Dp,
-    color: () -> Color,
-    offset: Offset,
-) = drawWithContent {
-    drawContent()
-    val radius = size.toPx() / 2
-    drawCircle(
-        color(),
-        radius = radius,
-        center = Offset(
-            x = this.size.width - radius - offset.x,
-            y = this.size.height - radius - offset.y,
-        ),
-    )
-}
-
-@OptIn(ExperimentalTextApi::class)
 private fun Modifier.placeholder(
     text: String,
     style: TextStyle,
+    textBrushProvider: () -> Brush? = { null },
+    textColorProvider: () -> Color? = { null },
     textMeasurer: TextMeasurer,
 ) = drawWithCache {
+    val textBrush = textBrushProvider()
+    val textColor = textColorProvider()
+    val coloredStyle = when {
+        textBrush != null -> style.merge(TextStyle(brush = textBrush))
+        textColor != null -> style.merge(color = textColor)
+        else -> style
+    }
     val textLayoutResult = textMeasurer.measure(
         text = AnnotatedString(text),
-        style = style,
+        style = coloredStyle,
         overflow = TextOverflow.Clip,
         softWrap = true,
         maxLines = 1,

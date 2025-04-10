@@ -1,11 +1,12 @@
 package com.sdds.stylessalute
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.sdds.compose.uikit.style.style
 import com.sdds.stylessalute.styles.avatar.Avatar
-import com.sdds.stylessalute.styles.avatar.AvatarGroup
 import com.sdds.stylessalute.styles.avatar.M
-import com.sdds.stylessalute.styles.avatar.S
 import com.sdds.stylessalute.styles.avatar.Xxl
+import com.sdds.stylessalute.styles.avatargroup.AvatarGroup
+import com.sdds.stylessalute.styles.avatargroup.S
 import com.sdds.testing.compose.RoborazziConfigCompose
 import com.sdds.testing.compose.avatar.AvatarGroupSizeS
 import com.sdds.testing.compose.avatar.AvatarSizeM

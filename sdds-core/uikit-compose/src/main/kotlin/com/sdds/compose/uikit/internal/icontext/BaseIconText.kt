@@ -27,6 +27,7 @@ import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.constrainHeight
 import androidx.compose.ui.unit.constrainWidth
+import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.LocalTint
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.interactions.InteractiveColor
@@ -205,10 +206,13 @@ private fun IconTextContent(
         CompositionLocalProvider(
             LocalTint provides startContentColor,
         ) {
+            val startSpacing = remember(label, dimensions) {
+                dimensions.startContentMargin.takeIf { label.isNotEmpty() } ?: 0.dp
+            }
             Box(
                 modifier = Modifier
                     .layoutId(START_CONTENT)
-                    .padding(end = dimensions.startContentMargin)
+                    .padding(end = startSpacing)
                     .requiredSize(dimensions.startContentSize),
             ) {
                 startContent()
@@ -228,10 +232,13 @@ private fun IconTextContent(
         CompositionLocalProvider(
             LocalTint provides endContentColor,
         ) {
+            val endSpacing = remember(label, dimensions) {
+                dimensions.endContentMargin.takeIf { label.isNotEmpty() } ?: 0.dp
+            }
             Box(
                 modifier = Modifier
                     .layoutId(END_CONTENT)
-                    .padding(start = dimensions.endContentMargin)
+                    .padding(start = endSpacing)
                     .requiredSize(dimensions.endContentSize),
             ) {
                 endContent()

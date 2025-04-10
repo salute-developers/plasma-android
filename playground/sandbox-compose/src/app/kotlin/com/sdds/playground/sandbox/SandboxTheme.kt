@@ -44,9 +44,10 @@ import com.sdds.playground.sandbox.core.compose.PropertyEditorStyle
 import com.sdds.playground.sandbox.core.compose.SandboxStyle
 import com.sdds.playground.sandbox.core.compose.TopBarStyle
 import com.sdds.serv.styles.avatar.Avatar
-import com.sdds.serv.styles.avatar.AvatarGroup
 import com.sdds.serv.styles.avatar.M
 import com.sdds.serv.styles.avatar.S
+import com.sdds.serv.styles.avatargroup.AvatarGroup
+import com.sdds.serv.styles.avatargroup.S
 import com.sdds.serv.styles.basicbutton.BasicButton
 import com.sdds.serv.styles.basicbutton.Default
 import com.sdds.serv.styles.basicbutton.M

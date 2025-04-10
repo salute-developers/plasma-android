@@ -2,6 +2,7 @@ package com.sdds.playground.sandbox.plasma.giga.app.integration.avatar
 
 import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.AvatarStyle
+import com.sdds.compose.uikit.style.style
 import com.sdds.plasma.giga.app.styles.avatar.Avatar
 import com.sdds.plasma.giga.app.styles.avatar.L
 import com.sdds.plasma.giga.app.styles.avatar.M
