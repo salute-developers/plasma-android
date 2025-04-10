@@ -58,7 +58,7 @@ fun Modifier.indicator(
     this then Modifier
         .height(dimensions.height)
         .width(dimensions.width)
-        .background(brush, color)
+        .background(brush, color, style.shape)
 }
 
 /**

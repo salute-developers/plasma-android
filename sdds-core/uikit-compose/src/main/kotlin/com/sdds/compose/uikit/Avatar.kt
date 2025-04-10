@@ -5,6 +5,7 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.requiredSize
 import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
@@ -198,7 +199,7 @@ fun Avatar(
     interactionSource: InteractionSource = remember { MutableInteractionSource() },
     content: @Composable BoxScope.() -> Unit,
 ) {
-    Box(modifier) {
+    Box(modifier.requiredSize(style.dimensionValues.width, style.dimensionValues.height)) {
         Box(
             modifier = Modifier
                 .avatar(

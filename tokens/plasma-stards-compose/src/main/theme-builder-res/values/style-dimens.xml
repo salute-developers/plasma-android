@@ -2,6 +2,24 @@
 
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <resources xmlns:tools="http://schemas.android.com/tools">
+    <dimen name="sdkit_cmp_avatar_width_xxl">176.0dp</dimen>
+    <dimen name="sdkit_cmp_avatar_height_xxl">176.0dp</dimen>
+    <dimen name="sdkit_cmp_avatar_statusOffsetX_xxl">2.0dp</dimen>
+    <dimen name="sdkit_cmp_avatar_statusOffsetY_xxl">14.0dp</dimen>
+    <dimen name="sdkit_cmp_avatar_width_l">96.0dp</dimen>
+    <dimen name="sdkit_cmp_avatar_height_l">96.0dp</dimen>
+    <dimen name="sdkit_cmp_avatar_statusOffsetX_l">2.0dp</dimen>
+    <dimen name="sdkit_cmp_avatar_statusOffsetY_l">6.0dp</dimen>
+    <dimen name="sdkit_cmp_avatar_width_m">72.0dp</dimen>
+    <dimen name="sdkit_cmp_avatar_height_m">72.0dp</dimen>
+    <dimen name="sdkit_cmp_avatar_statusOffsetX_m">0.0dp</dimen>
+    <dimen name="sdkit_cmp_avatar_statusOffsetY_m">4.0dp</dimen>
+    <dimen name="sdkit_cmp_avatar_width_s">48.0dp</dimen>
+    <dimen name="sdkit_cmp_avatar_height_s">48.0dp</dimen>
+    <dimen name="sdkit_cmp_avatar_statusOffsetX_s">0.0dp</dimen>
+    <dimen name="sdkit_cmp_avatar_statusOffsetY_s">0.0dp</dimen>
+    <dimen name="sdkit_cmp_avatar_group_itemSpacing_s">4.0dp</dimen>
+    <dimen name="sdkit_cmp_avatar_group_itemOffset_s">32.0dp</dimen>
     <dimen name="sdkit_cmp_badge_solid_height_l">56.0dp</dimen>
     <dimen name="sdkit_cmp_badge_solid_startContentSize_l">32.0dp</dimen>
     <dimen name="sdkit_cmp_badge_solid_endContentSize_l">32.0dp</dimen>

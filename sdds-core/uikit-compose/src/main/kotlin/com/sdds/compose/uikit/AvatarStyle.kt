@@ -489,7 +489,7 @@ private data class DefaultAvatarColors(
     override val backgroundColor: List<Brush> = emptyList()
 
     @Deprecated("The property backgroundAlpha is unused")
-    override val backgroundAlpha: Float = 1f
+    override val backgroundAlpha: Float = 0.2f
 
     @Deprecated("Use textColors or textBrushes")
     override val textColor: Brush = textBrushes?.getDefaultValue() ?: AvatarDefaults.defaultBrush
@@ -515,6 +515,7 @@ private data class DefaultAvatarColors(
         private var textColor: InteractiveColor? = null
         private var backgroundBrushes: StatefulValue<Brush>? = null
         private var backgroundColors: InteractiveColor? = null
+        private var backgroundAlpha: Float? = null
 
         override fun backgroundColor(backgroundColor: Color): AvatarColorsBuilder = apply {
             backgroundColor(backgroundColor.asInteractive())
@@ -525,7 +526,7 @@ private data class DefaultAvatarColors(
         }
 
         override fun backgroundColor(backgroundColor: Brush): AvatarColorsBuilder = apply {
-            backgroundColor(listOf(backgroundColor))
+            backgroundColor(backgroundColor.asStatefulValue())
         }
 
         override fun backgroundColor(backgroundColor: List<Brush>): AvatarColorsBuilder =

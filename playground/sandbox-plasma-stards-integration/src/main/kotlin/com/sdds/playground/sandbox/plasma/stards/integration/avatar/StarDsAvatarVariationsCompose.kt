@@ -2,6 +2,7 @@ package com.sdds.playground.sandbox.plasma.stards.integration.avatar
 
 import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.AvatarStyle
+import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 import com.sdkit.star.designsystem.styles.avatar.Avatar
 import com.sdkit.star.designsystem.styles.avatar.L

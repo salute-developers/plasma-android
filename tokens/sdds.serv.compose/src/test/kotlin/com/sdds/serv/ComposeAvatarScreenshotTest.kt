@@ -1,11 +1,12 @@
 package com.sdds.serv
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.sdds.compose.uikit.style.style
 import com.sdds.serv.styles.avatar.Avatar
-import com.sdds.serv.styles.avatar.AvatarGroup
 import com.sdds.serv.styles.avatar.M
-import com.sdds.serv.styles.avatar.S
 import com.sdds.serv.styles.avatar.Xxl
+import com.sdds.serv.styles.avatargroup.AvatarGroup
+import com.sdds.serv.styles.avatargroup.S
 import com.sdds.testing.compose.RoborazziConfigCompose
 import com.sdds.testing.compose.avatar.AvatarGroupSizeS
 import com.sdds.testing.compose.avatar.AvatarSizeM

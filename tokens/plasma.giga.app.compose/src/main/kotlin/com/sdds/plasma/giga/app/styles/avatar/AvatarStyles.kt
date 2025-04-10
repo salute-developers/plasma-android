@@ -1,112 +1,207 @@
+// AUTO-GENERATED. DO NOT MODIFY this file.
+@file:Suppress(
+    "UndocumentedPublicClass",
+    "UndocumentedPublicProperty",
+    "ktlint:standard:max-line-length",
+)
+
 package com.sdds.plasma.giga.app.styles.avatar
 
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.ReadOnlyComposable
-import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.uikit.AvatarColorsBuilder
-import com.sdds.compose.uikit.AvatarDimensions
-import com.sdds.compose.uikit.AvatarGroup
-import com.sdds.compose.uikit.AvatarGroupDimensions
-import com.sdds.compose.uikit.AvatarGroupStyle
-import com.sdds.compose.uikit.AvatarGroupStyleBuilder
+import com.sdds.compose.uikit.AvatarStatus
 import com.sdds.compose.uikit.AvatarStyle
 import com.sdds.compose.uikit.AvatarStyleBuilder
-import com.sdds.compose.uikit.floatPx
+import com.sdds.compose.uikit.graphics.asLayered
+import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
+import com.sdds.compose.uikit.style.BuilderWrapper
+import com.sdds.compose.uikit.style.modify
+import com.sdds.compose.uikit.style.style
+import com.sdds.compose.uikit.style.wrap
+import com.sdds.plasma.giga.app.styles.badge.Accent
+import com.sdds.plasma.giga.app.styles.badge.BadgeSolid
+import com.sdds.plasma.giga.app.styles.badge.L
+import com.sdds.plasma.giga.app.styles.badge.Pilled
+import com.sdds.plasma.giga.app.styles.badge.S
+import com.sdds.plasma.giga.app.styles.badge.Xs
+import com.sdds.plasma.giga.app.styles.counter.Counter
+import com.sdds.plasma.giga.app.styles.counter.L
+import com.sdds.plasma.giga.app.styles.counter.Negative
+import com.sdds.plasma.giga.app.styles.counter.S
+import com.sdds.plasma.giga.app.styles.counter.Xs
+import com.sdds.plasma.giga.app.styles.counter.Xxs
+import com.sdds.plasma.giga.app.styles.indicator.Indicator
+import com.sdds.plasma.giga.app.styles.indicator.L
+import com.sdds.plasma.giga.app.styles.indicator.M
+import com.sdds.plasma.giga.app.styles.indicator.S
 import com.sdds.plasma.giga.app.theme.PlasmaGigaAppTheme
+import kotlin.Suppress
+import kotlin.jvm.JvmInline
+import kotlin.jvm.JvmName
 
 /**
- * Стиль [Avatar] размера XXL
+ * Базовый интерфейс для всех оберток этого стиля
  */
-val Avatar.Xxl: AvatarStyleBuilder
+public interface WrapperAvatar : BuilderWrapper<AvatarStyle, AvatarStyleBuilder>
+
+/**
+ * Обертка для вариации Xxl
+ */
+@JvmInline
+public value class WrapperAvatarXxl(
+    public override val builder: AvatarStyleBuilder,
+) : WrapperAvatar
+
+/**
+ * Обертка для вариации L
+ */
+@JvmInline
+public value class WrapperAvatarL(
+    public override val builder: AvatarStyleBuilder,
+) : WrapperAvatar
+
+/**
+ * Обертка для вариации M
+ */
+@JvmInline
+public value class WrapperAvatarM(
+    public override val builder: AvatarStyleBuilder,
+) : WrapperAvatar
+
+/**
+ * Обертка для вариации S
+ */
+@JvmInline
+public value class WrapperAvatarS(
+    public override val builder: AvatarStyleBuilder,
+) : WrapperAvatar
+
+private val AvatarStyleBuilder.invariantProps: AvatarStyleBuilder
     @Composable
-    get() = AvatarStyle.builder()
-        .colors { defaultColors() }
-        .dimensions(
-            AvatarDimensions(
-                size = 88.dp,
-                actionSize = Size(36.dp.floatPx, 36.dp.floatPx),
-                statusSize = 12.dp,
-                statusOffset = Offset(1.dp.floatPx, 7.dp.floatPx),
-            ),
-        )
+    get() = this
+        .shape(CircleShape)
+        .colors {
+            backgroundColor(
+                PlasmaGigaAppTheme.gradients.surfaceDefaultAccentGradient.asLayered(0.2f).asStatefulValue(),
+            )
+            textColor(
+                PlasmaGigaAppTheme.gradients.textDefaultAccentGradient.asLayered().asStatefulValue(),
+            )
+        }
+
+public val Avatar.Xxl: WrapperAvatarXxl
+    @Composable
+    @JvmName("WrapperAvatarXxl")
+    get() = AvatarStyle.builder(this)
+        .invariantProps
+        .dimensions {
+            width(88.0.dp)
+            height(88.0.dp)
+            statusOffsetX(1.0.dp)
+            statusOffsetY(7.0.dp)
+        }
         .textStyle(PlasmaGigaAppTheme.typography.headerH2Bold)
-
-/**
- * Стиль [Avatar] размера L
- */
-val Avatar.L: AvatarStyleBuilder
-    @Composable
-    get() = AvatarStyle.builder()
-        .colors { defaultColors() }
-        .dimensions(
-            AvatarDimensions(
-                size = 48.dp,
-                actionSize = Size(24.dp.floatPx, 24.dp.floatPx),
-                statusSize = 8.dp,
-                statusOffset = Offset(1.dp.floatPx, 3.dp.floatPx),
-            ),
+        .badgeStyle(BadgeSolid.L.Pilled.Accent.style())
+        .counterStyle(Counter.L.Negative.style())
+        .statusStyle(
+            Indicator.L.modify {
+                color {
+                    backgroundColor(
+                        PlasmaGigaAppTheme.colors.surfaceOnLightSolidTertiary.asInteractive(
+                            setOf(AvatarStatus.Active)
+                                to PlasmaGigaAppTheme.colors.surfaceDefaultPositive,
+                        ),
+                    )
+                }
+            }
+                .style(),
         )
+        .wrap(::WrapperAvatarXxl)
+
+public val Avatar.L: WrapperAvatarL
+    @Composable
+    @JvmName("WrapperAvatarL")
+    get() = AvatarStyle.builder(this)
+        .invariantProps
+        .dimensions {
+            width(48.0.dp)
+            height(48.0.dp)
+            statusOffsetX(1.0.dp)
+            statusOffsetY(3.0.dp)
+        }
         .textStyle(PlasmaGigaAppTheme.typography.headerH4Bold)
-
-/**
- * Стиль [Avatar] размера M
- */
-val Avatar.M: AvatarStyleBuilder
-    @Composable
-    get() = AvatarStyle.builder()
-        .colors { defaultColors() }
-        .dimensions(
-            AvatarDimensions(
-                size = 36.dp,
-                actionSize = Size(24.dp.floatPx, 24.dp.floatPx),
-                statusSize = 8.dp,
-                statusOffset = Offset(0.dp.floatPx, 2.dp.floatPx),
-            ),
+        .badgeStyle(BadgeSolid.S.Pilled.Accent.style())
+        .counterStyle(Counter.S.Negative.style())
+        .statusStyle(
+            Indicator.M.modify {
+                color {
+                    backgroundColor(
+                        PlasmaGigaAppTheme.colors.surfaceOnLightSolidTertiary.asInteractive(
+                            setOf(AvatarStatus.Active)
+                                to PlasmaGigaAppTheme.colors.surfaceDefaultPositive,
+                        ),
+                    )
+                }
+            }
+                .style(),
         )
+        .wrap(::WrapperAvatarL)
+
+public val Avatar.M: WrapperAvatarM
+    @Composable
+    @JvmName("WrapperAvatarM")
+    get() = AvatarStyle.builder(this)
+        .invariantProps
+        .dimensions {
+            width(36.0.dp)
+            height(36.0.dp)
+            statusOffsetX(0.0.dp)
+            statusOffsetY(2.0.dp)
+        }
         .textStyle(PlasmaGigaAppTheme.typography.bodySBold)
-
-/**
- * Стиль [Avatar] размера S
- */
-val Avatar.S: AvatarStyleBuilder
-    @Composable
-    get() = AvatarStyle.builder()
-        .colors { defaultColors() }
-        .dimensions(
-            AvatarDimensions(
-                size = 24.dp,
-                actionSize = Size(16.dp.floatPx, 16.dp.floatPx),
-                statusSize = 6.dp,
-                statusOffset = Offset.Zero,
-            ),
+        .badgeStyle(BadgeSolid.Xs.Pilled.Accent.style())
+        .counterStyle(Counter.Xs.Negative.style())
+        .statusStyle(
+            Indicator.M.modify {
+                color {
+                    backgroundColor(
+                        PlasmaGigaAppTheme.colors.surfaceOnLightSolidTertiary.asInteractive(
+                            setOf(AvatarStatus.Active)
+                                to PlasmaGigaAppTheme.colors.surfaceDefaultPositive,
+                        ),
+                    )
+                }
+            }
+                .style(),
         )
+        .wrap(::WrapperAvatarM)
+
+public val Avatar.S: WrapperAvatarS
+    @Composable
+    @JvmName("WrapperAvatarS")
+    get() = AvatarStyle.builder(this)
+        .invariantProps
+        .dimensions {
+            width(24.0.dp)
+            height(24.0.dp)
+            statusOffsetX(0.0.dp)
+            statusOffsetY(0.0.dp)
+        }
         .textStyle(PlasmaGigaAppTheme.typography.bodyXxsBold)
-
-/**
- * Вспомогательный объект для описания API и стиля компонента AvatarGroup
- */
-public object AvatarGroup
-
-/**
- * Стиль [AvatarGroup] размера S
- */
-val AvatarGroup.S: AvatarGroupStyleBuilder
-    @Composable
-    get() = AvatarGroupStyle.builder()
-        .avatarStyle(Avatar.S.style())
-        .dimensions(
-            AvatarGroupDimensions(
-                itemOffset = 16.dp,
-                itemSpacing = 2.dp,
-            ),
+        .counterStyle(Counter.Xxs.Negative.style())
+        .statusStyle(
+            Indicator.S.modify {
+                color {
+                    backgroundColor(
+                        PlasmaGigaAppTheme.colors.surfaceOnLightSolidTertiary.asInteractive(
+                            setOf(AvatarStatus.Active)
+                                to PlasmaGigaAppTheme.colors.surfaceDefaultPositive,
+                        ),
+                    )
+                }
+            }
+                .style(),
         )
-
-@Composable
-@ReadOnlyComposable
-private fun AvatarColorsBuilder.defaultColors(): AvatarColorsBuilder = apply {
-    activeStatusColor(PlasmaGigaAppTheme.colors.surfaceDefaultPositive)
-    inactiveStatusColor(PlasmaGigaAppTheme.colors.surfaceOnLightSolidTertiary)
-    textColor(PlasmaGigaAppTheme.gradients.textDefaultAccentGradient.first())
-}
+        .wrap(::WrapperAvatarS)
