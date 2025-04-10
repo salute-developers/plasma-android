@@ -4,13 +4,11 @@ import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Canvas
 import android.graphics.Color
-import android.graphics.Paint
 import android.graphics.Rect
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.LayerDrawable
 import android.util.AttributeSet
-import android.util.Log
 import android.view.Gravity
 import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
@@ -22,7 +20,6 @@ import com.sdds.uikit.drawable.BadgeDrawable
 import com.sdds.uikit.drawable.CounterDrawable
 import com.sdds.uikit.drawable.IndicatorDrawable
 import com.sdds.uikit.drawable.TextDrawable
-import com.sdds.uikit.internal.base.configure
 import com.sdds.uikit.statelist.ColorValueStateList
 import com.sdds.uikit.statelist.getColorValueStateList
 import java.util.Locale
@@ -224,6 +221,7 @@ open class Avatar @JvmOverloads constructor(
             if (_counterEnabled != value) {
                 _counterEnabled = value
                 invalidate()
+                requestLayout()
             }
         }
 
@@ -426,7 +424,6 @@ open class Avatar @JvmOverloads constructor(
             (measuredWidth - _textBounds.width()) / 2,
             (measuredHeight - _textBounds.height()) / 2,
         )
-        Log.e("Avatar", "onMeasure: textBounds $_textBounds, ${_textDrawable.intrinsicHeight}", )
         _bounds.set(0, 0, measuredWidth, measuredHeight)
 
         badge.takeIf { badgeEnabled }?.let { badge ->
