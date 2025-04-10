@@ -4,7 +4,9 @@ import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.ComponentStyle
 import com.sdds.plugin.themebuilder.internal.components.base.Config
+import com.sdds.plugin.themebuilder.internal.components.base.Gradient
 import com.sdds.plugin.themebuilder.internal.components.base.PropertyOwner
+import com.sdds.plugin.themebuilder.internal.components.base.SolidColor
 import com.sdds.plugin.themebuilder.internal.components.base.VariationNode
 import com.sdds.plugin.themebuilder.internal.components.base.asVariationTree
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
@@ -167,6 +169,43 @@ internal abstract class ViewVariationGenerator<PO : PropertyOwner>(
             else -> null
         }
     }
+
+    /**
+     * Добавляет [ProvidableColorProperty].
+     * Умеет работать с градиентами и цветами. Поддерживает состояния.
+     */
+    protected fun Element.addColorProperty(
+        colorProperty: ProvidableColorProperty<PO>,
+        variation: String,
+        variationNode: VariationNode<PO>,
+    ) {
+        val colorValue = getColorProperty(colorProperty, variationNode)
+        if (colorValue.isNullOrInherited) {
+            return
+        }
+
+        when (colorValue) {
+            is ColorValue.SimpleValue -> {
+                if (colorValue.isStateful) {
+                    addToStateList(colorProperty, colorValue.color, variation)
+                } else {
+                    colorRefAttribute(colorProperty.attribute, colorValue.color.default)
+                    return
+                }
+            }
+
+            is ColorValue.ViewValue -> colorValue.colors.forEach { (colorStateName, color) ->
+                addToStateList(colorProperty, color, variation, colorStateName)
+            }
+
+            else -> {}
+        }
+        when (colorValue?.type) {
+            ColorStateListGenerator.ColorType.COLOR -> colorAttribute(colorProperty, variation)
+            ColorStateListGenerator.ColorType.GRADIENT -> colorValueListAttribute(colorProperty, variation)
+            else -> {}
+        }
+    }
 }
 
 internal class PropertyValue<T : Any>(val value: T, val inherited: Boolean)
@@ -179,14 +218,31 @@ internal sealed class ColorValue {
 internal val ColorValue?.isNullOrInherited: Boolean
     get() = this == null || (this is ColorValue.SimpleValue && this.inherited)
 
+internal val ColorValue.isStateful: Boolean
+    get() = when (this) {
+        // Если массив состояний пуст, но задана альфа, то для SimpleValue понадобиться сгенерировать StateList
+        is ColorValue.SimpleValue -> color.states?.isNotEmpty() == true || color.alpha != null
+        is ColorValue.ViewValue -> true
+    }
+
+internal val ColorValue.type: ColorStateListGenerator.ColorType
+    get() = when {
+        this is ColorValue.SimpleValue && this.color is SolidColor -> ColorStateListGenerator.ColorType.COLOR
+        this is ColorValue.SimpleValue && this.color is Gradient -> ColorStateListGenerator.ColorType.GRADIENT
+        this is ColorValue.ViewValue && this.colors.all { it.value is SolidColor } ->
+            ColorStateListGenerator.ColorType.COLOR
+
+        else -> ColorStateListGenerator.ColorType.GRADIENT
+    }
+
 internal val PropertyValue<*>?.isNullOrInherited: Boolean
     get() = this == null || this.inherited
 
 internal fun VariationNode<*>.camelCaseName(separator: String = "."): String =
     this.id.split(".").joinToString(separator = separator) { it.techToCamelCase() }
 
-internal fun ComponentStyle<*>.camelCaseValue(): String =
-    this.value.split(".").joinToString(separator = ".") { it.techToCamelCase() }
+internal fun ComponentStyle<*>.camelCaseValue(separator: String = "."): String =
+    this.value.split(".").joinToString(separator = separator) { it.techToCamelCase() }
 
 internal fun VariationNode<*>.snakeCaseName(separator: String = "."): String =
     this.id.split(".").joinToString(separator = separator) { it.techToSnakeCase() }

@@ -5,8 +5,11 @@ import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
 import com.sdds.plugin.themebuilder.internal.components.ComponentStyleGenerator
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.ColorState
+import com.sdds.plugin.themebuilder.internal.components.base.Gradient
 import com.sdds.plugin.themebuilder.internal.components.base.PropertyOwner
+import com.sdds.plugin.themebuilder.internal.components.base.SolidColor
 import com.sdds.plugin.themebuilder.internal.components.base.view.AndroidState.Companion.asAndroidStates
+import com.sdds.plugin.themebuilder.internal.components.base.view.AndroidState.Companion.excludeAndroidStates
 import com.sdds.plugin.themebuilder.internal.dimens.DimenData
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.ColorStateListGeneratorFactory
@@ -15,7 +18,6 @@ import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.token.ColorToken
 import com.sdds.plugin.themebuilder.internal.token.ShapeToken
 import com.sdds.plugin.themebuilder.internal.token.TypographyToken
-import com.sdds.plugin.themebuilder.internal.utils.FileProvider.colorXmlFile
 import com.sdds.plugin.themebuilder.internal.utils.FileProvider.componentStyleXmlFile
 import com.sdds.plugin.themebuilder.internal.utils.ResourceReferenceProvider
 import com.sdds.plugin.themebuilder.internal.utils.camelToSnakeCase
@@ -231,6 +233,15 @@ internal abstract class ViewComponentStyleGenerator<T : ComponentConfig>(
     }
 
     /**
+     * Добавляет атрибут типа gradient со значением вида ?prefix_attrName, где attrName - это преобразованный
+     * [tokenName]
+     */
+    protected fun Element.gradientRefAttribute(
+        attributeName: String,
+        tokenName: String,
+    ) = colorRefAttribute(attributeName, tokenName)
+
+    /**
      * Добавляет атрибут со значением
      */
     protected fun Element.valueAttribute(
@@ -301,12 +312,50 @@ internal abstract class ViewComponentStyleGenerator<T : ComponentConfig>(
     }
 
     /**
+     * Добавляет атрибут типа xml со значением @xml/[xmlName]
+     */
+    protected fun Element.xmlRefAttribute(
+        attributeName: String,
+        xmlName: String,
+    ) = with(xmlResourceBuilder) {
+        this@xmlRefAttribute.appendElement(
+            elementName = XmlResourcesDocumentBuilder.ElementName.ITEM,
+            tokenName = attributeName,
+            value = resourceReferenceProvider.xml(xmlName),
+            usePrefix = false,
+        )
+    }
+
+    /**
      * Добавляет атрибут типа color со значением @color/[colorName]
      */
     protected fun Element.colorAttribute(
         colorProperty: ColorProperty,
         variation: String? = null,
     ) = colorAttribute(colorProperty.attribute, colorProperty.colorFileName(variation))
+
+    /**
+     * Добавляет атрибут типа drawable со значением [name]
+     */
+    protected fun Element.drawableAttribute(
+        attributeName: String,
+        name: String,
+    ) = with(xmlResourceBuilder) {
+        this@drawableAttribute.appendElement(
+            elementName = XmlResourcesDocumentBuilder.ElementName.ITEM,
+            tokenName = attributeName,
+            value = name,
+            usePrefix = false,
+        )
+    }
+
+    /**
+     * Добавляет атрибут типа ColorValueStateList со значением @xml/[colorName]
+     */
+    protected fun Element.colorValueListAttribute(
+        colorProperty: ColorProperty,
+        variation: String? = null,
+    ) = xmlRefAttribute(colorProperty.attribute, colorProperty.colorFileName(variation))
 
     /**
      * Добавляет атрибут типа dimen
@@ -364,19 +413,26 @@ internal abstract class ViewComponentStyleGenerator<T : ComponentConfig>(
         } else {
             extraAttrs
         }
+        val colorType = when (color) {
+            is Gradient -> ColorStateListGenerator.ColorType.GRADIENT
+            is SolidColor -> ColorStateListGenerator.ColorType.COLOR
+        }
         addToStateList(variation, property) {
             color.states?.forEach { colorState ->
                 val androidStates = colorState.state.asAndroidStates()
+                val customStateAttrs = colorState.state.excludeAndroidStates()
+                    .map { StateListAttribute(it, "true") }
                 val extraStateAttrs = extraStateAttrsBuilder?.invoke(colorState) ?: emptySet()
                 val androidStateAttrs = androidStates.map { it.toStateListAttribute() }
                     .filter { !extraStateAttrs.contains(it) }
                 addColor(
-                    colorState.value,
-                    stateAttrs + androidStateAttrs + extraStateAttrs,
-                    alpha = color.alpha,
+                    type = colorType,
+                    colorTokenName = colorState.value,
+                    states = stateAttrs + androidStateAttrs + extraStateAttrs + customStateAttrs,
+                    alpha = colorState.alpha ?: color.alpha,
                 )
             }
-            addColor(color.default, stateAttrs, alpha = color.alpha)
+            addColor(colorType, color.default, stateAttrs, alpha = color.alpha)
         }
     }
 
@@ -390,10 +446,7 @@ internal abstract class ViewComponentStyleGenerator<T : ComponentConfig>(
                 stateListGenerators[variationName] = it
             }
         val generator = variationStateLists[property] ?: colorStateListGeneratorFactory.create(
-            outputResDir.colorXmlFile(
-                fileName = property.colorFileName(variationName?.techToSnakeCase()),
-                prefix = resourcePrefix,
-            ),
+            property.colorFileName(variationName?.techToSnakeCase()),
         ).also { variationStateLists[property] = it }
 
         generator.block()

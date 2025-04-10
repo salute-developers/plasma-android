@@ -9,7 +9,6 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.State
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.graphics.Color
 
@@ -27,10 +26,27 @@ interface InteractiveColor {
     fun colorForInteraction(interactionSource: InteractionSource): Color
 
     /**
+     * Возвращает цвет [Color] согласно текущему состоянию [InteractionSource] и набору [stateSet]
+     */
+    @Composable
+    fun colorForInteraction(interactionSource: InteractionSource, stateSet: Set<ValueState>): Color {
+        return colorForInteraction(interactionSource)
+    }
+
+    /**
      * Возвращает цвет [Color], сохраненный в [State], согласно текущему состоянию [InteractionSource]
      */
     @Composable
     fun colorForInteractionAsState(interactionSource: InteractionSource): State<Color>
+
+    /**
+     * Возвращает цвет [Color], сохраненный в [State], согласно текущему состоянию [InteractionSource]
+     * и набору [stateSet]
+     */
+    @Composable
+    fun colorForInteractionAsState(interactionSource: InteractionSource, stateSet: Set<ValueState>): State<Color> {
+        return rememberUpdatedState(colorForInteraction(interactionSource, stateSet))
+    }
 }
 
 /**
@@ -59,14 +75,14 @@ fun Color.asInteractive(
  * @param colorStates цвета для каждого стейта
  */
 @Stable
-fun Color.asInteractive(vararg colorStates: Pair<Set<InteractiveState>, Color>): InteractiveColor {
-    return ColorStateList(this, colorStates.associate { it.first to it.second })
+fun Color.asInteractive(vararg colorStates: Pair<Set<ValueState>, Color>): InteractiveColor {
+    return ColorStateList(colorStates.map { it.first }, colorStates.map { it.second }, this)
 }
 
 /**
  * Интерактивные состояния цвета
  */
-enum class InteractiveState {
+enum class InteractiveState : ValueState {
     /**
      * Состояние цвета в фокусе
      */
@@ -127,48 +143,20 @@ private data class SimpleInteractiveColor(
 }
 
 @Immutable
-private data class ColorStateList(
-    val default: Color,
-    val colorStates: Map<Set<InteractiveState>, Color> = emptyMap(),
-) : InteractiveColor {
+private class ColorStateList(
+    states: List<Set<ValueState>>,
+    values: List<Color>,
+    default: Color,
+) : StatefulValue<Color>(states, values, default), InteractiveColor {
 
     @Composable
     override fun colorForInteraction(interactionSource: InteractionSource): Color {
-        val isPressed by interactionSource.collectIsPressedAsState()
-        val isHovered by interactionSource.collectIsHoveredAsState()
-        val isFocused by interactionSource.collectIsFocusedAsState()
-        val isActivated by interactionSource.collectIsActivatedAsState()
-        val isSelected by interactionSource.collectIsSelectedAsState()
-        val stateSet = remember(
-            isPressed,
-            isFocused,
-            isHovered,
-            isActivated,
-            isSelected,
-        ) {
-            HashSet<InteractiveState>().apply {
-                if (isPressed) add(InteractiveState.Pressed)
-                if (isFocused) add(InteractiveState.Focused)
-                if (isHovered) add(InteractiveState.Hovered)
-                if (isActivated) add(InteractiveState.Activated)
-                if (isSelected) add(InteractiveState.Selected)
-            }
-        }
-        return colorStates[stateSet]
-            ?: colorStates.getSingleState(stateSet, InteractiveState.Pressed)
-            ?: colorStates.getSingleState(stateSet, InteractiveState.Focused)
-            ?: colorStates.getSingleState(stateSet, InteractiveState.Hovered)
-            ?: colorStates.getSingleState(stateSet, InteractiveState.Activated)
-            ?: colorStates.getSingleState(stateSet, InteractiveState.Selected)
-            ?: default
+        return getValue(interactionSource)
     }
 
-    private fun Map<Set<InteractiveState>, Color>.getSingleState(
-        stateSet: HashSet<InteractiveState>,
-        singleState: InteractiveState,
-    ): Color? {
-        if (!stateSet.contains(singleState)) return null
-        return this[hashSetOf(singleState)]
+    @Composable
+    override fun colorForInteraction(interactionSource: InteractionSource, stateSet: Set<ValueState>): Color {
+        return getValue(interactionSource, stateSet)
     }
 
     @Composable
