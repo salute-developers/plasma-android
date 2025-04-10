@@ -37,7 +37,7 @@ open class RoborazziConfigCompose(
     /**
      * Правило для регистрации Activity до запуска тестов
      */
-    @get:Rule(order = 0)
+    @get:Rule(order = 1)
     val addActivityToRobolectricRule = object : TestWatcher() {
         override fun starting(description: Description?) {
             super.starting(description)
@@ -53,7 +53,7 @@ open class RoborazziConfigCompose(
     /**
      * Активити для тестов
      */
-    @get:Rule(order = 1)
+    @get:Rule(order = 0)
     val composeTestRule = createAndroidComposeRule<ComponentActivity>()
 
     /**
