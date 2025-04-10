@@ -100,4 +100,13 @@ internal class ResourceReferenceProvider(
     fun drawable(name: String): String {
         return "@drawable/${name.withPrefixIfNeed(resourcePrefix)}"
     }
+
+    /**
+     * Возвращает ссылку на ресурс из директории xml/ с названием [name].
+     * Например, если ресурс называется button_bg, и ресурсам задан префикс "pref",
+     * то функция вернет ссылку @xml/pref_button_bg
+     */
+    fun xml(name: String): String {
+        return "@xml/${name.withPrefixIfNeed(resourcePrefix)}"
+    }
 }

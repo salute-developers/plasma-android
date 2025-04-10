@@ -11,12 +11,13 @@ import java.io.File
 internal class ColorStateListGeneratorFactory(
     private val xmlBuilderFactory: XmlResourcesDocumentBuilderFactory,
     private val resourcePrefixConfig: ResourcePrefixConfig,
+    private val outputResDir: File,
 ) {
 
     /**
      * Создает ColorStateList.
      * @param outputFile файл, в который запишется сгенерированный ColorStateList
      */
-    fun create(outputFile: File): ColorStateListGenerator =
-        ColorStateListGenerator(outputFile, xmlBuilderFactory, resourcePrefixConfig.resourcePrefix)
+    fun create(outputFileName: String): ColorStateListGenerator =
+        ColorStateListGenerator(outputResDir, outputFileName, xmlBuilderFactory, resourcePrefixConfig.resourcePrefix)
 }
