@@ -1,5 +1,6 @@
 package com.sdds.compose.uikit
 
+import android.util.Log
 import androidx.compose.foundation.Indication
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsFocusedAsState
@@ -13,9 +14,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.SolidColor
+import com.sdds.compose.uikit.fs.FocusSelectorBorders
+import com.sdds.compose.uikit.fs.FocusSelectorSettings
+import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
+import com.sdds.compose.uikit.fs.applyFocus
 import com.sdds.compose.uikit.internal.common.surface
 import com.sdds.compose.uikit.internal.focusselector.FocusSelectorMode
-import com.sdds.compose.uikit.internal.focusselector.LocalFocusSelectorMode
 import com.sdds.compose.uikit.internal.focusselector.applyFocusSelector
 
 /**
@@ -38,18 +42,23 @@ fun Card(
     onClick: () -> Unit = {},
     enabled: Boolean = true,
     indication: Indication? = null,
-    focusSelectorMode: FocusSelectorMode = LocalFocusSelectorMode.current,
+    focusSelectorSettings: FocusSelectorSettings = LocalFocusSelectorSettings.current,
+//    focusSelectorMode: FocusSelectorMode = LocalFocusSelectorMode.current,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     content: (@Composable () -> Unit),
 ) {
     val isFocused by interactionSource.collectIsFocusedAsState()
     val backgroundColor = style.colors.backgroundColor.colorForInteraction(interactionSource)
     val shape = style.shape
-
+    Log.d("Settings","${focusSelectorSettings.border}")
     CompositionLocalProvider(LocalCardStyle provides style) {
         Box(
             modifier = modifier
-                .applyFocusSelector(focusSelectorMode, shape) { isFocused }
+                .applyFocus(
+                    settings = focusSelectorSettings,
+                    isFocused = isFocused
+                )
+//                .applyFocusSelector(focusSelectorMode, shape) { isFocused }
                 .surface(
                     backgroundColor = { SolidColor(backgroundColor) },
                     shape = shape,

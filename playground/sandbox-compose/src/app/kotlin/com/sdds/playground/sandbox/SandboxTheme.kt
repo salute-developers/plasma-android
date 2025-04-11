@@ -29,6 +29,9 @@ import com.sdds.compose.uikit.LocalRadioBoxStyle
 import com.sdds.compose.uikit.LocalSegmentItemStyle
 import com.sdds.compose.uikit.LocalSwitchStyle
 import com.sdds.compose.uikit.LocalTextFieldStyle
+import com.sdds.compose.uikit.fs.FocusSelectorBorders
+import com.sdds.compose.uikit.fs.FocusSelectorSettings
+import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
 import com.sdds.compose.uikit.interactions.asInteractive
 import com.sdds.compose.uikit.internal.focusselector.FocusSelectorMode
 import com.sdds.compose.uikit.internal.focusselector.LocalFocusSelectorMode
@@ -133,6 +136,11 @@ fun SandboxTheme(
                     borderStroke = BorderStroke(1.dp, colorScheme.surfaceDefaultAccent),
                     strokePadding = 2.dp,
                 ),
+                LocalFocusSelectorSettings provides FocusSelectorSettings.builder()
+                    .border(FocusSelectorBorders.solid())
+                    .isScaleEnabled(false)
+                    .scaleFactor(1.2f)
+                    .build(),
                 LocalSegmentItemStyle provides SegmentItem.M.Primary.style(),
                 LocalSwitchStyle provides Switch.M.style(),
                 LocalButtonStyle provides BasicButton.M.Default.style(),
@@ -152,7 +160,10 @@ fun SandboxTheme(
                 LocalSandboxStyle provides SandboxStyle.create(
                     drawerBackgroundColor = colorScheme.surfaceDefaultSolidSecondary,
                     sheetBackgroundColor = colorScheme.surfaceDefaultSolidCard,
-                    sheetShape = SddsServTheme.shapes.roundS.copy(CornerSize(0.dp), CornerSize(0.dp)),
+                    sheetShape = SddsServTheme.shapes.roundS.copy(
+                        CornerSize(0.dp),
+                        CornerSize(0.dp)
+                    ),
                 ),
                 LocalNavigationViewStyle provides NavigationViewStyle.create(
                     itemTextStyle = SddsServTheme.typography.bodyMBold,
