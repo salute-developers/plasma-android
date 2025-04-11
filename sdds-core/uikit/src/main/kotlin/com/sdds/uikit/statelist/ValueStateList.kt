@@ -1,7 +1,10 @@
 package com.sdds.uikit.statelist
 
+import android.content.Context
 import android.util.AttributeSet
 import android.util.StateSet
+import androidx.annotation.XmlRes
+import java.lang.ref.WeakReference
 
 /**
  * Абстрактный класс, представляющий список значений, соответствующих наборам состояний View.
@@ -82,5 +85,38 @@ open class ValueStateList<T> internal constructor(
 
             return stateSet.toIntArray()
         }
+    }
+}
+
+private data class ValueStateKey(
+    val resId: Int,
+    val themeHash: Int,
+    val configHash: Int,
+)
+
+@Suppress("UnnecessaryAbstractClass")
+internal abstract class ValueStateListCache<T : Any, V : ValueStateList<T>> {
+    private val themeCache = mutableMapOf<ValueStateKey, WeakReference<V>>()
+
+    fun get(
+        context: Context,
+        @XmlRes resId: Int,
+        factory: (Context, Int) -> V?,
+    ): V? {
+        val theme = context.theme
+        val config = context.resources.configuration
+
+        val key = ValueStateKey(
+            resId = resId,
+            themeHash = theme.hashCode(),
+            configHash = config.hashCode(),
+        )
+
+        return themeCache.getOrPut(key) { WeakReference(factory(context, resId)) }
+            .get() ?: factory(context, resId)
+    }
+
+    fun clear() {
+        themeCache.clear()
     }
 }
