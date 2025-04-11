@@ -13,6 +13,7 @@
         <attr name="android:text" />
         <attr name="android:textAppearance" />
         <attr name="android:textColor" />
+        <attr name="sd_textColor" />
         <attr name="sd_textPaddingStart" format="dimension"/>
         <attr name="sd_textPaddingEnd" format="dimension"/>
         <attr name="sd_textAlignment" format="enum">

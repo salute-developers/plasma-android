@@ -17,8 +17,13 @@ const val AVATAR_REMOTE_URL = "https://cdn.costumewall.com/wp-content/uploads/20
  * @property status статус [Avatar.Status]
  * @property exampleMode режим отображения аватара
  * @property fullName имя пользователя
- * @property actionEnabled включен ли action у [Avatar]
- * @property threshold максимальное кол-во отображаемых [Avatar]
+ * @property threshold имя пользователя
+ * @property extra обвесы (badge, counter)
+ * @property extraPlacement расположение обвесов
+ * @property badgeText текст badge
+ * @property badgeContentStart иконка badge вначале
+ * @property badgeContentEnd иконка badge вконце
+ * @property counterText текст счетчика
  */
 @Parcelize
 data class AvatarUiState(
@@ -26,8 +31,13 @@ data class AvatarUiState(
     val status: Avatar.Status = Avatar.Status.ACTIVE,
     val exampleMode: ExampleMode = ExampleMode.Local,
     val fullName: String? = "Michael Scott",
-    val actionEnabled: Boolean = false,
     val threshold: Int = 3,
+    val extra: AvatarExtra = AvatarExtra.None,
+    val extraPlacement: AvatarExtraPlacement = AvatarExtraPlacement.TOP_START,
+    val badgeText: String = "Label",
+    val badgeContentStart: Boolean = false,
+    val badgeContentEnd: Boolean = false,
+    val counterText: String = "1",
 ) : Parcelable, UiState {
     override fun updateVariant(variant: String): UiState {
         return copy(variant = variant)
@@ -54,4 +64,37 @@ enum class ExampleMode : Parcelable {
      * Аватар будет отображать заглушку
      */
     Placeholder,
+}
+
+/**
+ * Обвесы аватара
+ */
+@Parcelize
+enum class AvatarExtra : Parcelable {
+    /**
+     * Без обвеса
+     */
+    None,
+
+    /**
+     * Бейдж
+     */
+    Badge,
+
+    /**
+     * Счетчик
+     */
+    Counter,
+}
+
+/**
+ * Расположение обвесом [Avatar]
+ * @property raw значение расположения
+ */
+@Parcelize
+enum class AvatarExtraPlacement(val raw: Int) : Parcelable {
+    TOP_START(Avatar.EXTRA_PLACEMENT_TOP_START),
+    TOP_END(Avatar.EXTRA_PLACEMENT_TOP_END),
+    BOTTOM_END(Avatar.EXTRA_PLACEMENT_BOTTOM_END),
+    BOTTOM_START(Avatar.EXTRA_PLACEMENT_BOTTOM_START),
 }

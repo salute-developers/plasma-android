@@ -1,18 +1,14 @@
 package com.sdds.uikit
 
 import android.content.Context
-import android.content.res.ColorStateList
 import android.graphics.Canvas
 import android.graphics.Matrix
 import android.graphics.Path
 import android.graphics.Region
-import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.ContextThemeWrapper
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.ColorInt
-import androidx.annotation.StyleRes
 import androidx.core.view.ViewCompat
 import androidx.core.view.isGone
 import com.sdds.uikit.internal.base.shape.ShapeHelper
@@ -38,18 +34,7 @@ open class AvatarGroup @JvmOverloads constructor(
     private var _itemOffset = 0
     private var _threshold = DEFAULT_THRESHOLD
 
-    private var _counterBackground: Drawable? = null
-
-    @StyleRes
-    private var _counterTextAppearanceId: Int = 0
     private var _counter: Avatar? = null
-    private var _counterTextColor: ColorStateList? = null
-
-    @ColorInt
-    private var _counterTextColorStart: Int = 0
-
-    @ColorInt
-    private var _counterTextColorEnd: Int = 0
 
     private var _adapter: Adapter? = null
     private var _avatarPool: Array<Avatar?>? = null
@@ -200,11 +185,6 @@ open class AvatarGroup @JvmOverloads constructor(
         _spacing = typedArray.getDimensionPixelSize(R.styleable.AvatarGroup_sd_itemSpacing, 0)
         _itemOffset = typedArray.getDimensionPixelSize(R.styleable.AvatarGroup_sd_itemOffset, 0)
         _threshold = typedArray.getInt(R.styleable.AvatarGroup_sd_threshold, DEFAULT_THRESHOLD)
-        _counterBackground = typedArray.getDrawable(R.styleable.AvatarGroup_sd_counterBackground)
-        _counterTextAppearanceId = typedArray.getResourceId(R.styleable.AvatarGroup_sd_counterTextAppearance, 0)
-        _counterTextColorStart = typedArray.getColor(R.styleable.AvatarGroup_sd_counterTextColorStart, 0)
-        _counterTextColorEnd = typedArray.getColor(R.styleable.AvatarGroup_sd_counterTextColorEnd, 0)
-        _counterTextColor = typedArray.getColorStateList(R.styleable.AvatarGroup_sd_counterTextColor)
         _avatarStyleOverlay = typedArray.getResourceId(R.styleable.AvatarGroup_sd_avatarStyleOverlay, 0)
         typedArray.recycle()
     }

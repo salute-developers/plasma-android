@@ -19,49 +19,49 @@ class ViewSystemBadgeScreenshotTest(
     @Test
     override fun testBadgeSizeLDefaultContentLeft() {
         themedComponent {
-            badgeSizeLDefaultContentLeft(R.style.Salute_StylesSalute_ComponentOverlays_BadgeLDefault)
+            badgeSizeLDefaultContentLeft(R.style.Salute_StylesSalute_ComponentOverlays_BadgeSolidLDefault)
         }
     }
 
     @Test
     override fun testBadgeSizeMAccentContentRight() {
         themedComponent {
-            badgeSizeMAccentContentRight(R.style.Salute_StylesSalute_ComponentOverlays_BadgeMAccent)
+            badgeSizeMAccentContentRight(R.style.Salute_StylesSalute_ComponentOverlays_BadgeSolidMAccent)
         }
     }
 
     @Test
     override fun testBadgeSizeSPositivePilled() {
         themedComponent {
-            badgeCommon(R.style.Salute_StylesSalute_ComponentOverlays_BadgeSPilledPositive)
+            badgeCommon(R.style.Salute_StylesSalute_ComponentOverlays_BadgeSolidSPilledPositive)
         }
     }
 
     @Test
     override fun testBadgeSizeXsWarning() {
         themedComponent {
-            badgeCommon(R.style.Salute_StylesSalute_ComponentOverlays_BadgeXsWarning)
+            badgeCommon(R.style.Salute_StylesSalute_ComponentOverlays_BadgeSolidXsWarning)
         }
     }
 
     @Test
     override fun testBadgeSizeLNegative() {
         themedComponent {
-            badgeCommon(R.style.Salute_StylesSalute_ComponentOverlays_BadgeLNegative)
+            badgeCommon(R.style.Salute_StylesSalute_ComponentOverlays_BadgeSolidLNegative)
         }
     }
 
     @Test
     override fun testBadgeSizeMDark() {
         themedComponent {
-            badgeCommon(R.style.Salute_StylesSalute_ComponentOverlays_BadgeMBlack)
+            badgeCommon(R.style.Salute_StylesSalute_ComponentOverlays_BadgeSolidMBlack)
         }
     }
 
     @Test
     override fun testBadgeSizeSLight() {
         themedComponent {
-            badgeCommon(R.style.Salute_StylesSalute_ComponentOverlays_BadgeSWhite)
+            badgeCommon(R.style.Salute_StylesSalute_ComponentOverlays_BadgeSolidSWhite)
         }
     }
 
@@ -96,14 +96,14 @@ class ViewSystemBadgeScreenshotTest(
     @Test
     override fun testIconBadgeSizeLDefault() {
         themedComponent {
-            iconBadgeCommon(R.style.Salute_StylesSalute_ComponentOverlays_IconBadgeLDefault)
+            iconBadgeCommon(R.style.Salute_StylesSalute_ComponentOverlays_IconBadgeSolidLDefault)
         }
     }
 
     @Test
     override fun testIconBadgeSizeMAccentPilled() {
         themedComponent {
-            iconBadgeCommon(R.style.Salute_StylesSalute_ComponentOverlays_IconBadgeMPilledAccent)
+            iconBadgeCommon(R.style.Salute_StylesSalute_ComponentOverlays_IconBadgeSolidMPilledAccent)
         }
     }
 
@@ -124,21 +124,21 @@ class ViewSystemBadgeScreenshotTest(
     @Test
     override fun testIconBadgeSizeLNegative() {
         themedComponent {
-            iconBadgeCommon(R.style.Salute_StylesSalute_ComponentOverlays_IconBadgeLNegative)
+            iconBadgeCommon(R.style.Salute_StylesSalute_ComponentOverlays_IconBadgeSolidLNegative)
         }
     }
 
     @Test
     override fun testIconBadgeSizeMBlack() {
         themedComponent {
-            iconBadgeCommon(R.style.Salute_StylesSalute_ComponentOverlays_IconBadgeMBlack)
+            iconBadgeCommon(R.style.Salute_StylesSalute_ComponentOverlays_IconBadgeSolidMBlack)
         }
     }
 
     @Test
     override fun testIconBadgeSizeSWhite() {
         themedComponent {
-            iconBadgeCommon(R.style.Salute_StylesSalute_ComponentOverlays_IconBadgeSWhite)
+            iconBadgeCommon(R.style.Salute_StylesSalute_ComponentOverlays_IconBadgeSolidSWhite)
         }
     }
 }

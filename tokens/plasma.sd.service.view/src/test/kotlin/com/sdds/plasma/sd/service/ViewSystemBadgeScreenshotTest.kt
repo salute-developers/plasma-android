@@ -19,49 +19,49 @@ class ViewSystemBadgeScreenshotTest(
     @Test
     override fun testBadgeSizeLDefaultContentLeft() {
         themedComponent {
-            badgeSizeLDefaultContentLeft(R.style.Plasma_SdService_ComponentOverlays_BadgeLDefault)
+            badgeSizeLDefaultContentLeft(R.style.Plasma_SdService_ComponentOverlays_BadgeSolidLDefault)
         }
     }
 
     @Test
     override fun testBadgeSizeMAccentContentRight() {
         themedComponent {
-            badgeSizeMAccentContentRight(R.style.Plasma_SdService_ComponentOverlays_BadgeMAccent)
+            badgeSizeMAccentContentRight(R.style.Plasma_SdService_ComponentOverlays_BadgeSolidMAccent)
         }
     }
 
     @Test
     override fun testBadgeSizeSPositivePilled() {
         themedComponent {
-            badgeCommon(R.style.Plasma_SdService_ComponentOverlays_BadgeSPilledPositive)
+            badgeCommon(R.style.Plasma_SdService_ComponentOverlays_BadgeSolidSPilledPositive)
         }
     }
 
     @Test
     override fun testBadgeSizeXsWarning() {
         themedComponent {
-            badgeCommon(R.style.Plasma_SdService_ComponentOverlays_BadgeXsWarning)
+            badgeCommon(R.style.Plasma_SdService_ComponentOverlays_BadgeSolidXsWarning)
         }
     }
 
     @Test
     override fun testBadgeSizeLNegative() {
         themedComponent {
-            badgeCommon(R.style.Plasma_SdService_ComponentOverlays_BadgeLNegative)
+            badgeCommon(R.style.Plasma_SdService_ComponentOverlays_BadgeSolidLNegative)
         }
     }
 
     @Test
     override fun testBadgeSizeMDark() {
         themedComponent {
-            badgeCommon(R.style.Plasma_SdService_ComponentOverlays_BadgeMBlack)
+            badgeCommon(R.style.Plasma_SdService_ComponentOverlays_BadgeSolidMBlack)
         }
     }
 
     @Test
     override fun testBadgeSizeSLight() {
         themedComponent {
-            badgeCommon(R.style.Plasma_SdService_ComponentOverlays_BadgeSWhite)
+            badgeCommon(R.style.Plasma_SdService_ComponentOverlays_BadgeSolidSWhite)
         }
     }
 
@@ -96,14 +96,14 @@ class ViewSystemBadgeScreenshotTest(
     @Test
     override fun testIconBadgeSizeLDefault() {
         themedComponent {
-            iconBadgeCommon(R.style.Plasma_SdService_ComponentOverlays_IconBadgeLDefault)
+            iconBadgeCommon(R.style.Plasma_SdService_ComponentOverlays_IconBadgeSolidLDefault)
         }
     }
 
     @Test
     override fun testIconBadgeSizeMAccentPilled() {
         themedComponent {
-            iconBadgeCommon(R.style.Plasma_SdService_ComponentOverlays_IconBadgeMPilledAccent)
+            iconBadgeCommon(R.style.Plasma_SdService_ComponentOverlays_IconBadgeSolidMPilledAccent)
         }
     }
 
@@ -124,21 +124,21 @@ class ViewSystemBadgeScreenshotTest(
     @Test
     override fun testIconBadgeSizeLNegative() {
         themedComponent {
-            iconBadgeCommon(R.style.Plasma_SdService_ComponentOverlays_IconBadgeLNegative)
+            iconBadgeCommon(R.style.Plasma_SdService_ComponentOverlays_IconBadgeSolidLNegative)
         }
     }
 
     @Test
     override fun testIconBadgeSizeMBlack() {
         themedComponent {
-            iconBadgeCommon(R.style.Plasma_SdService_ComponentOverlays_IconBadgeMBlack)
+            iconBadgeCommon(R.style.Plasma_SdService_ComponentOverlays_IconBadgeSolidMBlack)
         }
     }
 
     @Test
     override fun testIconBadgeSizeSWhite() {
         themedComponent {
-            iconBadgeCommon(R.style.Plasma_SdService_ComponentOverlays_IconBadgeSWhite)
+            iconBadgeCommon(R.style.Plasma_SdService_ComponentOverlays_IconBadgeSolidSWhite)
         }
     }
 }

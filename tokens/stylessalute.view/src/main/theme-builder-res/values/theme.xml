@@ -1826,7 +1826,7 @@
         <item name="sd_segmentItemStyle">@style/Salute.StylesSalute.Components.SegmentItem.M</item>
         <item name="sd_segmentStyle">@style/Salute.StylesSalute.Components.Segment.M</item>
         <item name="sd_counterStyle">@style/Salute.StylesSalute.Components.Counter.M</item>
-        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.M</item>
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.BadgeSolid.M</item>
         <item name="sd_indicatorStyle">@style/Salute.StylesSalute.Components.Indicator.M</item>
     </style>
     <style name="Salute.StylesSalute.MaterialComponents.Light" parent="Theme.MaterialComponents.Light">
@@ -3653,7 +3653,7 @@
         <item name="sd_segmentItemStyle">@style/Salute.StylesSalute.Components.SegmentItem.M</item>
         <item name="sd_segmentStyle">@style/Salute.StylesSalute.Components.Segment.M</item>
         <item name="sd_counterStyle">@style/Salute.StylesSalute.Components.Counter.M</item>
-        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.Badge.M</item>
+        <item name="sd_badgeStyle">@style/Salute.StylesSalute.Components.BadgeSolid.M</item>
         <item name="sd_indicatorStyle">@style/Salute.StylesSalute.Components.Indicator.M</item>
     </style>
     <style name="Salute.StylesSalute.MaterialComponents.DayNight" parent="Salute.StylesSalute.MaterialComponents.Light"/>
