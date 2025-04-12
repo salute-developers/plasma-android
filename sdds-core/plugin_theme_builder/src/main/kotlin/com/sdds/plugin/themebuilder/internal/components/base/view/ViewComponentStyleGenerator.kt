@@ -5,14 +5,16 @@ import com.sdds.plugin.themebuilder.internal.components.ComponentConfig
 import com.sdds.plugin.themebuilder.internal.components.ComponentStyleGenerator
 import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.ColorState
-import com.sdds.plugin.themebuilder.internal.components.base.Gradient
+import com.sdds.plugin.themebuilder.internal.components.base.Dimension
+import com.sdds.plugin.themebuilder.internal.components.base.FloatState
+import com.sdds.plugin.themebuilder.internal.components.base.FloatValue
 import com.sdds.plugin.themebuilder.internal.components.base.PropertyOwner
-import com.sdds.plugin.themebuilder.internal.components.base.SolidColor
-import com.sdds.plugin.themebuilder.internal.components.base.view.AndroidState.Companion.asAndroidStates
-import com.sdds.plugin.themebuilder.internal.components.base.view.AndroidState.Companion.excludeAndroidStates
+import com.sdds.plugin.themebuilder.internal.components.base.State
+import com.sdds.plugin.themebuilder.internal.components.base.Stateful
 import com.sdds.plugin.themebuilder.internal.dimens.DimenData
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.ColorStateListGeneratorFactory
+import com.sdds.plugin.themebuilder.internal.factory.NumberStateListGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ViewColorStateGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.XmlResourcesDocumentBuilderFactory
 import com.sdds.plugin.themebuilder.internal.token.ColorToken
@@ -54,13 +56,23 @@ internal abstract class ViewComponentStyleGenerator<T : ComponentConfig>(
     private val colorStateAttributesGenerator by unsafeLazy {
         viewColorStateGeneratorFactory.create(coreComponentName)
     }
-    private val stateListGenerators = mutableMapOf<String?, MutableMap<ColorProperty, ColorStateListGenerator?>>()
+    private val numberStateListGeneratorFactory: NumberStateListGeneratorFactory by unsafeLazy {
+        NumberStateListGeneratorFactory(
+            xmlBuilderFactory,
+            resourcePrefix,
+            outputResDir,
+            dimensAggregator,
+            resourceReferenceProvider,
+        )
+    }
+    private val valueStateListGenerators =
+        mutableMapOf<String?, MutableMap<Property, ValueStateListGenerator<*, *, *>?>>()
 
     override fun generate(config: T) {
         onGenerate(xmlResourceBuilder, config)
         colorStateAttributesGenerator.generate()
         xmlResourceBuilder.build(outputResDir.componentStyleXmlFile(styleComponentName))
-        stateListGenerators.values.flatMap { it.values }.forEach { it?.generate() }
+        valueStateListGenerators.values.flatMap { it.values }.forEach { it?.generate() }
     }
 
     abstract fun onGenerate(xmlResourcesBuilder: XmlResourcesDocumentBuilder, config: T)
@@ -332,7 +344,7 @@ internal abstract class ViewComponentStyleGenerator<T : ComponentConfig>(
     protected fun Element.colorAttribute(
         colorProperty: ColorProperty,
         variation: String? = null,
-    ) = colorAttribute(colorProperty.attribute, colorProperty.colorFileName(variation))
+    ) = colorAttribute(colorProperty.attribute, colorProperty.fileName(variation))
 
     /**
      * Добавляет атрибут типа drawable со значением [name]
@@ -355,7 +367,15 @@ internal abstract class ViewComponentStyleGenerator<T : ComponentConfig>(
     protected fun Element.colorValueListAttribute(
         colorProperty: ColorProperty,
         variation: String? = null,
-    ) = xmlRefAttribute(colorProperty.attribute, colorProperty.colorFileName(variation))
+    ) = xmlRefAttribute(colorProperty.attribute, colorProperty.fileName(variation))
+
+    /**
+     * Добавляет атрибут типа ValueStateList со значением @xml/propertyFileName
+     */
+    protected fun Element.valueListAttribute(
+        property: Property,
+        variation: String? = null,
+    ) = xmlRefAttribute(property.attribute, property.fileName(variation))
 
     /**
      * Добавляет атрибут типа dimen
@@ -381,14 +401,38 @@ internal abstract class ViewComponentStyleGenerator<T : ComponentConfig>(
         )
     }
 
-    /**
-     * Конфигурирует ColorState для свойства [property].
-     */
-    protected fun addToStateList(
-        property: ColorProperty,
-        block: ColorStateListGenerator.() -> Unit,
+    protected open fun addFloatToStateList(
+        property: Property,
+        value: FloatValue,
+        variation: String? = null,
+        colorStateName: String? = null,
+        extraAttrs: Set<StateListAttribute> = emptySet(),
+        extraStateAttrsBuilder: ((FloatState) -> Set<StateListAttribute>)? = null,
     ) {
-        addToStateList(null, property, block)
+        val stateAttrs = extraAttrs.withColorStateAttrs(colorStateName)
+        val generator = getValueStateList(variation, property) {
+            numberStateListGeneratorFactory.create<Float, FloatState, FloatValue>(
+                property.fileName(variation?.techToSnakeCase()),
+            )
+        }
+        generator.addValue(value, stateAttrs, extraStateAttrsBuilder)
+    }
+
+    protected open fun addDimensionToStateList(
+        property: Property,
+        value: Dimension,
+        variation: String? = null,
+        colorStateName: String? = null,
+        extraAttrs: Set<StateListAttribute> = emptySet(),
+        extraStateAttrsBuilder: ((FloatState) -> Set<StateListAttribute>)? = null,
+    ) {
+        val stateAttrs = extraAttrs.withColorStateAttrs(colorStateName)
+        val generator = getValueStateList(variation, property) {
+            numberStateListGeneratorFactory.create<Float, FloatState, Dimension>(
+                property.fileName(variation?.techToSnakeCase()),
+            )
+        }
+        generator.addValue(value, stateAttrs, extraStateAttrsBuilder)
     }
 
     /**
@@ -405,81 +449,85 @@ internal abstract class ViewComponentStyleGenerator<T : ComponentConfig>(
         extraAttrs: Set<StateListAttribute> = emptySet(),
         extraStateAttrsBuilder: ((ColorState) -> Set<StateListAttribute>)? = null,
     ) {
-        val colorStateAttr = colorStateName?.let {
-            getColorState(it) ?: registerColorState(it)
-        }?.toStateListAttribute()
-        val stateAttrs = if (colorStateAttr != null) {
-            extraAttrs + colorStateAttr
-        } else {
-            extraAttrs
+        val stateAttrs = extraAttrs.withColorStateAttrs(colorStateName)
+        val generator = getValueStateList(variation, property) {
+            colorStateListGeneratorFactory.create(property.fileName(variation?.techToSnakeCase()))
         }
-        val colorType = when (color) {
-            is Gradient -> ColorStateListGenerator.ColorType.GRADIENT
-            is SolidColor -> ColorStateListGenerator.ColorType.COLOR
-        }
-        addToStateList(variation, property) {
-            color.states?.forEach { colorState ->
-                val androidStates = colorState.state.asAndroidStates()
-                val customStateAttrs = colorState.state.excludeAndroidStates()
-                    .map { StateListAttribute(it, "true") }
-                val extraStateAttrs = extraStateAttrsBuilder?.invoke(colorState) ?: emptySet()
-                val androidStateAttrs = androidStates.map { it.toStateListAttribute() }
-                    .filter { !extraStateAttrs.contains(it) }
-                addColor(
-                    type = colorType,
-                    colorTokenName = colorState.value,
-                    states = stateAttrs + androidStateAttrs + extraStateAttrs + customStateAttrs,
-                    alpha = colorState.alpha ?: color.alpha,
-                )
-            }
-            addColor(colorType, color.default, stateAttrs, alpha = color.alpha)
-        }
+        generator.addValue(color, stateAttrs, extraStateAttrsBuilder)
     }
 
-    private fun addToStateList(
+    @Suppress("UNCHECKED_CAST")
+    private fun <Gen : ValueStateListGenerator<*, *, *>> getValueStateList(
         variationName: String?,
-        property: ColorProperty,
-        block: ColorStateListGenerator.() -> Unit,
-    ) {
-        val variationStateLists = stateListGenerators[variationName]
-            ?: mutableMapOf<ColorProperty, ColorStateListGenerator?>().also {
-                stateListGenerators[variationName] = it
+        property: Property,
+        factory: (String) -> Gen,
+    ): Gen {
+        val variationStateLists = valueStateListGenerators[variationName]
+            ?: mutableMapOf<Property, ValueStateListGenerator<*, *, *>?>().also {
+                valueStateListGenerators[variationName] = it
             }
-        val generator = variationStateLists[property] ?: colorStateListGeneratorFactory.create(
-            property.colorFileName(variationName?.techToSnakeCase()),
-        ).also { variationStateLists[property] = it }
-
-        generator.block()
+        return (
+            variationStateLists[property] ?: factory(
+                property.fileName(variationName?.techToSnakeCase()),
+            ).also { variationStateLists[property] = it }
+            ) as Gen
     }
 
-    private fun ColorProperty.colorFileName(variationSuffix: String? = null): String = buildString {
+    private fun Property.fileName(variationSuffix: String? = null): String = buildString {
         append(snakeCaseStyleComponentName)
         if (!variationSuffix.isNullOrBlank()) {
             append("_")
             append(variationSuffix)
         }
-        if (colorFileSuffix.isNotBlank()) {
+        if (fileSuffix.isNotBlank()) {
             append("_")
-            append(colorFileSuffix)
+            append(fileSuffix)
         }
     }
+
+    private fun Set<StateListAttribute>.withColorStateAttrs(colorStateName: String?): Set<StateListAttribute> {
+        val colorStateAttr = colorStateName?.let {
+            getColorState(it) ?: registerColorState(it)
+        }?.toStateListAttribute()
+        return if (colorStateAttr != null) {
+            this + colorStateAttr
+        } else {
+            this
+        }
+    }
+}
+
+internal interface Property {
+    val attribute: String
+    val fileSuffix: String
 }
 
 /**
  * Свойство цвета компонента (цвет текста, фона и т.д.)
  */
-internal interface ColorProperty {
-    val attribute: String
+internal interface ColorProperty : Property {
+    override val attribute: String
+    override val fileSuffix: String get() = colorFileSuffix
+
     val colorFileSuffix: String
 }
 
 /**
  * Свойство цвета компонента с возможностью получить ссылку на него из [PropertyOwner]
  */
-internal interface ProvidableColorProperty<T : PropertyOwner> : ColorProperty {
+internal interface ProvidableColorProperty<T : PropertyOwner> : ProvidableProperty<T, String, Color>, ColorProperty {
 
     /**
      * Возвращает [Color] для [ProvidableColorProperty] из [PropertyOwner]
      */
-    fun provide(owner: T): Color?
+    override fun provide(owner: T): Color?
+}
+
+/**
+ * Свойство компонента с возможностью получить ссылку на него из [PropertyOwner]
+ */
+internal interface ProvidableProperty<PO : PropertyOwner, RV : Any, out Value : Stateful<out RV, out State<RV>>> :
+    Property {
+
+    fun provide(owner: PO): Value?
 }

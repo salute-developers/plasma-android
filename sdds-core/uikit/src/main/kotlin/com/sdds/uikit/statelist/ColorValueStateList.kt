@@ -2,12 +2,10 @@ package com.sdds.uikit.statelist
 
 import android.content.Context
 import android.content.res.ColorStateList
-import android.content.res.Resources
 import android.content.res.TypedArray
 import android.graphics.Paint
 import android.graphics.Shader
 import android.graphics.drawable.Drawable
-import android.util.SparseArray
 import android.util.TypedValue
 import android.util.Xml
 import android.view.View
@@ -22,7 +20,6 @@ import com.sdds.uikit.shader.ShaderFactory
 import com.sdds.uikit.shaderFactory
 import org.xmlpull.v1.XmlPullParser
 import org.xmlpull.v1.XmlPullParserException
-import java.util.WeakHashMap
 
 /**
  * Реализация [ValueStateList] для хранения значений цвета в различных формах (цвет, список цветов, drawable, shader).
@@ -114,7 +111,7 @@ class ColorValueStateList(
                     val itemAttrs = Xml.asAttributeSet(parser)
 
                     val a = context.obtainStyledAttributes(itemAttrs, R.styleable.ColorValueStateListItem)
-                    val valueResId = a.getResourceId(R.styleable.ColorValueStateListItem_android_value, 0)
+                    val valueResId = a.getResourceId(R.styleable.ColorValueStateListItem_sd_color, 0)
                     val alpha = a.getFloat(R.styleable.ColorValueStateListItem_android_alpha, 1f)
                     a.recycle()
 
@@ -217,22 +214,7 @@ class ColorValueStateList(
     }
 }
 
-internal object ColorValueStateListCache {
-    private val themeCache = WeakHashMap<Resources.Theme, SparseArray<ColorValueStateList>>()
-
-    fun get(context: Context, @XmlRes resId: Int): ColorValueStateList? {
-        val theme = context.theme
-        val cacheForTheme = themeCache.getOrPut(theme) { SparseArray() }
-
-        return cacheForTheme[resId] ?: ColorValueStateList.inflate(context, resId)?.also {
-            cacheForTheme.put(resId, it)
-        }
-    }
-
-    fun clear() {
-        themeCache.clear()
-    }
-}
+private object ColorValueStateListCache : ValueStateListCache<ColorValueHolder, ColorValueStateList>()
 
 /**
  * Извлекает [ColorValueStateList] из атрибута с заданным индексом.
@@ -251,7 +233,9 @@ fun TypedArray.getColorValueStateList(
     if (stateListResId == 0) return null
     val typeName = context.resources.getResourceTypeName(stateListResId)
     return when (typeName) {
-        "xml" -> ColorValueStateListCache.get(context, stateListResId)
+        "xml" -> ColorValueStateListCache.get(context, stateListResId) { ctx, resId ->
+            ColorValueStateList.inflate(ctx, resId)
+        }
         else -> ColorValueStateList.valueOf(context, stateListResId)
     }
 }

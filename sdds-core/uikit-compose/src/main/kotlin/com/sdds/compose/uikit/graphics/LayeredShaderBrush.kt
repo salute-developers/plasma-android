@@ -8,7 +8,7 @@ import androidx.compose.ui.graphics.Shader
 import androidx.compose.ui.graphics.ShaderBrush
 
 /**
- * Возвоащает список [ShaderBrush] как компоситный [LayeredShaderBrush] с учетом [alpha]
+ * Возвращает список [ShaderBrush] как композитный [LayeredShaderBrush] с учетом [alpha]
  */
 fun List<ShaderBrush>.asLayered(@FloatRange(from = 0.0, to = 1.0) alpha: Float = 1f): LayeredShaderBrush =
     LayeredShaderBrush(this, alpha)
