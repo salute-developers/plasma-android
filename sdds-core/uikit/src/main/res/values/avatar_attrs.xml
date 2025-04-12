@@ -18,9 +18,9 @@
         </attr>
 
         <attr name="sd_statusSize" format="dimension" />
-        <attr name="sd_statusColor" format="color" />
-        <attr name="sd_statusOffsetX" format="dimension" />
-        <attr name="sd_statusOffsetY" format="dimension" />
+        <attr name="sd_statusColor" format="color|reference" />
+        <attr name="sd_statusOffsetX" format="dimension|reference" />
+        <attr name="sd_statusOffsetY" format="dimension|reference" />
         <attr name="sd_statusStyle" format="reference" />
 
         <attr name="sd_extraBadgeStyle" format="reference" />

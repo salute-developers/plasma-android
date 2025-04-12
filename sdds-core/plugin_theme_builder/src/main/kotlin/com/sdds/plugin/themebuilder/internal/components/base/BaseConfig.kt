@@ -266,21 +266,21 @@ internal class Gradient(
     }
 }
 
-internal fun Color.combine(other: Color, withState: String): Color {
+internal fun Color.combine(other: Color?, withState: String): Color {
     return this.combine(other, withState) {
-        ColorState(listOf(withState), other.value, other.alpha)
+        ColorState(listOf(withState), it.value, it.alpha)
     }
 }
 
 internal fun Dimension.combine(other: Dimension, withState: String): Dimension {
     return this.combine(other, withState) {
-        FloatState(listOf(withState), other.value)
+        FloatState(listOf(withState), it.value)
     }
 }
 
 internal fun FloatValue.combine(other: FloatValue, withState: String): FloatValue {
     return this.combine(other, withState) {
-        FloatState(listOf(withState), other.value)
+        FloatState(listOf(withState), it.value)
     }
 }
 
@@ -288,7 +288,7 @@ internal fun FloatValue.combine(other: FloatValue, withState: String): FloatValu
 private fun <T, S : State<T>, V : Stateful<T, S>> V.combine(
     other: V?,
     withState: String,
-    stateFactory: () -> S,
+    stateFactory: (V) -> S,
 ): V {
     if (other == null) {
         return this
@@ -304,7 +304,7 @@ private fun <T, S : State<T>, V : Stateful<T, S>> V.combine(
                     it.clone(state = stateList) as S
                 }?.toList().orEmpty(),
             )
-            add(stateFactory())
+            add(stateFactory(other))
             states?.let(::addAll)
         },
     ) as V

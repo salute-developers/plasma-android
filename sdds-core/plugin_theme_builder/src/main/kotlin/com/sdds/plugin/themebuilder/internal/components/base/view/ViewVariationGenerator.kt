@@ -2,9 +2,11 @@ package com.sdds.plugin.themebuilder.internal.components.base.view
 
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.components.base.Color
+import com.sdds.plugin.themebuilder.internal.components.base.ColorState
 import com.sdds.plugin.themebuilder.internal.components.base.ComponentStyle
 import com.sdds.plugin.themebuilder.internal.components.base.Config
 import com.sdds.plugin.themebuilder.internal.components.base.Dimension
+import com.sdds.plugin.themebuilder.internal.components.base.FloatState
 import com.sdds.plugin.themebuilder.internal.components.base.FloatValue
 import com.sdds.plugin.themebuilder.internal.components.base.Gradient
 import com.sdds.plugin.themebuilder.internal.components.base.PropertyOwner
@@ -193,6 +195,7 @@ internal abstract class ViewVariationGenerator<PO : PropertyOwner>(
         colorProperty: ProvidableColorProperty<PO>,
         variation: String,
         variationNode: VariationNode<PO>,
+        stateAttrsBuilder: ((ColorState) -> Set<StateListAttribute>)? = null,
     ) {
         val colorValue = getColorProperty(colorProperty, variationNode)
         if (colorValue.isNullOrInherited) {
@@ -202,7 +205,12 @@ internal abstract class ViewVariationGenerator<PO : PropertyOwner>(
         when (colorValue) {
             is ColorValue.SimpleValue -> {
                 if (colorValue.isStateful) {
-                    addToStateList(colorProperty, colorValue.color, variation)
+                    addToStateList(
+                        colorProperty,
+                        colorValue.color,
+                        variation,
+                        extraStateAttrsBuilder = stateAttrsBuilder,
+                    )
                 } else {
                     colorRefAttribute(colorProperty.attribute, colorValue.color.default)
                     return
@@ -210,7 +218,13 @@ internal abstract class ViewVariationGenerator<PO : PropertyOwner>(
             }
 
             is ColorValue.ViewValue -> colorValue.colors.forEach { (colorStateName, color) ->
-                addToStateList(colorProperty, color, variation, colorStateName)
+                addToStateList(
+                    colorProperty,
+                    color,
+                    variation,
+                    colorStateName,
+                    extraStateAttrsBuilder = stateAttrsBuilder,
+                )
             }
 
             else -> {}
@@ -230,6 +244,7 @@ internal abstract class ViewVariationGenerator<PO : PropertyOwner>(
         property: ProvidableProperty<PO, Float, Dimension>,
         variation: String,
         variationNode: VariationNode<PO>,
+        stateAttrsBuilder: ((FloatState) -> Set<StateListAttribute>)? = null,
     ) {
         val propertyValue = getProperty(property, variationNode)
         if (propertyValue.isNullOrInherited) {
@@ -239,14 +254,25 @@ internal abstract class ViewVariationGenerator<PO : PropertyOwner>(
         when (propertyValue) {
             is SingleValue<Dimension> -> {
                 if (propertyValue.isStateful) {
-                    addDimensionToStateList(property, propertyValue.value, variation)
+                    addDimensionToStateList(
+                        property,
+                        propertyValue.value,
+                        variation,
+                        extraStateAttrsBuilder = stateAttrsBuilder,
+                    )
                 } else {
                     dimenAttribute(variation, property.attribute, property.fileSuffix, propertyValue.value.value)
                     return
                 }
             }
             is ColorStateValue<Dimension> -> propertyValue.values.forEach { (colorStateName, value) ->
-                addDimensionToStateList(property, value, variation, colorStateName)
+                addDimensionToStateList(
+                    property,
+                    value,
+                    variation,
+                    colorStateName,
+                    extraStateAttrsBuilder = stateAttrsBuilder,
+                )
             }
 
             else -> {}
@@ -262,6 +288,7 @@ internal abstract class ViewVariationGenerator<PO : PropertyOwner>(
         property: ProvidableProperty<PO, Float, FloatValue>,
         variation: String,
         variationNode: VariationNode<PO>,
+        stateAttrsBuilder: ((FloatState) -> Set<StateListAttribute>)? = null,
     ) {
         val propertyValue = getProperty(property, variationNode)
         if (propertyValue.isNullOrInherited) {
@@ -271,7 +298,12 @@ internal abstract class ViewVariationGenerator<PO : PropertyOwner>(
         when (propertyValue) {
             is SingleValue<FloatValue> -> {
                 if (propertyValue.isStateful) {
-                    addFloatToStateList(property, propertyValue.value, variation)
+                    addFloatToStateList(
+                        property,
+                        propertyValue.value,
+                        variation,
+                        extraStateAttrsBuilder = stateAttrsBuilder,
+                    )
                 } else {
                     valueAttribute(property.attribute, propertyValue.value.value.toString())
                     return
@@ -279,7 +311,13 @@ internal abstract class ViewVariationGenerator<PO : PropertyOwner>(
             }
 
             is ColorStateValue<FloatValue> -> propertyValue.values.forEach { (colorStateName, value) ->
-                addFloatToStateList(property, value, variation, colorStateName)
+                addFloatToStateList(
+                    property,
+                    value,
+                    variation,
+                    colorStateName,
+                    extraStateAttrsBuilder = stateAttrsBuilder,
+                )
             }
 
             else -> {}
