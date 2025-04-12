@@ -187,8 +187,8 @@ object FileProvider {
         File("${valuesDir().path}/styles-${componentName.toLowerCase(Locale.getDefault())}.xml")
 
     /**
-     * XML файл с ColorValueStateList из директории xml
+     * XML файл с ValueStateList из директории xml
      */
-    fun File.colorSelectorXmlFile(fileName: String, prefix: String = ""): File =
+    fun File.selectorXmlFile(fileName: String, prefix: String = ""): File =
         File("${xmlDir().path}/${fileName.withPrefixIfNeed(prefix)}.xml")
 }
