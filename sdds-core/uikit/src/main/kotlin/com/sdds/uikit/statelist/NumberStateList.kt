@@ -172,3 +172,17 @@ fun TypedArray.getNumberStateList(
         ?.let { NumberStateList.resolveFromTypedValue(it, context) }
         ?.let { NumberStateList.valueOf(it) }
 }
+
+/**
+ * Возвращает [Float] соответствующий состоянию [state]
+ */
+fun NumberStateList.getFloatForState(state: IntArray): Float {
+    return getValueForState(state).toFloat()
+}
+
+/**
+ * Возвращает [Int] соответствующий состоянию [state]
+ */
+fun NumberStateList.getIntForState(state: IntArray): Int {
+    return getValueForState(state).toInt()
+}

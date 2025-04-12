@@ -21,7 +21,10 @@ import com.sdds.uikit.drawable.CounterDrawable
 import com.sdds.uikit.drawable.IndicatorDrawable
 import com.sdds.uikit.drawable.TextDrawable
 import com.sdds.uikit.statelist.ColorValueStateList
+import com.sdds.uikit.statelist.NumberStateList
 import com.sdds.uikit.statelist.getColorValueStateList
+import com.sdds.uikit.statelist.getFloatForState
+import com.sdds.uikit.statelist.getNumberStateList
 import java.util.Locale
 import kotlin.math.roundToInt
 
@@ -62,7 +65,9 @@ open class Avatar @JvmOverloads constructor(
 
     private val _bounds: Rect = Rect()
     private var _statusOffsetX: Float = 0f
+    private var _statusOffsetXList: NumberStateList? = null
     private var _statusOffsetY: Float = 0f
+    private var _statusOffsetYList: NumberStateList? = null
     private var _status: Status = Status.NONE
     private var _statusColor: ColorStateList? = null
     private var _statusDrawable: IndicatorDrawable? = null
@@ -503,6 +508,8 @@ open class Avatar @JvmOverloads constructor(
         }
         _statusDrawable?.state = drawableState
         _textDrawable.state = drawableState
+        _statusOffsetX = _statusOffsetXList?.getFloatForState(drawableState) ?: 0f
+        _statusOffsetY = _statusOffsetYList?.getFloatForState(drawableState) ?: 0f
     }
 
     override fun onDrawableSizeChange() {
@@ -557,8 +564,8 @@ open class Avatar @JvmOverloads constructor(
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.Avatar, defStyleAttr, defStyleRes)
         _status = Status.values()
             .getOrElse(typedArray.getInt(R.styleable.Avatar_sd_status, 0)) { Status.NONE }
-        _statusOffsetX = typedArray.getDimension(R.styleable.Avatar_sd_statusOffsetX, 0f)
-        _statusOffsetY = typedArray.getDimension(R.styleable.Avatar_sd_statusOffsetY, 0f)
+        _statusOffsetXList = typedArray.getNumberStateList(context, R.styleable.Avatar_sd_statusOffsetX)
+        _statusOffsetYList = typedArray.getNumberStateList(context, R.styleable.Avatar_sd_statusOffsetY)
         _statusStyle = typedArray.getResourceId(R.styleable.Avatar_sd_statusStyle, R.style.Sdds_Components_Indicator)
         obtainStatusIndicator(_statusStyle)
         setStatusColor(typedArray.getColorStateList(R.styleable.Avatar_sd_statusColor))

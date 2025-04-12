@@ -3,11 +3,13 @@ package com.sdds.plugin.themebuilder.internal.components.avatar.view
 import com.sdds.plugin.themebuilder.internal.builder.XmlResourcesDocumentBuilder
 import com.sdds.plugin.themebuilder.internal.components.avatar.AvatarProperties
 import com.sdds.plugin.themebuilder.internal.components.base.Color
+import com.sdds.plugin.themebuilder.internal.components.base.Dimension
 import com.sdds.plugin.themebuilder.internal.components.base.VariationNode
+import com.sdds.plugin.themebuilder.internal.components.base.combine
 import com.sdds.plugin.themebuilder.internal.components.base.view.ProvidableColorProperty
+import com.sdds.plugin.themebuilder.internal.components.base.view.ProvidableProperty
 import com.sdds.plugin.themebuilder.internal.components.base.view.ViewVariationGenerator
 import com.sdds.plugin.themebuilder.internal.components.base.view.camelCaseValue
-import com.sdds.plugin.themebuilder.internal.components.base.view.combine
 import com.sdds.plugin.themebuilder.internal.dimens.DimensAggregator
 import com.sdds.plugin.themebuilder.internal.factory.ColorStateListGeneratorFactory
 import com.sdds.plugin.themebuilder.internal.factory.ViewColorStateGeneratorFactory
@@ -46,6 +48,9 @@ internal class AvatarStyleGeneratorView(
         styleElement: Element,
         variationNode: VariationNode<AvatarProperties>,
     ) = with(styleElement) {
+        AvatarDimensionsProperty.values().forEach {
+            addDimensionProperty(it, variation, variationNode)
+        }
         addProps(variation, variationNode)
         AvatarColorProperty.values().forEach {
             addColorProperty(it, variation, variationNode)
@@ -57,20 +62,35 @@ internal class AvatarStyleGeneratorView(
 
         props.shape?.let { shapeAttribute(variation, it.value) }
         props.textStyle?.let { typographyAttribute("android:textAppearance", it.value) }
-        props.width?.let {
-            dimenAttribute(variation, "android:minWidth", "min_width", it.value)
-            dimenAttribute(variation, "android:maxWidth", "max_width", it.value)
-        }
-        props.height?.let {
-            dimenAttribute(variation, "android:minHeight", "min_height", it.value)
-            dimenAttribute(variation, "android:maxHeight", "max_height", it.value)
-        }
-        props.statusOffsetX?.let { dimenAttribute(variation, "sd_statusOffsetX", "status_offset_x", it.value) }
-        props.statusOffsetY?.let { dimenAttribute(variation, "sd_statusOffsetY", "status_offset_y", it.value) }
-
         props.statusStyle?.let { componentStyleAttribute("sd_statusStyle", it.camelCaseValue()) }
         props.badgeStyle?.let { componentStyleAttribute("sd_extraBadgeStyle", it.camelCaseValue()) }
         props.counterStyle?.let { componentStyleAttribute("sd_extraCounterStyle", it.camelCaseValue()) }
+    }
+
+    private enum class AvatarDimensionsProperty(
+        override val attribute: String,
+        override val fileSuffix: String,
+    ) : ProvidableProperty<AvatarProperties, Float, Dimension> {
+        MIN_WIDTH("android:minWidth", "min_width"),
+        MAX_WIDTH("android:maxWidth", "max_width"),
+        MIN_HEIGHT("android:minHeight", "min_height"),
+        MAX_HEIGHT("android:maxHeight", "max_height"),
+        STATUS_OFFSET_X("sd_statusOffsetX", "status_offset_x"),
+        STATUS_OFFSET_Y("sd_statusOffsetY", "status_offset_y"),
+        ;
+
+        override fun provide(owner: AvatarProperties): Dimension? {
+            return when (this) {
+                MIN_WIDTH,
+                MAX_WIDTH,
+                -> owner.width
+                MIN_HEIGHT,
+                MAX_HEIGHT,
+                -> owner.height
+                STATUS_OFFSET_X -> owner.statusOffsetX
+                STATUS_OFFSET_Y -> owner.statusOffsetY
+            }
+        }
     }
 
     private enum class AvatarColorProperty(
