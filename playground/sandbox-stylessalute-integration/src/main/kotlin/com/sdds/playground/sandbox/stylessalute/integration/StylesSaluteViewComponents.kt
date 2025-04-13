@@ -21,6 +21,7 @@ import com.sdds.playground.sandbox.stylessalute.integration.checkbox.StylesSalut
 import com.sdds.playground.sandbox.stylessalute.integration.checkbox.group.StylesSaluteCheckBoxGroupVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.chip.StylesSaluteChipVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.chip.group.StylesSaluteChipGroupVariationsView
+import com.sdds.playground.sandbox.stylessalute.integration.circularprogress.StylesSaluteCircularProgressBarVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.counter.StylesSaluteCounterVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.indicator.vs.StylesSaluteIndicatorVariationsView
 import com.sdds.playground.sandbox.stylessalute.integration.progress.StylesSaluteProgressBarVariationsView
@@ -119,6 +120,10 @@ object StylesSaluteViewComponents : ComponentsProviderView {
             ViewComponent(
                 ComponentKey.ProgressBar,
                 StylesSaluteProgressBarVariationsView,
+            ),
+            ViewComponent(
+                ComponentKey.CircularProgressBar,
+                StylesSaluteCircularProgressBarVariationsView,
             ),
             ViewComponent(
                 ComponentKey.RadioBox,

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
 
+    <attr name="sd_circularProgressBarStyle" format="reference"/>
+
     <declare-styleable name="Spinner" tools:ignore="ResourceName">
         <attr name="android:tint" />
         <attr name="sd_strokeWidth" />
@@ -30,5 +32,29 @@
         <attr name="android:insetTop"/>
         <attr name="android:insetRight"/>
         <attr name="android:insetBottom"/>
+    </declare-styleable>
+
+    <declare-styleable name="CircularProgressBar" tools:ignore="ResourceName">
+        <!-- Текущий прогресс -->
+        <attr name="sd_progress" />
+        <!-- Максимальный прогресс -->
+        <attr name="sd_maxProgress" />
+        <!-- Минимальный прогресс -->
+        <attr name="sd_minProgress" />
+
+        <attr name="sd_progressTint" format="color|reference" />
+        <attr name="sd_trackTint" format="color|reference" />
+        <attr name="sd_trackEnabled" format="boolean"/>
+
+        <attr name="sd_progressValueEnabled" format="boolean"/>
+        <attr name="sd_progressValueAppearance" format="reference"/>
+        <attr name="sd_progressValueColor" format="color|reference"/>
+        <attr name="sd_progressValueSuffix" format="string"/>
+        <attr name="sd_progressValueSuffixColor" format="color|reference"/>
+
+        <attr name="sd_progressThickness" format="dimension|reference" />
+        <attr name="sd_trackThickness" format="dimension|reference" />
+        <attr name="android:minWidth" />
+        <attr name="android:minHeight" />
     </declare-styleable>
 </resources>

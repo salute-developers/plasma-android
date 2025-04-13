@@ -2,6 +2,8 @@ package com.sdds.uikit
 
 import android.content.Context
 import android.content.res.ColorStateList
+import android.graphics.Rect
+import android.graphics.Shader
 import android.util.AttributeSet
 import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
@@ -11,6 +13,10 @@ import com.sdds.uikit.colorstate.ColorState
 import com.sdds.uikit.colorstate.ColorState.Companion.isDefined
 import com.sdds.uikit.colorstate.ColorStateHolder
 import com.sdds.uikit.internal.base.shape.ShapeHelper
+import com.sdds.uikit.shader.ShaderFactory
+import com.sdds.uikit.statelist.ColorValueStateList
+import com.sdds.uikit.statelist.getColorValueStateList
+import com.sdds.uikit.statelist.setTextColorValue
 import com.sdds.uikit.viewstate.ViewState
 import com.sdds.uikit.viewstate.ViewState.Companion.isDefined
 import com.sdds.uikit.viewstate.ViewStateHolder
@@ -30,6 +36,12 @@ open class TextView @JvmOverloads constructor(
 
     @Suppress("LeakingThis")
     private val _shapeHelper: ShapeHelper = ShapeHelper(this, attrs, defStyleAttr)
+
+    private var _textTint: ColorValueStateList? = null
+    private val _tempTextBounds: Rect = Rect()
+    private val _textBounds: Rect = Rect()
+    private var _textShaderFactory: ShaderFactory? = null
+    private var _textShader: Shader? = null
 
     /**
      * Состояние внешнего вида текста
@@ -55,6 +67,12 @@ open class TextView @JvmOverloads constructor(
                 refreshDrawableState()
             }
         }
+
+    init {
+        context.obtainStyledAttributes(attrs, R.styleable.TextView, defStyleAttr, 0).use {
+            setTextColor(it.getColorValueStateList(context, R.styleable.TextView_sd_textColor))
+        }
+    }
 
     /**
      * Устанавливает толщину линии границы [TextView]
@@ -88,6 +106,26 @@ open class TextView @JvmOverloads constructor(
         this._shapeHelper.setStrokeColor(colorStateList)
     }
 
+    /**
+     * Устанавливает цвета текста [tint]
+     * @see ColorValueStateList
+     */
+    open fun setTextColor(tint: ColorValueStateList?) {
+        _textTint = tint
+        updateBounds()
+        invalidate()
+    }
+
+    /**
+     * Устанавливает шейдер для текста
+     */
+    open fun setTextShader(shaderFactory: ShaderFactory?) {
+        _textShaderFactory = shaderFactory
+        if (shaderFactory != null) {
+            createShader(shaderFactory)
+        }
+    }
+
     override fun onCreateDrawableState(extraSpace: Int): IntArray {
         val drawableState = super.onCreateDrawableState(extraSpace + 2)
         if (state?.isDefined() == true) {
@@ -97,5 +135,30 @@ open class TextView @JvmOverloads constructor(
             mergeDrawableStates(drawableState, colorState?.attrs)
         }
         return drawableState
+    }
+
+    override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
+        super.onSizeChanged(w, h, oldw, oldh)
+        updateBounds()
+    }
+
+    override fun drawableStateChanged() {
+        super.drawableStateChanged()
+        setTextColorValue(_textTint)
+    }
+
+    private fun updateBounds() {
+        _tempTextBounds.set(_textBounds)
+        paint.getTextBounds(text.toString(), 0, text.length, _textBounds)
+    }
+
+    private fun createShader(shaderFactory: ShaderFactory): Shader? {
+        if (_textShaderFactory != shaderFactory || _tempTextBounds != _textBounds) {
+            _textShaderFactory = shaderFactory
+            return shaderFactory.resize(_textBounds.width().toFloat(), _textBounds.height().toFloat()).also {
+                _textShader = it
+            }
+        }
+        return _textShader
     }
 }

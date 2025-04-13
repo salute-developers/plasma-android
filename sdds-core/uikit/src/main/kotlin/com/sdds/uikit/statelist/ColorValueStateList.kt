@@ -15,6 +15,7 @@ import androidx.annotation.XmlRes
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.graphics.ColorUtils
 import com.sdds.uikit.R
+import com.sdds.uikit.TextView
 import com.sdds.uikit.internal.base.colorForState
 import com.sdds.uikit.shader.ShaderFactory
 import com.sdds.uikit.shaderFactory
@@ -229,6 +230,10 @@ fun TypedArray.getColorValueStateList(
     context: Context,
     index: Int,
 ): ColorValueStateList? {
+    val value = peekValue(index)
+    if (value != null && value.type in TypedValue.TYPE_FIRST_COLOR_INT..TypedValue.TYPE_LAST_COLOR_INT) {
+        return ColorValueStateList.valueOf(getColor(index, 0))
+    }
     val stateListResId = getResourceId(index, 0)
     if (stateListResId == 0) return null
     val typeName = context.resources.getResourceTypeName(stateListResId)
@@ -258,6 +263,28 @@ fun View.setBackgroundValueList(colorValueStateList: ColorValueStateList?) {
         is ColorValueHolder.ColorValue -> setBackgroundColor(backgroundValue.value)
         is ColorValueHolder.DrawableValue -> background = backgroundValue.value
         is ColorValueHolder.ColorListValue -> backgroundTintList = backgroundValue.value
+        is ColorValueHolder.ShaderValue -> {}
+    }
+}
+
+/**
+ * Устанавливает фон [View] в соответствии с [ColorValueStateList].
+ *
+ * Применяет значение в зависимости от состояния View: цвет, drawable, tint или shader.
+ *
+ * @param colorValueStateList Список значений цвета для различных состояний.
+ */
+fun TextView.setTextColorValue(colorValueStateList: ColorValueStateList?) {
+    if (colorValueStateList == null) return
+    val textColorValue = if (colorValueStateList.isStateful()) {
+        colorValueStateList.getValueForState(drawableState)
+    } else {
+        colorValueStateList.getDefaultValue()
+    }
+    when (textColorValue) {
+        is ColorValueHolder.ColorValue -> setTextColor(textColorValue.value)
+        is ColorValueHolder.DrawableValue -> {}
+        is ColorValueHolder.ColorListValue -> setTextColor(textColorValue.value)
         is ColorValueHolder.ShaderValue -> {}
     }
 }

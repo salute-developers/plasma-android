@@ -13,4 +13,20 @@
         <item name="android:progressTint">#000</item>
         <item name="sd_shapeAppearance">?sd_shapeAppearanceCircle</item>
     </style>
+
+    <style name="Sdds.Components.CircularProgressBar">
+        <item name="sd_minProgress">0.0</item>
+        <item name="sd_maxProgress">1.0</item>
+
+        <item name="sd_trackEnabled">true</item>
+        <item name="sd_trackTint">#aaa</item>
+        <item name="sd_trackThickness">4dp</item>
+        <item name="sd_progressTint">#000</item>
+        <item name="sd_progressThickness">4dp</item>
+
+        <item name="sd_progressValueSuffix">%</item>
+        <item name="sd_progressValueEnabled">true</item>
+        <item name="android:minWidth">88dp</item>
+        <item name="android:minHeight">88dp</item>
+    </style>
 </resources>
