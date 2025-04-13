@@ -42,8 +42,8 @@
         <!-- Минимальный прогресс -->
         <attr name="sd_minProgress" />
 
-        <attr name="sd_progressTint" format="color|reference" />
-        <attr name="sd_trackTint" format="color|reference" />
+        <attr name="sd_progressColor" format="color|reference" />
+        <attr name="sd_trackColor" format="color|reference" />
         <attr name="sd_trackEnabled" format="boolean"/>
 
         <attr name="sd_progressValueEnabled" format="boolean"/>

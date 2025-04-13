@@ -4,7 +4,7 @@ import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Canvas
 import android.graphics.Rect
-import android.graphics.Shader
+import android.graphics.RectF
 import android.graphics.drawable.Drawable
 import android.text.Layout
 import android.text.StaticLayout
@@ -20,7 +20,7 @@ import com.sdds.uikit.R
 import com.sdds.uikit.internal.base.CancelableFontCallback
 import com.sdds.uikit.internal.base.applyTextAppearance
 import com.sdds.uikit.internal.base.configure
-import com.sdds.uikit.shader.ShaderFactory
+import com.sdds.uikit.shader.CachedShaderFactory
 import com.sdds.uikit.shape.ShapeDrawable
 import com.sdds.uikit.statelist.ColorValueStateList
 import com.sdds.uikit.statelist.getColorValueStateList
@@ -83,6 +83,8 @@ open class TextDrawable(
     private var _delegate: Delegate? = null
     private var _lineHeight: Float = 0f
     private var _textAlignment: TextAlignment = TextAlignment.CENTER
+    private val _shaderFactoryDelegate: CachedShaderFactory = CachedShaderFactory.create()
+    private val _boundsF = RectF()
 
     private val _textWidth: Int
         get() = if (_text.isNotBlank()) {
@@ -330,7 +332,8 @@ open class TextDrawable(
         updateDrawableStartBounds()
         updateDrawableEndBounds()
         updateTextLayout()
-        resetTextColor()
+        _boundsF.set(bounds)
+        _shaderFactoryDelegate.updateBounds(_boundsF)
     }
 
     override fun getIntrinsicWidth(): Int {
@@ -361,19 +364,14 @@ open class TextDrawable(
     }
 
     private fun resetTextColor(): Boolean {
-        return textPaint.setColorValue(_textColor, state, this::createShader)
-    }
-
-    private fun createShader(factory: ShaderFactory): Shader? {
-        if (textBounds.isEmpty) return null
-        return factory.resize(textBounds.width().toFloat(), textBounds.height().toFloat())
+        return textPaint.setColorValue(_textColor, state, _shaderFactoryDelegate)
     }
 
     private fun onSizeChanged(updateParent: Boolean) {
         updateDrawableStartBounds()
         updateDrawableEndBounds()
         updateTextLayout()
-        resetTextColor()
+        _shaderFactoryDelegate.updateBounds(_boundsF)
         if (updateParent) _delegate?.onDrawableSizeChange()
     }
 

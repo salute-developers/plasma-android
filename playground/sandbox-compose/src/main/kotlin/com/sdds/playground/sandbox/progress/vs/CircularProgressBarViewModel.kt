@@ -24,7 +24,6 @@ internal class CircularProgressBarViewModel(
             ProgressPropertyName.Progress -> updateProgress(
                 (valueString.toFloatOrNull() ?: 0f) / MAX_PROGRESS,
             )
-            ProgressPropertyName.ValueEnabled -> updateValueEnabled(valueString.toBoolean())
             ProgressPropertyName.HasTrack -> updateTrackEnabled(valueString.toBoolean())
             else -> {}
         }
@@ -33,12 +32,6 @@ internal class CircularProgressBarViewModel(
     private fun updateProgress(progress: Float) {
         internalUiState.value = internalUiState.value.copy(
             progress = progress.coerceIn(0f, 1f),
-        )
-    }
-
-    private fun updateValueEnabled(enabled: Boolean) {
-        internalUiState.value = internalUiState.value.copy(
-            valueEnabled = enabled,
         )
     }
 
@@ -55,10 +48,6 @@ internal class CircularProgressBarViewModel(
                 value = (progress * MAX_PROGRESS).toInt(),
             ),
             Property.BooleanProperty(
-                name = ProgressPropertyName.ValueEnabled.value,
-                value = valueEnabled,
-            ),
-            Property.BooleanProperty(
                 name = ProgressPropertyName.HasTrack.value,
                 value = trackEnabled,
             ),
@@ -67,7 +56,6 @@ internal class CircularProgressBarViewModel(
 
     private enum class ProgressPropertyName(val value: String) {
         Progress("progress"),
-        ValueEnabled("valueEnabled"),
         HasTrack("hasTrack"),
     }
 

@@ -19,9 +19,9 @@
         <item name="sd_maxProgress">1.0</item>
 
         <item name="sd_trackEnabled">true</item>
-        <item name="sd_trackTint">#aaa</item>
+        <item name="sd_trackColor">#aaa</item>
         <item name="sd_trackThickness">4dp</item>
-        <item name="sd_progressTint">#000</item>
+        <item name="sd_progressColor">#000</item>
         <item name="sd_progressThickness">4dp</item>
 
         <item name="sd_progressValueSuffix">%</item>

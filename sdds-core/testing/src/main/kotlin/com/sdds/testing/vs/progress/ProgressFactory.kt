@@ -60,6 +60,5 @@ fun ProgressBar.applyState(state: ProgressUiState?): ProgressBar = apply {
 fun CircularProgressBar.applyState(state: CircularProgressUiState?): CircularProgressBar = apply {
     state ?: return@apply
     setProgress(state.progress, state.animateProgress)
-    valueEnabled = state.valueEnabled
     trackEnabled = state.trackEnabled
 }

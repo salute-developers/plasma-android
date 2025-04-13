@@ -17,8 +17,10 @@ import androidx.core.graphics.ColorUtils
 import com.sdds.uikit.R
 import com.sdds.uikit.TextView
 import com.sdds.uikit.internal.base.colorForState
+import com.sdds.uikit.shader.CachedShaderFactory
 import com.sdds.uikit.shader.ShaderFactory
 import com.sdds.uikit.shaderFactory
+import com.sdds.uikit.shape.ShapeDrawable
 import org.xmlpull.v1.XmlPullParser
 import org.xmlpull.v1.XmlPullParserException
 
@@ -294,13 +296,13 @@ fun TextView.setTextColorValue(colorValueStateList: ColorValueStateList?) {
  *
  * @param colorValueStateList Список значений цвета/шейдера по состояниям.
  * @param state Текущее состояние (набор флагов состояния).
- * @param shaderFactory Фабрика для создания [Shader], если используется [ShaderValue].
+ * @param cachedShaderFactory Фабрика для создания [Shader], если используется [ShaderValue].
  * @return `true`, если цвет или shader были изменены.
  */
 fun Paint.setColorValue(
     colorValueStateList: ColorValueStateList?,
     state: IntArray,
-    shaderFactory: (ShaderFactory) -> Shader?,
+    cachedShaderFactory: CachedShaderFactory,
 ): Boolean {
     val oldColor = color
     val oldShader = shader
@@ -320,9 +322,15 @@ fun Paint.setColorValue(
             shader = null
         }
 
-        is ColorValueHolder.DrawableValue -> throw IllegalArgumentException("Can't set drawable value to Paint object")
+        is ColorValueHolder.DrawableValue -> {
+            // TODO: https://github.com/salute-developers/plasma-android/issues/357
+            val shapeShaderFactory = (colorValue.value as? ShapeDrawable)?.shaderFactory
+            shapeShaderFactory?.let {
+                shader = cachedShaderFactory.getShader(it)
+            } ?: throw IllegalArgumentException("Can't set drawable value to Paint object")
+        }
         is ColorValueHolder.ShaderValue -> {
-            shader = shaderFactory(colorValue.value)
+            shader = cachedShaderFactory.getShader(colorValue.value)
         }
     }
     return oldColor != color || oldShader != shader

@@ -8,7 +8,6 @@ import android.graphics.Paint
 import android.graphics.PixelFormat
 import android.graphics.Rect
 import android.graphics.RectF
-import android.graphics.Shader
 import android.graphics.drawable.Drawable
 import android.text.Spannable
 import android.text.TextPaint
@@ -27,8 +26,11 @@ import androidx.core.view.isVisible
 import androidx.dynamicanimation.animation.FloatPropertyCompat
 import androidx.dynamicanimation.animation.SpringAnimation
 import androidx.dynamicanimation.animation.SpringForce
+import com.sdds.uikit.colorstate.ColorState
+import com.sdds.uikit.colorstate.ColorState.Companion.isDefined
+import com.sdds.uikit.colorstate.ColorStateHolder
 import com.sdds.uikit.internal.base.configure
-import com.sdds.uikit.shader.ShaderFactory
+import com.sdds.uikit.shader.CachedShaderFactory
 import com.sdds.uikit.statelist.ColorValueStateList
 import com.sdds.uikit.statelist.NumberStateList
 import com.sdds.uikit.statelist.getColorValueStateList
@@ -49,7 +51,7 @@ open class CircularProgressBar @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.sd_circularProgressBarStyle,
     defStyleRes: Int = R.style.Sdds_Components_CircularProgressBar,
-) : FrameLayout(context, attrs, defStyleAttr) {
+) : FrameLayout(context, attrs, defStyleAttr), ColorStateHolder {
 
     private lateinit var _progressDrawable: LineDrawable
     private lateinit var _trackDrawable: LineDrawable
@@ -135,6 +137,17 @@ open class CircularProgressBar @JvmOverloads constructor(
             if (_trackEnabled != value) {
                 _trackEnabled = value
                 invalidate()
+            }
+        }
+
+    /**
+     * @see ColorStateHolder.colorState
+     */
+    override var colorState: ColorState? = ColorState.obtain(context, attrs, defStyleAttr)
+        set(value) {
+            if (field != value) {
+                field = value
+                refreshDrawableState()
             }
         }
 
@@ -271,6 +284,14 @@ open class CircularProgressBar @JvmOverloads constructor(
         return super.verifyDrawable(who) || who == _progressDrawable || who == _trackDrawable
     }
 
+    override fun onCreateDrawableState(extraSpace: Int): IntArray {
+        val drawableState = super.onCreateDrawableState(extraSpace + 1)
+        if (colorState?.isDefined() == true) {
+            mergeDrawableStates(drawableState, colorState?.attrs)
+        }
+        return drawableState
+    }
+
     override fun drawableStateChanged() {
         super.drawableStateChanged()
         _progressDrawable.state = drawableState
@@ -297,11 +318,13 @@ open class CircularProgressBar @JvmOverloads constructor(
         }
 
         _trackDrawable = LineDrawable().apply {
-            setTint(typedArray.getColorValueStateList(context, R.styleable.CircularProgressBar_sd_trackTint))
+            callback = this@CircularProgressBar
+            setTint(typedArray.getColorValueStateList(context, R.styleable.CircularProgressBar_sd_trackColor))
             setThickness(typedArray.getNumberStateList(context, R.styleable.CircularProgressBar_sd_trackThickness))
         }
         _progressDrawable = LineDrawable().apply {
-            setTint(typedArray.getColorValueStateList(context, R.styleable.CircularProgressBar_sd_progressTint))
+            callback = this@CircularProgressBar
+            setTint(typedArray.getColorValueStateList(context, R.styleable.CircularProgressBar_sd_progressColor))
             setThickness(typedArray.getNumberStateList(context, R.styleable.CircularProgressBar_sd_progressThickness))
         }
         valueEnabled = typedArray.getBoolean(R.styleable.CircularProgressBar_sd_progressValueEnabled, true)
@@ -358,25 +381,12 @@ open class CircularProgressBar @JvmOverloads constructor(
     }
 
     private inner class ColorStateListSpan : CharacterStyle(), UpdateAppearance {
-        private val _tempTextBounds: Rect = Rect()
-        private val _textBounds: Rect = Rect()
-        private var _textShaderFactory: ShaderFactory? = null
-        private var _textShader: Shader? = null
+        private val _shaderFactoryDelegate: CachedShaderFactory = CachedShaderFactory.create()
 
         override fun updateDrawState(tp: TextPaint?) {
             if (tp == null) return
             val colorState = _progressValueSuffixTint ?: return
-            tp.setColorValue(colorState, drawableState, ::createShader)
-        }
-
-        private fun createShader(shaderFactory: ShaderFactory): Shader? {
-            if (_textShaderFactory != shaderFactory || _tempTextBounds != _textBounds) {
-                _textShaderFactory = shaderFactory
-                return shaderFactory.resize(_textBounds.width().toFloat(), _textBounds.height().toFloat()).also {
-                    _textShader = it
-                }
-            }
-            return _textShader
+            tp.setColorValue(colorState, drawableState, _shaderFactoryDelegate)
         }
     }
 
@@ -392,10 +402,10 @@ open class CircularProgressBar @JvmOverloads constructor(
         private val _oval = RectF()
         private var _tintList: ColorValueStateList? = null
         private var _thicknessList: NumberStateList? = null
+        private val _shaderFactoryDelegate = CachedShaderFactory.create()
 
         fun setTint(tint: ColorValueStateList?) {
             _tintList = tint
-            invalidateSelf()
         }
 
         fun setThickness(thicknessList: NumberStateList?) {
@@ -432,11 +442,12 @@ open class CircularProgressBar @JvmOverloads constructor(
                 cx + radius - halfStroke,
                 cy + radius - halfStroke,
             )
+            _shaderFactoryDelegate.updateBounds(_oval)
         }
 
         override fun onStateChange(state: IntArray): Boolean {
             var changed = super.onStateChange(state)
-            if (_paint.setColorValue(_tintList, state, ::createShader)) {
+            if (_paint.setColorValue(_tintList, state, _shaderFactoryDelegate)) {
                 changed = true
             }
             val newThickness = _thicknessList?.getFloatForState(state) ?: 0f
@@ -449,10 +460,6 @@ open class CircularProgressBar @JvmOverloads constructor(
                 invalidateSelf()
             }
             return changed
-        }
-
-        private fun createShader(factory: ShaderFactory): Shader {
-            return factory.resize(_oval.width(), _oval.height())
         }
 
         fun updateFraction(fraction: Float) {
