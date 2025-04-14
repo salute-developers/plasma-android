@@ -22,9 +22,9 @@ interface ChipGroupStyle : Style {
 
     /**
      * Размеры и отступы компонента
-     * @see ChipGroupDimensions
+     * @see ChipGroupDimensionValues
      */
-    val dimensions: ChipGroupDimensions
+    val dimensions: ChipGroupDimensionValues
 
     /**
      * Стиль чипа
@@ -57,6 +57,14 @@ interface ChipGroupStyleBuilder : StyleBuilder<ChipGroupStyle> {
      * @see ChipGroupStyle.dimensions
      * @see ChipGroupDimensions
      */
+    @Deprecated("Use dimensions() with builder instead")
+    fun dimensions(dimensions: ChipGroupDimensions): ChipGroupStyleBuilder
+
+    /**
+     * Устанавливает размеры и отступы компонента [dimensions]
+     * @see ChipGroupStyle.dimensions
+     * @see ChipGroupDimensionValues
+     */
     @Composable
     fun dimensions(builder: @Composable ChipGroupDimensionsBuilder.() -> Unit): ChipGroupStyleBuilder
 
@@ -78,7 +86,23 @@ interface ChipGroupStyleBuilder : StyleBuilder<ChipGroupStyle> {
  * Размеры и отступы компонента [ChipGroup]
  */
 @Immutable
-interface ChipGroupDimensions {
+@Deprecated("Use ChipGroupDimensionValues")
+data class ChipGroupDimensions(
+    /**
+     * Горизонтальный отступ между чипами
+     */
+    val horizontalSpacing: Dp = 2.dp,
+    /**
+     * Вертикальный отступ между чипами
+     */
+    val verticalSpacing: Dp = 2.dp,
+)
+
+/**
+ * Размеры и отступы компонента [ChipGroup]
+ */
+@Immutable
+interface ChipGroupDimensionValues {
     /**
      * Горизонтальный отступ между чипами
      */
@@ -102,7 +126,7 @@ interface ChipGroupDimensions {
 private class DefaultChipGroupDimensions(
     override val gap: Dp,
     override val lineSpacing: Dp,
-) : ChipGroupDimensions {
+) : ChipGroupDimensionValues {
 
     class Builder : ChipGroupDimensionsBuilder {
         private var gap: Dp? = null
@@ -116,7 +140,7 @@ private class DefaultChipGroupDimensions(
             this.lineSpacing = lineSpacing
         }
 
-        override fun build(): ChipGroupDimensions {
+        override fun build(): ChipGroupDimensionValues {
             return DefaultChipGroupDimensions(
                 gap = gap ?: 2.dp,
                 lineSpacing = lineSpacing ?: 2.dp,
@@ -141,23 +165,30 @@ interface ChipGroupDimensionsBuilder {
     fun lineSpacing(lineSpacing: Dp): ChipGroupDimensionsBuilder
 
     /**
-     * Вернёт экземпляр [ChipGroupDimensions]
+     * Вернёт экземпляр [ChipGroupDimensionValues]
      */
-    fun build(): ChipGroupDimensions
+    fun build(): ChipGroupDimensionValues
 }
 
 @Immutable
 private data class DefaultChipGroupStyle(
-    override val dimensions: ChipGroupDimensions,
+    override val dimensions: ChipGroupDimensionValues,
     override val chipStyle: ChipStyle,
     override val disableAlpha: Float,
 ) : ChipGroupStyle {
 
     class Builder : ChipGroupStyleBuilder {
 
-        private var dimensionsBuilder: ChipGroupDimensionsBuilder = ChipGroupDimensions.builder()
+        private var dimensionsBuilder: ChipGroupDimensionsBuilder = ChipGroupDimensionValues.builder()
         private var chipStyle: ChipStyle? = null
         private var disableAlpha: Float? = null
+
+        @Deprecated("Use dimensions() with builder instead")
+        override fun dimensions(dimensions: ChipGroupDimensions) = apply {
+            this.dimensionsBuilder
+                .gap(dimensions.horizontalSpacing)
+                .lineSpacing(dimensions.verticalSpacing)
+        }
 
         @Composable
         override fun dimensions(builder: @Composable (ChipGroupDimensionsBuilder.() -> Unit)) = apply {
