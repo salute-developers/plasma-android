@@ -91,7 +91,7 @@
         <attr name="sd_shaderAppearance"/>
     </declare-styleable>
 
-    <declare-styleable name="SdShaderAppearance">
+    <declare-styleable name="SdShaderLayer">
         <attr name="sd_gradientType" format="enum">
             <enum name="none" value="0" />
             <enum name="linear" value="1" />
@@ -108,6 +108,21 @@
 
         <attr name="sd_colors" format="reference" />
         <attr name="sd_stops" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="SdShaderAppearance">
+        <attr name="sd_shaderLayers" format="reference"/>
+
+        <attr name="sd_gradientType"/>
+
+        <attr name="sd_angle"/>
+
+        <attr name="sd_radius" />
+        <attr name="sd_centerX" />
+        <attr name="sd_centerY" />
+
+        <attr name="sd_colors" />
+        <attr name="sd_stops" />
     </declare-styleable>
 
     <declare-styleable name="SdFocusSelector">

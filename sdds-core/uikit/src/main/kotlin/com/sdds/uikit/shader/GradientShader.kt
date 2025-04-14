@@ -1,10 +1,18 @@
-package com.sdds.uikit.shape
+package com.sdds.uikit.shader
 
+import android.content.Context
+import android.content.res.Resources.Theme
+import android.content.res.TypedArray
+import android.graphics.ComposeShader
 import android.graphics.LinearGradient
+import android.graphics.PorterDuff
 import android.graphics.RadialGradient
 import android.graphics.Shader
 import android.graphics.SweepGradient
-import com.sdds.uikit.shader.ShaderFactory
+import androidx.annotation.StyleRes
+import androidx.core.content.res.use
+import com.sdds.uikit.R
+import com.sdds.uikit.shape.ShapeDrawable
 import kotlin.math.PI
 import kotlin.math.abs
 import kotlin.math.acos
@@ -18,10 +26,6 @@ import kotlin.math.sqrt
  * Описывает [Shader] градиента.
  * @author Малышев Александр on 13.08.2024
  */
-@Deprecated(
-    "Use GradientShader from com.sdds.uikit.shader",
-    ReplaceWith("com.sdds.uikit.shader.GradientShader"),
-)
 sealed class GradientShader : ShaderFactory {
 
     /**
@@ -168,4 +172,142 @@ sealed class GradientShader : ShaderFactory {
             )
         }
     }
+
+    /**
+     * Шейдер для комбинированных градиентов
+     */
+    class Mixed(private val layers: Array<GradientShader>) : GradientShader() {
+        override fun resize(width: Float, height: Float): Shader {
+            return layers.map { it.resize(width, height) }.reduce { acc, other ->
+                ComposeShader(acc, other, PorterDuff.Mode.SRC_OVER)
+            }
+        }
+    }
+
+    companion object {
+
+        /**
+         * Достает [GradientShader] из ресурса стиля градиента
+         */
+        fun obtain(context: Context, @StyleRes resId: Int): GradientShader? =
+            obtain(context.theme, resId)
+
+        /**
+         * Достает [GradientShader] из ресурса стиля градиента
+         */
+        fun obtain(theme: Theme, @StyleRes resId: Int): GradientShader? =
+            theme.obtainStyledAttributes(resId, R.styleable.SdShaderAppearance)
+                .use { typedArray ->
+                    if (typedArray.hasValue(R.styleable.SdShaderAppearance_sd_shaderLayers)) {
+                        val layers = typedArray.obtainShaderLayers(theme)
+                        Mixed(layers).takeIf { layers.isNotEmpty() }
+                    } else {
+                        typedArray.obtainGradientShader()
+                    }
+                }
+    }
 }
+
+private fun ShaderAppearance.toGradientShader(): GradientShader? {
+    return when (type) {
+        ShapeDrawable.GradientType.LINEAR -> GradientShader.Linear(
+            colors = colors,
+            positions = stops,
+            angle = angle,
+        )
+
+        ShapeDrawable.GradientType.RADIAL -> GradientShader.Radial(
+            colors = colors,
+            positions = stops,
+            radius = radius,
+            centerX = centerX,
+            centerY = centerY,
+        )
+
+        ShapeDrawable.GradientType.SWEEP -> GradientShader.Sweep(
+            colors = colors,
+            positions = stops,
+            centerX = centerX,
+            centerY = centerY,
+        )
+
+        ShapeDrawable.GradientType.SOLID -> GradientShader.Solid(colors.firstOrNull() ?: 0)
+        else -> null
+    }
+}
+
+private fun TypedArray.obtainShaderLayers(theme: Theme): Array<GradientShader> {
+    val layersReference = getResourceId(R.styleable.SdShaderAppearance_sd_shaderLayers, 0)
+    return if (layersReference != 0) {
+        resources.obtainTypedArray(layersReference).use { layersTypedArray ->
+            Array(layersTypedArray.length()) { index ->
+                theme.obtainStyledAttributes(
+                    layersTypedArray.getResourceId(index, 0),
+                    R.styleable.SdShaderLayer,
+                ).use { it.obtainShaderLayerAppearance() }.toGradientShader()
+            }.filterNotNull().toTypedArray()
+        }
+    } else {
+        emptyArray()
+    }
+}
+
+private fun TypedArray.obtainGradientShader(): GradientShader? {
+    val type = ShapeDrawable.GradientType.values().getOrElse(
+        getInt(R.styleable.SdShaderAppearance_sd_gradientType, 0),
+    ) { ShapeDrawable.GradientType.NONE }
+    val colors = getResourceId(R.styleable.SdShaderAppearance_sd_colors, 0).let { colorsId ->
+        if (colorsId == 0) return@let intArrayOf()
+        resources.getIntArray(colorsId)
+    }
+    val stops = getResourceId(R.styleable.SdShaderAppearance_sd_stops, 0).let { stopsId ->
+        if (stopsId == 0) return@let floatArrayOf()
+        resources.getStringArray(stopsId)
+            .map { it.toFloatOrNull() ?: 0f }
+            .toFloatArray()
+    }
+    return ShaderAppearance(
+        type = type,
+        colors = colors,
+        stops = stops,
+        centerX = getFloat(R.styleable.SdShaderAppearance_sd_centerX, 0f),
+        centerY = getFloat(R.styleable.SdShaderAppearance_sd_centerY, 0f),
+        radius = getFloat(R.styleable.SdShaderAppearance_sd_radius, 0f),
+        angle = getFloat(R.styleable.SdShaderAppearance_sd_angle, 0f),
+    ).toGradientShader()
+}
+
+private fun TypedArray.obtainShaderLayerAppearance(): ShaderAppearance {
+    val type = ShapeDrawable.GradientType.values().getOrElse(
+        getInt(R.styleable.SdShaderLayer_sd_gradientType, 0),
+    ) { ShapeDrawable.GradientType.NONE }
+    val colors = getResourceId(R.styleable.SdShaderLayer_sd_colors, 0).let { colorsId ->
+        if (colorsId == 0) return@let intArrayOf()
+        resources.getIntArray(colorsId)
+    }
+    val stops = getResourceId(R.styleable.SdShaderLayer_sd_stops, 0).let { stopsId ->
+        if (stopsId == 0) return@let floatArrayOf()
+        resources.getStringArray(stopsId)
+            .mapNotNull { it?.toFloatOrNull() ?: 0f }
+            .toFloatArray()
+    }
+    return ShaderAppearance(
+        type = type,
+        colors = colors,
+        stops = stops,
+        centerX = getFloat(R.styleable.SdShaderLayer_sd_centerX, 0f),
+        centerY = getFloat(R.styleable.SdShaderLayer_sd_centerY, 0f),
+        radius = getFloat(R.styleable.SdShaderLayer_sd_radius, 0f),
+        angle = getFloat(R.styleable.SdShaderLayer_sd_angle, 0f),
+    )
+}
+
+private class ShaderAppearance(
+    val type: ShapeDrawable.GradientType,
+    val colors: IntArray,
+    val stops: FloatArray,
+    val centerX: Float,
+    val centerY: Float,
+    val radius: Float,
+    val angle: Float,
+)

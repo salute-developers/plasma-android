@@ -18,8 +18,8 @@ import com.sdds.uikit.R
 import com.sdds.uikit.TextView
 import com.sdds.uikit.internal.base.colorForState
 import com.sdds.uikit.shader.CachedShaderFactory
+import com.sdds.uikit.shader.GradientShader
 import com.sdds.uikit.shader.ShaderFactory
-import com.sdds.uikit.shaderFactory
 import com.sdds.uikit.shape.ShapeDrawable
 import org.xmlpull.v1.XmlPullParser
 import org.xmlpull.v1.XmlPullParserException
@@ -206,7 +206,7 @@ class ColorValueStateList(
                 }
 
                 "style" -> {
-                    val shaderFactory = context.shaderFactory(resId)
+                    val shaderFactory = GradientShader.obtain(context, resId)
                         ?: throw IllegalArgumentException("Invalid shader reference $resId")
                     ColorValueHolder.ShaderValue(shaderFactory)
                 }
@@ -276,7 +276,7 @@ fun View.setBackgroundValueList(colorValueStateList: ColorValueStateList?) {
  *
  * @param colorValueStateList Список значений цвета для различных состояний.
  */
-fun TextView.setTextColorValue(colorValueStateList: ColorValueStateList?) {
+fun TextView.setTextColorValue(colorValueStateList: ColorValueStateList?, cachedShaderFactory: CachedShaderFactory) {
     if (colorValueStateList == null) return
     val textColorValue = if (colorValueStateList.isStateful()) {
         colorValueStateList.getValueForState(drawableState)
@@ -287,7 +287,10 @@ fun TextView.setTextColorValue(colorValueStateList: ColorValueStateList?) {
         is ColorValueHolder.ColorValue -> setTextColor(textColorValue.value)
         is ColorValueHolder.DrawableValue -> {}
         is ColorValueHolder.ColorListValue -> setTextColor(textColorValue.value)
-        is ColorValueHolder.ShaderValue -> {}
+        is ColorValueHolder.ShaderValue -> {
+            paint.color = -1
+            paint.shader = cachedShaderFactory.getShader(textColorValue.value)
+        }
     }
 }
 
@@ -324,10 +327,11 @@ fun Paint.setColorValue(
 
         is ColorValueHolder.DrawableValue -> {
             // TODO: https://github.com/salute-developers/plasma-android/issues/357
-            val shapeShaderFactory = (colorValue.value as? ShapeDrawable)?.shaderFactory
-            shapeShaderFactory?.let {
-                shader = cachedShaderFactory.getShader(it)
-            } ?: throw IllegalArgumentException("Can't set drawable value to Paint object")
+            val shapeShaderFactory = when (colorValue.value) {
+                is ShapeDrawable -> colorValue.value.shaderFactory
+                else -> throw IllegalArgumentException("Can't set drawable value to Paint object")
+            }
+            shader = shapeShaderFactory?.let { cachedShaderFactory.getShader(it) }
         }
         is ColorValueHolder.ShaderValue -> {
             shader = cachedShaderFactory.getShader(colorValue.value)

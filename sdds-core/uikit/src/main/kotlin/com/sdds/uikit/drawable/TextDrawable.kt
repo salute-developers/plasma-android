@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Canvas
 import android.graphics.Rect
-import android.graphics.RectF
 import android.graphics.drawable.Drawable
 import android.text.Layout
 import android.text.StaticLayout
@@ -84,7 +83,6 @@ open class TextDrawable(
     private var _lineHeight: Float = 0f
     private var _textAlignment: TextAlignment = TextAlignment.CENTER
     private val _shaderFactoryDelegate: CachedShaderFactory = CachedShaderFactory.create()
-    private val _boundsF = RectF()
 
     private val _textWidth: Int
         get() = if (_text.isNotBlank()) {
@@ -332,8 +330,7 @@ open class TextDrawable(
         updateDrawableStartBounds()
         updateDrawableEndBounds()
         updateTextLayout()
-        _boundsF.set(bounds)
-        _shaderFactoryDelegate.updateBounds(_boundsF)
+        resetTextColor()
     }
 
     override fun getIntrinsicWidth(): Int {
@@ -364,6 +361,7 @@ open class TextDrawable(
     }
 
     private fun resetTextColor(): Boolean {
+        _shaderFactoryDelegate.updateBounds(textBounds)
         return textPaint.setColorValue(_textColor, state, _shaderFactoryDelegate)
     }
 
@@ -371,7 +369,7 @@ open class TextDrawable(
         updateDrawableStartBounds()
         updateDrawableEndBounds()
         updateTextLayout()
-        _shaderFactoryDelegate.updateBounds(_boundsF)
+        resetTextColor()
         if (updateParent) _delegate?.onDrawableSizeChange()
     }
 
