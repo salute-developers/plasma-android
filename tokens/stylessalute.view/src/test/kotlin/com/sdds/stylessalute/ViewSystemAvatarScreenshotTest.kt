@@ -53,4 +53,60 @@ class ViewSystemAvatarScreenshotTest(
             avatarGroupSizeS(R.style.Salute_StylesSalute_ComponentOverlays_AvatarGroupS)
         }
     }
+
+    @Test
+    override fun testAvatarSizeXXLCounterTopStart() {
+        themedComponent {
+            avatarSizeXXLCounterTopStart(R.style.Salute_StylesSalute_ComponentOverlays_AvatarXxl)
+        }
+    }
+
+    @Test
+    override fun testAvatarSizeLCounterTopEnd() {
+        themedComponent {
+            avatarSizeLCounterTopEnd(R.style.Salute_StylesSalute_ComponentOverlays_AvatarL)
+        }
+    }
+
+    @Test
+    override fun testAvatarSizeMCounterBottomEnd() {
+        themedComponent {
+            avatarSizeMCounterBottomEnd(R.style.Salute_StylesSalute_ComponentOverlays_AvatarM)
+        }
+    }
+
+    @Test
+    override fun testAvatarSizeSCounterBottomStart() {
+        themedComponent {
+            avatarSizeSCounterBottomStart(R.style.Salute_StylesSalute_ComponentOverlays_AvatarS)
+        }
+    }
+
+    @Test
+    override fun testAvatarSizeXXLBadgeTopStart() {
+        themedComponent {
+            avatarSizeXXLBadgeTopStart(R.style.Salute_StylesSalute_ComponentOverlays_AvatarXxl)
+        }
+    }
+
+    @Test
+    override fun testAvatarSizeXXLBadgeBottomEnd() {
+        themedComponent {
+            avatarSizeXXLBadgeBottomEnd(R.style.Salute_StylesSalute_ComponentOverlays_AvatarXxl)
+        }
+    }
+
+    @Test
+    override fun testAvatarSizeLBadgeTopEnd() {
+        themedComponent {
+            avatarSizeLBadgeTopEnd(R.style.Salute_StylesSalute_ComponentOverlays_AvatarL)
+        }
+    }
+
+    @Test
+    override fun testAvatarSizeMBadgeBottomStart() {
+        themedComponent {
+            avatarSizeMBadgeBottomStart(R.style.Salute_StylesSalute_ComponentOverlays_AvatarM)
+        }
+    }
 }
