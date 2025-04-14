@@ -26,6 +26,10 @@ themeBuilder {
         name("StarDs")
     }
     componentSource(name = "plasma_stards", componentsVersion, "StarDs")
+    componentSource {
+        url("file:///Users/alex/Projects/theme-converter/components/plasma_stards/0.3.0-rc.zip")
+        name("StarDs")
+    }
     view {
         themeParents {
             materialComponentsTheme("NoActionBar")

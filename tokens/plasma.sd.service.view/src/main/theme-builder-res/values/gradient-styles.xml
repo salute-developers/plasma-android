@@ -99,22 +99,27 @@
         <item name="sd_stops">@array/plasma_dark_text_inverse_accent_gradient_positions</item>
     </style>
     <!--endregion Инвертированный акцентный цвет с градиентом-->
-    <!--region Акцентный фон поверхности/контрола с градиентом Слой 0-->
+    <!--region Акцентный фон поверхности/контрола с градиентом-->
     <style name="Plasma.SdService.Gradient.DarkSurfaceDefaultAccentGradientLayer0">
-        <item name="sd_gradientType">linear</item>
-        <item name="sd_angle">@string/plasma_dark_surface_default_accent_gradient_layer_1_angle</item>
-        <item name="sd_colors">@array/plasma_dark_surface_default_accent_gradient_layer_1_colors</item>
-        <item name="sd_stops">@array/plasma_dark_surface_default_accent_gradient_layer_1_positions</item>
-    </style>
-    <!--endregion Акцентный фон поверхности/контрола с градиентом Слой 0-->
-    <!--region Акцентный фон поверхности/контрола с градиентом Слой 1-->
-    <style name="Plasma.SdService.Gradient.DarkSurfaceDefaultAccentGradientLayer1">
         <item name="sd_gradientType">linear</item>
         <item name="sd_angle">@string/plasma_dark_surface_default_accent_gradient_layer_0_angle</item>
         <item name="sd_colors">@array/plasma_dark_surface_default_accent_gradient_layer_0_colors</item>
         <item name="sd_stops">@array/plasma_dark_surface_default_accent_gradient_layer_0_positions</item>
     </style>
-    <!--endregion Акцентный фон поверхности/контрола с градиентом Слой 1-->
+    <style name="Plasma.SdService.Gradient.DarkSurfaceDefaultAccentGradientLayer1">
+        <item name="sd_gradientType">linear</item>
+        <item name="sd_angle">@string/plasma_dark_surface_default_accent_gradient_layer_1_angle</item>
+        <item name="sd_colors">@array/plasma_dark_surface_default_accent_gradient_layer_1_colors</item>
+        <item name="sd_stops">@array/plasma_dark_surface_default_accent_gradient_layer_1_positions</item>
+    </style>
+    <integer-array name="plasma_shader_dark_surface_default_accent_gradient_layers">
+        <item>@style/Plasma.SdService.Gradient.DarkSurfaceDefaultAccentGradientLayer0</item>
+        <item>@style/Plasma.SdService.Gradient.DarkSurfaceDefaultAccentGradientLayer1</item>
+    </integer-array>
+    <style name="Plasma.SdService.Gradient.DarkSurfaceDefaultAccentGradient">
+        <item name="sd_shaderLayers">@array/plasma_shader_dark_surface_default_accent_gradient_layers</item>
+    </style>
+    <!--endregion Акцентный фон поверхности/контрола с градиентом-->
     <!--region Акцентный фон поверхности/контрола с градиентом-->
     <style name="Plasma.SdService.Gradient.DarkSurfaceDefaultAccentGradientHover">
         <item name="sd_gradientType">linear</item>

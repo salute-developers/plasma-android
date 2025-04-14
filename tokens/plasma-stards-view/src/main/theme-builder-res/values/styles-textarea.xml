@@ -2,9 +2,6 @@
 
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <resources>
-    <style name="Sdkit.StarDs.ComponentOverlays.TextAreaChips">
-        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroup.Dense</item>
-    </style>
     <style name="Sdkit.StarDs.Components.TextArea" parent="Sdds.Components.TextArea">
         <item name="sd_scrollBarThickness">@dimen/sdkit_text_area_scrollbar_thickness</item>
         <item name="sd_scrollBarPaddingTop">@dimen/sdkit_text_area_scrollbar_padding_top</item>
@@ -17,7 +14,6 @@
         <item name="sd_counterAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXsNormal</item>
         <item name="sd_prefixTextPadding">@dimen/sdkit_text_area_prefix_padding</item>
         <item name="sd_suffixTextPadding">@dimen/sdkit_text_area_suffix_padding</item>
-        <item name="sd_chipGroupStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.TextFieldChips</item>
         <item name="sd_valueColor">@color/sdkit_text_area_value_color</item>
         <item name="sd_captionColor">@color/sdkit_text_area_caption_color</item>
         <item name="sd_iconTint">@color/sdkit_text_area_icon_color</item>

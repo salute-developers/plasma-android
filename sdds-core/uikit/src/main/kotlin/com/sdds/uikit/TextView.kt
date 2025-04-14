@@ -8,6 +8,7 @@ import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.AppCompatTextView
+import androidx.core.content.res.use
 import com.sdds.uikit.colorstate.ColorState
 import com.sdds.uikit.colorstate.ColorState.Companion.isDefined
 import com.sdds.uikit.colorstate.ColorStateHolder

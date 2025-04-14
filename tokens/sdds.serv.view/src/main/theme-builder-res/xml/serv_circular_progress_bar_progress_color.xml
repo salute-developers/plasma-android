@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<color-selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item app:sd_color="?serv_surfaceDefaultSolidDefault" app:serv_circularprogressbar_state_default="true"/>
+    <item app:sd_color="?serv_surfaceDefaultTransparentTertiary" app:serv_circularprogressbar_state_secondary="true"/>
+    <item app:sd_color="?serv_surfaceDefaultAccent" app:serv_circularprogressbar_state_accent="true"/>
+    <item app:sd_color="?serv_surfaceDefaultAccentGradient" app:serv_circularprogressbar_state_gradient="true"/>
+    <item app:sd_color="?serv_surfaceDefaultInfo" app:serv_circularprogressbar_state_info="true"/>
+    <item app:sd_color="?serv_surfaceDefaultNegative" app:serv_circularprogressbar_state_negative="true"/>
+    <item app:sd_color="?serv_surfaceDefaultPositive" app:serv_circularprogressbar_state_positive="true"/>
+    <item app:sd_color="?serv_surfaceDefaultWarning" app:serv_circularprogressbar_state_warning="true"/>
+</color-selector>
