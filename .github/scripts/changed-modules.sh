@@ -5,10 +5,10 @@ FROM_TAG=$1
 
 echo "🔍 Detecting changed modules since $FROM_TAG"
 
-MODULES_SET=()
+declare -a MODULES_SET=()
 CHANGED_TOKENS=false
 
-git diff --name-only "$FROM_TAG" HEAD | while read -r FILE; do
+while IFS= read -r FILE; do
   echo "➡️ Checking file: $FILE"
 
   # sdds-core (excluding icons/ and testing/)
@@ -32,9 +32,8 @@ git diff --name-only "$FROM_TAG" HEAD | while read -r FILE; do
     MODULES_SET+=("$MODULE")
     echo "✅ Matched: $MODULE"
   fi
-done
+done < <(git diff --name-only "$FROM_TAG" HEAD)
 
-# Если изменён tokens/ — собрать все подпапки, на основе diff
 if [[ "$CHANGED_TOKENS" == true ]]; then
   echo "📦 Detected changes in tokens/, enumerating submodules from git diff..."
 
@@ -50,9 +49,8 @@ if [[ "$CHANGED_TOKENS" == true ]]; then
   done
 fi
 
-# Удаление дубликатов и вывод
 UNIQUE_MODULES=$(printf "%s\n" "${MODULES_SET[@]}" | sort -u | xargs)
 echo "✅ Final module list: $UNIQUE_MODULES"
 
-# Вывод для GitHub Actions
+# Output for GitHub Actions
 echo "modules=$UNIQUE_MODULES" >> "$GITHUB_OUTPUT"
