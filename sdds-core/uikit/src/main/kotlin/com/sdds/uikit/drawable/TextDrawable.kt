@@ -466,8 +466,8 @@ open class TextDrawable(
         }
         _textLayout?.getLineBounds(0, textBounds)
         val topOffSet = ((_lineHeight - getFontHeight()) / 2)
-        textBounds.top = (textBounds.top - topOffSet).roundToInt()
-        textBounds.bottom = (textBounds.bottom + topOffSet).roundToInt()
+        textBounds.top = (textBounds.top - topOffSet).toInt()
+        textBounds.bottom = (textBounds.bottom + topOffSet).toInt()
         val textPositionWithoutDrawable = when (textAlignment) {
             TextAlignment.START -> bounds.left + _paddingLeft
             TextAlignment.CENTER -> bounds.centerX() - textBounds.width() / 2
