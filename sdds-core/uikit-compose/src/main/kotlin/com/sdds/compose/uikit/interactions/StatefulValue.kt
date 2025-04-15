@@ -135,7 +135,7 @@ fun <T : Any> StatefulValue<T>.getValue(
     stateSet: Set<ValueState> = emptySet(),
     defaultValue: T? = null,
 ): T {
-    if (!isStateful()) return remember { getDefaultValue() }
+    if (!isStateful()) return remember(this) { getDefaultValue() }
 
     val isPressed by interactionSource.collectIsPressedAsState()
     val isHovered by interactionSource.collectIsHoveredAsState()
@@ -143,6 +143,7 @@ fun <T : Any> StatefulValue<T>.getValue(
     val isActivated by interactionSource.collectIsActivatedAsState()
     val isSelected by interactionSource.collectIsSelectedAsState()
     val interactiveStateSet = remember(
+        this,
         isPressed,
         isFocused,
         isHovered,
@@ -157,8 +158,8 @@ fun <T : Any> StatefulValue<T>.getValue(
             if (isSelected) add(InteractiveState.Selected)
         }
     }
-    val combinedStateSet = remember(interactiveStateSet, stateSet) { interactiveStateSet + stateSet }
-    return remember(combinedStateSet, defaultValue) {
+    val combinedStateSet = remember(this, interactiveStateSet, stateSet) { interactiveStateSet + stateSet }
+    return remember(this, combinedStateSet, defaultValue) {
         getValue(combinedStateSet, defaultValue)
     }
 }
