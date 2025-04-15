@@ -1,3 +1,4 @@
+// AUTO-GENERATED. DO NOT MODIFY this file.
 package com.sdds.plasma.sd.service.styles.radiobox
 
 /**

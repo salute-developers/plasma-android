@@ -1,62 +1,156 @@
+// AUTO-GENERATED. DO NOT MODIFY this file.
+@file:Suppress(
+    "UndocumentedPublicClass",
+    "UndocumentedPublicProperty",
+    "ktlint:standard:max-line-length",
+)
+
 package com.sdkit.star.designsystem.styles.radiobox
 
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.dimensionResource
-import com.sdds.compose.uikit.RadioBoxColorsBuilder
-import com.sdds.compose.uikit.RadioBoxDimensions
+import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.RadioBoxStates
 import com.sdds.compose.uikit.RadioBoxStyle
 import com.sdds.compose.uikit.RadioBoxStyleBuilder
+import com.sdds.compose.uikit.interactions.InteractiveState
+import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
+import com.sdds.compose.uikit.style.BuilderWrapper
+import com.sdds.compose.uikit.style.wrap
 import com.sdkit.star.designsystem.compose.R
 import com.sdkit.star.designsystem.theme.StarDsTheme
+import kotlin.Suppress
+import kotlin.jvm.JvmInline
+import kotlin.jvm.JvmName
 
 /**
- * Стиль [RadioBox] размера M
+ * Базовый интерфейс для всех оберток этого стиля
  */
-val RadioBox.M: RadioBoxStyleBuilder
+public interface WrapperRadioBox : BuilderWrapper<RadioBoxStyle, RadioBoxStyleBuilder>
+
+/**
+ * Обертка для вариации L
+ */
+@JvmInline
+public value class WrapperRadioBoxL(
+    public override val builder: RadioBoxStyleBuilder,
+) : WrapperRadioBox
+
+/**
+ * Обертка для вариации M
+ */
+@JvmInline
+public value class WrapperRadioBoxM(
+    public override val builder: RadioBoxStyleBuilder,
+) : WrapperRadioBox
+
+/**
+ * Обертка для вариации S
+ */
+@JvmInline
+public value class WrapperRadioBoxS(
+    public override val builder: RadioBoxStyleBuilder,
+) : WrapperRadioBox
+
+private val RadioBoxStyleBuilder.invariantProps: RadioBoxStyleBuilder
     @Composable
-    get() = RadioBoxStyle.builder()
+    get() = this
+        .shape(CircleShape)
+        .colorValues {
+            labelColor(
+                StarDsTheme.colors.textDefaultPrimary.asInteractive(),
+            )
+            descriptionColor(
+                StarDsTheme.colors.textDefaultSecondary.asInteractive(),
+            )
+            toggleColor(
+                StarDsTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(RadioBoxStates.Checked)
+                        to StarDsTheme.colors.surfaceDefaultAccentMain,
+                ),
+            )
+            toggleIconColor(
+                StarDsTheme.colors.textOnDarkPrimary.asInteractive(),
+            )
+            toggleBorderColor(
+                StarDsTheme.colors.textDefaultSecondary.asInteractive(
+                    setOf(InteractiveState.Focused)
+                        to StarDsTheme.colors.outlineDefaultAccentMain,
+                    setOf(
+                        InteractiveState.Focused,
+                        RadioBoxStates.Checked,
+                    )
+                        to StarDsTheme.colors.outlineDefaultAccentMain,
+                    setOf(RadioBoxStates.Checked)
+                        to StarDsTheme.colors.outlineDefaultClear,
+                ),
+            )
+        }
+        .dimensionValues {
+            toggleBorderOffset(
+                dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_border_offset_RadioBox).asStatefulValue(
+                    setOf(InteractiveState.Focused) to 3.0f.dp,
+                    setOf(
+                        InteractiveState.Focused,
+                        RadioBoxStates.Checked,
+                    ) to 3.0f.dp,
+                ),
+            )
+        }
+        .disableAlpha(0.4f)
+
+public val RadioBox.L: WrapperRadioBoxL
+    @Composable
+    @JvmName("WrapperRadioBoxL")
+    get() = RadioBoxStyle.builder(this)
+        .invariantProps
+        .labelStyle(StarDsTheme.typography.bodyLNormal)
+        .descriptionStyle(StarDsTheme.typography.bodyMNormal)
+        .dimensionValues {
+            toggleWidth(dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_width_l))
+            toggleHeight(dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_height_l))
+            toggleIconHeight(dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_icon_height_l))
+            toggleIconWidth(dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_icon_width_l))
+            togglePadding(dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_padding_l))
+            textPadding(dimensionResource(R.dimen.sdkit_cmp_radio_box_text_padding_l))
+            descriptionPadding(dimensionResource(R.dimen.sdkit_cmp_radio_box_description_padding_l))
+        }
+        .wrap(::WrapperRadioBoxL)
+
+public val RadioBox.M: WrapperRadioBoxM
+    @Composable
+    @JvmName("WrapperRadioBoxM")
+    get() = RadioBoxStyle.builder(this)
+        .invariantProps
         .labelStyle(StarDsTheme.typography.bodyMNormal)
         .descriptionStyle(StarDsTheme.typography.bodySNormal)
-        .colors { defaultColors() }
-        .dimensions(
-            RadioBoxDimensions(
-                controlSize = dimensionResource(id = R.dimen.sdkit_cmp_radiobox_m_control_size),
-                innerDiameter = dimensionResource(id = R.dimen.sdkit_cmp_radiobox_m_inner_diameter),
-                verticalSpacing = dimensionResource(id = R.dimen.sdkit_cmp_radiobox_m_vertical_spacing),
-                horizontalSpacing = dimensionResource(id = R.dimen.sdkit_cmp_radiobox_m_horizontal_spacing),
-                checkedStrokeWidth = dimensionResource(id = R.dimen.sdkit_cmp_radiobox_m_checked_stroke_width),
-                strokeWidth = dimensionResource(id = R.dimen.sdkit_cmp_radiobox_m_stroke_width),
-                checkedPadding = dimensionResource(id = R.dimen.sdkit_cmp_radiobox_m_checked_padding),
-            ),
-        )
+        .dimensionValues {
+            toggleWidth(dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_width_m))
+            toggleHeight(dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_height_m))
+            toggleIconHeight(dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_icon_height_m))
+            toggleIconWidth(dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_icon_width_m))
+            togglePadding(dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_padding_m))
+            textPadding(dimensionResource(R.dimen.sdkit_cmp_radio_box_text_padding_m))
+            descriptionPadding(dimensionResource(R.dimen.sdkit_cmp_radio_box_description_padding_m))
+        }
+        .wrap(::WrapperRadioBoxM)
 
-/**
- * Стиль [RadioBox] размера S
- */
-val RadioBox.S: RadioBoxStyleBuilder
+public val RadioBox.S: WrapperRadioBoxS
     @Composable
-    get() = RadioBoxStyle.builder()
+    @JvmName("WrapperRadioBoxS")
+    get() = RadioBoxStyle.builder(this)
+        .invariantProps
         .labelStyle(StarDsTheme.typography.bodySNormal)
         .descriptionStyle(StarDsTheme.typography.bodyXsNormal)
-        .colors { defaultColors() }
-        .dimensions(
-            RadioBoxDimensions(
-                controlSize = dimensionResource(id = R.dimen.sdkit_cmp_radiobox_s_control_size),
-                innerDiameter = dimensionResource(id = R.dimen.sdkit_cmp_radiobox_s_inner_diameter),
-                verticalSpacing = dimensionResource(id = R.dimen.sdkit_cmp_radiobox_s_vertical_spacing),
-                horizontalSpacing = dimensionResource(id = R.dimen.sdkit_cmp_radiobox_s_horizontal_spacing),
-                strokeWidth = dimensionResource(id = R.dimen.sdkit_cmp_radiobox_s_stroke_width),
-                checkedStrokeWidth = dimensionResource(id = R.dimen.sdkit_cmp_radiobox_s_checked_stroke_width),
-                checkedPadding = dimensionResource(id = R.dimen.sdkit_cmp_radiobox_s_checked_padding),
-            ),
-        )
-
-@Composable
-private fun RadioBoxColorsBuilder.defaultColors(): RadioBoxColorsBuilder = apply {
-    labelColor(StarDsTheme.colors.textDefaultPrimary)
-    descriptionColor(StarDsTheme.colors.textDefaultSecondary)
-    idleColor(StarDsTheme.colors.textDefaultSecondary)
-    checkedColor(StarDsTheme.colors.surfaceDefaultAccent)
-    focusedColor(StarDsTheme.colors.surfaceDefaultSolidDefault)
-    baseColor(StarDsTheme.colors.textOnDarkPrimary)
-}
+        .dimensionValues {
+            toggleWidth(dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_width_s))
+            toggleHeight(dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_height_s))
+            toggleIconHeight(dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_icon_height_s))
+            toggleIconWidth(dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_icon_width_s))
+            togglePadding(dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_padding_s))
+            textPadding(dimensionResource(R.dimen.sdkit_cmp_radio_box_text_padding_s))
+            descriptionPadding(dimensionResource(R.dimen.sdkit_cmp_radio_box_description_padding_s))
+        }
+        .wrap(::WrapperRadioBoxS)

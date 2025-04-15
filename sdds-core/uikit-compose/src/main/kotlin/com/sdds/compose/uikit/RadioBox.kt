@@ -1,10 +1,10 @@
 package com.sdds.compose.uikit
 
 import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.interaction.collectIsFocusedAsState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
@@ -15,6 +15,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import com.sdds.compose.uikit.interactions.ValueState
 import com.sdds.compose.uikit.internal.checkable.BaseCheckableLayout
 import com.sdds.compose.uikit.internal.checkable.RadioBoxControl
 import com.sdds.compose.uikit.internal.checkable.checkableDescription
@@ -40,9 +43,9 @@ fun RadioBox(
     label: String? = null,
     description: String? = null,
     enabled: Boolean = true,
+    animationDuration: Int = style.animationDuration,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
-    val focusState = interactionSource.collectIsFocusedAsState()
     val selectableModifier = if (onClick != null) {
         Modifier.selectable(
             selected = checked,
@@ -64,25 +67,37 @@ fun RadioBox(
             RadioBoxControl(
                 modifier = it,
                 checked = checked,
-                focused = focusState.value,
-                dimensions = style.dimensions,
-                animationDuration = style.animationDuration,
-                colors = style.colors,
+                shape = style.shape,
+                dimensions = style.dimensionValues,
+                animationDuration = animationDuration,
+                colors = style.colorValues,
+                interactionSource = interactionSource,
+                iconContent = null,
             )
         },
         label = checkableLabel(
             value = label,
             textStyle = style.labelStyle,
-            color = style.colors.labelColor,
+            color = style.colorValues.labelColor.colorForInteraction(interactionSource),
         ),
         description = checkableDescription(
             value = description,
             textStyle = style.descriptionStyle,
-            color = style.colors.descriptionColor,
+            color = style.colorValues.descriptionColor.colorForInteraction(interactionSource),
         ),
-        verticalSpacing = style.dimensions.verticalSpacing,
-        horizontalSpacing = style.dimensions.horizontalSpacing,
+        verticalSpacing = style.dimensionValues.descriptionPadding,
+        horizontalSpacing = style.dimensionValues.textPadding,
     )
+}
+
+/**
+ * Состояния RadioBox
+ */
+enum class RadioBoxStates : ValueState {
+    /**
+     * Radiobox выбран
+     */
+    Checked,
 }
 
 /**
@@ -188,4 +203,16 @@ fun <T> RadioBoxGroupItemScope.updateSelection(selection: MutableState<T>, key: 
     if (selection.value != key) {
         selection.value = key
     }
+}
+
+@Composable
+@Preview
+private fun RadioBoxPreview() {
+    RadioBox(
+        modifier = Modifier.padding(8.dp),
+        checked = true,
+        label = "label",
+        style = RadioBoxStyle.builder().style(),
+        description = "description",
+    )
 }

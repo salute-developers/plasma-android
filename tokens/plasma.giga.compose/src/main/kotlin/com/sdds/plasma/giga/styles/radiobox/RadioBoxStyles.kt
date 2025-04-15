@@ -1,59 +1,154 @@
+// AUTO-GENERATED. DO NOT MODIFY this file.
+@file:Suppress(
+    "UndocumentedPublicClass",
+    "UndocumentedPublicProperty",
+    "ktlint:standard:max-line-length",
+)
+
 package com.sdds.plasma.giga.styles.radiobox
 
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.uikit.RadioBoxColorsBuilder
-import com.sdds.compose.uikit.RadioBoxDimensions
+import com.sdds.compose.uikit.RadioBoxStates
 import com.sdds.compose.uikit.RadioBoxStyle
 import com.sdds.compose.uikit.RadioBoxStyleBuilder
+import com.sdds.compose.uikit.interactions.InteractiveState
+import com.sdds.compose.uikit.interactions.asInteractive
+import com.sdds.compose.uikit.interactions.asStatefulValue
+import com.sdds.compose.uikit.style.BuilderWrapper
+import com.sdds.compose.uikit.style.wrap
 import com.sdds.plasma.giga.theme.PlasmaGigaTheme
+import kotlin.Suppress
+import kotlin.jvm.JvmInline
+import kotlin.jvm.JvmName
 
 /**
- * Стиль [RadioBox] размера M
+ * Базовый интерфейс для всех оберток этого стиля
  */
-val RadioBox.M: RadioBoxStyleBuilder
+public interface WrapperRadioBox : BuilderWrapper<RadioBoxStyle, RadioBoxStyleBuilder>
+
+/**
+ * Обертка для вариации L
+ */
+@JvmInline
+public value class WrapperRadioBoxL(
+    public override val builder: RadioBoxStyleBuilder,
+) : WrapperRadioBox
+
+/**
+ * Обертка для вариации M
+ */
+@JvmInline
+public value class WrapperRadioBoxM(
+    public override val builder: RadioBoxStyleBuilder,
+) : WrapperRadioBox
+
+/**
+ * Обертка для вариации S
+ */
+@JvmInline
+public value class WrapperRadioBoxS(
+    public override val builder: RadioBoxStyleBuilder,
+) : WrapperRadioBox
+
+private val RadioBoxStyleBuilder.invariantProps: RadioBoxStyleBuilder
     @Composable
-    get() = RadioBoxStyle.builder()
+    get() = this
+        .shape(CircleShape)
+        .colorValues {
+            labelColor(
+                PlasmaGigaTheme.colors.textDefaultPrimary.asInteractive(),
+            )
+            descriptionColor(
+                PlasmaGigaTheme.colors.textDefaultSecondary.asInteractive(),
+            )
+            toggleColor(
+                PlasmaGigaTheme.colors.surfaceDefaultClear.asInteractive(
+                    setOf(RadioBoxStates.Checked)
+                        to PlasmaGigaTheme.colors.surfaceDefaultAccent,
+                ),
+            )
+            toggleIconColor(
+                PlasmaGigaTheme.colors.surfaceOnDarkSolidDefault.asInteractive(),
+            )
+            toggleBorderColor(
+                PlasmaGigaTheme.colors.outlineDefaultTransparentTertiary.asInteractive(
+                    setOf(InteractiveState.Focused)
+                        to PlasmaGigaTheme.colors.outlineDefaultAccent,
+                    setOf(
+                        InteractiveState.Focused,
+                        RadioBoxStates.Checked,
+                    )
+                        to PlasmaGigaTheme.colors.outlineDefaultAccent,
+                    setOf(RadioBoxStates.Checked)
+                        to PlasmaGigaTheme.colors.outlineDefaultClear,
+                ),
+            )
+        }
+        .dimensionValues {
+            toggleBorderOffset(
+                0.0.dp.asStatefulValue(
+                    setOf(InteractiveState.Focused) to 3.0f.dp,
+                    setOf(
+                        InteractiveState.Focused,
+                        RadioBoxStates.Checked,
+                    ) to 3.0f.dp,
+                ),
+            )
+        }
+        .disableAlpha(0.4f)
+
+public val RadioBox.L: WrapperRadioBoxL
+    @Composable
+    @JvmName("WrapperRadioBoxL")
+    get() = RadioBoxStyle.builder(this)
+        .invariantProps
+        .labelStyle(PlasmaGigaTheme.typography.bodyLNormal)
+        .descriptionStyle(PlasmaGigaTheme.typography.bodyMNormal)
+        .dimensionValues {
+            toggleWidth(22.0.dp)
+            toggleHeight(22.0.dp)
+            toggleIconHeight(10.0.dp)
+            toggleIconWidth(10.0.dp)
+            togglePadding(1.0.dp)
+            textPadding(12.0.dp)
+            descriptionPadding(2.0.dp)
+        }
+        .wrap(::WrapperRadioBoxL)
+
+public val RadioBox.M: WrapperRadioBoxM
+    @Composable
+    @JvmName("WrapperRadioBoxM")
+    get() = RadioBoxStyle.builder(this)
+        .invariantProps
         .labelStyle(PlasmaGigaTheme.typography.bodyMNormal)
         .descriptionStyle(PlasmaGigaTheme.typography.bodySNormal)
-        .colors { defaultColors() }
-        .dimensions(
-            RadioBoxDimensions(
-                controlSize = 24.dp,
-                innerDiameter = 10.dp,
-                verticalSpacing = 2.dp,
-                horizontalSpacing = 10.dp,
-                strokeWidth = 2.dp,
-                checkedPadding = 1.dp,
-            ),
-        )
+        .dimensionValues {
+            toggleWidth(22.0.dp)
+            toggleHeight(22.0.dp)
+            toggleIconHeight(10.0.dp)
+            toggleIconWidth(10.0.dp)
+            togglePadding(1.0.dp)
+            textPadding(10.0.dp)
+            descriptionPadding(2.0.dp)
+        }
+        .wrap(::WrapperRadioBoxM)
 
-/**
- * Стиль [RadioBox] размера S
- */
-val RadioBox.S: RadioBoxStyleBuilder
+public val RadioBox.S: WrapperRadioBoxS
     @Composable
-    get() = RadioBoxStyle.builder()
+    @JvmName("WrapperRadioBoxS")
+    get() = RadioBoxStyle.builder(this)
+        .invariantProps
         .labelStyle(PlasmaGigaTheme.typography.bodySNormal)
         .descriptionStyle(PlasmaGigaTheme.typography.bodyXsNormal)
-        .colors { defaultColors() }
-        .dimensions(
-            RadioBoxDimensions(
-                controlSize = 16.dp,
-                innerDiameter = 8.dp,
-                verticalSpacing = 2.dp,
-                horizontalSpacing = 8.dp,
-                strokeWidth = 1.5f.dp,
-                checkedPadding = 0.dp,
-            ),
-        )
-
-@Composable
-private fun RadioBoxColorsBuilder.defaultColors(): RadioBoxColorsBuilder = apply {
-    labelColor(PlasmaGigaTheme.colors.textDefaultPrimary)
-    descriptionColor(PlasmaGigaTheme.colors.textDefaultSecondary)
-    idleColor(PlasmaGigaTheme.colors.textDefaultSecondary)
-    checkedColor(PlasmaGigaTheme.colors.surfaceDefaultAccent)
-    focusedColor(PlasmaGigaTheme.colors.surfaceDefaultSolidDefault)
-    baseColor(PlasmaGigaTheme.colors.textInversePrimary)
-}
+        .dimensionValues {
+            toggleWidth(16.0.dp)
+            toggleHeight(16.0.dp)
+            toggleIconHeight(8.0.dp)
+            toggleIconWidth(8.0.dp)
+            togglePadding(1.0.dp)
+            textPadding(8.0.dp)
+            descriptionPadding(2.0.dp)
+        }
+        .wrap(::WrapperRadioBoxS)

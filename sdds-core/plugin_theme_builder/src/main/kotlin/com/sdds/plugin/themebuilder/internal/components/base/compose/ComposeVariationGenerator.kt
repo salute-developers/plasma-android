@@ -9,6 +9,7 @@ import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.ColorState
 import com.sdds.plugin.themebuilder.internal.components.base.Config
 import com.sdds.plugin.themebuilder.internal.components.base.Dimension
+import com.sdds.plugin.themebuilder.internal.components.base.FloatState
 import com.sdds.plugin.themebuilder.internal.components.base.Gradient
 import com.sdds.plugin.themebuilder.internal.components.base.Icon
 import com.sdds.plugin.themebuilder.internal.components.base.PropertyOwner
@@ -200,6 +201,11 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
         variationId: String,
     ) {
         val camelCaseName = dimensionName.toCamelCase().decapitalized()
+        val stateSuffix = if (dimension.states.isNullOrEmpty()) {
+            ""
+        } else {
+            ".${dimension.asStatefulFragment}"
+        }
         appendLine(
             "$camelCaseName(${
                 getDimension(
@@ -207,12 +213,11 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
                     dimension.value,
                     variationId,
                 )
-            })",
+            }$stateSuffix)",
         )
     }
 
-    private fun String.toKtAttrName(): String =
-        toCamelCase().decapitalize(Locale.getDefault())
+    private fun String.toKtAttrName(): String = toCamelCase().decapitalized()
 
     private fun String.toCamelCase(): String {
         val segments = split(".", "-", "_")
@@ -524,22 +529,43 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
             """.trimIndent()
         }
 
+    private val Dimension.asStatefulFragment: String
+        get() = if (states.isNullOrEmpty()) {
+            "asStatefulValue()"
+        } else {
+            """asStatefulValue·(
+                ${getAsInteractiveParameters()}
+            )
+            """.trimIndent()
+        }
+
     private fun Color?.getAsInteractiveParameters(): String {
         return this?.states?.joinToString(separator = ", ") { it.getStateParameter(this is Gradient) }.orEmpty()
+    }
+
+    private fun Dimension?.getAsInteractiveParameters(): String {
+        return this?.states?.joinToString(separator = ", ") { it.getDpStateParameter() }.orEmpty()
+    }
+
+    private fun FloatState.getDpStateParameter(): String {
+        return """
+            setOf(${state.toStateEnums()}) to ${value}f.dp
+        """.trimIndent()
     }
 
     private fun ColorState.getStateParameter(isGradient: Boolean): String {
         val alphaString = alpha?.let { ".multiplyAlpha(${it}f)" }.orEmpty()
         val tokenGroupName = if (isGradient) "gradients" else "colors"
         return """
-            setOf(${state.toColorStates()})
+            setOf(${state.toStateEnums()})
                 to $themeClassName.$tokenGroupName.${value.toKtAttrName()}$alphaString
         """.trimIndent()
     }
 
-    private fun List<String>.toColorStates(): String {
-        val interactiveStates = asInteractiveStates().joinToString { "InteractiveState.${it.name}" }
-        return interactiveStates + excludeInteractiveStates().joinToString { getCustomState(it) }
+    private fun List<String>.toStateEnums(): String {
+        val interactiveStates = asInteractiveStates().map { "InteractiveState.${it.name}" }
+        return (interactiveStates + excludeInteractiveStates().map { getCustomState(it) })
+            .joinToString()
     }
 
     protected open fun getCustomState(state: String): String = state

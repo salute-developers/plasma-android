@@ -1,6 +1,7 @@
 package com.sdds.plasma.giga.app
 
 import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.sdds.compose.uikit.style.style
 import com.sdds.plasma.giga.app.styles.radiobox.M
 import com.sdds.plasma.giga.app.styles.radiobox.RadioBox
 import com.sdds.plasma.giga.app.styles.radiobox.S

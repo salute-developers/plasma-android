@@ -2,24 +2,41 @@ package com.sdds.compose.uikit.internal.checkable
 
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.Canvas
-import androidx.compose.foundation.layout.requiredSize
+import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.requiredHeight
+import androidx.compose.foundation.layout.requiredWidth
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
+import androidx.compose.runtime.State
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.CacheDrawScope
+import androidx.compose.ui.draw.drawWithCache
+import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.graphics.Outline
+import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.graphics.drawOutline
+import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.drawscope.Fill
 import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.graphics.drawscope.translate
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.times
-import com.sdds.compose.uikit.RadioBoxColors
-import com.sdds.compose.uikit.RadioBoxDimensions
+import com.sdds.compose.uikit.RadioBoxColorValues
+import com.sdds.compose.uikit.RadioBoxDimensionValues
+import com.sdds.compose.uikit.RadioBoxStates
+import com.sdds.compose.uikit.interactions.getValue
 
 /**
  * Control вида RadioBox для [BaseCheckableLayout]
  * @param checked флаг-индикатор выбора
- * @param focused флаг-индикатор состояния фокуса
  * @param modifier модификатор
  * @param dimensions размеры и отступы
  * @param animationDuration длительность анимации
@@ -28,55 +45,201 @@ import com.sdds.compose.uikit.RadioBoxDimensions
 @Composable
 internal fun RadioBoxControl(
     checked: Boolean,
-    focused: Boolean,
-    dimensions: RadioBoxDimensions,
-    animationDuration: Int,
-    colors: RadioBoxColors,
     modifier: Modifier = Modifier,
+    dimensions: RadioBoxDimensionValues,
+    animationDuration: Int,
+    colors: RadioBoxColorValues,
+    shape: CornerBasedShape,
+    iconContent: (@Composable () -> Unit)?,
+    interactionSource: MutableInteractionSource,
 ) {
-    val focusBorderPadding = FocusBorderPadding
-    val targetCheckedRadius = dimensions.innerDiameter / 2
-    val baseRadius = animateDpAsState(
-        targetValue = if (checked) targetCheckedRadius else 0.dp,
-        animationSpec = tween(durationMillis = animationDuration),
-        label = "baseRadius",
-    )
-    val radioColor = colors.checkedColor
-    val borderColor = colors.controlBorderColor(checked, focused)
-    val baseColor = colors.baseColor
+    val stateSet = remember(checked) { if (checked) setOf(RadioBoxStates.Checked) else emptySet() }
 
-    Canvas(
-        modifier
+    val iconXTranslate = iconXTranslate(checked, dimensions, animationDuration)
+    val iconYTranslate = iconYTranslate(checked, dimensions, animationDuration)
+    val iconWidth = iconWidth(checked, dimensions, animationDuration)
+    val iconHeight = iconHeight(checked, dimensions, animationDuration)
+
+    val toggleBorderWidth = dimensions.toggleBorderWidth.getValue(interactionSource, stateSet)
+    val toggleBorderOffset = dimensions.toggleBorderOffset.getValue(interactionSource, stateSet)
+    val toggleColor = colors.toggleColor.colorForInteraction(interactionSource, stateSet)
+    val borderColor = colors.toggleBorderColor.colorForInteraction(interactionSource, stateSet)
+    val iconColor = colors.toggleIconColor.colorForInteraction(interactionSource, stateSet)
+
+    Box(
+        contentAlignment = Alignment.Center,
+        modifier = modifier
+            .padding(dimensions.togglePadding)
             .wrapContentSize(Alignment.Center)
-            .requiredSize(dimensions.controlSize),
+            .requiredWidth(dimensions.toggleWidth)
+            .requiredHeight(dimensions.toggleHeight)
+            .drawWithCache {
+                val toggleOutline = createToggleOutline(shape, dimensions)
+                val toggleBorderOutline = createBorderOutline(shape, dimensions, toggleBorderWidth, toggleBorderOffset)
+                val toggleIconOutline = createIconOutline(CircleShape, iconWidth, iconHeight, iconContent)
+
+                onDrawBehind {
+                    drawOutline(toggleOutline, toggleColor, style = Fill)
+                    translate(
+                        left = getBorderOutlineTranslate(toggleBorderWidth, toggleBorderOffset),
+                        top = getBorderOutlineTranslate(toggleBorderWidth, toggleBorderOffset),
+                    ) {
+                        drawOutline(
+                            outline = toggleBorderOutline,
+                            color = borderColor,
+                            style = Stroke(width = toggleBorderWidth.toPx()),
+                        )
+                    }
+                    toggleIconOutline?.let {
+                        translate(
+                            left = getIconHorizontalTranslate(dimensions) + iconXTranslate.value.toPx(),
+                            top = getIconVerticalTranslate(dimensions) + iconYTranslate.value.toPx(),
+                        ) {
+                            drawOutline(
+                                outline = toggleIconOutline,
+                                color = iconColor,
+                                style = Fill,
+                            )
+                        }
+                    }
+                }
+            },
     ) {
-        val radioRadius = dimensions.controlSize.toPx() / 2 - dimensions.checkedPadding.toPx()
-        val strokeWidth = if (checked) dimensions.checkedStrokeWidth.toPx() else dimensions.strokeWidth.toPx()
-        if ((checked && focused) || !checked) {
-            // Рисуем пограничную окружность
-            val borderRadius =
-                if (focused) (size.width + FocusBorderPadding.toPx()) / 2 else radioRadius
-            drawCircle(
-                borderColor.value,
-                borderRadius - strokeWidth,
-                style = Stroke(strokeWidth),
-            )
-        }
-
-        if (checked) {
-            // Рисуем заполняющий круг при checked = true
-            drawCircle(
-                radioColor,
-                radioRadius,
-                style = Fill,
-            )
-        }
-
-        if (baseRadius.value > 0.dp) {
-            // Рисуем основной круг при checked = true
-            drawCircle(baseColor, baseRadius.value.toPx(), style = Fill)
-        }
+        iconContent?.let { IconContent(iconContent, iconWidth, iconHeight) }
     }
 }
 
-private val FocusBorderPadding = 2.dp
+@Composable
+private fun iconXTranslate(
+    checked: Boolean,
+    dimensions: RadioBoxDimensionValues,
+    animationDuration: Int,
+): State<Dp> {
+    return animateDpAsState(
+        targetValue = if (checked) 0.dp else dimensions.toggleIconWidth / 2,
+        animationSpec = tween(durationMillis = animationDuration),
+        label = "iconXTranslate",
+    )
+}
+
+@Composable
+private fun iconYTranslate(
+    checked: Boolean,
+    dimensions: RadioBoxDimensionValues,
+    animationDuration: Int,
+): State<Dp> {
+    return animateDpAsState(
+        targetValue = if (checked) 0.dp else dimensions.toggleIconHeight / 2,
+        animationSpec = tween(durationMillis = animationDuration),
+        label = "iconYTranslate",
+    )
+}
+
+@Composable
+private fun iconWidth(
+    checked: Boolean,
+    dimensions: RadioBoxDimensionValues,
+    animationDuration: Int,
+): State<Dp> {
+    return animateDpAsState(
+        targetValue = if (checked) dimensions.toggleIconWidth else 0.dp,
+        animationSpec = tween(durationMillis = animationDuration),
+        label = "toggleIconWidth",
+    )
+}
+
+@Composable
+private fun iconHeight(
+    checked: Boolean,
+    dimensions: RadioBoxDimensionValues,
+    animationDuration: Int,
+): State<Dp> {
+    return animateDpAsState(
+        targetValue = if (checked) dimensions.toggleIconHeight else 0.dp,
+        animationSpec = tween(durationMillis = animationDuration),
+        label = "toggleIconHeight",
+    )
+}
+
+@Composable
+private fun IconContent(
+    iconContent: @Composable () -> Unit,
+    iconWidth: State<Dp>,
+    iconHeight: State<Dp>,
+) {
+    Box(
+        modifier = Modifier
+            .width(iconWidth.value)
+            .height(iconHeight.value),
+        propagateMinConstraints = true,
+    ) {
+        iconContent.invoke()
+    }
+}
+
+private fun DrawScope.getIconHorizontalTranslate(dimensions: RadioBoxDimensionValues): Float {
+    return (dimensions.toggleWidth / 2 - dimensions.toggleIconWidth / 2).toPx()
+}
+
+private fun DrawScope.getIconVerticalTranslate(dimensions: RadioBoxDimensionValues): Float {
+    return (dimensions.toggleHeight / 2 - dimensions.toggleIconHeight / 2).toPx()
+}
+
+private fun DrawScope.getBorderOutlineTranslate(
+    toggleBorderWidth: Dp,
+    toggleBorderOffset: Dp,
+): Float {
+    return -(toggleBorderOffset - toggleBorderWidth / 2).toPx()
+}
+
+private fun CacheDrawScope.createToggleOutline(
+    shape: CornerBasedShape,
+    dimensions: RadioBoxDimensionValues,
+): Outline {
+    return shape.createOutline(
+        size = Size(
+            dimensions.toggleWidth.toPx(),
+            dimensions.toggleHeight.toPx(),
+        ),
+        layoutDirection = layoutDirection,
+        density = this,
+    )
+}
+
+private fun CacheDrawScope.createBorderOutline(
+    shape: Shape,
+    dimensions: RadioBoxDimensionValues,
+    toggleBorderWidth: Dp,
+    toggleBorderOffset: Dp,
+): Outline {
+    val borderBoundsWidth = dimensions.toggleWidth + toggleBorderOffset * 2 - toggleBorderWidth
+    val borderBoundsHeight = dimensions.toggleHeight + toggleBorderOffset * 2 - toggleBorderWidth
+    return shape.createOutline(
+        size = Size(
+            borderBoundsWidth.toPx(),
+            borderBoundsHeight.toPx(),
+        ),
+        layoutDirection = layoutDirection,
+        density = this,
+    )
+}
+
+private fun CacheDrawScope.createIconOutline(
+    shape: Shape,
+    iconWidth: State<Dp>,
+    iconHeight: State<Dp>,
+    iconContent: (@Composable () -> Unit)?,
+): Outline? {
+    return if (iconContent == null) {
+        shape.createOutline(
+            size = Size(
+                iconWidth.value.toPx(),
+                iconHeight.value.toPx(),
+            ),
+            layoutDirection = layoutDirection,
+            density = this,
+        )
+    } else {
+        null
+    }
+}
