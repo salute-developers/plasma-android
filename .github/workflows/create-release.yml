@@ -1,9 +1,10 @@
-workflow_dispatch:
-  inputs:
-    from-tag:
-      required: false
+name: 'Create Release Pull Request'
 
 on:
+  workflow_dispatch:
+    inputs:
+      from-tag:
+        required: false
   pull_request:
     branches:
       - develop
