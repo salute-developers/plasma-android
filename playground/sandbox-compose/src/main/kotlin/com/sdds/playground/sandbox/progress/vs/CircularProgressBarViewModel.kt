@@ -6,6 +6,7 @@ import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
 import com.sdds.testing.vs.progress.CircularProgressUiState
+import kotlin.math.roundToInt
 
 /**
  * ViewModel компонента CircularProgressBar
@@ -45,7 +46,7 @@ internal class CircularProgressBarViewModel(
         return listOf(
             Property.IntProperty(
                 name = ProgressPropertyName.Progress.value,
-                value = (progress * MAX_PROGRESS).toInt(),
+                value = (progress * MAX_PROGRESS).roundToInt(),
             ),
             Property.BooleanProperty(
                 name = ProgressPropertyName.HasTrack.value,

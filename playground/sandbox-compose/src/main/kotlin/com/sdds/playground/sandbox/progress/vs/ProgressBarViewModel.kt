@@ -6,6 +6,7 @@ import com.sdds.playground.sandbox.core.integration.component.ComponentKey
 import com.sdds.playground.sandbox.core.vs.ComponentViewModel
 import com.sdds.playground.sandbox.core.vs.Property
 import com.sdds.testing.vs.progress.ProgressUiState
+import kotlin.math.roundToInt
 
 /**
  * ViewModel компонента ProgressBar
@@ -38,7 +39,7 @@ internal class ProgressBarViewModel(
         return listOf(
             Property.IntProperty(
                 name = ProgressPropertyName.Progress.value,
-                value = (progress * MAX_PROGRESS).toInt(),
+                value = (progress * MAX_PROGRESS).roundToInt(),
             ),
         )
     }

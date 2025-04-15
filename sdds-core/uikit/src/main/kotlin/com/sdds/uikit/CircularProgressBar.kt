@@ -14,7 +14,6 @@ import android.text.TextPaint
 import android.text.style.CharacterStyle
 import android.text.style.UpdateAppearance
 import android.util.AttributeSet
-import android.util.Log
 import android.view.Gravity
 import android.view.ViewGroup
 import androidx.annotation.ColorInt
@@ -38,6 +37,7 @@ import com.sdds.uikit.statelist.getFloatForState
 import com.sdds.uikit.statelist.getNumberStateList
 import com.sdds.uikit.statelist.setColorValue
 import kotlin.math.min
+import kotlin.math.roundToInt
 
 /**
  * Круглый индикатор прогресса от [minProgress] до [maxProgress].
@@ -65,7 +65,6 @@ open class CircularProgressBar @JvmOverloads constructor(
         }
         addUpdateListener { _, value, _ ->
             _currentProgress = value
-            Log.e("Progress", "onUpdate: $value")
             _progressListener?.onProgressChanged(_currentProgress)
             updateProgress()
         }
@@ -354,7 +353,7 @@ open class CircularProgressBar @JvmOverloads constructor(
 
     private fun updateProgressValue() {
         _valueTextView.text = buildSpannedString {
-            append((progress * MAX_PROGRESS_INT).toInt().toString())
+            append((progress * MAX_PROGRESS_INT).roundToInt().coerceIn(0..MAX_PROGRESS_INT).toString())
             _progressValueSuffix?.let {
                 val valueStartIndex = length
                 append(it)
