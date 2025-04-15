@@ -38,7 +38,6 @@ internal class TextFieldConfigDelegate : ComponentConfigDelegate<TextFieldConfig
         component: Component,
     ): ComponentStyleGenerator<TextFieldConfig>? {
         return TextFieldComposeVariationGenerator(
-            chipStylesPackage = "${deps.packageResolver.getPackage(TargetPackage.STYLES)}.chip",
             chipGroupStylesPackage = "${deps.packageResolver.getPackage(TargetPackage.STYLES)}.chipgroup",
             dimensionsConfig = deps.dimensionsConfig,
             dimensAggregator = deps.dimensAggregator,

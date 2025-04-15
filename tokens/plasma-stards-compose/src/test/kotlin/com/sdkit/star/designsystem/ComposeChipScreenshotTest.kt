@@ -4,6 +4,10 @@ import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
 import com.sdds.compose.uikit.style.style
 import com.sdds.testing.compose.RoborazziConfigCompose
 import com.sdds.testing.compose.chip.ChipDisabled
+import com.sdds.testing.compose.chip.ChipGroupSizeLDense
+import com.sdds.testing.compose.chip.ChipGroupSizeMSecondaryWideWrapped
+import com.sdds.testing.compose.chip.ChipGroupSizeSAccentDense
+import com.sdds.testing.compose.chip.ChipGroupSizeXsDefault
 import com.sdds.testing.compose.chip.ChipSizeLDefault
 import com.sdds.testing.compose.chip.ChipSizeMSecondaryPilled
 import com.sdds.testing.compose.chip.ChipSizeSAccent
@@ -18,6 +22,15 @@ import com.sdkit.star.designsystem.styles.chip.Pilled
 import com.sdkit.star.designsystem.styles.chip.S
 import com.sdkit.star.designsystem.styles.chip.Secondary
 import com.sdkit.star.designsystem.styles.chip.Xs
+import com.sdkit.star.designsystem.styles.chipgroup.Accent
+import com.sdkit.star.designsystem.styles.chipgroup.ChipGroupDense
+import com.sdkit.star.designsystem.styles.chipgroup.ChipGroupWide
+import com.sdkit.star.designsystem.styles.chipgroup.Default
+import com.sdkit.star.designsystem.styles.chipgroup.L
+import com.sdkit.star.designsystem.styles.chipgroup.M
+import com.sdkit.star.designsystem.styles.chipgroup.S
+import com.sdkit.star.designsystem.styles.chipgroup.Secondary
+import com.sdkit.star.designsystem.styles.chipgroup.Xs
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
@@ -61,6 +74,34 @@ class ComposeChipScreenshotTest : RoborazziConfigCompose("+night") {
     fun testChipDisabled() {
         composeTestRule.content {
             ChipDisabled(style = Chip.L.Default.style())
+        }
+    }
+
+    @Test
+    fun testChipGroupSizeLDense() {
+        composeTestRule.content {
+            ChipGroupSizeLDense(style = ChipGroupDense.L.Default.style())
+        }
+    }
+
+    @Test
+    fun testChipGroupSizeMSecondaryWideWrapped() {
+        composeTestRule.content {
+            ChipGroupSizeMSecondaryWideWrapped(style = ChipGroupWide.M.Secondary.style())
+        }
+    }
+
+    @Test
+    fun testChipGroupSizeSAccentDense() {
+        composeTestRule.content {
+            ChipGroupSizeSAccentDense(style = ChipGroupDense.S.Accent.style())
+        }
+    }
+
+    @Test
+    fun testChipGroupSizeXsDefault() {
+        composeTestRule.content {
+            ChipGroupSizeXsDefault(style = ChipGroupDense.Xs.Default.style())
         }
     }
 }

@@ -43,7 +43,7 @@ public interface WrapperSegment : BuilderWrapper<SegmentStyle, SegmentStyleBuild
  * Является ресивером для extension-функций view,
  * применимых к этим оберткам.
  */
-public interface WrapperXlView : WrapperSegment
+public interface WrapperSegmentXlView : WrapperSegment
 
 /**
  * Терминальная обертка
@@ -59,7 +59,7 @@ public value class WrapperSegmentTerminate(
 @JvmInline
 public value class WrapperSegmentXl(
     public override val builder: SegmentStyleBuilder,
-) : WrapperXlView
+) : WrapperSegmentXlView
 
 /**
  * Интерфейс, который реализуют все обертки вариации pilled
@@ -67,7 +67,7 @@ public value class WrapperSegmentXl(
  * Является ресивером для extension-функций view,
  * применимых к этим оберткам.
  */
-public interface WrapperXlPilledView : WrapperXlView
+public interface WrapperSegmentXlPilledView : WrapperSegmentXlView
 
 /**
  * Обертка для вариации XlPilled
@@ -75,7 +75,7 @@ public interface WrapperXlPilledView : WrapperXlView
 @JvmInline
 public value class WrapperSegmentXlPilled(
     public override val builder: SegmentStyleBuilder,
-) : WrapperXlPilledView
+) : WrapperSegmentXlPilledView
 
 /**
  * Интерфейс, который реализуют все обертки вариации l
@@ -83,7 +83,7 @@ public value class WrapperSegmentXlPilled(
  * Является ресивером для extension-функций view,
  * применимых к этим оберткам.
  */
-public interface WrapperLView : WrapperSegment
+public interface WrapperSegmentLView : WrapperSegment
 
 /**
  * Обертка для вариации L
@@ -91,7 +91,7 @@ public interface WrapperLView : WrapperSegment
 @JvmInline
 public value class WrapperSegmentL(
     public override val builder: SegmentStyleBuilder,
-) : WrapperLView
+) : WrapperSegmentLView
 
 /**
  * Интерфейс, который реализуют все обертки вариации pilled
@@ -99,7 +99,7 @@ public value class WrapperSegmentL(
  * Является ресивером для extension-функций view,
  * применимых к этим оберткам.
  */
-public interface WrapperLPilledView : WrapperLView
+public interface WrapperSegmentLPilledView : WrapperSegmentLView
 
 /**
  * Обертка для вариации LPilled
@@ -107,7 +107,7 @@ public interface WrapperLPilledView : WrapperLView
 @JvmInline
 public value class WrapperSegmentLPilled(
     public override val builder: SegmentStyleBuilder,
-) : WrapperLPilledView
+) : WrapperSegmentLPilledView
 
 /**
  * Интерфейс, который реализуют все обертки вариации m
@@ -115,7 +115,7 @@ public value class WrapperSegmentLPilled(
  * Является ресивером для extension-функций view,
  * применимых к этим оберткам.
  */
-public interface WrapperMView : WrapperSegment
+public interface WrapperSegmentMView : WrapperSegment
 
 /**
  * Обертка для вариации M
@@ -123,7 +123,7 @@ public interface WrapperMView : WrapperSegment
 @JvmInline
 public value class WrapperSegmentM(
     public override val builder: SegmentStyleBuilder,
-) : WrapperMView
+) : WrapperSegmentMView
 
 /**
  * Интерфейс, который реализуют все обертки вариации pilled
@@ -131,7 +131,7 @@ public value class WrapperSegmentM(
  * Является ресивером для extension-функций view,
  * применимых к этим оберткам.
  */
-public interface WrapperMPilledView : WrapperMView
+public interface WrapperSegmentMPilledView : WrapperSegmentMView
 
 /**
  * Обертка для вариации MPilled
@@ -139,7 +139,7 @@ public interface WrapperMPilledView : WrapperMView
 @JvmInline
 public value class WrapperSegmentMPilled(
     public override val builder: SegmentStyleBuilder,
-) : WrapperMPilledView
+) : WrapperSegmentMPilledView
 
 /**
  * Интерфейс, который реализуют все обертки вариации s
@@ -147,7 +147,7 @@ public value class WrapperSegmentMPilled(
  * Является ресивером для extension-функций view,
  * применимых к этим оберткам.
  */
-public interface WrapperSView : WrapperSegment
+public interface WrapperSegmentSView : WrapperSegment
 
 /**
  * Обертка для вариации S
@@ -155,7 +155,7 @@ public interface WrapperSView : WrapperSegment
 @JvmInline
 public value class WrapperSegmentS(
     public override val builder: SegmentStyleBuilder,
-) : WrapperSView
+) : WrapperSegmentSView
 
 /**
  * Интерфейс, который реализуют все обертки вариации pilled
@@ -163,7 +163,7 @@ public value class WrapperSegmentS(
  * Является ресивером для extension-функций view,
  * применимых к этим оберткам.
  */
-public interface WrapperSPilledView : WrapperSView
+public interface WrapperSegmentSPilledView : WrapperSegmentSView
 
 /**
  * Обертка для вариации SPilled
@@ -171,7 +171,7 @@ public interface WrapperSPilledView : WrapperSView
 @JvmInline
 public value class WrapperSegmentSPilled(
     public override val builder: SegmentStyleBuilder,
-) : WrapperSPilledView
+) : WrapperSegmentSPilledView
 
 /**
  * Интерфейс, который реализуют все обертки вариации xs
@@ -179,7 +179,7 @@ public value class WrapperSegmentSPilled(
  * Является ресивером для extension-функций view,
  * применимых к этим оберткам.
  */
-public interface WrapperXsView : WrapperSegment
+public interface WrapperSegmentXsView : WrapperSegment
 
 /**
  * Обертка для вариации Xs
@@ -187,7 +187,7 @@ public interface WrapperXsView : WrapperSegment
 @JvmInline
 public value class WrapperSegmentXs(
     public override val builder: SegmentStyleBuilder,
-) : WrapperXsView
+) : WrapperSegmentXsView
 
 /**
  * Интерфейс, который реализуют все обертки вариации pilled
@@ -195,7 +195,7 @@ public value class WrapperSegmentXs(
  * Является ресивером для extension-функций view,
  * применимых к этим оберткам.
  */
-public interface WrapperXsPilledView : WrapperXsView
+public interface WrapperSegmentXsPilledView : WrapperSegmentXsView
 
 /**
  * Обертка для вариации XsPilled
@@ -203,7 +203,7 @@ public interface WrapperXsPilledView : WrapperXsView
 @JvmInline
 public value class WrapperSegmentXsPilled(
     public override val builder: SegmentStyleBuilder,
-) : WrapperXsPilledView
+) : WrapperSegmentXsPilledView
 
 private val SegmentStyleBuilder.invariantProps: SegmentStyleBuilder
     @Composable
@@ -214,16 +214,16 @@ private val SegmentStyleBuilder.invariantProps: SegmentStyleBuilder
             )
         }
 
-public val WrapperXlView.Primary: WrapperSegmentTerminate
+public val WrapperSegmentXlView.Primary: WrapperSegmentTerminate
     @Composable
-    @JvmName("WrapperXlViewPrimary")
+    @JvmName("WrapperSegmentXlViewPrimary")
     get() = builder
         .segmentItemStyle(SegmentItem.Xl.Primary.style())
         .wrap(::WrapperSegmentTerminate)
 
-public val WrapperXlView.Secondary: WrapperSegmentTerminate
+public val WrapperSegmentXlView.Secondary: WrapperSegmentTerminate
     @Composable
-    @JvmName("WrapperXlViewSecondary")
+    @JvmName("WrapperSegmentXlViewSecondary")
     get() = builder
         .segmentItemStyle(SegmentItem.Xl.Secondary.style())
         .wrap(::WrapperSegmentTerminate)
@@ -247,16 +247,16 @@ public val Segment.Xl: WrapperSegmentXl
         }
         .wrap(::WrapperSegmentXl)
 
-public val WrapperXlPilledView.Primary: WrapperSegmentTerminate
+public val WrapperSegmentXlPilledView.Primary: WrapperSegmentTerminate
     @Composable
-    @JvmName("WrapperXlPilledViewPrimary")
+    @JvmName("WrapperSegmentXlPilledViewPrimary")
     get() = builder
         .segmentItemStyle(SegmentItem.Xl.Pilled.Primary.style())
         .wrap(::WrapperSegmentTerminate)
 
-public val WrapperXlPilledView.Secondary: WrapperSegmentTerminate
+public val WrapperSegmentXlPilledView.Secondary: WrapperSegmentTerminate
     @Composable
-    @JvmName("WrapperXlPilledViewSecondary")
+    @JvmName("WrapperSegmentXlPilledViewSecondary")
     get() = builder
         .segmentItemStyle(SegmentItem.Xl.Pilled.Secondary.style())
         .wrap(::WrapperSegmentTerminate)
@@ -268,16 +268,16 @@ public val WrapperSegmentXl.Pilled: WrapperSegmentXlPilled
         .shape(CircleShape)
         .wrap(::WrapperSegmentXlPilled)
 
-public val WrapperLView.Primary: WrapperSegmentTerminate
+public val WrapperSegmentLView.Primary: WrapperSegmentTerminate
     @Composable
-    @JvmName("WrapperLViewPrimary")
+    @JvmName("WrapperSegmentLViewPrimary")
     get() = builder
         .segmentItemStyle(SegmentItem.L.Primary.style())
         .wrap(::WrapperSegmentTerminate)
 
-public val WrapperLView.Secondary: WrapperSegmentTerminate
+public val WrapperSegmentLView.Secondary: WrapperSegmentTerminate
     @Composable
-    @JvmName("WrapperLViewSecondary")
+    @JvmName("WrapperSegmentLViewSecondary")
     get() = builder
         .segmentItemStyle(SegmentItem.L.Secondary.style())
         .wrap(::WrapperSegmentTerminate)
@@ -301,16 +301,16 @@ public val Segment.L: WrapperSegmentL
         }
         .wrap(::WrapperSegmentL)
 
-public val WrapperLPilledView.Primary: WrapperSegmentTerminate
+public val WrapperSegmentLPilledView.Primary: WrapperSegmentTerminate
     @Composable
-    @JvmName("WrapperLPilledViewPrimary")
+    @JvmName("WrapperSegmentLPilledViewPrimary")
     get() = builder
         .segmentItemStyle(SegmentItem.L.Pilled.Primary.style())
         .wrap(::WrapperSegmentTerminate)
 
-public val WrapperLPilledView.Secondary: WrapperSegmentTerminate
+public val WrapperSegmentLPilledView.Secondary: WrapperSegmentTerminate
     @Composable
-    @JvmName("WrapperLPilledViewSecondary")
+    @JvmName("WrapperSegmentLPilledViewSecondary")
     get() = builder
         .segmentItemStyle(SegmentItem.L.Pilled.Secondary.style())
         .wrap(::WrapperSegmentTerminate)
@@ -322,16 +322,16 @@ public val WrapperSegmentL.Pilled: WrapperSegmentLPilled
         .shape(CircleShape)
         .wrap(::WrapperSegmentLPilled)
 
-public val WrapperMView.Primary: WrapperSegmentTerminate
+public val WrapperSegmentMView.Primary: WrapperSegmentTerminate
     @Composable
-    @JvmName("WrapperMViewPrimary")
+    @JvmName("WrapperSegmentMViewPrimary")
     get() = builder
         .segmentItemStyle(SegmentItem.M.Primary.style())
         .wrap(::WrapperSegmentTerminate)
 
-public val WrapperMView.Secondary: WrapperSegmentTerminate
+public val WrapperSegmentMView.Secondary: WrapperSegmentTerminate
     @Composable
-    @JvmName("WrapperMViewSecondary")
+    @JvmName("WrapperSegmentMViewSecondary")
     get() = builder
         .segmentItemStyle(SegmentItem.M.Secondary.style())
         .wrap(::WrapperSegmentTerminate)
@@ -350,16 +350,16 @@ public val Segment.M: WrapperSegmentM
         }
         .wrap(::WrapperSegmentM)
 
-public val WrapperMPilledView.Primary: WrapperSegmentTerminate
+public val WrapperSegmentMPilledView.Primary: WrapperSegmentTerminate
     @Composable
-    @JvmName("WrapperMPilledViewPrimary")
+    @JvmName("WrapperSegmentMPilledViewPrimary")
     get() = builder
         .segmentItemStyle(SegmentItem.M.Pilled.Primary.style())
         .wrap(::WrapperSegmentTerminate)
 
-public val WrapperMPilledView.Secondary: WrapperSegmentTerminate
+public val WrapperSegmentMPilledView.Secondary: WrapperSegmentTerminate
     @Composable
-    @JvmName("WrapperMPilledViewSecondary")
+    @JvmName("WrapperSegmentMPilledViewSecondary")
     get() = builder
         .segmentItemStyle(SegmentItem.M.Pilled.Secondary.style())
         .wrap(::WrapperSegmentTerminate)
@@ -371,16 +371,16 @@ public val WrapperSegmentM.Pilled: WrapperSegmentMPilled
         .shape(CircleShape)
         .wrap(::WrapperSegmentMPilled)
 
-public val WrapperSView.Primary: WrapperSegmentTerminate
+public val WrapperSegmentSView.Primary: WrapperSegmentTerminate
     @Composable
-    @JvmName("WrapperSViewPrimary")
+    @JvmName("WrapperSegmentSViewPrimary")
     get() = builder
         .segmentItemStyle(SegmentItem.S.Primary.style())
         .wrap(::WrapperSegmentTerminate)
 
-public val WrapperSView.Secondary: WrapperSegmentTerminate
+public val WrapperSegmentSView.Secondary: WrapperSegmentTerminate
     @Composable
-    @JvmName("WrapperSViewSecondary")
+    @JvmName("WrapperSegmentSViewSecondary")
     get() = builder
         .segmentItemStyle(SegmentItem.S.Secondary.style())
         .wrap(::WrapperSegmentTerminate)
@@ -404,16 +404,16 @@ public val Segment.S: WrapperSegmentS
         }
         .wrap(::WrapperSegmentS)
 
-public val WrapperSPilledView.Primary: WrapperSegmentTerminate
+public val WrapperSegmentSPilledView.Primary: WrapperSegmentTerminate
     @Composable
-    @JvmName("WrapperSPilledViewPrimary")
+    @JvmName("WrapperSegmentSPilledViewPrimary")
     get() = builder
         .segmentItemStyle(SegmentItem.S.Pilled.Primary.style())
         .wrap(::WrapperSegmentTerminate)
 
-public val WrapperSPilledView.Secondary: WrapperSegmentTerminate
+public val WrapperSegmentSPilledView.Secondary: WrapperSegmentTerminate
     @Composable
-    @JvmName("WrapperSPilledViewSecondary")
+    @JvmName("WrapperSegmentSPilledViewSecondary")
     get() = builder
         .segmentItemStyle(SegmentItem.S.Pilled.Secondary.style())
         .wrap(::WrapperSegmentTerminate)
@@ -425,16 +425,16 @@ public val WrapperSegmentS.Pilled: WrapperSegmentSPilled
         .shape(CircleShape)
         .wrap(::WrapperSegmentSPilled)
 
-public val WrapperXsView.Primary: WrapperSegmentTerminate
+public val WrapperSegmentXsView.Primary: WrapperSegmentTerminate
     @Composable
-    @JvmName("WrapperXsViewPrimary")
+    @JvmName("WrapperSegmentXsViewPrimary")
     get() = builder
         .segmentItemStyle(SegmentItem.Xs.Primary.style())
         .wrap(::WrapperSegmentTerminate)
 
-public val WrapperXsView.Secondary: WrapperSegmentTerminate
+public val WrapperSegmentXsView.Secondary: WrapperSegmentTerminate
     @Composable
-    @JvmName("WrapperXsViewSecondary")
+    @JvmName("WrapperSegmentXsViewSecondary")
     get() = builder
         .segmentItemStyle(SegmentItem.Xs.Secondary.style())
         .wrap(::WrapperSegmentTerminate)
@@ -453,16 +453,16 @@ public val Segment.Xs: WrapperSegmentXs
         }
         .wrap(::WrapperSegmentXs)
 
-public val WrapperXsPilledView.Primary: WrapperSegmentTerminate
+public val WrapperSegmentXsPilledView.Primary: WrapperSegmentTerminate
     @Composable
-    @JvmName("WrapperXsPilledViewPrimary")
+    @JvmName("WrapperSegmentXsPilledViewPrimary")
     get() = builder
         .segmentItemStyle(SegmentItem.Xs.Pilled.Primary.style())
         .wrap(::WrapperSegmentTerminate)
 
-public val WrapperXsPilledView.Secondary: WrapperSegmentTerminate
+public val WrapperSegmentXsPilledView.Secondary: WrapperSegmentTerminate
     @Composable
-    @JvmName("WrapperXsPilledViewSecondary")
+    @JvmName("WrapperSegmentXsPilledViewSecondary")
     get() = builder
         .segmentItemStyle(SegmentItem.Xs.Pilled.Secondary.style())
         .wrap(::WrapperSegmentTerminate)

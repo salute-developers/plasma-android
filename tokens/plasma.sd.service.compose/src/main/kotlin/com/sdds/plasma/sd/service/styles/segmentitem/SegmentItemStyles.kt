@@ -56,7 +56,7 @@ public value class WrapperSegmentItemTerminate(
  * Является ресивером для extension-функций view,
  * применимых к этим оберткам.
  */
-public interface WrapperXlView : WrapperSegmentItemView
+public interface WrapperSegmentItemXlView : WrapperSegmentItemView
 
 /**
  * Обертка для вариации Xl
@@ -64,7 +64,7 @@ public interface WrapperXlView : WrapperSegmentItemView
 @JvmInline
 public value class WrapperSegmentItemXl(
     public override val builder: SegmentItemStyleBuilder,
-) : WrapperXlView
+) : WrapperSegmentItemXlView
 
 /**
  * Обертка для вариации XlPilled
@@ -72,7 +72,7 @@ public value class WrapperSegmentItemXl(
 @JvmInline
 public value class WrapperSegmentItemXlPilled(
     public override val builder: SegmentItemStyleBuilder,
-) : WrapperXlView
+) : WrapperSegmentItemXlView
 
 /**
  * Интерфейс, который реализуют все обертки вариации l
@@ -80,7 +80,7 @@ public value class WrapperSegmentItemXlPilled(
  * Является ресивером для extension-функций view,
  * применимых к этим оберткам.
  */
-public interface WrapperLView : WrapperSegmentItemView
+public interface WrapperSegmentItemLView : WrapperSegmentItemView
 
 /**
  * Обертка для вариации L
@@ -88,7 +88,7 @@ public interface WrapperLView : WrapperSegmentItemView
 @JvmInline
 public value class WrapperSegmentItemL(
     public override val builder: SegmentItemStyleBuilder,
-) : WrapperLView
+) : WrapperSegmentItemLView
 
 /**
  * Обертка для вариации LPilled
@@ -96,7 +96,7 @@ public value class WrapperSegmentItemL(
 @JvmInline
 public value class WrapperSegmentItemLPilled(
     public override val builder: SegmentItemStyleBuilder,
-) : WrapperLView
+) : WrapperSegmentItemLView
 
 /**
  * Интерфейс, который реализуют все обертки вариации m
@@ -104,7 +104,7 @@ public value class WrapperSegmentItemLPilled(
  * Является ресивером для extension-функций view,
  * применимых к этим оберткам.
  */
-public interface WrapperMView : WrapperSegmentItemView
+public interface WrapperSegmentItemMView : WrapperSegmentItemView
 
 /**
  * Обертка для вариации M
@@ -112,7 +112,7 @@ public interface WrapperMView : WrapperSegmentItemView
 @JvmInline
 public value class WrapperSegmentItemM(
     public override val builder: SegmentItemStyleBuilder,
-) : WrapperMView
+) : WrapperSegmentItemMView
 
 /**
  * Обертка для вариации MPilled
@@ -120,7 +120,7 @@ public value class WrapperSegmentItemM(
 @JvmInline
 public value class WrapperSegmentItemMPilled(
     public override val builder: SegmentItemStyleBuilder,
-) : WrapperMView
+) : WrapperSegmentItemMView
 
 /**
  * Интерфейс, который реализуют все обертки вариации s
@@ -128,7 +128,7 @@ public value class WrapperSegmentItemMPilled(
  * Является ресивером для extension-функций view,
  * применимых к этим оберткам.
  */
-public interface WrapperSView : WrapperSegmentItemView
+public interface WrapperSegmentItemSView : WrapperSegmentItemView
 
 /**
  * Обертка для вариации S
@@ -136,7 +136,7 @@ public interface WrapperSView : WrapperSegmentItemView
 @JvmInline
 public value class WrapperSegmentItemS(
     public override val builder: SegmentItemStyleBuilder,
-) : WrapperSView
+) : WrapperSegmentItemSView
 
 /**
  * Обертка для вариации SPilled
@@ -144,7 +144,7 @@ public value class WrapperSegmentItemS(
 @JvmInline
 public value class WrapperSegmentItemSPilled(
     public override val builder: SegmentItemStyleBuilder,
-) : WrapperSView
+) : WrapperSegmentItemSView
 
 /**
  * Интерфейс, который реализуют все обертки вариации xs
@@ -152,7 +152,7 @@ public value class WrapperSegmentItemSPilled(
  * Является ресивером для extension-функций view,
  * применимых к этим оберткам.
  */
-public interface WrapperXsView : WrapperSegmentItemView
+public interface WrapperSegmentItemXsView : WrapperSegmentItemView
 
 /**
  * Обертка для вариации Xs
@@ -160,7 +160,7 @@ public interface WrapperXsView : WrapperSegmentItemView
 @JvmInline
 public value class WrapperSegmentItemXs(
     public override val builder: SegmentItemStyleBuilder,
-) : WrapperXsView
+) : WrapperSegmentItemXsView
 
 /**
  * Обертка для вариации XsPilled
@@ -168,7 +168,7 @@ public value class WrapperSegmentItemXs(
 @JvmInline
 public value class WrapperSegmentItemXsPilled(
     public override val builder: SegmentItemStyleBuilder,
-) : WrapperXsView
+) : WrapperSegmentItemXsView
 
 public val WrapperSegmentItemView.Primary: WrapperSegmentItemTerminate
     @Composable
@@ -453,9 +453,9 @@ private val SegmentItemStyleBuilder.invariantProps: SegmentItemStyleBuilder
     @Composable
     get() = this
 
-public val WrapperXlView.Accent: WrapperSegmentItemTerminate
+public val WrapperSegmentItemXlView.Accent: WrapperSegmentItemTerminate
     @Composable
-    @JvmName("WrapperXlViewAccent")
+    @JvmName("WrapperSegmentItemXlViewAccent")
     get() = builder
         .colors {
             labelColor(
@@ -569,9 +569,9 @@ public val WrapperXlView.Accent: WrapperSegmentItemTerminate
         )
         .wrap(::WrapperSegmentItemTerminate)
 
-public val WrapperXlView.Primary: WrapperSegmentItemTerminate
+public val WrapperSegmentItemXlView.Primary: WrapperSegmentItemTerminate
     @Composable
-    @JvmName("WrapperXlViewPrimary")
+    @JvmName("WrapperSegmentItemXlViewPrimary")
     get() = builder
         .colors {
             labelColor(
@@ -664,9 +664,9 @@ public val WrapperXlView.Primary: WrapperSegmentItemTerminate
         }
         .wrap(::WrapperSegmentItemTerminate)
 
-public val WrapperXlView.Secondary: WrapperSegmentItemTerminate
+public val WrapperSegmentItemXlView.Secondary: WrapperSegmentItemTerminate
     @Composable
-    @JvmName("WrapperXlViewSecondary")
+    @JvmName("WrapperSegmentItemXlViewSecondary")
     get() = builder
         .colors {
             labelColor(
@@ -785,9 +785,9 @@ public val WrapperSegmentItemXl.Pilled: WrapperSegmentItemXlPilled
         }
         .wrap(::WrapperSegmentItemXlPilled)
 
-public val WrapperLView.Accent: WrapperSegmentItemTerminate
+public val WrapperSegmentItemLView.Accent: WrapperSegmentItemTerminate
     @Composable
-    @JvmName("WrapperLViewAccent")
+    @JvmName("WrapperSegmentItemLViewAccent")
     get() = builder
         .colors {
             labelColor(
@@ -901,9 +901,9 @@ public val WrapperLView.Accent: WrapperSegmentItemTerminate
         )
         .wrap(::WrapperSegmentItemTerminate)
 
-public val WrapperLView.Primary: WrapperSegmentItemTerminate
+public val WrapperSegmentItemLView.Primary: WrapperSegmentItemTerminate
     @Composable
-    @JvmName("WrapperLViewPrimary")
+    @JvmName("WrapperSegmentItemLViewPrimary")
     get() = builder
         .colors {
             labelColor(
@@ -996,9 +996,9 @@ public val WrapperLView.Primary: WrapperSegmentItemTerminate
         }
         .wrap(::WrapperSegmentItemTerminate)
 
-public val WrapperLView.Secondary: WrapperSegmentItemTerminate
+public val WrapperSegmentItemLView.Secondary: WrapperSegmentItemTerminate
     @Composable
-    @JvmName("WrapperLViewSecondary")
+    @JvmName("WrapperSegmentItemLViewSecondary")
     get() = builder
         .colors {
             labelColor(
@@ -1117,9 +1117,9 @@ public val WrapperSegmentItemL.Pilled: WrapperSegmentItemLPilled
         }
         .wrap(::WrapperSegmentItemLPilled)
 
-public val WrapperMView.Accent: WrapperSegmentItemTerminate
+public val WrapperSegmentItemMView.Accent: WrapperSegmentItemTerminate
     @Composable
-    @JvmName("WrapperMViewAccent")
+    @JvmName("WrapperSegmentItemMViewAccent")
     get() = builder
         .colors {
             labelColor(
@@ -1233,9 +1233,9 @@ public val WrapperMView.Accent: WrapperSegmentItemTerminate
         )
         .wrap(::WrapperSegmentItemTerminate)
 
-public val WrapperMView.Primary: WrapperSegmentItemTerminate
+public val WrapperSegmentItemMView.Primary: WrapperSegmentItemTerminate
     @Composable
-    @JvmName("WrapperMViewPrimary")
+    @JvmName("WrapperSegmentItemMViewPrimary")
     get() = builder
         .colors {
             labelColor(
@@ -1328,9 +1328,9 @@ public val WrapperMView.Primary: WrapperSegmentItemTerminate
         }
         .wrap(::WrapperSegmentItemTerminate)
 
-public val WrapperMView.Secondary: WrapperSegmentItemTerminate
+public val WrapperSegmentItemMView.Secondary: WrapperSegmentItemTerminate
     @Composable
-    @JvmName("WrapperMViewSecondary")
+    @JvmName("WrapperSegmentItemMViewSecondary")
     get() = builder
         .colors {
             labelColor(
@@ -1449,9 +1449,9 @@ public val WrapperSegmentItemM.Pilled: WrapperSegmentItemMPilled
         }
         .wrap(::WrapperSegmentItemMPilled)
 
-public val WrapperSView.Accent: WrapperSegmentItemTerminate
+public val WrapperSegmentItemSView.Accent: WrapperSegmentItemTerminate
     @Composable
-    @JvmName("WrapperSViewAccent")
+    @JvmName("WrapperSegmentItemSViewAccent")
     get() = builder
         .colors {
             labelColor(
@@ -1565,9 +1565,9 @@ public val WrapperSView.Accent: WrapperSegmentItemTerminate
         )
         .wrap(::WrapperSegmentItemTerminate)
 
-public val WrapperSView.Primary: WrapperSegmentItemTerminate
+public val WrapperSegmentItemSView.Primary: WrapperSegmentItemTerminate
     @Composable
-    @JvmName("WrapperSViewPrimary")
+    @JvmName("WrapperSegmentItemSViewPrimary")
     get() = builder
         .colors {
             labelColor(
@@ -1660,9 +1660,9 @@ public val WrapperSView.Primary: WrapperSegmentItemTerminate
         }
         .wrap(::WrapperSegmentItemTerminate)
 
-public val WrapperSView.Secondary: WrapperSegmentItemTerminate
+public val WrapperSegmentItemSView.Secondary: WrapperSegmentItemTerminate
     @Composable
-    @JvmName("WrapperSViewSecondary")
+    @JvmName("WrapperSegmentItemSViewSecondary")
     get() = builder
         .colors {
             labelColor(
@@ -1781,9 +1781,9 @@ public val WrapperSegmentItemS.Pilled: WrapperSegmentItemSPilled
         }
         .wrap(::WrapperSegmentItemSPilled)
 
-public val WrapperXsView.Accent: WrapperSegmentItemTerminate
+public val WrapperSegmentItemXsView.Accent: WrapperSegmentItemTerminate
     @Composable
-    @JvmName("WrapperXsViewAccent")
+    @JvmName("WrapperSegmentItemXsViewAccent")
     get() = builder
         .colors {
             labelColor(
@@ -1897,9 +1897,9 @@ public val WrapperXsView.Accent: WrapperSegmentItemTerminate
         )
         .wrap(::WrapperSegmentItemTerminate)
 
-public val WrapperXsView.Primary: WrapperSegmentItemTerminate
+public val WrapperSegmentItemXsView.Primary: WrapperSegmentItemTerminate
     @Composable
-    @JvmName("WrapperXsViewPrimary")
+    @JvmName("WrapperSegmentItemXsViewPrimary")
     get() = builder
         .colors {
             labelColor(
@@ -1992,9 +1992,9 @@ public val WrapperXsView.Primary: WrapperSegmentItemTerminate
         }
         .wrap(::WrapperSegmentItemTerminate)
 
-public val WrapperXsView.Secondary: WrapperSegmentItemTerminate
+public val WrapperSegmentItemXsView.Secondary: WrapperSegmentItemTerminate
     @Composable
-    @JvmName("WrapperXsViewSecondary")
+    @JvmName("WrapperSegmentItemXsViewSecondary")
     get() = builder
         .colors {
             labelColor(
