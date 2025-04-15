@@ -18,6 +18,10 @@ import kotlin.math.sqrt
  * Описывает [Shader] градиента.
  * @author Малышев Александр on 13.08.2024
  */
+@Deprecated(
+    "Use GradientShader from com.sdds.uikit.shader",
+    ReplaceWith("com.sdds.uikit.shader.GradientShader"),
+)
 sealed class GradientShader : ShaderFactory {
 
     /**

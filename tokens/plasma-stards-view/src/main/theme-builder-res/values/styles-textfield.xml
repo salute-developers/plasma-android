@@ -2,9 +2,6 @@
 
 <!--AUTO-GENERATED. DO NOT MODIFY this file.-->
 <resources>
-    <style name="Sdkit.StarDs.ComponentOverlays.TextFieldChips">
-        <item name="sd_chipGroupStyle">@style/Sdkit.StarDs.Components.ChipGroup.Dense</item>
-    </style>
     <style name="Sdkit.StarDs.Components.TextField" parent="Sdds.Components.TextField">
         <item name="sd_disabledAlpha">0.4</item>
         <item name="sd_counterPlacement">outer</item>
@@ -14,7 +11,6 @@
         <item name="sd_counterAppearance">@style/Sdkit.StarDs.TextAppearance.BodyXsNormal</item>
         <item name="sd_prefixTextPadding">@dimen/sdkit_text_field_prefix_padding</item>
         <item name="sd_suffixTextPadding">@dimen/sdkit_text_field_suffix_padding</item>
-        <item name="sd_chipGroupStyleOverlay">@style/Sdkit.StarDs.ComponentOverlays.TextFieldChips</item>
         <item name="sd_valueColor">@color/sdkit_text_field_value_color</item>
         <item name="sd_captionColor">@color/sdkit_text_field_caption_color</item>
         <item name="sd_iconTint">@color/sdkit_text_field_icon_color</item>

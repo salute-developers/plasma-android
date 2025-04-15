@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--AUTO-GENERATED. DO NOT MODIFY this file.-->
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <declare-styleable name="PlasmaCircularProgressBarColorState">
+        <attr format="boolean" name="plasma_circularprogressbar_state_default"/>
+        <attr format="boolean" name="plasma_circularprogressbar_state_secondary"/>
+        <attr format="boolean" name="plasma_circularprogressbar_state_accent"/>
+        <attr format="boolean" name="plasma_circularprogressbar_state_gradient"/>
+        <attr format="boolean" name="plasma_circularprogressbar_state_info"/>
+        <attr format="boolean" name="plasma_circularprogressbar_state_negative"/>
+        <attr format="boolean" name="plasma_circularprogressbar_state_positive"/>
+        <attr format="boolean" name="plasma_circularprogressbar_state_warning"/>
+    </declare-styleable>
+    <declare-styleable name="CircularProgressBar" tools:ignore="ResourceName">
+        <attr format="enum" name="plasma_circularprogressbarColors">
+            <enum name="state_default" value="0"/>
+            <enum name="state_secondary" value="1"/>
+            <enum name="state_accent" value="2"/>
+            <enum name="state_gradient" value="3"/>
+            <enum name="state_info" value="4"/>
+            <enum name="state_negative" value="5"/>
+            <enum name="state_positive" value="6"/>
+            <enum name="state_warning" value="7"/>
+        </attr>
+    </declare-styleable>
+</resources>

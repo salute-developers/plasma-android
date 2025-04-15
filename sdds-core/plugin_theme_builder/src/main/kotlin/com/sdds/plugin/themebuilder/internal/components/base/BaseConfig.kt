@@ -314,3 +314,8 @@ private fun <T, S : State<T>, V : Stateful<T, S>> V.combine(
 internal data class Icon(
     val value: String,
 )
+
+@Serializable
+internal data class BooleanValue(
+    val value: Boolean,
+)

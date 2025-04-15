@@ -10,6 +10,7 @@ import com.sdds.plugin.themebuilder.internal.components.card.CardConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.cell.CellConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.chip.ChipConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.chip.group.ChipGroupConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.circularprogress.CircularProgressConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.counter.CounterConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.divider.DividerConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.indicator.IndicatorConfigDelegate
@@ -40,5 +41,6 @@ internal val componentDelegates by unsafeLazy {
         "bottom-sheet" to BottomSheetConfigDelegate(),
         "chip" to ChipConfigDelegate(),
         "chip-group" to ChipGroupConfigDelegate(),
+        "circular-progress-bar" to CircularProgressConfigDelegate(),
     )
 }

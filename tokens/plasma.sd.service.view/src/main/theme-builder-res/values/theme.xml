@@ -1050,6 +1050,7 @@
         <item name="sd_cardStyle">@style/Plasma.SdService.Components.CardSolid.M</item>
         <item name="sd_cardContentStyle">@style/Plasma.SdService.Components.CardSolidContent.M</item>
         <item name="sd_dividerStyle">@style/Plasma.SdService.Components.Divider</item>
+        <item name="sd_circularProgressBarStyle">@style/Plasma.SdService.Components.CircularProgressBar.M.Default</item>
     </style>
     <style name="Plasma.SdService.MaterialComponents.Light" parent="Theme.MaterialComponents.Light">
         <!--Light colors-->
@@ -2099,6 +2100,7 @@
         <item name="sd_cardStyle">@style/Plasma.SdService.Components.CardSolid.M</item>
         <item name="sd_cardContentStyle">@style/Plasma.SdService.Components.CardSolidContent.M</item>
         <item name="sd_dividerStyle">@style/Plasma.SdService.Components.Divider</item>
+        <item name="sd_circularProgressBarStyle">@style/Plasma.SdService.Components.CircularProgressBar.M.Default</item>
     </style>
     <style name="Plasma.SdService.MaterialComponents.DayNight" parent="Plasma.SdService.MaterialComponents.Light"/>
     <style name="Plasma.SdService"/>

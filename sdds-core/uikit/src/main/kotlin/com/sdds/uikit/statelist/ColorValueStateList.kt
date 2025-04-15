@@ -15,9 +15,12 @@ import androidx.annotation.XmlRes
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.graphics.ColorUtils
 import com.sdds.uikit.R
+import com.sdds.uikit.TextView
 import com.sdds.uikit.internal.base.colorForState
+import com.sdds.uikit.shader.CachedShaderFactory
+import com.sdds.uikit.shader.GradientShader
 import com.sdds.uikit.shader.ShaderFactory
-import com.sdds.uikit.shaderFactory
+import com.sdds.uikit.shape.ShapeDrawable
 import org.xmlpull.v1.XmlPullParser
 import org.xmlpull.v1.XmlPullParserException
 
@@ -203,7 +206,7 @@ class ColorValueStateList(
                 }
 
                 "style" -> {
-                    val shaderFactory = context.shaderFactory(resId)
+                    val shaderFactory = GradientShader.obtain(context, resId)
                         ?: throw IllegalArgumentException("Invalid shader reference $resId")
                     ColorValueHolder.ShaderValue(shaderFactory)
                 }
@@ -229,6 +232,10 @@ fun TypedArray.getColorValueStateList(
     context: Context,
     index: Int,
 ): ColorValueStateList? {
+    val value = peekValue(index)
+    if (value != null && value.type in TypedValue.TYPE_FIRST_COLOR_INT..TypedValue.TYPE_LAST_COLOR_INT) {
+        return ColorValueStateList.valueOf(getColor(index, 0))
+    }
     val stateListResId = getResourceId(index, 0)
     if (stateListResId == 0) return null
     val typeName = context.resources.getResourceTypeName(stateListResId)
@@ -263,17 +270,42 @@ fun View.setBackgroundValueList(colorValueStateList: ColorValueStateList?) {
 }
 
 /**
+ * Устанавливает фон [View] в соответствии с [ColorValueStateList].
+ *
+ * Применяет значение в зависимости от состояния View: цвет, drawable, tint или shader.
+ *
+ * @param colorValueStateList Список значений цвета для различных состояний.
+ */
+fun TextView.setTextColorValue(colorValueStateList: ColorValueStateList?, cachedShaderFactory: CachedShaderFactory) {
+    if (colorValueStateList == null) return
+    val textColorValue = if (colorValueStateList.isStateful()) {
+        colorValueStateList.getValueForState(drawableState)
+    } else {
+        colorValueStateList.getDefaultValue()
+    }
+    when (textColorValue) {
+        is ColorValueHolder.ColorValue -> setTextColor(textColorValue.value)
+        is ColorValueHolder.DrawableValue -> {}
+        is ColorValueHolder.ColorListValue -> setTextColor(textColorValue.value)
+        is ColorValueHolder.ShaderValue -> {
+            paint.color = -1
+            paint.shader = cachedShaderFactory.getShader(textColorValue.value)
+        }
+    }
+}
+
+/**
  * Устанавливает цвет или shader в [Paint] на основе [ColorValueStateList] и текущего состояния.
  *
  * @param colorValueStateList Список значений цвета/шейдера по состояниям.
  * @param state Текущее состояние (набор флагов состояния).
- * @param shaderFactory Фабрика для создания [Shader], если используется [ShaderValue].
+ * @param cachedShaderFactory Фабрика для создания [Shader], если используется [ShaderValue].
  * @return `true`, если цвет или shader были изменены.
  */
 fun Paint.setColorValue(
     colorValueStateList: ColorValueStateList?,
     state: IntArray,
-    shaderFactory: (ShaderFactory) -> Shader?,
+    cachedShaderFactory: CachedShaderFactory,
 ): Boolean {
     val oldColor = color
     val oldShader = shader
@@ -293,9 +325,16 @@ fun Paint.setColorValue(
             shader = null
         }
 
-        is ColorValueHolder.DrawableValue -> throw IllegalArgumentException("Can't set drawable value to Paint object")
+        is ColorValueHolder.DrawableValue -> {
+            // TODO: https://github.com/salute-developers/plasma-android/issues/357
+            val shapeShaderFactory = when (colorValue.value) {
+                is ShapeDrawable -> colorValue.value.shaderFactory
+                else -> throw IllegalArgumentException("Can't set drawable value to Paint object")
+            }
+            shader = shapeShaderFactory?.let { cachedShaderFactory.getShader(it) }
+        }
         is ColorValueHolder.ShaderValue -> {
-            shader = shaderFactory(colorValue.value)
+            shader = cachedShaderFactory.getShader(colorValue.value)
         }
     }
     return oldColor != color || oldShader != shader
