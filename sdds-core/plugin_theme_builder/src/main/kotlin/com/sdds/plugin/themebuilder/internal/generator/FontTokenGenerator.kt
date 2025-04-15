@@ -54,7 +54,9 @@ internal class FontTokenGenerator(
     private val ktFileBuilder by unsafeLazy {
         ktFileBuilderFactory.create(FONT_TOKENS_NAME).also {
             it.addSuppressAnnotation("ObjectPropertyNaming")
-            it.addOptInAnnotation(KtFileBuilder.TypeExperimentalTextApi)
+            if (dimensionsConfig.variableFonts) {
+                it.addOptInAnnotation(KtFileBuilder.TypeExperimentalTextApi)
+            }
         }
     }
     private val ktFileRootObjectBuilder by unsafeLazy {
