@@ -11,8 +11,21 @@ import com.sdds.stylessalute.styles.chip.Pilled
 import com.sdds.stylessalute.styles.chip.S
 import com.sdds.stylessalute.styles.chip.Secondary
 import com.sdds.stylessalute.styles.chip.Xs
+import com.sdds.stylessalute.styles.chipgroup.Accent
+import com.sdds.stylessalute.styles.chipgroup.ChipGroupDense
+import com.sdds.stylessalute.styles.chipgroup.ChipGroupWide
+import com.sdds.stylessalute.styles.chipgroup.Default
+import com.sdds.stylessalute.styles.chipgroup.L
+import com.sdds.stylessalute.styles.chipgroup.M
+import com.sdds.stylessalute.styles.chipgroup.S
+import com.sdds.stylessalute.styles.chipgroup.Secondary
+import com.sdds.stylessalute.styles.chipgroup.Xs
 import com.sdds.testing.compose.RoborazziConfigCompose
 import com.sdds.testing.compose.chip.ChipDisabled
+import com.sdds.testing.compose.chip.ChipGroupSizeLDense
+import com.sdds.testing.compose.chip.ChipGroupSizeMSecondaryWideWrapped
+import com.sdds.testing.compose.chip.ChipGroupSizeSAccentDense
+import com.sdds.testing.compose.chip.ChipGroupSizeXsDefault
 import com.sdds.testing.compose.chip.ChipSizeLDefault
 import com.sdds.testing.compose.chip.ChipSizeMSecondaryPilled
 import com.sdds.testing.compose.chip.ChipSizeSAccent
@@ -66,6 +79,34 @@ class ComposeChipScreenshotTest(
     fun testChipDisabled() {
         composeTestRule.content {
             ChipDisabled(style = Chip.L.Default.style())
+        }
+    }
+
+    @Test
+    fun testChipGroupSizeLDense() {
+        composeTestRule.content {
+            ChipGroupSizeLDense(style = ChipGroupDense.L.Default.style())
+        }
+    }
+
+    @Test
+    fun testChipGroupSizeMSecondaryWideWrapped() {
+        composeTestRule.content {
+            ChipGroupSizeMSecondaryWideWrapped(style = ChipGroupWide.M.Secondary.style())
+        }
+    }
+
+    @Test
+    fun testChipGroupSizeSAccentDense() {
+        composeTestRule.content {
+            ChipGroupSizeSAccentDense(style = ChipGroupDense.S.Accent.style())
+        }
+    }
+
+    @Test
+    fun testChipGroupSizeXsDefault() {
+        composeTestRule.content {
+            ChipGroupSizeXsDefault(style = ChipGroupDense.Xs.Default.style())
         }
     }
 }
