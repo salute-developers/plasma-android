@@ -161,6 +161,6 @@ private class ColorStateList(
 
     @Composable
     override fun colorForInteractionAsState(interactionSource: InteractionSource): State<Color> {
-        return rememberUpdatedState(newValue = colorForInteraction(interactionSource))
+        return getValueAsState(interactionSource)
     }
 }
