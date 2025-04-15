@@ -46,7 +46,7 @@ internal class NumberStateListGenerator<T : Number, S : State<T>, V : Stateful<T
             is Dimension -> {
                 val dimen = DimenData(
                     name = "${fileName}_value_$index",
-                    value = value.value,
+                    value = rawValue,
                     type = DimenData.Type.DP,
                 )
                 dimensAggregator.addDimen(dimen)
