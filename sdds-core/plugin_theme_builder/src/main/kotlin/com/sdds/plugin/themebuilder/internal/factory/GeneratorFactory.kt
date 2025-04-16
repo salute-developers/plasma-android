@@ -306,6 +306,7 @@ internal class GeneratorFactory(
             resPrefixConfig.resourcePrefix,
             fonts,
             fontsAggregator,
+            dimensionsConfig,
         )
     }
 
