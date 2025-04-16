@@ -310,8 +310,7 @@ class DimensionsConfigBuilder {
     }
 
     /**
-     * Включает/выключает флаг использования размеров из ресурсов.
-     * Справедливо для Compose, т.к. в Xml размеры всегда берутся из ресурсов
+     * Включает/выключает флаг поддержки вариативных шрифтов
      */
     fun variableFonts(variableFonts: Boolean) {
         this.variableFonts = variableFonts
