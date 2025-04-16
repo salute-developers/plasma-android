@@ -113,7 +113,7 @@ enum class RadioBoxStates : ValueState {
 fun <T : Any> RadioBoxGroup(
     modifier: Modifier = Modifier,
     style: RadioBoxGroupStyle = LocalRadioBoxGroupStyle.current,
-    verticalArrangement: Arrangement.Vertical = style.verticalArrangement,
+    verticalArrangement: Arrangement.Vertical = Arrangement.spacedBy(style.dimensions.itemSpacing),
     horizontalAlignment: Alignment.Horizontal = Alignment.Start,
     default: T? = null,
     content: @Composable RadioBoxGroupScope.(selection: MutableState<T?>) -> Unit,
@@ -142,7 +142,7 @@ fun <T : Any> RadioBoxGroup(
 fun RadioBoxGroup(
     modifier: Modifier = Modifier,
     style: RadioBoxGroupStyle = LocalRadioBoxGroupStyle.current,
-    verticalArrangement: Arrangement.Vertical = style.verticalArrangement,
+    verticalArrangement: Arrangement.Vertical = Arrangement.spacedBy(style.dimensions.itemSpacing),
     horizontalAlignment: Alignment.Horizontal = Alignment.Start,
     content: @Composable ColumnScope.() -> Unit,
 ) {

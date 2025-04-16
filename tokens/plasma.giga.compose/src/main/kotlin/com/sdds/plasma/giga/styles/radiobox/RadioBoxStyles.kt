@@ -89,11 +89,11 @@ private val RadioBoxStyleBuilder.invariantProps: RadioBoxStyleBuilder
         .dimensionValues {
             toggleBorderOffset(
                 0.0.dp.asStatefulValue(
-                    setOf(InteractiveState.Focused) to 3.0f.dp,
+                    setOf(InteractiveState.Focused) to 3.0.dp,
                     setOf(
                         InteractiveState.Focused,
                         RadioBoxStates.Checked,
-                    ) to 3.0f.dp,
+                    ) to 3.0.dp,
                 ),
             )
         }

@@ -1,4 +1,4 @@
-package com.sdds.plugin.themebuilder.internal.components.radiobox
+package com.sdds.plugin.themebuilder.internal.components.radiobox.group
 
 import com.sdds.plugin.themebuilder.internal.TargetPackage
 import com.sdds.plugin.themebuilder.internal.builder.KtFileBuilder
@@ -11,8 +11,8 @@ import com.sdds.plugin.themebuilder.internal.utils.decode
 import com.sdds.plugin.themebuilder.internal.utils.techToSnakeCase
 import java.io.File
 
-internal class RadioBoxConfigDelegate : ComponentConfigDelegate<RadioBoxConfig>() {
-    override fun parseConfig(file: File): RadioBoxConfig {
+internal class RadioBoxGroupConfigDelegate : ComponentConfigDelegate<RadioBoxGroupConfig>() {
+    override fun parseConfig(file: File): RadioBoxGroupConfig {
         return file.decode(Serializer.componentConfig)
     }
 
@@ -24,8 +24,9 @@ internal class RadioBoxConfigDelegate : ComponentConfigDelegate<RadioBoxConfig>(
     override fun createComposeGenerator(
         deps: StyleGeneratorDependencies,
         component: Component,
-    ): ComponentStyleGenerator<RadioBoxConfig>? {
-        return RadioBoxComposeVariationGenerator(
+    ): ComponentStyleGenerator<RadioBoxGroupConfig>? {
+        return RadioBoxGroupComposeVariationGenerator(
+            radioBoxStylesPackage = "${deps.packageResolver.getPackage(TargetPackage.STYLES)}.radiobox",
             themeClassName = deps.themeClassName,
             themePackage = deps.packageResolver.getPackage(TargetPackage.THEME),
             dimensionsConfig = deps.dimensionsConfig,
