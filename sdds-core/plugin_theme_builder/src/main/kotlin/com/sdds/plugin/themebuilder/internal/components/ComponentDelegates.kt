@@ -14,6 +14,7 @@ import com.sdds.plugin.themebuilder.internal.components.circularprogress.Circula
 import com.sdds.plugin.themebuilder.internal.components.counter.CounterConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.divider.DividerConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.indicator.IndicatorConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.radiobox.RadioBoxConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.segment.SegmentConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.segment.item.SegmentItemConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.textfield.TextAreaConfigDelegate
@@ -41,6 +42,7 @@ internal val componentDelegates by unsafeLazy {
         "bottom-sheet" to BottomSheetConfigDelegate(),
         "chip" to ChipConfigDelegate(),
         "chip-group" to ChipGroupConfigDelegate(),
+        "radio-box" to RadioBoxConfigDelegate(),
         "circular-progress-bar" to CircularProgressConfigDelegate(),
     )
 }

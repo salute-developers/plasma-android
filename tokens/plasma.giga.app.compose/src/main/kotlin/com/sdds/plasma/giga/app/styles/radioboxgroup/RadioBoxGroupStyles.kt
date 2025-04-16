@@ -6,6 +6,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.RadioBoxGroupStyle
 import com.sdds.compose.uikit.RadioBoxGroupStyleBuilder
+import com.sdds.compose.uikit.style.style
 import com.sdds.plasma.giga.app.styles.radiobox.M
 import com.sdds.plasma.giga.app.styles.radiobox.RadioBox
 import com.sdds.plasma.giga.app.styles.radiobox.S

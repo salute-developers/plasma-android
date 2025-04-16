@@ -89,20 +89,25 @@ internal abstract class GenerateComponentsTask : DefaultTask() {
     abstract val target: Property<ThemeBuilderTarget>
 
     @TaskAction
+    @Suppress("TooGenericExceptionCaught")
     fun generate() {
         val deps = getGeneratorDependencies()
         val componentsDir = componentsDir.get()
 
         metaInfo.components.forEach { component ->
-            val configFile = componentsDir
-                .file(component.config)
-                .asFile
-            val componentDelegate = componentDelegates[component.componentName]
-            componentDelegate?.generate(
-                file = configFile,
-                deps = deps,
-                component = component,
-            )
+            try {
+                val configFile = componentsDir
+                    .file(component.config)
+                    .asFile
+                val componentDelegate = componentDelegates[component.componentName]
+                componentDelegate?.generate(
+                    file = configFile,
+                    deps = deps,
+                    component = component,
+                )
+            } catch (e: Exception) {
+                logger.error("Style generating failed for component ${component.config}", e)
+            }
         }
 
         if (target.get().isViewSystemOrAll || dimensionsConfig.get().fromResources) {

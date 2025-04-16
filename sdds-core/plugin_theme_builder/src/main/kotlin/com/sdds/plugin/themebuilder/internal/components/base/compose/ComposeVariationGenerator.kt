@@ -9,6 +9,7 @@ import com.sdds.plugin.themebuilder.internal.components.base.Color
 import com.sdds.plugin.themebuilder.internal.components.base.ColorState
 import com.sdds.plugin.themebuilder.internal.components.base.Config
 import com.sdds.plugin.themebuilder.internal.components.base.Dimension
+import com.sdds.plugin.themebuilder.internal.components.base.FloatState
 import com.sdds.plugin.themebuilder.internal.components.base.Gradient
 import com.sdds.plugin.themebuilder.internal.components.base.Icon
 import com.sdds.plugin.themebuilder.internal.components.base.PropertyOwner
@@ -162,8 +163,9 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
         dimensionResSuffix: String,
     ): String {
         return if (dimensionsConfig.fromResources) {
+            val endsWith = if (dimensionResSuffix.isEmpty()) "" else "_$dimensionResSuffix"
             val dimenData = DimenData(
-                name = "${componentXmlPrefix}_${dimenName}_$dimensionResSuffix",
+                name = "${componentXmlPrefix}_${dimenName}$endsWith",
                 value = dimenValue,
                 type = DimenData.Type.DP,
             )
@@ -197,22 +199,26 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
     protected fun StringBuilder.appendDimension(
         dimensionName: String,
         dimension: Dimension,
-        variationId: String,
+        dimensionSuffix: String,
     ) {
         val camelCaseName = dimensionName.toCamelCase().decapitalized()
+        val suffixOrEmpty = if (dimensionSuffix == camelComponentName) "" else dimensionSuffix
+        val stateSuffix = dimension.asStatefulFragment(
+            dimensionName = dimensionName,
+            dimensionResSuffix = suffixOrEmpty,
+        )
         appendLine(
             "$camelCaseName(${
                 getDimension(
                     dimensionName,
                     dimension.value,
-                    variationId,
+                    suffixOrEmpty,
                 )
-            })",
+            }$stateSuffix)",
         )
     }
 
-    private fun String.toKtAttrName(): String =
-        toCamelCase().decapitalize(Locale.getDefault())
+    private fun String.toKtAttrName(): String = toCamelCase().decapitalized()
 
     private fun String.toCamelCase(): String {
         val segments = split(".", "-", "_")
@@ -524,22 +530,50 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
             """.trimIndent()
         }
 
+    private fun Dimension.asStatefulFragment(dimensionName: String, dimensionResSuffix: String): String =
+        if (states.isNullOrEmpty()) {
+            ""
+        } else {
+            """.asStatefulValue·(
+                ${getAsInteractiveParameters(dimensionName, dimensionResSuffix)}
+            )
+            """.trimIndent()
+        }
+
     private fun Color?.getAsInteractiveParameters(): String {
-        return this?.states?.joinToString(separator = ", ") { it.getStateParameter(this is Gradient) }.orEmpty()
+        return this?.states?.joinToString { it.getStateParameter(this is Gradient) }.orEmpty()
+    }
+
+    private fun Dimension.getAsInteractiveParameters(dimensionName: String, dimensionResSuffix: String): String {
+        val interactiveParametersList = mutableListOf<String>()
+        val dimensionSuffixOrEmpty = if (dimensionResSuffix.isEmpty()) "" else "${dimensionResSuffix}_"
+        this.states?.forEachIndexed { index, floatState ->
+            interactiveParametersList.add(
+                floatState.getDpStateParameter(dimensionName, "$dimensionSuffixOrEmpty$index"),
+            )
+        }
+        return interactiveParametersList.joinToString()
+    }
+
+    private fun FloatState.getDpStateParameter(dimensionName: String, dimensionResSuffix: String): String {
+        return """
+            setOf(${state.toStateEnums()}) to ${getDimension(dimensionName, value, dimensionResSuffix)}
+        """.trimIndent()
     }
 
     private fun ColorState.getStateParameter(isGradient: Boolean): String {
         val alphaString = alpha?.let { ".multiplyAlpha(${it}f)" }.orEmpty()
         val tokenGroupName = if (isGradient) "gradients" else "colors"
         return """
-            setOf(${state.toColorStates()})
+            setOf(${state.toStateEnums()})
                 to $themeClassName.$tokenGroupName.${value.toKtAttrName()}$alphaString
         """.trimIndent()
     }
 
-    private fun List<String>.toColorStates(): String {
-        val interactiveStates = asInteractiveStates().joinToString { "InteractiveState.${it.name}" }
-        return interactiveStates + excludeInteractiveStates().joinToString { getCustomState(it) }
+    private fun List<String>.toStateEnums(): String {
+        val interactiveStates = asInteractiveStates().map { "InteractiveState.${it.name}" }
+        return (interactiveStates + excludeInteractiveStates().map { getCustomState(it) })
+            .joinToString()
     }
 
     protected open fun getCustomState(state: String): String = state

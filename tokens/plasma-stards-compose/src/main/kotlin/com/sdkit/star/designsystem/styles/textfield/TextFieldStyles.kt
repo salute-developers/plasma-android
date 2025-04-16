@@ -154,8 +154,8 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
     get() = this
         .singleLine(true)
         .dimensions {
-            optionalPadding(dimensionResource(R.dimen.sdkit_cmp_text_field_optional_padding_TextField))
-            helperTextPadding(dimensionResource(R.dimen.sdkit_cmp_text_field_helper_text_padding_TextField))
+            optionalPadding(dimensionResource(R.dimen.sdkit_cmp_text_field_optional_padding))
+            helperTextPadding(dimensionResource(R.dimen.sdkit_cmp_text_field_helper_text_padding))
         }
         .captionStyle(StarDsTheme.typography.bodyXsNormal)
         .counterStyle(StarDsTheme.typography.bodyXsNormal)

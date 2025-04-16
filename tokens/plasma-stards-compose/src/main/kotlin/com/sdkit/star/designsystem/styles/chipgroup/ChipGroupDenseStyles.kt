@@ -176,8 +176,8 @@ private val ChipGroupStyleBuilder.invariantProps: ChipGroupStyleBuilder
     @Composable
     get() = this
         .dimensions {
-            gap(dimensionResource(R.dimen.sdkit_cmp_chip_group_dense_gap_ChipGroupDense))
-            lineSpacing(dimensionResource(R.dimen.sdkit_cmp_chip_group_dense_line_spacing_ChipGroupDense))
+            gap(dimensionResource(R.dimen.sdkit_cmp_chip_group_dense_gap))
+            lineSpacing(dimensionResource(R.dimen.sdkit_cmp_chip_group_dense_line_spacing))
         }
         .disableAlpha(0.4f)
 
