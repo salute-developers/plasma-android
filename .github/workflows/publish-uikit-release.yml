@@ -1,9 +1,13 @@
 name: 'Publish UIKit Release'
 
 on:
-  push:
-    tags:
-      - "sdds-uikit-v[0-9]+.[0-9]+.[0-9]+"
+  repository_dispatch:
+    types: [publish-uikit]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Тэг для релиза"
+        required: true
 
 concurrency:
   # New commit on branch cancels running workflows of the same branch
@@ -21,13 +25,23 @@ jobs:
       - name: Prepare environment
         uses: ./.github/actions/prepare-android-env
 
+      - name: Determine tag
+        id: inputs
+        run: |
+          if [[ "${{ github.event_name }}" == "repository_dispatch" ]]; then
+            TAG="${{ github.event.client_payload.tag }}"
+          else
+            TAG="${{ github.event.inputs.tag }}"
+          fi
+          echo "tag=$TAG" >> $GITHUB_OUTPUT  
+
       - name: Generate and publish distributions to maven
         env:
           OSS_SIGNING_KEY_ID: ${{ secrets.OSS_SIGNING_KEY_ID }}
           OSS_SIGNING_KEY: ${{ secrets.OSS_SIGNING_KEY }}
           OSS_SIGNING_PASSWORD: ${{ secrets.OSS_SIGNING_PASSWORD }}
           PP_AUTH_TOKEN: ${{ secrets.PP_AUTH_TOKEN }}
-        run: ./gradlew :sdds-core:uikit:mavenPublish --info -PbranchName=main
+        run: ./gradlew :sdds-core:uikit:generateDistributionZip --info -PbranchName=main
 
       - name: Upload distribution
         uses: actions/upload-artifact@v4
@@ -39,8 +53,9 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          tag: ${{ github.ref_name }}
+          tag: ${{ steps.inputs.outputs.tag }}
           draft: true
           allowUpdates: true
           omitBody: true
+          generateReleaseNotes: true
           artifacts: sdds-core/uikit/build/distributions/*.zip

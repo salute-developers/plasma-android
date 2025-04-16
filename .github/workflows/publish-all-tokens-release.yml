@@ -1,19 +1,25 @@
 name: 'Publish all tokens release'
 
-# Здесь используется не полный regex для даты, т.к. валидность даты - здесь пока не критично
 on:
-  push:
-    tags:
-      - "sdds-tokens-all-[0-9]+.[0-9]+.[0-9]+"
+  repository_dispatch:
+    types: [publish-tokens]
+  workflow_dispatch:
+    inputs:
+      modules:
+        description: "Список модулей через запятую (например, tokens:plasma-stards, tokens:plasma-stards-compose)"
+        required: true
+      tag:
+        description: "Тэг для релиза"
+        required: true
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref }}
   cancel-in-progress: true
 
 jobs:
-  publish-all-tokens:
-    name: Generate and publish all tokens
+  publish-tokens:
     runs-on: ubuntu-latest
+    if: github.event.action == 'publish-tokens'
     steps:
       - name: Checkout the code
         uses: actions/checkout@v4
@@ -21,16 +27,48 @@ jobs:
       - name: Prepare environment
         uses: ./.github/actions/prepare-android-env
 
-      - name: Generate and publish distributions to maven
+      - name: Determine modules and tag
+        id: inputs
+        run: |
+          if [[ "${{ github.event_name }}" == "repository_dispatch" ]]; then
+            MODULES="${{ github.event.client_payload.module }}"
+            TAG="${{ github.event.client_payload.tag }}"
+          else
+            MODULES="${{ github.event.inputs.modules }}"
+            TAG="${{ github.event.inputs.tag }}"
+          fi
+          
+          # Преобразуем в список через пробел
+          MODULE_LIST=$(echo "$MODULES" | tr ',' ' ')
+          echo "modules=$MODULE_LIST" >> $GITHUB_OUTPUT
+          echo "tag=$TAG" >> $GITHUB_OUTPUT  
+
+      - name: Publish tokens
         env:
           OSS_SIGNING_KEY_ID: ${{ secrets.OSS_SIGNING_KEY_ID }}
           OSS_SIGNING_KEY: ${{ secrets.OSS_SIGNING_KEY }}
           OSS_SIGNING_PASSWORD: ${{ secrets.OSS_SIGNING_PASSWORD }}
           PP_AUTH_TOKEN: ${{ secrets.PP_AUTH_TOKEN }}
-        run: ./gradlew :tokens:mavenPublishAll --info -PbranchName=main
+        run: |
+          echo "📦 Publishing modules: ${{ steps.inputs.outputs.modules }}"
+          for MODULE in ${{ steps.inputs.outputs.modules }}; do
+            echo "🚀 Publishing $MODULE with tag ${{ steps.inputs.outputs.tag }}"
+            ./gradlew $MODULE:generateDistributionZip --info -PbranchName=main
+          done
 
       - name: Upload distributions
         uses: actions/upload-artifact@v4
         with:
           name: distribution
           path: tokens/**/build/distributions/*.zip
+
+      - name: Update Release
+        uses: ncipollo/release-action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ steps.inputs.outputs.tag }}
+          draft: true
+          allowUpdates: true
+          omitBody: true
+          generateReleaseNotes: true
+          artifacts: tokens/**/build/distributions/*.zip
