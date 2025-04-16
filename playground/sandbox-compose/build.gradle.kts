@@ -6,6 +6,7 @@ import ru.sberdevices.starplugin.stardimens.StarDimensGeneratorPluginExtension
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     id("convention.android-app")
+    id("convention.auto-bump")
     id("convention.compose")
     id("kotlin-parcelize")
     alias(libs.plugins.roborazzi)
