@@ -79,20 +79,25 @@ jobs:
         run: echo "pull_requests --> ${{ steps.github_release.outputs.pull_requests }}"
 
       - name: Create "changelog_artifacts.md"
+        # Пока отключаем генерацию changelog
+        if: false
         run: |
           cat > ${{ env.FILE }} <<'EOF'
           ${{ steps.github_release.outputs.changelog }}
 
       - name: Upload "changelog_artifacts.md"
         uses: actions/upload-artifact@master
+        # Пока отключаем генерацию changelog
+        if: false
         with:
           name: release-changelog-artifacts
           path: ${{ env.FILE }}
 
       - name: Create release PR
+        if: false
         run: |
           changelog='${{ steps.changelog.outputs.changelog }}'
-          gh pr create --base main --head ${{ github.ref_name }} --title "Release by ${{ env.DATE }}" --body "$changelog"
+          gh pr create --base main --head ${{ github.ref_name }} --title "Release by ${{ env.DATE }}"
 
       - name: Processing pull request by title
         id: jira_tasks
