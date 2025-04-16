@@ -29,6 +29,9 @@ jobs:
           echo "DATE=$(date +'%d.%m.%Y')" >> $GITHUB_ENV
           echo "FROM_TAG=$(git merge-base --fork-point origin/main)" >> $GITHUB_ENV
           echo "FILE=${{ github.workspace }}/changelog_artifacts.md" >> $GITHUB_ENV
+          echo "SAFE_DATE=$(echo "$DATE" | tr '.' '-')" >> $GITHUB_ENV
+          echo "NEW_TAG=release-$SAFE_DATE" >> $GITHUB_ENV
+          echo "Computed: NEW_TAG=$NEW_TAG"
 
       - name: Determine changed modules
         id: changed_modules
@@ -37,12 +40,14 @@ jobs:
 
       - name: Create version bump branch
         id: bump_branch
+        if: false
         run: |
-          BRANCH_NAME="chore/version-bump-$(date +'%Y-%m-%d')"
+          BRANCH_NAME="chore/version-bump-${{ env.SAFE_DATE }}"
           git checkout -b "$BRANCH_NAME"
           echo "branch=$BRANCH_NAME" >> "$GITHUB_OUTPUT"
 
       - name: Bump versions for changed modules
+        if: false
         run: |
           for module in ${{ steps.changed_modules.outputs.modules }}; do
             echo "🔧 Bumping $module"
@@ -50,6 +55,7 @@ jobs:
           done
 
       - name: Commit bumped versions
+        if: false
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
@@ -59,6 +65,7 @@ jobs:
           git push origin ${{ steps.bump_branch.outputs.branch }}
 
       - name: Create PR to develop
+        if: false
         run: |
           gh pr create \
             --title "chore: Bump versions for changed modules" \
@@ -97,7 +104,17 @@ jobs:
         if: false
         run: |
           changelog='${{ steps.changelog.outputs.changelog }}'
-          gh pr create --base main --head ${{ github.ref_name }} --title "Release by ${{ env.DATE }}"
+          gh pr create --base main --head ${{ github.ref_name }} --title "Release by ${{ env.DATE }}" --body "The name of tag to publish release: ${{ env.NEW_TAG }}"
+
+      - name: Create Release on GitHub
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        with:
+          tag_name: ${{ end.NEW_TAG }}
+          release_name: Release by ${{ env.DATE }}
+          draft: true
+          prerelease: false
 
       - name: Extract JIRA IDs from PRs
         id: jira_tasks
@@ -115,7 +132,7 @@ jobs:
             {
               "name": "plasma",
               "version": "Release ${{ env.DATE }}",
-              "applicationType": "web",
+              "applicationType": "native",
               "hotfix": false,
               "authorMmUser": "alexmali",
               "configurationElement": "${{ secrets.CE }}",
