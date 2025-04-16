@@ -1,0 +1,125 @@
+name: 'Create Release Pull Request'
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - develop
+
+jobs:
+  release-pr:
+    name: Create release pull request
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          show-progress: false
+          fetch-depth: 0
+
+      - name: Computed envs
+        run: |
+          echo "DATE=$(date +'%d.%m.%Y')" >> $GITHUB_ENV
+          echo "FROM_TAG=$(git merge-base --fork-point origin/main)" >> $GITHUB_ENV
+          echo "FILE=${{ github.workspace }}/changelog_artifacts.md" >> $GITHUB_ENV
+
+      - name: Determine changed modules
+        id: changed_modules
+        run: |
+          .github/scripts/changed-modules.sh "${{ env.FROM_TAG }}"
+
+      - name: Create version bump branch
+        id: bump_branch
+        run: |
+          BRANCH_NAME="chore/version-bump-$(date +'%Y-%m-%d')"
+          git checkout -b "$BRANCH_NAME"
+          echo "branch=$BRANCH_NAME" >> "$GITHUB_OUTPUT"
+
+      - name: Bump versions for changed modules
+        run: |
+          for module in ${{ steps.changed_modules.outputs.modules }}; do
+            echo "🔧 Bumping $module"
+            ./gradlew "$module:bump"
+          done
+
+      - name: Commit bumped versions
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add .
+          git status
+          git commit -m "chore: Bump versions for changed modules"
+          git push origin ${{ steps.bump_branch.outputs.branch }}
+
+      - name: Create PR to develop
+        run: |
+          gh pr create \
+            --title "chore: Bump versions for changed modules" \
+            --body "Автоматический PR для обновления версий Gradle-модулей" \
+            --base develop \
+            --head ${{ steps.bump_branch.outputs.branch }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+
+      - name: Build Changelog
+        id: github_release
+        uses: mikepenz/release-changelog-builder-action@v4.1.0
+        with:
+          fromTag: ${{ env.FROM_TAG }}
+          toTag: HEAD
+
+      - name: List pull request
+        run: echo "pull_requests --> ${{ steps.github_release.outputs.pull_requests }}"
+
+      - name: Create "changelog_artifacts.md"
+        # Пока отключаем генерацию changelog
+        if: false
+        run: |
+          cat > ${{ env.FILE }} <<'EOF'
+          ${{ steps.github_release.outputs.changelog }}
+
+      - name: Upload "changelog_artifacts.md"
+        uses: actions/upload-artifact@master
+        # Пока отключаем генерацию changelog
+        if: false
+        with:
+          name: release-changelog-artifacts
+          path: ${{ env.FILE }}
+
+      - name: Create release PR
+        if: false
+        run: |
+          changelog='${{ steps.changelog.outputs.changelog }}'
+          gh pr create --base main --head ${{ github.ref_name }} --title "Release by ${{ env.DATE }}"
+
+      - name: Extract JIRA IDs from PRs
+        id: jira_tasks
+        run: |
+          .github/scripts/extract-jira-ids.sh "${{ steps.github_release.outputs.pull_requests }}"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Send MM
+        if: false
+        uses: mattermost/action-mattermost-notify@master
+        with:
+          MATTERMOST_WEBHOOK_URL: ${{ secrets.WEBHOOKS_RELEASE_LF_MM }}
+          TEXT: |-
+            {
+              "name": "plasma",
+              "version": "Release ${{ env.DATE }}",
+              "applicationType": "web",
+              "hotfix": false,
+              "authorMmUser": "alexmali",
+              "configurationElement": "${{ secrets.CE }}",
+              "distributionLink": "",
+              "tasks": ${{ steps.jira_tasks.outputs.result }},
+              "jiraProject": "PLASMA"
+            }
