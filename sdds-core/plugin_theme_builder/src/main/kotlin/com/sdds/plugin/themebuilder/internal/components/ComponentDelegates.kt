@@ -11,6 +11,8 @@ import com.sdds.plugin.themebuilder.internal.components.cell.CellConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.chip.ChipConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.chip.group.ChipGroupConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.circularprogress.CircularProgressConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.checkbox.CheckBoxConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.checkbox.group.CheckBoxGroupConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.counter.CounterConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.divider.DividerConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.indicator.IndicatorConfigDelegate
@@ -32,6 +34,8 @@ internal val componentDelegates by unsafeLazy {
         "indicator" to IndicatorConfigDelegate(),
         "divider" to DividerConfigDelegate(),
         "counter" to CounterConfigDelegate(),
+        "check-box" to CheckBoxConfigDelegate(),
+        "check-box-group" to CheckBoxGroupConfigDelegate(),
         "cell" to CellConfigDelegate(),
         "card" to CardConfigDelegate(),
         "basic-button" to ButtonConfigDelegate(ButtonType.Basic),

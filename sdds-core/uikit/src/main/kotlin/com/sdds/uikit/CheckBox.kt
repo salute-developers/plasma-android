@@ -14,6 +14,7 @@ import androidx.appcompat.widget.AppCompatCheckBox
 import com.sdds.uikit.internal.CheckBoxDrawable
 import com.sdds.uikit.internal.CheckableDelegate
 import com.sdds.uikit.internal.base.ViewAlphaHelper
+import androidx.core.content.withStyledAttributes
 
 /**
  * Компонент CheckBox
@@ -226,15 +227,15 @@ open class CheckBox @JvmOverloads constructor(
     }
 
     private fun obtainAttributes(attrs: AttributeSet?, defStyleAttr: Int) {
-        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.CheckBox, defStyleAttr, 0)
-        setCheckBoxColors(
-            borderColors = typedArray.getColorStateList(R.styleable.CheckBox_sd_buttonBorderColor),
-            boxColors = typedArray.getColorStateList(R.styleable.CheckBox_sd_buttonBoxColor),
-            checkMarkColors = typedArray.getColorStateList(R.styleable.CheckBox_sd_buttonMarkColor),
-        )
-        _toggleState = ToggleableState.values()[typedArray.getInt(R.styleable.CheckBox_sd_toggleState, 0)]
-        notifyToggleStateChanged()
-        typedArray.recycle()
+        context.withStyledAttributes(attrs, R.styleable.CheckBox, defStyleAttr, 0) {
+            setCheckBoxColors(
+                borderColors = getColorStateList(R.styleable.CheckBox_sd_buttonBorderColor),
+                boxColors = getColorStateList(R.styleable.CheckBox_sd_buttonBoxColor),
+                checkMarkColors = getColorStateList(R.styleable.CheckBox_sd_buttonMarkColor),
+            )
+            _toggleState = ToggleableState.values()[getInt(R.styleable.CheckBox_sd_toggleState, 0)]
+            notifyToggleStateChanged()
+        }
     }
 
     private fun notifyToggleStateChanged() {

@@ -20,6 +20,7 @@ import android.os.Build
 import android.util.AttributeSet
 import android.util.TypedValue
 import androidx.annotation.RequiresApi
+import androidx.core.content.withStyledAttributes
 import androidx.core.graphics.withTranslation
 import com.sdds.uikit.R
 import com.sdds.uikit.internal.base.AnimationUtils
@@ -103,20 +104,24 @@ open class ShapeDrawable() : Drawable(), Shapeable {
         defStyleAttr: Int = 0,
         defStyleRes: Int = 0,
     ) : this() {
-        val typedArray = context.obtainStyledAttributes(attributeSet, R.styleable.SdShape, defStyleAttr, defStyleRes)
-        val adjustment = typedArray.getDimension(R.styleable.SdShape_sd_shapeAppearanceAdjustment, 0f)
-        _shapeModel = ShapeModel.create(context, typedArray.getResourceId(R.styleable.SdShape_sd_shapeAppearance, 0))
-            .adjust(adjustment)
-        _strokeTint = typedArray.getColorStateList(R.styleable.SdShape_sd_strokeColor)
-        _strokeWidth = typedArray.getDimension(R.styleable.SdShape_sd_strokeWidth, 0f)
-        _animationEnabled = typedArray.getBoolean(R.styleable.SdShape_sd_shapeColorAnimationEnabled, false)
-        val hasShadowAppearance = typedArray.hasValue(R.styleable.SdShape_sd_shadowAppearance)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P && hasShadowAppearance) {
-            _shadowRenderer.setShadowModel(
-                ShadowModel.obtain(context, typedArray.getResourceId(R.styleable.SdShape_sd_shadowAppearance, 0)),
-            )
+        context.withStyledAttributes(attributeSet, R.styleable.SdShape, defStyleAttr, defStyleRes) {
+            val adjustment = getDimension(R.styleable.SdShape_sd_shapeAppearanceAdjustment, 0f)
+            _shapeModel =
+                ShapeModel.create(context, getResourceId(R.styleable.SdShape_sd_shapeAppearance, 0))
+                    .adjust(adjustment)
+            _strokeTint = getColorStateList(R.styleable.SdShape_sd_strokeColor)
+            _strokeWidth = getDimension(R.styleable.SdShape_sd_strokeWidth, 0f)
+            _animationEnabled = getBoolean(R.styleable.SdShape_sd_shapeColorAnimationEnabled, false)
+            val hasShadowAppearance = hasValue(R.styleable.SdShape_sd_shadowAppearance)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P && hasShadowAppearance) {
+                _shadowRenderer.setShadowModel(
+                    ShadowModel.obtain(
+                        context,
+                        getResourceId(R.styleable.SdShape_sd_shadowAppearance, 0)
+                    ),
+                )
+            }
         }
-        typedArray.recycle()
     }
 
     /**
@@ -228,7 +233,7 @@ open class ShapeDrawable() : Drawable(), Shapeable {
     override fun onBoundsChange(bounds: Rect) {
         _drawingBounds.set(bounds)
         if (drawStroke) {
-            _boundedOffset = (_strokeWidth).coerceAtMost(bounds.height() / 2f)
+            _boundedOffset = (_strokeWidth).coerceAtMost(bounds.height() / 2f) / 2f
             _drawingBounds.left += _boundedOffset
             _drawingBounds.top += _boundedOffset
             _drawingBounds.right -= _boundedOffset
@@ -240,7 +245,8 @@ open class ShapeDrawable() : Drawable(), Shapeable {
 
         if (_shaderFactory != null) {
             _shapePaint.color = -1
-            _shapePaint.shader = _shaderFactory?.resize(_drawingBounds.width(), _drawingBounds.height())
+            _shapePaint.shader =
+                _shaderFactory?.resize(_drawingBounds.width(), _drawingBounds.height())
             reapplyAlpha()
         }
     }
@@ -320,8 +326,10 @@ open class ShapeDrawable() : Drawable(), Shapeable {
             R.styleable.SdShader,
         )
         val typedValue = TypedValue()
-        val getValueResult = themeTypedArray.getValue(R.styleable.SdShader_sd_shaderAppearance, typedValue)
-        sdShaderAppearanceResFallback = themeTypedArray.getResourceId(R.styleable.SdShader_sd_shaderAppearance, 0)
+        val getValueResult =
+            themeTypedArray.getValue(R.styleable.SdShader_sd_shaderAppearance, typedValue)
+        sdShaderAppearanceResFallback =
+            themeTypedArray.getResourceId(R.styleable.SdShader_sd_shaderAppearance, 0)
 
         if (getValueResult) sdShaderAppearanceRes = typedValue
 
@@ -373,9 +381,11 @@ open class ShapeDrawable() : Drawable(), Shapeable {
             removeAllUpdateListeners()
             addUpdateListener {
                 if (fillColor != null) {
-                    _shapePaint.color = blendColors(currentFillColor, fillColor, it.animatedFraction)
+                    _shapePaint.color =
+                        blendColors(currentFillColor, fillColor, it.animatedFraction)
                 }
-                _strokePaint.color = blendColors(currentStrokeColor, borderColor, it.animatedFraction)
+                _strokePaint.color =
+                    blendColors(currentStrokeColor, borderColor, it.animatedFraction)
                 invalidateSelf()
             }
             start()

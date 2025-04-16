@@ -13,9 +13,13 @@ import android.graphics.PathMeasure
 import android.graphics.PixelFormat
 import android.graphics.PorterDuff
 import android.graphics.PorterDuffXfermode
+import android.graphics.Rect
+import android.graphics.RectF
 import android.graphics.drawable.Animatable
 import android.graphics.drawable.Drawable
+import android.graphics.drawable.shapes.Shape
 import android.util.AttributeSet
+import android.util.Log
 import android.view.animation.LinearInterpolator
 import com.sdds.uikit.CheckBox
 import com.sdds.uikit.R
@@ -24,6 +28,14 @@ import com.sdds.uikit.internal.base.AnimationUtils.lerp
 import com.sdds.uikit.internal.base.configure
 import com.sdds.uikit.internal.base.unsafeLazy
 import kotlin.math.floor
+import androidx.core.content.withStyledAttributes
+import com.sdds.uikit.shape.ShapeDrawable
+import androidx.core.graphics.withTranslation
+import com.sdds.uikit.statelist.NumberStateList
+import com.sdds.uikit.statelist.ValueStateList
+import com.sdds.uikit.statelist.getFloatForState
+import com.sdds.uikit.statelist.getNumberStateList
+import kotlin.math.roundToInt
 
 /**
  * [Drawable] для [CheckBox]
@@ -72,16 +84,40 @@ internal class CheckBoxDrawable(
     private var _boxTintList: ColorStateList = DefaultBlackTint
     private var _checkMarkTintList: ColorStateList = DefaultWhiteTint
 
-    private var _cornerRadius: Float = 0f
+    private var _checkMarkIcon: Drawable? = null
+    private var _checkMarkIconTintList: ColorStateList = DefaultWhiteTint
+    private var _indeterminateMarkIcon: Drawable? = null
+    private var _indeterminateMarkIconTintList: ColorStateList = DefaultWhiteTint
+    private var checkedMarkBounds = Rect()
+    private var indeterminateMarkBounds = Rect()
+
+    @Deprecated("Использовать shape")
+    private var _cornerRadius: Float = FallBackRadius.toFloat()
+
     private var _checkDrawFraction: Float = 0f
     private var _checkCenterGravitationShiftFraction: Float = 0f
-    private var _size: Int = 0
+    private var _toggleWidth: Int = 0
+    private var _toggleHeight: Int = 0
     private var _padding: Int = 0
     private var _focusBorderEnabled: Boolean = false
+
+    private var _boxDrawable: ShapeDrawable? = null
+    private var _borderDrawable: ShapeDrawable? = null
+    private var _borderWidth: Float = 0f
+    private var _borderOffset: Float = 0f
+
+    private var _toggleBorderWidth: NumberStateList? = null
+    private var _toggleBorderOffset: NumberStateList? = null
+    private var _toggleIconWidth: NumberStateList? = null
+    private var _toggleIconHeight: NumberStateList? = null
 
     init {
         obtainAttributes(context, attrs, defStyleAttr)
         animatorSet.playTogether(checkDrawAnimation, checkGravityAnimation)
+        _boxDrawable = ShapeDrawable(context, attrs, defStyleAttr)
+            .apply { callback = this@CheckBoxDrawable.callback }
+        _borderDrawable = ShapeDrawable(context, attrs, defStyleAttr)
+            .apply { callback = this@CheckBoxDrawable.callback }
     }
 
     /**
@@ -90,12 +126,22 @@ internal class CheckBoxDrawable(
     var isInEditMode: Boolean = false
 
     /**
-     * Устанавливает размер [CheckBoxDrawable]
-     * @param size размер в px
+     * Устанавливает ширину [CheckBoxDrawable]
+     * @param width размер в px
      */
-    fun setSize(size: Int) {
-        if (_size != size) {
-            _size = size
+    fun setWidth(width: Int) {
+        if (_toggleWidth != width) {
+            _toggleWidth = width
+        }
+    }
+
+    /**
+     * Устанавливает высоту [CheckBoxDrawable]
+     * @param height размер в px
+     */
+    fun setHeight(height: Int) {
+        if (_toggleWidth != height) {
+            _toggleWidth = height
         }
     }
 
@@ -115,6 +161,7 @@ internal class CheckBoxDrawable(
     fun setBorderTintList(borderTintList: ColorStateList? = null) {
         if (_borderTintList != borderTintList) {
             _borderTintList = borderTintList ?: DefaultBlackTint
+            _borderDrawable?.setStrokeTint(borderTintList)
         }
     }
 
@@ -124,6 +171,7 @@ internal class CheckBoxDrawable(
     fun setBoxTintList(boxTintLists: ColorStateList? = null) {
         if (_boxTintList != boxTintLists) {
             _boxTintList = boxTintLists ?: DefaultBlackTint
+            _boxDrawable?.setTintList(boxTintLists)
         }
     }
 
@@ -133,31 +181,156 @@ internal class CheckBoxDrawable(
     fun setCheckMarkTintList(checkMarkTintLists: ColorStateList? = null) {
         if (_checkMarkTintList != checkMarkTintLists) {
             _checkMarkTintList = checkMarkTintLists ?: DefaultWhiteTint
+            setTintList(_checkMarkTintList)
         }
     }
 
+    /**
+     * Устанавливает цвета иконки маркера
+     */
+    fun setCheckMarkIconTintList(checkMarkIconTintLists: ColorStateList? = null) {
+        if (_checkMarkIconTintList != checkMarkIconTintLists) {
+            _checkMarkIconTintList = checkMarkIconTintLists ?: DefaultWhiteTint
+        }
+    }
+
+    /**
+     * Устанавливает цвета иконки маркера
+     */
+    fun setIndeterminateMarkIconTintList(indeterminateMarkIconTintLists: ColorStateList? = null) {
+        if (_indeterminateMarkIconTintList != indeterminateMarkIconTintLists) {
+            _indeterminateMarkIconTintList = indeterminateMarkIconTintLists ?: DefaultWhiteTint
+        }
+    }
+
+    /**
+     * [Drawable] для CheckedMark
+     */
+    var checkMarkIcon: Drawable?
+        get() = _checkMarkIcon
+        set(value) {
+            if (_checkMarkIcon != value) {
+                _checkMarkIcon = value
+                invalidateSelf()
+            }
+        }
+
+    /**
+     * [Drawable] для IndeterminateMark
+     */
+    var indeterminateMarkIcon: Drawable?
+        get() = _indeterminateMarkIcon
+        set(value) {
+            if (_indeterminateMarkIcon != value) {
+                _indeterminateMarkIcon = value
+                invalidateSelf()
+            }
+        }
+
+    private fun Drawable?.safeWidth() =
+        this?.intrinsicWidth ?: 0
+
+    private fun Drawable?.safeHeight() =
+        this?.intrinsicHeight ?: 0
+
+    private fun updateIconBounds(icon: Drawable?, iconBounds: Rect) {
+        if (icon != null) {
+            val left = bounds.left + (bounds.width() - icon.safeWidth()) / 2
+            val top = bounds.top + (bounds.height() - icon.safeHeight()) / 2
+            iconBounds.set(
+                left,
+                top,
+                left + icon.safeWidth(),
+                top + icon.safeHeight(),
+            )
+            icon?.bounds = iconBounds
+        } else {
+            iconBounds.set(0, 0, 0, 0)
+        }
+    }
+
+    override fun onBoundsChange(bounds: Rect) {
+//        val width = bounds.width().toFloat()
+//        val height = bounds.height().toFloat()
+//        Log.d("Bounds", "width ${bounds.width()} -- height ${bounds.width()}")
+//        val totalPadding = getFocusBorderPadding() + _padding
+//        Log.d("Padding", "borderPadding ${getFocusBorderPadding()} -- togglePadding $_padding")
+//        val checkedWidth = width - totalPadding * 2f
+//        Log.d("Width", "$checkedWidth")
+//        val checkedHeight = height - totalPadding * 2f
+//        Log.d("Height", "$checkedHeight")
+//
+//        val targetWidth = if (_focused) width else checkedWidth
+//        Log.d("targetWidth", "$targetWidth")
+//        val targetHeight = if (_focused) height else checkedHeight
+//        val left = (width - targetWidth) / 2f
+//        val top = (height - targetHeight) / 2f
+//        val right = left + targetWidth
+//        val bottom = top + targetHeight
+//        val adjustedBounds = Rect(
+//            left.roundToInt(),
+//            top.roundToInt(),
+//            right.roundToInt(),
+//            bottom.roundToInt()
+//        )
+//        Log.d("adjustedBounds", "$adjustedBounds")
+        updateIconBounds(_checkMarkIcon, checkedMarkBounds)
+        updateIconBounds(_indeterminateMarkIcon, indeterminateMarkBounds)
+        super.onBoundsChange(bounds)
+    }
+
+    private fun updateBorderBounds(){
+        val width = bounds.width().toFloat()
+        val height = bounds.height().toFloat()
+        val totalPadding = _borderOffset + _padding
+        val checkedWidth = width - totalPadding * 2f
+        val checkedHeight = height - totalPadding * 2f
+        val targetWidth = if (_focused) width else checkedWidth
+        val targetHeight = if (_focused) height else checkedHeight
+        val left = (width - targetWidth) / 2f
+        val top = (height - targetHeight) / 2f
+        val right = left + targetWidth
+        val bottom = top + targetHeight
+        val adjustedBounds = Rect(
+            left.roundToInt(),
+            top.roundToInt(),
+            right.roundToInt(),
+            bottom.roundToInt()
+        )
+        Log.d("adjustedBounds","${adjustedBounds}")
+        _borderDrawable?.setStrokeWidth(_borderWidth)
+        _borderDrawable?.setStrokeTint(DefaultBlackTint)
+        _boxDrawable?.setStrokeTint(DefaultBlackTint)
+        _borderDrawable?.bounds = adjustedBounds
+        Log.d("borderBounds","${_borderDrawable?.bounds}")
+    }
+
     override fun draw(canvas: Canvas) {
-        canvas.save()
-        canvas.translate(
+        _borderDrawable?.draw(canvas)
+        _boxDrawable?.draw(canvas)
+        canvas.withTranslation(
             bounds.left.toFloat(),
             bounds.top.toFloat(),
-        )
-        canvas.clipRect(bounds)
-        canvas.drawBox(
-            checked = _checked,
-            focused = _focused && _focusBorderEnabled,
-            boxColor = _boxTintList.getColorForState(state, _boxTintList.defaultColor),
-            borderColor = _borderTintList.getColorForState(state, _borderTintList.defaultColor),
-            radius = _cornerRadius,
-            strokeWidth = floor(if (_checked) CheckedStrokeWidth else StrokeWidth),
-        )
-        canvas.drawMark(
-            checkColor = _checkMarkTintList.getColorForState(state, _checkMarkTintList.defaultColor),
-            checkFraction = _checkDrawFraction,
-            crossCenterGravitation = _checkCenterGravitationShiftFraction,
-            strokeWidth = StrokeWidth,
-        )
-        canvas.restore()
+        ) {
+//            clipRect(bounds)
+//            drawBox(
+//                checked = _checked,
+//                focused = _focused && _focusBorderEnabled,
+//                boxColor = _boxTintList.getColorForState(state, _boxTintList.defaultColor),
+//                borderColor = _borderTintList.getColorForState(state, _borderTintList.defaultColor),
+//                radius = _cornerRadius,
+//                strokeWidth = floor(if (_checked) CheckedStrokeWidth else StrokeWidth),
+//            )
+            drawMark(
+                checkColor = _checkMarkTintList.getColorForState(
+                    state,
+                    _checkMarkTintList.defaultColor
+                ),
+                checkFraction = _checkDrawFraction,
+                crossCenterGravitation = _checkCenterGravitationShiftFraction,
+                strokeWidth = StrokeWidth,
+            )
+        }
     }
 
     override fun onStateChange(state: IntArray): Boolean {
@@ -177,17 +350,48 @@ internal class CheckBoxDrawable(
                 else -> CheckBox.ToggleableState.OFF
             },
         )
+        val needChangeBounds = setBorderWidth(state) || setBorderOffset(state)
+        if (needChangeBounds) updateBorderBounds()
+        Log.d("borderWidth","$_borderWidth")
+        Log.d("borderOffset","$_borderOffset")
+        _checkMarkIcon?.state = state
+        _indeterminateMarkIcon?.state = state
+        _borderDrawable?.state = state
+        Log.d("_borderColorForState", "${_borderTintList.getColorForState(state,Color.BLUE)}")
+        _boxDrawable?.state = state
         if (changed) {
             invalidateSelf()
         }
         return super.onStateChange(state) && changed
     }
 
+    private fun setBorderWidth(state: IntArray): Boolean {
+        val newWidth = _toggleBorderWidth?.getFloatForState(state) ?: 0f
+        return if (_borderWidth != newWidth) {
+            _borderWidth = newWidth
+            true
+        } else {
+            false
+        }
+    }
+
+    private fun setBorderOffset(state: IntArray): Boolean {
+        val newOffset = _toggleBorderOffset?.getFloatForState(state) ?: 0f
+        return if (_borderOffset != newOffset) {
+            _borderOffset = newOffset
+            true
+        } else {
+            false
+        }
+    }
+
     override fun isStateful(): Boolean = true
 
-    override fun getIntrinsicWidth(): Int = _size + getFocusBorderPadding() * 2
+    override fun getIntrinsicWidth(): Int = _toggleWidth + (getFocusBorderPadding()) * 2
 
-    override fun getIntrinsicHeight(): Int = _size + getFocusBorderPadding() * 2
+    override fun getIntrinsicHeight(): Int =
+        _toggleHeight + (getFocusBorderPadding()) * 2
+
     override fun setAlpha(alpha: Int) {
         _paint.alpha = alpha
     }
@@ -246,7 +450,8 @@ internal class CheckBoxDrawable(
         val checkedWidth = width - (getFocusBorderPadding() + _padding) * 2f
         val checkedHeight = height - (getFocusBorderPadding() + _padding) * 2f
         val borderWidth = if (focused) width.toFloat() - strokeWidth else checkedWidth - strokeWidth
-        val borderHeight = if (focused) height.toFloat() - strokeWidth else checkedHeight - strokeWidth
+        val borderHeight =
+            if (focused) height.toFloat() - strokeWidth else checkedHeight - strokeWidth
 
         val borderRadius = if (focused) radius + 2.dp else radius
 
@@ -260,7 +465,11 @@ internal class CheckBoxDrawable(
                 top + borderHeight,
                 borderRadius,
                 borderRadius,
-                _paint.configure(style = Paint.Style.STROKE, color = borderColor, strokeWidth = strokeWidth),
+                _paint.configure(
+                    style = Paint.Style.STROKE,
+                    color = borderColor,
+                    strokeWidth = strokeWidth
+                ),
             )
         }
 
@@ -322,7 +531,10 @@ internal class CheckBoxDrawable(
         restore()
     }
 
-    private fun resetAnimators(newState: CheckBox.ToggleableState, prevState: CheckBox.ToggleableState) {
+    private fun resetAnimators(
+        newState: CheckBox.ToggleableState,
+        prevState: CheckBox.ToggleableState
+    ) {
         animatorSet.cancel()
         checkDrawAnimation.setFloatValues(
             prevState.getDrawTargetValue(),
@@ -354,21 +566,33 @@ internal class CheckBoxDrawable(
         }
 
     private fun obtainAttributes(context: Context, attrs: AttributeSet?, defStyleAttr: Int) {
-        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.SdCheckBoxDrawable, defStyleAttr, 0)
-        _size = typedArray.getDimensionPixelSize(
-            R.styleable.SdCheckBoxDrawable_sd_buttonSize,
-            DefaultCheckBoxSize,
-        )
-        _cornerRadius = typedArray.getDimension(
-            R.styleable.SdCheckBoxDrawable_sd_boxCornerRadius,
-            DefaultCornerRadius,
-        )
-        _padding = typedArray.getDimensionPixelSize(
-            R.styleable.SdCheckBoxDrawable_sd_buttonPadding,
-            CheckBoxPadding,
-        )
-        _focusBorderEnabled = typedArray.getBoolean(R.styleable.SdRadioBoxDrawable_sd_focusBorderEnabled, false)
-        typedArray.recycle()
+        context.withStyledAttributes(attrs, R.styleable.SdCheckBoxDrawable, defStyleAttr, 0) {
+            _toggleWidth = getDimensionPixelSize(
+                R.styleable.SdCheckBoxDrawable_sd_toggleWidth,
+                DefaultCheckBoxSize,
+            )
+            _toggleHeight = getDimensionPixelSize(
+                R.styleable.SdCheckBoxDrawable_sd_toggleHeight,
+                DefaultCheckBoxSize,
+            )
+            _padding = getDimensionPixelSize(
+                R.styleable.SdCheckBoxDrawable_sd_buttonPadding,
+                CheckBoxPadding,
+            )
+            _focusBorderEnabled =
+                getBoolean(R.styleable.SdCheckBoxDrawable_sd_focusBorderEnabled, false)
+            checkMarkIcon = getDrawable(R.styleable.SdCheckBoxDrawable_sd_checkedMarkIcon)
+            indeterminateMarkIcon =
+                getDrawable(R.styleable.SdCheckBoxDrawable_sd_indeterminateMarkIcon)
+            _toggleBorderWidth =
+                getNumberStateList(context, R.styleable.SdCheckBoxDrawable_sd_toggleBorderWidth)
+            _toggleBorderOffset =
+                getNumberStateList(context, R.styleable.SdCheckBoxDrawable_sd_toggleBorderOffset)
+            _toggleIconWidth =
+                getNumberStateList(context, R.styleable.SdCheckBoxDrawable_sd_toggleIconWidth)
+            _toggleIconHeight =
+                getNumberStateList(context, R.styleable.SdCheckBoxDrawable_sd_toggleIconHeight)
+        }
     }
 
     private fun getFocusBorderPadding(): Int {
@@ -377,6 +601,7 @@ internal class CheckBoxDrawable(
 
     private companion object {
         const val ANIMATION_DURATION = 100L
+        val FallBackRadius = 4.dp
         val DefaultBlackTint = ColorStateList.valueOf(Color.BLACK)
         val DefaultWhiteTint = ColorStateList.valueOf(Color.WHITE)
         val DefaultCheckBoxSize = 26.dp

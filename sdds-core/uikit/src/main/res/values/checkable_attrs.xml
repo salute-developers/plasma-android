@@ -82,14 +82,24 @@
     </declare-styleable>
 
     <declare-styleable name="SdCheckBoxDrawable">
-        <attr name="sd_buttonSize" format="dimension|float" />
+<!--        <attr name="sd_buttonSize" format="dimension|float" />-->
+        <attr name="sd_toggleWidth" format="dimension|float" />
+        <attr name="sd_toggleHeight" format="dimension|float" />
         <attr name="sd_boxCornerRadius" format="dimension|float" />
         <attr name="sd_buttonPadding" format="dimension|float" />
         <attr name="sd_focusBorderEnabled" />
+        <attr name="sd_checkedMarkIcon" format="reference"/>
+        <attr name="sd_indeterminateMarkIcon" format="reference"/>
+        <attr name="sd_shapeAppearance"/>
+        <attr name="sd_toggleBorderWidth" format="dimension|reference"/>
+        <attr name="sd_toggleIconWidth" format="dimension|reference"/>
+        <attr name="sd_toggleIconHeight" format="dimension|reference"/>
+        <attr name="sd_toggleBorderOffset" format="dimension|reference"/>
+
     </declare-styleable>
 
     <declare-styleable name="SdRadioBoxDrawable">
-        <attr name="sd_buttonSize" />
+        <attr name="sd_buttonSize" format="dimension|float"/>
         <attr name="sd_buttonMarkSize" format="dimension|float" />
         <attr name="sd_buttonPadding" />
         <attr name="sd_focusBorderEnabled" />
