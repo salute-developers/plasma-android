@@ -70,7 +70,7 @@ private val RadioBoxStyleBuilder.invariantProps: RadioBoxStyleBuilder
                 ),
             )
             toggleIconColor(
-                PlasmaGigaAppTheme.colors.surfaceOnDarkSolidDefault.asInteractive(),
+                PlasmaGigaAppTheme.colors.textInversePrimary.asInteractive(),
             )
             toggleBorderColor(
                 PlasmaGigaAppTheme.colors.outlineDefaultTransparentTertiary.asInteractive(
