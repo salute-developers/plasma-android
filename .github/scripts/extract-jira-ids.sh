@@ -4,7 +4,7 @@ set -euo pipefail
 # 📥 Аргумент: список PR ID через запятую
 PULL_REQUESTS_IDS="$1"
 OWNER="salute-developers"
-REPO="plasma"
+REPO="plasma-android"
 
 JIRA_IDS=()
 
