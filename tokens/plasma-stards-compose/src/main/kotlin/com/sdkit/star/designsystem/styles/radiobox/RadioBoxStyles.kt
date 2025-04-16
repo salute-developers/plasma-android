@@ -10,7 +10,6 @@ package com.sdkit.star.designsystem.styles.radiobox
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.dimensionResource
-import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.RadioBoxStates
 import com.sdds.compose.uikit.RadioBoxStyle
 import com.sdds.compose.uikit.RadioBoxStyleBuilder
@@ -90,12 +89,11 @@ private val RadioBoxStyleBuilder.invariantProps: RadioBoxStyleBuilder
         }
         .dimensionValues {
             toggleBorderOffset(
-                dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_border_offset_RadioBox).asStatefulValue(
-                    setOf(InteractiveState.Focused) to 3.0f.dp,
-                    setOf(
-                        InteractiveState.Focused,
-                        RadioBoxStates.Checked,
-                    ) to 3.0f.dp,
+                dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_border_offset).asStatefulValue(
+                    setOf(InteractiveState.Focused) to
+                        dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_border_offset_0),
+                    setOf(InteractiveState.Focused, RadioBoxStates.Checked) to
+                        dimensionResource(R.dimen.sdkit_cmp_radio_box_toggle_border_offset_1),
                 ),
             )
         }

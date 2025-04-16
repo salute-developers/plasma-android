@@ -163,8 +163,9 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
         dimensionResSuffix: String,
     ): String {
         return if (dimensionsConfig.fromResources) {
+            val endsWith = if (dimensionResSuffix.isEmpty()) "" else "_$dimensionResSuffix"
             val dimenData = DimenData(
-                name = "${componentXmlPrefix}_${dimenName}_$dimensionResSuffix",
+                name = "${componentXmlPrefix}_${dimenName}$endsWith",
                 value = dimenValue,
                 type = DimenData.Type.DP,
             )
@@ -198,20 +199,20 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
     protected fun StringBuilder.appendDimension(
         dimensionName: String,
         dimension: Dimension,
-        variationId: String,
+        dimensionSuffix: String,
     ) {
         val camelCaseName = dimensionName.toCamelCase().decapitalized()
-        val stateSuffix = if (dimension.states.isNullOrEmpty()) {
-            ""
-        } else {
-            ".${dimension.asStatefulFragment}"
-        }
+        val suffixOrEmpty = if (dimensionSuffix == camelComponentName) "" else dimensionSuffix
+        val stateSuffix = dimension.asStatefulFragment(
+            dimensionName = dimensionName,
+            dimensionResSuffix = suffixOrEmpty,
+        )
         appendLine(
             "$camelCaseName(${
                 getDimension(
                     dimensionName,
                     dimension.value,
-                    variationId,
+                    suffixOrEmpty,
                 )
             }$stateSuffix)",
         )
@@ -529,27 +530,34 @@ internal abstract class ComposeVariationGenerator<PO : PropertyOwner>(
             """.trimIndent()
         }
 
-    private val Dimension.asStatefulFragment: String
-        get() = if (states.isNullOrEmpty()) {
-            "asStatefulValue()"
+    private fun Dimension.asStatefulFragment(dimensionName: String, dimensionResSuffix: String): String =
+        if (states.isNullOrEmpty()) {
+            ""
         } else {
-            """asStatefulValue·(
-                ${getAsInteractiveParameters()}
+            """.asStatefulValue·(
+                ${getAsInteractiveParameters(dimensionName, dimensionResSuffix)}
             )
             """.trimIndent()
         }
 
     private fun Color?.getAsInteractiveParameters(): String {
-        return this?.states?.joinToString(separator = ", ") { it.getStateParameter(this is Gradient) }.orEmpty()
+        return this?.states?.joinToString { it.getStateParameter(this is Gradient) }.orEmpty()
     }
 
-    private fun Dimension?.getAsInteractiveParameters(): String {
-        return this?.states?.joinToString(separator = ", ") { it.getDpStateParameter() }.orEmpty()
+    private fun Dimension.getAsInteractiveParameters(dimensionName: String, dimensionResSuffix: String): String {
+        val interactiveParametersList = mutableListOf<String>()
+        val dimensionSuffixOrEmpty = if (dimensionResSuffix.isEmpty()) "" else "${dimensionResSuffix}_"
+        this.states?.forEachIndexed { index, floatState ->
+            interactiveParametersList.add(
+                floatState.getDpStateParameter(dimensionName, "$dimensionSuffixOrEmpty$index"),
+            )
+        }
+        return interactiveParametersList.joinToString()
     }
 
-    private fun FloatState.getDpStateParameter(): String {
+    private fun FloatState.getDpStateParameter(dimensionName: String, dimensionResSuffix: String): String {
         return """
-            setOf(${state.toStateEnums()}) to ${value}f.dp
+            setOf(${state.toStateEnums()}) to ${getDimension(dimensionName, value, dimensionResSuffix)}
         """.trimIndent()
     }
 

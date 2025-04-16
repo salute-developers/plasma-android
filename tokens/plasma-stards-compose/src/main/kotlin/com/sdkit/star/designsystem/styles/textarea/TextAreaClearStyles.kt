@@ -205,10 +205,10 @@ private val TextFieldStyleBuilder.invariantProps: TextFieldStyleBuilder
     get() = this
         .singleLine(false)
         .dimensions {
-            boxPaddingStart(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_box_padding_start_TextAreaClear))
-            boxPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_box_padding_end_TextAreaClear))
-            optionalPadding(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_optional_padding_TextAreaClear))
-            helperTextPadding(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_helper_text_padding_TextAreaClear))
+            boxPaddingStart(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_box_padding_start))
+            boxPaddingEnd(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_box_padding_end))
+            optionalPadding(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_optional_padding))
+            helperTextPadding(dimensionResource(R.dimen.sdkit_cmp_text_area_clear_helper_text_padding))
         }
         .captionStyle(StarDsTheme.typography.bodyXsNormal)
         .counterStyle(StarDsTheme.typography.bodyXsNormal)
