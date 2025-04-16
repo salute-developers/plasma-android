@@ -2,9 +2,6 @@ name: 'Create Release Pull Request'
 
 on:
   workflow_dispatch:
-    inputs:
-      from-tag:
-        required: false
   pull_request:
     branches:
       - develop
@@ -75,7 +72,8 @@ jobs:
         id: github_release
         uses: mikepenz/release-changelog-builder-action@v4.1.0
         with:
-          fromTag: ${{ github.event.inputs.from-tag || env.FROM_TAG }}
+          fromTag: ${{ env.FROM_TAG }}
+          toTag: HEAD
 
       - name: List pull request
         run: echo "pull_requests --> ${{ steps.github_release.outputs.pull_requests }}"
