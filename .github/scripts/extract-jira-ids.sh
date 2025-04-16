@@ -21,7 +21,8 @@ for PR_ID in "${PR_IDS[@]}"; do
   if [[ -n "$PR_DATA" ]]; then
     echo "🔤 PR title: $PR_DATA"
 
-    if [[ "$PR_DATA" =~ (plasma-[0-9]+) ]]; then
+  LOWER_TITLE=$(echo "$PR_DATA" | tr '[:upper:]' '[:lower:]')
+  if [[ "$LOWER_TITLE" =~ (plasma-[0-9]+) ]]; then
       JIRA_ID="${BASH_REMATCH[1]}"
       echo "✅ Найден JIRA ID: $JIRA_ID"
       JIRA_IDS+=("$JIRA_ID")
