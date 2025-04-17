@@ -267,6 +267,8 @@
     <dimen name="sdkit_cmp_radio_box_toggle_padding_s">2.0dp</dimen>
     <dimen name="sdkit_cmp_radio_box_text_padding_s">16.0dp</dimen>
     <dimen name="sdkit_cmp_radio_box_description_padding_s">4.0dp</dimen>
+    <dimen name="sdkit_cmp_radio_box_group_item_spacing_m">24.0dp</dimen>
+    <dimen name="sdkit_cmp_radio_box_group_item_spacing_s">20.0dp</dimen>
     <dimen name="sdkit_cmp_segment_shapeAdjustment_xl">-4.0dp</dimen>
     <dimen name="sdkit_cmp_segment_padding_start_xl">4.0dp</dimen>
     <dimen name="sdkit_cmp_segment_padding_end_xl">4.0dp</dimen>

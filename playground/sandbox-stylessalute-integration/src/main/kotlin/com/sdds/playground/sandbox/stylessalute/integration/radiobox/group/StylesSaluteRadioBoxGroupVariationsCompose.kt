@@ -2,6 +2,7 @@ package com.sdds.playground.sandbox.stylessalute.integration.radiobox.group
 
 import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.RadioBoxGroupStyle
+import com.sdds.compose.uikit.style.style
 import com.sdds.playground.sandbox.core.integration.ComposeStyleProvider
 import com.sdds.stylessalute.styles.radioboxgroup.M
 import com.sdds.stylessalute.styles.radioboxgroup.RadioBoxGroup

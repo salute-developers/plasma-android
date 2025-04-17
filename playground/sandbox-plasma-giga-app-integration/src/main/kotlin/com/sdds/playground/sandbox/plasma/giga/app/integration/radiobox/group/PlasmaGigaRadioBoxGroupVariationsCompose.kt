@@ -2,6 +2,7 @@ package com.sdds.playground.sandbox.plasma.giga.app.integration.radiobox.group
 
 import androidx.compose.runtime.Composable
 import com.sdds.compose.uikit.RadioBoxGroupStyle
+import com.sdds.compose.uikit.style.style
 import com.sdds.plasma.giga.app.styles.radioboxgroup.M
 import com.sdds.plasma.giga.app.styles.radioboxgroup.RadioBoxGroup
 import com.sdds.plasma.giga.app.styles.radioboxgroup.S

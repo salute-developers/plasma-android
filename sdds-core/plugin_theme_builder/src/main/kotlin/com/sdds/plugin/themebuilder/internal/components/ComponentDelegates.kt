@@ -15,6 +15,7 @@ import com.sdds.plugin.themebuilder.internal.components.counter.CounterConfigDel
 import com.sdds.plugin.themebuilder.internal.components.divider.DividerConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.indicator.IndicatorConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.radiobox.RadioBoxConfigDelegate
+import com.sdds.plugin.themebuilder.internal.components.radiobox.group.RadioBoxGroupConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.segment.SegmentConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.segment.item.SegmentItemConfigDelegate
 import com.sdds.plugin.themebuilder.internal.components.textfield.TextAreaConfigDelegate
@@ -43,6 +44,7 @@ internal val componentDelegates by unsafeLazy {
         "chip" to ChipConfigDelegate(),
         "chip-group" to ChipGroupConfigDelegate(),
         "radio-box" to RadioBoxConfigDelegate(),
+        "radio-box-group" to RadioBoxGroupConfigDelegate(),
         "circular-progress-bar" to CircularProgressConfigDelegate(),
     )
 }
