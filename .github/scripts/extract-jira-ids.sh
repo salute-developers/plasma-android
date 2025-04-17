@@ -34,8 +34,7 @@ for PR_ID in "${PR_IDS[@]}"; do
   fi
 done
 
-echo "🎯 Все найденные задачи:"
-printf "%s\n" "${JIRA_IDS[@]}"
-
-# 👉 Вывод в формате, который можно использовать в GitHub Actions output
-echo "jira_ids=$(IFS=, ; echo "${JIRA_IDS[*]}")" >> "$GITHUB_OUTPUT"
+JIRA_IDS_JSON=$(printf '%s\n' "${JIRA_IDS[@]}" | jq -R . | jq -sc .)
+echo "🎯 Все найденные задачи: $JIRA_IDS_JSON"
+# Вывод в формате, который можно использовать в GitHub Actions output
+echo "jira_ids=$JIRA_IDS_JSON" >> "$GITHUB_OUTPUT"
