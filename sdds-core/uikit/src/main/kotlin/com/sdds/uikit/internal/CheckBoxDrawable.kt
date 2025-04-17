@@ -299,8 +299,6 @@ internal class CheckBoxDrawable(
         )
         Log.d("adjustedBounds","${adjustedBounds}")
         _borderDrawable?.setStrokeWidth(_borderWidth)
-        _borderDrawable?.setStrokeTint(DefaultBlackTint)
-        _boxDrawable?.setStrokeTint(DefaultBlackTint)
         _borderDrawable?.bounds = adjustedBounds
         Log.d("borderBounds","${_borderDrawable?.bounds}")
     }
@@ -308,10 +306,10 @@ internal class CheckBoxDrawable(
     override fun draw(canvas: Canvas) {
         _borderDrawable?.draw(canvas)
         _boxDrawable?.draw(canvas)
-        canvas.withTranslation(
-            bounds.left.toFloat(),
-            bounds.top.toFloat(),
-        ) {
+//        canvas.withTranslation(
+//            bounds.left.toFloat(),
+//            bounds.top.toFloat(),
+//        ) {
 //            clipRect(bounds)
 //            drawBox(
 //                checked = _checked,
@@ -321,15 +319,20 @@ internal class CheckBoxDrawable(
 //                radius = _cornerRadius,
 //                strokeWidth = floor(if (_checked) CheckedStrokeWidth else StrokeWidth),
 //            )
-            drawMark(
-                checkColor = _checkMarkTintList.getColorForState(
-                    state,
-                    _checkMarkTintList.defaultColor
-                ),
-                checkFraction = _checkDrawFraction,
-                crossCenterGravitation = _checkCenterGravitationShiftFraction,
-                strokeWidth = StrokeWidth,
-            )
+//            drawMark(
+//                checkColor = _checkMarkTintList.getColorForState(
+//                    state,
+//                    _checkMarkTintList.defaultColor
+//                ),
+//                checkFraction = _checkDrawFraction,
+//                crossCenterGravitation = _checkCenterGravitationShiftFraction,
+//                strokeWidth = StrokeWidth,
+//            )
+//        }
+        when (_toggleableState) {
+            CheckBox.ToggleableState.OFF -> {}
+            CheckBox.ToggleableState.ON -> _checkMarkIcon?.draw(canvas)
+            CheckBox.ToggleableState.INDETERMINATE -> _indeterminateMarkIcon?.draw(canvas)
         }
     }
 
@@ -352,8 +355,7 @@ internal class CheckBoxDrawable(
         )
         val needChangeBounds = setBorderWidth(state) || setBorderOffset(state)
         if (needChangeBounds) updateBorderBounds()
-        Log.d("borderWidth","$_borderWidth")
-        Log.d("borderOffset","$_borderOffset")
+
         _checkMarkIcon?.state = state
         _indeterminateMarkIcon?.state = state
         _borderDrawable?.state = state
