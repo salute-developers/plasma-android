@@ -14,25 +14,20 @@ import android.graphics.PixelFormat
 import android.graphics.PorterDuff
 import android.graphics.PorterDuffXfermode
 import android.graphics.Rect
-import android.graphics.RectF
 import android.graphics.drawable.Animatable
 import android.graphics.drawable.Drawable
-import android.graphics.drawable.shapes.Shape
 import android.util.AttributeSet
 import android.util.Log
 import android.view.animation.LinearInterpolator
+import androidx.core.content.withStyledAttributes
 import com.sdds.uikit.CheckBox
 import com.sdds.uikit.R
 import com.sdds.uikit.dp
 import com.sdds.uikit.internal.base.AnimationUtils.lerp
 import com.sdds.uikit.internal.base.configure
 import com.sdds.uikit.internal.base.unsafeLazy
-import kotlin.math.floor
-import androidx.core.content.withStyledAttributes
 import com.sdds.uikit.shape.ShapeDrawable
-import androidx.core.graphics.withTranslation
 import com.sdds.uikit.statelist.NumberStateList
-import com.sdds.uikit.statelist.ValueStateList
 import com.sdds.uikit.statelist.getFloatForState
 import com.sdds.uikit.statelist.getNumberStateList
 import kotlin.math.roundToInt
@@ -250,36 +245,13 @@ internal class CheckBoxDrawable(
     }
 
     override fun onBoundsChange(bounds: Rect) {
-//        val width = bounds.width().toFloat()
-//        val height = bounds.height().toFloat()
-//        Log.d("Bounds", "width ${bounds.width()} -- height ${bounds.width()}")
-//        val totalPadding = getFocusBorderPadding() + _padding
-//        Log.d("Padding", "borderPadding ${getFocusBorderPadding()} -- togglePadding $_padding")
-//        val checkedWidth = width - totalPadding * 2f
-//        Log.d("Width", "$checkedWidth")
-//        val checkedHeight = height - totalPadding * 2f
-//        Log.d("Height", "$checkedHeight")
-//
-//        val targetWidth = if (_focused) width else checkedWidth
-//        Log.d("targetWidth", "$targetWidth")
-//        val targetHeight = if (_focused) height else checkedHeight
-//        val left = (width - targetWidth) / 2f
-//        val top = (height - targetHeight) / 2f
-//        val right = left + targetWidth
-//        val bottom = top + targetHeight
-//        val adjustedBounds = Rect(
-//            left.roundToInt(),
-//            top.roundToInt(),
-//            right.roundToInt(),
-//            bottom.roundToInt()
-//        )
-//        Log.d("adjustedBounds", "$adjustedBounds")
+        updateBorderBounds()
         updateIconBounds(_checkMarkIcon, checkedMarkBounds)
         updateIconBounds(_indeterminateMarkIcon, indeterminateMarkBounds)
         super.onBoundsChange(bounds)
     }
 
-    private fun updateBorderBounds(){
+    private fun updateBorderBounds() {
         val width = bounds.width().toFloat()
         val height = bounds.height().toFloat()
         val totalPadding = _borderOffset + _padding
@@ -297,10 +269,10 @@ internal class CheckBoxDrawable(
             right.roundToInt(),
             bottom.roundToInt()
         )
-        Log.d("adjustedBounds","${adjustedBounds}")
+        Log.d("adjustedBounds", "${adjustedBounds}")
         _borderDrawable?.setStrokeWidth(_borderWidth)
         _borderDrawable?.bounds = adjustedBounds
-        Log.d("borderBounds","${_borderDrawable?.bounds}")
+        Log.d("borderBounds", "${_borderDrawable?.bounds}")
     }
 
     override fun draw(canvas: Canvas) {
@@ -353,16 +325,17 @@ internal class CheckBoxDrawable(
                 else -> CheckBox.ToggleableState.OFF
             },
         )
-        val needChangeBounds = setBorderWidth(state) || setBorderOffset(state)
-        if (needChangeBounds) updateBorderBounds()
-
         _checkMarkIcon?.state = state
         _indeterminateMarkIcon?.state = state
         _borderDrawable?.state = state
-        Log.d("_borderColorForState", "${_borderTintList.getColorForState(state,Color.BLUE)}")
+        Log.d("_borderColorForState", "${_borderTintList.getColorForState(state, Color.BLUE)}")
         _boxDrawable?.state = state
+        val needChangeBounds = setBorderWidth(state) || setBorderOffset(state)
+        if (needChangeBounds) onBoundsChange(bounds)
         if (changed) {
             invalidateSelf()
+            _boxDrawable?.invalidateSelf()
+            _borderDrawable?.invalidateSelf()
         }
         return super.onStateChange(state) && changed
     }
