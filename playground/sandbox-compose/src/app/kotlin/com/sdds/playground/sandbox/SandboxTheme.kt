@@ -153,7 +153,10 @@ fun SandboxTheme(
                 LocalSandboxStyle provides SandboxStyle.create(
                     drawerBackgroundColor = colorScheme.surfaceDefaultSolidSecondary,
                     sheetBackgroundColor = colorScheme.surfaceDefaultSolidCard,
-                    sheetShape = SddsServTheme.shapes.roundS.copy(CornerSize(0.dp), CornerSize(0.dp)),
+                    sheetShape = SddsServTheme.shapes.roundS.copy(
+                        CornerSize(0.dp),
+                        CornerSize(0.dp),
+                    ),
                 ),
                 LocalNavigationViewStyle provides NavigationViewStyle.create(
                     itemTextStyle = SddsServTheme.typography.bodyMBold,

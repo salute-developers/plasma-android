@@ -7,9 +7,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.Role
+import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
+import com.sdds.compose.uikit.fs.focusSelector
 import com.sdds.compose.uikit.internal.common.surface
-import com.sdds.compose.uikit.internal.focusselector.LocalFocusSelectorMode
-import com.sdds.compose.uikit.internal.focusselector.applyFocusSelector
 import com.sdds.compose.uikit.internal.icontext.BaseIconText
 
 /**
@@ -43,9 +43,9 @@ fun Chip(
     val colorsSet = style.colors.toColorsSet()
     BaseIconText(
         modifier = modifier
-            .applyFocusSelector(
-                focusSelectorMode = LocalFocusSelectorMode.current,
-                originalShape = style.shape,
+            .focusSelector(
+                settings = LocalFocusSelectorSettings.current,
+                shape = style.shape,
             ) { isFocused.value }
             .surface(
                 shape = style.shape,
@@ -99,9 +99,9 @@ fun Chip(
     val colorsSet = style.colors.toColorsSet()
     BaseIconText(
         modifier = modifier
-            .applyFocusSelector(
-                focusSelectorMode = LocalFocusSelectorMode.current,
-                originalShape = style.shape,
+            .focusSelector(
+                settings = LocalFocusSelectorSettings.current,
+                shape = style.shape,
             ) { isFocused.value }
             .surface(
                 shape = style.shape,

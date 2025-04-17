@@ -62,15 +62,15 @@ import com.sdds.compose.uikit.TextFieldIndicatorAlignmentMode
 import com.sdds.compose.uikit.TextFieldLabelPlacement
 import com.sdds.compose.uikit.TextFieldStyle
 import com.sdds.compose.uikit.TextFieldType
+import com.sdds.compose.uikit.fs.FocusSelectorSettings
+import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
+import com.sdds.compose.uikit.fs.focusSelector
+import com.sdds.compose.uikit.fs.isDisabled
+import com.sdds.compose.uikit.fs.isEnabled
 import com.sdds.compose.uikit.interactions.InteractiveColor
 import com.sdds.compose.uikit.interactions.activatable
 import com.sdds.compose.uikit.internal.common.drawIndicator
 import com.sdds.compose.uikit.internal.common.enable
-import com.sdds.compose.uikit.internal.focusselector.FocusSelectorMode
-import com.sdds.compose.uikit.internal.focusselector.FocusSelectorMode.None.isDisabled
-import com.sdds.compose.uikit.internal.focusselector.FocusSelectorMode.None.isEnabled
-import com.sdds.compose.uikit.internal.focusselector.LocalFocusSelectorMode
-import com.sdds.compose.uikit.internal.focusselector.applyFocusSelector
 import com.sdds.compose.uikit.internal.heightOrZero
 import com.sdds.compose.uikit.internal.widthOrZero
 import com.sdds.compose.uikit.scrollbar
@@ -98,8 +98,8 @@ import com.sdds.compose.uikit.scrollbar
  * @param keyboardActions когда на ввод подается [ImeAction] вызывается соответствующий callback
  * @param visualTransformation фильтр визуального отображения, например [PasswordVisualTransformation].
  * Используется, только если отсутствуют [prefix] и [suffix].
- * @param focusSelectorMode режим отображения фокуса компонента [FocusSelectorMode]
- * когда [focusSelectorMode] != [FocusSelectorMode.None]
+ * @param focusSelectorSettings режим отображения фокуса компонента [FocusSelectorSettings]
+ * когда [FocusSelectorSettings] != None
  * @param interactionSource источник взаимодействия с полем
  */
 @Composable
@@ -125,7 +125,7 @@ internal fun BaseTextField(
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
     visualTransformation: VisualTransformation = VisualTransformation.None,
-    focusSelectorMode: FocusSelectorMode = LocalFocusSelectorMode.current,
+    focusSelectorSettings: FocusSelectorSettings = LocalFocusSelectorSettings.current,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     val dimensions = style.dimensions
@@ -208,7 +208,7 @@ internal fun BaseTextField(
      * и уметь отправлять ивенты focused и activated.
      */
     val activatableModifier =
-        if (focusSelectorMode.isEnabled) {
+        if (focusSelectorSettings.isEnabled()) {
             Modifier
                 .activatable(enabled, interactionSource) { isComponentFocused = it.isFocused }
                 .focusable(enabled, interactionSource)
@@ -235,7 +235,7 @@ internal fun BaseTextField(
      * [BasicTextField], т.к. он не поймет ивенты activation из [interactionSource].
      */
     val innerInteractionSource =
-        if (focusSelectorMode.isDisabled) {
+        if (focusSelectorSettings.isDisabled()) {
             interactionSource
         } else {
             remember { MutableInteractionSource() }
@@ -292,9 +292,9 @@ internal fun BaseTextField(
                     DecorationBox(
                         modifier = Modifier
                             .layoutId(FIELD_CONTENT_ID)
-                            .applyFocusSelector(
-                                focusSelectorMode = focusSelectorMode,
-                                originalShape = style.shape,
+                            .focusSelector(
+                                settings = focusSelectorSettings,
+                                shape = style.shape,
                             ) { isComponentFocused }
                             .defaultMinSize(minHeight = dimensions.boxMinHeight)
                             .applyFieldIndicator(
