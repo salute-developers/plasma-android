@@ -28,15 +28,14 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.sdds.compose.uikit.Button
 import com.sdds.compose.uikit.ButtonColors
 import com.sdds.compose.uikit.ButtonDimensions
 import com.sdds.compose.uikit.ButtonSpacing
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.Text
+import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
+import com.sdds.compose.uikit.fs.focusSelector
 import com.sdds.compose.uikit.internal.common.surface
-import com.sdds.compose.uikit.internal.focusselector.LocalFocusSelectorMode
-import com.sdds.compose.uikit.internal.focusselector.applyFocusSelector
 
 /**
  * Базовая кнопка
@@ -61,7 +60,7 @@ internal fun BaseButton(
     val isFocused = interactionSource.collectIsFocusedAsState()
     Box(
         modifier = modifier
-            .applyFocusSelector(LocalFocusSelectorMode.current, shape) { isFocused.value }
+            .focusSelector(LocalFocusSelectorSettings.current, shape) { isFocused.value }
             .defaultMinSize(dimensions.minWidth, dimensions.height)
             .height(dimensions.height)
             .surface(

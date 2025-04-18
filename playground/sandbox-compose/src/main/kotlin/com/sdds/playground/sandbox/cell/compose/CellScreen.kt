@@ -20,8 +20,8 @@ import com.sdds.compose.uikit.CheckBox
 import com.sdds.compose.uikit.Icon
 import com.sdds.compose.uikit.RadioBox
 import com.sdds.compose.uikit.Switch
-import com.sdds.compose.uikit.internal.focusselector.LocalFocusSelectorMode
-import com.sdds.compose.uikit.internal.focusselector.applyFocusSelector
+import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
+import com.sdds.compose.uikit.fs.focusSelector
 import com.sdds.playground.sandbox.SandboxTheme
 import com.sdds.playground.sandbox.core.compose.ComponentScaffold
 import com.sdds.playground.sandbox.core.integration.component.ComponentKey
@@ -40,8 +40,8 @@ internal fun CellScreen(componentKey: ComponentKey = ComponentKey.Cell) {
             Cell(
                 modifier = Modifier
                     .focusable(interactionSource = interactionSource)
-                    .applyFocusSelector(
-                        focusSelectorMode = LocalFocusSelectorMode.current,
+                    .focusSelector(
+                        settings = LocalFocusSelectorSettings.current,
                     ) { isFocused.value },
                 style = style,
                 title = AnnotatedString(uiState.title),

@@ -14,6 +14,14 @@ import androidx.compose.ui.graphics.graphicsLayer
  *
  * @see FocusSelectorMode
  */
+@Deprecated(
+    message = "Use .focusSelector()",
+    replaceWith = ReplaceWith(
+        "focusSelector",
+        "com.sdds.compose.uikit.fs",
+    ),
+    level = DeprecationLevel.WARNING,
+)
 fun Modifier.applyFocusSelector(
     focusSelectorMode: FocusSelectorMode = FocusSelectorMode.Border(),
     originalShape: CornerBasedShape = RoundedCornerShape(5),

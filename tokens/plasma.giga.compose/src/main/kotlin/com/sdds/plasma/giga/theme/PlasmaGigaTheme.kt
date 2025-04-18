@@ -7,7 +7,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.remember
+import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.ProvideTextStyle
+import com.sdds.compose.uikit.fs.FocusSelectorBorders
+import com.sdds.compose.uikit.fs.FocusSelectorScales
+import com.sdds.compose.uikit.fs.FocusSelectorSettings
+import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
 import kotlin.Unit
 
 /**
@@ -93,6 +98,16 @@ public fun PlasmaGigaTheme(
         LocalPlasmaGigaShadows provides shadows,
         LocalPlasmaGigaSpacing provides spacing,
         LocalTextSelectionColors provides textSelectionColors,
+        LocalFocusSelectorSettings provides FocusSelectorSettings.builder()
+            .border(
+                FocusSelectorBorders.solid(
+                    strokeWidth = 1.dp,
+                    strokeInsets = 2.dp,
+                    color = rememberColors.surfaceDefaultAccent,
+                ),
+            )
+            .scale(FocusSelectorScales.none())
+            .build(),
         content = {
             ProvideTextStyle(
                 value = typography.bodyMNormal.copy(color = rememberColors.textDefaultPrimary),

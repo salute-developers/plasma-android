@@ -19,10 +19,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.text.AnnotatedString
+import com.sdds.compose.uikit.fs.LocalFocusSelectorSettings
+import com.sdds.compose.uikit.fs.focusSelector
 import com.sdds.compose.uikit.interactions.selection
 import com.sdds.compose.uikit.internal.ButtonText
-import com.sdds.compose.uikit.internal.focusselector.LocalFocusSelectorMode
-import com.sdds.compose.uikit.internal.focusselector.applyFocusSelector
 
 /**
  * Компонент SegmentItem
@@ -143,6 +143,7 @@ fun SegmentItem(
                 minHeight = style.dimensions.minHeight,
                 minWidth = style.dimensions.minWidth,
             )
+            .focusSelector(LocalFocusSelectorSettings.current, style.shape) { isFocused }
             .selection(
                 selected = isSelected,
                 interactionSource = interactionSource,
@@ -152,7 +153,6 @@ fun SegmentItem(
                 color = backgroundColor,
                 shape = style.shape,
             )
-            .applyFocusSelector(LocalFocusSelectorMode.current, style.shape) { isFocused }
             .padding(
                 start = style.dimensions.paddingStart,
                 end = style.dimensions.paddingEnd,
