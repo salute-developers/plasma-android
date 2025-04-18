@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredSize
-import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.Immutable
@@ -13,7 +12,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.layout.Measurable
 import androidx.compose.ui.layout.MeasurePolicy
@@ -31,7 +29,6 @@ import androidx.compose.ui.unit.dp
 import com.sdds.compose.uikit.LocalTint
 import com.sdds.compose.uikit.Text
 import com.sdds.compose.uikit.interactions.InteractiveColor
-import com.sdds.compose.uikit.internal.common.surface
 
 /**
  * Базовый компонент для отрисовки
@@ -43,7 +40,6 @@ internal fun BaseIconText(
     modifier: Modifier = Modifier,
     dimensionsSet: BaseIconText.Dimensions,
     colorsSet: BaseIconText.Colors,
-    shape: CornerBasedShape,
     labelContent: String = "",
     labelStyle: TextStyle,
     startContent: (@Composable () -> Unit)? = null,
@@ -51,15 +47,9 @@ internal fun BaseIconText(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     val measurePolicy = remember { IconTextMeasurePolicy() }
-    val background = colorsSet.backgroundColor.colorForInteractionAsState(interactionSource)
     Layout(
         modifier = modifier
             .height(dimensionsSet.height)
-            .surface(
-                shape = shape,
-                backgroundColor = { SolidColor(background.value) },
-                interactionSource = interactionSource,
-            )
             .padding(start = dimensionsSet.startPadding, end = dimensionsSet.endPadding),
         measurePolicy = measurePolicy,
         content = {
@@ -93,22 +83,15 @@ internal fun BaseIconText(
     modifier: Modifier = Modifier,
     dimensionsSet: BaseIconText.Dimensions,
     colorsSet: BaseIconText.Colors,
-    shape: CornerBasedShape,
     labelContent: (@Composable () -> Unit)? = null,
     startContent: (@Composable () -> Unit)? = null,
     endContent: (@Composable () -> Unit)? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
 ) {
     val measurePolicy = remember { IconTextMeasurePolicy() }
-    val background = colorsSet.backgroundColor.colorForInteractionAsState(interactionSource)
     Layout(
         modifier = modifier
             .height(dimensionsSet.height)
-            .surface(
-                shape = shape,
-                backgroundColor = { SolidColor(background.value) },
-                interactionSource = interactionSource,
-            )
             .padding(start = dimensionsSet.startPadding, end = dimensionsSet.endPadding),
         measurePolicy = measurePolicy,
         content = {
@@ -326,7 +309,6 @@ internal object BaseIconText {
      * Цвета, которые используются внутри компонента.
      *
      * @property contentColor цвет контента
-     * @property backgroundColor цвет фона компонента
      * @property labelColor цвет текста
      * @property startContentColor цвет контента в начале компонента
      * @property endContentColor цвет контента в конце компонента
@@ -334,7 +316,6 @@ internal object BaseIconText {
     @Immutable
     data class Colors(
         val contentColor: InteractiveColor,
-        val backgroundColor: InteractiveColor,
         val labelColor: InteractiveColor,
         val startContentColor: InteractiveColor,
         val endContentColor: InteractiveColor,

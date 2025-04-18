@@ -6,6 +6,7 @@ import androidx.compose.foundation.interaction.collectIsFocusedAsState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.semantics.Role
 import com.sdds.compose.uikit.internal.common.surface
 import com.sdds.compose.uikit.internal.focusselector.LocalFocusSelectorMode
@@ -41,6 +42,7 @@ fun Chip(
     val labelStyle = style.labelStyle
     val dimensionsSet = style.dimensions.toDimensionsSet()
     val colorsSet = style.colors.toColorsSet()
+    val backgroundColor = style.colors.backgroundColor.colorForInteractionAsState(interactionSource)
     BaseIconText(
         modifier = modifier
             .applyFocusSelector(
@@ -49,6 +51,7 @@ fun Chip(
             ) { isFocused.value }
             .surface(
                 shape = style.shape,
+                backgroundColor = { SolidColor(backgroundColor.value) },
                 onClick = onClick,
                 indication = indication,
                 enabled = enabled,
@@ -56,13 +59,13 @@ fun Chip(
                 role = Role.Button,
                 interactionSource = interactionSource,
             ),
-        shape = style.shape,
         dimensionsSet = dimensionsSet,
         colorsSet = colorsSet,
         labelContent = label,
         labelStyle = labelStyle,
         startContent = startContent,
         endContent = endContent,
+        interactionSource = interactionSource,
     )
 }
 
@@ -97,6 +100,7 @@ fun Chip(
     val labelStyle = style.labelStyle
     val dimensionsSet = style.dimensions.toDimensionsSet()
     val colorsSet = style.colors.toColorsSet()
+    val backgroundColor = style.colors.backgroundColor.colorForInteractionAsState(interactionSource)
     BaseIconText(
         modifier = modifier
             .applyFocusSelector(
@@ -105,6 +109,7 @@ fun Chip(
             ) { isFocused.value }
             .surface(
                 shape = style.shape,
+                backgroundColor = { SolidColor(backgroundColor.value) },
                 value = isSelected,
                 onValueChange = onSelectedChange,
                 indication = indication,
@@ -113,13 +118,13 @@ fun Chip(
                 role = Role.Button,
                 interactionSource = interactionSource,
             ),
-        shape = style.shape,
         dimensionsSet = dimensionsSet,
         colorsSet = colorsSet,
         labelContent = label,
         labelStyle = labelStyle,
         startContent = startContent,
         endContent = endContent,
+        interactionSource = interactionSource,
     )
 }
 
@@ -137,7 +142,6 @@ internal fun ChipDimensions.toDimensionsSet(): BaseIconText.Dimensions {
 
 internal fun ChipColors.toColorsSet(): BaseIconText.Colors {
     return BaseIconText.Colors(
-        backgroundColor = this.backgroundColor,
         contentColor = this.contentColor,
         labelColor = this.labelColor,
         startContentColor = this.contentStartColor,
