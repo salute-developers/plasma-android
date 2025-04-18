@@ -1,16 +1,18 @@
 package com.sdds.playground.sandbox.chip.compose.group
 
+import androidx.compose.foundation.horizontalScroll
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.sdds.compose.uikit.Chip
 import com.sdds.compose.uikit.ChipGroup
-import com.sdds.compose.uikit.ChipGroupOverflowMode
 import com.sdds.compose.uikit.Icon
 import com.sdds.icons.R
 import com.sdds.playground.sandbox.SandboxTheme
@@ -30,12 +32,12 @@ internal fun ChipGroupScreen(componentKey: ComponentKey = ComponentKey.ChipGroup
         ),
         component = { chipGroupState, style ->
             ChipGroup(
-                style = style,
-                overflowMode = if (chipGroupState.shouldWrap) {
-                    ChipGroupOverflowMode.Wrap
+                modifier = if (chipGroupState.shouldWrap) {
+                    Modifier
                 } else {
-                    ChipGroupOverflowMode.Scrollable
+                    Modifier.horizontalScroll(rememberScrollState())
                 },
+                style = style,
             ) {
                 chipGroupState.items.forEach {
                     var isSelected by remember { mutableStateOf(false) }
