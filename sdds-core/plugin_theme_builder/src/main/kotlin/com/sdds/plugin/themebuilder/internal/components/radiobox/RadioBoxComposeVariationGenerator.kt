@@ -127,6 +127,9 @@ internal class RadioBoxComposeVariationGenerator(
                 props.toggleBorderOffset?.let {
                     appendDimension("toggle_border_offset", it, variationId)
                 }
+                props.toggleBorderWidth?.let {
+                    appendDimension("toggle_border_width", it, variationId)
+                }
                 props.togglePadding?.let {
                     appendDimension("toggle_padding", it, variationId)
                 }

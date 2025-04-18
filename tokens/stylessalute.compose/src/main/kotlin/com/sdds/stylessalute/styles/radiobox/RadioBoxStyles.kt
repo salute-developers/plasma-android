@@ -99,10 +99,15 @@ public val RadioBox.M: WrapperRadioBoxM
         .labelStyle(StylesSaluteTheme.typography.bodyMNormal)
         .descriptionStyle(StylesSaluteTheme.typography.bodySNormal)
         .dimensionValues {
-            toggleWidth(22.0.dp)
-            toggleHeight(22.0.dp)
+            toggleWidth(24.0.dp)
+            toggleHeight(24.0.dp)
             toggleIconHeight(10.0.dp)
             toggleIconWidth(10.0.dp)
+            toggleBorderWidth(
+                2.0.dp.asStatefulValue(
+                    setOf(InteractiveState.Focused, RadioBoxStates.Checked) to 1.0.dp,
+                ),
+            )
             togglePadding(1.0.dp)
             textPadding(10.0.dp)
             descriptionPadding(2.0.dp)
@@ -117,10 +122,15 @@ public val RadioBox.S: WrapperRadioBoxS
         .labelStyle(StylesSaluteTheme.typography.bodySNormal)
         .descriptionStyle(StylesSaluteTheme.typography.bodyXsNormal)
         .dimensionValues {
-            toggleWidth(16.0.dp)
-            toggleHeight(16.0.dp)
+            toggleWidth(18.0.dp)
+            toggleHeight(18.0.dp)
             toggleIconHeight(8.0.dp)
             toggleIconWidth(8.0.dp)
+            toggleBorderWidth(
+                1.5.dp.asStatefulValue(
+                    setOf(InteractiveState.Focused, RadioBoxStates.Checked) to 1.0.dp,
+                ),
+            )
             togglePadding(1.0.dp)
             textPadding(8.0.dp)
             descriptionPadding(2.0.dp)
